@@ -807,7 +807,9 @@ if.end:                                           ; preds = %if.then7, %if.then4
 
 if.then10:                                        ; preds = %if.end
   %5 = load i64, ptr %flags, align 8
-  br label %if.end52.sink.split
+  %and12 = and i64 %5, -70368744177665
+  store i64 %and12, ptr %flags, align 8
+  br label %if.end52
 
 if.end14:                                         ; preds = %if.then
   %and15 = and i64 %0, 70368744177664
@@ -864,7 +866,9 @@ if.else33:                                        ; preds = %if.end24, %land.lhs
 
 if.then36:                                        ; preds = %if.else33
   %flags37 = getelementptr inbounds i8, ptr %c.addr.04044, i64 8
-  br label %if.end52.sink.split
+  %and38 = and i64 %12, -70368744177665
+  store i64 %and38, ptr %flags37, align 8
+  br label %if.end52
 
 if.end41:                                         ; preds = %if.then32, %if.then27
   %c.addr.039 = phi ptr [ %call, %if.then32 ], [ %c.addr.038, %if.then27 ]
@@ -890,16 +894,11 @@ if.end45:                                         ; preds = %if.else44, %if.then
 if.then49:                                        ; preds = %if.end45
   %flags50 = getelementptr inbounds i8, ptr %c.addr.039, i64 8
   %13 = load i64, ptr %flags50, align 8
-  br label %if.end52.sink.split
-
-if.end52.sink.split:                              ; preds = %if.then49, %if.then10, %if.then36
-  %.sink = phi i64 [ %12, %if.then36 ], [ %5, %if.then10 ], [ %13, %if.then49 ]
-  %flags37.sink = phi ptr [ %flags37, %if.then36 ], [ %flags, %if.then10 ], [ %flags50, %if.then49 ]
-  %and38 = and i64 %.sink, -70368744177665
-  store i64 %and38, ptr %flags37.sink, align 8
+  %and51 = and i64 %13, -70368744177665
+  store i64 %and51, ptr %flags50, align 8
   br label %if.end52
 
-if.end52:                                         ; preds = %if.end52.sink.split, %if.else33, %if.end, %if.end45
+if.end52:                                         ; preds = %if.else33, %if.then36, %if.end, %if.then10, %if.then49, %if.end45
   ret void
 }
 

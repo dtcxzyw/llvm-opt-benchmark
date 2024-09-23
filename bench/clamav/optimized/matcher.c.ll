@@ -1388,12 +1388,12 @@ define i32 @cli_bcapi_matchicon(ptr nocapture noundef readonly %0, ptr nocapture
 
 14:                                               ; preds = %5
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.31) #12
-  br label %75
+  br label %74
 
 15:                                               ; preds = %5
   %16 = or i32 %4, %2
   %or.cond.not = icmp ult i32 %16, 128
-  br i1 %or.cond.not, label %17, label %75
+  br i1 %or.cond.not, label %17, label %74
 
 17:                                               ; preds = %15
   %18 = zext nneg i32 %4 to i64
@@ -1420,13 +1420,13 @@ define i32 @cli_bcapi_matchicon(ptr nocapture noundef readonly %0, ptr nocapture
   %29 = load i16, ptr %28, align 2
   %30 = and i16 %29, 8192
   %.not25 = icmp eq i16 %30, 0
-  br i1 %.not25, label %31, label %41
+  br i1 %.not25, label %31, label %40
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds i8, ptr %11, i64 524
   %33 = load i32, ptr %32, align 4
   %.not26 = icmp eq i32 %33, 0
-  br i1 %.not26, label %41, label %34
+  br i1 %.not26, label %40, label %34
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds i8, ptr %11, i64 520
@@ -1437,85 +1437,85 @@ define i32 @cli_bcapi_matchicon(ptr nocapture noundef readonly %0, ptr nocapture
   br label %.sink.split
 
 .sink.split:                                      ; preds = %36, %34
-  %.sink31 = phi ptr [ %35, %34 ], [ %37, %36 ]
-  %38 = load i32, ptr %.sink31, align 8
-  %39 = getelementptr inbounds i8, ptr %9, i64 20
-  store i32 %38, ptr %39, align 4
-  %40 = icmp eq i32 %38, 0
-  br label %41
+  %.sink.in = phi ptr [ %35, %34 ], [ %37, %36 ]
+  %.sink = load i32, ptr %.sink.in, align 8
+  %38 = getelementptr inbounds i8, ptr %9, i64 20
+  store i32 %.sink, ptr %38, align 4
+  %39 = icmp eq i32 %.sink, 0
+  br label %40
 
-41:                                               ; preds = %.sink.split, %27, %31
-  %.not22.i = phi i1 [ true, %31 ], [ true, %27 ], [ %40, %.sink.split ]
-  %42 = getelementptr inbounds i8, ptr %0, i64 1064
-  %43 = load ptr, ptr %42, align 8
-  store ptr %43, ptr %9, align 8
-  %44 = getelementptr inbounds i8, ptr %11, i64 8
-  %45 = load i16, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %9, i64 16
-  store i16 %45, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %11, i64 644
-  %48 = load i32, ptr %47, align 4
-  %49 = getelementptr inbounds i8, ptr %9, i64 24
-  store i32 %48, ptr %49, align 8
+40:                                               ; preds = %.sink.split, %27, %31
+  %.not22.i = phi i1 [ true, %31 ], [ true, %27 ], [ %39, %.sink.split ]
+  %41 = getelementptr inbounds i8, ptr %0, i64 1064
+  %42 = load ptr, ptr %41, align 8
+  store ptr %42, ptr %9, align 8
+  %43 = getelementptr inbounds i8, ptr %11, i64 8
+  %44 = load i16, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %9, i64 16
+  store i16 %44, ptr %45, align 8
+  %46 = getelementptr inbounds i8, ptr %11, i64 644
+  %47 = load i32, ptr %46, align 4
+  %48 = getelementptr inbounds i8, ptr %9, i64 24
+  store i32 %47, ptr %48, align 8
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.32, ptr noundef nonnull %7, ptr noundef nonnull %8) #12
-  %50 = getelementptr inbounds i8, ptr %0, i64 1088
-  %51 = load ptr, ptr %50, align 8
-  %52 = load i8, ptr %7, align 16
-  %.not27 = icmp eq i8 %52, 0
-  %53 = load i8, ptr %8, align 16
-  %.not28 = icmp eq i8 %53, 0
+  %49 = getelementptr inbounds i8, ptr %0, i64 1088
+  %50 = load ptr, ptr %49, align 8
+  %51 = load i8, ptr %7, align 16
+  %.not27 = icmp eq i8 %51, 0
+  %52 = load i8, ptr %8, align 16
+  %.not28 = icmp eq i8 %52, 0
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
-  %.not.i = icmp eq ptr %51, null
-  br i1 %.not.i, label %matchicon.exit, label %54
+  %.not.i = icmp eq ptr %50, null
+  br i1 %.not.i, label %matchicon.exit, label %53
 
-54:                                               ; preds = %41
-  %55 = getelementptr inbounds i8, ptr %51, i64 48
-  %56 = load ptr, ptr %55, align 8
-  %.not18.i = icmp eq ptr %56, null
-  br i1 %.not18.i, label %matchicon.exit, label %57
+53:                                               ; preds = %40
+  %54 = getelementptr inbounds i8, ptr %50, i64 48
+  %55 = load ptr, ptr %54, align 8
+  %.not18.i = icmp eq ptr %55, null
+  br i1 %.not18.i, label %matchicon.exit, label %56
 
-57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %56, i64 224
-  %59 = load ptr, ptr %58, align 8
-  %.not19.i = icmp eq ptr %59, null
-  br i1 %.not19.i, label %matchicon.exit, label %60
+56:                                               ; preds = %53
+  %57 = getelementptr inbounds i8, ptr %55, i64 224
+  %58 = load ptr, ptr %57, align 8
+  %.not19.i = icmp eq ptr %58, null
+  br i1 %.not19.i, label %matchicon.exit, label %59
 
-60:                                               ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %59, i64 16
-  %62 = load i32, ptr %61, align 8
-  %.not20.i = icmp eq i32 %62, 0
-  br i1 %.not20.i, label %matchicon.exit, label %63
+59:                                               ; preds = %56
+  %60 = getelementptr inbounds i8, ptr %58, i64 16
+  %61 = load i32, ptr %60, align 8
+  %.not20.i = icmp eq i32 %61, 0
+  br i1 %.not20.i, label %matchicon.exit, label %62
 
-63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %59, i64 20
-  %65 = load i32, ptr %64, align 4
-  %.not21.i = icmp eq i32 %65, 0
+62:                                               ; preds = %59
+  %63 = getelementptr inbounds i8, ptr %58, i64 20
+  %64 = load i32, ptr %63, align 4
+  %.not21.i = icmp eq i32 %64, 0
   %or.cond = select i1 %.not21.i, i1 true, i1 %.not22.i
-  br i1 %or.cond, label %matchicon.exit, label %66
+  br i1 %or.cond, label %matchicon.exit, label %65
 
-66:                                               ; preds = %63
-  %67 = getelementptr inbounds i8, ptr %51, i64 120
-  %68 = load ptr, ptr %67, align 8
-  %69 = load i32, ptr %68, align 4
-  %70 = and i32 %69, 262144
-  %.not23.i = icmp eq i32 %70, 0
-  br i1 %.not23.i, label %matchicon.exit, label %71
+65:                                               ; preds = %62
+  %66 = getelementptr inbounds i8, ptr %50, i64 120
+  %67 = load ptr, ptr %66, align 8
+  %68 = load i32, ptr %67, align 4
+  %69 = and i32 %68, 262144
+  %.not23.i = icmp eq i32 %69, 0
+  br i1 %.not23.i, label %matchicon.exit, label %70
 
-71:                                               ; preds = %66
+70:                                               ; preds = %65
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 0, i64 64, i1 false)
-  %72 = select i1 %.not27, ptr @.str.2, ptr %7
-  call void @cli_icongroupset_add(ptr noundef nonnull %72, ptr noundef nonnull %6, i32 noundef 0, ptr noundef nonnull %51) #12
-  %73 = select i1 %.not28, ptr @.str.2, ptr %8
-  call void @cli_icongroupset_add(ptr noundef nonnull %73, ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull %51) #12
-  %74 = call i32 @cli_scanicon(ptr noundef nonnull %6, ptr noundef nonnull %51, ptr noundef nonnull %9) #12
+  %71 = select i1 %.not27, ptr @.str.2, ptr %7
+  call void @cli_icongroupset_add(ptr noundef nonnull %71, ptr noundef nonnull %6, i32 noundef 0, ptr noundef nonnull %50) #12
+  %72 = select i1 %.not28, ptr @.str.2, ptr %8
+  call void @cli_icongroupset_add(ptr noundef nonnull %72, ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull %50) #12
+  %73 = call i32 @cli_scanicon(ptr noundef nonnull %6, ptr noundef nonnull %50, ptr noundef nonnull %9) #12
   br label %matchicon.exit
 
-matchicon.exit:                                   ; preds = %41, %54, %57, %60, %63, %66, %71
-  %.0.i = phi i32 [ %74, %71 ], [ 0, %63 ], [ 0, %60 ], [ 0, %57 ], [ 0, %54 ], [ 0, %41 ], [ 0, %66 ]
+matchicon.exit:                                   ; preds = %40, %53, %56, %59, %62, %65, %70
+  %.0.i = phi i32 [ %73, %70 ], [ 0, %62 ], [ 0, %59 ], [ 0, %56 ], [ 0, %53 ], [ 0, %40 ], [ 0, %65 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
-  br label %75
+  br label %74
 
-75:                                               ; preds = %15, %matchicon.exit, %14
+74:                                               ; preds = %15, %matchicon.exit, %14
   %.0 = phi i32 [ %.0.i, %matchicon.exit ], [ -1, %14 ], [ -1, %15 ]
   ret i32 %.0
 }

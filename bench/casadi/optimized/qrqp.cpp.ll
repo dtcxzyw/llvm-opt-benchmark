@@ -13549,7 +13549,7 @@ define linkonce_odr hidden noundef i32 @_ZN6casadi21casadi_qrqp_calc_stepIdEEiPN
 
 7:                                                ; preds = %1
   %8 = tail call noundef i32 @_ZN6casadi25casadi_qrqp_singular_stepIdEEiPNS_16casadi_qrqp_dataIT_EE(ptr noundef nonnull %0)
-  br label %64
+  br label %62
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds i8, ptr %0, i64 96
@@ -13568,79 +13568,79 @@ define linkonce_odr hidden noundef i32 @_ZN6casadi21casadi_qrqp_calc_stepIdEEiPN
   %20 = getelementptr inbounds i8, ptr %0, i64 40
   br label %21
 
-21:                                               ; preds = %40, %.lr.ph.i
-  %22 = phi ptr [ %12, %.lr.ph.i ], [ %43, %40 ]
-  %.032.i = phi i64 [ 0, %.lr.ph.i ], [ %42, %40 ]
+21:                                               ; preds = %38, %.lr.ph.i
+  %22 = phi ptr [ %12, %.lr.ph.i ], [ %41, %38 ]
+  %.032.i = phi i64 [ 0, %.lr.ph.i ], [ %40, %38 ]
   %23 = load ptr, ptr %16, align 8
   %24 = getelementptr inbounds double, ptr %23, i64 %.032.i
   %25 = load double, ptr %24, align 8
   %26 = fcmp ogt double %25, 0.000000e+00
-  br i1 %26, label %.sink.split.sink.split.i, label %27
+  br i1 %26, label %.sink.split.i.sink.split, label %27
 
 27:                                               ; preds = %21
   %28 = fcmp olt double %25, 0.000000e+00
-  br i1 %28, label %.sink.split.sink.split.i, label %29
+  br i1 %28, label %.sink.split.i.sink.split, label %29
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds i8, ptr %22, i64 16
   %31 = load i64, ptr %30, align 8
   %32 = icmp slt i64 %.032.i, %31
-  br i1 %32, label %.sink.split.i, label %40
+  br i1 %32, label %.sink.split.i, label %38
 
-.sink.split.sink.split.i:                         ; preds = %27, %21
-  %.sink41.i = phi ptr [ %20, %21 ], [ %18, %27 ]
-  %33 = load ptr, ptr %.sink41.i, align 8
-  %34 = getelementptr inbounds double, ptr %33, i64 %.032.i
-  %35 = load double, ptr %34, align 8
+.sink.split.i.sink.split:                         ; preds = %27, %21
+  %.sink17.in = phi ptr [ %20, %21 ], [ %18, %27 ]
+  %.sink17 = load ptr, ptr %.sink17.in, align 8
+  %33 = getelementptr inbounds double, ptr %.sink17, i64 %.032.i
+  %34 = load double, ptr %33, align 8
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %.sink.split.sink.split.i, %29
-  %.sink38.i = phi ptr [ %17, %29 ], [ %19, %.sink.split.sink.split.i ]
-  %.sink34.i = phi double [ %25, %29 ], [ %35, %.sink.split.sink.split.i ]
-  %36 = load ptr, ptr %.sink38.i, align 8
-  %37 = getelementptr inbounds double, ptr %36, i64 %.032.i
-  %38 = load double, ptr %37, align 8
-  %39 = fsub double %.sink34.i, %38
-  br label %40
+.sink.split.i:                                    ; preds = %.sink.split.i.sink.split, %29
+  %.sink37.in.i = phi ptr [ %17, %29 ], [ %19, %.sink.split.i.sink.split ]
+  %.sink34.i = phi double [ %25, %29 ], [ %34, %.sink.split.i.sink.split ]
+  %.sink37.i = load ptr, ptr %.sink37.in.i, align 8
+  %35 = getelementptr inbounds double, ptr %.sink37.i, i64 %.032.i
+  %36 = load double, ptr %35, align 8
+  %37 = fsub double %.sink34.i, %36
+  br label %38
 
-40:                                               ; preds = %.sink.split.i, %29
-  %.sink.i = phi double [ %25, %29 ], [ %39, %.sink.split.i ]
-  %41 = getelementptr inbounds double, ptr %11, i64 %.032.i
-  store double %.sink.i, ptr %41, align 8
-  %42 = add nuw nsw i64 %.032.i, 1
-  %43 = load ptr, ptr %2, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 32
-  %45 = load i64, ptr %44, align 8
-  %46 = icmp slt i64 %42, %45
-  br i1 %46, label %21, label %_ZN6casadi24casadi_qrqp_kkt_residualIdEEvPNS_16casadi_qrqp_dataIT_EEPS2_.exit.loopexit, !llvm.loop !112
+38:                                               ; preds = %.sink.split.i, %29
+  %.sink.i = phi double [ %25, %29 ], [ %37, %.sink.split.i ]
+  %39 = getelementptr inbounds double, ptr %11, i64 %.032.i
+  store double %.sink.i, ptr %39, align 8
+  %40 = add nuw nsw i64 %.032.i, 1
+  %41 = load ptr, ptr %2, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 32
+  %43 = load i64, ptr %42, align 8
+  %44 = icmp slt i64 %40, %43
+  br i1 %44, label %21, label %_ZN6casadi24casadi_qrqp_kkt_residualIdEEvPNS_16casadi_qrqp_dataIT_EEPS2_.exit.loopexit, !llvm.loop !112
 
-_ZN6casadi24casadi_qrqp_kkt_residualIdEEvPNS_16casadi_qrqp_dataIT_EEPS2_.exit.loopexit: ; preds = %40
+_ZN6casadi24casadi_qrqp_kkt_residualIdEEvPNS_16casadi_qrqp_dataIT_EEPS2_.exit.loopexit: ; preds = %38
   %.pre = load ptr, ptr %10, align 8
   br label %_ZN6casadi24casadi_qrqp_kkt_residualIdEEvPNS_16casadi_qrqp_dataIT_EEPS2_.exit
 
 _ZN6casadi24casadi_qrqp_kkt_residualIdEEvPNS_16casadi_qrqp_dataIT_EEPS2_.exit: ; preds = %_ZN6casadi24casadi_qrqp_kkt_residualIdEEvPNS_16casadi_qrqp_dataIT_EEPS2_.exit.loopexit, %9
-  %47 = phi ptr [ %.pre, %_ZN6casadi24casadi_qrqp_kkt_residualIdEEvPNS_16casadi_qrqp_dataIT_EEPS2_.exit.loopexit ], [ %11, %9 ]
-  %48 = getelementptr inbounds i8, ptr %2, i64 40
+  %45 = phi ptr [ %.pre, %_ZN6casadi24casadi_qrqp_kkt_residualIdEEvPNS_16casadi_qrqp_dataIT_EEPS2_.exit.loopexit ], [ %11, %9 ]
+  %46 = getelementptr inbounds i8, ptr %2, i64 40
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %0, i64 176
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 176
+  %50 = getelementptr inbounds i8, ptr %2, i64 48
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %2, i64 48
+  %52 = getelementptr inbounds i8, ptr %0, i64 184
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 184
+  %54 = getelementptr inbounds i8, ptr %0, i64 168
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 168
+  %56 = getelementptr inbounds i8, ptr %2, i64 24
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %2, i64 24
+  %58 = getelementptr inbounds i8, ptr %2, i64 32
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %2, i64 32
+  %60 = getelementptr inbounds i8, ptr %0, i64 88
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 88
-  %63 = load ptr, ptr %62, align 8
-  tail call void @_ZN6casadi15casadi_qr_solveIdEEvPT_xxPKxPKS1_S4_S6_S6_S4_S4_S2_(ptr noundef %47, i64 noundef 1, i64 noundef 1, ptr noundef %49, ptr noundef %51, ptr noundef %53, ptr noundef %55, ptr noundef %57, ptr noundef %59, ptr noundef %61, ptr noundef %63)
+  tail call void @_ZN6casadi15casadi_qr_solveIdEEvPT_xxPKxPKS1_S4_S6_S6_S4_S4_S2_(ptr noundef %45, i64 noundef 1, i64 noundef 1, ptr noundef %47, ptr noundef %49, ptr noundef %51, ptr noundef %53, ptr noundef %55, ptr noundef %57, ptr noundef %59, ptr noundef %61)
   tail call void @_ZN6casadi23casadi_qrqp_expand_stepIdEEvPNS_16casadi_qrqp_dataIT_EE(ptr noundef nonnull %0)
-  br label %64
+  br label %62
 
-64:                                               ; preds = %_ZN6casadi24casadi_qrqp_kkt_residualIdEEvPNS_16casadi_qrqp_dataIT_EEPS2_.exit, %7
+62:                                               ; preds = %_ZN6casadi24casadi_qrqp_kkt_residualIdEEvPNS_16casadi_qrqp_dataIT_EEPS2_.exit, %7
   %.0 = phi i32 [ %8, %7 ], [ 0, %_ZN6casadi24casadi_qrqp_kkt_residualIdEEvPNS_16casadi_qrqp_dataIT_EEPS2_.exit ]
   ret i32 %.0
 }

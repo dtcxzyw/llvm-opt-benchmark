@@ -838,13 +838,13 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 ._crit_edge333:                                   ; preds = %.lr.ph, %.lr.ph332, %349, %153
-  %.sink340 = phi ptr [ %121, %153 ], [ %317, %349 ], [ %121, %.lr.ph332 ], [ %317, %.lr.ph ]
-  %427 = load ptr, ptr %.sink340, align 8
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %427, i64 noundef 0) #16
-  %428 = shl i64 %2, 32
-  %429 = add i64 %428, 17179869184
-  %430 = ashr exact i64 %429, 32
-  ret i64 %430
+  %.sink339.in = phi ptr [ %121, %153 ], [ %317, %349 ], [ %121, %.lr.ph332 ], [ %317, %.lr.ph ]
+  %.sink339 = load ptr, ptr %.sink339.in, align 8
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %.sink339, i64 noundef 0) #16
+  %427 = shl i64 %2, 32
+  %428 = add i64 %427, 17179869184
+  %429 = ashr exact i64 %428, 32
+  ret i64 %429
 }
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
@@ -1636,11 +1636,11 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 ._crit_edge333:                                   ; preds = %.lr.ph, %.lr.ph332, %349, %153
-  %.sink340 = phi ptr [ %121, %153 ], [ %317, %349 ], [ %121, %.lr.ph332 ], [ %317, %.lr.ph ]
-  %427 = load ptr, ptr %.sink340, align 8
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %427, i64 noundef 0) #16
-  %428 = add i64 %2, 4
-  ret i64 %428
+  %.sink339.in = phi ptr [ %121, %153 ], [ %317, %349 ], [ %121, %.lr.ph332 ], [ %317, %.lr.ph ]
+  %.sink339 = load ptr, ptr %.sink339.in, align 8
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %.sink339, i64 noundef 0) #16
+  %427 = add i64 %2, 4
+  ret i64 %427
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2406,13 +2406,13 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 ._crit_edge333:                                   ; preds = %.lr.ph, %.lr.ph332, %349, %153
-  %.sink340 = phi ptr [ %121, %153 ], [ %317, %349 ], [ %121, %.lr.ph332 ], [ %317, %.lr.ph ]
-  %427 = load ptr, ptr %.sink340, align 8
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %427, i64 noundef 0) #16
-  %428 = shl i64 %2, 32
-  %429 = add i64 %428, 17179869184
-  %430 = ashr exact i64 %429, 32
-  ret i64 %430
+  %.sink339.in = phi ptr [ %121, %153 ], [ %317, %349 ], [ %121, %.lr.ph332 ], [ %317, %.lr.ph ]
+  %.sink339 = load ptr, ptr %.sink339.in, align 8
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %.sink339, i64 noundef 0) #16
+  %427 = shl i64 %2, 32
+  %428 = add i64 %427, 17179869184
+  %429 = ashr exact i64 %428, 32
+  ret i64 %429
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3178,11 +3178,11 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 ._crit_edge333:                                   ; preds = %.lr.ph, %.lr.ph332, %349, %153
-  %.sink340 = phi ptr [ %121, %153 ], [ %317, %349 ], [ %121, %.lr.ph332 ], [ %317, %.lr.ph ]
-  %427 = load ptr, ptr %.sink340, align 8
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %427, i64 noundef 0) #16
-  %428 = add i64 %2, 4
-  ret i64 %428
+  %.sink339.in = phi ptr [ %121, %153 ], [ %317, %349 ], [ %121, %.lr.ph332 ], [ %317, %.lr.ph ]
+  %.sink339 = load ptr, ptr %.sink339.in, align 8
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %.sink339, i64 noundef 0) #16
+  %427 = add i64 %2, 4
+  ret i64 %427
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3948,13 +3948,13 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 ._crit_edge333:                                   ; preds = %.lr.ph, %.lr.ph332, %349, %153
-  %.sink340 = phi ptr [ %121, %153 ], [ %317, %349 ], [ %121, %.lr.ph332 ], [ %317, %.lr.ph ]
-  %427 = load ptr, ptr %.sink340, align 8
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %427, i64 noundef 0) #16
-  %428 = shl i64 %2, 32
-  %429 = add i64 %428, 17179869184
-  %430 = ashr exact i64 %429, 32
-  ret i64 %430
+  %.sink339.in = phi ptr [ %121, %153 ], [ %317, %349 ], [ %121, %.lr.ph332 ], [ %317, %.lr.ph ]
+  %.sink339 = load ptr, ptr %.sink339.in, align 8
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %.sink339, i64 noundef 0) #16
+  %427 = shl i64 %2, 32
+  %428 = add i64 %427, 17179869184
+  %429 = ashr exact i64 %428, 32
+  ret i64 %429
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4720,11 +4720,11 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 ._crit_edge333:                                   ; preds = %.lr.ph, %.lr.ph332, %349, %153
-  %.sink340 = phi ptr [ %121, %153 ], [ %317, %349 ], [ %121, %.lr.ph332 ], [ %317, %.lr.ph ]
-  %427 = load ptr, ptr %.sink340, align 8
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %427, i64 noundef 0) #16
-  %428 = add i64 %2, 4
-  ret i64 %428
+  %.sink339.in = phi ptr [ %121, %153 ], [ %317, %349 ], [ %121, %.lr.ph332 ], [ %317, %.lr.ph ]
+  %.sink339 = load ptr, ptr %.sink339.in, align 8
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %.sink339, i64 noundef 0) #16
+  %427 = add i64 %2, 4
+  ret i64 %427
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5490,13 +5490,13 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 ._crit_edge333:                                   ; preds = %.lr.ph, %.lr.ph332, %349, %153
-  %.sink340 = phi ptr [ %121, %153 ], [ %317, %349 ], [ %121, %.lr.ph332 ], [ %317, %.lr.ph ]
-  %427 = load ptr, ptr %.sink340, align 8
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %427, i64 noundef 0) #16
-  %428 = shl i64 %2, 32
-  %429 = add i64 %428, 17179869184
-  %430 = ashr exact i64 %429, 32
-  ret i64 %430
+  %.sink339.in = phi ptr [ %121, %153 ], [ %317, %349 ], [ %121, %.lr.ph332 ], [ %317, %.lr.ph ]
+  %.sink339 = load ptr, ptr %.sink339.in, align 8
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %.sink339, i64 noundef 0) #16
+  %427 = shl i64 %2, 32
+  %428 = add i64 %427, 17179869184
+  %429 = ashr exact i64 %428, 32
+  ret i64 %429
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6262,11 +6262,11 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 ._crit_edge333:                                   ; preds = %.lr.ph, %.lr.ph332, %349, %153
-  %.sink340 = phi ptr [ %121, %153 ], [ %317, %349 ], [ %121, %.lr.ph332 ], [ %317, %.lr.ph ]
-  %427 = load ptr, ptr %.sink340, align 8
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %427, i64 noundef 0) #16
-  %428 = add i64 %2, 4
-  ret i64 %428
+  %.sink339.in = phi ptr [ %121, %153 ], [ %317, %349 ], [ %121, %.lr.ph332 ], [ %317, %.lr.ph ]
+  %.sink339 = load ptr, ptr %.sink339.in, align 8
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %.sink339, i64 noundef 0) #16
+  %427 = add i64 %2, 4
+  ret i64 %427
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -6633,22 +6633,18 @@ _ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__detail10_Select1stESt8equ
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
-  br label %.sink.split
+  store ptr %.031, ptr %26, align 8
+  br label %30
 
 27:                                               ; preds = %.lr.ph
   %28 = load ptr, ptr %21, align 8
   store ptr %28, ptr %.031, align 8
   %29 = load ptr, ptr %20, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %27, %25
-  %.sink = phi ptr [ %26, %25 ], [ %29, %27 ]
-  %.1.ph = phi i64 [ %19, %25 ], [ %.02530, %27 ]
-  store ptr %.031, ptr %.sink, align 8
+  store ptr %.031, ptr %29, align 8
   br label %30
 
-30:                                               ; preds = %.sink.split, %22
-  %.1 = phi i64 [ %19, %22 ], [ %.1.ph, %.sink.split ]
+30:                                               ; preds = %22, %25, %27
+  %.1 = phi i64 [ %.02530, %27 ], [ %19, %25 ], [ %19, %22 ]
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 

@@ -5078,7 +5078,7 @@ define internal fastcc void @_sort_slurmdb_hierarchical_rec_list(ptr noundef %0)
 ; Function Attrs: nounwind uwtable
 define ptr @slurmdb_tree_name_get(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %48, label %4
+  br i1 %.not, label %49, label %4
 
 4:                                                ; preds = %3
   %5 = tail call ptr @list_iterator_create(ptr noundef nonnull %2) #20
@@ -5117,7 +5117,7 @@ define ptr @slurmdb_tree_name_get(ptr noundef %0, ptr noundef %1, ptr noundef %2
 .thread:                                          ; preds = %13, %.outer.us
   %.us-phi52 = phi ptr [ null, %.outer.us ], [ %.0.ph, %13 ]
   tail call void @list_iterator_destroy(ptr noundef %5) #20
-  br label %26
+  br label %27
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds i8, ptr %14, i64 24
@@ -5142,62 +5142,59 @@ define ptr @slurmdb_tree_name_get(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %.us-phi = phi ptr [ null, %9 ], [ %.0.ph, %18 ]
   %.us-phi51 = phi ptr [ %12, %9 ], [ %14, %18 ]
   tail call void @list_iterator_destroy(ptr noundef %5) #20
-  br i1 %.not41, label %26, label %24
+  br i1 %.not41, label %27, label %24
 
 24:                                               ; preds = %.split50.us
   %25 = getelementptr inbounds i8, ptr %.us-phi51, i64 8
-  br label %.sink.split
+  %26 = load ptr, ptr %25, align 8
+  br label %49
 
-26:                                               ; preds = %.thread, %.split50.us
+27:                                               ; preds = %.thread, %.split50.us
   %.0.ph48 = phi ptr [ %.us-phi52, %.thread ], [ %.us-phi, %.split50.us ]
-  %27 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 2277, ptr noundef nonnull @__func__.slurmdb_tree_name_get) #20
-  %28 = tail call ptr @xstrdup(ptr noundef %0) #20
-  store ptr %28, ptr %27, align 8
+  %28 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 2277, ptr noundef nonnull @__func__.slurmdb_tree_name_get) #20
+  %29 = tail call ptr @xstrdup(ptr noundef %0) #20
+  store ptr %29, ptr %28, align 8
   %.not40 = icmp eq ptr %.0.ph48, null
-  br i1 %.not40, label %33, label %29
+  br i1 %.not40, label %34, label %30
 
-29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %.0.ph48, i64 16
-  %31 = load ptr, ptr %30, align 8
-  %32 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.57, ptr noundef %31) #20
-  br label %35
+30:                                               ; preds = %27
+  %31 = getelementptr inbounds i8, ptr %.0.ph48, i64 16
+  %32 = load ptr, ptr %31, align 8
+  %33 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.57, ptr noundef %32) #20
+  br label %36
 
-33:                                               ; preds = %26
-  %34 = tail call ptr @xstrdup(ptr noundef nonnull @.str.11) #20
-  br label %35
+34:                                               ; preds = %27
+  %35 = tail call ptr @xstrdup(ptr noundef nonnull @.str.11) #20
+  br label %36
 
-35:                                               ; preds = %33, %29
-  %36 = phi ptr [ %34, %33 ], [ %32, %29 ]
-  %37 = getelementptr inbounds i8, ptr %27, i64 16
-  store ptr %36, ptr %37, align 8
-  %38 = load i8, ptr %0, align 1
-  %39 = icmp eq i8 %38, 124
-  br i1 %39, label %40, label %43
+36:                                               ; preds = %34, %30
+  %37 = phi ptr [ %35, %34 ], [ %33, %30 ]
+  %38 = getelementptr inbounds i8, ptr %28, i64 16
+  store ptr %37, ptr %38, align 8
+  %39 = load i8, ptr %0, align 1
+  %40 = icmp eq i8 %39, 124
+  br i1 %40, label %41, label %44
 
-40:                                               ; preds = %35
-  %41 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.58, ptr noundef %36, ptr noundef %1) #20
-  %42 = getelementptr inbounds i8, ptr %27, i64 24
-  store i16 1, ptr %42, align 8
-  br label %45
+41:                                               ; preds = %36
+  %42 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.58, ptr noundef %37, ptr noundef %1) #20
+  %43 = getelementptr inbounds i8, ptr %28, i64 24
+  store i16 1, ptr %43, align 8
+  br label %46
 
-43:                                               ; preds = %35
-  %44 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.58, ptr noundef %36, ptr noundef nonnull %0) #20
-  br label %45
+44:                                               ; preds = %36
+  %45 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.58, ptr noundef %37, ptr noundef nonnull %0) #20
+  br label %46
 
-45:                                               ; preds = %43, %40
-  %.sink58 = phi ptr [ %41, %40 ], [ %44, %43 ]
-  %46 = getelementptr inbounds i8, ptr %27, i64 8
-  store ptr %.sink58, ptr %46, align 8
-  tail call void @list_append(ptr noundef nonnull %2, ptr noundef nonnull %27) #20
-  br label %.sink.split
+46:                                               ; preds = %44, %41
+  %.sink58 = phi ptr [ %42, %41 ], [ %45, %44 ]
+  %47 = getelementptr inbounds i8, ptr %28, i64 8
+  store ptr %.sink58, ptr %47, align 8
+  tail call void @list_append(ptr noundef nonnull %2, ptr noundef nonnull %28) #20
+  %48 = load ptr, ptr %47, align 8
+  br label %49
 
-.sink.split:                                      ; preds = %24, %45
-  %.sink = phi ptr [ %46, %45 ], [ %25, %24 ]
-  %47 = load ptr, ptr %.sink, align 8
-  br label %48
-
-48:                                               ; preds = %.sink.split, %3
-  %.033 = phi ptr [ null, %3 ], [ %47, %.sink.split ]
+49:                                               ; preds = %3, %46, %24
+  %.033 = phi ptr [ %26, %24 ], [ %48, %46 ], [ null, %3 ]
   ret ptr %.033
 }
 

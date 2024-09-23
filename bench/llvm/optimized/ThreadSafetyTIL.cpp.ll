@@ -588,131 +588,132 @@ define dso_local void @_ZN5clang12threadSafety3til21simplifyIncompleteArgEPNS1_3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %.backedge31.sink.split
 
-.backedge31.sink.split:                           ; preds = %1, %22
-  %.sink36 = phi ptr [ %23, %22 ], [ %3, %1 ]
-  %4 = load ptr, ptr %.sink36, align 8
-  %5 = load ptr, ptr %4, align 8
+.backedge31.sink.split:                           ; preds = %1, %21
+  %.sink.in = phi ptr [ %22, %21 ], [ %3, %1 ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %4 = load ptr, ptr %.sink, align 8
   br label %.backedge31
 
-.backedge31:                                      ; preds = %.backedge31.sink.split, %10
-  %.015.i = phi ptr [ %12, %10 ], [ %5, %.backedge31.sink.split ]
-  %6 = load i8, ptr %.015.i, align 8
-  switch i8 %6, label %_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit [
-    i8 5, label %7
-    i8 24, label %14
+.backedge31:                                      ; preds = %.backedge31.sink.split, %9
+  %.015.i = phi ptr [ %11, %9 ], [ %4, %.backedge31.sink.split ]
+  %5 = load i8, ptr %.015.i, align 8
+  switch i8 %5, label %_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit [
+    i8 5, label %6
+    i8 24, label %13
   ]
 
-7:                                                ; preds = %.backedge31
-  %8 = getelementptr inbounds nuw i8, ptr %.015.i, i64 2
-  %9 = load i16, ptr %8, align 2
-  %.not19.i = icmp eq i16 %9, 0
-  br i1 %.not19.i, label %10, label %_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit
+6:                                                ; preds = %.backedge31
+  %7 = getelementptr inbounds nuw i8, ptr %.015.i, i64 2
+  %8 = load i16, ptr %7, align 2
+  %.not19.i = icmp eq i16 %8, 0
+  br i1 %.not19.i, label %9, label %_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit
 
-10:                                               ; preds = %7
-  %11 = getelementptr inbounds nuw i8, ptr %.015.i, i64 32
-  %12 = load ptr, ptr %11, align 8
-  %13 = load i8, ptr %12, align 8
-  %.off.i.i = add i8 %13, -3
+9:                                                ; preds = %6
+  %10 = getelementptr inbounds nuw i8, ptr %.015.i, i64 32
+  %11 = load ptr, ptr %10, align 8
+  %12 = load i8, ptr %11, align 8
+  %.off.i.i = add i8 %12, -3
   %switch.i.i = icmp ult i8 %.off.i.i, 3
   br i1 %switch.i.i, label %.backedge31, label %_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit, !llvm.loop !6
 
-14:                                               ; preds = %.backedge31
-  %15 = getelementptr inbounds nuw i8, ptr %.015.i, i64 2
-  %16 = load i16, ptr %15, align 2
-  %17 = icmp eq i16 %16, 2
-  br i1 %17, label %18, label %19
+13:                                               ; preds = %.backedge31
+  %14 = getelementptr inbounds nuw i8, ptr %.015.i, i64 2
+  %15 = load i16, ptr %14, align 2
+  %16 = icmp eq i16 %15, 2
+  br i1 %16, label %17, label %18
 
-18:                                               ; preds = %14
+17:                                               ; preds = %13
   tail call void @_ZN5clang12threadSafety3til21simplifyIncompleteArgEPNS1_3PhiE(ptr noundef nonnull %.015.i)
-  %.pre = load i16, ptr %15, align 2
-  br label %19
+  %.pre = load i16, ptr %14, align 2
+  br label %18
 
-19:                                               ; preds = %18, %14
-  %20 = phi i16 [ %.pre, %18 ], [ %16, %14 ]
-  %21 = icmp eq i16 %20, 1
-  br i1 %21, label %22, label %_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit
+18:                                               ; preds = %17, %13
+  %19 = phi i16 [ %.pre, %17 ], [ %15, %13 ]
+  %20 = icmp eq i16 %19, 1
+  br i1 %20, label %21, label %_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit
 
-22:                                               ; preds = %19
-  %23 = getelementptr inbounds nuw i8, ptr %.015.i, i64 16
+21:                                               ; preds = %18
+  %22 = getelementptr inbounds nuw i8, ptr %.015.i, i64 16
   br label %.backedge31.sink.split, !llvm.loop !6
 
-_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit: ; preds = %19, %.backedge31, %7, %10
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %25 = load i64, ptr %24, align 8
-  %26 = and i64 %25, 4294967294
-  %.not35 = icmp eq i64 %26, 0
+_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit: ; preds = %18, %.backedge31, %6, %9
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %24 = load i64, ptr %23, align 8
+  %25 = and i64 %24, 4294967294
+  %.not35 = icmp eq i64 %25, 0
   br i1 %.not35, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit
-  %wide.trip.count = and i64 %25, 4294967295
+  %wide.trip.count = and i64 %24, 4294967295
   br label %.lr.ph
 
-27:                                               ; preds = %_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit22
+26:                                               ; preds = %_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %27
-  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %27 ]
-  %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds ptr, ptr %28, i64 %indvars.iv
-  br label %.backedge.sink.split
-
-.backedge.sink.split:                             ; preds = %.lr.ph, %47
-  %.sink = phi ptr [ %49, %47 ], [ %29, %.lr.ph ]
-  %30 = load ptr, ptr %.sink, align 8
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %26
+  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %26 ]
+  %27 = load ptr, ptr %3, align 8
+  %28 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv
+  %29 = load ptr, ptr %28, align 8
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.sink.split, %35
-  %.015.i13 = phi ptr [ %37, %35 ], [ %30, %.backedge.sink.split ]
-  %31 = load i8, ptr %.015.i13, align 8
-  switch i8 %31, label %_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit22 [
-    i8 5, label %32
-    i8 24, label %39
+.backedge:                                        ; preds = %.backedge.backedge, %.lr.ph
+  %.015.i13 = phi ptr [ %29, %.lr.ph ], [ %.015.i13.be, %.backedge.backedge ]
+  %30 = load i8, ptr %.015.i13, align 8
+  switch i8 %30, label %_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit22 [
+    i8 5, label %31
+    i8 24, label %38
   ]
 
-32:                                               ; preds = %.backedge
-  %33 = getelementptr inbounds nuw i8, ptr %.015.i13, i64 2
-  %34 = load i16, ptr %33, align 2
-  %.not19.i16 = icmp eq i16 %34, 0
-  br i1 %.not19.i16, label %35, label %_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit22
+31:                                               ; preds = %.backedge
+  %32 = getelementptr inbounds nuw i8, ptr %.015.i13, i64 2
+  %33 = load i16, ptr %32, align 2
+  %.not19.i16 = icmp eq i16 %33, 0
+  br i1 %.not19.i16, label %34, label %_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit22
 
-35:                                               ; preds = %32
-  %36 = getelementptr inbounds nuw i8, ptr %.015.i13, i64 32
-  %37 = load ptr, ptr %36, align 8
-  %38 = load i8, ptr %37, align 8
-  %.off.i.i18 = add i8 %38, -3
+34:                                               ; preds = %31
+  %35 = getelementptr inbounds nuw i8, ptr %.015.i13, i64 32
+  %36 = load ptr, ptr %35, align 8
+  %37 = load i8, ptr %36, align 8
+  %.off.i.i18 = add i8 %37, -3
   %switch.i.i19 = icmp ult i8 %.off.i.i18, 3
-  br i1 %switch.i.i19, label %.backedge, label %_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit22, !llvm.loop !6
+  br i1 %switch.i.i19, label %.backedge.backedge, label %_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit22
 
-39:                                               ; preds = %.backedge
-  %40 = getelementptr inbounds nuw i8, ptr %.015.i13, i64 2
-  %41 = load i16, ptr %40, align 2
-  %42 = icmp eq i16 %41, 2
-  br i1 %42, label %43, label %44
+38:                                               ; preds = %.backedge
+  %39 = getelementptr inbounds nuw i8, ptr %.015.i13, i64 2
+  %40 = load i16, ptr %39, align 2
+  %41 = icmp eq i16 %40, 2
+  br i1 %41, label %42, label %43
 
-43:                                               ; preds = %39
+42:                                               ; preds = %38
   tail call void @_ZN5clang12threadSafety3til21simplifyIncompleteArgEPNS1_3PhiE(ptr noundef nonnull %.015.i13)
-  %.pre34 = load i16, ptr %40, align 2
-  br label %44
+  %.pre34 = load i16, ptr %39, align 2
+  br label %43
 
-44:                                               ; preds = %43, %39
-  %45 = phi i16 [ %.pre34, %43 ], [ %41, %39 ]
-  %46 = icmp eq i16 %45, 1
-  br i1 %46, label %47, label %_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit22
+43:                                               ; preds = %42, %38
+  %44 = phi i16 [ %.pre34, %42 ], [ %40, %38 ]
+  %45 = icmp eq i16 %44, 1
+  br i1 %45, label %46, label %_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit22
 
-47:                                               ; preds = %44
-  %48 = getelementptr inbounds nuw i8, ptr %.015.i13, i64 16
+46:                                               ; preds = %43
+  %47 = getelementptr inbounds nuw i8, ptr %.015.i13, i64 16
+  %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr %48, align 8
-  br label %.backedge.sink.split, !llvm.loop !6
+  br label %.backedge.backedge
 
-_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit22: ; preds = %44, %.backedge, %32, %35
+.backedge.backedge:                               ; preds = %46, %34
+  %.015.i13.be = phi ptr [ %49, %46 ], [ %36, %34 ]
+  br label %.backedge, !llvm.loop !6
+
+_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit22: ; preds = %.backedge, %31, %34, %43
   %50 = icmp eq ptr %.015.i13, %0
   %.not = icmp eq ptr %.015.i13, %.015.i
   %or.cond = or i1 %50, %.not
-  br i1 %or.cond, label %27, label %.loopexit
+  br i1 %or.cond, label %26, label %.loopexit
 
-._crit_edge:                                      ; preds = %27, %_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit
+._crit_edge:                                      ; preds = %26, %_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit
   store i16 1, ptr %2, align 2
   br label %.loopexit
 

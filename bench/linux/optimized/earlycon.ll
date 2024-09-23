@@ -229,70 +229,78 @@ define internal fastcc noundef range(i32 -22, 1) i32 @parse_options(ptr noundef 
   store i64 0, ptr %3, align 8, !annotation !9
   %4 = call i32 @uart_parse_earlycon(ptr noundef nonnull %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @early_console_dev, i64 202), ptr noundef nonnull %3, ptr noundef nonnull %2) #6
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %6, label %33
+  br i1 %5, label %6, label %37
 
 6:                                                ; preds = %1
   %7 = load i8, ptr getelementptr inbounds (i8, ptr @early_console_dev, i64 202), align 2
-  switch i8 %7, label %33 [
-    i8 2, label %11
-    i8 7, label %8
-    i8 3, label %9
-    i8 6, label %9
-    i8 0, label %10
+  switch i8 %7, label %37 [
+    i8 2, label %8
+    i8 7, label %10
+    i8 3, label %12
+    i8 6, label %12
+    i8 0, label %14
   ]
 
 8:                                                ; preds = %6
-  store i8 1, ptr getelementptr inbounds (i8, ptr @early_console_dev, i64 201), align 1
-  br label %11
-
-9:                                                ; preds = %6, %6
-  store i8 2, ptr getelementptr inbounds (i8, ptr @early_console_dev, i64 201), align 1
-  br label %11
+  %9 = load i64, ptr %3, align 8
+  store i64 %9, ptr getelementptr inbounds (i8, ptr @early_console_dev, i64 336), align 8
+  br label %16
 
 10:                                               ; preds = %6
-  br label %11
+  store i8 1, ptr getelementptr inbounds (i8, ptr @early_console_dev, i64 201), align 1
+  %11 = load i64, ptr %3, align 8
+  store i64 %11, ptr getelementptr inbounds (i8, ptr @early_console_dev, i64 336), align 8
+  br label %16
 
-11:                                               ; preds = %6, %10, %9, %8
-  %.sink3 = phi ptr [ getelementptr inbounds (i8, ptr @early_console_dev, i64 16), %10 ], [ getelementptr inbounds (i8, ptr @early_console_dev, i64 336), %9 ], [ getelementptr inbounds (i8, ptr @early_console_dev, i64 336), %8 ], [ getelementptr inbounds (i8, ptr @early_console_dev, i64 336), %6 ]
-  %12 = load i64, ptr %3, align 8
-  store i64 %12, ptr %.sink3, align 8
-  %13 = load ptr, ptr %2, align 8
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %33, label %15
+12:                                               ; preds = %6, %6
+  store i8 2, ptr getelementptr inbounds (i8, ptr @early_console_dev, i64 201), align 1
+  %13 = load i64, ptr %3, align 8
+  store i64 %13, ptr getelementptr inbounds (i8, ptr @early_console_dev, i64 336), align 8
+  br label %16
 
-15:                                               ; preds = %11
-  %16 = call i64 @simple_strtoul(ptr noundef nonnull %13, ptr noundef null, i32 noundef 0) #6
-  %17 = trunc i64 %16 to i32
-  store i32 %17, ptr getelementptr inbounds (i8, ptr @early_console_dev, i64 568), align 8
-  %18 = load ptr, ptr %2, align 8
-  %19 = call ptr @strchr(ptr noundef %18, i32 noundef 44) #6
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %27, label %21
+14:                                               ; preds = %6
+  %15 = load i64, ptr %3, align 8
+  store i64 %15, ptr getelementptr inbounds (i8, ptr @early_console_dev, i64 16), align 8
+  br label %16
 
-21:                                               ; preds = %15
-  %22 = getelementptr i8, ptr %19, i64 1
-  %23 = call i32 @kstrtouint(ptr noundef %22, i32 noundef 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @early_console_dev, i64 192)) #6
-  %24 = icmp slt i32 %23, 0
+16:                                               ; preds = %14, %12, %10, %8
+  %17 = load ptr, ptr %2, align 8
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %37, label %19
+
+19:                                               ; preds = %16
+  %20 = call i64 @simple_strtoul(ptr noundef nonnull %17, ptr noundef null, i32 noundef 0) #6
+  %21 = trunc i64 %20 to i32
+  store i32 %21, ptr getelementptr inbounds (i8, ptr @early_console_dev, i64 568), align 8
+  %22 = load ptr, ptr %2, align 8
+  %23 = call ptr @strchr(ptr noundef %22, i32 noundef 44) #6
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %31, label %25
+
+25:                                               ; preds = %19
+  %26 = getelementptr i8, ptr %23, i64 1
+  %27 = call i32 @kstrtouint(ptr noundef %26, i32 noundef 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @early_console_dev, i64 192)) #6
+  %28 = icmp slt i32 %27, 0
   %.pre2 = load ptr, ptr %2, align 8
-  br i1 %24, label %25, label %27
+  br i1 %28, label %29, label %31
 
-25:                                               ; preds = %21
-  %26 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef %.pre2) #8
+29:                                               ; preds = %25
+  %30 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef %.pre2) #8
   %.pre = load ptr, ptr %2, align 8
-  br label %27
+  br label %31
 
-27:                                               ; preds = %25, %21, %15
-  %28 = phi ptr [ %.pre, %25 ], [ %.pre2, %21 ], [ %18, %15 ]
-  %29 = call i64 @strcspn(ptr noundef %28, ptr noundef nonnull @.str.1)
-  %30 = add i64 %29, 1
-  %31 = call i64 @llvm.umin.i64(i64 %30, i64 32)
-  %32 = call i64 @strscpy(ptr noundef nonnull getelementptr inbounds (i8, ptr @early_console_dev, i64 536), ptr noundef %28, i64 noundef %31) #6
-  br label %33
+31:                                               ; preds = %29, %25, %19
+  %32 = phi ptr [ %.pre, %29 ], [ %.pre2, %25 ], [ %22, %19 ]
+  %33 = call i64 @strcspn(ptr noundef %32, ptr noundef nonnull @.str.1)
+  %34 = add i64 %33, 1
+  %35 = call i64 @llvm.umin.i64(i64 %34, i64 32)
+  %36 = call i64 @strscpy(ptr noundef nonnull getelementptr inbounds (i8, ptr @early_console_dev, i64 536), ptr noundef %32, i64 noundef %35) #6
+  br label %37
 
-33:                                               ; preds = %27, %11, %6, %1
-  %34 = phi i32 [ -22, %1 ], [ -22, %6 ], [ 0, %27 ], [ 0, %11 ]
+37:                                               ; preds = %31, %16, %6, %1
+  %38 = phi i32 [ -22, %1 ], [ -22, %6 ], [ 0, %31 ], [ 0, %16 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
-  ret i32 %34
+  ret i32 %38
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize

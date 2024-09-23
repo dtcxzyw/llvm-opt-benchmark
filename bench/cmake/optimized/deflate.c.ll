@@ -2891,33 +2891,33 @@ flush_pending.exit416._crit_edge:                 ; preds = %flush_pending.exit4
   br label %796
 
 796:                                              ; preds = %775, %724
-  %.sink473 = phi ptr [ %779, %775 ], [ %726, %724 ]
+  %.sink469.in = phi ptr [ %779, %775 ], [ %726, %724 ]
   %.sink.in = phi i64 [ %789, %775 ], [ %774, %724 ]
   %.sink = trunc i64 %.sink.in to i8
-  %797 = load ptr, ptr %.sink473, align 8
-  %798 = load i64, ptr %48, align 8
-  %799 = add i64 %798, 1
-  store i64 %799, ptr %48, align 8
-  %800 = getelementptr inbounds i8, ptr %797, i64 %798
-  store i8 %.sink, ptr %800, align 1
+  %.sink469 = load ptr, ptr %.sink469.in, align 8
+  %797 = load i64, ptr %48, align 8
+  %798 = add i64 %797, 1
+  store i64 %798, ptr %48, align 8
+  %799 = getelementptr inbounds i8, ptr %.sink469, i64 %797
+  store i8 %.sink, ptr %799, align 1
   tail call fastcc void @flush_pending(ptr noundef nonnull %0)
-  %801 = load i32, ptr %717, align 8
-  %802 = icmp sgt i32 %801, 0
-  br i1 %802, label %803, label %805
+  %800 = load i32, ptr %717, align 8
+  %801 = icmp sgt i32 %800, 0
+  br i1 %801, label %802, label %804
 
-803:                                              ; preds = %796
-  %804 = sub nsw i32 0, %801
-  store i32 %804, ptr %717, align 8
-  br label %805
+802:                                              ; preds = %796
+  %803 = sub nsw i32 0, %800
+  store i32 %803, ptr %717, align 8
+  br label %804
 
-805:                                              ; preds = %803, %796
-  %806 = load i64, ptr %48, align 8
-  %.not405 = icmp eq i64 %806, 0
-  %807 = zext i1 %.not405 to i32
+804:                                              ; preds = %802, %796
+  %805 = load i64, ptr %48, align 8
+  %.not405 = icmp eq i64 %805, 0
+  %806 = zext i1 %.not405 to i32
   br label %deflateStateCheck.exit.thread
 
-deflateStateCheck.exit.thread:                    ; preds = %654, %12, %16, %18, %2, %4, %8, %716, %715, %681, %684, %deflateStateCheck.exit, %805, %714, %651, %631, %591, %509, %433, %234, %171, %97, %91, %79, %42, %35
-  %.0 = phi i32 [ -2, %35 ], [ -5, %42 ], [ 0, %79 ], [ -5, %97 ], [ 0, %171 ], [ 0, %234 ], [ 0, %433 ], [ 0, %509 ], [ 0, %591 ], [ 0, %631 ], [ 0, %651 ], [ 0, %714 ], [ %807, %805 ], [ -5, %91 ], [ -2, %deflateStateCheck.exit ], [ 0, %684 ], [ 0, %681 ], [ 0, %715 ], [ 1, %716 ], [ -2, %8 ], [ -2, %4 ], [ -2, %2 ], [ -2, %18 ], [ -2, %16 ], [ -2, %12 ], [ 0, %654 ]
+deflateStateCheck.exit.thread:                    ; preds = %654, %12, %16, %18, %2, %4, %8, %716, %715, %681, %684, %deflateStateCheck.exit, %804, %714, %651, %631, %591, %509, %433, %234, %171, %97, %91, %79, %42, %35
+  %.0 = phi i32 [ -2, %35 ], [ -5, %42 ], [ 0, %79 ], [ -5, %97 ], [ 0, %171 ], [ 0, %234 ], [ 0, %433 ], [ 0, %509 ], [ 0, %591 ], [ 0, %631 ], [ 0, %651 ], [ 0, %714 ], [ %806, %804 ], [ -5, %91 ], [ -2, %deflateStateCheck.exit ], [ 0, %684 ], [ 0, %681 ], [ 0, %715 ], [ 1, %716 ], [ -2, %8 ], [ -2, %4 ], [ -2, %2 ], [ -2, %18 ], [ -2, %16 ], [ -2, %12 ], [ 0, %654 ]
   ret i32 %.0
 }
 

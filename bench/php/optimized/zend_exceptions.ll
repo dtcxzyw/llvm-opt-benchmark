@@ -5835,6 +5835,8 @@ i_get_exception_base.exit:                        ; preds = %14, %20
   call void @zval_ptr_dtor(ptr noundef nonnull %2) #15
   %40 = call i32 @zend_get_executed_lineno() #15
   %41 = zext i32 %40 to i64
+  store i64 %41, ptr %2, align 8
+  store i32 4, ptr %37, align 8
   br label %52
 
 42:                                               ; preds = %25
@@ -5851,13 +5853,11 @@ i_get_exception_base.exit:                        ; preds = %14, %20
   call void @zend_update_property_ex(ptr noundef %22, ptr noundef nonnull %4, ptr noundef %49, ptr noundef nonnull %2) #15
   %50 = call i32 @zend_get_compiled_lineno() #15
   %51 = sext i32 %50 to i64
+  store i64 %51, ptr %2, align 8
+  store i32 4, ptr %47, align 8
   br label %52
 
 52:                                               ; preds = %42, %.thread
-  %.sink102 = phi i64 [ %51, %42 ], [ %41, %.thread ]
-  %.sink = phi ptr [ %47, %42 ], [ %37, %.thread ]
-  store i64 %.sink102, ptr %2, align 8
-  store i32 4, ptr %.sink, align 8
   %53 = load ptr, ptr @zend_known_strings, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8

@@ -71,11 +71,15 @@ do.body1:                                         ; preds = %entry
   %1 = load ptr, ptr %next, align 8
   store ptr %1, ptr %requests, align 8
   %cmp6 = icmp eq ptr %1, null
-  br i1 %cmp6, label %if.then7, label %do.end36
+  br i1 %cmp6, label %if.then7, label %if.end
 
 if.then7:                                         ; preds = %do.body1
   %sqh_last = getelementptr inbounds i8, ptr %s, i64 56
   store ptr %requests, ptr %sqh_last, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.then7, %do.body1
+  store ptr null, ptr %next, align 8
   br label %do.end36
 
 while.cond:                                       ; preds = %entry, %while.cond
@@ -100,11 +104,10 @@ if.then27:                                        ; preds = %while.end
 
 if.end32:                                         ; preds = %if.then27, %while.end
   %next33 = getelementptr inbounds i8, ptr %req, i64 40
+  store ptr null, ptr %next33, align 8
   br label %do.end36
 
-do.end36:                                         ; preds = %do.body1, %if.then7, %if.end32
-  %next.sink = phi ptr [ %next33, %if.end32 ], [ %next, %if.then7 ], [ %next, %do.body1 ]
-  store ptr null, ptr %next.sink, align 8
+do.end36:                                         ; preds = %if.end, %if.end32
   %data.i = getelementptr inbounds i8, ptr %req, i64 8
   %4 = load ptr, ptr %data.i, align 8
   tail call void @g_free(ptr noundef %4) #3

@@ -708,10 +708,19 @@ do.body:                                          ; preds = %if.end
   %entry8 = getelementptr inbounds i8, ptr %call3, i64 16
   store ptr %1, ptr %entry8, align 8
   %cmp.not = icmp eq ptr %1, null
-  %tql_prev15 = getelementptr inbounds i8, ptr %cpu, i64 592
+  br i1 %cmp.not, label %if.else, label %if.then9
+
+if.then9:                                         ; preds = %do.body
   %tql_prev = getelementptr inbounds i8, ptr %1, i64 24
-  %tql_prev15.sink = select i1 %cmp.not, ptr %tql_prev15, ptr %tql_prev
-  store ptr %entry8, ptr %tql_prev15.sink, align 8
+  store ptr %entry8, ptr %tql_prev, align 8
+  br label %if.end16
+
+if.else:                                          ; preds = %do.body
+  %tql_prev15 = getelementptr inbounds i8, ptr %cpu, i64 592
+  store ptr %entry8, ptr %tql_prev15, align 8
+  br label %if.end16
+
+if.end16:                                         ; preds = %if.else, %if.then9
   store ptr %call3, ptr %breakpoints, align 8
   %tql_prev20 = getelementptr inbounds i8, ptr %call3, i64 24
   store ptr %breakpoints, ptr %tql_prev20, align 8
@@ -728,7 +737,7 @@ do.body22:                                        ; preds = %if.end
   store ptr %entry23, ptr %tql_prev25, align 8
   br label %if.end34
 
-if.end34:                                         ; preds = %do.body22, %do.body
+if.end34:                                         ; preds = %do.body22, %if.end16
   %tobool35.not = icmp eq ptr %breakpoint, null
   br i1 %tobool35.not, label %if.end37, label %if.then36
 
@@ -836,10 +845,19 @@ entry:
   %cmp.not = icmp eq ptr %0, null
   %tql_prev7 = getelementptr inbounds i8, ptr %bp, i64 24
   %1 = load ptr, ptr %tql_prev7, align 8
-  %tql_prev8 = getelementptr inbounds i8, ptr %cpu, i64 592
+  br i1 %cmp.not, label %if.else, label %if.then
+
+if.then:                                          ; preds = %entry
   %tql_prev5 = getelementptr inbounds i8, ptr %0, i64 24
-  %tql_prev8.sink = select i1 %cmp.not, ptr %tql_prev8, ptr %tql_prev5
-  store ptr %1, ptr %tql_prev8.sink, align 8
+  store ptr %1, ptr %tql_prev5, align 8
+  br label %if.end
+
+if.else:                                          ; preds = %entry
+  %tql_prev8 = getelementptr inbounds i8, ptr %cpu, i64 592
+  store ptr %1, ptr %tql_prev8, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then
   %2 = load ptr, ptr %entry1, align 8
   store ptr %2, ptr %1, align 8
   %cpu_index = getelementptr inbounds i8, ptr %cpu, i64 712
@@ -856,7 +874,7 @@ entry:
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_breakpoint_remove.exit
 
-land.lhs.true5.i.i:                               ; preds = %entry
+land.lhs.true5.i.i:                               ; preds = %if.end
   %8 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i = and i32 %8, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
@@ -880,7 +898,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %3, i64 noundef %4, i32 noundef %5) #10
   br label %trace_breakpoint_remove.exit
 
-trace_breakpoint_remove.exit:                     ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
+trace_breakpoint_remove.exit:                     ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   tail call void @g_free(ptr noundef nonnull %bp) #10
   ret void

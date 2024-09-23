@@ -368,6 +368,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv4gapi4onnx8PyParam
   store ptr null, ptr %15, align 8
   store ptr %18, ptr %22, align 8
   store ptr %18, ptr %25, align 8
+  store i64 0, ptr %29, align 8
   br label %_ZNSt16allocator_traitsISaIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEEEE9constructISC_JS7_EEEvRSD_PT_DpOT0_.exit.i.i
 
 32:                                               ; preds = %8
@@ -379,11 +380,10 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv4gapi4onnx8PyParam
   %35 = getelementptr inbounds i8, ptr %5, i64 120
   store ptr %14, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %5, i64 128
+  store i64 0, ptr %36, align 8
   br label %_ZNSt16allocator_traitsISaIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEEEE9constructISC_JS7_EEEvRSD_PT_DpOT0_.exit.i.i
 
 _ZNSt16allocator_traitsISaIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEEEE9constructISC_JS7_EEEvRSD_PT_DpOT0_.exit.i.i: ; preds = %32, %17
-  %.sink.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %29, %17 ], [ %36, %32 ]
-  store i64 0, ptr %.sink.i.i.i.i.i.i.i.i.i.i.i, align 8
   %37 = load ptr, ptr %4, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 136
   store ptr %38, ptr %4, align 8
@@ -995,22 +995,18 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
-  br label %.sink.split
+  store ptr %.031, ptr %24, align 8
+  br label %28
 
 25:                                               ; preds = %.lr.ph
   %26 = load ptr, ptr %19, align 8
   store ptr %26, ptr %.031, align 8
   %27 = load ptr, ptr %18, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %25, %23
-  %.sink = phi ptr [ %24, %23 ], [ %27, %25 ]
-  %.1.ph = phi i64 [ %17, %23 ], [ %.02530, %25 ]
-  store ptr %.031, ptr %.sink, align 8
+  store ptr %.031, ptr %27, align 8
   br label %28
 
-28:                                               ; preds = %.sink.split, %20
-  %.1 = phi i64 [ %17, %20 ], [ %.1.ph, %.sink.split ]
+28:                                               ; preds = %20, %23, %25
+  %.1 = phi i64 [ %.02530, %25 ], [ %17, %23 ], [ %17, %20 ]
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
@@ -1361,22 +1357,18 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
-  br label %.sink.split
+  store ptr %.031, ptr %24, align 8
+  br label %28
 
 25:                                               ; preds = %.lr.ph
   %26 = load ptr, ptr %19, align 8
   store ptr %26, ptr %.031, align 8
   %27 = load ptr, ptr %18, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %25, %23
-  %.sink = phi ptr [ %24, %23 ], [ %27, %25 ]
-  %.1.ph = phi i64 [ %17, %23 ], [ %.02530, %25 ]
-  store ptr %.031, ptr %.sink, align 8
+  store ptr %.031, ptr %27, align 8
   br label %28
 
-28:                                               ; preds = %.sink.split, %20
-  %.1 = phi i64 [ %17, %20 ], [ %.1.ph, %.sink.split ]
+28:                                               ; preds = %20, %23, %25
+  %.1 = phi i64 [ %.02530, %25 ], [ %17, %23 ], [ %17, %20 ]
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
@@ -1446,7 +1438,7 @@ _ZNSt12_Vector_baseIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINO
   %31 = getelementptr inbounds i8, ptr %2, i64 96
   %32 = load ptr, ptr %31, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %32, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %47, label %33
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %46, label %33
 
 33:                                               ; preds = %_ZNSt12_Vector_baseIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESaISC_EE11_M_allocateEm.exit
   %34 = getelementptr inbounds i8, ptr %2, i64 88
@@ -1466,133 +1458,132 @@ _ZNSt12_Vector_baseIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINO
   store ptr %30, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %2, i64 120
   %45 = load i64, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %24, i64 128
-  store i64 %45, ptr %46, align 8
   store ptr null, ptr %31, align 8
   store ptr %34, ptr %37, align 8
   store ptr %34, ptr %40, align 8
-  br label %52
+  store i64 0, ptr %44, align 8
+  br label %_ZNSt16allocator_traitsISaIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEEEE9constructISC_JS7_EEEvRSD_PT_DpOT0_.exit
 
-47:                                               ; preds = %_ZNSt12_Vector_baseIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESaISC_EE11_M_allocateEm.exit
+46:                                               ; preds = %_ZNSt12_Vector_baseIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESaISC_EE11_M_allocateEm.exit
   store i32 0, ptr %30, align 8
-  %48 = getelementptr inbounds i8, ptr %24, i64 104
-  store ptr null, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %24, i64 112
+  %47 = getelementptr inbounds i8, ptr %24, i64 104
+  store ptr null, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %24, i64 112
+  store ptr %30, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %24, i64 120
   store ptr %30, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %24, i64 120
-  store ptr %30, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %24, i64 128
-  br label %52
+  br label %_ZNSt16allocator_traitsISaIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEEEE9constructISC_JS7_EEEvRSD_PT_DpOT0_.exit
 
-52:                                               ; preds = %47, %33
-  %.sink.i.i.i.i.i.i.i.i.i = phi ptr [ %44, %33 ], [ %51, %47 ]
-  store i64 0, ptr %.sink.i.i.i.i.i.i.i.i.i, align 8
+_ZNSt16allocator_traitsISaIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEEEE9constructISC_JS7_EEEvRSD_PT_DpOT0_.exit: ; preds = %46, %33
+  %.sink = phi i64 [ 0, %46 ], [ %45, %33 ]
+  %50 = getelementptr inbounds i8, ptr %24, i64 128
+  store i64 %.sink, ptr %50, align 8
   %.not12.i.i.i.i = icmp eq ptr %6, %1
   br i1 %.not12.i.i.i.i, label %_ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESaISC_EE11_S_relocateEPSC_SF_SF_RSD_.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %52, %_ZSt19__relocate_object_aIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESC_SaISC_EEvPT_PT0_RT1_.exit.i.i.i.i
-  %.014.i.i.i.i = phi ptr [ %68, %_ZSt19__relocate_object_aIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESC_SaISC_EEvPT_PT0_RT1_.exit.i.i.i.i ], [ %23, %52 ]
-  %.0913.i.i.i.i = phi ptr [ %67, %_ZSt19__relocate_object_aIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESC_SaISC_EEvPT_PT0_RT1_.exit.i.i.i.i ], [ %6, %52 ]
+.lr.ph.i.i.i.i:                                   ; preds = %_ZNSt16allocator_traitsISaIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEEEE9constructISC_JS7_EEEvRSD_PT_DpOT0_.exit, %_ZSt19__relocate_object_aIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESC_SaISC_EEvPT_PT0_RT1_.exit.i.i.i.i
+  %.014.i.i.i.i = phi ptr [ %66, %_ZSt19__relocate_object_aIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESC_SaISC_EEvPT_PT0_RT1_.exit.i.i.i.i ], [ %23, %_ZNSt16allocator_traitsISaIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEEEE9constructISC_JS7_EEEvRSD_PT_DpOT0_.exit ]
+  %.0913.i.i.i.i = phi ptr [ %65, %_ZSt19__relocate_object_aIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESC_SaISC_EEvPT_PT0_RT1_.exit.i.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEEEE9constructISC_JS7_EEEvRSD_PT_DpOT0_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
-  %53 = load i64, ptr %.0913.i.i.i.i, align 8, !alias.scope !19, !noalias !16
-  store i64 %53, ptr %.014.i.i.i.i, align 8, !alias.scope !16, !noalias !19
-  %54 = getelementptr inbounds [6 x ptr], ptr @constinit.1, i64 0, i64 %53
-  %55 = load ptr, ptr %54, align 8, !noalias !21
-  %56 = getelementptr inbounds i8, ptr %.014.i.i.i.i, i64 8
-  %57 = getelementptr inbounds i8, ptr %.0913.i.i.i.i, i64 8
-  invoke void %55(ptr noundef nonnull %56, ptr noundef nonnull %57)
-          to label %_ZNSt16allocator_traitsISaIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEEEE9constructISC_JSC_EEEvRSD_PT_DpOT0_.exit.i.i.i.i.i unwind label %58
+  %51 = load i64, ptr %.0913.i.i.i.i, align 8, !alias.scope !19, !noalias !16
+  store i64 %51, ptr %.014.i.i.i.i, align 8, !alias.scope !16, !noalias !19
+  %52 = getelementptr inbounds [6 x ptr], ptr @constinit.1, i64 0, i64 %51
+  %53 = load ptr, ptr %52, align 8, !noalias !21
+  %54 = getelementptr inbounds i8, ptr %.014.i.i.i.i, i64 8
+  %55 = getelementptr inbounds i8, ptr %.0913.i.i.i.i, i64 8
+  invoke void %53(ptr noundef nonnull %54, ptr noundef nonnull %55)
+          to label %_ZNSt16allocator_traitsISaIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEEEE9constructISC_JSC_EEEvRSD_PT_DpOT0_.exit.i.i.i.i.i unwind label %56
 
-58:                                               ; preds = %.lr.ph.i.i.i.i
-  %59 = landingpad { ptr, i32 }
+56:                                               ; preds = %.lr.ph.i.i.i.i
+  %57 = landingpad { ptr, i32 }
           catch ptr null
-  %60 = extractvalue { ptr, i32 } %59, 0
-  tail call void @__clang_call_terminate(ptr %60) #21
+  %58 = extractvalue { ptr, i32 } %57, 0
+  tail call void @__clang_call_terminate(ptr %58) #21
   unreachable
 
 _ZNSt16allocator_traitsISaIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEEEE9constructISC_JSC_EEEvRSD_PT_DpOT0_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %61 = load i64, ptr %.0913.i.i.i.i, align 8, !alias.scope !19, !noalias !16
-  %62 = getelementptr inbounds [6 x ptr], ptr @constinit.2, i64 0, i64 %61
-  %63 = load ptr, ptr %62, align 8, !noalias !21
-  invoke void %63(ptr noundef nonnull %57)
-          to label %_ZSt19__relocate_object_aIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESC_SaISC_EEvPT_PT0_RT1_.exit.i.i.i.i unwind label %64
+  %59 = load i64, ptr %.0913.i.i.i.i, align 8, !alias.scope !19, !noalias !16
+  %60 = getelementptr inbounds [6 x ptr], ptr @constinit.2, i64 0, i64 %59
+  %61 = load ptr, ptr %60, align 8, !noalias !21
+  invoke void %61(ptr noundef nonnull %55)
+          to label %_ZSt19__relocate_object_aIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESC_SaISC_EEvPT_PT0_RT1_.exit.i.i.i.i unwind label %62
 
-64:                                               ; preds = %_ZNSt16allocator_traitsISaIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEEEE9constructISC_JSC_EEEvRSD_PT_DpOT0_.exit.i.i.i.i.i
-  %65 = landingpad { ptr, i32 }
+62:                                               ; preds = %_ZNSt16allocator_traitsISaIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEEEE9constructISC_JSC_EEEvRSD_PT_DpOT0_.exit.i.i.i.i.i
+  %63 = landingpad { ptr, i32 }
           catch ptr null
-  %66 = extractvalue { ptr, i32 } %65, 0
-  tail call void @__clang_call_terminate(ptr %66) #21
+  %64 = extractvalue { ptr, i32 } %63, 0
+  tail call void @__clang_call_terminate(ptr %64) #21
   unreachable
 
 _ZSt19__relocate_object_aIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESC_SaISC_EEvPT_PT0_RT1_.exit.i.i.i.i: ; preds = %_ZNSt16allocator_traitsISaIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEEEE9constructISC_JSC_EEEvRSD_PT_DpOT0_.exit.i.i.i.i.i
-  %67 = getelementptr inbounds i8, ptr %.0913.i.i.i.i, i64 136
-  %68 = getelementptr inbounds i8, ptr %.014.i.i.i.i, i64 136
-  %.not.i.i.i.i = icmp eq ptr %67, %1
+  %65 = getelementptr inbounds i8, ptr %.0913.i.i.i.i, i64 136
+  %66 = getelementptr inbounds i8, ptr %.014.i.i.i.i, i64 136
+  %.not.i.i.i.i = icmp eq ptr %65, %1
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESaISC_EE11_S_relocateEPSC_SF_SF_RSD_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !22
 
-_ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESaISC_EE11_S_relocateEPSC_SF_SF_RSD_.exit: ; preds = %_ZSt19__relocate_object_aIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESC_SaISC_EEvPT_PT0_RT1_.exit.i.i.i.i, %52
-  %.0.lcssa.i.i.i.i = phi ptr [ %23, %52 ], [ %68, %_ZSt19__relocate_object_aIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESC_SaISC_EEvPT_PT0_RT1_.exit.i.i.i.i ]
-  %69 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 136
+_ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESaISC_EE11_S_relocateEPSC_SF_SF_RSD_.exit: ; preds = %_ZSt19__relocate_object_aIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESC_SaISC_EEvPT_PT0_RT1_.exit.i.i.i.i, %_ZNSt16allocator_traitsISaIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEEEE9constructISC_JS7_EEEvRSD_PT_DpOT0_.exit
+  %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEEEE9constructISC_JS7_EEEvRSD_PT_DpOT0_.exit ], [ %66, %_ZSt19__relocate_object_aIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESC_SaISC_EEvPT_PT0_RT1_.exit.i.i.i.i ]
+  %67 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 136
   %.not12.i.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not12.i.i.i.i26, label %_ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESaISC_EE11_S_relocateEPSC_SF_SF_RSD_.exit34, label %.lr.ph.i.i.i.i27
 
 .lr.ph.i.i.i.i27:                                 ; preds = %_ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESaISC_EE11_S_relocateEPSC_SF_SF_RSD_.exit, %_ZSt19__relocate_object_aIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESC_SaISC_EEvPT_PT0_RT1_.exit.i.i.i.i31
-  %.014.i.i.i.i28 = phi ptr [ %85, %_ZSt19__relocate_object_aIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESC_SaISC_EEvPT_PT0_RT1_.exit.i.i.i.i31 ], [ %69, %_ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESaISC_EE11_S_relocateEPSC_SF_SF_RSD_.exit ]
-  %.0913.i.i.i.i29 = phi ptr [ %84, %_ZSt19__relocate_object_aIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESC_SaISC_EEvPT_PT0_RT1_.exit.i.i.i.i31 ], [ %1, %_ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESaISC_EE11_S_relocateEPSC_SF_SF_RSD_.exit ]
+  %.014.i.i.i.i28 = phi ptr [ %83, %_ZSt19__relocate_object_aIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESC_SaISC_EEvPT_PT0_RT1_.exit.i.i.i.i31 ], [ %67, %_ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESaISC_EE11_S_relocateEPSC_SF_SF_RSD_.exit ]
+  %.0913.i.i.i.i29 = phi ptr [ %82, %_ZSt19__relocate_object_aIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESC_SaISC_EEvPT_PT0_RT1_.exit.i.i.i.i31 ], [ %1, %_ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESaISC_EE11_S_relocateEPSC_SF_SF_RSD_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
-  %70 = load i64, ptr %.0913.i.i.i.i29, align 8, !alias.scope !26, !noalias !23
-  store i64 %70, ptr %.014.i.i.i.i28, align 8, !alias.scope !23, !noalias !26
-  %71 = getelementptr inbounds [6 x ptr], ptr @constinit.1, i64 0, i64 %70
-  %72 = load ptr, ptr %71, align 8, !noalias !28
-  %73 = getelementptr inbounds i8, ptr %.014.i.i.i.i28, i64 8
-  %74 = getelementptr inbounds i8, ptr %.0913.i.i.i.i29, i64 8
-  invoke void %72(ptr noundef nonnull %73, ptr noundef nonnull %74)
-          to label %_ZNSt16allocator_traitsISaIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEEEE9constructISC_JSC_EEEvRSD_PT_DpOT0_.exit.i.i.i.i.i30 unwind label %75
+  %68 = load i64, ptr %.0913.i.i.i.i29, align 8, !alias.scope !26, !noalias !23
+  store i64 %68, ptr %.014.i.i.i.i28, align 8, !alias.scope !23, !noalias !26
+  %69 = getelementptr inbounds [6 x ptr], ptr @constinit.1, i64 0, i64 %68
+  %70 = load ptr, ptr %69, align 8, !noalias !28
+  %71 = getelementptr inbounds i8, ptr %.014.i.i.i.i28, i64 8
+  %72 = getelementptr inbounds i8, ptr %.0913.i.i.i.i29, i64 8
+  invoke void %70(ptr noundef nonnull %71, ptr noundef nonnull %72)
+          to label %_ZNSt16allocator_traitsISaIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEEEE9constructISC_JSC_EEEvRSD_PT_DpOT0_.exit.i.i.i.i.i30 unwind label %73
 
-75:                                               ; preds = %.lr.ph.i.i.i.i27
-  %76 = landingpad { ptr, i32 }
+73:                                               ; preds = %.lr.ph.i.i.i.i27
+  %74 = landingpad { ptr, i32 }
           catch ptr null
-  %77 = extractvalue { ptr, i32 } %76, 0
-  tail call void @__clang_call_terminate(ptr %77) #21
+  %75 = extractvalue { ptr, i32 } %74, 0
+  tail call void @__clang_call_terminate(ptr %75) #21
   unreachable
 
 _ZNSt16allocator_traitsISaIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEEEE9constructISC_JSC_EEEvRSD_PT_DpOT0_.exit.i.i.i.i.i30: ; preds = %.lr.ph.i.i.i.i27
-  %78 = load i64, ptr %.0913.i.i.i.i29, align 8, !alias.scope !26, !noalias !23
-  %79 = getelementptr inbounds [6 x ptr], ptr @constinit.2, i64 0, i64 %78
-  %80 = load ptr, ptr %79, align 8, !noalias !28
-  invoke void %80(ptr noundef nonnull %74)
-          to label %_ZSt19__relocate_object_aIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESC_SaISC_EEvPT_PT0_RT1_.exit.i.i.i.i31 unwind label %81
+  %76 = load i64, ptr %.0913.i.i.i.i29, align 8, !alias.scope !26, !noalias !23
+  %77 = getelementptr inbounds [6 x ptr], ptr @constinit.2, i64 0, i64 %76
+  %78 = load ptr, ptr %77, align 8, !noalias !28
+  invoke void %78(ptr noundef nonnull %72)
+          to label %_ZSt19__relocate_object_aIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESC_SaISC_EEvPT_PT0_RT1_.exit.i.i.i.i31 unwind label %79
 
-81:                                               ; preds = %_ZNSt16allocator_traitsISaIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEEEE9constructISC_JSC_EEEvRSD_PT_DpOT0_.exit.i.i.i.i.i30
-  %82 = landingpad { ptr, i32 }
+79:                                               ; preds = %_ZNSt16allocator_traitsISaIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEEEE9constructISC_JSC_EEEvRSD_PT_DpOT0_.exit.i.i.i.i.i30
+  %80 = landingpad { ptr, i32 }
           catch ptr null
-  %83 = extractvalue { ptr, i32 } %82, 0
-  tail call void @__clang_call_terminate(ptr %83) #21
+  %81 = extractvalue { ptr, i32 } %80, 0
+  tail call void @__clang_call_terminate(ptr %81) #21
   unreachable
 
 _ZSt19__relocate_object_aIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESC_SaISC_EEvPT_PT0_RT1_.exit.i.i.i.i31: ; preds = %_ZNSt16allocator_traitsISaIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEEEE9constructISC_JSC_EEEvRSD_PT_DpOT0_.exit.i.i.i.i.i30
-  %84 = getelementptr inbounds i8, ptr %.0913.i.i.i.i29, i64 136
-  %85 = getelementptr inbounds i8, ptr %.014.i.i.i.i28, i64 136
-  %.not.i.i.i.i32 = icmp eq ptr %84, %5
+  %82 = getelementptr inbounds i8, ptr %.0913.i.i.i.i29, i64 136
+  %83 = getelementptr inbounds i8, ptr %.014.i.i.i.i28, i64 136
+  %.not.i.i.i.i32 = icmp eq ptr %82, %5
   br i1 %.not.i.i.i.i32, label %_ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESaISC_EE11_S_relocateEPSC_SF_SF_RSD_.exit34, label %.lr.ph.i.i.i.i27, !llvm.loop !22
 
 _ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESaISC_EE11_S_relocateEPSC_SF_SF_RSD_.exit34: ; preds = %_ZSt19__relocate_object_aIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESC_SaISC_EEvPT_PT0_RT1_.exit.i.i.i.i31, %_ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESaISC_EE11_S_relocateEPSC_SF_SF_RSD_.exit
-  %.0.lcssa.i.i.i.i33 = phi ptr [ %69, %_ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESaISC_EE11_S_relocateEPSC_SF_SF_RSD_.exit ], [ %85, %_ZSt19__relocate_object_aIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESC_SaISC_EEvPT_PT0_RT1_.exit.i.i.i.i31 ]
+  %.0.lcssa.i.i.i.i33 = phi ptr [ %67, %_ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESaISC_EE11_S_relocateEPSC_SF_SF_RSD_.exit ], [ %83, %_ZSt19__relocate_object_aIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESC_SaISC_EEvPT_PT0_RT1_.exit.i.i.i.i31 ]
   %.not.i35 = icmp eq ptr %6, null
-  br i1 %.not.i35, label %_ZNSt12_Vector_baseIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESaISC_EE13_M_deallocateEPSC_m.exit, label %86
+  br i1 %.not.i35, label %_ZNSt12_Vector_baseIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESaISC_EE13_M_deallocateEPSC_m.exit, label %84
 
-86:                                               ; preds = %_ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESaISC_EE11_S_relocateEPSC_SF_SF_RSD_.exit34
+84:                                               ; preds = %_ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESaISC_EE11_S_relocateEPSC_SF_SF_RSD_.exit34
   tail call void @_ZdlPv(ptr noundef nonnull %6) #24
   br label %_ZNSt12_Vector_baseIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESaISC_EE13_M_deallocateEPSC_m.exit
 
-_ZNSt12_Vector_baseIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESaISC_EE13_M_deallocateEPSC_m.exit: ; preds = %_ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESaISC_EE11_S_relocateEPSC_SF_SF_RSD_.exit34, %86
-  %87 = getelementptr inbounds i8, ptr %0, i64 16
+_ZNSt12_Vector_baseIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESaISC_EE13_M_deallocateEPSC_m.exit: ; preds = %_ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESaISC_EE11_S_relocateEPSC_SF_SF_RSD_.exit34, %84
+  %85 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i33, ptr %4, align 8
-  %88 = getelementptr inbounds %"class.cv::util::variant.87", ptr %23, i64 %16
-  store ptr %88, ptr %87, align 8
+  %86 = getelementptr inbounds %"class.cv::util::variant.87", ptr %23, i64 %16
+  store ptr %86, ptr %85, align 8
   ret void
 }
 
@@ -1659,6 +1650,7 @@ define linkonce_odr hidden void @_ZN2cv4util7variantIJNS0_9monostateENS_4gapi4on
   store ptr null, ptr %8, align 8
   store ptr %11, ptr %15, align 8
   store ptr %11, ptr %18, align 8
+  store i64 0, ptr %22, align 8
   br label %_ZN2cv4gapi4onnx2ep8OpenVINOC2EOS3_.exit
 
 25:                                               ; preds = %2
@@ -1670,11 +1662,10 @@ define linkonce_odr hidden void @_ZN2cv4util7variantIJNS0_9monostateENS_4gapi4on
   %28 = getelementptr inbounds i8, ptr %0, i64 112
   store ptr %7, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %0, i64 120
+  store i64 0, ptr %29, align 8
   br label %_ZN2cv4gapi4onnx2ep8OpenVINOC2EOS3_.exit
 
 _ZN2cv4gapi4onnx2ep8OpenVINOC2EOS3_.exit:         ; preds = %10, %25
-  %.sink.i.i.i.i.i = phi ptr [ %22, %10 ], [ %29, %25 ]
-  store i64 0, ptr %.sink.i.i.i.i.i, align 8
   ret void
 }
 

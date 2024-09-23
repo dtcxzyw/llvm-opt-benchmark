@@ -1247,7 +1247,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__superblock_prefix_decode(ptr n
   %15 = load i64, ptr @H5E_FILE_g, align 8
   %16 = load i64, ptr @H5E_OVERFLOW_g, align 8
   %17 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__superblock_prefix_decode, i32 noundef 157, i64 noundef %15, i64 noundef %16, ptr noundef nonnull @.str.4) #5
-  br label %109
+  br label %108
 
 18:                                               ; preds = %9
   %19 = getelementptr inbounds i8, ptr %6, i64 8
@@ -1262,7 +1262,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__superblock_prefix_decode(ptr n
   %25 = load i64, ptr @H5E_FILE_g, align 8
   %26 = load i64, ptr @H5E_OVERFLOW_g, align 8
   %27 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__superblock_prefix_decode, i32 noundef 162, i64 noundef %25, i64 noundef %26, ptr noundef nonnull @.str.4) #5
-  br label %109
+  br label %108
 
 28:                                               ; preds = %18
   %29 = getelementptr inbounds i8, ptr %6, i64 9
@@ -1277,7 +1277,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__superblock_prefix_decode(ptr n
   %35 = load i64, ptr @H5E_FILE_g, align 8
   %36 = load i64, ptr @H5E_BADVALUE_g, align 8
   %37 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__superblock_prefix_decode, i32 noundef 165, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.5) #5
-  br label %109
+  br label %108
 
 38:                                               ; preds = %28
   %39 = load ptr, ptr %1, align 8
@@ -1291,7 +1291,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__superblock_prefix_decode(ptr n
   %44 = load i64, ptr @H5E_FILE_g, align 8
   %45 = load i64, ptr @H5E_BADVALUE_g, align 8
   %46 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__superblock_prefix_decode, i32 noundef 169, i64 noundef %44, i64 noundef %45, ptr noundef nonnull @.str.6) #5
-  br label %109
+  br label %108
 
 47:                                               ; preds = %38
   %48 = icmp ult i8 %30, 2
@@ -1311,7 +1311,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__superblock_prefix_decode(ptr n
   %55 = load i64, ptr @H5E_FILE_g, align 8
   %56 = load i64, ptr @H5E_OVERFLOW_g, align 8
   %57 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__superblock_prefix_decode, i32 noundef 176, i64 noundef %55, i64 noundef %56, ptr noundef nonnull @.str.4) #5
-  br label %109
+  br label %108
 
 58:                                               ; preds = %51
   %59 = getelementptr inbounds i8, ptr %6, i64 13
@@ -1330,97 +1330,97 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__superblock_prefix_decode(ptr n
   %65 = load i64, ptr @H5E_FILE_g, align 8
   %66 = load i64, ptr @H5E_OVERFLOW_g, align 8
   %67 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__superblock_prefix_decode, i32 noundef 182, i64 noundef %65, i64 noundef %66, ptr noundef nonnull @.str.4) #5
-  br label %109
+  br label %108
 
 68:                                               ; preds = %61, %58
-  %.sink112 = phi ptr [ %59, %58 ], [ %29, %61 ]
+  %.sink110.in = phi ptr [ %59, %58 ], [ %29, %61 ]
   %.sink = phi i64 [ 14, %58 ], [ 10, %61 ]
-  %69 = load i8, ptr %.sink112, align 1
-  %70 = getelementptr inbounds i8, ptr %0, i64 252
-  store i8 %69, ptr %70, align 4
-  %71 = getelementptr inbounds i8, ptr %6, i64 %.sink
-  %72 = load i8, ptr %71, align 1
-  %73 = getelementptr inbounds i8, ptr %0, i64 253
-  store i8 %72, ptr %73, align 1
-  switch i8 %69, label %74 [
-    i8 2, label %78
-    i8 4, label %78
-    i8 8, label %78
-    i8 16, label %78
-    i8 32, label %78
+  %.sink110 = load i8, ptr %.sink110.in, align 1
+  %69 = getelementptr inbounds i8, ptr %0, i64 252
+  store i8 %.sink110, ptr %69, align 4
+  %70 = getelementptr inbounds i8, ptr %6, i64 %.sink
+  %71 = load i8, ptr %70, align 1
+  %72 = getelementptr inbounds i8, ptr %0, i64 253
+  store i8 %71, ptr %72, align 1
+  switch i8 %.sink110, label %73 [
+    i8 2, label %77
+    i8 4, label %77
+    i8 8, label %77
+    i8 16, label %77
+    i8 32, label %77
   ]
 
-74:                                               ; preds = %68
-  %75 = load i64, ptr @H5E_FILE_g, align 8
-  %76 = load i64, ptr @H5E_BADVALUE_g, align 8
-  %77 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__superblock_prefix_decode, i32 noundef 189, i64 noundef %75, i64 noundef %76, ptr noundef nonnull @.str.7) #5
-  br label %109
+73:                                               ; preds = %68
+  %74 = load i64, ptr @H5E_FILE_g, align 8
+  %75 = load i64, ptr @H5E_BADVALUE_g, align 8
+  %76 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__superblock_prefix_decode, i32 noundef 189, i64 noundef %74, i64 noundef %75, ptr noundef nonnull @.str.7) #5
+  br label %108
 
-78:                                               ; preds = %68, %68, %68, %68, %68
-  switch i8 %72, label %79 [
-    i8 2, label %83
-    i8 4, label %83
-    i8 8, label %83
-    i8 16, label %83
-    i8 32, label %83
+77:                                               ; preds = %68, %68, %68, %68, %68
+  switch i8 %71, label %78 [
+    i8 2, label %82
+    i8 4, label %82
+    i8 8, label %82
+    i8 16, label %82
+    i8 32, label %82
   ]
 
-79:                                               ; preds = %78
-  %80 = load i64, ptr @H5E_FILE_g, align 8
-  %81 = load i64, ptr @H5E_BADVALUE_g, align 8
-  %82 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__superblock_prefix_decode, i32 noundef 192, i64 noundef %80, i64 noundef %81, ptr noundef nonnull @.str.8) #5
-  br label %109
+78:                                               ; preds = %77
+  %79 = load i64, ptr @H5E_FILE_g, align 8
+  %80 = load i64, ptr @H5E_BADVALUE_g, align 8
+  %81 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__superblock_prefix_decode, i32 noundef 192, i64 noundef %79, i64 noundef %80, ptr noundef nonnull @.str.8) #5
+  br label %108
 
-83:                                               ; preds = %78, %78, %78, %78, %78
-  br i1 %4, label %84, label %108
+82:                                               ; preds = %77, %77, %77, %77, %77
+  br i1 %4, label %83, label %107
 
-84:                                               ; preds = %83
-  %85 = zext nneg i8 %69 to i32
-  %86 = shl nuw nsw i32 %85, 2
-  switch i8 %30, label %96 [
+83:                                               ; preds = %82
+  %84 = zext nneg i8 %.sink110 to i32
+  %85 = shl nuw nsw i32 %84, 2
+  switch i8 %30, label %95 [
     i8 0, label %.thread
-    i8 1, label %91
+    i8 1, label %90
   ]
 
-.thread:                                          ; preds = %84
-  %87 = zext nneg i8 %72 to i32
-  %88 = add nuw nsw i32 %85, 39
+.thread:                                          ; preds = %83
+  %86 = zext nneg i8 %71 to i32
+  %87 = add nuw nsw i32 %84, 39
+  %88 = add nuw nsw i32 %87, %85
   %89 = add nuw nsw i32 %88, %86
-  %90 = add nuw nsw i32 %89, %87
   br label %.thread104
 
-91:                                               ; preds = %84
-  %92 = zext nneg i8 %72 to i32
-  %93 = add nuw nsw i32 %85, 43
-  %94 = add nuw nsw i32 %93, %86
-  %95 = add nuw nsw i32 %94, %92
+90:                                               ; preds = %83
+  %91 = zext nneg i8 %71 to i32
+  %92 = add nuw nsw i32 %84, 43
+  %93 = add nuw nsw i32 %92, %85
+  %94 = add nuw nsw i32 %93, %91
   br label %.thread104
 
-96:                                               ; preds = %84
-  %97 = add nuw nsw i32 %86, 7
+95:                                               ; preds = %83
+  %96 = add nuw nsw i32 %85, 7
   br label %.thread104
 
-.thread104:                                       ; preds = %96, %.thread, %91
-  %98 = phi i32 [ %97, %96 ], [ %90, %.thread ], [ %95, %91 ]
-  %99 = zext nneg i32 %98 to i64
-  %100 = load ptr, ptr %3, align 8
-  %101 = add nuw nsw i64 %99, 9
-  %102 = tail call i32 @H5F__set_eoa(ptr noundef %100, i32 noundef 1, i64 noundef %101) #5
-  %103 = icmp slt i32 %102, 0
-  br i1 %103, label %104, label %108
+.thread104:                                       ; preds = %95, %.thread, %90
+  %97 = phi i32 [ %96, %95 ], [ %89, %.thread ], [ %94, %90 ]
+  %98 = zext nneg i32 %97 to i64
+  %99 = load ptr, ptr %3, align 8
+  %100 = add nuw nsw i64 %98, 9
+  %101 = tail call i32 @H5F__set_eoa(ptr noundef %99, i32 noundef 1, i64 noundef %100) #5
+  %102 = icmp slt i32 %101, 0
+  br i1 %102, label %103, label %107
 
-104:                                              ; preds = %.thread104
-  %105 = load i64, ptr @H5E_FILE_g, align 8
-  %106 = load i64, ptr @H5E_CANTINIT_g, align 8
-  %107 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__superblock_prefix_decode, i32 noundef 206, i64 noundef %105, i64 noundef %106, ptr noundef nonnull @.str.10) #5
-  br label %109
+103:                                              ; preds = %.thread104
+  %104 = load i64, ptr @H5E_FILE_g, align 8
+  %105 = load i64, ptr @H5E_CANTINIT_g, align 8
+  %106 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__superblock_prefix_decode, i32 noundef 206, i64 noundef %104, i64 noundef %105, ptr noundef nonnull @.str.10) #5
+  br label %108
 
-108:                                              ; preds = %.thread104, %83
+107:                                              ; preds = %.thread104, %82
   store ptr %29, ptr %1, align 8
-  br label %109
+  br label %108
 
-109:                                              ; preds = %108, %104, %79, %74, %64, %54, %43, %34, %24, %14
-  %.0 = phi i32 [ -1, %14 ], [ -1, %24 ], [ -1, %34 ], [ -1, %43 ], [ -1, %54 ], [ -1, %74 ], [ -1, %79 ], [ -1, %104 ], [ 0, %108 ], [ -1, %64 ]
+108:                                              ; preds = %107, %103, %78, %73, %64, %54, %43, %34, %24, %14
+  %.0 = phi i32 [ -1, %14 ], [ -1, %24 ], [ -1, %34 ], [ -1, %43 ], [ -1, %54 ], [ -1, %73 ], [ -1, %78 ], [ -1, %103 ], [ 0, %107 ], [ -1, %64 ]
   ret i32 %.0
 }
 

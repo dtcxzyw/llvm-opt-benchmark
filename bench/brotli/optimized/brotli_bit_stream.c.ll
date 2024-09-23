@@ -698,7 +698,7 @@ if.else151:                                       ; preds = %for.end90
   br i1 %cmp17.not286, label %if.end218, label %for.body156
 
 for.body156:                                      ; preds = %if.else151, %if.end216
-  %53 = phi i64 [ %70, %if.end216 ], [ %add.i.i, %if.else151 ]
+  %53 = phi i64 [ %69, %if.end216 ], [ %add.i.i, %if.else151 ]
   %i152.0314 = phi i64 [ %add173.pre-phi, %if.end216 ], [ 0, %if.else151 ]
   %previous_value.0313 = phi i8 [ %previous_value.1, %if.end216 ], [ 8, %if.else151 ]
   %arrayidx157 = getelementptr inbounds i8, ptr %depth, i64 %i152.0314
@@ -812,28 +812,28 @@ if.else210:                                       ; preds = %if.end194
   br label %if.end216.sink.split
 
 if.end216.sink.split:                             ; preds = %if.then177, %if.else210
-  %arrayidx214.sink = phi ptr [ %arrayidx214, %if.else210 ], [ %arrayidx180, %if.then177 ]
   %.sink334 = phi i64 [ %61, %if.else210 ], [ %53, %if.then177 ]
+  %.sink.in = phi ptr [ %arrayidx214, %if.else210 ], [ %arrayidx180, %if.then177 ]
   %conv213.sink.in.in = phi ptr [ %arrayidx212, %if.else210 ], [ %arrayidx178, %if.then177 ]
   %previous_value.1.ph = phi i8 [ %54, %if.else210 ], [ %previous_value.0313, %if.then177 ]
   %conv213.sink.in = load i32, ptr %conv213.sink.in.in, align 4
   %conv213.sink = zext i32 %conv213.sink.in to i64
-  %67 = load i64, ptr %arrayidx214.sink, align 8
+  %.sink = load i64, ptr %.sink.in, align 8
   %shr.i = lshr i64 %.sink334, 3
   %arrayidx.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i
-  %68 = load i8, ptr %arrayidx.i, align 1
-  %conv.i = zext i8 %68 to i64
+  %67 = load i8, ptr %arrayidx.i, align 1
+  %conv.i = zext i8 %67 to i64
   %and.i = and i64 %.sink334, 7
-  %shl.i = shl i64 %67, %and.i
+  %shl.i = shl i64 %.sink, %and.i
   %or.i = or i64 %shl.i, %conv.i
   store i64 %or.i, ptr %arrayidx.i, align 1
-  %69 = load i64, ptr %storage_ix, align 8
-  %add.i = add i64 %69, %conv213.sink
+  %68 = load i64, ptr %storage_ix, align 8
+  %add.i = add i64 %68, %conv213.sink
   store i64 %add.i, ptr %storage_ix, align 8
   br label %if.end216
 
 if.end216:                                        ; preds = %while.body201, %if.end216.sink.split, %while.cond198.preheader
-  %70 = phi i64 [ %61, %while.cond198.preheader ], [ %add.i, %if.end216.sink.split ], [ %add.i231, %while.body201 ]
+  %69 = phi i64 [ %61, %while.cond198.preheader ], [ %add.i, %if.end216.sink.split ], [ %add.i231, %while.body201 ]
   %previous_value.1 = phi i8 [ %54, %while.cond198.preheader ], [ %previous_value.1.ph, %if.end216.sink.split ], [ %54, %while.body201 ]
   %cmp154 = icmp ult i64 %add173.pre-phi, %inc6
   br i1 %cmp154, label %for.body156, label %if.end218, !llvm.loop !27

@@ -2786,12 +2786,12 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis16is
   %10 = load i64, ptr %9, align 8
   %11 = and i64 %10, 2048
   %.not = icmp eq i64 %11, 0
-  br i1 %.not, label %12, label %28
+  br i1 %.not, label %12, label %31
 
 12:                                               ; preds = %2
-  switch i32 %5, label %28 [
+  switch i32 %5, label %31 [
     i32 12784, label %13
-    i32 12453, label %21
+    i32 12453, label %24
   ]
 
 13:                                               ; preds = %12
@@ -2800,28 +2800,28 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis16is
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %17, 43
-  br i1 %18, label %19, label %28
+  br i1 %18, label %19, label %31
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds i8, ptr %15, i64 24
-  br label %.sink.split
+  %21 = load i32, ptr %20, align 8
+  %22 = icmp ne i32 %21, 44
+  %23 = icmp ne i32 %21, 48
+  %.not14 = and i1 %22, %23
+  br label %31
 
-21:                                               ; preds = %12
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  br label %.sink.split
+24:                                               ; preds = %12
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %28 = load i32, ptr %27, align 8
+  %29 = icmp ne i32 %28, 44
+  %30 = icmp ne i32 %28, 48
+  %.not11 = and i1 %29, %30
+  br label %31
 
-.sink.split:                                      ; preds = %21, %19
-  %.sink = phi ptr [ %20, %19 ], [ %24, %21 ]
-  %25 = load i32, ptr %.sink, align 8
-  %26 = icmp ne i32 %25, 44
-  %27 = icmp ne i32 %25, 48
-  %.not14 = and i1 %26, %27
-  br label %28
-
-28:                                               ; preds = %.sink.split, %13, %12, %2
-  %.0 = phi i1 [ true, %2 ], [ false, %12 ], [ false, %13 ], [ %.not14, %.sink.split ]
+31:                                               ; preds = %13, %19, %12, %2, %24
+  %.0 = phi i1 [ %.not11, %24 ], [ true, %2 ], [ false, %12 ], [ false, %13 ], [ %.not14, %19 ]
   ret i1 %.0
 }
 
@@ -2869,12 +2869,12 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis8isR
   %10 = load i64, ptr %9, align 8
   %11 = and i64 %10, 32
   %.not = icmp eq i64 %11, 0
-  br i1 %.not, label %12, label %29
+  br i1 %.not, label %12, label %33
 
 12:                                               ; preds = %2
-  switch i32 %5, label %29 [
+  switch i32 %5, label %33 [
     i32 12784, label %13
-    i32 12453, label %21
+    i32 12453, label %25
   ]
 
 13:                                               ; preds = %12
@@ -2883,28 +2883,28 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis8isR
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %17, 43
-  br i1 %18, label %19, label %29
+  br i1 %18, label %19, label %33
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds i8, ptr %15, i64 24
-  br label %.sink.split
+  %21 = load i32, ptr %20, align 8
+  %22 = icmp eq i32 %21, 44
+  %23 = icmp eq i32 %21, 48
+  %24 = or i1 %22, %23
+  br label %33
 
-21:                                               ; preds = %12
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  br label %.sink.split
+25:                                               ; preds = %12
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %29 = load i32, ptr %28, align 8
+  %30 = icmp eq i32 %29, 44
+  %31 = icmp eq i32 %29, 48
+  %32 = or i1 %30, %31
+  br label %33
 
-.sink.split:                                      ; preds = %21, %19
-  %.sink = phi ptr [ %20, %19 ], [ %24, %21 ]
-  %25 = load i32, ptr %.sink, align 8
-  %26 = icmp eq i32 %25, 44
-  %27 = icmp eq i32 %25, 48
-  %28 = or i1 %26, %27
-  br label %29
-
-29:                                               ; preds = %.sink.split, %13, %12, %2
-  %.0 = phi i1 [ true, %2 ], [ false, %12 ], [ false, %13 ], [ %28, %.sink.split ]
+33:                                               ; preds = %13, %19, %12, %2, %25
+  %.0 = phi i1 [ %32, %25 ], [ true, %2 ], [ false, %12 ], [ false, %13 ], [ %24, %19 ]
   ret i1 %.0
 }
 
@@ -3018,7 +3018,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis14ev
   %7 = getelementptr inbounds i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) #19
-  br i1 %9, label %10, label %14
+  br i1 %9, label %10, label %15
 
 10:                                               ; preds = %5
   %11 = icmp eq i64 %3, 2
@@ -3026,76 +3026,81 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis14ev
   %13 = load ptr, ptr %12, align 8
   %.0.in.v = select i1 %11, i64 24, i64 40
   %.0.in = getelementptr inbounds i8, ptr %13, i64 %.0.in.v
+  %.0 = load i64, ptr %.0.in, align 8
+  %14 = add i64 %.0, %2
   br label %_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis11getGPRStateEj.exit.sink.split
 
-14:                                               ; preds = %5
-  %15 = load i32, ptr %1, align 8
-  switch i32 %15, label %_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis11getGPRStateEj.exit [
-    i32 12451, label %16
-    i32 12450, label %16
-    i32 12783, label %20
-    i32 12784, label %24
+15:                                               ; preds = %5
+  %16 = load i32, ptr %1, align 8
+  switch i32 %16, label %_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis11getGPRStateEj.exit [
+    i32 12451, label %17
+    i32 12450, label %17
+    i32 12783, label %23
+    i32 12784, label %29
   ]
 
-16:                                               ; preds = %14, %14
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
+17:                                               ; preds = %15, %15
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %21 = load i64, ptr %20, align 8
+  %22 = add i64 %21, %2
   br label %_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis11getGPRStateEj.exit.sink.split
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+23:                                               ; preds = %15
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 24
+  %27 = load i64, ptr %26, align 8
+  %28 = add i64 %27, %2
   br label %_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis11getGPRStateEj.exit.sink.split
 
-24:                                               ; preds = %14
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 24
-  %28 = load i32, ptr %27, align 8
-  %29 = icmp eq i32 %28, 43
-  br i1 %29, label %43, label %30
+29:                                               ; preds = %15
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 24
+  %33 = load i32, ptr %32, align 8
+  %34 = icmp eq i32 %33, 43
+  br i1 %34, label %48, label %35
 
-30:                                               ; preds = %24
-  %31 = add i32 %28, -44
-  %32 = zext i32 %31 to i64
-  %33 = icmp ugt i32 %31, 30
-  br i1 %33, label %34, label %_ZNKSt6bitsetILm31EE4testEm.exit.i
+35:                                               ; preds = %29
+  %36 = add i32 %33, -44
+  %37 = zext i32 %36 to i64
+  %38 = icmp ugt i32 %36, 30
+  br i1 %38, label %39, label %_ZNKSt6bitsetILm31EE4testEm.exit.i
 
-34:                                               ; preds = %30
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.646, ptr noundef nonnull @.str.648, i64 noundef %32, i64 noundef 31) #23
+39:                                               ; preds = %35
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.646, ptr noundef nonnull @.str.648, i64 noundef %37, i64 noundef 31) #23
   unreachable
 
-_ZNKSt6bitsetILm31EE4testEm.exit.i:               ; preds = %30
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %36 = load i64, ptr %35, align 8
-  %37 = shl nuw nsw i64 1, %32
-  %38 = and i64 %36, %37
-  %.not.i = icmp eq i64 %38, 0
-  br i1 %.not.i, label %_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis11getGPRStateEj.exit, label %39
+_ZNKSt6bitsetILm31EE4testEm.exit.i:               ; preds = %35
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %41 = load i64, ptr %40, align 8
+  %42 = shl nuw nsw i64 1, %37
+  %43 = and i64 %41, %42
+  %.not.i = icmp eq i64 %43, 0
+  br i1 %.not.i, label %_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis11getGPRStateEj.exit, label %44
 
-39:                                               ; preds = %_ZNKSt6bitsetILm31EE4testEm.exit.i
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %41 = getelementptr inbounds [31 x i64], ptr %40, i64 0, i64 %32
-  %42 = load i64, ptr %41, align 8
-  br label %43
+44:                                               ; preds = %_ZNKSt6bitsetILm31EE4testEm.exit.i
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %46 = getelementptr inbounds [31 x i64], ptr %45, i64 0, i64 %37
+  %47 = load i64, ptr %46, align 8
+  br label %48
 
-43:                                               ; preds = %39, %24
-  %.sroa.0.0.i.ph = phi i64 [ 0, %24 ], [ %42, %39 ]
-  %44 = getelementptr inbounds i8, ptr %26, i64 40
+48:                                               ; preds = %44, %29
+  %.sroa.0.0.i.ph = phi i64 [ 0, %29 ], [ %47, %44 ]
+  %49 = getelementptr inbounds i8, ptr %31, i64 40
+  %50 = load i64, ptr %49, align 8
+  %51 = add nsw i64 %50, %.sroa.0.0.i.ph
   br label %_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis11getGPRStateEj.exit.sink.split
 
-_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis11getGPRStateEj.exit.sink.split: ; preds = %10, %16, %20, %43
-  %.sink = phi ptr [ %44, %43 ], [ %23, %20 ], [ %19, %16 ], [ %.0.in, %10 ]
-  %.sroa.0.0.i.ph.sink = phi i64 [ %.sroa.0.0.i.ph, %43 ], [ %2, %20 ], [ %2, %16 ], [ %2, %10 ]
-  %45 = load i64, ptr %.sink, align 8
-  %46 = add i64 %45, %.sroa.0.0.i.ph.sink
-  store i64 %46, ptr %4, align 8
+_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis11getGPRStateEj.exit.sink.split: ; preds = %10, %17, %23, %48
+  %.sink = phi i64 [ %51, %48 ], [ %28, %23 ], [ %22, %17 ], [ %14, %10 ]
+  store i64 %.sink, ptr %4, align 8
   br label %_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis11getGPRStateEj.exit
 
-_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis11getGPRStateEj.exit: ; preds = %_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis11getGPRStateEj.exit.sink.split, %_ZNKSt6bitsetILm31EE4testEm.exit.i, %14
-  %.021 = phi i1 [ false, %14 ], [ false, %_ZNKSt6bitsetILm31EE4testEm.exit.i ], [ true, %_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis11getGPRStateEj.exit.sink.split ]
+_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis11getGPRStateEj.exit: ; preds = %_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis11getGPRStateEj.exit.sink.split, %_ZNKSt6bitsetILm31EE4testEm.exit.i, %15
+  %.021 = phi i1 [ false, %15 ], [ false, %_ZNKSt6bitsetILm31EE4testEm.exit.i ], [ true, %_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis11getGPRStateEj.exit.sink.split ]
   ret i1 %.021
 }
 

@@ -2900,28 +2900,28 @@ if.else774:                                       ; preds = %if.end708
   br label %if.end781
 
 if.end781:                                        ; preds = %if.else774, %if.then712
-  %pending_buf.i432.sink = phi ptr [ %pending_buf.i432, %if.else774 ], [ %pending_buf716, %if.then712 ]
+  %.sink510.in = phi ptr [ %pending_buf.i432, %if.else774 ], [ %pending_buf716, %if.then712 ]
   %.sink.in = phi i64 [ %280, %if.else774 ], [ %shr767, %if.then712 ]
   %.sink = trunc i64 %.sink.in to i8
-  %283 = load ptr, ptr %pending_buf.i432.sink, align 8
-  %284 = load i64, ptr %pending, align 8
-  %inc4.i446 = add i64 %284, 1
+  %.sink510 = load ptr, ptr %.sink510.in, align 8
+  %283 = load i64, ptr %pending, align 8
+  %inc4.i446 = add i64 %283, 1
   store i64 %inc4.i446, ptr %pending, align 8
-  %arrayidx5.i447 = getelementptr inbounds i8, ptr %283, i64 %284
+  %arrayidx5.i447 = getelementptr inbounds i8, ptr %.sink510, i64 %283
   store i8 %.sink, ptr %arrayidx5.i447, align 1
   tail call fastcc void @flush_pending(ptr noundef nonnull %strm)
-  %285 = load i32, ptr %wrap704, align 8
-  %cmp783 = icmp sgt i32 %285, 0
+  %284 = load i32, ptr %wrap704, align 8
+  %cmp783 = icmp sgt i32 %284, 0
   br i1 %cmp783, label %if.then785, label %if.end789
 
 if.then785:                                       ; preds = %if.end781
-  %sub787 = sub nsw i32 0, %285
+  %sub787 = sub nsw i32 0, %284
   store i32 %sub787, ptr %wrap704, align 8
   br label %if.end789
 
 if.end789:                                        ; preds = %if.then785, %if.end781
-  %286 = load i64, ptr %pending, align 8
-  %cmp791.not = icmp eq i64 %286, 0
+  %285 = load i64, ptr %pending, align 8
+  %cmp791.not = icmp eq i64 %285, 0
   %cond793 = zext i1 %cmp791.not to i32
   br label %return
 

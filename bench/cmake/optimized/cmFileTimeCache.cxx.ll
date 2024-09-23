@@ -80,29 +80,26 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE10cmFil
 define dso_local noundef zeroext i1 @_ZN15cmFileTimeCache4LoadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER10cmFileTime(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #2 align 2 {
   %4 = tail call ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_10cmFileTimeESaIS9_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %7, label %5
+  br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %4, i64 40
-  br label %.sink.split
+  %7 = load i64, ptr %6, align 8
+  store i64 %7, ptr %2, align 8
+  br label %13
 
-7:                                                ; preds = %3
-  %8 = tail call noundef zeroext i1 @_ZN10cmFileTime4LoadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  br i1 %8, label %9, label %12
+8:                                                ; preds = %3
+  %9 = tail call noundef zeroext i1 @_ZN10cmFileTime4LoadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  br i1 %9, label %10, label %13
 
-9:                                                ; preds = %7
-  %10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_10cmFileTimeESaISA_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  br label %.sink.split
+10:                                               ; preds = %8
+  %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_10cmFileTimeESaISA_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %12 = load i64, ptr %2, align 8
+  store i64 %12, ptr %11, align 8
+  br label %13
 
-.sink.split:                                      ; preds = %5, %9
-  %.sink11 = phi ptr [ %2, %9 ], [ %6, %5 ]
-  %.sink10 = phi ptr [ %10, %9 ], [ %2, %5 ]
-  %11 = load i64, ptr %.sink11, align 8
-  store i64 %11, ptr %.sink10, align 8
-  br label %12
-
-12:                                               ; preds = %.sink.split, %7
-  %.0 = phi i1 [ false, %7 ], [ true, %.sink.split ]
+13:                                               ; preds = %8, %10, %5
+  %.0 = phi i1 [ true, %5 ], [ true, %10 ], [ false, %8 ]
   ret i1 %.0
 }
 
@@ -123,57 +120,53 @@ define dso_local noundef zeroext i1 @_ZN15cmFileTimeCache7CompareERKNSt7__cxx111
   store i64 0, ptr %6, align 8
   %7 = tail call ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_10cmFileTimeESaIS9_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %.not.i = icmp eq ptr %7, null
-  br i1 %.not.i, label %10, label %8
+  br i1 %.not.i, label %11, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %7, i64 40
-  br label %14
+  %10 = load i64, ptr %9, align 8
+  store i64 %10, ptr %5, align 8
+  br label %16
 
-10:                                               ; preds = %4
-  %11 = call noundef zeroext i1 @_ZN10cmFileTime4LoadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  br i1 %11, label %12, label %_ZN15cmFileTimeCache4LoadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER10cmFileTime.exit
+11:                                               ; preds = %4
+  %12 = call noundef zeroext i1 @_ZN10cmFileTime4LoadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  br i1 %12, label %13, label %_ZN15cmFileTimeCache4LoadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER10cmFileTime.exit
 
-12:                                               ; preds = %10
-  %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_10cmFileTimeESaISA_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  br label %14
+13:                                               ; preds = %11
+  %14 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_10cmFileTimeESaISA_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %15 = load i64, ptr %5, align 8
+  store i64 %15, ptr %14, align 8
+  br label %16
 
-14:                                               ; preds = %8, %12
-  %.sink11.i = phi ptr [ %5, %12 ], [ %9, %8 ]
-  %.sink10.i = phi ptr [ %13, %12 ], [ %5, %8 ]
-  %15 = load i64, ptr %.sink11.i, align 8
-  store i64 %15, ptr %.sink10.i, align 8
-  %16 = call ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_10cmFileTimeESaIS9_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  %.not.i6 = icmp eq ptr %16, null
-  br i1 %.not.i6, label %19, label %17
+16:                                               ; preds = %8, %13
+  %17 = call ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_10cmFileTimeESaIS9_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  %.not.i6 = icmp eq ptr %17, null
+  br i1 %.not.i6, label %21, label %18
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %16, i64 40
-  br label %23
+18:                                               ; preds = %16
+  %19 = getelementptr inbounds i8, ptr %17, i64 40
+  %20 = load i64, ptr %19, align 8
+  br label %26
 
-19:                                               ; preds = %14
-  %20 = call noundef zeroext i1 @_ZN10cmFileTime4LoadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  br i1 %20, label %21, label %_ZN15cmFileTimeCache4LoadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER10cmFileTime.exit
+21:                                               ; preds = %16
+  %22 = call noundef zeroext i1 @_ZN10cmFileTime4LoadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  br i1 %22, label %23, label %_ZN15cmFileTimeCache4LoadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER10cmFileTime.exit
 
-21:                                               ; preds = %19
-  %22 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_10cmFileTimeESaISA_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  br label %23
+23:                                               ; preds = %21
+  %24 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_10cmFileTimeESaISA_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  %25 = load i64, ptr %6, align 8
+  store i64 %25, ptr %24, align 8
+  br label %26
 
-23:                                               ; preds = %17, %21
-  %.sink11.i8 = phi ptr [ %6, %21 ], [ %18, %17 ]
-  %.sink10.i9 = phi ptr [ %22, %21 ], [ %6, %17 ]
-  %24 = load i64, ptr %.sink11.i8, align 8
-  store i64 %24, ptr %.sink10.i9, align 8
-  %25 = load i64, ptr %5, align 8
-  %26 = load i64, ptr %6, align 8
-  %27 = icmp eq i64 %25, %26
-  %28 = icmp slt i64 %25, %26
-  %29 = select i1 %28, i32 -1, i32 1
-  %.0.i12 = select i1 %27, i32 0, i32 %29
+26:                                               ; preds = %18, %23
+  %27 = phi i64 [ %20, %18 ], [ %25, %23 ]
+  %28 = load i64, ptr %5, align 8
+  %.0.i9 = call noundef i32 @llvm.scmp.i32.i64(i64 %28, i64 %27)
   br label %_ZN15cmFileTimeCache4LoadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER10cmFileTime.exit
 
-_ZN15cmFileTimeCache4LoadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER10cmFileTime.exit: ; preds = %19, %10, %23
-  %storemerge = phi i32 [ %.0.i12, %23 ], [ 0, %10 ], [ 0, %19 ]
-  %.0 = phi i1 [ true, %23 ], [ false, %10 ], [ false, %19 ]
+_ZN15cmFileTimeCache4LoadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER10cmFileTime.exit: ; preds = %21, %11, %26
+  %storemerge = phi i32 [ %.0.i9, %26 ], [ 0, %11 ], [ 0, %21 ]
+  %.0 = phi i1 [ true, %26 ], [ false, %11 ], [ false, %21 ]
   store i32 %storemerge, ptr %3, align 4
   ret i1 %.0
 }
@@ -186,55 +179,54 @@ define dso_local noundef zeroext i1 @_ZN15cmFileTimeCache7DifferSERKNSt7__cxx111
   store i64 0, ptr %5, align 8
   %6 = tail call ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_10cmFileTimeESaIS9_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %.not.i = icmp eq ptr %6, null
-  br i1 %.not.i, label %9, label %7
+  br i1 %.not.i, label %10, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %6, i64 40
-  br label %13
+  %9 = load i64, ptr %8, align 8
+  store i64 %9, ptr %4, align 8
+  br label %15
 
-9:                                                ; preds = %3
-  %10 = call noundef zeroext i1 @_ZN10cmFileTime4LoadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  br i1 %10, label %11, label %_ZN15cmFileTimeCache4LoadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER10cmFileTime.exit
+10:                                               ; preds = %3
+  %11 = call noundef zeroext i1 @_ZN10cmFileTime4LoadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  br i1 %11, label %12, label %_ZN15cmFileTimeCache4LoadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER10cmFileTime.exit
 
-11:                                               ; preds = %9
-  %12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_10cmFileTimeESaISA_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  br label %13
+12:                                               ; preds = %10
+  %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_10cmFileTimeESaISA_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %14 = load i64, ptr %4, align 8
+  store i64 %14, ptr %13, align 8
+  br label %15
 
-13:                                               ; preds = %7, %11
-  %.sink11.i = phi ptr [ %4, %11 ], [ %8, %7 ]
-  %.sink10.i = phi ptr [ %12, %11 ], [ %4, %7 ]
-  %14 = load i64, ptr %.sink11.i, align 8
-  store i64 %14, ptr %.sink10.i, align 8
-  %15 = call ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_10cmFileTimeESaIS9_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  %.not.i4 = icmp eq ptr %15, null
-  br i1 %.not.i4, label %18, label %16
+15:                                               ; preds = %7, %12
+  %16 = call ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_10cmFileTimeESaIS9_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  %.not.i4 = icmp eq ptr %16, null
+  br i1 %.not.i4, label %20, label %17
 
-16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %15, i64 40
-  br label %22
+17:                                               ; preds = %15
+  %18 = getelementptr inbounds i8, ptr %16, i64 40
+  %19 = load i64, ptr %18, align 8
+  br label %25
 
-18:                                               ; preds = %13
-  %19 = call noundef zeroext i1 @_ZN10cmFileTime4LoadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  br i1 %19, label %20, label %_ZN15cmFileTimeCache4LoadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER10cmFileTime.exit
+20:                                               ; preds = %15
+  %21 = call noundef zeroext i1 @_ZN10cmFileTime4LoadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  br i1 %21, label %22, label %_ZN15cmFileTimeCache4LoadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER10cmFileTime.exit
 
-20:                                               ; preds = %18
-  %21 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_10cmFileTimeESaISA_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  br label %22
+22:                                               ; preds = %20
+  %23 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_10cmFileTimeESaISA_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  %24 = load i64, ptr %5, align 8
+  store i64 %24, ptr %23, align 8
+  br label %25
 
-22:                                               ; preds = %16, %20
-  %.sink11.i6 = phi ptr [ %5, %20 ], [ %17, %16 ]
-  %.sink10.i7 = phi ptr [ %21, %20 ], [ %5, %16 ]
-  %23 = load i64, ptr %.sink11.i6, align 8
-  store i64 %23, ptr %.sink10.i7, align 8
-  %24 = load i64, ptr %4, align 8
-  %25 = load i64, ptr %5, align 8
-  %26 = sub nsw i64 %24, %25
-  %spec.select.i = call i64 @llvm.abs.i64(i64 %26, i1 true)
-  %27 = icmp ugt i64 %spec.select.i, 999999999
+25:                                               ; preds = %17, %22
+  %26 = phi i64 [ %19, %17 ], [ %24, %22 ]
+  %27 = load i64, ptr %4, align 8
+  %28 = sub nsw i64 %27, %26
+  %spec.select.i = call i64 @llvm.abs.i64(i64 %28, i1 true)
+  %29 = icmp ugt i64 %spec.select.i, 999999999
   br label %_ZN15cmFileTimeCache4LoadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER10cmFileTime.exit
 
-_ZN15cmFileTimeCache4LoadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER10cmFileTime.exit: ; preds = %18, %9, %22
-  %.0 = phi i1 [ %27, %22 ], [ true, %9 ], [ true, %18 ]
+_ZN15cmFileTimeCache4LoadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER10cmFileTime.exit: ; preds = %20, %10, %25
+  %.0 = phi i1 [ %29, %25 ], [ true, %10 ], [ true, %20 ]
   ret i1 %.0
 }
 
@@ -684,22 +676,18 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
-  br label %.sink.split
+  store ptr %.031, ptr %24, align 8
+  br label %28
 
 25:                                               ; preds = %.lr.ph
   %26 = load ptr, ptr %19, align 8
   store ptr %26, ptr %.031, align 8
   %27 = load ptr, ptr %18, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %25, %23
-  %.sink = phi ptr [ %24, %23 ], [ %27, %25 ]
-  %.1.ph = phi i64 [ %17, %23 ], [ %.02530, %25 ]
-  store ptr %.031, ptr %.sink, align 8
+  store ptr %.031, ptr %27, align 8
   br label %28
 
-28:                                               ; preds = %.sink.split, %20
-  %.1 = phi i64 [ %17, %20 ], [ %.1.ph, %.sink.split ]
+28:                                               ; preds = %20, %23, %25
+  %.1 = phi i64 [ %.02530, %25 ], [ %17, %23 ], [ %17, %20 ]
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
@@ -876,6 +864,9 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #12

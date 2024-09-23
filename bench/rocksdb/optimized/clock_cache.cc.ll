@@ -2928,22 +2928,32 @@ if.end27:                                         ; preds = %if.end27.preheader,
   %home_shift.083 = phi i32 [ %home_shift.1, %for.inc96 ], [ %add.i, %if.end27.preheader ]
   %home.082 = phi i64 [ %home.1, %for.inc96 ], [ %4, %if.end27.preheader ]
   %tobool28.not = icmp eq ptr %h22.084, null
-  %head_next_with_shift32 = getelementptr inbounds %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %5, i64 %home.082, i32 1
+  br i1 %tobool28.not, label %cond.false, label %cond.true
+
+cond.true:                                        ; preds = %if.end27
   %chain_next_with_shift29 = getelementptr inbounds i8, ptr %h22.084, i64 56
-  %head_next_with_shift32.sink = select i1 %tobool28.not, ptr %head_next_with_shift32, ptr %chain_next_with_shift29
-  %10 = load atomic i64, ptr %head_next_with_shift32.sink acquire, align 8
-  %11 = trunc i64 %10 to i32
-  %conv1.i.i = and i32 %11, 63
+  %10 = load atomic i64, ptr %chain_next_with_shift29 acquire, align 8
+  br label %cond.end
+
+cond.false:                                       ; preds = %if.end27
+  %head_next_with_shift32 = getelementptr inbounds %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %5, i64 %home.082, i32 1
+  %11 = load atomic i64, ptr %head_next_with_shift32 acquire, align 8
+  br label %cond.end
+
+cond.end:                                         ; preds = %cond.false, %cond.true
+  %cond = phi i64 [ %10, %cond.true ], [ %11, %cond.false ]
+  %12 = trunc i64 %cond to i32
+  %conv1.i.i = and i32 %12, 63
   %cmp35.not = icmp eq i32 %conv1.i.i, %home_shift.083
   br i1 %cmp35.not, label %if.end51, label %if.then36
 
-if.then36:                                        ; preds = %if.end27
+if.then36:                                        ; preds = %cond.end
   %cmp37 = icmp slt i32 %conv1.i.i, %home_shift.083
   br i1 %cmp37, label %if.then38, label %if.else40
 
 if.then38:                                        ; preds = %if.then36
-  %conv.i.i = and i64 %10, 63
-  %12 = tail call noundef i64 @llvm.x86.bmi.bzhi.64(i64 %home.082, i64 %conv.i.i)
+  %conv.i.i = and i64 %cond, 63
+  %13 = tail call noundef i64 @llvm.x86.bmi.bzhi.64(i64 %home.082, i64 %conv.i.i)
   br label %if.end51
 
 if.else40:                                        ; preds = %if.then36
@@ -2952,9 +2962,9 @@ if.else40:                                        ; preds = %if.then36
 
 if.then42:                                        ; preds = %if.else40
   %inc43 = add nsw i32 %home_shift.083, 1
-  %13 = load i64, ptr %arrayidx.i.i, align 8
+  %14 = load i64, ptr %arrayidx.i.i, align 8
   %conv.i.i48 = sext i32 %inc43 to i64
-  %14 = tail call noundef i64 @llvm.x86.bmi.bzhi.64(i64 %13, i64 %conv.i.i48)
+  %15 = tail call noundef i64 @llvm.x86.bmi.bzhi.64(i64 %14, i64 %conv.i.i48)
   %tobool46.not = icmp eq ptr %read_ref_on_chain.085, null
   br i1 %tobool46.not, label %for.inc96, label %if.then47
 
@@ -2962,11 +2972,11 @@ if.then47:                                        ; preds = %if.then42
   %meta.i49 = getelementptr inbounds i8, ptr %read_ref_on_chain.085, i64 40
   br label %for.inc96.sink.split
 
-if.end51:                                         ; preds = %if.then38, %if.end27
-  %effective_home.0 = phi i64 [ %12, %if.then38 ], [ %home.082, %if.end27 ]
-  %and.i50 = and i64 %10, 64
+if.end51:                                         ; preds = %if.then38, %cond.end
+  %effective_home.0 = phi i64 [ %13, %if.then38 ], [ %home.082, %cond.end ]
+  %and.i50 = and i64 %cond, 64
   %tobool.i51.not = icmp eq i64 %and.i50, 0
-  %shr.i54 = lshr i64 %10, 8
+  %shr.i54 = lshr i64 %cond, 8
   br i1 %tobool.i51.not, label %if.end61, label %if.then53
 
 if.then53:                                        ; preds = %if.end51
@@ -2979,14 +2989,14 @@ if.then56:                                        ; preds = %if.then53
 
 if.then58:                                        ; preds = %if.then56
   %meta.i53 = getelementptr inbounds i8, ptr %read_ref_on_chain.085, i64 40
-  %15 = atomicrmw sub ptr %meta.i53, i64 1 acq_rel, align 8
+  %16 = atomicrmw sub ptr %meta.i53, i64 1 acq_rel, align 8
   br label %return
 
 if.end61:                                         ; preds = %if.end51
   %arrayidx63 = getelementptr inbounds %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %5, i64 %shr.i54
   %meta.i55 = getelementptr inbounds i8, ptr %arrayidx63, i64 40
-  %16 = atomicrmw add ptr %meta.i55, i64 1 acq_rel, align 8
-  %and.i56 = and i64 %16, 4611686018427387904
+  %17 = atomicrmw add ptr %meta.i55, i64 1 acq_rel, align 8
+  %and.i56 = and i64 %17, 4611686018427387904
   %cmp.i57 = icmp eq i64 %and.i56, 0
   br i1 %cmp.i57, label %for.inc96, label %if.end2.i
 
@@ -2994,7 +3004,7 @@ if.end2.i:                                        ; preds = %if.end61
   %hashed_key4.i = getelementptr inbounds i8, ptr %arrayidx63, i64 16
   %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %hashed_key4.i, ptr noundef nonnull readonly dereferenceable(16) %hashed_key, i64 16)
   %tobool1.not.i.i.i.i.i.i = icmp ne i32 %bcmp.i.i.i.i.i.i, 0
-  %and7.i = and i64 %16, 2305843009213693952
+  %and7.i = and i64 %17, 2305843009213693952
   %tobool8.not.i = icmp eq i64 %and7.i, 0
   %or.cond.i = or i1 %tobool8.not.i, %tobool1.not.i.i.i.i.i.i
   br i1 %or.cond.i, label %if.else.i, label %if.then67
@@ -3005,10 +3015,10 @@ if.else.i:                                        ; preds = %if.end2.i
 
 land.lhs.true14.i:                                ; preds = %if.else.i
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %arrayidx63, i64 24
-  %17 = load i64, ptr %arrayidx.i.i.i, align 8
-  %conv.i.i58 = and i64 %10, 63
-  %18 = tail call noundef i64 @llvm.x86.bmi.bzhi.64(i64 %17, i64 %conv.i.i58)
-  %cmp18.i = icmp eq i64 %effective_home.0, %18
+  %18 = load i64, ptr %arrayidx.i.i.i, align 8
+  %conv.i.i58 = and i64 %cond, 63
+  %19 = tail call noundef i64 @llvm.x86.bmi.bzhi.64(i64 %18, i64 %conv.i.i58)
+  %cmp18.i = icmp eq i64 %effective_home.0, %19
   br i1 %cmp18.i, label %if.else76, label %for.inc96.sink.split
 
 if.then67:                                        ; preds = %if.end2.i
@@ -3017,19 +3027,19 @@ if.then67:                                        ; preds = %if.end2.i
 
 if.then69:                                        ; preds = %if.then67
   %meta.i59 = getelementptr inbounds i8, ptr %read_ref_on_chain.085, i64 40
-  %19 = atomicrmw sub ptr %meta.i59, i64 1 acq_rel, align 8
+  %20 = atomicrmw sub ptr %meta.i59, i64 1 acq_rel, align 8
   br label %if.end70
 
 if.end70:                                         ; preds = %if.then69, %if.then67
   %eviction_callback_ = getelementptr inbounds i8, ptr %this, i64 144
-  %20 = load ptr, ptr %eviction_callback_, align 16
-  %_M_manager.i.i = getelementptr inbounds i8, ptr %20, i64 16
-  %21 = load ptr, ptr %_M_manager.i.i, align 8
-  %tobool.not.i.i.not = icmp eq ptr %21, null
+  %21 = load ptr, ptr %eviction_callback_, align 16
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = load ptr, ptr %_M_manager.i.i, align 8
+  %tobool.not.i.i.not = icmp eq ptr %22, null
   br i1 %tobool.not.i.i.not, label %return, label %if.then72
 
 if.then72:                                        ; preds = %if.end70
-  %22 = atomicrmw or ptr %meta.i55, i64 1152921504606846976 monotonic, align 8
+  %23 = atomicrmw or ptr %meta.i55, i64 1152921504606846976 monotonic, align 8
   br label %return
 
 if.else76:                                        ; preds = %land.lhs.true14.i
@@ -3037,8 +3047,8 @@ if.else76:                                        ; preds = %land.lhs.true14.i
 
 land.lhs.true78:                                  ; preds = %if.else76
   %conv.i61 = zext nneg i32 %home_shift.083 to i64
-  %23 = tail call noundef i64 @llvm.x86.bmi.bzhi.64(i64 %17, i64 %conv.i61)
-  %cmp82.not = icmp eq i64 %home.082, %23
+  %24 = tail call noundef i64 @llvm.x86.bmi.bzhi.64(i64 %18, i64 %conv.i61)
+  %cmp82.not = icmp eq i64 %home.082, %24
   br i1 %cmp82.not, label %if.else84, label %for.inc96.sink.split
 
 if.else84:                                        ; preds = %land.lhs.true78, %if.else76
@@ -3051,15 +3061,15 @@ if.then86:                                        ; preds = %if.else84
 
 for.inc96.sink.split:                             ; preds = %land.lhs.true78, %if.else.i, %land.lhs.true14.i, %if.then47, %if.then86
   %meta.i55.sink = phi ptr [ %meta.i63, %if.then86 ], [ %meta.i49, %if.then47 ], [ %meta.i55, %land.lhs.true14.i ], [ %meta.i55, %if.else.i ], [ %meta.i55, %land.lhs.true78 ]
-  %home.1.ph = phi i64 [ %home.082, %if.then86 ], [ %14, %if.then47 ], [ %home.082, %land.lhs.true14.i ], [ %home.082, %if.else.i ], [ %home.082, %land.lhs.true78 ]
+  %home.1.ph = phi i64 [ %home.082, %if.then86 ], [ %15, %if.then47 ], [ %home.082, %land.lhs.true14.i ], [ %home.082, %if.else.i ], [ %home.082, %land.lhs.true78 ]
   %home_shift.1.ph = phi i32 [ %home_shift.083, %if.then86 ], [ %inc43, %if.then47 ], [ %home_shift.083, %land.lhs.true14.i ], [ %home_shift.083, %if.else.i ], [ %home_shift.083, %land.lhs.true78 ]
   %h22.1.ph = phi ptr [ %arrayidx63, %if.then86 ], [ null, %if.then47 ], [ %read_ref_on_chain.085, %land.lhs.true14.i ], [ %read_ref_on_chain.085, %if.else.i ], [ %arrayidx63, %land.lhs.true78 ]
   %read_ref_on_chain.1.ph = phi ptr [ %arrayidx63, %if.then86 ], [ null, %if.then47 ], [ %read_ref_on_chain.085, %land.lhs.true14.i ], [ %read_ref_on_chain.085, %if.else.i ], [ %read_ref_on_chain.085, %land.lhs.true78 ]
-  %24 = atomicrmw sub ptr %meta.i55.sink, i64 1 acq_rel, align 8
+  %25 = atomicrmw sub ptr %meta.i55.sink, i64 1 acq_rel, align 8
   br label %for.inc96
 
 for.inc96:                                        ; preds = %for.inc96.sink.split, %if.end61, %if.else84, %if.then53, %if.else40, %if.then42
-  %home.1 = phi i64 [ %home.082, %if.then53 ], [ %home.082, %if.else84 ], [ %14, %if.then42 ], [ %home.082, %if.else40 ], [ %home.082, %if.end61 ], [ %home.1.ph, %for.inc96.sink.split ]
+  %home.1 = phi i64 [ %home.082, %if.then53 ], [ %home.082, %if.else84 ], [ %15, %if.then42 ], [ %home.082, %if.else40 ], [ %home.082, %if.end61 ], [ %home.1.ph, %for.inc96.sink.split ]
   %home_shift.1 = phi i32 [ %home_shift.083, %if.then53 ], [ %home_shift.083, %if.else84 ], [ %inc43, %if.then42 ], [ %home_shift.083, %if.else40 ], [ %home_shift.083, %if.end61 ], [ %home_shift.1.ph, %for.inc96.sink.split ]
   %h22.1 = phi ptr [ %read_ref_on_chain.085, %if.then53 ], [ %arrayidx63, %if.else84 ], [ null, %if.then42 ], [ %read_ref_on_chain.085, %if.else40 ], [ %arrayidx63, %if.end61 ], [ %h22.1.ph, %for.inc96.sink.split ]
   %read_ref_on_chain.1 = phi ptr [ %read_ref_on_chain.085, %if.then53 ], [ %arrayidx63, %if.else84 ], [ null, %if.then42 ], [ %read_ref_on_chain.085, %if.else40 ], [ %read_ref_on_chain.085, %if.end61 ], [ %read_ref_on_chain.1.ph, %for.inc96.sink.split ]
@@ -8172,7 +8182,11 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont10
   %18 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %18, 4294967297
   %19 = trunc i64 %18 to i32
-  br i1 %cmp.i.i.i.i.i, label %if.end15.sink.split.sink.split, label %if.end.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i4, label %if.end.i.i.i.i.i
+
+if.then.i.i.i.i.i4:                               ; preds = %if.then.i.i.i.i
+  store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
+  br label %if.end15.sink.split.sink.split
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   %20 = load i8, ptr @__libc_single_threaded, align 1
@@ -8262,7 +8276,11 @@ if.then.i.i.i.i22:                                ; preds = %invoke.cont13
   %29 = load atomic i64, ptr %_M_use_count.i.i.i.i.i23 acquire, align 8
   %cmp.i.i.i.i.i24 = icmp eq i64 %29, 4294967297
   %30 = trunc i64 %29 to i32
-  br i1 %cmp.i.i.i.i.i24, label %if.end15.sink.split.sink.split, label %if.end.i.i.i.i.i25
+  br i1 %cmp.i.i.i.i.i24, label %if.then.i.i.i.i.i47, label %if.end.i.i.i.i.i25
+
+if.then.i.i.i.i.i47:                              ; preds = %if.then.i.i.i.i22
+  store i32 0, ptr %_M_use_count.i.i.i.i.i23, align 8
+  br label %if.end15.sink.split.sink.split
 
 if.end.i.i.i.i.i25:                               ; preds = %if.then.i.i.i.i22
   %31 = load i8, ptr @__libc_single_threaded, align 1
@@ -8308,10 +8326,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i39: ; preds = %
   %cmp.i.i.i.i.i.i.i41 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i40, 1
   br i1 %cmp.i.i.i.i.i.i.i41, label %if.end15.sink.split, label %if.end15
 
-if.end15.sink.split.sink.split:                   ; preds = %if.then.i.i.i.i22, %if.then.i.i.i.i
-  %_M_use_count.i.i.i.i.i23.sink = phi ptr [ %_M_use_count.i.i.i.i.i, %if.then.i.i.i.i ], [ %_M_use_count.i.i.i.i.i23, %if.then.i.i.i.i22 ]
-  %.sink160 = phi ptr [ %17, %if.then.i.i.i.i ], [ %28, %if.then.i.i.i.i22 ]
-  store i32 0, ptr %_M_use_count.i.i.i.i.i23.sink, align 8
+if.end15.sink.split.sink.split:                   ; preds = %if.then.i.i.i.i.i4, %if.then.i.i.i.i.i47
+  %.sink160 = phi ptr [ %28, %if.then.i.i.i.i.i47 ], [ %17, %if.then.i.i.i.i.i4 ]
   %_M_weak_count.i.i.i.i.i48 = getelementptr inbounds i8, ptr %.sink160, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i48, align 4
   %vtable.i.i.i.i.i49 = load ptr, ptr %.sink160, align 8

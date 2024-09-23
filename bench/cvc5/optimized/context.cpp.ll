@@ -1078,31 +1078,47 @@ if.then:                                          ; preds = %entry
   %d_pCNOpre.i = getelementptr inbounds i8, ptr %pContext, i64 32
   %0 = load ptr, ptr %d_pCNOpre.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %if.end, label %if.end.sink.split
+  br i1 %cmp.not.i, label %_ZN4cvc57context7Context15addNotifyObjPreEPNS0_16ContextNotifyObjE.exit, label %if.then.i
+
+if.then.i:                                        ; preds = %if.then
+  %d_pCNOnext.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %d_ppCNOprev.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %d_pCNOnext.i.i, ptr %d_ppCNOprev.i.i, align 8
+  %.pre.i = load ptr, ptr %d_pCNOpre.i, align 8
+  br label %_ZN4cvc57context7Context15addNotifyObjPreEPNS0_16ContextNotifyObjE.exit
+
+_ZN4cvc57context7Context15addNotifyObjPreEPNS0_16ContextNotifyObjE.exit: ; preds = %if.then, %if.then.i
+  %1 = phi ptr [ %.pre.i, %if.then.i ], [ null, %if.then ]
+  %d_pCNOnext.i4.i = getelementptr inbounds i8, ptr %this, i64 8
+  store ptr %1, ptr %d_pCNOnext.i4.i, align 8
+  %d_ppCNOprev.i5.i = getelementptr inbounds i8, ptr %this, i64 16
+  store ptr %d_pCNOpre.i, ptr %d_ppCNOprev.i5.i, align 8
+  store ptr %this, ptr %d_pCNOpre.i, align 8
+  br label %if.end
 
 if.else:                                          ; preds = %entry
   %d_pCNOpost.i = getelementptr inbounds i8, ptr %pContext, i64 40
-  %1 = load ptr, ptr %d_pCNOpost.i, align 8
-  %cmp.not.i2 = icmp eq ptr %1, null
-  br i1 %cmp.not.i2, label %if.end, label %if.end.sink.split
+  %2 = load ptr, ptr %d_pCNOpost.i, align 8
+  %cmp.not.i2 = icmp eq ptr %2, null
+  br i1 %cmp.not.i2, label %_ZN4cvc57context7Context16addNotifyObjPostEPNS0_16ContextNotifyObjE.exit, label %if.then.i3
 
-if.end.sink.split:                                ; preds = %if.else, %if.then
-  %.sink10 = phi ptr [ %0, %if.then ], [ %1, %if.else ]
-  %d_pCNOpost.i.sink = phi ptr [ %d_pCNOpre.i, %if.then ], [ %d_pCNOpost.i, %if.else ]
+if.then.i3:                                       ; preds = %if.else
   %d_pCNOnext.i.i4 = getelementptr inbounds i8, ptr %this, i64 8
-  %d_ppCNOprev.i.i5 = getelementptr inbounds i8, ptr %.sink10, i64 16
+  %d_ppCNOprev.i.i5 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %d_pCNOnext.i.i4, ptr %d_ppCNOprev.i.i5, align 8
-  %.pre.i6 = load ptr, ptr %d_pCNOpost.i.sink, align 8
+  %.pre.i6 = load ptr, ptr %d_pCNOpost.i, align 8
+  br label %_ZN4cvc57context7Context16addNotifyObjPostEPNS0_16ContextNotifyObjE.exit
+
+_ZN4cvc57context7Context16addNotifyObjPostEPNS0_16ContextNotifyObjE.exit: ; preds = %if.else, %if.then.i3
+  %3 = phi ptr [ %.pre.i6, %if.then.i3 ], [ null, %if.else ]
+  %d_pCNOnext.i4.i7 = getelementptr inbounds i8, ptr %this, i64 8
+  store ptr %3, ptr %d_pCNOnext.i4.i7, align 8
+  %d_ppCNOprev.i5.i8 = getelementptr inbounds i8, ptr %this, i64 16
+  store ptr %d_pCNOpost.i, ptr %d_ppCNOprev.i5.i8, align 8
+  store ptr %this, ptr %d_pCNOpost.i, align 8
   br label %if.end
 
-if.end:                                           ; preds = %if.end.sink.split, %if.else, %if.then
-  %.sink = phi ptr [ null, %if.then ], [ null, %if.else ], [ %.pre.i6, %if.end.sink.split ]
-  %d_pCNOpost.i.sink9 = phi ptr [ %d_pCNOpre.i, %if.then ], [ %d_pCNOpost.i, %if.else ], [ %d_pCNOpost.i.sink, %if.end.sink.split ]
-  %d_pCNOnext.i4.i7 = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr %.sink, ptr %d_pCNOnext.i4.i7, align 8
-  %d_ppCNOprev.i5.i8 = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr %d_pCNOpost.i.sink9, ptr %d_ppCNOprev.i5.i8, align 8
-  store ptr %this, ptr %d_pCNOpost.i.sink9, align 8
+if.end:                                           ; preds = %_ZN4cvc57context7Context16addNotifyObjPostEPNS0_16ContextNotifyObjE.exit, %_ZN4cvc57context7Context15addNotifyObjPreEPNS0_16ContextNotifyObjE.exit
   ret void
 }
 

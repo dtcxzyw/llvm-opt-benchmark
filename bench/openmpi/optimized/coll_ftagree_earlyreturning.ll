@@ -1476,7 +1476,7 @@ ompi_group_get_proc_name.exit:                    ; preds = %25, %29
   %47 = getelementptr inbounds i8, ptr %0, i64 224
   br label %48
 
-48:                                               ; preds = %.preheader, %82
+48:                                               ; preds = %.preheader, %81
   %49 = load i64, ptr %7, align 8
   %.sroa.1.0.extract.shift = lshr i64 %49, 16
   %50 = load ptr, ptr %6, align 8
@@ -1484,14 +1484,14 @@ ompi_group_get_proc_name.exit:                    ; preds = %25, %29
   %52 = and i64 %.sroa.1.0.extract.shift, 65535
   %53 = load i64, ptr %45, align 8
   %54 = icmp eq i64 %52, %53
-  br i1 %54, label %55, label %82
+  br i1 %54, label %55, label %81
 
 55:                                               ; preds = %48
   %.sroa.2.0.extract.shift = lshr i64 %49, 32
   %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %56 = load i32, ptr %46, align 8
   %57 = icmp eq i32 %56, %.sroa.2.0.extract.trunc
-  br i1 %57, label %58, label %82
+  br i1 %57, label %58, label %81
 
 58:                                               ; preds = %55
   %59 = load ptr, ptr %4, align 8
@@ -1502,7 +1502,7 @@ ompi_group_get_proc_name.exit:                    ; preds = %25, %29
 
 62:                                               ; preds = %58
   call fastcc void @era_mark_process_failed(ptr noundef %59, i32 noundef %1)
-  br label %82
+  br label %81
 
 63:                                               ; preds = %58
   %64 = call i32 @ompi_comm_determine_first_auto(ptr noundef nonnull %0) #19
@@ -1510,60 +1510,60 @@ ompi_group_get_proc_name.exit:                    ; preds = %25, %29
   br i1 %.not40, label %66, label %65
 
 65:                                               ; preds = %63
-  br i1 %2, label %.sink.split, label %70
+  br i1 %2, label %.sink.split, label %69
 
 66:                                               ; preds = %63
-  br i1 %2, label %70, label %.sink.split
+  br i1 %2, label %69, label %.sink.split
 
 .sink.split:                                      ; preds = %66, %65
-  %.sink = phi ptr [ %17, %65 ], [ %16, %66 ]
-  %67 = load ptr, ptr %.sink, align 8
-  %68 = getelementptr i8, ptr %67, i64 16
-  %.val45 = load i32, ptr %68, align 8
-  %69 = add nsw i32 %.val45, %1
-  br label %70
+  %.sink46.in = phi ptr [ %17, %65 ], [ %16, %66 ]
+  %.sink46 = load ptr, ptr %.sink46.in, align 8
+  %67 = getelementptr i8, ptr %.sink46, i64 16
+  %.val45 = load i32, ptr %67, align 8
+  %68 = add nsw i32 %.val45, %1
+  br label %69
 
-70:                                               ; preds = %.sink.split, %66, %65
-  %.0 = phi i32 [ %1, %65 ], [ %1, %66 ], [ %69, %.sink.split ]
-  %71 = getelementptr inbounds i8, ptr %59, i64 40
-  %72 = load ptr, ptr %71, align 8
-  %.not41 = icmp eq ptr %72, null
-  br i1 %.not41, label %81, label %73
+69:                                               ; preds = %.sink.split, %66, %65
+  %.0 = phi i32 [ %1, %65 ], [ %1, %66 ], [ %68, %.sink.split ]
+  %70 = getelementptr inbounds i8, ptr %59, i64 40
+  %71 = load ptr, ptr %70, align 8
+  %.not41 = icmp eq ptr %71, null
+  br i1 %.not41, label %80, label %72
 
-73:                                               ; preds = %70
-  %74 = load ptr, ptr %9, align 8
-  %75 = getelementptr inbounds i8, ptr %72, i64 344
-  %76 = load ptr, ptr %75, align 8
-  %.not42 = icmp eq ptr %74, %76
-  br i1 %.not42, label %81, label %77
+72:                                               ; preds = %69
+  %73 = load ptr, ptr %9, align 8
+  %74 = getelementptr inbounds i8, ptr %71, i64 344
+  %75 = load ptr, ptr %74, align 8
+  %.not42 = icmp eq ptr %73, %75
+  br i1 %.not42, label %80, label %76
 
-77:                                               ; preds = %73
-  %78 = getelementptr inbounds i8, ptr %76, i64 56
-  %79 = load i32, ptr %78, align 8
-  %80 = or i32 %79, 2
-  store i32 %80, ptr %78, align 8
+76:                                               ; preds = %72
+  %77 = getelementptr inbounds i8, ptr %75, i64 56
+  %78 = load i32, ptr %77, align 8
+  %79 = or i32 %78, 2
+  store i32 %79, ptr %77, align 8
+  br label %80
+
+80:                                               ; preds = %76, %72, %69
+  call fastcc void @era_mark_process_failed(ptr noundef nonnull %59, i32 noundef %.0)
   br label %81
 
-81:                                               ; preds = %77, %73, %70
-  call fastcc void @era_mark_process_failed(ptr noundef nonnull %59, i32 noundef %.0)
-  br label %82
+81:                                               ; preds = %62, %80, %55, %48
+  %82 = load ptr, ptr %5, align 8
+  store ptr %82, ptr %4, align 8
+  %83 = icmp eq i32 %51, 0
+  br i1 %83, label %48, label %.loopexit, !llvm.loop !14
 
-82:                                               ; preds = %62, %81, %55, %48
-  %83 = load ptr, ptr %5, align 8
-  store ptr %83, ptr %4, align 8
-  %84 = icmp eq i32 %51, 0
-  br i1 %84, label %48, label %.loopexit, !llvm.loop !14
+.loopexit:                                        ; preds = %81, %42
+  %84 = load ptr, ptr @ompi_stacked_rank_failure_callback_fct, align 8
+  %.not43 = icmp eq ptr %84, null
+  br i1 %.not43, label %86, label %85
 
-.loopexit:                                        ; preds = %82, %42
-  %85 = load ptr, ptr @ompi_stacked_rank_failure_callback_fct, align 8
-  %.not43 = icmp eq ptr %85, null
-  br i1 %.not43, label %87, label %86
+85:                                               ; preds = %.loopexit
+  call void %84(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) #19
+  br label %86
 
-86:                                               ; preds = %.loopexit
-  call void %85(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) #19
-  br label %87
-
-87:                                               ; preds = %86, %.loopexit
+86:                                               ; preds = %85, %.loopexit
   ret void
 }
 

@@ -4481,7 +4481,7 @@ _ZN2cv9MSER_Impl13ConnectedComp11growHistoryERPNS0_11CompHistoryERNS0_7WParamsEi
   %102 = load ptr, ptr %100, align 8
   %103 = load ptr, ptr %48, align 8
   %.not = icmp eq ptr %102, null
-  br i1 %.not, label %.sink.split.sink.split, label %104
+  br i1 %.not, label %.critedge, label %104
 
 104:                                              ; preds = %94
   %105 = getelementptr inbounds i8, ptr %102, i64 28
@@ -4489,44 +4489,45 @@ _ZN2cv9MSER_Impl13ConnectedComp11growHistoryERPNS0_11CompHistoryERNS0_7WParamsEi
   %107 = getelementptr inbounds i8, ptr %103, i64 28
   %108 = load i32, ptr %107, align 4
   %109 = icmp sgt i32 %106, %108
-  br i1 %109, label %110, label %116
+  br i1 %109, label %110, label %117
 
 110:                                              ; preds = %104
   %111 = load i32, ptr %39, align 4
   %.not25 = icmp slt i32 %108, %111
-  br i1 %.not25, label %123, label %112
+  br i1 %.not25, label %124, label %112
 
 112:                                              ; preds = %110
   %113 = getelementptr inbounds i8, ptr %102, i64 16
   %114 = load ptr, ptr %113, align 8
   %115 = getelementptr inbounds i8, ptr %103, i64 16
   store ptr %114, ptr %115, align 8
-  br label %.sink.split.sink.split
-
-116:                                              ; preds = %104
-  store ptr %103, ptr %100, align 8
-  %117 = load ptr, ptr %101, align 8
-  %118 = getelementptr inbounds i8, ptr %103, i64 8
-  store ptr %117, ptr %118, align 8
-  %119 = load i32, ptr %105, align 4
-  %120 = load i32, ptr %39, align 4
-  %.not24 = icmp slt i32 %119, %120
-  br i1 %.not24, label %123, label %.sink.split
-
-.sink.split.sink.split:                           ; preds = %94, %112
-  %.sink50 = phi ptr [ %113, %112 ], [ %100, %94 ]
-  store ptr %103, ptr %.sink50, align 8
-  %121 = load ptr, ptr %101, align 8
+  store ptr %103, ptr %113, align 8
+  %116 = load ptr, ptr %101, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.sink.split.sink.split, %116
-  %.sink49 = phi i64 [ 16, %116 ], [ 8, %.sink.split.sink.split ]
-  %.sink47 = phi ptr [ %102, %116 ], [ %121, %.sink.split.sink.split ]
-  %122 = getelementptr inbounds i8, ptr %103, i64 %.sink49
-  store ptr %.sink47, ptr %122, align 8
-  br label %123
+117:                                              ; preds = %104
+  store ptr %103, ptr %100, align 8
+  %118 = load ptr, ptr %101, align 8
+  %119 = getelementptr inbounds i8, ptr %103, i64 8
+  store ptr %118, ptr %119, align 8
+  %120 = load i32, ptr %105, align 4
+  %121 = load i32, ptr %39, align 4
+  %.not24 = icmp slt i32 %120, %121
+  br i1 %.not24, label %124, label %.sink.split
 
-123:                                              ; preds = %.sink.split, %116, %110
+.critedge:                                        ; preds = %94
+  store ptr %103, ptr %100, align 8
+  %122 = load ptr, ptr %101, align 8
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %117, %112, %.critedge
+  %.sink49 = phi i64 [ 8, %.critedge ], [ 8, %112 ], [ 16, %117 ]
+  %.sink47 = phi ptr [ %122, %.critedge ], [ %116, %112 ], [ %102, %117 ]
+  %123 = getelementptr inbounds i8, ptr %103, i64 %.sink49
+  store ptr %.sink47, ptr %123, align 8
+  br label %124
+
+124:                                              ; preds = %.sink.split, %117, %110
   ret void
 }
 

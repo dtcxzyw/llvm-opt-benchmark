@@ -9880,20 +9880,20 @@ define internal fastcc range(i32 -2147483648, 1) i32 @intel_dp_compute_link_conf
 
 23:                                               ; preds = %21
   %24 = icmp eq i16 %.pre30, 11
-  br i1 %24, label %25, label %245
+  br i1 %24, label %25, label %259
 
 25:                                               ; preds = %23
   %26 = getelementptr i8, ptr %16, i64 132
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, 0
-  br i1 %28, label %245, label %29
+  br i1 %28, label %259, label %29
 
 29:                                               ; preds = %25, %21
   %30 = getelementptr inbounds i8, ptr %8, i64 2456
   %31 = load i8, ptr %30, align 8
   %32 = and i8 %31, 1
   %33 = icmp eq i8 %32, 0
-  br i1 %33, label %245, label %._crit_edge
+  br i1 %33, label %259, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %15, %29
   %34 = getelementptr inbounds i8, ptr %1, i64 640
@@ -10105,19 +10105,19 @@ define internal fastcc range(i32 -2147483648, 1) i32 @intel_dp_compute_link_conf
   %170 = select i1 %169, ptr @.str.79, ptr @.str.78
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %166, i32 noundef 2, ptr noundef nonnull @.str.73, ptr noundef nonnull %.ph15, ptr noundef nonnull %.ph, ptr noundef nonnull %170) #14
   %171 = call fastcc zeroext i1 @intel_dp_compute_config_limits(ptr noundef %17, ptr noundef %1, i1 noundef zeroext %3, i1 noundef zeroext true, ptr noundef nonnull %5)
-  br i1 %171, label %172, label %245
+  br i1 %171, label %172, label %259
 
 172:                                              ; preds = %165
   %173 = call i32 @intel_dp_dsc_compute_config(ptr noundef %17, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5, i32 noundef 64, i1 noundef zeroext true)
   %174 = icmp slt i32 %173, 0
-  br i1 %174, label %245, label %175
+  br i1 %174, label %259, label %175
 
 175:                                              ; preds = %.critedge, %172
   %176 = getelementptr inbounds i8, ptr %1, i64 4756
   %177 = load i8, ptr %176, align 4, !range !10, !noundef !11
   %178 = icmp eq i8 %177, 0
   %179 = icmp eq ptr %6, null
-  br i1 %178, label %210, label %180
+  br i1 %178, label %224, label %180
 
 180:                                              ; preds = %175
   br i1 %179, label %184, label %181
@@ -10158,66 +10158,74 @@ define internal fastcc range(i32 -2147483648, 1) i32 @intel_dp_compute_link_conf
   %207 = add nuw nsw i32 %206, 15
   %208 = lshr i32 %207, 4
   %209 = mul i32 %208, %204
-  br label %.sink.split
+  %210 = add i32 %209, 7
+  %211 = sdiv i32 %210, 8
+  %212 = load i32, ptr %189, align 8
+  %213 = load i8, ptr %186, align 1
+  %214 = zext i8 %213 to i32
+  %215 = icmp sgt i32 %212, 999999
+  %216 = tail call i32 @drm_dp_bw_channel_coding_efficiency(i1 noundef zeroext %215) #14
+  %217 = mul i32 %212, 10
+  %218 = mul i32 %217, %214
+  %219 = zext i32 %218 to i64
+  %220 = zext i32 %216 to i64
+  %221 = mul nuw i64 %219, %220
+  %222 = udiv i64 %221, 8000000
+  %223 = trunc i64 %222 to i32
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %203, i32 noundef 2, ptr noundef nonnull @.str.75, i32 noundef %211, i32 noundef %223) #14
+  br label %259
 
-210:                                              ; preds = %175
-  br i1 %179, label %214, label %211
+224:                                              ; preds = %175
+  br i1 %179, label %228, label %225
 
-211:                                              ; preds = %210
-  %212 = getelementptr inbounds i8, ptr %6, i64 8
-  %213 = load ptr, ptr %212, align 8
-  br label %214
+225:                                              ; preds = %224
+  %226 = getelementptr inbounds i8, ptr %6, i64 8
+  %227 = load ptr, ptr %226, align 8
+  br label %228
 
-214:                                              ; preds = %211, %210
-  %215 = phi ptr [ %213, %211 ], [ null, %210 ]
-  %216 = getelementptr inbounds i8, ptr %1, i64 1457
-  %217 = load i8, ptr %216, align 1
-  %218 = zext i8 %217 to i32
-  %219 = getelementptr inbounds i8, ptr %1, i64 1448
-  %220 = load i32, ptr %219, align 8
-  %221 = getelementptr inbounds i8, ptr %1, i64 1364
-  %222 = load i32, ptr %221, align 4
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %215, i32 noundef 2, ptr noundef nonnull @.str.76, i32 noundef %218, i32 noundef %220, i32 noundef %222) #14
-  br i1 %179, label %226, label %223
+228:                                              ; preds = %225, %224
+  %229 = phi ptr [ %227, %225 ], [ null, %224 ]
+  %230 = getelementptr inbounds i8, ptr %1, i64 1457
+  %231 = load i8, ptr %230, align 1
+  %232 = zext i8 %231 to i32
+  %233 = getelementptr inbounds i8, ptr %1, i64 1448
+  %234 = load i32, ptr %233, align 8
+  %235 = getelementptr inbounds i8, ptr %1, i64 1364
+  %236 = load i32, ptr %235, align 4
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %229, i32 noundef 2, ptr noundef nonnull @.str.76, i32 noundef %232, i32 noundef %234, i32 noundef %236) #14
+  br i1 %179, label %240, label %237
 
-223:                                              ; preds = %214
-  %224 = getelementptr inbounds i8, ptr %6, i64 8
-  %225 = load ptr, ptr %224, align 8
-  br label %226
+237:                                              ; preds = %228
+  %238 = getelementptr inbounds i8, ptr %6, i64 8
+  %239 = load ptr, ptr %238, align 8
+  br label %240
 
-226:                                              ; preds = %223, %214
-  %227 = phi ptr [ %225, %223 ], [ null, %214 ]
-  %228 = load i32, ptr %36, align 4
-  %229 = load i32, ptr %221, align 4
-  %230 = mul i32 %229, %228
-  br label %.sink.split
+240:                                              ; preds = %237, %228
+  %241 = phi ptr [ %239, %237 ], [ null, %228 ]
+  %242 = load i32, ptr %36, align 4
+  %243 = load i32, ptr %235, align 4
+  %244 = mul i32 %243, %242
+  %245 = add i32 %244, 7
+  %246 = sdiv i32 %245, 8
+  %247 = load i32, ptr %233, align 8
+  %248 = load i8, ptr %230, align 1
+  %249 = zext i8 %248 to i32
+  %250 = icmp sgt i32 %247, 999999
+  %251 = tail call i32 @drm_dp_bw_channel_coding_efficiency(i1 noundef zeroext %250) #14
+  %252 = mul i32 %247, 10
+  %253 = mul i32 %252, %249
+  %254 = zext i32 %253 to i64
+  %255 = zext i32 %251 to i64
+  %256 = mul nuw i64 %254, %255
+  %257 = udiv i64 %256, 8000000
+  %258 = trunc i64 %257 to i32
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %241, i32 noundef 2, ptr noundef nonnull @.str.75, i32 noundef %246, i32 noundef %258) #14
+  br label %259
 
-.sink.split:                                      ; preds = %202, %226
-  %.sink56 = phi i32 [ %230, %226 ], [ %209, %202 ]
-  %.sink54 = phi ptr [ %219, %226 ], [ %189, %202 ]
-  %.sink53 = phi ptr [ %216, %226 ], [ %186, %202 ]
-  %.sink = phi ptr [ %227, %226 ], [ %203, %202 ]
-  %231 = add i32 %.sink56, 7
-  %232 = sdiv i32 %231, 8
-  %233 = load i32, ptr %.sink54, align 8
-  %234 = load i8, ptr %.sink53, align 1
-  %235 = zext i8 %234 to i32
-  %236 = icmp sgt i32 %233, 999999
-  %237 = tail call i32 @drm_dp_bw_channel_coding_efficiency(i1 noundef zeroext %236) #14
-  %238 = mul i32 %233, 10
-  %239 = mul i32 %238, %235
-  %240 = zext i32 %239 to i64
-  %241 = zext i32 %237 to i64
-  %242 = mul nuw i64 %240, %241
-  %243 = udiv i64 %242, 8000000
-  %244 = trunc i64 %243 to i32
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %.sink, i32 noundef 2, ptr noundef nonnull @.str.75, i32 noundef %232, i32 noundef %244) #14
-  br label %245
-
-245:                                              ; preds = %.sink.split, %172, %165, %29, %25, %23
-  %246 = phi i32 [ -22, %29 ], [ -22, %165 ], [ %173, %172 ], [ -22, %23 ], [ -22, %25 ], [ 0, %.sink.split ]
+259:                                              ; preds = %240, %202, %172, %165, %29, %25, %23
+  %260 = phi i32 [ -22, %29 ], [ -22, %165 ], [ %173, %172 ], [ 0, %240 ], [ 0, %202 ], [ -22, %23 ], [ -22, %25 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #14
-  ret i32 %246
+  ret i32 %260
 }
 
 ; Function Attrs: null_pointer_is_valid

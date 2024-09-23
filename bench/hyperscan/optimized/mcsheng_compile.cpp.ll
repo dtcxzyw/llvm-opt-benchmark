@@ -10115,22 +10115,18 @@ if.then:                                          ; preds = %while.body
 
 if.then15:                                        ; preds = %if.then
   %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
-  br label %if.end22.sink.split
+  store ptr %__p.022, ptr %arrayidx16, align 8
+  br label %if.end22
 
 if.else:                                          ; preds = %while.body
   %6 = load ptr, ptr %3, align 8
   store ptr %6, ptr %__p.022, align 8
   %7 = load ptr, ptr %arrayidx, align 8
-  br label %if.end22.sink.split
-
-if.end22.sink.split:                              ; preds = %if.else, %if.then15
-  %arrayidx16.sink = phi ptr [ %arrayidx16, %if.then15 ], [ %7, %if.else ]
-  %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then15 ], [ %__bbegin_bkt.021, %if.else ]
-  store ptr %__p.022, ptr %arrayidx16.sink, align 8
+  store ptr %__p.022, ptr %7, align 8
   br label %if.end22
 
-if.end22:                                         ; preds = %if.end22.sink.split, %if.then
-  %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then ], [ %__bbegin_bkt.1.ph, %if.end22.sink.split ]
+if.end22:                                         ; preds = %if.then, %if.then15, %if.else
+  %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.021, %if.else ], [ %rem.i.i, %if.then15 ], [ %rem.i.i, %if.then ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !270
 
@@ -10193,7 +10189,7 @@ if.end7:                                          ; preds = %if.end, %land.lhs.t
   br i1 %or.cond.not, label %land.lhs.true17, label %if.end7.if.end28_crit_edge
 
 if.end7.if.end28_crit_edge:                       ; preds = %if.end7
-  %.pre62 = zext i16 %.fr to i32
+  %.pre63 = zext i16 %.fr to i32
   br label %if.end28
 
 land.lhs.true17:                                  ; preds = %if.end7
@@ -10206,7 +10202,7 @@ land.lhs.true17:                                  ; preds = %if.end7
   br i1 %cmp24, label %cleanup.cont, label %if.end28
 
 if.end28:                                         ; preds = %if.end7.if.end28_crit_edge, %land.lhs.true17
-  %conv29.pre-phi = phi i32 [ %.pre62, %if.end7.if.end28_crit_edge ], [ %conv22, %land.lhs.true17 ]
+  %conv29.pre-phi = phi i32 [ %.pre63, %if.end7.if.end28_crit_edge ], [ %conv22, %land.lhs.true17 ]
   %mul30 = shl i16 %.fr, 1
   %cmp33 = icmp ugt i16 %mul30, 28
   br i1 %cmp33, label %cond.end, label %cond.false
@@ -10245,11 +10241,11 @@ if.then.i.i:                                      ; preds = %cond.end
 if.then.i.i.invoke.cont3.i_crit_edge:             ; preds = %if.then.i.i
   %.pre = load ptr, ptr %raw, align 8, !noalias !271
   %start_anchored.i.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 40
-  %.pre61 = load i16, ptr %start_anchored.i.phi.trans.insert, align 8
+  %.pre62 = load i16, ptr %start_anchored.i.phi.trans.insert, align 8
   br label %invoke.cont3.i
 
 invoke.cont3.i:                                   ; preds = %if.then.i.i.invoke.cont3.i_crit_edge, %cond.end
-  %7 = phi i16 [ %.pre61, %if.then.i.i.invoke.cont3.i_crit_edge ], [ %2, %cond.end ]
+  %7 = phi i16 [ %.pre62, %if.then.i.i.invoke.cont3.i_crit_edge ], [ %2, %cond.end ]
   %8 = phi ptr [ %.pre, %if.then.i.i.invoke.cont3.i_crit_edge ], [ %1, %cond.end ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %candidate.addr.i.i), !noalias !271
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tmp.i.i), !noalias !271
@@ -10580,51 +10576,51 @@ invoke.cont:                                      ; preds = %invoke.cont12.i, %i
   %40 = load ptr, ptr %hinted, align 8, !noalias !33
   %41 = load i64, ptr %m_size.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !294
   %add.ptr.i.i = getelementptr inbounds i16, ptr %40, i64 %41
-  %cmp.i.i.i.i53.not7 = icmp eq i64 %41, 0
-  br i1 %cmp.i.i.i.i53.not7, label %for.end85.thread, label %invoke.cont42.lr.ph
+  %cmp.i.i.i.i52.not8 = icmp eq i64 %41, 0
+  br i1 %cmp.i.i.i.i52.not8, label %for.end85.thread, label %invoke.cont42.lr.ph
 
 invoke.cont42.lr.ph:                              ; preds = %invoke.cont
   %42 = getelementptr inbounds i8, ptr %info, i64 24
-  %info.val52 = load ptr, ptr %42, align 8
-  %cmp544.not = icmp eq i16 %.fr, 0
-  br i1 %cmp544.not, label %for.end85.thread, label %invoke.cont42.us.preheader
+  %info.val51 = load ptr, ptr %42, align 8
+  %cmp545.not = icmp eq i16 %.fr, 0
+  br i1 %cmp545.not, label %for.end85.thread, label %invoke.cont42.us.preheader
 
 invoke.cont42.us.preheader:                       ; preds = %invoke.cont42.lr.ph
   %wide.trip.count = zext i16 %.fr to i64
   br label %invoke.cont42.us
 
 invoke.cont42.us:                                 ; preds = %invoke.cont42.us.preheader, %for.inc82.us
-  %best_score.010.us = phi i16 [ %best_score.2.us, %for.inc82.us ], [ 0, %invoke.cont42.us.preheader ]
-  %best_daddy.09.us = phi i16 [ %best_daddy.2.us, %for.inc82.us ], [ 0, %invoke.cont42.us.preheader ]
-  %__begin1.sroa.0.08.us = phi ptr [ %incdec.ptr.i.i.i.i.us, %for.inc82.us ], [ %40, %invoke.cont42.us.preheader ]
-  %43 = load i16, ptr %__begin1.sroa.0.08.us, align 2
+  %best_score.011.us = phi i16 [ %best_score.2.us, %for.inc82.us ], [ 0, %invoke.cont42.us.preheader ]
+  %best_daddy.010.us = phi i16 [ %best_daddy.2.us, %for.inc82.us ], [ 0, %invoke.cont42.us.preheader ]
+  %__begin1.sroa.0.09.us = phi ptr [ %incdec.ptr.i.i.i.i.us, %for.inc82.us ], [ %40, %invoke.cont42.us.preheader ]
+  %43 = load i16, ptr %__begin1.sroa.0.09.us, align 2
   %cmp.not.i.us = icmp eq i16 %43, 0
   br i1 %cmp.not.i.us, label %for.inc82.us, label %land.lhs.true.i.us
 
 land.lhs.true.i.us:                               ; preds = %invoke.cont42.us
   %conv.i.i.us = zext i16 %43 to i64
-  %sheng_id.i.i.us = getelementptr inbounds %"struct.ue2::(anonymous namespace)::dstate_extra", ptr %info.val52, i64 %conv.i.i.us, i32 3
+  %sheng_id.i.i.us = getelementptr inbounds %"struct.ue2::(anonymous namespace)::dstate_extra", ptr %info.val51, i64 %conv.i.i.us, i32 3
   %44 = load i8, ptr %sheng_id.i.i.us, align 2
-  %cmp.i.not.i54.us = icmp eq i8 %44, -1
-  br i1 %cmp.i.not.i54.us, label %invoke.cont44.us, label %for.inc82.us
+  %cmp.i.not.i53.us = icmp eq i8 %44, -1
+  br i1 %cmp.i.not.i53.us, label %invoke.cont44.us, label %for.inc82.us
 
 invoke.cont44.us:                                 ; preds = %land.lhs.true.i.us
-  %shermanState.i.i.us = getelementptr inbounds %"struct.ue2::(anonymous namespace)::dstate_extra", ptr %info.val52, i64 %conv.i.i.us, i32 1
+  %shermanState.i.i.us = getelementptr inbounds %"struct.ue2::(anonymous namespace)::dstate_extra", ptr %info.val51, i64 %conv.i.i.us, i32 1
   %45 = load i8, ptr %shermanState.i.i.us, align 2
   %tobool.i.i.us = trunc i8 %45 to i1
   br i1 %tobool.i.i.us, label %for.inc82.us, label %if.end47.us
 
 if.end47.us:                                      ; preds = %invoke.cont44.us
-  %add.ptr.i55.us = getelementptr inbounds %"struct.ue2::dstate", ptr %39, i64 %conv.i.i.us
+  %add.ptr.i54.us = getelementptr inbounds %"struct.ue2::dstate", ptr %39, i64 %conv.i.i.us
   %46 = load ptr, ptr %add.ptr.i, align 8
-  %47 = load ptr, ptr %add.ptr.i55.us, align 8
+  %47 = load ptr, ptr %add.ptr.i54.us, align 8
   br label %for.body55.us
 
 lor.lhs.false.us:                                 ; preds = %for.cond51.for.end_crit_edge.us
   %cmp70.us = icmp eq i32 %spec.select.us, %conv67.us
-  %cmp74.us = icmp ult i16 %43, %best_daddy.09.us
-  %or.cond49.us = select i1 %cmp70.us, i1 %cmp74.us, i1 false
-  br i1 %or.cond49.us, label %if.then75.us, label %for.inc82.us
+  %cmp74.us = icmp ult i16 %43, %best_daddy.010.us
+  %or.cond4.us = select i1 %cmp70.us, i1 %cmp74.us, i1 false
+  br i1 %or.cond4.us, label %if.then75.us, label %for.inc82.us
 
 if.then75.us:                                     ; preds = %lor.lhs.false.us, %for.cond51.for.end_crit_edge.us
   %conv76.us = trunc i32 %spec.select.us to i16
@@ -10633,37 +10629,37 @@ if.then75.us:                                     ; preds = %lor.lhs.false.us, %
 
 for.body55.us:                                    ; preds = %if.end47.us, %for.body55.us
   %indvars.iv = phi i64 [ 0, %if.end47.us ], [ %indvars.iv.next, %for.body55.us ]
-  %score.05.us = phi i32 [ 0, %if.end47.us ], [ %spec.select.us, %for.body55.us ]
-  %add.ptr.i56.us = getelementptr inbounds i16, ptr %46, i64 %indvars.iv
-  %48 = load i16, ptr %add.ptr.i56.us, align 2
-  %add.ptr.i57.us = getelementptr inbounds i16, ptr %47, i64 %indvars.iv
-  %49 = load i16, ptr %add.ptr.i57.us, align 2
+  %score.06.us = phi i32 [ 0, %if.end47.us ], [ %spec.select.us, %for.body55.us ]
+  %add.ptr.i55.us = getelementptr inbounds i16, ptr %46, i64 %indvars.iv
+  %48 = load i16, ptr %add.ptr.i55.us, align 2
+  %add.ptr.i56.us = getelementptr inbounds i16, ptr %47, i64 %indvars.iv
+  %49 = load i16, ptr %add.ptr.i56.us, align 2
   %cmp63.us = icmp eq i16 %48, %49
   %inc.us = zext i1 %cmp63.us to i32
-  %spec.select.us = add i32 %score.05.us, %inc.us
+  %spec.select.us = add i32 %score.06.us, %inc.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.cond51.for.end_crit_edge.us, label %for.body55.us, !llvm.loop !299
 
 for.inc82.us:                                     ; preds = %if.then75.us, %lor.lhs.false.us, %invoke.cont44.us, %land.lhs.true.i.us, %invoke.cont42.us
-  %best_daddy.2.us = phi i16 [ %43, %if.then75.us ], [ %best_daddy.09.us, %lor.lhs.false.us ], [ %best_daddy.09.us, %invoke.cont44.us ], [ %best_daddy.09.us, %land.lhs.true.i.us ], [ %best_daddy.09.us, %invoke.cont42.us ]
-  %best_score.2.us = phi i16 [ %conv76.us, %if.then75.us ], [ %best_score.010.us, %lor.lhs.false.us ], [ %best_score.010.us, %invoke.cont44.us ], [ %best_score.010.us, %land.lhs.true.i.us ], [ %best_score.010.us, %invoke.cont42.us ]
-  %incdec.ptr.i.i.i.i.us = getelementptr inbounds i8, ptr %__begin1.sroa.0.08.us, i64 2
-  %cmp.i.i.i.i53.not.us = icmp eq ptr %incdec.ptr.i.i.i.i.us, %add.ptr.i.i
-  br i1 %cmp.i.i.i.i53.not.us, label %for.end85, label %invoke.cont42.us
+  %best_daddy.2.us = phi i16 [ %43, %if.then75.us ], [ %best_daddy.010.us, %lor.lhs.false.us ], [ %best_daddy.010.us, %invoke.cont44.us ], [ %best_daddy.010.us, %land.lhs.true.i.us ], [ %best_daddy.010.us, %invoke.cont42.us ]
+  %best_score.2.us = phi i16 [ %conv76.us, %if.then75.us ], [ %best_score.011.us, %lor.lhs.false.us ], [ %best_score.011.us, %invoke.cont44.us ], [ %best_score.011.us, %land.lhs.true.i.us ], [ %best_score.011.us, %invoke.cont42.us ]
+  %incdec.ptr.i.i.i.i.us = getelementptr inbounds i8, ptr %__begin1.sroa.0.09.us, i64 2
+  %cmp.i.i.i.i52.not.us = icmp eq ptr %incdec.ptr.i.i.i.i.us, %add.ptr.i.i
+  br i1 %cmp.i.i.i.i52.not.us, label %for.end85, label %invoke.cont42.us
 
 for.cond51.for.end_crit_edge.us:                  ; preds = %for.body55.us
-  %conv67.us = zext i16 %best_score.010.us to i32
+  %conv67.us = zext i16 %best_score.011.us to i32
   %cmp68.us = icmp ugt i32 %spec.select.us, %conv67.us
   br i1 %cmp68.us, label %if.then75.us, label %lor.lhs.false.us
 
 for.end85.thread:                                 ; preds = %invoke.cont, %invoke.cont42.lr.ph
-  %daddy65 = getelementptr inbounds i8, ptr %add.ptr.i, i64 24
-  store i16 0, ptr %daddy65, align 8
-  %extra66 = getelementptr inbounds i8, ptr %info, i64 24
-  %extra.val5167 = load ptr, ptr %extra66, align 8
-  %add.ptr.i5868 = getelementptr inbounds %"struct.ue2::(anonymous namespace)::dstate_extra", ptr %extra.val5167, i64 %conv38
-  store i16 0, ptr %add.ptr.i5868, align 2
+  %daddy66 = getelementptr inbounds i8, ptr %add.ptr.i, i64 24
+  store i16 0, ptr %daddy66, align 8
+  %extra67 = getelementptr inbounds i8, ptr %info, i64 24
+  %extra.val5068 = load ptr, ptr %extra67, align 8
+  %add.ptr.i5769 = getelementptr inbounds %"struct.ue2::(anonymous namespace)::dstate_extra", ptr %extra.val5068, i64 %conv38
+  store i16 0, ptr %add.ptr.i5769, align 2
   br label %cleanup
 
 for.end85:                                        ; preds = %for.inc82.us, %if.then75.us
@@ -10672,9 +10668,9 @@ for.end85:                                        ; preds = %for.inc82.us, %if.t
   %daddy = getelementptr inbounds i8, ptr %add.ptr.i, i64 24
   store i16 %best_daddy.1, ptr %daddy, align 8
   %extra = getelementptr inbounds i8, ptr %info, i64 24
-  %extra.val51 = load ptr, ptr %extra, align 8
-  %add.ptr.i58 = getelementptr inbounds %"struct.ue2::(anonymous namespace)::dstate_extra", ptr %extra.val51, i64 %conv38
-  store i16 %best_score.1, ptr %add.ptr.i58, align 2
+  %extra.val50 = load ptr, ptr %extra, align 8
+  %add.ptr.i57 = getelementptr inbounds %"struct.ue2::(anonymous namespace)::dstate_extra", ptr %extra.val50, i64 %conv38
+  store i16 %best_score.1, ptr %add.ptr.i57, align 2
   %cmp91 = icmp eq i16 %best_daddy.1, 0
   br i1 %cmp91, label %cleanup, label %if.end93
 
@@ -10687,37 +10683,37 @@ if.end93:                                         ; preds = %for.end85
 if.end100:                                        ; preds = %if.end93
   %50 = load ptr, ptr %states, align 8
   %51 = load ptr, ptr %50, align 8
-  %add.ptr.i59 = getelementptr inbounds %"struct.ue2::dstate", ptr %51, i64 %conv38
+  %add.ptr.i58 = getelementptr inbounds %"struct.ue2::dstate", ptr %51, i64 %conv38
   %alpha_remap = getelementptr inbounds i8, ptr %info, i64 56
   %52 = load ptr, ptr %alpha_remap, align 8
-  %53 = load ptr, ptr %add.ptr.i59, align 8
+  %53 = load ptr, ptr %add.ptr.i58, align 8
   br label %for.body106
 
 for.body106:                                      ; preds = %if.end100, %for.body106
-  %indvars.iv57 = phi i64 [ 0, %if.end100 ], [ %indvars.iv.next58, %for.body106 ]
-  %self_loop_width.051 = phi i32 [ 0, %if.end100 ], [ %spec.select50, %for.body106 ]
-  %arrayidx.i.i = getelementptr inbounds [257 x i16], ptr %52, i64 0, i64 %indvars.iv57
+  %indvars.iv58 = phi i64 [ 0, %if.end100 ], [ %indvars.iv.next59, %for.body106 ]
+  %self_loop_width.052 = phi i32 [ 0, %if.end100 ], [ %spec.select49, %for.body106 ]
+  %arrayidx.i.i = getelementptr inbounds [257 x i16], ptr %52, i64 0, i64 %indvars.iv58
   %54 = load i16, ptr %arrayidx.i.i, align 2
   %conv110 = zext i16 %54 to i64
-  %add.ptr.i60 = getelementptr inbounds i16, ptr %53, i64 %conv110
-  %55 = load i16, ptr %add.ptr.i60, align 2
+  %add.ptr.i59 = getelementptr inbounds i16, ptr %53, i64 %conv110
+  %55 = load i16, ptr %add.ptr.i59, align 2
   %cmp114 = icmp eq i16 %55, %curr_id
   %inc116 = zext i1 %cmp114 to i32
-  %spec.select50 = add i32 %self_loop_width.051, %inc116
-  %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
-  %exitcond60.not = icmp eq i64 %indvars.iv.next58, 256
-  br i1 %exitcond60.not, label %for.end120, label %for.body106, !llvm.loop !300
+  %spec.select49 = add i32 %self_loop_width.052, %inc116
+  %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
+  %exitcond61.not = icmp eq i64 %indvars.iv.next59, 256
+  br i1 %exitcond61.not, label %for.end120, label %for.body106, !llvm.loop !300
 
 for.end120:                                       ; preds = %for.body106
-  %cmp121 = icmp ugt i32 %spec.select50, 20
+  %cmp121 = icmp ugt i32 %spec.select49, 20
   br i1 %cmp121, label %cleanup, label %if.end126
 
 if.end126:                                        ; preds = %for.end120
   %info.val = load ptr, ptr %extra, align 8
   %sheng_id.i = getelementptr inbounds %"struct.ue2::(anonymous namespace)::dstate_extra", ptr %info.val, i64 %conv38, i32 3
   %56 = load i8, ptr %sheng_id.i, align 2
-  %cmp.i62.not = icmp eq i8 %56, -1
-  br i1 %cmp.i62.not, label %do.end132, label %cleanup
+  %cmp.i61.not = icmp eq i8 %56, -1
+  br i1 %cmp.i61.not, label %do.end132, label %cleanup
 
 do.end132:                                        ; preds = %if.end126
   %shermanState = getelementptr inbounds %"struct.ue2::(anonymous namespace)::dstate_extra", ptr %info.val, i64 %conv38, i32 1
@@ -10726,19 +10722,19 @@ do.end132:                                        ; preds = %if.end126
 
 cleanup:                                          ; preds = %for.end85.thread, %if.end126, %for.end120, %if.end93, %for.end85, %do.end132
   %57 = load i64, ptr %m_capacity.i.i.i.i.i.i.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i.i.i.i.i65 = icmp eq i64 %57, 0
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i65, label %cleanup.cont, label %if.then.i.i.i.i.i.i.i.i.i66
+  %tobool.not.i.i.i.i.i.i.i.i.i64 = icmp eq i64 %57, 0
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.i64, label %cleanup.cont, label %if.then.i.i.i.i.i.i.i.i.i65
 
-if.then.i.i.i.i.i.i.i.i.i66:                      ; preds = %cleanup
+if.then.i.i.i.i.i.i.i.i.i65:                      ; preds = %cleanup
   %58 = load ptr, ptr %hinted, align 8
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i68 = icmp eq ptr %m_storage_start.i.i.i.i.i.i.i.i.i, %58
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i68, label %cleanup.cont, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i69
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i67 = icmp eq ptr %m_storage_start.i.i.i.i.i.i.i.i.i, %58
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i67, label %cleanup.cont, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i68
 
-if.then.i.i.i.i.i.i.i.i.i.i.i.i69:                ; preds = %if.then.i.i.i.i.i.i.i.i.i66
+if.then.i.i.i.i.i.i.i.i.i.i.i.i68:                ; preds = %if.then.i.i.i.i.i.i.i.i.i65
   call void @_ZdlPv(ptr noundef %58) #25
   br label %cleanup.cont
 
-cleanup.cont:                                     ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i69, %if.then.i.i.i.i.i.i.i.i.i66, %cleanup, %land.lhs.true17, %land.lhs.true2, %entry
+cleanup.cont:                                     ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i68, %if.then.i.i.i.i.i.i.i.i.i65, %cleanup, %land.lhs.true17, %land.lhs.true2, %entry
   ret void
 }
 

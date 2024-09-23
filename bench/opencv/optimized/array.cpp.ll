@@ -898,18 +898,18 @@ define void @cvReleaseMat(ptr noundef %0) local_unnamed_addr #0 personality ptr 
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
-  br label %65
+  br label %70
 
 11:                                               ; preds = %7
   %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #10
-  br label %65
+  br label %70
 
 13:                                               ; preds = %1
   %14 = load ptr, ptr %0, align 8
   %.not19 = icmp eq ptr %14, null
-  br i1 %.not19, label %64, label %15
+  br i1 %.not19, label %69, label %15
 
 15:                                               ; preds = %13
   %16 = load i32, ptr %14, align 8
@@ -946,13 +946,13 @@ define void @cvReleaseMat(ptr noundef %0) local_unnamed_addr #0 personality ptr 
 28:                                               ; preds = %.thread
   %29 = landingpad { ptr, i32 }
           cleanup
-  br label %65
+  br label %70
 
 30:                                               ; preds = %26
   %31 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #10
-  br label %65
+  br label %70
 
 32:                                               ; preds = %15, %22
   store ptr null, ptr %0, align 8
@@ -960,7 +960,7 @@ define void @cvReleaseMat(ptr noundef %0) local_unnamed_addr #0 personality ptr 
   %34 = and i32 %33, -65536
   switch i32 %34, label %_ZL12cvDecRefDataPv.exit [
     i32 1111621632, label %35
-    i32 1111687168, label %53
+    i32 1111687168, label %56
   ]
 
 35:                                               ; preds = %32
@@ -986,54 +986,61 @@ define void @cvReleaseMat(ptr noundef %0) local_unnamed_addr #0 personality ptr 
   %47 = getelementptr inbounds i8, ptr %14, i64 8
   %48 = load ptr, ptr %47, align 8
   %.not26.i = icmp eq ptr %48, null
-  br i1 %.not26.i, label %.thread.sink.split.i, label %49
+  br i1 %.not26.i, label %55, label %49
 
 49:                                               ; preds = %46
   %50 = load i32, ptr %48, align 4
   %51 = add nsw i32 %50, -1
   store i32 %51, ptr %48, align 4
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %.thread.sink.split.sink.split.i, label %.thread.sink.split.i
+  br i1 %52, label %53, label %55
 
-53:                                               ; preds = %32
-  %54 = getelementptr inbounds i8, ptr %14, i64 24
-  %55 = load ptr, ptr %54, align 8
-  %.not24.i = icmp eq ptr %55, null
-  br i1 %.not24.i, label %_ZL12cvDecRefDataPv.exit, label %56
+53:                                               ; preds = %49
+  %54 = load ptr, ptr %47, align 8
+  tail call void @cvFree_(ptr noundef %54)
+  br label %55
 
-56:                                               ; preds = %53
-  store ptr null, ptr %54, align 8
-  %57 = getelementptr inbounds i8, ptr %14, i64 8
-  %58 = load ptr, ptr %57, align 8
-  %.not25.i = icmp eq ptr %58, null
-  br i1 %.not25.i, label %.thread.sink.split.i, label %59
-
-59:                                               ; preds = %56
-  %60 = load i32, ptr %58, align 4
-  %61 = add nsw i32 %60, -1
-  store i32 %61, ptr %58, align 4
-  %62 = icmp eq i32 %61, 0
-  br i1 %62, label %.thread.sink.split.sink.split.i, label %.thread.sink.split.i
-
-.thread.sink.split.sink.split.i:                  ; preds = %59, %49
-  %.sink28.i = phi ptr [ %47, %49 ], [ %57, %59 ]
-  %63 = load ptr, ptr %.sink28.i, align 8
-  tail call void @cvFree_(ptr noundef %63)
-  br label %.thread.sink.split.i
-
-.thread.sink.split.i:                             ; preds = %.thread.sink.split.sink.split.i, %59, %56, %49, %46
-  %.sink.i = phi ptr [ %47, %49 ], [ %47, %46 ], [ %57, %59 ], [ %57, %56 ], [ %.sink28.i, %.thread.sink.split.sink.split.i ]
-  store ptr null, ptr %.sink.i, align 8
+55:                                               ; preds = %53, %49, %46
+  store ptr null, ptr %47, align 8
   br label %_ZL12cvDecRefDataPv.exit
 
-_ZL12cvDecRefDataPv.exit:                         ; preds = %32, %35, %39, %43, %53, %.thread.sink.split.i
-  tail call void @cvFree_(ptr noundef nonnull %14)
-  br label %64
+56:                                               ; preds = %32
+  %57 = getelementptr inbounds i8, ptr %14, i64 24
+  %58 = load ptr, ptr %57, align 8
+  %.not24.i = icmp eq ptr %58, null
+  br i1 %.not24.i, label %_ZL12cvDecRefDataPv.exit, label %59
 
-64:                                               ; preds = %_ZL12cvDecRefDataPv.exit, %13
+59:                                               ; preds = %56
+  store ptr null, ptr %57, align 8
+  %60 = getelementptr inbounds i8, ptr %14, i64 8
+  %61 = load ptr, ptr %60, align 8
+  %.not25.i = icmp eq ptr %61, null
+  br i1 %.not25.i, label %68, label %62
+
+62:                                               ; preds = %59
+  %63 = load i32, ptr %61, align 4
+  %64 = add nsw i32 %63, -1
+  store i32 %64, ptr %61, align 4
+  %65 = icmp eq i32 %64, 0
+  br i1 %65, label %66, label %68
+
+66:                                               ; preds = %62
+  %67 = load ptr, ptr %60, align 8
+  tail call void @cvFree_(ptr noundef %67)
+  br label %68
+
+68:                                               ; preds = %66, %62, %59
+  store ptr null, ptr %60, align 8
+  br label %_ZL12cvDecRefDataPv.exit
+
+_ZL12cvDecRefDataPv.exit:                         ; preds = %32, %35, %39, %43, %55, %56, %68
+  tail call void @cvFree_(ptr noundef nonnull %14)
+  br label %69
+
+69:                                               ; preds = %_ZL12cvDecRefDataPv.exit, %13
   ret void
 
-65:                                               ; preds = %28, %30, %9, %11
+70:                                               ; preds = %28, %30, %9, %11
   %.sink = phi ptr [ %3, %11 ], [ %3, %9 ], [ %5, %30 ], [ %5, %28 ]
   %.pn20.pn = phi { ptr, i32 } [ %12, %11 ], [ %10, %9 ], [ %31, %30 ], [ %29, %28 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #10
@@ -3320,104 +3327,104 @@ define void @cvReleaseData(ptr noundef %0) local_unnamed_addr #0 personality ptr
   %18 = getelementptr inbounds i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not26.i = icmp eq ptr %19, null
-  br i1 %.not26.i, label %.thread.sink.split.i, label %20
+  br i1 %.not26.i, label %26, label %20
 
 20:                                               ; preds = %17
   %21 = load i32, ptr %19, align 4
   %22 = add nsw i32 %21, -1
   store i32 %22, ptr %19, align 4
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %.thread.sink.split.sink.split.i, label %.thread.sink.split.i
+  br i1 %23, label %24, label %26
 
-.thread.sink.split.sink.split.i:                  ; preds = %20
-  %24 = load ptr, ptr %18, align 8
-  tail call void @cvFree_(ptr noundef %24)
-  br label %.thread.sink.split.i
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %18, align 8
+  tail call void @cvFree_(ptr noundef %25)
+  br label %26
 
-.thread.sink.split.i:                             ; preds = %.thread.sink.split.sink.split.i, %20, %17
+26:                                               ; preds = %24, %20, %17
   store ptr null, ptr %18, align 8
   br label %_ZL12cvDecRefDataPv.exit
 
 .split18:                                         ; preds = %4
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
-  %26 = load ptr, ptr %25, align 8
-  %.not24.i24 = icmp eq ptr %26, null
-  br i1 %.not24.i24, label %_ZL12cvDecRefDataPv.exit, label %27
+  %27 = getelementptr inbounds i8, ptr %0, i64 24
+  %28 = load ptr, ptr %27, align 8
+  %.not24.i24 = icmp eq ptr %28, null
+  br i1 %.not24.i24, label %_ZL12cvDecRefDataPv.exit, label %29
 
-27:                                               ; preds = %.split18
-  store ptr null, ptr %25, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
-  %29 = load ptr, ptr %28, align 8
-  %.not25.i25 = icmp eq ptr %29, null
-  br i1 %.not25.i25, label %.thread.sink.split.i26, label %30
+29:                                               ; preds = %.split18
+  store ptr null, ptr %27, align 8
+  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = load ptr, ptr %30, align 8
+  %.not25.i25 = icmp eq ptr %31, null
+  br i1 %.not25.i25, label %38, label %32
 
-30:                                               ; preds = %27
-  %31 = load i32, ptr %29, align 4
-  %32 = add nsw i32 %31, -1
-  store i32 %32, ptr %29, align 4
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %.thread.sink.split.sink.split.i28, label %.thread.sink.split.i26
+32:                                               ; preds = %29
+  %33 = load i32, ptr %31, align 4
+  %34 = add nsw i32 %33, -1
+  store i32 %34, ptr %31, align 4
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %36, label %38
 
-.thread.sink.split.sink.split.i28:                ; preds = %30
-  %34 = load ptr, ptr %28, align 8
-  tail call void @cvFree_(ptr noundef %34)
-  br label %.thread.sink.split.i26
+36:                                               ; preds = %32
+  %37 = load ptr, ptr %30, align 8
+  tail call void @cvFree_(ptr noundef %37)
+  br label %38
 
-.thread.sink.split.i26:                           ; preds = %.thread.sink.split.sink.split.i28, %30, %27
-  store ptr null, ptr %28, align 8
+38:                                               ; preds = %36, %32, %29
+  store ptr null, ptr %30, align 8
   br label %_ZL12cvDecRefDataPv.exit
 
 .critedge:                                        ; preds = %4
-  %35 = icmp eq i32 %5, 144
-  br i1 %35, label %36, label %.critedge23
+  %39 = icmp eq i32 %5, 144
+  br i1 %39, label %40, label %.critedge23
 
-36:                                               ; preds = %.critedge
-  %37 = load ptr, ptr @_ZL5CvIPL.2, align 8
-  %.not22 = icmp eq ptr %37, null
-  br i1 %.not22, label %38, label %42
+40:                                               ; preds = %.critedge
+  %41 = load ptr, ptr @_ZL5CvIPL.2, align 8
+  %.not22 = icmp eq ptr %41, null
+  br i1 %.not22, label %42, label %46
 
-38:                                               ; preds = %36
-  %39 = getelementptr inbounds i8, ptr %0, i64 136
-  %40 = load ptr, ptr %39, align 8
-  store ptr null, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 88
-  store ptr null, ptr %41, align 8
-  tail call void @cvFree_(ptr noundef %40)
+42:                                               ; preds = %40
+  %43 = getelementptr inbounds i8, ptr %0, i64 136
+  %44 = load ptr, ptr %43, align 8
+  store ptr null, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %0, i64 88
+  store ptr null, ptr %45, align 8
+  tail call void @cvFree_(ptr noundef %44)
   br label %_ZL12cvDecRefDataPv.exit
 
-42:                                               ; preds = %36
-  tail call void %37(ptr noundef nonnull %0, i32 noundef 2)
+46:                                               ; preds = %40
+  tail call void %41(ptr noundef nonnull %0, i32 noundef 2)
   br label %_ZL12cvDecRefDataPv.exit
 
 .critedge23:                                      ; preds = %7, %11, %1, %.critedge
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #10
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.34, ptr noundef nonnull align 1 dereferenceable(1) %3)
-          to label %43 unwind label %45
+          to label %47 unwind label %49
 
-43:                                               ; preds = %.critedge23
+47:                                               ; preds = %.critedge23
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -5, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @__func__.cvReleaseData, ptr noundef nonnull @.str.1, i32 noundef 1003) #11
-          to label %44 unwind label %47
+          to label %48 unwind label %51
 
-44:                                               ; preds = %43
+48:                                               ; preds = %47
   unreachable
 
-45:                                               ; preds = %.critedge23
-  %46 = landingpad { ptr, i32 }
+49:                                               ; preds = %.critedge23
+  %50 = landingpad { ptr, i32 }
           cleanup
-  br label %49
+  br label %53
 
-47:                                               ; preds = %43
-  %48 = landingpad { ptr, i32 }
+51:                                               ; preds = %47
+  %52 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #10
-  br label %49
+  br label %53
 
-49:                                               ; preds = %47, %45
-  %.pn = phi { ptr, i32 } [ %48, %47 ], [ %46, %45 ]
+53:                                               ; preds = %51, %49
+  %.pn = phi { ptr, i32 } [ %52, %51 ], [ %50, %49 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #10
   resume { ptr, i32 } %.pn
 
-_ZL12cvDecRefDataPv.exit:                         ; preds = %.thread.sink.split.i26, %.split18, %.thread.sink.split.i, %.split, %42, %38
+_ZL12cvDecRefDataPv.exit:                         ; preds = %38, %.split18, %26, %.split, %46, %42
   ret void
 }
 
@@ -4590,57 +4597,63 @@ define i64 @cvGetSize(ptr noundef readonly %0) local_unnamed_addr #0 personality
   %13 = getelementptr inbounds i8, ptr %0, i64 32
   %14 = load i32, ptr %13, align 8
   %15 = icmp sgt i32 %14, -1
-  br i1 %15, label %32, label %.critedge
+  br i1 %15, label %38, label %.critedge
 
 16:                                               ; preds = %4
   %17 = icmp eq i32 %5, 144
-  br i1 %17, label %.sink.split, label %.critedge
+  br i1 %17, label %18, label %.critedge
 
-.sink.split:                                      ; preds = %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
-  %19 = load ptr, ptr %18, align 8
-  %.not22 = icmp eq ptr %19, null
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
-  %21 = getelementptr inbounds i8, ptr %0, i64 44
-  %22 = getelementptr inbounds i8, ptr %19, i64 12
-  %23 = getelementptr inbounds i8, ptr %19, i64 16
-  %.sink = select i1 %.not22, ptr %21, ptr %23
-  %.sroa.0.0.ph.in = select i1 %.not22, ptr %20, ptr %22
-  %.sroa.0.0.ph = load i32, ptr %.sroa.0.0.ph.in, align 4
-  %24 = load i32, ptr %.sink, align 4
-  br label %32
+18:                                               ; preds = %16
+  %19 = getelementptr inbounds i8, ptr %0, i64 48
+  %20 = load ptr, ptr %19, align 8
+  %.not22 = icmp eq ptr %20, null
+  br i1 %.not22, label %26, label %21
+
+21:                                               ; preds = %18
+  %22 = getelementptr inbounds i8, ptr %20, i64 12
+  %23 = load i32, ptr %22, align 4
+  %24 = getelementptr inbounds i8, ptr %20, i64 16
+  %25 = load i32, ptr %24, align 4
+  br label %38
+
+26:                                               ; preds = %18
+  %27 = getelementptr inbounds i8, ptr %0, i64 40
+  %28 = load i32, ptr %27, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 44
+  %30 = load i32, ptr %29, align 4
+  br label %38
 
 .critedge:                                        ; preds = %12, %8, %1, %16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #10
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.38, ptr noundef nonnull align 1 dereferenceable(1) %3)
-          to label %25 unwind label %27
+          to label %31 unwind label %33
 
-25:                                               ; preds = %.critedge
+31:                                               ; preds = %.critedge
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -5, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @__func__.cvGetSize, ptr noundef nonnull @.str.1, i32 noundef 1248) #11
-          to label %26 unwind label %29
+          to label %32 unwind label %35
 
-26:                                               ; preds = %25
+32:                                               ; preds = %31
   unreachable
 
-27:                                               ; preds = %.critedge
-  %28 = landingpad { ptr, i32 }
+33:                                               ; preds = %.critedge
+  %34 = landingpad { ptr, i32 }
           cleanup
-  br label %31
+  br label %37
 
-29:                                               ; preds = %25
-  %30 = landingpad { ptr, i32 }
+35:                                               ; preds = %31
+  %36 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #10
-  br label %31
+  br label %37
 
-31:                                               ; preds = %29, %27
-  %.pn = phi { ptr, i32 } [ %30, %29 ], [ %28, %27 ]
+37:                                               ; preds = %35, %33
+  %.pn = phi { ptr, i32 } [ %36, %35 ], [ %34, %33 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #10
   resume { ptr, i32 } %.pn
 
-32:                                               ; preds = %.sink.split, %12
-  %.sroa.5.0 = phi i32 [ %14, %12 ], [ %24, %.sink.split ]
-  %.sroa.0.0 = phi i32 [ %10, %12 ], [ %.sroa.0.0.ph, %.sink.split ]
+38:                                               ; preds = %12, %26, %21
+  %.sroa.5.0 = phi i32 [ %25, %21 ], [ %30, %26 ], [ %14, %12 ]
+  %.sroa.0.0 = phi i32 [ %23, %21 ], [ %28, %26 ], [ %10, %12 ]
   %.sroa.5.0.insert.ext = zext i32 %.sroa.5.0 to i64
   %.sroa.5.0.insert.shift = shl nuw i64 %.sroa.5.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %.sroa.0.0 to i64

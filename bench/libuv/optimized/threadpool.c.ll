@@ -307,6 +307,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   store ptr %wq, ptr %wq, align 8
   %prev.i.i = getelementptr inbounds i8, ptr %wq, i64 8
+  store ptr %wq, ptr %prev.i.i, align 8
   br label %uv__queue_move.exit
 
 if.else.i:                                        ; preds = %entry
@@ -320,11 +321,10 @@ if.else.i:                                        ; preds = %entry
   %2 = load ptr, ptr %prev4.i.i, align 8
   store ptr %2, ptr %prev.i4.i, align 8
   store ptr %wq1, ptr %2, align 8
+  store ptr %wq, ptr %prev4.i.i, align 8
   br label %uv__queue_move.exit
 
 uv__queue_move.exit:                              ; preds = %if.then.i, %if.else.i
-  %prev4.i.sink.i = phi ptr [ %prev4.i.i, %if.else.i ], [ %prev.i.i, %if.then.i ]
-  store ptr %wq, ptr %prev4.i.sink.i, align 8
   call void @uv_mutex_unlock(ptr noundef nonnull %wq_mutex) #9
   %3 = load ptr, ptr %wq, align 8
   %cmp.i.not12 = icmp eq ptr %wq, %3

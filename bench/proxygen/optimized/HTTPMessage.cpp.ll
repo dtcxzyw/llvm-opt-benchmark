@@ -1953,6 +1953,7 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont9
   store ptr null, ptr %_M_parent.i.i.i.i, align 8
   store ptr %add.ptr.i.i.i, ptr %_M_left.i.i.i.i.i, align 8
   store ptr %add.ptr.i.i.i, ptr %_M_right.i.i.i.i.i, align 8
+  store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8
   br label %_ZNSt3mapIN5folly5RangeIPKcEES4_St4lessIS4_ESaISt4pairIKS4_S4_EEEC2EOSB_.exit
 
 if.else.i.i.i.i:                                  ; preds = %invoke.cont9
@@ -1964,16 +1965,15 @@ if.else.i.i.i.i:                                  ; preds = %invoke.cont9
   %_M_right.i4.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 416
   store ptr %7, ptr %_M_right.i4.i.i.i.i, align 8
   %_M_node_count.i5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 424
+  store i64 0, ptr %_M_node_count.i5.i.i.i.i, align 8
   br label %_ZNSt3mapIN5folly5RangeIPKcEES4_St4lessIS4_ESaISt4pairIKS4_S4_EEEC2EOSB_.exit
 
 _ZNSt3mapIN5folly5RangeIPKcEES4_St4lessIS4_ESaISt4pairIKS4_S4_EEEC2EOSB_.exit: ; preds = %if.then.i.i.i.i, %if.else.i.i.i.i
-  %_M_node_count.i5.sink.i.i.i.i = phi ptr [ %_M_node_count.i5.i.i.i.i, %if.else.i.i.i.i ], [ %_M_node_count.i.i.i.i.i, %if.then.i.i.i.i ]
-  store i64 0, ptr %_M_node_count.i5.sink.i.i.i.i, align 8
   %14 = getelementptr inbounds i8, ptr %this, i64 440
   %_M_parent.i.i.i.i31 = getelementptr inbounds i8, ptr %message, i64 448
   %15 = load ptr, ptr %_M_parent.i.i.i.i31, align 8
   %cmp.not.i.i.i.i32 = icmp eq ptr %15, null
-  br i1 %cmp.not.i.i.i.i32, label %if.else.i.i.i.i44, label %if.then.i.i.i.i33
+  br i1 %cmp.not.i.i.i.i32, label %if.else.i.i.i.i43, label %if.then.i.i.i.i33
 
 if.then.i.i.i.i33:                                ; preds = %_ZNSt3mapIN5folly5RangeIPKcEES4_St4lessIS4_ESaISt4pairIKS4_S4_EEEC2EOSB_.exit
   %add.ptr.i.i.i34 = getelementptr inbounds i8, ptr %message, i64 440
@@ -1999,22 +1999,22 @@ if.then.i.i.i.i33:                                ; preds = %_ZNSt3mapIN5folly5R
   store ptr null, ptr %_M_parent.i.i.i.i31, align 8
   store ptr %add.ptr.i.i.i34, ptr %_M_left.i.i.i.i.i36, align 8
   store ptr %add.ptr.i.i.i34, ptr %_M_right.i.i.i.i.i38, align 8
+  store i64 0, ptr %_M_node_count.i.i.i.i.i41, align 8
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2EOSC_.exit
 
-if.else.i.i.i.i44:                                ; preds = %_ZNSt3mapIN5folly5RangeIPKcEES4_St4lessIS4_ESaISt4pairIKS4_S4_EEEC2EOSB_.exit
+if.else.i.i.i.i43:                                ; preds = %_ZNSt3mapIN5folly5RangeIPKcEES4_St4lessIS4_ESaISt4pairIKS4_S4_EEEC2EOSB_.exit
   store i32 0, ptr %14, align 8
-  %_M_parent.i2.i.i.i.i45 = getelementptr inbounds i8, ptr %this, i64 448
-  store ptr null, ptr %_M_parent.i2.i.i.i.i45, align 8
-  %_M_left.i3.i.i.i.i46 = getelementptr inbounds i8, ptr %this, i64 456
-  store ptr %14, ptr %_M_left.i3.i.i.i.i46, align 8
-  %_M_right.i4.i.i.i.i47 = getelementptr inbounds i8, ptr %this, i64 464
-  store ptr %14, ptr %_M_right.i4.i.i.i.i47, align 8
-  %_M_node_count.i5.i.i.i.i48 = getelementptr inbounds i8, ptr %this, i64 472
+  %_M_parent.i2.i.i.i.i44 = getelementptr inbounds i8, ptr %this, i64 448
+  store ptr null, ptr %_M_parent.i2.i.i.i.i44, align 8
+  %_M_left.i3.i.i.i.i45 = getelementptr inbounds i8, ptr %this, i64 456
+  store ptr %14, ptr %_M_left.i3.i.i.i.i45, align 8
+  %_M_right.i4.i.i.i.i46 = getelementptr inbounds i8, ptr %this, i64 464
+  store ptr %14, ptr %_M_right.i4.i.i.i.i46, align 8
+  %_M_node_count.i5.i.i.i.i47 = getelementptr inbounds i8, ptr %this, i64 472
+  store i64 0, ptr %_M_node_count.i5.i.i.i.i47, align 8
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2EOSC_.exit
 
-_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2EOSC_.exit: ; preds = %if.then.i.i.i.i33, %if.else.i.i.i.i44
-  %_M_node_count.i5.sink.i.i.i.i43 = phi ptr [ %_M_node_count.i5.i.i.i.i48, %if.else.i.i.i.i44 ], [ %_M_node_count.i.i.i.i.i41, %if.then.i.i.i.i33 ]
-  store i64 0, ptr %_M_node_count.i5.sink.i.i.i.i43, align 8
+_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2EOSC_.exit: ; preds = %if.then.i.i.i.i33, %if.else.i.i.i.i43
   %headers_ = getelementptr inbounds i8, ptr %this, i64 480
   %headers_12 = getelementptr inbounds i8, ptr %message, i64 480
   tail call void @_ZN8proxygen11HTTPHeadersC1EOS0_(ptr noundef nonnull align 8 dereferenceable(32) %headers_, ptr noundef nonnull align 8 dereferenceable(32) %headers_12) #23
@@ -2126,13 +2126,13 @@ if.then:                                          ; preds = %_ZN5folly8OptionalI
           to label %invoke.cont71 unwind label %terminate.lpad
 
 invoke.cont71:                                    ; preds = %if.then
-  %call.i.i49 = invoke noundef nonnull align 8 dereferenceable(202) ptr @_ZN8proxygen11HTTPMessage7requestEv(ptr noundef nonnull align 8 dereferenceable(616) %this)
+  %call.i.i48 = invoke noundef nonnull align 8 dereferenceable(202) ptr @_ZN8proxygen11HTTPMessage7requestEv(ptr noundef nonnull align 8 dereferenceable(616) %this)
           to label %call.i.i.noexc unwind label %terminate.lpad
 
 call.i.i.noexc:                                   ; preds = %invoke.cont71
   %url_ = getelementptr inbounds i8, ptr %call72, i64 168
-  %url_.i.i = getelementptr inbounds i8, ptr %call.i.i49, i64 168
-  %call3.i.i50 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %url_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %url_)
+  %url_.i.i = getelementptr inbounds i8, ptr %call.i.i48, i64 168
+  %call3.i.i49 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %url_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %url_)
           to label %call3.i.i.noexc unwind label %terminate.lpad
 
 call3.i.i.noexc:                                  ; preds = %call.i.i.noexc

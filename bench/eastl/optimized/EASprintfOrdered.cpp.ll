@@ -1083,7 +1083,8 @@ if.then:                                          ; preds = %entry
 
 if.then3:                                         ; preds = %if.then
   %arrayidx = getelementptr inbounds i8, ptr %pDestination, i64 %conv
-  br label %if.end8.sink.split
+  store i8 0, ptr %arrayidx, align 1
+  br label %if.end8
 
 if.else:                                          ; preds = %if.then
   %cmp4.not = icmp eq i64 %n, 0
@@ -1092,14 +1093,10 @@ if.else:                                          ; preds = %if.then
 if.then5:                                         ; preds = %if.else
   %0 = getelementptr i8, ptr %pDestination, i64 %n
   %arrayidx6 = getelementptr i8, ptr %0, i64 -1
-  br label %if.end8.sink.split
-
-if.end8.sink.split:                               ; preds = %if.then5, %if.then3
-  %arrayidx.sink = phi ptr [ %arrayidx, %if.then3 ], [ %arrayidx6, %if.then5 ]
-  store i8 0, ptr %arrayidx.sink, align 1
+  store i8 0, ptr %arrayidx6, align 1
   br label %if.end8
 
-if.end8:                                          ; preds = %if.end8.sink.split, %if.else, %entry
+if.end8:                                          ; preds = %if.then3, %if.then5, %if.else, %entry
   ret i32 %call
 }
 
@@ -1167,13 +1164,13 @@ entry:
   br i1 %or.cond.i, label %if.then.i, label %_ZN2EA4StdC10OVsnprintfEPcmPKcP13__va_list_tag.exit
 
 if.then.i:                                        ; preds = %entry
-  %0 = call i32 @llvm.umin.i32(i32 %call.i, i32 2147483646)
-  %arrayidx.sink.i.v = zext nneg i32 %0 to i64
-  %arrayidx.sink.i = getelementptr i8, ptr %pDestination, i64 %arrayidx.sink.i.v
-  store i8 0, ptr %arrayidx.sink.i, align 1, !alias.scope !22, !noalias !27
+  %narrow = call i32 @llvm.smin.i32(i32 %call.i, i32 2147483646)
+  %conv.i.sink = zext nneg i32 %narrow to i64
+  %arrayidx.i = getelementptr i8, ptr %pDestination, i64 %conv.i.sink
+  store i8 0, ptr %arrayidx.i, align 1, !alias.scope !22, !noalias !27
   br label %_ZN2EA4StdC10OVsnprintfEPcmPKcP13__va_list_tag.exit
 
-_ZN2EA4StdC10OVsnprintfEPcmPKcP13__va_list_tag.exit: ; preds = %entry, %if.then.i
+_ZN2EA4StdC10OVsnprintfEPcmPKcP13__va_list_tag.exit: ; preds = %if.then.i, %entry
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %sc.i)
   ret i32 %call.i
 }
@@ -1207,7 +1204,8 @@ if.then.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.then.i
   %arrayidx.i = getelementptr inbounds i8, ptr %pDestination, i64 %conv.i
-  br label %if.end8.sink.split.i
+  store i8 0, ptr %arrayidx.i, align 1, !alias.scope !28, !noalias !33
+  br label %_ZN2EA4StdC10OVsnprintfEPcmPKcP13__va_list_tag.exit
 
 if.else.i:                                        ; preds = %if.then.i
   %cmp4.not.i = icmp eq i64 %n, 0
@@ -1216,14 +1214,10 @@ if.else.i:                                        ; preds = %if.then.i
 if.then5.i:                                       ; preds = %if.else.i
   %0 = getelementptr i8, ptr %pDestination, i64 %n
   %arrayidx6.i = getelementptr i8, ptr %0, i64 -1
-  br label %if.end8.sink.split.i
-
-if.end8.sink.split.i:                             ; preds = %if.then5.i, %if.then3.i
-  %arrayidx.sink.i = phi ptr [ %arrayidx.i, %if.then3.i ], [ %arrayidx6.i, %if.then5.i ]
-  store i8 0, ptr %arrayidx.sink.i, align 1, !alias.scope !28, !noalias !33
+  store i8 0, ptr %arrayidx6.i, align 1, !alias.scope !28, !noalias !33
   br label %_ZN2EA4StdC10OVsnprintfEPcmPKcP13__va_list_tag.exit
 
-_ZN2EA4StdC10OVsnprintfEPcmPKcP13__va_list_tag.exit: ; preds = %entry, %if.else.i, %if.end8.sink.split.i
+_ZN2EA4StdC10OVsnprintfEPcmPKcP13__va_list_tag.exit: ; preds = %entry, %if.then3.i, %if.else.i, %if.then5.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %sc.i)
   ret i32 %call.i
 }
@@ -2288,7 +2282,8 @@ if.then:                                          ; preds = %entry
 
 if.then3:                                         ; preds = %if.then
   %arrayidx = getelementptr inbounds i16, ptr %pDestination, i64 %conv
-  br label %if.end8.sink.split
+  store i16 0, ptr %arrayidx, align 2
+  br label %if.end8
 
 if.else:                                          ; preds = %if.then
   %cmp4.not = icmp eq i64 %n, 0
@@ -2297,14 +2292,10 @@ if.else:                                          ; preds = %if.then
 if.then5:                                         ; preds = %if.else
   %0 = getelementptr i16, ptr %pDestination, i64 %n
   %arrayidx6 = getelementptr i8, ptr %0, i64 -2
-  br label %if.end8.sink.split
-
-if.end8.sink.split:                               ; preds = %if.then5, %if.then3
-  %arrayidx.sink = phi ptr [ %arrayidx, %if.then3 ], [ %arrayidx6, %if.then5 ]
-  store i16 0, ptr %arrayidx.sink, align 2
+  store i16 0, ptr %arrayidx6, align 2
   br label %if.end8
 
-if.end8:                                          ; preds = %if.end8.sink.split, %if.else, %entry
+if.end8:                                          ; preds = %if.then3, %if.then5, %if.else, %entry
   ret i32 %call
 }
 
@@ -2370,15 +2361,21 @@ entry:
   br i1 %or.cond.i, label %if.then.i, label %_ZN2EA4StdC10OVsnprintfEPDsmPKDsP13__va_list_tag.exit
 
 if.then.i:                                        ; preds = %entry
-  %conv.i = zext nneg i32 %call.i to i64
   %cmp2.i.not = icmp eq i32 %call.i, 2147483647
+  br i1 %cmp2.i.not, label %if.else.i, label %if.then3.i
+
+if.then3.i:                                       ; preds = %if.then.i
+  %conv.i = zext nneg i32 %call.i to i64
   %arrayidx.i = getelementptr inbounds i16, ptr %pDestination, i64 %conv.i
-  %arrayidx6.i = getelementptr i8, ptr %pDestination, i64 4294967292
-  %arrayidx.sink.i = select i1 %cmp2.i.not, ptr %arrayidx6.i, ptr %arrayidx.i
-  store i16 0, ptr %arrayidx.sink.i, align 2, !alias.scope !50, !noalias !55
+  store i16 0, ptr %arrayidx.i, align 2, !alias.scope !50, !noalias !55
   br label %_ZN2EA4StdC10OVsnprintfEPDsmPKDsP13__va_list_tag.exit
 
-_ZN2EA4StdC10OVsnprintfEPDsmPKDsP13__va_list_tag.exit: ; preds = %entry, %if.then.i
+if.else.i:                                        ; preds = %if.then.i
+  %arrayidx6.i = getelementptr i8, ptr %pDestination, i64 4294967292
+  store i16 0, ptr %arrayidx6.i, align 2, !alias.scope !50, !noalias !55
+  br label %_ZN2EA4StdC10OVsnprintfEPDsmPKDsP13__va_list_tag.exit
+
+_ZN2EA4StdC10OVsnprintfEPDsmPKDsP13__va_list_tag.exit: ; preds = %entry, %if.then3.i, %if.else.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %sc.i)
   ret i32 %call.i
 }
@@ -2410,7 +2407,8 @@ if.then.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.then.i
   %arrayidx.i = getelementptr inbounds i16, ptr %pDestination, i64 %conv.i
-  br label %if.end8.sink.split.i
+  store i16 0, ptr %arrayidx.i, align 2, !alias.scope !56, !noalias !61
+  br label %_ZN2EA4StdC10OVsnprintfEPDsmPKDsP13__va_list_tag.exit
 
 if.else.i:                                        ; preds = %if.then.i
   %cmp4.not.i = icmp eq i64 %n, 0
@@ -2419,14 +2417,10 @@ if.else.i:                                        ; preds = %if.then.i
 if.then5.i:                                       ; preds = %if.else.i
   %0 = getelementptr i16, ptr %pDestination, i64 %n
   %arrayidx6.i = getelementptr i8, ptr %0, i64 -2
-  br label %if.end8.sink.split.i
-
-if.end8.sink.split.i:                             ; preds = %if.then5.i, %if.then3.i
-  %arrayidx.sink.i = phi ptr [ %arrayidx.i, %if.then3.i ], [ %arrayidx6.i, %if.then5.i ]
-  store i16 0, ptr %arrayidx.sink.i, align 2, !alias.scope !56, !noalias !61
+  store i16 0, ptr %arrayidx6.i, align 2, !alias.scope !56, !noalias !61
   br label %_ZN2EA4StdC10OVsnprintfEPDsmPKDsP13__va_list_tag.exit
 
-_ZN2EA4StdC10OVsnprintfEPDsmPKDsP13__va_list_tag.exit: ; preds = %entry, %if.else.i, %if.end8.sink.split.i
+_ZN2EA4StdC10OVsnprintfEPDsmPKDsP13__va_list_tag.exit: ; preds = %entry, %if.then3.i, %if.else.i, %if.then5.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %sc.i)
   ret i32 %call.i
 }
@@ -3486,7 +3480,8 @@ if.then:                                          ; preds = %entry
 
 if.then3:                                         ; preds = %if.then
   %arrayidx = getelementptr inbounds i32, ptr %pDestination, i64 %conv
-  br label %if.end8.sink.split
+  store i32 0, ptr %arrayidx, align 4
+  br label %if.end8
 
 if.else:                                          ; preds = %if.then
   %cmp4.not = icmp eq i64 %n, 0
@@ -3495,14 +3490,10 @@ if.else:                                          ; preds = %if.then
 if.then5:                                         ; preds = %if.else
   %0 = getelementptr i32, ptr %pDestination, i64 %n
   %arrayidx6 = getelementptr i8, ptr %0, i64 -4
-  br label %if.end8.sink.split
-
-if.end8.sink.split:                               ; preds = %if.then5, %if.then3
-  %arrayidx.sink = phi ptr [ %arrayidx, %if.then3 ], [ %arrayidx6, %if.then5 ]
-  store i32 0, ptr %arrayidx.sink, align 4
+  store i32 0, ptr %arrayidx6, align 4
   br label %if.end8
 
-if.end8:                                          ; preds = %if.end8.sink.split, %if.else, %entry
+if.end8:                                          ; preds = %if.then3, %if.then5, %if.else, %entry
   ret i32 %call
 }
 
@@ -3568,15 +3559,21 @@ entry:
   br i1 %or.cond.i, label %if.then.i, label %_ZN2EA4StdC10OVsnprintfEPDimPKDiP13__va_list_tag.exit
 
 if.then.i:                                        ; preds = %entry
-  %conv.i = zext nneg i32 %call.i to i64
   %cmp2.i.not = icmp eq i32 %call.i, 2147483647
+  br i1 %cmp2.i.not, label %if.else.i, label %if.then3.i
+
+if.then3.i:                                       ; preds = %if.then.i
+  %conv.i = zext nneg i32 %call.i to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %pDestination, i64 %conv.i
-  %arrayidx6.i = getelementptr i8, ptr %pDestination, i64 8589934584
-  %arrayidx.sink.i = select i1 %cmp2.i.not, ptr %arrayidx6.i, ptr %arrayidx.i
-  store i32 0, ptr %arrayidx.sink.i, align 4, !alias.scope !78, !noalias !83
+  store i32 0, ptr %arrayidx.i, align 4, !alias.scope !78, !noalias !83
   br label %_ZN2EA4StdC10OVsnprintfEPDimPKDiP13__va_list_tag.exit
 
-_ZN2EA4StdC10OVsnprintfEPDimPKDiP13__va_list_tag.exit: ; preds = %entry, %if.then.i
+if.else.i:                                        ; preds = %if.then.i
+  %arrayidx6.i = getelementptr i8, ptr %pDestination, i64 8589934584
+  store i32 0, ptr %arrayidx6.i, align 4, !alias.scope !78, !noalias !83
+  br label %_ZN2EA4StdC10OVsnprintfEPDimPKDiP13__va_list_tag.exit
+
+_ZN2EA4StdC10OVsnprintfEPDimPKDiP13__va_list_tag.exit: ; preds = %entry, %if.then3.i, %if.else.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %sc.i)
   ret i32 %call.i
 }
@@ -3608,7 +3605,8 @@ if.then.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.then.i
   %arrayidx.i = getelementptr inbounds i32, ptr %pDestination, i64 %conv.i
-  br label %if.end8.sink.split.i
+  store i32 0, ptr %arrayidx.i, align 4, !alias.scope !84, !noalias !89
+  br label %_ZN2EA4StdC10OVsnprintfEPDimPKDiP13__va_list_tag.exit
 
 if.else.i:                                        ; preds = %if.then.i
   %cmp4.not.i = icmp eq i64 %n, 0
@@ -3617,14 +3615,10 @@ if.else.i:                                        ; preds = %if.then.i
 if.then5.i:                                       ; preds = %if.else.i
   %0 = getelementptr i32, ptr %pDestination, i64 %n
   %arrayidx6.i = getelementptr i8, ptr %0, i64 -4
-  br label %if.end8.sink.split.i
-
-if.end8.sink.split.i:                             ; preds = %if.then5.i, %if.then3.i
-  %arrayidx.sink.i = phi ptr [ %arrayidx.i, %if.then3.i ], [ %arrayidx6.i, %if.then5.i ]
-  store i32 0, ptr %arrayidx.sink.i, align 4, !alias.scope !84, !noalias !89
+  store i32 0, ptr %arrayidx6.i, align 4, !alias.scope !84, !noalias !89
   br label %_ZN2EA4StdC10OVsnprintfEPDimPKDiP13__va_list_tag.exit
 
-_ZN2EA4StdC10OVsnprintfEPDimPKDiP13__va_list_tag.exit: ; preds = %entry, %if.else.i, %if.end8.sink.split.i
+_ZN2EA4StdC10OVsnprintfEPDimPKDiP13__va_list_tag.exit: ; preds = %entry, %if.then3.i, %if.else.i, %if.then5.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %sc.i)
   ret i32 %call.i
 }
@@ -3690,7 +3684,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #8
+declare i32 @llvm.smin.i32(i32, i32) #8
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

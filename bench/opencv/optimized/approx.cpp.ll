@@ -1254,7 +1254,8 @@ define ptr @cvApproxChains(ptr noundef %0, ptr noundef %1, i32 noundef %2, doubl
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds i8, ptr %.050110.us115, i64 16
-  br label %.sink.split
+  store ptr %39, ptr %48, align 8
+  br label %52
 
 49:                                               ; preds = %43
   %.not81.us120 = icmp eq ptr %.067108.us117, null
@@ -1262,14 +1263,10 @@ define ptr @cvApproxChains(ptr noundef %0, ptr noundef %1, i32 noundef %2, doubl
 
 50:                                               ; preds = %49
   %51 = getelementptr inbounds i8, ptr %.067108.us117, i64 32
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %47, %50
-  %.sink = phi ptr [ %51, %50 ], [ %48, %47 ]
-  store ptr %39, ptr %.sink, align 8
+  store ptr %39, ptr %51, align 8
   br label %52
 
-52:                                               ; preds = %.sink.split, %49
+52:                                               ; preds = %50, %49, %47
   %.not82.us121 = icmp eq ptr %.064109.us116, null
   %spec.select.us122 = select i1 %.not82.us121, ptr %39, ptr %.064109.us116
   br label %53
@@ -1382,9 +1379,9 @@ define ptr @cvApproxChains(ptr noundef %0, ptr noundef %1, i32 noundef %2, doubl
   ret ptr %.us-phi
 
 88:                                               ; preds = %84, %86, %78, %80, %18, %20
-  %.sink154 = phi ptr [ %8, %20 ], [ %8, %18 ], [ %10, %80 ], [ %10, %78 ], [ %12, %86 ], [ %12, %84 ]
+  %.sink = phi ptr [ %8, %20 ], [ %8, %18 ], [ %10, %80 ], [ %10, %78 ], [ %12, %86 ], [ %12, %84 ]
   %.pn93.pn = phi { ptr, i32 } [ %21, %20 ], [ %19, %18 ], [ %81, %80 ], [ %79, %78 ], [ %87, %86 ], [ %85, %84 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink154) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #17
   resume { ptr, i32 } %.pn93.pn
 }
 
@@ -3612,7 +3609,8 @@ _ZN2cv10AutoBufferINS_6Point_IiEELm136EE8allocateEm.exit: ; preds = %.noexc, %_Z
 
 219:                                              ; preds = %216
   %220 = getelementptr inbounds i8, ptr %.0113209232, i64 16
-  br label %.sink.split
+  store ptr %203, ptr %220, align 8
+  br label %224
 
 221:                                              ; preds = %216
   %.not159 = icmp eq ptr %.0122207234, null
@@ -3620,14 +3618,10 @@ _ZN2cv10AutoBufferINS_6Point_IiEELm136EE8allocateEm.exit: ; preds = %.noexc, %_Z
 
 222:                                              ; preds = %221
   %223 = getelementptr inbounds i8, ptr %.0122207234, i64 32
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %219, %222
-  %.sink = phi ptr [ %223, %222 ], [ %220, %219 ]
-  store ptr %203, ptr %.sink, align 8
+  store ptr %203, ptr %223, align 8
   br label %224
 
-224:                                              ; preds = %.sink.split, %221
+224:                                              ; preds = %221, %222, %219
   %.not160 = icmp eq ptr %.0108210231, null
   %spec.select = select i1 %.not160, ptr %203, ptr %.0108210231
   br i1 %.not161, label %.thread194.thread, label %225

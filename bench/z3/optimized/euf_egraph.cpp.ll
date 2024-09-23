@@ -1509,11 +1509,11 @@ _ZN3euf6egraph10push_mergeEPNS_5enodeES2_b.exit:  ; preds = %lor.lhs.false.i.i39
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %_ZN3euf6egraph10push_mergeEPNS_5enodeES2_b.exit, %_ZN3euf6egraph15update_childrenEPNS_5enodeE.exit
-  %m_updates.i.sink = phi ptr [ %m_updates.i, %_ZN3euf6egraph15update_childrenEPNS_5enodeE.exit ], [ %m_to_merge.i, %_ZN3euf6egraph10push_mergeEPNS_5enodeES2_b.exit ]
-  %47 = load ptr, ptr %m_updates.i.sink, align 8
-  %arrayidx10.i.i = getelementptr inbounds i8, ptr %47, i64 -4
-  %48 = load i32, ptr %arrayidx10.i.i, align 4
-  %inc.i.i = add i32 %48, 1
+  %.sink.in = phi ptr [ %m_updates.i, %_ZN3euf6egraph15update_childrenEPNS_5enodeE.exit ], [ %m_to_merge.i, %_ZN3euf6egraph10push_mergeEPNS_5enodeES2_b.exit ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %.sink, i64 -4
+  %47 = load i32, ptr %arrayidx10.i.i, align 4
+  %inc.i.i = add i32 %47, 1
   store i32 %inc.i.i, ptr %arrayidx10.i.i, align 4
   br label %return
 
@@ -6372,68 +6372,68 @@ _ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit: ; preds = %lor.lhs.false.i1
   br label %if.end14
 
 if.end14:                                         ; preds = %_ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit, %_ZN6vectorIN3euf6egraph8to_mergeELb0EjE9push_backEOS2_.exit
-  %m_parents21.sink = phi ptr [ %m_parents21, %_ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit ], [ %m_to_merge.i.i54, %_ZN6vectorIN3euf6egraph8to_mergeELb0EjE9push_backEOS2_.exit ]
-  %19 = load ptr, ptr %m_parents21.sink, align 8
-  %arrayidx10.i17 = getelementptr inbounds i8, ptr %19, i64 -4
-  %20 = load i32, ptr %arrayidx10.i17, align 4
-  %inc.i18 = add i32 %20, 1
+  %.sink.in = phi ptr [ %m_parents21, %_ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit ], [ %m_to_merge.i.i54, %_ZN6vectorIN3euf6egraph8to_mergeELb0EjE9push_backEOS2_.exit ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %arrayidx10.i17 = getelementptr inbounds i8, ptr %.sink, i64 -4
+  %19 = load i32, ptr %arrayidx10.i17, align 4
+  %inc.i18 = add i32 %19, 1
   store i32 %inc.i18, ptr %arrayidx10.i17, align 4
   %m_is_equality.i = getelementptr inbounds i8, ptr %3, i64 15
-  %21 = load i8, ptr %m_is_equality.i, align 1
-  %tobool.i23 = trunc i8 %21 to i1
+  %20 = load i8, ptr %m_is_equality.i, align 1
+  %tobool.i23 = trunc i8 %20 to i1
   br i1 %tobool.i23, label %if.then16, label %for.inc
 
 if.then16:                                        ; preds = %if.end14
   %m_value.i.i = getelementptr inbounds i8, ptr %3, i64 24
-  %22 = load i32, ptr %m_value.i.i, align 8
-  %cmp.not.i = icmp eq i32 %22, 1
+  %21 = load i32, ptr %m_value.i.i, align 8
+  %cmp.not.i = icmp eq i32 %21, 1
   br i1 %cmp.not.i, label %for.inc, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then16
   %m_args.i.i = getelementptr inbounds i8, ptr %3, i64 176
-  %23 = load ptr, ptr %m_args.i.i, align 8
-  %m_root.i.i = getelementptr inbounds i8, ptr %23, i64 64
-  %24 = load ptr, ptr %m_root.i.i, align 8
+  %22 = load ptr, ptr %m_args.i.i, align 8
+  %m_root.i.i = getelementptr inbounds i8, ptr %22, i64 64
+  %23 = load ptr, ptr %m_root.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %3, i64 184
-  %25 = load ptr, ptr %arrayidx.i.i, align 8
-  %m_root.i5.i = getelementptr inbounds i8, ptr %25, i64 64
-  %26 = load ptr, ptr %m_root.i5.i, align 8
-  %cmp6.i = icmp ne ptr %24, %26
-  %27 = load ptr, ptr %_M_manager.i.i.i.i50, align 8
-  %tobool.not.i.i.not.i.i = icmp eq ptr %27, null
+  %24 = load ptr, ptr %arrayidx.i.i, align 8
+  %m_root.i5.i = getelementptr inbounds i8, ptr %24, i64 64
+  %25 = load ptr, ptr %m_root.i5.i, align 8
+  %cmp6.i = icmp ne ptr %23, %25
+  %26 = load ptr, ptr %_M_manager.i.i.i.i50, align 8
+  %tobool.not.i.i.not.i.i = icmp eq ptr %26, null
   %or.cond.i = select i1 %cmp6.i, i1 true, i1 %tobool.not.i.i.not.i.i
   br i1 %or.cond.i, label %for.inc, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i
-  %28 = load ptr, ptr %m_to_merge.i.i54, align 8
-  %cmp.i.i.i24 = icmp eq ptr %28, null
+  %27 = load ptr, ptr %m_to_merge.i.i54, align 8
+  %cmp.i.i.i24 = icmp eq ptr %27, null
   br i1 %cmp.i.i.i24, label %for.inc.sink.split.sink.split, label %lor.lhs.false.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %if.then.i.i
-  %arrayidx.i.i.i25 = getelementptr inbounds i8, ptr %28, i64 -4
-  %29 = load i32, ptr %arrayidx.i.i.i25, align 4
-  %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %28, i64 -8
-  %30 = load i32, ptr %arrayidx4.i.i.i, align 4
-  %cmp5.i.i.i = icmp eq i32 %29, %30
+  %arrayidx.i.i.i25 = getelementptr inbounds i8, ptr %27, i64 -4
+  %28 = load i32, ptr %arrayidx.i.i.i25, align 4
+  %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %27, i64 -8
+  %29 = load i32, ptr %arrayidx4.i.i.i, align 4
+  %cmp5.i.i.i = icmp eq i32 %28, %29
   br i1 %cmp5.i.i.i, label %for.inc.sink.split.sink.split, label %for.inc.sink.split
 
 if.else18:                                        ; preds = %if.end
   %m_is_equality.i26 = getelementptr inbounds i8, ptr %3, i64 15
-  %31 = load i8, ptr %m_is_equality.i26, align 1
-  %tobool.i27 = trunc i8 %31 to i1
+  %30 = load i8, ptr %m_is_equality.i26, align 1
+  %tobool.i27 = trunc i8 %30 to i1
   br i1 %tobool.i27, label %if.then20, label %for.inc
 
 if.then20:                                        ; preds = %if.else18
-  %32 = load ptr, ptr %m_parents21, align 8
-  %cmp.i28 = icmp eq ptr %32, null
+  %31 = load ptr, ptr %m_parents21, align 8
+  %cmp.i28 = icmp eq ptr %31, null
   br i1 %cmp.i28, label %if.then.i37, label %lor.lhs.false.i29
 
 lor.lhs.false.i29:                                ; preds = %if.then20
-  %arrayidx.i30 = getelementptr inbounds i8, ptr %32, i64 -4
-  %33 = load i32, ptr %arrayidx.i30, align 4
-  %arrayidx4.i31 = getelementptr inbounds i8, ptr %32, i64 -8
-  %34 = load i32, ptr %arrayidx4.i31, align 4
-  %cmp5.i32 = icmp eq i32 %33, %34
+  %arrayidx.i30 = getelementptr inbounds i8, ptr %31, i64 -4
+  %32 = load i32, ptr %arrayidx.i30, align 4
+  %arrayidx4.i31 = getelementptr inbounds i8, ptr %31, i64 -8
+  %33 = load i32, ptr %arrayidx4.i31, align 4
+  %cmp5.i32 = icmp eq i32 %32, %33
   br i1 %cmp5.i32, label %if.then.i37, label %_ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit41
 
 if.then.i37:                                      ; preds = %lor.lhs.false.i29, %if.then20
@@ -6444,47 +6444,47 @@ if.then.i37:                                      ; preds = %lor.lhs.false.i29, 
   br label %_ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit41
 
 _ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit41: ; preds = %lor.lhs.false.i29, %if.then.i37
-  %35 = phi i32 [ %.pre1.i40, %if.then.i37 ], [ %33, %lor.lhs.false.i29 ]
-  %36 = phi ptr [ %.pre.i38, %if.then.i37 ], [ %32, %lor.lhs.false.i29 ]
-  %idx.ext.i33 = zext i32 %35 to i64
-  %add.ptr.i34 = getelementptr inbounds ptr, ptr %36, i64 %idx.ext.i33
+  %34 = phi i32 [ %.pre1.i40, %if.then.i37 ], [ %32, %lor.lhs.false.i29 ]
+  %35 = phi ptr [ %.pre.i38, %if.then.i37 ], [ %31, %lor.lhs.false.i29 ]
+  %idx.ext.i33 = zext i32 %34 to i64
+  %add.ptr.i34 = getelementptr inbounds ptr, ptr %35, i64 %idx.ext.i33
   store ptr %3, ptr %add.ptr.i34, align 8
-  %37 = load ptr, ptr %m_parents21, align 8
-  %arrayidx10.i35 = getelementptr inbounds i8, ptr %37, i64 -4
-  %38 = load i32, ptr %arrayidx10.i35, align 4
-  %inc.i36 = add i32 %38, 1
+  %36 = load ptr, ptr %m_parents21, align 8
+  %arrayidx10.i35 = getelementptr inbounds i8, ptr %36, i64 -4
+  %37 = load i32, ptr %arrayidx10.i35, align 4
+  %inc.i36 = add i32 %37, 1
   store i32 %inc.i36, ptr %arrayidx10.i35, align 4
   %m_value.i.i42 = getelementptr inbounds i8, ptr %3, i64 24
-  %39 = load i32, ptr %m_value.i.i42, align 8
-  %cmp.not.i43 = icmp eq i32 %39, 1
+  %38 = load i32, ptr %m_value.i.i42, align 8
+  %cmp.not.i43 = icmp eq i32 %38, 1
   br i1 %cmp.not.i43, label %for.inc, label %land.lhs.true.i44
 
 land.lhs.true.i44:                                ; preds = %_ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit41
   %m_args.i.i45 = getelementptr inbounds i8, ptr %3, i64 176
-  %40 = load ptr, ptr %m_args.i.i45, align 8
-  %m_root.i.i46 = getelementptr inbounds i8, ptr %40, i64 64
-  %41 = load ptr, ptr %m_root.i.i46, align 8
+  %39 = load ptr, ptr %m_args.i.i45, align 8
+  %m_root.i.i46 = getelementptr inbounds i8, ptr %39, i64 64
+  %40 = load ptr, ptr %m_root.i.i46, align 8
   %arrayidx.i.i47 = getelementptr inbounds i8, ptr %3, i64 184
-  %42 = load ptr, ptr %arrayidx.i.i47, align 8
-  %m_root.i5.i48 = getelementptr inbounds i8, ptr %42, i64 64
-  %43 = load ptr, ptr %m_root.i5.i48, align 8
-  %cmp6.i49 = icmp ne ptr %41, %43
-  %44 = load ptr, ptr %_M_manager.i.i.i.i50, align 8
-  %tobool.not.i.i.not.i.i51 = icmp eq ptr %44, null
+  %41 = load ptr, ptr %arrayidx.i.i47, align 8
+  %m_root.i5.i48 = getelementptr inbounds i8, ptr %41, i64 64
+  %42 = load ptr, ptr %m_root.i5.i48, align 8
+  %cmp6.i49 = icmp ne ptr %40, %42
+  %43 = load ptr, ptr %_M_manager.i.i.i.i50, align 8
+  %tobool.not.i.i.not.i.i51 = icmp eq ptr %43, null
   %or.cond.i52 = select i1 %cmp6.i49, i1 true, i1 %tobool.not.i.i.not.i.i51
   br i1 %or.cond.i52, label %for.inc, label %if.then.i.i53
 
 if.then.i.i53:                                    ; preds = %land.lhs.true.i44
-  %45 = load ptr, ptr %m_to_merge.i.i54, align 8
-  %cmp.i.i.i55 = icmp eq ptr %45, null
+  %44 = load ptr, ptr %m_to_merge.i.i54, align 8
+  %cmp.i.i.i55 = icmp eq ptr %44, null
   br i1 %cmp.i.i.i55, label %for.inc.sink.split.sink.split, label %lor.lhs.false.i.i.i56
 
 lor.lhs.false.i.i.i56:                            ; preds = %if.then.i.i53
-  %arrayidx.i.i.i57 = getelementptr inbounds i8, ptr %45, i64 -4
-  %46 = load i32, ptr %arrayidx.i.i.i57, align 4
-  %arrayidx4.i.i.i58 = getelementptr inbounds i8, ptr %45, i64 -8
-  %47 = load i32, ptr %arrayidx4.i.i.i58, align 4
-  %cmp5.i.i.i59 = icmp eq i32 %46, %47
+  %arrayidx.i.i.i57 = getelementptr inbounds i8, ptr %44, i64 -4
+  %45 = load i32, ptr %arrayidx.i.i.i57, align 4
+  %arrayidx4.i.i.i58 = getelementptr inbounds i8, ptr %44, i64 -8
+  %46 = load i32, ptr %arrayidx4.i.i.i58, align 4
+  %cmp5.i.i.i59 = icmp eq i32 %45, %46
   br i1 %cmp5.i.i.i59, label %for.inc.sink.split.sink.split, label %for.inc.sink.split
 
 for.inc.sink.split.sink.split:                    ; preds = %if.then.i.i53, %lor.lhs.false.i.i.i56, %if.then.i.i, %lor.lhs.false.i.i.i
@@ -6495,10 +6495,10 @@ for.inc.sink.split.sink.split:                    ; preds = %if.then.i.i53, %lor
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %for.inc.sink.split.sink.split, %lor.lhs.false.i.i.i56, %lor.lhs.false.i.i.i
-  %.sink100 = phi i32 [ %29, %lor.lhs.false.i.i.i ], [ %46, %lor.lhs.false.i.i.i56 ], [ %.pre1.i.i.i73, %for.inc.sink.split.sink.split ]
-  %.sink = phi ptr [ %28, %lor.lhs.false.i.i.i ], [ %45, %lor.lhs.false.i.i.i56 ], [ %.pre.i.i.i71, %for.inc.sink.split.sink.split ]
-  %idx.ext.i.i.i61 = zext i32 %.sink100 to i64
-  %add.ptr.i.i.i62 = getelementptr inbounds %"struct.euf::egraph::to_merge", ptr %.sink, i64 %idx.ext.i.i.i61
+  %.sink103 = phi i32 [ %28, %lor.lhs.false.i.i.i ], [ %45, %lor.lhs.false.i.i.i56 ], [ %.pre1.i.i.i73, %for.inc.sink.split.sink.split ]
+  %.sink102 = phi ptr [ %27, %lor.lhs.false.i.i.i ], [ %44, %lor.lhs.false.i.i.i56 ], [ %.pre.i.i.i71, %for.inc.sink.split.sink.split ]
+  %idx.ext.i.i.i61 = zext i32 %.sink103 to i64
+  %add.ptr.i.i.i62 = getelementptr inbounds %"struct.euf::egraph::to_merge", ptr %.sink102, i64 %idx.ext.i.i.i61
   store ptr %3, ptr %add.ptr.i.i.i62, align 8
   %ref.tmp.sroa.2.0.add.ptr.i.sroa_idx.i.i63 = getelementptr inbounds i8, ptr %add.ptr.i.i.i62, i64 8
   store ptr null, ptr %ref.tmp.sroa.2.0.add.ptr.i.sroa_idx.i.i63, align 8
@@ -6510,10 +6510,10 @@ for.inc.sink.split:                               ; preds = %for.inc.sink.split.
   store i8 0, ptr %ref.tmp.sroa.52.0.add.ptr.i.sroa_idx.i.i66, align 8
   %ref.tmp.sroa.63.0.add.ptr.i.sroa_idx.i.i67 = getelementptr inbounds i8, ptr %add.ptr.i.i.i62, i64 40
   store ptr null, ptr %ref.tmp.sroa.63.0.add.ptr.i.sroa_idx.i.i67, align 8
-  %48 = load ptr, ptr %m_to_merge.i.i54, align 8
-  %arrayidx10.i.i.i68 = getelementptr inbounds i8, ptr %48, i64 -4
-  %49 = load i32, ptr %arrayidx10.i.i.i68, align 4
-  %inc.i.i.i69 = add i32 %49, 1
+  %47 = load ptr, ptr %m_to_merge.i.i54, align 8
+  %arrayidx10.i.i.i68 = getelementptr inbounds i8, ptr %47, i64 -4
+  %48 = load i32, ptr %arrayidx10.i.i.i68, align 4
+  %inc.i.i.i69 = add i32 %48, 1
   store i32 %inc.i.i.i69, ptr %arrayidx10.i.i.i68, align 4
   br label %for.inc
 

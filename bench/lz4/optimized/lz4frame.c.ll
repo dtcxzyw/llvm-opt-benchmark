@@ -513,7 +513,8 @@ do.body36:                                        ; preds = %if.then22, %if.then
 do.end43:                                         ; preds = %do.body36
   store i16 %conv, ptr %lz4CtxAlloc, align 8
   %lz4CtxState = getelementptr inbounds i8, ptr %cctxPtr, i64 210
-  br label %if.end68.sink.split
+  store i16 %conv, ptr %lz4CtxState, align 2
+  br label %if.end68
 
 if.else45:                                        ; preds = %ctxTypeID_to_size.exit100
   %lz4CtxState46 = getelementptr inbounds i8, ptr %cctxPtr, i64 210
@@ -530,21 +531,20 @@ if.then51:                                        ; preds = %if.else45
 
 if.then56:                                        ; preds = %if.then51
   %call58 = tail call ptr @LZ4_initStream(ptr noundef %8, i64 noundef 16416) #12
-  br label %if.end68.sink.split
+  br label %if.end65
 
 if.else59:                                        ; preds = %if.then51
   %call61 = tail call ptr @LZ4_initStreamHC(ptr noundef %8, i64 noundef 262200) #12
   %9 = load ptr, ptr %lz4CtxPtr57, align 8
   %10 = load i32, ptr %compressionLevel, align 8
   tail call void @LZ4_setCompressionLevel(ptr noundef %9, i32 noundef %10) #12
-  br label %if.end68.sink.split
+  br label %if.end65
 
-if.end68.sink.split:                              ; preds = %if.then56, %if.else59, %do.end43
-  %lz4CtxState46.sink = phi ptr [ %lz4CtxState, %do.end43 ], [ %lz4CtxState46, %if.else59 ], [ %lz4CtxState46, %if.then56 ]
-  store i16 %conv, ptr %lz4CtxState46.sink, align 2
+if.end65:                                         ; preds = %if.else59, %if.then56
+  store i16 %conv, ptr %lz4CtxState46, align 2
   br label %if.end68
 
-if.end68:                                         ; preds = %if.end68.sink.split, %if.else45
+if.end68:                                         ; preds = %if.else45, %if.end65, %do.end43
   %11 = load i32, ptr %prefs, align 8
   %cmp70 = icmp eq i32 %11, 0
   br i1 %cmp70, label %if.end76.thread, label %if.end76

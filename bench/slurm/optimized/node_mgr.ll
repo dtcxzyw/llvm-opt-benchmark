@@ -10588,13 +10588,13 @@ define dso_local void @push_reconfig_to_slurmd() local_unnamed_addr #0 {
   %32 = getelementptr inbounds i8, ptr %5, i64 24
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %54
-  %33 = phi ptr [ %57, %54 ], [ %29, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %53
+  %33 = phi ptr [ %56, %53 ], [ %29, %.lr.ph.preheader ]
   %34 = getelementptr inbounds i8, ptr %33, i64 304
   %35 = load i32, ptr %34, align 8
   %36 = and i32 %35, 15
   %37 = icmp eq i32 %36, 6
-  br i1 %37, label %54, label %38
+  br i1 %37, label %53, label %38
 
 38:                                               ; preds = %.lr.ph
   %39 = zext i32 %35 to i64
@@ -10603,7 +10603,7 @@ define dso_local void @push_reconfig_to_slurmd() local_unnamed_addr #0 {
   %41 = and i64 %39, 266240
   %or.cond = icmp eq i64 %41, 0
   %or.cond14 = or i1 %.not11, %or.cond
-  br i1 %or.cond14, label %42, label %54
+  br i1 %or.cond14, label %42, label %53
 
 42:                                               ; preds = %38
   %43 = getelementptr inbounds i8, ptr %33, i64 352
@@ -10612,7 +10612,7 @@ define dso_local void @push_reconfig_to_slurmd() local_unnamed_addr #0 {
   br i1 %45, label %.sink.split, label %46
 
 46:                                               ; preds = %42
-  switch i16 %44, label %54 [
+  switch i16 %44, label %53 [
     i16 10240, label %.sink.split
     i16 9984, label %47
   ]
@@ -10621,116 +10621,116 @@ define dso_local void @push_reconfig_to_slurmd() local_unnamed_addr #0 {
   br label %.sink.split
 
 .sink.split:                                      ; preds = %46, %42, %47
-  %.sink21 = phi ptr [ %30, %47 ], [ %32, %42 ], [ %31, %46 ]
+  %.sink18.in = phi ptr [ %30, %47 ], [ %32, %42 ], [ %31, %46 ]
   %.sink = phi ptr [ %21, %47 ], [ %5, %42 ], [ %13, %46 ]
-  %48 = load ptr, ptr %.sink21, align 8
-  %49 = getelementptr inbounds i8, ptr %33, i64 256
-  %50 = load ptr, ptr %49, align 8
-  %51 = call i32 @hostlist_push_host(ptr noundef %48, ptr noundef %50) #16
-  %52 = load i32, ptr %.sink, align 8
-  %53 = add i32 %52, 1
-  store i32 %53, ptr %.sink, align 8
-  br label %54
+  %.sink18 = load ptr, ptr %.sink18.in, align 8
+  %48 = getelementptr inbounds i8, ptr %33, i64 256
+  %49 = load ptr, ptr %48, align 8
+  %50 = call i32 @hostlist_push_host(ptr noundef %.sink18, ptr noundef %49) #16
+  %51 = load i32, ptr %.sink, align 8
+  %52 = add i32 %51, 1
+  store i32 %52, ptr %.sink, align 8
+  br label %53
 
-54:                                               ; preds = %.sink.split, %38, %46, %.lr.ph
-  %55 = load i32, ptr %4, align 4
-  %56 = add nsw i32 %55, 1
-  store i32 %56, ptr %4, align 4
-  %57 = call ptr @next_node(ptr noundef nonnull %4) #16
-  %.not = icmp eq ptr %57, null
+53:                                               ; preds = %.sink.split, %38, %46, %.lr.ph
+  %54 = load i32, ptr %4, align 4
+  %55 = add nsw i32 %54, 1
+  store i32 %55, ptr %4, align 4
+  %56 = call ptr @next_node(ptr noundef nonnull %4) #16
+  %.not = icmp eq ptr %56, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
-._crit_edge:                                      ; preds = %54, %0
-  %58 = load i32, ptr %5, align 8
-  %59 = icmp eq i32 %58, 0
-  br i1 %59, label %60, label %63
+._crit_edge:                                      ; preds = %53, %0
+  %57 = load i32, ptr %5, align 8
+  %58 = icmp eq i32 %57, 0
+  br i1 %58, label %59, label %62
 
-60:                                               ; preds = %._crit_edge
-  %61 = load ptr, ptr %9, align 8
-  call void @hostlist_destroy(ptr noundef %61) #16
-  %62 = load ptr, ptr %12, align 8
-  call void @slurm_free_config_response_msg(ptr noundef %62) #16
+59:                                               ; preds = %._crit_edge
+  %60 = load ptr, ptr %9, align 8
+  call void @hostlist_destroy(ptr noundef %60) #16
+  %61 = load ptr, ptr %12, align 8
+  call void @slurm_free_config_response_msg(ptr noundef %61) #16
   call void @slurm_xfree(ptr noundef nonnull %1) #16
-  br label %71
-
-63:                                               ; preds = %._crit_edge
-  %64 = call i32 @get_log_level() #16
-  %65 = icmp sgt i32 %64, 4
-  br i1 %65, label %66, label %70
-
-66:                                               ; preds = %63
-  %67 = load i32, ptr %6, align 4
-  %68 = trunc i32 %67 to i16
-  %69 = call ptr @rpc_num2string(i16 noundef zeroext %68) #16
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.114, ptr noundef %69) #16
   br label %70
 
-70:                                               ; preds = %66, %63
+62:                                               ; preds = %._crit_edge
+  %63 = call i32 @get_log_level() #16
+  %64 = icmp sgt i32 %63, 4
+  br i1 %64, label %65, label %69
+
+65:                                               ; preds = %62
+  %66 = load i32, ptr %6, align 4
+  %67 = trunc i32 %66 to i16
+  %68 = call ptr @rpc_num2string(i16 noundef zeroext %67) #16
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.114, ptr noundef %68) #16
+  br label %69
+
+69:                                               ; preds = %65, %62
   call void @set_agent_arg_r_uid(ptr noundef nonnull %5, i32 noundef -1) #16
   call void @agent_queue_request(ptr noundef nonnull %5) #16
-  br label %71
+  br label %70
 
-71:                                               ; preds = %70, %60
-  %72 = load i32, ptr %13, align 8
-  %73 = icmp eq i32 %72, 0
-  br i1 %73, label %74, label %77
+70:                                               ; preds = %69, %59
+  %71 = load i32, ptr %13, align 8
+  %72 = icmp eq i32 %71, 0
+  br i1 %72, label %73, label %76
 
-74:                                               ; preds = %71
-  %75 = load ptr, ptr %17, align 8
-  call void @hostlist_destroy(ptr noundef %75) #16
-  %76 = load ptr, ptr %20, align 8
-  call void @slurm_free_config_response_msg(ptr noundef %76) #16
+73:                                               ; preds = %70
+  %74 = load ptr, ptr %17, align 8
+  call void @hostlist_destroy(ptr noundef %74) #16
+  %75 = load ptr, ptr %20, align 8
+  call void @slurm_free_config_response_msg(ptr noundef %75) #16
   call void @slurm_xfree(ptr noundef nonnull %2) #16
-  br label %85
-
-77:                                               ; preds = %71
-  %78 = call i32 @get_log_level() #16
-  %79 = icmp sgt i32 %78, 4
-  br i1 %79, label %80, label %84
-
-80:                                               ; preds = %77
-  %81 = load i32, ptr %14, align 4
-  %82 = trunc i32 %81 to i16
-  %83 = call ptr @rpc_num2string(i16 noundef zeroext %82) #16
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.114, ptr noundef %83) #16
   br label %84
 
-84:                                               ; preds = %80, %77
+76:                                               ; preds = %70
+  %77 = call i32 @get_log_level() #16
+  %78 = icmp sgt i32 %77, 4
+  br i1 %78, label %79, label %83
+
+79:                                               ; preds = %76
+  %80 = load i32, ptr %14, align 4
+  %81 = trunc i32 %80 to i16
+  %82 = call ptr @rpc_num2string(i16 noundef zeroext %81) #16
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.114, ptr noundef %82) #16
+  br label %83
+
+83:                                               ; preds = %79, %76
   call void @set_agent_arg_r_uid(ptr noundef nonnull %13, i32 noundef -1) #16
   call void @agent_queue_request(ptr noundef nonnull %13) #16
-  br label %85
+  br label %84
 
-85:                                               ; preds = %84, %74
-  %86 = load i32, ptr %21, align 8
-  %87 = icmp eq i32 %86, 0
-  br i1 %87, label %88, label %91
+84:                                               ; preds = %83, %73
+  %85 = load i32, ptr %21, align 8
+  %86 = icmp eq i32 %85, 0
+  br i1 %86, label %87, label %90
 
-88:                                               ; preds = %85
-  %89 = load ptr, ptr %25, align 8
-  call void @hostlist_destroy(ptr noundef %89) #16
-  %90 = load ptr, ptr %28, align 8
-  call void @slurm_free_config_response_msg(ptr noundef %90) #16
+87:                                               ; preds = %84
+  %88 = load ptr, ptr %25, align 8
+  call void @hostlist_destroy(ptr noundef %88) #16
+  %89 = load ptr, ptr %28, align 8
+  call void @slurm_free_config_response_msg(ptr noundef %89) #16
   call void @slurm_xfree(ptr noundef nonnull %3) #16
-  br label %99
-
-91:                                               ; preds = %85
-  %92 = call i32 @get_log_level() #16
-  %93 = icmp sgt i32 %92, 4
-  br i1 %93, label %94, label %98
-
-94:                                               ; preds = %91
-  %95 = load i32, ptr %22, align 4
-  %96 = trunc i32 %95 to i16
-  %97 = call ptr @rpc_num2string(i16 noundef zeroext %96) #16
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.114, ptr noundef %97) #16
   br label %98
 
-98:                                               ; preds = %94, %91
+90:                                               ; preds = %84
+  %91 = call i32 @get_log_level() #16
+  %92 = icmp sgt i32 %91, 4
+  br i1 %92, label %93, label %97
+
+93:                                               ; preds = %90
+  %94 = load i32, ptr %22, align 4
+  %95 = trunc i32 %94 to i16
+  %96 = call ptr @rpc_num2string(i16 noundef zeroext %95) #16
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.114, ptr noundef %96) #16
+  br label %97
+
+97:                                               ; preds = %93, %90
   call void @set_agent_arg_r_uid(ptr noundef nonnull %21, i32 noundef -1) #16
   call void @agent_queue_request(ptr noundef nonnull %21) #16
-  br label %99
+  br label %98
 
-99:                                               ; preds = %98, %88
+98:                                               ; preds = %97, %87
   ret void
 }
 

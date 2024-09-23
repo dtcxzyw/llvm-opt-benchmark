@@ -4885,6 +4885,7 @@ _ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread: ; preds = %_ZNK4llvm9MCAsmInf
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 33
   store i8 1, ptr %15, align 1
   store ptr @.str.10, ptr %3, align 8
+  store i8 3, ptr %14, align 8
   br label %.sink.split
 
 16:                                               ; preds = %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit
@@ -4904,12 +4905,11 @@ _ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread: ; preds = %_ZNK4llvm9MCAsmInf
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 1, ptr %24, align 1
   store ptr @.str.11, ptr %4, align 8
+  store i8 3, ptr %23, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread, %22
-  %.sink7 = phi ptr [ %23, %22 ], [ %14, %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread ]
   %.sink = phi ptr [ %4, %22 ], [ %3, %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread ]
-  store i8 3, ptr %.sink7, align 8
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %6, ptr %1, ptr noundef nonnull align 8 dereferenceable(34) %.sink) #23
   br label %25
 
@@ -5075,6 +5075,7 @@ _ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i: ; preds = %_ZNK4llvm9MCAsmI
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 33
   store i8 1, ptr %16, align 1
   store ptr @.str.10, ptr %3, align 8
+  store i8 3, ptr %15, align 8
   br label %_ZN4llvm10MCStreamer23EnsureValidWinFrameInfoENS_5SMLocE.exit.thread
 
 17:                                               ; preds = %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.i
@@ -5094,12 +5095,11 @@ _ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i: ; preds = %_ZNK4llvm9MCAsmI
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 1, ptr %25, align 1
   store ptr @.str.11, ptr %4, align 8
+  store i8 3, ptr %24, align 8
   br label %_ZN4llvm10MCStreamer23EnsureValidWinFrameInfoENS_5SMLocE.exit.thread
 
 _ZN4llvm10MCStreamer23EnsureValidWinFrameInfoENS_5SMLocE.exit.thread: ; preds = %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i, %23
-  %.sink7.i = phi ptr [ %24, %23 ], [ %15, %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i ]
   %.sink.i = phi ptr [ %4, %23 ], [ %3, %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i ]
-  store i8 3, ptr %.sink7.i, align 8
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %7, ptr %1, ptr noundef nonnull align 8 dereferenceable(34) %.sink.i) #23
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
@@ -5206,6 +5206,7 @@ _ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i: ; preds = %_ZNK4llvm9MCAsmI
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 33
   store i8 1, ptr %16, align 1
   store ptr @.str.10, ptr %3, align 8
+  store i8 3, ptr %15, align 8
   br label %_ZN4llvm10MCStreamer23EnsureValidWinFrameInfoENS_5SMLocE.exit.thread
 
 17:                                               ; preds = %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.i
@@ -5225,12 +5226,11 @@ _ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i: ; preds = %_ZNK4llvm9MCAsmI
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 1, ptr %25, align 1
   store ptr @.str.11, ptr %4, align 8
+  store i8 3, ptr %24, align 8
   br label %_ZN4llvm10MCStreamer23EnsureValidWinFrameInfoENS_5SMLocE.exit.thread
 
 _ZN4llvm10MCStreamer23EnsureValidWinFrameInfoENS_5SMLocE.exit.thread: ; preds = %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i, %23
-  %.sink7.i = phi ptr [ %24, %23 ], [ %15, %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i ]
   %.sink.i = phi ptr [ %4, %23 ], [ %3, %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i ]
-  store i8 3, ptr %.sink7.i, align 8
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %7, ptr %1, ptr noundef nonnull align 8 dereferenceable(34) %.sink.i) #23
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
@@ -5295,6 +5295,7 @@ _ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i: ; preds = %_ZNK4llvm9MCAsmI
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 33
   store i8 1, ptr %16, align 1
   store ptr @.str.10, ptr %3, align 8
+  store i8 3, ptr %15, align 8
   br label %_ZN4llvm10MCStreamer23EnsureValidWinFrameInfoENS_5SMLocE.exit.thread
 
 17:                                               ; preds = %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.i
@@ -5314,12 +5315,11 @@ _ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i: ; preds = %_ZNK4llvm9MCAsmI
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 1, ptr %25, align 1
   store ptr @.str.11, ptr %4, align 8
+  store i8 3, ptr %24, align 8
   br label %_ZN4llvm10MCStreamer23EnsureValidWinFrameInfoENS_5SMLocE.exit.thread
 
 _ZN4llvm10MCStreamer23EnsureValidWinFrameInfoENS_5SMLocE.exit.thread: ; preds = %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i, %23
-  %.sink7.i = phi ptr [ %24, %23 ], [ %15, %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i ]
   %.sink.i = phi ptr [ %4, %23 ], [ %3, %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i ]
-  store i8 3, ptr %.sink7.i, align 8
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %7, ptr %1, ptr noundef nonnull align 8 dereferenceable(34) %.sink.i) #23
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
@@ -5428,6 +5428,7 @@ _ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i: ; preds = %_ZNK4llvm9MCAsmI
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 33
   store i8 1, ptr %16, align 1
   store ptr @.str.10, ptr %3, align 8
+  store i8 3, ptr %15, align 8
   br label %_ZN4llvm10MCStreamer23EnsureValidWinFrameInfoENS_5SMLocE.exit.thread
 
 17:                                               ; preds = %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.i
@@ -5447,12 +5448,11 @@ _ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i: ; preds = %_ZNK4llvm9MCAsmI
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 1, ptr %25, align 1
   store ptr @.str.11, ptr %4, align 8
+  store i8 3, ptr %24, align 8
   br label %_ZN4llvm10MCStreamer23EnsureValidWinFrameInfoENS_5SMLocE.exit.thread
 
 _ZN4llvm10MCStreamer23EnsureValidWinFrameInfoENS_5SMLocE.exit.thread: ; preds = %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i, %23
-  %.sink7.i = phi ptr [ %24, %23 ], [ %15, %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i ]
   %.sink.i = phi ptr [ %4, %23 ], [ %3, %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i ]
-  store i8 3, ptr %.sink7.i, align 8
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %7, ptr %1, ptr noundef nonnull align 8 dereferenceable(34) %.sink.i) #23
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
@@ -5519,6 +5519,7 @@ _ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i: ; preds = %_ZNK4llvm9MCAsmI
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 33
   store i8 1, ptr %20, align 1
   store ptr @.str.10, ptr %6, align 8
+  store i8 3, ptr %19, align 8
   br label %_ZN4llvm10MCStreamer23EnsureValidWinFrameInfoENS_5SMLocE.exit.thread
 
 21:                                               ; preds = %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.i
@@ -5538,12 +5539,11 @@ _ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i: ; preds = %_ZNK4llvm9MCAsmI
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 33
   store i8 1, ptr %29, align 1
   store ptr @.str.11, ptr %7, align 8
+  store i8 3, ptr %28, align 8
   br label %_ZN4llvm10MCStreamer23EnsureValidWinFrameInfoENS_5SMLocE.exit.thread
 
 _ZN4llvm10MCStreamer23EnsureValidWinFrameInfoENS_5SMLocE.exit.thread: ; preds = %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i, %27
-  %.sink7.i = phi ptr [ %28, %27 ], [ %19, %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i ]
   %.sink.i = phi ptr [ %7, %27 ], [ %6, %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i ]
-  store i8 3, ptr %.sink7.i, align 8
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %11, ptr %4, ptr noundef nonnull align 8 dereferenceable(34) %.sink.i) #23
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
@@ -5631,6 +5631,7 @@ _ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i: ; preds = %_ZNK4llvm9MCAsmI
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 33
   store i8 1, ptr %16, align 1
   store ptr @.str.10, ptr %3, align 8
+  store i8 3, ptr %15, align 8
   br label %_ZN4llvm10MCStreamer23EnsureValidWinFrameInfoENS_5SMLocE.exit.thread
 
 17:                                               ; preds = %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.i
@@ -5650,12 +5651,11 @@ _ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i: ; preds = %_ZNK4llvm9MCAsmI
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 1, ptr %25, align 1
   store ptr @.str.11, ptr %4, align 8
+  store i8 3, ptr %24, align 8
   br label %_ZN4llvm10MCStreamer23EnsureValidWinFrameInfoENS_5SMLocE.exit.thread
 
 _ZN4llvm10MCStreamer23EnsureValidWinFrameInfoENS_5SMLocE.exit.thread: ; preds = %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i, %23
-  %.sink7.i = phi ptr [ %24, %23 ], [ %15, %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i ]
   %.sink.i = phi ptr [ %4, %23 ], [ %3, %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i ]
-  store i8 3, ptr %.sink7.i, align 8
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %7, ptr %1, ptr noundef nonnull align 8 dereferenceable(34) %.sink.i) #23
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
@@ -5860,6 +5860,7 @@ _ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i: ; preds = %_ZNK4llvm9MCAsmI
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 1, ptr %16, align 1
   store ptr @.str.10, ptr %4, align 8
+  store i8 3, ptr %15, align 8
   br label %_ZN4llvm10MCStreamer23EnsureValidWinFrameInfoENS_5SMLocE.exit.thread
 
 17:                                               ; preds = %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.i
@@ -5879,12 +5880,11 @@ _ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i: ; preds = %_ZNK4llvm9MCAsmI
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 33
   store i8 1, ptr %25, align 1
   store ptr @.str.11, ptr %5, align 8
+  store i8 3, ptr %24, align 8
   br label %_ZN4llvm10MCStreamer23EnsureValidWinFrameInfoENS_5SMLocE.exit.thread
 
 _ZN4llvm10MCStreamer23EnsureValidWinFrameInfoENS_5SMLocE.exit.thread: ; preds = %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i, %23
-  %.sink7.i = phi ptr [ %24, %23 ], [ %15, %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i ]
   %.sink.i = phi ptr [ %5, %23 ], [ %4, %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i ]
-  store i8 3, ptr %.sink7.i, align 8
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %7, ptr %2, ptr noundef nonnull align 8 dereferenceable(34) %.sink.i) #23
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
@@ -6023,6 +6023,7 @@ _ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i: ; preds = %_ZNK4llvm9MCAsmI
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 33
   store i8 1, ptr %20, align 1
   store ptr @.str.10, ptr %5, align 8
+  store i8 3, ptr %19, align 8
   br label %_ZN4llvm10MCStreamer23EnsureValidWinFrameInfoENS_5SMLocE.exit.thread
 
 21:                                               ; preds = %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.i
@@ -6042,12 +6043,11 @@ _ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i: ; preds = %_ZNK4llvm9MCAsmI
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 33
   store i8 1, ptr %29, align 1
   store ptr @.str.11, ptr %6, align 8
+  store i8 3, ptr %28, align 8
   br label %_ZN4llvm10MCStreamer23EnsureValidWinFrameInfoENS_5SMLocE.exit.thread
 
 _ZN4llvm10MCStreamer23EnsureValidWinFrameInfoENS_5SMLocE.exit.thread: ; preds = %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i, %27
-  %.sink7.i = phi ptr [ %28, %27 ], [ %19, %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i ]
   %.sink.i = phi ptr [ %6, %27 ], [ %5, %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i ]
-  store i8 3, ptr %.sink7.i, align 8
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %11, ptr %3, ptr noundef nonnull align 8 dereferenceable(34) %.sink.i) #23
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
@@ -6229,6 +6229,7 @@ _ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i: ; preds = %_ZNK4llvm9MCAsmI
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 1, ptr %18, align 1
   store ptr @.str.10, ptr %4, align 8
+  store i8 3, ptr %17, align 8
   br label %_ZN4llvm10MCStreamer23EnsureValidWinFrameInfoENS_5SMLocE.exit.thread
 
 19:                                               ; preds = %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.i
@@ -6248,12 +6249,11 @@ _ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i: ; preds = %_ZNK4llvm9MCAsmI
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 33
   store i8 1, ptr %27, align 1
   store ptr @.str.11, ptr %5, align 8
+  store i8 3, ptr %26, align 8
   br label %_ZN4llvm10MCStreamer23EnsureValidWinFrameInfoENS_5SMLocE.exit.thread
 
 _ZN4llvm10MCStreamer23EnsureValidWinFrameInfoENS_5SMLocE.exit.thread: ; preds = %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i, %25
-  %.sink7.i = phi ptr [ %26, %25 ], [ %17, %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i ]
   %.sink.i = phi ptr [ %5, %25 ], [ %4, %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i ]
-  store i8 3, ptr %.sink7.i, align 8
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %9, ptr %2, ptr noundef nonnull align 8 dereferenceable(34) %.sink.i) #23
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
@@ -6415,6 +6415,7 @@ _ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i: ; preds = %_ZNK4llvm9MCAsmI
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 33
   store i8 1, ptr %18, align 1
   store ptr @.str.10, ptr %5, align 8
+  store i8 3, ptr %17, align 8
   br label %_ZN4llvm10MCStreamer23EnsureValidWinFrameInfoENS_5SMLocE.exit.thread
 
 19:                                               ; preds = %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.i
@@ -6434,12 +6435,11 @@ _ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i: ; preds = %_ZNK4llvm9MCAsmI
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 33
   store i8 1, ptr %27, align 1
   store ptr @.str.11, ptr %6, align 8
+  store i8 3, ptr %26, align 8
   br label %_ZN4llvm10MCStreamer23EnsureValidWinFrameInfoENS_5SMLocE.exit.thread
 
 _ZN4llvm10MCStreamer23EnsureValidWinFrameInfoENS_5SMLocE.exit.thread: ; preds = %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i, %25
-  %.sink7.i = phi ptr [ %26, %25 ], [ %17, %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i ]
   %.sink.i = phi ptr [ %6, %25 ], [ %5, %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i ]
-  store i8 3, ptr %.sink7.i, align 8
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %9, ptr %3, ptr noundef nonnull align 8 dereferenceable(34) %.sink.i) #23
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
@@ -6592,6 +6592,7 @@ _ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i: ; preds = %_ZNK4llvm9MCAsmI
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 33
   store i8 1, ptr %18, align 1
   store ptr @.str.10, ptr %5, align 8
+  store i8 3, ptr %17, align 8
   br label %_ZN4llvm10MCStreamer23EnsureValidWinFrameInfoENS_5SMLocE.exit.thread
 
 19:                                               ; preds = %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.i
@@ -6611,12 +6612,11 @@ _ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i: ; preds = %_ZNK4llvm9MCAsmI
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 33
   store i8 1, ptr %27, align 1
   store ptr @.str.11, ptr %6, align 8
+  store i8 3, ptr %26, align 8
   br label %_ZN4llvm10MCStreamer23EnsureValidWinFrameInfoENS_5SMLocE.exit.thread
 
 _ZN4llvm10MCStreamer23EnsureValidWinFrameInfoENS_5SMLocE.exit.thread: ; preds = %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i, %25
-  %.sink7.i = phi ptr [ %26, %25 ], [ %17, %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i ]
   %.sink.i = phi ptr [ %6, %25 ], [ %5, %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i ]
-  store i8 3, ptr %.sink7.i, align 8
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %9, ptr %3, ptr noundef nonnull align 8 dereferenceable(34) %.sink.i) #23
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
@@ -6769,6 +6769,7 @@ _ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i: ; preds = %_ZNK4llvm9MCAsmI
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 1, ptr %17, align 1
   store ptr @.str.10, ptr %4, align 8
+  store i8 3, ptr %16, align 8
   br label %_ZN4llvm10MCStreamer23EnsureValidWinFrameInfoENS_5SMLocE.exit.thread
 
 18:                                               ; preds = %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.i
@@ -6788,12 +6789,11 @@ _ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i: ; preds = %_ZNK4llvm9MCAsmI
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 33
   store i8 1, ptr %26, align 1
   store ptr @.str.11, ptr %5, align 8
+  store i8 3, ptr %25, align 8
   br label %_ZN4llvm10MCStreamer23EnsureValidWinFrameInfoENS_5SMLocE.exit.thread
 
 _ZN4llvm10MCStreamer23EnsureValidWinFrameInfoENS_5SMLocE.exit.thread: ; preds = %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i, %24
-  %.sink7.i = phi ptr [ %25, %24 ], [ %16, %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i ]
   %.sink.i = phi ptr [ %5, %24 ], [ %4, %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i ]
-  store i8 3, ptr %.sink7.i, align 8
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %8, ptr %2, ptr noundef nonnull align 8 dereferenceable(34) %.sink.i) #23
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
@@ -6941,6 +6941,7 @@ _ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i: ; preds = %_ZNK4llvm9MCAsmI
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 33
   store i8 1, ptr %15, align 1
   store ptr @.str.10, ptr %3, align 8
+  store i8 3, ptr %14, align 8
   br label %_ZN4llvm10MCStreamer23EnsureValidWinFrameInfoENS_5SMLocE.exit.thread
 
 16:                                               ; preds = %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.i
@@ -6960,12 +6961,11 @@ _ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i: ; preds = %_ZNK4llvm9MCAsmI
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 1, ptr %24, align 1
   store ptr @.str.11, ptr %4, align 8
+  store i8 3, ptr %23, align 8
   br label %_ZN4llvm10MCStreamer23EnsureValidWinFrameInfoENS_5SMLocE.exit.thread
 
 _ZN4llvm10MCStreamer23EnsureValidWinFrameInfoENS_5SMLocE.exit.thread: ; preds = %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i, %22
-  %.sink7.i = phi ptr [ %23, %22 ], [ %14, %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i ]
   %.sink.i = phi ptr [ %4, %22 ], [ %3, %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i ]
-  store i8 3, ptr %.sink7.i, align 8
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %6, ptr %1, ptr noundef nonnull align 8 dereferenceable(34) %.sink.i) #23
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
@@ -7262,96 +7262,92 @@ _ZN4llvm10MCStreamer20maybeEmitDwarf64MarkEv.exit: ; preds = %3, %11
   call void @llvm.experimental.noalias.scope.decl(metadata !135)
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %25 = load i8, ptr %24, align 8, !noalias !138
-  switch i8 %25, label %26 [
+  switch i8 %25, label %27 [
     i8 0, label %_ZN4llvmplERKNS_5TwineES2_.exit
-    i8 1, label %_ZN4llvmplERKNS_5TwineES2_.exit.sink.split
+    i8 1, label %26
   ]
 
 26:                                               ; preds = %_ZN4llvm10MCStreamer20maybeEmitDwarf64MarkEv.exit
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 33
-  %28 = load i8, ptr %27, align 1, !noalias !138
-  %29 = icmp eq i8 %28, 1
+  store ptr @.str.27, ptr %5, align 8
+  br label %_ZN4llvmplERKNS_5TwineES2_.exit
+
+27:                                               ; preds = %_ZN4llvm10MCStreamer20maybeEmitDwarf64MarkEv.exit
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 33
+  %29 = load i8, ptr %28, align 1, !noalias !138
+  %30 = icmp eq i8 %29, 1
   %.sroa.05.0.copyload.i.i = load ptr, ptr %1, align 8, !noalias !138
   %.sroa.36.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.36.0.copyload.i.i = load i64, ptr %.sroa.36.0..sroa_idx.i.i, align 8, !noalias !138
-  %.014.i.i = select i1 %29, i8 %25, i8 2
-  %.sroa.05.0.i.i = select i1 %29, ptr %.sroa.05.0.copyload.i.i, ptr %1
-  %.sroa.36.0.i.i = select i1 %29, i64 %.sroa.36.0.copyload.i.i, i64 undef
+  %.014.i.i = select i1 %30, i8 %25, i8 2
+  %.sroa.05.0.i.i = select i1 %30, ptr %.sroa.05.0.copyload.i.i, ptr %1
+  %.sroa.36.0.i.i = select i1 %30, i64 %.sroa.36.0.copyload.i.i, i64 undef
   store ptr %.sroa.05.0.i.i, ptr %5, align 8, !alias.scope !138
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %.sroa.36.0.i.i, ptr %.sroa.23.0..sroa_idx.i.i.i, align 8, !alias.scope !138
-  %30 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  br label %_ZN4llvmplERKNS_5TwineES2_.exit.sink.split
-
-_ZN4llvmplERKNS_5TwineES2_.exit.sink.split:       ; preds = %_ZN4llvm10MCStreamer20maybeEmitDwarf64MarkEv.exit, %26
-  %.sink37 = phi ptr [ %30, %26 ], [ %5, %_ZN4llvm10MCStreamer20maybeEmitDwarf64MarkEv.exit ]
-  %.sink31.ph = phi i8 [ %.014.i.i, %26 ], [ 3, %_ZN4llvm10MCStreamer20maybeEmitDwarf64MarkEv.exit ]
-  %.sink.ph = phi i8 [ 3, %26 ], [ %25, %_ZN4llvm10MCStreamer20maybeEmitDwarf64MarkEv.exit ]
-  store ptr @.str.27, ptr %.sink37, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr @.str.27, ptr %31, align 8, !alias.scope !138
   br label %_ZN4llvmplERKNS_5TwineES2_.exit
 
-_ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit.sink.split, %_ZN4llvm10MCStreamer20maybeEmitDwarf64MarkEv.exit
-  %.sink31 = phi i8 [ %25, %_ZN4llvm10MCStreamer20maybeEmitDwarf64MarkEv.exit ], [ %.sink31.ph, %_ZN4llvmplERKNS_5TwineES2_.exit.sink.split ]
-  %.sink = phi i8 [ 1, %_ZN4llvm10MCStreamer20maybeEmitDwarf64MarkEv.exit ], [ %.sink.ph, %_ZN4llvmplERKNS_5TwineES2_.exit.sink.split ]
-  %31 = getelementptr inbounds i8, ptr %5, i64 32
-  store i8 %.sink31, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %5, i64 33
-  store i8 %.sink, ptr %32, align 1
-  %33 = call noundef ptr @_ZN4llvm9MCContext16createTempSymbolERKNS_5TwineEb(ptr noundef nonnull align 8 dereferenceable(2432) %23, ptr noundef nonnull align 8 dereferenceable(34) %5, i1 noundef zeroext true) #23
-  %34 = load ptr, ptr %7, align 8
+_ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZN4llvm10MCStreamer20maybeEmitDwarf64MarkEv.exit, %26, %27
+  %.sink31 = phi i8 [ 3, %26 ], [ %.014.i.i, %27 ], [ %25, %_ZN4llvm10MCStreamer20maybeEmitDwarf64MarkEv.exit ]
+  %.sink = phi i8 [ 1, %26 ], [ 3, %27 ], [ 1, %_ZN4llvm10MCStreamer20maybeEmitDwarf64MarkEv.exit ]
+  %32 = getelementptr inbounds i8, ptr %5, i64 32
+  store i8 %.sink31, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %5, i64 33
+  store i8 %.sink, ptr %33, align 1
+  %34 = call noundef ptr @_ZN4llvm9MCContext16createTempSymbolERKNS_5TwineEb(ptr noundef nonnull align 8 dereferenceable(2432) %23, ptr noundef nonnull align 8 dereferenceable(34) %5, i1 noundef zeroext true) #23
+  %35 = load ptr, ptr %7, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !139)
   call void @llvm.experimental.noalias.scope.decl(metadata !142)
-  %35 = load i8, ptr %24, align 8, !noalias !145
-  switch i8 %35, label %36 [
+  %36 = load i8, ptr %24, align 8, !noalias !145
+  switch i8 %36, label %38 [
     i8 0, label %_ZN4llvmplERKNS_5TwineES2_.exit22
-    i8 1, label %_ZN4llvmplERKNS_5TwineES2_.exit22.sink.split
+    i8 1, label %37
   ]
 
-36:                                               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 33
-  %38 = load i8, ptr %37, align 1, !noalias !145
-  %39 = icmp eq i8 %38, 1
+37:                                               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit
+  store ptr @.str.28, ptr %6, align 8
+  br label %_ZN4llvmplERKNS_5TwineES2_.exit22
+
+38:                                               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 33
+  %40 = load i8, ptr %39, align 1, !noalias !145
+  %41 = icmp eq i8 %40, 1
   %.sroa.05.0.copyload.i.i8 = load ptr, ptr %1, align 8, !noalias !145
   %.sroa.36.0..sroa_idx.i.i9 = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.36.0.copyload.i.i10 = load i64, ptr %.sroa.36.0..sroa_idx.i.i9, align 8, !noalias !145
-  %.014.i.i11 = select i1 %39, i8 %35, i8 2
-  %.sroa.05.0.i.i12 = select i1 %39, ptr %.sroa.05.0.copyload.i.i8, ptr %1
-  %.sroa.36.0.i.i13 = select i1 %39, i64 %.sroa.36.0.copyload.i.i10, i64 undef
+  %.014.i.i11 = select i1 %41, i8 %36, i8 2
+  %.sroa.05.0.i.i12 = select i1 %41, ptr %.sroa.05.0.copyload.i.i8, ptr %1
+  %.sroa.36.0.i.i13 = select i1 %41, i64 %.sroa.36.0.copyload.i.i10, i64 undef
   store ptr %.sroa.05.0.i.i12, ptr %6, align 8, !alias.scope !145
   %.sroa.23.0..sroa_idx.i.i.i20 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %.sroa.36.0.i.i13, ptr %.sroa.23.0..sroa_idx.i.i.i20, align 8, !alias.scope !145
-  %40 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  br label %_ZN4llvmplERKNS_5TwineES2_.exit22.sink.split
-
-_ZN4llvmplERKNS_5TwineES2_.exit22.sink.split:     ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit, %36
-  %.sink38 = phi ptr [ %40, %36 ], [ %6, %_ZN4llvmplERKNS_5TwineES2_.exit ]
-  %.sink35.ph = phi i8 [ %.014.i.i11, %36 ], [ 3, %_ZN4llvmplERKNS_5TwineES2_.exit ]
-  %.sink33.ph = phi i8 [ 3, %36 ], [ %35, %_ZN4llvmplERKNS_5TwineES2_.exit ]
-  store ptr @.str.28, ptr %.sink38, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr @.str.28, ptr %42, align 8, !alias.scope !145
   br label %_ZN4llvmplERKNS_5TwineES2_.exit22
 
-_ZN4llvmplERKNS_5TwineES2_.exit22:                ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit22.sink.split, %_ZN4llvmplERKNS_5TwineES2_.exit
-  %.sink35 = phi i8 [ %35, %_ZN4llvmplERKNS_5TwineES2_.exit ], [ %.sink35.ph, %_ZN4llvmplERKNS_5TwineES2_.exit22.sink.split ]
-  %.sink33 = phi i8 [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit ], [ %.sink33.ph, %_ZN4llvmplERKNS_5TwineES2_.exit22.sink.split ]
-  %41 = getelementptr inbounds i8, ptr %6, i64 32
-  store i8 %.sink35, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %6, i64 33
-  store i8 %.sink33, ptr %42, align 1
-  %43 = call noundef ptr @_ZN4llvm9MCContext16createTempSymbolERKNS_5TwineEb(ptr noundef nonnull align 8 dereferenceable(2432) %34, ptr noundef nonnull align 8 dereferenceable(34) %6, i1 noundef zeroext true) #23
-  %44 = load ptr, ptr %7, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 1882
-  %46 = load i8, ptr %45, align 2
-  %switch.i = icmp eq i8 %46, 0
+_ZN4llvmplERKNS_5TwineES2_.exit22:                ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit, %37, %38
+  %.sink35 = phi i8 [ 3, %37 ], [ %.014.i.i11, %38 ], [ %36, %_ZN4llvmplERKNS_5TwineES2_.exit ]
+  %.sink33 = phi i8 [ 1, %37 ], [ 3, %38 ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit ]
+  %43 = getelementptr inbounds i8, ptr %6, i64 32
+  store i8 %.sink35, ptr %43, align 8
+  %44 = getelementptr inbounds i8, ptr %6, i64 33
+  store i8 %.sink33, ptr %44, align 1
+  %45 = call noundef ptr @_ZN4llvm9MCContext16createTempSymbolERKNS_5TwineEb(ptr noundef nonnull align 8 dereferenceable(2432) %35, ptr noundef nonnull align 8 dereferenceable(34) %6, i1 noundef zeroext true) #23
+  %46 = load ptr, ptr %7, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 1882
+  %48 = load i8, ptr %47, align 2
+  %switch.i = icmp eq i8 %48, 0
   %..i = select i1 %switch.i, i32 4, i32 8
-  %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 848
-  %49 = load ptr, ptr %48, align 8
-  call void %49(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef %43, ptr noundef %33, i32 noundef %..i) #23
-  %50 = load ptr, ptr %0, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 200
-  %52 = load ptr, ptr %51, align 8
-  call void %52(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef %33, ptr null) #23
-  ret ptr %43
+  %49 = load ptr, ptr %0, align 8
+  %50 = getelementptr inbounds i8, ptr %49, i64 848
+  %51 = load ptr, ptr %50, align 8
+  call void %51(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef %45, ptr noundef %34, i32 noundef %..i) #23
+  %52 = load ptr, ptr %0, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 200
+  %54 = load ptr, ptr %53, align 8
+  call void %54(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef %34, ptr null) #23
+  ret ptr %45
 }
 
 declare noundef ptr @_ZN4llvm9MCContext16createTempSymbolERKNS_5TwineEb(ptr noundef nonnull align 8 dereferenceable(2432), ptr noundef nonnull align 8 dereferenceable(34), i1 noundef zeroext) local_unnamed_addr #3
@@ -9655,22 +9651,18 @@ _ZNSt10_HashtableIPN4llvm8MCSymbolESt4pairIKS2_NS0_23MCPseudoProbeInlineTreeEESa
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
-  br label %.sink.split
+  store ptr %.031, ptr %27, align 8
+  br label %31
 
 28:                                               ; preds = %.lr.ph
   %29 = load ptr, ptr %22, align 8
   store ptr %29, ptr %.031, align 8
   %30 = load ptr, ptr %21, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %28, %26
-  %.sink = phi ptr [ %27, %26 ], [ %30, %28 ]
-  %.1.ph = phi i64 [ %20, %26 ], [ %.02530, %28 ]
-  store ptr %.031, ptr %.sink, align 8
+  store ptr %.031, ptr %30, align 8
   br label %31
 
-31:                                               ; preds = %.sink.split, %23
-  %.1 = phi i64 [ %20, %23 ], [ %.1.ph, %.sink.split ]
+31:                                               ; preds = %23, %26, %28
+  %.1 = phi i64 [ %.02530, %28 ], [ %20, %26 ], [ %20, %23 ]
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !163
 

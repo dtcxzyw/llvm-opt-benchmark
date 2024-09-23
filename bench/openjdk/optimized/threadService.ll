@@ -855,7 +855,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %3
 
 .lr.ph.preheader:                                 ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
   %4 = icmp eq ptr %.013, %0
-  br i1 %4, label %.loopexit.sink.split, label %.lr.ph21
+  br i1 %4, label %.lr.ph._crit_edge, label %.lr.ph21
 
 .lr.ph21:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %.01620 = phi ptr [ %.0, %.lr.ph ], [ %.013, %.lr.ph.preheader ]
@@ -866,26 +866,32 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %3
 
 .lr.ph:                                           ; preds = %.lr.ph21
   %6 = icmp eq ptr %.0, %0
-  br i1 %6, label %.loopexit.sink.split, label %.lr.ph21, !llvm.loop !12
+  br i1 %6, label %.lr.ph._crit_edge, label %.lr.ph21, !llvm.loop !12
 
-.loopexit.sink.split:                             ; preds = %.lr.ph, %.lr.ph.preheader
+.lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.0915.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.01620, %.lr.ph ]
   %7 = icmp eq ptr %.0915.lcssa, null
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %.0915.lcssa, i64 24
-  %_ZN13ThreadService16_threaddump_listE.sink = select i1 %7, ptr @_ZN13ThreadService16_threaddump_listE, ptr %10
-  store ptr %9, ptr %_ZN13ThreadService16_threaddump_listE.sink, align 8
+  br i1 %7, label %10, label %11
+
+10:                                               ; preds = %.lr.ph._crit_edge
+  store ptr %9, ptr @_ZN13ThreadService16_threaddump_listE, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph21, %.loopexit.sink.split, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
-  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %11
+11:                                               ; preds = %.lr.ph._crit_edge
+  %12 = getelementptr inbounds i8, ptr %.0915.lcssa, i64 24
+  store ptr %9, ptr %12, align 8
+  br label %.loopexit
 
-11:                                               ; preds = %.loopexit
+.loopexit:                                        ; preds = %.lr.ph21, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, %10, %11
+  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %13
+
+13:                                               ; preds = %.loopexit
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #13
   br label %_ZN11MutexLockerD2Ev.exit
 
-_ZN11MutexLockerD2Ev.exit:                        ; preds = %.loopexit, %11
+_ZN11MutexLockerD2Ev.exit:                        ; preds = %.loopexit, %13
   ret void
 }
 
@@ -2025,7 +2031,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i: ; preds = %3, %1
 
 .lr.ph.i.preheader:                               ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i
   %4 = icmp eq ptr %.013.i, %0
-  br i1 %4, label %.loopexit.sink.split.i, label %.lr.ph
+  br i1 %4, label %7, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.016.i6 = phi ptr [ %.0.i, %.lr.ph.i ], [ %.013.i, %.lr.ph.i.preheader ]
@@ -2036,52 +2042,55 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i: ; preds = %3, %1
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %6 = icmp eq ptr %.0.i, %0
-  br i1 %6, label %.loopexit.sink.split.i, label %.lr.ph, !llvm.loop !12
+  br i1 %6, label %10, label %.lr.ph, !llvm.loop !12
 
-.loopexit.sink.split.i:                           ; preds = %.lr.ph.i, %.lr.ph.i.preheader
-  %.0915.i.lcssa = phi ptr [ null, %.lr.ph.i.preheader ], [ %.016.i6, %.lr.ph.i ]
-  %7 = icmp eq ptr %.0915.i.lcssa, null
+7:                                                ; preds = %.lr.ph.i.preheader
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %.0915.i.lcssa, i64 24
-  %_ZN13ThreadService16_threaddump_listE.sink.i = select i1 %7, ptr @_ZN13ThreadService16_threaddump_listE, ptr %10
-  store ptr %9, ptr %_ZN13ThreadService16_threaddump_listE.sink.i, align 8
+  store ptr %9, ptr @_ZN13ThreadService16_threaddump_listE, align 8
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %.lr.ph, %.loopexit.sink.split.i, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i
-  br i1 %.not.i.i.i, label %_ZN13ThreadService18remove_thread_dumpEP16ThreadDumpResult.exit, label %11
+10:                                               ; preds = %.lr.ph.i
+  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %.016.i6, i64 24
+  store ptr %12, ptr %13, align 8
+  br label %.loopexit.i
 
-11:                                               ; preds = %.loopexit.i
+.loopexit.i:                                      ; preds = %.lr.ph, %10, %7, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i
+  br i1 %.not.i.i.i, label %_ZN13ThreadService18remove_thread_dumpEP16ThreadDumpResult.exit, label %14
+
+14:                                               ; preds = %.loopexit.i
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #13
   br label %_ZN13ThreadService18remove_thread_dumpEP16ThreadDumpResult.exit
 
-_ZN13ThreadService18remove_thread_dumpEP16ThreadDumpResult.exit: ; preds = %.loopexit.i, %11
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8
-  %.not7 = icmp eq ptr %13, null
+_ZN13ThreadService18remove_thread_dumpEP16ThreadDumpResult.exit: ; preds = %.loopexit.i, %14
+  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = load ptr, ptr %15, align 8
+  %.not7 = icmp eq ptr %16, null
   br i1 %.not7, label %._crit_edge, label %.lr.ph9
 
 .lr.ph9:                                          ; preds = %_ZN13ThreadService18remove_thread_dumpEP16ThreadDumpResult.exit, %.lr.ph9
-  %.08 = phi ptr [ %15, %.lr.ph9 ], [ %13, %_ZN13ThreadService18remove_thread_dumpEP16ThreadDumpResult.exit ]
-  %14 = getelementptr inbounds i8, ptr %.08, i64 104
-  %15 = load ptr, ptr %14, align 8
+  %.08 = phi ptr [ %18, %.lr.ph9 ], [ %16, %_ZN13ThreadService18remove_thread_dumpEP16ThreadDumpResult.exit ]
+  %17 = getelementptr inbounds i8, ptr %.08, i64 104
+  %18 = load ptr, ptr %17, align 8
   tail call void @_ZN14ThreadSnapshotD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %.08) #13
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %.08) #13
-  %.not = icmp eq ptr %15, null
+  %.not = icmp eq ptr %18, null
   br i1 %.not, label %._crit_edge, label %.lr.ph9, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph9, %_ZN13ThreadService18remove_thread_dumpEP16ThreadDumpResult.exit
-  %16 = getelementptr inbounds i8, ptr %0, i64 57
-  %17 = load i8, ptr %16, align 1
-  %18 = trunc i8 %17 to i1
-  br i1 %18, label %19, label %_ZN17ThreadsListSetterD2Ev.exit
+  %19 = getelementptr inbounds i8, ptr %0, i64 57
+  %20 = load i8, ptr %19, align 1
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %22, label %_ZN17ThreadsListSetterD2Ev.exit
 
-19:                                               ; preds = %._crit_edge
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @_ZN18SafeThreadsListPtr19release_stable_listEv(ptr noundef nonnull align 8 dereferenceable(26) %20) #13
+22:                                               ; preds = %._crit_edge
+  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  tail call void @_ZN18SafeThreadsListPtr19release_stable_listEv(ptr noundef nonnull align 8 dereferenceable(26) %23) #13
   br label %_ZN17ThreadsListSetterD2Ev.exit
 
-_ZN17ThreadsListSetterD2Ev.exit:                  ; preds = %._crit_edge, %19
+_ZN17ThreadsListSetterD2Ev.exit:                  ; preds = %._crit_edge, %22
   ret void
 }
 
@@ -2098,12 +2107,22 @@ define hidden noundef ptr @_ZN16ThreadDumpResult19add_thread_snapshotEv(ptr noca
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 104
-  %.sink.i = select i1 %9, ptr %7, ptr %12
-  store ptr %2, ptr %.sink.i, align 8
-  store ptr %2, ptr %10, align 8
+  br i1 %9, label %10, label %11
+
+10:                                               ; preds = %1
+  store ptr %2, ptr %7, align 8
+  br label %_ZN16ThreadDumpResult20link_thread_snapshotEP14ThreadSnapshot.exit
+
+11:                                               ; preds = %1
+  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %13, i64 104
+  store ptr %2, ptr %14, align 8
+  br label %_ZN16ThreadDumpResult20link_thread_snapshotEP14ThreadSnapshot.exit
+
+_ZN16ThreadDumpResult20link_thread_snapshotEP14ThreadSnapshot.exit: ; preds = %10, %11
+  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %2, ptr %15, align 8
   ret ptr %2
 }
 
@@ -2116,13 +2135,22 @@ define hidden void @_ZN16ThreadDumpResult20link_thread_snapshotEP14ThreadSnapsho
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 104
-  %.sink = select i1 %8, ptr %6, ptr %11
-  store ptr %1, ptr %.sink, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %1, ptr %12, align 8
+  br i1 %8, label %9, label %10
+
+9:                                                ; preds = %2
+  store ptr %1, ptr %6, align 8
+  br label %14
+
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %12, i64 104
+  store ptr %1, ptr %13, align 8
+  br label %14
+
+14:                                               ; preds = %10, %9
+  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %1, ptr %15, align 8
   ret void
 }
 
@@ -2139,15 +2167,25 @@ define hidden noundef ptr @_ZN16ThreadDumpResult19add_thread_snapshotEP10JavaThr
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 104
-  %.sink.i = select i1 %10, ptr %8, ptr %13
-  store ptr %3, ptr %.sink.i, align 8
-  store ptr %3, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
-  %15 = load ptr, ptr %14, align 8
-  tail call void @_ZN14ThreadSnapshot10initializeEP11ThreadsListP10JavaThread(ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef %15, ptr noundef %1)
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %2
+  store ptr %3, ptr %8, align 8
+  br label %_ZN16ThreadDumpResult20link_thread_snapshotEP14ThreadSnapshot.exit
+
+12:                                               ; preds = %2
+  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 104
+  store ptr %3, ptr %15, align 8
+  br label %_ZN16ThreadDumpResult20link_thread_snapshotEP14ThreadSnapshot.exit
+
+_ZN16ThreadDumpResult20link_thread_snapshotEP14ThreadSnapshot.exit: ; preds = %11, %12
+  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %3, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 48
+  %18 = load ptr, ptr %17, align 8
+  tail call void @_ZN14ThreadSnapshot10initializeEP11ThreadsListP10JavaThread(ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef %18, ptr noundef %1)
   ret ptr %3
 }
 
@@ -3677,7 +3715,7 @@ _ZN21ThreadConcurrentLocks8add_lockEP15instanceOopDesc.exit: ; preds = %_ZN9OopH
   %31 = sext i32 %27 to i64
   %32 = getelementptr inbounds %class.OopHandle, ptr %30, i64 %31
   store ptr %11, ptr %32, align 8
-  br label %72
+  br label %75
 
 .loopexit:                                        ; preds = %7, %3
   %33 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i8 noundef zeroext 9, i32 noundef 0) #13
@@ -3746,16 +3784,25 @@ _ZN21ThreadConcurrentLocks8add_lockEP15instanceOopDesc.exit17: ; preds = %_ZN9Oo
   store ptr %44, ptr %65, align 8
   %66 = load ptr, ptr %0, align 8
   %67 = icmp eq ptr %66, null
-  %68 = getelementptr inbounds i8, ptr %0, i64 8
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 8
-  %.sink = select i1 %67, ptr %0, ptr %70
-  store ptr %33, ptr %.sink, align 8
-  %71 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %33, ptr %71, align 8
-  br label %72
+  br i1 %67, label %68, label %69
 
-72:                                               ; preds = %_ZN21ThreadConcurrentLocks8add_lockEP15instanceOopDesc.exit17, %_ZN21ThreadConcurrentLocks8add_lockEP15instanceOopDesc.exit
+68:                                               ; preds = %_ZN21ThreadConcurrentLocks8add_lockEP15instanceOopDesc.exit17
+  store ptr %33, ptr %0, align 8
+  br label %73
+
+69:                                               ; preds = %_ZN21ThreadConcurrentLocks8add_lockEP15instanceOopDesc.exit17
+  %70 = getelementptr inbounds i8, ptr %0, i64 8
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %71, i64 8
+  store ptr %33, ptr %72, align 8
+  br label %73
+
+73:                                               ; preds = %69, %68
+  %74 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %33, ptr %74, align 8
+  br label %75
+
+75:                                               ; preds = %73, %_ZN21ThreadConcurrentLocks8add_lockEP15instanceOopDesc.exit
   ret void
 }
 

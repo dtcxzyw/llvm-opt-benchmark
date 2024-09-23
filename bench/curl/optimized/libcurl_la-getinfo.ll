@@ -615,102 +615,115 @@ if.then53:                                        ; preds = %vaarg.end50
 
 sw.bb.i74:                                        ; preds = %if.then53
   %filetime.i75 = getelementptr inbounds i8, ptr %data, i64 5072
-  br label %return.sink.split.sink.split.i
+  %71 = load i64, ptr %filetime.i75, align 8
+  br label %return.sink.split.i44
 
 sw.bb2.i72:                                       ; preds = %if.then53
   %uploaded.i73 = getelementptr inbounds i8, ptr %data, i64 2776
-  br label %return.sink.split.sink.split.i
+  %72 = load i64, ptr %uploaded.i73, align 8
+  br label %return.sink.split.i44
 
 sw.bb3.i70:                                       ; preds = %if.then53
   %downloaded.i71 = getelementptr inbounds i8, ptr %data, i64 2768
-  br label %return.sink.split.sink.split.i
+  %73 = load i64, ptr %downloaded.i71, align 8
+  br label %return.sink.split.i44
 
 sw.bb5.i68:                                       ; preds = %if.then53
   %dlspeed.i69 = getelementptr inbounds i8, ptr %data, i64 2808
-  br label %return.sink.split.sink.split.i
+  %74 = load i64, ptr %dlspeed.i69, align 8
+  br label %return.sink.split.i44
 
 sw.bb7.i:                                         ; preds = %if.then53
   %ulspeed.i67 = getelementptr inbounds i8, ptr %data, i64 2816
-  br label %return.sink.split.sink.split.i
+  %75 = load i64, ptr %ulspeed.i67, align 8
+  br label %return.sink.split.i44
 
 sw.bb9.i61:                                       ; preds = %if.then53
   %flags.i62 = getelementptr inbounds i8, ptr %data, i64 2796
-  %71 = load i32, ptr %flags.i62, align 4
-  %and.i63 = and i32 %71, 64
+  %76 = load i32, ptr %flags.i62, align 4
+  %and.i63 = and i32 %76, 64
   %tobool.not.i64 = icmp eq i32 %and.i63, 0
   br i1 %tobool.not.i64, label %return.sink.split.i44, label %cond.true.i65
 
 cond.true.i65:                                    ; preds = %sw.bb9.i61
   %size_dl.i66 = getelementptr inbounds i8, ptr %data, i64 2752
-  br label %return.sink.split.sink.split.i
+  %77 = load i64, ptr %size_dl.i66, align 8
+  br label %return.sink.split.i44
 
 sw.bb12.i59:                                      ; preds = %if.then53
   %flags14.i = getelementptr inbounds i8, ptr %data, i64 2796
-  %72 = load i32, ptr %flags14.i, align 4
-  %and15.i = and i32 %72, 32
+  %78 = load i32, ptr %flags14.i, align 4
+  %and15.i = and i32 %78, 32
   %tobool16.not.i = icmp eq i32 %and15.i, 0
   br i1 %tobool16.not.i, label %return.sink.split.i44, label %cond.true17.i
 
 cond.true17.i:                                    ; preds = %sw.bb12.i59
   %size_ul.i60 = getelementptr inbounds i8, ptr %data, i64 2760
-  br label %return.sink.split.sink.split.i
+  %79 = load i64, ptr %size_ul.i60, align 8
+  br label %return.sink.split.i44
 
 sw.bb22.i57:                                      ; preds = %if.then53
   %timespent.i58 = getelementptr inbounds i8, ptr %data, i64 2800
-  br label %return.sink.split.sink.split.i
+  %80 = load i64, ptr %timespent.i58, align 8
+  br label %return.sink.split.i44
 
 sw.bb24.i55:                                      ; preds = %if.then53
   %t_nslookup.i56 = getelementptr inbounds i8, ptr %data, i64 2832
-  br label %return.sink.split.sink.split.i
+  %81 = load i64, ptr %t_nslookup.i56, align 8
+  br label %return.sink.split.i44
 
 sw.bb26.i53:                                      ; preds = %if.then53
   %t_connect.i54 = getelementptr inbounds i8, ptr %data, i64 2840
-  br label %return.sink.split.sink.split.i
+  %82 = load i64, ptr %t_connect.i54, align 8
+  br label %return.sink.split.i44
 
 sw.bb28.i:                                        ; preds = %if.then53
   %t_appconnect.i52 = getelementptr inbounds i8, ptr %data, i64 2848
-  br label %return.sink.split.sink.split.i
+  %83 = load i64, ptr %t_appconnect.i52, align 8
+  br label %return.sink.split.i44
 
 sw.bb30.i50:                                      ; preds = %if.then53
   %t_pretransfer.i51 = getelementptr inbounds i8, ptr %data, i64 2856
-  br label %return.sink.split.sink.split.i
+  %84 = load i64, ptr %t_pretransfer.i51, align 8
+  br label %return.sink.split.i44
 
 sw.bb32.i:                                        ; preds = %if.then53
   %t_starttransfer.i49 = getelementptr inbounds i8, ptr %data, i64 2864
-  br label %return.sink.split.sink.split.i
+  %85 = load i64, ptr %t_starttransfer.i49, align 8
+  br label %return.sink.split.i44
 
 sw.bb34.i48:                                      ; preds = %if.then53
   %t_postqueue.i = getelementptr inbounds i8, ptr %data, i64 2824
-  br label %return.sink.split.sink.split.i
+  %86 = load i64, ptr %t_postqueue.i, align 8
+  br label %return.sink.split.i44
 
 sw.bb36.i46:                                      ; preds = %if.then53
   %t_redirect.i47 = getelementptr inbounds i8, ptr %data, i64 2872
-  br label %return.sink.split.sink.split.i
+  %87 = load i64, ptr %t_redirect.i47, align 8
+  br label %return.sink.split.i44
 
 sw.bb38.i:                                        ; preds = %if.then53
   %retry_after.i = getelementptr inbounds i8, ptr %data, i64 5128
-  br label %return.sink.split.sink.split.i
+  %88 = load i64, ptr %retry_after.i, align 8
+  br label %return.sink.split.i44
 
 sw.bb40.i:                                        ; preds = %if.then53
   %id.i = getelementptr inbounds i8, ptr %data, i64 8
-  br label %return.sink.split.sink.split.i
+  %89 = load i64, ptr %id.i, align 8
+  br label %return.sink.split.i44
 
 sw.bb41.i:                                        ; preds = %if.then53
   %conn.i = getelementptr inbounds i8, ptr %data, i64 32
-  %73 = load ptr, ptr %conn.i, align 8
-  %tobool42.not.i = icmp eq ptr %73, null
-  %connection_id.i = getelementptr inbounds i8, ptr %73, i64 40
+  %90 = load ptr, ptr %conn.i, align 8
+  %tobool42.not.i = icmp eq ptr %90, null
+  %connection_id.i = getelementptr inbounds i8, ptr %90, i64 40
   %recent_conn_id.i = getelementptr inbounds i8, ptr %data, i64 3176
   %cond47.in.i = select i1 %tobool42.not.i, ptr %recent_conn_id.i, ptr %connection_id.i
-  br label %return.sink.split.sink.split.i
-
-return.sink.split.sink.split.i:                   ; preds = %sw.bb41.i, %sw.bb40.i, %sw.bb38.i, %sw.bb36.i46, %sw.bb34.i48, %sw.bb32.i, %sw.bb30.i50, %sw.bb28.i, %sw.bb26.i53, %sw.bb24.i55, %sw.bb22.i57, %cond.true17.i, %cond.true.i65, %sw.bb7.i, %sw.bb5.i68, %sw.bb3.i70, %sw.bb2.i72, %sw.bb.i74
-  %size_ul.sink.i = phi ptr [ %size_ul.i60, %cond.true17.i ], [ %size_dl.i66, %cond.true.i65 ], [ %cond47.in.i, %sw.bb41.i ], [ %id.i, %sw.bb40.i ], [ %retry_after.i, %sw.bb38.i ], [ %t_redirect.i47, %sw.bb36.i46 ], [ %t_postqueue.i, %sw.bb34.i48 ], [ %t_starttransfer.i49, %sw.bb32.i ], [ %t_pretransfer.i51, %sw.bb30.i50 ], [ %t_appconnect.i52, %sw.bb28.i ], [ %t_connect.i54, %sw.bb26.i53 ], [ %t_nslookup.i56, %sw.bb24.i55 ], [ %timespent.i58, %sw.bb22.i57 ], [ %ulspeed.i67, %sw.bb7.i ], [ %dlspeed.i69, %sw.bb5.i68 ], [ %downloaded.i71, %sw.bb3.i70 ], [ %uploaded.i73, %sw.bb2.i72 ], [ %filetime.i75, %sw.bb.i74 ]
-  %74 = load i64, ptr %size_ul.sink.i, align 8
+  %cond47.i = load i64, ptr %cond47.in.i, align 8
   br label %return.sink.split.i44
 
-return.sink.split.i44:                            ; preds = %return.sink.split.sink.split.i, %sw.bb12.i59, %sw.bb9.i61
-  %.sink.i = phi i64 [ -1, %sw.bb9.i61 ], [ -1, %sw.bb12.i59 ], [ %74, %return.sink.split.sink.split.i ]
+return.sink.split.i44:                            ; preds = %sw.bb41.i, %sw.bb40.i, %sw.bb38.i, %sw.bb36.i46, %sw.bb34.i48, %sw.bb32.i, %sw.bb30.i50, %sw.bb28.i, %sw.bb26.i53, %sw.bb24.i55, %sw.bb22.i57, %cond.true17.i, %sw.bb12.i59, %cond.true.i65, %sw.bb9.i61, %sw.bb7.i, %sw.bb5.i68, %sw.bb3.i70, %sw.bb2.i72, %sw.bb.i74
+  %.sink.i = phi i64 [ %71, %sw.bb.i74 ], [ %72, %sw.bb2.i72 ], [ %73, %sw.bb3.i70 ], [ %74, %sw.bb5.i68 ], [ %75, %sw.bb7.i ], [ %80, %sw.bb22.i57 ], [ %81, %sw.bb24.i55 ], [ %82, %sw.bb26.i53 ], [ %83, %sw.bb28.i ], [ %84, %sw.bb30.i50 ], [ %85, %sw.bb32.i ], [ %86, %sw.bb34.i48 ], [ %87, %sw.bb36.i46 ], [ %88, %sw.bb38.i ], [ %89, %sw.bb40.i ], [ %cond47.i, %sw.bb41.i ], [ %77, %cond.true.i65 ], [ -1, %sw.bb9.i61 ], [ %79, %cond.true17.i ], [ -1, %sw.bb12.i59 ]
   store i64 %.sink.i, ptr %70, align 8
   br label %sw.epilog
 
@@ -720,12 +733,12 @@ sw.bb56:                                          ; preds = %if.end
   br i1 %fits_in_gp60, label %vaarg.in_reg61, label %vaarg.in_mem63
 
 vaarg.in_reg61:                                   ; preds = %sw.bb56
-  %75 = getelementptr inbounds i8, ptr %arg, i64 16
-  %reg_save_area62 = load ptr, ptr %75, align 16
-  %76 = zext nneg i32 %gp_offset59 to i64
-  %77 = getelementptr i8, ptr %reg_save_area62, i64 %76
-  %78 = add nuw nsw i32 %gp_offset59, 8
-  store i32 %78, ptr %arg, align 16
+  %91 = getelementptr inbounds i8, ptr %arg, i64 16
+  %reg_save_area62 = load ptr, ptr %91, align 16
+  %92 = zext nneg i32 %gp_offset59 to i64
+  %93 = getelementptr i8, ptr %reg_save_area62, i64 %92
+  %94 = add nuw nsw i32 %gp_offset59, 8
+  store i32 %94, ptr %arg, align 16
   br label %vaarg.end67
 
 vaarg.in_mem63:                                   ; preds = %sw.bb56
@@ -736,9 +749,9 @@ vaarg.in_mem63:                                   ; preds = %sw.bb56
   br label %vaarg.end67
 
 vaarg.end67:                                      ; preds = %vaarg.in_mem63, %vaarg.in_reg61
-  %vaarg.addr68 = phi ptr [ %77, %vaarg.in_reg61 ], [ %overflow_arg_area65, %vaarg.in_mem63 ]
-  %79 = load ptr, ptr %vaarg.addr68, align 8
-  %tobool69.not = icmp eq ptr %79, null
+  %vaarg.addr68 = phi ptr [ %93, %vaarg.in_reg61 ], [ %overflow_arg_area65, %vaarg.in_mem63 ]
+  %95 = load ptr, ptr %vaarg.addr68, align 8
+  %tobool69.not = icmp eq ptr %95, null
   br i1 %tobool69.not, label %sw.epilog, label %if.then70
 
 if.then70:                                        ; preds = %vaarg.end67
@@ -752,29 +765,29 @@ if.then70:                                        ; preds = %vaarg.end67
 
 sw.bb.i82:                                        ; preds = %if.then70
   %call.i83 = call ptr @Curl_ssl_engines_list(ptr noundef nonnull %data) #4
-  store ptr %call.i83, ptr %79, align 8
+  store ptr %call.i83, ptr %95, align 8
   br label %sw.epilog
 
 sw.bb1.i81:                                       ; preds = %if.then70
   %call2.i = call ptr @Curl_cookie_list(ptr noundef nonnull %data) #4
-  store ptr %call2.i, ptr %79, align 8
+  store ptr %call2.i, ptr %95, align 8
   br label %sw.epilog
 
 sw.bb3.i80:                                       ; preds = %if.then70
   %certs.i = getelementptr inbounds i8, ptr %data, i64 5264
-  store ptr %certs.i, ptr %79, align 8
+  store ptr %certs.i, ptr %95, align 8
   br label %sw.epilog
 
 sw.bb5.i76:                                       ; preds = %if.then70, %if.then70
   %tsi6.i = getelementptr inbounds i8, ptr %data, i64 5288
   %conn7.i = getelementptr inbounds i8, ptr %data, i64 32
-  %80 = load ptr, ptr %conn7.i, align 8
-  store ptr %tsi6.i, ptr %79, align 8
+  %96 = load ptr, ptr %conn7.i, align 8
+  store ptr %tsi6.i, ptr %95, align 8
   %call8.i = call i32 @Curl_ssl_backend() #4
   store i32 %call8.i, ptr %tsi6.i, align 8
   %internals.i = getelementptr inbounds i8, ptr %data, i64 5296
   store ptr null, ptr %internals.i, align 8
-  %tobool.not.i77 = icmp eq ptr %80, null
+  %tobool.not.i77 = icmp eq ptr %96, null
   %cmp.not.i = icmp eq i32 %call8.i, 0
   %or.cond.i = select i1 %tobool.not.i77, i1 true, i1 %cmp.not.i
   br i1 %or.cond.i, label %sw.epilog, label %if.then.i78
@@ -790,12 +803,12 @@ sw.bb73:                                          ; preds = %if.end
   br i1 %fits_in_gp77, label %vaarg.in_reg78, label %vaarg.in_mem80
 
 vaarg.in_reg78:                                   ; preds = %sw.bb73
-  %81 = getelementptr inbounds i8, ptr %arg, i64 16
-  %reg_save_area79 = load ptr, ptr %81, align 16
-  %82 = zext nneg i32 %gp_offset76 to i64
-  %83 = getelementptr i8, ptr %reg_save_area79, i64 %82
-  %84 = add nuw nsw i32 %gp_offset76, 8
-  store i32 %84, ptr %arg, align 16
+  %97 = getelementptr inbounds i8, ptr %arg, i64 16
+  %reg_save_area79 = load ptr, ptr %97, align 16
+  %98 = zext nneg i32 %gp_offset76 to i64
+  %99 = getelementptr i8, ptr %reg_save_area79, i64 %98
+  %100 = add nuw nsw i32 %gp_offset76, 8
+  store i32 %100, ptr %arg, align 16
   br label %vaarg.end84
 
 vaarg.in_mem80:                                   ; preds = %sw.bb73
@@ -806,16 +819,16 @@ vaarg.in_mem80:                                   ; preds = %sw.bb73
   br label %vaarg.end84
 
 vaarg.end84:                                      ; preds = %vaarg.in_mem80, %vaarg.in_reg78
-  %vaarg.addr85 = phi ptr [ %83, %vaarg.in_reg78 ], [ %overflow_arg_area82, %vaarg.in_mem80 ]
-  %85 = load ptr, ptr %vaarg.addr85, align 8
-  %tobool86.not = icmp ne ptr %85, null
+  %vaarg.addr85 = phi ptr [ %99, %vaarg.in_reg78 ], [ %overflow_arg_area82, %vaarg.in_mem80 ]
+  %101 = load ptr, ptr %vaarg.addr85, align 8
+  %tobool86.not = icmp ne ptr %101, null
   %cond.i84 = icmp eq i32 %info, 5242924
   %or.cond = and i1 %cond.i84, %tobool86.not
   br i1 %or.cond, label %sw.bb.i86, label %sw.epilog
 
 sw.bb.i86:                                        ; preds = %vaarg.end84
   %call.i87 = call i32 @Curl_getconnectinfo(ptr noundef nonnull %data, ptr noundef null) #4
-  store i32 %call.i87, ptr %85, align 4
+  store i32 %call.i87, ptr %101, align 4
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb.i86, %if.then.i78, %sw.bb5.i76, %sw.bb3.i80, %sw.bb1.i81, %sw.bb.i82, %if.then70, %return.sink.split.i44, %if.then53, %return.sink.split.i33, %if.then36, %return.sink.split.i24, %if.then19, %return.sink.split.i, %if.then3, %if.end, %vaarg.end84, %vaarg.end67, %vaarg.end50, %vaarg.end33, %vaarg.end16, %vaarg.end

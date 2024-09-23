@@ -3920,6 +3920,7 @@ _ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13Po
 if.then.i.i.i.i:                                  ; preds = %_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE12MakeMapToAddIZNS_21promise_filter_detail30InterceptClientInitialMetadataINS_14promise_detail2IfIbNS_17ImmediateOkStatusEZNS_16ServerAuthFilter4Call23OnClientInitialMetadataERS2_PSD_EUlvE_EESD_EEN4absl12lts_2023080220type_traits_internal9VoidTImplIJDTcl10StatusCastIS5_Esr3stdE7declvalINS_10PollTraitsINSA_11PromiseLikeIT_vE6ResultEE4TypeEEEEEE4typeEMNT0_4CallEFSP_SF_PSX_EPNSX_4CallESZ_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_9AppendMapIS16_EEvSP_NS_13DebugLocationEEUlvE_EEPNS6_3MapESP_SX_S18_.exit.i.i.i
   store ptr %retval.0.i.i.i.i.i.i, ptr %5, align 8
   %last_map_.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %retval.0.i.i.i.i.i.i, ptr %last_map_.i.i.i.i, align 8
   br label %_ZN9grpc_core21promise_filter_detail30InterceptClientInitialMetadataINS_14promise_detail2IfIbNS_17ImmediateOkStatusEZNS_16ServerAuthFilter4Call23OnClientInitialMetadataER19grpc_metadata_batchPS5_EUlvE_EES5_EEN4absl12lts_2023080220type_traits_internal9VoidTImplIJDTcl10StatusCastISt10unique_ptrIS7_NS_5Arena13PooledDeleterEEEsr3stdE7declvalINS_10PollTraitsINS2_11PromiseLikeIT_vE6ResultEE4TypeEEEEEE4typeEMNT0_4CallEFSM_S8_PSU_EPNSU_4CallESW_PNS_18CallSpineInterfaceE.exit
 
 if.else.i.i.i.i:                                  ; preds = %_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE12MakeMapToAddIZNS_21promise_filter_detail30InterceptClientInitialMetadataINS_14promise_detail2IfIbNS_17ImmediateOkStatusEZNS_16ServerAuthFilter4Call23OnClientInitialMetadataERS2_PSD_EUlvE_EESD_EEN4absl12lts_2023080220type_traits_internal9VoidTImplIJDTcl10StatusCastIS5_Esr3stdE7declvalINS_10PollTraitsINSA_11PromiseLikeIT_vE6ResultEE4TypeEEEEEE4typeEMNT0_4CallEFSP_SF_PSX_EPNSX_4CallESZ_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_9AppendMapIS16_EEvSP_NS_13DebugLocationEEUlvE_EEPNS6_3MapESP_SX_S18_.exit.i.i.i
@@ -3927,11 +3928,10 @@ if.else.i.i.i.i:                                  ; preds = %_ZN9grpc_core15Inte
   %11 = load ptr, ptr %last_map_3.i.i.i.i, align 8
   %next_.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %retval.0.i.i.i.i.i.i, ptr %next_.i.i.i.i.i, align 8
+  store ptr %retval.0.i.i.i.i.i.i, ptr %last_map_3.i.i.i.i, align 8
   br label %_ZN9grpc_core21promise_filter_detail30InterceptClientInitialMetadataINS_14promise_detail2IfIbNS_17ImmediateOkStatusEZNS_16ServerAuthFilter4Call23OnClientInitialMetadataER19grpc_metadata_batchPS5_EUlvE_EES5_EEN4absl12lts_2023080220type_traits_internal9VoidTImplIJDTcl10StatusCastISt10unique_ptrIS7_NS_5Arena13PooledDeleterEEEsr3stdE7declvalINS_10PollTraitsINS2_11PromiseLikeIT_vE6ResultEE4TypeEEEEEE4typeEMNT0_4CallEFSM_S8_PSU_EPNSU_4CallESW_PNS_18CallSpineInterfaceE.exit
 
 _ZN9grpc_core21promise_filter_detail30InterceptClientInitialMetadataINS_14promise_detail2IfIbNS_17ImmediateOkStatusEZNS_16ServerAuthFilter4Call23OnClientInitialMetadataER19grpc_metadata_batchPS5_EUlvE_EES5_EEN4absl12lts_2023080220type_traits_internal9VoidTImplIJDTcl10StatusCastISt10unique_ptrIS7_NS_5Arena13PooledDeleterEEEsr3stdE7declvalINS_10PollTraitsINS2_11PromiseLikeIT_vE6ResultEE4TypeEEEEEE4typeEMNT0_4CallEFSM_S8_PSU_EPNSU_4CallESW_PNS_18CallSpineInterfaceE.exit: ; preds = %if.then.i.i.i.i, %if.else.i.i.i.i
-  %last_map_3.sink.i.i.i.i = phi ptr [ %last_map_3.i.i.i.i, %if.else.i.i.i.i ], [ %last_map_.i.i.i.i, %if.then.i.i.i.i ]
-  store ptr %retval.0.i.i.i.i.i.i, ptr %last_map_3.sink.i.i.i.i, align 8
   ret void
 }
 

@@ -79,46 +79,51 @@ define { i64, i64 } @CombineRect(ptr nocapture noundef readonly %0, ptr nocaptur
 
 8:                                                ; preds = %2
   %.sroa.4.0..0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
-  br label %27
+  %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..0..sroa_idx, align 4
+  br label %28
 
 9:                                                ; preds = %2
   %10 = load i32, ptr %1, align 4
   %11 = getelementptr inbounds i8, ptr %1, i64 8
   %12 = load i32, ptr %11, align 4
   %13 = icmp sgt i32 %10, %12
-  br i1 %13, label %27, label %.preheader
+  br i1 %13, label %14, label %.preheader
+
+14:                                               ; preds = %9
+  %.sroa.4.0.copyload28 = load i64, ptr %5, align 4
+  br label %28
 
 .preheader:                                       ; preds = %9, %.preheader
-  %14 = phi i1 [ false, %.preheader ], [ true, %9 ]
+  %15 = phi i1 [ false, %.preheader ], [ true, %9 ]
   %.034.sroa.phi = phi ptr [ %.034.sroa.gep, %.preheader ], [ %3, %9 ]
   %.034 = phi i64 [ 1, %.preheader ], [ 0, %9 ]
-  %15 = getelementptr inbounds [4 x i32], ptr %0, i64 0, i64 %.034
-  %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds [4 x i32], ptr %1, i64 0, i64 %.034
-  %18 = load i32, ptr %17, align 4
-  %. = tail call i32 @llvm.smin.i32(i32 %16, i32 %18)
+  %16 = getelementptr inbounds [4 x i32], ptr %0, i64 0, i64 %.034
+  %17 = load i32, ptr %16, align 4
+  %18 = getelementptr inbounds [4 x i32], ptr %1, i64 0, i64 %.034
+  %19 = load i32, ptr %18, align 4
+  %. = tail call i32 @llvm.smin.i32(i32 %17, i32 %19)
   store i32 %., ptr %.034.sroa.phi, align 4
-  %19 = or disjoint i64 %.034, 2
-  %20 = getelementptr inbounds [4 x i32], ptr %0, i64 0, i64 %19
-  %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds [4 x i32], ptr %1, i64 0, i64 %19
-  %23 = load i32, ptr %22, align 4
-  %24 = tail call i32 @llvm.smax.i32(i32 %21, i32 %23)
-  %25 = getelementptr inbounds [4 x i32], ptr %3, i64 0, i64 %19
-  store i32 %24, ptr %25, align 4
-  br i1 %14, label %.preheader, label %26
+  %20 = or disjoint i64 %.034, 2
+  %21 = getelementptr inbounds [4 x i32], ptr %0, i64 0, i64 %20
+  %22 = load i32, ptr %21, align 4
+  %23 = getelementptr inbounds [4 x i32], ptr %1, i64 0, i64 %20
+  %24 = load i32, ptr %23, align 4
+  %25 = tail call i32 @llvm.smax.i32(i32 %22, i32 %24)
+  %26 = getelementptr inbounds [4 x i32], ptr %3, i64 0, i64 %20
+  store i32 %25, ptr %26, align 4
+  br i1 %15, label %.preheader, label %27
 
-26:                                               ; preds = %.preheader
+27:                                               ; preds = %.preheader
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
-  br label %27
+  %.sroa.4.0.copyload29 = load i64, ptr %.sroa.4.0..sroa_idx, align 4
+  br label %28
 
-27:                                               ; preds = %9, %26, %8
-  %.sroa.4.0..sroa_idx.sink = phi ptr [ %.sroa.4.0..sroa_idx, %26 ], [ %.sroa.4.0..0..sroa_idx, %8 ], [ %5, %9 ]
-  %.sroa.0.0.in = phi ptr [ %3, %26 ], [ %1, %8 ], [ %0, %9 ]
-  %.sroa.4.0.copyload29 = load i64, ptr %.sroa.4.0..sroa_idx.sink, align 4
+28:                                               ; preds = %27, %14, %8
+  %.sroa.0.0.in = phi ptr [ %1, %8 ], [ %0, %14 ], [ %3, %27 ]
+  %.sroa.4.0 = phi i64 [ %.sroa.4.0.copyload, %8 ], [ %.sroa.4.0.copyload28, %14 ], [ %.sroa.4.0.copyload29, %27 ]
   %.sroa.0.0 = load i64, ptr %.sroa.0.0.in, align 4
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.4.0.copyload29, 1
+  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.4.0, 1
   ret { i64, i64 } %.fca.1.insert
 }
 

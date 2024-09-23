@@ -8646,28 +8646,30 @@ entry:
 
 if.then:                                          ; preds = %entry
   %first_iter = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = load ptr, ptr %first_iter, align 8
+  store ptr null, ptr %first_iter, align 8
   br label %if.end20
 
 if.else:                                          ; preds = %entry
   %range_del_iter_ptrs_ = getelementptr inbounds i8, ptr %this, i64 32
-  %1 = load ptr, ptr %range_del_iter_ptrs_, align 8
+  %2 = load ptr, ptr %range_del_iter_ptrs_, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 40
-  %2 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i.not8 = icmp eq ptr %1, %2
+  %3 = load ptr, ptr %_M_finish.i, align 8
+  %cmp.i.not8 = icmp eq ptr %2, %3
   br i1 %cmp.i.not8, label %for.end, label %for.body
 
 for.body:                                         ; preds = %if.else, %for.body
-  %__begin2.sroa.0.09 = phi ptr [ %incdec.ptr.i, %for.body ], [ %1, %if.else ]
-  %3 = load ptr, ptr %this, align 8
-  %range_tombstone_iters_ = getelementptr inbounds i8, ptr %3, i64 104
-  %4 = load i64, ptr %__begin2.sroa.0.09, align 8
-  %5 = load ptr, ptr %range_tombstone_iters_, align 8
-  %add.ptr.i = getelementptr inbounds ptr, ptr %5, i64 %4
+  %__begin2.sroa.0.09 = phi ptr [ %incdec.ptr.i, %for.body ], [ %2, %if.else ]
+  %4 = load ptr, ptr %this, align 8
+  %range_tombstone_iters_ = getelementptr inbounds i8, ptr %4, i64 104
+  %5 = load i64, ptr %__begin2.sroa.0.09, align 8
+  %6 = load ptr, ptr %range_tombstone_iters_, align 8
+  %add.ptr.i = getelementptr inbounds ptr, ptr %6, i64 %5
   %second = getelementptr inbounds i8, ptr %__begin2.sroa.0.09, i64 8
-  %6 = load ptr, ptr %second, align 8
-  store ptr %add.ptr.i, ptr %6, align 8
+  %7 = load ptr, ptr %second, align 8
+  store ptr %add.ptr.i, ptr %7, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.09, i64 16
-  %cmp.i.not = icmp eq ptr %incdec.ptr.i, %2
+  %cmp.i.not = icmp eq ptr %incdec.ptr.i, %3
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.body, %if.else
@@ -8677,38 +8679,38 @@ for.end:                                          ; preds = %for.body, %if.else
 
 land.lhs.true:                                    ; preds = %for.end
   %range_tombstone_iters_11 = getelementptr inbounds i8, ptr %.pre10, i64 104
-  %7 = load ptr, ptr %range_tombstone_iters_11, align 8
+  %8 = load ptr, ptr %range_tombstone_iters_11, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %.pre10, i64 112
-  %8 = load ptr, ptr %_M_finish.i.i, align 8
-  %cmp.i.i = icmp eq ptr %7, %8
+  %9 = load ptr, ptr %_M_finish.i.i, align 8
+  %cmp.i.i = icmp eq ptr %8, %9
   br i1 %cmp.i.i, label %if.end, label %if.then13
 
 if.then13:                                        ; preds = %land.lhs.true
   %memtable_range_tombstone_iter_.i = getelementptr inbounds i8, ptr %db_iter, i64 2536
-  store ptr %7, ptr %memtable_range_tombstone_iter_.i, align 8
+  store ptr %8, ptr %memtable_range_tombstone_iter_.i, align 8
   %.pre = load ptr, ptr %this, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then13, %land.lhs.true, %for.end
-  %9 = phi ptr [ %.pre, %if.then13 ], [ %.pre10, %land.lhs.true ], [ %.pre10, %for.end ]
-  %range_tombstone_iters_.i = getelementptr inbounds i8, ptr %9, i64 104
-  %10 = load ptr, ptr %range_tombstone_iters_.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %9, i64 112
-  %11 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %10, %11
-  br i1 %cmp.i.i.i, label %if.end20, label %if.then.i
+  %10 = phi ptr [ %.pre, %if.then13 ], [ %.pre10, %land.lhs.true ], [ %.pre10, %for.end ]
+  %range_tombstone_iters_.i = getelementptr inbounds i8, ptr %10, i64 104
+  %11 = load ptr, ptr %range_tombstone_iters_.i, align 8
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %10, i64 112
+  %12 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %cmp.i.i.i = icmp eq ptr %11, %12
+  br i1 %cmp.i.i.i, label %_ZN7rocksdb15MergingIterator6FinishEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %pinned_heap_item_.i = getelementptr inbounds i8, ptr %9, i64 80
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %11 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %10 to i64
+  %pinned_heap_item_.i = getelementptr inbounds i8, ptr %10, i64 80
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %12 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %_M_finish.i.i5.i = getelementptr inbounds i8, ptr %9, i64 88
-  %12 = load ptr, ptr %_M_finish.i.i5.i, align 8
-  %13 = load ptr, ptr %pinned_heap_item_.i, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %12 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %13 to i64
+  %_M_finish.i.i5.i = getelementptr inbounds i8, ptr %10, i64 88
+  %13 = load ptr, ptr %_M_finish.i.i5.i, align 8
+  %14 = load ptr, ptr %pinned_heap_item_.i, align 8
+  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %13 to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 88
   %cmp.i.i4 = icmp ugt i64 %sub.ptr.div.i.i, %sub.ptr.div.i.i.i
@@ -8726,8 +8728,8 @@ if.else.i.i:                                      ; preds = %if.then.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %_ZNSt6vectorIN7rocksdb15MergingIterator8HeapItemESaIS2_EE6resizeEm.exit.i
 
 if.then5.i.i:                                     ; preds = %if.else.i.i
-  %add.ptr.i.i = getelementptr inbounds %"struct.rocksdb::MergingIterator::HeapItem", ptr %13, i64 %sub.ptr.div.i.i
-  %tobool.not.i.i.i = icmp eq ptr %12, %add.ptr.i.i
+  %add.ptr.i.i = getelementptr inbounds %"struct.rocksdb::MergingIterator::HeapItem", ptr %14, i64 %sub.ptr.div.i.i
+  %tobool.not.i.i.i = icmp eq ptr %13, %add.ptr.i.i
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN7rocksdb15MergingIterator8HeapItemESaIS2_EE6resizeEm.exit.i, label %invoke.cont.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %if.then5.i.i
@@ -8735,34 +8737,37 @@ invoke.cont.i.i.i:                                ; preds = %if.then5.i.i
   br label %_ZNSt6vectorIN7rocksdb15MergingIterator8HeapItemESaIS2_EE6resizeEm.exit.i
 
 _ZNSt6vectorIN7rocksdb15MergingIterator8HeapItemESaIS2_EE6resizeEm.exit.i: ; preds = %invoke.cont.i.i.i, %if.then5.i.i, %if.else.i.i, %if.then.i.i
-  %14 = phi ptr [ %.pre19.i, %if.then.i.i ], [ %10, %if.else.i.i ], [ %10, %if.then5.i.i ], [ %10, %invoke.cont.i.i.i ]
-  %15 = phi ptr [ %.pre.i, %if.then.i.i ], [ %11, %if.else.i.i ], [ %11, %if.then5.i.i ], [ %11, %invoke.cont.i.i.i ]
-  %cmp17.not.i = icmp eq ptr %15, %14
-  br i1 %cmp17.not.i, label %if.end20, label %for.body.i
+  %15 = phi ptr [ %.pre19.i, %if.then.i.i ], [ %11, %if.else.i.i ], [ %11, %if.then5.i.i ], [ %11, %invoke.cont.i.i.i ]
+  %16 = phi ptr [ %.pre.i, %if.then.i.i ], [ %12, %if.else.i.i ], [ %12, %if.then5.i.i ], [ %12, %invoke.cont.i.i.i ]
+  %cmp17.not.i = icmp eq ptr %16, %15
+  br i1 %cmp17.not.i, label %_ZN7rocksdb15MergingIterator6FinishEv.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZNSt6vectorIN7rocksdb15MergingIterator8HeapItemESaIS2_EE6resizeEm.exit.i, %for.body.i
   %i.018.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %_ZNSt6vectorIN7rocksdb15MergingIterator8HeapItemESaIS2_EE6resizeEm.exit.i ]
-  %16 = load ptr, ptr %pinned_heap_item_.i, align 8
-  %level.i = getelementptr inbounds %"struct.rocksdb::MergingIterator::HeapItem", ptr %16, i64 %i.018.i, i32 1
-  store i64 %i.018.i, ptr %level.i, align 8
   %17 = load ptr, ptr %pinned_heap_item_.i, align 8
-  %type.i = getelementptr inbounds %"struct.rocksdb::MergingIterator::HeapItem", ptr %17, i64 %i.018.i, i32 2, i32 2
+  %level.i = getelementptr inbounds %"struct.rocksdb::MergingIterator::HeapItem", ptr %17, i64 %i.018.i, i32 1
+  store i64 %i.018.i, ptr %level.i, align 8
+  %18 = load ptr, ptr %pinned_heap_item_.i, align 8
+  %type.i = getelementptr inbounds %"struct.rocksdb::MergingIterator::HeapItem", ptr %18, i64 %i.018.i, i32 2, i32 2
   store i8 24, ptr %type.i, align 8
   %inc.i = add nuw i64 %i.018.i, 1
-  %18 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %19 = load ptr, ptr %range_tombstone_iters_.i, align 8
-  %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %18 to i64
-  %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %19 to i64
+  %19 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %20 = load ptr, ptr %range_tombstone_iters_.i, align 8
+  %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %19 to i64
+  %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %20 to i64
   %sub.ptr.sub.i9.i = sub i64 %sub.ptr.lhs.cast.i7.i, %sub.ptr.rhs.cast.i8.i
   %sub.ptr.div.i10.i = ashr exact i64 %sub.ptr.sub.i9.i, 3
   %cmp.i5 = icmp ult i64 %inc.i, %sub.ptr.div.i10.i
-  br i1 %cmp.i5, label %for.body.i, label %if.end20, !llvm.loop !268
+  br i1 %cmp.i5, label %for.body.i, label %_ZN7rocksdb15MergingIterator6FinishEv.exit, !llvm.loop !268
 
-if.end20:                                         ; preds = %for.body.i, %_ZNSt6vectorIN7rocksdb15MergingIterator8HeapItemESaIS2_EE6resizeEm.exit.i, %if.end, %if.then
-  %this.sink11 = phi ptr [ %first_iter, %if.then ], [ %this, %if.end ], [ %this, %_ZNSt6vectorIN7rocksdb15MergingIterator8HeapItemESaIS2_EE6resizeEm.exit.i ], [ %this, %for.body.i ]
-  %20 = load ptr, ptr %this.sink11, align 8
-  store ptr null, ptr %this.sink11, align 8
-  ret ptr %20
+_ZN7rocksdb15MergingIterator6FinishEv.exit:       ; preds = %for.body.i, %if.end, %_ZNSt6vectorIN7rocksdb15MergingIterator8HeapItemESaIS2_EE6resizeEm.exit.i
+  %21 = load ptr, ptr %this, align 8
+  store ptr null, ptr %this, align 8
+  br label %if.end20
+
+if.end20:                                         ; preds = %_ZN7rocksdb15MergingIterator6FinishEv.exit, %if.then
+  %ret.0 = phi ptr [ %21, %_ZN7rocksdb15MergingIterator6FinishEv.exit ], [ %1, %if.then ]
+  ret ptr %ret.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -9652,10 +9657,10 @@ if.then.i:                                        ; preds = %for.body16
   %10 = load i8, ptr %is_arena_mode_, align 8
   %tobool = trunc i8 %10 to i1
   %vtable6.i = load ptr, ptr %9, align 8
-  %vtable6.sink.idx.i = select i1 %tobool, i64 0, i64 8
-  %vtable6.sink.i = getelementptr inbounds i8, ptr %vtable6.i, i64 %vtable6.sink.idx.i
-  %11 = load ptr, ptr %vtable6.sink.i, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(40) %9) #22
+  %spec.select.idx = select i1 %tobool, i64 0, i64 8
+  %spec.select = getelementptr inbounds i8, ptr %vtable6.i, i64 %spec.select.idx
+  %.sink.i = load ptr, ptr %spec.select, align 8
+  tail call void %.sink.i(ptr noundef nonnull align 8 dereferenceable(40) %9) #22
   br label %_ZN7rocksdb19IteratorWrapperBaseINS_5SliceEE10DeleteIterEb.exit
 
 _ZN7rocksdb19IteratorWrapperBaseINS_5SliceEE10DeleteIterEb.exit: ; preds = %for.body16, %if.then.i
@@ -9665,12 +9670,12 @@ _ZN7rocksdb19IteratorWrapperBaseINS_5SliceEE10DeleteIterEb.exit: ; preds = %for.
 
 invoke.cont22:                                    ; preds = %_ZN7rocksdb19IteratorWrapperBaseINS_5SliceEE10DeleteIterEb.exit, %for.end
   %maxHeap_ = getelementptr inbounds i8, ptr %this, i64 320
-  %12 = load ptr, ptr %maxHeap_, align 8
-  %cmp.not.i = icmp eq ptr %12, null
+  %11 = load ptr, ptr %maxHeap_, align 8
+  %cmp.not.i = icmp eq ptr %11, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN7rocksdb10BinaryHeapIPNS0_15MergingIterator8HeapItemENS2_21MaxHeapItemComparatorEEESt14default_deleteIS6_EED2Ev.exit, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %invoke.cont22
-  %data_.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
+  %data_.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %.pr.i.i.i.i.i = load i64, ptr %data_.i.i.i, align 8
   %cmp.not1.i.i.i.i.i = icmp eq i64 %.pr.i.i.i.i.i, 0
   br i1 %cmp.not1.i.i.i.i.i, label %while.end.i.i.i.i.i, label %while.body.preheader.i.i.i.i.i
@@ -9680,27 +9685,27 @@ while.body.preheader.i.i.i.i.i:                   ; preds = %delete.notnull.i.i
   br label %while.end.i.i.i.i.i
 
 while.end.i.i.i.i.i:                              ; preds = %while.body.preheader.i.i.i.i.i, %delete.notnull.i.i
-  %vect_.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 88
-  %13 = load ptr, ptr %vect_.i.i.i.i.i, align 8
-  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 96
-  %14 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %14, %13
+  %vect_.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 88
+  %12 = load ptr, ptr %vect_.i.i.i.i.i, align 8
+  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 96
+  %13 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8
+  %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %13, %12
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN7rocksdb10autovectorIPNS_15MergingIterator8HeapItemELm8EE5clearEv.exit.i.i.i.i, label %invoke.cont.i.i.i.i.i.i.i
 
 invoke.cont.i.i.i.i.i.i.i:                        ; preds = %while.end.i.i.i.i.i
-  store ptr %13, ptr %_M_finish.i.i.i.i.i.i.i, align 8
+  store ptr %12, ptr %_M_finish.i.i.i.i.i.i.i, align 8
   br label %_ZN7rocksdb10autovectorIPNS_15MergingIterator8HeapItemELm8EE5clearEv.exit.i.i.i.i
 
 _ZN7rocksdb10autovectorIPNS_15MergingIterator8HeapItemELm8EE5clearEv.exit.i.i.i.i: ; preds = %invoke.cont.i.i.i.i.i.i.i, %while.end.i.i.i.i.i
-  %tobool.not.i.i.i1.i.i.i.i = icmp eq ptr %13, null
+  %tobool.not.i.i.i1.i.i.i.i = icmp eq ptr %12, null
   br i1 %tobool.not.i.i.i1.i.i.i.i, label %_ZNKSt14default_deleteIN7rocksdb10BinaryHeapIPNS0_15MergingIterator8HeapItemENS2_21MaxHeapItemComparatorEEEEclEPS6_.exit.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %_ZN7rocksdb10autovectorIPNS_15MergingIterator8HeapItemELm8EE5clearEv.exit.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %13) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %12) #20
   br label %_ZNKSt14default_deleteIN7rocksdb10BinaryHeapIPNS0_15MergingIterator8HeapItemENS2_21MaxHeapItemComparatorEEEEclEPS6_.exit.i
 
 _ZNKSt14default_deleteIN7rocksdb10BinaryHeapIPNS0_15MergingIterator8HeapItemENS2_21MaxHeapItemComparatorEEEEclEPS6_.exit.i: ; preds = %if.then.i.i.i.i.i.i.i, %_ZN7rocksdb10autovectorIPNS_15MergingIterator8HeapItemELm8EE5clearEv.exit.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %12) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %11) #20
   br label %_ZNSt10unique_ptrIN7rocksdb10BinaryHeapIPNS0_15MergingIterator8HeapItemENS2_21MaxHeapItemComparatorEEESt14default_deleteIS6_EED2Ev.exit
 
 _ZNSt10unique_ptrIN7rocksdb10BinaryHeapIPNS0_15MergingIterator8HeapItemENS2_21MaxHeapItemComparatorEEESt14default_deleteIS6_EED2Ev.exit: ; preds = %invoke.cont22, %_ZNKSt14default_deleteIN7rocksdb10BinaryHeapIPNS0_15MergingIterator8HeapItemENS2_21MaxHeapItemComparatorEEEEclEPS6_.exit.i
@@ -9716,80 +9721,80 @@ while.body.preheader.i.i.i:                       ; preds = %_ZNSt10unique_ptrIN
 
 while.end.i.i.i:                                  ; preds = %while.body.preheader.i.i.i, %_ZNSt10unique_ptrIN7rocksdb10BinaryHeapIPNS0_15MergingIterator8HeapItemENS2_21MaxHeapItemComparatorEEESt14default_deleteIS6_EED2Ev.exit
   %vect_.i.i.i = getelementptr inbounds i8, ptr %this, i64 288
-  %15 = load ptr, ptr %vect_.i.i.i, align 8
+  %14 = load ptr, ptr %vect_.i.i.i, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 296
-  %16 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i = icmp eq ptr %16, %15
+  %15 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
+  %tobool.not.i.i.i.i.i = icmp eq ptr %15, %14
   br i1 %tobool.not.i.i.i.i.i, label %_ZN7rocksdb10autovectorIPNS_15MergingIterator8HeapItemELm8EE5clearEv.exit.i.i, label %invoke.cont.i.i.i.i.i
 
 invoke.cont.i.i.i.i.i:                            ; preds = %while.end.i.i.i
-  store ptr %15, ptr %_M_finish.i.i.i.i.i, align 8
+  store ptr %14, ptr %_M_finish.i.i.i.i.i, align 8
   br label %_ZN7rocksdb10autovectorIPNS_15MergingIterator8HeapItemELm8EE5clearEv.exit.i.i
 
 _ZN7rocksdb10autovectorIPNS_15MergingIterator8HeapItemELm8EE5clearEv.exit.i.i: ; preds = %invoke.cont.i.i.i.i.i, %while.end.i.i.i
-  %tobool.not.i.i.i1.i.i = icmp eq ptr %15, null
+  %tobool.not.i.i.i1.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i1.i.i, label %_ZN7rocksdb10BinaryHeapIPNS_15MergingIterator8HeapItemENS1_21MinHeapItemComparatorEED2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN7rocksdb10autovectorIPNS_15MergingIterator8HeapItemELm8EE5clearEv.exit.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %15) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %14) #20
   br label %_ZN7rocksdb10BinaryHeapIPNS_15MergingIterator8HeapItemENS1_21MinHeapItemComparatorEED2Ev.exit
 
 _ZN7rocksdb10BinaryHeapIPNS_15MergingIterator8HeapItemENS1_21MinHeapItemComparatorEED2Ev.exit: ; preds = %_ZN7rocksdb10autovectorIPNS_15MergingIterator8HeapItemELm8EE5clearEv.exit.i.i, %if.then.i.i.i.i.i
   %state_.i = getelementptr inbounds i8, ptr %this, i64 192
-  %17 = load ptr, ptr %state_.i, align 8
-  %cmp.not.i.i6 = icmp eq ptr %17, null
+  %16 = load ptr, ptr %state_.i, align 8
+  %cmp.not.i.i6 = icmp eq ptr %16, null
   br i1 %cmp.not.i.i6, label %_ZN7rocksdb6StatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i: ; preds = %_ZN7rocksdb10BinaryHeapIPNS_15MergingIterator8HeapItemENS1_21MinHeapItemComparatorEED2Ev.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %17) #20
+  tail call void @_ZdaPv(ptr noundef nonnull %16) #20
   br label %_ZN7rocksdb6StatusD2Ev.exit
 
 _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %_ZN7rocksdb10BinaryHeapIPNS_15MergingIterator8HeapItemENS1_21MinHeapItemComparatorEED2Ev.exit, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
   store ptr null, ptr %state_.i, align 8
   %active_ = getelementptr inbounds i8, ptr %this, i64 128
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 144
-  %18 = load ptr, ptr %_M_parent.i.i.i.i, align 8
-  invoke void @_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE8_M_eraseEPSt13_Rb_tree_nodeImE(ptr noundef nonnull align 8 dereferenceable(48) %active_, ptr noundef %18)
+  %17 = load ptr, ptr %_M_parent.i.i.i.i, align 8
+  invoke void @_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE8_M_eraseEPSt13_Rb_tree_nodeImE(ptr noundef nonnull align 8 dereferenceable(48) %active_, ptr noundef %17)
           to label %_ZNSt3setImSt4lessImESaImEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %_ZN7rocksdb6StatusD2Ev.exit
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  tail call void @__clang_call_terminate(ptr %20) #21
+  %19 = extractvalue { ptr, i32 } %18, 0
+  tail call void @__clang_call_terminate(ptr %19) #21
   unreachable
 
 _ZNSt3setImSt4lessImESaImEED2Ev.exit:             ; preds = %_ZN7rocksdb6StatusD2Ev.exit
-  %21 = load ptr, ptr %range_tombstone_iters_, align 8
-  %tobool.not.i.i.i = icmp eq ptr %21, null
+  %20 = load ptr, ptr %range_tombstone_iters_, align 8
+  %tobool.not.i.i.i = icmp eq ptr %20, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN7rocksdb25TruncatedRangeDelIteratorESaIS2_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt3setImSt4lessImESaImEED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %21) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %20) #20
   br label %_ZNSt6vectorIPN7rocksdb25TruncatedRangeDelIteratorESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIPN7rocksdb25TruncatedRangeDelIteratorESaIS2_EED2Ev.exit: ; preds = %_ZNSt3setImSt4lessImESaImEED2Ev.exit, %if.then.i.i.i
   %pinned_heap_item_ = getelementptr inbounds i8, ptr %this, i64 80
-  %22 = load ptr, ptr %pinned_heap_item_, align 8
-  %tobool.not.i.i.i7 = icmp eq ptr %22, null
+  %21 = load ptr, ptr %pinned_heap_item_, align 8
+  %tobool.not.i.i.i7 = icmp eq ptr %21, null
   br i1 %tobool.not.i.i.i7, label %_ZNSt6vectorIN7rocksdb15MergingIterator8HeapItemESaIS2_EED2Ev.exit, label %if.then.i.i.i8
 
 if.then.i.i.i8:                                   ; preds = %_ZNSt6vectorIPN7rocksdb25TruncatedRangeDelIteratorESaIS2_EED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %22) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %21) #20
   br label %_ZNSt6vectorIN7rocksdb15MergingIterator8HeapItemESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN7rocksdb15MergingIterator8HeapItemESaIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorIPN7rocksdb25TruncatedRangeDelIteratorESaIS2_EED2Ev.exit, %if.then.i.i.i8
-  %23 = load ptr, ptr %children_, align 8
-  %tobool.not.i.i.i9 = icmp eq ptr %23, null
+  %22 = load ptr, ptr %children_, align 8
+  %tobool.not.i.i.i9 = icmp eq ptr %22, null
   br i1 %tobool.not.i.i.i9, label %_ZNSt6vectorIN7rocksdb15MergingIterator8HeapItemESaIS2_EED2Ev.exit11, label %if.then.i.i.i10
 
 if.then.i.i.i10:                                  ; preds = %_ZNSt6vectorIN7rocksdb15MergingIterator8HeapItemESaIS2_EED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %23) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %22) #20
   br label %_ZNSt6vectorIN7rocksdb15MergingIterator8HeapItemESaIS2_EED2Ev.exit11
 
 _ZNSt6vectorIN7rocksdb15MergingIterator8HeapItemESaIS2_EED2Ev.exit11: ; preds = %_ZNSt6vectorIN7rocksdb15MergingIterator8HeapItemESaIS2_EED2Ev.exit, %if.then.i.i.i10
-  %24 = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @_ZN7rocksdb9CleanableD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #22
+  %23 = getelementptr inbounds i8, ptr %this, i64 8
+  tail call void @_ZN7rocksdb9CleanableD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #22
   ret void
 }
 

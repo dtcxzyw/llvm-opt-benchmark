@@ -3340,10 +3340,8 @@ common.ret:                                       ; preds = %"_ZN72_$LT$core..pi
   ret void
 
 "_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h33a25ed2a47c122aE.exit.sink.split": ; preds = %77, %"_ZN4core3ptr54drop_in_place$LT$wasi_common..sync..net..TcpStream$GT$17hc1986f9ec3ed0050E.exit29"
-  %.sink = phi ptr [ %87, %"_ZN4core3ptr54drop_in_place$LT$wasi_common..sync..net..TcpStream$GT$17hc1986f9ec3ed0050E.exit29" ], [ %65, %77 ]
   %.sroa.034.0.ph = phi ptr [ null, %"_ZN4core3ptr54drop_in_place$LT$wasi_common..sync..net..TcpStream$GT$17hc1986f9ec3ed0050E.exit29" ], [ %69, %77 ]
   %.sroa.4.0.ph = phi ptr [ %52, %"_ZN4core3ptr54drop_in_place$LT$wasi_common..sync..net..TcpStream$GT$17hc1986f9ec3ed0050E.exit29" ], [ @anon.bfa31fafe4958aae8e9727502c2557cc.111, %77 ]
-  store i8 0, ptr %.sink, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 33
   store i8 0, ptr %7, align 1
   br label %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h33a25ed2a47c122aE.exit"
@@ -3539,6 +3537,7 @@ common.ret:                                       ; preds = %"_ZN72_$LT$core..pi
 
 77:                                               ; preds = %64
   store i32 %67, ptr %69, align 4
+  store i8 0, ptr %65, align 8
   br label %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h33a25ed2a47c122aE.exit.sink.split"
 
 .body23:                                          ; preds = %72, %61, %57, %49, %29
@@ -3562,6 +3561,7 @@ common.ret:                                       ; preds = %"_ZN72_$LT$core..pi
 
 "_ZN4core3ptr54drop_in_place$LT$wasi_common..sync..net..TcpStream$GT$17hc1986f9ec3ed0050E.exit29": ; preds = %81
   %87 = getelementptr inbounds i8, ptr %1, i64 32
+  store i8 0, ptr %87, align 8
   br label %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h33a25ed2a47c122aE.exit.sink.split"
 
 88:                                               ; preds = %94, %90, %49
@@ -3993,10 +3993,8 @@ common.ret:                                       ; preds = %"_ZN72_$LT$core..pi
   ret void
 
 "_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h33a25ed2a47c122aE.exit.sink.split": ; preds = %77, %"_ZN4core3ptr55drop_in_place$LT$wasi_common..sync..net..UnixStream$GT$17h08d4b2ad035fa6a4E.exit27"
-  %.sink = phi ptr [ %87, %"_ZN4core3ptr55drop_in_place$LT$wasi_common..sync..net..UnixStream$GT$17h08d4b2ad035fa6a4E.exit27" ], [ %65, %77 ]
   %.sroa.034.0.ph = phi ptr [ null, %"_ZN4core3ptr55drop_in_place$LT$wasi_common..sync..net..UnixStream$GT$17h08d4b2ad035fa6a4E.exit27" ], [ %69, %77 ]
   %.sroa.4.0.ph = phi ptr [ %52, %"_ZN4core3ptr55drop_in_place$LT$wasi_common..sync..net..UnixStream$GT$17h08d4b2ad035fa6a4E.exit27" ], [ @anon.bfa31fafe4958aae8e9727502c2557cc.112, %77 ]
-  store i8 0, ptr %.sink, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 33
   store i8 0, ptr %7, align 1
   br label %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h33a25ed2a47c122aE.exit"
@@ -4190,6 +4188,7 @@ common.ret:                                       ; preds = %"_ZN72_$LT$core..pi
 
 77:                                               ; preds = %64
   store i32 %67, ptr %69, align 4
+  store i8 0, ptr %65, align 8
   br label %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h33a25ed2a47c122aE.exit.sink.split"
 
 .body21:                                          ; preds = %72, %61, %57, %49, %29
@@ -4213,6 +4212,7 @@ common.ret:                                       ; preds = %"_ZN72_$LT$core..pi
 
 "_ZN4core3ptr55drop_in_place$LT$wasi_common..sync..net..UnixStream$GT$17h08d4b2ad035fa6a4E.exit27": ; preds = %81
   %87 = getelementptr inbounds i8, ptr %1, i64 32
+  store i8 0, ptr %87, align 8
   br label %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h33a25ed2a47c122aE.exit.sink.split"
 
 88:                                               ; preds = %94, %90, %49

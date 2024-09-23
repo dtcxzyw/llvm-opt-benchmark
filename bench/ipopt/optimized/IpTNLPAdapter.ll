@@ -24582,7 +24582,7 @@ define noundef zeroext i1 @_ZN5Ipopt11TNLPAdapter22ResortBoundMultipliersERKNS_6
   %9 = getelementptr inbounds i8, ptr %0, i64 192
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %231, label %12
+  br i1 %11, label %243, label %12
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds i8, ptr %0, i64 56
@@ -24769,7 +24769,7 @@ thread-pre-split:                                 ; preds = %.lr.ph.split.split,
 108:                                              ; preds = %thread-pre-split, %12
   %109 = phi i32 [ %.pr, %thread-pre-split ], [ %14, %12 ]
   %110 = icmp eq i32 %109, 0
-  br i1 %110, label %111, label %231
+  br i1 %110, label %111, label %243
 
 111:                                              ; preds = %108
   %112 = getelementptr inbounds i8, ptr %0, i64 160
@@ -24806,7 +24806,7 @@ _ZN5Ipopt11TNLPAdapter14update_local_xERKNS_6VectorE.exit: ; preds = %111, %124
   %134 = getelementptr inbounds i8, ptr %133, i64 88
   %135 = load ptr, ptr %134, align 8
   %136 = tail call noundef zeroext i1 %135(ptr noundef nonnull align 8 dereferenceable(12) %130, i32 noundef %128, ptr noundef %132, i1 noundef zeroext %123, ptr noundef nonnull %118)
-  br i1 %136, label %137, label %.sink.split148
+  br i1 %136, label %137, label %.sink.split
 
 137:                                              ; preds = %_ZN5Ipopt11TNLPAdapter14update_local_xERKNS_6VectorE.exit
   %138 = getelementptr inbounds i8, ptr %0, i64 480
@@ -24818,7 +24818,7 @@ _ZN5Ipopt11TNLPAdapter14update_local_xERKNS_6VectorE.exit: ; preds = %111, %124
 
 143:                                              ; preds = %137
   %144 = tail call noundef zeroext i1 @_ZN5Ipopt11TNLPAdapter19internal_eval_jac_gEb(ptr noundef nonnull align 8 dereferenceable(600) %0, i1 noundef zeroext false)
-  br i1 %144, label %145, label %.sink.split148
+  br i1 %144, label %145, label %.sink.split
 
 145:                                              ; preds = %143
   %146 = getelementptr inbounds i8, ptr %0, i64 432
@@ -24851,127 +24851,137 @@ _ZN5Ipopt11TNLPAdapter14update_local_xERKNS_6VectorE.exit: ; preds = %111, %124
   %168 = getelementptr inbounds i8, ptr %0, i64 336
   %169 = load ptr, ptr %168, align 8
   %170 = getelementptr inbounds i8, ptr %2, i64 233
-  %171 = getelementptr inbounds i8, ptr %2, i64 240
-  %172 = getelementptr inbounds i8, ptr %3, i64 233
-  %173 = getelementptr inbounds i8, ptr %3, i64 240
+  %171 = getelementptr inbounds i8, ptr %2, i64 216
+  %172 = getelementptr inbounds i8, ptr %2, i64 240
+  %173 = getelementptr inbounds i8, ptr %3, i64 233
+  %174 = getelementptr inbounds i8, ptr %3, i64 216
+  %175 = getelementptr inbounds i8, ptr %3, i64 240
   %umax = tail call i64 @llvm.umax.i64(i64 %163, i64 1)
-  br label %174
+  br label %176
 
-174:                                              ; preds = %.lr.ph107, %201
-  %.083106 = phi i64 [ 0, %.lr.ph107 ], [ %205, %201 ]
-  %175 = getelementptr inbounds i32, ptr %165, i64 %.083106
-  %176 = load i32, ptr %175, align 4
-  %177 = add nsw i32 %176, -1
-  %178 = getelementptr inbounds i32, ptr %167, i64 %.083106
-  %179 = load i32, ptr %178, align 4
-  %180 = getelementptr inbounds i32, ptr %159, i64 %.083106
+176:                                              ; preds = %.lr.ph107, %213
+  %.083106 = phi i64 [ 0, %.lr.ph107 ], [ %217, %213 ]
+  %177 = getelementptr inbounds i32, ptr %165, i64 %.083106
+  %178 = load i32, ptr %177, align 4
+  %179 = add nsw i32 %178, -1
+  %180 = getelementptr inbounds i32, ptr %167, i64 %.083106
   %181 = load i32, ptr %180, align 4
-  %182 = sext i32 %181 to i64
-  %183 = getelementptr inbounds double, ptr %169, i64 %182
-  %184 = load double, ptr %183, align 8
-  %185 = sext i32 %177 to i64
-  %186 = getelementptr inbounds i32, ptr %151, i64 %185
-  %187 = load i32, ptr %186, align 4
-  %.not89 = icmp eq i32 %187, -1
-  br i1 %.not89, label %191, label %188
+  %182 = getelementptr inbounds i32, ptr %159, i64 %.083106
+  %183 = load i32, ptr %182, align 4
+  %184 = sext i32 %183 to i64
+  %185 = getelementptr inbounds double, ptr %169, i64 %184
+  %186 = load double, ptr %185, align 8
+  %187 = sext i32 %179 to i64
+  %188 = getelementptr inbounds i32, ptr %151, i64 %187
+  %189 = load i32, ptr %188, align 4
+  %.not89 = icmp eq i32 %189, -1
+  br i1 %.not89, label %200, label %190
 
-188:                                              ; preds = %174
-  %189 = load i8, ptr %170, align 1
-  %190 = trunc i8 %189 to i1
-  br i1 %190, label %.sink.split, label %.sink.split.sink.split
+190:                                              ; preds = %176
+  %191 = load i8, ptr %170, align 1
+  %192 = trunc i8 %191 to i1
+  br i1 %192, label %193, label %195
 
-191:                                              ; preds = %174
-  %192 = getelementptr inbounds i32, ptr %157, i64 %185
-  %193 = load i32, ptr %192, align 4
-  %.not90 = icmp eq i32 %193, -1
-  br i1 %.not90, label %201, label %194
+193:                                              ; preds = %190
+  %194 = load double, ptr %172, align 8
+  br label %213
 
-194:                                              ; preds = %191
-  %195 = load i8, ptr %172, align 1
-  %196 = trunc i8 %195 to i1
-  br i1 %196, label %.sink.split, label %.sink.split.sink.split
+195:                                              ; preds = %190
+  %196 = load ptr, ptr %171, align 8
+  %197 = sext i32 %189 to i64
+  %198 = getelementptr inbounds double, ptr %196, i64 %197
+  %199 = load double, ptr %198, align 8
+  br label %213
 
-.sink.split.sink.split:                           ; preds = %194, %188
-  %.pn = phi ptr [ %2, %188 ], [ %3, %194 ]
-  %.sink151 = phi i32 [ %187, %188 ], [ %193, %194 ]
-  %.sink152 = getelementptr inbounds i8, ptr %.pn, i64 216
-  %197 = load ptr, ptr %.sink152, align 8
-  %198 = sext i32 %.sink151 to i64
-  %199 = getelementptr inbounds double, ptr %197, i64 %198
-  br label %.sink.split
+200:                                              ; preds = %176
+  %201 = getelementptr inbounds i32, ptr %157, i64 %187
+  %202 = load i32, ptr %201, align 4
+  %.not90 = icmp eq i32 %202, -1
+  br i1 %.not90, label %213, label %203
 
-.sink.split:                                      ; preds = %.sink.split.sink.split, %194, %188
-  %.sink = phi ptr [ %171, %188 ], [ %173, %194 ], [ %199, %.sink.split.sink.split ]
-  %200 = load double, ptr %.sink, align 8
-  br label %201
+203:                                              ; preds = %200
+  %204 = load i8, ptr %173, align 1
+  %205 = trunc i8 %204 to i1
+  br i1 %205, label %206, label %208
 
-201:                                              ; preds = %.sink.split, %191
-  %.080 = phi double [ 0.000000e+00, %191 ], [ %200, %.sink.split ]
-  %202 = sext i32 %179 to i64
-  %gep = getelementptr double, ptr %invariant.gep, i64 %202
-  %203 = load double, ptr %gep, align 8
-  %204 = tail call double @llvm.fmuladd.f64(double %.080, double %184, double %203)
-  store double %204, ptr %gep, align 8
-  %205 = add nuw i64 %.083106, 1
-  %exitcond.not = icmp eq i64 %205, %umax
-  br i1 %exitcond.not, label %.loopexit, label %174, !llvm.loop !142
+206:                                              ; preds = %203
+  %207 = load double, ptr %175, align 8
+  br label %213
 
-.loopexit:                                        ; preds = %201, %145, %137
-  %206 = load i32, ptr %9, align 8
-  %207 = icmp sgt i32 %206, 0
-  br i1 %207, label %.lr.ph109, label %.sink.split148
+208:                                              ; preds = %203
+  %209 = load ptr, ptr %174, align 8
+  %210 = sext i32 %202 to i64
+  %211 = getelementptr inbounds double, ptr %209, i64 %210
+  %212 = load double, ptr %211, align 8
+  br label %213
+
+213:                                              ; preds = %200, %208, %206, %193, %195
+  %.080 = phi double [ %194, %193 ], [ %199, %195 ], [ %207, %206 ], [ %212, %208 ], [ 0.000000e+00, %200 ]
+  %214 = sext i32 %181 to i64
+  %gep = getelementptr double, ptr %invariant.gep, i64 %214
+  %215 = load double, ptr %gep, align 8
+  %216 = tail call double @llvm.fmuladd.f64(double %.080, double %186, double %215)
+  store double %216, ptr %gep, align 8
+  %217 = add nuw i64 %.083106, 1
+  %exitcond.not = icmp eq i64 %217, %umax
+  br i1 %exitcond.not, label %.loopexit, label %176, !llvm.loop !142
+
+.loopexit:                                        ; preds = %213, %145, %137
+  %218 = load i32, ptr %9, align 8
+  %219 = icmp sgt i32 %218, 0
+  br i1 %219, label %.lr.ph109, label %.sink.split
 
 .lr.ph109:                                        ; preds = %.loopexit
-  %208 = getelementptr inbounds i8, ptr %0, i64 472
+  %220 = getelementptr inbounds i8, ptr %0, i64 472
   %.not91 = icmp eq ptr %5, null
   %.not92 = icmp eq ptr %7, null
-  br label %209
+  br label %221
 
-209:                                              ; preds = %.lr.ph109, %227
-  %indvars.iv134 = phi i64 [ 0, %.lr.ph109 ], [ %indvars.iv.next135, %227 ]
-  %210 = load ptr, ptr %208, align 8
-  %211 = getelementptr inbounds i32, ptr %210, i64 %indvars.iv134
-  %212 = load i32, ptr %211, align 4
-  br i1 %.not91, label %219, label %213
+221:                                              ; preds = %.lr.ph109, %239
+  %indvars.iv134 = phi i64 [ 0, %.lr.ph109 ], [ %indvars.iv.next135, %239 ]
+  %222 = load ptr, ptr %220, align 8
+  %223 = getelementptr inbounds i32, ptr %222, i64 %indvars.iv134
+  %224 = load i32, ptr %223, align 4
+  br i1 %.not91, label %231, label %225
 
-213:                                              ; preds = %209
-  %214 = sext i32 %212 to i64
-  %215 = getelementptr inbounds double, ptr %118, i64 %214
-  %216 = load double, ptr %215, align 8
-  %217 = fcmp ogt double %216, 0.000000e+00
-  %.sroa.speculated.i98 = select i1 %217, double %216, double 0.000000e+00
-  %218 = getelementptr inbounds double, ptr %5, i64 %214
-  store double %.sroa.speculated.i98, ptr %218, align 8
-  br label %219
-
-219:                                              ; preds = %213, %209
-  br i1 %.not92, label %227, label %220
-
-220:                                              ; preds = %219
-  %221 = sext i32 %212 to i64
-  %222 = getelementptr inbounds double, ptr %118, i64 %221
-  %223 = load double, ptr %222, align 8
-  %224 = fneg double %223
-  %225 = fcmp ogt double %224, 0.000000e+00
-  %.sroa.speculated.i99 = select i1 %225, double %224, double 0.000000e+00
-  %226 = getelementptr inbounds double, ptr %7, i64 %221
-  store double %.sroa.speculated.i99, ptr %226, align 8
-  br label %227
-
-227:                                              ; preds = %219, %220
-  %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
-  %228 = load i32, ptr %9, align 8
-  %229 = sext i32 %228 to i64
-  %230 = icmp slt i64 %indvars.iv.next135, %229
-  br i1 %230, label %209, label %.sink.split148, !llvm.loop !143
-
-.sink.split148:                                   ; preds = %227, %.loopexit, %143, %_ZN5Ipopt11TNLPAdapter14update_local_xERKNS_6VectorE.exit
-  %.0.ph = phi i1 [ false, %_ZN5Ipopt11TNLPAdapter14update_local_xERKNS_6VectorE.exit ], [ false, %143 ], [ true, %.loopexit ], [ true, %227 ]
-  tail call void @_ZdaPv(ptr noundef nonnull %118) #25
+225:                                              ; preds = %221
+  %226 = sext i32 %224 to i64
+  %227 = getelementptr inbounds double, ptr %118, i64 %226
+  %228 = load double, ptr %227, align 8
+  %229 = fcmp ogt double %228, 0.000000e+00
+  %.sroa.speculated.i98 = select i1 %229, double %228, double 0.000000e+00
+  %230 = getelementptr inbounds double, ptr %5, i64 %226
+  store double %.sroa.speculated.i98, ptr %230, align 8
   br label %231
 
-231:                                              ; preds = %.sink.split148, %108, %8
-  %.0 = phi i1 [ true, %8 ], [ true, %108 ], [ %.0.ph, %.sink.split148 ]
+231:                                              ; preds = %225, %221
+  br i1 %.not92, label %239, label %232
+
+232:                                              ; preds = %231
+  %233 = sext i32 %224 to i64
+  %234 = getelementptr inbounds double, ptr %118, i64 %233
+  %235 = load double, ptr %234, align 8
+  %236 = fneg double %235
+  %237 = fcmp ogt double %236, 0.000000e+00
+  %.sroa.speculated.i99 = select i1 %237, double %236, double 0.000000e+00
+  %238 = getelementptr inbounds double, ptr %7, i64 %233
+  store double %.sroa.speculated.i99, ptr %238, align 8
+  br label %239
+
+239:                                              ; preds = %231, %232
+  %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
+  %240 = load i32, ptr %9, align 8
+  %241 = sext i32 %240 to i64
+  %242 = icmp slt i64 %indvars.iv.next135, %241
+  br i1 %242, label %221, label %.sink.split, !llvm.loop !143
+
+.sink.split:                                      ; preds = %239, %.loopexit, %143, %_ZN5Ipopt11TNLPAdapter14update_local_xERKNS_6VectorE.exit
+  %.0.ph = phi i1 [ false, %_ZN5Ipopt11TNLPAdapter14update_local_xERKNS_6VectorE.exit ], [ false, %143 ], [ true, %.loopexit ], [ true, %239 ]
+  tail call void @_ZdaPv(ptr noundef nonnull %118) #25
+  br label %243
+
+243:                                              ; preds = %.sink.split, %108, %8
+  %.0 = phi i1 [ true, %8 ], [ true, %108 ], [ %.0.ph, %.sink.split ]
   ret i1 %.0
 }
 

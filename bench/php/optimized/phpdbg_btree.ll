@@ -499,7 +499,7 @@ define hidden range(i32 -1, 1) i32 @phpdbg_btree_delete(ptr nocapture noundef %0
   %26 = add i64 %25, -1
   store i64 %26, ptr %0, align 8
   %27 = icmp eq i32 %.05675, -1
-  br i1 %27, label %28, label %34
+  br i1 %27, label %28, label %35
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds i8, ptr %0, i64 16
@@ -509,92 +509,95 @@ define hidden range(i32 -1, 1) i32 @phpdbg_btree_delete(ptr nocapture noundef %0
 
 32:                                               ; preds = %28
   tail call void @free(ptr noundef %.05873) #12
-  br label %.loopexit69.sink.split
+  br label %34
 
 33:                                               ; preds = %28
   tail call void @_efree(ptr noundef nonnull %.05873) #12
-  br label %.loopexit69.sink.split
+  br label %34
 
-34:                                               ; preds = %24
-  %35 = sext i32 %.05476 to i64
-  %36 = getelementptr inbounds [2 x ptr], ptr %.05377, i64 0, i64 %35
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %.05377, i64 16
-  %39 = icmp eq ptr %37, %38
-  br i1 %39, label %40, label %64
-
-40:                                               ; preds = %34
-  %.not65 = icmp eq i32 %.05476, 0
-  %41 = zext i1 %.not65 to i64
-  %42 = getelementptr inbounds [2 x ptr], ptr %.05377, i64 0, i64 %41
-  %43 = load ptr, ptr %42, align 8
-  %44 = add nuw nsw i32 %.05675, 1
-  %45 = sext i32 %44 to i64
-  %46 = shl nsw i64 %45, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %38, ptr noundef nonnull align 8 dereferenceable(1) %43, i64 %46, i1 false)
-  %47 = getelementptr inbounds i8, ptr %0, i64 16
-  %48 = load i8, ptr %47, align 8
-  %49 = trunc i8 %48 to i1
-  %50 = load ptr, ptr %42, align 8
-  br i1 %49, label %51, label %52
-
-51:                                               ; preds = %40
-  tail call void @free(ptr noundef %50) #12
-  br label %53
-
-52:                                               ; preds = %40
-  tail call void @_efree(ptr noundef %50) #12
-  br label %53
-
-53:                                               ; preds = %52, %51
-  store ptr %38, ptr %42, align 8
-  %.not6679 = icmp eq i32 %.05675, 0
-  br i1 %.not6679, label %.loopexit69.sink.split, label %.lr.ph83
-
-.lr.ph83:                                         ; preds = %53
-  %54 = sext i32 %.05675 to i64
-  %55 = getelementptr inbounds %union._phpdbg_btree_branch, ptr %.05377, i64 %54
-  %invariant.gep = getelementptr i8, ptr %55, i64 16
-  br label %56
-
-56:                                               ; preds = %.lr.ph83, %56
-  %indvars.iv88 = phi i64 [ %54, %.lr.ph83 ], [ %indvars.iv.next89, %56 ]
-  %.082 = phi ptr [ %43, %.lr.ph83 ], [ %60, %56 ]
-  %.15981 = phi ptr [ %38, %.lr.ph83 ], [ %gep, %56 ]
-  %indvars.iv.next89 = add nsw i64 %indvars.iv88, -1
-  %57 = sub nsw i64 1, %indvars.iv88
-  %gep = getelementptr %union._phpdbg_btree_branch, ptr %invariant.gep, i64 %57
-  %58 = getelementptr inbounds i8, ptr %.15981, i64 8
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %.082, i64 16
-  %61 = icmp eq ptr %59, %60
-  %62 = zext i1 %61 to i64
-  %63 = getelementptr inbounds [2 x ptr], ptr %.15981, i64 0, i64 %62
-  store ptr %gep, ptr %63, align 8
-  %.not66 = icmp eq i64 %indvars.iv.next89, 0
-  br i1 %.not66, label %.loopexit69.sink.split, label %56
-
-64:                                               ; preds = %34
-  %65 = getelementptr inbounds i8, ptr %0, i64 16
-  %66 = load i8, ptr %65, align 8
-  %67 = trunc i8 %66 to i1
-  br i1 %67, label %68, label %69
-
-68:                                               ; preds = %64
-  tail call void @free(ptr noundef %37) #12
-  br label %.loopexit69.sink.split
-
-69:                                               ; preds = %64
-  tail call void @_efree(ptr noundef %37) #12
-  br label %.loopexit69.sink.split
-
-.loopexit69.sink.split:                           ; preds = %56, %69, %68, %53, %32, %33
-  %.sink = phi ptr [ %3, %33 ], [ %3, %32 ], [ %36, %53 ], [ %36, %68 ], [ %36, %69 ], [ %36, %56 ]
-  store ptr null, ptr %.sink, align 8
+34:                                               ; preds = %33, %32
+  store ptr null, ptr %3, align 8
   br label %.loopexit69
 
-.loopexit69:                                      ; preds = %18, %.loopexit69.sink.split, %2
-  %.062 = phi i32 [ -1, %2 ], [ 0, %.loopexit69.sink.split ], [ -1, %18 ]
+35:                                               ; preds = %24
+  %36 = sext i32 %.05476 to i64
+  %37 = getelementptr inbounds [2 x ptr], ptr %.05377, i64 0, i64 %36
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds i8, ptr %.05377, i64 16
+  %40 = icmp eq ptr %38, %39
+  br i1 %40, label %41, label %65
+
+41:                                               ; preds = %35
+  %.not65 = icmp eq i32 %.05476, 0
+  %42 = zext i1 %.not65 to i64
+  %43 = getelementptr inbounds [2 x ptr], ptr %.05377, i64 0, i64 %42
+  %44 = load ptr, ptr %43, align 8
+  %45 = add nuw nsw i32 %.05675, 1
+  %46 = sext i32 %45 to i64
+  %47 = shl nsw i64 %46, 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %39, ptr noundef nonnull align 8 dereferenceable(1) %44, i64 %47, i1 false)
+  %48 = getelementptr inbounds i8, ptr %0, i64 16
+  %49 = load i8, ptr %48, align 8
+  %50 = trunc i8 %49 to i1
+  %51 = load ptr, ptr %43, align 8
+  br i1 %50, label %52, label %53
+
+52:                                               ; preds = %41
+  tail call void @free(ptr noundef %51) #12
+  br label %54
+
+53:                                               ; preds = %41
+  tail call void @_efree(ptr noundef %51) #12
+  br label %54
+
+54:                                               ; preds = %53, %52
+  store ptr %39, ptr %43, align 8
+  %.not6679 = icmp eq i32 %.05675, 0
+  br i1 %.not6679, label %.loopexit, label %.lr.ph83
+
+.lr.ph83:                                         ; preds = %54
+  %55 = sext i32 %.05675 to i64
+  %56 = getelementptr inbounds %union._phpdbg_btree_branch, ptr %.05377, i64 %55
+  %invariant.gep = getelementptr i8, ptr %56, i64 16
+  br label %57
+
+57:                                               ; preds = %.lr.ph83, %57
+  %indvars.iv88 = phi i64 [ %55, %.lr.ph83 ], [ %indvars.iv.next89, %57 ]
+  %.082 = phi ptr [ %44, %.lr.ph83 ], [ %61, %57 ]
+  %.15981 = phi ptr [ %39, %.lr.ph83 ], [ %gep, %57 ]
+  %indvars.iv.next89 = add nsw i64 %indvars.iv88, -1
+  %58 = sub nsw i64 1, %indvars.iv88
+  %gep = getelementptr %union._phpdbg_btree_branch, ptr %invariant.gep, i64 %58
+  %59 = getelementptr inbounds i8, ptr %.15981, i64 8
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %.082, i64 16
+  %62 = icmp eq ptr %60, %61
+  %63 = zext i1 %62 to i64
+  %64 = getelementptr inbounds [2 x ptr], ptr %.15981, i64 0, i64 %63
+  store ptr %gep, ptr %64, align 8
+  %.not66 = icmp eq i64 %indvars.iv.next89, 0
+  br i1 %.not66, label %.loopexit, label %57
+
+65:                                               ; preds = %35
+  %66 = getelementptr inbounds i8, ptr %0, i64 16
+  %67 = load i8, ptr %66, align 8
+  %68 = trunc i8 %67 to i1
+  br i1 %68, label %69, label %70
+
+69:                                               ; preds = %65
+  tail call void @free(ptr noundef %38) #12
+  br label %.loopexit
+
+70:                                               ; preds = %65
+  tail call void @_efree(ptr noundef %38) #12
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %57, %54, %69, %70
+  store ptr null, ptr %37, align 8
+  br label %.loopexit69
+
+.loopexit69:                                      ; preds = %18, %2, %34, %.loopexit
+  %.062 = phi i32 [ 0, %.loopexit ], [ 0, %34 ], [ -1, %2 ], [ -1, %18 ]
   ret i32 %.062
 }
 

@@ -1953,7 +1953,11 @@ if.then.i.i.i:                                    ; preds = %_ZN5arrow10TypeHold
   %18 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %18, 4294967297
   %19 = trunc i64 %18 to i32
-  br i1 %cmp.i.i.i.i, label %for.inc.sink.split.sink.split, label %if.end.i.i.i.i
+  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i30, label %if.end.i.i.i.i
+
+if.then.i.i.i.i30:                                ; preds = %if.then.i.i.i
+  store i32 0, ptr %_M_use_count.i.i.i.i, align 8
+  br label %for.inc.sink.split.sink.split
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
   %20 = load i8, ptr @__libc_single_threaded, align 1
@@ -2094,7 +2098,11 @@ if.then.i.i.i103:                                 ; preds = %_ZN5arrow10TypeHold
   %40 = load atomic i64, ptr %_M_use_count.i.i.i.i104 acquire, align 8
   %cmp.i.i.i.i105 = icmp eq i64 %40, 4294967297
   %41 = trunc i64 %40 to i32
-  br i1 %cmp.i.i.i.i105, label %for.inc.sink.split.sink.split, label %if.end.i.i.i.i106
+  br i1 %cmp.i.i.i.i105, label %if.then.i.i.i.i128, label %if.end.i.i.i.i106
+
+if.then.i.i.i.i128:                               ; preds = %if.then.i.i.i103
+  store i32 0, ptr %_M_use_count.i.i.i.i104, align 8
+  br label %for.inc.sink.split.sink.split
 
 if.end.i.i.i.i106:                                ; preds = %if.then.i.i.i103
   %42 = load i8, ptr @__libc_single_threaded, align 1
@@ -2230,7 +2238,11 @@ if.then.i.i.i205:                                 ; preds = %_ZN5arrow10TypeHold
   %62 = load atomic i64, ptr %_M_use_count.i.i.i.i206 acquire, align 8
   %cmp.i.i.i.i207 = icmp eq i64 %62, 4294967297
   %63 = trunc i64 %62 to i32
-  br i1 %cmp.i.i.i.i207, label %for.inc.sink.split.sink.split, label %if.end.i.i.i.i208
+  br i1 %cmp.i.i.i.i207, label %if.then.i.i.i.i230, label %if.end.i.i.i.i208
+
+if.then.i.i.i.i230:                               ; preds = %if.then.i.i.i205
+  store i32 0, ptr %_M_use_count.i.i.i.i206, align 8
+  br label %for.inc.sink.split.sink.split
 
 if.end.i.i.i.i208:                                ; preds = %if.then.i.i.i205
   %64 = load i8, ptr @__libc_single_threaded, align 1
@@ -2368,7 +2380,11 @@ if.then.i.i.i307:                                 ; preds = %_ZN5arrow10TypeHold
   %84 = load atomic i64, ptr %_M_use_count.i.i.i.i308 acquire, align 8
   %cmp.i.i.i.i309 = icmp eq i64 %84, 4294967297
   %85 = trunc i64 %84 to i32
-  br i1 %cmp.i.i.i.i309, label %for.inc.sink.split.sink.split, label %if.end.i.i.i.i310
+  br i1 %cmp.i.i.i.i309, label %if.then.i.i.i.i332, label %if.end.i.i.i.i310
+
+if.then.i.i.i.i332:                               ; preds = %if.then.i.i.i307
+  store i32 0, ptr %_M_use_count.i.i.i.i308, align 8
+  br label %for.inc.sink.split.sink.split
 
 if.end.i.i.i.i310:                                ; preds = %if.then.i.i.i307
   %86 = load i8, ptr @__libc_single_threaded, align 1
@@ -2506,7 +2522,11 @@ if.then.i.i.i409:                                 ; preds = %_ZN5arrow10TypeHold
   %106 = load atomic i64, ptr %_M_use_count.i.i.i.i410 acquire, align 8
   %cmp.i.i.i.i411 = icmp eq i64 %106, 4294967297
   %107 = trunc i64 %106 to i32
-  br i1 %cmp.i.i.i.i411, label %for.inc.sink.split.sink.split, label %if.end.i.i.i.i412
+  br i1 %cmp.i.i.i.i411, label %if.then.i.i.i.i434, label %if.end.i.i.i.i412
+
+if.then.i.i.i.i434:                               ; preds = %if.then.i.i.i409
+  store i32 0, ptr %_M_use_count.i.i.i.i410, align 8
+  br label %for.inc.sink.split.sink.split
 
 if.end.i.i.i.i412:                                ; preds = %if.then.i.i.i409
   %108 = load i8, ptr @__libc_single_threaded, align 1
@@ -2552,10 +2572,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i426: ; preds = %i
   %cmp.i.i.i.i.i.i428 = icmp eq i32 %retval.i.0.i.i.i.i.i.i427, 1
   br i1 %cmp.i.i.i.i.i.i428, label %for.inc.sink.split, label %for.inc
 
-for.inc.sink.split.sink.split:                    ; preds = %if.then.i.i.i409, %if.then.i.i.i307, %if.then.i.i.i205, %if.then.i.i.i103, %if.then.i.i.i
-  %_M_use_count.i.i.i.i410.sink = phi ptr [ %_M_use_count.i.i.i.i, %if.then.i.i.i ], [ %_M_use_count.i.i.i.i104, %if.then.i.i.i103 ], [ %_M_use_count.i.i.i.i206, %if.then.i.i.i205 ], [ %_M_use_count.i.i.i.i308, %if.then.i.i.i307 ], [ %_M_use_count.i.i.i.i410, %if.then.i.i.i409 ]
-  %.sink450 = phi ptr [ %17, %if.then.i.i.i ], [ %39, %if.then.i.i.i103 ], [ %61, %if.then.i.i.i205 ], [ %83, %if.then.i.i.i307 ], [ %105, %if.then.i.i.i409 ]
-  store i32 0, ptr %_M_use_count.i.i.i.i410.sink, align 8
+for.inc.sink.split.sink.split:                    ; preds = %if.then.i.i.i.i30, %if.then.i.i.i.i128, %if.then.i.i.i.i230, %if.then.i.i.i.i332, %if.then.i.i.i.i434
+  %.sink450 = phi ptr [ %105, %if.then.i.i.i.i434 ], [ %83, %if.then.i.i.i.i332 ], [ %61, %if.then.i.i.i.i230 ], [ %39, %if.then.i.i.i.i128 ], [ %17, %if.then.i.i.i.i30 ]
   %_M_weak_count.i.i.i.i435 = getelementptr inbounds i8, ptr %.sink450, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i435, align 4
   %vtable.i.i.i.i436 = load ptr, ptr %.sink450, align 8

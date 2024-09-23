@@ -2800,7 +2800,7 @@ define dso_local ptr @ExecFetchSlotHeapTuple(ptr noundef %0, i1 noundef zeroext 
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   %.not13 = icmp eq ptr %2, null
-  br i1 %14, label %15, label %20
+  br i1 %14, label %15, label %21
 
 15:                                               ; preds = %9
   br i1 %.not13, label %17, label %16
@@ -2813,26 +2813,23 @@ define dso_local ptr @ExecFetchSlotHeapTuple(ptr noundef %0, i1 noundef zeroext 
 17:                                               ; preds = %16, %15
   %18 = phi ptr [ %.pre15, %16 ], [ %11, %15 ]
   %19 = getelementptr inbounds i8, ptr %18, i64 80
-  br label %.sink.split
+  %20 = load ptr, ptr %19, align 8
+  br label %23
 
-20:                                               ; preds = %9
-  br i1 %.not13, label %22, label %21
+21:                                               ; preds = %9
+  br i1 %.not13, label %23, label %22
 
-21:                                               ; preds = %20
+22:                                               ; preds = %21
   store i8 0, ptr %2, align 1
   %.pre = load ptr, ptr %10, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 64
-  br label %.sink.split
+  %.pre14 = load ptr, ptr %.phi.trans.insert, align 8
+  br label %23
 
-.sink.split:                                      ; preds = %17, %21
-  %.phi.trans.insert.sink = phi ptr [ %.phi.trans.insert, %21 ], [ %19, %17 ]
-  %.pre14 = load ptr, ptr %.phi.trans.insert.sink, align 8
-  br label %22
-
-22:                                               ; preds = %.sink.split, %20
-  %.sink = phi ptr [ %13, %20 ], [ %.pre14, %.sink.split ]
-  %23 = tail call ptr %.sink(ptr noundef nonnull %0) #13
-  ret ptr %23
+23:                                               ; preds = %21, %22, %17
+  %.sink = phi ptr [ %20, %17 ], [ %.pre14, %22 ], [ %13, %21 ]
+  %24 = tail call ptr %.sink(ptr noundef nonnull %0) #13
+  ret ptr %24
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2846,13 +2843,14 @@ define dso_local ptr @ExecFetchSlotMinimalTuple(ptr noundef %0, ptr noundef writ
   br i1 %.not, label %9, label %7
 
 7:                                                ; preds = %2
-  br i1 %.not11, label %14, label %8
+  br i1 %.not11, label %15, label %8
 
 8:                                                ; preds = %7
   store i8 0, ptr %1, align 1
   %.pre = load ptr, ptr %3, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 72
-  br label %.sink.split
+  %.pre13 = load ptr, ptr %.phi.trans.insert, align 8
+  br label %15
 
 9:                                                ; preds = %2
   br i1 %.not11, label %11, label %10
@@ -2865,42 +2863,43 @@ define dso_local ptr @ExecFetchSlotMinimalTuple(ptr noundef %0, ptr noundef writ
 11:                                               ; preds = %10, %9
   %12 = phi ptr [ %.pre14, %10 ], [ %4, %9 ]
   %13 = getelementptr inbounds i8, ptr %12, i64 88
-  br label %.sink.split
+  %14 = load ptr, ptr %13, align 8
+  br label %15
 
-.sink.split:                                      ; preds = %11, %8
-  %.phi.trans.insert.sink = phi ptr [ %.phi.trans.insert, %8 ], [ %13, %11 ]
-  %.pre13 = load ptr, ptr %.phi.trans.insert.sink, align 8
-  br label %14
-
-14:                                               ; preds = %.sink.split, %7
-  %.sink = phi ptr [ %6, %7 ], [ %.pre13, %.sink.split ]
-  %15 = tail call ptr %.sink(ptr noundef nonnull %0) #13
-  ret ptr %15
+15:                                               ; preds = %7, %8, %11
+  %.sink = phi ptr [ %14, %11 ], [ %.pre13, %8 ], [ %6, %7 ]
+  %16 = tail call ptr %.sink(ptr noundef nonnull %0) #13
+  ret ptr %16
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @ExecFetchSlotHeapTupleDatum(ptr noundef %0) local_unnamed_addr #1 {
-ExecFetchSlotHeapTuple.exit:
-  %1 = getelementptr inbounds i8, ptr %0, i64 8
-  %2 = load ptr, ptr %1, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 64
-  %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, null
-  %6 = getelementptr inbounds i8, ptr %2, i64 80
-  %spec.select5 = select i1 %5, ptr %6, ptr %3
-  %.pre14.i = load ptr, ptr %spec.select5, align 8
-  %7 = tail call ptr %.pre14.i(ptr noundef nonnull %0) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds i8, ptr %3, i64 64
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %7, label %ExecFetchSlotHeapTuple.exit
+
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds i8, ptr %3, i64 80
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i64 @heap_copy_tuple_as_datum(ptr noundef %7, ptr noundef %9) #13
-  br i1 %5, label %11, label %12
+  br label %ExecFetchSlotHeapTuple.exit
 
-11:                                               ; preds = %ExecFetchSlotHeapTuple.exit
-  tail call void @pfree(ptr noundef %7) #13
-  br label %12
+ExecFetchSlotHeapTuple.exit:                      ; preds = %1, %7
+  %.sink.i = phi ptr [ %9, %7 ], [ %5, %1 ]
+  %10 = tail call ptr %.sink.i(ptr noundef nonnull %0) #13
+  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = load ptr, ptr %11, align 8
+  %13 = tail call i64 @heap_copy_tuple_as_datum(ptr noundef %10, ptr noundef %12) #13
+  br i1 %6, label %14, label %15
 
-12:                                               ; preds = %11, %ExecFetchSlotHeapTuple.exit
-  ret i64 %10
+14:                                               ; preds = %ExecFetchSlotHeapTuple.exit
+  tail call void @pfree(ptr noundef %10) #13
+  br label %15
+
+15:                                               ; preds = %14, %ExecFetchSlotHeapTuple.exit
+  ret i64 %13
 }
 
 declare i64 @heap_copy_tuple_as_datum(ptr noundef, ptr noundef) local_unnamed_addr #4

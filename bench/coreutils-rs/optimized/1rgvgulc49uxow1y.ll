@@ -921,8 +921,8 @@ default.unreachable57:                            ; preds = %46
   br label %.invoke58
 
 .invoke58:                                        ; preds = %46, %50, %51
-  %.in = phi ptr [ %42, %51 ], [ %43, %50 ], [ %44, %46 ]
-  %52 = load i64, ptr %.in, align 8, !noundef !5
+  %.in60 = phi ptr [ %42, %51 ], [ %43, %50 ], [ %44, %46 ]
+  %52 = load i64, ptr %.in60, align 8, !noundef !5
   invoke fastcc void @_ZN5uu_df5table12RowFormatter12scaled_bytes17h9968265b69d086aaE(ptr noalias nocapture noundef align 8 dereferenceable(24) %13, ptr nonnull %19, i64 noundef %52)
           to label %_ZN5uu_df5table12RowFormatter10percentage17hca67afb9ac9183cfE.exit unwind label %.loopexit.split-lp
 
@@ -990,8 +990,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %53
   br label %.invoke59
 
 .invoke59:                                        ; preds = %46, %64, %65
-  %.sink = phi ptr [ %33, %64 ], [ %32, %65 ], [ %34, %46 ]
-  %66 = load i128, ptr %.sink, align 16, !noundef !5
+  %.in = phi ptr [ %32, %65 ], [ %33, %64 ], [ %34, %46 ]
+  %66 = load i128, ptr %.in, align 16, !noundef !5
   invoke fastcc void @_ZN5uu_df5table12RowFormatter13scaled_inodes17h75f1327dd52570b8E(ptr noalias nocapture noundef align 8 dereferenceable(24) %13, ptr nonnull %19, i128 noundef %66)
           to label %_ZN5uu_df5table12RowFormatter10percentage17hca67afb9ac9183cfE.exit unwind label %.loopexit.split-lp
 

@@ -6611,22 +6611,18 @@ if.then:                                          ; preds = %while.body
 
 if.then15:                                        ; preds = %if.then
   %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
-  br label %if.end22.sink.split
+  store ptr %__p.022, ptr %arrayidx16, align 8
+  br label %if.end22
 
 if.else:                                          ; preds = %while.body
   %6 = load ptr, ptr %3, align 8
   store ptr %6, ptr %__p.022, align 8
   %7 = load ptr, ptr %arrayidx, align 8
-  br label %if.end22.sink.split
-
-if.end22.sink.split:                              ; preds = %if.else, %if.then15
-  %arrayidx16.sink = phi ptr [ %arrayidx16, %if.then15 ], [ %7, %if.else ]
-  %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then15 ], [ %__bbegin_bkt.021, %if.else ]
-  store ptr %__p.022, ptr %arrayidx16.sink, align 8
+  store ptr %__p.022, ptr %7, align 8
   br label %if.end22
 
-if.end22:                                         ; preds = %if.end22.sink.split, %if.then
-  %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then ], [ %__bbegin_bkt.1.ph, %if.end22.sink.split ]
+if.end22:                                         ; preds = %if.then, %if.then15, %if.else
+  %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.021, %if.else ], [ %rem.i.i, %if.then15 ], [ %rem.i.i, %if.then ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !108
 
@@ -8285,59 +8281,94 @@ if.end:                                           ; preds = %while.body.lr.ph, %
 
 if.then.i.i:                                      ; preds = %if.end
   %cmp.i.i3.i.i = icmp ult i64 %call3.val.i.i.i, %call3.val.i2.i.i
-  br i1 %cmp.i.i3.i.i, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4cvc58internal12NodeTemplateILb1EEEmESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZNS4_5proof21eliminateCrowdingLitsEbRKS9_IS6_SaIS6_EESJ_SJ_SJ_PNS4_7CDProofEPNS4_16ProofNodeManagerEE3$_0EEEvT_SQ_SQ_SQ_T0_.exit.i", label %if.else.i.i
+  br i1 %cmp.i.i3.i.i, label %if.then12.i.i, label %if.else.i.i
+
+if.then12.i.i:                                    ; preds = %if.then.i.i
+  tail call void @_ZSt4swapIN4cvc58internal12NodeTemplateILb1EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS7_ESt18is_move_assignableIS7_EEE5valueEvE4typeERS7_SG_(ptr noundef nonnull align 8 dereferenceable(8) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i)
+  %33 = load i64, ptr %second.i.i.i.i.i, align 8
+  %34 = load i64, ptr %31, align 8
+  store i64 %34, ptr %second.i.i.i.i.i, align 8
+  store i64 %33, ptr %31, align 8
+  br label %while.body.i.i5.preheader
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %cmp.i.i6.i.i = icmp ult i64 %call.val.i.i.i, %call3.val.i2.i.i
-  %__c.coerce.__a.coerce.i.i = select i1 %cmp.i.i6.i.i, ptr %add.ptr.i3.i, ptr %add.ptr.i2.i
-  %..i.i = select i1 %cmp.i.i6.i.i, ptr %32, ptr %0
-  br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4cvc58internal12NodeTemplateILb1EEEmESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZNS4_5proof21eliminateCrowdingLitsEbRKS9_IS6_SaIS6_EESJ_SJ_SJ_PNS4_7CDProofEPNS4_16ProofNodeManagerEE3$_0EEEvT_SQ_SQ_SQ_T0_.exit.i"
+  br i1 %cmp.i.i6.i.i, label %if.then22.i.i, label %if.else27.i.i
+
+if.then22.i.i:                                    ; preds = %if.else.i.i
+  tail call void @_ZSt4swapIN4cvc58internal12NodeTemplateILb1EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS7_ESt18is_move_assignableIS7_EEE5valueEvE4typeERS7_SG_(ptr noundef nonnull align 8 dereferenceable(8) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i3.i)
+  %35 = load i64, ptr %second.i.i.i.i.i, align 8
+  %36 = load i64, ptr %32, align 8
+  store i64 %36, ptr %second.i.i.i.i.i, align 8
+  store i64 %35, ptr %32, align 8
+  br label %while.body.i.i5.preheader
+
+if.else27.i.i:                                    ; preds = %if.else.i.i
+  tail call void @_ZSt4swapIN4cvc58internal12NodeTemplateILb1EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS7_ESt18is_move_assignableIS7_EEE5valueEvE4typeERS7_SG_(ptr noundef nonnull align 8 dereferenceable(8) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i2.i)
+  %37 = load i64, ptr %second.i.i.i.i.i, align 8
+  %38 = load i64, ptr %0, align 8
+  store i64 %38, ptr %second.i.i.i.i.i, align 8
+  store i64 %37, ptr %0, align 8
+  br label %while.body.i.i5.preheader
 
 if.else33.i.i:                                    ; preds = %if.end
   %cmp.i.i13.i.i = icmp ult i64 %call.val.i.i.i, %call3.val.i2.i.i
-  br i1 %cmp.i.i13.i.i, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4cvc58internal12NodeTemplateILb1EEEmESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZNS4_5proof21eliminateCrowdingLitsEbRKS9_IS6_SaIS6_EESJ_SJ_SJ_PNS4_7CDProofEPNS4_16ProofNodeManagerEE3$_0EEEvT_SQ_SQ_SQ_T0_.exit.i", label %if.else44.i.i
+  br i1 %cmp.i.i13.i.i, label %if.then39.i.i, label %if.else44.i.i
+
+if.then39.i.i:                                    ; preds = %if.else33.i.i
+  tail call void @_ZSt4swapIN4cvc58internal12NodeTemplateILb1EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS7_ESt18is_move_assignableIS7_EEE5valueEvE4typeERS7_SG_(ptr noundef nonnull align 8 dereferenceable(8) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i2.i)
+  %39 = load i64, ptr %second.i.i.i.i.i, align 8
+  %40 = load i64, ptr %0, align 8
+  store i64 %40, ptr %second.i.i.i.i.i, align 8
+  store i64 %39, ptr %0, align 8
+  br label %while.body.i.i5.preheader
 
 if.else44.i.i:                                    ; preds = %if.else33.i.i
   %cmp.i.i18.i.i = icmp ult i64 %call3.val.i.i.i, %call3.val.i2.i.i
-  %__c.coerce.__b.coerce.i.i = select i1 %cmp.i.i18.i.i, ptr %add.ptr.i3.i, ptr %add.ptr.i.i
-  %.27.i.i = select i1 %cmp.i.i18.i.i, ptr %32, ptr %31
-  br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4cvc58internal12NodeTemplateILb1EEEmESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZNS4_5proof21eliminateCrowdingLitsEbRKS9_IS6_SaIS6_EESJ_SJ_SJ_PNS4_7CDProofEPNS4_16ProofNodeManagerEE3$_0EEEvT_SQ_SQ_SQ_T0_.exit.i"
+  br i1 %cmp.i.i18.i.i, label %if.then50.i.i, label %if.else55.i.i
 
-"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4cvc58internal12NodeTemplateILb1EEEmESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZNS4_5proof21eliminateCrowdingLitsEbRKS9_IS6_SaIS6_EESJ_SJ_SJ_PNS4_7CDProofEPNS4_16ProofNodeManagerEE3$_0EEEvT_SQ_SQ_SQ_T0_.exit.i": ; preds = %if.else44.i.i, %if.else33.i.i, %if.else.i.i, %if.then.i.i
-  %__a.coerce.sink.i.i = phi ptr [ %add.ptr.i.i, %if.then.i.i ], [ %__c.coerce.__a.coerce.i.i, %if.else.i.i ], [ %add.ptr.i2.i, %if.else33.i.i ], [ %__c.coerce.__b.coerce.i.i, %if.else44.i.i ]
-  %.sink25.i.i = phi ptr [ %31, %if.then.i.i ], [ %..i.i, %if.else.i.i ], [ %0, %if.else33.i.i ], [ %.27.i.i, %if.else44.i.i ]
-  tail call void @_ZSt4swapIN4cvc58internal12NodeTemplateILb1EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS7_ESt18is_move_assignableIS7_EEE5valueEvE4typeERS7_SG_(ptr noundef nonnull align 8 dereferenceable(8) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__a.coerce.sink.i.i)
+if.then50.i.i:                                    ; preds = %if.else44.i.i
+  tail call void @_ZSt4swapIN4cvc58internal12NodeTemplateILb1EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS7_ESt18is_move_assignableIS7_EEE5valueEvE4typeERS7_SG_(ptr noundef nonnull align 8 dereferenceable(8) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i3.i)
+  %41 = load i64, ptr %second.i.i.i.i.i, align 8
+  %42 = load i64, ptr %32, align 8
+  store i64 %42, ptr %second.i.i.i.i.i, align 8
+  store i64 %41, ptr %32, align 8
+  br label %while.body.i.i5.preheader
+
+if.else55.i.i:                                    ; preds = %if.else44.i.i
+  tail call void @_ZSt4swapIN4cvc58internal12NodeTemplateILb1EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS7_ESt18is_move_assignableIS7_EEE5valueEvE4typeERS7_SG_(ptr noundef nonnull align 8 dereferenceable(8) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i)
+  %43 = load i64, ptr %second.i.i.i.i.i, align 8
+  %44 = load i64, ptr %31, align 8
+  store i64 %44, ptr %second.i.i.i.i.i, align 8
+  store i64 %43, ptr %31, align 8
+  br label %while.body.i.i5.preheader
+
+while.body.i.i5.preheader:                        ; preds = %if.else55.i.i, %if.then50.i.i, %if.then39.i.i, %if.else27.i.i, %if.then22.i.i, %if.then12.i.i
   br label %while.body.i.i5
 
-while.body.i.i5:                                  ; preds = %if.end.i.i, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4cvc58internal12NodeTemplateILb1EEEmESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZNS4_5proof21eliminateCrowdingLitsEbRKS9_IS6_SaIS6_EESJ_SJ_SJ_PNS4_7CDProofEPNS4_16ProofNodeManagerEE3$_0EEEvT_SQ_SQ_SQ_T0_.exit.i"
-  %.sink21.i = phi ptr [ %36, %if.end.i.i ], [ %second.i.i.i.i.i, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4cvc58internal12NodeTemplateILb1EEEmESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZNS4_5proof21eliminateCrowdingLitsEbRKS9_IS6_SaIS6_EESJ_SJ_SJ_PNS4_7CDProofEPNS4_16ProofNodeManagerEE3$_0EEEvT_SQ_SQ_SQ_T0_.exit.i" ]
-  %.sink20.i = phi ptr [ %38, %if.end.i.i ], [ %.sink25.i.i, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4cvc58internal12NodeTemplateILb1EEEmESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZNS4_5proof21eliminateCrowdingLitsEbRKS9_IS6_SaIS6_EESJ_SJ_SJ_PNS4_7CDProofEPNS4_16ProofNodeManagerEE3$_0EEEvT_SQ_SQ_SQ_T0_.exit.i" ]
-  %__first.sroa.0.0.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.end.i.i ], [ %add.ptr.i2.i, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4cvc58internal12NodeTemplateILb1EEEmESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZNS4_5proof21eliminateCrowdingLitsEbRKS9_IS6_SaIS6_EESJ_SJ_SJ_PNS4_7CDProofEPNS4_16ProofNodeManagerEE3$_0EEEvT_SQ_SQ_SQ_T0_.exit.i" ]
-  %__last.sroa.0.0.i.i = phi ptr [ %__last.sroa.0.1.i.i, %if.end.i.i ], [ %storemerge2546, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4cvc58internal12NodeTemplateILb1EEEmESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZNS4_5proof21eliminateCrowdingLitsEbRKS9_IS6_SaIS6_EESJ_SJ_SJ_PNS4_7CDProofEPNS4_16ProofNodeManagerEE3$_0EEEvT_SQ_SQ_SQ_T0_.exit.i" ]
-  %33 = load i64, ptr %.sink21.i, align 8
-  %34 = load i64, ptr %.sink20.i, align 8
-  store i64 %34, ptr %.sink21.i, align 8
-  store i64 %33, ptr %.sink20.i, align 8
+while.body.i.i5:                                  ; preds = %while.body.i.i5.preheader, %if.end.i.i
+  %__first.sroa.0.0.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.end.i.i ], [ %add.ptr.i2.i, %while.body.i.i5.preheader ]
+  %__last.sroa.0.0.i.i = phi ptr [ %__last.sroa.0.1.i.i, %if.end.i.i ], [ %storemerge2546, %while.body.i.i5.preheader ]
   %call3.val.i.i5.i = load i64, ptr %second.i.i.i.i.i, align 8
   br label %while.cond3.i.i
 
 while.cond3.i.i:                                  ; preds = %while.cond3.i.i, %while.body.i.i5
   %__first.sroa.0.1.i.i = phi ptr [ %__first.sroa.0.0.i.i, %while.body.i.i5 ], [ %incdec.ptr.i.i.i, %while.cond3.i.i ]
-  %35 = getelementptr i8, ptr %__first.sroa.0.1.i.i, i64 8
-  %call.val.i.i6.i = load i64, ptr %35, align 8
+  %45 = getelementptr i8, ptr %__first.sroa.0.1.i.i, i64 8
+  %call.val.i.i6.i = load i64, ptr %45, align 8
   %cmp.i.i.i7.i = icmp ult i64 %call.val.i.i6.i, %call3.val.i.i5.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i, i64 16
   br i1 %cmp.i.i.i7.i, label %while.cond3.i.i, label %while.cond10.i.i.preheader, !llvm.loop !135
 
 while.cond10.i.i.preheader:                       ; preds = %while.cond3.i.i
-  %36 = getelementptr i8, ptr %__first.sroa.0.1.i.i, i64 8
+  %46 = getelementptr i8, ptr %__first.sroa.0.1.i.i, i64 8
   br label %while.cond10.i.i
 
 while.cond10.i.i:                                 ; preds = %while.cond10.i.i.preheader, %while.cond10.i.i
   %__last.sroa.0.0.pn.i.i = phi ptr [ %__last.sroa.0.1.i.i, %while.cond10.i.i ], [ %__last.sroa.0.0.i.i, %while.cond10.i.i.preheader ]
   %__last.sroa.0.1.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn.i.i, i64 -16
-  %37 = getelementptr i8, ptr %__last.sroa.0.0.pn.i.i, i64 -8
-  %call3.val.i3.i.i = load i64, ptr %37, align 8
+  %47 = getelementptr i8, ptr %__last.sroa.0.0.pn.i.i, i64 -8
+  %call3.val.i3.i.i = load i64, ptr %47, align 8
   %cmp.i.i4.i.i = icmp ult i64 %call3.val.i.i5.i, %call3.val.i3.i.i
   br i1 %cmp.i.i4.i.i, label %while.cond10.i.i, label %while.end18.i.i, !llvm.loop !136
 
@@ -8346,8 +8377,12 @@ while.end18.i.i:                                  ; preds = %while.cond10.i.i
   br i1 %cmp.i.i.i6, label %if.end.i.i, label %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4cvc58internal12NodeTemplateILb1EEEmESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZNS4_5proof21eliminateCrowdingLitsEbRKS9_IS6_SaIS6_EESJ_SJ_SJ_PNS4_7CDProofEPNS4_16ProofNodeManagerEE3$_0EEET_SQ_SQ_T0_.exit"
 
 if.end.i.i:                                       ; preds = %while.end18.i.i
-  %38 = getelementptr i8, ptr %__last.sroa.0.0.pn.i.i, i64 -8
+  %48 = getelementptr i8, ptr %__last.sroa.0.0.pn.i.i, i64 -8
   tail call void @_ZSt4swapIN4cvc58internal12NodeTemplateILb1EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS7_ESt18is_move_assignableIS7_EEE5valueEvE4typeERS7_SG_(ptr noundef nonnull align 8 dereferenceable(8) %__first.sroa.0.1.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__last.sroa.0.1.i.i)
+  %49 = load i64, ptr %46, align 8
+  %50 = load i64, ptr %48, align 8
+  store i64 %50, ptr %46, align 8
+  store i64 %49, ptr %48, align 8
   br label %while.body.i.i5, !llvm.loop !137
 
 "_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4cvc58internal12NodeTemplateILb1EEEmESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZNS4_5proof21eliminateCrowdingLitsEbRKS9_IS6_SaIS6_EESJ_SJ_SJ_PNS4_7CDProofEPNS4_16ProofNodeManagerEE3$_0EEET_SQ_SQ_T0_.exit": ; preds = %while.end18.i.i

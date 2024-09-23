@@ -550,7 +550,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
 
 28:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i.i
   %.not16.i.i.i = icmp eq i64 %15, 0
-  br i1 %.not16.i.i.i, label %.sink.split.i.i.i, label %.split12.i.i.i
+  br i1 %.not16.i.i.i, label %.split.i.i.i, label %.split12.i.i.i
+
+.split.i.i.i:                                     ; preds = %28
+  store i8 0, ptr %8, align 8
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEaSERKS6_.exit
 
 .split12.i.i.i:                                   ; preds = %28
   %29 = getelementptr inbounds i8, ptr %2, i64 8
@@ -574,14 +578,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7_S
   %36 = phi ptr [ %.pre, %33 ], [ %8, %31 ]
   store i64 %15, ptr %11, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 %15
-  br label %.sink.split.i.i.i
-
-.sink.split.i.i.i:                                ; preds = %28, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7_S_copyEPcPKcm.exit.i.i.i
-  %.sink.i.i.i = phi ptr [ %37, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7_S_copyEPcPKcm.exit.i.i.i ], [ %8, %28 ]
-  store i8 0, ptr %.sink.i.i.i, align 1
+  store i8 0, ptr %37, align 1
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEaSERKS6_.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEaSERKS6_.exit: ; preds = %4, %.sink.split.i.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEaSERKS6_.exit: ; preds = %4, %.split.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7_S_copyEPcPKcm.exit.i.i.i
   ret void
 }
 
@@ -4751,9 +4751,9 @@ switch.lookup229:                                 ; preds = %switch.hole_check22
   br label %.sink.split
 
 .sink.split:                                      ; preds = %switch.lookup229, %switch.lookup220, %switch.lookup211, %switch.lookup202, %switch.lookup193, %switch.lookup184, %switch.lookup175, %switch.lookup166, %switch.lookup159, %switch.lookup153, %switch.lookup146, %switch.lookup
-  %switch.gep233.sink = phi ptr [ %switch.gep233, %switch.lookup229 ], [ %switch.gep224, %switch.lookup220 ], [ %switch.gep215, %switch.lookup211 ], [ %switch.gep206, %switch.lookup202 ], [ %switch.gep197, %switch.lookup193 ], [ %switch.gep188, %switch.lookup184 ], [ %switch.gep179, %switch.lookup175 ], [ %switch.gep170, %switch.lookup166 ], [ %switch.gep161, %switch.lookup159 ], [ %switch.gep157, %switch.lookup153 ], [ %switch.gep148, %switch.lookup146 ], [ %switch.gep, %switch.lookup ]
-  %switch.load234 = load i32, ptr %switch.gep233.sink, align 4
-  store i32 %switch.load234, ptr %3, align 4
+  %.sink.in = phi ptr [ %switch.gep, %switch.lookup ], [ %switch.gep148, %switch.lookup146 ], [ %switch.gep157, %switch.lookup153 ], [ %switch.gep161, %switch.lookup159 ], [ %switch.gep170, %switch.lookup166 ], [ %switch.gep179, %switch.lookup175 ], [ %switch.gep188, %switch.lookup184 ], [ %switch.gep197, %switch.lookup193 ], [ %switch.gep206, %switch.lookup202 ], [ %switch.gep215, %switch.lookup211 ], [ %switch.gep224, %switch.lookup220 ], [ %switch.gep233, %switch.lookup229 ]
+  %.sink = load i32, ptr %.sink.in, align 4
+  store i32 %.sink, ptr %3, align 4
   br label %41
 
 41:                                               ; preds = %switch.hole_check228, %27, %switch.hole_check219, %25, %switch.hole_check210, %23, %switch.hole_check201, %21, %switch.hole_check192, %19, %switch.hole_check183, %17, %switch.hole_check174, %15, %switch.hole_check165, %13, %11, %switch.hole_check152, %9, %7, %switch.hole_check, %5, %.sink.split, %4
@@ -17141,7 +17141,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
 .split.i.i.i:                                     ; preds = %31
   %32 = getelementptr inbounds i8, ptr %0, i64 272
   store i64 0, ptr %32, align 8
-  br label %.sink.split.i.i.i
+  store i8 0, ptr %8, align 1
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEaSERKS6_.exit
 
 .split12.i.i.i:                                   ; preds = %31, %.thread.i.i.i
   %33 = phi ptr [ %25, %.thread.i.i.i ], [ %8, %31 ]
@@ -17164,14 +17165,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7_S
   store i64 %6, ptr %39, align 8
   %40 = load ptr, ptr %7, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 %6
-  br label %.sink.split.i.i.i
-
-.sink.split.i.i.i:                                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7_S_copyEPcPKcm.exit.i.i.i, %.split.i.i.i
-  %.sink.i.i.i = phi ptr [ %41, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7_S_copyEPcPKcm.exit.i.i.i ], [ %8, %.split.i.i.i ]
-  store i8 0, ptr %.sink.i.i.i, align 1
+  store i8 0, ptr %41, align 1
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEaSERKS6_.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEaSERKS6_.exit: ; preds = %2, %.sink.split.i.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEaSERKS6_.exit: ; preds = %2, %.split.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7_S_copyEPcPKcm.exit.i.i.i
   ret void
 }
 

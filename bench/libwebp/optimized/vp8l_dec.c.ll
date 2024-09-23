@@ -983,14 +983,14 @@ define internal fastcc range(i32 0, 2) i32 @DecodeImageStream(i32 noundef %0, i3
   %11 = getelementptr inbounds i8, ptr %3, i64 272
   %12 = getelementptr inbounds i8, ptr %3, i64 376
   %13 = tail call i32 @VP8LReadBits(ptr noundef nonnull %8, i32 noundef 1) #7
-  %.not57153156 = icmp eq i32 %13, 0
-  br i1 %.not57153156, label %.critedge, label %.lr.ph154
+  %.not57152155 = icmp eq i32 %13, 0
+  br i1 %.not57152155, label %.critedge, label %.lr.ph153
 
-.lr.ph154:                                        ; preds = %.preheader, %ExpandColorMap.exit
-  %.0.ph157 = phi i32 [ %56, %ExpandColorMap.exit ], [ %0, %.preheader ]
+.lr.ph153:                                        ; preds = %.preheader, %ExpandColorMap.exit
+  %.0.ph156 = phi i32 [ %56, %ExpandColorMap.exit ], [ %0, %.preheader ]
   br label %14
 
-14:                                               ; preds = %.lr.ph154, %.backedge
+14:                                               ; preds = %.lr.ph153, %.backedge
   %15 = load i32, ptr %11, align 8
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds [4 x %struct.VP8LTransform], ptr %10, i64 0, i64 %16
@@ -1006,7 +1006,7 @@ define internal fastcc range(i32 0, 2) i32 @DecodeImageStream(i32 noundef %0, i3
   store i32 %23, ptr %12, align 8
   store i32 %18, ptr %17, align 8
   %24 = getelementptr inbounds i8, ptr %17, i64 8
-  store i32 %.0.ph157, ptr %24, align 8
+  store i32 %.0.ph156, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %17, i64 12
   store i32 %1, ptr %25, align 4
   %26 = getelementptr inbounds i8, ptr %17, i64 16
@@ -1118,8 +1118,8 @@ ExpandColorMap.exit:                              ; preds = %.preheader.i, %.lr.
   tail call void @WebPSafeFree(ptr noundef %83) #7
   store ptr %64, ptr %26, align 8
   %84 = tail call i32 @VP8LReadBits(ptr noundef nonnull %8, i32 noundef 1) #7
-  %.not57153 = icmp eq i32 %84, 0
-  br i1 %.not57153, label %.critedge, label %.lr.ph154
+  %.not57152 = icmp eq i32 %84, 0
+  br i1 %.not57152, label %.critedge, label %.lr.ph153
 
 85:                                               ; preds = %59
   %86 = load i32, ptr %3, align 8
@@ -1129,7 +1129,7 @@ ExpandColorMap.exit:                              ; preds = %.preheader.i, %.lr.
   ]
 
 .critedge:                                        ; preds = %ExpandColorMap.exit, %.backedge, %.preheader, %5
-  %.1 = phi i32 [ %0, %5 ], [ %0, %.preheader ], [ %.0.ph157, %.backedge ], [ %56, %ExpandColorMap.exit ]
+  %.1 = phi i32 [ %0, %5 ], [ %0, %.preheader ], [ %.0.ph156, %.backedge ], [ %56, %ExpandColorMap.exit ]
   %87 = tail call i32 @VP8LReadBits(ptr noundef nonnull %8, i32 noundef 1) #7
   %.not59 = icmp eq i32 %87, 0
   br i1 %.not59, label %.critedge66, label %88
@@ -1414,7 +1414,7 @@ VP8LSetError.exit.thread:                         ; preds = %VP8LSetError.exit.t
 197:                                              ; preds = %195, %196
   %198 = getelementptr inbounds i8, ptr %3, i64 144
   store i32 0, ptr %198, align 8
-  br i1 %.not, label %199, label %204
+  br i1 %.not, label %199, label %203
 
 199:                                              ; preds = %197
   %200 = load ptr, ptr %153, align 8
@@ -1423,18 +1423,18 @@ VP8LSetError.exit.thread:                         ; preds = %VP8LSetError.exit.t
   br label %.sink.split
 
 .sink.split:                                      ; preds = %VP8LSetError.exit.thread, %199
-  %.sink145 = phi ptr [ %156, %199 ], [ %194, %VP8LSetError.exit.thread ]
+  %.sink144.in = phi ptr [ %156, %199 ], [ %194, %VP8LSetError.exit.thread ]
   %.3110.ph = phi i32 [ 1, %199 ], [ 0, %VP8LSetError.exit.thread ]
-  %201 = load ptr, ptr %.sink145, align 8
-  call void @VP8LHtreeGroupsFree(ptr noundef %201) #7
-  %202 = getelementptr inbounds i8, ptr %3, i64 160
+  %.sink144 = load ptr, ptr %.sink144.in, align 8
+  call void @VP8LHtreeGroupsFree(ptr noundef %.sink144) #7
+  %201 = getelementptr inbounds i8, ptr %3, i64 160
+  call void @VP8LColorCacheClear(ptr noundef nonnull %201) #7
+  %202 = getelementptr inbounds i8, ptr %3, i64 176
   call void @VP8LColorCacheClear(ptr noundef nonnull %202) #7
-  %203 = getelementptr inbounds i8, ptr %3, i64 176
-  call void @VP8LColorCacheClear(ptr noundef nonnull %203) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %9, i8 0, i64 120, i1 false)
-  br label %204
+  br label %203
 
-204:                                              ; preds = %.sink.split, %197
+203:                                              ; preds = %.sink.split, %197
   %.3110 = phi i32 [ 1, %197 ], [ %.3110.ph, %.sink.split ]
   ret i32 %.3110
 }

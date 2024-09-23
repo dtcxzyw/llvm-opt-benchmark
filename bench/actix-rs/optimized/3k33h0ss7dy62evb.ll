@@ -3405,6 +3405,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.906605461179275197.exi
   store ptr %12, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr @anon.cc2783a4db5db7f54861db7cc543ce37.35, ptr %17, align 8
+  store ptr null, ptr %0, align 8
   br label %20
 
 18:                                               ; preds = %4
@@ -3415,8 +3416,6 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.906605461179275197.exi
   br i1 %19, label %21, label %22
 
 20:                                               ; preds = %"_ZN4core3ptr53drop_in_place$LT$actix_http..body..boxed..BoxBody$GT$17hc5db8344ab74b0c2E.exit", %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.906605461179275197.exit
-  %.sroa.47.0..sroa_idx.sink = phi ptr [ %.sroa.47.0..sroa_idx, %"_ZN4core3ptr53drop_in_place$LT$actix_http..body..boxed..BoxBody$GT$17hc5db8344ab74b0c2E.exit" ], [ %0, %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.906605461179275197.exit ]
-  store ptr null, ptr %.sroa.47.0..sroa_idx.sink, align 8
   ret void
 
 21:                                               ; preds = %18
@@ -3491,6 +3490,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.906605461179275197.exi
   %.sroa.06.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.06.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %25, i64 40, i1 false)
   %.sroa.47.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
+  store ptr null, ptr %.sroa.47.0..sroa_idx, align 8
   br label %20
 }
 

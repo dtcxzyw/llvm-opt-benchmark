@@ -9935,7 +9935,8 @@ define linkonce_odr hidden void @_ZN8Settings8validateEv(ptr noundef nonnull ali
 
 40:                                               ; preds = %37
   %41 = getelementptr inbounds i8, ptr %0, i64 280
-  br label %.thread17.sink.split
+  store i32 0, ptr %41, align 8
+  br label %.thread17
 
 42:                                               ; preds = %37
   %43 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %38, i64 noundef 0)
@@ -10053,189 +10054,188 @@ _ZN8Settings14isListOfImagesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 99:                                               ; preds = %97
   %100 = getelementptr inbounds i8, ptr %0, i64 232
   %101 = call noundef zeroext i1 @_ZNK2cv12VideoCapture8isOpenedEv(ptr noundef nonnull align 8 dereferenceable(41) %100)
-  br i1 %101, label %102, label %.thread17.sink.split
+  br i1 %101, label %103, label %102
 
 102:                                              ; preds = %99
-  %.pre13 = load i32, ptr %91, align 8
-  %103 = icmp eq i32 %.pre13, 0
-  br i1 %103, label %.thread17, label %.thread18
-
-.thread17.sink.split:                             ; preds = %99, %40
-  %.sink = phi ptr [ %41, %40 ], [ %91, %99 ]
-  store i32 0, ptr %.sink, align 8
+  store i32 0, ptr %91, align 8
   br label %.thread17
 
-.thread17:                                        ; preds = %.thread17.sink.split, %102
-  %104 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.118)
-  %105 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull align 8 dereferenceable(32) %38)
+103:                                              ; preds = %99
+  %.pre13 = load i32, ptr %91, align 8
+  %104 = icmp eq i32 %.pre13, 0
+  br i1 %104, label %.thread17, label %.thread18
+
+.thread17:                                        ; preds = %40, %102, %103
+  %105 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.118)
+  %106 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %105, ptr noundef nonnull align 8 dereferenceable(32) %38)
   store i8 0, ptr %4, align 4
   br label %.thread18
 
-.thread18:                                        ; preds = %97, %.thread17, %102
-  %106 = getelementptr inbounds i8, ptr %0, i64 288
-  %107 = getelementptr inbounds i8, ptr %0, i64 104
-  %108 = load i8, ptr %107, align 8
-  %109 = trunc i8 %108 to i1
-  %spec.store.select = select i1 %109, i32 4, i32 0
-  store i32 %spec.store.select, ptr %106, align 8
-  %110 = getelementptr inbounds i8, ptr %0, i64 103
-  %111 = load i8, ptr %110, align 1
-  %112 = trunc i8 %111 to i1
-  br i1 %112, label %113, label %115
+.thread18:                                        ; preds = %97, %.thread17, %103
+  %107 = getelementptr inbounds i8, ptr %0, i64 288
+  %108 = getelementptr inbounds i8, ptr %0, i64 104
+  %109 = load i8, ptr %108, align 8
+  %110 = trunc i8 %109 to i1
+  %spec.store.select = select i1 %110, i32 4, i32 0
+  store i32 %spec.store.select, ptr %107, align 8
+  %111 = getelementptr inbounds i8, ptr %0, i64 103
+  %112 = load i8, ptr %111, align 1
+  %113 = trunc i8 %112 to i1
+  br i1 %113, label %114, label %116
 
-113:                                              ; preds = %.thread18
-  %114 = or disjoint i32 %spec.store.select, 8
-  store i32 %114, ptr %106, align 8
-  br label %115
+114:                                              ; preds = %.thread18
+  %115 = or disjoint i32 %spec.store.select, 8
+  store i32 %115, ptr %107, align 8
+  br label %116
 
-115:                                              ; preds = %113, %.thread18
-  %116 = phi i32 [ %114, %113 ], [ %spec.store.select, %.thread18 ]
-  %117 = getelementptr inbounds i8, ptr %0, i64 92
-  %118 = load float, ptr %117, align 4
-  %119 = fcmp une float %118, 0.000000e+00
-  br i1 %119, label %120, label %122
+116:                                              ; preds = %114, %.thread18
+  %117 = phi i32 [ %115, %114 ], [ %spec.store.select, %.thread18 ]
+  %118 = getelementptr inbounds i8, ptr %0, i64 92
+  %119 = load float, ptr %118, align 4
+  %120 = fcmp une float %119, 0.000000e+00
+  br i1 %120, label %121, label %123
 
-120:                                              ; preds = %115
-  %121 = or i32 %116, 2
-  store i32 %121, ptr %106, align 8
-  br label %122
+121:                                              ; preds = %116
+  %122 = or i32 %117, 2
+  store i32 %122, ptr %107, align 8
+  br label %123
 
-122:                                              ; preds = %120, %115
-  %123 = phi i32 [ %121, %120 ], [ %116, %115 ]
-  %124 = getelementptr inbounds i8, ptr %0, i64 185
-  %125 = load i8, ptr %124, align 1
-  %126 = trunc i8 %125 to i1
-  br i1 %126, label %127, label %129
+123:                                              ; preds = %121, %116
+  %124 = phi i32 [ %122, %121 ], [ %117, %116 ]
+  %125 = getelementptr inbounds i8, ptr %0, i64 185
+  %126 = load i8, ptr %125, align 1
+  %127 = trunc i8 %126 to i1
+  br i1 %127, label %128, label %130
 
-127:                                              ; preds = %122
-  %128 = or i32 %123, 32
-  store i32 %128, ptr %106, align 8
-  br label %129
+128:                                              ; preds = %123
+  %129 = or i32 %124, 32
+  store i32 %129, ptr %107, align 8
+  br label %130
 
-129:                                              ; preds = %127, %122
-  %130 = phi i32 [ %128, %127 ], [ %123, %122 ]
-  %131 = getelementptr inbounds i8, ptr %0, i64 186
-  %132 = load i8, ptr %131, align 2
-  %133 = trunc i8 %132 to i1
-  br i1 %133, label %134, label %136
+130:                                              ; preds = %128, %123
+  %131 = phi i32 [ %129, %128 ], [ %124, %123 ]
+  %132 = getelementptr inbounds i8, ptr %0, i64 186
+  %133 = load i8, ptr %132, align 2
+  %134 = trunc i8 %133 to i1
+  br i1 %134, label %135, label %137
 
-134:                                              ; preds = %129
-  %135 = or i32 %130, 64
-  store i32 %135, ptr %106, align 8
-  br label %136
+135:                                              ; preds = %130
+  %136 = or i32 %131, 64
+  store i32 %136, ptr %107, align 8
+  br label %137
 
-136:                                              ; preds = %134, %129
-  %137 = phi i32 [ %135, %134 ], [ %130, %129 ]
-  %138 = getelementptr inbounds i8, ptr %0, i64 187
-  %139 = load i8, ptr %138, align 1
-  %140 = trunc i8 %139 to i1
-  br i1 %140, label %141, label %143
+137:                                              ; preds = %135, %130
+  %138 = phi i32 [ %136, %135 ], [ %131, %130 ]
+  %139 = getelementptr inbounds i8, ptr %0, i64 187
+  %140 = load i8, ptr %139, align 1
+  %141 = trunc i8 %140 to i1
+  br i1 %141, label %142, label %144
 
-141:                                              ; preds = %136
-  %142 = or i32 %137, 128
-  store i32 %142, ptr %106, align 8
-  br label %143
+142:                                              ; preds = %137
+  %143 = or i32 %138, 128
+  store i32 %143, ptr %107, align 8
+  br label %144
 
-143:                                              ; preds = %141, %136
-  %144 = phi i32 [ %142, %141 ], [ %137, %136 ]
-  %145 = getelementptr inbounds i8, ptr %0, i64 188
-  %146 = load i8, ptr %145, align 4
-  %147 = trunc i8 %146 to i1
-  br i1 %147, label %148, label %150
+144:                                              ; preds = %142, %137
+  %145 = phi i32 [ %143, %142 ], [ %138, %137 ]
+  %146 = getelementptr inbounds i8, ptr %0, i64 188
+  %147 = load i8, ptr %146, align 4
+  %148 = trunc i8 %147 to i1
+  br i1 %148, label %149, label %151
 
-148:                                              ; preds = %143
-  %149 = or i32 %144, 2048
-  store i32 %149, ptr %106, align 8
-  br label %150
+149:                                              ; preds = %144
+  %150 = or i32 %145, 2048
+  store i32 %150, ptr %107, align 8
+  br label %151
 
-150:                                              ; preds = %148, %143
-  %151 = phi i32 [ %149, %148 ], [ %144, %143 ]
-  %152 = getelementptr inbounds i8, ptr %0, i64 189
-  %153 = load i8, ptr %152, align 1
-  %154 = trunc i8 %153 to i1
-  br i1 %154, label %155, label %157
+151:                                              ; preds = %149, %144
+  %152 = phi i32 [ %150, %149 ], [ %145, %144 ]
+  %153 = getelementptr inbounds i8, ptr %0, i64 189
+  %154 = load i8, ptr %153, align 1
+  %155 = trunc i8 %154 to i1
+  br i1 %155, label %156, label %158
 
-155:                                              ; preds = %150
-  %156 = or i32 %151, 4096
-  store i32 %156, ptr %106, align 8
-  br label %157
+156:                                              ; preds = %151
+  %157 = or i32 %152, 4096
+  store i32 %157, ptr %107, align 8
+  br label %158
 
-157:                                              ; preds = %155, %150
-  %158 = getelementptr inbounds i8, ptr %0, i64 184
-  %159 = load i8, ptr %158, align 8
-  %160 = trunc i8 %159 to i1
-  br i1 %160, label %161, label %168
+158:                                              ; preds = %156, %151
+  %159 = getelementptr inbounds i8, ptr %0, i64 184
+  %160 = load i8, ptr %159, align 8
+  %161 = trunc i8 %160 to i1
+  br i1 %161, label %162, label %169
 
-161:                                              ; preds = %157
-  %spec.store.select8 = select i1 %126, i32 26, i32 10
-  %162 = or disjoint i32 %spec.store.select8, 32
-  %spec.select11 = select i1 %133, i32 %162, i32 %spec.store.select8
-  %163 = or disjoint i32 %spec.select11, 64
-  %spec.select19 = select i1 %140, i32 %163, i32 %spec.select11
-  %164 = or disjoint i32 %spec.select19, 128
-  %165 = select i1 %147, i32 %164, i32 %spec.select19
-  store i32 %165, ptr %106, align 8
-  br i1 %109, label %166, label %168
+162:                                              ; preds = %158
+  %spec.store.select8 = select i1 %127, i32 26, i32 10
+  %163 = or disjoint i32 %spec.store.select8, 32
+  %spec.select11 = select i1 %134, i32 %163, i32 %spec.store.select8
+  %164 = or disjoint i32 %spec.select11, 64
+  %spec.select19 = select i1 %141, i32 %164, i32 %spec.select11
+  %165 = or disjoint i32 %spec.select19, 128
+  %166 = select i1 %148, i32 %165, i32 %spec.select19
+  store i32 %166, ptr %107, align 8
+  br i1 %110, label %167, label %169
 
-166:                                              ; preds = %161
-  %167 = or i32 %165, 512
-  store i32 %167, ptr %106, align 8
-  br label %168
+167:                                              ; preds = %162
+  %168 = or i32 %166, 512
+  store i32 %168, ptr %107, align 8
+  br label %169
 
-168:                                              ; preds = %161, %166, %157
-  %169 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 0, ptr %169, align 8
-  %170 = getelementptr inbounds i8, ptr %0, i64 296
-  %171 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %170, ptr noundef nonnull @.str.119) #19
-  %.not2 = icmp eq i32 %171, 0
-  br i1 %.not2, label %172, label %173
+169:                                              ; preds = %162, %167, %158
+  %170 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 0, ptr %170, align 8
+  %171 = getelementptr inbounds i8, ptr %0, i64 296
+  %172 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %171, ptr noundef nonnull @.str.119) #19
+  %.not2 = icmp eq i32 %172, 0
+  br i1 %.not2, label %173, label %174
 
-172:                                              ; preds = %168
-  store i32 1, ptr %169, align 8
-  br label %173
+173:                                              ; preds = %169
+  store i32 1, ptr %170, align 8
+  br label %174
 
-173:                                              ; preds = %172, %168
-  %174 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %170, ptr noundef nonnull @.str.120) #19
-  %.not3 = icmp eq i32 %174, 0
-  br i1 %.not3, label %175, label %176
+174:                                              ; preds = %173, %169
+  %175 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %171, ptr noundef nonnull @.str.120) #19
+  %.not3 = icmp eq i32 %175, 0
+  br i1 %.not3, label %176, label %177
 
-175:                                              ; preds = %173
-  store i32 2, ptr %169, align 8
-  br label %176
+176:                                              ; preds = %174
+  store i32 2, ptr %170, align 8
+  br label %177
 
-176:                                              ; preds = %175, %173
-  %177 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %170, ptr noundef nonnull @.str.121) #19
-  %.not4 = icmp eq i32 %177, 0
-  br i1 %.not4, label %178, label %179
+177:                                              ; preds = %176, %174
+  %178 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %171, ptr noundef nonnull @.str.121) #19
+  %.not4 = icmp eq i32 %178, 0
+  br i1 %.not4, label %179, label %180
 
-178:                                              ; preds = %176
-  store i32 3, ptr %169, align 8
-  br label %179
+179:                                              ; preds = %177
+  store i32 3, ptr %170, align 8
+  br label %180
 
-179:                                              ; preds = %178, %176
-  %180 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %170, ptr noundef nonnull @.str.122) #19
-  %.not5 = icmp eq i32 %180, 0
-  br i1 %.not5, label %.thread, label %181
+180:                                              ; preds = %179, %177
+  %181 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %171, ptr noundef nonnull @.str.122) #19
+  %.not5 = icmp eq i32 %181, 0
+  br i1 %.not5, label %.thread, label %182
 
-.thread:                                          ; preds = %179
-  store i32 4, ptr %169, align 8
-  br label %187
+.thread:                                          ; preds = %180
+  store i32 4, ptr %170, align 8
+  br label %188
 
-181:                                              ; preds = %179
-  %.pr10 = load i32, ptr %169, align 8
-  %182 = icmp eq i32 %.pr10, 0
-  br i1 %182, label %183, label %187
+182:                                              ; preds = %180
+  %.pr10 = load i32, ptr %170, align 8
+  %183 = icmp eq i32 %.pr10, 0
+  br i1 %183, label %184, label %188
 
-183:                                              ; preds = %181
-  %184 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.123)
-  %185 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %184, ptr noundef nonnull align 8 dereferenceable(32) %170)
-  %186 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %185, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+184:                                              ; preds = %182
+  %185 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.123)
+  %186 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %185, ptr noundef nonnull align 8 dereferenceable(32) %171)
+  %187 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %186, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   store i8 0, ptr %4, align 4
-  br label %187
+  br label %188
 
-187:                                              ; preds = %.thread, %183, %181
-  %188 = getelementptr inbounds i8, ptr %0, i64 224
-  store i64 0, ptr %188, align 8
+188:                                              ; preds = %.thread, %184, %182
+  %189 = getelementptr inbounds i8, ptr %0, i64 224
+  store i64 0, ptr %189, align 8
   ret void
 }
 

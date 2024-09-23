@@ -2472,235 +2472,235 @@ _ZN7oopDesc4sizeEv.exit13:                        ; preds = %82, %85, %92, %112
 120:                                              ; preds = %_ZN7oopDesc4sizeEv.exit13
   store i64 %.0.i1.i11, ptr %117, align 8
   %121 = getelementptr inbounds i8, ptr %0, i64 496
-  br label %.sink.split.i.i
+  store i64 %.0.i1.i11, ptr %121, align 8
+  br label %_ZN19PromotionFailedInfo21register_copy_failureEm.exit
 
 122:                                              ; preds = %_ZN7oopDesc4sizeEv.exit13
   %123 = getelementptr inbounds i8, ptr %0, i64 496
   %124 = load i64, ptr %123, align 8
   %125 = icmp ult i64 %.0.i1.i11, %124
-  br i1 %125, label %.sink.split.i.i, label %_ZN19PromotionFailedInfo21register_copy_failureEm.exit
+  br i1 %125, label %126, label %_ZN19PromotionFailedInfo21register_copy_failureEm.exit
 
-.sink.split.i.i:                                  ; preds = %122, %120
-  %.sink.i.i = phi ptr [ %121, %120 ], [ %123, %122 ]
-  store i64 %.0.i1.i11, ptr %.sink.i.i, align 8
+126:                                              ; preds = %122
+  store i64 %.0.i1.i11, ptr %123, align 8
   br label %_ZN19PromotionFailedInfo21register_copy_failureEm.exit
 
-_ZN19PromotionFailedInfo21register_copy_failureEm.exit: ; preds = %122, %.sink.split.i.i
-  %126 = getelementptr inbounds i8, ptr %0, i64 504
-  %127 = load i64, ptr %126, align 8
-  %128 = add i64 %127, %.0.i1.i11
-  store i64 %128, ptr %126, align 8
-  %129 = getelementptr inbounds i8, ptr %0, i64 512
-  %130 = load i32, ptr %129, align 8
-  %131 = add i32 %130, 1
-  store i32 %131, ptr %129, align 8
-  %132 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %133 = load ptr, ptr %132, align 8
-  %134 = tail call noundef i64 @_ZN14JfrThreadLocal13jvm_thread_idEPK6Thread(ptr noundef %133) #19
-  %135 = getelementptr inbounds i8, ptr %0, i64 520
-  store i64 %134, ptr %135, align 8
-  %136 = getelementptr inbounds i8, ptr %0, i64 536
-  %137 = load ptr, ptr %136, align 8
-  %138 = load volatile i64, ptr %1, align 8
-  %139 = and i64 %138, 549755813635
-  %.not.i = icmp eq i64 %139, 1
-  br i1 %.not.i, label %_ZN14PreservedMarks17push_if_necessaryEP7oopDesc8markWord.exit, label %140
+_ZN19PromotionFailedInfo21register_copy_failureEm.exit: ; preds = %120, %122, %126
+  %127 = getelementptr inbounds i8, ptr %0, i64 504
+  %128 = load i64, ptr %127, align 8
+  %129 = add i64 %128, %.0.i1.i11
+  store i64 %129, ptr %127, align 8
+  %130 = getelementptr inbounds i8, ptr %0, i64 512
+  %131 = load i32, ptr %130, align 8
+  %132 = add i32 %131, 1
+  store i32 %132, ptr %130, align 8
+  %133 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %134 = load ptr, ptr %133, align 8
+  %135 = tail call noundef i64 @_ZN14JfrThreadLocal13jvm_thread_idEPK6Thread(ptr noundef %134) #19
+  %136 = getelementptr inbounds i8, ptr %0, i64 520
+  store i64 %135, ptr %136, align 8
+  %137 = getelementptr inbounds i8, ptr %0, i64 536
+  %138 = load ptr, ptr %137, align 8
+  %139 = load volatile i64, ptr %1, align 8
+  %140 = and i64 %139, 549755813635
+  %.not.i = icmp eq i64 %140, 1
+  br i1 %.not.i, label %_ZN14PreservedMarks17push_if_necessaryEP7oopDesc8markWord.exit, label %141
 
-140:                                              ; preds = %_ZN19PromotionFailedInfo21register_copy_failureEm.exit
-  %141 = getelementptr inbounds i8, ptr %137, i64 8
-  %142 = getelementptr inbounds i8, ptr %137, i64 32
-  %143 = load i64, ptr %142, align 8
-  %144 = load i64, ptr %141, align 8
-  %145 = icmp eq i64 %143, %144
-  br i1 %145, label %146, label %._crit_edge.i.i
+141:                                              ; preds = %_ZN19PromotionFailedInfo21register_copy_failureEm.exit
+  %142 = getelementptr inbounds i8, ptr %138, i64 8
+  %143 = getelementptr inbounds i8, ptr %138, i64 32
+  %144 = load i64, ptr %143, align 8
+  %145 = load i64, ptr %142, align 8
+  %146 = icmp eq i64 %144, %145
+  br i1 %146, label %147, label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %140
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %137, i64 56
+._crit_edge.i.i:                                  ; preds = %141
+  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %138, i64 56
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   br label %_ZN5StackI13PreservedMarkL8MEMFLAGS5EE4pushES0_.exit.i
 
-146:                                              ; preds = %140
-  %147 = getelementptr inbounds i8, ptr %137, i64 48
-  %148 = load i64, ptr %147, align 8
-  %.not.i.i.i = icmp eq i64 %148, 0
-  br i1 %.not.i.i.i, label %156, label %149
+147:                                              ; preds = %141
+  %148 = getelementptr inbounds i8, ptr %138, i64 48
+  %149 = load i64, ptr %148, align 8
+  %.not.i.i.i = icmp eq i64 %149, 0
+  br i1 %.not.i.i.i, label %157, label %150
 
-149:                                              ; preds = %146
-  %150 = getelementptr inbounds i8, ptr %137, i64 64
-  %151 = load ptr, ptr %150, align 8
-  %152 = shl i64 %143, 4
-  %153 = getelementptr inbounds i8, ptr %151, i64 %152
-  %154 = load ptr, ptr %153, align 8
-  store ptr %154, ptr %150, align 8
-  %155 = add i64 %148, -1
-  store i64 %155, ptr %147, align 8
+150:                                              ; preds = %147
+  %151 = getelementptr inbounds i8, ptr %138, i64 64
+  %152 = load ptr, ptr %151, align 8
+  %153 = shl i64 %144, 4
+  %154 = getelementptr inbounds i8, ptr %152, i64 %153
+  %155 = load ptr, ptr %154, align 8
+  store ptr %155, ptr %151, align 8
+  %156 = add i64 %149, -1
+  store i64 %156, ptr %148, align 8
   br label %_ZN5StackI13PreservedMarkL8MEMFLAGS5EE12push_segmentEv.exit.i.i
 
-156:                                              ; preds = %146
-  %157 = shl i64 %143, 4
-  %158 = or disjoint i64 %157, 8
-  %159 = load ptr, ptr %137, align 8
-  %160 = load ptr, ptr %159, align 8
-  %161 = tail call noundef ptr %160(ptr noundef nonnull align 8 dereferenceable(72) %137, i64 noundef %158) #19
-  %.pre.i.i.i = load i64, ptr %141, align 8
+157:                                              ; preds = %147
+  %158 = shl i64 %144, 4
+  %159 = or disjoint i64 %158, 8
+  %160 = load ptr, ptr %138, align 8
+  %161 = load ptr, ptr %160, align 8
+  %162 = tail call noundef ptr %161(ptr noundef nonnull align 8 dereferenceable(72) %138, i64 noundef %159) #19
+  %.pre.i.i.i = load i64, ptr %142, align 8
   %.pre2.i.i.i = shl i64 %.pre.i.i.i, 4
   br label %_ZN5StackI13PreservedMarkL8MEMFLAGS5EE12push_segmentEv.exit.i.i
 
-_ZN5StackI13PreservedMarkL8MEMFLAGS5EE12push_segmentEv.exit.i.i: ; preds = %156, %149
-  %.pre-phi.i.i.i = phi i64 [ %.pre2.i.i.i, %156 ], [ %152, %149 ]
-  %.0.i.i.i = phi ptr [ %161, %156 ], [ %151, %149 ]
-  %162 = getelementptr inbounds i8, ptr %137, i64 56
-  %163 = load ptr, ptr %162, align 8
-  %164 = icmp eq ptr %163, null
-  %165 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 %.pre-phi.i.i.i
-  store ptr %163, ptr %165, align 8
-  store ptr %.0.i.i.i, ptr %162, align 8
-  %166 = load i64, ptr %141, align 8
-  %spec.select.i.i.i = select i1 %164, i64 0, i64 %166
-  %167 = getelementptr inbounds i8, ptr %137, i64 40
-  %168 = load i64, ptr %167, align 8
-  %169 = add i64 %168, %spec.select.i.i.i
-  store i64 %169, ptr %167, align 8
+_ZN5StackI13PreservedMarkL8MEMFLAGS5EE12push_segmentEv.exit.i.i: ; preds = %157, %150
+  %.pre-phi.i.i.i = phi i64 [ %.pre2.i.i.i, %157 ], [ %153, %150 ]
+  %.0.i.i.i = phi ptr [ %162, %157 ], [ %152, %150 ]
+  %163 = getelementptr inbounds i8, ptr %138, i64 56
+  %164 = load ptr, ptr %163, align 8
+  %165 = icmp eq ptr %164, null
+  %166 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 %.pre-phi.i.i.i
+  store ptr %164, ptr %166, align 8
+  store ptr %.0.i.i.i, ptr %163, align 8
+  %167 = load i64, ptr %142, align 8
+  %spec.select.i.i.i = select i1 %165, i64 0, i64 %167
+  %168 = getelementptr inbounds i8, ptr %138, i64 40
+  %169 = load i64, ptr %168, align 8
+  %170 = add i64 %169, %spec.select.i.i.i
+  store i64 %170, ptr %168, align 8
   br label %_ZN5StackI13PreservedMarkL8MEMFLAGS5EE4pushES0_.exit.i
 
 _ZN5StackI13PreservedMarkL8MEMFLAGS5EE4pushES0_.exit.i: ; preds = %_ZN5StackI13PreservedMarkL8MEMFLAGS5EE12push_segmentEv.exit.i.i, %._crit_edge.i.i
-  %170 = phi ptr [ %.0.i.i.i, %_ZN5StackI13PreservedMarkL8MEMFLAGS5EE12push_segmentEv.exit.i.i ], [ %.pre.i.i, %._crit_edge.i.i ]
-  %.0.i.i14 = phi i64 [ 0, %_ZN5StackI13PreservedMarkL8MEMFLAGS5EE12push_segmentEv.exit.i.i ], [ %143, %._crit_edge.i.i ]
-  %171 = getelementptr inbounds %class.PreservedMark, ptr %170, i64 %.0.i.i14
-  store ptr %1, ptr %171, align 8
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %171, i64 8
-  store i64 %138, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  %172 = add i64 %.0.i.i14, 1
-  store i64 %172, ptr %142, align 8
+  %171 = phi ptr [ %.0.i.i.i, %_ZN5StackI13PreservedMarkL8MEMFLAGS5EE12push_segmentEv.exit.i.i ], [ %.pre.i.i, %._crit_edge.i.i ]
+  %.0.i.i14 = phi i64 [ 0, %_ZN5StackI13PreservedMarkL8MEMFLAGS5EE12push_segmentEv.exit.i.i ], [ %144, %._crit_edge.i.i ]
+  %172 = getelementptr inbounds %class.PreservedMark, ptr %171, i64 %.0.i.i14
+  store ptr %1, ptr %172, align 8
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %172, i64 8
+  store i64 %139, ptr %.sroa.2.0..sroa_idx.i.i, align 8
+  %173 = add i64 %.0.i.i14, 1
+  store i64 %173, ptr %143, align 8
   br label %_ZN14PreservedMarks17push_if_necessaryEP7oopDesc8markWord.exit
 
 _ZN14PreservedMarks17push_if_necessaryEP7oopDesc8markWord.exit: ; preds = %_ZN19PromotionFailedInfo21register_copy_failureEm.exit, %_ZN5StackI13PreservedMarkL8MEMFLAGS5EE4pushES0_.exit.i
-  %173 = load i8, ptr @UseCompressedClassPointers, align 1
-  %174 = trunc i8 %173 to i1
-  br i1 %174, label %175, label %185
+  %174 = load i8, ptr @UseCompressedClassPointers, align 1
+  %175 = trunc i8 %174 to i1
+  br i1 %175, label %176, label %186
 
-175:                                              ; preds = %_ZN14PreservedMarks17push_if_necessaryEP7oopDesc8markWord.exit
-  %176 = load i32, ptr %64, align 8
-  %177 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
-  %178 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %179 = ptrtoint ptr %177 to i64
-  %180 = zext i32 %176 to i64
-  %181 = zext nneg i32 %178 to i64
-  %182 = shl i64 %180, %181
-  %183 = add i64 %182, %179
-  %184 = inttoptr i64 %183 to ptr
+176:                                              ; preds = %_ZN14PreservedMarks17push_if_necessaryEP7oopDesc8markWord.exit
+  %177 = load i32, ptr %64, align 8
+  %178 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
+  %179 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
+  %180 = ptrtoint ptr %178 to i64
+  %181 = zext i32 %177 to i64
+  %182 = zext nneg i32 %179 to i64
+  %183 = shl i64 %181, %182
+  %184 = add i64 %183, %180
+  %185 = inttoptr i64 %184 to ptr
   br label %_ZNK7oopDesc13is_stackChunkEv.exit.i
 
-185:                                              ; preds = %_ZN14PreservedMarks17push_if_necessaryEP7oopDesc8markWord.exit
-  %186 = load ptr, ptr %64, align 8
+186:                                              ; preds = %_ZN14PreservedMarks17push_if_necessaryEP7oopDesc8markWord.exit
+  %187 = load ptr, ptr %64, align 8
   br label %_ZNK7oopDesc13is_stackChunkEv.exit.i
 
-_ZNK7oopDesc13is_stackChunkEv.exit.i:             ; preds = %185, %175
-  %.0.i.i.i15 = phi ptr [ %184, %175 ], [ %186, %185 ]
-  %187 = getelementptr inbounds i8, ptr %.0.i.i.i15, i64 12
-  %188 = load i32, ptr %187, align 4
-  %189 = icmp eq i32 %188, 4
-  br i1 %189, label %190, label %_ZNK7oopDesc13is_stackChunkEv.exit.i._ZN21ContinuationGCSupport21transform_stack_chunkEP7oopDesc.exit_crit_edge
+_ZNK7oopDesc13is_stackChunkEv.exit.i:             ; preds = %186, %176
+  %.0.i.i.i15 = phi ptr [ %185, %176 ], [ %187, %186 ]
+  %188 = getelementptr inbounds i8, ptr %.0.i.i.i15, i64 12
+  %189 = load i32, ptr %188, align 4
+  %190 = icmp eq i32 %189, 4
+  br i1 %190, label %191, label %_ZNK7oopDesc13is_stackChunkEv.exit.i._ZN21ContinuationGCSupport21transform_stack_chunkEP7oopDesc.exit_crit_edge
 
 _ZNK7oopDesc13is_stackChunkEv.exit.i._ZN21ContinuationGCSupport21transform_stack_chunkEP7oopDesc.exit_crit_edge: ; preds = %_ZNK7oopDesc13is_stackChunkEv.exit.i
   %.pre = ptrtoint ptr %1 to i64
   br label %_ZN21ContinuationGCSupport21transform_stack_chunkEP7oopDesc.exit
 
-190:                                              ; preds = %_ZNK7oopDesc13is_stackChunkEv.exit.i
-  %191 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk13_flags_offsetE, align 4
-  %192 = ptrtoint ptr %1 to i64
-  %193 = sext i32 %191 to i64
-  %194 = add nsw i64 %193, %192
-  %195 = inttoptr i64 %194 to ptr
-  %196 = load volatile i8, ptr %195, align 1
-  %197 = and i8 %196, 8
-  %.not.i16 = icmp eq i8 %197, 0
-  br i1 %.not.i16, label %198, label %_ZN21ContinuationGCSupport21transform_stack_chunkEP7oopDesc.exit
+191:                                              ; preds = %_ZNK7oopDesc13is_stackChunkEv.exit.i
+  %192 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk13_flags_offsetE, align 4
+  %193 = ptrtoint ptr %1 to i64
+  %194 = sext i32 %192 to i64
+  %195 = add nsw i64 %194, %193
+  %196 = inttoptr i64 %195 to ptr
+  %197 = load volatile i8, ptr %196, align 1
+  %198 = and i8 %197, 8
+  %.not.i16 = icmp eq i8 %198, 0
+  br i1 %.not.i16, label %199, label %_ZN21ContinuationGCSupport21transform_stack_chunkEP7oopDesc.exit
 
-198:                                              ; preds = %190
+199:                                              ; preds = %191
   tail call void @_ZN17stackChunkOopDesc9transformEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #19
   br label %_ZN21ContinuationGCSupport21transform_stack_chunkEP7oopDesc.exit
 
-_ZN21ContinuationGCSupport21transform_stack_chunkEP7oopDesc.exit: ; preds = %_ZNK7oopDesc13is_stackChunkEv.exit.i._ZN21ContinuationGCSupport21transform_stack_chunkEP7oopDesc.exit_crit_edge, %190, %198
-  %.pre-phi = phi i64 [ %.pre, %_ZNK7oopDesc13is_stackChunkEv.exit.i._ZN21ContinuationGCSupport21transform_stack_chunkEP7oopDesc.exit_crit_edge ], [ %192, %190 ], [ %192, %198 ]
-  %199 = or i64 %.pre-phi, 3
-  store volatile i64 %199, ptr %1, align 8
-  %200 = getelementptr inbounds i8, ptr %0, i64 544
-  %201 = getelementptr inbounds i8, ptr %0, i64 552
-  %202 = getelementptr inbounds i8, ptr %0, i64 576
-  %203 = load i64, ptr %202, align 8
-  %204 = load i64, ptr %201, align 8
-  %205 = icmp eq i64 %203, %204
-  br i1 %205, label %206, label %._crit_edge.i
+_ZN21ContinuationGCSupport21transform_stack_chunkEP7oopDesc.exit: ; preds = %_ZNK7oopDesc13is_stackChunkEv.exit.i._ZN21ContinuationGCSupport21transform_stack_chunkEP7oopDesc.exit_crit_edge, %191, %199
+  %.pre-phi = phi i64 [ %.pre, %_ZNK7oopDesc13is_stackChunkEv.exit.i._ZN21ContinuationGCSupport21transform_stack_chunkEP7oopDesc.exit_crit_edge ], [ %193, %191 ], [ %193, %199 ]
+  %200 = or i64 %.pre-phi, 3
+  store volatile i64 %200, ptr %1, align 8
+  %201 = getelementptr inbounds i8, ptr %0, i64 544
+  %202 = getelementptr inbounds i8, ptr %0, i64 552
+  %203 = getelementptr inbounds i8, ptr %0, i64 576
+  %204 = load i64, ptr %203, align 8
+  %205 = load i64, ptr %202, align 8
+  %206 = icmp eq i64 %204, %205
+  br i1 %206, label %207, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %_ZN21ContinuationGCSupport21transform_stack_chunkEP7oopDesc.exit
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 600
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %_ZN5StackIP7oopDescL8MEMFLAGS5EE4pushES1_.exit
 
-206:                                              ; preds = %_ZN21ContinuationGCSupport21transform_stack_chunkEP7oopDesc.exit
-  %207 = getelementptr inbounds i8, ptr %0, i64 592
-  %208 = load i64, ptr %207, align 8
-  %.not.i.i17 = icmp eq i64 %208, 0
-  br i1 %.not.i.i17, label %216, label %209
+207:                                              ; preds = %_ZN21ContinuationGCSupport21transform_stack_chunkEP7oopDesc.exit
+  %208 = getelementptr inbounds i8, ptr %0, i64 592
+  %209 = load i64, ptr %208, align 8
+  %.not.i.i17 = icmp eq i64 %209, 0
+  br i1 %.not.i.i17, label %217, label %210
 
-209:                                              ; preds = %206
-  %210 = getelementptr inbounds i8, ptr %0, i64 608
-  %211 = load ptr, ptr %210, align 8
-  %212 = shl i64 %203, 3
-  %213 = getelementptr inbounds i8, ptr %211, i64 %212
-  %214 = load ptr, ptr %213, align 8
-  store ptr %214, ptr %210, align 8
-  %215 = add i64 %208, -1
-  store i64 %215, ptr %207, align 8
+210:                                              ; preds = %207
+  %211 = getelementptr inbounds i8, ptr %0, i64 608
+  %212 = load ptr, ptr %211, align 8
+  %213 = shl i64 %204, 3
+  %214 = getelementptr inbounds i8, ptr %212, i64 %213
+  %215 = load ptr, ptr %214, align 8
+  store ptr %215, ptr %211, align 8
+  %216 = add i64 %209, -1
+  store i64 %216, ptr %208, align 8
   br label %_ZN5StackIP7oopDescL8MEMFLAGS5EE12push_segmentEv.exit.i
 
-216:                                              ; preds = %206
-  %217 = shl i64 %203, 3
-  %218 = add i64 %217, 8
-  %219 = load ptr, ptr %200, align 8
-  %220 = load ptr, ptr %219, align 8
-  %221 = tail call noundef ptr %220(ptr noundef nonnull align 8 dereferenceable(72) %200, i64 noundef %218) #19
-  %.pre.i.i19 = load i64, ptr %201, align 8
+217:                                              ; preds = %207
+  %218 = shl i64 %204, 3
+  %219 = add i64 %218, 8
+  %220 = load ptr, ptr %201, align 8
+  %221 = load ptr, ptr %220, align 8
+  %222 = tail call noundef ptr %221(ptr noundef nonnull align 8 dereferenceable(72) %201, i64 noundef %219) #19
+  %.pre.i.i19 = load i64, ptr %202, align 8
   %.pre2.i.i = shl i64 %.pre.i.i19, 3
   br label %_ZN5StackIP7oopDescL8MEMFLAGS5EE12push_segmentEv.exit.i
 
-_ZN5StackIP7oopDescL8MEMFLAGS5EE12push_segmentEv.exit.i: ; preds = %216, %209
-  %.pre-phi.i.i = phi i64 [ %.pre2.i.i, %216 ], [ %212, %209 ]
-  %.0.i.i18 = phi ptr [ %221, %216 ], [ %211, %209 ]
-  %222 = getelementptr inbounds i8, ptr %0, i64 600
-  %223 = load ptr, ptr %222, align 8
-  %224 = icmp eq ptr %223, null
-  %225 = getelementptr inbounds i8, ptr %.0.i.i18, i64 %.pre-phi.i.i
-  store ptr %223, ptr %225, align 8
-  store ptr %.0.i.i18, ptr %222, align 8
-  %226 = load i64, ptr %201, align 8
-  %spec.select.i.i = select i1 %224, i64 0, i64 %226
-  %227 = getelementptr inbounds i8, ptr %0, i64 584
-  %228 = load i64, ptr %227, align 8
-  %229 = add i64 %228, %spec.select.i.i
-  store i64 %229, ptr %227, align 8
+_ZN5StackIP7oopDescL8MEMFLAGS5EE12push_segmentEv.exit.i: ; preds = %217, %210
+  %.pre-phi.i.i = phi i64 [ %.pre2.i.i, %217 ], [ %213, %210 ]
+  %.0.i.i18 = phi ptr [ %222, %217 ], [ %212, %210 ]
+  %223 = getelementptr inbounds i8, ptr %0, i64 600
+  %224 = load ptr, ptr %223, align 8
+  %225 = icmp eq ptr %224, null
+  %226 = getelementptr inbounds i8, ptr %.0.i.i18, i64 %.pre-phi.i.i
+  store ptr %224, ptr %226, align 8
+  store ptr %.0.i.i18, ptr %223, align 8
+  %227 = load i64, ptr %202, align 8
+  %spec.select.i.i = select i1 %225, i64 0, i64 %227
+  %228 = getelementptr inbounds i8, ptr %0, i64 584
+  %229 = load i64, ptr %228, align 8
+  %230 = add i64 %229, %spec.select.i.i
+  store i64 %230, ptr %228, align 8
   br label %_ZN5StackIP7oopDescL8MEMFLAGS5EE4pushES1_.exit
 
 _ZN5StackIP7oopDescL8MEMFLAGS5EE4pushES1_.exit:   ; preds = %._crit_edge.i, %_ZN5StackIP7oopDescL8MEMFLAGS5EE12push_segmentEv.exit.i
-  %230 = phi ptr [ %.0.i.i18, %_ZN5StackIP7oopDescL8MEMFLAGS5EE12push_segmentEv.exit.i ], [ %.pre.i, %._crit_edge.i ]
-  %.0.i = phi i64 [ 0, %_ZN5StackIP7oopDescL8MEMFLAGS5EE12push_segmentEv.exit.i ], [ %203, %._crit_edge.i ]
-  %231 = getelementptr inbounds ptr, ptr %230, i64 %.0.i
-  store ptr %1, ptr %231, align 8
-  %232 = add i64 %.0.i, 1
-  store i64 %232, ptr %202, align 8
-  %233 = getelementptr inbounds i8, ptr %0, i64 616
-  %234 = load i8, ptr %233, align 8
-  %235 = trunc i8 %234 to i1
-  br i1 %235, label %237, label %236
+  %231 = phi ptr [ %.0.i.i18, %_ZN5StackIP7oopDescL8MEMFLAGS5EE12push_segmentEv.exit.i ], [ %.pre.i, %._crit_edge.i ]
+  %.0.i = phi i64 [ 0, %_ZN5StackIP7oopDescL8MEMFLAGS5EE12push_segmentEv.exit.i ], [ %204, %._crit_edge.i ]
+  %232 = getelementptr inbounds ptr, ptr %231, i64 %.0.i
+  store ptr %1, ptr %232, align 8
+  %233 = add i64 %.0.i, 1
+  store i64 %233, ptr %203, align 8
+  %234 = getelementptr inbounds i8, ptr %0, i64 616
+  %235 = load i8, ptr %234, align 8
+  %236 = trunc i8 %235 to i1
+  br i1 %236, label %238, label %237
 
-236:                                              ; preds = %_ZN5StackIP7oopDescL8MEMFLAGS5EE4pushES1_.exit
-  store i8 1, ptr %233, align 8
+237:                                              ; preds = %_ZN5StackIP7oopDescL8MEMFLAGS5EE4pushES1_.exit
+  store i8 1, ptr %234, align 8
   tail call void @_ZN16DefNewGeneration30drain_promo_failure_scan_stackEv(ptr noundef nonnull align 8 dereferenceable(744) %0)
-  store i8 0, ptr %233, align 8
-  br label %237
+  store i8 0, ptr %234, align 8
+  br label %238
 
-237:                                              ; preds = %236, %_ZN5StackIP7oopDescL8MEMFLAGS5EE4pushES1_.exit
+238:                                              ; preds = %237, %_ZN5StackIP7oopDescL8MEMFLAGS5EE4pushES1_.exit
   ret void
 }
 
@@ -2723,33 +2723,33 @@ define linkonce_odr hidden void @_ZN19PromotionFailedInfo21register_copy_failure
 6:                                                ; preds = %2
   store i64 %1, ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16
-  br label %.sink.split.i
+  store i64 %1, ptr %7, align 8
+  br label %_ZN14CopyFailedInfo21register_copy_failureEm.exit
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = icmp ult i64 %1, %10
-  br i1 %11, label %.sink.split.i, label %_ZN14CopyFailedInfo21register_copy_failureEm.exit
+  br i1 %11, label %12, label %_ZN14CopyFailedInfo21register_copy_failureEm.exit
 
-.sink.split.i:                                    ; preds = %8, %6
-  %.sink.i = phi ptr [ %7, %6 ], [ %9, %8 ]
-  store i64 %1, ptr %.sink.i, align 8
+12:                                               ; preds = %8
+  store i64 %1, ptr %9, align 8
   br label %_ZN14CopyFailedInfo21register_copy_failureEm.exit
 
-_ZN14CopyFailedInfo21register_copy_failureEm.exit: ; preds = %8, %.sink.split.i
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
-  %13 = load i64, ptr %12, align 8
-  %14 = add i64 %13, %1
-  store i64 %14, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
-  %16 = load i32, ptr %15, align 8
-  %17 = add i32 %16, 1
-  store i32 %17, ptr %15, align 8
-  %18 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %19 = load ptr, ptr %18, align 8
-  %20 = tail call noundef i64 @_ZN14JfrThreadLocal13jvm_thread_idEPK6Thread(ptr noundef %19) #19
-  %21 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %20, ptr %21, align 8
+_ZN14CopyFailedInfo21register_copy_failureEm.exit: ; preds = %6, %8, %12
+  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = load i64, ptr %13, align 8
+  %15 = add i64 %14, %1
+  store i64 %15, ptr %13, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = load i32, ptr %16, align 8
+  %18 = add i32 %17, 1
+  store i32 %18, ptr %16, align 8
+  %19 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %20 = load ptr, ptr %19, align 8
+  %21 = tail call noundef i64 @_ZN14JfrThreadLocal13jvm_thread_idEPK6Thread(ptr noundef %20) #19
+  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  store i64 %21, ptr %22, align 8
   ret void
 }
 

@@ -574,6 +574,7 @@ if.then47:                                        ; preds = %if.then44
   br i1 %cmp6173, label %if.end264.sink.split, label %if.else51
 
 if.else51:                                        ; preds = %if.then47
+  %balance57 = getelementptr inbounds i8, ptr %11, i64 32
   br i1 %12, label %if.then53, label %if.else59
 
 if.then53:                                        ; preds = %if.else51
@@ -581,86 +582,126 @@ if.then53:                                        ; preds = %if.else51
   store i8 0, ptr %left_child54, align 1
   %left55 = getelementptr inbounds i8, ptr %node.0.lcssa202, i64 16
   %15 = load ptr, ptr %left55, align 8
-  br label %while.body195.preheader.sink.split
+  %left56 = getelementptr inbounds i8, ptr %11, i64 16
+  store ptr %15, ptr %left56, align 8
+  %16 = load i8, ptr %balance57, align 8
+  %add = add i8 %16, 1
+  store i8 %add, ptr %balance57, align 8
+  br label %while.body195.preheader
 
 if.else59:                                        ; preds = %if.else51
   %right_child60 = getelementptr inbounds i8, ptr %11, i64 34
   store i8 0, ptr %right_child60, align 2
   %right61 = getelementptr inbounds i8, ptr %node.0.lcssa202, i64 24
-  %16 = load ptr, ptr %right61, align 8
-  br label %while.body195.preheader.sink.split
+  %17 = load ptr, ptr %right61, align 8
+  %right62 = getelementptr inbounds i8, ptr %11, i64 24
+  store ptr %17, ptr %right62, align 8
+  %18 = load i8, ptr %balance57, align 8
+  %sub = add i8 %18, -1
+  store i8 %sub, ptr %balance57, align 8
+  br label %while.body195.preheader
 
 while.cond.preheader.i:                           ; preds = %if.then44
   %right.i = getelementptr inbounds i8, ptr %node.0.lcssa202, i64 24
-  %17 = load ptr, ptr %right.i, align 8
-  %left_child5.i = getelementptr inbounds i8, ptr %17, i64 33
-  %18 = load i8, ptr %left_child5.i, align 1
-  %tobool2.not6.i = icmp eq i8 %18, 0
+  %19 = load ptr, ptr %right.i, align 8
+  %left_child5.i = getelementptr inbounds i8, ptr %19, i64 33
+  %20 = load i8, ptr %left_child5.i, align 1
+  %tobool2.not6.i = icmp eq i8 %20, 0
   br i1 %tobool2.not6.i, label %q_tree_node_next.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.preheader.i, %while.body.i
-  %tmp.17.i = phi ptr [ %19, %while.body.i ], [ %17, %while.cond.preheader.i ]
+  %tmp.17.i = phi ptr [ %21, %while.body.i ], [ %19, %while.cond.preheader.i ]
   %left.i = getelementptr inbounds i8, ptr %tmp.17.i, i64 16
-  %19 = load ptr, ptr %left.i, align 8
-  %left_child.i = getelementptr inbounds i8, ptr %19, i64 33
-  %20 = load i8, ptr %left_child.i, align 1
-  %tobool2.not.i = icmp eq i8 %20, 0
+  %21 = load ptr, ptr %left.i, align 8
+  %left_child.i = getelementptr inbounds i8, ptr %21, i64 33
+  %22 = load i8, ptr %left_child.i, align 1
+  %tobool2.not.i = icmp eq i8 %22, 0
   br i1 %tobool2.not.i, label %q_tree_node_next.exit, label %while.body.i, !llvm.loop !7
 
 q_tree_node_next.exit:                            ; preds = %while.body.i, %while.cond.preheader.i
-  %retval.0.i = phi ptr [ %17, %while.cond.preheader.i ], [ %19, %while.body.i ]
+  %retval.0.i = phi ptr [ %19, %while.cond.preheader.i ], [ %21, %while.body.i ]
   %left70 = getelementptr inbounds i8, ptr %node.0.lcssa202, i64 16
-  %21 = load ptr, ptr %left70, align 8
+  %23 = load ptr, ptr %left70, align 8
   %left71 = getelementptr inbounds i8, ptr %retval.0.i, i64 16
-  store ptr %21, ptr %left71, align 8
-  %22 = load ptr, ptr %right.i, align 8
+  store ptr %23, ptr %left71, align 8
+  %24 = load ptr, ptr %right.i, align 8
   br i1 %cmp6173, label %if.end264.sink.split, label %if.else76
 
 if.else76:                                        ; preds = %q_tree_node_next.exit
-  %. = select i1 %12, i64 16, i64 24
-  %.239 = select i1 %12, i8 1, i8 -1
-  br label %while.body195.preheader.sink.split
+  %balance81 = getelementptr inbounds i8, ptr %11, i64 32
+  br i1 %12, label %if.then78, label %if.else85
+
+if.then78:                                        ; preds = %if.else76
+  %left80 = getelementptr inbounds i8, ptr %11, i64 16
+  store ptr %24, ptr %left80, align 8
+  %25 = load i8, ptr %balance81, align 8
+  %add83 = add i8 %25, 1
+  store i8 %add83, ptr %balance81, align 8
+  br label %while.body195.preheader
+
+if.else85:                                        ; preds = %if.else76
+  %right87 = getelementptr inbounds i8, ptr %11, i64 24
+  store ptr %24, ptr %right87, align 8
+  %26 = load i8, ptr %balance81, align 8
+  %sub90 = add i8 %26, -1
+  store i8 %sub90, ptr %balance81, align 8
+  br label %while.body195.preheader
 
 if.else95:                                        ; preds = %land.end
   %left.i137 = getelementptr inbounds i8, ptr %node.0.lcssa202, i64 16
-  %23 = load ptr, ptr %left.i137, align 8
+  %27 = load ptr, ptr %left.i137, align 8
   br i1 %tobool46.not, label %while.cond.preheader.i140, label %if.else126
 
 while.cond.preheader.i140:                        ; preds = %if.else95
-  %right_child5.i = getelementptr inbounds i8, ptr %23, i64 34
-  %24 = load i8, ptr %right_child5.i, align 2
-  %tobool2.not6.i141 = icmp eq i8 %24, 0
+  %right_child5.i = getelementptr inbounds i8, ptr %27, i64 34
+  %28 = load i8, ptr %right_child5.i, align 2
+  %tobool2.not6.i141 = icmp eq i8 %28, 0
   br i1 %tobool2.not6.i141, label %q_tree_node_previous.exit, label %while.body.i142
 
 while.body.i142:                                  ; preds = %while.cond.preheader.i140, %while.body.i142
-  %tmp.17.i143 = phi ptr [ %25, %while.body.i142 ], [ %23, %while.cond.preheader.i140 ]
+  %tmp.17.i143 = phi ptr [ %29, %while.body.i142 ], [ %27, %while.cond.preheader.i140 ]
   %right.i144 = getelementptr inbounds i8, ptr %tmp.17.i143, i64 24
-  %25 = load ptr, ptr %right.i144, align 8
-  %right_child.i145 = getelementptr inbounds i8, ptr %25, i64 34
-  %26 = load i8, ptr %right_child.i145, align 2
-  %tobool2.not.i146 = icmp eq i8 %26, 0
+  %29 = load ptr, ptr %right.i144, align 8
+  %right_child.i145 = getelementptr inbounds i8, ptr %29, i64 34
+  %30 = load i8, ptr %right_child.i145, align 2
+  %tobool2.not.i146 = icmp eq i8 %30, 0
   br i1 %tobool2.not.i146, label %q_tree_node_previous.exit, label %while.body.i142, !llvm.loop !9
 
 q_tree_node_previous.exit:                        ; preds = %while.body.i142, %while.cond.preheader.i140
-  %retval.0.i147 = phi ptr [ %23, %while.cond.preheader.i140 ], [ %25, %while.body.i142 ]
+  %retval.0.i147 = phi ptr [ %27, %while.cond.preheader.i140 ], [ %29, %while.body.i142 ]
   %right101 = getelementptr inbounds i8, ptr %node.0.lcssa202, i64 24
-  %27 = load ptr, ptr %right101, align 8
+  %31 = load ptr, ptr %right101, align 8
   %right102 = getelementptr inbounds i8, ptr %retval.0.i147, i64 24
-  store ptr %27, ptr %right102, align 8
-  %28 = load ptr, ptr %left.i137, align 8
+  store ptr %31, ptr %right102, align 8
+  %32 = load ptr, ptr %left.i137, align 8
   br i1 %cmp6173, label %if.end264.sink.split, label %if.else108
 
 if.else108:                                       ; preds = %q_tree_node_previous.exit
-  %.240 = select i1 %12, i64 16, i64 24
-  %.241 = select i1 %12, i8 1, i8 -1
-  br label %while.body195.preheader.sink.split
+  %balance113 = getelementptr inbounds i8, ptr %11, i64 32
+  br i1 %12, label %if.then110, label %if.else117
+
+if.then110:                                       ; preds = %if.else108
+  %left112 = getelementptr inbounds i8, ptr %11, i64 16
+  store ptr %32, ptr %left112, align 8
+  %33 = load i8, ptr %balance113, align 8
+  %add115 = add i8 %33, 1
+  store i8 %add115, ptr %balance113, align 8
+  br label %while.body195.preheader
+
+if.else117:                                       ; preds = %if.else108
+  %right119 = getelementptr inbounds i8, ptr %11, i64 24
+  store ptr %32, ptr %right119, align 8
+  %34 = load i8, ptr %balance113, align 8
+  %sub122 = add i8 %34, -1
+  store i8 %sub122, ptr %balance113, align 8
+  br label %while.body195.preheader
 
 if.else126:                                       ; preds = %if.else95
   %right128 = getelementptr inbounds i8, ptr %node.0.lcssa202, i64 24
   %next.0179 = load ptr, ptr %right128, align 8
   %left_child131180 = getelementptr inbounds i8, ptr %next.0179, i64 33
-  %29 = load i8, ptr %left_child131180, align 1
-  %tobool132.not181 = icmp eq i8 %29, 0
+  %35 = load i8, ptr %left_child131180, align 1
+  %tobool132.not181 = icmp eq i8 %35, 0
   br i1 %tobool132.not181, label %while.end138.thread, label %while.body133
 
 while.end138.thread:                              ; preds = %if.else126
@@ -680,8 +721,8 @@ while.body133:                                    ; preds = %if.else126, %while.
   %left137 = getelementptr inbounds i8, ptr %next.0183, i64 16
   %next.0 = load ptr, ptr %left137, align 8
   %left_child131 = getelementptr inbounds i8, ptr %next.0, i64 33
-  %30 = load i8, ptr %left_child131, align 1
-  %tobool132.not = icmp eq i8 %30, 0
+  %36 = load i8, ptr %left_child131, align 1
+  %tobool132.not = icmp eq i8 %36, 0
   br i1 %tobool132.not, label %while.end138, label %while.body133, !llvm.loop !10
 
 while.end138:                                     ; preds = %while.body133
@@ -690,21 +731,21 @@ while.end138:                                     ; preds = %while.body133
   %arrayidx140 = getelementptr [40 x ptr], ptr %path, i64 0, i64 %.pre196
   store ptr %next.0, ptr %arrayidx140, align 8
   %arrayidx142 = getelementptr [40 x ptr], ptr %path, i64 0, i64 %idxprom135
-  %31 = load ptr, ptr %arrayidx142, align 8
+  %37 = load ptr, ptr %arrayidx142, align 8
   %cmp143.not = icmp eq ptr %next.0183, %node.0.lcssa202
   br i1 %cmp143.not, label %if.else161, label %if.then145
 
 if.then145:                                       ; preds = %while.end138
   %right_child146 = getelementptr inbounds i8, ptr %next.0, i64 34
-  %32 = load i8, ptr %right_child146, align 2
-  %tobool147.not = icmp eq i8 %32, 0
+  %38 = load i8, ptr %right_child146, align 2
+  %tobool147.not = icmp eq i8 %38, 0
   br i1 %tobool147.not, label %if.else151, label %if.then148
 
 if.then148:                                       ; preds = %if.then145
   %right149 = getelementptr inbounds i8, ptr %next.0, i64 24
-  %33 = load ptr, ptr %right149, align 8
+  %39 = load ptr, ptr %right149, align 8
   %left150 = getelementptr inbounds i8, ptr %next.0183, i64 16
-  store ptr %33, ptr %left150, align 8
+  store ptr %39, ptr %left150, align 8
   br label %if.end153
 
 if.else151:                                       ; preds = %if.then145
@@ -714,114 +755,105 @@ if.else151:                                       ; preds = %if.then145
 
 if.end153:                                        ; preds = %if.else151, %if.then148
   %balance154 = getelementptr inbounds i8, ptr %next.0183, i64 32
-  %34 = load i8, ptr %balance154, align 8
-  %add156 = add i8 %34, 1
+  %40 = load i8, ptr %balance154, align 8
+  %add156 = add i8 %40, 1
   store i8 %add156, ptr %balance154, align 8
   store i8 1, ptr %right_child146, align 2
-  %35 = load ptr, ptr %right128, align 8
+  %41 = load ptr, ptr %right128, align 8
   %right160 = getelementptr inbounds i8, ptr %next.0, i64 24
-  store ptr %35, ptr %right160, align 8
+  store ptr %41, ptr %right160, align 8
   br label %if.end166
 
 if.else161:                                       ; preds = %while.end138.thread, %while.end138
-  %36 = phi ptr [ %next.0179, %while.end138.thread ], [ %31, %while.end138 ]
+  %42 = phi ptr [ %next.0179, %while.end138.thread ], [ %37, %while.end138 ]
   %left_child131.le221 = phi ptr [ %left_child131.le212, %while.end138.thread ], [ %left_child131.le, %while.end138 ]
   %idx.3.lcssa219 = phi i32 [ %idx.0.lcssa201, %while.end138.thread ], [ %inc134, %while.end138 ]
   %next.0.lcssa178217 = phi ptr [ %next.0179, %while.end138.thread ], [ %next.0, %while.end138 ]
   %balance162 = getelementptr inbounds i8, ptr %node.0.lcssa202, i64 32
-  %37 = load i8, ptr %balance162, align 8
-  %sub164 = add i8 %37, -1
+  %43 = load i8, ptr %balance162, align 8
+  %sub164 = add i8 %43, -1
   store i8 %sub164, ptr %balance162, align 8
   br label %if.end166
 
 if.end166:                                        ; preds = %if.else161, %if.end153
-  %38 = phi ptr [ %36, %if.else161 ], [ %31, %if.end153 ]
+  %44 = phi ptr [ %42, %if.else161 ], [ %37, %if.end153 ]
   %left_child131.le220 = phi ptr [ %left_child131.le221, %if.else161 ], [ %left_child131.le, %if.end153 ]
   %idx.3.lcssa218 = phi i32 [ %idx.3.lcssa219, %if.else161 ], [ %inc134, %if.end153 ]
   %next.0.lcssa178216 = phi ptr [ %next.0.lcssa178217, %if.else161 ], [ %next.0, %if.end153 ]
-  %right_child168188 = getelementptr inbounds i8, ptr %23, i64 34
-  %39 = load i8, ptr %right_child168188, align 2
-  %tobool169.not189 = icmp eq i8 %39, 0
+  %right_child168188 = getelementptr inbounds i8, ptr %27, i64 34
+  %45 = load i8, ptr %right_child168188, align 2
+  %tobool169.not189 = icmp eq i8 %45, 0
   br i1 %tobool169.not189, label %while.end172, label %while.body170
 
 while.body170:                                    ; preds = %if.end166, %while.body170
-  %prev.0190 = phi ptr [ %40, %while.body170 ], [ %23, %if.end166 ]
+  %prev.0190 = phi ptr [ %46, %while.body170 ], [ %27, %if.end166 ]
   %right171 = getelementptr inbounds i8, ptr %prev.0190, i64 24
-  %40 = load ptr, ptr %right171, align 8
-  %right_child168 = getelementptr inbounds i8, ptr %40, i64 34
-  %41 = load i8, ptr %right_child168, align 2
-  %tobool169.not = icmp eq i8 %41, 0
+  %46 = load ptr, ptr %right171, align 8
+  %right_child168 = getelementptr inbounds i8, ptr %46, i64 34
+  %47 = load i8, ptr %right_child168, align 2
+  %tobool169.not = icmp eq i8 %47, 0
   br i1 %tobool169.not, label %while.end172, label %while.body170, !llvm.loop !11
 
 while.end172:                                     ; preds = %while.body170, %if.end166
-  %prev.0.lcssa = phi ptr [ %23, %if.end166 ], [ %40, %while.body170 ]
+  %prev.0.lcssa = phi ptr [ %27, %if.end166 ], [ %46, %while.body170 ]
   %right173 = getelementptr inbounds i8, ptr %prev.0.lcssa, i64 24
   store ptr %next.0.lcssa178216, ptr %right173, align 8
   store i8 1, ptr %left_child131.le220, align 1
-  %42 = load ptr, ptr %left.i137, align 8
+  %48 = load ptr, ptr %left.i137, align 8
   %left176 = getelementptr inbounds i8, ptr %next.0.lcssa178216, i64 16
-  store ptr %42, ptr %left176, align 8
+  store ptr %48, ptr %left176, align 8
   %balance177 = getelementptr inbounds i8, ptr %node.0.lcssa202, i64 32
-  %43 = load i8, ptr %balance177, align 8
+  %49 = load i8, ptr %balance177, align 8
   %balance178 = getelementptr inbounds i8, ptr %next.0.lcssa178216, i64 32
-  store i8 %43, ptr %balance178, align 8
-  br i1 %cmp6173, label %if.end191, label %if.else182
+  store i8 %49, ptr %balance178, align 8
+  br i1 %cmp6173, label %if.then180, label %if.else182
+
+if.then180:                                       ; preds = %while.end172
+  store ptr %next.0.lcssa178216, ptr %tree, align 8
+  br label %if.end191
 
 if.else182:                                       ; preds = %while.end172
   br i1 %12, label %if.then184, label %if.else186
 
 if.then184:                                       ; preds = %if.else182
   %left185 = getelementptr inbounds i8, ptr %11, i64 16
+  store ptr %next.0.lcssa178216, ptr %left185, align 8
   br label %if.end191
 
 if.else186:                                       ; preds = %if.else182
   %right187 = getelementptr inbounds i8, ptr %11, i64 24
+  store ptr %next.0.lcssa178216, ptr %right187, align 8
   br label %if.end191
 
-if.end191:                                        ; preds = %while.end172, %if.then184, %if.else186
-  %left185.sink = phi ptr [ %left185, %if.then184 ], [ %right187, %if.else186 ], [ %tree, %while.end172 ]
-  store ptr %next.0.lcssa178216, ptr %left185.sink, align 8
-  %tobool192.not = icmp eq ptr %38, null
-  br i1 %tobool192.not, label %if.end264, label %while.body195
+if.end191:                                        ; preds = %if.then184, %if.else186, %if.then180
+  %tobool192.not = icmp eq ptr %44, null
+  br i1 %tobool192.not, label %if.end264, label %while.body195.preheader
 
-while.body195.preheader.sink.split:               ; preds = %if.else108, %if.else76, %if.then53, %if.else59
-  %.sink234 = phi i64 [ 24, %if.else59 ], [ 16, %if.then53 ], [ %., %if.else76 ], [ %.240, %if.else108 ]
-  %.sink233 = phi ptr [ %16, %if.else59 ], [ %15, %if.then53 ], [ %22, %if.else76 ], [ %28, %if.else108 ]
-  %.sink231 = phi i8 [ -1, %if.else59 ], [ 1, %if.then53 ], [ %.239, %if.else76 ], [ %.241, %if.else108 ]
-  %right62 = getelementptr inbounds i8, ptr %11, i64 %.sink234
-  store ptr %.sink233, ptr %right62, align 8
-  br label %while.body195.sink.split
-
-while.body195.sink.split:                         ; preds = %if.end262, %while.body195.preheader.sink.split
-  %.sink231.sink = phi i8 [ %.sink231, %while.body195.preheader.sink.split ], [ %.sink236, %if.end262 ]
-  %idx.4.ph = phi i32 [ %dec205, %while.body195.preheader.sink.split ], [ %dec196, %if.end262 ]
-  %balance.1.ph = phi ptr [ %11, %while.body195.preheader.sink.split ], [ %45, %if.end262 ]
-  %balance57.sink232.sink247 = getelementptr inbounds i8, ptr %balance.1.ph, i64 32
-  %44 = load i8, ptr %balance57.sink232.sink247, align 8
-  %sub = add i8 %44, %.sink231.sink
-  store i8 %sub, ptr %balance57.sink232.sink247, align 8
+while.body195.preheader:                          ; preds = %if.else59, %if.then53, %if.else85, %if.then78, %if.else117, %if.then110, %if.end191
+  %idx.4.ph = phi i32 [ %dec205, %if.else59 ], [ %dec205, %if.then53 ], [ %dec205, %if.else85 ], [ %dec205, %if.then78 ], [ %dec205, %if.else117 ], [ %dec205, %if.then110 ], [ %idx.3.lcssa218, %if.end191 ]
+  %balance.1.ph = phi ptr [ %11, %if.else59 ], [ %11, %if.then53 ], [ %11, %if.else85 ], [ %11, %if.then78 ], [ %11, %if.else117 ], [ %11, %if.then110 ], [ %44, %if.end191 ]
   br label %while.body195
 
-while.body195:                                    ; preds = %while.body195.sink.split, %if.end191
-  %idx.4 = phi i32 [ %idx.3.lcssa218, %if.end191 ], [ %idx.4.ph, %while.body195.sink.split ]
-  %balance.1 = phi ptr [ %38, %if.end191 ], [ %balance.1.ph, %while.body195.sink.split ]
+while.body195:                                    ; preds = %while.body195.preheader, %if.end262
+  %idx.4 = phi i32 [ %dec196, %if.end262 ], [ %idx.4.ph, %while.body195.preheader ]
+  %balance.1 = phi ptr [ %50, %if.end262 ], [ %balance.1.ph, %while.body195.preheader ]
   %dec196 = add i32 %idx.4, -1
   %idxprom197 = sext i32 %dec196 to i64
   %arrayidx198 = getelementptr [40 x ptr], ptr %path, i64 0, i64 %idxprom197
-  %45 = load ptr, ptr %arrayidx198, align 8
-  %tobool200 = icmp ne ptr %45, null
+  %50 = load ptr, ptr %arrayidx198, align 8
+  %tobool200 = icmp ne ptr %50, null
   br i1 %tobool200, label %lor.lhs.false201, label %land.end218
 
 lor.lhs.false201:                                 ; preds = %while.body195
-  %left202 = getelementptr inbounds i8, ptr %45, i64 16
-  %46 = load ptr, ptr %left202, align 8
-  %cmp203 = icmp eq ptr %46, %balance.1
+  %left202 = getelementptr inbounds i8, ptr %50, i64 16
+  %51 = load ptr, ptr %left202, align 8
+  %cmp203 = icmp eq ptr %51, %balance.1
   br i1 %cmp203, label %land.end218, label %lor.lhs.false205
 
 lor.lhs.false205:                                 ; preds = %lor.lhs.false201
-  %right206 = getelementptr inbounds i8, ptr %45, i64 24
-  %47 = load ptr, ptr %right206, align 8
-  %cmp207 = icmp eq ptr %47, %balance.1
+  %right206 = getelementptr inbounds i8, ptr %50, i64 24
+  %52 = load ptr, ptr %right206, align 8
+  %cmp207 = icmp eq ptr %52, %balance.1
   br i1 %cmp207, label %land.end218, label %if.else210
 
 if.else210:                                       ; preds = %lor.lhs.false205
@@ -829,11 +861,11 @@ if.else210:                                       ; preds = %lor.lhs.false205
   unreachable
 
 land.end218:                                      ; preds = %lor.lhs.false205, %lor.lhs.false201, %while.body195
-  %48 = phi i1 [ false, %while.body195 ], [ true, %lor.lhs.false201 ], [ false, %lor.lhs.false205 ]
+  %53 = phi i1 [ false, %while.body195 ], [ true, %lor.lhs.false201 ], [ false, %lor.lhs.false205 ]
   %balance220 = getelementptr inbounds i8, ptr %balance.1, i64 32
-  %49 = load i8, ptr %balance220, align 8
-  %50 = add i8 %49, -2
-  %or.cond134 = icmp ult i8 %50, -3
+  %54 = load i8, ptr %balance220, align 8
+  %55 = add i8 %54, -2
+  %or.cond134 = icmp ult i8 %55, -3
   br i1 %or.cond134, label %if.then229, label %if.end242
 
 if.then229:                                       ; preds = %land.end218
@@ -842,40 +874,44 @@ if.then229:                                       ; preds = %land.end218
 
 if.else234:                                       ; preds = %if.then229
   %balance243163 = getelementptr inbounds i8, ptr %call230, i64 32
-  br i1 %48, label %if.end242.thread161, label %if.end242.thread156
+  br i1 %53, label %if.end242.thread161, label %if.end242.thread156
 
 if.end242:                                        ; preds = %land.end218
-  %cmp245 = icmp eq i8 %49, 0
+  %cmp245 = icmp eq i8 %54, 0
   %or.cond = and i1 %tobool200, %cmp245
   br i1 %or.cond, label %if.end250, label %if.end264
 
 if.end242.thread161:                              ; preds = %if.else234
-  %left237 = getelementptr inbounds i8, ptr %45, i64 16
+  %left237 = getelementptr inbounds i8, ptr %50, i64 16
   store ptr %call230, ptr %left237, align 8
-  %51 = load i8, ptr %balance243163, align 8
-  %cmp245164 = icmp eq i8 %51, 0
+  %56 = load i8, ptr %balance243163, align 8
+  %cmp245164 = icmp eq i8 %56, 0
   br i1 %cmp245164, label %if.end262, label %if.end264
 
 if.end242.thread156:                              ; preds = %if.else234
-  %right239 = getelementptr inbounds i8, ptr %45, i64 24
+  %right239 = getelementptr inbounds i8, ptr %50, i64 24
   store ptr %call230, ptr %right239, align 8
-  %52 = load i8, ptr %balance243163, align 8
-  %cmp245159 = icmp eq i8 %52, 0
+  %57 = load i8, ptr %balance243163, align 8
+  %cmp245159 = icmp eq i8 %57, 0
   br i1 %cmp245159, label %if.else257, label %if.end264
 
 if.end250:                                        ; preds = %if.end242
-  br i1 %48, label %if.end262, label %if.else257
+  br i1 %53, label %if.end262, label %if.else257
 
 if.else257:                                       ; preds = %if.end242.thread156, %if.end250
   br label %if.end262
 
 if.end262:                                        ; preds = %if.end250, %if.end242.thread161, %if.else257
-  %.sink236 = phi i8 [ -1, %if.else257 ], [ 1, %if.end242.thread161 ], [ 1, %if.end250 ]
-  br label %while.body195.sink.split
+  %.sink231 = phi i8 [ -1, %if.else257 ], [ 1, %if.end242.thread161 ], [ 1, %if.end250 ]
+  %balance258 = getelementptr inbounds i8, ptr %50, i64 32
+  %58 = load i8, ptr %balance258, align 8
+  %sub260 = add i8 %58, %.sink231
+  store i8 %sub260, ptr %balance258, align 8
+  br label %while.body195
 
 if.end264.sink.split:                             ; preds = %if.then229, %q_tree_node_previous.exit, %q_tree_node_next.exit, %if.then47
-  %.sink238 = phi ptr [ null, %if.then47 ], [ %22, %q_tree_node_next.exit ], [ %28, %q_tree_node_previous.exit ], [ %call230, %if.then229 ]
-  store ptr %.sink238, ptr %tree, align 8
+  %.sink233 = phi ptr [ null, %if.then47 ], [ %24, %q_tree_node_next.exit ], [ %32, %q_tree_node_previous.exit ], [ %call230, %if.then229 ]
+  store ptr %.sink233, ptr %tree, align 8
   br label %if.end264
 
 if.end264:                                        ; preds = %if.end242.thread161, %if.end242.thread156, %if.end242, %if.end264.sink.split, %if.end191
@@ -884,32 +920,32 @@ if.end264:                                        ; preds = %if.end242.thread161
 
 if.then266:                                       ; preds = %if.end264
   %key_destroy_func = getelementptr inbounds i8, ptr %tree, i64 16
-  %53 = load ptr, ptr %key_destroy_func, align 8
-  %tobool267.not = icmp eq ptr %53, null
+  %59 = load ptr, ptr %key_destroy_func, align 8
+  %tobool267.not = icmp eq ptr %59, null
   br i1 %tobool267.not, label %if.end271, label %if.then268
 
 if.then268:                                       ; preds = %if.then266
-  %54 = load ptr, ptr %node.0.lcssa202, align 8
-  tail call void %53(ptr noundef %54) #7
+  %60 = load ptr, ptr %node.0.lcssa202, align 8
+  tail call void %59(ptr noundef %60) #7
   br label %if.end271
 
 if.end271:                                        ; preds = %if.then268, %if.then266
   %value_destroy_func = getelementptr inbounds i8, ptr %tree, i64 24
-  %55 = load ptr, ptr %value_destroy_func, align 8
-  %tobool272.not = icmp eq ptr %55, null
+  %61 = load ptr, ptr %value_destroy_func, align 8
+  %tobool272.not = icmp eq ptr %61, null
   br i1 %tobool272.not, label %if.end276, label %if.then273
 
 if.then273:                                       ; preds = %if.end271
   %value = getelementptr inbounds i8, ptr %node.0.lcssa202, i64 8
-  %56 = load ptr, ptr %value, align 8
-  tail call void %55(ptr noundef %56) #7
+  %62 = load ptr, ptr %value, align 8
+  tail call void %61(ptr noundef %62) #7
   br label %if.end276
 
 if.end276:                                        ; preds = %if.end271, %if.then273, %if.end264
   tail call void @g_free(ptr noundef nonnull %node.0.lcssa202) #7
   %nnodes = getelementptr inbounds i8, ptr %tree, i64 40
-  %57 = load i32, ptr %nnodes, align 8
-  %dec277 = add i32 %57, -1
+  %63 = load i32, ptr %nnodes, align 8
+  %dec277 = add i32 %63, -1
   store i32 %dec277, ptr %nnodes, align 8
   br label %return
 

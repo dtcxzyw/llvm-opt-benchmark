@@ -1180,6 +1180,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %m_currentLimit.i = getelementptr inbounds i8, ptr %arrayidx3, i64 56
+  store i32 0, ptr %m_currentLimit.i, align 8
   br label %land.lhs.true.i
 
 if.end.i:                                         ; preds = %entry
@@ -1212,7 +1213,7 @@ if.then14.i:                                      ; preds = %if.else.i
 if.else18.i:                                      ; preds = %if.end.i
   %cmp20.i = fcmp ogt float %call7, %4
   %m_currentLimit22.i = getelementptr inbounds i8, ptr %arrayidx3, i64 56
-  br i1 %cmp20.i, label %if.then21.i, label %land.lhs.true.i
+  br i1 %cmp20.i, label %if.then21.i, label %if.end40.i
 
 if.then21.i:                                      ; preds = %if.else18.i
   store i32 2, ptr %m_currentLimit22.i, align 8
@@ -1236,9 +1237,11 @@ if.then34.i:                                      ; preds = %if.else31.i
   store float %add36.i, ptr %m_currentLimitError25.i, align 16
   br label %if.end.i10
 
-land.lhs.true.i:                                  ; preds = %if.else18.i, %if.then.i
-  %m_currentLimit22.i.sink = phi ptr [ %m_currentLimit.i, %if.then.i ], [ %m_currentLimit22.i, %if.else18.i ]
-  store i32 0, ptr %m_currentLimit22.i.sink, align 4
+if.end40.i:                                       ; preds = %if.else18.i
+  store i32 0, ptr %m_currentLimit22.i, align 8
+  br label %land.lhs.true.i
+
+land.lhs.true.i:                                  ; preds = %if.end40.i, %if.then.i
   %m_enableMotor.i = getelementptr inbounds i8, ptr %arrayidx3, i64 44
   %5 = load i8, ptr %m_enableMotor.i, align 4
   %6 = and i8 %5, 1
@@ -1564,6 +1567,7 @@ for.body10:                                       ; preds = %for.cond8.preheader
 
 if.then.i.i:                                      ; preds = %for.body10
   %m_currentLimit.i.i = getelementptr inbounds i8, ptr %arrayidx3.i57, i64 56
+  store i32 0, ptr %m_currentLimit.i.i, align 8
   br label %land.lhs.true.i.i
 
 if.end.i.i:                                       ; preds = %for.body10
@@ -1596,7 +1600,7 @@ if.then14.i.i:                                    ; preds = %if.else.i.i
 if.else18.i.i:                                    ; preds = %if.end.i.i
   %cmp20.i.i = fcmp ogt float %call7.i, %27
   %m_currentLimit22.i.i = getelementptr inbounds i8, ptr %arrayidx3.i57, i64 56
-  br i1 %cmp20.i.i, label %if.then21.i.i, label %land.lhs.true.i.i
+  br i1 %cmp20.i.i, label %if.then21.i.i, label %if.end40.i.i
 
 if.then21.i.i:                                    ; preds = %if.else18.i.i
   store i32 2, ptr %m_currentLimit22.i.i, align 8
@@ -1620,9 +1624,11 @@ if.then34.i.i:                                    ; preds = %if.else31.i.i
   store float %add36.i.i, ptr %m_currentLimitError25.i.i, align 16
   br label %if.then12
 
-land.lhs.true.i.i:                                ; preds = %if.else18.i.i, %if.then.i.i
-  %m_currentLimit22.i.sink.i = phi ptr [ %m_currentLimit.i.i, %if.then.i.i ], [ %m_currentLimit22.i.i, %if.else18.i.i ]
-  store i32 0, ptr %m_currentLimit22.i.sink.i, align 4
+if.end40.i.i:                                     ; preds = %if.else18.i.i
+  store i32 0, ptr %m_currentLimit22.i.i, align 8
+  br label %land.lhs.true.i.i
+
+land.lhs.true.i.i:                                ; preds = %if.end40.i.i, %if.then.i.i
   %m_enableMotor.i.i = getelementptr inbounds i8, ptr %arrayidx3.i57, i64 44
   %28 = load i8, ptr %m_enableMotor.i.i, align 4
   %29 = and i8 %28, 1
@@ -2288,7 +2294,8 @@ for.body:                                         ; preds = %entry, %_ZN23b3Gene
 
 if.then.i.i:                                      ; preds = %for.body
   %m_currentLimit.i.i = getelementptr inbounds i8, ptr %arrayidx3.i, i64 56
-  br label %land.lhs.true.i.i
+  store i32 0, ptr %m_currentLimit.i.i, align 8
+  br label %_ZN23b3Generic6DofConstraint21testAngularLimitMotorEi.exit
 
 if.end.i.i:                                       ; preds = %for.body
   %cmp3.i.i = fcmp olt float %call7.i, %3
@@ -2320,7 +2327,7 @@ if.then14.i.i:                                    ; preds = %if.else.i.i
 if.else18.i.i:                                    ; preds = %if.end.i.i
   %cmp20.i.i = fcmp ogt float %call7.i, %4
   %m_currentLimit22.i.i = getelementptr inbounds i8, ptr %arrayidx3.i, i64 56
-  br i1 %cmp20.i.i, label %if.then21.i.i, label %land.lhs.true.i.i
+  br i1 %cmp20.i.i, label %if.then21.i.i, label %if.end40.i.i
 
 if.then21.i.i:                                    ; preds = %if.else18.i.i
   store i32 2, ptr %m_currentLimit22.i.i, align 8
@@ -2344,12 +2351,11 @@ if.then34.i.i:                                    ; preds = %if.else31.i.i
   store float %add36.i.i, ptr %m_currentLimitError25.i.i, align 16
   br label %_ZN23b3Generic6DofConstraint21testAngularLimitMotorEi.exit
 
-land.lhs.true.i.i:                                ; preds = %if.else18.i.i, %if.then.i.i
-  %m_currentLimit22.i.sink.i = phi ptr [ %m_currentLimit.i.i, %if.then.i.i ], [ %m_currentLimit22.i.i, %if.else18.i.i ]
-  store i32 0, ptr %m_currentLimit22.i.sink.i, align 4
+if.end40.i.i:                                     ; preds = %if.else18.i.i
+  store i32 0, ptr %m_currentLimit22.i.i, align 8
   br label %_ZN23b3Generic6DofConstraint21testAngularLimitMotorEi.exit
 
-_ZN23b3Generic6DofConstraint21testAngularLimitMotorEi.exit: ; preds = %land.lhs.true.i.i, %if.then9.i.i, %if.else.i.i, %if.then14.i.i, %if.then28.i.i, %if.else31.i.i, %if.then34.i.i
+_ZN23b3Generic6DofConstraint21testAngularLimitMotorEi.exit: ; preds = %if.then.i.i, %if.end40.i.i, %if.then9.i.i, %if.else.i.i, %if.then14.i.i, %if.then28.i.i, %if.else31.i.i, %if.then34.i.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !50

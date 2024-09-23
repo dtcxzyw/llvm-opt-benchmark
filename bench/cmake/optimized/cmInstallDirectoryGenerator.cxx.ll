@@ -186,7 +186,11 @@ _ZN19cmListFileBacktraceD2Ev.exit:                ; preds = %22, %40, %53, %_ZNS
 67:                                               ; preds = %60
   %.not = icmp eq i64 %66, -1
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 104
-  br i1 %.not, label %76, label %.loopexit.sink.split
+  br i1 %.not, label %76, label %.thread
+
+.thread:                                          ; preds = %67
+  store i8 1, ptr %.phi.trans.insert, align 8
+  br label %.loopexit
 
 68:                                               ; preds = %12
   %69 = landingpad { ptr, i32 }
@@ -203,12 +207,12 @@ _ZN19cmListFileBacktraceD2Ev.exit:                ; preds = %22, %40, %53, %_ZNS
 72:                                               ; preds = %70, %68
   %.pn = phi { ptr, i32 } [ %71, %70 ], [ %69, %68 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #14
-  br label %88
+  br label %89
 
 73:                                               ; preds = %_ZN19cmListFileBacktraceD2Ev.exit
   %74 = landingpad { ptr, i32 }
           cleanup
-  br label %87
+  br label %88
 
 .loopexit25:                                      ; preds = %.lr.ph
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -226,7 +230,7 @@ _ZN19cmListFileBacktraceD2Ev.exit:                ; preds = %22, %40, %53, %_ZNS
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %62) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %61) #14
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %59) #14
-  br label %87
+  br label %88
 
 76:                                               ; preds = %67
   %.pre = load i8, ptr %.phi.trans.insert, align 8
@@ -253,23 +257,22 @@ _ZN19cmListFileBacktraceD2Ev.exit:                ; preds = %22, %40, %53, %_ZNS
 
 86:                                               ; preds = %.lr.ph
   %.not20 = icmp eq i64 %85, -1
-  br i1 %.not20, label %83, label %.loopexit.sink.split
+  br i1 %.not20, label %83, label %87
 
-.loopexit.sink.split:                             ; preds = %86, %67
-  %.phi.trans.insert.sink = phi ptr [ %.phi.trans.insert, %67 ], [ %78, %86 ]
-  store i8 1, ptr %.phi.trans.insert.sink, align 8
+87:                                               ; preds = %86
+  store i8 1, ptr %78, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %83, %.loopexit.sink.split, %79, %76
+.loopexit:                                        ; preds = %83, %.thread, %79, %87, %76
   ret void
 
-87:                                               ; preds = %75, %73
+88:                                               ; preds = %75, %73
   %.pn17 = phi { ptr, i32 } [ %lpad.phi, %75 ], [ %74, %73 ]
   call void @_ZN18cmInstallGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) #14
-  br label %88
+  br label %89
 
-88:                                               ; preds = %87, %72
-  %.pn17.pn = phi { ptr, i32 } [ %.pn17, %87 ], [ %.pn, %72 ]
+89:                                               ; preds = %88, %72
+  %.pn17.pn = phi { ptr, i32 } [ %.pn17, %88 ], [ %.pn, %72 ]
   resume { ptr, i32 } %.pn17.pn
 }
 

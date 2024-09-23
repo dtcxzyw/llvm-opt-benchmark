@@ -63,11 +63,11 @@ $_Z3relIhEbRKSt4pairIT_N2cv6Point_IiEEES7_ = comdat any
 
 $_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_T0_T1_ = comdat any
 
-$_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_ = comdat any
-
 $_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_RT0_ = comdat any
 
 $_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_RT0_ = comdat any
+
+$_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_ = comdat any
 
 $_ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_ = comdat any
 
@@ -75,61 +75,61 @@ $_Z3relIaEbRKSt4pairIT_N2cv6Point_IiEEES7_ = comdat any
 
 $_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_T0_T1_ = comdat any
 
-$_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_ = comdat any
-
 $_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_RT0_ = comdat any
 
 $_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_RT0_ = comdat any
+
+$_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_ = comdat any
 
 $_Z3relItEbRKSt4pairIT_N2cv6Point_IiEEES7_ = comdat any
 
 $_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_T0_T1_ = comdat any
 
-$_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_ = comdat any
-
 $_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_RT0_ = comdat any
 
 $_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_RT0_ = comdat any
+
+$_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_ = comdat any
 
 $_Z3relIsEbRKSt4pairIT_N2cv6Point_IiEEES7_ = comdat any
 
 $_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_T0_T1_ = comdat any
 
-$_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_ = comdat any
-
 $_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_RT0_ = comdat any
 
 $_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_RT0_ = comdat any
+
+$_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_ = comdat any
 
 $_Z3relIiEbRKSt4pairIT_N2cv6Point_IiEEES7_ = comdat any
 
 $_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_T0_T1_ = comdat any
 
-$_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_ = comdat any
-
 $_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_RT0_ = comdat any
 
 $_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_RT0_ = comdat any
+
+$_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_ = comdat any
 
 $_Z3relIfEbRKSt4pairIT_N2cv6Point_IiEEES7_ = comdat any
 
 $_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairIfN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_T0_T1_ = comdat any
 
-$_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIfN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_ = comdat any
-
 $_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIfN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_RT0_ = comdat any
 
 $_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIfN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_RT0_ = comdat any
+
+$_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIfN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_ = comdat any
 
 $_Z3relIdEbRKSt4pairIT_N2cv6Point_IiEEES7_ = comdat any
 
 $_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairIdN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_T0_T1_ = comdat any
 
-$_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIdN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_ = comdat any
-
 $_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIdN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_RT0_ = comdat any
 
 $_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIdN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_RT0_ = comdat any
+
+$_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIdN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_ = comdat any
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -5573,158 +5573,90 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_it
   %10 = icmp sgt i64 %9, 192
   br i1 %10, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %4, %17
-  %.018 = phi i64 [ %18, %17 ], [ %2, %4 ]
-  %storemerge17 = phi ptr [ %19, %17 ], [ %1, %4 ]
-  %11 = icmp eq i64 %.018, 0
-  br i1 %11, label %12, label %17
+.lr.ph:                                           ; preds = %4
+  %11 = getelementptr inbounds i8, ptr %0, i64 12
+  br label %12
 
-12:                                               ; preds = %.lr.ph
+12:                                               ; preds = %.lr.ph, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit
+  %13 = phi i64 [ %9, %.lr.ph ], [ %40, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit ]
+  %.019 = phi i64 [ %2, %.lr.ph ], [ %38, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit ]
+  %storemerge18 = phi ptr [ %1, %.lr.ph ], [ %.sroa.012.1.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit ]
+  %14 = icmp eq i64 %.019, 0
+  br i1 %14, label %15, label %20
+
+15:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %3, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %3, ptr %5, align 8
-  call void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_RT0_(ptr %0, ptr %storemerge17, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  call void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_RT0_(ptr %0, ptr %storemerge18, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %.lr.ph.i9.i
 
-.lr.ph.i9.i:                                      ; preds = %12, %.lr.ph.i9.i
-  %.sroa.0.05.i.i = phi ptr [ %13, %.lr.ph.i9.i ], [ %storemerge17, %12 ]
-  %13 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -12
-  call void @_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_RT0_(ptr %0, ptr nonnull %13, ptr nonnull %13, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  %14 = ptrtoint ptr %13 to i64
-  %15 = sub i64 %14, %7
-  %16 = icmp sgt i64 %15, 12
-  br i1 %16, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_T0_.exit, !llvm.loop !131
+.lr.ph.i9.i:                                      ; preds = %15, %.lr.ph.i9.i
+  %.sroa.0.05.i.i = phi ptr [ %16, %.lr.ph.i9.i ], [ %storemerge18, %15 ]
+  %16 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -12
+  call void @_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_RT0_(ptr %0, ptr nonnull %16, ptr nonnull %16, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %17 = ptrtoint ptr %16 to i64
+  %18 = sub i64 %17, %7
+  %19 = icmp sgt i64 %18, 12
+  br i1 %19, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_T0_.exit, !llvm.loop !131
 
 _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_T0_.exit: ; preds = %.lr.ph.i9.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %.loopexit
 
-17:                                               ; preds = %.lr.ph
-  %18 = add nsw i64 %.018, -1
-  %19 = tail call ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_(ptr %0, ptr %storemerge17, ptr %3)
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_T0_T1_(ptr %19, ptr %storemerge17, i64 noundef %18, ptr %3)
-  %20 = ptrtoint ptr %19 to i64
-  %21 = sub i64 %20, %7
-  %22 = icmp sgt i64 %21, 192
-  br i1 %22, label %.lr.ph, label %.loopexit, !llvm.loop !132
+20:                                               ; preds = %12
+  %21 = udiv i64 %13, 24
+  %22 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %21
+  %23 = getelementptr inbounds i8, ptr %storemerge18, i64 -12
+  tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_(ptr %0, ptr nonnull %11, ptr %22, ptr nonnull %23, ptr %3)
+  br label %24
 
-.loopexit:                                        ; preds = %17, %4, %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_T0_.exit
+24:                                               ; preds = %31, %20
+  %.sroa.09.0.i.i = phi ptr [ %storemerge18, %20 ], [ %.sroa.09.1.i.i, %31 ]
+  %.sroa.012.0.i.i = phi ptr [ %11, %20 ], [ %27, %31 ]
+  br label %25
+
+25:                                               ; preds = %25, %24
+  %.sroa.012.1.i.i = phi ptr [ %.sroa.012.0.i.i, %24 ], [ %27, %25 ]
+  %26 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.012.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %0)
+  %27 = getelementptr inbounds i8, ptr %.sroa.012.1.i.i, i64 12
+  br i1 %26, label %25, label %.preheader.i.i, !llvm.loop !132
+
+.preheader.i.i:                                   ; preds = %25, %.preheader.i.i
+  %.sroa.09.0.pn.i.i = phi ptr [ %.sroa.09.1.i.i, %.preheader.i.i ], [ %.sroa.09.0.i.i, %25 ]
+  %.sroa.09.1.i.i = getelementptr inbounds i8, ptr %.sroa.09.0.pn.i.i, i64 -12
+  %28 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.09.1.i.i)
+  br i1 %28, label %.preheader.i.i, label %29, !llvm.loop !133
+
+29:                                               ; preds = %.preheader.i.i
+  %30 = icmp ult ptr %.sroa.012.1.i.i, %.sroa.09.1.i.i
+  br i1 %30, label %31, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit
+
+31:                                               ; preds = %29
+  %32 = load i8, ptr %.sroa.012.1.i.i, align 1
+  %33 = load i8, ptr %.sroa.09.1.i.i, align 1
+  store i8 %33, ptr %.sroa.012.1.i.i, align 1
+  store i8 %32, ptr %.sroa.09.1.i.i, align 1
+  %34 = getelementptr inbounds i8, ptr %.sroa.012.1.i.i, i64 4
+  %35 = getelementptr inbounds i8, ptr %.sroa.09.0.pn.i.i, i64 -8
+  %36 = load i64, ptr %34, align 4
+  %37 = load i64, ptr %35, align 4
+  store i64 %37, ptr %34, align 4
+  store i64 %36, ptr %35, align 4
+  br label %24, !llvm.loop !134
+
+_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit: ; preds = %29
+  %38 = add nsw i64 %.019, -1
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_T0_T1_(ptr %.sroa.012.1.i.i, ptr %storemerge18, i64 noundef %38, ptr %3)
+  %39 = ptrtoint ptr %.sroa.012.1.i.i to i64
+  %40 = sub i64 %39, %7
+  %41 = icmp sgt i64 %40, 192
+  br i1 %41, label %12, label %.loopexit, !llvm.loop !135
+
+.loopexit:                                        ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit, %4, %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_T0_.exit
   ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_(ptr %0, ptr %1, ptr %2) local_unnamed_addr #5 comdat {
-  %4 = ptrtoint ptr %1 to i64
-  %5 = ptrtoint ptr %0 to i64
-  %6 = sub i64 %4, %5
-  %7 = sdiv i64 %6, 24
-  %8 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 12
-  %10 = getelementptr inbounds i8, ptr %1, i64 -12
-  %11 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(12) %8)
-  br i1 %11, label %12, label %24
-
-12:                                               ; preds = %3
-  %13 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 4 dereferenceable(12) %10)
-  br i1 %13, label %14, label %17
-
-14:                                               ; preds = %12
-  %15 = load i8, ptr %0, align 1
-  %16 = load i8, ptr %8, align 1
-  store i8 %16, ptr %0, align 1
-  store i8 %15, ptr %8, align 1
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-
-17:                                               ; preds = %12
-  %18 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(12) %10)
-  %19 = load i8, ptr %0, align 1
-  br i1 %18, label %20, label %22
-
-20:                                               ; preds = %17
-  %21 = load i8, ptr %10, align 1
-  store i8 %21, ptr %0, align 1
-  store i8 %19, ptr %10, align 1
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-
-22:                                               ; preds = %17
-  %23 = load i8, ptr %9, align 1
-  store i8 %23, ptr %0, align 1
-  store i8 %19, ptr %9, align 1
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-
-24:                                               ; preds = %3
-  %25 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(12) %10)
-  br i1 %25, label %26, label %29
-
-26:                                               ; preds = %24
-  %27 = load i8, ptr %0, align 1
-  %28 = load i8, ptr %9, align 1
-  store i8 %28, ptr %0, align 1
-  store i8 %27, ptr %9, align 1
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-
-29:                                               ; preds = %24
-  %30 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 4 dereferenceable(12) %10)
-  %31 = load i8, ptr %0, align 1
-  br i1 %30, label %32, label %34
-
-32:                                               ; preds = %29
-  %33 = load i8, ptr %10, align 1
-  store i8 %33, ptr %0, align 1
-  store i8 %31, ptr %10, align 1
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-
-34:                                               ; preds = %29
-  %35 = load i8, ptr %8, align 1
-  store i8 %35, ptr %0, align 1
-  store i8 %31, ptr %8, align 1
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-
-_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit: ; preds = %14, %20, %22, %26, %32, %34
-  %.sink.i = phi ptr [ %9, %26 ], [ %8, %34 ], [ %10, %32 ], [ %8, %14 ], [ %9, %22 ], [ %10, %20 ]
-  %36 = getelementptr inbounds i8, ptr %.sink.i, i64 4
-  br label %37
-
-37:                                               ; preds = %46, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-  %.sroa.012.1.i.lcssa.pn = phi ptr [ %.sroa.012.1.i, %46 ], [ %0, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit ]
-  %.sink20 = phi ptr [ %49, %46 ], [ %36, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit ]
-  %.sroa.09.0.i = phi ptr [ %.sroa.09.1.i, %46 ], [ %1, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit ]
-  %.sroa.012.0.i = phi ptr [ %42, %46 ], [ %9, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit ]
-  %.sink21 = getelementptr inbounds i8, ptr %.sroa.012.1.i.lcssa.pn, i64 4
-  %38 = load i64, ptr %.sink21, align 4
-  %39 = load i64, ptr %.sink20, align 4
-  store i64 %39, ptr %.sink21, align 4
-  store i64 %38, ptr %.sink20, align 4
-  br label %40
-
-40:                                               ; preds = %40, %37
-  %.sroa.012.1.i = phi ptr [ %.sroa.012.0.i, %37 ], [ %42, %40 ]
-  %41 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.012.1.i, ptr noundef nonnull align 4 dereferenceable(12) %0)
-  %42 = getelementptr inbounds i8, ptr %.sroa.012.1.i, i64 12
-  br i1 %41, label %40, label %.preheader.i, !llvm.loop !133
-
-.preheader.i:                                     ; preds = %40, %.preheader.i
-  %.sroa.09.0.pn.i = phi ptr [ %.sroa.09.1.i, %.preheader.i ], [ %.sroa.09.0.i, %40 ]
-  %.sroa.09.1.i = getelementptr inbounds i8, ptr %.sroa.09.0.pn.i, i64 -12
-  %43 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.09.1.i)
-  br i1 %43, label %.preheader.i, label %44, !llvm.loop !134
-
-44:                                               ; preds = %.preheader.i
-  %45 = icmp ult ptr %.sroa.012.1.i, %.sroa.09.1.i
-  br i1 %45, label %46, label %_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_SJ_T0_.exit
-
-46:                                               ; preds = %44
-  %47 = load i8, ptr %.sroa.012.1.i, align 1
-  %48 = load i8, ptr %.sroa.09.1.i, align 1
-  store i8 %48, ptr %.sroa.012.1.i, align 1
-  store i8 %47, ptr %.sroa.09.1.i, align 1
-  %49 = getelementptr inbounds i8, ptr %.sroa.09.0.pn.i, i64 -8
-  br label %37, !llvm.loop !135
-
-_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_SJ_T0_.exit: ; preds = %44
-  ret ptr %.sroa.012.1.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5961,6 +5893,105 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Point_IiEEESt6
   ret void
 }
 
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_(ptr %0, ptr %1, ptr %2, ptr %3, ptr %4) local_unnamed_addr #5 comdat {
+  %6 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(12) %2)
+  br i1 %6, label %7, label %30
+
+7:                                                ; preds = %5
+  %8 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 4 dereferenceable(12) %2, ptr noundef nonnull align 4 dereferenceable(12) %3)
+  br i1 %8, label %9, label %16
+
+9:                                                ; preds = %7
+  %10 = load i8, ptr %0, align 1
+  %11 = load i8, ptr %2, align 1
+  store i8 %11, ptr %0, align 1
+  store i8 %10, ptr %2, align 1
+  %12 = getelementptr inbounds i8, ptr %0, i64 4
+  %13 = getelementptr inbounds i8, ptr %2, i64 4
+  %14 = load i64, ptr %12, align 4
+  %15 = load i64, ptr %13, align 4
+  store i64 %15, ptr %12, align 4
+  store i64 %14, ptr %13, align 4
+  br label %53
+
+16:                                               ; preds = %7
+  %17 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(12) %3)
+  %18 = load i8, ptr %0, align 1
+  %19 = getelementptr inbounds i8, ptr %0, i64 4
+  br i1 %17, label %20, label %25
+
+20:                                               ; preds = %16
+  %21 = load i8, ptr %3, align 1
+  store i8 %21, ptr %0, align 1
+  store i8 %18, ptr %3, align 1
+  %22 = getelementptr inbounds i8, ptr %3, i64 4
+  %23 = load i64, ptr %19, align 4
+  %24 = load i64, ptr %22, align 4
+  store i64 %24, ptr %19, align 4
+  store i64 %23, ptr %22, align 4
+  br label %53
+
+25:                                               ; preds = %16
+  %26 = load i8, ptr %1, align 1
+  store i8 %26, ptr %0, align 1
+  store i8 %18, ptr %1, align 1
+  %27 = getelementptr inbounds i8, ptr %1, i64 4
+  %28 = load i64, ptr %19, align 4
+  %29 = load i64, ptr %27, align 4
+  store i64 %29, ptr %19, align 4
+  store i64 %28, ptr %27, align 4
+  br label %53
+
+30:                                               ; preds = %5
+  %31 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(12) %3)
+  br i1 %31, label %32, label %39
+
+32:                                               ; preds = %30
+  %33 = load i8, ptr %0, align 1
+  %34 = load i8, ptr %1, align 1
+  store i8 %34, ptr %0, align 1
+  store i8 %33, ptr %1, align 1
+  %35 = getelementptr inbounds i8, ptr %0, i64 4
+  %36 = getelementptr inbounds i8, ptr %1, i64 4
+  %37 = load i64, ptr %35, align 4
+  %38 = load i64, ptr %36, align 4
+  store i64 %38, ptr %35, align 4
+  store i64 %37, ptr %36, align 4
+  br label %53
+
+39:                                               ; preds = %30
+  %40 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 4 dereferenceable(12) %2, ptr noundef nonnull align 4 dereferenceable(12) %3)
+  %41 = load i8, ptr %0, align 1
+  %42 = getelementptr inbounds i8, ptr %0, i64 4
+  br i1 %40, label %43, label %48
+
+43:                                               ; preds = %39
+  %44 = load i8, ptr %3, align 1
+  store i8 %44, ptr %0, align 1
+  store i8 %41, ptr %3, align 1
+  %45 = getelementptr inbounds i8, ptr %3, i64 4
+  %46 = load i64, ptr %42, align 4
+  %47 = load i64, ptr %45, align 4
+  store i64 %47, ptr %42, align 4
+  store i64 %46, ptr %45, align 4
+  br label %53
+
+48:                                               ; preds = %39
+  %49 = load i8, ptr %2, align 1
+  store i8 %49, ptr %0, align 1
+  store i8 %41, ptr %2, align 1
+  %50 = getelementptr inbounds i8, ptr %2, i64 4
+  %51 = load i64, ptr %42, align 4
+  %52 = load i64, ptr %50, align 4
+  store i64 %52, ptr %42, align 4
+  store i64 %51, ptr %50, align 4
+  br label %53
+
+53:                                               ; preds = %32, %48, %43, %9, %25, %20
+  ret void
+}
+
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #11
 
@@ -6088,158 +6119,90 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_it
   %10 = icmp sgt i64 %9, 192
   br i1 %10, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %4, %17
-  %.018 = phi i64 [ %18, %17 ], [ %2, %4 ]
-  %storemerge17 = phi ptr [ %19, %17 ], [ %1, %4 ]
-  %11 = icmp eq i64 %.018, 0
-  br i1 %11, label %12, label %17
+.lr.ph:                                           ; preds = %4
+  %11 = getelementptr inbounds i8, ptr %0, i64 12
+  br label %12
 
-12:                                               ; preds = %.lr.ph
+12:                                               ; preds = %.lr.ph, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit
+  %13 = phi i64 [ %9, %.lr.ph ], [ %40, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit ]
+  %.019 = phi i64 [ %2, %.lr.ph ], [ %38, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit ]
+  %storemerge18 = phi ptr [ %1, %.lr.ph ], [ %.sroa.012.1.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit ]
+  %14 = icmp eq i64 %.019, 0
+  br i1 %14, label %15, label %20
+
+15:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %3, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %3, ptr %5, align 8
-  call void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_RT0_(ptr %0, ptr %storemerge17, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  call void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_RT0_(ptr %0, ptr %storemerge18, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %.lr.ph.i9.i
 
-.lr.ph.i9.i:                                      ; preds = %12, %.lr.ph.i9.i
-  %.sroa.0.05.i.i = phi ptr [ %13, %.lr.ph.i9.i ], [ %storemerge17, %12 ]
-  %13 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -12
-  call void @_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_RT0_(ptr %0, ptr nonnull %13, ptr nonnull %13, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  %14 = ptrtoint ptr %13 to i64
-  %15 = sub i64 %14, %7
-  %16 = icmp sgt i64 %15, 12
-  br i1 %16, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_T0_.exit, !llvm.loop !140
+.lr.ph.i9.i:                                      ; preds = %15, %.lr.ph.i9.i
+  %.sroa.0.05.i.i = phi ptr [ %16, %.lr.ph.i9.i ], [ %storemerge18, %15 ]
+  %16 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -12
+  call void @_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_RT0_(ptr %0, ptr nonnull %16, ptr nonnull %16, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %17 = ptrtoint ptr %16 to i64
+  %18 = sub i64 %17, %7
+  %19 = icmp sgt i64 %18, 12
+  br i1 %19, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_T0_.exit, !llvm.loop !140
 
 _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_T0_.exit: ; preds = %.lr.ph.i9.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %.loopexit
 
-17:                                               ; preds = %.lr.ph
-  %18 = add nsw i64 %.018, -1
-  %19 = tail call ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_(ptr %0, ptr %storemerge17, ptr %3)
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_T0_T1_(ptr %19, ptr %storemerge17, i64 noundef %18, ptr %3)
-  %20 = ptrtoint ptr %19 to i64
-  %21 = sub i64 %20, %7
-  %22 = icmp sgt i64 %21, 192
-  br i1 %22, label %.lr.ph, label %.loopexit, !llvm.loop !141
+20:                                               ; preds = %12
+  %21 = udiv i64 %13, 24
+  %22 = getelementptr inbounds %"struct.std::pair.15", ptr %0, i64 %21
+  %23 = getelementptr inbounds i8, ptr %storemerge18, i64 -12
+  tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_(ptr %0, ptr nonnull %11, ptr %22, ptr nonnull %23, ptr %3)
+  br label %24
 
-.loopexit:                                        ; preds = %17, %4, %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_T0_.exit
+24:                                               ; preds = %31, %20
+  %.sroa.09.0.i.i = phi ptr [ %storemerge18, %20 ], [ %.sroa.09.1.i.i, %31 ]
+  %.sroa.012.0.i.i = phi ptr [ %11, %20 ], [ %27, %31 ]
+  br label %25
+
+25:                                               ; preds = %25, %24
+  %.sroa.012.1.i.i = phi ptr [ %.sroa.012.0.i.i, %24 ], [ %27, %25 ]
+  %26 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.012.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %0)
+  %27 = getelementptr inbounds i8, ptr %.sroa.012.1.i.i, i64 12
+  br i1 %26, label %25, label %.preheader.i.i, !llvm.loop !141
+
+.preheader.i.i:                                   ; preds = %25, %.preheader.i.i
+  %.sroa.09.0.pn.i.i = phi ptr [ %.sroa.09.1.i.i, %.preheader.i.i ], [ %.sroa.09.0.i.i, %25 ]
+  %.sroa.09.1.i.i = getelementptr inbounds i8, ptr %.sroa.09.0.pn.i.i, i64 -12
+  %28 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.09.1.i.i)
+  br i1 %28, label %.preheader.i.i, label %29, !llvm.loop !142
+
+29:                                               ; preds = %.preheader.i.i
+  %30 = icmp ult ptr %.sroa.012.1.i.i, %.sroa.09.1.i.i
+  br i1 %30, label %31, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit
+
+31:                                               ; preds = %29
+  %32 = load i8, ptr %.sroa.012.1.i.i, align 1
+  %33 = load i8, ptr %.sroa.09.1.i.i, align 1
+  store i8 %33, ptr %.sroa.012.1.i.i, align 1
+  store i8 %32, ptr %.sroa.09.1.i.i, align 1
+  %34 = getelementptr inbounds i8, ptr %.sroa.012.1.i.i, i64 4
+  %35 = getelementptr inbounds i8, ptr %.sroa.09.0.pn.i.i, i64 -8
+  %36 = load i64, ptr %34, align 4
+  %37 = load i64, ptr %35, align 4
+  store i64 %37, ptr %34, align 4
+  store i64 %36, ptr %35, align 4
+  br label %24, !llvm.loop !143
+
+_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit: ; preds = %29
+  %38 = add nsw i64 %.019, -1
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_T0_T1_(ptr %.sroa.012.1.i.i, ptr %storemerge18, i64 noundef %38, ptr %3)
+  %39 = ptrtoint ptr %.sroa.012.1.i.i to i64
+  %40 = sub i64 %39, %7
+  %41 = icmp sgt i64 %40, 192
+  br i1 %41, label %12, label %.loopexit, !llvm.loop !144
+
+.loopexit:                                        ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit, %4, %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_T0_.exit
   ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_(ptr %0, ptr %1, ptr %2) local_unnamed_addr #5 comdat {
-  %4 = ptrtoint ptr %1 to i64
-  %5 = ptrtoint ptr %0 to i64
-  %6 = sub i64 %4, %5
-  %7 = sdiv i64 %6, 24
-  %8 = getelementptr inbounds %"struct.std::pair.15", ptr %0, i64 %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 12
-  %10 = getelementptr inbounds i8, ptr %1, i64 -12
-  %11 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(12) %8)
-  br i1 %11, label %12, label %24
-
-12:                                               ; preds = %3
-  %13 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 4 dereferenceable(12) %10)
-  br i1 %13, label %14, label %17
-
-14:                                               ; preds = %12
-  %15 = load i8, ptr %0, align 1
-  %16 = load i8, ptr %8, align 1
-  store i8 %16, ptr %0, align 1
-  store i8 %15, ptr %8, align 1
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-
-17:                                               ; preds = %12
-  %18 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(12) %10)
-  %19 = load i8, ptr %0, align 1
-  br i1 %18, label %20, label %22
-
-20:                                               ; preds = %17
-  %21 = load i8, ptr %10, align 1
-  store i8 %21, ptr %0, align 1
-  store i8 %19, ptr %10, align 1
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-
-22:                                               ; preds = %17
-  %23 = load i8, ptr %9, align 1
-  store i8 %23, ptr %0, align 1
-  store i8 %19, ptr %9, align 1
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-
-24:                                               ; preds = %3
-  %25 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(12) %10)
-  br i1 %25, label %26, label %29
-
-26:                                               ; preds = %24
-  %27 = load i8, ptr %0, align 1
-  %28 = load i8, ptr %9, align 1
-  store i8 %28, ptr %0, align 1
-  store i8 %27, ptr %9, align 1
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-
-29:                                               ; preds = %24
-  %30 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 4 dereferenceable(12) %10)
-  %31 = load i8, ptr %0, align 1
-  br i1 %30, label %32, label %34
-
-32:                                               ; preds = %29
-  %33 = load i8, ptr %10, align 1
-  store i8 %33, ptr %0, align 1
-  store i8 %31, ptr %10, align 1
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-
-34:                                               ; preds = %29
-  %35 = load i8, ptr %8, align 1
-  store i8 %35, ptr %0, align 1
-  store i8 %31, ptr %8, align 1
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-
-_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit: ; preds = %14, %20, %22, %26, %32, %34
-  %.sink.i = phi ptr [ %9, %26 ], [ %8, %34 ], [ %10, %32 ], [ %8, %14 ], [ %9, %22 ], [ %10, %20 ]
-  %36 = getelementptr inbounds i8, ptr %.sink.i, i64 4
-  br label %37
-
-37:                                               ; preds = %46, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-  %.sroa.012.1.i.lcssa.pn = phi ptr [ %.sroa.012.1.i, %46 ], [ %0, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit ]
-  %.sink20 = phi ptr [ %49, %46 ], [ %36, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit ]
-  %.sroa.09.0.i = phi ptr [ %.sroa.09.1.i, %46 ], [ %1, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit ]
-  %.sroa.012.0.i = phi ptr [ %42, %46 ], [ %9, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit ]
-  %.sink21 = getelementptr inbounds i8, ptr %.sroa.012.1.i.lcssa.pn, i64 4
-  %38 = load i64, ptr %.sink21, align 4
-  %39 = load i64, ptr %.sink20, align 4
-  store i64 %39, ptr %.sink21, align 4
-  store i64 %38, ptr %.sink20, align 4
-  br label %40
-
-40:                                               ; preds = %40, %37
-  %.sroa.012.1.i = phi ptr [ %.sroa.012.0.i, %37 ], [ %42, %40 ]
-  %41 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.012.1.i, ptr noundef nonnull align 4 dereferenceable(12) %0)
-  %42 = getelementptr inbounds i8, ptr %.sroa.012.1.i, i64 12
-  br i1 %41, label %40, label %.preheader.i, !llvm.loop !142
-
-.preheader.i:                                     ; preds = %40, %.preheader.i
-  %.sroa.09.0.pn.i = phi ptr [ %.sroa.09.1.i, %.preheader.i ], [ %.sroa.09.0.i, %40 ]
-  %.sroa.09.1.i = getelementptr inbounds i8, ptr %.sroa.09.0.pn.i, i64 -12
-  %43 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.09.1.i)
-  br i1 %43, label %.preheader.i, label %44, !llvm.loop !143
-
-44:                                               ; preds = %.preheader.i
-  %45 = icmp ult ptr %.sroa.012.1.i, %.sroa.09.1.i
-  br i1 %45, label %46, label %_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_SJ_T0_.exit
-
-46:                                               ; preds = %44
-  %47 = load i8, ptr %.sroa.012.1.i, align 1
-  %48 = load i8, ptr %.sroa.09.1.i, align 1
-  store i8 %48, ptr %.sroa.012.1.i, align 1
-  store i8 %47, ptr %.sroa.09.1.i, align 1
-  %49 = getelementptr inbounds i8, ptr %.sroa.09.0.pn.i, i64 -8
-  br label %37, !llvm.loop !144
-
-_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_SJ_T0_.exit: ; preds = %44
-  ret ptr %.sroa.012.1.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6476,6 +6439,105 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Point_IiEEESt6
   ret void
 }
 
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_(ptr %0, ptr %1, ptr %2, ptr %3, ptr %4) local_unnamed_addr #5 comdat {
+  %6 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(12) %2)
+  br i1 %6, label %7, label %30
+
+7:                                                ; preds = %5
+  %8 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 4 dereferenceable(12) %2, ptr noundef nonnull align 4 dereferenceable(12) %3)
+  br i1 %8, label %9, label %16
+
+9:                                                ; preds = %7
+  %10 = load i8, ptr %0, align 1
+  %11 = load i8, ptr %2, align 1
+  store i8 %11, ptr %0, align 1
+  store i8 %10, ptr %2, align 1
+  %12 = getelementptr inbounds i8, ptr %0, i64 4
+  %13 = getelementptr inbounds i8, ptr %2, i64 4
+  %14 = load i64, ptr %12, align 4
+  %15 = load i64, ptr %13, align 4
+  store i64 %15, ptr %12, align 4
+  store i64 %14, ptr %13, align 4
+  br label %53
+
+16:                                               ; preds = %7
+  %17 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(12) %3)
+  %18 = load i8, ptr %0, align 1
+  %19 = getelementptr inbounds i8, ptr %0, i64 4
+  br i1 %17, label %20, label %25
+
+20:                                               ; preds = %16
+  %21 = load i8, ptr %3, align 1
+  store i8 %21, ptr %0, align 1
+  store i8 %18, ptr %3, align 1
+  %22 = getelementptr inbounds i8, ptr %3, i64 4
+  %23 = load i64, ptr %19, align 4
+  %24 = load i64, ptr %22, align 4
+  store i64 %24, ptr %19, align 4
+  store i64 %23, ptr %22, align 4
+  br label %53
+
+25:                                               ; preds = %16
+  %26 = load i8, ptr %1, align 1
+  store i8 %26, ptr %0, align 1
+  store i8 %18, ptr %1, align 1
+  %27 = getelementptr inbounds i8, ptr %1, i64 4
+  %28 = load i64, ptr %19, align 4
+  %29 = load i64, ptr %27, align 4
+  store i64 %29, ptr %19, align 4
+  store i64 %28, ptr %27, align 4
+  br label %53
+
+30:                                               ; preds = %5
+  %31 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(12) %3)
+  br i1 %31, label %32, label %39
+
+32:                                               ; preds = %30
+  %33 = load i8, ptr %0, align 1
+  %34 = load i8, ptr %1, align 1
+  store i8 %34, ptr %0, align 1
+  store i8 %33, ptr %1, align 1
+  %35 = getelementptr inbounds i8, ptr %0, i64 4
+  %36 = getelementptr inbounds i8, ptr %1, i64 4
+  %37 = load i64, ptr %35, align 4
+  %38 = load i64, ptr %36, align 4
+  store i64 %38, ptr %35, align 4
+  store i64 %37, ptr %36, align 4
+  br label %53
+
+39:                                               ; preds = %30
+  %40 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 4 dereferenceable(12) %2, ptr noundef nonnull align 4 dereferenceable(12) %3)
+  %41 = load i8, ptr %0, align 1
+  %42 = getelementptr inbounds i8, ptr %0, i64 4
+  br i1 %40, label %43, label %48
+
+43:                                               ; preds = %39
+  %44 = load i8, ptr %3, align 1
+  store i8 %44, ptr %0, align 1
+  store i8 %41, ptr %3, align 1
+  %45 = getelementptr inbounds i8, ptr %3, i64 4
+  %46 = load i64, ptr %42, align 4
+  %47 = load i64, ptr %45, align 4
+  store i64 %47, ptr %42, align 4
+  store i64 %46, ptr %45, align 4
+  br label %53
+
+48:                                               ; preds = %39
+  %49 = load i8, ptr %2, align 1
+  store i8 %49, ptr %0, align 1
+  store i8 %41, ptr %2, align 1
+  %50 = getelementptr inbounds i8, ptr %2, i64 4
+  %51 = load i64, ptr %42, align 4
+  %52 = load i64, ptr %50, align 4
+  store i64 %52, ptr %42, align 4
+  store i64 %51, ptr %50, align 4
+  br label %53
+
+53:                                               ; preds = %32, %48, %43, %9, %25, %20
+  ret void
+}
+
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_Z3relItEbRKSt4pairIT_N2cv6Point_IiEEES7_(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %1) #7 comdat {
   %3 = load i16, ptr %0, align 4
@@ -6494,158 +6556,90 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_it
   %10 = icmp sgt i64 %9, 192
   br i1 %10, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %4, %17
-  %.018 = phi i64 [ %18, %17 ], [ %2, %4 ]
-  %storemerge17 = phi ptr [ %19, %17 ], [ %1, %4 ]
-  %11 = icmp eq i64 %.018, 0
-  br i1 %11, label %12, label %17
+.lr.ph:                                           ; preds = %4
+  %11 = getelementptr inbounds i8, ptr %0, i64 12
+  br label %12
 
-12:                                               ; preds = %.lr.ph
+12:                                               ; preds = %.lr.ph, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit
+  %13 = phi i64 [ %9, %.lr.ph ], [ %40, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit ]
+  %.019 = phi i64 [ %2, %.lr.ph ], [ %38, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit ]
+  %storemerge18 = phi ptr [ %1, %.lr.ph ], [ %.sroa.012.1.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit ]
+  %14 = icmp eq i64 %.019, 0
+  br i1 %14, label %15, label %20
+
+15:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %3, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %3, ptr %5, align 8
-  call void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_RT0_(ptr %0, ptr %storemerge17, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  call void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_RT0_(ptr %0, ptr %storemerge18, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %.lr.ph.i9.i
 
-.lr.ph.i9.i:                                      ; preds = %12, %.lr.ph.i9.i
-  %.sroa.0.05.i.i = phi ptr [ %13, %.lr.ph.i9.i ], [ %storemerge17, %12 ]
-  %13 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -12
-  call void @_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_RT0_(ptr %0, ptr nonnull %13, ptr nonnull %13, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  %14 = ptrtoint ptr %13 to i64
-  %15 = sub i64 %14, %7
-  %16 = icmp sgt i64 %15, 12
-  br i1 %16, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_T0_.exit, !llvm.loop !148
+.lr.ph.i9.i:                                      ; preds = %15, %.lr.ph.i9.i
+  %.sroa.0.05.i.i = phi ptr [ %16, %.lr.ph.i9.i ], [ %storemerge18, %15 ]
+  %16 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -12
+  call void @_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_RT0_(ptr %0, ptr nonnull %16, ptr nonnull %16, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %17 = ptrtoint ptr %16 to i64
+  %18 = sub i64 %17, %7
+  %19 = icmp sgt i64 %18, 12
+  br i1 %19, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_T0_.exit, !llvm.loop !148
 
 _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_T0_.exit: ; preds = %.lr.ph.i9.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %.loopexit
 
-17:                                               ; preds = %.lr.ph
-  %18 = add nsw i64 %.018, -1
-  %19 = tail call ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_(ptr %0, ptr %storemerge17, ptr %3)
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_T0_T1_(ptr %19, ptr %storemerge17, i64 noundef %18, ptr %3)
-  %20 = ptrtoint ptr %19 to i64
-  %21 = sub i64 %20, %7
-  %22 = icmp sgt i64 %21, 192
-  br i1 %22, label %.lr.ph, label %.loopexit, !llvm.loop !149
+20:                                               ; preds = %12
+  %21 = udiv i64 %13, 24
+  %22 = getelementptr inbounds %"struct.std::pair.27", ptr %0, i64 %21
+  %23 = getelementptr inbounds i8, ptr %storemerge18, i64 -12
+  tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_(ptr %0, ptr nonnull %11, ptr %22, ptr nonnull %23, ptr %3)
+  br label %24
 
-.loopexit:                                        ; preds = %17, %4, %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_T0_.exit
+24:                                               ; preds = %31, %20
+  %.sroa.09.0.i.i = phi ptr [ %storemerge18, %20 ], [ %.sroa.09.1.i.i, %31 ]
+  %.sroa.012.0.i.i = phi ptr [ %11, %20 ], [ %27, %31 ]
+  br label %25
+
+25:                                               ; preds = %25, %24
+  %.sroa.012.1.i.i = phi ptr [ %.sroa.012.0.i.i, %24 ], [ %27, %25 ]
+  %26 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.012.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %0)
+  %27 = getelementptr inbounds i8, ptr %.sroa.012.1.i.i, i64 12
+  br i1 %26, label %25, label %.preheader.i.i, !llvm.loop !149
+
+.preheader.i.i:                                   ; preds = %25, %.preheader.i.i
+  %.sroa.09.0.pn.i.i = phi ptr [ %.sroa.09.1.i.i, %.preheader.i.i ], [ %.sroa.09.0.i.i, %25 ]
+  %.sroa.09.1.i.i = getelementptr inbounds i8, ptr %.sroa.09.0.pn.i.i, i64 -12
+  %28 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.09.1.i.i)
+  br i1 %28, label %.preheader.i.i, label %29, !llvm.loop !150
+
+29:                                               ; preds = %.preheader.i.i
+  %30 = icmp ult ptr %.sroa.012.1.i.i, %.sroa.09.1.i.i
+  br i1 %30, label %31, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit
+
+31:                                               ; preds = %29
+  %32 = load i16, ptr %.sroa.012.1.i.i, align 2
+  %33 = load i16, ptr %.sroa.09.1.i.i, align 2
+  store i16 %33, ptr %.sroa.012.1.i.i, align 2
+  store i16 %32, ptr %.sroa.09.1.i.i, align 2
+  %34 = getelementptr inbounds i8, ptr %.sroa.012.1.i.i, i64 4
+  %35 = getelementptr inbounds i8, ptr %.sroa.09.0.pn.i.i, i64 -8
+  %36 = load i64, ptr %34, align 4
+  %37 = load i64, ptr %35, align 4
+  store i64 %37, ptr %34, align 4
+  store i64 %36, ptr %35, align 4
+  br label %24, !llvm.loop !151
+
+_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit: ; preds = %29
+  %38 = add nsw i64 %.019, -1
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_T0_T1_(ptr %.sroa.012.1.i.i, ptr %storemerge18, i64 noundef %38, ptr %3)
+  %39 = ptrtoint ptr %.sroa.012.1.i.i to i64
+  %40 = sub i64 %39, %7
+  %41 = icmp sgt i64 %40, 192
+  br i1 %41, label %12, label %.loopexit, !llvm.loop !152
+
+.loopexit:                                        ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit, %4, %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_T0_.exit
   ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_(ptr %0, ptr %1, ptr %2) local_unnamed_addr #5 comdat {
-  %4 = ptrtoint ptr %1 to i64
-  %5 = ptrtoint ptr %0 to i64
-  %6 = sub i64 %4, %5
-  %7 = sdiv i64 %6, 24
-  %8 = getelementptr inbounds %"struct.std::pair.27", ptr %0, i64 %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 12
-  %10 = getelementptr inbounds i8, ptr %1, i64 -12
-  %11 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(12) %8)
-  br i1 %11, label %12, label %24
-
-12:                                               ; preds = %3
-  %13 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 4 dereferenceable(12) %10)
-  br i1 %13, label %14, label %17
-
-14:                                               ; preds = %12
-  %15 = load i16, ptr %0, align 2
-  %16 = load i16, ptr %8, align 2
-  store i16 %16, ptr %0, align 2
-  store i16 %15, ptr %8, align 2
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-
-17:                                               ; preds = %12
-  %18 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(12) %10)
-  %19 = load i16, ptr %0, align 2
-  br i1 %18, label %20, label %22
-
-20:                                               ; preds = %17
-  %21 = load i16, ptr %10, align 2
-  store i16 %21, ptr %0, align 2
-  store i16 %19, ptr %10, align 2
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-
-22:                                               ; preds = %17
-  %23 = load i16, ptr %9, align 2
-  store i16 %23, ptr %0, align 2
-  store i16 %19, ptr %9, align 2
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-
-24:                                               ; preds = %3
-  %25 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(12) %10)
-  br i1 %25, label %26, label %29
-
-26:                                               ; preds = %24
-  %27 = load i16, ptr %0, align 2
-  %28 = load i16, ptr %9, align 2
-  store i16 %28, ptr %0, align 2
-  store i16 %27, ptr %9, align 2
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-
-29:                                               ; preds = %24
-  %30 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 4 dereferenceable(12) %10)
-  %31 = load i16, ptr %0, align 2
-  br i1 %30, label %32, label %34
-
-32:                                               ; preds = %29
-  %33 = load i16, ptr %10, align 2
-  store i16 %33, ptr %0, align 2
-  store i16 %31, ptr %10, align 2
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-
-34:                                               ; preds = %29
-  %35 = load i16, ptr %8, align 2
-  store i16 %35, ptr %0, align 2
-  store i16 %31, ptr %8, align 2
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-
-_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit: ; preds = %14, %20, %22, %26, %32, %34
-  %.sink.i = phi ptr [ %9, %26 ], [ %8, %34 ], [ %10, %32 ], [ %8, %14 ], [ %9, %22 ], [ %10, %20 ]
-  %36 = getelementptr inbounds i8, ptr %.sink.i, i64 4
-  br label %37
-
-37:                                               ; preds = %46, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-  %.sroa.012.1.i.lcssa.pn = phi ptr [ %.sroa.012.1.i, %46 ], [ %0, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit ]
-  %.sink20 = phi ptr [ %49, %46 ], [ %36, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit ]
-  %.sroa.09.0.i = phi ptr [ %.sroa.09.1.i, %46 ], [ %1, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit ]
-  %.sroa.012.0.i = phi ptr [ %42, %46 ], [ %9, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit ]
-  %.sink21 = getelementptr inbounds i8, ptr %.sroa.012.1.i.lcssa.pn, i64 4
-  %38 = load i64, ptr %.sink21, align 4
-  %39 = load i64, ptr %.sink20, align 4
-  store i64 %39, ptr %.sink21, align 4
-  store i64 %38, ptr %.sink20, align 4
-  br label %40
-
-40:                                               ; preds = %40, %37
-  %.sroa.012.1.i = phi ptr [ %.sroa.012.0.i, %37 ], [ %42, %40 ]
-  %41 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.012.1.i, ptr noundef nonnull align 4 dereferenceable(12) %0)
-  %42 = getelementptr inbounds i8, ptr %.sroa.012.1.i, i64 12
-  br i1 %41, label %40, label %.preheader.i, !llvm.loop !150
-
-.preheader.i:                                     ; preds = %40, %.preheader.i
-  %.sroa.09.0.pn.i = phi ptr [ %.sroa.09.1.i, %.preheader.i ], [ %.sroa.09.0.i, %40 ]
-  %.sroa.09.1.i = getelementptr inbounds i8, ptr %.sroa.09.0.pn.i, i64 -12
-  %43 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.09.1.i)
-  br i1 %43, label %.preheader.i, label %44, !llvm.loop !151
-
-44:                                               ; preds = %.preheader.i
-  %45 = icmp ult ptr %.sroa.012.1.i, %.sroa.09.1.i
-  br i1 %45, label %46, label %_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_SJ_T0_.exit
-
-46:                                               ; preds = %44
-  %47 = load i16, ptr %.sroa.012.1.i, align 2
-  %48 = load i16, ptr %.sroa.09.1.i, align 2
-  store i16 %48, ptr %.sroa.012.1.i, align 2
-  store i16 %47, ptr %.sroa.09.1.i, align 2
-  %49 = getelementptr inbounds i8, ptr %.sroa.09.0.pn.i, i64 -8
-  br label %37, !llvm.loop !152
-
-_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_SJ_T0_.exit: ; preds = %44
-  ret ptr %.sroa.012.1.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6882,6 +6876,105 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Point_IiEEESt6
   ret void
 }
 
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_(ptr %0, ptr %1, ptr %2, ptr %3, ptr %4) local_unnamed_addr #5 comdat {
+  %6 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(12) %2)
+  br i1 %6, label %7, label %30
+
+7:                                                ; preds = %5
+  %8 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 4 dereferenceable(12) %2, ptr noundef nonnull align 4 dereferenceable(12) %3)
+  br i1 %8, label %9, label %16
+
+9:                                                ; preds = %7
+  %10 = load i16, ptr %0, align 2
+  %11 = load i16, ptr %2, align 2
+  store i16 %11, ptr %0, align 2
+  store i16 %10, ptr %2, align 2
+  %12 = getelementptr inbounds i8, ptr %0, i64 4
+  %13 = getelementptr inbounds i8, ptr %2, i64 4
+  %14 = load i64, ptr %12, align 4
+  %15 = load i64, ptr %13, align 4
+  store i64 %15, ptr %12, align 4
+  store i64 %14, ptr %13, align 4
+  br label %53
+
+16:                                               ; preds = %7
+  %17 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(12) %3)
+  %18 = load i16, ptr %0, align 2
+  %19 = getelementptr inbounds i8, ptr %0, i64 4
+  br i1 %17, label %20, label %25
+
+20:                                               ; preds = %16
+  %21 = load i16, ptr %3, align 2
+  store i16 %21, ptr %0, align 2
+  store i16 %18, ptr %3, align 2
+  %22 = getelementptr inbounds i8, ptr %3, i64 4
+  %23 = load i64, ptr %19, align 4
+  %24 = load i64, ptr %22, align 4
+  store i64 %24, ptr %19, align 4
+  store i64 %23, ptr %22, align 4
+  br label %53
+
+25:                                               ; preds = %16
+  %26 = load i16, ptr %1, align 2
+  store i16 %26, ptr %0, align 2
+  store i16 %18, ptr %1, align 2
+  %27 = getelementptr inbounds i8, ptr %1, i64 4
+  %28 = load i64, ptr %19, align 4
+  %29 = load i64, ptr %27, align 4
+  store i64 %29, ptr %19, align 4
+  store i64 %28, ptr %27, align 4
+  br label %53
+
+30:                                               ; preds = %5
+  %31 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(12) %3)
+  br i1 %31, label %32, label %39
+
+32:                                               ; preds = %30
+  %33 = load i16, ptr %0, align 2
+  %34 = load i16, ptr %1, align 2
+  store i16 %34, ptr %0, align 2
+  store i16 %33, ptr %1, align 2
+  %35 = getelementptr inbounds i8, ptr %0, i64 4
+  %36 = getelementptr inbounds i8, ptr %1, i64 4
+  %37 = load i64, ptr %35, align 4
+  %38 = load i64, ptr %36, align 4
+  store i64 %38, ptr %35, align 4
+  store i64 %37, ptr %36, align 4
+  br label %53
+
+39:                                               ; preds = %30
+  %40 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 4 dereferenceable(12) %2, ptr noundef nonnull align 4 dereferenceable(12) %3)
+  %41 = load i16, ptr %0, align 2
+  %42 = getelementptr inbounds i8, ptr %0, i64 4
+  br i1 %40, label %43, label %48
+
+43:                                               ; preds = %39
+  %44 = load i16, ptr %3, align 2
+  store i16 %44, ptr %0, align 2
+  store i16 %41, ptr %3, align 2
+  %45 = getelementptr inbounds i8, ptr %3, i64 4
+  %46 = load i64, ptr %42, align 4
+  %47 = load i64, ptr %45, align 4
+  store i64 %47, ptr %42, align 4
+  store i64 %46, ptr %45, align 4
+  br label %53
+
+48:                                               ; preds = %39
+  %49 = load i16, ptr %2, align 2
+  store i16 %49, ptr %0, align 2
+  store i16 %41, ptr %2, align 2
+  %50 = getelementptr inbounds i8, ptr %2, i64 4
+  %51 = load i64, ptr %42, align 4
+  %52 = load i64, ptr %50, align 4
+  store i64 %52, ptr %42, align 4
+  store i64 %51, ptr %50, align 4
+  br label %53
+
+53:                                               ; preds = %32, %48, %43, %9, %25, %20
+  ret void
+}
+
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_Z3relIsEbRKSt4pairIT_N2cv6Point_IiEEES7_(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %1) #7 comdat {
   %3 = load i16, ptr %0, align 4
@@ -6900,158 +6993,90 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_it
   %10 = icmp sgt i64 %9, 192
   br i1 %10, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %4, %17
-  %.018 = phi i64 [ %18, %17 ], [ %2, %4 ]
-  %storemerge17 = phi ptr [ %19, %17 ], [ %1, %4 ]
-  %11 = icmp eq i64 %.018, 0
-  br i1 %11, label %12, label %17
+.lr.ph:                                           ; preds = %4
+  %11 = getelementptr inbounds i8, ptr %0, i64 12
+  br label %12
 
-12:                                               ; preds = %.lr.ph
+12:                                               ; preds = %.lr.ph, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit
+  %13 = phi i64 [ %9, %.lr.ph ], [ %40, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit ]
+  %.019 = phi i64 [ %2, %.lr.ph ], [ %38, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit ]
+  %storemerge18 = phi ptr [ %1, %.lr.ph ], [ %.sroa.012.1.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit ]
+  %14 = icmp eq i64 %.019, 0
+  br i1 %14, label %15, label %20
+
+15:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %3, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %3, ptr %5, align 8
-  call void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_RT0_(ptr %0, ptr %storemerge17, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  call void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_RT0_(ptr %0, ptr %storemerge18, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %.lr.ph.i9.i
 
-.lr.ph.i9.i:                                      ; preds = %12, %.lr.ph.i9.i
-  %.sroa.0.05.i.i = phi ptr [ %13, %.lr.ph.i9.i ], [ %storemerge17, %12 ]
-  %13 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -12
-  call void @_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_RT0_(ptr %0, ptr nonnull %13, ptr nonnull %13, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  %14 = ptrtoint ptr %13 to i64
-  %15 = sub i64 %14, %7
-  %16 = icmp sgt i64 %15, 12
-  br i1 %16, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_T0_.exit, !llvm.loop !156
+.lr.ph.i9.i:                                      ; preds = %15, %.lr.ph.i9.i
+  %.sroa.0.05.i.i = phi ptr [ %16, %.lr.ph.i9.i ], [ %storemerge18, %15 ]
+  %16 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -12
+  call void @_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_RT0_(ptr %0, ptr nonnull %16, ptr nonnull %16, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %17 = ptrtoint ptr %16 to i64
+  %18 = sub i64 %17, %7
+  %19 = icmp sgt i64 %18, 12
+  br i1 %19, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_T0_.exit, !llvm.loop !156
 
 _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_T0_.exit: ; preds = %.lr.ph.i9.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %.loopexit
 
-17:                                               ; preds = %.lr.ph
-  %18 = add nsw i64 %.018, -1
-  %19 = tail call ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_(ptr %0, ptr %storemerge17, ptr %3)
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_T0_T1_(ptr %19, ptr %storemerge17, i64 noundef %18, ptr %3)
-  %20 = ptrtoint ptr %19 to i64
-  %21 = sub i64 %20, %7
-  %22 = icmp sgt i64 %21, 192
-  br i1 %22, label %.lr.ph, label %.loopexit, !llvm.loop !157
+20:                                               ; preds = %12
+  %21 = udiv i64 %13, 24
+  %22 = getelementptr inbounds %"struct.std::pair.39", ptr %0, i64 %21
+  %23 = getelementptr inbounds i8, ptr %storemerge18, i64 -12
+  tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_(ptr %0, ptr nonnull %11, ptr %22, ptr nonnull %23, ptr %3)
+  br label %24
 
-.loopexit:                                        ; preds = %17, %4, %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_T0_.exit
+24:                                               ; preds = %31, %20
+  %.sroa.09.0.i.i = phi ptr [ %storemerge18, %20 ], [ %.sroa.09.1.i.i, %31 ]
+  %.sroa.012.0.i.i = phi ptr [ %11, %20 ], [ %27, %31 ]
+  br label %25
+
+25:                                               ; preds = %25, %24
+  %.sroa.012.1.i.i = phi ptr [ %.sroa.012.0.i.i, %24 ], [ %27, %25 ]
+  %26 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.012.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %0)
+  %27 = getelementptr inbounds i8, ptr %.sroa.012.1.i.i, i64 12
+  br i1 %26, label %25, label %.preheader.i.i, !llvm.loop !157
+
+.preheader.i.i:                                   ; preds = %25, %.preheader.i.i
+  %.sroa.09.0.pn.i.i = phi ptr [ %.sroa.09.1.i.i, %.preheader.i.i ], [ %.sroa.09.0.i.i, %25 ]
+  %.sroa.09.1.i.i = getelementptr inbounds i8, ptr %.sroa.09.0.pn.i.i, i64 -12
+  %28 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.09.1.i.i)
+  br i1 %28, label %.preheader.i.i, label %29, !llvm.loop !158
+
+29:                                               ; preds = %.preheader.i.i
+  %30 = icmp ult ptr %.sroa.012.1.i.i, %.sroa.09.1.i.i
+  br i1 %30, label %31, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit
+
+31:                                               ; preds = %29
+  %32 = load i16, ptr %.sroa.012.1.i.i, align 2
+  %33 = load i16, ptr %.sroa.09.1.i.i, align 2
+  store i16 %33, ptr %.sroa.012.1.i.i, align 2
+  store i16 %32, ptr %.sroa.09.1.i.i, align 2
+  %34 = getelementptr inbounds i8, ptr %.sroa.012.1.i.i, i64 4
+  %35 = getelementptr inbounds i8, ptr %.sroa.09.0.pn.i.i, i64 -8
+  %36 = load i64, ptr %34, align 4
+  %37 = load i64, ptr %35, align 4
+  store i64 %37, ptr %34, align 4
+  store i64 %36, ptr %35, align 4
+  br label %24, !llvm.loop !159
+
+_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit: ; preds = %29
+  %38 = add nsw i64 %.019, -1
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_T0_T1_(ptr %.sroa.012.1.i.i, ptr %storemerge18, i64 noundef %38, ptr %3)
+  %39 = ptrtoint ptr %.sroa.012.1.i.i to i64
+  %40 = sub i64 %39, %7
+  %41 = icmp sgt i64 %40, 192
+  br i1 %41, label %12, label %.loopexit, !llvm.loop !160
+
+.loopexit:                                        ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit, %4, %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_T0_.exit
   ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_(ptr %0, ptr %1, ptr %2) local_unnamed_addr #5 comdat {
-  %4 = ptrtoint ptr %1 to i64
-  %5 = ptrtoint ptr %0 to i64
-  %6 = sub i64 %4, %5
-  %7 = sdiv i64 %6, 24
-  %8 = getelementptr inbounds %"struct.std::pair.39", ptr %0, i64 %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 12
-  %10 = getelementptr inbounds i8, ptr %1, i64 -12
-  %11 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(12) %8)
-  br i1 %11, label %12, label %24
-
-12:                                               ; preds = %3
-  %13 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 4 dereferenceable(12) %10)
-  br i1 %13, label %14, label %17
-
-14:                                               ; preds = %12
-  %15 = load i16, ptr %0, align 2
-  %16 = load i16, ptr %8, align 2
-  store i16 %16, ptr %0, align 2
-  store i16 %15, ptr %8, align 2
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-
-17:                                               ; preds = %12
-  %18 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(12) %10)
-  %19 = load i16, ptr %0, align 2
-  br i1 %18, label %20, label %22
-
-20:                                               ; preds = %17
-  %21 = load i16, ptr %10, align 2
-  store i16 %21, ptr %0, align 2
-  store i16 %19, ptr %10, align 2
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-
-22:                                               ; preds = %17
-  %23 = load i16, ptr %9, align 2
-  store i16 %23, ptr %0, align 2
-  store i16 %19, ptr %9, align 2
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-
-24:                                               ; preds = %3
-  %25 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(12) %10)
-  br i1 %25, label %26, label %29
-
-26:                                               ; preds = %24
-  %27 = load i16, ptr %0, align 2
-  %28 = load i16, ptr %9, align 2
-  store i16 %28, ptr %0, align 2
-  store i16 %27, ptr %9, align 2
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-
-29:                                               ; preds = %24
-  %30 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 4 dereferenceable(12) %10)
-  %31 = load i16, ptr %0, align 2
-  br i1 %30, label %32, label %34
-
-32:                                               ; preds = %29
-  %33 = load i16, ptr %10, align 2
-  store i16 %33, ptr %0, align 2
-  store i16 %31, ptr %10, align 2
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-
-34:                                               ; preds = %29
-  %35 = load i16, ptr %8, align 2
-  store i16 %35, ptr %0, align 2
-  store i16 %31, ptr %8, align 2
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-
-_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit: ; preds = %14, %20, %22, %26, %32, %34
-  %.sink.i = phi ptr [ %9, %26 ], [ %8, %34 ], [ %10, %32 ], [ %8, %14 ], [ %9, %22 ], [ %10, %20 ]
-  %36 = getelementptr inbounds i8, ptr %.sink.i, i64 4
-  br label %37
-
-37:                                               ; preds = %46, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-  %.sroa.012.1.i.lcssa.pn = phi ptr [ %.sroa.012.1.i, %46 ], [ %0, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit ]
-  %.sink20 = phi ptr [ %49, %46 ], [ %36, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit ]
-  %.sroa.09.0.i = phi ptr [ %.sroa.09.1.i, %46 ], [ %1, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit ]
-  %.sroa.012.0.i = phi ptr [ %42, %46 ], [ %9, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit ]
-  %.sink21 = getelementptr inbounds i8, ptr %.sroa.012.1.i.lcssa.pn, i64 4
-  %38 = load i64, ptr %.sink21, align 4
-  %39 = load i64, ptr %.sink20, align 4
-  store i64 %39, ptr %.sink21, align 4
-  store i64 %38, ptr %.sink20, align 4
-  br label %40
-
-40:                                               ; preds = %40, %37
-  %.sroa.012.1.i = phi ptr [ %.sroa.012.0.i, %37 ], [ %42, %40 ]
-  %41 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.012.1.i, ptr noundef nonnull align 4 dereferenceable(12) %0)
-  %42 = getelementptr inbounds i8, ptr %.sroa.012.1.i, i64 12
-  br i1 %41, label %40, label %.preheader.i, !llvm.loop !158
-
-.preheader.i:                                     ; preds = %40, %.preheader.i
-  %.sroa.09.0.pn.i = phi ptr [ %.sroa.09.1.i, %.preheader.i ], [ %.sroa.09.0.i, %40 ]
-  %.sroa.09.1.i = getelementptr inbounds i8, ptr %.sroa.09.0.pn.i, i64 -12
-  %43 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.09.1.i)
-  br i1 %43, label %.preheader.i, label %44, !llvm.loop !159
-
-44:                                               ; preds = %.preheader.i
-  %45 = icmp ult ptr %.sroa.012.1.i, %.sroa.09.1.i
-  br i1 %45, label %46, label %_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_SJ_T0_.exit
-
-46:                                               ; preds = %44
-  %47 = load i16, ptr %.sroa.012.1.i, align 2
-  %48 = load i16, ptr %.sroa.09.1.i, align 2
-  store i16 %48, ptr %.sroa.012.1.i, align 2
-  store i16 %47, ptr %.sroa.09.1.i, align 2
-  %49 = getelementptr inbounds i8, ptr %.sroa.09.0.pn.i, i64 -8
-  br label %37, !llvm.loop !160
-
-_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_SJ_T0_.exit: ; preds = %44
-  ret ptr %.sroa.012.1.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7288,6 +7313,105 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Point_IiEEESt6
   ret void
 }
 
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_(ptr %0, ptr %1, ptr %2, ptr %3, ptr %4) local_unnamed_addr #5 comdat {
+  %6 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(12) %2)
+  br i1 %6, label %7, label %30
+
+7:                                                ; preds = %5
+  %8 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 4 dereferenceable(12) %2, ptr noundef nonnull align 4 dereferenceable(12) %3)
+  br i1 %8, label %9, label %16
+
+9:                                                ; preds = %7
+  %10 = load i16, ptr %0, align 2
+  %11 = load i16, ptr %2, align 2
+  store i16 %11, ptr %0, align 2
+  store i16 %10, ptr %2, align 2
+  %12 = getelementptr inbounds i8, ptr %0, i64 4
+  %13 = getelementptr inbounds i8, ptr %2, i64 4
+  %14 = load i64, ptr %12, align 4
+  %15 = load i64, ptr %13, align 4
+  store i64 %15, ptr %12, align 4
+  store i64 %14, ptr %13, align 4
+  br label %53
+
+16:                                               ; preds = %7
+  %17 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(12) %3)
+  %18 = load i16, ptr %0, align 2
+  %19 = getelementptr inbounds i8, ptr %0, i64 4
+  br i1 %17, label %20, label %25
+
+20:                                               ; preds = %16
+  %21 = load i16, ptr %3, align 2
+  store i16 %21, ptr %0, align 2
+  store i16 %18, ptr %3, align 2
+  %22 = getelementptr inbounds i8, ptr %3, i64 4
+  %23 = load i64, ptr %19, align 4
+  %24 = load i64, ptr %22, align 4
+  store i64 %24, ptr %19, align 4
+  store i64 %23, ptr %22, align 4
+  br label %53
+
+25:                                               ; preds = %16
+  %26 = load i16, ptr %1, align 2
+  store i16 %26, ptr %0, align 2
+  store i16 %18, ptr %1, align 2
+  %27 = getelementptr inbounds i8, ptr %1, i64 4
+  %28 = load i64, ptr %19, align 4
+  %29 = load i64, ptr %27, align 4
+  store i64 %29, ptr %19, align 4
+  store i64 %28, ptr %27, align 4
+  br label %53
+
+30:                                               ; preds = %5
+  %31 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(12) %3)
+  br i1 %31, label %32, label %39
+
+32:                                               ; preds = %30
+  %33 = load i16, ptr %0, align 2
+  %34 = load i16, ptr %1, align 2
+  store i16 %34, ptr %0, align 2
+  store i16 %33, ptr %1, align 2
+  %35 = getelementptr inbounds i8, ptr %0, i64 4
+  %36 = getelementptr inbounds i8, ptr %1, i64 4
+  %37 = load i64, ptr %35, align 4
+  %38 = load i64, ptr %36, align 4
+  store i64 %38, ptr %35, align 4
+  store i64 %37, ptr %36, align 4
+  br label %53
+
+39:                                               ; preds = %30
+  %40 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 4 dereferenceable(12) %2, ptr noundef nonnull align 4 dereferenceable(12) %3)
+  %41 = load i16, ptr %0, align 2
+  %42 = getelementptr inbounds i8, ptr %0, i64 4
+  br i1 %40, label %43, label %48
+
+43:                                               ; preds = %39
+  %44 = load i16, ptr %3, align 2
+  store i16 %44, ptr %0, align 2
+  store i16 %41, ptr %3, align 2
+  %45 = getelementptr inbounds i8, ptr %3, i64 4
+  %46 = load i64, ptr %42, align 4
+  %47 = load i64, ptr %45, align 4
+  store i64 %47, ptr %42, align 4
+  store i64 %46, ptr %45, align 4
+  br label %53
+
+48:                                               ; preds = %39
+  %49 = load i16, ptr %2, align 2
+  store i16 %49, ptr %0, align 2
+  store i16 %41, ptr %2, align 2
+  %50 = getelementptr inbounds i8, ptr %2, i64 4
+  %51 = load i64, ptr %42, align 4
+  %52 = load i64, ptr %50, align 4
+  store i64 %52, ptr %42, align 4
+  store i64 %51, ptr %50, align 4
+  br label %53
+
+53:                                               ; preds = %32, %48, %43, %9, %25, %20
+  ret void
+}
+
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_Z3relIiEbRKSt4pairIT_N2cv6Point_IiEEES7_(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %1) #7 comdat {
   %3 = load i32, ptr %0, align 4
@@ -7306,158 +7430,90 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_it
   %10 = icmp sgt i64 %9, 192
   br i1 %10, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %4, %17
-  %.018 = phi i64 [ %18, %17 ], [ %2, %4 ]
-  %storemerge17 = phi ptr [ %19, %17 ], [ %1, %4 ]
-  %11 = icmp eq i64 %.018, 0
-  br i1 %11, label %12, label %17
+.lr.ph:                                           ; preds = %4
+  %11 = getelementptr inbounds i8, ptr %0, i64 12
+  br label %12
 
-12:                                               ; preds = %.lr.ph
+12:                                               ; preds = %.lr.ph, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit
+  %13 = phi i64 [ %9, %.lr.ph ], [ %40, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit ]
+  %.019 = phi i64 [ %2, %.lr.ph ], [ %38, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit ]
+  %storemerge18 = phi ptr [ %1, %.lr.ph ], [ %.sroa.012.1.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit ]
+  %14 = icmp eq i64 %.019, 0
+  br i1 %14, label %15, label %20
+
+15:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %3, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %3, ptr %5, align 8
-  call void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_RT0_(ptr %0, ptr %storemerge17, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  call void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_RT0_(ptr %0, ptr %storemerge18, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %.lr.ph.i9.i
 
-.lr.ph.i9.i:                                      ; preds = %12, %.lr.ph.i9.i
-  %.sroa.0.05.i.i = phi ptr [ %13, %.lr.ph.i9.i ], [ %storemerge17, %12 ]
-  %13 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -12
-  call void @_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_RT0_(ptr %0, ptr nonnull %13, ptr nonnull %13, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  %14 = ptrtoint ptr %13 to i64
-  %15 = sub i64 %14, %7
-  %16 = icmp sgt i64 %15, 12
-  br i1 %16, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_T0_.exit, !llvm.loop !164
+.lr.ph.i9.i:                                      ; preds = %15, %.lr.ph.i9.i
+  %.sroa.0.05.i.i = phi ptr [ %16, %.lr.ph.i9.i ], [ %storemerge18, %15 ]
+  %16 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -12
+  call void @_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_RT0_(ptr %0, ptr nonnull %16, ptr nonnull %16, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %17 = ptrtoint ptr %16 to i64
+  %18 = sub i64 %17, %7
+  %19 = icmp sgt i64 %18, 12
+  br i1 %19, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_T0_.exit, !llvm.loop !164
 
 _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_T0_.exit: ; preds = %.lr.ph.i9.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %.loopexit
 
-17:                                               ; preds = %.lr.ph
-  %18 = add nsw i64 %.018, -1
-  %19 = tail call ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_(ptr %0, ptr %storemerge17, ptr %3)
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_T0_T1_(ptr %19, ptr %storemerge17, i64 noundef %18, ptr %3)
-  %20 = ptrtoint ptr %19 to i64
-  %21 = sub i64 %20, %7
-  %22 = icmp sgt i64 %21, 192
-  br i1 %22, label %.lr.ph, label %.loopexit, !llvm.loop !165
+20:                                               ; preds = %12
+  %21 = udiv i64 %13, 24
+  %22 = getelementptr inbounds %"struct.std::pair.51", ptr %0, i64 %21
+  %23 = getelementptr inbounds i8, ptr %storemerge18, i64 -12
+  tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_(ptr %0, ptr nonnull %11, ptr %22, ptr nonnull %23, ptr %3)
+  br label %24
 
-.loopexit:                                        ; preds = %17, %4, %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_T0_.exit
+24:                                               ; preds = %31, %20
+  %.sroa.09.0.i.i = phi ptr [ %storemerge18, %20 ], [ %.sroa.09.1.i.i, %31 ]
+  %.sroa.012.0.i.i = phi ptr [ %11, %20 ], [ %27, %31 ]
+  br label %25
+
+25:                                               ; preds = %25, %24
+  %.sroa.012.1.i.i = phi ptr [ %.sroa.012.0.i.i, %24 ], [ %27, %25 ]
+  %26 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.012.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %0)
+  %27 = getelementptr inbounds i8, ptr %.sroa.012.1.i.i, i64 12
+  br i1 %26, label %25, label %.preheader.i.i, !llvm.loop !165
+
+.preheader.i.i:                                   ; preds = %25, %.preheader.i.i
+  %.sroa.09.0.pn.i.i = phi ptr [ %.sroa.09.1.i.i, %.preheader.i.i ], [ %.sroa.09.0.i.i, %25 ]
+  %.sroa.09.1.i.i = getelementptr inbounds i8, ptr %.sroa.09.0.pn.i.i, i64 -12
+  %28 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.09.1.i.i)
+  br i1 %28, label %.preheader.i.i, label %29, !llvm.loop !166
+
+29:                                               ; preds = %.preheader.i.i
+  %30 = icmp ult ptr %.sroa.012.1.i.i, %.sroa.09.1.i.i
+  br i1 %30, label %31, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit
+
+31:                                               ; preds = %29
+  %32 = load i32, ptr %.sroa.012.1.i.i, align 4
+  %33 = load i32, ptr %.sroa.09.1.i.i, align 4
+  store i32 %33, ptr %.sroa.012.1.i.i, align 4
+  store i32 %32, ptr %.sroa.09.1.i.i, align 4
+  %34 = getelementptr inbounds i8, ptr %.sroa.012.1.i.i, i64 4
+  %35 = getelementptr inbounds i8, ptr %.sroa.09.0.pn.i.i, i64 -8
+  %36 = load i64, ptr %34, align 4
+  %37 = load i64, ptr %35, align 4
+  store i64 %37, ptr %34, align 4
+  store i64 %36, ptr %35, align 4
+  br label %24, !llvm.loop !167
+
+_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit: ; preds = %29
+  %38 = add nsw i64 %.019, -1
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_T0_T1_(ptr %.sroa.012.1.i.i, ptr %storemerge18, i64 noundef %38, ptr %3)
+  %39 = ptrtoint ptr %.sroa.012.1.i.i to i64
+  %40 = sub i64 %39, %7
+  %41 = icmp sgt i64 %40, 192
+  br i1 %41, label %12, label %.loopexit, !llvm.loop !168
+
+.loopexit:                                        ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit, %4, %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_T0_.exit
   ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_(ptr %0, ptr %1, ptr %2) local_unnamed_addr #5 comdat {
-  %4 = ptrtoint ptr %1 to i64
-  %5 = ptrtoint ptr %0 to i64
-  %6 = sub i64 %4, %5
-  %7 = sdiv i64 %6, 24
-  %8 = getelementptr inbounds %"struct.std::pair.51", ptr %0, i64 %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 12
-  %10 = getelementptr inbounds i8, ptr %1, i64 -12
-  %11 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(12) %8)
-  br i1 %11, label %12, label %24
-
-12:                                               ; preds = %3
-  %13 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 4 dereferenceable(12) %10)
-  br i1 %13, label %14, label %17
-
-14:                                               ; preds = %12
-  %15 = load i32, ptr %0, align 4
-  %16 = load i32, ptr %8, align 4
-  store i32 %16, ptr %0, align 4
-  store i32 %15, ptr %8, align 4
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-
-17:                                               ; preds = %12
-  %18 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(12) %10)
-  %19 = load i32, ptr %0, align 4
-  br i1 %18, label %20, label %22
-
-20:                                               ; preds = %17
-  %21 = load i32, ptr %10, align 4
-  store i32 %21, ptr %0, align 4
-  store i32 %19, ptr %10, align 4
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-
-22:                                               ; preds = %17
-  %23 = load i32, ptr %9, align 4
-  store i32 %23, ptr %0, align 4
-  store i32 %19, ptr %9, align 4
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-
-24:                                               ; preds = %3
-  %25 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(12) %10)
-  br i1 %25, label %26, label %29
-
-26:                                               ; preds = %24
-  %27 = load i32, ptr %0, align 4
-  %28 = load i32, ptr %9, align 4
-  store i32 %28, ptr %0, align 4
-  store i32 %27, ptr %9, align 4
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-
-29:                                               ; preds = %24
-  %30 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 4 dereferenceable(12) %10)
-  %31 = load i32, ptr %0, align 4
-  br i1 %30, label %32, label %34
-
-32:                                               ; preds = %29
-  %33 = load i32, ptr %10, align 4
-  store i32 %33, ptr %0, align 4
-  store i32 %31, ptr %10, align 4
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-
-34:                                               ; preds = %29
-  %35 = load i32, ptr %8, align 4
-  store i32 %35, ptr %0, align 4
-  store i32 %31, ptr %8, align 4
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-
-_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit: ; preds = %14, %20, %22, %26, %32, %34
-  %.sink.i = phi ptr [ %9, %26 ], [ %8, %34 ], [ %10, %32 ], [ %8, %14 ], [ %9, %22 ], [ %10, %20 ]
-  %36 = getelementptr inbounds i8, ptr %.sink.i, i64 4
-  br label %37
-
-37:                                               ; preds = %46, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-  %.sroa.012.1.i.lcssa.pn = phi ptr [ %.sroa.012.1.i, %46 ], [ %0, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit ]
-  %.sink20 = phi ptr [ %49, %46 ], [ %36, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit ]
-  %.sroa.09.0.i = phi ptr [ %.sroa.09.1.i, %46 ], [ %1, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit ]
-  %.sroa.012.0.i = phi ptr [ %42, %46 ], [ %9, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit ]
-  %.sink21 = getelementptr inbounds i8, ptr %.sroa.012.1.i.lcssa.pn, i64 4
-  %38 = load i64, ptr %.sink21, align 4
-  %39 = load i64, ptr %.sink20, align 4
-  store i64 %39, ptr %.sink21, align 4
-  store i64 %38, ptr %.sink20, align 4
-  br label %40
-
-40:                                               ; preds = %40, %37
-  %.sroa.012.1.i = phi ptr [ %.sroa.012.0.i, %37 ], [ %42, %40 ]
-  %41 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.012.1.i, ptr noundef nonnull align 4 dereferenceable(12) %0)
-  %42 = getelementptr inbounds i8, ptr %.sroa.012.1.i, i64 12
-  br i1 %41, label %40, label %.preheader.i, !llvm.loop !166
-
-.preheader.i:                                     ; preds = %40, %.preheader.i
-  %.sroa.09.0.pn.i = phi ptr [ %.sroa.09.1.i, %.preheader.i ], [ %.sroa.09.0.i, %40 ]
-  %.sroa.09.1.i = getelementptr inbounds i8, ptr %.sroa.09.0.pn.i, i64 -12
-  %43 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.09.1.i)
-  br i1 %43, label %.preheader.i, label %44, !llvm.loop !167
-
-44:                                               ; preds = %.preheader.i
-  %45 = icmp ult ptr %.sroa.012.1.i, %.sroa.09.1.i
-  br i1 %45, label %46, label %_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_SJ_T0_.exit
-
-46:                                               ; preds = %44
-  %47 = load i32, ptr %.sroa.012.1.i, align 4
-  %48 = load i32, ptr %.sroa.09.1.i, align 4
-  store i32 %48, ptr %.sroa.012.1.i, align 4
-  store i32 %47, ptr %.sroa.09.1.i, align 4
-  %49 = getelementptr inbounds i8, ptr %.sroa.09.0.pn.i, i64 -8
-  br label %37, !llvm.loop !168
-
-_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_SJ_T0_.exit: ; preds = %44
-  ret ptr %.sroa.012.1.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7694,6 +7750,105 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN2cv6Point_IiEEESt6
   ret void
 }
 
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_(ptr %0, ptr %1, ptr %2, ptr %3, ptr %4) local_unnamed_addr #5 comdat {
+  %6 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(12) %2)
+  br i1 %6, label %7, label %30
+
+7:                                                ; preds = %5
+  %8 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 4 dereferenceable(12) %2, ptr noundef nonnull align 4 dereferenceable(12) %3)
+  br i1 %8, label %9, label %16
+
+9:                                                ; preds = %7
+  %10 = load i32, ptr %0, align 4
+  %11 = load i32, ptr %2, align 4
+  store i32 %11, ptr %0, align 4
+  store i32 %10, ptr %2, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 4
+  %13 = getelementptr inbounds i8, ptr %2, i64 4
+  %14 = load i64, ptr %12, align 4
+  %15 = load i64, ptr %13, align 4
+  store i64 %15, ptr %12, align 4
+  store i64 %14, ptr %13, align 4
+  br label %53
+
+16:                                               ; preds = %7
+  %17 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(12) %3)
+  %18 = load i32, ptr %0, align 4
+  %19 = getelementptr inbounds i8, ptr %0, i64 4
+  br i1 %17, label %20, label %25
+
+20:                                               ; preds = %16
+  %21 = load i32, ptr %3, align 4
+  store i32 %21, ptr %0, align 4
+  store i32 %18, ptr %3, align 4
+  %22 = getelementptr inbounds i8, ptr %3, i64 4
+  %23 = load i64, ptr %19, align 4
+  %24 = load i64, ptr %22, align 4
+  store i64 %24, ptr %19, align 4
+  store i64 %23, ptr %22, align 4
+  br label %53
+
+25:                                               ; preds = %16
+  %26 = load i32, ptr %1, align 4
+  store i32 %26, ptr %0, align 4
+  store i32 %18, ptr %1, align 4
+  %27 = getelementptr inbounds i8, ptr %1, i64 4
+  %28 = load i64, ptr %19, align 4
+  %29 = load i64, ptr %27, align 4
+  store i64 %29, ptr %19, align 4
+  store i64 %28, ptr %27, align 4
+  br label %53
+
+30:                                               ; preds = %5
+  %31 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(12) %3)
+  br i1 %31, label %32, label %39
+
+32:                                               ; preds = %30
+  %33 = load i32, ptr %0, align 4
+  %34 = load i32, ptr %1, align 4
+  store i32 %34, ptr %0, align 4
+  store i32 %33, ptr %1, align 4
+  %35 = getelementptr inbounds i8, ptr %0, i64 4
+  %36 = getelementptr inbounds i8, ptr %1, i64 4
+  %37 = load i64, ptr %35, align 4
+  %38 = load i64, ptr %36, align 4
+  store i64 %38, ptr %35, align 4
+  store i64 %37, ptr %36, align 4
+  br label %53
+
+39:                                               ; preds = %30
+  %40 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 4 dereferenceable(12) %2, ptr noundef nonnull align 4 dereferenceable(12) %3)
+  %41 = load i32, ptr %0, align 4
+  %42 = getelementptr inbounds i8, ptr %0, i64 4
+  br i1 %40, label %43, label %48
+
+43:                                               ; preds = %39
+  %44 = load i32, ptr %3, align 4
+  store i32 %44, ptr %0, align 4
+  store i32 %41, ptr %3, align 4
+  %45 = getelementptr inbounds i8, ptr %3, i64 4
+  %46 = load i64, ptr %42, align 4
+  %47 = load i64, ptr %45, align 4
+  store i64 %47, ptr %42, align 4
+  store i64 %46, ptr %45, align 4
+  br label %53
+
+48:                                               ; preds = %39
+  %49 = load i32, ptr %2, align 4
+  store i32 %49, ptr %0, align 4
+  store i32 %41, ptr %2, align 4
+  %50 = getelementptr inbounds i8, ptr %2, i64 4
+  %51 = load i64, ptr %42, align 4
+  %52 = load i64, ptr %50, align 4
+  store i64 %52, ptr %42, align 4
+  store i64 %51, ptr %50, align 4
+  br label %53
+
+53:                                               ; preds = %32, %48, %43, %9, %25, %20
+  ret void
+}
+
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_Z3relIfEbRKSt4pairIT_N2cv6Point_IiEEES7_(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %1) #7 comdat {
   %3 = load float, ptr %0, align 4
@@ -7712,158 +7867,90 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_it
   %10 = icmp sgt i64 %9, 192
   br i1 %10, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %4, %17
-  %.018 = phi i64 [ %18, %17 ], [ %2, %4 ]
-  %storemerge17 = phi ptr [ %19, %17 ], [ %1, %4 ]
-  %11 = icmp eq i64 %.018, 0
-  br i1 %11, label %12, label %17
+.lr.ph:                                           ; preds = %4
+  %11 = getelementptr inbounds i8, ptr %0, i64 12
+  br label %12
 
-12:                                               ; preds = %.lr.ph
+12:                                               ; preds = %.lr.ph, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIfN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit
+  %13 = phi i64 [ %9, %.lr.ph ], [ %40, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIfN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit ]
+  %.019 = phi i64 [ %2, %.lr.ph ], [ %38, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIfN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit ]
+  %storemerge18 = phi ptr [ %1, %.lr.ph ], [ %.sroa.012.1.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIfN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit ]
+  %14 = icmp eq i64 %.019, 0
+  br i1 %14, label %15, label %20
+
+15:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %3, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %3, ptr %5, align 8
-  call void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIfN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_RT0_(ptr %0, ptr %storemerge17, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  call void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIfN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_RT0_(ptr %0, ptr %storemerge18, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %.lr.ph.i9.i
 
-.lr.ph.i9.i:                                      ; preds = %12, %.lr.ph.i9.i
-  %.sroa.0.05.i.i = phi ptr [ %13, %.lr.ph.i9.i ], [ %storemerge17, %12 ]
-  %13 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -12
-  call void @_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIfN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_RT0_(ptr %0, ptr nonnull %13, ptr nonnull %13, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  %14 = ptrtoint ptr %13 to i64
-  %15 = sub i64 %14, %7
-  %16 = icmp sgt i64 %15, 12
-  br i1 %16, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIfN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_T0_.exit, !llvm.loop !172
+.lr.ph.i9.i:                                      ; preds = %15, %.lr.ph.i9.i
+  %.sroa.0.05.i.i = phi ptr [ %16, %.lr.ph.i9.i ], [ %storemerge18, %15 ]
+  %16 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -12
+  call void @_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIfN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_RT0_(ptr %0, ptr nonnull %16, ptr nonnull %16, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %17 = ptrtoint ptr %16 to i64
+  %18 = sub i64 %17, %7
+  %19 = icmp sgt i64 %18, 12
+  br i1 %19, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIfN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_T0_.exit, !llvm.loop !172
 
 _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIfN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_T0_.exit: ; preds = %.lr.ph.i9.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %.loopexit
 
-17:                                               ; preds = %.lr.ph
-  %18 = add nsw i64 %.018, -1
-  %19 = tail call ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIfN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_(ptr %0, ptr %storemerge17, ptr %3)
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairIfN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_T0_T1_(ptr %19, ptr %storemerge17, i64 noundef %18, ptr %3)
-  %20 = ptrtoint ptr %19 to i64
-  %21 = sub i64 %20, %7
-  %22 = icmp sgt i64 %21, 192
-  br i1 %22, label %.lr.ph, label %.loopexit, !llvm.loop !173
+20:                                               ; preds = %12
+  %21 = udiv i64 %13, 24
+  %22 = getelementptr inbounds %"struct.std::pair.63", ptr %0, i64 %21
+  %23 = getelementptr inbounds i8, ptr %storemerge18, i64 -12
+  tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIfN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_(ptr %0, ptr nonnull %11, ptr %22, ptr nonnull %23, ptr %3)
+  br label %24
 
-.loopexit:                                        ; preds = %17, %4, %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIfN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_T0_.exit
+24:                                               ; preds = %31, %20
+  %.sroa.09.0.i.i = phi ptr [ %storemerge18, %20 ], [ %.sroa.09.1.i.i, %31 ]
+  %.sroa.012.0.i.i = phi ptr [ %11, %20 ], [ %27, %31 ]
+  br label %25
+
+25:                                               ; preds = %25, %24
+  %.sroa.012.1.i.i = phi ptr [ %.sroa.012.0.i.i, %24 ], [ %27, %25 ]
+  %26 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.012.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %0)
+  %27 = getelementptr inbounds i8, ptr %.sroa.012.1.i.i, i64 12
+  br i1 %26, label %25, label %.preheader.i.i, !llvm.loop !173
+
+.preheader.i.i:                                   ; preds = %25, %.preheader.i.i
+  %.sroa.09.0.pn.i.i = phi ptr [ %.sroa.09.1.i.i, %.preheader.i.i ], [ %.sroa.09.0.i.i, %25 ]
+  %.sroa.09.1.i.i = getelementptr inbounds i8, ptr %.sroa.09.0.pn.i.i, i64 -12
+  %28 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.09.1.i.i)
+  br i1 %28, label %.preheader.i.i, label %29, !llvm.loop !174
+
+29:                                               ; preds = %.preheader.i.i
+  %30 = icmp ult ptr %.sroa.012.1.i.i, %.sroa.09.1.i.i
+  br i1 %30, label %31, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIfN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit
+
+31:                                               ; preds = %29
+  %32 = load float, ptr %.sroa.012.1.i.i, align 4
+  %33 = load float, ptr %.sroa.09.1.i.i, align 4
+  store float %33, ptr %.sroa.012.1.i.i, align 4
+  store float %32, ptr %.sroa.09.1.i.i, align 4
+  %34 = getelementptr inbounds i8, ptr %.sroa.012.1.i.i, i64 4
+  %35 = getelementptr inbounds i8, ptr %.sroa.09.0.pn.i.i, i64 -8
+  %36 = load i64, ptr %34, align 4
+  %37 = load i64, ptr %35, align 4
+  store i64 %37, ptr %34, align 4
+  store i64 %36, ptr %35, align 4
+  br label %24, !llvm.loop !175
+
+_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIfN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit: ; preds = %29
+  %38 = add nsw i64 %.019, -1
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairIfN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_T0_T1_(ptr %.sroa.012.1.i.i, ptr %storemerge18, i64 noundef %38, ptr %3)
+  %39 = ptrtoint ptr %.sroa.012.1.i.i to i64
+  %40 = sub i64 %39, %7
+  %41 = icmp sgt i64 %40, 192
+  br i1 %41, label %12, label %.loopexit, !llvm.loop !176
+
+.loopexit:                                        ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIfN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit, %4, %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIfN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_T0_.exit
   ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIfN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_(ptr %0, ptr %1, ptr %2) local_unnamed_addr #5 comdat {
-  %4 = ptrtoint ptr %1 to i64
-  %5 = ptrtoint ptr %0 to i64
-  %6 = sub i64 %4, %5
-  %7 = sdiv i64 %6, 24
-  %8 = getelementptr inbounds %"struct.std::pair.63", ptr %0, i64 %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 12
-  %10 = getelementptr inbounds i8, ptr %1, i64 -12
-  %11 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(12) %8)
-  br i1 %11, label %12, label %24
-
-12:                                               ; preds = %3
-  %13 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 4 dereferenceable(12) %10)
-  br i1 %13, label %14, label %17
-
-14:                                               ; preds = %12
-  %15 = load float, ptr %0, align 4
-  %16 = load float, ptr %8, align 4
-  store float %16, ptr %0, align 4
-  store float %15, ptr %8, align 4
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIfN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-
-17:                                               ; preds = %12
-  %18 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(12) %10)
-  %19 = load float, ptr %0, align 4
-  br i1 %18, label %20, label %22
-
-20:                                               ; preds = %17
-  %21 = load float, ptr %10, align 4
-  store float %21, ptr %0, align 4
-  store float %19, ptr %10, align 4
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIfN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-
-22:                                               ; preds = %17
-  %23 = load float, ptr %9, align 4
-  store float %23, ptr %0, align 4
-  store float %19, ptr %9, align 4
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIfN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-
-24:                                               ; preds = %3
-  %25 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(12) %10)
-  br i1 %25, label %26, label %29
-
-26:                                               ; preds = %24
-  %27 = load float, ptr %0, align 4
-  %28 = load float, ptr %9, align 4
-  store float %28, ptr %0, align 4
-  store float %27, ptr %9, align 4
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIfN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-
-29:                                               ; preds = %24
-  %30 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 4 dereferenceable(12) %10)
-  %31 = load float, ptr %0, align 4
-  br i1 %30, label %32, label %34
-
-32:                                               ; preds = %29
-  %33 = load float, ptr %10, align 4
-  store float %33, ptr %0, align 4
-  store float %31, ptr %10, align 4
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIfN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-
-34:                                               ; preds = %29
-  %35 = load float, ptr %8, align 4
-  store float %35, ptr %0, align 4
-  store float %31, ptr %8, align 4
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIfN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-
-_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIfN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit: ; preds = %14, %20, %22, %26, %32, %34
-  %.sink.i = phi ptr [ %9, %26 ], [ %8, %34 ], [ %10, %32 ], [ %8, %14 ], [ %9, %22 ], [ %10, %20 ]
-  %36 = getelementptr inbounds i8, ptr %.sink.i, i64 4
-  br label %37
-
-37:                                               ; preds = %46, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIfN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-  %.sroa.012.1.i.lcssa.pn = phi ptr [ %.sroa.012.1.i, %46 ], [ %0, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIfN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit ]
-  %.sink20 = phi ptr [ %49, %46 ], [ %36, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIfN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit ]
-  %.sroa.09.0.i = phi ptr [ %.sroa.09.1.i, %46 ], [ %1, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIfN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit ]
-  %.sroa.012.0.i = phi ptr [ %42, %46 ], [ %9, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIfN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit ]
-  %.sink21 = getelementptr inbounds i8, ptr %.sroa.012.1.i.lcssa.pn, i64 4
-  %38 = load i64, ptr %.sink21, align 4
-  %39 = load i64, ptr %.sink20, align 4
-  store i64 %39, ptr %.sink21, align 4
-  store i64 %38, ptr %.sink20, align 4
-  br label %40
-
-40:                                               ; preds = %40, %37
-  %.sroa.012.1.i = phi ptr [ %.sroa.012.0.i, %37 ], [ %42, %40 ]
-  %41 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.012.1.i, ptr noundef nonnull align 4 dereferenceable(12) %0)
-  %42 = getelementptr inbounds i8, ptr %.sroa.012.1.i, i64 12
-  br i1 %41, label %40, label %.preheader.i, !llvm.loop !174
-
-.preheader.i:                                     ; preds = %40, %.preheader.i
-  %.sroa.09.0.pn.i = phi ptr [ %.sroa.09.1.i, %.preheader.i ], [ %.sroa.09.0.i, %40 ]
-  %.sroa.09.1.i = getelementptr inbounds i8, ptr %.sroa.09.0.pn.i, i64 -12
-  %43 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.09.1.i)
-  br i1 %43, label %.preheader.i, label %44, !llvm.loop !175
-
-44:                                               ; preds = %.preheader.i
-  %45 = icmp ult ptr %.sroa.012.1.i, %.sroa.09.1.i
-  br i1 %45, label %46, label %_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPSt4pairIfN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_SJ_T0_.exit
-
-46:                                               ; preds = %44
-  %47 = load float, ptr %.sroa.012.1.i, align 4
-  %48 = load float, ptr %.sroa.09.1.i, align 4
-  store float %48, ptr %.sroa.012.1.i, align 4
-  store float %47, ptr %.sroa.09.1.i, align 4
-  %49 = getelementptr inbounds i8, ptr %.sroa.09.0.pn.i, i64 -8
-  br label %37, !llvm.loop !176
-
-_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPSt4pairIfN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_SJ_T0_.exit: ; preds = %44
-  ret ptr %.sroa.012.1.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -8102,6 +8189,105 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIfN2cv6Point_IiEEESt6
   ret void
 }
 
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIfN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_(ptr %0, ptr %1, ptr %2, ptr %3, ptr %4) local_unnamed_addr #5 comdat {
+  %6 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(12) %2)
+  br i1 %6, label %7, label %30
+
+7:                                                ; preds = %5
+  %8 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 4 dereferenceable(12) %2, ptr noundef nonnull align 4 dereferenceable(12) %3)
+  br i1 %8, label %9, label %16
+
+9:                                                ; preds = %7
+  %10 = load float, ptr %0, align 4
+  %11 = load float, ptr %2, align 4
+  store float %11, ptr %0, align 4
+  store float %10, ptr %2, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 4
+  %13 = getelementptr inbounds i8, ptr %2, i64 4
+  %14 = load i64, ptr %12, align 4
+  %15 = load i64, ptr %13, align 4
+  store i64 %15, ptr %12, align 4
+  store i64 %14, ptr %13, align 4
+  br label %53
+
+16:                                               ; preds = %7
+  %17 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(12) %3)
+  %18 = load float, ptr %0, align 4
+  %19 = getelementptr inbounds i8, ptr %0, i64 4
+  br i1 %17, label %20, label %25
+
+20:                                               ; preds = %16
+  %21 = load float, ptr %3, align 4
+  store float %21, ptr %0, align 4
+  store float %18, ptr %3, align 4
+  %22 = getelementptr inbounds i8, ptr %3, i64 4
+  %23 = load i64, ptr %19, align 4
+  %24 = load i64, ptr %22, align 4
+  store i64 %24, ptr %19, align 4
+  store i64 %23, ptr %22, align 4
+  br label %53
+
+25:                                               ; preds = %16
+  %26 = load float, ptr %1, align 4
+  store float %26, ptr %0, align 4
+  store float %18, ptr %1, align 4
+  %27 = getelementptr inbounds i8, ptr %1, i64 4
+  %28 = load i64, ptr %19, align 4
+  %29 = load i64, ptr %27, align 4
+  store i64 %29, ptr %19, align 4
+  store i64 %28, ptr %27, align 4
+  br label %53
+
+30:                                               ; preds = %5
+  %31 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(12) %3)
+  br i1 %31, label %32, label %39
+
+32:                                               ; preds = %30
+  %33 = load float, ptr %0, align 4
+  %34 = load float, ptr %1, align 4
+  store float %34, ptr %0, align 4
+  store float %33, ptr %1, align 4
+  %35 = getelementptr inbounds i8, ptr %0, i64 4
+  %36 = getelementptr inbounds i8, ptr %1, i64 4
+  %37 = load i64, ptr %35, align 4
+  %38 = load i64, ptr %36, align 4
+  store i64 %38, ptr %35, align 4
+  store i64 %37, ptr %36, align 4
+  br label %53
+
+39:                                               ; preds = %30
+  %40 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 4 dereferenceable(12) %2, ptr noundef nonnull align 4 dereferenceable(12) %3)
+  %41 = load float, ptr %0, align 4
+  %42 = getelementptr inbounds i8, ptr %0, i64 4
+  br i1 %40, label %43, label %48
+
+43:                                               ; preds = %39
+  %44 = load float, ptr %3, align 4
+  store float %44, ptr %0, align 4
+  store float %41, ptr %3, align 4
+  %45 = getelementptr inbounds i8, ptr %3, i64 4
+  %46 = load i64, ptr %42, align 4
+  %47 = load i64, ptr %45, align 4
+  store i64 %47, ptr %42, align 4
+  store i64 %46, ptr %45, align 4
+  br label %53
+
+48:                                               ; preds = %39
+  %49 = load float, ptr %2, align 4
+  store float %49, ptr %0, align 4
+  store float %41, ptr %2, align 4
+  %50 = getelementptr inbounds i8, ptr %2, i64 4
+  %51 = load i64, ptr %42, align 4
+  %52 = load i64, ptr %50, align 4
+  store i64 %52, ptr %42, align 4
+  store i64 %51, ptr %50, align 4
+  br label %53
+
+53:                                               ; preds = %32, %48, %43, %9, %25, %20
+  ret void
+}
+
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_Z3relIdEbRKSt4pairIT_N2cv6Point_IiEEES7_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #7 comdat {
   %3 = load double, ptr %0, align 8
@@ -8117,162 +8303,95 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_it
   %7 = ptrtoint ptr %0 to i64
   %8 = ptrtoint ptr %1 to i64
   %9 = sub i64 %8, %7
-  %10 = icmp sgt i64 %9, 256
-  br i1 %10, label %.lr.ph, label %.loopexit
+  %10 = ashr exact i64 %9, 4
+  %11 = icmp sgt i64 %10, 16
+  br i1 %11, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %4, %17
-  %.018 = phi i64 [ %18, %17 ], [ %2, %4 ]
-  %storemerge17 = phi ptr [ %19, %17 ], [ %1, %4 ]
-  %11 = icmp eq i64 %.018, 0
-  br i1 %11, label %12, label %17
+.lr.ph:                                           ; preds = %4
+  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  br label %13
 
-12:                                               ; preds = %.lr.ph
+13:                                               ; preds = %.lr.ph, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIdN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit
+  %14 = phi i64 [ %10, %.lr.ph ], [ %42, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIdN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit ]
+  %.019 = phi i64 [ %2, %.lr.ph ], [ %39, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIdN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit ]
+  %storemerge18 = phi ptr [ %1, %.lr.ph ], [ %.sroa.012.1.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIdN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit ]
+  %15 = icmp eq i64 %.019, 0
+  br i1 %15, label %16, label %21
+
+16:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %3, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %3, ptr %5, align 8
-  call void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIdN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_RT0_(ptr %0, ptr %storemerge17, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  call void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIdN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_RT0_(ptr %0, ptr %storemerge18, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %.lr.ph.i9.i
 
-.lr.ph.i9.i:                                      ; preds = %12, %.lr.ph.i9.i
-  %.sroa.0.05.i.i = phi ptr [ %13, %.lr.ph.i9.i ], [ %storemerge17, %12 ]
-  %13 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -16
-  call void @_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIdN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_RT0_(ptr %0, ptr nonnull %13, ptr nonnull %13, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  %14 = ptrtoint ptr %13 to i64
-  %15 = sub i64 %14, %7
-  %16 = icmp sgt i64 %15, 16
-  br i1 %16, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIdN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_T0_.exit, !llvm.loop !180
+.lr.ph.i9.i:                                      ; preds = %16, %.lr.ph.i9.i
+  %.sroa.0.05.i.i = phi ptr [ %17, %.lr.ph.i9.i ], [ %storemerge18, %16 ]
+  %17 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -16
+  call void @_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIdN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_RT0_(ptr %0, ptr nonnull %17, ptr nonnull %17, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %18 = ptrtoint ptr %17 to i64
+  %19 = sub i64 %18, %7
+  %20 = icmp sgt i64 %19, 16
+  br i1 %20, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIdN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_T0_.exit, !llvm.loop !180
 
 _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIdN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_T0_.exit: ; preds = %.lr.ph.i9.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %.loopexit
 
-17:                                               ; preds = %.lr.ph
-  %18 = add nsw i64 %.018, -1
-  %19 = tail call ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIdN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_(ptr %0, ptr %storemerge17, ptr %3)
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairIdN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_T0_T1_(ptr %19, ptr %storemerge17, i64 noundef %18, ptr %3)
-  %20 = ptrtoint ptr %19 to i64
-  %21 = sub i64 %20, %7
-  %22 = icmp sgt i64 %21, 256
-  br i1 %22, label %.lr.ph, label %.loopexit, !llvm.loop !181
+21:                                               ; preds = %13
+  %22 = lshr i64 %14, 1
+  %23 = getelementptr inbounds %"struct.std::pair.75", ptr %0, i64 %22
+  %24 = getelementptr inbounds i8, ptr %storemerge18, i64 -16
+  tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIdN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_(ptr %0, ptr nonnull %12, ptr %23, ptr nonnull %24, ptr %3)
+  br label %25
 
-.loopexit:                                        ; preds = %17, %4, %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIdN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_T0_.exit
+25:                                               ; preds = %32, %21
+  %.sroa.09.0.i.i = phi ptr [ %storemerge18, %21 ], [ %.sroa.09.1.i.i, %32 ]
+  %.sroa.012.0.i.i = phi ptr [ %12, %21 ], [ %28, %32 ]
+  br label %26
+
+26:                                               ; preds = %26, %25
+  %.sroa.012.1.i.i = phi ptr [ %.sroa.012.0.i.i, %25 ], [ %28, %26 ]
+  %27 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.012.1.i.i, ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %28 = getelementptr inbounds i8, ptr %.sroa.012.1.i.i, i64 16
+  br i1 %27, label %26, label %.preheader.i.i, !llvm.loop !181
+
+.preheader.i.i:                                   ; preds = %26, %.preheader.i.i
+  %.sroa.09.0.pn.i.i = phi ptr [ %.sroa.09.1.i.i, %.preheader.i.i ], [ %.sroa.09.0.i.i, %26 ]
+  %.sroa.09.1.i.i = getelementptr inbounds i8, ptr %.sroa.09.0.pn.i.i, i64 -16
+  %29 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.09.1.i.i)
+  br i1 %29, label %.preheader.i.i, label %30, !llvm.loop !182
+
+30:                                               ; preds = %.preheader.i.i
+  %31 = icmp ult ptr %.sroa.012.1.i.i, %.sroa.09.1.i.i
+  br i1 %31, label %32, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIdN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit
+
+32:                                               ; preds = %30
+  %33 = load double, ptr %.sroa.012.1.i.i, align 8
+  %34 = load double, ptr %.sroa.09.1.i.i, align 8
+  store double %34, ptr %.sroa.012.1.i.i, align 8
+  store double %33, ptr %.sroa.09.1.i.i, align 8
+  %35 = getelementptr inbounds i8, ptr %.sroa.012.1.i.i, i64 8
+  %36 = getelementptr inbounds i8, ptr %.sroa.09.0.pn.i.i, i64 -8
+  %37 = load i64, ptr %35, align 4
+  %38 = load i64, ptr %36, align 4
+  store i64 %38, ptr %35, align 4
+  store i64 %37, ptr %36, align 4
+  br label %25, !llvm.loop !183
+
+_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIdN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit: ; preds = %30
+  %39 = add nsw i64 %.019, -1
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairIdN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_T0_T1_(ptr %.sroa.012.1.i.i, ptr %storemerge18, i64 noundef %39, ptr %3)
+  %40 = ptrtoint ptr %.sroa.012.1.i.i to i64
+  %41 = sub i64 %40, %7
+  %42 = ashr exact i64 %41, 4
+  %43 = icmp sgt i64 %42, 16
+  br i1 %43, label %13, label %.loopexit, !llvm.loop !184
+
+.loopexit:                                        ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIdN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_.exit, %4, %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIdN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_T0_.exit
   ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIdN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_T0_(ptr %0, ptr %1, ptr %2) local_unnamed_addr #5 comdat {
-  %4 = ptrtoint ptr %1 to i64
-  %5 = ptrtoint ptr %0 to i64
-  %6 = sub i64 %4, %5
-  %7 = ashr exact i64 %6, 4
-  %8 = sdiv i64 %7, 2
-  %9 = getelementptr inbounds %"struct.std::pair.75", ptr %0, i64 %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
-  %11 = getelementptr inbounds i8, ptr %1, i64 -16
-  %12 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %9)
-  br i1 %12, label %13, label %25
-
-13:                                               ; preds = %3
-  %14 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %11)
-  br i1 %14, label %15, label %18
-
-15:                                               ; preds = %13
-  %16 = load double, ptr %0, align 8
-  %17 = load double, ptr %9, align 8
-  store double %17, ptr %0, align 8
-  store double %16, ptr %9, align 8
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIdN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-
-18:                                               ; preds = %13
-  %19 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11)
-  %20 = load double, ptr %0, align 8
-  br i1 %19, label %21, label %23
-
-21:                                               ; preds = %18
-  %22 = load double, ptr %11, align 8
-  store double %22, ptr %0, align 8
-  store double %20, ptr %11, align 8
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIdN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-
-23:                                               ; preds = %18
-  %24 = load double, ptr %10, align 8
-  store double %24, ptr %0, align 8
-  store double %20, ptr %10, align 8
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIdN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-
-25:                                               ; preds = %3
-  %26 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11)
-  br i1 %26, label %27, label %30
-
-27:                                               ; preds = %25
-  %28 = load double, ptr %0, align 8
-  %29 = load double, ptr %10, align 8
-  store double %29, ptr %0, align 8
-  store double %28, ptr %10, align 8
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIdN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-
-30:                                               ; preds = %25
-  %31 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %11)
-  %32 = load double, ptr %0, align 8
-  br i1 %31, label %33, label %35
-
-33:                                               ; preds = %30
-  %34 = load double, ptr %11, align 8
-  store double %34, ptr %0, align 8
-  store double %32, ptr %11, align 8
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIdN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-
-35:                                               ; preds = %30
-  %36 = load double, ptr %9, align 8
-  store double %36, ptr %0, align 8
-  store double %32, ptr %9, align 8
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIdN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-
-_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIdN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit: ; preds = %15, %21, %23, %27, %33, %35
-  %.sink.i = phi ptr [ %10, %27 ], [ %9, %35 ], [ %11, %33 ], [ %9, %15 ], [ %10, %23 ], [ %11, %21 ]
-  %37 = getelementptr inbounds i8, ptr %.sink.i, i64 8
-  br label %38
-
-38:                                               ; preds = %47, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIdN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit
-  %.sroa.012.1.i.lcssa.pn = phi ptr [ %.sroa.012.1.i, %47 ], [ %0, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIdN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit ]
-  %.sink20 = phi ptr [ %50, %47 ], [ %37, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIdN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit ]
-  %.sroa.09.0.i = phi ptr [ %.sroa.09.1.i, %47 ], [ %1, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIdN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit ]
-  %.sroa.012.0.i = phi ptr [ %43, %47 ], [ %10, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIdN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_.exit ]
-  %.sink21 = getelementptr inbounds i8, ptr %.sroa.012.1.i.lcssa.pn, i64 8
-  %39 = load i64, ptr %.sink21, align 4
-  %40 = load i64, ptr %.sink20, align 4
-  store i64 %40, ptr %.sink21, align 4
-  store i64 %39, ptr %.sink20, align 4
-  br label %41
-
-41:                                               ; preds = %41, %38
-  %.sroa.012.1.i = phi ptr [ %.sroa.012.0.i, %38 ], [ %43, %41 ]
-  %42 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.012.1.i, ptr noundef nonnull align 8 dereferenceable(16) %0)
-  %43 = getelementptr inbounds i8, ptr %.sroa.012.1.i, i64 16
-  br i1 %42, label %41, label %.preheader.i, !llvm.loop !182
-
-.preheader.i:                                     ; preds = %41, %.preheader.i
-  %.sroa.09.0.pn.i = phi ptr [ %.sroa.09.1.i, %.preheader.i ], [ %.sroa.09.0.i, %41 ]
-  %.sroa.09.1.i = getelementptr inbounds i8, ptr %.sroa.09.0.pn.i, i64 -16
-  %44 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.09.1.i)
-  br i1 %44, label %.preheader.i, label %45, !llvm.loop !183
-
-45:                                               ; preds = %.preheader.i
-  %46 = icmp ult ptr %.sroa.012.1.i, %.sroa.09.1.i
-  br i1 %46, label %47, label %_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPSt4pairIdN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_SJ_T0_.exit
-
-47:                                               ; preds = %45
-  %48 = load double, ptr %.sroa.012.1.i, align 8
-  %49 = load double, ptr %.sroa.09.1.i, align 8
-  store double %49, ptr %.sroa.012.1.i, align 8
-  store double %48, ptr %.sroa.09.1.i, align 8
-  %50 = getelementptr inbounds i8, ptr %.sroa.09.0.pn.i, i64 -8
-  br label %38, !llvm.loop !184
-
-_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPSt4pairIdN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEET_SJ_SJ_SJ_T0_.exit: ; preds = %45
-  ret ptr %.sroa.012.1.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -8503,6 +8622,105 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIdN2cv6Point_IiEEESt6
   %58 = getelementptr inbounds i8, ptr %57, i64 8
   store i64 %55, ptr %58, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIdN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_(ptr %0, ptr %1, ptr %2, ptr %3, ptr %4) local_unnamed_addr #5 comdat {
+  %6 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
+  br i1 %6, label %7, label %30
+
+7:                                                ; preds = %5
+  %8 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
+  br i1 %8, label %9, label %16
+
+9:                                                ; preds = %7
+  %10 = load double, ptr %0, align 8
+  %11 = load double, ptr %2, align 8
+  store double %11, ptr %0, align 8
+  store double %10, ptr %2, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %14 = load i64, ptr %12, align 4
+  %15 = load i64, ptr %13, align 4
+  store i64 %15, ptr %12, align 4
+  store i64 %14, ptr %13, align 4
+  br label %53
+
+16:                                               ; preds = %7
+  %17 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %18 = load double, ptr %0, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  br i1 %17, label %20, label %25
+
+20:                                               ; preds = %16
+  %21 = load double, ptr %3, align 8
+  store double %21, ptr %0, align 8
+  store double %18, ptr %3, align 8
+  %22 = getelementptr inbounds i8, ptr %3, i64 8
+  %23 = load i64, ptr %19, align 4
+  %24 = load i64, ptr %22, align 4
+  store i64 %24, ptr %19, align 4
+  store i64 %23, ptr %22, align 4
+  br label %53
+
+25:                                               ; preds = %16
+  %26 = load double, ptr %1, align 8
+  store double %26, ptr %0, align 8
+  store double %18, ptr %1, align 8
+  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = load i64, ptr %19, align 4
+  %29 = load i64, ptr %27, align 4
+  store i64 %29, ptr %19, align 4
+  store i64 %28, ptr %27, align 4
+  br label %53
+
+30:                                               ; preds = %5
+  %31 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %3)
+  br i1 %31, label %32, label %39
+
+32:                                               ; preds = %30
+  %33 = load double, ptr %0, align 8
+  %34 = load double, ptr %1, align 8
+  store double %34, ptr %0, align 8
+  store double %33, ptr %1, align 8
+  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = getelementptr inbounds i8, ptr %1, i64 8
+  %37 = load i64, ptr %35, align 4
+  %38 = load i64, ptr %36, align 4
+  store i64 %38, ptr %35, align 4
+  store i64 %37, ptr %36, align 4
+  br label %53
+
+39:                                               ; preds = %30
+  %40 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %41 = load double, ptr %0, align 8
+  %42 = getelementptr inbounds i8, ptr %0, i64 8
+  br i1 %40, label %43, label %48
+
+43:                                               ; preds = %39
+  %44 = load double, ptr %3, align 8
+  store double %44, ptr %0, align 8
+  store double %41, ptr %3, align 8
+  %45 = getelementptr inbounds i8, ptr %3, i64 8
+  %46 = load i64, ptr %42, align 4
+  %47 = load i64, ptr %45, align 4
+  store i64 %47, ptr %42, align 4
+  store i64 %46, ptr %45, align 4
+  br label %53
+
+48:                                               ; preds = %39
+  %49 = load double, ptr %2, align 8
+  store double %49, ptr %0, align 8
+  store double %41, ptr %2, align 8
+  %50 = getelementptr inbounds i8, ptr %2, i64 8
+  %51 = load i64, ptr %42, align 4
+  %52 = load i64, ptr %50, align 4
+  store i64 %52, ptr %42, align 4
+  store i64 %51, ptr %50, align 4
+  br label %53
+
+53:                                               ; preds = %32, %48, %43, %9, %25, %20
   ret void
 }
 

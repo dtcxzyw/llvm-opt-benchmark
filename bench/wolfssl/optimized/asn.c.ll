@@ -18500,10 +18500,10 @@ if.else:                                          ; preds = %if.then12
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.else, %if.end10
-  %pubKeySize.sink = phi ptr [ %pubKeySize, %if.end10 ], [ %pubKeySize13, %if.else ]
+  %.sink.in = phi ptr [ %pubKeySize, %if.end10 ], [ %pubKeySize13, %if.else ]
   %retval.0.ph = phi i32 [ -202, %if.end10 ], [ 0, %if.else ]
-  %4 = load i32, ptr %pubKeySize.sink, align 8
-  store i32 %4, ptr %derKeySz, align 4
+  %.sink = load i32, ptr %.sink.in, align 8
+  store i32 %.sink, ptr %derKeySz, align 4
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end.thread, %if.then12, %if.end, %entry, %land.lhs.true

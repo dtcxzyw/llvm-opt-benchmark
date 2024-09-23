@@ -153,13 +153,13 @@ define noundef i64 @_ZN10open_spiel10algorithms22TabularQLearningSolver13GetBest
 24:                                               ; preds = %28, %21
   %25 = landingpad { ptr, i32 }
           cleanup
-  br label %74
+  br label %76
 
 26:                                               ; preds = %22
   %27 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
-  br label %74
+  br label %76
 
 28:                                               ; preds = %3
   %29 = load ptr, ptr %1, align 8
@@ -181,10 +181,10 @@ define noundef i64 @_ZN10open_spiel10algorithms22TabularQLearningSolver13GetBest
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 5064
   br label %39
 
-39:                                               ; preds = %.lr.ph, %55
-  %.01534 = phi i64 [ %34, %.lr.ph ], [ %.116, %55 ]
-  %.01733 = phi double [ %2, %.lr.ph ], [ %.118, %55 ]
-  %.sroa.024.032 = phi ptr [ %33, %.lr.ph ], [ %61, %55 ]
+39:                                               ; preds = %.lr.ph, %66
+  %.01534 = phi i64 [ %34, %.lr.ph ], [ %.116, %66 ]
+  %.01733 = phi double [ %2, %.lr.ph ], [ %.118, %66 ]
+  %.sroa.024.032 = phi ptr [ %33, %.lr.ph ], [ %67, %66 ]
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %40 unwind label %62
 
@@ -228,64 +228,70 @@ define noundef i64 @_ZN10open_spiel10algorithms22TabularQLearningSolver13GetBest
   %58 = load double, ptr %57, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #18
   %59 = fcmp ult double %58, %.01733
-  %60 = load i64, ptr %.sroa.024.032, align 8
-  %.118 = select i1 %59, double %.01733, double %58
-  %.116 = select i1 %59, i64 %.01534, i64 %60
-  %61 = getelementptr inbounds i8, ptr %.sroa.024.032, i64 8
-  %.not27 = icmp eq ptr %61, %35
-  br i1 %.not27, label %._crit_edge, label %39
+  br i1 %59, label %66, label %60
+
+60:                                               ; preds = %55
+  %61 = load i64, ptr %.sroa.024.032, align 8
+  br label %66
 
 62:                                               ; preds = %39
   %63 = landingpad { ptr, i32 }
           cleanup
-  br label %73
+  br label %75
 
 64:                                               ; preds = %40
   %65 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #18
-  br label %73
+  br label %75
 
-._crit_edge:                                      ; preds = %55, %32
-  %.015.lcssa = phi i64 [ %34, %32 ], [ %.116, %55 ]
+66:                                               ; preds = %55, %60
+  %.118 = phi double [ %58, %60 ], [ %.01733, %55 ]
+  %.116 = phi i64 [ %61, %60 ], [ %.01534, %55 ]
+  %67 = getelementptr inbounds i8, ptr %.sroa.024.032, i64 8
+  %.not27 = icmp eq ptr %67, %35
+  br i1 %.not27, label %._crit_edge, label %39
+
+._crit_edge:                                      ; preds = %66, %32
+  %.015.lcssa = phi i64 [ %34, %32 ], [ %.116, %66 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #18
-  %66 = load ptr, ptr %4, align 8
-  %.not.i.i.i = icmp eq ptr %66, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %67
+  %68 = load ptr, ptr %4, align 8
+  %.not.i.i.i = icmp eq ptr %68, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %69
 
-67:                                               ; preds = %._crit_edge
-  %68 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %69 = load ptr, ptr %68, align 8
-  %70 = ptrtoint ptr %69 to i64
-  %71 = ptrtoint ptr %66 to i64
-  %72 = sub i64 %70, %71
-  call void @_ZdlPvm(ptr noundef nonnull %66, i64 noundef %72) #19
+69:                                               ; preds = %._crit_edge
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %71 = load ptr, ptr %70, align 8
+  %72 = ptrtoint ptr %71 to i64
+  %73 = ptrtoint ptr %68 to i64
+  %74 = sub i64 %72, %73
+  call void @_ZdlPvm(ptr noundef nonnull %68, i64 noundef %74) #19
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
-_ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge, %67
+_ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge, %69
   ret i64 %.015.lcssa
 
-73:                                               ; preds = %64, %62
+75:                                               ; preds = %64, %62
   %.pn = phi { ptr, i32 } [ %65, %64 ], [ %63, %62 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #18
-  br label %74
+  br label %76
 
-74:                                               ; preds = %73, %26, %24
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %73 ], [ %25, %24 ], [ %27, %26 ]
-  %75 = load ptr, ptr %4, align 8
-  %.not.i.i.i22 = icmp eq ptr %75, null
-  br i1 %.not.i.i.i22, label %_ZNSt6vectorIlSaIlEED2Ev.exit23, label %76
+76:                                               ; preds = %75, %26, %24
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %75 ], [ %25, %24 ], [ %27, %26 ]
+  %77 = load ptr, ptr %4, align 8
+  %.not.i.i.i22 = icmp eq ptr %77, null
+  br i1 %.not.i.i.i22, label %_ZNSt6vectorIlSaIlEED2Ev.exit23, label %78
 
-76:                                               ; preds = %74
-  %77 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %78 = load ptr, ptr %77, align 8
-  %79 = ptrtoint ptr %78 to i64
-  %80 = ptrtoint ptr %75 to i64
-  %81 = sub i64 %79, %80
-  call void @_ZdlPvm(ptr noundef nonnull %75, i64 noundef %81) #19
+78:                                               ; preds = %76
+  %79 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %80 = load ptr, ptr %79, align 8
+  %81 = ptrtoint ptr %80 to i64
+  %82 = ptrtoint ptr %77 to i64
+  %83 = sub i64 %81, %82
+  call void @_ZdlPvm(ptr noundef nonnull %77, i64 noundef %83) #19
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit23
 
-_ZNSt6vectorIlSaIlEED2Ev.exit23:                  ; preds = %74, %76
+_ZNSt6vectorIlSaIlEED2Ev.exit23:                  ; preds = %76, %78
   resume { ptr, i32 } %.pn.pn
 }
 

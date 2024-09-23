@@ -4331,17 +4331,37 @@ sw.bb:                                            ; preds = %trace_esp_pdma_writ
   %shl7.i.i = shl nuw nsw i32 %conv6.i.i, 16
   %or8.i.i = or disjoint i32 %shl7.i.i, %7
   %cmp.i = icmp eq i32 %or8.i.i, 0
-  br i1 %cmp.i, label %sw.epilog, label %sw.epilog.sink.split
+  br i1 %cmp.i, label %sw.epilog, label %if.end.i
+
+if.end.i:                                         ; preds = %sw.bb
+  %conv = trunc i64 %val to i8
+  %do_cmd.i = getelementptr inbounds i8, ptr %call.i, i64 436
+  %9 = load i32, ptr %do_cmd.i, align 4
+  %tobool.not.i = icmp eq i32 %9, 0
+  %..i = select i1 %tobool.not.i, i64 224, i64 408
+  %fifo.i = getelementptr inbounds i8, ptr %call.i, i64 %..i
+  tail call fastcc void @esp_fifo_push(ptr noundef nonnull %fifo.i, i8 noundef zeroext %conv)
+  %dec.i = add nsw i32 %or8.i.i, -1
+  %conv.i.i = trunc i32 %dec.i to i8
+  store i8 %conv.i.i, ptr %rregs.i.i, align 8
+  %shr.i.i = lshr i32 %dec.i, 8
+  %conv1.i.i = trunc i32 %shr.i.i to i8
+  %arrayidx3.i.i = getelementptr i8, ptr %call.i, i64 161
+  store i8 %conv1.i.i, ptr %arrayidx3.i.i, align 1
+  %shr4.i.i = lshr i32 %dec.i, 16
+  %conv5.i.i = trunc i32 %shr4.i.i to i8
+  store i8 %conv5.i.i, ptr %arrayidx5.i.i, align 2
+  br label %sw.epilog
 
 sw.bb1:                                           ; preds = %trace_esp_pdma_write.exit
   %rregs.i.i7 = getelementptr inbounds i8, ptr %call.i, i64 160
-  %9 = load i16, ptr %rregs.i.i7, align 8
-  %10 = zext i16 %9 to i32
+  %10 = load i16, ptr %rregs.i.i7, align 8
+  %11 = zext i16 %10 to i32
   %arrayidx5.i.i8 = getelementptr i8, ptr %call.i, i64 174
-  %11 = load i8, ptr %arrayidx5.i.i8, align 2
-  %conv6.i.i9 = zext i8 %11 to i32
+  %12 = load i8, ptr %arrayidx5.i.i8, align 2
+  %conv6.i.i9 = zext i8 %12 to i32
   %shl7.i.i10 = shl nuw nsw i32 %conv6.i.i9, 16
-  %or8.i.i11 = or disjoint i32 %shl7.i.i10, %10
+  %or8.i.i11 = or disjoint i32 %shl7.i.i10, %11
   %cmp.i12 = icmp eq i32 %or8.i.i11, 0
   br i1 %cmp.i12, label %sw.epilog, label %esp_pdma_write.exit25
 
@@ -4349,8 +4369,8 @@ esp_pdma_write.exit25:                            ; preds = %sw.bb1
   %shr = lshr i64 %val, 8
   %conv2 = trunc i64 %shr to i8
   %do_cmd.i14 = getelementptr inbounds i8, ptr %call.i, i64 436
-  %12 = load i32, ptr %do_cmd.i14, align 4
-  %tobool.not.i15 = icmp eq i32 %12, 0
+  %13 = load i32, ptr %do_cmd.i14, align 4
+  %tobool.not.i15 = icmp eq i32 %13, 0
   %..i16 = select i1 %tobool.not.i15, i64 224, i64 408
   %fifo.i17 = getelementptr inbounds i8, ptr %call.i, i64 %..i16
   tail call fastcc void @esp_fifo_push(ptr noundef nonnull %fifo.i17, i8 noundef zeroext %conv2)
@@ -4369,32 +4389,29 @@ esp_pdma_write.exit25:                            ; preds = %sw.bb1
   %.pre47 = and i32 %dec.i18, 16711680
   %.pre48 = or disjoint i32 %.pre47, %.pre45
   %cmp.i31 = icmp eq i32 %.pre48, 0
-  br i1 %cmp.i31, label %sw.epilog, label %sw.epilog.sink.split
+  br i1 %cmp.i31, label %sw.epilog, label %if.end.i32
 
-sw.epilog.sink.split:                             ; preds = %esp_pdma_write.exit25, %sw.bb
-  %.pre48.sink = phi i32 [ %or8.i.i, %sw.bb ], [ %.pre48, %esp_pdma_write.exit25 ]
-  %rregs.i.i7.sink = phi ptr [ %rregs.i.i, %sw.bb ], [ %rregs.i.i7, %esp_pdma_write.exit25 ]
-  %arrayidx5.i.i8.sink = phi ptr [ %arrayidx5.i.i, %sw.bb ], [ %arrayidx5.i.i8, %esp_pdma_write.exit25 ]
+if.end.i32:                                       ; preds = %esp_pdma_write.exit25
   %conv3 = trunc i64 %val to i8
   %do_cmd.i33 = getelementptr inbounds i8, ptr %call.i, i64 436
-  %13 = load i32, ptr %do_cmd.i33, align 4
-  %tobool.not.i34 = icmp eq i32 %13, 0
+  %14 = load i32, ptr %do_cmd.i33, align 4
+  %tobool.not.i34 = icmp eq i32 %14, 0
   %..i35 = select i1 %tobool.not.i34, i64 224, i64 408
   %fifo.i36 = getelementptr inbounds i8, ptr %call.i, i64 %..i35
   tail call fastcc void @esp_fifo_push(ptr noundef nonnull %fifo.i36, i8 noundef zeroext %conv3)
-  %dec.i37 = add nsw i32 %.pre48.sink, -1
+  %dec.i37 = add nsw i32 %.pre48, -1
   %conv.i.i38 = trunc i32 %dec.i37 to i8
-  store i8 %conv.i.i38, ptr %rregs.i.i7.sink, align 8
+  store i8 %conv.i.i38, ptr %rregs.i.i7, align 8
   %shr.i.i39 = lshr i32 %dec.i37, 8
   %conv1.i.i40 = trunc i32 %shr.i.i39 to i8
   %arrayidx3.i.i41 = getelementptr i8, ptr %call.i, i64 161
   store i8 %conv1.i.i40, ptr %arrayidx3.i.i41, align 1
   %shr4.i.i42 = lshr i32 %dec.i37, 16
   %conv5.i.i43 = trunc i32 %shr4.i.i42 to i8
-  store i8 %conv5.i.i43, ptr %arrayidx5.i.i8.sink, align 2
+  store i8 %conv5.i.i43, ptr %arrayidx5.i.i8, align 2
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.epilog.sink.split, %sw.bb1, %esp_pdma_write.exit25, %sw.bb, %trace_esp_pdma_write.exit
+sw.epilog:                                        ; preds = %sw.bb1, %if.end.i32, %esp_pdma_write.exit25, %if.end.i, %sw.bb, %trace_esp_pdma_write.exit
   tail call fastcc void @esp_pdma_cb(ptr noundef %call.i)
   ret void
 }

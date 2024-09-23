@@ -830,7 +830,7 @@ define linkonce_odr hidden void @_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allo
 5:                                                ; preds = %6, %2
   %.0 = phi ptr [ %4, %2 ], [ %8, %6 ]
   %cond = icmp eq ptr %.0, null
-  br i1 %cond, label %.loopexit, label %6
+  br i1 %cond, label %9, label %6
 
 6:                                                ; preds = %5
   %7 = getelementptr inbounds i8, ptr %.0, i64 72
@@ -838,17 +838,22 @@ define linkonce_odr hidden void @_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allo
   %.not9 = icmp eq ptr %8, null
   br i1 %.not9, label %.critedge, label %5, !llvm.loop !14
 
-.critedge:                                        ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %.0, i64 72
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %5, %.critedge
-  %.sink11 = phi ptr [ %9, %.critedge ], [ %3, %5 ]
+9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
-  store ptr %11, ptr %.sink11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
-  store ptr null, ptr %12, align 8
+  store ptr %11, ptr %3, align 8
+  br label %15
+
+.critedge:                                        ; preds = %6
+  %12 = getelementptr inbounds i8, ptr %.0, i64 72
+  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = load ptr, ptr %13, align 8
+  store ptr %14, ptr %12, align 8
+  br label %15
+
+15:                                               ; preds = %.critedge, %9
+  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  store ptr null, ptr %16, align 8
   ret void
 }
 
@@ -959,7 +964,8 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI10MallocSiteLN6AnyOb
 
 11:                                               ; preds = %6
   store ptr %2, ptr %7, align 8
-  br label %_ZNK14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread.sink.split
+  store ptr %4, ptr %8, align 8
+  br label %_ZNK14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread
 
 .preheader:                                       ; preds = %6, %12
   %.0 = phi ptr [ %14, %12 ], [ %9, %6 ]
@@ -975,14 +981,10 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI10MallocSiteLN6AnyOb
 .critedge:                                        ; preds = %.preheader, %12
   store ptr %2, ptr %7, align 8
   %15 = getelementptr inbounds i8, ptr %.0, i64 72
-  br label %_ZNK14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread.sink.split
-
-_ZNK14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread.sink.split: ; preds = %.critedge, %11
-  %.sink = phi ptr [ %8, %11 ], [ %15, %.critedge ]
-  store ptr %4, ptr %.sink, align 8
+  store ptr %4, ptr %15, align 8
   br label %_ZNK14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread
 
-_ZNK14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread: ; preds = %_ZNK14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread.sink.split, %3
+_ZNK14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread: ; preds = %3, %11, %.critedge
   ret ptr %4
 }
 
@@ -1103,50 +1105,67 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI10MallocSiteL
 9:                                                ; preds = %4
   %10 = icmp ne ptr %.016, null
   %or.cond.not = and i1 %10, %5
-  br i1 %or.cond.not, label %_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit, label %15
+  br i1 %or.cond.not, label %11, label %18
 
-_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit: ; preds = %9
-  %11 = icmp eq ptr %.0, null
-  %12 = getelementptr inbounds i8, ptr %.016, i64 72
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %.0, i64 72
-  %.sink = select i1 %11, ptr %3, ptr %14
-  store ptr %13, ptr %.sink, align 8
+11:                                               ; preds = %9
+  %12 = icmp eq ptr %.0, null
+  %13 = getelementptr inbounds i8, ptr %.016, i64 72
+  %14 = load ptr, ptr %13, align 8
+  br i1 %12, label %15, label %16
+
+15:                                               ; preds = %11
+  store ptr %14, ptr %3, align 8
+  br label %_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit
+
+16:                                               ; preds = %11
+  %17 = getelementptr inbounds i8, ptr %.0, i64 72
+  store ptr %14, ptr %17, align 8
+  br label %_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit
+
+_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit: ; preds = %16, %15
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.016) #11
-  br label %15
+  br label %18
 
-15:                                               ; preds = %9, %_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit
+18:                                               ; preds = %9, %_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit
   ret i1 %or.cond.not
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE12remove_afterEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = icmp eq ptr %1, null
-  br i1 %3, label %4, label %7
+  br i1 %3, label %4, label %10
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
-  br i1 %.not.i, label %_ZN10LinkedListI10MallocSiteE11unlink_headEv.exit, label %_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit
+  br i1 %.not.i, label %_ZN10LinkedListI10MallocSiteE11unlink_headEv.exit, label %7
 
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 72
+7:                                                ; preds = %4
+  %8 = getelementptr inbounds i8, ptr %6, i64 72
   %9 = load ptr, ptr %8, align 8
-  %.not = icmp eq ptr %9, null
-  br i1 %.not, label %_ZN10LinkedListI10MallocSiteE11unlink_headEv.exit, label %_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit
+  store ptr %9, ptr %5, align 8
+  br label %_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit
 
-_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit: ; preds = %7, %4
-  %.sink = phi ptr [ %6, %4 ], [ %9, %7 ]
-  %.sink18 = phi ptr [ %5, %4 ], [ %8, %7 ]
-  %10 = getelementptr inbounds i8, ptr %.sink, i64 72
-  %11 = load ptr, ptr %10, align 8
-  store ptr %11, ptr %.sink18, align 8
-  tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.sink) #11
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds i8, ptr %1, i64 72
+  %12 = load ptr, ptr %11, align 8
+  %.not = icmp eq ptr %12, null
+  br i1 %.not, label %_ZN10LinkedListI10MallocSiteE11unlink_headEv.exit, label %13
+
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds i8, ptr %12, i64 72
+  %15 = load ptr, ptr %14, align 8
+  store ptr %15, ptr %11, align 8
+  br label %_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit
+
+_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit: ; preds = %13, %7
+  %.0.ph = phi ptr [ %6, %7 ], [ %12, %13 ]
+  tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.0.ph) #11
   br label %_ZN10LinkedListI10MallocSiteE11unlink_headEv.exit
 
-_ZN10LinkedListI10MallocSiteE11unlink_headEv.exit: ; preds = %7, %4, %_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit
-  %.not1216 = phi i1 [ true, %_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit ], [ false, %4 ], [ false, %7 ]
+_ZN10LinkedListI10MallocSiteE11unlink_headEv.exit: ; preds = %10, %4, %_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit
+  %.not1216 = phi i1 [ true, %_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit ], [ false, %4 ], [ false, %10 ]
   ret i1 %.not1216
 }
 
@@ -1270,7 +1289,7 @@ define linkonce_odr hidden void @_ZN14LinkedListImplI20ReservedMemoryRegionLN6An
 5:                                                ; preds = %6, %2
   %.0 = phi ptr [ %4, %2 ], [ %8, %6 ]
   %cond = icmp eq ptr %.0, null
-  br i1 %cond, label %.loopexit, label %6
+  br i1 %cond, label %9, label %6
 
 6:                                                ; preds = %5
   %7 = getelementptr inbounds i8, ptr %.0, i64 80
@@ -1278,17 +1297,22 @@ define linkonce_odr hidden void @_ZN14LinkedListImplI20ReservedMemoryRegionLN6An
   %.not9 = icmp eq ptr %8, null
   br i1 %.not9, label %.critedge, label %5, !llvm.loop !21
 
-.critedge:                                        ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %.0, i64 80
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %5, %.critedge
-  %.sink11 = phi ptr [ %9, %.critedge ], [ %3, %5 ]
+9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
-  store ptr %11, ptr %.sink11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
-  store ptr null, ptr %12, align 8
+  store ptr %11, ptr %3, align 8
+  br label %15
+
+.critedge:                                        ; preds = %6
+  %12 = getelementptr inbounds i8, ptr %.0, i64 80
+  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = load ptr, ptr %13, align 8
+  store ptr %14, ptr %12, align 8
+  br label %15
+
+15:                                               ; preds = %.critedge, %9
+  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  store ptr null, ptr %16, align 8
   ret void
 }
 
@@ -1514,7 +1538,8 @@ _ZNK14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLA
 35:                                               ; preds = %_ZNK14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread21
   %36 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr %2, ptr %36, align 8
-  br label %_ZNK14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread.sink.split
+  store ptr %4, ptr %32, align 8
+  br label %_ZNK14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread
 
 .preheader:                                       ; preds = %_ZNK14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread21, %37
   %.0 = phi ptr [ %39, %37 ], [ %33, %_ZNK14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread21 ]
@@ -1531,14 +1556,10 @@ _ZNK14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLA
   %40 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr %2, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %.0, i64 80
-  br label %_ZNK14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread.sink.split
-
-_ZNK14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread.sink.split: ; preds = %.critedge, %35
-  %.sink = phi ptr [ %32, %35 ], [ %41, %.critedge ]
-  store ptr %4, ptr %.sink, align 8
+  store ptr %4, ptr %41, align 8
   br label %_ZNK14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread
 
-_ZNK14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread: ; preds = %_ZNK14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread.sink.split, %3
+_ZNK14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread: ; preds = %3, %35, %.critedge
   ret ptr %4
 }
 
@@ -1759,84 +1780,101 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI20ReservedMem
 9:                                                ; preds = %4
   %10 = icmp ne ptr %.016, null
   %or.cond.not = and i1 %10, %5
-  br i1 %or.cond.not, label %11, label %21
+  br i1 %or.cond.not, label %11, label %24
 
 11:                                               ; preds = %9
   %12 = icmp eq ptr %.0, null
   %13 = getelementptr inbounds i8, ptr %.016, i64 80
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %.0, i64 80
-  %.sink = select i1 %12, ptr %3, ptr %15
-  store ptr %14, ptr %.sink, align 8
-  %16 = getelementptr inbounds i8, ptr %.016, i64 16
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTV14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE, i64 16), ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %.016, i64 24
-  %18 = load ptr, ptr %17, align 8
-  store ptr null, ptr %17, align 8
-  %.not5.i.i.i.i.i.i = icmp eq ptr %18, null
+  br i1 %12, label %15, label %16
+
+15:                                               ; preds = %11
+  store ptr %14, ptr %3, align 8
+  br label %18
+
+16:                                               ; preds = %11
+  %17 = getelementptr inbounds i8, ptr %.0, i64 80
+  store ptr %14, ptr %17, align 8
+  br label %18
+
+18:                                               ; preds = %15, %16
+  %19 = getelementptr inbounds i8, ptr %.016, i64 16
+  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTV14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE, i64 16), ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %.016, i64 24
+  %21 = load ptr, ptr %20, align 8
+  store ptr null, ptr %20, align 8
+  %.not5.i.i.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not5.i.i.i.i.i.i, label %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i
 
-_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i: ; preds = %11, %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i
-  %.06.i.i.i.i.i.i = phi ptr [ %20, %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i ], [ %18, %11 ]
-  %19 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i, i64 48
-  %20 = load ptr, ptr %19, align 8
+_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i: ; preds = %18, %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i
+  %.06.i.i.i.i.i.i = phi ptr [ %23, %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i ], [ %21, %18 ]
+  %22 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i, i64 48
+  %23 = load ptr, ptr %22, align 8
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.06.i.i.i.i.i.i) #11
-  %.not.i.i.i.i.i.i = icmp eq ptr %20, null
+  %.not.i.i.i.i.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i, !llvm.loop !8
 
-_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit: ; preds = %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i, %11
+_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit: ; preds = %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i, %18
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.016) #11
-  br label %21
+  br label %24
 
-21:                                               ; preds = %9, %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit
+24:                                               ; preds = %9, %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit
   ret i1 %or.cond.not
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE12remove_afterEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = icmp eq ptr %1, null
-  br i1 %3, label %4, label %7
+  br i1 %3, label %4, label %10
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
-  br i1 %.not.i, label %_ZN10LinkedListI20ReservedMemoryRegionE11unlink_headEv.exit, label %10
+  br i1 %.not.i, label %_ZN10LinkedListI20ReservedMemoryRegionE11unlink_headEv.exit, label %7
 
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 80
+7:                                                ; preds = %4
+  %8 = getelementptr inbounds i8, ptr %6, i64 80
   %9 = load ptr, ptr %8, align 8
-  %.not = icmp eq ptr %9, null
-  br i1 %.not, label %_ZN10LinkedListI20ReservedMemoryRegionE11unlink_headEv.exit, label %10
+  store ptr %9, ptr %5, align 8
+  br label %16
 
-10:                                               ; preds = %7, %4
-  %.sink = phi ptr [ %6, %4 ], [ %9, %7 ]
-  %.sink18 = phi ptr [ %5, %4 ], [ %8, %7 ]
-  %11 = getelementptr inbounds i8, ptr %.sink, i64 80
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds i8, ptr %1, i64 80
   %12 = load ptr, ptr %11, align 8
-  store ptr %12, ptr %.sink18, align 8
-  %13 = getelementptr inbounds i8, ptr %.sink, i64 16
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTV14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE, i64 16), ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %.sink, i64 24
+  %.not = icmp eq ptr %12, null
+  br i1 %.not, label %_ZN10LinkedListI20ReservedMemoryRegionE11unlink_headEv.exit, label %13
+
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds i8, ptr %12, i64 80
   %15 = load ptr, ptr %14, align 8
-  store ptr null, ptr %14, align 8
-  %.not5.i.i.i.i.i.i = icmp eq ptr %15, null
+  store ptr %15, ptr %11, align 8
+  br label %16
+
+16:                                               ; preds = %7, %13
+  %.0.ph = phi ptr [ %6, %7 ], [ %12, %13 ]
+  %17 = getelementptr inbounds i8, ptr %.0.ph, i64 16
+  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTV14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE, i64 16), ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %.0.ph, i64 24
+  %19 = load ptr, ptr %18, align 8
+  store ptr null, ptr %18, align 8
+  %.not5.i.i.i.i.i.i = icmp eq ptr %19, null
   br i1 %.not5.i.i.i.i.i.i, label %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i
 
-_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i: ; preds = %10, %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i
-  %.06.i.i.i.i.i.i = phi ptr [ %17, %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i ], [ %15, %10 ]
-  %16 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i, i64 48
-  %17 = load ptr, ptr %16, align 8
+_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i: ; preds = %16, %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i
+  %.06.i.i.i.i.i.i = phi ptr [ %21, %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i ], [ %19, %16 ]
+  %20 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i, i64 48
+  %21 = load ptr, ptr %20, align 8
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.06.i.i.i.i.i.i) #11
-  %.not.i.i.i.i.i.i = icmp eq ptr %17, null
+  %.not.i.i.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i, !llvm.loop !8
 
-_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit: ; preds = %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i, %10
-  tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.sink) #11
+_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit: ; preds = %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i, %16
+  tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.0.ph) #11
   br label %_ZN10LinkedListI20ReservedMemoryRegionE11unlink_headEv.exit
 
-_ZN10LinkedListI20ReservedMemoryRegionE11unlink_headEv.exit: ; preds = %7, %4, %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit
-  %.not1216 = phi i1 [ true, %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit ], [ false, %4 ], [ false, %7 ]
+_ZN10LinkedListI20ReservedMemoryRegionE11unlink_headEv.exit: ; preds = %10, %4, %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit
+  %.not1216 = phi i1 [ true, %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit ], [ false, %4 ], [ false, %10 ]
   ret i1 %.not1216
 }
 
@@ -1976,36 +2014,42 @@ define linkonce_odr hidden void @_ZN16SortedLinkedListI21CommittedMemoryRegionXa
 .lr.ph.preheader:                                 ; preds = %2
   %4 = tail call noundef i32 @_Z24compare_committed_regionRK21CommittedMemoryRegionS1_(ptr noundef nonnull align 8 dereferenceable(48) %.015, ptr noundef nonnull align 8 dereferenceable(48) %1) #11
   %5 = icmp sgt i32 %4, -1
-  br i1 %5, label %._crit_edge, label %.lr.ph35
+  br i1 %5, label %._crit_edge, label %.lr.ph32
 
-.lr.ph35:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.01834 = phi ptr [ %.0, %.lr.ph ], [ %.015, %.lr.ph.preheader ]
-  %6 = getelementptr inbounds i8, ptr %.01834, i64 48
+.lr.ph32:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.01831 = phi ptr [ %.0, %.lr.ph ], [ %.015, %.lr.ph.preheader ]
+  %6 = getelementptr inbounds i8, ptr %.01831, i64 48
   %.0 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge.thread23, label %.lr.ph, !llvm.loop !30
 
-.lr.ph:                                           ; preds = %.lr.ph35
+.lr.ph:                                           ; preds = %.lr.ph32
   %7 = tail call noundef i32 @_Z24compare_committed_regionRK21CommittedMemoryRegionS1_(ptr noundef nonnull align 8 dereferenceable(48) %.0, ptr noundef nonnull align 8 dereferenceable(48) %1) #11
   %8 = icmp sgt i32 %7, -1
-  br i1 %8, label %._crit_edge, label %.lr.ph35, !llvm.loop !30
+  br i1 %8, label %._crit_edge, label %.lr.ph32, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader
-  %.01317.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.01834, %.lr.ph ]
+  %.01317.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.01831, %.lr.ph ]
   %.not14 = icmp eq ptr %.01317.lcssa, null
   br i1 %.not14, label %._crit_edge.thread, label %._crit_edge.thread23
 
-._crit_edge.thread23:                             ; preds = %.lr.ph35, %._crit_edge
-  %.013.lcssa26 = phi ptr [ %.01317.lcssa, %._crit_edge ], [ %.01834, %.lr.ph35 ]
+._crit_edge.thread23:                             ; preds = %.lr.ph32, %._crit_edge
+  %.013.lcssa26 = phi ptr [ %.01317.lcssa, %._crit_edge ], [ %.01831, %.lr.ph32 ]
   %9 = getelementptr inbounds i8, ptr %.013.lcssa26, i64 48
-  br label %._crit_edge.thread
-
-._crit_edge.thread:                               ; preds = %._crit_edge, %2, %._crit_edge.thread23
-  %.sink31 = phi ptr [ %9, %._crit_edge.thread23 ], [ %3, %2 ], [ %3, %._crit_edge ]
-  %10 = load ptr, ptr %.sink31, align 8
+  %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %1, i64 48
   store ptr %10, ptr %11, align 8
-  store ptr %1, ptr %.sink31, align 8
+  store ptr %1, ptr %9, align 8
+  br label %14
+
+._crit_edge.thread:                               ; preds = %2, %._crit_edge
+  %12 = load ptr, ptr %3, align 8
+  %13 = getelementptr inbounds i8, ptr %1, i64 48
+  store ptr %12, ptr %13, align 8
+  store ptr %1, ptr %3, align 8
+  br label %14
+
+14:                                               ; preds = %._crit_edge.thread, %._crit_edge.thread23
   ret void
 }
 
@@ -2090,7 +2134,8 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI21CommittedMemoryReg
 
 11:                                               ; preds = %6
   store ptr %2, ptr %7, align 8
-  br label %_ZNK14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread.sink.split
+  store ptr %4, ptr %8, align 8
+  br label %_ZNK14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread
 
 .preheader:                                       ; preds = %6, %12
   %.0 = phi ptr [ %14, %12 ], [ %9, %6 ]
@@ -2106,14 +2151,10 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI21CommittedMemoryReg
 .critedge:                                        ; preds = %.preheader, %12
   store ptr %2, ptr %7, align 8
   %15 = getelementptr inbounds i8, ptr %.0, i64 48
-  br label %_ZNK14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread.sink.split
-
-_ZNK14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread.sink.split: ; preds = %.critedge, %11
-  %.sink = phi ptr [ %8, %11 ], [ %15, %.critedge ]
-  store ptr %4, ptr %.sink, align 8
+  store ptr %4, ptr %15, align 8
   br label %_ZNK14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread
 
-_ZNK14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread: ; preds = %_ZNK14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread.sink.split, %3
+_ZNK14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread: ; preds = %3, %11, %.critedge
   ret ptr %4
 }
 
@@ -2252,50 +2293,67 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI21CommittedMe
 9:                                                ; preds = %4
   %10 = icmp ne ptr %.016, null
   %or.cond.not = and i1 %10, %5
-  br i1 %or.cond.not, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit, label %15
+  br i1 %or.cond.not, label %11, label %18
 
-_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit: ; preds = %9
-  %11 = icmp eq ptr %.0, null
-  %12 = getelementptr inbounds i8, ptr %.016, i64 48
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %.0, i64 48
-  %.sink = select i1 %11, ptr %3, ptr %14
-  store ptr %13, ptr %.sink, align 8
+11:                                               ; preds = %9
+  %12 = icmp eq ptr %.0, null
+  %13 = getelementptr inbounds i8, ptr %.016, i64 48
+  %14 = load ptr, ptr %13, align 8
+  br i1 %12, label %15, label %16
+
+15:                                               ; preds = %11
+  store ptr %14, ptr %3, align 8
+  br label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit
+
+16:                                               ; preds = %11
+  %17 = getelementptr inbounds i8, ptr %.0, i64 48
+  store ptr %14, ptr %17, align 8
+  br label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit
+
+_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit: ; preds = %16, %15
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.016) #11
-  br label %15
+  br label %18
 
-15:                                               ; preds = %9, %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit
+18:                                               ; preds = %9, %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit
   ret i1 %or.cond.not
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE12remove_afterEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = icmp eq ptr %1, null
-  br i1 %3, label %4, label %7
+  br i1 %3, label %4, label %10
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
-  br i1 %.not.i, label %_ZN10LinkedListI21CommittedMemoryRegionE11unlink_headEv.exit, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit
+  br i1 %.not.i, label %_ZN10LinkedListI21CommittedMemoryRegionE11unlink_headEv.exit, label %7
 
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 48
+7:                                                ; preds = %4
+  %8 = getelementptr inbounds i8, ptr %6, i64 48
   %9 = load ptr, ptr %8, align 8
-  %.not = icmp eq ptr %9, null
-  br i1 %.not, label %_ZN10LinkedListI21CommittedMemoryRegionE11unlink_headEv.exit, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit
+  store ptr %9, ptr %5, align 8
+  br label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit
 
-_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit: ; preds = %7, %4
-  %.sink = phi ptr [ %6, %4 ], [ %9, %7 ]
-  %.sink18 = phi ptr [ %5, %4 ], [ %8, %7 ]
-  %10 = getelementptr inbounds i8, ptr %.sink, i64 48
-  %11 = load ptr, ptr %10, align 8
-  store ptr %11, ptr %.sink18, align 8
-  tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.sink) #11
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds i8, ptr %1, i64 48
+  %12 = load ptr, ptr %11, align 8
+  %.not = icmp eq ptr %12, null
+  br i1 %.not, label %_ZN10LinkedListI21CommittedMemoryRegionE11unlink_headEv.exit, label %13
+
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds i8, ptr %12, i64 48
+  %15 = load ptr, ptr %14, align 8
+  store ptr %15, ptr %11, align 8
+  br label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit
+
+_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit: ; preds = %13, %7
+  %.0.ph = phi ptr [ %6, %7 ], [ %12, %13 ]
+  tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.0.ph) #11
   br label %_ZN10LinkedListI21CommittedMemoryRegionE11unlink_headEv.exit
 
-_ZN10LinkedListI21CommittedMemoryRegionE11unlink_headEv.exit: ; preds = %7, %4, %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit
-  %.not1216 = phi i1 [ true, %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit ], [ false, %4 ], [ false, %7 ]
+_ZN10LinkedListI21CommittedMemoryRegionE11unlink_headEv.exit: ; preds = %10, %4, %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit
+  %.not1216 = phi i1 [ true, %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit ], [ false, %4 ], [ false, %10 ]
   ret i1 %.not1216
 }
 
@@ -2371,7 +2429,7 @@ define linkonce_odr hidden void @_ZN14LinkedListImplI21CommittedMemoryRegionLN6A
 5:                                                ; preds = %6, %2
   %.0 = phi ptr [ %4, %2 ], [ %8, %6 ]
   %cond = icmp eq ptr %.0, null
-  br i1 %cond, label %.loopexit, label %6
+  br i1 %cond, label %9, label %6
 
 6:                                                ; preds = %5
   %7 = getelementptr inbounds i8, ptr %.0, i64 48
@@ -2379,17 +2437,22 @@ define linkonce_odr hidden void @_ZN14LinkedListImplI21CommittedMemoryRegionLN6A
   %.not9 = icmp eq ptr %8, null
   br i1 %.not9, label %.critedge, label %5, !llvm.loop !37
 
-.critedge:                                        ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %.0, i64 48
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %5, %.critedge
-  %.sink11 = phi ptr [ %9, %.critedge ], [ %3, %5 ]
+9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
-  store ptr %11, ptr %.sink11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
-  store ptr null, ptr %12, align 8
+  store ptr %11, ptr %3, align 8
+  br label %15
+
+.critedge:                                        ; preds = %6
+  %12 = getelementptr inbounds i8, ptr %.0, i64 48
+  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = load ptr, ptr %13, align 8
+  store ptr %14, ptr %12, align 8
+  br label %15
+
+15:                                               ; preds = %.critedge, %9
+  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  store ptr null, ptr %16, align 8
   ret void
 }
 
@@ -2543,7 +2606,7 @@ define linkonce_odr hidden void @_ZN14LinkedListImplI27VirtualMemoryAllocationSi
 5:                                                ; preds = %6, %2
   %.0 = phi ptr [ %4, %2 ], [ %8, %6 ]
   %cond = icmp eq ptr %.0, null
-  br i1 %cond, label %.loopexit, label %6
+  br i1 %cond, label %9, label %6
 
 6:                                                ; preds = %5
   %7 = getelementptr inbounds i8, ptr %.0, i64 64
@@ -2551,17 +2614,22 @@ define linkonce_odr hidden void @_ZN14LinkedListImplI27VirtualMemoryAllocationSi
   %.not9 = icmp eq ptr %8, null
   br i1 %.not9, label %.critedge, label %5, !llvm.loop !39
 
-.critedge:                                        ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %.0, i64 64
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %5, %.critedge
-  %.sink11 = phi ptr [ %9, %.critedge ], [ %3, %5 ]
+9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
-  store ptr %11, ptr %.sink11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
-  store ptr null, ptr %12, align 8
+  store ptr %11, ptr %3, align 8
+  br label %15
+
+.critedge:                                        ; preds = %6
+  %12 = getelementptr inbounds i8, ptr %.0, i64 64
+  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = load ptr, ptr %13, align 8
+  store ptr %14, ptr %12, align 8
+  br label %15
+
+15:                                               ; preds = %.critedge, %9
+  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  store ptr null, ptr %16, align 8
   ret void
 }
 
@@ -2672,7 +2740,8 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI27VirtualMemoryAlloc
 
 11:                                               ; preds = %6
   store ptr %2, ptr %7, align 8
-  br label %_ZNK14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread.sink.split
+  store ptr %4, ptr %8, align 8
+  br label %_ZNK14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread
 
 .preheader:                                       ; preds = %6, %12
   %.0 = phi ptr [ %14, %12 ], [ %9, %6 ]
@@ -2688,14 +2757,10 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI27VirtualMemoryAlloc
 .critedge:                                        ; preds = %.preheader, %12
   store ptr %2, ptr %7, align 8
   %15 = getelementptr inbounds i8, ptr %.0, i64 64
-  br label %_ZNK14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread.sink.split
-
-_ZNK14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread.sink.split: ; preds = %.critedge, %11
-  %.sink = phi ptr [ %8, %11 ], [ %15, %.critedge ]
-  store ptr %4, ptr %.sink, align 8
+  store ptr %4, ptr %15, align 8
   br label %_ZNK14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread
 
-_ZNK14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread: ; preds = %_ZNK14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread.sink.split, %3
+_ZNK14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread: ; preds = %3, %11, %.critedge
   ret ptr %4
 }
 
@@ -2816,50 +2881,67 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI27VirtualMemo
 9:                                                ; preds = %4
   %10 = icmp ne ptr %.016, null
   %or.cond.not = and i1 %10, %5
-  br i1 %or.cond.not, label %_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit, label %15
+  br i1 %or.cond.not, label %11, label %18
 
-_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit: ; preds = %9
-  %11 = icmp eq ptr %.0, null
-  %12 = getelementptr inbounds i8, ptr %.016, i64 64
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %.0, i64 64
-  %.sink = select i1 %11, ptr %3, ptr %14
-  store ptr %13, ptr %.sink, align 8
+11:                                               ; preds = %9
+  %12 = icmp eq ptr %.0, null
+  %13 = getelementptr inbounds i8, ptr %.016, i64 64
+  %14 = load ptr, ptr %13, align 8
+  br i1 %12, label %15, label %16
+
+15:                                               ; preds = %11
+  store ptr %14, ptr %3, align 8
+  br label %_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit
+
+16:                                               ; preds = %11
+  %17 = getelementptr inbounds i8, ptr %.0, i64 64
+  store ptr %14, ptr %17, align 8
+  br label %_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit
+
+_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit: ; preds = %16, %15
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.016) #11
-  br label %15
+  br label %18
 
-15:                                               ; preds = %9, %_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit
+18:                                               ; preds = %9, %_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit
   ret i1 %or.cond.not
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE12remove_afterEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = icmp eq ptr %1, null
-  br i1 %3, label %4, label %7
+  br i1 %3, label %4, label %10
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
-  br i1 %.not.i, label %_ZN10LinkedListI27VirtualMemoryAllocationSiteE11unlink_headEv.exit, label %_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit
+  br i1 %.not.i, label %_ZN10LinkedListI27VirtualMemoryAllocationSiteE11unlink_headEv.exit, label %7
 
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 64
+7:                                                ; preds = %4
+  %8 = getelementptr inbounds i8, ptr %6, i64 64
   %9 = load ptr, ptr %8, align 8
-  %.not = icmp eq ptr %9, null
-  br i1 %.not, label %_ZN10LinkedListI27VirtualMemoryAllocationSiteE11unlink_headEv.exit, label %_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit
+  store ptr %9, ptr %5, align 8
+  br label %_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit
 
-_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit: ; preds = %7, %4
-  %.sink = phi ptr [ %6, %4 ], [ %9, %7 ]
-  %.sink18 = phi ptr [ %5, %4 ], [ %8, %7 ]
-  %10 = getelementptr inbounds i8, ptr %.sink, i64 64
-  %11 = load ptr, ptr %10, align 8
-  store ptr %11, ptr %.sink18, align 8
-  tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.sink) #11
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds i8, ptr %1, i64 64
+  %12 = load ptr, ptr %11, align 8
+  %.not = icmp eq ptr %12, null
+  br i1 %.not, label %_ZN10LinkedListI27VirtualMemoryAllocationSiteE11unlink_headEv.exit, label %13
+
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds i8, ptr %12, i64 64
+  %15 = load ptr, ptr %14, align 8
+  store ptr %15, ptr %11, align 8
+  br label %_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit
+
+_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit: ; preds = %13, %7
+  %.0.ph = phi ptr [ %6, %7 ], [ %12, %13 ]
+  tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.0.ph) #11
   br label %_ZN10LinkedListI27VirtualMemoryAllocationSiteE11unlink_headEv.exit
 
-_ZN10LinkedListI27VirtualMemoryAllocationSiteE11unlink_headEv.exit: ; preds = %7, %4, %_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit
-  %.not1216 = phi i1 [ true, %_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit ], [ false, %4 ], [ false, %7 ]
+_ZN10LinkedListI27VirtualMemoryAllocationSiteE11unlink_headEv.exit: ; preds = %10, %4, %_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit
+  %.not1216 = phi i1 [ true, %_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit ], [ false, %4 ], [ false, %10 ]
   ret i1 %.not1216
 }
 

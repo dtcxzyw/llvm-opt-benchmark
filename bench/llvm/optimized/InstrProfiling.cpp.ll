@@ -13335,7 +13335,8 @@ _ZN4llvm15SmallVectorImplISt4pairIPNS_11InstructionES3_EE12assignRemoteEOS5_.exi
   store i32 %19, ptr %20, align 4
   store ptr %6, ptr %1, align 8
   store i32 0, ptr %18, align 4
-  br label %.sink.split
+  store i32 0, ptr %15, align 8
+  br label %70
 
 21:                                               ; preds = %4
   %22 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #19
@@ -13375,7 +13376,8 @@ _ZSt4moveIPSt4pairIPN4llvm11InstructionES3_ES5_ET0_T_S7_S6_.exit: ; preds = %.lr
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %22) #19
   %39 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #19
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
+  store i32 0, ptr %40, align 8
+  br label %70
 
 41:                                               ; preds = %21
   %42 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
@@ -13440,14 +13442,10 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionES3_ELb1EE18uninitial
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %22) #19
   %68 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #19
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %_ZN4llvm15SmallVectorImplISt4pairIPNS_11InstructionES3_EE12assignRemoteEOS5_.exit, %_ZSt4moveIPSt4pairIPN4llvm11InstructionES3_ES5_ET0_T_S7_S6_.exit, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionES3_ELb1EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit
-  %.sink = phi ptr [ %69, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionES3_ELb1EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit ], [ %40, %_ZSt4moveIPSt4pairIPN4llvm11InstructionES3_ES5_ET0_T_S7_S6_.exit ], [ %15, %_ZN4llvm15SmallVectorImplISt4pairIPNS_11InstructionES3_EE12assignRemoteEOS5_.exit ]
-  store i32 0, ptr %.sink, align 8
+  store i32 0, ptr %69, align 8
   br label %70
 
-70:                                               ; preds = %.sink.split, %2
+70:                                               ; preds = %2, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionES3_ELb1EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit, %_ZSt4moveIPSt4pairIPN4llvm11InstructionES3_ES5_ET0_T_S7_S6_.exit, %_ZN4llvm15SmallVectorImplISt4pairIPNS_11InstructionES3_EE12assignRemoteEOS5_.exit
   ret ptr %0
 }
 

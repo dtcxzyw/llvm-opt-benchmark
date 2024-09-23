@@ -3855,7 +3855,7 @@ define noundef range(i32 -2147483646, -2147483648) i32 @_ZNK10OpenSubdiv6v3_6_03
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level27gatherQuadLinearPatchPointsEiPiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #16 align 2 {
   %6 = icmp slt i32 %4, 0
-  br i1 %6, label %7, label %15
+  br i1 %6, label %7, label %19
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -3865,59 +3865,62 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level27gatherQuadLinear
   %12 = sext i32 %11 to i64
   %13 = load ptr, ptr %9, align 8
   %14 = getelementptr inbounds i32, ptr %13, i64 %12
-  br label %29
+  %15 = load i32, ptr %14, align 4
+  %16 = sext i32 %15 to i64
+  %17 = load ptr, ptr %8, align 8
+  %18 = getelementptr inbounds i32, ptr %17, i64 %16
+  br label %37
 
-15:                                               ; preds = %5
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %17 = zext nneg i32 %4 to i64
-  %18 = load ptr, ptr %16, align 8
-  %19 = getelementptr inbounds ptr, ptr %18, i64 %17
-  %20 = load ptr, ptr %19, align 8
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %23 = shl nsw i32 %1, 1
-  %24 = load ptr, ptr %22, align 8
-  %25 = or disjoint i32 %23, 1
-  %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds i32, ptr %24, i64 %26
-  %28 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  br label %29
+19:                                               ; preds = %5
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  %21 = zext nneg i32 %4 to i64
+  %22 = load ptr, ptr %20, align 8
+  %23 = getelementptr inbounds ptr, ptr %22, i64 %21
+  %24 = load ptr, ptr %23, align 8
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  %27 = shl nsw i32 %1, 1
+  %28 = load ptr, ptr %26, align 8
+  %29 = or disjoint i32 %27, 1
+  %30 = sext i32 %29 to i64
+  %31 = getelementptr inbounds i32, ptr %28, i64 %30
+  %32 = load i32, ptr %31, align 4
+  %33 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  %34 = sext i32 %32 to i64
+  %35 = load ptr, ptr %33, align 8
+  %36 = getelementptr inbounds i32, ptr %35, i64 %34
+  br label %37
 
-29:                                               ; preds = %15, %7
-  %.sink.in = phi ptr [ %27, %15 ], [ %14, %7 ]
-  %.sink23 = phi ptr [ %28, %15 ], [ %8, %7 ]
-  %.sink = load i32, ptr %.sink.in, align 4
-  %30 = sext i32 %.sink to i64
-  %31 = load ptr, ptr %.sink23, align 8
-  %32 = getelementptr inbounds i32, ptr %31, i64 %30
-  %33 = sext i32 %3 to i64
-  %34 = getelementptr inbounds [7 x i32], ptr @_ZZNK10OpenSubdiv6v3_6_03Vtr8internal5Level36gatherQuadRegularInteriorPatchPointsEiPiiiE16rotationSequence, i64 0, i64 %33
-  %35 = load i32, ptr %34, align 4
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds i32, ptr %32, i64 %36
-  %38 = load i32, ptr %37, align 4
-  store i32 %38, ptr %2, align 4
-  %39 = getelementptr inbounds i8, ptr %34, i64 4
+37:                                               ; preds = %19, %7
+  %.sroa.0.0 = phi ptr [ %18, %7 ], [ %36, %19 ]
+  %38 = sext i32 %3 to i64
+  %39 = getelementptr inbounds [7 x i32], ptr @_ZZNK10OpenSubdiv6v3_6_03Vtr8internal5Level36gatherQuadRegularInteriorPatchPointsEiPiiiE16rotationSequence, i64 0, i64 %38
   %40 = load i32, ptr %39, align 4
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds i32, ptr %32, i64 %41
+  %42 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %41
   %43 = load i32, ptr %42, align 4
-  %44 = getelementptr inbounds i8, ptr %2, i64 4
-  store i32 %43, ptr %44, align 4
-  %45 = getelementptr inbounds i8, ptr %34, i64 8
-  %46 = load i32, ptr %45, align 4
-  %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds i32, ptr %32, i64 %47
-  %49 = load i32, ptr %48, align 4
-  %50 = getelementptr inbounds i8, ptr %2, i64 8
-  store i32 %49, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %34, i64 12
-  %52 = load i32, ptr %51, align 4
-  %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds i32, ptr %32, i64 %53
-  %55 = load i32, ptr %54, align 4
-  %56 = getelementptr inbounds i8, ptr %2, i64 12
-  store i32 %55, ptr %56, align 4
+  store i32 %43, ptr %2, align 4
+  %44 = getelementptr inbounds i8, ptr %39, i64 4
+  %45 = load i32, ptr %44, align 4
+  %46 = sext i32 %45 to i64
+  %47 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %46
+  %48 = load i32, ptr %47, align 4
+  %49 = getelementptr inbounds i8, ptr %2, i64 4
+  store i32 %48, ptr %49, align 4
+  %50 = getelementptr inbounds i8, ptr %39, i64 8
+  %51 = load i32, ptr %50, align 4
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %52
+  %54 = load i32, ptr %53, align 4
+  %55 = getelementptr inbounds i8, ptr %2, i64 8
+  store i32 %54, ptr %55, align 4
+  %56 = getelementptr inbounds i8, ptr %39, i64 12
+  %57 = load i32, ptr %56, align 4
+  %58 = sext i32 %57 to i64
+  %59 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %58
+  %60 = load i32, ptr %59, align 4
+  %61 = getelementptr inbounds i8, ptr %2, i64 12
+  store i32 %60, ptr %61, align 4
   ret i32 4
 }
 

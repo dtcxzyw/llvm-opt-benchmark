@@ -670,16 +670,19 @@ while.end151.i:                                   ; preds = %while.cond.i88, %wh
   %sub.ptr.rhs.cast153.i = ptrtoint ptr %value.0.i89 to i64
   %sub.ptr.sub154.i = sub i64 %sub.ptr.lhs.cast152.i, %sub.ptr.rhs.cast153.i
   %cmp155.i = icmp eq i64 %sub.ptr.sub154.i, 16
-  br i1 %cmp155.i, label %if.then157.i, label %if.end162.i
+  br i1 %cmp155.i, label %if.then157.i, label %if.else159.i
 
 if.then157.i:                                     ; preds = %while.end151.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %timestamp, ptr noundef nonnull align 1 dereferenceable(16) %value.0.i89, i64 16, i1 false)
   %arrayidx158.i = getelementptr inbounds i8, ptr %timestamp, i64 16
+  store i8 0, ptr %arrayidx158.i, align 16
   br label %if.end162.i
 
-if.end162.i:                                      ; preds = %if.then157.i, %while.end151.i
-  %arrayidx158.sink.i = phi ptr [ %arrayidx158.i, %if.then157.i ], [ %timestamp, %while.end151.i ]
-  store i8 0, ptr %arrayidx158.sink.i, align 1
+if.else159.i:                                     ; preds = %while.end151.i
+  store i8 0, ptr %timestamp, align 16
+  br label %if.end162.i
+
+if.end162.i:                                      ; preds = %if.else159.i, %if.then157.i
   br i1 %tobool.not27.i.i, label %if.end127, label %do.body.preheader.i
 
 do.body.preheader.i:                              ; preds = %if.end162.i, %if.end162.thread.i

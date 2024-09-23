@@ -1544,9 +1544,9 @@ _ZN7ciField18is_static_constantEv.exit:           ; preds = %76
   br label %_ZN7ciField18is_static_constantEv.exit.thread.sink.split
 
 _ZN7ciField18is_static_constantEv.exit.thread.sink.split: ; preds = %41, %17, %90, %62
-  %.sink32 = phi ptr [ %65, %62 ], [ %91, %90 ], [ %24, %17 ], [ %48, %41 ]
-  %92 = load i32, ptr %.sink32, align 8
-  tail call void @_ZN13Canonicalizer12set_constantEi(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef %92)
+  %.sink.in = phi ptr [ %65, %62 ], [ %91, %90 ], [ %24, %17 ], [ %48, %41 ]
+  %.sink = load i32, ptr %.sink.in, align 8
+  tail call void @_ZN13Canonicalizer12set_constantEi(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef %.sink)
   br label %_ZN7ciField18is_static_constantEv.exit.thread
 
 _ZN7ciField18is_static_constantEv.exit.thread:    ; preds = %_ZN7ciField18is_static_constantEv.exit.thread.sink.split, %72, %76, %55, %_ZN7ciField18is_static_constantEv.exit, %82, %66, %31, %25
@@ -3629,7 +3629,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %2, %_ZNK10ciMetadat
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef ptr %21(ptr noundef nonnull align 8 dereferenceable(96) %12) #9
   %.not = icmp eq ptr %22, null
-  br i1 %.not, label %43, label %.thread
+  br i1 %.not, label %44, label %.thread
 
 .thread:                                          ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread, %18
   %.025 = phi ptr [ %22, %18 ], [ %16, %_ZNK10ciMetadata9is_loadedEv.exit.thread ]
@@ -3643,7 +3643,7 @@ _ZNK10ciMetadata9is_loadedEv.exit19:              ; preds = %.thread
   %26 = getelementptr inbounds i8, ptr %25, i64 32
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(24) %.025) #9
-  br i1 %28, label %_ZNK10ciMetadata9is_loadedEv.exit19.thread, label %43
+  br i1 %28, label %_ZNK10ciMetadata9is_loadedEv.exit19.thread, label %44
 
 _ZNK10ciMetadata9is_loadedEv.exit19.thread:       ; preds = %.thread, %_ZNK10ciMetadata9is_loadedEv.exit19
   %29 = load ptr, ptr %.025, align 8
@@ -3657,54 +3657,59 @@ _ZNK10ciMetadata9is_loadedEv.exit19.thread:       ; preds = %.thread, %_ZNK10ciM
   %35 = getelementptr inbounds i8, ptr %34, i64 184
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(144) %.025) #9
-  br i1 %37, label %43, label %.critedge
+  br i1 %37, label %44, label %.critedge
 
 .critedge:                                        ; preds = %_ZNK10ciMetadata9is_loadedEv.exit19.thread, %33
   %38 = load ptr, ptr %3, align 8
   %39 = tail call noundef zeroext i1 @_ZN6ciType13is_subtype_ofEPS_(ptr noundef nonnull align 8 dereferenceable(25) %.025, ptr noundef %38) #9
-  br i1 %39, label %40, label %43
+  br i1 %39, label %40, label %44
 
 40:                                               ; preds = %.critedge
   %41 = getelementptr inbounds i8, ptr %0, i64 16
   %42 = load ptr, ptr %41, align 8
   %.not.i20 = icmp eq ptr %42, %12
-  br i1 %.not.i20, label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit, label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit.sink.split
+  br i1 %.not.i20, label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit, label %43
 
-43:                                               ; preds = %33, %.critedge, %_ZNK10ciMetadata9is_loadedEv.exit19, %18
-  %44 = load ptr, ptr %12, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 32
-  %46 = load ptr, ptr %45, align 8
-  %47 = tail call noundef ptr %46(ptr noundef nonnull align 8 dereferenceable(96) %12) #9
-  %.not17 = icmp eq ptr %47, null
-  br i1 %.not17, label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit, label %48
-
-48:                                               ; preds = %43
-  %49 = getelementptr inbounds i8, ptr %12, i64 24
-  %50 = load ptr, ptr %49, align 8
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 72
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef ptr %53(ptr noundef nonnull align 8 dereferenceable(16) %50) #9
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 224
-  %57 = load ptr, ptr %56, align 8
-  %58 = tail call noundef ptr %57(ptr noundef nonnull align 8 dereferenceable(16) %54) #9
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 40
-  %61 = load ptr, ptr %60, align 8
-  %62 = tail call noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(40) %58) #9
-  %63 = getelementptr inbounds i8, ptr %0, i64 16
-  %64 = load ptr, ptr %63, align 8
-  %.not.i21 = icmp ne ptr %64, %12
-  %or.cond.not = select i1 %62, i1 %.not.i21, i1 false
-  br i1 %or.cond.not, label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit.sink.split, label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit
-
-_ZN13Canonicalizer13set_canonicalEP11Instruction.exit.sink.split: ; preds = %48, %40
-  %.sink = phi ptr [ %41, %40 ], [ %63, %48 ]
-  store ptr %12, ptr %.sink, align 8
+43:                                               ; preds = %40
+  store ptr %12, ptr %41, align 8
   br label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit
 
-_ZN13Canonicalizer13set_canonicalEP11Instruction.exit: ; preds = %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit.sink.split, %40, %43, %48, %_ZNK10ciMetadata9is_loadedEv.exit
+44:                                               ; preds = %33, %.critedge, %_ZNK10ciMetadata9is_loadedEv.exit19, %18
+  %45 = load ptr, ptr %12, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 32
+  %47 = load ptr, ptr %46, align 8
+  %48 = tail call noundef ptr %47(ptr noundef nonnull align 8 dereferenceable(96) %12) #9
+  %.not17 = icmp eq ptr %48, null
+  br i1 %.not17, label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit, label %49
+
+49:                                               ; preds = %44
+  %50 = getelementptr inbounds i8, ptr %12, i64 24
+  %51 = load ptr, ptr %50, align 8
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 72
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef ptr %54(ptr noundef nonnull align 8 dereferenceable(16) %51) #9
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds i8, ptr %56, i64 224
+  %58 = load ptr, ptr %57, align 8
+  %59 = tail call noundef ptr %58(ptr noundef nonnull align 8 dereferenceable(16) %55) #9
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 40
+  %62 = load ptr, ptr %61, align 8
+  %63 = tail call noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(40) %59) #9
+  br i1 %63, label %64, label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit
+
+64:                                               ; preds = %49
+  %65 = getelementptr inbounds i8, ptr %0, i64 16
+  %66 = load ptr, ptr %65, align 8
+  %.not.i21 = icmp eq ptr %66, %12
+  br i1 %.not.i21, label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit, label %67
+
+67:                                               ; preds = %64
+  store ptr %12, ptr %65, align 8
+  br label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit
+
+_ZN13Canonicalizer13set_canonicalEP11Instruction.exit: ; preds = %67, %64, %43, %40, %44, %49, %_ZNK10ciMetadata9is_loadedEv.exit
   ret void
 }
 

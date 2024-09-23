@@ -1216,6 +1216,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %79 = getelementptr inbounds i8, ptr %10, i64 80
   store ptr %10, ptr %79, align 8
   %80 = getelementptr inbounds i8, ptr %10, i64 72
+  store ptr %10, ptr %80, align 8
   br label %88
 
 81:                                               ; preds = %.critedge2
@@ -1228,12 +1229,11 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %86 = load ptr, ptr %82, align 8
   %87 = getelementptr inbounds i8, ptr %10, i64 80
   store ptr %86, ptr %87, align 8
+  store ptr %10, ptr %82, align 8
   br label %88
 
 88:                                               ; preds = %81, %Vec_PtrPush.exit
-  %.sink = phi ptr [ %82, %81 ], [ %80, %Vec_PtrPush.exit ]
   %.296175 = phi ptr [ %.296, %81 ], [ %.296176, %Vec_PtrPush.exit ]
-  store ptr %10, ptr %.sink, align 8
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %.val114 = load i32, ptr %2, align 4
   %89 = sext i32 %.val114 to i64

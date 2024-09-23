@@ -198,10 +198,19 @@ if.then.i:                                        ; preds = %for.body.i
   %cmp2.not.i = icmp eq ptr %12, null
   %tql_prev9.i = getelementptr inbounds i8, ptr %kid.018.i, i64 40
   %13 = load ptr, ptr %tql_prev9.i, align 8
+  br i1 %cmp2.not.i, label %if.else.i, label %if.then3.i
+
+if.then3.i:                                       ; preds = %if.then.i
   %tql_prev7.i = getelementptr inbounds i8, ptr %12, i64 40
+  store ptr %13, ptr %tql_prev7.i, align 8
+  br label %while.end.i
+
+if.else.i:                                        ; preds = %if.then.i
   %tql_prev11.i = getelementptr inbounds i8, ptr %9, i64 88
-  %tql_prev7.sink.i = select i1 %cmp2.not.i, ptr %tql_prev11.i, ptr %tql_prev7.i
-  store ptr %13, ptr %tql_prev7.sink.i, align 8
+  store ptr %13, ptr %tql_prev11.i, align 8
+  br label %while.end.i
+
+while.end.i:                                      ; preds = %if.else.i, %if.then3.i
   %14 = load ptr, ptr %sibling.i, align 8
   %15 = ptrtoint ptr %14 to i64
   store atomic i64 %15, ptr %13 monotonic, align 8
@@ -220,7 +229,7 @@ for.inc.i:                                        ; preds = %for.body.i
   %tobool.not.i27 = icmp eq ptr %kid.0.i, null
   br i1 %tobool.not.i27, label %bus_remove_child.exit, label %for.body.i, !llvm.loop !5
 
-bus_remove_child.exit:                            ; preds = %for.inc.i, %trace_qdev_update_parent_bus.exit, %if.then.i
+bus_remove_child.exit:                            ; preds = %for.inc.i, %trace_qdev_update_parent_bus.exit, %while.end.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %name.i)
   br label %if.end14
 
@@ -247,16 +256,25 @@ if.end14:                                         ; preds = %bus_remove_child.ex
   %sibling.i34 = getelementptr inbounds i8, ptr %call.i30, i64 32
   store ptr %19, ptr %sibling.i34, align 8
   %cmp.not.i = icmp eq ptr %19, null
+  br i1 %cmp.not.i, label %if.else.i37, label %if.then.i35
+
+if.then.i35:                                      ; preds = %if.end14
   %tql_prev.i = getelementptr inbounds i8, ptr %19, i64 40
-  %tql_prev11.i35 = getelementptr inbounds i8, ptr %bus, i64 88
-  %tql_prev.sink.i = select i1 %cmp.not.i, ptr %tql_prev11.i35, ptr %tql_prev.i
-  store ptr %sibling.i34, ptr %tql_prev.sink.i, align 8
+  store ptr %sibling.i34, ptr %tql_prev.i, align 8
+  br label %bus_add_child.exit
+
+if.else.i37:                                      ; preds = %if.end14
+  %tql_prev11.i38 = getelementptr inbounds i8, ptr %bus, i64 88
+  store ptr %sibling.i34, ptr %tql_prev11.i38, align 8
+  br label %bus_add_child.exit
+
+bus_add_child.exit:                               ; preds = %if.then.i35, %if.else.i37
   %20 = ptrtoint ptr %call.i30 to i64
   store atomic i64 %20, ptr %children.i33 release, align 8
   %tql_prev18.i = getelementptr inbounds i8, ptr %call.i30, i64 40
   store ptr %children.i33, ptr %tql_prev18.i, align 8
   %call21.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %name.i29, i64 noundef 32, ptr noundef nonnull @.str.14, i32 noundef %18) #14
-  %call23.i = call ptr @object_get_typename(ptr noundef %dev) #14
+  %call23.i = call ptr @object_get_typename(ptr noundef nonnull %dev) #14
   %call25.i = call ptr @object_property_add_link(ptr noundef nonnull %bus, ptr noundef nonnull %name.i29, ptr noundef %call23.i, ptr noundef nonnull %child2.i, ptr noundef null, i32 noundef 0) #14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %name.i29)
   %realized = getelementptr inbounds i8, ptr %dev, i64 56
@@ -264,11 +282,11 @@ if.end14:                                         ; preds = %bus_remove_child.ex
   %tobool17 = trunc i8 %21 to i1
   br i1 %tobool17, label %if.then18, label %if.end19
 
-if.then18:                                        ; preds = %if.end14
+if.then18:                                        ; preds = %bus_add_child.exit
   call void @resettable_change_parent(ptr noundef nonnull %dev, ptr noundef nonnull %bus, ptr noundef %0) #14
   br label %if.end19
 
-if.end19:                                         ; preds = %if.then18, %if.end14
+if.end19:                                         ; preds = %if.then18, %bus_add_child.exit
   br i1 %tobool7.not, label %return, label %if.then21
 
 if.then21:                                        ; preds = %if.end19
@@ -810,7 +828,11 @@ while.end.i.i13:                                  ; preds = %if.end.i.i
   %waiting.i.i = getelementptr inbounds i8, ptr %call.i.i10, i64 8
   %7 = load atomic i8, ptr %waiting.i.i monotonic, align 8
   %tobool.i.i = trunc i8 %7 to i1
-  br i1 %tobool.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit.sink.split, label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br i1 %tobool.i.i, label %while.end21.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
+
+while.end21.i.i:                                  ; preds = %while.end.i.i13
+  store atomic i8 0, ptr %waiting.i.i monotonic, align 8
+  br label %glib_autoptr_cleanup_RCUReadAuto.exit.sink.split
 
 if.then.i.i:                                      ; preds = %land.lhs.true, %for.body11
   %retval.0 = phi ptr [ %call12, %for.body11 ], [ %3, %land.lhs.true ]
@@ -837,12 +859,14 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %9 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %9 to i1
-  br i1 %tobool.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit.sink.split, label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
 
-glib_autoptr_cleanup_RCUReadAuto.exit.sink.split: ; preds = %while.end.i.i.i.i, %while.end.i.i13
-  %waiting.i.i.sink = phi ptr [ %waiting.i.i, %while.end.i.i13 ], [ %waiting.i.i.i.i, %while.end.i.i.i.i ]
-  %spec.select.ph = phi ptr [ null, %while.end.i.i13 ], [ %retval.0, %while.end.i.i.i.i ]
-  store atomic i8 0, ptr %waiting.i.i.sink monotonic, align 8
+while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
+  store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
+  br label %glib_autoptr_cleanup_RCUReadAuto.exit.sink.split
+
+glib_autoptr_cleanup_RCUReadAuto.exit.sink.split: ; preds = %while.end21.i.i.i.i, %while.end21.i.i
+  %spec.select.ph = phi ptr [ null, %while.end21.i.i ], [ %retval.0, %while.end21.i.i.i.i ]
   tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #14
   br label %glib_autoptr_cleanup_RCUReadAuto.exit
 
@@ -1335,10 +1359,19 @@ if.then.i:                                        ; preds = %for.body.i
   %cmp2.not.i = icmp eq ptr %7, null
   %tql_prev9.i = getelementptr inbounds i8, ptr %kid.018.i, i64 40
   %8 = load ptr, ptr %tql_prev9.i, align 8
+  br i1 %cmp2.not.i, label %if.else.i, label %if.then3.i
+
+if.then3.i:                                       ; preds = %if.then.i
   %tql_prev7.i = getelementptr inbounds i8, ptr %7, i64 40
+  store ptr %8, ptr %tql_prev7.i, align 8
+  br label %while.end.i
+
+if.else.i:                                        ; preds = %if.then.i
   %tql_prev11.i = getelementptr inbounds i8, ptr %4, i64 88
-  %tql_prev7.sink.i = select i1 %cmp2.not.i, ptr %tql_prev11.i, ptr %tql_prev7.i
-  store ptr %8, ptr %tql_prev7.sink.i, align 8
+  store ptr %8, ptr %tql_prev11.i, align 8
+  br label %while.end.i
+
+while.end.i:                                      ; preds = %if.else.i, %if.then3.i
   %9 = load ptr, ptr %sibling.i, align 8
   %10 = ptrtoint ptr %9 to i64
   store atomic i64 %10, ptr %8 monotonic, align 8
@@ -1358,8 +1391,8 @@ for.inc.i:                                        ; preds = %for.body.i
   %tobool.not.i = icmp eq ptr %kid.0.i, null
   br i1 %tobool.not.i, label %bus_remove_child.exit, label %for.body.i, !llvm.loop !5
 
-bus_remove_child.exit:                            ; preds = %for.inc.i, %if.then3, %if.then.i
-  %12 = phi ptr [ %4, %if.then3 ], [ %.pre, %if.then.i ], [ %4, %for.inc.i ]
+bus_remove_child.exit:                            ; preds = %for.inc.i, %if.then3, %while.end.i
+  %12 = phi ptr [ %4, %if.then3 ], [ %.pre, %while.end.i ], [ %4, %for.inc.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %name.i)
   call void @object_unref(ptr noundef %12) #14
   store ptr null, ptr %parent_bus, align 8

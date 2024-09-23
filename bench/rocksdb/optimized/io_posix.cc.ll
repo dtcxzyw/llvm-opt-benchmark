@@ -3774,22 +3774,18 @@ if.then.i.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i.
 
 if.then15.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
   %arrayidx16.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i.i.i.i, i64 %__bbegin_bkt.021.i.i.i.i.i.i
-  br label %if.end22.sink.split.i.i.i.i.i.i
+  store ptr %__p.022.i.i.i.i.i.i, ptr %arrayidx16.i.i.i.i.i.i, align 8
+  br label %if.end22.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i.i.i
   %40 = load ptr, ptr %37, align 8
   store ptr %40, ptr %__p.022.i.i.i.i.i.i, align 8
   %41 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
-  br label %if.end22.sink.split.i.i.i.i.i.i
-
-if.end22.sink.split.i.i.i.i.i.i:                  ; preds = %if.else.i.i.i.i.i.i, %if.then15.i.i.i.i.i.i
-  %arrayidx16.sink.i.i.i.i.i.i = phi ptr [ %arrayidx16.i.i.i.i.i.i, %if.then15.i.i.i.i.i.i ], [ %41, %if.else.i.i.i.i.i.i ]
-  %__bbegin_bkt.1.ph.i.i.i.i.i.i = phi i64 [ %rem.i.i.i.i.i23.i.i.i, %if.then15.i.i.i.i.i.i ], [ %__bbegin_bkt.021.i.i.i.i.i.i, %if.else.i.i.i.i.i.i ]
-  store ptr %__p.022.i.i.i.i.i.i, ptr %arrayidx16.sink.i.i.i.i.i.i, align 8
+  store ptr %__p.022.i.i.i.i.i.i, ptr %41, align 8
   br label %if.end22.i.i.i.i.i.i
 
-if.end22.i.i.i.i.i.i:                             ; preds = %if.end22.sink.split.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
-  %__bbegin_bkt.1.i.i.i.i.i.i = phi i64 [ %rem.i.i.i.i.i23.i.i.i, %if.then.i.i.i.i.i.i ], [ %__bbegin_bkt.1.ph.i.i.i.i.i.i, %if.end22.sink.split.i.i.i.i.i.i ]
+if.end22.i.i.i.i.i.i:                             ; preds = %if.else.i.i.i.i.i.i, %if.then15.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
+  %__bbegin_bkt.1.i.i.i.i.i.i = phi i64 [ %__bbegin_bkt.021.i.i.i.i.i.i, %if.else.i.i.i.i.i.i ], [ %rem.i.i.i.i.i23.i.i.i, %if.then15.i.i.i.i.i.i ], [ %rem.i.i.i.i.i23.i.i.i, %if.then.i.i.i.i.i.i ]
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %__p.0.val.i.i.i.i.i.i, null
   br i1 %tobool.not.i.i.i.i.i.i, label %while.end.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, !llvm.loop !57
 
@@ -7457,7 +7453,15 @@ if.then.i10:                                      ; preds = %invoke.cont9
   %17 = load ptr, ptr %state_.i21, align 8
   store ptr %17, ptr %state_.i.i.i, align 8
   %tobool.not.i.i.i.i.i23 = icmp eq ptr %9, null
-  br i1 %tobool.not.i.i.i.i.i23, label %if.end31.sink.split, label %if.end31.sink.split.sink.split
+  br i1 %tobool.not.i.i.i.i.i23, label %_ZN7rocksdb8IOStatusD2Ev.exit29, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i24
+
+_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i24: ; preds = %if.then.i10
+  call void @_ZdaPv(ptr noundef nonnull %9) #31
+  br label %_ZN7rocksdb8IOStatusD2Ev.exit29
+
+_ZN7rocksdb8IOStatusD2Ev.exit29:                  ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i24, %if.then.i10
+  store ptr null, ptr %state_.i21, align 8
+  br label %if.end31.sink.split
 
 lpad:                                             ; preds = %if.end31, %entry
   %18 = phi ptr [ %35, %if.end31 ], [ null, %entry ]
@@ -7545,7 +7549,15 @@ if.then.i39:                                      ; preds = %invoke.cont22
   %31 = load ptr, ptr %state_.i50, align 8
   store ptr %31, ptr %state_.i.i.i, align 8
   %tobool.not.i.i.i.i.i52 = icmp eq ptr %9, null
-  br i1 %tobool.not.i.i.i.i.i52, label %if.end31.sink.split, label %if.end31.sink.split.sink.split
+  br i1 %tobool.not.i.i.i.i.i52, label %_ZN7rocksdb8IOStatusD2Ev.exit58, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i53
+
+_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i53: ; preds = %if.then.i39
+  call void @_ZdaPv(ptr noundef nonnull %9) #31
+  br label %_ZN7rocksdb8IOStatusD2Ev.exit58
+
+_ZN7rocksdb8IOStatusD2Ev.exit58:                  ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i53, %if.then.i39
+  store ptr null, ptr %state_.i50, align 8
+  br label %if.end31.sink.split
 
 lpad21:                                           ; preds = %call.i.noexc33, %if.then17
   %32 = landingpad { ptr, i32 }
@@ -7563,22 +7575,11 @@ ehcleanup29:                                      ; preds = %lpad21, %lpad.i32, 
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp20) #27
   br label %ehcleanup56
 
-if.end31.sink.split.sink.split:                   ; preds = %if.then.i39, %if.then.i10
-  %state_.i50.sink.ph = phi ptr [ %state_.i21, %if.then.i10 ], [ %state_.i50, %if.then.i39 ]
-  %ref.tmp19.sink.ph = phi ptr [ %ref.tmp6, %if.then.i10 ], [ %ref.tmp19, %if.then.i39 ]
-  %ref.tmp20.sink.ph = phi ptr [ %ref.tmp7, %if.then.i10 ], [ %ref.tmp20, %if.then.i39 ]
-  %.ph.ph = phi ptr [ %17, %if.then.i10 ], [ %31, %if.then.i39 ]
-  %.ph93.ph = phi i8 [ %12, %if.then.i10 ], [ %26, %if.then.i39 ]
-  call void @_ZdaPv(ptr noundef nonnull %9) #31
-  br label %if.end31.sink.split
-
-if.end31.sink.split:                              ; preds = %if.end31.sink.split.sink.split, %if.then.i39, %if.then.i10
-  %state_.i50.sink = phi ptr [ %state_.i21, %if.then.i10 ], [ %state_.i50, %if.then.i39 ], [ %state_.i50.sink.ph, %if.end31.sink.split.sink.split ]
-  %ref.tmp19.sink = phi ptr [ %ref.tmp6, %if.then.i10 ], [ %ref.tmp19, %if.then.i39 ], [ %ref.tmp19.sink.ph, %if.end31.sink.split.sink.split ]
-  %ref.tmp20.sink = phi ptr [ %ref.tmp7, %if.then.i10 ], [ %ref.tmp20, %if.then.i39 ], [ %ref.tmp20.sink.ph, %if.end31.sink.split.sink.split ]
-  %.ph = phi ptr [ %17, %if.then.i10 ], [ %31, %if.then.i39 ], [ %.ph.ph, %if.end31.sink.split.sink.split ]
-  %.ph93 = phi i8 [ %12, %if.then.i10 ], [ %26, %if.then.i39 ], [ %.ph93.ph, %if.end31.sink.split.sink.split ]
-  store ptr null, ptr %state_.i50.sink, align 8
+if.end31.sink.split:                              ; preds = %_ZN7rocksdb8IOStatusD2Ev.exit29, %_ZN7rocksdb8IOStatusD2Ev.exit58
+  %ref.tmp19.sink = phi ptr [ %ref.tmp19, %_ZN7rocksdb8IOStatusD2Ev.exit58 ], [ %ref.tmp6, %_ZN7rocksdb8IOStatusD2Ev.exit29 ]
+  %ref.tmp20.sink = phi ptr [ %ref.tmp20, %_ZN7rocksdb8IOStatusD2Ev.exit58 ], [ %ref.tmp7, %_ZN7rocksdb8IOStatusD2Ev.exit29 ]
+  %.ph = phi ptr [ %31, %_ZN7rocksdb8IOStatusD2Ev.exit58 ], [ %17, %_ZN7rocksdb8IOStatusD2Ev.exit29 ]
+  %.ph93 = phi i8 [ %26, %_ZN7rocksdb8IOStatusD2Ev.exit58 ], [ %12, %_ZN7rocksdb8IOStatusD2Ev.exit29 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp19.sink) #27
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp20.sink) #27
   %34 = icmp eq i8 %.ph93, 0

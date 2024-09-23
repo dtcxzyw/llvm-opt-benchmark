@@ -225,8 +225,8 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes2vm17PinnedHermesValueELb1EE9push_backERKS4_.exit
-  %arrayidx.i.sink = phi ptr [ %arrayidx.i, %if.else ], [ %arrayidx.i3, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes2vm17PinnedHermesValueELb1EE9push_backERKS4_.exit ]
-  %10 = load ptr, ptr %arrayidx.i.sink, align 8
+  %.in = phi ptr [ %arrayidx.i, %if.else ], [ %arrayidx.i3, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes2vm17PinnedHermesValueELb1EE9push_backERKS4_.exit ]
+  %10 = load ptr, ptr %.in, align 8
   %next_12 = getelementptr inbounds i8, ptr %this, i64 192
   %add.ptr = getelementptr inbounds i8, ptr %10, i64 128
   %curChunkEnd_ = getelementptr inbounds i8, ptr %this, i64 200

@@ -8,32 +8,62 @@ define void @Fraig_NodeAddFaninFanout(ptr noundef %0, ptr noundef %1) local_unna
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %21, label %.sink.split
+  br i1 %5, label %6, label %7
 
-.sink.split:                                      ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 32
-  %7 = load ptr, ptr %6, align 8
-  %8 = ptrtoint ptr %7 to i64
-  %9 = and i64 %8, -2
-  %10 = inttoptr i64 %9 to ptr
-  %11 = icmp eq ptr %0, %10
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
-  %13 = load ptr, ptr %12, align 8
-  %14 = ptrtoint ptr %13 to i64
-  %15 = and i64 %14, -2
-  %16 = inttoptr i64 %15 to ptr
-  %17 = icmp eq ptr %0, %16
-  %. = select i1 %11, i64 144, i64 152
-  %18 = getelementptr inbounds i8, ptr %4, i64 %.
-  %19 = load ptr, ptr %18, align 8
-  %.30 = select i1 %17, i64 144, i64 152
-  %20 = getelementptr inbounds i8, ptr %1, i64 %.30
-  store ptr %19, ptr %20, align 8
-  br label %21
+6:                                                ; preds = %2
+  store ptr %1, ptr %3, align 8
+  br label %34
 
-21:                                               ; preds = %.sink.split, %2
-  %.sink = phi ptr [ %3, %2 ], [ %18, %.sink.split ]
-  store ptr %1, ptr %.sink, align 8
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds i8, ptr %4, i64 32
+  %9 = load ptr, ptr %8, align 8
+  %10 = ptrtoint ptr %9 to i64
+  %11 = and i64 %10, -2
+  %12 = inttoptr i64 %11 to ptr
+  %13 = icmp eq ptr %0, %12
+  %14 = getelementptr inbounds i8, ptr %1, i64 32
+  %15 = load ptr, ptr %14, align 8
+  %16 = ptrtoint ptr %15 to i64
+  %17 = and i64 %16, -2
+  %18 = inttoptr i64 %17 to ptr
+  %19 = icmp eq ptr %0, %18
+  br i1 %13, label %20, label %27
+
+20:                                               ; preds = %7
+  %21 = getelementptr inbounds i8, ptr %4, i64 144
+  %22 = load ptr, ptr %21, align 8
+  br i1 %19, label %23, label %25
+
+23:                                               ; preds = %20
+  %24 = getelementptr inbounds i8, ptr %1, i64 144
+  store ptr %22, ptr %24, align 8
+  store ptr %1, ptr %21, align 8
+  br label %34
+
+25:                                               ; preds = %20
+  %26 = getelementptr inbounds i8, ptr %1, i64 152
+  store ptr %22, ptr %26, align 8
+  store ptr %1, ptr %21, align 8
+  br label %34
+
+27:                                               ; preds = %7
+  %28 = getelementptr inbounds i8, ptr %4, i64 152
+  %29 = load ptr, ptr %28, align 8
+  br i1 %19, label %30, label %32
+
+30:                                               ; preds = %27
+  %31 = getelementptr inbounds i8, ptr %1, i64 144
+  store ptr %29, ptr %31, align 8
+  store ptr %1, ptr %28, align 8
+  br label %34
+
+32:                                               ; preds = %27
+  %33 = getelementptr inbounds i8, ptr %1, i64 152
+  store ptr %29, ptr %33, align 8
+  store ptr %1, ptr %28, align 8
+  br label %34
+
+34:                                               ; preds = %30, %32, %23, %25, %6
   ret void
 }
 
@@ -95,60 +125,64 @@ define void @Fraig_NodeTransferFanout(ptr noundef %0, ptr noundef %1) local_unna
   %.pre33 = inttoptr i64 %.pre31 to ptr
   br label %5
 
-5:                                                ; preds = %.lr.ph, %22
-  %.029 = phi ptr [ %.027, %.lr.ph ], [ %.0, %22 ]
+5:                                                ; preds = %.lr.ph, %27
+  %.029 = phi ptr [ %.027, %.lr.ph ], [ %.0, %27 ]
   %6 = getelementptr inbounds i8, ptr %.029, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %7 to i64
   %9 = and i64 %8, -2
   %10 = inttoptr i64 %9 to ptr
   %11 = icmp eq ptr %0, %10
-  br i1 %11, label %.sink.split, label %12
+  br i1 %11, label %12, label %16
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %.029, i64 40
-  %14 = load ptr, ptr %13, align 8
-  %15 = ptrtoint ptr %14 to i64
-  %16 = and i64 %15, -2
-  %17 = inttoptr i64 %16 to ptr
-  %18 = icmp eq ptr %0, %17
-  br i1 %18, label %.sink.split, label %22
+  %13 = and i64 %8, 1
+  %14 = xor i64 %13, %4
+  %15 = inttoptr i64 %14 to ptr
+  store ptr %15, ptr %6, align 8
+  br label %27
 
-.sink.split:                                      ; preds = %12, %5
-  %.sink37 = phi i64 [ %8, %5 ], [ %15, %12 ]
-  %.sink35 = phi ptr [ %6, %5 ], [ %13, %12 ]
-  %.pre-phi34.ph = phi ptr [ %.pre33, %5 ], [ %10, %12 ]
-  %19 = and i64 %.sink37, 1
-  %20 = xor i64 %19, %4
+16:                                               ; preds = %5
+  %17 = getelementptr inbounds i8, ptr %.029, i64 40
+  %18 = load ptr, ptr %17, align 8
+  %19 = ptrtoint ptr %18 to i64
+  %20 = and i64 %19, -2
   %21 = inttoptr i64 %20 to ptr
-  store ptr %21, ptr %.sink35, align 8
-  br label %22
+  %22 = icmp eq ptr %0, %21
+  br i1 %22, label %23, label %27
 
-22:                                               ; preds = %.sink.split, %12
-  %.pre-phi34 = phi ptr [ %10, %12 ], [ %.pre-phi34.ph, %.sink.split ]
-  %23 = icmp eq ptr %0, %.pre-phi34
-  %.in.v = select i1 %23, i64 144, i64 152
+23:                                               ; preds = %16
+  %24 = and i64 %19, 1
+  %25 = xor i64 %24, %4
+  %26 = inttoptr i64 %25 to ptr
+  store ptr %26, ptr %17, align 8
+  br label %27
+
+27:                                               ; preds = %16, %23, %12
+  %.pre-phi34 = phi ptr [ %10, %16 ], [ %10, %23 ], [ %.pre33, %12 ]
+  %28 = icmp eq ptr %0, %.pre-phi34
+  %.in.v = select i1 %28, i64 144, i64 152
   %.in = getelementptr inbounds i8, ptr %.029, i64 %.in.v
   %.0 = load ptr, ptr %.in, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge.loopexit, label %5, !llvm.loop !6
 
-._crit_edge.loopexit:                             ; preds = %22
+._crit_edge.loopexit:                             ; preds = %27
   %.pre = load ptr, ptr %3, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
-  %24 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ null, %2 ]
-  %25 = getelementptr inbounds i8, ptr %1, i64 136
-  store ptr %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 144
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 144
-  store ptr %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 152
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 152
-  store ptr %30, ptr %31, align 8
+  %29 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ null, %2 ]
+  %30 = getelementptr inbounds i8, ptr %1, i64 136
+  store ptr %29, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 144
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %1, i64 144
+  store ptr %32, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %0, i64 152
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %1, i64 152
+  store ptr %35, ptr %36, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   ret void
 }

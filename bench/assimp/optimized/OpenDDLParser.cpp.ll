@@ -4286,7 +4286,8 @@ _ZN10ODDLParserL19createDataArrayListEPNS_5ValueEmPNS_9ReferenceEm.exit: ; preds
   store ptr %6, ptr %m_refs.i, align 8
   %m_numRefs.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store i64 %4, ptr %m_numRefs.i, align 8
-  br label %do.cond.sink.split
+  store ptr %call.i, ptr %dataArrayList, align 8
+  br label %do.cond
 
 if.else:                                          ; preds = %if.then12
   invoke void @_ZN10ODDLParser13DataArrayListC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %call.i)
@@ -4306,15 +4307,11 @@ _ZN10ODDLParserL19createDataArrayListEPNS_5ValueEmPNS_9ReferenceEm.exit29: ; pre
   %m_numRefs.i28 = getelementptr inbounds i8, ptr %call.i, i64 32
   store i64 %4, ptr %m_numRefs.i28, align 8
   %m_next = getelementptr inbounds i8, ptr %prev.0, i64 16
-  br label %do.cond.sink.split
-
-do.cond.sink.split:                               ; preds = %_ZN10ODDLParserL19createDataArrayListEPNS_5ValueEmPNS_9ReferenceEm.exit, %_ZN10ODDLParserL19createDataArrayListEPNS_5ValueEmPNS_9ReferenceEm.exit29
-  %m_next.sink = phi ptr [ %m_next, %_ZN10ODDLParserL19createDataArrayListEPNS_5ValueEmPNS_9ReferenceEm.exit29 ], [ %dataArrayList, %_ZN10ODDLParserL19createDataArrayListEPNS_5ValueEmPNS_9ReferenceEm.exit ]
-  store ptr %call.i, ptr %m_next.sink, align 8
+  store ptr %call.i, ptr %m_next, align 8
   br label %do.cond
 
-do.cond:                                          ; preds = %do.cond.sink.split, %do.body
-  %prev.1 = phi ptr [ %prev.0, %do.body ], [ %call.i, %do.cond.sink.split ]
+do.cond:                                          ; preds = %do.body, %_ZN10ODDLParserL19createDataArrayListEPNS_5ValueEmPNS_9ReferenceEm.exit29, %_ZN10ODDLParserL19createDataArrayListEPNS_5ValueEmPNS_9ReferenceEm.exit
+  %prev.1 = phi ptr [ %call.i, %_ZN10ODDLParserL19createDataArrayListEPNS_5ValueEmPNS_9ReferenceEm.exit ], [ %call.i, %_ZN10ODDLParserL19createDataArrayListEPNS_5ValueEmPNS_9ReferenceEm.exit29 ], [ %prev.0, %do.body ]
   %9 = load i8, ptr %call8, align 1
   %cmp25 = icmp eq i8 %9, 44
   %cmp26 = icmp ne ptr %call8, %end

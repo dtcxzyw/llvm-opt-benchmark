@@ -1726,7 +1726,8 @@ _ZN20RangeCheckEliminator5Bound5or_opEPS0_.exit:  ; preds = %167, %168
   %177 = getelementptr inbounds i8, ptr %.2, i64 16
   store i32 -2147483648, ptr %177, align 8
   %178 = getelementptr inbounds i8, ptr %.2, i64 24
-  br label %.sink.split.sink.split
+  store ptr null, ptr %178, align 8
+  br label %.sink.split
 
 .thread91:                                        ; preds = %_ZN22CompilationResourceObjnwEm.exit, %._crit_edge..thread91_crit_edge
   %.pre-phi = phi ptr [ %.pre, %._crit_edge..thread91_crit_edge ], [ %19, %_ZN22CompilationResourceObjnwEm.exit ]
@@ -1767,16 +1768,11 @@ _ZN22CompilationResourceObjnwEm.exit87:           ; preds = %192, %194
   %199 = getelementptr inbounds i8, ptr %.0.i.i.i86, i64 24
   store ptr null, ptr %199, align 8
   %200 = getelementptr inbounds i8, ptr %.0.i.i.i86, i64 8
-  br label %.sink.split.sink.split
-
-.sink.split.sink.split:                           ; preds = %176, %197
-  %.sink = phi ptr [ %200, %197 ], [ %178, %176 ]
-  %.0.i.i.i86.sink.ph = phi ptr [ %.0.i.i.i86, %197 ], [ %.2, %176 ]
-  store ptr null, ptr %.sink, align 8
+  store ptr null, ptr %200, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.sink.split.sink.split, %_ZN22CompilationResourceObjnwEm.exit87, %175
-  %.0.i.i.i86.sink = phi ptr [ %.2, %175 ], [ %.0.i.i.i86, %_ZN22CompilationResourceObjnwEm.exit87 ], [ %.0.i.i.i86.sink.ph, %.sink.split.sink.split ]
+.sink.split:                                      ; preds = %_ZN22CompilationResourceObjnwEm.exit87, %197, %175, %176
+  %.0.i.i.i86.sink = phi ptr [ %.2, %176 ], [ %.2, %175 ], [ %.0.i.i.i86, %197 ], [ %.0.i.i.i86, %_ZN22CompilationResourceObjnwEm.exit87 ]
   %201 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.0.i.i.i86.sink, ptr %201, align 8
   br label %202
@@ -6413,7 +6409,7 @@ define hidden void @_ZN20RangeCheckEliminator16add_if_conditionER13GrowableArray
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %10, label %92
+  br i1 %.not, label %10, label %97
 
 10:                                               ; preds = %5
   %11 = load ptr, ptr %2, align 8
@@ -6436,11 +6432,11 @@ define hidden void @_ZN20RangeCheckEliminator16add_if_conditionER13GrowableArray
   %25 = tail call noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %21) #13
   %26 = getelementptr inbounds i8, ptr %25, i64 16
   %27 = load i32, ptr %26, align 8
-  br label %91
+  br label %96
 
 28:                                               ; preds = %10
   %.not36 = icmp eq ptr %18, null
-  br i1 %.not36, label %91, label %29
+  br i1 %.not36, label %96, label %29
 
 29:                                               ; preds = %28
   %30 = getelementptr inbounds i8, ptr %18, i64 104
@@ -6460,7 +6456,7 @@ define hidden void @_ZN20RangeCheckEliminator16add_if_conditionER13GrowableArray
   %41 = load ptr, ptr %40, align 8
   %42 = tail call noundef ptr %41(ptr noundef nonnull align 8 dereferenceable(96) %38) #13
   %.not38 = icmp eq ptr %42, null
-  br i1 %.not38, label %43, label %91
+  br i1 %.not38, label %43, label %96
 
 43:                                               ; preds = %36, %29
   %44 = getelementptr inbounds i8, ptr %18, i64 96
@@ -6485,7 +6481,7 @@ thread-pre-split:                                 ; preds = %47
 54:                                               ; preds = %thread-pre-split, %43
   %55 = phi i32 [ %.pr, %thread-pre-split ], [ %45, %43 ]
   %56 = icmp eq i32 %55, 96
-  br i1 %56, label %57, label %91
+  br i1 %56, label %57, label %96
 
 57:                                               ; preds = %54, %47
   %58 = load ptr, ptr %30, align 8
@@ -6494,7 +6490,7 @@ thread-pre-split:                                 ; preds = %47
   %61 = load ptr, ptr %60, align 8
   %62 = tail call noundef ptr %61(ptr noundef nonnull align 8 dereferenceable(96) %58) #13
   %.not40 = icmp eq ptr %62, null
-  br i1 %.not40, label %71, label %63
+  br i1 %.not40, label %74, label %63
 
 63:                                               ; preds = %57
   %64 = getelementptr inbounds i8, ptr %62, i64 24
@@ -6503,57 +6499,55 @@ thread-pre-split:                                 ; preds = %47
   %67 = getelementptr inbounds i8, ptr %66, i64 136
   %68 = load ptr, ptr %67, align 8
   %69 = tail call noundef ptr %68(ptr noundef nonnull align 8 dereferenceable(16) %65) #13
-  %70 = getelementptr inbounds i8, ptr %18, i64 112
-  br label %.sink.split
-
-71:                                               ; preds = %57
+  %70 = getelementptr inbounds i8, ptr %69, i64 16
+  %71 = load i32, ptr %70, align 8
   %72 = getelementptr inbounds i8, ptr %18, i64 112
   %73 = load ptr, ptr %72, align 8
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 32
-  %76 = load ptr, ptr %75, align 8
-  %77 = tail call noundef ptr %76(ptr noundef nonnull align 8 dereferenceable(96) %73) #13
-  %.not41 = icmp eq ptr %77, null
-  br i1 %.not41, label %86, label %78
-
-78:                                               ; preds = %71
-  %79 = getelementptr inbounds i8, ptr %77, i64 24
-  %80 = load ptr, ptr %79, align 8
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 136
-  %83 = load ptr, ptr %82, align 8
-  %84 = tail call noundef ptr %83(ptr noundef nonnull align 8 dereferenceable(16) %80) #13
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %63, %78
-  %.sink = phi ptr [ %30, %78 ], [ %70, %63 ]
-  %.pn = phi ptr [ %84, %78 ], [ %69, %63 ]
-  %.1.ph.in = getelementptr inbounds i8, ptr %.pn, i64 16
-  %.1.ph = load i32, ptr %.1.ph.in, align 8
-  %85 = load ptr, ptr %.sink, align 8
-  br label %86
-
-86:                                               ; preds = %.sink.split, %71
-  %.130 = phi ptr [ %2, %71 ], [ %85, %.sink.split ]
-  %.1 = phi i32 [ 0, %71 ], [ %.1.ph, %.sink.split ]
-  %87 = load i32, ptr %44, align 8
-  %88 = icmp eq i32 %87, 100
-  br i1 %88, label %89, label %91
-
-89:                                               ; preds = %86
-  %.not42 = icmp eq i32 %.1, -2147483648
-  %90 = sub nsw i32 0, %.1
-  %spec.select = select i1 %.not42, ptr %2, ptr %.130
-  %spec.select43 = select i1 %.not42, i32 0, i32 %90
   br label %91
 
-91:                                               ; preds = %89, %28, %36, %54, %86, %19
-  %.029 = phi ptr [ null, %19 ], [ %2, %36 ], [ %.130, %86 ], [ %2, %54 ], [ %2, %28 ], [ %spec.select, %89 ]
-  %.0 = phi i32 [ %27, %19 ], [ 0, %36 ], [ %.1, %86 ], [ 0, %54 ], [ 0, %28 ], [ %spec.select43, %89 ]
-  tail call void @_ZN20RangeCheckEliminator12update_boundER13GrowableArrayIiEP11InstructionNS3_9ConditionES4_i(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %3, i32 noundef %4, ptr noundef %.029, i32 noundef %.0)
-  br label %92
+74:                                               ; preds = %57
+  %75 = getelementptr inbounds i8, ptr %18, i64 112
+  %76 = load ptr, ptr %75, align 8
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr inbounds i8, ptr %77, i64 32
+  %79 = load ptr, ptr %78, align 8
+  %80 = tail call noundef ptr %79(ptr noundef nonnull align 8 dereferenceable(96) %76) #13
+  %.not41 = icmp eq ptr %80, null
+  br i1 %.not41, label %91, label %81
 
-92:                                               ; preds = %5, %91
+81:                                               ; preds = %74
+  %82 = getelementptr inbounds i8, ptr %80, i64 24
+  %83 = load ptr, ptr %82, align 8
+  %84 = load ptr, ptr %83, align 8
+  %85 = getelementptr inbounds i8, ptr %84, i64 136
+  %86 = load ptr, ptr %85, align 8
+  %87 = tail call noundef ptr %86(ptr noundef nonnull align 8 dereferenceable(16) %83) #13
+  %88 = getelementptr inbounds i8, ptr %87, i64 16
+  %89 = load i32, ptr %88, align 8
+  %90 = load ptr, ptr %30, align 8
+  br label %91
+
+91:                                               ; preds = %74, %81, %63
+  %.130 = phi ptr [ %73, %63 ], [ %90, %81 ], [ %2, %74 ]
+  %.1 = phi i32 [ %71, %63 ], [ %89, %81 ], [ 0, %74 ]
+  %92 = load i32, ptr %44, align 8
+  %93 = icmp eq i32 %92, 100
+  br i1 %93, label %94, label %96
+
+94:                                               ; preds = %91
+  %.not42 = icmp eq i32 %.1, -2147483648
+  %95 = sub nsw i32 0, %.1
+  %spec.select = select i1 %.not42, ptr %2, ptr %.130
+  %spec.select43 = select i1 %.not42, i32 0, i32 %95
+  br label %96
+
+96:                                               ; preds = %94, %28, %36, %54, %91, %19
+  %.029 = phi ptr [ null, %19 ], [ %2, %36 ], [ %.130, %91 ], [ %2, %54 ], [ %2, %28 ], [ %spec.select, %94 ]
+  %.0 = phi i32 [ %27, %19 ], [ 0, %36 ], [ %.1, %91 ], [ 0, %54 ], [ 0, %28 ], [ %spec.select43, %94 ]
+  tail call void @_ZN20RangeCheckEliminator12update_boundER13GrowableArrayIiEP11InstructionNS3_9ConditionES4_i(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %3, i32 noundef %4, ptr noundef %.029, i32 noundef %.0)
+  br label %97
+
+97:                                               ; preds = %5, %96
   ret void
 }
 

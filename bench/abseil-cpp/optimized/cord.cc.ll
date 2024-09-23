@@ -1307,17 +1307,20 @@ if.then:                                          ; preds = %entry
   %4 = inttoptr i64 %sub.i.i to ptr
   store ptr %4, ptr %scope, align 8
   %tobool.not.i = icmp eq i64 %sub.i.i, 0
-  br i1 %tobool.not.i, label %invoke.cont, label %if.then.i.i
+  br i1 %tobool.not.i, label %_ZN4absl13cord_internal16CordzUpdateScopeC2EPNS0_9CordzInfoENS0_18CordzUpdateTracker16MethodIdentifierE.exit.thread, label %if.then.i.i
+
+_ZN4absl13cord_internal16CordzUpdateScopeC2EPNS0_9CordzInfoENS0_18CordzUpdateTracker16MethodIdentifierE.exit.thread: ; preds = %if.then
+  store ptr %call, ptr %rep.i.i.i.i, align 8
+  br label %invoke.cont
 
 if.then.i.i:                                      ; preds = %if.then
   tail call void @_ZN4absl13cord_internal9CordzInfo4LockENS0_18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 dereferenceable(1332) %4, i32 noundef 6)
   store ptr %call, ptr %rep.i.i.i.i, align 8
   %rep_.i.i.i = getelementptr inbounds i8, ptr %4, i64 64
+  store ptr %call, ptr %rep_.i.i.i, align 8
   br label %invoke.cont
 
-invoke.cont:                                      ; preds = %if.then, %if.then.i.i
-  %rep_.i.i.i.sink = phi ptr [ %rep_.i.i.i, %if.then.i.i ], [ %rep.i.i.i.i, %if.then ]
-  store ptr %call, ptr %rep_.i.i.i.sink, align 8
+invoke.cont:                                      ; preds = %if.then.i.i, %_ZN4absl13cord_internal16CordzUpdateScopeC2EPNS0_9CordzInfoENS0_18CordzUpdateTracker16MethodIdentifierE.exit.thread
   %refcount.i = getelementptr inbounds i8, ptr %2, i64 8
   %5 = atomicrmw sub ptr %refcount.i, i32 2 acq_rel, align 4
   %cmp.i.not.i = icmp eq i32 %5, 2

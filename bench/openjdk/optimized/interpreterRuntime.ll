@@ -7221,7 +7221,7 @@ define hidden void @_ZN23SignatureHandlerLibrary3addERK12methodHandle(ptr nounde
   %12 = getelementptr inbounds i8, ptr %11, i64 46
   %13 = load i16, ptr %12, align 2
   %14 = icmp ult i16 %13, 15
-  br i1 %14, label %15, label %206
+  br i1 %14, label %15, label %210
 
 15:                                               ; preds = %9
   %16 = load ptr, ptr @SignatureHandlerLibrary_lock, align 8
@@ -7544,34 +7544,39 @@ _ZN23SignatureHandlerLibrary11set_handlerEP10CodeBuffer.exit.thread: ; preds = %
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %196, %194
   %197 = icmp slt i32 %.1, 0
-  br i1 %197, label %203, label %_ZN12ResourceMarkD2Ev.exit.thread
+  br i1 %197, label %198, label %_ZN12ResourceMarkD2Ev.exit.thread
+
+198:                                              ; preds = %_ZN12ResourceMarkD2Ev.exit
+  %199 = load ptr, ptr %0, align 8
+  %200 = load ptr, ptr @_ZN19AbstractInterpreter23_slow_signature_handlerE, align 8
+  call void @_ZN6Method21set_signature_handlerEPh(ptr noundef nonnull align 8 dereferenceable(88) %199, ptr noundef %200) #14
+  br label %208
 
 _ZN12ResourceMarkD2Ev.exit.thread:                ; preds = %_ZNK17GrowableArrayViewImE4findERKm.exit, %_ZN12ResourceMarkD2Ev.exit
   %.034 = phi i32 [ %.1, %_ZN12ResourceMarkD2Ev.exit ], [ %43, %_ZNK17GrowableArrayViewImE4findERKm.exit ]
-  %198 = load ptr, ptr @_ZN23SignatureHandlerLibrary9_handlersE, align 8
-  %199 = getelementptr inbounds i8, ptr %198, i64 8
-  %200 = load ptr, ptr %199, align 8
-  %201 = zext nneg i32 %.034 to i64
-  %202 = getelementptr inbounds ptr, ptr %200, i64 %201
-  br label %203
+  %201 = load ptr, ptr %0, align 8
+  %202 = load ptr, ptr @_ZN23SignatureHandlerLibrary9_handlersE, align 8
+  %203 = getelementptr inbounds i8, ptr %202, i64 8
+  %204 = load ptr, ptr %203, align 8
+  %205 = zext nneg i32 %.034 to i64
+  %206 = getelementptr inbounds ptr, ptr %204, i64 %205
+  %207 = load ptr, ptr %206, align 8
+  call void @_ZN6Method21set_signature_handlerEPh(ptr noundef nonnull align 8 dereferenceable(88) %201, ptr noundef %207) #14
+  br label %208
 
-203:                                              ; preds = %_ZN12ResourceMarkD2Ev.exit, %_ZN12ResourceMarkD2Ev.exit.thread
-  %.sink41 = phi ptr [ %202, %_ZN12ResourceMarkD2Ev.exit.thread ], [ @_ZN19AbstractInterpreter23_slow_signature_handlerE, %_ZN12ResourceMarkD2Ev.exit ]
-  %.sink = load ptr, ptr %0, align 8
-  %204 = load ptr, ptr %.sink41, align 8
-  call void @_ZN6Method21set_signature_handlerEPh(ptr noundef nonnull align 8 dereferenceable(88) %.sink, ptr noundef %204) #14
-  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %205
+208:                                              ; preds = %_ZN12ResourceMarkD2Ev.exit.thread, %198
+  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %209
 
-205:                                              ; preds = %203
+209:                                              ; preds = %208
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %16) #14
   br label %_ZN11MutexLockerD2Ev.exit
 
-206:                                              ; preds = %9
-  %207 = load ptr, ptr @_ZN19AbstractInterpreter23_slow_signature_handlerE, align 8
-  tail call void @_ZN6Method21set_signature_handlerEPh(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef %207) #14
+210:                                              ; preds = %9
+  %211 = load ptr, ptr @_ZN19AbstractInterpreter23_slow_signature_handlerE, align 8
+  tail call void @_ZN6Method21set_signature_handlerEPh(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef %211) #14
   br label %_ZN11MutexLockerD2Ev.exit
 
-_ZN11MutexLockerD2Ev.exit:                        ; preds = %205, %203, %206, %1
+_ZN11MutexLockerD2Ev.exit:                        ; preds = %209, %208, %210, %1
   ret void
 }
 

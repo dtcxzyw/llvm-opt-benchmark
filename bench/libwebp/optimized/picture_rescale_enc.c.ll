@@ -258,15 +258,15 @@ AdjustAndCheckRectangle.exit:                     ; preds = %15
   br label %AdjustAndCheckRectangle.exit.thread.sink.split
 
 AdjustAndCheckRectangle.exit.thread.sink.split:   ; preds = %66, %73
-  %.sink68 = phi i64 [ 72, %73 ], [ 48, %66 ]
-  %.sink = phi ptr [ %81, %73 ], [ %72, %66 ]
-  %.sink66 = phi ptr [ %76, %73 ], [ %67, %66 ]
-  %.sink65 = phi i64 [ 80, %73 ], [ 56, %66 ]
+  %.sink68 = phi i64 [ 48, %66 ], [ 72, %73 ]
+  %.sink66 = phi ptr [ %72, %66 ], [ %81, %73 ]
+  %.sink65 = phi i64 [ 56, %66 ], [ 80, %73 ]
+  %.sink.in = phi ptr [ %67, %66 ], [ %76, %73 ]
   %82 = getelementptr inbounds i8, ptr %5, i64 %.sink68
-  store ptr %.sink, ptr %82, align 8
-  %83 = load i32, ptr %.sink66, align 8
-  %84 = getelementptr inbounds i8, ptr %5, i64 %.sink65
-  store i32 %83, ptr %84, align 8
+  store ptr %.sink66, ptr %82, align 8
+  %.sink = load i32, ptr %.sink.in, align 8
+  %83 = getelementptr inbounds i8, ptr %5, i64 %.sink65
+  store i32 %.sink, ptr %83, align 8
   br label %AdjustAndCheckRectangle.exit.thread
 
 AdjustAndCheckRectangle.exit.thread:              ; preds = %AdjustAndCheckRectangle.exit.thread.sink.split, %15, %12, %SnapTopLeftPosition.exit.i, %30, %AdjustAndCheckRectangle.exit, %6

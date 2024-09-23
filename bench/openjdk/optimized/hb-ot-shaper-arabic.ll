@@ -12190,7 +12190,7 @@ _ZNK2OT4GDEF19get_glyph_class_defEv.exit:         ; preds = %2, %10
   %trunc.i = or disjoint i16 %24, %27
   switch i16 %trunc.i, label %_ZNK2OT8ClassDef9get_classEj.exit [
     i16 1, label %28
-    i16 2, label %51
+    i16 2, label %57
   ]
 
 28:                                               ; preds = %_ZNK2OT4GDEF19get_glyph_class_defEv.exit
@@ -12223,93 +12223,94 @@ _ZNK2OT4GDEF19get_glyph_class_defEv.exit:         ; preds = %2, %10
 
 _ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i: ; preds = %46, %28
   %.0.i.i.i2 = phi ptr [ %49, %46 ], [ @_hb_NullPool, %28 ]
-  %50 = getelementptr inbounds i8, ptr %.0.i.i.i2, i64 1
-  br label %.sink.split.i
-
-51:                                               ; preds = %_ZNK2OT4GDEF19get_glyph_class_defEv.exit
-  %52 = getelementptr inbounds i8, ptr %.0.i, i64 2
-  %53 = getelementptr inbounds i8, ptr %.0.i, i64 4
-  %54 = load i8, ptr %52, align 1
+  %50 = load i8, ptr %.0.i.i.i2, align 1
+  %51 = zext i8 %50 to i32
+  %52 = shl nuw nsw i32 %51, 8
+  %53 = getelementptr inbounds i8, ptr %.0.i.i.i2, i64 1
+  %54 = load i8, ptr %53, align 1
   %55 = zext i8 %54 to i32
-  %56 = shl nuw nsw i32 %55, 8
-  %57 = getelementptr inbounds i8, ptr %.0.i, i64 3
-  %58 = load i8, ptr %57, align 1
-  %59 = zext i8 %58 to i32
-  %.sroa.2.8.insert.ext.i.i.i.i.i = or disjoint i32 %56, %59
+  %56 = or disjoint i32 %52, %55
+  br label %_ZNK2OT8ClassDef9get_classEj.exit
+
+57:                                               ; preds = %_ZNK2OT4GDEF19get_glyph_class_defEv.exit
+  %58 = getelementptr inbounds i8, ptr %.0.i, i64 2
+  %59 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %60 = load i8, ptr %58, align 1
+  %61 = zext i8 %60 to i32
+  %62 = shl nuw nsw i32 %61, 8
+  %63 = getelementptr inbounds i8, ptr %.0.i, i64 3
+  %64 = load i8, ptr %63, align 1
+  %65 = zext i8 %64 to i32
+  %.sroa.2.8.insert.ext.i.i.i.i.i = or disjoint i32 %62, %65
   %.not1.i.i.i.i.not.i.i.i = icmp eq i32 %.sroa.2.8.insert.ext.i.i.i.i.i, 0
   br i1 %.not1.i.i.i.i.not.i.i.i, label %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i, label %.lr.ph.preheader.i.i.i.i.i.i.i
 
-.lr.ph.preheader.i.i.i.i.i.i.i:                   ; preds = %51
-  %60 = add nsw i32 %.sroa.2.8.insert.ext.i.i.i.i.i, -1
+.lr.ph.preheader.i.i.i.i.i.i.i:                   ; preds = %57
+  %66 = add nsw i32 %.sroa.2.8.insert.ext.i.i.i.i.i, -1
   br label %.lr.ph.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %85, %.lr.ph.preheader.i.i.i.i.i.i.i
-  %.0193.i.i.i.i.i.i.i = phi i32 [ %.1.i.i.i.i.i.i.i, %85 ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i.i ]
-  %.0202.i.i.i.i.i.i.i = phi i32 [ %.121.i.i.i.i.i.i.i, %85 ], [ %60, %.lr.ph.preheader.i.i.i.i.i.i.i ]
-  %61 = add i32 %.0202.i.i.i.i.i.i.i, %.0193.i.i.i.i.i.i.i
-  %62 = lshr i32 %61, 1
-  %63 = zext nneg i32 %62 to i64
-  %64 = mul nuw nsw i64 %63, 6
-  %65 = getelementptr inbounds i8, ptr %53, i64 %64
-  %66 = load i8, ptr %65, align 1
-  %67 = zext i8 %66 to i32
-  %68 = shl nuw nsw i32 %67, 8
-  %69 = getelementptr inbounds i8, ptr %65, i64 1
-  %70 = load i8, ptr %69, align 1
-  %71 = zext i8 %70 to i32
-  %72 = or disjoint i32 %68, %71
-  %73 = icmp ult i32 %1, %72
-  br i1 %73, label %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.thread.i.i.i.i.i.i.i, label %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.i.i.i.i.i.i.i
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %91, %.lr.ph.preheader.i.i.i.i.i.i.i
+  %.0193.i.i.i.i.i.i.i = phi i32 [ %.1.i.i.i.i.i.i.i, %91 ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i.i ]
+  %.0202.i.i.i.i.i.i.i = phi i32 [ %.121.i.i.i.i.i.i.i, %91 ], [ %66, %.lr.ph.preheader.i.i.i.i.i.i.i ]
+  %67 = add i32 %.0202.i.i.i.i.i.i.i, %.0193.i.i.i.i.i.i.i
+  %68 = lshr i32 %67, 1
+  %69 = zext nneg i32 %68 to i64
+  %70 = mul nuw nsw i64 %69, 6
+  %71 = getelementptr inbounds i8, ptr %59, i64 %70
+  %72 = load i8, ptr %71, align 1
+  %73 = zext i8 %72 to i32
+  %74 = shl nuw nsw i32 %73, 8
+  %75 = getelementptr inbounds i8, ptr %71, i64 1
+  %76 = load i8, ptr %75, align 1
+  %77 = zext i8 %76 to i32
+  %78 = or disjoint i32 %74, %77
+  %79 = icmp ult i32 %1, %78
+  br i1 %79, label %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.thread.i.i.i.i.i.i.i, label %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.i.i.i.i.i.i.i
 
 _ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %74 = getelementptr inbounds i8, ptr %65, i64 2
-  %75 = load i8, ptr %74, align 1
-  %76 = zext i8 %75 to i32
-  %77 = shl nuw nsw i32 %76, 8
-  %78 = getelementptr inbounds i8, ptr %65, i64 3
-  %79 = load i8, ptr %78, align 1
-  %80 = zext i8 %79 to i32
-  %81 = or disjoint i32 %77, %80
-  %.not.i.i.not.i.i.i.i.i.i.i = icmp ugt i32 %1, %81
-  br i1 %.not.i.i.not.i.i.i.i.i.i.i, label %83, label %86
+  %80 = getelementptr inbounds i8, ptr %71, i64 2
+  %81 = load i8, ptr %80, align 1
+  %82 = zext i8 %81 to i32
+  %83 = shl nuw nsw i32 %82, 8
+  %84 = getelementptr inbounds i8, ptr %71, i64 3
+  %85 = load i8, ptr %84, align 1
+  %86 = zext i8 %85 to i32
+  %87 = or disjoint i32 %83, %86
+  %.not.i.i.not.i.i.i.i.i.i.i = icmp ugt i32 %1, %87
+  br i1 %.not.i.i.not.i.i.i.i.i.i.i, label %89, label %92
 
 _ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.thread.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %82 = add nsw i32 %62, -1
-  br label %85
+  %88 = add nsw i32 %68, -1
+  br label %91
 
-83:                                               ; preds = %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.i.i.i.i.i.i.i
-  %84 = add nuw nsw i32 %62, 1
-  br label %85
+89:                                               ; preds = %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.i.i.i.i.i.i.i
+  %90 = add nuw nsw i32 %68, 1
+  br label %91
 
-85:                                               ; preds = %83, %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.thread.i.i.i.i.i.i.i
-  %.121.i.i.i.i.i.i.i = phi i32 [ %82, %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.thread.i.i.i.i.i.i.i ], [ %.0202.i.i.i.i.i.i.i, %83 ]
-  %.1.i.i.i.i.i.i.i = phi i32 [ %.0193.i.i.i.i.i.i.i, %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.thread.i.i.i.i.i.i.i ], [ %84, %83 ]
+91:                                               ; preds = %89, %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.thread.i.i.i.i.i.i.i
+  %.121.i.i.i.i.i.i.i = phi i32 [ %88, %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.thread.i.i.i.i.i.i.i ], [ %.0202.i.i.i.i.i.i.i, %89 ]
+  %.1.i.i.i.i.i.i.i = phi i32 [ %.0193.i.i.i.i.i.i.i, %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.thread.i.i.i.i.i.i.i ], [ %90, %89 ]
   %.not.not.i.i.i.i.i.i.i = icmp sgt i32 %.1.i.i.i.i.i.i.i, %.121.i.i.i.i.i.i.i
   br i1 %.not.not.i.i.i.i.i.i.i, label %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !180
 
-86:                                               ; preds = %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.i.i.i.i.i.i.i
-  %87 = getelementptr inbounds %"struct.OT::Layout::Common::RangeRecord", ptr %53, i64 %63
+92:                                               ; preds = %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.i.i.i.i.i.i.i
+  %93 = getelementptr inbounds %"struct.OT::Layout::Common::RangeRecord", ptr %59, i64 %69
   br label %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i
 
-_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i: ; preds = %85, %86, %51
-  %88 = phi ptr [ %87, %86 ], [ @_hb_Null_OT_RangeRecord, %51 ], [ @_hb_Null_OT_RangeRecord, %85 ]
-  %89 = getelementptr inbounds i8, ptr %88, i64 4
-  %90 = getelementptr inbounds i8, ptr %88, i64 5
-  br label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i, %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i
-  %.sink8.i = phi ptr [ %90, %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i ], [ %50, %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i ]
-  %.sink.in.in.in.i = phi ptr [ %89, %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i ], [ %.0.i.i.i2, %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i ]
-  %.sink.in.in.i = load i8, ptr %.sink.in.in.in.i, align 1
-  %.sink.in.i = zext i8 %.sink.in.in.i to i32
-  %.sink.i = shl nuw nsw i32 %.sink.in.i, 8
-  %91 = load i8, ptr %.sink8.i, align 1
-  %92 = zext i8 %91 to i32
-  %93 = or disjoint i32 %.sink.i, %92
+_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i: ; preds = %91, %92, %57
+  %94 = phi ptr [ %93, %92 ], [ @_hb_Null_OT_RangeRecord, %57 ], [ @_hb_Null_OT_RangeRecord, %91 ]
+  %95 = getelementptr inbounds i8, ptr %94, i64 4
+  %96 = load i8, ptr %95, align 1
+  %97 = zext i8 %96 to i32
+  %98 = shl nuw nsw i32 %97, 8
+  %99 = getelementptr inbounds i8, ptr %94, i64 5
+  %100 = load i8, ptr %99, align 1
+  %101 = zext i8 %100 to i32
+  %102 = or disjoint i32 %98, %101
   br label %_ZNK2OT8ClassDef9get_classEj.exit
 
-_ZNK2OT8ClassDef9get_classEj.exit:                ; preds = %_ZNK2OT4GDEF19get_glyph_class_defEv.exit, %.sink.split.i
-  %.0.i1 = phi i32 [ 0, %_ZNK2OT4GDEF19get_glyph_class_defEv.exit ], [ %93, %.sink.split.i ]
+_ZNK2OT8ClassDef9get_classEj.exit:                ; preds = %_ZNK2OT4GDEF19get_glyph_class_defEv.exit, %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i, %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i
+  %.0.i1 = phi i32 [ %102, %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i ], [ %56, %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i ], [ 0, %_ZNK2OT4GDEF19get_glyph_class_defEv.exit ]
   ret i32 %.0.i1
 }
 
@@ -12351,7 +12352,7 @@ _ZNK2OT4GDEF25get_mark_attach_class_defEv.exit:   ; preds = %2, %10
   %trunc.i = or disjoint i16 %24, %27
   switch i16 %trunc.i, label %_ZNK2OT8ClassDef9get_classEj.exit [
     i16 1, label %28
-    i16 2, label %51
+    i16 2, label %57
   ]
 
 28:                                               ; preds = %_ZNK2OT4GDEF25get_mark_attach_class_defEv.exit
@@ -12384,93 +12385,94 @@ _ZNK2OT4GDEF25get_mark_attach_class_defEv.exit:   ; preds = %2, %10
 
 _ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i: ; preds = %46, %28
   %.0.i.i.i2 = phi ptr [ %49, %46 ], [ @_hb_NullPool, %28 ]
-  %50 = getelementptr inbounds i8, ptr %.0.i.i.i2, i64 1
-  br label %.sink.split.i
-
-51:                                               ; preds = %_ZNK2OT4GDEF25get_mark_attach_class_defEv.exit
-  %52 = getelementptr inbounds i8, ptr %.0.i, i64 2
-  %53 = getelementptr inbounds i8, ptr %.0.i, i64 4
-  %54 = load i8, ptr %52, align 1
+  %50 = load i8, ptr %.0.i.i.i2, align 1
+  %51 = zext i8 %50 to i32
+  %52 = shl nuw nsw i32 %51, 8
+  %53 = getelementptr inbounds i8, ptr %.0.i.i.i2, i64 1
+  %54 = load i8, ptr %53, align 1
   %55 = zext i8 %54 to i32
-  %56 = shl nuw nsw i32 %55, 8
-  %57 = getelementptr inbounds i8, ptr %.0.i, i64 3
-  %58 = load i8, ptr %57, align 1
-  %59 = zext i8 %58 to i32
-  %.sroa.2.8.insert.ext.i.i.i.i.i = or disjoint i32 %56, %59
+  %56 = or disjoint i32 %52, %55
+  br label %_ZNK2OT8ClassDef9get_classEj.exit
+
+57:                                               ; preds = %_ZNK2OT4GDEF25get_mark_attach_class_defEv.exit
+  %58 = getelementptr inbounds i8, ptr %.0.i, i64 2
+  %59 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %60 = load i8, ptr %58, align 1
+  %61 = zext i8 %60 to i32
+  %62 = shl nuw nsw i32 %61, 8
+  %63 = getelementptr inbounds i8, ptr %.0.i, i64 3
+  %64 = load i8, ptr %63, align 1
+  %65 = zext i8 %64 to i32
+  %.sroa.2.8.insert.ext.i.i.i.i.i = or disjoint i32 %62, %65
   %.not1.i.i.i.i.not.i.i.i = icmp eq i32 %.sroa.2.8.insert.ext.i.i.i.i.i, 0
   br i1 %.not1.i.i.i.i.not.i.i.i, label %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i, label %.lr.ph.preheader.i.i.i.i.i.i.i
 
-.lr.ph.preheader.i.i.i.i.i.i.i:                   ; preds = %51
-  %60 = add nsw i32 %.sroa.2.8.insert.ext.i.i.i.i.i, -1
+.lr.ph.preheader.i.i.i.i.i.i.i:                   ; preds = %57
+  %66 = add nsw i32 %.sroa.2.8.insert.ext.i.i.i.i.i, -1
   br label %.lr.ph.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %85, %.lr.ph.preheader.i.i.i.i.i.i.i
-  %.0193.i.i.i.i.i.i.i = phi i32 [ %.1.i.i.i.i.i.i.i, %85 ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i.i ]
-  %.0202.i.i.i.i.i.i.i = phi i32 [ %.121.i.i.i.i.i.i.i, %85 ], [ %60, %.lr.ph.preheader.i.i.i.i.i.i.i ]
-  %61 = add i32 %.0202.i.i.i.i.i.i.i, %.0193.i.i.i.i.i.i.i
-  %62 = lshr i32 %61, 1
-  %63 = zext nneg i32 %62 to i64
-  %64 = mul nuw nsw i64 %63, 6
-  %65 = getelementptr inbounds i8, ptr %53, i64 %64
-  %66 = load i8, ptr %65, align 1
-  %67 = zext i8 %66 to i32
-  %68 = shl nuw nsw i32 %67, 8
-  %69 = getelementptr inbounds i8, ptr %65, i64 1
-  %70 = load i8, ptr %69, align 1
-  %71 = zext i8 %70 to i32
-  %72 = or disjoint i32 %68, %71
-  %73 = icmp ult i32 %1, %72
-  br i1 %73, label %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.thread.i.i.i.i.i.i.i, label %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.i.i.i.i.i.i.i
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %91, %.lr.ph.preheader.i.i.i.i.i.i.i
+  %.0193.i.i.i.i.i.i.i = phi i32 [ %.1.i.i.i.i.i.i.i, %91 ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i.i ]
+  %.0202.i.i.i.i.i.i.i = phi i32 [ %.121.i.i.i.i.i.i.i, %91 ], [ %66, %.lr.ph.preheader.i.i.i.i.i.i.i ]
+  %67 = add i32 %.0202.i.i.i.i.i.i.i, %.0193.i.i.i.i.i.i.i
+  %68 = lshr i32 %67, 1
+  %69 = zext nneg i32 %68 to i64
+  %70 = mul nuw nsw i64 %69, 6
+  %71 = getelementptr inbounds i8, ptr %59, i64 %70
+  %72 = load i8, ptr %71, align 1
+  %73 = zext i8 %72 to i32
+  %74 = shl nuw nsw i32 %73, 8
+  %75 = getelementptr inbounds i8, ptr %71, i64 1
+  %76 = load i8, ptr %75, align 1
+  %77 = zext i8 %76 to i32
+  %78 = or disjoint i32 %74, %77
+  %79 = icmp ult i32 %1, %78
+  br i1 %79, label %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.thread.i.i.i.i.i.i.i, label %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.i.i.i.i.i.i.i
 
 _ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %74 = getelementptr inbounds i8, ptr %65, i64 2
-  %75 = load i8, ptr %74, align 1
-  %76 = zext i8 %75 to i32
-  %77 = shl nuw nsw i32 %76, 8
-  %78 = getelementptr inbounds i8, ptr %65, i64 3
-  %79 = load i8, ptr %78, align 1
-  %80 = zext i8 %79 to i32
-  %81 = or disjoint i32 %77, %80
-  %.not.i.i.not.i.i.i.i.i.i.i = icmp ugt i32 %1, %81
-  br i1 %.not.i.i.not.i.i.i.i.i.i.i, label %83, label %86
+  %80 = getelementptr inbounds i8, ptr %71, i64 2
+  %81 = load i8, ptr %80, align 1
+  %82 = zext i8 %81 to i32
+  %83 = shl nuw nsw i32 %82, 8
+  %84 = getelementptr inbounds i8, ptr %71, i64 3
+  %85 = load i8, ptr %84, align 1
+  %86 = zext i8 %85 to i32
+  %87 = or disjoint i32 %83, %86
+  %.not.i.i.not.i.i.i.i.i.i.i = icmp ugt i32 %1, %87
+  br i1 %.not.i.i.not.i.i.i.i.i.i.i, label %89, label %92
 
 _ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.thread.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %82 = add nsw i32 %62, -1
-  br label %85
+  %88 = add nsw i32 %68, -1
+  br label %91
 
-83:                                               ; preds = %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.i.i.i.i.i.i.i
-  %84 = add nuw nsw i32 %62, 1
-  br label %85
+89:                                               ; preds = %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.i.i.i.i.i.i.i
+  %90 = add nuw nsw i32 %68, 1
+  br label %91
 
-85:                                               ; preds = %83, %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.thread.i.i.i.i.i.i.i
-  %.121.i.i.i.i.i.i.i = phi i32 [ %82, %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.thread.i.i.i.i.i.i.i ], [ %.0202.i.i.i.i.i.i.i, %83 ]
-  %.1.i.i.i.i.i.i.i = phi i32 [ %.0193.i.i.i.i.i.i.i, %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.thread.i.i.i.i.i.i.i ], [ %84, %83 ]
+91:                                               ; preds = %89, %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.thread.i.i.i.i.i.i.i
+  %.121.i.i.i.i.i.i.i = phi i32 [ %88, %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.thread.i.i.i.i.i.i.i ], [ %.0202.i.i.i.i.i.i.i, %89 ]
+  %.1.i.i.i.i.i.i.i = phi i32 [ %.0193.i.i.i.i.i.i.i, %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.thread.i.i.i.i.i.i.i ], [ %90, %89 ]
   %.not.not.i.i.i.i.i.i.i = icmp sgt i32 %.1.i.i.i.i.i.i.i, %.121.i.i.i.i.i.i.i
   br i1 %.not.not.i.i.i.i.i.i.i, label %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !180
 
-86:                                               ; preds = %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.i.i.i.i.i.i.i
-  %87 = getelementptr inbounds %"struct.OT::Layout::Common::RangeRecord", ptr %53, i64 %63
+92:                                               ; preds = %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.i.i.i.i.i.i.i
+  %93 = getelementptr inbounds %"struct.OT::Layout::Common::RangeRecord", ptr %59, i64 %69
   br label %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i
 
-_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i: ; preds = %85, %86, %51
-  %88 = phi ptr [ %87, %86 ], [ @_hb_Null_OT_RangeRecord, %51 ], [ @_hb_Null_OT_RangeRecord, %85 ]
-  %89 = getelementptr inbounds i8, ptr %88, i64 4
-  %90 = getelementptr inbounds i8, ptr %88, i64 5
-  br label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i, %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i
-  %.sink8.i = phi ptr [ %90, %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i ], [ %50, %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i ]
-  %.sink.in.in.in.i = phi ptr [ %89, %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i ], [ %.0.i.i.i2, %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i ]
-  %.sink.in.in.i = load i8, ptr %.sink.in.in.in.i, align 1
-  %.sink.in.i = zext i8 %.sink.in.in.i to i32
-  %.sink.i = shl nuw nsw i32 %.sink.in.i, 8
-  %91 = load i8, ptr %.sink8.i, align 1
-  %92 = zext i8 %91 to i32
-  %93 = or disjoint i32 %.sink.i, %92
+_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i: ; preds = %91, %92, %57
+  %94 = phi ptr [ %93, %92 ], [ @_hb_Null_OT_RangeRecord, %57 ], [ @_hb_Null_OT_RangeRecord, %91 ]
+  %95 = getelementptr inbounds i8, ptr %94, i64 4
+  %96 = load i8, ptr %95, align 1
+  %97 = zext i8 %96 to i32
+  %98 = shl nuw nsw i32 %97, 8
+  %99 = getelementptr inbounds i8, ptr %94, i64 5
+  %100 = load i8, ptr %99, align 1
+  %101 = zext i8 %100 to i32
+  %102 = or disjoint i32 %98, %101
   br label %_ZNK2OT8ClassDef9get_classEj.exit
 
-_ZNK2OT8ClassDef9get_classEj.exit:                ; preds = %_ZNK2OT4GDEF25get_mark_attach_class_defEv.exit, %.sink.split.i
-  %.0.i1 = phi i32 [ 0, %_ZNK2OT4GDEF25get_mark_attach_class_defEv.exit ], [ %93, %.sink.split.i ]
+_ZNK2OT8ClassDef9get_classEj.exit:                ; preds = %_ZNK2OT4GDEF25get_mark_attach_class_defEv.exit, %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i, %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i
+  %.0.i1 = phi i32 [ %102, %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i ], [ %56, %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i ], [ 0, %_ZNK2OT4GDEF25get_mark_attach_class_defEv.exit ]
   ret i32 %.0.i1
 }
 
@@ -17183,7 +17185,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT16ContextFormat2_5INS_6Lay
   %24 = load i32, ptr %23, align 4
   %25 = tail call noundef i32 @_ZNK2OT6Layout6Common8Coverage12get_coverageEj(ptr noundef nonnull align 1 dereferenceable(10) %.0.i.i, i32 noundef %24)
   %26 = icmp eq i32 %25, -1
-  br i1 %26, label %148, label %27
+  br i1 %26, label %157, label %27
 
 27:                                               ; preds = %3
   %28 = getelementptr inbounds i8, ptr %0, i64 4
@@ -17233,7 +17235,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT16ContextFormat2_5INS_6Lay
   %trunc.i = or disjoint i16 %55, %58
   switch i16 %trunc.i, label %_ZNK2OT8ClassDef9get_classEj.exit [
     i16 1, label %59
-    i16 2, label %82
+    i16 2, label %88
   ]
 
 59:                                               ; preds = %._crit_edge
@@ -17266,129 +17268,130 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT16ContextFormat2_5INS_6Lay
 
 _ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i: ; preds = %77, %59
   %.0.i.i.i = phi ptr [ %80, %77 ], [ @_hb_NullPool, %59 ]
-  %81 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 1
-  br label %.sink.split.i
-
-82:                                               ; preds = %._crit_edge
-  %83 = getelementptr inbounds i8, ptr %.0.i.i14, i64 2
-  %84 = getelementptr inbounds i8, ptr %.0.i.i14, i64 4
-  %85 = load i8, ptr %83, align 1
+  %81 = load i8, ptr %.0.i.i.i, align 1
+  %82 = zext i8 %81 to i32
+  %83 = shl nuw nsw i32 %82, 8
+  %84 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 1
+  %85 = load i8, ptr %84, align 1
   %86 = zext i8 %85 to i32
-  %87 = shl nuw nsw i32 %86, 8
-  %88 = getelementptr inbounds i8, ptr %.0.i.i14, i64 3
-  %89 = load i8, ptr %88, align 1
-  %90 = zext i8 %89 to i32
-  %.sroa.2.8.insert.ext.i.i.i.i.i = or disjoint i32 %87, %90
+  %87 = or disjoint i32 %83, %86
+  br label %_ZNK2OT8ClassDef9get_classEj.exit
+
+88:                                               ; preds = %._crit_edge
+  %89 = getelementptr inbounds i8, ptr %.0.i.i14, i64 2
+  %90 = getelementptr inbounds i8, ptr %.0.i.i14, i64 4
+  %91 = load i8, ptr %89, align 1
+  %92 = zext i8 %91 to i32
+  %93 = shl nuw nsw i32 %92, 8
+  %94 = getelementptr inbounds i8, ptr %.0.i.i14, i64 3
+  %95 = load i8, ptr %94, align 1
+  %96 = zext i8 %95 to i32
+  %.sroa.2.8.insert.ext.i.i.i.i.i = or disjoint i32 %93, %96
   %.not1.i.i.i.i.not.i.i.i = icmp eq i32 %.sroa.2.8.insert.ext.i.i.i.i.i, 0
   br i1 %.not1.i.i.i.i.not.i.i.i, label %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i, label %.lr.ph.preheader.i.i.i.i.i.i.i
 
-.lr.ph.preheader.i.i.i.i.i.i.i:                   ; preds = %82
-  %91 = add nsw i32 %.sroa.2.8.insert.ext.i.i.i.i.i, -1
+.lr.ph.preheader.i.i.i.i.i.i.i:                   ; preds = %88
+  %97 = add nsw i32 %.sroa.2.8.insert.ext.i.i.i.i.i, -1
   br label %.lr.ph.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %116, %.lr.ph.preheader.i.i.i.i.i.i.i
-  %.0193.i.i.i.i.i.i.i = phi i32 [ %.1.i.i.i.i.i.i.i, %116 ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i.i ]
-  %.0202.i.i.i.i.i.i.i = phi i32 [ %.121.i.i.i.i.i.i.i, %116 ], [ %91, %.lr.ph.preheader.i.i.i.i.i.i.i ]
-  %92 = add i32 %.0202.i.i.i.i.i.i.i, %.0193.i.i.i.i.i.i.i
-  %93 = lshr i32 %92, 1
-  %94 = zext nneg i32 %93 to i64
-  %95 = mul nuw nsw i64 %94, 6
-  %96 = getelementptr inbounds i8, ptr %84, i64 %95
-  %97 = load i8, ptr %96, align 1
-  %98 = zext i8 %97 to i32
-  %99 = shl nuw nsw i32 %98, 8
-  %100 = getelementptr inbounds i8, ptr %96, i64 1
-  %101 = load i8, ptr %100, align 1
-  %102 = zext i8 %101 to i32
-  %103 = or disjoint i32 %99, %102
-  %104 = icmp ult i32 %52, %103
-  br i1 %104, label %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.thread.i.i.i.i.i.i.i, label %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.i.i.i.i.i.i.i
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %122, %.lr.ph.preheader.i.i.i.i.i.i.i
+  %.0193.i.i.i.i.i.i.i = phi i32 [ %.1.i.i.i.i.i.i.i, %122 ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i.i ]
+  %.0202.i.i.i.i.i.i.i = phi i32 [ %.121.i.i.i.i.i.i.i, %122 ], [ %97, %.lr.ph.preheader.i.i.i.i.i.i.i ]
+  %98 = add i32 %.0202.i.i.i.i.i.i.i, %.0193.i.i.i.i.i.i.i
+  %99 = lshr i32 %98, 1
+  %100 = zext nneg i32 %99 to i64
+  %101 = mul nuw nsw i64 %100, 6
+  %102 = getelementptr inbounds i8, ptr %90, i64 %101
+  %103 = load i8, ptr %102, align 1
+  %104 = zext i8 %103 to i32
+  %105 = shl nuw nsw i32 %104, 8
+  %106 = getelementptr inbounds i8, ptr %102, i64 1
+  %107 = load i8, ptr %106, align 1
+  %108 = zext i8 %107 to i32
+  %109 = or disjoint i32 %105, %108
+  %110 = icmp ult i32 %52, %109
+  br i1 %110, label %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.thread.i.i.i.i.i.i.i, label %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.i.i.i.i.i.i.i
 
 _ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %105 = getelementptr inbounds i8, ptr %96, i64 2
-  %106 = load i8, ptr %105, align 1
-  %107 = zext i8 %106 to i32
-  %108 = shl nuw nsw i32 %107, 8
-  %109 = getelementptr inbounds i8, ptr %96, i64 3
-  %110 = load i8, ptr %109, align 1
-  %111 = zext i8 %110 to i32
-  %112 = or disjoint i32 %108, %111
-  %.not.i.i.not.i.i.i.i.i.i.i = icmp ugt i32 %52, %112
-  br i1 %.not.i.i.not.i.i.i.i.i.i.i, label %114, label %117
+  %111 = getelementptr inbounds i8, ptr %102, i64 2
+  %112 = load i8, ptr %111, align 1
+  %113 = zext i8 %112 to i32
+  %114 = shl nuw nsw i32 %113, 8
+  %115 = getelementptr inbounds i8, ptr %102, i64 3
+  %116 = load i8, ptr %115, align 1
+  %117 = zext i8 %116 to i32
+  %118 = or disjoint i32 %114, %117
+  %.not.i.i.not.i.i.i.i.i.i.i = icmp ugt i32 %52, %118
+  br i1 %.not.i.i.not.i.i.i.i.i.i.i, label %120, label %123
 
 _ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.thread.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %113 = add nsw i32 %93, -1
-  br label %116
+  %119 = add nsw i32 %99, -1
+  br label %122
 
-114:                                              ; preds = %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.i.i.i.i.i.i.i
-  %115 = add nuw nsw i32 %93, 1
-  br label %116
+120:                                              ; preds = %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.i.i.i.i.i.i.i
+  %121 = add nuw nsw i32 %99, 1
+  br label %122
 
-116:                                              ; preds = %114, %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.thread.i.i.i.i.i.i.i
-  %.121.i.i.i.i.i.i.i = phi i32 [ %113, %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.thread.i.i.i.i.i.i.i ], [ %.0202.i.i.i.i.i.i.i, %114 ]
-  %.1.i.i.i.i.i.i.i = phi i32 [ %.0193.i.i.i.i.i.i.i, %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.thread.i.i.i.i.i.i.i ], [ %115, %114 ]
+122:                                              ; preds = %120, %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.thread.i.i.i.i.i.i.i
+  %.121.i.i.i.i.i.i.i = phi i32 [ %119, %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.thread.i.i.i.i.i.i.i ], [ %.0202.i.i.i.i.i.i.i, %120 ]
+  %.1.i.i.i.i.i.i.i = phi i32 [ %.0193.i.i.i.i.i.i.i, %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.thread.i.i.i.i.i.i.i ], [ %121, %120 ]
   %.not.not.i.i.i.i.i.i.i = icmp sgt i32 %.1.i.i.i.i.i.i.i, %.121.i.i.i.i.i.i.i
   br i1 %.not.not.i.i.i.i.i.i.i, label %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !180
 
-117:                                              ; preds = %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.i.i.i.i.i.i.i
-  %118 = getelementptr inbounds %"struct.OT::Layout::Common::RangeRecord", ptr %84, i64 %94
+123:                                              ; preds = %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.i.i.i.i.i.i.i
+  %124 = getelementptr inbounds %"struct.OT::Layout::Common::RangeRecord", ptr %90, i64 %100
   br label %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i
 
-_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i: ; preds = %116, %117, %82
-  %119 = phi ptr [ %118, %117 ], [ @_hb_Null_OT_RangeRecord, %82 ], [ @_hb_Null_OT_RangeRecord, %116 ]
-  %120 = getelementptr inbounds i8, ptr %119, i64 4
-  %121 = getelementptr inbounds i8, ptr %119, i64 5
-  br label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i, %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i
-  %.sink8.i = phi ptr [ %121, %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i ], [ %81, %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i ]
-  %.sink.in.in.in.i = phi ptr [ %120, %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i ], [ %.0.i.i.i, %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i ]
-  %.sink.in.in.i = load i8, ptr %.sink.in.in.in.i, align 1
-  %.sink.in.i = zext i8 %.sink.in.in.i to i32
-  %.sink.i = shl nuw nsw i32 %.sink.in.i, 8
-  %122 = load i8, ptr %.sink8.i, align 1
-  %123 = zext i8 %122 to i32
-  %124 = or disjoint i32 %.sink.i, %123
+_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i: ; preds = %122, %123, %88
+  %125 = phi ptr [ %124, %123 ], [ @_hb_Null_OT_RangeRecord, %88 ], [ @_hb_Null_OT_RangeRecord, %122 ]
+  %126 = getelementptr inbounds i8, ptr %125, i64 4
+  %127 = load i8, ptr %126, align 1
+  %128 = zext i8 %127 to i32
+  %129 = shl nuw nsw i32 %128, 8
+  %130 = getelementptr inbounds i8, ptr %125, i64 5
+  %131 = load i8, ptr %130, align 1
+  %132 = zext i8 %131 to i32
+  %133 = or disjoint i32 %129, %132
   br label %_ZNK2OT8ClassDef9get_classEj.exit
 
-_ZNK2OT8ClassDef9get_classEj.exit:                ; preds = %.sink.split.i, %._crit_edge, %49
-  %.013 = phi i32 [ %50, %49 ], [ 0, %._crit_edge ], [ %124, %.sink.split.i ]
-  %125 = getelementptr inbounds i8, ptr %0, i64 6
-  %126 = load i8, ptr %125, align 1
-  %127 = zext i8 %126 to i32
-  %128 = shl nuw nsw i32 %127, 8
-  %129 = getelementptr inbounds i8, ptr %0, i64 7
-  %130 = load i8, ptr %129, align 1
-  %131 = zext i8 %130 to i32
-  %132 = or disjoint i32 %128, %131
-  %.not.i = icmp ult i32 %.013, %132
-  br i1 %.not.i, label %133, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_7RuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit
+_ZNK2OT8ClassDef9get_classEj.exit:                ; preds = %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i, %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i, %._crit_edge, %49
+  %.013 = phi i32 [ %50, %49 ], [ %133, %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i ], [ %87, %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i ], [ 0, %._crit_edge ]
+  %134 = getelementptr inbounds i8, ptr %0, i64 6
+  %135 = load i8, ptr %134, align 1
+  %136 = zext i8 %135 to i32
+  %137 = shl nuw nsw i32 %136, 8
+  %138 = getelementptr inbounds i8, ptr %0, i64 7
+  %139 = load i8, ptr %138, align 1
+  %140 = zext i8 %139 to i32
+  %141 = or disjoint i32 %137, %140
+  %.not.i = icmp ult i32 %.013, %141
+  br i1 %.not.i, label %142, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_7RuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit
 
-133:                                              ; preds = %_ZNK2OT8ClassDef9get_classEj.exit
+142:                                              ; preds = %_ZNK2OT8ClassDef9get_classEj.exit
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !83
-  %134 = getelementptr inbounds i8, ptr %0, i64 8
-  %135 = zext nneg i32 %.013 to i64
-  %136 = getelementptr inbounds [1 x %"struct.OT::OffsetTo.73"], ptr %134, i64 0, i64 %135
+  %143 = getelementptr inbounds i8, ptr %0, i64 8
+  %144 = zext nneg i32 %.013 to i64
+  %145 = getelementptr inbounds [1 x %"struct.OT::OffsetTo.73"], ptr %143, i64 0, i64 %144
   br label %_ZNK2OT7ArrayOfINS_8OffsetToINS_7RuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit
 
-_ZNK2OT7ArrayOfINS_8OffsetToINS_7RuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit: ; preds = %_ZNK2OT8ClassDef9get_classEj.exit, %133
-  %.0.i15 = phi ptr [ %136, %133 ], [ @_hb_NullPool, %_ZNK2OT8ClassDef9get_classEj.exit ]
-  %137 = load i8, ptr %.0.i15, align 1
-  %138 = zext i8 %137 to i32
-  %139 = shl nuw nsw i32 %138, 8
-  %140 = getelementptr inbounds i8, ptr %.0.i15, i64 1
-  %141 = load i8, ptr %140, align 1
-  %142 = zext i8 %141 to i32
-  %143 = or disjoint i32 %139, %142
-  %144 = icmp eq i32 %143, 0
-  %145 = zext nneg i32 %143 to i64
-  %146 = getelementptr inbounds i8, ptr %0, i64 %145
-  %.0.i.i16 = select i1 %144, ptr @_hb_NullPool, ptr %146
-  %147 = call noundef zeroext i1 @_ZNK2OT7RuleSetINS_6Layout10SmallTypesEE5applyEPNS_21hb_ot_apply_context_tERKNS_25ContextApplyLookupContextE(ptr noundef nonnull align 1 dereferenceable(4) %.0.i.i16, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  br label %148
+_ZNK2OT7ArrayOfINS_8OffsetToINS_7RuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit: ; preds = %_ZNK2OT8ClassDef9get_classEj.exit, %142
+  %.0.i15 = phi ptr [ %145, %142 ], [ @_hb_NullPool, %_ZNK2OT8ClassDef9get_classEj.exit ]
+  %146 = load i8, ptr %.0.i15, align 1
+  %147 = zext i8 %146 to i32
+  %148 = shl nuw nsw i32 %147, 8
+  %149 = getelementptr inbounds i8, ptr %.0.i15, i64 1
+  %150 = load i8, ptr %149, align 1
+  %151 = zext i8 %150 to i32
+  %152 = or disjoint i32 %148, %151
+  %153 = icmp eq i32 %152, 0
+  %154 = zext nneg i32 %152 to i64
+  %155 = getelementptr inbounds i8, ptr %0, i64 %154
+  %.0.i.i16 = select i1 %153, ptr @_hb_NullPool, ptr %155
+  %156 = call noundef zeroext i1 @_ZNK2OT7RuleSetINS_6Layout10SmallTypesEE5applyEPNS_21hb_ot_apply_context_tERKNS_25ContextApplyLookupContextE(ptr noundef nonnull align 1 dereferenceable(4) %.0.i.i16, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %4)
+  br label %157
 
-148:                                              ; preds = %3, %_ZNK2OT7ArrayOfINS_8OffsetToINS_7RuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit
-  %.0 = phi i1 [ %147, %_ZNK2OT7ArrayOfINS_8OffsetToINS_7RuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit ], [ false, %3 ]
+157:                                              ; preds = %3, %_ZNK2OT7ArrayOfINS_8OffsetToINS_7RuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit
+  %.0 = phi i1 [ %156, %_ZNK2OT7ArrayOfINS_8OffsetToINS_7RuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit ], [ false, %3 ]
   ret i1 %.0
 }
 
@@ -17402,7 +17405,7 @@ define internal noundef zeroext i1 @_ZN2OTL18match_class_cachedER15hb_glyph_info
 6:                                                ; preds = %3
   %7 = zext i8 %5 to i32
   %8 = icmp eq i32 %1, %7
-  br label %87
+  br label %86
 
 9:                                                ; preds = %3
   %10 = load i32, ptr %0, align 4
@@ -17523,30 +17526,30 @@ _ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i: ; preds 
   br label %_ZNK2OT8ClassDef9get_classEj.exit
 
 _ZNK2OT8ClassDef9get_classEj.exit:                ; preds = %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i, %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i
-  %.sink8.i = phi ptr [ %79, %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i ], [ %39, %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i ]
-  %.sink.in.in.in.i = phi ptr [ %78, %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i ], [ %.0.i.i.i, %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i ]
-  %.sink.in.in.i = load i8, ptr %.sink.in.in.in.i, align 1
-  %.sink.in.i = zext i8 %.sink.in.in.i to i32
-  %.sink.i = shl nuw nsw i32 %.sink.in.i, 8
-  %80 = load i8, ptr %.sink8.i, align 1
-  %81 = zext i8 %80 to i32
-  %82 = or disjoint i32 %.sink.i, %81
-  %83 = icmp ult i32 %82, 255
-  br i1 %83, label %_ZNK2OT8ClassDef9get_classEj.exit.thread, label %85
+  %.sink21.in = phi ptr [ %39, %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i ], [ %79, %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i ]
+  %.sink.in.in.in = phi ptr [ %.0.i.i.i, %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i ], [ %78, %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i ]
+  %.sink.in.in = load i8, ptr %.sink.in.in.in, align 1
+  %.sink.in = zext i8 %.sink.in.in to i32
+  %.sink = shl nuw nsw i32 %.sink.in, 8
+  %.sink21 = load i8, ptr %.sink21.in, align 1
+  %80 = zext i8 %.sink21 to i32
+  %81 = or disjoint i32 %.sink, %80
+  %82 = icmp ult i32 %81, 255
+  br i1 %82, label %_ZNK2OT8ClassDef9get_classEj.exit.thread, label %84
 
 _ZNK2OT8ClassDef9get_classEj.exit.thread:         ; preds = %9, %_ZNK2OT8ClassDef9get_classEj.exit
-  %.0.i15 = phi i32 [ %82, %_ZNK2OT8ClassDef9get_classEj.exit ], [ 0, %9 ]
-  %84 = trunc nuw i32 %.0.i15 to i8
-  store i8 %84, ptr %4, align 1
-  br label %85
+  %.0.i15 = phi i32 [ %81, %_ZNK2OT8ClassDef9get_classEj.exit ], [ 0, %9 ]
+  %83 = trunc nuw i32 %.0.i15 to i8
+  store i8 %83, ptr %4, align 1
+  br label %84
 
-85:                                               ; preds = %_ZNK2OT8ClassDef9get_classEj.exit.thread, %_ZNK2OT8ClassDef9get_classEj.exit
-  %.0.i16 = phi i32 [ %.0.i15, %_ZNK2OT8ClassDef9get_classEj.exit.thread ], [ %82, %_ZNK2OT8ClassDef9get_classEj.exit ]
-  %86 = icmp eq i32 %.0.i16, %1
-  br label %87
+84:                                               ; preds = %_ZNK2OT8ClassDef9get_classEj.exit.thread, %_ZNK2OT8ClassDef9get_classEj.exit
+  %.0.i16 = phi i32 [ %.0.i15, %_ZNK2OT8ClassDef9get_classEj.exit.thread ], [ %81, %_ZNK2OT8ClassDef9get_classEj.exit ]
+  %85 = icmp eq i32 %.0.i16, %1
+  br label %86
 
-87:                                               ; preds = %85, %6
-  %.0 = phi i1 [ %8, %6 ], [ %86, %85 ]
+86:                                               ; preds = %84, %6
+  %.0 = phi i1 [ %8, %6 ], [ %85, %84 ]
   ret i1 %.0
 }
 
@@ -17562,7 +17565,7 @@ define internal noundef zeroext i1 @_ZN2OTL11match_classER15hb_glyph_info_tjPKv(
   %trunc.i = or disjoint i16 %7, %10
   switch i16 %trunc.i, label %_ZNK2OT8ClassDef9get_classEj.exit [
     i16 1, label %11
-    i16 2, label %34
+    i16 2, label %40
   ]
 
 11:                                               ; preds = %3
@@ -17595,95 +17598,96 @@ define internal noundef zeroext i1 @_ZN2OTL11match_classER15hb_glyph_info_tjPKv(
 
 _ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i: ; preds = %29, %11
   %.0.i.i.i = phi ptr [ %32, %29 ], [ @_hb_NullPool, %11 ]
-  %33 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 1
-  br label %.sink.split.i
-
-34:                                               ; preds = %3
-  %35 = getelementptr inbounds i8, ptr %2, i64 2
-  %36 = getelementptr inbounds i8, ptr %2, i64 4
-  %37 = load i8, ptr %35, align 1
+  %33 = load i8, ptr %.0.i.i.i, align 1
+  %34 = zext i8 %33 to i32
+  %35 = shl nuw nsw i32 %34, 8
+  %36 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 1
+  %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i32
-  %39 = shl nuw nsw i32 %38, 8
-  %40 = getelementptr inbounds i8, ptr %2, i64 3
-  %41 = load i8, ptr %40, align 1
-  %42 = zext i8 %41 to i32
-  %.sroa.2.8.insert.ext.i.i.i.i.i = or disjoint i32 %39, %42
+  %39 = or disjoint i32 %35, %38
+  br label %_ZNK2OT8ClassDef9get_classEj.exit
+
+40:                                               ; preds = %3
+  %41 = getelementptr inbounds i8, ptr %2, i64 2
+  %42 = getelementptr inbounds i8, ptr %2, i64 4
+  %43 = load i8, ptr %41, align 1
+  %44 = zext i8 %43 to i32
+  %45 = shl nuw nsw i32 %44, 8
+  %46 = getelementptr inbounds i8, ptr %2, i64 3
+  %47 = load i8, ptr %46, align 1
+  %48 = zext i8 %47 to i32
+  %.sroa.2.8.insert.ext.i.i.i.i.i = or disjoint i32 %45, %48
   %.not1.i.i.i.i.not.i.i.i = icmp eq i32 %.sroa.2.8.insert.ext.i.i.i.i.i, 0
   br i1 %.not1.i.i.i.i.not.i.i.i, label %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i, label %.lr.ph.preheader.i.i.i.i.i.i.i
 
-.lr.ph.preheader.i.i.i.i.i.i.i:                   ; preds = %34
-  %43 = add nsw i32 %.sroa.2.8.insert.ext.i.i.i.i.i, -1
+.lr.ph.preheader.i.i.i.i.i.i.i:                   ; preds = %40
+  %49 = add nsw i32 %.sroa.2.8.insert.ext.i.i.i.i.i, -1
   br label %.lr.ph.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %68, %.lr.ph.preheader.i.i.i.i.i.i.i
-  %.0193.i.i.i.i.i.i.i = phi i32 [ %.1.i.i.i.i.i.i.i, %68 ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i.i ]
-  %.0202.i.i.i.i.i.i.i = phi i32 [ %.121.i.i.i.i.i.i.i, %68 ], [ %43, %.lr.ph.preheader.i.i.i.i.i.i.i ]
-  %44 = add i32 %.0202.i.i.i.i.i.i.i, %.0193.i.i.i.i.i.i.i
-  %45 = lshr i32 %44, 1
-  %46 = zext nneg i32 %45 to i64
-  %47 = mul nuw nsw i64 %46, 6
-  %48 = getelementptr inbounds i8, ptr %36, i64 %47
-  %49 = load i8, ptr %48, align 1
-  %50 = zext i8 %49 to i32
-  %51 = shl nuw nsw i32 %50, 8
-  %52 = getelementptr inbounds i8, ptr %48, i64 1
-  %53 = load i8, ptr %52, align 1
-  %54 = zext i8 %53 to i32
-  %55 = or disjoint i32 %51, %54
-  %56 = icmp ult i32 %4, %55
-  br i1 %56, label %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.thread.i.i.i.i.i.i.i, label %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.i.i.i.i.i.i.i
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %74, %.lr.ph.preheader.i.i.i.i.i.i.i
+  %.0193.i.i.i.i.i.i.i = phi i32 [ %.1.i.i.i.i.i.i.i, %74 ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i.i ]
+  %.0202.i.i.i.i.i.i.i = phi i32 [ %.121.i.i.i.i.i.i.i, %74 ], [ %49, %.lr.ph.preheader.i.i.i.i.i.i.i ]
+  %50 = add i32 %.0202.i.i.i.i.i.i.i, %.0193.i.i.i.i.i.i.i
+  %51 = lshr i32 %50, 1
+  %52 = zext nneg i32 %51 to i64
+  %53 = mul nuw nsw i64 %52, 6
+  %54 = getelementptr inbounds i8, ptr %42, i64 %53
+  %55 = load i8, ptr %54, align 1
+  %56 = zext i8 %55 to i32
+  %57 = shl nuw nsw i32 %56, 8
+  %58 = getelementptr inbounds i8, ptr %54, i64 1
+  %59 = load i8, ptr %58, align 1
+  %60 = zext i8 %59 to i32
+  %61 = or disjoint i32 %57, %60
+  %62 = icmp ult i32 %4, %61
+  br i1 %62, label %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.thread.i.i.i.i.i.i.i, label %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.i.i.i.i.i.i.i
 
 _ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %57 = getelementptr inbounds i8, ptr %48, i64 2
-  %58 = load i8, ptr %57, align 1
-  %59 = zext i8 %58 to i32
-  %60 = shl nuw nsw i32 %59, 8
-  %61 = getelementptr inbounds i8, ptr %48, i64 3
-  %62 = load i8, ptr %61, align 1
-  %63 = zext i8 %62 to i32
-  %64 = or disjoint i32 %60, %63
-  %.not.i.i.not.i.i.i.i.i.i.i = icmp ugt i32 %4, %64
-  br i1 %.not.i.i.not.i.i.i.i.i.i.i, label %66, label %69
+  %63 = getelementptr inbounds i8, ptr %54, i64 2
+  %64 = load i8, ptr %63, align 1
+  %65 = zext i8 %64 to i32
+  %66 = shl nuw nsw i32 %65, 8
+  %67 = getelementptr inbounds i8, ptr %54, i64 3
+  %68 = load i8, ptr %67, align 1
+  %69 = zext i8 %68 to i32
+  %70 = or disjoint i32 %66, %69
+  %.not.i.i.not.i.i.i.i.i.i.i = icmp ugt i32 %4, %70
+  br i1 %.not.i.i.not.i.i.i.i.i.i.i, label %72, label %75
 
 _ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.thread.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %65 = add nsw i32 %45, -1
-  br label %68
+  %71 = add nsw i32 %51, -1
+  br label %74
 
-66:                                               ; preds = %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.i.i.i.i.i.i.i
-  %67 = add nuw nsw i32 %45, 1
-  br label %68
+72:                                               ; preds = %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.i.i.i.i.i.i.i
+  %73 = add nuw nsw i32 %51, 1
+  br label %74
 
-68:                                               ; preds = %66, %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.thread.i.i.i.i.i.i.i
-  %.121.i.i.i.i.i.i.i = phi i32 [ %65, %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.thread.i.i.i.i.i.i.i ], [ %.0202.i.i.i.i.i.i.i, %66 ]
-  %.1.i.i.i.i.i.i.i = phi i32 [ %.0193.i.i.i.i.i.i.i, %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.thread.i.i.i.i.i.i.i ], [ %67, %66 ]
+74:                                               ; preds = %72, %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.thread.i.i.i.i.i.i.i
+  %.121.i.i.i.i.i.i.i = phi i32 [ %71, %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.thread.i.i.i.i.i.i.i ], [ %.0202.i.i.i.i.i.i.i, %72 ]
+  %.1.i.i.i.i.i.i.i = phi i32 [ %.0193.i.i.i.i.i.i.i, %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.thread.i.i.i.i.i.i.i ], [ %73, %72 ]
   %.not.not.i.i.i.i.i.i.i = icmp sgt i32 %.1.i.i.i.i.i.i.i, %.121.i.i.i.i.i.i.i
   br i1 %.not.not.i.i.i.i.i.i.i, label %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !180
 
-69:                                               ; preds = %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.i.i.i.i.i.i.i
-  %70 = getelementptr inbounds %"struct.OT::Layout::Common::RangeRecord", ptr %36, i64 %46
+75:                                               ; preds = %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.i.i.i.i.i.i.i
+  %76 = getelementptr inbounds %"struct.OT::Layout::Common::RangeRecord", ptr %42, i64 %52
   br label %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i
 
-_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i: ; preds = %68, %69, %34
-  %71 = phi ptr [ %70, %69 ], [ @_hb_Null_OT_RangeRecord, %34 ], [ @_hb_Null_OT_RangeRecord, %68 ]
-  %72 = getelementptr inbounds i8, ptr %71, i64 4
-  %73 = getelementptr inbounds i8, ptr %71, i64 5
-  br label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i, %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i
-  %.sink8.i = phi ptr [ %73, %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i ], [ %33, %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i ]
-  %.sink.in.in.in.i = phi ptr [ %72, %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i ], [ %.0.i.i.i, %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i ]
-  %.sink.in.in.i = load i8, ptr %.sink.in.in.in.i, align 1
-  %.sink.in.i = zext i8 %.sink.in.in.i to i32
-  %.sink.i = shl nuw nsw i32 %.sink.in.i, 8
-  %74 = load i8, ptr %.sink8.i, align 1
-  %75 = zext i8 %74 to i32
-  %76 = or disjoint i32 %.sink.i, %75
+_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i: ; preds = %74, %75, %40
+  %77 = phi ptr [ %76, %75 ], [ @_hb_Null_OT_RangeRecord, %40 ], [ @_hb_Null_OT_RangeRecord, %74 ]
+  %78 = getelementptr inbounds i8, ptr %77, i64 4
+  %79 = load i8, ptr %78, align 1
+  %80 = zext i8 %79 to i32
+  %81 = shl nuw nsw i32 %80, 8
+  %82 = getelementptr inbounds i8, ptr %77, i64 5
+  %83 = load i8, ptr %82, align 1
+  %84 = zext i8 %83 to i32
+  %85 = or disjoint i32 %81, %84
   br label %_ZNK2OT8ClassDef9get_classEj.exit
 
-_ZNK2OT8ClassDef9get_classEj.exit:                ; preds = %3, %.sink.split.i
-  %.0.i = phi i32 [ 0, %3 ], [ %76, %.sink.split.i ]
-  %77 = icmp eq i32 %.0.i, %1
-  ret i1 %77
+_ZNK2OT8ClassDef9get_classEj.exit:                ; preds = %3, %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i, %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i
+  %.0.i = phi i32 [ %85, %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i ], [ %39, %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i ], [ 0, %3 ]
+  %86 = icmp eq i32 %.0.i, %1
+  ret i1 %86
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -20486,7 +20490,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT21ChainContextFormat2_5INS
   %24 = load i32, ptr %23, align 4
   %25 = tail call noundef i32 @_ZNK2OT6Layout6Common8Coverage12get_coverageEj(ptr noundef nonnull align 1 dereferenceable(10) %.0.i.i, i32 noundef %24)
   %26 = icmp eq i32 %25, -1
-  br i1 %26, label %178, label %27
+  br i1 %26, label %187, label %27
 
 27:                                               ; preds = %3
   %28 = getelementptr inbounds i8, ptr %0, i64 4
@@ -20573,7 +20577,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT21ChainContextFormat2_5INS
   %trunc.i = or disjoint i16 %85, %88
   switch i16 %trunc.i, label %_ZNK2OT8ClassDef9get_classEj.exit [
     i16 1, label %89
-    i16 2, label %112
+    i16 2, label %118
   ]
 
 89:                                               ; preds = %._crit_edge
@@ -20606,129 +20610,130 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT21ChainContextFormat2_5INS
 
 _ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i: ; preds = %107, %89
   %.0.i.i.i = phi ptr [ %110, %107 ], [ @_hb_NullPool, %89 ]
-  %111 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 1
-  br label %.sink.split.i
-
-112:                                              ; preds = %._crit_edge
-  %113 = getelementptr inbounds i8, ptr %.0.i.i21, i64 2
-  %114 = getelementptr inbounds i8, ptr %.0.i.i21, i64 4
-  %115 = load i8, ptr %113, align 1
+  %111 = load i8, ptr %.0.i.i.i, align 1
+  %112 = zext i8 %111 to i32
+  %113 = shl nuw nsw i32 %112, 8
+  %114 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 1
+  %115 = load i8, ptr %114, align 1
   %116 = zext i8 %115 to i32
-  %117 = shl nuw nsw i32 %116, 8
-  %118 = getelementptr inbounds i8, ptr %.0.i.i21, i64 3
-  %119 = load i8, ptr %118, align 1
-  %120 = zext i8 %119 to i32
-  %.sroa.2.8.insert.ext.i.i.i.i.i = or disjoint i32 %117, %120
+  %117 = or disjoint i32 %113, %116
+  br label %_ZNK2OT8ClassDef9get_classEj.exit
+
+118:                                              ; preds = %._crit_edge
+  %119 = getelementptr inbounds i8, ptr %.0.i.i21, i64 2
+  %120 = getelementptr inbounds i8, ptr %.0.i.i21, i64 4
+  %121 = load i8, ptr %119, align 1
+  %122 = zext i8 %121 to i32
+  %123 = shl nuw nsw i32 %122, 8
+  %124 = getelementptr inbounds i8, ptr %.0.i.i21, i64 3
+  %125 = load i8, ptr %124, align 1
+  %126 = zext i8 %125 to i32
+  %.sroa.2.8.insert.ext.i.i.i.i.i = or disjoint i32 %123, %126
   %.not1.i.i.i.i.not.i.i.i = icmp eq i32 %.sroa.2.8.insert.ext.i.i.i.i.i, 0
   br i1 %.not1.i.i.i.i.not.i.i.i, label %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i, label %.lr.ph.preheader.i.i.i.i.i.i.i
 
-.lr.ph.preheader.i.i.i.i.i.i.i:                   ; preds = %112
-  %121 = add nsw i32 %.sroa.2.8.insert.ext.i.i.i.i.i, -1
+.lr.ph.preheader.i.i.i.i.i.i.i:                   ; preds = %118
+  %127 = add nsw i32 %.sroa.2.8.insert.ext.i.i.i.i.i, -1
   br label %.lr.ph.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %146, %.lr.ph.preheader.i.i.i.i.i.i.i
-  %.0193.i.i.i.i.i.i.i = phi i32 [ %.1.i.i.i.i.i.i.i, %146 ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i.i ]
-  %.0202.i.i.i.i.i.i.i = phi i32 [ %.121.i.i.i.i.i.i.i, %146 ], [ %121, %.lr.ph.preheader.i.i.i.i.i.i.i ]
-  %122 = add i32 %.0202.i.i.i.i.i.i.i, %.0193.i.i.i.i.i.i.i
-  %123 = lshr i32 %122, 1
-  %124 = zext nneg i32 %123 to i64
-  %125 = mul nuw nsw i64 %124, 6
-  %126 = getelementptr inbounds i8, ptr %114, i64 %125
-  %127 = load i8, ptr %126, align 1
-  %128 = zext i8 %127 to i32
-  %129 = shl nuw nsw i32 %128, 8
-  %130 = getelementptr inbounds i8, ptr %126, i64 1
-  %131 = load i8, ptr %130, align 1
-  %132 = zext i8 %131 to i32
-  %133 = or disjoint i32 %129, %132
-  %134 = icmp ult i32 %82, %133
-  br i1 %134, label %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.thread.i.i.i.i.i.i.i, label %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.i.i.i.i.i.i.i
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %152, %.lr.ph.preheader.i.i.i.i.i.i.i
+  %.0193.i.i.i.i.i.i.i = phi i32 [ %.1.i.i.i.i.i.i.i, %152 ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i.i ]
+  %.0202.i.i.i.i.i.i.i = phi i32 [ %.121.i.i.i.i.i.i.i, %152 ], [ %127, %.lr.ph.preheader.i.i.i.i.i.i.i ]
+  %128 = add i32 %.0202.i.i.i.i.i.i.i, %.0193.i.i.i.i.i.i.i
+  %129 = lshr i32 %128, 1
+  %130 = zext nneg i32 %129 to i64
+  %131 = mul nuw nsw i64 %130, 6
+  %132 = getelementptr inbounds i8, ptr %120, i64 %131
+  %133 = load i8, ptr %132, align 1
+  %134 = zext i8 %133 to i32
+  %135 = shl nuw nsw i32 %134, 8
+  %136 = getelementptr inbounds i8, ptr %132, i64 1
+  %137 = load i8, ptr %136, align 1
+  %138 = zext i8 %137 to i32
+  %139 = or disjoint i32 %135, %138
+  %140 = icmp ult i32 %82, %139
+  br i1 %140, label %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.thread.i.i.i.i.i.i.i, label %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.i.i.i.i.i.i.i
 
 _ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %135 = getelementptr inbounds i8, ptr %126, i64 2
-  %136 = load i8, ptr %135, align 1
-  %137 = zext i8 %136 to i32
-  %138 = shl nuw nsw i32 %137, 8
-  %139 = getelementptr inbounds i8, ptr %126, i64 3
-  %140 = load i8, ptr %139, align 1
-  %141 = zext i8 %140 to i32
-  %142 = or disjoint i32 %138, %141
-  %.not.i.i.not.i.i.i.i.i.i.i = icmp ugt i32 %82, %142
-  br i1 %.not.i.i.not.i.i.i.i.i.i.i, label %144, label %147
+  %141 = getelementptr inbounds i8, ptr %132, i64 2
+  %142 = load i8, ptr %141, align 1
+  %143 = zext i8 %142 to i32
+  %144 = shl nuw nsw i32 %143, 8
+  %145 = getelementptr inbounds i8, ptr %132, i64 3
+  %146 = load i8, ptr %145, align 1
+  %147 = zext i8 %146 to i32
+  %148 = or disjoint i32 %144, %147
+  %.not.i.i.not.i.i.i.i.i.i.i = icmp ugt i32 %82, %148
+  br i1 %.not.i.i.not.i.i.i.i.i.i.i, label %150, label %153
 
 _ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.thread.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %143 = add nsw i32 %123, -1
-  br label %146
+  %149 = add nsw i32 %129, -1
+  br label %152
 
-144:                                              ; preds = %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.i.i.i.i.i.i.i
-  %145 = add nuw nsw i32 %123, 1
-  br label %146
+150:                                              ; preds = %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.i.i.i.i.i.i.i
+  %151 = add nuw nsw i32 %129, 1
+  br label %152
 
-146:                                              ; preds = %144, %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.thread.i.i.i.i.i.i.i
-  %.121.i.i.i.i.i.i.i = phi i32 [ %143, %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.thread.i.i.i.i.i.i.i ], [ %.0202.i.i.i.i.i.i.i, %144 ]
-  %.1.i.i.i.i.i.i.i = phi i32 [ %.0193.i.i.i.i.i.i.i, %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.thread.i.i.i.i.i.i.i ], [ %145, %144 ]
+152:                                              ; preds = %150, %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.thread.i.i.i.i.i.i.i
+  %.121.i.i.i.i.i.i.i = phi i32 [ %149, %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.thread.i.i.i.i.i.i.i ], [ %.0202.i.i.i.i.i.i.i, %150 ]
+  %.1.i.i.i.i.i.i.i = phi i32 [ %.0193.i.i.i.i.i.i.i, %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.thread.i.i.i.i.i.i.i ], [ %151, %150 ]
   %.not.not.i.i.i.i.i.i.i = icmp sgt i32 %.1.i.i.i.i.i.i.i, %.121.i.i.i.i.i.i.i
   br i1 %.not.not.i.i.i.i.i.i.i, label %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !180
 
-147:                                              ; preds = %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.i.i.i.i.i.i.i
-  %148 = getelementptr inbounds %"struct.OT::Layout::Common::RangeRecord", ptr %114, i64 %124
+153:                                              ; preds = %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.i.i.i.i.i.i.i
+  %154 = getelementptr inbounds %"struct.OT::Layout::Common::RangeRecord", ptr %120, i64 %130
   br label %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i
 
-_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i: ; preds = %146, %147, %112
-  %149 = phi ptr [ %148, %147 ], [ @_hb_Null_OT_RangeRecord, %112 ], [ @_hb_Null_OT_RangeRecord, %146 ]
-  %150 = getelementptr inbounds i8, ptr %149, i64 4
-  %151 = getelementptr inbounds i8, ptr %149, i64 5
-  br label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i, %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i
-  %.sink8.i = phi ptr [ %151, %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i ], [ %111, %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i ]
-  %.sink.in.in.in.i = phi ptr [ %150, %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i ], [ %.0.i.i.i, %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i ]
-  %.sink.in.in.i = load i8, ptr %.sink.in.in.in.i, align 1
-  %.sink.in.i = zext i8 %.sink.in.in.i to i32
-  %.sink.i = shl nuw nsw i32 %.sink.in.i, 8
-  %152 = load i8, ptr %.sink8.i, align 1
-  %153 = zext i8 %152 to i32
-  %154 = or disjoint i32 %.sink.i, %153
+_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i: ; preds = %152, %153, %118
+  %155 = phi ptr [ %154, %153 ], [ @_hb_Null_OT_RangeRecord, %118 ], [ @_hb_Null_OT_RangeRecord, %152 ]
+  %156 = getelementptr inbounds i8, ptr %155, i64 4
+  %157 = load i8, ptr %156, align 1
+  %158 = zext i8 %157 to i32
+  %159 = shl nuw nsw i32 %158, 8
+  %160 = getelementptr inbounds i8, ptr %155, i64 5
+  %161 = load i8, ptr %160, align 1
+  %162 = zext i8 %161 to i32
+  %163 = or disjoint i32 %159, %162
   br label %_ZNK2OT8ClassDef9get_classEj.exit
 
-_ZNK2OT8ClassDef9get_classEj.exit:                ; preds = %.sink.split.i, %._crit_edge, %78
-  %.019 = phi i32 [ %80, %78 ], [ 0, %._crit_edge ], [ %154, %.sink.split.i ]
-  %155 = getelementptr inbounds i8, ptr %0, i64 10
-  %156 = load i8, ptr %155, align 1
-  %157 = zext i8 %156 to i32
-  %158 = shl nuw nsw i32 %157, 8
-  %159 = getelementptr inbounds i8, ptr %0, i64 11
-  %160 = load i8, ptr %159, align 1
-  %161 = zext i8 %160 to i32
-  %162 = or disjoint i32 %158, %161
-  %.not.i = icmp ult i32 %.019, %162
-  br i1 %.not.i, label %163, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_12ChainRuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit
+_ZNK2OT8ClassDef9get_classEj.exit:                ; preds = %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i, %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i, %._crit_edge, %78
+  %.019 = phi i32 [ %80, %78 ], [ %163, %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i ], [ %117, %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i ], [ 0, %._crit_edge ]
+  %164 = getelementptr inbounds i8, ptr %0, i64 10
+  %165 = load i8, ptr %164, align 1
+  %166 = zext i8 %165 to i32
+  %167 = shl nuw nsw i32 %166, 8
+  %168 = getelementptr inbounds i8, ptr %0, i64 11
+  %169 = load i8, ptr %168, align 1
+  %170 = zext i8 %169 to i32
+  %171 = or disjoint i32 %167, %170
+  %.not.i = icmp ult i32 %.019, %171
+  br i1 %.not.i, label %172, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_12ChainRuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit
 
-163:                                              ; preds = %_ZNK2OT8ClassDef9get_classEj.exit
+172:                                              ; preds = %_ZNK2OT8ClassDef9get_classEj.exit
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !83
-  %164 = getelementptr inbounds i8, ptr %0, i64 12
-  %165 = zext nneg i32 %.019 to i64
-  %166 = getelementptr inbounds [1 x %"struct.OT::OffsetTo.77"], ptr %164, i64 0, i64 %165
+  %173 = getelementptr inbounds i8, ptr %0, i64 12
+  %174 = zext nneg i32 %.019 to i64
+  %175 = getelementptr inbounds [1 x %"struct.OT::OffsetTo.77"], ptr %173, i64 0, i64 %174
   br label %_ZNK2OT7ArrayOfINS_8OffsetToINS_12ChainRuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit
 
-_ZNK2OT7ArrayOfINS_8OffsetToINS_12ChainRuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit: ; preds = %_ZNK2OT8ClassDef9get_classEj.exit, %163
-  %.0.i23 = phi ptr [ %166, %163 ], [ @_hb_NullPool, %_ZNK2OT8ClassDef9get_classEj.exit ]
-  %167 = load i8, ptr %.0.i23, align 1
-  %168 = zext i8 %167 to i32
-  %169 = shl nuw nsw i32 %168, 8
-  %170 = getelementptr inbounds i8, ptr %.0.i23, i64 1
-  %171 = load i8, ptr %170, align 1
-  %172 = zext i8 %171 to i32
-  %173 = or disjoint i32 %169, %172
-  %174 = icmp eq i32 %173, 0
-  %175 = zext nneg i32 %173 to i64
-  %176 = getelementptr inbounds i8, ptr %0, i64 %175
-  %.0.i.i24 = select i1 %174, ptr @_hb_NullPool, ptr %176
-  %177 = call noundef zeroext i1 @_ZNK2OT12ChainRuleSetINS_6Layout10SmallTypesEE5applyEPNS_21hb_ot_apply_context_tERKNS_30ChainContextApplyLookupContextE(ptr noundef nonnull align 1 dereferenceable(4) %.0.i.i24, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %4)
-  br label %178
+_ZNK2OT7ArrayOfINS_8OffsetToINS_12ChainRuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit: ; preds = %_ZNK2OT8ClassDef9get_classEj.exit, %172
+  %.0.i23 = phi ptr [ %175, %172 ], [ @_hb_NullPool, %_ZNK2OT8ClassDef9get_classEj.exit ]
+  %176 = load i8, ptr %.0.i23, align 1
+  %177 = zext i8 %176 to i32
+  %178 = shl nuw nsw i32 %177, 8
+  %179 = getelementptr inbounds i8, ptr %.0.i23, i64 1
+  %180 = load i8, ptr %179, align 1
+  %181 = zext i8 %180 to i32
+  %182 = or disjoint i32 %178, %181
+  %183 = icmp eq i32 %182, 0
+  %184 = zext nneg i32 %182 to i64
+  %185 = getelementptr inbounds i8, ptr %0, i64 %184
+  %.0.i.i24 = select i1 %183, ptr @_hb_NullPool, ptr %185
+  %186 = call noundef zeroext i1 @_ZNK2OT12ChainRuleSetINS_6Layout10SmallTypesEE5applyEPNS_21hb_ot_apply_context_tERKNS_30ChainContextApplyLookupContextE(ptr noundef nonnull align 1 dereferenceable(4) %.0.i.i24, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %4)
+  br label %187
 
-178:                                              ; preds = %3, %_ZNK2OT7ArrayOfINS_8OffsetToINS_12ChainRuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit
-  %.0 = phi i1 [ %177, %_ZNK2OT7ArrayOfINS_8OffsetToINS_12ChainRuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit ], [ false, %3 ]
+187:                                              ; preds = %3, %_ZNK2OT7ArrayOfINS_8OffsetToINS_12ChainRuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit
+  %.0 = phi i1 [ %186, %_ZNK2OT7ArrayOfINS_8OffsetToINS_12ChainRuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit ], [ false, %3 ]
   ret i1 %.0
 }
 
@@ -20743,7 +20748,7 @@ define internal noundef zeroext i1 @_ZN2OTL19match_class_cached1ER15hb_glyph_inf
 7:                                                ; preds = %3
   %8 = zext nneg i8 %6 to i32
   %9 = icmp eq i32 %1, %8
-  br label %91
+  br label %90
 
 10:                                               ; preds = %3
   %11 = load i32, ptr %0, align 4
@@ -20864,37 +20869,37 @@ _ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i: ; preds 
   br label %_ZNK2OT8ClassDef9get_classEj.exit
 
 _ZNK2OT8ClassDef9get_classEj.exit:                ; preds = %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i, %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i
-  %.sink8.i = phi ptr [ %80, %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i ], [ %40, %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i ]
-  %.sink.in.in.in.i = phi ptr [ %79, %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i ], [ %.0.i.i.i, %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i ]
-  %.sink.in.in.i = load i8, ptr %.sink.in.in.in.i, align 1
-  %.sink.in.i = zext i8 %.sink.in.in.i to i32
-  %.sink.i = shl nuw nsw i32 %.sink.in.i, 8
-  %81 = load i8, ptr %.sink8.i, align 1
-  %82 = zext i8 %81 to i32
-  %83 = or disjoint i32 %.sink.i, %82
-  %84 = icmp ult i32 %83, 15
-  br i1 %84, label %_ZNK2OT8ClassDef9get_classEj.exit._ZNK2OT8ClassDef9get_classEj.exit.thread_crit_edge, label %89
+  %.sink22.in = phi ptr [ %40, %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i ], [ %80, %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i ]
+  %.sink.in.in.in = phi ptr [ %.0.i.i.i, %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i ], [ %79, %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i ]
+  %.sink.in.in = load i8, ptr %.sink.in.in.in, align 1
+  %.sink.in = zext i8 %.sink.in.in to i32
+  %.sink = shl nuw nsw i32 %.sink.in, 8
+  %.sink22 = load i8, ptr %.sink22.in, align 1
+  %81 = zext i8 %.sink22 to i32
+  %82 = or disjoint i32 %.sink, %81
+  %83 = icmp ult i32 %82, 15
+  br i1 %83, label %_ZNK2OT8ClassDef9get_classEj.exit._ZNK2OT8ClassDef9get_classEj.exit.thread_crit_edge, label %88
 
 _ZNK2OT8ClassDef9get_classEj.exit._ZNK2OT8ClassDef9get_classEj.exit.thread_crit_edge: ; preds = %_ZNK2OT8ClassDef9get_classEj.exit
   %.pre = load i8, ptr %4, align 1
   br label %_ZNK2OT8ClassDef9get_classEj.exit.thread
 
 _ZNK2OT8ClassDef9get_classEj.exit.thread:         ; preds = %_ZNK2OT8ClassDef9get_classEj.exit._ZNK2OT8ClassDef9get_classEj.exit.thread_crit_edge, %10
-  %85 = phi i8 [ %.pre, %_ZNK2OT8ClassDef9get_classEj.exit._ZNK2OT8ClassDef9get_classEj.exit.thread_crit_edge ], [ %5, %10 ]
-  %.0.i16 = phi i32 [ %83, %_ZNK2OT8ClassDef9get_classEj.exit._ZNK2OT8ClassDef9get_classEj.exit.thread_crit_edge ], [ 0, %10 ]
-  %86 = and i8 %85, -16
-  %87 = trunc nuw i32 %.0.i16 to i8
-  %88 = or disjoint i8 %86, %87
-  store i8 %88, ptr %4, align 1
-  br label %89
+  %84 = phi i8 [ %.pre, %_ZNK2OT8ClassDef9get_classEj.exit._ZNK2OT8ClassDef9get_classEj.exit.thread_crit_edge ], [ %5, %10 ]
+  %.0.i16 = phi i32 [ %82, %_ZNK2OT8ClassDef9get_classEj.exit._ZNK2OT8ClassDef9get_classEj.exit.thread_crit_edge ], [ 0, %10 ]
+  %85 = and i8 %84, -16
+  %86 = trunc nuw i32 %.0.i16 to i8
+  %87 = or disjoint i8 %85, %86
+  store i8 %87, ptr %4, align 1
+  br label %88
 
-89:                                               ; preds = %_ZNK2OT8ClassDef9get_classEj.exit.thread, %_ZNK2OT8ClassDef9get_classEj.exit
-  %.0.i17 = phi i32 [ %.0.i16, %_ZNK2OT8ClassDef9get_classEj.exit.thread ], [ %83, %_ZNK2OT8ClassDef9get_classEj.exit ]
-  %90 = icmp eq i32 %.0.i17, %1
-  br label %91
+88:                                               ; preds = %_ZNK2OT8ClassDef9get_classEj.exit.thread, %_ZNK2OT8ClassDef9get_classEj.exit
+  %.0.i17 = phi i32 [ %.0.i16, %_ZNK2OT8ClassDef9get_classEj.exit.thread ], [ %82, %_ZNK2OT8ClassDef9get_classEj.exit ]
+  %89 = icmp eq i32 %.0.i17, %1
+  br label %90
 
-91:                                               ; preds = %89, %7
-  %.0 = phi i1 [ %9, %7 ], [ %90, %89 ]
+90:                                               ; preds = %88, %7
+  %.0 = phi i1 [ %9, %7 ], [ %89, %88 ]
   ret i1 %.0
 }
 
@@ -20909,7 +20914,7 @@ define internal noundef zeroext i1 @_ZN2OTL19match_class_cached2ER15hb_glyph_inf
 7:                                                ; preds = %3
   %8 = zext nneg i8 %6 to i32
   %9 = icmp eq i32 %1, %8
-  br label %91
+  br label %90
 
 10:                                               ; preds = %3
   %11 = load i32, ptr %0, align 4
@@ -21030,38 +21035,38 @@ _ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i: ; preds 
   br label %_ZNK2OT8ClassDef9get_classEj.exit
 
 _ZNK2OT8ClassDef9get_classEj.exit:                ; preds = %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i, %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i
-  %.sink8.i = phi ptr [ %80, %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i ], [ %40, %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i ]
-  %.sink.in.in.in.i = phi ptr [ %79, %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i ], [ %.0.i.i.i, %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i ]
-  %.sink.in.in.i = load i8, ptr %.sink.in.in.in.i, align 1
-  %.sink.in.i = zext i8 %.sink.in.in.i to i32
-  %.sink.i = shl nuw nsw i32 %.sink.in.i, 8
-  %81 = load i8, ptr %.sink8.i, align 1
-  %82 = zext i8 %81 to i32
-  %83 = or disjoint i32 %.sink.i, %82
-  %84 = icmp ult i32 %83, 15
-  br i1 %84, label %_ZNK2OT8ClassDef9get_classEj.exit._ZNK2OT8ClassDef9get_classEj.exit.thread_crit_edge, label %89
+  %.sink22.in = phi ptr [ %40, %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i ], [ %80, %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i ]
+  %.sink.in.in.in = phi ptr [ %.0.i.i.i, %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i ], [ %79, %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i ]
+  %.sink.in.in = load i8, ptr %.sink.in.in.in, align 1
+  %.sink.in = zext i8 %.sink.in.in to i32
+  %.sink = shl nuw nsw i32 %.sink.in, 8
+  %.sink22 = load i8, ptr %.sink22.in, align 1
+  %81 = zext i8 %.sink22 to i32
+  %82 = or disjoint i32 %.sink, %81
+  %83 = icmp ult i32 %82, 15
+  br i1 %83, label %_ZNK2OT8ClassDef9get_classEj.exit._ZNK2OT8ClassDef9get_classEj.exit.thread_crit_edge, label %88
 
 _ZNK2OT8ClassDef9get_classEj.exit._ZNK2OT8ClassDef9get_classEj.exit.thread_crit_edge: ; preds = %_ZNK2OT8ClassDef9get_classEj.exit
   %.pre = load i8, ptr %4, align 1
   br label %_ZNK2OT8ClassDef9get_classEj.exit.thread
 
 _ZNK2OT8ClassDef9get_classEj.exit.thread:         ; preds = %_ZNK2OT8ClassDef9get_classEj.exit._ZNK2OT8ClassDef9get_classEj.exit.thread_crit_edge, %10
-  %85 = phi i8 [ %.pre, %_ZNK2OT8ClassDef9get_classEj.exit._ZNK2OT8ClassDef9get_classEj.exit.thread_crit_edge ], [ %5, %10 ]
-  %.0.i16 = phi i32 [ %83, %_ZNK2OT8ClassDef9get_classEj.exit._ZNK2OT8ClassDef9get_classEj.exit.thread_crit_edge ], [ 0, %10 ]
-  %86 = and i8 %85, 15
+  %84 = phi i8 [ %.pre, %_ZNK2OT8ClassDef9get_classEj.exit._ZNK2OT8ClassDef9get_classEj.exit.thread_crit_edge ], [ %5, %10 ]
+  %.0.i16 = phi i32 [ %82, %_ZNK2OT8ClassDef9get_classEj.exit._ZNK2OT8ClassDef9get_classEj.exit.thread_crit_edge ], [ 0, %10 ]
+  %85 = and i8 %84, 15
   %.tr = trunc nuw i32 %.0.i16 to i8
-  %87 = shl nuw i8 %.tr, 4
-  %88 = or disjoint i8 %87, %86
-  store i8 %88, ptr %4, align 1
-  br label %89
+  %86 = shl nuw i8 %.tr, 4
+  %87 = or disjoint i8 %86, %85
+  store i8 %87, ptr %4, align 1
+  br label %88
 
-89:                                               ; preds = %_ZNK2OT8ClassDef9get_classEj.exit.thread, %_ZNK2OT8ClassDef9get_classEj.exit
-  %.0.i17 = phi i32 [ %.0.i16, %_ZNK2OT8ClassDef9get_classEj.exit.thread ], [ %83, %_ZNK2OT8ClassDef9get_classEj.exit ]
-  %90 = icmp eq i32 %.0.i17, %1
-  br label %91
+88:                                               ; preds = %_ZNK2OT8ClassDef9get_classEj.exit.thread, %_ZNK2OT8ClassDef9get_classEj.exit
+  %.0.i17 = phi i32 [ %.0.i16, %_ZNK2OT8ClassDef9get_classEj.exit.thread ], [ %82, %_ZNK2OT8ClassDef9get_classEj.exit ]
+  %89 = icmp eq i32 %.0.i17, %1
+  br label %90
 
-91:                                               ; preds = %89, %7
-  %.0 = phi i1 [ %9, %7 ], [ %90, %89 ]
+90:                                               ; preds = %88, %7
+  %.0 = phi i1 [ %9, %7 ], [ %89, %88 ]
   ret i1 %.0
 }
 

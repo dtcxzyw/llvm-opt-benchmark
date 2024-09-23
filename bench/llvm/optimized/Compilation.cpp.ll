@@ -1246,7 +1246,7 @@ _ZN4llvm16DenseMapIteratorIPKN5clang6driver9JobActionEPKcNS_12DenseMapInfoIS5_vE
   br label %32
 
 32:                                               ; preds = %.lr.ph.split, %24
-  %.1 = phi i8 [ %31, %24 ], [ %.018, %.lr.ph.split ]
+  %.1 = phi i8 [ %.018, %.lr.ph.split ], [ %31, %24 ]
   %33 = getelementptr inbounds i8, ptr %.sroa.012.017, i64 16
   %.not5.i3.i = icmp eq ptr %33, %12
   br i1 %.not5.i3.i, label %_ZN4llvm16DenseMapIteratorIPKN5clang6driver9JobActionEPKcNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EELb1EEppEv.exit, label %.lr.ph.i4.i

@@ -90,24 +90,26 @@ define dso_local void @_Z14cast_if_neededP10Expression(ptr noundef %0) local_unn
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
-  %9 = load i32, ptr %5, align 8
-  %10 = icmp eq i32 %9, 1
-  %or.cond = select i1 %8, i1 %10, i1 false
-  br i1 %or.cond, label %11, label %18
+  br i1 %8, label %9, label %19
 
-11:                                               ; preds = %1
-  %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 120
-  %14 = load ptr, ptr %13, align 8
-  %15 = tail call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 0)
-  br i1 %15, label %16, label %18
+9:                                                ; preds = %1
+  %10 = load i32, ptr %5, align 8
+  %11 = icmp eq i32 %10, 1
+  br i1 %11, label %12, label %19
 
-16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %5, ptr %17, align 8
-  br label %18
+12:                                               ; preds = %9
+  %13 = load ptr, ptr %0, align 8
+  %14 = getelementptr inbounds i8, ptr %13, i64 120
+  %15 = load ptr, ptr %14, align 8
+  %16 = tail call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 0)
+  br i1 %16, label %17, label %19
 
-18:                                               ; preds = %16, %11, %1
+17:                                               ; preds = %12
+  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %5, ptr %18, align 8
+  br label %19
+
+19:                                               ; preds = %17, %12, %9, %1
   ret void
 }
 
@@ -126,41 +128,43 @@ define dso_local noundef nonnull ptr @_ZN15ExpressionComma11make_randomER9CGCont
   %12 = getelementptr inbounds i8, ptr %5, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 0
-  %15 = load i32, ptr %11, align 8
-  %16 = icmp eq i32 %15, 1
-  %or.cond.i = select i1 %14, i1 %16, i1 false
-  br i1 %or.cond.i, label %17, label %_Z14cast_if_neededP10Expression.exit
+  br i1 %14, label %15, label %_Z14cast_if_neededP10Expression.exit
 
-17:                                               ; preds = %7
-  %18 = load ptr, ptr %5, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 120
-  %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef 0)
-  br i1 %21, label %22, label %_Z14cast_if_neededP10Expression.exit
+15:                                               ; preds = %7
+  %16 = load i32, ptr %11, align 8
+  %17 = icmp eq i32 %16, 1
+  br i1 %17, label %18, label %_Z14cast_if_neededP10Expression.exit
 
-22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr %11, ptr %23, align 8
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %5, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 120
+  %21 = load ptr, ptr %20, align 8
+  %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef 0)
+  br i1 %22, label %23, label %_Z14cast_if_neededP10Expression.exit
+
+23:                                               ; preds = %18
+  %24 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr %11, ptr %24, align 8
   br label %_Z14cast_if_neededP10Expression.exit
 
-_Z14cast_if_neededP10Expression.exit:             ; preds = %22, %17, %7, %3
-  %24 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #12
-  invoke void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(24) %24, i32 noundef 4)
-          to label %25 unwind label %28
+_Z14cast_if_neededP10Expression.exit:             ; preds = %23, %18, %15, %7, %3
+  %25 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #12
+  invoke void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(24) %25, i32 noundef 4)
+          to label %26 unwind label %29
 
-25:                                               ; preds = %_Z14cast_if_neededP10Expression.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15ExpressionComma, i64 16), ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %24, i64 24
-  store ptr %4, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %24, i64 32
-  store ptr %5, ptr %27, align 8
-  ret ptr %24
+26:                                               ; preds = %_Z14cast_if_neededP10Expression.exit
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ExpressionComma, i64 16), ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %25, i64 24
+  store ptr %4, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %25, i64 32
+  store ptr %5, ptr %28, align 8
+  ret ptr %25
 
-28:                                               ; preds = %_Z14cast_if_neededP10Expression.exit
-  %29 = landingpad { ptr, i32 }
+29:                                               ; preds = %_Z14cast_if_neededP10Expression.exit
+  %30 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %24) #13
-  resume { ptr, i32 } %29
+  tail call void @_ZdlPv(ptr noundef nonnull %25) #13
+  resume { ptr, i32 } %30
 }
 
 declare noundef ptr @_ZN10Expression11make_randomER9CGContextPK4TypePK12CVQualifiersbb9eTermType(ptr noundef nonnull align 8 dereferenceable(216), ptr noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext, i32 noundef) local_unnamed_addr #0

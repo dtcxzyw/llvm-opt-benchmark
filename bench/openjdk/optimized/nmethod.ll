@@ -2107,7 +2107,7 @@ define hidden void @_ZN7nmethod29preserve_callee_argument_oopsE5framePK11Registe
   %8 = getelementptr inbounds i8, ptr %0, i64 72
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %102, label %11
+  br i1 %10, label %104, label %11
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds i8, ptr %2, i64 4960
@@ -2121,14 +2121,14 @@ define hidden void @_ZN7nmethod29preserve_callee_argument_oopsE5framePK11Registe
   %17 = load ptr, ptr %1, align 8
   %18 = load volatile ptr, ptr %14, align 8
   %19 = icmp eq ptr %17, %18
-  br i1 %19, label %102, label %20
+  br i1 %19, label %104, label %20
 
 20:                                               ; preds = %16, %11
   %21 = getelementptr inbounds i8, ptr %9, i64 40
   %.sroa.0.0.copyload.i.i = load i32, ptr %21, align 8
   %22 = and i32 %.sroa.0.0.copyload.i.i, 256
   %.not23 = icmp eq i32 %22, 0
-  br i1 %.not23, label %23, label %96
+  br i1 %.not23, label %23, label %98
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds i8, ptr %1, i64 8
@@ -2158,7 +2158,7 @@ _ZN7nmethod25attached_method_before_pcEPh.exit:   ; preds = %23
   %40 = zext i16 %38 to i64
   %41 = getelementptr inbounds i64, ptr %39, i64 %40
   %42 = load ptr, ptr %41, align 8
-  br label %95
+  br label %97
 
 _ZN7nmethod25attached_method_before_pcEPh.exit.thread: ; preds = %23, %_ZN7nmethod25attached_method_before_pcEPh.exit
   call void @_ZN15SimpleScopeDescC2EP7nmethodPh(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull %0, ptr noundef nonnull %25)
@@ -2243,43 +2243,44 @@ _ZNK8Bytecode11invoke_codeEv.exit.i:              ; preds = %_ZN15Bytecode_invok
 85:                                               ; preds = %_ZNK8Bytecode11invoke_codeEv.exit.i
   %86 = call noundef ptr @_ZNK19Bytecode_member_ref19resolved_indy_entryEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #23
   %87 = getelementptr inbounds i8, ptr %86, i64 15
+  %88 = load i8, ptr %87, align 1
+  %89 = and i8 %88, 2
   br label %_ZN15Bytecode_invoke12has_appendixEv.exit
 
 _ZNK8Bytecode11invoke_codeEv.exit.thread.i:       ; preds = %_ZN15Bytecode_invokeC2ERK12methodHandlei.exit, %_ZNK8Bytecode11invoke_codeEv.exit.i
-  %88 = phi i1 [ %spec.select.i, %_ZNK8Bytecode11invoke_codeEv.exit.i ], [ true, %_ZN15Bytecode_invokeC2ERK12methodHandlei.exit ]
-  %89 = call noundef ptr @_ZNK19Bytecode_member_ref21resolved_method_entryEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #23
-  %90 = getelementptr inbounds i8, ptr %89, i64 21
+  %90 = phi i1 [ %spec.select.i, %_ZNK8Bytecode11invoke_codeEv.exit.i ], [ true, %_ZN15Bytecode_invokeC2ERK12methodHandlei.exit ]
+  %91 = call noundef ptr @_ZNK19Bytecode_member_ref21resolved_method_entryEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #23
+  %92 = getelementptr inbounds i8, ptr %91, i64 21
+  %93 = load i8, ptr %92, align 1
+  %94 = and i8 %93, 8
   br label %_ZN15Bytecode_invoke12has_appendixEv.exit
 
 _ZN15Bytecode_invoke12has_appendixEv.exit:        ; preds = %85, %_ZNK8Bytecode11invoke_codeEv.exit.thread.i
-  %91 = phi i1 [ %88, %_ZNK8Bytecode11invoke_codeEv.exit.thread.i ], [ %spec.select.i, %85 ]
-  %.sink3.i = phi ptr [ %90, %_ZNK8Bytecode11invoke_codeEv.exit.thread.i ], [ %87, %85 ]
-  %.sink2.i = phi i8 [ 8, %_ZNK8Bytecode11invoke_codeEv.exit.thread.i ], [ 2, %85 ]
-  %92 = load i8, ptr %.sink3.i, align 1
-  %93 = and i8 %92, %.sink2.i
-  %.0.i19 = icmp ne i8 %93, 0
-  %94 = call noundef ptr @_ZNK19Bytecode_member_ref9signatureEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #23
-  br label %95
+  %95 = phi i1 [ %spec.select.i, %85 ], [ %90, %_ZNK8Bytecode11invoke_codeEv.exit.thread.i ]
+  %.0.in.i = phi i8 [ %89, %85 ], [ %94, %_ZNK8Bytecode11invoke_codeEv.exit.thread.i ]
+  %.0.i19 = icmp ne i8 %.0.in.i, 0
+  %96 = call noundef ptr @_ZNK19Bytecode_member_ref9signatureEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #23
+  br label %97
 
-95:                                               ; preds = %_ZN15Bytecode_invoke12has_appendixEv.exit, %30
-  %.017 = phi ptr [ %42, %30 ], [ %94, %_ZN15Bytecode_invoke12has_appendixEv.exit ]
+97:                                               ; preds = %_ZN15Bytecode_invoke12has_appendixEv.exit, %30
+  %.017 = phi ptr [ %42, %30 ], [ %96, %_ZN15Bytecode_invoke12has_appendixEv.exit ]
   %.016 = phi i1 [ false, %30 ], [ %.0.i19, %_ZN15Bytecode_invoke12has_appendixEv.exit ]
-  %.0.in = phi i1 [ %.not24, %30 ], [ %91, %_ZN15Bytecode_invoke12has_appendixEv.exit ]
+  %.0.in = phi i1 [ %.not24, %30 ], [ %95, %_ZN15Bytecode_invoke12has_appendixEv.exit ]
   call void @_ZNK5frame26oops_compiled_arguments_doEP6SymbolbbPK11RegisterMapP10OopClosure(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %.017, i1 noundef zeroext %.0.in, i1 noundef zeroext %.016, ptr noundef nonnull %2, ptr noundef %3) #23
-  br label %102
+  br label %104
 
-96:                                               ; preds = %20
-  %97 = getelementptr inbounds i8, ptr %9, i64 52
-  %98 = load i16, ptr %97, align 4
-  %99 = icmp eq i16 %98, 198
-  br i1 %99, label %100, label %102
+98:                                               ; preds = %20
+  %99 = getelementptr inbounds i8, ptr %9, i64 52
+  %100 = load i16, ptr %99, align 4
+  %101 = icmp eq i16 %100, 198
+  br i1 %101, label %102, label %104
 
-100:                                              ; preds = %96
-  %101 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8040), align 8
-  call void @_ZNK5frame26oops_compiled_arguments_doEP6SymbolbbPK11RegisterMapP10OopClosure(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %101, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %2, ptr noundef %3) #23
-  br label %102
+102:                                              ; preds = %98
+  %103 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8040), align 8
+  call void @_ZNK5frame26oops_compiled_arguments_doEP6SymbolbbPK11RegisterMapP10OopClosure(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %103, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %2, ptr noundef %3) #23
+  br label %104
 
-102:                                              ; preds = %96, %100, %16, %4, %95
+104:                                              ; preds = %98, %102, %16, %4, %97
   ret void
 }
 

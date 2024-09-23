@@ -2613,12 +2613,12 @@ define range(i32 0, 16777216) i32 @tvb_get_guint24(ptr noundef %0, i32 noundef %
   br label %20
 
 20:                                               ; preds = %10, %5
-  %.sink7 = phi ptr [ %19, %10 ], [ %4, %5 ]
+  %.sink6.in = phi ptr [ %19, %10 ], [ %4, %5 ]
   %.sink = phi i32 [ %18, %10 ], [ %9, %5 ]
-  %21 = load i8, ptr %.sink7, align 1
-  %22 = zext i8 %21 to i32
-  %23 = or disjoint i32 %.sink, %22
-  ret i32 %23
+  %.sink6 = load i8, ptr %.sink6.in, align 1
+  %21 = zext i8 %.sink6 to i32
+  %22 = or disjoint i32 %.sink, %21
+  ret i32 %22
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2812,12 +2812,12 @@ define range(i64 0, 1099511627776) i64 @tvb_get_guint40(ptr noundef %0, i32 noun
   br label %30
 
 30:                                               ; preds = %10, %5
-  %.sink7 = phi ptr [ %29, %10 ], [ %4, %5 ]
+  %.sink6.in = phi ptr [ %29, %10 ], [ %4, %5 ]
   %.sink = phi i64 [ %28, %10 ], [ %9, %5 ]
-  %31 = load i8, ptr %.sink7, align 1
-  %32 = zext i8 %31 to i64
-  %33 = or disjoint i64 %.sink, %32
-  ret i64 %33
+  %.sink6 = load i8, ptr %.sink6.in, align 1
+  %31 = zext i8 %.sink6 to i64
+  %32 = or disjoint i64 %.sink, %31
+  ret i64 %32
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2947,12 +2947,12 @@ define range(i64 0, 281474976710656) i64 @tvb_get_guint48(ptr noundef %0, i32 no
   br label %40
 
 40:                                               ; preds = %15, %5
-  %.sink7 = phi ptr [ %39, %15 ], [ %4, %5 ]
+  %.sink6.in = phi ptr [ %39, %15 ], [ %4, %5 ]
   %.sink = phi i64 [ %38, %15 ], [ %14, %5 ]
-  %41 = load i8, ptr %.sink7, align 1
-  %42 = zext i8 %41 to i64
-  %43 = or disjoint i64 %.sink, %42
-  ret i64 %43
+  %.sink6 = load i8, ptr %.sink6.in, align 1
+  %41 = zext i8 %.sink6 to i64
+  %42 = or disjoint i64 %.sink, %41
+  ret i64 %42
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3102,12 +3102,12 @@ define range(i64 0, 72057594037927936) i64 @tvb_get_guint56(ptr noundef %0, i32 
   br label %50
 
 50:                                               ; preds = %20, %5
-  %.sink7 = phi ptr [ %49, %20 ], [ %4, %5 ]
+  %.sink6.in = phi ptr [ %49, %20 ], [ %4, %5 ]
   %.sink = phi i64 [ %48, %20 ], [ %19, %5 ]
-  %51 = load i8, ptr %.sink7, align 1
-  %52 = zext i8 %51 to i64
-  %53 = or i64 %.sink, %52
-  ret i64 %53
+  %.sink6 = load i8, ptr %.sink6.in, align 1
+  %51 = zext i8 %.sink6 to i64
+  %52 = or i64 %.sink, %51
+  ret i64 %52
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9254,6 +9254,10 @@ tvb_captured_length_remaining.exit:               ; preds = %16, %23
   %27 = icmp slt i32 %26, 1
   br i1 %27, label %tvb_captured_length_remaining.exit.thread, label %28
 
+tvb_captured_length_remaining.exit.thread:        ; preds = %19, %16, %tvb_captured_length_remaining.exit
+  store i8 0, ptr %2, align 1
+  br label %34
+
 28:                                               ; preds = %tvb_captured_length_remaining.exit
   %29 = trunc nuw i64 %3 to i32
   %.not26 = icmp ult i32 %26, %29
@@ -9262,12 +9266,11 @@ tvb_captured_length_remaining.exit:               ; preds = %16, %23
   %31 = zext nneg i32 %spec.select to i64
   %32 = tail call ptr @tvb_memcpy(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %1, i64 noundef %31)
   %33 = getelementptr i8, ptr %2, i64 %31
-  br label %tvb_captured_length_remaining.exit.thread
+  store i8 0, ptr %33, align 1
+  br label %34
 
-tvb_captured_length_remaining.exit.thread:        ; preds = %tvb_captured_length_remaining.exit, %16, %19, %28
-  %.sink = phi ptr [ %33, %28 ], [ %2, %19 ], [ %2, %16 ], [ %2, %tvb_captured_length_remaining.exit ]
-  %.018 = phi i32 [ %spec.select, %28 ], [ 0, %19 ], [ 0, %16 ], [ 0, %tvb_captured_length_remaining.exit ]
-  store i8 0, ptr %.sink, align 1
+34:                                               ; preds = %28, %tvb_captured_length_remaining.exit.thread
+  %.018 = phi i32 [ 0, %tvb_captured_length_remaining.exit.thread ], [ %spec.select, %28 ]
   ret i32 %.018
 }
 

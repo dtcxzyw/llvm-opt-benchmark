@@ -2813,7 +2813,7 @@ define internal fastcc noundef zeroext i1 @_ZL20translateInstructionRN4llvm6MCIn
   br label %46
 
 46:                                               ; preds = %.lr.ph, %_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit.thread
-  %.02347 = phi ptr [ %21, %.lr.ph ], [ %287, %_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit.thread ]
+  %.02347 = phi ptr [ %21, %.lr.ph ], [ %286, %_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit.thread ]
   %47 = load i8, ptr %.02347, align 1
   %.not25 = icmp eq i8 %47, 0
   br i1 %.not25, label %_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit.thread, label %48
@@ -2825,7 +2825,7 @@ define internal fastcc noundef zeroext i1 @_ZL20translateInstructionRN4llvm6MCIn
 
 tailrecurse.i:                                    ; preds = %277, %48
   %50 = phi i8 [ %.pr, %277 ], [ %47, %48 ]
-  %.tr93.i = phi ptr [ %gep.i, %277 ], [ %.02347, %48 ]
+  %.tr94.i = phi ptr [ %gep.i, %277 ], [ %.02347, %48 ]
   switch i8 %50, label %_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit.thread31 [
     i8 1, label %51
     i8 18, label %60
@@ -2904,7 +2904,7 @@ _ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit.i: ; preds =
   br label %_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit.thread.sink.split
 
 69:                                               ; preds = %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i
-  %70 = getelementptr inbounds i8, ptr %.tr93.i, i64 1
+  %70 = getelementptr inbounds i8, ptr %.tr94.i, i64 1
   %.val.i = load i8, ptr %70, align 1
   switch i8 %.val.i, label %_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit.thread31 [
     i8 2, label %71
@@ -2966,8 +2966,8 @@ switch.lookup:                                    ; preds = %72
   %84 = zext i8 %82 to i64
   %85 = getelementptr inbounds [3 x i64], ptr %37, i64 0, i64 %84
   %86 = load i64, ptr %85, align 8
-  %.val46.i = load i8, ptr %.tr93.i, align 1
-  %87 = getelementptr inbounds i8, ptr %.tr93.i, i64 1
+  %.val46.i = load i8, ptr %.tr94.i, align 1
+  %87 = getelementptr inbounds i8, ptr %.tr94.i, i64 1
   %.val47.i = load i8, ptr %87, align 1
   %88 = icmp eq i8 %.val47.i, 1
   br i1 %88, label %89, label %113
@@ -3192,24 +3192,24 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit90.i.i: ; preds = %154, %150
   br label %187
 
 187:                                              ; preds = %185, %183, %181
-  %.0.i58.i = phi i64 [ %182, %181 ], [ %184, %183 ], [ %186, %185 ]
+  %.0.i59.i = phi i64 [ %182, %181 ], [ %184, %183 ], [ %186, %185 ]
   %188 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
   %189 = add i64 %188, 1
   %190 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
-  %.not.i.i.i.i.i59.i = icmp ugt i64 %189, %190
-  br i1 %.not.i.i.i.i.i59.i, label %191, label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i60.i
+  %.not.i.i.i.i.i60.i = icmp ugt i64 %189, %190
+  br i1 %.not.i.i.i.i.i60.i, label %191, label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i61.i
 
 191:                                              ; preds = %187
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %26, i64 noundef %189, i64 noundef 16) #12
-  br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i60.i
+  br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i61.i
 
-_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i60.i: ; preds = %191, %187
+_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i61.i: ; preds = %191, %187
   %192 = load ptr, ptr %7, align 8
   %193 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
   %194 = getelementptr inbounds %"class.llvm::MCOperand", ptr %192, i64 %193
   store i8 1, ptr %194, align 1
-  %.sroa.22.0..sroa_idx.i.i.i61.i = getelementptr inbounds i8, ptr %194, i64 8
-  store i64 %.0.i58.i, ptr %.sroa.22.0..sroa_idx.i.i.i61.i, align 1
+  %.sroa.22.0..sroa_idx.i.i.i62.i = getelementptr inbounds i8, ptr %194, i64 8
+  store i64 %.0.i59.i, ptr %.sroa.22.0..sroa_idx.i.i.i62.i, align 1
   %195 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
   %196 = add i64 %195, 1
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %196) #12
@@ -3223,11 +3223,11 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i60.i: ; preds = %191, %187
   %.not.i.i.i.i20.i.i = icmp ugt i64 %202, %203
   br i1 %.not.i.i.i.i20.i.i, label %204, label %_ZL17translateSrcIndexRN4llvm6MCInstERNS_15X86Disassembler19InternalInstructionE.exit.i
 
-204:                                              ; preds = %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i60.i
+204:                                              ; preds = %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i61.i
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %26, i64 noundef %202, i64 noundef 16) #12
   br label %_ZL17translateSrcIndexRN4llvm6MCInstERNS_15X86Disassembler19InternalInstructionE.exit.i
 
-_ZL17translateSrcIndexRN4llvm6MCInstERNS_15X86Disassembler19InternalInstructionE.exit.i: ; preds = %204, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i60.i
+_ZL17translateSrcIndexRN4llvm6MCInstERNS_15X86Disassembler19InternalInstructionE.exit.i: ; preds = %204, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i61.i
   %.sroa.3.8.insert.ext.i18.i.i = zext i8 %200 to i64
   br label %_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit.thread.sink.split
 
@@ -3253,12 +3253,12 @@ _ZL17translateSrcIndexRN4llvm6MCInstERNS_15X86Disassembler19InternalInstructionE
   br label %213
 
 213:                                              ; preds = %211, %209, %207
-  %.0.i62.i = phi i64 [ %208, %207 ], [ %210, %209 ], [ %212, %211 ]
+  %.0.i63.i = phi i64 [ %208, %207 ], [ %210, %209 ], [ %212, %211 ]
   %214 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
   %215 = add i64 %214, 1
   %216 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
-  %.not.i.i.i.i.i63.i = icmp ugt i64 %215, %216
-  br i1 %.not.i.i.i.i.i63.i, label %217, label %_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit.thread.sink.split
+  %.not.i.i.i.i.i64.i = icmp ugt i64 %215, %216
+  br i1 %.not.i.i.i.i.i64.i, label %217, label %_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit.thread.sink.split
 
 217:                                              ; preds = %213
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %26, i64 noundef %215, i64 noundef 16) #12
@@ -3272,15 +3272,15 @@ _ZL17translateSrcIndexRN4llvm6MCInstERNS_15X86Disassembler19InternalInstructionE
   %223 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
   %224 = add i64 %223, 1
   %225 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
-  %.not.i.i.i.i.i66.i = icmp ugt i64 %224, %225
-  br i1 %.not.i.i.i.i.i66.i, label %226, label %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit70.i
+  %.not.i.i.i.i.i67.i = icmp ugt i64 %224, %225
+  br i1 %.not.i.i.i.i.i67.i, label %226, label %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit71.i
 
 226:                                              ; preds = %218
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %26, i64 noundef %224, i64 noundef 16) #12
-  br label %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit70.i
+  br label %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit71.i
 
-_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit70.i: ; preds = %226, %218
-  %.sroa.3.8.insert.ext.i.i68.i = zext i16 %222 to i64
+_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit71.i: ; preds = %226, %218
+  %.sroa.3.8.insert.ext.i.i69.i = zext i16 %222 to i64
   br label %_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit.thread.sink.split
 
 227:                                              ; preds = %tailrecurse.i
@@ -3288,8 +3288,8 @@ _ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit70.i: ; preds
   %229 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
   %230 = add i64 %229, 1
   %231 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
-  %.not.i.i.i.i72.i = icmp ugt i64 %230, %231
-  br i1 %.not.i.i.i.i72.i, label %232, label %_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit.thread.sink.split
+  %.not.i.i.i.i73.i = icmp ugt i64 %230, %231
+  br i1 %.not.i.i.i.i73.i, label %232, label %_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit.thread.sink.split
 
 232:                                              ; preds = %227
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %26, i64 noundef %230, i64 noundef 16) #12
@@ -3297,8 +3297,8 @@ _ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit70.i: ; preds
 
 233:                                              ; preds = %tailrecurse.i
   %234 = load i32, ptr %28, align 8
-  %.not.i75.i = icmp eq i32 %234, 8
-  br i1 %.not.i75.i, label %235, label %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread.i
+  %.not.i76.i = icmp eq i32 %234, 8
+  br i1 %.not.i76.i, label %235, label %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread.i
 
 235:                                              ; preds = %233
   %236 = load i8, ptr %29, align 1
@@ -3308,9 +3308,9 @@ _ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit70.i: ; preds
 238:                                              ; preds = %235
   %239 = and i8 %236, -2
   switch i8 %239, label %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread.i [
-    i8 56, label %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread91.i
-    i8 58, label %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread91.i
-    i8 -124, label %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread91.i
+    i8 56, label %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread92.i
+    i8 58, label %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread92.i
+    i8 -124, label %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread92.i
     i8 -128, label %240
     i8 -10, label %244
   ]
@@ -3319,21 +3319,21 @@ _ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit70.i: ; preds
   %241 = load i8, ptr %27, align 1
   %242 = and i8 %241, 56
   %243 = icmp eq i8 %242, 56
-  br i1 %243, label %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread91.i, label %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread.i
+  br i1 %243, label %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread92.i, label %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread.i
 
 244:                                              ; preds = %238
   %245 = load i8, ptr %27, align 1
   %246 = and i8 %245, 56
   %247 = icmp eq i8 %246, 0
-  br i1 %247, label %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread91.i, label %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread.i
+  br i1 %247, label %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread92.i, label %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread.i
 
 _ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.i: ; preds = %235
   %248 = load i8, ptr %27, align 1
   %249 = and i8 %248, 56
   %250 = icmp eq i8 %249, 56
-  br i1 %250, label %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread91.i, label %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread.i
+  br i1 %250, label %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread92.i, label %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread.i
 
-_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread91.i: ; preds = %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.i, %244, %240, %238, %238, %238
+_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread92.i: ; preds = %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.i, %244, %240, %238, %238, %238
   %251 = load i64, ptr %31, align 8
   %252 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
   %253 = add i64 %252, 1
@@ -3341,7 +3341,7 @@ _ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread91.i
   %.not.i.i.i.i26 = icmp ugt i64 %253, %254
   br i1 %.not.i.i.i.i26, label %255, label %_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit.thread.sink.split
 
-255:                                              ; preds = %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread91.i
+255:                                              ; preds = %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread92.i
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %26, i64 noundef %253, i64 noundef 16) #12
   br label %_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit.thread.sink.split
 
@@ -3363,16 +3363,16 @@ _ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread.i: 
   %264 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
   %265 = add i64 %264, 1
   %266 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
-  %.not.i.i.i.i.i80.i = icmp ugt i64 %265, %266
-  br i1 %.not.i.i.i.i.i80.i, label %267, label %_ZL19translateFPRegisterRN4llvm6MCInstEh.exit.i
+  %.not.i.i.i.i.i81.i = icmp ugt i64 %265, %266
+  br i1 %.not.i.i.i.i.i81.i, label %267, label %_ZL19translateFPRegisterRN4llvm6MCInstEh.exit.i
 
 267:                                              ; preds = %261
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %26, i64 noundef %265, i64 noundef 16) #12
   br label %_ZL19translateFPRegisterRN4llvm6MCInstEh.exit.i
 
 _ZL19translateFPRegisterRN4llvm6MCInstEh.exit.i:  ; preds = %267, %261
-  %narrow.i82.i = add nuw i8 %263, 127
-  %.sroa.3.8.insert.ext.i.i83.i = zext i8 %narrow.i82.i to i64
+  %narrow.i83.i = add nuw i8 %263, 127
+  %.sroa.3.8.insert.ext.i.i84.i = zext i8 %narrow.i83.i to i64
   br label %_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit.thread.sink.split
 
 268:                                              ; preds = %tailrecurse.i
@@ -3383,19 +3383,19 @@ _ZL19translateFPRegisterRN4llvm6MCInstEh.exit.i:  ; preds = %267, %261
   %273 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
   %274 = add i64 %273, 1
   %275 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
-  %.not.i.i.i.i.i85.i = icmp ugt i64 %274, %275
-  br i1 %.not.i.i.i.i.i85.i, label %276, label %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit89.i
+  %.not.i.i.i.i.i86.i = icmp ugt i64 %274, %275
+  br i1 %.not.i.i.i.i.i86.i, label %276, label %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit90.i
 
 276:                                              ; preds = %268
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %26, i64 noundef %274, i64 noundef 16) #12
-  br label %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit89.i
+  br label %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit90.i
 
-_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit89.i: ; preds = %276, %268
-  %.sroa.3.8.insert.ext.i.i87.i = zext i16 %272 to i64
+_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit90.i: ; preds = %276, %268
+  %.sroa.3.8.insert.ext.i.i88.i = zext i16 %272 to i64
   br label %_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit.thread.sink.split
 
 277:                                              ; preds = %tailrecurse.i
-  %278 = getelementptr inbounds nuw i8, ptr %.tr93.i, i64 1
+  %278 = getelementptr inbounds nuw i8, ptr %.tr94.i, i64 1
   %279 = load i8, ptr %278, align 1
   %280 = zext i8 %279 to i64
   %gep.i = getelementptr %"struct.llvm::X86Disassembler::OperandSpecifier", ptr %invariant.gep.i, i64 %280
@@ -3406,23 +3406,23 @@ _ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS
   %281 = tail call fastcc noundef zeroext i1 @_ZL17translateRMMemoryRN4llvm6MCInstERNS_15X86Disassembler19InternalInstructionEPKNS_14MCDisassemblerEb(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull readonly align 8 dereferenceable(208) %1, ptr noundef %2, i1 noundef zeroext false)
   br i1 %281, label %_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit.thread31, label %_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit.thread
 
-_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit.thread.sink.split: ; preds = %260, %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread.i, %255, %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread91.i, %227, %232, %213, %217, %170, %176, %124, %130, %136, %162, %.sink.split.i.i.sink.split, %switch.lookup, %78, %64, %68, %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit89.i, %_ZL19translateFPRegisterRN4llvm6MCInstEh.exit.i, %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit70.i, %_ZL17translateSrcIndexRN4llvm6MCInstERNS_15X86Disassembler19InternalInstructionE.exit.i, %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit.i
-  %.sink91 = phi i8 [ 1, %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit.i ], [ 1, %_ZL17translateSrcIndexRN4llvm6MCInstERNS_15X86Disassembler19InternalInstructionE.exit.i ], [ 1, %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit70.i ], [ 1, %_ZL19translateFPRegisterRN4llvm6MCInstEh.exit.i ], [ 1, %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit89.i ], [ 1, %68 ], [ 1, %64 ], [ 1, %78 ], [ 1, %switch.lookup ], [ 1, %.sink.split.i.i.sink.split ], [ 1, %162 ], [ 1, %136 ], [ 1, %130 ], [ 1, %124 ], [ 2, %176 ], [ 2, %170 ], [ 1, %217 ], [ 1, %213 ], [ 2, %232 ], [ 2, %227 ], [ 2, %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread91.i ], [ 2, %255 ], [ 2, %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread.i ], [ 2, %260 ]
-  %.sroa.3.8.insert.ext.i91.sink.i.i.sink = phi i64 [ %.sroa.3.8.insert.ext.i.i.i, %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit.i ], [ %.sroa.3.8.insert.ext.i18.i.i, %_ZL17translateSrcIndexRN4llvm6MCInstERNS_15X86Disassembler19InternalInstructionE.exit.i ], [ %.sroa.3.8.insert.ext.i.i68.i, %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit70.i ], [ %.sroa.3.8.insert.ext.i.i83.i, %_ZL19translateFPRegisterRN4llvm6MCInstEh.exit.i ], [ %.sroa.3.8.insert.ext.i.i87.i, %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit89.i ], [ %.sroa.3.8.insert.ext.i.i50.i, %68 ], [ %.sroa.3.8.insert.ext.i.i50.i, %64 ], [ %switch.load, %78 ], [ %switch.load, %switch.lookup ], [ %.sroa.3.8.insert.ext.i91.sink.i.i.ph, %.sink.split.i.i.sink.split ], [ %.sroa.3.8.insert.ext.i91.i.i, %162 ], [ %.sroa.3.8.insert.ext.i82.i.i, %136 ], [ %.sroa.3.8.insert.ext.i77.i.i, %130 ], [ %.sroa.3.8.insert.ext.i.i56.i, %124 ], [ %172, %176 ], [ %172, %170 ], [ %.0.i62.i, %217 ], [ %.0.i62.i, %213 ], [ %228, %232 ], [ %228, %227 ], [ %251, %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread91.i ], [ %251, %255 ], [ %256, %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread.i ], [ %256, %260 ]
-  %282 = load ptr, ptr %7, align 8
-  %283 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
-  %284 = getelementptr inbounds %"class.llvm::MCOperand", ptr %282, i64 %283
-  store i8 %.sink91, ptr %284, align 1
-  %.sroa.22.0..sroa_idx.i.i94.i.i = getelementptr inbounds i8, ptr %284, i64 8
+_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit.thread.sink.split: ; preds = %260, %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread.i, %255, %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread92.i, %227, %232, %213, %217, %170, %176, %124, %130, %136, %162, %.sink.split.i.i.sink.split, %switch.lookup, %78, %64, %68, %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit90.i, %_ZL19translateFPRegisterRN4llvm6MCInstEh.exit.i, %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit71.i, %_ZL17translateSrcIndexRN4llvm6MCInstERNS_15X86Disassembler19InternalInstructionE.exit.i, %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit.i
+  %.sink91 = phi i8 [ 1, %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit.i ], [ 1, %_ZL17translateSrcIndexRN4llvm6MCInstERNS_15X86Disassembler19InternalInstructionE.exit.i ], [ 1, %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit71.i ], [ 1, %_ZL19translateFPRegisterRN4llvm6MCInstEh.exit.i ], [ 1, %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit90.i ], [ 1, %68 ], [ 1, %64 ], [ 1, %78 ], [ 1, %switch.lookup ], [ 1, %.sink.split.i.i.sink.split ], [ 1, %162 ], [ 1, %136 ], [ 1, %130 ], [ 1, %124 ], [ 2, %176 ], [ 2, %170 ], [ 1, %217 ], [ 1, %213 ], [ 2, %232 ], [ 2, %227 ], [ 2, %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread92.i ], [ 2, %255 ], [ 2, %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread.i ], [ 2, %260 ]
+  %.sroa.3.8.insert.ext.i91.sink.i.i.sink = phi i64 [ %.sroa.3.8.insert.ext.i.i.i, %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit.i ], [ %.sroa.3.8.insert.ext.i18.i.i, %_ZL17translateSrcIndexRN4llvm6MCInstERNS_15X86Disassembler19InternalInstructionE.exit.i ], [ %.sroa.3.8.insert.ext.i.i69.i, %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit71.i ], [ %.sroa.3.8.insert.ext.i.i84.i, %_ZL19translateFPRegisterRN4llvm6MCInstEh.exit.i ], [ %.sroa.3.8.insert.ext.i.i88.i, %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit90.i ], [ %.sroa.3.8.insert.ext.i.i50.i, %68 ], [ %.sroa.3.8.insert.ext.i.i50.i, %64 ], [ %switch.load, %78 ], [ %switch.load, %switch.lookup ], [ %.sroa.3.8.insert.ext.i91.sink.i.i.ph, %.sink.split.i.i.sink.split ], [ %.sroa.3.8.insert.ext.i91.i.i, %162 ], [ %.sroa.3.8.insert.ext.i82.i.i, %136 ], [ %.sroa.3.8.insert.ext.i77.i.i, %130 ], [ %.sroa.3.8.insert.ext.i.i56.i, %124 ], [ %172, %176 ], [ %172, %170 ], [ %.0.i63.i, %217 ], [ %.0.i63.i, %213 ], [ %228, %232 ], [ %228, %227 ], [ %251, %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread92.i ], [ %251, %255 ], [ %256, %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread.i ], [ %256, %260 ]
+  %.sink14.i.i = load ptr, ptr %7, align 8
+  %282 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
+  %283 = getelementptr inbounds %"class.llvm::MCOperand", ptr %.sink14.i.i, i64 %282
+  store i8 %.sink91, ptr %283, align 1
+  %.sroa.22.0..sroa_idx.i.i94.i.i = getelementptr inbounds i8, ptr %283, i64 8
   store i64 %.sroa.3.8.insert.ext.i91.sink.i.i.sink, ptr %.sroa.22.0..sroa_idx.i.i94.i.i, align 1
-  %285 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
-  %286 = add i64 %285, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %286) #12
+  %284 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
+  %285 = add i64 %284, 1
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %285) #12
   br label %_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit.thread
 
 _ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit.thread: ; preds = %_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit.thread.sink.split, %160, %79, %46, %_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit
-  %287 = getelementptr inbounds i8, ptr %.02347, i64 2
-  %.not24 = icmp eq ptr %287, %24
+  %286 = getelementptr inbounds i8, ptr %.02347, i64 2
+  %.not24 = icmp eq ptr %286, %24
   br i1 %.not24, label %_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit.thread31, label %46
 
 _ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit.thread31: ; preds = %_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit, %_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit.thread, %79, %60, %69, %71, %71, %72, %tailrecurse.i, %18, %3

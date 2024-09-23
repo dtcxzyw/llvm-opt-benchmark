@@ -4760,37 +4760,37 @@ if.else13:                                        ; preds = %if.else
   br label %if.end22
 
 if.end22:                                         ; preds = %if.else, %if.else13, %if.then4
-  %fParseErr9.sink = phi ptr [ %fParseErr9, %if.else13 ], [ %fParseErr, %if.then4 ], [ %fParseErr9, %if.else ]
+  %.sink2.in = phi ptr [ %fParseErr9, %if.else13 ], [ %fParseErr, %if.then4 ], [ %fParseErr9, %if.else ]
   %.sink = phi i32 [ %conv19, %if.else13 ], [ -1, %if.then4 ], [ -1, %if.else ]
-  %7 = load ptr, ptr %fParseErr9.sink, align 8
-  %offset12 = getelementptr inbounds i8, ptr %7, i64 4
+  %.sink2 = load ptr, ptr %.sink2.in, align 8
+  %offset12 = getelementptr inbounds i8, ptr %.sink2, i64 4
   store i32 %.sink, ptr %offset12, align 4
   store i32 0, ptr %status, align 4
   %fParseErr23 = getelementptr inbounds i8, ptr %this, i64 24
-  %8 = load ptr, ptr %fParseErr23, align 8
-  %preContext = getelementptr inbounds i8, ptr %8, i64 8
+  %7 = load ptr, ptr %fParseErr23, align 8
+  %preContext = getelementptr inbounds i8, ptr %7, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %preContext, i8 0, i64 32, i1 false)
-  %9 = load ptr, ptr %fParseErr23, align 8
-  %postContext = getelementptr inbounds i8, ptr %9, i64 40
+  %8 = load ptr, ptr %fParseErr23, align 8
+  %postContext = getelementptr inbounds i8, ptr %8, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %postContext, i8 0, i64 32, i1 false)
   %fRXPat = getelementptr inbounds i8, ptr %this, i64 16
-  %10 = load ptr, ptr %fRXPat, align 8
-  %fPattern = getelementptr inbounds i8, ptr %10, i64 8
-  %11 = load ptr, ptr %fPattern, align 8
+  %9 = load ptr, ptr %fRXPat, align 8
+  %fPattern = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = load ptr, ptr %fPattern, align 8
   %fScanIndex = getelementptr inbounds i8, ptr %this, i64 32
-  %12 = load i64, ptr %fScanIndex, align 8
-  %add = add nsw i64 %12, -15
-  %13 = load ptr, ptr %fParseErr23, align 8
-  %preContext28 = getelementptr inbounds i8, ptr %13, i64 8
-  %call30 = call i32 @utext_extract_75(ptr noundef %11, i64 noundef %add, i64 noundef %12, ptr noundef nonnull %preContext28, i32 noundef 16, ptr noundef nonnull %status)
-  %14 = load ptr, ptr %fRXPat, align 8
-  %fPattern32 = getelementptr inbounds i8, ptr %14, i64 8
-  %15 = load ptr, ptr %fPattern32, align 8
-  %16 = load i64, ptr %fScanIndex, align 8
-  %sub36 = add nsw i64 %16, 15
-  %17 = load ptr, ptr %fParseErr23, align 8
-  %postContext38 = getelementptr inbounds i8, ptr %17, i64 40
-  %call40 = call i32 @utext_extract_75(ptr noundef %15, i64 noundef %16, i64 noundef %sub36, ptr noundef nonnull %postContext38, i32 noundef 16, ptr noundef nonnull %status)
+  %11 = load i64, ptr %fScanIndex, align 8
+  %add = add nsw i64 %11, -15
+  %12 = load ptr, ptr %fParseErr23, align 8
+  %preContext28 = getelementptr inbounds i8, ptr %12, i64 8
+  %call30 = call i32 @utext_extract_75(ptr noundef %10, i64 noundef %add, i64 noundef %11, ptr noundef nonnull %preContext28, i32 noundef 16, ptr noundef nonnull %status)
+  %13 = load ptr, ptr %fRXPat, align 8
+  %fPattern32 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = load ptr, ptr %fPattern32, align 8
+  %15 = load i64, ptr %fScanIndex, align 8
+  %sub36 = add nsw i64 %15, 15
+  %16 = load ptr, ptr %fParseErr23, align 8
+  %postContext38 = getelementptr inbounds i8, ptr %16, i64 40
+  %call40 = call i32 @utext_extract_75(ptr noundef %14, i64 noundef %15, i64 noundef %sub36, ptr noundef nonnull %postContext38, i32 noundef 16, ptr noundef nonnull %status)
   br label %if.end41
 
 if.end41:                                         ; preds = %entry, %if.end22

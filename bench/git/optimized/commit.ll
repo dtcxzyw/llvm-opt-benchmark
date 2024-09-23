@@ -3838,7 +3838,11 @@ if.then:                                          ; preds = %entry
   %buf.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %buf.i, align 8
   %cmp3.not.i = icmp eq ptr %1, @strbuf_slopbuf
-  br i1 %cmp3.not.i, label %if.end3, label %if.end3.sink.split
+  br i1 %cmp3.not.i, label %if.end3, label %if.then4.i
+
+if.then4.i:                                       ; preds = %if.then
+  store i8 0, ptr %1, align 1
+  br label %if.end3
 
 if.else:                                          ; preds = %entry
   store i1 true, ptr @have_option_m, align 4
@@ -3915,14 +3919,10 @@ strbuf_addch.exit.i.i:                            ; preds = %if.then.i.i.i, %if.
   %15 = load ptr, ptr %buf.i.i, align 8
   %16 = load i64, ptr %len, align 8
   %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %15, i64 %16
-  br label %if.end3.sink.split
-
-if.end3.sink.split:                               ; preds = %if.then, %strbuf_addch.exit.i.i
-  %arrayidx3.i.i.i.sink = phi ptr [ %arrayidx3.i.i.i, %strbuf_addch.exit.i.i ], [ %1, %if.then ]
-  store i8 0, ptr %arrayidx3.i.i.i.sink, align 1
+  store i8 0, ptr %arrayidx3.i.i.i, align 1
   br label %if.end3
 
-if.end3:                                          ; preds = %if.end3.sink.split, %land.lhs.true.i.i, %if.end, %if.then
+if.end3:                                          ; preds = %strbuf_addch.exit.i.i, %land.lhs.true.i.i, %if.end, %if.then4.i, %if.then
   ret i32 0
 }
 

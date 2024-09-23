@@ -1141,7 +1141,8 @@ if.then13:                                        ; preds = %if.then9
   %13 = load ptr, ptr %7, align 8
   tail call void @free(ptr noundef %13) #19
   tail call void @free(ptr noundef nonnull %7) #19
-  br label %cleanup.sink.split
+  store ptr null, ptr %backend_data4.le109, align 8
+  br label %cleanup
 
 if.end18:                                         ; preds = %if.then9.if.end18_crit_edge, %for.body
   %14 = phi i32 [ %.pre, %if.then9.if.end18_crit_edge ], [ %8, %for.body ]
@@ -1173,7 +1174,8 @@ if.then25:                                        ; preds = %clear_loose_ref_cac
   %17 = load ptr, ptr %7, align 8
   tail call void @free(ptr noundef %17) #19
   tail call void @free(ptr noundef %7) #19
-  br label %cleanup.sink.split
+  store ptr null, ptr %backend_data4.le, align 8
+  br label %cleanup
 
 for.inc:                                          ; preds = %if.end18, %clear_loose_ref_cache.exit
   %inc = add nuw i64 %i.088, 1
@@ -1301,16 +1303,11 @@ for.end101:                                       ; preds = %for.inc99, %if.end6
 
 if.then.i80:                                      ; preds = %for.end101
   call void @free_ref_cache(ptr noundef nonnull %39) #19
-  br label %cleanup.sink.split
-
-cleanup.sink.split:                               ; preds = %if.then13, %if.then25, %if.then.i80
-  %loose.i78.sink = phi ptr [ %loose.i78, %if.then.i80 ], [ %backend_data4.le, %if.then25 ], [ %backend_data4.le109, %if.then13 ]
-  %ret.0.ph = phi i32 [ 0, %if.then.i80 ], [ -2, %if.then25 ], [ -2, %if.then13 ]
-  store ptr null, ptr %loose.i78.sink, align 8
+  store ptr null, ptr %loose.i78, align 8
   br label %cleanup
 
-cleanup:                                          ; preds = %strbuf_setlen.exit77, %cleanup.sink.split, %for.end101, %if.then59
-  %ret.0 = phi i32 [ %call60, %if.then59 ], [ 0, %for.end101 ], [ %ret.0.ph, %cleanup.sink.split ], [ -2, %strbuf_setlen.exit77 ]
+cleanup:                                          ; preds = %strbuf_setlen.exit77, %if.then.i80, %for.end101, %if.then59, %if.then25, %if.then13
+  %ret.0 = phi i32 [ -2, %if.then13 ], [ -2, %if.then25 ], [ %call60, %if.then59 ], [ 0, %for.end101 ], [ 0, %if.then.i80 ], [ -2, %strbuf_setlen.exit77 ]
   call fastcc void @files_transaction_cleanup(ptr noundef nonnull %ref_store, ptr noundef nonnull %transaction)
   %40 = load i64, ptr %nr, align 8
   %cmp10493.not = icmp eq i64 %40, 0

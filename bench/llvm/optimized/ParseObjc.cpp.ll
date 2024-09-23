@@ -20775,7 +20775,8 @@ _ZN4llvm15SmallVectorImplIPN5clang10ParsedAttrEE12assignRemoteEOS4_.exit: ; pred
   store i32 %19, ptr %20, align 4
   store ptr %6, ptr %1, align 8
   store i32 0, ptr %18, align 4
-  br label %.sink.split
+  store i32 0, ptr %15, align 8
+  br label %53
 
 21:                                               ; preds = %4
   %22 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #15
@@ -20804,7 +20805,8 @@ _ZSt4moveIPPN5clang10ParsedAttrES3_ET0_T_S5_S4_.exit: ; preds = %29, %26, %24
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %22) #15
   %31 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #15
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
+  store i32 0, ptr %32, align 8
+  br label %53
 
 33:                                               ; preds = %21
   %34 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
@@ -20851,14 +20853,10 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang10ParsedAttrELb1EE18uninitialized_move
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %22) #15
   %51 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #15
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %_ZN4llvm15SmallVectorImplIPN5clang10ParsedAttrEE12assignRemoteEOS4_.exit, %_ZSt4moveIPPN5clang10ParsedAttrES3_ET0_T_S5_S4_.exit, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang10ParsedAttrELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit
-  %.sink = phi ptr [ %52, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang10ParsedAttrELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit ], [ %32, %_ZSt4moveIPPN5clang10ParsedAttrES3_ET0_T_S5_S4_.exit ], [ %15, %_ZN4llvm15SmallVectorImplIPN5clang10ParsedAttrEE12assignRemoteEOS4_.exit ]
-  store i32 0, ptr %.sink, align 8
+  store i32 0, ptr %52, align 8
   br label %53
 
-53:                                               ; preds = %.sink.split, %2
+53:                                               ; preds = %2, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang10ParsedAttrELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit, %_ZSt4moveIPPN5clang10ParsedAttrES3_ET0_T_S5_S4_.exit, %_ZN4llvm15SmallVectorImplIPN5clang10ParsedAttrEE12assignRemoteEOS4_.exit
   ret ptr %0
 }
 
@@ -21021,7 +21019,8 @@ define internal noundef ptr @"_ZN4llvm12function_refIFPN5clang4DeclERNS1_22Parsi
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 4816
   %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %28, align 8
   tail call void @_ZN5clang4Sema21PopParsingDeclarationENS0_23DelayedDiagnosticsStateEPNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(17560) %27, ptr %.sroa.0.0.copyload.i.i.i.i, ptr noundef null) #15
-  br label %_ZN5clang22ParsingFieldDeclarator8completeEPNS_4DeclE.exit.sink.split.i
+  store i8 1, ptr %22, align 8
+  br label %"_ZZN5clang6Parser31ParseObjCClassInstanceVariablesEPNS_17ObjCContainerDeclENS_3tok15ObjCKeywordKindENS_14SourceLocationEENK3$_0clERNS_22ParsingFieldDeclaratorE.exit"
 
 .split11.i:                                       ; preds = %2
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -21057,14 +21056,10 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4DeclELb1EE9push_backES3_.exit.i: ; pr
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 4816
   %.sroa.0.0.copyload.i.i.i13.i = load ptr, ptr %48, align 8
   tail call void @_ZN5clang4Sema21PopParsingDeclarationENS0_23DelayedDiagnosticsStateEPNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(17560) %47, ptr %.sroa.0.0.copyload.i.i.i13.i, ptr noundef nonnull %21) #15
-  br label %_ZN5clang22ParsingFieldDeclarator8completeEPNS_4DeclE.exit.sink.split.i
-
-_ZN5clang22ParsingFieldDeclarator8completeEPNS_4DeclE.exit.sink.split.i: ; preds = %45, %25
-  %.sink.i = phi ptr [ %42, %45 ], [ %22, %25 ]
-  store i8 1, ptr %.sink.i, align 8
+  store i8 1, ptr %42, align 8
   br label %"_ZZN5clang6Parser31ParseObjCClassInstanceVariablesEPNS_17ObjCContainerDeclENS_3tok15ObjCKeywordKindENS_14SourceLocationEENK3$_0clERNS_22ParsingFieldDeclaratorE.exit"
 
-"_ZZN5clang6Parser31ParseObjCClassInstanceVariablesEPNS_17ObjCContainerDeclENS_3tok15ObjCKeywordKindENS_14SourceLocationEENK3$_0clERNS_22ParsingFieldDeclaratorE.exit": ; preds = %.split.i, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4DeclELb1EE9push_backES3_.exit.i, %_ZN5clang22ParsingFieldDeclarator8completeEPNS_4DeclE.exit.sink.split.i
+"_ZZN5clang6Parser31ParseObjCClassInstanceVariablesEPNS_17ObjCContainerDeclENS_3tok15ObjCKeywordKindENS_14SourceLocationEENK3$_0clERNS_22ParsingFieldDeclaratorE.exit": ; preds = %.split.i, %25, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4DeclELb1EE9push_backES3_.exit.i, %45
   ret ptr %21
 }
 

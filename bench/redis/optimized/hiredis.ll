@@ -69,26 +69,26 @@ for.body:                                         ; preds = %for.cond.preheader,
   %inc = add nuw i64 %j.011, 1
   %5 = load i64, ptr %elements, align 8
   %cmp4 = icmp ult i64 %inc, %5
-  br i1 %cmp4, label %for.body, label %sw.epilog.sink.split.sink.split
+  br i1 %cmp4, label %for.body, label %for.end.loopexit
+
+for.end.loopexit:                                 ; preds = %for.body
+  %.pre = load ptr, ptr %element, align 8
+  br label %sw.epilog.sink.split
 
 sw.bb8:                                           ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
   %str = getelementptr inbounds i8, ptr %reply, i64 32
-  br label %sw.epilog.sink.split.sink.split
-
-sw.epilog.sink.split.sink.split:                  ; preds = %for.body, %sw.bb8
-  %element.sink = phi ptr [ %str, %sw.bb8 ], [ %element, %for.body ]
-  %.pre = load ptr, ptr %element.sink, align 8
+  %6 = load ptr, ptr %str, align 8
   br label %sw.epilog.sink.split
 
-sw.epilog.sink.split:                             ; preds = %sw.epilog.sink.split.sink.split, %for.cond.preheader
-  %.sink = phi ptr [ %1, %for.cond.preheader ], [ %.pre, %sw.epilog.sink.split.sink.split ]
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
-  tail call void %6(ptr noundef %.sink) #13
+sw.epilog.sink.split:                             ; preds = %for.cond.preheader, %for.end.loopexit, %sw.bb8
+  %.sink = phi ptr [ %6, %sw.bb8 ], [ %.pre, %for.end.loopexit ], [ %1, %for.cond.preheader ]
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
+  tail call void %7(ptr noundef %.sink) #13
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %sw.bb1, %if.end
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
-  tail call void %7(ptr noundef nonnull %reply) #13
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
+  tail call void %8(ptr noundef nonnull %reply) #13
   br label %return
 
 return:                                           ; preds = %entry, %sw.epilog
@@ -3117,6 +3117,7 @@ if.end7:                                          ; preds = %if.then3
   %add.ptr = getelementptr inbounds i8, ptr %str, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr nonnull align 1 %add.ptr, i64 %sub, i1 false)
   %arrayidx11 = getelementptr inbounds i8, ptr %call.i, i64 %sub
+  store i8 0, ptr %arrayidx11, align 1
   br label %if.end21
 
 if.else:                                          ; preds = %if.end
@@ -3128,13 +3129,12 @@ if.else:                                          ; preds = %if.end
 if.end18:                                         ; preds = %if.else
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i28, ptr align 1 %str, i64 %len, i1 false)
   %arrayidx19 = getelementptr inbounds i8, ptr %call.i28, i64 %len
+  store i8 0, ptr %arrayidx19, align 1
   br label %if.end21
 
 if.end21:                                         ; preds = %if.end18, %if.end7
-  %arrayidx19.sink = phi ptr [ %arrayidx19, %if.end18 ], [ %arrayidx11, %if.end7 ]
   %len.sink = phi i64 [ %len, %if.end18 ], [ %sub, %if.end7 ]
   %buf.0 = phi ptr [ %call.i28, %if.end18 ], [ %call.i, %if.end7 ]
-  store i8 0, ptr %arrayidx19.sink, align 1
   %len20 = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store i64 %len.sink, ptr %len20, align 8
   %str22 = getelementptr inbounds i8, ptr %call.i.i, i64 32

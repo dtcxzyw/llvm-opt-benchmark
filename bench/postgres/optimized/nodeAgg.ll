@@ -1277,10 +1277,10 @@ initialize_phase.exit:                            ; preds = %590, %592
   br label %598
 
 598:                                              ; preds = %596, %initialize_phase.exit
-  %.sink811 = phi ptr [ %597, %596 ], [ %595, %initialize_phase.exit ]
-  %.sink.i604 = load ptr, ptr %.sink811, align 8
+  %.sink.i604.sink.in = phi ptr [ %597, %596 ], [ %595, %initialize_phase.exit ]
+  %.sink.i604.sink = load ptr, ptr %.sink.i604.sink.in, align 8
   %599 = getelementptr inbounds i8, ptr %14, i64 304
-  store ptr %.sink.i604, ptr %599, align 8
+  store ptr %.sink.i604.sink, ptr %599, align 8
   store i32 0, ptr %28, align 8
   %600 = load ptr, ptr %18, align 8
   %.not549 = icmp eq ptr %600, null
@@ -1297,12 +1297,12 @@ initialize_phase.exit:                            ; preds = %590, %592
   %603 = getelementptr inbounds i8, ptr %10, i64 4
   %604 = load i32, ptr %601, align 4
   %605 = icmp sgt i32 %604, 0
-  br i1 %605, label %.lr.ph832, label %._crit_edge724
+  br i1 %605, label %.lr.ph831, label %._crit_edge724
 
-.lr.ph832:                                        ; preds = %.lr.ph723, %822
-  %indvars.iv782831 = phi i64 [ %indvars.iv.next783, %822 ], [ 0, %.lr.ph723 ]
+.lr.ph831:                                        ; preds = %.lr.ph723, %822
+  %indvars.iv782830 = phi i64 [ %indvars.iv.next783, %822 ], [ 0, %.lr.ph723 ]
   %606 = load ptr, ptr %602, align 8
-  %607 = getelementptr %union.ListCell, ptr %606, i64 %indvars.iv782831
+  %607 = getelementptr %union.ListCell, ptr %606, i64 %indvars.iv782830
   %608 = load ptr, ptr %607, align 8
   %609 = getelementptr inbounds i8, ptr %608, i64 84
   %610 = load i32, ptr %609, align 4
@@ -1312,7 +1312,7 @@ initialize_phase.exit:                            ; preds = %590, %592
   %.not553 = icmp eq ptr %613, null
   br i1 %.not553, label %614, label %822
 
-614:                                              ; preds = %.lr.ph832
+614:                                              ; preds = %.lr.ph831
   store ptr %608, ptr %612, align 8
   %615 = getelementptr inbounds i8, ptr %608, i64 88
   %616 = load i32, ptr %615, align 8
@@ -1532,8 +1532,8 @@ list_length.exit606:                              ; preds = %711, %715
   %719 = getelementptr inbounds i8, ptr %632, i64 40
   %720 = load i8, ptr %719, align 4
   %721 = trunc i8 %720 to i1
-  %spec.select812 = select i1 %721, i32 %712, i32 %718
-  %.sink788 = add i32 %spec.select812, 1
+  %spec.select811 = select i1 %721, i32 %712, i32 %718
+  %.sink788 = add i32 %spec.select811, 1
   %722 = getelementptr inbounds i8, ptr %612, i64 64
   store i32 %.sink788, ptr %722, align 8
   %723 = load ptr, ptr %713, align 8
@@ -1681,9 +1681,9 @@ list_length.exit606:                              ; preds = %711, %715
   br label %list_length.exit608
 
 list_length.exit608:                              ; preds = %789, %795, %792
-  %.sink813 = phi i32 [ %797, %795 ], [ 0, %792 ], [ %712, %789 ]
+  %.sink812 = phi i32 [ %797, %795 ], [ 0, %792 ], [ %712, %789 ]
   %798 = getelementptr inbounds i8, ptr %742, i64 16
-  store i32 %.sink813, ptr %798, align 8
+  store i32 %.sink812, ptr %798, align 8
   %799 = load i8, ptr %9, align 1
   %800 = trunc i8 %799 to i1
   call fastcc void @build_pertrans_for_aggref(ptr noundef nonnull %742, ptr noundef nonnull %14, ptr noundef %1, ptr noundef nonnull %608, i32 noundef %.0475, i32 noundef %645, i32 noundef %.0482, i32 noundef %.0481, i64 noundef %.0476, i1 noundef zeroext %800, ptr noundef %7, i32 noundef %712)
@@ -1727,12 +1727,12 @@ list_length.exit608:                              ; preds = %789, %795, %792
   call void @ReleaseSysCache(ptr noundef nonnull %621) #12
   br label %822
 
-822:                                              ; preds = %.lr.ph832, %821
-  %indvars.iv.next783 = add nuw nsw i64 %indvars.iv782831, 1
+822:                                              ; preds = %.lr.ph831, %821
+  %indvars.iv.next783 = add nuw nsw i64 %indvars.iv782830, 1
   %823 = load i32, ptr %601, align 4
   %824 = sext i32 %823 to i64
   %825 = icmp slt i64 %indvars.iv.next783, %824
-  br i1 %825, label %.lr.ph832, label %._crit_edge724
+  br i1 %825, label %.lr.ph831, label %._crit_edge724
 
 ._crit_edge724:                                   ; preds = %822, %.lr.ph723
   %.pre790 = load ptr, ptr %18, align 8
@@ -1795,14 +1795,14 @@ switch.lookup:                                    ; preds = %847
   %switch.cast = trunc nuw i32 %848 to i3
   %switch.downshift = lshr exact i3 -4, %switch.cast
   %switch.masked = trunc i3 %switch.downshift to i1
-  %switch.cast833 = trunc nuw i32 %848 to i3
-  %switch.downshift835 = lshr i3 3, %switch.cast833
-  %switch.masked836 = trunc i3 %switch.downshift835 to i1
+  %switch.cast832 = trunc nuw i32 %848 to i3
+  %switch.downshift834 = lshr i3 3, %switch.cast832
+  %switch.masked835 = trunc i3 %switch.downshift834 to i1
   br label %.fold.split
 
 .fold.split:                                      ; preds = %847, %switch.lookup, %841
   %.0473 = phi i1 [ true, %841 ], [ %switch.masked, %switch.lookup ], [ false, %847 ]
-  %.0 = phi i1 [ true, %841 ], [ %switch.masked836, %switch.lookup ], [ false, %847 ]
+  %.0 = phi i1 [ true, %841 ], [ %switch.masked835, %switch.lookup ], [ false, %847 ]
   %850 = call ptr @ExecBuildAggTrans(ptr noundef nonnull %14, ptr noundef %838, i1 noundef zeroext %.0, i1 noundef zeroext %.0473, i1 noundef zeroext false) #12
   %851 = getelementptr inbounds i8, ptr %838, i64 48
   store ptr %850, ptr %851, align 8
@@ -3911,45 +3911,41 @@ define dso_local range(i32 0, 3) i32 @AggCheckCallContext(ptr nocapture noundef 
   %6 = load i32, ptr %4, align 4
   switch i32 %6, label %.thread [
     i32 413, label %7
-    i32 414, label %12
+    i32 414, label %13
   ]
 
 7:                                                ; preds = %5
   %.not20 = icmp eq ptr %1, null
-  br i1 %.not20, label %16, label %8
+  br i1 %.not20, label %17, label %8
 
 8:                                                ; preds = %7
   %9 = getelementptr inbounds i8, ptr %4, i64 304
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 40
-  br label %.sink.split.sink.split
+  %12 = load ptr, ptr %11, align 8
+  br label %.sink.split
 
-12:                                               ; preds = %5
+13:                                               ; preds = %5
   %.not19 = icmp eq ptr %1, null
-  br i1 %.not19, label %16, label %13
+  br i1 %.not19, label %17, label %14
 
-13:                                               ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %4, i64 552
-  br label %.sink.split.sink.split
+14:                                               ; preds = %13
+  %15 = getelementptr inbounds i8, ptr %4, i64 552
+  %16 = load ptr, ptr %15, align 8
+  br label %.sink.split
 
 .thread:                                          ; preds = %5, %2
   %.not18 = icmp eq ptr %1, null
-  br i1 %.not18, label %16, label %.sink.split
+  br i1 %.not18, label %17, label %.sink.split
 
-.sink.split.sink.split:                           ; preds = %13, %8
-  %.sink21 = phi ptr [ %11, %8 ], [ %14, %13 ]
-  %.0.ph.ph = phi i32 [ 1, %8 ], [ 2, %13 ]
-  %15 = load ptr, ptr %.sink21, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %.sink.split.sink.split, %.thread
-  %.sink = phi ptr [ null, %.thread ], [ %15, %.sink.split.sink.split ]
-  %.0.ph = phi i32 [ 0, %.thread ], [ %.0.ph.ph, %.sink.split.sink.split ]
+.sink.split:                                      ; preds = %.thread, %8, %14
+  %.sink = phi ptr [ %16, %14 ], [ %12, %8 ], [ null, %.thread ]
+  %.0.ph = phi i32 [ 2, %14 ], [ 1, %8 ], [ 0, %.thread ]
   store ptr %.sink, ptr %1, align 8
-  br label %16
+  br label %17
 
-16:                                               ; preds = %.sink.split, %.thread, %12, %7
-  %.0 = phi i32 [ 1, %7 ], [ 2, %12 ], [ 0, %.thread ], [ %.0.ph, %.sink.split ]
+17:                                               ; preds = %.sink.split, %.thread, %13, %7
+  %.0 = phi i32 [ 1, %7 ], [ 2, %13 ], [ 0, %.thread ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 
@@ -4016,18 +4012,18 @@ define dso_local zeroext i1 @AggStateIsShared(ptr nocapture noundef readonly %0)
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %24, label %4
+  br i1 %.not, label %26, label %4
 
 4:                                                ; preds = %1
   %5 = load i32, ptr %3, align 4
   %6 = icmp eq i32 %5, 413
-  br i1 %6, label %7, label %24
+  br i1 %6, label %7, label %26
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %3, i64 312
   %9 = load ptr, ptr %8, align 8
   %.not14 = icmp eq ptr %9, null
-  br i1 %.not14, label %17, label %10
+  br i1 %.not14, label %19, label %10
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds i8, ptr %3, i64 272
@@ -4036,26 +4032,24 @@ define dso_local zeroext i1 @AggStateIsShared(ptr nocapture noundef readonly %0)
   %14 = load i32, ptr %13, align 8
   %15 = sext i32 %14 to i64
   %16 = getelementptr %struct.AggStatePerTransData, ptr %12, i64 %15, i32 1
-  br label %.sink.split
+  %17 = load i8, ptr %16, align 8
+  %18 = trunc i8 %17 to i1
+  br label %26
 
-17:                                               ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %3, i64 320
-  %19 = load ptr, ptr %18, align 8
-  %.not15 = icmp eq ptr %19, null
-  br i1 %.not15, label %24, label %20
+19:                                               ; preds = %7
+  %20 = getelementptr inbounds i8, ptr %3, i64 320
+  %21 = load ptr, ptr %20, align 8
+  %.not15 = icmp eq ptr %21, null
+  br i1 %.not15, label %26, label %22
 
-20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %19, i64 8
-  br label %.sink.split
+22:                                               ; preds = %19
+  %23 = getelementptr inbounds i8, ptr %21, i64 8
+  %24 = load i8, ptr %23, align 8
+  %25 = trunc i8 %24 to i1
+  br label %26
 
-.sink.split:                                      ; preds = %10, %20
-  %.sink16 = phi ptr [ %21, %20 ], [ %16, %10 ]
-  %22 = load i8, ptr %.sink16, align 8
-  %23 = trunc i8 %22 to i1
-  br label %24
-
-24:                                               ; preds = %.sink.split, %1, %4, %17
-  %.0 = phi i1 [ true, %17 ], [ true, %4 ], [ true, %1 ], [ %23, %.sink.split ]
+26:                                               ; preds = %1, %4, %19, %22, %10
+  %.0 = phi i1 [ %18, %10 ], [ %25, %22 ], [ true, %19 ], [ true, %4 ], [ true, %1 ]
   ret i1 %.0
 }
 

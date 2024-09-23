@@ -397,25 +397,25 @@ define dso_local void @_ZN18V3DfgCacheInternal10V3DfgCache5cacheEP9DfgVertex(ptr
   %.sroa.0.0.copyload.i = load i16, ptr %94, align 8
   switch i16 %.sroa.0.0.copyload.i, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit [
     i16 141, label %95
-    i16 130, label %105
-    i16 128, label %113
-    i16 10, label %121
-    i16 56, label %132
-    i16 70, label %143
-    i16 72, label %154
-    i16 74, label %165
-    i16 1, label %176
-    i16 78, label %187
-    i16 52, label %198
-    i16 54, label %209
-    i16 19, label %220
-    i16 3, label %231
-    i16 62, label %242
-    i16 83, label %253
-    i16 137, label %264
-    i16 138, label %272
-    i16 139, label %280
-    i16 84, label %288
+    i16 130, label %106
+    i16 128, label %115
+    i16 10, label %124
+    i16 56, label %136
+    i16 70, label %148
+    i16 72, label %160
+    i16 74, label %172
+    i16 1, label %184
+    i16 78, label %196
+    i16 52, label %208
+    i16 54, label %220
+    i16 19, label %232
+    i16 3, label %244
+    i16 62, label %256
+    i16 83, label %268
+    i16 137, label %280
+    i16 138, label %289
+    i16 139, label %298
+    i16 84, label %307
   ]
 
 95:                                               ; preds = %2
@@ -429,556 +429,631 @@ define dso_local void @_ZN18V3DfgCacheInternal10V3DfgCache5cacheEP9DfgVertex(ptr
   %103 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN18V3DfgCacheInternal8getEntryERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEEP12AstNodeDTypeP9DfgVertexj(ptr noundef nonnull align 8 dereferenceable(64) %96, ptr noundef %98, ptr noundef %100, i32 noundef %102)
   %104 = load ptr, ptr %103, align 8
   %.not.i = icmp eq ptr %104, null
-  br i1 %.not.i, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit.sink.split, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
+  br i1 %.not.i, label %105, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
 
-105:                                              ; preds = %2
-  %106 = getelementptr inbounds i8, ptr %0, i64 72
-  %107 = getelementptr inbounds i8, ptr %1, i64 88
-  %108 = load ptr, ptr %107, align 8
+105:                                              ; preds = %95
+  store ptr %1, ptr %103, align 8
+  br label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
+
+106:                                              ; preds = %2
+  %107 = getelementptr inbounds i8, ptr %0, i64 72
+  %108 = getelementptr inbounds i8, ptr %1, i64 88
+  %109 = load ptr, ptr %108, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %90)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %91)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %92)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %93)
-  store ptr %108, ptr %90, align 8
+  store ptr %109, ptr %90, align 8
   store ptr %90, ptr %91, align 8, !alias.scope !5
   store ptr null, ptr %93, align 8
   store ptr %93, ptr %92, align 8, !alias.scope !8
-  %109 = call { ptr, i8 } @_ZNSt10_HashtableIN18V3DfgCacheInternal8KeyUnaryESt4pairIKS1_P14DfgVertexUnaryESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRKSt21piecewise_construct_tSt5tupleIJRP9DfgVertexEESM_IJODnEEEEES2_INS8_14_Node_iteratorIS6_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(64) %106, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %91, ptr noundef nonnull align 8 dereferenceable(8) %92)
-  %110 = extractvalue { ptr, i8 } %109, 0
-  %111 = getelementptr inbounds i8, ptr %110, i64 16
+  %110 = call { ptr, i8 } @_ZNSt10_HashtableIN18V3DfgCacheInternal8KeyUnaryESt4pairIKS1_P14DfgVertexUnaryESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRKSt21piecewise_construct_tSt5tupleIJRP9DfgVertexEESM_IJODnEEEEES2_INS8_14_Node_iteratorIS6_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(64) %107, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %91, ptr noundef nonnull align 8 dereferenceable(8) %92)
+  %111 = extractvalue { ptr, i8 } %110, 0
+  %112 = getelementptr inbounds i8, ptr %111, i64 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %90)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %91)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %92)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %93)
-  %112 = load ptr, ptr %111, align 8
-  %.not.i22 = icmp eq ptr %112, null
-  br i1 %.not.i22, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit.sink.split, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
+  %113 = load ptr, ptr %112, align 8
+  %.not.i22 = icmp eq ptr %113, null
+  br i1 %.not.i22, label %114, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
 
-113:                                              ; preds = %2
-  %114 = getelementptr inbounds i8, ptr %0, i64 136
-  %115 = getelementptr inbounds i8, ptr %1, i64 88
-  %116 = load ptr, ptr %115, align 8
+114:                                              ; preds = %106
+  store ptr %1, ptr %112, align 8
+  br label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
+
+115:                                              ; preds = %2
+  %116 = getelementptr inbounds i8, ptr %0, i64 136
+  %117 = getelementptr inbounds i8, ptr %1, i64 88
+  %118 = load ptr, ptr %117, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %86)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %87)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %88)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %89)
-  store ptr %116, ptr %86, align 8
+  store ptr %118, ptr %86, align 8
   store ptr %86, ptr %87, align 8, !alias.scope !11
   store ptr null, ptr %89, align 8
   store ptr %89, ptr %88, align 8, !alias.scope !14
-  %117 = call { ptr, i8 } @_ZNSt10_HashtableIN18V3DfgCacheInternal8KeyUnaryESt4pairIKS1_P14DfgVertexUnaryESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRKSt21piecewise_construct_tSt5tupleIJRP9DfgVertexEESM_IJODnEEEEES2_INS8_14_Node_iteratorIS6_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(64) %114, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %87, ptr noundef nonnull align 8 dereferenceable(8) %88)
-  %118 = extractvalue { ptr, i8 } %117, 0
-  %119 = getelementptr inbounds i8, ptr %118, i64 16
+  %119 = call { ptr, i8 } @_ZNSt10_HashtableIN18V3DfgCacheInternal8KeyUnaryESt4pairIKS1_P14DfgVertexUnaryESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRKSt21piecewise_construct_tSt5tupleIJRP9DfgVertexEESM_IJODnEEEEES2_INS8_14_Node_iteratorIS6_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(64) %116, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %87, ptr noundef nonnull align 8 dereferenceable(8) %88)
+  %120 = extractvalue { ptr, i8 } %119, 0
+  %121 = getelementptr inbounds i8, ptr %120, i64 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %86)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %87)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %88)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %89)
-  %120 = load ptr, ptr %119, align 8
-  %.not.i23 = icmp eq ptr %120, null
-  br i1 %.not.i23, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit.sink.split, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
+  %122 = load ptr, ptr %121, align 8
+  %.not.i23 = icmp eq ptr %122, null
+  br i1 %.not.i23, label %123, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
 
-121:                                              ; preds = %2
-  %122 = getelementptr inbounds i8, ptr %0, i64 200
-  %123 = getelementptr inbounds i8, ptr %1, i64 88
-  %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds i8, ptr %1, i64 120
-  %126 = load ptr, ptr %125, align 8
+123:                                              ; preds = %115
+  store ptr %1, ptr %121, align 8
+  br label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
+
+124:                                              ; preds = %2
+  %125 = getelementptr inbounds i8, ptr %0, i64 200
+  %126 = getelementptr inbounds i8, ptr %1, i64 88
+  %127 = load ptr, ptr %126, align 8
+  %128 = getelementptr inbounds i8, ptr %1, i64 120
+  %129 = load ptr, ptr %128, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %81)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %82)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %83)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %84)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %85)
-  store ptr %124, ptr %81, align 8
-  store ptr %126, ptr %82, align 8
+  store ptr %127, ptr %81, align 8
+  store ptr %129, ptr %82, align 8
   store ptr %82, ptr %83, align 8, !alias.scope !17
-  %127 = getelementptr inbounds i8, ptr %83, i64 8
-  store ptr %81, ptr %127, align 8, !alias.scope !17
+  %130 = getelementptr inbounds i8, ptr %83, i64 8
+  store ptr %81, ptr %130, align 8, !alias.scope !17
   store ptr null, ptr %85, align 8
   store ptr %85, ptr %84, align 8, !alias.scope !20
-  %128 = call { ptr, i8 } @_ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinaryESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRKSt21piecewise_construct_tSt5tupleIJRP9DfgVertexSP_EESM_IJODnEEEEES2_INS8_14_Node_iteratorIS6_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(64) %122, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(16) %83, ptr noundef nonnull align 8 dereferenceable(8) %84)
-  %129 = extractvalue { ptr, i8 } %128, 0
-  %130 = getelementptr inbounds i8, ptr %129, i64 24
+  %131 = call { ptr, i8 } @_ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinaryESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRKSt21piecewise_construct_tSt5tupleIJRP9DfgVertexSP_EESM_IJODnEEEEES2_INS8_14_Node_iteratorIS6_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(64) %125, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(16) %83, ptr noundef nonnull align 8 dereferenceable(8) %84)
+  %132 = extractvalue { ptr, i8 } %131, 0
+  %133 = getelementptr inbounds i8, ptr %132, i64 24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %81)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %82)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %83)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %84)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %85)
-  %131 = load ptr, ptr %130, align 8
-  %.not.i25 = icmp eq ptr %131, null
-  br i1 %.not.i25, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit.sink.split, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
+  %134 = load ptr, ptr %133, align 8
+  %.not.i25 = icmp eq ptr %134, null
+  br i1 %.not.i25, label %135, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
 
-132:                                              ; preds = %2
-  %133 = getelementptr inbounds i8, ptr %0, i64 264
-  %134 = getelementptr inbounds i8, ptr %1, i64 88
-  %135 = load ptr, ptr %134, align 8
-  %136 = getelementptr inbounds i8, ptr %1, i64 120
-  %137 = load ptr, ptr %136, align 8
+135:                                              ; preds = %124
+  store ptr %1, ptr %133, align 8
+  br label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
+
+136:                                              ; preds = %2
+  %137 = getelementptr inbounds i8, ptr %0, i64 264
+  %138 = getelementptr inbounds i8, ptr %1, i64 88
+  %139 = load ptr, ptr %138, align 8
+  %140 = getelementptr inbounds i8, ptr %1, i64 120
+  %141 = load ptr, ptr %140, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %76)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %77)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %78)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %79)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %80)
-  store ptr %135, ptr %76, align 8
-  store ptr %137, ptr %77, align 8
+  store ptr %139, ptr %76, align 8
+  store ptr %141, ptr %77, align 8
   store ptr %77, ptr %78, align 8, !alias.scope !23
-  %138 = getelementptr inbounds i8, ptr %78, i64 8
-  store ptr %76, ptr %138, align 8, !alias.scope !23
+  %142 = getelementptr inbounds i8, ptr %78, i64 8
+  store ptr %76, ptr %142, align 8, !alias.scope !23
   store ptr null, ptr %80, align 8
   store ptr %80, ptr %79, align 8, !alias.scope !26
-  %139 = call { ptr, i8 } @_ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinaryESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRKSt21piecewise_construct_tSt5tupleIJRP9DfgVertexSP_EESM_IJODnEEEEES2_INS8_14_Node_iteratorIS6_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(64) %133, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(16) %78, ptr noundef nonnull align 8 dereferenceable(8) %79)
-  %140 = extractvalue { ptr, i8 } %139, 0
-  %141 = getelementptr inbounds i8, ptr %140, i64 24
+  %143 = call { ptr, i8 } @_ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinaryESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRKSt21piecewise_construct_tSt5tupleIJRP9DfgVertexSP_EESM_IJODnEEEEES2_INS8_14_Node_iteratorIS6_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(64) %137, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(16) %78, ptr noundef nonnull align 8 dereferenceable(8) %79)
+  %144 = extractvalue { ptr, i8 } %143, 0
+  %145 = getelementptr inbounds i8, ptr %144, i64 24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %76)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %77)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %78)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %79)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %80)
-  %142 = load ptr, ptr %141, align 8
-  %.not.i26 = icmp eq ptr %142, null
-  br i1 %.not.i26, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit.sink.split, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
-
-143:                                              ; preds = %2
-  %144 = getelementptr inbounds i8, ptr %0, i64 328
-  %145 = getelementptr inbounds i8, ptr %1, i64 88
   %146 = load ptr, ptr %145, align 8
-  %147 = getelementptr inbounds i8, ptr %1, i64 120
-  %148 = load ptr, ptr %147, align 8
+  %.not.i26 = icmp eq ptr %146, null
+  br i1 %.not.i26, label %147, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
+
+147:                                              ; preds = %136
+  store ptr %1, ptr %145, align 8
+  br label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
+
+148:                                              ; preds = %2
+  %149 = getelementptr inbounds i8, ptr %0, i64 328
+  %150 = getelementptr inbounds i8, ptr %1, i64 88
+  %151 = load ptr, ptr %150, align 8
+  %152 = getelementptr inbounds i8, ptr %1, i64 120
+  %153 = load ptr, ptr %152, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %71)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %72)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %73)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %74)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %75)
-  store ptr %146, ptr %71, align 8
-  store ptr %148, ptr %72, align 8
+  store ptr %151, ptr %71, align 8
+  store ptr %153, ptr %72, align 8
   store ptr %72, ptr %73, align 8, !alias.scope !29
-  %149 = getelementptr inbounds i8, ptr %73, i64 8
-  store ptr %71, ptr %149, align 8, !alias.scope !29
+  %154 = getelementptr inbounds i8, ptr %73, i64 8
+  store ptr %71, ptr %154, align 8, !alias.scope !29
   store ptr null, ptr %75, align 8
   store ptr %75, ptr %74, align 8, !alias.scope !32
-  %150 = call { ptr, i8 } @_ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinaryESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRKSt21piecewise_construct_tSt5tupleIJRP9DfgVertexSP_EESM_IJODnEEEEES2_INS8_14_Node_iteratorIS6_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(64) %144, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull align 8 dereferenceable(8) %74)
-  %151 = extractvalue { ptr, i8 } %150, 0
-  %152 = getelementptr inbounds i8, ptr %151, i64 24
+  %155 = call { ptr, i8 } @_ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinaryESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRKSt21piecewise_construct_tSt5tupleIJRP9DfgVertexSP_EESM_IJODnEEEEES2_INS8_14_Node_iteratorIS6_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(64) %149, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull align 8 dereferenceable(8) %74)
+  %156 = extractvalue { ptr, i8 } %155, 0
+  %157 = getelementptr inbounds i8, ptr %156, i64 24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %71)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %72)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %73)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %74)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %75)
-  %153 = load ptr, ptr %152, align 8
-  %.not.i28 = icmp eq ptr %153, null
-  br i1 %.not.i28, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit.sink.split, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
+  %158 = load ptr, ptr %157, align 8
+  %.not.i28 = icmp eq ptr %158, null
+  br i1 %.not.i28, label %159, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
 
-154:                                              ; preds = %2
-  %155 = getelementptr inbounds i8, ptr %0, i64 392
-  %156 = getelementptr inbounds i8, ptr %1, i64 88
-  %157 = load ptr, ptr %156, align 8
-  %158 = getelementptr inbounds i8, ptr %1, i64 120
-  %159 = load ptr, ptr %158, align 8
+159:                                              ; preds = %148
+  store ptr %1, ptr %157, align 8
+  br label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
+
+160:                                              ; preds = %2
+  %161 = getelementptr inbounds i8, ptr %0, i64 392
+  %162 = getelementptr inbounds i8, ptr %1, i64 88
+  %163 = load ptr, ptr %162, align 8
+  %164 = getelementptr inbounds i8, ptr %1, i64 120
+  %165 = load ptr, ptr %164, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %66)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %67)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %68)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %69)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %70)
-  store ptr %157, ptr %66, align 8
-  store ptr %159, ptr %67, align 8
+  store ptr %163, ptr %66, align 8
+  store ptr %165, ptr %67, align 8
   store ptr %67, ptr %68, align 8, !alias.scope !35
-  %160 = getelementptr inbounds i8, ptr %68, i64 8
-  store ptr %66, ptr %160, align 8, !alias.scope !35
+  %166 = getelementptr inbounds i8, ptr %68, i64 8
+  store ptr %66, ptr %166, align 8, !alias.scope !35
   store ptr null, ptr %70, align 8
   store ptr %70, ptr %69, align 8, !alias.scope !38
-  %161 = call { ptr, i8 } @_ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinaryESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRKSt21piecewise_construct_tSt5tupleIJRP9DfgVertexSP_EESM_IJODnEEEEES2_INS8_14_Node_iteratorIS6_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(64) %155, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull align 8 dereferenceable(8) %69)
-  %162 = extractvalue { ptr, i8 } %161, 0
-  %163 = getelementptr inbounds i8, ptr %162, i64 24
+  %167 = call { ptr, i8 } @_ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinaryESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRKSt21piecewise_construct_tSt5tupleIJRP9DfgVertexSP_EESM_IJODnEEEEES2_INS8_14_Node_iteratorIS6_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(64) %161, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull align 8 dereferenceable(8) %69)
+  %168 = extractvalue { ptr, i8 } %167, 0
+  %169 = getelementptr inbounds i8, ptr %168, i64 24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %66)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %67)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %68)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %69)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %70)
-  %164 = load ptr, ptr %163, align 8
-  %.not.i30 = icmp eq ptr %164, null
-  br i1 %.not.i30, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit.sink.split, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
-
-165:                                              ; preds = %2
-  %166 = getelementptr inbounds i8, ptr %0, i64 456
-  %167 = getelementptr inbounds i8, ptr %1, i64 88
-  %168 = load ptr, ptr %167, align 8
-  %169 = getelementptr inbounds i8, ptr %1, i64 120
   %170 = load ptr, ptr %169, align 8
+  %.not.i30 = icmp eq ptr %170, null
+  br i1 %.not.i30, label %171, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
+
+171:                                              ; preds = %160
+  store ptr %1, ptr %169, align 8
+  br label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
+
+172:                                              ; preds = %2
+  %173 = getelementptr inbounds i8, ptr %0, i64 456
+  %174 = getelementptr inbounds i8, ptr %1, i64 88
+  %175 = load ptr, ptr %174, align 8
+  %176 = getelementptr inbounds i8, ptr %1, i64 120
+  %177 = load ptr, ptr %176, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %61)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %62)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %63)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %64)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %65)
-  store ptr %168, ptr %61, align 8
-  store ptr %170, ptr %62, align 8
+  store ptr %175, ptr %61, align 8
+  store ptr %177, ptr %62, align 8
   store ptr %62, ptr %63, align 8, !alias.scope !41
-  %171 = getelementptr inbounds i8, ptr %63, i64 8
-  store ptr %61, ptr %171, align 8, !alias.scope !41
+  %178 = getelementptr inbounds i8, ptr %63, i64 8
+  store ptr %61, ptr %178, align 8, !alias.scope !41
   store ptr null, ptr %65, align 8
   store ptr %65, ptr %64, align 8, !alias.scope !44
-  %172 = call { ptr, i8 } @_ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinaryESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRKSt21piecewise_construct_tSt5tupleIJRP9DfgVertexSP_EESM_IJODnEEEEES2_INS8_14_Node_iteratorIS6_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(64) %166, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull align 8 dereferenceable(8) %64)
-  %173 = extractvalue { ptr, i8 } %172, 0
-  %174 = getelementptr inbounds i8, ptr %173, i64 24
+  %179 = call { ptr, i8 } @_ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinaryESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRKSt21piecewise_construct_tSt5tupleIJRP9DfgVertexSP_EESM_IJODnEEEEES2_INS8_14_Node_iteratorIS6_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(64) %173, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull align 8 dereferenceable(8) %64)
+  %180 = extractvalue { ptr, i8 } %179, 0
+  %181 = getelementptr inbounds i8, ptr %180, i64 24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %61)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %62)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %63)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %64)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %65)
-  %175 = load ptr, ptr %174, align 8
-  %.not.i32 = icmp eq ptr %175, null
-  br i1 %.not.i32, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit.sink.split, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
+  %182 = load ptr, ptr %181, align 8
+  %.not.i32 = icmp eq ptr %182, null
+  br i1 %.not.i32, label %183, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
 
-176:                                              ; preds = %2
-  %177 = getelementptr inbounds i8, ptr %0, i64 520
-  %178 = getelementptr inbounds i8, ptr %1, i64 88
-  %179 = load ptr, ptr %178, align 8
-  %180 = getelementptr inbounds i8, ptr %1, i64 120
-  %181 = load ptr, ptr %180, align 8
+183:                                              ; preds = %172
+  store ptr %1, ptr %181, align 8
+  br label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
+
+184:                                              ; preds = %2
+  %185 = getelementptr inbounds i8, ptr %0, i64 520
+  %186 = getelementptr inbounds i8, ptr %1, i64 88
+  %187 = load ptr, ptr %186, align 8
+  %188 = getelementptr inbounds i8, ptr %1, i64 120
+  %189 = load ptr, ptr %188, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %56)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %57)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %58)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %59)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %60)
-  store ptr %179, ptr %56, align 8
-  store ptr %181, ptr %57, align 8
+  store ptr %187, ptr %56, align 8
+  store ptr %189, ptr %57, align 8
   store ptr %57, ptr %58, align 8, !alias.scope !47
-  %182 = getelementptr inbounds i8, ptr %58, i64 8
-  store ptr %56, ptr %182, align 8, !alias.scope !47
+  %190 = getelementptr inbounds i8, ptr %58, i64 8
+  store ptr %56, ptr %190, align 8, !alias.scope !47
   store ptr null, ptr %60, align 8
   store ptr %60, ptr %59, align 8, !alias.scope !50
-  %183 = call { ptr, i8 } @_ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinaryESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRKSt21piecewise_construct_tSt5tupleIJRP9DfgVertexSP_EESM_IJODnEEEEES2_INS8_14_Node_iteratorIS6_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(64) %177, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull align 8 dereferenceable(8) %59)
-  %184 = extractvalue { ptr, i8 } %183, 0
-  %185 = getelementptr inbounds i8, ptr %184, i64 24
+  %191 = call { ptr, i8 } @_ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinaryESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRKSt21piecewise_construct_tSt5tupleIJRP9DfgVertexSP_EESM_IJODnEEEEES2_INS8_14_Node_iteratorIS6_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(64) %185, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull align 8 dereferenceable(8) %59)
+  %192 = extractvalue { ptr, i8 } %191, 0
+  %193 = getelementptr inbounds i8, ptr %192, i64 24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %58)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %59)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %60)
-  %186 = load ptr, ptr %185, align 8
-  %.not.i34 = icmp eq ptr %186, null
-  br i1 %.not.i34, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit.sink.split, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
+  %194 = load ptr, ptr %193, align 8
+  %.not.i34 = icmp eq ptr %194, null
+  br i1 %.not.i34, label %195, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
 
-187:                                              ; preds = %2
-  %188 = getelementptr inbounds i8, ptr %0, i64 584
-  %189 = getelementptr inbounds i8, ptr %1, i64 88
-  %190 = load ptr, ptr %189, align 8
-  %191 = getelementptr inbounds i8, ptr %1, i64 120
-  %192 = load ptr, ptr %191, align 8
+195:                                              ; preds = %184
+  store ptr %1, ptr %193, align 8
+  br label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
+
+196:                                              ; preds = %2
+  %197 = getelementptr inbounds i8, ptr %0, i64 584
+  %198 = getelementptr inbounds i8, ptr %1, i64 88
+  %199 = load ptr, ptr %198, align 8
+  %200 = getelementptr inbounds i8, ptr %1, i64 120
+  %201 = load ptr, ptr %200, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %51)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %52)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %53)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %54)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %55)
-  store ptr %190, ptr %51, align 8
-  store ptr %192, ptr %52, align 8
+  store ptr %199, ptr %51, align 8
+  store ptr %201, ptr %52, align 8
   store ptr %52, ptr %53, align 8, !alias.scope !53
-  %193 = getelementptr inbounds i8, ptr %53, i64 8
-  store ptr %51, ptr %193, align 8, !alias.scope !53
+  %202 = getelementptr inbounds i8, ptr %53, i64 8
+  store ptr %51, ptr %202, align 8, !alias.scope !53
   store ptr null, ptr %55, align 8
   store ptr %55, ptr %54, align 8, !alias.scope !56
-  %194 = call { ptr, i8 } @_ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinaryESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRKSt21piecewise_construct_tSt5tupleIJRP9DfgVertexSP_EESM_IJODnEEEEES2_INS8_14_Node_iteratorIS6_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(64) %188, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(8) %54)
-  %195 = extractvalue { ptr, i8 } %194, 0
-  %196 = getelementptr inbounds i8, ptr %195, i64 24
+  %203 = call { ptr, i8 } @_ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinaryESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRKSt21piecewise_construct_tSt5tupleIJRP9DfgVertexSP_EESM_IJODnEEEEES2_INS8_14_Node_iteratorIS6_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(64) %197, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(8) %54)
+  %204 = extractvalue { ptr, i8 } %203, 0
+  %205 = getelementptr inbounds i8, ptr %204, i64 24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %52)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %53)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %54)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55)
-  %197 = load ptr, ptr %196, align 8
-  %.not.i36 = icmp eq ptr %197, null
-  br i1 %.not.i36, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit.sink.split, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
+  %206 = load ptr, ptr %205, align 8
+  %.not.i36 = icmp eq ptr %206, null
+  br i1 %.not.i36, label %207, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
 
-198:                                              ; preds = %2
-  %199 = getelementptr inbounds i8, ptr %0, i64 648
-  %200 = getelementptr inbounds i8, ptr %1, i64 88
-  %201 = load ptr, ptr %200, align 8
-  %202 = getelementptr inbounds i8, ptr %1, i64 120
-  %203 = load ptr, ptr %202, align 8
+207:                                              ; preds = %196
+  store ptr %1, ptr %205, align 8
+  br label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
+
+208:                                              ; preds = %2
+  %209 = getelementptr inbounds i8, ptr %0, i64 648
+  %210 = getelementptr inbounds i8, ptr %1, i64 88
+  %211 = load ptr, ptr %210, align 8
+  %212 = getelementptr inbounds i8, ptr %1, i64 120
+  %213 = load ptr, ptr %212, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %47)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %48)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %49)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %50)
-  store ptr %201, ptr %46, align 8
-  store ptr %203, ptr %47, align 8
+  store ptr %211, ptr %46, align 8
+  store ptr %213, ptr %47, align 8
   store ptr %47, ptr %48, align 8, !alias.scope !59
-  %204 = getelementptr inbounds i8, ptr %48, i64 8
-  store ptr %46, ptr %204, align 8, !alias.scope !59
+  %214 = getelementptr inbounds i8, ptr %48, i64 8
+  store ptr %46, ptr %214, align 8, !alias.scope !59
   store ptr null, ptr %50, align 8
   store ptr %50, ptr %49, align 8, !alias.scope !62
-  %205 = call { ptr, i8 } @_ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinaryESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRKSt21piecewise_construct_tSt5tupleIJRP9DfgVertexSP_EESM_IJODnEEEEES2_INS8_14_Node_iteratorIS6_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(64) %199, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(8) %49)
-  %206 = extractvalue { ptr, i8 } %205, 0
-  %207 = getelementptr inbounds i8, ptr %206, i64 24
+  %215 = call { ptr, i8 } @_ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinaryESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRKSt21piecewise_construct_tSt5tupleIJRP9DfgVertexSP_EESM_IJODnEEEEES2_INS8_14_Node_iteratorIS6_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(64) %209, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(8) %49)
+  %216 = extractvalue { ptr, i8 } %215, 0
+  %217 = getelementptr inbounds i8, ptr %216, i64 24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %48)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50)
-  %208 = load ptr, ptr %207, align 8
-  %.not.i38 = icmp eq ptr %208, null
-  br i1 %.not.i38, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit.sink.split, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
+  %218 = load ptr, ptr %217, align 8
+  %.not.i38 = icmp eq ptr %218, null
+  br i1 %.not.i38, label %219, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
 
-209:                                              ; preds = %2
-  %210 = getelementptr inbounds i8, ptr %0, i64 712
-  %211 = getelementptr inbounds i8, ptr %1, i64 88
-  %212 = load ptr, ptr %211, align 8
-  %213 = getelementptr inbounds i8, ptr %1, i64 120
-  %214 = load ptr, ptr %213, align 8
+219:                                              ; preds = %208
+  store ptr %1, ptr %217, align 8
+  br label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
+
+220:                                              ; preds = %2
+  %221 = getelementptr inbounds i8, ptr %0, i64 712
+  %222 = getelementptr inbounds i8, ptr %1, i64 88
+  %223 = load ptr, ptr %222, align 8
+  %224 = getelementptr inbounds i8, ptr %1, i64 120
+  %225 = load ptr, ptr %224, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %41)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %43)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45)
-  store ptr %212, ptr %41, align 8
-  store ptr %214, ptr %42, align 8
+  store ptr %223, ptr %41, align 8
+  store ptr %225, ptr %42, align 8
   store ptr %42, ptr %43, align 8, !alias.scope !65
-  %215 = getelementptr inbounds i8, ptr %43, i64 8
-  store ptr %41, ptr %215, align 8, !alias.scope !65
+  %226 = getelementptr inbounds i8, ptr %43, i64 8
+  store ptr %41, ptr %226, align 8, !alias.scope !65
   store ptr null, ptr %45, align 8
   store ptr %45, ptr %44, align 8, !alias.scope !68
-  %216 = call { ptr, i8 } @_ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinaryESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRKSt21piecewise_construct_tSt5tupleIJRP9DfgVertexSP_EESM_IJODnEEEEES2_INS8_14_Node_iteratorIS6_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(64) %210, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 8 dereferenceable(8) %44)
-  %217 = extractvalue { ptr, i8 } %216, 0
-  %218 = getelementptr inbounds i8, ptr %217, i64 24
+  %227 = call { ptr, i8 } @_ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinaryESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRKSt21piecewise_construct_tSt5tupleIJRP9DfgVertexSP_EESM_IJODnEEEEES2_INS8_14_Node_iteratorIS6_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(64) %221, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 8 dereferenceable(8) %44)
+  %228 = extractvalue { ptr, i8 } %227, 0
+  %229 = getelementptr inbounds i8, ptr %228, i64 24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %43)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45)
-  %219 = load ptr, ptr %218, align 8
-  %.not.i40 = icmp eq ptr %219, null
-  br i1 %.not.i40, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit.sink.split, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
+  %230 = load ptr, ptr %229, align 8
+  %.not.i40 = icmp eq ptr %230, null
+  br i1 %.not.i40, label %231, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
 
-220:                                              ; preds = %2
-  %221 = getelementptr inbounds i8, ptr %0, i64 776
-  %222 = getelementptr inbounds i8, ptr %1, i64 88
-  %223 = load ptr, ptr %222, align 8
-  %224 = getelementptr inbounds i8, ptr %1, i64 120
-  %225 = load ptr, ptr %224, align 8
+231:                                              ; preds = %220
+  store ptr %1, ptr %229, align 8
+  br label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
+
+232:                                              ; preds = %2
+  %233 = getelementptr inbounds i8, ptr %0, i64 776
+  %234 = getelementptr inbounds i8, ptr %1, i64 88
+  %235 = load ptr, ptr %234, align 8
+  %236 = getelementptr inbounds i8, ptr %1, i64 120
+  %237 = load ptr, ptr %236, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %38)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40)
-  store ptr %223, ptr %36, align 8
-  store ptr %225, ptr %37, align 8
+  store ptr %235, ptr %36, align 8
+  store ptr %237, ptr %37, align 8
   store ptr %37, ptr %38, align 8, !alias.scope !71
-  %226 = getelementptr inbounds i8, ptr %38, i64 8
-  store ptr %36, ptr %226, align 8, !alias.scope !71
+  %238 = getelementptr inbounds i8, ptr %38, i64 8
+  store ptr %36, ptr %238, align 8, !alias.scope !71
   store ptr null, ptr %40, align 8
   store ptr %40, ptr %39, align 8, !alias.scope !74
-  %227 = call { ptr, i8 } @_ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinaryESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRKSt21piecewise_construct_tSt5tupleIJRP9DfgVertexSP_EESM_IJODnEEEEES2_INS8_14_Node_iteratorIS6_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(64) %221, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(8) %39)
-  %228 = extractvalue { ptr, i8 } %227, 0
-  %229 = getelementptr inbounds i8, ptr %228, i64 24
+  %239 = call { ptr, i8 } @_ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinaryESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRKSt21piecewise_construct_tSt5tupleIJRP9DfgVertexSP_EESM_IJODnEEEEES2_INS8_14_Node_iteratorIS6_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(64) %233, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(8) %39)
+  %240 = extractvalue { ptr, i8 } %239, 0
+  %241 = getelementptr inbounds i8, ptr %240, i64 24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %38)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40)
-  %230 = load ptr, ptr %229, align 8
-  %.not.i42 = icmp eq ptr %230, null
-  br i1 %.not.i42, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit.sink.split, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
+  %242 = load ptr, ptr %241, align 8
+  %.not.i42 = icmp eq ptr %242, null
+  br i1 %.not.i42, label %243, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
 
-231:                                              ; preds = %2
-  %232 = getelementptr inbounds i8, ptr %0, i64 840
-  %233 = getelementptr inbounds i8, ptr %1, i64 88
-  %234 = load ptr, ptr %233, align 8
-  %235 = getelementptr inbounds i8, ptr %1, i64 120
-  %236 = load ptr, ptr %235, align 8
+243:                                              ; preds = %232
+  store ptr %1, ptr %241, align 8
+  br label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
+
+244:                                              ; preds = %2
+  %245 = getelementptr inbounds i8, ptr %0, i64 840
+  %246 = getelementptr inbounds i8, ptr %1, i64 88
+  %247 = load ptr, ptr %246, align 8
+  %248 = getelementptr inbounds i8, ptr %1, i64 120
+  %249 = load ptr, ptr %248, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35)
-  store ptr %234, ptr %31, align 8
-  store ptr %236, ptr %32, align 8
+  store ptr %247, ptr %31, align 8
+  store ptr %249, ptr %32, align 8
   store ptr %32, ptr %33, align 8, !alias.scope !77
-  %237 = getelementptr inbounds i8, ptr %33, i64 8
-  store ptr %31, ptr %237, align 8, !alias.scope !77
+  %250 = getelementptr inbounds i8, ptr %33, i64 8
+  store ptr %31, ptr %250, align 8, !alias.scope !77
   store ptr null, ptr %35, align 8
   store ptr %35, ptr %34, align 8, !alias.scope !80
-  %238 = call { ptr, i8 } @_ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinaryESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRKSt21piecewise_construct_tSt5tupleIJRP9DfgVertexSP_EESM_IJODnEEEEES2_INS8_14_Node_iteratorIS6_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(64) %232, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(8) %34)
-  %239 = extractvalue { ptr, i8 } %238, 0
-  %240 = getelementptr inbounds i8, ptr %239, i64 24
+  %251 = call { ptr, i8 } @_ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinaryESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRKSt21piecewise_construct_tSt5tupleIJRP9DfgVertexSP_EESM_IJODnEEEEES2_INS8_14_Node_iteratorIS6_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(64) %245, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(8) %34)
+  %252 = extractvalue { ptr, i8 } %251, 0
+  %253 = getelementptr inbounds i8, ptr %252, i64 24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35)
-  %241 = load ptr, ptr %240, align 8
-  %.not.i44 = icmp eq ptr %241, null
-  br i1 %.not.i44, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit.sink.split, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
+  %254 = load ptr, ptr %253, align 8
+  %.not.i44 = icmp eq ptr %254, null
+  br i1 %.not.i44, label %255, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
 
-242:                                              ; preds = %2
-  %243 = getelementptr inbounds i8, ptr %0, i64 904
-  %244 = getelementptr inbounds i8, ptr %1, i64 88
-  %245 = load ptr, ptr %244, align 8
-  %246 = getelementptr inbounds i8, ptr %1, i64 120
-  %247 = load ptr, ptr %246, align 8
+255:                                              ; preds = %244
+  store ptr %1, ptr %253, align 8
+  br label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
+
+256:                                              ; preds = %2
+  %257 = getelementptr inbounds i8, ptr %0, i64 904
+  %258 = getelementptr inbounds i8, ptr %1, i64 88
+  %259 = load ptr, ptr %258, align 8
+  %260 = getelementptr inbounds i8, ptr %1, i64 120
+  %261 = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30)
-  store ptr %245, ptr %26, align 8
-  store ptr %247, ptr %27, align 8
+  store ptr %259, ptr %26, align 8
+  store ptr %261, ptr %27, align 8
   store ptr %27, ptr %28, align 8, !alias.scope !83
-  %248 = getelementptr inbounds i8, ptr %28, i64 8
-  store ptr %26, ptr %248, align 8, !alias.scope !83
+  %262 = getelementptr inbounds i8, ptr %28, i64 8
+  store ptr %26, ptr %262, align 8, !alias.scope !83
   store ptr null, ptr %30, align 8
   store ptr %30, ptr %29, align 8, !alias.scope !86
-  %249 = call { ptr, i8 } @_ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinaryESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRKSt21piecewise_construct_tSt5tupleIJRP9DfgVertexSP_EESM_IJODnEEEEES2_INS8_14_Node_iteratorIS6_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(64) %243, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(8) %29)
-  %250 = extractvalue { ptr, i8 } %249, 0
-  %251 = getelementptr inbounds i8, ptr %250, i64 24
+  %263 = call { ptr, i8 } @_ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinaryESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRKSt21piecewise_construct_tSt5tupleIJRP9DfgVertexSP_EESM_IJODnEEEEES2_INS8_14_Node_iteratorIS6_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(64) %257, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(8) %29)
+  %264 = extractvalue { ptr, i8 } %263, 0
+  %265 = getelementptr inbounds i8, ptr %264, i64 24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30)
-  %252 = load ptr, ptr %251, align 8
-  %.not.i46 = icmp eq ptr %252, null
-  br i1 %.not.i46, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit.sink.split, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
+  %266 = load ptr, ptr %265, align 8
+  %.not.i46 = icmp eq ptr %266, null
+  br i1 %.not.i46, label %267, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
 
-253:                                              ; preds = %2
-  %254 = getelementptr inbounds i8, ptr %0, i64 968
-  %255 = getelementptr inbounds i8, ptr %1, i64 88
-  %256 = load ptr, ptr %255, align 8
-  %257 = getelementptr inbounds i8, ptr %1, i64 120
-  %258 = load ptr, ptr %257, align 8
+267:                                              ; preds = %256
+  store ptr %1, ptr %265, align 8
+  br label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
+
+268:                                              ; preds = %2
+  %269 = getelementptr inbounds i8, ptr %0, i64 968
+  %270 = getelementptr inbounds i8, ptr %1, i64 88
+  %271 = load ptr, ptr %270, align 8
+  %272 = getelementptr inbounds i8, ptr %1, i64 120
+  %273 = load ptr, ptr %272, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25)
-  store ptr %256, ptr %21, align 8
-  store ptr %258, ptr %22, align 8
+  store ptr %271, ptr %21, align 8
+  store ptr %273, ptr %22, align 8
   store ptr %22, ptr %23, align 8, !alias.scope !89
-  %259 = getelementptr inbounds i8, ptr %23, i64 8
-  store ptr %21, ptr %259, align 8, !alias.scope !89
+  %274 = getelementptr inbounds i8, ptr %23, i64 8
+  store ptr %21, ptr %274, align 8, !alias.scope !89
   store ptr null, ptr %25, align 8
   store ptr %25, ptr %24, align 8, !alias.scope !92
-  %260 = call { ptr, i8 } @_ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinaryESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRKSt21piecewise_construct_tSt5tupleIJRP9DfgVertexSP_EESM_IJODnEEEEES2_INS8_14_Node_iteratorIS6_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(64) %254, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(8) %24)
-  %261 = extractvalue { ptr, i8 } %260, 0
-  %262 = getelementptr inbounds i8, ptr %261, i64 24
+  %275 = call { ptr, i8 } @_ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinaryESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRKSt21piecewise_construct_tSt5tupleIJRP9DfgVertexSP_EESM_IJODnEEEEES2_INS8_14_Node_iteratorIS6_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(64) %269, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(8) %24)
+  %276 = extractvalue { ptr, i8 } %275, 0
+  %277 = getelementptr inbounds i8, ptr %276, i64 24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25)
-  %263 = load ptr, ptr %262, align 8
-  %.not.i48 = icmp eq ptr %263, null
-  br i1 %.not.i48, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit.sink.split, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
+  %278 = load ptr, ptr %277, align 8
+  %.not.i48 = icmp eq ptr %278, null
+  br i1 %.not.i48, label %279, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
 
-264:                                              ; preds = %2
-  %265 = getelementptr inbounds i8, ptr %0, i64 1032
-  %266 = getelementptr inbounds i8, ptr %1, i64 88
-  %267 = load ptr, ptr %266, align 8
+279:                                              ; preds = %268
+  store ptr %1, ptr %277, align 8
+  br label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
+
+280:                                              ; preds = %2
+  %281 = getelementptr inbounds i8, ptr %0, i64 1032
+  %282 = getelementptr inbounds i8, ptr %1, i64 88
+  %283 = load ptr, ptr %282, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20)
-  store ptr %267, ptr %17, align 8
+  store ptr %283, ptr %17, align 8
   store ptr %17, ptr %18, align 8, !alias.scope !95
   store ptr null, ptr %20, align 8
   store ptr %20, ptr %19, align 8, !alias.scope !98
-  %268 = call { ptr, i8 } @_ZNSt10_HashtableIN18V3DfgCacheInternal8KeyUnaryESt4pairIKS1_P14DfgVertexUnaryESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRKSt21piecewise_construct_tSt5tupleIJRP9DfgVertexEESM_IJODnEEEEES2_INS8_14_Node_iteratorIS6_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(64) %265, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19)
-  %269 = extractvalue { ptr, i8 } %268, 0
-  %270 = getelementptr inbounds i8, ptr %269, i64 16
+  %284 = call { ptr, i8 } @_ZNSt10_HashtableIN18V3DfgCacheInternal8KeyUnaryESt4pairIKS1_P14DfgVertexUnaryESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRKSt21piecewise_construct_tSt5tupleIJRP9DfgVertexEESM_IJODnEEEEES2_INS8_14_Node_iteratorIS6_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(64) %281, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19)
+  %285 = extractvalue { ptr, i8 } %284, 0
+  %286 = getelementptr inbounds i8, ptr %285, i64 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
-  %271 = load ptr, ptr %270, align 8
-  %.not.i50 = icmp eq ptr %271, null
-  br i1 %.not.i50, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit.sink.split, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
+  %287 = load ptr, ptr %286, align 8
+  %.not.i50 = icmp eq ptr %287, null
+  br i1 %.not.i50, label %288, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
 
-272:                                              ; preds = %2
-  %273 = getelementptr inbounds i8, ptr %0, i64 1096
-  %274 = getelementptr inbounds i8, ptr %1, i64 88
-  %275 = load ptr, ptr %274, align 8
+288:                                              ; preds = %280
+  store ptr %1, ptr %286, align 8
+  br label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
+
+289:                                              ; preds = %2
+  %290 = getelementptr inbounds i8, ptr %0, i64 1096
+  %291 = getelementptr inbounds i8, ptr %1, i64 88
+  %292 = load ptr, ptr %291, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
-  store ptr %275, ptr %13, align 8
+  store ptr %292, ptr %13, align 8
   store ptr %13, ptr %14, align 8, !alias.scope !101
   store ptr null, ptr %16, align 8
   store ptr %16, ptr %15, align 8, !alias.scope !104
-  %276 = call { ptr, i8 } @_ZNSt10_HashtableIN18V3DfgCacheInternal8KeyUnaryESt4pairIKS1_P14DfgVertexUnaryESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRKSt21piecewise_construct_tSt5tupleIJRP9DfgVertexEESM_IJODnEEEEES2_INS8_14_Node_iteratorIS6_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(64) %273, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
-  %277 = extractvalue { ptr, i8 } %276, 0
-  %278 = getelementptr inbounds i8, ptr %277, i64 16
+  %293 = call { ptr, i8 } @_ZNSt10_HashtableIN18V3DfgCacheInternal8KeyUnaryESt4pairIKS1_P14DfgVertexUnaryESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRKSt21piecewise_construct_tSt5tupleIJRP9DfgVertexEESM_IJODnEEEEES2_INS8_14_Node_iteratorIS6_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(64) %290, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
+  %294 = extractvalue { ptr, i8 } %293, 0
+  %295 = getelementptr inbounds i8, ptr %294, i64 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
-  %279 = load ptr, ptr %278, align 8
-  %.not.i52 = icmp eq ptr %279, null
-  br i1 %.not.i52, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit.sink.split, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
+  %296 = load ptr, ptr %295, align 8
+  %.not.i52 = icmp eq ptr %296, null
+  br i1 %.not.i52, label %297, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
 
-280:                                              ; preds = %2
-  %281 = getelementptr inbounds i8, ptr %0, i64 1160
-  %282 = getelementptr inbounds i8, ptr %1, i64 88
-  %283 = load ptr, ptr %282, align 8
+297:                                              ; preds = %289
+  store ptr %1, ptr %295, align 8
+  br label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
+
+298:                                              ; preds = %2
+  %299 = getelementptr inbounds i8, ptr %0, i64 1160
+  %300 = getelementptr inbounds i8, ptr %1, i64 88
+  %301 = load ptr, ptr %300, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  store ptr %283, ptr %9, align 8
+  store ptr %301, ptr %9, align 8
   store ptr %9, ptr %10, align 8, !alias.scope !107
   store ptr null, ptr %12, align 8
   store ptr %12, ptr %11, align 8, !alias.scope !110
-  %284 = call { ptr, i8 } @_ZNSt10_HashtableIN18V3DfgCacheInternal8KeyUnaryESt4pairIKS1_P14DfgVertexUnaryESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRKSt21piecewise_construct_tSt5tupleIJRP9DfgVertexEESM_IJODnEEEEES2_INS8_14_Node_iteratorIS6_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(64) %281, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
-  %285 = extractvalue { ptr, i8 } %284, 0
-  %286 = getelementptr inbounds i8, ptr %285, i64 16
+  %302 = call { ptr, i8 } @_ZNSt10_HashtableIN18V3DfgCacheInternal8KeyUnaryESt4pairIKS1_P14DfgVertexUnaryESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRKSt21piecewise_construct_tSt5tupleIJRP9DfgVertexEESM_IJODnEEEEES2_INS8_14_Node_iteratorIS6_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(64) %299, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
+  %303 = extractvalue { ptr, i8 } %302, 0
+  %304 = getelementptr inbounds i8, ptr %303, i64 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  %287 = load ptr, ptr %286, align 8
-  %.not.i54 = icmp eq ptr %287, null
-  br i1 %.not.i54, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit.sink.split, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
+  %305 = load ptr, ptr %304, align 8
+  %.not.i54 = icmp eq ptr %305, null
+  br i1 %.not.i54, label %306, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
 
-288:                                              ; preds = %2
-  %289 = getelementptr inbounds i8, ptr %0, i64 1224
-  %290 = getelementptr inbounds i8, ptr %1, i64 88
-  %291 = load ptr, ptr %290, align 8
-  %292 = getelementptr inbounds i8, ptr %1, i64 120
-  %293 = load ptr, ptr %292, align 8
-  %294 = getelementptr inbounds i8, ptr %1, i64 152
-  %295 = load ptr, ptr %294, align 8
+306:                                              ; preds = %298
+  store ptr %1, ptr %304, align 8
+  br label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
+
+307:                                              ; preds = %2
+  %308 = getelementptr inbounds i8, ptr %0, i64 1224
+  %309 = getelementptr inbounds i8, ptr %1, i64 88
+  %310 = load ptr, ptr %309, align 8
+  %311 = getelementptr inbounds i8, ptr %1, i64 120
+  %312 = load ptr, ptr %311, align 8
+  %313 = getelementptr inbounds i8, ptr %1, i64 152
+  %314 = load ptr, ptr %313, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  store ptr %291, ptr %3, align 8
-  store ptr %293, ptr %4, align 8
-  store ptr %295, ptr %5, align 8
+  store ptr %310, ptr %3, align 8
+  store ptr %312, ptr %4, align 8
+  store ptr %314, ptr %5, align 8
   store ptr %5, ptr %6, align 8, !alias.scope !113
-  %296 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %4, ptr %296, align 8, !alias.scope !113
-  %297 = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr %3, ptr %297, align 8, !alias.scope !113
+  %315 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %4, ptr %315, align 8, !alias.scope !113
+  %316 = getelementptr inbounds i8, ptr %6, i64 16
+  store ptr %3, ptr %316, align 8, !alias.scope !113
   store ptr null, ptr %8, align 8
   store ptr %8, ptr %7, align 8, !alias.scope !116
-  %298 = call { ptr, i8 } @_ZNSt10_HashtableIN18V3DfgCacheInternal10KeyTernaryESt4pairIKS1_P16DfgVertexTernaryESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRKSt21piecewise_construct_tSt5tupleIJRP9DfgVertexSP_SP_EESM_IJODnEEEEES2_INS8_14_Node_iteratorIS6_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(64) %289, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
-  %299 = extractvalue { ptr, i8 } %298, 0
-  %300 = getelementptr inbounds i8, ptr %299, i64 32
+  %317 = call { ptr, i8 } @_ZNSt10_HashtableIN18V3DfgCacheInternal10KeyTernaryESt4pairIKS1_P16DfgVertexTernaryESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRKSt21piecewise_construct_tSt5tupleIJRP9DfgVertexSP_SP_EESM_IJODnEEEEES2_INS8_14_Node_iteratorIS6_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(64) %308, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %318 = extractvalue { ptr, i8 } %317, 0
+  %319 = getelementptr inbounds i8, ptr %318, i64 32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  %301 = load ptr, ptr %300, align 8
-  %.not.i56 = icmp eq ptr %301, null
-  br i1 %.not.i56, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit.sink.split, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
+  %320 = load ptr, ptr %319, align 8
+  %.not.i56 = icmp eq ptr %320, null
+  br i1 %.not.i56, label %321, label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
 
-_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit.sink.split: ; preds = %288, %280, %272, %264, %253, %242, %231, %220, %209, %198, %187, %176, %165, %154, %143, %132, %121, %113, %105, %95
-  %.sink = phi ptr [ %103, %95 ], [ %111, %105 ], [ %119, %113 ], [ %130, %121 ], [ %141, %132 ], [ %152, %143 ], [ %163, %154 ], [ %174, %165 ], [ %185, %176 ], [ %196, %187 ], [ %207, %198 ], [ %218, %209 ], [ %229, %220 ], [ %240, %231 ], [ %251, %242 ], [ %262, %253 ], [ %270, %264 ], [ %278, %272 ], [ %286, %280 ], [ %300, %288 ]
-  store ptr %1, ptr %.sink, align 8
+321:                                              ; preds = %307
+  store ptr %1, ptr %319, align 8
   br label %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit
 
-_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit: ; preds = %_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit.sink.split, %288, %280, %272, %264, %253, %242, %231, %220, %209, %198, %187, %176, %165, %154, %143, %132, %121, %113, %105, %95, %2
+_ZN18V3DfgCacheInternal5cacheERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEES3_.exit: ; preds = %321, %307, %306, %298, %297, %289, %288, %280, %279, %268, %267, %256, %255, %244, %243, %232, %231, %220, %219, %208, %207, %196, %195, %184, %183, %172, %171, %160, %159, %148, %147, %136, %135, %124, %123, %115, %114, %106, %105, %95, %2
   ret void
 }
 
@@ -2454,22 +2529,18 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal6KeySelESt4pairIKS1_P6DfgSelESaIS6_ENSt8_
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
-  br label %.sink.split
+  store ptr %.031, ptr %24, align 8
+  br label %28
 
 25:                                               ; preds = %.lr.ph
   %26 = load ptr, ptr %19, align 8
   store ptr %26, ptr %.031, align 8
   %27 = load ptr, ptr %18, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %25, %23
-  %.sink = phi ptr [ %24, %23 ], [ %27, %25 ]
-  %.1.ph = phi i64 [ %17, %23 ], [ %.02530, %25 ]
-  store ptr %.031, ptr %.sink, align 8
+  store ptr %.031, ptr %27, align 8
   br label %28
 
-28:                                               ; preds = %.sink.split, %20
-  %.1 = phi i64 [ %17, %20 ], [ %.1.ph, %.sink.split ]
+28:                                               ; preds = %20, %23, %25
+  %.1 = phi i64 [ %.02530, %25 ], [ %17, %23 ], [ %17, %20 ]
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !134
 
@@ -2862,22 +2933,18 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal8KeyUnaryESt4pairIKS1_P14DfgVertexUnaryES
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
-  br label %.sink.split
+  store ptr %.031, ptr %24, align 8
+  br label %28
 
 25:                                               ; preds = %.lr.ph
   %26 = load ptr, ptr %19, align 8
   store ptr %26, ptr %.031, align 8
   %27 = load ptr, ptr %18, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %25, %23
-  %.sink = phi ptr [ %24, %23 ], [ %27, %25 ]
-  %.1.ph = phi i64 [ %17, %23 ], [ %.02530, %25 ]
-  store ptr %.031, ptr %.sink, align 8
+  store ptr %.031, ptr %27, align 8
   br label %28
 
-28:                                               ; preds = %.sink.split, %20
-  %.1 = phi i64 [ %17, %20 ], [ %.1.ph, %.sink.split ]
+28:                                               ; preds = %20, %23, %25
+  %.1 = phi i64 [ %.02530, %25 ], [ %17, %23 ], [ %17, %20 ]
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !137
 
@@ -3364,22 +3431,18 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinary
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
-  br label %.sink.split
+  store ptr %.031, ptr %24, align 8
+  br label %28
 
 25:                                               ; preds = %.lr.ph
   %26 = load ptr, ptr %19, align 8
   store ptr %26, ptr %.031, align 8
   %27 = load ptr, ptr %18, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %25, %23
-  %.sink = phi ptr [ %24, %23 ], [ %27, %25 ]
-  %.1.ph = phi i64 [ %17, %23 ], [ %.02530, %25 ]
-  store ptr %.031, ptr %.sink, align 8
+  store ptr %.031, ptr %27, align 8
   br label %28
 
-28:                                               ; preds = %.sink.split, %20
-  %.1 = phi i64 [ %17, %20 ], [ %.1.ph, %.sink.split ]
+28:                                               ; preds = %20, %23, %25
+  %.1 = phi i64 [ %.02530, %25 ], [ %17, %23 ], [ %17, %20 ]
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !140
 
@@ -3892,22 +3955,18 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal10KeyTernaryESt4pairIKS1_P16DfgVertexTern
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
-  br label %.sink.split
+  store ptr %.031, ptr %24, align 8
+  br label %28
 
 25:                                               ; preds = %.lr.ph
   %26 = load ptr, ptr %19, align 8
   store ptr %26, ptr %.031, align 8
   %27 = load ptr, ptr %18, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %25, %23
-  %.sink = phi ptr [ %24, %23 ], [ %27, %25 ]
-  %.1.ph = phi i64 [ %17, %23 ], [ %.02530, %25 ]
-  store ptr %.031, ptr %.sink, align 8
+  store ptr %.031, ptr %27, align 8
   br label %28
 
-28:                                               ; preds = %.sink.split, %20
-  %.1 = phi i64 [ %17, %20 ], [ %.1.ph, %.sink.split ]
+28:                                               ; preds = %20, %23, %25
+  %.1 = phi i64 [ %.02530, %25 ], [ %17, %23 ], [ %17, %20 ]
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !142
 

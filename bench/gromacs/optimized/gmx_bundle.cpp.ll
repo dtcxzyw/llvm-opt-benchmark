@@ -2099,21 +2099,21 @@ _ZL11rotate_endsP8t_bundlePfii.exit116.i.thread:  ; preds = %.lr.ph173.i, %.preh
 .noexc240:                                        ; preds = %904, %900
   %907 = load i32, ptr %20, align 8
   %908 = icmp sgt i32 %907, 0
-  br i1 %908, label %.lr.ph.i237.preheader, label %._crit_edge.i236
+  br i1 %908, label %.lr.ph.i237, label %._crit_edge.i236
 
-.lr.ph.i237.preheader:                            ; preds = %.noexc240
+.lr.ph.i237:                                      ; preds = %.noexc240
   %909 = load ptr, ptr %197, align 8
   %910 = load i32, ptr %175, align 4
   %911 = icmp sgt i32 %910, 2
-  %.sroa.gep.val = load ptr, ptr %488, align 8
-  %.val = load ptr, ptr %212, align 8
-  %912 = select i1 %911, ptr %.sroa.gep.val, ptr %.val
-  %913 = load ptr, ptr %201, align 8
-  %914 = zext nneg i32 %907 to i64
-  br label %.lr.ph.i237
+  %.val = load ptr, ptr %488, align 8
+  %.val282 = load ptr, ptr %212, align 8
+  %.sink28.i = select i1 %911, ptr %.val, ptr %.val282
+  %912 = load ptr, ptr %201, align 8
+  %913 = zext nneg i32 %907 to i64
+  br label %914
 
-.lr.ph.i237:                                      ; preds = %.lr.ph.i237.preheader, %.lr.ph.i237
-  %indvars.iv.i238 = phi i64 [ %indvars.iv.next.i239, %.lr.ph.i237 ], [ 0, %.lr.ph.i237.preheader ]
+914:                                              ; preds = %914, %.lr.ph.i237
+  %indvars.iv.i238 = phi i64 [ 0, %.lr.ph.i237 ], [ %indvars.iv.next.i239, %914 ]
   %915 = getelementptr inbounds [3 x float], ptr %909, i64 %indvars.iv.i238
   %916 = mul nuw nsw i64 %indvars.iv.i238, 3
   %917 = load ptr, ptr @_ZZL9dump_axesP11t_trxstatusP10t_trxframeP7t_atomsP8t_bundleE4xout, align 8
@@ -2133,7 +2133,7 @@ _ZL11rotate_endsP8t_bundlePfii.exit116.i.thread:  ; preds = %.lr.ph173.i, %.preh
   %928 = getelementptr inbounds i8, ptr %927, i64 12
   %929 = getelementptr inbounds i8, ptr %927, i64 16
   %930 = getelementptr inbounds i8, ptr %927, i64 20
-  %931 = getelementptr inbounds [3 x float], ptr %912, i64 %indvars.iv.i238
+  %931 = getelementptr inbounds [3 x float], ptr %.sink28.i, i64 %indvars.iv.i238
   %932 = load float, ptr %931, align 4
   store float %932, ptr %928, align 4
   %933 = getelementptr inbounds i8, ptr %931, i64 4
@@ -2142,7 +2142,7 @@ _ZL11rotate_endsP8t_bundlePfii.exit116.i.thread:  ; preds = %.lr.ph173.i, %.preh
   %935 = getelementptr inbounds i8, ptr %931, i64 8
   %936 = load float, ptr %935, align 4
   store float %936, ptr %930, align 4
-  %937 = getelementptr inbounds [3 x float], ptr %913, i64 %indvars.iv.i238
+  %937 = getelementptr inbounds [3 x float], ptr %912, i64 %indvars.iv.i238
   %938 = load ptr, ptr @_ZZL9dump_axesP11t_trxstatusP10t_trxframeP7t_atomsP8t_bundleE4xout, align 8
   %939 = getelementptr inbounds %"class.gmx::BasicVector", ptr %938, i64 %916
   %940 = getelementptr inbounds i8, ptr %939, i64 24
@@ -2157,10 +2157,10 @@ _ZL11rotate_endsP8t_bundlePfii.exit116.i.thread:  ; preds = %.lr.ph173.i, %.preh
   %947 = getelementptr inbounds i8, ptr %939, i64 32
   store float %946, ptr %947, align 4
   %indvars.iv.next.i239 = add nuw nsw i64 %indvars.iv.i238, 1
-  %exitcond308.not = icmp eq i64 %indvars.iv.next.i239, %914
-  br i1 %exitcond308.not, label %._crit_edge.i236, label %.lr.ph.i237, !llvm.loop !21
+  %exitcond308.not = icmp eq i64 %indvars.iv.next.i239, %913
+  br i1 %exitcond308.not, label %._crit_edge.i236, label %914, !llvm.loop !21
 
-._crit_edge.i236:                                 ; preds = %.lr.ph.i237, %.noexc240
+._crit_edge.i236:                                 ; preds = %914, %.noexc240
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %3, ptr noundef nonnull readonly align 8 dereferenceable(176) %13, i64 176, i1 false)
   store i8 0, ptr %489, align 8
   store i8 0, ptr %490, align 8

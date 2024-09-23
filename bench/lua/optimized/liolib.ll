@@ -887,7 +887,7 @@ lor.lhs.false.i64.i:                              ; preds = %land.lhs.true.i
 if.then.i69.i:                                    ; preds = %lor.lhs.false.i64.i, %land.lhs.true.i
   %15 = load i32, ptr %n.i, align 4
   %cmp.i.i71.i = icmp sgt i32 %15, 199
-  br i1 %cmp.i.i71.i, label %if.end30.sink.split.i, label %if.then27.i
+  br i1 %cmp.i.i71.i, label %if.end30.i.sink.split, label %if.then27.i
 
 if.then27.i:                                      ; preds = %if.then.i69.i
   %conv4.i.i73.i = trunc i32 %.pre.i to i8
@@ -939,7 +939,7 @@ land.rhs.us.i.i:                                  ; preds = %test2.exit99.i, %wh
   %23 = phi i32 [ %call.i.us.i.i, %while.body.us.i.i ], [ %19, %test2.exit99.i ]
   %24 = load i32, ptr %n.i, align 4
   %cmp.i.us.i.i = icmp sgt i32 %24, 199
-  br i1 %cmp.i.us.i.i, label %if.end30.sink.split.i, label %while.body.us.i.i
+  br i1 %cmp.i.us.i.i, label %if.end30.i.sink.split, label %while.body.us.i.i
 
 while.body.us.i.i:                                ; preds = %land.rhs.us.i.i
   %conv4.i.us.i.i = trunc i32 %23 to i8
@@ -959,13 +959,13 @@ while.body.us.i.i:                                ; preds = %land.rhs.us.i.i
   %tobool8.not.us.i.i = icmp eq i16 %28, 0
   br i1 %tobool8.not.us.i.i, label %if.end30.i, label %land.rhs.us.i.i, !llvm.loop !8
 
-if.end30.sink.split.i:                            ; preds = %land.rhs.us.i.i, %if.then.i69.i
-  %.ph.i = phi i32 [ %.pre.i, %if.then.i69.i ], [ %23, %land.rhs.us.i.i ]
+if.end30.i.sink.split:                            ; preds = %land.rhs.us.i.i, %if.then.i69.i
+  %.ph = phi i32 [ %.pre.i, %if.then.i69.i ], [ %23, %land.rhs.us.i.i ]
   store i8 0, ptr %buff5.i.i.i, align 8
   br label %if.end30.i
 
-if.end30.i:                                       ; preds = %while.body.us.i.i, %if.end30.sink.split.i, %test2.exit99.i, %lor.lhs.false.i64.i, %if.end22.i
-  %29 = phi i32 [ %.pre.i, %lor.lhs.false.i64.i ], [ %19, %test2.exit99.i ], [ %.pre.i, %if.end22.i ], [ %.ph.i, %if.end30.sink.split.i ], [ %call.i.us.i.i, %while.body.us.i.i ]
+if.end30.i:                                       ; preds = %while.body.us.i.i, %if.end30.i.sink.split, %test2.exit99.i, %lor.lhs.false.i64.i, %if.end22.i
+  %29 = phi i32 [ %.pre.i, %lor.lhs.false.i64.i ], [ %19, %test2.exit99.i ], [ %.pre.i, %if.end22.i ], [ %.ph, %if.end30.i.sink.split ], [ %call.i.us.i.i, %while.body.us.i.i ]
   %30 = load ptr, ptr %rn.i, align 8
   %call33.i = call i32 @ungetc(i32 noundef %29, ptr noundef %30)
   %31 = load i32, ptr %n.i, align 4

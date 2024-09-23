@@ -470,7 +470,7 @@ mca_btl_sm_try_fbox_setup.exit.i:                 ; preds = %216, %213, %opal_th
   %221 = atomicrmw volatile xchg ptr %220, i64 %39 monotonic, align 8
   fence acquire
   %.not.i10.i = icmp eq i64 %221, -2
-  br i1 %.not.i10.i, label %sm_fifo_write.exit.i, label %222
+  br i1 %.not.i10.i, label %229, label %222
 
 222:                                              ; preds = %mca_btl_sm_try_fbox_setup.exit.i
   %223 = and i64 %221, 4294967295
@@ -479,110 +479,113 @@ mca_btl_sm_try_fbox_setup.exit.i:                 ; preds = %216, %213, %opal_th
   %226 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %224, i64 %225, i32 5
   %227 = load ptr, ptr %226, align 8
   %228 = getelementptr inbounds i8, ptr %227, i64 %223
+  store volatile i64 %39, ptr %228, align 8
   br label %sm_fifo_write.exit.i
 
-sm_fifo_write.exit.i:                             ; preds = %222, %mca_btl_sm_try_fbox_setup.exit.i
-  %.sink.i.i = phi ptr [ %228, %222 ], [ %219, %mca_btl_sm_try_fbox_setup.exit.i ]
-  store volatile i64 %39, ptr %.sink.i.i, align 8
+229:                                              ; preds = %mca_btl_sm_try_fbox_setup.exit.i
+  store volatile i64 %39, ptr %219, align 8
+  br label %sm_fifo_write.exit.i
+
+sm_fifo_write.exit.i:                             ; preds = %229, %222
   fence release
   br label %sm_fifo_write_ep.exit.thread
 
 sm_fifo_write_ep.exit:                            ; preds = %96
-  %229 = getelementptr inbounds i8, ptr %1, i64 152
-  %230 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %229) #5
+  %230 = getelementptr inbounds i8, ptr %1, i64 152
+  %231 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %230) #5
   br label %sm_fifo_write_ep.exit.thread25
 
 sm_fifo_write_ep.exit.thread25:                   ; preds = %96, %42, %sm_fifo_write_ep.exit, %17
-  %231 = load ptr, ptr %11, align 8
-  %.not22 = icmp eq ptr %231, null
-  br i1 %.not22, label %236, label %232
+  %232 = load ptr, ptr %11, align 8
+  %.not22 = icmp eq ptr %232, null
+  br i1 %.not22, label %237, label %233
 
-232:                                              ; preds = %sm_fifo_write_ep.exit.thread25
-  %233 = getelementptr inbounds i8, ptr %2, i64 96
-  %234 = load i32, ptr %233, align 8
-  %235 = or i32 %234, 4
-  store i32 %235, ptr %233, align 8
-  br label %236
+233:                                              ; preds = %sm_fifo_write_ep.exit.thread25
+  %234 = getelementptr inbounds i8, ptr %2, i64 96
+  %235 = load i32, ptr %234, align 8
+  %236 = or i32 %235, 4
+  store i32 %236, ptr %234, align 8
+  br label %237
 
-236:                                              ; preds = %sm_fifo_write_ep.exit.thread25, %232
-  %237 = load i8, ptr @opal_uses_threads, align 1
-  %238 = trunc i8 %237 to i1
-  br i1 %238, label %239, label %242
+237:                                              ; preds = %sm_fifo_write_ep.exit.thread25, %233
+  %238 = load i8, ptr @opal_uses_threads, align 1
+  %239 = trunc i8 %238 to i1
+  br i1 %239, label %240, label %243
 
-239:                                              ; preds = %236
-  %240 = getelementptr inbounds i8, ptr %1, i64 240
-  %241 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %240) #5
+240:                                              ; preds = %237
+  %241 = getelementptr inbounds i8, ptr %1, i64 240
+  %242 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %241) #5
   %.pre35.pre = load i8, ptr @opal_uses_threads, align 1
-  br label %242
+  br label %243
 
-242:                                              ; preds = %236, %239
-  %.pre35 = phi i8 [ %237, %236 ], [ %.pre35.pre, %239 ]
-  %243 = getelementptr inbounds i8, ptr %1, i64 304
-  %244 = getelementptr inbounds i8, ptr %1, i64 328
-  %245 = load volatile ptr, ptr %244, align 8
-  %246 = getelementptr inbounds i8, ptr %2, i64 24
-  store volatile ptr %245, ptr %246, align 8
-  %247 = load volatile ptr, ptr %244, align 8
-  %248 = getelementptr inbounds i8, ptr %247, i64 16
-  store volatile ptr %2, ptr %248, align 8
-  %249 = getelementptr inbounds i8, ptr %2, i64 16
-  store volatile ptr %243, ptr %249, align 8
-  store volatile ptr %2, ptr %244, align 8
-  %250 = load volatile i64, ptr %28, align 8
-  %251 = add i64 %250, 1
-  store volatile i64 %251, ptr %28, align 8
-  %252 = getelementptr inbounds i8, ptr %1, i64 352
-  %253 = load i8, ptr %252, align 8
-  %254 = trunc i8 %253 to i1
-  br i1 %254, label %272, label %255
+243:                                              ; preds = %237, %240
+  %.pre35 = phi i8 [ %238, %237 ], [ %.pre35.pre, %240 ]
+  %244 = getelementptr inbounds i8, ptr %1, i64 304
+  %245 = getelementptr inbounds i8, ptr %1, i64 328
+  %246 = load volatile ptr, ptr %245, align 8
+  %247 = getelementptr inbounds i8, ptr %2, i64 24
+  store volatile ptr %246, ptr %247, align 8
+  %248 = load volatile ptr, ptr %245, align 8
+  %249 = getelementptr inbounds i8, ptr %248, i64 16
+  store volatile ptr %2, ptr %249, align 8
+  %250 = getelementptr inbounds i8, ptr %2, i64 16
+  store volatile ptr %244, ptr %250, align 8
+  store volatile ptr %2, ptr %245, align 8
+  %251 = load volatile i64, ptr %28, align 8
+  %252 = add i64 %251, 1
+  store volatile i64 %252, ptr %28, align 8
+  %253 = getelementptr inbounds i8, ptr %1, i64 352
+  %254 = load i8, ptr %253, align 8
+  %255 = trunc i8 %254 to i1
+  br i1 %255, label %273, label %256
 
-255:                                              ; preds = %242
-  %256 = trunc i8 %.pre35 to i1
-  br i1 %256, label %257, label %259
+256:                                              ; preds = %243
+  %257 = trunc i8 %.pre35 to i1
+  br i1 %257, label %258, label %260
 
-257:                                              ; preds = %255
-  %258 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 4448)) #5
+258:                                              ; preds = %256
+  %259 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 4448)) #5
   %.pre = load i8, ptr @opal_uses_threads, align 1
-  br label %259
+  br label %260
 
-259:                                              ; preds = %255, %257
-  %260 = phi i8 [ %.pre35, %255 ], [ %.pre, %257 ]
-  %261 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 6032), align 16
-  %262 = getelementptr inbounds i8, ptr %1, i64 24
-  store volatile ptr %261, ptr %262, align 8
-  %263 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 6032), align 16
-  %264 = getelementptr inbounds i8, ptr %263, i64 16
-  store volatile ptr %1, ptr %264, align 8
-  %265 = getelementptr inbounds i8, ptr %1, i64 16
-  store volatile ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 6008), ptr %265, align 8
+260:                                              ; preds = %256, %258
+  %261 = phi i8 [ %.pre35, %256 ], [ %.pre, %258 ]
+  %262 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 6032), align 16
+  %263 = getelementptr inbounds i8, ptr %1, i64 24
+  store volatile ptr %262, ptr %263, align 8
+  %264 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 6032), align 16
+  %265 = getelementptr inbounds i8, ptr %264, i64 16
+  store volatile ptr %1, ptr %265, align 8
+  %266 = getelementptr inbounds i8, ptr %1, i64 16
+  store volatile ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 6008), ptr %266, align 8
   store volatile ptr %1, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 6032), align 16
-  %266 = load volatile i64, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 6048), align 16
-  %267 = add i64 %266, 1
-  store volatile i64 %267, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 6048), align 16
-  %268 = trunc i8 %260 to i1
-  br i1 %268, label %269, label %271
+  %267 = load volatile i64, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 6048), align 16
+  %268 = add i64 %267, 1
+  store volatile i64 %268, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 6048), align 16
+  %269 = trunc i8 %261 to i1
+  br i1 %269, label %270, label %272
 
-269:                                              ; preds = %259
-  %270 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 4448)) #5
+270:                                              ; preds = %260
+  %271 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 4448)) #5
   %.pre34.pre = load i8, ptr @opal_uses_threads, align 1
-  br label %271
-
-271:                                              ; preds = %259, %269
-  %.pre34 = phi i8 [ %260, %259 ], [ %.pre34.pre, %269 ]
-  store i8 1, ptr %252, align 8
   br label %272
 
-272:                                              ; preds = %242, %271
-  %273 = phi i8 [ %.pre35, %242 ], [ %.pre34, %271 ]
-  %274 = trunc i8 %273 to i1
-  br i1 %274, label %275, label %sm_fifo_write_ep.exit.thread
+272:                                              ; preds = %260, %270
+  %.pre34 = phi i8 [ %261, %260 ], [ %.pre34.pre, %270 ]
+  store i8 1, ptr %253, align 8
+  br label %273
 
-275:                                              ; preds = %272
-  %276 = getelementptr inbounds i8, ptr %1, i64 240
-  %277 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %276) #5
+273:                                              ; preds = %243, %272
+  %274 = phi i8 [ %.pre35, %243 ], [ %.pre34, %272 ]
+  %275 = trunc i8 %274 to i1
+  br i1 %275, label %276, label %sm_fifo_write_ep.exit.thread
+
+276:                                              ; preds = %273
+  %277 = getelementptr inbounds i8, ptr %1, i64 240
+  %278 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %277) #5
   br label %sm_fifo_write_ep.exit.thread
 
-sm_fifo_write_ep.exit.thread:                     ; preds = %114, %sm_fifo_write.exit.i, %sm_fifo_write_ep.exit.thread27, %275, %272
+sm_fifo_write_ep.exit.thread:                     ; preds = %114, %sm_fifo_write.exit.i, %sm_fifo_write_ep.exit.thread27, %276, %273
   ret i32 0
 }
 

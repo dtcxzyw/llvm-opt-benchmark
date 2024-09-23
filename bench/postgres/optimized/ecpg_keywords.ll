@@ -17,31 +17,29 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local range(i32 -1, 65536) i32 @ScanECPGKeywordLookup(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @ScanKeywordLookup(ptr noundef %0, ptr noundef nonnull @ScanKeywords) #3
   %3 = icmp sgt i32 %2, -1
-  br i1 %3, label %4, label %7
+  br i1 %3, label %4, label %9
 
 4:                                                ; preds = %1
   %5 = zext nneg i32 %2 to i64
   %6 = getelementptr [0 x i16], ptr @SQLScanKeywordTokens, i64 0, i64 %5
-  br label %.sink.split
+  %7 = load i16, ptr %6, align 2
+  %8 = zext i16 %7 to i32
+  br label %17
 
-7:                                                ; preds = %1
-  %8 = tail call i32 @ScanKeywordLookup(ptr noundef %0, ptr noundef nonnull @ScanECPGKeywords) #3
-  %9 = icmp sgt i32 %8, -1
-  br i1 %9, label %10, label %15
+9:                                                ; preds = %1
+  %10 = tail call i32 @ScanKeywordLookup(ptr noundef %0, ptr noundef nonnull @ScanECPGKeywords) #3
+  %11 = icmp sgt i32 %10, -1
+  br i1 %11, label %12, label %17
 
-10:                                               ; preds = %7
-  %11 = zext nneg i32 %8 to i64
-  %12 = getelementptr [41 x i16], ptr @ECPGScanKeywordTokens, i64 0, i64 %11
-  br label %.sink.split
+12:                                               ; preds = %9
+  %13 = zext nneg i32 %10 to i64
+  %14 = getelementptr [41 x i16], ptr @ECPGScanKeywordTokens, i64 0, i64 %13
+  %15 = load i16, ptr %14, align 2
+  %16 = zext i16 %15 to i32
+  br label %17
 
-.sink.split:                                      ; preds = %4, %10
-  %.sink8 = phi ptr [ %12, %10 ], [ %6, %4 ]
-  %13 = load i16, ptr %.sink8, align 2
-  %14 = zext i16 %13 to i32
-  br label %15
-
-15:                                               ; preds = %.sink.split, %7
-  %.0 = phi i32 [ -1, %7 ], [ %14, %.sink.split ]
+17:                                               ; preds = %9, %12, %4
+  %.0 = phi i32 [ %8, %4 ], [ %16, %12 ], [ -1, %9 ]
   ret i32 %.0
 }
 

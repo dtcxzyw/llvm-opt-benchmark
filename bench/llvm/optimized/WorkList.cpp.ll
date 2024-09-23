@@ -1184,15 +1184,17 @@ define internal void @_ZN12_GLOBAL__N_120UnexploredFirstStack7dequeueEv(ptr dead
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 672
-  %.sink10 = select i1 %4, ptr %5, ptr %3
-  %6 = load ptr, ptr %.sink10, align 8
-  %7 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.sink10) #17
-  %8 = getelementptr inbounds %"class.clang::ento::WorkListUnit", ptr %6, i64 %7
-  %9 = getelementptr inbounds i8, ptr %8, i64 -32
-  %10 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.sink10) #17
-  %11 = add i64 %10, -1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %.sink10, i64 noundef %11) #17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
+  %6 = load ptr, ptr %5, align 8
+  %7 = load ptr, ptr %3, align 8
+  %.sink9 = select i1 %4, ptr %5, ptr %3
+  %.sink = select i1 %4, ptr %6, ptr %7
+  %8 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.sink9) #17
+  %9 = getelementptr inbounds %"class.clang::ento::WorkListUnit", ptr %.sink, i64 %8
+  %10 = getelementptr inbounds i8, ptr %9, i64 -32
+  %11 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.sink9) #17
+  %12 = add i64 %11, -1
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %.sink9, i64 noundef %12) #17
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false)
   ret void
 }
 

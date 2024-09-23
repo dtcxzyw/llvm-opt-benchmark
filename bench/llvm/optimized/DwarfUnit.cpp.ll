@@ -889,59 +889,56 @@ _ZNK4llvm9DwarfUnit20isShareableAcrossCUsEPKNS_6DINodeE.exit: ; preds = %11, %11
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEPNS_3DIEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6doFindIS4_EEPKSB_RKT_.exit.i.i: ; preds = %43, %30
   %50 = phi i64 [ %37, %30 ], [ %46, %43 ]
   %51 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.785", ptr %26, i64 %50, i32 0, i32 1
-  br label %_ZN4llvm9DwarfFile6getDIEEPKNS_6MDNodeE.exit.sink.split
-
-_ZNK4llvm9DwarfUnit20isShareableAcrossCUsEPKNS_6DINodeE.exit.thread: ; preds = %11, %13, %7, %_ZNK4llvm9DwarfUnit20isShareableAcrossCUsEPKNS_6DINodeE.exit
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %55 = load i32, ptr %54, align 8
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZN4llvm9DwarfFile6getDIEEPKNS_6MDNodeE.exit, label %57
-
-57:                                               ; preds = %_ZNK4llvm9DwarfUnit20isShareableAcrossCUsEPKNS_6DINodeE.exit.thread
-  %58 = ptrtoint ptr %1 to i64
-  %59 = trunc i64 %58 to i32
-  %60 = lshr i32 %59, 4
-  %61 = lshr i32 %59, 9
-  %62 = xor i32 %60, %61
-  %63 = add i32 %55, -1
-  %.01618.i.i.i = and i32 %63, %62
-  %64 = zext nneg i32 %.01618.i.i.i to i64
-  %65 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.785", ptr %53, i64 %64
-  %66 = load ptr, ptr %65, align 8
-  %67 = icmp eq ptr %1, %66
-  br i1 %67, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEPNS_3DIEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6doFindIS4_EEPKSB_RKT_.exit.i, label %.lr.ph.i.i.i
-
-.lr.ph.i.i.i:                                     ; preds = %57, %70
-  %68 = phi ptr [ %75, %70 ], [ %66, %57 ]
-  %.01620.i.i.i = phi i32 [ %.016.i.i.i, %70 ], [ %.01618.i.i.i, %57 ]
-  %.01519.i.i.i = phi i32 [ %71, %70 ], [ 1, %57 ]
-  %69 = icmp eq ptr %68, inttoptr (i64 -4096 to ptr)
-  br i1 %69, label %_ZN4llvm9DwarfFile6getDIEEPKNS_6MDNodeE.exit, label %70
-
-70:                                               ; preds = %.lr.ph.i.i.i
-  %71 = add i32 %.01519.i.i.i, 1
-  %72 = add i32 %.01519.i.i.i, %.01620.i.i.i
-  %.016.i.i.i = and i32 %72, %63
-  %73 = zext i32 %.016.i.i.i to i64
-  %74 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.785", ptr %53, i64 %73
-  %75 = load ptr, ptr %74, align 8
-  %76 = icmp eq ptr %1, %75
-  br i1 %76, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEPNS_3DIEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6doFindIS4_EEPKSB_RKT_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !7
-
-_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEPNS_3DIEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6doFindIS4_EEPKSB_RKT_.exit.i: ; preds = %70, %57
-  %77 = phi i64 [ %64, %57 ], [ %73, %70 ]
-  %78 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.785", ptr %53, i64 %77, i32 0, i32 1
-  br label %_ZN4llvm9DwarfFile6getDIEEPKNS_6MDNodeE.exit.sink.split
-
-_ZN4llvm9DwarfFile6getDIEEPKNS_6MDNodeE.exit.sink.split: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEPNS_3DIEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6doFindIS4_EEPKSB_RKT_.exit.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEPNS_3DIEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6doFindIS4_EEPKSB_RKT_.exit.i
-  %.sink = phi ptr [ %78, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEPNS_3DIEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6doFindIS4_EEPKSB_RKT_.exit.i ], [ %51, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEPNS_3DIEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6doFindIS4_EEPKSB_RKT_.exit.i.i ]
-  %79 = load ptr, ptr %.sink, align 8
+  %52 = load ptr, ptr %51, align 8
   br label %_ZN4llvm9DwarfFile6getDIEEPKNS_6MDNodeE.exit
 
-_ZN4llvm9DwarfFile6getDIEEPKNS_6MDNodeE.exit:     ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.i, %_ZN4llvm9DwarfFile6getDIEEPKNS_6MDNodeE.exit.sink.split, %_ZNK4llvm9DwarfUnit20isShareableAcrossCUsEPKNS_6DINodeE.exit.thread, %22
-  %.0 = phi ptr [ null, %22 ], [ null, %_ZNK4llvm9DwarfUnit20isShareableAcrossCUsEPKNS_6DINodeE.exit.thread ], [ %79, %_ZN4llvm9DwarfFile6getDIEEPKNS_6MDNodeE.exit.sink.split ], [ null, %.lr.ph.i.i.i ], [ null, %.lr.ph.i.i.i.i ]
+_ZNK4llvm9DwarfUnit20isShareableAcrossCUsEPKNS_6DINodeE.exit.thread: ; preds = %11, %13, %7, %_ZNK4llvm9DwarfUnit20isShareableAcrossCUsEPKNS_6DINodeE.exit
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %56 = load i32, ptr %55, align 8
+  %57 = icmp eq i32 %56, 0
+  br i1 %57, label %_ZN4llvm9DwarfFile6getDIEEPKNS_6MDNodeE.exit, label %58
+
+58:                                               ; preds = %_ZNK4llvm9DwarfUnit20isShareableAcrossCUsEPKNS_6DINodeE.exit.thread
+  %59 = ptrtoint ptr %1 to i64
+  %60 = trunc i64 %59 to i32
+  %61 = lshr i32 %60, 4
+  %62 = lshr i32 %60, 9
+  %63 = xor i32 %61, %62
+  %64 = add i32 %56, -1
+  %.01618.i.i.i = and i32 %64, %63
+  %65 = zext nneg i32 %.01618.i.i.i to i64
+  %66 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.785", ptr %54, i64 %65
+  %67 = load ptr, ptr %66, align 8
+  %68 = icmp eq ptr %1, %67
+  br i1 %68, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEPNS_3DIEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6doFindIS4_EEPKSB_RKT_.exit.i, label %.lr.ph.i.i.i
+
+.lr.ph.i.i.i:                                     ; preds = %58, %71
+  %69 = phi ptr [ %76, %71 ], [ %67, %58 ]
+  %.01620.i.i.i = phi i32 [ %.016.i.i.i, %71 ], [ %.01618.i.i.i, %58 ]
+  %.01519.i.i.i = phi i32 [ %72, %71 ], [ 1, %58 ]
+  %70 = icmp eq ptr %69, inttoptr (i64 -4096 to ptr)
+  br i1 %70, label %_ZN4llvm9DwarfFile6getDIEEPKNS_6MDNodeE.exit, label %71
+
+71:                                               ; preds = %.lr.ph.i.i.i
+  %72 = add i32 %.01519.i.i.i, 1
+  %73 = add i32 %.01519.i.i.i, %.01620.i.i.i
+  %.016.i.i.i = and i32 %73, %64
+  %74 = zext i32 %.016.i.i.i to i64
+  %75 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.785", ptr %54, i64 %74
+  %76 = load ptr, ptr %75, align 8
+  %77 = icmp eq ptr %1, %76
+  br i1 %77, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEPNS_3DIEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6doFindIS4_EEPKSB_RKT_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !7
+
+_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEPNS_3DIEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6doFindIS4_EEPKSB_RKT_.exit.i: ; preds = %71, %58
+  %78 = phi i64 [ %65, %58 ], [ %74, %71 ]
+  %79 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.785", ptr %54, i64 %78, i32 0, i32 1
+  %80 = load ptr, ptr %79, align 8
+  br label %_ZN4llvm9DwarfFile6getDIEEPKNS_6MDNodeE.exit
+
+_ZN4llvm9DwarfFile6getDIEEPKNS_6MDNodeE.exit:     ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEPNS_3DIEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6doFindIS4_EEPKSB_RKT_.exit.i, %_ZNK4llvm9DwarfUnit20isShareableAcrossCUsEPKNS_6DINodeE.exit.thread, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEPNS_3DIEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6doFindIS4_EEPKSB_RKT_.exit.i.i, %22
+  %.0 = phi ptr [ %52, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEPNS_3DIEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6doFindIS4_EEPKSB_RKT_.exit.i.i ], [ null, %22 ], [ %80, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEPNS_3DIEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6doFindIS4_EEPKSB_RKT_.exit.i ], [ null, %_ZNK4llvm9DwarfUnit20isShareableAcrossCUsEPKNS_6DINodeE.exit.thread ], [ null, %.lr.ph.i.i.i ], [ null, %.lr.ph.i.i.i.i ]
   ret ptr %.0
 }
 

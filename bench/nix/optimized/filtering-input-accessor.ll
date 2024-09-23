@@ -6508,7 +6508,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
 .split:                                           ; preds = %29
   %30 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %30, align 8
-  br label %.sink.split
+  store i8 0, ptr %6, align 1
+  br label %39
 
 .split12:                                         ; preds = %.thread, %29
   %31 = phi ptr [ %25, %.thread ], [ %6, %29 ]
@@ -6530,14 +6531,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit: ; pre
   store i64 %5, ptr %36, align 8
   %37 = load ptr, ptr %0, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 %5
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %.split, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit
-  %.sink = phi ptr [ %38, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit ], [ %6, %.split ]
-  store i8 0, ptr %.sink, align 1
+  store i8 0, ptr %38, align 1
   br label %39
 
-39:                                               ; preds = %.sink.split, %2
+39:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit, %.split, %2
   ret void
 }
 
@@ -12511,6 +12508,7 @@ _ZN3nix3refINS_13InputAccessorEED2Ev.exit:        ; preds = %_ZN3nix9CanonPathD2
   store ptr null, ptr %127, align 8
   store ptr %130, ptr %134, align 8
   store ptr %130, ptr %137, align 8
+  store i64 0, ptr %141, align 8
   br label %_ZNSt3setIN3nix9CanonPathESt4lessIS1_ESaIS1_EEC2EOS5_.exit
 
 144:                                              ; preds = %_ZN3nix3refINS_13InputAccessorEED2Ev.exit
@@ -12522,11 +12520,10 @@ _ZN3nix3refINS_13InputAccessorEED2Ev.exit:        ; preds = %_ZN3nix9CanonPathD2
   %147 = getelementptr inbounds i8, ptr %0, i64 176
   store ptr %126, ptr %147, align 8
   %148 = getelementptr inbounds i8, ptr %0, i64 184
+  store i64 0, ptr %148, align 8
   br label %_ZNSt3setIN3nix9CanonPathESt4lessIS1_ESaIS1_EEC2EOS5_.exit
 
 _ZNSt3setIN3nix9CanonPathESt4lessIS1_ESaIS1_EEC2EOS5_.exit: ; preds = %129, %144
-  %.sink.i.i.i.i = phi ptr [ %148, %144 ], [ %141, %129 ]
-  store i64 0, ptr %.sink.i.i.i.i, align 8
   ret void
 
 149:                                              ; preds = %_ZN3nix3refINS_13InputAccessorEEC2ERKS2_.exit

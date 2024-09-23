@@ -21489,12 +21489,11 @@ lpad1575.loopexit.split-lp.loopexit.split-lp:     ; preds = %invoke.cont1738, %i
 
 if.then1609:                                      ; preds = %invoke.cont1597
   store float 0.000000e+00, ptr %ref.tmp1611, align 4
+  store float 0.000000e+00, ptr %y.i1037, align 4
   br label %if.then1609.invoke
 
 if.then1609.invoke:                               ; preds = %if.then1623, %if.then1609
-  %y.i1038.sink = phi ptr [ %y.i1038, %if.then1623 ], [ %y.i1037, %if.then1609 ]
-  %279 = phi ptr [ %ref.tmp1625, %if.then1623 ], [ %ref.tmp1611, %if.then1609 ]
-  store float 0.000000e+00, ptr %y.i1038.sink, align 4
+  %279 = phi ptr [ %ref.tmp1611, %if.then1609 ], [ %ref.tmp1625, %if.then1623 ]
   %280 = invoke noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull %label1599, ptr noundef nonnull align 4 dereferenceable(8) %279)
           to label %if.end1665 unwind label %lpad1575.loopexit
 
@@ -21504,6 +21503,7 @@ if.then1617:                                      ; preds = %invoke.cont1597
 
 if.then1623:                                      ; preds = %invoke.cont1597
   store float 0xB810000000000000, ptr %ref.tmp1625, align 4
+  store float 0.000000e+00, ptr %y.i1038, align 4
   br label %if.then1609.invoke
 
 if.else1629:                                      ; preds = %invoke.cont1597

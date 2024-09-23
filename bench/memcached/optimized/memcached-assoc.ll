@@ -214,23 +214,26 @@ land.lhs.true:                                    ; preds = %entry
 if.then:                                          ; preds = %land.lhs.true
   %1 = load ptr, ptr @old_hashtable, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %and
+  %2 = load ptr, ptr %arrayidx, align 8
+  %h_next = getelementptr inbounds i8, ptr %it, i64 16
+  store ptr %2, ptr %h_next, align 8
+  store ptr %it, ptr %arrayidx, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry, %land.lhs.true
-  %2 = load ptr, ptr @primary_hashtable, align 8
+  %3 = load ptr, ptr @primary_hashtable, align 8
   %sh_prom5 = zext nneg i32 %.pre to i64
   %notmask8 = shl nsw i64 -1, %sh_prom5
   %sub7 = xor i64 %notmask8, -1
   %and8 = and i64 %conv, %sub7
-  %arrayidx9 = getelementptr inbounds ptr, ptr %2, i64 %and8
+  %arrayidx9 = getelementptr inbounds ptr, ptr %3, i64 %and8
+  %4 = load ptr, ptr %arrayidx9, align 8
+  %h_next10 = getelementptr inbounds i8, ptr %it, i64 16
+  store ptr %4, ptr %h_next10, align 8
+  store ptr %it, ptr %arrayidx9, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %arrayidx9.sink11 = phi ptr [ %arrayidx9, %if.else ], [ %arrayidx, %if.then ]
-  %3 = load ptr, ptr %arrayidx9.sink11, align 8
-  %h_next10 = getelementptr inbounds i8, ptr %it, i64 16
-  store ptr %3, ptr %h_next10, align 8
-  store ptr %it, ptr %arrayidx9.sink11, align 8
   ret i32 1
 }
 

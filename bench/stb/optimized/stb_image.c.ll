@@ -4539,12 +4539,12 @@ stbi__get8.exit.i37:                              ; preds = %stbi__refill_buffer
   br i1 %cmp.not.i41, label %for.cond.i43, label %if.end
 
 if.end:                                           ; preds = %stbi__get8.exit.i37, %for.cond.i43, %stbi__hdr_test_core.exit
-  %img_buffer_original_end.i61.sink = phi ptr [ %img_buffer_original_end.i.i, %stbi__hdr_test_core.exit ], [ %img_buffer_original_end.i61, %for.cond.i43 ], [ %img_buffer_original_end.i61, %stbi__get8.exit.i37 ]
   %storemerge67 = phi ptr [ %14, %stbi__hdr_test_core.exit ], [ %29, %for.cond.i43 ], [ %29, %stbi__get8.exit.i37 ]
+  %storemerge.in = phi ptr [ %img_buffer_original_end.i.i, %stbi__hdr_test_core.exit ], [ %img_buffer_original_end.i61, %for.cond.i43 ], [ %img_buffer_original_end.i61, %stbi__get8.exit.i37 ]
   %r.0 = phi i32 [ 1, %stbi__hdr_test_core.exit ], [ 0, %stbi__get8.exit.i37 ], [ 1, %for.cond.i43 ]
-  %33 = load ptr, ptr %img_buffer_original_end.i61.sink, align 8
+  %storemerge = load ptr, ptr %storemerge.in, align 8
   store ptr %storemerge67, ptr %img_buffer.i.i, align 8
-  store ptr %33, ptr %img_buffer_end.i.i, align 8
+  store ptr %storemerge, ptr %img_buffer_end.i.i, align 8
   ret i32 %r.0
 }
 

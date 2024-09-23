@@ -4984,22 +4984,18 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 57:                                               ; preds = %54
   %58 = getelementptr inbounds ptr, ptr %.0.i.i.i.i.i.i, i64 %.02531.i.i.i.i.i
-  br label %.sink.split.i.i.i.i.i
+  store ptr %.032.i.i.i.i.i, ptr %58, align 8
+  br label %62
 
 59:                                               ; preds = %.lr.ph.i.i.i.i.i
   %60 = load ptr, ptr %53, align 8
   store ptr %60, ptr %.032.i.i.i.i.i, align 8
   %61 = load ptr, ptr %52, align 8
-  br label %.sink.split.i.i.i.i.i
-
-.sink.split.i.i.i.i.i:                            ; preds = %59, %57
-  %.sink.i.i.i.i.i = phi ptr [ %58, %57 ], [ %61, %59 ]
-  %.1.ph.i.i.i.i.i = phi i64 [ %51, %57 ], [ %.02531.i.i.i.i.i, %59 ]
-  store ptr %.032.i.i.i.i.i, ptr %.sink.i.i.i.i.i, align 8
+  store ptr %.032.i.i.i.i.i, ptr %61, align 8
   br label %62
 
-62:                                               ; preds = %.sink.split.i.i.i.i.i, %54
-  %.1.i.i.i.i.i = phi i64 [ %51, %54 ], [ %.1.ph.i.i.i.i.i, %.sink.split.i.i.i.i.i ]
+62:                                               ; preds = %59, %57, %54
+  %.1.i.i.i.i.i = phi i64 [ %.02531.i.i.i.i.i, %59 ], [ %51, %57 ], [ %51, %54 ]
   %.not.i.i.i.i.i = icmp eq ptr %.0.val.i.i.i.i.i, null
   br i1 %.not.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !78
 
@@ -5668,22 +5664,18 @@ _ZNSt10_HashtableImSt4pairIKmNSt7__cxx114listISt8functionIFvvEESaIS6_EEEESaIS9_E
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
-  br label %.sink.split
+  store ptr %.031, ptr %24, align 8
+  br label %28
 
 25:                                               ; preds = %.lr.ph
   %26 = load ptr, ptr %19, align 8
   store ptr %26, ptr %.031, align 8
   %27 = load ptr, ptr %18, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %25, %23
-  %.sink = phi ptr [ %24, %23 ], [ %27, %25 ]
-  %.1.ph = phi i64 [ %17, %23 ], [ %.02530, %25 ]
-  store ptr %.031, ptr %.sink, align 8
+  store ptr %.031, ptr %27, align 8
   br label %28
 
-28:                                               ; preds = %.sink.split, %20
-  %.1 = phi i64 [ %17, %20 ], [ %.1.ph, %.sink.split ]
+28:                                               ; preds = %20, %23, %25
+  %.1 = phi i64 [ %.02530, %25 ], [ %17, %23 ], [ %17, %20 ]
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !81
 

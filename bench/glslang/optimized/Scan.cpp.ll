@@ -5715,22 +5715,18 @@ _ZNSt10_HashtableIPKcSt4pairIKS1_iESaIS4_ENSt8__detail10_Select1stEN12_GLOBAL__N
 
 56:                                               ; preds = %53
   %57 = getelementptr inbounds ptr, ptr %.0.i.i.i.i.i, i64 %.02531.i.i.i.i
-  br label %.sink.split.i.i.i.i
+  store ptr %.032.i.i.i.i, ptr %57, align 8
+  br label %61
 
 58:                                               ; preds = %.lr.ph.i.i.i.i
   %59 = load ptr, ptr %52, align 8
   store ptr %59, ptr %.032.i.i.i.i, align 8
   %60 = load ptr, ptr %51, align 8
-  br label %.sink.split.i.i.i.i
-
-.sink.split.i.i.i.i:                              ; preds = %58, %56
-  %.sink.i.i.i.i = phi ptr [ %57, %56 ], [ %60, %58 ]
-  %.1.ph.i.i.i.i = phi i64 [ %50, %56 ], [ %.02531.i.i.i.i, %58 ]
-  store ptr %.032.i.i.i.i, ptr %.sink.i.i.i.i, align 8
+  store ptr %.032.i.i.i.i, ptr %60, align 8
   br label %61
 
-61:                                               ; preds = %.sink.split.i.i.i.i, %53
-  %.1.i.i.i.i = phi i64 [ %50, %53 ], [ %.1.ph.i.i.i.i, %.sink.split.i.i.i.i ]
+61:                                               ; preds = %58, %56, %53
+  %.1.i.i.i.i = phi i64 [ %.02531.i.i.i.i, %58 ], [ %50, %56 ], [ %50, %53 ]
   %.not.i.i.i.i = icmp eq ptr %48, null
   br i1 %.not.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !22
 
@@ -5969,22 +5965,18 @@ _ZNSt10_HashtableIPKcS1_SaIS1_ENSt8__detail9_IdentityEN12_GLOBAL__N_16str_eqENS5
 
 63:                                               ; preds = %60
   %64 = getelementptr inbounds ptr, ptr %.0.i.i.i.i.i.i.i, i64 %.02531.i.i.i.i.i.i
-  br label %.sink.split.i.i.i.i.i.i
+  store ptr %.032.i.i.i.i.i.i, ptr %64, align 8
+  br label %68
 
 65:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %66 = load ptr, ptr %59, align 8
   store ptr %66, ptr %.032.i.i.i.i.i.i, align 8
   %67 = load ptr, ptr %58, align 8
-  br label %.sink.split.i.i.i.i.i.i
-
-.sink.split.i.i.i.i.i.i:                          ; preds = %65, %63
-  %.sink.i.i.i.i.i.i = phi ptr [ %64, %63 ], [ %67, %65 ]
-  %.1.ph.i.i.i.i.i.i = phi i64 [ %57, %63 ], [ %.02531.i.i.i.i.i.i, %65 ]
-  store ptr %.032.i.i.i.i.i.i, ptr %.sink.i.i.i.i.i.i, align 8
+  store ptr %.032.i.i.i.i.i.i, ptr %67, align 8
   br label %68
 
-68:                                               ; preds = %.sink.split.i.i.i.i.i.i, %60
-  %.1.i.i.i.i.i.i = phi i64 [ %57, %60 ], [ %.1.ph.i.i.i.i.i.i, %.sink.split.i.i.i.i.i.i ]
+68:                                               ; preds = %65, %63, %60
+  %.1.i.i.i.i.i.i = phi i64 [ %.02531.i.i.i.i.i.i, %65 ], [ %57, %63 ], [ %57, %60 ]
   %.not.i.i.i.i.i.i = icmp eq ptr %55, null
   br i1 %.not.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !25
 

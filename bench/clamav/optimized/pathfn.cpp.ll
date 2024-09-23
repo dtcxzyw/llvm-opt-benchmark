@@ -1408,61 +1408,61 @@ define void @_Z17ConvertNameToFullPKwPwm(ptr noundef %0, ptr noundef %1, i64 nou
 
 6:                                                ; preds = %3
   %7 = load i32, ptr %0, align 4
-  switch i32 %7, label %10 [
+  switch i32 %7, label %11 [
     i32 0, label %8
-    i32 47, label %_Z11AddEndSlashPwm.exit.sink.split
+    i32 47, label %10
   ]
 
 8:                                                ; preds = %6, %3
   %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %26, label %9
+  br i1 %.not, label %27, label %9
 
 9:                                                ; preds = %8
   store i32 0, ptr %1, align 4
-  br label %26
+  br label %27
 
 10:                                               ; preds = %6
-  %11 = call ptr @getcwd(ptr noundef nonnull %4, i64 noundef 2048) #19
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %14
-
-13:                                               ; preds = %10
-  store i8 0, ptr %4, align 16
-  br label %14
-
-14:                                               ; preds = %13, %10
-  %15 = call noundef zeroext i1 @_Z10CharToWidePKcPwm(ptr noundef nonnull %4, ptr noundef %1, i64 noundef %2)
-  %16 = call i64 @wcslen(ptr noundef %1) #18
-  %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %_Z11AddEndSlashPwm.exit, label %17
-
-17:                                               ; preds = %14
-  %18 = getelementptr i32, ptr %1, i64 %16
-  %19 = getelementptr i8, ptr %18, i64 -4
-  %20 = load i32, ptr %19, align 4
-  %.not10.i = icmp eq i32 %20, 47
-  br i1 %.not10.i, label %_Z11AddEndSlashPwm.exit, label %21
-
-21:                                               ; preds = %17
-  %22 = add i64 %16, 1
-  %23 = icmp ult i64 %22, %2
-  br i1 %23, label %24, label %_Z11AddEndSlashPwm.exit
-
-24:                                               ; preds = %21
-  store i32 47, ptr %18, align 4
-  %25 = getelementptr inbounds i32, ptr %1, i64 %22
-  br label %_Z11AddEndSlashPwm.exit.sink.split
-
-_Z11AddEndSlashPwm.exit.sink.split:               ; preds = %6, %24
-  %.sink = phi ptr [ %25, %24 ], [ %1, %6 ]
-  store i32 0, ptr %.sink, align 4
+  store i32 0, ptr %1, align 4
   br label %_Z11AddEndSlashPwm.exit
 
-_Z11AddEndSlashPwm.exit:                          ; preds = %_Z11AddEndSlashPwm.exit.sink.split, %21, %17, %14
-  call void @_Z8wcsncatzPwPKwm(ptr noundef %1, ptr noundef nonnull %0, i64 noundef %2)
-  br label %26
+11:                                               ; preds = %6
+  %12 = call ptr @getcwd(ptr noundef nonnull %4, i64 noundef 2048) #19
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %15
 
-26:                                               ; preds = %8, %9, %_Z11AddEndSlashPwm.exit
+14:                                               ; preds = %11
+  store i8 0, ptr %4, align 16
+  br label %15
+
+15:                                               ; preds = %14, %11
+  %16 = call noundef zeroext i1 @_Z10CharToWidePKcPwm(ptr noundef nonnull %4, ptr noundef %1, i64 noundef %2)
+  %17 = call i64 @wcslen(ptr noundef %1) #18
+  %.not.i = icmp eq i64 %17, 0
+  br i1 %.not.i, label %_Z11AddEndSlashPwm.exit, label %18
+
+18:                                               ; preds = %15
+  %19 = getelementptr i32, ptr %1, i64 %17
+  %20 = getelementptr i8, ptr %19, i64 -4
+  %21 = load i32, ptr %20, align 4
+  %.not10.i = icmp eq i32 %21, 47
+  br i1 %.not10.i, label %_Z11AddEndSlashPwm.exit, label %22
+
+22:                                               ; preds = %18
+  %23 = add i64 %17, 1
+  %24 = icmp ult i64 %23, %2
+  br i1 %24, label %25, label %_Z11AddEndSlashPwm.exit
+
+25:                                               ; preds = %22
+  store i32 47, ptr %19, align 4
+  %26 = getelementptr inbounds i32, ptr %1, i64 %23
+  store i32 0, ptr %26, align 4
+  br label %_Z11AddEndSlashPwm.exit
+
+_Z11AddEndSlashPwm.exit:                          ; preds = %25, %22, %18, %15, %10
+  call void @_Z8wcsncatzPwPKwm(ptr noundef %1, ptr noundef nonnull %0, i64 noundef %2)
+  br label %27
+
+27:                                               ; preds = %8, %9, %_Z11AddEndSlashPwm.exit
   ret void
 }
 

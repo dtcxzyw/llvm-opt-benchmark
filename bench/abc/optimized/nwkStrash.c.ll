@@ -123,12 +123,12 @@ define ptr @Nwk_ManStrashNode(ptr noundef %0, ptr nocapture noundef readonly %1)
   br label %30
 
 30:                                               ; preds = %.critedge, %17
-  %.sink = phi ptr [ %10, %.critedge ], [ %18, %17 ]
-  %31 = load ptr, ptr %.sink, align 8
-  %32 = and i64 %8, 1
-  %33 = ptrtoint ptr %31 to i64
-  %34 = xor i64 %32, %33
-  %.019 = inttoptr i64 %34 to ptr
+  %.sink26.in = phi ptr [ %10, %.critedge ], [ %18, %17 ]
+  %.sink26 = load ptr, ptr %.sink26.in, align 8
+  %31 = and i64 %8, 1
+  %32 = ptrtoint ptr %.sink26 to i64
+  %33 = xor i64 %31, %32
+  %.019 = inttoptr i64 %33 to ptr
   ret ptr %.019
 }
 
@@ -220,16 +220,16 @@ Abc_UtilStrsav.exit59:                            ; preds = %Abc_UtilStrsav.exit
   %44 = getelementptr i8, ptr %3, i64 48
   br label %45
 
-45:                                               ; preds = %.lr.ph69, %113
-  %indvars.iv71 = phi i64 [ 0, %.lr.ph69 ], [ %indvars.iv.next72, %113 ]
-  %.04567 = phi ptr [ null, %.lr.ph69 ], [ %.146, %113 ]
+45:                                               ; preds = %.lr.ph69, %112
+  %indvars.iv71 = phi i64 [ 0, %.lr.ph69 ], [ %indvars.iv.next72, %112 ]
+  %.04567 = phi ptr [ null, %.lr.ph69 ], [ %.146, %112 ]
   %.val52 = load ptr, ptr %43, align 8
   %46 = getelementptr inbounds ptr, ptr %.val52, i64 %indvars.iv71
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr i8, ptr %47, i64 32
   %.val53 = load i32, ptr %48, align 8
   %49 = and i32 %.val53, 7
-  switch i32 %49, label %113 [
+  switch i32 %49, label %112 [
     i32 1, label %50
     i32 2, label %64
     i32 3, label %83
@@ -250,7 +250,7 @@ Abc_UtilStrsav.exit59:                            ; preds = %Abc_UtilStrsav.exit
   %62 = and i64 %58, -72057589742960641
   %63 = or disjoint i64 %61, %62
   store i64 %63, ptr %57, align 8
-  br label %113
+  br label %112
 
 64:                                               ; preds = %45
   %65 = getelementptr i8, ptr %47, i64 72
@@ -275,7 +275,7 @@ Abc_UtilStrsav.exit59:                            ; preds = %Abc_UtilStrsav.exit
   %81 = lshr i32 %80, 7
   %82 = uitofp nneg i32 %78 to float
   tail call void @Tim_ManSetCoArrival(ptr noundef %79, i32 noundef %81, float noundef %82) #6
-  br label %113
+  br label %112
 
 83:                                               ; preds = %45
   %84 = load ptr, ptr %47, align 8
@@ -324,37 +324,37 @@ Abc_UtilStrsav.exit59:                            ; preds = %Abc_UtilStrsav.exit
   br label %Nwk_ManStrashNode.exit
 
 Nwk_ManStrashNode.exit:                           ; preds = %83, %.critedge.i
-  %.sink.i = phi ptr [ %91, %.critedge.i ], [ %44, %83 ]
-  %109 = load ptr, ptr %.sink.i, align 8
-  %110 = and i64 %89, 1
-  %111 = ptrtoint ptr %109 to i64
-  %112 = xor i64 %110, %111
-  %.019.i = inttoptr i64 %112 to ptr
-  br label %113
+  %.sink26.in.i = phi ptr [ %91, %.critedge.i ], [ %44, %83 ]
+  %.sink26.i = load ptr, ptr %.sink26.in.i, align 8
+  %109 = and i64 %89, 1
+  %110 = ptrtoint ptr %.sink26.i to i64
+  %111 = xor i64 %109, %110
+  %.019.i = inttoptr i64 %111 to ptr
+  br label %112
 
-113:                                              ; preds = %45, %64, %Nwk_ManStrashNode.exit, %50
+112:                                              ; preds = %45, %64, %Nwk_ManStrashNode.exit, %50
   %.146 = phi ptr [ %51, %50 ], [ %74, %64 ], [ %.019.i, %Nwk_ManStrashNode.exit ], [ %.04567, %45 ]
-  %114 = getelementptr inbounds i8, ptr %47, i64 16
-  store ptr %.146, ptr %114, align 8
+  %113 = getelementptr inbounds i8, ptr %47, i64 16
+  store ptr %.146, ptr %113, align 8
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %.val50 = load i32, ptr %41, align 4
-  %115 = sext i32 %.val50 to i64
-  %116 = icmp slt i64 %indvars.iv.next72, %115
-  br i1 %116, label %45, label %.critedge2, !llvm.loop !7
+  %114 = sext i32 %.val50 to i64
+  %115 = icmp slt i64 %indvars.iv.next72, %114
+  br i1 %115, label %45, label %.critedge2, !llvm.loop !7
 
-.critedge2:                                       ; preds = %113, %.critedge
-  %117 = getelementptr inbounds i8, ptr %40, i64 8
-  %118 = load ptr, ptr %117, align 8
-  %.not.i61 = icmp eq ptr %118, null
-  br i1 %.not.i61, label %Vec_PtrFree.exit, label %119
+.critedge2:                                       ; preds = %112, %.critedge
+  %116 = getelementptr inbounds i8, ptr %40, i64 8
+  %117 = load ptr, ptr %116, align 8
+  %.not.i61 = icmp eq ptr %117, null
+  br i1 %.not.i61, label %Vec_PtrFree.exit, label %118
 
-119:                                              ; preds = %.critedge2
-  tail call void @free(ptr noundef nonnull %118) #6
+118:                                              ; preds = %.critedge2
+  tail call void @free(ptr noundef nonnull %117) #6
   br label %Vec_PtrFree.exit
 
-Vec_PtrFree.exit:                                 ; preds = %.critedge2, %119
+Vec_PtrFree.exit:                                 ; preds = %.critedge2, %118
   tail call void @free(ptr noundef nonnull %40) #6
-  %120 = tail call i32 @Aig_ManCleanup(ptr noundef nonnull %3) #6
+  %119 = tail call i32 @Aig_ManCleanup(ptr noundef nonnull %3) #6
   tail call void @Aig_ManSetRegNum(ptr noundef nonnull %3, i32 noundef 0) #6
   ret ptr %3
 }

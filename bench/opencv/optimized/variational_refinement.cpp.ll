@@ -1035,8 +1035,8 @@ define hidden void @_ZN2cv25VariationalRefinementImpl17mergeCheckerboardERNS_3Ma
   %14 = getelementptr inbounds i8, ptr %1, i64 12
   br label %15
 
-15:                                               ; preds = %.lr.ph63, %70
-  %indvars.iv83 = phi i64 [ 0, %.lr.ph63 ], [ %indvars.iv.next84, %70 ]
+15:                                               ; preds = %.lr.ph63, %69
+  %indvars.iv83 = phi i64 [ 0, %.lr.ph63 ], [ %indvars.iv.next84, %69 ]
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %16 = load ptr, ptr %8, align 8
   %17 = load ptr, ptr %9, align 8
@@ -1095,7 +1095,7 @@ define hidden void @_ZN2cv25VariationalRefinementImpl17mergeCheckerboardERNS_3Ma
   %.0.lcssa = phi i64 [ 1, %.preheader ], [ %47, %._crit_edge57.loopexit ]
   %.lcssa49 = phi i32 [ %33, %.preheader ], [ %42, %._crit_edge57.loopexit ]
   %48 = icmp slt i32 %.045.lcssa, %.lcssa49
-  br i1 %48, label %49, label %70
+  br i1 %48, label %49, label %69
 
 49:                                               ; preds = %._crit_edge57
   %50 = getelementptr inbounds float, ptr %20, i64 %.0.lcssa
@@ -1131,45 +1131,45 @@ define hidden void @_ZN2cv25VariationalRefinementImpl17mergeCheckerboardERNS_3Ma
   %.1.lcssa = phi i64 [ 1, %.preheader48 ], [ %63, %._crit_edge.loopexit ]
   %.lcssa = phi i32 [ %33, %.preheader48 ], [ %58, %._crit_edge.loopexit ]
   %64 = icmp slt i32 %.146.lcssa, %.lcssa
-  br i1 %64, label %65, label %70
+  br i1 %64, label %65, label %69
 
 65:                                               ; preds = %._crit_edge
   %66 = getelementptr inbounds float, ptr %25, i64 %.1.lcssa
   br label %.sink.split
 
 .sink.split:                                      ; preds = %65, %49
-  %.sink90 = phi ptr [ %50, %49 ], [ %66, %65 ]
   %.045.lcssa.sink = phi i32 [ %.045.lcssa, %49 ], [ %.146.lcssa, %65 ]
-  %67 = load float, ptr %.sink90, align 4
-  %68 = zext nneg i32 %.045.lcssa.sink to i64
-  %69 = getelementptr inbounds float, ptr %30, i64 %68
-  store float %67, ptr %69, align 4
-  br label %70
+  %.sink.in = phi ptr [ %50, %49 ], [ %66, %65 ]
+  %.sink = load float, ptr %.sink.in, align 4
+  %67 = zext nneg i32 %.045.lcssa.sink to i64
+  %68 = getelementptr inbounds float, ptr %30, i64 %67
+  store float %.sink, ptr %68, align 4
+  br label %69
 
-70:                                               ; preds = %.sink.split, %._crit_edge57, %._crit_edge
-  %71 = load i32, ptr %5, align 8
-  %72 = sext i32 %71 to i64
-  %73 = icmp slt i64 %indvars.iv.next84, %72
-  br i1 %73, label %15, label %._crit_edge64, !llvm.loop !10
+69:                                               ; preds = %.sink.split, %._crit_edge57, %._crit_edge
+  %70 = load i32, ptr %5, align 8
+  %71 = sext i32 %70 to i64
+  %72 = icmp slt i64 %indvars.iv.next84, %71
+  br i1 %72, label %15, label %._crit_edge64, !llvm.loop !10
 
-._crit_edge64:                                    ; preds = %70, %3
-  %74 = getelementptr inbounds i8, ptr %4, i64 8
-  %75 = load i32, ptr %74, align 8
-  %.not.i = icmp eq i32 %75, 0
-  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %76
+._crit_edge64:                                    ; preds = %69, %3
+  %73 = getelementptr inbounds i8, ptr %4, i64 8
+  %74 = load i32, ptr %73, align 8
+  %.not.i = icmp eq i32 %74, 0
+  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %75
 
-76:                                               ; preds = %._crit_edge64
+75:                                               ; preds = %._crit_edge64
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %4)
-          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %77
+          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %76
 
-77:                                               ; preds = %76
-  %78 = landingpad { ptr, i32 }
+76:                                               ; preds = %75
+  %77 = landingpad { ptr, i32 }
           catch ptr null
-  %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #16
+  %78 = extractvalue { ptr, i32 } %77, 0
+  call void @__clang_call_terminate(ptr %78) #16
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %._crit_edge64, %76
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %._crit_edge64, %75
   ret void
 }
 

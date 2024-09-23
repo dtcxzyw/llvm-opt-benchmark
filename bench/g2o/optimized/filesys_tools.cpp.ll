@@ -516,10 +516,14 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit10:        ; preds = %_ZNSt10filesystem7_
   call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %18, ptr noundef nonnull %33) #15
   br label %_ZNSt10filesystem7__cxx114pathD2Ev.exit12
 
+_ZNSt10filesystem7__cxx114pathD2Ev.exit12:        ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit10, %34
+  store ptr null, ptr %18, align 8
+  br label %51
+
 35:                                               ; preds = %42, %14
   %36 = landingpad { ptr, i32 }
           cleanup
-  br label %54
+  br label %55
 
 37:                                               ; preds = %15
   %38 = landingpad { ptr, i32 }
@@ -539,7 +543,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit10:        ; preds = %_ZNSt10filesystem7_
 41:                                               ; preds = %.body, %37
   %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %38, %37 ]
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #15
-  br label %54
+  br label %55
 
 42:                                               ; preds = %3
   invoke void @_ZNKSt10filesystem7__cxx114path4stemEv(ptr dead_on_unwind nonnull writable sret(%"class.std::filesystem::__cxx11::path") align 8 %11, ptr noundef nonnull align 8 dereferenceable(40) %7)
@@ -558,7 +562,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit10:        ; preds = %_ZNSt10filesystem7_
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #15
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #15
-  br label %54
+  br label %55
 
 47:                                               ; preds = %43
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #15
@@ -566,32 +570,34 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit10:        ; preds = %_ZNSt10filesystem7_
   %48 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %49 = load ptr, ptr %48, align 8
   %.not.i.i.i16 = icmp eq ptr %49, null
-  br i1 %.not.i.i.i16, label %_ZNSt10filesystem7__cxx114pathD2Ev.exit12, label %50
+  br i1 %.not.i.i.i16, label %_ZNSt10filesystem7__cxx114pathD2Ev.exit17, label %50
 
 50:                                               ; preds = %47
   call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %48, ptr noundef nonnull %49) #15
-  br label %_ZNSt10filesystem7__cxx114pathD2Ev.exit12
+  br label %_ZNSt10filesystem7__cxx114pathD2Ev.exit17
 
-_ZNSt10filesystem7__cxx114pathD2Ev.exit12:        ; preds = %50, %47, %34, %_ZNSt10filesystem7__cxx114pathD2Ev.exit10
-  %.sink20 = phi ptr [ %18, %_ZNSt10filesystem7__cxx114pathD2Ev.exit10 ], [ %18, %34 ], [ %48, %47 ], [ %48, %50 ]
-  %.sink = phi ptr [ %9, %_ZNSt10filesystem7__cxx114pathD2Ev.exit10 ], [ %9, %34 ], [ %11, %47 ], [ %11, %50 ]
-  store ptr null, ptr %.sink20, align 8
+_ZNSt10filesystem7__cxx114pathD2Ev.exit17:        ; preds = %47, %50
+  store ptr null, ptr %48, align 8
+  br label %51
+
+51:                                               ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit17, %_ZNSt10filesystem7__cxx114pathD2Ev.exit12
+  %.sink = phi ptr [ %11, %_ZNSt10filesystem7__cxx114pathD2Ev.exit17 ], [ %9, %_ZNSt10filesystem7__cxx114pathD2Ev.exit12 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #15
-  %51 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %52 = load ptr, ptr %51, align 8
-  %.not.i.i.i18 = icmp eq ptr %52, null
-  br i1 %.not.i.i.i18, label %_ZNSt10filesystem7__cxx114pathD2Ev.exit19, label %53
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %53 = load ptr, ptr %52, align 8
+  %.not.i.i.i18 = icmp eq ptr %53, null
+  br i1 %.not.i.i.i18, label %_ZNSt10filesystem7__cxx114pathD2Ev.exit19, label %54
 
-53:                                               ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit12
-  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %51, ptr noundef nonnull %52) #15
+54:                                               ; preds = %51
+  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %52, ptr noundef nonnull %53) #15
   br label %_ZNSt10filesystem7__cxx114pathD2Ev.exit19
 
-_ZNSt10filesystem7__cxx114pathD2Ev.exit19:        ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit12, %53
-  store ptr null, ptr %51, align 8
+_ZNSt10filesystem7__cxx114pathD2Ev.exit19:        ; preds = %51, %54
+  store ptr null, ptr %52, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #15
   ret void
 
-54:                                               ; preds = %.body13, %41, %35
+55:                                               ; preds = %.body13, %41, %35
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %41 ], [ %36, %35 ], [ %46, %.body13 ]
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #15
   resume { ptr, i32 } %.pn.pn.pn

@@ -112,8 +112,11 @@ sw.bb29:                                          ; preds = %for.end
   %25 = load i8, ptr %arrayidx41, align 16
   %incdec.ptr42 = getelementptr inbounds i8, ptr %out.0.lcssa, i64 2
   store i8 %25, ptr %incdec.ptr35, align 1
+  %incdec.ptr43 = getelementptr inbounds i8, ptr %out.0.lcssa, i64 3
   store i8 61, ptr %incdec.ptr42, align 1
-  br label %sw.epilog.sink.split
+  %incdec.ptr44 = getelementptr inbounds i8, ptr %out.0.lcssa, i64 4
+  store i8 61, ptr %incdec.ptr43, align 1
+  br label %sw.epilog
 
 sw.bb45:                                          ; preds = %for.end
   %26 = load i8, ptr %data.addr.0.lcssa, align 1
@@ -141,17 +144,14 @@ sw.bb45:                                          ; preds = %for.end
   %idxprom67 = zext nneg i8 %37 to i64
   %arrayidx68 = getelementptr inbounds [65 x i8], ptr @_ZN4YAMLL8encodingE, i64 0, i64 %idxprom67
   %38 = load i8, ptr %arrayidx68, align 4
+  %incdec.ptr69 = getelementptr inbounds i8, ptr %out.0.lcssa, i64 3
   store i8 %38, ptr %incdec.ptr62, align 1
-  br label %sw.epilog.sink.split
-
-sw.epilog.sink.split:                             ; preds = %sw.bb29, %sw.bb45
-  %incdec.ptr69.sink = getelementptr inbounds i8, ptr %out.0.lcssa, i64 3
   %incdec.ptr70 = getelementptr inbounds i8, ptr %out.0.lcssa, i64 4
-  store i8 61, ptr %incdec.ptr69.sink, align 1
+  store i8 61, ptr %incdec.ptr69, align 1
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.epilog.sink.split, %for.end
-  %out.1 = phi ptr [ %out.0.lcssa, %for.end ], [ %incdec.ptr70, %sw.epilog.sink.split ]
+sw.epilog:                                        ; preds = %sw.bb45, %sw.bb29, %for.end
+  %out.1 = phi ptr [ %out.0.lcssa, %for.end ], [ %incdec.ptr44, %sw.bb29 ], [ %incdec.ptr70, %sw.bb45 ]
   %call72 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef 0)
           to label %invoke.cont71 unwind label %lpad
 

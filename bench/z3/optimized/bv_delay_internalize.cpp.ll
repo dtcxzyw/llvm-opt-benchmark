@@ -3174,7 +3174,7 @@ if.then:                                          ; preds = %for.body.i.i.i, %fo
   store ptr %e, ptr %ref.tmp.sroa.3.8.m_map.i.i.i.sroa_idx, align 8
   %8 = load ptr, ptr %m_trail.i, align 8
   %cmp.i.i.i = icmp eq ptr %8, null
-  br i1 %cmp.i.i.i, label %if.end.sink.split, label %lor.lhs.false.i.i.i
+  br i1 %cmp.i.i.i, label %if.then.i.i.i8, label %lor.lhs.false.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %if.then
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %8, i64 -4
@@ -3182,7 +3182,11 @@ lor.lhs.false.i.i.i:                              ; preds = %if.then
   %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %8, i64 -8
   %10 = load i32, ptr %arrayidx4.i.i.i, align 4
   %cmp5.i.i.i = icmp eq i32 %9, %10
-  br i1 %cmp5.i.i.i, label %if.end.sink.split, label %if.end
+  br i1 %cmp5.i.i.i, label %if.then.i.i.i8, label %if.end
+
+if.then.i.i.i8:                                   ; preds = %lor.lhs.false.i.i.i, %if.then
+  tail call void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_trail.i)
+  br label %if.end.sink.split
 
 if.else:                                          ; preds = %if.then.i.i.i, %if.then22.i.i.i
   %ctx3 = getelementptr inbounds i8, ptr %this, i64 80
@@ -3249,7 +3253,7 @@ _ZN7obj_mapI4exprN2bv6solver16internalize_modeEEixEPS0_.exit: ; preds = %if.then
   store i32 %16, ptr %ref.tmp4.sroa.4.8.m_map.i.i.i15.sroa_idx, align 8
   %17 = load ptr, ptr %m_trail.i13, align 8
   %cmp.i.i.i17 = icmp eq ptr %17, null
-  br i1 %cmp.i.i.i17, label %if.end.sink.split, label %lor.lhs.false.i.i.i18
+  br i1 %cmp.i.i.i17, label %if.then.i.i.i26, label %lor.lhs.false.i.i.i18
 
 lor.lhs.false.i.i.i18:                            ; preds = %_ZN7obj_mapI4exprN2bv6solver16internalize_modeEEixEPS0_.exit
   %arrayidx.i.i.i19 = getelementptr inbounds i8, ptr %17, i64 -4
@@ -3257,29 +3261,32 @@ lor.lhs.false.i.i.i18:                            ; preds = %_ZN7obj_mapI4exprN2
   %arrayidx4.i.i.i20 = getelementptr inbounds i8, ptr %17, i64 -8
   %19 = load i32, ptr %arrayidx4.i.i.i20, align 4
   %cmp5.i.i.i21 = icmp eq i32 %18, %19
-  br i1 %cmp5.i.i.i21, label %if.end.sink.split, label %if.end
+  br i1 %cmp5.i.i.i21, label %if.then.i.i.i26, label %if.end
 
-if.end.sink.split:                                ; preds = %_ZN7obj_mapI4exprN2bv6solver16internalize_modeEEixEPS0_.exit, %lor.lhs.false.i.i.i18, %if.then, %lor.lhs.false.i.i.i
-  %m_trail.i13.sink50 = phi ptr [ %m_trail.i, %lor.lhs.false.i.i.i ], [ %m_trail.i, %if.then ], [ %m_trail.i13, %lor.lhs.false.i.i.i18 ], [ %m_trail.i13, %_ZN7obj_mapI4exprN2bv6solver16internalize_modeEEixEPS0_.exit ]
-  %call.i.i.i31.sink.ph = phi ptr [ %call.i.i.i9, %lor.lhs.false.i.i.i ], [ %call.i.i.i9, %if.then ], [ %call.i.i.i31, %lor.lhs.false.i.i.i18 ], [ %call.i.i.i31, %_ZN7obj_mapI4exprN2bv6solver16internalize_modeEEixEPS0_.exit ]
-  tail call void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_trail.i13.sink50)
-  %.pre.i.i.i27 = load ptr, ptr %m_trail.i13.sink50, align 8
-  %arrayidx8.phi.trans.insert.i.i.i28 = getelementptr inbounds i8, ptr %.pre.i.i.i27, i64 -4
+if.then.i.i.i26:                                  ; preds = %lor.lhs.false.i.i.i18, %_ZN7obj_mapI4exprN2bv6solver16internalize_modeEEixEPS0_.exit
+  tail call void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_trail.i13)
+  br label %if.end.sink.split
+
+if.end.sink.split:                                ; preds = %if.then.i.i.i8, %if.then.i.i.i26
+  %call.i.i.i31.sink.ph = phi ptr [ %call.i.i.i31, %if.then.i.i.i26 ], [ %call.i.i.i9, %if.then.i.i.i8 ]
+  %.sink.in.ph = phi ptr [ %m_trail.i13, %if.then.i.i.i26 ], [ %m_trail.i, %if.then.i.i.i8 ]
+  %.pre.i.i.i27.sink = load ptr, ptr %.sink.in.ph, align 8
+  %arrayidx8.phi.trans.insert.i.i.i28 = getelementptr inbounds i8, ptr %.pre.i.i.i27.sink, i64 -4
   %.pre1.i.i.i29 = load i32, ptr %arrayidx8.phi.trans.insert.i.i.i28, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.end.sink.split, %lor.lhs.false.i.i.i18, %lor.lhs.false.i.i.i
-  %.sink48 = phi i32 [ %9, %lor.lhs.false.i.i.i ], [ %18, %lor.lhs.false.i.i.i18 ], [ %.pre1.i.i.i29, %if.end.sink.split ]
-  %.sink = phi ptr [ %8, %lor.lhs.false.i.i.i ], [ %17, %lor.lhs.false.i.i.i18 ], [ %.pre.i.i.i27, %if.end.sink.split ]
+  %.sink53 = phi i32 [ %9, %lor.lhs.false.i.i.i ], [ %18, %lor.lhs.false.i.i.i18 ], [ %.pre1.i.i.i29, %if.end.sink.split ]
+  %.sink52 = phi ptr [ %8, %lor.lhs.false.i.i.i ], [ %17, %lor.lhs.false.i.i.i18 ], [ %.pre.i.i.i27.sink, %if.end.sink.split ]
   %call.i.i.i31.sink = phi ptr [ %call.i.i.i9, %lor.lhs.false.i.i.i ], [ %call.i.i.i31, %lor.lhs.false.i.i.i18 ], [ %call.i.i.i31.sink.ph, %if.end.sink.split ]
-  %m_trail.i13.sink = phi ptr [ %m_trail.i, %lor.lhs.false.i.i.i ], [ %m_trail.i13, %lor.lhs.false.i.i.i18 ], [ %m_trail.i13.sink50, %if.end.sink.split ]
-  %idx.ext.i.i.i22 = zext i32 %.sink48 to i64
-  %add.ptr.i.i.i23 = getelementptr inbounds ptr, ptr %.sink, i64 %idx.ext.i.i.i22
+  %.sink.in = phi ptr [ %m_trail.i, %lor.lhs.false.i.i.i ], [ %m_trail.i13, %lor.lhs.false.i.i.i18 ], [ %.sink.in.ph, %if.end.sink.split ]
+  %idx.ext.i.i.i22 = zext i32 %.sink53 to i64
+  %add.ptr.i.i.i23 = getelementptr inbounds ptr, ptr %.sink52, i64 %idx.ext.i.i.i22
   store ptr %call.i.i.i31.sink, ptr %add.ptr.i.i.i23, align 8
-  %20 = load ptr, ptr %m_trail.i13.sink, align 8
-  %arrayidx10.i.i.i24 = getelementptr inbounds i8, ptr %20, i64 -4
-  %21 = load i32, ptr %arrayidx10.i.i.i24, align 4
-  %inc.i.i.i25 = add i32 %21, 1
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %arrayidx10.i.i.i24 = getelementptr inbounds i8, ptr %.sink, i64 -4
+  %20 = load i32, ptr %arrayidx10.i.i.i24, align 4
+  %inc.i.i.i25 = add i32 %20, 1
   store i32 %inc.i.i.i25, ptr %arrayidx10.i.i.i24, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   store ptr %e, ptr %ref.tmp.i, align 8

@@ -4201,6 +4201,7 @@ define hidden void @zif_iconv_set_encoding(ptr nocapture noundef readonly %0, pt
   %32 = getelementptr inbounds i8, ptr %28, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %32, ptr noundef nonnull align 1 dereferenceable(20) @.str.28, i64 20, i1 false)
   %33 = getelementptr inbounds i8, ptr %28, i64 44
+  store i8 0, ptr %33, align 1
   br label %64
 
 34:                                               ; preds = %._crit_edge, %19
@@ -4233,6 +4234,7 @@ define hidden void @zif_iconv_set_encoding(ptr nocapture noundef readonly %0, pt
   %46 = getelementptr inbounds i8, ptr %42, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %46, ptr noundef nonnull align 1 dereferenceable(21) @.str.30, i64 21, i1 false)
   %47 = getelementptr inbounds i8, ptr %42, i64 45
+  store i8 0, ptr %47, align 1
   br label %64
 
 48:                                               ; preds = %._crit_edge184, %34
@@ -4259,6 +4261,7 @@ define hidden void @zif_iconv_set_encoding(ptr nocapture noundef readonly %0, pt
   %60 = getelementptr inbounds i8, ptr %56, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %60, ptr noundef nonnull align 1 dereferenceable(23) @.str.32, i64 23, i1 false)
   %61 = getelementptr inbounds i8, ptr %56, i64 47
+  store i8 0, ptr %61, align 1
   br label %64
 
 62:                                               ; preds = %52, %48
@@ -4267,9 +4270,7 @@ define hidden void @zif_iconv_set_encoding(ptr nocapture noundef readonly %0, pt
   br label %81
 
 64:                                               ; preds = %41, %55, %27
-  %.sink = phi ptr [ %47, %41 ], [ %61, %55 ], [ %33, %27 ]
-  %.0 = phi ptr [ %42, %41 ], [ %56, %55 ], [ %28, %27 ]
-  store i8 0, ptr %.sink, align 1
+  %.0 = phi ptr [ %56, %55 ], [ %42, %41 ], [ %28, %27 ]
   %65 = load ptr, ptr %4, align 8
   %66 = call i32 @zend_alter_ini_entry(ptr noundef nonnull %.0, ptr noundef %65, i32 noundef 1, i32 noundef 16) #16
   %67 = getelementptr inbounds i8, ptr %.0, i64 4

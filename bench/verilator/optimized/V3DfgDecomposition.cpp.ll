@@ -1678,8 +1678,8 @@ define linkonce_odr dso_local void @_ZN19SplitIntoComponents12moveVerticesI12Dfg
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   br label %5
 
-5:                                                ; preds = %57, %.lr.ph
-  %.sroa.0.030 = phi ptr [ %3, %.lr.ph ], [ %.sroa.7.029, %57 ]
+5:                                                ; preds = %60, %.lr.ph
+  %.sroa.0.030 = phi ptr [ %3, %.lr.ph ], [ %.sroa.7.029, %60 ]
   %.sroa.7.029.in = getelementptr inbounds i8, ptr %.sroa.0.030, i64 8
   %.sroa.7.029 = load ptr, ptr %.sroa.7.029.in, align 8
   %.not23 = icmp eq ptr %.sroa.7.029, null
@@ -1698,12 +1698,12 @@ define linkonce_odr dso_local void @_ZN19SplitIntoComponents12moveVerticesI12Dfg
 _ZN9DfgVertex4userImEERT_v.exit.thread:           ; preds = %5
   store i32 %11, ptr %12, align 4
   store i64 0, ptr %7, align 8
-  br label %55
+  br label %58
 
 _ZN9DfgVertex4userImEERT_v.exit:                  ; preds = %5
   %.pr = load i64, ptr %7, align 8
   %.not24 = icmp eq i64 %.pr, 0
-  br i1 %.not24, label %55, label %14
+  br i1 %.not24, label %58, label %14
 
 14:                                               ; preds = %_ZN9DfgVertex4userImEERT_v.exit
   %15 = load ptr, ptr %0, align 8
@@ -1719,7 +1719,7 @@ _ZN9DfgVertex4userImEERT_v.exit:                  ; preds = %5
   %23 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 56
   %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %23, align 8
   %.not.i26 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i.i, 0
-  br i1 %.not.i26, label %24, label %34
+  br i1 %.not.i26, label %24, label %35
 
 24:                                               ; preds = %14
   %25 = getelementptr inbounds i8, ptr %19, i64 16
@@ -1741,75 +1741,82 @@ _ZN9DfgVertex4userImEERT_v.exit:                  ; preds = %5
   store ptr %.sroa.0.030, ptr %27, align 8
   %33 = load ptr, ptr %25, align 8
   %.not8.i.i = icmp eq ptr %33, null
-  br i1 %.not8.i.i, label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE8linkBackEPKS1_.exit.sink.split.i, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+  br i1 %.not8.i.i, label %34, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
 
-34:                                               ; preds = %14
-  %35 = and i16 %.sroa.0.0.copyload.i.i.i.i.i, -2
-  %spec.select.i.i.i.not.i = icmp eq i16 %35, 152
-  br i1 %spec.select.i.i.i.not.i, label %36, label %45
-
-36:                                               ; preds = %34
-  %37 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 8
-  store ptr null, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %19, i64 8
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 16
-  store ptr %39, ptr %40, align 8
-  %.not.i14.i = icmp eq ptr %39, null
-  br i1 %.not.i14.i, label %43, label %41
-
-41:                                               ; preds = %36
-  %42 = getelementptr inbounds i8, ptr %39, i64 8
-  store ptr %.sroa.0.030, ptr %42, align 8
-  br label %43
-
-43:                                               ; preds = %41, %36
-  store ptr %.sroa.0.030, ptr %38, align 8
-  %44 = load ptr, ptr %19, align 8
-  %.not8.i15.i = icmp eq ptr %44, null
-  br i1 %.not8.i15.i, label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE8linkBackEPKS1_.exit.sink.split.i, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
-
-45:                                               ; preds = %34
-  %46 = getelementptr inbounds i8, ptr %19, i64 32
-  %47 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 8
-  store ptr null, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %19, i64 40
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 16
-  store ptr %49, ptr %50, align 8
-  %.not.i16.i = icmp eq ptr %49, null
-  br i1 %.not.i16.i, label %53, label %51
-
-51:                                               ; preds = %45
-  %52 = getelementptr inbounds i8, ptr %49, i64 8
-  store ptr %.sroa.0.030, ptr %52, align 8
-  br label %53
-
-53:                                               ; preds = %51, %45
-  store ptr %.sroa.0.030, ptr %48, align 8
-  %54 = load ptr, ptr %46, align 8
-  %.not8.i17.i = icmp eq ptr %54, null
-  br i1 %.not8.i17.i, label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE8linkBackEPKS1_.exit.sink.split.i, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
-
-_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE8linkBackEPKS1_.exit.sink.split.i: ; preds = %53, %43, %32
-  %.sink.i = phi ptr [ %25, %32 ], [ %19, %43 ], [ %46, %53 ]
-  store ptr %.sroa.0.030, ptr %.sink.i, align 8
+34:                                               ; preds = %32
+  store ptr %.sroa.0.030, ptr %25, align 8
   br label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
 
-_ZN8DfgGraph9addVertexER9DfgVertex.exit:          ; preds = %32, %43, %53, %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE8linkBackEPKS1_.exit.sink.split.i
+35:                                               ; preds = %14
+  %36 = and i16 %.sroa.0.0.copyload.i.i.i.i.i, -2
+  %spec.select.i.i.i.not.i = icmp eq i16 %36, 152
+  br i1 %spec.select.i.i.i.not.i, label %37, label %47
+
+37:                                               ; preds = %35
+  %38 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 8
+  store ptr null, ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %19, i64 8
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 16
+  store ptr %40, ptr %41, align 8
+  %.not.i14.i = icmp eq ptr %40, null
+  br i1 %.not.i14.i, label %44, label %42
+
+42:                                               ; preds = %37
+  %43 = getelementptr inbounds i8, ptr %40, i64 8
+  store ptr %.sroa.0.030, ptr %43, align 8
+  br label %44
+
+44:                                               ; preds = %42, %37
+  store ptr %.sroa.0.030, ptr %39, align 8
+  %45 = load ptr, ptr %19, align 8
+  %.not8.i15.i = icmp eq ptr %45, null
+  br i1 %.not8.i15.i, label %46, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+
+46:                                               ; preds = %44
+  store ptr %.sroa.0.030, ptr %19, align 8
+  br label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+
+47:                                               ; preds = %35
+  %48 = getelementptr inbounds i8, ptr %19, i64 32
+  %49 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 8
+  store ptr null, ptr %49, align 8
+  %50 = getelementptr inbounds i8, ptr %19, i64 40
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 16
+  store ptr %51, ptr %52, align 8
+  %.not.i16.i = icmp eq ptr %51, null
+  br i1 %.not.i16.i, label %55, label %53
+
+53:                                               ; preds = %47
+  %54 = getelementptr inbounds i8, ptr %51, i64 8
+  store ptr %.sroa.0.030, ptr %54, align 8
+  br label %55
+
+55:                                               ; preds = %53, %47
+  store ptr %.sroa.0.030, ptr %50, align 8
+  %56 = load ptr, ptr %48, align 8
+  %.not8.i17.i = icmp eq ptr %56, null
+  br i1 %.not8.i17.i, label %57, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+
+57:                                               ; preds = %55
+  store ptr %.sroa.0.030, ptr %48, align 8
+  br label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+
+_ZN8DfgGraph9addVertexER9DfgVertex.exit:          ; preds = %32, %34, %44, %46, %55, %57
   store i32 0, ptr %12, align 4
   store ptr %19, ptr %8, align 8
-  br label %57
+  br label %60
 
-55:                                               ; preds = %_ZN9DfgVertex4userImEERT_v.exit.thread, %_ZN9DfgVertex4userImEERT_v.exit
-  %56 = load ptr, ptr %0, align 8
-  tail call void @_ZN9DfgVertex12unlinkDeleteER8DfgGraph(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.030, ptr noundef nonnull align 8 dereferenceable(104) %56)
-  br label %57
+58:                                               ; preds = %_ZN9DfgVertex4userImEERT_v.exit.thread, %_ZN9DfgVertex4userImEERT_v.exit
+  %59 = load ptr, ptr %0, align 8
+  tail call void @_ZN9DfgVertex12unlinkDeleteER8DfgGraph(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.030, ptr noundef nonnull align 8 dereferenceable(104) %59)
+  br label %60
 
-57:                                               ; preds = %_ZN8DfgGraph9addVertexER9DfgVertex.exit, %55
+60:                                               ; preds = %_ZN8DfgGraph9addVertexER9DfgVertex.exit, %58
   br i1 %.not23, label %._crit_edge, label %5
 
-._crit_edge:                                      ; preds = %57, %2
+._crit_edge:                                      ; preds = %60, %2
   ret void
 }
 
@@ -1823,8 +1830,8 @@ define linkonce_odr dso_local void @_ZN19SplitIntoComponents12moveVerticesI8DfgC
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   br label %5
 
-5:                                                ; preds = %57, %.lr.ph
-  %.sroa.0.030 = phi ptr [ %3, %.lr.ph ], [ %.sroa.7.029, %57 ]
+5:                                                ; preds = %60, %.lr.ph
+  %.sroa.0.030 = phi ptr [ %3, %.lr.ph ], [ %.sroa.7.029, %60 ]
   %.sroa.7.029.in = getelementptr inbounds i8, ptr %.sroa.0.030, i64 8
   %.sroa.7.029 = load ptr, ptr %.sroa.7.029.in, align 8
   %.not23 = icmp eq ptr %.sroa.7.029, null
@@ -1843,12 +1850,12 @@ define linkonce_odr dso_local void @_ZN19SplitIntoComponents12moveVerticesI8DfgC
 _ZN9DfgVertex4userImEERT_v.exit.thread:           ; preds = %5
   store i32 %11, ptr %12, align 4
   store i64 0, ptr %7, align 8
-  br label %55
+  br label %58
 
 _ZN9DfgVertex4userImEERT_v.exit:                  ; preds = %5
   %.pr = load i64, ptr %7, align 8
   %.not24 = icmp eq i64 %.pr, 0
-  br i1 %.not24, label %55, label %14
+  br i1 %.not24, label %58, label %14
 
 14:                                               ; preds = %_ZN9DfgVertex4userImEERT_v.exit
   %15 = load ptr, ptr %0, align 8
@@ -1864,7 +1871,7 @@ _ZN9DfgVertex4userImEERT_v.exit:                  ; preds = %5
   %23 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 56
   %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %23, align 8
   %.not.i26 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i.i, 0
-  br i1 %.not.i26, label %24, label %34
+  br i1 %.not.i26, label %24, label %35
 
 24:                                               ; preds = %14
   %25 = getelementptr inbounds i8, ptr %19, i64 16
@@ -1886,75 +1893,82 @@ _ZN9DfgVertex4userImEERT_v.exit:                  ; preds = %5
   store ptr %.sroa.0.030, ptr %27, align 8
   %33 = load ptr, ptr %25, align 8
   %.not8.i.i = icmp eq ptr %33, null
-  br i1 %.not8.i.i, label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE8linkBackEPKS1_.exit.sink.split.i, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+  br i1 %.not8.i.i, label %34, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
 
-34:                                               ; preds = %14
-  %35 = and i16 %.sroa.0.0.copyload.i.i.i.i.i, -2
-  %spec.select.i.i.i.not.i = icmp eq i16 %35, 152
-  br i1 %spec.select.i.i.i.not.i, label %36, label %45
-
-36:                                               ; preds = %34
-  %37 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 8
-  store ptr null, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %19, i64 8
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 16
-  store ptr %39, ptr %40, align 8
-  %.not.i14.i = icmp eq ptr %39, null
-  br i1 %.not.i14.i, label %43, label %41
-
-41:                                               ; preds = %36
-  %42 = getelementptr inbounds i8, ptr %39, i64 8
-  store ptr %.sroa.0.030, ptr %42, align 8
-  br label %43
-
-43:                                               ; preds = %41, %36
-  store ptr %.sroa.0.030, ptr %38, align 8
-  %44 = load ptr, ptr %19, align 8
-  %.not8.i15.i = icmp eq ptr %44, null
-  br i1 %.not8.i15.i, label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE8linkBackEPKS1_.exit.sink.split.i, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
-
-45:                                               ; preds = %34
-  %46 = getelementptr inbounds i8, ptr %19, i64 32
-  %47 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 8
-  store ptr null, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %19, i64 40
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 16
-  store ptr %49, ptr %50, align 8
-  %.not.i16.i = icmp eq ptr %49, null
-  br i1 %.not.i16.i, label %53, label %51
-
-51:                                               ; preds = %45
-  %52 = getelementptr inbounds i8, ptr %49, i64 8
-  store ptr %.sroa.0.030, ptr %52, align 8
-  br label %53
-
-53:                                               ; preds = %51, %45
-  store ptr %.sroa.0.030, ptr %48, align 8
-  %54 = load ptr, ptr %46, align 8
-  %.not8.i17.i = icmp eq ptr %54, null
-  br i1 %.not8.i17.i, label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE8linkBackEPKS1_.exit.sink.split.i, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
-
-_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE8linkBackEPKS1_.exit.sink.split.i: ; preds = %53, %43, %32
-  %.sink.i = phi ptr [ %25, %32 ], [ %19, %43 ], [ %46, %53 ]
-  store ptr %.sroa.0.030, ptr %.sink.i, align 8
+34:                                               ; preds = %32
+  store ptr %.sroa.0.030, ptr %25, align 8
   br label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
 
-_ZN8DfgGraph9addVertexER9DfgVertex.exit:          ; preds = %32, %43, %53, %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE8linkBackEPKS1_.exit.sink.split.i
+35:                                               ; preds = %14
+  %36 = and i16 %.sroa.0.0.copyload.i.i.i.i.i, -2
+  %spec.select.i.i.i.not.i = icmp eq i16 %36, 152
+  br i1 %spec.select.i.i.i.not.i, label %37, label %47
+
+37:                                               ; preds = %35
+  %38 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 8
+  store ptr null, ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %19, i64 8
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 16
+  store ptr %40, ptr %41, align 8
+  %.not.i14.i = icmp eq ptr %40, null
+  br i1 %.not.i14.i, label %44, label %42
+
+42:                                               ; preds = %37
+  %43 = getelementptr inbounds i8, ptr %40, i64 8
+  store ptr %.sroa.0.030, ptr %43, align 8
+  br label %44
+
+44:                                               ; preds = %42, %37
+  store ptr %.sroa.0.030, ptr %39, align 8
+  %45 = load ptr, ptr %19, align 8
+  %.not8.i15.i = icmp eq ptr %45, null
+  br i1 %.not8.i15.i, label %46, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+
+46:                                               ; preds = %44
+  store ptr %.sroa.0.030, ptr %19, align 8
+  br label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+
+47:                                               ; preds = %35
+  %48 = getelementptr inbounds i8, ptr %19, i64 32
+  %49 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 8
+  store ptr null, ptr %49, align 8
+  %50 = getelementptr inbounds i8, ptr %19, i64 40
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 16
+  store ptr %51, ptr %52, align 8
+  %.not.i16.i = icmp eq ptr %51, null
+  br i1 %.not.i16.i, label %55, label %53
+
+53:                                               ; preds = %47
+  %54 = getelementptr inbounds i8, ptr %51, i64 8
+  store ptr %.sroa.0.030, ptr %54, align 8
+  br label %55
+
+55:                                               ; preds = %53, %47
+  store ptr %.sroa.0.030, ptr %50, align 8
+  %56 = load ptr, ptr %48, align 8
+  %.not8.i17.i = icmp eq ptr %56, null
+  br i1 %.not8.i17.i, label %57, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+
+57:                                               ; preds = %55
+  store ptr %.sroa.0.030, ptr %48, align 8
+  br label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+
+_ZN8DfgGraph9addVertexER9DfgVertex.exit:          ; preds = %32, %34, %44, %46, %55, %57
   store i32 0, ptr %12, align 4
   store ptr %19, ptr %8, align 8
-  br label %57
+  br label %60
 
-55:                                               ; preds = %_ZN9DfgVertex4userImEERT_v.exit.thread, %_ZN9DfgVertex4userImEERT_v.exit
-  %56 = load ptr, ptr %0, align 8
-  tail call void @_ZN9DfgVertex12unlinkDeleteER8DfgGraph(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.030, ptr noundef nonnull align 8 dereferenceable(104) %56)
-  br label %57
+58:                                               ; preds = %_ZN9DfgVertex4userImEERT_v.exit.thread, %_ZN9DfgVertex4userImEERT_v.exit
+  %59 = load ptr, ptr %0, align 8
+  tail call void @_ZN9DfgVertex12unlinkDeleteER8DfgGraph(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.030, ptr noundef nonnull align 8 dereferenceable(104) %59)
+  br label %60
 
-57:                                               ; preds = %_ZN8DfgGraph9addVertexER9DfgVertex.exit, %55
+60:                                               ; preds = %_ZN8DfgGraph9addVertexER9DfgVertex.exit, %58
   br i1 %.not23, label %._crit_edge, label %5
 
-._crit_edge:                                      ; preds = %57, %2
+._crit_edge:                                      ; preds = %60, %2
   ret void
 }
 
@@ -1968,8 +1982,8 @@ define linkonce_odr dso_local void @_ZN19SplitIntoComponents12moveVerticesI9DfgV
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   br label %5
 
-5:                                                ; preds = %57, %.lr.ph
-  %.sroa.0.030 = phi ptr [ %3, %.lr.ph ], [ %.sroa.7.029, %57 ]
+5:                                                ; preds = %60, %.lr.ph
+  %.sroa.0.030 = phi ptr [ %3, %.lr.ph ], [ %.sroa.7.029, %60 ]
   %.sroa.7.029.in = getelementptr inbounds i8, ptr %.sroa.0.030, i64 8
   %.sroa.7.029 = load ptr, ptr %.sroa.7.029.in, align 8
   %.not23 = icmp eq ptr %.sroa.7.029, null
@@ -1988,12 +2002,12 @@ define linkonce_odr dso_local void @_ZN19SplitIntoComponents12moveVerticesI9DfgV
 _ZN9DfgVertex4userImEERT_v.exit.thread:           ; preds = %5
   store i32 %11, ptr %12, align 4
   store i64 0, ptr %7, align 8
-  br label %55
+  br label %58
 
 _ZN9DfgVertex4userImEERT_v.exit:                  ; preds = %5
   %.pr = load i64, ptr %7, align 8
   %.not24 = icmp eq i64 %.pr, 0
-  br i1 %.not24, label %55, label %14
+  br i1 %.not24, label %58, label %14
 
 14:                                               ; preds = %_ZN9DfgVertex4userImEERT_v.exit
   %15 = load ptr, ptr %0, align 8
@@ -2009,7 +2023,7 @@ _ZN9DfgVertex4userImEERT_v.exit:                  ; preds = %5
   %23 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 56
   %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %23, align 8
   %.not.i26 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i.i, 0
-  br i1 %.not.i26, label %24, label %34
+  br i1 %.not.i26, label %24, label %35
 
 24:                                               ; preds = %14
   %25 = getelementptr inbounds i8, ptr %19, i64 16
@@ -2031,75 +2045,82 @@ _ZN9DfgVertex4userImEERT_v.exit:                  ; preds = %5
   store ptr %.sroa.0.030, ptr %27, align 8
   %33 = load ptr, ptr %25, align 8
   %.not8.i.i = icmp eq ptr %33, null
-  br i1 %.not8.i.i, label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE8linkBackEPKS1_.exit.sink.split.i, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+  br i1 %.not8.i.i, label %34, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
 
-34:                                               ; preds = %14
-  %35 = and i16 %.sroa.0.0.copyload.i.i.i.i.i, -2
-  %spec.select.i.i.i.not.i = icmp eq i16 %35, 152
-  br i1 %spec.select.i.i.i.not.i, label %36, label %45
-
-36:                                               ; preds = %34
-  %37 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 8
-  store ptr null, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %19, i64 8
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 16
-  store ptr %39, ptr %40, align 8
-  %.not.i14.i = icmp eq ptr %39, null
-  br i1 %.not.i14.i, label %43, label %41
-
-41:                                               ; preds = %36
-  %42 = getelementptr inbounds i8, ptr %39, i64 8
-  store ptr %.sroa.0.030, ptr %42, align 8
-  br label %43
-
-43:                                               ; preds = %41, %36
-  store ptr %.sroa.0.030, ptr %38, align 8
-  %44 = load ptr, ptr %19, align 8
-  %.not8.i15.i = icmp eq ptr %44, null
-  br i1 %.not8.i15.i, label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE8linkBackEPKS1_.exit.sink.split.i, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
-
-45:                                               ; preds = %34
-  %46 = getelementptr inbounds i8, ptr %19, i64 32
-  %47 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 8
-  store ptr null, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %19, i64 40
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 16
-  store ptr %49, ptr %50, align 8
-  %.not.i16.i = icmp eq ptr %49, null
-  br i1 %.not.i16.i, label %53, label %51
-
-51:                                               ; preds = %45
-  %52 = getelementptr inbounds i8, ptr %49, i64 8
-  store ptr %.sroa.0.030, ptr %52, align 8
-  br label %53
-
-53:                                               ; preds = %51, %45
-  store ptr %.sroa.0.030, ptr %48, align 8
-  %54 = load ptr, ptr %46, align 8
-  %.not8.i17.i = icmp eq ptr %54, null
-  br i1 %.not8.i17.i, label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE8linkBackEPKS1_.exit.sink.split.i, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
-
-_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE8linkBackEPKS1_.exit.sink.split.i: ; preds = %53, %43, %32
-  %.sink.i = phi ptr [ %25, %32 ], [ %19, %43 ], [ %46, %53 ]
-  store ptr %.sroa.0.030, ptr %.sink.i, align 8
+34:                                               ; preds = %32
+  store ptr %.sroa.0.030, ptr %25, align 8
   br label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
 
-_ZN8DfgGraph9addVertexER9DfgVertex.exit:          ; preds = %32, %43, %53, %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE8linkBackEPKS1_.exit.sink.split.i
+35:                                               ; preds = %14
+  %36 = and i16 %.sroa.0.0.copyload.i.i.i.i.i, -2
+  %spec.select.i.i.i.not.i = icmp eq i16 %36, 152
+  br i1 %spec.select.i.i.i.not.i, label %37, label %47
+
+37:                                               ; preds = %35
+  %38 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 8
+  store ptr null, ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %19, i64 8
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 16
+  store ptr %40, ptr %41, align 8
+  %.not.i14.i = icmp eq ptr %40, null
+  br i1 %.not.i14.i, label %44, label %42
+
+42:                                               ; preds = %37
+  %43 = getelementptr inbounds i8, ptr %40, i64 8
+  store ptr %.sroa.0.030, ptr %43, align 8
+  br label %44
+
+44:                                               ; preds = %42, %37
+  store ptr %.sroa.0.030, ptr %39, align 8
+  %45 = load ptr, ptr %19, align 8
+  %.not8.i15.i = icmp eq ptr %45, null
+  br i1 %.not8.i15.i, label %46, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+
+46:                                               ; preds = %44
+  store ptr %.sroa.0.030, ptr %19, align 8
+  br label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+
+47:                                               ; preds = %35
+  %48 = getelementptr inbounds i8, ptr %19, i64 32
+  %49 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 8
+  store ptr null, ptr %49, align 8
+  %50 = getelementptr inbounds i8, ptr %19, i64 40
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 16
+  store ptr %51, ptr %52, align 8
+  %.not.i16.i = icmp eq ptr %51, null
+  br i1 %.not.i16.i, label %55, label %53
+
+53:                                               ; preds = %47
+  %54 = getelementptr inbounds i8, ptr %51, i64 8
+  store ptr %.sroa.0.030, ptr %54, align 8
+  br label %55
+
+55:                                               ; preds = %53, %47
+  store ptr %.sroa.0.030, ptr %50, align 8
+  %56 = load ptr, ptr %48, align 8
+  %.not8.i17.i = icmp eq ptr %56, null
+  br i1 %.not8.i17.i, label %57, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+
+57:                                               ; preds = %55
+  store ptr %.sroa.0.030, ptr %48, align 8
+  br label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+
+_ZN8DfgGraph9addVertexER9DfgVertex.exit:          ; preds = %32, %34, %44, %46, %55, %57
   store i32 0, ptr %12, align 4
   store ptr %19, ptr %8, align 8
-  br label %57
+  br label %60
 
-55:                                               ; preds = %_ZN9DfgVertex4userImEERT_v.exit.thread, %_ZN9DfgVertex4userImEERT_v.exit
-  %56 = load ptr, ptr %0, align 8
-  tail call void @_ZN9DfgVertex12unlinkDeleteER8DfgGraph(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.030, ptr noundef nonnull align 8 dereferenceable(104) %56)
-  br label %57
+58:                                               ; preds = %_ZN9DfgVertex4userImEERT_v.exit.thread, %_ZN9DfgVertex4userImEERT_v.exit
+  %59 = load ptr, ptr %0, align 8
+  tail call void @_ZN9DfgVertex12unlinkDeleteER8DfgGraph(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.030, ptr noundef nonnull align 8 dereferenceable(104) %59)
+  br label %60
 
-57:                                               ; preds = %_ZN8DfgGraph9addVertexER9DfgVertex.exit, %55
+60:                                               ; preds = %_ZN8DfgGraph9addVertexER9DfgVertex.exit, %58
   br i1 %.not23, label %._crit_edge, label %5
 
-._crit_edge:                                      ; preds = %57, %2
+._crit_edge:                                      ; preds = %60, %2
   ret void
 }
 
@@ -2512,7 +2533,7 @@ define linkonce_odr dso_local void @_ZN8DfgGraph12removeVertexER9DfgVertex(ptr n
   %6 = getelementptr inbounds i8, ptr %1, i64 56
   %.sroa.0.0.copyload.i.i.i.i = load i16, ptr %6, align 8
   %.not = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i, 0
-  br i1 %.not, label %7, label %25
+  br i1 %.not, label %7, label %27
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2552,107 +2573,114 @@ define linkonce_odr dso_local void @_ZN8DfgGraph12removeVertexER9DfgVertex(ptr n
   %22 = getelementptr inbounds i8, ptr %0, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, %1
-  br i1 %24, label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE6unlinkEPKS1_.exit.sink.split, label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE6unlinkEPKS1_.exit
+  br i1 %24, label %25, label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE6unlinkEPKS1_.exit
 
-25:                                               ; preds = %2
-  %26 = and i16 %.sroa.0.0.copyload.i.i.i.i, -2
-  %spec.select.i.i.i.not = icmp eq i16 %26, 152
-  br i1 %spec.select.i.i.i.not, label %27, label %44
-
-27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
-  %29 = load ptr, ptr %28, align 8
-  %.not.i14 = icmp eq ptr %29, null
-  %.phi.trans.insert.i15 = getelementptr inbounds i8, ptr %1, i64 16
-  %.pre.i16 = load ptr, ptr %.phi.trans.insert.i15, align 8
-  br i1 %.not.i14, label %._crit_edge.i17, label %30
-
-30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %29, i64 16
-  store ptr %.pre.i16, ptr %31, align 8
-  br label %._crit_edge.i17
-
-._crit_edge.i17:                                  ; preds = %30, %27
-  %.not18.i18 = icmp eq ptr %.pre.i16, null
-  br i1 %.not18.i18, label %35, label %32
-
-32:                                               ; preds = %._crit_edge.i17
-  %33 = load ptr, ptr %28, align 8
-  %34 = getelementptr inbounds i8, ptr %.pre.i16, i64 8
-  store ptr %33, ptr %34, align 8
-  br label %35
-
-35:                                               ; preds = %32, %._crit_edge.i17
-  %36 = load ptr, ptr %0, align 8
-  %37 = icmp eq ptr %36, %1
-  br i1 %37, label %38, label %40
-
-38:                                               ; preds = %35
-  %39 = load ptr, ptr %28, align 8
-  store ptr %39, ptr %0, align 8
-  br label %40
-
-40:                                               ; preds = %38, %35
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = icmp eq ptr %42, %1
-  br i1 %43, label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE6unlinkEPKS1_.exit.sink.split, label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE6unlinkEPKS1_.exit
-
-44:                                               ; preds = %25
-  %45 = getelementptr inbounds i8, ptr %0, i64 32
-  %46 = getelementptr inbounds i8, ptr %1, i64 8
-  %47 = load ptr, ptr %46, align 8
-  %.not.i19 = icmp eq ptr %47, null
-  %.phi.trans.insert.i20 = getelementptr inbounds i8, ptr %1, i64 16
-  %.pre.i21 = load ptr, ptr %.phi.trans.insert.i20, align 8
-  br i1 %.not.i19, label %._crit_edge.i22, label %48
-
-48:                                               ; preds = %44
-  %49 = getelementptr inbounds i8, ptr %47, i64 16
-  store ptr %.pre.i21, ptr %49, align 8
-  br label %._crit_edge.i22
-
-._crit_edge.i22:                                  ; preds = %48, %44
-  %.not18.i23 = icmp eq ptr %.pre.i21, null
-  br i1 %.not18.i23, label %53, label %50
-
-50:                                               ; preds = %._crit_edge.i22
-  %51 = load ptr, ptr %46, align 8
-  %52 = getelementptr inbounds i8, ptr %.pre.i21, i64 8
-  store ptr %51, ptr %52, align 8
-  br label %53
-
-53:                                               ; preds = %50, %._crit_edge.i22
-  %54 = load ptr, ptr %45, align 8
-  %55 = icmp eq ptr %54, %1
-  br i1 %55, label %56, label %58
-
-56:                                               ; preds = %53
-  %57 = load ptr, ptr %46, align 8
-  store ptr %57, ptr %45, align 8
-  br label %58
-
-58:                                               ; preds = %56, %53
-  %59 = getelementptr inbounds i8, ptr %0, i64 40
-  %60 = load ptr, ptr %59, align 8
-  %61 = icmp eq ptr %60, %1
-  br i1 %61, label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE6unlinkEPKS1_.exit.sink.split, label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE6unlinkEPKS1_.exit
-
-_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE6unlinkEPKS1_.exit.sink.split: ; preds = %58, %40, %21
-  %.phi.trans.insert.i20.sink = phi ptr [ %.phi.trans.insert.i, %21 ], [ %.phi.trans.insert.i15, %40 ], [ %.phi.trans.insert.i20, %58 ]
-  %.sink25 = phi ptr [ %22, %21 ], [ %41, %40 ], [ %59, %58 ]
-  %.sink.ph = phi ptr [ %9, %21 ], [ %28, %40 ], [ %46, %58 ]
-  %62 = load ptr, ptr %.phi.trans.insert.i20.sink, align 8
-  store ptr %62, ptr %.sink25, align 8
+25:                                               ; preds = %21
+  %26 = load ptr, ptr %.phi.trans.insert.i, align 8
+  store ptr %26, ptr %22, align 8
   br label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE6unlinkEPKS1_.exit
 
-_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE6unlinkEPKS1_.exit: ; preds = %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE6unlinkEPKS1_.exit.sink.split, %58, %40, %21
-  %.sink = phi ptr [ %9, %21 ], [ %28, %40 ], [ %46, %58 ], [ %.sink.ph, %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE6unlinkEPKS1_.exit.sink.split ]
+27:                                               ; preds = %2
+  %28 = and i16 %.sroa.0.0.copyload.i.i.i.i, -2
+  %spec.select.i.i.i.not = icmp eq i16 %28, 152
+  br i1 %spec.select.i.i.i.not, label %29, label %48
+
+29:                                               ; preds = %27
+  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = load ptr, ptr %30, align 8
+  %.not.i14 = icmp eq ptr %31, null
+  %.phi.trans.insert.i15 = getelementptr inbounds i8, ptr %1, i64 16
+  %.pre.i16 = load ptr, ptr %.phi.trans.insert.i15, align 8
+  br i1 %.not.i14, label %._crit_edge.i17, label %32
+
+32:                                               ; preds = %29
+  %33 = getelementptr inbounds i8, ptr %31, i64 16
+  store ptr %.pre.i16, ptr %33, align 8
+  br label %._crit_edge.i17
+
+._crit_edge.i17:                                  ; preds = %32, %29
+  %.not18.i18 = icmp eq ptr %.pre.i16, null
+  br i1 %.not18.i18, label %37, label %34
+
+34:                                               ; preds = %._crit_edge.i17
+  %35 = load ptr, ptr %30, align 8
+  %36 = getelementptr inbounds i8, ptr %.pre.i16, i64 8
+  store ptr %35, ptr %36, align 8
+  br label %37
+
+37:                                               ; preds = %34, %._crit_edge.i17
+  %38 = load ptr, ptr %0, align 8
+  %39 = icmp eq ptr %38, %1
+  br i1 %39, label %40, label %42
+
+40:                                               ; preds = %37
+  %41 = load ptr, ptr %30, align 8
+  store ptr %41, ptr %0, align 8
+  br label %42
+
+42:                                               ; preds = %40, %37
+  %43 = getelementptr inbounds i8, ptr %0, i64 8
+  %44 = load ptr, ptr %43, align 8
+  %45 = icmp eq ptr %44, %1
+  br i1 %45, label %46, label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE6unlinkEPKS1_.exit
+
+46:                                               ; preds = %42
+  %47 = load ptr, ptr %.phi.trans.insert.i15, align 8
+  store ptr %47, ptr %43, align 8
+  br label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE6unlinkEPKS1_.exit
+
+48:                                               ; preds = %27
+  %49 = getelementptr inbounds i8, ptr %0, i64 32
+  %50 = getelementptr inbounds i8, ptr %1, i64 8
+  %51 = load ptr, ptr %50, align 8
+  %.not.i19 = icmp eq ptr %51, null
+  %.phi.trans.insert.i20 = getelementptr inbounds i8, ptr %1, i64 16
+  %.pre.i21 = load ptr, ptr %.phi.trans.insert.i20, align 8
+  br i1 %.not.i19, label %._crit_edge.i22, label %52
+
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds i8, ptr %51, i64 16
+  store ptr %.pre.i21, ptr %53, align 8
+  br label %._crit_edge.i22
+
+._crit_edge.i22:                                  ; preds = %52, %48
+  %.not18.i23 = icmp eq ptr %.pre.i21, null
+  br i1 %.not18.i23, label %57, label %54
+
+54:                                               ; preds = %._crit_edge.i22
+  %55 = load ptr, ptr %50, align 8
+  %56 = getelementptr inbounds i8, ptr %.pre.i21, i64 8
+  store ptr %55, ptr %56, align 8
+  br label %57
+
+57:                                               ; preds = %54, %._crit_edge.i22
+  %58 = load ptr, ptr %49, align 8
+  %59 = icmp eq ptr %58, %1
+  br i1 %59, label %60, label %62
+
+60:                                               ; preds = %57
+  %61 = load ptr, ptr %50, align 8
+  store ptr %61, ptr %49, align 8
+  br label %62
+
+62:                                               ; preds = %60, %57
+  %63 = getelementptr inbounds i8, ptr %0, i64 40
+  %64 = load ptr, ptr %63, align 8
+  %65 = icmp eq ptr %64, %1
+  br i1 %65, label %66, label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE6unlinkEPKS1_.exit
+
+66:                                               ; preds = %62
+  %67 = load ptr, ptr %.phi.trans.insert.i20, align 8
+  store ptr %67, ptr %63, align 8
+  br label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE6unlinkEPKS1_.exit
+
+_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE6unlinkEPKS1_.exit: ; preds = %66, %62, %46, %42, %25, %21
+  %.sink = phi ptr [ %9, %21 ], [ %9, %25 ], [ %30, %42 ], [ %30, %46 ], [ %50, %62 ], [ %50, %66 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sink, i8 0, i64 16, i1 false)
-  %63 = getelementptr inbounds i8, ptr %1, i64 60
-  store i32 0, ptr %63, align 4
-  %64 = getelementptr inbounds i8, ptr %1, i64 48
-  store ptr null, ptr %64, align 8
+  %68 = getelementptr inbounds i8, ptr %1, i64 60
+  store i32 0, ptr %68, align 4
+  %69 = getelementptr inbounds i8, ptr %1, i64 48
+  store ptr null, ptr %69, align 8
   ret void
 }
 
@@ -5349,8 +5377,8 @@ define linkonce_odr dso_local void @_ZN23ExtractCyclicComponents12moveVerticesI1
   %4 = getelementptr inbounds i8, ptr %0, i64 168
   br label %5
 
-5:                                                ; preds = %54, %.lr.ph
-  %.sroa.0.028 = phi ptr [ %3, %.lr.ph ], [ %.sroa.7.027, %54 ]
+5:                                                ; preds = %57, %.lr.ph
+  %.sroa.0.028 = phi ptr [ %3, %.lr.ph ], [ %.sroa.7.027, %57 ]
   %.sroa.7.027.in = getelementptr inbounds i8, ptr %.sroa.0.028, i64 8
   %.sroa.7.027 = load ptr, ptr %.sroa.7.027.in, align 8
   %.not23 = icmp eq ptr %.sroa.7.027, null
@@ -5361,7 +5389,7 @@ define linkonce_odr dso_local void @_ZN23ExtractCyclicComponents12moveVerticesI1
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load i64, ptr %9, align 8
   %.not24 = icmp eq i64 %10, 0
-  br i1 %.not24, label %54, label %11
+  br i1 %.not24, label %57, label %11
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %0, align 8
@@ -5377,7 +5405,7 @@ define linkonce_odr dso_local void @_ZN23ExtractCyclicComponents12moveVerticesI1
   %20 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 56
   %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %20, align 8
   %.not.i25 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i.i, 0
-  br i1 %.not.i25, label %21, label %31
+  br i1 %.not.i25, label %21, label %32
 
 21:                                               ; preds = %11
   %22 = getelementptr inbounds i8, ptr %16, i64 16
@@ -5399,72 +5427,79 @@ define linkonce_odr dso_local void @_ZN23ExtractCyclicComponents12moveVerticesI1
   store ptr %.sroa.0.028, ptr %24, align 8
   %30 = load ptr, ptr %22, align 8
   %.not8.i.i = icmp eq ptr %30, null
-  br i1 %.not8.i.i, label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE8linkBackEPKS1_.exit.sink.split.i, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+  br i1 %.not8.i.i, label %31, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
 
-31:                                               ; preds = %11
-  %32 = and i16 %.sroa.0.0.copyload.i.i.i.i.i, -2
-  %spec.select.i.i.i.not.i = icmp eq i16 %32, 152
-  br i1 %spec.select.i.i.i.not.i, label %33, label %42
-
-33:                                               ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 8
-  store ptr null, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %16, i64 8
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 16
-  store ptr %36, ptr %37, align 8
-  %.not.i14.i = icmp eq ptr %36, null
-  br i1 %.not.i14.i, label %40, label %38
-
-38:                                               ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %36, i64 8
-  store ptr %.sroa.0.028, ptr %39, align 8
-  br label %40
-
-40:                                               ; preds = %38, %33
-  store ptr %.sroa.0.028, ptr %35, align 8
-  %41 = load ptr, ptr %16, align 8
-  %.not8.i15.i = icmp eq ptr %41, null
-  br i1 %.not8.i15.i, label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE8linkBackEPKS1_.exit.sink.split.i, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
-
-42:                                               ; preds = %31
-  %43 = getelementptr inbounds i8, ptr %16, i64 32
-  %44 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 8
-  store ptr null, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %16, i64 40
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 16
-  store ptr %46, ptr %47, align 8
-  %.not.i16.i = icmp eq ptr %46, null
-  br i1 %.not.i16.i, label %50, label %48
-
-48:                                               ; preds = %42
-  %49 = getelementptr inbounds i8, ptr %46, i64 8
-  store ptr %.sroa.0.028, ptr %49, align 8
-  br label %50
-
-50:                                               ; preds = %48, %42
-  store ptr %.sroa.0.028, ptr %45, align 8
-  %51 = load ptr, ptr %43, align 8
-  %.not8.i17.i = icmp eq ptr %51, null
-  br i1 %.not8.i17.i, label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE8linkBackEPKS1_.exit.sink.split.i, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
-
-_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE8linkBackEPKS1_.exit.sink.split.i: ; preds = %50, %40, %29
-  %.sink.i = phi ptr [ %22, %29 ], [ %16, %40 ], [ %43, %50 ]
-  store ptr %.sroa.0.028, ptr %.sink.i, align 8
+31:                                               ; preds = %29
+  store ptr %.sroa.0.028, ptr %22, align 8
   br label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
 
-_ZN8DfgGraph9addVertexER9DfgVertex.exit:          ; preds = %29, %40, %50, %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE8linkBackEPKS1_.exit.sink.split.i
-  %52 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 60
-  store i32 0, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 48
-  store ptr %16, ptr %53, align 8
-  br label %54
+32:                                               ; preds = %11
+  %33 = and i16 %.sroa.0.0.copyload.i.i.i.i.i, -2
+  %spec.select.i.i.i.not.i = icmp eq i16 %33, 152
+  br i1 %spec.select.i.i.i.not.i, label %34, label %44
 
-54:                                               ; preds = %5, %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+34:                                               ; preds = %32
+  %35 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 8
+  store ptr null, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %16, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 16
+  store ptr %37, ptr %38, align 8
+  %.not.i14.i = icmp eq ptr %37, null
+  br i1 %.not.i14.i, label %41, label %39
+
+39:                                               ; preds = %34
+  %40 = getelementptr inbounds i8, ptr %37, i64 8
+  store ptr %.sroa.0.028, ptr %40, align 8
+  br label %41
+
+41:                                               ; preds = %39, %34
+  store ptr %.sroa.0.028, ptr %36, align 8
+  %42 = load ptr, ptr %16, align 8
+  %.not8.i15.i = icmp eq ptr %42, null
+  br i1 %.not8.i15.i, label %43, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+
+43:                                               ; preds = %41
+  store ptr %.sroa.0.028, ptr %16, align 8
+  br label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+
+44:                                               ; preds = %32
+  %45 = getelementptr inbounds i8, ptr %16, i64 32
+  %46 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 8
+  store ptr null, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %16, i64 40
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 16
+  store ptr %48, ptr %49, align 8
+  %.not.i16.i = icmp eq ptr %48, null
+  br i1 %.not.i16.i, label %52, label %50
+
+50:                                               ; preds = %44
+  %51 = getelementptr inbounds i8, ptr %48, i64 8
+  store ptr %.sroa.0.028, ptr %51, align 8
+  br label %52
+
+52:                                               ; preds = %50, %44
+  store ptr %.sroa.0.028, ptr %47, align 8
+  %53 = load ptr, ptr %45, align 8
+  %.not8.i17.i = icmp eq ptr %53, null
+  br i1 %.not8.i17.i, label %54, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+
+54:                                               ; preds = %52
+  store ptr %.sroa.0.028, ptr %45, align 8
+  br label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+
+_ZN8DfgGraph9addVertexER9DfgVertex.exit:          ; preds = %29, %31, %41, %43, %52, %54
+  %55 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 60
+  store i32 0, ptr %55, align 4
+  %56 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 48
+  store ptr %16, ptr %56, align 8
+  br label %57
+
+57:                                               ; preds = %5, %_ZN8DfgGraph9addVertexER9DfgVertex.exit
   br i1 %.not23, label %._crit_edge, label %5
 
-._crit_edge:                                      ; preds = %54, %2
+._crit_edge:                                      ; preds = %57, %2
   ret void
 }
 
@@ -5478,8 +5513,8 @@ define linkonce_odr dso_local void @_ZN23ExtractCyclicComponents12moveVerticesI8
   %4 = getelementptr inbounds i8, ptr %0, i64 168
   br label %5
 
-5:                                                ; preds = %54, %.lr.ph
-  %.sroa.0.028 = phi ptr [ %3, %.lr.ph ], [ %.sroa.7.027, %54 ]
+5:                                                ; preds = %57, %.lr.ph
+  %.sroa.0.028 = phi ptr [ %3, %.lr.ph ], [ %.sroa.7.027, %57 ]
   %.sroa.7.027.in = getelementptr inbounds i8, ptr %.sroa.0.028, i64 8
   %.sroa.7.027 = load ptr, ptr %.sroa.7.027.in, align 8
   %.not23 = icmp eq ptr %.sroa.7.027, null
@@ -5490,7 +5525,7 @@ define linkonce_odr dso_local void @_ZN23ExtractCyclicComponents12moveVerticesI8
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load i64, ptr %9, align 8
   %.not24 = icmp eq i64 %10, 0
-  br i1 %.not24, label %54, label %11
+  br i1 %.not24, label %57, label %11
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %0, align 8
@@ -5506,7 +5541,7 @@ define linkonce_odr dso_local void @_ZN23ExtractCyclicComponents12moveVerticesI8
   %20 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 56
   %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %20, align 8
   %.not.i25 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i.i, 0
-  br i1 %.not.i25, label %21, label %31
+  br i1 %.not.i25, label %21, label %32
 
 21:                                               ; preds = %11
   %22 = getelementptr inbounds i8, ptr %16, i64 16
@@ -5528,72 +5563,79 @@ define linkonce_odr dso_local void @_ZN23ExtractCyclicComponents12moveVerticesI8
   store ptr %.sroa.0.028, ptr %24, align 8
   %30 = load ptr, ptr %22, align 8
   %.not8.i.i = icmp eq ptr %30, null
-  br i1 %.not8.i.i, label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE8linkBackEPKS1_.exit.sink.split.i, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+  br i1 %.not8.i.i, label %31, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
 
-31:                                               ; preds = %11
-  %32 = and i16 %.sroa.0.0.copyload.i.i.i.i.i, -2
-  %spec.select.i.i.i.not.i = icmp eq i16 %32, 152
-  br i1 %spec.select.i.i.i.not.i, label %33, label %42
-
-33:                                               ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 8
-  store ptr null, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %16, i64 8
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 16
-  store ptr %36, ptr %37, align 8
-  %.not.i14.i = icmp eq ptr %36, null
-  br i1 %.not.i14.i, label %40, label %38
-
-38:                                               ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %36, i64 8
-  store ptr %.sroa.0.028, ptr %39, align 8
-  br label %40
-
-40:                                               ; preds = %38, %33
-  store ptr %.sroa.0.028, ptr %35, align 8
-  %41 = load ptr, ptr %16, align 8
-  %.not8.i15.i = icmp eq ptr %41, null
-  br i1 %.not8.i15.i, label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE8linkBackEPKS1_.exit.sink.split.i, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
-
-42:                                               ; preds = %31
-  %43 = getelementptr inbounds i8, ptr %16, i64 32
-  %44 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 8
-  store ptr null, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %16, i64 40
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 16
-  store ptr %46, ptr %47, align 8
-  %.not.i16.i = icmp eq ptr %46, null
-  br i1 %.not.i16.i, label %50, label %48
-
-48:                                               ; preds = %42
-  %49 = getelementptr inbounds i8, ptr %46, i64 8
-  store ptr %.sroa.0.028, ptr %49, align 8
-  br label %50
-
-50:                                               ; preds = %48, %42
-  store ptr %.sroa.0.028, ptr %45, align 8
-  %51 = load ptr, ptr %43, align 8
-  %.not8.i17.i = icmp eq ptr %51, null
-  br i1 %.not8.i17.i, label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE8linkBackEPKS1_.exit.sink.split.i, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
-
-_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE8linkBackEPKS1_.exit.sink.split.i: ; preds = %50, %40, %29
-  %.sink.i = phi ptr [ %22, %29 ], [ %16, %40 ], [ %43, %50 ]
-  store ptr %.sroa.0.028, ptr %.sink.i, align 8
+31:                                               ; preds = %29
+  store ptr %.sroa.0.028, ptr %22, align 8
   br label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
 
-_ZN8DfgGraph9addVertexER9DfgVertex.exit:          ; preds = %29, %40, %50, %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE8linkBackEPKS1_.exit.sink.split.i
-  %52 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 60
-  store i32 0, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 48
-  store ptr %16, ptr %53, align 8
-  br label %54
+32:                                               ; preds = %11
+  %33 = and i16 %.sroa.0.0.copyload.i.i.i.i.i, -2
+  %spec.select.i.i.i.not.i = icmp eq i16 %33, 152
+  br i1 %spec.select.i.i.i.not.i, label %34, label %44
 
-54:                                               ; preds = %5, %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+34:                                               ; preds = %32
+  %35 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 8
+  store ptr null, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %16, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 16
+  store ptr %37, ptr %38, align 8
+  %.not.i14.i = icmp eq ptr %37, null
+  br i1 %.not.i14.i, label %41, label %39
+
+39:                                               ; preds = %34
+  %40 = getelementptr inbounds i8, ptr %37, i64 8
+  store ptr %.sroa.0.028, ptr %40, align 8
+  br label %41
+
+41:                                               ; preds = %39, %34
+  store ptr %.sroa.0.028, ptr %36, align 8
+  %42 = load ptr, ptr %16, align 8
+  %.not8.i15.i = icmp eq ptr %42, null
+  br i1 %.not8.i15.i, label %43, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+
+43:                                               ; preds = %41
+  store ptr %.sroa.0.028, ptr %16, align 8
+  br label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+
+44:                                               ; preds = %32
+  %45 = getelementptr inbounds i8, ptr %16, i64 32
+  %46 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 8
+  store ptr null, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %16, i64 40
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 16
+  store ptr %48, ptr %49, align 8
+  %.not.i16.i = icmp eq ptr %48, null
+  br i1 %.not.i16.i, label %52, label %50
+
+50:                                               ; preds = %44
+  %51 = getelementptr inbounds i8, ptr %48, i64 8
+  store ptr %.sroa.0.028, ptr %51, align 8
+  br label %52
+
+52:                                               ; preds = %50, %44
+  store ptr %.sroa.0.028, ptr %47, align 8
+  %53 = load ptr, ptr %45, align 8
+  %.not8.i17.i = icmp eq ptr %53, null
+  br i1 %.not8.i17.i, label %54, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+
+54:                                               ; preds = %52
+  store ptr %.sroa.0.028, ptr %45, align 8
+  br label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+
+_ZN8DfgGraph9addVertexER9DfgVertex.exit:          ; preds = %29, %31, %41, %43, %52, %54
+  %55 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 60
+  store i32 0, ptr %55, align 4
+  %56 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 48
+  store ptr %16, ptr %56, align 8
+  br label %57
+
+57:                                               ; preds = %5, %_ZN8DfgGraph9addVertexER9DfgVertex.exit
   br i1 %.not23, label %._crit_edge, label %5
 
-._crit_edge:                                      ; preds = %54, %2
+._crit_edge:                                      ; preds = %57, %2
   ret void
 }
 
@@ -5607,8 +5649,8 @@ define linkonce_odr dso_local void @_ZN23ExtractCyclicComponents12moveVerticesI9
   %4 = getelementptr inbounds i8, ptr %0, i64 168
   br label %5
 
-5:                                                ; preds = %54, %.lr.ph
-  %.sroa.0.028 = phi ptr [ %3, %.lr.ph ], [ %.sroa.7.027, %54 ]
+5:                                                ; preds = %57, %.lr.ph
+  %.sroa.0.028 = phi ptr [ %3, %.lr.ph ], [ %.sroa.7.027, %57 ]
   %.sroa.7.027.in = getelementptr inbounds i8, ptr %.sroa.0.028, i64 8
   %.sroa.7.027 = load ptr, ptr %.sroa.7.027.in, align 8
   %.not23 = icmp eq ptr %.sroa.7.027, null
@@ -5619,7 +5661,7 @@ define linkonce_odr dso_local void @_ZN23ExtractCyclicComponents12moveVerticesI9
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load i64, ptr %9, align 8
   %.not24 = icmp eq i64 %10, 0
-  br i1 %.not24, label %54, label %11
+  br i1 %.not24, label %57, label %11
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %0, align 8
@@ -5635,7 +5677,7 @@ define linkonce_odr dso_local void @_ZN23ExtractCyclicComponents12moveVerticesI9
   %20 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 56
   %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %20, align 8
   %.not.i25 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i.i, 0
-  br i1 %.not.i25, label %21, label %31
+  br i1 %.not.i25, label %21, label %32
 
 21:                                               ; preds = %11
   %22 = getelementptr inbounds i8, ptr %16, i64 16
@@ -5657,72 +5699,79 @@ define linkonce_odr dso_local void @_ZN23ExtractCyclicComponents12moveVerticesI9
   store ptr %.sroa.0.028, ptr %24, align 8
   %30 = load ptr, ptr %22, align 8
   %.not8.i.i = icmp eq ptr %30, null
-  br i1 %.not8.i.i, label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE8linkBackEPKS1_.exit.sink.split.i, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+  br i1 %.not8.i.i, label %31, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
 
-31:                                               ; preds = %11
-  %32 = and i16 %.sroa.0.0.copyload.i.i.i.i.i, -2
-  %spec.select.i.i.i.not.i = icmp eq i16 %32, 152
-  br i1 %spec.select.i.i.i.not.i, label %33, label %42
-
-33:                                               ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 8
-  store ptr null, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %16, i64 8
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 16
-  store ptr %36, ptr %37, align 8
-  %.not.i14.i = icmp eq ptr %36, null
-  br i1 %.not.i14.i, label %40, label %38
-
-38:                                               ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %36, i64 8
-  store ptr %.sroa.0.028, ptr %39, align 8
-  br label %40
-
-40:                                               ; preds = %38, %33
-  store ptr %.sroa.0.028, ptr %35, align 8
-  %41 = load ptr, ptr %16, align 8
-  %.not8.i15.i = icmp eq ptr %41, null
-  br i1 %.not8.i15.i, label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE8linkBackEPKS1_.exit.sink.split.i, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
-
-42:                                               ; preds = %31
-  %43 = getelementptr inbounds i8, ptr %16, i64 32
-  %44 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 8
-  store ptr null, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %16, i64 40
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 16
-  store ptr %46, ptr %47, align 8
-  %.not.i16.i = icmp eq ptr %46, null
-  br i1 %.not.i16.i, label %50, label %48
-
-48:                                               ; preds = %42
-  %49 = getelementptr inbounds i8, ptr %46, i64 8
-  store ptr %.sroa.0.028, ptr %49, align 8
-  br label %50
-
-50:                                               ; preds = %48, %42
-  store ptr %.sroa.0.028, ptr %45, align 8
-  %51 = load ptr, ptr %43, align 8
-  %.not8.i17.i = icmp eq ptr %51, null
-  br i1 %.not8.i17.i, label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE8linkBackEPKS1_.exit.sink.split.i, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
-
-_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE8linkBackEPKS1_.exit.sink.split.i: ; preds = %50, %40, %29
-  %.sink.i = phi ptr [ %22, %29 ], [ %16, %40 ], [ %43, %50 ]
-  store ptr %.sroa.0.028, ptr %.sink.i, align 8
+31:                                               ; preds = %29
+  store ptr %.sroa.0.028, ptr %22, align 8
   br label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
 
-_ZN8DfgGraph9addVertexER9DfgVertex.exit:          ; preds = %29, %40, %50, %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE8linkBackEPKS1_.exit.sink.split.i
-  %52 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 60
-  store i32 0, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 48
-  store ptr %16, ptr %53, align 8
-  br label %54
+32:                                               ; preds = %11
+  %33 = and i16 %.sroa.0.0.copyload.i.i.i.i.i, -2
+  %spec.select.i.i.i.not.i = icmp eq i16 %33, 152
+  br i1 %spec.select.i.i.i.not.i, label %34, label %44
 
-54:                                               ; preds = %5, %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+34:                                               ; preds = %32
+  %35 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 8
+  store ptr null, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %16, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 16
+  store ptr %37, ptr %38, align 8
+  %.not.i14.i = icmp eq ptr %37, null
+  br i1 %.not.i14.i, label %41, label %39
+
+39:                                               ; preds = %34
+  %40 = getelementptr inbounds i8, ptr %37, i64 8
+  store ptr %.sroa.0.028, ptr %40, align 8
+  br label %41
+
+41:                                               ; preds = %39, %34
+  store ptr %.sroa.0.028, ptr %36, align 8
+  %42 = load ptr, ptr %16, align 8
+  %.not8.i15.i = icmp eq ptr %42, null
+  br i1 %.not8.i15.i, label %43, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+
+43:                                               ; preds = %41
+  store ptr %.sroa.0.028, ptr %16, align 8
+  br label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+
+44:                                               ; preds = %32
+  %45 = getelementptr inbounds i8, ptr %16, i64 32
+  %46 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 8
+  store ptr null, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %16, i64 40
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 16
+  store ptr %48, ptr %49, align 8
+  %.not.i16.i = icmp eq ptr %48, null
+  br i1 %.not.i16.i, label %52, label %50
+
+50:                                               ; preds = %44
+  %51 = getelementptr inbounds i8, ptr %48, i64 8
+  store ptr %.sroa.0.028, ptr %51, align 8
+  br label %52
+
+52:                                               ; preds = %50, %44
+  store ptr %.sroa.0.028, ptr %47, align 8
+  %53 = load ptr, ptr %45, align 8
+  %.not8.i17.i = icmp eq ptr %53, null
+  br i1 %.not8.i17.i, label %54, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+
+54:                                               ; preds = %52
+  store ptr %.sroa.0.028, ptr %45, align 8
+  br label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+
+_ZN8DfgGraph9addVertexER9DfgVertex.exit:          ; preds = %29, %31, %41, %43, %52, %54
+  %55 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 60
+  store i32 0, ptr %55, align 4
+  %56 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 48
+  store ptr %16, ptr %56, align 8
+  br label %57
+
+57:                                               ; preds = %5, %_ZN8DfgGraph9addVertexER9DfgVertex.exit
   br i1 %.not23, label %._crit_edge, label %5
 
-._crit_edge:                                      ; preds = %54, %2
+._crit_edge:                                      ; preds = %57, %2
   ret void
 }
 
@@ -7034,22 +7083,18 @@ _ZNSt10_HashtableIPK12DfgVertexVarSt4pairIKS2_St13unordered_mapImPS0_St4hashImES
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
-  br label %.sink.split
+  store ptr %.031, ptr %25, align 8
+  br label %29
 
 26:                                               ; preds = %.lr.ph
   %27 = load ptr, ptr %20, align 8
   store ptr %27, ptr %.031, align 8
   %28 = load ptr, ptr %19, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %26, %24
-  %.sink = phi ptr [ %25, %24 ], [ %28, %26 ]
-  %.1.ph = phi i64 [ %18, %24 ], [ %.02530, %26 ]
-  store ptr %.031, ptr %.sink, align 8
+  store ptr %.031, ptr %28, align 8
   br label %29
 
-29:                                               ; preds = %.sink.split, %21
-  %.1 = phi i64 [ %18, %21 ], [ %.1.ph, %.sink.split ]
+29:                                               ; preds = %21, %24, %26
+  %.1 = phi i64 [ %.02530, %26 ], [ %18, %24 ], [ %18, %21 ]
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !58
 
@@ -7234,22 +7279,18 @@ _ZNSt10_HashtableImSt4pairIKmP12DfgVertexVarESaIS4_ENSt8__detail10_Select1stESt8
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
-  br label %.sink.split
+  store ptr %.031, ptr %24, align 8
+  br label %28
 
 25:                                               ; preds = %.lr.ph
   %26 = load ptr, ptr %19, align 8
   store ptr %26, ptr %.031, align 8
   %27 = load ptr, ptr %18, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %25, %23
-  %.sink = phi ptr [ %24, %23 ], [ %27, %25 ]
-  %.1.ph = phi i64 [ %17, %23 ], [ %.02530, %25 ]
-  store ptr %.031, ptr %.sink, align 8
+  store ptr %.031, ptr %27, align 8
   br label %28
 
-28:                                               ; preds = %.sink.split, %20
-  %.1 = phi i64 [ %17, %20 ], [ %.1.ph, %.sink.split ]
+28:                                               ; preds = %20, %23, %25
+  %.1 = phi i64 [ %.02530, %25 ], [ %17, %23 ], [ %17, %20 ]
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59
 
@@ -10259,22 +10300,18 @@ _ZNSt10_HashtableIPK9DfgVertexS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ES
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
-  br label %.sink.split
+  store ptr %.031, ptr %25, align 8
+  br label %29
 
 26:                                               ; preds = %.lr.ph
   %27 = load ptr, ptr %20, align 8
   store ptr %27, ptr %.031, align 8
   %28 = load ptr, ptr %19, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %26, %24
-  %.sink = phi ptr [ %25, %24 ], [ %28, %26 ]
-  %.1.ph = phi i64 [ %18, %24 ], [ %.02530, %26 ]
-  store ptr %.031, ptr %.sink, align 8
+  store ptr %.031, ptr %28, align 8
   br label %29
 
-29:                                               ; preds = %.sink.split, %21
-  %.1 = phi i64 [ %18, %21 ], [ %.1.ph, %.sink.split ]
+29:                                               ; preds = %21, %24, %26
+  %.1 = phi i64 [ %.02530, %26 ], [ %18, %24 ], [ %18, %21 ]
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !82
 

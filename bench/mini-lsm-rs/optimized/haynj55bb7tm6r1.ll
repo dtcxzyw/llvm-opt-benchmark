@@ -6436,16 +6436,16 @@ define hidden void @_ZN13mini_lsm_mvcc12lsm_iterator11LsmIterator3new17hf5cea2d4
   br i1 %switch, label %.sink.split.i, label %.noexc14
 
 .sink.split.i:                                    ; preds = %53
-  %.sink.i = getelementptr inbounds i8, ptr %2, i64 8
-  %55 = load ptr, ptr %.sink.i, align 8, !alias.scope !1439, !nonnull !4, !align !24, !noundef !4
-  %56 = getelementptr inbounds i8, ptr %55, i64 16
-  %57 = load ptr, ptr %56, align 8, !noalias !1439, !nonnull !4, !noundef !4
-  %58 = getelementptr inbounds i8, ptr %2, i64 32
-  %59 = getelementptr inbounds i8, ptr %2, i64 16
-  %60 = load ptr, ptr %59, align 8, !alias.scope !1439, !noundef !4
-  %61 = getelementptr inbounds i8, ptr %2, i64 24
-  %62 = load i64, ptr %61, align 8, !alias.scope !1439, !noundef !4
-  invoke void %57(ptr noalias noundef nonnull align 8 dereferenceable(8) %58, ptr noundef %60, i64 noundef %62)
+  %.sink6.in.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sink6.i = load ptr, ptr %.sink6.in.i, align 8, !alias.scope !1439, !nonnull !4, !align !24, !noundef !4
+  %55 = getelementptr inbounds i8, ptr %.sink6.i, i64 16
+  %56 = load ptr, ptr %55, align 8, !noalias !1439, !nonnull !4, !noundef !4
+  %57 = getelementptr inbounds i8, ptr %2, i64 32
+  %58 = getelementptr inbounds i8, ptr %2, i64 16
+  %59 = load ptr, ptr %58, align 8, !alias.scope !1439, !noundef !4
+  %60 = getelementptr inbounds i8, ptr %2, i64 24
+  %61 = load i64, ptr %60, align 8, !alias.scope !1439, !noundef !4
+  invoke void %56(ptr noalias noundef nonnull align 8 dereferenceable(8) %57, ptr noundef %59, i64 noundef %61)
           to label %.noexc14 unwind label %51
 
 .critedge:                                        ; preds = %43, %.noexc14

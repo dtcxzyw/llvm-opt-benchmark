@@ -838,14 +838,16 @@ tipc_v1_set_col_msgtype.exit:                     ; preds = %37, %37, %37, %37
   %64 = getelementptr inbounds i8, ptr %1, i64 240
   store ptr %62, ptr %64, align 8
   %65 = getelementptr inbounds i8, ptr %1, i64 248
-  br label %.sink.split
+  store ptr null, ptr %65, align 8
+  br label %198
 
 66:                                               ; preds = %tipc_v1_set_col_msgtype.exit
   %67 = tail call ptr @tvb_get_ptr(ptr noundef %.0262, i32 noundef 8, i32 noundef 4) #7
   store i32 %54, ptr %53, align 8
   store i32 4, ptr %55, align 4
   store ptr %67, ptr %56, align 8
-  br label %.sink.split
+  store ptr null, ptr %57, align 8
+  br label %198
 
 tipc_v1_set_col_msgtype.exit.thread.critedge:     ; preds = %37, %42, %43, %44, %45, %46
   %tipc_sm_msg_type_values.sink.i.ph = phi ptr [ @tipc_cm_msg_type_values, %42 ], [ @tipc_routing_mgr_msg_type_values, %43 ], [ @tipc_link_prot_msg_type_values, %44 ], [ @tipc_cng_prot_msg_type_values, %45 ], [ @tipc_sm_msg_type_values, %46 ], [ @tipc_name_dist_msg_type_values, %37 ]
@@ -865,7 +867,8 @@ tipc_v1_set_col_msgtype.exit.thread:              ; preds = %tipc_v1_set_col_msg
   %75 = getelementptr inbounds i8, ptr %1, i64 216
   store ptr %73, ptr %75, align 8
   %76 = getelementptr inbounds i8, ptr %1, i64 224
-  br label %.sink.split
+  store ptr null, ptr %76, align 8
+  br label %198
 
 77:                                               ; preds = %34
   %78 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %.0262, i32 noundef 4) #7
@@ -1049,14 +1052,16 @@ tipc_v2_set_info_col.exit:                        ; preds = %77, %92, %94, %97, 
   %168 = getelementptr inbounds i8, ptr %1, i64 240
   store ptr %166, ptr %168, align 8
   %169 = getelementptr inbounds i8, ptr %1, i64 248
-  br label %.sink.split
+  store ptr null, ptr %169, align 8
+  br label %198
 
 170:                                              ; preds = %154
   %171 = tail call ptr @tvb_get_ptr(ptr noundef %.0262, i32 noundef 12, i32 noundef 4) #7
   store i32 %158, ptr %157, align 8
   store i32 4, ptr %159, align 4
   store ptr %171, ptr %160, align 8
-  br label %.sink.split
+  store ptr null, ptr %161, align 8
+  br label %198
 
 172:                                              ; preds = %tipc_v2_set_info_col.exit
   %.not269 = icmp eq i32 %35, 13
@@ -1082,7 +1087,8 @@ tipc_v2_set_info_col.exit:                        ; preds = %77, %92, %94, %97, 
   %184 = getelementptr inbounds i8, ptr %1, i64 240
   store ptr %182, ptr %184, align 8
   %185 = getelementptr inbounds i8, ptr %1, i64 248
-  br label %.sink.split
+  store ptr null, ptr %185, align 8
+  br label %198
 
 186:                                              ; preds = %172
   %187 = getelementptr inbounds i8, ptr %1, i64 232
@@ -1103,18 +1109,12 @@ tipc_v2_set_info_col.exit:                        ; preds = %77, %92, %94, %97, 
   %196 = getelementptr inbounds i8, ptr %1, i64 216
   store ptr %194, ptr %196, align 8
   %197 = getelementptr inbounds i8, ptr %1, i64 224
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %58, %66, %tipc_v1_set_col_msgtype.exit.thread, %174, %186, %162, %170
-  %.sink = phi ptr [ %161, %170 ], [ %169, %162 ], [ %197, %186 ], [ %185, %174 ], [ %76, %tipc_v1_set_col_msgtype.exit.thread ], [ %57, %66 ], [ %65, %58 ]
-  %.not271.ph = phi i1 [ false, %170 ], [ false, %162 ], [ true, %186 ], [ true, %174 ], [ true, %tipc_v1_set_col_msgtype.exit.thread ], [ false, %66 ], [ false, %58 ]
-  %.0260.ph = phi i8 [ %79, %170 ], [ %79, %162 ], [ %79, %186 ], [ %79, %174 ], [ %39, %tipc_v1_set_col_msgtype.exit.thread ], [ %39, %66 ], [ %39, %58 ]
-  store ptr null, ptr %.sink, align 8
+  store ptr null, ptr %197, align 8
   br label %198
 
-198:                                              ; preds = %.sink.split, %34
-  %.not271 = phi i1 [ true, %34 ], [ %.not271.ph, %.sink.split ]
-  %.0260 = phi i8 [ 0, %34 ], [ %.0260.ph, %.sink.split ]
+198:                                              ; preds = %34, %170, %162, %186, %174, %tipc_v1_set_col_msgtype.exit.thread, %66, %58
+  %.not271 = phi i1 [ true, %34 ], [ false, %162 ], [ false, %170 ], [ true, %174 ], [ true, %186 ], [ false, %58 ], [ false, %66 ], [ true, %tipc_v1_set_col_msgtype.exit.thread ]
+  %.0260 = phi i8 [ 0, %34 ], [ %79, %162 ], [ %79, %170 ], [ %79, %174 ], [ %79, %186 ], [ %39, %58 ], [ %39, %66 ], [ %39, %tipc_v1_set_col_msgtype.exit.thread ]
   %199 = load i32, ptr @proto_tipc, align 4
   %200 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %199, ptr noundef %.0262, i32 noundef 0, i32 noundef -1, i32 noundef 0) #7
   %201 = load i32, ptr @ett_tipc, align 4
@@ -1239,24 +1239,24 @@ tipc_v2_set_info_col.exit:                        ; preds = %77, %92, %94, %97, 
 
 292:                                              ; preds = %288
   %293 = icmp ult i8 %.0142.i, 11
-  br i1 %293, label %.sink.split303, label %294
+  br i1 %293, label %.sink.split, label %294
 
 294:                                              ; preds = %292
   %295 = load i32, ptr @hf_tipcv2_multicast_lower, align 4
   %296 = tail call ptr @proto_tree_add_item(ptr noundef %202, i32 noundef %295, ptr noundef %.0262, i32 noundef 36, i32 noundef 4, i32 noundef 0) #7
-  br label %.sink.split303
+  br label %.sink.split
 
-.sink.split303:                                   ; preds = %292, %294
+.sink.split:                                      ; preds = %292, %294
   %hf_tipcv2_port_name_instance.sink = phi ptr [ @hf_tipcv2_multicast_upper, %294 ], [ @hf_tipcv2_port_name_instance, %292 ]
-  %.sink305 = phi i32 [ 40, %294 ], [ 36, %292 ]
+  %.sink303 = phi i32 [ 40, %294 ], [ 36, %292 ]
   %.0.i273.ph = phi i32 [ 44, %294 ], [ 40, %292 ]
   %297 = load i32, ptr %hf_tipcv2_port_name_instance.sink, align 4
-  %298 = tail call ptr @proto_tree_add_item(ptr noundef %202, i32 noundef %297, ptr noundef %.0262, i32 noundef %.sink305, i32 noundef 4, i32 noundef 0) #7
+  %298 = tail call ptr @proto_tree_add_item(ptr noundef %202, i32 noundef %297, ptr noundef %.0262, i32 noundef %.sink303, i32 noundef 4, i32 noundef 0) #7
   br label %299
 
-299:                                              ; preds = %.sink.split303, %288, %266, %244
-  %.0143.i = phi ptr [ %5, %288 ], [ null, %266 ], [ null, %244 ], [ %5, %.sink.split303 ]
-  %.0.i273 = phi i32 [ 36, %288 ], [ 32, %266 ], [ 24, %244 ], [ %.0.i273.ph, %.sink.split303 ]
+299:                                              ; preds = %.sink.split, %288, %266, %244
+  %.0143.i = phi ptr [ %5, %288 ], [ null, %266 ], [ null, %244 ], [ %5, %.sink.split ]
+  %.0.i273 = phi i32 [ 36, %288 ], [ 32, %266 ], [ 24, %244 ], [ %.0.i273.ph, %.sink.split ]
   %300 = load i32, ptr @handle_v2_as, align 4
   %301 = and i32 %300, 3
   %302 = icmp ne i32 %301, 0
@@ -1344,7 +1344,7 @@ dissect_tipc_v2.exit:                             ; preds = %.critedge.i, %311
   %357 = and i32 %356, 7
   %358 = load i32, ptr @hf_tipc_unused2, align 4
   %359 = tail call ptr @proto_tree_add_item(ptr noundef %202, i32 noundef %358, ptr noundef %.0262, i32 noundef 12, i32 noundef 4, i32 noundef 0) #7
-  switch i8 %19, label %.thread300.sink.split313 [
+  switch i8 %19, label %.thread300.sink.split308 [
     i8 14, label %.thread298
     i8 13, label %364
     i8 9, label %364
@@ -1364,7 +1364,7 @@ dissect_tipc_v2.exit:                             ; preds = %.critedge.i, %311
 364:                                              ; preds = %352, %352
   %365 = load i32, ptr @hf_tipc_link_selector, align 4
   %366 = tail call ptr @proto_tree_add_item(ptr noundef %202, i32 noundef %365, ptr noundef %.0262, i32 noundef 12, i32 noundef 4, i32 noundef 0) #7
-  switch i8 %19, label %.thread300.sink.split313 [
+  switch i8 %19, label %.thread300.sink.split308 [
     i8 13, label %.thread299
     i8 11, label %.thread283
     i8 10, label %.thread300
@@ -1379,7 +1379,7 @@ dissect_tipc_v2.exit:                             ; preds = %.critedge.i, %311
   %371 = load i32, ptr @hf_tipc_lp_msg_type, align 4
   %372 = tail call ptr @proto_tree_add_item(ptr noundef %202, i32 noundef %371, ptr noundef %.0262, i32 noundef 20, i32 noundef 4, i32 noundef 0) #7
   %373 = icmp ult i8 %354, 16
-  br i1 %373, label %.thread300.sink.split313, label %.thread300
+  br i1 %373, label %.thread300.sink.split308, label %.thread300
 
 .thread299:                                       ; preds = %364
   %374 = load i32, ptr @hf_tipc_msg_cnt, align 4
@@ -1393,19 +1393,19 @@ dissect_tipc_v2.exit:                             ; preds = %.critedge.i, %311
 
 .thread300.sink.split.sink.split:                 ; preds = %364, %352, %.thread298, %.thread299, %378
   %hf_tipc_msg_cnt.sink = phi ptr [ @hf_tipc_remote_addr, %378 ], [ @hf_tipc_link_selector2, %.thread299 ], [ @hf_tipc_link_selector2, %.thread298 ], [ @hf_tipc_msg_cnt, %352 ], [ @hf_tipc_link_selector2, %364 ]
-  %.sink309 = phi i32 [ 16, %378 ], [ 12, %.thread299 ], [ 12, %.thread298 ], [ 12, %352 ], [ 12, %364 ]
+  %.sink304 = phi i32 [ 16, %378 ], [ 12, %.thread299 ], [ 12, %.thread298 ], [ 12, %352 ], [ 12, %364 ]
   %hf_tipc_unknown_msg_type.sink.ph = phi ptr [ @hf_tipc_rm_msg_type, %378 ], [ @hf_tipc_cng_prot_msg_type, %.thread299 ], [ @hf_tipc_sm_msg_type, %.thread298 ], [ @hf_tipc_unknown_msg_type, %352 ], [ @hf_tipc_nd_msg_type, %364 ]
   %379 = load i32, ptr %hf_tipc_msg_cnt.sink, align 4
-  %380 = tail call ptr @proto_tree_add_item(ptr noundef %202, i32 noundef %379, ptr noundef %.0262, i32 noundef %.sink309, i32 noundef 4, i32 noundef 0) #7
-  br label %.thread300.sink.split313
+  %380 = tail call ptr @proto_tree_add_item(ptr noundef %202, i32 noundef %379, ptr noundef %.0262, i32 noundef %.sink304, i32 noundef 4, i32 noundef 0) #7
+  br label %.thread300.sink.split308
 
-.thread300.sink.split313:                         ; preds = %.thread283, %364, %352, %.thread300.sink.split.sink.split
+.thread300.sink.split308:                         ; preds = %.thread283, %364, %352, %.thread300.sink.split.sink.split
   %hf_tipc_unknown_msg_type.sink.sink = phi ptr [ @hf_tipc_unknown_msg_type, %364 ], [ @hf_tipc_unknown_msg_type, %352 ], [ %hf_tipc_unknown_msg_type.sink.ph, %.thread300.sink.split.sink.split ], [ @hf_tipc_seq_gap, %.thread283 ]
   %381 = load i32, ptr %hf_tipc_unknown_msg_type.sink.sink, align 4
   %382 = tail call ptr @proto_tree_add_item(ptr noundef %202, i32 noundef %381, ptr noundef %.0262, i32 noundef 20, i32 noundef 4, i32 noundef 0) #7
   br label %.thread300
 
-.thread300:                                       ; preds = %.thread300.sink.split313, %352, %364, %.thread283
+.thread300:                                       ; preds = %.thread300.sink.split308, %352, %364, %.thread283
   %383 = zext nneg i8 %355 to i32
   %384 = load i32, ptr @hf_tipc_nxt_snt_pkg, align 4
   %385 = tail call ptr @proto_tree_add_item(ptr noundef %202, i32 noundef %384, ptr noundef %.0262, i32 noundef 20, i32 noundef 4, i32 noundef 0) #7
@@ -1599,12 +1599,12 @@ dissect_tipc_int_prot_msg.exit:                   ; preds = %455, %444, %.thread
 
 483:                                              ; preds = %474
   %switch.selectcmp = icmp eq i32 %35, 10
-  %switch.selectcmp310 = icmp eq i32 %35, 9
+  %switch.selectcmp305 = icmp eq i32 %35, 9
   %hf_tipc_nd_msg_type.val = load i32, ptr @hf_tipc_nd_msg_type, align 4
   %hf_tipc_cm_msg_type.val = load i32, ptr @hf_tipc_cm_msg_type, align 4
   %hf_tipc_data_msg_type.val = load i32, ptr @hf_tipc_data_msg_type, align 4
   %switch.select.val = select i1 %switch.selectcmp, i32 %hf_tipc_cm_msg_type.val, i32 %hf_tipc_data_msg_type.val
-  %484 = select i1 %switch.selectcmp310, i32 %hf_tipc_nd_msg_type.val, i32 %switch.select.val
+  %484 = select i1 %switch.selectcmp305, i32 %hf_tipc_nd_msg_type.val, i32 %switch.select.val
   %485 = call ptr @proto_tree_add_item(ptr noundef %202, i32 noundef %484, ptr noundef %.0262, i32 noundef 20, i32 noundef 4, i32 noundef 0) #7
   %486 = load i32, ptr @hf_tipc_err_code, align 4
   %487 = call ptr @proto_tree_add_item(ptr noundef %202, i32 noundef %486, ptr noundef %.0262, i32 noundef 20, i32 noundef 4, i32 noundef 0) #7

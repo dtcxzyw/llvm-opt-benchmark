@@ -279,7 +279,7 @@ ExecProcNode.exit83:                              ; preds = %94, %96
   %106 = trunc i8 %105 to i1
   br i1 %106, label %.backedge.backedge, label %107
 
-.backedge.backedge:                               ; preds = %104, %143, %141, %107, %155, %201
+.backedge.backedge:                               ; preds = %104, %143, %141, %107, %155, %203
   br label %.backedge
 
 107:                                              ; preds = %104
@@ -370,7 +370,7 @@ ExecQual.exit85:                                  ; preds = %147
   store ptr %149, ptr @CurrentMemoryContext, align 8
   %.not91 = icmp eq i64 %151, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  br i1 %.not91, label %195, label %152
+  br i1 %.not91, label %197, label %152
 
 152:                                              ; preds = %ExecQual.exit85.thread, %ExecQual.exit85
   store i8 1, ptr %28, align 1
@@ -444,31 +444,30 @@ ExecQual.exit87:                                  ; preds = %160
 191:                                              ; preds = %ExecQual.exit87
   %192 = load ptr, ptr %36, align 8
   %.not80 = icmp eq ptr %192, null
-  br i1 %.not80, label %201, label %193
+  br i1 %.not80, label %203, label %193
 
 193:                                              ; preds = %191
   %194 = getelementptr inbounds i8, ptr %192, i64 240
-  br label %.sink.split
+  %195 = load double, ptr %194, align 8
+  %196 = fadd double %195, 1.000000e+00
+  store double %196, ptr %194, align 8
+  br label %203
 
-195:                                              ; preds = %ExecQual.exit85
-  %196 = load ptr, ptr %36, align 8
-  %.not79 = icmp eq ptr %196, null
-  br i1 %.not79, label %201, label %197
+197:                                              ; preds = %ExecQual.exit85
+  %198 = load ptr, ptr %36, align 8
+  %.not79 = icmp eq ptr %198, null
+  br i1 %.not79, label %203, label %199
 
-197:                                              ; preds = %195
-  %198 = getelementptr inbounds i8, ptr %196, i64 232
-  br label %.sink.split
+199:                                              ; preds = %197
+  %200 = getelementptr inbounds i8, ptr %198, i64 232
+  %201 = load double, ptr %200, align 8
+  %202 = fadd double %201, 1.000000e+00
+  store double %202, ptr %200, align 8
+  br label %203
 
-.sink.split:                                      ; preds = %193, %197
-  %.sink = phi ptr [ %198, %197 ], [ %194, %193 ]
-  %199 = load double, ptr %.sink, align 8
-  %200 = fadd double %199, 1.000000e+00
-  store double %200, ptr %.sink, align 8
-  br label %201
-
-201:                                              ; preds = %.sink.split, %195, %191
-  %202 = load ptr, ptr %22, align 8
-  call void @MemoryContextReset(ptr noundef %202) #5
+203:                                              ; preds = %199, %197, %191, %193
+  %204 = load ptr, ptr %22, align 8
+  call void @MemoryContextReset(ptr noundef %204) #5
   br label %.backedge.backedge
 
 .loopexit:                                        ; preds = %ExecProcNode.exit, %50, %165, %115

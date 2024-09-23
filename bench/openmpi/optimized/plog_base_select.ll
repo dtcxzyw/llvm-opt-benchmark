@@ -259,6 +259,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %81, %8
   store ptr %105, ptr %106, align 8
   %107 = getelementptr inbounds i8, ptr %105, i64 120
   store volatile ptr %77, ptr %107, align 8
+  store ptr %77, ptr %104, align 8
   br label %115
 
 108:                                              ; preds = %.lr.ph
@@ -275,11 +276,10 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %81, %8
   store volatile ptr %77, ptr %113, align 8
   %114 = getelementptr inbounds i8, ptr %77, i64 120
   store ptr %19, ptr %114, align 8
+  store ptr %77, ptr %22, align 8
   br label %115
 
 115:                                              ; preds = %102, %.critedge
-  %.sink = phi ptr [ %104, %102 ], [ %22, %.critedge ]
-  store ptr %77, ptr %.sink, align 8
   %116 = load volatile i64, ptr %21, align 8
   %117 = add i64 %116, 1
   store volatile i64 %117, ptr %21, align 8

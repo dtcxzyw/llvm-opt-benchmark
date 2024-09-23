@@ -2258,7 +2258,7 @@ if.end8.i:                                        ; preds = %if.then.i.i
   store i32 %17, ptr %Capacity2.i.i.i.i.i.i, align 4
   store ptr %add.ptr.i.i.i.i.i, ptr %files, align 8
   store i32 0, ptr %Capacity2.i.i.i.i.i, align 4
-  br label %_ZN4llvh15SmallVectorImplIN6hermes3hbc15DebugFileRegionEEaSEOS4_.exit
+  br label %_ZNSt6vectorIN6hermes16StringTableEntryESaIS1_EED2Ev.exit.sink.split
 
 if.end24.i:                                       ; preds = %if.then.i.i
   %cmp26.i.not = icmp eq i32 %12, 1
@@ -2268,32 +2268,32 @@ if.end37.i:                                       ; preds = %if.end24.i
   %conv.i30.i = zext i32 %12 to i64
   call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %files_.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %conv.i30.i, i64 noundef 12) #19
   %.pre = load i32, ptr %Size.i.i.i.i.i, align 8
-  %.pre55.pre.pre58.pre = load ptr, ptr %files, align 8
-  %.pre61 = zext i32 %.pre to i64
+  %.pre55.pre57.pre = load ptr, ptr %files, align 8
+  %.pre60 = zext i32 %.pre to i64
   %cmp.not.i.i.i = icmp eq i32 %.pre, 0
   br i1 %cmp.not.i.i.i, label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i, label %if.then.i.i.i40
 
 if.then.i.i.i40:                                  ; preds = %if.end24.i, %if.end37.i
-  %.pre55.pre.pre5866 = phi ptr [ %.pre55.pre.pre58.pre, %if.end37.i ], [ %.pre56, %if.end24.i ]
-  %conv.i51.i.pre-phi65 = phi i64 [ %.pre61, %if.end37.i ], [ 1, %if.end24.i ]
+  %.pre55.pre5765 = phi ptr [ %.pre55.pre57.pre, %if.end37.i ], [ %.pre56, %if.end24.i ]
+  %conv.i51.i.pre-phi64 = phi i64 [ %.pre60, %if.end37.i ], [ 1, %if.end24.i ]
   %18 = load ptr, ptr %files_.i, align 8
-  %gepdiff.i = mul nuw nsw i64 %conv.i51.i.pre-phi65, 12
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %18, ptr align 1 %.pre55.pre.pre5866, i64 %gepdiff.i, i1 false)
-  %.pre55.pre.pre = load ptr, ptr %files, align 8
+  %gepdiff.i = mul nuw nsw i64 %conv.i51.i.pre-phi64, 12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %18, ptr align 1 %.pre55.pre5765, i64 %gepdiff.i, i1 false)
+  %.pre55.pre = load ptr, ptr %files, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i
 
 _ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i: ; preds = %if.then.i.i.i40, %if.end37.i
-  %.pre55.pre = phi ptr [ %.pre55.pre.pre, %if.then.i.i.i40 ], [ %.pre55.pre.pre58.pre, %if.end37.i ]
+  %.pre55 = phi ptr [ %.pre55.pre, %if.then.i.i.i40 ], [ %.pre55.pre57.pre, %if.end37.i ]
   store i32 %12, ptr %Size.i.i.i.i.i.i, align 8
-  br label %_ZN4llvh15SmallVectorImplIN6hermes3hbc15DebugFileRegionEEaSEOS4_.exit
+  br label %_ZNSt6vectorIN6hermes16StringTableEntryESaIS1_EED2Ev.exit.sink.split
 
-_ZN4llvh15SmallVectorImplIN6hermes3hbc15DebugFileRegionEEaSEOS4_.exit: ; preds = %if.end8.i, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i
-  %.pre55 = phi ptr [ %add.ptr.i.i.i.i.i, %if.end8.i ], [ %.pre55.pre, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i ]
+_ZNSt6vectorIN6hermes16StringTableEntryESaIS1_EED2Ev.exit.sink.split: ; preds = %_ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i, %if.end8.i
+  %.ph = phi ptr [ %.pre55, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i ], [ %add.ptr.i.i.i.i.i, %if.end8.i ]
   store i32 0, ptr %Size.i.i.i.i.i, align 8
   br label %_ZNSt6vectorIN6hermes16StringTableEntryESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN6hermes16StringTableEntryESaIS1_EED2Ev.exit: ; preds = %_ZN4llvh15SmallVectorImplIN6hermes3hbc15DebugFileRegionEEaSEOS4_.exit, %_ZNK4llvh8ArrayRefIhEcvSt6vectorIhSaIhEEEv.exit
-  %19 = phi ptr [ %.pre55, %_ZN4llvh15SmallVectorImplIN6hermes3hbc15DebugFileRegionEEaSEOS4_.exit ], [ %.pre56, %_ZNK4llvh8ArrayRefIhEcvSt6vectorIhSaIhEEEv.exit ]
+_ZNSt6vectorIN6hermes16StringTableEntryESaIS1_EED2Ev.exit: ; preds = %_ZNSt6vectorIN6hermes16StringTableEntryESaIS1_EED2Ev.exit.sink.split, %_ZNK4llvh8ArrayRefIhEcvSt6vectorIhSaIhEEEv.exit
+  %19 = phi ptr [ %.pre56, %_ZNK4llvh8ArrayRefIhEcvSt6vectorIhSaIhEEEv.exit ], [ %.ph, %_ZNSt6vectorIN6hermes16StringTableEntryESaIS1_EED2Ev.exit.sink.split ]
   %scopeDescDataOffset_.i = getelementptr inbounds i8, ptr %call7, i64 80
   store i32 %13, ptr %scopeDescDataOffset_.i, align 8
   %textifiedCalleeOffset_.i = getelementptr inbounds i8, ptr %call7, i64 84

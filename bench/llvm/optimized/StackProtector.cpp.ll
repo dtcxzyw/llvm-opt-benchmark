@@ -1961,12 +1961,12 @@ _ZL14CreateProloguePN4llvm8FunctionEPNS_6ModuleEPNS_11InstructionEPKNS_18TargetL
   br i1 %.not84, label %.lr.ph36.i, label %236
 
 .lr.ph36.i:                                       ; preds = %189, %._crit_edge.i
-  %.sink = phi ptr [ %227, %._crit_edge.i ], [ %54, %189 ]
-  %.sroa.022.0.i = load ptr, ptr %.sink, align 8
-  %.not.i = icmp ne ptr %.sroa.022.0.i, %56
+  %.sroa.022.0.i.sink.in = phi ptr [ %227, %._crit_edge.i ], [ %54, %189 ]
+  %.sroa.022.0.i.sink = load ptr, ptr %.sroa.022.0.i.sink.in, align 8
+  %.not.i = icmp ne ptr %.sroa.022.0.i.sink, %56
   call void @llvm.assume(i1 %.not.i)
-  %190 = icmp eq ptr %.sroa.022.0.i, null
-  %191 = getelementptr inbounds i8, ptr %.sroa.022.0.i, i64 -24
+  %190 = icmp eq ptr %.sroa.022.0.i.sink, null
+  %191 = getelementptr inbounds i8, ptr %.sroa.022.0.i.sink, i64 -24
   %192 = select i1 %190, ptr null, ptr %191
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 56
   %194 = getelementptr inbounds nuw i8, ptr %192, i64 48
@@ -2033,7 +2033,7 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit.thread.i: ;
   br i1 %.not27.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit.thread.i, %.lr.ph36.i
-  %227 = getelementptr inbounds nuw i8, ptr %.sroa.022.0.i, i64 8
+  %227 = getelementptr inbounds nuw i8, ptr %.sroa.022.0.i.sink, i64 8
   br label %.lr.ph36.i
 
 _ZL27findStackProtectorIntrinsicRN4llvm8FunctionE.exit: ; preds = %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit.i
@@ -2464,9 +2464,9 @@ _ZN4llvm21BranchProbabilityInfo27getBranchProbStackProtectorEb.exit106: ; preds 
   br i1 %410, label %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit, label %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.sink.split
 
 _ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.sink.split: ; preds = %_ZN4llvm21BranchProbabilityInfo27getBranchProbStackProtectorEb.exit106, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit
-  %.sink180 = phi ptr [ %283, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit ], [ %409, %_ZN4llvm21BranchProbabilityInfo27getBranchProbStackProtectorEb.exit106 ]
+  %.sink = phi ptr [ %283, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit ], [ %409, %_ZN4llvm21BranchProbabilityInfo27getBranchProbStackProtectorEb.exit106 ]
   %.171.ph = phi ptr [ %.070166, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit ], [ %.272, %_ZN4llvm21BranchProbabilityInfo27getBranchProbStackProtectorEb.exit106 ]
-  call void @free(ptr noundef %.sink180) #20
+  call void @free(ptr noundef %.sink) #20
   br label %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit
 
 _ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit: ; preds = %_ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.thread, %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.sink.split, %143, %140, %_ZN4llvm21BranchProbabilityInfo27getBranchProbStackProtectorEb.exit106, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit, %130

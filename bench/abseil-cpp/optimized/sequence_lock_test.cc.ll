@@ -2907,7 +2907,16 @@ _ZN7testing7MessageD2Ev.exit:                     ; preds = %invoke.cont108, %_Z
   store ptr null, ptr %ref.tmp100, align 8
   %48 = load ptr, ptr %message_.i.i, align 8
   %cmp.not.i.i64 = icmp eq ptr %48, null
-  br i1 %cmp.not.i.i64, label %cleanup134, label %cleanup134.sink.split
+  br i1 %cmp.not.i.i64, label %_ZN7testing15AssertionResultD2Ev.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
+
+_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i: ; preds = %_ZN7testing7MessageD2Ev.exit
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #28
+  call void @_ZdlPv(ptr noundef nonnull %48) #31
+  br label %_ZN7testing15AssertionResultD2Ev.exit
+
+_ZN7testing15AssertionResultD2Ev.exit:            ; preds = %_ZN7testing7MessageD2Ev.exit, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
+  store ptr null, ptr %message_.i.i, align 8
+  br label %cleanup134
 
 lpad103:                                          ; preds = %invoke.cont104
   %49 = landingpad { ptr, i32 }
@@ -3052,18 +3061,18 @@ cleanup130:                                       ; preds = %invoke.cont112, %_Z
   %message_.i95 = getelementptr inbounds i8, ptr %gtest_ar110, i64 8
   %65 = load ptr, ptr %message_.i95, align 8
   %cmp.not.i.i96 = icmp eq ptr %65, null
-  br i1 %cmp.not.i.i96, label %cleanup134, label %cleanup134.sink.split
+  br i1 %cmp.not.i.i96, label %_ZN7testing15AssertionResultD2Ev.exit98, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i97
 
-cleanup134.sink.split:                            ; preds = %cleanup130, %_ZN7testing7MessageD2Ev.exit
-  %.sink154 = phi ptr [ %48, %_ZN7testing7MessageD2Ev.exit ], [ %65, %cleanup130 ]
-  %message_.i.i.sink.ph = phi ptr [ %message_.i.i, %_ZN7testing7MessageD2Ev.exit ], [ %message_.i95, %cleanup130 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink154) #28
-  call void @_ZdlPv(ptr noundef nonnull %.sink154) #31
+_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i97: ; preds = %cleanup130
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %65) #28
+  call void @_ZdlPv(ptr noundef nonnull %65) #31
+  br label %_ZN7testing15AssertionResultD2Ev.exit98
+
+_ZN7testing15AssertionResultD2Ev.exit98:          ; preds = %cleanup130, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i97
+  store ptr null, ptr %message_.i95, align 8
   br label %cleanup134
 
-cleanup134:                                       ; preds = %cleanup134.sink.split, %cleanup130, %_ZN7testing7MessageD2Ev.exit
-  %message_.i.i.sink = phi ptr [ %message_.i.i, %_ZN7testing7MessageD2Ev.exit ], [ %message_.i95, %cleanup130 ], [ %message_.i.i.sink.ph, %cleanup134.sink.split ]
-  store ptr null, ptr %message_.i.i.sink, align 8
+cleanup134:                                       ; preds = %_ZN7testing15AssertionResultD2Ev.exit, %_ZN7testing15AssertionResultD2Ev.exit98
   %66 = load ptr, ptr %threads, align 8
   %67 = load ptr, ptr %_M_finish.i55, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %66, %67
@@ -3469,26 +3478,26 @@ invoke.cont16.i.i.i.i.i:                          ; preds = %invoke.cont16.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %for.end.i.i.i.i.i, label %invoke.cont16.i.i.i.i.i
 
 for.end.i.i.i.i.i:                                ; preds = %invoke.cont16.i.i.i.i.i
-  %spec.select29.i.i.i.i.i = select i1 %spec.select.i.i.i.i.i, ptr %11, ptr %10
+  %spec.select.i.i.i.i = select i1 %spec.select.i.i.i.i.i, ptr %11, ptr %10
   br label %if.end27.i.i.i.i.i
 
 if.end27.i.i.i.i.i:                               ; preds = %for.end.i.i.i.i.i, %invoke.cont11.i.i.i.i.i, %invoke.cont9.i.i.i.i.i, %invoke.cont5.i.i.i.i.i
-  %.sink28.i.i.i.i.i = phi ptr [ %11, %invoke.cont11.i.i.i.i.i ], [ %9, %invoke.cont5.i.i.i.i.i ], [ %9, %invoke.cont9.i.i.i.i.i ], [ %spec.select29.i.i.i.i.i, %for.end.i.i.i.i.i ]
-  %25 = load ptr, ptr %.sink28.i.i.i.i.i, align 8
-  %26 = atomicrmw add ptr %25, i64 1 monotonic, align 8
-  %27 = load ptr, ptr %4, align 8
-  %28 = load atomic i8, ptr %27 monotonic, align 1
-  %tobool.i.i.i.i.i.i.i = trunc i8 %28 to i1
+  %.sink.in.i.i.i.i.i = phi ptr [ %11, %invoke.cont11.i.i.i.i.i ], [ %9, %invoke.cont9.i.i.i.i.i ], [ %9, %invoke.cont5.i.i.i.i.i ], [ %spec.select.i.i.i.i, %for.end.i.i.i.i.i ]
+  %.sink.i.i.i.i.i = load ptr, ptr %.sink.in.i.i.i.i.i, align 8
+  %25 = atomicrmw add ptr %.sink.i.i.i.i.i, i64 1 monotonic, align 8
+  %26 = load ptr, ptr %4, align 8
+  %27 = load atomic i8, ptr %26 monotonic, align 1
+  %tobool.i.i.i.i.i.i.i = trunc i8 %27 to i1
   br i1 %tobool.i.i.i.i.i.i.i, label %while.end.i.i.i.i.i, label %invoke.cont5.i.i.i.i.i, !llvm.loop !55
 
 while.end.i.i.i.i.i:                              ; preds = %if.end27.i.i.i.i.i, %invoke.cont.i.i.i.i.i
-  %29 = load i64, ptr %size_alloc_.i.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i.i = icmp ult i64 %29, 257
+  %28 = load i64, ptr %size_alloc_.i.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i.i.i = icmp ult i64 %28, 257
   br i1 %cmp.i.i.i.i.i.i.i.i, label %"_ZNSt6thread8_InvokerISt5tupleIJZN12_GLOBAL__N_144ConcurrentSequenceLockTest_ReadAndWrite_Test8TestBodyEvE3$_0EEEclEv.exit", label %invoke.cont10.i.i.i.i.i.i.i
 
 invoke.cont10.i.i.i.i.i.i.i:                      ; preds = %while.end.i.i.i.i.i
-  %30 = load ptr, ptr %data_.i.i.i.i.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %30) #31
+  %29 = load ptr, ptr %data_.i.i.i.i.i.i.i, align 8
+  call void @_ZdlPv(ptr noundef %29) #31
   br label %"_ZNSt6thread8_InvokerISt5tupleIJZN12_GLOBAL__N_144ConcurrentSequenceLockTest_ReadAndWrite_Test8TestBodyEvE3$_0EEEclEv.exit"
 
 "_ZNSt6thread8_InvokerISt5tupleIJZN12_GLOBAL__N_144ConcurrentSequenceLockTest_ReadAndWrite_Test8TestBodyEvE3$_0EEEclEv.exit": ; preds = %while.end.i.i.i.i.i, %invoke.cont10.i.i.i.i.i.i.i

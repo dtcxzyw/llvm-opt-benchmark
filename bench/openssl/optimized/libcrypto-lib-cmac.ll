@@ -180,7 +180,8 @@ if.end9:                                          ; preds = %if.end
   %call11 = tail call i32 @EVP_CIPHER_CTX_get_block_size(ptr noundef %4) #6
   %conv = sext i32 %call11 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %tbl, i8 0, i64 %conv, i1 false)
-  br label %return.sink.split
+  store i32 0, ptr %nlast_block, align 8
+  br label %return
 
 if.end13:                                         ; preds = %entry
   br i1 %tobool1, label %if.then16, label %if.end23
@@ -304,15 +305,11 @@ make_kn.exit56:                                   ; preds = %for.body.i47, %make
 
 if.end73:                                         ; preds = %make_kn.exit56
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %tbl53, i8 0, i64 %conv68, i1 false)
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.end9, %if.end73
-  %nlast_block27.sink = phi ptr [ %nlast_block27, %if.end73 ], [ %nlast_block, %if.end9 ]
-  store i32 0, ptr %nlast_block27.sink, align 8
+  store i32 0, ptr %nlast_block27, align 8
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.then16, %if.end23, %make_kn.exit56, %if.end51, %if.end45, %if.end40, %if.end33, %if.then26, %if.end, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.end ], [ %.mux, %if.then16 ], [ 0, %if.then26 ], [ 0, %if.end33 ], [ 0, %if.end40 ], [ 0, %if.end45 ], [ 0, %if.end51 ], [ 0, %make_kn.exit56 ], [ 1, %if.end23 ], [ 1, %return.sink.split ]
+return:                                           ; preds = %if.then16, %if.end23, %if.end73, %make_kn.exit56, %if.end51, %if.end45, %if.end40, %if.end33, %if.then26, %if.end, %if.then, %if.end9
+  %retval.0 = phi i32 [ 1, %if.end9 ], [ 0, %if.then ], [ 0, %if.end ], [ %.mux, %if.then16 ], [ 0, %if.then26 ], [ 0, %if.end33 ], [ 0, %if.end40 ], [ 0, %if.end45 ], [ 0, %if.end51 ], [ 0, %make_kn.exit56 ], [ 1, %if.end73 ], [ 1, %if.end23 ]
   ret i32 %retval.0
 }
 

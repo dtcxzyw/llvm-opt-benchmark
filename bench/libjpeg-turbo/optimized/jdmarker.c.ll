@@ -2824,17 +2824,17 @@ define internal range(i32 0, 2) i32 @save_marker(ptr noundef %0) #0 {
 ._crit_edge163:                                   ; preds = %._crit_edge.thread184, %105
   %109 = getelementptr inbounds i8, ptr %.pre, i64 120
   store ptr %.0128, ptr %109, align 8
+  store ptr %.0128, ptr %102, align 8
   br label %113
 
 110:                                              ; preds = %105
   store ptr %.0128, ptr %107, align 8
   %111 = load ptr, ptr %.phi.trans.insert, align 8
   %112 = getelementptr inbounds i8, ptr %111, i64 120
+  store ptr %.0128, ptr %112, align 8
   br label %113
 
 113:                                              ; preds = %110, %._crit_edge163
-  %.sink = phi ptr [ %112, %110 ], [ %102, %._crit_edge163 ]
-  store ptr %.0128, ptr %.sink, align 8
   %114 = getelementptr inbounds i8, ptr %.0128, i64 24
   %115 = load ptr, ptr %114, align 8
   %116 = getelementptr inbounds i8, ptr %.0128, i64 12

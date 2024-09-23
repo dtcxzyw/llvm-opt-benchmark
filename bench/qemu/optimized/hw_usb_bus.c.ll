@@ -693,10 +693,19 @@ do.body:                                          ; preds = %entry, %if.then
   %cmp.not = icmp eq ptr %1, null
   %tql_prev8 = getelementptr inbounds i8, ptr %port, i64 64
   %2 = load ptr, ptr %tql_prev8, align 8
-  %tql_prev9 = getelementptr inbounds i8, ptr %bus, i64 152
+  br i1 %cmp.not, label %if.else, label %if.then2
+
+if.then2:                                         ; preds = %do.body
   %tql_prev6 = getelementptr inbounds i8, ptr %1, i64 64
-  %tql_prev9.sink = select i1 %cmp.not, ptr %tql_prev9, ptr %tql_prev6
-  store ptr %2, ptr %tql_prev9.sink, align 8
+  store ptr %2, ptr %tql_prev6, align 8
+  br label %if.end10
+
+if.else:                                          ; preds = %do.body
+  %tql_prev9 = getelementptr inbounds i8, ptr %bus, i64 152
+  store ptr %2, ptr %tql_prev9, align 8
+  br label %if.end10
+
+if.end10:                                         ; preds = %if.else, %if.then2
   %3 = load ptr, ptr %next, align 8
   store ptr %3, ptr %2, align 8
   %nfree = getelementptr inbounds i8, ptr %bus, i64 132
@@ -840,10 +849,19 @@ trace_usb_port_claim.exit:                        ; preds = %if.end31, %land.lhs
   %cmp35.not = icmp eq ptr %14, null
   %tql_prev43 = getelementptr inbounds i8, ptr %port.1, i64 64
   %15 = load ptr, ptr %tql_prev43, align 8
-  %tql_prev45 = getelementptr inbounds i8, ptr %dev.val, i64 152
+  br i1 %cmp35.not, label %if.else41, label %if.then36
+
+if.then36:                                        ; preds = %trace_usb_port_claim.exit
   %tql_prev40 = getelementptr inbounds i8, ptr %14, i64 64
-  %tql_prev45.sink = select i1 %cmp35.not, ptr %tql_prev45, ptr %tql_prev40
-  store ptr %15, ptr %tql_prev45.sink, align 8
+  store ptr %15, ptr %tql_prev40, align 8
+  br label %if.end46
+
+if.else41:                                        ; preds = %trace_usb_port_claim.exit
+  %tql_prev45 = getelementptr inbounds i8, ptr %dev.val, i64 152
+  store ptr %15, ptr %tql_prev45, align 8
+  br label %if.end46
+
+if.end46:                                         ; preds = %if.else41, %if.then36
   %16 = load ptr, ptr %next34, align 8
   %tql_prev49 = getelementptr inbounds i8, ptr %port.1, i64 64
   store ptr %16, ptr %15, align 8
@@ -866,7 +884,7 @@ trace_usb_port_claim.exit:                        ; preds = %if.end31, %land.lhs
   store i32 %inc, ptr %nused, align 8
   br label %return
 
-return:                                           ; preds = %trace_usb_port_claim.exit, %if.then27, %if.then10
+return:                                           ; preds = %if.end46, %if.then27, %if.then10
   ret void
 }
 
@@ -930,10 +948,19 @@ trace_usb_port_release.exit:                      ; preds = %if.end, %land.lhs.t
   %cmp2.not = icmp eq ptr %9, null
   %tql_prev10 = getelementptr inbounds i8, ptr %1, i64 64
   %10 = load ptr, ptr %tql_prev10, align 8
-  %tql_prev11 = getelementptr inbounds i8, ptr %dev.val, i64 168
+  br i1 %cmp2.not, label %if.else8, label %if.then3
+
+if.then3:                                         ; preds = %trace_usb_port_release.exit
   %tql_prev7 = getelementptr inbounds i8, ptr %9, i64 64
-  %tql_prev11.sink = select i1 %cmp2.not, ptr %tql_prev11, ptr %tql_prev7
-  store ptr %10, ptr %tql_prev11.sink, align 8
+  store ptr %10, ptr %tql_prev7, align 8
+  br label %if.end12
+
+if.else8:                                         ; preds = %trace_usb_port_release.exit
+  %tql_prev11 = getelementptr inbounds i8, ptr %dev.val, i64 168
+  store ptr %10, ptr %tql_prev11, align 8
+  br label %if.end12
+
+if.end12:                                         ; preds = %if.else8, %if.then3
   %11 = load ptr, ptr %next, align 8
   %tql_prev15 = getelementptr inbounds i8, ptr %1, i64 64
   store ptr %11, ptr %10, align 8

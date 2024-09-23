@@ -35490,10 +35490,10 @@ define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosResetFa
     i16 4766, label %55
     i16 4765, label %55
     i16 4767, label %55
-    i16 4770, label %59
-    i16 4774, label %59
-    i16 4768, label %59
-    i16 4771, label %59
+    i16 4770, label %61
+    i16 4774, label %61
+    i16 4768, label %61
+    i16 4771, label %61
   ]
 
 4:                                                ; preds = %1, %1
@@ -35586,31 +35586,29 @@ _ZN4llvm16AArch64InstrInfo11isCopyIdiomERKNS_12MachineInstrE.exit.thread: ; pred
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 48
-  br label %.sink.split.i
+  %59 = load i64, ptr %58, align 8
+  %60 = icmp eq i64 %59, 0
+  br label %_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE.exit
 
-59:                                               ; preds = %1, %1, %1, %1
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 48
-  %63 = load i64, ptr %62, align 8
-  %64 = icmp eq i64 %63, 0
-  br i1 %64, label %65, label %_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE.exit
+61:                                               ; preds = %1, %1, %1, %1
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds i8, ptr %63, i64 48
+  %65 = load i64, ptr %64, align 8
+  %66 = icmp eq i64 %65, 0
+  br i1 %66, label %67, label %_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE.exit
 
-65:                                               ; preds = %59
-  %66 = getelementptr inbounds i8, ptr %61, i64 80
-  br label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %65, %55
-  %.sink5.i = phi ptr [ %66, %65 ], [ %58, %55 ]
-  %67 = load i64, ptr %.sink5.i, align 8
-  %68 = icmp eq i64 %67, 0
+67:                                               ; preds = %61
+  %68 = getelementptr inbounds i8, ptr %63, i64 80
+  %69 = load i64, ptr %68, align 8
+  %70 = icmp eq i64 %69, 0
   br label %_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE.exit
 
 _ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE.exit.fold.split: ; preds = %1
   br label %_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE.exit
 
-_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE.exit: ; preds = %_ZN4llvm16AArch64InstrInfo11isCopyIdiomERKNS_12MachineInstrE.exit.thread, %1, %1, %1, %1, %1, %1, %_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE.exit.fold.split, %11, %.sink.split.i, %59, %32, %_ZN4llvm16AArch64InstrInfo11isCopyIdiomERKNS_12MachineInstrE.exit, %4
-  %.0 = phi i1 [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ false, %4 ], [ true, %_ZN4llvm16AArch64InstrInfo11isCopyIdiomERKNS_12MachineInstrE.exit ], [ true, %32 ], [ false, %59 ], [ false, %_ZN4llvm16AArch64InstrInfo11isCopyIdiomERKNS_12MachineInstrE.exit.thread ], [ %68, %.sink.split.i ], [ %spec.select, %11 ], [ false, %_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE.exit.fold.split ]
+_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE.exit: ; preds = %_ZN4llvm16AArch64InstrInfo11isCopyIdiomERKNS_12MachineInstrE.exit.thread, %1, %1, %1, %1, %1, %1, %_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE.exit.fold.split, %11, %67, %61, %55, %32, %_ZN4llvm16AArch64InstrInfo11isCopyIdiomERKNS_12MachineInstrE.exit, %4
+  %.0 = phi i1 [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ false, %4 ], [ true, %_ZN4llvm16AArch64InstrInfo11isCopyIdiomERKNS_12MachineInstrE.exit ], [ true, %32 ], [ %60, %55 ], [ false, %61 ], [ %70, %67 ], [ false, %_ZN4llvm16AArch64InstrInfo11isCopyIdiomERKNS_12MachineInstrE.exit.thread ], [ %spec.select, %11 ], [ false, %_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE.exit.fold.split ]
   ret i1 %.0
 }
 
@@ -35845,43 +35843,41 @@ define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo11isCopyIdiomERKN
 define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i16, ptr %2, align 4
-  switch i16 %3, label %18 [
+  switch i16 %3, label %20 [
     i16 4773, label %4
     i16 4766, label %4
     i16 4765, label %4
     i16 4767, label %4
-    i16 4770, label %8
-    i16 4774, label %8
-    i16 4768, label %8
-    i16 4771, label %8
+    i16 4770, label %10
+    i16 4774, label %10
+    i16 4768, label %10
+    i16 4771, label %10
   ]
 
 4:                                                ; preds = %1, %1, %1, %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 48
-  br label %.sink.split
+  %8 = load i64, ptr %7, align 8
+  %9 = icmp eq i64 %8, 0
+  br label %20
 
-8:                                                ; preds = %1, %1, %1, %1
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 48
-  %12 = load i64, ptr %11, align 8
-  %13 = icmp eq i64 %12, 0
-  br i1 %13, label %14, label %18
+10:                                               ; preds = %1, %1, %1, %1
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %12, i64 48
+  %14 = load i64, ptr %13, align 8
+  %15 = icmp eq i64 %14, 0
+  br i1 %15, label %16, label %20
 
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %10, i64 80
-  br label %.sink.split
+16:                                               ; preds = %10
+  %17 = getelementptr inbounds i8, ptr %12, i64 80
+  %18 = load i64, ptr %17, align 8
+  %19 = icmp eq i64 %18, 0
+  br label %20
 
-.sink.split:                                      ; preds = %4, %14
-  %.sink5 = phi ptr [ %15, %14 ], [ %7, %4 ]
-  %16 = load i64, ptr %.sink5, align 8
-  %17 = icmp eq i64 %16, 0
-  br label %18
-
-18:                                               ; preds = %.sink.split, %1, %8
-  %.0 = phi i1 [ false, %8 ], [ false, %1 ], [ %17, %.sink.split ]
+20:                                               ; preds = %1, %10, %16, %4
+  %.0 = phi i1 [ %9, %4 ], [ false, %10 ], [ %19, %16 ], [ false, %1 ]
   ret i1 %.0
 }
 
@@ -39584,7 +39580,8 @@ _ZN4llvm15SmallVectorImplImE12assignRemoteEOS1_.exit: ; preds = %8, %13
   store i32 %19, ptr %20, align 4
   store ptr %6, ptr %1, align 8
   store i32 0, ptr %18, align 4
-  br label %.sink.split
+  store i32 0, ptr %15, align 8
+  br label %53
 
 21:                                               ; preds = %4
   %22 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #27
@@ -39613,7 +39610,8 @@ _ZSt4moveIPmS0_ET0_T_S2_S1_.exit:                 ; preds = %29, %26, %24
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %22) #27
   %31 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #27
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
+  store i32 0, ptr %32, align 8
+  br label %53
 
 33:                                               ; preds = %21
   %34 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #27
@@ -39660,14 +39658,10 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.ex
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %22) #27
   %51 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #27
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %_ZN4llvm15SmallVectorImplImE12assignRemoteEOS1_.exit, %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.exit
-  %.sink = phi ptr [ %52, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.exit ], [ %32, %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit ], [ %15, %_ZN4llvm15SmallVectorImplImE12assignRemoteEOS1_.exit ]
-  store i32 0, ptr %.sink, align 8
+  store i32 0, ptr %52, align 8
   br label %53
 
-53:                                               ; preds = %.sink.split, %2
+53:                                               ; preds = %2, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.exit, %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit, %_ZN4llvm15SmallVectorImplImE12assignRemoteEOS1_.exit
   ret ptr %0
 }
 

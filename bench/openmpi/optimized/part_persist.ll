@@ -2084,7 +2084,7 @@ define internal i32 @mca_part_persist_start(i64 noundef %0, ptr nocapture nounde
   br i1 %.not, label %._crit_edge, label %.lr.ph38
 
 .lr.ph38:                                         ; preds = %2, %opal_thread_swap_ptr.exit
-  %.03437 = phi i64 [ %48, %opal_thread_swap_ptr.exit ], [ 0, %2 ]
+  %.03437 = phi i64 [ %47, %opal_thread_swap_ptr.exit ], [ 0, %2 ]
   %3 = getelementptr inbounds ptr, ptr %1, i64 %.03437
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 592
@@ -2139,48 +2139,48 @@ define internal i32 @mca_part_persist_start(i64 noundef %0, ptr nocapture nounde
   br i1 %34, label %29, label %.loopexit, !llvm.loop !16
 
 .loopexit.sink.split:                             ; preds = %15, %13
-  %.sink43 = phi ptr [ %14, %13 ], [ %21, %15 ]
+  %.sink42.in = phi ptr [ %14, %13 ], [ %21, %15 ]
   %.1.ph = phi i32 [ 0, %13 ], [ %23, %15 ]
   %.sink.in = getelementptr inbounds i8, ptr %4, i64 608
   %.sink = load ptr, ptr %.sink.in, align 8
-  %35 = load i64, ptr %.sink43, align 8
-  %36 = shl i64 %35, 2
-  tail call void @llvm.memset.p0.i64(ptr align 1 %.sink, i8 0, i64 %36, i1 false)
+  %.sink42 = load i64, ptr %.sink42.in, align 8
+  %35 = shl i64 %.sink42, 2
+  tail call void @llvm.memset.p0.i64(ptr align 1 %.sink, i8 0, i64 %35, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %29, %.loopexit.sink.split, %24, %25
   %.135 = phi i64 [ 0, %25 ], [ %.03437, %24 ], [ %.03437, %.loopexit.sink.split ], [ %32, %29 ]
   %.1 = phi i32 [ 0, %25 ], [ 0, %24 ], [ %.1.ph, %.loopexit.sink.split ], [ 0, %29 ]
-  %37 = getelementptr inbounds i8, ptr %4, i64 96
-  store volatile i32 2, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %4, i64 68
-  store i32 -1, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %4, i64 72
-  store i32 0, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %4, i64 76
-  store i32 0, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %4, i64 160
-  store volatile i32 0, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %4, i64 88
-  store ptr null, ptr %42, align 8
-  %43 = load i8, ptr @opal_uses_threads, align 1
-  %44 = trunc i8 %43 to i1
-  br i1 %44, label %45, label %47
+  %36 = getelementptr inbounds i8, ptr %4, i64 96
+  store volatile i32 2, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %4, i64 68
+  store i32 -1, ptr %37, align 4
+  %38 = getelementptr inbounds i8, ptr %4, i64 72
+  store i32 0, ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %4, i64 76
+  store i32 0, ptr %39, align 4
+  %40 = getelementptr inbounds i8, ptr %4, i64 160
+  store volatile i32 0, ptr %40, align 8
+  %41 = getelementptr inbounds i8, ptr %4, i64 88
+  store ptr null, ptr %41, align 8
+  %42 = load i8, ptr @opal_uses_threads, align 1
+  %43 = trunc i8 %42 to i1
+  br i1 %43, label %44, label %46
 
-45:                                               ; preds = %.loopexit
-  %46 = atomicrmw volatile xchg ptr %42, i64 0 monotonic, align 8
+44:                                               ; preds = %.loopexit
+  %45 = atomicrmw volatile xchg ptr %41, i64 0 monotonic, align 8
   br label %opal_thread_swap_ptr.exit
 
-47:                                               ; preds = %.loopexit
-  store i64 0, ptr %42, align 8
+46:                                               ; preds = %.loopexit
+  store i64 0, ptr %41, align 8
   br label %opal_thread_swap_ptr.exit
 
-opal_thread_swap_ptr.exit:                        ; preds = %45, %47
-  %48 = add i64 %.135, 1
-  %49 = icmp ult i64 %48, %0
-  %50 = icmp eq i32 %.1, 0
-  %51 = select i1 %49, i1 %50, i1 false
-  br i1 %51, label %.lr.ph38, label %._crit_edge, !llvm.loop !17
+opal_thread_swap_ptr.exit:                        ; preds = %44, %46
+  %47 = add i64 %.135, 1
+  %48 = icmp ult i64 %47, %0
+  %49 = icmp eq i32 %.1, 0
+  %50 = select i1 %48, i1 %49, i1 false
+  br i1 %50, label %.lr.ph38, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %opal_thread_swap_ptr.exit, %2
   %.0.lcssa = phi i32 [ 0, %2 ], [ %.1, %opal_thread_swap_ptr.exit ]

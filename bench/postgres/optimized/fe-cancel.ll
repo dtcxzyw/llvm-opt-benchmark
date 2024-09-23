@@ -322,7 +322,7 @@ declare ptr @strncat(ptr noalias noundef returned, ptr noalias nocapture noundef
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @PQrequestCancel(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %28, label %2
+  br i1 %.not, label %27, label %2
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 472
@@ -356,23 +356,23 @@ define range(i32 0, 2) i32 @PQrequestCancel(ptr noundef %0) local_unnamed_addr #
   %21 = tail call i32 @PQcancel(ptr noundef nonnull %13, ptr noundef %15, i32 noundef %20)
   tail call void @free(ptr noundef nonnull %13) #15
   %.not24 = icmp eq i32 %21, 0
-  br i1 %.not24, label %22, label %28
+  br i1 %.not24, label %22, label %27
 
 22:                                               ; preds = %.thread, %19
   %23 = getelementptr inbounds i8, ptr %0, i64 1000
   br label %.sink.split
 
 .sink.split:                                      ; preds = %6, %22
-  %.sink = phi ptr [ %23, %22 ], [ %7, %6 ]
-  %24 = load ptr, ptr %.sink, align 8
-  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #17
-  %26 = getelementptr inbounds i8, ptr %0, i64 1008
-  store i64 %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 1024
-  store i32 0, ptr %27, align 8
-  br label %28
+  %.sink29.in = phi ptr [ %23, %22 ], [ %7, %6 ]
+  %.sink29 = load ptr, ptr %.sink29.in, align 8
+  %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink29) #17
+  %25 = getelementptr inbounds i8, ptr %0, i64 1008
+  store i64 %24, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 1024
+  store i32 0, ptr %26, align 8
+  br label %27
 
-28:                                               ; preds = %.sink.split, %19, %1
+27:                                               ; preds = %.sink.split, %19, %1
   %.0 = phi i32 [ 0, %1 ], [ 1, %19 ], [ 0, %.sink.split ]
   ret i32 %.0
 }

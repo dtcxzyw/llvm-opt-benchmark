@@ -1781,41 +1781,50 @@ if.then61:                                        ; preds = %if.then56
   %15 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %16 = load i32, ptr %Capacity2.i.i.i.i.i.i, align 4
   %cmp.not.i.i = icmp ult i32 %15, %16
-  br i1 %cmp.not.i.i, label %for.inc64.sink.split, label %if.then.i.i26
+  br i1 %cmp.not.i.i, label %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit, label %if.then.i.i26
 
 if.then.i.i26:                                    ; preds = %if.then61
   call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %destroyer, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #13
   %.pre.i.i = load i32, ptr %Size.i.i.i.i.i.i, align 8
-  br label %for.inc64.sink.split
+  br label %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit
+
+_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit: ; preds = %if.then61, %if.then.i.i26
+  %17 = phi i32 [ %.pre.i.i, %if.then.i.i26 ], [ %15, %if.then61 ]
+  %18 = load ptr, ptr %destroyer, align 8
+  %conv.i3.i.i = zext i32 %17 to i64
+  %add.ptr.i.i.i28 = getelementptr inbounds ptr, ptr %18, i64 %conv.i3.i.i
+  %19 = ptrtoint ptr %__begin336.sroa.0.068 to i64
+  store i64 %19, ptr %add.ptr.i.i.i28, align 1
+  %20 = load i32, ptr %Size.i.i.i.i.i.i, align 8
+  %add.i.i = add i32 %20, 1
+  store i32 %add.i.i, ptr %Size.i.i.i.i.i.i, align 8
+  br label %for.inc64
 
 if.else:                                          ; preds = %for.cond52, %if.then49, %if.then56
-  %17 = load i32, ptr %Size.i.i.i.i.i18, align 8
-  %18 = load i32, ptr %Capacity2.i.i.i.i.i19, align 4
-  %cmp.not.i = icmp ult i32 %17, %18
-  br i1 %cmp.not.i, label %for.inc64.sink.split, label %if.then.i
+  %21 = load i32, ptr %Size.i.i.i.i.i18, align 8
+  %22 = load i32, ptr %Capacity2.i.i.i.i.i19, align 4
+  %cmp.not.i = icmp ult i32 %21, %22
+  br i1 %cmp.not.i, label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes21HBCReifyArgumentsInstELb1EE9push_backERKS3_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else
   call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %reifications, ptr noundef nonnull %add.ptr.i.i.i.i.i17, i64 noundef 0, i64 noundef 8) #13
   %.pre.i = load i32, ptr %Size.i.i.i.i.i18, align 8
-  br label %for.inc64.sink.split
+  br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes21HBCReifyArgumentsInstELb1EE9push_backERKS3_.exit
 
-for.inc64.sink.split:                             ; preds = %if.then.i, %if.else, %if.then.i.i26, %if.then61
-  %reifications.sink = phi ptr [ %destroyer, %if.then61 ], [ %destroyer, %if.then.i.i26 ], [ %reifications, %if.else ], [ %reifications, %if.then.i ]
-  %.sink82 = phi i32 [ %15, %if.then61 ], [ %.pre.i.i, %if.then.i.i26 ], [ %17, %if.else ], [ %.pre.i, %if.then.i ]
-  %Size.i.i.i.i.i18.sink81 = phi ptr [ %Size.i.i.i.i.i.i, %if.then61 ], [ %Size.i.i.i.i.i.i, %if.then.i.i26 ], [ %Size.i.i.i.i.i18, %if.else ], [ %Size.i.i.i.i.i18, %if.then.i ]
-  %changed.2.ph = phi i1 [ true, %if.then61 ], [ true, %if.then.i.i26 ], [ %changed.167, %if.else ], [ %changed.167, %if.then.i ]
-  %19 = load ptr, ptr %reifications.sink, align 8
-  %conv.i3.i = zext i32 %.sink82 to i64
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %19, i64 %conv.i3.i
-  %20 = ptrtoint ptr %__begin336.sroa.0.068 to i64
-  store i64 %20, ptr %add.ptr.i.i, align 1
-  %21 = load i32, ptr %Size.i.i.i.i.i18.sink81, align 8
-  %add.i = add i32 %21, 1
-  store i32 %add.i, ptr %Size.i.i.i.i.i18.sink81, align 8
+_ZN4llvh23SmallVectorTemplateBaseIPN6hermes21HBCReifyArgumentsInstELb1EE9push_backERKS3_.exit: ; preds = %if.else, %if.then.i
+  %23 = phi i32 [ %.pre.i, %if.then.i ], [ %21, %if.else ]
+  %24 = load ptr, ptr %reifications, align 8
+  %conv.i3.i = zext i32 %23 to i64
+  %add.ptr.i.i = getelementptr inbounds ptr, ptr %24, i64 %conv.i3.i
+  %25 = ptrtoint ptr %__begin336.sroa.0.068 to i64
+  store i64 %25, ptr %add.ptr.i.i, align 1
+  %26 = load i32, ptr %Size.i.i.i.i.i18, align 8
+  %add.i = add i32 %26, 1
+  store i32 %add.i, ptr %Size.i.i.i.i.i18, align 8
   br label %for.inc64
 
-for.inc64:                                        ; preds = %for.inc64.sink.split, %for.body44
-  %changed.2 = phi i1 [ %changed.167, %for.body44 ], [ %changed.2.ph, %for.inc64.sink.split ]
+for.inc64:                                        ; preds = %for.body44, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes21HBCReifyArgumentsInstELb1EE9push_backERKS3_.exit, %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit
+  %changed.2 = phi i1 [ true, %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit ], [ %changed.167, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes21HBCReifyArgumentsInstELb1EE9push_backERKS3_.exit ], [ %changed.167, %for.body44 ]
   %Next.i.i.i29 = getelementptr inbounds i8, ptr %__begin336.sroa.0.068, i64 8
   %__begin336.sroa.0.0 = load ptr, ptr %Next.i.i.i29, align 8
   %cmp.i22.not = icmp eq ptr %__begin336.sroa.0.0, %InstList.i20
@@ -1838,26 +1847,26 @@ if.then.i.i31:                                    ; preds = %for.end69
 
 _ZN4llvh11SmallVectorIPN6hermes21HBCReifyArgumentsInstELj4EED2Ev.exit: ; preds = %_ZN4llvh11SmallVectorIPN6hermes10BasicBlockELj16EEC2ISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEvEET_SF_.exit, %for.end69, %if.then.i.i31
   %changed.0.lcssa79 = phi i1 [ %changed.1.lcssa, %for.end69 ], [ %changed.1.lcssa, %if.then.i.i31 ], [ false, %_ZN4llvh11SmallVectorIPN6hermes10BasicBlockELj16EEC2ISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEvEET_SF_.exit ]
-  %22 = load ptr, ptr %reversePO, align 8
-  %cmp.i.i.i33 = icmp eq ptr %22, %add.ptr.i.i.i.i.i16
+  %27 = load ptr, ptr %reversePO, align 8
+  %cmp.i.i.i33 = icmp eq ptr %27, %add.ptr.i.i.i.i.i16
   br i1 %cmp.i.i.i33, label %_ZN4llvh11SmallVectorIPN6hermes10BasicBlockELj16EED2Ev.exit, label %if.then.i.i34
 
 if.then.i.i34:                                    ; preds = %_ZN4llvh11SmallVectorIPN6hermes21HBCReifyArgumentsInstELj4EED2Ev.exit
-  call void @free(ptr noundef %22) #13
+  call void @free(ptr noundef %27) #13
   br label %_ZN4llvh11SmallVectorIPN6hermes10BasicBlockELj16EED2Ev.exit
 
 _ZN4llvh11SmallVectorIPN6hermes10BasicBlockELj16EED2Ev.exit: ; preds = %_ZN4llvh11SmallVectorIPN6hermes21HBCReifyArgumentsInstELj4EED2Ev.exit, %if.then.i.i34
-  %23 = load ptr, ptr %destroyer, align 8
-  %24 = load i32, ptr %Size.i.i.i.i.i.i, align 8
-  %conv.i.i = zext i32 %24 to i64
-  %add.ptr.i.i36 = getelementptr inbounds ptr, ptr %23, i64 %conv.i.i
-  %cmp.not4.i = icmp eq i32 %24, 0
+  %28 = load ptr, ptr %destroyer, align 8
+  %29 = load i32, ptr %Size.i.i.i.i.i.i, align 8
+  %conv.i.i = zext i32 %29 to i64
+  %add.ptr.i.i36 = getelementptr inbounds ptr, ptr %28, i64 %conv.i.i
+  %cmp.not4.i = icmp eq i32 %29, 0
   br i1 %cmp.not4.i, label %for.end.i, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN4llvh11SmallVectorIPN6hermes10BasicBlockELj16EED2Ev.exit, %for.body.i
-  %__begin2.05.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %23, %_ZN4llvh11SmallVectorIPN6hermes10BasicBlockELj16EED2Ev.exit ]
-  %25 = load ptr, ptr %__begin2.05.i, align 8
-  call void @_ZN6hermes11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(132) %25) #13
+  %__begin2.05.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %28, %_ZN4llvh11SmallVectorIPN6hermes10BasicBlockELj16EED2Ev.exit ]
+  %30 = load ptr, ptr %__begin2.05.i, align 8
+  call void @_ZN6hermes11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(132) %30) #13
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.05.i, i64 8
   %cmp.not.i37 = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i36
   br i1 %cmp.not.i37, label %for.end.loopexit.i, label %for.body.i
@@ -1867,40 +1876,40 @@ for.end.loopexit.i:                               ; preds = %for.body.i
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %_ZN4llvh11SmallVectorIPN6hermes10BasicBlockELj16EED2Ev.exit
-  %26 = phi ptr [ %.pre.i38, %for.end.loopexit.i ], [ %23, %_ZN4llvh11SmallVectorIPN6hermes10BasicBlockELj16EED2Ev.exit ]
-  %cmp.i.i.i.i = icmp eq ptr %26, %add.ptr.i.i.i.i.i.i
+  %31 = phi ptr [ %.pre.i38, %for.end.loopexit.i ], [ %28, %_ZN4llvh11SmallVectorIPN6hermes10BasicBlockELj16EED2Ev.exit ]
+  %cmp.i.i.i.i = icmp eq ptr %31, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZN6hermes9IRBuilder20InstructionDestroyerD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.end.i
-  call void @free(ptr noundef %26) #13
+  call void @free(ptr noundef %31) #13
   br label %_ZN6hermes9IRBuilder20InstructionDestroyerD2Ev.exit
 
 _ZN6hermes9IRBuilder20InstructionDestroyerD2Ev.exit: ; preds = %for.end.i, %if.then.i.i.i
-  %27 = load ptr, ptr %Order.i, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %27, null
+  %32 = load ptr, ptr %Order.i, align 8
+  %tobool.not.i.i.i.i = icmp eq ptr %32, null
   br i1 %tobool.not.i.i.i.i, label %_ZN6hermes17PostOrderAnalysisD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN6hermes9IRBuilder20InstructionDestroyerD2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %27) #15
+  call void @_ZdlPv(ptr noundef nonnull %32) #15
   br label %_ZN6hermes17PostOrderAnalysisD2Ev.exit
 
 _ZN6hermes17PostOrderAnalysisD2Ev.exit:           ; preds = %_ZN6hermes9IRBuilder20InstructionDestroyerD2Ev.exit, %if.then.i.i.i.i
   %DomTreeNodes.i.i = getelementptr inbounds i8, ptr %domInfo, i64 24
   %NumBuckets.i.i.i.i.i.i = getelementptr inbounds i8, ptr %domInfo, i64 40
-  %28 = load i32, ptr %NumBuckets.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i41 = icmp eq i32 %28, 0
+  %33 = load i32, ptr %NumBuckets.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i41 = icmp eq i32 %33, 0
   %.pre1.i.i.i = load ptr, ptr %DomTreeNodes.i.i, align 8
   br i1 %cmp.i.i.i.i41, label %_ZN4llvh8DenseMapIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS2_EESt14default_deleteIS6_EENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S9_EEED2Ev.exit.i.i, label %for.body.preheader.i.i.i.i
 
 for.body.preheader.i.i.i.i:                       ; preds = %_ZN6hermes17PostOrderAnalysisD2Ev.exit
-  %idx.ext.i.i.i.i.i = zext i32 %28 to i64
+  %idx.ext.i.i.i.i.i = zext i32 %33 to i64
   %add.ptr.i.i.i.i.i42 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.123", ptr %.pre1.i.i.i, i64 %idx.ext.i.i.i.i.i
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %if.end13.i.i.i.i, %for.body.preheader.i.i.i.i
   %P.08.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %if.end13.i.i.i.i ], [ %.pre1.i.i.i, %for.body.preheader.i.i.i.i ]
-  %29 = load ptr, ptr %P.08.i.i.i.i, align 8
-  %magicptr.i.i.i.i = ptrtoint ptr %29 to i64
+  %34 = load ptr, ptr %P.08.i.i.i.i, align 8
+  %magicptr.i.i.i.i = ptrtoint ptr %34 to i64
   switch i64 %magicptr.i.i.i.i, label %if.then11.i.i.i.i [
     i64 -8, label %if.end13.i.i.i.i
     i64 -16, label %if.end13.i.i.i.i
@@ -1908,22 +1917,22 @@ for.body.i.i.i.i:                                 ; preds = %if.end13.i.i.i.i, %
 
 if.then11.i.i.i.i:                                ; preds = %for.body.i.i.i.i
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %P.08.i.i.i.i, i64 8
-  %30 = load ptr, ptr %second.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %30, null
+  %35 = load ptr, ptr %second.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i = icmp eq ptr %35, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt10unique_ptrIN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEESt14default_deleteIS4_EED2Ev.exit.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then11.i.i.i.i
-  %Children.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %30, i64 24
-  %31 = load ptr, ptr %Children.i.i.i.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %31, null
+  %Children.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = load ptr, ptr %Children.i.i.i.i.i.i.i, align 8
+  %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %36, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEEEclEPS4_.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %delete.notnull.i.i.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %31) #15
+  call void @_ZdlPv(ptr noundef nonnull %36) #15
   br label %_ZNKSt14default_deleteIN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEEEclEPS4_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEEEclEPS4_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %delete.notnull.i.i.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %30) #15
+  call void @_ZdlPv(ptr noundef nonnull %35) #15
   br label %_ZNSt10unique_ptrIN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEESt14default_deleteIS4_EED2Ev.exit.i.i.i.i
 
 _ZNSt10unique_ptrIN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEESt14default_deleteIS4_EED2Ev.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEEEclEPS4_.exit.i.i.i.i.i, %if.then11.i.i.i.i
@@ -1940,15 +1949,15 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes10BasicBlockESt10unique_ptrINS_15Do
   br label %_ZN4llvh8DenseMapIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS2_EESt14default_deleteIS6_EENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S9_EEED2Ev.exit.i.i
 
 _ZN4llvh8DenseMapIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS2_EESt14default_deleteIS6_EENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S9_EEED2Ev.exit.i.i: ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS3_EESt14default_deleteIS7_EENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E10destroyAllEv.exit.loopexit.i.i.i, %_ZN6hermes17PostOrderAnalysisD2Ev.exit
-  %32 = phi ptr [ %.pre.i.i.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS3_EESt14default_deleteIS7_EENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E10destroyAllEv.exit.loopexit.i.i.i ], [ %.pre1.i.i.i, %_ZN6hermes17PostOrderAnalysisD2Ev.exit ]
-  call void @_ZdlPv(ptr noundef %32) #13
-  %33 = load ptr, ptr %domInfo, align 8
+  %37 = phi ptr [ %.pre.i.i.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS3_EESt14default_deleteIS7_EENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E10destroyAllEv.exit.loopexit.i.i.i ], [ %.pre1.i.i.i, %_ZN6hermes17PostOrderAnalysisD2Ev.exit ]
+  call void @_ZdlPv(ptr noundef %37) #13
+  %38 = load ptr, ptr %domInfo, align 8
   %add.ptr.i.i.i.i.i.i43 = getelementptr inbounds i8, ptr %domInfo, i64 16
-  %cmp.i.i.i.i.i = icmp eq ptr %33, %add.ptr.i.i.i.i.i.i43
+  %cmp.i.i.i.i.i = icmp eq ptr %38, %add.ptr.i.i.i.i.i.i43
   br i1 %cmp.i.i.i.i.i, label %return, label %if.then.i.i.i.i44
 
 if.then.i.i.i.i44:                                ; preds = %_ZN4llvh8DenseMapIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS2_EESt14default_deleteIS6_EENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S9_EEED2Ev.exit.i.i
-  call void @free(ptr noundef %33) #13
+  call void @free(ptr noundef %38) #13
   br label %return
 
 return:                                           ; preds = %for.inc19, %entry, %if.then.i.i.i.i44, %_ZN4llvh8DenseMapIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS2_EESt14default_deleteIS6_EENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S9_EEED2Ev.exit.i.i

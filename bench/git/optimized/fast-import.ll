@@ -7553,17 +7553,17 @@ if.else62:                                        ; preds = %if.end59.thread, %i
   br label %if.end67
 
 if.end67:                                         ; preds = %if.end59, %if.else62
-  %.sink = phi ptr [ %52, %if.else62 ], [ %call57, %if.end59 ]
-  %len.sink = phi ptr [ %len, %if.else62 ], [ %deltalen, %if.end59 ]
+  %.sink86 = phi ptr [ %52, %if.else62 ], [ %call57, %if.end59 ]
+  %.sink.in = phi ptr [ %len, %if.else62 ], [ %deltalen, %if.end59 ]
   %tobool60.not73 = phi i1 [ true, %if.else62 ], [ false, %if.end59 ]
   %delta.071 = phi ptr [ null, %if.else62 ], [ %call57, %if.end59 ]
   %next_in64 = getelementptr inbounds i8, ptr %s, i64 144
-  store ptr %.sink, ptr %next_in64, align 8
-  %53 = load i64, ptr %len.sink, align 8
+  store ptr %.sink86, ptr %next_in64, align 8
+  %.sink = load i64, ptr %.sink.in, align 8
   %avail_in66 = getelementptr inbounds i8, ptr %s, i64 112
-  store i64 %53, ptr %avail_in66, align 8
+  store i64 %.sink, ptr %avail_in66, align 8
   %avail_in68 = getelementptr inbounds i8, ptr %s, i64 112
-  %call69 = call i64 @git_deflate_bound(ptr noundef nonnull %s, i64 noundef %53) #24
+  %call69 = call i64 @git_deflate_bound(ptr noundef nonnull %s, i64 noundef %.sink) #24
   %avail_out = getelementptr inbounds i8, ptr %s, i64 120
   store i64 %call69, ptr %avail_out, align 8
   %call71 = call ptr @xmalloc(i64 noundef %call69) #24
@@ -7578,8 +7578,8 @@ while.cond:                                       ; preds = %while.cond, %if.end
 
 while.end:                                        ; preds = %while.cond
   call void @git_deflate_end(ptr noundef nonnull %s) #24
-  %54 = load i64, ptr @max_packsize, align 8
-  %tobool75.not = icmp eq i64 %54, 0
+  %53 = load i64, ptr @max_packsize, align 8
+  %tobool75.not = icmp eq i64 %53, 0
   %.pre = load i64, ptr @pack_size, align 8
   %.pre78 = load ptr, ptr @the_repository, align 8
   %hash_algo82.phi.trans.insert = getelementptr inbounds i8, ptr %.pre78, i64 256
@@ -7600,9 +7600,9 @@ land.lhs.true76:                                  ; preds = %while.end
   %mul = mul i64 %.pre80, 3
   %add = add i64 %mul, %.pre
   %total_out = getelementptr inbounds i8, ptr %s, i64 136
-  %55 = load i64, ptr %total_out, align 8
-  %add79 = add i64 %add, %55
-  %cmp80 = icmp ugt i64 %add79, %54
+  %54 = load i64, ptr %total_out, align 8
+  %add79 = add i64 %add, %54
+  %cmp80 = icmp ugt i64 %add79, %53
   br i1 %cmp80, label %if.then90, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %while.end.lor.lhs.false_crit_edge, %land.lhs.true76
@@ -7611,10 +7611,10 @@ lor.lhs.false:                                    ; preds = %while.end.lor.lhs.f
   br i1 %cmp88, label %if.then90, label %if.end116
 
 if.then90:                                        ; preds = %lor.lhs.false, %land.lhs.true76
-  %56 = load i32, ptr @pack_id, align 4
+  %55 = load i32, ptr @pack_id, align 4
   %pack_id92 = getelementptr inbounds i8, ptr %e.0.i, i64 64
   %bf.load93 = load i32, ptr %pack_id92, align 8
-  %add91 = shl i32 %56, 3
+  %add91 = shl i32 %55, 3
   %bf.value94 = add i32 %add91, 8
   %bf.shl = and i32 %bf.value94, 524280
   %bf.clear95 = and i32 %bf.load93, -524281
@@ -7626,14 +7626,14 @@ if.then90:                                        ; preds = %lor.lhs.false, %lan
 
 do.body:                                          ; preds = %if.then90
   call void @free(ptr noundef %delta.071) #24
-  %57 = load i32, ptr @pack_compression_level, align 4
-  call void @git_deflate_init(ptr noundef nonnull %s, i32 noundef %57) #24
-  %58 = load ptr, ptr %buf, align 8
+  %56 = load i32, ptr @pack_compression_level, align 4
+  call void @git_deflate_init(ptr noundef nonnull %s, i32 noundef %56) #24
+  %57 = load ptr, ptr %buf, align 8
   %next_in100 = getelementptr inbounds i8, ptr %s, i64 144
-  store ptr %58, ptr %next_in100, align 8
-  %59 = load i64, ptr %len, align 8
-  store i64 %59, ptr %avail_in68, align 8
-  %call104 = call i64 @git_deflate_bound(ptr noundef nonnull %s, i64 noundef %59) #24
+  store ptr %57, ptr %next_in100, align 8
+  %58 = load i64, ptr %len, align 8
+  store i64 %58, ptr %avail_in68, align 8
+  %call104 = call i64 @git_deflate_bound(ptr noundef nonnull %s, i64 noundef %58) #24
   store i64 %call104, ptr %avail_out, align 8
   %call107 = call ptr @xrealloc(ptr noundef %call71, i64 noundef %call104) #24
   store ptr %call107, ptr %next_out, align 8
@@ -7654,54 +7654,54 @@ if.end116:                                        ; preds = %if.then90, %while.e
   %type117 = getelementptr inbounds i8, ptr %e.0.i, i64 64
   %bf.load118 = load i32, ptr %type117, align 8
   %bf.clear120 = and i32 %bf.load118, -524288
-  %60 = load i32, ptr @pack_id, align 4
-  %bf.value124 = shl i32 %60, 3
+  %59 = load i32, ptr @pack_id, align 4
+  %bf.value124 = shl i32 %59, 3
   %bf.shl125 = and i32 %bf.value124, 524280
-  %61 = or disjoint i32 %bf.clear120, %bf.shl125
-  %bf.set127 = or disjoint i32 %61, %type
+  %60 = or disjoint i32 %bf.clear120, %bf.shl125
+  %bf.set127 = or disjoint i32 %60, %type
   store i32 %bf.set127, ptr %type117, align 8
-  %62 = load i64, ptr @pack_size, align 8
-  store i64 %62, ptr %offset, align 8
-  %63 = load i64, ptr @object_count, align 8
-  %inc130 = add i64 %63, 1
+  %61 = load i64, ptr @pack_size, align 8
+  store i64 %61, ptr %offset, align 8
+  %62 = load i64, ptr @object_count, align 8
+  %inc130 = add i64 %62, 1
   store i64 %inc130, ptr @object_count, align 8
   %idxprom131 = zext nneg i32 %type to i64
   %arrayidx132 = getelementptr inbounds [8 x i64], ptr @object_count_by_type, i64 0, i64 %idxprom131
-  %64 = load i64, ptr %arrayidx132, align 8
-  %inc133 = add i64 %64, 1
+  %63 = load i64, ptr %arrayidx132, align 8
+  %inc133 = add i64 %63, 1
   store i64 %inc133, ptr %arrayidx132, align 8
-  %65 = load ptr, ptr @pack_file, align 8
-  call void @crc32_begin(ptr noundef %65) #24
+  %64 = load ptr, ptr @pack_file, align 8
+  call void @crc32_begin(ptr noundef %64) #24
   %tobool134.not = icmp eq ptr %delta.1, null
   br i1 %tobool134.not, label %if.else176, label %if.then135
 
 if.then135:                                       ; preds = %if.end116
-  %66 = load i64, ptr %offset, align 8
+  %65 = load i64, ptr %offset, align 8
   %offset138 = getelementptr inbounds i8, ptr %last, i64 24
-  %67 = load i64, ptr %offset138, align 8
-  %sub139 = sub nsw i64 %66, %67
+  %66 = load i64, ptr %offset138, align 8
+  %sub139 = sub nsw i64 %65, %66
   %arrayidx141 = getelementptr inbounds [8 x i64], ptr @delta_count_by_type, i64 0, i64 %idxprom131
-  %68 = load i64, ptr %arrayidx141, align 8
-  %inc142 = add i64 %68, 1
+  %67 = load i64, ptr %arrayidx141, align 8
+  %inc142 = add i64 %67, 1
   store i64 %inc142, ptr %arrayidx141, align 8
   %depth143 = getelementptr inbounds i8, ptr %last, i64 32
-  %69 = load i32, ptr %depth143, align 8
+  %68 = load i32, ptr %depth143, align 8
   %bf.load146 = load i32, ptr %type117, align 8
-  %add144 = shl i32 %69, 19
+  %add144 = shl i32 %68, 19
   %bf.value147 = add i32 %add144, 524288
   %bf.clear149 = and i32 %bf.load146, 524287
   %bf.set150 = or disjoint i32 %bf.clear149, %bf.value147
   store i32 %bf.set150, ptr %type117, align 8
-  %70 = load i64, ptr %deltalen, align 8
-  %call152 = call i32 @encode_in_pack_object_header(ptr noundef nonnull %hdr, i32 noundef 96, i32 noundef 6, i64 noundef %70) #24
+  %69 = load i64, ptr %deltalen, align 8
+  %call152 = call i32 @encode_in_pack_object_header(ptr noundef nonnull %hdr, i32 noundef 96, i32 noundef 6, i64 noundef %69) #24
   %conv153 = sext i32 %call152 to i64
-  %71 = load ptr, ptr @pack_file, align 8
-  call void @hashwrite(ptr noundef %71, ptr noundef nonnull %hdr, i32 noundef %call152) #24
-  %72 = load i64, ptr @pack_size, align 8
-  %add156 = add i64 %72, %conv153
+  %70 = load ptr, ptr @pack_file, align 8
+  call void @hashwrite(ptr noundef %70, ptr noundef nonnull %hdr, i32 noundef %call152) #24
+  %71 = load i64, ptr @pack_size, align 8
+  %add156 = add i64 %71, %conv153
   store i64 %add156, ptr @pack_size, align 8
-  %73 = trunc i64 %sub139 to i8
-  %conv157 = and i8 %73, 127
+  %72 = trunc i64 %sub139 to i8
+  %conv157 = and i8 %72, 127
   %arrayidx159 = getelementptr inbounds i8, ptr %hdr, i64 95
   store i8 %conv157, ptr %arrayidx159, align 1
   %tobool161.not75 = icmp ult i64 %sub139, 128
@@ -7712,8 +7712,8 @@ while.body162:                                    ; preds = %if.then135, %while.
   %ofs.076 = phi i64 [ %dec, %while.body162 ], [ %sub139, %if.then135 ]
   %shr = ashr i64 %ofs.076, 7
   %dec = add nsw i64 %shr, -1
-  %74 = trunc i64 %dec to i8
-  %conv164 = or i8 %74, -128
+  %73 = trunc i64 %dec to i8
+  %conv164 = or i8 %73, -128
   %dec165 = add i32 %pos.077, -1
   %idxprom166 = zext i32 %dec165 to i64
   %arrayidx167 = getelementptr inbounds [96 x i8], ptr %hdr, i64 0, i64 %idxprom166
@@ -7722,45 +7722,45 @@ while.body162:                                    ; preds = %if.then135, %while.
   br i1 %tobool161.not, label %while.end168.loopexit, label %while.body162, !llvm.loop !53
 
 while.end168.loopexit:                            ; preds = %while.body162
-  %75 = zext i32 %dec165 to i64
+  %74 = zext i32 %dec165 to i64
   br label %while.end168
 
 while.end168:                                     ; preds = %if.then135, %while.end168.loopexit
-  %pos.0.lcssa = phi i64 [ %75, %while.end168.loopexit ], [ 95, %if.then135 ]
-  %76 = load ptr, ptr @pack_file, align 8
+  %pos.0.lcssa = phi i64 [ %74, %while.end168.loopexit ], [ 95, %if.then135 ]
+  %75 = load ptr, ptr @pack_file, align 8
   %add.ptr = getelementptr inbounds i8, ptr %hdr, i64 %pos.0.lcssa
   %sub171 = sub nsw i64 96, %pos.0.lcssa
   %conv172 = trunc i64 %sub171 to i32
-  call void @hashwrite(ptr noundef %76, ptr noundef nonnull %add.ptr, i32 noundef %conv172) #24
+  call void @hashwrite(ptr noundef %75, ptr noundef nonnull %add.ptr, i32 noundef %conv172) #24
   br label %if.end188
 
 if.else176:                                       ; preds = %if.end116
   %bf.load178 = load i32, ptr %type117, align 8
   %bf.clear179 = and i32 %bf.load178, 524287
   store i32 %bf.clear179, ptr %type117, align 8
-  %77 = load i64, ptr %len, align 8
-  %call183 = call i32 @encode_in_pack_object_header(ptr noundef nonnull %hdr, i32 noundef 96, i32 noundef %type, i64 noundef %77) #24
+  %76 = load i64, ptr %len, align 8
+  %call183 = call i32 @encode_in_pack_object_header(ptr noundef nonnull %hdr, i32 noundef 96, i32 noundef %type, i64 noundef %76) #24
   %conv184 = sext i32 %call183 to i64
-  %78 = load ptr, ptr @pack_file, align 8
-  call void @hashwrite(ptr noundef %78, ptr noundef nonnull %hdr, i32 noundef %call183) #24
+  %77 = load ptr, ptr @pack_file, align 8
+  call void @hashwrite(ptr noundef %77, ptr noundef nonnull %hdr, i32 noundef %call183) #24
   br label %if.end188
 
 if.end188:                                        ; preds = %if.else176, %while.end168
   %conv184.sink = phi i64 [ %conv184, %if.else176 ], [ %sub171, %while.end168 ]
-  %79 = load i64, ptr @pack_size, align 8
-  %add187 = add i64 %79, %conv184.sink
+  %78 = load i64, ptr @pack_size, align 8
+  %add187 = add i64 %78, %conv184.sink
   store i64 %add187, ptr @pack_size, align 8
-  %80 = load ptr, ptr @pack_file, align 8
+  %79 = load ptr, ptr @pack_file, align 8
   %total_out189 = getelementptr inbounds i8, ptr %s, i64 136
+  %80 = load i64, ptr %total_out189, align 8
+  %conv190 = trunc i64 %80 to i32
+  call void @hashwrite(ptr noundef %79, ptr noundef %out.0, i32 noundef %conv190) #24
   %81 = load i64, ptr %total_out189, align 8
-  %conv190 = trunc i64 %81 to i32
-  call void @hashwrite(ptr noundef %80, ptr noundef %out.0, i32 noundef %conv190) #24
-  %82 = load i64, ptr %total_out189, align 8
-  %83 = load i64, ptr @pack_size, align 8
-  %add192 = add i64 %83, %82
+  %82 = load i64, ptr @pack_size, align 8
+  %add192 = add i64 %82, %81
   store i64 %add192, ptr @pack_size, align 8
-  %84 = load ptr, ptr @pack_file, align 8
-  %call193 = call i32 @crc32_end(ptr noundef %84) #24
+  %83 = load ptr, ptr @pack_file, align 8
+  %call193 = call i32 @crc32_end(ptr noundef %83) #24
   %crc32 = getelementptr inbounds i8, ptr %e.0.i, i64 36
   store i32 %call193, ptr %crc32, align 4
   call void @free(ptr noundef %out.0) #24
@@ -7787,9 +7787,9 @@ if.else202:                                       ; preds = %if.then196
   br label %if.end204
 
 if.end204:                                        ; preds = %if.else202, %if.then200
-  %85 = load i64, ptr %offset, align 8
+  %84 = load i64, ptr %offset, align 8
   %offset207 = getelementptr inbounds i8, ptr %last, i64 24
-  store i64 %85, ptr %offset207, align 8
+  store i64 %84, ptr %offset207, align 8
   %bf.load209 = load i32, ptr %type117, align 8
   %bf.lshr = lshr i32 %bf.load209, 19
   %depth210 = getelementptr inbounds i8, ptr %last, i64 32
@@ -9963,9 +9963,9 @@ if.end72:                                         ; preds = %if.else, %if.then69
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.then56, %if.end72
-  %hash_algo.i35.sink = phi ptr [ %hash_algo.i35, %if.end72 ], [ %hash_algo.i, %if.then56 ]
-  %22 = load ptr, ptr %hash_algo.i35.sink, align 8
-  %sub.ptr.lhs.cast.i.i42 = ptrtoint ptr %22 to i64
+  %.sink.in = phi ptr [ %hash_algo.i35, %if.end72 ], [ %hash_algo.i, %if.then56 ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %sub.ptr.lhs.cast.i.i42 = ptrtoint ptr %.sink to i64
   %sub.ptr.sub.i.i43 = sub i64 %sub.ptr.lhs.cast.i.i42, ptrtoint (ptr @hash_algos to i64)
   %sub.ptr.div.i.i44 = sdiv exact i64 %sub.ptr.sub.i.i43, 104
   %conv.i.i45 = trunc i64 %sub.ptr.div.i.i44 to i32

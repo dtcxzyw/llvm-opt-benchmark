@@ -3036,16 +3036,16 @@ do.body:                                          ; preds = %trace_scsi_req_dequ
 
 if.then1:                                         ; preds = %do.body
   %tql_prev5 = getelementptr inbounds i8, ptr %11, i64 400
+  store ptr %12, ptr %tql_prev5, align 8
   br label %if.end
 
 if.else:                                          ; preds = %do.body
   %13 = load ptr, ptr %dev, align 8
   %tql_prev9 = getelementptr inbounds i8, ptr %13, i64 544
+  store ptr %12, ptr %tql_prev9, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then1
-  %tql_prev9.sink = phi ptr [ %tql_prev9, %if.else ], [ %tql_prev5, %if.then1 ]
-  store ptr %12, ptr %tql_prev9.sink, align 8
   %14 = load ptr, ptr %next, align 8
   store ptr %14, ptr %12, align 8
   store i8 0, ptr %enqueued, align 8

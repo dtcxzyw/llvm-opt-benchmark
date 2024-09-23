@@ -1080,16 +1080,16 @@ define dso_local void @_ZN5clang7CodeGen28ConstantAggregateBuilderBase16addSigne
   br label %_ZN5clang7CodeGen28ConstantAggregateBuilderBase3addEPN4llvm8ConstantE.exit
 
 _ZN5clang7CodeGen28ConstantAggregateBuilderBase3addEPN4llvm8ConstantE.exit: ; preds = %37, %28, %19, %13
-  %.sink26 = phi ptr [ %15, %13 ], [ %15, %19 ], [ %33, %28 ], [ %33, %37 ]
+  %.sink25 = phi ptr [ %15, %13 ], [ %15, %19 ], [ %33, %28 ], [ %33, %37 ]
   %.sink22 = phi ptr [ %1, %13 ], [ %1, %19 ], [ %31, %28 ], [ %31, %37 ]
-  %39 = load ptr, ptr %.sink26, align 8
-  %40 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.sink26) #11
-  %41 = getelementptr inbounds ptr, ptr %39, i64 %40
-  %42 = ptrtoint ptr %.sink22 to i64
-  store i64 %42, ptr %41, align 1
-  %43 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.sink26) #11
-  %44 = add i64 %43, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %.sink26, i64 noundef %44) #11
+  %.sink23 = load ptr, ptr %.sink25, align 8
+  %39 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.sink25) #11
+  %40 = getelementptr inbounds ptr, ptr %.sink23, i64 %39
+  %41 = ptrtoint ptr %.sink22 to i64
+  store i64 %41, ptr %40, align 1
+  %42 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.sink25) #11
+  %43 = add i64 %42, 1
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %.sink25, i64 noundef %43) #11
   ret void
 }
 

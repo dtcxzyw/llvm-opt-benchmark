@@ -24,7 +24,7 @@ define ptr @dtrenew(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not58 = icmp eq ptr %14, null
-  br i1 %.not58, label %86, label %15
+  br i1 %.not58, label %90, label %15
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds i8, ptr %4, i64 8
@@ -46,13 +46,13 @@ define ptr @dtrenew(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 26:                                               ; preds = %22, %19
   %27 = phi ptr [ %21, %19 ], [ %25, %22 ]
   %.not59 = icmp eq ptr %27, %1
-  br i1 %.not59, label %28, label %86
+  br i1 %.not59, label %28, label %90
 
 28:                                               ; preds = %26
   %29 = load i32, ptr %12, align 8
   %30 = and i32 %29, 64
   %.not60 = icmp eq i32 %30, 0
-  br i1 %.not60, label %31, label %86
+  br i1 %.not60, label %31, label %90
 
 31:                                               ; preds = %28
   %32 = and i32 %29, 12
@@ -68,14 +68,14 @@ define ptr @dtrenew(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %36 = getelementptr inbounds i8, ptr %14, i64 8
   %37 = load ptr, ptr %36, align 8
   store ptr %37, ptr %13, align 8
-  br label %76
+  br label %80
 
 38:                                               ; preds = %33
   store ptr %34, ptr %13, align 8
   %39 = getelementptr inbounds i8, ptr %14, i64 8
   %40 = load ptr, ptr %39, align 8
   %.not64 = icmp eq ptr %40, null
-  br i1 %.not64, label %76, label %41
+  br i1 %.not64, label %80, label %41
 
 41:                                               ; preds = %38
   %42 = load ptr, ptr %14, align 8
@@ -91,7 +91,7 @@ define ptr @dtrenew(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 46:                                               ; preds = %43
   %47 = getelementptr inbounds i8, ptr %.050, i64 8
   store ptr %40, ptr %47, align 8
-  br label %76
+  br label %80
 
 48:                                               ; preds = %31
   %49 = getelementptr inbounds i8, ptr %12, i64 16
@@ -106,55 +106,62 @@ define ptr @dtrenew(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %58 = getelementptr inbounds ptr, ptr %50, i64 %57
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, %14
-  br i1 %60, label %.loopexit, label %.preheader
+  br i1 %60, label %61, label %.preheader
+
+61:                                               ; preds = %48
+  %62 = load ptr, ptr %14, align 8
+  store ptr %62, ptr %58, align 8
+  br label %66
 
 .preheader:                                       ; preds = %48, %.preheader
-  %.1 = phi ptr [ %61, %.preheader ], [ %59, %48 ]
-  %61 = load ptr, ptr %.1, align 8
-  %.not62 = icmp eq ptr %61, %14
-  br i1 %.not62, label %.loopexit, label %.preheader
+  %.1 = phi ptr [ %63, %.preheader ], [ %59, %48 ]
+  %63 = load ptr, ptr %.1, align 8
+  %.not62 = icmp eq ptr %63, %14
+  br i1 %.not62, label %64, label %.preheader
 
-.loopexit:                                        ; preds = %.preheader, %48
-  %.1.lcssa.sink = phi ptr [ %58, %48 ], [ %.1, %.preheader ]
-  %62 = load ptr, ptr %14, align 8
-  store ptr %62, ptr %.1.lcssa.sink, align 8
-  %63 = getelementptr inbounds i8, ptr %4, i64 4
-  %64 = load i32, ptr %63, align 4
-  %65 = icmp slt i32 %64, 0
-  %66 = load i32, ptr %4, align 8
-  %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds i8, ptr %1, i64 %67
-  br i1 %65, label %69, label %71
+64:                                               ; preds = %.preheader
+  %65 = load ptr, ptr %14, align 8
+  store ptr %65, ptr %.1, align 8
+  br label %66
 
-69:                                               ; preds = %.loopexit
-  %70 = load ptr, ptr %68, align 8
-  br label %71
+66:                                               ; preds = %64, %61
+  %67 = getelementptr inbounds i8, ptr %4, i64 4
+  %68 = load i32, ptr %67, align 4
+  %69 = icmp slt i32 %68, 0
+  %70 = load i32, ptr %4, align 8
+  %71 = sext i32 %70 to i64
+  %72 = getelementptr inbounds i8, ptr %1, i64 %71
+  br i1 %69, label %73, label %75
 
-71:                                               ; preds = %.loopexit, %69
-  %72 = phi ptr [ %70, %69 ], [ %68, %.loopexit ]
-  %73 = tail call i32 @dtstrhash(ptr noundef %72, i32 noundef %64) #2
-  store i32 %73, ptr %51, align 8
-  %74 = load ptr, ptr %5, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 8
-  store ptr null, ptr %75, align 8
-  br label %76
+73:                                               ; preds = %66
+  %74 = load ptr, ptr %72, align 8
+  br label %75
 
-76:                                               ; preds = %71, %38, %46, %35
-  %77 = load ptr, ptr %5, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 28
-  %79 = load i32, ptr %78, align 4
-  %80 = add nsw i32 %79, -1
-  store i32 %80, ptr %78, align 4
-  %81 = getelementptr inbounds i8, ptr %0, i64 24
-  %82 = load ptr, ptr %81, align 8
-  %83 = load ptr, ptr %82, align 8
-  %84 = tail call ptr %83(ptr noundef %0, ptr noundef nonnull %14, i32 noundef 32) #2
-  %.not66 = icmp eq ptr %84, null
-  %85 = select i1 %.not66, ptr null, ptr %1
-  br label %86
+75:                                               ; preds = %66, %73
+  %76 = phi ptr [ %74, %73 ], [ %72, %66 ]
+  %77 = tail call i32 @dtstrhash(ptr noundef %76, i32 noundef %68) #2
+  store i32 %77, ptr %51, align 8
+  %78 = load ptr, ptr %5, align 8
+  %79 = getelementptr inbounds i8, ptr %78, i64 8
+  store ptr null, ptr %79, align 8
+  br label %80
 
-86:                                               ; preds = %28, %11, %26, %76
-  %.0 = phi ptr [ %85, %76 ], [ null, %26 ], [ null, %11 ], [ %1, %28 ]
+80:                                               ; preds = %75, %38, %46, %35
+  %81 = load ptr, ptr %5, align 8
+  %82 = getelementptr inbounds i8, ptr %81, i64 28
+  %83 = load i32, ptr %82, align 4
+  %84 = add nsw i32 %83, -1
+  store i32 %84, ptr %82, align 4
+  %85 = getelementptr inbounds i8, ptr %0, i64 24
+  %86 = load ptr, ptr %85, align 8
+  %87 = load ptr, ptr %86, align 8
+  %88 = tail call ptr %87(ptr noundef %0, ptr noundef nonnull %14, i32 noundef 32) #2
+  %.not66 = icmp eq ptr %88, null
+  %89 = select i1 %.not66, ptr null, ptr %1
+  br label %90
+
+90:                                               ; preds = %28, %11, %26, %80
+  %.0 = phi ptr [ %89, %80 ], [ null, %26 ], [ null, %11 ], [ %1, %28 ]
   ret ptr %.0
 }
 

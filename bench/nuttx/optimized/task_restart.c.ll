@@ -14,14 +14,14 @@ target triple = "x86_64-pc-linux-gnu"
 define range(i32 -1, 1) i32 @task_restart(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = icmp eq i32 %0, 0
-  br i1 %3, label %55, label %4
+  br i1 %3, label %58, label %4
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr @g_readytorun, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %0, %7
-  br i1 %8, label %55, label %9
+  br i1 %8, label %58, label %9
 
 9:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
@@ -43,11 +43,11 @@ define range(i32 -1, 1) i32 @task_restart(i32 noundef %0) local_unnamed_addr #0 
 17:                                               ; preds = %12, %9
   %18 = and i64 %10, 512
   %.not.i.i = icmp eq i64 %18, 0
-  br i1 %.not.i.i, label %55, label %19
+  br i1 %.not.i.i, label %58, label %19
 
 19:                                               ; preds = %17
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !8
-  br label %55
+  br label %58
 
 20:                                               ; preds = %12
   call void @nxtask_recover(ptr noundef nonnull %11) #4
@@ -106,31 +106,40 @@ define range(i32 -1, 1) i32 @task_restart(i32 noundef %0) local_unnamed_addr #0 
   %51 = load ptr, ptr @g_inactivetasks, align 8
   store ptr %51, ptr %11, align 8
   %.not58.i = icmp eq ptr %51, null
-  %52 = getelementptr inbounds i8, ptr %51, i64 8
-  %.sink63.i = select i1 %.not58.i, ptr getelementptr inbounds (i8, ptr @g_inactivetasks, i64 8), ptr %52
-  store ptr %11, ptr %.sink63.i, align 8
+  br i1 %.not58.i, label %52, label %53
+
+52:                                               ; preds = %37
+  store ptr %11, ptr getelementptr inbounds (i8, ptr @g_inactivetasks, i64 8), align 8
+  br label %55
+
+53:                                               ; preds = %37
+  %54 = getelementptr inbounds i8, ptr %51, i64 8
+  store ptr %11, ptr %54, align 8
+  br label %55
+
+55:                                               ; preds = %53, %52
   store ptr %11, ptr @g_inactivetasks, align 8
   store i8 4, ptr %22, align 16
-  %53 = and i64 %10, 512
-  %.not.i59.i = icmp eq i64 %53, 0
-  br i1 %.not.i59.i, label %nxtask_restart.exit, label %54
+  %56 = and i64 %10, 512
+  %.not.i59.i = icmp eq i64 %56, 0
+  br i1 %.not.i59.i, label %nxtask_restart.exit, label %57
 
-54:                                               ; preds = %37
+57:                                               ; preds = %55
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !8
   br label %nxtask_restart.exit
 
-nxtask_restart.exit:                              ; preds = %37, %54
+nxtask_restart.exit:                              ; preds = %55, %57
   call void @nxtask_activate(ptr noundef nonnull %11) #4
-  br label %57
+  br label %60
 
-55:                                               ; preds = %4, %1, %17, %19
+58:                                               ; preds = %4, %1, %17, %19
   %.0.i.ph.neg = phi i32 [ 3, %19 ], [ 3, %17 ], [ 38, %1 ], [ 38, %4 ]
-  %56 = call ptr @__errno() #4
-  store i32 %.0.i.ph.neg, ptr %56, align 4
-  br label %57
+  %59 = call ptr @__errno() #4
+  store i32 %.0.i.ph.neg, ptr %59, align 4
+  br label %60
 
-57:                                               ; preds = %nxtask_restart.exit, %55
-  %.0 = phi i32 [ -1, %55 ], [ 0, %nxtask_restart.exit ]
+60:                                               ; preds = %nxtask_restart.exit, %58
+  %.0 = phi i32 [ -1, %58 ], [ 0, %nxtask_restart.exit ]
   ret i32 %.0
 }
 

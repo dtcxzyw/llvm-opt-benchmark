@@ -288,46 +288,66 @@ if.end:                                           ; preds = %_ZNSt3mapINSt7__cxx
   %cmp.i3 = icmp eq ptr %6, null
   %next_.i = getelementptr inbounds i8, ptr %5, i64 40
   %7 = load ptr, ptr %next_.i, align 8
-  %next_4.i = getelementptr inbounds i8, ptr %6, i64 40
+  br i1 %cmp.i3, label %if.then.i, label %if.else.i
+
+if.then.i:                                        ; preds = %if.end
   %use_order_list_head_.i = getelementptr inbounds i8, ptr %this, i64 32
-  %next_4.sink.i = select i1 %cmp.i3, ptr %use_order_list_head_.i, ptr %next_4.i
-  store ptr %7, ptr %next_4.sink.i, align 8
+  store ptr %7, ptr %use_order_list_head_.i, align 8
+  br label %if.end.i
+
+if.else.i:                                        ; preds = %if.end
+  %next_4.i = getelementptr inbounds i8, ptr %6, i64 40
+  store ptr %7, ptr %next_4.i, align 8
+  br label %if.end.i
+
+if.end.i:                                         ; preds = %if.else.i, %if.then.i
   %cmp6.i = icmp eq ptr %7, null
   %8 = load ptr, ptr %prev_.i, align 8
+  br i1 %cmp6.i, label %if.then7.i, label %if.else9.i
+
+if.then7.i:                                       ; preds = %if.end.i
   %use_order_list_tail_.i = getelementptr inbounds i8, ptr %this, i64 40
+  store ptr %8, ptr %use_order_list_tail_.i, align 8
+  br label %do.body.i
+
+if.else9.i:                                       ; preds = %if.end.i
   %prev_12.i = getelementptr inbounds i8, ptr %7, i64 48
-  %use_order_list_tail_.sink.i = select i1 %cmp6.i, ptr %use_order_list_tail_.i, ptr %prev_12.i
-  store ptr %8, ptr %use_order_list_tail_.sink.i, align 8
+  store ptr %8, ptr %prev_12.i, align 8
+  br label %do.body.i
+
+do.body.i:                                        ; preds = %if.else9.i, %if.then7.i
   %use_order_list_size_.i = getelementptr inbounds i8, ptr %this, i64 48
   %9 = load i64, ptr %use_order_list_size_.i, align 8
   %cmp14.not.i = icmp eq i64 %9, 0
   br i1 %cmp14.not.i, label %if.then15.i, label %_ZN3tsi18SslSessionLRUCache6RemoveEPNS0_4NodeE.exit
 
-if.then15.i:                                      ; preds = %if.end
+if.then15.i:                                      ; preds = %do.body.i
   tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 147, ptr noundef nonnull @.str.4) #18
   unreachable
 
-_ZN3tsi18SslSessionLRUCache6RemoveEPNS0_4NodeE.exit: ; preds = %if.end
+_ZN3tsi18SslSessionLRUCache6RemoveEPNS0_4NodeE.exit: ; preds = %do.body.i
   %dec.i = add i64 %9, -1
   store i64 %dec.i, ptr %use_order_list_size_.i, align 8
-  %10 = load ptr, ptr %use_order_list_head_.i, align 8
+  %use_order_list_head_.i4 = getelementptr inbounds i8, ptr %this, i64 32
+  %10 = load ptr, ptr %use_order_list_head_.i4, align 8
   %cmp.i5 = icmp eq ptr %10, null
-  br i1 %cmp.i5, label %if.then.i, label %if.else.i
+  br i1 %cmp.i5, label %if.then.i10, label %if.else.i6
 
-if.then.i:                                        ; preds = %_ZN3tsi18SslSessionLRUCache6RemoveEPNS0_4NodeE.exit
-  store ptr %5, ptr %use_order_list_head_.i, align 8
-  store ptr %5, ptr %use_order_list_tail_.i, align 8
+if.then.i10:                                      ; preds = %_ZN3tsi18SslSessionLRUCache6RemoveEPNS0_4NodeE.exit
+  store ptr %5, ptr %use_order_list_head_.i4, align 8
+  %use_order_list_tail_.i11 = getelementptr inbounds i8, ptr %this, i64 40
+  store ptr %5, ptr %use_order_list_tail_.i11, align 8
   store ptr null, ptr %next_.i, align 8
   br label %_ZN3tsi18SslSessionLRUCache9PushFrontEPNS0_4NodeE.exit
 
-if.else.i:                                        ; preds = %_ZN3tsi18SslSessionLRUCache6RemoveEPNS0_4NodeE.exit
+if.else.i6:                                       ; preds = %_ZN3tsi18SslSessionLRUCache6RemoveEPNS0_4NodeE.exit
   store ptr %10, ptr %next_.i, align 8
   %prev_6.i = getelementptr inbounds i8, ptr %10, i64 48
   store ptr %5, ptr %prev_6.i, align 8
-  store ptr %5, ptr %use_order_list_head_.i, align 8
+  store ptr %5, ptr %use_order_list_head_.i4, align 8
   br label %_ZN3tsi18SslSessionLRUCache9PushFrontEPNS0_4NodeE.exit
 
-_ZN3tsi18SslSessionLRUCache9PushFrontEPNS0_4NodeE.exit: ; preds = %if.then.i, %if.else.i
+_ZN3tsi18SslSessionLRUCache9PushFrontEPNS0_4NodeE.exit: ; preds = %if.then.i10, %if.else.i6
   store ptr null, ptr %prev_.i, align 8
   %11 = load i64, ptr %use_order_list_size_.i, align 8
   %inc.i = add i64 %11, 1
@@ -347,26 +367,44 @@ entry:
   %cmp = icmp eq ptr %0, null
   %next_ = getelementptr inbounds i8, ptr %node, i64 40
   %1 = load ptr, ptr %next_, align 8
-  %next_4 = getelementptr inbounds i8, ptr %0, i64 40
+  br i1 %cmp, label %if.then, label %if.else
+
+if.then:                                          ; preds = %entry
   %use_order_list_head_ = getelementptr inbounds i8, ptr %this, i64 32
-  %next_4.sink = select i1 %cmp, ptr %use_order_list_head_, ptr %next_4
-  store ptr %1, ptr %next_4.sink, align 8
+  store ptr %1, ptr %use_order_list_head_, align 8
+  br label %if.end
+
+if.else:                                          ; preds = %entry
+  %next_4 = getelementptr inbounds i8, ptr %0, i64 40
+  store ptr %1, ptr %next_4, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then
   %cmp6 = icmp eq ptr %1, null
   %2 = load ptr, ptr %prev_, align 8
+  br i1 %cmp6, label %if.then7, label %if.else9
+
+if.then7:                                         ; preds = %if.end
   %use_order_list_tail_ = getelementptr inbounds i8, ptr %this, i64 40
+  store ptr %2, ptr %use_order_list_tail_, align 8
+  br label %do.body
+
+if.else9:                                         ; preds = %if.end
   %prev_12 = getelementptr inbounds i8, ptr %1, i64 48
-  %use_order_list_tail_.sink = select i1 %cmp6, ptr %use_order_list_tail_, ptr %prev_12
-  store ptr %2, ptr %use_order_list_tail_.sink, align 8
+  store ptr %2, ptr %prev_12, align 8
+  br label %do.body
+
+do.body:                                          ; preds = %if.then7, %if.else9
   %use_order_list_size_ = getelementptr inbounds i8, ptr %this, i64 48
   %3 = load i64, ptr %use_order_list_size_, align 8
   %cmp14.not = icmp eq i64 %3, 0
   br i1 %cmp14.not, label %if.then15, label %do.end
 
-if.then15:                                        ; preds = %entry
+if.then15:                                        ; preds = %do.body
   tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 147, ptr noundef nonnull @.str.4) #18
   unreachable
 
-do.end:                                           ; preds = %entry
+do.end:                                           ; preds = %do.body
   %dec = add i64 %3, -1
   store i64 %dec, ptr %use_order_list_size_, align 8
   ret void
@@ -658,7 +696,7 @@ do.body:                                          ; preds = %invoke.cont26
   %tobool.not = icmp eq ptr %23, null
   br i1 %tobool.not, label %if.then15.i.invoke, label %do.end
 
-lpad11:                                           ; preds = %if.then15.i.invoke, %call.i.i40.noexc, %invoke.cont35, %_ZN3tsi18SslSessionLRUCache9PushFrontEPNS0_4NodeE.exit, %if.end10
+lpad11:                                           ; preds = %if.then15.i.invoke, %call.i.i43.noexc, %invoke.cont35, %_ZN3tsi18SslSessionLRUCache9PushFrontEPNS0_4NodeE.exit, %if.end10
   %24 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup43
@@ -688,68 +726,86 @@ do.end:                                           ; preds = %do.body
   %cmp.i33 = icmp eq ptr %27, null
   %next_.i34 = getelementptr inbounds i8, ptr %23, i64 40
   %28 = load ptr, ptr %next_.i34, align 8
-  %next_4.i35 = getelementptr inbounds i8, ptr %27, i64 40
-  %next_4.sink.i = select i1 %cmp.i33, ptr %use_order_list_head_.i, ptr %next_4.i35
-  store ptr %28, ptr %next_4.sink.i, align 8
+  br i1 %cmp.i33, label %if.then.i40, label %if.else.i35
+
+if.then.i40:                                      ; preds = %do.end
+  store ptr %28, ptr %use_order_list_head_.i, align 8
+  br label %if.end.i37
+
+if.else.i35:                                      ; preds = %do.end
+  %next_4.i36 = getelementptr inbounds i8, ptr %27, i64 40
+  store ptr %28, ptr %next_4.i36, align 8
+  br label %if.end.i37
+
+if.end.i37:                                       ; preds = %if.else.i35, %if.then.i40
   %cmp6.i = icmp eq ptr %28, null
   %29 = load ptr, ptr %prev_.i, align 8
+  br i1 %cmp6.i, label %if.then7.i, label %if.else9.i
+
+if.then7.i:                                       ; preds = %if.end.i37
+  store ptr %29, ptr %use_order_list_tail_, align 8
+  br label %do.body.i
+
+if.else9.i:                                       ; preds = %if.end.i37
   %prev_12.i = getelementptr inbounds i8, ptr %28, i64 48
-  %use_order_list_tail_.sink.i = select i1 %cmp6.i, ptr %use_order_list_tail_, ptr %prev_12.i
-  store ptr %29, ptr %use_order_list_tail_.sink.i, align 8
+  store ptr %29, ptr %prev_12.i, align 8
+  br label %do.body.i
+
+do.body.i:                                        ; preds = %if.else9.i, %if.then7.i
   %30 = load i64, ptr %use_order_list_size_.i, align 8
   %cmp14.not.i = icmp eq i64 %30, 0
   br i1 %cmp14.not.i, label %if.then15.i.invoke, label %invoke.cont35
 
-if.then15.i.invoke:                               ; preds = %do.body, %do.end
-  %31 = phi i32 [ 147, %do.end ], [ 116, %do.body ]
-  %32 = phi ptr [ @.str.4, %do.end ], [ @.str.3, %do.body ]
+if.then15.i.invoke:                               ; preds = %do.body, %do.body.i
+  %31 = phi i32 [ 147, %do.body.i ], [ 116, %do.body ]
+  %32 = phi ptr [ @.str.4, %do.body.i ], [ @.str.3, %do.body ]
   invoke void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef %31, ptr noundef nonnull %32) #18
           to label %if.then15.i.cont unwind label %lpad11
 
 if.then15.i.cont:                                 ; preds = %if.then15.i.invoke
   unreachable
 
-invoke.cont35:                                    ; preds = %do.end
+invoke.cont35:                                    ; preds = %do.body.i
   %dec.i = add i64 %30, -1
   store i64 %dec.i, ptr %use_order_list_size_.i, align 8
-  %call.i.i4041 = invoke { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN3tsi18SslSessionLRUCache4NodeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE11equal_rangeERS7_(ptr noundef nonnull align 8 dereferenceable(48) %entry_by_key_, ptr noundef nonnull align 8 dereferenceable(32) %23)
-          to label %call.i.i40.noexc unwind label %lpad11
+  %call.i.i4344 = invoke { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN3tsi18SslSessionLRUCache4NodeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE11equal_rangeERS7_(ptr noundef nonnull align 8 dereferenceable(48) %entry_by_key_, ptr noundef nonnull align 8 dereferenceable(32) %23)
+          to label %call.i.i43.noexc unwind label %lpad11
 
-call.i.i40.noexc:                                 ; preds = %invoke.cont35
-  %33 = extractvalue { ptr, ptr } %call.i.i4041, 0
-  %34 = extractvalue { ptr, ptr } %call.i.i4041, 1
+call.i.i43.noexc:                                 ; preds = %invoke.cont35
+  %33 = extractvalue { ptr, ptr } %call.i.i4344, 0
+  %34 = extractvalue { ptr, ptr } %call.i.i4344, 1
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN3tsi18SslSessionLRUCache4NodeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE12_M_erase_auxESt23_Rb_tree_const_iteratorISC_ESK_(ptr noundef nonnull align 8 dereferenceable(48) %entry_by_key_, ptr %33, ptr %34)
           to label %invoke.cont39 unwind label %lpad11
 
-invoke.cont39:                                    ; preds = %call.i.i40.noexc
+invoke.cont39:                                    ; preds = %call.i.i43.noexc
   %35 = load ptr, ptr %node, align 8
   %isnull = icmp eq ptr %35, null
   br i1 %isnull, label %cleanup, label %delete.notnull
 
 delete.notnull:                                   ; preds = %invoke.cont39
-  %session_.i43 = getelementptr inbounds i8, ptr %35, i64 32
-  %36 = load ptr, ptr %session_.i43, align 8
-  %cmp.not.i.i44 = icmp eq ptr %36, null
-  br i1 %cmp.not.i.i44, label %_ZN3tsi18SslSessionLRUCache4NodeD2Ev.exit, label %_ZNKSt14default_deleteIN3tsi16SslCachedSessionEEclEPS1_.exit.i.i45
+  %session_.i46 = getelementptr inbounds i8, ptr %35, i64 32
+  %36 = load ptr, ptr %session_.i46, align 8
+  %cmp.not.i.i47 = icmp eq ptr %36, null
+  br i1 %cmp.not.i.i47, label %_ZN3tsi18SslSessionLRUCache4NodeD2Ev.exit, label %_ZNKSt14default_deleteIN3tsi16SslCachedSessionEEclEPS1_.exit.i.i48
 
-_ZNKSt14default_deleteIN3tsi16SslCachedSessionEEclEPS1_.exit.i.i45: ; preds = %delete.notnull
-  %vtable.i.i.i46 = load ptr, ptr %36, align 8
-  %vfn.i.i.i47 = getelementptr inbounds i8, ptr %vtable.i.i.i46, i64 8
-  %37 = load ptr, ptr %vfn.i.i.i47, align 8
+_ZNKSt14default_deleteIN3tsi16SslCachedSessionEEclEPS1_.exit.i.i48: ; preds = %delete.notnull
+  %vtable.i.i.i49 = load ptr, ptr %36, align 8
+  %vfn.i.i.i50 = getelementptr inbounds i8, ptr %vtable.i.i.i49, i64 8
+  %37 = load ptr, ptr %vfn.i.i.i50, align 8
   call void %37(ptr noundef nonnull align 8 dereferenceable(8) %36) #15
   br label %_ZN3tsi18SslSessionLRUCache4NodeD2Ev.exit
 
-_ZN3tsi18SslSessionLRUCache4NodeD2Ev.exit:        ; preds = %delete.notnull, %_ZNKSt14default_deleteIN3tsi16SslCachedSessionEEclEPS1_.exit.i.i45
-  store ptr null, ptr %session_.i43, align 8
+_ZN3tsi18SslSessionLRUCache4NodeD2Ev.exit:        ; preds = %delete.notnull, %_ZNKSt14default_deleteIN3tsi16SslCachedSessionEEclEPS1_.exit.i.i48
+  store ptr null, ptr %session_.i46, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #15
   call void @_ZdlPv(ptr noundef nonnull %35) #17
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont39, %_ZN3tsi18SslSessionLRUCache4NodeD2Ev.exit, %invoke.cont26, %_ZNSt10unique_ptrI14ssl_session_stN3tsi17SslSessionDeleterEED2Ev.exit
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %lock_)
-          to label %cleanup.cont unwind label %terminate.lpad.i49
+          to label %cleanup.cont unwind label %terminate.lpad.i52
 
-terminate.lpad.i49:                               ; preds = %cleanup
+terminate.lpad.i52:                               ; preds = %cleanup
   %38 = landingpad { ptr, i32 }
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
@@ -762,16 +818,16 @@ cleanup.cont:                                     ; preds = %cleanup, %if.then
 ehcleanup43:                                      ; preds = %ehcleanup23, %lpad11, %lpad.i7, %ehcleanup
   %.pn4 = phi { ptr, i32 } [ %10, %lpad.i7 ], [ %24, %lpad11 ], [ %.pn2, %ehcleanup23 ], [ %.pn, %ehcleanup ]
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %lock_)
-          to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit53 unwind label %terminate.lpad.i51
+          to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit56 unwind label %terminate.lpad.i54
 
-terminate.lpad.i51:                               ; preds = %ehcleanup43
+terminate.lpad.i54:                               ; preds = %ehcleanup43
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
   call void @__clang_call_terminate(ptr %41) #16
   unreachable
 
-_ZN4absl12lts_202308029MutexLockD2Ev.exit53:      ; preds = %ehcleanup43
+_ZN4absl12lts_202308029MutexLockD2Ev.exit56:      ; preds = %ehcleanup43
   resume { ptr, i32 } %.pn4
 }
 

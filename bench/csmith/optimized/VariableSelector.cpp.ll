@@ -7051,8 +7051,8 @@ define dso_local noundef ptr @_ZN16VariableSelector12select_arrayERK9CGContext(p
           cleanup
   br label %52
 
-.loopexit.split-lp:                               ; preds = %93, %95, %64
-  %.sroa.0.050 = phi ptr [ %.sroa.0.0.lcssa, %93 ], [ %.sroa.0.0.lcssa, %95 ], [ %.sroa.0.055, %64 ]
+.loopexit.split-lp:                               ; preds = %93, %97, %64
+  %.sroa.0.050 = phi ptr [ %.sroa.0.0.lcssa, %93 ], [ %.sroa.0.0.lcssa, %97 ], [ %.sroa.0.055, %64 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %52
@@ -7166,56 +7166,56 @@ _ZNSt6vectorIP13ArrayVariableSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vec
   %90 = ptrtoint ptr %.sroa.0.0.lcssa to i64
   %91 = sub i64 %.sroa.8.0.lcssa, %90
   %92 = ashr exact i64 %91, 3
-  switch i64 %92, label %95 [
+  switch i64 %92, label %97 [
     i64 0, label %93
-    i64 1, label %.thread.sink.split
+    i64 1, label %95
   ]
 
 93:                                               ; preds = %._crit_edge
   %94 = invoke noundef ptr @_ZN16VariableSelector19create_random_arrayERK9CGContext(ptr noundef nonnull align 8 dereferenceable(216) %0)
-          to label %103 unwind label %.loopexit.split-lp
+          to label %106 unwind label %.loopexit.split-lp
 
 95:                                               ; preds = %._crit_edge
-  %96 = trunc i64 %92 to i32
-  %97 = invoke noundef i32 @_Z8rnd_uptojPK6FilterPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef %96, ptr noundef null, ptr noundef null)
-          to label %98 unwind label %.loopexit.split-lp
+  %96 = load ptr, ptr %.sroa.0.0.lcssa, align 8
+  br label %.thread
 
-98:                                               ; preds = %95
-  %99 = load i32, ptr @_ZN5Error8r_error_E, align 4
-  %.not = icmp eq i32 %99, 0
-  br i1 %.not, label %100, label %103
+97:                                               ; preds = %._crit_edge
+  %98 = trunc i64 %92 to i32
+  %99 = invoke noundef i32 @_Z8rnd_uptojPK6FilterPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef %98, ptr noundef null, ptr noundef null)
+          to label %100 unwind label %.loopexit.split-lp
 
-100:                                              ; preds = %98
-  %101 = zext i32 %97 to i64
-  %102 = getelementptr inbounds ptr, ptr %.sroa.0.0.lcssa, i64 %101
-  br label %.thread.sink.split
+100:                                              ; preds = %97
+  %101 = load i32, ptr @_ZN5Error8r_error_E, align 4
+  %.not = icmp eq i32 %101, 0
+  br i1 %.not, label %102, label %106
 
-103:                                              ; preds = %98, %93
-  %.0 = phi ptr [ %94, %93 ], [ null, %98 ]
+102:                                              ; preds = %100
+  %103 = zext i32 %99 to i64
+  %104 = getelementptr inbounds ptr, ptr %.sroa.0.0.lcssa, i64 %103
+  %105 = load ptr, ptr %104, align 8
+  br label %.thread
+
+106:                                              ; preds = %100, %93
+  %.0 = phi ptr [ %94, %93 ], [ null, %100 ]
   %.not.i.i.i24 = icmp eq ptr %.sroa.0.0.lcssa, null
   br i1 %.not.i.i.i24, label %_ZNSt6vectorIP13ArrayVariableSaIS1_EED2Ev.exit25, label %.thread
 
-.thread.sink.split:                               ; preds = %._crit_edge, %100
-  %.sroa.0.0.lcssa.sink = phi ptr [ %102, %100 ], [ %.sroa.0.0.lcssa, %._crit_edge ]
-  %104 = load ptr, ptr %.sroa.0.0.lcssa.sink, align 8
-  br label %.thread
-
-.thread:                                          ; preds = %.thread.sink.split, %103
-  %.045 = phi ptr [ %.0, %103 ], [ %104, %.thread.sink.split ]
+.thread:                                          ; preds = %95, %102, %106
+  %.045 = phi ptr [ %.0, %106 ], [ %105, %102 ], [ %96, %95 ]
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0.lcssa) #19
   br label %_ZNSt6vectorIP13ArrayVariableSaIS1_EED2Ev.exit25
 
-_ZNSt6vectorIP13ArrayVariableSaIS1_EED2Ev.exit25: ; preds = %103, %.thread
-  %.046 = phi ptr [ %.0, %103 ], [ %.045, %.thread ]
-  %105 = load ptr, ptr %2, align 8
-  %.not.i.i.i26 = icmp eq ptr %105, null
-  br i1 %.not.i.i.i26, label %_ZNSt6vectorIP8VariableSaIS1_EED2Ev.exit27, label %106
+_ZNSt6vectorIP13ArrayVariableSaIS1_EED2Ev.exit25: ; preds = %106, %.thread
+  %.046 = phi ptr [ %.0, %106 ], [ %.045, %.thread ]
+  %107 = load ptr, ptr %2, align 8
+  %.not.i.i.i26 = icmp eq ptr %107, null
+  br i1 %.not.i.i.i26, label %_ZNSt6vectorIP8VariableSaIS1_EED2Ev.exit27, label %108
 
-106:                                              ; preds = %_ZNSt6vectorIP13ArrayVariableSaIS1_EED2Ev.exit25
-  call void @_ZdlPv(ptr noundef nonnull %105) #19
+108:                                              ; preds = %_ZNSt6vectorIP13ArrayVariableSaIS1_EED2Ev.exit25
+  call void @_ZdlPv(ptr noundef nonnull %107) #19
   br label %_ZNSt6vectorIP8VariableSaIS1_EED2Ev.exit27
 
-_ZNSt6vectorIP8VariableSaIS1_EED2Ev.exit27:       ; preds = %_ZNSt6vectorIP13ArrayVariableSaIS1_EED2Ev.exit25, %106
+_ZNSt6vectorIP8VariableSaIS1_EED2Ev.exit27:       ; preds = %_ZNSt6vectorIP13ArrayVariableSaIS1_EED2Ev.exit25, %108
   ret ptr %.046
 }
 

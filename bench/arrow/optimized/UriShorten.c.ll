@@ -159,42 +159,42 @@ if.else48.i:                                      ; preds = %if.else37.i
   %9 = load ptr, ptr %pathHead49.i, align 8
   %absolutePath50.i = getelementptr inbounds i8, ptr %dest, i64 144
   store i32 0, ptr %absolutePath50.i, align 8
-  %cmp51117.i = icmp ne ptr %8, null
-  %cmp52118.i = icmp ne ptr %9, null
-  %or.cond1119.i = select i1 %cmp51117.i, i1 %cmp52118.i, i1 false
-  br i1 %or.cond1119.i, label %land.lhs.true53.i, label %while.end.i
+  %cmp51123.i = icmp ne ptr %8, null
+  %cmp52124.i = icmp ne ptr %9, null
+  %or.cond1125.i = select i1 %cmp51123.i, i1 %cmp52124.i, i1 false
+  br i1 %or.cond1125.i, label %land.lhs.true53.i, label %while.end.i
 
 land.lhs.true53.i:                                ; preds = %if.else48.i, %while.body.i
-  %baseSeg.0121.i = phi ptr [ %16, %while.body.i ], [ %9, %if.else48.i ]
-  %sourceSeg.0120.i = phi ptr [ %12, %while.body.i ], [ %8, %if.else48.i ]
-  %call55.i = tail call i32 @uriCompareRangeA(ptr noundef nonnull %sourceSeg.0120.i, ptr noundef nonnull %baseSeg.0121.i) #4
+  %baseSeg.0127.i = phi ptr [ %16, %while.body.i ], [ %9, %if.else48.i ]
+  %sourceSeg.0126.i = phi ptr [ %12, %while.body.i ], [ %8, %if.else48.i ]
+  %call55.i = tail call i32 @uriCompareRangeA(ptr noundef nonnull %sourceSeg.0126.i, ptr noundef nonnull %baseSeg.0127.i) #4
   %tobool56.not.i = icmp eq i32 %call55.i, 0
   br i1 %tobool56.not.i, label %land.rhs.i, label %land.rhs74.lr.ph.i
 
 land.rhs.i:                                       ; preds = %land.lhs.true53.i
-  %10 = load ptr, ptr %sourceSeg.0120.i, align 8
-  %afterLast.i = getelementptr inbounds i8, ptr %sourceSeg.0120.i, i64 8
+  %10 = load ptr, ptr %sourceSeg.0126.i, align 8
+  %afterLast.i = getelementptr inbounds i8, ptr %sourceSeg.0126.i, i64 8
   %11 = load ptr, ptr %afterLast.i, align 8
   %cmp60.i = icmp eq ptr %10, %11
-  %next.i = getelementptr inbounds i8, ptr %sourceSeg.0120.i, i64 16
+  %next.i = getelementptr inbounds i8, ptr %sourceSeg.0126.i, i64 16
   %12 = load ptr, ptr %next.i, align 8
   br i1 %cmp60.i, label %land.rhs61.i, label %land.rhs.while.body_crit_edge.i
 
 land.rhs.while.body_crit_edge.i:                  ; preds = %land.rhs.i
-  %next70.phi.trans.insert.i = getelementptr inbounds i8, ptr %baseSeg.0121.i, i64 16
-  %.pre138.i = load ptr, ptr %next70.phi.trans.insert.i, align 8
+  %next70.phi.trans.insert.i = getelementptr inbounds i8, ptr %baseSeg.0127.i, i64 16
+  %.pre144.i = load ptr, ptr %next70.phi.trans.insert.i, align 8
   br label %while.body.i
 
 land.rhs61.i:                                     ; preds = %land.rhs.i
   %cmp62.i = icmp eq ptr %12, null
-  %next63.i = getelementptr inbounds i8, ptr %baseSeg.0121.i, i64 16
+  %next63.i = getelementptr inbounds i8, ptr %baseSeg.0127.i, i64 16
   %13 = load ptr, ptr %next63.i, align 8
   %14 = icmp ne ptr %13, null
   %15 = xor i1 %cmp62.i, %14
   br i1 %15, label %while.body.i, label %land.rhs74.lr.ph.i
 
 while.body.i:                                     ; preds = %land.rhs61.i, %land.rhs.while.body_crit_edge.i
-  %16 = phi ptr [ %.pre138.i, %land.rhs.while.body_crit_edge.i ], [ %13, %land.rhs61.i ]
+  %16 = phi ptr [ %.pre144.i, %land.rhs.while.body_crit_edge.i ], [ %13, %land.rhs61.i ]
   %cmp51.i = icmp ne ptr %12, null
   %cmp52.i = icmp ne ptr %16, null
   %or.cond1.i = select i1 %cmp51.i, i1 %cmp52.i, i1 false
@@ -203,17 +203,17 @@ while.body.i:                                     ; preds = %land.rhs61.i, %land
 while.end.i:                                      ; preds = %while.body.i, %if.else48.i
   %sourceSeg.0.lcssa.i = phi ptr [ %8, %if.else48.i ], [ %12, %while.body.i ]
   %baseSeg.0.lcssa.i = phi ptr [ %9, %if.else48.i ], [ %16, %while.body.i ]
-  %cmp72.not127.i = icmp eq ptr %baseSeg.0.lcssa.i, null
-  br i1 %cmp72.not127.i, label %while.end85.i, label %land.rhs74.lr.ph.i
+  %cmp72.not133.i = icmp eq ptr %baseSeg.0.lcssa.i, null
+  br i1 %cmp72.not133.i, label %while.end85.i, label %land.rhs74.lr.ph.i
 
 land.rhs74.lr.ph.i:                               ; preds = %land.rhs61.i, %land.lhs.true53.i, %while.end.i
-  %baseSeg.0.lcssa144.i = phi ptr [ %baseSeg.0.lcssa.i, %while.end.i ], [ %baseSeg.0121.i, %land.lhs.true53.i ], [ %baseSeg.0121.i, %land.rhs61.i ]
-  %sourceSeg.0.lcssa142.i = phi ptr [ %sourceSeg.0.lcssa.i, %while.end.i ], [ %sourceSeg.0120.i, %land.lhs.true53.i ], [ %sourceSeg.0120.i, %land.rhs61.i ]
+  %baseSeg.0.lcssa150.i = phi ptr [ %baseSeg.0.lcssa.i, %while.end.i ], [ %baseSeg.0127.i, %land.lhs.true53.i ], [ %baseSeg.0127.i, %land.rhs61.i ]
+  %sourceSeg.0.lcssa148.i = phi ptr [ %sourceSeg.0.lcssa.i, %while.end.i ], [ %sourceSeg.0126.i, %land.lhs.true53.i ], [ %sourceSeg.0126.i, %land.rhs61.i ]
   %17 = load ptr, ptr @uriConstParentA, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %17, i64 2
   %pathTail.i.i = getelementptr inbounds i8, ptr %dest, i64 104
   %pathHead.i.i = getelementptr inbounds i8, ptr %dest, i64 96
-  %next75.i17 = getelementptr inbounds i8, ptr %baseSeg.0.lcssa144.i, i64 16
+  %next75.i17 = getelementptr inbounds i8, ptr %baseSeg.0.lcssa150.i, i64 16
   %18 = load ptr, ptr %next75.i17, align 8
   %cmp76.not.i18 = icmp eq ptr %18, null
   br i1 %cmp76.not.i18, label %while.end85.i, label %while.body79.i
@@ -223,9 +223,9 @@ while.body79.i:                                   ; preds = %land.rhs74.lr.ph.i,
   %20 = load ptr, ptr %memory.addr.0, align 8
   %call.i.i = tail call ptr %20(ptr noundef nonnull %memory.addr.0, i64 noundef 32) #4
   %cmp.i.i = icmp eq ptr %call.i.i, null
-  br i1 %cmp.i.i, label %if.then7, label %uriAppendSegmentA.exit.i
+  br i1 %cmp.i.i, label %if.then7, label %if.end.i64.i
 
-uriAppendSegmentA.exit.i:                         ; preds = %while.body79.i
+if.end.i64.i:                                     ; preds = %while.body79.i
   %next.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store ptr null, ptr %next.i.i, align 8
   store ptr %17, ptr %call.i.i, align 8
@@ -233,9 +233,18 @@ uriAppendSegmentA.exit.i:                         ; preds = %while.body79.i
   store ptr %add.ptr.i, ptr %afterLast3.i.i, align 8
   %21 = load ptr, ptr %pathTail.i.i, align 8
   %cmp4.i.i = icmp eq ptr %21, null
+  br i1 %cmp4.i.i, label %if.then5.i.i, label %if.else.i.i
+
+if.then5.i.i:                                     ; preds = %if.end.i64.i
+  store ptr %call.i.i, ptr %pathHead.i.i, align 8
+  br label %uriAppendSegmentA.exit.i
+
+if.else.i.i:                                      ; preds = %if.end.i64.i
   %next7.i.i = getelementptr inbounds i8, ptr %21, i64 16
-  %next7.sink.i.i = select i1 %cmp4.i.i, ptr %pathHead.i.i, ptr %next7.i.i
-  store ptr %call.i.i, ptr %next7.sink.i.i, align 8
+  store ptr %call.i.i, ptr %next7.i.i, align 8
+  br label %uriAppendSegmentA.exit.i
+
+uriAppendSegmentA.exit.i:                         ; preds = %if.else.i.i, %if.then5.i.i
   store ptr %call.i.i, ptr %pathTail.i.i, align 8
   %next75.i = getelementptr inbounds i8, ptr %19, i64 16
   %22 = load ptr, ptr %next75.i, align 8
@@ -243,38 +252,38 @@ uriAppendSegmentA.exit.i:                         ; preds = %while.body79.i
   br i1 %cmp76.not.i, label %while.end85.i, label %while.body79.i
 
 while.end85.i:                                    ; preds = %uriAppendSegmentA.exit.i, %land.rhs74.lr.ph.i, %while.end.i
-  %sourceSeg.0.lcssa143.i = phi ptr [ %sourceSeg.0.lcssa.i, %while.end.i ], [ %sourceSeg.0.lcssa142.i, %land.rhs74.lr.ph.i ], [ %sourceSeg.0.lcssa142.i, %uriAppendSegmentA.exit.i ]
-  %.lcssa115.i = phi i1 [ true, %while.end.i ], [ true, %land.rhs74.lr.ph.i ], [ false, %uriAppendSegmentA.exit.i ]
-  %cmp87.not134.i = icmp eq ptr %sourceSeg.0.lcssa143.i, null
-  br i1 %cmp87.not134.i, label %if.end139.i, label %while.body89.lr.ph.i
+  %sourceSeg.0.lcssa149.i = phi ptr [ %sourceSeg.0.lcssa.i, %while.end.i ], [ %sourceSeg.0.lcssa148.i, %land.rhs74.lr.ph.i ], [ %sourceSeg.0.lcssa148.i, %uriAppendSegmentA.exit.i ]
+  %.lcssa121.i = phi i1 [ true, %while.end.i ], [ true, %land.rhs74.lr.ph.i ], [ false, %uriAppendSegmentA.exit.i ]
+  %cmp87.not140.i = icmp eq ptr %sourceSeg.0.lcssa149.i, null
+  br i1 %cmp87.not140.i, label %if.end139.i, label %while.body89.lr.ph.i
 
 while.body89.lr.ph.i:                             ; preds = %while.end85.i
   %23 = load ptr, ptr @uriConstPwdA, align 8
   %add.ptr119.i = getelementptr inbounds i8, ptr %23, i64 1
-  %pathTail.i83.i = getelementptr inbounds i8, ptr %dest, i64 104
-  %pathHead.i86.i = getelementptr inbounds i8, ptr %dest, i64 96
+  %pathTail.i85.i = getelementptr inbounds i8, ptr %dest, i64 104
+  %pathHead.i92.i = getelementptr inbounds i8, ptr %dest, i64 96
   br label %while.body89.i
 
 while.body89.i:                                   ; preds = %if.end134.i, %while.body89.lr.ph.i
-  %pathNaked.1136.i = phi i1 [ %.lcssa115.i, %while.body89.lr.ph.i ], [ false, %if.end134.i ]
-  %sourceSeg.1135.i = phi ptr [ %sourceSeg.0.lcssa143.i, %while.body89.lr.ph.i ], [ %33, %if.end134.i ]
-  %.pre23 = load ptr, ptr %sourceSeg.1135.i, align 8
-  br i1 %pathNaked.1136.i, label %if.then92.i, label %if.end126.i
+  %pathNaked.1142.i = phi i1 [ %.lcssa121.i, %while.body89.lr.ph.i ], [ false, %if.end134.i ]
+  %sourceSeg.1141.i = phi ptr [ %sourceSeg.0.lcssa149.i, %while.body89.lr.ph.i ], [ %34, %if.end134.i ]
+  %.pre23 = load ptr, ptr %sourceSeg.1141.i, align 8
+  br i1 %pathNaked.1142.i, label %if.then92.i, label %if.end126.i
 
 if.then92.i:                                      ; preds = %while.body89.i
-  %afterLast96.i = getelementptr inbounds i8, ptr %sourceSeg.1135.i, i64 8
+  %afterLast96.i = getelementptr inbounds i8, ptr %sourceSeg.1141.i, i64 8
   %24 = load ptr, ptr %afterLast96.i, align 8
-  %cmp97.not131.i = icmp ult ptr %.pre23, %24
-  br i1 %cmp97.not131.i, label %for.body.i, label %if.else111.i
+  %cmp97.not137.i = icmp ult ptr %.pre23, %24
+  br i1 %cmp97.not137.i, label %for.body.i, label %if.else111.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %ch.0132.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %ch.0138.i, i64 1
   %exitcond.not.i = icmp eq ptr %incdec.ptr.i, %24
   br i1 %exitcond.not.i, label %if.else111.i, label %for.body.i, !llvm.loop !6
 
 for.body.i:                                       ; preds = %if.then92.i, %for.cond.i
-  %ch.0132.i = phi ptr [ %incdec.ptr.i, %for.cond.i ], [ %.pre23, %if.then92.i ]
-  %25 = load i8, ptr %ch.0132.i, align 1
+  %ch.0138.i = phi ptr [ %incdec.ptr.i, %for.cond.i ], [ %.pre23, %if.then92.i ]
+  %25 = load i8, ptr %ch.0138.i, align 1
   %cmp100.i = icmp eq i8 %25, 58
   br i1 %cmp100.i, label %if.then105.i, label %for.cond.i
 
@@ -282,58 +291,95 @@ if.then105.i:                                     ; preds = %for.body.i
   %26 = load ptr, ptr %memory.addr.0, align 8
   %call.i66.i = tail call ptr %26(ptr noundef nonnull %memory.addr.0, i64 noundef 32) #4
   %cmp.i67.i = icmp eq ptr %call.i66.i, null
-  br i1 %cmp.i67.i, label %if.then7, label %if.end126.sink.split.i
+  br i1 %cmp.i67.i, label %if.then7, label %if.end.i68.i
+
+if.end.i68.i:                                     ; preds = %if.then105.i
+  %next.i69.i = getelementptr inbounds i8, ptr %call.i66.i, i64 16
+  store ptr null, ptr %next.i69.i, align 8
+  store ptr %23, ptr %call.i66.i, align 8
+  %afterLast3.i70.i = getelementptr inbounds i8, ptr %call.i66.i, i64 8
+  store ptr %add.ptr119.i, ptr %afterLast3.i70.i, align 8
+  %27 = load ptr, ptr %pathTail.i85.i, align 8
+  %cmp4.i72.i = icmp eq ptr %27, null
+  br i1 %cmp4.i72.i, label %if.then5.i77.i, label %if.else.i73.i
+
+if.then5.i77.i:                                   ; preds = %if.end.i68.i
+  store ptr %call.i66.i, ptr %pathHead.i92.i, align 8
+  br label %if.end126.sink.split.i
+
+if.else.i73.i:                                    ; preds = %if.end.i68.i
+  %next7.i74.i = getelementptr inbounds i8, ptr %27, i64 16
+  store ptr %call.i66.i, ptr %next7.i74.i, align 8
+  br label %if.end126.sink.split.i
 
 if.else111.i:                                     ; preds = %for.cond.i, %if.then92.i
   %cmp116.i = icmp eq ptr %.pre23, %24
   br i1 %cmp116.i, label %if.then118.i, label %if.end126.i
 
 if.then118.i:                                     ; preds = %if.else111.i
-  %27 = load ptr, ptr %memory.addr.0, align 8
-  %call.i78.i = tail call ptr %27(ptr noundef nonnull %memory.addr.0, i64 noundef 32) #4
-  %cmp.i79.i = icmp eq ptr %call.i78.i, null
-  br i1 %cmp.i79.i, label %if.then7, label %if.end126.sink.split.i
+  %28 = load ptr, ptr %memory.addr.0, align 8
+  %call.i80.i = tail call ptr %28(ptr noundef nonnull %memory.addr.0, i64 noundef 32) #4
+  %cmp.i81.i = icmp eq ptr %call.i80.i, null
+  br i1 %cmp.i81.i, label %if.then7, label %if.end.i82.i
 
-if.end126.sink.split.i:                           ; preds = %if.then118.i, %if.then105.i
-  %call.i78.sink155.i = phi ptr [ %call.i66.i, %if.then105.i ], [ %call.i78.i, %if.then118.i ]
-  %next.i81.i = getelementptr inbounds i8, ptr %call.i78.sink155.i, i64 16
-  store ptr null, ptr %next.i81.i, align 8
-  store ptr %23, ptr %call.i78.sink155.i, align 8
-  %afterLast3.i82.i = getelementptr inbounds i8, ptr %call.i78.sink155.i, i64 8
-  store ptr %add.ptr119.i, ptr %afterLast3.i82.i, align 8
-  %28 = load ptr, ptr %pathTail.i83.i, align 8
-  %cmp4.i84.i = icmp eq ptr %28, null
-  %next7.i85.i = getelementptr inbounds i8, ptr %28, i64 16
-  %next7.sink.i87.i = select i1 %cmp4.i84.i, ptr %pathHead.i86.i, ptr %next7.i85.i
-  store ptr %call.i78.sink155.i, ptr %next7.sink.i87.i, align 8
-  store ptr %call.i78.sink155.i, ptr %pathTail.i83.i, align 8
-  %.pre = load ptr, ptr %sourceSeg.1135.i, align 8
+if.end.i82.i:                                     ; preds = %if.then118.i
+  %next.i83.i = getelementptr inbounds i8, ptr %call.i80.i, i64 16
+  store ptr null, ptr %next.i83.i, align 8
+  store ptr %23, ptr %call.i80.i, align 8
+  %afterLast3.i84.i = getelementptr inbounds i8, ptr %call.i80.i, i64 8
+  store ptr %add.ptr119.i, ptr %afterLast3.i84.i, align 8
+  %29 = load ptr, ptr %pathTail.i85.i, align 8
+  %cmp4.i86.i = icmp eq ptr %29, null
+  br i1 %cmp4.i86.i, label %if.then5.i91.i, label %if.else.i87.i
+
+if.then5.i91.i:                                   ; preds = %if.end.i82.i
+  store ptr %call.i80.i, ptr %pathHead.i92.i, align 8
+  br label %if.end126.sink.split.i
+
+if.else.i87.i:                                    ; preds = %if.end.i82.i
+  %next7.i88.i = getelementptr inbounds i8, ptr %29, i64 16
+  store ptr %call.i80.i, ptr %next7.i88.i, align 8
+  br label %if.end126.sink.split.i
+
+if.end126.sink.split.i:                           ; preds = %if.else.i87.i, %if.then5.i91.i, %if.else.i73.i, %if.then5.i77.i
+  %call.i80.sink.i = phi ptr [ %call.i66.i, %if.then5.i77.i ], [ %call.i66.i, %if.else.i73.i ], [ %call.i80.i, %if.then5.i91.i ], [ %call.i80.i, %if.else.i87.i ]
+  store ptr %call.i80.sink.i, ptr %pathTail.i85.i, align 8
+  %.pre = load ptr, ptr %sourceSeg.1141.i, align 8
   br label %if.end126.i
 
 if.end126.i:                                      ; preds = %if.end126.sink.split.i, %if.else111.i, %while.body89.i
-  %29 = phi ptr [ %.pre, %if.end126.sink.split.i ], [ %.pre23, %if.else111.i ], [ %.pre23, %while.body89.i ]
-  %afterLast130.i = getelementptr inbounds i8, ptr %sourceSeg.1135.i, i64 8
-  %30 = load ptr, ptr %afterLast130.i, align 8
-  %31 = load ptr, ptr %memory.addr.0, align 8
-  %call.i90.i = tail call ptr %31(ptr noundef nonnull %memory.addr.0, i64 noundef 32) #4
-  %cmp.i91.i = icmp eq ptr %call.i90.i, null
-  br i1 %cmp.i91.i, label %if.then7, label %if.end134.i
+  %30 = phi ptr [ %.pre, %if.end126.sink.split.i ], [ %.pre23, %if.else111.i ], [ %.pre23, %while.body89.i ]
+  %afterLast130.i = getelementptr inbounds i8, ptr %sourceSeg.1141.i, i64 8
+  %31 = load ptr, ptr %afterLast130.i, align 8
+  %32 = load ptr, ptr %memory.addr.0, align 8
+  %call.i94.i = tail call ptr %32(ptr noundef nonnull %memory.addr.0, i64 noundef 32) #4
+  %cmp.i95.i = icmp eq ptr %call.i94.i, null
+  br i1 %cmp.i95.i, label %if.then7, label %if.end.i96.i
 
-if.end134.i:                                      ; preds = %if.end126.i
-  %next.i93.i = getelementptr inbounds i8, ptr %call.i90.i, i64 16
-  store ptr null, ptr %next.i93.i, align 8
-  store ptr %29, ptr %call.i90.i, align 8
-  %afterLast3.i94.i = getelementptr inbounds i8, ptr %call.i90.i, i64 8
-  store ptr %30, ptr %afterLast3.i94.i, align 8
-  %32 = load ptr, ptr %pathTail.i83.i, align 8
-  %cmp4.i96.i = icmp eq ptr %32, null
-  %next7.i97.i = getelementptr inbounds i8, ptr %32, i64 16
-  %next7.sink.i99.i = select i1 %cmp4.i96.i, ptr %pathHead.i86.i, ptr %next7.i97.i
-  store ptr %call.i90.i, ptr %next7.sink.i99.i, align 8
-  store ptr %call.i90.i, ptr %pathTail.i83.i, align 8
-  %next135.i = getelementptr inbounds i8, ptr %sourceSeg.1135.i, i64 16
-  %33 = load ptr, ptr %next135.i, align 8
-  %cmp87.not.i = icmp eq ptr %33, null
+if.end.i96.i:                                     ; preds = %if.end126.i
+  %next.i97.i = getelementptr inbounds i8, ptr %call.i94.i, i64 16
+  store ptr null, ptr %next.i97.i, align 8
+  store ptr %30, ptr %call.i94.i, align 8
+  %afterLast3.i98.i = getelementptr inbounds i8, ptr %call.i94.i, i64 8
+  store ptr %31, ptr %afterLast3.i98.i, align 8
+  %33 = load ptr, ptr %pathTail.i85.i, align 8
+  %cmp4.i100.i = icmp eq ptr %33, null
+  br i1 %cmp4.i100.i, label %if.then5.i105.i, label %if.else.i101.i
+
+if.then5.i105.i:                                  ; preds = %if.end.i96.i
+  store ptr %call.i94.i, ptr %pathHead.i92.i, align 8
+  br label %if.end134.i
+
+if.else.i101.i:                                   ; preds = %if.end.i96.i
+  %next7.i102.i = getelementptr inbounds i8, ptr %33, i64 16
+  store ptr %call.i94.i, ptr %next7.i102.i, align 8
+  br label %if.end134.i
+
+if.end134.i:                                      ; preds = %if.else.i101.i, %if.then5.i105.i
+  store ptr %call.i94.i, ptr %pathTail.i85.i, align 8
+  %next135.i = getelementptr inbounds i8, ptr %sourceSeg.1141.i, i64 16
+  %34 = load ptr, ptr %next135.i, align 8
+  %cmp87.not.i = icmp eq ptr %34, null
   br i1 %cmp87.not.i, label %if.end139.i, label %while.body89.i, !llvm.loop !7
 
 if.end139.i:                                      ; preds = %if.end134.i, %while.end85.i, %if.end43.i, %if.end32.i, %if.end21.i
@@ -507,42 +553,42 @@ if.else48.i:                                      ; preds = %if.else37.i
   %9 = load ptr, ptr %pathHead49.i, align 8
   %absolutePath50.i = getelementptr inbounds i8, ptr %dest, i64 144
   store i32 0, ptr %absolutePath50.i, align 8
-  %cmp51117.i = icmp ne ptr %8, null
-  %cmp52118.i = icmp ne ptr %9, null
-  %or.cond1119.i = select i1 %cmp51117.i, i1 %cmp52118.i, i1 false
-  br i1 %or.cond1119.i, label %land.lhs.true53.i, label %while.end.i
+  %cmp51123.i = icmp ne ptr %8, null
+  %cmp52124.i = icmp ne ptr %9, null
+  %or.cond1125.i = select i1 %cmp51123.i, i1 %cmp52124.i, i1 false
+  br i1 %or.cond1125.i, label %land.lhs.true53.i, label %while.end.i
 
 land.lhs.true53.i:                                ; preds = %if.else48.i, %while.body.i
-  %baseSeg.0121.i = phi ptr [ %16, %while.body.i ], [ %9, %if.else48.i ]
-  %sourceSeg.0120.i = phi ptr [ %12, %while.body.i ], [ %8, %if.else48.i ]
-  %call55.i = tail call i32 @uriCompareRangeW(ptr noundef nonnull %sourceSeg.0120.i, ptr noundef nonnull %baseSeg.0121.i) #4
+  %baseSeg.0127.i = phi ptr [ %16, %while.body.i ], [ %9, %if.else48.i ]
+  %sourceSeg.0126.i = phi ptr [ %12, %while.body.i ], [ %8, %if.else48.i ]
+  %call55.i = tail call i32 @uriCompareRangeW(ptr noundef nonnull %sourceSeg.0126.i, ptr noundef nonnull %baseSeg.0127.i) #4
   %tobool56.not.i = icmp eq i32 %call55.i, 0
   br i1 %tobool56.not.i, label %land.rhs.i, label %land.rhs74.lr.ph.i
 
 land.rhs.i:                                       ; preds = %land.lhs.true53.i
-  %10 = load ptr, ptr %sourceSeg.0120.i, align 8
-  %afterLast.i = getelementptr inbounds i8, ptr %sourceSeg.0120.i, i64 8
+  %10 = load ptr, ptr %sourceSeg.0126.i, align 8
+  %afterLast.i = getelementptr inbounds i8, ptr %sourceSeg.0126.i, i64 8
   %11 = load ptr, ptr %afterLast.i, align 8
   %cmp60.i = icmp eq ptr %10, %11
-  %next.i = getelementptr inbounds i8, ptr %sourceSeg.0120.i, i64 16
+  %next.i = getelementptr inbounds i8, ptr %sourceSeg.0126.i, i64 16
   %12 = load ptr, ptr %next.i, align 8
   br i1 %cmp60.i, label %land.rhs61.i, label %land.rhs.while.body_crit_edge.i
 
 land.rhs.while.body_crit_edge.i:                  ; preds = %land.rhs.i
-  %next70.phi.trans.insert.i = getelementptr inbounds i8, ptr %baseSeg.0121.i, i64 16
-  %.pre138.i = load ptr, ptr %next70.phi.trans.insert.i, align 8
+  %next70.phi.trans.insert.i = getelementptr inbounds i8, ptr %baseSeg.0127.i, i64 16
+  %.pre144.i = load ptr, ptr %next70.phi.trans.insert.i, align 8
   br label %while.body.i
 
 land.rhs61.i:                                     ; preds = %land.rhs.i
   %cmp62.i = icmp eq ptr %12, null
-  %next63.i = getelementptr inbounds i8, ptr %baseSeg.0121.i, i64 16
+  %next63.i = getelementptr inbounds i8, ptr %baseSeg.0127.i, i64 16
   %13 = load ptr, ptr %next63.i, align 8
   %14 = icmp ne ptr %13, null
   %15 = xor i1 %cmp62.i, %14
   br i1 %15, label %while.body.i, label %land.rhs74.lr.ph.i
 
 while.body.i:                                     ; preds = %land.rhs61.i, %land.rhs.while.body_crit_edge.i
-  %16 = phi ptr [ %.pre138.i, %land.rhs.while.body_crit_edge.i ], [ %13, %land.rhs61.i ]
+  %16 = phi ptr [ %.pre144.i, %land.rhs.while.body_crit_edge.i ], [ %13, %land.rhs61.i ]
   %cmp51.i = icmp ne ptr %12, null
   %cmp52.i = icmp ne ptr %16, null
   %or.cond1.i = select i1 %cmp51.i, i1 %cmp52.i, i1 false
@@ -551,17 +597,17 @@ while.body.i:                                     ; preds = %land.rhs61.i, %land
 while.end.i:                                      ; preds = %while.body.i, %if.else48.i
   %sourceSeg.0.lcssa.i = phi ptr [ %8, %if.else48.i ], [ %12, %while.body.i ]
   %baseSeg.0.lcssa.i = phi ptr [ %9, %if.else48.i ], [ %16, %while.body.i ]
-  %cmp72.not127.i = icmp eq ptr %baseSeg.0.lcssa.i, null
-  br i1 %cmp72.not127.i, label %while.end85.i, label %land.rhs74.lr.ph.i
+  %cmp72.not133.i = icmp eq ptr %baseSeg.0.lcssa.i, null
+  br i1 %cmp72.not133.i, label %while.end85.i, label %land.rhs74.lr.ph.i
 
 land.rhs74.lr.ph.i:                               ; preds = %land.rhs61.i, %land.lhs.true53.i, %while.end.i
-  %baseSeg.0.lcssa144.i = phi ptr [ %baseSeg.0.lcssa.i, %while.end.i ], [ %baseSeg.0121.i, %land.lhs.true53.i ], [ %baseSeg.0121.i, %land.rhs61.i ]
-  %sourceSeg.0.lcssa142.i = phi ptr [ %sourceSeg.0.lcssa.i, %while.end.i ], [ %sourceSeg.0120.i, %land.lhs.true53.i ], [ %sourceSeg.0120.i, %land.rhs61.i ]
+  %baseSeg.0.lcssa150.i = phi ptr [ %baseSeg.0.lcssa.i, %while.end.i ], [ %baseSeg.0127.i, %land.lhs.true53.i ], [ %baseSeg.0127.i, %land.rhs61.i ]
+  %sourceSeg.0.lcssa148.i = phi ptr [ %sourceSeg.0.lcssa.i, %while.end.i ], [ %sourceSeg.0126.i, %land.lhs.true53.i ], [ %sourceSeg.0126.i, %land.rhs61.i ]
   %17 = load ptr, ptr @uriConstParentW, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %17, i64 8
   %pathTail.i.i = getelementptr inbounds i8, ptr %dest, i64 104
   %pathHead.i.i = getelementptr inbounds i8, ptr %dest, i64 96
-  %next75.i17 = getelementptr inbounds i8, ptr %baseSeg.0.lcssa144.i, i64 16
+  %next75.i17 = getelementptr inbounds i8, ptr %baseSeg.0.lcssa150.i, i64 16
   %18 = load ptr, ptr %next75.i17, align 8
   %cmp76.not.i18 = icmp eq ptr %18, null
   br i1 %cmp76.not.i18, label %while.end85.i, label %while.body79.i
@@ -571,9 +617,9 @@ while.body79.i:                                   ; preds = %land.rhs74.lr.ph.i,
   %20 = load ptr, ptr %memory.addr.0, align 8
   %call.i.i = tail call ptr %20(ptr noundef nonnull %memory.addr.0, i64 noundef 32) #4
   %cmp.i.i = icmp eq ptr %call.i.i, null
-  br i1 %cmp.i.i, label %if.then7, label %uriAppendSegmentW.exit.i
+  br i1 %cmp.i.i, label %if.then7, label %if.end.i64.i
 
-uriAppendSegmentW.exit.i:                         ; preds = %while.body79.i
+if.end.i64.i:                                     ; preds = %while.body79.i
   %next.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store ptr null, ptr %next.i.i, align 8
   store ptr %17, ptr %call.i.i, align 8
@@ -581,9 +627,18 @@ uriAppendSegmentW.exit.i:                         ; preds = %while.body79.i
   store ptr %add.ptr.i, ptr %afterLast3.i.i, align 8
   %21 = load ptr, ptr %pathTail.i.i, align 8
   %cmp4.i.i = icmp eq ptr %21, null
+  br i1 %cmp4.i.i, label %if.then5.i.i, label %if.else.i.i
+
+if.then5.i.i:                                     ; preds = %if.end.i64.i
+  store ptr %call.i.i, ptr %pathHead.i.i, align 8
+  br label %uriAppendSegmentW.exit.i
+
+if.else.i.i:                                      ; preds = %if.end.i64.i
   %next7.i.i = getelementptr inbounds i8, ptr %21, i64 16
-  %next7.sink.i.i = select i1 %cmp4.i.i, ptr %pathHead.i.i, ptr %next7.i.i
-  store ptr %call.i.i, ptr %next7.sink.i.i, align 8
+  store ptr %call.i.i, ptr %next7.i.i, align 8
+  br label %uriAppendSegmentW.exit.i
+
+uriAppendSegmentW.exit.i:                         ; preds = %if.else.i.i, %if.then5.i.i
   store ptr %call.i.i, ptr %pathTail.i.i, align 8
   %next75.i = getelementptr inbounds i8, ptr %19, i64 16
   %22 = load ptr, ptr %next75.i, align 8
@@ -591,38 +646,38 @@ uriAppendSegmentW.exit.i:                         ; preds = %while.body79.i
   br i1 %cmp76.not.i, label %while.end85.i, label %while.body79.i
 
 while.end85.i:                                    ; preds = %uriAppendSegmentW.exit.i, %land.rhs74.lr.ph.i, %while.end.i
-  %sourceSeg.0.lcssa143.i = phi ptr [ %sourceSeg.0.lcssa.i, %while.end.i ], [ %sourceSeg.0.lcssa142.i, %land.rhs74.lr.ph.i ], [ %sourceSeg.0.lcssa142.i, %uriAppendSegmentW.exit.i ]
-  %.lcssa115.i = phi i1 [ true, %while.end.i ], [ true, %land.rhs74.lr.ph.i ], [ false, %uriAppendSegmentW.exit.i ]
-  %cmp87.not134.i = icmp eq ptr %sourceSeg.0.lcssa143.i, null
-  br i1 %cmp87.not134.i, label %if.end138.i, label %while.body89.lr.ph.i
+  %sourceSeg.0.lcssa149.i = phi ptr [ %sourceSeg.0.lcssa.i, %while.end.i ], [ %sourceSeg.0.lcssa148.i, %land.rhs74.lr.ph.i ], [ %sourceSeg.0.lcssa148.i, %uriAppendSegmentW.exit.i ]
+  %.lcssa121.i = phi i1 [ true, %while.end.i ], [ true, %land.rhs74.lr.ph.i ], [ false, %uriAppendSegmentW.exit.i ]
+  %cmp87.not140.i = icmp eq ptr %sourceSeg.0.lcssa149.i, null
+  br i1 %cmp87.not140.i, label %if.end138.i, label %while.body89.lr.ph.i
 
 while.body89.lr.ph.i:                             ; preds = %while.end85.i
   %23 = load ptr, ptr @uriConstPwdW, align 8
   %add.ptr118.i = getelementptr inbounds i8, ptr %23, i64 4
-  %pathTail.i83.i = getelementptr inbounds i8, ptr %dest, i64 104
-  %pathHead.i86.i = getelementptr inbounds i8, ptr %dest, i64 96
+  %pathTail.i85.i = getelementptr inbounds i8, ptr %dest, i64 104
+  %pathHead.i92.i = getelementptr inbounds i8, ptr %dest, i64 96
   br label %while.body89.i
 
 while.body89.i:                                   ; preds = %if.end133.i, %while.body89.lr.ph.i
-  %pathNaked.1136.i = phi i1 [ %.lcssa115.i, %while.body89.lr.ph.i ], [ false, %if.end133.i ]
-  %sourceSeg.1135.i = phi ptr [ %sourceSeg.0.lcssa143.i, %while.body89.lr.ph.i ], [ %33, %if.end133.i ]
-  %.pre23 = load ptr, ptr %sourceSeg.1135.i, align 8
-  br i1 %pathNaked.1136.i, label %if.then92.i, label %if.end125.i
+  %pathNaked.1142.i = phi i1 [ %.lcssa121.i, %while.body89.lr.ph.i ], [ false, %if.end133.i ]
+  %sourceSeg.1141.i = phi ptr [ %sourceSeg.0.lcssa149.i, %while.body89.lr.ph.i ], [ %34, %if.end133.i ]
+  %.pre23 = load ptr, ptr %sourceSeg.1141.i, align 8
+  br i1 %pathNaked.1142.i, label %if.then92.i, label %if.end125.i
 
 if.then92.i:                                      ; preds = %while.body89.i
-  %afterLast96.i = getelementptr inbounds i8, ptr %sourceSeg.1135.i, i64 8
+  %afterLast96.i = getelementptr inbounds i8, ptr %sourceSeg.1141.i, i64 8
   %24 = load ptr, ptr %afterLast96.i, align 8
-  %cmp97.not131.i = icmp ult ptr %.pre23, %24
-  br i1 %cmp97.not131.i, label %for.body.i, label %if.else110.i
+  %cmp97.not137.i = icmp ult ptr %.pre23, %24
+  br i1 %cmp97.not137.i, label %for.body.i, label %if.else110.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %ch.0132.i, i64 4
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %ch.0138.i, i64 4
   %cmp97.not.i = icmp ult ptr %incdec.ptr.i, %24
   br i1 %cmp97.not.i, label %for.body.i, label %if.else110.i, !llvm.loop !9
 
 for.body.i:                                       ; preds = %if.then92.i, %for.cond.i
-  %ch.0132.i = phi ptr [ %incdec.ptr.i, %for.cond.i ], [ %.pre23, %if.then92.i ]
-  %25 = load i32, ptr %ch.0132.i, align 4
+  %ch.0138.i = phi ptr [ %incdec.ptr.i, %for.cond.i ], [ %.pre23, %if.then92.i ]
+  %25 = load i32, ptr %ch.0138.i, align 4
   %cmp99.i = icmp eq i32 %25, 58
   br i1 %cmp99.i, label %if.then104.i, label %for.cond.i
 
@@ -630,58 +685,95 @@ if.then104.i:                                     ; preds = %for.body.i
   %26 = load ptr, ptr %memory.addr.0, align 8
   %call.i66.i = tail call ptr %26(ptr noundef nonnull %memory.addr.0, i64 noundef 32) #4
   %cmp.i67.i = icmp eq ptr %call.i66.i, null
-  br i1 %cmp.i67.i, label %if.then7, label %if.end125.sink.split.i
+  br i1 %cmp.i67.i, label %if.then7, label %if.end.i68.i
+
+if.end.i68.i:                                     ; preds = %if.then104.i
+  %next.i69.i = getelementptr inbounds i8, ptr %call.i66.i, i64 16
+  store ptr null, ptr %next.i69.i, align 8
+  store ptr %23, ptr %call.i66.i, align 8
+  %afterLast3.i70.i = getelementptr inbounds i8, ptr %call.i66.i, i64 8
+  store ptr %add.ptr118.i, ptr %afterLast3.i70.i, align 8
+  %27 = load ptr, ptr %pathTail.i85.i, align 8
+  %cmp4.i72.i = icmp eq ptr %27, null
+  br i1 %cmp4.i72.i, label %if.then5.i77.i, label %if.else.i73.i
+
+if.then5.i77.i:                                   ; preds = %if.end.i68.i
+  store ptr %call.i66.i, ptr %pathHead.i92.i, align 8
+  br label %if.end125.sink.split.i
+
+if.else.i73.i:                                    ; preds = %if.end.i68.i
+  %next7.i74.i = getelementptr inbounds i8, ptr %27, i64 16
+  store ptr %call.i66.i, ptr %next7.i74.i, align 8
+  br label %if.end125.sink.split.i
 
 if.else110.i:                                     ; preds = %for.cond.i, %if.then92.i
   %cmp115.i = icmp eq ptr %.pre23, %24
   br i1 %cmp115.i, label %if.then117.i, label %if.end125.i
 
 if.then117.i:                                     ; preds = %if.else110.i
-  %27 = load ptr, ptr %memory.addr.0, align 8
-  %call.i78.i = tail call ptr %27(ptr noundef nonnull %memory.addr.0, i64 noundef 32) #4
-  %cmp.i79.i = icmp eq ptr %call.i78.i, null
-  br i1 %cmp.i79.i, label %if.then7, label %if.end125.sink.split.i
+  %28 = load ptr, ptr %memory.addr.0, align 8
+  %call.i80.i = tail call ptr %28(ptr noundef nonnull %memory.addr.0, i64 noundef 32) #4
+  %cmp.i81.i = icmp eq ptr %call.i80.i, null
+  br i1 %cmp.i81.i, label %if.then7, label %if.end.i82.i
 
-if.end125.sink.split.i:                           ; preds = %if.then117.i, %if.then104.i
-  %call.i78.sink155.i = phi ptr [ %call.i66.i, %if.then104.i ], [ %call.i78.i, %if.then117.i ]
-  %next.i81.i = getelementptr inbounds i8, ptr %call.i78.sink155.i, i64 16
-  store ptr null, ptr %next.i81.i, align 8
-  store ptr %23, ptr %call.i78.sink155.i, align 8
-  %afterLast3.i82.i = getelementptr inbounds i8, ptr %call.i78.sink155.i, i64 8
-  store ptr %add.ptr118.i, ptr %afterLast3.i82.i, align 8
-  %28 = load ptr, ptr %pathTail.i83.i, align 8
-  %cmp4.i84.i = icmp eq ptr %28, null
-  %next7.i85.i = getelementptr inbounds i8, ptr %28, i64 16
-  %next7.sink.i87.i = select i1 %cmp4.i84.i, ptr %pathHead.i86.i, ptr %next7.i85.i
-  store ptr %call.i78.sink155.i, ptr %next7.sink.i87.i, align 8
-  store ptr %call.i78.sink155.i, ptr %pathTail.i83.i, align 8
-  %.pre = load ptr, ptr %sourceSeg.1135.i, align 8
+if.end.i82.i:                                     ; preds = %if.then117.i
+  %next.i83.i = getelementptr inbounds i8, ptr %call.i80.i, i64 16
+  store ptr null, ptr %next.i83.i, align 8
+  store ptr %23, ptr %call.i80.i, align 8
+  %afterLast3.i84.i = getelementptr inbounds i8, ptr %call.i80.i, i64 8
+  store ptr %add.ptr118.i, ptr %afterLast3.i84.i, align 8
+  %29 = load ptr, ptr %pathTail.i85.i, align 8
+  %cmp4.i86.i = icmp eq ptr %29, null
+  br i1 %cmp4.i86.i, label %if.then5.i91.i, label %if.else.i87.i
+
+if.then5.i91.i:                                   ; preds = %if.end.i82.i
+  store ptr %call.i80.i, ptr %pathHead.i92.i, align 8
+  br label %if.end125.sink.split.i
+
+if.else.i87.i:                                    ; preds = %if.end.i82.i
+  %next7.i88.i = getelementptr inbounds i8, ptr %29, i64 16
+  store ptr %call.i80.i, ptr %next7.i88.i, align 8
+  br label %if.end125.sink.split.i
+
+if.end125.sink.split.i:                           ; preds = %if.else.i87.i, %if.then5.i91.i, %if.else.i73.i, %if.then5.i77.i
+  %call.i80.sink.i = phi ptr [ %call.i66.i, %if.then5.i77.i ], [ %call.i66.i, %if.else.i73.i ], [ %call.i80.i, %if.then5.i91.i ], [ %call.i80.i, %if.else.i87.i ]
+  store ptr %call.i80.sink.i, ptr %pathTail.i85.i, align 8
+  %.pre = load ptr, ptr %sourceSeg.1141.i, align 8
   br label %if.end125.i
 
 if.end125.i:                                      ; preds = %if.end125.sink.split.i, %if.else110.i, %while.body89.i
-  %29 = phi ptr [ %.pre, %if.end125.sink.split.i ], [ %.pre23, %if.else110.i ], [ %.pre23, %while.body89.i ]
-  %afterLast129.i = getelementptr inbounds i8, ptr %sourceSeg.1135.i, i64 8
-  %30 = load ptr, ptr %afterLast129.i, align 8
-  %31 = load ptr, ptr %memory.addr.0, align 8
-  %call.i90.i = tail call ptr %31(ptr noundef nonnull %memory.addr.0, i64 noundef 32) #4
-  %cmp.i91.i = icmp eq ptr %call.i90.i, null
-  br i1 %cmp.i91.i, label %if.then7, label %if.end133.i
+  %30 = phi ptr [ %.pre, %if.end125.sink.split.i ], [ %.pre23, %if.else110.i ], [ %.pre23, %while.body89.i ]
+  %afterLast129.i = getelementptr inbounds i8, ptr %sourceSeg.1141.i, i64 8
+  %31 = load ptr, ptr %afterLast129.i, align 8
+  %32 = load ptr, ptr %memory.addr.0, align 8
+  %call.i94.i = tail call ptr %32(ptr noundef nonnull %memory.addr.0, i64 noundef 32) #4
+  %cmp.i95.i = icmp eq ptr %call.i94.i, null
+  br i1 %cmp.i95.i, label %if.then7, label %if.end.i96.i
 
-if.end133.i:                                      ; preds = %if.end125.i
-  %next.i93.i = getelementptr inbounds i8, ptr %call.i90.i, i64 16
-  store ptr null, ptr %next.i93.i, align 8
-  store ptr %29, ptr %call.i90.i, align 8
-  %afterLast3.i94.i = getelementptr inbounds i8, ptr %call.i90.i, i64 8
-  store ptr %30, ptr %afterLast3.i94.i, align 8
-  %32 = load ptr, ptr %pathTail.i83.i, align 8
-  %cmp4.i96.i = icmp eq ptr %32, null
-  %next7.i97.i = getelementptr inbounds i8, ptr %32, i64 16
-  %next7.sink.i99.i = select i1 %cmp4.i96.i, ptr %pathHead.i86.i, ptr %next7.i97.i
-  store ptr %call.i90.i, ptr %next7.sink.i99.i, align 8
-  store ptr %call.i90.i, ptr %pathTail.i83.i, align 8
-  %next134.i = getelementptr inbounds i8, ptr %sourceSeg.1135.i, i64 16
-  %33 = load ptr, ptr %next134.i, align 8
-  %cmp87.not.i = icmp eq ptr %33, null
+if.end.i96.i:                                     ; preds = %if.end125.i
+  %next.i97.i = getelementptr inbounds i8, ptr %call.i94.i, i64 16
+  store ptr null, ptr %next.i97.i, align 8
+  store ptr %30, ptr %call.i94.i, align 8
+  %afterLast3.i98.i = getelementptr inbounds i8, ptr %call.i94.i, i64 8
+  store ptr %31, ptr %afterLast3.i98.i, align 8
+  %33 = load ptr, ptr %pathTail.i85.i, align 8
+  %cmp4.i100.i = icmp eq ptr %33, null
+  br i1 %cmp4.i100.i, label %if.then5.i105.i, label %if.else.i101.i
+
+if.then5.i105.i:                                  ; preds = %if.end.i96.i
+  store ptr %call.i94.i, ptr %pathHead.i92.i, align 8
+  br label %if.end133.i
+
+if.else.i101.i:                                   ; preds = %if.end.i96.i
+  %next7.i102.i = getelementptr inbounds i8, ptr %33, i64 16
+  store ptr %call.i94.i, ptr %next7.i102.i, align 8
+  br label %if.end133.i
+
+if.end133.i:                                      ; preds = %if.else.i101.i, %if.then5.i105.i
+  store ptr %call.i94.i, ptr %pathTail.i85.i, align 8
+  %next134.i = getelementptr inbounds i8, ptr %sourceSeg.1141.i, i64 16
+  %34 = load ptr, ptr %next134.i, align 8
+  %cmp87.not.i = icmp eq ptr %34, null
   br i1 %cmp87.not.i, label %if.end138.i, label %while.body89.i, !llvm.loop !10
 
 if.end138.i:                                      ; preds = %if.end133.i, %while.end85.i, %if.end43.i, %if.end32.i, %if.end21.i

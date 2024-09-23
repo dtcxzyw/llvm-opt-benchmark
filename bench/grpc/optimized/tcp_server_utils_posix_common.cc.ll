@@ -394,7 +394,11 @@ invoke.cont29:                                    ; preds = %invoke.cont28
   %head = getelementptr inbounds i8, ptr %s, i64 56
   %21 = load ptr, ptr %head, align 8
   %cmp31 = icmp eq ptr %21, null
-  br i1 %cmp31, label %if.end35, label %if.else
+  br i1 %cmp31, label %if.then32, label %if.else
+
+if.then32:                                        ; preds = %invoke.cont29
+  store ptr %call30, ptr %head, align 8
+  br label %if.end35
 
 lpad27:                                           ; preds = %invoke.cont39, %do.end61, %if.then57, %if.then45, %invoke.cont41, %if.end35, %invoke.cont28, %invoke.cont26
   %22 = landingpad { ptr, i32 }
@@ -406,11 +410,10 @@ if.else:                                          ; preds = %invoke.cont29
   %tail = getelementptr inbounds i8, ptr %s, i64 64
   %23 = load ptr, ptr %tail, align 8
   %next34 = getelementptr inbounds i8, ptr %23, i64 232
+  store ptr %call30, ptr %next34, align 8
   br label %if.end35
 
-if.end35:                                         ; preds = %invoke.cont29, %if.else
-  %next34.sink = phi ptr [ %next34, %if.else ], [ %head, %invoke.cont29 ]
-  store ptr %call30, ptr %next34.sink, align 8
+if.end35:                                         ; preds = %if.else, %if.then32
   %tail36 = getelementptr inbounds i8, ptr %s, i64 64
   store ptr %call30, ptr %tail36, align 8
   %server = getelementptr inbounds i8, ptr %call30, i64 16

@@ -17675,7 +17675,8 @@ cf2_hintmask_setAll.exit:                         ; preds = %34, %36, %38, %._cr
   %59 = load ptr, ptr %3, align 8
   store i32 0, ptr %59, align 4
   %60 = getelementptr inbounds i8, ptr %0, i64 25
-  br label %.sink.split
+  store i8 0, ptr %60, align 1
+  br label %557
 
 cf2_hintmask_setAll.exit.thread:                  ; preds = %cf2_hintmask_setCounts.exit.i, %cf2_hintmask_setAll.exit, %24
   %61 = getelementptr inbounds i8, ptr %0, i64 32
@@ -18721,14 +18722,10 @@ cf2_arrstack_getPointer.exit:                     ; preds = %533, %537, %539, %5
   %555 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 1, ptr %555, align 8
   %556 = getelementptr inbounds i8, ptr %3, i64 9
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %.loopexit, %58
-  %.sink = phi ptr [ %60, %58 ], [ %556, %.loopexit ]
-  store i8 0, ptr %.sink, align 1
+  store i8 0, ptr %556, align 1
   br label %557
 
-557:                                              ; preds = %.sink.split, %cf2_hintmask_setAll.exit.thread, %55
+557:                                              ; preds = %cf2_hintmask_setAll.exit.thread, %55, %58, %.loopexit
   ret void
 }
 

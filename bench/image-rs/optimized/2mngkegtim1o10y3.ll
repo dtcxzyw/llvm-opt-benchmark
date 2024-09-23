@@ -36772,21 +36772,21 @@ define void @"_ZN5image7buffer_75ImageBuffer$LT$image..color..Luma$LT$u8$GT$$C$a
   br label %.split48.us.i.i.i.i
 
 .split48.us.i.i.i.i:                              ; preds = %.split48.us.i.i.i.i.lr.ph, %.noexc10
-  %.sroa.81.0200 = phi i64 [ %.0.i.i.i, %.split48.us.i.i.i.i.lr.ph ], [ %53, %.noexc10 ]
-  %.sroa.78.0199 = phi i64 [ 4, %.split48.us.i.i.i.i.lr.ph ], [ %52, %.noexc10 ]
-  %.sroa.67.0198 = phi i64 [ %46, %.split48.us.i.i.i.i.lr.ph ], [ %50, %.noexc10 ]
-  %50 = add i64 %.sroa.67.0198, -1
-  %.not.i.i.i15 = icmp eq i64 %.sroa.81.0200, 0
+  %.sroa.80.0200 = phi i64 [ %.0.i.i.i, %.split48.us.i.i.i.i.lr.ph ], [ %53, %.noexc10 ]
+  %.sroa.77.0199 = phi i64 [ 4, %.split48.us.i.i.i.i.lr.ph ], [ %52, %.noexc10 ]
+  %.sroa.66.0198 = phi i64 [ %46, %.split48.us.i.i.i.i.lr.ph ], [ %50, %.noexc10 ]
+  %50 = add i64 %.sroa.66.0198, -1
+  %.not.i.i.i15 = icmp eq i64 %.sroa.80.0200, 0
   br i1 %.not.i.i.i15, label %.loopexit.i.i.i.i.i.i, label %51
 
 51:                                               ; preds = %.split48.us.i.i.i.i
-  %52 = add i64 %.sroa.78.0199, 4
-  %53 = add nsw i64 %.sroa.81.0200, -1
+  %52 = add i64 %.sroa.77.0199, 4
+  %53 = add nsw i64 %.sroa.80.0200, -1
   %54 = icmp ult i64 %50, %44
   br i1 %54, label %55, label %.invoke, !prof !87
 
 55:                                               ; preds = %51
-  %56 = sub i64 %44, %.sroa.78.0199
+  %56 = sub i64 %44, %.sroa.77.0199
   %57 = getelementptr inbounds [0 x i8], ptr %42, i64 0, i64 %50
   %58 = load i8, ptr %57, align 1, !alias.scope !4671, !noalias !4674, !noundef !4
   %59 = add i64 %56, 4

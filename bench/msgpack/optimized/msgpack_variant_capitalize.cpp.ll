@@ -10854,6 +10854,7 @@ define linkonce_odr dso_local void @_ZNK5boost7variantIN7msgpack2v14type5nil_tEJ
   store ptr null, ptr %8, align 8
   store ptr %11, ptr %14, align 8
   store ptr %11, ptr %17, align 8
+  store i64 0, ptr %21, align 8
   br label %36
 
 24:                                               ; preds = %.noexc
@@ -10865,6 +10866,7 @@ define linkonce_odr dso_local void @_ZNK5boost7variantIN7msgpack2v14type5nil_tEJ
   %27 = getelementptr inbounds i8, ptr %5, i64 32
   store ptr %7, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %5, i64 40
+  store i64 0, ptr %28, align 8
   br label %36
 
 29:                                               ; preds = %2
@@ -10884,9 +10886,7 @@ define linkonce_odr dso_local void @_ZNK5boost7variantIN7msgpack2v14type5nil_tEJ
           to label %41 unwind label %42
 
 36:                                               ; preds = %24, %10
-  %.sink.i.i.i.i.i = phi ptr [ %21, %10 ], [ %28, %24 ]
   %37 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 0, ptr %.sink.i.i.i.i.i, align 8
   store ptr %5, ptr %37, align 8
   %38 = load ptr, ptr %0, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 8
@@ -10947,6 +10947,7 @@ define linkonce_odr dso_local void @_ZNK5boost7variantIN7msgpack2v14type5nil_tEJ
   store ptr null, ptr %8, align 8
   store ptr %11, ptr %14, align 8
   store ptr %11, ptr %17, align 8
+  store i64 0, ptr %21, align 8
   br label %36
 
 24:                                               ; preds = %.noexc
@@ -10958,6 +10959,7 @@ define linkonce_odr dso_local void @_ZNK5boost7variantIN7msgpack2v14type5nil_tEJ
   %27 = getelementptr inbounds i8, ptr %5, i64 32
   store ptr %7, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %5, i64 40
+  store i64 0, ptr %28, align 8
   br label %36
 
 29:                                               ; preds = %2
@@ -10977,9 +10979,7 @@ define linkonce_odr dso_local void @_ZNK5boost7variantIN7msgpack2v14type5nil_tEJ
           to label %41 unwind label %42
 
 36:                                               ; preds = %24, %10
-  %.sink.i.i.i.i.i = phi ptr [ %21, %10 ], [ %28, %24 ]
   %37 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 0, ptr %.sink.i.i.i.i.i, align 8
   store ptr %5, ptr %37, align 8
   %38 = load ptr, ptr %0, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 8
@@ -12562,7 +12562,7 @@ define linkonce_odr dso_local void @_ZN5boost7variantIN7msgpack2v14type5nil_tEJb
     i32 10, label %47
     i32 11, label %_ZN5boost6detail7variant22visitation_impl_invokeINS1_9move_intoEPvNS_17recursive_wrapperISt6vectorIN7msgpack2v14type13basic_variantINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_IcSF_ENS9_3extEEESaISJ_EEEENS_7variantINS9_5nil_tEJblmdSG_NS_16basic_string_refIcSE_EESH_NS9_7raw_refESI_NS9_7ext_refESM_NS5_ISt3mapISJ_SJ_St4lessISJ_ESaISt4pairIKSJ_SJ_EEEEENS5_ISt8multimapISJ_SJ_SV_SZ_EEEEE18has_fallback_type_EEENT_11result_typeEiRS17_T0_PT1_T2_i.exit
     i32 12, label %.noexc
-    i32 13, label %.noexc77
+    i32 13, label %.noexc76
   ]
 
 6:                                                ; preds = %2
@@ -12711,6 +12711,7 @@ _ZN5boost6detail7variant22visitation_impl_invokeINS1_9move_intoEPvNS_17recursive
   store ptr null, ptr %60, align 8
   store ptr %63, ptr %66, align 8
   store ptr %63, ptr %69, align 8
+  store i64 0, ptr %73, align 8
   br label %_ZN5boost6detail7variant22visitation_impl_invokeINS1_9move_intoEPvNS_17recursive_wrapperISt3mapIN7msgpack2v14type13basic_variantINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIcSF_ENS9_3extEEESK_St4lessISK_ESaISt4pairIKSK_SK_EEEEENS_7variantINS9_5nil_tEJblmdSG_NS_16basic_string_refIcSE_EESI_NS9_7raw_refESJ_NS9_7ext_refENS5_ISH_ISK_SaISK_EEEESS_NS5_ISt8multimapISK_SK_SM_SQ_EEEEE18has_fallback_type_EEENT_11result_typeEiRS17_T0_PT1_T2_i.exit
 
 76:                                               ; preds = %.noexc
@@ -12722,15 +12723,14 @@ _ZN5boost6detail7variant22visitation_impl_invokeINS1_9move_intoEPvNS_17recursive
   %79 = getelementptr inbounds i8, ptr %57, i64 32
   store ptr %59, ptr %79, align 8
   %80 = getelementptr inbounds i8, ptr %57, i64 40
+  store i64 0, ptr %80, align 8
   br label %_ZN5boost6detail7variant22visitation_impl_invokeINS1_9move_intoEPvNS_17recursive_wrapperISt3mapIN7msgpack2v14type13basic_variantINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIcSF_ENS9_3extEEESK_St4lessISK_ESaISt4pairIKSK_SK_EEEEENS_7variantINS9_5nil_tEJblmdSG_NS_16basic_string_refIcSE_EESI_NS9_7raw_refESJ_NS9_7ext_refENS5_ISH_ISK_SaISK_EEEESS_NS5_ISt8multimapISK_SK_SM_SQ_EEEEE18has_fallback_type_EEENT_11result_typeEiRS17_T0_PT1_T2_i.exit
 
 _ZN5boost6detail7variant22visitation_impl_invokeINS1_9move_intoEPvNS_17recursive_wrapperISt3mapIN7msgpack2v14type13basic_variantINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIcSF_ENS9_3extEEESK_St4lessISK_ESaISt4pairIKSK_SK_EEEEENS_7variantINS9_5nil_tEJblmdSG_NS_16basic_string_refIcSE_EESI_NS9_7raw_refESJ_NS9_7ext_refENS5_ISH_ISK_SaISK_EEEESS_NS5_ISt8multimapISK_SK_SM_SQ_EEEEE18has_fallback_type_EEENT_11result_typeEiRS17_T0_PT1_T2_i.exit: ; preds = %62, %76
-  %.sink.i.i.i.i.i.i.i.i = phi ptr [ %73, %62 ], [ %80, %76 ]
-  store i64 0, ptr %.sink.i.i.i.i.i.i.i.i, align 8
   store ptr %57, ptr %3, align 8
   br label %106
 
-.noexc77:                                         ; preds = %2
+.noexc76:                                         ; preds = %2
   %81 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #29
   %82 = load ptr, ptr %5, align 8
   %83 = getelementptr inbounds i8, ptr %81, i64 8
@@ -12739,7 +12739,7 @@ _ZN5boost6detail7variant22visitation_impl_invokeINS1_9move_intoEPvNS_17recursive
   %.not.i.i.i.i.i.i.i.i75 = icmp eq ptr %85, null
   br i1 %.not.i.i.i.i.i.i.i.i75, label %100, label %86
 
-86:                                               ; preds = %.noexc77
+86:                                               ; preds = %.noexc76
   %87 = getelementptr inbounds i8, ptr %82, i64 8
   %88 = load i32, ptr %87, align 8
   store i32 %88, ptr %83, align 8
@@ -12762,9 +12762,10 @@ _ZN5boost6detail7variant22visitation_impl_invokeINS1_9move_intoEPvNS_17recursive
   store ptr null, ptr %84, align 8
   store ptr %87, ptr %90, align 8
   store ptr %87, ptr %93, align 8
+  store i64 0, ptr %97, align 8
   br label %_ZN5boost6detail7variant22visitation_impl_invokeINS1_9move_intoEPvNS_17recursive_wrapperISt8multimapIN7msgpack2v14type13basic_variantINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIcSF_ENS9_3extEEESK_St4lessISK_ESaISt4pairIKSK_SK_EEEEENS_7variantINS9_5nil_tEJblmdSG_NS_16basic_string_refIcSE_EESI_NS9_7raw_refESJ_NS9_7ext_refENS5_ISH_ISK_SaISK_EEEENS5_ISt3mapISK_SK_SM_SQ_EEESS_EE18has_fallback_type_EEENT_11result_typeEiRS17_T0_PT1_T2_i.exit
 
-100:                                              ; preds = %.noexc77
+100:                                              ; preds = %.noexc76
   store i32 0, ptr %83, align 8
   %101 = getelementptr inbounds i8, ptr %81, i64 16
   store ptr null, ptr %101, align 8
@@ -12773,11 +12774,10 @@ _ZN5boost6detail7variant22visitation_impl_invokeINS1_9move_intoEPvNS_17recursive
   %103 = getelementptr inbounds i8, ptr %81, i64 32
   store ptr %83, ptr %103, align 8
   %104 = getelementptr inbounds i8, ptr %81, i64 40
+  store i64 0, ptr %104, align 8
   br label %_ZN5boost6detail7variant22visitation_impl_invokeINS1_9move_intoEPvNS_17recursive_wrapperISt8multimapIN7msgpack2v14type13basic_variantINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIcSF_ENS9_3extEEESK_St4lessISK_ESaISt4pairIKSK_SK_EEEEENS_7variantINS9_5nil_tEJblmdSG_NS_16basic_string_refIcSE_EESI_NS9_7raw_refESJ_NS9_7ext_refENS5_ISH_ISK_SaISK_EEEENS5_ISt3mapISK_SK_SM_SQ_EEESS_EE18has_fallback_type_EEENT_11result_typeEiRS17_T0_PT1_T2_i.exit
 
 _ZN5boost6detail7variant22visitation_impl_invokeINS1_9move_intoEPvNS_17recursive_wrapperISt8multimapIN7msgpack2v14type13basic_variantINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIcSF_ENS9_3extEEESK_St4lessISK_ESaISt4pairIKSK_SK_EEEEENS_7variantINS9_5nil_tEJblmdSG_NS_16basic_string_refIcSE_EESI_NS9_7raw_refESJ_NS9_7ext_refENS5_ISH_ISK_SaISK_EEEENS5_ISt3mapISK_SK_SM_SQ_EEESS_EE18has_fallback_type_EEENT_11result_typeEiRS17_T0_PT1_T2_i.exit: ; preds = %86, %100
-  %.sink.i.i.i.i.i.i.i.i76 = phi ptr [ %97, %86 ], [ %104, %100 ]
-  store i64 0, ptr %.sink.i.i.i.i.i.i.i.i76, align 8
   store ptr %81, ptr %3, align 8
   br label %106
 
@@ -12786,9 +12786,9 @@ _ZN5boost6detail7variant22visitation_impl_invokeINS1_9move_intoEPvNS_17recursive
 
 106:                                              ; preds = %2, %_ZN5boost6detail7variant22visitation_impl_invokeINS1_9move_intoEPvNS_17recursive_wrapperISt8multimapIN7msgpack2v14type13basic_variantINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIcSF_ENS9_3extEEESK_St4lessISK_ESaISt4pairIKSK_SK_EEEEENS_7variantINS9_5nil_tEJblmdSG_NS_16basic_string_refIcSE_EESI_NS9_7raw_refESJ_NS9_7ext_refENS5_ISH_ISK_SaISK_EEEENS5_ISt3mapISK_SK_SM_SQ_EEESS_EE18has_fallback_type_EEENT_11result_typeEiRS17_T0_PT1_T2_i.exit, %_ZN5boost6detail7variant22visitation_impl_invokeINS1_9move_intoEPvNS_17recursive_wrapperISt3mapIN7msgpack2v14type13basic_variantINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIcSF_ENS9_3extEEESK_St4lessISK_ESaISt4pairIKSK_SK_EEEEENS_7variantINS9_5nil_tEJblmdSG_NS_16basic_string_refIcSE_EESI_NS9_7raw_refESJ_NS9_7ext_refENS5_ISH_ISK_SaISK_EEEESS_NS5_ISt8multimapISK_SK_SM_SQ_EEEEE18has_fallback_type_EEENT_11result_typeEiRS17_T0_PT1_T2_i.exit, %_ZN5boost6detail7variant22visitation_impl_invokeINS1_9move_intoEPvNS_17recursive_wrapperISt6vectorIN7msgpack2v14type13basic_variantINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_IcSF_ENS9_3extEEESaISJ_EEEENS_7variantINS9_5nil_tEJblmdSG_NS_16basic_string_refIcSE_EESH_NS9_7raw_refESI_NS9_7ext_refESM_NS5_ISt3mapISJ_SJ_St4lessISJ_ESaISt4pairIKSJ_SJ_EEEEENS5_ISt8multimapISJ_SJ_SV_SZ_EEEEE18has_fallback_type_EEENT_11result_typeEiRS17_T0_PT1_T2_i.exit, %47, %39, %38, %30, %29, %_ZN5boost6detail7variant22visitation_impl_invokeINS1_9move_intoEPvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7variantIN7msgpack2v14type5nil_tEJblmdSA_NS_16basic_string_refIcS8_EESt6vectorIcS9_ENSE_7raw_refENSE_3extENSE_7ext_refENS_17recursive_wrapperISI_INSE_13basic_variantISA_SJ_SL_EESaISP_EEEENSN_ISt3mapISP_SP_St4lessISP_ESaISt4pairIKSP_SP_EEEEENSN_ISt8multimapISP_SP_SV_SZ_EEEEE18has_fallback_type_EEENT_11result_typeEiRS17_T0_PT1_T2_i.exit, %13, %11, %9, %6
   %107 = load i32, ptr %1, align 8
-  %.lobit.i83 = ashr i32 %107, 31
-  %.0.i84 = xor i32 %.lobit.i83, %107
-  store i32 %.0.i84, ptr %0, align 8
+  %.lobit.i82 = ashr i32 %107, 31
+  %.0.i83 = xor i32 %.lobit.i82, %107
+  store i32 %.0.i83, ptr %0, align 8
   ret void
 }
 
@@ -13228,20 +13228,20 @@ _ZN5boost6detail7variant22visitation_impl_invokeINS1_14invoke_visitorINS1_8compa
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %78, %.lr.ph.preheader.i.i.i.i.i.i.i
-  %.sroa.09.018.i.i.i.i.i.i.i = phi ptr [ %79, %78 ], [ %63, %.lr.ph.preheader.i.i.i.i.i.i.i ]
-  %.sroa.04.017.i.i.i.i.i.i.i = phi ptr [ %80, %78 ], [ %66, %.lr.ph.preheader.i.i.i.i.i.i.i ]
-  %73 = icmp eq ptr %.sroa.04.017.i.i.i.i.i.i.i, %68
+  %.sroa.09.017.i.i.i.i.i.i.i = phi ptr [ %79, %78 ], [ %63, %.lr.ph.preheader.i.i.i.i.i.i.i ]
+  %.sroa.04.016.i.i.i.i.i.i.i = phi ptr [ %80, %78 ], [ %66, %.lr.ph.preheader.i.i.i.i.i.i.i ]
+  %73 = icmp eq ptr %.sroa.04.016.i.i.i.i.i.i.i, %68
   br i1 %73, label %_ZN5boost6detail7variant22visitation_impl_invokeINS1_14invoke_visitorINS1_8comparerINS_7variantIN7msgpack2v14type5nil_tEJblmdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16basic_string_refIcSD_EESt6vectorIcSE_ENS8_7raw_refENS8_3extENS8_7ext_refENS_17recursive_wrapperISI_INS8_13basic_variantISF_SJ_SL_EESaISP_EEEENSN_ISt3mapISP_SP_St4lessISP_ESaISt4pairIKSP_SP_EEEEENSN_ISt8multimapISP_SP_SV_SZ_EEEEEENS1_9less_compEEELb0EEEPKvSJ_NS15_18has_fallback_type_EEENT_11result_typeEiRS1C_T0_PT1_T2_i.exit, label %74
 
 74:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %75 = load i8, ptr %.sroa.09.018.i.i.i.i.i.i.i, align 1
-  %76 = load i8, ptr %.sroa.04.017.i.i.i.i.i.i.i, align 1
+  %75 = load i8, ptr %.sroa.09.017.i.i.i.i.i.i.i, align 1
+  %76 = load i8, ptr %.sroa.04.016.i.i.i.i.i.i.i, align 1
   %77 = icmp eq i8 %75, %76
   br i1 %77, label %78, label %.loopexit.split.loop.exit.i.i.i.i.i.i.i
 
 78:                                               ; preds = %74
-  %79 = getelementptr inbounds i8, ptr %.sroa.09.018.i.i.i.i.i.i.i, i64 1
-  %80 = getelementptr inbounds i8, ptr %.sroa.04.017.i.i.i.i.i.i.i, i64 1
+  %79 = getelementptr inbounds i8, ptr %.sroa.09.017.i.i.i.i.i.i.i, i64 1
+  %80 = getelementptr inbounds i8, ptr %.sroa.04.016.i.i.i.i.i.i.i, i64 1
   %81 = icmp eq ptr %79, %65
   br i1 %81, label %._crit_edge.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !97
 
@@ -13300,20 +13300,20 @@ _ZN5boost6detail7variant22visitation_impl_invokeINS1_14invoke_visitorINS1_8compa
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %120, %.lr.ph.preheader.i.i.i.i.i.i.i.i
-  %.sroa.09.018.i.i.i.i.i.i.i.i = phi ptr [ %121, %120 ], [ %105, %.lr.ph.preheader.i.i.i.i.i.i.i.i ]
-  %.sroa.04.017.i.i.i.i.i.i.i.i = phi ptr [ %122, %120 ], [ %108, %.lr.ph.preheader.i.i.i.i.i.i.i.i ]
-  %115 = icmp eq ptr %.sroa.04.017.i.i.i.i.i.i.i.i, %110
+  %.sroa.09.017.i.i.i.i.i.i.i.i = phi ptr [ %121, %120 ], [ %105, %.lr.ph.preheader.i.i.i.i.i.i.i.i ]
+  %.sroa.04.016.i.i.i.i.i.i.i.i = phi ptr [ %122, %120 ], [ %108, %.lr.ph.preheader.i.i.i.i.i.i.i.i ]
+  %115 = icmp eq ptr %.sroa.04.016.i.i.i.i.i.i.i.i, %110
   br i1 %115, label %_ZN5boost6detail7variant22visitation_impl_invokeINS1_14invoke_visitorINS1_8comparerINS_7variantIN7msgpack2v14type5nil_tEJblmdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16basic_string_refIcSD_EESt6vectorIcSE_ENS8_7raw_refENS8_3extENS8_7ext_refENS_17recursive_wrapperISI_INS8_13basic_variantISF_SJ_SL_EESaISP_EEEENSN_ISt3mapISP_SP_St4lessISP_ESaISt4pairIKSP_SP_EEEEENSN_ISt8multimapISP_SP_SV_SZ_EEEEEENS1_9less_compEEELb0EEEPKvSJ_NS15_18has_fallback_type_EEENT_11result_typeEiRS1C_T0_PT1_T2_i.exit, label %116
 
 116:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i
-  %117 = load i8, ptr %.sroa.09.018.i.i.i.i.i.i.i.i, align 1
-  %118 = load i8, ptr %.sroa.04.017.i.i.i.i.i.i.i.i, align 1
+  %117 = load i8, ptr %.sroa.09.017.i.i.i.i.i.i.i.i, align 1
+  %118 = load i8, ptr %.sroa.04.016.i.i.i.i.i.i.i.i, align 1
   %119 = icmp eq i8 %117, %118
   br i1 %119, label %120, label %.loopexit.split.loop.exit.i.i.i.i.i.i.i.i
 
 120:                                              ; preds = %116
-  %121 = getelementptr inbounds i8, ptr %.sroa.09.018.i.i.i.i.i.i.i.i, i64 1
-  %122 = getelementptr inbounds i8, ptr %.sroa.04.017.i.i.i.i.i.i.i.i, i64 1
+  %121 = getelementptr inbounds i8, ptr %.sroa.09.017.i.i.i.i.i.i.i.i, i64 1
+  %122 = getelementptr inbounds i8, ptr %.sroa.04.016.i.i.i.i.i.i.i.i, i64 1
   %123 = icmp eq ptr %121, %107
   br i1 %123, label %._crit_edge.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !97
 

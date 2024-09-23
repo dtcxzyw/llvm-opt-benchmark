@@ -650,7 +650,12 @@ if.end:                                           ; preds = %if.then17, %if.then
   %12 = load i8, ptr %arrayidx33, align 1
   %13 = and i8 %12, 4
   %tobool44.not = icmp eq i8 %13, 0
-  br i1 %tobool44.not, label %if.end87.sink.split, label %if.end87
+  br i1 %tobool44.not, label %if.then45, label %if.end87
+
+if.then45:                                        ; preds = %if.end
+  %or47 = or i32 %and39, 1073741824
+  store i32 %or47, ptr %can_mask, align 4
+  br label %if.end87
 
 if.else:                                          ; preds = %entry
   %shl51 = shl nuw nsw i32 %conv50, 3
@@ -687,16 +692,14 @@ if.end65:                                         ; preds = %if.then62, %if.else
   %20 = load i8, ptr %arrayidx70, align 1
   %21 = and i8 %20, 16
   %tobool82.not = icmp eq i8 %21, 0
-  br i1 %tobool82.not, label %if.end87.sink.split, label %if.end87
+  br i1 %tobool82.not, label %if.then83, label %if.end87
 
-if.end87.sink.split:                              ; preds = %if.end65, %if.end
-  %and77.sink = phi i32 [ %and39, %if.end ], [ %and77, %if.end65 ]
-  %can_mask69.sink = phi ptr [ %can_mask, %if.end ], [ %can_mask69, %if.end65 ]
-  %or85 = or i32 %and77.sink, 1073741824
-  store i32 %or85, ptr %can_mask69.sink, align 4
+if.then83:                                        ; preds = %if.end65
+  %or85 = or disjoint i32 %and77, 1073741824
+  store i32 %or85, ptr %can_mask69, align 4
   br label %if.end87
 
-if.end87:                                         ; preds = %if.end87.sink.split, %if.end65, %if.end
+if.end87:                                         ; preds = %if.end65, %if.then83, %if.end, %if.then45
   ret void
 }
 
@@ -1222,16 +1225,16 @@ if.then.i:                                        ; preds = %if.end2
   %code_mask106.i = getelementptr i8, ptr %client, i64 -145
   %add.ptr111.i = getelementptr i8, ptr %client, i64 -141
   %8 = load i8, ptr %code_mask106.i, align 1
-  %conv17.i73.i = zext i8 %8 to i32
-  %arrayidx20.i74.i = getelementptr i8, ptr %client, i64 -144
-  %9 = load i8, ptr %arrayidx20.i74.i, align 1
+  %conv17.i71.i = zext i8 %8 to i32
+  %arrayidx20.i72.i = getelementptr i8, ptr %client, i64 -144
+  %9 = load i8, ptr %arrayidx20.i72.i, align 1
   br i1 %tobool3.not.i, label %if.else78.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.then.i
   br i1 %tobool81.not.i, label %if.else.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.then4.i
-  %shl.i.i = shl nuw nsw i32 %conv17.i73.i, 21
+  %shl.i.i = shl nuw nsw i32 %conv17.i71.i, 21
   %conv2.i.i = zext i8 %9 to i32
   %shl3.i.i = shl nuw nsw i32 %conv2.i.i, 13
   %or.i.i = or disjoint i32 %shl3.i.i, %shl.i.i
@@ -1272,23 +1275,23 @@ if.then7.i:                                       ; preds = %if.then4.i
   %and39.i.i = xor i32 %or37.i.i, 536870911
   %22 = and i8 %20, 4
   %tobool44.not.i.i = icmp eq i8 %22, 0
-  %or85.i.i = or i32 %and39.i.i, 1073741824
-  %storemerge97.i = select i1 %tobool44.not.i.i, i32 %or85.i.i, i32 %and39.i.i
-  store i32 %storemerge97.i, ptr %can_mask.i.i, align 4
+  %or47.i.i = or i32 %and39.i.i, 1073741824
+  %storemerge95.i = select i1 %tobool44.not.i.i, i32 %or47.i.i, i32 %and39.i.i
+  store i32 %storemerge95.i, ptr %can_mask.i.i, align 4
   %call.i = call i32 @can_bus_filter_match(ptr noundef nonnull %filter.i, i32 noundef %7) #8
   %tobool12.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool12.not.i, label %can_sja_accept_filter.exit.thread99, label %can_sja_accept_filter.exit.thread
 
 if.else.i:                                        ; preds = %if.then4.i
-  %shl51.i.i = shl nuw nsw i32 %conv17.i73.i, 3
+  %shl51.i.i = shl nuw nsw i32 %conv17.i71.i, 3
   %23 = lshr i8 %9, 5
   %shr55.i.i = zext nneg i8 %23 to i32
   %24 = and i8 %9, 16
   %25 = zext nneg i8 %24 to i32
   %26 = shl nuw nsw i32 %25, 26
   %27 = or disjoint i32 %26, %shr55.i.i
-  %spec.select104.i = or disjoint i32 %27, %shl51.i.i
-  store i32 %spec.select104.i, ptr %filter.i, align 4
+  %spec.select102.i = or disjoint i32 %27, %shl51.i.i
+  store i32 %spec.select102.i, ptr %filter.i, align 4
   %28 = load i8, ptr %add.ptr111.i, align 1
   %conv67.i.i = zext i8 %28 to i32
   %shl68.i.i = shl nuw nsw i32 %conv67.i.i, 3
@@ -1302,9 +1305,9 @@ if.else.i:                                        ; preds = %if.then4.i
   %and77.i.i = xor i32 %not76.i.i, 2047
   %30 = and i8 %29, 16
   %tobool82.not.i.i = icmp eq i8 %30, 0
-  %or85.i50.i = or disjoint i32 %and77.i.i, 1073741824
-  %storemerge99.i = select i1 %tobool82.not.i.i, i32 %or85.i50.i, i32 %and77.i.i
-  store i32 %storemerge99.i, ptr %can_mask69.i.i, align 4
+  %or85.i.i = or disjoint i32 %and77.i.i, 1073741824
+  %storemerge97.i = select i1 %tobool82.not.i.i, i32 %or85.i.i, i32 %and77.i.i
+  store i32 %storemerge97.i, ptr %can_mask69.i.i, align 4
   %call21.i = call i32 @can_bus_filter_match(ptr noundef nonnull %filter.i, i32 noundef %7) #8
   %tobool22.not.i = icmp eq i32 %call21.i, 0
   br i1 %tobool22.not.i, label %can_sja_accept_filter.exit.thread99, label %if.end24.i
@@ -1360,22 +1363,22 @@ if.else78.i:                                      ; preds = %if.then.i
   br i1 %tobool81.not.i, label %if.else105.i, label %if.then82.i
 
 if.then82.i:                                      ; preds = %if.else78.i
-  %shl.i52.i = shl nuw nsw i32 %conv17.i73.i, 21
-  %conv2.i53.i = zext i8 %9 to i32
-  %shl3.i54.i = shl nuw nsw i32 %conv2.i53.i, 13
-  %or.i55.i = or disjoint i32 %shl3.i54.i, %shl.i52.i
-  store i32 %or.i55.i, ptr %filter.i, align 4
+  %shl.i50.i = shl nuw nsw i32 %conv17.i71.i, 21
+  %conv2.i51.i = zext i8 %9 to i32
+  %shl3.i52.i = shl nuw nsw i32 %conv2.i51.i, 13
+  %or.i53.i = or disjoint i32 %shl3.i52.i, %shl.i50.i
+  store i32 %or.i53.i, ptr %filter.i, align 4
   %45 = load i8, ptr %add.ptr111.i, align 1
-  %conv6.i56.i = zext i8 %45 to i32
-  %shl7.i57.i = shl nuw nsw i32 %conv6.i56.i, 21
-  %can_mask.i58.i = getelementptr inbounds i8, ptr %filter.i, i64 4
+  %conv6.i54.i = zext i8 %45 to i32
+  %shl7.i55.i = shl nuw nsw i32 %conv6.i54.i, 21
+  %can_mask.i56.i = getelementptr inbounds i8, ptr %filter.i, i64 4
   %arrayidx8.i.i = getelementptr i8, ptr %client, i64 -140
   %46 = load i8, ptr %arrayidx8.i.i, align 1
   %conv9.i.i = zext i8 %46 to i32
   %shl10.i.i = shl nuw nsw i32 %conv9.i.i, 13
-  %or12.i.i = or disjoint i32 %shl10.i.i, %shl7.i57.i
+  %or12.i.i = or disjoint i32 %shl10.i.i, %shl7.i55.i
   %and.i.i = xor i32 %or12.i.i, 536862720
-  store i32 %and.i.i, ptr %can_mask.i58.i, align 4
+  store i32 %and.i.i, ptr %can_mask.i56.i, align 4
   %call90.i = call i32 @can_bus_filter_match(ptr noundef nonnull %filter.i, i32 noundef %7) #8
   %tobool91.not.i = icmp eq i32 %call90.i, 0
   br i1 %tobool91.not.i, label %if.end93.i, label %can_sja_accept_filter.exit.thread
@@ -1384,24 +1387,24 @@ if.end93.i:                                       ; preds = %if.then82.i
   %add.ptr96.i = getelementptr i8, ptr %client, i64 -143
   %add.ptr99.i = getelementptr i8, ptr %client, i64 -139
   %47 = load i8, ptr %add.ptr96.i, align 1
-  %conv17.i59.i = zext i8 %47 to i32
-  %arrayidx20.i60.i = getelementptr i8, ptr %client, i64 -142
-  %shl.i61.i = shl nuw nsw i32 %conv17.i59.i, 21
-  %48 = load i8, ptr %arrayidx20.i60.i, align 1
-  %conv2.i62.i = zext i8 %48 to i32
-  %shl3.i63.i = shl nuw nsw i32 %conv2.i62.i, 13
-  %or.i64.i = or disjoint i32 %shl3.i63.i, %shl.i61.i
-  store i32 %or.i64.i, ptr %filter.i, align 4
+  %conv17.i57.i = zext i8 %47 to i32
+  %arrayidx20.i58.i = getelementptr i8, ptr %client, i64 -142
+  %shl.i59.i = shl nuw nsw i32 %conv17.i57.i, 21
+  %48 = load i8, ptr %arrayidx20.i58.i, align 1
+  %conv2.i60.i = zext i8 %48 to i32
+  %shl3.i61.i = shl nuw nsw i32 %conv2.i60.i, 13
+  %or.i62.i = or disjoint i32 %shl3.i61.i, %shl.i59.i
+  store i32 %or.i62.i, ptr %filter.i, align 4
   %49 = load i8, ptr %add.ptr99.i, align 1
-  %conv6.i65.i = zext i8 %49 to i32
-  %shl7.i66.i = shl nuw nsw i32 %conv6.i65.i, 21
-  %arrayidx8.i68.i = getelementptr i8, ptr %client, i64 -138
-  %50 = load i8, ptr %arrayidx8.i68.i, align 1
-  %conv9.i69.i = zext i8 %50 to i32
-  %shl10.i70.i = shl nuw nsw i32 %conv9.i69.i, 13
-  %or12.i71.i = or disjoint i32 %shl10.i70.i, %shl7.i66.i
-  %and.i72.i = xor i32 %or12.i71.i, 536862720
-  store i32 %and.i72.i, ptr %can_mask.i58.i, align 4
+  %conv6.i63.i = zext i8 %49 to i32
+  %shl7.i64.i = shl nuw nsw i32 %conv6.i63.i, 21
+  %arrayidx8.i66.i = getelementptr i8, ptr %client, i64 -138
+  %50 = load i8, ptr %arrayidx8.i66.i, align 1
+  %conv9.i67.i = zext i8 %50 to i32
+  %shl10.i68.i = shl nuw nsw i32 %conv9.i67.i, 13
+  %or12.i69.i = or disjoint i32 %shl10.i68.i, %shl7.i64.i
+  %and.i70.i = xor i32 %or12.i69.i, 536862720
+  store i32 %and.i70.i, ptr %can_mask.i56.i, align 4
   %51 = load i32, ptr %frames, align 8
   %call101.i = call i32 @can_bus_filter_match(ptr noundef nonnull %filter.i, i32 noundef %51) #8
   %tobool102.not.i.not = icmp eq i32 %call101.i, 0
@@ -1409,15 +1412,15 @@ if.end93.i:                                       ; preds = %if.then82.i
   br i1 %tobool102.not.i.not, label %if.then11, label %if.end17
 
 if.else105.i:                                     ; preds = %if.else78.i
-  %shl18.i.i = shl nuw nsw i32 %conv17.i73.i, 3
+  %shl18.i.i = shl nuw nsw i32 %conv17.i71.i, 3
   %52 = lshr i8 %9, 5
-  %shr.i75.i = zext nneg i8 %52 to i32
+  %shr.i73.i = zext nneg i8 %52 to i32
   %53 = and i8 %9, 16
   %54 = zext nneg i8 %53 to i32
   %55 = shl nuw nsw i32 %54, 26
-  %56 = or disjoint i32 %55, %shr.i75.i
-  %spec.select105.i = or disjoint i32 %56, %shl18.i.i
-  store i32 %spec.select105.i, ptr %filter.i, align 4
+  %56 = or disjoint i32 %55, %shr.i73.i
+  %spec.select103.i = or disjoint i32 %56, %shl18.i.i
+  store i32 %spec.select103.i, ptr %filter.i, align 4
   %57 = load i8, ptr %add.ptr111.i, align 1
   %conv32.i.i = zext i8 %57 to i32
   %shl33.i.i = shl nuw nsw i32 %conv32.i.i, 3
@@ -1431,21 +1434,21 @@ if.else105.i:                                     ; preds = %if.else78.i
   %60 = and i8 %58, 16
   %tobool47.not.i.i = icmp eq i8 %60, 0
   %or50.i.i = or disjoint i32 %and42.i.i, 1073741824
-  %storemerge101.i = select i1 %tobool47.not.i.i, i32 %or50.i.i, i32 %and42.i.i
-  store i32 %storemerge101.i, ptr %can_mask34.i.i, align 4
+  %storemerge99.i = select i1 %tobool47.not.i.i, i32 %or50.i.i, i32 %and42.i.i
+  store i32 %storemerge99.i, ptr %can_mask34.i.i, align 4
   %call113.i = call i32 @can_bus_filter_match(ptr noundef nonnull %filter.i, i32 noundef %7) #8
   %tobool114.not.i = icmp eq i32 %call113.i, 0
   br i1 %tobool114.not.i, label %if.else105.if.end154_crit_edge.i, label %if.then115.i
 
 if.else105.if.end154_crit_edge.i:                 ; preds = %if.else105.i
-  %arrayidx20.i78.phi.trans.insert.i = getelementptr i8, ptr %client, i64 -142
-  %.pre.i = load i8, ptr %arrayidx20.i78.phi.trans.insert.i, align 1
-  %arrayidx35.i89.phi.trans.insert.i = getelementptr i8, ptr %client, i64 -138
-  %.pre107.i = load i8, ptr %arrayidx35.i89.phi.trans.insert.i, align 1
+  %arrayidx20.i76.phi.trans.insert.i = getelementptr i8, ptr %client, i64 -142
+  %.pre.i = load i8, ptr %arrayidx20.i76.phi.trans.insert.i, align 1
+  %arrayidx35.i87.phi.trans.insert.i = getelementptr i8, ptr %client, i64 -138
+  %.pre105.i = load i8, ptr %arrayidx35.i87.phi.trans.insert.i, align 1
   br label %can_sja_accept_filter.exit
 
 if.then115.i:                                     ; preds = %if.else105.i
-  %61 = load i8, ptr %arrayidx20.i74.i, align 1
+  %61 = load i8, ptr %arrayidx20.i72.i, align 1
   %shl.i = shl i8 %61, 4
   %arrayidx121.i = getelementptr i8, ptr %client, i64 -142
   %62 = load i8, ptr %arrayidx121.i, align 1
@@ -1474,33 +1477,33 @@ can_sja_accept_filter.exit.thread99:              ; preds = %if.then7.i, %if.els
   br label %if.then11
 
 can_sja_accept_filter.exit:                       ; preds = %if.else105.if.end154_crit_edge.i, %if.then115.i
-  %71 = phi i8 [ %.pre107.i, %if.else105.if.end154_crit_edge.i ], [ %65, %if.then115.i ]
+  %71 = phi i8 [ %.pre105.i, %if.else105.if.end154_crit_edge.i ], [ %65, %if.then115.i ]
   %72 = phi i8 [ %.pre.i, %if.else105.if.end154_crit_edge.i ], [ %62, %if.then115.i ]
   %add.ptr157.i = getelementptr i8, ptr %client, i64 -143
   %add.ptr160.i = getelementptr i8, ptr %client, i64 -139
   %73 = load i8, ptr %add.ptr157.i, align 1
-  %conv17.i77.i = zext i8 %73 to i32
-  %shl18.i79.i = shl nuw nsw i32 %conv17.i77.i, 3
+  %conv17.i75.i = zext i8 %73 to i32
+  %shl18.i77.i = shl nuw nsw i32 %conv17.i75.i, 3
   %74 = lshr i8 %72, 5
-  %shr.i80.i = zext nneg i8 %74 to i32
+  %shr.i78.i = zext nneg i8 %74 to i32
   %75 = and i8 %72, 16
   %76 = zext nneg i8 %75 to i32
   %77 = shl nuw nsw i32 %76, 26
-  %78 = or disjoint i32 %77, %shr.i80.i
-  %spec.select106.i = or disjoint i32 %78, %shl18.i79.i
-  store i32 %spec.select106.i, ptr %filter.i, align 4
+  %78 = or disjoint i32 %77, %shr.i78.i
+  %spec.select104.i = or disjoint i32 %78, %shl18.i77.i
+  store i32 %spec.select104.i, ptr %filter.i, align 4
   %79 = load i8, ptr %add.ptr160.i, align 1
-  %conv32.i86.i = zext i8 %79 to i32
-  %shl33.i87.i = shl nuw nsw i32 %conv32.i86.i, 3
+  %conv32.i84.i = zext i8 %79 to i32
+  %shl33.i85.i = shl nuw nsw i32 %conv32.i84.i, 3
   %80 = lshr i8 %71, 5
-  %shr37.i90.i = zext nneg i8 %80 to i32
-  %or39.i91.i = or disjoint i32 %shl33.i87.i, %shr37.i90.i
-  %and42.i92.i = xor i32 %or39.i91.i, 2047
+  %shr37.i88.i = zext nneg i8 %80 to i32
+  %or39.i89.i = or disjoint i32 %shl33.i85.i, %shr37.i88.i
+  %and42.i90.i = xor i32 %or39.i89.i, 2047
   %81 = and i8 %71, 16
-  %tobool47.not.i93.i = icmp eq i8 %81, 0
-  %or50.i95.i = or disjoint i32 %and42.i92.i, 1073741824
-  %storemerge103.i = select i1 %tobool47.not.i93.i, i32 %or50.i95.i, i32 %and42.i92.i
-  store i32 %storemerge103.i, ptr %can_mask34.i.i, align 4
+  %tobool47.not.i91.i = icmp eq i8 %81, 0
+  %or50.i93.i = or disjoint i32 %and42.i90.i, 1073741824
+  %storemerge101.i = select i1 %tobool47.not.i91.i, i32 %or50.i93.i, i32 %and42.i90.i
+  store i32 %storemerge101.i, ptr %can_mask34.i.i, align 4
   %82 = load i32, ptr %frames, align 8
   %call162.i = call i32 @can_bus_filter_match(ptr noundef nonnull %filter.i, i32 noundef %82) #8
   %tobool163.not.i.not = icmp eq i32 %call162.i, 0

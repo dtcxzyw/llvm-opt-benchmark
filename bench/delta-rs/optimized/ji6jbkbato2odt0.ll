@@ -6984,16 +6984,11 @@ define hidden void @"_ZN4core3ptr156drop_in_place$LT$aws_smithy_runtime..client.
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i8, ptr %3, align 8, !range !1506, !noundef !14
   switch i8 %4, label %common.ret [
-    i8 4, label %185
+    i8 4, label %186
     i8 3, label %5
   ]
 
-common.ret.sink.split:                            ; preds = %"_ZN4core3ptr177drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..finally_attempt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha49341312ca24b9fE.exit.i", %205, %"_ZN4core3ptr173drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..try_attempt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h3a8c76fd3eec2fa5E.exit.i", %178
-  %.sink = phi ptr [ %169, %178 ], [ %169, %"_ZN4core3ptr173drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..try_attempt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h3a8c76fd3eec2fa5E.exit.i" ], [ %198, %205 ], [ %198, %"_ZN4core3ptr177drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..finally_attempt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha49341312ca24b9fE.exit.i" ]
-  store i8 0, ptr %.sink, align 8
-  br label %common.ret
-
-common.ret:                                       ; preds = %common.ret.sink.split, %185, %5, %1
+common.ret:                                       ; preds = %206, %186, %178, %5, %1
   ret void
 
 5:                                                ; preds = %1
@@ -7488,7 +7483,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %169 = getelementptr inbounds i8, ptr %0, i64 112
   %170 = load i8, ptr %169, align 8, !range !1053, !noundef !14
   %171 = trunc nuw i8 %170 to i1
-  br i1 %171, label %178, label %common.ret.sink.split
+  br i1 %171, label %179, label %178
 
 .body.i:                                          ; preds = %176, %166, %.body.i.i, %105, %.body.i.i.i, %11
   %.pn.i = phi { ptr, i32 } [ %167, %166 ], [ %12, %11 ], [ %177, %176 ], [ %.pn2.pn.i.i, %.body.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %.pn4.i.i.i, %105 ]
@@ -7497,105 +7492,113 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %173 = getelementptr inbounds i8, ptr %0, i64 112
   %174 = load i8, ptr %173, align 8, !range !1053, !noundef !14
   %175 = trunc nuw i8 %174 to i1
-  br i1 %175, label %182, label %common.resume
+  br i1 %175, label %183, label %common.resume
 
 176:                                              ; preds = %.noexc7.i, %111, %.noexc.i, %47
   %177 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
-178:                                              ; preds = %"_ZN4core3ptr173drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..try_attempt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h3a8c76fd3eec2fa5E.exit.i"
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h68b4d9f4d88e0baeE"(ptr noalias noundef align 8 dereferenceable(40) %6)
-          to label %common.ret.sink.split unwind label %180
+178:                                              ; preds = %179, %"_ZN4core3ptr173drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..try_attempt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h3a8c76fd3eec2fa5E.exit.i"
+  store i8 0, ptr %169, align 8
+  br label %common.ret
 
-common.resume:                                    ; preds = %.body.i2, %206, %208, %.body.i, %180, %182
-  %common.resume.op = phi { ptr, i32 } [ %181, %180 ], [ %.pn.i, %182 ], [ %.pn.i, %.body.i ], [ %207, %206 ], [ %.pn.i3, %208 ], [ %.pn.i3, %.body.i2 ]
-  %179 = getelementptr inbounds i8, ptr %0, i64 112
-  store i8 0, ptr %179, align 8
+179:                                              ; preds = %"_ZN4core3ptr173drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..try_attempt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h3a8c76fd3eec2fa5E.exit.i"
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h68b4d9f4d88e0baeE"(ptr noalias noundef align 8 dereferenceable(40) %6)
+          to label %178 unwind label %181
+
+common.resume:                                    ; preds = %.body.i2, %208, %210, %.body.i, %181, %183
+  %common.resume.op = phi { ptr, i32 } [ %182, %181 ], [ %.pn.i, %183 ], [ %.pn.i, %.body.i ], [ %209, %208 ], [ %.pn.i3, %210 ], [ %.pn.i3, %.body.i2 ]
+  %180 = getelementptr inbounds i8, ptr %0, i64 112
+  store i8 0, ptr %180, align 8
   resume { ptr, i32 } %common.resume.op
 
-180:                                              ; preds = %178
-  %181 = landingpad { ptr, i32 }
+181:                                              ; preds = %179
+  %182 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-182:                                              ; preds = %.body.i
+183:                                              ; preds = %.body.i
   invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h68b4d9f4d88e0baeE"(ptr noalias noundef align 8 dereferenceable(40) %6) #38
-          to label %common.resume unwind label %183
+          to label %common.resume unwind label %184
 
-183:                                              ; preds = %182
-  %184 = landingpad { ptr, i32 }
+184:                                              ; preds = %183
+  %185 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #39
   unreachable
 
-185:                                              ; preds = %1
-  %186 = getelementptr inbounds i8, ptr %0, i64 48
-  %187 = getelementptr inbounds i8, ptr %0, i64 114
-  %188 = load i8, ptr %187, align 2, !range !1506, !noundef !14
-  switch i8 %188, label %common.ret [
+186:                                              ; preds = %1
+  %187 = getelementptr inbounds i8, ptr %0, i64 48
+  %188 = getelementptr inbounds i8, ptr %0, i64 114
+  %189 = load i8, ptr %188, align 2, !range !1506, !noundef !14
+  switch i8 %189, label %common.ret [
     i8 4, label %"_ZN4core3ptr177drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..finally_attempt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha49341312ca24b9fE.exit.i"
-    i8 3, label %189
+    i8 3, label %190
   ]
 
-189:                                              ; preds = %185
-  %190 = getelementptr inbounds i8, ptr %0, i64 120
-  invoke void @"_ZN7tracing10instrument1_94_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$tracing..instrument..Instrumented$LT$T$GT$$GT$4drop12__drop_inner17he5bfa944def71628E"(ptr noundef nonnull align 8 %190)
-          to label %"_ZN7tracing10instrument1_94_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$tracing..instrument..Instrumented$LT$T$GT$$GT$4drop17hd0584b1af39eac06E.llvm.7909737541732249412.exit.i.i" unwind label %191
+190:                                              ; preds = %186
+  %191 = getelementptr inbounds i8, ptr %0, i64 120
+  invoke void @"_ZN7tracing10instrument1_94_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$tracing..instrument..Instrumented$LT$T$GT$$GT$4drop12__drop_inner17he5bfa944def71628E"(ptr noundef nonnull align 8 %191)
+          to label %"_ZN7tracing10instrument1_94_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$tracing..instrument..Instrumented$LT$T$GT$$GT$4drop17hd0584b1af39eac06E.llvm.7909737541732249412.exit.i.i" unwind label %192
 
-191:                                              ; preds = %189
-  %192 = landingpad { ptr, i32 }
+192:                                              ; preds = %190
+  %193 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h68b4d9f4d88e0baeE.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(40) %190) #38
-          to label %.body.i2 unwind label %193
+  invoke void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h68b4d9f4d88e0baeE.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(40) %191) #38
+          to label %.body.i2 unwind label %194
 
-"_ZN7tracing10instrument1_94_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$tracing..instrument..Instrumented$LT$T$GT$$GT$4drop17hd0584b1af39eac06E.llvm.7909737541732249412.exit.i.i": ; preds = %189
-  invoke void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h68b4d9f4d88e0baeE.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(40) %190)
-          to label %"_ZN4core3ptr177drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..finally_attempt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha49341312ca24b9fE.exit.i" unwind label %195
+"_ZN7tracing10instrument1_94_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$tracing..instrument..Instrumented$LT$T$GT$$GT$4drop17hd0584b1af39eac06E.llvm.7909737541732249412.exit.i.i": ; preds = %190
+  invoke void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h68b4d9f4d88e0baeE.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(40) %191)
+          to label %"_ZN4core3ptr177drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..finally_attempt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha49341312ca24b9fE.exit.i" unwind label %196
 
-193:                                              ; preds = %191
-  %194 = landingpad { ptr, i32 }
+194:                                              ; preds = %192
+  %195 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #39
   unreachable
 
-195:                                              ; preds = %"_ZN7tracing10instrument1_94_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$tracing..instrument..Instrumented$LT$T$GT$$GT$4drop17hd0584b1af39eac06E.llvm.7909737541732249412.exit.i.i"
-  %196 = landingpad { ptr, i32 }
+196:                                              ; preds = %"_ZN7tracing10instrument1_94_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$tracing..instrument..Instrumented$LT$T$GT$$GT$4drop17hd0584b1af39eac06E.llvm.7909737541732249412.exit.i.i"
+  %197 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i2
 
-"_ZN4core3ptr177drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..finally_attempt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha49341312ca24b9fE.exit.i": ; preds = %"_ZN7tracing10instrument1_94_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$tracing..instrument..Instrumented$LT$T$GT$$GT$4drop17hd0584b1af39eac06E.llvm.7909737541732249412.exit.i.i", %185
-  %197 = getelementptr inbounds i8, ptr %0, i64 113
-  store i8 0, ptr %197, align 1
-  %198 = getelementptr inbounds i8, ptr %0, i64 112
-  %199 = load i8, ptr %198, align 8, !range !1053, !noundef !14
-  %200 = trunc nuw i8 %199 to i1
-  br i1 %200, label %205, label %common.ret.sink.split
+"_ZN4core3ptr177drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..finally_attempt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha49341312ca24b9fE.exit.i": ; preds = %"_ZN7tracing10instrument1_94_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$tracing..instrument..Instrumented$LT$T$GT$$GT$4drop17hd0584b1af39eac06E.llvm.7909737541732249412.exit.i.i", %186
+  %198 = getelementptr inbounds i8, ptr %0, i64 113
+  store i8 0, ptr %198, align 1
+  %199 = getelementptr inbounds i8, ptr %0, i64 112
+  %200 = load i8, ptr %199, align 8, !range !1053, !noundef !14
+  %201 = trunc nuw i8 %200 to i1
+  br i1 %201, label %207, label %206
 
-.body.i2:                                         ; preds = %195, %191
-  %.pn.i3 = phi { ptr, i32 } [ %196, %195 ], [ %192, %191 ]
-  %201 = getelementptr inbounds i8, ptr %0, i64 113
-  store i8 0, ptr %201, align 1
-  %202 = getelementptr inbounds i8, ptr %0, i64 112
-  %203 = load i8, ptr %202, align 8, !range !1053, !noundef !14
-  %204 = trunc nuw i8 %203 to i1
-  br i1 %204, label %208, label %common.resume
+.body.i2:                                         ; preds = %196, %192
+  %.pn.i3 = phi { ptr, i32 } [ %197, %196 ], [ %193, %192 ]
+  %202 = getelementptr inbounds i8, ptr %0, i64 113
+  store i8 0, ptr %202, align 1
+  %203 = getelementptr inbounds i8, ptr %0, i64 112
+  %204 = load i8, ptr %203, align 8, !range !1053, !noundef !14
+  %205 = trunc nuw i8 %204 to i1
+  br i1 %205, label %210, label %common.resume
 
-205:                                              ; preds = %"_ZN4core3ptr177drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..finally_attempt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha49341312ca24b9fE.exit.i"
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h68b4d9f4d88e0baeE"(ptr noalias noundef align 8 dereferenceable(40) %186)
-          to label %common.ret.sink.split unwind label %206
+206:                                              ; preds = %207, %"_ZN4core3ptr177drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..finally_attempt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha49341312ca24b9fE.exit.i"
+  store i8 0, ptr %199, align 8
+  br label %common.ret
 
-206:                                              ; preds = %205
-  %207 = landingpad { ptr, i32 }
+207:                                              ; preds = %"_ZN4core3ptr177drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..finally_attempt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha49341312ca24b9fE.exit.i"
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h68b4d9f4d88e0baeE"(ptr noalias noundef align 8 dereferenceable(40) %187)
+          to label %206 unwind label %208
+
+208:                                              ; preds = %207
+  %209 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-208:                                              ; preds = %.body.i2
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h68b4d9f4d88e0baeE"(ptr noalias noundef align 8 dereferenceable(40) %186) #38
-          to label %common.resume unwind label %209
+210:                                              ; preds = %.body.i2
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h68b4d9f4d88e0baeE"(ptr noalias noundef align 8 dereferenceable(40) %187) #38
+          to label %common.resume unwind label %211
 
-209:                                              ; preds = %208
-  %210 = landingpad { ptr, i32 }
+211:                                              ; preds = %210
+  %212 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #39
   unreachable
@@ -7649,10 +7652,10 @@ define hidden void @"_ZN4core3ptr172drop_in_place$LT$aws_smithy_runtime..client.
   switch i8 %3, label %common.ret [
     i8 0, label %common.ret.sink.split
     i8 3, label %4
-    i8 4, label %142
+    i8 4, label %143
   ]
 
-common.ret.sink.split:                            ; preds = %4, %142, %"_ZN4core3ptr98drop_in_place$LT$aws_smithy_runtime..client..orchestrator..try_op..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7434a1b381596563E.exit.sink.split", %1
+common.ret.sink.split:                            ; preds = %4, %136, %143, %163, %1
   tail call void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..context..InterceptorContext$GT$17hc7306568a0caf2efE"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %0)
   br label %common.ret
 
@@ -8037,7 +8040,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %129 = getelementptr inbounds i8, ptr %0, i64 1160
   %130 = load i8, ptr %129, align 8, !range !1053, !noundef !14
   %131 = trunc nuw i8 %130 to i1
-  br i1 %131, label %136, label %"_ZN4core3ptr98drop_in_place$LT$aws_smithy_runtime..client..orchestrator..try_op..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7434a1b381596563E.exit.sink.split"
+  br i1 %131, label %137, label %136
 
 .body.i:                                          ; preds = %126, %.body20.i.i, %.body.i.i, %10
   %.pn.i = phi { ptr, i32 } [ %127, %126 ], [ %11, %10 ], [ %.pn2.i.i, %.body20.i.i ], [ %eh.lpad-body.i.i, %.body.i.i ]
@@ -8046,115 +8049,118 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %133 = getelementptr inbounds i8, ptr %0, i64 1160
   %134 = load i8, ptr %133, align 8, !range !1053, !noundef !14
   %135 = trunc nuw i8 %134 to i1
-  br i1 %135, label %139, label %.body
+  br i1 %135, label %140, label %.body
 
-136:                                              ; preds = %"_ZN4core3ptr168drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..try_op..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc67603320c6d890aE.exit.i"
+136:                                              ; preds = %137, %"_ZN4core3ptr168drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..try_op..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc67603320c6d890aE.exit.i"
+  store i8 0, ptr %129, align 8
+  br label %common.ret.sink.split
+
+137:                                              ; preds = %"_ZN4core3ptr168drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..try_op..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc67603320c6d890aE.exit.i"
   invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h68b4d9f4d88e0baeE"(ptr noalias noundef align 8 dereferenceable(40) %5)
-          to label %"_ZN4core3ptr98drop_in_place$LT$aws_smithy_runtime..client..orchestrator..try_op..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7434a1b381596563E.exit.sink.split" unwind label %137
+          to label %136 unwind label %138
 
-137:                                              ; preds = %136
-  %138 = landingpad { ptr, i32 }
+138:                                              ; preds = %137
+  %139 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-139:                                              ; preds = %.body.i
+140:                                              ; preds = %.body.i
   invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h68b4d9f4d88e0baeE"(ptr noalias noundef align 8 dereferenceable(40) %5) #38
-          to label %.body unwind label %140
+          to label %.body unwind label %141
 
-140:                                              ; preds = %139
-  %141 = landingpad { ptr, i32 }
+141:                                              ; preds = %140
+  %142 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #39
   unreachable
 
-142:                                              ; preds = %1
-  %143 = getelementptr inbounds i8, ptr %0, i64 1096
-  %144 = getelementptr inbounds i8, ptr %0, i64 1162
-  %145 = load i8, ptr %144, align 2, !range !1506, !noundef !14
-  switch i8 %145, label %common.ret.sink.split [
+143:                                              ; preds = %1
+  %144 = getelementptr inbounds i8, ptr %0, i64 1096
+  %145 = getelementptr inbounds i8, ptr %0, i64 1162
+  %146 = load i8, ptr %145, align 2, !range !1506, !noundef !14
+  switch i8 %146, label %common.ret.sink.split [
     i8 4, label %"_ZN4core3ptr172drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..finally_op..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h225e35e1c9f3e58bE.exit.i"
-    i8 3, label %146
+    i8 3, label %147
   ]
 
-146:                                              ; preds = %142
-  %147 = getelementptr inbounds i8, ptr %0, i64 1168
-  invoke void @"_ZN7tracing10instrument1_94_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$tracing..instrument..Instrumented$LT$T$GT$$GT$4drop12__drop_inner17h4248c79f24ed5787E"(ptr noundef nonnull align 8 %147)
-          to label %"_ZN7tracing10instrument1_94_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$tracing..instrument..Instrumented$LT$T$GT$$GT$4drop17hbe422e1949b58bf8E.llvm.7909737541732249412.exit.i.i" unwind label %148
+147:                                              ; preds = %143
+  %148 = getelementptr inbounds i8, ptr %0, i64 1168
+  invoke void @"_ZN7tracing10instrument1_94_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$tracing..instrument..Instrumented$LT$T$GT$$GT$4drop12__drop_inner17h4248c79f24ed5787E"(ptr noundef nonnull align 8 %148)
+          to label %"_ZN7tracing10instrument1_94_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$tracing..instrument..Instrumented$LT$T$GT$$GT$4drop17hbe422e1949b58bf8E.llvm.7909737541732249412.exit.i.i" unwind label %149
 
-148:                                              ; preds = %146
-  %149 = landingpad { ptr, i32 }
+149:                                              ; preds = %147
+  %150 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h68b4d9f4d88e0baeE.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(40) %147) #38
-          to label %.body.i4 unwind label %150
+  invoke void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h68b4d9f4d88e0baeE.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(40) %148) #38
+          to label %.body.i4 unwind label %151
 
-"_ZN7tracing10instrument1_94_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$tracing..instrument..Instrumented$LT$T$GT$$GT$4drop17hbe422e1949b58bf8E.llvm.7909737541732249412.exit.i.i": ; preds = %146
-  invoke void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h68b4d9f4d88e0baeE.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(40) %147)
-          to label %"_ZN4core3ptr172drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..finally_op..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h225e35e1c9f3e58bE.exit.i" unwind label %152
+"_ZN7tracing10instrument1_94_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$tracing..instrument..Instrumented$LT$T$GT$$GT$4drop17hbe422e1949b58bf8E.llvm.7909737541732249412.exit.i.i": ; preds = %147
+  invoke void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h68b4d9f4d88e0baeE.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(40) %148)
+          to label %"_ZN4core3ptr172drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..finally_op..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h225e35e1c9f3e58bE.exit.i" unwind label %153
 
-150:                                              ; preds = %148
-  %151 = landingpad { ptr, i32 }
+151:                                              ; preds = %149
+  %152 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #39
   unreachable
 
-152:                                              ; preds = %"_ZN7tracing10instrument1_94_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$tracing..instrument..Instrumented$LT$T$GT$$GT$4drop17hbe422e1949b58bf8E.llvm.7909737541732249412.exit.i.i"
-  %153 = landingpad { ptr, i32 }
+153:                                              ; preds = %"_ZN7tracing10instrument1_94_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$tracing..instrument..Instrumented$LT$T$GT$$GT$4drop17hbe422e1949b58bf8E.llvm.7909737541732249412.exit.i.i"
+  %154 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i4
 
-"_ZN4core3ptr172drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..finally_op..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h225e35e1c9f3e58bE.exit.i": ; preds = %"_ZN7tracing10instrument1_94_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$tracing..instrument..Instrumented$LT$T$GT$$GT$4drop17hbe422e1949b58bf8E.llvm.7909737541732249412.exit.i.i", %142
-  %154 = getelementptr inbounds i8, ptr %0, i64 1161
-  store i8 0, ptr %154, align 1
-  %155 = getelementptr inbounds i8, ptr %0, i64 1160
-  %156 = load i8, ptr %155, align 8, !range !1053, !noundef !14
-  %157 = trunc nuw i8 %156 to i1
-  br i1 %157, label %162, label %"_ZN4core3ptr98drop_in_place$LT$aws_smithy_runtime..client..orchestrator..try_op..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7434a1b381596563E.exit.sink.split"
+"_ZN4core3ptr172drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..finally_op..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h225e35e1c9f3e58bE.exit.i": ; preds = %"_ZN7tracing10instrument1_94_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$tracing..instrument..Instrumented$LT$T$GT$$GT$4drop17hbe422e1949b58bf8E.llvm.7909737541732249412.exit.i.i", %143
+  %155 = getelementptr inbounds i8, ptr %0, i64 1161
+  store i8 0, ptr %155, align 1
+  %156 = getelementptr inbounds i8, ptr %0, i64 1160
+  %157 = load i8, ptr %156, align 8, !range !1053, !noundef !14
+  %158 = trunc nuw i8 %157 to i1
+  br i1 %158, label %164, label %163
 
-.body.i4:                                         ; preds = %152, %148
-  %.pn.i5 = phi { ptr, i32 } [ %153, %152 ], [ %149, %148 ]
-  %158 = getelementptr inbounds i8, ptr %0, i64 1161
-  store i8 0, ptr %158, align 1
-  %159 = getelementptr inbounds i8, ptr %0, i64 1160
-  %160 = load i8, ptr %159, align 8, !range !1053, !noundef !14
-  %161 = trunc nuw i8 %160 to i1
-  br i1 %161, label %165, label %.body
+.body.i4:                                         ; preds = %153, %149
+  %.pn.i5 = phi { ptr, i32 } [ %154, %153 ], [ %150, %149 ]
+  %159 = getelementptr inbounds i8, ptr %0, i64 1161
+  store i8 0, ptr %159, align 1
+  %160 = getelementptr inbounds i8, ptr %0, i64 1160
+  %161 = load i8, ptr %160, align 8, !range !1053, !noundef !14
+  %162 = trunc nuw i8 %161 to i1
+  br i1 %162, label %167, label %.body
 
-162:                                              ; preds = %"_ZN4core3ptr172drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..finally_op..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h225e35e1c9f3e58bE.exit.i"
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h68b4d9f4d88e0baeE"(ptr noalias noundef align 8 dereferenceable(40) %143)
-          to label %"_ZN4core3ptr98drop_in_place$LT$aws_smithy_runtime..client..orchestrator..try_op..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7434a1b381596563E.exit.sink.split" unwind label %163
+163:                                              ; preds = %164, %"_ZN4core3ptr172drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..finally_op..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h225e35e1c9f3e58bE.exit.i"
+  store i8 0, ptr %156, align 8
+  br label %common.ret.sink.split
 
-163:                                              ; preds = %162
-  %164 = landingpad { ptr, i32 }
+164:                                              ; preds = %"_ZN4core3ptr172drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..finally_op..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h225e35e1c9f3e58bE.exit.i"
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h68b4d9f4d88e0baeE"(ptr noalias noundef align 8 dereferenceable(40) %144)
+          to label %163 unwind label %165
+
+165:                                              ; preds = %164
+  %166 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-165:                                              ; preds = %.body.i4
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h68b4d9f4d88e0baeE"(ptr noalias noundef align 8 dereferenceable(40) %143) #38
-          to label %.body unwind label %166
+167:                                              ; preds = %.body.i4
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h68b4d9f4d88e0baeE"(ptr noalias noundef align 8 dereferenceable(40) %144) #38
+          to label %.body unwind label %168
 
-166:                                              ; preds = %165
-  %167 = landingpad { ptr, i32 }
+168:                                              ; preds = %167
+  %169 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #39
   unreachable
 
-168:                                              ; preds = %.body
+170:                                              ; preds = %.body
   resume { ptr, i32 } %.pn
 
-"_ZN4core3ptr98drop_in_place$LT$aws_smithy_runtime..client..orchestrator..try_op..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7434a1b381596563E.exit.sink.split": ; preds = %"_ZN4core3ptr172drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..finally_op..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h225e35e1c9f3e58bE.exit.i", %162, %"_ZN4core3ptr168drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..try_op..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc67603320c6d890aE.exit.i", %136
-  %.sink = phi ptr [ %129, %136 ], [ %129, %"_ZN4core3ptr168drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..try_op..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc67603320c6d890aE.exit.i" ], [ %155, %162 ], [ %155, %"_ZN4core3ptr172drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..finally_op..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h225e35e1c9f3e58bE.exit.i" ]
-  store i8 0, ptr %.sink, align 8
-  br label %common.ret.sink.split
-
-.body:                                            ; preds = %.body.i4, %163, %165, %.body.i, %137, %139
-  %.pn = phi { ptr, i32 } [ %138, %137 ], [ %.pn.i, %139 ], [ %.pn.i, %.body.i ], [ %164, %163 ], [ %.pn.i5, %165 ], [ %.pn.i5, %.body.i4 ]
-  %169 = getelementptr inbounds i8, ptr %0, i64 1160
-  store i8 0, ptr %169, align 8
+.body:                                            ; preds = %.body.i4, %165, %167, %.body.i, %138, %140
+  %.pn = phi { ptr, i32 } [ %139, %138 ], [ %.pn.i, %140 ], [ %.pn.i, %.body.i ], [ %166, %165 ], [ %.pn.i5, %167 ], [ %.pn.i5, %.body.i4 ]
+  %171 = getelementptr inbounds i8, ptr %0, i64 1160
+  store i8 0, ptr %171, align 8
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..context..InterceptorContext$GT$17hc7306568a0caf2efE"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %0) #38
-          to label %168 unwind label %170
+          to label %170 unwind label %172
 
-170:                                              ; preds = %.body
-  %171 = landingpad { ptr, i32 }
+172:                                              ; preds = %.body
+  %173 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #39
   unreachable
@@ -14605,7 +14611,7 @@ common.resume:                                    ; preds = %468, %454, %457, %4
 "_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i": ; preds = %297, %291
   %300 = load i64, ptr %108, align 8, !range !424, !alias.scope !2835, !noalias !2780, !noundef !14
   %301 = icmp eq i64 %300, -9223372036854775808
-  br i1 %301, label %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit42.i.i", label %302
+  br i1 %301, label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..config..Builder$GT$$GT$17hdde63a09cdbe024fE.exit.i.i", label %302
 
 302:                                              ; preds = %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i"
   invoke void @"_ZN4core3ptr56drop_in_place$LT$aws_smithy_types..config_bag..Layer$GT$17h08112cdee62e1d86E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %116)
@@ -14639,7 +14645,7 @@ common.resume:                                    ; preds = %468, %454, %457, %4
 
 "_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i": ; preds = %"_ZN4core3ptr65drop_in_place$LT$aws_smithy_types..config_bag..CloneableLayer$GT$17h26e878cd4ccf20dfE.exit.i.i.i.i"
   invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %117)
-          to label %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit42.i.i" unwind label %310, !noalias !2819
+          to label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..config..Builder$GT$$GT$17hdde63a09cdbe024fE.exit.i.i" unwind label %310, !noalias !2819
 
 .body28.i.i:                                      ; preds = %406, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit32.i.i", %310, %305, %298
   %.pn22.i.i = phi { ptr, i32 } [ %.pn15.pn.pn.i.i, %406 ], [ %.pn15.pn.pn.i.i, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit32.i.i" ], [ %299, %298 ], [ %311, %310 ], [ %.pn.i.i.i.i, %305 ]
@@ -15163,12 +15169,12 @@ common.resume:                                    ; preds = %468, %454, %457, %4
   %400 = load ptr, ptr %106, align 8, !alias.scope !2924, !noalias !2780, !nonnull !14, !noundef !14
   %401 = atomicrmw sub ptr %400, i64 1 release, align 8, !noalias !2925
   %402 = icmp eq i64 %401, 1
-  br i1 %402, label %403, label %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit42.i.i"
+  br i1 %402, label %403, label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..config..Builder$GT$$GT$17hdde63a09cdbe024fE.exit.i.i"
 
 403:                                              ; preds = %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h3a947b1aa3bbd971E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %106)
-          to label %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit42.i.i" unwind label %310, !noalias !2819
+          to label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..config..Builder$GT$$GT$17hdde63a09cdbe024fE.exit.i.i" unwind label %310, !noalias !2819
 
 .body36.i.i:                                      ; preds = %384, %378
   %.pn11.i.i = phi { ptr, i32 } [ %385, %384 ], [ %.pn10.pn.i.i.i, %378 ]
@@ -15190,10 +15196,10 @@ common.resume:                                    ; preds = %468, %454, %457, %4
           cleanup
   br label %.body104.i
 
-"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit42.i.i": ; preds = %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i", %403, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i", %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i"
-  %409 = phi i64 [ 3, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ 3, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.062.0.i138.i.i, %403 ], [ %.sroa.062.0.i138.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
-  %.sroa.380.0.i.i = phi i64 [ %293, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %293, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.4.0.i139.i.i, %403 ], [ %.sroa.4.0.i139.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
-  %.sroa.581.0.i.i = phi ptr [ @anon.bb3ac03fbec98e6f1237e605a61dca23.53.llvm.6974339801470247616, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ @anon.bb3ac03fbec98e6f1237e605a61dca23.53.llvm.6974339801470247616, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.665.i.sroa.0.0137.i.i, %403 ], [ %.sroa.665.i.sroa.0.0137.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..config..Builder$GT$$GT$17hdde63a09cdbe024fE.exit.i.i": ; preds = %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i", %403, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i", %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i"
+  %409 = phi i64 [ 3, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ 3, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.062.0.i138.i.i, %403 ], [ %.sroa.062.0.i138.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+  %.sroa.380.0.i.i = phi i64 [ %293, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %293, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.4.0.i139.i.i, %403 ], [ %.sroa.4.0.i139.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+  %.sroa.581.0.i.i = phi ptr [ @anon.bb3ac03fbec98e6f1237e605a61dca23.53.llvm.6974339801470247616, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ @anon.bb3ac03fbec98e6f1237e605a61dca23.53.llvm.6974339801470247616, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.665.i.sroa.0.0137.i.i, %403 ], [ %.sroa.665.i.sroa.0.0137.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
   store i8 0, ptr %.sroa.8.0..sroa_idx.i, align 1, !noalias !2780
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %.sroa.6120.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(352) %.sroa.782.i.i, i64 352, i1 false), !noalias !2694
   store i8 1, ptr %.phi.trans.insert.i, align 8, !noalias !2780
@@ -15204,12 +15210,12 @@ common.resume:                                    ; preds = %468, %454, %457, %4
   invoke fastcc void @"_ZN4core3ptr131drop_in_place$LT$aws_sdk_dynamodb..operation..update_item..builders..UpdateItemFluentBuilder..send..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4d23f4aad26880d1E"(ptr noundef nonnull align 8 %65)
           to label %412 unwind label %410, !noalias !2698
 
-410:                                              ; preds = %.thread159.i, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit42.i.i"
+410:                                              ; preds = %.thread159.i, %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..config..Builder$GT$$GT$17hdde63a09cdbe024fE.exit.i.i"
   %411 = landingpad { ptr, i32 }
           cleanup
   br label %252
 
-412:                                              ; preds = %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit42.i.i"
+412:                                              ; preds = %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..config..Builder$GT$$GT$17hdde63a09cdbe024fE.exit.i.i"
   %413 = icmp eq i64 %409, 7
   br i1 %413, label %.thread159.i, label %415
 
@@ -16310,7 +16316,7 @@ common.resume:                                    ; preds = %371, %359, %362, %3
 "_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i": ; preds = %205, %199
   %208 = load i64, ptr %81, align 8, !range !424, !alias.scope !3065, !noalias !3013, !noundef !14
   %209 = icmp eq i64 %208, -9223372036854775808
-  br i1 %209, label %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit43.i.i", label %210
+  br i1 %209, label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..config..Builder$GT$$GT$17hdde63a09cdbe024fE.exit.i.i", label %210
 
 210:                                              ; preds = %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i"
   invoke void @"_ZN4core3ptr56drop_in_place$LT$aws_smithy_types..config_bag..Layer$GT$17h08112cdee62e1d86E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %89)
@@ -16344,7 +16350,7 @@ common.resume:                                    ; preds = %371, %359, %362, %3
 
 "_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i": ; preds = %"_ZN4core3ptr65drop_in_place$LT$aws_smithy_types..config_bag..CloneableLayer$GT$17h26e878cd4ccf20dfE.exit.i.i.i.i"
   invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %90)
-          to label %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit43.i.i" unwind label %218, !noalias !3049
+          to label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..config..Builder$GT$$GT$17hdde63a09cdbe024fE.exit.i.i" unwind label %218, !noalias !3049
 
 .body28.i.i:                                      ; preds = %314, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit32.i.i", %218, %213, %206
   %.pn22.i.i = phi { ptr, i32 } [ %.pn15.pn.pn.i.i, %314 ], [ %.pn15.pn.pn.i.i, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit32.i.i" ], [ %207, %206 ], [ %219, %218 ], [ %.pn.i.i.i.i, %213 ]
@@ -16937,12 +16943,12 @@ common.resume:                                    ; preds = %371, %359, %362, %3
   %308 = load ptr, ptr %79, align 8, !alias.scope !3153, !noalias !3013, !nonnull !14, !noundef !14
   %309 = atomicrmw sub ptr %308, i64 1 release, align 8, !noalias !3154
   %310 = icmp eq i64 %309, 1
-  br i1 %310, label %311, label %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit43.i.i"
+  br i1 %310, label %311, label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..config..Builder$GT$$GT$17hdde63a09cdbe024fE.exit.i.i"
 
 311:                                              ; preds = %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h3a947b1aa3bbd971E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %79)
-          to label %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit43.i.i" unwind label %218, !noalias !3049
+          to label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..config..Builder$GT$$GT$17hdde63a09cdbe024fE.exit.i.i" unwind label %218, !noalias !3049
 
 .body37.i.i:                                      ; preds = %292, %286
   %.pn11.i.i = phi { ptr, i32 } [ %293, %292 ], [ %.pn10.pn.i.i.i, %286 ]
@@ -16963,15 +16969,15 @@ common.resume:                                    ; preds = %371, %359, %362, %3
           cleanup
   br label %.body73.i
 
-"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit43.i.i": ; preds = %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i", %311, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i", %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i"
-  %.sroa.12119.i.sroa.4.0.i = phi i64 [ undef, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ undef, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.665.i.sroa.13.i.sroa.6.0136.i, %311 ], [ %.sroa.665.i.sroa.13.i.sroa.6.0136.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
-  %.sroa.7114.i.sroa.4.0.i = phi i64 [ undef, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ undef, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.665.i.sroa.6.i.sroa.6.0137.i, %311 ], [ %.sroa.665.i.sroa.6.i.sroa.6.0137.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
-  %.sroa.7114.i.sroa.5.0.i = phi i64 [ undef, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ undef, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.665.i.sroa.6.i.sroa.8.0138.i, %311 ], [ %.sroa.665.i.sroa.6.i.sroa.8.0138.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
-  %.sroa.0111.0.i.i = phi i64 [ 3, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ 3, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.062.0.i.i142.i, %311 ], [ %.sroa.062.0.i.i142.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
-  %.sroa.3112.0.i.i = phi i64 [ %201, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %201, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.4.0.i.i143.i, %311 ], [ %.sroa.4.0.i.i143.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
-  %.sroa.5113.0.i.i = phi ptr [ @anon.bb3ac03fbec98e6f1237e605a61dca23.53.llvm.6974339801470247616, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ @anon.bb3ac03fbec98e6f1237e605a61dca23.53.llvm.6974339801470247616, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.665.i.sroa.0.0.i139.i, %311 ], [ %.sroa.665.i.sroa.0.0.i139.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
-  %.sroa.8115.0.i.i = phi i32 [ %.sroa.1372.0.copyload.i.i, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.1372.0.copyload.i.i, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.665.i.sroa.9.0.i140.i, %311 ], [ %.sroa.665.i.sroa.9.0.i140.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
-  %.sroa.9116.0.i.i = phi i32 [ %.sroa.1473.0.copyload.i.i, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.1473.0.copyload.i.i, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.665.i.sroa.10.0.i141.i, %311 ], [ %.sroa.665.i.sroa.10.0.i141.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..config..Builder$GT$$GT$17hdde63a09cdbe024fE.exit.i.i": ; preds = %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i", %311, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i", %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i"
+  %.sroa.12119.i.sroa.4.0.i = phi i64 [ undef, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ undef, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.665.i.sroa.13.i.sroa.6.0136.i, %311 ], [ %.sroa.665.i.sroa.13.i.sroa.6.0136.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+  %.sroa.7114.i.sroa.4.0.i = phi i64 [ undef, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ undef, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.665.i.sroa.6.i.sroa.6.0137.i, %311 ], [ %.sroa.665.i.sroa.6.i.sroa.6.0137.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+  %.sroa.7114.i.sroa.5.0.i = phi i64 [ undef, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ undef, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.665.i.sroa.6.i.sroa.8.0138.i, %311 ], [ %.sroa.665.i.sroa.6.i.sroa.8.0138.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+  %.sroa.0111.0.i.i = phi i64 [ 3, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ 3, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.062.0.i.i142.i, %311 ], [ %.sroa.062.0.i.i142.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+  %.sroa.3112.0.i.i = phi i64 [ %201, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %201, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.4.0.i.i143.i, %311 ], [ %.sroa.4.0.i.i143.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+  %.sroa.5113.0.i.i = phi ptr [ @anon.bb3ac03fbec98e6f1237e605a61dca23.53.llvm.6974339801470247616, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ @anon.bb3ac03fbec98e6f1237e605a61dca23.53.llvm.6974339801470247616, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.665.i.sroa.0.0.i139.i, %311 ], [ %.sroa.665.i.sroa.0.0.i139.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+  %.sroa.8115.0.i.i = phi i32 [ %.sroa.1372.0.copyload.i.i, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.1372.0.copyload.i.i, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.665.i.sroa.9.0.i140.i, %311 ], [ %.sroa.665.i.sroa.9.0.i140.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+  %.sroa.9116.0.i.i = phi i32 [ %.sroa.1473.0.copyload.i.i, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.1473.0.copyload.i.i, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.665.i.sroa.10.0.i141.i, %311 ], [ %.sroa.665.i.sroa.10.0.i141.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
   store i8 0, ptr %.sroa.8.0..sroa_idx.i, align 1, !noalias !3013
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.1193.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7114.i.sroa.0.i, i64 32, i1 false), !noalias !2945
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sroa.1193.sroa.8.i, ptr noundef nonnull align 8 dereferenceable(136) %.sroa.7114.i.sroa.6.i, i64 136, i1 false), !noalias !2945
@@ -17017,12 +17023,12 @@ common.resume:                                    ; preds = %371, %359, %362, %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %37)
   br label %.loopexit134
 
-317:                                              ; preds = %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit43.i.i"
+317:                                              ; preds = %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..config..Builder$GT$$GT$17hdde63a09cdbe024fE.exit.i.i"
   %318 = landingpad { ptr, i32 }
           cleanup
   br label %166
 
-319:                                              ; preds = %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit43.i.i"
+319:                                              ; preds = %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..config..Builder$GT$$GT$17hdde63a09cdbe024fE.exit.i.i"
   %320 = icmp eq i64 %.sroa.0111.0.i.i, 7
   br i1 %320, label %321, label %323
 
@@ -17840,7 +17846,7 @@ common.resume:                                    ; preds = %307, %294, %297, %2
 "_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i": ; preds = %139, %133
   %142 = load i64, ptr %55, align 8, !range !424, !alias.scope !3234, !noalias !3185, !noundef !14
   %143 = icmp eq i64 %142, -9223372036854775808
-  br i1 %143, label %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit42.i.i", label %144
+  br i1 %143, label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..config..Builder$GT$$GT$17hdde63a09cdbe024fE.exit.i.i", label %144
 
 144:                                              ; preds = %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i"
   invoke void @"_ZN4core3ptr56drop_in_place$LT$aws_smithy_types..config_bag..Layer$GT$17h08112cdee62e1d86E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %63)
@@ -17874,7 +17880,7 @@ common.resume:                                    ; preds = %307, %294, %297, %2
 
 "_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i": ; preds = %"_ZN4core3ptr65drop_in_place$LT$aws_smithy_types..config_bag..CloneableLayer$GT$17h26e878cd4ccf20dfE.exit.i.i.i.i"
   invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %64)
-          to label %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit42.i.i" unwind label %152, !noalias !3218
+          to label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..config..Builder$GT$$GT$17hdde63a09cdbe024fE.exit.i.i" unwind label %152, !noalias !3218
 
 .body28.i.i:                                      ; preds = %249, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit32.i.i", %152, %147, %140
   %.pn22.i.i = phi { ptr, i32 } [ %.pn18.pn.pn.i.i, %249 ], [ %.pn18.pn.pn.i.i, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit32.i.i" ], [ %141, %140 ], [ %153, %152 ], [ %.pn.i.i.i.i, %147 ]
@@ -18497,12 +18503,12 @@ common.resume:                                    ; preds = %307, %294, %297, %2
   %243 = load ptr, ptr %53, align 8, !alias.scope !3323, !noalias !3185, !nonnull !14, !noundef !14
   %244 = atomicrmw sub ptr %243, i64 1 release, align 8, !noalias !3324
   %245 = icmp eq i64 %244, 1
-  br i1 %245, label %246, label %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit42.i.i"
+  br i1 %245, label %246, label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..config..Builder$GT$$GT$17hdde63a09cdbe024fE.exit.i.i"
 
 246:                                              ; preds = %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h3a947b1aa3bbd971E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %53)
-          to label %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit42.i.i" unwind label %152, !noalias !3218
+          to label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..config..Builder$GT$$GT$17hdde63a09cdbe024fE.exit.i.i" unwind label %152, !noalias !3218
 
 .body36.i.i:                                      ; preds = %227, %221
   %.pn14.i.i = phi { ptr, i32 } [ %228, %227 ], [ %.pn10.pn.i.i.i, %221 ]
@@ -18526,15 +18532,15 @@ common.resume:                                    ; preds = %307, %294, %297, %2
           cleanup
   br label %.body.i
 
-"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit42.i.i": ; preds = %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i", %246, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i", %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i"
-  %.sroa.789.sroa.4.sroa.3.i.sroa.0.0.i = phi i64 [ undef, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ undef, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.665.i.sroa.8.sroa.6.i.sroa.0.0.i, %246 ], [ %.sroa.665.i.sroa.8.sroa.6.i.sroa.0.0.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
-  %.sroa.789.sroa.4.sroa.3.i.sroa.4.0.i = phi i64 [ undef, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ undef, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.665.i.sroa.8.sroa.6.i.sroa.8.0.i, %246 ], [ %.sroa.665.i.sroa.8.sroa.6.i.sroa.8.0.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
-  %.sroa.789.sroa.0.0.i.i = phi i64 [ %.sroa.062.sroa.6.0.copyload.i.i, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.062.sroa.6.0.copyload.i.i, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.665.i.sroa.6.0.i.i, %246 ], [ %.sroa.665.i.sroa.6.0.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
-  %.sroa.890.0.i.i = phi i8 [ %.sroa.1063.0.copyload.i.i, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.1063.0.copyload.i.i, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.665.i.sroa.14.0.i.i, %246 ], [ %.sroa.665.i.sroa.14.0.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
-  %.sroa.588.0.i.i = phi ptr [ @anon.bb3ac03fbec98e6f1237e605a61dca23.53.llvm.6974339801470247616, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ @anon.bb3ac03fbec98e6f1237e605a61dca23.53.llvm.6974339801470247616, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.665.i.sroa.0.0.i.i, %246 ], [ %.sroa.665.i.sroa.0.0.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
-  %.sroa.387.0.i.i = phi i64 [ %135, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %135, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.4.0.i.i.i, %246 ], [ %.sroa.4.0.i.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
-  %.sroa.086.0.i.i = phi i64 [ 3, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ 3, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.062.0.i.i.i, %246 ], [ %.sroa.062.0.i.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
-  %.sroa.789.sroa.4.sroa.0.0.i.i = phi i64 [ %.sroa.062.sroa.8.sroa.0.0.copyload.i.i, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.062.sroa.8.sroa.0.0.copyload.i.i, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.665.i.sroa.8.sroa.0.0.i.i, %246 ], [ %.sroa.665.i.sroa.8.sroa.0.0.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..config..Builder$GT$$GT$17hdde63a09cdbe024fE.exit.i.i": ; preds = %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i", %246, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i", %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i"
+  %.sroa.789.sroa.4.sroa.3.i.sroa.0.0.i = phi i64 [ undef, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ undef, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.665.i.sroa.8.sroa.6.i.sroa.0.0.i, %246 ], [ %.sroa.665.i.sroa.8.sroa.6.i.sroa.0.0.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+  %.sroa.789.sroa.4.sroa.3.i.sroa.4.0.i = phi i64 [ undef, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ undef, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.665.i.sroa.8.sroa.6.i.sroa.8.0.i, %246 ], [ %.sroa.665.i.sroa.8.sroa.6.i.sroa.8.0.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+  %.sroa.789.sroa.0.0.i.i = phi i64 [ %.sroa.062.sroa.6.0.copyload.i.i, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.062.sroa.6.0.copyload.i.i, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.665.i.sroa.6.0.i.i, %246 ], [ %.sroa.665.i.sroa.6.0.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+  %.sroa.890.0.i.i = phi i8 [ %.sroa.1063.0.copyload.i.i, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.1063.0.copyload.i.i, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.665.i.sroa.14.0.i.i, %246 ], [ %.sroa.665.i.sroa.14.0.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+  %.sroa.588.0.i.i = phi ptr [ @anon.bb3ac03fbec98e6f1237e605a61dca23.53.llvm.6974339801470247616, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ @anon.bb3ac03fbec98e6f1237e605a61dca23.53.llvm.6974339801470247616, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.665.i.sroa.0.0.i.i, %246 ], [ %.sroa.665.i.sroa.0.0.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+  %.sroa.387.0.i.i = phi i64 [ %135, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %135, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.4.0.i.i.i, %246 ], [ %.sroa.4.0.i.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+  %.sroa.086.0.i.i = phi i64 [ 3, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ 3, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.062.0.i.i.i, %246 ], [ %.sroa.062.0.i.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+  %.sroa.789.sroa.4.sroa.0.0.i.i = phi i64 [ %.sroa.062.sroa.8.sroa.0.0.copyload.i.i, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.062.sroa.8.sroa.0.0.copyload.i.i, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.665.i.sroa.8.sroa.0.0.i.i, %246 ], [ %.sroa.665.i.sroa.8.sroa.0.0.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
   store i8 0, ptr %46, align 1, !noalias !3185
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.789.sroa.3.i.i, i64 24, i1 false), !noalias !3173
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.14.sroa.6.sroa.6.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.789.sroa.5.i.i, i64 24, i1 false), !noalias !3173
@@ -18586,12 +18592,12 @@ common.resume:                                    ; preds = %307, %294, %297, %2
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.20.i)
   br label %.loopexit126
 
-252:                                              ; preds = %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit42.i.i"
+252:                                              ; preds = %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..config..Builder$GT$$GT$17hdde63a09cdbe024fE.exit.i.i"
   %253 = landingpad { ptr, i32 }
           cleanup
   br label %99
 
-254:                                              ; preds = %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit42.i.i"
+254:                                              ; preds = %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..config..Builder$GT$$GT$17hdde63a09cdbe024fE.exit.i.i"
   %255 = icmp eq i64 %.sroa.086.0.i.i, 7
   br i1 %255, label %256, label %258
 
@@ -19511,7 +19517,7 @@ common.resume:                                    ; preds = %355, %342, %345, %3
 "_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i": ; preds = %167, %161
   %170 = load i64, ptr %64, align 8, !range !424, !alias.scope !3405, !noalias !3356, !noundef !14
   %171 = icmp eq i64 %170, -9223372036854775808
-  br i1 %171, label %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit42.i.i", label %172
+  br i1 %171, label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..config..Builder$GT$$GT$17hdde63a09cdbe024fE.exit.i.i", label %172
 
 172:                                              ; preds = %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i"
   invoke void @"_ZN4core3ptr56drop_in_place$LT$aws_smithy_types..config_bag..Layer$GT$17h08112cdee62e1d86E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %72)
@@ -19545,7 +19551,7 @@ common.resume:                                    ; preds = %355, %342, %345, %3
 
 "_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i": ; preds = %"_ZN4core3ptr65drop_in_place$LT$aws_smithy_types..config_bag..CloneableLayer$GT$17h26e878cd4ccf20dfE.exit.i.i.i.i"
   invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %73)
-          to label %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit42.i.i" unwind label %180, !noalias !3389
+          to label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..config..Builder$GT$$GT$17hdde63a09cdbe024fE.exit.i.i" unwind label %180, !noalias !3389
 
 .body28.i.i:                                      ; preds = %277, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit32.i.i", %180, %175, %168
   %.pn22.i.i = phi { ptr, i32 } [ %.pn18.pn.pn.i.i, %277 ], [ %.pn18.pn.pn.i.i, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit32.i.i" ], [ %169, %168 ], [ %181, %180 ], [ %.pn.i.i.i.i, %175 ]
@@ -20120,12 +20126,12 @@ common.resume:                                    ; preds = %355, %342, %345, %3
   %271 = load ptr, ptr %62, align 8, !alias.scope !3494, !noalias !3356, !nonnull !14, !noundef !14
   %272 = atomicrmw sub ptr %271, i64 1 release, align 8, !noalias !3495
   %273 = icmp eq i64 %272, 1
-  br i1 %273, label %274, label %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit42.i.i"
+  br i1 %273, label %274, label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..config..Builder$GT$$GT$17hdde63a09cdbe024fE.exit.i.i"
 
 274:                                              ; preds = %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h3a947b1aa3bbd971E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %62)
-          to label %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit42.i.i" unwind label %180, !noalias !3389
+          to label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..config..Builder$GT$$GT$17hdde63a09cdbe024fE.exit.i.i" unwind label %180, !noalias !3389
 
 .body36.i.i:                                      ; preds = %255, %249
   %.pn14.i.i = phi { ptr, i32 } [ %256, %255 ], [ %.pn10.pn.i.i.i, %249 ]
@@ -20155,13 +20161,13 @@ common.resume:                                    ; preds = %355, %342, %345, %3
           cleanup
   br label %.body.i
 
-"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit42.i.i": ; preds = %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i", %274, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i", %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i"
-  %.sroa.779.sroa.0.0.i.i = phi i64 [ %.sroa.686.0.copyload.i.i, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.686.0.copyload.i.i, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.665.i.sroa.6.0.i.i, %274 ], [ %.sroa.665.i.sroa.6.0.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
-  %.sroa.880.0.i.i = phi i64 [ undef, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ undef, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.665.i.sroa.19.0.i.i, %274 ], [ %.sroa.665.i.sroa.19.0.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
-  %.sroa.578.0.i.i = phi ptr [ @anon.bb3ac03fbec98e6f1237e605a61dca23.53.llvm.6974339801470247616, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ @anon.bb3ac03fbec98e6f1237e605a61dca23.53.llvm.6974339801470247616, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.665.i.sroa.0.0.i.i, %274 ], [ %.sroa.665.i.sroa.0.0.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
-  %.sroa.377.0.i.i = phi i64 [ %163, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %163, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.4.0.i.i.i, %274 ], [ %.sroa.4.0.i.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
-  %280 = phi i64 [ 3, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ 3, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.062.0.i.i.i, %274 ], [ %.sroa.062.0.i.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
-  %.sroa.779.sroa.4.sroa.0.0.i.i = phi i64 [ %.sroa.888.sroa.0.0.copyload.i.i, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.888.sroa.0.0.copyload.i.i, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.665.i.sroa.8.sroa.0.0.i.i, %274 ], [ %.sroa.665.i.sroa.8.sroa.0.0.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..config..Builder$GT$$GT$17hdde63a09cdbe024fE.exit.i.i": ; preds = %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i", %274, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i", %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i"
+  %.sroa.779.sroa.0.0.i.i = phi i64 [ %.sroa.686.0.copyload.i.i, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.686.0.copyload.i.i, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.665.i.sroa.6.0.i.i, %274 ], [ %.sroa.665.i.sroa.6.0.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+  %.sroa.880.0.i.i = phi i64 [ undef, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ undef, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.665.i.sroa.19.0.i.i, %274 ], [ %.sroa.665.i.sroa.19.0.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+  %.sroa.578.0.i.i = phi ptr [ @anon.bb3ac03fbec98e6f1237e605a61dca23.53.llvm.6974339801470247616, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ @anon.bb3ac03fbec98e6f1237e605a61dca23.53.llvm.6974339801470247616, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.665.i.sroa.0.0.i.i, %274 ], [ %.sroa.665.i.sroa.0.0.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+  %.sroa.377.0.i.i = phi i64 [ %163, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %163, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.4.0.i.i.i, %274 ], [ %.sroa.4.0.i.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+  %280 = phi i64 [ 3, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ 3, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.062.0.i.i.i, %274 ], [ %.sroa.062.0.i.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+  %.sroa.779.sroa.4.sroa.0.0.i.i = phi i64 [ %.sroa.888.sroa.0.0.copyload.i.i, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.888.sroa.0.0.copyload.i.i, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.665.i.sroa.8.sroa.0.0.i.i, %274 ], [ %.sroa.665.i.sroa.8.sroa.0.0.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
   store i8 0, ptr %.sroa.8.0..sroa_idx.i, align 1, !noalias !3356
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.759.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.779.sroa.3.i.i, i64 24, i1 false), !noalias !3344
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.961.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.779.sroa.4.sroa.3.i.i, i64 16, i1 false), !noalias !3344
@@ -20199,12 +20205,12 @@ common.resume:                                    ; preds = %355, %342, %345, %3
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %36), !noalias !3344
   br label %125
 
-282:                                              ; preds = %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit42.i.i"
+282:                                              ; preds = %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..config..Builder$GT$$GT$17hdde63a09cdbe024fE.exit.i.i"
   %283 = landingpad { ptr, i32 }
           cleanup
   br label %281
 
-284:                                              ; preds = %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit42.i.i"
+284:                                              ; preds = %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..config..Builder$GT$$GT$17hdde63a09cdbe024fE.exit.i.i"
   %285 = icmp eq i64 %280, 7
   br i1 %285, label %.thread156.i, label %288
 

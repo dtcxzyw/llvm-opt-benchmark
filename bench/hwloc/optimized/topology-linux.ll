@@ -5654,7 +5654,8 @@ hwloc_fopen.exit.i.i:                             ; preds = %hwloc_openat.exit.i
 
 757:                                              ; preds = %756
   %758 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %47, ptr noundef nonnull dereferenceable(1) %622, i64 noundef 64) #26
-  br label %.sink.split.i.i
+  store i8 0, ptr %613, align 1
+  br label %771
 
 759:                                              ; preds = %756
   %bcmp71.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %46, ptr noundef nonnull dereferenceable(11) @.str.445, i64 11)
@@ -5663,7 +5664,8 @@ hwloc_fopen.exit.i.i:                             ; preds = %hwloc_openat.exit.i
 
 760:                                              ; preds = %759
   %761 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull dereferenceable(1) %621, i64 noundef 64) #26
-  br label %.sink.split.i.i
+  store i8 0, ptr %614, align 1
+  br label %771
 
 762:                                              ; preds = %759
   %bcmp73.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(14) %46, ptr noundef nonnull dereferenceable(14) @.str.446, i64 14)
@@ -5672,7 +5674,8 @@ hwloc_fopen.exit.i.i:                             ; preds = %hwloc_openat.exit.i
 
 763:                                              ; preds = %762
   %764 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %620, i64 noundef 64) #26
-  br label %.sink.split.i.i
+  store i8 0, ptr %615, align 1
+  br label %771
 
 765:                                              ; preds = %762
   %bcmp75.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(18) %46, ptr noundef nonnull dereferenceable(18) @.str.447, i64 18)
@@ -5681,7 +5684,8 @@ hwloc_fopen.exit.i.i:                             ; preds = %hwloc_openat.exit.i
 
 766:                                              ; preds = %765
   %767 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %619, i64 noundef 64) #26
-  br label %.sink.split.i.i
+  store i8 0, ptr %616, align 1
+  br label %771
 
 768:                                              ; preds = %765
   %bcmp77.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %46, ptr noundef nonnull dereferenceable(10) @.str.448, i64 10)
@@ -5690,14 +5694,10 @@ hwloc_fopen.exit.i.i:                             ; preds = %hwloc_openat.exit.i
 
 769:                                              ; preds = %768
   %770 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull dereferenceable(1) %618, i64 noundef 128) #26
-  br label %.sink.split.i.i
-
-.sink.split.i.i:                                  ; preds = %769, %766, %763, %760, %757
-  %.sink.i.i = phi ptr [ %614, %760 ], [ %616, %766 ], [ %617, %769 ], [ %615, %763 ], [ %613, %757 ]
-  store i8 0, ptr %.sink.i.i, align 1
+  store i8 0, ptr %617, align 1
   br label %771
 
-771:                                              ; preds = %.sink.split.i.i, %768
+771:                                              ; preds = %769, %768, %766, %763, %760, %757
   %772 = call ptr @fgets(ptr noundef nonnull %46, i32 noundef 128, ptr noundef nonnull %752)
   %.not67.i.i = icmp eq ptr %772, null
   br i1 %.not67.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !34
@@ -5805,7 +5805,7 @@ hwloc_read_path_by_length.exit128.thread.i.i:     ; preds = %._crit_edge.i.i, %h
 
 808:                                              ; preds = %807
   %809 = call noalias dereferenceable_or_null(4) ptr @strdup(ptr noundef nonnull @.str.291) #26
-  br label %.sink.split151.i.i
+  br label %.sink.split.i.i
 
 810:                                              ; preds = %807
   %bcmp97.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %51, ptr noundef nonnull dereferenceable(5) @.str.463, i64 5)
@@ -5820,7 +5820,7 @@ hwloc_read_path_by_length.exit128.thread.i.i:     ; preds = %._crit_edge.i.i, %h
 
 814:                                              ; preds = %811, %810
   %815 = call noalias dereferenceable_or_null(5) ptr @strdup(ptr noundef nonnull @.str.465) #26
-  br label %.sink.split151.i.i
+  br label %.sink.split.i.i
 
 816:                                              ; preds = %811
   %bcmp100.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %51, ptr noundef nonnull dereferenceable(5) @.str.466, i64 5)
@@ -5829,7 +5829,7 @@ hwloc_read_path_by_length.exit128.thread.i.i:     ; preds = %._crit_edge.i.i, %h
 
 817:                                              ; preds = %816
   %818 = call noalias dereferenceable_or_null(5) ptr @strdup(ptr noundef nonnull @.str.467) #26
-  br label %.sink.split151.i.i
+  br label %.sink.split.i.i
 
 819:                                              ; preds = %816
   %bcmp102.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %51, ptr noundef nonnull dereferenceable(3) @.str.468, i64 3)
@@ -5846,15 +5846,15 @@ hwloc_read_path_by_length.exit128.thread.i.i:     ; preds = %._crit_edge.i.i, %h
 
 821:                                              ; preds = %820, %819
   %822 = call noalias dereferenceable_or_null(23) ptr @strdup(ptr noundef nonnull @.str.471) #26
-  br label %.sink.split151.i.i
+  br label %.sink.split.i.i
 
-.sink.split151.i.i:                               ; preds = %821, %817, %814, %808
-  %.sink152.i.i = phi ptr [ %815, %814 ], [ %822, %821 ], [ %818, %817 ], [ %809, %808 ]
+.sink.split.i.i:                                  ; preds = %821, %817, %814, %808
+  %.sink.i.i = phi ptr [ %815, %814 ], [ %822, %821 ], [ %818, %817 ], [ %809, %808 ]
   %823 = getelementptr inbounds i8, ptr %646, i64 8
-  store ptr %.sink152.i.i, ptr %823, align 8
+  store ptr %.sink.i.i, ptr %823, align 8
   br label %hwloc_linuxfs_block_class_fillinfos.exit.i
 
-hwloc_linuxfs_block_class_fillinfos.exit.i:       ; preds = %.sink.split151.i.i, %820
+hwloc_linuxfs_block_class_fillinfos.exit.i:       ; preds = %.sink.split.i.i, %820
   call void @llvm.lifetime.end.p0(i64 296, ptr nonnull %45)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %46)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %47)

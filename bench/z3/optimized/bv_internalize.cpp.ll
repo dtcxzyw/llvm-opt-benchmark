@@ -482,19 +482,28 @@ entry:
   %tobool.not = icmp eq ptr %0, null
   %m_next3 = getelementptr inbounds i8, ptr %occ, i64 32
   %1 = load ptr, ptr %m_next3, align 8
-  %m_eqs = getelementptr inbounds i8, ptr %a, i64 8
+  br i1 %tobool.not, label %if.else, label %if.then
+
+if.then:                                          ; preds = %entry
   %m_next2 = getelementptr inbounds i8, ptr %0, i64 32
-  %m_eqs.sink = select i1 %tobool.not, ptr %m_eqs, ptr %m_next2
-  store ptr %1, ptr %m_eqs.sink, align 8
+  store ptr %1, ptr %m_next2, align 8
+  br label %if.end
+
+if.else:                                          ; preds = %entry
+  %m_eqs = getelementptr inbounds i8, ptr %a, i64 8
+  store ptr %1, ptr %m_eqs, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then
   %tobool5.not = icmp eq ptr %1, null
   br i1 %tobool5.not, label %if.end9, label %if.then6
 
-if.then6:                                         ; preds = %entry
+if.then6:                                         ; preds = %if.end
   %m_prev8 = getelementptr inbounds i8, ptr %1, i64 40
   store ptr %0, ptr %m_prev8, align 8
   br label %if.end9
 
-if.end9:                                          ; preds = %if.then6, %entry
+if.end9:                                          ; preds = %if.then6, %if.end
   %ctx = getelementptr inbounds i8, ptr %this, i64 80
   %2 = load ptr, ptr %ctx, align 8
   %m_trail.i = getelementptr inbounds i8, ptr %2, i64 2192
@@ -14172,12 +14181,21 @@ if.end:                                           ; preds = %if.then, %entry
   %m_prev6 = getelementptr inbounds i8, ptr %2, i64 40
   %3 = load ptr, ptr %m_prev6, align 8
   %tobool7.not = icmp eq ptr %3, null
+  br i1 %tobool7.not, label %if.else, label %if.then8
+
+if.then8:                                         ; preds = %if.end
+  %m_next12 = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr %2, ptr %m_next12, align 8
+  br label %if.end14
+
+if.else:                                          ; preds = %if.end
   %m_atom = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %m_atom, align 8
   %m_eqs = getelementptr inbounds i8, ptr %4, i64 8
-  %m_next12 = getelementptr inbounds i8, ptr %3, i64 32
-  %m_eqs.sink = select i1 %tobool7.not, ptr %m_eqs, ptr %m_next12
-  store ptr %2, ptr %m_eqs.sink, align 8
+  store ptr %2, ptr %m_eqs, align 8
+  br label %if.end14
+
+if.end14:                                         ; preds = %if.else, %if.then8
   ret void
 }
 

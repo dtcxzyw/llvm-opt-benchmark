@@ -5041,7 +5041,15 @@ _ZNSt10shared_ptrIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEED2Ev.exit.i: ; pred
   %pkey_.i106 = getelementptr inbounds i8, ptr %ref.tmp26, i64 8
   %36 = load ptr, ptr %pkey_.i106, align 8
   %cmp.not.i.i = icmp eq ptr %36, null
-  br i1 %cmp.not.i.i, label %if.end30, label %if.end30.sink.split
+  br i1 %cmp.not.i.i, label %_ZN4node6crypto14ManagedEVPPKeyD2Ev.exit, label %if.then.i.i
+
+if.then.i.i:                                      ; preds = %_ZNSt10shared_ptrIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEED2Ev.exit.i
+  call void @EVP_PKEY_free(ptr noundef nonnull %36) #20
+  br label %_ZN4node6crypto14ManagedEVPPKeyD2Ev.exit
+
+_ZN4node6crypto14ManagedEVPPKeyD2Ev.exit:         ; preds = %_ZNSt10shared_ptrIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEED2Ev.exit.i, %if.then.i.i
+  store ptr null, ptr %pkey_.i106, align 8
+  br label %if.end30
 
 if.else:                                          ; preds = %_ZN4node6crypto14ManagedEVPPKeyC2Ev.exit
   call void @_ZN4node6crypto14ManagedEVPPKey19GetPrivateKeyFromJsERKN2v820FunctionCallbackInfoINS2_5ValueEEEPjb(ptr nonnull sret(%"class.node::crypto::ManagedEVPPKey") align 8 %ref.tmp28, ptr noundef nonnull align 8 dereferenceable(20) %args, ptr noundef nonnull %keyParamOffset, i1 noundef zeroext true) #20
@@ -5124,17 +5132,17 @@ _ZNSt10shared_ptrIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEED2Ev.exit.i120: ; p
   %pkey_.i121 = getelementptr inbounds i8, ptr %ref.tmp28, i64 8
   %48 = load ptr, ptr %pkey_.i121, align 8
   %cmp.not.i.i122 = icmp eq ptr %48, null
-  br i1 %cmp.not.i.i122, label %if.end30, label %if.end30.sink.split
+  br i1 %cmp.not.i.i122, label %_ZN4node6crypto14ManagedEVPPKeyD2Ev.exit143, label %if.then.i.i123
 
-if.end30.sink.split:                              ; preds = %_ZNSt10shared_ptrIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEED2Ev.exit.i120, %_ZNSt10shared_ptrIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEED2Ev.exit.i
-  %.sink = phi ptr [ %36, %_ZNSt10shared_ptrIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEED2Ev.exit.i ], [ %48, %_ZNSt10shared_ptrIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEED2Ev.exit.i120 ]
-  %pkey_.i121.sink.ph = phi ptr [ %pkey_.i106, %_ZNSt10shared_ptrIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEED2Ev.exit.i ], [ %pkey_.i121, %_ZNSt10shared_ptrIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEED2Ev.exit.i120 ]
-  call void @EVP_PKEY_free(ptr noundef nonnull %.sink) #20
+if.then.i.i123:                                   ; preds = %_ZNSt10shared_ptrIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEED2Ev.exit.i120
+  call void @EVP_PKEY_free(ptr noundef nonnull %48) #20
+  br label %_ZN4node6crypto14ManagedEVPPKeyD2Ev.exit143
+
+_ZN4node6crypto14ManagedEVPPKeyD2Ev.exit143:      ; preds = %_ZNSt10shared_ptrIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEED2Ev.exit.i120, %if.then.i.i123
+  store ptr null, ptr %pkey_.i121, align 8
   br label %if.end30
 
-if.end30:                                         ; preds = %if.end30.sink.split, %_ZNSt10shared_ptrIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEED2Ev.exit.i120, %_ZNSt10shared_ptrIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEED2Ev.exit.i
-  %pkey_.i121.sink = phi ptr [ %pkey_.i106, %_ZNSt10shared_ptrIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEED2Ev.exit.i ], [ %pkey_.i121, %_ZNSt10shared_ptrIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEED2Ev.exit.i120 ], [ %pkey_.i121.sink.ph, %if.end30.sink.split ]
-  store ptr null, ptr %pkey_.i121.sink, align 8
+if.end30:                                         ; preds = %_ZN4node6crypto14ManagedEVPPKeyD2Ev.exit143, %_ZN4node6crypto14ManagedEVPPKeyD2Ev.exit
   %call31 = call noundef zeroext i1 @_ZNK4node6crypto14ManagedEVPPKeycvbEv(ptr noundef nonnull align 8 dereferenceable(32) %key) #20
   br i1 %call31, label %if.end34, label %cleanup204
 
@@ -8091,22 +8099,18 @@ if.then:                                          ; preds = %while.body
 
 if.then15:                                        ; preds = %if.then
   %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
-  br label %if.end22.sink.split
+  store ptr %__p.022, ptr %arrayidx16, align 8
+  br label %if.end22
 
 if.else:                                          ; preds = %while.body
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %__p.022, align 8
   %8 = load ptr, ptr %arrayidx, align 8
-  br label %if.end22.sink.split
-
-if.end22.sink.split:                              ; preds = %if.else, %if.then15
-  %arrayidx16.sink = phi ptr [ %arrayidx16, %if.then15 ], [ %8, %if.else ]
-  %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then15 ], [ %__bbegin_bkt.021, %if.else ]
-  store ptr %__p.022, ptr %arrayidx16.sink, align 8
+  store ptr %__p.022, ptr %8, align 8
   br label %if.end22
 
-if.end22:                                         ; preds = %if.end22.sink.split, %if.then
-  %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then ], [ %__bbegin_bkt.1.ph, %if.end22.sink.split ]
+if.end22:                                         ; preds = %if.then, %if.then15, %if.else
+  %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.021, %if.else ], [ %rem.i.i, %if.then15 ], [ %rem.i.i, %if.then ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !63
 

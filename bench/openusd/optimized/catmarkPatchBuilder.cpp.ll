@@ -1453,14 +1453,14 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far16GregoryConverterIfE23assi
   br label %150
 
 150:                                              ; preds = %119, %34
-  %.sink206 = phi ptr [ %149, %119 ], [ %118, %34 ]
   %.sroa.speculated161.sink = phi ptr [ %.sroa.speculated161, %119 ], [ %25, %34 ]
+  %.sink.in = phi ptr [ %149, %119 ], [ %118, %34 ]
   %.sroa.speculated137.sink = phi ptr [ %.sroa.speculated137, %119 ], [ %26, %34 ]
-  %151 = load i32, ptr %.sink206, align 4
-  %152 = getelementptr inbounds i8, ptr %.sroa.speculated161.sink, i64 20
-  store i32 %151, ptr %152, align 4
-  %153 = getelementptr inbounds i8, ptr %.sroa.speculated137.sink, i64 20
-  store float 0x3FAC71C720000000, ptr %153, align 4
+  %.sink = load i32, ptr %.sink.in, align 4
+  %151 = getelementptr inbounds i8, ptr %.sroa.speculated161.sink, i64 20
+  store i32 %.sink, ptr %151, align 4
+  %152 = getelementptr inbounds i8, ptr %.sroa.speculated137.sink, i64 20
+  store float 0x3FAC71C720000000, ptr %152, align 4
   ret void
 }
 
@@ -7447,14 +7447,14 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far16GregoryConverterIdE23assi
   br label %150
 
 150:                                              ; preds = %119, %34
-  %.sink206 = phi ptr [ %149, %119 ], [ %118, %34 ]
   %.sroa.speculated161.sink = phi ptr [ %.sroa.speculated161, %119 ], [ %25, %34 ]
+  %.sink.in = phi ptr [ %149, %119 ], [ %118, %34 ]
   %.sroa.speculated137.sink = phi ptr [ %.sroa.speculated137, %119 ], [ %26, %34 ]
-  %151 = load i32, ptr %.sink206, align 4
-  %152 = getelementptr inbounds i8, ptr %.sroa.speculated161.sink, i64 20
-  store i32 %151, ptr %152, align 4
-  %153 = getelementptr inbounds i8, ptr %.sroa.speculated137.sink, i64 40
-  store double 0x3FAC71C71C71C71C, ptr %153, align 8
+  %.sink = load i32, ptr %.sink.in, align 4
+  %151 = getelementptr inbounds i8, ptr %.sroa.speculated161.sink, i64 20
+  store i32 %.sink, ptr %151, align 4
+  %152 = getelementptr inbounds i8, ptr %.sroa.speculated137.sink, i64 40
+  store double 0x3FAC71C71C71C71C, ptr %152, align 8
   ret void
 }
 

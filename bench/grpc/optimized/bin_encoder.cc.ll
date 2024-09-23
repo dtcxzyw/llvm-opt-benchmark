@@ -114,42 +114,43 @@ sw.bb54:                                          ; preds = %for.end
   %arrayidx59 = getelementptr inbounds [65 x i8], ptr @_ZL8alphabet, i64 0, i64 %idxprom58
   %27 = load i8, ptr %arrayidx59, align 1
   store i8 %27, ptr %out.0.lcssa, align 1
+  %28 = load i8, ptr %in.0.lcssa, align 1
+  %29 = shl i8 %28, 4
+  %30 = and i8 %29, 48
   br label %do.body.sink.split
 
 sw.bb70:                                          ; preds = %for.end
-  %28 = load i8, ptr %in.0.lcssa, align 1
-  %29 = lshr i8 %28, 2
-  %idxprom74 = zext nneg i8 %29 to i64
-  %arrayidx75 = getelementptr inbounds [65 x i8], ptr @_ZL8alphabet, i64 0, i64 %idxprom74
-  %30 = load i8, ptr %arrayidx75, align 1
-  store i8 %30, ptr %out.0.lcssa, align 1
   %31 = load i8, ptr %in.0.lcssa, align 1
-  %32 = shl i8 %31, 4
-  %33 = and i8 %32, 48
+  %32 = lshr i8 %31, 2
+  %idxprom74 = zext nneg i8 %32 to i64
+  %arrayidx75 = getelementptr inbounds [65 x i8], ptr @_ZL8alphabet, i64 0, i64 %idxprom74
+  %33 = load i8, ptr %arrayidx75, align 1
+  store i8 %33, ptr %out.0.lcssa, align 1
+  %34 = load i8, ptr %in.0.lcssa, align 1
+  %35 = shl i8 %34, 4
+  %36 = and i8 %35, 48
   %arrayidx81 = getelementptr inbounds i8, ptr %in.0.lcssa, i64 1
-  %34 = load i8, ptr %arrayidx81, align 1
-  %35 = lshr i8 %34, 4
-  %or8443 = or disjoint i8 %33, %35
+  %37 = load i8, ptr %arrayidx81, align 1
+  %38 = lshr i8 %37, 4
+  %or8443 = or disjoint i8 %36, %38
   %idxprom85 = zext nneg i8 %or8443 to i64
   %arrayidx86 = getelementptr inbounds [65 x i8], ptr @_ZL8alphabet, i64 0, i64 %idxprom85
-  %36 = load i8, ptr %arrayidx86, align 1
+  %39 = load i8, ptr %arrayidx86, align 1
   %arrayidx87 = getelementptr inbounds i8, ptr %out.0.lcssa, i64 1
-  store i8 %36, ptr %arrayidx87, align 1
+  store i8 %39, ptr %arrayidx87, align 1
+  %40 = load i8, ptr %arrayidx81, align 1
+  %41 = shl i8 %40, 2
+  %42 = and i8 %41, 60
   br label %do.body.sink.split
 
 do.body.sink.split:                               ; preds = %sw.bb70, %sw.bb54
-  %in.0.lcssa.sink = phi ptr [ %in.0.lcssa, %sw.bb54 ], [ %arrayidx81, %sw.bb70 ]
-  %.sink58 = phi i8 [ 4, %sw.bb54 ], [ 2, %sw.bb70 ]
-  %.sink56 = phi i8 [ 48, %sw.bb54 ], [ 60, %sw.bb70 ]
+  %.sink54 = phi i8 [ %30, %sw.bb54 ], [ %42, %sw.bb70 ]
   %.sink51 = phi i64 [ 2, %sw.bb54 ], [ 3, %sw.bb70 ]
-  %37 = load i8, ptr %in.0.lcssa.sink, align 1
-  %38 = shl i8 %37, %.sink58
-  %39 = and i8 %38, %.sink56
-  %idxprom65 = zext nneg i8 %39 to i64
+  %idxprom65 = zext nneg i8 %.sink54 to i64
   %arrayidx66 = getelementptr inbounds [65 x i8], ptr @_ZL8alphabet, i64 0, i64 %idxprom65
-  %40 = load i8, ptr %arrayidx66, align 4
+  %43 = load i8, ptr %arrayidx66, align 4
   %arrayidx67 = getelementptr inbounds i8, ptr %out.0.lcssa, i64 %rem
-  store i8 %40, ptr %arrayidx67, align 1
+  store i8 %43, ptr %arrayidx67, align 1
   %add.ptr68 = getelementptr inbounds i8, ptr %out.0.lcssa, i64 %.sink51
   %add.ptr69 = getelementptr inbounds i8, ptr %in.0.lcssa, i64 %rem
   br label %do.body
@@ -157,13 +158,13 @@ do.body.sink.split:                               ; preds = %sw.bb70, %sw.bb54
 do.body:                                          ; preds = %do.body.sink.split, %for.end
   %in.1 = phi ptr [ %in.0.lcssa, %for.end ], [ %add.ptr69, %do.body.sink.split ]
   %out.1 = phi ptr [ %out.0.lcssa, %for.end ], [ %add.ptr68, %do.body.sink.split ]
-  %41 = load ptr, ptr %agg.result, align 8
-  %tobool98.not = icmp eq ptr %41, null
-  %42 = load ptr, ptr %bytes17, align 8
-  %cond107 = select i1 %tobool98.not, ptr %bytes20, ptr %42
-  %43 = load i64, ptr %data16, align 8
-  %conv116 = and i64 %43, 255
-  %cond118 = select i1 %tobool98.not, i64 %conv116, i64 %43
+  %44 = load ptr, ptr %agg.result, align 8
+  %tobool98.not = icmp eq ptr %44, null
+  %45 = load ptr, ptr %bytes17, align 8
+  %cond107 = select i1 %tobool98.not, ptr %bytes20, ptr %45
+  %46 = load i64, ptr %data16, align 8
+  %conv116 = and i64 %46, 255
+  %cond118 = select i1 %tobool98.not, i64 %conv116, i64 %46
   %add.ptr119 = getelementptr inbounds i8, ptr %cond107, i64 %cond118
   %cmp120.not = icmp eq ptr %out.1, %add.ptr119
   br i1 %cmp120.not, label %do.body122, label %if.then
@@ -173,13 +174,13 @@ if.then:                                          ; preds = %do.body
   unreachable
 
 do.body122:                                       ; preds = %do.body
-  %44 = load ptr, ptr %input, align 8
-  %tobool124.not = icmp eq ptr %44, null
-  %45 = load ptr, ptr %bytes, align 8
-  %cond133 = select i1 %tobool124.not, ptr %bytes10, ptr %45
-  %46 = load i64, ptr %data, align 8
-  %conv142 = and i64 %46, 255
-  %cond144 = select i1 %tobool124.not, i64 %conv142, i64 %46
+  %47 = load ptr, ptr %input, align 8
+  %tobool124.not = icmp eq ptr %47, null
+  %48 = load ptr, ptr %bytes, align 8
+  %cond133 = select i1 %tobool124.not, ptr %bytes10, ptr %48
+  %49 = load i64, ptr %data, align 8
+  %conv142 = and i64 %49, 255
+  %cond144 = select i1 %tobool124.not, i64 %conv142, i64 %49
   %add.ptr145 = getelementptr inbounds i8, ptr %cond133, i64 %cond144
   %cmp146.not = icmp eq ptr %in.1, %add.ptr145
   br i1 %cmp146.not, label %do.end151, label %if.then149

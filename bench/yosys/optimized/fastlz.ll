@@ -330,19 +330,13 @@ define internal fastcc noundef i32 @_ZL16fastlz1_compressPKviPv(ptr noundef %0, 
   %168 = getelementptr inbounds [8192 x ptr], ptr %4, i64 0, i64 %167
   store ptr %152, ptr %168, align 8
   %169 = getelementptr inbounds i8, ptr %.5, i64 1
-  br label %.backedge.sink.split
-
-.backedge.sink.split:                             ; preds = %149, %176
-  %.sink227 = phi ptr [ %173, %176 ], [ %.5, %149 ]
-  %.1156.be.ph = phi ptr [ %27, %176 ], [ %161, %149 ]
-  %.1152.be.ph = phi ptr [ %177, %176 ], [ %169, %149 ]
-  store i8 31, ptr %.sink227, align 1
+  store i8 31, ptr %.5, align 1
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.sink.split, %171
-  %.1156.be = phi ptr [ %27, %171 ], [ %.1156.be.ph, %.backedge.sink.split ]
-  %.1152.be = phi ptr [ %173, %171 ], [ %.1152.be.ph, %.backedge.sink.split ]
-  %.0148.be = phi i32 [ %174, %171 ], [ 0, %.backedge.sink.split ]
+.backedge:                                        ; preds = %171, %176, %149
+  %.1156.be = phi ptr [ %161, %149 ], [ %27, %176 ], [ %27, %171 ]
+  %.1152.be = phi ptr [ %169, %149 ], [ %177, %176 ], [ %173, %171 ]
+  %.0148.be = phi i32 [ 0, %149 ], [ 0, %176 ], [ %174, %171 ]
   %170 = icmp ult ptr %.1156.be, %.ptr219
   br i1 %170, label %.lr.ph200, label %._crit_edge, !llvm.loop !11
 
@@ -356,7 +350,8 @@ define internal fastcc noundef i32 @_ZL16fastlz1_compressPKviPv(ptr noundef %0, 
 
 176:                                              ; preds = %171
   %177 = getelementptr inbounds i8, ptr %.1152198, i64 2
-  br label %.backedge.sink.split
+  store i8 31, ptr %173, align 1
+  br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %17
   %.1156.lcssa = phi ptr [ %22, %17 ], [ %.1156.be, %.backedge ]
@@ -855,19 +850,13 @@ define internal fastcc noundef i32 @_ZL16fastlz2_compressPKviPv(ptr noundef %0, 
   %235 = getelementptr inbounds [8192 x ptr], ptr %4, i64 0, i64 %234
   store ptr %219, ptr %235, align 8
   %236 = getelementptr inbounds i8, ptr %.4, i64 1
-  br label %.backedge.sink.split
-
-.backedge.sink.split:                             ; preds = %217, %243
-  %.sink = phi ptr [ %240, %243 ], [ %.4, %217 ]
-  %.1187.be.ph = phi ptr [ %40, %243 ], [ %228, %217 ]
-  %.1183.be.ph = phi ptr [ %244, %243 ], [ %236, %217 ]
-  store i8 31, ptr %.sink, align 1
+  store i8 31, ptr %.4, align 1
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.sink.split, %238
-  %.1187.be = phi ptr [ %40, %238 ], [ %.1187.be.ph, %.backedge.sink.split ]
-  %.1183.be = phi ptr [ %240, %238 ], [ %.1183.be.ph, %.backedge.sink.split ]
-  %.0178.be = phi i32 [ %241, %238 ], [ 0, %.backedge.sink.split ]
+.backedge:                                        ; preds = %238, %243, %217
+  %.1187.be = phi ptr [ %228, %217 ], [ %40, %243 ], [ %40, %238 ]
+  %.1183.be = phi ptr [ %236, %217 ], [ %244, %243 ], [ %240, %238 ]
+  %.0178.be = phi i32 [ 0, %217 ], [ 0, %243 ], [ %241, %238 ]
   %237 = icmp ult ptr %.1187.be, %.ptr280
   br i1 %237, label %.lr.ph260, label %._crit_edge261, !llvm.loop !17
 
@@ -881,7 +870,8 @@ define internal fastcc noundef i32 @_ZL16fastlz2_compressPKviPv(ptr noundef %0, 
 
 243:                                              ; preds = %238
   %244 = getelementptr inbounds i8, ptr %.1183255, i64 2
-  br label %.backedge.sink.split
+  store i8 31, ptr %240, align 1
+  br label %.backedge
 
 ._crit_edge261:                                   ; preds = %.backedge, %17
   %.1187.lcssa = phi ptr [ %22, %17 ], [ %.1187.be, %.backedge ]

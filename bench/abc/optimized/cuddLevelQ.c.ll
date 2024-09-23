@@ -376,55 +376,56 @@ define void @cuddLevelQueueDequeue(ptr nocapture noundef %0, i32 noundef %1) loc
 
 16:                                               ; preds = %2
   %17 = icmp eq ptr %14, %3
-  br i1 %17, label %.loopexit.sink.split.i, label %.preheader.i
+  br i1 %17, label %18, label %.preheader.i
 
-.preheader.i:                                     ; preds = %16, %20
-  %.0.i = phi ptr [ %19, %20 ], [ %14, %16 ]
-  %18 = getelementptr inbounds i8, ptr %.0.i, i64 8
-  %19 = load ptr, ptr %18, align 8
-  %.not.i = icmp eq ptr %19, null
-  br i1 %.not.i, label %hashDelete.exit, label %20
-
-20:                                               ; preds = %.preheader.i
-  %21 = icmp eq ptr %19, %3
-  br i1 %21, label %.loopexit.sink.split.i.loopexit, label %.preheader.i, !llvm.loop !11
-
-.loopexit.sink.split.i.loopexit:                  ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %.0.i, i64 8
-  br label %.loopexit.sink.split.i
-
-.loopexit.sink.split.i:                           ; preds = %.loopexit.sink.split.i.loopexit, %16
-  %.sink.i = phi ptr [ %14, %16 ], [ %3, %.loopexit.sink.split.i.loopexit ]
-  %.sink4.i = phi ptr [ %13, %16 ], [ %22, %.loopexit.sink.split.i.loopexit ]
-  %23 = getelementptr inbounds i8, ptr %.sink.i, i64 8
-  %24 = load ptr, ptr %23, align 8
-  store ptr %24, ptr %.sink4.i, align 8
+18:                                               ; preds = %16
+  %19 = getelementptr inbounds i8, ptr %14, i64 8
+  %20 = load ptr, ptr %19, align 8
+  store ptr %20, ptr %13, align 8
   br label %hashDelete.exit
 
-hashDelete.exit:                                  ; preds = %.preheader.i, %2, %.loopexit.sink.split.i
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
-  %26 = load ptr, ptr %25, align 8
-  %27 = sext i32 %1 to i64
-  %28 = getelementptr inbounds ptr, ptr %26, i64 %27
-  %29 = load ptr, ptr %28, align 8
-  %30 = icmp eq ptr %29, %3
-  br i1 %30, label %31, label %32
+.preheader.i:                                     ; preds = %16, %23
+  %.0.i = phi ptr [ %22, %23 ], [ %14, %16 ]
+  %21 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %22 = load ptr, ptr %21, align 8
+  %.not.i = icmp eq ptr %22, null
+  br i1 %.not.i, label %hashDelete.exit, label %23
 
-31:                                               ; preds = %hashDelete.exit
-  store ptr null, ptr %28, align 8
-  br label %32
+23:                                               ; preds = %.preheader.i
+  %24 = icmp eq ptr %22, %3
+  br i1 %24, label %25, label %.preheader.i, !llvm.loop !11
 
-32:                                               ; preds = %31, %hashDelete.exit
-  %33 = load ptr, ptr %3, align 8
-  store ptr %33, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 16
-  %35 = load ptr, ptr %34, align 8
-  store ptr %35, ptr %3, align 8
-  store ptr %3, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 40
-  %37 = load i32, ptr %36, align 8
-  %38 = add nsw i32 %37, -1
-  store i32 %38, ptr %36, align 8
+25:                                               ; preds = %23
+  %26 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %27 = getelementptr inbounds i8, ptr %3, i64 8
+  %28 = load ptr, ptr %27, align 8
+  store ptr %28, ptr %26, align 8
+  br label %hashDelete.exit
+
+hashDelete.exit:                                  ; preds = %.preheader.i, %2, %18, %25
+  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = load ptr, ptr %29, align 8
+  %31 = sext i32 %1 to i64
+  %32 = getelementptr inbounds ptr, ptr %30, i64 %31
+  %33 = load ptr, ptr %32, align 8
+  %34 = icmp eq ptr %33, %3
+  br i1 %34, label %35, label %36
+
+35:                                               ; preds = %hashDelete.exit
+  store ptr null, ptr %32, align 8
+  br label %36
+
+36:                                               ; preds = %35, %hashDelete.exit
+  %37 = load ptr, ptr %3, align 8
+  store ptr %37, ptr %0, align 8
+  %38 = getelementptr inbounds i8, ptr %0, i64 16
+  %39 = load ptr, ptr %38, align 8
+  store ptr %39, ptr %3, align 8
+  store ptr %3, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %0, i64 40
+  %41 = load i32, ptr %40, align 8
+  %42 = add nsw i32 %41, -1
+  store i32 %42, ptr %40, align 8
   ret void
 }
 

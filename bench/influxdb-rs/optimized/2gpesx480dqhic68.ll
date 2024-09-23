@@ -3695,12 +3695,11 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$par
   store i64 2, ptr %.sink495.i.sroa.phi, align 8, !noalias !761
   store ptr null, ptr %.sink495.i.sroa.phi465, align 8, !noalias !761
   store ptr %.sink497.i, ptr %.sink495.i.sroa.phi468, align 8, !noalias !761
+  store i64 1, ptr %.sink495.i.sroa.phi471, align 8, !noalias !761
   br label %.invoke.i.invoke
 
 .invoke.i.invoke:                                 ; preds = %950, %990, %.invoke.i
-  %.sink = phi ptr [ %956, %950 ], [ %996, %990 ], [ %.sink495.i.sroa.phi471, %.invoke.i ]
-  %464 = phi ptr [ %95, %950 ], [ %100, %990 ], [ %.sink495.i, %.invoke.i ]
-  store i64 1, ptr %.sink, align 8, !noalias !771
+  %464 = phi ptr [ %.sink495.i, %.invoke.i ], [ %100, %990 ], [ %95, %950 ]
   invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %464, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.invoke.i.cont unwind label %.loopexit.split-lp528, !noalias !771
 
@@ -5471,6 +5470,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$par
   %955 = getelementptr inbounds i8, ptr %95, i64 16
   store ptr %94, ptr %955, align 8, !alias.scope !1133, !noalias !1136
   %956 = getelementptr inbounds i8, ptr %95, i64 24
+  store i64 1, ptr %956, align 8, !alias.scope !1133, !noalias !1136
   br label %.invoke.i.invoke
 
 957:                                              ; preds = %945
@@ -5611,6 +5611,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$par
   %995 = getelementptr inbounds i8, ptr %100, i64 16
   store ptr %99, ptr %995, align 8, !alias.scope !1187, !noalias !1190
   %996 = getelementptr inbounds i8, ptr %100, i64 24
+  store i64 1, ptr %996, align 8, !alias.scope !1187, !noalias !1190
   br label %.invoke.i.invoke
 
 997:                                              ; preds = %985

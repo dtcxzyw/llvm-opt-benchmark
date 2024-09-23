@@ -325,7 +325,7 @@ define hidden void @dom_parent_node_append(ptr noundef %0, ptr noundef %1, i32 n
   %6 = load ptr, ptr %5, align 8
   %7 = tail call fastcc i32 @dom_sanity_check_node_list_for_insertion(ptr noundef %6, ptr noundef %4, ptr noundef %1, i32 noundef %2)
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %8, label %38
+  br i1 %.not, label %8, label %41
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %5, align 8
@@ -344,58 +344,67 @@ define hidden void @dom_parent_node_append(ptr noundef %0, ptr noundef %1, i32 n
   %15 = phi ptr [ null, %8 ], [ %.pre, %10 ]
   %16 = tail call ptr @dom_zvals_to_fragment(ptr noundef %15, ptr noundef %4, ptr noundef %1, i32 noundef %2)
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %38, label %18
+  br i1 %17, label %41, label %18
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds i8, ptr %16, i64 24
   %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %4, i64 32
+  %22 = load ptr, ptr %21, align 8
   %.not35 = icmp eq ptr %20, null
-  br i1 %.not35, label %36, label %21
+  br i1 %.not35, label %39, label %23
 
-21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %4, i64 32
-  %23 = load ptr, ptr %22, align 8
-  %.not36 = icmp eq ptr %23, null
-  %24 = getelementptr inbounds i8, ptr %4, i64 24
-  %25 = getelementptr inbounds i8, ptr %23, i64 48
-  %.sink = select i1 %.not36, ptr %24, ptr %25
-  store ptr %20, ptr %.sink, align 8
-  %26 = getelementptr inbounds i8, ptr %16, i64 32
-  %27 = load ptr, ptr %26, align 8
-  store ptr %27, ptr %22, align 8
-  %28 = getelementptr inbounds i8, ptr %20, i64 56
-  store ptr %23, ptr %28, align 8
+23:                                               ; preds = %18
+  %.not36 = icmp eq ptr %22, null
+  br i1 %.not36, label %26, label %24
+
+24:                                               ; preds = %23
+  %25 = getelementptr inbounds i8, ptr %22, i64 48
+  store ptr %20, ptr %25, align 8
+  br label %28
+
+26:                                               ; preds = %23
+  %27 = getelementptr inbounds i8, ptr %4, i64 24
+  store ptr %20, ptr %27, align 8
+  br label %28
+
+28:                                               ; preds = %26, %24
+  %29 = getelementptr inbounds i8, ptr %16, i64 32
+  %30 = load ptr, ptr %29, align 8
+  store ptr %30, ptr %21, align 8
+  %31 = getelementptr inbounds i8, ptr %20, i64 56
+  store ptr %22, ptr %31, align 8
   %.09.i = load ptr, ptr %19, align 8
   %.not10.i = icmp eq ptr %.09.i, null
   br i1 %.not10.i, label %dom_fragment_assign_parent_node.exit, label %.lr.ph.i
 
-29:                                               ; preds = %.lr.ph.i
-  %30 = getelementptr inbounds i8, ptr %.011.i, i64 48
-  %.0.i = load ptr, ptr %30, align 8
+32:                                               ; preds = %.lr.ph.i
+  %33 = getelementptr inbounds i8, ptr %.011.i, i64 48
+  %.0.i = load ptr, ptr %33, align 8
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %dom_fragment_assign_parent_node.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %21, %29
-  %.011.i = phi ptr [ %.0.i, %29 ], [ %.09.i, %21 ]
-  %31 = getelementptr inbounds i8, ptr %.011.i, i64 40
-  store ptr %4, ptr %31, align 8
-  %32 = load ptr, ptr %26, align 8
-  %33 = icmp eq ptr %.011.i, %32
-  br i1 %33, label %dom_fragment_assign_parent_node.exit, label %29
+.lr.ph.i:                                         ; preds = %28, %32
+  %.011.i = phi ptr [ %.0.i, %32 ], [ %.09.i, %28 ]
+  %34 = getelementptr inbounds i8, ptr %.011.i, i64 40
+  store ptr %4, ptr %34, align 8
+  %35 = load ptr, ptr %29, align 8
+  %36 = icmp eq ptr %.011.i, %35
+  br i1 %36, label %dom_fragment_assign_parent_node.exit, label %32
 
-dom_fragment_assign_parent_node.exit:             ; preds = %29, %.lr.ph.i, %21
+dom_fragment_assign_parent_node.exit:             ; preds = %32, %.lr.ph.i, %28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
-  %34 = getelementptr inbounds i8, ptr %4, i64 64
-  %35 = load ptr, ptr %34, align 8
-  tail call void @dom_reconcile_ns_list(ptr noundef %35, ptr noundef nonnull %20, ptr noundef %27) #3
-  br label %36
+  %37 = getelementptr inbounds i8, ptr %4, i64 64
+  %38 = load ptr, ptr %37, align 8
+  tail call void @dom_reconcile_ns_list(ptr noundef %38, ptr noundef nonnull %20, ptr noundef %30) #3
+  br label %39
 
-36:                                               ; preds = %dom_fragment_assign_parent_node.exit, %18
-  %37 = load ptr, ptr @xmlFree, align 8
-  tail call void %37(ptr noundef nonnull %16) #3
-  br label %38
+39:                                               ; preds = %dom_fragment_assign_parent_node.exit, %18
+  %40 = load ptr, ptr @xmlFree, align 8
+  tail call void %40(ptr noundef nonnull %16) #3
+  br label %41
 
-38:                                               ; preds = %14, %3, %36
+41:                                               ; preds = %14, %3, %39
   ret void
 }
 
@@ -637,7 +646,7 @@ define hidden void @dom_parent_node_after(ptr noundef %0, ptr noundef %1, i32 no
   %8 = load ptr, ptr %7, align 8
   %9 = tail call fastcc i32 @dom_sanity_check_node_list_for_insertion(ptr noundef %8, ptr noundef %6, ptr noundef %1, i32 noundef %2)
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %dom_is_node_in_list.exit.preheader, label %69
+  br i1 %.not, label %dom_is_node_in_list.exit.preheader, label %70
 
 dom_is_node_in_list.exit.preheader:               ; preds = %3
   %.not.i = icmp eq i32 %2, 0
@@ -702,18 +711,18 @@ dom_is_node_in_list.exit.thread:                  ; preds = %dom_is_node_in_list
   %28 = phi ptr [ null, %dom_is_node_in_list.exit.thread ], [ %.pre, %23 ]
   %29 = tail call ptr @dom_zvals_to_fragment(ptr noundef %28, ptr noundef %6, ptr noundef %1, i32 noundef %2)
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %69, label %31
+  br i1 %30, label %70, label %31
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds i8, ptr %29, i64 24
   %33 = load ptr, ptr %32, align 8
   %.not38 = icmp eq ptr %33, null
-  br i1 %.not38, label %67, label %34
+  br i1 %.not38, label %68, label %34
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds i8, ptr %29, i64 32
   %36 = load ptr, ptr %35, align 8
-  br i1 %.not3645, label %37, label %48
+  br i1 %.not3645, label %37, label %49
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds i8, ptr %6, i64 24
@@ -727,74 +736,77 @@ dom_is_node_in_list.exit.thread:                  ; preds = %dom_is_node_in_list
   %43 = getelementptr inbounds i8, ptr %33, i64 56
   store ptr %42, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %42, i64 48
-  br label %45
+  store ptr %33, ptr %44, align 8
+  br label %46
 
-45:                                               ; preds = %40, %37
-  %.sink.i = phi ptr [ %44, %40 ], [ %38, %37 ]
-  store ptr %33, ptr %.sink.i, align 8
-  %46 = load ptr, ptr %35, align 8
-  %47 = getelementptr inbounds i8, ptr %6, i64 32
-  store ptr %46, ptr %47, align 8
+45:                                               ; preds = %37
+  store ptr %33, ptr %38, align 8
+  br label %46
+
+46:                                               ; preds = %45, %40
+  %47 = load ptr, ptr %35, align 8
+  %48 = getelementptr inbounds i8, ptr %6, i64 32
+  store ptr %47, ptr %48, align 8
   br label %dom_pre_insert.exit
 
-48:                                               ; preds = %34
-  %49 = getelementptr inbounds i8, ptr %36, i64 48
-  store ptr %.047, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %.047, i64 56
-  %51 = load ptr, ptr %50, align 8
-  %.not25.i = icmp eq ptr %51, null
-  br i1 %.not25.i, label %56, label %52
+49:                                               ; preds = %34
+  %50 = getelementptr inbounds i8, ptr %36, i64 48
+  store ptr %.047, ptr %50, align 8
+  %51 = getelementptr inbounds i8, ptr %.047, i64 56
+  %52 = load ptr, ptr %51, align 8
+  %.not25.i = icmp eq ptr %52, null
+  br i1 %.not25.i, label %57, label %53
 
-52:                                               ; preds = %48
-  %53 = getelementptr inbounds i8, ptr %51, i64 48
-  store ptr %33, ptr %53, align 8
-  %54 = load ptr, ptr %50, align 8
-  %55 = getelementptr inbounds i8, ptr %33, i64 56
-  store ptr %54, ptr %55, align 8
-  br label %56
+53:                                               ; preds = %49
+  %54 = getelementptr inbounds i8, ptr %52, i64 48
+  store ptr %33, ptr %54, align 8
+  %55 = load ptr, ptr %51, align 8
+  %56 = getelementptr inbounds i8, ptr %33, i64 56
+  store ptr %55, ptr %56, align 8
+  br label %57
 
-56:                                               ; preds = %52, %48
-  %57 = load ptr, ptr %35, align 8
-  store ptr %57, ptr %50, align 8
-  %58 = getelementptr inbounds i8, ptr %6, i64 24
-  %59 = load ptr, ptr %58, align 8
-  %60 = icmp eq ptr %59, %.047
-  br i1 %60, label %61, label %dom_pre_insert.exit
+57:                                               ; preds = %53, %49
+  %58 = load ptr, ptr %35, align 8
+  store ptr %58, ptr %51, align 8
+  %59 = getelementptr inbounds i8, ptr %6, i64 24
+  %60 = load ptr, ptr %59, align 8
+  %61 = icmp eq ptr %60, %.047
+  br i1 %61, label %62, label %dom_pre_insert.exit
 
-61:                                               ; preds = %56
-  store ptr %33, ptr %58, align 8
+62:                                               ; preds = %57
+  store ptr %33, ptr %59, align 8
   br label %dom_pre_insert.exit
 
-dom_pre_insert.exit:                              ; preds = %45, %56, %61
+dom_pre_insert.exit:                              ; preds = %46, %57, %62
   %.09.i = load ptr, ptr %32, align 8
   %.not10.i = icmp eq ptr %.09.i, null
   br i1 %.not10.i, label %dom_fragment_assign_parent_node.exit, label %.lr.ph.i40
 
-62:                                               ; preds = %.lr.ph.i40
-  %63 = getelementptr inbounds i8, ptr %.011.i, i64 48
-  %.0.i = load ptr, ptr %63, align 8
+63:                                               ; preds = %.lr.ph.i40
+  %64 = getelementptr inbounds i8, ptr %.011.i, i64 48
+  %.0.i = load ptr, ptr %64, align 8
   %.not.i41 = icmp eq ptr %.0.i, null
   br i1 %.not.i41, label %dom_fragment_assign_parent_node.exit, label %.lr.ph.i40
 
-.lr.ph.i40:                                       ; preds = %dom_pre_insert.exit, %62
-  %.011.i = phi ptr [ %.0.i, %62 ], [ %.09.i, %dom_pre_insert.exit ]
-  %64 = getelementptr inbounds i8, ptr %.011.i, i64 40
-  store ptr %6, ptr %64, align 8
-  %65 = load ptr, ptr %35, align 8
-  %66 = icmp eq ptr %.011.i, %65
-  br i1 %66, label %dom_fragment_assign_parent_node.exit, label %62
+.lr.ph.i40:                                       ; preds = %dom_pre_insert.exit, %63
+  %.011.i = phi ptr [ %.0.i, %63 ], [ %.09.i, %dom_pre_insert.exit ]
+  %65 = getelementptr inbounds i8, ptr %.011.i, i64 40
+  store ptr %6, ptr %65, align 8
+  %66 = load ptr, ptr %35, align 8
+  %67 = icmp eq ptr %.011.i, %66
+  br i1 %67, label %dom_fragment_assign_parent_node.exit, label %63
 
-dom_fragment_assign_parent_node.exit:             ; preds = %62, %.lr.ph.i40, %dom_pre_insert.exit
+dom_fragment_assign_parent_node.exit:             ; preds = %63, %.lr.ph.i40, %dom_pre_insert.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
   tail call void @dom_reconcile_ns_list(ptr noundef %21, ptr noundef nonnull %33, ptr noundef %36) #3
-  br label %67
+  br label %68
 
-67:                                               ; preds = %dom_fragment_assign_parent_node.exit, %31
-  %68 = load ptr, ptr @xmlFree, align 8
-  tail call void %68(ptr noundef nonnull %29) #3
-  br label %69
+68:                                               ; preds = %dom_fragment_assign_parent_node.exit, %31
+  %69 = load ptr, ptr @xmlFree, align 8
+  tail call void %69(ptr noundef nonnull %29) #3
+  br label %70
 
-69:                                               ; preds = %27, %3, %67
+70:                                               ; preds = %27, %3, %68
   ret void
 }
 
@@ -807,7 +819,7 @@ define hidden void @dom_parent_node_before(ptr noundef %0, ptr noundef %1, i32 n
   %8 = load ptr, ptr %7, align 8
   %9 = tail call fastcc i32 @dom_sanity_check_node_list_for_insertion(ptr noundef %8, ptr noundef %6, ptr noundef %1, i32 noundef %2)
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %dom_is_node_in_list.exit.preheader, label %69
+  br i1 %.not, label %dom_is_node_in_list.exit.preheader, label %70
 
 dom_is_node_in_list.exit.preheader:               ; preds = %3
   %.not.i = icmp eq i32 %2, 0
@@ -872,13 +884,13 @@ dom_is_node_in_list.exit.thread:                  ; preds = %dom_is_node_in_list
   %28 = phi ptr [ null, %dom_is_node_in_list.exit.thread ], [ %.pre, %23 ]
   %29 = tail call ptr @dom_zvals_to_fragment(ptr noundef %28, ptr noundef %6, ptr noundef %1, i32 noundef %2)
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %69, label %31
+  br i1 %30, label %70, label %31
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds i8, ptr %29, i64 24
   %33 = load ptr, ptr %32, align 8
   %.not41 = icmp eq ptr %33, null
-  br i1 %.not41, label %67, label %34
+  br i1 %.not41, label %68, label %34
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds i8, ptr %29, i64 32
@@ -888,7 +900,7 @@ dom_is_node_in_list.exit.thread:                  ; preds = %dom_is_node_in_list
   %.1.in = select i1 %.not3948, ptr %38, ptr %37
   %.1 = load ptr, ptr %.1.in, align 8
   %.not.i42 = icmp eq ptr %.1, null
-  br i1 %.not.i42, label %39, label %49
+  br i1 %.not.i42, label %39, label %50
 
 39:                                               ; preds = %34
   %40 = load ptr, ptr %38, align 8
@@ -901,73 +913,76 @@ dom_is_node_in_list.exit.thread:                  ; preds = %dom_is_node_in_list
   %44 = getelementptr inbounds i8, ptr %33, i64 56
   store ptr %43, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %43, i64 48
-  br label %46
+  store ptr %33, ptr %45, align 8
+  br label %47
 
-46:                                               ; preds = %41, %39
-  %.sink.i = phi ptr [ %45, %41 ], [ %38, %39 ]
-  store ptr %33, ptr %.sink.i, align 8
-  %47 = load ptr, ptr %35, align 8
-  %48 = getelementptr inbounds i8, ptr %6, i64 32
-  store ptr %47, ptr %48, align 8
+46:                                               ; preds = %39
+  store ptr %33, ptr %38, align 8
+  br label %47
+
+47:                                               ; preds = %46, %41
+  %48 = load ptr, ptr %35, align 8
+  %49 = getelementptr inbounds i8, ptr %6, i64 32
+  store ptr %48, ptr %49, align 8
   br label %dom_pre_insert.exit
 
-49:                                               ; preds = %34
-  %50 = getelementptr inbounds i8, ptr %36, i64 48
-  store ptr %.1, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %.1, i64 56
-  %52 = load ptr, ptr %51, align 8
-  %.not25.i = icmp eq ptr %52, null
-  br i1 %.not25.i, label %57, label %53
+50:                                               ; preds = %34
+  %51 = getelementptr inbounds i8, ptr %36, i64 48
+  store ptr %.1, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %.1, i64 56
+  %53 = load ptr, ptr %52, align 8
+  %.not25.i = icmp eq ptr %53, null
+  br i1 %.not25.i, label %58, label %54
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %52, i64 48
-  store ptr %33, ptr %54, align 8
-  %55 = load ptr, ptr %51, align 8
-  %56 = getelementptr inbounds i8, ptr %33, i64 56
-  store ptr %55, ptr %56, align 8
-  br label %57
+54:                                               ; preds = %50
+  %55 = getelementptr inbounds i8, ptr %53, i64 48
+  store ptr %33, ptr %55, align 8
+  %56 = load ptr, ptr %52, align 8
+  %57 = getelementptr inbounds i8, ptr %33, i64 56
+  store ptr %56, ptr %57, align 8
+  br label %58
 
-57:                                               ; preds = %53, %49
-  %58 = load ptr, ptr %35, align 8
-  store ptr %58, ptr %51, align 8
-  %59 = load ptr, ptr %38, align 8
-  %60 = icmp eq ptr %59, %.1
-  br i1 %60, label %61, label %dom_pre_insert.exit
+58:                                               ; preds = %54, %50
+  %59 = load ptr, ptr %35, align 8
+  store ptr %59, ptr %52, align 8
+  %60 = load ptr, ptr %38, align 8
+  %61 = icmp eq ptr %60, %.1
+  br i1 %61, label %62, label %dom_pre_insert.exit
 
-61:                                               ; preds = %57
+62:                                               ; preds = %58
   store ptr %33, ptr %38, align 8
   br label %dom_pre_insert.exit
 
-dom_pre_insert.exit:                              ; preds = %46, %57, %61
+dom_pre_insert.exit:                              ; preds = %47, %58, %62
   %.09.i = load ptr, ptr %32, align 8
   %.not10.i = icmp eq ptr %.09.i, null
   br i1 %.not10.i, label %dom_fragment_assign_parent_node.exit, label %.lr.ph.i43
 
-62:                                               ; preds = %.lr.ph.i43
-  %63 = getelementptr inbounds i8, ptr %.011.i, i64 48
-  %.0.i = load ptr, ptr %63, align 8
+63:                                               ; preds = %.lr.ph.i43
+  %64 = getelementptr inbounds i8, ptr %.011.i, i64 48
+  %.0.i = load ptr, ptr %64, align 8
   %.not.i44 = icmp eq ptr %.0.i, null
   br i1 %.not.i44, label %dom_fragment_assign_parent_node.exit, label %.lr.ph.i43
 
-.lr.ph.i43:                                       ; preds = %dom_pre_insert.exit, %62
-  %.011.i = phi ptr [ %.0.i, %62 ], [ %.09.i, %dom_pre_insert.exit ]
-  %64 = getelementptr inbounds i8, ptr %.011.i, i64 40
-  store ptr %6, ptr %64, align 8
-  %65 = load ptr, ptr %35, align 8
-  %66 = icmp eq ptr %.011.i, %65
-  br i1 %66, label %dom_fragment_assign_parent_node.exit, label %62
+.lr.ph.i43:                                       ; preds = %dom_pre_insert.exit, %63
+  %.011.i = phi ptr [ %.0.i, %63 ], [ %.09.i, %dom_pre_insert.exit ]
+  %65 = getelementptr inbounds i8, ptr %.011.i, i64 40
+  store ptr %6, ptr %65, align 8
+  %66 = load ptr, ptr %35, align 8
+  %67 = icmp eq ptr %.011.i, %66
+  br i1 %67, label %dom_fragment_assign_parent_node.exit, label %63
 
-dom_fragment_assign_parent_node.exit:             ; preds = %62, %.lr.ph.i43, %dom_pre_insert.exit
+dom_fragment_assign_parent_node.exit:             ; preds = %63, %.lr.ph.i43, %dom_pre_insert.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
   tail call void @dom_reconcile_ns_list(ptr noundef %21, ptr noundef nonnull %33, ptr noundef %36) #3
-  br label %67
+  br label %68
 
-67:                                               ; preds = %dom_fragment_assign_parent_node.exit, %31
-  %68 = load ptr, ptr @xmlFree, align 8
-  tail call void %68(ptr noundef nonnull %29) #3
-  br label %69
+68:                                               ; preds = %dom_fragment_assign_parent_node.exit, %31
+  %69 = load ptr, ptr @xmlFree, align 8
+  tail call void %69(ptr noundef nonnull %29) #3
+  br label %70
 
-69:                                               ; preds = %27, %3, %67
+70:                                               ; preds = %27, %3, %68
   ret void
 }
 
@@ -1083,11 +1098,11 @@ define hidden void @dom_child_replace_with(ptr noundef %0, ptr noundef %1, i32 n
 
 dom_child_removal_preconditions.exit.preheader:   ; preds = %24
   %.not.i47 = icmp eq i32 %2, 0
-  %.0.in61 = getelementptr inbounds i8, ptr %4, i64 48
-  %.062 = load ptr, ptr %.0.in61, align 8
-  %.not4363 = icmp eq ptr %.062, null
-  %or.cond64 = or i1 %.not.i47, %.not4363
-  br i1 %or.cond64, label %dom_is_node_in_list.exit.thread, label %.lr.ph.preheader.i.lr.ph
+  %.0.in60 = getelementptr inbounds i8, ptr %4, i64 48
+  %.061 = load ptr, ptr %.0.in60, align 8
+  %.not4362 = icmp eq ptr %.061, null
+  %or.cond63 = or i1 %.not.i47, %.not4362
+  br i1 %or.cond63, label %dom_is_node_in_list.exit.thread, label %.lr.ph.preheader.i.lr.ph
 
 .lr.ph.preheader.i.lr.ph:                         ; preds = %dom_child_removal_preconditions.exit.preheader
   %wide.trip.count.i = zext i32 %2 to i64
@@ -1099,13 +1114,13 @@ dom_child_removal_preconditions.exit.preheader:   ; preds = %24
   br label %dom_child_removal_preconditions.exit.thread
 
 dom_child_removal_preconditions.exit.loopexit:    ; preds = %32
-  %.0.in = getelementptr inbounds i8, ptr %.065, i64 48
+  %.0.in = getelementptr inbounds i8, ptr %.064, i64 48
   %.0 = load ptr, ptr %.0.in, align 8
   %.not43 = icmp eq ptr %.0, null
   br i1 %.not43, label %dom_is_node_in_list.exit.thread, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph.preheader.i.lr.ph, %dom_child_removal_preconditions.exit.loopexit
-  %.065 = phi ptr [ %.062, %.lr.ph.preheader.i.lr.ph ], [ %.0, %dom_child_removal_preconditions.exit.loopexit ]
+  %.064 = phi ptr [ %.061, %.lr.ph.preheader.i.lr.ph ], [ %.0, %dom_child_removal_preconditions.exit.loopexit ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %37, %.lr.ph.preheader.i
@@ -1120,7 +1135,7 @@ dom_child_removal_preconditions.exit.loopexit:    ; preds = %32
   %33 = load ptr, ptr %28, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 -24
   %35 = tail call ptr @dom_object_get_node(ptr noundef nonnull %34) #3
-  %36 = icmp eq ptr %35, %.065
+  %36 = icmp eq ptr %35, %.064
   br i1 %36, label %dom_child_removal_preconditions.exit.loopexit, label %37
 
 37:                                               ; preds = %32, %.lr.ph.i
@@ -1129,8 +1144,8 @@ dom_child_removal_preconditions.exit.loopexit:    ; preds = %32
   br i1 %exitcond.not.i, label %dom_is_node_in_list.exit.thread, label %.lr.ph.i
 
 dom_is_node_in_list.exit.thread:                  ; preds = %dom_child_removal_preconditions.exit.loopexit, %37, %dom_child_removal_preconditions.exit.preheader
-  %.060 = phi ptr [ %.062, %dom_child_removal_preconditions.exit.preheader ], [ %.065, %37 ], [ null, %dom_child_removal_preconditions.exit.loopexit ]
-  %.not4358 = phi i1 [ %.not4363, %dom_child_removal_preconditions.exit.preheader ], [ false, %37 ], [ true, %dom_child_removal_preconditions.exit.loopexit ]
+  %.059 = phi ptr [ %.061, %dom_child_removal_preconditions.exit.preheader ], [ %.064, %37 ], [ null, %dom_child_removal_preconditions.exit.loopexit ]
+  %.not4357 = phi i1 [ %.not4362, %dom_child_removal_preconditions.exit.preheader ], [ false, %37 ], [ true, %dom_child_removal_preconditions.exit.loopexit ]
   %38 = getelementptr inbounds i8, ptr %6, i64 64
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %7, align 8
@@ -1164,12 +1179,12 @@ dom_is_node_in_list.exit.thread:                  ; preds = %dom_child_removal_p
 
 54:                                               ; preds = %53, %49
   %.not46 = icmp eq ptr %51, null
-  br i1 %.not46, label %88, label %55
+  br i1 %.not46, label %89, label %55
 
 55:                                               ; preds = %54
   %56 = getelementptr inbounds i8, ptr %47, i64 32
   %57 = load ptr, ptr %56, align 8
-  br i1 %.not4358, label %58, label %69
+  br i1 %.not4357, label %58, label %70
 
 58:                                               ; preds = %55
   %59 = getelementptr inbounds i8, ptr %6, i64 24
@@ -1183,74 +1198,77 @@ dom_is_node_in_list.exit.thread:                  ; preds = %dom_child_removal_p
   %64 = getelementptr inbounds i8, ptr %51, i64 56
   store ptr %63, ptr %64, align 8
   %65 = getelementptr inbounds i8, ptr %63, i64 48
-  br label %66
+  store ptr %51, ptr %65, align 8
+  br label %67
 
-66:                                               ; preds = %61, %58
-  %.sink.i49 = phi ptr [ %65, %61 ], [ %59, %58 ]
-  store ptr %51, ptr %.sink.i49, align 8
-  %67 = load ptr, ptr %56, align 8
-  %68 = getelementptr inbounds i8, ptr %6, i64 32
-  store ptr %67, ptr %68, align 8
+66:                                               ; preds = %58
+  store ptr %51, ptr %59, align 8
+  br label %67
+
+67:                                               ; preds = %66, %61
+  %68 = load ptr, ptr %56, align 8
+  %69 = getelementptr inbounds i8, ptr %6, i64 32
+  store ptr %68, ptr %69, align 8
   br label %dom_pre_insert.exit
 
-69:                                               ; preds = %55
-  %70 = getelementptr inbounds i8, ptr %57, i64 48
-  store ptr %.060, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %.060, i64 56
-  %72 = load ptr, ptr %71, align 8
-  %.not25.i = icmp eq ptr %72, null
-  br i1 %.not25.i, label %77, label %73
+70:                                               ; preds = %55
+  %71 = getelementptr inbounds i8, ptr %57, i64 48
+  store ptr %.059, ptr %71, align 8
+  %72 = getelementptr inbounds i8, ptr %.059, i64 56
+  %73 = load ptr, ptr %72, align 8
+  %.not25.i = icmp eq ptr %73, null
+  br i1 %.not25.i, label %78, label %74
 
-73:                                               ; preds = %69
-  %74 = getelementptr inbounds i8, ptr %72, i64 48
-  store ptr %51, ptr %74, align 8
-  %75 = load ptr, ptr %71, align 8
-  %76 = getelementptr inbounds i8, ptr %51, i64 56
-  store ptr %75, ptr %76, align 8
-  br label %77
+74:                                               ; preds = %70
+  %75 = getelementptr inbounds i8, ptr %73, i64 48
+  store ptr %51, ptr %75, align 8
+  %76 = load ptr, ptr %72, align 8
+  %77 = getelementptr inbounds i8, ptr %51, i64 56
+  store ptr %76, ptr %77, align 8
+  br label %78
 
-77:                                               ; preds = %73, %69
-  %78 = load ptr, ptr %56, align 8
-  store ptr %78, ptr %71, align 8
-  %79 = getelementptr inbounds i8, ptr %6, i64 24
-  %80 = load ptr, ptr %79, align 8
-  %81 = icmp eq ptr %80, %.060
-  br i1 %81, label %82, label %dom_pre_insert.exit
+78:                                               ; preds = %74, %70
+  %79 = load ptr, ptr %56, align 8
+  store ptr %79, ptr %72, align 8
+  %80 = getelementptr inbounds i8, ptr %6, i64 24
+  %81 = load ptr, ptr %80, align 8
+  %82 = icmp eq ptr %81, %.059
+  br i1 %82, label %83, label %dom_pre_insert.exit
 
-82:                                               ; preds = %77
-  store ptr %51, ptr %79, align 8
+83:                                               ; preds = %78
+  store ptr %51, ptr %80, align 8
   br label %dom_pre_insert.exit
 
-dom_pre_insert.exit:                              ; preds = %66, %77, %82
+dom_pre_insert.exit:                              ; preds = %67, %78, %83
   %.09.i = load ptr, ptr %50, align 8
   %.not10.i = icmp eq ptr %.09.i, null
-  br i1 %.not10.i, label %dom_fragment_assign_parent_node.exit, label %.lr.ph.i50
+  br i1 %.not10.i, label %dom_fragment_assign_parent_node.exit, label %.lr.ph.i49
 
-83:                                               ; preds = %.lr.ph.i50
-  %84 = getelementptr inbounds i8, ptr %.011.i, i64 48
-  %.0.i51 = load ptr, ptr %84, align 8
-  %.not.i52 = icmp eq ptr %.0.i51, null
-  br i1 %.not.i52, label %dom_fragment_assign_parent_node.exit, label %.lr.ph.i50
+84:                                               ; preds = %.lr.ph.i49
+  %85 = getelementptr inbounds i8, ptr %.011.i, i64 48
+  %.0.i50 = load ptr, ptr %85, align 8
+  %.not.i51 = icmp eq ptr %.0.i50, null
+  br i1 %.not.i51, label %dom_fragment_assign_parent_node.exit, label %.lr.ph.i49
 
-.lr.ph.i50:                                       ; preds = %dom_pre_insert.exit, %83
-  %.011.i = phi ptr [ %.0.i51, %83 ], [ %.09.i, %dom_pre_insert.exit ]
-  %85 = getelementptr inbounds i8, ptr %.011.i, i64 40
-  store ptr %6, ptr %85, align 8
-  %86 = load ptr, ptr %56, align 8
-  %87 = icmp eq ptr %.011.i, %86
-  br i1 %87, label %dom_fragment_assign_parent_node.exit, label %83
+.lr.ph.i49:                                       ; preds = %dom_pre_insert.exit, %84
+  %.011.i = phi ptr [ %.0.i50, %84 ], [ %.09.i, %dom_pre_insert.exit ]
+  %86 = getelementptr inbounds i8, ptr %.011.i, i64 40
+  store ptr %6, ptr %86, align 8
+  %87 = load ptr, ptr %56, align 8
+  %88 = icmp eq ptr %.011.i, %87
+  br i1 %88, label %dom_fragment_assign_parent_node.exit, label %84
 
-dom_fragment_assign_parent_node.exit:             ; preds = %83, %.lr.ph.i50, %dom_pre_insert.exit
+dom_fragment_assign_parent_node.exit:             ; preds = %84, %.lr.ph.i49, %dom_pre_insert.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, i8 0, i64 16, i1 false)
   tail call void @dom_reconcile_ns_list(ptr noundef %39, ptr noundef nonnull %51, ptr noundef %57) #3
-  br label %88
+  br label %89
 
-88:                                               ; preds = %dom_fragment_assign_parent_node.exit, %54
-  %89 = load ptr, ptr @xmlFree, align 8
-  tail call void %89(ptr noundef nonnull %47) #3
+89:                                               ; preds = %dom_fragment_assign_parent_node.exit, %54
+  %90 = load ptr, ptr @xmlFree, align 8
+  tail call void %90(ptr noundef nonnull %47) #3
   br label %dom_child_removal_preconditions.exit.thread
 
-dom_child_removal_preconditions.exit.thread:      ; preds = %.sink.split.i, %21, %45, %3, %88
+dom_child_removal_preconditions.exit.thread:      ; preds = %.sink.split.i, %21, %45, %3, %89
   ret void
 }
 
@@ -1261,13 +1279,13 @@ define hidden void @dom_parent_node_replace_children(ptr noundef %0, ptr noundef
   %6 = load ptr, ptr %5, align 8
   %7 = tail call fastcc i32 @dom_sanity_check_node_list_for_insertion(ptr noundef %6, ptr noundef %4, ptr noundef %1, i32 noundef %2)
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %8, label %42
+  br i1 %.not, label %8, label %43
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %5, align 8
   %10 = tail call ptr @dom_zvals_to_fragment(ptr noundef %9, ptr noundef %4, ptr noundef %1, i32 noundef %2)
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %42, label %12
+  br i1 %11, label %43, label %12
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %5, align 8
@@ -1286,7 +1304,7 @@ define hidden void @dom_parent_node_replace_children(ptr noundef %0, ptr noundef
   %19 = getelementptr inbounds i8, ptr %10, i64 24
   %20 = load ptr, ptr %19, align 8
   %.not28 = icmp eq ptr %20, null
-  br i1 %.not28, label %40, label %21
+  br i1 %.not28, label %41, label %21
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %10, i64 32
@@ -1294,7 +1312,7 @@ define hidden void @dom_parent_node_replace_children(ptr noundef %0, ptr noundef
   %24 = getelementptr inbounds i8, ptr %4, i64 24
   %25 = load ptr, ptr %24, align 8
   %.not24.i = icmp eq ptr %25, null
-  br i1 %.not24.i, label %dom_pre_insert.exit, label %26
+  br i1 %.not24.i, label %31, label %26
 
 26:                                               ; preds = %21
   %27 = getelementptr inbounds i8, ptr %4, i64 32
@@ -1302,45 +1320,48 @@ define hidden void @dom_parent_node_replace_children(ptr noundef %0, ptr noundef
   %29 = getelementptr inbounds i8, ptr %20, i64 56
   store ptr %28, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %28, i64 48
+  store ptr %20, ptr %30, align 8
   br label %dom_pre_insert.exit
 
-dom_pre_insert.exit:                              ; preds = %21, %26
-  %.sink.i = phi ptr [ %30, %26 ], [ %24, %21 ]
-  store ptr %20, ptr %.sink.i, align 8
-  %31 = load ptr, ptr %22, align 8
-  %32 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr %31, ptr %32, align 8
+31:                                               ; preds = %21
+  store ptr %20, ptr %24, align 8
+  br label %dom_pre_insert.exit
+
+dom_pre_insert.exit:                              ; preds = %26, %31
+  %32 = load ptr, ptr %22, align 8
+  %33 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %32, ptr %33, align 8
   %.09.i = load ptr, ptr %19, align 8
   %.not10.i = icmp eq ptr %.09.i, null
   br i1 %.not10.i, label %dom_fragment_assign_parent_node.exit, label %.lr.ph.i
 
-33:                                               ; preds = %.lr.ph.i
-  %34 = getelementptr inbounds i8, ptr %.011.i, i64 48
-  %.0.i = load ptr, ptr %34, align 8
+34:                                               ; preds = %.lr.ph.i
+  %35 = getelementptr inbounds i8, ptr %.011.i, i64 48
+  %.0.i = load ptr, ptr %35, align 8
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %dom_fragment_assign_parent_node.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %dom_pre_insert.exit, %33
-  %.011.i = phi ptr [ %.0.i, %33 ], [ %.09.i, %dom_pre_insert.exit ]
-  %35 = getelementptr inbounds i8, ptr %.011.i, i64 40
-  store ptr %4, ptr %35, align 8
-  %36 = load ptr, ptr %22, align 8
-  %37 = icmp eq ptr %.011.i, %36
-  br i1 %37, label %dom_fragment_assign_parent_node.exit, label %33
+.lr.ph.i:                                         ; preds = %dom_pre_insert.exit, %34
+  %.011.i = phi ptr [ %.0.i, %34 ], [ %.09.i, %dom_pre_insert.exit ]
+  %36 = getelementptr inbounds i8, ptr %.011.i, i64 40
+  store ptr %4, ptr %36, align 8
+  %37 = load ptr, ptr %22, align 8
+  %38 = icmp eq ptr %.011.i, %37
+  br i1 %38, label %dom_fragment_assign_parent_node.exit, label %34
 
-dom_fragment_assign_parent_node.exit:             ; preds = %33, %.lr.ph.i, %dom_pre_insert.exit
+dom_fragment_assign_parent_node.exit:             ; preds = %34, %.lr.ph.i, %dom_pre_insert.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
-  %38 = getelementptr inbounds i8, ptr %4, i64 64
-  %39 = load ptr, ptr %38, align 8
-  tail call void @dom_reconcile_ns_list(ptr noundef %39, ptr noundef nonnull %20, ptr noundef %23) #3
-  br label %40
+  %39 = getelementptr inbounds i8, ptr %4, i64 64
+  %40 = load ptr, ptr %39, align 8
+  tail call void @dom_reconcile_ns_list(ptr noundef %40, ptr noundef nonnull %20, ptr noundef %23) #3
+  br label %41
 
-40:                                               ; preds = %dom_fragment_assign_parent_node.exit, %18
-  %41 = load ptr, ptr @xmlFree, align 8
-  tail call void %41(ptr noundef nonnull %10) #3
-  br label %42
+41:                                               ; preds = %dom_fragment_assign_parent_node.exit, %18
+  %42 = load ptr, ptr @xmlFree, align 8
+  tail call void %42(ptr noundef nonnull %10) #3
+  br label %43
 
-42:                                               ; preds = %8, %3, %40
+43:                                               ; preds = %8, %3, %41
   ret void
 }
 

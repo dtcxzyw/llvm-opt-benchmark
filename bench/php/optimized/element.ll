@@ -1055,197 +1055,200 @@ define internal fastcc void @dom_remove_attribute(ptr noundef %0, ptr noundef no
   tail call void @node_list_unlink(ptr noundef %11) #8
   tail call void @xmlUnlinkNode(ptr noundef nonnull %1) #8
   tail call void @xmlFreeProp(ptr noundef nonnull %1) #8
-  br label %83
+  br label %86
 
 12:                                               ; preds = %6
   tail call void @xmlUnlinkNode(ptr noundef nonnull %1) #8
-  br label %83
+  br label %86
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds i8, ptr %0, i64 96
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, %1
-  br i1 %16, label %.loopexit.sink.split, label %17
+  br i1 %16, label %17, label %19
 
 17:                                               ; preds = %13
-  %.not = icmp eq ptr %15, null
-  br i1 %.not, label %83, label %.preheader
-
-.preheader:                                       ; preds = %17, %18
-  %.028 = phi ptr [ %.0, %18 ], [ %15, %17 ]
-  %.0 = load ptr, ptr %.028, align 8
-  %.not31 = icmp eq ptr %.0, null
-  br i1 %.not31, label %.loopexit, label %18
-
-18:                                               ; preds = %.preheader
-  %19 = icmp eq ptr %.0, %1
-  br i1 %19, label %.loopexit.sink.split, label %.preheader
-
-.loopexit.sink.split:                             ; preds = %18, %13
-  %.0.lcssa42.sink = phi ptr [ %1, %13 ], [ %.0, %18 ]
-  %.028.lcssa43.sink = phi ptr [ %14, %13 ], [ %.028, %18 ]
-  %20 = load ptr, ptr %.0.lcssa42.sink, align 8
-  store ptr %20, ptr %.028.lcssa43.sink, align 8
+  %18 = load ptr, ptr %1, align 8
+  store ptr %18, ptr %14, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader, %.loopexit.sink.split
+19:                                               ; preds = %13
+  %.not = icmp eq ptr %15, null
+  br i1 %.not, label %86, label %.preheader
+
+.preheader:                                       ; preds = %19, %20
+  %.028 = phi ptr [ %.0, %20 ], [ %15, %19 ]
+  %.0 = load ptr, ptr %.028, align 8
+  %.not31 = icmp eq ptr %.0, null
+  br i1 %.not31, label %.loopexit, label %20
+
+20:                                               ; preds = %.preheader
+  %21 = icmp eq ptr %.0, %1
+  br i1 %21, label %22, label %.preheader
+
+22:                                               ; preds = %20
+  %23 = load ptr, ptr %.0, align 8
+  store ptr %23, ptr %.028, align 8
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.preheader, %22, %17
   store ptr null, ptr %1, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
-  %22 = load ptr, ptr %21, align 8
-  tail call void @php_libxml_set_old_ns(ptr noundef %22, ptr noundef nonnull %1) #8
-  %23 = tail call noalias ptr @_emalloc_2048() #8
-  store ptr %0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
-  store ptr null, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 16
-  %26 = getelementptr inbounds i8, ptr %1, i64 24
-  br label %27
+  %24 = getelementptr inbounds i8, ptr %0, i64 64
+  %25 = load ptr, ptr %24, align 8
+  tail call void @php_libxml_set_old_ns(ptr noundef %25, ptr noundef nonnull %1) #8
+  %26 = tail call noalias ptr @_emalloc_2048() #8
+  store ptr %0, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  store ptr null, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %1, i64 16
+  %29 = getelementptr inbounds i8, ptr %1, i64 24
+  br label %30
 
-.loopexit.i:                                      ; preds = %81, %._crit_edge.i
-  %.190.lcssa.i = phi ptr [ %.089121.i, %._crit_edge.i ], [ %.291.i, %81 ]
-  %.187.lcssa.i = phi i64 [ %28, %._crit_edge.i ], [ %.288.i, %81 ]
-  %.183.lcssa.i = phi i64 [ %.082123.i, %._crit_edge.i ], [ %.284.i, %81 ]
+.loopexit.i:                                      ; preds = %84, %._crit_edge.i
+  %.190.lcssa.i = phi ptr [ %.089121.i, %._crit_edge.i ], [ %.291.i, %84 ]
+  %.187.lcssa.i = phi i64 [ %31, %._crit_edge.i ], [ %.288.i, %84 ]
+  %.183.lcssa.i = phi i64 [ %.082123.i, %._crit_edge.i ], [ %.284.i, %84 ]
   %.not.i = icmp eq i64 %.187.lcssa.i, 0
-  br i1 %.not.i, label %dom_deep_ns_redef.exit, label %27
+  br i1 %.not.i, label %dom_deep_ns_redef.exit, label %30
 
-27:                                               ; preds = %.loopexit.i, %.loopexit
+30:                                               ; preds = %.loopexit.i, %.loopexit
   %.082123.i = phi i64 [ 128, %.loopexit ], [ %.183.lcssa.i, %.loopexit.i ]
   %.086122.i = phi i64 [ 1, %.loopexit ], [ %.187.lcssa.i, %.loopexit.i ]
-  %.089121.i = phi ptr [ %23, %.loopexit ], [ %.190.lcssa.i, %.loopexit.i ]
-  %28 = add i64 %.086122.i, -1
-  %29 = getelementptr inbounds %struct._dom_deep_ns_redef_item, ptr %.089121.i, i64 %28
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
-  %32 = load i32, ptr %31, align 8
-  %33 = icmp eq i32 %32, 1
-  tail call void @llvm.assume(i1 %33)
-  %34 = getelementptr inbounds i8, ptr %29, i64 8
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %30, i64 72
-  %37 = load ptr, ptr %36, align 8
-  %38 = icmp eq ptr %37, %1
-  br i1 %38, label %39, label %48
+  %.089121.i = phi ptr [ %26, %.loopexit ], [ %.190.lcssa.i, %.loopexit.i ]
+  %31 = add i64 %.086122.i, -1
+  %32 = getelementptr inbounds %struct._dom_deep_ns_redef_item, ptr %.089121.i, i64 %31
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %35 = load i32, ptr %34, align 8
+  %36 = icmp eq i32 %35, 1
+  tail call void @llvm.assume(i1 %36)
+  %37 = getelementptr inbounds i8, ptr %32, i64 8
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds i8, ptr %33, i64 72
+  %40 = load ptr, ptr %39, align 8
+  %41 = icmp eq ptr %40, %1
+  br i1 %41, label %42, label %51
 
-39:                                               ; preds = %27
-  %40 = icmp eq ptr %35, null
-  br i1 %40, label %41, label %45
+42:                                               ; preds = %30
+  %43 = icmp eq ptr %38, null
+  br i1 %43, label %44, label %48
 
-41:                                               ; preds = %39
-  %42 = load ptr, ptr %25, align 8
-  %43 = load ptr, ptr %26, align 8
-  %44 = tail call ptr @xmlNewNs(ptr noundef nonnull %30, ptr noundef %42, ptr noundef %43) #8
-  %.pre.i = load ptr, ptr %29, align 8
-  br label %45
-
-45:                                               ; preds = %41, %39
-  %46 = phi ptr [ %.pre.i, %41 ], [ %30, %39 ]
-  %.1.i = phi ptr [ %44, %41 ], [ %35, %39 ]
-  %47 = getelementptr inbounds i8, ptr %46, i64 72
-  store ptr %.1.i, ptr %47, align 8
-  %.pre126.i = load ptr, ptr %29, align 8
+44:                                               ; preds = %42
+  %45 = load ptr, ptr %28, align 8
+  %46 = load ptr, ptr %29, align 8
+  %47 = tail call ptr @xmlNewNs(ptr noundef nonnull %33, ptr noundef %45, ptr noundef %46) #8
+  %.pre.i = load ptr, ptr %32, align 8
   br label %48
 
-48:                                               ; preds = %45, %27
-  %49 = phi ptr [ %.pre126.i, %45 ], [ %30, %27 ]
-  %.081.i = phi ptr [ %.1.i, %45 ], [ %35, %27 ]
-  %50 = getelementptr inbounds i8, ptr %49, i64 88
-  %.080106.i = load ptr, ptr %50, align 8
+48:                                               ; preds = %44, %42
+  %49 = phi ptr [ %.pre.i, %44 ], [ %33, %42 ]
+  %.1.i = phi ptr [ %47, %44 ], [ %38, %42 ]
+  %50 = getelementptr inbounds i8, ptr %49, i64 72
+  store ptr %.1.i, ptr %50, align 8
+  %.pre126.i = load ptr, ptr %32, align 8
+  br label %51
+
+51:                                               ; preds = %48, %30
+  %52 = phi ptr [ %.pre126.i, %48 ], [ %33, %30 ]
+  %.081.i = phi ptr [ %.1.i, %48 ], [ %38, %30 ]
+  %53 = getelementptr inbounds i8, ptr %52, i64 88
+  %.080106.i = load ptr, ptr %53, align 8
   %.not97107.i = icmp eq ptr %.080106.i, null
   br i1 %.not97107.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %48, %62
-  %.080109.i = phi ptr [ %.080.i, %62 ], [ %.080106.i, %48 ]
-  %.2108.i = phi ptr [ %.4.i, %62 ], [ %.081.i, %48 ]
-  %51 = getelementptr inbounds i8, ptr %.080109.i, i64 72
-  %52 = load ptr, ptr %51, align 8
-  %53 = icmp eq ptr %52, %1
-  br i1 %53, label %54, label %62
+.lr.ph.i:                                         ; preds = %51, %65
+  %.080109.i = phi ptr [ %.080.i, %65 ], [ %.080106.i, %51 ]
+  %.2108.i = phi ptr [ %.4.i, %65 ], [ %.081.i, %51 ]
+  %54 = getelementptr inbounds i8, ptr %.080109.i, i64 72
+  %55 = load ptr, ptr %54, align 8
+  %56 = icmp eq ptr %55, %1
+  br i1 %56, label %57, label %65
 
-54:                                               ; preds = %.lr.ph.i
-  %55 = icmp eq ptr %.2108.i, null
-  br i1 %55, label %56, label %61
+57:                                               ; preds = %.lr.ph.i
+  %58 = icmp eq ptr %.2108.i, null
+  br i1 %58, label %59, label %64
 
-56:                                               ; preds = %54
-  %57 = load ptr, ptr %29, align 8
-  %58 = load ptr, ptr %25, align 8
-  %59 = load ptr, ptr %26, align 8
-  %60 = tail call ptr @xmlNewNs(ptr noundef %57, ptr noundef %58, ptr noundef %59) #8
-  br label %61
+59:                                               ; preds = %57
+  %60 = load ptr, ptr %32, align 8
+  %61 = load ptr, ptr %28, align 8
+  %62 = load ptr, ptr %29, align 8
+  %63 = tail call ptr @xmlNewNs(ptr noundef %60, ptr noundef %61, ptr noundef %62) #8
+  br label %64
 
-61:                                               ; preds = %56, %54
-  %.3.i = phi ptr [ %60, %56 ], [ %.2108.i, %54 ]
-  store ptr %.3.i, ptr %51, align 8
-  br label %62
+64:                                               ; preds = %59, %57
+  %.3.i = phi ptr [ %63, %59 ], [ %.2108.i, %57 ]
+  store ptr %.3.i, ptr %54, align 8
+  br label %65
 
-62:                                               ; preds = %61, %.lr.ph.i
-  %.4.i = phi ptr [ %.3.i, %61 ], [ %.2108.i, %.lr.ph.i ]
-  %63 = getelementptr inbounds i8, ptr %.080109.i, i64 48
-  %.080.i = load ptr, ptr %63, align 8
+65:                                               ; preds = %64, %.lr.ph.i
+  %.4.i = phi ptr [ %.3.i, %64 ], [ %.2108.i, %.lr.ph.i ]
+  %66 = getelementptr inbounds i8, ptr %.080109.i, i64 48
+  %.080.i = load ptr, ptr %66, align 8
   %.not97.i = icmp eq ptr %.080.i, null
   br i1 %.not97.i, label %._crit_edge.loopexit.i, label %.lr.ph.i
 
-._crit_edge.loopexit.i:                           ; preds = %62
-  %.pre127.i = load ptr, ptr %29, align 8
+._crit_edge.loopexit.i:                           ; preds = %65
+  %.pre127.i = load ptr, ptr %32, align 8
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %48
-  %64 = phi ptr [ %49, %48 ], [ %.pre127.i, %._crit_edge.loopexit.i ]
-  %.2.lcssa.i = phi ptr [ %.081.i, %48 ], [ %.4.i, %._crit_edge.loopexit.i ]
-  %65 = getelementptr inbounds i8, ptr %64, i64 24
-  %.0110.i = load ptr, ptr %65, align 8
+._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %51
+  %67 = phi ptr [ %52, %51 ], [ %.pre127.i, %._crit_edge.loopexit.i ]
+  %.2.lcssa.i = phi ptr [ %.081.i, %51 ], [ %.4.i, %._crit_edge.loopexit.i ]
+  %68 = getelementptr inbounds i8, ptr %67, i64 24
+  %.0110.i = load ptr, ptr %68, align 8
   %.not98111.i = icmp eq ptr %.0110.i, null
   br i1 %.not98111.i, label %.loopexit.i, label %.lr.ph117.i
 
-.lr.ph117.i:                                      ; preds = %._crit_edge.i, %81
-  %.0115.i = phi ptr [ %.0.i, %81 ], [ %.0110.i, %._crit_edge.i ]
-  %.183114.i = phi i64 [ %.284.i, %81 ], [ %.082123.i, %._crit_edge.i ]
-  %.187113.i = phi i64 [ %.288.i, %81 ], [ %28, %._crit_edge.i ]
-  %.190112.i = phi ptr [ %.291.i, %81 ], [ %.089121.i, %._crit_edge.i ]
-  %66 = getelementptr inbounds i8, ptr %.0115.i, i64 8
-  %67 = load i32, ptr %66, align 8
-  %.not99.i = icmp eq i32 %67, 1
-  br i1 %.not99.i, label %68, label %81
+.lr.ph117.i:                                      ; preds = %._crit_edge.i, %84
+  %.0115.i = phi ptr [ %.0.i, %84 ], [ %.0110.i, %._crit_edge.i ]
+  %.183114.i = phi i64 [ %.284.i, %84 ], [ %.082123.i, %._crit_edge.i ]
+  %.187113.i = phi i64 [ %.288.i, %84 ], [ %31, %._crit_edge.i ]
+  %.190112.i = phi ptr [ %.291.i, %84 ], [ %.089121.i, %._crit_edge.i ]
+  %69 = getelementptr inbounds i8, ptr %.0115.i, i64 8
+  %70 = load i32, ptr %69, align 8
+  %.not99.i = icmp eq i32 %70, 1
+  br i1 %.not99.i, label %71, label %84
 
-68:                                               ; preds = %.lr.ph117.i
-  %69 = icmp eq i64 %.187113.i, %.183114.i
-  br i1 %69, label %70, label %77
+71:                                               ; preds = %.lr.ph117.i
+  %72 = icmp eq i64 %.187113.i, %.183114.i
+  br i1 %72, label %73, label %80
 
-70:                                               ; preds = %68
-  %71 = icmp ugt i64 %.183114.i, 768614336404564649
-  br i1 %71, label %dom_deep_ns_redef.exit, label %72
+73:                                               ; preds = %71
+  %74 = icmp ugt i64 %.183114.i, 768614336404564649
+  br i1 %74, label %dom_deep_ns_redef.exit, label %75
 
-72:                                               ; preds = %70
-  %73 = lshr i64 %.183114.i, 1
-  %74 = add nuw nsw i64 %73, %.183114.i
-  %75 = shl nuw i64 %74, 4
-  %76 = tail call ptr @_erealloc(ptr noundef %.190112.i, i64 noundef %75) #11
-  br label %77
+75:                                               ; preds = %73
+  %76 = lshr i64 %.183114.i, 1
+  %77 = add nuw nsw i64 %76, %.183114.i
+  %78 = shl nuw i64 %77, 4
+  %79 = tail call ptr @_erealloc(ptr noundef %.190112.i, i64 noundef %78) #11
+  br label %80
 
-77:                                               ; preds = %72, %68
-  %.392.i = phi ptr [ %76, %72 ], [ %.190112.i, %68 ]
-  %.385.i = phi i64 [ %74, %72 ], [ %.183114.i, %68 ]
-  %78 = getelementptr inbounds %struct._dom_deep_ns_redef_item, ptr %.392.i, i64 %.187113.i
-  store ptr %.0115.i, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 8
-  store ptr %.2.lcssa.i, ptr %79, align 8
-  %80 = add i64 %.187113.i, 1
-  br label %81
+80:                                               ; preds = %75, %71
+  %.392.i = phi ptr [ %79, %75 ], [ %.190112.i, %71 ]
+  %.385.i = phi i64 [ %77, %75 ], [ %.183114.i, %71 ]
+  %81 = getelementptr inbounds %struct._dom_deep_ns_redef_item, ptr %.392.i, i64 %.187113.i
+  store ptr %.0115.i, ptr %81, align 8
+  %82 = getelementptr inbounds i8, ptr %81, i64 8
+  store ptr %.2.lcssa.i, ptr %82, align 8
+  %83 = add i64 %.187113.i, 1
+  br label %84
 
-81:                                               ; preds = %77, %.lr.ph117.i
-  %.291.i = phi ptr [ %.190112.i, %.lr.ph117.i ], [ %.392.i, %77 ]
-  %.288.i = phi i64 [ %.187113.i, %.lr.ph117.i ], [ %80, %77 ]
-  %.284.i = phi i64 [ %.183114.i, %.lr.ph117.i ], [ %.385.i, %77 ]
-  %82 = getelementptr inbounds i8, ptr %.0115.i, i64 48
-  %.0.i = load ptr, ptr %82, align 8
+84:                                               ; preds = %80, %.lr.ph117.i
+  %.291.i = phi ptr [ %.190112.i, %.lr.ph117.i ], [ %.392.i, %80 ]
+  %.288.i = phi i64 [ %.187113.i, %.lr.ph117.i ], [ %83, %80 ]
+  %.284.i = phi i64 [ %.183114.i, %.lr.ph117.i ], [ %.385.i, %80 ]
+  %85 = getelementptr inbounds i8, ptr %.0115.i, i64 48
+  %.0.i = load ptr, ptr %85, align 8
   %.not98.i = icmp eq ptr %.0.i, null
   br i1 %.not98.i, label %.loopexit.i, label %.lr.ph117.i
 
-dom_deep_ns_redef.exit:                           ; preds = %.loopexit.i, %70
-  %.493.i = phi ptr [ %.190112.i, %70 ], [ %.190.lcssa.i, %.loopexit.i ]
+dom_deep_ns_redef.exit:                           ; preds = %.loopexit.i, %73
+  %.493.i = phi ptr [ %.190112.i, %73 ], [ %.190.lcssa.i, %.loopexit.i ]
   tail call void @_efree(ptr noundef %.493.i) #8
-  br label %83
+  br label %86
 
-83:                                               ; preds = %17, %9, %12, %dom_deep_ns_redef.exit
+86:                                               ; preds = %19, %9, %12, %dom_deep_ns_redef.exit
   ret void
 }
 
@@ -2097,7 +2100,7 @@ define hidden void @zim_DOMElement_removeAttributeNS(ptr nocapture noundef reado
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %13 = icmp ne ptr %12, null
   call void @llvm.assume(i1 %13)
-  br label %119
+  br label %122
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds i8, ptr %0, i64 32
@@ -2117,7 +2120,7 @@ define hidden void @zim_DOMElement_removeAttributeNS(ptr nocapture noundef reado
   %26 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %27 = icmp ne ptr %26, null
   call void @llvm.assume(i1 %27)
-  br label %119
+  br label %122
 
 28:                                               ; preds = %14
   %29 = load ptr, ptr %18, align 8
@@ -2135,7 +2138,7 @@ define hidden void @zim_DOMElement_removeAttributeNS(ptr nocapture noundef reado
   %38 = load ptr, ptr %37, align 8
   %39 = call i32 @xmlStrEqual(ptr noundef %36, ptr noundef %38) #8
   %.not23 = icmp eq i32 %39, 0
-  br i1 %.not23, label %105, label %40
+  br i1 %.not23, label %108, label %40
 
 40:                                               ; preds = %35
   %41 = load ptr, ptr %37, align 8
@@ -2164,180 +2167,184 @@ define hidden void @zim_DOMElement_removeAttributeNS(ptr nocapture noundef reado
   %50 = getelementptr inbounds i8, ptr %29, i64 96
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, %34
-  br i1 %52, label %.loopexit.sink.split.i, label %.preheader.i
+  br i1 %52, label %53, label %.preheader.i
 
-.preheader.i:                                     ; preds = %49, %55
-  %.0.i = phi ptr [ %53, %55 ], [ %51, %49 ]
-  %53 = load ptr, ptr %.0.i, align 8
-  %54 = icmp eq ptr %53, %34
-  br i1 %54, label %.loopexit.sink.split.i, label %55
-
-55:                                               ; preds = %.preheader.i
-  %.not28.i = icmp eq ptr %53, null
-  br i1 %.not28.i, label %.loopexit.i, label %.preheader.i
-
-.loopexit.sink.split.i:                           ; preds = %.preheader.i, %49
-  %.0.lcssa.sink.i = phi ptr [ %50, %49 ], [ %.0.i, %.preheader.i ]
-  %56 = load ptr, ptr %34, align 8
-  store ptr %56, ptr %.0.lcssa.sink.i, align 8
+53:                                               ; preds = %49
+  %54 = load ptr, ptr %34, align 8
+  store ptr %54, ptr %50, align 8
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %55, %.loopexit.sink.split.i
+.preheader.i:                                     ; preds = %49, %59
+  %.0.i = phi ptr [ %55, %59 ], [ %51, %49 ]
+  %55 = load ptr, ptr %.0.i, align 8
+  %56 = icmp eq ptr %55, %34
+  br i1 %56, label %57, label %59
+
+57:                                               ; preds = %.preheader.i
+  %58 = load ptr, ptr %34, align 8
+  store ptr %58, ptr %.0.i, align 8
+  br label %.loopexit.i
+
+59:                                               ; preds = %.preheader.i
+  %.not28.i = icmp eq ptr %55, null
+  br i1 %.not28.i, label %.loopexit.i, label %.preheader.i
+
+.loopexit.i:                                      ; preds = %59, %57, %53
   store ptr null, ptr %34, align 8
-  %57 = getelementptr inbounds i8, ptr %29, i64 64
-  %58 = load ptr, ptr %57, align 8
-  call void @php_libxml_set_old_ns(ptr noundef %58, ptr noundef nonnull %34) #8
-  %59 = getelementptr inbounds i8, ptr %29, i64 8
-  %60 = load i32, ptr %59, align 8
-  %61 = icmp eq i32 %60, 1
-  call void @llvm.assume(i1 %61)
-  %62 = getelementptr inbounds i8, ptr %29, i64 72
-  %63 = load ptr, ptr %62, align 8
-  %64 = icmp eq ptr %63, %34
-  br i1 %64, label %65, label %66
+  %60 = getelementptr inbounds i8, ptr %29, i64 64
+  %61 = load ptr, ptr %60, align 8
+  call void @php_libxml_set_old_ns(ptr noundef %61, ptr noundef nonnull %34) #8
+  %62 = getelementptr inbounds i8, ptr %29, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 1
+  call void @llvm.assume(i1 %64)
+  %65 = getelementptr inbounds i8, ptr %29, i64 72
+  %66 = load ptr, ptr %65, align 8
+  %67 = icmp eq ptr %66, %34
+  br i1 %67, label %68, label %69
 
-65:                                               ; preds = %.loopexit.i
-  store ptr null, ptr %62, align 8
-  br label %66
+68:                                               ; preds = %.loopexit.i
+  store ptr null, ptr %65, align 8
+  br label %69
 
-66:                                               ; preds = %65, %.loopexit.i
-  %67 = getelementptr inbounds i8, ptr %29, i64 88
-  %.010.i.i.i = load ptr, ptr %67, align 8
+69:                                               ; preds = %68, %.loopexit.i
+  %70 = getelementptr inbounds i8, ptr %29, i64 88
+  %.010.i.i.i = load ptr, ptr %70, align 8
   %.not11.i.i.i = icmp eq ptr %.010.i.i.i, null
   br i1 %.not11.i.i.i, label %dom_remove_eliminated_ns_single_element.exit.i.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %66, %72
-  %.012.i.i.i = phi ptr [ %.0.i.i.i, %72 ], [ %.010.i.i.i, %66 ]
-  %68 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 72
-  %69 = load ptr, ptr %68, align 8
-  %70 = icmp eq ptr %69, %34
-  br i1 %70, label %71, label %72
+.lr.ph.i.i.i:                                     ; preds = %69, %75
+  %.012.i.i.i = phi ptr [ %.0.i.i.i, %75 ], [ %.010.i.i.i, %69 ]
+  %71 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 72
+  %72 = load ptr, ptr %71, align 8
+  %73 = icmp eq ptr %72, %34
+  br i1 %73, label %74, label %75
 
-71:                                               ; preds = %.lr.ph.i.i.i
-  store ptr null, ptr %68, align 8
-  br label %72
+74:                                               ; preds = %.lr.ph.i.i.i
+  store ptr null, ptr %71, align 8
+  br label %75
 
-72:                                               ; preds = %71, %.lr.ph.i.i.i
-  %73 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 48
-  %.0.i.i.i = load ptr, ptr %73, align 8
+75:                                               ; preds = %74, %.lr.ph.i.i.i
+  %76 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 48
+  %.0.i.i.i = load ptr, ptr %76, align 8
   %.not.i.i.i = icmp eq ptr %.0.i.i.i, null
   br i1 %.not.i.i.i, label %dom_remove_eliminated_ns_single_element.exit.i.i, label %.lr.ph.i.i.i
 
-dom_remove_eliminated_ns_single_element.exit.i.i: ; preds = %72, %66
-  %74 = getelementptr inbounds i8, ptr %29, i64 24
-  %75 = load ptr, ptr %74, align 8
-  %.not34.i.i = icmp eq ptr %75, null
+dom_remove_eliminated_ns_single_element.exit.i.i: ; preds = %75, %69
+  %77 = getelementptr inbounds i8, ptr %29, i64 24
+  %78 = load ptr, ptr %77, align 8
+  %.not34.i.i = icmp eq ptr %78, null
   br i1 %.not34.i.i, label %dom_eliminate_ns.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %dom_remove_eliminated_ns_single_element.exit.i.i, %.lr.ph.i.i.backedge
-  %.035.i.i = phi ptr [ %.035.i.i.be, %.lr.ph.i.i.backedge ], [ %75, %dom_remove_eliminated_ns_single_element.exit.i.i ]
-  %76 = icmp ne ptr %.035.i.i, %29
-  call void @llvm.assume(i1 %76)
-  %77 = getelementptr inbounds i8, ptr %.035.i.i, i64 8
-  %78 = load i32, ptr %77, align 8
-  %79 = icmp eq i32 %78, 1
-  br i1 %79, label %80, label %95
+  %.035.i.i = phi ptr [ %.035.i.i.be, %.lr.ph.i.i.backedge ], [ %78, %dom_remove_eliminated_ns_single_element.exit.i.i ]
+  %79 = icmp ne ptr %.035.i.i, %29
+  call void @llvm.assume(i1 %79)
+  %80 = getelementptr inbounds i8, ptr %.035.i.i, i64 8
+  %81 = load i32, ptr %80, align 8
+  %82 = icmp eq i32 %81, 1
+  br i1 %82, label %83, label %98
 
-80:                                               ; preds = %.lr.ph.i.i
-  %81 = getelementptr inbounds i8, ptr %.035.i.i, i64 72
-  %82 = load ptr, ptr %81, align 8
-  %83 = icmp eq ptr %82, %34
-  br i1 %83, label %84, label %85
+83:                                               ; preds = %.lr.ph.i.i
+  %84 = getelementptr inbounds i8, ptr %.035.i.i, i64 72
+  %85 = load ptr, ptr %84, align 8
+  %86 = icmp eq ptr %85, %34
+  br i1 %86, label %87, label %88
 
-84:                                               ; preds = %80
-  store ptr null, ptr %81, align 8
-  br label %85
+87:                                               ; preds = %83
+  store ptr null, ptr %84, align 8
+  br label %88
 
-85:                                               ; preds = %84, %80
-  %86 = getelementptr inbounds i8, ptr %.035.i.i, i64 88
-  %.010.i25.i.i = load ptr, ptr %86, align 8
+88:                                               ; preds = %87, %83
+  %89 = getelementptr inbounds i8, ptr %.035.i.i, i64 88
+  %.010.i25.i.i = load ptr, ptr %89, align 8
   %.not11.i26.i.i = icmp eq ptr %.010.i25.i.i, null
   br i1 %.not11.i26.i.i, label %dom_remove_eliminated_ns_single_element.exit31.i.i, label %.lr.ph.i27.i.i
 
-.lr.ph.i27.i.i:                                   ; preds = %85, %91
-  %.012.i28.i.i = phi ptr [ %.0.i29.i.i, %91 ], [ %.010.i25.i.i, %85 ]
-  %87 = getelementptr inbounds i8, ptr %.012.i28.i.i, i64 72
-  %88 = load ptr, ptr %87, align 8
-  %89 = icmp eq ptr %88, %34
-  br i1 %89, label %90, label %91
+.lr.ph.i27.i.i:                                   ; preds = %88, %94
+  %.012.i28.i.i = phi ptr [ %.0.i29.i.i, %94 ], [ %.010.i25.i.i, %88 ]
+  %90 = getelementptr inbounds i8, ptr %.012.i28.i.i, i64 72
+  %91 = load ptr, ptr %90, align 8
+  %92 = icmp eq ptr %91, %34
+  br i1 %92, label %93, label %94
 
-90:                                               ; preds = %.lr.ph.i27.i.i
-  store ptr null, ptr %87, align 8
-  br label %91
+93:                                               ; preds = %.lr.ph.i27.i.i
+  store ptr null, ptr %90, align 8
+  br label %94
 
-91:                                               ; preds = %90, %.lr.ph.i27.i.i
-  %92 = getelementptr inbounds i8, ptr %.012.i28.i.i, i64 48
-  %.0.i29.i.i = load ptr, ptr %92, align 8
+94:                                               ; preds = %93, %.lr.ph.i27.i.i
+  %95 = getelementptr inbounds i8, ptr %.012.i28.i.i, i64 48
+  %.0.i29.i.i = load ptr, ptr %95, align 8
   %.not.i30.i.i = icmp eq ptr %.0.i29.i.i, null
   br i1 %.not.i30.i.i, label %dom_remove_eliminated_ns_single_element.exit31.i.i, label %.lr.ph.i27.i.i
 
-dom_remove_eliminated_ns_single_element.exit31.i.i: ; preds = %91, %85
-  %93 = getelementptr inbounds i8, ptr %.035.i.i, i64 24
-  %94 = load ptr, ptr %93, align 8
-  %.not23.i.i = icmp eq ptr %94, null
-  br i1 %.not23.i.i, label %95, label %.lr.ph.i.i.backedge
-
-95:                                               ; preds = %dom_remove_eliminated_ns_single_element.exit31.i.i, %.lr.ph.i.i
-  %96 = getelementptr inbounds i8, ptr %.035.i.i, i64 48
+dom_remove_eliminated_ns_single_element.exit31.i.i: ; preds = %94, %88
+  %96 = getelementptr inbounds i8, ptr %.035.i.i, i64 24
   %97 = load ptr, ptr %96, align 8
-  %.not24.i.i = icmp eq ptr %97, null
+  %.not23.i.i = icmp eq ptr %97, null
+  br i1 %.not23.i.i, label %98, label %.lr.ph.i.i.backedge
+
+98:                                               ; preds = %dom_remove_eliminated_ns_single_element.exit31.i.i, %.lr.ph.i.i
+  %99 = getelementptr inbounds i8, ptr %.035.i.i, i64 48
+  %100 = load ptr, ptr %99, align 8
+  %.not24.i.i = icmp eq ptr %100, null
   br i1 %.not24.i.i, label %.preheader.i.i, label %.lr.ph.i.i.backedge
 
-.lr.ph.i.i.backedge:                              ; preds = %101, %95, %dom_remove_eliminated_ns_single_element.exit31.i.i
-  %.035.i.i.be = phi ptr [ %94, %dom_remove_eliminated_ns_single_element.exit31.i.i ], [ %97, %95 ], [ %103, %101 ]
+.lr.ph.i.i.backedge:                              ; preds = %104, %98, %dom_remove_eliminated_ns_single_element.exit31.i.i
+  %.035.i.i.be = phi ptr [ %97, %dom_remove_eliminated_ns_single_element.exit31.i.i ], [ %100, %98 ], [ %106, %104 ]
   br label %.lr.ph.i.i
 
-.preheader.i.i:                                   ; preds = %95, %101
-  %.2.i.i = phi ptr [ %99, %101 ], [ %.035.i.i, %95 ]
-  %98 = getelementptr inbounds i8, ptr %.2.i.i, i64 40
-  %99 = load ptr, ptr %98, align 8
-  %100 = icmp eq ptr %99, %29
-  br i1 %100, label %dom_eliminate_ns.exit, label %101
+.preheader.i.i:                                   ; preds = %98, %104
+  %.2.i.i = phi ptr [ %102, %104 ], [ %.035.i.i, %98 ]
+  %101 = getelementptr inbounds i8, ptr %.2.i.i, i64 40
+  %102 = load ptr, ptr %101, align 8
+  %103 = icmp eq ptr %102, %29
+  br i1 %103, label %dom_eliminate_ns.exit, label %104
 
-101:                                              ; preds = %.preheader.i.i
-  %102 = getelementptr inbounds i8, ptr %99, i64 48
-  %103 = load ptr, ptr %102, align 8
-  %104 = icmp eq ptr %103, null
-  br i1 %104, label %.preheader.i.i, label %.lr.ph.i.i.backedge
+104:                                              ; preds = %.preheader.i.i
+  %105 = getelementptr inbounds i8, ptr %102, i64 48
+  %106 = load ptr, ptr %105, align 8
+  %107 = icmp eq ptr %106, null
+  br i1 %107, label %.preheader.i.i, label %.lr.ph.i.i.backedge
 
-105:                                              ; preds = %35
-  %106 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 1, ptr %106, align 8
-  br label %119
+108:                                              ; preds = %35
+  %109 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 1, ptr %109, align 8
+  br label %122
 
 dom_eliminate_ns.exit:                            ; preds = %.preheader.i.i, %dom_remove_eliminated_ns_single_element.exit.i.i, %28
   %.not24 = icmp eq ptr %32, null
-  br i1 %.not24, label %117, label %107
+  br i1 %.not24, label %120, label %110
 
-107:                                              ; preds = %dom_eliminate_ns.exit
-  %108 = getelementptr inbounds i8, ptr %32, i64 8
-  %109 = load i32, ptr %108, align 8
-  %.not25 = icmp eq i32 %109, 16
-  br i1 %.not25, label %117, label %110
-
-110:                                              ; preds = %107
-  %111 = call ptr @php_dom_object_get_data(ptr noundef nonnull %32) #8
-  %112 = icmp eq ptr %111, null
-  br i1 %112, label %113, label %116
+110:                                              ; preds = %dom_eliminate_ns.exit
+  %111 = getelementptr inbounds i8, ptr %32, i64 8
+  %112 = load i32, ptr %111, align 8
+  %.not25 = icmp eq i32 %112, 16
+  br i1 %.not25, label %120, label %113
 
 113:                                              ; preds = %110
-  %114 = getelementptr inbounds i8, ptr %32, i64 24
-  %115 = load ptr, ptr %114, align 8
-  call void @node_list_unlink(ptr noundef %115) #8
+  %114 = call ptr @php_dom_object_get_data(ptr noundef nonnull %32) #8
+  %115 = icmp eq ptr %114, null
+  br i1 %115, label %116, label %119
+
+116:                                              ; preds = %113
+  %117 = getelementptr inbounds i8, ptr %32, i64 24
+  %118 = load ptr, ptr %117, align 8
+  call void @node_list_unlink(ptr noundef %118) #8
   call void @xmlUnlinkNode(ptr noundef nonnull %32) #8
   call void @xmlFreeProp(ptr noundef nonnull %32) #8
-  br label %117
+  br label %120
 
-116:                                              ; preds = %110
+119:                                              ; preds = %113
   call void @xmlUnlinkNode(ptr noundef nonnull %32) #8
-  br label %117
+  br label %120
 
-117:                                              ; preds = %113, %116, %107, %dom_eliminate_ns.exit
-  %118 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 1, ptr %118, align 8
-  br label %119
+120:                                              ; preds = %116, %119, %110, %dom_eliminate_ns.exit
+  %121 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 1, ptr %121, align 8
+  br label %122
 
-119:                                              ; preds = %117, %105, %20, %11
+122:                                              ; preds = %120, %108, %20, %11
   ret void
 }
 

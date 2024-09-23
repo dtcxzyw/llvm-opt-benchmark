@@ -4977,9 +4977,9 @@ define dso_local noundef zeroext i1 @type_is_scalar(ptr nocapture noundef readon
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local ptr @type_find_parent_type(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
   %2 = load i32, ptr %0, align 8
-  switch i32 %2, label %23 [
+  switch i32 %2, label %26 [
     i32 32, label %3
-    i32 26, label %11
+    i32 26, label %14
   ]
 
 3:                                                ; preds = %1
@@ -4989,36 +4989,34 @@ define dso_local ptr @type_find_parent_type(ptr nocapture noundef readonly %0) l
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 32768
   %.not8 = icmp eq i64 %8, 0
-  br i1 %.not8, label %23, label %9
+  br i1 %.not8, label %26, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %5, i64 96
-  br label %.sink.split
-
-11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
-  %15 = load i64, ptr %14, align 8
-  %16 = and i64 %15, 32768
-  %.not = icmp eq i64 %16, 0
-  br i1 %.not, label %23, label %17
+  br label %26
 
-17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %13, i64 104
-  %19 = load ptr, ptr %18, align 8
-  br label %.sink.split
+14:                                               ; preds = %1
+  %15 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 24
+  %18 = load i64, ptr %17, align 8
+  %19 = and i64 %18, 32768
+  %.not = icmp eq i64 %19, 0
+  br i1 %.not, label %26, label %20
 
-.sink.split:                                      ; preds = %9, %17
-  %.sink = phi ptr [ %19, %17 ], [ %10, %9 ]
-  %.sink10 = phi i64 [ 72, %17 ], [ 8, %9 ]
-  %20 = load ptr, ptr %.sink, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 %.sink10
+20:                                               ; preds = %14
+  %21 = getelementptr inbounds i8, ptr %16, i64 104
   %22 = load ptr, ptr %21, align 8
-  br label %23
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %23, i64 72
+  %25 = load ptr, ptr %24, align 8
+  br label %26
 
-23:                                               ; preds = %.sink.split, %1, %11, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %11 ], [ null, %1 ], [ %22, %.sink.split ]
+26:                                               ; preds = %1, %20, %14, %9, %3
+  %.0 = phi ptr [ %13, %9 ], [ null, %3 ], [ %25, %20 ], [ null, %14 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -5028,7 +5026,7 @@ define dso_local noundef zeroext i1 @type_is_subtype(ptr noundef readnone %0, pt
   br i1 %.not8.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %type_find_parent_type.exit
-  %.09 = phi ptr [ %27, %type_find_parent_type.exit ], [ %1, %2 ]
+  %.09 = phi ptr [ %.0.i, %type_find_parent_type.exit ], [ %1, %2 ]
   %3 = getelementptr inbounds i8, ptr %.09, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %0, %4
@@ -5038,7 +5036,7 @@ define dso_local noundef zeroext i1 @type_is_subtype(ptr noundef readnone %0, pt
   %7 = load i32, ptr %4, align 8
   switch i32 %7, label %._crit_edge [
     i32 32, label %8
-    i32 26, label %16
+    i32 26, label %18
   ]
 
 8:                                                ; preds = %6
@@ -5052,33 +5050,34 @@ define dso_local noundef zeroext i1 @type_is_subtype(ptr noundef readnone %0, pt
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds i8, ptr %10, i64 96
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 8
   br label %type_find_parent_type.exit
 
-16:                                               ; preds = %6
-  %17 = getelementptr inbounds i8, ptr %4, i64 56
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 24
-  %20 = load i64, ptr %19, align 8
-  %21 = and i64 %20, 32768
-  %.not.i = icmp eq i64 %21, 0
-  br i1 %.not.i, label %._crit_edge, label %22
+18:                                               ; preds = %6
+  %19 = getelementptr inbounds i8, ptr %4, i64 56
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %22 = load i64, ptr %21, align 8
+  %23 = and i64 %22, 32768
+  %.not.i = icmp eq i64 %23, 0
+  br i1 %.not.i, label %._crit_edge, label %24
 
-22:                                               ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %18, i64 104
-  %24 = load ptr, ptr %23, align 8
-  br label %type_find_parent_type.exit
-
-type_find_parent_type.exit:                       ; preds = %14, %22
-  %.sink.i = phi ptr [ %24, %22 ], [ %15, %14 ]
-  %.sink10.i = phi i64 [ 72, %22 ], [ 8, %14 ]
-  %25 = load ptr, ptr %.sink.i, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 %.sink10.i
+24:                                               ; preds = %18
+  %25 = getelementptr inbounds i8, ptr %20, i64 104
+  %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %26, align 8
-  %.not.not = icmp eq ptr %27, null
+  %28 = getelementptr inbounds i8, ptr %27, i64 72
+  br label %type_find_parent_type.exit
+
+type_find_parent_type.exit:                       ; preds = %14, %24
+  %.0.i.in = phi ptr [ %17, %14 ], [ %28, %24 ]
+  %.0.i = load ptr, ptr %.0.i.in, align 8
+  %.not.not = icmp eq ptr %.0.i, null
   br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
-._crit_edge:                                      ; preds = %6, %16, %8, %.lr.ph, %type_find_parent_type.exit, %2
-  %.not.lcssa = phi i1 [ false, %2 ], [ %5, %type_find_parent_type.exit ], [ %5, %.lr.ph ], [ %5, %8 ], [ %5, %16 ], [ %5, %6 ]
+._crit_edge:                                      ; preds = %6, %18, %8, %.lr.ph, %type_find_parent_type.exit, %2
+  %.not.lcssa = phi i1 [ false, %2 ], [ %5, %type_find_parent_type.exit ], [ %5, %.lr.ph ], [ %5, %8 ], [ %5, %18 ], [ %5, %6 ]
   ret i1 %.not.lcssa
 }
 
@@ -5275,15 +5274,15 @@ type_is_matching_int.exit:                        ; preds = %65
 define dso_local i32 @type_is_pointer_equivalent(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %131, %4
-  %.tr85 = phi ptr [ %1, %4 ], [ %134, %131 ]
-  %.tr86 = phi ptr [ %2, %4 ], [ %.158, %131 ]
+tailrecurse:                                      ; preds = %132, %4
+  %.tr85 = phi ptr [ %1, %4 ], [ %135, %132 ]
+  %.tr86 = phi ptr [ %2, %4 ], [ %.158, %132 ]
   %5 = load ptr, ptr @type_voidptr, align 8
   br label %6
 
-6:                                                ; preds = %135, %tailrecurse
-  %.057 = phi ptr [ %.tr85, %tailrecurse ], [ %.054, %135 ]
-  %.056 = phi ptr [ %.tr86, %tailrecurse ], [ %.053, %135 ]
+6:                                                ; preds = %136, %tailrecurse
+  %.057 = phi ptr [ %.tr85, %tailrecurse ], [ %.054, %136 ]
+  %.056 = phi ptr [ %.tr86, %tailrecurse ], [ %.053, %136 ]
   br i1 %3, label %.preheader88, label %type_flatten.exit71
 
 .preheader88:                                     ; preds = %6, %19
@@ -5448,7 +5447,7 @@ type_flatten.exit79:                              ; preds = %type_flatten.exit75
   br i1 %.not8.not.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %73, %type_find_parent_type.exit.i
-  %.09.i = phi ptr [ %98, %type_find_parent_type.exit.i ], [ %.053, %73 ]
+  %.09.i = phi ptr [ %.0.i.i, %type_find_parent_type.exit.i ], [ %.053, %73 ]
   %74 = getelementptr inbounds i8, ptr %.09.i, i64 8
   %75 = load ptr, ptr %74, align 8
   %76 = icmp eq ptr %.054, %75
@@ -5458,7 +5457,7 @@ type_flatten.exit79:                              ; preds = %type_flatten.exit75
   %78 = load i32, ptr %75, align 8
   switch i32 %78, label %.loopexit [
     i32 32, label %79
-    i32 26, label %87
+    i32 26, label %89
   ]
 
 79:                                               ; preds = %77
@@ -5472,127 +5471,128 @@ type_flatten.exit79:                              ; preds = %type_flatten.exit75
 
 85:                                               ; preds = %79
   %86 = getelementptr inbounds i8, ptr %81, i64 96
+  %87 = load ptr, ptr %86, align 8
+  %88 = getelementptr inbounds i8, ptr %87, i64 8
   br label %type_find_parent_type.exit.i
 
-87:                                               ; preds = %77
-  %88 = getelementptr inbounds i8, ptr %75, i64 56
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 24
-  %91 = load i64, ptr %90, align 8
-  %92 = and i64 %91, 32768
-  %.not.i.i = icmp eq i64 %92, 0
-  br i1 %.not.i.i, label %.loopexit, label %93
+89:                                               ; preds = %77
+  %90 = getelementptr inbounds i8, ptr %75, i64 56
+  %91 = load ptr, ptr %90, align 8
+  %92 = getelementptr inbounds i8, ptr %91, i64 24
+  %93 = load i64, ptr %92, align 8
+  %94 = and i64 %93, 32768
+  %.not.i.i = icmp eq i64 %94, 0
+  br i1 %.not.i.i, label %.loopexit, label %95
 
-93:                                               ; preds = %87
-  %94 = getelementptr inbounds i8, ptr %89, i64 104
-  %95 = load ptr, ptr %94, align 8
-  br label %type_find_parent_type.exit.i
-
-type_find_parent_type.exit.i:                     ; preds = %93, %85
-  %.sink.i.i = phi ptr [ %95, %93 ], [ %86, %85 ]
-  %.sink10.i.i = phi i64 [ 72, %93 ], [ 8, %85 ]
-  %96 = load ptr, ptr %.sink.i.i, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 %.sink10.i.i
+95:                                               ; preds = %89
+  %96 = getelementptr inbounds i8, ptr %91, i64 104
+  %97 = load ptr, ptr %96, align 8
   %98 = load ptr, ptr %97, align 8
-  %.not.not.i = icmp eq ptr %98, null
+  %99 = getelementptr inbounds i8, ptr %98, i64 72
+  br label %type_find_parent_type.exit.i
+
+type_find_parent_type.exit.i:                     ; preds = %95, %85
+  %.0.i.in.i = phi ptr [ %88, %85 ], [ %99, %95 ]
+  %.0.i.i = load ptr, ptr %.0.i.in.i, align 8
+  %.not.not.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !23
 
-.loopexit:                                        ; preds = %77, %87, %79, %type_find_parent_type.exit.i, %73
-  %99 = load i32, ptr %.054, align 8
-  %100 = load i32, ptr %.053, align 8
-  %.not = icmp eq i32 %99, %100
-  br i1 %.not, label %135, label %101
+.loopexit:                                        ; preds = %77, %89, %79, %type_find_parent_type.exit.i, %73
+  %100 = load i32, ptr %.054, align 8
+  %101 = load i32, ptr %.053, align 8
+  %.not = icmp eq i32 %100, %101
+  br i1 %.not, label %136, label %102
 
-101:                                              ; preds = %.loopexit
-  %102 = add i32 %99, -3
-  %103 = icmp ult i32 %102, 5
-  br i1 %103, label %104, label %107
+102:                                              ; preds = %.loopexit
+  %103 = add i32 %100, -3
+  %104 = icmp ult i32 %103, 5
+  br i1 %104, label %105, label %108
 
-104:                                              ; preds = %101
-  %105 = add nuw nsw i32 %99, 5
-  %106 = icmp eq i32 %105, %100
-  br i1 %106, label %type_is_subtype.exit, label %type_is_matching_int.exit.thread
+105:                                              ; preds = %102
+  %106 = add nuw nsw i32 %100, 5
+  %107 = icmp eq i32 %106, %101
+  br i1 %107, label %type_is_subtype.exit, label %type_is_matching_int.exit.thread
 
-107:                                              ; preds = %101
-  %108 = add i32 %99, -8
-  %109 = icmp ult i32 %108, 5
-  %110 = add i32 %100, 5
-  %111 = icmp eq i32 %110, %99
-  %or.cond84 = and i1 %109, %111
+108:                                              ; preds = %102
+  %109 = add i32 %100, -8
+  %110 = icmp ult i32 %109, 5
+  %111 = add i32 %101, 5
+  %112 = icmp eq i32 %111, %100
+  %or.cond84 = and i1 %110, %112
   br i1 %or.cond84, label %type_is_subtype.exit, label %type_is_matching_int.exit.thread
 
-type_is_matching_int.exit.thread:                 ; preds = %107, %104
-  %112 = icmp eq i32 %100, 31
-  br i1 %112, label %113, label %117
+type_is_matching_int.exit.thread:                 ; preds = %108, %105
+  %113 = icmp eq i32 %101, 31
+  br i1 %113, label %114, label %118
 
-113:                                              ; preds = %type_is_matching_int.exit.thread
-  %114 = getelementptr inbounds i8, ptr %.053, i64 8
-  %115 = load ptr, ptr %114, align 8
-  %116 = load i32, ptr %115, align 8
-  br label %117
+114:                                              ; preds = %type_is_matching_int.exit.thread
+  %115 = getelementptr inbounds i8, ptr %.053, i64 8
+  %116 = load ptr, ptr %115, align 8
+  %117 = load i32, ptr %116, align 8
+  br label %118
 
-117:                                              ; preds = %113, %type_is_matching_int.exit.thread
-  %.0 = phi i32 [ %116, %113 ], [ %100, %type_is_matching_int.exit.thread ]
-  %118 = add i32 %.0, -33
-  %119 = icmp ult i32 %118, 6
-  br i1 %119, label %120, label %type_is_subtype.exit
+118:                                              ; preds = %114, %type_is_matching_int.exit.thread
+  %.0 = phi i32 [ %117, %114 ], [ %101, %type_is_matching_int.exit.thread ]
+  %119 = add i32 %.0, -33
+  %120 = icmp ult i32 %119, 6
+  br i1 %120, label %121, label %type_is_subtype.exit
 
-120:                                              ; preds = %117
-  %121 = icmp eq i32 %99, 31
-  br i1 %121, label %122, label %126
+121:                                              ; preds = %118
+  %122 = icmp eq i32 %100, 31
+  br i1 %122, label %123, label %127
 
-122:                                              ; preds = %120
-  %123 = getelementptr inbounds i8, ptr %.054, i64 8
-  %124 = load ptr, ptr %123, align 8
-  %125 = load i32, ptr %124, align 8
-  br label %126
+123:                                              ; preds = %121
+  %124 = getelementptr inbounds i8, ptr %.054, i64 8
+  %125 = load ptr, ptr %124, align 8
+  %126 = load i32, ptr %125, align 8
+  br label %127
 
-126:                                              ; preds = %122, %120
-  %.055 = phi i32 [ %125, %122 ], [ %99, %120 ]
-  %127 = add i32 %.055, -33
-  %128 = icmp ult i32 %127, 6
-  br i1 %128, label %129, label %131
+127:                                              ; preds = %123, %121
+  %.055 = phi i32 [ %126, %123 ], [ %100, %121 ]
+  %128 = add i32 %.055, -33
+  %129 = icmp ult i32 %128, 6
+  br i1 %129, label %130, label %132
 
-129:                                              ; preds = %126
-  %130 = tail call fastcc i32 @type_array_is_equivalent(ptr noundef %0, ptr noundef nonnull %.054, ptr noundef nonnull %.053, i1 noundef zeroext %3)
-  %.not66 = icmp eq i32 %130, 0
-  br i1 %.not66, label %131, label %type_is_subtype.exit
+130:                                              ; preds = %127
+  %131 = tail call fastcc i32 @type_array_is_equivalent(ptr noundef %0, ptr noundef nonnull %.054, ptr noundef nonnull %.053, i1 noundef zeroext %3)
+  %.not66 = icmp eq i32 %131, 0
+  br i1 %.not66, label %132, label %type_is_subtype.exit
 
-131:                                              ; preds = %129, %126
-  %132 = getelementptr inbounds i8, ptr %.053, i64 56
-  %133 = load ptr, ptr %132, align 8
-  %134 = tail call fastcc ptr @type_generate_ptr(ptr noundef %133, i1 noundef zeroext false)
+132:                                              ; preds = %130, %127
+  %133 = getelementptr inbounds i8, ptr %.053, i64 56
+  %134 = load ptr, ptr %133, align 8
+  %135 = tail call fastcc ptr @type_generate_ptr(ptr noundef %134, i1 noundef zeroext false)
   br label %tailrecurse
 
-135:                                              ; preds = %.loopexit
-  switch i32 %99, label %type_is_subtype.exit [
-    i32 25, label %136
+136:                                              ; preds = %.loopexit
+  switch i32 %100, label %type_is_subtype.exit [
+    i32 25, label %137
     i32 23, label %6
   ]
 
-136:                                              ; preds = %135
-  %137 = tail call zeroext i1 @sema_resolve_type_decl(ptr noundef %0, ptr noundef nonnull %.054) #14
-  br i1 %137, label %138, label %type_is_subtype.exit
+137:                                              ; preds = %136
+  %138 = tail call zeroext i1 @sema_resolve_type_decl(ptr noundef %0, ptr noundef nonnull %.054) #14
+  br i1 %138, label %139, label %type_is_subtype.exit
 
-138:                                              ; preds = %136
-  %139 = tail call zeroext i1 @sema_resolve_type_decl(ptr noundef %0, ptr noundef nonnull %.053) #14
-  br i1 %139, label %140, label %type_is_subtype.exit
+139:                                              ; preds = %137
+  %140 = tail call zeroext i1 @sema_resolve_type_decl(ptr noundef %0, ptr noundef nonnull %.053) #14
+  br i1 %140, label %141, label %type_is_subtype.exit
 
-140:                                              ; preds = %138
-  %141 = getelementptr inbounds i8, ptr %.054, i64 72
-  %142 = load ptr, ptr %141, align 8
-  %143 = getelementptr inbounds i8, ptr %142, i64 88
-  %144 = load ptr, ptr %143, align 8
-  %145 = getelementptr inbounds i8, ptr %.053, i64 72
-  %146 = load ptr, ptr %145, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 88
-  %148 = load ptr, ptr %147, align 8
-  %149 = icmp eq ptr %144, %148
-  %150 = zext i1 %149 to i32
+141:                                              ; preds = %139
+  %142 = getelementptr inbounds i8, ptr %.054, i64 72
+  %143 = load ptr, ptr %142, align 8
+  %144 = getelementptr inbounds i8, ptr %143, i64 88
+  %145 = load ptr, ptr %144, align 8
+  %146 = getelementptr inbounds i8, ptr %.053, i64 72
+  %147 = load ptr, ptr %146, align 8
+  %148 = getelementptr inbounds i8, ptr %147, i64 88
+  %149 = load ptr, ptr %148, align 8
+  %150 = icmp eq ptr %145, %149
+  %151 = zext i1 %150 to i32
   br label %type_is_subtype.exit
 
-type_is_subtype.exit:                             ; preds = %107, %104, %117, %129, %type_flatten.exit79, %34, %type_flatten.exit71, %135, %.lr.ph.i, %138, %136, %140
-  %.059 = phi i32 [ %150, %140 ], [ -1, %136 ], [ -1, %138 ], [ 1, %.lr.ph.i ], [ 1, %type_flatten.exit79 ], [ 1, %34 ], [ 1, %type_flatten.exit71 ], [ 0, %135 ], [ 2, %107 ], [ 2, %104 ], [ 0, %117 ], [ %130, %129 ]
+type_is_subtype.exit:                             ; preds = %108, %105, %118, %130, %type_flatten.exit79, %34, %type_flatten.exit71, %136, %.lr.ph.i, %139, %137, %141
+  %.059 = phi i32 [ %151, %141 ], [ -1, %137 ], [ -1, %139 ], [ 1, %.lr.ph.i ], [ 1, %type_flatten.exit79 ], [ 1, %34 ], [ 1, %type_flatten.exit71 ], [ 0, %136 ], [ 2, %108 ], [ 2, %105 ], [ 0, %118 ], [ %131, %130 ]
   ret i32 %.059
 }
 
@@ -6336,7 +6336,7 @@ define internal fastcc ptr @type_find_max_ptr_type(ptr noundef readonly %0, ptr 
   br i1 %.not8.not.i, label %.loopexit50, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %35, %type_find_parent_type.exit.i
-  %.09.i = phi ptr [ %63, %type_find_parent_type.exit.i ], [ %38, %35 ]
+  %.09.i = phi ptr [ %.0.i.i, %type_find_parent_type.exit.i ], [ %38, %35 ]
   %39 = getelementptr inbounds i8, ptr %.09.i, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %36, %40
@@ -6346,7 +6346,7 @@ define internal fastcc ptr @type_find_max_ptr_type(ptr noundef readonly %0, ptr 
   %43 = load i32, ptr %40, align 8
   switch i32 %43, label %.loopexit50 [
     i32 32, label %44
-    i32 26, label %52
+    i32 26, label %54
   ]
 
 44:                                               ; preds = %42
@@ -6360,96 +6360,98 @@ define internal fastcc ptr @type_find_max_ptr_type(ptr noundef readonly %0, ptr 
 
 50:                                               ; preds = %44
   %51 = getelementptr inbounds i8, ptr %46, i64 96
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 8
   br label %type_find_parent_type.exit.i
 
-52:                                               ; preds = %42
-  %53 = getelementptr inbounds i8, ptr %40, i64 56
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 24
-  %56 = load i64, ptr %55, align 8
-  %57 = and i64 %56, 32768
-  %.not.i.i = icmp eq i64 %57, 0
-  br i1 %.not.i.i, label %.loopexit50, label %58
+54:                                               ; preds = %42
+  %55 = getelementptr inbounds i8, ptr %40, i64 56
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds i8, ptr %56, i64 24
+  %58 = load i64, ptr %57, align 8
+  %59 = and i64 %58, 32768
+  %.not.i.i = icmp eq i64 %59, 0
+  br i1 %.not.i.i, label %.loopexit50, label %60
 
-58:                                               ; preds = %52
-  %59 = getelementptr inbounds i8, ptr %54, i64 104
-  %60 = load ptr, ptr %59, align 8
-  br label %type_find_parent_type.exit.i
-
-type_find_parent_type.exit.i:                     ; preds = %58, %50
-  %.sink.i.i = phi ptr [ %60, %58 ], [ %51, %50 ]
-  %.sink10.i.i = phi i64 [ 72, %58 ], [ 8, %50 ]
-  %61 = load ptr, ptr %.sink.i.i, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 %.sink10.i.i
+60:                                               ; preds = %54
+  %61 = getelementptr inbounds i8, ptr %56, i64 104
+  %62 = load ptr, ptr %61, align 8
   %63 = load ptr, ptr %62, align 8
-  %.not.not.i = icmp eq ptr %63, null
+  %64 = getelementptr inbounds i8, ptr %63, i64 72
+  br label %type_find_parent_type.exit.i
+
+type_find_parent_type.exit.i:                     ; preds = %60, %50
+  %.0.i.in.i = phi ptr [ %53, %50 ], [ %64, %60 ]
+  %.0.i.i = load ptr, ptr %.0.i.in.i, align 8
+  %.not.not.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.not.i, label %.loopexit50, label %.lr.ph.i, !llvm.loop !23
 
-.loopexit50:                                      ; preds = %42, %52, %44, %type_find_parent_type.exit.i, %35
+.loopexit50:                                      ; preds = %42, %54, %44, %type_find_parent_type.exit.i, %35
   %.not8.not.i36 = icmp eq ptr %36, null
   br i1 %.not8.not.i36, label %.loopexit, label %.lr.ph.i37
 
 .lr.ph.i37:                                       ; preds = %.loopexit50, %type_find_parent_type.exit.i40
-  %.09.i38 = phi ptr [ %88, %type_find_parent_type.exit.i40 ], [ %36, %.loopexit50 ]
-  %64 = getelementptr inbounds i8, ptr %.09.i38, i64 8
-  %65 = load ptr, ptr %64, align 8
-  %66 = icmp eq ptr %38, %65
-  br i1 %66, label %type_is_subtype.exit, label %67
+  %.09.i38 = phi ptr [ %.0.i.i42, %type_find_parent_type.exit.i40 ], [ %36, %.loopexit50 ]
+  %65 = getelementptr inbounds i8, ptr %.09.i38, i64 8
+  %66 = load ptr, ptr %65, align 8
+  %67 = icmp eq ptr %38, %66
+  br i1 %67, label %type_is_subtype.exit, label %68
 
-67:                                               ; preds = %.lr.ph.i37
-  %68 = load i32, ptr %65, align 8
-  switch i32 %68, label %.loopexit [
-    i32 32, label %69
-    i32 26, label %77
+68:                                               ; preds = %.lr.ph.i37
+  %69 = load i32, ptr %66, align 8
+  switch i32 %69, label %.loopexit [
+    i32 32, label %70
+    i32 26, label %80
   ]
 
-69:                                               ; preds = %67
-  %70 = getelementptr inbounds i8, ptr %65, i64 56
-  %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 24
-  %73 = load i64, ptr %72, align 8
-  %74 = and i64 %73, 32768
-  %.not8.i.i45 = icmp eq i64 %74, 0
-  br i1 %.not8.i.i45, label %.loopexit, label %75
+70:                                               ; preds = %68
+  %71 = getelementptr inbounds i8, ptr %66, i64 56
+  %72 = load ptr, ptr %71, align 8
+  %73 = getelementptr inbounds i8, ptr %72, i64 24
+  %74 = load i64, ptr %73, align 8
+  %75 = and i64 %74, 32768
+  %.not8.i.i45 = icmp eq i64 %75, 0
+  br i1 %.not8.i.i45, label %.loopexit, label %76
 
-75:                                               ; preds = %69
-  %76 = getelementptr inbounds i8, ptr %71, i64 96
+76:                                               ; preds = %70
+  %77 = getelementptr inbounds i8, ptr %72, i64 96
+  %78 = load ptr, ptr %77, align 8
+  %79 = getelementptr inbounds i8, ptr %78, i64 8
   br label %type_find_parent_type.exit.i40
 
-77:                                               ; preds = %67
-  %78 = getelementptr inbounds i8, ptr %65, i64 56
-  %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 24
-  %81 = load i64, ptr %80, align 8
-  %82 = and i64 %81, 32768
-  %.not.i.i39 = icmp eq i64 %82, 0
-  br i1 %.not.i.i39, label %.loopexit, label %83
+80:                                               ; preds = %68
+  %81 = getelementptr inbounds i8, ptr %66, i64 56
+  %82 = load ptr, ptr %81, align 8
+  %83 = getelementptr inbounds i8, ptr %82, i64 24
+  %84 = load i64, ptr %83, align 8
+  %85 = and i64 %84, 32768
+  %.not.i.i39 = icmp eq i64 %85, 0
+  br i1 %.not.i.i39, label %.loopexit, label %86
 
-83:                                               ; preds = %77
-  %84 = getelementptr inbounds i8, ptr %79, i64 104
-  %85 = load ptr, ptr %84, align 8
-  br label %type_find_parent_type.exit.i40
-
-type_find_parent_type.exit.i40:                   ; preds = %83, %75
-  %.sink.i.i41 = phi ptr [ %85, %83 ], [ %76, %75 ]
-  %.sink10.i.i42 = phi i64 [ 72, %83 ], [ 8, %75 ]
-  %86 = load ptr, ptr %.sink.i.i41, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 %.sink10.i.i42
+86:                                               ; preds = %80
+  %87 = getelementptr inbounds i8, ptr %82, i64 104
   %88 = load ptr, ptr %87, align 8
-  %.not.not.i43 = icmp eq ptr %88, null
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr inbounds i8, ptr %89, i64 72
+  br label %type_find_parent_type.exit.i40
+
+type_find_parent_type.exit.i40:                   ; preds = %86, %76
+  %.0.i.in.i41 = phi ptr [ %79, %76 ], [ %90, %86 ]
+  %.0.i.i42 = load ptr, ptr %.0.i.in.i41, align 8
+  %.not.not.i43 = icmp eq ptr %.0.i.i42, null
   br i1 %.not.not.i43, label %.loopexit, label %.lr.ph.i37, !llvm.loop !23
 
-.loopexit:                                        ; preds = %67, %77, %69, %type_find_parent_type.exit.i40, %.loopexit50
-  %89 = tail call ptr @type_find_max_type(ptr noundef nonnull %spec.select35, ptr noundef %.1)
-  %.not33 = icmp eq ptr %89, null
-  br i1 %.not33, label %type_is_subtype.exit, label %90
+.loopexit:                                        ; preds = %68, %80, %70, %type_find_parent_type.exit.i40, %.loopexit50
+  %91 = tail call ptr @type_find_max_type(ptr noundef nonnull %spec.select35, ptr noundef %.1)
+  %.not33 = icmp eq ptr %91, null
+  br i1 %.not33, label %type_is_subtype.exit, label %92
 
-90:                                               ; preds = %.loopexit
-  %91 = tail call fastcc ptr @type_generate_ptr(ptr noundef nonnull %89, i1 noundef zeroext false)
+92:                                               ; preds = %.loopexit
+  %93 = tail call fastcc ptr @type_generate_ptr(ptr noundef nonnull %91, i1 noundef zeroext false)
   br label %type_is_subtype.exit
 
-type_is_subtype.exit:                             ; preds = %.lr.ph.i, %.lr.ph.i37, %.loopexit, %2, %4, %90, %24, %10
-  %.0 = phi ptr [ %11, %10 ], [ %25, %24 ], [ %91, %90 ], [ null, %4 ], [ null, %2 ], [ null, %.loopexit ], [ %1, %.lr.ph.i37 ], [ %0, %.lr.ph.i ]
+type_is_subtype.exit:                             ; preds = %.lr.ph.i, %.lr.ph.i37, %.loopexit, %2, %4, %92, %24, %10
+  %.0 = phi ptr [ %11, %10 ], [ %25, %24 ], [ %93, %92 ], [ null, %4 ], [ null, %2 ], [ null, %.loopexit ], [ %1, %.lr.ph.i37 ], [ %0, %.lr.ph.i ]
   ret ptr %.0
 }
 
@@ -6744,7 +6746,7 @@ define dso_local ptr @type_base_module(ptr nocapture noundef readonly %0) local_
 2:                                                ; preds = %.backedge, %1
   %.0 = phi ptr [ %0, %1 ], [ %.0.be, %.backedge ]
   %3 = load i32, ptr %.0, align 8
-  switch i32 %3, label %20 [
+  switch i32 %3, label %26 [
     i32 0, label %.loopexit
     i32 1, label %.loopexit
     i32 3, label %.loopexit
@@ -6771,31 +6773,31 @@ define dso_local ptr @type_base_module(ptr nocapture noundef readonly %0) local_
     i32 20, label %4
     i32 23, label %4
     i32 25, label %6
-    i32 24, label %12
-    i32 26, label %12
-    i32 27, label %12
-    i32 29, label %12
-    i32 30, label %12
-    i32 32, label %12
-    i32 28, label %12
+    i32 24, label %16
+    i32 26, label %16
+    i32 27, label %16
+    i32 29, label %16
+    i32 30, label %16
+    i32 32, label %16
+    i32 28, label %16
     i32 31, label %.backedge
-    i32 33, label %17
-    i32 34, label %17
-    i32 36, label %17
-    i32 35, label %17
-    i32 37, label %17
-    i32 38, label %17
-    i32 40, label %18
-    i32 39, label %19
-    i32 42, label %19
-    i32 43, label %19
+    i32 33, label %23
+    i32 34, label %23
+    i32 36, label %23
+    i32 35, label %23
+    i32 37, label %23
+    i32 38, label %23
+    i32 40, label %24
+    i32 39, label %25
+    i32 42, label %25
+    i32 43, label %25
   ]
 
 4:                                                ; preds = %2, %2
   br label %.backedge
 
-.backedge:                                        ; preds = %2, %4, %17, %18
-  %.sink = phi i64 [ 56, %4 ], [ 56, %17 ], [ 56, %18 ], [ 8, %2 ]
+.backedge:                                        ; preds = %2, %4, %23, %24
+  %.sink = phi i64 [ 56, %4 ], [ 56, %23 ], [ 56, %24 ], [ 8, %2 ]
   %5 = getelementptr inbounds i8, ptr %.0, i64 %.sink
   %.0.be = load ptr, ptr %5, align 8
   br label %2
@@ -6810,38 +6812,44 @@ define dso_local ptr @type_base_module(ptr nocapture noundef readonly %0) local_
   %10 = getelementptr inbounds i8, ptr %8, i64 56
   %11 = load ptr, ptr %10, align 8
   %.not17 = icmp eq ptr %11, null
-  %. = select i1 %.not17, ptr getelementptr inbounds (i8, ptr @global_context, i64 16), ptr %11
-  br label %.loopexit.sink.split
+  br i1 %.not17, label %14, label %12
 
-12:                                               ; preds = %2, %2, %2, %2, %2, %2, %2
-  %13 = getelementptr inbounds i8, ptr %.0, i64 56
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 56
-  %16 = load ptr, ptr %15, align 8
-  %.not = icmp eq ptr %16, null
-  br i1 %.not, label %.loopexit, label %.loopexit.sink.split
+12:                                               ; preds = %9
+  %13 = load ptr, ptr %11, align 8
+  br label %.loopexit
 
-17:                                               ; preds = %2, %2, %2, %2, %2, %2
+14:                                               ; preds = %9
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 16), align 8
+  br label %.loopexit
+
+16:                                               ; preds = %2, %2, %2, %2, %2, %2, %2
+  %17 = getelementptr inbounds i8, ptr %.0, i64 56
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %18, i64 56
+  %20 = load ptr, ptr %19, align 8
+  %.not = icmp eq ptr %20, null
+  br i1 %.not, label %.loopexit, label %21
+
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %20, align 8
+  br label %.loopexit
+
+23:                                               ; preds = %2, %2, %2, %2, %2, %2
   br label %.backedge
 
-18:                                               ; preds = %2
+24:                                               ; preds = %2
   br label %.backedge
 
-19:                                               ; preds = %2, %2, %2
+25:                                               ; preds = %2, %2, %2
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_base_module, ptr noundef nonnull @.str.2, i32 noundef 2361) #13
   unreachable
 
-20:                                               ; preds = %2
+26:                                               ; preds = %2
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_base_module, ptr noundef nonnull @.str.2, i32 noundef 2363) #13
   unreachable
 
-.loopexit.sink.split:                             ; preds = %12, %9
-  %.sink30 = phi ptr [ %., %9 ], [ %16, %12 ]
-  %21 = load ptr, ptr %.sink30, align 8
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %.loopexit.sink.split, %12, %6
-  %.012 = phi ptr [ null, %6 ], [ null, %12 ], [ %21, %.loopexit.sink.split ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ]
+.loopexit:                                        ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %21, %16, %14, %12, %6
+  %.012 = phi ptr [ %13, %12 ], [ %15, %14 ], [ null, %6 ], [ %22, %21 ], [ null, %16 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ]
   ret ptr %.012
 }
 

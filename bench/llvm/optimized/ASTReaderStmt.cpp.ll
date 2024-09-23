@@ -2017,12 +2017,12 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit34: ; preds = %182, %183
   %206 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %207
 
-207:                                              ; preds = %.lr.ph, %207
-  %208 = phi i64 [ %205, %.lr.ph ], [ %225, %207 ]
-  %209 = phi i32 [ %204, %.lr.ph ], [ %224, %207 ]
-  %210 = phi ptr [ %203, %.lr.ph ], [ %223, %207 ]
-  %211 = phi ptr [ %202, %.lr.ph ], [ %222, %207 ]
-  %.036 = phi ptr [ null, %.lr.ph ], [ %220, %207 ]
+207:                                              ; preds = %.lr.ph, %224
+  %208 = phi i64 [ %205, %.lr.ph ], [ %228, %224 ]
+  %209 = phi i32 [ %204, %.lr.ph ], [ %227, %224 ]
+  %210 = phi ptr [ %203, %.lr.ph ], [ %226, %224 ]
+  %211 = phi ptr [ %202, %.lr.ph ], [ %225, %224 ]
+  %.036 = phi ptr [ null, %.lr.ph ], [ %220, %224 ]
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 32
   %213 = add i32 %209, 1
   store i32 %213, ptr %210, align 8
@@ -2034,17 +2034,26 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit34: ; preds = %182, %183
   %219 = load ptr, ptr %218, align 8
   %220 = tail call noundef ptr @_ZN5clang9ASTReader19getSwitchCaseWithIDEj(ptr noundef nonnull align 8 dereferenceable(15968) %219, i32 noundef %217) #18
   %.not24 = icmp eq ptr %.036, null
-  %221 = getelementptr inbounds nuw i8, ptr %.036, i64 16
-  %.sink = select i1 %.not24, ptr %206, ptr %221
-  store ptr %220, ptr %.sink, align 8
-  %222 = load ptr, ptr %0, align 8
-  %223 = getelementptr inbounds nuw i8, ptr %222, i64 24
-  %224 = load i32, ptr %223, align 8
-  %225 = zext i32 %224 to i64
-  %.not23 = icmp eq i64 %201, %225
+  br i1 %.not24, label %223, label %221
+
+221:                                              ; preds = %207
+  %222 = getelementptr inbounds nuw i8, ptr %.036, i64 16
+  store ptr %220, ptr %222, align 8
+  br label %224
+
+223:                                              ; preds = %207
+  store ptr %220, ptr %206, align 8
+  br label %224
+
+224:                                              ; preds = %223, %221
+  %225 = load ptr, ptr %0, align 8
+  %226 = getelementptr inbounds nuw i8, ptr %225, i64 24
+  %227 = load i32, ptr %226, align 8
+  %228 = zext i32 %227 to i64
+  %.not23 = icmp eq i64 %201, %228
   br i1 %.not23, label %._crit_edge, label %207, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %207, %_ZN5clang13ASTStmtReader18readSourceLocationEv.exit34
+._crit_edge:                                      ; preds = %224, %_ZN5clang13ASTStmtReader18readSourceLocationEv.exit34
   ret void
 }
 

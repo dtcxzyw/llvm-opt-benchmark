@@ -4341,22 +4341,18 @@ _ZNSt10_HashtableIPN4llvm8ConstantESt4pairIKS2_NS0_11SmallPtrSetIPNS0_11GlobalVa
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
-  br label %.sink.split
+  store ptr %.031, ptr %27, align 8
+  br label %31
 
 28:                                               ; preds = %.lr.ph
   %29 = load ptr, ptr %22, align 8
   store ptr %29, ptr %.031, align 8
   %30 = load ptr, ptr %21, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %28, %26
-  %.sink = phi ptr [ %27, %26 ], [ %30, %28 ]
-  %.1.ph = phi i64 [ %20, %26 ], [ %.02530, %28 ]
-  store ptr %.031, ptr %.sink, align 8
+  store ptr %.031, ptr %30, align 8
   br label %31
 
-31:                                               ; preds = %.sink.split, %23
-  %.1 = phi i64 [ %20, %23 ], [ %.1.ph, %.sink.split ]
+31:                                               ; preds = %23, %26, %28
+  %.1 = phi i64 [ %.02530, %28 ], [ %20, %26 ], [ %20, %23 ]
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !71
 
@@ -5111,6 +5107,7 @@ _ZN4llvm11SmallVectorISt4pairIPNS_14GlobalVariableEmELj4EEC2EOS5_.exit.i: ; pred
   store ptr null, ptr %47, align 8
   store ptr %50, ptr %54, align 8
   store ptr %50, ptr %57, align 8
+  store i64 0, ptr %61, align 8
   br label %_ZN4llvm8SmallSetISt4pairIPNS_14GlobalVariableEmELj4ESt4lessIS4_EEC2EOS7_.exit
 
 64:                                               ; preds = %_ZN4llvm11SmallVectorISt4pairIPNS_14GlobalVariableEmELj4EEC2EOS5_.exit.i
@@ -5122,11 +5119,10 @@ _ZN4llvm11SmallVectorISt4pairIPNS_14GlobalVariableEmELj4EEC2EOS5_.exit.i: ; pred
   %67 = getelementptr inbounds i8, ptr %.sink.i.i, i64 120
   store ptr %46, ptr %67, align 8
   %68 = getelementptr inbounds i8, ptr %.sink.i.i, i64 128
+  store i64 0, ptr %68, align 8
   br label %_ZN4llvm8SmallSetISt4pairIPNS_14GlobalVariableEmELj4ESt4lessIS4_EEC2EOS7_.exit
 
 _ZN4llvm8SmallSetISt4pairIPNS_14GlobalVariableEmELj4ESt4lessIS4_EEC2EOS7_.exit: ; preds = %49, %64
-  %.sink.i.i.i.i.i = phi ptr [ %68, %64 ], [ %61, %49 ]
-  store i64 0, ptr %.sink.i.i.i.i.i, align 8
   %69 = load i32, ptr %4, align 8
   %70 = add i32 %69, 1
   store i32 %70, ptr %4, align 8
@@ -5187,7 +5183,8 @@ _ZN4llvm15SmallVectorImplISt4pairIPNS_14GlobalVariableEmEE12assignRemoteEOS5_.ex
   store i32 %19, ptr %20, align 4
   store ptr %6, ptr %1, align 8
   store i32 0, ptr %18, align 4
-  br label %.sink.split
+  store i32 0, ptr %15, align 8
+  br label %70
 
 21:                                               ; preds = %4
   %22 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #17
@@ -5227,7 +5224,8 @@ _ZSt4moveIPSt4pairIPN4llvm14GlobalVariableEmES5_ET0_T_S7_S6_.exit: ; preds = %.l
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %22) #17
   %39 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #17
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
+  store i32 0, ptr %40, align 8
+  br label %70
 
 41:                                               ; preds = %21
   %42 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
@@ -5292,14 +5290,10 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_14GlobalVariableEmELb1EE18uninitia
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %22) #17
   %68 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #17
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %_ZN4llvm15SmallVectorImplISt4pairIPNS_14GlobalVariableEmEE12assignRemoteEOS5_.exit, %_ZSt4moveIPSt4pairIPN4llvm14GlobalVariableEmES5_ET0_T_S7_S6_.exit, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_14GlobalVariableEmELb1EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit
-  %.sink = phi ptr [ %69, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_14GlobalVariableEmELb1EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit ], [ %40, %_ZSt4moveIPSt4pairIPN4llvm14GlobalVariableEmES5_ET0_T_S7_S6_.exit ], [ %15, %_ZN4llvm15SmallVectorImplISt4pairIPNS_14GlobalVariableEmEE12assignRemoteEOS5_.exit ]
-  store i32 0, ptr %.sink, align 8
+  store i32 0, ptr %69, align 8
   br label %70
 
-70:                                               ; preds = %.sink.split, %2
+70:                                               ; preds = %2, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_14GlobalVariableEmELb1EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit, %_ZSt4moveIPSt4pairIPN4llvm14GlobalVariableEmES5_ET0_T_S7_S6_.exit, %_ZN4llvm15SmallVectorImplISt4pairIPNS_14GlobalVariableEmEE12assignRemoteEOS5_.exit
   ret ptr %0
 }
 
@@ -5721,7 +5715,8 @@ _ZNSt10_HashtableIPN4llvm6ComdatESt4pairIKS2_PNS0_11GlobalValueEESaIS7_ENSt8__de
 22:                                               ; preds = %.lr.ph
   %23 = load ptr, ptr %.05469, align 8
   store ptr %23, ptr %.072, align 8
-  br label %.sink.split
+  store ptr %.072, ptr %.05469, align 8
+  br label %46
 
 24:                                               ; preds = %.lr.ph
   %25 = trunc nuw i8 %.05568 to i1
@@ -5763,24 +5758,19 @@ _ZNSt10_HashtableIPN4llvm6ComdatESt4pairIKS2_PNS0_11GlobalValueEESaIS7_ENSt8__de
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds ptr, ptr %.0.i, i64 %.05271
-  br label %.sink.split
+  store ptr %.072, ptr %42, align 8
+  br label %46
 
 43:                                               ; preds = %35
   %44 = load ptr, ptr %37, align 8
   store ptr %44, ptr %.072, align 8
   %45 = load ptr, ptr %36, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %22, %43, %41
-  %.sink = phi ptr [ %42, %41 ], [ %45, %43 ], [ %.05469, %22 ]
-  %.156.ph = phi i8 [ %.2, %41 ], [ %.2, %43 ], [ 1, %22 ]
-  %.1.ph = phi i64 [ %20, %41 ], [ %.05271, %43 ], [ %.05271, %22 ]
-  store ptr %.072, ptr %.sink, align 8
+  store ptr %.072, ptr %45, align 8
   br label %46
 
-46:                                               ; preds = %.sink.split, %38
-  %.156 = phi i8 [ %.2, %38 ], [ %.156.ph, %.sink.split ]
-  %.1 = phi i64 [ %20, %38 ], [ %.1.ph, %.sink.split ]
+46:                                               ; preds = %38, %41, %43, %22
+  %.156 = phi i8 [ 1, %22 ], [ %.2, %43 ], [ %.2, %41 ], [ %.2, %38 ]
+  %.1 = phi i64 [ %.05271, %22 ], [ %.05271, %43 ], [ %20, %41 ], [ %20, %38 ]
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !79
 

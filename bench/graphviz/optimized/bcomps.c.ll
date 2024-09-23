@@ -657,7 +657,7 @@ define internal fastcc void @gwrite(ptr noundef %0, i32 noundef %1, i32 noundef 
   %4 = alloca %struct.agxbuf, align 8
   %5 = load i32, ptr @silent, align 4
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %6, label %69
+  br i1 %.not, label %6, label %68
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr @outfile, align 8
@@ -669,7 +669,7 @@ define internal fastcc void @gwrite(ptr noundef %0, i32 noundef %1, i32 noundef 
   %10 = tail call i32 @agwrite(ptr noundef %0, ptr noundef %9) #19
   %11 = load ptr, ptr @stdout, align 8
   %12 = tail call i32 @fflush(ptr noundef %11)
-  br label %69
+  br label %68
 
 13:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
@@ -784,42 +784,39 @@ agxbsizeof.exit.i.i12.i:                          ; preds = %agxbput.exit.i
 55:                                               ; preds = %54
   %56 = zext i8 %.val.i15.pre.i.i.i to i64
   %57 = getelementptr inbounds [31 x i8], ptr %4, i64 0, i64 %56
-  br label %agxbputc.exit.i.i
+  store i8 0, ptr %57, align 1
+  %.pre.i = load ptr, ptr %4, align 8
+  br label %getName.exit
 
 .thread.i.i:                                      ; preds = %..thread_crit_edge.i.i, %agxbsizeof.exit.i.i12.i
   %58 = phi i64 [ %.pre.i.i, %..thread_crit_edge.i.i ], [ %51, %agxbsizeof.exit.i.i12.i ]
   %59 = load ptr, ptr %4, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 %58
-  br label %agxbputc.exit.i.i
-
-agxbputc.exit.i.i:                                ; preds = %.thread.i.i, %55
-  %.sink.i.i = phi ptr [ %57, %55 ], [ %60, %.thread.i.i ]
-  store i8 0, ptr %.sink.i.i, align 1
-  %61 = load ptr, ptr %4, align 8
+  store i8 0, ptr %60, align 1
   br label %getName.exit
 
-getName.exit:                                     ; preds = %agxblen.exit.i.i, %agxbputc.exit.i.i
-  %.0.i.i = phi ptr [ %61, %agxbputc.exit.i.i ], [ %44, %agxblen.exit.i.i ]
+getName.exit:                                     ; preds = %agxblen.exit.i.i, %55, %.thread.i.i
+  %.0.i.i = phi ptr [ %44, %agxblen.exit.i.i ], [ %59, %.thread.i.i ], [ %.pre.i, %55 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  %62 = tail call noalias ptr @fopen(ptr noundef %.0.i.i, ptr noundef nonnull @.str.15)
-  %.not11 = icmp eq ptr %62, null
-  br i1 %.not11, label %63, label %66
+  %61 = tail call noalias ptr @fopen(ptr noundef %.0.i.i, ptr noundef nonnull @.str.15)
+  %.not11 = icmp eq ptr %61, null
+  br i1 %.not11, label %62, label %65
 
-63:                                               ; preds = %getName.exit
-  %64 = load ptr, ptr @stderr, align 8
-  %65 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %64, ptr noundef nonnull @.str.16, ptr noundef %.0.i.i) #21
+62:                                               ; preds = %getName.exit
+  %63 = load ptr, ptr @stderr, align 8
+  %64 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %63, ptr noundef nonnull @.str.16, ptr noundef %.0.i.i) #21
   tail call void @perror(ptr noundef nonnull @.str.17) #24
   tail call void @free(ptr noundef %.0.i.i) #19
   tail call fastcc void @graphviz_exit(i32 noundef 1) #22
   unreachable
 
-66:                                               ; preds = %getName.exit
+65:                                               ; preds = %getName.exit
   tail call void @free(ptr noundef %.0.i.i) #19
-  %67 = tail call i32 @agwrite(ptr noundef %0, ptr noundef nonnull %62) #19
-  %68 = tail call i32 @fclose(ptr noundef nonnull %62)
-  br label %69
+  %66 = tail call i32 @agwrite(ptr noundef %0, ptr noundef nonnull %61) #19
+  %67 = tail call i32 @fclose(ptr noundef nonnull %61)
+  br label %68
 
-69:                                               ; preds = %3, %66, %8
+68:                                               ; preds = %3, %65, %8
   ret void
 }
 

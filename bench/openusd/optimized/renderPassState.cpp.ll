@@ -366,29 +366,26 @@ define noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassState15G
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
-  br i1 %4, label %5, label %7
+  br i1 %4, label %5, label %8
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  br label %.sink.split
+  %7 = load i32, ptr %6, align 4
+  br label %14
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8
-  %.not = icmp eq ptr %9, null
-  br i1 %.not, label %13, label %10
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = load ptr, ptr %9, align 8
+  %.not = icmp eq ptr %10, null
+  br i1 %.not, label %14, label %11
 
-10:                                               ; preds = %7
-  %11 = getelementptr inbounds nuw i8, ptr %9, i64 316
-  br label %.sink.split
+11:                                               ; preds = %8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 316
+  %13 = load i32, ptr %12, align 4
+  br label %14
 
-.sink.split:                                      ; preds = %5, %10
-  %.sink = phi ptr [ %11, %10 ], [ %6, %5 ]
-  %12 = load i32, ptr %.sink, align 4
-  br label %13
-
-13:                                               ; preds = %.sink.split, %7
-  %.0 = phi i32 [ 2, %7 ], [ %12, %.sink.split ]
+14:                                               ; preds = %8, %11, %5
+  %.0 = phi i32 [ %7, %5 ], [ %13, %11 ], [ 2, %8 ]
   ret i32 %.0
 }
 
@@ -403,12 +400,12 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassState19GetProje
 
 7:                                                ; preds = %2
   %8 = tail call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d11SetDiagonalEd(ptr noundef nonnull align 8 dereferenceable(128) %0, double noundef 1.000000e+00)
-  br label %44
+  br label %46
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17CameraUtilFraming7IsValidEv(ptr noundef nonnull align 4 dereferenceable(36) %10)
-  br i1 %11, label %12, label %24
+  br i1 %11, label %12, label %25
 
 12:                                               ; preds = %9
   %13 = load ptr, ptr %5, align 8
@@ -416,71 +413,65 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassState19GetProje
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %15 = load i8, ptr %14, align 8
   %16 = trunc i8 %15 to i1
-  br i1 %16, label %17, label %19
+  br i1 %16, label %17, label %20
 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  br label %.sink.split.i
-
-19:                                               ; preds = %12
-  %20 = load ptr, ptr %5, align 8
-  %.not.i = icmp eq ptr %20, null
-  br i1 %.not.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassState15GetWindowPolicyEv.exit, label %21
-
-21:                                               ; preds = %19
-  %22 = getelementptr inbounds nuw i8, ptr %20, i64 316
-  br label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %21, %17
-  %.sink.i = phi ptr [ %22, %21 ], [ %18, %17 ]
-  %23 = load i32, ptr %.sink.i, align 4
+  %19 = load i32, ptr %18, align 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassState15GetWindowPolicyEv.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassState15GetWindowPolicyEv.exit: ; preds = %19, %.sink.split.i
-  %.0.i = phi i32 [ 2, %19 ], [ %23, %.sink.split.i ]
+20:                                               ; preds = %12
+  %21 = load ptr, ptr %5, align 8
+  %.not.i = icmp eq ptr %21, null
+  br i1 %.not.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassState15GetWindowPolicyEv.exit, label %22
+
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 316
+  %24 = load i32, ptr %23, align 4
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassState15GetWindowPolicyEv.exit
+
+_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassState15GetWindowPolicyEv.exit: ; preds = %17, %20, %22
+  %.0.i = phi i32 [ %19, %17 ], [ %24, %22 ], [ 2, %20 ]
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__17CameraUtilFraming23ApplyToProjectionMatrixERKNS_10GfMatrix4dENS_29CameraUtilConformWindowPolicyE(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d") align 8 %0, ptr noundef nonnull align 4 dereferenceable(36) %10, ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %.0.i)
-  br label %44
+  br label %46
 
-24:                                               ; preds = %9
-  %25 = getelementptr inbounds i8, ptr %1, i64 28
-  %26 = load float, ptr %25, align 4
-  %27 = fcmp une float %26, 0.000000e+00
-  %28 = getelementptr inbounds i8, ptr %1, i64 24
-  %29 = load float, ptr %28, align 8
-  %30 = fdiv float %29, %26
-  %31 = fpext float %30 to double
-  %32 = select i1 %27, double %31, double 1.000000e+00
-  %33 = load ptr, ptr %5, align 8
-  call void @_ZNK32pxrInternal_v0_24__pxrReserved__8HdCamera23ComputeProjectionMatrixEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d") align 8 %4, ptr noundef nonnull align 8 dereferenceable(320) %33)
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %35 = load i8, ptr %34, align 8
-  %36 = trunc i8 %35 to i1
-  br i1 %36, label %37, label %39
+25:                                               ; preds = %9
+  %26 = getelementptr inbounds i8, ptr %1, i64 28
+  %27 = load float, ptr %26, align 4
+  %28 = fcmp une float %27, 0.000000e+00
+  %29 = getelementptr inbounds i8, ptr %1, i64 24
+  %30 = load float, ptr %29, align 8
+  %31 = fdiv float %30, %27
+  %32 = fpext float %31 to double
+  %33 = select i1 %28, double %32, double 1.000000e+00
+  %34 = load ptr, ptr %5, align 8
+  call void @_ZNK32pxrInternal_v0_24__pxrReserved__8HdCamera23ComputeProjectionMatrixEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d") align 8 %4, ptr noundef nonnull align 8 dereferenceable(320) %34)
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %36 = load i8, ptr %35, align 8
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %38, label %41
 
-37:                                               ; preds = %24
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  br label %.sink.split.i3
+38:                                               ; preds = %25
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 68
+  %40 = load i32, ptr %39, align 4
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassState15GetWindowPolicyEv.exit4
 
-39:                                               ; preds = %24
-  %40 = load ptr, ptr %5, align 8
-  %.not.i2 = icmp eq ptr %40, null
-  br i1 %.not.i2, label %_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassState15GetWindowPolicyEv.exit6, label %41
+41:                                               ; preds = %25
+  %42 = load ptr, ptr %5, align 8
+  %.not.i2 = icmp eq ptr %42, null
+  br i1 %.not.i2, label %_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassState15GetWindowPolicyEv.exit4, label %43
 
-41:                                               ; preds = %39
-  %42 = getelementptr inbounds nuw i8, ptr %40, i64 316
-  br label %.sink.split.i3
+43:                                               ; preds = %41
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 316
+  %45 = load i32, ptr %44, align 4
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassState15GetWindowPolicyEv.exit4
 
-.sink.split.i3:                                   ; preds = %41, %37
-  %.sink.i4 = phi ptr [ %42, %41 ], [ %38, %37 ]
-  %43 = load i32, ptr %.sink.i4, align 4
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassState15GetWindowPolicyEv.exit6
+_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassState15GetWindowPolicyEv.exit4: ; preds = %38, %41, %43
+  %.0.i3 = phi i32 [ %40, %38 ], [ %45, %43 ], [ 2, %41 ]
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__25CameraUtilConformedWindowERKNS_10GfMatrix4dENS_29CameraUtilConformWindowPolicyEd(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %4, i32 noundef %.0.i3, double noundef %33)
+  br label %46
 
-_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassState15GetWindowPolicyEv.exit6: ; preds = %39, %.sink.split.i3
-  %.0.i5 = phi i32 [ 2, %39 ], [ %43, %.sink.split.i3 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__25CameraUtilConformedWindowERKNS_10GfMatrix4dENS_29CameraUtilConformWindowPolicyEd(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %4, i32 noundef %.0.i5, double noundef %32)
-  br label %44
-
-44:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassState15GetWindowPolicyEv.exit6, %_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassState15GetWindowPolicyEv.exit, %7
+46:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassState15GetWindowPolicyEv.exit4, %_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassState15GetWindowPolicyEv.exit, %7
   ret void
 }
 

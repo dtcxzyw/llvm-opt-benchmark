@@ -1343,53 +1343,53 @@ _ZN14ExceptionTableC2EPK6Method.exit:             ; preds = %3
   %wide.trip.count = zext i16 %13 to i64
   br label %15
 
-15:                                               ; preds = %.lr.ph, %37
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
+15:                                               ; preds = %.lr.ph, %39
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
   %16 = getelementptr inbounds %class.ExceptionTableElement, ptr %11, i64 %indvars.iv
   %17 = load i16, ptr %16, align 2
   %18 = zext i16 %17 to i32
   %19 = icmp slt i32 %1, %18
-  br i1 %19, label %20, label %24
+  br i1 %19, label %20, label %25
 
 20:                                               ; preds = %15
   %21 = add i16 %17, %14
   store i16 %21, ptr %16, align 2
   %22 = getelementptr inbounds %class.ExceptionTableElement, ptr %11, i64 %indvars.iv, i32 1
   %23 = load i16, ptr %22, align 2
-  br label %.sink.split
+  %24 = add i16 %23, %14
+  store i16 %24, ptr %22, align 2
+  br label %32
 
-24:                                               ; preds = %15
-  %25 = getelementptr inbounds %class.ExceptionTableElement, ptr %11, i64 %indvars.iv, i32 1
-  %26 = load i16, ptr %25, align 2
-  %27 = zext i16 %26 to i32
-  %28 = icmp ult i32 %1, %27
-  br i1 %28, label %.sink.split, label %30
+25:                                               ; preds = %15
+  %26 = getelementptr inbounds %class.ExceptionTableElement, ptr %11, i64 %indvars.iv, i32 1
+  %27 = load i16, ptr %26, align 2
+  %28 = zext i16 %27 to i32
+  %29 = icmp ult i32 %1, %28
+  br i1 %29, label %30, label %32
 
-.sink.split:                                      ; preds = %24, %20
-  %.sink37 = phi i16 [ %23, %20 ], [ %26, %24 ]
-  %.sink36 = phi ptr [ %22, %20 ], [ %25, %24 ]
-  %29 = add i16 %.sink37, %14
-  store i16 %29, ptr %.sink36, align 2
-  br label %30
+30:                                               ; preds = %25
+  %31 = add i16 %27, %14
+  store i16 %31, ptr %26, align 2
+  br label %32
 
-30:                                               ; preds = %.sink.split, %24
-  %31 = getelementptr inbounds %class.ExceptionTableElement, ptr %11, i64 %indvars.iv, i32 2
-  %32 = load i16, ptr %31, align 2
-  %33 = zext i16 %32 to i32
-  %34 = icmp slt i32 %1, %33
-  br i1 %34, label %35, label %37
+32:                                               ; preds = %25, %30, %20
+  %33 = getelementptr inbounds %class.ExceptionTableElement, ptr %11, i64 %indvars.iv, i32 2
+  %34 = load i16, ptr %33, align 2
+  %35 = zext i16 %34 to i32
+  %36 = icmp slt i32 %1, %35
+  br i1 %36, label %37, label %39
 
-35:                                               ; preds = %30
-  %36 = add i16 %32, %14
-  store i16 %36, ptr %31, align 2
-  br label %37
+37:                                               ; preds = %32
+  %38 = add i16 %34, %14
+  store i16 %38, ptr %33, align 2
+  br label %39
 
-37:                                               ; preds = %30, %35
+39:                                               ; preds = %32, %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %37, %3, %_ZN14ExceptionTableC2EPK6Method.exit
+._crit_edge:                                      ; preds = %39, %3, %_ZN14ExceptionTableC2EPK6Method.exit
   ret void
 }
 
@@ -1564,35 +1564,38 @@ define hidden void @_ZN9Relocator22adjust_local_var_tableEii(ptr noundef nonnull
   %wide.trip.count = zext i16 %10 to i64
   br label %17
 
-17:                                               ; preds = %11, %29
-  %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %29 ]
+17:                                               ; preds = %11, %32
+  %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %32 ]
   %18 = getelementptr inbounds %class.LocalVariableTableElement, ptr %15, i64 %indvars.iv
   %19 = load i16, ptr %18, align 2
   %20 = zext i16 %19 to i32
   %21 = icmp slt i32 %1, %20
-  br i1 %21, label %.sink.split, label %22
+  br i1 %21, label %22, label %24
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %18, i64 2
-  %24 = load i16, ptr %23, align 2
-  %25 = zext i16 %24 to i32
-  %26 = add nuw nsw i32 %25, %20
-  %27 = icmp ugt i32 %26, %1
-  br i1 %27, label %.sink.split, label %29
+  %23 = add i16 %19, %16
+  store i16 %23, ptr %18, align 2
+  br label %32
 
-.sink.split:                                      ; preds = %22, %17
-  %.sink27 = phi i16 [ %19, %17 ], [ %24, %22 ]
-  %.sink26 = phi ptr [ %18, %17 ], [ %23, %22 ]
-  %28 = add i16 %.sink27, %16
-  store i16 %28, ptr %.sink26, align 2
-  br label %29
+24:                                               ; preds = %17
+  %25 = getelementptr inbounds i8, ptr %18, i64 2
+  %26 = load i16, ptr %25, align 2
+  %27 = zext i16 %26 to i32
+  %28 = add nuw nsw i32 %27, %20
+  %29 = icmp ugt i32 %28, %1
+  br i1 %29, label %30, label %32
 
-29:                                               ; preds = %.sink.split, %22
+30:                                               ; preds = %24
+  %31 = add i16 %26, %16
+  store i16 %31, ptr %25, align 2
+  br label %32
+
+32:                                               ; preds = %22, %30, %24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !16
 
-.loopexit:                                        ; preds = %29, %3
+.loopexit:                                        ; preds = %32, %3
   ret void
 }
 
@@ -2540,105 +2543,105 @@ _ZN14ExceptionTableC2EPK6Method.exit.i:           ; preds = %44
   %wide.trip.count.i = zext i16 %66 to i64
   br label %68
 
-68:                                               ; preds = %90, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %90 ]
+68:                                               ; preds = %92, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %92 ]
   %69 = getelementptr inbounds %class.ExceptionTableElement, ptr %64, i64 %indvars.iv.i
   %70 = load i16, ptr %69, align 2
   %71 = zext i16 %70 to i32
   %72 = icmp slt i32 %1, %71
-  br i1 %72, label %73, label %77
+  br i1 %72, label %73, label %78
 
 73:                                               ; preds = %68
   %74 = add i16 %70, %67
   store i16 %74, ptr %69, align 2
   %75 = getelementptr inbounds %class.ExceptionTableElement, ptr %64, i64 %indvars.iv.i, i32 1
   %76 = load i16, ptr %75, align 2
-  br label %.sink.split.i
+  %77 = add i16 %76, %67
+  store i16 %77, ptr %75, align 2
+  br label %85
 
-77:                                               ; preds = %68
-  %78 = getelementptr inbounds %class.ExceptionTableElement, ptr %64, i64 %indvars.iv.i, i32 1
-  %79 = load i16, ptr %78, align 2
-  %80 = zext i16 %79 to i32
-  %81 = icmp ult i32 %1, %80
-  br i1 %81, label %.sink.split.i, label %83
+78:                                               ; preds = %68
+  %79 = getelementptr inbounds %class.ExceptionTableElement, ptr %64, i64 %indvars.iv.i, i32 1
+  %80 = load i16, ptr %79, align 2
+  %81 = zext i16 %80 to i32
+  %82 = icmp ult i32 %1, %81
+  br i1 %82, label %83, label %85
 
-.sink.split.i:                                    ; preds = %77, %73
-  %.sink37.i = phi i16 [ %76, %73 ], [ %79, %77 ]
-  %.sink36.i = phi ptr [ %75, %73 ], [ %78, %77 ]
-  %82 = add i16 %.sink37.i, %67
-  store i16 %82, ptr %.sink36.i, align 2
-  br label %83
+83:                                               ; preds = %78
+  %84 = add i16 %80, %67
+  store i16 %84, ptr %79, align 2
+  br label %85
 
-83:                                               ; preds = %.sink.split.i, %77
-  %84 = getelementptr inbounds %class.ExceptionTableElement, ptr %64, i64 %indvars.iv.i, i32 2
-  %85 = load i16, ptr %84, align 2
-  %86 = zext i16 %85 to i32
-  %87 = icmp slt i32 %1, %86
-  br i1 %87, label %88, label %90
+85:                                               ; preds = %83, %78, %73
+  %86 = getelementptr inbounds %class.ExceptionTableElement, ptr %64, i64 %indvars.iv.i, i32 2
+  %87 = load i16, ptr %86, align 2
+  %88 = zext i16 %87 to i32
+  %89 = icmp slt i32 %1, %88
+  br i1 %89, label %90, label %92
 
-88:                                               ; preds = %83
-  %89 = add i16 %85, %67
-  store i16 %89, ptr %84, align 2
-  br label %90
+90:                                               ; preds = %85
+  %91 = add i16 %87, %67
+  store i16 %91, ptr %86, align 2
+  br label %92
 
-90:                                               ; preds = %88, %83
+92:                                               ; preds = %90, %85
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN9Relocator22adjust_exception_tableEii.exit, label %68, !llvm.loop !14
 
-_ZN9Relocator22adjust_exception_tableEii.exit:    ; preds = %90, %44, %_ZN14ExceptionTableC2EPK6Method.exit.i
+_ZN9Relocator22adjust_exception_tableEii.exit:    ; preds = %92, %44, %_ZN14ExceptionTableC2EPK6Method.exit.i
   call void @_ZN9Relocator20adjust_line_no_tableEii(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1, i32 noundef %3)
   call void @_ZN9Relocator22adjust_local_var_tableEii(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1, i32 noundef %3)
   call void @_ZN9Relocator22adjust_stack_map_tableEii(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1, i32 noundef %3)
-  %91 = getelementptr inbounds i8, ptr %0, i64 56
-  %92 = load ptr, ptr %91, align 8
-  %93 = load i32, ptr %92, align 4
-  %94 = icmp sgt i32 %93, 0
-  br i1 %94, label %.lr.ph, label %._crit_edge
+  %93 = getelementptr inbounds i8, ptr %0, i64 56
+  %94 = load ptr, ptr %93, align 8
+  %95 = load i32, ptr %94, align 4
+  %96 = icmp sgt i32 %95, 0
+  br i1 %96, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN9Relocator22adjust_exception_tableEii.exit, %_ZN10ChangeItem8relocateEii.exit
-  %95 = phi i32 [ %106, %_ZN10ChangeItem8relocateEii.exit ], [ %93, %_ZN9Relocator22adjust_exception_tableEii.exit ]
-  %96 = phi ptr [ %107, %_ZN10ChangeItem8relocateEii.exit ], [ %92, %_ZN9Relocator22adjust_exception_tableEii.exit ]
+  %97 = phi i32 [ %108, %_ZN10ChangeItem8relocateEii.exit ], [ %95, %_ZN9Relocator22adjust_exception_tableEii.exit ]
+  %98 = phi ptr [ %109, %_ZN10ChangeItem8relocateEii.exit ], [ %94, %_ZN9Relocator22adjust_exception_tableEii.exit ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN10ChangeItem8relocateEii.exit ], [ 0, %_ZN9Relocator22adjust_exception_tableEii.exit ]
-  %97 = getelementptr inbounds i8, ptr %96, i64 8
-  %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds ptr, ptr %98, i64 %indvars.iv
+  %99 = getelementptr inbounds i8, ptr %98, i64 8
   %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 8
-  %102 = load i32, ptr %101, align 8
-  %103 = icmp sgt i32 %102, %1
-  br i1 %103, label %104, label %_ZN10ChangeItem8relocateEii.exit
+  %101 = getelementptr inbounds ptr, ptr %100, i64 %indvars.iv
+  %102 = load ptr, ptr %101, align 8
+  %103 = getelementptr inbounds i8, ptr %102, i64 8
+  %104 = load i32, ptr %103, align 8
+  %105 = icmp sgt i32 %104, %1
+  br i1 %105, label %106, label %_ZN10ChangeItem8relocateEii.exit
 
-104:                                              ; preds = %.lr.ph
-  %105 = add nsw i32 %102, %3
-  store i32 %105, ptr %101, align 8
-  %.pre45 = load ptr, ptr %91, align 8
+106:                                              ; preds = %.lr.ph
+  %107 = add nsw i32 %104, %3
+  store i32 %107, ptr %103, align 8
+  %.pre45 = load ptr, ptr %93, align 8
   %.pre46 = load i32, ptr %.pre45, align 4
   br label %_ZN10ChangeItem8relocateEii.exit
 
-_ZN10ChangeItem8relocateEii.exit:                 ; preds = %.lr.ph, %104
-  %106 = phi i32 [ %95, %.lr.ph ], [ %.pre46, %104 ]
-  %107 = phi ptr [ %96, %.lr.ph ], [ %.pre45, %104 ]
+_ZN10ChangeItem8relocateEii.exit:                 ; preds = %.lr.ph, %106
+  %108 = phi i32 [ %97, %.lr.ph ], [ %.pre46, %106 ]
+  %109 = phi ptr [ %98, %.lr.ph ], [ %.pre45, %106 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %108 = sext i32 %106 to i64
-  %109 = icmp slt i64 %indvars.iv.next, %108
-  br i1 %109, label %.lr.ph, label %._crit_edge, !llvm.loop !24
+  %110 = sext i32 %108 to i64
+  %111 = icmp slt i64 %indvars.iv.next, %110
+  br i1 %111, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %_ZN10ChangeItem8relocateEii.exit, %_ZN9Relocator22adjust_exception_tableEii.exit
-  %110 = getelementptr inbounds i8, ptr %0, i64 64
-  %111 = load ptr, ptr %110, align 8
-  %.not.i39 = icmp eq ptr %111, null
-  br i1 %.not.i39, label %_ZN9Relocator6notifyEiii.exit, label %112
+  %112 = getelementptr inbounds i8, ptr %0, i64 64
+  %113 = load ptr, ptr %112, align 8
+  %.not.i39 = icmp eq ptr %113, null
+  br i1 %.not.i39, label %_ZN9Relocator6notifyEiii.exit, label %114
 
-112:                                              ; preds = %._crit_edge
-  %113 = load i32, ptr %51, align 4
-  %114 = load ptr, ptr %111, align 8
-  %115 = load ptr, ptr %114, align 8
-  call void %115(ptr noundef nonnull align 8 dereferenceable(8) %111, i32 noundef %1, i32 noundef %3, i32 noundef %113) #10
+114:                                              ; preds = %._crit_edge
+  %115 = load i32, ptr %51, align 4
+  %116 = load ptr, ptr %113, align 8
+  %117 = load ptr, ptr %116, align 8
+  call void %117(ptr noundef nonnull align 8 dereferenceable(8) %113, i32 noundef %1, i32 noundef %3, i32 noundef %115) #10
   br label %_ZN9Relocator6notifyEiii.exit
 
-_ZN9Relocator6notifyEiii.exit:                    ; preds = %112, %._crit_edge, %_ZN9Relocator17expand_code_arrayEi.exit.thread
-  %.0 = phi i1 [ false, %_ZN9Relocator17expand_code_arrayEi.exit.thread ], [ true, %._crit_edge ], [ true, %112 ]
+_ZN9Relocator6notifyEiii.exit:                    ; preds = %114, %._crit_edge, %_ZN9Relocator17expand_code_arrayEi.exit.thread
+  %.0 = phi i1 [ false, %_ZN9Relocator17expand_code_arrayEi.exit.thread ], [ true, %._crit_edge ], [ true, %114 ]
   ret i1 %.0
 }
 

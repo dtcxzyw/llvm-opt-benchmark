@@ -1939,10 +1939,10 @@ define dso_local noundef ptr @create_merge_append_path(ptr noundef %0, ptr nound
   %39 = icmp sgt i32 %38, 0
   br i1 %39, label %.lr.ph89, label %list_length.exit.thread
 
-.lr.ph89:                                         ; preds = %.lr.ph, %73
-  %indvars.iv = phi i64 [ %indvars.iv.next, %73 ], [ 0, %.lr.ph ]
-  %.0628087 = phi double [ %.163, %73 ], [ 0.000000e+00, %.lr.ph ]
-  %.08186 = phi double [ %.1, %73 ], [ 0.000000e+00, %.lr.ph ]
+.lr.ph89:                                         ; preds = %.lr.ph, %75
+  %indvars.iv = phi i64 [ %indvars.iv.next, %75 ], [ 0, %.lr.ph ]
+  %.0628087 = phi double [ %.163, %75 ], [ 0.000000e+00, %.lr.ph ]
+  %.08186 = phi double [ %.1, %75 ], [ 0.000000e+00, %.lr.ph ]
   %40 = load ptr, ptr %35, align 8
   %41 = getelementptr %union.ListCell, ptr %40, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8
@@ -1967,78 +1967,79 @@ define dso_local noundef ptr @create_merge_append_path(ptr noundef %0, ptr nound
   %55 = getelementptr inbounds i8, ptr %42, i64 64
   %56 = load ptr, ptr %55, align 8
   %57 = call zeroext i1 @pathkeys_contained_in(ptr noundef %3, ptr noundef %56) #9
-  br i1 %57, label %58, label %62
+  br i1 %57, label %58, label %63
 
 58:                                               ; preds = %53
   %59 = getelementptr inbounds i8, ptr %42, i64 48
   %60 = load double, ptr %59, align 8
   %61 = getelementptr inbounds i8, ptr %42, i64 56
-  br label %73
+  %62 = load double, ptr %61, align 8
+  br label %75
 
-62:                                               ; preds = %53
-  %63 = getelementptr inbounds i8, ptr %42, i64 56
-  %64 = load double, ptr %63, align 8
-  %65 = load double, ptr %43, align 8
-  %66 = getelementptr inbounds i8, ptr %42, i64 16
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 40
-  %69 = load i32, ptr %68, align 8
-  %70 = load i32, ptr @work_mem, align 4
-  %71 = load double, ptr %32, align 8
-  call void @cost_sort(ptr noundef nonnull %6, ptr noundef %0, ptr noundef %3, double noundef %64, double noundef %65, i32 noundef %69, double noundef 0.000000e+00, i32 noundef %70, double noundef %71) #9
-  %72 = load double, ptr %36, align 8
-  br label %73
+63:                                               ; preds = %53
+  %64 = getelementptr inbounds i8, ptr %42, i64 56
+  %65 = load double, ptr %64, align 8
+  %66 = load double, ptr %43, align 8
+  %67 = getelementptr inbounds i8, ptr %42, i64 16
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds i8, ptr %68, i64 40
+  %70 = load i32, ptr %69, align 8
+  %71 = load i32, ptr @work_mem, align 4
+  %72 = load double, ptr %32, align 8
+  call void @cost_sort(ptr noundef nonnull %6, ptr noundef %0, ptr noundef %3, double noundef %65, double noundef %66, i32 noundef %70, double noundef 0.000000e+00, i32 noundef %71, double noundef %72) #9
+  %73 = load double, ptr %36, align 8
+  %74 = load double, ptr %37, align 8
+  br label %75
 
-73:                                               ; preds = %58, %62
-  %.sink96 = phi ptr [ %61, %58 ], [ %37, %62 ]
-  %.pn67 = phi double [ %60, %58 ], [ %72, %62 ]
-  %74 = load double, ptr %.sink96, align 8
+75:                                               ; preds = %58, %63
+  %.pn = phi double [ %62, %58 ], [ %74, %63 ]
+  %.pn67 = phi double [ %60, %58 ], [ %73, %63 ]
   %.1 = fadd double %.08186, %.pn67
-  %.163 = fadd double %.0628087, %74
+  %.163 = fadd double %.0628087, %.pn
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %75 = load i32, ptr %34, align 4
-  %76 = sext i32 %75 to i64
-  %77 = icmp slt i64 %indvars.iv.next, %76
-  br i1 %77, label %.lr.ph89, label %list_length.exit
+  %76 = load i32, ptr %34, align 4
+  %77 = sext i32 %76 to i64
+  %78 = icmp slt i64 %indvars.iv.next, %77
+  br i1 %78, label %.lr.ph89, label %list_length.exit
 
-list_length.exit:                                 ; preds = %73
-  %78 = icmp eq i32 %75, 1
-  br i1 %78, label %79, label %list_length.exit.thread
+list_length.exit:                                 ; preds = %75
+  %79 = icmp eq i32 %76, 1
+  br i1 %79, label %80, label %list_length.exit.thread
 
-79:                                               ; preds = %list_length.exit
+80:                                               ; preds = %list_length.exit
   %.val = load ptr, ptr %35, align 8
-  %80 = load ptr, ptr %.val, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 32
-  %82 = load i8, ptr %81, align 8
-  %83 = load i8, ptr %15, align 8
-  %84 = xor i8 %83, %82
-  %85 = and i8 %84, 1
-  %86 = icmp eq i8 %85, 0
-  br i1 %86, label %87, label %list_length.exit.thread
+  %81 = load ptr, ptr %.val, align 8
+  %82 = getelementptr inbounds i8, ptr %81, i64 32
+  %83 = load i8, ptr %82, align 8
+  %84 = load i8, ptr %15, align 8
+  %85 = xor i8 %84, %83
+  %86 = and i8 %85, 1
+  %87 = icmp eq i8 %86, 0
+  br i1 %87, label %88, label %list_length.exit.thread
 
-87:                                               ; preds = %79
-  %88 = getelementptr inbounds i8, ptr %7, i64 48
-  store double %.1, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %7, i64 56
-  store double %.163, ptr %89, align 8
-  br label %93
+88:                                               ; preds = %80
+  %89 = getelementptr inbounds i8, ptr %7, i64 48
+  store double %.1, ptr %89, align 8
+  %90 = getelementptr inbounds i8, ptr %7, i64 56
+  store double %.163, ptr %90, align 8
+  br label %94
 
-list_length.exit.thread:                          ; preds = %.lr.ph, %79, %list_length.exit
-  %.0.lcssa7595 = phi double [ %.1, %79 ], [ %.1, %list_length.exit ], [ 0.000000e+00, %.lr.ph ]
-  %.062.lcssa7794 = phi double [ %.163, %79 ], [ %.163, %list_length.exit ], [ 0.000000e+00, %.lr.ph ]
-  %90 = phi i32 [ 1, %79 ], [ %75, %list_length.exit ], [ %38, %.lr.ph ]
+list_length.exit.thread:                          ; preds = %.lr.ph, %80, %list_length.exit
+  %.0.lcssa7595 = phi double [ %.1, %80 ], [ %.1, %list_length.exit ], [ 0.000000e+00, %.lr.ph ]
+  %.062.lcssa7794 = phi double [ %.163, %80 ], [ %.163, %list_length.exit ], [ 0.000000e+00, %.lr.ph ]
+  %91 = phi i32 [ 1, %80 ], [ %76, %list_length.exit ], [ %38, %.lr.ph ]
   %.pre = load double, ptr %33, align 8
   br label %list_length.exit69
 
 list_length.exit69:                               ; preds = %31, %list_length.exit.thread
-  %91 = phi double [ %.pre, %list_length.exit.thread ], [ 0.000000e+00, %31 ]
+  %92 = phi double [ %.pre, %list_length.exit.thread ], [ 0.000000e+00, %31 ]
   %.06278 = phi double [ %.062.lcssa7794, %list_length.exit.thread ], [ 0.000000e+00, %31 ]
   %.076 = phi double [ %.0.lcssa7595, %list_length.exit.thread ], [ 0.000000e+00, %31 ]
-  %92 = phi i32 [ %90, %list_length.exit.thread ], [ 0, %31 ]
-  call void @cost_merge_append(ptr noundef nonnull %7, ptr noundef %0, ptr noundef %3, i32 noundef %92, double noundef %.076, double noundef %.06278, double noundef %91) #9
-  br label %93
+  %93 = phi i32 [ %91, %list_length.exit.thread ], [ 0, %31 ]
+  call void @cost_merge_append(ptr noundef nonnull %7, ptr noundef %0, ptr noundef %3, i32 noundef %93, double noundef %.076, double noundef %.06278, double noundef %92) #9
+  br label %94
 
-93:                                               ; preds = %list_length.exit69, %87
+94:                                               ; preds = %list_length.exit69, %88
   ret ptr %7
 }
 
@@ -2251,10 +2252,14 @@ define dso_local ptr @create_unique_path(ptr noundef %0, ptr noundef %1, ptr nou
   %7 = getelementptr inbounds i8, ptr %1, i64 80
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
-  %.sink128.sroa.gep = getelementptr inbounds i8, ptr %5, i64 48
-  %.sink128.sroa.gep129 = getelementptr inbounds i8, ptr %6, i64 48
-  %.sink128.sroa.gep131 = getelementptr inbounds i8, ptr %5, i64 56
-  %.sink128.sroa.gep132 = getelementptr inbounds i8, ptr %6, i64 56
+  %.sink126.sroa.gep = getelementptr inbounds i8, ptr %6, i64 48
+  %.sink126.sroa.gep127 = getelementptr inbounds i8, ptr %6, i64 48
+  %.sink126.sroa.gep128 = getelementptr inbounds i8, ptr %5, i64 48
+  %.sink126.sroa.gep129 = getelementptr inbounds i8, ptr %5, i64 48
+  %.sink126.sroa.gep131 = getelementptr inbounds i8, ptr %6, i64 56
+  %.sink126.sroa.gep132 = getelementptr inbounds i8, ptr %6, i64 56
+  %.sink126.sroa.gep133 = getelementptr inbounds i8, ptr %5, i64 56
+  %.sink126.sroa.gep134 = getelementptr inbounds i8, ptr %5, i64 56
   br i1 %.not, label %9, label %226
 
 9:                                                ; preds = %4
@@ -2562,10 +2567,10 @@ list_length.exit:                                 ; preds = %.thread, %151
   %203 = trunc i8 %202 to i1
   %204 = load i8, ptr %174, align 2
   %205 = trunc i8 %204 to i1
-  br i1 %203, label %206, label %216
+  br i1 %203, label %206, label %218
 
 206:                                              ; preds = %201
-  br i1 %205, label %207, label %214
+  br i1 %205, label %207, label %216
 
 207:                                              ; preds = %206
   %208 = getelementptr inbounds i8, ptr %6, i64 56
@@ -2574,36 +2579,36 @@ list_length.exit:                                 ; preds = %.thread, %151
   %211 = load double, ptr %210, align 8
   %212 = fcmp olt double %209, %211
   %213 = getelementptr inbounds i8, ptr %20, i64 80
-  br i1 %212, label %219, label %220
+  br i1 %212, label %214, label %215
 
-214:                                              ; preds = %206
-  %215 = getelementptr inbounds i8, ptr %20, i64 80
-  br label %220
-
-216:                                              ; preds = %201
-  br i1 %205, label %217, label %.sink.split
-
-217:                                              ; preds = %216
-  %218 = getelementptr inbounds i8, ptr %20, i64 80
-  br label %219
-
-219:                                              ; preds = %207, %217
-  %.sink122 = phi ptr [ %218, %217 ], [ %213, %207 ]
-  store i32 1, ptr %.sink122, align 8
+214:                                              ; preds = %207
+  store i32 1, ptr %213, align 8
   br label %221
 
-220:                                              ; preds = %207, %214
-  %.sink123 = phi ptr [ %215, %214 ], [ %213, %207 ]
-  store i32 2, ptr %.sink123, align 8
+215:                                              ; preds = %207
+  store i32 2, ptr %213, align 8
   br label %221
 
-221:                                              ; preds = %220, %219
-  %.sink128.sroa.phi = phi ptr [ %.sink128.sroa.gep, %220 ], [ %.sink128.sroa.gep129, %219 ]
-  %.sink128.sroa.phi130 = phi ptr [ %.sink128.sroa.gep131, %220 ], [ %.sink128.sroa.gep132, %219 ]
-  %222 = load double, ptr %.sink128.sroa.phi, align 8
+216:                                              ; preds = %206
+  %217 = getelementptr inbounds i8, ptr %20, i64 80
+  store i32 2, ptr %217, align 8
+  br label %221
+
+218:                                              ; preds = %201
+  br i1 %205, label %219, label %.sink.split
+
+219:                                              ; preds = %218
+  %220 = getelementptr inbounds i8, ptr %20, i64 80
+  store i32 1, ptr %220, align 8
+  br label %221
+
+221:                                              ; preds = %216, %215, %214, %219
+  %.sink126.sroa.phi = phi ptr [ %.sink126.sroa.gep, %219 ], [ %.sink126.sroa.gep127, %214 ], [ %.sink126.sroa.gep128, %215 ], [ %.sink126.sroa.gep129, %216 ]
+  %.sink126.sroa.phi130 = phi ptr [ %.sink126.sroa.gep131, %219 ], [ %.sink126.sroa.gep132, %214 ], [ %.sink126.sroa.gep133, %215 ], [ %.sink126.sroa.gep134, %216 ]
+  %222 = load double, ptr %.sink126.sroa.phi, align 8
   %223 = getelementptr inbounds i8, ptr %20, i64 48
   store double %222, ptr %223, align 8
-  %224 = load double, ptr %.sink128.sroa.phi130, align 8
+  %224 = load double, ptr %.sink126.sroa.phi130, align 8
   %225 = getelementptr inbounds i8, ptr %20, i64 56
   store double %224, ptr %225, align 8
   br label %.sink.split.sink.split
@@ -2612,8 +2617,8 @@ list_length.exit:                                 ; preds = %.thread, %151
   store ptr %20, ptr %7, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.sink.split.sink.split, %216
-  %.0.ph = phi ptr [ null, %216 ], [ %20, %.sink.split.sink.split ]
+.sink.split:                                      ; preds = %.sink.split.sink.split, %218
+  %.0.ph = phi ptr [ null, %218 ], [ %20, %.sink.split.sink.split ]
   store ptr %19, ptr @CurrentMemoryContext, align 8
   br label %226
 

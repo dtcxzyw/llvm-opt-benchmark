@@ -656,7 +656,7 @@ if.end120:                                        ; preds = %if.end115
   %tlsext_tick = getelementptr inbounds i8, ptr %call1.i, i64 112
   %39 = load ptr, ptr %tlsext_tick, align 8
   %cmp124.not = icmp eq ptr %39, null
-  br i1 %cmp124.not, label %if.end140, label %if.then126
+  br i1 %cmp124.not, label %if.else137, label %if.then126
 
 if.then126:                                       ; preds = %if.end120
   %data128 = getelementptr inbounds i8, ptr %39, i64 8
@@ -669,11 +669,14 @@ if.then126:                                       ; preds = %if.end120
   store i64 %conv133, ptr %ticklen, align 8
   %43 = load ptr, ptr %tlsext_tick, align 8
   %data136 = getelementptr inbounds i8, ptr %43, i64 8
+  store ptr null, ptr %data136, align 8
   br label %if.end140
 
-if.end140:                                        ; preds = %if.end120, %if.then126
-  %tick.sink = phi ptr [ %data136, %if.then126 ], [ %tick, %if.end120 ]
-  store ptr null, ptr %tick.sink, align 8
+if.else137:                                       ; preds = %if.end120
+  store ptr null, ptr %tick, align 8
+  br label %if.end140
+
+if.end140:                                        ; preds = %if.else137, %if.then126
   %comp_id = getelementptr inbounds i8, ptr %call1.i, i64 16
   %44 = load ptr, ptr %comp_id, align 8
   %tobool141.not = icmp eq ptr %44, null

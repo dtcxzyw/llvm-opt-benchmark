@@ -3346,48 +3346,48 @@ delete.end.i:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fCompiled, i8 0, i64 24, i1 false)
   %.pre = load ptr, ptr %fCompiled2.i.phi.trans.insert, align 8
   %cmp.not.i = icmp eq ptr %.pre, null
-  br i1 %cmp.not.i, label %if.end.i, label %if.then.i
+  br i1 %cmp.not.i, label %if.end.i.thread, label %if.end.i
 
-if.then.i:                                        ; preds = %delete.end.i
+if.end.i.thread:                                  ; preds = %delete.end.i
+  store atomic i32 0, ptr %scevgep release, align 8
+  store ptr null, ptr %fCompiled, align 8
+  br label %invoke.cont
+
+if.end.i:                                         ; preds = %delete.end.i
   %fCompiled2.i = getelementptr inbounds i8, ptr %src, i64 472
   store atomic i32 -2147483648, ptr %scevgep release, align 8
   %0 = load ptr, ptr %fCompiled2.i, align 8
   store ptr %0, ptr %fCompiled, align 8
   %fUnsafeCallCount.i.i = getelementptr inbounds i8, ptr %src, i64 480
-  br label %if.end.i
-
-if.end.i:                                         ; preds = %if.then.i, %delete.end.i
-  %fUnsafeCallCount.i6.sink.i = phi ptr [ %fUnsafeCallCount.i.i, %if.then.i ], [ %scevgep, %delete.end.i ]
-  %fCompiled.sink.i = phi ptr [ %fCompiled2.i, %if.then.i ], [ %fCompiled, %delete.end.i ]
-  store atomic i32 0, ptr %fUnsafeCallCount.i6.sink.i release, align 4
-  store ptr null, ptr %fCompiled.sink.i, align 8
-  %1 = load ptr, ptr %fWarehouse, align 8
-  %isnull5.i = icmp eq ptr %1, null
+  store atomic i32 0, ptr %fUnsafeCallCount.i.i release, align 8
+  store ptr null, ptr %fCompiled2.i, align 8
+  %.pre3 = load ptr, ptr %fWarehouse, align 8
+  %isnull5.i = icmp eq ptr %.pre3, null
   br i1 %isnull5.i, label %invoke.cont, label %delete.notnull6.i
 
 delete.notnull6.i:                                ; preds = %if.end.i
-  %rules.i.i = getelementptr inbounds i8, ptr %1, i64 2472
-  %2 = load ptr, ptr %rules.i.i, align 8
-  %isnull.i.i.i = icmp eq ptr %2, null
+  %rules.i.i = getelementptr inbounds i8, ptr %.pre3, i64 2472
+  %1 = load ptr, ptr %rules.i.i, align 8
+  %isnull.i.i.i = icmp eq ptr %1, null
   br i1 %isnull.i.i.i, label %_ZN6icu_756number4impl22DecimalFormatWarehouseD2Ev.exit.i, label %delete.notnull.i.i.i
 
 delete.notnull.i.i.i:                             ; preds = %delete.notnull6.i
-  %vtable.i.i.i = load ptr, ptr %2, align 8
+  %vtable.i.i.i = load ptr, ptr %1, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
-  %3 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(28) %2) #15
+  %2 = load ptr, ptr %vfn.i.i.i, align 8
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(28) %1) #15
   br label %_ZN6icu_756number4impl22DecimalFormatWarehouseD2Ev.exit.i
 
 _ZN6icu_756number4impl22DecimalFormatWarehouseD2Ev.exit.i: ; preds = %delete.notnull.i.i.i, %delete.notnull6.i
-  %affixProvider.i.i2 = getelementptr inbounds i8, ptr %1, i64 8
+  %affixProvider.i.i2 = getelementptr inbounds i8, ptr %.pre3, i64 8
   tail call void @_ZN6icu_756number4impl24AutoAffixPatternProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(2464) %affixProvider.i.i2) #15
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %1) #15
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %.pre3) #15
   br label %invoke.cont
 
-invoke.cont:                                      ; preds = %_ZN6icu_756number4impl22DecimalFormatWarehouseD2Ev.exit.i, %if.end.i
+invoke.cont:                                      ; preds = %if.end.i.thread, %_ZN6icu_756number4impl22DecimalFormatWarehouseD2Ev.exit.i, %if.end.i
   %fWarehouse8.i = getelementptr inbounds i8, ptr %src, i64 488
-  %4 = load ptr, ptr %fWarehouse8.i, align 8
-  store ptr %4, ptr %fWarehouse, align 8
+  %3 = load ptr, ptr %fWarehouse8.i, align 8
+  store ptr %3, ptr %fWarehouse, align 8
   store ptr null, ptr %fWarehouse8.i, align 8
   ret void
 }
@@ -3410,20 +3410,23 @@ delete.end:                                       ; preds = %delete.notnull, %en
   %1 = load ptr, ptr %fCompiled2, align 8
   %cmp.not = icmp eq ptr %1, null
   %fUnsafeCallCount.i6 = getelementptr inbounds i8, ptr %this, i64 480
-  br i1 %cmp.not, label %if.end, label %if.then
+  br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %delete.end
   store atomic i32 -2147483648, ptr %fUnsafeCallCount.i6 release, align 8
   %2 = load ptr, ptr %fCompiled2, align 8
   store ptr %2, ptr %fCompiled, align 8
   %fUnsafeCallCount.i = getelementptr inbounds i8, ptr %src, i64 480
+  store atomic i32 0, ptr %fUnsafeCallCount.i release, align 8
+  store ptr null, ptr %fCompiled2, align 8
   br label %if.end
 
-if.end:                                           ; preds = %delete.end, %if.then
-  %fUnsafeCallCount.i6.sink = phi ptr [ %fUnsafeCallCount.i, %if.then ], [ %fUnsafeCallCount.i6, %delete.end ]
-  %fCompiled.sink = phi ptr [ %fCompiled2, %if.then ], [ %fCompiled, %delete.end ]
-  store atomic i32 0, ptr %fUnsafeCallCount.i6.sink release, align 4
-  store ptr null, ptr %fCompiled.sink, align 8
+if.else:                                          ; preds = %delete.end
+  store atomic i32 0, ptr %fUnsafeCallCount.i6 release, align 8
+  store ptr null, ptr %fCompiled, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then
   %fWarehouse = getelementptr inbounds i8, ptr %this, i64 488
   %3 = load ptr, ptr %fWarehouse, align 8
   %isnull5 = icmp eq ptr %3, null
@@ -3556,20 +3559,23 @@ delete.end.i:                                     ; preds = %delete.notnull.i, %
   %1 = load ptr, ptr %fCompiled2.i, align 8
   %cmp.not.i = icmp eq ptr %1, null
   %fUnsafeCallCount.i6.i = getelementptr inbounds i8, ptr %this, i64 480
-  br i1 %cmp.not.i, label %if.end.i, label %if.then.i
+  br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %delete.end.i
   store atomic i32 -2147483648, ptr %fUnsafeCallCount.i6.i release, align 8
   %2 = load ptr, ptr %fCompiled2.i, align 8
   store ptr %2, ptr %fCompiled.i, align 8
   %fUnsafeCallCount.i.i = getelementptr inbounds i8, ptr %src, i64 480
+  store atomic i32 0, ptr %fUnsafeCallCount.i.i release, align 8
+  store ptr null, ptr %fCompiled2.i, align 8
   br label %if.end.i
 
-if.end.i:                                         ; preds = %if.then.i, %delete.end.i
-  %fUnsafeCallCount.i6.sink.i = phi ptr [ %fUnsafeCallCount.i.i, %if.then.i ], [ %fUnsafeCallCount.i6.i, %delete.end.i ]
-  %fCompiled.sink.i = phi ptr [ %fCompiled2.i, %if.then.i ], [ %fCompiled.i, %delete.end.i ]
-  store atomic i32 0, ptr %fUnsafeCallCount.i6.sink.i release, align 4
-  store ptr null, ptr %fCompiled.sink.i, align 8
+if.else.i:                                        ; preds = %delete.end.i
+  store atomic i32 0, ptr %fUnsafeCallCount.i6.i release, align 8
+  store ptr null, ptr %fCompiled.i, align 8
+  br label %if.end.i
+
+if.end.i:                                         ; preds = %if.else.i, %if.then.i
   %fWarehouse.i = getelementptr inbounds i8, ptr %this, i64 488
   %3 = load ptr, ptr %fWarehouse.i, align 8
   %isnull5.i = icmp eq ptr %3, null

@@ -869,16 +869,16 @@ define hidden void @_ZN4nori4Mesh8addChildEPNS_10NoriObjectE(ptr nocapture nound
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  switch i32 %7, label %24 [
+  switch i32 %7, label %26 [
     i32 2, label %8
-    i32 4, label %16
+    i32 4, label %17
   ]
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %0, i64 136
   %10 = load ptr, ptr %9, align 8
   %.not12 = icmp eq ptr %10, null
-  br i1 %.not12, label %38, label %11
+  br i1 %.not12, label %16, label %11
 
 11:                                               ; preds = %8
   %12 = tail call ptr @__cxa_allocate_exception(i64 16) #23
@@ -893,81 +893,87 @@ define hidden void @_ZN4nori4Mesh8addChildEPNS_10NoriObjectE(ptr nocapture nound
   %15 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_free_exception(ptr %12) #23
-  br label %39
+  br label %41
 
-16:                                               ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %0, i64 144
-  %18 = load ptr, ptr %17, align 8
-  %.not = icmp eq ptr %18, null
-  br i1 %.not, label %38, label %19
+16:                                               ; preds = %8
+  store ptr %1, ptr %9, align 8
+  br label %40
 
-19:                                               ; preds = %16
-  %20 = tail call ptr @__cxa_allocate_exception(i64 16) #23
-  invoke void @_ZN4nori13NoriExceptionC2IJEEEPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull @.str.2)
-          to label %21 unwind label %22
+17:                                               ; preds = %2
+  %18 = getelementptr inbounds i8, ptr %0, i64 144
+  %19 = load ptr, ptr %18, align 8
+  %.not = icmp eq ptr %19, null
+  br i1 %.not, label %25, label %20
 
-21:                                               ; preds = %19
-  tail call void @__cxa_throw(ptr nonnull %20, ptr nonnull @_ZTIN4nori13NoriExceptionE, ptr nonnull @_ZN4nori13NoriExceptionD2Ev) #26
+20:                                               ; preds = %17
+  %21 = tail call ptr @__cxa_allocate_exception(i64 16) #23
+  invoke void @_ZN4nori13NoriExceptionC2IJEEEPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull @.str.2)
+          to label %22 unwind label %23
+
+22:                                               ; preds = %20
+  tail call void @__cxa_throw(ptr nonnull %21, ptr nonnull @_ZTIN4nori13NoriExceptionE, ptr nonnull @_ZN4nori13NoriExceptionD2Ev) #26
   unreachable
 
-22:                                               ; preds = %19
-  %23 = landingpad { ptr, i32 }
+23:                                               ; preds = %20
+  %24 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %20) #23
-  br label %39
+  tail call void @__cxa_free_exception(ptr %21) #23
+  br label %41
 
-24:                                               ; preds = %2
-  %25 = tail call ptr @__cxa_allocate_exception(i64 16) #23
-  %26 = load ptr, ptr %1, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 16
-  %28 = load ptr, ptr %27, align 8
-  %29 = invoke noundef i32 %28(ptr noundef nonnull align 8 dereferenceable(8) %1)
-          to label %30 unwind label %.thread
+25:                                               ; preds = %17
+  store ptr %1, ptr %18, align 8
+  br label %40
 
-30:                                               ; preds = %24
-  invoke void @_ZN4nori10NoriObject13classTypeNameB5cxx11ENS0_10EClassTypeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, i32 noundef %29)
-          to label %31 unwind label %.thread
+26:                                               ; preds = %2
+  %27 = tail call ptr @__cxa_allocate_exception(i64 16) #23
+  %28 = load ptr, ptr %1, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 16
+  %30 = load ptr, ptr %29, align 8
+  %31 = invoke noundef i32 %30(ptr noundef nonnull align 8 dereferenceable(8) %1)
+          to label %32 unwind label %.thread
 
-31:                                               ; preds = %30
-  invoke void @_ZN4nori13NoriExceptionC2IJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull @.str.3, ptr noundef nonnull align 8 dereferenceable(32) %3)
-          to label %33 unwind label %.thread18
+32:                                               ; preds = %26
+  invoke void @_ZN4nori10NoriObject13classTypeNameB5cxx11ENS0_10EClassTypeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, i32 noundef %31)
+          to label %33 unwind label %.thread
 
-.thread18:                                        ; preds = %31
-  %32 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  br label %37
+33:                                               ; preds = %32
+  invoke void @_ZN4nori13NoriExceptionC2IJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull @.str.3, ptr noundef nonnull align 8 dereferenceable(32) %3)
+          to label %35 unwind label %.thread18
 
-33:                                               ; preds = %31
-  invoke void @__cxa_throw(ptr nonnull %25, ptr nonnull @_ZTIN4nori13NoriExceptionE, ptr nonnull @_ZN4nori13NoriExceptionD2Ev) #26
-          to label %40 unwind label %35
-
-.thread:                                          ; preds = %24, %30
+.thread18:                                        ; preds = %33
   %34 = landingpad { ptr, i32 }
           cleanup
-  br label %37
-
-35:                                               ; preds = %33
-  %36 = landingpad { ptr, i32 }
-          cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
   br label %39
 
-37:                                               ; preds = %.thread18, %.thread
-  %.pn17 = phi { ptr, i32 } [ %34, %.thread ], [ %32, %.thread18 ]
-  call void @__cxa_free_exception(ptr %25) #23
+35:                                               ; preds = %33
+  invoke void @__cxa_throw(ptr nonnull %27, ptr nonnull @_ZTIN4nori13NoriExceptionE, ptr nonnull @_ZN4nori13NoriExceptionD2Ev) #26
+          to label %42 unwind label %37
+
+.thread:                                          ; preds = %26, %32
+  %36 = landingpad { ptr, i32 }
+          cleanup
   br label %39
 
-38:                                               ; preds = %16, %8
-  %.sink = phi ptr [ %9, %8 ], [ %17, %16 ]
-  store ptr %1, ptr %.sink, align 8
+37:                                               ; preds = %35
+  %38 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
+  br label %41
+
+39:                                               ; preds = %.thread18, %.thread
+  %.pn17 = phi { ptr, i32 } [ %36, %.thread ], [ %34, %.thread18 ]
+  call void @__cxa_free_exception(ptr %27) #23
+  br label %41
+
+40:                                               ; preds = %25, %16
   ret void
 
-39:                                               ; preds = %35, %37, %22, %14
-  %.pn.pn = phi { ptr, i32 } [ %.pn17, %37 ], [ %36, %35 ], [ %23, %22 ], [ %15, %14 ]
+41:                                               ; preds = %37, %39, %23, %14
+  %.pn.pn = phi { ptr, i32 } [ %.pn17, %39 ], [ %38, %37 ], [ %24, %23 ], [ %15, %14 ]
   resume { ptr, i32 } %.pn.pn
 
-40:                                               ; preds = %33
+42:                                               ; preds = %35
   unreachable
 }
 

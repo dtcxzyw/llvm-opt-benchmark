@@ -1782,8 +1782,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn15Deconvolution1D7forward
   br label %.invoke
 
 .invoke:                                          ; preds = %91, %184
-  %.sink = phi ptr [ %185, %184 ], [ %41, %91 ]
-  %186 = load ptr, ptr %.sink, align 8
+  %.in = phi ptr [ %185, %184 ], [ %41, %91 ]
+  %186 = load ptr, ptr %.in, align 8
   invoke void @_ZN4ncnn3Mat6createEiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %8, i32 noundef %106, i32 noundef %17, i64 noundef 4, ptr noundef %186)
           to label %187 unwind label %126
 

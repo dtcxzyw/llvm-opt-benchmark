@@ -155,6 +155,10 @@ if.then.i.i:                                      ; preds = %if.end
   store i8 %conv1.i.i, ptr %arrayidx.i.i, align 1
   %15 = load i16, ptr %bi_buf.i.i, align 8
   %16 = lshr i16 %15, 8
+  %17 = load ptr, ptr %pending_buf.i.i, align 16
+  %18 = load i32, ptr %pending.i.i, align 8
+  %inc7.i.i = add i32 %18, 1
+  store i32 %inc7.i.i, ptr %pending.i.i, align 8
   br label %if.end21.sink.split.i.i
 
 if.else.i.i:                                      ; preds = %if.end
@@ -163,19 +167,19 @@ if.else.i.i:                                      ; preds = %if.end
 
 if.then13.i.i:                                    ; preds = %if.else.i.i
   %pending_buf16.i.i = getelementptr inbounds i8, ptr %s, i64 16
+  %19 = load ptr, ptr %pending_buf16.i.i, align 16
   %pending17.i.i = getelementptr inbounds i8, ptr %s, i64 40
+  %20 = load i32, ptr %pending17.i.i, align 8
+  %inc18.i.i = add i32 %20, 1
+  store i32 %inc18.i.i, ptr %pending17.i.i, align 8
   br label %if.end21.sink.split.i.i
 
 if.end21.sink.split.i.i:                          ; preds = %if.then13.i.i, %if.then.i.i
-  %pending17.sink15.i.i = phi ptr [ %pending17.i.i, %if.then13.i.i ], [ %pending.i.i, %if.then.i.i ]
-  %.sink.in.i.i = phi ptr [ %pending_buf16.i.i, %if.then13.i.i ], [ %pending_buf.i.i, %if.then.i.i ]
+  %.sink13.i.i = phi i32 [ %20, %if.then13.i.i ], [ %18, %if.then.i.i ]
+  %.sink.i.i = phi ptr [ %19, %if.then13.i.i ], [ %17, %if.then.i.i ]
   %conv15.sink.in.i.i = phi i16 [ %12, %if.then13.i.i ], [ %16, %if.then.i.i ]
   %conv15.sink.i.i = trunc i16 %conv15.sink.in.i.i to i8
-  %.sink.i.i = load ptr, ptr %.sink.in.i.i, align 16
-  %17 = load i32, ptr %pending17.sink15.i.i, align 8
-  %inc18.i.i = add i32 %17, 1
-  store i32 %inc18.i.i, ptr %pending17.sink15.i.i, align 8
-  %idxprom19.i.i = zext i32 %17 to i64
+  %idxprom19.i.i = zext i32 %.sink13.i.i to i64
   %arrayidx20.i.i = getelementptr inbounds i8, ptr %.sink.i.i, i64 %idxprom19.i.i
   store i8 %conv15.sink.i.i, ptr %arrayidx20.i.i, align 1
   br label %bi_windup.exit.i
@@ -186,40 +190,40 @@ bi_windup.exit.i:                                 ; preds = %if.end21.sink.split
   store i32 0, ptr %bi_valid, align 4
   %conv2.i = trunc i64 %stored_len to i8
   %pending_buf.i = getelementptr inbounds i8, ptr %s, i64 16
-  %18 = load ptr, ptr %pending_buf.i, align 16
+  %21 = load ptr, ptr %pending_buf.i, align 16
   %pending.i = getelementptr inbounds i8, ptr %s, i64 40
-  %19 = load i32, ptr %pending.i, align 8
-  %inc.i = add i32 %19, 1
+  %22 = load i32, ptr %pending.i, align 8
+  %inc.i = add i32 %22, 1
   store i32 %inc.i, ptr %pending.i, align 8
-  %idxprom.i = zext i32 %19 to i64
-  %arrayidx.i = getelementptr inbounds i8, ptr %18, i64 %idxprom.i
+  %idxprom.i = zext i32 %22 to i64
+  %arrayidx.i = getelementptr inbounds i8, ptr %21, i64 %idxprom.i
   store i8 %conv2.i, ptr %arrayidx.i, align 1
   %conv1.i20 = lshr i64 %stored_len, 8
   %conv5.i = trunc i64 %conv1.i20 to i8
-  %20 = load ptr, ptr %pending_buf.i, align 16
-  %21 = load i32, ptr %pending.i, align 8
-  %inc8.i = add i32 %21, 1
+  %23 = load ptr, ptr %pending_buf.i, align 16
+  %24 = load i32, ptr %pending.i, align 8
+  %inc8.i = add i32 %24, 1
   store i32 %inc8.i, ptr %pending.i, align 8
-  %idxprom9.i = zext i32 %21 to i64
-  %arrayidx10.i = getelementptr inbounds i8, ptr %20, i64 %idxprom9.i
+  %idxprom9.i = zext i32 %24 to i64
+  %arrayidx10.i = getelementptr inbounds i8, ptr %23, i64 %idxprom9.i
   store i8 %conv5.i, ptr %arrayidx10.i, align 1
   %conv12.i = xor i32 %conv37, 65535
   %conv14.i = trunc i32 %conv12.i to i8
-  %22 = load ptr, ptr %pending_buf.i, align 16
-  %23 = load i32, ptr %pending.i, align 8
-  %inc17.i = add i32 %23, 1
+  %25 = load ptr, ptr %pending_buf.i, align 16
+  %26 = load i32, ptr %pending.i, align 8
+  %inc17.i = add i32 %26, 1
   store i32 %inc17.i, ptr %pending.i, align 8
-  %idxprom18.i = zext i32 %23 to i64
-  %arrayidx19.i = getelementptr inbounds i8, ptr %22, i64 %idxprom18.i
+  %idxprom18.i = zext i32 %26 to i64
+  %arrayidx19.i = getelementptr inbounds i8, ptr %25, i64 %idxprom18.i
   store i8 %conv14.i, ptr %arrayidx19.i, align 1
   %shr23.i = lshr i32 %conv12.i, 8
   %conv24.i = trunc i32 %shr23.i to i8
-  %24 = load ptr, ptr %pending_buf.i, align 16
-  %25 = load i32, ptr %pending.i, align 8
-  %inc27.i = add i32 %25, 1
+  %27 = load ptr, ptr %pending_buf.i, align 16
+  %28 = load i32, ptr %pending.i, align 8
+  %inc27.i = add i32 %28, 1
   store i32 %inc27.i, ptr %pending.i, align 8
-  %idxprom28.i = zext i32 %25 to i64
-  %arrayidx29.i = getelementptr inbounds i8, ptr %24, i64 %idxprom28.i
+  %idxprom28.i = zext i32 %28 to i64
+  %arrayidx29.i = getelementptr inbounds i8, ptr %27, i64 %idxprom28.i
   store i8 %conv24.i, ptr %arrayidx29.i, align 1
   %tobool30.not15.i = icmp eq i32 %conv37, 0
   br i1 %tobool30.not15.i, label %copy_block.exit, label %while.body.i
@@ -229,14 +233,14 @@ while.body.i:                                     ; preds = %bi_windup.exit.i, %
   %len.addr.016.i = phi i32 [ %dec.i, %while.body.i ], [ %conv37, %bi_windup.exit.i ]
   %dec.i = add i32 %len.addr.016.i, -1
   %incdec.ptr.i = getelementptr inbounds i8, ptr %buf.addr.017.i, i64 1
-  %26 = load i8, ptr %buf.addr.017.i, align 1
-  %27 = load ptr, ptr %pending_buf.i, align 16
-  %28 = load i32, ptr %pending.i, align 8
-  %inc33.i = add i32 %28, 1
+  %29 = load i8, ptr %buf.addr.017.i, align 1
+  %30 = load ptr, ptr %pending_buf.i, align 16
+  %31 = load i32, ptr %pending.i, align 8
+  %inc33.i = add i32 %31, 1
   store i32 %inc33.i, ptr %pending.i, align 8
-  %idxprom34.i = zext i32 %28 to i64
-  %arrayidx35.i = getelementptr inbounds i8, ptr %27, i64 %idxprom34.i
-  store i8 %26, ptr %arrayidx35.i, align 1
+  %idxprom34.i = zext i32 %31 to i64
+  %arrayidx35.i = getelementptr inbounds i8, ptr %30, i64 %idxprom34.i
+  store i8 %29, ptr %arrayidx35.i, align 1
   %tobool30.not.i = icmp eq i32 %dec.i, 0
   br i1 %tobool30.not.i, label %copy_block.exit, label %while.body.i, !llvm.loop !9
 
@@ -1230,6 +1234,10 @@ if.then.i104:                                     ; preds = %if.then132
   store i8 %conv1.i, ptr %arrayidx.i110, align 1
   %112 = load i16, ptr %bi_buf.i105, align 8
   %113 = lshr i16 %112, 8
+  %114 = load ptr, ptr %pending_buf.i106, align 16
+  %115 = load i32, ptr %pending.i107, align 8
+  %inc7.i = add i32 %115, 1
+  store i32 %inc7.i, ptr %pending.i107, align 8
   br label %if.end21.sink.split.i
 
 if.else.i102:                                     ; preds = %if.then132
@@ -1238,21 +1246,21 @@ if.else.i102:                                     ; preds = %if.then132
 
 if.then13.i:                                      ; preds = %if.else.i102
   %bi_buf14.i = getelementptr inbounds i8, ptr %s, i64 7048
-  %114 = load i16, ptr %bi_buf14.i, align 8
+  %116 = load i16, ptr %bi_buf14.i, align 8
   %pending_buf16.i = getelementptr inbounds i8, ptr %s, i64 16
+  %117 = load ptr, ptr %pending_buf16.i, align 16
   %pending17.i = getelementptr inbounds i8, ptr %s, i64 40
+  %118 = load i32, ptr %pending17.i, align 8
+  %inc18.i = add i32 %118, 1
+  store i32 %inc18.i, ptr %pending17.i, align 8
   br label %if.end21.sink.split.i
 
 if.end21.sink.split.i:                            ; preds = %if.then13.i, %if.then.i104
-  %pending17.sink15.i = phi ptr [ %pending17.i, %if.then13.i ], [ %pending.i107, %if.then.i104 ]
-  %.sink.in.i = phi ptr [ %pending_buf16.i, %if.then13.i ], [ %pending_buf.i106, %if.then.i104 ]
-  %conv15.sink.in.i = phi i16 [ %114, %if.then13.i ], [ %113, %if.then.i104 ]
+  %.sink13.i = phi i32 [ %118, %if.then13.i ], [ %115, %if.then.i104 ]
+  %.sink.i = phi ptr [ %117, %if.then13.i ], [ %114, %if.then.i104 ]
+  %conv15.sink.in.i = phi i16 [ %116, %if.then13.i ], [ %113, %if.then.i104 ]
   %conv15.sink.i = trunc i16 %conv15.sink.in.i to i8
-  %.sink.i = load ptr, ptr %.sink.in.i, align 16
-  %115 = load i32, ptr %pending17.sink15.i, align 8
-  %inc18.i = add i32 %115, 1
-  store i32 %inc18.i, ptr %pending17.sink15.i, align 8
-  %idxprom19.i = zext i32 %115 to i64
+  %idxprom19.i = zext i32 %.sink13.i to i64
   %arrayidx20.i103 = getelementptr inbounds i8, ptr %.sink.i, i64 %idxprom19.i
   store i8 %conv15.sink.i, ptr %arrayidx20.i103, align 1
   br label %bi_windup.exit
@@ -2430,23 +2438,26 @@ if.then:                                          ; preds = %entry
   %dyn_ltree = getelementptr inbounds i8, ptr %s, i64 1324
   %idxprom6 = zext i32 %lc to i64
   %arrayidx7 = getelementptr inbounds [573 x %struct.ct_data_s], ptr %dyn_ltree, i64 0, i64 %idxprom6
+  %4 = load i16, ptr %arrayidx7, align 4
+  %inc8 = add i16 %4, 1
+  store i16 %inc8, ptr %arrayidx7, align 4
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %matches = getelementptr inbounds i8, ptr %s, i64 7040
-  %4 = load i32, ptr %matches, align 16
-  %inc9 = add i32 %4, 1
+  %5 = load i32, ptr %matches, align 16
+  %inc9 = add i32 %5, 1
   store i32 %inc9, ptr %matches, align 16
   %dec = add i32 %dist, -1
   %dyn_ltree10 = getelementptr inbounds i8, ptr %s, i64 1324
   %idxprom11 = zext i32 %lc to i64
   %arrayidx12 = getelementptr inbounds [256 x i8], ptr @MOZ_Z__length_code, i64 0, i64 %idxprom11
-  %5 = load i8, ptr %arrayidx12, align 1
-  %conv13 = zext i8 %5 to i64
+  %6 = load i8, ptr %arrayidx12, align 1
+  %conv13 = zext i8 %6 to i64
   %add14 = add nuw nsw i64 %conv13, 257
   %arrayidx16 = getelementptr inbounds [573 x %struct.ct_data_s], ptr %dyn_ltree10, i64 0, i64 %add14
-  %6 = load i16, ptr %arrayidx16, align 4
-  %inc18 = add i16 %6, 1
+  %7 = load i16, ptr %arrayidx16, align 4
+  %inc18 = add i16 %7, 1
   store i16 %inc18, ptr %arrayidx16, align 4
   %dyn_dtree = getelementptr inbounds i8, ptr %s, i64 3616
   %cmp19 = icmp ult i32 %dist, 257
@@ -2458,18 +2469,17 @@ if.else:                                          ; preds = %entry
   %cond.in = load i8, ptr %cond.in.in, align 1
   %idxprom28 = zext i8 %cond.in to i64
   %arrayidx29 = getelementptr inbounds [61 x %struct.ct_data_s], ptr %dyn_dtree, i64 0, i64 %idxprom28
+  %8 = load i16, ptr %arrayidx29, align 4
+  %inc31 = add i16 %8, 1
+  store i16 %inc31, ptr %arrayidx29, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %arrayidx29.sink17 = phi ptr [ %arrayidx29, %if.else ], [ %arrayidx7, %if.then ]
-  %7 = load i16, ptr %arrayidx29.sink17, align 4
-  %inc31 = add i16 %7, 1
-  store i16 %inc31, ptr %arrayidx29.sink17, align 4
-  %8 = load i32, ptr %last_lit, align 4
+  %9 = load i32, ptr %last_lit, align 4
   %lit_bufsize = getelementptr inbounds i8, ptr %s, i64 7008
-  %9 = load i32, ptr %lit_bufsize, align 16
-  %sub = add i32 %9, -1
-  %cmp33 = icmp eq i32 %8, %sub
+  %10 = load i32, ptr %lit_bufsize, align 16
+  %sub = add i32 %10, -1
+  %cmp33 = icmp eq i32 %9, %sub
   %conv34 = zext i1 %cmp33 to i32
   ret i32 %conv34
 }

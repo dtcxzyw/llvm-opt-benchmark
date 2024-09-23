@@ -181,9 +181,9 @@ $_ZSt16__introsort_loopIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEElN9_
 
 $_ZSt22__final_insertion_sortIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_T0_ = comdat any
 
-$_ZSt27__unguarded_partition_pivotIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEET_SC_SC_T0_ = comdat any
-
 $_ZSt13__adjust_heapIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEElS5_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_T0_SD_T1_T2_ = comdat any
+
+$_ZSt22__move_median_to_firstIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_SC_SC_T0_ = comdat any
 
 $_ZN23SlotIndexUpdateDelegateD0Ev = comdat any
 
@@ -13171,73 +13171,137 @@ define linkonce_odr void @_ZSt16__introsort_loopIPSt4pairIN4llvm9SlotIndexEPNS1_
   %5 = ptrtoint ptr %1 to i64
   %6 = sub i64 %5, %4
   %7 = icmp sgt i64 %6, 256
-  br i1 %7, label %.lr.ph.preheader, label %_ZSt14__partial_sortIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_SC_T0_.exit
+  br i1 %7, label %.lr.ph, label %_ZSt14__partial_sortIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_SC_T0_.exit
 
-.lr.ph.preheader:                                 ; preds = %3
-  %8 = icmp eq i64 %2, 0
-  br i1 %8, label %.split.i.i, label %.lr.ph36
+.lr.ph:                                           ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  br label %9
 
-.lr.ph:                                           ; preds = %.lr.ph36
-  %9 = icmp eq i64 %26, 0
-  br i1 %9, label %.split.i.i, label %.lr.ph36, !llvm.loop !189
+9:                                                ; preds = %.lr.ph, %_ZSt27__unguarded_partition_pivotIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEET_SC_SC_T0_.exit
+  %10 = phi i64 [ %6, %.lr.ph ], [ %70, %_ZSt27__unguarded_partition_pivotIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEET_SC_SC_T0_.exit ]
+  %.025 = phi ptr [ %1, %.lr.ph ], [ %.1.i.i, %_ZSt27__unguarded_partition_pivotIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEET_SC_SC_T0_.exit ]
+  %.01724 = phi i64 [ %2, %.lr.ph ], [ %68, %_ZSt27__unguarded_partition_pivotIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEET_SC_SC_T0_.exit ]
+  %11 = icmp eq i64 %.01724, 0
+  br i1 %11, label %.split.i.i, label %28
 
-.split.i.i:                                       ; preds = %.lr.ph, %.lr.ph.preheader
-  %.lcssa = phi i64 [ %6, %.lr.ph.preheader ], [ %29, %.lr.ph ]
-  %.024.lcssa = phi ptr [ %1, %.lr.ph.preheader ], [ %27, %.lr.ph ]
-  %10 = lshr exact i64 %.lcssa, 4
-  %11 = add nsw i64 %10, -2
-  %12 = lshr i64 %11, 1
-  %13 = getelementptr inbounds %"struct.std::pair.702", ptr %0, i64 %12
-  %.sroa.02.0.copyload15.i.i = load i64, ptr %13, align 8
-  %.sroa.23.0..sroa_idx16.i.i = getelementptr inbounds i8, ptr %13, i64 8
+.split.i.i:                                       ; preds = %9
+  %12 = lshr exact i64 %10, 4
+  %13 = add nsw i64 %12, -2
+  %14 = lshr i64 %13, 1
+  %15 = getelementptr inbounds %"struct.std::pair.702", ptr %0, i64 %14
+  %.sroa.02.0.copyload15.i.i = load i64, ptr %15, align 8
+  %.sroa.23.0..sroa_idx16.i.i = getelementptr inbounds i8, ptr %15, i64 8
   %.sroa.23.0.copyload17.i.i = load ptr, ptr %.sroa.23.0..sroa_idx16.i.i, align 8
-  tail call void @_ZSt13__adjust_heapIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEElS5_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_T0_SD_T1_T2_(ptr noundef %0, i64 noundef %12, i64 noundef %10, i64 %.sroa.02.0.copyload15.i.i, ptr %.sroa.23.0.copyload17.i.i)
+  tail call void @_ZSt13__adjust_heapIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEElS5_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_T0_SD_T1_T2_(ptr noundef %0, i64 noundef %14, i64 noundef %12, i64 %.sroa.02.0.copyload15.i.i, ptr %.sroa.23.0.copyload17.i.i)
   br label %.split19.i.i
 
 .split19.i.i:                                     ; preds = %.split.i.i, %.split19.i.i
-  %.024.i.i = phi i64 [ %14, %.split19.i.i ], [ %12, %.split.i.i ]
-  %14 = add nsw i64 %.024.i.i, -1
-  %15 = getelementptr inbounds %"struct.std::pair.702", ptr %0, i64 %14
-  %.sroa.02.0.copyload20.i.i = load i64, ptr %15, align 8
-  %.sroa.23.0..sroa_idx21.i.i = getelementptr inbounds i8, ptr %15, i64 8
+  %.024.i.i = phi i64 [ %16, %.split19.i.i ], [ %14, %.split.i.i ]
+  %16 = add nsw i64 %.024.i.i, -1
+  %17 = getelementptr inbounds %"struct.std::pair.702", ptr %0, i64 %16
+  %.sroa.02.0.copyload20.i.i = load i64, ptr %17, align 8
+  %.sroa.23.0..sroa_idx21.i.i = getelementptr inbounds i8, ptr %17, i64 8
   %.sroa.23.0.copyload22.i.i = load ptr, ptr %.sroa.23.0..sroa_idx21.i.i, align 8
-  tail call void @_ZSt13__adjust_heapIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEElS5_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_T0_SD_T1_T2_(ptr noundef nonnull %0, i64 noundef %14, i64 noundef %10, i64 %.sroa.02.0.copyload20.i.i, ptr %.sroa.23.0.copyload22.i.i)
-  %16 = icmp eq i64 %14, 0
-  br i1 %16, label %.lr.ph.i.i, label %.split19.i.i, !llvm.loop !190
+  tail call void @_ZSt13__adjust_heapIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEElS5_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_T0_SD_T1_T2_(ptr noundef nonnull %0, i64 noundef %16, i64 noundef %12, i64 %.sroa.02.0.copyload20.i.i, ptr %.sroa.23.0.copyload22.i.i)
+  %18 = icmp eq i64 %16, 0
+  br i1 %18, label %.lr.ph.i.i, label %.split19.i.i, !llvm.loop !189
 
 .lr.ph.i.i:                                       ; preds = %.split19.i.i
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %18
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %20
 
-18:                                               ; preds = %18, %.lr.ph.i.i
-  %.07.i.i = phi ptr [ %.024.lcssa, %.lr.ph.i.i ], [ %19, %18 ]
-  %19 = getelementptr inbounds i8, ptr %.07.i.i, i64 -16
-  %.sroa.02.0.copyload.i.i.i = load i64, ptr %19, align 8
+20:                                               ; preds = %20, %.lr.ph.i.i
+  %.07.i.i = phi ptr [ %.025, %.lr.ph.i.i ], [ %21, %20 ]
+  %21 = getelementptr inbounds i8, ptr %.07.i.i, i64 -16
+  %.sroa.02.0.copyload.i.i.i = load i64, ptr %21, align 8
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %.07.i.i, i64 -8
   %.sroa.23.0.copyload.i.i.i = load ptr, ptr %.sroa.23.0..sroa_idx.i.i.i, align 8
-  %20 = load i64, ptr %0, align 8
-  store i64 %20, ptr %19, align 8
-  %21 = load ptr, ptr %17, align 8
-  store ptr %21, ptr %.sroa.23.0..sroa_idx.i.i.i, align 8
-  %22 = ptrtoint ptr %19 to i64
-  %23 = sub i64 %22, %4
-  %24 = ashr exact i64 %23, 4
-  tail call void @_ZSt13__adjust_heapIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEElS5_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_T0_SD_T1_T2_(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %24, i64 %.sroa.02.0.copyload.i.i.i, ptr %.sroa.23.0.copyload.i.i.i)
-  %25 = icmp sgt i64 %23, 16
-  br i1 %25, label %18, label %_ZSt14__partial_sortIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_SC_T0_.exit, !llvm.loop !191
+  %22 = load i64, ptr %0, align 8
+  store i64 %22, ptr %21, align 8
+  %23 = load ptr, ptr %19, align 8
+  store ptr %23, ptr %.sroa.23.0..sroa_idx.i.i.i, align 8
+  %24 = ptrtoint ptr %21 to i64
+  %25 = sub i64 %24, %4
+  %26 = ashr exact i64 %25, 4
+  tail call void @_ZSt13__adjust_heapIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEElS5_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_T0_SD_T1_T2_(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %26, i64 %.sroa.02.0.copyload.i.i.i, ptr %.sroa.23.0.copyload.i.i.i)
+  %27 = icmp sgt i64 %25, 16
+  br i1 %27, label %20, label %_ZSt14__partial_sortIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_SC_T0_.exit, !llvm.loop !190
 
-.lr.ph36:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0172335 = phi i64 [ %26, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  %.02434 = phi ptr [ %27, %.lr.ph ], [ %1, %.lr.ph.preheader ]
-  %26 = add nsw i64 %.0172335, -1
-  %27 = tail call noundef ptr @_ZSt27__unguarded_partition_pivotIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEET_SC_SC_T0_(ptr noundef %0, ptr noundef %.02434)
-  tail call void @_ZSt16__introsort_loopIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEElN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_T0_T1_(ptr noundef %27, ptr noundef %.02434, i64 noundef %26)
-  %28 = ptrtoint ptr %27 to i64
-  %29 = sub i64 %28, %4
-  %30 = icmp sgt i64 %29, 256
-  br i1 %30, label %.lr.ph, label %_ZSt14__partial_sortIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_SC_T0_.exit, !llvm.loop !189
+28:                                               ; preds = %9
+  %29 = lshr i64 %10, 5
+  %30 = getelementptr inbounds %"struct.std::pair.702", ptr %0, i64 %29
+  %31 = getelementptr inbounds i8, ptr %.025, i64 -16
+  tail call void @_ZSt22__move_median_to_firstIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_SC_SC_T0_(ptr noundef %0, ptr noundef nonnull %8, ptr noundef %30, ptr noundef nonnull %31)
+  br label %32
 
-_ZSt14__partial_sortIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_SC_T0_.exit: ; preds = %.lr.ph36, %18, %3
+32:                                               ; preds = %63, %28
+  %.013.i.i = phi ptr [ %.025, %28 ], [ %.114.i.i, %63 ]
+  %.0.i.i = phi ptr [ %8, %28 ], [ %51, %63 ]
+  %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr %0, align 8
+  %33 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i, -8
+  %34 = inttoptr i64 %33 to ptr
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
+  %36 = load i32, ptr %35, align 8
+  %37 = trunc i64 %.sroa.0.0.copyload.i.i.i.i.i.i to i32
+  %38 = lshr i32 %37, 1
+  %39 = and i32 %38, 3
+  %40 = or i32 %39, %36
+  br label %41
+
+41:                                               ; preds = %41, %32
+  %.1.i.i = phi ptr [ %.0.i.i, %32 ], [ %51, %41 ]
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.1.i.i, align 8
+  %42 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i, -8
+  %43 = inttoptr i64 %42 to ptr
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
+  %45 = load i32, ptr %44, align 8
+  %46 = trunc i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i to i32
+  %47 = lshr i32 %46, 1
+  %48 = and i32 %47, 3
+  %49 = or i32 %48, %45
+  %50 = icmp ult i32 %49, %40
+  %51 = getelementptr inbounds i8, ptr %.1.i.i, i64 16
+  br i1 %50, label %41, label %.preheader.i.i, !llvm.loop !191
+
+.preheader.i.i:                                   ; preds = %41, %.preheader.i.i
+  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %41 ]
+  %.114.i.i = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -16
+  %.sroa.0.0.copyload.i.i.i.i15.i.i = load i64, ptr %.114.i.i, align 8
+  %52 = and i64 %.sroa.0.0.copyload.i.i.i.i15.i.i, -8
+  %53 = inttoptr i64 %52 to ptr
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
+  %55 = load i32, ptr %54, align 8
+  %56 = trunc i64 %.sroa.0.0.copyload.i.i.i.i15.i.i to i32
+  %57 = lshr i32 %56, 1
+  %58 = and i32 %57, 3
+  %59 = or i32 %58, %55
+  %60 = icmp ult i32 %40, %59
+  br i1 %60, label %.preheader.i.i, label %61, !llvm.loop !192
+
+61:                                               ; preds = %.preheader.i.i
+  %62 = icmp ult ptr %.1.i.i, %.114.i.i
+  br i1 %62, label %63, label %_ZSt27__unguarded_partition_pivotIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEET_SC_SC_T0_.exit
+
+63:                                               ; preds = %61
+  store i64 %.sroa.0.0.copyload.i.i.i.i15.i.i, ptr %.1.i.i, align 8
+  store i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i, ptr %.114.i.i, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
+  %65 = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -8
+  %66 = load ptr, ptr %64, align 8
+  %67 = load ptr, ptr %65, align 8
+  store ptr %67, ptr %64, align 8
+  store ptr %66, ptr %65, align 8
+  br label %32, !llvm.loop !193
+
+_ZSt27__unguarded_partition_pivotIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEET_SC_SC_T0_.exit: ; preds = %61
+  %68 = add nsw i64 %.01724, -1
+  tail call void @_ZSt16__introsort_loopIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEElN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_T0_T1_(ptr noundef nonnull %.1.i.i, ptr noundef %.025, i64 noundef %68)
+  %69 = ptrtoint ptr %.1.i.i to i64
+  %70 = sub i64 %69, %4
+  %71 = icmp sgt i64 %70, 256
+  br i1 %71, label %9, label %_ZSt14__partial_sortIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_SC_T0_.exit, !llvm.loop !194
+
+_ZSt14__partial_sortIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_SC_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEET_SC_SC_T0_.exit, %20, %3
   ret void
 }
 
@@ -13247,434 +13311,300 @@ define linkonce_odr void @_ZSt22__final_insertion_sortIPSt4pairIN4llvm9SlotIndex
   %4 = ptrtoint ptr %0 to i64
   %5 = sub i64 %3, %4
   %6 = icmp sgt i64 %5, 256
-  br i1 %6, label %.preheader, label %92
+  br i1 %6, label %7, label %97
 
-.preheader:                                       ; preds = %2, %_ZSt13move_backwardIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit.i
-  %.019.i.idx = phi i64 [ %.019.i.add, %_ZSt13move_backwardIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit.i ], [ 16, %2 ]
-  %.pn18.i = phi ptr [ %.019.i.ptr, %_ZSt13move_backwardIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit.i ], [ %0, %2 ]
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %9
+
+9:                                                ; preds = %62, %7
+  %.019.i.idx = phi i64 [ 16, %7 ], [ %.019.i.add, %62 ]
+  %.pn18.i = phi ptr [ %0, %7 ], [ %.019.i.ptr, %62 ]
   %.019.i.ptr = getelementptr inbounds i8, ptr %0, i64 %.019.i.idx
   %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %0, align 8
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.019.i.ptr, align 8
-  %7 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -8
-  %8 = inttoptr i64 %7 to ptr
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %10 = load i32, ptr %9, align 8
-  %11 = trunc i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i to i32
-  %12 = lshr i32 %11, 1
-  %13 = and i32 %12, 3
-  %14 = or i32 %13, %10
-  %15 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, -8
-  %16 = inttoptr i64 %15 to ptr
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %18 = load i32, ptr %17, align 8
-  %19 = trunc i64 %.sroa.0.0.copyload.i.i.i.i.i to i32
-  %20 = lshr i32 %19, 1
-  %21 = and i32 %20, 3
-  %22 = or i32 %18, %21
-  %23 = icmp ult i32 %14, %22
+  %10 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -8
+  %11 = inttoptr i64 %10 to ptr
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %13 = load i32, ptr %12, align 8
+  %14 = trunc i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i to i32
+  %15 = lshr i32 %14, 1
+  %16 = and i32 %15, 3
+  %17 = or i32 %16, %13
+  %18 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, -8
+  %19 = inttoptr i64 %18 to ptr
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %21 = load i32, ptr %20, align 8
+  %22 = trunc i64 %.sroa.0.0.copyload.i.i.i.i.i to i32
+  %23 = lshr i32 %22, 1
+  %24 = and i32 %23, 3
+  %25 = or i32 %21, %24
+  %26 = icmp ult i32 %17, %25
   %.sroa.2.0..0.sroa_idx.i = getelementptr inbounds i8, ptr %.pn18.i, i64 24
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..0.sroa_idx.i, align 8
-  br i1 %23, label %.lr.ph.i.i.i.i.i.preheader.i, label %34
+  br i1 %26, label %.lr.ph.i.i.i.i.i.preheader.i, label %37
 
-.lr.ph.i.i.i.i.i.preheader.i:                     ; preds = %.preheader
-  %24 = lshr exact i64 %.019.i.idx, 4
-  %25 = getelementptr inbounds i8, ptr %.pn18.i, i64 32
+.lr.ph.i.i.i.i.i.preheader.i:                     ; preds = %9
+  %27 = lshr exact i64 %.019.i.idx, 4
+  %28 = getelementptr inbounds i8, ptr %.pn18.i, i64 32
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.preheader.i
-  %.010.i.i.i.i.i.i = phi i64 [ %32, %.lr.ph.i.i.i.i.i.i ], [ %24, %.lr.ph.i.i.i.i.i.preheader.i ]
-  %.069.i.i.i.i.i.i = phi ptr [ %27, %.lr.ph.i.i.i.i.i.i ], [ %25, %.lr.ph.i.i.i.i.i.preheader.i ]
-  %.078.i.i.i.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i.i.i.i ], [ %.019.i.ptr, %.lr.ph.i.i.i.i.i.preheader.i ]
-  %26 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -16
-  %27 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -16
-  %28 = load i64, ptr %26, align 8
-  store i64 %28, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -8
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -8
-  store ptr %30, ptr %31, align 8
-  %32 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %33 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
-  br i1 %33, label %.lr.ph.i.i.i.i.i.i, label %_ZSt13move_backwardIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit.i, !llvm.loop !192
+  %.010.i.i.i.i.i.i = phi i64 [ %35, %.lr.ph.i.i.i.i.i.i ], [ %27, %.lr.ph.i.i.i.i.i.preheader.i ]
+  %.069.i.i.i.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i.i.i.i ], [ %28, %.lr.ph.i.i.i.i.i.preheader.i ]
+  %.078.i.i.i.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i.i.i.i ], [ %.019.i.ptr, %.lr.ph.i.i.i.i.i.preheader.i ]
+  %29 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -16
+  %30 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -16
+  %31 = load i64, ptr %29, align 8
+  store i64 %31, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -8
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -8
+  store ptr %33, ptr %34, align 8
+  %35 = add nsw i64 %.010.i.i.i.i.i.i, -1
+  %36 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  br i1 %36, label %.lr.ph.i.i.i.i.i.i, label %_ZSt13move_backwardIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit.i, !llvm.loop !195
 
-34:                                               ; preds = %.preheader
+_ZSt13move_backwardIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i
+  store i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, ptr %0, align 8
+  store ptr %.sroa.2.0.copyload.i, ptr %8, align 8
+  br label %62
+
+37:                                               ; preds = %9
   %.sroa.0.0.copyload.i.i.i.i11.i.i = load i64, ptr %.pn18.i, align 8
-  %35 = and i64 %.sroa.0.0.copyload.i.i.i.i11.i.i, -8
-  %36 = inttoptr i64 %35 to ptr
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %38 = load i32, ptr %37, align 8
-  %39 = trunc i64 %.sroa.0.0.copyload.i.i.i.i11.i.i to i32
-  %40 = lshr i32 %39, 1
-  %41 = and i32 %40, 3
-  %42 = or i32 %41, %38
-  %43 = icmp ult i32 %14, %42
-  br i1 %43, label %.lr.ph.i.i, label %_ZSt13move_backwardIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit.i
+  %38 = and i64 %.sroa.0.0.copyload.i.i.i.i11.i.i, -8
+  %39 = inttoptr i64 %38 to ptr
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
+  %41 = load i32, ptr %40, align 8
+  %42 = trunc i64 %.sroa.0.0.copyload.i.i.i.i11.i.i to i32
+  %43 = lshr i32 %42, 1
+  %44 = and i32 %43, 3
+  %45 = or i32 %44, %41
+  %46 = icmp ult i32 %17, %45
+  br i1 %46, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_10less_firstEEEEvT_T0_.exit.i
 
-.lr.ph.i.i:                                       ; preds = %34, %.lr.ph.i.i
-  %.sroa.0.0.copyload.i.i.i.i14.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i.i.i.i, %.lr.ph.i.i ], [ %.sroa.0.0.copyload.i.i.i.i11.i.i, %34 ]
-  %.013.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %.pn18.i, %34 ]
-  %.0912.i.i = phi ptr [ %.013.i.i, %.lr.ph.i.i ], [ %.019.i.ptr, %34 ]
+.lr.ph.i.i:                                       ; preds = %37, %.lr.ph.i.i
+  %.sroa.0.0.copyload.i.i.i.i14.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i.i.i.i, %.lr.ph.i.i ], [ %.sroa.0.0.copyload.i.i.i.i11.i.i, %37 ]
+  %.013.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %.pn18.i, %37 ]
+  %.0912.i.i = phi ptr [ %.013.i.i, %.lr.ph.i.i ], [ %.019.i.ptr, %37 ]
   store i64 %.sroa.0.0.copyload.i.i.i.i14.i.i, ptr %.0912.i.i, align 8
-  %44 = getelementptr inbounds i8, ptr %.0912.i.i, i64 -8
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %.0912.i.i, i64 8
-  store ptr %45, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %.0912.i.i, i64 -8
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %.0912.i.i, i64 8
+  store ptr %48, ptr %49, align 8
   %.0.i.i = getelementptr inbounds i8, ptr %.013.i.i, i64 -16
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr %.0.i.i, align 8
-  %47 = load i32, ptr %9, align 8
-  %48 = or i32 %47, %13
-  %49 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i, -8
-  %50 = inttoptr i64 %49 to ptr
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %52 = load i32, ptr %51, align 8
-  %53 = trunc i64 %.sroa.0.0.copyload.i.i.i.i.i.i to i32
-  %54 = lshr i32 %53, 1
-  %55 = and i32 %54, 3
-  %56 = or i32 %55, %52
-  %57 = icmp ult i32 %48, %56
-  br i1 %57, label %.lr.ph.i.i, label %_ZSt13move_backwardIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit.i, !llvm.loop !193
+  %50 = load i32, ptr %12, align 8
+  %51 = or i32 %50, %16
+  %52 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i, -8
+  %53 = inttoptr i64 %52 to ptr
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
+  %55 = load i32, ptr %54, align 8
+  %56 = trunc i64 %.sroa.0.0.copyload.i.i.i.i.i.i to i32
+  %57 = lshr i32 %56, 1
+  %58 = and i32 %57, 3
+  %59 = or i32 %58, %55
+  %60 = icmp ult i32 %51, %59
+  br i1 %60, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_10less_firstEEEEvT_T0_.exit.i, !llvm.loop !196
 
-_ZSt13move_backwardIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit.i: ; preds = %.lr.ph.i.i, %.lr.ph.i.i.i.i.i.i, %34
-  %.09.lcssa.i.i.sink = phi ptr [ %.019.i.ptr, %34 ], [ %0, %.lr.ph.i.i.i.i.i.i ], [ %.013.i.i, %.lr.ph.i.i ]
-  store i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, ptr %.09.lcssa.i.i.sink, align 8
-  %.sink.i = getelementptr inbounds nuw i8, ptr %.09.lcssa.i.i.sink, i64 8
-  store ptr %.sroa.2.0.copyload.i, ptr %.sink.i, align 8
+_ZSt25__unguarded_linear_insertIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_10less_firstEEEEvT_T0_.exit.i: ; preds = %.lr.ph.i.i, %37
+  %.09.lcssa.i.i = phi ptr [ %.019.i.ptr, %37 ], [ %.013.i.i, %.lr.ph.i.i ]
+  store i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, ptr %.09.lcssa.i.i, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i.i, i64 8
+  store ptr %.sroa.2.0.copyload.i, ptr %61, align 8
+  br label %62
+
+62:                                               ; preds = %_ZSt25__unguarded_linear_insertIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_10less_firstEEEEvT_T0_.exit.i, %_ZSt13move_backwardIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit.i
   %.019.i.add = add nuw nsw i64 %.019.i.idx, 16
   %.not.i = icmp eq i64 %.019.i.add, 256
-  br i1 %.not.i, label %_ZSt16__insertion_sortIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_T0_.exit, label %.preheader, !llvm.loop !194
+  br i1 %.not.i, label %_ZSt16__insertion_sortIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_T0_.exit, label %9, !llvm.loop !197
 
-_ZSt16__insertion_sortIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_T0_.exit: ; preds = %_ZSt13move_backwardIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit.i
-  %58 = getelementptr inbounds i8, ptr %0, i64 256
-  %.not6.i = icmp eq ptr %58, %1
+_ZSt16__insertion_sortIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_T0_.exit: ; preds = %62
+  %63 = getelementptr inbounds i8, ptr %0, i64 256
+  %.not6.i = icmp eq ptr %63, %1
   br i1 %.not6.i, label %_ZSt26__unguarded_insertion_sortIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_T0_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZSt16__insertion_sortIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_T0_.exit, %_ZSt25__unguarded_linear_insertIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_10less_firstEEEEvT_T0_.exit.i14
-  %.07.i = phi ptr [ %91, %_ZSt25__unguarded_linear_insertIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_10less_firstEEEEvT_T0_.exit.i14 ], [ %58, %_ZSt16__insertion_sortIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_T0_.exit ]
+  %.07.i = phi ptr [ %96, %_ZSt25__unguarded_linear_insertIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_10less_firstEEEEvT_T0_.exit.i14 ], [ %63, %_ZSt16__insertion_sortIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_T0_.exit ]
   %.sroa.0.0.copyload.i.i = load i64, ptr %.07.i, align 8
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %.07.i, i64 8
   %.sroa.3.0.copyload.i.i = load ptr, ptr %.sroa.3.0..sroa_idx.i.i, align 8
-  %59 = and i64 %.sroa.0.0.copyload.i.i, -8
-  %60 = inttoptr i64 %59 to ptr
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
-  %62 = trunc i64 %.sroa.0.0.copyload.i.i to i32
-  %63 = lshr i32 %62, 1
-  %64 = and i32 %63, 3
+  %64 = and i64 %.sroa.0.0.copyload.i.i, -8
+  %65 = inttoptr i64 %64 to ptr
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
+  %67 = trunc i64 %.sroa.0.0.copyload.i.i to i32
+  %68 = lshr i32 %67, 1
+  %69 = and i32 %68, 3
   %.010.i.i = getelementptr inbounds i8, ptr %.07.i, i64 -16
   %.sroa.0.0.copyload.i.i.i.i11.i.i13 = load i64, ptr %.010.i.i, align 8
-  %65 = load i32, ptr %61, align 8
-  %66 = or i32 %65, %64
-  %67 = and i64 %.sroa.0.0.copyload.i.i.i.i11.i.i13, -8
-  %68 = inttoptr i64 %67 to ptr
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  %70 = load i32, ptr %69, align 8
-  %71 = trunc i64 %.sroa.0.0.copyload.i.i.i.i11.i.i13 to i32
-  %72 = lshr i32 %71, 1
-  %73 = and i32 %72, 3
-  %74 = or i32 %73, %70
-  %75 = icmp ult i32 %66, %74
-  br i1 %75, label %.lr.ph.i.i17, label %_ZSt25__unguarded_linear_insertIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_10less_firstEEEEvT_T0_.exit.i14
+  %70 = load i32, ptr %66, align 8
+  %71 = or i32 %70, %69
+  %72 = and i64 %.sroa.0.0.copyload.i.i.i.i11.i.i13, -8
+  %73 = inttoptr i64 %72 to ptr
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 24
+  %75 = load i32, ptr %74, align 8
+  %76 = trunc i64 %.sroa.0.0.copyload.i.i.i.i11.i.i13 to i32
+  %77 = lshr i32 %76, 1
+  %78 = and i32 %77, 3
+  %79 = or i32 %78, %75
+  %80 = icmp ult i32 %71, %79
+  br i1 %80, label %.lr.ph.i.i17, label %_ZSt25__unguarded_linear_insertIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_10less_firstEEEEvT_T0_.exit.i14
 
 .lr.ph.i.i17:                                     ; preds = %.lr.ph.i, %.lr.ph.i.i17
   %.sroa.0.0.copyload.i.i.i.i14.i.i18 = phi i64 [ %.sroa.0.0.copyload.i.i.i.i.i.i22, %.lr.ph.i.i17 ], [ %.sroa.0.0.copyload.i.i.i.i11.i.i13, %.lr.ph.i ]
   %.013.i.i19 = phi ptr [ %.0.i.i21, %.lr.ph.i.i17 ], [ %.010.i.i, %.lr.ph.i ]
   %.0912.i.i20 = phi ptr [ %.013.i.i19, %.lr.ph.i.i17 ], [ %.07.i, %.lr.ph.i ]
   store i64 %.sroa.0.0.copyload.i.i.i.i14.i.i18, ptr %.0912.i.i20, align 8
-  %76 = getelementptr inbounds i8, ptr %.0912.i.i20, i64 -8
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %.0912.i.i20, i64 8
-  store ptr %77, ptr %78, align 8
+  %81 = getelementptr inbounds i8, ptr %.0912.i.i20, i64 -8
+  %82 = load ptr, ptr %81, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %.0912.i.i20, i64 8
+  store ptr %82, ptr %83, align 8
   %.0.i.i21 = getelementptr inbounds i8, ptr %.013.i.i19, i64 -16
   %.sroa.0.0.copyload.i.i.i.i.i.i22 = load i64, ptr %.0.i.i21, align 8
-  %79 = load i32, ptr %61, align 8
-  %80 = or i32 %79, %64
-  %81 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i22, -8
-  %82 = inttoptr i64 %81 to ptr
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 24
-  %84 = load i32, ptr %83, align 8
-  %85 = trunc i64 %.sroa.0.0.copyload.i.i.i.i.i.i22 to i32
-  %86 = lshr i32 %85, 1
-  %87 = and i32 %86, 3
-  %88 = or i32 %87, %84
-  %89 = icmp ult i32 %80, %88
-  br i1 %89, label %.lr.ph.i.i17, label %_ZSt25__unguarded_linear_insertIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_10less_firstEEEEvT_T0_.exit.i14, !llvm.loop !193
+  %84 = load i32, ptr %66, align 8
+  %85 = or i32 %84, %69
+  %86 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i22, -8
+  %87 = inttoptr i64 %86 to ptr
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 24
+  %89 = load i32, ptr %88, align 8
+  %90 = trunc i64 %.sroa.0.0.copyload.i.i.i.i.i.i22 to i32
+  %91 = lshr i32 %90, 1
+  %92 = and i32 %91, 3
+  %93 = or i32 %92, %89
+  %94 = icmp ult i32 %85, %93
+  br i1 %94, label %.lr.ph.i.i17, label %_ZSt25__unguarded_linear_insertIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_10less_firstEEEEvT_T0_.exit.i14, !llvm.loop !196
 
 _ZSt25__unguarded_linear_insertIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_10less_firstEEEEvT_T0_.exit.i14: ; preds = %.lr.ph.i.i17, %.lr.ph.i
   %.09.lcssa.i.i15 = phi ptr [ %.07.i, %.lr.ph.i ], [ %.013.i.i19, %.lr.ph.i.i17 ]
   store i64 %.sroa.0.0.copyload.i.i, ptr %.09.lcssa.i.i15, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i.i15, i64 8
-  store ptr %.sroa.3.0.copyload.i.i, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %.07.i, i64 16
-  %.not.i16 = icmp eq ptr %91, %1
-  br i1 %.not.i16, label %_ZSt26__unguarded_insertion_sortIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_T0_.exit, label %.lr.ph.i, !llvm.loop !195
+  %95 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i.i15, i64 8
+  store ptr %.sroa.3.0.copyload.i.i, ptr %95, align 8
+  %96 = getelementptr inbounds i8, ptr %.07.i, i64 16
+  %.not.i16 = icmp eq ptr %96, %1
+  br i1 %.not.i16, label %_ZSt26__unguarded_insertion_sortIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_T0_.exit, label %.lr.ph.i, !llvm.loop !198
 
-92:                                               ; preds = %2
-  %93 = icmp eq ptr %0, %1
+97:                                               ; preds = %2
+  %98 = icmp eq ptr %0, %1
+  br i1 %98, label %_ZSt26__unguarded_insertion_sortIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_T0_.exit, label %.preheader.i
+
+.preheader.i:                                     ; preds = %97
   %.016.i23 = getelementptr inbounds i8, ptr %0, i64 16
   %.not17.i = icmp eq ptr %.016.i23, %1
-  %or.cond = select i1 %93, i1 true, i1 %.not17.i
-  br i1 %or.cond, label %_ZSt26__unguarded_insertion_sortIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_T0_.exit, label %.lr.ph.i24
+  br i1 %.not17.i, label %_ZSt26__unguarded_insertion_sortIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_T0_.exit, label %.lr.ph.i24
 
-.lr.ph.i24:                                       ; preds = %92, %_ZSt13move_backwardIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit.i44
-  %.019.i25 = phi ptr [ %.0.i36, %_ZSt13move_backwardIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit.i44 ], [ %.016.i23, %92 ]
-  %.pn18.i26 = phi ptr [ %.019.i25, %_ZSt13move_backwardIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit.i44 ], [ %0, %92 ]
+.lr.ph.i24:                                       ; preds = %.preheader.i
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %100
+
+100:                                              ; preds = %157, %.lr.ph.i24
+  %.019.i25 = phi ptr [ %.016.i23, %.lr.ph.i24 ], [ %.0.i34, %157 ]
+  %.pn18.i26 = phi ptr [ %0, %.lr.ph.i24 ], [ %.019.i25, %157 ]
   %.sroa.0.0.copyload.i.i.i.i.i27 = load i64, ptr %0, align 8
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i28 = load i64, ptr %.019.i25, align 8
-  %94 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i28, -8
-  %95 = inttoptr i64 %94 to ptr
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 24
-  %97 = load i32, ptr %96, align 8
-  %98 = trunc i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i28 to i32
-  %99 = lshr i32 %98, 1
-  %100 = and i32 %99, 3
-  %101 = or i32 %100, %97
-  %102 = and i64 %.sroa.0.0.copyload.i.i.i.i.i27, -8
-  %103 = inttoptr i64 %102 to ptr
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 24
-  %105 = load i32, ptr %104, align 8
-  %106 = trunc i64 %.sroa.0.0.copyload.i.i.i.i.i27 to i32
-  %107 = lshr i32 %106, 1
-  %108 = and i32 %107, 3
-  %109 = or i32 %105, %108
-  %110 = icmp ult i32 %101, %109
+  %101 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i28, -8
+  %102 = inttoptr i64 %101 to ptr
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 24
+  %104 = load i32, ptr %103, align 8
+  %105 = trunc i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i28 to i32
+  %106 = lshr i32 %105, 1
+  %107 = and i32 %106, 3
+  %108 = or i32 %107, %104
+  %109 = and i64 %.sroa.0.0.copyload.i.i.i.i.i27, -8
+  %110 = inttoptr i64 %109 to ptr
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 24
+  %112 = load i32, ptr %111, align 8
+  %113 = trunc i64 %.sroa.0.0.copyload.i.i.i.i.i27 to i32
+  %114 = lshr i32 %113, 1
+  %115 = and i32 %114, 3
+  %116 = or i32 %112, %115
+  %117 = icmp ult i32 %108, %116
   %.sroa.2.0..0.sroa_idx.i29 = getelementptr inbounds i8, ptr %.pn18.i26, i64 24
   %.sroa.2.0.copyload.i30 = load ptr, ptr %.sroa.2.0..0.sroa_idx.i29, align 8
-  br i1 %110, label %111, label %125
+  br i1 %117, label %118, label %132
 
-111:                                              ; preds = %.lr.ph.i24
-  %112 = ptrtoint ptr %.019.i25 to i64
-  %113 = sub i64 %112, %4
-  %114 = ashr exact i64 %113, 4
-  %115 = icmp sgt i64 %114, 0
-  br i1 %115, label %.lr.ph.i.i.i.i.i.preheader.i45, label %_ZSt13move_backwardIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit.i44
+118:                                              ; preds = %100
+  %119 = ptrtoint ptr %.019.i25 to i64
+  %120 = sub i64 %119, %4
+  %121 = ashr exact i64 %120, 4
+  %122 = icmp sgt i64 %121, 0
+  br i1 %122, label %.lr.ph.i.i.i.i.i.preheader.i43, label %_ZSt13move_backwardIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit.i42
 
-.lr.ph.i.i.i.i.i.preheader.i45:                   ; preds = %111
-  %116 = getelementptr inbounds i8, ptr %.pn18.i26, i64 32
-  br label %.lr.ph.i.i.i.i.i.i46
+.lr.ph.i.i.i.i.i.preheader.i43:                   ; preds = %118
+  %123 = getelementptr inbounds i8, ptr %.pn18.i26, i64 32
+  br label %.lr.ph.i.i.i.i.i.i44
 
-.lr.ph.i.i.i.i.i.i46:                             ; preds = %.lr.ph.i.i.i.i.i.i46, %.lr.ph.i.i.i.i.i.preheader.i45
-  %.010.i.i.i.i.i.i47 = phi i64 [ %123, %.lr.ph.i.i.i.i.i.i46 ], [ %114, %.lr.ph.i.i.i.i.i.preheader.i45 ]
-  %.069.i.i.i.i.i.i48 = phi ptr [ %118, %.lr.ph.i.i.i.i.i.i46 ], [ %116, %.lr.ph.i.i.i.i.i.preheader.i45 ]
-  %.078.i.i.i.i.i.i49 = phi ptr [ %117, %.lr.ph.i.i.i.i.i.i46 ], [ %.019.i25, %.lr.ph.i.i.i.i.i.preheader.i45 ]
-  %117 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i49, i64 -16
-  %118 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i48, i64 -16
-  %119 = load i64, ptr %117, align 8
-  store i64 %119, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i49, i64 -8
-  %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i48, i64 -8
-  store ptr %121, ptr %122, align 8
-  %123 = add nsw i64 %.010.i.i.i.i.i.i47, -1
-  %124 = icmp ugt i64 %.010.i.i.i.i.i.i47, 1
-  br i1 %124, label %.lr.ph.i.i.i.i.i.i46, label %_ZSt13move_backwardIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit.i44, !llvm.loop !192
+.lr.ph.i.i.i.i.i.i44:                             ; preds = %.lr.ph.i.i.i.i.i.i44, %.lr.ph.i.i.i.i.i.preheader.i43
+  %.010.i.i.i.i.i.i45 = phi i64 [ %130, %.lr.ph.i.i.i.i.i.i44 ], [ %121, %.lr.ph.i.i.i.i.i.preheader.i43 ]
+  %.069.i.i.i.i.i.i46 = phi ptr [ %125, %.lr.ph.i.i.i.i.i.i44 ], [ %123, %.lr.ph.i.i.i.i.i.preheader.i43 ]
+  %.078.i.i.i.i.i.i47 = phi ptr [ %124, %.lr.ph.i.i.i.i.i.i44 ], [ %.019.i25, %.lr.ph.i.i.i.i.i.preheader.i43 ]
+  %124 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i47, i64 -16
+  %125 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i46, i64 -16
+  %126 = load i64, ptr %124, align 8
+  store i64 %126, ptr %125, align 8
+  %127 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i47, i64 -8
+  %128 = load ptr, ptr %127, align 8
+  %129 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i46, i64 -8
+  store ptr %128, ptr %129, align 8
+  %130 = add nsw i64 %.010.i.i.i.i.i.i45, -1
+  %131 = icmp ugt i64 %.010.i.i.i.i.i.i45, 1
+  br i1 %131, label %.lr.ph.i.i.i.i.i.i44, label %_ZSt13move_backwardIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit.i42, !llvm.loop !195
 
-125:                                              ; preds = %.lr.ph.i24
+_ZSt13move_backwardIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit.i42: ; preds = %.lr.ph.i.i.i.i.i.i44, %118
+  store i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i28, ptr %0, align 8
+  store ptr %.sroa.2.0.copyload.i30, ptr %99, align 8
+  br label %157
+
+132:                                              ; preds = %100
   %.sroa.0.0.copyload.i.i.i.i11.i.i31 = load i64, ptr %.pn18.i26, align 8
-  %126 = and i64 %.sroa.0.0.copyload.i.i.i.i11.i.i31, -8
-  %127 = inttoptr i64 %126 to ptr
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 24
-  %129 = load i32, ptr %128, align 8
-  %130 = trunc i64 %.sroa.0.0.copyload.i.i.i.i11.i.i31 to i32
-  %131 = lshr i32 %130, 1
-  %132 = and i32 %131, 3
-  %133 = or i32 %132, %129
-  %134 = icmp ult i32 %101, %133
-  br i1 %134, label %.lr.ph.i.i38, label %_ZSt13move_backwardIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit.i44
+  %133 = and i64 %.sroa.0.0.copyload.i.i.i.i11.i.i31, -8
+  %134 = inttoptr i64 %133 to ptr
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 24
+  %136 = load i32, ptr %135, align 8
+  %137 = trunc i64 %.sroa.0.0.copyload.i.i.i.i11.i.i31 to i32
+  %138 = lshr i32 %137, 1
+  %139 = and i32 %138, 3
+  %140 = or i32 %139, %136
+  %141 = icmp ult i32 %108, %140
+  br i1 %141, label %.lr.ph.i.i36, label %_ZSt25__unguarded_linear_insertIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_10less_firstEEEEvT_T0_.exit.i32
 
-.lr.ph.i.i38:                                     ; preds = %125, %.lr.ph.i.i38
-  %.sroa.0.0.copyload.i.i.i.i14.i.i39 = phi i64 [ %.sroa.0.0.copyload.i.i.i.i.i.i43, %.lr.ph.i.i38 ], [ %.sroa.0.0.copyload.i.i.i.i11.i.i31, %125 ]
-  %.013.i.i40 = phi ptr [ %.0.i.i42, %.lr.ph.i.i38 ], [ %.pn18.i26, %125 ]
-  %.0912.i.i41 = phi ptr [ %.013.i.i40, %.lr.ph.i.i38 ], [ %.019.i25, %125 ]
-  store i64 %.sroa.0.0.copyload.i.i.i.i14.i.i39, ptr %.0912.i.i41, align 8
-  %135 = getelementptr inbounds i8, ptr %.0912.i.i41, i64 -8
-  %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr inbounds nuw i8, ptr %.0912.i.i41, i64 8
-  store ptr %136, ptr %137, align 8
-  %.0.i.i42 = getelementptr inbounds i8, ptr %.013.i.i40, i64 -16
-  %.sroa.0.0.copyload.i.i.i.i.i.i43 = load i64, ptr %.0.i.i42, align 8
-  %138 = load i32, ptr %96, align 8
-  %139 = or i32 %138, %100
-  %140 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i43, -8
-  %141 = inttoptr i64 %140 to ptr
-  %142 = getelementptr inbounds nuw i8, ptr %141, i64 24
-  %143 = load i32, ptr %142, align 8
-  %144 = trunc i64 %.sroa.0.0.copyload.i.i.i.i.i.i43 to i32
-  %145 = lshr i32 %144, 1
-  %146 = and i32 %145, 3
-  %147 = or i32 %146, %143
-  %148 = icmp ult i32 %139, %147
-  br i1 %148, label %.lr.ph.i.i38, label %_ZSt13move_backwardIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit.i44, !llvm.loop !193
+.lr.ph.i.i36:                                     ; preds = %132, %.lr.ph.i.i36
+  %.sroa.0.0.copyload.i.i.i.i14.i.i37 = phi i64 [ %.sroa.0.0.copyload.i.i.i.i.i.i41, %.lr.ph.i.i36 ], [ %.sroa.0.0.copyload.i.i.i.i11.i.i31, %132 ]
+  %.013.i.i38 = phi ptr [ %.0.i.i40, %.lr.ph.i.i36 ], [ %.pn18.i26, %132 ]
+  %.0912.i.i39 = phi ptr [ %.013.i.i38, %.lr.ph.i.i36 ], [ %.019.i25, %132 ]
+  store i64 %.sroa.0.0.copyload.i.i.i.i14.i.i37, ptr %.0912.i.i39, align 8
+  %142 = getelementptr inbounds i8, ptr %.0912.i.i39, i64 -8
+  %143 = load ptr, ptr %142, align 8
+  %144 = getelementptr inbounds nuw i8, ptr %.0912.i.i39, i64 8
+  store ptr %143, ptr %144, align 8
+  %.0.i.i40 = getelementptr inbounds i8, ptr %.013.i.i38, i64 -16
+  %.sroa.0.0.copyload.i.i.i.i.i.i41 = load i64, ptr %.0.i.i40, align 8
+  %145 = load i32, ptr %103, align 8
+  %146 = or i32 %145, %107
+  %147 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i41, -8
+  %148 = inttoptr i64 %147 to ptr
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 24
+  %150 = load i32, ptr %149, align 8
+  %151 = trunc i64 %.sroa.0.0.copyload.i.i.i.i.i.i41 to i32
+  %152 = lshr i32 %151, 1
+  %153 = and i32 %152, 3
+  %154 = or i32 %153, %150
+  %155 = icmp ult i32 %146, %154
+  br i1 %155, label %.lr.ph.i.i36, label %_ZSt25__unguarded_linear_insertIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_10less_firstEEEEvT_T0_.exit.i32, !llvm.loop !196
 
-_ZSt13move_backwardIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit.i44: ; preds = %.lr.ph.i.i38, %.lr.ph.i.i.i.i.i.i46, %125, %111
-  %.09.lcssa.i.i33.sink = phi ptr [ %0, %111 ], [ %.019.i25, %125 ], [ %0, %.lr.ph.i.i.i.i.i.i46 ], [ %.013.i.i40, %.lr.ph.i.i38 ]
-  store i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i28, ptr %.09.lcssa.i.i33.sink, align 8
-  %.sink.i35 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i.i33.sink, i64 8
-  store ptr %.sroa.2.0.copyload.i30, ptr %.sink.i35, align 8
-  %.0.i36 = getelementptr inbounds i8, ptr %.019.i25, i64 16
-  %.not.i37 = icmp eq ptr %.0.i36, %1
-  br i1 %.not.i37, label %_ZSt26__unguarded_insertion_sortIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_T0_.exit, label %.lr.ph.i24, !llvm.loop !194
+_ZSt25__unguarded_linear_insertIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_10less_firstEEEEvT_T0_.exit.i32: ; preds = %.lr.ph.i.i36, %132
+  %.09.lcssa.i.i33 = phi ptr [ %.019.i25, %132 ], [ %.013.i.i38, %.lr.ph.i.i36 ]
+  store i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i28, ptr %.09.lcssa.i.i33, align 8
+  %156 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i.i33, i64 8
+  store ptr %.sroa.2.0.copyload.i30, ptr %156, align 8
+  br label %157
 
-_ZSt26__unguarded_insertion_sortIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_T0_.exit: ; preds = %_ZSt13move_backwardIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit.i44, %_ZSt25__unguarded_linear_insertIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_10less_firstEEEEvT_T0_.exit.i14, %92, %_ZSt16__insertion_sortIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_T0_.exit
+157:                                              ; preds = %_ZSt25__unguarded_linear_insertIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_10less_firstEEEEvT_T0_.exit.i32, %_ZSt13move_backwardIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit.i42
+  %.0.i34 = getelementptr inbounds i8, ptr %.019.i25, i64 16
+  %.not.i35 = icmp eq ptr %.0.i34, %1
+  br i1 %.not.i35, label %_ZSt26__unguarded_insertion_sortIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_T0_.exit, label %100, !llvm.loop !197
+
+_ZSt26__unguarded_insertion_sortIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_T0_.exit: ; preds = %157, %_ZSt25__unguarded_linear_insertIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_10less_firstEEEEvT_T0_.exit.i14, %.preheader.i, %97, %_ZSt16__insertion_sortIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_T0_.exit
   ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZSt27__unguarded_partition_pivotIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEET_SC_SC_T0_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 comdat {
-  %3 = ptrtoint ptr %1 to i64
-  %4 = ptrtoint ptr %0 to i64
-  %5 = sub i64 %3, %4
-  %6 = ashr exact i64 %5, 4
-  %7 = sdiv i64 %6, 2
-  %8 = getelementptr inbounds %"struct.std::pair.702", ptr %0, i64 %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = getelementptr inbounds i8, ptr %1, i64 -16
-  %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %8, align 8
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %9, align 8
-  %11 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -8
-  %12 = inttoptr i64 %11 to ptr
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %14 = load i32, ptr %13, align 8
-  %15 = trunc i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i to i32
-  %16 = lshr i32 %15, 1
-  %17 = and i32 %16, 3
-  %18 = or i32 %17, %14
-  %19 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, -8
-  %20 = inttoptr i64 %19 to ptr
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %22 = load i32, ptr %21, align 8
-  %23 = trunc i64 %.sroa.0.0.copyload.i.i.i.i.i to i32
-  %24 = lshr i32 %23, 1
-  %25 = and i32 %24, 3
-  %26 = or i32 %22, %25
-  %27 = icmp ult i32 %18, %26
-  %.sroa.0.0.copyload.i.i.i.i22.i = load i64, ptr %10, align 8
-  %28 = and i64 %.sroa.0.0.copyload.i.i.i.i22.i, -8
-  %29 = inttoptr i64 %28 to ptr
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %31 = load i32, ptr %30, align 8
-  %32 = trunc i64 %.sroa.0.0.copyload.i.i.i.i22.i to i32
-  %33 = lshr i32 %32, 1
-  %34 = and i32 %33, 3
-  %35 = or i32 %34, %31
-  br i1 %27, label %36, label %43
-
-36:                                               ; preds = %2
-  %37 = icmp ult i32 %26, %35
-  br i1 %37, label %38, label %39
-
-38:                                               ; preds = %36
-  %.sroa.0.0.copyload.i.i.i.i24.i = load i64, ptr %0, align 8
-  store i64 %.sroa.0.0.copyload.i.i.i.i.i, ptr %0, align 8
-  store i64 %.sroa.0.0.copyload.i.i.i.i24.i, ptr %8, align 8
-  br label %_ZSt22__move_median_to_firstIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_SC_SC_T0_.exit
-
-39:                                               ; preds = %36
-  %40 = icmp ult i32 %18, %35
-  %.sroa.0.0.copyload.i.i.i.i27.i = load i64, ptr %0, align 8
-  br i1 %40, label %41, label %42
-
-41:                                               ; preds = %39
-  store i64 %.sroa.0.0.copyload.i.i.i.i22.i, ptr %0, align 8
-  store i64 %.sroa.0.0.copyload.i.i.i.i27.i, ptr %10, align 8
-  br label %_ZSt22__move_median_to_firstIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_SC_SC_T0_.exit
-
-42:                                               ; preds = %39
-  store i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, ptr %0, align 8
-  store i64 %.sroa.0.0.copyload.i.i.i.i27.i, ptr %9, align 8
-  br label %_ZSt22__move_median_to_firstIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_SC_SC_T0_.exit
-
-43:                                               ; preds = %2
-  %44 = icmp ult i32 %18, %35
-  br i1 %44, label %45, label %46
-
-45:                                               ; preds = %43
-  %.sroa.0.0.copyload.i.i.i.i31.i = load i64, ptr %0, align 8
-  store i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, ptr %0, align 8
-  store i64 %.sroa.0.0.copyload.i.i.i.i31.i, ptr %9, align 8
-  br label %_ZSt22__move_median_to_firstIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_SC_SC_T0_.exit
-
-46:                                               ; preds = %43
-  %47 = icmp ult i32 %26, %35
-  %.sroa.0.0.copyload.i.i.i.i34.i = load i64, ptr %0, align 8
-  br i1 %47, label %48, label %49
-
-48:                                               ; preds = %46
-  store i64 %.sroa.0.0.copyload.i.i.i.i22.i, ptr %0, align 8
-  store i64 %.sroa.0.0.copyload.i.i.i.i34.i, ptr %10, align 8
-  br label %_ZSt22__move_median_to_firstIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_SC_SC_T0_.exit
-
-49:                                               ; preds = %46
-  store i64 %.sroa.0.0.copyload.i.i.i.i.i, ptr %0, align 8
-  store i64 %.sroa.0.0.copyload.i.i.i.i34.i, ptr %8, align 8
-  br label %_ZSt22__move_median_to_firstIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_SC_SC_T0_.exit
-
-_ZSt22__move_median_to_firstIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_SC_SC_T0_.exit: ; preds = %38, %41, %42, %45, %48, %49
-  %.sink.i = phi ptr [ %9, %45 ], [ %8, %49 ], [ %10, %48 ], [ %8, %38 ], [ %9, %42 ], [ %10, %41 ]
-  %50 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
-  br label %51
-
-51:                                               ; preds = %84, %_ZSt22__move_median_to_firstIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_SC_SC_T0_.exit
-  %.1.i.lcssa.pn = phi ptr [ %.1.i, %84 ], [ %0, %_ZSt22__move_median_to_firstIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_SC_SC_T0_.exit ]
-  %.sink18 = phi ptr [ %85, %84 ], [ %50, %_ZSt22__move_median_to_firstIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_SC_SC_T0_.exit ]
-  %.013.i = phi ptr [ %.114.i, %84 ], [ %1, %_ZSt22__move_median_to_firstIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_SC_SC_T0_.exit ]
-  %.0.i = phi ptr [ %72, %84 ], [ %9, %_ZSt22__move_median_to_firstIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_SC_SC_T0_.exit ]
-  %.sink19 = getelementptr inbounds nuw i8, ptr %.1.i.lcssa.pn, i64 8
-  %52 = load ptr, ptr %.sink19, align 8
-  %53 = load ptr, ptr %.sink18, align 8
-  store ptr %53, ptr %.sink19, align 8
-  store ptr %52, ptr %.sink18, align 8
-  %.sroa.0.0.copyload.i.i.i.i.i13 = load i64, ptr %0, align 8
-  %54 = and i64 %.sroa.0.0.copyload.i.i.i.i.i13, -8
-  %55 = inttoptr i64 %54 to ptr
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %57 = load i32, ptr %56, align 8
-  %58 = trunc i64 %.sroa.0.0.copyload.i.i.i.i.i13 to i32
-  %59 = lshr i32 %58, 1
-  %60 = and i32 %59, 3
-  %61 = or i32 %60, %57
-  br label %62
-
-62:                                               ; preds = %62, %51
-  %.1.i = phi ptr [ %.0.i, %51 ], [ %72, %62 ]
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i14 = load i64, ptr %.1.i, align 8
-  %63 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i14, -8
-  %64 = inttoptr i64 %63 to ptr
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
-  %66 = load i32, ptr %65, align 8
-  %67 = trunc i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i14 to i32
-  %68 = lshr i32 %67, 1
-  %69 = and i32 %68, 3
-  %70 = or i32 %69, %66
-  %71 = icmp ult i32 %70, %61
-  %72 = getelementptr inbounds i8, ptr %.1.i, i64 16
-  br i1 %71, label %62, label %.preheader.i, !llvm.loop !196
-
-.preheader.i:                                     ; preds = %62, %.preheader.i
-  %.013.pn.i = phi ptr [ %.114.i, %.preheader.i ], [ %.013.i, %62 ]
-  %.114.i = getelementptr inbounds i8, ptr %.013.pn.i, i64 -16
-  %.sroa.0.0.copyload.i.i.i.i15.i = load i64, ptr %.114.i, align 8
-  %73 = and i64 %.sroa.0.0.copyload.i.i.i.i15.i, -8
-  %74 = inttoptr i64 %73 to ptr
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
-  %76 = load i32, ptr %75, align 8
-  %77 = trunc i64 %.sroa.0.0.copyload.i.i.i.i15.i to i32
-  %78 = lshr i32 %77, 1
-  %79 = and i32 %78, 3
-  %80 = or i32 %79, %76
-  %81 = icmp ult i32 %61, %80
-  br i1 %81, label %.preheader.i, label %82, !llvm.loop !197
-
-82:                                               ; preds = %.preheader.i
-  %83 = icmp ult ptr %.1.i, %.114.i
-  br i1 %83, label %84, label %_ZSt21__unguarded_partitionIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEET_SC_SC_SC_T0_.exit
-
-84:                                               ; preds = %82
-  store i64 %.sroa.0.0.copyload.i.i.i.i15.i, ptr %.1.i, align 8
-  store i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i14, ptr %.114.i, align 8
-  %85 = getelementptr inbounds i8, ptr %.013.pn.i, i64 -8
-  br label %51, !llvm.loop !198
-
-_ZSt21__unguarded_partitionIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEET_SC_SC_SC_T0_.exit: ; preds = %82
-  ret ptr %.1.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -13796,6 +13726,126 @@ _ZSt11__push_heapIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEElS5_N9__gn
   store i64 %3, ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store ptr %4, ptr %81, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt22__move_median_to_firstIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_SC_SC_T0_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 comdat {
+  %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %2, align 8
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %1, align 8
+  %5 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, -8
+  %6 = inttoptr i64 %5 to ptr
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %8 = load i32, ptr %7, align 8
+  %9 = trunc i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i to i32
+  %10 = lshr i32 %9, 1
+  %11 = and i32 %10, 3
+  %12 = or i32 %11, %8
+  %13 = and i64 %.sroa.0.0.copyload.i.i.i.i, -8
+  %14 = inttoptr i64 %13 to ptr
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %16 = load i32, ptr %15, align 8
+  %17 = trunc i64 %.sroa.0.0.copyload.i.i.i.i to i32
+  %18 = lshr i32 %17, 1
+  %19 = and i32 %18, 3
+  %20 = or i32 %16, %19
+  %21 = icmp ult i32 %12, %20
+  %.sroa.0.0.copyload.i.i.i.i22 = load i64, ptr %3, align 8
+  %22 = and i64 %.sroa.0.0.copyload.i.i.i.i22, -8
+  %23 = inttoptr i64 %22 to ptr
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  %25 = load i32, ptr %24, align 8
+  %26 = trunc i64 %.sroa.0.0.copyload.i.i.i.i22 to i32
+  %27 = lshr i32 %26, 1
+  %28 = and i32 %27, 3
+  %29 = or i32 %28, %25
+  br i1 %21, label %30, label %48
+
+30:                                               ; preds = %4
+  %31 = icmp ult i32 %20, %29
+  br i1 %31, label %32, label %37
+
+32:                                               ; preds = %30
+  %.sroa.0.0.copyload.i.i.i.i24 = load i64, ptr %0, align 8
+  store i64 %.sroa.0.0.copyload.i.i.i.i, ptr %0, align 8
+  store i64 %.sroa.0.0.copyload.i.i.i.i24, ptr %2, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %35 = load ptr, ptr %33, align 8
+  %36 = load ptr, ptr %34, align 8
+  store ptr %36, ptr %33, align 8
+  store ptr %35, ptr %34, align 8
+  br label %66
+
+37:                                               ; preds = %30
+  %38 = icmp ult i32 %12, %29
+  %.sroa.0.0.copyload.i.i.i.i27 = load i64, ptr %0, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br i1 %38, label %40, label %44
+
+40:                                               ; preds = %37
+  store i64 %.sroa.0.0.copyload.i.i.i.i22, ptr %0, align 8
+  store i64 %.sroa.0.0.copyload.i.i.i.i27, ptr %3, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %42 = load ptr, ptr %39, align 8
+  %43 = load ptr, ptr %41, align 8
+  store ptr %43, ptr %39, align 8
+  store ptr %42, ptr %41, align 8
+  br label %66
+
+44:                                               ; preds = %37
+  store i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, ptr %0, align 8
+  store i64 %.sroa.0.0.copyload.i.i.i.i27, ptr %1, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %46 = load ptr, ptr %39, align 8
+  %47 = load ptr, ptr %45, align 8
+  store ptr %47, ptr %39, align 8
+  store ptr %46, ptr %45, align 8
+  br label %66
+
+48:                                               ; preds = %4
+  %49 = icmp ult i32 %12, %29
+  br i1 %49, label %50, label %55
+
+50:                                               ; preds = %48
+  %.sroa.0.0.copyload.i.i.i.i31 = load i64, ptr %0, align 8
+  store i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, ptr %0, align 8
+  store i64 %.sroa.0.0.copyload.i.i.i.i31, ptr %1, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %53 = load ptr, ptr %51, align 8
+  %54 = load ptr, ptr %52, align 8
+  store ptr %54, ptr %51, align 8
+  store ptr %53, ptr %52, align 8
+  br label %66
+
+55:                                               ; preds = %48
+  %56 = icmp ult i32 %20, %29
+  %.sroa.0.0.copyload.i.i.i.i34 = load i64, ptr %0, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br i1 %56, label %58, label %62
+
+58:                                               ; preds = %55
+  store i64 %.sroa.0.0.copyload.i.i.i.i22, ptr %0, align 8
+  store i64 %.sroa.0.0.copyload.i.i.i.i34, ptr %3, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %60 = load ptr, ptr %57, align 8
+  %61 = load ptr, ptr %59, align 8
+  store ptr %61, ptr %57, align 8
+  store ptr %60, ptr %59, align 8
+  br label %66
+
+62:                                               ; preds = %55
+  store i64 %.sroa.0.0.copyload.i.i.i.i, ptr %0, align 8
+  store i64 %.sroa.0.0.copyload.i.i.i.i34, ptr %2, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %64 = load ptr, ptr %57, align 8
+  %65 = load ptr, ptr %63, align 8
+  store ptr %65, ptr %57, align 8
+  store ptr %64, ptr %63, align 8
+  br label %66
+
+66:                                               ; preds = %50, %62, %58, %32, %44, %40
   ret void
 }
 

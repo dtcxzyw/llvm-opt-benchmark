@@ -133,13 +133,13 @@ define ptr @Abc_MfsConvertAigToHop(ptr noundef %0, ptr noundef %1) local_unnamed
   br label %37
 
 37:                                               ; preds = %.critedge, %12
-  %.sink = phi ptr [ %36, %.critedge ], [ %13, %12 ]
   %.sink32 = phi i64 [ %33, %.critedge ], [ %7, %12 ]
-  %38 = load ptr, ptr %.sink, align 8
-  %39 = and i64 %.sink32, 1
-  %40 = ptrtoint ptr %38 to i64
-  %41 = xor i64 %39, %40
-  %.017 = inttoptr i64 %41 to ptr
+  %.sink31.in = phi ptr [ %36, %.critedge ], [ %13, %12 ]
+  %.sink31 = load ptr, ptr %.sink31.in, align 8
+  %38 = and i64 %.sink32, 1
+  %39 = ptrtoint ptr %.sink31 to i64
+  %40 = xor i64 %38, %39
+  %.017 = inttoptr i64 %40 to ptr
   ret ptr %.017
 }
 

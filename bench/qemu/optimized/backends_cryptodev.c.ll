@@ -911,9 +911,18 @@ land.rhs:                                         ; preds = %land.rhs.backedge, 
   %cmp.not = icmp eq ptr %1, null
   %tql_prev7 = getelementptr inbounds i8, ptr %op_info.025, i64 56
   %2 = load ptr, ptr %tql_prev7, align 8
+  br i1 %cmp.not, label %if.else, label %if.then
+
+if.then:                                          ; preds = %land.rhs
   %tql_prev5 = getelementptr inbounds i8, ptr %1, i64 56
-  %tql_prev9.sink = select i1 %cmp.not, ptr %tql_prev9, ptr %tql_prev5
-  store ptr %2, ptr %tql_prev9.sink, align 8
+  store ptr %2, ptr %tql_prev5, align 8
+  br label %if.end
+
+if.else:                                          ; preds = %land.rhs
+  store ptr %2, ptr %tql_prev9, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then
   %3 = load ptr, ptr %next, align 8
   store ptr %3, ptr %2, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next, i8 0, i64 16, i1 false)
@@ -921,7 +930,7 @@ land.rhs:                                         ; preds = %land.rhs.backedge, 
   %cmp18 = icmp slt i32 %call, 0
   br i1 %cmp18, label %if.then19, label %if.end21
 
-if.then19:                                        ; preds = %land.rhs
+if.then19:                                        ; preds = %if.end
   %cb = getelementptr inbounds i8, ptr %op_info.025, i64 16
   %4 = load ptr, ptr %cb, align 8
   %opaque20 = getelementptr inbounds i8, ptr %op_info.025, i64 24
@@ -929,7 +938,7 @@ if.then19:                                        ; preds = %land.rhs
   tail call void %4(ptr noundef %5, i32 noundef %call) #7
   br label %for.inc
 
-if.end21:                                         ; preds = %land.rhs
+if.end21:                                         ; preds = %if.end
   %conv = zext nneg i32 %call to i64
   tail call void @throttle_account(ptr noundef nonnull %ts, i32 noundef 1, i64 noundef %conv) #7
   %call.i.i = tail call ptr @object_get_class(ptr noundef %opaque) #7

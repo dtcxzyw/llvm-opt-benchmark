@@ -2865,8 +2865,8 @@ sw.epilog:                                        ; preds = %_ZN10LogMessageD2Ev
   %cmp.i = icmp eq ptr %incdec.ptr.i81, %32
   %.pre = load i32, ptr %nsub6, align 4
   %cmp74159 = icmp slt i32 %i.2, %.pre
-  %or.cond207 = select i1 %cmp.i, i1 %cmp74159, i1 false
-  br i1 %or.cond207, label %while.body75.preheader, label %if.end
+  %or.cond = select i1 %cmp.i, i1 %cmp74159, i1 false
+  br i1 %or.cond, label %while.body75.preheader, label %if.end
 
 while.body75.preheader:                           ; preds = %sw.epilog
   %33 = sext i32 %i.2 to i64
@@ -3074,12 +3074,14 @@ sw.epilog118:                                     ; preds = %sw.bb90, %sw.bb88, 
   %64 = load ptr, ptr %splices10, align 8
   %65 = load ptr, ptr %_M_finish.i.i62, align 8
   %cmp.i.i114 = icmp eq ptr %64, %65
+  br i1 %cmp.i.i114, label %if.then121, label %lor.lhs.false
+
+lor.lhs.false:                                    ; preds = %sw.epilog118
   %66 = load i32, ptr %round8, align 4
   %cmp120 = icmp eq i32 %66, 3
-  %or.cond = select i1 %cmp.i.i114, i1 true, i1 %cmp120
-  br i1 %or.cond, label %if.then121, label %if.end125
+  br i1 %cmp120, label %if.then121, label %if.end125
 
-if.then121:                                       ; preds = %sw.epilog118
+if.then121:                                       ; preds = %lor.lhs.false, %sw.epilog118
   %sub.ptr.lhs.cast.i116 = ptrtoint ptr %65 to i64
   %sub.ptr.rhs.cast.i117 = ptrtoint ptr %64 to i64
   %sub.ptr.sub.i118 = sub i64 %sub.ptr.lhs.cast.i116, %sub.ptr.rhs.cast.i117
@@ -3087,8 +3089,8 @@ if.then121:                                       ; preds = %sw.epilog118
   %conv123 = trunc i64 %sub.ptr.div.i119 to i32
   br label %if.end125
 
-if.end125:                                        ; preds = %sw.epilog118, %if.then121
-  %storemerge53 = phi i32 [ %conv123, %if.then121 ], [ 0, %sw.epilog118 ]
+if.end125:                                        ; preds = %lor.lhs.false, %if.then121
+  %storemerge53 = phi i32 [ %conv123, %if.then121 ], [ 0, %lor.lhs.false ]
   store i32 %storemerge53, ptr %spliceidx12, align 4
   br label %for.cond.backedge
 
@@ -9365,15 +9367,15 @@ if.then98:                                        ; preds = %_ZNSt5stackIN3re29W
   %52 = load i32, ptr %n100, align 8
   %idxprom101 = sext i32 %52 to i64
   %arrayidx102 = getelementptr inbounds i32, ptr %51, i64 %idxprom101
+  store i32 %t.0, ptr %arrayidx102, align 4
   br label %if.end105
 
 if.else103:                                       ; preds = %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3topEv.exit78
   %child_arg104 = getelementptr inbounds i8, ptr %50, i64 -12
+  store i32 %t.0, ptr %child_arg104, align 4
   br label %if.end105
 
 if.end105:                                        ; preds = %if.else103, %if.then98
-  %child_arg104.sink = phi ptr [ %child_arg104, %if.else103 ], [ %arrayidx102, %if.then98 ]
-  store i32 %t.0, ptr %child_arg104.sink, align 4
   %n106 = getelementptr inbounds i8, ptr %50, i64 -24
   %53 = load i32, ptr %n106, align 8
   %inc107 = add nsw i32 %53, 1

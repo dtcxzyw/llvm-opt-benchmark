@@ -1956,114 +1956,116 @@ declare void @ExecutorFinish(ptr noundef) local_unnamed_addr #2
 define dso_local void @ExplainOpenGroup(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %3, i64 20
   %6 = load i32, ptr %5, align 4
-  switch i32 %6, label %52 [
-    i32 3, label %30
+  switch i32 %6, label %56 [
+    i32 3, label %34
     i32 1, label %7
-    i32 2, label %9
+    i32 2, label %11
   ]
 
 7:                                                ; preds = %4
   tail call fastcc void @ExplainXMLTag(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %3)
   %8 = getelementptr inbounds i8, ptr %3, i64 24
-  br label %.sink.split
+  %9 = load i32, ptr %8, align 8
+  %10 = add i32 %9, 1
+  store i32 %10, ptr %8, align 8
+  br label %56
 
-9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %3, i64 32
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr i8, ptr %11, i64 16
-  %.val4.i = load ptr, ptr %12, align 8
-  %13 = load i32, ptr %.val4.i, align 8
-  %.not.i = icmp eq i32 %13, 0
-  br i1 %.not.i, label %16, label %14
+11:                                               ; preds = %4
+  %12 = getelementptr inbounds i8, ptr %3, i64 32
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr i8, ptr %13, i64 16
+  %.val4.i = load ptr, ptr %14, align 8
+  %15 = load i32, ptr %.val4.i, align 8
+  %.not.i = icmp eq i32 %15, 0
+  br i1 %.not.i, label %18, label %16
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  tail call void @appendStringInfoChar(ptr noundef %15, i8 noundef signext 44) #11
+16:                                               ; preds = %11
+  %17 = load ptr, ptr %3, align 8
+  tail call void @appendStringInfoChar(ptr noundef %17, i8 noundef signext 44) #11
   br label %ExplainJSONLineEnding.exit
 
-16:                                               ; preds = %9
+18:                                               ; preds = %11
   store i32 1, ptr %.val4.i, align 8
   br label %ExplainJSONLineEnding.exit
 
-ExplainJSONLineEnding.exit:                       ; preds = %14, %16
-  %17 = load ptr, ptr %3, align 8
-  tail call void @appendStringInfoChar(ptr noundef %17, i8 noundef signext 10) #11
-  %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 24
-  %20 = load i32, ptr %19, align 8
-  %21 = shl i32 %20, 1
-  tail call void @appendStringInfoSpaces(ptr noundef %18, i32 noundef %21) #11
+ExplainJSONLineEnding.exit:                       ; preds = %16, %18
+  %19 = load ptr, ptr %3, align 8
+  tail call void @appendStringInfoChar(ptr noundef %19, i8 noundef signext 10) #11
+  %20 = load ptr, ptr %3, align 8
+  %21 = getelementptr inbounds i8, ptr %3, i64 24
+  %22 = load i32, ptr %21, align 8
+  %23 = shl i32 %22, 1
+  tail call void @appendStringInfoSpaces(ptr noundef %20, i32 noundef %23) #11
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %25, label %22
+  br i1 %.not, label %27, label %24
 
-22:                                               ; preds = %ExplainJSONLineEnding.exit
-  %23 = load ptr, ptr %3, align 8
-  tail call void @escape_json(ptr noundef %23, ptr noundef nonnull %1) #11
-  %24 = load ptr, ptr %3, align 8
-  tail call void @appendStringInfoString(ptr noundef %24, ptr noundef nonnull @.str.52) #11
-  br label %25
-
-25:                                               ; preds = %22, %ExplainJSONLineEnding.exit
+24:                                               ; preds = %ExplainJSONLineEnding.exit
+  %25 = load ptr, ptr %3, align 8
+  tail call void @escape_json(ptr noundef %25, ptr noundef nonnull %1) #11
   %26 = load ptr, ptr %3, align 8
-  %27 = select i1 %2, i8 123, i8 91
-  tail call void @appendStringInfoChar(ptr noundef %26, i8 noundef signext %27) #11
-  %28 = load ptr, ptr %10, align 8
-  %29 = tail call ptr @lcons_int(i32 noundef 0, ptr noundef %28) #11
-  store ptr %29, ptr %10, align 8
-  br label %.sink.split
+  tail call void @appendStringInfoString(ptr noundef %26, ptr noundef nonnull @.str.52) #11
+  br label %27
 
-30:                                               ; preds = %4
-  %31 = getelementptr inbounds i8, ptr %3, i64 32
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr i8, ptr %32, i64 16
-  %.val5.i = load ptr, ptr %33, align 8
-  %34 = load i32, ptr %.val5.i, align 8
-  %35 = icmp eq i32 %34, 0
-  br i1 %35, label %36, label %37
+27:                                               ; preds = %24, %ExplainJSONLineEnding.exit
+  %28 = load ptr, ptr %3, align 8
+  %29 = select i1 %2, i8 123, i8 91
+  tail call void @appendStringInfoChar(ptr noundef %28, i8 noundef signext %29) #11
+  %30 = load ptr, ptr %12, align 8
+  %31 = tail call ptr @lcons_int(i32 noundef 0, ptr noundef %30) #11
+  store ptr %31, ptr %12, align 8
+  %32 = load i32, ptr %21, align 8
+  %33 = add i32 %32, 1
+  store i32 %33, ptr %21, align 8
+  br label %56
 
-36:                                               ; preds = %30
+34:                                               ; preds = %4
+  %35 = getelementptr inbounds i8, ptr %3, i64 32
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr i8, ptr %36, i64 16
+  %.val5.i = load ptr, ptr %37, align 8
+  %38 = load i32, ptr %.val5.i, align 8
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %40, label %41
+
+40:                                               ; preds = %34
   store i32 1, ptr %.val5.i, align 8
   br label %ExplainYAMLLineStarting.exit
 
-37:                                               ; preds = %30
-  %38 = load ptr, ptr %3, align 8
-  tail call void @appendStringInfoChar(ptr noundef %38, i8 noundef signext 10) #11
-  %39 = load ptr, ptr %3, align 8
-  %40 = getelementptr inbounds i8, ptr %3, i64 24
-  %41 = load i32, ptr %40, align 8
-  %42 = shl i32 %41, 1
-  tail call void @appendStringInfoSpaces(ptr noundef %39, i32 noundef %42) #11
+41:                                               ; preds = %34
+  %42 = load ptr, ptr %3, align 8
+  tail call void @appendStringInfoChar(ptr noundef %42, i8 noundef signext 10) #11
+  %43 = load ptr, ptr %3, align 8
+  %44 = getelementptr inbounds i8, ptr %3, i64 24
+  %45 = load i32, ptr %44, align 8
+  %46 = shl i32 %45, 1
+  tail call void @appendStringInfoSpaces(ptr noundef %43, i32 noundef %46) #11
   br label %ExplainYAMLLineStarting.exit
 
-ExplainYAMLLineStarting.exit:                     ; preds = %36, %37
+ExplainYAMLLineStarting.exit:                     ; preds = %40, %41
   %.not25 = icmp eq ptr %1, null
-  %43 = load ptr, ptr %3, align 8
-  br i1 %.not25, label %45, label %44
+  %47 = load ptr, ptr %3, align 8
+  br i1 %.not25, label %49, label %48
 
-44:                                               ; preds = %ExplainYAMLLineStarting.exit
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %43, ptr noundef nonnull @.str.40, ptr noundef nonnull %1) #11
-  br label %46
+48:                                               ; preds = %ExplainYAMLLineStarting.exit
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %47, ptr noundef nonnull @.str.40, ptr noundef nonnull %1) #11
+  br label %50
 
-45:                                               ; preds = %ExplainYAMLLineStarting.exit
-  tail call void @appendStringInfoString(ptr noundef %43, ptr noundef nonnull @.str.45) #11
-  br label %46
+49:                                               ; preds = %ExplainYAMLLineStarting.exit
+  tail call void @appendStringInfoString(ptr noundef %47, ptr noundef nonnull @.str.45) #11
+  br label %50
 
-46:                                               ; preds = %45, %44
-  %.sink = phi i32 [ 0, %45 ], [ 1, %44 ]
-  %47 = load ptr, ptr %31, align 8
-  %48 = tail call ptr @lcons_int(i32 noundef %.sink, ptr noundef %47) #11
-  store ptr %48, ptr %31, align 8
-  %49 = getelementptr inbounds i8, ptr %3, i64 24
-  br label %.sink.split
+50:                                               ; preds = %49, %48
+  %.sink = phi i32 [ 0, %49 ], [ 1, %48 ]
+  %51 = load ptr, ptr %35, align 8
+  %52 = tail call ptr @lcons_int(i32 noundef %.sink, ptr noundef %51) #11
+  store ptr %52, ptr %35, align 8
+  %53 = getelementptr inbounds i8, ptr %3, i64 24
+  %54 = load i32, ptr %53, align 8
+  %55 = add i32 %54, 1
+  store i32 %55, ptr %53, align 8
+  br label %56
 
-.sink.split:                                      ; preds = %7, %25, %46
-  %.sink30 = phi ptr [ %49, %46 ], [ %19, %25 ], [ %8, %7 ]
-  %50 = load i32, ptr %.sink30, align 8
-  %51 = add i32 %50, 1
-  store i32 %51, ptr %.sink30, align 8
-  br label %52
-
-52:                                               ; preds = %.sink.split, %4
+56:                                               ; preds = %50, %27, %7, %4
   ret void
 }
 

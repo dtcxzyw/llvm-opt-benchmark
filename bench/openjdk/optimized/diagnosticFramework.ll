@@ -456,69 +456,25 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 define hidden void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %9, label %.preheader
+  br i1 %4, label %5, label %.preheader
+
+5:                                                ; preds = %2
+  store ptr %1, ptr %0, align 8
+  br label %10
 
 .preheader:                                       ; preds = %2, %.preheader
-  %.0 = phi ptr [ %6, %.preheader ], [ %3, %2 ]
-  %5 = getelementptr inbounds i8, ptr %.0, i64 8
-  %6 = load ptr, ptr %5, align 8
-  %.not = icmp eq ptr %6, null
-  br i1 %.not, label %7, label %.preheader, !llvm.loop !14
-
-7:                                                ; preds = %.preheader
-  %8 = getelementptr inbounds i8, ptr %.0, i64 8
-  br label %9
-
-9:                                                ; preds = %2, %7
-  %.sink = phi ptr [ %8, %7 ], [ %0, %2 ]
-  store ptr %1, ptr %.sink, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
-  store ptr null, ptr %10, align 8
-  %11 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %12 = load ptr, ptr %11, align 8
-  %13 = load ptr, ptr %1, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
-  %15 = load ptr, ptr %14, align 8
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(51) %1, ptr noundef %12) #19
-  %16 = getelementptr inbounds i8, ptr %12, i64 8
-  %17 = load ptr, ptr %16, align 8
-  %.not11 = icmp eq ptr %17, null
-  br i1 %.not11, label %20, label %18
-
-18:                                               ; preds = %9
-  %19 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %19, align 1
-  tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 166, ptr noundef nonnull @.str.5) #20
-  unreachable
-
-20:                                               ; preds = %9
-  ret void
-}
-
-; Function Attrs: noreturn
-declare void @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #6
-
-; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10DCmdParser17add_dcmd_argumentEP15GenDCmdArgument(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %10, label %.preheader
-
-.preheader:                                       ; preds = %2, %.preheader
-  %.0 = phi ptr [ %7, %.preheader ], [ %4, %2 ]
+  %.0 = phi ptr [ %7, %.preheader ], [ %3, %2 ]
   %6 = getelementptr inbounds i8, ptr %.0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %8, label %.preheader, !llvm.loop !15
+  br i1 %.not, label %8, label %.preheader, !llvm.loop !14
 
 8:                                                ; preds = %.preheader
   %9 = getelementptr inbounds i8, ptr %.0, i64 8
+  store ptr %1, ptr %9, align 8
   br label %10
 
-10:                                               ; preds = %2, %8
-  %.sink = phi ptr [ %9, %8 ], [ %3, %2 ]
-  store ptr %1, ptr %.sink, align 8
+10:                                               ; preds = %8, %5
   %11 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr null, ptr %11, align 8
   %12 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -535,10 +491,60 @@ define hidden void @_ZN10DCmdParser17add_dcmd_argumentEP15GenDCmdArgument(ptr no
 19:                                               ; preds = %10
   %20 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %20, align 1
-  tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 185, ptr noundef nonnull @.str.5) #20
+  tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 166, ptr noundef nonnull @.str.5) #20
   unreachable
 
 21:                                               ; preds = %10
+  ret void
+}
+
+; Function Attrs: noreturn
+declare void @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #6
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN10DCmdParser17add_dcmd_argumentEP15GenDCmdArgument(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %6, label %.preheader
+
+6:                                                ; preds = %2
+  store ptr %1, ptr %3, align 8
+  br label %11
+
+.preheader:                                       ; preds = %2, %.preheader
+  %.0 = phi ptr [ %8, %.preheader ], [ %4, %2 ]
+  %7 = getelementptr inbounds i8, ptr %.0, i64 8
+  %8 = load ptr, ptr %7, align 8
+  %.not = icmp eq ptr %8, null
+  br i1 %.not, label %9, label %.preheader, !llvm.loop !15
+
+9:                                                ; preds = %.preheader
+  %10 = getelementptr inbounds i8, ptr %.0, i64 8
+  store ptr %1, ptr %10, align 8
+  br label %11
+
+11:                                               ; preds = %9, %6
+  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  store ptr null, ptr %12, align 8
+  %13 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %14 = load ptr, ptr %13, align 8
+  %15 = load ptr, ptr %1, align 8
+  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = load ptr, ptr %16, align 8
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(51) %1, ptr noundef %14) #19
+  %18 = getelementptr inbounds i8, ptr %14, i64 8
+  %19 = load ptr, ptr %18, align 8
+  %.not11 = icmp eq ptr %19, null
+  br i1 %.not11, label %22, label %20
+
+20:                                               ; preds = %11
+  %21 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %21, align 1
+  tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 185, ptr noundef nonnull @.str.5) #20
+  unreachable
+
+22:                                               ; preds = %11
   ret void
 }
 

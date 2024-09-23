@@ -8435,7 +8435,8 @@ if.then48:                                        ; preds = %if.end43
   %cmp49.not = icmp ne ptr %p.047, %buf
   %spec.select.idx = sext i1 %cmp49.not to i64
   %spec.select = getelementptr inbounds i8, ptr %p.047, i64 %spec.select.idx
-  br label %return.sink.split
+  store i8 0, ptr %spec.select, align 1
+  br label %return
 
 if.end53:                                         ; preds = %if.end43
   %9 = load ptr, ptr %name, align 8
@@ -8460,15 +8461,11 @@ for.inc:                                          ; preds = %for.body, %if.end53
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %p.0.lcssa = phi ptr [ %buf, %for.cond.preheader ], [ %p.1, %for.inc ]
   %arrayidx = getelementptr inbounds i8, ptr %p.0.lcssa, i64 -1
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.then48, %for.end
-  %arrayidx.sink = phi ptr [ %arrayidx, %for.end ], [ %spec.select, %if.then48 ]
-  store i8 0, ptr %arrayidx.sink, align 1
+  store i8 0, ptr %arrayidx, align 1
   br label %return
 
-return:                                           ; preds = %return.sink.split, %cond.false, %entry, %land.lhs.true.i, %if.else.i, %cond.end10.i, %if.end23, %lor.lhs.false27, %if.end, %lor.lhs.false, %cond.end10
-  %retval.0 = phi ptr [ null, %cond.end10 ], [ null, %lor.lhs.false ], [ null, %if.end ], [ null, %lor.lhs.false27 ], [ null, %if.end23 ], [ null, %cond.end10.i ], [ null, %if.else.i ], [ null, %land.lhs.true.i ], [ null, %entry ], [ null, %cond.false ], [ %buf, %return.sink.split ]
+return:                                           ; preds = %cond.false, %entry, %land.lhs.true.i, %if.else.i, %cond.end10.i, %if.end23, %lor.lhs.false27, %if.end, %lor.lhs.false, %cond.end10, %for.end, %if.then48
+  %retval.0 = phi ptr [ %buf, %if.then48 ], [ %buf, %for.end ], [ null, %cond.end10 ], [ null, %lor.lhs.false ], [ null, %if.end ], [ null, %lor.lhs.false27 ], [ null, %if.end23 ], [ null, %cond.end10.i ], [ null, %if.else.i ], [ null, %land.lhs.true.i ], [ null, %entry ], [ null, %cond.false ]
   ret ptr %retval.0
 }
 
@@ -8543,7 +8540,8 @@ if.then35:                                        ; preds = %land.lhs.true26, %l
   %session = getelementptr inbounds i8, ptr %cond1234, i64 2176
   %10 = load ptr, ptr %session, align 8
   %ext = getelementptr inbounds i8, ptr %10, i64 824
-  br label %return.sink.split
+  %11 = load ptr, ptr %ext, align 8
+  br label %return
 
 if.else:                                          ; preds = %cond.end18.thread, %if.end22
   %call = tail call i32 @SSL_in_before(ptr noundef nonnull %s) #24
@@ -8552,68 +8550,65 @@ if.else:                                          ; preds = %cond.end18.thread, 
 
 if.then38:                                        ; preds = %if.else
   %hostname40 = getelementptr inbounds i8, ptr %cond1234, i64 2464
-  %11 = load ptr, ptr %hostname40, align 8
-  %cmp41 = icmp eq ptr %11, null
+  %12 = load ptr, ptr %hostname40, align 8
+  %cmp41 = icmp eq ptr %12, null
   br i1 %cmp41, label %land.lhs.true42, label %if.end84
 
 land.lhs.true42:                                  ; preds = %if.then38
   %session43 = getelementptr inbounds i8, ptr %cond1234, i64 2176
-  %12 = load ptr, ptr %session43, align 8
-  %cmp44.not = icmp eq ptr %12, null
+  %13 = load ptr, ptr %session43, align 8
+  %cmp44.not = icmp eq ptr %13, null
   br i1 %cmp44.not, label %if.end84, label %land.lhs.true45
 
 land.lhs.true45:                                  ; preds = %land.lhs.true42
-  %13 = load i32, ptr %12, align 8
-  %cmp47.not = icmp eq i32 %13, 772
+  %14 = load i32, ptr %13, align 8
+  %cmp47.not = icmp eq i32 %14, 772
   br i1 %cmp47.not, label %if.end84, label %if.then48
 
 if.then48:                                        ; preds = %land.lhs.true45
-  %ext50 = getelementptr inbounds i8, ptr %12, i64 824
-  br label %return.sink.split
+  %ext50 = getelementptr inbounds i8, ptr %13, i64 824
+  %15 = load ptr, ptr %ext50, align 8
+  br label %return
 
 if.else53:                                        ; preds = %if.else
   %method55 = getelementptr inbounds i8, ptr %cond1234, i64 24
-  %14 = load ptr, ptr %method55, align 8
-  %ssl3_enc56 = getelementptr inbounds i8, ptr %14, i64 216
-  %15 = load ptr, ptr %ssl3_enc56, align 8
-  %enc_flags57 = getelementptr inbounds i8, ptr %15, i64 80
-  %16 = load i32, ptr %enc_flags57, align 8
-  %and58 = and i32 %16, 8
+  %16 = load ptr, ptr %method55, align 8
+  %ssl3_enc56 = getelementptr inbounds i8, ptr %16, i64 216
+  %17 = load ptr, ptr %ssl3_enc56, align 8
+  %enc_flags57 = getelementptr inbounds i8, ptr %17, i64 80
+  %18 = load i32, ptr %enc_flags57, align 8
+  %and58 = and i32 %18, 8
   %tobool59.not = icmp eq i32 %and58, 0
   br i1 %tobool59.not, label %land.lhs.true60, label %land.lhs.true70
 
 land.lhs.true60:                                  ; preds = %if.else53
-  %17 = load i32, ptr %14, align 8
-  %cmp64 = icmp slt i32 %17, 772
-  %cmp69.not = icmp eq i32 %17, 65536
+  %19 = load i32, ptr %16, align 8
+  %cmp64 = icmp slt i32 %19, 772
+  %cmp69.not = icmp eq i32 %19, 65536
   %or.cond28 = or i1 %cmp64, %cmp69.not
   br i1 %or.cond28, label %land.lhs.true70, label %if.end84
 
 land.lhs.true70:                                  ; preds = %land.lhs.true60, %if.else53
   %hit71 = getelementptr inbounds i8, ptr %cond1234, i64 1160
-  %18 = load i32, ptr %hit71, align 8
-  %tobool72.not = icmp eq i32 %18, 0
+  %20 = load i32, ptr %hit71, align 8
+  %tobool72.not = icmp eq i32 %20, 0
   br i1 %tobool72.not, label %if.end84, label %land.lhs.true73
 
 land.lhs.true73:                                  ; preds = %land.lhs.true70
   %session74 = getelementptr inbounds i8, ptr %cond1234, i64 2176
-  %19 = load ptr, ptr %session74, align 8
-  %ext75 = getelementptr inbounds i8, ptr %19, i64 824
-  %20 = load ptr, ptr %ext75, align 8
-  %cmp77.not = icmp eq ptr %20, null
+  %21 = load ptr, ptr %session74, align 8
+  %ext75 = getelementptr inbounds i8, ptr %21, i64 824
+  %22 = load ptr, ptr %ext75, align 8
+  %cmp77.not = icmp eq ptr %22, null
   br i1 %cmp77.not, label %if.end84, label %return
 
 if.end84:                                         ; preds = %land.lhs.true60, %land.lhs.true26, %land.lhs.true45, %land.lhs.true42, %if.then38, %land.lhs.true73, %land.lhs.true70, %if.then23
   %hostname86 = getelementptr inbounds i8, ptr %cond1234, i64 2464
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.then35, %if.then48, %if.end84
-  %hostname86.sink = phi ptr [ %hostname86, %if.end84 ], [ %ext50, %if.then48 ], [ %ext, %if.then35 ]
-  %21 = load ptr, ptr %hostname86.sink, align 8
+  %23 = load ptr, ptr %hostname86, align 8
   br label %return
 
-return:                                           ; preds = %return.sink.split, %cond.false, %entry, %cond.end18.thread, %land.lhs.true73, %cond.end18, %cond.end11
-  %retval.0 = phi ptr [ null, %cond.end11 ], [ null, %cond.end18 ], [ %20, %land.lhs.true73 ], [ null, %cond.end18.thread ], [ null, %entry ], [ null, %cond.false ], [ %21, %return.sink.split ]
+return:                                           ; preds = %cond.false, %entry, %cond.end18.thread, %land.lhs.true73, %cond.end18, %cond.end11, %if.end84, %if.then48, %if.then35
+  %retval.0 = phi ptr [ %11, %if.then35 ], [ %23, %if.end84 ], [ %15, %if.then48 ], [ null, %cond.end11 ], [ null, %cond.end18 ], [ %22, %land.lhs.true73 ], [ null, %cond.end18.thread ], [ null, %entry ], [ null, %cond.false ]
   ret ptr %retval.0
 }
 
@@ -9773,7 +9768,7 @@ ssl_has_cert_type.exit.i:                         ; preds = %if.end.i
 if.then3.i:                                       ; preds = %ssl_has_cert_type.exit.i
   %pkeys.i = getelementptr inbounds i8, ptr %0, i64 32
   %11 = load ptr, ptr %pkeys.i, align 8
-  br label %return.sink.split.i
+  br label %if.end.i78.sink.split
 
 if.end6.i:                                        ; preds = %ssl_has_cert_type.exit.i, %if.end.i
   %pkeys8.i = getelementptr inbounds i8, ptr %0, i64 32
@@ -9781,166 +9776,169 @@ if.end6.i:                                        ; preds = %ssl_has_cert_type.e
   %arrayidx10.i = getelementptr inbounds i8, ptr %12, i64 240
   %13 = load ptr, ptr %arrayidx10.i, align 8
   %cmp11.not.i = icmp eq ptr %13, null
-  br i1 %cmp11.not.i, label %if.end.i77, label %return.sink.split.i
-
-return.sink.split.i:                              ; preds = %if.end6.i, %if.then3.i
-  %.pn = phi ptr [ %11, %if.then3.i ], [ %12, %if.end6.i ]
-  %privatekey17.sink.i = getelementptr inbounds i8, ptr %.pn, i64 248
-  %14 = load ptr, ptr %privatekey17.sink.i, align 8
-  %cmp18.i.not = icmp eq ptr %14, null
-  br label %if.end.i77
+  br i1 %cmp11.not.i, label %if.end.i78, label %if.end.i78.sink.split
 
 ssl_has_cert.exit:                                ; preds = %lor.end
   %cmp1.not.i75 = icmp eq i32 %conv.i, 6
-  br i1 %cmp1.not.i75, label %if.end.i77, label %ssl_has_cert.exit104
+  br i1 %cmp1.not.i75, label %if.end.i78, label %ssl_has_cert.exit104
 
-if.end.i77:                                       ; preds = %return.sink.split.i, %if.end6.i, %ssl_has_cert.exit
-  %retval.0.shrunk.i352 = phi i1 [ true, %ssl_has_cert.exit ], [ %cmp18.i.not, %return.sink.split.i ], [ true, %if.end6.i ]
-  %server.i.i78 = getelementptr inbounds i8, ptr %s, i64 112
-  %15 = load i32, ptr %server.i.i78, align 8
-  %tobool.not.i.i79 = icmp eq i32 %15, 0
-  %ptr.0.in.v.i.i80 = select i1 %tobool.not.i.i79, i64 5368, i64 5384
-  %ptr.0.in.i.i81 = getelementptr inbounds i8, ptr %s, i64 %ptr.0.in.v.i.i80
-  %ptr.0.i.i82 = load ptr, ptr %ptr.0.in.i.i81, align 8
-  %cmp.i.i83 = icmp eq ptr %ptr.0.i.i82, null
-  br i1 %cmp.i.i83, label %if.end6.i97, label %ssl_has_cert_type.exit.i84
+if.end.i78.sink.split:                            ; preds = %if.end6.i, %if.then3.i
+  %.sink = phi ptr [ %11, %if.then3.i ], [ %12, %if.end6.i ]
+  %privatekey17.i = getelementptr inbounds i8, ptr %.sink, i64 248
+  %14 = load ptr, ptr %privatekey17.i, align 8
+  %cmp18.i = icmp ne ptr %14, null
+  br label %if.end.i78
 
-ssl_has_cert_type.exit.i84:                       ; preds = %if.end.i77
-  %len.0.in.v.i.i85 = select i1 %tobool.not.i.i79, i64 5376, i64 5392
-  %len.0.in.i.i86 = getelementptr inbounds i8, ptr %s, i64 %len.0.in.v.i.i85
-  %len.0.i.i87 = load i64, ptr %len.0.in.i.i86, align 8
-  %call.i.i88 = tail call ptr @memchr(ptr noundef nonnull %ptr.0.i.i82, i32 noundef 2, i64 noundef %len.0.i.i87) #25
-  %cmp3.i.not.i89 = icmp eq ptr %call.i.i88, null
-  br i1 %cmp3.i.not.i89, label %if.end6.i97, label %if.then3.i90
+if.end.i78:                                       ; preds = %if.end.i78.sink.split, %if.end6.i, %ssl_has_cert.exit
+  %retval.0.shrunk.i354 = phi i1 [ false, %ssl_has_cert.exit ], [ false, %if.end6.i ], [ %cmp18.i, %if.end.i78.sink.split ]
+  %server.i.i79 = getelementptr inbounds i8, ptr %s, i64 112
+  %15 = load i32, ptr %server.i.i79, align 8
+  %tobool.not.i.i80 = icmp eq i32 %15, 0
+  %ptr.0.in.v.i.i81 = select i1 %tobool.not.i.i80, i64 5368, i64 5384
+  %ptr.0.in.i.i82 = getelementptr inbounds i8, ptr %s, i64 %ptr.0.in.v.i.i81
+  %ptr.0.i.i83 = load ptr, ptr %ptr.0.in.i.i82, align 8
+  %cmp.i.i84 = icmp eq ptr %ptr.0.i.i83, null
+  br i1 %cmp.i.i84, label %if.end6.i96, label %ssl_has_cert_type.exit.i85
 
-if.then3.i90:                                     ; preds = %ssl_has_cert_type.exit.i84
-  %pkeys.i92 = getelementptr inbounds i8, ptr %0, i64 32
-  %16 = load ptr, ptr %pkeys.i92, align 8
-  br label %return.sink.split.i94
+ssl_has_cert_type.exit.i85:                       ; preds = %if.end.i78
+  %len.0.in.v.i.i86 = select i1 %tobool.not.i.i80, i64 5376, i64 5392
+  %len.0.in.i.i87 = getelementptr inbounds i8, ptr %s, i64 %len.0.in.v.i.i86
+  %len.0.i.i88 = load i64, ptr %len.0.in.i.i87, align 8
+  %call.i.i89 = tail call ptr @memchr(ptr noundef nonnull %ptr.0.i.i83, i32 noundef 2, i64 noundef %len.0.i.i88) #25
+  %cmp3.i.not.i90 = icmp eq ptr %call.i.i89, null
+  br i1 %cmp3.i.not.i90, label %if.end6.i96, label %if.then3.i91
 
-if.end6.i97:                                      ; preds = %ssl_has_cert_type.exit.i84, %if.end.i77
-  %pkeys8.i99 = getelementptr inbounds i8, ptr %0, i64 32
-  %17 = load ptr, ptr %pkeys8.i99, align 8
-  %arrayidx10.i100 = getelementptr inbounds i8, ptr %17, i64 200
-  %18 = load ptr, ptr %arrayidx10.i100, align 8
-  %cmp11.not.i101 = icmp eq ptr %18, null
-  br i1 %cmp11.not.i101, label %ssl_has_cert.exit104.thread, label %return.sink.split.i94
+if.then3.i91:                                     ; preds = %ssl_has_cert_type.exit.i85
+  %pkeys.i93 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = load ptr, ptr %pkeys.i93, align 8
+  br label %ssl_has_cert.exit104.thread.sink.split
 
-return.sink.split.i94:                            ; preds = %if.end6.i97, %if.then3.i90
-  %.pn341 = phi ptr [ %16, %if.then3.i90 ], [ %17, %if.end6.i97 ]
-  %privatekey17.sink.i95 = getelementptr inbounds i8, ptr %.pn341, i64 208
-  %19 = load ptr, ptr %privatekey17.sink.i95, align 8
-  %cmp18.i96.not = icmp eq ptr %19, null
-  %20 = select i1 %cmp18.i96.not, i1 %retval.0.shrunk.i352, i1 false
+if.end6.i96:                                      ; preds = %ssl_has_cert_type.exit.i85, %if.end.i78
+  %pkeys8.i98 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = load ptr, ptr %pkeys8.i98, align 8
+  %arrayidx10.i99 = getelementptr inbounds i8, ptr %17, i64 200
+  %18 = load ptr, ptr %arrayidx10.i99, align 8
+  %cmp11.not.i100 = icmp eq ptr %18, null
+  br i1 %cmp11.not.i100, label %ssl_has_cert.exit104.thread, label %ssl_has_cert.exit104.thread.sink.split
+
+ssl_has_cert.exit104.thread.sink.split:           ; preds = %if.end6.i96, %if.then3.i91
+  %.sink403 = phi ptr [ %16, %if.then3.i91 ], [ %17, %if.end6.i96 ]
+  %privatekey.i94 = getelementptr inbounds i8, ptr %.sink403, i64 208
+  %19 = load ptr, ptr %privatekey.i94, align 8
+  %cmp4.i95 = icmp ne ptr %19, null
+  %20 = select i1 %cmp4.i95, i1 true, i1 %retval.0.shrunk.i354
   br label %ssl_has_cert.exit104.thread
 
-ssl_has_cert.exit104.thread:                      ; preds = %if.end6.i97, %return.sink.split.i94
-  %retval.0.shrunk.i76.ph = phi i1 [ %20, %return.sink.split.i94 ], [ %retval.0.shrunk.i352, %if.end6.i97 ]
-  %mask_a.1354 = select i1 %retval.0.shrunk.i76.ph, i64 0, i64 128
-  %mask_k.1355 = select i1 %retval.0.shrunk.i76.ph, i64 0, i64 528
-  br label %if.end.i109
+ssl_has_cert.exit104.thread:                      ; preds = %ssl_has_cert.exit104.thread.sink.split, %if.end6.i96
+  %retval.0.shrunk.i76.ph = phi i1 [ %retval.0.shrunk.i354, %if.end6.i96 ], [ %20, %ssl_has_cert.exit104.thread.sink.split ]
+  %mask_a.1357 = select i1 %retval.0.shrunk.i76.ph, i64 128, i64 0
+  %mask_k.1358 = select i1 %retval.0.shrunk.i76.ph, i64 528, i64 0
+  br label %if.end.i110
 
 ssl_has_cert.exit104:                             ; preds = %ssl_has_cert.exit
   %cmp1.not.i107 = icmp sgt i32 %conv.i, 4
-  br i1 %cmp1.not.i107, label %if.end.i109, label %.thread
+  br i1 %cmp1.not.i107, label %if.end.i110, label %.thread
 
-if.end.i109:                                      ; preds = %ssl_has_cert.exit104.thread, %ssl_has_cert.exit104
-  %mask_k.1360 = phi i64 [ %mask_k.1355, %ssl_has_cert.exit104.thread ], [ 0, %ssl_has_cert.exit104 ]
-  %mask_a.1358 = phi i64 [ %mask_a.1354, %ssl_has_cert.exit104.thread ], [ 0, %ssl_has_cert.exit104 ]
-  %server.i.i110 = getelementptr inbounds i8, ptr %s, i64 112
-  %21 = load i32, ptr %server.i.i110, align 8
-  %tobool.not.i.i111 = icmp eq i32 %21, 0
-  %ptr.0.in.v.i.i112 = select i1 %tobool.not.i.i111, i64 5368, i64 5384
-  %ptr.0.in.i.i113 = getelementptr inbounds i8, ptr %s, i64 %ptr.0.in.v.i.i112
-  %ptr.0.i.i114 = load ptr, ptr %ptr.0.in.i.i113, align 8
-  %cmp.i.i115 = icmp eq ptr %ptr.0.i.i114, null
-  br i1 %cmp.i.i115, label %if.end6.i129, label %ssl_has_cert_type.exit.i116
+if.end.i110:                                      ; preds = %ssl_has_cert.exit104.thread, %ssl_has_cert.exit104
+  %mask_k.1363 = phi i64 [ %mask_k.1358, %ssl_has_cert.exit104.thread ], [ 0, %ssl_has_cert.exit104 ]
+  %mask_a.1361 = phi i64 [ %mask_a.1357, %ssl_has_cert.exit104.thread ], [ 0, %ssl_has_cert.exit104 ]
+  %server.i.i111 = getelementptr inbounds i8, ptr %s, i64 112
+  %21 = load i32, ptr %server.i.i111, align 8
+  %tobool.not.i.i112 = icmp eq i32 %21, 0
+  %ptr.0.in.v.i.i113 = select i1 %tobool.not.i.i112, i64 5368, i64 5384
+  %ptr.0.in.i.i114 = getelementptr inbounds i8, ptr %s, i64 %ptr.0.in.v.i.i113
+  %ptr.0.i.i115 = load ptr, ptr %ptr.0.in.i.i114, align 8
+  %cmp.i.i116 = icmp eq ptr %ptr.0.i.i115, null
+  br i1 %cmp.i.i116, label %if.end6.i128, label %ssl_has_cert_type.exit.i117
 
-ssl_has_cert_type.exit.i116:                      ; preds = %if.end.i109
-  %len.0.in.v.i.i117 = select i1 %tobool.not.i.i111, i64 5376, i64 5392
-  %len.0.in.i.i118 = getelementptr inbounds i8, ptr %s, i64 %len.0.in.v.i.i117
-  %len.0.i.i119 = load i64, ptr %len.0.in.i.i118, align 8
-  %call.i.i120 = tail call ptr @memchr(ptr noundef nonnull %ptr.0.i.i114, i32 noundef 2, i64 noundef %len.0.i.i119) #25
-  %cmp3.i.not.i121 = icmp eq ptr %call.i.i120, null
-  br i1 %cmp3.i.not.i121, label %if.end6.i129, label %if.then3.i122
+ssl_has_cert_type.exit.i117:                      ; preds = %if.end.i110
+  %len.0.in.v.i.i118 = select i1 %tobool.not.i.i112, i64 5376, i64 5392
+  %len.0.in.i.i119 = getelementptr inbounds i8, ptr %s, i64 %len.0.in.v.i.i118
+  %len.0.i.i120 = load i64, ptr %len.0.in.i.i119, align 8
+  %call.i.i121 = tail call ptr @memchr(ptr noundef nonnull %ptr.0.i.i115, i32 noundef 2, i64 noundef %len.0.i.i120) #25
+  %cmp3.i.not.i122 = icmp eq ptr %call.i.i121, null
+  br i1 %cmp3.i.not.i122, label %if.end6.i128, label %if.then3.i123
 
-if.then3.i122:                                    ; preds = %ssl_has_cert_type.exit.i116
-  %pkeys.i124 = getelementptr inbounds i8, ptr %0, i64 32
-  %22 = load ptr, ptr %pkeys.i124, align 8
-  br label %ssl_has_cert.exit136
+if.then3.i123:                                    ; preds = %ssl_has_cert_type.exit.i117
+  %pkeys.i125 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = load ptr, ptr %pkeys.i125, align 8
+  %privatekey.i126 = getelementptr inbounds i8, ptr %22, i64 168
+  %23 = load ptr, ptr %privatekey.i126, align 8
+  %.fr404 = freeze ptr %23
+  %cmp4.i127.not = icmp eq ptr %.fr404, null
+  br i1 %cmp4.i127.not, label %.thread, label %27
 
-if.end6.i129:                                     ; preds = %ssl_has_cert_type.exit.i116, %if.end.i109
-  %pkeys8.i131 = getelementptr inbounds i8, ptr %0, i64 32
-  %23 = load ptr, ptr %pkeys8.i131, align 8
-  %arrayidx10.i132 = getelementptr inbounds i8, ptr %23, i64 160
-  %24 = load ptr, ptr %arrayidx10.i132, align 8
-  %cmp11.not.i133 = icmp eq ptr %24, null
-  br i1 %cmp11.not.i133, label %.thread, label %ssl_has_cert.exit136
+if.end6.i128:                                     ; preds = %ssl_has_cert_type.exit.i117, %if.end.i110
+  %pkeys8.i130 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = load ptr, ptr %pkeys8.i130, align 8
+  %arrayidx10.i131 = getelementptr inbounds i8, ptr %24, i64 160
+  %25 = load ptr, ptr %arrayidx10.i131, align 8
+  %cmp11.not.i132 = icmp eq ptr %25, null
+  br i1 %cmp11.not.i132, label %.thread, label %ssl_has_cert.exit136
 
-ssl_has_cert.exit136:                             ; preds = %if.then3.i122, %if.end6.i129
-  %.pn342 = phi ptr [ %22, %if.then3.i122 ], [ %23, %if.end6.i129 ]
-  %privatekey17.sink.i127 = getelementptr inbounds i8, ptr %.pn342, i64 168
-  %25 = load ptr, ptr %privatekey17.sink.i127, align 8
-  %.fr396 = freeze ptr %25
-  %cmp18.i128.not = icmp eq ptr %.fr396, null
-  br i1 %cmp18.i128.not, label %.thread, label %26
+ssl_has_cert.exit136:                             ; preds = %if.end6.i128
+  %privatekey17.i134 = getelementptr inbounds i8, ptr %24, i64 168
+  %26 = load ptr, ptr %privatekey17.i134, align 8
+  %.fr405 = freeze ptr %26
+  %cmp18.i135.not = icmp eq ptr %.fr405, null
+  br i1 %cmp18.i135.not, label %.thread, label %27
 
-26:                                               ; preds = %ssl_has_cert.exit136
-  %or24 = or disjoint i64 %mask_a.1358, 32
-  %or23 = or i64 %mask_k.1360, 16
+27:                                               ; preds = %ssl_has_cert.exit136, %if.then3.i123
+  %or24380 = or disjoint i64 %mask_a.1361, 32
+  %or23379 = or i64 %mask_k.1363, 16
   br label %.thread
 
-.thread:                                          ; preds = %26, %if.end6.i129, %ssl_has_cert.exit104, %ssl_has_cert.exit136
-  %27 = phi i64 [ %mask_a.1358, %if.end6.i129 ], [ 0, %ssl_has_cert.exit104 ], [ %mask_a.1358, %ssl_has_cert.exit136 ], [ %or24, %26 ]
-  %28 = phi i64 [ %mask_k.1360, %if.end6.i129 ], [ 0, %ssl_has_cert.exit104 ], [ %mask_k.1360, %ssl_has_cert.exit136 ], [ %or23, %26 ]
+.thread:                                          ; preds = %ssl_has_cert.exit136, %if.then3.i123, %ssl_has_cert.exit104, %if.end6.i128, %27
+  %28 = phi i64 [ %or24380, %27 ], [ %mask_a.1361, %if.end6.i128 ], [ 0, %ssl_has_cert.exit104 ], [ %mask_a.1361, %if.then3.i123 ], [ %mask_a.1361, %ssl_has_cert.exit136 ]
+  %29 = phi i64 [ %or23379, %27 ], [ %mask_k.1363, %if.end6.i128 ], [ 0, %ssl_has_cert.exit104 ], [ %mask_k.1363, %if.then3.i123 ], [ %mask_k.1363, %ssl_has_cert.exit136 ]
   %tobool26.not = icmp eq i32 %and, 0
-  %29 = zext nneg i32 %and to i64
-  %mask_k.3 = or disjoint i64 %28, %29
+  %30 = zext nneg i32 %and to i64
+  %mask_k.3 = or disjoint i64 %29, %30
   %or32 = or disjoint i64 %mask_k.3, 2
   %mask_k.4 = select i1 %5, i64 %or32, i64 %mask_k.3
   br i1 %tobool26.not, label %lor.lhs.false37, label %if.then49
 
 lor.lhs.false37:                                  ; preds = %.thread
   %cmp1.not.i139 = icmp sgt i32 %conv.i, 1
-  br i1 %cmp1.not.i139, label %if.end.i141, label %if.end51
+  br i1 %cmp1.not.i139, label %if.end.i142, label %if.end51
 
-if.end.i141:                                      ; preds = %lor.lhs.false37
-  %server.i.i142 = getelementptr inbounds i8, ptr %s, i64 112
-  %30 = load i32, ptr %server.i.i142, align 8
-  %tobool.not.i.i143 = icmp eq i32 %30, 0
-  %ptr.0.in.v.i.i144 = select i1 %tobool.not.i.i143, i64 5368, i64 5384
-  %ptr.0.in.i.i145 = getelementptr inbounds i8, ptr %s, i64 %ptr.0.in.v.i.i144
-  %ptr.0.i.i146 = load ptr, ptr %ptr.0.in.i.i145, align 8
-  %cmp.i.i147 = icmp eq ptr %ptr.0.i.i146, null
-  br i1 %cmp.i.i147, label %if.end6.i161, label %ssl_has_cert_type.exit.i148
+if.end.i142:                                      ; preds = %lor.lhs.false37
+  %server.i.i143 = getelementptr inbounds i8, ptr %s, i64 112
+  %31 = load i32, ptr %server.i.i143, align 8
+  %tobool.not.i.i144 = icmp eq i32 %31, 0
+  %ptr.0.in.v.i.i145 = select i1 %tobool.not.i.i144, i64 5368, i64 5384
+  %ptr.0.in.i.i146 = getelementptr inbounds i8, ptr %s, i64 %ptr.0.in.v.i.i145
+  %ptr.0.i.i147 = load ptr, ptr %ptr.0.in.i.i146, align 8
+  %cmp.i.i148 = icmp eq ptr %ptr.0.i.i147, null
+  br i1 %cmp.i.i148, label %if.end6.i160, label %ssl_has_cert_type.exit.i149
 
-ssl_has_cert_type.exit.i148:                      ; preds = %if.end.i141
-  %len.0.in.v.i.i149 = select i1 %tobool.not.i.i143, i64 5376, i64 5392
-  %len.0.in.i.i150 = getelementptr inbounds i8, ptr %s, i64 %len.0.in.v.i.i149
-  %len.0.i.i151 = load i64, ptr %len.0.in.i.i150, align 8
-  %call.i.i152 = tail call ptr @memchr(ptr noundef nonnull %ptr.0.i.i146, i32 noundef 2, i64 noundef %len.0.i.i151) #25
-  %cmp3.i.not.i153 = icmp eq ptr %call.i.i152, null
-  br i1 %cmp3.i.not.i153, label %if.end6.i161, label %if.then3.i154
+ssl_has_cert_type.exit.i149:                      ; preds = %if.end.i142
+  %len.0.in.v.i.i150 = select i1 %tobool.not.i.i144, i64 5376, i64 5392
+  %len.0.in.i.i151 = getelementptr inbounds i8, ptr %s, i64 %len.0.in.v.i.i150
+  %len.0.i.i152 = load i64, ptr %len.0.in.i.i151, align 8
+  %call.i.i153 = tail call ptr @memchr(ptr noundef nonnull %ptr.0.i.i147, i32 noundef 2, i64 noundef %len.0.i.i152) #25
+  %cmp3.i.not.i154 = icmp eq ptr %call.i.i153, null
+  br i1 %cmp3.i.not.i154, label %if.end6.i160, label %if.then3.i155
 
-if.then3.i154:                                    ; preds = %ssl_has_cert_type.exit.i148
-  %pkeys.i156 = getelementptr inbounds i8, ptr %0, i64 32
-  %31 = load ptr, ptr %pkeys.i156, align 8
+if.then3.i155:                                    ; preds = %ssl_has_cert_type.exit.i149
+  %pkeys.i157 = getelementptr inbounds i8, ptr %0, i64 32
+  %32 = load ptr, ptr %pkeys.i157, align 8
   br label %ssl_has_cert.exit168
 
-if.end6.i161:                                     ; preds = %ssl_has_cert_type.exit.i148, %if.end.i141
-  %pkeys8.i163 = getelementptr inbounds i8, ptr %0, i64 32
-  %32 = load ptr, ptr %pkeys8.i163, align 8
-  %arrayidx10.i164 = getelementptr inbounds i8, ptr %32, i64 40
-  %33 = load ptr, ptr %arrayidx10.i164, align 8
-  %cmp11.not.i165 = icmp eq ptr %33, null
-  br i1 %cmp11.not.i165, label %if.end51, label %ssl_has_cert.exit168
+if.end6.i160:                                     ; preds = %ssl_has_cert_type.exit.i149, %if.end.i142
+  %pkeys8.i162 = getelementptr inbounds i8, ptr %0, i64 32
+  %33 = load ptr, ptr %pkeys8.i162, align 8
+  %arrayidx10.i163 = getelementptr inbounds i8, ptr %33, i64 40
+  %34 = load ptr, ptr %arrayidx10.i163, align 8
+  %cmp11.not.i164 = icmp eq ptr %34, null
+  br i1 %cmp11.not.i164, label %if.end51, label %ssl_has_cert.exit168
 
-ssl_has_cert.exit168:                             ; preds = %if.end6.i161, %if.then3.i154
-  %.pn343 = phi ptr [ %31, %if.then3.i154 ], [ %32, %if.end6.i161 ]
-  %privatekey17.sink.i159 = getelementptr inbounds i8, ptr %.pn343, i64 48
-  %34 = load ptr, ptr %privatekey17.sink.i159, align 8
-  %cmp18.i160.not = icmp eq ptr %34, null
-  br i1 %cmp18.i160.not, label %if.end51, label %land.lhs.true
+ssl_has_cert.exit168:                             ; preds = %if.end6.i160, %if.then3.i155
+  %.pn = phi ptr [ %32, %if.then3.i155 ], [ %33, %if.end6.i160 ]
+  %retval.0.shrunk.i140.in.in = getelementptr inbounds i8, ptr %.pn, i64 48
+  %retval.0.shrunk.i140.in = load ptr, ptr %retval.0.shrunk.i140.in.in, align 8
+  %retval.0.shrunk.i140.not = icmp eq ptr %retval.0.shrunk.i140.in, null
+  br i1 %retval.0.shrunk.i140.not, label %if.end51, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %ssl_has_cert.exit168
   %arrayidx40 = getelementptr inbounds i8, ptr %1, i64 4
@@ -9951,28 +9949,28 @@ land.lhs.true:                                    ; preds = %ssl_has_cert.exit16
 
 land.lhs.true43:                                  ; preds = %land.lhs.true
   %.pre.i = load i32, ptr %s, align 8
-  %cond395 = icmp eq i32 %.pre.i, 0
-  br i1 %cond395, label %SSL_version.exit, label %if.end51
+  %cond401 = icmp eq i32 %.pre.i, 0
+  br i1 %cond401, label %SSL_version.exit, label %if.end51
 
 SSL_version.exit:                                 ; preds = %land.lhs.true43
   %version.i = getelementptr inbounds i8, ptr %s, i64 64
   %36 = load i32, ptr %version.i, align 8
   %37 = and i32 %36, -256
   %38 = icmp eq i32 %37, 768
-  br i1 %38, label %SSL_version.exit177, label %if.end51
+  br i1 %38, label %SSL_version.exit178, label %if.end51
 
-SSL_version.exit177:                              ; preds = %SSL_version.exit
-  %version.i172 = getelementptr inbounds i8, ptr %s, i64 64
-  %39 = load i32, ptr %version.i172, align 8
+SSL_version.exit178:                              ; preds = %SSL_version.exit
+  %version.i173 = getelementptr inbounds i8, ptr %s, i64 64
+  %39 = load i32, ptr %version.i173, align 8
   %40 = icmp eq i32 %39, 771
   br i1 %40, label %if.then49, label %if.end51
 
-if.then49:                                        ; preds = %SSL_version.exit177, %.thread
-  %or50 = or disjoint i64 %27, 1
+if.then49:                                        ; preds = %SSL_version.exit178, %.thread
+  %or50 = or disjoint i64 %28, 1
   br label %if.end51
 
-if.end51:                                         ; preds = %land.lhs.true43, %if.end6.i161, %lor.lhs.false37, %SSL_version.exit, %if.then49, %SSL_version.exit177, %land.lhs.true, %ssl_has_cert.exit168
-  %mask_a.3 = phi i64 [ %or50, %if.then49 ], [ %27, %SSL_version.exit177 ], [ %27, %land.lhs.true ], [ %27, %ssl_has_cert.exit168 ], [ %27, %SSL_version.exit ], [ %27, %lor.lhs.false37 ], [ %27, %if.end6.i161 ], [ %27, %land.lhs.true43 ]
+if.end51:                                         ; preds = %land.lhs.true43, %if.end6.i160, %lor.lhs.false37, %SSL_version.exit, %if.then49, %SSL_version.exit178, %land.lhs.true, %ssl_has_cert.exit168
+  %mask_a.3 = phi i64 [ %or50, %if.then49 ], [ %28, %SSL_version.exit178 ], [ %28, %land.lhs.true ], [ %28, %ssl_has_cert.exit168 ], [ %28, %SSL_version.exit ], [ %28, %lor.lhs.false37 ], [ %28, %if.end6.i160 ], [ %28, %land.lhs.true43 ]
   %and7 = shl i32 %7, 1
   %41 = and i32 %and7, 2
   %42 = zext nneg i32 %41 to i64
@@ -9988,24 +9986,24 @@ if.end51:                                         ; preds = %land.lhs.true43, %i
   %spec.select67 = or disjoint i64 %mask_a.5.v, %42
   %mask_a.5 = or disjoint i64 %spec.select67, %44
   %mask_a.6 = or i64 %mask_a.5, %mask_a.3
-  %.pre.i178 = load i32, ptr %s, align 8
-  %cond = icmp eq i32 %.pre.i178, 0
-  br i1 %cond, label %SSL_version.exit186, label %if.end98
+  %.pre.i179 = load i32, ptr %s, align 8
+  %cond = icmp eq i32 %.pre.i179, 0
+  br i1 %cond, label %SSL_version.exit187, label %if.end98
 
-SSL_version.exit186:                              ; preds = %if.end51
-  %version.i181 = getelementptr inbounds i8, ptr %s, i64 64
-  %45 = load i32, ptr %version.i181, align 8
+SSL_version.exit187:                              ; preds = %if.end51
+  %version.i182 = getelementptr inbounds i8, ptr %s, i64 64
+  %45 = load i32, ptr %version.i182, align 8
   %46 = and i32 %45, -256
   %47 = icmp eq i32 %46, 768
-  br i1 %47, label %SSL_version.exit195, label %if.end98
+  br i1 %47, label %SSL_version.exit196, label %if.end98
 
-SSL_version.exit195:                              ; preds = %SSL_version.exit186
-  %version.i190 = getelementptr inbounds i8, ptr %s, i64 64
-  %48 = load i32, ptr %version.i190, align 8
+SSL_version.exit196:                              ; preds = %SSL_version.exit187
+  %version.i191 = getelementptr inbounds i8, ptr %s, i64 64
+  %48 = load i32, ptr %version.i191, align 8
   %49 = icmp eq i32 %48, 771
   br i1 %49, label %if.then81, label %if.end98
 
-if.then81:                                        ; preds = %SSL_version.exit195
+if.then81:                                        ; preds = %SSL_version.exit196
   %arrayidx82 = getelementptr inbounds i8, ptr %1, i64 4
   %50 = load i32, ptr %arrayidx82, align 4
   %and83 = lshr i32 %50, 12
@@ -10029,8 +10027,8 @@ if.then95:                                        ; preds = %lor.lhs.false91, %i
   %or96 = or i64 %spec.select68, 8
   br label %if.end98
 
-if.end98:                                         ; preds = %if.end51, %SSL_version.exit186, %lor.lhs.false91, %if.then95, %SSL_version.exit195
-  %mask_a.7 = phi i64 [ %or96, %if.then95 ], [ %spec.select68, %lor.lhs.false91 ], [ %mask_a.6, %SSL_version.exit195 ], [ %mask_a.6, %SSL_version.exit186 ], [ %mask_a.6, %if.end51 ]
+if.end98:                                         ; preds = %if.end51, %SSL_version.exit187, %lor.lhs.false91, %if.then95, %SSL_version.exit196
+  %mask_a.7 = phi i64 [ %or96, %if.then95 ], [ %spec.select68, %lor.lhs.false91 ], [ %mask_a.6, %SSL_version.exit196 ], [ %mask_a.6, %SSL_version.exit187 ], [ %mask_a.6, %if.end51 ]
   %tobool99.not = icmp eq i32 %and9, 0
   br i1 %tobool99.not, label %if.end113, label %if.then100
 
@@ -10058,181 +10056,181 @@ if.end113:                                        ; preds = %if.then100, %if.end
 
 land.lhs.true116:                                 ; preds = %if.end113
   %58 = load i64, ptr %ssl_pkey_num.i, align 8
-  %conv.i197 = trunc i64 %58 to i32
-  %cmp1.not.i198 = icmp sgt i32 %conv.i197, 7
-  br i1 %cmp1.not.i198, label %if.end.i200, label %if.end137
+  %conv.i198 = trunc i64 %58 to i32
+  %cmp1.not.i199 = icmp sgt i32 %conv.i198, 7
+  br i1 %cmp1.not.i199, label %if.end.i202, label %if.end137
 
-if.end.i200:                                      ; preds = %land.lhs.true116
-  %server.i.i201 = getelementptr inbounds i8, ptr %s, i64 112
-  %59 = load i32, ptr %server.i.i201, align 8
-  %tobool.not.i.i202 = icmp eq i32 %59, 0
-  %ptr.0.in.v.i.i203 = select i1 %tobool.not.i.i202, i64 5368, i64 5384
-  %ptr.0.in.i.i204 = getelementptr inbounds i8, ptr %s, i64 %ptr.0.in.v.i.i203
-  %ptr.0.i.i205 = load ptr, ptr %ptr.0.in.i.i204, align 8
-  %cmp.i.i206 = icmp eq ptr %ptr.0.i.i205, null
-  br i1 %cmp.i.i206, label %if.end.i200.if.end6.i220_crit_edge, label %ssl_has_cert_type.exit.i207
+if.end.i202:                                      ; preds = %land.lhs.true116
+  %server.i.i203 = getelementptr inbounds i8, ptr %s, i64 112
+  %59 = load i32, ptr %server.i.i203, align 8
+  %tobool.not.i.i204 = icmp eq i32 %59, 0
+  %ptr.0.in.v.i.i205 = select i1 %tobool.not.i.i204, i64 5368, i64 5384
+  %ptr.0.in.i.i206 = getelementptr inbounds i8, ptr %s, i64 %ptr.0.in.v.i.i205
+  %ptr.0.i.i207 = load ptr, ptr %ptr.0.in.i.i206, align 8
+  %cmp.i.i208 = icmp eq ptr %ptr.0.i.i207, null
+  br i1 %cmp.i.i208, label %if.end.i202.if.end6.i220_crit_edge, label %ssl_has_cert_type.exit.i209
 
-if.end.i200.if.end6.i220_crit_edge:               ; preds = %if.end.i200
+if.end.i202.if.end6.i220_crit_edge:               ; preds = %if.end.i202
   %.pre = load ptr, ptr %cert, align 8
   br label %if.end6.i220
 
-ssl_has_cert_type.exit.i207:                      ; preds = %if.end.i200
-  %len.0.in.v.i.i208 = select i1 %tobool.not.i.i202, i64 5376, i64 5392
-  %len.0.in.i.i209 = getelementptr inbounds i8, ptr %s, i64 %len.0.in.v.i.i208
-  %len.0.i.i210 = load i64, ptr %len.0.in.i.i209, align 8
-  %call.i.i211 = tail call ptr @memchr(ptr noundef nonnull %ptr.0.i.i205, i32 noundef 2, i64 noundef %len.0.i.i210) #25
-  %cmp3.i.not.i212 = icmp eq ptr %call.i.i211, null
-  %.pre347 = load ptr, ptr %cert, align 8
-  br i1 %cmp3.i.not.i212, label %if.end6.i220, label %if.then3.i213
+ssl_has_cert_type.exit.i209:                      ; preds = %if.end.i202
+  %len.0.in.v.i.i210 = select i1 %tobool.not.i.i204, i64 5376, i64 5392
+  %len.0.in.i.i211 = getelementptr inbounds i8, ptr %s, i64 %len.0.in.v.i.i210
+  %len.0.i.i212 = load i64, ptr %len.0.in.i.i211, align 8
+  %call.i.i213 = tail call ptr @memchr(ptr noundef nonnull %ptr.0.i.i207, i32 noundef 2, i64 noundef %len.0.i.i212) #25
+  %cmp3.i.not.i214 = icmp eq ptr %call.i.i213, null
+  %.pre348 = load ptr, ptr %cert, align 8
+  br i1 %cmp3.i.not.i214, label %if.end6.i220, label %if.then3.i215
 
-if.then3.i213:                                    ; preds = %ssl_has_cert_type.exit.i207
-  %pkeys.i215 = getelementptr inbounds i8, ptr %.pre347, i64 32
-  %60 = load ptr, ptr %pkeys.i215, align 8
-  br label %ssl_has_cert.exit227
+if.then3.i215:                                    ; preds = %ssl_has_cert_type.exit.i209
+  %pkeys.i217 = getelementptr inbounds i8, ptr %.pre348, i64 32
+  %60 = load ptr, ptr %pkeys.i217, align 8
+  br label %ssl_has_cert.exit228
 
-if.end6.i220:                                     ; preds = %if.end.i200.if.end6.i220_crit_edge, %ssl_has_cert_type.exit.i207
-  %61 = phi ptr [ %.pre, %if.end.i200.if.end6.i220_crit_edge ], [ %.pre347, %ssl_has_cert_type.exit.i207 ]
+if.end6.i220:                                     ; preds = %if.end.i202.if.end6.i220_crit_edge, %ssl_has_cert_type.exit.i209
+  %61 = phi ptr [ %.pre, %if.end.i202.if.end6.i220_crit_edge ], [ %.pre348, %ssl_has_cert_type.exit.i209 ]
   %pkeys8.i222 = getelementptr inbounds i8, ptr %61, i64 32
   %62 = load ptr, ptr %pkeys8.i222, align 8
   %arrayidx10.i223 = getelementptr inbounds i8, ptr %62, i64 280
   %63 = load ptr, ptr %arrayidx10.i223, align 8
   %cmp11.not.i224 = icmp eq ptr %63, null
-  br i1 %cmp11.not.i224, label %if.end137, label %ssl_has_cert.exit227
+  br i1 %cmp11.not.i224, label %if.end137, label %ssl_has_cert.exit228
 
-ssl_has_cert.exit227:                             ; preds = %if.end6.i220, %if.then3.i213
-  %.pn344 = phi ptr [ %60, %if.then3.i213 ], [ %62, %if.end6.i220 ]
-  %privatekey17.sink.i218 = getelementptr inbounds i8, ptr %.pn344, i64 288
-  %64 = load ptr, ptr %privatekey17.sink.i218, align 8
-  %cmp18.i219.not = icmp eq ptr %64, null
-  br i1 %cmp18.i219.not, label %if.end137, label %land.lhs.true119
+ssl_has_cert.exit228:                             ; preds = %if.end6.i220, %if.then3.i215
+  %.pn345 = phi ptr [ %60, %if.then3.i215 ], [ %62, %if.end6.i220 ]
+  %retval.0.shrunk.i200.in.in = getelementptr inbounds i8, ptr %.pn345, i64 288
+  %retval.0.shrunk.i200.in = load ptr, ptr %retval.0.shrunk.i200.in.in, align 8
+  %retval.0.shrunk.i200.not = icmp eq ptr %retval.0.shrunk.i200.in, null
+  br i1 %retval.0.shrunk.i200.not, label %if.end137, label %land.lhs.true119
 
-land.lhs.true119:                                 ; preds = %ssl_has_cert.exit227
+land.lhs.true119:                                 ; preds = %ssl_has_cert.exit228
   %arrayidx120 = getelementptr inbounds i8, ptr %1, i64 28
-  %65 = load i32, ptr %arrayidx120, align 4
-  %and121 = and i32 %65, 256
+  %64 = load i32, ptr %arrayidx120, align 4
+  %and121 = and i32 %64, 256
   %tobool122.not = icmp eq i32 %and121, 0
   br i1 %tobool122.not, label %if.end137, label %land.lhs.true123
 
 land.lhs.true123:                                 ; preds = %land.lhs.true119
-  %.pre.i228 = load i32, ptr %s, align 8
-  %cond394 = icmp eq i32 %.pre.i228, 0
-  br i1 %cond394, label %SSL_version.exit236, label %if.end137
+  %.pre.i229 = load i32, ptr %s, align 8
+  %cond400 = icmp eq i32 %.pre.i229, 0
+  br i1 %cond400, label %SSL_version.exit237, label %if.end137
 
-SSL_version.exit236:                              ; preds = %land.lhs.true123
-  %version.i231 = getelementptr inbounds i8, ptr %s, i64 64
-  %66 = load i32, ptr %version.i231, align 8
-  %67 = and i32 %66, -256
-  %68 = icmp eq i32 %67, 768
-  br i1 %68, label %cond.end132, label %if.end137
+SSL_version.exit237:                              ; preds = %land.lhs.true123
+  %version.i232 = getelementptr inbounds i8, ptr %s, i64 64
+  %65 = load i32, ptr %version.i232, align 8
+  %66 = and i32 %65, -256
+  %67 = icmp eq i32 %66, 768
+  br i1 %67, label %cond.end132, label %if.end137
 
-cond.end132:                                      ; preds = %SSL_version.exit236
-  %version.i240 = getelementptr inbounds i8, ptr %s, i64 64
-  %69 = load i32, ptr %version.i240, align 8
-  %.fr = freeze i32 %69
-  %70 = icmp eq i32 %.fr, 771
+cond.end132:                                      ; preds = %SSL_version.exit237
+  %version.i241 = getelementptr inbounds i8, ptr %s, i64 64
+  %68 = load i32, ptr %version.i241, align 8
+  %.fr = freeze i32 %68
+  %69 = icmp eq i32 %.fr, 771
   %or136 = or disjoint i64 %mask_a.9, 8
-  %spec.select338 = select i1 %70, i64 %or136, i64 %mask_a.9
+  %spec.select342 = select i1 %69, i64 %or136, i64 %mask_a.9
   br label %if.end137
 
-if.end137:                                        ; preds = %land.lhs.true123, %cond.end132, %SSL_version.exit236, %if.end6.i220, %land.lhs.true116, %land.lhs.true119, %ssl_has_cert.exit227, %if.end113
-  %mask_a.10 = phi i64 [ %mask_a.9, %if.end113 ], [ %mask_a.9, %land.lhs.true119 ], [ %mask_a.9, %ssl_has_cert.exit227 ], [ %mask_a.9, %land.lhs.true116 ], [ %mask_a.9, %if.end6.i220 ], [ %mask_a.9, %SSL_version.exit236 ], [ %spec.select338, %cond.end132 ], [ %mask_a.9, %land.lhs.true123 ]
+if.end137:                                        ; preds = %land.lhs.true123, %cond.end132, %SSL_version.exit237, %if.end6.i220, %land.lhs.true116, %land.lhs.true119, %ssl_has_cert.exit228, %if.end113
+  %mask_a.10 = phi i64 [ %mask_a.9, %if.end113 ], [ %mask_a.9, %land.lhs.true119 ], [ %mask_a.9, %ssl_has_cert.exit228 ], [ %mask_a.9, %land.lhs.true116 ], [ %mask_a.9, %if.end6.i220 ], [ %mask_a.9, %SSL_version.exit237 ], [ %spec.select342, %cond.end132 ], [ %mask_a.9, %land.lhs.true123 ]
   %and138 = and i64 %mask_a.10, 8
   %tobool139.not = icmp eq i64 %and138, 0
   br i1 %tobool139.not, label %land.lhs.true140, label %if.end161
 
 land.lhs.true140:                                 ; preds = %if.end137
-  %71 = load i64, ptr %ssl_pkey_num.i, align 8
-  %conv.i247 = trunc i64 %71 to i32
-  %cmp1.not.i248 = icmp sgt i32 %conv.i247, 8
-  br i1 %cmp1.not.i248, label %if.end.i250, label %if.end161
+  %70 = load i64, ptr %ssl_pkey_num.i, align 8
+  %conv.i248 = trunc i64 %70 to i32
+  %cmp1.not.i249 = icmp sgt i32 %conv.i248, 8
+  br i1 %cmp1.not.i249, label %if.end.i252, label %if.end161
 
-if.end.i250:                                      ; preds = %land.lhs.true140
-  %server.i.i251 = getelementptr inbounds i8, ptr %s, i64 112
-  %72 = load i32, ptr %server.i.i251, align 8
-  %tobool.not.i.i252 = icmp eq i32 %72, 0
-  %ptr.0.in.v.i.i253 = select i1 %tobool.not.i.i252, i64 5368, i64 5384
-  %ptr.0.in.i.i254 = getelementptr inbounds i8, ptr %s, i64 %ptr.0.in.v.i.i253
-  %ptr.0.i.i255 = load ptr, ptr %ptr.0.in.i.i254, align 8
-  %cmp.i.i256 = icmp eq ptr %ptr.0.i.i255, null
-  br i1 %cmp.i.i256, label %if.end.i250.if.end6.i270_crit_edge, label %ssl_has_cert_type.exit.i257
+if.end.i252:                                      ; preds = %land.lhs.true140
+  %server.i.i253 = getelementptr inbounds i8, ptr %s, i64 112
+  %71 = load i32, ptr %server.i.i253, align 8
+  %tobool.not.i.i254 = icmp eq i32 %71, 0
+  %ptr.0.in.v.i.i255 = select i1 %tobool.not.i.i254, i64 5368, i64 5384
+  %ptr.0.in.i.i256 = getelementptr inbounds i8, ptr %s, i64 %ptr.0.in.v.i.i255
+  %ptr.0.i.i257 = load ptr, ptr %ptr.0.in.i.i256, align 8
+  %cmp.i.i258 = icmp eq ptr %ptr.0.i.i257, null
+  br i1 %cmp.i.i258, label %if.end.i252.if.end6.i270_crit_edge, label %ssl_has_cert_type.exit.i259
 
-if.end.i250.if.end6.i270_crit_edge:               ; preds = %if.end.i250
-  %.pre348 = load ptr, ptr %cert, align 8
+if.end.i252.if.end6.i270_crit_edge:               ; preds = %if.end.i252
+  %.pre349 = load ptr, ptr %cert, align 8
   br label %if.end6.i270
 
-ssl_has_cert_type.exit.i257:                      ; preds = %if.end.i250
-  %len.0.in.v.i.i258 = select i1 %tobool.not.i.i252, i64 5376, i64 5392
-  %len.0.in.i.i259 = getelementptr inbounds i8, ptr %s, i64 %len.0.in.v.i.i258
-  %len.0.i.i260 = load i64, ptr %len.0.in.i.i259, align 8
-  %call.i.i261 = tail call ptr @memchr(ptr noundef nonnull %ptr.0.i.i255, i32 noundef 2, i64 noundef %len.0.i.i260) #25
-  %cmp3.i.not.i262 = icmp eq ptr %call.i.i261, null
-  %.pre349 = load ptr, ptr %cert, align 8
-  br i1 %cmp3.i.not.i262, label %if.end6.i270, label %if.then3.i263
+ssl_has_cert_type.exit.i259:                      ; preds = %if.end.i252
+  %len.0.in.v.i.i260 = select i1 %tobool.not.i.i254, i64 5376, i64 5392
+  %len.0.in.i.i261 = getelementptr inbounds i8, ptr %s, i64 %len.0.in.v.i.i260
+  %len.0.i.i262 = load i64, ptr %len.0.in.i.i261, align 8
+  %call.i.i263 = tail call ptr @memchr(ptr noundef nonnull %ptr.0.i.i257, i32 noundef 2, i64 noundef %len.0.i.i262) #25
+  %cmp3.i.not.i264 = icmp eq ptr %call.i.i263, null
+  %.pre350 = load ptr, ptr %cert, align 8
+  br i1 %cmp3.i.not.i264, label %if.end6.i270, label %if.then3.i265
 
-if.then3.i263:                                    ; preds = %ssl_has_cert_type.exit.i257
-  %pkeys.i265 = getelementptr inbounds i8, ptr %.pre349, i64 32
-  %73 = load ptr, ptr %pkeys.i265, align 8
-  br label %ssl_has_cert.exit277
+if.then3.i265:                                    ; preds = %ssl_has_cert_type.exit.i259
+  %pkeys.i267 = getelementptr inbounds i8, ptr %.pre350, i64 32
+  %72 = load ptr, ptr %pkeys.i267, align 8
+  br label %ssl_has_cert.exit278
 
-if.end6.i270:                                     ; preds = %if.end.i250.if.end6.i270_crit_edge, %ssl_has_cert_type.exit.i257
-  %74 = phi ptr [ %.pre348, %if.end.i250.if.end6.i270_crit_edge ], [ %.pre349, %ssl_has_cert_type.exit.i257 ]
-  %pkeys8.i272 = getelementptr inbounds i8, ptr %74, i64 32
-  %75 = load ptr, ptr %pkeys8.i272, align 8
-  %arrayidx10.i273 = getelementptr inbounds i8, ptr %75, i64 320
-  %76 = load ptr, ptr %arrayidx10.i273, align 8
-  %cmp11.not.i274 = icmp eq ptr %76, null
-  br i1 %cmp11.not.i274, label %if.end161, label %ssl_has_cert.exit277
+if.end6.i270:                                     ; preds = %if.end.i252.if.end6.i270_crit_edge, %ssl_has_cert_type.exit.i259
+  %73 = phi ptr [ %.pre349, %if.end.i252.if.end6.i270_crit_edge ], [ %.pre350, %ssl_has_cert_type.exit.i259 ]
+  %pkeys8.i272 = getelementptr inbounds i8, ptr %73, i64 32
+  %74 = load ptr, ptr %pkeys8.i272, align 8
+  %arrayidx10.i273 = getelementptr inbounds i8, ptr %74, i64 320
+  %75 = load ptr, ptr %arrayidx10.i273, align 8
+  %cmp11.not.i274 = icmp eq ptr %75, null
+  br i1 %cmp11.not.i274, label %if.end161, label %ssl_has_cert.exit278
 
-ssl_has_cert.exit277:                             ; preds = %if.end6.i270, %if.then3.i263
-  %.pn345 = phi ptr [ %73, %if.then3.i263 ], [ %75, %if.end6.i270 ]
-  %privatekey17.sink.i268 = getelementptr inbounds i8, ptr %.pn345, i64 328
-  %77 = load ptr, ptr %privatekey17.sink.i268, align 8
-  %cmp18.i269.not = icmp eq ptr %77, null
-  br i1 %cmp18.i269.not, label %if.end161, label %land.lhs.true143
+ssl_has_cert.exit278:                             ; preds = %if.end6.i270, %if.then3.i265
+  %.pn346 = phi ptr [ %72, %if.then3.i265 ], [ %74, %if.end6.i270 ]
+  %retval.0.shrunk.i250.in.in = getelementptr inbounds i8, ptr %.pn346, i64 328
+  %retval.0.shrunk.i250.in = load ptr, ptr %retval.0.shrunk.i250.in.in, align 8
+  %retval.0.shrunk.i250.not = icmp eq ptr %retval.0.shrunk.i250.in, null
+  br i1 %retval.0.shrunk.i250.not, label %if.end161, label %land.lhs.true143
 
-land.lhs.true143:                                 ; preds = %ssl_has_cert.exit277
+land.lhs.true143:                                 ; preds = %ssl_has_cert.exit278
   %arrayidx144 = getelementptr inbounds i8, ptr %1, i64 32
-  %78 = load i32, ptr %arrayidx144, align 4
-  %and145 = and i32 %78, 256
+  %76 = load i32, ptr %arrayidx144, align 4
+  %and145 = and i32 %76, 256
   %tobool146.not = icmp eq i32 %and145, 0
   br i1 %tobool146.not, label %if.end161, label %land.lhs.true147
 
 land.lhs.true147:                                 ; preds = %land.lhs.true143
-  %.pre.i278 = load i32, ptr %s, align 8
-  %cond393 = icmp eq i32 %.pre.i278, 0
-  br i1 %cond393, label %SSL_version.exit286, label %if.end161
+  %.pre.i279 = load i32, ptr %s, align 8
+  %cond399 = icmp eq i32 %.pre.i279, 0
+  br i1 %cond399, label %SSL_version.exit287, label %if.end161
 
-SSL_version.exit286:                              ; preds = %land.lhs.true147
-  %version.i281 = getelementptr inbounds i8, ptr %s, i64 64
-  %79 = load i32, ptr %version.i281, align 8
-  %80 = and i32 %79, -256
-  %81 = icmp eq i32 %80, 768
-  br i1 %81, label %cond.end156, label %if.end161
+SSL_version.exit287:                              ; preds = %land.lhs.true147
+  %version.i282 = getelementptr inbounds i8, ptr %s, i64 64
+  %77 = load i32, ptr %version.i282, align 8
+  %78 = and i32 %77, -256
+  %79 = icmp eq i32 %78, 768
+  br i1 %79, label %cond.end156, label %if.end161
 
-cond.end156:                                      ; preds = %SSL_version.exit286
-  %version.i290 = getelementptr inbounds i8, ptr %s, i64 64
-  %82 = load i32, ptr %version.i290, align 8
-  %.fr346 = freeze i32 %82
-  %83 = icmp eq i32 %.fr346, 771
+cond.end156:                                      ; preds = %SSL_version.exit287
+  %version.i291 = getelementptr inbounds i8, ptr %s, i64 64
+  %80 = load i32, ptr %version.i291, align 8
+  %.fr347 = freeze i32 %80
+  %81 = icmp eq i32 %.fr347, 771
   %or160 = or disjoint i64 %mask_a.10, 8
-  %spec.select340 = select i1 %83, i64 %or160, i64 %mask_a.10
+  %spec.select344 = select i1 %81, i64 %or160, i64 %mask_a.10
   br label %if.end161
 
-if.end161:                                        ; preds = %land.lhs.true147, %cond.end156, %SSL_version.exit286, %if.end6.i270, %land.lhs.true140, %land.lhs.true143, %ssl_has_cert.exit277, %if.end137
-  %mask_a.11 = phi i64 [ %mask_a.10, %if.end137 ], [ %mask_a.10, %land.lhs.true143 ], [ %mask_a.10, %ssl_has_cert.exit277 ], [ %mask_a.10, %land.lhs.true140 ], [ %mask_a.10, %if.end6.i270 ], [ %mask_a.10, %SSL_version.exit286 ], [ %spec.select340, %cond.end156 ], [ %mask_a.10, %land.lhs.true147 ]
+if.end161:                                        ; preds = %land.lhs.true147, %cond.end156, %SSL_version.exit287, %if.end6.i270, %land.lhs.true140, %land.lhs.true143, %ssl_has_cert.exit278, %if.end137
+  %mask_a.11 = phi i64 [ %mask_a.10, %if.end137 ], [ %mask_a.10, %land.lhs.true143 ], [ %mask_a.10, %ssl_has_cert.exit278 ], [ %mask_a.10, %land.lhs.true140 ], [ %mask_a.10, %if.end6.i270 ], [ %mask_a.10, %SSL_version.exit287 ], [ %spec.select344, %cond.end156 ], [ %mask_a.10, %land.lhs.true147 ]
   %and165 = and i64 %mask_k.5, 1
   %tobool166.not = icmp eq i64 %and165, 0
   %spec.select72.v = select i1 %tobool166.not, i64 12, i64 76
   %and170 = shl nuw nsw i64 %mask_k.4, 7
-  %84 = and i64 %and170, 256
-  %85 = or disjoint i64 %84, %spec.select72.v
-  %mask_k.7 = or i64 %85, %mask_k.5
-  %86 = trunc nuw nsw i64 %mask_k.7 to i32
-  %conv = or i32 %86, 128
+  %82 = and i64 %and170, 256
+  %83 = or disjoint i64 %82, %spec.select72.v
+  %mask_k.7 = or i64 %83, %mask_k.5
+  %84 = trunc nuw nsw i64 %mask_k.7 to i32
+  %conv = or i32 %84, 128
   %mask_k182 = getelementptr inbounds i8, ptr %s, i64 920
   store i32 %conv, ptr %mask_k182, align 8
-  %87 = trunc i64 %mask_a.11 to i32
-  %conv183 = or i32 %87, 16
+  %85 = trunc i64 %mask_a.11 to i32
+  %conv183 = or i32 %85, 16
   %mask_a186 = getelementptr inbounds i8, ptr %s, i64 924
   store i32 %conv183, ptr %mask_a186, align 4
   br label %return

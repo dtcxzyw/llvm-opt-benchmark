@@ -1812,6 +1812,7 @@ define internal i32 @sna_fid_to_str_buf(ptr nocapture noundef readonly %0, ptr n
   %10 = zext i8 %9 to i16
   %11 = tail call ptr @word_to_hex(ptr noundef %1, i16 noundef zeroext %10) #5
   %12 = getelementptr i8, ptr %1, i64 4
+  store i8 0, ptr %12, align 1
   br label %30
 
 13:                                               ; preds = %3
@@ -1826,6 +1827,7 @@ define internal i32 @sna_fid_to_str_buf(ptr nocapture noundef readonly %0, ptr n
   %20 = or disjoint i16 %18, %19
   %21 = tail call ptr @word_to_hex(ptr noundef %1, i16 noundef zeroext %20) #5
   %22 = getelementptr i8, ptr %1, i64 4
+  store i8 0, ptr %22, align 1
   br label %30
 
 23:                                               ; preds = %3
@@ -1838,6 +1840,7 @@ define internal i32 @sna_fid_to_str_buf(ptr nocapture noundef readonly %0, ptr n
   %27 = getelementptr i8, ptr %26, i64 1
   store i8 46, ptr %26, align 1
   %28 = tail call ptr @word_to_hex(ptr noundef %27, i16 noundef zeroext %.sroa.2.0.copyload) #5
+  store i8 0, ptr %28, align 1
   br label %30
 
 29:                                               ; preds = %3
@@ -1845,8 +1848,6 @@ define internal i32 @sna_fid_to_str_buf(ptr nocapture noundef readonly %0, ptr n
   br label %34
 
 30:                                               ; preds = %23, %13, %6
-  %.sink = phi ptr [ %28, %23 ], [ %22, %13 ], [ %12, %6 ]
-  store i8 0, ptr %.sink, align 1
   %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #6
   %32 = trunc i64 %31 to i32
   %33 = add i32 %32, 1

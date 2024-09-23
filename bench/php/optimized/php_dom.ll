@@ -14161,7 +14161,7 @@ define hidden void @dom_reconcile_ns(ptr noundef %0, ptr noundef %1) local_unnam
   %5 = icmp ne i32 %4, 2
   tail call void @llvm.assume(i1 %5)
   %6 = icmp eq i32 %4, 1
-  br i1 %6, label %7, label %31
+  br i1 %6, label %7, label %34
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %1, i64 40
@@ -14171,19 +14171,19 @@ define hidden void @dom_reconcile_ns(ptr noundef %0, ptr noundef %1) local_unnam
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %dom_reconcile_ns_internal.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %7, %27
-  %.032.i = phi ptr [ %.1.i, %27 ], [ null, %7 ]
-  %.02231.i = phi ptr [ %12, %27 ], [ %11, %7 ]
+.preheader.i:                                     ; preds = %7, %30
+  %.032.i = phi ptr [ %.1.i, %30 ], [ null, %7 ]
+  %.02231.i = phi ptr [ %12, %30 ], [ %11, %7 ]
   %12 = load ptr, ptr %.02231.i, align 8
   %13 = getelementptr inbounds i8, ptr %.02231.i, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not28.i = icmp eq ptr %14, null
-  br i1 %.not28.i, label %27, label %15
+  br i1 %.not28.i, label %30, label %15
 
 15:                                               ; preds = %.preheader.i
   %16 = tail call ptr @xmlSearchNsByHref(ptr noundef %0, ptr noundef %9, ptr noundef nonnull %14) #16
   %.not29.i = icmp eq ptr %16, null
-  br i1 %.not29.i, label %27, label %17
+  br i1 %.not29.i, label %30, label %17
 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds i8, ptr %.02231.i, i64 24
@@ -14196,28 +14196,37 @@ define hidden void @dom_reconcile_ns(ptr noundef %0, ptr noundef %1) local_unnam
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 @xmlStrEqual(ptr noundef %23, ptr noundef nonnull %19) #16
   %.not30.i = icmp eq i32 %24, 0
-  br i1 %.not30.i, label %27, label %25
+  br i1 %.not30.i, label %30, label %25
 
 25:                                               ; preds = %21, %17
   store ptr null, ptr %.02231.i, align 8
   %26 = icmp eq ptr %.032.i, null
-  %..032.i = select i1 %26, ptr %10, ptr %.032.i
-  store ptr %12, ptr %..032.i, align 8
-  tail call void @php_libxml_set_old_ns(ptr noundef %0, ptr noundef nonnull %.02231.i) #16
-  br label %27
+  br i1 %26, label %27, label %28
 
-27:                                               ; preds = %25, %21, %15, %.preheader.i
-  %.1.i = phi ptr [ %.032.i, %25 ], [ %.02231.i, %21 ], [ %.02231.i, %15 ], [ %.02231.i, %.preheader.i ]
+27:                                               ; preds = %25
+  store ptr %12, ptr %10, align 8
+  br label %29
+
+28:                                               ; preds = %25
+  store ptr %12, ptr %.032.i, align 8
+  br label %29
+
+29:                                               ; preds = %28, %27
+  tail call void @php_libxml_set_old_ns(ptr noundef %0, ptr noundef nonnull %.02231.i) #16
+  br label %30
+
+30:                                               ; preds = %29, %21, %15, %.preheader.i
+  %.1.i = phi ptr [ %.032.i, %29 ], [ %.02231.i, %21 ], [ %.02231.i, %15 ], [ %.02231.i, %.preheader.i ]
   %.not27.i = icmp eq ptr %12, null
   br i1 %.not27.i, label %dom_reconcile_ns_internal.exit, label %.preheader.i
 
-dom_reconcile_ns_internal.exit:                   ; preds = %27, %7
-  %28 = getelementptr inbounds i8, ptr %1, i64 64
-  %29 = load ptr, ptr %28, align 8
-  %30 = tail call i32 @xmlReconciliateNs(ptr noundef %29, ptr noundef %1) #16
-  br label %31
+dom_reconcile_ns_internal.exit:                   ; preds = %30, %7
+  %31 = getelementptr inbounds i8, ptr %1, i64 64
+  %32 = load ptr, ptr %31, align 8
+  %33 = tail call i32 @xmlReconciliateNs(ptr noundef %32, ptr noundef %1) #16
+  br label %34
 
-31:                                               ; preds = %dom_reconcile_ns_internal.exit, %2
+34:                                               ; preds = %dom_reconcile_ns_internal.exit, %2
   ret void
 }
 
@@ -14252,12 +14261,12 @@ define internal fastcc void @dom_reconcile_ns_list_internal(ptr noundef %0, ptr 
   tail call void @llvm.assume(i1 %5)
   br label %6
 
-6:                                                ; preds = %36, %4
-  %.0 = phi ptr [ %1, %4 ], [ %38, %36 ]
+6:                                                ; preds = %39, %4
+  %.0 = phi ptr [ %1, %4 ], [ %41, %39 ]
   %7 = getelementptr inbounds i8, ptr %.0, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 1
-  br i1 %9, label %10, label %34
+  br i1 %9, label %10, label %37
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %.0, i64 96
@@ -14265,19 +14274,19 @@ define internal fastcc void @dom_reconcile_ns_list_internal(ptr noundef %0, ptr 
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %dom_reconcile_ns_internal.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %10, %28
-  %.032.i = phi ptr [ %.1.i, %28 ], [ null, %10 ]
-  %.02231.i = phi ptr [ %13, %28 ], [ %12, %10 ]
+.preheader.i:                                     ; preds = %10, %31
+  %.032.i = phi ptr [ %.1.i, %31 ], [ null, %10 ]
+  %.02231.i = phi ptr [ %13, %31 ], [ %12, %10 ]
   %13 = load ptr, ptr %.02231.i, align 8
   %14 = getelementptr inbounds i8, ptr %.02231.i, i64 16
   %15 = load ptr, ptr %14, align 8
   %.not28.i = icmp eq ptr %15, null
-  br i1 %.not28.i, label %28, label %16
+  br i1 %.not28.i, label %31, label %16
 
 16:                                               ; preds = %.preheader.i
   %17 = tail call ptr @xmlSearchNsByHref(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %15) #16
   %.not29.i = icmp eq ptr %17, null
-  br i1 %.not29.i, label %28, label %18
+  br i1 %.not29.i, label %31, label %18
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds i8, ptr %.02231.i, i64 24
@@ -14290,43 +14299,52 @@ define internal fastcc void @dom_reconcile_ns_list_internal(ptr noundef %0, ptr 
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 @xmlStrEqual(ptr noundef %24, ptr noundef nonnull %20) #16
   %.not30.i = icmp eq i32 %25, 0
-  br i1 %.not30.i, label %28, label %26
+  br i1 %.not30.i, label %31, label %26
 
 26:                                               ; preds = %22, %18
   store ptr null, ptr %.02231.i, align 8
   %27 = icmp eq ptr %.032.i, null
-  %..032.i = select i1 %27, ptr %11, ptr %.032.i
-  store ptr %13, ptr %..032.i, align 8
-  tail call void @php_libxml_set_old_ns(ptr noundef %0, ptr noundef nonnull %.02231.i) #16
-  br label %28
+  br i1 %27, label %28, label %29
 
-28:                                               ; preds = %26, %22, %16, %.preheader.i
-  %.1.i = phi ptr [ %.032.i, %26 ], [ %.02231.i, %22 ], [ %.02231.i, %16 ], [ %.02231.i, %.preheader.i ]
+28:                                               ; preds = %26
+  store ptr %13, ptr %11, align 8
+  br label %30
+
+29:                                               ; preds = %26
+  store ptr %13, ptr %.032.i, align 8
+  br label %30
+
+30:                                               ; preds = %29, %28
+  tail call void @php_libxml_set_old_ns(ptr noundef %0, ptr noundef nonnull %.02231.i) #16
+  br label %31
+
+31:                                               ; preds = %30, %22, %16, %.preheader.i
+  %.1.i = phi ptr [ %.032.i, %30 ], [ %.02231.i, %22 ], [ %.02231.i, %16 ], [ %.02231.i, %.preheader.i ]
   %.not27.i = icmp eq ptr %13, null
   br i1 %.not27.i, label %dom_reconcile_ns_internal.exit, label %.preheader.i
 
-dom_reconcile_ns_internal.exit:                   ; preds = %28, %10
-  %29 = getelementptr inbounds i8, ptr %.0, i64 24
-  %30 = load ptr, ptr %29, align 8
-  %.not = icmp eq ptr %30, null
-  br i1 %.not, label %34, label %31
-
-31:                                               ; preds = %dom_reconcile_ns_internal.exit
-  %32 = getelementptr inbounds i8, ptr %.0, i64 32
+dom_reconcile_ns_internal.exit:                   ; preds = %31, %10
+  %32 = getelementptr inbounds i8, ptr %.0, i64 24
   %33 = load ptr, ptr %32, align 8
-  tail call fastcc void @dom_reconcile_ns_list_internal(ptr noundef %0, ptr noundef nonnull %30, ptr noundef %33, ptr noundef %3)
-  br label %34
+  %.not = icmp eq ptr %33, null
+  br i1 %.not, label %37, label %34
 
-34:                                               ; preds = %dom_reconcile_ns_internal.exit, %31, %6
-  %35 = icmp eq ptr %.0, %2
-  br i1 %35, label %39, label %36
+34:                                               ; preds = %dom_reconcile_ns_internal.exit
+  %35 = getelementptr inbounds i8, ptr %.0, i64 32
+  %36 = load ptr, ptr %35, align 8
+  tail call fastcc void @dom_reconcile_ns_list_internal(ptr noundef %0, ptr noundef nonnull %33, ptr noundef %36, ptr noundef %3)
+  br label %37
 
-36:                                               ; preds = %34
-  %37 = getelementptr inbounds i8, ptr %.0, i64 48
-  %38 = load ptr, ptr %37, align 8
+37:                                               ; preds = %dom_reconcile_ns_internal.exit, %34, %6
+  %38 = icmp eq ptr %.0, %2
+  br i1 %38, label %42, label %39
+
+39:                                               ; preds = %37
+  %40 = getelementptr inbounds i8, ptr %.0, i64 48
+  %41 = load ptr, ptr %40, align 8
   br label %6
 
-39:                                               ; preds = %34
+42:                                               ; preds = %37
   ret void
 }
 

@@ -1146,6 +1146,7 @@ default.unreachable:                              ; preds = %924, %525, %223, %2
 
 397:                                              ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hbe91a85ad51182f6E.exit.i.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %55), !noalias !71
+  store i8 3, ptr %136, align 8, !noalias !71
   br label %674
 
 398:                                              ; preds = %.body.i.i, %660
@@ -1688,6 +1689,7 @@ default.unreachable:                              ; preds = %924, %525, %223, %2
 
 546:                                              ; preds = %542, %.thread.i132.i.i
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %36), !noalias !195
+  store i8 3, ptr %.phi.trans.insert.i.i, align 8, !noalias !195
   br label %674
 
 547:                                              ; preds = %542
@@ -2140,9 +2142,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
           to label %677 unwind label %675, !noalias !60
 
 674:                                              ; preds = %546, %397
-  %.phi.trans.insert.i.i.sink = phi ptr [ %.phi.trans.insert.i.i, %546 ], [ %136, %397 ]
-  %.sink.i.ph.i = phi i8 [ 3, %546 ], [ 4, %397 ]
-  store i8 3, ptr %.phi.trans.insert.i.i.sink, align 8, !noalias !68
+  %.sink.i.ph.i = phi i8 [ 4, %397 ], [ 3, %546 ]
   store i8 %.sink.i.ph.i, ptr %107, align 1, !noalias !68
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %.sroa.7194.i.i)
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %.sroa.3.i.i)

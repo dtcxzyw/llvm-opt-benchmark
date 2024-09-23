@@ -1078,13 +1078,13 @@ define hidden void @pcap_read_post_process(i32 noundef %0, i32 noundef %1, ptr n
     i32 13, label %7
     i32 1, label %14
     i32 25, label %21
-    i32 210, label %63
-    i32 95, label %104
-    i32 115, label %108
-    i32 135, label %168
-    i32 141, label %170
-    i32 98, label %198
-    i32 39, label %205
+    i32 210, label %67
+    i32 95, label %112
+    i32 115, label %116
+    i32 135, label %176
+    i32 141, label %178
+    i32 98, label %206
+    i32 39, label %213
   ]
 
 7:                                                ; preds = %6
@@ -1147,412 +1147,424 @@ define hidden void @pcap_read_post_process(i32 noundef %0, i32 noundef %1, ptr n
   switch i16 %32, label %pcap_byteswap_linux_sll_pseudoheader.exit [
     i16 12, label %35
     i16 13, label %35
-    i16 14, label %37
+    i16 14, label %41
   ]
 
 35:                                               ; preds = %26, %26
   %36 = icmp ult i32 %33, 4
-  br i1 %36, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %.sink.split.i.i
+  br i1 %36, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %37
 
-37:                                               ; preds = %26
-  %38 = icmp ult i32 %33, 4
-  br i1 %38, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %39
-
-39:                                               ; preds = %37
-  %40 = getelementptr i8, ptr %3, i64 19
-  %41 = load i8, ptr %40, align 1
-  %42 = load i8, ptr %34, align 1
-  store i8 %42, ptr %40, align 1
-  store i8 %41, ptr %34, align 1
-  %43 = getelementptr i8, ptr %3, i64 18
-  %44 = load i8, ptr %43, align 1
-  %45 = getelementptr i8, ptr %3, i64 17
-  %46 = load i8, ptr %45, align 1
-  store i8 %46, ptr %43, align 1
-  store i8 %44, ptr %45, align 1
-  %47 = icmp ult i32 %33, 8
-  br i1 %47, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %48
-
-48:                                               ; preds = %39
-  %49 = getelementptr i8, ptr %3, i64 22
-  %50 = getelementptr i8, ptr %3, i64 23
-  %51 = load i8, ptr %50, align 1
-  %52 = load i8, ptr %49, align 1
-  store i8 %52, ptr %50, align 1
-  store i8 %51, ptr %49, align 1
-  %53 = icmp ult i32 %33, 12
-  br i1 %53, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %54
-
-54:                                               ; preds = %48
-  %55 = getelementptr i8, ptr %3, i64 24
+37:                                               ; preds = %35
+  %38 = getelementptr i8, ptr %3, i64 19
+  %39 = load i8, ptr %38, align 1
+  %40 = load i8, ptr %34, align 1
+  store i8 %40, ptr %38, align 1
+  store i8 %39, ptr %34, align 1
   br label %.sink.split.i.i
 
-.sink.split.i.i:                                  ; preds = %54, %35
-  %.sink51.i.i = phi i64 [ 11, %54 ], [ 3, %35 ]
-  %.sink49.i.i = phi ptr [ %55, %54 ], [ %34, %35 ]
-  %.sink.i.i = phi i64 [ 10, %54 ], [ 2, %35 ]
-  %.sink43.i.i = phi i64 [ 9, %54 ], [ 1, %35 ]
-  %56 = getelementptr i8, ptr %34, i64 %.sink51.i.i
-  %57 = load i8, ptr %56, align 1
-  %58 = load i8, ptr %.sink49.i.i, align 1
-  store i8 %58, ptr %56, align 1
-  store i8 %57, ptr %.sink49.i.i, align 1
-  %59 = getelementptr i8, ptr %34, i64 %.sink.i.i
-  %60 = load i8, ptr %59, align 1
-  %61 = getelementptr i8, ptr %34, i64 %.sink43.i.i
-  %62 = load i8, ptr %61, align 1
-  store i8 %62, ptr %59, align 1
-  store i8 %60, ptr %61, align 1
+41:                                               ; preds = %26
+  %42 = icmp ult i32 %33, 4
+  br i1 %42, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %43
+
+43:                                               ; preds = %41
+  %44 = getelementptr i8, ptr %3, i64 19
+  %45 = load i8, ptr %44, align 1
+  %46 = load i8, ptr %34, align 1
+  store i8 %46, ptr %44, align 1
+  store i8 %45, ptr %34, align 1
+  %47 = getelementptr i8, ptr %3, i64 18
+  %48 = load i8, ptr %47, align 1
+  %49 = getelementptr i8, ptr %3, i64 17
+  %50 = load i8, ptr %49, align 1
+  store i8 %50, ptr %47, align 1
+  store i8 %48, ptr %49, align 1
+  %51 = icmp ult i32 %33, 8
+  br i1 %51, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %52
+
+52:                                               ; preds = %43
+  %53 = getelementptr i8, ptr %3, i64 22
+  %54 = getelementptr i8, ptr %3, i64 23
+  %55 = load i8, ptr %54, align 1
+  %56 = load i8, ptr %53, align 1
+  store i8 %56, ptr %54, align 1
+  store i8 %55, ptr %53, align 1
+  %57 = icmp ult i32 %33, 12
+  br i1 %57, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %58
+
+58:                                               ; preds = %52
+  %59 = getelementptr i8, ptr %3, i64 24
+  %60 = getelementptr i8, ptr %3, i64 27
+  %61 = load i8, ptr %60, align 1
+  %62 = load i8, ptr %59, align 1
+  store i8 %62, ptr %60, align 1
+  store i8 %61, ptr %59, align 1
+  br label %.sink.split.i.i
+
+.sink.split.i.i:                                  ; preds = %58, %37
+  %.sink.i.i = phi i64 [ 10, %58 ], [ 2, %37 ]
+  %.sink43.i.i = phi i64 [ 9, %58 ], [ 1, %37 ]
+  %63 = getelementptr i8, ptr %34, i64 %.sink.i.i
+  %64 = load i8, ptr %63, align 1
+  %65 = getelementptr i8, ptr %34, i64 %.sink43.i.i
+  %66 = load i8, ptr %65, align 1
+  store i8 %66, ptr %63, align 1
+  store i8 %64, ptr %65, align 1
   br label %pcap_byteswap_linux_sll_pseudoheader.exit
 
-63:                                               ; preds = %6
+67:                                               ; preds = %6
   %.not44 = icmp eq i32 %4, 0
-  br i1 %.not44, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %64
+  br i1 %.not44, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %68
 
-64:                                               ; preds = %63
-  %65 = getelementptr i8, ptr %2, i64 64
-  %.val48 = load i32, ptr %65, align 8
-  %66 = getelementptr i8, ptr %2, i64 68
-  %.val49 = load i32, ptr %66, align 4
+68:                                               ; preds = %67
+  %69 = getelementptr i8, ptr %2, i64 64
+  %.val48 = load i32, ptr %69, align 8
+  %70 = getelementptr i8, ptr %2, i64 68
+  %.val49 = load i32, ptr %70, align 4
   %spec.select.i58 = tail call i32 @llvm.umin.i32(i32 %.val48, i32 %.val49)
-  %67 = icmp ult i32 %spec.select.i58, 20
-  br i1 %67, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %68
+  %71 = icmp ult i32 %spec.select.i58, 20
+  br i1 %71, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %72
 
-68:                                               ; preds = %64
+72:                                               ; preds = %68
   %.val.i59 = load i8, ptr %3, align 1
-  %69 = getelementptr i8, ptr %3, i64 1
-  %.val10.i60 = load i8, ptr %69, align 1
-  %70 = zext i8 %.val.i59 to i16
-  %71 = shl nuw i16 %70, 8
-  %72 = zext i8 %.val10.i60 to i16
-  %73 = or disjoint i16 %71, %72
-  %74 = add i32 %spec.select.i58, -20
-  %75 = getelementptr i8, ptr %3, i64 20
-  switch i16 %73, label %pcap_byteswap_linux_sll_pseudoheader.exit [
-    i16 12, label %76
-    i16 13, label %76
-    i16 14, label %78
+  %73 = getelementptr i8, ptr %3, i64 1
+  %.val10.i60 = load i8, ptr %73, align 1
+  %74 = zext i8 %.val.i59 to i16
+  %75 = shl nuw i16 %74, 8
+  %76 = zext i8 %.val10.i60 to i16
+  %77 = or disjoint i16 %75, %76
+  %78 = add i32 %spec.select.i58, -20
+  %79 = getelementptr i8, ptr %3, i64 20
+  switch i16 %77, label %pcap_byteswap_linux_sll_pseudoheader.exit [
+    i16 12, label %80
+    i16 13, label %80
+    i16 14, label %86
   ]
 
-76:                                               ; preds = %68, %68
-  %77 = icmp ult i32 %74, 4
-  br i1 %77, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %.sink.split.i.i61
+80:                                               ; preds = %72, %72
+  %81 = icmp ult i32 %78, 4
+  br i1 %81, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %82
 
-78:                                               ; preds = %68
-  %79 = icmp ult i32 %74, 4
-  br i1 %79, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %80
-
-80:                                               ; preds = %78
-  %81 = getelementptr i8, ptr %3, i64 23
-  %82 = load i8, ptr %81, align 1
-  %83 = load i8, ptr %75, align 1
-  store i8 %83, ptr %81, align 1
-  store i8 %82, ptr %75, align 1
-  %84 = getelementptr i8, ptr %3, i64 22
-  %85 = load i8, ptr %84, align 1
-  %86 = getelementptr i8, ptr %3, i64 21
-  %87 = load i8, ptr %86, align 1
-  store i8 %87, ptr %84, align 1
-  store i8 %85, ptr %86, align 1
-  %88 = icmp ult i32 %74, 8
-  br i1 %88, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %89
-
-89:                                               ; preds = %80
-  %90 = getelementptr i8, ptr %3, i64 26
-  %91 = getelementptr i8, ptr %3, i64 27
-  %92 = load i8, ptr %91, align 1
-  %93 = load i8, ptr %90, align 1
-  store i8 %93, ptr %91, align 1
-  store i8 %92, ptr %90, align 1
-  %94 = icmp ult i32 %74, 12
-  br i1 %94, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %95
-
-95:                                               ; preds = %89
-  %96 = getelementptr i8, ptr %3, i64 28
+82:                                               ; preds = %80
+  %83 = getelementptr i8, ptr %3, i64 23
+  %84 = load i8, ptr %83, align 1
+  %85 = load i8, ptr %79, align 1
+  store i8 %85, ptr %83, align 1
+  store i8 %84, ptr %79, align 1
   br label %.sink.split.i.i61
 
-.sink.split.i.i61:                                ; preds = %95, %76
-  %.sink51.i.i62 = phi i64 [ 11, %95 ], [ 3, %76 ]
-  %.sink49.i.i63 = phi ptr [ %96, %95 ], [ %75, %76 ]
-  %.sink.i.i64 = phi i64 [ 10, %95 ], [ 2, %76 ]
-  %.sink43.i.i65 = phi i64 [ 9, %95 ], [ 1, %76 ]
-  %97 = getelementptr i8, ptr %75, i64 %.sink51.i.i62
-  %98 = load i8, ptr %97, align 1
-  %99 = load i8, ptr %.sink49.i.i63, align 1
-  store i8 %99, ptr %97, align 1
-  store i8 %98, ptr %.sink49.i.i63, align 1
-  %100 = getelementptr i8, ptr %75, i64 %.sink.i.i64
-  %101 = load i8, ptr %100, align 1
-  %102 = getelementptr i8, ptr %75, i64 %.sink43.i.i65
-  %103 = load i8, ptr %102, align 1
-  store i8 %103, ptr %100, align 1
-  store i8 %101, ptr %102, align 1
+86:                                               ; preds = %72
+  %87 = icmp ult i32 %78, 4
+  br i1 %87, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %88
+
+88:                                               ; preds = %86
+  %89 = getelementptr i8, ptr %3, i64 23
+  %90 = load i8, ptr %89, align 1
+  %91 = load i8, ptr %79, align 1
+  store i8 %91, ptr %89, align 1
+  store i8 %90, ptr %79, align 1
+  %92 = getelementptr i8, ptr %3, i64 22
+  %93 = load i8, ptr %92, align 1
+  %94 = getelementptr i8, ptr %3, i64 21
+  %95 = load i8, ptr %94, align 1
+  store i8 %95, ptr %92, align 1
+  store i8 %93, ptr %94, align 1
+  %96 = icmp ult i32 %78, 8
+  br i1 %96, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %97
+
+97:                                               ; preds = %88
+  %98 = getelementptr i8, ptr %3, i64 26
+  %99 = getelementptr i8, ptr %3, i64 27
+  %100 = load i8, ptr %99, align 1
+  %101 = load i8, ptr %98, align 1
+  store i8 %101, ptr %99, align 1
+  store i8 %100, ptr %98, align 1
+  %102 = icmp ult i32 %78, 12
+  br i1 %102, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %103
+
+103:                                              ; preds = %97
+  %104 = getelementptr i8, ptr %3, i64 28
+  %105 = getelementptr i8, ptr %3, i64 31
+  %106 = load i8, ptr %105, align 1
+  %107 = load i8, ptr %104, align 1
+  store i8 %107, ptr %105, align 1
+  store i8 %106, ptr %104, align 1
+  br label %.sink.split.i.i61
+
+.sink.split.i.i61:                                ; preds = %103, %82
+  %.sink.i.i62 = phi i64 [ 10, %103 ], [ 2, %82 ]
+  %.sink43.i.i63 = phi i64 [ 9, %103 ], [ 1, %82 ]
+  %108 = getelementptr i8, ptr %79, i64 %.sink.i.i62
+  %109 = load i8, ptr %108, align 1
+  %110 = getelementptr i8, ptr %79, i64 %.sink43.i.i63
+  %111 = load i8, ptr %110, align 1
+  store i8 %111, ptr %108, align 1
+  store i8 %109, ptr %110, align 1
   br label %pcap_byteswap_linux_sll_pseudoheader.exit
 
-104:                                              ; preds = %6
+112:                                              ; preds = %6
   %.not43 = icmp eq i32 %4, 0
-  br i1 %.not43, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %105
+  br i1 %.not43, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %113
 
-105:                                              ; preds = %104
-  %106 = getelementptr i8, ptr %2, i64 64
-  %.val50 = load i32, ptr %106, align 8
-  %107 = getelementptr i8, ptr %2, i64 68
-  %.val51 = load i32, ptr %107, align 4
+113:                                              ; preds = %112
+  %114 = getelementptr i8, ptr %2, i64 64
+  %.val50 = load i32, ptr %114, align 8
+  %115 = getelementptr i8, ptr %2, i64 68
+  %.val51 = load i32, ptr %115, align 4
   tail call fastcc void @pcap_byteswap_linux_usb_pseudoheader(i32 %.val50, i32 %.val51, ptr noundef %3, i32 noundef 0)
   br label %pcap_byteswap_linux_sll_pseudoheader.exit
 
-108:                                              ; preds = %6
+116:                                              ; preds = %6
   %.not42 = icmp eq i32 %4, 0
-  br i1 %.not42, label %112, label %109
+  br i1 %.not42, label %120, label %117
 
-109:                                              ; preds = %108
-  %110 = getelementptr i8, ptr %2, i64 64
-  %.val52 = load i32, ptr %110, align 8
-  %111 = getelementptr i8, ptr %2, i64 68
-  %.val53 = load i32, ptr %111, align 4
+117:                                              ; preds = %116
+  %118 = getelementptr i8, ptr %2, i64 64
+  %.val52 = load i32, ptr %118, align 8
+  %119 = getelementptr i8, ptr %2, i64 68
+  %.val53 = load i32, ptr %119, align 4
   tail call fastcc void @pcap_byteswap_linux_usb_pseudoheader(i32 %.val52, i32 %.val53, ptr noundef %3, i32 noundef 1)
-  br label %112
+  br label %120
 
-112:                                              ; preds = %109, %108
-  %113 = getelementptr inbounds i8, ptr %2, i64 64
-  %114 = load i32, ptr %113, align 8
-  %115 = icmp ugt i32 %114, 63
-  br i1 %115, label %116, label %pcap_byteswap_linux_sll_pseudoheader.exit
+120:                                              ; preds = %117, %116
+  %121 = getelementptr inbounds i8, ptr %2, i64 64
+  %122 = load i32, ptr %121, align 8
+  %123 = icmp ugt i32 %122, 63
+  br i1 %123, label %124, label %pcap_byteswap_linux_sll_pseudoheader.exit
 
-116:                                              ; preds = %112
-  %117 = getelementptr inbounds i8, ptr %3, i64 15
-  %118 = load i8, ptr %117, align 1
-  %.not.i = icmp eq i8 %118, 0
-  br i1 %.not.i, label %119, label %pcap_byteswap_linux_sll_pseudoheader.exit
+124:                                              ; preds = %120
+  %125 = getelementptr inbounds i8, ptr %3, i64 15
+  %126 = load i8, ptr %125, align 1
+  %.not.i = icmp eq i8 %126, 0
+  br i1 %.not.i, label %127, label %pcap_byteswap_linux_sll_pseudoheader.exit
 
-119:                                              ; preds = %116
-  %120 = getelementptr inbounds i8, ptr %2, i64 68
-  %121 = load i32, ptr %120, align 4
-  %122 = zext i32 %121 to i64
-  %123 = getelementptr inbounds i8, ptr %3, i64 60
-  %124 = load i32, ptr %123, align 4
-  %125 = zext i32 %124 to i64
-  %126 = shl nuw nsw i64 %125, 4
-  %127 = add nuw nsw i64 %126, 64
-  %128 = getelementptr inbounds i8, ptr %3, i64 32
-  %129 = load i32, ptr %128, align 8
+127:                                              ; preds = %124
+  %128 = getelementptr inbounds i8, ptr %2, i64 68
+  %129 = load i32, ptr %128, align 4
   %130 = zext i32 %129 to i64
-  %131 = add nuw nsw i64 %127, %130
-  %132 = icmp eq i64 %131, %122
-  br i1 %132, label %133, label %pcap_byteswap_linux_sll_pseudoheader.exit
+  %131 = getelementptr inbounds i8, ptr %3, i64 60
+  %132 = load i32, ptr %131, align 4
+  %133 = zext i32 %132 to i64
+  %134 = shl nuw nsw i64 %133, 4
+  %135 = add nuw nsw i64 %134, 64
+  %136 = getelementptr inbounds i8, ptr %3, i64 32
+  %137 = load i32, ptr %136, align 8
+  %138 = zext i32 %137 to i64
+  %139 = add nuw nsw i64 %135, %138
+  %140 = icmp eq i64 %139, %130
+  br i1 %140, label %141, label %pcap_byteswap_linux_sll_pseudoheader.exit
 
-133:                                              ; preds = %119
-  %134 = add i32 %114, -64
-  %135 = getelementptr inbounds i8, ptr %3, i64 9
-  %136 = load i8, ptr %135, align 1
-  %137 = icmp eq i8 %136, 0
-  br i1 %137, label %138, label %pcap_byteswap_linux_sll_pseudoheader.exit
+141:                                              ; preds = %127
+  %142 = add i32 %122, -64
+  %143 = getelementptr inbounds i8, ptr %3, i64 9
+  %144 = load i8, ptr %143, align 1
+  %145 = icmp eq i8 %144, 0
+  br i1 %145, label %146, label %pcap_byteswap_linux_sll_pseudoheader.exit
 
-138:                                              ; preds = %133
-  %139 = getelementptr inbounds i8, ptr %3, i64 8
-  %140 = load i8, ptr %139, align 8
-  %141 = icmp eq i8 %140, 67
-  br i1 %141, label %142, label %pcap_byteswap_linux_sll_pseudoheader.exit
+146:                                              ; preds = %141
+  %147 = getelementptr inbounds i8, ptr %3, i64 8
+  %148 = load i8, ptr %147, align 8
+  %149 = icmp eq i8 %148, 67
+  br i1 %149, label %150, label %pcap_byteswap_linux_sll_pseudoheader.exit
 
-142:                                              ; preds = %138
-  %143 = getelementptr inbounds i8, ptr %3, i64 10
-  %144 = load i8, ptr %143, align 2
-  %.not41.i.i = icmp sgt i8 %144, -1
-  br i1 %.not41.i.i, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %145
+150:                                              ; preds = %146
+  %151 = getelementptr inbounds i8, ptr %3, i64 10
+  %152 = load i8, ptr %151, align 2
+  %.not41.i.i = icmp sgt i8 %152, -1
+  br i1 %.not41.i.i, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %153
 
-145:                                              ; preds = %142
-  %146 = getelementptr i8, ptr %3, i64 64
-  %147 = icmp ne i32 %124, 0
-  %148 = icmp ugt i32 %134, 15
-  %149 = and i1 %148, %147
-  br i1 %149, label %.lr.ph.i.i, label %._crit_edge.i.i
+153:                                              ; preds = %150
+  %154 = getelementptr i8, ptr %3, i64 64
+  %155 = icmp ne i32 %132, 0
+  %156 = icmp ugt i32 %142, 15
+  %157 = and i1 %156, %155
+  br i1 %157, label %.lr.ph.i.i, label %._crit_edge.i.i
 
-.lr.ph.i.i:                                       ; preds = %145, %157
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %157 ], [ 0, %145 ]
-  %.046.i.i = phi i32 [ %158, %157 ], [ %134, %145 ]
-  %.03544.i.i = phi i32 [ %.1.i.i, %157 ], [ 0, %145 ]
-  %150 = getelementptr %struct.linux_usb_isodesc, ptr %146, i64 %indvars.iv.i.i
-  %151 = getelementptr inbounds i8, ptr %150, i64 8
-  %152 = load i32, ptr %151, align 4
-  %.not43.i.i = icmp eq i32 %152, 0
-  br i1 %.not43.i.i, label %157, label %153
+.lr.ph.i.i:                                       ; preds = %153, %165
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %165 ], [ 0, %153 ]
+  %.046.i.i = phi i32 [ %166, %165 ], [ %142, %153 ]
+  %.03544.i.i = phi i32 [ %.1.i.i, %165 ], [ 0, %153 ]
+  %158 = getelementptr %struct.linux_usb_isodesc, ptr %154, i64 %indvars.iv.i.i
+  %159 = getelementptr inbounds i8, ptr %158, i64 8
+  %160 = load i32, ptr %159, align 4
+  %.not43.i.i = icmp eq i32 %160, 0
+  br i1 %.not43.i.i, label %165, label %161
 
-153:                                              ; preds = %.lr.ph.i.i
-  %154 = getelementptr inbounds i8, ptr %150, i64 4
-  %155 = load i32, ptr %154, align 4
-  %156 = add i32 %155, %152
-  %spec.select.i.i = tail call i32 @llvm.umax.i32(i32 %156, i32 %.03544.i.i)
-  br label %157
+161:                                              ; preds = %.lr.ph.i.i
+  %162 = getelementptr inbounds i8, ptr %158, i64 4
+  %163 = load i32, ptr %162, align 4
+  %164 = add i32 %163, %160
+  %spec.select.i.i = tail call i32 @llvm.umax.i32(i32 %164, i32 %.03544.i.i)
+  br label %165
 
-157:                                              ; preds = %153, %.lr.ph.i.i
-  %.1.i.i = phi i32 [ %.03544.i.i, %.lr.ph.i.i ], [ %spec.select.i.i, %153 ]
+165:                                              ; preds = %161, %.lr.ph.i.i
+  %.1.i.i = phi i32 [ %.03544.i.i, %.lr.ph.i.i ], [ %spec.select.i.i, %161 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %158 = add i32 %.046.i.i, -16
-  %159 = icmp ult i64 %indvars.iv.next.i.i, %125
-  %160 = icmp ugt i32 %158, 15
-  %161 = select i1 %159, i1 %160, i1 false
-  br i1 %161, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !8
+  %166 = add i32 %.046.i.i, -16
+  %167 = icmp ult i64 %indvars.iv.next.i.i, %133
+  %168 = icmp ugt i32 %166, 15
+  %169 = select i1 %167, i1 %168, i1 false
+  br i1 %169, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !8
 
-._crit_edge.i.i:                                  ; preds = %157, %145
-  %.035.lcssa.i.i = phi i32 [ 0, %145 ], [ %.1.i.i, %157 ]
-  %162 = shl i32 %124, 4
-  %163 = add i32 %162, 64
-  %164 = add i32 %163, %.035.lcssa.i.i
-  %.not42.i.i = icmp uge i32 %164, %114
-  %165 = select i1 %.not42.i.i, i32 %164, i32 %121
-  %.not48.i.i = icmp ugt i32 %114, %165
-  %166 = or i1 %.not42.i.i, %.not48.i.i
-  br i1 %166, label %167, label %pcap_byteswap_linux_sll_pseudoheader.exit
+._crit_edge.i.i:                                  ; preds = %165, %153
+  %.035.lcssa.i.i = phi i32 [ 0, %153 ], [ %.1.i.i, %165 ]
+  %170 = shl i32 %132, 4
+  %171 = add i32 %170, 64
+  %172 = add i32 %171, %.035.lcssa.i.i
+  %.not42.i.i = icmp uge i32 %172, %122
+  %173 = select i1 %.not42.i.i, i32 %172, i32 %129
+  %.not48.i.i = icmp ugt i32 %122, %173
+  %174 = or i1 %.not42.i.i, %.not48.i.i
+  br i1 %174, label %175, label %pcap_byteswap_linux_sll_pseudoheader.exit
 
-167:                                              ; preds = %._crit_edge.i.i
-  %simplifycfg.merge.i.i = tail call i32 @llvm.umax.i32(i32 %114, i32 %165)
-  store i32 %simplifycfg.merge.i.i, ptr %120, align 4
+175:                                              ; preds = %._crit_edge.i.i
+  %simplifycfg.merge.i.i = tail call i32 @llvm.umax.i32(i32 %122, i32 %173)
+  store i32 %simplifycfg.merge.i.i, ptr %128, align 4
   br label %pcap_byteswap_linux_sll_pseudoheader.exit
 
-168:                                              ; preds = %6
-  %169 = getelementptr inbounds i8, ptr %2, i64 80
-  store i32 4, ptr %169, align 8
+176:                                              ; preds = %6
+  %177 = getelementptr inbounds i8, ptr %2, i64 80
+  store i32 4, ptr %177, align 8
   br label %pcap_byteswap_linux_sll_pseudoheader.exit
 
-170:                                              ; preds = %6
+178:                                              ; preds = %6
   %.not41 = icmp eq i32 %4, 0
-  br i1 %.not41, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %171
+  br i1 %.not41, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %179
 
-171:                                              ; preds = %170
-  %172 = getelementptr i8, ptr %2, i64 64
-  %.val54 = load i32, ptr %172, align 8
-  %173 = getelementptr i8, ptr %2, i64 68
-  %.val55 = load i32, ptr %173, align 4
-  %spec.select.i66 = tail call i32 @llvm.umin.i32(i32 %.val54, i32 %.val55)
-  %174 = icmp ult i32 %spec.select.i66, 4
-  br i1 %174, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %175
+179:                                              ; preds = %178
+  %180 = getelementptr i8, ptr %2, i64 64
+  %.val54 = load i32, ptr %180, align 8
+  %181 = getelementptr i8, ptr %2, i64 68
+  %.val55 = load i32, ptr %181, align 4
+  %spec.select.i64 = tail call i32 @llvm.umin.i32(i32 %.val54, i32 %.val55)
+  %182 = icmp ult i32 %spec.select.i64, 4
+  br i1 %182, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %183
 
-175:                                              ; preds = %171
-  %176 = getelementptr inbounds i8, ptr %3, i64 1
-  %177 = load i8, ptr %176, align 1
-  %.not.i67 = icmp eq i8 %177, 0
-  %178 = add i32 %spec.select.i66, -4
-  %179 = icmp ugt i32 %178, 3
-  %or.cond6.i = and i1 %179, %.not.i67
+183:                                              ; preds = %179
+  %184 = getelementptr inbounds i8, ptr %3, i64 1
+  %185 = load i8, ptr %184, align 1
+  %.not.i65 = icmp eq i8 %185, 0
+  %186 = add i32 %spec.select.i64, -4
+  %187 = icmp ugt i32 %186, 3
+  %or.cond6.i = and i1 %187, %.not.i65
   br i1 %or.cond6.i, label %.lr.ph.preheader.i, label %pcap_byteswap_linux_sll_pseudoheader.exit
 
-.lr.ph.preheader.i:                               ; preds = %175
-  %180 = getelementptr i8, ptr %3, i64 4
+.lr.ph.preheader.i:                               ; preds = %183
+  %188 = getelementptr i8, ptr %3, i64 4
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.12.i = phi i32 [ %195, %.lr.ph.i ], [ %178, %.lr.ph.preheader.i ]
-  %.0321.i = phi ptr [ %196, %.lr.ph.i ], [ %180, %.lr.ph.preheader.i ]
-  %181 = getelementptr inbounds i8, ptr %.0321.i, i64 2
-  %182 = getelementptr i8, ptr %.0321.i, i64 3
-  %183 = load i8, ptr %182, align 1
-  %184 = load i8, ptr %181, align 2
-  store i8 %184, ptr %182, align 1
-  store i8 %183, ptr %181, align 2
-  %185 = getelementptr i8, ptr %.0321.i, i64 1
-  %186 = load i8, ptr %185, align 1
-  %187 = load i8, ptr %.0321.i, align 2
-  store i8 %187, ptr %185, align 1
-  store i8 %186, ptr %.0321.i, align 2
-  %188 = load i16, ptr %.0321.i, align 2
-  %189 = zext i16 %188 to i32
-  %190 = and i32 %189, 3
-  %.not38.i = icmp eq i32 %190, 0
-  %reass.sub.i = and i32 %189, 65532
-  %191 = add nuw nsw i32 %reass.sub.i, 4
-  %.033.i = select i1 %.not38.i, i32 %189, i32 %191
-  %192 = icmp ugt i32 %.033.i, 3
-  %193 = icmp uge i32 %.12.i, %.033.i
-  %or.cond.not13.i = and i1 %192, %193
-  %194 = zext nneg i32 %.033.i to i64
-  %195 = sub nuw i32 %.12.i, %.033.i
-  %196 = getelementptr i8, ptr %.0321.i, i64 %194
-  %197 = icmp ugt i32 %195, 3
-  %or.cond10.i = select i1 %or.cond.not13.i, i1 %197, i1 false
+  %.12.i = phi i32 [ %203, %.lr.ph.i ], [ %186, %.lr.ph.preheader.i ]
+  %.0321.i = phi ptr [ %204, %.lr.ph.i ], [ %188, %.lr.ph.preheader.i ]
+  %189 = getelementptr inbounds i8, ptr %.0321.i, i64 2
+  %190 = getelementptr i8, ptr %.0321.i, i64 3
+  %191 = load i8, ptr %190, align 1
+  %192 = load i8, ptr %189, align 2
+  store i8 %192, ptr %190, align 1
+  store i8 %191, ptr %189, align 2
+  %193 = getelementptr i8, ptr %.0321.i, i64 1
+  %194 = load i8, ptr %193, align 1
+  %195 = load i8, ptr %.0321.i, align 2
+  store i8 %195, ptr %193, align 1
+  store i8 %194, ptr %.0321.i, align 2
+  %196 = load i16, ptr %.0321.i, align 2
+  %197 = zext i16 %196 to i32
+  %198 = and i32 %197, 3
+  %.not38.i = icmp eq i32 %198, 0
+  %reass.sub.i = and i32 %197, 65532
+  %199 = add nuw nsw i32 %reass.sub.i, 4
+  %.033.i = select i1 %.not38.i, i32 %197, i32 %199
+  %200 = icmp ugt i32 %.033.i, 3
+  %201 = icmp uge i32 %.12.i, %.033.i
+  %or.cond.not13.i = and i1 %200, %201
+  %202 = zext nneg i32 %.033.i to i64
+  %203 = sub nuw i32 %.12.i, %.033.i
+  %204 = getelementptr i8, ptr %.0321.i, i64 %202
+  %205 = icmp ugt i32 %203, 3
+  %or.cond10.i = select i1 %or.cond.not13.i, i1 %205, i1 false
   br i1 %or.cond10.i, label %.lr.ph.i, label %pcap_byteswap_linux_sll_pseudoheader.exit, !llvm.loop !9
 
-198:                                              ; preds = %6
-  %199 = getelementptr inbounds i8, ptr %2, i64 64
-  %200 = getelementptr inbounds i8, ptr %2, i64 94
-  %201 = load i16, ptr %200, align 2
-  %202 = zext i16 %201 to i32
-  %203 = getelementptr inbounds i8, ptr %2, i64 68
-  store i32 %202, ptr %203, align 4
-  %204 = load i32, ptr %199, align 8
-  %. = tail call i32 @llvm.umin.i32(i32 %204, i32 %202)
-  store i32 %., ptr %199, align 8
+206:                                              ; preds = %6
+  %207 = getelementptr inbounds i8, ptr %2, i64 64
+  %208 = getelementptr inbounds i8, ptr %2, i64 94
+  %209 = load i16, ptr %208, align 2
+  %210 = zext i16 %209 to i32
+  %211 = getelementptr inbounds i8, ptr %2, i64 68
+  store i32 %210, ptr %211, align 4
+  %212 = load i32, ptr %207, align 8
+  %. = tail call i32 @llvm.umin.i32(i32 %212, i32 %210)
+  store i32 %., ptr %207, align 8
   br label %pcap_byteswap_linux_sll_pseudoheader.exit
 
-205:                                              ; preds = %6
+213:                                              ; preds = %6
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %206
+  br i1 %.not, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %214
 
-206:                                              ; preds = %205
-  %207 = getelementptr i8, ptr %2, i64 64
-  %.val56 = load i32, ptr %207, align 8
-  %208 = getelementptr i8, ptr %2, i64 68
-  %.val57 = load i32, ptr %208, align 4
-  %spec.select.i68 = tail call i32 @llvm.umin.i32(i32 %.val56, i32 %.val57)
-  %209 = icmp ult i32 %spec.select.i68, 64
-  br i1 %209, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %210
+214:                                              ; preds = %213
+  %215 = getelementptr i8, ptr %2, i64 64
+  %.val56 = load i32, ptr %215, align 8
+  %216 = getelementptr i8, ptr %2, i64 68
+  %.val57 = load i32, ptr %216, align 4
+  %spec.select.i66 = tail call i32 @llvm.umin.i32(i32 %.val56, i32 %.val57)
+  %217 = icmp ult i32 %spec.select.i66, 64
+  br i1 %217, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %218
 
-210:                                              ; preds = %206
-  %211 = load i8, ptr %3, align 4
-  %212 = icmp ult i8 %211, 60
-  br i1 %212, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %213
+218:                                              ; preds = %214
+  %219 = load i8, ptr %3, align 4
+  %220 = icmp ult i8 %219, 60
+  br i1 %220, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %221
 
-213:                                              ; preds = %210
-  %214 = getelementptr inbounds i8, ptr %3, i64 44
-  %215 = getelementptr i8, ptr %3, i64 47
-  %216 = load i8, ptr %215, align 1
-  %217 = load i8, ptr %214, align 4
-  store i8 %217, ptr %215, align 1
-  store i8 %216, ptr %214, align 4
-  %218 = getelementptr i8, ptr %3, i64 46
-  %219 = load i8, ptr %218, align 2
-  %220 = getelementptr i8, ptr %3, i64 45
-  %221 = load i8, ptr %220, align 1
-  store i8 %221, ptr %218, align 2
-  store i8 %219, ptr %220, align 1
-  %222 = getelementptr inbounds i8, ptr %3, i64 48
-  %223 = getelementptr i8, ptr %3, i64 51
+221:                                              ; preds = %218
+  %222 = getelementptr inbounds i8, ptr %3, i64 44
+  %223 = getelementptr i8, ptr %3, i64 47
   %224 = load i8, ptr %223, align 1
   %225 = load i8, ptr %222, align 4
   store i8 %225, ptr %223, align 1
   store i8 %224, ptr %222, align 4
-  %226 = getelementptr i8, ptr %3, i64 50
+  %226 = getelementptr i8, ptr %3, i64 46
   %227 = load i8, ptr %226, align 2
-  %228 = getelementptr i8, ptr %3, i64 49
+  %228 = getelementptr i8, ptr %3, i64 45
   %229 = load i8, ptr %228, align 1
   store i8 %229, ptr %226, align 2
   store i8 %227, ptr %228, align 1
-  %230 = getelementptr inbounds i8, ptr %3, i64 52
-  %231 = getelementptr i8, ptr %3, i64 55
+  %230 = getelementptr inbounds i8, ptr %3, i64 48
+  %231 = getelementptr i8, ptr %3, i64 51
   %232 = load i8, ptr %231, align 1
   %233 = load i8, ptr %230, align 4
   store i8 %233, ptr %231, align 1
   store i8 %232, ptr %230, align 4
-  %234 = getelementptr i8, ptr %3, i64 54
+  %234 = getelementptr i8, ptr %3, i64 50
   %235 = load i8, ptr %234, align 2
-  %236 = getelementptr i8, ptr %3, i64 53
+  %236 = getelementptr i8, ptr %3, i64 49
   %237 = load i8, ptr %236, align 1
   store i8 %237, ptr %234, align 2
   store i8 %235, ptr %236, align 1
-  %238 = getelementptr inbounds i8, ptr %3, i64 56
-  %239 = getelementptr i8, ptr %3, i64 59
+  %238 = getelementptr inbounds i8, ptr %3, i64 52
+  %239 = getelementptr i8, ptr %3, i64 55
   %240 = load i8, ptr %239, align 1
   %241 = load i8, ptr %238, align 4
   store i8 %241, ptr %239, align 1
   store i8 %240, ptr %238, align 4
-  %242 = getelementptr i8, ptr %3, i64 58
+  %242 = getelementptr i8, ptr %3, i64 54
   %243 = load i8, ptr %242, align 2
-  %244 = getelementptr i8, ptr %3, i64 57
+  %244 = getelementptr i8, ptr %3, i64 53
   %245 = load i8, ptr %244, align 1
   store i8 %245, ptr %242, align 2
   store i8 %243, ptr %244, align 1
+  %246 = getelementptr inbounds i8, ptr %3, i64 56
+  %247 = getelementptr i8, ptr %3, i64 59
+  %248 = load i8, ptr %247, align 1
+  %249 = load i8, ptr %246, align 4
+  store i8 %249, ptr %247, align 1
+  store i8 %248, ptr %246, align 4
+  %250 = getelementptr i8, ptr %3, i64 58
+  %251 = load i8, ptr %250, align 2
+  %252 = getelementptr i8, ptr %3, i64 57
+  %253 = load i8, ptr %252, align 1
+  store i8 %253, ptr %250, align 2
+  store i8 %251, ptr %252, align 1
   br label %pcap_byteswap_linux_sll_pseudoheader.exit
 
-pcap_byteswap_linux_sll_pseudoheader.exit:        ; preds = %.lr.ph.i, %213, %210, %206, %175, %171, %167, %._crit_edge.i.i, %142, %138, %133, %119, %116, %112, %.sink.split.i.i61, %89, %80, %78, %76, %68, %64, %.sink.split.i.i, %48, %39, %37, %35, %26, %22, %6, %205, %170, %104, %105, %63, %21, %16, %18, %8, %13, %9, %198, %168
+pcap_byteswap_linux_sll_pseudoheader.exit:        ; preds = %.lr.ph.i, %221, %218, %214, %183, %179, %175, %._crit_edge.i.i, %150, %146, %141, %127, %124, %120, %.sink.split.i.i61, %97, %88, %86, %80, %72, %68, %.sink.split.i.i, %52, %43, %41, %35, %26, %22, %6, %213, %178, %112, %113, %67, %21, %16, %18, %8, %13, %9, %206, %176
   ret void
 }
 

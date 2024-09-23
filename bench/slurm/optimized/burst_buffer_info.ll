@@ -304,272 +304,276 @@ define void @slurm_print_burst_buffer_record(ptr nocapture noundef %0, ptr nocap
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %17, ptr noundef nonnull @.str.7, i32 noundef %66, i32 noundef %68, i32 noundef %70, i32 noundef %72) #8
   %73 = load ptr, ptr %1, align 8
   %.not87 = icmp eq ptr %73, null
-  br i1 %.not87, label %74, label %.sink.split
+  br i1 %.not87, label %76, label %74
 
 74:                                               ; preds = %._crit_edge
-  %75 = getelementptr inbounds i8, ptr %1, i64 24
-  %76 = load ptr, ptr %75, align 8
-  %.not88 = icmp eq ptr %76, null
-  br i1 %.not88, label %78, label %.sink.split
-
-.sink.split:                                      ; preds = %74, %._crit_edge
-  %.sink118 = phi ptr [ %1, %._crit_edge ], [ %75, %74 ]
-  %.str.9.sink = phi ptr [ @.str.8, %._crit_edge ], [ @.str.9, %74 ]
   call void @_xstrcat(ptr noundef nonnull %17, ptr noundef nonnull %18) #8
-  %77 = load ptr, ptr %.sink118, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %17, ptr noundef nonnull %.str.9.sink, ptr noundef %77) #8
-  br label %78
+  %75 = load ptr, ptr %1, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %17, ptr noundef nonnull @.str.8, ptr noundef %75) #8
+  br label %81
 
-78:                                               ; preds = %.sink.split, %74
-  %79 = getelementptr inbounds i8, ptr %1, i64 16
-  %80 = load ptr, ptr %79, align 8
-  %.not89 = icmp eq ptr %80, null
-  br i1 %.not89, label %83, label %81
+76:                                               ; preds = %._crit_edge
+  %77 = getelementptr inbounds i8, ptr %1, i64 24
+  %78 = load ptr, ptr %77, align 8
+  %.not88 = icmp eq ptr %78, null
+  br i1 %.not88, label %81, label %79
 
-81:                                               ; preds = %78
+79:                                               ; preds = %76
   call void @_xstrcat(ptr noundef nonnull %17, ptr noundef nonnull %18) #8
-  %82 = load ptr, ptr %79, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %17, ptr noundef nonnull @.str.10, ptr noundef %82) #8
-  br label %83
+  %80 = load ptr, ptr %77, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %17, ptr noundef nonnull @.str.9, ptr noundef %80) #8
+  br label %81
 
-83:                                               ; preds = %81, %78
-  %84 = getelementptr inbounds i8, ptr %1, i64 32
-  %85 = load ptr, ptr %84, align 8
-  %.not90 = icmp eq ptr %85, null
-  br i1 %.not90, label %88, label %86
+81:                                               ; preds = %76, %79, %74
+  %82 = getelementptr inbounds i8, ptr %1, i64 16
+  %83 = load ptr, ptr %82, align 8
+  %.not89 = icmp eq ptr %83, null
+  br i1 %.not89, label %86, label %84
 
-86:                                               ; preds = %83
+84:                                               ; preds = %81
   call void @_xstrcat(ptr noundef nonnull %17, ptr noundef nonnull %18) #8
-  %87 = load ptr, ptr %84, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %17, ptr noundef nonnull @.str.11, ptr noundef %87) #8
-  br label %88
+  %85 = load ptr, ptr %82, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %17, ptr noundef nonnull @.str.10, ptr noundef %85) #8
+  br label %86
 
-88:                                               ; preds = %86, %83
+86:                                               ; preds = %84, %81
+  %87 = getelementptr inbounds i8, ptr %1, i64 32
+  %88 = load ptr, ptr %87, align 8
+  %.not90 = icmp eq ptr %88, null
+  br i1 %.not90, label %91, label %89
+
+89:                                               ; preds = %86
   call void @_xstrcat(ptr noundef nonnull %17, ptr noundef nonnull %18) #8
-  %89 = getelementptr inbounds i8, ptr %1, i64 48
-  %90 = load ptr, ptr %89, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %17, ptr noundef nonnull @.str.12, ptr noundef %90) #8
+  %90 = load ptr, ptr %87, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %17, ptr noundef nonnull @.str.11, ptr noundef %90) #8
+  br label %91
+
+91:                                               ; preds = %89, %86
   call void @_xstrcat(ptr noundef nonnull %17, ptr noundef nonnull %18) #8
-  %91 = getelementptr inbounds i8, ptr %1, i64 56
-  %92 = load ptr, ptr %91, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %17, ptr noundef nonnull @.str.13, ptr noundef %92) #8
-  %93 = getelementptr inbounds i8, ptr %1, i64 112
-  %94 = load ptr, ptr %93, align 8
-  %.not91 = icmp eq ptr %94, null
-  br i1 %.not91, label %97, label %95
-
-95:                                               ; preds = %88
+  %92 = getelementptr inbounds i8, ptr %1, i64 48
+  %93 = load ptr, ptr %92, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %17, ptr noundef nonnull @.str.12, ptr noundef %93) #8
   call void @_xstrcat(ptr noundef nonnull %17, ptr noundef nonnull %18) #8
-  %96 = load ptr, ptr %93, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %17, ptr noundef nonnull @.str.14, ptr noundef %96) #8
-  br label %97
+  %94 = getelementptr inbounds i8, ptr %1, i64 56
+  %95 = load ptr, ptr %94, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %17, ptr noundef nonnull @.str.13, ptr noundef %95) #8
+  %96 = getelementptr inbounds i8, ptr %1, i64 112
+  %97 = load ptr, ptr %96, align 8
+  %.not91 = icmp eq ptr %97, null
+  br i1 %.not91, label %100, label %98
 
-97:                                               ; preds = %95, %88
-  %98 = getelementptr inbounds i8, ptr %1, i64 120
-  %99 = load ptr, ptr %98, align 8
-  %.not92 = icmp eq ptr %99, null
-  br i1 %.not92, label %102, label %100
-
-100:                                              ; preds = %97
+98:                                               ; preds = %91
   call void @_xstrcat(ptr noundef nonnull %17, ptr noundef nonnull %18) #8
-  %101 = load ptr, ptr %98, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %17, ptr noundef nonnull @.str.14, ptr noundef %101) #8
-  br label %102
+  %99 = load ptr, ptr %96, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %17, ptr noundef nonnull @.str.14, ptr noundef %99) #8
+  br label %100
 
-102:                                              ; preds = %100, %97
-  %103 = getelementptr inbounds i8, ptr %1, i64 128
-  %104 = load ptr, ptr %103, align 8
-  %.not93 = icmp eq ptr %104, null
-  br i1 %.not93, label %107, label %105
+100:                                              ; preds = %98, %91
+  %101 = getelementptr inbounds i8, ptr %1, i64 120
+  %102 = load ptr, ptr %101, align 8
+  %.not92 = icmp eq ptr %102, null
+  br i1 %.not92, label %105, label %103
 
-105:                                              ; preds = %102
+103:                                              ; preds = %100
   call void @_xstrcat(ptr noundef nonnull %17, ptr noundef nonnull %18) #8
-  %106 = load ptr, ptr %103, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %17, ptr noundef nonnull @.str.15, ptr noundef %106) #8
-  br label %107
+  %104 = load ptr, ptr %101, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %17, ptr noundef nonnull @.str.14, ptr noundef %104) #8
+  br label %105
 
-107:                                              ; preds = %105, %102
-  %108 = getelementptr inbounds i8, ptr %1, i64 136
-  %109 = load ptr, ptr %108, align 8
-  %.not94 = icmp eq ptr %109, null
-  br i1 %.not94, label %112, label %110
+105:                                              ; preds = %103, %100
+  %106 = getelementptr inbounds i8, ptr %1, i64 128
+  %107 = load ptr, ptr %106, align 8
+  %.not93 = icmp eq ptr %107, null
+  br i1 %.not93, label %110, label %108
 
-110:                                              ; preds = %107
+108:                                              ; preds = %105
   call void @_xstrcat(ptr noundef nonnull %17, ptr noundef nonnull %18) #8
-  %111 = load ptr, ptr %108, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %17, ptr noundef nonnull @.str.15, ptr noundef %111) #8
-  br label %112
+  %109 = load ptr, ptr %106, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %17, ptr noundef nonnull @.str.15, ptr noundef %109) #8
+  br label %110
 
-112:                                              ; preds = %110, %107
+110:                                              ; preds = %108, %105
+  %111 = getelementptr inbounds i8, ptr %1, i64 136
+  %112 = load ptr, ptr %111, align 8
+  %.not94 = icmp eq ptr %112, null
+  br i1 %.not94, label %115, label %113
+
+113:                                              ; preds = %110
+  call void @_xstrcat(ptr noundef nonnull %17, ptr noundef nonnull %18) #8
+  %114 = load ptr, ptr %111, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %17, ptr noundef nonnull @.str.15, ptr noundef %114) #8
+  br label %115
+
+115:                                              ; preds = %113, %110
   call void @_xstrcat(ptr noundef nonnull %17, ptr noundef nonnull @.str.16) #8
-  %113 = load ptr, ptr %17, align 8
-  %fputs = call i32 @fputs(ptr %113, ptr %0)
+  %116 = load ptr, ptr %17, align 8
+  %fputs = call i32 @fputs(ptr %116, ptr %0)
   call void @slurm_xfree(ptr noundef nonnull %17) #8
-  %114 = getelementptr inbounds i8, ptr %1, i64 172
-  %115 = load i32, ptr %114, align 4
-  %.not95 = icmp eq i32 %115, 0
-  br i1 %.not95, label %._crit_edge104, label %116
+  %117 = getelementptr inbounds i8, ptr %1, i64 172
+  %118 = load i32, ptr %117, align 4
+  %.not95 = icmp eq i32 %118, 0
+  br i1 %.not95, label %._crit_edge104, label %119
 
-116:                                              ; preds = %112
-  %117 = call i64 @fwrite(ptr nonnull @.str.18, i64 21, i64 1, ptr %0)
-  %.pre = load i32, ptr %114, align 4
-  %118 = icmp eq i32 %.pre, 0
-  br i1 %118, label %._crit_edge104, label %.lr.ph103
+119:                                              ; preds = %115
+  %120 = call i64 @fwrite(ptr nonnull @.str.18, i64 21, i64 1, ptr %0)
+  %.pre = load i32, ptr %117, align 4
+  %121 = icmp eq i32 %.pre, 0
+  br i1 %121, label %._crit_edge104, label %.lr.ph103
 
-.lr.ph103:                                        ; preds = %116
-  %119 = getelementptr inbounds i8, ptr %1, i64 176
-  %120 = load ptr, ptr %119, align 8
+.lr.ph103:                                        ; preds = %119
+  %122 = getelementptr inbounds i8, ptr %1, i64 176
+  %123 = load ptr, ptr %122, align 8
   %.not98 = icmp eq i32 %3, 0
-  br label %121
+  br label %124
 
-121:                                              ; preds = %.lr.ph103, %_print_burst_buffer_resv.exit
-  %.1101 = phi i32 [ 0, %.lr.ph103 ], [ %166, %_print_burst_buffer_resv.exit ]
-  %.086100 = phi ptr [ %120, %.lr.ph103 ], [ %167, %_print_burst_buffer_resv.exit ]
+124:                                              ; preds = %.lr.ph103, %_print_burst_buffer_resv.exit
+  %.1101 = phi i32 [ 0, %.lr.ph103 ], [ %169, %_print_burst_buffer_resv.exit ]
+  %.086100 = phi ptr [ %123, %.lr.ph103 ], [ %170, %_print_burst_buffer_resv.exit ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   store ptr null, ptr %10, align 8
-  %122 = getelementptr inbounds i8, ptr %.086100, i64 24
-  %123 = load i32, ptr %122, align 8
-  %.not.i = icmp eq i32 %123, 0
-  br i1 %.not.i, label %132, label %124
+  %125 = getelementptr inbounds i8, ptr %.086100, i64 24
+  %126 = load i32, ptr %125, align 8
+  %.not.i = icmp eq i32 %126, 0
+  br i1 %.not.i, label %135, label %127
 
-124:                                              ; preds = %121
-  %125 = getelementptr inbounds i8, ptr %.086100, i64 12
-  %126 = load i32, ptr %125, align 4
-  %127 = icmp eq i32 %126, -2
-  br i1 %127, label %128, label %129
+127:                                              ; preds = %124
+  %128 = getelementptr inbounds i8, ptr %.086100, i64 12
+  %129 = load i32, ptr %128, align 4
+  %130 = icmp eq i32 %129, -2
+  br i1 %130, label %131, label %132
 
-128:                                              ; preds = %124
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %10, ptr noundef nonnull @.str.33, i32 noundef %123) #8
-  br label %135
+131:                                              ; preds = %127
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %10, ptr noundef nonnull @.str.33, i32 noundef %126) #8
+  br label %138
 
-129:                                              ; preds = %124
-  %130 = getelementptr inbounds i8, ptr %.086100, i64 8
-  %131 = load i32, ptr %130, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %10, ptr noundef nonnull @.str.34, i32 noundef %131, i32 noundef %126, i32 noundef %123) #8
-  br label %135
+132:                                              ; preds = %127
+  %133 = getelementptr inbounds i8, ptr %.086100, i64 8
+  %134 = load i32, ptr %133, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %10, ptr noundef nonnull @.str.34, i32 noundef %134, i32 noundef %129, i32 noundef %126) #8
+  br label %138
 
-132:                                              ; preds = %121
-  %133 = getelementptr inbounds i8, ptr %.086100, i64 32
-  %134 = load ptr, ptr %133, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %10, ptr noundef nonnull @.str.35, ptr noundef %134) #8
-  br label %135
+135:                                              ; preds = %124
+  %136 = getelementptr inbounds i8, ptr %.086100, i64 32
+  %137 = load ptr, ptr %136, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %10, ptr noundef nonnull @.str.35, ptr noundef %137) #8
+  br label %138
 
-135:                                              ; preds = %132, %129, %128
-  %136 = getelementptr inbounds i8, ptr %.086100, i64 64
-  %137 = load i64, ptr %136, align 8
-  call fastcc void @_get_size_str(ptr noundef %8, i64 noundef %137)
-  %138 = getelementptr inbounds i8, ptr %.086100, i64 16
-  %139 = load i64, ptr %138, align 8
-  %.not24.i = icmp eq i64 %139, 0
-  br i1 %.not24.i, label %140, label %142
+138:                                              ; preds = %135, %132, %131
+  %139 = getelementptr inbounds i8, ptr %.086100, i64 64
+  %140 = load i64, ptr %139, align 8
+  call fastcc void @_get_size_str(ptr noundef %8, i64 noundef %140)
+  %141 = getelementptr inbounds i8, ptr %.086100, i64 16
+  %142 = load i64, ptr %141, align 8
+  %.not24.i = icmp eq i64 %142, 0
+  br i1 %.not24.i, label %143, label %145
 
-140:                                              ; preds = %135
-  %141 = call i64 @time(ptr noundef null) #8
-  store i64 %141, ptr %12, align 8
-  br label %142
+143:                                              ; preds = %138
+  %144 = call i64 @time(ptr noundef null) #8
+  store i64 %144, ptr %12, align 8
+  br label %145
 
-142:                                              ; preds = %140, %135
-  %.sink.i = phi ptr [ %12, %140 ], [ %138, %135 ]
+145:                                              ; preds = %143, %138
+  %.sink.i = phi ptr [ %12, %143 ], [ %141, %138 ]
   call void @slurm_make_time_str(ptr noundef nonnull %.sink.i, ptr noundef nonnull %9, i32 noundef 256) #8
-  %143 = getelementptr inbounds i8, ptr %.086100, i64 76
-  %144 = load i32, ptr %143, align 4
-  %145 = call ptr @uid_to_string(i32 noundef %144) #8
-  store ptr %145, ptr %11, align 8
-  br i1 %.not98, label %158, label %146
+  %146 = getelementptr inbounds i8, ptr %.086100, i64 76
+  %147 = load i32, ptr %146, align 4
+  %148 = call ptr @uid_to_string(i32 noundef %147) #8
+  store ptr %148, ptr %11, align 8
+  br i1 %.not98, label %161, label %149
 
-146:                                              ; preds = %142
-  %147 = load ptr, ptr %.086100, align 8
-  %148 = getelementptr inbounds i8, ptr %.086100, i64 40
-  %149 = load ptr, ptr %148, align 8
-  %150 = getelementptr inbounds i8, ptr %.086100, i64 48
-  %151 = load ptr, ptr %150, align 8
-  %152 = getelementptr inbounds i8, ptr %.086100, i64 56
-  %153 = load ptr, ptr %152, align 8
-  %154 = getelementptr inbounds i8, ptr %.086100, i64 72
-  %155 = load i16, ptr %154, align 8
-  %156 = call ptr @bb_state_string(i16 noundef zeroext %155) #8
-  %157 = load i32, ptr %143, align 4
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %10, ptr noundef nonnull @.str.36, ptr noundef %147, ptr noundef nonnull %9, ptr noundef %149, ptr noundef %151, ptr noundef %153, ptr noundef nonnull %8, ptr noundef %156, ptr noundef %145, i32 noundef %157) #8
+149:                                              ; preds = %145
+  %150 = load ptr, ptr %.086100, align 8
+  %151 = getelementptr inbounds i8, ptr %.086100, i64 40
+  %152 = load ptr, ptr %151, align 8
+  %153 = getelementptr inbounds i8, ptr %.086100, i64 48
+  %154 = load ptr, ptr %153, align 8
+  %155 = getelementptr inbounds i8, ptr %.086100, i64 56
+  %156 = load ptr, ptr %155, align 8
+  %157 = getelementptr inbounds i8, ptr %.086100, i64 72
+  %158 = load i16, ptr %157, align 8
+  %159 = call ptr @bb_state_string(i16 noundef zeroext %158) #8
+  %160 = load i32, ptr %146, align 4
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %10, ptr noundef nonnull @.str.36, ptr noundef %150, ptr noundef nonnull %9, ptr noundef %152, ptr noundef %154, ptr noundef %156, ptr noundef nonnull %8, ptr noundef %159, ptr noundef %148, i32 noundef %160) #8
   br label %_print_burst_buffer_resv.exit
 
-158:                                              ; preds = %142
-  %159 = getelementptr inbounds i8, ptr %.086100, i64 48
-  %160 = load ptr, ptr %159, align 8
-  %161 = getelementptr inbounds i8, ptr %.086100, i64 72
-  %162 = load i16, ptr %161, align 8
-  %163 = call ptr @bb_state_string(i16 noundef zeroext %162) #8
-  %164 = load i32, ptr %143, align 4
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %10, ptr noundef nonnull @.str.37, ptr noundef nonnull %9, ptr noundef %160, ptr noundef nonnull %8, ptr noundef %163, ptr noundef %145, i32 noundef %164) #8
+161:                                              ; preds = %145
+  %162 = getelementptr inbounds i8, ptr %.086100, i64 48
+  %163 = load ptr, ptr %162, align 8
+  %164 = getelementptr inbounds i8, ptr %.086100, i64 72
+  %165 = load i16, ptr %164, align 8
+  %166 = call ptr @bb_state_string(i16 noundef zeroext %165) #8
+  %167 = load i32, ptr %146, align 4
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %10, ptr noundef nonnull @.str.37, ptr noundef nonnull %9, ptr noundef %163, ptr noundef nonnull %8, ptr noundef %166, ptr noundef %148, i32 noundef %167) #8
   br label %_print_burst_buffer_resv.exit
 
-_print_burst_buffer_resv.exit:                    ; preds = %146, %158
+_print_burst_buffer_resv.exit:                    ; preds = %149, %161
   call void @slurm_xfree(ptr noundef nonnull %11) #8
   call void @_xstrcat(ptr noundef nonnull %10, ptr noundef nonnull @.str.16) #8
-  %165 = load ptr, ptr %10, align 8
-  %fputs.i = call i32 @fputs(ptr %165, ptr %0)
+  %168 = load ptr, ptr %10, align 8
+  %fputs.i = call i32 @fputs(ptr %168, ptr %0)
   call void @slurm_xfree(ptr noundef nonnull %10) #8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  %166 = add nuw nsw i32 %.1101, 1
-  %167 = getelementptr inbounds i8, ptr %.086100, i64 80
-  %168 = load i32, ptr %114, align 4
-  %169 = icmp ult i32 %166, %168
-  br i1 %169, label %121, label %._crit_edge104, !llvm.loop !9
+  %169 = add nuw nsw i32 %.1101, 1
+  %170 = getelementptr inbounds i8, ptr %.086100, i64 80
+  %171 = load i32, ptr %117, align 4
+  %172 = icmp ult i32 %169, %171
+  br i1 %172, label %124, label %._crit_edge104, !llvm.loop !9
 
-._crit_edge104:                                   ; preds = %_print_burst_buffer_resv.exit, %112, %116
-  %170 = getelementptr inbounds i8, ptr %1, i64 184
-  %171 = load i32, ptr %170, align 8
-  %.not96 = icmp eq i32 %171, 0
-  br i1 %.not96, label %._crit_edge109, label %172
+._crit_edge104:                                   ; preds = %_print_burst_buffer_resv.exit, %115, %119
+  %173 = getelementptr inbounds i8, ptr %1, i64 184
+  %174 = load i32, ptr %173, align 8
+  %.not96 = icmp eq i32 %174, 0
+  br i1 %.not96, label %._crit_edge109, label %175
 
-172:                                              ; preds = %._crit_edge104
-  %173 = call i64 @fwrite(ptr nonnull @.str.19, i64 23, i64 1, ptr %0)
-  %.pre114 = load i32, ptr %170, align 8
-  %174 = icmp eq i32 %.pre114, 0
-  br i1 %174, label %._crit_edge109, label %.lr.ph108.preheader
+175:                                              ; preds = %._crit_edge104
+  %176 = call i64 @fwrite(ptr nonnull @.str.19, i64 23, i64 1, ptr %0)
+  %.pre114 = load i32, ptr %173, align 8
+  %177 = icmp eq i32 %.pre114, 0
+  br i1 %177, label %._crit_edge109, label %.lr.ph108.preheader
 
-.lr.ph108.preheader:                              ; preds = %172
-  %175 = getelementptr inbounds i8, ptr %1, i64 192
-  %176 = load ptr, ptr %175, align 8
+.lr.ph108.preheader:                              ; preds = %175
+  %178 = getelementptr inbounds i8, ptr %1, i64 192
+  %179 = load ptr, ptr %178, align 8
   br label %.lr.ph108
 
 .lr.ph108:                                        ; preds = %.lr.ph108.preheader, %.lr.ph108
-  %.2106 = phi i32 [ %183, %.lr.ph108 ], [ 0, %.lr.ph108.preheader ]
-  %.085105 = phi ptr [ %184, %.lr.ph108 ], [ %176, %.lr.ph108.preheader ]
+  %.2106 = phi i32 [ %186, %.lr.ph108 ], [ 0, %.lr.ph108.preheader ]
+  %.085105 = phi ptr [ %187, %.lr.ph108 ], [ %179, %.lr.ph108.preheader ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr null, ptr %6, align 8
-  %177 = load i32, ptr %.085105, align 8
-  %178 = call ptr @uid_to_string(i32 noundef %177) #8
-  store ptr %178, ptr %7, align 8
-  %179 = getelementptr inbounds i8, ptr %.085105, i64 8
-  %180 = load i64, ptr %179, align 8
-  call fastcc void @_get_size_str(ptr noundef %5, i64 noundef %180)
-  %181 = load i32, ptr %.085105, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.38, ptr noundef %178, i32 noundef %181, ptr noundef nonnull %5) #8
+  %180 = load i32, ptr %.085105, align 8
+  %181 = call ptr @uid_to_string(i32 noundef %180) #8
+  store ptr %181, ptr %7, align 8
+  %182 = getelementptr inbounds i8, ptr %.085105, i64 8
+  %183 = load i64, ptr %182, align 8
+  call fastcc void @_get_size_str(ptr noundef %5, i64 noundef %183)
+  %184 = load i32, ptr %.085105, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.38, ptr noundef %181, i32 noundef %184, ptr noundef nonnull %5) #8
   call void @slurm_xfree(ptr noundef nonnull %7) #8
   call void @_xstrcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.16) #8
-  %182 = load ptr, ptr %6, align 8
-  %fputs.i97 = call i32 @fputs(ptr %182, ptr %0)
+  %185 = load ptr, ptr %6, align 8
+  %fputs.i97 = call i32 @fputs(ptr %185, ptr %0)
   call void @slurm_xfree(ptr noundef nonnull %6) #8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %183 = add nuw nsw i32 %.2106, 1
-  %184 = getelementptr inbounds i8, ptr %.085105, i64 16
-  %185 = load i32, ptr %170, align 8
-  %186 = icmp ult i32 %183, %185
-  br i1 %186, label %.lr.ph108, label %._crit_edge109, !llvm.loop !10
+  %186 = add nuw nsw i32 %.2106, 1
+  %187 = getelementptr inbounds i8, ptr %.085105, i64 16
+  %188 = load i32, ptr %173, align 8
+  %189 = icmp ult i32 %186, %188
+  br i1 %189, label %.lr.ph108, label %._crit_edge109, !llvm.loop !10
 
-._crit_edge109:                                   ; preds = %.lr.ph108, %._crit_edge104, %172
+._crit_edge109:                                   ; preds = %.lr.ph108, %._crit_edge104, %175
   ret void
 }
 

@@ -9389,7 +9389,7 @@ _ZNKSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_St4lessIS1_ESaISt4pair
   %1080 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_Node", ptr %1078, i64 %1079, i32 3, i32 2
   %1081 = load i16, ptr %1080, align 2
   %.not.i.not.i.i.i = icmp eq i16 %1081, -1
-  br i1 %.not.i.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIterator17_MoveToFirstChildEv.exit.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIterator11_MoveToNextEv.exit.sink.split.i.i.i
+  br i1 %.not.i.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIterator17_MoveToFirstChildEv.exit.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIteratorppEv.exit.sink.split.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIterator17_MoveToFirstChildEv.exit.i.i.i: ; preds = %1077, %._ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIterator17_MoveToFirstChildEv.exit_crit_edge.i.i.i
   %.pr.i.i.i.i = phi i64 [ %.pr.i.pre.i.i.i, %._ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIterator17_MoveToFirstChildEv.exit_crit_edge.i.i.i ], [ %1079, %1077 ]
@@ -9406,7 +9406,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIterator17_
   %1086 = getelementptr inbounds nuw i8, ptr %1085, i64 10
   %1087 = load i16, ptr %1086, align 2
   %.not9.i.i.i.i = icmp eq i16 %1087, -1
-  br i1 %.not9.i.i.i.i, label %1088, label %_ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIterator11_MoveToNextEv.exit.sink.split.i.i.i
+  br i1 %.not9.i.i.i.i, label %1088, label %_ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIteratorppEv.exit.sink.split.i.i
 
 1088:                                             ; preds = %1083
   %1089 = load i16, ptr %1085, align 2
@@ -9415,14 +9415,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIterator17_
   %.not.i1.i.i.i = icmp eq i16 %1089, -1
   br i1 %.not.i1.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIteratorppEv.exit.i.i, label %1083, !llvm.loop !107
 
-_ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIterator11_MoveToNextEv.exit.sink.split.i.i.i: ; preds = %1083, %1077
-  %.lcssa.sink.i.i.i = phi i16 [ %1081, %1077 ], [ %1087, %1083 ]
-  %1091 = zext i16 %.lcssa.sink.i.i.i to i64
+_ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIteratorppEv.exit.sink.split.i.i: ; preds = %1083, %1077
+  %.sink118.i.i = phi i16 [ %1081, %1077 ], [ %1087, %1083 ]
+  %1091 = zext i16 %.sink118.i.i to i64
   store i64 %1091, ptr %.sroa.363.0..sroa_idx.i.i, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIteratorppEv.exit.i.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIteratorppEv.exit.i.i: ; preds = %1088, %_ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIterator11_MoveToNextEv.exit.sink.split.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIterator17_MoveToFirstChildEv.exit.i.i.i
-  %1092 = phi i64 [ 65535, %_ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIterator17_MoveToFirstChildEv.exit.i.i.i ], [ %1091, %_ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIterator11_MoveToNextEv.exit.sink.split.i.i.i ], [ 65535, %1088 ]
+_ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIteratorppEv.exit.i.i: ; preds = %1088, %_ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIteratorppEv.exit.sink.split.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIterator17_MoveToFirstChildEv.exit.i.i.i
+  %1092 = phi i64 [ 65535, %_ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIterator17_MoveToFirstChildEv.exit.i.i.i ], [ %1091, %_ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIteratorppEv.exit.sink.split.i.i ], [ 65535, %1088 ]
   store i8 0, ptr %.sroa.4.0..sroa_idx.i.i, align 8
   %1093 = icmp ne i64 %1092, %.sroa.8.0.i.i
   %1094 = load ptr, ptr %148, align 8
@@ -20116,7 +20116,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit22.i.i: ; preds = %270, %2
   %282 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_Node", ptr %280, i64 %281, i32 3, i32 2
   %283 = load i16, ptr %282, align 2
   %.not.i.not.i.i.i.i = icmp eq i16 %283, -1
-  br i1 %.not.i.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIterator17_MoveToFirstChildEv.exit.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIterator11_MoveToNextEv.exit.sink.split.i.i.i.i
+  br i1 %.not.i.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIterator17_MoveToFirstChildEv.exit.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIteratorppEv.exit.sink.split.i.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIterator17_MoveToFirstChildEv.exit.i.i.i.i: ; preds = %279, %._ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIterator17_MoveToFirstChildEv.exit_crit_edge.i.i.i.i
   %.pr.i.i.i.i.i = phi i64 [ %.pr.i.pre.i.i.i.i, %._ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIterator17_MoveToFirstChildEv.exit_crit_edge.i.i.i.i ], [ %281, %279 ]
@@ -20133,7 +20133,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIterator17_
   %288 = getelementptr inbounds nuw i8, ptr %287, i64 10
   %289 = load i16, ptr %288, align 2
   %.not9.i.i.i.i.i = icmp eq i16 %289, -1
-  br i1 %.not9.i.i.i.i.i, label %290, label %_ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIterator11_MoveToNextEv.exit.sink.split.i.i.i.i
+  br i1 %.not9.i.i.i.i.i, label %290, label %_ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIteratorppEv.exit.sink.split.i.i.i
 
 290:                                              ; preds = %285
   %291 = load i16, ptr %287, align 2
@@ -20142,14 +20142,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIterator17_
   %.not.i1.i.i.i.i = icmp eq i16 %291, -1
   br i1 %.not.i1.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__18Pcp_TraversalCacheINS_15Pcp_PrimIndexer21_VariantSelectionInfoEE8iteratorppEv.exit.i.i, label %285, !llvm.loop !107
 
-_ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIterator11_MoveToNextEv.exit.sink.split.i.i.i.i: ; preds = %285, %279
-  %.lcssa.sink.i.i.i.i = phi i16 [ %283, %279 ], [ %289, %285 ]
-  %293 = zext i16 %.lcssa.sink.i.i.i.i to i64
+_ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIteratorppEv.exit.sink.split.i.i.i: ; preds = %285, %279
+  %.sink4.i.i.i = phi i16 [ %283, %279 ], [ %289, %285 ]
+  %293 = zext i16 %.sink4.i.i.i to i64
   store i64 %293, ptr %.sroa.46.0..sroa_idx.i.i.i, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__18Pcp_TraversalCacheINS_15Pcp_PrimIndexer21_VariantSelectionInfoEE8iteratorppEv.exit.i.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__18Pcp_TraversalCacheINS_15Pcp_PrimIndexer21_VariantSelectionInfoEE8iteratorppEv.exit.i.i: ; preds = %290, %_ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIterator11_MoveToNextEv.exit.sink.split.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIterator17_MoveToFirstChildEv.exit.i.i.i.i
-  %.sroa.2.0.copyload.i.pre28.i.i = phi i64 [ 65535, %_ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIterator17_MoveToFirstChildEv.exit.i.i.i.i ], [ %293, %_ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIterator11_MoveToNextEv.exit.sink.split.i.i.i.i ], [ 65535, %290 ]
+_ZN32pxrInternal_v0_24__pxrReserved__18Pcp_TraversalCacheINS_15Pcp_PrimIndexer21_VariantSelectionInfoEE8iteratorppEv.exit.i.i: ; preds = %290, %_ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIteratorppEv.exit.sink.split.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIterator17_MoveToFirstChildEv.exit.i.i.i.i
+  %.sroa.2.0.copyload.i.pre28.i.i = phi i64 [ 65535, %_ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIterator17_MoveToFirstChildEv.exit.i.i.i.i ], [ %293, %_ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIteratorppEv.exit.sink.split.i.i.i ], [ 65535, %290 ]
   store i8 0, ptr %.sroa.6.0..sroa_idx.i.i.i, align 8
   br label %199, !llvm.loop !207
 
@@ -21049,7 +21049,7 @@ _ZNSt5tupleIJKN32pxrInternal_v0_24__pxrReserved__10PcpNodeRefEKNS0_7SdfPathERNS0
   %673 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_Node", ptr %671, i64 %672, i32 3, i32 2
   %674 = load i16, ptr %673, align 2
   %.not.i.not.i.i.i54.i = icmp eq i16 %674, -1
-  br i1 %.not.i.not.i.i.i54.i, label %_ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIterator17_MoveToFirstChildEv.exit.i.i.i58.i, label %_ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIterator11_MoveToNextEv.exit.sink.split.i.i.i55.i
+  br i1 %.not.i.not.i.i.i54.i, label %_ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIterator17_MoveToFirstChildEv.exit.i.i.i58.i, label %_ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIteratorppEv.exit.sink.split.i.i55.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIterator17_MoveToFirstChildEv.exit.i.i.i58.i: ; preds = %670, %._ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIterator17_MoveToFirstChildEv.exit_crit_edge.i.i.i64.i
   %.pr.i.i.i.i59.i = phi i64 [ %.pr.i.pre.i.i.i65.i, %._ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIterator17_MoveToFirstChildEv.exit_crit_edge.i.i.i64.i ], [ %672, %670 ]
@@ -21066,7 +21066,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIterator17_
   %679 = getelementptr inbounds nuw i8, ptr %678, i64 10
   %680 = load i16, ptr %679, align 2
   %.not9.i.i.i.i62.i = icmp eq i16 %680, -1
-  br i1 %.not9.i.i.i.i62.i, label %681, label %_ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIterator11_MoveToNextEv.exit.sink.split.i.i.i55.i
+  br i1 %.not9.i.i.i.i62.i, label %681, label %_ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIteratorppEv.exit.sink.split.i.i55.i
 
 681:                                              ; preds = %676
   %682 = load i16, ptr %678, align 2
@@ -21075,13 +21075,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIterator17_
   %.not.i1.i.i.i63.i = icmp eq i16 %682, -1
   br i1 %.not.i1.i.i.i63.i, label %_ZN32pxrInternal_v0_24__pxrReserved__18Pcp_TraversalCacheINS_15Pcp_PrimIndexer21_VariantSelectionInfoEE8iteratorppEv.exit.i57.i, label %676, !llvm.loop !107
 
-_ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIterator11_MoveToNextEv.exit.sink.split.i.i.i55.i: ; preds = %676, %670
-  %.lcssa.sink.i.i.i56.i = phi i16 [ %674, %670 ], [ %680, %676 ]
-  %684 = zext i16 %.lcssa.sink.i.i.i56.i to i64
+_ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIteratorppEv.exit.sink.split.i.i55.i: ; preds = %676, %670
+  %.sink4.i.i56.i = phi i16 [ %674, %670 ], [ %680, %676 ]
+  %684 = zext i16 %.sink4.i.i56.i to i64
   store i64 %684, ptr %.sroa.46.0..sroa_idx.i.i49.i, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__18Pcp_TraversalCacheINS_15Pcp_PrimIndexer21_VariantSelectionInfoEE8iteratorppEv.exit.i57.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__18Pcp_TraversalCacheINS_15Pcp_PrimIndexer21_VariantSelectionInfoEE8iteratorppEv.exit.i57.i: ; preds = %681, %_ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIterator11_MoveToNextEv.exit.sink.split.i.i.i55.i, %_ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIterator17_MoveToFirstChildEv.exit.i.i.i58.i
+_ZN32pxrInternal_v0_24__pxrReserved__18Pcp_TraversalCacheINS_15Pcp_PrimIndexer21_VariantSelectionInfoEE8iteratorppEv.exit.i57.i: ; preds = %681, %_ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIteratorppEv.exit.sink.split.i.i55.i, %_ZN32pxrInternal_v0_24__pxrReserved__38PcpNodeRef_PrivateSubtreeConstIterator17_MoveToFirstChildEv.exit.i.i.i58.i
   store i8 0, ptr %.sroa.6.0..sroa_idx.i.i51.i, align 8
   br label %368, !llvm.loop !227
 
@@ -51163,22 +51163,18 @@ _ZNSt10_HashtableISt4pairIN32pxrInternal_v0_24__pxrReserved__10PcpNodeRefENS1_7S
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
-  br label %.sink.split
+  store ptr %.031, ptr %24, align 8
+  br label %28
 
 25:                                               ; preds = %.lr.ph
   %26 = load ptr, ptr %19, align 8
   store ptr %26, ptr %.031, align 8
   %27 = load ptr, ptr %18, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %25, %23
-  %.sink = phi ptr [ %24, %23 ], [ %27, %25 ]
-  %.1.ph = phi i64 [ %17, %23 ], [ %.02530, %25 ]
-  store ptr %.031, ptr %.sink, align 8
+  store ptr %.031, ptr %27, align 8
   br label %28
 
-28:                                               ; preds = %.sink.split, %20
-  %.1 = phi i64 [ %17, %20 ], [ %.1.ph, %.sink.split ]
+28:                                               ; preds = %20, %23, %25
+  %.1 = phi i64 [ %.02530, %25 ], [ %17, %23 ], [ %17, %20 ]
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !491
 
@@ -52779,22 +52775,18 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__17PcpLayerStackSiteES1_SaIS
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
-  br label %.sink.split
+  store ptr %.031, ptr %24, align 8
+  br label %28
 
 25:                                               ; preds = %.lr.ph
   %26 = load ptr, ptr %19, align 8
   store ptr %26, ptr %.031, align 8
   %27 = load ptr, ptr %18, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %25, %23
-  %.sink = phi ptr [ %24, %23 ], [ %27, %25 ]
-  %.1.ph = phi i64 [ %17, %23 ], [ %.02530, %25 ]
-  store ptr %.031, ptr %.sink, align 8
+  store ptr %.031, ptr %27, align 8
   br label %28
 
-28:                                               ; preds = %.sink.split, %20
-  %.1 = phi i64 [ %17, %20 ], [ %.1.ph, %.sink.split ]
+28:                                               ; preds = %20, %23, %25
+  %.1 = phi i64 [ %.02530, %25 ], [ %17, %23 ], [ %17, %20 ]
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !532
 

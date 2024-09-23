@@ -878,17 +878,17 @@ sw.bb.i.i.i:                                      ; preds = %if.end16
   %data.i.i.i = getelementptr inbounds i8, ptr %stmp.i.i.i, i64 8
   store ptr %x509_s.i.i.i, ptr %data.i.i.i, align 8
   %subject.i.i.i = getelementptr inbounds i8, ptr %x509_s.i.i.i, i64 72
+  store ptr %name, ptr %subject.i.i.i, align 8
   br label %X509_OBJECT_idx_by_subject.exit.i
 
 sw.bb2.i.i.i:                                     ; preds = %if.end16
   %data3.i.i.i = getelementptr inbounds i8, ptr %stmp.i.i.i, i64 8
   store ptr %crl_s.i.i.i, ptr %data3.i.i.i, align 8
   %issuer.i.i.i = getelementptr inbounds i8, ptr %crl_s.i.i.i, i64 24
+  store ptr %name, ptr %issuer.i.i.i, align 8
   br label %X509_OBJECT_idx_by_subject.exit.i
 
 X509_OBJECT_idx_by_subject.exit.i:                ; preds = %sw.bb2.i.i.i, %sw.bb.i.i.i
-  %issuer.sink.i.i.i = phi ptr [ %issuer.i.i.i, %sw.bb2.i.i.i ], [ %subject.i.i.i, %sw.bb.i.i.i ]
-  store ptr %name, ptr %issuer.sink.i.i.i, align 8
   %call6.i.i.i = call i32 @OPENSSL_sk_find_all(ptr noundef %6, ptr noundef nonnull %stmp.i.i.i, ptr noundef null) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stmp.i.i.i)
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %x509_s.i.i.i)
@@ -1335,17 +1335,17 @@ sw.bb.i:                                          ; preds = %entry
   %data.i = getelementptr inbounds i8, ptr %stmp.i, i64 8
   store ptr %x509_s.i, ptr %data.i, align 8
   %subject.i = getelementptr inbounds i8, ptr %x509_s.i, i64 72
+  store ptr %name, ptr %subject.i, align 8
   br label %sw.epilog.i
 
 sw.bb2.i:                                         ; preds = %entry
   %data3.i = getelementptr inbounds i8, ptr %stmp.i, i64 8
   store ptr %crl_s.i, ptr %data3.i, align 8
   %issuer.i = getelementptr inbounds i8, ptr %crl_s.i, i64 24
+  store ptr %name, ptr %issuer.i, align 8
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %sw.bb2.i, %sw.bb.i
-  %issuer.sink.i = phi ptr [ %issuer.i, %sw.bb2.i ], [ %subject.i, %sw.bb.i ]
-  store ptr %name, ptr %issuer.sink.i, align 8
   %call6.i = call i32 @OPENSSL_sk_find_all(ptr noundef %h, ptr noundef nonnull %stmp.i, ptr noundef null) #6
   br label %x509_object_idx_cnt.exit
 
@@ -1382,17 +1382,17 @@ sw.bb.i.i:                                        ; preds = %entry
   %data.i.i = getelementptr inbounds i8, ptr %stmp.i.i, i64 8
   store ptr %x509_s.i.i, ptr %data.i.i, align 8
   %subject.i.i = getelementptr inbounds i8, ptr %x509_s.i.i, i64 72
+  store ptr %name, ptr %subject.i.i, align 8
   br label %X509_OBJECT_idx_by_subject.exit
 
 sw.bb2.i.i:                                       ; preds = %entry
   %data3.i.i = getelementptr inbounds i8, ptr %stmp.i.i, i64 8
   store ptr %crl_s.i.i, ptr %data3.i.i, align 8
   %issuer.i.i = getelementptr inbounds i8, ptr %crl_s.i.i, i64 24
+  store ptr %name, ptr %issuer.i.i, align 8
   br label %X509_OBJECT_idx_by_subject.exit
 
 X509_OBJECT_idx_by_subject.exit:                  ; preds = %sw.bb.i.i, %sw.bb2.i.i
-  %issuer.sink.i.i = phi ptr [ %issuer.i.i, %sw.bb2.i.i ], [ %subject.i.i, %sw.bb.i.i ]
-  store ptr %name, ptr %issuer.sink.i.i, align 8
   %call6.i.i = call i32 @OPENSSL_sk_find_all(ptr noundef %h, ptr noundef nonnull %stmp.i.i, ptr noundef null) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stmp.i.i)
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %x509_s.i.i)

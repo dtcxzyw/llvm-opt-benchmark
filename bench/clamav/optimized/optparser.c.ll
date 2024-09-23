@@ -2133,15 +2133,15 @@ define internal fastcc range(i32 -1, 1) i32 @optadd(ptr nocapture noundef nonnul
   %45 = getelementptr inbounds i8, ptr %9, i64 56
   %46 = load ptr, ptr %0, align 8
   store ptr %46, ptr %45, align 8
+  store ptr %9, ptr %0, align 8
   br label %49
 
 47:                                               ; preds = %37
   %48 = getelementptr inbounds i8, ptr %43, i64 56
+  store ptr %9, ptr %48, align 8
   br label %49
 
 49:                                               ; preds = %47, %44
-  %.sink62 = phi ptr [ %48, %47 ], [ %0, %44 ]
-  store ptr %9, ptr %.sink62, align 8
   store ptr %9, ptr %1, align 8
   br label %50
 

@@ -1461,14 +1461,14 @@ if.end30:                                         ; preds = %if.else27, %if.then
   br i1 %cmp.i7, label %return.sink.split, label %return
 
 return.sink.split:                                ; preds = %if.else, %if.then12, %if.end30
-  %m_search_.sink = phi ptr [ %m_search_22, %if.end30 ], [ %m_search_, %if.then12 ], [ %m_search_, %if.else ]
-  %18 = load ptr, ptr %m_search_.sink, align 8
-  %matchedIndex39 = getelementptr inbounds i8, ptr %18, i64 32
-  %19 = load i32, ptr %matchedIndex39, align 8
+  %.sink.in = phi ptr [ %m_search_22, %if.end30 ], [ %m_search_, %if.then12 ], [ %m_search_, %if.else ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %matchedIndex39 = getelementptr inbounds i8, ptr %.sink, i64 32
+  %18 = load i32, ptr %matchedIndex39, align 8
   br label %return
 
 return:                                           ; preds = %return.sink.split, %entry, %if.end30
-  %retval.0 = phi i32 [ -1, %if.end30 ], [ -1, %entry ], [ %19, %return.sink.split ]
+  %retval.0 = phi i32 [ -1, %if.end30 ], [ -1, %entry ], [ %18, %return.sink.split ]
   ret i32 %retval.0
 }
 

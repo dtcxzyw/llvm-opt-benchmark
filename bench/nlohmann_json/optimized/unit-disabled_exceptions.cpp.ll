@@ -1486,22 +1486,25 @@ if.end.i:                                         ; preds = %land.lhs.true
   %chars_read_current_line.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load i64, ptr %chars_read_current_line.i.i, align 8
   %cmp.i.i = icmp eq i64 %2, 0
-  br i1 %cmp.i.i, label %if.then.i.i, label %if.end12.sink.split.i.i
+  br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   %lines_read.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %3 = load i64, ptr %lines_read.i.i, align 8
   %cmp4.not.i.i = icmp eq i64 %3, 0
-  br i1 %cmp4.not.i.i, label %if.end12.i.i, label %if.end12.sink.split.i.i
+  br i1 %cmp4.not.i.i, label %if.end12.i.i, label %if.then5.i.i
 
-if.end12.sink.split.i.i:                          ; preds = %if.then.i.i, %if.end.i
-  %.sink.i.i = phi i64 [ %3, %if.then.i.i ], [ %2, %if.end.i ]
-  %lines_read.sink.i.i = phi ptr [ %lines_read.i.i, %if.then.i.i ], [ %chars_read_current_line.i.i, %if.end.i ]
-  %dec8.i.i = add i64 %.sink.i.i, -1
-  store i64 %dec8.i.i, ptr %lines_read.sink.i.i, align 8
+if.then5.i.i:                                     ; preds = %if.then.i.i
+  %dec8.i.i = add i64 %3, -1
+  store i64 %dec8.i.i, ptr %lines_read.i.i, align 8
   br label %if.end12.i.i
 
-if.end12.i.i:                                     ; preds = %if.end12.sink.split.i.i, %if.then.i.i
+if.else.i.i:                                      ; preds = %if.end.i
+  %dec11.i.i = add i64 %2, -1
+  store i64 %dec11.i.i, ptr %chars_read_current_line.i.i, align 8
+  br label %if.end12.i.i
+
+if.end12.i.i:                                     ; preds = %if.else.i.i, %if.then5.i.i, %if.then.i.i
   %current.i.i = getelementptr inbounds i8, ptr %this, i64 20
   %4 = load i32, ptr %current.i.i, align 4
   %cmp13.not.i.i = icmp eq i32 %4, -1
@@ -1866,21 +1869,24 @@ sw.default11:                                     ; preds = %sw.bb8
   store i64 %dec.i, ptr %position.i, align 8
   %2 = load i64, ptr %chars_read_current_line.i, align 8
   %cmp.i = icmp eq i64 %2, 0
-  br i1 %cmp.i, label %if.then.i, label %if.end12.sink.split.i
+  br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %sw.default11
   %3 = load i64, ptr %lines_read.i, align 8
   %cmp4.not.i = icmp eq i64 %3, 0
-  br i1 %cmp4.not.i, label %if.end12.i, label %if.end12.sink.split.i
+  br i1 %cmp4.not.i, label %if.end12.i, label %if.then5.i
 
-if.end12.sink.split.i:                            ; preds = %if.then.i, %sw.default11
-  %.sink.i = phi i64 [ %3, %if.then.i ], [ %2, %sw.default11 ]
-  %lines_read.sink.i = phi ptr [ %lines_read.i, %if.then.i ], [ %chars_read_current_line.i, %sw.default11 ]
-  %dec8.i = add i64 %.sink.i, -1
-  store i64 %dec8.i, ptr %lines_read.sink.i, align 8
+if.then5.i:                                       ; preds = %if.then.i
+  %dec8.i = add i64 %3, -1
+  store i64 %dec8.i, ptr %lines_read.i, align 8
   br label %if.end12.i
 
-if.end12.i:                                       ; preds = %if.end12.sink.split.i, %if.then.i
+if.else.i:                                        ; preds = %sw.default11
+  %dec11.i = add i64 %2, -1
+  store i64 %dec11.i, ptr %chars_read_current_line.i, align 8
+  br label %if.end12.i
+
+if.end12.i:                                       ; preds = %if.else.i, %if.then5.i, %if.then.i
   %4 = load i32, ptr %current.i, align 4
   %cmp13.not.i = icmp eq i32 %4, -1
   br i1 %cmp13.not.i, label %while.body5.backedge, label %if.then15.i
@@ -2979,9 +2985,9 @@ sw.bb18:                                          ; preds = %if.end11.i, %if.end
 
 scan_number_decimal1:                             ; preds = %if.end11.i, %sw.bb13
   %token_buffer.i16.sink = phi ptr [ %token_buffer.i12, %sw.bb13 ], [ %token_buffer.i16, %if.end11.i ]
-  %.sink57.in = getelementptr inbounds i8, ptr %this, i64 144
-  %.sink57 = load i32, ptr %.sink57.in, align 8
-  %conv.i19 = trunc i32 %.sink57 to i8
+  %.sink58.in = getelementptr inbounds i8, ptr %this, i64 144
+  %.sink58 = load i32, ptr %.sink58.in, align 8
+  %conv.i19 = trunc i32 %.sink58 to i8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %token_buffer.i16.sink, i8 noundef signext %conv.i19) #17
   %call25 = tail call noundef i32 @_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEEE3getEv(ptr noundef nonnull align 8 dereferenceable(148) %this)
   %call25.off = add i32 %call25, -48
@@ -2998,8 +3004,8 @@ sw.default28:                                     ; preds = %scan_number_decimal
   br label %return
 
 scan_number_decimal2:                             ; preds = %scan_number_decimal2.backedge, %sw.bb26
-  %.sink58 = load i32, ptr %current, align 4
-  %conv.i25 = trunc i32 %.sink58 to i8
+  %.sink59 = load i32, ptr %current, align 4
+  %conv.i25 = trunc i32 %.sink59 to i8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %token_buffer.i22, i8 noundef signext %conv.i25) #17
   %call30 = tail call noundef i32 @_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEEE3getEv(ptr noundef nonnull align 8 dereferenceable(148) %this)
   switch i32 %call30, label %scan_number_done [
@@ -3025,9 +3031,9 @@ sw.bb33:                                          ; preds = %scan_number_decimal
   br label %scan_number_exponent
 
 scan_number_exponent:                             ; preds = %if.end11.i, %if.end11.i, %sw.bb33, %sw.bb14
-  %.sink59 = phi i32 [ %17, %sw.bb33 ], [ %3, %sw.bb14 ], [ %.pr.i, %if.end11.i ], [ %.pr.i, %if.end11.i ]
+  %.sink60 = phi i32 [ %17, %sw.bb33 ], [ %3, %sw.bb14 ], [ %.pr.i, %if.end11.i ], [ %.pr.i, %if.end11.i ]
   %token_buffer.i22.sink = phi ptr [ %token_buffer.i22, %sw.bb33 ], [ %token_buffer.i14, %sw.bb14 ], [ %token_buffer.i16, %if.end11.i ], [ %token_buffer.i16, %if.end11.i ]
-  %conv.i27 = trunc i32 %.sink59 to i8
+  %conv.i27 = trunc i32 %.sink60 to i8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %token_buffer.i22.sink, i8 noundef signext %conv.i27) #17
   %call36 = tail call noundef i32 @_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEEE3getEv(ptr noundef nonnull align 8 dereferenceable(148) %this)
   switch i32 %call36, label %sw.default41 [
@@ -3066,13 +3072,13 @@ sw.default41:                                     ; preds = %scan_number_exponen
 
 scan_number_any2.preheader:                       ; preds = %sw.bb37, %sw.bb39
   %token_buffer.i30.sink = phi ptr [ %token_buffer.i30, %sw.bb39 ], [ %token_buffer.i28, %sw.bb37 ]
-  %.sink60 = load i32, ptr %current, align 4
-  %conv.i31 = trunc i32 %.sink60 to i8
+  %.sink61 = load i32, ptr %current, align 4
+  %conv.i31 = trunc i32 %.sink61 to i8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %token_buffer.i30.sink, i8 noundef signext %conv.i31) #17
-  %call4848 = tail call noundef i32 @_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEEE3getEv(ptr noundef nonnull align 8 dereferenceable(148) %this)
-  %call48.off49 = add i32 %call4848, -48
-  %switch550 = icmp ult i32 %call48.off49, 10
-  br i1 %switch550, label %sw.bb49.lr.ph, label %scan_number_done
+  %call4849 = tail call noundef i32 @_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEEE3getEv(ptr noundef nonnull align 8 dereferenceable(148) %this)
+  %call48.off50 = add i32 %call4849, -48
+  %switch551 = icmp ult i32 %call48.off50, 10
+  br i1 %switch551, label %sw.bb49.lr.ph, label %scan_number_done
 
 sw.bb49.lr.ph:                                    ; preds = %scan_number_any2.preheader
   %token_buffer.i34 = getelementptr inbounds i8, ptr %this, i64 80
@@ -3103,22 +3109,25 @@ scan_number_done:                                 ; preds = %if.end11.i, %if.end
   %chars_read_current_line.i38 = getelementptr inbounds i8, ptr %this, i64 40
   %21 = load i64, ptr %chars_read_current_line.i38, align 8
   %cmp.i = icmp eq i64 %21, 0
-  br i1 %cmp.i, label %if.then.i40, label %if.end12.sink.split.i
+  br i1 %cmp.i, label %if.then.i41, label %if.else.i39
 
-if.then.i40:                                      ; preds = %scan_number_done
-  %lines_read.i41 = getelementptr inbounds i8, ptr %this, i64 48
-  %22 = load i64, ptr %lines_read.i41, align 8
+if.then.i41:                                      ; preds = %scan_number_done
+  %lines_read.i42 = getelementptr inbounds i8, ptr %this, i64 48
+  %22 = load i64, ptr %lines_read.i42, align 8
   %cmp4.not.i = icmp eq i64 %22, 0
-  br i1 %cmp4.not.i, label %if.end12.i, label %if.end12.sink.split.i
+  br i1 %cmp4.not.i, label %if.end12.i, label %if.then5.i
 
-if.end12.sink.split.i:                            ; preds = %if.then.i40, %scan_number_done
-  %.sink.i = phi i64 [ %22, %if.then.i40 ], [ %21, %scan_number_done ]
-  %lines_read.sink.i = phi ptr [ %lines_read.i41, %if.then.i40 ], [ %chars_read_current_line.i38, %scan_number_done ]
-  %dec8.i = add i64 %.sink.i, -1
-  store i64 %dec8.i, ptr %lines_read.sink.i, align 8
+if.then5.i:                                       ; preds = %if.then.i41
+  %dec8.i = add i64 %22, -1
+  store i64 %dec8.i, ptr %lines_read.i42, align 8
   br label %if.end12.i
 
-if.end12.i:                                       ; preds = %if.end12.sink.split.i, %if.then.i40
+if.else.i39:                                      ; preds = %scan_number_done
+  %dec11.i = add i64 %21, -1
+  store i64 %dec11.i, ptr %chars_read_current_line.i38, align 8
+  br label %if.end12.i
+
+if.end12.i:                                       ; preds = %if.else.i39, %if.then5.i, %if.then.i41
   %23 = load i32, ptr %current, align 4
   %cmp13.not.i = icmp eq i32 %23, -1
   br i1 %cmp13.not.i, label %_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEEE5ungetEv.exit, label %if.then15.i
@@ -18337,22 +18346,25 @@ if.end.i:                                         ; preds = %land.lhs.true
   %chars_read_current_line.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load i64, ptr %chars_read_current_line.i.i, align 8
   %cmp.i.i = icmp eq i64 %2, 0
-  br i1 %cmp.i.i, label %if.then.i.i, label %if.end12.sink.split.i.i
+  br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   %lines_read.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %3 = load i64, ptr %lines_read.i.i, align 8
   %cmp4.not.i.i = icmp eq i64 %3, 0
-  br i1 %cmp4.not.i.i, label %if.end12.i.i, label %if.end12.sink.split.i.i
+  br i1 %cmp4.not.i.i, label %if.end12.i.i, label %if.then5.i.i
 
-if.end12.sink.split.i.i:                          ; preds = %if.then.i.i, %if.end.i
-  %.sink.i.i = phi i64 [ %3, %if.then.i.i ], [ %2, %if.end.i ]
-  %lines_read.sink.i.i = phi ptr [ %lines_read.i.i, %if.then.i.i ], [ %chars_read_current_line.i.i, %if.end.i ]
-  %dec8.i.i = add i64 %.sink.i.i, -1
-  store i64 %dec8.i.i, ptr %lines_read.sink.i.i, align 8
+if.then5.i.i:                                     ; preds = %if.then.i.i
+  %dec8.i.i = add i64 %3, -1
+  store i64 %dec8.i.i, ptr %lines_read.i.i, align 8
   br label %if.end12.i.i
 
-if.end12.i.i:                                     ; preds = %if.end12.sink.split.i.i, %if.then.i.i
+if.else.i.i:                                      ; preds = %if.end.i
+  %dec11.i.i = add i64 %2, -1
+  store i64 %dec11.i.i, ptr %chars_read_current_line.i.i, align 8
+  br label %if.end12.i.i
+
+if.end12.i.i:                                     ; preds = %if.else.i.i, %if.then5.i.i, %if.then.i.i
   %current.i.i = getelementptr inbounds i8, ptr %this, i64 20
   %4 = load i32, ptr %current.i.i, align 4
   %cmp13.not.i.i = icmp eq i32 %4, -1
@@ -19416,21 +19428,24 @@ sw.default11:                                     ; preds = %sw.bb8
   store i64 %dec.i, ptr %position.i, align 8
   %2 = load i64, ptr %chars_read_current_line.i, align 8
   %cmp.i = icmp eq i64 %2, 0
-  br i1 %cmp.i, label %if.then.i, label %if.end12.sink.split.i
+  br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %sw.default11
   %3 = load i64, ptr %lines_read.i, align 8
   %cmp4.not.i = icmp eq i64 %3, 0
-  br i1 %cmp4.not.i, label %if.end12.i, label %if.end12.sink.split.i
+  br i1 %cmp4.not.i, label %if.end12.i, label %if.then5.i
 
-if.end12.sink.split.i:                            ; preds = %if.then.i, %sw.default11
-  %.sink.i = phi i64 [ %3, %if.then.i ], [ %2, %sw.default11 ]
-  %lines_read.sink.i = phi ptr [ %lines_read.i, %if.then.i ], [ %chars_read_current_line.i, %sw.default11 ]
-  %dec8.i = add i64 %.sink.i, -1
-  store i64 %dec8.i, ptr %lines_read.sink.i, align 8
+if.then5.i:                                       ; preds = %if.then.i
+  %dec8.i = add i64 %3, -1
+  store i64 %dec8.i, ptr %lines_read.i, align 8
   br label %if.end12.i
 
-if.end12.i:                                       ; preds = %if.end12.sink.split.i, %if.then.i
+if.else.i:                                        ; preds = %sw.default11
+  %dec11.i = add i64 %2, -1
+  store i64 %dec11.i, ptr %chars_read_current_line.i, align 8
+  br label %if.end12.i
+
+if.end12.i:                                       ; preds = %if.else.i, %if.then5.i, %if.then.i
   %4 = load i32, ptr %current.i, align 4
   %cmp13.not.i = icmp eq i32 %4, -1
   br i1 %cmp13.not.i, label %while.body5.backedge, label %if.then15.i
@@ -20529,9 +20544,9 @@ sw.bb18:                                          ; preds = %if.end11.i, %if.end
 
 scan_number_decimal1:                             ; preds = %if.end11.i, %sw.bb13
   %token_buffer.i16.sink = phi ptr [ %token_buffer.i12, %sw.bb13 ], [ %token_buffer.i16, %if.end11.i ]
-  %.sink57.in = getelementptr inbounds i8, ptr %this, i64 144
-  %.sink57 = load i32, ptr %.sink57.in, align 8
-  %conv.i19 = trunc i32 %.sink57 to i8
+  %.sink58.in = getelementptr inbounds i8, ptr %this, i64 144
+  %.sink58 = load i32, ptr %.sink58.in, align 8
+  %conv.i19 = trunc i32 %.sink58 to i8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %token_buffer.i16.sink, i8 noundef signext %conv.i19) #17
   %call25 = tail call noundef i32 @_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcS5_IcSA_EEEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(148) %this)
   %call25.off = add i32 %call25, -48
@@ -20548,8 +20563,8 @@ sw.default28:                                     ; preds = %scan_number_decimal
   br label %return
 
 scan_number_decimal2:                             ; preds = %scan_number_decimal2.backedge, %sw.bb26
-  %.sink58 = load i32, ptr %current, align 4
-  %conv.i25 = trunc i32 %.sink58 to i8
+  %.sink59 = load i32, ptr %current, align 4
+  %conv.i25 = trunc i32 %.sink59 to i8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %token_buffer.i22, i8 noundef signext %conv.i25) #17
   %call30 = tail call noundef i32 @_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcS5_IcSA_EEEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(148) %this)
   switch i32 %call30, label %scan_number_done [
@@ -20575,9 +20590,9 @@ sw.bb33:                                          ; preds = %scan_number_decimal
   br label %scan_number_exponent
 
 scan_number_exponent:                             ; preds = %if.end11.i, %if.end11.i, %sw.bb33, %sw.bb14
-  %.sink59 = phi i32 [ %17, %sw.bb33 ], [ %3, %sw.bb14 ], [ %.pr.i, %if.end11.i ], [ %.pr.i, %if.end11.i ]
+  %.sink60 = phi i32 [ %17, %sw.bb33 ], [ %3, %sw.bb14 ], [ %.pr.i, %if.end11.i ], [ %.pr.i, %if.end11.i ]
   %token_buffer.i22.sink = phi ptr [ %token_buffer.i22, %sw.bb33 ], [ %token_buffer.i14, %sw.bb14 ], [ %token_buffer.i16, %if.end11.i ], [ %token_buffer.i16, %if.end11.i ]
-  %conv.i27 = trunc i32 %.sink59 to i8
+  %conv.i27 = trunc i32 %.sink60 to i8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %token_buffer.i22.sink, i8 noundef signext %conv.i27) #17
   %call36 = tail call noundef i32 @_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcS5_IcSA_EEEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(148) %this)
   switch i32 %call36, label %sw.default41 [
@@ -20616,13 +20631,13 @@ sw.default41:                                     ; preds = %scan_number_exponen
 
 scan_number_any2.preheader:                       ; preds = %sw.bb37, %sw.bb39
   %token_buffer.i30.sink = phi ptr [ %token_buffer.i30, %sw.bb39 ], [ %token_buffer.i28, %sw.bb37 ]
-  %.sink60 = load i32, ptr %current, align 4
-  %conv.i31 = trunc i32 %.sink60 to i8
+  %.sink61 = load i32, ptr %current, align 4
+  %conv.i31 = trunc i32 %.sink61 to i8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %token_buffer.i30.sink, i8 noundef signext %conv.i31) #17
-  %call4848 = tail call noundef i32 @_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcS5_IcSA_EEEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(148) %this)
-  %call48.off49 = add i32 %call4848, -48
-  %switch550 = icmp ult i32 %call48.off49, 10
-  br i1 %switch550, label %sw.bb49.lr.ph, label %scan_number_done
+  %call4849 = tail call noundef i32 @_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcS5_IcSA_EEEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(148) %this)
+  %call48.off50 = add i32 %call4849, -48
+  %switch551 = icmp ult i32 %call48.off50, 10
+  br i1 %switch551, label %sw.bb49.lr.ph, label %scan_number_done
 
 sw.bb49.lr.ph:                                    ; preds = %scan_number_any2.preheader
   %token_buffer.i34 = getelementptr inbounds i8, ptr %this, i64 80
@@ -20653,22 +20668,25 @@ scan_number_done:                                 ; preds = %if.end11.i, %if.end
   %chars_read_current_line.i38 = getelementptr inbounds i8, ptr %this, i64 40
   %21 = load i64, ptr %chars_read_current_line.i38, align 8
   %cmp.i = icmp eq i64 %21, 0
-  br i1 %cmp.i, label %if.then.i40, label %if.end12.sink.split.i
+  br i1 %cmp.i, label %if.then.i41, label %if.else.i39
 
-if.then.i40:                                      ; preds = %scan_number_done
-  %lines_read.i41 = getelementptr inbounds i8, ptr %this, i64 48
-  %22 = load i64, ptr %lines_read.i41, align 8
+if.then.i41:                                      ; preds = %scan_number_done
+  %lines_read.i42 = getelementptr inbounds i8, ptr %this, i64 48
+  %22 = load i64, ptr %lines_read.i42, align 8
   %cmp4.not.i = icmp eq i64 %22, 0
-  br i1 %cmp4.not.i, label %if.end12.i, label %if.end12.sink.split.i
+  br i1 %cmp4.not.i, label %if.end12.i, label %if.then5.i
 
-if.end12.sink.split.i:                            ; preds = %if.then.i40, %scan_number_done
-  %.sink.i = phi i64 [ %22, %if.then.i40 ], [ %21, %scan_number_done ]
-  %lines_read.sink.i = phi ptr [ %lines_read.i41, %if.then.i40 ], [ %chars_read_current_line.i38, %scan_number_done ]
-  %dec8.i = add i64 %.sink.i, -1
-  store i64 %dec8.i, ptr %lines_read.sink.i, align 8
+if.then5.i:                                       ; preds = %if.then.i41
+  %dec8.i = add i64 %22, -1
+  store i64 %dec8.i, ptr %lines_read.i42, align 8
   br label %if.end12.i
 
-if.end12.i:                                       ; preds = %if.end12.sink.split.i, %if.then.i40
+if.else.i39:                                      ; preds = %scan_number_done
+  %dec11.i = add i64 %21, -1
+  store i64 %dec11.i, ptr %chars_read_current_line.i38, align 8
+  br label %if.end12.i
+
+if.end12.i:                                       ; preds = %if.else.i39, %if.then5.i, %if.then.i41
   %23 = load i32, ptr %current, align 4
   %cmp13.not.i = icmp eq i32 %23, -1
   br i1 %cmp13.not.i, label %_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcS5_IcSA_EEEEEE5ungetEv.exit, label %if.then15.i

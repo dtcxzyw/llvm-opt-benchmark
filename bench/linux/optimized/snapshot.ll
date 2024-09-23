@@ -6302,7 +6302,11 @@ define dso_local i32 @snapshot_write_next(ptr nocapture noundef %0) local_unname
 312:                                              ; preds = %304
   %313 = load ptr, ptr %303, align 8
   %314 = icmp eq ptr %313, %273
-  br i1 %314, label %.loopexit125.sink.split, label %315
+  br i1 %314, label %.thread86, label %315
+
+.thread86:                                        ; preds = %312
+  store i64 -1, ptr %280, align 8
+  br label %.loopexit125
 
 315:                                              ; preds = %312
   store ptr %313, ptr %275, align 8
@@ -6405,7 +6409,8 @@ define dso_local i32 @snapshot_write_next(ptr nocapture noundef %0) local_unname
 
 .thread87:                                        ; preds = %383
   %386 = getelementptr inbounds i8, ptr %337, i64 48
-  br label %.loopexit125.sink.split
+  store i64 -1, ptr %386, align 8
+  br label %.loopexit125
 
 387:                                              ; preds = %383
   store ptr %384, ptr %338, align 8
@@ -6431,12 +6436,7 @@ define dso_local i32 @snapshot_write_next(ptr nocapture noundef %0) local_unname
   %398 = icmp eq i64 %395, -1
   br i1 %398, label %.loopexit125, label %.preheader124, !llvm.loop !75
 
-.loopexit125.sink.split:                          ; preds = %312, %.thread87
-  %.sink = phi ptr [ %386, %.thread87 ], [ %280, %312 ]
-  store i64 -1, ptr %.sink, align 8
-  br label %.loopexit125
-
-.loopexit125:                                     ; preds = %._crit_edge, %.loopexit125.sink.split, %318
+.loopexit125:                                     ; preds = %._crit_edge, %.thread87, %.thread86, %318
   %399 = load ptr, ptr @free_pages_map, align 8
   call fastcc void @duplicate_memory_bitmap(ptr noundef %399, ptr noundef nonnull @copy_bm)
   store i32 0, ptr @allocated_unsafe_pages, align 4

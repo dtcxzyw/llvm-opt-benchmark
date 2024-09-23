@@ -259,8 +259,8 @@ define ptr @Kit_GraphToBdd(ptr noundef %0, ptr nocapture noundef readonly %1) lo
 69:                                               ; preds = %.critedge4, %12, %4
   %.sink86.in = phi ptr [ %57, %.critedge4 ], [ %13, %12 ], [ %6, %4 ]
   %.sink86 = ptrtoint ptr %.sink86.in to i64
-  %.val56 = load i32, ptr %3, align 8
-  %70 = and i32 %.val56, 1
+  %.val56.sink = load i32, ptr %3, align 8
+  %70 = and i32 %.val56.sink, 1
   %71 = zext nneg i32 %70 to i64
   %72 = xor i64 %71, %.sink86
   %.051 = inttoptr i64 %72 to ptr

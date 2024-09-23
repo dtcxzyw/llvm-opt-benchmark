@@ -4490,17 +4490,17 @@ cond.end48:                                       ; preds = %cond.end39.thread, 
   br label %if.end54
 
 if.end54:                                         ; preds = %cond.false, %if.then25, %cond.end48
-  %win32.sink = phi ptr [ %win32, %cond.end48 ], [ %win, %if.then25 ], [ %win, %cond.false ]
+  %.sink.in = phi ptr [ %win32, %cond.end48 ], [ %win, %if.then25 ], [ %win, %cond.false ]
   %rtn.0 = phi i32 [ %call51, %cond.end48 ], [ -1, %if.then25 ], [ %call29, %cond.false ]
-  %14 = load ptr, ptr %win32.sink, align 8
-  %15 = load i32, ptr %y, align 4
-  %call53 = call i32 @wtouchln(ptr noundef %14, i32 noundef %15, i32 noundef 1, i32 noundef 1) #9
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %14 = load i32, ptr %y, align 4
+  %call53 = call i32 @wtouchln(ptr noundef %.sink, i32 noundef %14, i32 noundef 1, i32 noundef 1) #9
   %cmp.not.i = icmp eq i32 %rtn.0, -1
   br i1 %cmp.not.i, label %if.else.i, label %return
 
 if.else.i:                                        ; preds = %if.end54
-  %16 = load ptr, ptr @PyCursesError, align 8
-  %call.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %16, ptr noundef nonnull @.str.156, ptr noundef nonnull @.str.79) #9
+  %15 = load ptr, ptr @PyCursesError, align 8
+  %call.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %15, ptr noundef nonnull @.str.156, ptr noundef nonnull @.str.79) #9
   br label %return
 
 return:                                           ; preds = %if.else.i, %if.end54, %sw.bb14, %sw.bb8, %sw.bb2, %sw.bb, %sw.default
@@ -5301,10 +5301,10 @@ _curses_window_getch_impl.exit.thread:            ; preds = %if.else.i
   br label %land.lhs.true
 
 _curses_window_getch_impl.exit:                   ; preds = %if.else.i, %sw.epilog.thread
-  %win.i10.sink = phi ptr [ %win.i10, %sw.epilog.thread ], [ %win.i, %if.else.i ]
   %call.i11 = phi ptr [ %call.i9, %sw.epilog.thread ], [ %call.i, %if.else.i ]
-  %3 = load ptr, ptr %win.i10.sink, align 8
-  %call5.i = call i32 @wgetch(ptr noundef %3) #9
+  %.sink.i.in = phi ptr [ %win.i10, %sw.epilog.thread ], [ %win.i, %if.else.i ]
+  %.sink.i = load ptr, ptr %.sink.i.in, align 8
+  %call5.i = call i32 @wgetch(ptr noundef %.sink.i) #9
   call void @PyEval_RestoreThread(ptr noundef %call.i11) #9
   %cmp = icmp eq i32 %call5.i, -1
   br i1 %cmp, label %land.lhs.true, label %if.end7
@@ -5369,10 +5369,10 @@ if.end.thread.i:                                  ; preds = %if.else.i
   br label %if.then7.i
 
 if.end.i:                                         ; preds = %if.else.i, %sw.epilog.thread
-  %win.i5.sink = phi ptr [ %win.i5, %sw.epilog.thread ], [ %win.i, %if.else.i ]
   %call.i6 = phi ptr [ %call.i4, %sw.epilog.thread ], [ %call.i, %if.else.i ]
-  %3 = load ptr, ptr %win.i5.sink, align 8
-  %call5.i = call i32 @wgetch(ptr noundef %3) #9
+  %.sink.i.in = phi ptr [ %win.i5, %sw.epilog.thread ], [ %win.i, %if.else.i ]
+  %.sink.i = load ptr, ptr %.sink.i.in, align 8
+  %call5.i = call i32 @wgetch(ptr noundef %.sink.i) #9
   call void @PyEval_RestoreThread(ptr noundef %call.i6) #9
   %cmp6.i = icmp eq i32 %call5.i, -1
   br i1 %cmp6.i, label %if.then7.i, label %if.else13.i
@@ -5384,8 +5384,8 @@ if.then7.i:                                       ; preds = %if.end.i, %if.end.t
   br i1 %tobool10.not.i, label %if.then11.i, label %exit
 
 if.then11.i:                                      ; preds = %if.then7.i
-  %4 = load ptr, ptr @PyCursesError, align 8
-  call void @PyErr_SetString(ptr noundef %4, ptr noundef nonnull @.str.193) #9
+  %3 = load ptr, ptr @PyCursesError, align 8
+  call void @PyErr_SetString(ptr noundef %3, ptr noundef nonnull @.str.193) #9
   br label %exit
 
 if.else13.i:                                      ; preds = %if.end.i
@@ -5455,10 +5455,10 @@ if.end.thread.i:                                  ; preds = %if.else.i
   br label %if.then7.i
 
 if.end.i:                                         ; preds = %if.else.i, %sw.epilog.thread
-  %win.i5.sink = phi ptr [ %win.i5, %sw.epilog.thread ], [ %win.i, %if.else.i ]
   %call.i6 = phi ptr [ %call.i4, %sw.epilog.thread ], [ %call.i, %if.else.i ]
-  %3 = load ptr, ptr %win.i5.sink, align 8
-  %call5.i = call i32 @wget_wch(ptr noundef %3, ptr noundef nonnull %rtn.i) #9
+  %.sink.i.in = phi ptr [ %win.i5, %sw.epilog.thread ], [ %win.i, %if.else.i ]
+  %.sink.i = load ptr, ptr %.sink.i.in, align 8
+  %call5.i = call i32 @wget_wch(ptr noundef %.sink.i, ptr noundef nonnull %rtn.i) #9
   call void @PyEval_RestoreThread(ptr noundef %call.i6) #9
   switch i32 %call5.i, label %if.else16.i [
     i32 -1, label %if.then7.i
@@ -5471,19 +5471,19 @@ if.then7.i:                                       ; preds = %if.end.i, %if.end.t
   br i1 %tobool9.not.i, label %if.end11.i, label %_curses_window_get_wch_impl.exit
 
 if.end11.i:                                       ; preds = %if.then7.i
-  %4 = load ptr, ptr @PyCursesError, align 8
-  call void @PyErr_SetString(ptr noundef %4, ptr noundef nonnull @.str.193) #9
+  %3 = load ptr, ptr @PyCursesError, align 8
+  call void @PyErr_SetString(ptr noundef %3, ptr noundef nonnull @.str.193) #9
   br label %_curses_window_get_wch_impl.exit
 
 if.then14.i:                                      ; preds = %if.end.i
-  %5 = load i32, ptr %rtn.i, align 4
-  %conv.i = zext i32 %5 to i64
+  %4 = load i32, ptr %rtn.i, align 4
+  %conv.i = zext i32 %4 to i64
   %call15.i = call ptr @PyLong_FromLong(i64 noundef %conv.i) #9
   br label %_curses_window_get_wch_impl.exit
 
 if.else16.i:                                      ; preds = %if.end.i
-  %6 = load i32, ptr %rtn.i, align 4
-  %call17.i = call ptr @PyUnicode_FromOrdinal(i32 noundef %6) #9
+  %5 = load i32, ptr %rtn.i, align 4
+  %call17.i = call ptr @PyUnicode_FromOrdinal(i32 noundef %5) #9
   br label %_curses_window_get_wch_impl.exit
 
 _curses_window_get_wch_impl.exit:                 ; preds = %if.then7.i, %if.end11.i, %if.then14.i, %if.else16.i

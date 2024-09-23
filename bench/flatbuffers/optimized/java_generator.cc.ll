@@ -10931,6 +10931,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_EC2ESD_l.exit.thread24: ; preds = %if.end.i.i.i
   %1 = inttoptr i64 %0 to ptr
+  store ptr null, ptr %call.i.i, align 8
   br label %if.else.sink.split
 
 for.body.i.i.preheader.i:                         ; preds = %if.end.i.i.i
@@ -10950,6 +10951,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_EC2ESD_l.exit: ; preds = %for.body.i.i.i
   %.pre.i = load ptr, ptr %incdec.ptr4.i.i.i, align 8
+  store ptr null, ptr %incdec.ptr4.i.i.i, align 8
   br label %if.else.sink.split
 
 if.then6:                                         ; preds = %if.end4.i.i, %if.end
@@ -10963,9 +10965,7 @@ lpad:                                             ; preds = %if.else, %if.then6
   resume { ptr, i32 } %2
 
 if.else.sink.split:                               ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_EC2ESD_l.exit, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_EC2ESD_l.exit.thread24
-  %call.i.i.sink = phi ptr [ %call.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_EC2ESD_l.exit.thread24 ], [ %incdec.ptr4.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_EC2ESD_l.exit ]
   %.sink = phi ptr [ %1, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_EC2ESD_l.exit.thread24 ], [ %.pre.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_EC2ESD_l.exit ]
-  store ptr null, ptr %call.i.i.sink, align 8
   store ptr %.sink, ptr %__first.coerce, align 8
   br label %if.else
 

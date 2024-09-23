@@ -2026,6 +2026,7 @@ define void @get_CDR_fixed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %78 = load ptr, ptr %3, align 8
   %79 = zext i32 %.4.lcssa to i64
   %80 = getelementptr i8, ptr %78, i64 %79
+  store i8 0, ptr %80, align 1
   br label %92
 
 .lr.ph106:                                        ; preds = %.lr.ph106.preheader, %85
@@ -2058,11 +2059,10 @@ define void @get_CDR_fixed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %.5.lcssa = phi i64 [ 1, %.preheader100 ], [ %89, %._crit_edge.loopexit ]
   %90 = load ptr, ptr %3, align 8
   %91 = getelementptr i8, ptr %90, i64 %.5.lcssa
+  store i8 0, ptr %91, align 1
   br label %92
 
 92:                                               ; preds = %._crit_edge, %._crit_edge118
-  %.sink151 = phi ptr [ %91, %._crit_edge ], [ %80, %._crit_edge118 ]
-  store i8 0, ptr %.sink151, align 1
   ret void
 }
 

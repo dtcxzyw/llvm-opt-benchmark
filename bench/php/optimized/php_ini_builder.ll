@@ -157,6 +157,7 @@ switch.early.test:                                ; preds = %5
   %38 = add i64 %36, 2
   store i64 %38, ptr %23, align 8
   %39 = getelementptr i8, ptr %37, i64 1
+  store i8 10, ptr %39, align 1
   br label %67
 
 40:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %5
@@ -174,6 +175,7 @@ switch.early.test:                                ; preds = %5
   %50 = add i64 %49, 1
   store i64 %50, ptr %42, align 8
   %51 = getelementptr inbounds i8, ptr %46, i64 %49
+  store i8 10, ptr %51, align 1
   br label %67
 
 52:                                               ; preds = %2
@@ -196,11 +198,10 @@ switch.early.test:                                ; preds = %5
   %65 = add i64 %61, 3
   store i64 %65, ptr %54, align 8
   %66 = getelementptr i8, ptr %62, i64 2
+  store i8 10, ptr %66, align 1
   br label %67
 
 67:                                               ; preds = %14, %40, %52
-  %.sink = phi ptr [ %39, %14 ], [ %51, %40 ], [ %66, %52 ]
-  store i8 10, ptr %.sink, align 1
   ret void
 }
 

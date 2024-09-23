@@ -46,7 +46,7 @@ define dso_local void @ConditionVariablePrepareToSleep(ptr noundef %0) local_unn
   %2 = load i32, ptr @MyProcNumber, align 4
   %3 = load ptr, ptr @cv_sleep_target, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %32, label %4
+  br i1 %.not, label %39, label %4
 
 4:                                                ; preds = %1
   %5 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %3, i8 1, ptr nonnull elementtype(i8) %3) #4, !srcloc !6
@@ -58,93 +58,108 @@ define dso_local void @ConditionVariablePrepareToSleep(ptr noundef %0) local_unn
   br label %8
 
 8:                                                ; preds = %6, %4
-  %9 = load i32, ptr @MyProcNumber, align 4
-  %10 = load ptr, ptr @ProcGlobal, align 8
-  %11 = load ptr, ptr %10, align 8
-  %12 = sext i32 %9 to i64
-  %13 = getelementptr %struct.PGPROC, ptr %11, i64 %12, i32 18
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
-  %15 = load i32, ptr %14, align 4
-  %16 = icmp eq i32 %15, 0
-  %17 = load i32, ptr %13, align 4
-  %18 = icmp eq i32 %17, 0
-  %or.cond.i = select i1 %16, i1 %18, i1 false
-  br i1 %or.cond.i, label %ConditionVariableCancelSleep.exit, label %thread-pre-split.i
+  %9 = getelementptr inbounds i8, ptr %3, i64 4
+  %10 = load i32, ptr @MyProcNumber, align 4
+  %11 = load ptr, ptr @ProcGlobal, align 8
+  %12 = load ptr, ptr %11, align 8
+  %13 = sext i32 %10 to i64
+  %14 = getelementptr %struct.PGPROC, ptr %12, i64 %13, i32 18
+  %15 = getelementptr inbounds i8, ptr %14, i64 4
+  %16 = load i32, ptr %15, align 4
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %18, label %21
 
-thread-pre-split.i:                               ; preds = %8
-  %19 = getelementptr inbounds i8, ptr %3, i64 4
-  %20 = icmp eq i32 %15, -1
-  %21 = sext i32 %15 to i64
-  %22 = getelementptr %struct.PGPROC, ptr %11, i64 %21, i32 18
-  %.sink.i.i = select i1 %20, ptr %19, ptr %22
-  store i32 %17, ptr %.sink.i.i, align 4
-  %23 = icmp eq i32 %17, -1
-  %24 = load i32, ptr %14, align 4
-  br i1 %23, label %25, label %27
+18:                                               ; preds = %8
+  %19 = load i32, ptr %14, align 4
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %ConditionVariableCancelSleep.exit, label %.thread.i
 
-25:                                               ; preds = %thread-pre-split.i
-  %26 = getelementptr inbounds i8, ptr %3, i64 8
+21:                                               ; preds = %8
+  %22 = icmp eq i32 %16, -1
+  %23 = load i32, ptr %14, align 4
+  br i1 %22, label %24, label %.thread.i
+
+24:                                               ; preds = %21
+  store i32 %23, ptr %9, align 4
+  %.pre.i = load i32, ptr %15, align 4
+  br label %28
+
+.thread.i:                                        ; preds = %21, %18
+  %25 = phi i32 [ %23, %21 ], [ %19, %18 ]
+  %26 = sext i32 %16 to i64
+  %27 = getelementptr %struct.PGPROC, ptr %12, i64 %26, i32 18
+  store i32 %25, ptr %27, align 4
+  br label %28
+
+28:                                               ; preds = %.thread.i, %24
+  %29 = phi i32 [ %16, %.thread.i ], [ %.pre.i, %24 ]
+  %30 = phi i32 [ %25, %.thread.i ], [ %23, %24 ]
+  %31 = icmp eq i32 %30, -1
+  br i1 %31, label %32, label %34
+
+32:                                               ; preds = %28
+  %33 = getelementptr inbounds i8, ptr %3, i64 8
+  store i32 %29, ptr %33, align 4
   br label %proclist_delete_offset.exit.i
 
-27:                                               ; preds = %thread-pre-split.i
-  %28 = load ptr, ptr @ProcGlobal, align 8
-  %29 = load ptr, ptr %28, align 8
-  %30 = sext i32 %17 to i64
-  %31 = getelementptr %struct.PGPROC, ptr %29, i64 %30, i32 18, i32 1
+34:                                               ; preds = %28
+  %35 = load ptr, ptr @ProcGlobal, align 8
+  %36 = load ptr, ptr %35, align 8
+  %37 = sext i32 %30 to i64
+  %38 = getelementptr %struct.PGPROC, ptr %36, i64 %37, i32 18, i32 1
+  store i32 %29, ptr %38, align 4
   br label %proclist_delete_offset.exit.i
 
-proclist_delete_offset.exit.i:                    ; preds = %27, %25
-  %.sink16.i.i = phi ptr [ %31, %27 ], [ %26, %25 ]
-  store i32 %24, ptr %.sink16.i.i, align 4
+proclist_delete_offset.exit.i:                    ; preds = %34, %32
+  store i32 0, ptr %15, align 4
   store i32 0, ptr %14, align 4
-  store i32 0, ptr %13, align 4
   br label %ConditionVariableCancelSleep.exit
 
-ConditionVariableCancelSleep.exit:                ; preds = %8, %proclist_delete_offset.exit.i
+ConditionVariableCancelSleep.exit:                ; preds = %18, %proclist_delete_offset.exit.i
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !7
   store i8 0, ptr %3, align 4
-  br label %32
+  br label %39
 
-32:                                               ; preds = %ConditionVariableCancelSleep.exit, %1
+39:                                               ; preds = %ConditionVariableCancelSleep.exit, %1
   store ptr %0, ptr @cv_sleep_target, align 8
-  %33 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %0, i8 1, ptr elementtype(i8) %0) #4, !srcloc !6
-  %.not5 = icmp eq i8 %33, 0
-  br i1 %.not5, label %36, label %34
+  %40 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %0, i8 1, ptr elementtype(i8) %0) #4, !srcloc !6
+  %.not5 = icmp eq i8 %40, 0
+  br i1 %.not5, label %43, label %41
 
-34:                                               ; preds = %32
-  %35 = tail call i32 @s_lock(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 77, ptr noundef nonnull @__func__.ConditionVariablePrepareToSleep) #4
-  br label %36
+41:                                               ; preds = %39
+  %42 = tail call i32 @s_lock(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 77, ptr noundef nonnull @__func__.ConditionVariablePrepareToSleep) #4
+  br label %43
 
-36:                                               ; preds = %32, %34
-  %37 = load ptr, ptr @ProcGlobal, align 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = sext i32 %2 to i64
-  %40 = getelementptr %struct.PGPROC, ptr %38, i64 %39, i32 18
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = load i32, ptr %41, align 4
-  %43 = icmp eq i32 %42, -1
-  %44 = getelementptr inbounds i8, ptr %40, i64 4
-  br i1 %43, label %45, label %47
+43:                                               ; preds = %39, %41
+  %44 = load ptr, ptr @ProcGlobal, align 8
+  %45 = load ptr, ptr %44, align 8
+  %46 = sext i32 %2 to i64
+  %47 = getelementptr %struct.PGPROC, ptr %45, i64 %46, i32 18
+  %48 = getelementptr inbounds i8, ptr %0, i64 8
+  %49 = load i32, ptr %48, align 4
+  %50 = icmp eq i32 %49, -1
+  %51 = getelementptr inbounds i8, ptr %47, i64 4
+  br i1 %50, label %52, label %54
 
-45:                                               ; preds = %36
-  %46 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 -1, ptr %44, align 4
-  store i32 -1, ptr %40, align 4
-  store i32 %2, ptr %46, align 4
+52:                                               ; preds = %43
+  %53 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 -1, ptr %51, align 4
+  store i32 -1, ptr %47, align 4
+  store i32 %2, ptr %53, align 4
   br label %proclist_push_tail_offset.exit
 
-47:                                               ; preds = %36
-  store i32 %42, ptr %44, align 4
-  %48 = load ptr, ptr @ProcGlobal, align 8
-  %49 = load ptr, ptr %48, align 8
-  %50 = sext i32 %42 to i64
-  %51 = getelementptr %struct.PGPROC, ptr %49, i64 %50, i32 18
-  store i32 %2, ptr %51, align 4
-  store i32 -1, ptr %40, align 4
+54:                                               ; preds = %43
+  store i32 %49, ptr %51, align 4
+  %55 = load ptr, ptr @ProcGlobal, align 8
+  %56 = load ptr, ptr %55, align 8
+  %57 = sext i32 %49 to i64
+  %58 = getelementptr %struct.PGPROC, ptr %56, i64 %57, i32 18
+  store i32 %2, ptr %58, align 4
+  store i32 -1, ptr %47, align 4
   br label %proclist_push_tail_offset.exit
 
-proclist_push_tail_offset.exit:                   ; preds = %45, %47
-  store i32 %2, ptr %41, align 4
+proclist_push_tail_offset.exit:                   ; preds = %52, %54
+  store i32 %2, ptr %48, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !8
   store i8 0, ptr %0, align 4
   ret void
@@ -154,7 +169,7 @@ proclist_push_tail_offset.exit:                   ; preds = %45, %47
 define dso_local noundef zeroext i1 @ConditionVariableCancelSleep() local_unnamed_addr #0 {
   %1 = load ptr, ptr @cv_sleep_target, align 8
   %2 = icmp eq ptr %1, null
-  br i1 %2, label %31, label %3
+  br i1 %2, label %38, label %3
 
 3:                                                ; preds = %0
   %4 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %1, i8 1, ptr nonnull elementtype(i8) %1) #4, !srcloc !6
@@ -166,56 +181,72 @@ define dso_local noundef zeroext i1 @ConditionVariableCancelSleep() local_unname
   br label %7
 
 7:                                                ; preds = %3, %5
-  %8 = load i32, ptr @MyProcNumber, align 4
-  %9 = load ptr, ptr @ProcGlobal, align 8
-  %10 = load ptr, ptr %9, align 8
-  %11 = sext i32 %8 to i64
-  %12 = getelementptr %struct.PGPROC, ptr %10, i64 %11, i32 18
-  %13 = getelementptr inbounds i8, ptr %12, i64 4
-  %14 = load i32, ptr %13, align 4
-  %15 = icmp eq i32 %14, 0
-  %16 = load i32, ptr %12, align 4
-  %17 = icmp eq i32 %16, 0
-  %or.cond = select i1 %15, i1 %17, i1 false
-  br i1 %or.cond, label %proclist_contains_offset.exit, label %thread-pre-split
+  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %9 = load i32, ptr @MyProcNumber, align 4
+  %10 = load ptr, ptr @ProcGlobal, align 8
+  %11 = load ptr, ptr %10, align 8
+  %12 = sext i32 %9 to i64
+  %13 = getelementptr %struct.PGPROC, ptr %11, i64 %12, i32 18
+  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %15 = load i32, ptr %14, align 4
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %17, label %20
 
-thread-pre-split:                                 ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %1, i64 4
-  %19 = icmp eq i32 %14, -1
-  %20 = sext i32 %14 to i64
-  %21 = getelementptr %struct.PGPROC, ptr %10, i64 %20, i32 18
-  %.sink.i = select i1 %19, ptr %18, ptr %21
-  store i32 %16, ptr %.sink.i, align 4
-  %22 = icmp eq i32 %16, -1
-  %23 = load i32, ptr %13, align 4
-  br i1 %22, label %24, label %26
+17:                                               ; preds = %7
+  %18 = load i32, ptr %13, align 4
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %proclist_contains_offset.exit, label %.thread
 
-24:                                               ; preds = %thread-pre-split
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+20:                                               ; preds = %7
+  %21 = icmp eq i32 %15, -1
+  %22 = load i32, ptr %13, align 4
+  br i1 %21, label %23, label %.thread
+
+23:                                               ; preds = %20
+  store i32 %22, ptr %8, align 4
+  %.pre = load i32, ptr %14, align 4
+  br label %27
+
+.thread:                                          ; preds = %17, %20
+  %24 = phi i32 [ %22, %20 ], [ %18, %17 ]
+  %25 = sext i32 %15 to i64
+  %26 = getelementptr %struct.PGPROC, ptr %11, i64 %25, i32 18
+  store i32 %24, ptr %26, align 4
+  br label %27
+
+27:                                               ; preds = %.thread, %23
+  %28 = phi i32 [ %15, %.thread ], [ %.pre, %23 ]
+  %29 = phi i32 [ %24, %.thread ], [ %22, %23 ]
+  %30 = icmp eq i32 %29, -1
+  br i1 %30, label %31, label %33
+
+31:                                               ; preds = %27
+  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %28, ptr %32, align 4
   br label %proclist_delete_offset.exit
 
-26:                                               ; preds = %thread-pre-split
-  %27 = load ptr, ptr @ProcGlobal, align 8
-  %28 = load ptr, ptr %27, align 8
-  %29 = sext i32 %16 to i64
-  %30 = getelementptr %struct.PGPROC, ptr %28, i64 %29, i32 18, i32 1
+33:                                               ; preds = %27
+  %34 = load ptr, ptr @ProcGlobal, align 8
+  %35 = load ptr, ptr %34, align 8
+  %36 = sext i32 %29 to i64
+  %37 = getelementptr %struct.PGPROC, ptr %35, i64 %36, i32 18, i32 1
+  store i32 %28, ptr %37, align 4
   br label %proclist_delete_offset.exit
 
-proclist_delete_offset.exit:                      ; preds = %24, %26
-  %.sink16.i = phi ptr [ %30, %26 ], [ %25, %24 ]
-  store i32 %23, ptr %.sink16.i, align 4
+proclist_delete_offset.exit:                      ; preds = %31, %33
+  store i32 0, ptr %14, align 4
   store i32 0, ptr %13, align 4
-  store i32 0, ptr %12, align 4
   br label %proclist_contains_offset.exit
 
-proclist_contains_offset.exit:                    ; preds = %7, %proclist_delete_offset.exit
+proclist_contains_offset.exit:                    ; preds = %17, %proclist_delete_offset.exit
+  %.0 = phi i1 [ false, %proclist_delete_offset.exit ], [ true, %17 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !7
   store i8 0, ptr %1, align 4
   store ptr null, ptr @cv_sleep_target, align 8
-  br label %31
+  br label %38
 
-31:                                               ; preds = %0, %proclist_contains_offset.exit
-  %.07 = phi i1 [ %or.cond, %proclist_contains_offset.exit ], [ false, %0 ]
+38:                                               ; preds = %0, %proclist_contains_offset.exit
+  %.07 = phi i1 [ %.0, %proclist_contains_offset.exit ], [ false, %0 ]
   ret i1 %.07
 }
 
@@ -388,7 +419,7 @@ define dso_local void @ConditionVariableSignal(ptr noundef %0) local_unnamed_add
 .thread:                                          ; preds = %5
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !10
   store i8 0, ptr %0, align 4
-  br label %32
+  br label %35
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr @ProcGlobal, align 8
@@ -399,42 +430,52 @@ define dso_local void @ConditionVariableSignal(ptr noundef %0) local_unnamed_add
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, -1
   %16 = load i32, ptr %12, align 4
-  %17 = sext i32 %14 to i64
-  %18 = getelementptr %struct.PGPROC, ptr %10, i64 %17, i32 18
-  %.sink.i.i = select i1 %15, ptr %6, ptr %18
-  store i32 %16, ptr %.sink.i.i, align 4
-  %19 = icmp eq i32 %16, -1
-  %20 = load i32, ptr %13, align 4
-  br i1 %19, label %21, label %23
+  br i1 %15, label %17, label %18
 
-21:                                               ; preds = %8
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %28
+17:                                               ; preds = %8
+  store i32 %16, ptr %6, align 4
+  %.pre.i = load i32, ptr %13, align 4
+  br label %21
 
-23:                                               ; preds = %8
-  %24 = load ptr, ptr @ProcGlobal, align 8
-  %25 = load ptr, ptr %24, align 8
-  %26 = sext i32 %16 to i64
-  %27 = getelementptr %struct.PGPROC, ptr %25, i64 %26, i32 18, i32 1
-  br label %28
+18:                                               ; preds = %8
+  %19 = sext i32 %14 to i64
+  %20 = getelementptr %struct.PGPROC, ptr %10, i64 %19, i32 18
+  store i32 %16, ptr %20, align 4
+  br label %21
 
-28:                                               ; preds = %23, %21
-  %.sink16.i.i = phi ptr [ %27, %23 ], [ %22, %21 ]
-  %29 = getelementptr %struct.PGPROC, ptr %10, i64 %11
-  store i32 %20, ptr %.sink16.i.i, align 4
+21:                                               ; preds = %18, %17
+  %22 = phi i32 [ %14, %18 ], [ %.pre.i, %17 ]
+  %23 = icmp eq i32 %16, -1
+  br i1 %23, label %24, label %26
+
+24:                                               ; preds = %21
+  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %22, ptr %25, align 4
+  br label %31
+
+26:                                               ; preds = %21
+  %27 = load ptr, ptr @ProcGlobal, align 8
+  %28 = load ptr, ptr %27, align 8
+  %29 = sext i32 %16 to i64
+  %30 = getelementptr %struct.PGPROC, ptr %28, i64 %29, i32 18, i32 1
+  store i32 %22, ptr %30, align 4
+  br label %31
+
+31:                                               ; preds = %26, %24
+  %32 = getelementptr %struct.PGPROC, ptr %10, i64 %11
   store i32 0, ptr %13, align 4
   store i32 0, ptr %12, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !10
   store i8 0, ptr %0, align 4
-  %.not7 = icmp eq ptr %29, null
-  br i1 %.not7, label %32, label %30
+  %.not7 = icmp eq ptr %32, null
+  br i1 %.not7, label %35, label %33
 
-30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %29, i64 36
-  tail call void @SetLatch(ptr noundef nonnull %31) #4
-  br label %32
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds i8, ptr %32, i64 36
+  tail call void @SetLatch(ptr noundef nonnull %34) #4
+  br label %35
 
-32:                                               ; preds = %.thread, %30, %28
+35:                                               ; preds = %.thread, %33, %31
   ret void
 }
 
@@ -445,7 +486,7 @@ define dso_local void @ConditionVariableBroadcast(ptr noundef %0) local_unnamed_
   %2 = load i32, ptr @MyProcNumber, align 4
   %3 = load ptr, ptr @cv_sleep_target, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %32, label %4
+  br i1 %.not, label %39, label %4
 
 4:                                                ; preds = %1
   %5 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %3, i8 1, ptr nonnull elementtype(i8) %3) #4, !srcloc !6
@@ -457,245 +498,283 @@ define dso_local void @ConditionVariableBroadcast(ptr noundef %0) local_unnamed_
   br label %8
 
 8:                                                ; preds = %6, %4
-  %9 = load i32, ptr @MyProcNumber, align 4
-  %10 = load ptr, ptr @ProcGlobal, align 8
-  %11 = load ptr, ptr %10, align 8
-  %12 = sext i32 %9 to i64
-  %13 = getelementptr %struct.PGPROC, ptr %11, i64 %12, i32 18
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
-  %15 = load i32, ptr %14, align 4
-  %16 = icmp eq i32 %15, 0
-  %17 = load i32, ptr %13, align 4
-  %18 = icmp eq i32 %17, 0
-  %or.cond.i = select i1 %16, i1 %18, i1 false
-  br i1 %or.cond.i, label %ConditionVariableCancelSleep.exit, label %thread-pre-split.i
+  %9 = getelementptr inbounds i8, ptr %3, i64 4
+  %10 = load i32, ptr @MyProcNumber, align 4
+  %11 = load ptr, ptr @ProcGlobal, align 8
+  %12 = load ptr, ptr %11, align 8
+  %13 = sext i32 %10 to i64
+  %14 = getelementptr %struct.PGPROC, ptr %12, i64 %13, i32 18
+  %15 = getelementptr inbounds i8, ptr %14, i64 4
+  %16 = load i32, ptr %15, align 4
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %18, label %21
 
-thread-pre-split.i:                               ; preds = %8
-  %19 = getelementptr inbounds i8, ptr %3, i64 4
-  %20 = icmp eq i32 %15, -1
-  %21 = sext i32 %15 to i64
-  %22 = getelementptr %struct.PGPROC, ptr %11, i64 %21, i32 18
-  %.sink.i.i = select i1 %20, ptr %19, ptr %22
-  store i32 %17, ptr %.sink.i.i, align 4
-  %23 = icmp eq i32 %17, -1
-  %24 = load i32, ptr %14, align 4
-  br i1 %23, label %25, label %27
+18:                                               ; preds = %8
+  %19 = load i32, ptr %14, align 4
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %ConditionVariableCancelSleep.exit, label %.thread.i
 
-25:                                               ; preds = %thread-pre-split.i
-  %26 = getelementptr inbounds i8, ptr %3, i64 8
+21:                                               ; preds = %8
+  %22 = icmp eq i32 %16, -1
+  %23 = load i32, ptr %14, align 4
+  br i1 %22, label %24, label %.thread.i
+
+24:                                               ; preds = %21
+  store i32 %23, ptr %9, align 4
+  %.pre.i = load i32, ptr %15, align 4
+  br label %28
+
+.thread.i:                                        ; preds = %21, %18
+  %25 = phi i32 [ %23, %21 ], [ %19, %18 ]
+  %26 = sext i32 %16 to i64
+  %27 = getelementptr %struct.PGPROC, ptr %12, i64 %26, i32 18
+  store i32 %25, ptr %27, align 4
+  br label %28
+
+28:                                               ; preds = %.thread.i, %24
+  %29 = phi i32 [ %16, %.thread.i ], [ %.pre.i, %24 ]
+  %30 = phi i32 [ %25, %.thread.i ], [ %23, %24 ]
+  %31 = icmp eq i32 %30, -1
+  br i1 %31, label %32, label %34
+
+32:                                               ; preds = %28
+  %33 = getelementptr inbounds i8, ptr %3, i64 8
+  store i32 %29, ptr %33, align 4
   br label %proclist_delete_offset.exit.i
 
-27:                                               ; preds = %thread-pre-split.i
-  %28 = load ptr, ptr @ProcGlobal, align 8
-  %29 = load ptr, ptr %28, align 8
-  %30 = sext i32 %17 to i64
-  %31 = getelementptr %struct.PGPROC, ptr %29, i64 %30, i32 18, i32 1
+34:                                               ; preds = %28
+  %35 = load ptr, ptr @ProcGlobal, align 8
+  %36 = load ptr, ptr %35, align 8
+  %37 = sext i32 %30 to i64
+  %38 = getelementptr %struct.PGPROC, ptr %36, i64 %37, i32 18, i32 1
+  store i32 %29, ptr %38, align 4
   br label %proclist_delete_offset.exit.i
 
-proclist_delete_offset.exit.i:                    ; preds = %27, %25
-  %.sink16.i.i = phi ptr [ %31, %27 ], [ %26, %25 ]
-  store i32 %24, ptr %.sink16.i.i, align 4
+proclist_delete_offset.exit.i:                    ; preds = %34, %32
+  store i32 0, ptr %15, align 4
   store i32 0, ptr %14, align 4
-  store i32 0, ptr %13, align 4
   br label %ConditionVariableCancelSleep.exit
 
-ConditionVariableCancelSleep.exit:                ; preds = %8, %proclist_delete_offset.exit.i
+ConditionVariableCancelSleep.exit:                ; preds = %18, %proclist_delete_offset.exit.i
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !7
   store i8 0, ptr %3, align 4
   store ptr null, ptr @cv_sleep_target, align 8
-  br label %32
+  br label %39
 
-32:                                               ; preds = %ConditionVariableCancelSleep.exit, %1
-  %33 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %0, i8 1, ptr elementtype(i8) %0) #4, !srcloc !6
-  %.not22 = icmp eq i8 %33, 0
-  br i1 %.not22, label %36, label %34
+39:                                               ; preds = %ConditionVariableCancelSleep.exit, %1
+  %40 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %0, i8 1, ptr elementtype(i8) %0) #4, !srcloc !6
+  %.not22 = icmp eq i8 %40, 0
+  br i1 %.not22, label %43, label %41
 
-34:                                               ; preds = %32
-  %35 = tail call i32 @s_lock(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 317, ptr noundef nonnull @__func__.ConditionVariableBroadcast) #4
-  br label %36
+41:                                               ; preds = %39
+  %42 = tail call i32 @s_lock(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 317, ptr noundef nonnull @__func__.ConditionVariableBroadcast) #4
+  br label %43
 
-36:                                               ; preds = %32, %34
-  %37 = getelementptr inbounds i8, ptr %0, i64 4
-  %.val28 = load i32, ptr %37, align 4
-  %38 = icmp eq i32 %.val28, -1
-  br i1 %38, label %.thread, label %39
+43:                                               ; preds = %39, %41
+  %44 = getelementptr inbounds i8, ptr %0, i64 4
+  %.val28 = load i32, ptr %44, align 4
+  %45 = icmp eq i32 %.val28, -1
+  br i1 %45, label %.thread, label %46
 
-.thread:                                          ; preds = %36
+.thread:                                          ; preds = %43
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !11
   store i8 0, ptr %0, align 4
   br label %._crit_edge
 
-39:                                               ; preds = %36
-  %40 = load ptr, ptr @ProcGlobal, align 8
-  %41 = load ptr, ptr %40, align 8
-  %42 = sext i32 %.val28 to i64
-  %43 = getelementptr %struct.PGPROC, ptr %41, i64 %42, i32 18
-  %44 = getelementptr inbounds i8, ptr %43, i64 4
-  %45 = load i32, ptr %44, align 4
-  %46 = icmp eq i32 %45, -1
-  %47 = load i32, ptr %43, align 4
-  %48 = sext i32 %45 to i64
-  %49 = getelementptr %struct.PGPROC, ptr %41, i64 %48, i32 18
-  %.sink.i.i29 = select i1 %46, ptr %37, ptr %49
-  store i32 %47, ptr %.sink.i.i29, align 4
-  %50 = icmp eq i32 %47, -1
-  %51 = load i32, ptr %44, align 4
-  br i1 %50, label %52, label %54
+46:                                               ; preds = %43
+  %47 = load ptr, ptr @ProcGlobal, align 8
+  %48 = load ptr, ptr %47, align 8
+  %49 = sext i32 %.val28 to i64
+  %50 = getelementptr %struct.PGPROC, ptr %48, i64 %49, i32 18
+  %51 = getelementptr inbounds i8, ptr %50, i64 4
+  %52 = load i32, ptr %51, align 4
+  %53 = icmp eq i32 %52, -1
+  %54 = load i32, ptr %50, align 4
+  br i1 %53, label %55, label %56
 
-52:                                               ; preds = %39
-  %53 = getelementptr inbounds i8, ptr %0, i64 8
+55:                                               ; preds = %46
+  store i32 %54, ptr %44, align 4
+  %.pre.i30 = load i32, ptr %51, align 4
+  br label %59
+
+56:                                               ; preds = %46
+  %57 = sext i32 %52 to i64
+  %58 = getelementptr %struct.PGPROC, ptr %48, i64 %57, i32 18
+  store i32 %54, ptr %58, align 4
+  br label %59
+
+59:                                               ; preds = %56, %55
+  %60 = phi i32 [ %52, %56 ], [ %.pre.i30, %55 ]
+  %61 = icmp eq i32 %54, -1
+  br i1 %61, label %62, label %64
+
+62:                                               ; preds = %59
+  %63 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %60, ptr %63, align 4
   br label %proclist_pop_head_node_offset.exit
 
-54:                                               ; preds = %39
-  %55 = load ptr, ptr @ProcGlobal, align 8
-  %56 = load ptr, ptr %55, align 8
-  %57 = sext i32 %47 to i64
-  %58 = getelementptr %struct.PGPROC, ptr %56, i64 %57, i32 18, i32 1
+64:                                               ; preds = %59
+  %65 = load ptr, ptr @ProcGlobal, align 8
+  %66 = load ptr, ptr %65, align 8
+  %67 = sext i32 %54 to i64
+  %68 = getelementptr %struct.PGPROC, ptr %66, i64 %67, i32 18, i32 1
+  store i32 %60, ptr %68, align 4
   br label %proclist_pop_head_node_offset.exit
 
-proclist_pop_head_node_offset.exit:               ; preds = %52, %54
-  %.sink16.i.i31 = phi ptr [ %58, %54 ], [ %53, %52 ]
-  %59 = getelementptr %struct.PGPROC, ptr %41, i64 %42
-  store i32 %51, ptr %.sink16.i.i31, align 4
-  store i32 0, ptr %44, align 4
-  store i32 0, ptr %43, align 4
-  %.val27 = load i32, ptr %37, align 4
-  %.not40 = icmp eq i32 %.val27, -1
-  br i1 %.not40, label %75, label %60
+proclist_pop_head_node_offset.exit:               ; preds = %62, %64
+  %69 = getelementptr %struct.PGPROC, ptr %48, i64 %49
+  store i32 0, ptr %51, align 4
+  store i32 0, ptr %50, align 4
+  %.val27 = load i32, ptr %44, align 4
+  %.not39 = icmp eq i32 %.val27, -1
+  br i1 %.not39, label %85, label %70
 
-60:                                               ; preds = %proclist_pop_head_node_offset.exit
-  %61 = load ptr, ptr @ProcGlobal, align 8
-  %62 = load ptr, ptr %61, align 8
-  %63 = sext i32 %2 to i64
-  %64 = getelementptr %struct.PGPROC, ptr %62, i64 %63, i32 18
-  %65 = getelementptr inbounds i8, ptr %0, i64 8
-  %66 = load i32, ptr %65, align 4
-  %67 = icmp eq i32 %66, -1
-  %68 = getelementptr inbounds i8, ptr %64, i64 4
-  br i1 %67, label %69, label %70
-
-69:                                               ; preds = %60
-  store i32 -1, ptr %68, align 4
-  store i32 -1, ptr %64, align 4
-  store i32 %2, ptr %37, align 4
-  br label %proclist_push_tail_offset.exit
-
-70:                                               ; preds = %60
-  store i32 %66, ptr %68, align 4
+70:                                               ; preds = %proclist_pop_head_node_offset.exit
   %71 = load ptr, ptr @ProcGlobal, align 8
   %72 = load ptr, ptr %71, align 8
-  %73 = sext i32 %66 to i64
+  %73 = sext i32 %2 to i64
   %74 = getelementptr %struct.PGPROC, ptr %72, i64 %73, i32 18
-  store i32 %2, ptr %74, align 4
-  store i32 -1, ptr %64, align 4
+  %75 = getelementptr inbounds i8, ptr %0, i64 8
+  %76 = load i32, ptr %75, align 4
+  %77 = icmp eq i32 %76, -1
+  %78 = getelementptr inbounds i8, ptr %74, i64 4
+  br i1 %77, label %79, label %80
+
+79:                                               ; preds = %70
+  store i32 -1, ptr %78, align 4
+  store i32 -1, ptr %74, align 4
+  store i32 %2, ptr %44, align 4
   br label %proclist_push_tail_offset.exit
 
-proclist_push_tail_offset.exit:                   ; preds = %69, %70
-  store i32 %2, ptr %65, align 4
-  br label %75
+80:                                               ; preds = %70
+  store i32 %76, ptr %78, align 4
+  %81 = load ptr, ptr @ProcGlobal, align 8
+  %82 = load ptr, ptr %81, align 8
+  %83 = sext i32 %76 to i64
+  %84 = getelementptr %struct.PGPROC, ptr %82, i64 %83, i32 18
+  store i32 %2, ptr %84, align 4
+  store i32 -1, ptr %74, align 4
+  br label %proclist_push_tail_offset.exit
 
-75:                                               ; preds = %proclist_push_tail_offset.exit, %proclist_pop_head_node_offset.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !11
-  store i8 0, ptr %0, align 4
-  %.not23 = icmp eq ptr %59, null
-  br i1 %.not23, label %78, label %76
-
-76:                                               ; preds = %75
-  %77 = getelementptr inbounds i8, ptr %59, i64 36
-  tail call void @SetLatch(ptr noundef nonnull %77) #4
-  br label %78
-
-78:                                               ; preds = %76, %75
-  br i1 %.not40, label %._crit_edge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %78
-  %79 = getelementptr inbounds i8, ptr %0, i64 8
-  %80 = sext i32 %2 to i64
-  br label %81
-
-81:                                               ; preds = %.lr.ph, %120
-  %82 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %0, i8 1, ptr nonnull elementtype(i8) %0) #4, !srcloc !6
-  %.not24 = icmp eq i8 %82, 0
-  br i1 %.not24, label %85, label %83
-
-83:                                               ; preds = %81
-  %84 = tail call i32 @s_lock(ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef 351, ptr noundef nonnull @__func__.ConditionVariableBroadcast) #4
+proclist_push_tail_offset.exit:                   ; preds = %79, %80
+  store i32 %2, ptr %75, align 4
   br label %85
 
-85:                                               ; preds = %81, %83
-  %.val = load i32, ptr %37, align 4
-  %86 = icmp eq i32 %.val, -1
-  br i1 %86, label %106, label %87
+85:                                               ; preds = %proclist_push_tail_offset.exit, %proclist_pop_head_node_offset.exit
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !11
+  store i8 0, ptr %0, align 4
+  %.not23 = icmp eq ptr %69, null
+  br i1 %.not23, label %88, label %86
 
-87:                                               ; preds = %85
-  %88 = load ptr, ptr @ProcGlobal, align 8
-  %89 = load ptr, ptr %88, align 8
-  %90 = sext i32 %.val to i64
-  %91 = getelementptr %struct.PGPROC, ptr %89, i64 %90, i32 18
-  %92 = getelementptr inbounds i8, ptr %91, i64 4
-  %93 = load i32, ptr %92, align 4
-  %94 = icmp eq i32 %93, -1
-  %95 = load i32, ptr %91, align 4
-  %96 = sext i32 %93 to i64
-  %97 = getelementptr %struct.PGPROC, ptr %89, i64 %96, i32 18
-  %.sink.i.i32 = select i1 %94, ptr %37, ptr %97
-  store i32 %95, ptr %.sink.i.i32, align 4
-  %98 = icmp eq i32 %95, -1
-  %99 = load i32, ptr %92, align 4
-  br i1 %98, label %proclist_pop_head_node_offset.exit35, label %100
+86:                                               ; preds = %85
+  %87 = getelementptr inbounds i8, ptr %69, i64 36
+  tail call void @SetLatch(ptr noundef nonnull %87) #4
+  br label %88
 
-100:                                              ; preds = %87
-  %101 = load ptr, ptr @ProcGlobal, align 8
-  %102 = load ptr, ptr %101, align 8
-  %103 = sext i32 %95 to i64
-  %104 = getelementptr %struct.PGPROC, ptr %102, i64 %103, i32 18, i32 1
-  br label %proclist_pop_head_node_offset.exit35
+88:                                               ; preds = %86, %85
+  br i1 %.not39, label %._crit_edge, label %.lr.ph
 
-proclist_pop_head_node_offset.exit35:             ; preds = %87, %100
-  %.sink16.i.i34 = phi ptr [ %104, %100 ], [ %79, %87 ]
-  %105 = getelementptr %struct.PGPROC, ptr %89, i64 %90
-  store i32 %99, ptr %.sink16.i.i34, align 4
-  store i32 0, ptr %92, align 4
-  store i32 0, ptr %91, align 4
-  br label %106
+.lr.ph:                                           ; preds = %88
+  %89 = getelementptr inbounds i8, ptr %0, i64 8
+  %90 = sext i32 %2 to i64
+  br label %91
 
-106:                                              ; preds = %proclist_pop_head_node_offset.exit35, %85
-  %.121 = phi ptr [ null, %85 ], [ %105, %proclist_pop_head_node_offset.exit35 ]
-  %107 = load ptr, ptr @ProcGlobal, align 8
-  %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr %struct.PGPROC, ptr %108, i64 %80, i32 18
-  %110 = getelementptr inbounds i8, ptr %109, i64 4
-  %111 = load i32, ptr %110, align 4
-  %112 = icmp eq i32 %111, 0
-  br i1 %112, label %113, label %116
+91:                                               ; preds = %.lr.ph, %134
+  %92 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %0, i8 1, ptr nonnull elementtype(i8) %0) #4, !srcloc !6
+  %.not24 = icmp eq i8 %92, 0
+  br i1 %.not24, label %95, label %93
 
-113:                                              ; preds = %106
-  %114 = load i32, ptr %109, align 4
-  %115 = icmp eq i32 %114, 0
-  br i1 %115, label %proclist_contains_offset.exit, label %116
+93:                                               ; preds = %91
+  %94 = tail call i32 @s_lock(ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef 351, ptr noundef nonnull @__func__.ConditionVariableBroadcast) #4
+  br label %95
 
-116:                                              ; preds = %113, %106
+95:                                               ; preds = %91, %93
+  %.val = load i32, ptr %44, align 4
+  %96 = icmp eq i32 %.val, -1
+  br i1 %96, label %120, label %97
+
+97:                                               ; preds = %95
+  %98 = load ptr, ptr @ProcGlobal, align 8
+  %99 = load ptr, ptr %98, align 8
+  %100 = sext i32 %.val to i64
+  %101 = getelementptr %struct.PGPROC, ptr %99, i64 %100, i32 18
+  %102 = getelementptr inbounds i8, ptr %101, i64 4
+  %103 = load i32, ptr %102, align 4
+  %104 = icmp eq i32 %103, -1
+  %105 = load i32, ptr %101, align 4
+  br i1 %104, label %106, label %107
+
+106:                                              ; preds = %97
+  store i32 %105, ptr %44, align 4
+  %.pre.i32 = load i32, ptr %102, align 4
+  br label %110
+
+107:                                              ; preds = %97
+  %108 = sext i32 %103 to i64
+  %109 = getelementptr %struct.PGPROC, ptr %99, i64 %108, i32 18
+  store i32 %105, ptr %109, align 4
+  br label %110
+
+110:                                              ; preds = %107, %106
+  %111 = phi i32 [ %103, %107 ], [ %.pre.i32, %106 ]
+  %112 = icmp eq i32 %105, -1
+  br i1 %112, label %113, label %114
+
+113:                                              ; preds = %110
+  store i32 %111, ptr %89, align 4
+  br label %proclist_pop_head_node_offset.exit33
+
+114:                                              ; preds = %110
+  %115 = load ptr, ptr @ProcGlobal, align 8
+  %116 = load ptr, ptr %115, align 8
+  %117 = sext i32 %105 to i64
+  %118 = getelementptr %struct.PGPROC, ptr %116, i64 %117, i32 18, i32 1
+  store i32 %111, ptr %118, align 4
+  br label %proclist_pop_head_node_offset.exit33
+
+proclist_pop_head_node_offset.exit33:             ; preds = %113, %114
+  %119 = getelementptr %struct.PGPROC, ptr %99, i64 %100
+  store i32 0, ptr %102, align 4
+  store i32 0, ptr %101, align 4
+  br label %120
+
+120:                                              ; preds = %proclist_pop_head_node_offset.exit33, %95
+  %.121 = phi ptr [ null, %95 ], [ %119, %proclist_pop_head_node_offset.exit33 ]
+  %121 = load ptr, ptr @ProcGlobal, align 8
+  %122 = load ptr, ptr %121, align 8
+  %123 = getelementptr %struct.PGPROC, ptr %122, i64 %90, i32 18
+  %124 = getelementptr inbounds i8, ptr %123, i64 4
+  %125 = load i32, ptr %124, align 4
+  %126 = icmp eq i32 %125, 0
+  br i1 %126, label %127, label %130
+
+127:                                              ; preds = %120
+  %128 = load i32, ptr %123, align 4
+  %129 = icmp eq i32 %128, 0
+  br i1 %129, label %proclist_contains_offset.exit, label %130
+
+130:                                              ; preds = %127, %120
   br label %proclist_contains_offset.exit
 
-proclist_contains_offset.exit:                    ; preds = %113, %116
-  %.0.i = phi i1 [ true, %116 ], [ false, %113 ]
+proclist_contains_offset.exit:                    ; preds = %127, %130
+  %.0.i34 = phi i1 [ true, %130 ], [ false, %127 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !12
   store i8 0, ptr %0, align 4
   %.not25 = icmp eq ptr %.121, null
-  %117 = load ptr, ptr @MyProc, align 8
-  %.not26 = icmp eq ptr %.121, %117
+  %131 = load ptr, ptr @MyProc, align 8
+  %.not26 = icmp eq ptr %.121, %131
   %or.cond = select i1 %.not25, i1 true, i1 %.not26
-  br i1 %or.cond, label %120, label %118
+  br i1 %or.cond, label %134, label %132
 
-118:                                              ; preds = %proclist_contains_offset.exit
-  %119 = getelementptr inbounds i8, ptr %.121, i64 36
-  tail call void @SetLatch(ptr noundef nonnull %119) #4
-  br label %120
+132:                                              ; preds = %proclist_contains_offset.exit
+  %133 = getelementptr inbounds i8, ptr %.121, i64 36
+  tail call void @SetLatch(ptr noundef nonnull %133) #4
+  br label %134
 
-120:                                              ; preds = %118, %proclist_contains_offset.exit
-  br i1 %.0.i, label %81, label %._crit_edge, !llvm.loop !13
+134:                                              ; preds = %132, %proclist_contains_offset.exit
+  br i1 %.0.i34, label %91, label %._crit_edge, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %120, %.thread, %78
+._crit_edge:                                      ; preds = %134, %.thread, %88
   ret void
 }
 

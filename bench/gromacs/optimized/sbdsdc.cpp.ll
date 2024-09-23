@@ -92,21 +92,18 @@ define void @sbdsdc_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %58 = sext i32 %57 to i64
   %59 = getelementptr float, ptr %38, i64 %58
   %60 = getelementptr i8, ptr %59, i64 4
-  br label %.sink.split
+  store float 1.000000e+00, ptr %60, align 4
+  br label %65
 
 61:                                               ; preds = %51
   %62 = load float, ptr %3, align 4
   %63 = fcmp ogt float %62, 0.000000e+00
   %64 = select i1 %63, float 1.000000e+00, float -1.000000e+00
   store float %64, ptr %5, align 4
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %52, %61
-  %.sink483 = phi ptr [ %7, %61 ], [ %60, %52 ]
-  store float 1.000000e+00, ptr %.sink483, align 4
+  store float 1.000000e+00, ptr %7, align 4
   br label %65
 
-65:                                               ; preds = %.sink.split, %51
+65:                                               ; preds = %51, %61, %52
   %66 = load float, ptr %3, align 4
   %67 = tail call noundef float @llvm.fabs.f32(float %66)
   store float %67, ptr %3, align 4
@@ -177,7 +174,7 @@ define void @sbdsdc_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %100 = load i32, ptr %2, align 4
   %101 = mul nsw i32 %100, 3
   %102 = add nsw i32 %101, %96
-  br label %.sink.split484
+  br label %.sink.split
 
 103:                                              ; preds = %.lr.ph
   %104 = getelementptr inbounds float, ptr %40, i64 %indvars.iv
@@ -186,19 +183,19 @@ define void @sbdsdc_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %106 = load i32, ptr %19, align 4
   %107 = trunc nuw nsw i64 %indvars.iv to i32
   %108 = add nsw i32 %106, %107
-  br label %.sink.split484
+  br label %.sink.split
 
-.sink.split484:                                   ; preds = %103, %93
-  %.sink489 = phi i32 [ %102, %93 ], [ %108, %103 ]
+.sink.split:                                      ; preds = %103, %93
+  %.sink487 = phi i32 [ %102, %93 ], [ %108, %103 ]
   %109 = phi ptr [ %9, %93 ], [ %11, %103 ]
-  %.sink485 = phi float [ %85, %93 ], [ %105, %103 ]
+  %.sink483 = phi float [ %85, %93 ], [ %105, %103 ]
   %110 = getelementptr inbounds i8, ptr %109, i64 -4
-  %111 = sext i32 %.sink489 to i64
+  %111 = sext i32 %.sink487 to i64
   %112 = getelementptr inbounds float, ptr %110, i64 %111
-  store float %.sink485, ptr %112, align 4
+  store float %.sink483, ptr %112, align 4
   br label %113
 
-113:                                              ; preds = %.sink.split484, %.lr.ph
+113:                                              ; preds = %.sink.split, %.lr.ph
   %114 = load i32, ptr %15, align 4
   %115 = sext i32 %114 to i64
   %.not.not = icmp slt i64 %indvars.iv, %115
@@ -443,7 +440,7 @@ define void @sbdsdc_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   store float %242, ptr %245, align 4
   %246 = load i32, ptr %2, align 4
   %247 = mul i32 %246, %196
-  br label %.sink.split490
+  br label %.sink.split488
 
 248:                                              ; preds = %231
   %249 = load i32, ptr %2, align 4
@@ -460,17 +457,17 @@ define void @sbdsdc_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %259 = load i32, ptr %25, align 4
   %260 = add nsw i32 %259, %.0391
   %261 = mul i32 %260, %258
-  br label %.sink.split490
+  br label %.sink.split488
 
-.sink.split490:                                   ; preds = %236, %248
-  %.sink494 = phi i32 [ %261, %248 ], [ %247, %236 ]
-  %.sink492 = phi ptr [ %38, %248 ], [ %37, %236 ]
-  %262 = sext i32 %.sink494 to i64
-  %263 = getelementptr inbounds float, ptr %.sink492, i64 %262
+.sink.split488:                                   ; preds = %236, %248
+  %.sink492 = phi i32 [ %261, %248 ], [ %247, %236 ]
+  %.sink490 = phi ptr [ %38, %248 ], [ %37, %236 ]
+  %262 = sext i32 %.sink492 to i64
+  %263 = getelementptr inbounds float, ptr %.sink490, i64 %262
   store float 1.000000e+00, ptr %263, align 4
   br label %264
 
-264:                                              ; preds = %.sink.split490, %231
+264:                                              ; preds = %.sink.split488, %231
   %265 = load i32, ptr %2, align 4
   %266 = sext i32 %265 to i64
   %267 = getelementptr inbounds float, ptr %30, i64 %266

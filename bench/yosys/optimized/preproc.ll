@@ -6686,6 +6686,7 @@ define linkonce_odr void @_ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11cha
   store ptr null, ptr %25, align 8
   store ptr %28, ptr %32, align 8
   store ptr %28, ptr %35, align 8
+  store i64 0, ptr %39, align 8
   br label %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys13define_body_tEEEE9constructIS9_JS9_EEEvRSA_PT_DpOT0_.exit
 
 42:                                               ; preds = %8
@@ -6697,11 +6698,10 @@ define linkonce_odr void @_ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11cha
   %45 = getelementptr inbounds i8, ptr %4, i64 128
   store ptr %24, ptr %45, align 8
   %46 = getelementptr inbounds i8, ptr %4, i64 136
+  store i64 0, ptr %46, align 8
   br label %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys13define_body_tEEEE9constructIS9_JS9_EEEvRSA_PT_DpOT0_.exit
 
 _ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys13define_body_tEEEE9constructIS9_JS9_EEEvRSA_PT_DpOT0_.exit: ; preds = %27, %42
-  %.sink.i.i.i.i.i.i.i.i.i = phi ptr [ %46, %42 ], [ %39, %27 ]
-  store i64 0, ptr %.sink.i.i.i.i.i.i.i.i.i, align 8
   %47 = load ptr, ptr %3, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 144
   store ptr %48, ptr %3, align 8
@@ -6828,6 +6828,7 @@ _ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys1
   store ptr null, ptr %64, align 8
   store ptr %67, ptr %71, align 8
   store ptr %67, ptr %74, align 8
+  store i64 0, ptr %78, align 8
   br label %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys13define_body_tEEEE9constructIS9_JS9_EEEvRSA_PT_DpOT0_.exit
 
 81:                                               ; preds = %_ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys13define_body_tEESaIS9_EE22_M_reserve_map_at_backEm.exit
@@ -6839,11 +6840,10 @@ _ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys1
   %84 = getelementptr inbounds i8, ptr %47, i64 128
   store ptr %63, ptr %84, align 8
   %85 = getelementptr inbounds i8, ptr %47, i64 136
+  store i64 0, ptr %85, align 8
   br label %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys13define_body_tEEEE9constructIS9_JS9_EEEvRSA_PT_DpOT0_.exit
 
 _ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys13define_body_tEEEE9constructIS9_JS9_EEEvRSA_PT_DpOT0_.exit: ; preds = %66, %81
-  %.sink.i.i.i.i.i.i.i.i.i = phi ptr [ %85, %81 ], [ %78, %66 ]
-  store i64 0, ptr %.sink.i.i.i.i.i.i.i.i.i, align 8
   %86 = load ptr, ptr %5, align 8
   %87 = getelementptr inbounds i8, ptr %86, i64 8
   store ptr %87, ptr %5, align 8

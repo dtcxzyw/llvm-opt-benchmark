@@ -46,29 +46,34 @@ if.end.i.i:                                       ; preds = %if.end.i
   %onend_cb_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %onend_cb_.i.i, align 8
   %cmp3.not.i.i = icmp eq ptr %5, null
-  br i1 %cmp3.not.i.i, label %sw.epilog, label %return.sink.split.i
+  br i1 %cmp3.not.i.i, label %sw.epilog, label %if.then4.i.i
+
+if.then4.i.i:                                     ; preds = %if.end.i.i
+  %cb_arg_.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %6 = load ptr, ptr %cb_arg_.i.i, align 8
+  tail call void %5(ptr noundef %6) #2
+  store ptr null, ptr %onend_cb_.i.i, align 8
+  br label %sw.epilog
 
 if.end.i7.i:                                      ; preds = %if.then14.i
   store i32 3, ptr %this, align 8
   %onend_cb_.i8.i = getelementptr inbounds i8, ptr %this, i64 16
-  %6 = load ptr, ptr %onend_cb_.i8.i, align 8
-  %cmp3.not.i9.i = icmp eq ptr %6, null
-  br i1 %cmp3.not.i9.i, label %sw.epilog, label %return.sink.split.i
+  %7 = load ptr, ptr %onend_cb_.i8.i, align 8
+  %cmp3.not.i9.i = icmp eq ptr %7, null
+  br i1 %cmp3.not.i9.i, label %sw.epilog, label %if.then4.i10.i
 
-return.sink.split.i:                              ; preds = %if.end.i7.i, %if.end.i.i
-  %.sink13.i = phi ptr [ %5, %if.end.i.i ], [ %6, %if.end.i7.i ]
-  %onend_cb_.i8.sink.i = phi ptr [ %onend_cb_.i.i, %if.end.i.i ], [ %onend_cb_.i8.i, %if.end.i7.i ]
+if.then4.i10.i:                                   ; preds = %if.end.i7.i
   %cb_arg_.i11.i = getelementptr inbounds i8, ptr %this, i64 24
-  %7 = load ptr, ptr %cb_arg_.i11.i, align 8
-  tail call void %.sink13.i(ptr noundef %7) #2
-  store ptr null, ptr %onend_cb_.i8.sink.i, align 8
+  %8 = load ptr, ptr %cb_arg_.i11.i, align 8
+  tail call void %7(ptr noundef %8) #2
+  store ptr null, ptr %onend_cb_.i8.i, align 8
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %if.then14.i, %entry
   tail call void @_ZN4node6crypto17ClientHelloParser11ParseHeaderEPKhm(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef %data, i64 noundef %avail)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %return.sink.split.i, %if.end.i7.i, %if.end.i.i, %sw.bb, %entry, %sw.bb2
+sw.epilog:                                        ; preds = %if.then4.i10.i, %if.end.i7.i, %if.then4.i.i, %if.end.i.i, %sw.bb, %entry, %sw.bb2
   ret void
 }
 
@@ -111,26 +116,31 @@ if.end.i:                                         ; preds = %if.else
   %onend_cb_.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %onend_cb_.i, align 8
   %cmp3.not.i = icmp eq ptr %5, null
-  br i1 %cmp3.not.i, label %return, label %return.sink.split
+  br i1 %cmp3.not.i, label %return, label %if.then4.i
+
+if.then4.i:                                       ; preds = %if.end.i
+  %cb_arg_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %6 = load ptr, ptr %cb_arg_.i, align 8
+  tail call void %5(ptr noundef %6) #2
+  store ptr null, ptr %onend_cb_.i, align 8
+  br label %return
 
 if.end.i7:                                        ; preds = %if.then14
   store i32 3, ptr %this, align 8
   %onend_cb_.i8 = getelementptr inbounds i8, ptr %this, i64 16
-  %6 = load ptr, ptr %onend_cb_.i8, align 8
-  %cmp3.not.i9 = icmp eq ptr %6, null
-  br i1 %cmp3.not.i9, label %return, label %return.sink.split
+  %7 = load ptr, ptr %onend_cb_.i8, align 8
+  %cmp3.not.i9 = icmp eq ptr %7, null
+  br i1 %cmp3.not.i9, label %return, label %if.then4.i10
 
-return.sink.split:                                ; preds = %if.end.i7, %if.end.i
-  %.sink13 = phi ptr [ %5, %if.end.i ], [ %6, %if.end.i7 ]
-  %onend_cb_.i8.sink = phi ptr [ %onend_cb_.i, %if.end.i ], [ %onend_cb_.i8, %if.end.i7 ]
+if.then4.i10:                                     ; preds = %if.end.i7
   %cb_arg_.i11 = getelementptr inbounds i8, ptr %this, i64 24
-  %7 = load ptr, ptr %cb_arg_.i11, align 8
-  tail call void %.sink13(ptr noundef %7) #2
-  store ptr null, ptr %onend_cb_.i8.sink, align 8
+  %8 = load ptr, ptr %cb_arg_.i11, align 8
+  tail call void %7(ptr noundef %8) #2
+  store ptr null, ptr %onend_cb_.i8, align 8
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.end.i7, %if.end.i, %if.else, %if.then14, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ true, %if.then14 ], [ false, %if.else ], [ false, %if.end.i ], [ false, %if.end.i7 ], [ false, %return.sink.split ]
+return:                                           ; preds = %if.then4.i10, %if.end.i7, %if.then4.i, %if.end.i, %if.else, %if.then14, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.then14 ], [ false, %if.else ], [ false, %if.end.i ], [ false, %if.then4.i ], [ false, %if.end.i7 ], [ false, %if.then4.i10 ]
   ret i1 %retval.0
 }
 

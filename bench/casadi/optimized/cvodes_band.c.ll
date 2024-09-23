@@ -405,15 +405,15 @@ define range(i32 -101, 1) i32 @CVBandB(ptr noundef %0, i32 noundef %1, i64 nound
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %19
-  %.sink = phi ptr [ %23, %.lr.ph ], [ %20, %19 ]
-  %.028 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
-  %21 = load i32, ptr %.028, align 8
+  %.028.sink.in = phi ptr [ %23, %.lr.ph ], [ %20, %19 ]
+  %.028.sink = load ptr, ptr %.028.sink.in, align 8, !nonnull !4, !noundef !4
+  %21 = load i32, ptr %.028.sink, align 8
   %22 = icmp eq i32 %1, %21
-  %23 = getelementptr inbounds i8, ptr %.028, i64 120
+  %23 = getelementptr inbounds i8, ptr %.028.sink, i64 120
   br i1 %22, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %24 = getelementptr inbounds i8, ptr %.028, i64 16
+  %24 = getelementptr inbounds i8, ptr %.028.sink, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #8
   %27 = icmp eq ptr %26, null
@@ -427,9 +427,9 @@ define range(i32 -101, 1) i32 @CVBandB(ptr noundef %0, i32 noundef %1, i64 nound
   store i32 2, ptr %26, align 8
   %30 = getelementptr inbounds i8, ptr %26, i64 24
   store ptr null, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %.028, i64 72
+  %31 = getelementptr inbounds i8, ptr %.028.sink, i64 72
   store ptr %26, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %.028, i64 80
+  %32 = getelementptr inbounds i8, ptr %.028.sink, i64 80
   store ptr @cvBandFreeB, ptr %32, align 8
   %33 = tail call i32 @CVBand(ptr noundef %25, i64 noundef %2, i64 noundef %3, i64 noundef %4)
   %.not33 = icmp eq i32 %33, 0

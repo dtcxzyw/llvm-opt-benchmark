@@ -407,13 +407,14 @@ lor.lhs.false24.i:                                ; preds = %lor.lhs.false17.i
 
 if.then34.i:                                      ; preds = %lor.lhs.false24.i, %lor.lhs.false17.i, %lor.lhs.false14.i
   store ptr null, ptr @myoptarg, align 8
-  br label %while.end.sink.split.sink.split
+  %9 = load ptr, ptr %arrayidx.i, align 8
+  br label %while.end.sink.split
 
 if.end38.tail.i:                                  ; preds = %lor.lhs.false24.i
-  %9 = getelementptr inbounds i8, ptr %6, i64 2
-  %10 = load i8, ptr %9, align 1
-  %11 = icmp eq i8 %10, 0
-  br i1 %11, label %if.then43.i, label %if.then57.i
+  %10 = getelementptr inbounds i8, ptr %6, i64 2
+  %11 = load i8, ptr %10, align 1
+  %12 = icmp eq i8 %11, 0
+  br i1 %12, label %if.then43.i, label %if.then57.i
 
 if.then43.i:                                      ; preds = %if.end38.tail.i
   %inc44.i = add nsw i32 %5, 1
@@ -425,29 +426,30 @@ if.then43.i:                                      ; preds = %if.end38.tail.i
 if.then47.i:                                      ; preds = %if.then43.i
   %idxprom48.i = sext i32 %inc44.i to i64
   %arrayidx49.i = getelementptr inbounds ptr, ptr %1, i64 %idxprom48.i
-  br label %while.end.sink.split.sink.split
+  %13 = load ptr, ptr %arrayidx49.i, align 8
+  br label %while.end.sink.split
 
 if.then57.i:                                      ; preds = %if.end38.tail.i
   store ptr null, ptr @myoptarg, align 8
-  %12 = load ptr, ptr %arrayidx.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 2
+  %14 = load ptr, ptr %arrayidx.i, align 8
+  %add.ptr.i = getelementptr inbounds i8, ptr %14, i64 2
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %if.then57.i
-  %13 = phi ptr [ @.str.7, %if.then57.i ], [ %17, %for.inc.i ]
+  %15 = phi ptr [ @.str.7, %if.then57.i ], [ %19, %for.inc.i ]
   %i.07.i = phi ptr [ @client_test.long_options, %if.then57.i ], [ %incdec.ptr.i, %for.inc.i ]
-  %call61.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr.i, ptr noundef nonnull dereferenceable(1) %13) #20
+  %call61.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr.i, ptr noundef nonnull dereferenceable(1) %15) #20
   %tobool62.not.i = icmp eq i32 %call61.i, 0
   br i1 %tobool62.not.i, label %if.then63.i, label %for.inc.i
 
 if.then63.i:                                      ; preds = %for.body.i
   %value.i = getelementptr inbounds i8, ptr %i.07.i, i64 12
-  %14 = load i32, ptr %value.i, align 4
+  %16 = load i32, ptr %value.i, align 4
   %inc64.i = add nsw i32 %5, 1
   store i32 %inc64.i, ptr @myoptind, align 4
   %takes_arg.i = getelementptr inbounds i8, ptr %i.07.i, i64 8
-  %15 = load i32, ptr %takes_arg.i, align 8
-  %tobool69.not.i = icmp eq i32 %15, 0
+  %17 = load i32, ptr %takes_arg.i, align 8
+  %tobool69.not.i = icmp eq i32 %17, 0
   br i1 %tobool69.not.i, label %mygetopt_long.exit, label %if.then70.i
 
 if.then70.i:                                      ; preds = %if.then63.i
@@ -455,15 +457,15 @@ if.then70.i:                                      ; preds = %if.then63.i
   br i1 %cmp71.i, label %if.then73.i, label %if.else.i
 
 if.then73.i:                                      ; preds = %if.then70.i
-  %cmp75.i = icmp eq i32 %15, 1
+  %cmp75.i = icmp eq i32 %17, 1
   %idxprom85.phi.trans.insert.i = sext i32 %inc64.i to i64
   %arrayidx86.phi.trans.insert.i = getelementptr inbounds ptr, ptr %1, i64 %idxprom85.phi.trans.insert.i
   %.pre11.i = load ptr, ptr %arrayidx86.phi.trans.insert.i, align 8
   br i1 %cmp75.i, label %if.then84.i, label %lor.lhs.false77.i
 
 lor.lhs.false77.i:                                ; preds = %if.then73.i
-  %16 = load i8, ptr %.pre11.i, align 1
-  %cmp82.not.i = icmp eq i8 %16, 45
+  %18 = load i8, ptr %.pre11.i, align 1
+  %cmp82.not.i = icmp eq i8 %18, 45
   br i1 %cmp82.not.i, label %mygetopt_long.exit, label %if.then84.i
 
 if.then84.i:                                      ; preds = %lor.lhs.false77.i, %if.then73.i
@@ -473,15 +475,15 @@ if.then84.i:                                      ; preds = %lor.lhs.false77.i, 
   br label %mygetopt_long.exit
 
 if.else.i:                                        ; preds = %if.then70.i
-  %cmp90.not.i = icmp ne i32 %15, 2
-  %cmp.not = icmp eq i32 %14, -1
+  %cmp90.not.i = icmp ne i32 %17, 2
+  %cmp.not = icmp eq i32 %16, -1
   %or.cond465 = select i1 %cmp90.not.i, i1 true, i1 %cmp.not
   br i1 %or.cond465, label %while.end, label %while.body
 
 for.inc.i:                                        ; preds = %for.body.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %i.07.i, i64 16
-  %17 = load ptr, ptr %incdec.ptr.i, align 8
-  %tobool.not.i = icmp eq ptr %17, null
+  %19 = load ptr, ptr %incdec.ptr.i, align 8
+  %tobool.not.i = icmp eq ptr %19, null
   br i1 %tobool.not.i, label %while.end, label %for.body.i, !llvm.loop !5
 
 if.end97.i:                                       ; preds = %lor.lhs.false24.i
@@ -491,30 +493,30 @@ if.end97.i:                                       ; preds = %lor.lhs.false24.i
   br label %if.end102.i
 
 if.end102.i:                                      ; preds = %if.end97.i, %lor.lhs.false.i
-  %18 = phi i32 [ %inc101.i, %if.end97.i ], [ %3, %lor.lhs.false.i ]
-  %19 = phi i8 [ %.pre.i, %if.end97.i ], [ %4, %lor.lhs.false.i ]
-  %20 = phi ptr [ %arrayidx27.i, %if.end97.i ], [ %.pr.i, %lor.lhs.false.i ]
-  %incdec.ptr103.i = getelementptr inbounds i8, ptr %20, i64 1
+  %20 = phi i32 [ %inc101.i, %if.end97.i ], [ %3, %lor.lhs.false.i ]
+  %21 = phi i8 [ %.pre.i, %if.end97.i ], [ %4, %lor.lhs.false.i ]
+  %22 = phi ptr [ %arrayidx27.i, %if.end97.i ], [ %.pr.i, %lor.lhs.false.i ]
+  %incdec.ptr103.i = getelementptr inbounds i8, ptr %22, i64 1
   store ptr %incdec.ptr103.i, ptr @mygetopt_long.next, align 8
-  %conv104.i = zext i8 %19 to i32
+  %conv104.i = zext i8 %21 to i32
   %memchr.i = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.15, i32 %conv104.i, i64 91)
   %cmp106.i = icmp eq ptr %memchr.i, null
-  %21 = and i8 %19, -2
-  %22 = icmp eq i8 %21, 58
-  %or.cond1.i = select i1 %cmp106.i, i1 true, i1 %22
+  %23 = and i8 %21, -2
+  %24 = icmp eq i8 %23, 58
+  %or.cond1.i = select i1 %cmp106.i, i1 true, i1 %24
   br i1 %or.cond1.i, label %sw.bb, label %if.end115.i
 
 if.end115.i:                                      ; preds = %if.end102.i
   %incdec.ptr116.i = getelementptr inbounds i8, ptr %memchr.i, i64 1
-  %23 = load i8, ptr %incdec.ptr116.i, align 1
-  switch i8 %23, label %while.body [
+  %25 = load i8, ptr %incdec.ptr116.i, align 1
+  switch i8 %25, label %while.body [
     i8 58, label %if.then120.i
     i8 59, label %if.then139.i
   ]
 
 if.then120.i:                                     ; preds = %if.end115.i
-  %24 = load i8, ptr %incdec.ptr103.i, align 1
-  %cmp122.not.i = icmp eq i8 %24, 0
+  %26 = load i8, ptr %incdec.ptr103.i, align 1
+  %cmp122.not.i = icmp eq i8 %26, 0
   br i1 %cmp122.not.i, label %if.else125.i, label %if.then124.i
 
 if.then124.i:                                     ; preds = %if.then120.i
@@ -523,22 +525,22 @@ if.then124.i:                                     ; preds = %if.then120.i
   br label %while.body
 
 if.else125.i:                                     ; preds = %if.then120.i
-  %cmp126.i = icmp slt i32 %18, %0
+  %cmp126.i = icmp slt i32 %20, %0
   br i1 %cmp126.i, label %if.then128.i, label %sw.bb
 
 if.then128.i:                                     ; preds = %if.else125.i
-  %idxprom129.i = sext i32 %18 to i64
+  %idxprom129.i = sext i32 %20 to i64
   %arrayidx130.i = getelementptr inbounds ptr, ptr %1, i64 %idxprom129.i
-  %25 = load ptr, ptr %arrayidx130.i, align 8
-  store ptr %25, ptr @myoptarg, align 8
-  %inc131.i = add nsw i32 %18, 1
+  %27 = load ptr, ptr %arrayidx130.i, align 8
+  store ptr %27, ptr @myoptarg, align 8
+  %inc131.i = add nsw i32 %20, 1
   store i32 %inc131.i, ptr @myoptind, align 4
   br label %while.body
 
 if.then139.i:                                     ; preds = %if.end115.i
   store ptr @.str.67, ptr @myoptarg, align 8
-  %26 = load i8, ptr %incdec.ptr103.i, align 1
-  %cmp141.not.i = icmp eq i8 %26, 0
+  %28 = load i8, ptr %incdec.ptr103.i, align 1
+  %cmp141.not.i = icmp eq i8 %28, 0
   br i1 %cmp141.not.i, label %if.else144.i, label %if.then143.i
 
 if.then143.i:                                     ; preds = %if.then139.i
@@ -547,33 +549,33 @@ if.then143.i:                                     ; preds = %if.then139.i
   br label %while.body
 
 if.else144.i:                                     ; preds = %if.then139.i
-  %cmp145.i = icmp slt i32 %18, %0
+  %cmp145.i = icmp slt i32 %20, %0
   br i1 %cmp145.i, label %if.then147.i, label %while.body
 
 if.then147.i:                                     ; preds = %if.else144.i
-  %idxprom148.i = sext i32 %18 to i64
+  %idxprom148.i = sext i32 %20 to i64
   %arrayidx149.i = getelementptr inbounds ptr, ptr %1, i64 %idxprom148.i
-  %27 = load ptr, ptr %arrayidx149.i, align 8
-  %tobool150.not.i = icmp eq ptr %27, null
+  %29 = load ptr, ptr %arrayidx149.i, align 8
+  %tobool150.not.i = icmp eq ptr %29, null
   br i1 %tobool150.not.i, label %while.body, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then147.i
-  %28 = load i8, ptr %27, align 1
-  %cmp155.not.i = icmp eq i8 %28, 45
+  %30 = load i8, ptr %29, align 1
+  %cmp155.not.i = icmp eq i8 %30, 45
   br i1 %cmp155.not.i, label %while.body, label %if.then157.i
 
 if.then157.i:                                     ; preds = %land.lhs.true.i
-  store ptr %27, ptr @myoptarg, align 8
-  %inc160.i = add nsw i32 %18, 1
+  store ptr %29, ptr @myoptarg, align 8
+  %inc160.i = add nsw i32 %20, 1
   store i32 %inc160.i, ptr @myoptind, align 4
   br label %while.body
 
 mygetopt_long.exit:                               ; preds = %if.then63.i, %lor.lhs.false77.i, %if.then84.i
-  %cmp.not.old = icmp eq i32 %14, -1
+  %cmp.not.old = icmp eq i32 %16, -1
   br i1 %cmp.not.old, label %while.end, label %while.body
 
 while.body:                                       ; preds = %if.else.i, %if.then128.i, %if.then124.i, %if.then143.i, %if.then147.i, %land.lhs.true.i, %if.then157.i, %if.else144.i, %if.end115.i, %mygetopt_long.exit
-  %retval.0.i423 = phi i32 [ %14, %mygetopt_long.exit ], [ %conv104.i, %if.then128.i ], [ %conv104.i, %if.then124.i ], [ %conv104.i, %if.then143.i ], [ %conv104.i, %if.then147.i ], [ %conv104.i, %land.lhs.true.i ], [ %conv104.i, %if.then157.i ], [ %conv104.i, %if.else144.i ], [ %conv104.i, %if.end115.i ], [ %14, %if.else.i ]
+  %retval.0.i423 = phi i32 [ %16, %mygetopt_long.exit ], [ %conv104.i, %if.then128.i ], [ %conv104.i, %if.then124.i ], [ %conv104.i, %if.then143.i ], [ %conv104.i, %if.then147.i ], [ %conv104.i, %land.lhs.true.i ], [ %conv104.i, %if.then157.i ], [ %conv104.i, %if.else144.i ], [ %conv104.i, %if.end115.i ], [ %16, %if.else.i ]
   switch i32 %retval.0.i423, label %sw.default [
     i32 63, label %sw.bb
     i32 257, label %sw.bb9
@@ -649,8 +651,8 @@ while.body:                                       ; preds = %if.else.i, %if.then
 
 if.end.i.backedge:                                ; preds = %sw.bb139, %sw.bb28, %sw.bb170, %sw.bb184, %sw.bb154, %for.end, %sw.bb105, %sw.bb96, %if.then48, %if.then59, %if.then71, %if.then83, %if.then77, %if.then65, %if.then53, %if.end33, %while.body, %while.body, %while.body, %while.body, %while.body, %while.body, %while.body, %while.body, %while.body, %while.body, %while.body, %while.body, %while.body, %while.body, %while.body, %while.body, %while.body, %while.body, %while.body, %while.body, %while.body, %while.body, %while.body, %while.body, %sw.bb202, %sw.bb200, %sw.bb199, %sw.bb183, %sw.bb179, %sw.bb166, %sw.bb165, %sw.bb164, %sw.bb163, %sw.bb162, %sw.bb161, %sw.bb148, %sw.bb137, %sw.bb134, %sw.bb133, %sw.bb132, %sw.bb95, %sw.bb94, %sw.bb93, %sw.bb43, %sw.bb26, %sw.bb25, %sw.bb22, %sw.bb20, %sw.bb19, %sw.bb18, %sw.bb16, %sw.bb14, %sw.bb12, %sw.bb11
   %port.01538.be = phi i16 [ %port.01538, %sw.bb202 ], [ %port.01538, %sw.bb200 ], [ %port.01538, %sw.bb199 ], [ %port.01538, %sw.bb184 ], [ %port.01538, %sw.bb183 ], [ %port.01538, %sw.bb179 ], [ %port.01538, %sw.bb170 ], [ %port.01538, %sw.bb166 ], [ %port.01538, %sw.bb165 ], [ %port.01538, %sw.bb164 ], [ %port.01538, %sw.bb163 ], [ %port.01538, %sw.bb162 ], [ %port.01538, %sw.bb161 ], [ %port.01538, %sw.bb154 ], [ %port.01538, %sw.bb148 ], [ %port.01538, %sw.bb137 ], [ %port.01538, %sw.bb134 ], [ %port.01538, %sw.bb133 ], [ %port.01538, %sw.bb132 ], [ %port.01538, %for.end ], [ %port.01538, %sw.bb105 ], [ %port.01538, %sw.bb96 ], [ %port.01538, %sw.bb95 ], [ %port.01538, %sw.bb94 ], [ %port.01538, %sw.bb93 ], [ %port.01538, %if.then48 ], [ %port.01538, %if.then53 ], [ %port.01538, %if.then59 ], [ %port.01538, %if.then65 ], [ %port.01538, %if.then71 ], [ %port.01538, %if.then77 ], [ %port.01538, %if.then83 ], [ %port.01538, %sw.bb43 ], [ %port.01538, %if.end33 ], [ %conv, %sw.bb26 ], [ %port.01538, %sw.bb25 ], [ %port.01538, %sw.bb22 ], [ %port.01538, %sw.bb20 ], [ %port.01538, %sw.bb19 ], [ %port.01538, %sw.bb18 ], [ %port.01538, %sw.bb16 ], [ %port.01538, %while.body ], [ %port.01538, %while.body ], [ %port.01538, %while.body ], [ %port.01538, %while.body ], [ %port.01538, %while.body ], [ %port.01538, %while.body ], [ %port.01538, %while.body ], [ %port.01538, %while.body ], [ %port.01538, %while.body ], [ %port.01538, %while.body ], [ %port.01538, %while.body ], [ %port.01538, %while.body ], [ %port.01538, %while.body ], [ %port.01538, %while.body ], [ %port.01538, %while.body ], [ %port.01538, %while.body ], [ %port.01538, %while.body ], [ %port.01538, %while.body ], [ %port.01538, %while.body ], [ %port.01538, %while.body ], [ %port.01538, %while.body ], [ %port.01538, %while.body ], [ %port.01538, %while.body ], [ %port.01538, %sw.bb14 ], [ %port.01538, %sw.bb12 ], [ %port.01538, %sw.bb11 ], [ %port.01538, %sw.bb28 ], [ %port.01538, %sw.bb139 ], [ %port.01538, %while.body ]
-  %host.01536.be = phi ptr [ %host.01536, %sw.bb202 ], [ %host.01536, %sw.bb200 ], [ %host.01536, %sw.bb199 ], [ %host.01536, %sw.bb184 ], [ %host.01536, %sw.bb183 ], [ %host.01536, %sw.bb179 ], [ %host.01536, %sw.bb170 ], [ %host.01536, %sw.bb166 ], [ %host.01536, %sw.bb165 ], [ %host.01536, %sw.bb164 ], [ %host.01536, %sw.bb163 ], [ %host.01536, %sw.bb162 ], [ %host.01536, %sw.bb161 ], [ %host.01536, %sw.bb154 ], [ %host.01536, %sw.bb148 ], [ %host.01536, %sw.bb137 ], [ %host.01536, %sw.bb134 ], [ %host.01536, %sw.bb133 ], [ %host.01536, %sw.bb132 ], [ %host.01536, %for.end ], [ %host.01536, %sw.bb105 ], [ %host.01536, %sw.bb96 ], [ %host.01536, %sw.bb95 ], [ %host.01536, %sw.bb94 ], [ %host.01536, %sw.bb93 ], [ %host.01536, %if.then48 ], [ %host.01536, %if.then53 ], [ %host.01536, %if.then59 ], [ %host.01536, %if.then65 ], [ %host.01536, %if.then71 ], [ %host.01536, %if.then77 ], [ %host.01536, %if.then83 ], [ %host.01536, %sw.bb43 ], [ %host.01536, %if.end33 ], [ %host.01536, %sw.bb26 ], [ %30, %sw.bb25 ], [ %host.01536, %sw.bb22 ], [ %host.01536, %sw.bb20 ], [ %host.01536, %sw.bb19 ], [ %host.01536, %sw.bb18 ], [ %host.01536, %sw.bb16 ], [ %host.01536, %while.body ], [ %host.01536, %while.body ], [ %host.01536, %while.body ], [ %host.01536, %while.body ], [ %host.01536, %while.body ], [ %host.01536, %while.body ], [ %host.01536, %while.body ], [ %host.01536, %while.body ], [ %host.01536, %while.body ], [ %host.01536, %while.body ], [ %host.01536, %while.body ], [ %host.01536, %while.body ], [ %host.01536, %while.body ], [ %host.01536, %while.body ], [ %host.01536, %while.body ], [ %host.01536, %while.body ], [ %host.01536, %while.body ], [ %host.01536, %while.body ], [ %host.01536, %while.body ], [ %host.01536, %while.body ], [ %host.01536, %while.body ], [ %host.01536, %while.body ], [ %host.01536, %while.body ], [ %host.01536, %sw.bb14 ], [ %host.01536, %sw.bb12 ], [ %host.01536, %sw.bb11 ], [ %host.01536, %sw.bb28 ], [ %host.01536, %sw.bb139 ], [ %host.01536, %while.body ]
-  %domain.01534.be = phi ptr [ %domain.01534, %sw.bb202 ], [ %domain.01534, %sw.bb200 ], [ %domain.01534, %sw.bb199 ], [ %domain.01534, %sw.bb184 ], [ %domain.01534, %sw.bb183 ], [ %domain.01534, %sw.bb179 ], [ %domain.01534, %sw.bb170 ], [ %domain.01534, %sw.bb166 ], [ %domain.01534, %sw.bb165 ], [ %domain.01534, %sw.bb164 ], [ %domain.01534, %sw.bb163 ], [ %domain.01534, %sw.bb162 ], [ %domain.01534, %sw.bb161 ], [ %domain.01534, %sw.bb154 ], [ %domain.01534, %sw.bb148 ], [ %domain.01534, %sw.bb137 ], [ %domain.01534, %sw.bb134 ], [ %domain.01534, %sw.bb133 ], [ %domain.01534, %sw.bb132 ], [ %domain.01534, %for.end ], [ %domain.01534, %sw.bb105 ], [ %domain.01534, %sw.bb96 ], [ %domain.01534, %sw.bb95 ], [ %domain.01534, %sw.bb94 ], [ %domain.01534, %sw.bb93 ], [ %domain.01534, %if.then48 ], [ %domain.01534, %if.then53 ], [ %domain.01534, %if.then59 ], [ %domain.01534, %if.then65 ], [ %domain.01534, %if.then71 ], [ %domain.01534, %if.then77 ], [ %domain.01534, %if.then83 ], [ %domain.01534, %sw.bb43 ], [ %domain.01534, %if.end33 ], [ %domain.01534, %sw.bb26 ], [ %30, %sw.bb25 ], [ %domain.01534, %sw.bb22 ], [ %domain.01534, %sw.bb20 ], [ %domain.01534, %sw.bb19 ], [ %domain.01534, %sw.bb18 ], [ %domain.01534, %sw.bb16 ], [ %domain.01534, %while.body ], [ %domain.01534, %while.body ], [ %domain.01534, %while.body ], [ %domain.01534, %while.body ], [ %domain.01534, %while.body ], [ %domain.01534, %while.body ], [ %domain.01534, %while.body ], [ %domain.01534, %while.body ], [ %domain.01534, %while.body ], [ %domain.01534, %while.body ], [ %domain.01534, %while.body ], [ %domain.01534, %while.body ], [ %domain.01534, %while.body ], [ %domain.01534, %while.body ], [ %domain.01534, %while.body ], [ %domain.01534, %while.body ], [ %domain.01534, %while.body ], [ %domain.01534, %while.body ], [ %domain.01534, %while.body ], [ %domain.01534, %while.body ], [ %domain.01534, %while.body ], [ %domain.01534, %while.body ], [ %domain.01534, %while.body ], [ %domain.01534, %sw.bb14 ], [ %domain.01534, %sw.bb12 ], [ %domain.01534, %sw.bb11 ], [ %domain.01534, %sw.bb28 ], [ %domain.01534, %sw.bb139 ], [ %domain.01534, %while.body ]
+  %host.01536.be = phi ptr [ %host.01536, %sw.bb202 ], [ %host.01536, %sw.bb200 ], [ %host.01536, %sw.bb199 ], [ %host.01536, %sw.bb184 ], [ %host.01536, %sw.bb183 ], [ %host.01536, %sw.bb179 ], [ %host.01536, %sw.bb170 ], [ %host.01536, %sw.bb166 ], [ %host.01536, %sw.bb165 ], [ %host.01536, %sw.bb164 ], [ %host.01536, %sw.bb163 ], [ %host.01536, %sw.bb162 ], [ %host.01536, %sw.bb161 ], [ %host.01536, %sw.bb154 ], [ %host.01536, %sw.bb148 ], [ %host.01536, %sw.bb137 ], [ %host.01536, %sw.bb134 ], [ %host.01536, %sw.bb133 ], [ %host.01536, %sw.bb132 ], [ %host.01536, %for.end ], [ %host.01536, %sw.bb105 ], [ %host.01536, %sw.bb96 ], [ %host.01536, %sw.bb95 ], [ %host.01536, %sw.bb94 ], [ %host.01536, %sw.bb93 ], [ %host.01536, %if.then48 ], [ %host.01536, %if.then53 ], [ %host.01536, %if.then59 ], [ %host.01536, %if.then65 ], [ %host.01536, %if.then71 ], [ %host.01536, %if.then77 ], [ %host.01536, %if.then83 ], [ %host.01536, %sw.bb43 ], [ %host.01536, %if.end33 ], [ %host.01536, %sw.bb26 ], [ %32, %sw.bb25 ], [ %host.01536, %sw.bb22 ], [ %host.01536, %sw.bb20 ], [ %host.01536, %sw.bb19 ], [ %host.01536, %sw.bb18 ], [ %host.01536, %sw.bb16 ], [ %host.01536, %while.body ], [ %host.01536, %while.body ], [ %host.01536, %while.body ], [ %host.01536, %while.body ], [ %host.01536, %while.body ], [ %host.01536, %while.body ], [ %host.01536, %while.body ], [ %host.01536, %while.body ], [ %host.01536, %while.body ], [ %host.01536, %while.body ], [ %host.01536, %while.body ], [ %host.01536, %while.body ], [ %host.01536, %while.body ], [ %host.01536, %while.body ], [ %host.01536, %while.body ], [ %host.01536, %while.body ], [ %host.01536, %while.body ], [ %host.01536, %while.body ], [ %host.01536, %while.body ], [ %host.01536, %while.body ], [ %host.01536, %while.body ], [ %host.01536, %while.body ], [ %host.01536, %while.body ], [ %host.01536, %sw.bb14 ], [ %host.01536, %sw.bb12 ], [ %host.01536, %sw.bb11 ], [ %host.01536, %sw.bb28 ], [ %host.01536, %sw.bb139 ], [ %host.01536, %while.body ]
+  %domain.01534.be = phi ptr [ %domain.01534, %sw.bb202 ], [ %domain.01534, %sw.bb200 ], [ %domain.01534, %sw.bb199 ], [ %domain.01534, %sw.bb184 ], [ %domain.01534, %sw.bb183 ], [ %domain.01534, %sw.bb179 ], [ %domain.01534, %sw.bb170 ], [ %domain.01534, %sw.bb166 ], [ %domain.01534, %sw.bb165 ], [ %domain.01534, %sw.bb164 ], [ %domain.01534, %sw.bb163 ], [ %domain.01534, %sw.bb162 ], [ %domain.01534, %sw.bb161 ], [ %domain.01534, %sw.bb154 ], [ %domain.01534, %sw.bb148 ], [ %domain.01534, %sw.bb137 ], [ %domain.01534, %sw.bb134 ], [ %domain.01534, %sw.bb133 ], [ %domain.01534, %sw.bb132 ], [ %domain.01534, %for.end ], [ %domain.01534, %sw.bb105 ], [ %domain.01534, %sw.bb96 ], [ %domain.01534, %sw.bb95 ], [ %domain.01534, %sw.bb94 ], [ %domain.01534, %sw.bb93 ], [ %domain.01534, %if.then48 ], [ %domain.01534, %if.then53 ], [ %domain.01534, %if.then59 ], [ %domain.01534, %if.then65 ], [ %domain.01534, %if.then71 ], [ %domain.01534, %if.then77 ], [ %domain.01534, %if.then83 ], [ %domain.01534, %sw.bb43 ], [ %domain.01534, %if.end33 ], [ %domain.01534, %sw.bb26 ], [ %32, %sw.bb25 ], [ %domain.01534, %sw.bb22 ], [ %domain.01534, %sw.bb20 ], [ %domain.01534, %sw.bb19 ], [ %domain.01534, %sw.bb18 ], [ %domain.01534, %sw.bb16 ], [ %domain.01534, %while.body ], [ %domain.01534, %while.body ], [ %domain.01534, %while.body ], [ %domain.01534, %while.body ], [ %domain.01534, %while.body ], [ %domain.01534, %while.body ], [ %domain.01534, %while.body ], [ %domain.01534, %while.body ], [ %domain.01534, %while.body ], [ %domain.01534, %while.body ], [ %domain.01534, %while.body ], [ %domain.01534, %while.body ], [ %domain.01534, %while.body ], [ %domain.01534, %while.body ], [ %domain.01534, %while.body ], [ %domain.01534, %while.body ], [ %domain.01534, %while.body ], [ %domain.01534, %while.body ], [ %domain.01534, %while.body ], [ %domain.01534, %while.body ], [ %domain.01534, %while.body ], [ %domain.01534, %while.body ], [ %domain.01534, %while.body ], [ %domain.01534, %sw.bb14 ], [ %domain.01534, %sw.bb12 ], [ %domain.01534, %sw.bb11 ], [ %domain.01534, %sw.bb28 ], [ %domain.01534, %sw.bb139 ], [ %domain.01534, %while.body ]
   %disallowETM.01532.be = phi i32 [ %disallowETM.01532, %sw.bb202 ], [ %disallowETM.01532, %sw.bb200 ], [ %disallowETM.01532, %sw.bb199 ], [ %disallowETM.01532, %sw.bb184 ], [ %disallowETM.01532, %sw.bb183 ], [ %disallowETM.01532, %sw.bb179 ], [ %disallowETM.01532, %sw.bb170 ], [ %disallowETM.01532, %sw.bb166 ], [ %disallowETM.01532, %sw.bb165 ], [ %disallowETM.01532, %sw.bb164 ], [ %disallowETM.01532, %sw.bb163 ], [ %disallowETM.01532, %sw.bb162 ], [ %disallowETM.01532, %sw.bb161 ], [ %disallowETM.01532, %sw.bb154 ], [ %disallowETM.01532, %sw.bb148 ], [ %disallowETM.01532, %sw.bb137 ], [ %disallowETM.01532, %sw.bb134 ], [ %disallowETM.01532, %sw.bb133 ], [ %disallowETM.01532, %sw.bb132 ], [ %disallowETM.01532, %for.end ], [ %disallowETM.01532, %sw.bb105 ], [ %disallowETM.01532, %sw.bb96 ], [ %disallowETM.01532, %sw.bb95 ], [ %disallowETM.01532, %sw.bb94 ], [ %disallowETM.01532, %sw.bb93 ], [ %disallowETM.01532, %if.then48 ], [ %disallowETM.01532, %if.then53 ], [ %disallowETM.01532, %if.then59 ], [ %disallowETM.01532, %if.then65 ], [ %disallowETM.01532, %if.then71 ], [ %disallowETM.01532, %if.then77 ], [ 1, %if.then83 ], [ %disallowETM.01532, %sw.bb43 ], [ %disallowETM.01532, %if.end33 ], [ %disallowETM.01532, %sw.bb26 ], [ %disallowETM.01532, %sw.bb25 ], [ %disallowETM.01532, %sw.bb22 ], [ %disallowETM.01532, %sw.bb20 ], [ %disallowETM.01532, %sw.bb19 ], [ %disallowETM.01532, %sw.bb18 ], [ %disallowETM.01532, %sw.bb16 ], [ %disallowETM.01532, %while.body ], [ %disallowETM.01532, %while.body ], [ %disallowETM.01532, %while.body ], [ %disallowETM.01532, %while.body ], [ %disallowETM.01532, %while.body ], [ %disallowETM.01532, %while.body ], [ %disallowETM.01532, %while.body ], [ %disallowETM.01532, %while.body ], [ %disallowETM.01532, %while.body ], [ %disallowETM.01532, %while.body ], [ %disallowETM.01532, %while.body ], [ %disallowETM.01532, %while.body ], [ %disallowETM.01532, %while.body ], [ %disallowETM.01532, %while.body ], [ %disallowETM.01532, %while.body ], [ %disallowETM.01532, %while.body ], [ %disallowETM.01532, %while.body ], [ %disallowETM.01532, %while.body ], [ %disallowETM.01532, %while.body ], [ %disallowETM.01532, %while.body ], [ %disallowETM.01532, %while.body ], [ %disallowETM.01532, %while.body ], [ %disallowETM.01532, %while.body ], [ %disallowETM.01532, %sw.bb14 ], [ %disallowETM.01532, %sw.bb12 ], [ %disallowETM.01532, %sw.bb11 ], [ %disallowETM.01532, %sw.bb28 ], [ %disallowETM.01532, %sw.bb139 ], [ %disallowETM.01532, %while.body ]
   %loadSysCaCerts.01530.be = phi i8 [ %loadSysCaCerts.01530, %sw.bb202 ], [ %loadSysCaCerts.01530, %sw.bb200 ], [ 1, %sw.bb199 ], [ %loadSysCaCerts.01530, %sw.bb184 ], [ %loadSysCaCerts.01530, %sw.bb183 ], [ %loadSysCaCerts.01530, %sw.bb179 ], [ %loadSysCaCerts.01530, %sw.bb170 ], [ %loadSysCaCerts.01530, %sw.bb166 ], [ %loadSysCaCerts.01530, %sw.bb165 ], [ %loadSysCaCerts.01530, %sw.bb164 ], [ %loadSysCaCerts.01530, %sw.bb163 ], [ %loadSysCaCerts.01530, %sw.bb162 ], [ %loadSysCaCerts.01530, %sw.bb161 ], [ %loadSysCaCerts.01530, %sw.bb154 ], [ %loadSysCaCerts.01530, %sw.bb148 ], [ %loadSysCaCerts.01530, %sw.bb137 ], [ %loadSysCaCerts.01530, %sw.bb134 ], [ %loadSysCaCerts.01530, %sw.bb133 ], [ %loadSysCaCerts.01530, %sw.bb132 ], [ %loadSysCaCerts.01530, %for.end ], [ %loadSysCaCerts.01530, %sw.bb105 ], [ %loadSysCaCerts.01530, %sw.bb96 ], [ %loadSysCaCerts.01530, %sw.bb95 ], [ %loadSysCaCerts.01530, %sw.bb94 ], [ %loadSysCaCerts.01530, %sw.bb93 ], [ %loadSysCaCerts.01530, %if.then48 ], [ %loadSysCaCerts.01530, %if.then53 ], [ %loadSysCaCerts.01530, %if.then59 ], [ %loadSysCaCerts.01530, %if.then65 ], [ %loadSysCaCerts.01530, %if.then71 ], [ %loadSysCaCerts.01530, %if.then77 ], [ %loadSysCaCerts.01530, %if.then83 ], [ %loadSysCaCerts.01530, %sw.bb43 ], [ %loadSysCaCerts.01530, %if.end33 ], [ %loadSysCaCerts.01530, %sw.bb26 ], [ %loadSysCaCerts.01530, %sw.bb25 ], [ %loadSysCaCerts.01530, %sw.bb22 ], [ %loadSysCaCerts.01530, %sw.bb20 ], [ %loadSysCaCerts.01530, %sw.bb19 ], [ %loadSysCaCerts.01530, %sw.bb18 ], [ %loadSysCaCerts.01530, %sw.bb16 ], [ %loadSysCaCerts.01530, %while.body ], [ %loadSysCaCerts.01530, %while.body ], [ %loadSysCaCerts.01530, %while.body ], [ %loadSysCaCerts.01530, %while.body ], [ %loadSysCaCerts.01530, %while.body ], [ %loadSysCaCerts.01530, %while.body ], [ %loadSysCaCerts.01530, %while.body ], [ %loadSysCaCerts.01530, %while.body ], [ %loadSysCaCerts.01530, %while.body ], [ %loadSysCaCerts.01530, %while.body ], [ %loadSysCaCerts.01530, %while.body ], [ %loadSysCaCerts.01530, %while.body ], [ %loadSysCaCerts.01530, %while.body ], [ %loadSysCaCerts.01530, %while.body ], [ %loadSysCaCerts.01530, %while.body ], [ %loadSysCaCerts.01530, %while.body ], [ %loadSysCaCerts.01530, %while.body ], [ %loadSysCaCerts.01530, %while.body ], [ %loadSysCaCerts.01530, %while.body ], [ %loadSysCaCerts.01530, %while.body ], [ %loadSysCaCerts.01530, %while.body ], [ %loadSysCaCerts.01530, %while.body ], [ %loadSysCaCerts.01530, %while.body ], [ %loadSysCaCerts.01530, %sw.bb14 ], [ %loadSysCaCerts.01530, %sw.bb12 ], [ %loadSysCaCerts.01530, %sw.bb11 ], [ %loadSysCaCerts.01530, %sw.bb28 ], [ %loadSysCaCerts.01530, %sw.bb139 ], [ %loadSysCaCerts.01530, %while.body ]
   %loadCertKeyIntoSSLObj.01528.be = phi i32 [ %loadCertKeyIntoSSLObj.01528, %sw.bb202 ], [ %loadCertKeyIntoSSLObj.01528, %sw.bb200 ], [ %loadCertKeyIntoSSLObj.01528, %sw.bb199 ], [ %loadCertKeyIntoSSLObj.01528, %sw.bb184 ], [ %loadCertKeyIntoSSLObj.01528, %sw.bb183 ], [ %loadCertKeyIntoSSLObj.01528, %sw.bb179 ], [ %loadCertKeyIntoSSLObj.01528, %sw.bb170 ], [ %loadCertKeyIntoSSLObj.01528, %sw.bb166 ], [ %loadCertKeyIntoSSLObj.01528, %sw.bb165 ], [ %loadCertKeyIntoSSLObj.01528, %sw.bb164 ], [ %loadCertKeyIntoSSLObj.01528, %sw.bb163 ], [ %loadCertKeyIntoSSLObj.01528, %sw.bb162 ], [ %loadCertKeyIntoSSLObj.01528, %sw.bb161 ], [ %loadCertKeyIntoSSLObj.01528, %sw.bb154 ], [ %loadCertKeyIntoSSLObj.01528, %sw.bb148 ], [ %loadCertKeyIntoSSLObj.01528, %sw.bb137 ], [ %loadCertKeyIntoSSLObj.01528, %sw.bb134 ], [ %loadCertKeyIntoSSLObj.01528, %sw.bb133 ], [ %loadCertKeyIntoSSLObj.01528, %sw.bb132 ], [ %loadCertKeyIntoSSLObj.01528, %for.end ], [ %loadCertKeyIntoSSLObj.01528, %sw.bb105 ], [ %loadCertKeyIntoSSLObj.01528, %sw.bb96 ], [ %loadCertKeyIntoSSLObj.01528, %sw.bb95 ], [ %loadCertKeyIntoSSLObj.01528, %sw.bb94 ], [ %loadCertKeyIntoSSLObj.01528, %sw.bb93 ], [ %loadCertKeyIntoSSLObj.01528, %if.then48 ], [ %loadCertKeyIntoSSLObj.01528, %if.then53 ], [ %loadCertKeyIntoSSLObj.01528, %if.then59 ], [ %loadCertKeyIntoSSLObj.01528, %if.then65 ], [ %loadCertKeyIntoSSLObj.01528, %if.then71 ], [ 1, %if.then77 ], [ %loadCertKeyIntoSSLObj.01528, %if.then83 ], [ %loadCertKeyIntoSSLObj.01528, %sw.bb43 ], [ %loadCertKeyIntoSSLObj.01528, %if.end33 ], [ %loadCertKeyIntoSSLObj.01528, %sw.bb26 ], [ %loadCertKeyIntoSSLObj.01528, %sw.bb25 ], [ %loadCertKeyIntoSSLObj.01528, %sw.bb22 ], [ %loadCertKeyIntoSSLObj.01528, %sw.bb20 ], [ %loadCertKeyIntoSSLObj.01528, %sw.bb19 ], [ %loadCertKeyIntoSSLObj.01528, %sw.bb18 ], [ %loadCertKeyIntoSSLObj.01528, %sw.bb16 ], [ %loadCertKeyIntoSSLObj.01528, %while.body ], [ %loadCertKeyIntoSSLObj.01528, %while.body ], [ %loadCertKeyIntoSSLObj.01528, %while.body ], [ %loadCertKeyIntoSSLObj.01528, %while.body ], [ %loadCertKeyIntoSSLObj.01528, %while.body ], [ %loadCertKeyIntoSSLObj.01528, %while.body ], [ %loadCertKeyIntoSSLObj.01528, %while.body ], [ %loadCertKeyIntoSSLObj.01528, %while.body ], [ %loadCertKeyIntoSSLObj.01528, %while.body ], [ %loadCertKeyIntoSSLObj.01528, %while.body ], [ %loadCertKeyIntoSSLObj.01528, %while.body ], [ %loadCertKeyIntoSSLObj.01528, %while.body ], [ %loadCertKeyIntoSSLObj.01528, %while.body ], [ %loadCertKeyIntoSSLObj.01528, %while.body ], [ %loadCertKeyIntoSSLObj.01528, %while.body ], [ %loadCertKeyIntoSSLObj.01528, %while.body ], [ %loadCertKeyIntoSSLObj.01528, %while.body ], [ %loadCertKeyIntoSSLObj.01528, %while.body ], [ %loadCertKeyIntoSSLObj.01528, %while.body ], [ %loadCertKeyIntoSSLObj.01528, %while.body ], [ %loadCertKeyIntoSSLObj.01528, %while.body ], [ %loadCertKeyIntoSSLObj.01528, %while.body ], [ %loadCertKeyIntoSSLObj.01528, %while.body ], [ %loadCertKeyIntoSSLObj.01528, %sw.bb14 ], [ %loadCertKeyIntoSSLObj.01528, %sw.bb12 ], [ %loadCertKeyIntoSSLObj.01528, %sw.bb11 ], [ %loadCertKeyIntoSSLObj.01528, %sw.bb28 ], [ %loadCertKeyIntoSSLObj.01528, %sw.bb139 ], [ %loadCertKeyIntoSSLObj.01528, %while.body ]
@@ -668,17 +670,17 @@ if.end.i.backedge:                                ; preds = %sw.bb139, %sw.bb28,
   %onlyKeyShare.01504.be = phi i32 [ %onlyKeyShare.01504, %sw.bb202 ], [ %onlyKeyShare.01504, %sw.bb200 ], [ %onlyKeyShare.01504, %sw.bb199 ], [ %onlyKeyShare.01504, %sw.bb184 ], [ %onlyKeyShare.01504, %sw.bb183 ], [ %onlyKeyShare.01504, %sw.bb179 ], [ %onlyKeyShare.01504, %sw.bb170 ], [ %onlyKeyShare.01504, %sw.bb166 ], [ 2, %sw.bb165 ], [ 1, %sw.bb164 ], [ %onlyKeyShare.01504, %sw.bb163 ], [ %onlyKeyShare.01504, %sw.bb162 ], [ %onlyKeyShare.01504, %sw.bb161 ], [ %onlyKeyShare.01504, %sw.bb154 ], [ %onlyKeyShare.01504, %sw.bb148 ], [ %onlyKeyShare.01504, %sw.bb137 ], [ %onlyKeyShare.01504, %sw.bb134 ], [ %onlyKeyShare.01504, %sw.bb133 ], [ %onlyKeyShare.01504, %sw.bb132 ], [ %onlyKeyShare.01504, %for.end ], [ %onlyKeyShare.01504, %sw.bb105 ], [ %onlyKeyShare.01504, %sw.bb96 ], [ %onlyKeyShare.01504, %sw.bb95 ], [ %onlyKeyShare.01504, %sw.bb94 ], [ %onlyKeyShare.01504, %sw.bb93 ], [ %onlyKeyShare.01504, %if.then48 ], [ %onlyKeyShare.01504, %if.then53 ], [ %onlyKeyShare.01504, %if.then59 ], [ %onlyKeyShare.01504, %if.then65 ], [ %onlyKeyShare.01504, %if.then71 ], [ %onlyKeyShare.01504, %if.then77 ], [ %onlyKeyShare.01504, %if.then83 ], [ %onlyKeyShare.01504, %sw.bb43 ], [ %onlyKeyShare.01504, %if.end33 ], [ %onlyKeyShare.01504, %sw.bb26 ], [ %onlyKeyShare.01504, %sw.bb25 ], [ %onlyKeyShare.01504, %sw.bb22 ], [ %onlyKeyShare.01504, %sw.bb20 ], [ %onlyKeyShare.01504, %sw.bb19 ], [ %onlyKeyShare.01504, %sw.bb18 ], [ %onlyKeyShare.01504, %sw.bb16 ], [ %onlyKeyShare.01504, %while.body ], [ %onlyKeyShare.01504, %while.body ], [ %onlyKeyShare.01504, %while.body ], [ %onlyKeyShare.01504, %while.body ], [ %onlyKeyShare.01504, %while.body ], [ %onlyKeyShare.01504, %while.body ], [ %onlyKeyShare.01504, %while.body ], [ %onlyKeyShare.01504, %while.body ], [ %onlyKeyShare.01504, %while.body ], [ %onlyKeyShare.01504, %while.body ], [ %onlyKeyShare.01504, %while.body ], [ %onlyKeyShare.01504, %while.body ], [ %onlyKeyShare.01504, %while.body ], [ %onlyKeyShare.01504, %while.body ], [ %onlyKeyShare.01504, %while.body ], [ %onlyKeyShare.01504, %while.body ], [ %onlyKeyShare.01504, %while.body ], [ %onlyKeyShare.01504, %while.body ], [ %onlyKeyShare.01504, %while.body ], [ %onlyKeyShare.01504, %while.body ], [ %onlyKeyShare.01504, %while.body ], [ %onlyKeyShare.01504, %while.body ], [ %onlyKeyShare.01504, %while.body ], [ %onlyKeyShare.01504, %sw.bb14 ], [ %onlyKeyShare.01504, %sw.bb12 ], [ %onlyKeyShare.01504, %sw.bb11 ], [ %onlyKeyShare.01504, %sw.bb28 ], [ %onlyKeyShare.01504, %sw.bb139 ], [ %onlyKeyShare.01504, %while.body ]
   %helloRetry.01502.be = phi i32 [ %helloRetry.01502, %sw.bb202 ], [ %helloRetry.01502, %sw.bb200 ], [ %helloRetry.01502, %sw.bb199 ], [ %helloRetry.01502, %sw.bb184 ], [ %helloRetry.01502, %sw.bb183 ], [ %helloRetry.01502, %sw.bb179 ], [ %helloRetry.01502, %sw.bb170 ], [ %helloRetry.01502, %sw.bb166 ], [ %helloRetry.01502, %sw.bb165 ], [ %helloRetry.01502, %sw.bb164 ], [ %helloRetry.01502, %sw.bb163 ], [ %helloRetry.01502, %sw.bb162 ], [ 1, %sw.bb161 ], [ %helloRetry.01502, %sw.bb154 ], [ %helloRetry.01502, %sw.bb148 ], [ %helloRetry.01502, %sw.bb137 ], [ %helloRetry.01502, %sw.bb134 ], [ %helloRetry.01502, %sw.bb133 ], [ %helloRetry.01502, %sw.bb132 ], [ %helloRetry.01502, %for.end ], [ %helloRetry.01502, %sw.bb105 ], [ %helloRetry.01502, %sw.bb96 ], [ %helloRetry.01502, %sw.bb95 ], [ %helloRetry.01502, %sw.bb94 ], [ %helloRetry.01502, %sw.bb93 ], [ %helloRetry.01502, %if.then48 ], [ %helloRetry.01502, %if.then53 ], [ %helloRetry.01502, %if.then59 ], [ %helloRetry.01502, %if.then65 ], [ %helloRetry.01502, %if.then71 ], [ %helloRetry.01502, %if.then77 ], [ %helloRetry.01502, %if.then83 ], [ %helloRetry.01502, %sw.bb43 ], [ %helloRetry.01502, %if.end33 ], [ %helloRetry.01502, %sw.bb26 ], [ %helloRetry.01502, %sw.bb25 ], [ %helloRetry.01502, %sw.bb22 ], [ %helloRetry.01502, %sw.bb20 ], [ %helloRetry.01502, %sw.bb19 ], [ %helloRetry.01502, %sw.bb18 ], [ %helloRetry.01502, %sw.bb16 ], [ %helloRetry.01502, %while.body ], [ %helloRetry.01502, %while.body ], [ %helloRetry.01502, %while.body ], [ %helloRetry.01502, %while.body ], [ %helloRetry.01502, %while.body ], [ %helloRetry.01502, %while.body ], [ %helloRetry.01502, %while.body ], [ %helloRetry.01502, %while.body ], [ %helloRetry.01502, %while.body ], [ %helloRetry.01502, %while.body ], [ %helloRetry.01502, %while.body ], [ %helloRetry.01502, %while.body ], [ %helloRetry.01502, %while.body ], [ %helloRetry.01502, %while.body ], [ %helloRetry.01502, %while.body ], [ %helloRetry.01502, %while.body ], [ %helloRetry.01502, %while.body ], [ %helloRetry.01502, %while.body ], [ %helloRetry.01502, %while.body ], [ %helloRetry.01502, %while.body ], [ %helloRetry.01502, %while.body ], [ %helloRetry.01502, %while.body ], [ %helloRetry.01502, %while.body ], [ %helloRetry.01502, %sw.bb14 ], [ %helloRetry.01502, %sw.bb12 ], [ %helloRetry.01502, %sw.bb11 ], [ %helloRetry.01502, %sw.bb28 ], [ %helloRetry.01502, %sw.bb139 ], [ %helloRetry.01502, %while.body ]
   %disableExtMasterSecret.01500.be = phi i8 [ %disableExtMasterSecret.01500, %sw.bb202 ], [ %disableExtMasterSecret.01500, %sw.bb200 ], [ %disableExtMasterSecret.01500, %sw.bb199 ], [ %disableExtMasterSecret.01500, %sw.bb184 ], [ %disableExtMasterSecret.01500, %sw.bb183 ], [ %disableExtMasterSecret.01500, %sw.bb179 ], [ %disableExtMasterSecret.01500, %sw.bb170 ], [ %disableExtMasterSecret.01500, %sw.bb166 ], [ %disableExtMasterSecret.01500, %sw.bb165 ], [ %disableExtMasterSecret.01500, %sw.bb164 ], [ %disableExtMasterSecret.01500, %sw.bb163 ], [ %disableExtMasterSecret.01500, %sw.bb162 ], [ %disableExtMasterSecret.01500, %sw.bb161 ], [ %disableExtMasterSecret.01500, %sw.bb154 ], [ 1, %sw.bb148 ], [ %disableExtMasterSecret.01500, %sw.bb137 ], [ %disableExtMasterSecret.01500, %sw.bb134 ], [ %disableExtMasterSecret.01500, %sw.bb133 ], [ %disableExtMasterSecret.01500, %sw.bb132 ], [ %disableExtMasterSecret.01500, %for.end ], [ %disableExtMasterSecret.01500, %sw.bb105 ], [ %disableExtMasterSecret.01500, %sw.bb96 ], [ %disableExtMasterSecret.01500, %sw.bb95 ], [ %disableExtMasterSecret.01500, %sw.bb94 ], [ %disableExtMasterSecret.01500, %sw.bb93 ], [ %disableExtMasterSecret.01500, %if.then48 ], [ %disableExtMasterSecret.01500, %if.then53 ], [ %disableExtMasterSecret.01500, %if.then59 ], [ %disableExtMasterSecret.01500, %if.then65 ], [ %disableExtMasterSecret.01500, %if.then71 ], [ %disableExtMasterSecret.01500, %if.then77 ], [ %disableExtMasterSecret.01500, %if.then83 ], [ %disableExtMasterSecret.01500, %sw.bb43 ], [ %disableExtMasterSecret.01500, %if.end33 ], [ %disableExtMasterSecret.01500, %sw.bb26 ], [ %disableExtMasterSecret.01500, %sw.bb25 ], [ %disableExtMasterSecret.01500, %sw.bb22 ], [ %disableExtMasterSecret.01500, %sw.bb20 ], [ %disableExtMasterSecret.01500, %sw.bb19 ], [ %disableExtMasterSecret.01500, %sw.bb18 ], [ %disableExtMasterSecret.01500, %sw.bb16 ], [ %disableExtMasterSecret.01500, %while.body ], [ %disableExtMasterSecret.01500, %while.body ], [ %disableExtMasterSecret.01500, %while.body ], [ %disableExtMasterSecret.01500, %while.body ], [ %disableExtMasterSecret.01500, %while.body ], [ %disableExtMasterSecret.01500, %while.body ], [ %disableExtMasterSecret.01500, %while.body ], [ %disableExtMasterSecret.01500, %while.body ], [ %disableExtMasterSecret.01500, %while.body ], [ %disableExtMasterSecret.01500, %while.body ], [ %disableExtMasterSecret.01500, %while.body ], [ %disableExtMasterSecret.01500, %while.body ], [ %disableExtMasterSecret.01500, %while.body ], [ %disableExtMasterSecret.01500, %while.body ], [ %disableExtMasterSecret.01500, %while.body ], [ %disableExtMasterSecret.01500, %while.body ], [ %disableExtMasterSecret.01500, %while.body ], [ %disableExtMasterSecret.01500, %while.body ], [ %disableExtMasterSecret.01500, %while.body ], [ %disableExtMasterSecret.01500, %while.body ], [ %disableExtMasterSecret.01500, %while.body ], [ %disableExtMasterSecret.01500, %while.body ], [ %disableExtMasterSecret.01500, %while.body ], [ %disableExtMasterSecret.01500, %sw.bb14 ], [ %disableExtMasterSecret.01500, %sw.bb12 ], [ %disableExtMasterSecret.01500, %sw.bb11 ], [ %disableExtMasterSecret.01500, %sw.bb28 ], [ %disableExtMasterSecret.01500, %sw.bb139 ], [ %disableExtMasterSecret.01500, %while.body ]
-  %sniHostName.01498.be = phi ptr [ %sniHostName.01498, %sw.bb202 ], [ %sniHostName.01498, %sw.bb200 ], [ %sniHostName.01498, %sw.bb199 ], [ %sniHostName.01498, %sw.bb184 ], [ %sniHostName.01498, %sw.bb183 ], [ %sniHostName.01498, %sw.bb179 ], [ %sniHostName.01498, %sw.bb170 ], [ %sniHostName.01498, %sw.bb166 ], [ %sniHostName.01498, %sw.bb165 ], [ %sniHostName.01498, %sw.bb164 ], [ %sniHostName.01498, %sw.bb163 ], [ %sniHostName.01498, %sw.bb162 ], [ %sniHostName.01498, %sw.bb161 ], [ %sniHostName.01498, %sw.bb154 ], [ %sniHostName.01498, %sw.bb148 ], [ %sniHostName.01498, %sw.bb137 ], [ %sniHostName.01498, %sw.bb134 ], [ %sniHostName.01498, %sw.bb133 ], [ %sniHostName.01498, %sw.bb132 ], [ %sniHostName.01498, %for.end ], [ %sniHostName.01498, %sw.bb105 ], [ %sniHostName.01498, %sw.bb96 ], [ %sniHostName.01498, %sw.bb95 ], [ %sniHostName.01498, %sw.bb94 ], [ %sniHostName.01498, %sw.bb93 ], [ %sniHostName.01498, %if.then48 ], [ %sniHostName.01498, %if.then53 ], [ %sniHostName.01498, %if.then59 ], [ %sniHostName.01498, %if.then65 ], [ %sniHostName.01498, %if.then71 ], [ %sniHostName.01498, %if.then77 ], [ %sniHostName.01498, %if.then83 ], [ %sniHostName.01498, %sw.bb43 ], [ %sniHostName.01498, %if.end33 ], [ %sniHostName.01498, %sw.bb26 ], [ %sniHostName.01498, %sw.bb25 ], [ %sniHostName.01498, %sw.bb22 ], [ %sniHostName.01498, %sw.bb20 ], [ %sniHostName.01498, %sw.bb19 ], [ %sniHostName.01498, %sw.bb18 ], [ %sniHostName.01498, %sw.bb16 ], [ %sniHostName.01498, %while.body ], [ %sniHostName.01498, %while.body ], [ %sniHostName.01498, %while.body ], [ %sniHostName.01498, %while.body ], [ %sniHostName.01498, %while.body ], [ %sniHostName.01498, %while.body ], [ %sniHostName.01498, %while.body ], [ %sniHostName.01498, %while.body ], [ %sniHostName.01498, %while.body ], [ %sniHostName.01498, %while.body ], [ %sniHostName.01498, %while.body ], [ %sniHostName.01498, %while.body ], [ %sniHostName.01498, %while.body ], [ %sniHostName.01498, %while.body ], [ %sniHostName.01498, %while.body ], [ %sniHostName.01498, %while.body ], [ %sniHostName.01498, %while.body ], [ %sniHostName.01498, %while.body ], [ %sniHostName.01498, %while.body ], [ %sniHostName.01498, %while.body ], [ %sniHostName.01498, %while.body ], [ %sniHostName.01498, %while.body ], [ %sniHostName.01498, %while.body ], [ %sniHostName.01498, %sw.bb14 ], [ %sniHostName.01498, %sw.bb12 ], [ %sniHostName.01498, %sw.bb11 ], [ %sniHostName.01498, %sw.bb28 ], [ %44, %sw.bb139 ], [ %sniHostName.01498, %while.body ]
+  %sniHostName.01498.be = phi ptr [ %sniHostName.01498, %sw.bb202 ], [ %sniHostName.01498, %sw.bb200 ], [ %sniHostName.01498, %sw.bb199 ], [ %sniHostName.01498, %sw.bb184 ], [ %sniHostName.01498, %sw.bb183 ], [ %sniHostName.01498, %sw.bb179 ], [ %sniHostName.01498, %sw.bb170 ], [ %sniHostName.01498, %sw.bb166 ], [ %sniHostName.01498, %sw.bb165 ], [ %sniHostName.01498, %sw.bb164 ], [ %sniHostName.01498, %sw.bb163 ], [ %sniHostName.01498, %sw.bb162 ], [ %sniHostName.01498, %sw.bb161 ], [ %sniHostName.01498, %sw.bb154 ], [ %sniHostName.01498, %sw.bb148 ], [ %sniHostName.01498, %sw.bb137 ], [ %sniHostName.01498, %sw.bb134 ], [ %sniHostName.01498, %sw.bb133 ], [ %sniHostName.01498, %sw.bb132 ], [ %sniHostName.01498, %for.end ], [ %sniHostName.01498, %sw.bb105 ], [ %sniHostName.01498, %sw.bb96 ], [ %sniHostName.01498, %sw.bb95 ], [ %sniHostName.01498, %sw.bb94 ], [ %sniHostName.01498, %sw.bb93 ], [ %sniHostName.01498, %if.then48 ], [ %sniHostName.01498, %if.then53 ], [ %sniHostName.01498, %if.then59 ], [ %sniHostName.01498, %if.then65 ], [ %sniHostName.01498, %if.then71 ], [ %sniHostName.01498, %if.then77 ], [ %sniHostName.01498, %if.then83 ], [ %sniHostName.01498, %sw.bb43 ], [ %sniHostName.01498, %if.end33 ], [ %sniHostName.01498, %sw.bb26 ], [ %sniHostName.01498, %sw.bb25 ], [ %sniHostName.01498, %sw.bb22 ], [ %sniHostName.01498, %sw.bb20 ], [ %sniHostName.01498, %sw.bb19 ], [ %sniHostName.01498, %sw.bb18 ], [ %sniHostName.01498, %sw.bb16 ], [ %sniHostName.01498, %while.body ], [ %sniHostName.01498, %while.body ], [ %sniHostName.01498, %while.body ], [ %sniHostName.01498, %while.body ], [ %sniHostName.01498, %while.body ], [ %sniHostName.01498, %while.body ], [ %sniHostName.01498, %while.body ], [ %sniHostName.01498, %while.body ], [ %sniHostName.01498, %while.body ], [ %sniHostName.01498, %while.body ], [ %sniHostName.01498, %while.body ], [ %sniHostName.01498, %while.body ], [ %sniHostName.01498, %while.body ], [ %sniHostName.01498, %while.body ], [ %sniHostName.01498, %while.body ], [ %sniHostName.01498, %while.body ], [ %sniHostName.01498, %while.body ], [ %sniHostName.01498, %while.body ], [ %sniHostName.01498, %while.body ], [ %sniHostName.01498, %while.body ], [ %sniHostName.01498, %while.body ], [ %sniHostName.01498, %while.body ], [ %sniHostName.01498, %while.body ], [ %sniHostName.01498, %sw.bb14 ], [ %sniHostName.01498, %sw.bb12 ], [ %sniHostName.01498, %sw.bb11 ], [ %sniHostName.01498, %sw.bb28 ], [ %46, %sw.bb139 ], [ %sniHostName.01498, %while.body ]
   %useSupCurve.01496.be = phi i32 [ %useSupCurve.01496, %sw.bb202 ], [ %useSupCurve.01496, %sw.bb200 ], [ %useSupCurve.01496, %sw.bb199 ], [ %useSupCurve.01496, %sw.bb184 ], [ %useSupCurve.01496, %sw.bb183 ], [ %useSupCurve.01496, %sw.bb179 ], [ %useSupCurve.01496, %sw.bb170 ], [ %useSupCurve.01496, %sw.bb166 ], [ %useSupCurve.01496, %sw.bb165 ], [ %useSupCurve.01496, %sw.bb164 ], [ %useSupCurve.01496, %sw.bb163 ], [ %useSupCurve.01496, %sw.bb162 ], [ %useSupCurve.01496, %sw.bb161 ], [ %useSupCurve.01496, %sw.bb154 ], [ %useSupCurve.01496, %sw.bb148 ], [ %useSupCurve.01496, %sw.bb137 ], [ %useSupCurve.01496, %sw.bb134 ], [ %useSupCurve.01496, %sw.bb133 ], [ %useSupCurve.01496, %sw.bb132 ], [ %useSupCurve.01496, %for.end ], [ %useSupCurve.01496, %sw.bb105 ], [ %useSupCurve.01496, %sw.bb96 ], [ %useSupCurve.01496, %sw.bb95 ], [ %useSupCurve.01496, %sw.bb94 ], [ %useSupCurve.01496, %sw.bb93 ], [ %useSupCurve.01496, %if.then48 ], [ %useSupCurve.01496, %if.then53 ], [ %useSupCurve.01496, %if.then59 ], [ %useSupCurve.01496, %if.then65 ], [ 1, %if.then71 ], [ %useSupCurve.01496, %if.then77 ], [ %useSupCurve.01496, %if.then83 ], [ %useSupCurve.01496, %sw.bb43 ], [ %useSupCurve.01496, %if.end33 ], [ %useSupCurve.01496, %sw.bb26 ], [ %useSupCurve.01496, %sw.bb25 ], [ %useSupCurve.01496, %sw.bb22 ], [ %useSupCurve.01496, %sw.bb20 ], [ %useSupCurve.01496, %sw.bb19 ], [ %useSupCurve.01496, %sw.bb18 ], [ %useSupCurve.01496, %sw.bb16 ], [ %useSupCurve.01496, %while.body ], [ %useSupCurve.01496, %while.body ], [ %useSupCurve.01496, %while.body ], [ %useSupCurve.01496, %while.body ], [ %useSupCurve.01496, %while.body ], [ %useSupCurve.01496, %while.body ], [ %useSupCurve.01496, %while.body ], [ %useSupCurve.01496, %while.body ], [ %useSupCurve.01496, %while.body ], [ %useSupCurve.01496, %while.body ], [ %useSupCurve.01496, %while.body ], [ %useSupCurve.01496, %while.body ], [ %useSupCurve.01496, %while.body ], [ %useSupCurve.01496, %while.body ], [ %useSupCurve.01496, %while.body ], [ %useSupCurve.01496, %while.body ], [ %useSupCurve.01496, %while.body ], [ %useSupCurve.01496, %while.body ], [ %useSupCurve.01496, %while.body ], [ %useSupCurve.01496, %while.body ], [ %useSupCurve.01496, %while.body ], [ %useSupCurve.01496, %while.body ], [ %useSupCurve.01496, %while.body ], [ %useSupCurve.01496, %sw.bb14 ], [ %useSupCurve.01496, %sw.bb12 ], [ %useSupCurve.01496, %sw.bb11 ], [ %useSupCurve.01496, %sw.bb28 ], [ %useSupCurve.01496, %sw.bb139 ], [ %useSupCurve.01496, %while.body ]
   %useVerifyCb.01494.be = phi i32 [ %useVerifyCb.01494, %sw.bb202 ], [ %useVerifyCb.01494, %sw.bb200 ], [ %useVerifyCb.01494, %sw.bb199 ], [ %useVerifyCb.01494, %sw.bb184 ], [ %useVerifyCb.01494, %sw.bb183 ], [ %useVerifyCb.01494, %sw.bb179 ], [ %useVerifyCb.01494, %sw.bb170 ], [ 1, %sw.bb166 ], [ %useVerifyCb.01494, %sw.bb165 ], [ %useVerifyCb.01494, %sw.bb164 ], [ %useVerifyCb.01494, %sw.bb163 ], [ %useVerifyCb.01494, %sw.bb162 ], [ %useVerifyCb.01494, %sw.bb161 ], [ %useVerifyCb.01494, %sw.bb154 ], [ %useVerifyCb.01494, %sw.bb148 ], [ %useVerifyCb.01494, %sw.bb137 ], [ %useVerifyCb.01494, %sw.bb134 ], [ %useVerifyCb.01494, %sw.bb133 ], [ %useVerifyCb.01494, %sw.bb132 ], [ %useVerifyCb.01494, %for.end ], [ %useVerifyCb.01494, %sw.bb105 ], [ %useVerifyCb.01494, %sw.bb96 ], [ %useVerifyCb.01494, %sw.bb95 ], [ %useVerifyCb.01494, %sw.bb94 ], [ %useVerifyCb.01494, %sw.bb93 ], [ %useVerifyCb.01494, %if.then48 ], [ %useVerifyCb.01494, %if.then53 ], [ %useVerifyCb.01494, %if.then59 ], [ %useVerifyCb.01494, %if.then65 ], [ %useVerifyCb.01494, %if.then71 ], [ %useVerifyCb.01494, %if.then77 ], [ %useVerifyCb.01494, %if.then83 ], [ %useVerifyCb.01494, %sw.bb43 ], [ %useVerifyCb.01494, %if.end33 ], [ %useVerifyCb.01494, %sw.bb26 ], [ %useVerifyCb.01494, %sw.bb25 ], [ %useVerifyCb.01494, %sw.bb22 ], [ %useVerifyCb.01494, %sw.bb20 ], [ %useVerifyCb.01494, %sw.bb19 ], [ %useVerifyCb.01494, %sw.bb18 ], [ %useVerifyCb.01494, %sw.bb16 ], [ %useVerifyCb.01494, %while.body ], [ %useVerifyCb.01494, %while.body ], [ %useVerifyCb.01494, %while.body ], [ %useVerifyCb.01494, %while.body ], [ %useVerifyCb.01494, %while.body ], [ %useVerifyCb.01494, %while.body ], [ %useVerifyCb.01494, %while.body ], [ %useVerifyCb.01494, %while.body ], [ %useVerifyCb.01494, %while.body ], [ %useVerifyCb.01494, %while.body ], [ %useVerifyCb.01494, %while.body ], [ %useVerifyCb.01494, %while.body ], [ %useVerifyCb.01494, %while.body ], [ %useVerifyCb.01494, %while.body ], [ %useVerifyCb.01494, %while.body ], [ %useVerifyCb.01494, %while.body ], [ %useVerifyCb.01494, %while.body ], [ %useVerifyCb.01494, %while.body ], [ %useVerifyCb.01494, %while.body ], [ %useVerifyCb.01494, %while.body ], [ %useVerifyCb.01494, %while.body ], [ %useVerifyCb.01494, %while.body ], [ %useVerifyCb.01494, %while.body ], [ %useVerifyCb.01494, %sw.bb14 ], [ %useVerifyCb.01494, %sw.bb12 ], [ %useVerifyCb.01494, %sw.bb11 ], [ %useVerifyCb.01494, %sw.bb28 ], [ %useVerifyCb.01494, %sw.bb139 ], [ %useVerifyCb.01494, %while.body ]
-  %starttlsProt.01492.be = phi ptr [ %starttlsProt.01492, %sw.bb202 ], [ %starttlsProt.01492, %sw.bb200 ], [ %starttlsProt.01492, %sw.bb199 ], [ %starttlsProt.01492, %sw.bb184 ], [ %starttlsProt.01492, %sw.bb183 ], [ %starttlsProt.01492, %sw.bb179 ], [ %starttlsProt.01492, %sw.bb170 ], [ %starttlsProt.01492, %sw.bb166 ], [ %starttlsProt.01492, %sw.bb165 ], [ %starttlsProt.01492, %sw.bb164 ], [ %starttlsProt.01492, %sw.bb163 ], [ %starttlsProt.01492, %sw.bb162 ], [ %starttlsProt.01492, %sw.bb161 ], [ %45, %sw.bb154 ], [ %starttlsProt.01492, %sw.bb148 ], [ %starttlsProt.01492, %sw.bb137 ], [ %starttlsProt.01492, %sw.bb134 ], [ %starttlsProt.01492, %sw.bb133 ], [ %starttlsProt.01492, %sw.bb132 ], [ %starttlsProt.01492, %for.end ], [ %starttlsProt.01492, %sw.bb105 ], [ %starttlsProt.01492, %sw.bb96 ], [ %starttlsProt.01492, %sw.bb95 ], [ %starttlsProt.01492, %sw.bb94 ], [ %starttlsProt.01492, %sw.bb93 ], [ %starttlsProt.01492, %if.then48 ], [ %starttlsProt.01492, %if.then53 ], [ %starttlsProt.01492, %if.then59 ], [ %starttlsProt.01492, %if.then65 ], [ %starttlsProt.01492, %if.then71 ], [ %starttlsProt.01492, %if.then77 ], [ %starttlsProt.01492, %if.then83 ], [ %starttlsProt.01492, %sw.bb43 ], [ %starttlsProt.01492, %if.end33 ], [ %starttlsProt.01492, %sw.bb26 ], [ %starttlsProt.01492, %sw.bb25 ], [ %starttlsProt.01492, %sw.bb22 ], [ %starttlsProt.01492, %sw.bb20 ], [ %starttlsProt.01492, %sw.bb19 ], [ %starttlsProt.01492, %sw.bb18 ], [ %starttlsProt.01492, %sw.bb16 ], [ %starttlsProt.01492, %while.body ], [ %starttlsProt.01492, %while.body ], [ %starttlsProt.01492, %while.body ], [ %starttlsProt.01492, %while.body ], [ %starttlsProt.01492, %while.body ], [ %starttlsProt.01492, %while.body ], [ %starttlsProt.01492, %while.body ], [ %starttlsProt.01492, %while.body ], [ %starttlsProt.01492, %while.body ], [ %starttlsProt.01492, %while.body ], [ %starttlsProt.01492, %while.body ], [ %starttlsProt.01492, %while.body ], [ %starttlsProt.01492, %while.body ], [ %starttlsProt.01492, %while.body ], [ %starttlsProt.01492, %while.body ], [ %starttlsProt.01492, %while.body ], [ %starttlsProt.01492, %while.body ], [ %starttlsProt.01492, %while.body ], [ %starttlsProt.01492, %while.body ], [ %starttlsProt.01492, %while.body ], [ %starttlsProt.01492, %while.body ], [ %starttlsProt.01492, %while.body ], [ %starttlsProt.01492, %while.body ], [ %starttlsProt.01492, %sw.bb14 ], [ %starttlsProt.01492, %sw.bb12 ], [ %starttlsProt.01492, %sw.bb11 ], [ %starttlsProt.01492, %sw.bb28 ], [ %starttlsProt.01492, %sw.bb139 ], [ %starttlsProt.01492, %while.body ]
+  %starttlsProt.01492.be = phi ptr [ %starttlsProt.01492, %sw.bb202 ], [ %starttlsProt.01492, %sw.bb200 ], [ %starttlsProt.01492, %sw.bb199 ], [ %starttlsProt.01492, %sw.bb184 ], [ %starttlsProt.01492, %sw.bb183 ], [ %starttlsProt.01492, %sw.bb179 ], [ %starttlsProt.01492, %sw.bb170 ], [ %starttlsProt.01492, %sw.bb166 ], [ %starttlsProt.01492, %sw.bb165 ], [ %starttlsProt.01492, %sw.bb164 ], [ %starttlsProt.01492, %sw.bb163 ], [ %starttlsProt.01492, %sw.bb162 ], [ %starttlsProt.01492, %sw.bb161 ], [ %47, %sw.bb154 ], [ %starttlsProt.01492, %sw.bb148 ], [ %starttlsProt.01492, %sw.bb137 ], [ %starttlsProt.01492, %sw.bb134 ], [ %starttlsProt.01492, %sw.bb133 ], [ %starttlsProt.01492, %sw.bb132 ], [ %starttlsProt.01492, %for.end ], [ %starttlsProt.01492, %sw.bb105 ], [ %starttlsProt.01492, %sw.bb96 ], [ %starttlsProt.01492, %sw.bb95 ], [ %starttlsProt.01492, %sw.bb94 ], [ %starttlsProt.01492, %sw.bb93 ], [ %starttlsProt.01492, %if.then48 ], [ %starttlsProt.01492, %if.then53 ], [ %starttlsProt.01492, %if.then59 ], [ %starttlsProt.01492, %if.then65 ], [ %starttlsProt.01492, %if.then71 ], [ %starttlsProt.01492, %if.then77 ], [ %starttlsProt.01492, %if.then83 ], [ %starttlsProt.01492, %sw.bb43 ], [ %starttlsProt.01492, %if.end33 ], [ %starttlsProt.01492, %sw.bb26 ], [ %starttlsProt.01492, %sw.bb25 ], [ %starttlsProt.01492, %sw.bb22 ], [ %starttlsProt.01492, %sw.bb20 ], [ %starttlsProt.01492, %sw.bb19 ], [ %starttlsProt.01492, %sw.bb18 ], [ %starttlsProt.01492, %sw.bb16 ], [ %starttlsProt.01492, %while.body ], [ %starttlsProt.01492, %while.body ], [ %starttlsProt.01492, %while.body ], [ %starttlsProt.01492, %while.body ], [ %starttlsProt.01492, %while.body ], [ %starttlsProt.01492, %while.body ], [ %starttlsProt.01492, %while.body ], [ %starttlsProt.01492, %while.body ], [ %starttlsProt.01492, %while.body ], [ %starttlsProt.01492, %while.body ], [ %starttlsProt.01492, %while.body ], [ %starttlsProt.01492, %while.body ], [ %starttlsProt.01492, %while.body ], [ %starttlsProt.01492, %while.body ], [ %starttlsProt.01492, %while.body ], [ %starttlsProt.01492, %while.body ], [ %starttlsProt.01492, %while.body ], [ %starttlsProt.01492, %while.body ], [ %starttlsProt.01492, %while.body ], [ %starttlsProt.01492, %while.body ], [ %starttlsProt.01492, %while.body ], [ %starttlsProt.01492, %while.body ], [ %starttlsProt.01492, %while.body ], [ %starttlsProt.01492, %sw.bb14 ], [ %starttlsProt.01492, %sw.bb12 ], [ %starttlsProt.01492, %sw.bb11 ], [ %starttlsProt.01492, %sw.bb28 ], [ %starttlsProt.01492, %sw.bb139 ], [ %starttlsProt.01492, %while.body ]
   %doSTARTTLS.01490.be = phi i32 [ %doSTARTTLS.01490, %sw.bb202 ], [ %doSTARTTLS.01490, %sw.bb200 ], [ %doSTARTTLS.01490, %sw.bb199 ], [ %doSTARTTLS.01490, %sw.bb184 ], [ %doSTARTTLS.01490, %sw.bb183 ], [ %doSTARTTLS.01490, %sw.bb179 ], [ %doSTARTTLS.01490, %sw.bb170 ], [ %doSTARTTLS.01490, %sw.bb166 ], [ %doSTARTTLS.01490, %sw.bb165 ], [ %doSTARTTLS.01490, %sw.bb164 ], [ %doSTARTTLS.01490, %sw.bb163 ], [ %doSTARTTLS.01490, %sw.bb162 ], [ %doSTARTTLS.01490, %sw.bb161 ], [ 1, %sw.bb154 ], [ %doSTARTTLS.01490, %sw.bb148 ], [ %doSTARTTLS.01490, %sw.bb137 ], [ %doSTARTTLS.01490, %sw.bb134 ], [ %doSTARTTLS.01490, %sw.bb133 ], [ %doSTARTTLS.01490, %sw.bb132 ], [ %doSTARTTLS.01490, %for.end ], [ %doSTARTTLS.01490, %sw.bb105 ], [ %doSTARTTLS.01490, %sw.bb96 ], [ %doSTARTTLS.01490, %sw.bb95 ], [ %doSTARTTLS.01490, %sw.bb94 ], [ %doSTARTTLS.01490, %sw.bb93 ], [ %doSTARTTLS.01490, %if.then48 ], [ %doSTARTTLS.01490, %if.then53 ], [ %doSTARTTLS.01490, %if.then59 ], [ %doSTARTTLS.01490, %if.then65 ], [ %doSTARTTLS.01490, %if.then71 ], [ %doSTARTTLS.01490, %if.then77 ], [ %doSTARTTLS.01490, %if.then83 ], [ %doSTARTTLS.01490, %sw.bb43 ], [ %doSTARTTLS.01490, %if.end33 ], [ %doSTARTTLS.01490, %sw.bb26 ], [ %doSTARTTLS.01490, %sw.bb25 ], [ %doSTARTTLS.01490, %sw.bb22 ], [ %doSTARTTLS.01490, %sw.bb20 ], [ %doSTARTTLS.01490, %sw.bb19 ], [ %doSTARTTLS.01490, %sw.bb18 ], [ %doSTARTTLS.01490, %sw.bb16 ], [ %doSTARTTLS.01490, %while.body ], [ %doSTARTTLS.01490, %while.body ], [ %doSTARTTLS.01490, %while.body ], [ %doSTARTTLS.01490, %while.body ], [ %doSTARTTLS.01490, %while.body ], [ %doSTARTTLS.01490, %while.body ], [ %doSTARTTLS.01490, %while.body ], [ %doSTARTTLS.01490, %while.body ], [ %doSTARTTLS.01490, %while.body ], [ %doSTARTTLS.01490, %while.body ], [ %doSTARTTLS.01490, %while.body ], [ %doSTARTTLS.01490, %while.body ], [ %doSTARTTLS.01490, %while.body ], [ %doSTARTTLS.01490, %while.body ], [ %doSTARTTLS.01490, %while.body ], [ %doSTARTTLS.01490, %while.body ], [ %doSTARTTLS.01490, %while.body ], [ %doSTARTTLS.01490, %while.body ], [ %doSTARTTLS.01490, %while.body ], [ %doSTARTTLS.01490, %while.body ], [ %doSTARTTLS.01490, %while.body ], [ %doSTARTTLS.01490, %while.body ], [ %doSTARTTLS.01490, %while.body ], [ %doSTARTTLS.01490, %sw.bb14 ], [ %doSTARTTLS.01490, %sw.bb12 ], [ %doSTARTTLS.01490, %sw.bb11 ], [ %doSTARTTLS.01490, %sw.bb28 ], [ %doSTARTTLS.01490, %sw.bb139 ], [ %doSTARTTLS.01490, %while.body ]
-  %ourKey.01488.be = phi ptr [ %ourKey.01488, %sw.bb202 ], [ %ourKey.01488, %sw.bb200 ], [ %ourKey.01488, %sw.bb199 ], [ %ourKey.01488, %sw.bb184 ], [ %ourKey.01488, %sw.bb183 ], [ %ourKey.01488, %sw.bb179 ], [ %ourKey.01488, %sw.bb170 ], [ %ourKey.01488, %sw.bb166 ], [ %ourKey.01488, %sw.bb165 ], [ %ourKey.01488, %sw.bb164 ], [ %ourKey.01488, %sw.bb163 ], [ %ourKey.01488, %sw.bb162 ], [ %ourKey.01488, %sw.bb161 ], [ %ourKey.01488, %sw.bb154 ], [ %ourKey.01488, %sw.bb148 ], [ %ourKey.01488, %sw.bb137 ], [ %ourKey.01488, %sw.bb134 ], [ %ourKey.01488, %sw.bb133 ], [ %ourKey.01488, %sw.bb132 ], [ %ourKey.01488, %for.end ], [ %ourKey.01488, %sw.bb105 ], [ %ourKey.01488, %sw.bb96 ], [ %38, %sw.bb95 ], [ %ourKey.01488, %sw.bb94 ], [ %ourKey.01488, %sw.bb93 ], [ %ourKey.01488, %if.then48 ], [ %ourKey.01488, %if.then53 ], [ %ourKey.01488, %if.then59 ], [ %ourKey.01488, %if.then65 ], [ %ourKey.01488, %if.then71 ], [ %ourKey.01488, %if.then77 ], [ %ourKey.01488, %if.then83 ], [ %ourKey.01488, %sw.bb43 ], [ %ourKey.01488, %if.end33 ], [ %ourKey.01488, %sw.bb26 ], [ %ourKey.01488, %sw.bb25 ], [ %ourKey.01488, %sw.bb22 ], [ %ourKey.01488, %sw.bb20 ], [ %ourKey.01488, %sw.bb19 ], [ %ourKey.01488, %sw.bb18 ], [ %ourKey.01488, %sw.bb16 ], [ %ourKey.01488, %while.body ], [ %ourKey.01488, %while.body ], [ %ourKey.01488, %while.body ], [ %ourKey.01488, %while.body ], [ %ourKey.01488, %while.body ], [ %ourKey.01488, %while.body ], [ %ourKey.01488, %while.body ], [ %ourKey.01488, %while.body ], [ %ourKey.01488, %while.body ], [ %ourKey.01488, %while.body ], [ %ourKey.01488, %while.body ], [ %ourKey.01488, %while.body ], [ %ourKey.01488, %while.body ], [ %ourKey.01488, %while.body ], [ %ourKey.01488, %while.body ], [ %ourKey.01488, %while.body ], [ %ourKey.01488, %while.body ], [ %ourKey.01488, %while.body ], [ %ourKey.01488, %while.body ], [ %ourKey.01488, %while.body ], [ %ourKey.01488, %while.body ], [ %ourKey.01488, %while.body ], [ %ourKey.01488, %while.body ], [ %ourKey.01488, %sw.bb14 ], [ %ourKey.01488, %sw.bb12 ], [ %ourKey.01488, %sw.bb11 ], [ %ourKey.01488, %sw.bb28 ], [ %ourKey.01488, %sw.bb139 ], [ %ourKey.01488, %while.body ]
-  %ourCert.01486.be = phi ptr [ %ourCert.01486, %sw.bb202 ], [ %ourCert.01486, %sw.bb200 ], [ %ourCert.01486, %sw.bb199 ], [ %ourCert.01486, %sw.bb184 ], [ %ourCert.01486, %sw.bb183 ], [ %ourCert.01486, %sw.bb179 ], [ %ourCert.01486, %sw.bb170 ], [ %ourCert.01486, %sw.bb166 ], [ %ourCert.01486, %sw.bb165 ], [ %ourCert.01486, %sw.bb164 ], [ %ourCert.01486, %sw.bb163 ], [ %ourCert.01486, %sw.bb162 ], [ %ourCert.01486, %sw.bb161 ], [ %ourCert.01486, %sw.bb154 ], [ %ourCert.01486, %sw.bb148 ], [ %ourCert.01486, %sw.bb137 ], [ %ourCert.01486, %sw.bb134 ], [ %ourCert.01486, %sw.bb133 ], [ %ourCert.01486, %sw.bb132 ], [ %ourCert.01486, %for.end ], [ %ourCert.01486, %sw.bb105 ], [ %ourCert.01486, %sw.bb96 ], [ %ourCert.01486, %sw.bb95 ], [ %37, %sw.bb94 ], [ %ourCert.01486, %sw.bb93 ], [ %ourCert.01486, %if.then48 ], [ %ourCert.01486, %if.then53 ], [ %ourCert.01486, %if.then59 ], [ %ourCert.01486, %if.then65 ], [ %ourCert.01486, %if.then71 ], [ %ourCert.01486, %if.then77 ], [ %ourCert.01486, %if.then83 ], [ %ourCert.01486, %sw.bb43 ], [ %ourCert.01486, %if.end33 ], [ %ourCert.01486, %sw.bb26 ], [ %ourCert.01486, %sw.bb25 ], [ %ourCert.01486, %sw.bb22 ], [ %ourCert.01486, %sw.bb20 ], [ %ourCert.01486, %sw.bb19 ], [ %ourCert.01486, %sw.bb18 ], [ %ourCert.01486, %sw.bb16 ], [ %ourCert.01486, %while.body ], [ %ourCert.01486, %while.body ], [ %ourCert.01486, %while.body ], [ %ourCert.01486, %while.body ], [ %ourCert.01486, %while.body ], [ %ourCert.01486, %while.body ], [ %ourCert.01486, %while.body ], [ %ourCert.01486, %while.body ], [ %ourCert.01486, %while.body ], [ %ourCert.01486, %while.body ], [ %ourCert.01486, %while.body ], [ %ourCert.01486, %while.body ], [ %ourCert.01486, %while.body ], [ %ourCert.01486, %while.body ], [ %ourCert.01486, %while.body ], [ %ourCert.01486, %while.body ], [ %ourCert.01486, %while.body ], [ %ourCert.01486, %while.body ], [ %ourCert.01486, %while.body ], [ %ourCert.01486, %while.body ], [ %ourCert.01486, %while.body ], [ %ourCert.01486, %while.body ], [ %ourCert.01486, %while.body ], [ %ourCert.01486, %sw.bb14 ], [ %ourCert.01486, %sw.bb12 ], [ %ourCert.01486, %sw.bb11 ], [ %ourCert.01486, %sw.bb28 ], [ %ourCert.01486, %sw.bb139 ], [ %ourCert.01486, %while.body ]
-  %verifyCert.01484.be = phi ptr [ %verifyCert.01484, %sw.bb202 ], [ %verifyCert.01484, %sw.bb200 ], [ %verifyCert.01484, %sw.bb199 ], [ %verifyCert.01484, %sw.bb184 ], [ %verifyCert.01484, %sw.bb183 ], [ %verifyCert.01484, %sw.bb179 ], [ %verifyCert.01484, %sw.bb170 ], [ %verifyCert.01484, %sw.bb166 ], [ %verifyCert.01484, %sw.bb165 ], [ %verifyCert.01484, %sw.bb164 ], [ %verifyCert.01484, %sw.bb163 ], [ %verifyCert.01484, %sw.bb162 ], [ %verifyCert.01484, %sw.bb161 ], [ %verifyCert.01484, %sw.bb154 ], [ %verifyCert.01484, %sw.bb148 ], [ %verifyCert.01484, %sw.bb137 ], [ %verifyCert.01484, %sw.bb134 ], [ %verifyCert.01484, %sw.bb133 ], [ %verifyCert.01484, %sw.bb132 ], [ %verifyCert.01484, %for.end ], [ %verifyCert.01484, %sw.bb105 ], [ %verifyCert.01484, %sw.bb96 ], [ %verifyCert.01484, %sw.bb95 ], [ %verifyCert.01484, %sw.bb94 ], [ %36, %sw.bb93 ], [ %verifyCert.01484, %if.then48 ], [ %verifyCert.01484, %if.then53 ], [ %verifyCert.01484, %if.then59 ], [ %verifyCert.01484, %if.then65 ], [ %verifyCert.01484, %if.then71 ], [ %verifyCert.01484, %if.then77 ], [ %verifyCert.01484, %if.then83 ], [ %verifyCert.01484, %sw.bb43 ], [ %verifyCert.01484, %if.end33 ], [ %verifyCert.01484, %sw.bb26 ], [ %verifyCert.01484, %sw.bb25 ], [ %verifyCert.01484, %sw.bb22 ], [ %verifyCert.01484, %sw.bb20 ], [ %verifyCert.01484, %sw.bb19 ], [ %verifyCert.01484, %sw.bb18 ], [ %verifyCert.01484, %sw.bb16 ], [ %verifyCert.01484, %while.body ], [ %verifyCert.01484, %while.body ], [ %verifyCert.01484, %while.body ], [ %verifyCert.01484, %while.body ], [ %verifyCert.01484, %while.body ], [ %verifyCert.01484, %while.body ], [ %verifyCert.01484, %while.body ], [ %verifyCert.01484, %while.body ], [ %verifyCert.01484, %while.body ], [ %verifyCert.01484, %while.body ], [ %verifyCert.01484, %while.body ], [ %verifyCert.01484, %while.body ], [ %verifyCert.01484, %while.body ], [ %verifyCert.01484, %while.body ], [ %verifyCert.01484, %while.body ], [ %verifyCert.01484, %while.body ], [ %verifyCert.01484, %while.body ], [ %verifyCert.01484, %while.body ], [ %verifyCert.01484, %while.body ], [ %verifyCert.01484, %while.body ], [ %verifyCert.01484, %while.body ], [ %verifyCert.01484, %while.body ], [ %verifyCert.01484, %while.body ], [ %verifyCert.01484, %sw.bb14 ], [ %verifyCert.01484, %sw.bb12 ], [ %verifyCert.01484, %sw.bb11 ], [ %verifyCert.01484, %sw.bb28 ], [ %verifyCert.01484, %sw.bb139 ], [ %verifyCert.01484, %while.body ]
+  %ourKey.01488.be = phi ptr [ %ourKey.01488, %sw.bb202 ], [ %ourKey.01488, %sw.bb200 ], [ %ourKey.01488, %sw.bb199 ], [ %ourKey.01488, %sw.bb184 ], [ %ourKey.01488, %sw.bb183 ], [ %ourKey.01488, %sw.bb179 ], [ %ourKey.01488, %sw.bb170 ], [ %ourKey.01488, %sw.bb166 ], [ %ourKey.01488, %sw.bb165 ], [ %ourKey.01488, %sw.bb164 ], [ %ourKey.01488, %sw.bb163 ], [ %ourKey.01488, %sw.bb162 ], [ %ourKey.01488, %sw.bb161 ], [ %ourKey.01488, %sw.bb154 ], [ %ourKey.01488, %sw.bb148 ], [ %ourKey.01488, %sw.bb137 ], [ %ourKey.01488, %sw.bb134 ], [ %ourKey.01488, %sw.bb133 ], [ %ourKey.01488, %sw.bb132 ], [ %ourKey.01488, %for.end ], [ %ourKey.01488, %sw.bb105 ], [ %ourKey.01488, %sw.bb96 ], [ %40, %sw.bb95 ], [ %ourKey.01488, %sw.bb94 ], [ %ourKey.01488, %sw.bb93 ], [ %ourKey.01488, %if.then48 ], [ %ourKey.01488, %if.then53 ], [ %ourKey.01488, %if.then59 ], [ %ourKey.01488, %if.then65 ], [ %ourKey.01488, %if.then71 ], [ %ourKey.01488, %if.then77 ], [ %ourKey.01488, %if.then83 ], [ %ourKey.01488, %sw.bb43 ], [ %ourKey.01488, %if.end33 ], [ %ourKey.01488, %sw.bb26 ], [ %ourKey.01488, %sw.bb25 ], [ %ourKey.01488, %sw.bb22 ], [ %ourKey.01488, %sw.bb20 ], [ %ourKey.01488, %sw.bb19 ], [ %ourKey.01488, %sw.bb18 ], [ %ourKey.01488, %sw.bb16 ], [ %ourKey.01488, %while.body ], [ %ourKey.01488, %while.body ], [ %ourKey.01488, %while.body ], [ %ourKey.01488, %while.body ], [ %ourKey.01488, %while.body ], [ %ourKey.01488, %while.body ], [ %ourKey.01488, %while.body ], [ %ourKey.01488, %while.body ], [ %ourKey.01488, %while.body ], [ %ourKey.01488, %while.body ], [ %ourKey.01488, %while.body ], [ %ourKey.01488, %while.body ], [ %ourKey.01488, %while.body ], [ %ourKey.01488, %while.body ], [ %ourKey.01488, %while.body ], [ %ourKey.01488, %while.body ], [ %ourKey.01488, %while.body ], [ %ourKey.01488, %while.body ], [ %ourKey.01488, %while.body ], [ %ourKey.01488, %while.body ], [ %ourKey.01488, %while.body ], [ %ourKey.01488, %while.body ], [ %ourKey.01488, %while.body ], [ %ourKey.01488, %sw.bb14 ], [ %ourKey.01488, %sw.bb12 ], [ %ourKey.01488, %sw.bb11 ], [ %ourKey.01488, %sw.bb28 ], [ %ourKey.01488, %sw.bb139 ], [ %ourKey.01488, %while.body ]
+  %ourCert.01486.be = phi ptr [ %ourCert.01486, %sw.bb202 ], [ %ourCert.01486, %sw.bb200 ], [ %ourCert.01486, %sw.bb199 ], [ %ourCert.01486, %sw.bb184 ], [ %ourCert.01486, %sw.bb183 ], [ %ourCert.01486, %sw.bb179 ], [ %ourCert.01486, %sw.bb170 ], [ %ourCert.01486, %sw.bb166 ], [ %ourCert.01486, %sw.bb165 ], [ %ourCert.01486, %sw.bb164 ], [ %ourCert.01486, %sw.bb163 ], [ %ourCert.01486, %sw.bb162 ], [ %ourCert.01486, %sw.bb161 ], [ %ourCert.01486, %sw.bb154 ], [ %ourCert.01486, %sw.bb148 ], [ %ourCert.01486, %sw.bb137 ], [ %ourCert.01486, %sw.bb134 ], [ %ourCert.01486, %sw.bb133 ], [ %ourCert.01486, %sw.bb132 ], [ %ourCert.01486, %for.end ], [ %ourCert.01486, %sw.bb105 ], [ %ourCert.01486, %sw.bb96 ], [ %ourCert.01486, %sw.bb95 ], [ %39, %sw.bb94 ], [ %ourCert.01486, %sw.bb93 ], [ %ourCert.01486, %if.then48 ], [ %ourCert.01486, %if.then53 ], [ %ourCert.01486, %if.then59 ], [ %ourCert.01486, %if.then65 ], [ %ourCert.01486, %if.then71 ], [ %ourCert.01486, %if.then77 ], [ %ourCert.01486, %if.then83 ], [ %ourCert.01486, %sw.bb43 ], [ %ourCert.01486, %if.end33 ], [ %ourCert.01486, %sw.bb26 ], [ %ourCert.01486, %sw.bb25 ], [ %ourCert.01486, %sw.bb22 ], [ %ourCert.01486, %sw.bb20 ], [ %ourCert.01486, %sw.bb19 ], [ %ourCert.01486, %sw.bb18 ], [ %ourCert.01486, %sw.bb16 ], [ %ourCert.01486, %while.body ], [ %ourCert.01486, %while.body ], [ %ourCert.01486, %while.body ], [ %ourCert.01486, %while.body ], [ %ourCert.01486, %while.body ], [ %ourCert.01486, %while.body ], [ %ourCert.01486, %while.body ], [ %ourCert.01486, %while.body ], [ %ourCert.01486, %while.body ], [ %ourCert.01486, %while.body ], [ %ourCert.01486, %while.body ], [ %ourCert.01486, %while.body ], [ %ourCert.01486, %while.body ], [ %ourCert.01486, %while.body ], [ %ourCert.01486, %while.body ], [ %ourCert.01486, %while.body ], [ %ourCert.01486, %while.body ], [ %ourCert.01486, %while.body ], [ %ourCert.01486, %while.body ], [ %ourCert.01486, %while.body ], [ %ourCert.01486, %while.body ], [ %ourCert.01486, %while.body ], [ %ourCert.01486, %while.body ], [ %ourCert.01486, %sw.bb14 ], [ %ourCert.01486, %sw.bb12 ], [ %ourCert.01486, %sw.bb11 ], [ %ourCert.01486, %sw.bb28 ], [ %ourCert.01486, %sw.bb139 ], [ %ourCert.01486, %while.body ]
+  %verifyCert.01484.be = phi ptr [ %verifyCert.01484, %sw.bb202 ], [ %verifyCert.01484, %sw.bb200 ], [ %verifyCert.01484, %sw.bb199 ], [ %verifyCert.01484, %sw.bb184 ], [ %verifyCert.01484, %sw.bb183 ], [ %verifyCert.01484, %sw.bb179 ], [ %verifyCert.01484, %sw.bb170 ], [ %verifyCert.01484, %sw.bb166 ], [ %verifyCert.01484, %sw.bb165 ], [ %verifyCert.01484, %sw.bb164 ], [ %verifyCert.01484, %sw.bb163 ], [ %verifyCert.01484, %sw.bb162 ], [ %verifyCert.01484, %sw.bb161 ], [ %verifyCert.01484, %sw.bb154 ], [ %verifyCert.01484, %sw.bb148 ], [ %verifyCert.01484, %sw.bb137 ], [ %verifyCert.01484, %sw.bb134 ], [ %verifyCert.01484, %sw.bb133 ], [ %verifyCert.01484, %sw.bb132 ], [ %verifyCert.01484, %for.end ], [ %verifyCert.01484, %sw.bb105 ], [ %verifyCert.01484, %sw.bb96 ], [ %verifyCert.01484, %sw.bb95 ], [ %verifyCert.01484, %sw.bb94 ], [ %38, %sw.bb93 ], [ %verifyCert.01484, %if.then48 ], [ %verifyCert.01484, %if.then53 ], [ %verifyCert.01484, %if.then59 ], [ %verifyCert.01484, %if.then65 ], [ %verifyCert.01484, %if.then71 ], [ %verifyCert.01484, %if.then77 ], [ %verifyCert.01484, %if.then83 ], [ %verifyCert.01484, %sw.bb43 ], [ %verifyCert.01484, %if.end33 ], [ %verifyCert.01484, %sw.bb26 ], [ %verifyCert.01484, %sw.bb25 ], [ %verifyCert.01484, %sw.bb22 ], [ %verifyCert.01484, %sw.bb20 ], [ %verifyCert.01484, %sw.bb19 ], [ %verifyCert.01484, %sw.bb18 ], [ %verifyCert.01484, %sw.bb16 ], [ %verifyCert.01484, %while.body ], [ %verifyCert.01484, %while.body ], [ %verifyCert.01484, %while.body ], [ %verifyCert.01484, %while.body ], [ %verifyCert.01484, %while.body ], [ %verifyCert.01484, %while.body ], [ %verifyCert.01484, %while.body ], [ %verifyCert.01484, %while.body ], [ %verifyCert.01484, %while.body ], [ %verifyCert.01484, %while.body ], [ %verifyCert.01484, %while.body ], [ %verifyCert.01484, %while.body ], [ %verifyCert.01484, %while.body ], [ %verifyCert.01484, %while.body ], [ %verifyCert.01484, %while.body ], [ %verifyCert.01484, %while.body ], [ %verifyCert.01484, %while.body ], [ %verifyCert.01484, %while.body ], [ %verifyCert.01484, %while.body ], [ %verifyCert.01484, %while.body ], [ %verifyCert.01484, %while.body ], [ %verifyCert.01484, %while.body ], [ %verifyCert.01484, %while.body ], [ %verifyCert.01484, %sw.bb14 ], [ %verifyCert.01484, %sw.bb12 ], [ %verifyCert.01484, %sw.bb11 ], [ %verifyCert.01484, %sw.bb28 ], [ %verifyCert.01484, %sw.bb139 ], [ %verifyCert.01484, %while.body ]
   %customVerifyCert.01482.be = phi i32 [ %customVerifyCert.01482, %sw.bb202 ], [ %customVerifyCert.01482, %sw.bb200 ], [ %customVerifyCert.01482, %sw.bb199 ], [ %customVerifyCert.01482, %sw.bb184 ], [ %customVerifyCert.01482, %sw.bb183 ], [ %customVerifyCert.01482, %sw.bb179 ], [ %customVerifyCert.01482, %sw.bb170 ], [ %customVerifyCert.01482, %sw.bb166 ], [ %customVerifyCert.01482, %sw.bb165 ], [ %customVerifyCert.01482, %sw.bb164 ], [ %customVerifyCert.01482, %sw.bb163 ], [ %customVerifyCert.01482, %sw.bb162 ], [ %customVerifyCert.01482, %sw.bb161 ], [ %customVerifyCert.01482, %sw.bb154 ], [ %customVerifyCert.01482, %sw.bb148 ], [ %customVerifyCert.01482, %sw.bb137 ], [ %customVerifyCert.01482, %sw.bb134 ], [ %customVerifyCert.01482, %sw.bb133 ], [ %customVerifyCert.01482, %sw.bb132 ], [ %customVerifyCert.01482, %for.end ], [ %customVerifyCert.01482, %sw.bb105 ], [ %customVerifyCert.01482, %sw.bb96 ], [ %customVerifyCert.01482, %sw.bb95 ], [ %customVerifyCert.01482, %sw.bb94 ], [ 1, %sw.bb93 ], [ %customVerifyCert.01482, %if.then48 ], [ %customVerifyCert.01482, %if.then53 ], [ %customVerifyCert.01482, %if.then59 ], [ %customVerifyCert.01482, %if.then65 ], [ %customVerifyCert.01482, %if.then71 ], [ %customVerifyCert.01482, %if.then77 ], [ %customVerifyCert.01482, %if.then83 ], [ %customVerifyCert.01482, %sw.bb43 ], [ %customVerifyCert.01482, %if.end33 ], [ %customVerifyCert.01482, %sw.bb26 ], [ %customVerifyCert.01482, %sw.bb25 ], [ %customVerifyCert.01482, %sw.bb22 ], [ %customVerifyCert.01482, %sw.bb20 ], [ %customVerifyCert.01482, %sw.bb19 ], [ %customVerifyCert.01482, %sw.bb18 ], [ %customVerifyCert.01482, %sw.bb16 ], [ %customVerifyCert.01482, %while.body ], [ %customVerifyCert.01482, %while.body ], [ %customVerifyCert.01482, %while.body ], [ %customVerifyCert.01482, %while.body ], [ %customVerifyCert.01482, %while.body ], [ %customVerifyCert.01482, %while.body ], [ %customVerifyCert.01482, %while.body ], [ %customVerifyCert.01482, %while.body ], [ %customVerifyCert.01482, %while.body ], [ %customVerifyCert.01482, %while.body ], [ %customVerifyCert.01482, %while.body ], [ %customVerifyCert.01482, %while.body ], [ %customVerifyCert.01482, %while.body ], [ %customVerifyCert.01482, %while.body ], [ %customVerifyCert.01482, %while.body ], [ %customVerifyCert.01482, %while.body ], [ %customVerifyCert.01482, %while.body ], [ %customVerifyCert.01482, %while.body ], [ %customVerifyCert.01482, %while.body ], [ %customVerifyCert.01482, %while.body ], [ %customVerifyCert.01482, %while.body ], [ %customVerifyCert.01482, %while.body ], [ %customVerifyCert.01482, %while.body ], [ %customVerifyCert.01482, %sw.bb14 ], [ %customVerifyCert.01482, %sw.bb12 ], [ %customVerifyCert.01482, %sw.bb11 ], [ %customVerifyCert.01482, %sw.bb28 ], [ %customVerifyCert.01482, %sw.bb139 ], [ %customVerifyCert.01482, %while.body ]
   %useDefCipherList.01480.be = phi i32 [ %useDefCipherList.01480, %sw.bb202 ], [ %useDefCipherList.01480, %sw.bb200 ], [ %useDefCipherList.01480, %sw.bb199 ], [ %useDefCipherList.01480, %sw.bb184 ], [ %useDefCipherList.01480, %sw.bb183 ], [ %useDefCipherList.01480, %sw.bb179 ], [ %useDefCipherList.01480, %sw.bb170 ], [ %useDefCipherList.01480, %sw.bb166 ], [ %useDefCipherList.01480, %sw.bb165 ], [ %useDefCipherList.01480, %sw.bb164 ], [ %useDefCipherList.01480, %sw.bb163 ], [ %useDefCipherList.01480, %sw.bb162 ], [ %useDefCipherList.01480, %sw.bb161 ], [ %useDefCipherList.01480, %sw.bb154 ], [ %useDefCipherList.01480, %sw.bb148 ], [ %useDefCipherList.01480, %sw.bb137 ], [ %useDefCipherList.01480, %sw.bb134 ], [ %useDefCipherList.01480, %sw.bb133 ], [ %useDefCipherList.01480, %sw.bb132 ], [ %useDefCipherList.01480, %for.end ], [ %useDefCipherList.01480, %sw.bb105 ], [ %useDefCipherList.01480, %sw.bb96 ], [ %useDefCipherList.01480, %sw.bb95 ], [ %useDefCipherList.01480, %sw.bb94 ], [ %useDefCipherList.01480, %sw.bb93 ], [ 1, %if.then48 ], [ %useDefCipherList.01480, %if.then53 ], [ %useDefCipherList.01480, %if.then59 ], [ %useDefCipherList.01480, %if.then65 ], [ %useDefCipherList.01480, %if.then71 ], [ %useDefCipherList.01480, %if.then77 ], [ %useDefCipherList.01480, %if.then83 ], [ %useDefCipherList.01480, %sw.bb43 ], [ %useDefCipherList.01480, %if.end33 ], [ %useDefCipherList.01480, %sw.bb26 ], [ %useDefCipherList.01480, %sw.bb25 ], [ %useDefCipherList.01480, %sw.bb22 ], [ %useDefCipherList.01480, %sw.bb20 ], [ %useDefCipherList.01480, %sw.bb19 ], [ %useDefCipherList.01480, %sw.bb18 ], [ %useDefCipherList.01480, %sw.bb16 ], [ %useDefCipherList.01480, %while.body ], [ %useDefCipherList.01480, %while.body ], [ %useDefCipherList.01480, %while.body ], [ %useDefCipherList.01480, %while.body ], [ %useDefCipherList.01480, %while.body ], [ %useDefCipherList.01480, %while.body ], [ %useDefCipherList.01480, %while.body ], [ %useDefCipherList.01480, %while.body ], [ %useDefCipherList.01480, %while.body ], [ %useDefCipherList.01480, %while.body ], [ %useDefCipherList.01480, %while.body ], [ %useDefCipherList.01480, %while.body ], [ %useDefCipherList.01480, %while.body ], [ %useDefCipherList.01480, %while.body ], [ %useDefCipherList.01480, %while.body ], [ %useDefCipherList.01480, %while.body ], [ %useDefCipherList.01480, %while.body ], [ %useDefCipherList.01480, %while.body ], [ %useDefCipherList.01480, %while.body ], [ %useDefCipherList.01480, %while.body ], [ %useDefCipherList.01480, %while.body ], [ %useDefCipherList.01480, %while.body ], [ %useDefCipherList.01480, %while.body ], [ %useDefCipherList.01480, %sw.bb14 ], [ %useDefCipherList.01480, %sw.bb12 ], [ %useDefCipherList.01480, %sw.bb11 ], [ %useDefCipherList.01480, %sw.bb28 ], [ %useDefCipherList.01480, %sw.bb139 ], [ %useDefCipherList.01480, %while.body ]
-  %cipherList.01478.be = phi ptr [ %cipherList.01478, %sw.bb202 ], [ %cipherList.01478, %sw.bb200 ], [ %cipherList.01478, %sw.bb199 ], [ %cipherList.01478, %sw.bb184 ], [ %cipherList.01478, %sw.bb183 ], [ %cipherList.01478, %sw.bb179 ], [ %cipherList.01478, %sw.bb170 ], [ %cipherList.01478, %sw.bb166 ], [ %cipherList.01478, %sw.bb165 ], [ %cipherList.01478, %sw.bb164 ], [ %cipherList.01478, %sw.bb163 ], [ %cipherList.01478, %sw.bb162 ], [ %cipherList.01478, %sw.bb161 ], [ %cipherList.01478, %sw.bb154 ], [ %cipherList.01478, %sw.bb148 ], [ %cipherList.01478, %sw.bb137 ], [ %cipherList.01478, %sw.bb134 ], [ %cipherList.01478, %sw.bb133 ], [ %cipherList.01478, %sw.bb132 ], [ %cipherList.01478, %for.end ], [ %cipherList.01478, %sw.bb105 ], [ %cipherList.01478, %sw.bb96 ], [ %cipherList.01478, %sw.bb95 ], [ %cipherList.01478, %sw.bb94 ], [ %cipherList.01478, %sw.bb93 ], [ %cipherList.01478, %if.then48 ], [ %cipherList.01478, %if.then53 ], [ %cipherList.01478, %if.then59 ], [ %cipherList.01478, %if.then65 ], [ %cipherList.01478, %if.then71 ], [ %cipherList.01478, %if.then77 ], [ %cipherList.01478, %if.then83 ], [ %34, %sw.bb43 ], [ %cipherList.01478, %if.end33 ], [ %cipherList.01478, %sw.bb26 ], [ %cipherList.01478, %sw.bb25 ], [ %cipherList.01478, %sw.bb22 ], [ %cipherList.01478, %sw.bb20 ], [ %cipherList.01478, %sw.bb19 ], [ %cipherList.01478, %sw.bb18 ], [ %cipherList.01478, %sw.bb16 ], [ %cipherList.01478, %while.body ], [ %cipherList.01478, %while.body ], [ %cipherList.01478, %while.body ], [ %cipherList.01478, %while.body ], [ %cipherList.01478, %while.body ], [ %cipherList.01478, %while.body ], [ %cipherList.01478, %while.body ], [ %cipherList.01478, %while.body ], [ %cipherList.01478, %while.body ], [ %cipherList.01478, %while.body ], [ %cipherList.01478, %while.body ], [ %cipherList.01478, %while.body ], [ %cipherList.01478, %while.body ], [ %cipherList.01478, %while.body ], [ %cipherList.01478, %while.body ], [ %cipherList.01478, %while.body ], [ %cipherList.01478, %while.body ], [ %cipherList.01478, %while.body ], [ %cipherList.01478, %while.body ], [ %cipherList.01478, %while.body ], [ %cipherList.01478, %while.body ], [ %cipherList.01478, %while.body ], [ %cipherList.01478, %while.body ], [ %cipherList.01478, %sw.bb14 ], [ %cipherList.01478, %sw.bb12 ], [ %cipherList.01478, %sw.bb11 ], [ %cipherList.01478, %sw.bb28 ], [ %cipherList.01478, %sw.bb139 ], [ %cipherList.01478, %while.body ]
+  %cipherList.01478.be = phi ptr [ %cipherList.01478, %sw.bb202 ], [ %cipherList.01478, %sw.bb200 ], [ %cipherList.01478, %sw.bb199 ], [ %cipherList.01478, %sw.bb184 ], [ %cipherList.01478, %sw.bb183 ], [ %cipherList.01478, %sw.bb179 ], [ %cipherList.01478, %sw.bb170 ], [ %cipherList.01478, %sw.bb166 ], [ %cipherList.01478, %sw.bb165 ], [ %cipherList.01478, %sw.bb164 ], [ %cipherList.01478, %sw.bb163 ], [ %cipherList.01478, %sw.bb162 ], [ %cipherList.01478, %sw.bb161 ], [ %cipherList.01478, %sw.bb154 ], [ %cipherList.01478, %sw.bb148 ], [ %cipherList.01478, %sw.bb137 ], [ %cipherList.01478, %sw.bb134 ], [ %cipherList.01478, %sw.bb133 ], [ %cipherList.01478, %sw.bb132 ], [ %cipherList.01478, %for.end ], [ %cipherList.01478, %sw.bb105 ], [ %cipherList.01478, %sw.bb96 ], [ %cipherList.01478, %sw.bb95 ], [ %cipherList.01478, %sw.bb94 ], [ %cipherList.01478, %sw.bb93 ], [ %cipherList.01478, %if.then48 ], [ %cipherList.01478, %if.then53 ], [ %cipherList.01478, %if.then59 ], [ %cipherList.01478, %if.then65 ], [ %cipherList.01478, %if.then71 ], [ %cipherList.01478, %if.then77 ], [ %cipherList.01478, %if.then83 ], [ %36, %sw.bb43 ], [ %cipherList.01478, %if.end33 ], [ %cipherList.01478, %sw.bb26 ], [ %cipherList.01478, %sw.bb25 ], [ %cipherList.01478, %sw.bb22 ], [ %cipherList.01478, %sw.bb20 ], [ %cipherList.01478, %sw.bb19 ], [ %cipherList.01478, %sw.bb18 ], [ %cipherList.01478, %sw.bb16 ], [ %cipherList.01478, %while.body ], [ %cipherList.01478, %while.body ], [ %cipherList.01478, %while.body ], [ %cipherList.01478, %while.body ], [ %cipherList.01478, %while.body ], [ %cipherList.01478, %while.body ], [ %cipherList.01478, %while.body ], [ %cipherList.01478, %while.body ], [ %cipherList.01478, %while.body ], [ %cipherList.01478, %while.body ], [ %cipherList.01478, %while.body ], [ %cipherList.01478, %while.body ], [ %cipherList.01478, %while.body ], [ %cipherList.01478, %while.body ], [ %cipherList.01478, %while.body ], [ %cipherList.01478, %while.body ], [ %cipherList.01478, %while.body ], [ %cipherList.01478, %while.body ], [ %cipherList.01478, %while.body ], [ %cipherList.01478, %while.body ], [ %cipherList.01478, %while.body ], [ %cipherList.01478, %while.body ], [ %cipherList.01478, %while.body ], [ %cipherList.01478, %sw.bb14 ], [ %cipherList.01478, %sw.bb12 ], [ %cipherList.01478, %sw.bb11 ], [ %cipherList.01478, %sw.bb28 ], [ %cipherList.01478, %sw.bb139 ], [ %cipherList.01478, %while.body ]
   %throughput.01476.be = phi i64 [ %throughput.01476, %sw.bb202 ], [ %throughput.01476, %sw.bb200 ], [ %throughput.01476, %sw.bb199 ], [ %throughput.01476, %sw.bb184 ], [ %throughput.01476, %sw.bb183 ], [ %throughput.01476, %sw.bb179 ], [ %throughput.01476, %sw.bb170 ], [ %throughput.01476, %sw.bb166 ], [ %throughput.01476, %sw.bb165 ], [ %throughput.01476, %sw.bb164 ], [ %throughput.01476, %sw.bb163 ], [ %throughput.01476, %sw.bb162 ], [ %throughput.01476, %sw.bb161 ], [ %throughput.01476, %sw.bb154 ], [ %throughput.01476, %sw.bb148 ], [ %throughput.01476, %sw.bb137 ], [ %throughput.01476, %sw.bb134 ], [ %throughput.01476, %sw.bb133 ], [ %throughput.01476, %sw.bb132 ], [ %call115, %for.end ], [ %throughput.01476, %sw.bb105 ], [ %throughput.01476, %sw.bb96 ], [ %throughput.01476, %sw.bb95 ], [ %throughput.01476, %sw.bb94 ], [ %throughput.01476, %sw.bb93 ], [ %throughput.01476, %if.then48 ], [ %throughput.01476, %if.then53 ], [ %throughput.01476, %if.then59 ], [ %throughput.01476, %if.then65 ], [ %throughput.01476, %if.then71 ], [ %throughput.01476, %if.then77 ], [ %throughput.01476, %if.then83 ], [ %throughput.01476, %sw.bb43 ], [ %throughput.01476, %if.end33 ], [ %throughput.01476, %sw.bb26 ], [ %throughput.01476, %sw.bb25 ], [ %throughput.01476, %sw.bb22 ], [ %throughput.01476, %sw.bb20 ], [ %throughput.01476, %sw.bb19 ], [ %throughput.01476, %sw.bb18 ], [ %throughput.01476, %sw.bb16 ], [ %throughput.01476, %while.body ], [ %throughput.01476, %while.body ], [ %throughput.01476, %while.body ], [ %throughput.01476, %while.body ], [ %throughput.01476, %while.body ], [ %throughput.01476, %while.body ], [ %throughput.01476, %while.body ], [ %throughput.01476, %while.body ], [ %throughput.01476, %while.body ], [ %throughput.01476, %while.body ], [ %throughput.01476, %while.body ], [ %throughput.01476, %while.body ], [ %throughput.01476, %while.body ], [ %throughput.01476, %while.body ], [ %throughput.01476, %while.body ], [ %throughput.01476, %while.body ], [ %throughput.01476, %while.body ], [ %throughput.01476, %while.body ], [ %throughput.01476, %while.body ], [ %throughput.01476, %while.body ], [ %throughput.01476, %while.body ], [ %throughput.01476, %while.body ], [ %throughput.01476, %while.body ], [ %throughput.01476, %sw.bb14 ], [ %throughput.01476, %sw.bb12 ], [ %throughput.01476, %sw.bb11 ], [ %throughput.01476, %sw.bb28 ], [ %throughput.01476, %sw.bb139 ], [ %throughput.01476, %while.body ]
   %doDTLS.01474.be = phi i32 [ %doDTLS.01474, %sw.bb202 ], [ %doDTLS.01474, %sw.bb200 ], [ %doDTLS.01474, %sw.bb199 ], [ %doDTLS.01474, %sw.bb184 ], [ %doDTLS.01474, %sw.bb183 ], [ %doDTLS.01474, %sw.bb179 ], [ %doDTLS.01474, %sw.bb170 ], [ %doDTLS.01474, %sw.bb166 ], [ %doDTLS.01474, %sw.bb165 ], [ %doDTLS.01474, %sw.bb164 ], [ %doDTLS.01474, %sw.bb163 ], [ %doDTLS.01474, %sw.bb162 ], [ %doDTLS.01474, %sw.bb161 ], [ %doDTLS.01474, %sw.bb154 ], [ %doDTLS.01474, %sw.bb148 ], [ %doDTLS.01474, %sw.bb137 ], [ %doDTLS.01474, %sw.bb134 ], [ %doDTLS.01474, %sw.bb133 ], [ %doDTLS.01474, %sw.bb132 ], [ %doDTLS.01474, %for.end ], [ %doDTLS.01474, %sw.bb105 ], [ %doDTLS.01474, %sw.bb96 ], [ %doDTLS.01474, %sw.bb95 ], [ %doDTLS.01474, %sw.bb94 ], [ %doDTLS.01474, %sw.bb93 ], [ %doDTLS.01474, %if.then48 ], [ %doDTLS.01474, %if.then53 ], [ %doDTLS.01474, %if.then59 ], [ %doDTLS.01474, %if.then65 ], [ %doDTLS.01474, %if.then71 ], [ %doDTLS.01474, %if.then77 ], [ %doDTLS.01474, %if.then83 ], [ %doDTLS.01474, %sw.bb43 ], [ %doDTLS.01474, %if.end33 ], [ %doDTLS.01474, %sw.bb26 ], [ %doDTLS.01474, %sw.bb25 ], [ %doDTLS.01474, %sw.bb22 ], [ %doDTLS.01474, %sw.bb20 ], [ %doDTLS.01474, %sw.bb19 ], [ %doDTLS.01474, %sw.bb18 ], [ 1, %sw.bb16 ], [ %doDTLS.01474, %while.body ], [ %doDTLS.01474, %while.body ], [ %doDTLS.01474, %while.body ], [ %doDTLS.01474, %while.body ], [ %doDTLS.01474, %while.body ], [ %doDTLS.01474, %while.body ], [ %doDTLS.01474, %while.body ], [ %doDTLS.01474, %while.body ], [ %doDTLS.01474, %while.body ], [ %doDTLS.01474, %while.body ], [ %doDTLS.01474, %while.body ], [ %doDTLS.01474, %while.body ], [ %doDTLS.01474, %while.body ], [ %doDTLS.01474, %while.body ], [ %doDTLS.01474, %while.body ], [ %doDTLS.01474, %while.body ], [ %doDTLS.01474, %while.body ], [ %doDTLS.01474, %while.body ], [ %doDTLS.01474, %while.body ], [ %doDTLS.01474, %while.body ], [ %doDTLS.01474, %while.body ], [ %doDTLS.01474, %while.body ], [ %doDTLS.01474, %while.body ], [ %doDTLS.01474, %sw.bb14 ], [ %doDTLS.01474, %sw.bb12 ], [ %doDTLS.01474, %sw.bb11 ], [ %doDTLS.01474, %sw.bb28 ], [ %doDTLS.01474, %sw.bb139 ], [ %doDTLS.01474, %while.body ]
   %minDhKeyBits.01472.be = phi i32 [ %minDhKeyBits.01472, %sw.bb202 ], [ %minDhKeyBits.01472, %sw.bb200 ], [ %minDhKeyBits.01472, %sw.bb199 ], [ %minDhKeyBits.01472, %sw.bb184 ], [ %minDhKeyBits.01472, %sw.bb183 ], [ %minDhKeyBits.01472, %sw.bb179 ], [ %minDhKeyBits.01472, %sw.bb170 ], [ %minDhKeyBits.01472, %sw.bb166 ], [ %minDhKeyBits.01472, %sw.bb165 ], [ %minDhKeyBits.01472, %sw.bb164 ], [ %minDhKeyBits.01472, %sw.bb163 ], [ %minDhKeyBits.01472, %sw.bb162 ], [ %minDhKeyBits.01472, %sw.bb161 ], [ %minDhKeyBits.01472, %sw.bb154 ], [ %minDhKeyBits.01472, %sw.bb148 ], [ %minDhKeyBits.01472, %sw.bb137 ], [ %minDhKeyBits.01472, %sw.bb134 ], [ %minDhKeyBits.01472, %sw.bb133 ], [ %minDhKeyBits.01472, %sw.bb132 ], [ %minDhKeyBits.01472, %for.end ], [ %minDhKeyBits.01472, %sw.bb105 ], [ %call97, %sw.bb96 ], [ %minDhKeyBits.01472, %sw.bb95 ], [ %minDhKeyBits.01472, %sw.bb94 ], [ %minDhKeyBits.01472, %sw.bb93 ], [ %minDhKeyBits.01472, %if.then48 ], [ %minDhKeyBits.01472, %if.then53 ], [ %minDhKeyBits.01472, %if.then59 ], [ %minDhKeyBits.01472, %if.then65 ], [ %minDhKeyBits.01472, %if.then71 ], [ %minDhKeyBits.01472, %if.then77 ], [ %minDhKeyBits.01472, %if.then83 ], [ %minDhKeyBits.01472, %sw.bb43 ], [ %minDhKeyBits.01472, %if.end33 ], [ %minDhKeyBits.01472, %sw.bb26 ], [ %minDhKeyBits.01472, %sw.bb25 ], [ %minDhKeyBits.01472, %sw.bb22 ], [ %minDhKeyBits.01472, %sw.bb20 ], [ %minDhKeyBits.01472, %sw.bb19 ], [ %minDhKeyBits.01472, %sw.bb18 ], [ %minDhKeyBits.01472, %sw.bb16 ], [ %minDhKeyBits.01472, %while.body ], [ %minDhKeyBits.01472, %while.body ], [ %minDhKeyBits.01472, %while.body ], [ %minDhKeyBits.01472, %while.body ], [ %minDhKeyBits.01472, %while.body ], [ %minDhKeyBits.01472, %while.body ], [ %minDhKeyBits.01472, %while.body ], [ %minDhKeyBits.01472, %while.body ], [ %minDhKeyBits.01472, %while.body ], [ %minDhKeyBits.01472, %while.body ], [ %minDhKeyBits.01472, %while.body ], [ %minDhKeyBits.01472, %while.body ], [ %minDhKeyBits.01472, %while.body ], [ %minDhKeyBits.01472, %while.body ], [ %minDhKeyBits.01472, %while.body ], [ %minDhKeyBits.01472, %while.body ], [ %minDhKeyBits.01472, %while.body ], [ %minDhKeyBits.01472, %while.body ], [ %minDhKeyBits.01472, %while.body ], [ %minDhKeyBits.01472, %while.body ], [ %minDhKeyBits.01472, %while.body ], [ %minDhKeyBits.01472, %while.body ], [ %minDhKeyBits.01472, %while.body ], [ %minDhKeyBits.01472, %sw.bb14 ], [ %minDhKeyBits.01472, %sw.bb12 ], [ %minDhKeyBits.01472, %sw.bb11 ], [ %minDhKeyBits.01472, %sw.bb28 ], [ %minDhKeyBits.01472, %sw.bb139 ], [ %minDhKeyBits.01472, %while.body ]
@@ -694,12 +696,12 @@ if.end.i.backedge:                                ; preds = %sw.bb139, %sw.bb28,
   br label %if.end.i
 
 sw.bb:                                            ; preds = %if.end102.i, %if.else125.i, %while.body
-  %29 = load ptr, ptr @myoptarg, align 8
-  %cmp3.not = icmp eq ptr %29, null
+  %31 = load ptr, ptr @myoptarg, align 8
+  %cmp3.not = icmp eq ptr %31, null
   br i1 %cmp3.not, label %if.end8, label %if.then
 
 if.then:                                          ; preds = %sw.bb
-  %call4 = tail call i32 @atoi(ptr nocapture noundef nonnull %29) #20
+  %call4 = tail call i32 @atoi(ptr nocapture noundef nonnull %31) #20
   %or.cond = icmp ugt i32 %call4, 1
   %spec.store.select37 = select i1 %or.cond, i32 0, i32 %call4
   store i32 %spec.store.select37, ptr @lng_index, align 4
@@ -753,23 +755,23 @@ sw.bb22:                                          ; preds = %while.body
   br label %if.end.i.backedge
 
 sw.bb25:                                          ; preds = %while.body
-  %30 = load ptr, ptr @myoptarg, align 8
+  %32 = load ptr, ptr @myoptarg, align 8
   br label %if.end.i.backedge
 
 sw.bb26:                                          ; preds = %while.body
-  %31 = load ptr, ptr @myoptarg, align 8
-  %call27 = tail call i32 @atoi(ptr nocapture noundef %31) #20
+  %33 = load ptr, ptr @myoptarg, align 8
+  %call27 = tail call i32 @atoi(ptr nocapture noundef %33) #20
   %conv = trunc i32 %call27 to i16
   br label %if.end.i.backedge
 
 sw.bb28:                                          ; preds = %while.body
-  %32 = load ptr, ptr @myoptarg, align 8
-  %33 = load i8, ptr %32, align 1
-  %cmp30 = icmp eq i8 %33, 100
+  %34 = load ptr, ptr @myoptarg, align 8
+  %35 = load i8, ptr %34, align 1
+  %cmp30 = icmp eq i8 %35, 100
   br i1 %cmp30, label %if.end.i.backedge, label %if.end33
 
 if.end33:                                         ; preds = %sw.bb28
-  %call34 = tail call i32 @atoi(ptr nocapture noundef nonnull %32) #20
+  %call34 = tail call i32 @atoi(ptr nocapture noundef nonnull %34) #20
   %or.cond1 = icmp ugt i32 %call34, 4
   br i1 %or.cond1, label %if.then40, label %if.end.i.backedge
 
@@ -784,12 +786,12 @@ sw.bb42:                                          ; preds = %while.body
   unreachable
 
 sw.bb43:                                          ; preds = %while.body
-  %34 = load ptr, ptr @myoptarg, align 8
+  %36 = load ptr, ptr @myoptarg, align 8
   br label %if.end.i.backedge
 
 sw.bb44:                                          ; preds = %while.body
-  %35 = load ptr, ptr @myoptarg, align 8
-  %call45 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(14) @.str.16) #20
+  %37 = load ptr, ptr @myoptarg, align 8
+  %call45 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(14) @.str.16) #20
   %cmp46 = icmp eq i32 %call45, 0
   br i1 %cmp46, label %if.then48, label %if.else
 
@@ -798,7 +800,7 @@ if.then48:                                        ; preds = %sw.bb44
   br label %if.end.i.backedge
 
 if.else:                                          ; preds = %sw.bb44
-  %call50 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(12) @.str.18) #20
+  %call50 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(12) @.str.18) #20
   %cmp51 = icmp eq i32 %call50, 0
   br i1 %cmp51, label %if.then53, label %if.else55
 
@@ -807,7 +809,7 @@ if.then53:                                        ; preds = %if.else
   br label %if.end.i.backedge
 
 if.else55:                                        ; preds = %if.else
-  %call56 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(11) @.str.20) #20
+  %call56 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(11) @.str.20) #20
   %cmp57 = icmp eq i32 %call56, 0
   br i1 %cmp57, label %if.then59, label %if.else61
 
@@ -817,7 +819,7 @@ if.then59:                                        ; preds = %if.else55
   br label %if.end.i.backedge
 
 if.else61:                                        ; preds = %if.else55
-  %call62 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(11) @.str.22) #20
+  %call62 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(11) @.str.22) #20
   %cmp63 = icmp eq i32 %call62, 0
   br i1 %cmp63, label %if.then65, label %if.else67
 
@@ -827,7 +829,7 @@ if.then65:                                        ; preds = %if.else61
   br label %if.end.i.backedge
 
 if.else67:                                        ; preds = %if.else61
-  %call68 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(12) @.str.24) #20
+  %call68 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(12) @.str.24) #20
   %cmp69 = icmp eq i32 %call68, 0
   br i1 %cmp69, label %if.then71, label %if.else73
 
@@ -836,7 +838,7 @@ if.then71:                                        ; preds = %if.else67
   br label %if.end.i.backedge
 
 if.else73:                                        ; preds = %if.else67
-  %call74 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(8) @.str.26) #20
+  %call74 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(8) @.str.26) #20
   %cmp75 = icmp eq i32 %call74, 0
   br i1 %cmp75, label %if.then77, label %if.else79
 
@@ -845,7 +847,7 @@ if.then77:                                        ; preds = %if.else73
   br label %if.end.i.backedge
 
 if.else79:                                        ; preds = %if.else73
-  %call80 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(12) @.str.28) #20
+  %call80 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(12) @.str.28) #20
   %cmp81 = icmp eq i32 %call80, 0
   br i1 %cmp81, label %if.then83, label %if.else85
 
@@ -859,22 +861,22 @@ if.else85:                                        ; preds = %if.else79
   unreachable
 
 sw.bb93:                                          ; preds = %while.body
-  %36 = load ptr, ptr @myoptarg, align 8
-  br label %if.end.i.backedge
-
-sw.bb94:                                          ; preds = %while.body
-  %37 = load ptr, ptr @myoptarg, align 8
-  br label %if.end.i.backedge
-
-sw.bb95:                                          ; preds = %while.body
   %38 = load ptr, ptr @myoptarg, align 8
   br label %if.end.i.backedge
 
-sw.bb96:                                          ; preds = %while.body
+sw.bb94:                                          ; preds = %while.body
   %39 = load ptr, ptr @myoptarg, align 8
-  %call97 = tail call i32 @atoi(ptr nocapture noundef %39) #20
-  %40 = add i32 %call97, -16001
-  %or.cond2 = icmp ult i32 %40, -16000
+  br label %if.end.i.backedge
+
+sw.bb95:                                          ; preds = %while.body
+  %40 = load ptr, ptr @myoptarg, align 8
+  br label %if.end.i.backedge
+
+sw.bb96:                                          ; preds = %while.body
+  %41 = load ptr, ptr @myoptarg, align 8
+  %call97 = tail call i32 @atoi(ptr nocapture noundef %41) #20
+  %42 = add i32 %call97, -16001
+  %or.cond2 = icmp ult i32 %42, -16000
   br i1 %or.cond2, label %if.then103, label %if.end.i.backedge
 
 if.then103:                                       ; preds = %sw.bb96
@@ -883,8 +885,8 @@ if.then103:                                       ; preds = %sw.bb96
   unreachable
 
 sw.bb105:                                         ; preds = %while.body
-  %41 = load ptr, ptr @myoptarg, align 8
-  %call106 = tail call i32 @atoi(ptr nocapture noundef %41) #20
+  %43 = load ptr, ptr @myoptarg, align 8
+  %call106 = tail call i32 @atoi(ptr nocapture noundef %43) #20
   %or.cond3 = icmp ugt i32 %call106, 1000000
   br i1 %or.cond3, label %if.then112, label %if.end.i.backedge
 
@@ -894,14 +896,14 @@ if.then112:                                       ; preds = %sw.bb105
   unreachable
 
 sw.bb114:                                         ; preds = %while.body
-  %42 = load ptr, ptr @myoptarg, align 8
-  %call115 = tail call i64 @atol(ptr nocapture noundef %42) #20
+  %44 = load ptr, ptr @myoptarg, align 8
+  %call115 = tail call i64 @atol(ptr nocapture noundef %44) #20
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %sw.bb114
-  %incdec.ptr1453 = phi ptr [ %incdec.ptr, %for.inc ], [ %42, %sw.bb114 ]
-  %43 = load i8, ptr %incdec.ptr1453, align 1
-  switch i8 %43, label %for.inc [
+  %incdec.ptr1453 = phi ptr [ %incdec.ptr, %for.inc ], [ %44, %sw.bb114 ]
+  %45 = load i8, ptr %incdec.ptr1453, align 1
+  switch i8 %45, label %for.inc [
     i8 0, label %for.end
     i8 44, label %if.then122
   ]
@@ -942,8 +944,8 @@ sw.bb137:                                         ; preds = %while.body
   br label %if.end.i.backedge
 
 sw.bb139:                                         ; preds = %while.body
-  %44 = load ptr, ptr @myoptarg, align 8
-  %call140 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(6) @.str.30) #20
+  %46 = load ptr, ptr @myoptarg, align 8
+  %call140 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(6) @.str.30) #20
   %cmp141 = icmp eq i32 %call140, 0
   br i1 %cmp141, label %if.then143, label %if.end.i.backedge
 
@@ -956,8 +958,8 @@ sw.bb148:                                         ; preds = %while.body
   br label %if.end.i.backedge
 
 sw.bb154:                                         ; preds = %while.body
-  %45 = load ptr, ptr @myoptarg, align 8
-  %call155 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(5) @.str.32) #20
+  %47 = load ptr, ptr @myoptarg, align 8
+  %call155 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %47, ptr noundef nonnull dereferenceable(5) @.str.32) #20
   %cmp156.not = icmp eq i32 %call155, 0
   br i1 %cmp156.not, label %if.end.i.backedge, label %if.then158
 
@@ -985,8 +987,8 @@ sw.bb166:                                         ; preds = %while.body
   br label %if.end.i.backedge
 
 sw.bb170:                                         ; preds = %while.body
-  %46 = load ptr, ptr @myoptarg, align 8
-  %call171 = tail call i32 @atoi(ptr nocapture noundef %46) #20
+  %48 = load ptr, ptr @myoptarg, align 8
+  %call171 = tail call i32 @atoi(ptr nocapture noundef %48) #20
   %or.cond5 = icmp ugt i32 %call171, 1
   %spec.store.select38 = select i1 %or.cond5, i32 0, i32 %call171
   store i32 %spec.store.select38, ptr @lng_index, align 4
@@ -999,8 +1001,8 @@ sw.bb183:                                         ; preds = %while.body
   br label %if.end.i.backedge
 
 sw.bb184:                                         ; preds = %while.body
-  %47 = load ptr, ptr @myoptarg, align 8
-  %call185 = tail call i32 @atoi(ptr nocapture noundef %47) #20
+  %49 = load ptr, ptr @myoptarg, align 8
+  %call185 = tail call i32 @atoi(ptr nocapture noundef %49) #20
   %or.cond6 = icmp ugt i32 %call185, 4
   br i1 %or.cond6, label %if.then191, label %if.end.i.backedge
 
@@ -1010,14 +1012,14 @@ if.then191:                                       ; preds = %sw.bb184
   unreachable
 
 sw.bb195:                                         ; preds = %while.body
-  %48 = load ptr, ptr @stderr, align 8
-  %49 = tail call i64 @fwrite(ptr nonnull @.str.33, i64 38, i64 1, ptr %48) #24
+  %50 = load ptr, ptr @stderr, align 8
+  %51 = tail call i64 @fwrite(ptr nonnull @.str.33, i64 38, i64 1, ptr %50) #24
   tail call void @exit(i32 noundef 2) #22
   unreachable
 
 sw.bb197:                                         ; preds = %while.body
-  %50 = load ptr, ptr @stderr, align 8
-  %51 = tail call i64 @fwrite(ptr nonnull @.str.33, i64 38, i64 1, ptr %50) #24
+  %52 = load ptr, ptr @stderr, align 8
+  %53 = tail call i64 @fwrite(ptr nonnull @.str.33, i64 38, i64 1, ptr %52) #24
   tail call void @exit(i32 noundef 2) #22
   unreachable
 
@@ -1036,13 +1038,8 @@ sw.default:                                       ; preds = %while.body
   tail call void @exit(i32 noundef 2) #22
   unreachable
 
-while.end.sink.split.sink.split:                  ; preds = %if.then47.i, %if.then34.i
-  %arrayidx.i.lcssa.sink = phi ptr [ %arrayidx.i, %if.then34.i ], [ %arrayidx49.i, %if.then47.i ]
-  %52 = load ptr, ptr %arrayidx.i.lcssa.sink, align 8
-  br label %while.end.sink.split
-
-while.end.sink.split:                             ; preds = %if.end11.i, %while.end.sink.split.sink.split
-  %.sink = phi ptr [ %52, %while.end.sink.split.sink.split ], [ null, %if.end11.i ]
+while.end.sink.split:                             ; preds = %if.end11.i, %if.then34.i, %if.then47.i
+  %.sink = phi ptr [ %13, %if.then47.i ], [ %9, %if.then34.i ], [ null, %if.end11.i ]
   store ptr %.sink, ptr @myoptarg, align 8
   br label %while.end
 
@@ -1132,8 +1129,8 @@ if.end242:                                        ; preds = %if.else224, %if.els
   br i1 %or.cond39, label %if.end253, label %if.then249
 
 if.then249:                                       ; preds = %if.end242
-  %53 = load ptr, ptr @stderr, align 8
-  %54 = tail call i64 @fwrite(ptr nonnull @.str.37, i64 51, i64 1, ptr %53) #24
+  %54 = load ptr, ptr @stderr, align 8
+  %55 = tail call i64 @fwrite(ptr nonnull @.str.37, i64 51, i64 1, ptr %54) #24
   br label %if.end253
 
 if.end253:                                        ; preds = %if.end242.thread, %if.then249, %if.end242
@@ -1317,8 +1314,8 @@ if.then347:                                       ; preds = %if.then343
 if.end349:                                        ; preds = %if.end317, %if.then343
   %tobool354 = icmp ne i32 %useVerifyCb.010102626, 0
   %or.cond14 = select i1 %tobool318, i1 true, i1 %tobool354
-  %55 = load i32, ptr %2, align 4
-  %cmp356 = icmp eq i32 %55, 1
+  %56 = load i32, ptr %2, align 4
+  %cmp356 = icmp eq i32 %56, 1
   %or.cond16.not = select i1 %or.cond14, i1 true, i1 %cmp356
   %cmp359.not = icmp eq i32 %doPeerCheck.013632578, 0
   %or.cond466 = select i1 %or.cond16.not, i1 true, i1 %cmp359.not
@@ -1349,10 +1346,10 @@ if.then375:                                       ; preds = %land.lhs.true371
   unreachable
 
 if.end377:                                        ; preds = %if.end366, %land.lhs.true371, %if.end349
-  %56 = load i32, ptr %2, align 4
-  %57 = add i32 %56, -1
-  %58 = icmp ult i32 %57, 2
-  %or.cond21 = select i1 %tobool354, i1 true, i1 %58
+  %57 = load i32, ptr %2, align 4
+  %58 = add i32 %57, -1
+  %59 = icmp ult i32 %58, 2
+  %or.cond21 = select i1 %tobool354, i1 true, i1 %59
   br i1 %or.cond21, label %if.then385, label %if.else386
 
 if.then385:                                       ; preds = %if.end377
@@ -1369,7 +1366,7 @@ if.then393:                                       ; preds = %if.else386
   br label %if.end404
 
 if.else394:                                       ; preds = %if.else386
-  %cmp399 = icmp ne i32 %56, 3
+  %cmp399 = icmp ne i32 %57, 3
   %or.cond26.not = select i1 %tobool318, i1 true, i1 %cmp399
   br i1 %or.cond26.not, label %if.end404, label %if.then401
 
@@ -1483,11 +1480,11 @@ if.then.i.i:                                      ; preds = %if.then458
   unreachable
 
 current_time.exit.i:                              ; preds = %if.then458
-  %59 = load i64, ptr %tv.i.i, align 8
-  %conv.i.i = sitofp i64 %59 to double
+  %60 = load i64, ptr %tv.i.i, align 8
+  %conv.i.i = sitofp i64 %60 to double
   %tv_usec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
-  %60 = load i64, ptr %tv_usec.i.i, align 8
-  %conv1.i.i = sitofp i64 %60 to double
+  %61 = load i64, ptr %tv_usec.i.i, align 8
+  %conv1.i.i = sitofp i64 %61 to double
   %div.i.i = fdiv double %conv1.i.i, 1.000000e+06
   %add.i.i = fadd double %div.i.i, %conv.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i)
@@ -1501,8 +1498,8 @@ if.then.i315:                                     ; preds = %current_time.exit.i
 
 if.end.i308:                                      ; preds = %current_time.exit.i
   call fastcc void @tcp_connect(ptr noundef %sockfd.i, ptr noundef %host.05482686, i16 noundef zeroext %port.05262689, i32 noundef %dtlsUDP.012752590, ptr noundef %call1.i)
-  %61 = load i32, ptr %sockfd.i, align 4
-  %call2.i = tail call i32 @wolfSSL_set_fd(ptr noundef nonnull %call1.i, i32 noundef %61) #23
+  %62 = load i32, ptr %sockfd.i, align 4
+  %call2.i = tail call i32 @wolfSSL_set_fd(ptr noundef nonnull %call1.i, i32 noundef %62) #23
   %cmp3.not.i = icmp eq i32 %call2.i, 1
   br i1 %cmp3.not.i, label %if.end5.i, label %if.then4.i
 
@@ -1516,8 +1513,8 @@ if.end5.i:                                        ; preds = %if.end.i308
 if.then7.i:                                       ; preds = %if.end5.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %groups.i398)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %groups.i398, i8 0, i64 16, i1 false)
-  %62 = and i32 %onlyKeyShare.09002641, -3
-  %or.cond.i399.not = icmp eq i32 %62, 0
+  %63 = and i32 %onlyKeyShare.09002641, -3
+  %or.cond.i399.not = icmp eq i32 %63, 0
   br i1 %or.cond.i399.not, label %do.body6.i415, label %if.end14.i400.thread
 
 do.body6.i415:                                    ; preds = %if.then7.i
@@ -1593,11 +1590,11 @@ if.then.i70.i:                                    ; preds = %if.then16.i
   unreachable
 
 current_time.exit71.i:                            ; preds = %if.then16.i
-  %63 = load i64, ptr %tv.i62.i, align 8
-  %conv.i65.i = sitofp i64 %63 to double
+  %64 = load i64, ptr %tv.i62.i, align 8
+  %conv.i65.i = sitofp i64 %64 to double
   %tv_usec.i66.i = getelementptr inbounds i8, ptr %tv.i62.i, i64 8
-  %64 = load i64, ptr %tv_usec.i66.i, align 8
-  %conv1.i67.i = sitofp i64 %64 to double
+  %65 = load i64, ptr %tv_usec.i66.i, align 8
+  %conv1.i67.i = sitofp i64 %65 to double
   %div.i68.i = fdiv double %conv1.i67.i, 1.000000e+06
   %add.i69.i = fadd double %div.i68.i, %conv.i65.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i62.i)
@@ -1625,13 +1622,13 @@ while.cond.preheader.i:                           ; preds = %if.then26.i
   %tv_usec.i76.i = getelementptr inbounds i8, ptr %tv.i72.i, i64 8
   %tv_usec.i86.i = getelementptr inbounds i8, ptr %tv.i82.i, i64 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %timeout.i.i.i, i64 8
-  %rem.i.i.i = srem i32 %61, 64
+  %rem.i.i.i = srem i32 %62, 64
   %sh_prom.i.i.i = zext nneg i32 %rem.i.i.i to i64
   %shl.i.i.i = shl nuw i64 1, %sh_prom.i.i.i
-  %div.i.i.i = sdiv i32 %61, 64
+  %div.i.i.i = sdiv i32 %62, 64
   %idxprom5.i.i.i = sext i32 %div.i.i.i to i64
   %arrayidx6.i.i.i = getelementptr inbounds [16 x i64], ptr %fds.i.i.i, i64 0, i64 %idxprom5.i.i.i
-  %add.i.i.i = add nsw i32 %61, 1
+  %add.i.i.i = add nsw i32 %62, 1
   %arrayidx28.i.i.i = getelementptr inbounds [16 x i64], ptr %errfds.i.i.i, i64 0, i64 %idxprom5.i.i.i
   %tv_usec.i96.i = getelementptr inbounds i8, ptr %tv.i92.i, i64 8
   %tv_usec.i106.i = getelementptr inbounds i8, ptr %tv.i102.i, i64 8
@@ -1663,10 +1660,10 @@ if.then.i80.i:                                    ; preds = %while.body.i
   unreachable
 
 current_time.exit81.i:                            ; preds = %while.body.i
-  %65 = load i64, ptr %tv.i72.i, align 8
-  %conv.i75.i = sitofp i64 %65 to double
-  %66 = load i64, ptr %tv_usec.i76.i, align 8
-  %conv1.i77.i = sitofp i64 %66 to double
+  %66 = load i64, ptr %tv.i72.i, align 8
+  %conv.i75.i = sitofp i64 %66 to double
+  %67 = load i64, ptr %tv_usec.i76.i, align 8
+  %conv1.i77.i = sitofp i64 %67 to double
   %div.i78.i = fdiv double %conv1.i77.i, 1.000000e+06
   %add.i79.i = fadd double %div.i78.i, %conv.i75.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i72.i)
@@ -1692,8 +1689,8 @@ do.body53.i:                                      ; preds = %do.end49.i
   br i1 %.b61.i, label %do.end59.i, label %if.then55.i
 
 if.then55.i:                                      ; preds = %do.body53.i
-  %67 = load ptr, ptr @stderr, align 8
-  %call56.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %67, ptr noundef nonnull @.str.195, i32 noundef %err.28.i) #24
+  %68 = load ptr, ptr @stderr, align 8
+  %call56.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %68, ptr noundef nonnull @.str.195, i32 noundef %err.28.i) #24
   br label %do.end59.i
 
 do.end59.i:                                       ; preds = %if.then55.i, %do.body53.i
@@ -1715,10 +1712,10 @@ if.then.i90.i:                                    ; preds = %if.end63.i
   unreachable
 
 current_time.exit91.i:                            ; preds = %if.end63.i
-  %68 = load i64, ptr %tv.i82.i, align 8
-  %conv.i85.i = sitofp i64 %68 to double
-  %69 = load i64, ptr %tv_usec.i86.i, align 8
-  %conv1.i87.i = sitofp i64 %69 to double
+  %69 = load i64, ptr %tv.i82.i, align 8
+  %conv.i85.i = sitofp i64 %69 to double
+  %70 = load i64, ptr %tv_usec.i86.i, align 8
+  %conv1.i87.i = sitofp i64 %70 to double
   %div.i88.i = fdiv double %conv1.i87.i, 1.000000e+06
   %add.i89.i = fadd double %div.i88.i, %conv.i85.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i82.i)
@@ -1730,20 +1727,20 @@ current_time.exit91.i:                            ; preds = %if.end63.i
   store i64 2, ptr %timeout.i.i.i, align 8
   store i64 0, ptr %tv_usec.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %fds.i.i.i, i8 0, i64 128, i1 false)
-  %70 = load i64, ptr %arrayidx6.i.i.i, align 8
-  %or.i.i.i = or i64 %70, %shl.i.i.i
+  %71 = load i64, ptr %arrayidx6.i.i.i, align 8
+  %or.i.i.i = or i64 %71, %shl.i.i.i
   store i64 %or.i.i.i, ptr %arrayidx6.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %errfds.i.i.i, i8 0, i64 128, i1 false)
-  %71 = load i64, ptr %arrayidx28.i.i.i, align 8
-  %or29.i.i.i = or i64 %71, %shl.i.i.i
+  %72 = load i64, ptr %arrayidx28.i.i.i, align 8
+  %or29.i.i.i = or i64 %72, %shl.i.i.i
   store i64 %or29.i.i.i, ptr %arrayidx28.i.i.i, align 8
   %call.i.i.i = call i32 @select(i32 noundef %add.i.i.i, ptr noundef nonnull %fds.i.i.i, ptr noundef null, ptr noundef nonnull %errfds.i.i.i, ptr noundef nonnull %timeout.i.i.i) #23
   %cmp34.i.i.i = icmp sgt i32 %call.i.i.i, 0
   br i1 %cmp34.i.i.i, label %if.then36.i.i.i, label %tcp_select.exit.thread.i
 
 if.then36.i.i.i:                                  ; preds = %current_time.exit91.i
-  %72 = load i64, ptr %arrayidx6.i.i.i, align 8
-  %and.i.i.i = and i64 %72, %shl.i.i.i
+  %73 = load i64, ptr %arrayidx6.i.i.i, align 8
+  %and.i.i.i = and i64 %73, %shl.i.i.i
   %cmp44.not.i.i.i = icmp eq i64 %and.i.i.i, 0
   br i1 %cmp44.not.i.i.i, label %tcp_select.exit.thread.i, label %if.then69.i
 
@@ -1767,10 +1764,10 @@ if.then.i100.i:                                   ; preds = %if.then69.i
   unreachable
 
 current_time.exit101.i:                           ; preds = %if.then69.i
-  %73 = load i64, ptr %tv.i92.i, align 8
-  %conv.i95.i = sitofp i64 %73 to double
-  %74 = load i64, ptr %tv_usec.i96.i, align 8
-  %conv1.i97.i = sitofp i64 %74 to double
+  %74 = load i64, ptr %tv.i92.i, align 8
+  %conv.i95.i = sitofp i64 %74 to double
+  %75 = load i64, ptr %tv_usec.i96.i, align 8
+  %conv1.i97.i = sitofp i64 %75 to double
   %div.i98.i = fdiv double %conv1.i97.i, 1.000000e+06
   %add.i99.i = fadd double %div.i98.i, %conv.i95.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i92.i)
@@ -1789,8 +1786,8 @@ while.body74.i:                                   ; preds = %current_time.exit10
 
 if.then79.i:                                      ; preds = %while.body74.i
   %call80.i = call i32 @wolfSSL_get_error(ptr noundef nonnull %call1.i, i32 noundef 0) #23
-  %75 = add i32 %call80.i, -4
-  %or.cond1.i314 = icmp ult i32 %75, -2
+  %76 = add i32 %call80.i, -4
+  %or.cond1.i314 = icmp ult i32 %76, -2
   br i1 %or.cond1.i314, label %do.body87.i, label %if.end96.i
 
 do.body87.i:                                      ; preds = %if.then79.i
@@ -1798,8 +1795,8 @@ do.body87.i:                                      ; preds = %if.then79.i
   br i1 %.b.i, label %do.end93.i, label %if.then89.i
 
 if.then89.i:                                      ; preds = %do.body87.i
-  %76 = load ptr, ptr @stderr, align 8
-  %call90.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %76, ptr noundef nonnull @.str.196, i32 noundef %call80.i) #24
+  %77 = load ptr, ptr @stderr, align 8
+  %call90.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %77, ptr noundef nonnull @.str.196, i32 noundef %call80.i) #24
   br label %do.end93.i
 
 do.end93.i:                                       ; preds = %if.then89.i, %do.body87.i
@@ -1828,10 +1825,10 @@ if.then.i110.i:                                   ; preds = %while.end.i
   unreachable
 
 current_time.exit111.i:                           ; preds = %while.end.i
-  %77 = load i64, ptr %tv.i102.i, align 8
-  %conv.i105.i = sitofp i64 %77 to double
-  %78 = load i64, ptr %tv_usec.i106.i, align 8
-  %conv1.i107.i = sitofp i64 %78 to double
+  %78 = load i64, ptr %tv.i102.i, align 8
+  %conv.i105.i = sitofp i64 %78 to double
+  %79 = load i64, ptr %tv_usec.i106.i, align 8
+  %conv1.i107.i = sitofp i64 %79 to double
   %div.i108.i = fdiv double %conv1.i107.i, 1.000000e+06
   %add.i109.i = fadd double %div.i108.i, %conv.i105.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i102.i)
@@ -1869,7 +1866,7 @@ if.then115.i:                                     ; preds = %while.cond.i, %do.e
   call void @wolfSSL_Free(ptr noundef nonnull %call20.i) #23
   %call123.i = call i32 @wolfSSL_shutdown(ptr noundef nonnull %call1.i) #23
   call void @wolfSSL_free(ptr noundef nonnull %call1.i) #23
-  %call124.i = call i32 @close(i32 noundef %61) #23
+  %call124.i = call i32 @close(i32 noundef %62) #23
   %tobool125.not.i = icmp eq i32 %exitWithRet.06582671, 0
   br i1 %tobool125.not.i, label %if.end127.i, label %ClientBenchmarkThroughput.exit
 
@@ -1897,8 +1894,8 @@ ClientBenchmarkThroughput.exit:                   ; preds = %if.then115.i, %if.e
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %rng.i)
   store i32 %retval.0.i310, ptr %return_code, align 8
   call void @wolfSSL_CTX_free(ptr noundef %call272) #23
-  %79 = load i32, ptr %return_code, align 8
-  %cmp462 = icmp eq i32 %79, 0
+  %80 = load i32, ptr %return_code, align 8
+  %cmp462 = icmp eq i32 %80, 0
   %tobool465 = icmp ne i32 %exitWithRet.06582671, 0
   %or.cond27 = select i1 %cmp462, i1 true, i1 %tobool465
   br i1 %or.cond27, label %return, label %if.then466
@@ -1947,14 +1944,14 @@ if.then492:                                       ; preds = %if.then488
 
 if.end494:                                        ; preds = %if.then488, %if.end486
   %tobool495.not = icmp eq i32 %helloRetry.09222638, 0
-  %80 = add nsw i32 %version.2435, -4
-  %or.cond29 = icmp ult i32 %80, -7
+  %81 = add nsw i32 %version.2435, -4
+  %or.cond29 = icmp ult i32 %81, -7
   %or.cond304 = and i1 %tobool495.not, %or.cond29
   br i1 %or.cond304, label %if.then502, label %if.else503
 
 if.then502:                                       ; preds = %if.end494
-  %81 = and i32 %onlyKeyShare.09002641, -3
-  %or.cond.i316 = icmp eq i32 %81, 0
+  %82 = and i32 %onlyKeyShare.09002641, -3
+  %or.cond.i316 = icmp eq i32 %82, 0
   br i1 %or.cond.i316, label %do.body6.i, label %if.end14.i
 
 do.body6.i:                                       ; preds = %if.then502
@@ -2001,14 +1998,14 @@ if.then514:                                       ; preds = %if.end512
 
 if.end516:                                        ; preds = %if.then514, %if.end512
   call fastcc void @tcp_connect(ptr noundef %sockfd, ptr noundef %host.05482686, i16 noundef zeroext %port.05262689, i32 noundef %dtlsUDP.012752590, ptr noundef %call472)
-  %82 = load i32, ptr %sockfd, align 4
-  %call517 = tail call i32 @wolfSSL_set_fd(ptr noundef nonnull %call472, i32 noundef %82) #23
+  %83 = load i32, ptr %sockfd, align 4
+  %call517 = tail call i32 @wolfSSL_set_fd(ptr noundef nonnull %call472, i32 noundef %83) #23
   %cmp518.not = icmp eq i32 %call517, 1
   br i1 %cmp518.not, label %if.end522, label %if.then520
 
 if.then520:                                       ; preds = %if.end516
   tail call void @wolfSSL_free(ptr noundef nonnull %call472) #23
-  %call521 = tail call i32 @close(i32 noundef %82) #23
+  %call521 = tail call i32 @close(i32 noundef %83) #23
   tail call void @wolfSSL_CTX_free(ptr noundef nonnull %call272) #23
   tail call fastcc void @err_sys(ptr noundef nonnull @.str.57) #25
   unreachable
@@ -2022,8 +2019,8 @@ if.then526:                                       ; preds = %if.end522
   call void @wolfSSL_SetIOWriteCtx(ptr noundef nonnull %call472, ptr noundef nonnull %sockfd) #23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %addr.i)
   call fastcc void @build_addr(ptr noundef %addr.i, ptr noundef %host.05482686, i16 noundef zeroext %port.05262689)
-  %83 = load i32, ptr %sockfd, align 4
-  %call.i320 = call i32 @connect(i32 noundef %83, ptr noundef nonnull %addr.i, i32 noundef 16) #23
+  %84 = load i32, ptr %sockfd, align 4
+  %call.i320 = call i32 @connect(i32 noundef %84, ptr noundef nonnull %addr.i, i32 noundef 16) #23
   %cmp.not.i = icmp eq i32 %call.i320, 0
   br i1 %cmp.not.i, label %udp_connect.exit, label %if.then.i321
 
@@ -2042,8 +2039,8 @@ if.end528:                                        ; preds = %udp_connect.exit, %
 if.then530:                                       ; preds = %if.end528
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %tmpBuf.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %tmpBuf.i, i8 0, i64 512, i1 false)
-  %84 = load i32, ptr %sockfd, align 4
-  %call.i323 = call i64 @recv(i32 noundef %84, ptr noundef nonnull %tmpBuf.i, i64 noundef 511, i32 noundef 0) #23
+  %85 = load i32, ptr %sockfd, align 4
+  %call.i323 = call i64 @recv(i32 noundef %85, ptr noundef nonnull %tmpBuf.i, i64 noundef 511, i32 noundef 0) #23
   %cmp2.i = icmp slt i64 %call.i323, 0
   br i1 %cmp2.i, label %if.then3.i, label %if.end4.i
 
@@ -2052,28 +2049,28 @@ if.then3.i:                                       ; preds = %if.then530
   unreachable
 
 if.end4.i:                                        ; preds = %if.then530
-  %85 = load ptr, ptr @starttlsCmd, align 16
-  %call6.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %85) #20
-  %call7.i = call i32 @strncmp(ptr noundef nonnull %tmpBuf.i, ptr noundef %85, i64 noundef %call6.i) #20
+  %86 = load ptr, ptr @starttlsCmd, align 16
+  %call6.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %86) #20
+  %call7.i = call i32 @strncmp(ptr noundef nonnull %tmpBuf.i, ptr noundef %86, i64 noundef %call6.i) #20
   %tobool.not.i324 = icmp eq i32 %call7.i, 0
   br i1 %tobool.not.i324, label %land.lhs.true.i326, label %if.else.i325
 
 land.lhs.true.i326:                               ; preds = %if.end4.i
   %arrayidx.i327 = getelementptr inbounds [512 x i8], ptr %tmpBuf.i, i64 0, i64 %call6.i
-  %86 = load i8, ptr %arrayidx.i327, align 1
-  %cmp9.i = icmp eq i8 %86, 32
+  %87 = load i8, ptr %arrayidx.i327, align 1
+  %cmp9.i = icmp eq i8 %87, 32
   br i1 %cmp9.i, label %if.then11.i, label %if.else.i325
 
 if.then11.i:                                      ; preds = %land.lhs.true.i326
   %puts.i = call i32 @puts(ptr nonnull dereferenceable(1) %tmpBuf.i)
-  %87 = load i32, ptr %sockfd, align 4
-  %88 = load ptr, ptr getelementptr inbounds (i8, ptr @starttlsCmd, i64 8), align 8
-  %call15.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %88) #20
+  %88 = load i32, ptr %sockfd, align 4
+  %89 = load ptr, ptr getelementptr inbounds (i8, ptr @starttlsCmd, i64 8), align 8
+  %call15.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %89) #20
   %sext.i = shl i64 %call15.i, 32
   %conv17.i = ashr exact i64 %sext.i, 32
-  %call18.i328 = call i64 @send(i32 noundef %87, ptr noundef %88, i64 noundef %conv17.i, i32 noundef 0) #23
-  %89 = load ptr, ptr getelementptr inbounds (i8, ptr @starttlsCmd, i64 8), align 8
-  %call19.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %89) #20
+  %call18.i328 = call i64 @send(i32 noundef %88, ptr noundef %89, i64 noundef %conv17.i, i32 noundef 0) #23
+  %90 = load ptr, ptr getelementptr inbounds (i8, ptr @starttlsCmd, i64 8), align 8
+  %call19.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %90) #20
   %sext6.i = shl i64 %call19.i, 32
   %conv21.i = ashr exact i64 %sext6.i, 32
   %cmp22.not.i329 = icmp eq i64 %call18.i328, %conv21.i
@@ -2089,8 +2086,8 @@ if.then24.i:                                      ; preds = %if.then11.i
 
 if.end25.i:                                       ; preds = %if.then11.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %tmpBuf.i, i8 0, i64 512, i1 false)
-  %90 = load i32, ptr %sockfd, align 4
-  %call28.i330 = call i64 @recv(i32 noundef %90, ptr noundef nonnull %tmpBuf.i, i64 noundef 511, i32 noundef 0) #23
+  %91 = load i32, ptr %sockfd, align 4
+  %call28.i330 = call i64 @recv(i32 noundef %91, ptr noundef nonnull %tmpBuf.i, i64 noundef 511, i32 noundef 0) #23
   %cmp29.i = icmp slt i64 %call28.i330, 0
   br i1 %cmp29.i, label %if.then31.i336, label %if.end32.i
 
@@ -2099,28 +2096,28 @@ if.then31.i336:                                   ; preds = %if.end25.i
   unreachable
 
 if.end32.i:                                       ; preds = %if.end25.i
-  %91 = load ptr, ptr getelementptr inbounds (i8, ptr @starttlsCmd, i64 16), align 16
-  %call34.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %91) #20
-  %call35.i = call i32 @strncmp(ptr noundef nonnull %tmpBuf.i, ptr noundef %91, i64 noundef %call34.i) #20
+  %92 = load ptr, ptr getelementptr inbounds (i8, ptr @starttlsCmd, i64 16), align 16
+  %call34.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %92) #20
+  %call35.i = call i32 @strncmp(ptr noundef nonnull %tmpBuf.i, ptr noundef %92, i64 noundef %call34.i) #20
   %tobool36.not.i = icmp eq i32 %call35.i, 0
   br i1 %tobool36.not.i, label %land.lhs.true37.i, label %if.else46.i
 
 land.lhs.true37.i:                                ; preds = %if.end32.i
   %arrayidx39.i = getelementptr inbounds [512 x i8], ptr %tmpBuf.i, i64 0, i64 %call34.i
-  %92 = load i8, ptr %arrayidx39.i, align 1
-  %cmp41.i331 = icmp eq i8 %92, 45
+  %93 = load i8, ptr %arrayidx39.i, align 1
+  %cmp41.i331 = icmp eq i8 %93, 45
   br i1 %cmp41.i331, label %if.then43.i332, label %if.else46.i
 
 if.then43.i332:                                   ; preds = %land.lhs.true37.i
   %puts7.i = call i32 @puts(ptr nonnull dereferenceable(1) %tmpBuf.i)
-  %93 = load i32, ptr %sockfd, align 4
-  %94 = load ptr, ptr getelementptr inbounds (i8, ptr @starttlsCmd, i64 24), align 8
-  %call48.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %94) #20
+  %94 = load i32, ptr %sockfd, align 4
+  %95 = load ptr, ptr getelementptr inbounds (i8, ptr @starttlsCmd, i64 24), align 8
+  %call48.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %95) #20
   %sext8.i = shl i64 %call48.i, 32
   %conv50.i = ashr exact i64 %sext8.i, 32
-  %call51.i = call i64 @send(i32 noundef %93, ptr noundef %94, i64 noundef %conv50.i, i32 noundef 0) #23
-  %95 = load ptr, ptr getelementptr inbounds (i8, ptr @starttlsCmd, i64 24), align 8
-  %call52.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %95) #20
+  %call51.i = call i64 @send(i32 noundef %94, ptr noundef %95, i64 noundef %conv50.i, i32 noundef 0) #23
+  %96 = load ptr, ptr getelementptr inbounds (i8, ptr @starttlsCmd, i64 24), align 8
+  %call52.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %96) #20
   %sext9.i = shl i64 %call52.i, 32
   %conv54.i = ashr exact i64 %sext9.i, 32
   %cmp55.not.i = icmp eq i64 %call51.i, %conv54.i
@@ -2136,8 +2133,8 @@ if.then57.i333:                                   ; preds = %if.then43.i332
 
 if.end58.i:                                       ; preds = %if.then43.i332
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %tmpBuf.i, i8 0, i64 512, i1 false)
-  %96 = load i32, ptr %sockfd, align 4
-  %call61.i334 = call i64 @recv(i32 noundef %96, ptr noundef nonnull %tmpBuf.i, i64 noundef 511, i32 noundef 0) #23
+  %97 = load i32, ptr %sockfd, align 4
+  %call61.i334 = call i64 @recv(i32 noundef %97, ptr noundef nonnull %tmpBuf.i, i64 noundef 511, i32 noundef 0) #23
   %cmp62.i = icmp slt i64 %call61.i334, 0
   br i1 %cmp62.i, label %if.then64.i, label %if.end65.i
 
@@ -2148,16 +2145,16 @@ if.then64.i:                                      ; preds = %if.end58.i
 if.end65.i:                                       ; preds = %if.end58.i
   %arrayidx66.i = getelementptr inbounds i8, ptr %tmpBuf.i, i64 511
   store i8 0, ptr %arrayidx66.i, align 1
-  %97 = load ptr, ptr getelementptr inbounds (i8, ptr @starttlsCmd, i64 32), align 16
-  %call68.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %97) #20
-  %call69.i = call i32 @strncmp(ptr noundef nonnull %tmpBuf.i, ptr noundef %97, i64 noundef %call68.i) #20
+  %98 = load ptr, ptr getelementptr inbounds (i8, ptr @starttlsCmd, i64 32), align 16
+  %call68.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %98) #20
+  %call69.i = call i32 @strncmp(ptr noundef nonnull %tmpBuf.i, ptr noundef %98, i64 noundef %call68.i) #20
   %tobool70.not.i = icmp eq i32 %call69.i, 0
   br i1 %tobool70.not.i, label %land.lhs.true71.i, label %if.else80.i
 
 land.lhs.true71.i:                                ; preds = %if.end65.i
   %arrayidx73.i = getelementptr inbounds [512 x i8], ptr %tmpBuf.i, i64 0, i64 %call68.i
-  %98 = load i8, ptr %arrayidx73.i, align 1
-  %cmp75.i335 = icmp eq i8 %98, 32
+  %99 = load i8, ptr %arrayidx73.i, align 1
+  %cmp75.i335 = icmp eq i8 %99, 32
   br i1 %cmp75.i335, label %StartTLS_Init.exit, label %if.else80.i
 
 if.else80.i:                                      ; preds = %land.lhs.true71.i, %if.end65.i
@@ -2184,8 +2181,8 @@ if.end543:                                        ; preds = %if.then541, %if.end
   br i1 %tobool544.not, label %do.body548, label %if.then545
 
 if.then545:                                       ; preds = %if.end543
-  %99 = load i32, ptr %sockfd, align 4
-  %call.i337 = call i32 (i32, i32, ...) @fcntl(i32 noundef %99, i32 noundef 3, i32 noundef 0) #23
+  %100 = load i32, ptr %sockfd, align 4
+  %call.i337 = call i32 (i32, i32, ...) @fcntl(i32 noundef %100, i32 noundef 3, i32 noundef 0) #23
   %cmp.i338 = icmp slt i32 %call.i337, 0
   br i1 %cmp.i338, label %if.then.i344, label %if.end.i339
 
@@ -2194,9 +2191,9 @@ if.then.i344:                                     ; preds = %if.then545
   unreachable
 
 if.end.i339:                                      ; preds = %if.then545
-  %100 = load i32, ptr %sockfd, align 4
+  %101 = load i32, ptr %sockfd, align 4
   %or.i = or i32 %call.i337, 2048
-  %call1.i340 = call i32 (i32, i32, ...) @fcntl(i32 noundef %100, i32 noundef 4, i32 noundef %or.i) #23
+  %call1.i340 = call i32 (i32, i32, ...) @fcntl(i32 noundef %101, i32 noundef 4, i32 noundef %or.i) #23
   %cmp2.i341 = icmp slt i32 %call1.i340, 0
   br i1 %cmp2.i341, label %if.then3.i343, label %if.end558
 
@@ -2211,8 +2208,8 @@ do.body548:                                       ; preds = %if.end543, %if.then
 
 if.then552:                                       ; preds = %do.body548
   %call553 = call i32 @wolfSSL_get_error(ptr noundef nonnull %call472, i32 noundef 0) #23
-  %101 = icmp eq i32 %call553, -108
-  br i1 %101, label %do.body548, label %if.then561, !llvm.loop !13
+  %102 = icmp eq i32 %call553, -108
+  br i1 %102, label %do.body548, label %if.then561, !llvm.loop !13
 
 if.end558:                                        ; preds = %if.end.i339
   %call546 = call fastcc i32 @NonBlockingSSL_Connect(ptr noundef %call472)
@@ -2225,17 +2222,17 @@ if.then561:                                       ; preds = %if.then552, %if.end
   br i1 %.b293, label %do.end571, label %if.then565
 
 if.then565:                                       ; preds = %if.then561
-  %102 = load ptr, ptr @stderr, align 8
+  %103 = load ptr, ptr @stderr, align 8
   %conv566 = sext i32 %call562 to i64
   %call567 = call ptr @wolfSSL_ERR_error_string(i64 noundef %conv566, ptr noundef nonnull %buffer) #23
-  %call568 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %102, ptr noundef nonnull @.str.59, i32 noundef %call562, ptr noundef %call567) #24
+  %call568 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %103, ptr noundef nonnull @.str.59, i32 noundef %call562, ptr noundef %call567) #24
   br label %do.end571
 
 do.end571:                                        ; preds = %if.then561, %if.then565
   call void @wolfSSL_free(ptr noundef nonnull %call472) #23
   call void @wolfSSL_CTX_free(ptr noundef %call272) #23
-  %103 = load i32, ptr %sockfd, align 4
-  %call572 = call i32 @close(i32 noundef %103) #23
+  %104 = load i32, ptr %sockfd, align 4
+  %call572 = call i32 @close(i32 noundef %104) #23
   %tobool573.not = icmp eq i32 %exitWithRet.06582671, 0
   br i1 %tobool573.not, label %if.then574, label %if.end575
 
@@ -2248,8 +2245,8 @@ if.end575:                                        ; preds = %do.end571
   br label %return
 
 if.end577:                                        ; preds = %do.body548, %if.end558
-  %104 = load i32, ptr @lng_index, align 4
-  call fastcc void @showPeerEx(ptr noundef %call472, i32 noundef %104)
+  %105 = load i32, ptr @lng_index, align 4
+  call fastcc void @showPeerEx(ptr noundef %call472, i32 noundef %105)
   br i1 %or.cond8, label %if.end629, label %land.lhs.true581
 
 land.lhs.true581:                                 ; preds = %if.end577
@@ -2296,8 +2293,8 @@ lor.lhs.false607:                                 ; preds = %land.lhs.true604
   br i1 %tobool609.not, label %if.end629, label %if.then610
 
 if.then610:                                       ; preds = %lor.lhs.false607, %land.lhs.true604
-  %105 = load i32, ptr %requested_cipherFlags, align 4
-  %and611 = and i32 %105, 1
+  %106 = load i32, ptr %requested_cipherFlags, align 4
+  %and611 = and i32 %106, 1
   %tobool612.not = icmp eq i32 %and611, 0
   br i1 %tobool612.not, label %if.then613, label %if.else614
 
@@ -2306,10 +2303,10 @@ if.then613:                                       ; preds = %if.then610
   unreachable
 
 if.else614:                                       ; preds = %if.then610
-  %106 = load i8, ptr %requested_cipherSuite0, align 1
-  %cmp617.not = icmp eq i8 %106, %conv593
-  %107 = load i8, ptr %requested_cipherSuite, align 1
-  %cmp622.not = icmp eq i8 %107, %conv595
+  %107 = load i8, ptr %requested_cipherSuite0, align 1
+  %cmp617.not = icmp eq i8 %107, %conv593
+  %108 = load i8, ptr %requested_cipherSuite, align 1
+  %cmp622.not = icmp eq i8 %108, %conv595
   %or.cond306 = select i1 %cmp617.not, i1 %cmp622.not, i1 false
   br i1 %or.cond306, label %if.end629, label %if.then624
 
@@ -2335,10 +2332,10 @@ if.then638:                                       ; preds = %if.then634
 
 do.body.i350:                                     ; preds = %do.cond.i354, %if.then638
   %err.0.i = phi i32 [ 0, %if.then638 ], [ -108, %do.cond.i354 ]
-  %108 = load ptr, ptr getelementptr inbounds (i8, ptr @starttlsCmd, i64 40), align 8
-  %call1.i351 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %108) #20
+  %109 = load ptr, ptr getelementptr inbounds (i8, ptr @starttlsCmd, i64 40), align 8
+  %call1.i351 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %109) #20
   %conv.i352 = trunc i64 %call1.i351 to i32
-  %call2.i353 = call i32 @wolfSSL_write(ptr noundef nonnull %call472, ptr noundef %108, i32 noundef %conv.i352) #23
+  %call2.i353 = call i32 @wolfSSL_write(ptr noundef nonnull %call472, ptr noundef %109, i32 noundef %conv.i352) #23
   %cmp3.i = icmp slt i32 %call2.i353, 0
   br i1 %cmp3.i, label %if.then5.i, label %do.cond.i354
 
@@ -2352,8 +2349,8 @@ do.cond.i354:                                     ; preds = %if.then5.i, %do.bod
   br i1 %cmp8.i, label %do.body.i350, label %do.end.i, !llvm.loop !14
 
 do.end.i:                                         ; preds = %do.cond.i354
-  %109 = load ptr, ptr getelementptr inbounds (i8, ptr @starttlsCmd, i64 40), align 8
-  %call10.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %109) #20
+  %110 = load ptr, ptr getelementptr inbounds (i8, ptr @starttlsCmd, i64 40), align 8
+  %call10.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %110) #20
   %conv11.i = trunc i64 %call10.i to i32
   %cmp12.not.i355 = icmp eq i32 %call2.i353, %conv11.i
   br i1 %cmp12.not.i355, label %do.body16.i, label %if.then14.i
@@ -2409,22 +2406,22 @@ if.then37.i:                                      ; preds = %if.end31.i
   %div.i.i.i366 = sdiv i32 %call38.i, 64
   %idxprom5.i.i.i367 = sext i32 %div.i.i.i366 to i64
   %arrayidx6.i.i.i368 = getelementptr inbounds [16 x i64], ptr %fds.i.i.i345, i64 0, i64 %idxprom5.i.i.i367
-  %110 = load i64, ptr %arrayidx6.i.i.i368, align 8
-  %or.i.i.i369 = or i64 %110, %shl.i.i.i365
+  %111 = load i64, ptr %arrayidx6.i.i.i368, align 8
+  %or.i.i.i369 = or i64 %111, %shl.i.i.i365
   store i64 %or.i.i.i369, ptr %arrayidx6.i.i.i368, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %errfds.i.i.i346, i8 0, i64 128, i1 false)
   %add.i.i.i370 = add nsw i32 %call38.i, 1
   %arrayidx28.i.i.i371 = getelementptr inbounds [16 x i64], ptr %errfds.i.i.i346, i64 0, i64 %idxprom5.i.i.i367
-  %111 = load i64, ptr %arrayidx28.i.i.i371, align 8
-  %or29.i.i.i372 = or i64 %111, %shl.i.i.i365
+  %112 = load i64, ptr %arrayidx28.i.i.i371, align 8
+  %or29.i.i.i372 = or i64 %112, %shl.i.i.i365
   store i64 %or29.i.i.i372, ptr %arrayidx28.i.i.i371, align 8
   %call.i.i.i373 = call i32 @select(i32 noundef %add.i.i.i370, ptr noundef nonnull %fds.i.i.i345, ptr noundef null, ptr noundef nonnull %errfds.i.i.i346, ptr noundef nonnull %timeout.i.i.i347) #23
   %cmp34.i.i.i374 = icmp sgt i32 %call.i.i.i373, 0
   br i1 %cmp34.i.i.i374, label %if.then36.i.i.i378, label %tcp_select.exit.thread.i375
 
 if.then36.i.i.i378:                               ; preds = %if.then37.i
-  %112 = load i64, ptr %arrayidx6.i.i.i368, align 8
-  %and.i.i.i379 = and i64 %112, %shl.i.i.i365
+  %113 = load i64, ptr %arrayidx6.i.i.i368, align 8
+  %and.i.i.i379 = and i64 %113, %shl.i.i.i365
   %cmp44.not.i.i.i380 = icmp eq i64 %and.i.i.i379, 0
   br i1 %cmp44.not.i.i.i380, label %tcp_select.exit.thread.i375, label %if.then42.i
 
@@ -2451,8 +2448,8 @@ if.end49.i:                                       ; preds = %if.then42.i, %tcp_s
   br i1 %.b.i376, label %SMTP_Shutdown.exit, label %if.then55.i377
 
 if.then55.i377:                                   ; preds = %if.end49.i
-  %113 = load ptr, ptr @stderr, align 8
-  %114 = call i64 @fwrite(ptr nonnull @.str.69, i64 30, i64 1, ptr %113) #24
+  %114 = load ptr, ptr @stderr, align 8
+  %115 = call i64 @fwrite(ptr nonnull @.str.69, i64 30, i64 1, ptr %114) #24
   br label %SMTP_Shutdown.exit
 
 SMTP_Shutdown.exit:                               ; preds = %if.end31.i, %if.end49.thread.i, %if.end49.i, %if.then55.i377
@@ -2461,8 +2458,8 @@ SMTP_Shutdown.exit:                               ; preds = %if.end31.i, %if.end
 
 if.end645:                                        ; preds = %SMTP_Shutdown.exit, %if.then634
   call void @wolfSSL_free(ptr noundef nonnull %call472) #23
-  %115 = load i32, ptr %sockfd, align 4
-  %call646 = call i32 @close(i32 noundef %115) #23
+  %116 = load i32, ptr %sockfd, align 4
+  %call646 = call i32 @close(i32 noundef %116) #23
   call void @wolfSSL_CTX_free(ptr noundef %call272) #23
   store i32 0, ptr %return_code, align 8
   br label %return
@@ -2500,8 +2497,8 @@ if.end662:                                        ; preds = %if.then660, %if.end
 if.then670:                                       ; preds = %if.end662
   store i32 %call665, ptr %return_code, align 8
   call void @wolfSSL_free(ptr noundef nonnull %call472) #23
-  %116 = load i32, ptr %sockfd, align 4
-  %call672 = call i32 @close(i32 noundef %116) #23
+  %117 = load i32, ptr %sockfd, align 4
+  %call672 = call i32 @close(i32 noundef %117) #23
   call void @wolfSSL_CTX_free(ptr noundef %call272) #23
   br label %return
 
@@ -2519,9 +2516,9 @@ do.body.i382:                                     ; preds = %do.cond.i392, %if.t
 
 do.cond.i392:                                     ; preds = %do.body.i382
   %call1.i393 = call i32 @wolfSSL_get_error(ptr noundef nonnull %call472, i32 noundef 0) #23
-  %117 = and i32 %call1.i393, -2
-  %118 = icmp eq i32 %117, 2
-  br i1 %118, label %do.body.i382, label %do.end.i385, !llvm.loop !16
+  %118 = and i32 %call1.i393, -2
+  %119 = icmp eq i32 %118, 2
+  br i1 %119, label %do.body.i382, label %do.end.i385, !llvm.loop !16
 
 do.end.i385:                                      ; preds = %do.cond.i392, %do.body.i382
   %err.09.i = phi i32 [ %call1.i393, %do.cond.i392 ], [ 0, %do.body.i382 ]
@@ -2533,10 +2530,10 @@ do.body6.i386:                                    ; preds = %do.end.i385
   br i1 %.b.i387, label %do.end12.i, label %if.then7.i388
 
 if.then7.i388:                                    ; preds = %do.body6.i386
-  %119 = load ptr, ptr @stderr, align 8
+  %120 = load ptr, ptr @stderr, align 8
   %conv.i389 = sext i32 %err.09.i to i64
   %call8.i = call ptr @wolfSSL_ERR_error_string(i64 noundef %conv.i389, ptr noundef nonnull %buffer.i) #23
-  %call9.i390 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %119, ptr noundef nonnull @.str.243, ptr noundef nonnull @.str.67, i32 noundef %err.09.i, ptr noundef %call8.i) #24
+  %call9.i390 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %120, ptr noundef nonnull @.str.243, ptr noundef nonnull @.str.67, i32 noundef %err.09.i, ptr noundef %call8.i) #24
   br label %do.end12.i
 
 do.end12.i:                                       ; preds = %if.then7.i388, %do.body6.i386
@@ -2580,22 +2577,22 @@ while.cond691:                                    ; preds = %while.cond691.prehe
   %div.i.i395 = sdiv i32 %call692, 64
   %idxprom5.i.i = sext i32 %div.i.i395 to i64
   %arrayidx6.i.i = getelementptr inbounds [16 x i64], ptr %fds.i.i, i64 0, i64 %idxprom5.i.i
-  %120 = load i64, ptr %arrayidx6.i.i, align 8
-  %or.i.i = or i64 %120, %shl.i.i
+  %121 = load i64, ptr %arrayidx6.i.i, align 8
+  %or.i.i = or i64 %121, %shl.i.i
   store i64 %or.i.i, ptr %arrayidx6.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %errfds.i.i, i8 0, i64 128, i1 false)
   %add.i.i396 = add nsw i32 %call692, 1
   %arrayidx28.i.i = getelementptr inbounds [16 x i64], ptr %errfds.i.i, i64 0, i64 %idxprom5.i.i
-  %121 = load i64, ptr %arrayidx28.i.i, align 8
-  %or29.i.i = or i64 %121, %shl.i.i
+  %122 = load i64, ptr %arrayidx28.i.i, align 8
+  %or29.i.i = or i64 %122, %shl.i.i
   store i64 %or29.i.i, ptr %arrayidx28.i.i, align 8
   %call.i.i397 = call i32 @select(i32 noundef %add.i.i396, ptr noundef nonnull %fds.i.i, ptr noundef null, ptr noundef nonnull %errfds.i.i, ptr noundef nonnull %timeout.i.i) #23
   %cmp34.i.i = icmp sgt i32 %call.i.i397, 0
   br i1 %cmp34.i.i, label %if.then36.i.i, label %tcp_select.exit.thread
 
 if.then36.i.i:                                    ; preds = %while.cond691
-  %122 = load i64, ptr %arrayidx6.i.i, align 8
-  %and.i.i = and i64 %122, %shl.i.i
+  %123 = load i64, ptr %arrayidx6.i.i, align 8
+  %and.i.i = and i64 %123, %shl.i.i
   %cmp44.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %cmp44.not.i.i, label %tcp_select.exit.thread, label %while.body696
 
@@ -2624,8 +2621,8 @@ do.body706:                                       ; preds = %while.body696
   br i1 %.b292, label %if.end727, label %if.then708
 
 if.then708:                                       ; preds = %do.body706
-  %123 = load ptr, ptr @stderr, align 8
-  %124 = call i64 @fwrite(ptr nonnull @.str.69, i64 30, i64 1, ptr %123) #24
+  %124 = load ptr, ptr @stderr, align 8
+  %125 = call i64 @fwrite(ptr nonnull @.str.69, i64 30, i64 1, ptr %124) #24
   br label %while.end715
 
 while.end715:                                     ; preds = %tcp_select.exit.thread, %if.then708
@@ -2633,14 +2630,14 @@ while.end715:                                     ; preds = %tcp_select.exit.thr
   br i1 %.b.pr, label %if.end727, label %if.then721
 
 if.then721:                                       ; preds = %while.end715
-  %125 = load ptr, ptr @stderr, align 8
-  %126 = call i64 @fwrite(ptr nonnull @.str.69, i64 30, i64 1, ptr %125) #24
+  %126 = load ptr, ptr @stderr, align 8
+  %127 = call i64 @fwrite(ptr nonnull @.str.69, i64 30, i64 1, ptr %126) #24
   br label %if.end727
 
 if.end727:                                        ; preds = %do.body706, %while.end715.thread, %while.end715, %if.then721, %if.end684
   call void @wolfSSL_free(ptr noundef nonnull %call472) #23
-  %127 = load i32, ptr %sockfd, align 4
-  %call728 = call i32 @close(i32 noundef %127) #23
+  %128 = load i32, ptr %sockfd, align 4
+  %call728 = call i32 @close(i32 noundef %128) #23
   br i1 %tobool245437, label %if.then730, label %if.end833
 
 if.then730:                                       ; preds = %if.end727
@@ -2671,8 +2668,8 @@ do.body742:                                       ; preds = %if.end739
 
 land.lhs.true746:                                 ; preds = %do.body742
   %call747 = tail call ptr @__errno_location() #26
-  %128 = load i32, ptr %call747, align 4
-  %cmp748.not = icmp eq i32 %128, 4
+  %129 = load i32, ptr %call747, align 4
+  %cmp748.not = icmp eq i32 %129, 4
   br i1 %cmp748.not, label %if.end754, label %if.then750
 
 if.then750:                                       ; preds = %land.lhs.true746
@@ -2681,15 +2678,15 @@ if.then750:                                       ; preds = %land.lhs.true746
 
 if.end754:                                        ; preds = %land.lhs.true746, %do.body742, %if.end739
   call fastcc void @tcp_connect(ptr noundef %sockfd, ptr noundef %host.05482686, i16 noundef zeroext %port.05262689, i32 noundef %dtlsUDP.012752590, ptr noundef %call731)
-  %129 = load i32, ptr %sockfd, align 4
-  %call755 = call i32 @wolfSSL_set_fd(ptr noundef nonnull %call731, i32 noundef %129) #23
+  %130 = load i32, ptr %sockfd, align 4
+  %call755 = call i32 @wolfSSL_set_fd(ptr noundef nonnull %call731, i32 noundef %130) #23
   %cmp756.not = icmp eq i32 %call755, 1
   br i1 %cmp756.not, label %if.end760, label %if.then758
 
 if.then758:                                       ; preds = %if.end754
   call void @wolfSSL_free(ptr noundef nonnull %call731) #23
-  %130 = load i32, ptr %sockfd, align 4
-  %call759 = call i32 @close(i32 noundef %130) #23
+  %131 = load i32, ptr %sockfd, align 4
+  %call759 = call i32 @close(i32 noundef %131) #23
   call void @wolfSSL_CTX_free(ptr noundef %call272) #23
   call fastcc void @err_sys(ptr noundef nonnull @.str.57) #25
   unreachable
@@ -2729,23 +2726,23 @@ do.body787:                                       ; preds = %do.cond779, %if.end
   br i1 %.b291, label %do.end796, label %if.then789
 
 if.then789:                                       ; preds = %do.body787
-  %131 = load ptr, ptr @stderr, align 8
+  %132 = load ptr, ptr @stderr, align 8
   %conv790 = sext i32 %err.1463 to i64
   %call792 = call ptr @wolfSSL_ERR_error_string(i64 noundef %conv790, ptr noundef nonnull %buffer) #23
-  %call793 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %131, ptr noundef nonnull @.str.71, i32 noundef %err.1463, ptr noundef %call792) #24
+  %call793 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %132, ptr noundef nonnull @.str.71, i32 noundef %err.1463, ptr noundef %call792) #24
   br label %do.end796
 
 do.end796:                                        ; preds = %do.body787, %if.then789
   call void @wolfSSL_free(ptr noundef nonnull %call731) #23
-  %132 = load i32, ptr %sockfd, align 4
-  %call797 = call i32 @close(i32 noundef %132) #23
+  %133 = load i32, ptr %sockfd, align 4
+  %call797 = call i32 @close(i32 noundef %133) #23
   call void @wolfSSL_CTX_free(ptr noundef %call272) #23
   call fastcc void @err_sys(ptr noundef nonnull @.str.72) #25
   unreachable
 
 if.end798:                                        ; preds = %do.body772, %if.end783
-  %133 = load i32, ptr @lng_index, align 4
-  call fastcc void @showPeerEx(ptr noundef %call731, i32 noundef %133)
+  %134 = load i32, ptr @lng_index, align 4
+  call fastcc void @showPeerEx(ptr noundef %call731, i32 noundef %134)
   %call799 = call i32 @wolfSSL_session_reused(ptr noundef nonnull %call731) #23
   %tobool800.not = icmp eq i32 %call799, 0
   br i1 %tobool800.not, label %do.body804, label %if.then801
@@ -2759,8 +2756,8 @@ do.body804:                                       ; preds = %if.end798
   br i1 %.b290, label %if.end811, label %if.then806
 
 if.then806:                                       ; preds = %do.body804
-  %134 = load ptr, ptr @stderr, align 8
-  %135 = call i64 @fwrite(ptr nonnull @.str.74, i64 27, i64 1, ptr %134) #24
+  %135 = load ptr, ptr @stderr, align 8
+  %136 = call i64 @fwrite(ptr nonnull @.str.74, i64 27, i64 1, ptr %135) #24
   br label %if.end811
 
 if.end811:                                        ; preds = %if.then806, %do.body804, %if.then801
@@ -2769,12 +2766,12 @@ if.end811:                                        ; preds = %if.then806, %do.bod
 
 if.then814:                                       ; preds = %if.end811
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %msg, ptr noundef nonnull align 16 dereferenceable(28) @kHttpGetMsg, i64 28, i1 false)
-  %136 = call fastcc i32 @ClientWriteRead(ptr noundef %call731, ptr noundef %msg, i32 noundef 28, ptr noundef %reply, i32 noundef %sendGET.07462662, ptr noundef nonnull @.str.75, i32 noundef 0)
+  %137 = call fastcc i32 @ClientWriteRead(ptr noundef %call731, ptr noundef %msg, i32 noundef 28, ptr noundef %reply, i32 noundef %sendGET.07462662, ptr noundef nonnull @.str.75, i32 noundef 0)
   br label %if.end820
 
 if.else817:                                       ; preds = %if.end811
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(17) %msg, ptr noundef nonnull align 16 dereferenceable(17) @kResumeMsg, i64 17, i1 false)
-  %137 = call fastcc i32 @ClientWriteRead(ptr noundef %call731, ptr noundef %msg, i32 noundef 17, ptr noundef %reply, i32 noundef 0, ptr noundef nonnull @.str.75, i32 noundef 0)
+  %138 = call fastcc i32 @ClientWriteRead(ptr noundef %call731, ptr noundef %msg, i32 noundef 17, ptr noundef %reply, i32 noundef 0, ptr noundef nonnull @.str.75, i32 noundef 0)
   br label %if.end820
 
 if.end820:                                        ; preds = %if.else817, %if.then814
@@ -2789,8 +2786,8 @@ if.then829:                                       ; preds = %if.end820
 
 if.end831:                                        ; preds = %if.then829, %if.end820
   call void @wolfSSL_free(ptr noundef nonnull %call731) #23
-  %138 = load i32, ptr %sockfd, align 4
-  %call832 = call i32 @close(i32 noundef %138) #23
+  %139 = load i32, ptr %sockfd, align 4
+  %call832 = call i32 @close(i32 noundef %139) #23
   br label %if.end833
 
 if.end833:                                        ; preds = %if.end831, %if.end727

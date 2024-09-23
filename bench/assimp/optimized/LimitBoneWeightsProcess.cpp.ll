@@ -176,71 +176,72 @@ for.inc.i.i.i.i.i:                                ; preds = %for.inc.i.i.i.i.i, 
 
 for.body.preheader:                               ; preds = %for.inc.i.i.i.i.i, %_ZNSt12_Vector_baseIN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightELj8EEESaIS4_EEC2EmRKS5_.exit.thread.i
   %4 = phi ptr [ null, %_ZNSt12_Vector_baseIN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightELj8EEESaIS4_EEC2EmRKS5_.exit.thread.i ], [ %call5.i.i.i.i2.i.i37, %for.inc.i.i.i.i.i ]
-  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightELj8EEESaIS4_EEC2EmRKS5_.exit.thread.i ], [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ]
+  %5 = phi ptr [ null, %_ZNSt12_Vector_baseIN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightELj8EEESaIS4_EEC2EmRKS5_.exit.thread.i ], [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ]
   %_M_finish.i.i7.i = getelementptr inbounds i8, ptr %vertexWeights, i64 8
-  store ptr %__cur.0.lcssa.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8
+  store ptr %5, ptr %_M_finish.i.i7.i, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %5 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc27
-  %5 = phi i32 [ %1, %for.body.preheader ], [ %32, %for.inc27 ]
-  %6 = phi ptr [ %4, %for.body.preheader ], [ %33, %for.inc27 ]
-  %indvars.iv131 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next132, %for.inc27 ]
-  %maxVertexWeights.0104 = phi i64 [ 0, %for.body.preheader ], [ %maxVertexWeights.1.lcssa, %for.inc27 ]
-  %7 = load ptr, ptr %mBones.i, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv131
-  %8 = load ptr, ptr %arrayidx, align 8
-  %mNumWeights = getelementptr inbounds i8, ptr %8, i64 1028
-  %9 = load i32, ptr %mNumWeights, align 4
-  %cmp3100.not = icmp eq i32 %9, 0
-  br i1 %cmp3100.not, label %for.inc27, label %for.body4.lr.ph
+  %6 = phi i32 [ %1, %for.body.preheader ], [ %33, %for.inc27 ]
+  %7 = phi ptr [ %4, %for.body.preheader ], [ %34, %for.inc27 ]
+  %indvars.iv134 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next135, %for.inc27 ]
+  %maxVertexWeights.0107 = phi i64 [ 0, %for.body.preheader ], [ %maxVertexWeights.1.lcssa, %for.inc27 ]
+  %8 = load ptr, ptr %mBones.i, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv134
+  %9 = load ptr, ptr %arrayidx, align 8
+  %mNumWeights = getelementptr inbounds i8, ptr %9, i64 1028
+  %10 = load i32, ptr %mNumWeights, align 4
+  %cmp3103.not = icmp eq i32 %10, 0
+  br i1 %cmp3103.not, label %for.inc27, label %for.body4.lr.ph
 
 for.body4.lr.ph:                                  ; preds = %for.body
-  %mWeights = getelementptr inbounds i8, ptr %8, i64 1048
-  %10 = trunc nuw i64 %indvars.iv131 to i32
+  %mWeights = getelementptr inbounds i8, ptr %9, i64 1048
+  %11 = trunc nuw i64 %indvars.iv134 to i32
+  %12 = trunc nuw i64 %indvars.iv134 to i32
   br label %for.body4
 
 for.body4:                                        ; preds = %for.body4.lr.ph, %for.inc
-  %11 = phi i32 [ %9, %for.body4.lr.ph ], [ %29, %for.inc ]
-  %12 = phi ptr [ %6, %for.body4.lr.ph ], [ %30, %for.inc ]
+  %13 = phi i32 [ %10, %for.body4.lr.ph ], [ %30, %for.inc ]
+  %14 = phi ptr [ %7, %for.body4.lr.ph ], [ %31, %for.inc ]
   %indvars.iv = phi i64 [ 0, %for.body4.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %maxVertexWeights.1101 = phi i64 [ %maxVertexWeights.0104, %for.body4.lr.ph ], [ %maxVertexWeights.2, %for.inc ]
-  %13 = load ptr, ptr %mWeights, align 8
-  %arrayidx6 = getelementptr inbounds %struct.aiVertexWeight, ptr %13, i64 %indvars.iv
-  %14 = load ptr, ptr %_M_finish.i.i7.i, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %14 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %12 to i64
+  %maxVertexWeights.1104 = phi i64 [ %maxVertexWeights.0107, %for.body4.lr.ph ], [ %maxVertexWeights.2, %for.inc ]
+  %15 = load ptr, ptr %mWeights, align 8
+  %arrayidx6 = getelementptr inbounds %struct.aiVertexWeight, ptr %15, i64 %indvars.iv
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 88
-  %15 = load i32, ptr %arrayidx6, align 4
-  %conv8 = zext i32 %15 to i64
+  %16 = load i32, ptr %arrayidx6, align 4
+  %conv8 = zext i32 %16 to i64
   %cmp9.not = icmp ugt i64 %sub.ptr.div.i, %conv8
   br i1 %cmp9.not, label %if.end11, label %for.inc
 
 if.end11:                                         ; preds = %for.body4
-  %add.ptr.i = getelementptr inbounds %"class.Assimp::SmallVector", ptr %12, i64 %conv8
+  %add.ptr.i = getelementptr inbounds %"class.Assimp::SmallVector", ptr %14, i64 %conv8
   %mWeight = getelementptr inbounds i8, ptr %arrayidx6, i64 4
-  %16 = load i32, ptr %mWeight, align 4
+  %17 = load float, ptr %mWeight, align 4
   %mSize.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
-  %17 = load i64, ptr %mSize.i, align 8
+  %18 = load i64, ptr %mSize.i, align 8
   %mCapacity.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
-  %18 = load i64, ptr %mCapacity.i, align 8
-  %cmp.i = icmp ult i64 %17, %18
+  %19 = load i64, ptr %mCapacity.i, align 8
+  %cmp.i = icmp ult i64 %18, %19
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end11
-  %19 = load ptr, ptr %add.ptr.i, align 8
-  %inc.i = add nuw i64 %17, 1
+  %20 = load ptr, ptr %add.ptr.i, align 8
+  %inc.i = add nuw i64 %18, 1
   store i64 %inc.i, ptr %mSize.i, align 8
-  %arrayidx.i = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %19, i64 %17
+  %arrayidx.i = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %20, i64 %18
+  store i32 %12, ptr %arrayidx.i, align 4
   br label %invoke.cont18
 
 if.end.i:                                         ; preds = %if.end11
-  %add.i.i = add i64 %18, 8
-  %20 = load ptr, ptr %add.ptr.i, align 8
-  %21 = icmp ugt i64 %add.i.i, 2305843009213693951
-  %22 = shl i64 %add.i.i, 3
-  %23 = select i1 %21, i64 -1, i64 %22
-  %call.i.i.i38 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %23) #13
+  %add.i.i = add i64 %19, 8
+  %21 = load ptr, ptr %add.ptr.i, align 8
+  %22 = icmp ugt i64 %add.i.i, 2305843009213693951
+  %23 = shl i64 %add.i.i, 3
+  %24 = select i1 %22, i64 -1, i64 %23
+  %call.i.i.i38 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %24) #13
           to label %call.i.i.i.noexc unwind label %lpad16.loopexit.split-lp.loopexit
 
 call.i.i.i.noexc:                                 ; preds = %if.end.i
@@ -248,55 +249,55 @@ call.i.i.i.noexc:                                 ; preds = %if.end.i
   br i1 %isempty.i.i.i, label %arrayctor.cont.i.i.i, label %new.ctorloop.i.i.i
 
 new.ctorloop.i.i.i:                               ; preds = %call.i.i.i.noexc
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call.i.i.i38, i8 0, i64 %22, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call.i.i.i38, i8 0, i64 %23, i1 false)
   br label %arrayctor.cont.i.i.i
 
 arrayctor.cont.i.i.i:                             ; preds = %new.ctorloop.i.i.i, %call.i.i.i.noexc
-  %mul.i.i.i = shl i64 %17, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %call.i.i.i38, ptr align 4 %20, i64 %mul.i.i.i, i1 false)
+  %mul.i.i.i = shl i64 %18, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %call.i.i.i38, ptr align 4 %21, i64 %mul.i.i.i, i1 false)
   store ptr %call.i.i.i38, ptr %add.ptr.i, align 8
   store i64 %add.i.i, ptr %mCapacity.i, align 8
   %mInplaceStorage.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 24
-  %cmp.not.i.i.i = icmp eq ptr %20, %mInplaceStorage.i.i.i
-  %isnull.i.i.i = icmp eq ptr %20, null
+  %cmp.not.i.i.i = icmp eq ptr %21, %mInplaceStorage.i.i.i
+  %isnull.i.i.i = icmp eq ptr %21, null
   %or.cond.i.i.i = or i1 %cmp.not.i.i.i, %isnull.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN6Assimp11SmallVectorINS_23LimitBoneWeightsProcess6WeightELj8EE18push_back_and_growERKS2_.exit.i, label %delete.notnull.i.i.i
 
 delete.notnull.i.i.i:                             ; preds = %arrayctor.cont.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %20) #14
+  tail call void @_ZdaPv(ptr noundef nonnull %21) #14
   %.pre.i.i = load ptr, ptr %add.ptr.i, align 8
   %.pre1.i.i = load i64, ptr %mSize.i, align 8
   br label %_ZN6Assimp11SmallVectorINS_23LimitBoneWeightsProcess6WeightELj8EE18push_back_and_growERKS2_.exit.i
 
 _ZN6Assimp11SmallVectorINS_23LimitBoneWeightsProcess6WeightELj8EE18push_back_and_growERKS2_.exit.i: ; preds = %delete.notnull.i.i.i, %arrayctor.cont.i.i.i
-  %24 = phi i64 [ %17, %arrayctor.cont.i.i.i ], [ %.pre1.i.i, %delete.notnull.i.i.i ]
-  %25 = phi ptr [ %call.i.i.i38, %arrayctor.cont.i.i.i ], [ %.pre.i.i, %delete.notnull.i.i.i ]
-  %inc.i.i = add i64 %24, 1
+  %25 = phi i64 [ %18, %arrayctor.cont.i.i.i ], [ %.pre1.i.i, %delete.notnull.i.i.i ]
+  %26 = phi ptr [ %call.i.i.i38, %arrayctor.cont.i.i.i ], [ %.pre.i.i, %delete.notnull.i.i.i ]
+  %inc.i.i = add i64 %25, 1
   store i64 %inc.i.i, ptr %mSize.i, align 8
-  %arrayidx.i.i = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %25, i64 %24
+  %arrayidx.i.i = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %26, i64 %25
+  store i32 %11, ptr %arrayidx.i.i, align 4
   br label %invoke.cont18
 
 invoke.cont18:                                    ; preds = %_ZN6Assimp11SmallVectorINS_23LimitBoneWeightsProcess6WeightELj8EE18push_back_and_growERKS2_.exit.i, %if.then.i
-  %arrayidx.i.sink.i = phi ptr [ %arrayidx.i.i, %_ZN6Assimp11SmallVectorINS_23LimitBoneWeightsProcess6WeightELj8EE18push_back_and_growERKS2_.exit.i ], [ %arrayidx.i, %if.then.i ]
-  store i32 %10, ptr %arrayidx.i.sink.i, align 4
-  %arrayidx.i.sink.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.sink.i, i64 4
-  store i32 %16, ptr %arrayidx.i.sink.i.sroa_idx, align 4
-  %26 = load i32, ptr %arrayidx6, align 4
-  %conv21 = zext i32 %26 to i64
-  %27 = load ptr, ptr %vertexWeights, align 8
-  %mSize.i40 = getelementptr inbounds %"class.Assimp::SmallVector", ptr %27, i64 %conv21, i32 1
-  %28 = load i64, ptr %mSize.i40, align 8
-  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %maxVertexWeights.1101, i64 %28)
+  %arrayidx.i.i.sink = phi ptr [ %arrayidx.i.i, %_ZN6Assimp11SmallVectorINS_23LimitBoneWeightsProcess6WeightELj8EE18push_back_and_growERKS2_.exit.i ], [ %arrayidx.i, %if.then.i ]
+  %arrayidx.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i.sink, i64 4
+  store float %17, ptr %arrayidx.i.i.sroa_idx, align 4
+  %27 = load i32, ptr %arrayidx6, align 4
+  %conv21 = zext i32 %27 to i64
+  %28 = load ptr, ptr %vertexWeights, align 8
+  %mSize.i40 = getelementptr inbounds %"class.Assimp::SmallVector", ptr %28, i64 %conv21, i32 1
+  %29 = load i64, ptr %mSize.i40, align 8
+  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %maxVertexWeights.1104, i64 %29)
   %.pre = load i32, ptr %mNumWeights, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body4, %invoke.cont18
-  %29 = phi i32 [ %.pre, %invoke.cont18 ], [ %11, %for.body4 ]
-  %30 = phi ptr [ %27, %invoke.cont18 ], [ %12, %for.body4 ]
-  %maxVertexWeights.2 = phi i64 [ %.sroa.speculated, %invoke.cont18 ], [ %maxVertexWeights.1101, %for.body4 ]
+  %30 = phi i32 [ %.pre, %invoke.cont18 ], [ %13, %for.body4 ]
+  %31 = phi ptr [ %28, %invoke.cont18 ], [ %14, %for.body4 ]
+  %maxVertexWeights.2 = phi i64 [ %.sroa.speculated, %invoke.cont18 ], [ %maxVertexWeights.1104, %for.body4 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %31 = zext i32 %29 to i64
-  %cmp3 = icmp ult i64 %indvars.iv.next, %31
+  %32 = zext i32 %30 to i64
+  %cmp3 = icmp ult i64 %indvars.iv.next, %32
   br i1 %cmp3, label %for.body4, label %for.inc27.loopexit, !llvm.loop !7
 
 lpad16.loopexit:                                  ; preds = %if.end49, %.noexc, %arrayctor.cont.i.i
@@ -305,131 +306,130 @@ lpad16.loopexit:                                  ; preds = %if.end49, %.noexc, 
   br label %lpad16
 
 lpad16.loopexit.split-lp.loopexit:                ; preds = %if.end.i
-  %lpad.loopexit94 = landingpad { ptr, i32 }
+  %lpad.loopexit97 = landingpad { ptr, i32 }
           cleanup
   br label %lpad16
 
 lpad16.loopexit.split-lp.loopexit.split-lp:       ; preds = %invoke.cont157, %if.then156, %if.end153
-  %lpad.loopexit.split-lp95 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp98 = landingpad { ptr, i32 }
           cleanup
   br label %lpad16
 
 lpad16:                                           ; preds = %lpad16.loopexit.split-lp.loopexit, %lpad16.loopexit.split-lp.loopexit.split-lp, %lpad16.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad16.loopexit ], [ %lpad.loopexit94, %lpad16.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp95, %lpad16.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad16.loopexit ], [ %lpad.loopexit97, %lpad16.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp98, %lpad16.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt6vectorIN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightELj8EEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %vertexWeights) #12
   resume { ptr, i32 } %lpad.phi
 
 for.inc27.loopexit:                               ; preds = %for.inc
-  %.pre137 = load i32, ptr %mNumBones.i, align 8
+  %.pre140 = load i32, ptr %mNumBones.i, align 8
   br label %for.inc27
 
 for.inc27:                                        ; preds = %for.inc27.loopexit, %for.body
-  %32 = phi i32 [ %5, %for.body ], [ %.pre137, %for.inc27.loopexit ]
-  %33 = phi ptr [ %6, %for.body ], [ %30, %for.inc27.loopexit ]
-  %maxVertexWeights.1.lcssa = phi i64 [ %maxVertexWeights.0104, %for.body ], [ %maxVertexWeights.2, %for.inc27.loopexit ]
-  %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
-  %34 = zext i32 %32 to i64
-  %cmp = icmp ult i64 %indvars.iv.next132, %34
+  %33 = phi i32 [ %6, %for.body ], [ %.pre140, %for.inc27.loopexit ]
+  %34 = phi ptr [ %7, %for.body ], [ %31, %for.inc27.loopexit ]
+  %maxVertexWeights.1.lcssa = phi i64 [ %maxVertexWeights.0107, %for.body ], [ %maxVertexWeights.2, %for.inc27.loopexit ]
+  %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
+  %35 = zext i32 %33 to i64
+  %cmp = icmp ult i64 %indvars.iv.next135, %35
   br i1 %cmp, label %for.body, label %for.end29, !llvm.loop !8
 
 for.end29:                                        ; preds = %for.inc27
-  %.pre141.pre = load ptr, ptr %_M_finish.i.i7.i, align 8
   %mMaxWeights = getelementptr inbounds i8, ptr %this, i64 24
-  %35 = load i32, ptr %mMaxWeights, align 8
-  %conv30 = zext i32 %35 to i64
+  %36 = load i32, ptr %mMaxWeights, align 8
+  %conv30 = zext i32 %36 to i64
   %cmp31.not = icmp ugt i64 %maxVertexWeights.1.lcssa, %conv30
   br i1 %cmp31.not, label %if.end33, label %cleanup
 
 if.end33:                                         ; preds = %for.end29
   store i32 0, ptr %removed, align 4
-  store i32 %32, ptr %old_bones, align 4
-  %cmp.i43.not115 = icmp eq ptr %33, %.pre141.pre
-  br i1 %cmp.i43.not115, label %for.cond103.preheader, label %for.body41
+  store i32 %33, ptr %old_bones, align 4
+  %cmp.i43.not118 = icmp eq ptr %34, %5
+  br i1 %cmp.i43.not118, label %for.cond103.preheader, label %for.body41
 
 for.cond103.preheader.loopexit:                   ; preds = %for.inc100
-  %.pre140 = load i32, ptr %mNumBones.i, align 8
+  %.pre143 = load i32, ptr %mNumBones.i, align 8
   br label %for.cond103.preheader
 
 for.cond103.preheader:                            ; preds = %for.cond103.preheader.loopexit, %if.end33
-  %36 = phi ptr [ %incdec.ptr.i, %for.cond103.preheader.loopexit ], [ %.pre141.pre, %if.end33 ]
-  %37 = phi i32 [ %.pre140, %for.cond103.preheader.loopexit ], [ %32, %if.end33 ]
-  %cmp105117.not = icmp eq i32 %37, 0
-  br i1 %cmp105117.not, label %for.cond115.preheader, label %for.body106
+  %37 = phi ptr [ %incdec.ptr.i, %for.cond103.preheader.loopexit ], [ %5, %if.end33 ]
+  %38 = phi i32 [ %.pre143, %for.cond103.preheader.loopexit ], [ %33, %if.end33 ]
+  %cmp105120.not = icmp eq i32 %38, 0
+  br i1 %cmp105120.not, label %for.cond115.preheader, label %for.body106
 
 for.body41:                                       ; preds = %if.end33, %for.inc100
-  %38 = phi i32 [ %54, %for.inc100 ], [ 0, %if.end33 ]
-  %vit.sroa.0.0116 = phi ptr [ %incdec.ptr.i, %for.inc100 ], [ %33, %if.end33 ]
-  %mSize.i44 = getelementptr inbounds i8, ptr %vit.sroa.0.0116, i64 8
-  %39 = load i64, ptr %mSize.i44, align 8
-  %40 = load i32, ptr %mMaxWeights, align 8
-  %conv46 = zext i32 %40 to i64
-  %cmp47.not = icmp ugt i64 %39, %conv46
+  %39 = phi i32 [ %55, %for.inc100 ], [ 0, %if.end33 ]
+  %vit.sroa.0.0119 = phi ptr [ %incdec.ptr.i, %for.inc100 ], [ %34, %if.end33 ]
+  %mSize.i44 = getelementptr inbounds i8, ptr %vit.sroa.0.0119, i64 8
+  %40 = load i64, ptr %mSize.i44, align 8
+  %41 = load i32, ptr %mMaxWeights, align 8
+  %conv46 = zext i32 %41 to i64
+  %cmp47.not = icmp ugt i64 %40, %conv46
   br i1 %cmp47.not, label %if.end49, label %for.inc100
 
 if.end49:                                         ; preds = %for.body41
-  %41 = load ptr, ptr %vit.sroa.0.0116, align 8
-  %arrayidx.i46 = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %41, i64 %39
-  %42 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %39, i1 true)
-  %sub.i.i.i = shl nuw nsw i64 %42, 1
+  %42 = load ptr, ptr %vit.sroa.0.0119, align 8
+  %arrayidx.i46 = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %42, i64 %40
+  %43 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %40, i1 true)
+  %sub.i.i.i = shl nuw nsw i64 %43, 1
   %mul.i.i = xor i64 %sub.i.i.i, 126
-  invoke void @_ZSt16__introsort_loopIPN6Assimp23LimitBoneWeightsProcess6WeightElN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_T1_(ptr noundef %41, ptr noundef nonnull %arrayidx.i46, i64 noundef %mul.i.i)
+  invoke void @_ZSt16__introsort_loopIPN6Assimp23LimitBoneWeightsProcess6WeightElN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_T1_(ptr noundef %42, ptr noundef nonnull %arrayidx.i46, i64 noundef %mul.i.i)
           to label %.noexc unwind label %lpad16.loopexit
 
 .noexc:                                           ; preds = %if.end49
-  invoke void @_ZSt22__final_insertion_sortIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_(ptr noundef %41, ptr noundef nonnull %arrayidx.i46)
+  invoke void @_ZSt22__final_insertion_sortIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_(ptr noundef %42, ptr noundef nonnull %arrayidx.i46)
           to label %invoke.cont56 unwind label %lpad16.loopexit
 
 invoke.cont56:                                    ; preds = %.noexc
-  %43 = load i64, ptr %mSize.i44, align 8
-  %44 = load i32, ptr %mMaxWeights, align 8
-  %conv63 = zext i32 %44 to i64
-  %mCapacity.i49 = getelementptr inbounds i8, ptr %vit.sroa.0.0116, i64 16
-  %45 = load i64, ptr %mCapacity.i49, align 8
-  %cmp.i50 = icmp ult i64 %45, %conv63
-  %.pre139 = load ptr, ptr %vit.sroa.0.0116, align 8
+  %44 = load i64, ptr %mSize.i44, align 8
+  %45 = load i32, ptr %mMaxWeights, align 8
+  %conv63 = zext i32 %45 to i64
+  %mCapacity.i49 = getelementptr inbounds i8, ptr %vit.sroa.0.0119, i64 16
+  %46 = load i64, ptr %mCapacity.i49, align 8
+  %cmp.i50 = icmp ult i64 %46, %conv63
+  %.pre142 = load ptr, ptr %vit.sroa.0.0119, align 8
   br i1 %cmp.i50, label %arrayctor.cont.i.i, label %invoke.cont64
 
 arrayctor.cont.i.i:                               ; preds = %invoke.cont56
-  %46 = shl nuw nsw i64 %conv63, 3
-  %call.i.i55 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %46) #13
+  %47 = shl nuw nsw i64 %conv63, 3
+  %call.i.i55 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %47) #13
           to label %call.i.i.noexc unwind label %lpad16.loopexit
 
 call.i.i.noexc:                                   ; preds = %arrayctor.cont.i.i
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call.i.i55, i8 0, i64 %46, i1 false)
-  %47 = load i64, ptr %mSize.i44, align 8
-  %mul.i.i53 = shl i64 %47, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %call.i.i55, ptr align 4 %.pre139, i64 %mul.i.i53, i1 false)
-  store ptr %call.i.i55, ptr %vit.sroa.0.0116, align 8
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call.i.i55, i8 0, i64 %47, i1 false)
+  %48 = load i64, ptr %mSize.i44, align 8
+  %mul.i.i53 = shl i64 %48, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %call.i.i55, ptr align 4 %.pre142, i64 %mul.i.i53, i1 false)
+  store ptr %call.i.i55, ptr %vit.sroa.0.0119, align 8
   store i64 %conv63, ptr %mCapacity.i49, align 8
-  %mInplaceStorage.i.i = getelementptr inbounds i8, ptr %vit.sroa.0.0116, i64 24
-  %cmp.not.i.i54 = icmp eq ptr %.pre139, %mInplaceStorage.i.i
-  %isnull.i.i = icmp eq ptr %.pre139, null
+  %mInplaceStorage.i.i = getelementptr inbounds i8, ptr %vit.sroa.0.0119, i64 24
+  %cmp.not.i.i54 = icmp eq ptr %.pre142, %mInplaceStorage.i.i
+  %isnull.i.i = icmp eq ptr %.pre142, null
   %or.cond.i.i = or i1 %cmp.not.i.i54, %isnull.i.i
   br i1 %or.cond.i.i, label %invoke.cont64, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %call.i.i.noexc
-  tail call void @_ZdaPv(ptr noundef nonnull %.pre139) #14
-  %.pre138 = load ptr, ptr %vit.sroa.0.0116, align 8
+  tail call void @_ZdaPv(ptr noundef nonnull %.pre142) #14
+  %.pre141 = load ptr, ptr %vit.sroa.0.0119, align 8
   br label %invoke.cont64
 
 invoke.cont64:                                    ; preds = %delete.notnull.i.i, %call.i.i.noexc, %invoke.cont56
-  %48 = phi ptr [ %.pre138, %delete.notnull.i.i ], [ %call.i.i55, %call.i.i.noexc ], [ %.pre139, %invoke.cont56 ]
+  %49 = phi ptr [ %.pre141, %delete.notnull.i.i ], [ %call.i.i55, %call.i.i.noexc ], [ %.pre142, %invoke.cont56 ]
   store i64 %conv63, ptr %mSize.i44, align 8
-  %49 = trunc i64 %43 to i32
-  %conv69 = sub i32 %49, %44
-  %add = add i32 %conv69, %38
+  %50 = trunc i64 %44 to i32
+  %conv69 = sub i32 %50, %45
+  %add = add i32 %conv69, %39
   store i32 %add, ptr %removed, align 4
-  %arrayidx.i58 = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %48, i64 %conv63
-  %cmp77.not108 = icmp eq i32 %44, 0
-  br i1 %cmp77.not108, label %for.inc100, label %for.body78
+  %arrayidx.i58 = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %49, i64 %conv63
+  %cmp77.not111 = icmp eq i32 %45, 0
+  br i1 %cmp77.not111, label %for.inc100, label %for.body78
 
 for.body78:                                       ; preds = %invoke.cont64, %for.body78
-  %it.0110 = phi ptr [ %incdec.ptr, %for.body78 ], [ %48, %invoke.cont64 ]
-  %sum.0109 = phi float [ %add80, %for.body78 ], [ 0.000000e+00, %invoke.cont64 ]
-  %mWeight79 = getelementptr inbounds i8, ptr %it.0110, i64 4
-  %50 = load float, ptr %mWeight79, align 4
-  %add80 = fadd float %sum.0109, %50
-  %incdec.ptr = getelementptr inbounds i8, ptr %it.0110, i64 8
+  %it.0113 = phi ptr [ %incdec.ptr, %for.body78 ], [ %49, %invoke.cont64 ]
+  %sum.0112 = phi float [ %add80, %for.body78 ], [ 0.000000e+00, %invoke.cont64 ]
+  %mWeight79 = getelementptr inbounds i8, ptr %it.0113, i64 4
+  %51 = load float, ptr %mWeight79, align 4
+  %add80 = fadd float %sum.0112, %51
+  %incdec.ptr = getelementptr inbounds i8, ptr %it.0113, i64 8
   %cmp77.not = icmp eq ptr %incdec.ptr, %arrayidx.i58
   br i1 %cmp77.not, label %for.end82, label %for.body78, !llvm.loop !9
 
@@ -442,145 +442,145 @@ if.then84:                                        ; preds = %for.end82
   br label %for.body94
 
 for.body94:                                       ; preds = %if.then84, %for.body94
-  %it85.0114 = phi ptr [ %incdec.ptr97, %for.body94 ], [ %48, %if.then84 ]
-  %mWeight95 = getelementptr inbounds i8, ptr %it85.0114, i64 4
-  %51 = load float, ptr %mWeight95, align 4
-  %mul = fmul float %div, %51
+  %it85.0117 = phi ptr [ %incdec.ptr97, %for.body94 ], [ %49, %if.then84 ]
+  %mWeight95 = getelementptr inbounds i8, ptr %it85.0117, i64 4
+  %52 = load float, ptr %mWeight95, align 4
+  %mul = fmul float %div, %52
   store float %mul, ptr %mWeight95, align 4
-  %incdec.ptr97 = getelementptr inbounds i8, ptr %it85.0114, i64 8
-  %52 = load ptr, ptr %vit.sroa.0.0116, align 8
-  %53 = load i64, ptr %mSize.i44, align 8
-  %arrayidx.i60 = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %52, i64 %53
+  %incdec.ptr97 = getelementptr inbounds i8, ptr %it85.0117, i64 8
+  %53 = load ptr, ptr %vit.sroa.0.0119, align 8
+  %54 = load i64, ptr %mSize.i44, align 8
+  %arrayidx.i60 = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %53, i64 %54
   %cmp93.not = icmp eq ptr %incdec.ptr97, %arrayidx.i60
   br i1 %cmp93.not, label %for.inc100, label %for.body94, !llvm.loop !10
 
 for.inc100:                                       ; preds = %for.body94, %invoke.cont64, %for.end82, %for.body41
-  %54 = phi i32 [ %add, %for.end82 ], [ %38, %for.body41 ], [ %add, %invoke.cont64 ], [ %add, %for.body94 ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %vit.sroa.0.0116, i64 88
-  %55 = load ptr, ptr %_M_finish.i.i7.i, align 8
-  %cmp.i43.not = icmp eq ptr %incdec.ptr.i, %55
+  %55 = phi i32 [ %add, %for.end82 ], [ %39, %for.body41 ], [ %add, %invoke.cont64 ], [ %add, %for.body94 ]
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %vit.sroa.0.0119, i64 88
+  %56 = load ptr, ptr %_M_finish.i.i7.i, align 8
+  %cmp.i43.not = icmp eq ptr %incdec.ptr.i, %56
   br i1 %cmp.i43.not, label %for.cond103.preheader.loopexit, label %for.body41, !llvm.loop !11
 
 for.cond115.preheader:                            ; preds = %for.body106, %for.cond103.preheader
-  %56 = load ptr, ptr %vertexWeights, align 8
-  %cmp118126.not = icmp eq ptr %36, %56
-  br i1 %cmp118126.not, label %for.end148, label %for.body119.preheader
+  %57 = load ptr, ptr %vertexWeights, align 8
+  %cmp118129.not = icmp eq ptr %37, %57
+  br i1 %cmp118129.not, label %for.end148, label %for.body119.preheader
 
 for.body119.preheader:                            ; preds = %for.cond115.preheader
-  %sub.ptr.lhs.cast.i62 = ptrtoint ptr %36 to i64
-  %sub.ptr.rhs.cast.i63 = ptrtoint ptr %56 to i64
+  %sub.ptr.lhs.cast.i62 = ptrtoint ptr %37 to i64
+  %sub.ptr.rhs.cast.i63 = ptrtoint ptr %57 to i64
   %sub.ptr.sub.i64 = sub i64 %sub.ptr.lhs.cast.i62, %sub.ptr.rhs.cast.i63
   %sub.ptr.div.i65 = sdiv exact i64 %sub.ptr.sub.i64, 88
   br label %for.body119
 
 for.body106:                                      ; preds = %for.cond103.preheader, %for.body106
-  %indvars.iv134 = phi i64 [ %indvars.iv.next135, %for.body106 ], [ 0, %for.cond103.preheader ]
-  %57 = load ptr, ptr %mBones.i, align 8
-  %arrayidx109 = getelementptr inbounds ptr, ptr %57, i64 %indvars.iv134
-  %58 = load ptr, ptr %arrayidx109, align 8
-  %mNumWeights110 = getelementptr inbounds i8, ptr %58, i64 1028
+  %indvars.iv137 = phi i64 [ %indvars.iv.next138, %for.body106 ], [ 0, %for.cond103.preheader ]
+  %58 = load ptr, ptr %mBones.i, align 8
+  %arrayidx109 = getelementptr inbounds ptr, ptr %58, i64 %indvars.iv137
+  %59 = load ptr, ptr %arrayidx109, align 8
+  %mNumWeights110 = getelementptr inbounds i8, ptr %59, i64 1028
   store i32 0, ptr %mNumWeights110, align 4
-  %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
-  %59 = load i32, ptr %mNumBones.i, align 8
-  %60 = zext i32 %59 to i64
-  %cmp105 = icmp ult i64 %indvars.iv.next135, %60
+  %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
+  %60 = load i32, ptr %mNumBones.i, align 8
+  %61 = zext i32 %60 to i64
+  %cmp105 = icmp ult i64 %indvars.iv.next138, %61
   br i1 %cmp105, label %for.body106, label %for.cond115.preheader, !llvm.loop !12
 
 for.body119:                                      ; preds = %for.body119.preheader, %for.inc146
-  %conv116128 = phi i64 [ %conv116, %for.inc146 ], [ 0, %for.body119.preheader ]
-  %a114.0127 = phi i32 [ %inc147, %for.inc146 ], [ 0, %for.body119.preheader ]
-  %add.ptr.i66 = getelementptr inbounds %"class.Assimp::SmallVector", ptr %56, i64 %conv116128
+  %conv116131 = phi i64 [ %conv116, %for.inc146 ], [ 0, %for.body119.preheader ]
+  %a114.0130 = phi i32 [ %inc147, %for.inc146 ], [ 0, %for.body119.preheader ]
+  %add.ptr.i66 = getelementptr inbounds %"class.Assimp::SmallVector", ptr %57, i64 %conv116131
   %mSize.i67 = getelementptr inbounds i8, ptr %add.ptr.i66, i64 8
-  %61 = load i64, ptr %mSize.i67, align 8
-  %cmp129.not120 = icmp eq i64 %61, 0
-  br i1 %cmp129.not120, label %for.inc146, label %for.body130.preheader
+  %62 = load i64, ptr %mSize.i67, align 8
+  %cmp129.not123 = icmp eq i64 %62, 0
+  br i1 %cmp129.not123, label %for.inc146, label %for.body130.preheader
 
 for.body130.preheader:                            ; preds = %for.body119
-  %62 = load ptr, ptr %add.ptr.i66, align 8
+  %63 = load ptr, ptr %add.ptr.i66, align 8
   br label %for.body130
 
 for.body130:                                      ; preds = %for.body130.preheader, %for.body130
-  %it123.0121 = phi ptr [ %incdec.ptr144, %for.body130 ], [ %62, %for.body130.preheader ]
-  %63 = load ptr, ptr %mBones.i, align 8
-  %64 = load i32, ptr %it123.0121, align 4
-  %idxprom133 = zext i32 %64 to i64
-  %arrayidx134 = getelementptr inbounds ptr, ptr %63, i64 %idxprom133
-  %65 = load ptr, ptr %arrayidx134, align 8
-  %mWeight136 = getelementptr inbounds i8, ptr %it123.0121, i64 4
-  %66 = load i32, ptr %mWeight136, align 4
-  %mWeights138 = getelementptr inbounds i8, ptr %65, i64 1048
-  %67 = load ptr, ptr %mWeights138, align 8
-  %mNumWeights139 = getelementptr inbounds i8, ptr %65, i64 1028
-  %68 = load i32, ptr %mNumWeights139, align 4
-  %inc140 = add i32 %68, 1
+  %it123.0124 = phi ptr [ %incdec.ptr144, %for.body130 ], [ %63, %for.body130.preheader ]
+  %64 = load ptr, ptr %mBones.i, align 8
+  %65 = load i32, ptr %it123.0124, align 4
+  %idxprom133 = zext i32 %65 to i64
+  %arrayidx134 = getelementptr inbounds ptr, ptr %64, i64 %idxprom133
+  %66 = load ptr, ptr %arrayidx134, align 8
+  %mWeight136 = getelementptr inbounds i8, ptr %it123.0124, i64 4
+  %67 = load i32, ptr %mWeight136, align 4
+  %mWeights138 = getelementptr inbounds i8, ptr %66, i64 1048
+  %68 = load ptr, ptr %mWeights138, align 8
+  %mNumWeights139 = getelementptr inbounds i8, ptr %66, i64 1028
+  %69 = load i32, ptr %mNumWeights139, align 4
+  %inc140 = add i32 %69, 1
   store i32 %inc140, ptr %mNumWeights139, align 4
-  %idxprom141 = zext i32 %68 to i64
-  %arrayidx142 = getelementptr inbounds %struct.aiVertexWeight, ptr %67, i64 %idxprom141
-  store i32 %a114.0127, ptr %arrayidx142, align 4
+  %idxprom141 = zext i32 %69 to i64
+  %arrayidx142 = getelementptr inbounds %struct.aiVertexWeight, ptr %68, i64 %idxprom141
+  store i32 %a114.0130, ptr %arrayidx142, align 4
   %arrayidx142.sroa_idx = getelementptr inbounds i8, ptr %arrayidx142, i64 4
-  store i32 %66, ptr %arrayidx142.sroa_idx, align 4
-  %incdec.ptr144 = getelementptr inbounds i8, ptr %it123.0121, i64 8
-  %69 = load ptr, ptr %add.ptr.i66, align 8
-  %70 = load i64, ptr %mSize.i67, align 8
-  %arrayidx.i68 = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %69, i64 %70
+  store i32 %67, ptr %arrayidx142.sroa_idx, align 4
+  %incdec.ptr144 = getelementptr inbounds i8, ptr %it123.0124, i64 8
+  %70 = load ptr, ptr %add.ptr.i66, align 8
+  %71 = load i64, ptr %mSize.i67, align 8
+  %arrayidx.i68 = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %70, i64 %71
   %cmp129.not = icmp eq ptr %incdec.ptr144, %arrayidx.i68
   br i1 %cmp129.not, label %for.inc146, label %for.body130, !llvm.loop !13
 
 for.inc146:                                       ; preds = %for.body130, %for.body119
-  %inc147 = add i32 %a114.0127, 1
+  %inc147 = add i32 %a114.0130, 1
   %conv116 = zext i32 %inc147 to i64
   %cmp118 = icmp ugt i64 %sub.ptr.div.i65, %conv116
   br i1 %cmp118, label %for.body119, label %for.end148, !llvm.loop !14
 
 for.end148:                                       ; preds = %for.inc146, %for.cond115.preheader
   %mRemoveEmptyBones = getelementptr inbounds i8, ptr %this, i64 28
-  %71 = load i8, ptr %mRemoveEmptyBones, align 4
-  %tobool = trunc i8 %71 to i1
+  %72 = load i8, ptr %mRemoveEmptyBones, align 4
+  %tobool = trunc i8 %72 to i1
   br i1 %tobool, label %if.then149, label %if.end153
 
 if.then149:                                       ; preds = %for.end148
-  %72 = load i32, ptr %mNumBones.i, align 8
-  %cmp8.not.i = icmp eq i32 %72, 0
+  %73 = load i32, ptr %mNumBones.i, align 8
+  %cmp8.not.i = icmp eq i32 %73, 0
   br i1 %cmp8.not.i, label %_ZN6AssimpL16removeEmptyBonesEP6aiMesh.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then149, %for.inc.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %if.then149 ]
   %writeBone.010.i = phi i32 [ %writeBone.1.i, %for.inc.i ], [ 0, %if.then149 ]
-  %73 = load ptr, ptr %mBones.i, align 8
-  %arrayidx.i72 = getelementptr inbounds ptr, ptr %73, i64 %indvars.iv.i
-  %74 = load ptr, ptr %arrayidx.i72, align 8
-  %mNumWeights.i = getelementptr inbounds i8, ptr %74, i64 1028
-  %75 = load i32, ptr %mNumWeights.i, align 4
-  %cmp1.not.i = icmp eq i32 %75, 0
+  %74 = load ptr, ptr %mBones.i, align 8
+  %arrayidx.i72 = getelementptr inbounds ptr, ptr %74, i64 %indvars.iv.i
+  %75 = load ptr, ptr %arrayidx.i72, align 8
+  %mNumWeights.i = getelementptr inbounds i8, ptr %75, i64 1028
+  %76 = load i32, ptr %mNumWeights.i, align 4
+  %cmp1.not.i = icmp eq i32 %76, 0
   br i1 %cmp1.not.i, label %delete.notnull.i, label %if.then.i73
 
 if.then.i73:                                      ; preds = %for.body.i
   %inc.i74 = add i32 %writeBone.010.i, 1
   %idxprom3.i = zext i32 %writeBone.010.i to i64
-  %arrayidx4.i = getelementptr inbounds ptr, ptr %73, i64 %idxprom3.i
-  store ptr %74, ptr %arrayidx4.i, align 8
+  %arrayidx4.i = getelementptr inbounds ptr, ptr %74, i64 %idxprom3.i
+  store ptr %75, ptr %arrayidx4.i, align 8
   br label %for.inc.i
 
 delete.notnull.i:                                 ; preds = %for.body.i
-  %mWeights.i.i = getelementptr inbounds i8, ptr %74, i64 1048
-  %76 = load ptr, ptr %mWeights.i.i, align 8
-  %isnull.i.i76 = icmp eq ptr %76, null
+  %mWeights.i.i = getelementptr inbounds i8, ptr %75, i64 1048
+  %77 = load ptr, ptr %mWeights.i.i, align 8
+  %isnull.i.i76 = icmp eq ptr %77, null
   br i1 %isnull.i.i76, label %_ZN6aiBoneD2Ev.exit.i, label %delete.notnull.i.i77
 
 delete.notnull.i.i77:                             ; preds = %delete.notnull.i
-  tail call void @_ZdaPv(ptr noundef nonnull %76) #14
+  tail call void @_ZdaPv(ptr noundef nonnull %77) #14
   br label %_ZN6aiBoneD2Ev.exit.i
 
 _ZN6aiBoneD2Ev.exit.i:                            ; preds = %delete.notnull.i.i77, %delete.notnull.i
-  tail call void @_ZdlPv(ptr noundef nonnull %74) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %75) #14
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %_ZN6aiBoneD2Ev.exit.i, %if.then.i73
   %writeBone.1.i = phi i32 [ %inc.i74, %if.then.i73 ], [ %writeBone.010.i, %_ZN6aiBoneD2Ev.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %77 = load i32, ptr %mNumBones.i, align 8
-  %78 = zext i32 %77 to i64
-  %cmp.i75 = icmp ult i64 %indvars.iv.next.i, %78
+  %78 = load i32, ptr %mNumBones.i, align 8
+  %79 = zext i32 %78 to i64
+  %cmp.i75 = icmp ult i64 %indvars.iv.next.i, %79
   br i1 %cmp.i75, label %for.body.i, label %_ZN6AssimpL16removeEmptyBonesEP6aiMesh.exit, !llvm.loop !15
 
 _ZN6AssimpL16removeEmptyBonesEP6aiMesh.exit:      ; preds = %for.inc.i, %if.then149
@@ -604,27 +604,27 @@ invoke.cont157:                                   ; preds = %if.then156
           to label %cleanup unwind label %lpad16.loopexit.split-lp.loopexit.split-lp
 
 cleanup:                                          ; preds = %invoke.cont154, %invoke.cont157, %for.end29
-  %79 = phi ptr [ %36, %invoke.cont154 ], [ %36, %invoke.cont157 ], [ %.pre141.pre, %for.end29 ]
-  %.pr.i = phi ptr [ %56, %invoke.cont154 ], [ %56, %invoke.cont157 ], [ %33, %for.end29 ]
-  %cmp.not3.i.i.i.i = icmp eq ptr %.pr.i, %79
+  %80 = phi ptr [ %37, %invoke.cont154 ], [ %37, %invoke.cont157 ], [ %5, %for.end29 ]
+  %.pr.i = phi ptr [ %57, %invoke.cont154 ], [ %57, %invoke.cont157 ], [ %34, %for.end29 ]
+  %cmp.not3.i.i.i.i = icmp eq ptr %.pr.i, %80
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %cleanup, %_ZSt8_DestroyIN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightELj8EEEEvPT_.exit.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyIN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightELj8EEEEvPT_.exit.i.i.i.i ], [ %.pr.i, %cleanup ]
-  %80 = load ptr, ptr %__first.addr.04.i.i.i.i, align 8
+  %81 = load ptr, ptr %__first.addr.04.i.i.i.i, align 8
   %mInplaceStorage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 24
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %80, %mInplaceStorage.i.i.i.i.i.i
-  %isnull.i.i.i.i.i.i = icmp eq ptr %80, null
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %81, %mInplaceStorage.i.i.i.i.i.i
+  %isnull.i.i.i.i.i.i = icmp eq ptr %81, null
   %or.cond.i.i.i.i.i.i = or i1 %cmp.not.i.i.i.i.i.i, %isnull.i.i.i.i.i.i
   br i1 %or.cond.i.i.i.i.i.i, label %_ZSt8_DestroyIN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightELj8EEEEvPT_.exit.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %80) #14
+  call void @_ZdaPv(ptr noundef nonnull %81) #14
   br label %_ZSt8_DestroyIN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightELj8EEEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyIN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightELj8EEEEvPT_.exit.i.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %for.body.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 88
-  %cmp.not.i.i.i.i79 = icmp eq ptr %incdec.ptr.i.i.i.i, %79
+  %cmp.not.i.i.i.i79 = icmp eq ptr %incdec.ptr.i.i.i.i, %80
   br i1 %cmp.not.i.i.i.i79, label %invoke.cont.i, label %for.body.i.i.i.i, !llvm.loop !16
 
 invoke.cont.i:                                    ; preds = %_ZSt8_DestroyIN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightELj8EEEEvPT_.exit.i.i.i.i, %cleanup

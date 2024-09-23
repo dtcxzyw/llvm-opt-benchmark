@@ -508,7 +508,11 @@ if.then26:                                        ; preds = %for.body
   %arrayidx31 = getelementptr inbounds ptr, ptr %call.i, i64 %idxprom30
   %10 = load ptr, ptr %arrayidx31, align 8
   %tobool32.not = icmp eq ptr %10, null
-  br i1 %tobool32.not, label %for.inc.sink.split, label %do.body
+  br i1 %tobool32.not, label %if.then33, label %do.body
+
+if.then33:                                        ; preds = %if.then26
+  store ptr %8, ptr %arrayidx31, align 8
+  br label %for.inc.sink.split
 
 do.body:                                          ; preds = %if.then26, %do.body
   %NewBucket.0 = phi i32 [ %and48, %do.body ], [ %and, %if.then26 ]
@@ -524,13 +528,12 @@ do.body:                                          ; preds = %if.then26, %do.body
 
 do.end:                                           ; preds = %do.body
   %arrayidx50.le = getelementptr inbounds ptr, ptr %call.i, i64 %idxprom49
+  store ptr %8, ptr %arrayidx50.le, align 8
   br label %for.inc.sink.split
 
-for.inc.sink.split:                               ; preds = %if.then26, %do.end
-  %arrayidx50.le.sink = phi ptr [ %arrayidx50.le, %do.end ], [ %arrayidx31, %if.then26 ]
-  %idxprom49.lcssa46.sink = phi i64 [ %idxprom49, %do.end ], [ %idxprom30, %if.then26 ]
-  %and48.lcssa.sink = phi i32 [ %and48, %do.end ], [ %and, %if.then26 ]
-  store ptr %8, ptr %arrayidx50.le.sink, align 8
+for.inc.sink.split:                               ; preds = %if.then33, %do.end
+  %idxprom49.lcssa46.sink = phi i64 [ %idxprom49, %do.end ], [ %idxprom30, %if.then33 ]
+  %and48.lcssa.sink = phi i32 [ %and48, %do.end ], [ %and, %if.then33 ]
   %arrayidx55 = getelementptr inbounds i32, ptr %add.ptr18, i64 %idxprom49.lcssa46.sink
   store i32 %9, ptr %arrayidx55, align 4
   %cmp56 = icmp eq i64 %indvars.iv, %6

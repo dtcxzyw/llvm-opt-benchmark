@@ -10360,20 +10360,17 @@ define dso_local void @_ZNK4Type16printf_directiveB5cxx11Ev(ptr dead_on_unwind n
 switch.lookup:                                    ; preds = %11
   %15 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._ZNK4Type16printf_directiveB5cxx11Ev, i64 0, i64 %15
-  br label %_ZNK4Type9is_signedEv.exit.invoke.sink.split
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  br label %_ZNK4Type9is_signedEv.exit.invoke
 
 switch.lookup18:                                  ; preds = %20
   %16 = zext nneg i32 %switch.tableidx19 to i64
   %switch.gep20 = getelementptr inbounds [8 x ptr], ptr @switch.table._ZNK4Type16printf_directiveB5cxx11Ev.1, i64 0, i64 %16
-  br label %_ZNK4Type9is_signedEv.exit.invoke.sink.split
-
-_ZNK4Type9is_signedEv.exit.invoke.sink.split:     ; preds = %switch.lookup, %switch.lookup18
-  %switch.gep20.sink = phi ptr [ %switch.gep20, %switch.lookup18 ], [ %switch.gep, %switch.lookup ]
-  %switch.load21 = load ptr, ptr %switch.gep20.sink, align 8
+  %switch.load21 = load ptr, ptr %switch.gep20, align 8
   br label %_ZNK4Type9is_signedEv.exit.invoke
 
-_ZNK4Type9is_signedEv.exit.invoke:                ; preds = %_ZNK4Type9is_signedEv.exit.invoke.sink.split, %19, %20, %10, %11, %2
-  %17 = phi ptr [ @.str.74, %20 ], [ @.str.76, %2 ], [ @.str.72, %11 ], [ @.str.73, %10 ], [ @.str.75, %19 ], [ %switch.load21, %_ZNK4Type9is_signedEv.exit.invoke.sink.split ]
+_ZNK4Type9is_signedEv.exit.invoke:                ; preds = %19, %switch.lookup18, %20, %10, %switch.lookup, %11, %2
+  %17 = phi ptr [ @.str.74, %20 ], [ @.str.76, %2 ], [ @.str.72, %11 ], [ %switch.load, %switch.lookup ], [ @.str.73, %10 ], [ %switch.load21, %switch.lookup18 ], [ @.str.75, %19 ]
   %18 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %17)
           to label %51 unwind label %.loopexit.split-lp
 

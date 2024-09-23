@@ -265,9 +265,18 @@ do.body:                                          ; preds = %land.lhs.true, %for
   %cmp7.not = icmp eq ptr %3, null
   %tql_prev14 = getelementptr inbounds i8, ptr %.us-phi, i64 8
   %4 = load ptr, ptr %tql_prev14, align 8
+  br i1 %cmp7.not, label %if.else, label %if.then8
+
+if.then8:                                         ; preds = %do.body
   %tql_prev12 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink = select i1 %cmp7.not, ptr getelementptr inbounds (i8, ptr @fw_boot_order, i64 8), ptr %tql_prev12
-  store ptr %4, ptr %.sink, align 8
+  store ptr %4, ptr %tql_prev12, align 8
+  br label %if.end15
+
+if.else:                                          ; preds = %do.body
+  store ptr %4, ptr getelementptr inbounds (i8, ptr @fw_boot_order, i64 8), align 8
+  br label %if.end15
+
+if.end15:                                         ; preds = %if.else, %if.then8
   %5 = load ptr, ptr %.us-phi, align 8
   store ptr %5, ptr %4, align 8
   %suffix24 = getelementptr inbounds i8, ptr %.us-phi, i64 32
@@ -282,7 +291,7 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   %tobool.not = icmp eq ptr %i.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !8
 
-for.end:                                          ; preds = %for.inc, %for.inc.us, %for.cond.preheader, %entry, %do.body
+for.end:                                          ; preds = %for.inc, %for.inc.us, %for.cond.preheader, %entry, %if.end15
   ret void
 }
 
@@ -339,9 +348,18 @@ do.body.i:                                        ; preds = %land.lhs.true.i, %f
   %cmp7.not.i = icmp eq ptr %3, null
   %tql_prev14.i = getelementptr inbounds i8, ptr %.us-phi.i, i64 8
   %4 = load ptr, ptr %tql_prev14.i, align 8
+  br i1 %cmp7.not.i, label %if.else.i, label %if.then8.i
+
+if.then8.i:                                       ; preds = %do.body.i
   %tql_prev12.i = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink.i = select i1 %cmp7.not.i, ptr getelementptr inbounds (i8, ptr @fw_boot_order, i64 8), ptr %tql_prev12.i
-  store ptr %4, ptr %.sink.i, align 8
+  store ptr %4, ptr %tql_prev12.i, align 8
+  br label %if.end15.i
+
+if.else.i:                                        ; preds = %do.body.i
+  store ptr %4, ptr getelementptr inbounds (i8, ptr @fw_boot_order, i64 8), align 8
+  br label %if.end15.i
+
+if.end15.i:                                       ; preds = %if.else.i, %if.then8.i
   %5 = load ptr, ptr %.us-phi.i, align 8
   store ptr %5, ptr %4, align 8
   %suffix24.i = getelementptr inbounds i8, ptr %.us-phi.i, i64 32
@@ -368,28 +386,28 @@ if.else:                                          ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   %cmp.i28 = icmp eq ptr %dev, null
-  br i1 %cmp.i28, label %del_boot_device_path.exit59, label %for.cond.preheader.i29
+  br i1 %cmp.i28, label %del_boot_device_path.exit61, label %for.cond.preheader.i29
 
 for.cond.preheader.i29:                           ; preds = %if.end4
   %i.018.i30 = load ptr, ptr @fw_boot_order, align 8
   %tobool.not19.i31 = icmp eq ptr %i.018.i30, null
-  br i1 %tobool.not19.i31, label %del_boot_device_path.exit59, label %for.body.lr.ph.i32
+  br i1 %tobool.not19.i31, label %del_boot_device_path.exit61, label %for.body.lr.ph.i32
 
 for.body.lr.ph.i32:                               ; preds = %for.cond.preheader.i29
   %tobool1.not.i33 = icmp eq ptr %suffix, null
-  br i1 %tobool1.not.i33, label %for.body.us.i52, label %for.body.i34
+  br i1 %tobool1.not.i33, label %for.body.us.i54, label %for.body.i34
 
-for.body.us.i52:                                  ; preds = %for.body.lr.ph.i32, %for.inc.us.i56
-  %i.020.us.i53 = phi ptr [ %i.0.us.i57, %for.inc.us.i56 ], [ %i.018.i30, %for.body.lr.ph.i32 ]
-  %dev4.us.i54 = getelementptr inbounds i8, ptr %i.020.us.i53, i64 24
-  %7 = load ptr, ptr %dev4.us.i54, align 8
-  %cmp5.us.i55 = icmp eq ptr %7, %dev
-  br i1 %cmp5.us.i55, label %do.body.i45, label %for.inc.us.i56
+for.body.us.i54:                                  ; preds = %for.body.lr.ph.i32, %for.inc.us.i58
+  %i.020.us.i55 = phi ptr [ %i.0.us.i59, %for.inc.us.i58 ], [ %i.018.i30, %for.body.lr.ph.i32 ]
+  %dev4.us.i56 = getelementptr inbounds i8, ptr %i.020.us.i55, i64 24
+  %7 = load ptr, ptr %dev4.us.i56, align 8
+  %cmp5.us.i57 = icmp eq ptr %7, %dev
+  br i1 %cmp5.us.i57, label %do.body.i45, label %for.inc.us.i58
 
-for.inc.us.i56:                                   ; preds = %for.body.us.i52
-  %i.0.us.i57 = load ptr, ptr %i.020.us.i53, align 8
-  %tobool.not.us.i58 = icmp eq ptr %i.0.us.i57, null
-  br i1 %tobool.not.us.i58, label %del_boot_device_path.exit59, label %for.body.us.i52, !llvm.loop !8
+for.inc.us.i58:                                   ; preds = %for.body.us.i54
+  %i.0.us.i59 = load ptr, ptr %i.020.us.i55, align 8
+  %tobool.not.us.i60 = icmp eq ptr %i.0.us.i59, null
+  br i1 %tobool.not.us.i60, label %del_boot_device_path.exit61, label %for.body.us.i54, !llvm.loop !8
 
 for.body.i34:                                     ; preds = %for.body.lr.ph.i32, %for.inc.i39
   %i.020.i35 = phi ptr [ %i.0.i40, %for.inc.i39 ], [ %i.018.i30, %for.body.lr.ph.i32 ]
@@ -405,30 +423,39 @@ land.lhs.true.i42:                                ; preds = %for.body.i34
   %cmp5.i44 = icmp eq ptr %9, %dev
   br i1 %cmp5.i44, label %do.body.i45, label %for.inc.i39
 
-do.body.i45:                                      ; preds = %land.lhs.true.i42, %for.body.us.i52
-  %.us-phi.i46 = phi ptr [ %i.020.us.i53, %for.body.us.i52 ], [ %i.020.i35, %land.lhs.true.i42 ]
+do.body.i45:                                      ; preds = %land.lhs.true.i42, %for.body.us.i54
+  %.us-phi.i46 = phi ptr [ %i.020.us.i55, %for.body.us.i54 ], [ %i.020.i35, %land.lhs.true.i42 ]
   %10 = load ptr, ptr %.us-phi.i46, align 8
   %cmp7.not.i47 = icmp eq ptr %10, null
   %tql_prev14.i48 = getelementptr inbounds i8, ptr %.us-phi.i46, i64 8
   %11 = load ptr, ptr %tql_prev14.i48, align 8
-  %tql_prev12.i49 = getelementptr inbounds i8, ptr %10, i64 8
-  %.sink.i50 = select i1 %cmp7.not.i47, ptr getelementptr inbounds (i8, ptr @fw_boot_order, i64 8), ptr %tql_prev12.i49
-  store ptr %11, ptr %.sink.i50, align 8
+  br i1 %cmp7.not.i47, label %if.else.i53, label %if.then8.i49
+
+if.then8.i49:                                     ; preds = %do.body.i45
+  %tql_prev12.i50 = getelementptr inbounds i8, ptr %10, i64 8
+  store ptr %11, ptr %tql_prev12.i50, align 8
+  br label %if.end15.i51
+
+if.else.i53:                                      ; preds = %do.body.i45
+  store ptr %11, ptr getelementptr inbounds (i8, ptr @fw_boot_order, i64 8), align 8
+  br label %if.end15.i51
+
+if.end15.i51:                                     ; preds = %if.else.i53, %if.then8.i49
   %12 = load ptr, ptr %.us-phi.i46, align 8
   store ptr %12, ptr %11, align 8
-  %suffix24.i51 = getelementptr inbounds i8, ptr %.us-phi.i46, i64 32
+  %suffix24.i52 = getelementptr inbounds i8, ptr %.us-phi.i46, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.us-phi.i46, i8 0, i64 16, i1 false)
-  %13 = load ptr, ptr %suffix24.i51, align 8
+  %13 = load ptr, ptr %suffix24.i52, align 8
   tail call void @g_free(ptr noundef %13) #11
   tail call void @g_free(ptr noundef nonnull %.us-phi.i46) #11
-  br label %del_boot_device_path.exit59
+  br label %del_boot_device_path.exit61
 
 for.inc.i39:                                      ; preds = %land.lhs.true.i42, %for.body.i34
   %i.0.i40 = load ptr, ptr %i.020.i35, align 8
   %tobool.not.i41 = icmp eq ptr %i.0.i40, null
-  br i1 %tobool.not.i41, label %del_boot_device_path.exit59, label %for.body.i34, !llvm.loop !8
+  br i1 %tobool.not.i41, label %del_boot_device_path.exit61, label %for.body.i34, !llvm.loop !8
 
-del_boot_device_path.exit59:                      ; preds = %for.inc.i39, %for.inc.us.i56, %if.end4, %for.cond.preheader.i29, %do.body.i45
+del_boot_device_path.exit61:                      ; preds = %for.inc.i39, %for.inc.us.i58, %if.end4, %for.cond.preheader.i29, %if.end15.i51
   %call = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #13
   %bootindex5 = getelementptr inbounds i8, ptr %call, i64 16
   store i32 %bootindex, ptr %bootindex5, align 8
@@ -439,8 +466,8 @@ del_boot_device_path.exit59:                      ; preds = %for.inc.i39, %for.i
   store ptr %dev, ptr %dev8, align 8
   br label %for.cond
 
-for.cond:                                         ; preds = %if.else12, %del_boot_device_path.exit59
-  %i.0.in = phi ptr [ @fw_boot_order, %del_boot_device_path.exit59 ], [ %i.0, %if.else12 ]
+for.cond:                                         ; preds = %if.else12, %del_boot_device_path.exit61
+  %i.0.in = phi ptr [ @fw_boot_order, %del_boot_device_path.exit61 ], [ %i.0, %if.else12 ]
   %i.0 = load ptr, ptr %i.0.in, align 8
   %tobool.not = icmp eq ptr %i.0, null
   br i1 %tobool.not, label %do.body27, label %for.body
@@ -480,7 +507,7 @@ do.body27:                                        ; preds = %for.cond
   store ptr %call, ptr getelementptr inbounds (i8, ptr @fw_boot_order, i64 8), align 8
   br label %do.end33
 
-do.end33:                                         ; preds = %for.inc.i, %for.inc.us.i, %do.body.i, %for.cond.preheader.i, %if.then, %do.body27, %do.body
+do.end33:                                         ; preds = %for.inc.i, %for.inc.us.i, %if.end15.i, %for.cond.preheader.i, %if.then, %do.body27, %do.body
   ret void
 }
 
@@ -798,9 +825,18 @@ do.body.i:                                        ; preds = %land.lhs.true.i, %f
   %cmp7.not.i = icmp eq ptr %5, null
   %tql_prev14.i = getelementptr inbounds i8, ptr %.us-phi.i, i64 8
   %6 = load ptr, ptr %tql_prev14.i, align 8
+  br i1 %cmp7.not.i, label %if.else.i, label %if.then8.i
+
+if.then8.i:                                       ; preds = %do.body.i
   %tql_prev12.i = getelementptr inbounds i8, ptr %5, i64 8
-  %.sink.i = select i1 %cmp7.not.i, ptr getelementptr inbounds (i8, ptr @fw_boot_order, i64 8), ptr %tql_prev12.i
-  store ptr %6, ptr %.sink.i, align 8
+  store ptr %6, ptr %tql_prev12.i, align 8
+  br label %if.end15.i
+
+if.else.i:                                        ; preds = %do.body.i
+  store ptr %6, ptr getelementptr inbounds (i8, ptr @fw_boot_order, i64 8), align 8
+  br label %if.end15.i
+
+if.end15.i:                                       ; preds = %if.else.i, %if.then8.i
   %7 = load ptr, ptr %.us-phi.i, align 8
   store ptr %7, ptr %6, align 8
   %suffix24.i = getelementptr inbounds i8, ptr %.us-phi.i, i64 32
@@ -815,7 +851,7 @@ for.inc.i:                                        ; preds = %land.lhs.true.i, %f
   %tobool.not.i = icmp eq ptr %i.0.i, null
   br i1 %tobool.not.i, label %del_boot_device_path.exit, label %for.body.i, !llvm.loop !8
 
-del_boot_device_path.exit:                        ; preds = %for.inc.i, %for.inc.us.i, %entry, %for.cond.preheader.i, %do.body.i
+del_boot_device_path.exit:                        ; preds = %for.inc.i, %for.inc.us.i, %entry, %for.cond.preheader.i, %if.end15.i
   tail call void @g_free(ptr noundef %opaque) #11
   ret void
 }
@@ -912,9 +948,18 @@ do.body:                                          ; preds = %land.lhs.true, %for
   %cmp7.not = icmp eq ptr %3, null
   %tql_prev14 = getelementptr inbounds i8, ptr %.us-phi, i64 8
   %4 = load ptr, ptr %tql_prev14, align 8
+  br i1 %cmp7.not, label %if.else, label %if.then8
+
+if.then8:                                         ; preds = %do.body
   %tql_prev12 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink = select i1 %cmp7.not, ptr getelementptr inbounds (i8, ptr @fw_lchs, i64 8), ptr %tql_prev12
-  store ptr %4, ptr %.sink, align 8
+  store ptr %4, ptr %tql_prev12, align 8
+  br label %if.end15
+
+if.else:                                          ; preds = %do.body
+  store ptr %4, ptr getelementptr inbounds (i8, ptr @fw_lchs, i64 8), align 8
+  br label %if.end15
+
+if.end15:                                         ; preds = %if.else, %if.then8
   %5 = load ptr, ptr %.us-phi, align 8
   store ptr %5, ptr %4, align 8
   %suffix24 = getelementptr inbounds i8, ptr %.us-phi, i64 24
@@ -929,7 +974,7 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   %tobool.not = icmp eq ptr %i.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !12
 
-for.end:                                          ; preds = %for.inc, %for.inc.us, %for.cond.preheader, %entry, %do.body
+for.end:                                          ; preds = %for.inc, %for.inc.us, %for.cond.preheader, %entry, %if.end15
   ret void
 }
 

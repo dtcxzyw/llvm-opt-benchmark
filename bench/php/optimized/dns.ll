@@ -253,6 +253,7 @@ thread-pre-split:                                 ; preds = %16
   %40 = getelementptr inbounds i8, ptr %36, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %40, ptr nonnull align 1 %27, i64 %33, i1 false)
   %41 = getelementptr inbounds [1 x i8], ptr %40, i64 0, i64 %33
+  store i8 0, ptr %41, align 1
   br label %79
 
 42:                                               ; preds = %30
@@ -270,6 +271,7 @@ thread-pre-split:                                 ; preds = %16
   %50 = getelementptr inbounds i8, ptr %46, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %50, ptr nonnull align 16 %5, i64 %43, i1 false)
   %51 = getelementptr inbounds [1 x i8], ptr %50, i64 0, i64 %43
+  store i8 0, ptr %51, align 1
   br label %79
 
 52:                                               ; preds = %26
@@ -299,6 +301,7 @@ thread-pre-split:                                 ; preds = %16
   %65 = getelementptr inbounds i8, ptr %61, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %65, ptr nonnull align 1 %27, i64 %58, i1 false)
   %66 = getelementptr inbounds [1 x i8], ptr %65, i64 0, i64 %58
+  store i8 0, ptr %66, align 1
   br label %79
 
 67:                                               ; preds = %55
@@ -316,6 +319,7 @@ thread-pre-split:                                 ; preds = %16
   %75 = getelementptr inbounds i8, ptr %71, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %75, ptr nonnull align 16 %5, i64 %68, i1 false)
   %76 = getelementptr inbounds [1 x i8], ptr %75, i64 0, i64 %68
+  store i8 0, ptr %76, align 1
   br label %79
 
 77:                                               ; preds = %52
@@ -327,15 +331,13 @@ thread-pre-split:                                 ; preds = %16
   store i32 2, ptr %78, align 8
   br label %85
 
-79:                                               ; preds = %67, %57, %42, %32
-  %.sink.i = phi ptr [ %76, %67 ], [ %66, %57 ], [ %51, %42 ], [ %41, %32 ]
-  %.0.ph.i = phi ptr [ %71, %67 ], [ %61, %57 ], [ %46, %42 ], [ %36, %32 ]
-  store i8 0, ptr %.sink.i, align 1
+79:                                               ; preds = %32, %42, %57, %67
+  %.0.i.ph = phi ptr [ %71, %67 ], [ %61, %57 ], [ %46, %42 ], [ %36, %32 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 1025, ptr nonnull %5)
-  store ptr %.0.ph.i, ptr %1, align 8
-  %80 = getelementptr inbounds i8, ptr %.0.ph.i, i64 4
+  store ptr %.0.i.ph, ptr %1, align 8
+  %80 = getelementptr inbounds i8, ptr %.0.i.ph, i64 4
   %81 = load i32, ptr %80, align 4
   %82 = and i32 %81, 64
   %.not92 = icmp eq i32 %82, 0
@@ -486,8 +488,8 @@ thread-pre-split:                                 ; preds = %15
   br label %71
 
 56:                                               ; preds = %43, %40, %38
-  %.sink270 = phi ptr [ %26, %38 ], [ %26, %40 ], [ %45, %43 ]
-  %57 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink270) #14
+  %.sink271 = phi ptr [ %26, %38 ], [ %26, %40 ], [ %45, %43 ]
+  %57 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink271) #14
   %58 = and i64 %57, -8
   %59 = add i64 %58, 32
   %60 = call noalias ptr @_emalloc(i64 noundef %59) #15
@@ -499,7 +501,7 @@ thread-pre-split:                                 ; preds = %15
   %63 = getelementptr inbounds i8, ptr %60, i64 16
   store i64 %57, ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %60, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %64, ptr nonnull align 1 %.sink270, i64 %57, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %64, ptr nonnull align 1 %.sink271, i64 %57, i1 false)
   %65 = getelementptr inbounds [1 x i8], ptr %64, i64 0, i64 %57
   store i8 0, ptr %65, align 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)

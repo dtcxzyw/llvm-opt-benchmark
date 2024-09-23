@@ -2301,53 +2301,50 @@ _ZN6vectorIjLb0EjE6resizeEj.exit71:               ; preds = %_ZNK6vectorIjLb0EjE
   %26 = load ptr, ptr %m_ts, align 8
   %arrayidx.i74 = getelementptr inbounds i32, ptr %26, i64 %idxprom.i
   store i32 %25, ptr %arrayidx.i74, align 4
-  br label %return.sink.split
+  %27 = load ptr, ptr %m_size97, align 8
+  %arrayidx.i76 = getelementptr inbounds i32, ptr %27, i64 %idxprom.i
+  store i32 1, ptr %arrayidx.i76, align 4
+  br label %return
 
 if.end:                                           ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit
   %idxprom.i77 = zext i32 %idx to i64
   %arrayidx.i78 = getelementptr inbounds i32, ptr %0, i64 %idxprom.i77
-  %27 = load i32, ptr %arrayidx.i78, align 4
+  %28 = load i32, ptr %arrayidx.i78, align 4
   %m_time13 = getelementptr inbounds i8, ptr %this, i64 84
-  %28 = load i32, ptr %m_time13, align 4
-  %cmp14.not = icmp eq i32 %27, %28
+  %29 = load i32, ptr %m_time13, align 4
+  %cmp14.not = icmp eq i32 %28, %29
   br i1 %cmp14.not, label %while.body.preheader, label %if.then15
 
 while.body.preheader:                             ; preds = %if.end
   %m_roots24 = getelementptr inbounds i8, ptr %this, i64 88
-  %29 = load ptr, ptr %m_roots24, align 8
+  %30 = load ptr, ptr %m_roots24, align 8
   br label %while.body
 
 if.then15:                                        ; preds = %if.end
   %m_size16 = getelementptr inbounds i8, ptr %this, i64 96
-  %30 = load ptr, ptr %m_size16, align 8
-  %arrayidx.i80 = getelementptr inbounds i32, ptr %30, i64 %idxprom.i77
+  %31 = load ptr, ptr %m_size16, align 8
+  %arrayidx.i80 = getelementptr inbounds i32, ptr %31, i64 %idxprom.i77
   store i32 1, ptr %arrayidx.i80, align 4
-  %31 = load i32, ptr %m_time13, align 4
-  %32 = load ptr, ptr %m_ts, align 8
-  %arrayidx.i82 = getelementptr inbounds i32, ptr %32, i64 %idxprom.i77
-  store i32 %31, ptr %arrayidx.i82, align 4
+  %32 = load i32, ptr %m_time13, align 4
+  %33 = load ptr, ptr %m_ts, align 8
+  %arrayidx.i82 = getelementptr inbounds i32, ptr %33, i64 %idxprom.i77
+  store i32 %32, ptr %arrayidx.i82, align 4
   %m_roots21 = getelementptr inbounds i8, ptr %this, i64 88
-  br label %return.sink.split
-
-while.body:                                       ; preds = %while.body.preheader, %while.body
-  %idx.addr.0 = phi i32 [ %33, %while.body ], [ %idx, %while.body.preheader ]
-  %idxprom.i85 = zext i32 %idx.addr.0 to i64
-  %arrayidx.i86 = getelementptr inbounds i32, ptr %29, i64 %idxprom.i85
-  %33 = load i32, ptr %arrayidx.i86, align 4
-  %cmp26 = icmp eq i32 %33, %idx.addr.0
-  br i1 %cmp26, label %return, label %while.body, !llvm.loop !19
-
-return.sink.split:                                ; preds = %_ZN6vectorIjLb0EjE6resizeEj.exit71, %if.then15
-  %m_roots21.sink = phi ptr [ %m_roots21, %if.then15 ], [ %m_size97, %_ZN6vectorIjLb0EjE6resizeEj.exit71 ]
-  %idxprom.i77.sink = phi i64 [ %idxprom.i77, %if.then15 ], [ %idxprom.i, %_ZN6vectorIjLb0EjE6resizeEj.exit71 ]
-  %idx.sink = phi i32 [ %idx, %if.then15 ], [ 1, %_ZN6vectorIjLb0EjE6resizeEj.exit71 ]
-  %34 = load ptr, ptr %m_roots21.sink, align 8
-  %arrayidx.i84 = getelementptr inbounds i32, ptr %34, i64 %idxprom.i77.sink
-  store i32 %idx.sink, ptr %arrayidx.i84, align 4
+  %34 = load ptr, ptr %m_roots21, align 8
+  %arrayidx.i84 = getelementptr inbounds i32, ptr %34, i64 %idxprom.i77
+  store i32 %idx, ptr %arrayidx.i84, align 4
   br label %return
 
-return:                                           ; preds = %while.body, %return.sink.split
-  %retval.0 = phi i32 [ %idx, %return.sink.split ], [ %idx.addr.0, %while.body ]
+while.body:                                       ; preds = %while.body.preheader, %while.body
+  %idx.addr.0 = phi i32 [ %35, %while.body ], [ %idx, %while.body.preheader ]
+  %idxprom.i85 = zext i32 %idx.addr.0 to i64
+  %arrayidx.i86 = getelementptr inbounds i32, ptr %30, i64 %idxprom.i85
+  %35 = load i32, ptr %arrayidx.i86, align 4
+  %cmp26 = icmp eq i32 %35, %idx.addr.0
+  br i1 %cmp26, label %return, label %while.body, !llvm.loop !19
+
+return:                                           ; preds = %while.body, %if.then15, %_ZN6vectorIjLb0EjE6resizeEj.exit71
+  %retval.0 = phi i32 [ %idx, %_ZN6vectorIjLb0EjE6resizeEj.exit71 ], [ %idx, %if.then15 ], [ %idx.addr.0, %while.body ]
   ret i32 %retval.0
 }
 

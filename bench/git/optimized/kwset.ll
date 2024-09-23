@@ -377,14 +377,23 @@ if.end150:                                        ; preds = %if.end102
   %cmp166 = icmp eq i32 %33, 0
   %arrayidx170 = getelementptr inbounds [12 x ptr], ptr %links, i64 0, i64 %idxprom164
   %34 = load ptr, ptr %arrayidx170, align 8
-  %rlink175.sink.idx = select i1 %cmp166, i64 0, i64 8
-  %rlink175.sink = getelementptr inbounds i8, ptr %34, i64 %rlink175.sink.idx
-  store ptr %9, ptr %rlink175.sink, align 8
+  br i1 %cmp166, label %if.then168, label %if.else172
+
+if.then168:                                       ; preds = %if.end150
+  store ptr %9, ptr %34, align 8
+  br label %if.end176
+
+if.else172:                                       ; preds = %if.end150
+  %rlink175 = getelementptr inbounds i8, ptr %34, i64 8
+  store ptr %9, ptr %rlink175, align 8
+  br label %if.end176
+
+if.end176:                                        ; preds = %if.else172, %if.then168
   %tobool178.not211 = icmp eq i32 %depth.0.lcssa, 0
   br i1 %tobool178.not211, label %if.end330, label %land.rhs179
 
-land.rhs179:                                      ; preds = %if.end150, %while.body185
-  %indvars.iv237 = phi i64 [ %indvars.iv.next238, %while.body185 ], [ %idxprom164, %if.end150 ]
+land.rhs179:                                      ; preds = %if.end176, %while.body185
+  %indvars.iv237 = phi i64 [ %indvars.iv.next238, %while.body185 ], [ %idxprom164, %if.end176 ]
   %arrayidx181 = getelementptr inbounds [12 x ptr], ptr %links, i64 0, i64 %indvars.iv237
   %35 = load ptr, ptr %arrayidx181, align 8
   %balance182 = getelementptr inbounds i8, ptr %35, i64 25
@@ -446,6 +455,7 @@ sw.bb235:                                         ; preds = %sw.bb
   store ptr %42, ptr %35, align 8
   store i8 0, ptr %balance182, align 1
   %balance243 = getelementptr inbounds i8, ptr %41, i64 25
+  store i8 0, ptr %balance243, align 1
   br label %sw.epilog312
 
 sw.bb244:                                         ; preds = %sw.bb
@@ -469,6 +479,7 @@ sw.bb244:                                         ; preds = %sw.bb
   %cmp264.not = icmp eq i8 %48, -1
   %conv267 = zext i1 %cmp264.not to i8
   store i8 %conv267, ptr %balance182, align 1
+  store i8 0, ptr %balance255, align 1
   br label %sw.epilog312
 
 sw.default:                                       ; preds = %sw.bb
@@ -494,6 +505,7 @@ sw.bb274:                                         ; preds = %sw.bb270
   store ptr %51, ptr %rlink277, align 8
   store i8 0, ptr %balance182, align 1
   %balance282 = getelementptr inbounds i8, ptr %50, i64 25
+  store i8 0, ptr %balance282, align 1
   br label %sw.epilog312
 
 sw.bb283:                                         ; preds = %sw.bb270
@@ -517,6 +529,7 @@ sw.bb283:                                         ; preds = %sw.bb270
   %conv306 = zext i1 %cmp303.not to i8
   %balance307 = getelementptr inbounds i8, ptr %52, i64 25
   store i8 %conv306, ptr %balance307, align 1
+  store i8 0, ptr %balance294, align 1
   br label %sw.epilog312
 
 sw.default309:                                    ; preds = %sw.bb270
@@ -528,9 +541,7 @@ sw.default311:                                    ; preds = %if.then227
   unreachable
 
 sw.epilog312:                                     ; preds = %sw.bb274, %sw.bb283, %sw.bb235, %sw.bb244
-  %balance282.sink = phi ptr [ %balance282, %sw.bb274 ], [ %balance294, %sw.bb283 ], [ %balance243, %sw.bb235 ], [ %balance255, %sw.bb244 ]
-  %t.0 = phi ptr [ %50, %sw.bb274 ], [ %53, %sw.bb283 ], [ %41, %sw.bb235 ], [ %44, %sw.bb244 ]
-  store i8 0, ptr %balance282.sink, align 1
+  %t.0 = phi ptr [ %53, %sw.bb283 ], [ %50, %sw.bb274 ], [ %44, %sw.bb244 ], [ %41, %sw.bb235 ]
   %sub313 = shl i64 %indvars.iv237, 32
   %sext243 = add i64 %sub313, -4294967296
   %idxprom314 = ashr exact i64 %sext243, 32
@@ -539,13 +550,19 @@ sw.epilog312:                                     ; preds = %sw.bb274, %sw.bb283
   %cmp316 = icmp eq i32 %58, 0
   %arrayidx321 = getelementptr inbounds [12 x ptr], ptr %links, i64 0, i64 %idxprom314
   %59 = load ptr, ptr %arrayidx321, align 8
-  %rlink327.sink.idx = select i1 %cmp316, i64 0, i64 8
-  %rlink327.sink = getelementptr inbounds i8, ptr %59, i64 %rlink327.sink.idx
-  store ptr %t.0, ptr %rlink327.sink, align 8
+  br i1 %cmp316, label %if.then318, label %if.else323
+
+if.then318:                                       ; preds = %sw.epilog312
+  store ptr %t.0, ptr %59, align 8
   br label %if.end330
 
-if.end330:                                        ; preds = %land.rhs, %while.body185, %sw.epilog312, %if.end150, %land.lhs.true204, %land.lhs.true209, %land.lhs.true220
-  %link.2 = phi ptr [ %9, %land.lhs.true220 ], [ %9, %land.lhs.true209 ], [ %9, %land.lhs.true204 ], [ %9, %if.end150 ], [ %9, %sw.epilog312 ], [ %9, %while.body185 ], [ %link.0210, %land.rhs ]
+if.else323:                                       ; preds = %sw.epilog312
+  %rlink327 = getelementptr inbounds i8, ptr %59, i64 8
+  store ptr %t.0, ptr %rlink327, align 8
+  br label %if.end330
+
+if.end330:                                        ; preds = %land.rhs, %while.body185, %if.end176, %land.lhs.true204, %land.lhs.true209, %land.lhs.true220, %if.else323, %if.then318
+  %link.2 = phi ptr [ %9, %if.then318 ], [ %9, %if.else323 ], [ %9, %land.lhs.true220 ], [ %9, %land.lhs.true209 ], [ %9, %land.lhs.true204 ], [ %9, %if.end176 ], [ %9, %while.body185 ], [ %link.0210, %land.rhs ]
   %trie331 = getelementptr inbounds i8, ptr %link.2, i64 16
   %trie.0 = load ptr, ptr %trie331, align 8
   %tobool.not = icmp eq i64 %dec218, 0

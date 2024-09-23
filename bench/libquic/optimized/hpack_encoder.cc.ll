@@ -199,11 +199,11 @@ _ZN3net12HpackEncoder18MaybeEmitTableSizeEv.exit: ; preds = %entry, %if.end5.i
   %regular_end_.i = getelementptr inbounds i8, ptr %iter, i64 24
   %4 = load ptr, ptr %iter, align 8
   %5 = load ptr, ptr %pseudo_end_.i, align 8
-  %cmp.i.i23 = icmp ne ptr %4, %5
+  %cmp.i.i25 = icmp ne ptr %4, %5
   %6 = load ptr, ptr %regular_begin_.i, align 8
   %7 = load ptr, ptr %regular_end_.i, align 8
-  %cmp.i1.i24 = icmp ne ptr %6, %7
-  %8 = select i1 %cmp.i.i23, i1 true, i1 %cmp.i1.i24
+  %cmp.i1.i26 = icmp ne ptr %6, %7
+  %8 = select i1 %cmp.i.i25, i1 true, i1 %cmp.i1.i26
   br i1 %8, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %_ZN3net12HpackEncoder18MaybeEmitTableSizeEv.exit
@@ -220,29 +220,39 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %12 = phi ptr [ %5, %while.body.lr.ph ], [ %17, %if.end12 ]
   %13 = phi ptr [ %4, %while.body.lr.ph ], [ %16, %if.end12 ]
   %cmp.i.not.i = icmp eq ptr %13, %12
-  %.sink2.i = select i1 %cmp.i.not.i, ptr %11, ptr %13
-  %regular_begin_.sink.i = select i1 %cmp.i.not.i, ptr %regular_begin_.i, ptr %iter
-  %incdec.ptr.i1.i = getelementptr inbounds i8, ptr %.sink2.i, i64 32
-  store ptr %incdec.ptr.i1.i, ptr %regular_begin_.sink.i, align 8, !noalias !5
-  %header.sroa.0.0.copyload = load ptr, ptr %.sink2.i, align 8
-  %header.sroa.7.0..sink2.i.sroa_idx = getelementptr inbounds i8, ptr %.sink2.i, i64 8
-  %header.sroa.7.0.copyload = load i64, ptr %header.sroa.7.0..sink2.i.sroa_idx, align 8
-  %header.sroa.13.0..sink2.i.sroa_idx = getelementptr inbounds i8, ptr %.sink2.i, i64 16
-  %header.sroa.13.0.copyload = load ptr, ptr %header.sroa.13.0..sink2.i.sroa_idx, align 8
-  %header.sroa.18.0..sink2.i.sroa_idx = getelementptr inbounds i8, ptr %.sink2.i, i64 24
-  %header.sroa.18.0.copyload = load i64, ptr %header.sroa.18.0..sink2.i.sroa_idx, align 8
+  br i1 %cmp.i.not.i, label %if.else.i, label %if.then.i
+
+if.then.i:                                        ; preds = %while.body
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %13, i64 32
+  store ptr %incdec.ptr.i.i, ptr %iter, align 8, !noalias !5
+  br label %_ZN3net12HpackEncoder22RepresentationIterator4NextB5cxx11Ev.exit
+
+if.else.i:                                        ; preds = %while.body
+  %incdec.ptr.i1.i = getelementptr inbounds i8, ptr %11, i64 32
+  store ptr %incdec.ptr.i1.i, ptr %regular_begin_.i, align 8, !noalias !5
+  br label %_ZN3net12HpackEncoder22RepresentationIterator4NextB5cxx11Ev.exit
+
+_ZN3net12HpackEncoder22RepresentationIterator4NextB5cxx11Ev.exit: ; preds = %if.then.i, %if.else.i
+  %.sink.i = phi ptr [ %11, %if.else.i ], [ %13, %if.then.i ]
+  %header.sroa.0.0.copyload = load ptr, ptr %.sink.i, align 8
+  %header.sroa.7.0..sink.i.sroa_idx = getelementptr inbounds i8, ptr %.sink.i, i64 8
+  %header.sroa.7.0.copyload = load i64, ptr %header.sroa.7.0..sink.i.sroa_idx, align 8
+  %header.sroa.13.0..sink.i.sroa_idx = getelementptr inbounds i8, ptr %.sink.i, i64 16
+  %header.sroa.13.0.copyload = load ptr, ptr %header.sroa.13.0..sink.i.sroa_idx, align 8
+  %header.sroa.18.0..sink.i.sroa_idx = getelementptr inbounds i8, ptr %.sink.i, i64 24
+  %header.sroa.18.0.copyload = load i64, ptr %header.sroa.18.0..sink.i.sroa_idx, align 8
   %call4 = call noundef ptr @_ZN3net16HpackHeaderTable17GetByNameAndValueEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr %header.sroa.0.0.copyload, i64 %header.sroa.7.0.copyload, ptr %header.sroa.13.0.copyload, i64 %header.sroa.18.0.copyload)
   %cmp.not = icmp eq ptr %call4, null
   br i1 %cmp.not, label %if.else, label %if.then
 
-if.then:                                          ; preds = %while.body
+if.then:                                          ; preds = %_ZN3net12HpackEncoder22RepresentationIterator4NextB5cxx11Ev.exit
   call void @_ZN3net17HpackOutputStream12AppendPrefixENS_11HpackPrefixE(ptr noundef nonnull align 8 dereferenceable(40) %output_stream_.i5, i8 1, i64 1)
   %call.i = call noundef i64 @_ZNK3net16HpackHeaderTable7IndexOfEPKNS_10HpackEntryE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef nonnull %call4)
   %conv.i6 = trunc i64 %call.i to i32
   call void @_ZN3net17HpackOutputStream12AppendUint32Ej(ptr noundef nonnull align 8 dereferenceable(40) %output_stream_.i5, i32 noundef %conv.i6)
   br label %if.end12
 
-if.else:                                          ; preds = %while.body
+if.else:                                          ; preds = %_ZN3net12HpackEncoder22RepresentationIterator4NextB5cxx11Ev.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__args.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__args4.i)
   store ptr %header.sroa.0.0.copyload, ptr %__args.i, align 8
@@ -251,9 +261,9 @@ if.else:                                          ; preds = %while.body
   store i64 %header.sroa.18.0.copyload, ptr %10, align 8
   %14 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %14, null
-  br i1 %tobool.not.i.i, label %if.then.i, label %_ZNKSt8functionIFbN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_EEclES8_S8_.exit
+  br i1 %tobool.not.i.i, label %if.then.i8, label %_ZNKSt8functionIFbN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_EEclES8_S8_.exit
 
-if.then.i:                                        ; preds = %if.else
+if.then.i8:                                       ; preds = %if.else
   call void @_ZSt25__throw_bad_function_callv() #16
   unreachable
 
@@ -266,24 +276,24 @@ _ZNKSt8functionIFbN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_t
 
 if.then10:                                        ; preds = %_ZNKSt8functionIFbN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_EEclES8_S8_.exit
   call void @_ZN3net17HpackOutputStream12AppendPrefixENS_11HpackPrefixE(ptr noundef nonnull align 8 dereferenceable(40) %output_stream_.i5, i8 1, i64 2)
-  %call.i14 = call noundef ptr @_ZN3net16HpackHeaderTable9GetByNameEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr %header.sroa.0.0.copyload, i64 %header.sroa.7.0.copyload)
-  %cmp.not.i = icmp eq ptr %call.i14, null
-  br i1 %cmp.not.i, label %if.else.i, label %if.then.i15
+  %call.i15 = call noundef ptr @_ZN3net16HpackHeaderTable9GetByNameEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr %header.sroa.0.0.copyload, i64 %header.sroa.7.0.copyload)
+  %cmp.not.i = icmp eq ptr %call.i15, null
+  br i1 %cmp.not.i, label %if.else.i20, label %if.then.i16
 
-if.then.i15:                                      ; preds = %if.then10
-  %call3.i = call noundef i64 @_ZNK3net16HpackHeaderTable7IndexOfEPKNS_10HpackEntryE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef nonnull %call.i14)
-  %conv.i16 = trunc i64 %call3.i to i32
-  call void @_ZN3net17HpackOutputStream12AppendUint32Ej(ptr noundef nonnull align 8 dereferenceable(40) %output_stream_.i5, i32 noundef %conv.i16)
+if.then.i16:                                      ; preds = %if.then10
+  %call3.i = call noundef i64 @_ZNK3net16HpackHeaderTable7IndexOfEPKNS_10HpackEntryE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef nonnull %call.i15)
+  %conv.i17 = trunc i64 %call3.i to i32
+  call void @_ZN3net17HpackOutputStream12AppendUint32Ej(ptr noundef nonnull align 8 dereferenceable(40) %output_stream_.i5, i32 noundef %conv.i17)
   br label %_ZN3net12HpackEncoder11EmitLiteralERKSt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_E.exit
 
-if.else.i:                                        ; preds = %if.then10
+if.else.i20:                                      ; preds = %if.then10
   call void @_ZN3net17HpackOutputStream12AppendUint32Ej(ptr noundef nonnull align 8 dereferenceable(40) %output_stream_.i5, i32 noundef 0)
   call void @_ZN3net12HpackEncoder10EmitStringEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(346) %this, ptr %header.sroa.0.0.copyload, i64 %header.sroa.7.0.copyload)
   br label %_ZN3net12HpackEncoder11EmitLiteralERKSt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_E.exit
 
-_ZN3net12HpackEncoder11EmitLiteralERKSt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_E.exit: ; preds = %if.then.i15, %if.else.i
+_ZN3net12HpackEncoder11EmitLiteralERKSt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_E.exit: ; preds = %if.then.i16, %if.else.i20
   call void @_ZN3net12HpackEncoder10EmitStringEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(346) %this, ptr %header.sroa.13.0.copyload, i64 %header.sroa.18.0.copyload)
-  %call.i9 = call noundef ptr @_ZN3net16HpackHeaderTable11TryAddEntryEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr %header.sroa.0.0.copyload, i64 %header.sroa.7.0.copyload, ptr %header.sroa.13.0.copyload, i64 %header.sroa.18.0.copyload)
+  %call.i10 = call noundef ptr @_ZN3net16HpackHeaderTable11TryAddEntryEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr %header.sroa.0.0.copyload, i64 %header.sroa.7.0.copyload, ptr %header.sroa.13.0.copyload, i64 %header.sroa.18.0.copyload)
   br label %if.end12
 
 if.else11:                                        ; preds = %_ZNKSt8functionIFbN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_EEclES8_S8_.exit

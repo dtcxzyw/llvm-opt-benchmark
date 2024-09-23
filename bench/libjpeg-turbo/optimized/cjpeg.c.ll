@@ -1364,19 +1364,19 @@ define internal void @my_emit_message(ptr noundef %0, i32 noundef %1) #0 {
   %6 = getelementptr inbounds i8, ptr %4, i64 124
   %7 = load i32, ptr %6, align 4
   %.not = icmp slt i32 %7, %1
-  br i1 %.not, label %11, label %8
+  br i1 %.not, label %10, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %4, i64 16
   br label %.sink.split
 
 .sink.split:                                      ; preds = %2, %8
-  %.sink6 = phi ptr [ %9, %8 ], [ %4, %2 ]
-  %10 = load ptr, ptr %.sink6, align 8
-  tail call void %10(ptr noundef nonnull %0) #8
-  br label %11
+  %.sink.in = phi ptr [ %9, %8 ], [ %4, %2 ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  tail call void %.sink(ptr noundef nonnull %0) #8
+  br label %10
 
-11:                                               ; preds = %.sink.split, %5
+10:                                               ; preds = %.sink.split, %5
   ret void
 }
 

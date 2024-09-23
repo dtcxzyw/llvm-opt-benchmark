@@ -2541,18 +2541,20 @@ for.body:                                         ; preds = %entry, %for.inc
   %semantic6 = getelementptr inbounds i8, ptr %__begin2.sroa.0.07, i64 12
   %2 = load i32, ptr %semantic6, align 4
   %cmp = icmp eq i32 %2, %semantic
+  br i1 %cmp, label %land.lhs.true, label %for.inc
+
+land.lhs.true:                                    ; preds = %for.body
   %3 = load i16, ptr %__begin2.sroa.0.07, align 4
   %cmp9 = icmp eq i16 %3, %index
-  %or.cond = select i1 %cmp, i1 %cmp9, i1 false
-  br i1 %or.cond, label %return, label %for.inc
+  br i1 %cmp9, label %return, label %for.inc
 
-for.inc:                                          ; preds = %for.body
+for.inc:                                          ; preds = %for.body, %land.lhs.true
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.07, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %return, label %for.body
 
-return:                                           ; preds = %for.body, %for.inc, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ null, %for.inc ], [ %__begin2.sroa.0.07, %for.body ]
+return:                                           ; preds = %land.lhs.true, %for.inc, %entry
+  %retval.0 = phi ptr [ null, %entry ], [ null, %for.inc ], [ %__begin2.sroa.0.07, %land.lhs.true ]
   ret ptr %retval.0
 }
 
@@ -3710,75 +3712,83 @@ for.body.i:                                       ; preds = %if.end11, %for.inc.
   %semantic6.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.07.i, i64 12
   %6 = load i32, ptr %semantic6.i, align 4
   %cmp.i = icmp eq i32 %6, 1
+  br i1 %cmp.i, label %land.lhs.true.i, label %for.inc.i
+
+land.lhs.true.i:                                  ; preds = %for.body.i
   %7 = load i16, ptr %__begin2.sroa.0.07.i, align 4
   %cmp9.i = icmp eq i16 %7, 0
-  %or.cond.i = select i1 %cmp.i, i1 %cmp9.i, i1 false
-  br i1 %or.cond.i, label %_ZN6Assimp4Ogre10VertexData16GetVertexElementENS0_13VertexElement8SemanticEt.exit, label %for.inc.i
+  br i1 %cmp9.i, label %_ZN6Assimp4Ogre10VertexData16GetVertexElementENS0_13VertexElement8SemanticEt.exit, label %for.inc.i
 
-for.inc.i:                                        ; preds = %for.body.i
+for.inc.i:                                        ; preds = %land.lhs.true.i, %for.body.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.07.i, i64 16
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %5
   br i1 %cmp.i.not.i, label %_ZN6Assimp4Ogre10VertexData16GetVertexElementENS0_13VertexElement8SemanticEt.exit, label %for.body.i
 
-_ZN6Assimp4Ogre10VertexData16GetVertexElementENS0_13VertexElement8SemanticEt.exit: ; preds = %for.body.i, %for.inc.i
-  %retval.0.i = phi ptr [ null, %for.inc.i ], [ %__begin2.sroa.0.07.i, %for.body.i ]
+_ZN6Assimp4Ogre10VertexData16GetVertexElementENS0_13VertexElement8SemanticEt.exit: ; preds = %land.lhs.true.i, %for.inc.i
+  %retval.0.i = phi ptr [ null, %for.inc.i ], [ %__begin2.sroa.0.07.i, %land.lhs.true.i ]
   br label %for.body.i140
 
-for.body.i140:                                    ; preds = %_ZN6Assimp4Ogre10VertexData16GetVertexElementENS0_13VertexElement8SemanticEt.exit, %for.inc.i146
-  %__begin2.sroa.0.07.i141 = phi ptr [ %incdec.ptr.i.i147, %for.inc.i146 ], [ %4, %_ZN6Assimp4Ogre10VertexData16GetVertexElementENS0_13VertexElement8SemanticEt.exit ]
+for.body.i140:                                    ; preds = %_ZN6Assimp4Ogre10VertexData16GetVertexElementENS0_13VertexElement8SemanticEt.exit, %for.inc.i144
+  %__begin2.sroa.0.07.i141 = phi ptr [ %incdec.ptr.i.i145, %for.inc.i144 ], [ %4, %_ZN6Assimp4Ogre10VertexData16GetVertexElementENS0_13VertexElement8SemanticEt.exit ]
   %semantic6.i142 = getelementptr inbounds i8, ptr %__begin2.sroa.0.07.i141, i64 12
   %8 = load i32, ptr %semantic6.i142, align 4
   %cmp.i143 = icmp eq i32 %8, 4
+  br i1 %cmp.i143, label %land.lhs.true.i148, label %for.inc.i144
+
+land.lhs.true.i148:                               ; preds = %for.body.i140
   %9 = load i16, ptr %__begin2.sroa.0.07.i141, align 4
-  %cmp9.i144 = icmp eq i16 %9, 0
-  %or.cond.i145 = select i1 %cmp.i143, i1 %cmp9.i144, i1 false
-  br i1 %or.cond.i145, label %_ZN6Assimp4Ogre10VertexData16GetVertexElementENS0_13VertexElement8SemanticEt.exit150, label %for.inc.i146
+  %cmp9.i149 = icmp eq i16 %9, 0
+  br i1 %cmp9.i149, label %_ZN6Assimp4Ogre10VertexData16GetVertexElementENS0_13VertexElement8SemanticEt.exit150, label %for.inc.i144
 
-for.inc.i146:                                     ; preds = %for.body.i140
-  %incdec.ptr.i.i147 = getelementptr inbounds i8, ptr %__begin2.sroa.0.07.i141, i64 16
-  %cmp.i.not.i148 = icmp eq ptr %incdec.ptr.i.i147, %5
-  br i1 %cmp.i.not.i148, label %_ZN6Assimp4Ogre10VertexData16GetVertexElementENS0_13VertexElement8SemanticEt.exit150, label %for.body.i140
+for.inc.i144:                                     ; preds = %land.lhs.true.i148, %for.body.i140
+  %incdec.ptr.i.i145 = getelementptr inbounds i8, ptr %__begin2.sroa.0.07.i141, i64 16
+  %cmp.i.not.i146 = icmp eq ptr %incdec.ptr.i.i145, %5
+  br i1 %cmp.i.not.i146, label %_ZN6Assimp4Ogre10VertexData16GetVertexElementENS0_13VertexElement8SemanticEt.exit150, label %for.body.i140
 
-_ZN6Assimp4Ogre10VertexData16GetVertexElementENS0_13VertexElement8SemanticEt.exit150: ; preds = %for.body.i140, %for.inc.i146
-  %retval.0.i149 = phi ptr [ null, %for.inc.i146 ], [ %__begin2.sroa.0.07.i141, %for.body.i140 ]
+_ZN6Assimp4Ogre10VertexData16GetVertexElementENS0_13VertexElement8SemanticEt.exit150: ; preds = %land.lhs.true.i148, %for.inc.i144
+  %retval.0.i147 = phi ptr [ null, %for.inc.i144 ], [ %__begin2.sroa.0.07.i141, %land.lhs.true.i148 ]
   br label %for.body.i154
 
-for.body.i154:                                    ; preds = %_ZN6Assimp4Ogre10VertexData16GetVertexElementENS0_13VertexElement8SemanticEt.exit150, %for.inc.i160
-  %__begin2.sroa.0.07.i155 = phi ptr [ %incdec.ptr.i.i161, %for.inc.i160 ], [ %4, %_ZN6Assimp4Ogre10VertexData16GetVertexElementENS0_13VertexElement8SemanticEt.exit150 ]
+for.body.i154:                                    ; preds = %_ZN6Assimp4Ogre10VertexData16GetVertexElementENS0_13VertexElement8SemanticEt.exit150, %for.inc.i158
+  %__begin2.sroa.0.07.i155 = phi ptr [ %incdec.ptr.i.i159, %for.inc.i158 ], [ %4, %_ZN6Assimp4Ogre10VertexData16GetVertexElementENS0_13VertexElement8SemanticEt.exit150 ]
   %semantic6.i156 = getelementptr inbounds i8, ptr %__begin2.sroa.0.07.i155, i64 12
   %10 = load i32, ptr %semantic6.i156, align 4
   %cmp.i157 = icmp eq i32 %10, 7
+  br i1 %cmp.i157, label %land.lhs.true.i162, label %for.inc.i158
+
+land.lhs.true.i162:                               ; preds = %for.body.i154
   %11 = load i16, ptr %__begin2.sroa.0.07.i155, align 4
-  %cmp9.i158 = icmp eq i16 %11, 0
-  %or.cond.i159 = select i1 %cmp.i157, i1 %cmp9.i158, i1 false
-  br i1 %or.cond.i159, label %_ZN6Assimp4Ogre10VertexData16GetVertexElementENS0_13VertexElement8SemanticEt.exit164, label %for.inc.i160
+  %cmp9.i163 = icmp eq i16 %11, 0
+  br i1 %cmp9.i163, label %_ZN6Assimp4Ogre10VertexData16GetVertexElementENS0_13VertexElement8SemanticEt.exit164, label %for.inc.i158
 
-for.inc.i160:                                     ; preds = %for.body.i154
-  %incdec.ptr.i.i161 = getelementptr inbounds i8, ptr %__begin2.sroa.0.07.i155, i64 16
-  %cmp.i.not.i162 = icmp eq ptr %incdec.ptr.i.i161, %5
-  br i1 %cmp.i.not.i162, label %_ZN6Assimp4Ogre10VertexData16GetVertexElementENS0_13VertexElement8SemanticEt.exit164, label %for.body.i154
+for.inc.i158:                                     ; preds = %land.lhs.true.i162, %for.body.i154
+  %incdec.ptr.i.i159 = getelementptr inbounds i8, ptr %__begin2.sroa.0.07.i155, i64 16
+  %cmp.i.not.i160 = icmp eq ptr %incdec.ptr.i.i159, %5
+  br i1 %cmp.i.not.i160, label %_ZN6Assimp4Ogre10VertexData16GetVertexElementENS0_13VertexElement8SemanticEt.exit164, label %for.body.i154
 
-_ZN6Assimp4Ogre10VertexData16GetVertexElementENS0_13VertexElement8SemanticEt.exit164: ; preds = %for.body.i154, %for.inc.i160
-  %retval.0.i163 = phi ptr [ null, %for.inc.i160 ], [ %__begin2.sroa.0.07.i155, %for.body.i154 ]
+_ZN6Assimp4Ogre10VertexData16GetVertexElementENS0_13VertexElement8SemanticEt.exit164: ; preds = %land.lhs.true.i162, %for.inc.i158
+  %retval.0.i161 = phi ptr [ null, %for.inc.i158 ], [ %__begin2.sroa.0.07.i155, %land.lhs.true.i162 ]
   br label %for.body.i168
 
-for.body.i168:                                    ; preds = %_ZN6Assimp4Ogre10VertexData16GetVertexElementENS0_13VertexElement8SemanticEt.exit164, %for.inc.i174
-  %__begin2.sroa.0.07.i169 = phi ptr [ %incdec.ptr.i.i175, %for.inc.i174 ], [ %4, %_ZN6Assimp4Ogre10VertexData16GetVertexElementENS0_13VertexElement8SemanticEt.exit164 ]
+for.body.i168:                                    ; preds = %_ZN6Assimp4Ogre10VertexData16GetVertexElementENS0_13VertexElement8SemanticEt.exit164, %for.inc.i172
+  %__begin2.sroa.0.07.i169 = phi ptr [ %incdec.ptr.i.i173, %for.inc.i172 ], [ %4, %_ZN6Assimp4Ogre10VertexData16GetVertexElementENS0_13VertexElement8SemanticEt.exit164 ]
   %semantic6.i170 = getelementptr inbounds i8, ptr %__begin2.sroa.0.07.i169, i64 12
   %12 = load i32, ptr %semantic6.i170, align 4
   %cmp.i171 = icmp eq i32 %12, 7
+  br i1 %cmp.i171, label %land.lhs.true.i176, label %for.inc.i172
+
+land.lhs.true.i176:                               ; preds = %for.body.i168
   %13 = load i16, ptr %__begin2.sroa.0.07.i169, align 4
-  %cmp9.i172 = icmp eq i16 %13, 1
-  %or.cond.i173 = select i1 %cmp.i171, i1 %cmp9.i172, i1 false
-  br i1 %or.cond.i173, label %_ZN6Assimp4Ogre10VertexData16GetVertexElementENS0_13VertexElement8SemanticEt.exit178, label %for.inc.i174
+  %cmp9.i177 = icmp eq i16 %13, 1
+  br i1 %cmp9.i177, label %_ZN6Assimp4Ogre10VertexData16GetVertexElementENS0_13VertexElement8SemanticEt.exit178, label %for.inc.i172
 
-for.inc.i174:                                     ; preds = %for.body.i168
-  %incdec.ptr.i.i175 = getelementptr inbounds i8, ptr %__begin2.sroa.0.07.i169, i64 16
-  %cmp.i.not.i176 = icmp eq ptr %incdec.ptr.i.i175, %5
-  br i1 %cmp.i.not.i176, label %_ZN6Assimp4Ogre10VertexData16GetVertexElementENS0_13VertexElement8SemanticEt.exit178, label %for.body.i168
+for.inc.i172:                                     ; preds = %land.lhs.true.i176, %for.body.i168
+  %incdec.ptr.i.i173 = getelementptr inbounds i8, ptr %__begin2.sroa.0.07.i169, i64 16
+  %cmp.i.not.i174 = icmp eq ptr %incdec.ptr.i.i173, %5
+  br i1 %cmp.i.not.i174, label %_ZN6Assimp4Ogre10VertexData16GetVertexElementENS0_13VertexElement8SemanticEt.exit178, label %for.body.i168
 
-_ZN6Assimp4Ogre10VertexData16GetVertexElementENS0_13VertexElement8SemanticEt.exit178: ; preds = %for.body.i168, %for.inc.i174
-  %retval.0.i177 = phi ptr [ null, %for.inc.i174 ], [ %__begin2.sroa.0.07.i169, %for.body.i168 ]
+_ZN6Assimp4Ogre10VertexData16GetVertexElementENS0_13VertexElement8SemanticEt.exit178: ; preds = %land.lhs.true.i176, %for.inc.i172
+  %retval.0.i175 = phi ptr [ null, %for.inc.i172 ], [ %__begin2.sroa.0.07.i169, %land.lhs.true.i176 ]
   %tobool16.not = icmp eq ptr %retval.0.i, null
   br i1 %tobool16.not, label %if.then17, label %if.else
 
@@ -3819,11 +3829,11 @@ lpad24:                                           ; preds = %if.then22
   br label %eh.resume
 
 if.else26:                                        ; preds = %if.else
-  %tobool27.not = icmp ne ptr %retval.0.i149, null
+  %tobool27.not = icmp ne ptr %retval.0.i147, null
   br i1 %tobool27.not, label %land.lhs.true, label %if.end36
 
 land.lhs.true:                                    ; preds = %if.else26
-  %type28 = getelementptr inbounds i8, ptr %retval.0.i149, i64 8
+  %type28 = getelementptr inbounds i8, ptr %retval.0.i147, i64 8
   %17 = load i32, ptr %type28, align 4
   %cmp29.not = icmp eq i32 %17, 2
   br i1 %cmp29.not, label %if.end36, label %if.then30
@@ -3972,7 +3982,7 @@ _ZN6Assimp4Ogre10VertexData12VertexBufferEt.exit: ; preds = %arrayctor.cont52, %
   br i1 %tobool27.not, label %cond.true55, label %cond.end59
 
 cond.true55:                                      ; preds = %_ZN6Assimp4Ogre10VertexData12VertexBufferEt.exit
-  %source56 = getelementptr inbounds i8, ptr %retval.0.i149, i64 2
+  %source56 = getelementptr inbounds i8, ptr %retval.0.i147, i64 2
   %36 = load i16, ptr %source56, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %source.addr.i182)
   store i16 %36, ptr %source.addr.i182, align 2
@@ -4051,11 +4061,11 @@ _ZN6Assimp4Ogre10VertexData12VertexBufferEt.exit224: ; preds = %cond.true55, %_Z
 
 cond.end59:                                       ; preds = %_ZN6Assimp4Ogre10VertexData12VertexBufferEt.exit, %_ZN6Assimp4Ogre10VertexData12VertexBufferEt.exit224
   %cond60 = phi ptr [ %retval.0.i221, %_ZN6Assimp4Ogre10VertexData12VertexBufferEt.exit224 ], [ null, %_ZN6Assimp4Ogre10VertexData12VertexBufferEt.exit ]
-  %tobool61.not = icmp ne ptr %retval.0.i163, null
+  %tobool61.not = icmp ne ptr %retval.0.i161, null
   br i1 %tobool61.not, label %cond.true62, label %cond.end66
 
 cond.true62:                                      ; preds = %cond.end59
-  %source63 = getelementptr inbounds i8, ptr %retval.0.i163, i64 2
+  %source63 = getelementptr inbounds i8, ptr %retval.0.i161, i64 2
   %43 = load i16, ptr %source63, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %source.addr.i227)
   store i16 %43, ptr %source.addr.i227, align 2
@@ -4134,11 +4144,11 @@ _ZN6Assimp4Ogre10VertexData12VertexBufferEt.exit269: ; preds = %cond.true62, %_Z
 
 cond.end66:                                       ; preds = %cond.end59, %_ZN6Assimp4Ogre10VertexData12VertexBufferEt.exit269
   %cond67 = phi ptr [ %retval.0.i266, %_ZN6Assimp4Ogre10VertexData12VertexBufferEt.exit269 ], [ null, %cond.end59 ]
-  %tobool68.not = icmp eq ptr %retval.0.i177, null
+  %tobool68.not = icmp eq ptr %retval.0.i175, null
   br i1 %tobool68.not, label %cond.end73, label %cond.true69
 
 cond.true69:                                      ; preds = %cond.end66
-  %source70 = getelementptr inbounds i8, ptr %retval.0.i177, i64 2
+  %source70 = getelementptr inbounds i8, ptr %retval.0.i175, i64 2
   %50 = load i16, ptr %source70, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %source.addr.i272)
   store i16 %50, ptr %source.addr.i272, align 2
@@ -4232,7 +4242,7 @@ _ZNK6Assimp4Ogre13VertexElement4SizeEv.exit:      ; preds = %cond.end73, %switch
   br i1 %tobool27.not, label %cond.true77, label %cond.end80
 
 cond.true77:                                      ; preds = %_ZNK6Assimp4Ogre13VertexElement4SizeEv.exit
-  %type.i315 = getelementptr inbounds i8, ptr %retval.0.i149, i64 8
+  %type.i315 = getelementptr inbounds i8, ptr %retval.0.i147, i64 8
   %60 = load i32, ptr %type.i315, align 4
   %61 = icmp ult i32 %60, 28
   br i1 %61, label %switch.lookup672, label %cond.end80
@@ -4248,7 +4258,7 @@ cond.end80:                                       ; preds = %cond.true77, %switc
   br i1 %tobool61.not, label %cond.true83, label %cond.end86
 
 cond.true83:                                      ; preds = %cond.end80
-  %type.i338 = getelementptr inbounds i8, ptr %retval.0.i163, i64 8
+  %type.i338 = getelementptr inbounds i8, ptr %retval.0.i161, i64 8
   %63 = load i32, ptr %type.i338, align 4
   %64 = icmp ult i32 %63, 28
   br i1 %64, label %switch.lookup675, label %cond.end86
@@ -4264,7 +4274,7 @@ cond.end86:                                       ; preds = %cond.true83, %switc
   br i1 %tobool68.not, label %cond.end92, label %cond.true89
 
 cond.true89:                                      ; preds = %cond.end86
-  %type.i361 = getelementptr inbounds i8, ptr %retval.0.i177, i64 8
+  %type.i361 = getelementptr inbounds i8, ptr %retval.0.i175, i64 8
   %66 = load i32, ptr %type.i361, align 4
   %67 = icmp ult i32 %66, 28
   br i1 %67, label %switch.lookup678, label %cond.end92
@@ -4322,7 +4332,7 @@ _ZNK6Assimp4Ogre10VertexData10VertexSizeEt.exit.thread: ; preds = %cond.end92
   br i1 %brmerge667, label %cond.end110, label %cond.end118
 
 cond.true98:                                      ; preds = %_ZNK6Assimp4Ogre10VertexData10VertexSizeEt.exit
-  %source99 = getelementptr inbounds i8, ptr %retval.0.i149, i64 2
+  %source99 = getelementptr inbounds i8, ptr %retval.0.i147, i64 2
   %76 = load i16, ptr %source99, align 2
   br label %for.body.i397
 
@@ -4366,7 +4376,7 @@ cond.end102:                                      ; preds = %_ZNK6Assimp4Ogre10V
   br i1 %tobool61.not, label %cond.true106, label %cond.end110
 
 cond.true106:                                     ; preds = %cond.end102
-  %source107 = getelementptr inbounds i8, ptr %retval.0.i163, i64 2
+  %source107 = getelementptr inbounds i8, ptr %retval.0.i161, i64 2
   %82 = load i16, ptr %source107, align 2
   br label %for.body.i436
 
@@ -4412,7 +4422,7 @@ cond.end110:                                      ; preds = %_ZNK6Assimp4Ogre10V
   br i1 %tobool68.not, label %cond.end118, label %cond.true114
 
 cond.true114:                                     ; preds = %cond.end110
-  %source115 = getelementptr inbounds i8, ptr %retval.0.i177, i64 2
+  %source115 = getelementptr inbounds i8, ptr %retval.0.i175, i64 2
   %88 = load i16, ptr %source115, align 2
   br i1 %cmp.i.not6.i386, label %cond.end118, label %for.body.i475
 
@@ -4491,7 +4501,7 @@ if.end135:                                        ; preds = %arrayctor.cont134, 
   br i1 %tobool136.not, label %if.end162, label %if.then137
 
 if.then137:                                       ; preds = %if.end135
-  %type138 = getelementptr inbounds i8, ptr %retval.0.i163, i64 8
+  %type138 = getelementptr inbounds i8, ptr %retval.0.i161, i64 8
   %102 = load i32, ptr %type138, align 4
   %.off = add i32 %102, -1
   %switch = icmp ult i32 %.off, 2
@@ -4545,7 +4555,7 @@ if.end162:                                        ; preds = %arrayctor.cont155, 
   br i1 %tobool163.not, label %if.end194, label %if.then164
 
 if.then164:                                       ; preds = %if.end162
-  %type165 = getelementptr inbounds i8, ptr %retval.0.i177, i64 8
+  %type165 = getelementptr inbounds i8, ptr %retval.0.i175, i64 8
   %111 = load i32, ptr %type165, align 4
   %.off135 = add i32 %111, -1
   %switch136 = icmp ult i32 %.off135, 2
@@ -4629,14 +4639,14 @@ cond.end207:                                      ; preds = %cond.end200, %cond.
 
 for.body.lr.ph:                                   ; preds = %cond.end207
   %offset = getelementptr inbounds i8, ptr %retval.0.i, i64 4
-  %offset280 = getelementptr inbounds i8, ptr %retval.0.i149, i64 4
+  %offset280 = getelementptr inbounds i8, ptr %retval.0.i147, i64 4
   %mNormals287 = getelementptr inbounds i8, ptr %call, i64 24
   %tobool296 = icmp ne ptr %cond201, null
   %or.cond = select i1 %tobool195, i1 %tobool296, i1 false
-  %offset299 = getelementptr inbounds i8, ptr %retval.0.i163, i64 4
+  %offset299 = getelementptr inbounds i8, ptr %retval.0.i161, i64 4
   %tobool318 = icmp ne ptr %cond208, null
   %or.cond1 = select i1 %tobool202, i1 %tobool318, i1 false
-  %offset321 = getelementptr inbounds i8, ptr %retval.0.i177, i64 4
+  %offset321 = getelementptr inbounds i8, ptr %retval.0.i175, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN6aiFaceD2Ev.exit537
@@ -6953,25 +6963,26 @@ if.end:                                           ; preds = %entry
 
 if.then3:                                         ; preds = %if.end
   %sharedVertexData = getelementptr inbounds i8, ptr %0, i64 48
-  br label %return.sink.split
+  %2 = load ptr, ptr %sharedVertexData, align 8
+  br label %return
 
 if.end5:                                          ; preds = %if.end
   %conv = zext i16 %1 to i32
   %sub = add nsw i32 %conv, -1
   %subMeshes.i = getelementptr inbounds i8, ptr %0, i64 56
   %_M_finish.i.i = getelementptr inbounds i8, ptr %0, i64 64
-  %2 = load ptr, ptr %_M_finish.i.i, align 8
-  %3 = load ptr, ptr %subMeshes.i, align 8
-  %cmp6.not.i = icmp ne ptr %2, %3
+  %3 = load ptr, ptr %_M_finish.i.i, align 8
+  %4 = load ptr, ptr %subMeshes.i, align 8
+  %cmp6.not.i = icmp ne ptr %3, %4
   tail call void @llvm.assume(i1 %cmp6.not.i)
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %2 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %3 to i64
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %3 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %umax.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %4 = load ptr, ptr %3, align 8
-  %5 = load i32, ptr %4, align 8
-  %cmp5.i2 = icmp eq i32 %5, %sub
+  %5 = load ptr, ptr %4, align 8
+  %6 = load i32, ptr %5, align 8
+  %cmp5.i2 = icmp eq i32 %6, %sub
   br i1 %cmp5.i2, label %_ZNK6Assimp4Ogre4Mesh10GetSubMeshEm.exit, label %for.cond.i
 
 for.cond.i:                                       ; preds = %if.end5, %for.cond.i
@@ -6979,24 +6990,20 @@ for.cond.i:                                       ; preds = %if.end5, %for.cond.
   %inc.i = add nuw i64 %i.07.i3, 1
   %exitcond.not.i = icmp ne i64 %inc.i, %umax.i
   tail call void @llvm.assume(i1 %exitcond.not.i)
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %3, i64 %inc.i
-  %6 = load ptr, ptr %add.ptr.i.i, align 8
-  %7 = load i32, ptr %6, align 8
-  %cmp5.i = icmp eq i32 %7, %sub
+  %add.ptr.i.i = getelementptr inbounds ptr, ptr %4, i64 %inc.i
+  %7 = load ptr, ptr %add.ptr.i.i, align 8
+  %8 = load i32, ptr %7, align 8
+  %cmp5.i = icmp eq i32 %8, %sub
   br i1 %cmp5.i, label %_ZNK6Assimp4Ogre4Mesh10GetSubMeshEm.exit, label %for.cond.i
 
 _ZNK6Assimp4Ogre4Mesh10GetSubMeshEm.exit:         ; preds = %for.cond.i, %if.end5
-  %.lcssa = phi ptr [ %4, %if.end5 ], [ %6, %for.cond.i ]
+  %.lcssa = phi ptr [ %5, %if.end5 ], [ %7, %for.cond.i ]
   %vertexData = getelementptr inbounds i8, ptr %.lcssa, i64 152
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.then3, %_ZNK6Assimp4Ogre4Mesh10GetSubMeshEm.exit
-  %vertexData.sink = phi ptr [ %vertexData, %_ZNK6Assimp4Ogre4Mesh10GetSubMeshEm.exit ], [ %sharedVertexData, %if.then3 ]
-  %8 = load ptr, ptr %vertexData.sink, align 8
+  %9 = load ptr, ptr %vertexData, align 8
   br label %return
 
-return:                                           ; preds = %return.sink.split, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ %8, %return.sink.split ]
+return:                                           ; preds = %entry, %_ZNK6Assimp4Ogre4Mesh10GetSubMeshEm.exit, %if.then3
+  %retval.0 = phi ptr [ %2, %if.then3 ], [ %9, %_ZNK6Assimp4Ogre4Mesh10GetSubMeshEm.exit ], [ null, %entry ]
   ret ptr %retval.0
 }
 

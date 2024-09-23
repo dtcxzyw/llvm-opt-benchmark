@@ -779,39 +779,45 @@ define dso_local range(i64 -14, 256) i64 @bpf_skb_load_helper_8(i64 noundef %0, 
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #34
   store i8 0, ptr %6, align 1, !annotation !7
   %10 = icmp sgt i32 %9, -1
-  br i1 %10, label %11, label %21
+  br i1 %10, label %11, label %26
 
 11:                                               ; preds = %5
   %12 = trunc i64 %2 to i32
   %13 = sub i32 %12, %9
   %14 = icmp sgt i32 %13, 0
-  br i1 %14, label %15, label %18
+  br i1 %14, label %15, label %20
 
 15:                                               ; preds = %11
   %16 = and i64 %3, 2147483647
   %17 = getelementptr i8, ptr %8, i64 %16
-  br label %.sink.split
+  %18 = load i8, ptr %17, align 1
+  %19 = zext i8 %18 to i64
+  br label %32
 
-18:                                               ; preds = %11
-  %19 = call i32 @skb_copy_bits(ptr noundef %7, i32 noundef %9, ptr noundef nonnull %6, i32 noundef 1) #34
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %.sink.split, label %26
+20:                                               ; preds = %11
+  %21 = call i32 @skb_copy_bits(ptr noundef %7, i32 noundef %9, ptr noundef nonnull %6, i32 noundef 1) #34
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %23, label %32
 
-21:                                               ; preds = %5
-  %22 = tail call ptr @bpf_internal_load_pointer_neg_helper(ptr noundef %7, i32 noundef %9, i32 noundef 1) #34
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %26, label %.sink.split, !prof !14
-
-.sink.split:                                      ; preds = %21, %18, %15
-  %.sink2 = phi ptr [ %17, %15 ], [ %6, %18 ], [ %22, %21 ]
-  %24 = load i8, ptr %.sink2, align 1
+23:                                               ; preds = %20
+  %24 = load i8, ptr %6, align 1
   %25 = zext i8 %24 to i64
-  br label %26
+  br label %32
 
-26:                                               ; preds = %.sink.split, %21, %18
-  %27 = phi i64 [ -14, %21 ], [ -14, %18 ], [ %25, %.sink.split ]
+26:                                               ; preds = %5
+  %27 = tail call ptr @bpf_internal_load_pointer_neg_helper(ptr noundef %7, i32 noundef %9, i32 noundef 1) #34
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %32, label %29, !prof !14
+
+29:                                               ; preds = %26
+  %30 = load i8, ptr %27, align 1
+  %31 = zext i8 %30 to i64
+  br label %32
+
+32:                                               ; preds = %29, %26, %23, %20, %15
+  %33 = phi i64 [ %19, %15 ], [ %25, %23 ], [ %31, %29 ], [ -14, %26 ], [ -14, %20 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #34
-  ret i64 %27
+  ret i64 %33
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -828,39 +834,45 @@ define dso_local range(i64 -14, 256) i64 @bpf_skb_load_helper_8_no_cache(i64 nou
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #34
   store i8 0, ptr %6, align 1, !annotation !7
   %15 = icmp sgt i32 %8, -1
-  br i1 %15, label %16, label %26
+  br i1 %15, label %16, label %31
 
 16:                                               ; preds = %5
   %17 = add i32 %14, %8
   %18 = sub i32 %12, %17
   %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %20, label %23
+  br i1 %19, label %20, label %25
 
 20:                                               ; preds = %16
   %21 = and i64 %1, 2147483647
   %22 = getelementptr i8, ptr %10, i64 %21
-  br label %.sink.split
+  %23 = load i8, ptr %22, align 1
+  %24 = zext i8 %23 to i64
+  br label %37
 
-23:                                               ; preds = %16
-  %24 = call i32 @skb_copy_bits(ptr noundef %7, i32 noundef %8, ptr noundef nonnull %6, i32 noundef 1) #34
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %.sink.split, label %31
+25:                                               ; preds = %16
+  %26 = call i32 @skb_copy_bits(ptr noundef %7, i32 noundef %8, ptr noundef nonnull %6, i32 noundef 1) #34
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %28, label %37
 
-26:                                               ; preds = %5
-  %27 = tail call ptr @bpf_internal_load_pointer_neg_helper(ptr noundef %7, i32 noundef %8, i32 noundef 1) #34
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %31, label %.sink.split, !prof !14
-
-.sink.split:                                      ; preds = %26, %23, %20
-  %.sink4 = phi ptr [ %22, %20 ], [ %6, %23 ], [ %27, %26 ]
-  %29 = load i8, ptr %.sink4, align 1
+28:                                               ; preds = %25
+  %29 = load i8, ptr %6, align 1
   %30 = zext i8 %29 to i64
-  br label %31
+  br label %37
 
-31:                                               ; preds = %.sink.split, %26, %23
-  %32 = phi i64 [ -14, %26 ], [ -14, %23 ], [ %30, %.sink.split ]
+31:                                               ; preds = %5
+  %32 = tail call ptr @bpf_internal_load_pointer_neg_helper(ptr noundef %7, i32 noundef %8, i32 noundef 1) #34
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %37, label %34, !prof !14
+
+34:                                               ; preds = %31
+  %35 = load i8, ptr %32, align 1
+  %36 = zext i8 %35 to i64
+  br label %37
+
+37:                                               ; preds = %34, %31, %28, %25, %20
+  %38 = phi i64 [ %24, %20 ], [ %30, %28 ], [ %36, %34 ], [ -14, %31 ], [ -14, %25 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #34
-  ret i64 %32
+  ret i64 %38
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

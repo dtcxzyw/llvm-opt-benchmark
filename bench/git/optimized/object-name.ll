@@ -668,29 +668,29 @@ if.end13:                                         ; preds = %if.end8
   %oid15 = getelementptr inbounds i8, ptr %mad, i64 24
   store ptr %oid, ptr %oid15, align 8
   %call.i = tail call ptr @get_multi_pack_index(ptr noundef nonnull %r) #20
-  %tobool.not56.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not56.i, label %for.end.i, label %for.body.i
+  %tobool.not57.i = icmp eq ptr %call.i, null
+  br i1 %tobool.not57.i, label %for.end.i, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end13, %find_abbrev_len_for_midx.exit.i
   %8 = phi i32 [ %36, %find_abbrev_len_for_midx.exit.i ], [ %len.addr.0, %if.end13 ]
   %9 = phi i32 [ %37, %find_abbrev_len_for_midx.exit.i ], [ %len.addr.0, %if.end13 ]
-  %m.057.i = phi ptr [ %38, %find_abbrev_len_for_midx.exit.i ], [ %call.i, %if.end13 ]
+  %m.058.i = phi ptr [ %38, %find_abbrev_len_for_midx.exit.i ], [ %call.i, %if.end13 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %first.i.i)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %oid.i.i)
   store i32 0, ptr %first.i.i, align 4
-  %num_objects.i.i = getelementptr inbounds i8, ptr %m.057.i, i64 60
+  %num_objects.i.i = getelementptr inbounds i8, ptr %m.058.i, i64 60
   %10 = load i32, ptr %num_objects.i.i, align 4
   %tobool.not.i.i = icmp eq i32 %10, 0
   br i1 %tobool.not.i.i, label %find_abbrev_len_for_midx.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body.i
-  %call.i.i = call i32 @bsearch_midx(ptr noundef %oid, ptr noundef nonnull %m.057.i, ptr noundef nonnull %first.i.i) #20
+  %call.i.i = call i32 @bsearch_midx(ptr noundef %oid, ptr noundef nonnull %m.058.i, ptr noundef nonnull %first.i.i) #20
   %tobool3.not.i.i = icmp eq i32 %call.i.i, 0
   %11 = load i32, ptr %first.i.i, align 4
   br i1 %tobool3.not.i.i, label %if.then4.i.i, label %if.else.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
-  %call5.i.i = call ptr @nth_midxed_object_oid(ptr noundef nonnull %oid.i.i, ptr noundef nonnull %m.057.i, i32 noundef %11) #20
+  %call5.i.i = call ptr @nth_midxed_object_oid(ptr noundef nonnull %oid.i.i, ptr noundef nonnull %m.058.i, i32 noundef %11) #20
   %tobool6.not.i.i = icmp eq ptr %call5.i.i, null
   br i1 %tobool6.not.i.i, label %if.end17thread-pre-split.i.i, label %if.then7.i.i
 
@@ -730,7 +730,7 @@ while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %
   %cmp7.i.i.i = icmp ugt i32 %i.0.lcssa.i.i.i, 31
   %cmp9.not.i.i.i = icmp ult i32 %i.0.lcssa.i.i.i, %9
   %or.cond39 = select i1 %cmp7.i.i.i, i1 true, i1 %cmp9.not.i.i.i
-  br i1 %or.cond39, label %if.end17thread-pre-split.i.i, label %if.end17thread-pre-split.sink.split.i.i
+  br i1 %or.cond39, label %if.end17thread-pre-split.i.i, label %if.end17thread-pre-split.i.sink.split.i
 
 if.else.i.i:                                      ; preds = %if.end.i.i
   %sub.i.i = add i32 %10, -1
@@ -739,7 +739,7 @@ if.else.i.i:                                      ; preds = %if.end.i.i
 
 if.then10.i.i:                                    ; preds = %if.else.i.i
   %add.i.i = add nuw i32 %11, 1
-  %call11.i.i = call ptr @nth_midxed_object_oid(ptr noundef nonnull %oid.i.i, ptr noundef nonnull %m.057.i, i32 noundef %add.i.i) #20
+  %call11.i.i = call ptr @nth_midxed_object_oid(ptr noundef nonnull %oid.i.i, ptr noundef nonnull %m.058.i, i32 noundef %add.i.i) #20
   %tobool12.not.i.i = icmp eq ptr %call11.i.i, null
   br i1 %tobool12.not.i.i, label %if.end17thread-pre-split.i.i, label %if.then13.i.i
 
@@ -779,17 +779,17 @@ while.end.i30.i.i:                                ; preds = %while.body.i38.i.i,
   %cmp7.i32.i.i = icmp ugt i32 %i.0.lcssa.i31.i.i, 31
   %cmp9.not.i35.i.i = icmp ult i32 %i.0.lcssa.i31.i.i, %9
   %or.cond40 = select i1 %cmp7.i32.i.i, i1 true, i1 %cmp9.not.i35.i.i
-  br i1 %or.cond40, label %if.end17thread-pre-split.i.i, label %if.end17thread-pre-split.sink.split.i.i
+  br i1 %or.cond40, label %if.end17thread-pre-split.i.i, label %if.end17thread-pre-split.i.sink.split.i
 
-if.end17thread-pre-split.sink.split.i.i:          ; preds = %while.end.i30.i.i, %while.end.i.i.i
-  %i.0.lcssa.i.sink.i.i = phi i32 [ %i.0.lcssa.i.i.i, %while.end.i.i.i ], [ %i.0.lcssa.i31.i.i, %while.end.i30.i.i ]
-  %add.i.i.i = add nuw nsw i32 %i.0.lcssa.i.sink.i.i, 1
-  store i32 %add.i.i.i, ptr %cur_len, align 4
+if.end17thread-pre-split.i.sink.split.i:          ; preds = %while.end.i30.i.i, %while.end.i.i.i
+  %i.0.lcssa.i31.i.sink.i = phi i32 [ %i.0.lcssa.i.i.i, %while.end.i.i.i ], [ %i.0.lcssa.i31.i.i, %while.end.i30.i.i ]
+  %add.i37.i.i = add nuw nsw i32 %i.0.lcssa.i31.i.sink.i, 1
+  store i32 %add.i37.i.i, ptr %cur_len, align 4
   br label %if.end17thread-pre-split.i.i
 
-if.end17thread-pre-split.i.i:                     ; preds = %if.end17thread-pre-split.sink.split.i.i, %while.end.i30.i.i, %if.then10.i.i, %while.end.i.i.i, %if.then4.i.i
-  %24 = phi i32 [ %add.i.i.i, %if.end17thread-pre-split.sink.split.i.i ], [ %8, %while.end.i30.i.i ], [ %8, %if.then10.i.i ], [ %8, %while.end.i.i.i ], [ %8, %if.then4.i.i ]
-  %25 = phi i32 [ %add.i.i.i, %if.end17thread-pre-split.sink.split.i.i ], [ %9, %while.end.i30.i.i ], [ %9, %if.then10.i.i ], [ %9, %while.end.i.i.i ], [ %9, %if.then4.i.i ]
+if.end17thread-pre-split.i.i:                     ; preds = %if.end17thread-pre-split.i.sink.split.i, %while.end.i30.i.i, %if.then10.i.i, %while.end.i.i.i, %if.then4.i.i
+  %24 = phi i32 [ %add.i37.i.i, %if.end17thread-pre-split.i.sink.split.i ], [ %8, %while.end.i30.i.i ], [ %8, %if.then10.i.i ], [ %8, %while.end.i.i.i ], [ %8, %if.then4.i.i ]
+  %25 = phi i32 [ %add.i37.i.i, %if.end17thread-pre-split.i.sink.split.i ], [ %9, %while.end.i30.i.i ], [ %9, %if.then10.i.i ], [ %9, %while.end.i.i.i ], [ %9, %if.then4.i.i ]
   %.pr.i.i = load i32, ptr %first.i.i, align 4
   br label %if.end17.i.i
 
@@ -802,7 +802,7 @@ if.end17.i.i:                                     ; preds = %if.end17thread-pre-
 
 if.then19.i.i:                                    ; preds = %if.end17.i.i
   %sub20.i.i = add i32 %28, -1
-  %call21.i.i = call ptr @nth_midxed_object_oid(ptr noundef nonnull %oid.i.i, ptr noundef nonnull %m.057.i, i32 noundef %sub20.i.i) #20
+  %call21.i.i = call ptr @nth_midxed_object_oid(ptr noundef nonnull %oid.i.i, ptr noundef nonnull %m.058.i, i32 noundef %sub20.i.i) #20
   %tobool22.not.i.i = icmp eq ptr %call21.i.i, null
   br i1 %tobool22.not.i.i, label %if.end26.i.i, label %if.then23.i.i
 
@@ -859,48 +859,48 @@ find_abbrev_len_for_midx.exit.i:                  ; preds = %if.end26.i.i, %for.
   %37 = phi i32 [ %35, %if.end26.i.i ], [ %9, %for.body.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %first.i.i)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %oid.i.i)
-  %38 = load ptr, ptr %m.057.i, align 8
+  %38 = load ptr, ptr %m.058.i, align 8
   %tobool.not.i = icmp eq ptr %38, null
   br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !15
 
 for.end.i:                                        ; preds = %find_abbrev_len_for_midx.exit.i, %if.end13
   %39 = phi i32 [ %len.addr.0, %if.end13 ], [ %36, %find_abbrev_len_for_midx.exit.i ]
   %call2.i = call ptr @get_packed_git(ptr noundef %r) #20
-  %tobool4.not60.i = icmp eq ptr %call2.i, null
-  br i1 %tobool4.not60.i, label %find_abbrev_len_packed.exit, label %for.body5.i
+  %tobool4.not61.i = icmp eq ptr %call2.i, null
+  br i1 %tobool4.not61.i, label %find_abbrev_len_packed.exit, label %for.body5.i
 
 for.body5.i:                                      ; preds = %for.end.i, %find_abbrev_len_for_pack.exit.i
   %40 = phi i32 [ %63, %find_abbrev_len_for_pack.exit.i ], [ %39, %for.end.i ]
   %41 = phi i32 [ %64, %find_abbrev_len_for_pack.exit.i ], [ %39, %for.end.i ]
-  %p.061.i = phi ptr [ %65, %find_abbrev_len_for_pack.exit.i ], [ %call2.i, %for.end.i ]
+  %p.062.i = phi ptr [ %65, %find_abbrev_len_for_pack.exit.i ], [ %call2.i, %for.end.i ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %first.i8.i)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %oid.i9.i)
   store i32 0, ptr %first.i8.i, align 4
-  %multi_pack_index.i.i = getelementptr inbounds i8, ptr %p.061.i, i64 152
+  %multi_pack_index.i.i = getelementptr inbounds i8, ptr %p.062.i, i64 152
   %bf.load.i.i = load i8, ptr %multi_pack_index.i.i, align 8
   %42 = and i8 %bf.load.i.i, 64
   %tobool.not.i10.i = icmp eq i8 %42, 0
   br i1 %tobool.not.i10.i, label %if.end.i11.i, label %find_abbrev_len_for_pack.exit.i
 
 if.end.i11.i:                                     ; preds = %for.body5.i
-  %call.i12.i = call i32 @open_pack_index(ptr noundef nonnull %p.061.i) #20
+  %call.i12.i = call i32 @open_pack_index(ptr noundef nonnull %p.062.i) #20
   %tobool1.not.i.i = icmp eq i32 %call.i12.i, 0
   br i1 %tobool1.not.i.i, label %lor.lhs.false.i.i, label %find_abbrev_len_for_pack.exit.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end.i11.i
-  %num_objects.i13.i = getelementptr inbounds i8, ptr %p.061.i, i64 72
+  %num_objects.i13.i = getelementptr inbounds i8, ptr %p.062.i, i64 72
   %43 = load i32, ptr %num_objects.i13.i, align 8
   %tobool2.not.i.i = icmp eq i32 %43, 0
   br i1 %tobool2.not.i.i, label %find_abbrev_len_for_pack.exit.i, label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %lor.lhs.false.i.i
-  %call7.i.i = call i32 @bsearch_pack(ptr noundef %oid, ptr noundef nonnull %p.061.i, ptr noundef nonnull %first.i8.i) #20
+  %call7.i.i = call i32 @bsearch_pack(ptr noundef %oid, ptr noundef nonnull %p.062.i, ptr noundef nonnull %first.i8.i) #20
   %tobool8.not.i.i = icmp eq i32 %call7.i.i, 0
   %44 = load i32, ptr %first.i8.i, align 4
   br i1 %tobool8.not.i.i, label %if.then9.i.i, label %if.else.i14.i
 
 if.then9.i.i:                                     ; preds = %if.end4.i.i
-  %call10.i.i = call i32 @nth_packed_object_id(ptr noundef nonnull %oid.i9.i, ptr noundef nonnull %p.061.i, i32 noundef %44) #20
+  %call10.i.i = call i32 @nth_packed_object_id(ptr noundef nonnull %oid.i9.i, ptr noundef nonnull %p.062.i, i32 noundef %44) #20
   %tobool11.not.i.i = icmp eq i32 %call10.i.i, 0
   br i1 %tobool11.not.i.i, label %if.end22thread-pre-split.sink.split.i.i, label %if.end22thread-pre-split.i.i
 
@@ -910,8 +910,8 @@ if.else.i14.i:                                    ; preds = %if.end4.i.i
   br i1 %cmp.i16.i, label %if.then15.i.i, label %if.end22.i.i
 
 if.then15.i.i:                                    ; preds = %if.else.i14.i
-  %add.i46.i = add nuw i32 %44, 1
-  %call16.i.i = call i32 @nth_packed_object_id(ptr noundef nonnull %oid.i9.i, ptr noundef nonnull %p.061.i, i32 noundef %add.i46.i) #20
+  %add.i47.i = add nuw i32 %44, 1
+  %call16.i.i = call i32 @nth_packed_object_id(ptr noundef nonnull %oid.i9.i, ptr noundef nonnull %p.062.i, i32 noundef %add.i47.i) #20
   %tobool17.not.i.i = icmp eq i32 %call16.i.i, 0
   br i1 %tobool17.not.i.i, label %if.end22thread-pre-split.sink.split.i.i, label %if.end22thread-pre-split.i.i
 
@@ -924,27 +924,27 @@ land.rhs.i.i:                                     ; preds = %if.end22thread-pre-
   %46 = phi i8 [ %50, %while.body.i.i ], [ %45, %if.end22thread-pre-split.sink.split.i.i ]
   %i.014.i.i = phi i32 [ %inc.i.i, %while.body.i.i ], [ 0, %if.end22thread-pre-split.sink.split.i.i ]
   %and.i.i.i = and i32 %i.014.i.i, 1
-  %cmp.i.i48.i = icmp eq i32 %and.i.i.i, 0
+  %cmp.i.i49.i = icmp eq i32 %and.i.i.i, 0
   %shr.i.i.i = lshr i32 %i.014.i.i, 1
-  %idxprom.i.i49.i = zext nneg i32 %shr.i.i.i to i64
-  %arrayidx.i.i50.i = getelementptr inbounds [32 x i8], ptr %oid.i9.i, i64 0, i64 %idxprom.i.i49.i
-  %47 = load i8, ptr %arrayidx.i.i50.i, align 1
+  %idxprom.i.i50.i = zext nneg i32 %shr.i.i.i to i64
+  %arrayidx.i.i51.i = getelementptr inbounds [32 x i8], ptr %oid.i9.i, i64 0, i64 %idxprom.i.i50.i
+  %47 = load i8, ptr %arrayidx.i.i51.i, align 1
   %48 = lshr i8 %47, 4
   %49 = and i8 %47, 15
-  %idxprom2.pn.in.i.i.i = select i1 %cmp.i.i48.i, i8 %48, i8 %49
+  %idxprom2.pn.in.i.i.i = select i1 %cmp.i.i49.i, i8 %48, i8 %49
   %idxprom2.pn.i.i.i = zext nneg i8 %idxprom2.pn.in.i.i.i to i64
   %retval.0.in.i.i.i = getelementptr inbounds [17 x i8], ptr @get_hex_char_from_oid.hex, i64 0, i64 %idxprom2.pn.i.i.i
   %retval.0.i.i.i = load i8, ptr %retval.0.in.i.i.i, align 1
-  %cmp.i51.i = icmp eq i8 %46, %retval.0.i.i.i
-  br i1 %cmp.i51.i, label %while.body.i.i, label %while.end.i.i
+  %cmp.i52.i = icmp eq i8 %46, %retval.0.i.i.i
+  br i1 %cmp.i52.i, label %while.body.i.i, label %while.end.i.i
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i
   %inc.i.i = add i32 %i.014.i.i, 1
   %idxprom.i.i = zext i32 %inc.i.i to i64
   %arrayidx.i.i = getelementptr inbounds i8, ptr %hex, i64 %idxprom.i.i
   %50 = load i8, ptr %arrayidx.i.i, align 1
-  %tobool.not.i55.i = icmp eq i8 %50, 0
-  br i1 %tobool.not.i55.i, label %while.end.i.i, label %land.rhs.i.i, !llvm.loop !14
+  %tobool.not.i56.i = icmp eq i8 %50, 0
+  br i1 %tobool.not.i56.i, label %while.end.i.i, label %land.rhs.i.i, !llvm.loop !14
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %land.rhs.i.i, %if.end22thread-pre-split.sink.split.i.i
   %i.0.lcssa.i.i = phi i32 [ 0, %if.end22thread-pre-split.sink.split.i.i ], [ %inc.i.i, %while.body.i.i ], [ %i.014.i.i, %land.rhs.i.i ]
@@ -954,26 +954,26 @@ while.end.i.i:                                    ; preds = %while.body.i.i, %la
   br i1 %or.cond42, label %if.end22thread-pre-split.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %while.end.i.i
-  %add.i54.i = add nuw nsw i32 %i.0.lcssa.i.i, 1
-  store i32 %add.i54.i, ptr %cur_len, align 4
+  %add.i55.i = add nuw nsw i32 %i.0.lcssa.i.i, 1
+  store i32 %add.i55.i, ptr %cur_len, align 4
   br label %if.end22thread-pre-split.i.i
 
 if.end22thread-pre-split.i.i:                     ; preds = %if.then.i.i, %while.end.i.i, %if.then15.i.i, %if.then9.i.i
-  %51 = phi i32 [ %add.i54.i, %if.then.i.i ], [ %40, %while.end.i.i ], [ %40, %if.then15.i.i ], [ %40, %if.then9.i.i ]
-  %52 = phi i32 [ %add.i54.i, %if.then.i.i ], [ %41, %while.end.i.i ], [ %41, %if.then15.i.i ], [ %41, %if.then9.i.i ]
-  %.pr.i47.i = load i32, ptr %first.i8.i, align 4
+  %51 = phi i32 [ %add.i55.i, %if.then.i.i ], [ %40, %while.end.i.i ], [ %40, %if.then15.i.i ], [ %40, %if.then9.i.i ]
+  %52 = phi i32 [ %add.i55.i, %if.then.i.i ], [ %41, %while.end.i.i ], [ %41, %if.then15.i.i ], [ %41, %if.then9.i.i ]
+  %.pr.i48.i = load i32, ptr %first.i8.i, align 4
   br label %if.end22.i.i
 
 if.end22.i.i:                                     ; preds = %if.end22thread-pre-split.i.i, %if.else.i14.i
   %53 = phi i32 [ %51, %if.end22thread-pre-split.i.i ], [ %40, %if.else.i14.i ]
   %54 = phi i32 [ %52, %if.end22thread-pre-split.i.i ], [ %41, %if.else.i14.i ]
-  %55 = phi i32 [ %.pr.i47.i, %if.end22thread-pre-split.i.i ], [ %44, %if.else.i14.i ]
+  %55 = phi i32 [ %.pr.i48.i, %if.end22thread-pre-split.i.i ], [ %44, %if.else.i14.i ]
   %cmp23.not.i.i = icmp eq i32 %55, 0
   br i1 %cmp23.not.i.i, label %if.end31.i.i, label %if.then24.i.i
 
 if.then24.i.i:                                    ; preds = %if.end22.i.i
   %sub25.i.i = add i32 %55, -1
-  %call26.i.i = call i32 @nth_packed_object_id(ptr noundef nonnull %oid.i9.i, ptr noundef nonnull %p.061.i, i32 noundef %sub25.i.i) #20
+  %call26.i.i = call i32 @nth_packed_object_id(ptr noundef nonnull %oid.i9.i, ptr noundef nonnull %p.062.i, i32 noundef %sub25.i.i) #20
   %tobool27.not.i.i = icmp eq i32 %call26.i.i, 0
   br i1 %tobool27.not.i.i, label %if.then28.i.i, label %if.end31.i.i
 
@@ -982,9 +982,9 @@ if.then28.i.i:                                    ; preds = %if.then24.i.i
   %tobool.not13.i.i21.i = icmp eq i8 %56, 0
   br i1 %tobool.not13.i.i21.i, label %while.end.i.i34.i, label %land.rhs.i.i22.i
 
-land.rhs.i.i22.i:                                 ; preds = %if.then28.i.i, %while.body.i.i41.i
-  %57 = phi i8 [ %61, %while.body.i.i41.i ], [ %56, %if.then28.i.i ]
-  %i.014.i.i23.i = phi i32 [ %inc.i.i42.i, %while.body.i.i41.i ], [ 0, %if.then28.i.i ]
+land.rhs.i.i22.i:                                 ; preds = %if.then28.i.i, %while.body.i.i42.i
+  %57 = phi i8 [ %61, %while.body.i.i42.i ], [ %56, %if.then28.i.i ]
+  %i.014.i.i23.i = phi i32 [ %inc.i.i43.i, %while.body.i.i42.i ], [ 0, %if.then28.i.i ]
   %and.i.i.i24.i = and i32 %i.014.i.i23.i, 1
   %cmp.i.i.i25.i = icmp eq i32 %and.i.i.i24.i, 0
   %shr.i.i.i26.i = lshr i32 %i.014.i.i23.i, 1
@@ -998,30 +998,30 @@ land.rhs.i.i22.i:                                 ; preds = %if.then28.i.i, %whi
   %retval.0.in.i.i.i31.i = getelementptr inbounds [17 x i8], ptr @get_hex_char_from_oid.hex, i64 0, i64 %idxprom2.pn.i.i.i30.i
   %retval.0.i.i.i32.i = load i8, ptr %retval.0.in.i.i.i31.i, align 1
   %cmp.i.i33.i = icmp eq i8 %57, %retval.0.i.i.i32.i
-  br i1 %cmp.i.i33.i, label %while.body.i.i41.i, label %while.end.i.i34.i
+  br i1 %cmp.i.i33.i, label %while.body.i.i42.i, label %while.end.i.i34.i
 
-while.body.i.i41.i:                               ; preds = %land.rhs.i.i22.i
-  %inc.i.i42.i = add i32 %i.014.i.i23.i, 1
-  %idxprom.i.i43.i = zext i32 %inc.i.i42.i to i64
-  %arrayidx.i.i44.i = getelementptr inbounds i8, ptr %hex, i64 %idxprom.i.i43.i
-  %61 = load i8, ptr %arrayidx.i.i44.i, align 1
-  %tobool.not.i.i45.i = icmp eq i8 %61, 0
-  br i1 %tobool.not.i.i45.i, label %while.end.i.i34.i, label %land.rhs.i.i22.i, !llvm.loop !14
+while.body.i.i42.i:                               ; preds = %land.rhs.i.i22.i
+  %inc.i.i43.i = add i32 %i.014.i.i23.i, 1
+  %idxprom.i.i44.i = zext i32 %inc.i.i43.i to i64
+  %arrayidx.i.i45.i = getelementptr inbounds i8, ptr %hex, i64 %idxprom.i.i44.i
+  %61 = load i8, ptr %arrayidx.i.i45.i, align 1
+  %tobool.not.i.i46.i = icmp eq i8 %61, 0
+  br i1 %tobool.not.i.i46.i, label %while.end.i.i34.i, label %land.rhs.i.i22.i, !llvm.loop !14
 
-while.end.i.i34.i:                                ; preds = %while.body.i.i41.i, %land.rhs.i.i22.i, %if.then28.i.i
-  %i.0.lcssa.i.i35.i = phi i32 [ 0, %if.then28.i.i ], [ %i.014.i.i23.i, %land.rhs.i.i22.i ], [ %inc.i.i42.i, %while.body.i.i41.i ]
+while.end.i.i34.i:                                ; preds = %while.body.i.i42.i, %land.rhs.i.i22.i, %if.then28.i.i
+  %i.0.lcssa.i.i35.i = phi i32 [ 0, %if.then28.i.i ], [ %i.014.i.i23.i, %land.rhs.i.i22.i ], [ %inc.i.i43.i, %while.body.i.i42.i ]
   %cmp7.i.i36.i = icmp ugt i32 %i.0.lcssa.i.i35.i, 31
   %cmp9.not.i.i39.i = icmp ult i32 %i.0.lcssa.i.i35.i, %54
   %or.cond43 = select i1 %cmp7.i.i36.i, i1 true, i1 %cmp9.not.i.i39.i
-  br i1 %or.cond43, label %if.end31.i.i, label %if.then.i.i.i
+  br i1 %or.cond43, label %if.end31.i.i, label %if.then.i.i40.i
 
-if.then.i.i.i:                                    ; preds = %while.end.i.i34.i
-  %add.i.i40.i = add nuw nsw i32 %i.0.lcssa.i.i35.i, 1
-  store i32 %add.i.i40.i, ptr %cur_len, align 4
+if.then.i.i40.i:                                  ; preds = %while.end.i.i34.i
+  %add.i.i41.i = add nuw nsw i32 %i.0.lcssa.i.i35.i, 1
+  store i32 %add.i.i41.i, ptr %cur_len, align 4
   br label %if.end31.i.i
 
-if.end31.i.i:                                     ; preds = %if.then.i.i.i, %while.end.i.i34.i, %if.then24.i.i, %if.end22.i.i
-  %62 = phi i32 [ %add.i.i40.i, %if.then.i.i.i ], [ %53, %while.end.i.i34.i ], [ %53, %if.then24.i.i ], [ %53, %if.end22.i.i ]
+if.end31.i.i:                                     ; preds = %if.then.i.i40.i, %while.end.i.i34.i, %if.then24.i.i, %if.end22.i.i
+  %62 = phi i32 [ %add.i.i41.i, %if.then.i.i40.i ], [ %53, %while.end.i.i34.i ], [ %53, %if.then24.i.i ], [ %53, %if.end22.i.i ]
   store i32 %62, ptr %mad, align 8
   br label %find_abbrev_len_for_pack.exit.i
 
@@ -1030,7 +1030,7 @@ find_abbrev_len_for_pack.exit.i:                  ; preds = %if.end31.i.i, %lor.
   %64 = phi i32 [ %62, %if.end31.i.i ], [ %41, %lor.lhs.false.i.i ], [ %41, %if.end.i11.i ], [ %41, %for.body5.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %first.i8.i)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %oid.i9.i)
-  %next7.i = getelementptr inbounds i8, ptr %p.061.i, i64 16
+  %next7.i = getelementptr inbounds i8, ptr %p.062.i, i64 16
   %65 = load ptr, ptr %next7.i, align 8
   %tobool4.not.i = icmp eq ptr %65, null
   br i1 %tobool4.not.i, label %find_abbrev_len_packed.exit, label %for.body5.i, !llvm.loop !16

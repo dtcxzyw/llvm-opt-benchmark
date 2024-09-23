@@ -50,14 +50,14 @@ define hidden ptr @AccelGlyphCache_AddGlyph(ptr noundef %0, ptr noundef %1) loca
   %8 = getelementptr inbounds i8, ptr %0, i64 28
   %9 = load i32, ptr %8, align 4
   %10 = icmp slt i32 %9, %5
-  br i1 %10, label %142, label %11
+  br i1 %10, label %145, label %11
 
 11:                                               ; preds = %2
   %12 = zext i16 %7 to i32
   %13 = getelementptr inbounds i8, ptr %0, i64 32
   %14 = load i32, ptr %13, align 8
   %15 = icmp slt i32 %14, %12
-  br i1 %15, label %142, label %16
+  br i1 %15, label %145, label %16
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds i8, ptr %0, i64 36
@@ -101,7 +101,7 @@ define hidden ptr @AccelGlyphCache_AddGlyph(ptr noundef %0, ptr noundef %1) loca
   %.089104 = phi i32 [ 0, %19 ], [ %27, %22 ], [ 0, %34 ]
   %40 = tail call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #8
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %142, label %42
+  br i1 %41, label %145, label %42
 
 42:                                               ; preds = %.thread
   store ptr %0, ptr %40, align 8
@@ -149,7 +149,7 @@ define hidden ptr @AccelGlyphCache_AddGlyph(ptr noundef %0, ptr noundef %1) loca
   store ptr %40, ptr %69, align 8
   %70 = getelementptr inbounds i8, ptr %40, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, i8 0, i64 16, i1 false)
-  br label %136
+  br label %139
 
 71:                                               ; preds = %42
   %72 = getelementptr inbounds i8, ptr %0, i64 8
@@ -162,7 +162,7 @@ define hidden ptr @AccelGlyphCache_AddGlyph(ptr noundef %0, ptr noundef %1) loca
   store ptr %40, ptr %76, align 8
   %77 = getelementptr inbounds i8, ptr %40, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %77, i8 0, i64 16, i1 false)
-  br i1 %75, label %136, label %.preheader
+  br i1 %75, label %139, label %.preheader
 
 .preheader:                                       ; preds = %16, %.thread106, %71
   %.090120 = phi ptr [ %40, %71 ], [ null, %.thread106 ], [ null, %16 ]
@@ -223,74 +223,79 @@ define hidden ptr @AccelGlyphCache_AddGlyph(ptr noundef %0, ptr noundef %1) loca
   %105 = getelementptr inbounds i8, ptr %104, i64 24
   %106 = load ptr, ptr %105, align 8
   %107 = icmp eq ptr %106, %.3
-  br i1 %107, label %111, label %.lr.ph.i
+  br i1 %107, label %110, label %.lr.ph.i
 
 108:                                              ; preds = %.lr.ph.i
-  %109 = icmp eq ptr %117, %.3
+  %109 = icmp eq ptr %120, %.3
   br i1 %109, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
 
-._crit_edge.i:                                    ; preds = %108
-  %110 = getelementptr inbounds i8, ptr %.01317.i, i64 24
-  br label %111
+110:                                              ; preds = %103
+  %111 = getelementptr inbounds i8, ptr %106, i64 24
+  %112 = load ptr, ptr %111, align 8
+  store ptr %112, ptr %105, align 8
+  br label %116
 
-111:                                              ; preds = %103, %._crit_edge.i
-  %.lcssa123.sink = phi ptr [ %117, %._crit_edge.i ], [ %106, %103 ]
-  %.sink126 = phi ptr [ %110, %._crit_edge.i ], [ %105, %103 ]
-  %112 = getelementptr inbounds i8, ptr %.lcssa123.sink, i64 24
-  %113 = load ptr, ptr %112, align 8
-  store ptr %113, ptr %.sink126, align 8
-  %114 = getelementptr inbounds i8, ptr %.lcssa123.sink, i64 8
-  store ptr null, ptr %114, align 8
-  %115 = getelementptr inbounds i8, ptr %.lcssa123.sink, i64 24
-  store ptr null, ptr %115, align 8
+._crit_edge.i:                                    ; preds = %108
+  %113 = getelementptr inbounds i8, ptr %.01317.i, i64 24
+  %114 = getelementptr inbounds i8, ptr %120, i64 24
+  %115 = load ptr, ptr %114, align 8
+  store ptr %115, ptr %113, align 8
+  br label %116
+
+116:                                              ; preds = %._crit_edge.i, %110
+  %.013.lcssa23.i = phi ptr [ %120, %._crit_edge.i ], [ %106, %110 ]
+  %117 = getelementptr inbounds i8, ptr %.013.lcssa23.i, i64 8
+  store ptr null, ptr %117, align 8
+  %118 = getelementptr inbounds i8, ptr %.013.lcssa23.i, i64 24
+  store ptr null, ptr %118, align 8
   br label %AccelGlyphCache_RemoveCellInfo.exit
 
 .lr.ph.i:                                         ; preds = %103, %108
-  %.01317.i = phi ptr [ %117, %108 ], [ %106, %103 ]
-  %116 = getelementptr inbounds i8, ptr %.01317.i, i64 24
-  %117 = load ptr, ptr %116, align 8
-  %.not.i = icmp eq ptr %117, null
+  %.01317.i = phi ptr [ %120, %108 ], [ %106, %103 ]
+  %119 = getelementptr inbounds i8, ptr %.01317.i, i64 24
+  %120 = load ptr, ptr %119, align 8
+  %.not.i = icmp eq ptr %120, null
   br i1 %.not.i, label %AccelGlyphCache_RemoveCellInfo.exit, label %108, !llvm.loop !8
 
-AccelGlyphCache_RemoveCellInfo.exit:              ; preds = %.lr.ph.i, %111, %96
+AccelGlyphCache_RemoveCellInfo.exit:              ; preds = %.lr.ph.i, %116, %96
   store ptr %1, ptr %97, align 8
-  %118 = getelementptr inbounds i8, ptr %.3, i64 52
-  %119 = load float, ptr %118, align 4
-  %120 = uitofp i16 %4 to float
-  %121 = getelementptr inbounds i8, ptr %0, i64 20
-  %122 = load i32, ptr %121, align 4
-  %123 = sitofp i32 %122 to float
-  %124 = fdiv float %120, %123
-  %125 = fadd float %119, %124
-  %126 = getelementptr inbounds i8, ptr %.3, i64 60
-  store float %125, ptr %126, align 4
-  %127 = getelementptr inbounds i8, ptr %.3, i64 56
-  %128 = load float, ptr %127, align 8
-  %129 = uitofp i16 %7 to float
-  %130 = getelementptr inbounds i8, ptr %0, i64 24
-  %131 = load i32, ptr %130, align 8
-  %132 = sitofp i32 %131 to float
-  %133 = fdiv float %129, %132
-  %134 = fadd float %128, %133
-  %135 = getelementptr inbounds i8, ptr %.3, i64 64
-  store float %134, ptr %135, align 8
-  br label %136
+  %121 = getelementptr inbounds i8, ptr %.3, i64 52
+  %122 = load float, ptr %121, align 4
+  %123 = uitofp i16 %4 to float
+  %124 = getelementptr inbounds i8, ptr %0, i64 20
+  %125 = load i32, ptr %124, align 4
+  %126 = sitofp i32 %125 to float
+  %127 = fdiv float %123, %126
+  %128 = fadd float %122, %127
+  %129 = getelementptr inbounds i8, ptr %.3, i64 60
+  store float %128, ptr %129, align 4
+  %130 = getelementptr inbounds i8, ptr %.3, i64 56
+  %131 = load float, ptr %130, align 8
+  %132 = uitofp i16 %7 to float
+  %133 = getelementptr inbounds i8, ptr %0, i64 24
+  %134 = load i32, ptr %133, align 8
+  %135 = sitofp i32 %134 to float
+  %136 = fdiv float %132, %135
+  %137 = fadd float %131, %136
+  %138 = getelementptr inbounds i8, ptr %.3, i64 64
+  store float %137, ptr %138, align 8
+  br label %139
 
-136:                                              ; preds = %.thread121, %AccelGlyphCache_RemoveCellInfo.exit, %71
+139:                                              ; preds = %.thread121, %AccelGlyphCache_RemoveCellInfo.exit, %71
   %.1 = phi ptr [ %.3, %AccelGlyphCache_RemoveCellInfo.exit ], [ %40, %71 ], [ %40, %.thread121 ]
-  %137 = getelementptr inbounds i8, ptr %.1, i64 8
-  store ptr %1, ptr %137, align 8
-  %138 = getelementptr inbounds i8, ptr %1, i64 24
-  %139 = load ptr, ptr %138, align 8
-  %140 = getelementptr inbounds i8, ptr %.1, i64 24
-  store ptr %139, ptr %140, align 8
-  store ptr %.1, ptr %138, align 8
-  %141 = getelementptr inbounds i8, ptr %1, i64 14
-  store i8 1, ptr %141, align 2
-  br label %142
+  %140 = getelementptr inbounds i8, ptr %.1, i64 8
+  store ptr %1, ptr %140, align 8
+  %141 = getelementptr inbounds i8, ptr %1, i64 24
+  %142 = load ptr, ptr %141, align 8
+  %143 = getelementptr inbounds i8, ptr %.1, i64 24
+  store ptr %142, ptr %143, align 8
+  store ptr %.1, ptr %141, align 8
+  %144 = getelementptr inbounds i8, ptr %1, i64 14
+  store i8 1, ptr %144, align 2
+  br label %145
 
-142:                                              ; preds = %.thread, %2, %11, %136
-  %.0 = phi ptr [ %.1, %136 ], [ null, %11 ], [ null, %2 ], [ null, %.thread ]
+145:                                              ; preds = %.thread, %2, %11, %139
+  %.0 = phi ptr [ %.1, %139 ], [ null, %11 ], [ null, %2 ], [ null, %.thread ]
   ret ptr %.0
 }
 
@@ -382,38 +387,43 @@ define hidden void @AccelGlyphCache_Invalidate(ptr noundef readonly %0) local_un
   %11 = getelementptr inbounds i8, ptr %9, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, %.019
-  br i1 %13, label %17, label %.lr.ph.i
+  br i1 %13, label %16, label %.lr.ph.i
 
 14:                                               ; preds = %.lr.ph.i
-  %15 = icmp eq ptr %23, %.019
+  %15 = icmp eq ptr %26, %.019
   br i1 %15, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
 
-._crit_edge.i:                                    ; preds = %14
-  %16 = getelementptr inbounds i8, ptr %.01317.i, i64 24
-  br label %17
+16:                                               ; preds = %10
+  %17 = getelementptr inbounds i8, ptr %12, i64 24
+  %18 = load ptr, ptr %17, align 8
+  store ptr %18, ptr %11, align 8
+  br label %22
 
-17:                                               ; preds = %10, %._crit_edge.i
-  %.lcssa23.sink = phi ptr [ %23, %._crit_edge.i ], [ %12, %10 ]
-  %.sink26 = phi ptr [ %16, %._crit_edge.i ], [ %11, %10 ]
-  %18 = getelementptr inbounds i8, ptr %.lcssa23.sink, i64 24
-  %19 = load ptr, ptr %18, align 8
-  store ptr %19, ptr %.sink26, align 8
-  %20 = getelementptr inbounds i8, ptr %.lcssa23.sink, i64 8
-  store ptr null, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %.lcssa23.sink, i64 24
-  store ptr null, ptr %21, align 8
+._crit_edge.i:                                    ; preds = %14
+  %19 = getelementptr inbounds i8, ptr %.01317.i, i64 24
+  %20 = getelementptr inbounds i8, ptr %26, i64 24
+  %21 = load ptr, ptr %20, align 8
+  store ptr %21, ptr %19, align 8
+  br label %22
+
+22:                                               ; preds = %._crit_edge.i, %16
+  %.013.lcssa23.i = phi ptr [ %26, %._crit_edge.i ], [ %12, %16 ]
+  %23 = getelementptr inbounds i8, ptr %.013.lcssa23.i, i64 8
+  store ptr null, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %.013.lcssa23.i, i64 24
+  store ptr null, ptr %24, align 8
   br label %AccelGlyphCache_RemoveCellInfo.exit
 
 .lr.ph.i:                                         ; preds = %10, %14
-  %.01317.i = phi ptr [ %23, %14 ], [ %12, %10 ]
-  %22 = getelementptr inbounds i8, ptr %.01317.i, i64 24
-  %23 = load ptr, ptr %22, align 8
-  %.not.i = icmp eq ptr %23, null
+  %.01317.i = phi ptr [ %26, %14 ], [ %12, %10 ]
+  %25 = getelementptr inbounds i8, ptr %.01317.i, i64 24
+  %26 = load ptr, ptr %25, align 8
+  %.not.i = icmp eq ptr %26, null
   br i1 %.not.i, label %AccelGlyphCache_RemoveCellInfo.exit, label %14, !llvm.loop !8
 
-AccelGlyphCache_RemoveCellInfo.exit:              ; preds = %.lr.ph.i, %17, %.lr.ph
-  %24 = getelementptr inbounds i8, ptr %.019, i64 16
-  %.0 = load ptr, ptr %24, align 8
+AccelGlyphCache_RemoveCellInfo.exit:              ; preds = %.lr.ph.i, %22, %.lr.ph
+  %27 = getelementptr inbounds i8, ptr %.019, i64 16
+  %.0 = load ptr, ptr %27, align 8
   %.not12 = icmp eq ptr %.0, null
   br i1 %.not12, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
@@ -424,7 +434,7 @@ AccelGlyphCache_RemoveCellInfo.exit:              ; preds = %.lr.ph.i, %17, %.lr
 ; Function Attrs: nounwind uwtable
 define hidden void @AccelGlyphCache_Free(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %29, label %3
+  br i1 %2, label %32, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -442,7 +452,7 @@ define hidden void @AccelGlyphCache_Free(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not1520, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %AccelGlyphCache_RemoveCellInfo.exit
-  %9 = phi ptr [ %28, %AccelGlyphCache_RemoveCellInfo.exit ], [ %8, %7 ]
+  %9 = phi ptr [ %31, %AccelGlyphCache_RemoveCellInfo.exit ], [ %8, %7 ]
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not16 = icmp eq ptr %11, null
@@ -452,49 +462,54 @@ define hidden void @AccelGlyphCache_Free(ptr noundef %0) local_unnamed_addr #0 {
   %13 = getelementptr inbounds i8, ptr %11, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, %9
-  br i1 %15, label %19, label %.lr.ph.i
+  br i1 %15, label %18, label %.lr.ph.i
 
 16:                                               ; preds = %.lr.ph.i
-  %17 = icmp eq ptr %25, %9
+  %17 = icmp eq ptr %28, %9
   br i1 %17, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
 
-._crit_edge.i:                                    ; preds = %16
-  %18 = getelementptr inbounds i8, ptr %.01317.i, i64 24
-  br label %19
+18:                                               ; preds = %12
+  %19 = getelementptr inbounds i8, ptr %14, i64 24
+  %20 = load ptr, ptr %19, align 8
+  store ptr %20, ptr %13, align 8
+  br label %24
 
-19:                                               ; preds = %12, %._crit_edge.i
-  %.lcssa23.sink = phi ptr [ %25, %._crit_edge.i ], [ %14, %12 ]
-  %.sink26 = phi ptr [ %18, %._crit_edge.i ], [ %13, %12 ]
-  %20 = getelementptr inbounds i8, ptr %.lcssa23.sink, i64 24
-  %21 = load ptr, ptr %20, align 8
-  store ptr %21, ptr %.sink26, align 8
-  %22 = getelementptr inbounds i8, ptr %.lcssa23.sink, i64 8
-  store ptr null, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %.lcssa23.sink, i64 24
-  store ptr null, ptr %23, align 8
+._crit_edge.i:                                    ; preds = %16
+  %21 = getelementptr inbounds i8, ptr %.01317.i, i64 24
+  %22 = getelementptr inbounds i8, ptr %28, i64 24
+  %23 = load ptr, ptr %22, align 8
+  store ptr %23, ptr %21, align 8
+  br label %24
+
+24:                                               ; preds = %._crit_edge.i, %18
+  %.013.lcssa23.i = phi ptr [ %28, %._crit_edge.i ], [ %14, %18 ]
+  %25 = getelementptr inbounds i8, ptr %.013.lcssa23.i, i64 8
+  store ptr null, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %.013.lcssa23.i, i64 24
+  store ptr null, ptr %26, align 8
   br label %AccelGlyphCache_RemoveCellInfo.exit
 
 .lr.ph.i:                                         ; preds = %12, %16
-  %.01317.i = phi ptr [ %25, %16 ], [ %14, %12 ]
-  %24 = getelementptr inbounds i8, ptr %.01317.i, i64 24
-  %25 = load ptr, ptr %24, align 8
-  %.not.i = icmp eq ptr %25, null
+  %.01317.i = phi ptr [ %28, %16 ], [ %14, %12 ]
+  %27 = getelementptr inbounds i8, ptr %.01317.i, i64 24
+  %28 = load ptr, ptr %27, align 8
+  %.not.i = icmp eq ptr %28, null
   br i1 %.not.i, label %AccelGlyphCache_RemoveCellInfo.exit, label %16, !llvm.loop !8
 
-AccelGlyphCache_RemoveCellInfo.exit:              ; preds = %.lr.ph.i, %19, %.lr.ph
-  %26 = getelementptr inbounds i8, ptr %9, i64 16
-  %27 = load ptr, ptr %26, align 8
-  store ptr %27, ptr %0, align 8
+AccelGlyphCache_RemoveCellInfo.exit:              ; preds = %.lr.ph.i, %24, %.lr.ph
+  %29 = getelementptr inbounds i8, ptr %9, i64 16
+  %30 = load ptr, ptr %29, align 8
+  store ptr %30, ptr %0, align 8
   tail call void @free(ptr noundef %9) #9
-  %28 = load ptr, ptr %0, align 8
-  %.not15 = icmp eq ptr %28, null
+  %31 = load ptr, ptr %0, align 8
+  %.not15 = icmp eq ptr %31, null
   br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %AccelGlyphCache_RemoveCellInfo.exit, %7
   tail call void @free(ptr noundef nonnull %0) #9
-  br label %29
+  br label %32
 
-29:                                               ; preds = %1, %._crit_edge
+32:                                               ; preds = %1, %._crit_edge
   ret void
 }
 

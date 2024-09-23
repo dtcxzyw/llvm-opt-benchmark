@@ -48,7 +48,7 @@ define range(i32 -1, 1) i32 @mcs_p_set_mcs_label(ptr noundef %0, ptr noundef %1)
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @xstrcmp(ptr noundef nonnull %1, ptr noundef %6) #4
   %.not14 = icmp eq i32 %7, 0
-  br i1 %.not14, label %.sink.split, label %21
+  br i1 %.not14, label %.sink.split, label %20
 
 8:                                                ; preds = %2
   %9 = tail call i32 @slurm_mcs_get_enforced() #4
@@ -65,20 +65,20 @@ define range(i32 -1, 1) i32 @mcs_p_set_mcs_label(ptr noundef %0, ptr noundef %1)
   %15 = getelementptr inbounds i8, ptr %13, i64 464
   %16 = load i8, ptr %15, align 8
   %.not13 = icmp eq i8 %16, 3
-  br i1 %.not13, label %17, label %21
+  br i1 %.not13, label %17, label %20
 
 17:                                               ; preds = %14, %11, %8
   %18 = getelementptr inbounds i8, ptr %0, i64 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %4, %17
-  %.sink = phi ptr [ %18, %17 ], [ %5, %4 ]
-  %19 = load ptr, ptr %.sink, align 8
-  %20 = tail call ptr @xstrdup(ptr noundef %19) #4
-  store ptr %20, ptr %3, align 8
-  br label %21
+  %.sink15.in = phi ptr [ %18, %17 ], [ %5, %4 ]
+  %.sink15 = load ptr, ptr %.sink15.in, align 8
+  %19 = tail call ptr @xstrdup(ptr noundef %.sink15) #4
+  store ptr %19, ptr %3, align 8
+  br label %20
 
-21:                                               ; preds = %.sink.split, %4, %14
+20:                                               ; preds = %.sink.split, %4, %14
   %.0 = phi i32 [ 0, %14 ], [ -1, %4 ], [ 0, %.sink.split ]
   ret i32 %.0
 }

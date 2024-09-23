@@ -2248,113 +2248,116 @@ cond.end:                                         ; preds = %if.end73, %cond.tru
 
 if.then83:                                        ; preds = %cond.end
   call void @qemu_iovec_add(ptr noundef nonnull %qiov, ptr noundef nonnull %call69, i64 noundef %conv68) #13
+  %17 = load i64, ptr %m, align 8
+  %18 = load i32, ptr %cow_start, align 4
+  %call87 = call i32 @do_perform_cow_read(ptr noundef nonnull %bs, i64 noundef %17, i32 noundef %18, ptr noundef nonnull %qiov)
   br label %if.end103
 
 if.else88:                                        ; preds = %cond.end
-  %17 = load i32, ptr %nb_bytes, align 4
-  %conv90 = zext i32 %17 to i64
+  %19 = load i32, ptr %nb_bytes, align 4
+  %conv90 = zext i32 %19 to i64
   call void @qemu_iovec_add(ptr noundef nonnull %qiov, ptr noundef nonnull %call69, i64 noundef %conv90) #13
-  %18 = load i64, ptr %m, align 8
-  %19 = load i32, ptr %cow_start, align 4
-  %call93 = call i32 @do_perform_cow_read(ptr noundef nonnull %bs, i64 noundef %18, i32 noundef %19, ptr noundef nonnull %qiov)
+  %20 = load i64, ptr %m, align 8
+  %21 = load i32, ptr %cow_start, align 4
+  %call93 = call i32 @do_perform_cow_read(ptr noundef nonnull %bs, i64 noundef %20, i32 noundef %21, ptr noundef nonnull %qiov)
   %cmp94 = icmp slt i32 %call93, 0
   br i1 %cmp94, label %fail.thread, label %if.end97
 
 if.end97:                                         ; preds = %if.else88
   call void @qemu_iovec_reset(ptr noundef nonnull %qiov) #13
-  %20 = load i32, ptr %nb_bytes3, align 4
-  %conv99 = zext i32 %20 to i64
+  %22 = load i32, ptr %nb_bytes3, align 4
+  %conv99 = zext i32 %22 to i64
   call void @qemu_iovec_add(ptr noundef nonnull %qiov, ptr noundef %add.ptr76, i64 noundef %conv99) #13
+  %23 = load i64, ptr %m, align 8
+  %24 = load i32, ptr %cow_end, align 4
+  %call102 = call i32 @do_perform_cow_read(ptr noundef nonnull %bs, i64 noundef %23, i32 noundef %24, ptr noundef nonnull %qiov)
   br label %if.end103
 
 if.end103:                                        ; preds = %if.end97, %if.then83
-  %cow_end.sink = phi ptr [ %cow_end, %if.end97 ], [ %cow_start, %if.then83 ]
-  %21 = load i64, ptr %m, align 8
-  %22 = load i32, ptr %cow_end.sink, align 4
-  %call102 = call i32 @do_perform_cow_read(ptr noundef nonnull %bs, i64 noundef %21, i32 noundef %22, ptr noundef nonnull %qiov)
-  %cmp104 = icmp slt i32 %call102, 0
+  %ret.0 = phi i32 [ %call87, %if.then83 ], [ %call102, %if.end97 ]
+  %cmp104 = icmp slt i32 %ret.0, 0
   br i1 %cmp104, label %fail.thread, label %if.end107
 
 if.end107:                                        ; preds = %if.end103
   %encrypted = getelementptr inbounds i8, ptr %bs, i64 4
-  %23 = load i8, ptr %encrypted, align 4
-  %tobool108 = trunc i8 %23 to i1
+  %25 = load i8, ptr %encrypted, align 4
+  %tobool108 = trunc i8 %25 to i1
   br i1 %tobool108, label %if.then109, label %if.end139
 
 if.then109:                                       ; preds = %if.end107
   %alloc_offset = getelementptr inbounds i8, ptr %m, i64 8
-  %24 = load i64, ptr %alloc_offset, align 8
-  %25 = load i32, ptr %cow_start, align 4
-  %conv111 = zext i32 %25 to i64
-  %add112 = add i64 %24, %conv111
-  %26 = load i64, ptr %m, align 8
-  %add116 = add i64 %26, %conv111
-  %27 = load i32, ptr %nb_bytes, align 4
-  %conv118 = zext i32 %27 to i64
+  %26 = load i64, ptr %alloc_offset, align 8
+  %27 = load i32, ptr %cow_start, align 4
+  %conv111 = zext i32 %27 to i64
+  %add112 = add i64 %26, %conv111
+  %28 = load i64, ptr %m, align 8
+  %add116 = add i64 %28, %conv111
+  %29 = load i32, ptr %nb_bytes, align 4
+  %conv118 = zext i32 %29 to i64
   %call119 = call i32 @qcow2_co_encrypt(ptr noundef nonnull %bs, i64 noundef %add112, i64 noundef %add116, ptr noundef nonnull %call69, i64 noundef %conv118) #13
   %cmp120 = icmp slt i32 %call119, 0
   br i1 %cmp120, label %fail.thread, label %if.end123
 
 if.end123:                                        ; preds = %if.then109
-  %28 = load i64, ptr %alloc_offset, align 8
-  %29 = load i32, ptr %cow_end, align 4
-  %conv126 = zext i32 %29 to i64
-  %add127 = add i64 %28, %conv126
-  %30 = load i64, ptr %m, align 8
-  %add131 = add i64 %30, %conv126
-  %31 = load i32, ptr %nb_bytes3, align 4
-  %conv133 = zext i32 %31 to i64
+  %30 = load i64, ptr %alloc_offset, align 8
+  %31 = load i32, ptr %cow_end, align 4
+  %conv126 = zext i32 %31 to i64
+  %add127 = add i64 %30, %conv126
+  %32 = load i64, ptr %m, align 8
+  %add131 = add i64 %32, %conv126
+  %33 = load i32, ptr %nb_bytes3, align 4
+  %conv133 = zext i32 %33 to i64
   %call134 = call i32 @qcow2_co_encrypt(ptr noundef nonnull %bs, i64 noundef %add127, i64 noundef %add131, ptr noundef %add.ptr76, i64 noundef %conv133) #13
   %cmp135 = icmp slt i32 %call134, 0
   br i1 %cmp135, label %fail.thread, label %if.end139
 
 if.end139:                                        ; preds = %if.end123, %if.end107
-  %32 = load ptr, ptr %data_qiov, align 8
-  %tobool141.not = icmp eq ptr %32, null
+  %34 = load ptr, ptr %data_qiov, align 8
+  %tobool141.not = icmp eq ptr %34, null
   call void @qemu_iovec_reset(ptr noundef nonnull %qiov) #13
-  %33 = load i32, ptr %nb_bytes, align 4
+  %35 = load i32, ptr %nb_bytes, align 4
   br i1 %tobool141.not, label %if.else166, label %if.then142
 
 if.then142:                                       ; preds = %if.end139
-  %tobool144.not = icmp eq i32 %33, 0
+  %tobool144.not = icmp eq i32 %35, 0
   br i1 %tobool144.not, label %if.end148, label %if.then145
 
 if.then145:                                       ; preds = %if.then142
-  %conv147 = zext i32 %33 to i64
+  %conv147 = zext i32 %35 to i64
   call void @qemu_iovec_add(ptr noundef nonnull %qiov, ptr noundef nonnull %call69, i64 noundef %conv147) #13
   br label %if.end148
 
 if.end148:                                        ; preds = %if.then145, %if.then142
-  %34 = load ptr, ptr %data_qiov, align 8
+  %36 = load ptr, ptr %data_qiov, align 8
   %data_qiov_offset150 = getelementptr inbounds i8, ptr %m, i64 72
-  %35 = load i64, ptr %data_qiov_offset150, align 8
+  %37 = load i64, ptr %data_qiov_offset150, align 8
   %conv151 = zext i32 %sub to i64
-  call void @qemu_iovec_concat(ptr noundef nonnull %qiov, ptr noundef %34, i64 noundef %35, i64 noundef %conv151) #13
-  %36 = load i32, ptr %nb_bytes3, align 4
-  %tobool153.not = icmp eq i32 %36, 0
+  call void @qemu_iovec_concat(ptr noundef nonnull %qiov, ptr noundef %36, i64 noundef %37, i64 noundef %conv151) #13
+  %38 = load i32, ptr %nb_bytes3, align 4
+  %tobool153.not = icmp eq i32 %38, 0
   br i1 %tobool153.not, label %do.body, label %if.then154
 
 if.then154:                                       ; preds = %if.end148
-  %conv156 = zext i32 %36 to i64
+  %conv156 = zext i32 %38 to i64
   call void @qemu_iovec_add(ptr noundef nonnull %qiov, ptr noundef %add.ptr76, i64 noundef %conv156) #13
   br label %do.body
 
 do.body:                                          ; preds = %if.end148, %if.then154
   %file = getelementptr inbounds i8, ptr %bs, i64 16840
-  %37 = load ptr, ptr %file, align 8
-  %tobool158.not = icmp eq ptr %37, null
+  %39 = load ptr, ptr %file, align 8
+  %tobool158.not = icmp eq ptr %39, null
   br i1 %tobool158.not, label %do.end, label %if.then159
 
 if.then159:                                       ; preds = %do.body
-  %38 = load ptr, ptr %37, align 8
-  call void @bdrv_co_debug_event(ptr noundef %38, i32 noundef 12) #13
+  %40 = load ptr, ptr %39, align 8
+  call void @bdrv_co_debug_event(ptr noundef %40, i32 noundef 12) #13
   br label %do.end
 
 do.end:                                           ; preds = %do.body, %if.then159
-  %39 = load ptr, ptr %opaque, align 8
+  %41 = load ptr, ptr %opaque, align 8
   %size.i = getelementptr inbounds i8, ptr %qiov, i64 32
-  %40 = load i64, ptr %size.i, align 8
-  %cmp.i = icmp eq i64 %40, 0
+  %42 = load i64, ptr %size.i, align 8
+  %cmp.i = icmp eq i64 %42, 0
   br i1 %cmp.i, label %fail.thread134, label %if.end.i
 
 fail.thread134:                                   ; preds = %do.end
@@ -2362,83 +2365,83 @@ fail.thread134:                                   ; preds = %do.end
   br label %if.then185
 
 if.end.i:                                         ; preds = %do.end
-  %41 = load i32, ptr %cow_start, align 4
+  %43 = load i32, ptr %cow_start, align 4
   %alloc_offset163 = getelementptr inbounds i8, ptr %m, i64 8
-  %42 = load i64, ptr %alloc_offset163, align 8
-  %conv.i = zext i32 %41 to i64
-  %add.i = add i64 %42, %conv.i
-  %call.i = call i32 @qcow2_pre_write_overlap_check(ptr noundef nonnull %bs, i32 noundef 0, i64 noundef %add.i, i64 noundef %40, i1 noundef zeroext true) #13
+  %44 = load i64, ptr %alloc_offset163, align 8
+  %conv.i = zext i32 %43 to i64
+  %add.i = add i64 %44, %conv.i
+  %call.i = call i32 @qcow2_pre_write_overlap_check(ptr noundef nonnull %bs, i32 noundef 0, i64 noundef %add.i, i64 noundef %42, i1 noundef zeroext true) #13
   %cmp2.i = icmp slt i32 %call.i, 0
   br i1 %cmp2.i, label %fail.thread, label %do.body.i
 
 do.body.i:                                        ; preds = %if.end.i
-  %43 = load ptr, ptr %file, align 8
-  %tobool.not.i = icmp eq ptr %43, null
+  %45 = load ptr, ptr %file, align 8
+  %tobool.not.i = icmp eq ptr %45, null
   br i1 %tobool.not.i, label %do.end.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %do.body.i
-  %44 = load ptr, ptr %43, align 8
-  call void @bdrv_co_debug_event(ptr noundef %44, i32 noundef 17) #13
+  %46 = load ptr, ptr %45, align 8
+  call void @bdrv_co_debug_event(ptr noundef %46, i32 noundef 17) #13
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then6.i, %do.body.i
-  %data_file.i = getelementptr inbounds i8, ptr %39, i64 480
-  %45 = load ptr, ptr %data_file.i, align 8
-  %46 = load i64, ptr %size.i, align 8
-  %call13.i = call i32 @bdrv_co_pwritev(ptr noundef %45, i64 noundef %add.i, i64 noundef %46, ptr noundef nonnull %qiov, i32 noundef 0) #13
+  %data_file.i = getelementptr inbounds i8, ptr %41, i64 480
+  %47 = load ptr, ptr %data_file.i, align 8
+  %48 = load i64, ptr %size.i, align 8
+  %call13.i = call i32 @bdrv_co_pwritev(ptr noundef %47, i64 noundef %add.i, i64 noundef %48, ptr noundef nonnull %qiov, i32 noundef 0) #13
   %call13..i = call i32 @llvm.smin.i32(i32 %call13.i, i32 0)
   br label %fail
 
 if.else166:                                       ; preds = %if.end139
-  %conv168 = zext i32 %33 to i64
+  %conv168 = zext i32 %35 to i64
   call void @qemu_iovec_add(ptr noundef nonnull %qiov, ptr noundef nonnull %call69, i64 noundef %conv168) #13
   %alloc_offset169 = getelementptr inbounds i8, ptr %m, i64 8
-  %47 = load ptr, ptr %opaque, align 8
+  %49 = load ptr, ptr %opaque, align 8
   %size.i109 = getelementptr inbounds i8, ptr %qiov, i64 32
-  %48 = load i64, ptr %size.i109, align 8
-  %cmp.i110 = icmp eq i64 %48, 0
+  %50 = load i64, ptr %size.i109, align 8
+  %cmp.i110 = icmp eq i64 %50, 0
   br i1 %cmp.i110, label %if.end175, label %if.end.i111
 
 if.end.i111:                                      ; preds = %if.else166
-  %49 = load i32, ptr %cow_start, align 4
-  %50 = load i64, ptr %alloc_offset169, align 8
-  %conv.i112 = zext i32 %49 to i64
-  %add.i113 = add i64 %50, %conv.i112
-  %call.i114 = call i32 @qcow2_pre_write_overlap_check(ptr noundef nonnull %bs, i32 noundef 0, i64 noundef %add.i113, i64 noundef %48, i1 noundef zeroext true) #13
+  %51 = load i32, ptr %cow_start, align 4
+  %52 = load i64, ptr %alloc_offset169, align 8
+  %conv.i112 = zext i32 %51 to i64
+  %add.i113 = add i64 %52, %conv.i112
+  %call.i114 = call i32 @qcow2_pre_write_overlap_check(ptr noundef nonnull %bs, i32 noundef 0, i64 noundef %add.i113, i64 noundef %50, i1 noundef zeroext true) #13
   %cmp2.i115 = icmp slt i32 %call.i114, 0
   br i1 %cmp2.i115, label %fail.thread, label %do.body.i116
 
 do.body.i116:                                     ; preds = %if.end.i111
   %file.i117 = getelementptr inbounds i8, ptr %bs, i64 16840
-  %51 = load ptr, ptr %file.i117, align 8
-  %tobool.not.i118 = icmp eq ptr %51, null
+  %53 = load ptr, ptr %file.i117, align 8
+  %tobool.not.i118 = icmp eq ptr %53, null
   br i1 %tobool.not.i118, label %do_perform_cow_write.exit125, label %if.then6.i119
 
 if.then6.i119:                                    ; preds = %do.body.i116
-  %52 = load ptr, ptr %51, align 8
-  call void @bdrv_co_debug_event(ptr noundef %52, i32 noundef 17) #13
+  %54 = load ptr, ptr %53, align 8
+  call void @bdrv_co_debug_event(ptr noundef %54, i32 noundef 17) #13
   br label %do_perform_cow_write.exit125
 
 do_perform_cow_write.exit125:                     ; preds = %do.body.i116, %if.then6.i119
-  %data_file.i121 = getelementptr inbounds i8, ptr %47, i64 480
-  %53 = load ptr, ptr %data_file.i121, align 8
-  %54 = load i64, ptr %size.i109, align 8
-  %call13.i122 = call i32 @bdrv_co_pwritev(ptr noundef %53, i64 noundef %add.i113, i64 noundef %54, ptr noundef nonnull %qiov, i32 noundef 0) #13
+  %data_file.i121 = getelementptr inbounds i8, ptr %49, i64 480
+  %55 = load ptr, ptr %data_file.i121, align 8
+  %56 = load i64, ptr %size.i109, align 8
+  %call13.i122 = call i32 @bdrv_co_pwritev(ptr noundef %55, i64 noundef %add.i113, i64 noundef %56, ptr noundef nonnull %qiov, i32 noundef 0) #13
   %cmp172 = icmp slt i32 %call13.i122, 0
   br i1 %cmp172, label %fail.thread, label %if.end175
 
 if.end175:                                        ; preds = %if.else166, %do_perform_cow_write.exit125
   call void @qemu_iovec_reset(ptr noundef nonnull %qiov) #13
-  %55 = load i32, ptr %nb_bytes3, align 4
-  %conv177 = zext i32 %55 to i64
+  %57 = load i32, ptr %nb_bytes3, align 4
+  %conv177 = zext i32 %57 to i64
   call void @qemu_iovec_add(ptr noundef nonnull %qiov, ptr noundef %add.ptr76, i64 noundef %conv177) #13
-  %56 = load i64, ptr %alloc_offset169, align 8
-  %57 = load i32, ptr %cow_end, align 4
-  %call180 = call i32 @do_perform_cow_write(ptr noundef nonnull %bs, i64 noundef %56, i32 noundef %57, ptr noundef nonnull %qiov)
+  %58 = load i64, ptr %alloc_offset169, align 8
+  %59 = load i32, ptr %cow_end, align 4
+  %call180 = call i32 @do_perform_cow_write(ptr noundef nonnull %bs, i64 noundef %58, i32 noundef %59, ptr noundef nonnull %qiov)
   br label %fail
 
 fail.thread:                                      ; preds = %if.end103, %if.then109, %if.end123, %do_perform_cow_write.exit125, %if.else88, %if.end.i, %if.end.i111
-  %ret.1.ph = phi i32 [ %call.i, %if.end.i ], [ %call93, %if.else88 ], [ %call13.i122, %do_perform_cow_write.exit125 ], [ %call134, %if.end123 ], [ %call119, %if.then109 ], [ %call102, %if.end103 ], [ %call.i114, %if.end.i111 ]
+  %ret.1.ph = phi i32 [ %call.i, %if.end.i ], [ %call93, %if.else88 ], [ %call13.i122, %do_perform_cow_write.exit125 ], [ %call134, %if.end123 ], [ %call119, %if.then109 ], [ %ret.0, %if.end103 ], [ %call.i114, %if.end.i111 ]
   call void @qemu_co_mutex_lock(ptr noundef nonnull %lock) #13
   br label %if.end186
 
@@ -2450,8 +2453,8 @@ fail:                                             ; preds = %do.end.i, %if.end17
 
 if.then185:                                       ; preds = %fail.thread134, %fail
   %l2_table_cache = getelementptr inbounds i8, ptr %0, i64 80
-  %58 = load ptr, ptr %l2_table_cache, align 8
-  call void @qcow2_cache_depends_on_flush(ptr noundef %58) #13
+  %60 = load ptr, ptr %l2_table_cache, align 8
+  call void @qcow2_cache_depends_on_flush(ptr noundef %60) #13
   br label %if.end186
 
 if.end186:                                        ; preds = %fail.thread, %if.then185, %fail

@@ -31,25 +31,31 @@ if.end:                                           ; preds = %entry
   %distanceData.i = getelementptr inbounds i8, ptr %call, i64 304
   %1 = load ptr, ptr %distanceData.i, align 8
   %cmp = icmp eq ptr %1, null
+  br i1 %cmp, label %if.then8, label %lor.lhs.false
+
+lor.lhs.false:                                    ; preds = %if.end
   %regionToPartitions = getelementptr inbounds i8, ptr %call, i64 312
   %2 = load ptr, ptr %regionToPartitions, align 8
   %cmp3 = icmp eq ptr %2, null
-  %or.cond = select i1 %cmp, i1 true, i1 %cmp3
+  br i1 %cmp3, label %if.then8, label %lor.lhs.false4
+
+lor.lhs.false4:                                   ; preds = %lor.lhs.false
   %partitions = getelementptr inbounds i8, ptr %call, i64 320
   %3 = load ptr, ptr %partitions, align 8
   %cmp5 = icmp eq ptr %3, null
-  %or.cond9 = select i1 %or.cond, i1 true, i1 %cmp5
+  br i1 %cmp5, label %if.then8, label %lor.lhs.false6
+
+lor.lhs.false6:                                   ; preds = %lor.lhs.false4
   %distances = getelementptr inbounds i8, ptr %call, i64 344
   %4 = load ptr, ptr %distances, align 8
   %cmp7 = icmp eq ptr %4, null
-  %or.cond10 = select i1 %or.cond9, i1 true, i1 %cmp7
-  br i1 %or.cond10, label %if.then8, label %if.end9
+  br i1 %cmp7, label %if.then8, label %if.end9
 
-if.then8:                                         ; preds = %if.end
+if.then8:                                         ; preds = %lor.lhs.false6, %lor.lhs.false4, %lor.lhs.false, %if.end
   store i32 2, ptr %errorCode, align 4
   br label %return
 
-if.end9:                                          ; preds = %if.end
+if.end9:                                          ; preds = %lor.lhs.false6
   %call10 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 88) #9
   %new.isnull = icmp eq ptr %call10, null
   br i1 %new.isnull, label %if.then12, label %new.notnull
@@ -136,25 +142,31 @@ if.end.i3:                                        ; preds = %if.then4.i
   %distanceData.i.i = getelementptr inbounds i8, ptr %call.i, i64 304
   %3 = load ptr, ptr %distanceData.i.i, align 8
   %cmp.i4 = icmp eq ptr %3, null
+  br i1 %cmp.i4, label %if.then8.i5, label %lor.lhs.false.i
+
+lor.lhs.false.i:                                  ; preds = %if.end.i3
   %regionToPartitions.i = getelementptr inbounds i8, ptr %call.i, i64 312
   %4 = load ptr, ptr %regionToPartitions.i, align 8
   %cmp3.i = icmp eq ptr %4, null
-  %or.cond.i = select i1 %cmp.i4, i1 true, i1 %cmp3.i
+  br i1 %cmp3.i, label %if.then8.i5, label %lor.lhs.false4.i
+
+lor.lhs.false4.i:                                 ; preds = %lor.lhs.false.i
   %partitions.i = getelementptr inbounds i8, ptr %call.i, i64 320
   %5 = load ptr, ptr %partitions.i, align 8
   %cmp5.i = icmp eq ptr %5, null
-  %or.cond9.i = select i1 %or.cond.i, i1 true, i1 %cmp5.i
+  br i1 %cmp5.i, label %if.then8.i5, label %lor.lhs.false6.i
+
+lor.lhs.false6.i:                                 ; preds = %lor.lhs.false4.i
   %distances.i = getelementptr inbounds i8, ptr %call.i, i64 344
   %6 = load ptr, ptr %distances.i, align 8
   %cmp7.i = icmp eq ptr %6, null
-  %or.cond10.i = select i1 %or.cond9.i, i1 true, i1 %cmp7.i
-  br i1 %or.cond10.i, label %if.then8.i5, label %if.end9.i
+  br i1 %cmp7.i, label %if.then8.i5, label %if.end9.i
 
-if.then8.i5:                                      ; preds = %if.end.i3
+if.then8.i5:                                      ; preds = %lor.lhs.false6.i, %lor.lhs.false4.i, %lor.lhs.false.i, %if.end.i3
   store i32 2, ptr %errorCode, align 4
   br label %_ZN6icu_7514LocaleDistance18initLocaleDistanceER10UErrorCode.exit
 
-if.end9.i:                                        ; preds = %if.end.i3
+if.end9.i:                                        ; preds = %lor.lhs.false6.i
   %call10.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 88) #9
   %new.isnull.i = icmp eq ptr %call10.i, null
   br i1 %new.isnull.i, label %if.then12.i, label %new.notnull.i
@@ -1186,12 +1198,12 @@ if.then69:                                        ; preds = %if.end65
   br label %for.cond, !llvm.loop !8
 
 return.sink.split:                                ; preds = %if.then11, %if.end13
-  %pos_.i.i.sink = phi ptr [ %pos_.i.i, %if.end13 ], [ %pos_.i, %if.then11 ]
-  %21 = load ptr, ptr %pos_.i.i.sink, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %21, i64 1
-  %22 = load i8, ptr %21, align 1
-  %23 = lshr i8 %22, 1
-  %shr.i3.i = zext nneg i8 %23 to i32
+  %.sink91.in = phi ptr [ %pos_.i.i, %if.end13 ], [ %pos_.i, %if.then11 ]
+  %.sink91 = load ptr, ptr %.sink91.in, align 8
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %.sink91, i64 1
+  %21 = load i8, ptr %.sink91, align 1
+  %22 = lshr i8 %21, 1
+  %shr.i3.i = zext nneg i8 %22 to i32
   %call.i.i = tail call noundef i32 @_ZN6icu_759BytesTrie9readValueEPKhi(ptr noundef nonnull %incdec.ptr.i.i, i32 noundef %shr.i3.i)
   br label %return
 

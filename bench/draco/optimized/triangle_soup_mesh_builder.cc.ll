@@ -428,60 +428,63 @@ define void @_ZN5draco23TriangleSoupMeshBuilder8FinalizeEv(ptr dead_on_unwind no
   %6 = getelementptr inbounds i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(164) %4)
-  br i1 %8, label %9, label %38
+  br i1 %8, label %10, label %9
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr %3, align 8
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 40
-  %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(164) %10)
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
-  %15 = load ptr, ptr %14, align 8
-  %16 = load ptr, ptr %1, align 8
-  %.not = icmp eq ptr %15, %16
+  store ptr null, ptr %0, align 8
+  br label %39
+
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %3, align 8
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %12, i64 40
+  %14 = load ptr, ptr %13, align 8
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(164) %11)
+  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = load ptr, ptr %15, align 8
+  %17 = load ptr, ptr %1, align 8
+  %.not = icmp eq ptr %16, %17
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %9, %29
-  %17 = phi ptr [ %30, %29 ], [ %16, %9 ]
-  %18 = phi ptr [ %31, %29 ], [ %15, %9 ]
-  %.05 = phi i64 [ %32, %29 ], [ 0, %9 ]
-  %19 = getelementptr inbounds i8, ptr %17, i64 %.05
-  %20 = load i8, ptr %19, align 1
-  %21 = icmp sgt i8 %20, -1
-  br i1 %21, label %22, label %29
+.lr.ph:                                           ; preds = %10, %30
+  %18 = phi ptr [ %31, %30 ], [ %17, %10 ]
+  %19 = phi ptr [ %32, %30 ], [ %16, %10 ]
+  %.05 = phi i64 [ %33, %30 ], [ 0, %10 ]
+  %20 = getelementptr inbounds i8, ptr %18, i64 %.05
+  %21 = load i8, ptr %20, align 1
+  %22 = icmp sgt i8 %21, -1
+  br i1 %22, label %23, label %30
 
-22:                                               ; preds = %.lr.ph
-  %23 = load ptr, ptr %3, align 8
-  %24 = zext nneg i8 %20 to i32
-  %25 = getelementptr inbounds i8, ptr %23, i64 168
+23:                                               ; preds = %.lr.ph
+  %24 = load ptr, ptr %3, align 8
+  %25 = zext nneg i8 %21 to i32
+  %26 = getelementptr inbounds i8, ptr %24, i64 168
   %sext = shl i64 %.05, 32
-  %26 = load ptr, ptr %25, align 8
-  %27 = ashr exact i64 %sext, 30
-  %28 = getelementptr inbounds i8, ptr %26, i64 %27
-  store i32 %24, ptr %28, align 4
-  %.pre = load ptr, ptr %14, align 8
+  %27 = load ptr, ptr %26, align 8
+  %28 = ashr exact i64 %sext, 30
+  %29 = getelementptr inbounds i8, ptr %27, i64 %28
+  store i32 %25, ptr %29, align 4
+  %.pre = load ptr, ptr %15, align 8
   %.pre6 = load ptr, ptr %1, align 8
-  br label %29
+  br label %30
 
-29:                                               ; preds = %.lr.ph, %22
-  %30 = phi ptr [ %17, %.lr.ph ], [ %.pre6, %22 ]
-  %31 = phi ptr [ %18, %.lr.ph ], [ %.pre, %22 ]
-  %32 = add nuw i64 %.05, 1
-  %33 = ptrtoint ptr %31 to i64
-  %34 = ptrtoint ptr %30 to i64
-  %35 = sub i64 %33, %34
-  %36 = icmp ult i64 %32, %35
-  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !4
+30:                                               ; preds = %.lr.ph, %23
+  %31 = phi ptr [ %18, %.lr.ph ], [ %.pre6, %23 ]
+  %32 = phi ptr [ %19, %.lr.ph ], [ %.pre, %23 ]
+  %33 = add nuw i64 %.05, 1
+  %34 = ptrtoint ptr %32 to i64
+  %35 = ptrtoint ptr %31 to i64
+  %36 = sub i64 %34, %35
+  %37 = icmp ult i64 %33, %36
+  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %29, %9
-  %37 = load i64, ptr %3, align 8
-  store i64 %37, ptr %0, align 8
-  br label %38
+._crit_edge:                                      ; preds = %30, %10
+  %38 = load i64, ptr %3, align 8
+  store i64 %38, ptr %0, align 8
+  store ptr null, ptr %3, align 8
+  br label %39
 
-38:                                               ; preds = %2, %._crit_edge
-  %.sink = phi ptr [ %3, %._crit_edge ], [ %0, %2 ]
-  store ptr null, ptr %.sink, align 8
+39:                                               ; preds = %._crit_edge, %9
   ret void
 }
 

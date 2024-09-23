@@ -10714,7 +10714,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
 .split:                                           ; preds = %29
   %30 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %30, align 8
-  br label %.sink.split
+  store i8 0, ptr %6, align 1
+  br label %39
 
 .split12:                                         ; preds = %.thread, %29
   %31 = phi ptr [ %25, %.thread ], [ %6, %29 ]
@@ -10736,14 +10737,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit: ; pre
   store i64 %5, ptr %36, align 8
   %37 = load ptr, ptr %0, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 %5
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %.split, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit
-  %.sink = phi ptr [ %38, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit ], [ %6, %.split ]
-  store i8 0, ptr %.sink, align 1
+  store i8 0, ptr %38, align 1
   br label %39
 
-39:                                               ; preds = %.sink.split, %2
+39:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit, %.split, %2
   ret void
 }
 
@@ -15439,6 +15436,7 @@ _ZNSt7__cxx114listIN3nix5TraceESaIS2_EEC2EOS4_.exit: ; preds = %23, %24
   store ptr null, ptr %31, align 8
   store ptr %34, ptr %38, align 8
   store ptr %34, ptr %41, align 8
+  store i64 0, ptr %45, align 8
   br label %_ZN3nix11SuggestionsC2EOS0_.exit
 
 48:                                               ; preds = %_ZNSt7__cxx114listIN3nix5TraceESaIS2_EEC2EOS4_.exit
@@ -15450,11 +15448,10 @@ _ZNSt7__cxx114listIN3nix5TraceESaIS2_EEC2EOS4_.exit: ; preds = %23, %24
   %51 = getelementptr inbounds i8, ptr %0, i64 312
   store ptr %30, ptr %51, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 320
+  store i64 0, ptr %52, align 8
   br label %_ZN3nix11SuggestionsC2EOS0_.exit
 
 _ZN3nix11SuggestionsC2EOS0_.exit:                 ; preds = %33, %48
-  %.sink.i.i.i.i.i = phi ptr [ %52, %48 ], [ %45, %33 ]
-  store i64 0, ptr %.sink.i.i.i.i.i, align 8
   ret void
 }
 

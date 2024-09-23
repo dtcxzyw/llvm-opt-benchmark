@@ -809,13 +809,13 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i: ; pre
   br label %50
 
 50:                                               ; preds = %45, %40
-  %.sroa.0.0.in.i.sink.i = phi ptr [ %.sroa.0.0.in.i.i, %45 ], [ %41, %40 ]
-  %.sroa.0.0.i.i = load i64, ptr %.sroa.0.0.in.i.sink.i, align 8
-  %51 = and i64 %.sroa.0.0.i.i, -16
+  %.sroa.0.0.i.sink148.in.i = phi ptr [ %.sroa.0.0.in.i.i, %45 ], [ %41, %40 ]
+  %.sroa.0.0.i.sink148.i = load i64, ptr %.sroa.0.0.i.sink148.in.i, align 8
+  %51 = and i64 %.sroa.0.0.i.sink148.i, -16
   %52 = inttoptr i64 %51 to ptr
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load i64, ptr %53, align 8
-  %55 = and i64 %.sroa.0.0.i.i, 7
+  %55 = and i64 %.sroa.0.0.i.sink148.i, 7
   %56 = or i64 %55, %54
   %57 = tail call noundef ptr @_ZNK5clang10ASTContext14getAsArrayTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23096) %25, i64 %56) #17
   %.not.i.i.i.i = icmp eq ptr %57, null
@@ -2421,16 +2421,14 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(13) ptr @_ZN5
   %3 = alloca %"class.llvm::APInt", align 8
   %4 = alloca %"class.llvm::APSInt", align 8
   %.sroa.0.0.extract.trunc = trunc i64 %1 to i32
-  %.sroa.2.0.extract.shift = lshr i64 %1, 32
-  %.sroa.2.0.extract.trunc = trunc i64 %.sroa.2.0.extract.shift to i8
+  %5 = and i64 %1, 4294967296
+  %.not = icmp eq i64 %5, 0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
-  %5 = trunc i64 %.sroa.2.0.extract.shift to i1
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !29
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %.sroa.0.0.extract.trunc, ptr %6, align 8, !noalias !35
+  store i32 %.sroa.0.0.extract.trunc, ptr %6, align 8, !noalias !29
   %7 = icmp ult i32 %.sroa.0.0.extract.trunc, 65
-  br i1 %5, label %8, label %16
+  br i1 %.not, label %16, label %8
 
 8:                                                ; preds = %2
   br i1 %7, label %9, label %15
@@ -2441,80 +2439,89 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(13) ptr @_ZN5
   %12 = xor i64 %11, 63
   %13 = lshr i64 -1, %12
   %14 = icmp eq i32 %.sroa.0.0.extract.trunc, 0
-  %spec.store.select.i.i.i.i.i.i = select i1 %14, i64 0, i64 %13
-  store i64 %spec.store.select.i.i.i.i.i.i, ptr %3, align 8, !alias.scope !36, !noalias !35
-  br label %_ZNK5clang4ento10APSIntType11getMaxValueEv.exit
+  %spec.store.select.i.i.i.i.i = select i1 %14, i64 0, i64 %13
+  store i64 %spec.store.select.i.i.i.i.i, ptr %3, align 8, !alias.scope !32, !noalias !29
+  br label %_ZN4llvm6APSInt11getMaxValueEjb.exit
 
 15:                                               ; preds = %8
-  call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %3, i64 noundef -1, i1 noundef zeroext true) #17, !noalias !35
-  br label %_ZNK5clang4ento10APSIntType11getMaxValueEv.exit
+  call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %3, i64 noundef -1, i1 noundef zeroext true) #17, !noalias !29
+  br label %_ZN4llvm6APSInt11getMaxValueEjb.exit
 
 16:                                               ; preds = %2
-  br i1 %7, label %_ZN4llvm5APInt10getAllOnesEj.exit.thread.i.i.i, label %_ZN4llvm5APInt10getAllOnesEj.exit.i.i.i
+  br i1 %7, label %_ZN4llvm5APInt10getAllOnesEj.exit.thread.i.i, label %_ZN4llvm5APInt10getAllOnesEj.exit.i.i
 
-_ZN4llvm5APInt10getAllOnesEj.exit.thread.i.i.i:   ; preds = %16
+_ZN4llvm5APInt10getAllOnesEj.exit.thread.i.i:     ; preds = %16
   %17 = add nuw nsw i32 %.sroa.0.0.extract.trunc, 63
   %18 = and i32 %17, 63
   %19 = xor i32 %18, 63
   %20 = zext nneg i32 %19 to i64
   %21 = lshr i64 -1, %20
   %22 = icmp eq i32 %.sroa.0.0.extract.trunc, 0
-  %spec.store.select.i.i.i.i6.i.i = select i1 %22, i64 0, i64 %21
-  store i64 %spec.store.select.i.i.i.i6.i.i, ptr %3, align 8, !alias.scope !41, !noalias !35
-  br label %_ZN4llvm5APInt17getSignedMaxValueEj.exit.i.i
+  %spec.store.select.i.i.i.i6.i = select i1 %22, i64 0, i64 %21
+  %23 = zext nneg i32 %18 to i64
+  %24 = shl nuw i64 1, %23
+  %25 = xor i64 %24, -1
+  br label %32
 
-_ZN4llvm5APInt10getAllOnesEj.exit.i.i.i:          ; preds = %16
-  call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %3, i64 noundef -1, i1 noundef zeroext true) #17, !noalias !35
-  %.pre.i.i.i = load i32, ptr %6, align 8, !alias.scope !46, !noalias !35
-  %.pre2.i.i.i = load ptr, ptr %3, align 8, !alias.scope !46, !noalias !35
-  %.pre.fr.i.i.i = freeze i32 %.pre.i.i.i
-  %23 = icmp ult i32 %.pre.fr.i.i.i, 65
-  %24 = add i32 %.sroa.0.0.extract.trunc, -1
-  %25 = lshr i32 %24, 6
-  %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds i64, ptr %.pre2.i.i.i, i64 %26
-  %spec.select.i.i.i = select i1 %23, ptr %3, ptr %27
-  %.pre.i.i = load i64, ptr %spec.select.i.i.i, align 8, !noalias !35
-  %.pre8.i.i = and i32 %24, 63
-  br label %_ZN4llvm5APInt17getSignedMaxValueEj.exit.i.i
+_ZN4llvm5APInt10getAllOnesEj.exit.i.i:            ; preds = %16
+  call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %3, i64 noundef -1, i1 noundef zeroext true) #17, !noalias !29
+  %.pre.i.i = load i32, ptr %6, align 8, !alias.scope !37, !noalias !29
+  %26 = icmp ult i32 %.pre.i.i, 65
+  %27 = add i32 %.sroa.0.0.extract.trunc, -1
+  %28 = and i32 %27, 63
+  %29 = zext nneg i32 %28 to i64
+  %30 = shl nuw i64 1, %29
+  %31 = xor i64 %30, -1
+  br i1 %26, label %_ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge.i, label %36
 
-_ZN4llvm5APInt17getSignedMaxValueEj.exit.i.i:     ; preds = %_ZN4llvm5APInt10getAllOnesEj.exit.i.i.i, %_ZN4llvm5APInt10getAllOnesEj.exit.thread.i.i.i
-  %.pn.in.i.pre-phi.i.i = phi i32 [ %18, %_ZN4llvm5APInt10getAllOnesEj.exit.thread.i.i.i ], [ %.pre8.i.i, %_ZN4llvm5APInt10getAllOnesEj.exit.i.i.i ]
-  %28 = phi i64 [ %spec.store.select.i.i.i.i6.i.i, %_ZN4llvm5APInt10getAllOnesEj.exit.thread.i.i.i ], [ %.pre.i.i, %_ZN4llvm5APInt10getAllOnesEj.exit.i.i.i ]
-  %29 = phi ptr [ %3, %_ZN4llvm5APInt10getAllOnesEj.exit.thread.i.i.i ], [ %spec.select.i.i.i, %_ZN4llvm5APInt10getAllOnesEj.exit.i.i.i ]
-  %.pn.i.i.i = zext nneg i32 %.pn.in.i.pre-phi.i.i to i64
-  %.in.i.i.i = shl nuw i64 1, %.pn.i.i.i
-  %30 = xor i64 %.in.i.i.i, -1
-  %31 = and i64 %28, %30
-  store i64 %31, ptr %29, align 8, !noalias !35
-  br label %_ZNK5clang4ento10APSIntType11getMaxValueEv.exit
+_ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge.i: ; preds = %_ZN4llvm5APInt10getAllOnesEj.exit.i.i
+  %.pre.i = load i64, ptr %3, align 8, !alias.scope !37, !noalias !29
+  br label %32
 
-_ZNK5clang4ento10APSIntType11getMaxValueEv.exit:  ; preds = %9, %15, %_ZN4llvm5APInt17getSignedMaxValueEj.exit.i.i
-  %32 = and i8 %.sroa.2.0.extract.trunc, 1
-  %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %34 = load i32, ptr %6, align 8, !noalias !35
-  store i32 %34, ptr %33, align 8, !alias.scope !35
-  %35 = load i64, ptr %3, align 8, !noalias !35
-  store i64 %35, ptr %4, align 8, !alias.scope !35
-  %36 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i8 %32, ptr %36, align 4, !alias.scope !35
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !29
-  %37 = call noundef nonnull align 8 dereferenceable(13) ptr @_ZN5clang4ento17BasicValueFactory8getValueERKN4llvm6APSIntE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(13) %4) #17
-  %38 = load i32, ptr %33, align 8
-  %39 = icmp ugt i32 %38, 64
-  br i1 %39, label %40, label %_ZN4llvm6APSIntD2Ev.exit
+32:                                               ; preds = %_ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge.i, %_ZN4llvm5APInt10getAllOnesEj.exit.thread.i.i
+  %33 = phi i64 [ %spec.store.select.i.i.i.i6.i, %_ZN4llvm5APInt10getAllOnesEj.exit.thread.i.i ], [ %.pre.i, %_ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge.i ]
+  %34 = phi i64 [ %25, %_ZN4llvm5APInt10getAllOnesEj.exit.thread.i.i ], [ %31, %_ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge.i ]
+  %35 = and i64 %34, %33
+  store i64 %35, ptr %3, align 8, !alias.scope !37, !noalias !29
+  br label %_ZN4llvm6APSInt11getMaxValueEjb.exit
 
-40:                                               ; preds = %_ZNK5clang4ento10APSIntType11getMaxValueEv.exit
-  %41 = load ptr, ptr %4, align 8
-  %42 = icmp eq ptr %41, null
-  br i1 %42, label %_ZN4llvm6APSIntD2Ev.exit, label %43
+36:                                               ; preds = %_ZN4llvm5APInt10getAllOnesEj.exit.i.i
+  %37 = load ptr, ptr %3, align 8, !alias.scope !37, !noalias !29
+  %38 = lshr i32 %27, 6
+  %39 = zext nneg i32 %38 to i64
+  %40 = getelementptr inbounds i64, ptr %37, i64 %39
+  %41 = load i64, ptr %40, align 8, !noalias !29
+  %42 = and i64 %41, %31
+  store i64 %42, ptr %40, align 8, !noalias !29
+  br label %_ZN4llvm6APSInt11getMaxValueEjb.exit
 
-43:                                               ; preds = %40
-  call void @_ZdaPv(ptr noundef nonnull %41) #19
+_ZN4llvm6APSInt11getMaxValueEjb.exit:             ; preds = %9, %15, %32, %36
+  %.lobit = lshr exact i64 %5, 32
+  %43 = trunc nuw nsw i64 %.lobit to i8
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %45 = load i32, ptr %6, align 8, !noalias !29
+  store i32 %45, ptr %44, align 8, !alias.scope !29
+  %46 = load i64, ptr %3, align 8, !noalias !29
+  store i64 %46, ptr %4, align 8, !alias.scope !29
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  store i8 %43, ptr %47, align 4, !alias.scope !29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  %48 = call noundef nonnull align 8 dereferenceable(13) ptr @_ZN5clang4ento17BasicValueFactory8getValueERKN4llvm6APSIntE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(13) %4) #17
+  %49 = load i32, ptr %44, align 8
+  %50 = icmp ugt i32 %49, 64
+  br i1 %50, label %51, label %_ZN4llvm6APSIntD2Ev.exit
+
+51:                                               ; preds = %_ZN4llvm6APSInt11getMaxValueEjb.exit
+  %52 = load ptr, ptr %4, align 8
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %_ZN4llvm6APSIntD2Ev.exit, label %54
+
+54:                                               ; preds = %51
+  call void @_ZdaPv(ptr noundef nonnull %52) #19
   br label %_ZN4llvm6APSIntD2Ev.exit
 
-_ZN4llvm6APSIntD2Ev.exit:                         ; preds = %_ZNK5clang4ento10APSIntType11getMaxValueEv.exit, %40, %43
-  ret ptr %37
+_ZN4llvm6APSIntD2Ev.exit:                         ; preds = %_ZN4llvm6APSInt11getMaxValueEjb.exit, %51, %54
+  ret ptr %48
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2931,20 +2938,13 @@ attributes #20 = { nounwind willreturn memory(read) }
 !27 = distinct !{!27, !28, !"_ZNK5clang12ProgramPoint7withTagEPKNS_15ProgramPointTagE: argument 0"}
 !28 = distinct !{!28, !"_ZNK5clang12ProgramPoint7withTagEPKNS_15ProgramPointTagE"}
 !29 = !{!30}
-!30 = distinct !{!30, !31, !"_ZNK5clang4ento10APSIntType11getMaxValueEv: argument 0"}
-!31 = distinct !{!31, !"_ZNK5clang4ento10APSIntType11getMaxValueEv"}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZN4llvm6APSInt11getMaxValueEjb: argument 0"}
-!34 = distinct !{!34, !"_ZN4llvm6APSInt11getMaxValueEjb"}
-!35 = !{!33, !30}
-!36 = !{!37, !39}
-!37 = distinct !{!37, !38, !"_ZN4llvm5APInt10getAllOnesEj: argument 0"}
-!38 = distinct !{!38, !"_ZN4llvm5APInt10getAllOnesEj"}
-!39 = distinct !{!39, !40, !"_ZN4llvm5APInt11getMaxValueEj: argument 0"}
-!40 = distinct !{!40, !"_ZN4llvm5APInt11getMaxValueEj"}
-!41 = !{!42, !44}
-!42 = distinct !{!42, !43, !"_ZN4llvm5APInt10getAllOnesEj: argument 0"}
-!43 = distinct !{!43, !"_ZN4llvm5APInt10getAllOnesEj"}
-!44 = distinct !{!44, !45, !"_ZN4llvm5APInt17getSignedMaxValueEj: argument 0"}
-!45 = distinct !{!45, !"_ZN4llvm5APInt17getSignedMaxValueEj"}
-!46 = !{!44}
+!30 = distinct !{!30, !31, !"_ZN4llvm6APSInt11getMaxValueEjb: argument 0"}
+!31 = distinct !{!31, !"_ZN4llvm6APSInt11getMaxValueEjb"}
+!32 = !{!33, !35}
+!33 = distinct !{!33, !34, !"_ZN4llvm5APInt10getAllOnesEj: argument 0"}
+!34 = distinct !{!34, !"_ZN4llvm5APInt10getAllOnesEj"}
+!35 = distinct !{!35, !36, !"_ZN4llvm5APInt11getMaxValueEj: argument 0"}
+!36 = distinct !{!36, !"_ZN4llvm5APInt11getMaxValueEj"}
+!37 = !{!38}
+!38 = distinct !{!38, !39, !"_ZN4llvm5APInt17getSignedMaxValueEj: argument 0"}
+!39 = distinct !{!39, !"_ZN4llvm5APInt17getSignedMaxValueEj"}

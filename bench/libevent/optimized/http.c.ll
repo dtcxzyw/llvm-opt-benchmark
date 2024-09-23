@@ -426,17 +426,17 @@ do.body.i:                                        ; preds = %sw.bb2.i
 
 if.then3.i:                                       ; preds = %do.body.i
   %tqe_prev8.i = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %6, ptr %tqe_prev8.i, align 8
   br label %if.end.i
 
 if.else.i:                                        ; preds = %do.body.i
   %evcon.i = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load ptr, ptr %evcon.i, align 8
   %tqh_last.i = getelementptr inbounds i8, ptr %7, i64 304
+  store ptr %6, ptr %tqh_last.i, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %if.then3.i
-  %tqh_last.sink.i = phi ptr [ %tqh_last.i, %if.else.i ], [ %tqe_prev8.i, %if.then3.i ]
-  store ptr %6, ptr %tqh_last.sink.i, align 8
   %8 = load ptr, ptr %1, align 8
   store ptr %8, ptr %6, align 8
   %evcon15.i = getelementptr inbounds i8, ptr %1, i64 16
@@ -497,10 +497,19 @@ if.end11:                                         ; preds = %if.end4, %if.then8
   %cmp.not.i20 = icmp eq ptr %16, null
   %tqe_prev7.i = getelementptr inbounds i8, ptr %1, i64 8
   %17 = load ptr, ptr %tqe_prev7.i, align 8
-  %tqh_last.i21 = getelementptr inbounds i8, ptr %evcon, i64 304
+  br i1 %cmp.not.i20, label %if.else.i22, label %if.then.i
+
+if.then.i:                                        ; preds = %if.end11
   %tqe_prev5.i = getelementptr inbounds i8, ptr %16, i64 8
-  %tqh_last.sink.i22 = select i1 %cmp.not.i20, ptr %tqh_last.i21, ptr %tqe_prev5.i
-  store ptr %17, ptr %tqh_last.sink.i22, align 8
+  store ptr %17, ptr %tqe_prev5.i, align 8
+  br label %if.end.i21
+
+if.else.i22:                                      ; preds = %if.end11
+  %tqh_last.i23 = getelementptr inbounds i8, ptr %evcon, i64 304
+  store ptr %17, ptr %tqh_last.i23, align 8
+  br label %if.end.i21
+
+if.end.i21:                                       ; preds = %if.else.i22, %if.then.i
   %18 = load ptr, ptr %1, align 8
   store ptr %18, ptr %17, align 8
   %flags.i.i = getelementptr inbounds i8, ptr %1, i64 24
@@ -509,11 +518,11 @@ if.end11:                                         ; preds = %if.end4, %if.then8
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.then.i.i, label %evhttp_request_free_.exit
 
-if.then.i.i:                                      ; preds = %if.end11
+if.then.i.i:                                      ; preds = %if.end.i21
   tail call void @evhttp_request_free(ptr noundef nonnull %1)
   br label %evhttp_request_free_.exit
 
-evhttp_request_free_.exit:                        ; preds = %if.end11, %if.then.i.i
+evhttp_request_free_.exit:                        ; preds = %if.end.i21, %if.then.i.i
   tail call void @evhttp_connection_reset_(ptr noundef nonnull %evcon, i32 noundef 1)
   %20 = load ptr, ptr %requests, align 8
   %cmp14.not = icmp eq ptr %20, null
@@ -595,9 +604,18 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %cmp.not.i = icmp eq ptr %5, null
   %tqe_prev7.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %tqe_prev7.i, align 8
+  br i1 %cmp.not.i, label %if.else.i, label %if.then.i
+
+if.then.i:                                        ; preds = %while.body
   %tqe_prev5.i = getelementptr inbounds i8, ptr %5, i64 8
-  %tqh_last.sink.i = select i1 %cmp.not.i, ptr %tqh_last.i, ptr %tqe_prev5.i
-  store ptr %6, ptr %tqh_last.sink.i, align 8
+  store ptr %6, ptr %tqe_prev5.i, align 8
+  br label %if.end.i
+
+if.else.i:                                        ; preds = %while.body
+  store ptr %6, ptr %tqh_last.i, align 8
+  br label %if.end.i
+
+if.end.i:                                         ; preds = %if.else.i, %if.then.i
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
   %flags.i.i = getelementptr inbounds i8, ptr %4, i64 24
@@ -606,11 +624,11 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.then.i.i, label %evhttp_request_free_.exit
 
-if.then.i.i:                                      ; preds = %while.body
+if.then.i.i:                                      ; preds = %if.end.i
   tail call void @evhttp_request_free(ptr noundef nonnull %4)
   br label %evhttp_request_free_.exit
 
-evhttp_request_free_.exit:                        ; preds = %while.body, %if.then.i.i
+evhttp_request_free_.exit:                        ; preds = %if.end.i, %if.then.i.i
   %9 = load ptr, ptr %requests, align 8
   %cmp2.not = icmp eq ptr %9, null
   br i1 %cmp2.not, label %while.end, label %while.body, !llvm.loop !7
@@ -626,10 +644,19 @@ if.then4:                                         ; preds = %while.end
   %cmp6.not = icmp eq ptr %11, null
   %tqe_prev14 = getelementptr inbounds i8, ptr %evcon, i64 8
   %12 = load ptr, ptr %tqe_prev14, align 8
-  %tqh_last = getelementptr inbounds i8, ptr %10, i64 56
+  br i1 %cmp6.not, label %if.else, label %if.then7
+
+if.then7:                                         ; preds = %if.then4
   %tqe_prev12 = getelementptr inbounds i8, ptr %11, i64 8
-  %tqh_last.sink = select i1 %cmp6.not, ptr %tqh_last, ptr %tqe_prev12
-  store ptr %12, ptr %tqh_last.sink, align 8
+  store ptr %12, ptr %tqe_prev12, align 8
+  br label %if.end15
+
+if.else:                                          ; preds = %if.then4
+  %tqh_last = getelementptr inbounds i8, ptr %10, i64 56
+  store ptr %12, ptr %tqh_last, align 8
+  br label %if.end15
+
+if.end15:                                         ; preds = %if.else, %if.then7
   %13 = load ptr, ptr %evcon, align 8
   store ptr %13, ptr %12, align 8
   %connection_cnt = getelementptr inbounds i8, ptr %10, i64 84
@@ -638,7 +665,7 @@ if.then4:                                         ; preds = %while.end
   store i32 %dec, ptr %connection_cnt, align 4
   br label %if.end20
 
-if.end20:                                         ; preds = %if.then4, %while.end
+if.end20:                                         ; preds = %if.end15, %while.end
   %retry_ev = getelementptr inbounds i8, ptr %evcon, i64 24
   %call21 = tail call i32 @event_initialized(ptr noundef nonnull %retry_ev) #19
   %tobool22.not = icmp eq i32 %call21, 0
@@ -976,17 +1003,30 @@ define void @evhttp_clear_headers(ptr nocapture noundef %headers) local_unnamed_
 entry:
   %header.012 = load ptr, ptr %headers, align 8
   %cmp.not13 = icmp eq ptr %header.012, null
-  br i1 %cmp.not13, label %for.end, label %do.body
+  br i1 %cmp.not13, label %for.end, label %do.body.lr.ph
 
-do.body:                                          ; preds = %entry, %do.body
-  %header.014 = phi ptr [ %header.0, %do.body ], [ %header.012, %entry ]
+do.body.lr.ph:                                    ; preds = %entry
+  %tqh_last = getelementptr inbounds i8, ptr %headers, i64 8
+  br label %do.body
+
+do.body:                                          ; preds = %do.body.lr.ph, %if.end
+  %header.014 = phi ptr [ %header.012, %do.body.lr.ph ], [ %header.0, %if.end ]
   %0 = load ptr, ptr %header.014, align 8
   %cmp1.not = icmp eq ptr %0, null
   %tqe_prev8 = getelementptr inbounds i8, ptr %header.014, i64 8
   %1 = load ptr, ptr %tqe_prev8, align 8
-  %tqh_last.sink.v = select i1 %cmp1.not, ptr %headers, ptr %0
-  %tqh_last.sink = getelementptr inbounds i8, ptr %tqh_last.sink.v, i64 8
-  store ptr %1, ptr %tqh_last.sink, align 8
+  br i1 %cmp1.not, label %if.else, label %if.then
+
+if.then:                                          ; preds = %do.body
+  %tqe_prev6 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %1, ptr %tqe_prev6, align 8
+  br label %if.end
+
+if.else:                                          ; preds = %do.body
+  store ptr %1, ptr %tqh_last, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then
   %2 = load ptr, ptr %header.014, align 8
   store ptr %2, ptr %1, align 8
   %key = getelementptr inbounds i8, ptr %header.014, i64 16
@@ -1000,7 +1040,7 @@ do.body:                                          ; preds = %entry, %do.body
   %cmp.not = icmp eq ptr %header.0, null
   br i1 %cmp.not, label %for.end, label %do.body, !llvm.loop !9
 
-for.end:                                          ; preds = %do.body, %entry
+for.end:                                          ; preds = %if.end, %entry
   ret void
 }
 
@@ -3074,20 +3114,29 @@ while.body.lr.ph:                                 ; preds = %do.body22
   %tqh_last41 = getelementptr inbounds i8, ptr %evcon, i64 304
   br label %while.body
 
-while.cond59.preheader:                           ; preds = %while.body
+while.cond59.preheader:                           ; preds = %if.end42
   %.pre = load ptr, ptr %requests, align 8
   %cmp61.not42 = icmp eq ptr %.pre, null
   br i1 %cmp61.not42, label %land.lhs.true, label %while.body62
 
-while.body:                                       ; preds = %while.body.lr.ph, %while.body
-  %10 = phi ptr [ %9, %while.body.lr.ph ], [ %15, %while.body ]
+while.body:                                       ; preds = %while.body.lr.ph, %if.end42
+  %10 = phi ptr [ %9, %while.body.lr.ph ], [ %15, %if.end42 ]
   %11 = load ptr, ptr %10, align 8
   %cmp31.not = icmp eq ptr %11, null
   %tqe_prev39 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load ptr, ptr %tqe_prev39, align 8
+  br i1 %cmp31.not, label %if.else, label %if.then32
+
+if.then32:                                        ; preds = %while.body
   %tqe_prev37 = getelementptr inbounds i8, ptr %11, i64 8
-  %tqh_last41.sink = select i1 %cmp31.not, ptr %tqh_last41, ptr %tqe_prev37
-  store ptr %12, ptr %tqh_last41.sink, align 8
+  store ptr %12, ptr %tqe_prev37, align 8
+  br label %if.end42
+
+if.else:                                          ; preds = %while.body
+  store ptr %12, ptr %tqh_last41, align 8
+  br label %if.end42
+
+if.end42:                                         ; preds = %if.else, %if.then32
   %13 = load ptr, ptr %10, align 8
   %tqe_prev46 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %13, ptr %12, align 8
@@ -3106,9 +3155,18 @@ while.body62:                                     ; preds = %while.cond59.prehea
   %cmp68.not = icmp eq ptr %17, null
   %tqe_prev78 = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load ptr, ptr %tqe_prev78, align 8
+  br i1 %cmp68.not, label %if.else76, label %if.then69
+
+if.then69:                                        ; preds = %while.body62
   %tqe_prev75 = getelementptr inbounds i8, ptr %17, i64 8
-  %tqh_last.sink = select i1 %cmp68.not, ptr %tqh_last, ptr %tqe_prev75
-  store ptr %18, ptr %tqh_last.sink, align 8
+  store ptr %18, ptr %tqe_prev75, align 8
+  br label %if.end80
+
+if.else76:                                        ; preds = %while.body62
+  store ptr %18, ptr %tqh_last, align 8
+  br label %if.end80
+
+if.end80:                                         ; preds = %if.else76, %if.then69
   %19 = load ptr, ptr %16, align 8
   store ptr %19, ptr %18, align 8
   %evcon86 = getelementptr inbounds i8, ptr %16, i64 16
@@ -3124,11 +3182,11 @@ while.body62:                                     ; preds = %while.cond59.prehea
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.then.i, label %evhttp_request_free_auto.exit
 
-if.then.i:                                        ; preds = %while.body62
+if.then.i:                                        ; preds = %if.end80
   call void @evhttp_request_free(ptr noundef nonnull %16)
   br label %evhttp_request_free_auto.exit
 
-evhttp_request_free_auto.exit:                    ; preds = %while.body62, %if.then.i
+evhttp_request_free_auto.exit:                    ; preds = %if.end80, %if.then.i
   %23 = load ptr, ptr %requests, align 8
   %cmp61.not = icmp eq ptr %23, null
   br i1 %cmp61.not, label %while.end87, label %while.body62, !llvm.loop !18
@@ -3235,9 +3293,18 @@ do.body34:                                        ; preds = %if.then30
   %7 = load ptr, ptr %req, align 8
   %cmp37.not = icmp eq ptr %7, null
   %8 = load ptr, ptr %tqe_prev, align 8
+  br i1 %cmp37.not, label %if.else, label %if.then38
+
+if.then38:                                        ; preds = %do.body34
   %tqe_prev44 = getelementptr inbounds i8, ptr %7, i64 8
-  %tqh_last.sink = select i1 %cmp37.not, ptr %tqh_last, ptr %tqe_prev44
-  store ptr %8, ptr %tqh_last.sink, align 8
+  store ptr %8, ptr %tqe_prev44, align 8
+  br label %if.end49
+
+if.else:                                          ; preds = %do.body34
+  store ptr %8, ptr %tqh_last, align 8
+  br label %if.end49
+
+if.end49:                                         ; preds = %if.else, %if.then38
   %9 = load ptr, ptr %req, align 8
   store ptr %9, ptr %8, align 8
   br label %return
@@ -3251,8 +3318,8 @@ if.then59:                                        ; preds = %if.end56
   tail call fastcc void @evhttp_request_dispatch(ptr noundef nonnull %evcon)
   br label %return
 
-return:                                           ; preds = %if.then.i, %if.then6, %if.end56, %if.then59, %if.then30, %do.body34, %do.end
-  %retval.0 = phi i32 [ 0, %do.end ], [ -1, %do.body34 ], [ 0, %if.then30 ], [ 0, %if.then59 ], [ 0, %if.end56 ], [ -1, %if.then6 ], [ -1, %if.then.i ]
+return:                                           ; preds = %if.then.i, %if.then6, %if.end56, %if.then59, %if.then30, %if.end49, %do.end
+  %retval.0 = phi i32 [ 0, %do.end ], [ -1, %if.end49 ], [ 0, %if.then30 ], [ 0, %if.then59 ], [ 0, %if.end56 ], [ -1, %if.then6 ], [ -1, %if.then.i ]
   ret i32 %retval.0
 }
 
@@ -3321,15 +3388,24 @@ do.body:                                          ; preds = %if.then
   %cmp4.not = icmp eq ptr %2, null
   %tqe_prev13 = getelementptr inbounds i8, ptr %req, i64 8
   %3 = load ptr, ptr %tqe_prev13, align 8
-  %tqh_last = getelementptr inbounds i8, ptr %0, i64 304
+  br i1 %cmp4.not, label %if.else11, label %if.then5
+
+if.then5:                                         ; preds = %do.body
   %tqe_prev10 = getelementptr inbounds i8, ptr %2, i64 8
-  %tqh_last.sink = select i1 %cmp4.not, ptr %tqh_last, ptr %tqe_prev10
-  store ptr %3, ptr %tqh_last.sink, align 8
+  store ptr %3, ptr %tqe_prev10, align 8
+  br label %if.end
+
+if.else11:                                        ; preds = %do.body
+  %tqh_last = getelementptr inbounds i8, ptr %0, i64 304
+  store ptr %3, ptr %tqh_last, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.else11, %if.then5
   %4 = load ptr, ptr %req, align 8
   store ptr %4, ptr %3, align 8
   br label %if.end20
 
-if.end20:                                         ; preds = %do.body, %entry
+if.end20:                                         ; preds = %if.end, %entry
   %flags.i = getelementptr inbounds i8, ptr %req, i64 24
   %5 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %5, 4
@@ -3755,22 +3831,22 @@ if.end.i.i:                                       ; preds = %if.then3.i
   %4 = load i64, ptr %num_responses.i.i, align 8
   %conv.i.i = trunc i64 %4 to i32
   %cmp2.not.i.i = icmp slt i32 %rem.i.i, %conv.i.i
-  br i1 %cmp2.not.i.i, label %if.end7.i.i, label %return.sink.split.i.i
+  br i1 %cmp2.not.i.i, label %if.end7.i.i, label %if.then4.i.i
+
+if.then4.i.i:                                     ; preds = %if.end.i.i
+  %5 = load ptr, ptr %arrayidx.i.i, align 8
+  br label %if.end4.i
 
 if.end7.i.i:                                      ; preds = %if.end.i.i
   %responses.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
-  %5 = load ptr, ptr %responses.i.i, align 8
+  %6 = load ptr, ptr %responses.i.i, align 8
   %idxprom10.i.i = zext nneg i32 %rem.i.i to i64
-  %arrayidx11.i.i = getelementptr inbounds ptr, ptr %5, i64 %idxprom10.i.i
-  br label %return.sink.split.i.i
-
-return.sink.split.i.i:                            ; preds = %if.end7.i.i, %if.end.i.i
-  %arrayidx11.sink.i.i = phi ptr [ %arrayidx11.i.i, %if.end7.i.i ], [ %arrayidx.i.i, %if.end.i.i ]
-  %6 = load ptr, ptr %arrayidx11.sink.i.i, align 8
+  %arrayidx11.i.i = getelementptr inbounds ptr, ptr %6, i64 %idxprom10.i.i
+  %7 = load ptr, ptr %arrayidx11.i.i, align 8
   br label %if.end4.i
 
-if.end4.i:                                        ; preds = %return.sink.split.i.i, %if.then3.i, %if.end.i
-  %reason.addr.0.i = phi ptr [ %reason, %if.end.i ], [ @.str.108, %if.then3.i ], [ %6, %return.sink.split.i.i ]
+if.end4.i:                                        ; preds = %if.end7.i.i, %if.then4.i.i, %if.then3.i, %if.end.i
+  %reason.addr.0.i = phi ptr [ %reason, %if.end.i ], [ %5, %if.then4.i.i ], [ %7, %if.end7.i.i ], [ @.str.108, %if.then3.i ]
   %call5.i = tail call ptr @event_mm_strdup_(ptr noundef %reason.addr.0.i) #19
   store ptr %call5.i, ptr %response_code_line.i, align 8
   %cmp8.i = icmp eq ptr %call5.i, null
@@ -3782,21 +3858,21 @@ if.then9.i:                                       ; preds = %if.end4.i
 
 evhttp_response_code_.exit:                       ; preds = %if.end4.i, %if.then9.i
   %errorcb = getelementptr inbounds i8, ptr %1, i64 248
-  %7 = load ptr, ptr %errorcb, align 8
-  %cmp2 = icmp eq ptr %7, null
+  %8 = load ptr, ptr %errorcb, align 8
+  %cmp2 = icmp eq ptr %8, null
   br i1 %cmp2, label %if.then6, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %evhttp_response_code_.exit
   %errorcbarg = getelementptr inbounds i8, ptr %1, i64 256
-  %8 = load ptr, ptr %errorcbarg, align 8
-  %call4 = tail call i32 %7(ptr noundef nonnull %req, ptr noundef nonnull %call, i32 noundef %error, ptr noundef %reason, ptr noundef %8) #19
+  %9 = load ptr, ptr %errorcbarg, align 8
+  %call4 = tail call i32 %8(ptr noundef nonnull %req, ptr noundef nonnull %call, i32 noundef %error, ptr noundef %reason, ptr noundef %9) #19
   %cmp5 = icmp slt i32 %call4, 0
   br i1 %cmp5, label %if.then6, label %if.end11
 
 if.then6:                                         ; preds = %lor.lhs.false, %evhttp_response_code_.exit
   %rem.i = srem i32 %error, 100
-  %9 = add i32 %error, -600
-  %or.cond.i = icmp ult i32 %9, -500
+  %10 = add i32 %error, -600
+  %or.cond.i = icmp ult i32 %10, -500
   br i1 %or.cond.i, label %evhttp_response_phrase_internal.exit, label %if.end.i21
 
 if.end.i21:                                       ; preds = %if.then6
@@ -3807,25 +3883,25 @@ if.end.i21:                                       ; preds = %if.then6
   %idxprom.i = and i64 %sub.i, 4294967295
   %arrayidx.i = getelementptr inbounds [5 x %struct.response_class], ptr @response_classes, i64 0, i64 %idxprom.i
   %num_responses.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
-  %10 = load i64, ptr %num_responses.i, align 8
-  %conv.i = trunc i64 %10 to i32
+  %11 = load i64, ptr %num_responses.i, align 8
+  %conv.i = trunc i64 %11 to i32
   %cmp2.not.i = icmp slt i32 %rem.i, %conv.i
-  br i1 %cmp2.not.i, label %if.end7.i, label %return.sink.split.i
+  br i1 %cmp2.not.i, label %if.end7.i, label %if.then4.i
+
+if.then4.i:                                       ; preds = %if.end.i21
+  %12 = load ptr, ptr %arrayidx.i, align 8
+  br label %evhttp_response_phrase_internal.exit
 
 if.end7.i:                                        ; preds = %if.end.i21
   %responses.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
-  %11 = load ptr, ptr %responses.i, align 8
+  %13 = load ptr, ptr %responses.i, align 8
   %idxprom10.i = zext nneg i32 %rem.i to i64
-  %arrayidx11.i = getelementptr inbounds ptr, ptr %11, i64 %idxprom10.i
-  br label %return.sink.split.i
-
-return.sink.split.i:                              ; preds = %if.end7.i, %if.end.i21
-  %arrayidx11.sink.i = phi ptr [ %arrayidx11.i, %if.end7.i ], [ %arrayidx.i, %if.end.i21 ]
-  %12 = load ptr, ptr %arrayidx11.sink.i, align 8
+  %arrayidx11.i = getelementptr inbounds ptr, ptr %13, i64 %idxprom10.i
+  %14 = load ptr, ptr %arrayidx11.i, align 8
   br label %evhttp_response_phrase_internal.exit
 
-evhttp_response_phrase_internal.exit:             ; preds = %if.then6, %return.sink.split.i
-  %retval.0.i = phi ptr [ @.str.108, %if.then6 ], [ %12, %return.sink.split.i ]
+evhttp_response_phrase_internal.exit:             ; preds = %if.then6, %if.then4.i, %if.end7.i
+  %retval.0.i = phi ptr [ %12, %if.then4.i ], [ %14, %if.end7.i ], [ @.str.108, %if.then6 ]
   %call8 = tail call i64 @evbuffer_get_length(ptr noundef nonnull %call) #19
   %call9 = tail call i32 @evbuffer_drain(ptr noundef nonnull %call, i64 noundef %call8) #19
   %cond = select i1 %cmp2.i, ptr @.str.14, ptr %reason
@@ -3880,22 +3956,22 @@ if.end.i:                                         ; preds = %if.then3
   %2 = load i64, ptr %num_responses.i, align 8
   %conv.i = trunc i64 %2 to i32
   %cmp2.not.i = icmp slt i32 %rem.i, %conv.i
-  br i1 %cmp2.not.i, label %if.end7.i, label %return.sink.split.i
+  br i1 %cmp2.not.i, label %if.end7.i, label %if.then4.i
+
+if.then4.i:                                       ; preds = %if.end.i
+  %3 = load ptr, ptr %arrayidx.i, align 8
+  br label %if.end4
 
 if.end7.i:                                        ; preds = %if.end.i
   %responses.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
-  %3 = load ptr, ptr %responses.i, align 8
+  %4 = load ptr, ptr %responses.i, align 8
   %idxprom10.i = zext nneg i32 %rem.i to i64
-  %arrayidx11.i = getelementptr inbounds ptr, ptr %3, i64 %idxprom10.i
-  br label %return.sink.split.i
-
-return.sink.split.i:                              ; preds = %if.end7.i, %if.end.i
-  %arrayidx11.sink.i = phi ptr [ %arrayidx11.i, %if.end7.i ], [ %arrayidx.i, %if.end.i ]
-  %4 = load ptr, ptr %arrayidx11.sink.i, align 8
+  %arrayidx11.i = getelementptr inbounds ptr, ptr %4, i64 %idxprom10.i
+  %5 = load ptr, ptr %arrayidx11.i, align 8
   br label %if.end4
 
-if.end4:                                          ; preds = %return.sink.split.i, %if.then3, %if.end
-  %reason.addr.0 = phi ptr [ %reason, %if.end ], [ @.str.108, %if.then3 ], [ %4, %return.sink.split.i ]
+if.end4:                                          ; preds = %if.end7.i, %if.then4.i, %if.then3, %if.end
+  %reason.addr.0 = phi ptr [ %reason, %if.end ], [ %3, %if.then4.i ], [ %5, %if.end7.i ], [ @.str.108, %if.then3 ]
   %call5 = tail call ptr @event_mm_strdup_(ptr noundef %reason.addr.0) #19
   store ptr %call5, ptr %response_code_line, align 8
   %cmp8 = icmp eq ptr %call5, null
@@ -3967,17 +4043,30 @@ if.end5:                                          ; preds = %if.then9.i, %if.end
   %4 = load ptr, ptr %output_headers, align 8
   %header.012.i = load ptr, ptr %4, align 8
   %cmp.not13.i = icmp eq ptr %header.012.i, null
-  br i1 %cmp.not13.i, label %evhttp_clear_headers.exit, label %do.body.i
+  br i1 %cmp.not13.i, label %evhttp_clear_headers.exit, label %do.body.lr.ph.i
 
-do.body.i:                                        ; preds = %if.end5, %do.body.i
-  %header.014.i = phi ptr [ %header.0.i, %do.body.i ], [ %header.012.i, %if.end5 ]
+do.body.lr.ph.i:                                  ; preds = %if.end5
+  %tqh_last.i = getelementptr inbounds i8, ptr %4, i64 8
+  br label %do.body.i
+
+do.body.i:                                        ; preds = %if.end.i11, %do.body.lr.ph.i
+  %header.014.i = phi ptr [ %header.012.i, %do.body.lr.ph.i ], [ %header.0.i, %if.end.i11 ]
   %5 = load ptr, ptr %header.014.i, align 8
   %cmp1.not.i = icmp eq ptr %5, null
   %tqe_prev8.i = getelementptr inbounds i8, ptr %header.014.i, i64 8
   %6 = load ptr, ptr %tqe_prev8.i, align 8
-  %tqh_last.sink.v.i = select i1 %cmp1.not.i, ptr %4, ptr %5
-  %tqh_last.sink.i = getelementptr inbounds i8, ptr %tqh_last.sink.v.i, i64 8
-  store ptr %6, ptr %tqh_last.sink.i, align 8
+  br i1 %cmp1.not.i, label %if.else.i, label %if.then.i10
+
+if.then.i10:                                      ; preds = %do.body.i
+  %tqe_prev6.i = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %6, ptr %tqe_prev6.i, align 8
+  br label %if.end.i11
+
+if.else.i:                                        ; preds = %do.body.i
+  store ptr %6, ptr %tqh_last.i, align 8
+  br label %if.end.i11
+
+if.end.i11:                                       ; preds = %if.else.i, %if.then.i10
   %7 = load ptr, ptr %header.014.i, align 8
   store ptr %7, ptr %6, align 8
   %key.i = getelementptr inbounds i8, ptr %header.014.i, i64 16
@@ -3988,10 +4077,10 @@ do.body.i:                                        ; preds = %if.end5, %do.body.i
   tail call void @event_mm_free_(ptr noundef %9) #19
   tail call void @event_mm_free_(ptr noundef nonnull %header.014.i) #19
   %header.0.i = load ptr, ptr %4, align 8
-  %cmp.not.i10 = icmp eq ptr %header.0.i, null
-  br i1 %cmp.not.i10, label %evhttp_clear_headers.exit.loopexit, label %do.body.i, !llvm.loop !9
+  %cmp.not.i12 = icmp eq ptr %header.0.i, null
+  br i1 %cmp.not.i12, label %evhttp_clear_headers.exit.loopexit, label %do.body.i, !llvm.loop !9
 
-evhttp_clear_headers.exit.loopexit:               ; preds = %do.body.i
+evhttp_clear_headers.exit.loopexit:               ; preds = %if.end.i11
   %.pre = load ptr, ptr %output_headers, align 8
   br label %evhttp_clear_headers.exit
 
@@ -4043,22 +4132,22 @@ if.end.i.i:                                       ; preds = %if.then3.i
   %2 = load i64, ptr %num_responses.i.i, align 8
   %conv.i.i = trunc i64 %2 to i32
   %cmp2.not.i.i = icmp slt i32 %rem.i.i, %conv.i.i
-  br i1 %cmp2.not.i.i, label %if.end7.i.i, label %return.sink.split.i.i
+  br i1 %cmp2.not.i.i, label %if.end7.i.i, label %if.then4.i.i
+
+if.then4.i.i:                                     ; preds = %if.end.i.i
+  %3 = load ptr, ptr %arrayidx.i.i, align 8
+  br label %if.end4.i
 
 if.end7.i.i:                                      ; preds = %if.end.i.i
   %responses.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
-  %3 = load ptr, ptr %responses.i.i, align 8
+  %4 = load ptr, ptr %responses.i.i, align 8
   %idxprom10.i.i = zext nneg i32 %rem.i.i to i64
-  %arrayidx11.i.i = getelementptr inbounds ptr, ptr %3, i64 %idxprom10.i.i
-  br label %return.sink.split.i.i
-
-return.sink.split.i.i:                            ; preds = %if.end7.i.i, %if.end.i.i
-  %arrayidx11.sink.i.i = phi ptr [ %arrayidx11.i.i, %if.end7.i.i ], [ %arrayidx.i.i, %if.end.i.i ]
-  %4 = load ptr, ptr %arrayidx11.sink.i.i, align 8
+  %arrayidx11.i.i = getelementptr inbounds ptr, ptr %4, i64 %idxprom10.i.i
+  %5 = load ptr, ptr %arrayidx11.i.i, align 8
   br label %if.end4.i
 
-if.end4.i:                                        ; preds = %return.sink.split.i.i, %if.then3.i, %if.end.i
-  %reason.addr.0.i = phi ptr [ %reason, %if.end.i ], [ @.str.108, %if.then3.i ], [ %4, %return.sink.split.i.i ]
+if.end4.i:                                        ; preds = %if.end7.i.i, %if.then4.i.i, %if.then3.i, %if.end.i
+  %reason.addr.0.i = phi ptr [ %reason, %if.end.i ], [ %3, %if.then4.i.i ], [ %5, %if.end7.i.i ], [ @.str.108, %if.then3.i ]
   %call5.i = tail call ptr @event_mm_strdup_(ptr noundef %reason.addr.0.i) #19
   store ptr %call5.i, ptr %response_code_line.i, align 8
   %cmp8.i = icmp eq ptr %call5.i, null
@@ -4162,22 +4251,22 @@ if.end.i.i:                                       ; preds = %if.then3.i
   %2 = load i64, ptr %num_responses.i.i, align 8
   %conv.i.i = trunc i64 %2 to i32
   %cmp2.not.i.i = icmp slt i32 %rem.i.i, %conv.i.i
-  br i1 %cmp2.not.i.i, label %if.end7.i.i, label %return.sink.split.i.i
+  br i1 %cmp2.not.i.i, label %if.end7.i.i, label %if.then4.i.i
+
+if.then4.i.i:                                     ; preds = %if.end.i.i
+  %3 = load ptr, ptr %arrayidx.i.i, align 8
+  br label %if.end4.i
 
 if.end7.i.i:                                      ; preds = %if.end.i.i
   %responses.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
-  %3 = load ptr, ptr %responses.i.i, align 8
+  %4 = load ptr, ptr %responses.i.i, align 8
   %idxprom10.i.i = zext nneg i32 %rem.i.i to i64
-  %arrayidx11.i.i = getelementptr inbounds ptr, ptr %3, i64 %idxprom10.i.i
-  br label %return.sink.split.i.i
-
-return.sink.split.i.i:                            ; preds = %if.end7.i.i, %if.end.i.i
-  %arrayidx11.sink.i.i = phi ptr [ %arrayidx11.i.i, %if.end7.i.i ], [ %arrayidx.i.i, %if.end.i.i ]
-  %4 = load ptr, ptr %arrayidx11.sink.i.i, align 8
+  %arrayidx11.i.i = getelementptr inbounds ptr, ptr %4, i64 %idxprom10.i.i
+  %5 = load ptr, ptr %arrayidx11.i.i, align 8
   br label %if.end4.i
 
-if.end4.i:                                        ; preds = %return.sink.split.i.i, %if.then3.i, %if.end.i
-  %reason.addr.0.i = phi ptr [ %reason, %if.end.i ], [ @.str.108, %if.then3.i ], [ %4, %return.sink.split.i.i ]
+if.end4.i:                                        ; preds = %if.end7.i.i, %if.then4.i.i, %if.then3.i, %if.end.i
+  %reason.addr.0.i = phi ptr [ %reason, %if.end.i ], [ %3, %if.then4.i.i ], [ %5, %if.end7.i.i ], [ @.str.108, %if.then3.i ]
   %call5.i = tail call ptr @event_mm_strdup_(ptr noundef %reason.addr.0.i) #19
   store ptr %call5.i, ptr %response_code_line.i, align 8
   %cmp8.i = icmp eq ptr %call5.i, null
@@ -4189,73 +4278,73 @@ if.then9.i:                                       ; preds = %if.end4.i
 
 evhttp_response_code_.exit:                       ; preds = %if.end4.i, %if.then9.i
   %evcon = getelementptr inbounds i8, ptr %req, i64 16
-  %5 = load ptr, ptr %evcon, align 8
-  %cmp = icmp eq ptr %5, null
+  %6 = load ptr, ptr %evcon, align 8
+  %cmp = icmp eq ptr %6, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %evhttp_response_code_.exit
   %output_headers = getelementptr inbounds i8, ptr %req, i64 40
-  %6 = load ptr, ptr %output_headers, align 8
+  %7 = load ptr, ptr %output_headers, align 8
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.body.i, %if.end
-  %header.0.in.i = phi ptr [ %6, %if.end ], [ %header.0.i, %for.body.i ]
+  %header.0.in.i = phi ptr [ %7, %if.end ], [ %header.0.i, %for.body.i ]
   %header.0.i = load ptr, ptr %header.0.in.i, align 8
   %cmp.not.i13 = icmp eq ptr %header.0.i, null
   br i1 %cmp.not.i13, label %land.lhs.true, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i
   %key1.i = getelementptr inbounds i8, ptr %header.0.i, i64 16
-  %7 = load ptr, ptr %key1.i, align 8
-  %call.i = tail call i32 @evutil_ascii_strcasecmp(ptr noundef %7, ptr noundef nonnull @.str.15) #19
+  %8 = load ptr, ptr %key1.i, align 8
+  %call.i = tail call i32 @evutil_ascii_strcasecmp(ptr noundef %8, ptr noundef nonnull @.str.15) #19
   %cmp2.i14 = icmp eq i32 %call.i, 0
   br i1 %cmp2.i14, label %evhttp_find_header.exit, label %for.cond.i, !llvm.loop !8
 
 evhttp_find_header.exit:                          ; preds = %for.body.i
   %value.i = getelementptr inbounds i8, ptr %header.0.i, i64 24
-  %8 = load ptr, ptr %value.i, align 8
-  %cmp1 = icmp eq ptr %8, null
+  %9 = load ptr, ptr %value.i, align 8
+  %cmp1 = icmp eq ptr %9, null
   br i1 %cmp1, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %for.cond.i, %evhttp_find_header.exit
   %major = getelementptr inbounds i8, ptr %req, i64 112
-  %9 = load i8, ptr %major, align 8
-  %cmp2 = icmp sgt i8 %9, 1
+  %10 = load i8, ptr %major, align 8
+  %cmp2 = icmp sgt i8 %10, 1
   br i1 %cmp2, label %land.lhs.true12, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
-  %cmp6 = icmp eq i8 %9, 1
+  %cmp6 = icmp eq i8 %10, 1
   br i1 %cmp6, label %land.lhs.true8, label %if.else
 
 land.lhs.true8:                                   ; preds = %lor.lhs.false
   %minor = getelementptr inbounds i8, ptr %req, i64 113
-  %10 = load i8, ptr %minor, align 1
-  %cmp10 = icmp sgt i8 %10, 0
+  %11 = load i8, ptr %minor, align 1
+  %cmp10 = icmp sgt i8 %11, 0
   br i1 %cmp10, label %land.lhs.true12, label %if.else
 
 land.lhs.true12:                                  ; preds = %land.lhs.true8, %land.lhs.true
-  %11 = load i32, ptr %response_code.i, align 4
-  switch i32 %11, label %land.lhs.true3.i [
+  %12 = load i32, ptr %response_code.i, align 4
+  switch i32 %12, label %land.lhs.true3.i [
     i32 204, label %if.else
     i32 304, label %if.else
   ]
 
 land.lhs.true3.i:                                 ; preds = %land.lhs.true12
-  %12 = add i32 %11, -200
-  %or.cond.i = icmp ult i32 %12, -100
+  %13 = add i32 %12, -200
+  %or.cond.i = icmp ult i32 %13, -100
   br i1 %or.cond.i, label %land.lhs.true8.i, label %if.else
 
 land.lhs.true8.i:                                 ; preds = %land.lhs.true3.i
   %type.i = getelementptr inbounds i8, ptr %req, i64 76
-  %13 = load i32, ptr %type.i, align 4
-  switch i32 %13, label %if.then14 [
+  %14 = load i32, ptr %type.i, align 4
+  switch i32 %14, label %if.then14 [
     i32 128, label %if.else
     i32 4, label %if.else
   ]
 
 if.then14:                                        ; preds = %land.lhs.true8.i
-  %14 = load ptr, ptr %output_headers, align 8
-  %call16 = tail call i32 @evhttp_add_header(ptr noundef %14, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17)
+  %15 = load ptr, ptr %output_headers, align 8
+  %call16 = tail call i32 @evhttp_add_header(ptr noundef %15, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17)
   %chunked = getelementptr inbounds i8, ptr %req, i64 144
   %bf.load = load i8, ptr %chunked, align 8
   %bf.set = or i8 %bf.load, 1
@@ -4270,11 +4359,11 @@ if.else:                                          ; preds = %land.lhs.true8.i, %
   br label %if.end21
 
 if.end21:                                         ; preds = %if.else, %if.then14
-  %15 = load ptr, ptr %evcon, align 8
-  tail call fastcc void @evhttp_make_header(ptr noundef %15, ptr noundef nonnull %req)
   %16 = load ptr, ptr %evcon, align 8
-  %17 = load i32, ptr @event_debug_logging_mask_, align 4
-  %tobool.not.i = icmp eq i32 %17, 0
+  tail call fastcc void @evhttp_make_header(ptr noundef %16, ptr noundef nonnull %req)
+  %17 = load ptr, ptr %evcon, align 8
+  %18 = load i32, ptr @event_debug_logging_mask_, align 4
+  %tobool.not.i = icmp eq i32 %18, 0
   br i1 %tobool.not.i, label %evhttp_write_buffer.exit, label %if.then.i17
 
 if.then.i17:                                      ; preds = %if.end21
@@ -4282,13 +4371,13 @@ if.then.i17:                                      ; preds = %if.end21
   br label %evhttp_write_buffer.exit
 
 evhttp_write_buffer.exit:                         ; preds = %if.end21, %if.then.i17
-  %cb1.i = getelementptr inbounds i8, ptr %16, i64 312
-  %bufev.i = getelementptr inbounds i8, ptr %16, i64 16
+  %cb1.i = getelementptr inbounds i8, ptr %17, i64 312
+  %bufev.i = getelementptr inbounds i8, ptr %17, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cb1.i, i8 0, i64 16, i1 false)
-  %18 = load ptr, ptr %bufev.i, align 8
-  tail call void @bufferevent_setcb(ptr noundef %18, ptr noundef null, ptr noundef nonnull @evhttp_write_cb, ptr noundef nonnull @evhttp_error_cb, ptr noundef %16) #19
   %19 = load ptr, ptr %bufev.i, align 8
-  %call.i18 = tail call i32 @bufferevent_enable(ptr noundef %19, i16 noundef signext 6) #19
+  tail call void @bufferevent_setcb(ptr noundef %19, ptr noundef null, ptr noundef nonnull @evhttp_write_cb, ptr noundef nonnull @evhttp_error_cb, ptr noundef %17) #19
+  %20 = load ptr, ptr %bufev.i, align 8
+  %call.i18 = tail call i32 @bufferevent_enable(ptr noundef %20, i16 noundef signext 6) #19
   br label %return
 
 return:                                           ; preds = %evhttp_response_code_.exit, %evhttp_write_buffer.exit
@@ -5031,10 +5120,19 @@ evhttp_write_buffer.exit:                         ; preds = %if.end, %if.then.i1
   %cmp5.not = icmp eq ptr %7, null
   %tqe_prev13 = getelementptr inbounds i8, ptr %req, i64 8
   %8 = load ptr, ptr %tqe_prev13, align 8
-  %tqh_last = getelementptr inbounds i8, ptr %0, i64 304
+  br i1 %cmp5.not, label %if.else, label %if.then6
+
+if.then6:                                         ; preds = %evhttp_write_buffer.exit
   %tqe_prev11 = getelementptr inbounds i8, ptr %7, i64 8
-  %tqh_last.sink = select i1 %cmp5.not, ptr %tqh_last, ptr %tqe_prev11
-  store ptr %8, ptr %tqh_last.sink, align 8
+  store ptr %8, ptr %tqe_prev11, align 8
+  br label %if.end14
+
+if.else:                                          ; preds = %evhttp_write_buffer.exit
+  %tqh_last = getelementptr inbounds i8, ptr %0, i64 304
+  store ptr %8, ptr %tqh_last, align 8
+  br label %if.end14
+
+if.end14:                                         ; preds = %if.else, %if.then6
   %9 = load ptr, ptr %req, align 8
   store ptr %9, ptr %8, align 8
   %bufev19 = getelementptr inbounds i8, ptr %0, i64 16
@@ -5046,8 +5144,8 @@ evhttp_write_buffer.exit:                         ; preds = %if.end, %if.then.i1
   tail call void @evhttp_connection_free(ptr noundef %0)
   br label %return
 
-return:                                           ; preds = %evhttp_response_code_.exit, %evhttp_write_buffer.exit
-  %retval.0 = phi ptr [ %10, %evhttp_write_buffer.exit ], [ null, %evhttp_response_code_.exit ]
+return:                                           ; preds = %evhttp_response_code_.exit, %if.end14
+  %retval.0 = phi ptr [ %10, %if.end14 ], [ null, %evhttp_response_code_.exit ]
   ret ptr %retval.0
 }
 
@@ -5120,17 +5218,30 @@ if.end21:                                         ; preds = %if.then19, %if.end1
   %6 = load ptr, ptr %input_headers, align 8
   %header.012.i = load ptr, ptr %6, align 8
   %cmp.not13.i = icmp eq ptr %header.012.i, null
-  br i1 %cmp.not13.i, label %evhttp_clear_headers.exit, label %do.body.i
+  br i1 %cmp.not13.i, label %evhttp_clear_headers.exit, label %do.body.lr.ph.i
 
-do.body.i:                                        ; preds = %if.end21, %do.body.i
-  %header.014.i = phi ptr [ %header.0.i, %do.body.i ], [ %header.012.i, %if.end21 ]
+do.body.lr.ph.i:                                  ; preds = %if.end21
+  %tqh_last.i = getelementptr inbounds i8, ptr %6, i64 8
+  br label %do.body.i
+
+do.body.i:                                        ; preds = %if.end.i, %do.body.lr.ph.i
+  %header.014.i = phi ptr [ %header.012.i, %do.body.lr.ph.i ], [ %header.0.i, %if.end.i ]
   %7 = load ptr, ptr %header.014.i, align 8
   %cmp1.not.i = icmp eq ptr %7, null
   %tqe_prev8.i = getelementptr inbounds i8, ptr %header.014.i, i64 8
   %8 = load ptr, ptr %tqe_prev8.i, align 8
-  %tqh_last.sink.v.i = select i1 %cmp1.not.i, ptr %6, ptr %7
-  %tqh_last.sink.i = getelementptr inbounds i8, ptr %tqh_last.sink.v.i, i64 8
-  store ptr %8, ptr %tqh_last.sink.i, align 8
+  br i1 %cmp1.not.i, label %if.else.i, label %if.then.i
+
+if.then.i:                                        ; preds = %do.body.i
+  %tqe_prev6.i = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr %8, ptr %tqe_prev6.i, align 8
+  br label %if.end.i
+
+if.else.i:                                        ; preds = %do.body.i
+  store ptr %8, ptr %tqh_last.i, align 8
+  br label %if.end.i
+
+if.end.i:                                         ; preds = %if.else.i, %if.then.i
   %9 = load ptr, ptr %header.014.i, align 8
   store ptr %9, ptr %8, align 8
   %key.i = getelementptr inbounds i8, ptr %header.014.i, i64 16
@@ -5144,7 +5255,7 @@ do.body.i:                                        ; preds = %if.end21, %do.body.
   %cmp.not.i = icmp eq ptr %header.0.i, null
   br i1 %cmp.not.i, label %evhttp_clear_headers.exit.loopexit, label %do.body.i, !llvm.loop !9
 
-evhttp_clear_headers.exit.loopexit:               ; preds = %do.body.i
+evhttp_clear_headers.exit.loopexit:               ; preds = %if.end.i
   %.pre = load ptr, ptr %input_headers, align 8
   br label %evhttp_clear_headers.exit
 
@@ -5155,47 +5266,60 @@ evhttp_clear_headers.exit:                        ; preds = %evhttp_clear_header
   %13 = load ptr, ptr %output_headers, align 8
   %header.012.i27 = load ptr, ptr %13, align 8
   %cmp.not13.i28 = icmp eq ptr %header.012.i27, null
-  br i1 %cmp.not13.i28, label %evhttp_clear_headers.exit40, label %do.body.i30
+  br i1 %cmp.not13.i28, label %evhttp_clear_headers.exit43, label %do.body.lr.ph.i29
 
-do.body.i30:                                      ; preds = %evhttp_clear_headers.exit, %do.body.i30
-  %header.014.i31 = phi ptr [ %header.0.i38, %do.body.i30 ], [ %header.012.i27, %evhttp_clear_headers.exit ]
-  %14 = load ptr, ptr %header.014.i31, align 8
-  %cmp1.not.i32 = icmp eq ptr %14, null
-  %tqe_prev8.i33 = getelementptr inbounds i8, ptr %header.014.i31, i64 8
-  %15 = load ptr, ptr %tqe_prev8.i33, align 8
-  %tqh_last.sink.v.i34 = select i1 %cmp1.not.i32, ptr %13, ptr %14
-  %tqh_last.sink.i35 = getelementptr inbounds i8, ptr %tqh_last.sink.v.i34, i64 8
-  store ptr %15, ptr %tqh_last.sink.i35, align 8
-  %16 = load ptr, ptr %header.014.i31, align 8
+do.body.lr.ph.i29:                                ; preds = %evhttp_clear_headers.exit
+  %tqh_last.i30 = getelementptr inbounds i8, ptr %13, i64 8
+  br label %do.body.i31
+
+do.body.i31:                                      ; preds = %if.end.i37, %do.body.lr.ph.i29
+  %header.014.i32 = phi ptr [ %header.012.i27, %do.body.lr.ph.i29 ], [ %header.0.i40, %if.end.i37 ]
+  %14 = load ptr, ptr %header.014.i32, align 8
+  %cmp1.not.i33 = icmp eq ptr %14, null
+  %tqe_prev8.i34 = getelementptr inbounds i8, ptr %header.014.i32, i64 8
+  %15 = load ptr, ptr %tqe_prev8.i34, align 8
+  br i1 %cmp1.not.i33, label %if.else.i42, label %if.then.i35
+
+if.then.i35:                                      ; preds = %do.body.i31
+  %tqe_prev6.i36 = getelementptr inbounds i8, ptr %14, i64 8
+  store ptr %15, ptr %tqe_prev6.i36, align 8
+  br label %if.end.i37
+
+if.else.i42:                                      ; preds = %do.body.i31
+  store ptr %15, ptr %tqh_last.i30, align 8
+  br label %if.end.i37
+
+if.end.i37:                                       ; preds = %if.else.i42, %if.then.i35
+  %16 = load ptr, ptr %header.014.i32, align 8
   store ptr %16, ptr %15, align 8
-  %key.i36 = getelementptr inbounds i8, ptr %header.014.i31, i64 16
-  %17 = load ptr, ptr %key.i36, align 8
+  %key.i38 = getelementptr inbounds i8, ptr %header.014.i32, i64 16
+  %17 = load ptr, ptr %key.i38, align 8
   tail call void @event_mm_free_(ptr noundef %17) #19
-  %value.i37 = getelementptr inbounds i8, ptr %header.014.i31, i64 24
-  %18 = load ptr, ptr %value.i37, align 8
+  %value.i39 = getelementptr inbounds i8, ptr %header.014.i32, i64 24
+  %18 = load ptr, ptr %value.i39, align 8
   tail call void @event_mm_free_(ptr noundef %18) #19
-  tail call void @event_mm_free_(ptr noundef nonnull %header.014.i31) #19
-  %header.0.i38 = load ptr, ptr %13, align 8
-  %cmp.not.i39 = icmp eq ptr %header.0.i38, null
-  br i1 %cmp.not.i39, label %evhttp_clear_headers.exit40.loopexit, label %do.body.i30, !llvm.loop !9
+  tail call void @event_mm_free_(ptr noundef nonnull %header.014.i32) #19
+  %header.0.i40 = load ptr, ptr %13, align 8
+  %cmp.not.i41 = icmp eq ptr %header.0.i40, null
+  br i1 %cmp.not.i41, label %evhttp_clear_headers.exit43.loopexit, label %do.body.i31, !llvm.loop !9
 
-evhttp_clear_headers.exit40.loopexit:             ; preds = %do.body.i30
-  %.pre41 = load ptr, ptr %output_headers, align 8
-  br label %evhttp_clear_headers.exit40
+evhttp_clear_headers.exit43.loopexit:             ; preds = %if.end.i37
+  %.pre44 = load ptr, ptr %output_headers, align 8
+  br label %evhttp_clear_headers.exit43
 
-evhttp_clear_headers.exit40:                      ; preds = %evhttp_clear_headers.exit40.loopexit, %evhttp_clear_headers.exit
-  %19 = phi ptr [ %.pre41, %evhttp_clear_headers.exit40.loopexit ], [ %13, %evhttp_clear_headers.exit ]
+evhttp_clear_headers.exit43:                      ; preds = %evhttp_clear_headers.exit43.loopexit, %evhttp_clear_headers.exit
+  %19 = phi ptr [ %.pre44, %evhttp_clear_headers.exit43.loopexit ], [ %13, %evhttp_clear_headers.exit ]
   tail call void @event_mm_free_(ptr noundef %19) #19
   %input_buffer = getelementptr inbounds i8, ptr %req, i64 128
   %20 = load ptr, ptr %input_buffer, align 8
   %cmp24.not = icmp eq ptr %20, null
   br i1 %cmp24.not, label %if.end27, label %if.then25
 
-if.then25:                                        ; preds = %evhttp_clear_headers.exit40
+if.then25:                                        ; preds = %evhttp_clear_headers.exit43
   tail call void @evbuffer_free(ptr noundef nonnull %20) #19
   br label %if.end27
 
-if.end27:                                         ; preds = %if.then25, %evhttp_clear_headers.exit40
+if.end27:                                         ; preds = %if.then25, %evhttp_clear_headers.exit43
   %output_buffer = getelementptr inbounds i8, ptr %req, i64 152
   %21 = load ptr, ptr %output_buffer, align 8
   %cmp28.not = icmp eq ptr %21, null
@@ -5299,10 +5423,19 @@ entry:
   %cmp.not = icmp eq ptr %1, null
   %tqe_prev7 = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %tqe_prev7, align 8
-  %tqh_last = getelementptr inbounds i8, ptr %evcon, i64 304
+  br i1 %cmp.not, label %if.else, label %if.then
+
+if.then:                                          ; preds = %entry
   %tqe_prev5 = getelementptr inbounds i8, ptr %1, i64 8
-  %tqh_last.sink = select i1 %cmp.not, ptr %tqh_last, ptr %tqe_prev5
-  store ptr %2, ptr %tqh_last.sink, align 8
+  store ptr %2, ptr %tqe_prev5, align 8
+  br label %if.end
+
+if.else:                                          ; preds = %entry
+  %tqh_last = getelementptr inbounds i8, ptr %evcon, i64 304
+  store ptr %2, ptr %tqh_last, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then
   %3 = load ptr, ptr %0, align 8
   store ptr %3, ptr %2, align 8
   %on_complete_cb = getelementptr inbounds i8, ptr %0, i64 200
@@ -5310,13 +5443,13 @@ entry:
   %cmp13.not = icmp eq ptr %4, null
   br i1 %cmp13.not, label %if.end16, label %if.then14
 
-if.then14:                                        ; preds = %entry
+if.then14:                                        ; preds = %if.end
   %on_complete_cb_arg = getelementptr inbounds i8, ptr %0, i64 208
   %5 = load ptr, ptr %on_complete_cb_arg, align 8
   tail call void %4(ptr noundef nonnull %0, ptr noundef %5) #19
   br label %if.end16
 
-if.end16:                                         ; preds = %if.then14, %entry
+if.end16:                                         ; preds = %if.then14, %if.end
   %major = getelementptr inbounds i8, ptr %0, i64 112
   %6 = load i8, ptr %major, align 8
   %cmp17 = icmp slt i8 %6, 1
@@ -6029,34 +6162,43 @@ error:                                            ; preds = %if.end57, %if.else3
   %line.0 = phi ptr [ null, %if.then12 ], [ %call11, %if.then44 ], [ null, %if.then ], [ %call11, %lor.lhs.false33 ], [ %call11, %if.else30 ], [ %call11, %if.end57 ]
   %header.012.i = load ptr, ptr %headers, align 8
   %cmp.not13.i = icmp eq ptr %header.012.i, null
-  br i1 %cmp.not13.i, label %done, label %do.body.i25
+  br i1 %cmp.not13.i, label %done, label %do.body.i26
 
-do.body.i25:                                      ; preds = %error, %do.body.i25
-  %header.014.i = phi ptr [ %header.0.i27, %do.body.i25 ], [ %header.012.i, %error ]
+do.body.i26:                                      ; preds = %error, %if.end.i
+  %header.014.i = phi ptr [ %header.0.i28, %if.end.i ], [ %header.012.i, %error ]
   %22 = load ptr, ptr %header.014.i, align 8
   %cmp1.not.i = icmp eq ptr %22, null
   %tqe_prev8.i = getelementptr inbounds i8, ptr %header.014.i, i64 8
   %23 = load ptr, ptr %tqe_prev8.i, align 8
-  %tqh_last.sink.v.i = select i1 %cmp1.not.i, ptr %headers, ptr %22
-  %tqh_last.sink.i = getelementptr inbounds i8, ptr %tqh_last.sink.v.i, i64 8
-  store ptr %23, ptr %tqh_last.sink.i, align 8
+  br i1 %cmp1.not.i, label %if.else.i29, label %if.then.i
+
+if.then.i:                                        ; preds = %do.body.i26
+  %tqe_prev6.i = getelementptr inbounds i8, ptr %22, i64 8
+  store ptr %23, ptr %tqe_prev6.i, align 8
+  br label %if.end.i
+
+if.else.i29:                                      ; preds = %do.body.i26
+  store ptr %23, ptr %tqh_last, align 8
+  br label %if.end.i
+
+if.end.i:                                         ; preds = %if.else.i29, %if.then.i
   %24 = load ptr, ptr %header.014.i, align 8
   store ptr %24, ptr %23, align 8
   %key.i = getelementptr inbounds i8, ptr %header.014.i, i64 16
   %25 = load ptr, ptr %key.i, align 8
   call void @event_mm_free_(ptr noundef %25) #19
-  %value.i26 = getelementptr inbounds i8, ptr %header.014.i, i64 24
-  %26 = load ptr, ptr %value.i26, align 8
+  %value.i27 = getelementptr inbounds i8, ptr %header.014.i, i64 24
+  %26 = load ptr, ptr %value.i27, align 8
   call void @event_mm_free_(ptr noundef %26) #19
   call void @event_mm_free_(ptr noundef nonnull %header.014.i) #19
-  %header.0.i27 = load ptr, ptr %headers, align 8
-  %cmp.not.i = icmp eq ptr %header.0.i27, null
-  br i1 %cmp.not.i, label %done, label %do.body.i25, !llvm.loop !9
+  %header.0.i28 = load ptr, ptr %headers, align 8
+  %cmp.not.i = icmp eq ptr %header.0.i28, null
+  br i1 %cmp.not.i, label %done, label %do.body.i26, !llvm.loop !9
 
-done:                                             ; preds = %land.rhs, %while.condthread-pre-split, %do.body.i25, %error
-  %uri.2 = phi ptr [ %uri.0, %error ], [ %uri.0, %do.body.i25 ], [ %uri.1, %while.condthread-pre-split ], [ %uri.1, %land.rhs ]
-  %result.0 = phi i32 [ -1, %error ], [ -1, %do.body.i25 ], [ 0, %while.condthread-pre-split ], [ 0, %land.rhs ]
-  %line.1 = phi ptr [ %line.0, %error ], [ %line.0, %do.body.i25 ], [ %call11, %while.condthread-pre-split ], [ %call11, %land.rhs ]
+done:                                             ; preds = %land.rhs, %while.condthread-pre-split, %if.end.i, %error
+  %uri.2 = phi ptr [ %uri.0, %error ], [ %uri.0, %if.end.i ], [ %uri.1, %while.condthread-pre-split ], [ %uri.1, %land.rhs ]
+  %result.0 = phi i32 [ -1, %error ], [ -1, %if.end.i ], [ 0, %while.condthread-pre-split ], [ 0, %land.rhs ]
+  %line.1 = phi ptr [ %line.0, %error ], [ %line.0, %if.end.i ], [ %call11, %while.condthread-pre-split ], [ %call11, %land.rhs ]
   %tobool62.not = icmp eq ptr %line.1, null
   br i1 %tobool62.not, label %if.end64, label %if.then63
 
@@ -6065,17 +6207,17 @@ if.then63:                                        ; preds = %done
   br label %if.end64
 
 if.end64:                                         ; preds = %if.end5, %lor.lhs.false, %if.then63, %done
-  %result.033 = phi i32 [ %result.0, %if.then63 ], [ %result.0, %done ], [ 0, %lor.lhs.false ], [ 0, %if.end5 ]
-  %uri.232 = phi ptr [ %uri.2, %if.then63 ], [ %uri.2, %done ], [ %uri.1, %lor.lhs.false ], [ %uri.1, %if.end5 ]
-  %tobool65.not = icmp eq ptr %uri.232, null
+  %result.035 = phi i32 [ %result.0, %if.then63 ], [ %result.0, %done ], [ 0, %lor.lhs.false ], [ 0, %if.end5 ]
+  %uri.234 = phi ptr [ %uri.2, %if.then63 ], [ %uri.2, %done ], [ %uri.1, %lor.lhs.false ], [ %uri.1, %if.end5 ]
+  %tobool65.not = icmp eq ptr %uri.234, null
   br i1 %tobool65.not, label %if.end67, label %if.then66
 
 if.then66:                                        ; preds = %if.end64
-  call void @evhttp_uri_free(ptr noundef nonnull %uri.232)
+  call void @evhttp_uri_free(ptr noundef nonnull %uri.234)
   br label %if.end67
 
 if.end67:                                         ; preds = %if.then66, %if.end64
-  ret i32 %result.033
+  ret i32 %result.035
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6720,10 +6862,19 @@ entry:
   %cmp.not = icmp eq ptr %0, null
   %tqe_prev7 = getelementptr inbounds i8, ptr %bound, i64 8
   %1 = load ptr, ptr %tqe_prev7, align 8
-  %tqh_last = getelementptr inbounds i8, ptr %http, i64 24
+  br i1 %cmp.not, label %if.else, label %if.then
+
+if.then:                                          ; preds = %entry
   %tqe_prev5 = getelementptr inbounds i8, ptr %0, i64 8
-  %tqh_last.sink = select i1 %cmp.not, ptr %tqh_last, ptr %tqe_prev5
-  store ptr %1, ptr %tqh_last.sink, align 8
+  store ptr %1, ptr %tqe_prev5, align 8
+  br label %if.end
+
+if.else:                                          ; preds = %entry
+  %tqh_last = getelementptr inbounds i8, ptr %http, i64 24
+  store ptr %1, ptr %tqh_last, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then
   %2 = load ptr, ptr %bound, align 8
   store ptr %2, ptr %1, align 8
   %listener = getelementptr inbounds i8, ptr %bound, i64 40
@@ -6854,21 +7005,30 @@ do.body.lr.ph:                                    ; preds = %entry
   %tqh_last = getelementptr inbounds i8, ptr %http, i64 24
   br label %do.body
 
-while.cond14.preheader:                           ; preds = %do.body, %entry
+while.cond14.preheader:                           ; preds = %if.end, %entry
   %connections = getelementptr inbounds i8, ptr %http, i64 48
   %1 = load ptr, ptr %connections, align 8
   %cmp16.not51 = icmp eq ptr %1, null
   br i1 %cmp16.not51, label %while.cond19.preheader, label %while.body17
 
-do.body:                                          ; preds = %do.body.lr.ph, %do.body
-  %2 = phi ptr [ %0, %do.body.lr.ph ], [ %7, %do.body ]
+do.body:                                          ; preds = %do.body.lr.ph, %if.end
+  %2 = phi ptr [ %0, %do.body.lr.ph ], [ %7, %if.end ]
   %3 = load ptr, ptr %2, align 8
   %cmp1.not = icmp eq ptr %3, null
   %tqe_prev8 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %tqe_prev8, align 8
+  br i1 %cmp1.not, label %if.else, label %if.then
+
+if.then:                                          ; preds = %do.body
   %tqe_prev6 = getelementptr inbounds i8, ptr %3, i64 8
-  %tqh_last.sink = select i1 %cmp1.not, ptr %tqh_last, ptr %tqe_prev6
-  store ptr %4, ptr %tqh_last.sink, align 8
+  store ptr %4, ptr %tqe_prev6, align 8
+  br label %if.end
+
+if.else:                                          ; preds = %do.body
+  store ptr %4, ptr %tqh_last, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then
   %5 = load ptr, ptr %2, align 8
   store ptr %5, ptr %4, align 8
   %listener = getelementptr inbounds i8, ptr %2, i64 40
@@ -6909,7 +7069,7 @@ while.body22:                                     ; preds = %while.cond19.prehea
   %cmp21.not = icmp eq ptr %13, null
   br i1 %cmp21.not, label %while.cond24.preheader, label %while.body22, !llvm.loop !26
 
-while.cond51.preheader:                           ; preds = %do.body28, %while.cond24.preheader
+while.cond51.preheader:                           ; preds = %if.end44, %while.cond24.preheader
   %virtualhosts = getelementptr inbounds i8, ptr %http, i64 88
   %14 = load ptr, ptr %virtualhosts, align 8
   %cmp53.not54 = icmp eq ptr %14, null
@@ -6919,15 +7079,24 @@ do.body55.lr.ph:                                  ; preds = %while.cond51.prehea
   %tqh_last69 = getelementptr inbounds i8, ptr %http, i64 96
   br label %do.body55
 
-do.body28:                                        ; preds = %do.body28.lr.ph, %do.body28
-  %15 = phi ptr [ %11, %do.body28.lr.ph ], [ %20, %do.body28 ]
+do.body28:                                        ; preds = %do.body28.lr.ph, %if.end44
+  %15 = phi ptr [ %11, %do.body28.lr.ph ], [ %20, %if.end44 ]
   %16 = load ptr, ptr %15, align 8
   %cmp31.not = icmp eq ptr %16, null
   %tqe_prev41 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load ptr, ptr %tqe_prev41, align 8
+  br i1 %cmp31.not, label %if.else39, label %if.then32
+
+if.then32:                                        ; preds = %do.body28
   %tqe_prev38 = getelementptr inbounds i8, ptr %16, i64 8
-  %tqh_last43.sink = select i1 %cmp31.not, ptr %tqh_last43, ptr %tqe_prev38
-  store ptr %17, ptr %tqh_last43.sink, align 8
+  store ptr %17, ptr %tqe_prev38, align 8
+  br label %if.end44
+
+if.else39:                                        ; preds = %do.body28
+  store ptr %17, ptr %tqh_last43, align 8
+  br label %if.end44
+
+if.end44:                                         ; preds = %if.else39, %if.then32
   %18 = load ptr, ptr %15, align 8
   store ptr %18, ptr %17, align 8
   %what = getelementptr inbounds i8, ptr %15, i64 16
@@ -6938,15 +7107,24 @@ do.body28:                                        ; preds = %do.body28.lr.ph, %d
   %cmp26.not = icmp eq ptr %20, null
   br i1 %cmp26.not, label %while.cond51.preheader, label %do.body28, !llvm.loop !27
 
-do.body55:                                        ; preds = %do.body55.lr.ph, %do.body55
-  %21 = phi ptr [ %14, %do.body55.lr.ph ], [ %25, %do.body55 ]
+do.body55:                                        ; preds = %do.body55.lr.ph, %if.end70
+  %21 = phi ptr [ %14, %do.body55.lr.ph ], [ %25, %if.end70 ]
   %22 = load ptr, ptr %21, align 8
   %cmp57.not = icmp eq ptr %22, null
   %tqe_prev67 = getelementptr inbounds i8, ptr %21, i64 8
   %23 = load ptr, ptr %tqe_prev67, align 8
+  br i1 %cmp57.not, label %if.else65, label %if.then58
+
+if.then58:                                        ; preds = %do.body55
   %tqe_prev64 = getelementptr inbounds i8, ptr %22, i64 8
-  %tqh_last69.sink = select i1 %cmp57.not, ptr %tqh_last69, ptr %tqe_prev64
-  store ptr %23, ptr %tqh_last69.sink, align 8
+  store ptr %23, ptr %tqe_prev64, align 8
+  br label %if.end70
+
+if.else65:                                        ; preds = %do.body55
+  store ptr %23, ptr %tqh_last69, align 8
+  br label %if.end70
+
+if.end70:                                         ; preds = %if.else65, %if.then58
   %24 = load ptr, ptr %21, align 8
   store ptr %24, ptr %23, align 8
   tail call void @evhttp_free(ptr noundef nonnull %21)
@@ -6954,7 +7132,7 @@ do.body55:                                        ; preds = %do.body55.lr.ph, %d
   %cmp53.not = icmp eq ptr %25, null
   br i1 %cmp53.not, label %while.end76, label %do.body55, !llvm.loop !28
 
-while.end76:                                      ; preds = %do.body55, %while.cond51.preheader
+while.end76:                                      ; preds = %if.end70, %while.cond51.preheader
   %vhost_pattern = getelementptr inbounds i8, ptr %http, i64 120
   %26 = load ptr, ptr %vhost_pattern, align 8
   %cmp77.not = icmp eq ptr %26, null
@@ -6974,15 +7152,24 @@ do.body85.lr.ph:                                  ; preds = %if.end80
   %tqh_last100 = getelementptr inbounds i8, ptr %http, i64 112
   br label %do.body85
 
-do.body85:                                        ; preds = %do.body85.lr.ph, %do.body85
-  %28 = phi ptr [ %27, %do.body85.lr.ph ], [ %33, %do.body85 ]
+do.body85:                                        ; preds = %do.body85.lr.ph, %if.end101
+  %28 = phi ptr [ %27, %do.body85.lr.ph ], [ %33, %if.end101 ]
   %29 = load ptr, ptr %28, align 8
   %cmp88.not = icmp eq ptr %29, null
   %tqe_prev98 = getelementptr inbounds i8, ptr %28, i64 8
   %30 = load ptr, ptr %tqe_prev98, align 8
+  br i1 %cmp88.not, label %if.else96, label %if.then89
+
+if.then89:                                        ; preds = %do.body85
   %tqe_prev95 = getelementptr inbounds i8, ptr %29, i64 8
-  %tqh_last100.sink = select i1 %cmp88.not, ptr %tqh_last100, ptr %tqe_prev95
-  store ptr %30, ptr %tqh_last100.sink, align 8
+  store ptr %30, ptr %tqe_prev95, align 8
+  br label %if.end101
+
+if.else96:                                        ; preds = %do.body85
+  store ptr %30, ptr %tqh_last100, align 8
+  br label %if.end101
+
+if.end101:                                        ; preds = %if.else96, %if.then89
   %31 = load ptr, ptr %28, align 8
   store ptr %31, ptr %30, align 8
   %alias107 = getelementptr inbounds i8, ptr %28, i64 16
@@ -6993,7 +7180,7 @@ do.body85:                                        ; preds = %do.body85.lr.ph, %d
   %cmp83.not = icmp eq ptr %33, null
   br i1 %cmp83.not, label %while.end108, label %do.body85, !llvm.loop !29
 
-while.end108:                                     ; preds = %do.body85, %if.end80
+while.end108:                                     ; preds = %if.end101, %if.end80
   tail call void @event_mm_free_(ptr noundef nonnull %http) #19
   ret void
 }
@@ -7048,10 +7235,19 @@ do.body:                                          ; preds = %entry
   %cmp1.not = icmp eq ptr %1, null
   %tqe_prev9 = getelementptr inbounds i8, ptr %vhost, i64 8
   %2 = load ptr, ptr %tqe_prev9, align 8
-  %tqh_last = getelementptr inbounds i8, ptr %http, i64 96
+  br i1 %cmp1.not, label %if.else, label %if.then2
+
+if.then2:                                         ; preds = %do.body
   %tqe_prev7 = getelementptr inbounds i8, ptr %1, i64 8
-  %tqh_last.sink = select i1 %cmp1.not, ptr %tqh_last, ptr %tqe_prev7
-  store ptr %2, ptr %tqh_last.sink, align 8
+  store ptr %2, ptr %tqe_prev7, align 8
+  br label %if.end10
+
+if.else:                                          ; preds = %do.body
+  %tqh_last = getelementptr inbounds i8, ptr %http, i64 96
+  store ptr %2, ptr %tqh_last, align 8
+  br label %if.end10
+
+if.end10:                                         ; preds = %if.else, %if.then2
   %3 = load ptr, ptr %vhost, align 8
   store ptr %3, ptr %2, align 8
   %4 = load ptr, ptr %vhost_pattern, align 8
@@ -7059,8 +7255,8 @@ do.body:                                          ; preds = %entry
   store ptr null, ptr %vhost_pattern, align 8
   br label %return
 
-return:                                           ; preds = %entry, %do.body
-  %retval.0 = phi i32 [ 0, %do.body ], [ -1, %entry ]
+return:                                           ; preds = %entry, %if.end10
+  %retval.0 = phi i32 [ 0, %if.end10 ], [ -1, %entry ]
   ret i32 %retval.0
 }
 
@@ -7124,10 +7320,19 @@ do.body:                                          ; preds = %for.body
   %cmp3.not = icmp eq ptr %1, null
   %tqe_prev11 = getelementptr inbounds i8, ptr %evalias.0, i64 8
   %2 = load ptr, ptr %tqe_prev11, align 8
-  %tqh_last = getelementptr inbounds i8, ptr %http, i64 112
+  br i1 %cmp3.not, label %if.else, label %if.then4
+
+if.then4:                                         ; preds = %do.body
   %tqe_prev9 = getelementptr inbounds i8, ptr %1, i64 8
-  %tqh_last.sink = select i1 %cmp3.not, ptr %tqh_last, ptr %tqe_prev9
-  store ptr %2, ptr %tqh_last.sink, align 8
+  store ptr %2, ptr %tqe_prev9, align 8
+  br label %if.end
+
+if.else:                                          ; preds = %do.body
+  %tqh_last = getelementptr inbounds i8, ptr %http, i64 112
+  store ptr %2, ptr %tqh_last, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then4
   %3 = load ptr, ptr %evalias.0, align 8
   store ptr %3, ptr %2, align 8
   %4 = load ptr, ptr %alias1.le, align 8
@@ -7135,8 +7340,8 @@ do.body:                                          ; preds = %for.body
   tail call void @event_mm_free_(ptr noundef nonnull %evalias.0) #19
   br label %return
 
-return:                                           ; preds = %for.cond, %do.body
-  %retval.0 = phi i32 [ 0, %do.body ], [ -1, %for.cond ]
+return:                                           ; preds = %for.cond, %if.end
+  %retval.0 = phi i32 [ 0, %if.end ], [ -1, %for.cond ]
   ret i32 %retval.0
 }
 
@@ -7381,10 +7586,19 @@ do.body:                                          ; preds = %for.body
   %cmp7.not = icmp eq ptr %1, null
   %tqe_prev15 = getelementptr inbounds i8, ptr %http_cb.0, i64 8
   %2 = load ptr, ptr %tqe_prev15, align 8
-  %tqh_last = getelementptr inbounds i8, ptr %http, i64 40
+  br i1 %cmp7.not, label %if.else, label %if.then8
+
+if.then8:                                         ; preds = %do.body
   %tqe_prev13 = getelementptr inbounds i8, ptr %1, i64 8
-  %tqh_last.sink = select i1 %cmp7.not, ptr %tqh_last, ptr %tqe_prev13
-  store ptr %2, ptr %tqh_last.sink, align 8
+  store ptr %2, ptr %tqe_prev13, align 8
+  br label %if.end17
+
+if.else:                                          ; preds = %do.body
+  %tqh_last = getelementptr inbounds i8, ptr %http, i64 40
+  store ptr %2, ptr %tqh_last, align 8
+  br label %if.end17
+
+if.end17:                                         ; preds = %if.else, %if.then8
   %3 = load ptr, ptr %http_cb.0, align 8
   store ptr %3, ptr %2, align 8
   %4 = load ptr, ptr %what.le, align 8
@@ -7392,8 +7606,8 @@ do.body:                                          ; preds = %for.body
   tail call void @event_mm_free_(ptr noundef nonnull %http_cb.0) #19
   br label %return
 
-return:                                           ; preds = %for.cond, %do.body
-  %retval.0 = phi i32 [ 0, %do.body ], [ -1, %for.cond ]
+return:                                           ; preds = %for.cond, %if.end17
+  %retval.0 = phi i32 [ 0, %if.end17 ], [ -1, %for.cond ]
   ret i32 %retval.0
 }
 
@@ -10512,10 +10726,19 @@ if.then:                                          ; preds = %entry
   %cmp.not = icmp eq ptr %2, null
   %tqe_prev8 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %tqe_prev8, align 8
-  %tqh_last = getelementptr inbounds i8, ptr %evcon, i64 304
+  br i1 %cmp.not, label %if.else, label %if.then1
+
+if.then1:                                         ; preds = %if.then
   %tqe_prev6 = getelementptr inbounds i8, ptr %2, i64 8
-  %tqh_last.sink = select i1 %cmp.not, ptr %tqh_last, ptr %tqe_prev6
-  store ptr %3, ptr %tqh_last.sink, align 8
+  store ptr %3, ptr %tqe_prev6, align 8
+  br label %if.end
+
+if.else:                                          ; preds = %if.then
+  %tqh_last = getelementptr inbounds i8, ptr %evcon, i64 304
+  store ptr %3, ptr %tqh_last, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then1
   %4 = load ptr, ptr %0, align 8
   store ptr %4, ptr %3, align 8
   %evcon14 = getelementptr inbounds i8, ptr %0, i64 16
@@ -10525,12 +10748,12 @@ if.then:                                          ; preds = %entry
   %tobool15.not = icmp eq i32 %call, 0
   br i1 %tobool15.not, label %if.end17, label %if.end17.thread
 
-if.end17:                                         ; preds = %if.then
+if.end17:                                         ; preds = %if.end
   %5 = load ptr, ptr %requests, align 8
   %cmp20.not = icmp eq ptr %5, null
   br i1 %cmp20.not, label %if.then30, label %if.else26
 
-if.end17.thread:                                  ; preds = %if.then
+if.end17.thread:                                  ; preds = %if.end
   tail call void @evhttp_connection_reset_(ptr noundef nonnull %evcon, i32 noundef 1)
   %6 = load ptr, ptr %requests, align 8
   %cmp20.not28 = icmp eq ptr %6, null

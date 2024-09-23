@@ -3227,15 +3227,16 @@ if.end6:                                          ; preds = %if.then4, %if.end
   ret i32 %devId.1
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @wolfSSL_CTX_GetHeap(ptr noundef readonly %ctx, ptr noundef readonly %ssl) local_unnamed_addr #14 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define ptr @wolfSSL_CTX_GetHeap(ptr noundef readonly %ctx, ptr noundef readonly %ssl) local_unnamed_addr #7 {
 entry:
   %cmp.not = icmp eq ptr %ctx, null
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
   %heap1 = getelementptr inbounds i8, ptr %ctx, i64 160
-  br label %if.end5.sink.split
+  %0 = load ptr, ptr %heap1, align 8
+  br label %if.end5
 
 if.else:                                          ; preds = %entry
   %cmp2.not = icmp eq ptr %ssl, null
@@ -3243,15 +3244,11 @@ if.else:                                          ; preds = %entry
 
 if.then3:                                         ; preds = %if.else
   %heap4 = getelementptr inbounds i8, ptr %ssl, i64 168
-  br label %if.end5.sink.split
-
-if.end5.sink.split:                               ; preds = %if.then, %if.then3
-  %heap4.sink = phi ptr [ %heap4, %if.then3 ], [ %heap1, %if.then ]
-  %0 = load ptr, ptr %heap4.sink, align 8
+  %1 = load ptr, ptr %heap4, align 8
   br label %if.end5
 
-if.end5:                                          ; preds = %if.end5.sink.split, %if.else
-  %heap.0 = phi ptr [ null, %if.else ], [ %0, %if.end5.sink.split ]
+if.end5:                                          ; preds = %if.else, %if.then3, %if.then
+  %heap.0 = phi ptr [ %0, %if.then ], [ %1, %if.then3 ], [ null, %if.else ]
   ret ptr %heap.0
 }
 
@@ -4697,7 +4694,7 @@ declare ptr @MakeSigner(ptr noundef) local_unnamed_addr #1
 declare void @FreeSigner(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @EvictSessionFromCache(ptr noundef %session) local_unnamed_addr #15 {
+define void @EvictSessionFromCache(ptr noundef %session) local_unnamed_addr #14 {
 entry:
   %masterSecret = getelementptr inbounds i8, ptr %session, i64 149
   %0 = ptrtoint ptr %masterSecret to i64
@@ -4750,7 +4747,7 @@ ForceZero.exit:                                   ; preds = %while.body12.i, %wh
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @ForceZero(ptr noundef %mem, i32 noundef %len) unnamed_addr #15 {
+define internal fastcc void @ForceZero(ptr noundef %mem, i32 noundef %len) unnamed_addr #14 {
 entry:
   %0 = ptrtoint ptr %mem to i64
   %1 = trunc i64 %0 to i32
@@ -4985,15 +4982,15 @@ wolfSSL_CTX_GetHeap.exit:                         ; preds = %entry
   br i1 %cmp.not.i181, label %if.end.i, label %if.then.i182
 
 if.then.i182:                                     ; preds = %wolfSSL_CTX_GetHeap.exit.thread196, %wolfSSL_CTX_GetHeap.exit
-  %2 = phi ptr [ %0, %wolfSSL_CTX_GetHeap.exit.thread196 ], [ %1, %wolfSSL_CTX_GetHeap.exit ]
+  %heap.0.i199 = phi ptr [ %0, %wolfSSL_CTX_GetHeap.exit.thread196 ], [ %1, %wolfSSL_CTX_GetHeap.exit ]
   %devId1.i = getelementptr inbounds i8, ptr %ssl, i64 1180
-  %3 = load i32, ptr %devId1.i, align 4
+  %2 = load i32, ptr %devId1.i, align 4
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i182, %wolfSSL_CTX_GetHeap.exit
   %cmp.not.i181192 = phi i1 [ false, %if.then.i182 ], [ true, %wolfSSL_CTX_GetHeap.exit ]
-  %heap.0.i191 = phi ptr [ %2, %if.then.i182 ], [ %1, %wolfSSL_CTX_GetHeap.exit ]
-  %devId.0.i = phi i32 [ %3, %if.then.i182 ], [ -2, %wolfSSL_CTX_GetHeap.exit ]
+  %heap.0.i191 = phi ptr [ %heap.0.i199, %if.then.i182 ], [ %1, %wolfSSL_CTX_GetHeap.exit ]
+  %devId.0.i = phi i32 [ %2, %if.then.i182 ], [ -2, %wolfSSL_CTX_GetHeap.exit ]
   %cmp2.i = icmp ne ptr %ctx, null
   %cmp3.i = icmp eq i32 %devId.0.i, -2
   %or.cond.i = select i1 %cmp2.i, i1 %cmp3.i, i1 false
@@ -5001,14 +4998,14 @@ if.end.i:                                         ; preds = %if.then.i182, %wolf
 
 if.then4.i:                                       ; preds = %if.end.i
   %devId5.i = getelementptr inbounds i8, ptr %ctx, i64 280
-  %4 = load i32, ptr %devId5.i, align 8
+  %3 = load i32, ptr %devId5.i, align 8
   br label %wolfSSL_CTX_GetDevId.exit
 
 wolfSSL_CTX_GetDevId.exit:                        ; preds = %if.else.i, %if.end.i, %if.then4.i
-  %cmp2.i208 = phi i1 [ true, %if.then4.i ], [ %cmp2.i, %if.end.i ], [ false, %if.else.i ]
-  %heap.0.i191207 = phi ptr [ %heap.0.i191, %if.then4.i ], [ %heap.0.i191, %if.end.i ], [ null, %if.else.i ]
-  %cmp.not.i181192206 = phi i1 [ %cmp.not.i181192, %if.then4.i ], [ %cmp.not.i181192, %if.end.i ], [ true, %if.else.i ]
-  %devId.1.i = phi i32 [ %4, %if.then4.i ], [ %devId.0.i, %if.end.i ], [ -2, %if.else.i ]
+  %cmp2.i209 = phi i1 [ true, %if.then4.i ], [ %cmp2.i, %if.end.i ], [ false, %if.else.i ]
+  %heap.0.i191208 = phi ptr [ %heap.0.i191, %if.then4.i ], [ %heap.0.i191, %if.end.i ], [ null, %if.else.i ]
+  %cmp.not.i181192207 = phi i1 [ %cmp.not.i181192, %if.then4.i ], [ %cmp.not.i181192, %if.end.i ], [ true, %if.else.i ]
+  %devId.1.i = phi i32 [ %3, %if.then4.i ], [ %devId.0.i, %if.end.i ], [ -2, %if.else.i ]
   store i32 0, ptr %idx, align 4
   store i32 0, ptr %keySz, align 4
   store i32 0, ptr %algId, align 4
@@ -5020,12 +5017,12 @@ if.then:                                          ; preds = %wolfSSL_CTX_GetDevI
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %wolfSSL_CTX_GetDevId.exit
-  %5 = add i32 %format, -3
-  %or.cond = icmp ult i32 %5, -2
+  %4 = add i32 %format, -3
+  %or.cond = icmp ult i32 %4, -2
   br i1 %or.cond, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %or.cond1 = and i1 %cmp.not.i, %cmp.not.i181192206
+  %or.cond1 = and i1 %cmp.not.i, %cmp.not.i181192207
   %cmp10 = icmp eq i32 %type, 38
   %or.cond178 = or i1 %cmp10, %or.cond1
   br i1 %or.cond178, label %return, label %if.end12
@@ -5036,7 +5033,7 @@ if.end12:                                         ; preds = %if.end4
   br i1 %cmp13, label %if.then14, label %if.else
 
 if.then14:                                        ; preds = %if.end12
-  %call16 = call i32 @PemToDer(ptr noundef %buff, i64 noundef %sz, i32 noundef %type, ptr noundef nonnull %der, ptr noundef %heap.0.i191207, ptr noundef nonnull %info, ptr noundef nonnull %keyFormat) #20
+  %call16 = call i32 @PemToDer(ptr noundef %buff, i64 noundef %sz, i32 noundef %type, ptr noundef nonnull %der, ptr noundef %heap.0.i191208, ptr noundef nonnull %info, ptr noundef nonnull %keyFormat) #20
   br label %if.end62
 
 if.else:                                          ; preds = %if.end12
@@ -5057,46 +5054,46 @@ land.lhs.true25:                                  ; preds = %if.else22
   br i1 %cmp28, label %if.then39, label %if.end34
 
 if.end34:                                         ; preds = %if.else22, %land.lhs.true25
-  %6 = load i32, ptr %length, align 4
-  %conv35 = sext i32 %6 to i64
+  %5 = load i32, ptr %length, align 4
+  %conv35 = sext i32 %5 to i64
   store i64 %conv35, ptr %info, align 8
   br label %if.end62
 
 if.then39:                                        ; preds = %land.lhs.true25, %if.else
-  %7 = load i32, ptr %inOutIdx, align 4
-  %8 = load i32, ptr %length, align 4
-  %add = add i32 %8, %7
+  %6 = load i32, ptr %inOutIdx, align 4
+  %7 = load i32, ptr %length, align 4
+  %add = add i32 %7, %6
   store i32 %add, ptr %length, align 4
-  %conv35211 = sext i32 %add to i64
-  store i64 %conv35211, ptr %info, align 8
-  %call40 = call i32 @AllocDer(ptr noundef nonnull %der, i32 noundef %add, i32 noundef %type, ptr noundef %heap.0.i191207) #20
+  %conv35212 = sext i32 %add to i64
+  store i64 %conv35212, ptr %info, align 8
+  %call40 = call i32 @AllocDer(ptr noundef nonnull %der, i32 noundef %add, i32 noundef %type, ptr noundef %heap.0.i191208) #20
   %cmp41 = icmp eq i32 %call40, 0
   br i1 %cmp41, label %if.end45, label %if.end62
 
 if.end45:                                         ; preds = %if.then39
-  %9 = load ptr, ptr %der, align 8
-  %10 = load ptr, ptr %9, align 8
-  %11 = load i32, ptr %length, align 4
-  %conv44 = sext i32 %11 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %10, ptr align 1 %buff, i64 %conv44, i1 false)
+  %8 = load ptr, ptr %der, align 8
+  %9 = load ptr, ptr %8, align 8
+  %10 = load i32, ptr %length, align 4
+  %conv44 = sext i32 %10 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr align 1 %buff, i64 %conv44, i1 false)
   %cmp49 = icmp eq i32 %type, 1
   br i1 %cmp49, label %if.then51, label %if.end62
 
 if.then51:                                        ; preds = %if.end45
-  %12 = load ptr, ptr %der, align 8
-  %13 = load ptr, ptr %12, align 8
-  %length53 = getelementptr inbounds i8, ptr %12, i64 16
-  %14 = load i32, ptr %length53, align 8
-  %call54 = call i32 @ToTraditional_ex(ptr noundef %13, i32 noundef %14, ptr noundef nonnull %algId) #20
+  %11 = load ptr, ptr %der, align 8
+  %12 = load ptr, ptr %11, align 8
+  %length53 = getelementptr inbounds i8, ptr %11, i64 16
+  %13 = load i32, ptr %length53, align 8
+  %call54 = call i32 @ToTraditional_ex(ptr noundef %12, i32 noundef %13, ptr noundef nonnull %algId) #20
   %cmp55 = icmp sgt i32 %call54, 0
   br i1 %cmp55, label %if.then57, label %if.end62
 
 if.then57:                                        ; preds = %if.then51
-  %15 = load ptr, ptr %der, align 8
-  %length58 = getelementptr inbounds i8, ptr %15, i64 16
+  %14 = load ptr, ptr %der, align 8
+  %length58 = getelementptr inbounds i8, ptr %14, i64 16
   store i32 %call54, ptr %length58, align 8
-  %16 = load i32, ptr %algId, align 4
-  store i32 %16, ptr %keyFormat, align 4
+  %15 = load i32, ptr %algId, align 4
+  store i32 %15, ptr %keyFormat, align 4
   br label %if.end62
 
 if.end62:                                         ; preds = %if.then39, %if.end34, %if.then51, %if.then57, %if.end45, %if.then14
@@ -5104,8 +5101,8 @@ if.end62:                                         ; preds = %if.then39, %if.end3
   br i1 %tobool.not, label %if.end67, label %if.then64
 
 if.then64:                                        ; preds = %if.end62
-  %17 = load i64, ptr %info, align 8
-  store i64 %17, ptr %used, align 8
+  %16 = load i64, ptr %info, align 8
+  store i64 %16, ptr %used, align 8
   br label %if.end67
 
 if.end67:                                         ; preds = %if.then64, %if.end62
@@ -5123,22 +5120,19 @@ if.then72:                                        ; preds = %if.end67
 
 if.then.i.i:                                      ; preds = %if.then72
   %heap1.i.i = getelementptr inbounds i8, ptr %ctx, i64 160
-  br label %if.end5.sink.split.i.i
+  %17 = load ptr, ptr %heap1.i.i, align 8
+  br label %wolfSSL_CTX_GetHeap.exit.i
 
 if.else.i.i:                                      ; preds = %if.then72
-  br i1 %cmp.not.i181192206, label %wolfSSL_CTX_GetHeap.exit.i, label %if.then3.i.i
+  br i1 %cmp.not.i181192207, label %wolfSSL_CTX_GetHeap.exit.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.else.i.i
   %heap4.i.i = getelementptr inbounds i8, ptr %ssl, i64 168
-  br label %if.end5.sink.split.i.i
-
-if.end5.sink.split.i.i:                           ; preds = %if.then3.i.i, %if.then.i.i
-  %heap4.sink.i.i = phi ptr [ %heap4.i.i, %if.then3.i.i ], [ %heap1.i.i, %if.then.i.i ]
-  %18 = load ptr, ptr %heap4.sink.i.i, align 8
+  %18 = load ptr, ptr %heap4.i.i, align 8
   br label %wolfSSL_CTX_GetHeap.exit.i
 
-wolfSSL_CTX_GetHeap.exit.i:                       ; preds = %if.end5.sink.split.i.i, %if.else.i.i
-  %heap.0.i.i = phi ptr [ null, %if.else.i.i ], [ %18, %if.end5.sink.split.i.i ]
+wolfSSL_CTX_GetHeap.exit.i:                       ; preds = %if.then3.i.i, %if.else.i.i, %if.then.i.i
+  %heap.0.i.i = phi ptr [ %17, %if.then.i.i ], [ %18, %if.then3.i.i ], [ null, %if.else.i.i ]
   %19 = load i64, ptr %info, align 8
   %cmp7.i = icmp slt i64 %19, %sz
   br i1 %cmp7.i, label %if.then8.i, label %ProcessUserChain.exit.thread
@@ -5363,7 +5357,7 @@ do.end125.i:                                      ; preds = %if.end101.i, %while
   br i1 %cmp126.not.i, label %if.end165.i, label %if.then128.i
 
 if.then128.i:                                     ; preds = %do.end125.i
-  br i1 %cmp.not.i181192206, label %if.else149.i, label %if.then130.i
+  br i1 %cmp.not.i181192207, label %if.else149.i, label %if.then130.i
 
 if.then130.i:                                     ; preds = %if.then128.i
   %weOwnCertChain.i = getelementptr inbounds i8, ptr %ssl, i64 473
@@ -5454,7 +5448,7 @@ if.then89:                                        ; preds = %if.end80
   br label %if.then507
 
 if.else94:                                        ; preds = %ProcessUserChain.exit, %if.end80
-  %ret.2224 = phi i32 [ %ret.2, %if.end80 ], [ 0, %ProcessUserChain.exit ]
+  %ret.2225 = phi i32 [ %ret.2, %if.end80 ], [ 0, %ProcessUserChain.exit ]
   switch i32 %type, label %if.else169 [
     i32 6, label %if.then97
     i32 0, label %if.then106
@@ -5475,7 +5469,7 @@ if.end101:                                        ; preds = %if.then97
   br label %if.then507
 
 if.then106:                                       ; preds = %if.else94
-  br i1 %cmp.not.i181192206, label %if.else118, label %if.then109
+  br i1 %cmp.not.i181192207, label %if.else118, label %if.then109
 
 if.then109:                                       ; preds = %if.then106
   %weOwnCert = getelementptr inbounds i8, ptr %ssl, i64 472
@@ -5510,7 +5504,7 @@ if.then121:                                       ; preds = %if.else118
   br label %do.end195
 
 if.then129:                                       ; preds = %if.else94
-  br i1 %cmp.not.i181192206, label %if.else148, label %if.then132
+  br i1 %cmp.not.i181192207, label %if.else148, label %if.then132
 
 if.then132:                                       ; preds = %if.then129
   %weOwnKey = getelementptr inbounds i8, ptr %ssl, i64 474
@@ -5597,12 +5591,12 @@ if.then14.i.if.end18thread-pre-split.i_crit_edge: ; preds = %if.then14.i
 if.else.i.i188:                                   ; preds = %if.then14.i
   %minRsaKeySz.i.i = getelementptr inbounds i8, ptr %ssl, i64 1038
   %minRsaKeySz1.i.i = getelementptr inbounds i8, ptr %ctx, i64 178
-  %cond.in.in.i.i = select i1 %cmp.not.i181192206, ptr %minRsaKeySz1.i.i, ptr %minRsaKeySz.i.i
+  %cond.in.in.i.i = select i1 %cmp.not.i181192207, ptr %minRsaKeySz1.i.i, ptr %minRsaKeySz.i.i
   %cond.in.i.i = load i16, ptr %cond.in.in.i.i, align 2
   %cond.i.i = sext i16 %cond.in.i.i to i32
   %66 = load i32, ptr %keySz, align 4
   %cmp3.i.not.i = icmp slt i32 %66, %cond.i.i
-  br i1 %cmp.not.i181192206, label %if.end14.thread.i.i, label %land.lhs.true.i.i
+  br i1 %cmp.not.i181192207, label %if.end14.thread.i.i, label %land.lhs.true.i.i
 
 if.end14.thread.i.i:                              ; preds = %if.else.i.i188
   %privateKeyType.i.i = getelementptr inbounds i8, ptr %ctx, i64 128
@@ -5648,7 +5642,7 @@ if.end18.i:                                       ; preds = %if.then14.i.if.end1
 
 if.then22.i:                                      ; preds = %if.end18.i, %if.end18.i
   call void @llvm.lifetime.start.p0(i64 4200, ptr nonnull %key.i.i)
-  %call.i30.i = call i32 @wc_ecc_init_ex(ptr noundef nonnull %key.i.i, ptr noundef %heap.0.i191207, i32 noundef %devId.1.i) #20
+  %call.i30.i = call i32 @wc_ecc_init_ex(ptr noundef nonnull %key.i.i, ptr noundef %heap.0.i191208, i32 noundef %devId.1.i) #20
   %cmp.i.i = icmp eq i32 %call.i30.i, 0
   br i1 %cmp.i.i, label %if.then.i.i187, label %if.end27.sink.split.i
 
@@ -5668,14 +5662,14 @@ ProcessBufferTryDecodeEcc.exit.thread49.i:        ; preds = %if.then.i.i187
 if.then4.i.i:                                     ; preds = %if.then.i.i187
   %minEccKeySz.i.i = getelementptr inbounds i8, ptr %ssl, i64 1040
   %minEccKeySz5.i.i = getelementptr inbounds i8, ptr %ctx, i64 180
-  %cond.in.in.i35.i = select i1 %cmp.not.i181192206, ptr %minEccKeySz5.i.i, ptr %minEccKeySz.i.i
+  %cond.in.in.i35.i = select i1 %cmp.not.i181192207, ptr %minEccKeySz5.i.i, ptr %minEccKeySz.i.i
   %cond.in.i36.i = load i16, ptr %cond.in.in.i35.i, align 4
   %cond.i37.i = sext i16 %cond.in.i36.i to i32
   %call8.i.i = call i32 @wc_ecc_size(ptr noundef nonnull %key.i.i) #20
   store i32 %call8.i.i, ptr %keySz, align 4
   %cmp9.i.not.i = icmp slt i32 %call8.i.i, %cond.i37.i
   store i32 518, ptr %keyFormat, align 4
-  br i1 %cmp.not.i181192206, label %if.end36.thread.i.i, label %land.lhs.true.i39.i
+  br i1 %cmp.not.i181192207, label %if.end36.thread.i.i, label %land.lhs.true.i39.i
 
 if.end36.thread.i.i:                              ; preds = %if.then4.i.i
   %haveStaticECC25.i.i = getelementptr inbounds i8, ptr %ctx, i64 169
@@ -5729,7 +5723,7 @@ do.end195:                                        ; preds = %if.else118.do.end19
   %74 = load ptr, ptr %73, align 8
   %length198 = getelementptr inbounds i8, ptr %73, i64 16
   %75 = load i32, ptr %length198, align 8
-  call void @InitDecodedCert_ex(ptr noundef nonnull %cert, ptr noundef %74, i32 noundef %75, ptr noundef %heap.0.i191207, i32 noundef %devId.1.i) #20
+  call void @InitDecodedCert_ex(ptr noundef nonnull %cert, ptr noundef %74, i32 noundef %75, ptr noundef %heap.0.i191208, i32 noundef %devId.1.i) #20
   %call200 = call i32 @DecodeToKey(ptr noundef nonnull %cert, i32 noundef 0) #20
   %cmp201 = icmp slt i32 %call200, 0
   br i1 %cmp201, label %do.end205, label %if.end207
@@ -5739,7 +5733,7 @@ do.end205:                                        ; preds = %do.end195
   br label %return
 
 if.end207:                                        ; preds = %do.end195
-  br i1 %cmp.not.i181192206, label %if.else215, label %if.then209
+  br i1 %cmp.not.i181192207, label %if.else215, label %if.then209
 
 if.then209:                                       ; preds = %if.end207
   %side = getelementptr inbounds i8, ptr %ssl, i64 1008
@@ -5769,8 +5763,8 @@ do.end236:                                        ; preds = %if.then209
   br label %if.end241
 
 if.end241:                                        ; preds = %land.lhs.true217, %if.else215, %do.end236, %if.then209
-  %resetSuites.1235.shrunk = phi i1 [ %cmp211, %do.end236 ], [ %cmp211, %if.then209 ], [ false, %if.else215 ], [ %cmp220, %land.lhs.true217 ]
-  %resetSuites.1235 = zext i1 %resetSuites.1235.shrunk to i32
+  %resetSuites.1236.shrunk = phi i1 [ %cmp211, %do.end236 ], [ %cmp211, %if.then209 ], [ false, %if.else215 ], [ %cmp220, %land.lhs.true217 ]
+  %resetSuites.1236 = zext i1 %resetSuites.1236.shrunk to i32
   %signatureOID = getelementptr inbounds i8, ptr %cert, i64 28
   %81 = load i32, ptr %signatureOID, align 4
   switch i32 %81, label %sw.epilog [
@@ -5788,25 +5782,25 @@ if.end241:                                        ; preds = %land.lhs.true217, %
   ]
 
 do.end244:                                        ; preds = %if.end241, %if.end241, %if.end241, %if.end241, %if.end241, %if.end241
-  br i1 %cmp.not.i181192206, label %if.else252, label %if.then300.sink.split
+  br i1 %cmp.not.i181192207, label %if.else252, label %if.then300.sink.split
 
 if.else252:                                       ; preds = %do.end244
   br i1 %cmp.not.i, label %if.end374, label %if.then337.sink.split
 
 do.end263:                                        ; preds = %if.end241, %if.end241
-  br i1 %cmp.not.i181192206, label %if.else270, label %if.then300.sink.split
+  br i1 %cmp.not.i181192207, label %if.else270, label %if.then300.sink.split
 
 if.else270:                                       ; preds = %do.end263
   br i1 %cmp.not.i, label %if.end374, label %if.then337.sink.split
 
 do.end281:                                        ; preds = %if.end241, %if.end241, %if.end241
-  br i1 %cmp.not.i181192206, label %if.else288, label %if.then300.sink.split
+  br i1 %cmp.not.i181192207, label %if.else288, label %if.then300.sink.split
 
 if.else288:                                       ; preds = %do.end281
   br i1 %cmp.not.i, label %if.end374, label %if.then337.sink.split
 
 sw.epilog:                                        ; preds = %if.end241
-  br i1 %cmp.not.i181192206, label %if.else335, label %if.then300
+  br i1 %cmp.not.i181192207, label %if.else335, label %if.then300
 
 if.then300.sink.split:                            ; preds = %do.end281, %do.end263, %do.end244
   %.sink = phi i64 [ 268435456, %do.end244 ], [ 1073741824, %do.end263 ], [ 2147483648, %do.end281 ]
@@ -5854,10 +5848,10 @@ if.else335:                                       ; preds = %sw.epilog
   br i1 %cmp.not.i, label %if.end374, label %if.then337
 
 if.then337.sink.split:                            ; preds = %if.else288, %if.else270, %if.else252
-  %.sink268 = phi i24 [ 2048, %if.else252 ], [ 4096, %if.else270 ], [ 8192, %if.else288 ]
+  %.sink269 = phi i24 [ 2048, %if.else252 ], [ 4096, %if.else270 ], [ 8192, %if.else288 ]
   %haveDilithiumSig291 = getelementptr inbounds i8, ptr %ctx, i64 169
   %bf.load292 = load i24, ptr %haveDilithiumSig291, align 1
-  %bf.set294 = or i24 %bf.load292, %.sink268
+  %bf.set294 = or i24 %bf.load292, %.sink269
   store i24 %bf.set294, ptr %haveDilithiumSig291, align 1
   br label %if.then337
 
@@ -5914,7 +5908,7 @@ sw.bb377:                                         ; preds = %if.end374, %if.end3
   br i1 %cmp381, label %sw.epilog496.thread, label %if.end384
 
 if.end384:                                        ; preds = %sw.bb377
-  br i1 %cmp.not.i181192206, label %if.else411, label %land.lhs.true386
+  br i1 %cmp.not.i181192207, label %if.else411, label %land.lhs.true386
 
 land.lhs.true386:                                 ; preds = %if.end384
   %verifyNone = getelementptr inbounds i8, ptr %ssl, i64 1008
@@ -5967,7 +5961,7 @@ sw.bb439:                                         ; preds = %if.end374
   %call442 = call i32 @wc_ecc_get_oid(i32 noundef %95, ptr noundef null, ptr noundef null) #20
   %call443 = call i32 @wc_ecc_get_curve_size_from_id(i32 noundef %call442) #20
   store i32 %call443, ptr %keySz, align 4
-  br i1 %cmp.not.i181192206, label %if.else468, label %land.lhs.true445
+  br i1 %cmp.not.i181192207, label %if.else468, label %land.lhs.true445
 
 land.lhs.true445:                                 ; preds = %sw.bb439
   %verifyNone447 = getelementptr inbounds i8, ptr %ssl, i64 1008
@@ -6010,7 +6004,7 @@ sw.epilog496.thread:                              ; preds = %sw.bb377, %lor.lhs.
   br label %if.then507
 
 sw.epilog496:                                     ; preds = %if.then477, %if.then453, %if.end374, %land.lhs.true470, %if.else468, %lor.lhs.false398, %lor.lhs.false425, %land.lhs.true413, %if.else411
-  %ret.5 = phi i32 [ %ret.2224, %if.end374 ], [ %ret.2224, %land.lhs.true470 ], [ %ret.2224, %if.else468 ], [ %call380, %land.lhs.true413 ], [ %call380, %lor.lhs.false425 ], [ %call380, %if.else411 ], [ %call380, %lor.lhs.false398 ], [ %ret.2224, %if.then453 ], [ %ret.2224, %if.then477 ]
+  %ret.5 = phi i32 [ %ret.2225, %if.end374 ], [ %ret.2225, %land.lhs.true470 ], [ %ret.2225, %if.else468 ], [ %call380, %land.lhs.true413 ], [ %call380, %lor.lhs.false425 ], [ %call380, %if.else411 ], [ %call380, %lor.lhs.false398 ], [ %ret.2225, %if.then453 ], [ %ret.2225, %if.then477 ]
   %ret.5.fr = freeze i32 %ret.5
   call void @FreeDecodedCert(ptr noundef nonnull %cert) #20
   %cmp498.not = icmp eq i32 %ret.5.fr, 0
@@ -6021,7 +6015,7 @@ if.then507:                                       ; preds = %if.then89, %if.end1
   %cmp508 = icmp eq i32 %type, 6
   %cmp511 = icmp eq i32 %type, 0
   %or.cond6 = or i1 %cmp508, %cmp511
-  %or.cond10 = and i1 %or.cond6, %cmp2.i208
+  %or.cond10 = and i1 %or.cond6, %cmp2.i209
   br i1 %or.cond10, label %land.lhs.true516, label %return
 
 land.lhs.true516:                                 ; preds = %if.then507
@@ -6043,7 +6037,7 @@ if.then524:                                       ; preds = %land.lhs.true520
   br label %return
 
 if.end531:                                        ; preds = %sw.epilog496, %if.end185
-  %resetSuites.0 = phi i32 [ %resetSuites.7.ph, %if.end185 ], [ %resetSuites.1235, %sw.epilog496 ]
+  %resetSuites.0 = phi i32 [ %resetSuites.7.ph, %if.end185 ], [ %resetSuites.1236, %sw.epilog496 ]
   %tobool532 = icmp ne ptr %ssl, null
   %tobool534 = icmp ne i32 %resetSuites.0, 0
   %or.cond7 = select i1 %tobool532, i1 %tobool534, i1 false
@@ -6093,7 +6087,7 @@ if.end543:                                        ; preds = %if.then535
   br label %return
 
 if.else590:                                       ; preds = %if.end531
-  %or.cond8 = select i1 %cmp2.i208, i1 %tobool534, i1 false
+  %or.cond8 = select i1 %cmp2.i209, i1 %tobool534, i1 false
   br i1 %or.cond8, label %if.then594, label %return
 
 if.then594:                                       ; preds = %if.else590
@@ -10359,7 +10353,7 @@ return:                                           ; preds = %entry, %if.end
 declare ptr @GetCipherNameIana(i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @wolfSSL_CIPHER_get_version(ptr noundef readonly %cipher) local_unnamed_addr #14 {
+define noundef ptr @wolfSSL_CIPHER_get_version(ptr noundef readonly %cipher) local_unnamed_addr #15 {
 entry:
   %cmp = icmp eq ptr %cipher, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -10483,7 +10477,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @GetCipherSuiteFromName(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 65536) i32 @wolfSSL_CIPHER_get_id(ptr noundef readonly %cipher) local_unnamed_addr #14 {
+define range(i32 0, 65536) i32 @wolfSSL_CIPHER_get_id(ptr noundef readonly %cipher) local_unnamed_addr #15 {
 entry:
   %tobool.not = icmp eq ptr %cipher, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
@@ -10880,8 +10874,8 @@ attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { nofree nounwind }
 attributes #18 = { nofree nounwind willreturn memory(argmem: read) }

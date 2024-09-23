@@ -1167,39 +1167,36 @@ define noundef zeroext i1 @_ZN12actix_router8resource11ResourceDef9is_prefix17h5
 define { ptr, i64 } @_ZN12actix_router8resource11ResourceDef7pattern17h6da34fe8eeb9fee4E(ptr noalias nocapture noundef readonly align 8 dereferenceable(152) %0) unnamed_addr #6 {
   %2 = load i64, ptr %0, align 8, !range !7, !noundef !8
   %trunc = trunc nuw i64 %2 to i1
-  br i1 %trunc, label %6, label %3
+  br i1 %trunc, label %8, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
-  br label %.sink.split
+  %5 = load ptr, ptr %4, align 8, !nonnull !8, !noundef !8
+  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = load i64, ptr %6, align 8, !noundef !8
+  br label %11
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = load i64, ptr %7, align 8, !noundef !8
-  %.not = icmp eq i64 %8, 0
-  br i1 %.not, label %9, label %12
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = load i64, ptr %9, align 8, !noundef !8
+  %.not = icmp eq i64 %10, 0
+  br i1 %.not, label %11, label %14
 
-.sink.split:                                      ; preds = %3, %12
-  %.sink = phi ptr [ %16, %12 ], [ %5, %3 ]
-  %.sroa.0.0.ph.in = phi ptr [ %15, %12 ], [ %4, %3 ]
-  %.sroa.0.0.ph = load ptr, ptr %.sroa.0.0.ph.in, align 8, !nonnull !8, !noundef !8
-  %.0.val11 = load i64, ptr %.sink, align 8, !noundef !8
-  br label %9
+11:                                               ; preds = %14, %8, %3
+  %.sroa.4.0 = phi i64 [ %7, %3 ], [ %.0.val11, %14 ], [ undef, %8 ]
+  %.sroa.0.0 = phi ptr [ %5, %3 ], [ %.0.val, %14 ], [ null, %8 ]
+  %12 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %13 = insertvalue { ptr, i64 } %12, i64 %.sroa.4.0, 1
+  ret { ptr, i64 } %13
 
-9:                                                ; preds = %.sink.split, %6
-  %.sroa.4.0 = phi i64 [ undef, %6 ], [ %.0.val11, %.sink.split ]
-  %.sroa.0.0 = phi ptr [ null, %6 ], [ %.sroa.0.0.ph, %.sink.split ]
-  %10 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %11 = insertvalue { ptr, i64 } %10, i64 %.sroa.4.0, 1
-  ret { ptr, i64 } %11
-
-12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
-  %14 = load ptr, ptr %13, align 8, !nonnull !8
-  %15 = getelementptr i8, ptr %14, i64 8
-  %16 = getelementptr i8, ptr %14, i64 16
-  br label %.sink.split
+14:                                               ; preds = %8
+  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = load ptr, ptr %15, align 8, !nonnull !8
+  %17 = getelementptr i8, ptr %16, i64 8
+  %.0.val = load ptr, ptr %17, align 8, !nonnull !8, !noundef !8
+  %18 = getelementptr i8, ptr %16, i64 16
+  %.0.val11 = load i64, ptr %18, align 8, !noundef !8
+  br label %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable

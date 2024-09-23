@@ -7629,6 +7629,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.threa
   store ptr null, ptr %48, align 8
   store ptr %51, ptr %55, align 8
   store ptr %51, ptr %58, align 8
+  store i64 0, ptr %62, align 8
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2EOSC_.exit
 
 65:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.thread
@@ -7640,11 +7641,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.threa
   %68 = getelementptr inbounds i8, ptr %0, i64 240
   store ptr %47, ptr %68, align 8
   %69 = getelementptr inbounds i8, ptr %0, i64 248
+  store i64 0, ptr %69, align 8
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2EOSC_.exit
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2EOSC_.exit: ; preds = %50, %65
-  %.sink.i.i.i.i = phi ptr [ %69, %65 ], [ %62, %50 ]
-  store i64 0, ptr %.sink.i.i.i.i, align 8
   %70 = getelementptr inbounds i8, ptr %0, i64 256
   store i8 %30, ptr %70, align 8
   %71 = getelementptr inbounds i8, ptr %0, i64 264

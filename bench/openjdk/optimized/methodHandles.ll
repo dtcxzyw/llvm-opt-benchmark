@@ -2397,12 +2397,12 @@ define hidden void @_ZN13MethodHandles32print_as_basic_type_signature_onEP12outp
   %16 = getelementptr inbounds i8, ptr %3, i64 20
   br label %17
 
-._crit_edge:                                      ; preds = %38, %10
+._crit_edge:                                      ; preds = %40, %10
   call void @_ZN15SignatureStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #14
   ret void
 
-17:                                               ; preds = %.lr.ph, %38
-  %18 = phi i32 [ %12, %.lr.ph ], [ %39, %38 ]
+17:                                               ; preds = %.lr.ph, %40
+  %18 = phi i32 [ %12, %.lr.ph ], [ %41, %40 ]
   %19 = icmp eq i32 %18, 3
   br i1 %19, label %20, label %21
 
@@ -2418,7 +2418,7 @@ define hidden void @_ZN13MethodHandles32print_as_basic_type_signature_onEP12outp
   %26 = getelementptr inbounds i8, ptr %23, i64 %25
   %27 = load i8, ptr %15, align 8
   %28 = icmp eq i8 %27, 13
-  br i1 %28, label %29, label %.sink.split
+  br i1 %28, label %29, label %38
 
 29:                                               ; preds = %21
   call void @_ZN12outputStream3putEc(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 noundef signext 91) #14
@@ -2427,24 +2427,24 @@ define hidden void @_ZN13MethodHandles32print_as_basic_type_signature_onEP12outp
   %32 = load i32, ptr %16, align 4
   %33 = icmp eq i32 %32, 1
   %34 = select i1 %31, i1 %33, i1 false
-  br i1 %34, label %35, label %38
+  br i1 %34, label %35, label %40
 
 35:                                               ; preds = %29
   %36 = getelementptr inbounds i8, ptr %26, i64 1
-  br label %.sink.split
+  %37 = load i8, ptr %36, align 1
+  br label %40
 
-.sink.split:                                      ; preds = %21, %35
-  %.sink15 = phi ptr [ %36, %35 ], [ %26, %21 ]
-  %37 = load i8, ptr %.sink15, align 1
-  br label %38
+38:                                               ; preds = %21
+  %39 = load i8, ptr %26, align 1
+  br label %40
 
-38:                                               ; preds = %.sink.split, %29
-  %.sink = phi i8 [ 76, %29 ], [ %37, %.sink.split ]
+40:                                               ; preds = %29, %38, %35
+  %.sink = phi i8 [ %39, %38 ], [ %37, %35 ], [ 76, %29 ]
   call void @_ZN12outputStream3putEc(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 noundef signext %.sink) #14
   call void @_ZN15SignatureStream4nextEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #14
-  %39 = load i32, ptr %11, align 4
-  %40 = icmp slt i32 %39, 0
-  br i1 %40, label %._crit_edge, label %17, !llvm.loop !12
+  %41 = load i32, ptr %11, align 4
+  %42 = icmp slt i32 %41, 0
+  br i1 %42, label %._crit_edge, label %17, !llvm.loop !12
 }
 
 declare noundef ptr @_ZN11StringTable6lookupEP6Symbol(ptr noundef) local_unnamed_addr #1

@@ -263,7 +263,8 @@ define dso_local noundef range(i32 -12, 1) i32 @drm_atomic_state_init(ptr nounde
 
 .thread:                                          ; preds = %2
   %11 = getelementptr inbounds i8, ptr %1, i64 32
-  br label %.sink.split
+  store ptr null, ptr %11, align 8
+  br label %36
 
 12:                                               ; preds = %2
   %13 = extractvalue { i64, i1 } %9, 0
@@ -281,7 +282,8 @@ define dso_local noundef range(i32 -12, 1) i32 @drm_atomic_state_init(ptr nounde
 
 .thread2:                                         ; preds = %17
   %21 = getelementptr inbounds i8, ptr %1, i64 24
-  br label %.sink.split
+  store ptr null, ptr %21, align 8
+  br label %36
 
 22:                                               ; preds = %17
   %23 = zext nneg i32 %19 to i64
@@ -309,14 +311,8 @@ define dso_local noundef range(i32 -12, 1) i32 @drm_atomic_state_init(ptr nounde
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %35, i32 noundef 4, ptr noundef nonnull @.str.2, ptr noundef %1) #10
   br label %45
 
-.sink.split:                                      ; preds = %.thread, %.thread2
-  %.sink = phi ptr [ %21, %.thread2 ], [ %11, %.thread ]
-  %.ph = phi ptr [ %15, %.thread2 ], [ %11, %.thread ]
-  store ptr null, ptr %.sink, align 8
-  br label %36
-
-36:                                               ; preds = %.sink.split, %22, %12
-  %37 = phi ptr [ %15, %22 ], [ %15, %12 ], [ %.ph, %.sink.split ]
+36:                                               ; preds = %.thread2, %.thread, %22, %12
+  %37 = phi ptr [ %11, %.thread ], [ %15, %22 ], [ %15, %12 ], [ %15, %.thread2 ]
   %38 = getelementptr inbounds i8, ptr %1, i64 48
   %39 = load ptr, ptr %38, align 8
   tail call void @kfree(ptr noundef %39) #10

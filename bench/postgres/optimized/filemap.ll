@@ -214,7 +214,7 @@ define internal fastcc noundef ptr @insert_filehash_entry(ptr noundef %0) unname
 
 10:                                               ; preds = %.backedge.i.i, %1
   %11 = phi i32 [ 0, %.backedge.i.i ], [ %.pre173.i.i, %1 ]
-  %12 = phi i32 [ %118, %.backedge.i.i ], [ %.pre.i.i, %1 ]
+  %12 = phi i32 [ %122, %.backedge.i.i ], [ %.pre.i.i, %1 ]
   %.not.i.i = icmp ult i32 %12, %11
   br i1 %.not.i.i, label %80, label %13
 
@@ -362,144 +362,157 @@ filehash_grow.exit.i.i:                           ; preds = %74, %filehash_updat
   %84 = getelementptr %struct.file_entry_t, ptr %81, i64 %83
   %85 = load i32, ptr %84, align 8
   %86 = icmp eq i32 %85, 0
-  br i1 %86, label %.loopexit, label %.lr.ph.i.i
+  br i1 %86, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %80, %140
-  %87 = phi ptr [ %142, %140 ], [ %84, %80 ]
-  %.069113.i.i = phi i32 [ %103, %140 ], [ %82, %80 ]
-  %.074112.i.i = phi i32 [ %131, %140 ], [ 0, %80 ]
-  %88 = getelementptr inbounds i8, ptr %87, i64 8
-  %89 = load ptr, ptr %88, align 8
-  %90 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %89, ptr noundef nonnull dereferenceable(1) %0) #12
-  %91 = icmp eq i32 %90, 0
-  br i1 %91, label %filehash_insert.exit.thread, label %92
+._crit_edge.i.i:                                  ; preds = %80, %146
+  %.lcssa84.i.i = phi ptr [ %148, %146 ], [ %84, %80 ]
+  %87 = load i32, ptr %6, align 8
+  %88 = add i32 %87, 1
+  store i32 %88, ptr %6, align 8
+  %89 = getelementptr inbounds i8, ptr %.lcssa84.i.i, i64 8
+  store ptr %0, ptr %89, align 8
+  br label %151
 
-92:                                               ; preds = %.lr.ph.i.i
-  %93 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %89) #12
-  %94 = trunc i64 %93 to i32
-  %95 = tail call i32 @hash_bytes(ptr noundef %89, i32 noundef %94) #11
+.lr.ph.i.i:                                       ; preds = %80, %146
+  %90 = phi ptr [ %148, %146 ], [ %84, %80 ]
+  %.069113.i.i = phi i32 [ %106, %146 ], [ %82, %80 ]
+  %.074112.i.i = phi i32 [ %137, %146 ], [ 0, %80 ]
+  %91 = getelementptr inbounds i8, ptr %90, i64 8
+  %92 = load ptr, ptr %91, align 8
+  %93 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %92, ptr noundef nonnull dereferenceable(1) %0) #12
+  %94 = icmp eq i32 %93, 0
+  br i1 %94, label %filehash_insert.exit.thread, label %95
+
+95:                                               ; preds = %.lr.ph.i.i
+  %96 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %92) #12
+  %97 = trunc i64 %96 to i32
+  %98 = tail call i32 @hash_bytes(ptr noundef %92, i32 noundef %97) #11
   %.val77.i.i = load i32, ptr %9, align 4
-  %96 = and i32 %.val77.i.i, %95
-  %.not.i81.i.i = icmp ugt i32 %96, %.069113.i.i
-  br i1 %.not.i81.i.i, label %97, label %filehash_distance.exit.i.i
+  %99 = and i32 %.val77.i.i, %98
+  %.not.i81.i.i = icmp ugt i32 %99, %.069113.i.i
+  br i1 %.not.i81.i.i, label %100, label %filehash_distance.exit.i.i
 
-97:                                               ; preds = %92
-  %98 = load i64, ptr %2, align 8
-  %99 = trunc i64 %98 to i32
-  %100 = add i32 %.069113.i.i, %99
+100:                                              ; preds = %95
+  %101 = load i64, ptr %2, align 8
+  %102 = trunc i64 %101 to i32
+  %103 = add i32 %.069113.i.i, %102
   br label %filehash_distance.exit.i.i
 
-filehash_distance.exit.i.i:                       ; preds = %97, %92
-  %.pn.i82.i.i = phi i32 [ %100, %97 ], [ %.069113.i.i, %92 ]
-  %.0.i.i.i = sub i32 %.pn.i82.i.i, %96
-  %101 = icmp ugt i32 %.074112.i.i, %.0.i.i.i
-  %102 = add i32 %.069113.i.i, 1
-  %103 = and i32 %.val77.i.i, %102
-  br i1 %101, label %.preheader83.i.i, label %130
+filehash_distance.exit.i.i:                       ; preds = %100, %95
+  %.pn.i82.i.i = phi i32 [ %103, %100 ], [ %.069113.i.i, %95 ]
+  %.0.i.i.i = sub i32 %.pn.i82.i.i, %99
+  %104 = icmp ugt i32 %.074112.i.i, %.0.i.i.i
+  %105 = add i32 %.069113.i.i, 1
+  %106 = and i32 %.val77.i.i, %105
+  br i1 %104, label %.preheader83.i.i, label %136
 
 .preheader83.i.i:                                 ; preds = %filehash_distance.exit.i.i
-  %104 = zext i32 %103 to i64
-  %105 = getelementptr %struct.file_entry_t, ptr %81, i64 %104
-  %106 = load i32, ptr %105, align 8
-  %107 = icmp eq i32 %106, 0
-  br i1 %107, label %.preheader.i.i, label %.lr.ph119.i.i
+  %107 = zext i32 %106 to i64
+  %108 = getelementptr %struct.file_entry_t, ptr %81, i64 %107
+  %109 = load i32, ptr %108, align 8
+  %110 = icmp eq i32 %109, 0
+  br i1 %110, label %.preheader.i.i, label %.lr.ph119.i.i
 
-.preheader.i.i:                                   ; preds = %.preheader83.i.i, %119
-  %.lcssa97.i.i = phi i32 [ %121, %119 ], [ %103, %.preheader83.i.i ]
-  %.lcssa95.i.i = phi ptr [ %123, %119 ], [ %105, %.preheader83.i.i ]
+.preheader.i.i:                                   ; preds = %.preheader83.i.i, %123
+  %.lcssa97.i.i = phi i32 [ %125, %123 ], [ %106, %.preheader83.i.i ]
+  %.lcssa95.i.i = phi ptr [ %127, %123 ], [ %108, %.preheader83.i.i ]
+  %111 = getelementptr inbounds i8, ptr %90, i64 8
   %.not75137.i.i = icmp eq i32 %.lcssa97.i.i, %.069113.i.i
-  br i1 %.not75137.i.i, label %.loopexit, label %.lr.ph140.i.i
+  br i1 %.not75137.i.i, label %._crit_edge141.i.i, label %.lr.ph140.i.i
 
-.lr.ph119.i.i:                                    ; preds = %.preheader83.i.i, %119
-  %108 = phi i32 [ %121, %119 ], [ %103, %.preheader83.i.i ]
-  %.070118.i.i = phi i32 [ %109, %119 ], [ 0, %.preheader83.i.i ]
-  %109 = add i32 %.070118.i.i, 1
-  %110 = icmp sgt i32 %109, 150
-  br i1 %110, label %111, label %119
+.lr.ph119.i.i:                                    ; preds = %.preheader83.i.i, %123
+  %112 = phi i32 [ %125, %123 ], [ %106, %.preheader83.i.i ]
+  %.070118.i.i = phi i32 [ %113, %123 ], [ 0, %.preheader83.i.i ]
+  %113 = add i32 %.070118.i.i, 1
+  %114 = icmp sgt i32 %113, 150
+  br i1 %114, label %115, label %123
 
-111:                                              ; preds = %.lr.ph119.i.i
-  %112 = load i32, ptr %6, align 8
-  %113 = uitofp i32 %112 to double
-  %114 = load i64, ptr %2, align 8
-  %115 = uitofp i64 %114 to double
-  %116 = fdiv double %113, %115
-  %117 = fcmp ult double %116, 1.000000e-01
-  br i1 %117, label %119, label %.backedge.i.i
+115:                                              ; preds = %.lr.ph119.i.i
+  %116 = load i32, ptr %6, align 8
+  %117 = uitofp i32 %116 to double
+  %118 = load i64, ptr %2, align 8
+  %119 = uitofp i64 %118 to double
+  %120 = fdiv double %117, %119
+  %121 = fcmp ult double %120, 1.000000e-01
+  br i1 %121, label %123, label %.backedge.i.i
 
-.backedge.i.i:                                    ; preds = %133, %111
-  %118 = phi i32 [ %112, %111 ], [ %134, %133 ]
+.backedge.i.i:                                    ; preds = %139, %115
+  %122 = phi i32 [ %116, %115 ], [ %140, %139 ]
   store i32 0, ptr %7, align 8
   br label %10
 
-119:                                              ; preds = %111, %.lr.ph119.i.i
-  %120 = add i32 %108, 1
-  %121 = and i32 %120, %.val77.i.i
-  %122 = zext i32 %121 to i64
-  %123 = getelementptr %struct.file_entry_t, ptr %81, i64 %122
-  %124 = load i32, ptr %123, align 8
-  %125 = icmp eq i32 %124, 0
-  br i1 %125, label %.preheader.i.i, label %.lr.ph119.i.i
+123:                                              ; preds = %115, %.lr.ph119.i.i
+  %124 = add i32 %112, 1
+  %125 = and i32 %124, %.val77.i.i
+  %126 = zext i32 %125 to i64
+  %127 = getelementptr %struct.file_entry_t, ptr %81, i64 %126
+  %128 = load i32, ptr %127, align 8
+  %129 = icmp eq i32 %128, 0
+  br i1 %129, label %.preheader.i.i, label %.lr.ph119.i.i
 
 .lr.ph140.i.i:                                    ; preds = %.preheader.i.i, %.lr.ph140.i.i
-  %.071139.i.i = phi i32 [ %127, %.lr.ph140.i.i ], [ %.lcssa97.i.i, %.preheader.i.i ]
-  %.073138.i.i = phi ptr [ %129, %.lr.ph140.i.i ], [ %.lcssa95.i.i, %.preheader.i.i ]
+  %.071139.i.i = phi i32 [ %131, %.lr.ph140.i.i ], [ %.lcssa97.i.i, %.preheader.i.i ]
+  %.073138.i.i = phi ptr [ %133, %.lr.ph140.i.i ], [ %.lcssa95.i.i, %.preheader.i.i ]
   %.val80.i.i = load i32, ptr %9, align 4
-  %126 = add i32 %.071139.i.i, -1
-  %127 = and i32 %.val80.i.i, %126
-  %128 = zext i32 %127 to i64
-  %129 = getelementptr %struct.file_entry_t, ptr %81, i64 %128
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.073138.i.i, ptr noundef nonnull align 8 dereferenceable(88) %129, i64 88, i1 false)
-  %.not75.i.i = icmp eq i32 %127, %.069113.i.i
-  br i1 %.not75.i.i, label %.loopexit, label %.lr.ph140.i.i, !llvm.loop !8
+  %130 = add i32 %.071139.i.i, -1
+  %131 = and i32 %.val80.i.i, %130
+  %132 = zext i32 %131 to i64
+  %133 = getelementptr %struct.file_entry_t, ptr %81, i64 %132
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.073138.i.i, ptr noundef nonnull align 8 dereferenceable(88) %133, i64 88, i1 false)
+  %.not75.i.i = icmp eq i32 %131, %.069113.i.i
+  br i1 %.not75.i.i, label %._crit_edge141.i.i, label %.lr.ph140.i.i, !llvm.loop !8
 
-130:                                              ; preds = %filehash_distance.exit.i.i
-  %131 = add i32 %.074112.i.i, 1
-  %132 = icmp ugt i32 %131, 25
-  br i1 %132, label %133, label %140
-
-133:                                              ; preds = %130
+._crit_edge141.i.i:                               ; preds = %.lr.ph140.i.i, %.preheader.i.i
   %134 = load i32, ptr %6, align 8
-  %135 = uitofp i32 %134 to double
-  %136 = load i64, ptr %2, align 8
-  %137 = uitofp i64 %136 to double
-  %138 = fdiv double %135, %137
-  %139 = fcmp ult double %138, 1.000000e-01
-  br i1 %139, label %140, label %.backedge.i.i
+  %135 = add i32 %134, 1
+  store i32 %135, ptr %6, align 8
+  store ptr %0, ptr %111, align 8
+  br label %151
 
-140:                                              ; preds = %133, %130
-  %141 = zext i32 %103 to i64
-  %142 = getelementptr %struct.file_entry_t, ptr %81, i64 %141
-  %143 = load i32, ptr %142, align 8
-  %144 = icmp eq i32 %143, 0
-  br i1 %144, label %.loopexit, label %.lr.ph.i.i
+136:                                              ; preds = %filehash_distance.exit.i.i
+  %137 = add i32 %.074112.i.i, 1
+  %138 = icmp ugt i32 %137, 25
+  br i1 %138, label %139, label %146
 
-.loopexit:                                        ; preds = %80, %140, %.lr.ph140.i.i, %.preheader.i.i
-  %.lcssa215.lcssa.sink.sink.i.i = phi ptr [ %87, %.preheader.i.i ], [ %87, %.lr.ph140.i.i ], [ %142, %140 ], [ %84, %80 ]
-  %storemerge.in.i = load i32, ptr %6, align 8
-  %storemerge.i = add i32 %storemerge.in.i, 1
-  store i32 %storemerge.i, ptr %6, align 8
-  %.sink217.i.i = getelementptr inbounds i8, ptr %.lcssa215.lcssa.sink.sink.i.i, i64 8
-  store ptr %0, ptr %.sink217.i.i, align 8
+139:                                              ; preds = %136
+  %140 = load i32, ptr %6, align 8
+  %141 = uitofp i32 %140 to double
+  %142 = load i64, ptr %2, align 8
+  %143 = uitofp i64 %142 to double
+  %144 = fdiv double %141, %143
+  %145 = fcmp ult double %144, 1.000000e-01
+  br i1 %145, label %146, label %.backedge.i.i
+
+146:                                              ; preds = %139, %136
+  %147 = zext i32 %106 to i64
+  %148 = getelementptr %struct.file_entry_t, ptr %81, i64 %147
+  %149 = load i32, ptr %148, align 8
+  %150 = icmp eq i32 %149, 0
+  br i1 %150, label %._crit_edge.i.i, label %.lr.ph.i.i
+
+151:                                              ; preds = %._crit_edge141.i.i, %._crit_edge.i.i
+  %.lcssa215.lcssa.sink.sink.i.i = phi ptr [ %90, %._crit_edge141.i.i ], [ %.lcssa84.i.i, %._crit_edge.i.i ]
   store i32 1, ptr %.lcssa215.lcssa.sink.sink.i.i, align 8
-  %145 = tail call ptr @pg_strdup(ptr noundef %0) #11
-  store ptr %145, ptr %.sink217.i.i, align 8
-  %146 = tail call fastcc zeroext i1 @isRelDataFile(ptr noundef %0)
-  %147 = getelementptr inbounds i8, ptr %.lcssa215.lcssa.sink.sink.i.i, i64 16
-  %148 = zext i1 %146 to i8
-  store i8 %148, ptr %147, align 8
-  %149 = getelementptr inbounds i8, ptr %.lcssa215.lcssa.sink.sink.i.i, i64 17
-  store i8 0, ptr %149, align 1
-  %150 = getelementptr inbounds i8, ptr %.lcssa215.lcssa.sink.sink.i.i, i64 20
-  %151 = getelementptr inbounds i8, ptr %.lcssa215.lcssa.sink.sink.i.i, i64 56
-  store i8 0, ptr %151, align 8
-  %152 = getelementptr inbounds i8, ptr %.lcssa215.lcssa.sink.sink.i.i, i64 60
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %150, i8 0, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %152, i8 0, i64 24, i1 false)
+  %152 = tail call ptr @pg_strdup(ptr noundef %0) #11
+  %153 = getelementptr inbounds i8, ptr %.lcssa215.lcssa.sink.sink.i.i, i64 8
+  store ptr %152, ptr %153, align 8
+  %154 = tail call fastcc zeroext i1 @isRelDataFile(ptr noundef %0)
+  %155 = getelementptr inbounds i8, ptr %.lcssa215.lcssa.sink.sink.i.i, i64 16
+  %156 = zext i1 %154 to i8
+  store i8 %156, ptr %155, align 8
+  %157 = getelementptr inbounds i8, ptr %.lcssa215.lcssa.sink.sink.i.i, i64 17
+  store i8 0, ptr %157, align 1
+  %158 = getelementptr inbounds i8, ptr %.lcssa215.lcssa.sink.sink.i.i, i64 20
+  %159 = getelementptr inbounds i8, ptr %.lcssa215.lcssa.sink.sink.i.i, i64 56
+  store i8 0, ptr %159, align 8
+  %160 = getelementptr inbounds i8, ptr %.lcssa215.lcssa.sink.sink.i.i, i64 60
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %158, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %160, i8 0, i64 24, i1 false)
   br label %filehash_insert.exit.thread
 
-filehash_insert.exit.thread:                      ; preds = %.lr.ph.i.i, %.loopexit
-  %153 = phi ptr [ %.lcssa215.lcssa.sink.sink.i.i, %.loopexit ], [ %87, %.lr.ph.i.i ]
-  ret ptr %153
+filehash_insert.exit.thread:                      ; preds = %.lr.ph.i.i, %151
+  %161 = phi ptr [ %.lcssa215.lcssa.sink.sink.i.i, %151 ], [ %90, %.lr.ph.i.i ]
+  ret ptr %161
 }
 
 declare ptr @pg_strdup(ptr noundef) local_unnamed_addr #2

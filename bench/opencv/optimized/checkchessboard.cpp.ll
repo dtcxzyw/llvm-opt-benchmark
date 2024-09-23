@@ -47,11 +47,11 @@ $_Z9less_predRKSt4pairIfiES2_ = comdat any
 
 $_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_ = comdat any
 
-$_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET_SG_SG_T0_ = comdat any
-
 $_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_RT0_ = comdat any
 
 $_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_RT0_ = comdat any
+
+$_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_ = comdat any
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -1385,16 +1385,22 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_it
   %7 = ptrtoint ptr %0 to i64
   %8 = ptrtoint ptr %1 to i64
   %9 = sub i64 %8, %7
-  %10 = icmp sgt i64 %9, 128
-  br i1 %10, label %.lr.ph, label %.loopexit
+  %10 = ashr exact i64 %9, 3
+  %11 = icmp sgt i64 %10, 16
+  br i1 %11, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %4, %13
-  %.017 = phi i64 [ %14, %13 ], [ %2, %4 ]
-  %storemerge16 = phi ptr [ %15, %13 ], [ %1, %4 ]
-  %11 = icmp eq i64 %.017, 0
-  br i1 %11, label %12, label %13
+.lr.ph:                                           ; preds = %4
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  br label %13
 
-12:                                               ; preds = %.lr.ph
+13:                                               ; preds = %.lr.ph, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET_SG_SG_T0_.exit
+  %14 = phi i64 [ %10, %.lr.ph ], [ %38, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET_SG_SG_T0_.exit ]
+  %.017 = phi i64 [ %2, %.lr.ph ], [ %35, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET_SG_SG_T0_.exit ]
+  %storemerge16 = phi ptr [ %1, %.lr.ph ], [ %.sroa.012.1.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET_SG_SG_T0_.exit ]
+  %15 = icmp eq i64 %.017, 0
+  br i1 %15, label %16, label %17
+
+16:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %3, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -1405,131 +1411,58 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_it
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %.loopexit
 
-13:                                               ; preds = %.lr.ph
-  %14 = add nsw i64 %.017, -1
-  %15 = tail call ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET_SG_SG_T0_(ptr %0, ptr %storemerge16, ptr %3)
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_(ptr %15, ptr %storemerge16, i64 noundef %14, ptr %3)
-  %16 = ptrtoint ptr %15 to i64
-  %17 = sub i64 %16, %7
-  %18 = icmp sgt i64 %17, 128
-  br i1 %18, label %.lr.ph, label %.loopexit, !llvm.loop !45
+17:                                               ; preds = %13
+  %18 = lshr i64 %14, 1
+  %19 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %18
+  %20 = getelementptr inbounds i8, ptr %storemerge16, i64 -8
+  tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_(ptr %0, ptr nonnull %12, ptr %19, ptr nonnull %20, ptr %3)
+  br label %21
 
-.loopexit:                                        ; preds = %13, %4, %12
+21:                                               ; preds = %28, %17
+  %.sroa.09.0.i.i = phi ptr [ %storemerge16, %17 ], [ %.sroa.09.1.i.i, %28 ]
+  %.sroa.012.0.i.i = phi ptr [ %12, %17 ], [ %24, %28 ]
+  br label %22
+
+22:                                               ; preds = %22, %21
+  %.sroa.012.1.i.i = phi ptr [ %.sroa.012.0.i.i, %21 ], [ %24, %22 ]
+  %23 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(8) %.sroa.012.1.i.i, ptr noundef nonnull align 4 dereferenceable(8) %0)
+  %24 = getelementptr inbounds i8, ptr %.sroa.012.1.i.i, i64 8
+  br i1 %23, label %22, label %.preheader.i.i, !llvm.loop !45
+
+.preheader.i.i:                                   ; preds = %22, %.preheader.i.i
+  %.sroa.09.0.pn.i.i = phi ptr [ %.sroa.09.1.i.i, %.preheader.i.i ], [ %.sroa.09.0.i.i, %22 ]
+  %.sroa.09.1.i.i = getelementptr inbounds i8, ptr %.sroa.09.0.pn.i.i, i64 -8
+  %25 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(8) %.sroa.09.1.i.i)
+  br i1 %25, label %.preheader.i.i, label %26, !llvm.loop !46
+
+26:                                               ; preds = %.preheader.i.i
+  %27 = icmp ult ptr %.sroa.012.1.i.i, %.sroa.09.1.i.i
+  br i1 %27, label %28, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET_SG_SG_T0_.exit
+
+28:                                               ; preds = %26
+  %29 = load float, ptr %.sroa.012.1.i.i, align 4
+  %30 = load float, ptr %.sroa.09.1.i.i, align 4
+  store float %30, ptr %.sroa.012.1.i.i, align 4
+  store float %29, ptr %.sroa.09.1.i.i, align 4
+  %31 = getelementptr inbounds i8, ptr %.sroa.012.1.i.i, i64 4
+  %32 = getelementptr inbounds i8, ptr %.sroa.09.0.pn.i.i, i64 -4
+  %33 = load i32, ptr %31, align 4
+  %34 = load i32, ptr %32, align 4
+  store i32 %34, ptr %31, align 4
+  store i32 %33, ptr %32, align 4
+  br label %21, !llvm.loop !47
+
+_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET_SG_SG_T0_.exit: ; preds = %26
+  %35 = add nsw i64 %.017, -1
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_(ptr %.sroa.012.1.i.i, ptr %storemerge16, i64 noundef %35, ptr %3)
+  %36 = ptrtoint ptr %.sroa.012.1.i.i to i64
+  %37 = sub i64 %36, %7
+  %38 = ashr exact i64 %37, 3
+  %39 = icmp sgt i64 %38, 16
+  br i1 %39, label %13, label %.loopexit, !llvm.loop !48
+
+.loopexit:                                        ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET_SG_SG_T0_.exit, %4, %16
   ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET_SG_SG_T0_(ptr %0, ptr %1, ptr %2) local_unnamed_addr #3 comdat {
-  %4 = ptrtoint ptr %1 to i64
-  %5 = ptrtoint ptr %0 to i64
-  %6 = sub i64 %4, %5
-  %7 = ashr exact i64 %6, 3
-  %8 = sdiv i64 %7, 2
-  %9 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 -8
-  %12 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(8) %9)
-  br i1 %12, label %13, label %25
-
-13:                                               ; preds = %3
-  %14 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(8) %11)
-  br i1 %14, label %15, label %18
-
-15:                                               ; preds = %13
-  %16 = load float, ptr %0, align 4
-  %17 = load float, ptr %9, align 4
-  store float %17, ptr %0, align 4
-  store float %16, ptr %9, align 4
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit
-
-18:                                               ; preds = %13
-  %19 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(8) %11)
-  %20 = load float, ptr %0, align 4
-  br i1 %19, label %21, label %23
-
-21:                                               ; preds = %18
-  %22 = load float, ptr %11, align 4
-  store float %22, ptr %0, align 4
-  store float %20, ptr %11, align 4
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit
-
-23:                                               ; preds = %18
-  %24 = load float, ptr %10, align 4
-  store float %24, ptr %0, align 4
-  store float %20, ptr %10, align 4
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit
-
-25:                                               ; preds = %3
-  %26 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(8) %11)
-  br i1 %26, label %27, label %30
-
-27:                                               ; preds = %25
-  %28 = load float, ptr %0, align 4
-  %29 = load float, ptr %10, align 4
-  store float %29, ptr %0, align 4
-  store float %28, ptr %10, align 4
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit
-
-30:                                               ; preds = %25
-  %31 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(8) %11)
-  %32 = load float, ptr %0, align 4
-  br i1 %31, label %33, label %35
-
-33:                                               ; preds = %30
-  %34 = load float, ptr %11, align 4
-  store float %34, ptr %0, align 4
-  store float %32, ptr %11, align 4
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit
-
-35:                                               ; preds = %30
-  %36 = load float, ptr %9, align 4
-  store float %36, ptr %0, align 4
-  store float %32, ptr %9, align 4
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit
-
-_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit: ; preds = %15, %21, %23, %27, %33, %35
-  %.sink.i = phi ptr [ %10, %27 ], [ %9, %35 ], [ %11, %33 ], [ %9, %15 ], [ %10, %23 ], [ %11, %21 ]
-  %37 = getelementptr inbounds i8, ptr %.sink.i, i64 4
-  br label %38
-
-38:                                               ; preds = %47, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit
-  %.sroa.012.1.i.lcssa.pn = phi ptr [ %.sroa.012.1.i, %47 ], [ %0, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit ]
-  %.sink20 = phi ptr [ %50, %47 ], [ %37, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit ]
-  %.sroa.09.0.i = phi ptr [ %.sroa.09.1.i, %47 ], [ %1, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit ]
-  %.sroa.012.0.i = phi ptr [ %43, %47 ], [ %10, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit ]
-  %.sink21 = getelementptr inbounds i8, ptr %.sroa.012.1.i.lcssa.pn, i64 4
-  %39 = load i32, ptr %.sink21, align 4
-  %40 = load i32, ptr %.sink20, align 4
-  store i32 %40, ptr %.sink21, align 4
-  store i32 %39, ptr %.sink20, align 4
-  br label %41
-
-41:                                               ; preds = %41, %38
-  %.sroa.012.1.i = phi ptr [ %.sroa.012.0.i, %38 ], [ %43, %41 ]
-  %42 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(8) %.sroa.012.1.i, ptr noundef nonnull align 4 dereferenceable(8) %0)
-  %43 = getelementptr inbounds i8, ptr %.sroa.012.1.i, i64 8
-  br i1 %42, label %41, label %.preheader.i, !llvm.loop !46
-
-.preheader.i:                                     ; preds = %41, %.preheader.i
-  %.sroa.09.0.pn.i = phi ptr [ %.sroa.09.1.i, %.preheader.i ], [ %.sroa.09.0.i, %41 ]
-  %.sroa.09.1.i = getelementptr inbounds i8, ptr %.sroa.09.0.pn.i, i64 -8
-  %44 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(8) %.sroa.09.1.i)
-  br i1 %44, label %.preheader.i, label %45, !llvm.loop !47
-
-45:                                               ; preds = %.preheader.i
-  %46 = icmp ult ptr %.sroa.012.1.i, %.sroa.09.1.i
-  br i1 %46, label %47, label %_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET_SG_SG_SG_T0_.exit
-
-47:                                               ; preds = %45
-  %48 = load float, ptr %.sroa.012.1.i, align 4
-  %49 = load float, ptr %.sroa.09.1.i, align 4
-  store float %49, ptr %.sroa.012.1.i, align 4
-  store float %48, ptr %.sroa.09.1.i, align 4
-  %50 = getelementptr inbounds i8, ptr %.sroa.09.0.pn.i, i64 -4
-  br label %38, !llvm.loop !48
-
-_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET_SG_SG_SG_T0_.exit: ; preds = %45
-  ret ptr %.sroa.012.1.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1778,6 +1711,105 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS
   br i1 %60, label %.loopexit, label %22, !llvm.loop !52
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit, %3
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_(ptr %0, ptr %1, ptr %2, ptr %3, ptr %4) local_unnamed_addr #3 comdat {
+  %6 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %2)
+  br i1 %6, label %7, label %30
+
+7:                                                ; preds = %5
+  %8 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(8) %3)
+  br i1 %8, label %9, label %16
+
+9:                                                ; preds = %7
+  %10 = load float, ptr %0, align 4
+  %11 = load float, ptr %2, align 4
+  store float %11, ptr %0, align 4
+  store float %10, ptr %2, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 4
+  %13 = getelementptr inbounds i8, ptr %2, i64 4
+  %14 = load i32, ptr %12, align 4
+  %15 = load i32, ptr %13, align 4
+  store i32 %15, ptr %12, align 4
+  store i32 %14, ptr %13, align 4
+  br label %53
+
+16:                                               ; preds = %7
+  %17 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %3)
+  %18 = load float, ptr %0, align 4
+  %19 = getelementptr inbounds i8, ptr %0, i64 4
+  br i1 %17, label %20, label %25
+
+20:                                               ; preds = %16
+  %21 = load float, ptr %3, align 4
+  store float %21, ptr %0, align 4
+  store float %18, ptr %3, align 4
+  %22 = getelementptr inbounds i8, ptr %3, i64 4
+  %23 = load i32, ptr %19, align 4
+  %24 = load i32, ptr %22, align 4
+  store i32 %24, ptr %19, align 4
+  store i32 %23, ptr %22, align 4
+  br label %53
+
+25:                                               ; preds = %16
+  %26 = load float, ptr %1, align 4
+  store float %26, ptr %0, align 4
+  store float %18, ptr %1, align 4
+  %27 = getelementptr inbounds i8, ptr %1, i64 4
+  %28 = load i32, ptr %19, align 4
+  %29 = load i32, ptr %27, align 4
+  store i32 %29, ptr %19, align 4
+  store i32 %28, ptr %27, align 4
+  br label %53
+
+30:                                               ; preds = %5
+  %31 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %3)
+  br i1 %31, label %32, label %39
+
+32:                                               ; preds = %30
+  %33 = load float, ptr %0, align 4
+  %34 = load float, ptr %1, align 4
+  store float %34, ptr %0, align 4
+  store float %33, ptr %1, align 4
+  %35 = getelementptr inbounds i8, ptr %0, i64 4
+  %36 = getelementptr inbounds i8, ptr %1, i64 4
+  %37 = load i32, ptr %35, align 4
+  %38 = load i32, ptr %36, align 4
+  store i32 %38, ptr %35, align 4
+  store i32 %37, ptr %36, align 4
+  br label %53
+
+39:                                               ; preds = %30
+  %40 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(8) %3)
+  %41 = load float, ptr %0, align 4
+  %42 = getelementptr inbounds i8, ptr %0, i64 4
+  br i1 %40, label %43, label %48
+
+43:                                               ; preds = %39
+  %44 = load float, ptr %3, align 4
+  store float %44, ptr %0, align 4
+  store float %41, ptr %3, align 4
+  %45 = getelementptr inbounds i8, ptr %3, i64 4
+  %46 = load i32, ptr %42, align 4
+  %47 = load i32, ptr %45, align 4
+  store i32 %47, ptr %42, align 4
+  store i32 %46, ptr %45, align 4
+  br label %53
+
+48:                                               ; preds = %39
+  %49 = load float, ptr %2, align 4
+  store float %49, ptr %0, align 4
+  store float %41, ptr %2, align 4
+  %50 = getelementptr inbounds i8, ptr %2, i64 4
+  %51 = load i32, ptr %42, align 4
+  %52 = load i32, ptr %50, align 4
+  store i32 %52, ptr %42, align 4
+  store i32 %51, ptr %50, align 4
+  br label %53
+
+53:                                               ; preds = %32, %48, %43, %9, %25, %20
   ret void
 }
 

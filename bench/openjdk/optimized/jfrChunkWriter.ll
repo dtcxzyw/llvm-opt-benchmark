@@ -1274,7 +1274,7 @@ define linkonce_odr hidden void @_ZN18JfrChunkHeadWriter10write_timeEb(ptr nound
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 72
-  br i1 %1, label %7, label %79
+  br i1 %1, label %7, label %80
 
 7:                                                ; preds = %2
   %8 = tail call noundef i64 @_ZNK8JfrChunk20previous_start_nanosEv(ptr noundef nonnull align 8 dereferenceable(66) %5) #13
@@ -1421,171 +1421,174 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
 
 _ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.i.i.i16: ; preds = %74
   store i64 %76, ptr %.0.i.i.i12, align 8
-  br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE8be_writeIlEEvT_.exit18.sink.split
+  br label %_ZN11EncoderHostI20BigEndianEncoderImplS0_E8be_writeIlEEPhPKT_mS3_.exit.i.i15
 
 _ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.thread.i.i.i14: ; preds = %74
   store i64 %76, ptr %.0.i.i.i12, align 1
-  br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE8be_writeIlEEvT_.exit18.sink.split
+  br label %_ZN11EncoderHostI20BigEndianEncoderImplS0_E8be_writeIlEEPhPKT_mS3_.exit.i.i15
 
-79:                                               ; preds = %2
-  %80 = tail call noundef i64 @_ZNK8JfrChunk11start_nanosEv(ptr noundef nonnull align 8 dereferenceable(66) %5) #13
-  %81 = load i32, ptr %6, align 8
-  %.not.i.i.i19 = icmp eq i32 %81, -1
-  br i1 %.not.i.i.i19, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE8be_writeIlEEvT_.exit27, label %82
+_ZN11EncoderHostI20BigEndianEncoderImplS0_E8be_writeIlEEPhPKT_mS3_.exit.i.i15: ; preds = %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.thread.i.i.i14, %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.i.i.i16
+  %79 = getelementptr inbounds i8, ptr %.0.i.i.i12, i64 8
+  store ptr %79, ptr %63, align 8
+  br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE8be_writeIlEEvT_.exit18
 
-82:                                               ; preds = %79
-  %83 = getelementptr inbounds i8, ptr %3, i64 16
-  %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %3, i64 8
-  %86 = load ptr, ptr %85, align 8
-  %87 = ptrtoint ptr %84 to i64
-  %88 = ptrtoint ptr %86 to i64
-  %89 = sub i64 %87, %88
-  %90 = icmp ult i64 %89, 8
-  br i1 %90, label %91, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i.i20
+80:                                               ; preds = %2
+  %81 = tail call noundef i64 @_ZNK8JfrChunk11start_nanosEv(ptr noundef nonnull align 8 dereferenceable(66) %5) #13
+  %82 = load i32, ptr %6, align 8
+  %.not.i.i.i19 = icmp eq i32 %82, -1
+  br i1 %.not.i.i.i19, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE8be_writeIlEEvT_.exit27, label %83
 
-91:                                               ; preds = %82
-  %92 = load ptr, ptr %3, align 8
-  %93 = ptrtoint ptr %92 to i64
-  %94 = sub i64 %88, %93
-  %95 = tail call noundef zeroext i1 @_ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE11accommodateEmm(ptr noundef nonnull align 8 dereferenceable(76) %3, i64 noundef %94, i64 noundef 8)
-  %.pre.i.i.i26 = load ptr, ptr %85, align 8
-  br i1 %95, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i.i20, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE8be_writeIlEEvT_.exit27
+83:                                               ; preds = %80
+  %84 = getelementptr inbounds i8, ptr %3, i64 16
+  %85 = load ptr, ptr %84, align 8
+  %86 = getelementptr inbounds i8, ptr %3, i64 8
+  %87 = load ptr, ptr %86, align 8
+  %88 = ptrtoint ptr %85 to i64
+  %89 = ptrtoint ptr %87 to i64
+  %90 = sub i64 %88, %89
+  %91 = icmp ult i64 %90, 8
+  br i1 %91, label %92, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i.i20
 
-_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i.i20: ; preds = %91, %82
-  %.0.i.i.i21 = phi ptr [ %86, %82 ], [ %.pre.i.i.i26, %91 ]
+92:                                               ; preds = %83
+  %93 = load ptr, ptr %3, align 8
+  %94 = ptrtoint ptr %93 to i64
+  %95 = sub i64 %89, %94
+  %96 = tail call noundef zeroext i1 @_ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE11accommodateEmm(ptr noundef nonnull align 8 dereferenceable(76) %3, i64 noundef %95, i64 noundef 8)
+  %.pre.i.i.i26 = load ptr, ptr %86, align 8
+  br i1 %96, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i.i20, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE8be_writeIlEEvT_.exit27
+
+_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i.i20: ; preds = %92, %83
+  %.0.i.i.i21 = phi ptr [ %87, %83 ], [ %.pre.i.i.i26, %92 ]
   %.not.i.i22 = icmp eq ptr %.0.i.i.i21, null
-  br i1 %.not.i.i22, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE8be_writeIlEEvT_.exit27, label %96
+  br i1 %.not.i.i22, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE8be_writeIlEEvT_.exit27, label %97
 
-96:                                               ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i.i20
-  %97 = ptrtoint ptr %.0.i.i.i21 to i64
-  %98 = tail call noundef i64 @llvm.bswap.i64(i64 %80)
-  %99 = and i64 %97, 7
-  %100 = icmp eq i64 %99, 0
-  br i1 %100, label %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.i.i.i25, label %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.thread.i.i.i23
+97:                                               ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i.i20
+  %98 = ptrtoint ptr %.0.i.i.i21 to i64
+  %99 = tail call noundef i64 @llvm.bswap.i64(i64 %81)
+  %100 = and i64 %98, 7
+  %101 = icmp eq i64 %100, 0
+  br i1 %101, label %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.i.i.i25, label %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.thread.i.i.i23
 
-_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.i.i.i25: ; preds = %96
-  store i64 %98, ptr %.0.i.i.i21, align 8
+_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.i.i.i25: ; preds = %97
+  store i64 %99, ptr %.0.i.i.i21, align 8
   br label %_ZN11EncoderHostI20BigEndianEncoderImplS0_E8be_writeIlEEPhPKT_mS3_.exit.i.i24
 
-_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.thread.i.i.i23: ; preds = %96
-  store i64 %98, ptr %.0.i.i.i21, align 1
+_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.thread.i.i.i23: ; preds = %97
+  store i64 %99, ptr %.0.i.i.i21, align 1
   br label %_ZN11EncoderHostI20BigEndianEncoderImplS0_E8be_writeIlEEPhPKT_mS3_.exit.i.i24
 
 _ZN11EncoderHostI20BigEndianEncoderImplS0_E8be_writeIlEEPhPKT_mS3_.exit.i.i24: ; preds = %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.thread.i.i.i23, %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.i.i.i25
-  %101 = getelementptr inbounds i8, ptr %.0.i.i.i21, i64 8
-  store ptr %101, ptr %85, align 8
+  %102 = getelementptr inbounds i8, ptr %.0.i.i.i21, i64 8
+  store ptr %102, ptr %86, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE8be_writeIlEEvT_.exit27
 
-_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE8be_writeIlEEvT_.exit27: ; preds = %79, %91, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i.i20, %_ZN11EncoderHostI20BigEndianEncoderImplS0_E8be_writeIlEEPhPKT_mS3_.exit.i.i24
-  %102 = load ptr, ptr %0, align 8
-  %103 = load ptr, ptr %4, align 8
-  %104 = tail call noundef i64 @_ZNK8JfrChunk8durationEv(ptr noundef nonnull align 8 dereferenceable(66) %103) #13
-  %105 = getelementptr inbounds i8, ptr %102, i64 72
-  %106 = load i32, ptr %105, align 8
-  %.not.i.i.i28 = icmp eq i32 %106, -1
-  br i1 %.not.i.i.i28, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE8be_writeIlEEvT_.exit36, label %107
+_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE8be_writeIlEEvT_.exit27: ; preds = %80, %92, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i.i20, %_ZN11EncoderHostI20BigEndianEncoderImplS0_E8be_writeIlEEPhPKT_mS3_.exit.i.i24
+  %103 = load ptr, ptr %0, align 8
+  %104 = load ptr, ptr %4, align 8
+  %105 = tail call noundef i64 @_ZNK8JfrChunk8durationEv(ptr noundef nonnull align 8 dereferenceable(66) %104) #13
+  %106 = getelementptr inbounds i8, ptr %103, i64 72
+  %107 = load i32, ptr %106, align 8
+  %.not.i.i.i28 = icmp eq i32 %107, -1
+  br i1 %.not.i.i.i28, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE8be_writeIlEEvT_.exit36, label %108
 
-107:                                              ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE8be_writeIlEEvT_.exit27
-  %108 = getelementptr inbounds i8, ptr %102, i64 16
-  %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %102, i64 8
-  %111 = load ptr, ptr %110, align 8
-  %112 = ptrtoint ptr %109 to i64
-  %113 = ptrtoint ptr %111 to i64
-  %114 = sub i64 %112, %113
-  %115 = icmp ult i64 %114, 8
-  br i1 %115, label %116, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i.i29
+108:                                              ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE8be_writeIlEEvT_.exit27
+  %109 = getelementptr inbounds i8, ptr %103, i64 16
+  %110 = load ptr, ptr %109, align 8
+  %111 = getelementptr inbounds i8, ptr %103, i64 8
+  %112 = load ptr, ptr %111, align 8
+  %113 = ptrtoint ptr %110 to i64
+  %114 = ptrtoint ptr %112 to i64
+  %115 = sub i64 %113, %114
+  %116 = icmp ult i64 %115, 8
+  br i1 %116, label %117, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i.i29
 
-116:                                              ; preds = %107
-  %117 = load ptr, ptr %102, align 8
-  %118 = ptrtoint ptr %117 to i64
-  %119 = sub i64 %113, %118
-  %120 = tail call noundef zeroext i1 @_ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE11accommodateEmm(ptr noundef nonnull align 8 dereferenceable(76) %102, i64 noundef %119, i64 noundef 8)
-  %.pre.i.i.i35 = load ptr, ptr %110, align 8
-  br i1 %120, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i.i29, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE8be_writeIlEEvT_.exit36
+117:                                              ; preds = %108
+  %118 = load ptr, ptr %103, align 8
+  %119 = ptrtoint ptr %118 to i64
+  %120 = sub i64 %114, %119
+  %121 = tail call noundef zeroext i1 @_ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE11accommodateEmm(ptr noundef nonnull align 8 dereferenceable(76) %103, i64 noundef %120, i64 noundef 8)
+  %.pre.i.i.i35 = load ptr, ptr %111, align 8
+  br i1 %121, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i.i29, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE8be_writeIlEEvT_.exit36
 
-_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i.i29: ; preds = %116, %107
-  %.0.i.i.i30 = phi ptr [ %111, %107 ], [ %.pre.i.i.i35, %116 ]
+_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i.i29: ; preds = %117, %108
+  %.0.i.i.i30 = phi ptr [ %112, %108 ], [ %.pre.i.i.i35, %117 ]
   %.not.i.i31 = icmp eq ptr %.0.i.i.i30, null
-  br i1 %.not.i.i31, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE8be_writeIlEEvT_.exit36, label %121
+  br i1 %.not.i.i31, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE8be_writeIlEEvT_.exit36, label %122
 
-121:                                              ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i.i29
-  %122 = ptrtoint ptr %.0.i.i.i30 to i64
-  %123 = tail call noundef i64 @llvm.bswap.i64(i64 %104)
-  %124 = and i64 %122, 7
-  %125 = icmp eq i64 %124, 0
-  br i1 %125, label %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.i.i.i34, label %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.thread.i.i.i32
+122:                                              ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i.i29
+  %123 = ptrtoint ptr %.0.i.i.i30 to i64
+  %124 = tail call noundef i64 @llvm.bswap.i64(i64 %105)
+  %125 = and i64 %123, 7
+  %126 = icmp eq i64 %125, 0
+  br i1 %126, label %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.i.i.i34, label %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.thread.i.i.i32
 
-_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.i.i.i34: ; preds = %121
-  store i64 %123, ptr %.0.i.i.i30, align 8
+_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.i.i.i34: ; preds = %122
+  store i64 %124, ptr %.0.i.i.i30, align 8
   br label %_ZN11EncoderHostI20BigEndianEncoderImplS0_E8be_writeIlEEPhPKT_mS3_.exit.i.i33
 
-_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.thread.i.i.i32: ; preds = %121
-  store i64 %123, ptr %.0.i.i.i30, align 1
+_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.thread.i.i.i32: ; preds = %122
+  store i64 %124, ptr %.0.i.i.i30, align 1
   br label %_ZN11EncoderHostI20BigEndianEncoderImplS0_E8be_writeIlEEPhPKT_mS3_.exit.i.i33
 
 _ZN11EncoderHostI20BigEndianEncoderImplS0_E8be_writeIlEEPhPKT_mS3_.exit.i.i33: ; preds = %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.thread.i.i.i32, %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.i.i.i34
-  %126 = getelementptr inbounds i8, ptr %.0.i.i.i30, i64 8
-  store ptr %126, ptr %110, align 8
+  %127 = getelementptr inbounds i8, ptr %.0.i.i.i30, i64 8
+  store ptr %127, ptr %111, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE8be_writeIlEEvT_.exit36
 
-_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE8be_writeIlEEvT_.exit36: ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE8be_writeIlEEvT_.exit27, %116, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i.i29, %_ZN11EncoderHostI20BigEndianEncoderImplS0_E8be_writeIlEEPhPKT_mS3_.exit.i.i33
-  %127 = load ptr, ptr %0, align 8
-  %128 = load ptr, ptr %4, align 8
-  %129 = tail call noundef i64 @_ZNK8JfrChunk11start_ticksEv(ptr noundef nonnull align 8 dereferenceable(66) %128) #13
-  %130 = getelementptr inbounds i8, ptr %127, i64 72
-  %131 = load i32, ptr %130, align 8
-  %.not.i.i.i37 = icmp eq i32 %131, -1
-  br i1 %.not.i.i.i37, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE8be_writeIlEEvT_.exit18, label %132
+_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE8be_writeIlEEvT_.exit36: ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE8be_writeIlEEvT_.exit27, %117, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i.i29, %_ZN11EncoderHostI20BigEndianEncoderImplS0_E8be_writeIlEEPhPKT_mS3_.exit.i.i33
+  %128 = load ptr, ptr %0, align 8
+  %129 = load ptr, ptr %4, align 8
+  %130 = tail call noundef i64 @_ZNK8JfrChunk11start_ticksEv(ptr noundef nonnull align 8 dereferenceable(66) %129) #13
+  %131 = getelementptr inbounds i8, ptr %128, i64 72
+  %132 = load i32, ptr %131, align 8
+  %.not.i.i.i37 = icmp eq i32 %132, -1
+  br i1 %.not.i.i.i37, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE8be_writeIlEEvT_.exit18, label %133
 
-132:                                              ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE8be_writeIlEEvT_.exit36
-  %133 = getelementptr inbounds i8, ptr %127, i64 16
-  %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds i8, ptr %127, i64 8
-  %136 = load ptr, ptr %135, align 8
-  %137 = ptrtoint ptr %134 to i64
-  %138 = ptrtoint ptr %136 to i64
-  %139 = sub i64 %137, %138
-  %140 = icmp ult i64 %139, 8
-  br i1 %140, label %141, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i.i38
+133:                                              ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE8be_writeIlEEvT_.exit36
+  %134 = getelementptr inbounds i8, ptr %128, i64 16
+  %135 = load ptr, ptr %134, align 8
+  %136 = getelementptr inbounds i8, ptr %128, i64 8
+  %137 = load ptr, ptr %136, align 8
+  %138 = ptrtoint ptr %135 to i64
+  %139 = ptrtoint ptr %137 to i64
+  %140 = sub i64 %138, %139
+  %141 = icmp ult i64 %140, 8
+  br i1 %141, label %142, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i.i38
 
-141:                                              ; preds = %132
-  %142 = load ptr, ptr %127, align 8
-  %143 = ptrtoint ptr %142 to i64
-  %144 = sub i64 %138, %143
-  %145 = tail call noundef zeroext i1 @_ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE11accommodateEmm(ptr noundef nonnull align 8 dereferenceable(76) %127, i64 noundef %144, i64 noundef 8)
-  %.pre.i.i.i44 = load ptr, ptr %135, align 8
-  br i1 %145, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i.i38, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE8be_writeIlEEvT_.exit18
+142:                                              ; preds = %133
+  %143 = load ptr, ptr %128, align 8
+  %144 = ptrtoint ptr %143 to i64
+  %145 = sub i64 %139, %144
+  %146 = tail call noundef zeroext i1 @_ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE11accommodateEmm(ptr noundef nonnull align 8 dereferenceable(76) %128, i64 noundef %145, i64 noundef 8)
+  %.pre.i.i.i44 = load ptr, ptr %136, align 8
+  br i1 %146, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i.i38, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE8be_writeIlEEvT_.exit18
 
-_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i.i38: ; preds = %141, %132
-  %.0.i.i.i39 = phi ptr [ %136, %132 ], [ %.pre.i.i.i44, %141 ]
+_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i.i38: ; preds = %142, %133
+  %.0.i.i.i39 = phi ptr [ %137, %133 ], [ %.pre.i.i.i44, %142 ]
   %.not.i.i40 = icmp eq ptr %.0.i.i.i39, null
-  br i1 %.not.i.i40, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE8be_writeIlEEvT_.exit18, label %146
+  br i1 %.not.i.i40, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE8be_writeIlEEvT_.exit18, label %147
 
-146:                                              ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i.i38
-  %147 = ptrtoint ptr %.0.i.i.i39 to i64
-  %148 = tail call noundef i64 @llvm.bswap.i64(i64 %129)
-  %149 = and i64 %147, 7
-  %150 = icmp eq i64 %149, 0
-  br i1 %150, label %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.i.i.i43, label %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.thread.i.i.i41
+147:                                              ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i.i38
+  %148 = ptrtoint ptr %.0.i.i.i39 to i64
+  %149 = tail call noundef i64 @llvm.bswap.i64(i64 %130)
+  %150 = and i64 %148, 7
+  %151 = icmp eq i64 %150, 0
+  br i1 %151, label %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.i.i.i43, label %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.thread.i.i.i41
 
-_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.i.i.i43: ; preds = %146
-  store i64 %148, ptr %.0.i.i.i39, align 8
-  br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE8be_writeIlEEvT_.exit18.sink.split
+_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.i.i.i43: ; preds = %147
+  store i64 %149, ptr %.0.i.i.i39, align 8
+  br label %_ZN11EncoderHostI20BigEndianEncoderImplS0_E8be_writeIlEEPhPKT_mS3_.exit.i.i42
 
-_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.thread.i.i.i41: ; preds = %146
-  store i64 %148, ptr %.0.i.i.i39, align 1
-  br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE8be_writeIlEEvT_.exit18.sink.split
+_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.thread.i.i.i41: ; preds = %147
+  store i64 %149, ptr %.0.i.i.i39, align 1
+  br label %_ZN11EncoderHostI20BigEndianEncoderImplS0_E8be_writeIlEEPhPKT_mS3_.exit.i.i42
 
-_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE8be_writeIlEEvT_.exit18.sink.split: ; preds = %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.i.i.i43, %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.thread.i.i.i41, %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.i.i.i16, %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.thread.i.i.i14
-  %.0.i.i.i39.sink = phi ptr [ %.0.i.i.i12, %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.thread.i.i.i14 ], [ %.0.i.i.i12, %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.i.i.i16 ], [ %.0.i.i.i39, %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.thread.i.i.i41 ], [ %.0.i.i.i39, %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.i.i.i43 ]
-  %.sink46 = phi ptr [ %63, %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.thread.i.i.i14 ], [ %63, %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.i.i.i16 ], [ %135, %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.thread.i.i.i41 ], [ %135, %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.i.i.i43 ]
-  %151 = getelementptr inbounds i8, ptr %.0.i.i.i39.sink, i64 8
-  store ptr %151, ptr %.sink46, align 8
+_ZN11EncoderHostI20BigEndianEncoderImplS0_E8be_writeIlEEPhPKT_mS3_.exit.i.i42: ; preds = %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.thread.i.i.i41, %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.i.i.i43
+  %152 = getelementptr inbounds i8, ptr %.0.i.i.i39, i64 8
+  store ptr %152, ptr %136, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE8be_writeIlEEvT_.exit18
 
-_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE8be_writeIlEEvT_.exit18: ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE8be_writeIlEEvT_.exit18.sink.split, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i.i38, %141, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE8be_writeIlEEvT_.exit36, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i.i11, %69, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE8be_writeIlEEvT_.exit9
+_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE8be_writeIlEEvT_.exit18: ; preds = %_ZN11EncoderHostI20BigEndianEncoderImplS0_E8be_writeIlEEPhPKT_mS3_.exit.i.i42, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i.i38, %142, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE8be_writeIlEEvT_.exit36, %_ZN11EncoderHostI20BigEndianEncoderImplS0_E8be_writeIlEEPhPKT_mS3_.exit.i.i15, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i.i11, %69, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE8be_writeIlEEvT_.exit9
   ret void
 }
 

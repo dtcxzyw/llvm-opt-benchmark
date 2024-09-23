@@ -753,44 +753,46 @@ define dso_local void @ResourceOwnerDelete(ptr noundef %0) local_unnamed_addr #0
   %8 = getelementptr inbounds i8, ptr %6, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %0, %9
-  br i1 %10, label %.loopexit.sink.split.i, label %.preheader.i
+  br i1 %10, label %11, label %.preheader.i
 
-.preheader.i:                                     ; preds = %7, %11
-  %.0.i = phi ptr [ %13, %11 ], [ %9, %7 ]
-  %.not27.i = icmp eq ptr %.0.i, null
-  br i1 %.not27.i, label %ResourceOwnerNewParent.exit, label %11
-
-11:                                               ; preds = %.preheader.i
-  %12 = getelementptr inbounds i8, ptr %.0.i, i64 16
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = icmp eq ptr %0, %13
-  br i1 %14, label %.loopexit.sink.split.i.loopexit, label %.preheader.i, !llvm.loop !17
-
-.loopexit.sink.split.i.loopexit:                  ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %.0.i, i64 16
-  br label %.loopexit.sink.split.i
-
-.loopexit.sink.split.i:                           ; preds = %.loopexit.sink.split.i.loopexit, %7
-  %.sink30.i = phi ptr [ %8, %7 ], [ %15, %.loopexit.sink.split.i.loopexit ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8
-  store ptr %17, ptr %.sink30.i, align 8
+  store ptr %13, ptr %8, align 8
   br label %ResourceOwnerNewParent.exit
 
-ResourceOwnerNewParent.exit:                      ; preds = %.preheader.i, %._crit_edge, %.loopexit.sink.split.i
+.preheader.i:                                     ; preds = %7, %14
+  %.0.i = phi ptr [ %16, %14 ], [ %9, %7 ]
+  %.not27.i = icmp eq ptr %.0.i, null
+  br i1 %.not27.i, label %ResourceOwnerNewParent.exit, label %14
+
+14:                                               ; preds = %.preheader.i
+  %15 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %16 = load ptr, ptr %15, align 8
+  %17 = icmp eq ptr %0, %16
+  br i1 %17, label %18, label %.preheader.i, !llvm.loop !17
+
+18:                                               ; preds = %14
+  %19 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = load ptr, ptr %20, align 8
+  store ptr %21, ptr %19, align 8
+  br label %ResourceOwnerNewParent.exit
+
+ResourceOwnerNewParent.exit:                      ; preds = %.preheader.i, %._crit_edge, %11, %18
   store ptr null, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr null, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 552
-  %20 = load ptr, ptr %19, align 8
-  %.not7 = icmp eq ptr %20, null
-  br i1 %.not7, label %22, label %21
+  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr null, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 552
+  %24 = load ptr, ptr %23, align 8
+  %.not7 = icmp eq ptr %24, null
+  br i1 %.not7, label %26, label %25
 
-21:                                               ; preds = %ResourceOwnerNewParent.exit
-  tail call void @pfree(ptr noundef nonnull %20) #10
-  br label %22
+25:                                               ; preds = %ResourceOwnerNewParent.exit
+  tail call void @pfree(ptr noundef nonnull %24) #10
+  br label %26
 
-22:                                               ; preds = %21, %ResourceOwnerNewParent.exit
+26:                                               ; preds = %25, %ResourceOwnerNewParent.exit
   tail call void @pfree(ptr noundef nonnull %0) #10
   ret void
 }
@@ -805,50 +807,52 @@ define dso_local void @ResourceOwnerNewParent(ptr noundef %0, ptr noundef %1) lo
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %0, %6
-  br i1 %7, label %.loopexit.sink.split, label %.preheader
+  br i1 %7, label %8, label %.preheader
 
-.preheader:                                       ; preds = %4, %8
-  %.0 = phi ptr [ %10, %8 ], [ %6, %4 ]
-  %.not27 = icmp eq ptr %.0, null
-  br i1 %.not27, label %.loopexit, label %8
-
-8:                                                ; preds = %.preheader
-  %9 = getelementptr inbounds i8, ptr %.0, i64 16
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq ptr %0, %10
-  br i1 %11, label %12, label %.preheader, !llvm.loop !17
-
-12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %.0, i64 16
-  br label %.loopexit.sink.split
-
-.loopexit.sink.split:                             ; preds = %4, %12
-  %.sink30 = phi ptr [ %13, %12 ], [ %5, %4 ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
-  %15 = load ptr, ptr %14, align 8
-  store ptr %15, ptr %.sink30, align 8
+  store ptr %10, ptr %5, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader, %.loopexit.sink.split, %2
-  %.not28 = icmp eq ptr %1, null
-  br i1 %.not28, label %20, label %16
+.preheader:                                       ; preds = %4, %11
+  %.0 = phi ptr [ %13, %11 ], [ %6, %4 ]
+  %.not27 = icmp eq ptr %.0, null
+  br i1 %.not27, label %.loopexit, label %11
 
-16:                                               ; preds = %.loopexit
-  store ptr %1, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+11:                                               ; preds = %.preheader
+  %12 = getelementptr inbounds i8, ptr %.0, i64 16
+  %13 = load ptr, ptr %12, align 8
+  %14 = icmp eq ptr %0, %13
+  br i1 %14, label %15, label %.preheader, !llvm.loop !17
+
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds i8, ptr %.0, i64 16
+  %17 = getelementptr inbounds i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %18, ptr %19, align 8
-  store ptr %0, ptr %17, align 8
-  br label %22
+  store ptr %18, ptr %16, align 8
+  br label %.loopexit
 
-20:                                               ; preds = %.loopexit
+.loopexit:                                        ; preds = %.preheader, %8, %15, %2
+  %.not28 = icmp eq ptr %1, null
+  br i1 %.not28, label %23, label %19
+
+19:                                               ; preds = %.loopexit
+  store ptr %1, ptr %0, align 8
+  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %21, ptr %22, align 8
+  store ptr %0, ptr %20, align 8
+  br label %25
+
+23:                                               ; preds = %.loopexit
   store ptr null, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr null, ptr %21, align 8
-  br label %22
+  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr null, ptr %24, align 8
+  br label %25
 
-22:                                               ; preds = %20, %16
+25:                                               ; preds = %23, %19
   ret void
 }
 

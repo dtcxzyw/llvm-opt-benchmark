@@ -1331,14 +1331,8 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #58, !noalias !416
   unreachable
 
-common.resume.sink.split:                         ; preds = %90, %114, %136, %68
-  %.sink.i.i.sink = phi ptr [ %1, %68 ], [ %116, %136 ], [ %50, %114 ], [ %50, %90 ]
-  %common.resume.op.ph = phi { ptr, i32 } [ %69, %68 ], [ %137, %136 ], [ %115, %114 ], [ %91, %90 ]
-  store i64 3, ptr %.sink.i.i.sink, align 8
-  br label %common.resume
-
-common.resume:                                    ; preds = %common.resume.sink.split, %40, %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Attr$GT$17h30e700428f5d48beE.exit.sink.split.i10.i.i.i"
-  %common.resume.op = phi { ptr, i32 } [ %lpad.thr_comm.i.i.i, %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Attr$GT$17h30e700428f5d48beE.exit.sink.split.i10.i.i.i" ], [ %lpad.thr_comm.i.i.i, %40 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+common.resume:                                    ; preds = %90, %114, %136, %40, %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Attr$GT$17h30e700428f5d48beE.exit.sink.split.i10.i.i.i", %68
+  %common.resume.op = phi { ptr, i32 } [ %69, %68 ], [ %lpad.thr_comm.i.i.i, %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Attr$GT$17h30e700428f5d48beE.exit.sink.split.i10.i.i.i" ], [ %lpad.thr_comm.i.i.i, %40 ], [ %137, %136 ], [ %115, %114 ], [ %91, %90 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h299b4134588bcea7E.exit.thread.i.i": ; preds = %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Attr$GT$17h30e700428f5d48beE.exit.sink.split.i.i.i.i", %35, %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h299b4134588bcea7E.exit.thread16.i.i"
@@ -1409,7 +1403,8 @@ default.unreachable:                              ; preds = %100, %.loopexit
 68:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h0f50e245e54b834dE.llvm.10606712881621943088.exit.sink.split.i.i.i.i.i.i.i"
   %69 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume.sink.split
+  store i64 3, ptr %1, align 8
+  br label %common.resume
 
 "_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter..Filter$LT$syntax..ast..traits..AttrDocCommentIter$C$hir_expand..attrs..collect_attrs..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hfb5e87174b9e8c94E.exit": ; preds = %.loopexit, %.loopexit, %59, %53, %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h0f50e245e54b834dE.llvm.10606712881621943088.exit.sink.split.i.i.i.i.i.i.i"
   store i64 3, ptr %1, align 8
@@ -1479,7 +1474,8 @@ default.unreachable:                              ; preds = %100, %.loopexit
 90:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h0f50e245e54b834dE.llvm.10606712881621943088.exit.sink.split.i.i.i.i.i.i.i.i.i"
   %91 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume.sink.split
+  store i64 3, ptr %50, align 8, !alias.scope !474, !noalias !469
+  br label %common.resume
 
 "_ZN4core3ptr199drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter..Filter$LT$syntax..ast..traits..AttrDocCommentIter$C$hir_expand..attrs..inner_attributes..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7241ee405c25d348E.exit.i.i": ; preds = %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h0f50e245e54b834dE.llvm.10606712881621943088.exit.sink.split.i.i.i.i.i.i.i.i.i", %83, %77, %75, %75, %.thread.i.i
   %92 = phi ptr [ %71, %.thread.i.i ], [ %76, %75 ], [ %76, %75 ], [ %76, %77 ], [ %76, %83 ], [ %76, %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h0f50e245e54b834dE.llvm.10606712881621943088.exit.sink.split.i.i.i.i.i.i.i.i.i" ]
@@ -1554,7 +1550,8 @@ default.unreachable:                              ; preds = %100, %.loopexit
 114:                                              ; preds = %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h0f50e245e54b834dE.llvm.10606712881621943088.exit.sink.split.i.i.i.i.i.i.i28.i.i"
   %115 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume.sink.split
+  store i64 3, ptr %50, align 8, !alias.scope !474, !noalias !469
+  br label %common.resume
 
 "_ZN4core3ptr199drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter..Filter$LT$syntax..ast..traits..AttrDocCommentIter$C$hir_expand..attrs..inner_attributes..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7241ee405c25d348E.exit30.i.i": ; preds = %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h0f50e245e54b834dE.llvm.10606712881621943088.exit.sink.split.i.i.i.i.i.i.i28.i.i", %107, %101, %100, %100, %95, %"_ZN4core3ptr199drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter..Filter$LT$syntax..ast..traits..AttrDocCommentIter$C$hir_expand..attrs..inner_attributes..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7241ee405c25d348E.exit.i.i"
   store i64 3, ptr %50, align 8, !alias.scope !474, !noalias !469
@@ -1614,7 +1611,8 @@ default.unreachable:                              ; preds = %100, %.loopexit
 136:                                              ; preds = %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h0f50e245e54b834dE.llvm.10606712881621943088.exit.sink.split.i.i.i.i.i.i.i32.i.i"
   %137 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume.sink.split
+  store i64 3, ptr %116, align 8, !alias.scope !474, !noalias !469
+  br label %common.resume
 
 138:                                              ; preds = %139, %49
   store ptr null, ptr %0, align 8, !alias.scope !576
@@ -19090,9 +19088,9 @@ define hidden void @"_ZN93_$LT$$RF$$u5b$tt..TokenTree$LT$Span$GT$$u5d$$u20$as$u2
   %19 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr251drop_in_place$LT$alloc..vec..Vec$LT$$LP$usize$C$$LP$$RF$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$C$core..option..Option$LT$$RF$tt..TokenTree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$RP$$RP$$GT$$GT$17h782c656e20aa73abE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #57
-          to label %57 unwind label %55
+          to label %59 unwind label %57
 
-._crit_edge:                                      ; preds = %37, %2
+._crit_edge:                                      ; preds = %39, %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   %20 = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
@@ -19100,9 +19098,9 @@ define hidden void @"_ZN93_$LT$$RF$$u5b$tt..TokenTree$LT$Span$GT$$u5d$$u20$as$u2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   ret void
 
-.lr.ph:                                           ; preds = %2, %37
-  %.sroa.0.029 = phi ptr [ %21, %37 ], [ %5, %2 ]
-  %.sroa.7.028 = phi i64 [ %22, %37 ], [ 0, %2 ]
+.lr.ph:                                           ; preds = %2, %39
+  %.sroa.0.029 = phi ptr [ %21, %39 ], [ %5, %2 ]
+  %.sroa.7.028 = phi i64 [ %22, %39 ], [ 0, %2 ]
   %21 = getelementptr inbounds i8, ptr %.sroa.0.029, i64 64
   %22 = add nuw nsw i64 %.sroa.7.028, 1
   %23 = getelementptr inbounds i8, ptr %.sroa.0.029, i64 56
@@ -19141,15 +19139,13 @@ define hidden void @"_ZN93_$LT$$RF$$u5b$tt..TokenTree$LT$Span$GT$$u5d$$u20$as$u2
   %36 = getelementptr inbounds { i64, [3 x i64] }, ptr %35, i64 %34
   store i64 1, ptr %36, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %36, i64 8
-  br label %37
+  store ptr %.sroa.0.029, ptr %.sroa.4.0..sroa_idx, align 8
+  %37 = load i64, ptr %13, align 8, !alias.scope !4583, !noalias !4586, !noundef !30
+  %38 = add i64 %37, 1
+  store i64 %38, ptr %13, align 8, !alias.scope !4583, !noalias !4586
+  br label %39
 
-37:                                               ; preds = %51, %33
-  %.sroa.524.0..sroa_idx.sink = phi ptr [ %.sroa.524.0..sroa_idx, %51 ], [ %.sroa.4.0..sroa_idx, %33 ]
-  %.sink = phi ptr [ %15, %51 ], [ %13, %33 ]
-  store ptr %.sroa.0.029, ptr %.sroa.524.0..sroa_idx.sink, align 8
-  %38 = load i64, ptr %.sink, align 8, !noalias !30, !noundef !30
-  %39 = add i64 %38, 1
-  store i64 %39, ptr %.sink, align 8, !noalias !30
+39:                                               ; preds = %51, %33
   %40 = icmp eq ptr %21, %16
   br i1 %40, label %._crit_edge, label %.lr.ph
 
@@ -19184,19 +19180,23 @@ define hidden void @"_ZN93_$LT$$RF$$u5b$tt..TokenTree$LT$Span$GT$$u5d$$u20$as$u2
   %.sroa.423.0..sroa_idx = getelementptr inbounds i8, ptr %54, i64 8
   store ptr %.sroa.0.029, ptr %.sroa.423.0..sroa_idx, align 8
   %.sroa.524.0..sroa_idx = getelementptr inbounds i8, ptr %54, i64 16
-  br label %37
+  store ptr %.sroa.0.029, ptr %.sroa.524.0..sroa_idx, align 8
+  %55 = load i64, ptr %15, align 8, !alias.scope !4593, !noalias !4596, !noundef !30
+  %56 = add i64 %55, 1
+  store i64 %56, ptr %15, align 8, !alias.scope !4593, !noalias !4596
+  br label %39
 
-55:                                               ; preds = %57, %18
-  %56 = landingpad { ptr, i32 }
+57:                                               ; preds = %59, %18
+  %58 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #58
   unreachable
 
-57:                                               ; preds = %18
+59:                                               ; preds = %18
   invoke void @"_ZN4core3ptr121drop_in_place$LT$alloc..vec..Vec$LT$tt..buffer..Entry$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$GT$17h344b535336963494E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #57
-          to label %58 unwind label %55
+          to label %60 unwind label %57
 
-58:                                               ; preds = %57
+60:                                               ; preds = %59
   resume { ptr, i32 } %19
 }
 

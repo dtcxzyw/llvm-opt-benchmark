@@ -371,22 +371,31 @@ if.end.i:                                         ; preds = %if.end21
   %15 = load ptr, ptr %boundaries.i, align 8
   %16 = load i64, ptr %15, align 8
   %cmp1.i = icmp ult i64 %spec.select, %16
-  br i1 %cmp1.i, label %return.sink.split.i, label %if.end5.i
+  br i1 %cmp1.i, label %if.then2.i, label %if.end5.i
+
+if.then2.i:                                       ; preds = %if.end.i
+  %17 = load i64, ptr %14, align 8
+  %inc.i = add i64 %17, 1
+  store i64 %inc.i, ptr %14, align 8
+  br label %block_latency_histogram_account.exit
 
 if.end5.i:                                        ; preds = %if.end.i
-  %17 = load i32, ptr %arrayidx24, align 8
-  %sub.i = add i32 %17, -2
+  %18 = load i32, ptr %arrayidx24, align 8
+  %sub.i = add i32 %18, -2
   %idxprom.i = sext i32 %sub.i to i64
   %arrayidx7.i = getelementptr i64, ptr %15, i64 %idxprom.i
-  %18 = load i64, ptr %arrayidx7.i, align 8
-  %cmp8.not.i = icmp ult i64 %spec.select, %18
+  %19 = load i64, ptr %arrayidx7.i, align 8
+  %cmp8.not.i = icmp ult i64 %spec.select, %19
   br i1 %cmp8.not.i, label %if.end16.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end5.i
-  %sub12.i = add i32 %17, -1
+  %sub12.i = add i32 %18, -1
   %idxprom13.i = sext i32 %sub12.i to i64
   %arrayidx14.i = getelementptr i64, ptr %14, i64 %idxprom13.i
-  br label %return.sink.split.i
+  %20 = load i64, ptr %arrayidx14.i, align 8
+  %inc15.i = add i64 %20, 1
+  store i64 %inc15.i, ptr %arrayidx14.i, align 8
+  br label %block_latency_histogram_account.exit
 
 if.end16.i:                                       ; preds = %if.end5.i
   %call.i = call ptr @bsearch(ptr noundef nonnull %latency_ns.addr.i, ptr noundef nonnull %15, i64 noundef %idxprom.i, i64 noundef 8, ptr noundef nonnull @block_latency_histogram_compare_func) #10
@@ -398,37 +407,33 @@ if.else.i:                                        ; preds = %if.end16.i
   unreachable
 
 if.end23.i:                                       ; preds = %if.end16.i
-  %19 = load ptr, ptr %bins.i, align 8
-  %20 = load ptr, ptr %boundaries.i, align 8
+  %21 = load ptr, ptr %bins.i, align 8
+  %22 = load ptr, ptr %boundaries.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call.i to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %20 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %22 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %21 = getelementptr i8, ptr %19, i64 %sub.ptr.sub.i
-  %arrayidx26.i = getelementptr i8, ptr %21, i64 8
-  br label %return.sink.split.i
-
-return.sink.split.i:                              ; preds = %if.end23.i, %if.then9.i, %if.end.i
-  %arrayidx26.sink12.i = phi ptr [ %arrayidx26.i, %if.end23.i ], [ %arrayidx14.i, %if.then9.i ], [ %14, %if.end.i ]
-  %22 = load i64, ptr %arrayidx26.sink12.i, align 8
-  %inc27.i = add i64 %22, 1
-  store i64 %inc27.i, ptr %arrayidx26.sink12.i, align 8
+  %23 = getelementptr i8, ptr %21, i64 %sub.ptr.sub.i
+  %arrayidx26.i = getelementptr i8, ptr %23, i64 8
+  %24 = load i64, ptr %arrayidx26.i, align 8
+  %inc27.i = add i64 %24, 1
+  store i64 %inc27.i, ptr %arrayidx26.i, align 8
   br label %block_latency_histogram_account.exit
 
-block_latency_histogram_account.exit:             ; preds = %if.end21, %return.sink.split.i
+block_latency_histogram_account.exit:             ; preds = %if.end21, %if.then2.i, %if.then9.i, %if.end23.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %latency_ns.addr.i)
   br i1 %failed, label %lor.lhs.false, label %if.then27
 
 lor.lhs.false:                                    ; preds = %block_latency_histogram_account.exit
-  %23 = load i8, ptr %account_failed, align 1
-  %tobool26 = trunc i8 %23 to i1
+  %25 = load i8, ptr %account_failed, align 1
+  %tobool26 = trunc i8 %25 to i1
   br i1 %tobool26, label %if.then27, label %qemu_lockable_auto_unlock.exit
 
 if.then27:                                        ; preds = %lor.lhs.false, %block_latency_histogram_account.exit
-  %24 = load i32, ptr %type, align 8
-  %idxprom29 = zext i32 %24 to i64
+  %26 = load i32, ptr %type, align 8
+  %idxprom29 = zext i32 %26 to i64
   %arrayidx30 = getelementptr [6 x i64], ptr %total_time_ns, i64 0, i64 %idxprom29
-  %25 = load i64, ptr %arrayidx30, align 8
-  %add31 = add i64 %25, %spec.select
+  %27 = load i64, ptr %arrayidx30, align 8
+  %add31 = add i64 %27, %spec.select
   store i64 %add31, ptr %arrayidx30, align 8
   store i64 %call, ptr %last_access_time_ns, align 8
   %s.028 = load ptr, ptr %intervals, align 8
@@ -438,8 +443,8 @@ if.then27:                                        ; preds = %lor.lhs.false, %blo
 for.body34:                                       ; preds = %if.then27, %for.body34
   %s.030 = phi ptr [ %s.0, %for.body34 ], [ %s.028, %if.then27 ]
   %latency = getelementptr inbounds i8, ptr %s.030, i64 8
-  %26 = load i32, ptr %type, align 8
-  %idxprom36 = zext i32 %26 to i64
+  %28 = load i32, ptr %type, align 8
+  %idxprom36 = zext i32 %28 to i64
   %arrayidx37 = getelementptr [6 x %struct.TimedAverage], ptr %latency, i64 0, i64 %idxprom36
   call void @timed_average_account(ptr noundef %arrayidx37, i64 noundef %spec.select) #10
   %entries = getelementptr inbounds i8, ptr %s.030, i64 592

@@ -1483,19 +1483,19 @@ define hidden void @_ZN22DiscoveredListIterator19make_referent_aliveEv(ptr nocap
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr @_ZN23java_lang_ref_Reference16_referent_offsetE, align 4
-  %5 = ptrtoint ptr %3 to i64
-  %6 = sext i32 %4 to i64
-  %7 = add nsw i64 %6, %5
-  %8 = inttoptr i64 %7 to ptr
-  %9 = load i8, ptr @UseCompressedOops, align 1
-  %10 = trunc i8 %9 to i1
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
-  %12 = load ptr, ptr %11, align 8
-  %13 = load ptr, ptr %12, align 8
-  %.sink3.idx = select i1 %10, i64 8, i64 0
-  %.sink3 = getelementptr inbounds i8, ptr %13, i64 %.sink3.idx
-  %14 = load ptr, ptr %.sink3, align 8
-  tail call void %14(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %8) #17
+  %5 = load i8, ptr @UseCompressedOops, align 1
+  %6 = trunc i8 %5 to i1
+  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = load ptr, ptr %7, align 8
+  %9 = load ptr, ptr %8, align 8
+  %.sink.in.idx = select i1 %6, i64 8, i64 0
+  %.sink.in = getelementptr inbounds i8, ptr %9, i64 %.sink.in.idx
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %10 = sext i32 %4 to i64
+  %11 = ptrtoint ptr %3 to i64
+  %12 = add nsw i64 %10, %11
+  %13 = inttoptr i64 %12 to ptr
+  tail call void %.sink(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %13) #17
   ret void
 }
 
@@ -1646,11 +1646,11 @@ _ZN22DiscoveredListIteratorC2ER14DiscoveredListP10OopClosureP17BoolObjectClosure
   %25 = getelementptr inbounds i8, ptr %1, i64 16
   br label %26
 
-26:                                               ; preds = %.lr.ph, %117
-  %.sroa.5.050 = phi ptr [ %9, %.lr.ph ], [ %.sroa.5.1, %117 ]
-  %.sroa.10.049 = phi ptr [ null, %.lr.ph ], [ %.sroa.10.1, %117 ]
-  %.sroa.16.048 = phi ptr [ %24, %.lr.ph ], [ %33, %117 ]
-  %.sroa.60.047 = phi i64 [ 0, %.lr.ph ], [ %.sroa.60.1, %117 ]
+26:                                               ; preds = %.lr.ph, %116
+  %.sroa.5.050 = phi ptr [ %9, %.lr.ph ], [ %.sroa.5.1, %116 ]
+  %.sroa.10.049 = phi ptr [ null, %.lr.ph ], [ %.sroa.10.1, %116 ]
+  %.sroa.16.048 = phi ptr [ %24, %.lr.ph ], [ %33, %116 ]
+  %.sroa.60.047 = phi i64 [ 0, %.lr.ph ], [ %.sroa.60.1, %116 ]
   %27 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
   %28 = ptrtoint ptr %.sroa.16.048 to i64
   %29 = sext i32 %27 to i64
@@ -1708,13 +1708,13 @@ _ZN22DiscoveredListIterator6removeEv.exit:        ; preds = %47, %58
   %60 = load i64, ptr %25, align 8
   %61 = add i64 %60, -1
   store i64 %61, ptr %25, align 8
-  br i1 %44, label %._crit_edge, label %117
+  br i1 %44, label %._crit_edge, label %116
 
 62:                                               ; preds = %26
   %63 = load ptr, ptr %2, align 8
   %64 = load ptr, ptr %63, align 8
   %65 = tail call noundef zeroext i1 %64(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %37) #17
-  br i1 %65, label %66, label %97
+  br i1 %65, label %66, label %96
 
 66:                                               ; preds = %62
   %67 = load i8, ptr @UseCompressedOops, align 1
@@ -1760,133 +1760,133 @@ _ZN22DiscoveredListIterator6removeEv.exit8:       ; preds = %74, %85
   %88 = add i64 %87, -1
   store i64 %88, ptr %25, align 8
   %89 = load i32, ptr @_ZN23java_lang_ref_Reference16_referent_offsetE, align 4
-  %90 = sext i32 %89 to i64
-  %91 = add nsw i64 %90, %28
-  %92 = inttoptr i64 %91 to ptr
-  %93 = load i8, ptr @UseCompressedOops, align 1
-  %94 = trunc i8 %93 to i1
-  %95 = load ptr, ptr %3, align 8
-  %.sink3.idx.i = select i1 %94, i64 8, i64 0
-  %.sink3.i = getelementptr inbounds i8, ptr %95, i64 %.sink3.idx.i
-  %96 = load ptr, ptr %.sink3.i, align 8
-  tail call void %96(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %92) #17
-  br i1 %71, label %._crit_edge, label %117
+  %90 = load i8, ptr @UseCompressedOops, align 1
+  %91 = trunc i8 %90 to i1
+  %92 = load ptr, ptr %3, align 8
+  %spec.select.idx = select i1 %91, i64 8, i64 0
+  %spec.select = getelementptr inbounds i8, ptr %92, i64 %spec.select.idx
+  %.sink.i = load ptr, ptr %spec.select, align 8
+  %93 = sext i32 %89 to i64
+  %94 = add nsw i64 %93, %28
+  %95 = inttoptr i64 %94 to ptr
+  tail call void %.sink.i(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %95) #17
+  br i1 %71, label %._crit_edge, label %116
 
-97:                                               ; preds = %62
-  br i1 %5, label %98, label %_ZN22DiscoveredListIterator7enqueueEv.exit
+96:                                               ; preds = %62
+  br i1 %5, label %97, label %_ZN22DiscoveredListIterator7enqueueEv.exit
 
-98:                                               ; preds = %97
-  %99 = load i32, ptr @_ZN23java_lang_ref_Reference16_referent_offsetE, align 4
-  tail call void @_ZN7oopDesc17obj_field_put_rawEiPS_(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.048, i32 noundef %99, ptr noundef null) #17
-  %100 = load i8, ptr @UseCompressedOops, align 1
-  %101 = trunc i8 %100 to i1
-  %.idx.i.i10 = select i1 %101, i64 8, i64 0
-  %102 = getelementptr inbounds i8, ptr %1, i64 %.idx.i.i10
-  %.not.i = icmp eq ptr %.sroa.5.050, %102
-  br i1 %.not.i, label %106, label %103
+97:                                               ; preds = %96
+  %98 = load i32, ptr @_ZN23java_lang_ref_Reference16_referent_offsetE, align 4
+  tail call void @_ZN7oopDesc17obj_field_put_rawEiPS_(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.048, i32 noundef %98, ptr noundef null) #17
+  %99 = load i8, ptr @UseCompressedOops, align 1
+  %100 = trunc i8 %99 to i1
+  %.idx.i.i10 = select i1 %100, i64 8, i64 0
+  %101 = getelementptr inbounds i8, ptr %1, i64 %.idx.i.i10
+  %.not.i = icmp eq ptr %.sroa.5.050, %101
+  br i1 %.not.i, label %105, label %102
 
-103:                                              ; preds = %98
-  %104 = load ptr, ptr %4, align 8
-  %105 = load ptr, ptr %104, align 8
-  tail call void %105(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %.sroa.5.050, ptr noundef nonnull %.sroa.16.048) #17
+102:                                              ; preds = %97
+  %103 = load ptr, ptr %4, align 8
+  %104 = load ptr, ptr %103, align 8
+  tail call void %104(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %.sroa.5.050, ptr noundef nonnull %.sroa.16.048) #17
   br label %_ZN22DiscoveredListIterator7enqueueEv.exit
 
-106:                                              ; preds = %98
-  br i1 %101, label %107, label %115
+105:                                              ; preds = %97
+  br i1 %100, label %106, label %114
 
-107:                                              ; preds = %106
-  %108 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
-  %109 = ptrtoint ptr %108 to i64
-  %110 = sub i64 %28, %109
-  %111 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
-  %112 = zext nneg i32 %111 to i64
-  %113 = lshr i64 %110, %112
-  %114 = trunc i64 %113 to i32
-  store i32 %114, ptr %.sroa.5.050, align 4
+106:                                              ; preds = %105
+  %107 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
+  %108 = ptrtoint ptr %107 to i64
+  %109 = sub i64 %28, %108
+  %110 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %111 = zext nneg i32 %110 to i64
+  %112 = lshr i64 %109, %111
+  %113 = trunc i64 %112 to i32
+  store i32 %113, ptr %.sroa.5.050, align 4
   br label %_ZN22DiscoveredListIterator7enqueueEv.exit
 
-115:                                              ; preds = %106
+114:                                              ; preds = %105
   store ptr %.sroa.16.048, ptr %.sroa.5.050, align 8
   br label %_ZN22DiscoveredListIterator7enqueueEv.exit
 
-_ZN22DiscoveredListIterator7enqueueEv.exit:       ; preds = %115, %107, %103, %97
-  %116 = icmp eq ptr %.sroa.16.048, %33
-  br i1 %116, label %._crit_edge, label %117
+_ZN22DiscoveredListIterator7enqueueEv.exit:       ; preds = %114, %106, %102, %96
+  %115 = icmp eq ptr %.sroa.16.048, %33
+  br i1 %115, label %._crit_edge, label %116
 
-117:                                              ; preds = %_ZN22DiscoveredListIterator7enqueueEv.exit, %_ZN22DiscoveredListIterator6removeEv.exit8, %_ZN22DiscoveredListIterator6removeEv.exit
+116:                                              ; preds = %_ZN22DiscoveredListIterator7enqueueEv.exit, %_ZN22DiscoveredListIterator6removeEv.exit8, %_ZN22DiscoveredListIterator6removeEv.exit
   %.sroa.60.1 = phi i64 [ %59, %_ZN22DiscoveredListIterator6removeEv.exit ], [ %86, %_ZN22DiscoveredListIterator6removeEv.exit8 ], [ %.sroa.60.047, %_ZN22DiscoveredListIterator7enqueueEv.exit ]
   %.sroa.10.1 = phi ptr [ %.sroa.10.049, %_ZN22DiscoveredListIterator6removeEv.exit ], [ %.sroa.10.049, %_ZN22DiscoveredListIterator6removeEv.exit8 ], [ %.sroa.16.048, %_ZN22DiscoveredListIterator7enqueueEv.exit ]
   %.sroa.5.1 = phi ptr [ %.sroa.5.050, %_ZN22DiscoveredListIterator6removeEv.exit ], [ %.sroa.5.050, %_ZN22DiscoveredListIterator6removeEv.exit8 ], [ %31, %_ZN22DiscoveredListIterator7enqueueEv.exit ]
   %.not = icmp eq ptr %33, null
   br i1 %.not, label %._crit_edge, label %26, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %_ZN22DiscoveredListIterator7enqueueEv.exit, %_ZN22DiscoveredListIterator6removeEv.exit8, %_ZN22DiscoveredListIterator6removeEv.exit, %117, %10, %_ZN22DiscoveredListIteratorC2ER14DiscoveredListP10OopClosureP17BoolObjectClosureP29EnqueueDiscoveredFieldClosure.exit
-  %.sroa.60.0.lcssa = phi i64 [ 0, %_ZN22DiscoveredListIteratorC2ER14DiscoveredListP10OopClosureP17BoolObjectClosureP29EnqueueDiscoveredFieldClosure.exit ], [ 0, %10 ], [ %.sroa.60.047, %_ZN22DiscoveredListIterator7enqueueEv.exit ], [ %86, %_ZN22DiscoveredListIterator6removeEv.exit8 ], [ %59, %_ZN22DiscoveredListIterator6removeEv.exit ], [ %.sroa.60.1, %117 ]
-  %.sroa.10.0.lcssa = phi ptr [ null, %_ZN22DiscoveredListIteratorC2ER14DiscoveredListP10OopClosureP17BoolObjectClosureP29EnqueueDiscoveredFieldClosure.exit ], [ null, %10 ], [ %.sroa.16.048, %_ZN22DiscoveredListIterator7enqueueEv.exit ], [ %.sroa.10.049, %_ZN22DiscoveredListIterator6removeEv.exit8 ], [ %.sroa.10.049, %_ZN22DiscoveredListIterator6removeEv.exit ], [ %.sroa.10.1, %117 ]
-  br i1 %5, label %118, label %151
+._crit_edge:                                      ; preds = %_ZN22DiscoveredListIterator7enqueueEv.exit, %_ZN22DiscoveredListIterator6removeEv.exit8, %_ZN22DiscoveredListIterator6removeEv.exit, %116, %10, %_ZN22DiscoveredListIteratorC2ER14DiscoveredListP10OopClosureP17BoolObjectClosureP29EnqueueDiscoveredFieldClosure.exit
+  %.sroa.60.0.lcssa = phi i64 [ 0, %_ZN22DiscoveredListIteratorC2ER14DiscoveredListP10OopClosureP17BoolObjectClosureP29EnqueueDiscoveredFieldClosure.exit ], [ 0, %10 ], [ %.sroa.60.047, %_ZN22DiscoveredListIterator7enqueueEv.exit ], [ %86, %_ZN22DiscoveredListIterator6removeEv.exit8 ], [ %59, %_ZN22DiscoveredListIterator6removeEv.exit ], [ %.sroa.60.1, %116 ]
+  %.sroa.10.0.lcssa = phi ptr [ null, %_ZN22DiscoveredListIteratorC2ER14DiscoveredListP10OopClosureP17BoolObjectClosureP29EnqueueDiscoveredFieldClosure.exit ], [ null, %10 ], [ %.sroa.16.048, %_ZN22DiscoveredListIterator7enqueueEv.exit ], [ %.sroa.10.049, %_ZN22DiscoveredListIterator6removeEv.exit8 ], [ %.sroa.10.049, %_ZN22DiscoveredListIterator6removeEv.exit ], [ %.sroa.10.1, %116 ]
+  br i1 %5, label %117, label %150
 
-118:                                              ; preds = %._crit_edge
+117:                                              ; preds = %._crit_edge
   %.not.i12 = icmp eq ptr %.sroa.10.0.lcssa, null
   %.pre52 = load i8, ptr @UseCompressedOops, align 1
-  br i1 %.not.i12, label %_ZN22DiscoveredListIterator16complete_enqueueEv.exit, label %119
+  br i1 %.not.i12, label %_ZN22DiscoveredListIterator16complete_enqueueEv.exit, label %118
 
-119:                                              ; preds = %118
-  %120 = trunc i8 %.pre52 to i1
-  br i1 %120, label %121, label %134
+118:                                              ; preds = %117
+  %119 = trunc i8 %.pre52 to i1
+  br i1 %119, label %120, label %133
 
-121:                                              ; preds = %119
-  %122 = getelementptr inbounds i8, ptr %1, i64 8
-  %123 = load i32, ptr %122, align 8
-  %124 = icmp eq i32 %123, 0
-  %125 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
-  %126 = ptrtoint ptr %125 to i64
-  %127 = zext i32 %123 to i64
-  %128 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
-  %129 = zext nneg i32 %128 to i64
-  %130 = shl i64 %127, %129
-  %131 = add i64 %130, %126
-  %132 = inttoptr i64 %131 to ptr
-  %133 = select i1 %124, ptr null, ptr %132
+120:                                              ; preds = %118
+  %121 = getelementptr inbounds i8, ptr %1, i64 8
+  %122 = load i32, ptr %121, align 8
+  %123 = icmp eq i32 %122, 0
+  %124 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
+  %125 = ptrtoint ptr %124 to i64
+  %126 = zext i32 %122 to i64
+  %127 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %128 = zext nneg i32 %127 to i64
+  %129 = shl i64 %126, %128
+  %130 = add i64 %129, %125
+  %131 = inttoptr i64 %130 to ptr
+  %132 = select i1 %123, ptr null, ptr %131
   br label %_ZNK14DiscoveredList4headEv.exit.i
 
-134:                                              ; preds = %119
-  %135 = load ptr, ptr %1, align 8
+133:                                              ; preds = %118
+  %134 = load ptr, ptr %1, align 8
   br label %_ZNK14DiscoveredList4headEv.exit.i
 
-_ZNK14DiscoveredList4headEv.exit.i:               ; preds = %134, %121
-  %136 = phi ptr [ %133, %121 ], [ %135, %134 ]
-  %137 = tail call noundef ptr @_ZN8Universe27swap_reference_pending_listEP7oopDesc(ptr noundef %136) #17
-  %138 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
-  %139 = ptrtoint ptr %.sroa.10.0.lcssa to i64
-  %140 = sext i32 %138 to i64
-  %141 = add nsw i64 %140, %139
-  %142 = inttoptr i64 %141 to ptr
-  %143 = load ptr, ptr %4, align 8
-  %144 = load ptr, ptr %143, align 8
-  tail call void %144(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %142, ptr noundef %137) #17
+_ZNK14DiscoveredList4headEv.exit.i:               ; preds = %133, %120
+  %135 = phi ptr [ %132, %120 ], [ %134, %133 ]
+  %136 = tail call noundef ptr @_ZN8Universe27swap_reference_pending_listEP7oopDesc(ptr noundef %135) #17
+  %137 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
+  %138 = ptrtoint ptr %.sroa.10.0.lcssa to i64
+  %139 = sext i32 %137 to i64
+  %140 = add nsw i64 %139, %138
+  %141 = inttoptr i64 %140 to ptr
+  %142 = load ptr, ptr %4, align 8
+  %143 = load ptr, ptr %142, align 8
+  tail call void %143(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %141, ptr noundef %136) #17
   %.pre = load i8, ptr @UseCompressedOops, align 1
   br label %_ZN22DiscoveredListIterator16complete_enqueueEv.exit
 
-_ZN22DiscoveredListIterator16complete_enqueueEv.exit: ; preds = %118, %_ZNK14DiscoveredList4headEv.exit.i
-  %145 = phi i8 [ %.pre52, %118 ], [ %.pre, %_ZNK14DiscoveredList4headEv.exit.i ]
-  %146 = trunc i8 %145 to i1
-  br i1 %146, label %147, label %149
+_ZN22DiscoveredListIterator16complete_enqueueEv.exit: ; preds = %117, %_ZNK14DiscoveredList4headEv.exit.i
+  %144 = phi i8 [ %.pre52, %117 ], [ %.pre, %_ZNK14DiscoveredList4headEv.exit.i ]
+  %145 = trunc i8 %144 to i1
+  br i1 %145, label %146, label %148
 
-147:                                              ; preds = %_ZN22DiscoveredListIterator16complete_enqueueEv.exit
-  %148 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 0, ptr %148, align 8
+146:                                              ; preds = %_ZN22DiscoveredListIterator16complete_enqueueEv.exit
+  %147 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 0, ptr %147, align 8
   br label %_ZN14DiscoveredList5clearEv.exit
 
-149:                                              ; preds = %_ZN22DiscoveredListIterator16complete_enqueueEv.exit
+148:                                              ; preds = %_ZN22DiscoveredListIterator16complete_enqueueEv.exit
   store ptr null, ptr %1, align 8
   br label %_ZN14DiscoveredList5clearEv.exit
 
-_ZN14DiscoveredList5clearEv.exit:                 ; preds = %147, %149
-  %150 = getelementptr inbounds i8, ptr %1, i64 16
-  store i64 0, ptr %150, align 8
-  br label %151
+_ZN14DiscoveredList5clearEv.exit:                 ; preds = %146, %148
+  %149 = getelementptr inbounds i8, ptr %1, i64 16
+  store i64 0, ptr %149, align 8
+  br label %150
 
-151:                                              ; preds = %_ZN14DiscoveredList5clearEv.exit, %._crit_edge
+150:                                              ; preds = %_ZN14DiscoveredList5clearEv.exit, %._crit_edge
   ret i64 %.sroa.60.0.lcssa
 }
 
@@ -1918,128 +1918,128 @@ define hidden noundef i64 @_ZN18ReferenceProcessor29process_final_keep_alive_wor
 
 _ZN22DiscoveredListIteratorC2ER14DiscoveredListP10OopClosureP17BoolObjectClosureP29EnqueueDiscoveredFieldClosure.exit: ; preds = %8, %20
   %22 = phi ptr [ %19, %8 ], [ %21, %20 ]
-  %.not17 = icmp eq ptr %22, null
-  br i1 %.not17, label %_ZN22DiscoveredListIterator16complete_enqueueEv.exit, label %.lr.ph
+  %.not18 = icmp eq ptr %22, null
+  br i1 %.not18, label %_ZN22DiscoveredListIterator16complete_enqueueEv.exit, label %_ZN22DiscoveredListIterator19make_referent_aliveEv.exit
 
-.lr.ph:                                           ; preds = %_ZN22DiscoveredListIteratorC2ER14DiscoveredListP10OopClosureP17BoolObjectClosureP29EnqueueDiscoveredFieldClosure.exit, %_ZN22DiscoveredListIterator7enqueueEv.exit
-  %.sroa.3.019 = phi ptr [ %27, %_ZN22DiscoveredListIterator7enqueueEv.exit ], [ %7, %_ZN22DiscoveredListIteratorC2ER14DiscoveredListP10OopClosureP17BoolObjectClosureP29EnqueueDiscoveredFieldClosure.exit ]
-  %.sroa.10.018 = phi ptr [ %29, %_ZN22DiscoveredListIterator7enqueueEv.exit ], [ %22, %_ZN22DiscoveredListIteratorC2ER14DiscoveredListP10OopClosureP17BoolObjectClosureP29EnqueueDiscoveredFieldClosure.exit ]
+_ZN22DiscoveredListIterator19make_referent_aliveEv.exit: ; preds = %_ZN22DiscoveredListIteratorC2ER14DiscoveredListP10OopClosureP17BoolObjectClosureP29EnqueueDiscoveredFieldClosure.exit, %_ZN22DiscoveredListIterator7enqueueEv.exit
+  %.sroa.3.020 = phi ptr [ %27, %_ZN22DiscoveredListIterator7enqueueEv.exit ], [ %7, %_ZN22DiscoveredListIteratorC2ER14DiscoveredListP10OopClosureP17BoolObjectClosureP29EnqueueDiscoveredFieldClosure.exit ]
+  %.sroa.10.019 = phi ptr [ %29, %_ZN22DiscoveredListIterator7enqueueEv.exit ], [ %22, %_ZN22DiscoveredListIteratorC2ER14DiscoveredListP10OopClosureP17BoolObjectClosureP29EnqueueDiscoveredFieldClosure.exit ]
   %23 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
-  %24 = ptrtoint ptr %.sroa.10.018 to i64
+  %24 = ptrtoint ptr %.sroa.10.019 to i64
   %25 = sext i32 %23 to i64
   %26 = add nsw i64 %25, %24
   %27 = inttoptr i64 %26 to ptr
   %28 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %29 = tail call noundef ptr %28(ptr noundef nonnull %.sroa.10.018, i64 noundef %25) #17
+  %29 = tail call noundef ptr %28(ptr noundef nonnull %.sroa.10.019, i64 noundef %25) #17
   %30 = load i32, ptr @_ZN23java_lang_ref_Reference16_referent_offsetE, align 4
   %31 = sext i32 %30 to i64
   %32 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm397382EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %33 = tail call noundef ptr %32(ptr noundef nonnull %.sroa.10.018, i64 noundef %31) #17
+  %33 = tail call noundef ptr %32(ptr noundef nonnull %.sroa.10.019, i64 noundef %31) #17
   %34 = load i32, ptr @_ZN23java_lang_ref_Reference16_referent_offsetE, align 4
-  %35 = sext i32 %34 to i64
-  %36 = add nsw i64 %35, %24
-  %37 = inttoptr i64 %36 to ptr
-  %38 = load i8, ptr @UseCompressedOops, align 1
-  %39 = trunc i8 %38 to i1
-  %40 = load ptr, ptr %2, align 8
-  %.sink3.idx.i = select i1 %39, i64 8, i64 0
-  %.sink3.i = getelementptr inbounds i8, ptr %40, i64 %.sink3.idx.i
-  %41 = load ptr, ptr %.sink3.i, align 8
-  tail call void %41(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %37) #17
-  %42 = load i32, ptr @_ZN23java_lang_ref_Reference12_next_offsetE, align 4
-  tail call void @_ZN7oopDesc17obj_field_put_rawEiPS_(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10.018, i32 noundef %42, ptr noundef nonnull %.sroa.10.018) #17
-  %43 = load i8, ptr @UseCompressedOops, align 1
-  %44 = trunc i8 %43 to i1
-  %.idx.i.i4 = select i1 %44, i64 8, i64 0
-  %45 = getelementptr inbounds i8, ptr %1, i64 %.idx.i.i4
-  %.not.i = icmp eq ptr %.sroa.3.019, %45
-  br i1 %.not.i, label %49, label %46
+  %35 = load i8, ptr @UseCompressedOops, align 1
+  %36 = trunc i8 %35 to i1
+  %37 = load ptr, ptr %2, align 8
+  %spec.select.idx = select i1 %36, i64 8, i64 0
+  %spec.select = getelementptr inbounds i8, ptr %37, i64 %spec.select.idx
+  %.sink.i = load ptr, ptr %spec.select, align 8
+  %38 = sext i32 %34 to i64
+  %39 = add nsw i64 %38, %24
+  %40 = inttoptr i64 %39 to ptr
+  tail call void %.sink.i(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %40) #17
+  %41 = load i32, ptr @_ZN23java_lang_ref_Reference12_next_offsetE, align 4
+  tail call void @_ZN7oopDesc17obj_field_put_rawEiPS_(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10.019, i32 noundef %41, ptr noundef nonnull %.sroa.10.019) #17
+  %42 = load i8, ptr @UseCompressedOops, align 1
+  %43 = trunc i8 %42 to i1
+  %.idx.i.i4 = select i1 %43, i64 8, i64 0
+  %44 = getelementptr inbounds i8, ptr %1, i64 %.idx.i.i4
+  %.not.i = icmp eq ptr %.sroa.3.020, %44
+  br i1 %.not.i, label %48, label %45
 
-46:                                               ; preds = %.lr.ph
-  %47 = load ptr, ptr %3, align 8
-  %48 = load ptr, ptr %47, align 8
-  tail call void %48(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %.sroa.3.019, ptr noundef nonnull %.sroa.10.018) #17
+45:                                               ; preds = %_ZN22DiscoveredListIterator19make_referent_aliveEv.exit
+  %46 = load ptr, ptr %3, align 8
+  %47 = load ptr, ptr %46, align 8
+  tail call void %47(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %.sroa.3.020, ptr noundef nonnull %.sroa.10.019) #17
   br label %_ZN22DiscoveredListIterator7enqueueEv.exit
 
-49:                                               ; preds = %.lr.ph
-  br i1 %44, label %50, label %58
+48:                                               ; preds = %_ZN22DiscoveredListIterator19make_referent_aliveEv.exit
+  br i1 %43, label %49, label %57
 
-50:                                               ; preds = %49
-  %51 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
-  %52 = ptrtoint ptr %51 to i64
-  %53 = sub i64 %24, %52
-  %54 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
-  %55 = zext nneg i32 %54 to i64
-  %56 = lshr i64 %53, %55
-  %57 = trunc i64 %56 to i32
-  store i32 %57, ptr %.sroa.3.019, align 4
+49:                                               ; preds = %48
+  %50 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
+  %51 = ptrtoint ptr %50 to i64
+  %52 = sub i64 %24, %51
+  %53 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %54 = zext nneg i32 %53 to i64
+  %55 = lshr i64 %52, %54
+  %56 = trunc i64 %55 to i32
+  store i32 %56, ptr %.sroa.3.020, align 4
   br label %_ZN22DiscoveredListIterator7enqueueEv.exit
 
-58:                                               ; preds = %49
-  store ptr %.sroa.10.018, ptr %.sroa.3.019, align 8
+57:                                               ; preds = %48
+  store ptr %.sroa.10.019, ptr %.sroa.3.020, align 8
   br label %_ZN22DiscoveredListIterator7enqueueEv.exit
 
-_ZN22DiscoveredListIterator7enqueueEv.exit:       ; preds = %46, %50, %58
-  %59 = icmp eq ptr %.sroa.10.018, %29
-  %.not26 = icmp eq ptr %29, null
-  %.not = or i1 %59, %.not26
-  br i1 %.not, label %60, label %.lr.ph
+_ZN22DiscoveredListIterator7enqueueEv.exit:       ; preds = %45, %49, %57
+  %58 = icmp eq ptr %.sroa.10.019, %29
+  %.not27 = icmp eq ptr %29, null
+  %.not = or i1 %58, %.not27
+  br i1 %.not, label %59, label %_ZN22DiscoveredListIterator19make_referent_aliveEv.exit
 
-60:                                               ; preds = %_ZN22DiscoveredListIterator7enqueueEv.exit
-  %.pre20.pre = load i8, ptr @UseCompressedOops, align 1
-  %61 = trunc i8 %.pre20.pre to i1
-  br i1 %61, label %62, label %75
+59:                                               ; preds = %_ZN22DiscoveredListIterator7enqueueEv.exit
+  %.pre21.pre = load i8, ptr @UseCompressedOops, align 1
+  %60 = trunc i8 %.pre21.pre to i1
+  br i1 %60, label %61, label %74
 
-62:                                               ; preds = %60
-  %63 = getelementptr inbounds i8, ptr %1, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  %66 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
-  %67 = ptrtoint ptr %66 to i64
-  %68 = zext i32 %64 to i64
-  %69 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
-  %70 = zext nneg i32 %69 to i64
-  %71 = shl i64 %68, %70
-  %72 = add i64 %71, %67
-  %73 = inttoptr i64 %72 to ptr
-  %74 = select i1 %65, ptr null, ptr %73
+61:                                               ; preds = %59
+  %62 = getelementptr inbounds i8, ptr %1, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  %65 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
+  %66 = ptrtoint ptr %65 to i64
+  %67 = zext i32 %63 to i64
+  %68 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %69 = zext nneg i32 %68 to i64
+  %70 = shl i64 %67, %69
+  %71 = add i64 %70, %66
+  %72 = inttoptr i64 %71 to ptr
+  %73 = select i1 %64, ptr null, ptr %72
   br label %_ZNK14DiscoveredList4headEv.exit.i
 
-75:                                               ; preds = %60
-  %76 = load ptr, ptr %1, align 8
+74:                                               ; preds = %59
+  %75 = load ptr, ptr %1, align 8
   br label %_ZNK14DiscoveredList4headEv.exit.i
 
-_ZNK14DiscoveredList4headEv.exit.i:               ; preds = %75, %62
-  %77 = phi ptr [ %74, %62 ], [ %76, %75 ]
-  %78 = tail call noundef ptr @_ZN8Universe27swap_reference_pending_listEP7oopDesc(ptr noundef %77) #17
-  %79 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
-  %80 = ptrtoint ptr %.sroa.10.018 to i64
-  %81 = sext i32 %79 to i64
-  %82 = add nsw i64 %81, %80
-  %83 = inttoptr i64 %82 to ptr
-  %84 = load ptr, ptr %3, align 8
-  %85 = load ptr, ptr %84, align 8
-  tail call void %85(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %83, ptr noundef %78) #17
+_ZNK14DiscoveredList4headEv.exit.i:               ; preds = %74, %61
+  %76 = phi ptr [ %73, %61 ], [ %75, %74 ]
+  %77 = tail call noundef ptr @_ZN8Universe27swap_reference_pending_listEP7oopDesc(ptr noundef %76) #17
+  %78 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
+  %79 = ptrtoint ptr %.sroa.10.019 to i64
+  %80 = sext i32 %78 to i64
+  %81 = add nsw i64 %80, %79
+  %82 = inttoptr i64 %81 to ptr
+  %83 = load ptr, ptr %3, align 8
+  %84 = load ptr, ptr %83, align 8
+  tail call void %84(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %82, ptr noundef %77) #17
   %.pre = load i8, ptr @UseCompressedOops, align 1
   br label %_ZN22DiscoveredListIterator16complete_enqueueEv.exit
 
 _ZN22DiscoveredListIterator16complete_enqueueEv.exit: ; preds = %8, %_ZN22DiscoveredListIteratorC2ER14DiscoveredListP10OopClosureP17BoolObjectClosureP29EnqueueDiscoveredFieldClosure.exit, %_ZNK14DiscoveredList4headEv.exit.i
-  %86 = phi i8 [ %.pre, %_ZNK14DiscoveredList4headEv.exit.i ], [ %5, %_ZN22DiscoveredListIteratorC2ER14DiscoveredListP10OopClosureP17BoolObjectClosureP29EnqueueDiscoveredFieldClosure.exit ], [ %5, %8 ]
-  %87 = trunc i8 %86 to i1
-  br i1 %87, label %88, label %90
+  %85 = phi i8 [ %.pre, %_ZNK14DiscoveredList4headEv.exit.i ], [ %5, %_ZN22DiscoveredListIteratorC2ER14DiscoveredListP10OopClosureP17BoolObjectClosureP29EnqueueDiscoveredFieldClosure.exit ], [ %5, %8 ]
+  %86 = trunc i8 %85 to i1
+  br i1 %86, label %87, label %89
 
-88:                                               ; preds = %_ZN22DiscoveredListIterator16complete_enqueueEv.exit
-  %89 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 0, ptr %89, align 8
+87:                                               ; preds = %_ZN22DiscoveredListIterator16complete_enqueueEv.exit
+  %88 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 0, ptr %88, align 8
   br label %_ZN14DiscoveredList5clearEv.exit
 
-90:                                               ; preds = %_ZN22DiscoveredListIterator16complete_enqueueEv.exit
+89:                                               ; preds = %_ZN22DiscoveredListIterator16complete_enqueueEv.exit
   store ptr null, ptr %1, align 8
   br label %_ZN14DiscoveredList5clearEv.exit
 
-_ZN14DiscoveredList5clearEv.exit:                 ; preds = %88, %90
-  %91 = getelementptr inbounds i8, ptr %1, i64 16
-  store i64 0, ptr %91, align 8
+_ZN14DiscoveredList5clearEv.exit:                 ; preds = %87, %89
+  %90 = getelementptr inbounds i8, ptr %1, i64 16
+  store i64 0, ptr %90, align 8
   ret i64 0
 }
 

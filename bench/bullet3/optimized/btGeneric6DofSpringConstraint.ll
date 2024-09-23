@@ -250,12 +250,12 @@ entry:
   %m_calculatedLinearDiff = getelementptr inbounds i8, ptr %this, i64 1280
   %idxprom = sext i32 %index to i64
   %arrayidx = getelementptr inbounds float, ptr %m_calculatedLinearDiff, i64 %idxprom
-  %arrayidx6.sink = select i1 %cmp, ptr %arrayidx, ptr %arrayidx6
   %.sink5 = select i1 %cmp, i64 %idxprom, i64 %0
-  %2 = load float, ptr %arrayidx6.sink, align 4
+  %.sink.in = select i1 %cmp, ptr %arrayidx, ptr %arrayidx6
+  %.sink = load float, ptr %.sink.in, align 4
   %m_equilibriumPoint7 = getelementptr inbounds i8, ptr %this, i64 1340
   %arrayidx9 = getelementptr inbounds [6 x float], ptr %m_equilibriumPoint7, i64 0, i64 %.sink5
-  store float %2, ptr %arrayidx9, align 4
+  store float %.sink, ptr %arrayidx9, align 4
   ret void
 }
 

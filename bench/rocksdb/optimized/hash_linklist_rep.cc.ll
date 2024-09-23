@@ -3236,19 +3236,20 @@ if.then:                                          ; preds = %entry
   %node_.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %node_.i, align 8
   %next_.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %2 = load atomic i64, ptr %next_.i.i acquire, align 8
+  %atomic-temp.i.0.i.i.i = inttoptr i64 %2 to ptr
+  store ptr %atomic-temp.i.0.i.i.i, ptr %node_.i, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %node_.i1 = getelementptr inbounds i8, ptr %this, i64 24
-  %2 = load ptr, ptr %node_.i1, align 8
+  %3 = load ptr, ptr %node_.i1, align 8
+  %4 = load atomic i64, ptr %3 acquire, align 8
+  %5 = inttoptr i64 %4 to ptr
+  store ptr %5, ptr %node_.i1, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %.sink = phi ptr [ %2, %if.else ], [ %next_.i.i, %if.then ]
-  %node_.i1.sink = phi ptr [ %node_.i1, %if.else ], [ %node_.i, %if.then ]
-  %3 = load atomic i64, ptr %.sink acquire, align 8
-  %4 = inttoptr i64 %3 to ptr
-  store ptr %4, ptr %node_.i1.sink, align 8
   ret void
 }
 
@@ -4248,22 +4249,18 @@ if.then:                                          ; preds = %while.body
 
 if.then15:                                        ; preds = %if.then
   %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
-  br label %if.end22.sink.split
+  store ptr %__p.022, ptr %arrayidx16, align 8
+  br label %if.end22
 
 if.else:                                          ; preds = %while.body
   %6 = load ptr, ptr %3, align 8
   store ptr %6, ptr %__p.022, align 8
   %7 = load ptr, ptr %arrayidx, align 8
-  br label %if.end22.sink.split
-
-if.end22.sink.split:                              ; preds = %if.else, %if.then15
-  %arrayidx16.sink = phi ptr [ %arrayidx16, %if.then15 ], [ %7, %if.else ]
-  %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then15 ], [ %__bbegin_bkt.021, %if.else ]
-  store ptr %__p.022, ptr %arrayidx16.sink, align 8
+  store ptr %__p.022, ptr %7, align 8
   br label %if.end22
 
-if.end22:                                         ; preds = %if.end22.sink.split, %if.then
-  %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then ], [ %__bbegin_bkt.1.ph, %if.end22.sink.split ]
+if.end22:                                         ; preds = %if.then, %if.then15, %if.else
+  %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.021, %if.else ], [ %rem.i.i, %if.then15 ], [ %rem.i.i, %if.then ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !26
 

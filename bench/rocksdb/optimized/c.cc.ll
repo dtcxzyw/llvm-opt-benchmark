@@ -26040,7 +26040,7 @@ define i64 @rocksdb_perfcontext_metric(ptr nocapture noundef readonly %context, 
 entry:
   %0 = load ptr, ptr %context, align 8
   switch i32 %metric, label %return [
-    i32 0, label %return.sink.split
+    i32 0, label %sw.bb
     i32 1, label %sw.bb2
     i32 2, label %sw.bb3
     i32 3, label %sw.bb4
@@ -26119,317 +26119,392 @@ entry:
     i32 76, label %sw.bb77
   ]
 
+sw.bb:                                            ; preds = %entry
+  %1 = load i64, ptr %0, align 8
+  br label %return
+
 sw.bb2:                                           ; preds = %entry
   %block_cache_hit_count = getelementptr inbounds i8, ptr %0, i64 8
-  br label %return.sink.split
+  %2 = load i64, ptr %block_cache_hit_count, align 8
+  br label %return
 
 sw.bb3:                                           ; preds = %entry
   %block_read_count = getelementptr inbounds i8, ptr %0, i64 16
-  br label %return.sink.split
+  %3 = load i64, ptr %block_read_count, align 8
+  br label %return
 
 sw.bb4:                                           ; preds = %entry
   %block_read_byte = getelementptr inbounds i8, ptr %0, i64 24
-  br label %return.sink.split
+  %4 = load i64, ptr %block_read_byte, align 8
+  br label %return
 
 sw.bb5:                                           ; preds = %entry
   %block_read_time = getelementptr inbounds i8, ptr %0, i64 32
-  br label %return.sink.split
+  %5 = load i64, ptr %block_read_time, align 8
+  br label %return
 
 sw.bb6:                                           ; preds = %entry
   %block_checksum_time = getelementptr inbounds i8, ptr %0, i64 144
-  br label %return.sink.split
+  %6 = load i64, ptr %block_checksum_time, align 8
+  br label %return
 
 sw.bb7:                                           ; preds = %entry
   %block_decompress_time = getelementptr inbounds i8, ptr %0, i64 152
-  br label %return.sink.split
+  %7 = load i64, ptr %block_decompress_time, align 8
+  br label %return
 
 sw.bb8:                                           ; preds = %entry
   %get_read_bytes = getelementptr inbounds i8, ptr %0, i64 160
-  br label %return.sink.split
+  %8 = load i64, ptr %get_read_bytes, align 8
+  br label %return
 
 sw.bb9:                                           ; preds = %entry
   %multiget_read_bytes = getelementptr inbounds i8, ptr %0, i64 168
-  br label %return.sink.split
+  %9 = load i64, ptr %multiget_read_bytes, align 8
+  br label %return
 
 sw.bb10:                                          ; preds = %entry
   %iter_read_bytes = getelementptr inbounds i8, ptr %0, i64 176
-  br label %return.sink.split
+  %10 = load i64, ptr %iter_read_bytes, align 8
+  br label %return
 
 sw.bb11:                                          ; preds = %entry
   %internal_key_skipped_count = getelementptr inbounds i8, ptr %0, i64 232
-  br label %return.sink.split
+  %11 = load i64, ptr %internal_key_skipped_count, align 8
+  br label %return
 
 sw.bb12:                                          ; preds = %entry
   %internal_delete_skipped_count = getelementptr inbounds i8, ptr %0, i64 240
-  br label %return.sink.split
+  %12 = load i64, ptr %internal_delete_skipped_count, align 8
+  br label %return
 
 sw.bb13:                                          ; preds = %entry
   %internal_recent_skipped_count = getelementptr inbounds i8, ptr %0, i64 248
-  br label %return.sink.split
+  %13 = load i64, ptr %internal_recent_skipped_count, align 8
+  br label %return
 
 sw.bb14:                                          ; preds = %entry
   %internal_merge_count = getelementptr inbounds i8, ptr %0, i64 256
-  br label %return.sink.split
+  %14 = load i64, ptr %internal_merge_count, align 8
+  br label %return
 
 sw.bb15:                                          ; preds = %entry
   %get_snapshot_time = getelementptr inbounds i8, ptr %0, i64 280
-  br label %return.sink.split
+  %15 = load i64, ptr %get_snapshot_time, align 8
+  br label %return
 
 sw.bb16:                                          ; preds = %entry
   %get_from_memtable_time = getelementptr inbounds i8, ptr %0, i64 288
-  br label %return.sink.split
+  %16 = load i64, ptr %get_from_memtable_time, align 8
+  br label %return
 
 sw.bb17:                                          ; preds = %entry
   %get_from_memtable_count = getelementptr inbounds i8, ptr %0, i64 296
-  br label %return.sink.split
+  %17 = load i64, ptr %get_from_memtable_count, align 8
+  br label %return
 
 sw.bb18:                                          ; preds = %entry
   %get_post_process_time = getelementptr inbounds i8, ptr %0, i64 304
-  br label %return.sink.split
+  %18 = load i64, ptr %get_post_process_time, align 8
+  br label %return
 
 sw.bb19:                                          ; preds = %entry
   %get_from_output_files_time = getelementptr inbounds i8, ptr %0, i64 312
-  br label %return.sink.split
+  %19 = load i64, ptr %get_from_output_files_time, align 8
+  br label %return
 
 sw.bb20:                                          ; preds = %entry
   %seek_on_memtable_time = getelementptr inbounds i8, ptr %0, i64 320
-  br label %return.sink.split
+  %20 = load i64, ptr %seek_on_memtable_time, align 8
+  br label %return
 
 sw.bb21:                                          ; preds = %entry
   %seek_on_memtable_count = getelementptr inbounds i8, ptr %0, i64 328
-  br label %return.sink.split
+  %21 = load i64, ptr %seek_on_memtable_count, align 8
+  br label %return
 
 sw.bb22:                                          ; preds = %entry
   %next_on_memtable_count = getelementptr inbounds i8, ptr %0, i64 336
-  br label %return.sink.split
+  %22 = load i64, ptr %next_on_memtable_count, align 8
+  br label %return
 
 sw.bb23:                                          ; preds = %entry
   %prev_on_memtable_count = getelementptr inbounds i8, ptr %0, i64 344
-  br label %return.sink.split
+  %23 = load i64, ptr %prev_on_memtable_count, align 8
+  br label %return
 
 sw.bb24:                                          ; preds = %entry
   %seek_child_seek_time = getelementptr inbounds i8, ptr %0, i64 352
-  br label %return.sink.split
+  %24 = load i64, ptr %seek_child_seek_time, align 8
+  br label %return
 
 sw.bb25:                                          ; preds = %entry
   %seek_child_seek_count = getelementptr inbounds i8, ptr %0, i64 360
-  br label %return.sink.split
+  %25 = load i64, ptr %seek_child_seek_count, align 8
+  br label %return
 
 sw.bb26:                                          ; preds = %entry
   %seek_min_heap_time = getelementptr inbounds i8, ptr %0, i64 368
-  br label %return.sink.split
+  %26 = load i64, ptr %seek_min_heap_time, align 8
+  br label %return
 
 sw.bb27:                                          ; preds = %entry
   %seek_max_heap_time = getelementptr inbounds i8, ptr %0, i64 376
-  br label %return.sink.split
+  %27 = load i64, ptr %seek_max_heap_time, align 8
+  br label %return
 
 sw.bb28:                                          ; preds = %entry
   %seek_internal_seek_time = getelementptr inbounds i8, ptr %0, i64 384
-  br label %return.sink.split
+  %28 = load i64, ptr %seek_internal_seek_time, align 8
+  br label %return
 
 sw.bb29:                                          ; preds = %entry
   %find_next_user_entry_time = getelementptr inbounds i8, ptr %0, i64 392
-  br label %return.sink.split
+  %29 = load i64, ptr %find_next_user_entry_time, align 8
+  br label %return
 
 sw.bb30:                                          ; preds = %entry
   %write_wal_time = getelementptr inbounds i8, ptr %0, i64 400
-  br label %return.sink.split
+  %30 = load i64, ptr %write_wal_time, align 8
+  br label %return
 
 sw.bb31:                                          ; preds = %entry
   %write_memtable_time = getelementptr inbounds i8, ptr %0, i64 408
-  br label %return.sink.split
+  %31 = load i64, ptr %write_memtable_time, align 8
+  br label %return
 
 sw.bb32:                                          ; preds = %entry
   %write_delay_time = getelementptr inbounds i8, ptr %0, i64 416
-  br label %return.sink.split
+  %32 = load i64, ptr %write_delay_time, align 8
+  br label %return
 
 sw.bb33:                                          ; preds = %entry
   %write_pre_and_post_process_time = getelementptr inbounds i8, ptr %0, i64 432
-  br label %return.sink.split
+  %33 = load i64, ptr %write_pre_and_post_process_time, align 8
+  br label %return
 
 sw.bb34:                                          ; preds = %entry
   %db_mutex_lock_nanos = getelementptr inbounds i8, ptr %0, i64 448
-  br label %return.sink.split
+  %34 = load i64, ptr %db_mutex_lock_nanos, align 8
+  br label %return
 
 sw.bb35:                                          ; preds = %entry
   %db_condition_wait_nanos = getelementptr inbounds i8, ptr %0, i64 456
-  br label %return.sink.split
+  %35 = load i64, ptr %db_condition_wait_nanos, align 8
+  br label %return
 
 sw.bb36:                                          ; preds = %entry
   %merge_operator_time_nanos = getelementptr inbounds i8, ptr %0, i64 464
-  br label %return.sink.split
+  %36 = load i64, ptr %merge_operator_time_nanos, align 8
+  br label %return
 
 sw.bb37:                                          ; preds = %entry
   %read_index_block_nanos = getelementptr inbounds i8, ptr %0, i64 472
-  br label %return.sink.split
+  %37 = load i64, ptr %read_index_block_nanos, align 8
+  br label %return
 
 sw.bb38:                                          ; preds = %entry
   %read_filter_block_nanos = getelementptr inbounds i8, ptr %0, i64 480
-  br label %return.sink.split
+  %38 = load i64, ptr %read_filter_block_nanos, align 8
+  br label %return
 
 sw.bb39:                                          ; preds = %entry
   %new_table_block_iter_nanos = getelementptr inbounds i8, ptr %0, i64 488
-  br label %return.sink.split
+  %39 = load i64, ptr %new_table_block_iter_nanos, align 8
+  br label %return
 
 sw.bb40:                                          ; preds = %entry
   %new_table_iterator_nanos = getelementptr inbounds i8, ptr %0, i64 496
-  br label %return.sink.split
+  %40 = load i64, ptr %new_table_iterator_nanos, align 8
+  br label %return
 
 sw.bb41:                                          ; preds = %entry
   %block_seek_nanos = getelementptr inbounds i8, ptr %0, i64 504
-  br label %return.sink.split
+  %41 = load i64, ptr %block_seek_nanos, align 8
+  br label %return
 
 sw.bb42:                                          ; preds = %entry
   %find_table_nanos = getelementptr inbounds i8, ptr %0, i64 512
-  br label %return.sink.split
+  %42 = load i64, ptr %find_table_nanos, align 8
+  br label %return
 
 sw.bb43:                                          ; preds = %entry
   %bloom_memtable_hit_count = getelementptr inbounds i8, ptr %0, i64 520
-  br label %return.sink.split
+  %43 = load i64, ptr %bloom_memtable_hit_count, align 8
+  br label %return
 
 sw.bb44:                                          ; preds = %entry
   %bloom_memtable_miss_count = getelementptr inbounds i8, ptr %0, i64 528
-  br label %return.sink.split
+  %44 = load i64, ptr %bloom_memtable_miss_count, align 8
+  br label %return
 
 sw.bb45:                                          ; preds = %entry
   %bloom_sst_hit_count = getelementptr inbounds i8, ptr %0, i64 536
-  br label %return.sink.split
+  %45 = load i64, ptr %bloom_sst_hit_count, align 8
+  br label %return
 
 sw.bb46:                                          ; preds = %entry
   %bloom_sst_miss_count = getelementptr inbounds i8, ptr %0, i64 544
-  br label %return.sink.split
+  %46 = load i64, ptr %bloom_sst_miss_count, align 8
+  br label %return
 
 sw.bb47:                                          ; preds = %entry
   %key_lock_wait_time = getelementptr inbounds i8, ptr %0, i64 552
-  br label %return.sink.split
+  %47 = load i64, ptr %key_lock_wait_time, align 8
+  br label %return
 
 sw.bb48:                                          ; preds = %entry
   %key_lock_wait_count = getelementptr inbounds i8, ptr %0, i64 560
-  br label %return.sink.split
+  %48 = load i64, ptr %key_lock_wait_count, align 8
+  br label %return
 
 sw.bb49:                                          ; preds = %entry
   %env_new_sequential_file_nanos = getelementptr inbounds i8, ptr %0, i64 568
-  br label %return.sink.split
+  %49 = load i64, ptr %env_new_sequential_file_nanos, align 8
+  br label %return
 
 sw.bb50:                                          ; preds = %entry
   %env_new_random_access_file_nanos = getelementptr inbounds i8, ptr %0, i64 576
-  br label %return.sink.split
+  %50 = load i64, ptr %env_new_random_access_file_nanos, align 8
+  br label %return
 
 sw.bb51:                                          ; preds = %entry
   %env_new_writable_file_nanos = getelementptr inbounds i8, ptr %0, i64 584
-  br label %return.sink.split
+  %51 = load i64, ptr %env_new_writable_file_nanos, align 8
+  br label %return
 
 sw.bb52:                                          ; preds = %entry
   %env_reuse_writable_file_nanos = getelementptr inbounds i8, ptr %0, i64 592
-  br label %return.sink.split
+  %52 = load i64, ptr %env_reuse_writable_file_nanos, align 8
+  br label %return
 
 sw.bb53:                                          ; preds = %entry
   %env_new_random_rw_file_nanos = getelementptr inbounds i8, ptr %0, i64 600
-  br label %return.sink.split
+  %53 = load i64, ptr %env_new_random_rw_file_nanos, align 8
+  br label %return
 
 sw.bb54:                                          ; preds = %entry
   %env_new_directory_nanos = getelementptr inbounds i8, ptr %0, i64 608
-  br label %return.sink.split
+  %54 = load i64, ptr %env_new_directory_nanos, align 8
+  br label %return
 
 sw.bb55:                                          ; preds = %entry
   %env_file_exists_nanos = getelementptr inbounds i8, ptr %0, i64 616
-  br label %return.sink.split
+  %55 = load i64, ptr %env_file_exists_nanos, align 8
+  br label %return
 
 sw.bb56:                                          ; preds = %entry
   %env_get_children_nanos = getelementptr inbounds i8, ptr %0, i64 624
-  br label %return.sink.split
+  %56 = load i64, ptr %env_get_children_nanos, align 8
+  br label %return
 
 sw.bb57:                                          ; preds = %entry
   %env_get_children_file_attributes_nanos = getelementptr inbounds i8, ptr %0, i64 632
-  br label %return.sink.split
+  %57 = load i64, ptr %env_get_children_file_attributes_nanos, align 8
+  br label %return
 
 sw.bb58:                                          ; preds = %entry
   %env_delete_file_nanos = getelementptr inbounds i8, ptr %0, i64 640
-  br label %return.sink.split
+  %58 = load i64, ptr %env_delete_file_nanos, align 8
+  br label %return
 
 sw.bb59:                                          ; preds = %entry
   %env_create_dir_nanos = getelementptr inbounds i8, ptr %0, i64 648
-  br label %return.sink.split
+  %59 = load i64, ptr %env_create_dir_nanos, align 8
+  br label %return
 
 sw.bb60:                                          ; preds = %entry
   %env_create_dir_if_missing_nanos = getelementptr inbounds i8, ptr %0, i64 656
-  br label %return.sink.split
+  %60 = load i64, ptr %env_create_dir_if_missing_nanos, align 8
+  br label %return
 
 sw.bb61:                                          ; preds = %entry
   %env_delete_dir_nanos = getelementptr inbounds i8, ptr %0, i64 664
-  br label %return.sink.split
+  %61 = load i64, ptr %env_delete_dir_nanos, align 8
+  br label %return
 
 sw.bb62:                                          ; preds = %entry
   %env_get_file_size_nanos = getelementptr inbounds i8, ptr %0, i64 672
-  br label %return.sink.split
+  %62 = load i64, ptr %env_get_file_size_nanos, align 8
+  br label %return
 
 sw.bb63:                                          ; preds = %entry
   %env_get_file_modification_time_nanos = getelementptr inbounds i8, ptr %0, i64 680
-  br label %return.sink.split
+  %63 = load i64, ptr %env_get_file_modification_time_nanos, align 8
+  br label %return
 
 sw.bb64:                                          ; preds = %entry
   %env_rename_file_nanos = getelementptr inbounds i8, ptr %0, i64 688
-  br label %return.sink.split
+  %64 = load i64, ptr %env_rename_file_nanos, align 8
+  br label %return
 
 sw.bb65:                                          ; preds = %entry
   %env_link_file_nanos = getelementptr inbounds i8, ptr %0, i64 696
-  br label %return.sink.split
+  %65 = load i64, ptr %env_link_file_nanos, align 8
+  br label %return
 
 sw.bb66:                                          ; preds = %entry
   %env_lock_file_nanos = getelementptr inbounds i8, ptr %0, i64 704
-  br label %return.sink.split
+  %66 = load i64, ptr %env_lock_file_nanos, align 8
+  br label %return
 
 sw.bb67:                                          ; preds = %entry
   %env_unlock_file_nanos = getelementptr inbounds i8, ptr %0, i64 712
-  br label %return.sink.split
+  %67 = load i64, ptr %env_unlock_file_nanos, align 8
+  br label %return
 
 sw.bb68:                                          ; preds = %entry
   %env_new_logger_nanos = getelementptr inbounds i8, ptr %0, i64 720
-  br label %return.sink.split
+  %68 = load i64, ptr %env_new_logger_nanos, align 8
+  br label %return
 
 sw.bb69:                                          ; preds = %entry
   %number_async_seek = getelementptr inbounds i8, ptr %0, i64 800
-  br label %return.sink.split
+  %69 = load i64, ptr %number_async_seek, align 8
+  br label %return
 
 sw.bb70:                                          ; preds = %entry
   %blob_cache_hit_count = getelementptr inbounds i8, ptr %0, i64 184
-  br label %return.sink.split
+  %70 = load i64, ptr %blob_cache_hit_count, align 8
+  br label %return
 
 sw.bb71:                                          ; preds = %entry
   %blob_read_count = getelementptr inbounds i8, ptr %0, i64 192
-  br label %return.sink.split
+  %71 = load i64, ptr %blob_read_count, align 8
+  br label %return
 
 sw.bb72:                                          ; preds = %entry
   %blob_read_byte = getelementptr inbounds i8, ptr %0, i64 200
-  br label %return.sink.split
+  %72 = load i64, ptr %blob_read_byte, align 8
+  br label %return
 
 sw.bb73:                                          ; preds = %entry
   %blob_read_time = getelementptr inbounds i8, ptr %0, i64 208
-  br label %return.sink.split
+  %73 = load i64, ptr %blob_read_time, align 8
+  br label %return
 
 sw.bb74:                                          ; preds = %entry
   %blob_checksum_time = getelementptr inbounds i8, ptr %0, i64 216
-  br label %return.sink.split
+  %74 = load i64, ptr %blob_checksum_time, align 8
+  br label %return
 
 sw.bb75:                                          ; preds = %entry
   %blob_decompress_time = getelementptr inbounds i8, ptr %0, i64 224
-  br label %return.sink.split
+  %75 = load i64, ptr %blob_decompress_time, align 8
+  br label %return
 
 sw.bb76:                                          ; preds = %entry
   %internal_range_del_reseek_count = getelementptr inbounds i8, ptr %0, i64 272
-  br label %return.sink.split
+  %76 = load i64, ptr %internal_range_del_reseek_count, align 8
+  br label %return
 
 sw.bb77:                                          ; preds = %entry
   %block_read_cpu_time = getelementptr inbounds i8, ptr %0, i64 40
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %entry, %sw.bb2, %sw.bb3, %sw.bb4, %sw.bb5, %sw.bb6, %sw.bb7, %sw.bb8, %sw.bb9, %sw.bb10, %sw.bb11, %sw.bb12, %sw.bb13, %sw.bb14, %sw.bb15, %sw.bb16, %sw.bb17, %sw.bb18, %sw.bb19, %sw.bb20, %sw.bb21, %sw.bb22, %sw.bb23, %sw.bb24, %sw.bb25, %sw.bb26, %sw.bb27, %sw.bb28, %sw.bb29, %sw.bb30, %sw.bb31, %sw.bb32, %sw.bb33, %sw.bb34, %sw.bb35, %sw.bb36, %sw.bb37, %sw.bb38, %sw.bb39, %sw.bb40, %sw.bb41, %sw.bb42, %sw.bb43, %sw.bb44, %sw.bb45, %sw.bb46, %sw.bb47, %sw.bb48, %sw.bb49, %sw.bb50, %sw.bb51, %sw.bb52, %sw.bb53, %sw.bb54, %sw.bb55, %sw.bb56, %sw.bb57, %sw.bb58, %sw.bb59, %sw.bb60, %sw.bb61, %sw.bb62, %sw.bb63, %sw.bb64, %sw.bb65, %sw.bb66, %sw.bb67, %sw.bb68, %sw.bb69, %sw.bb70, %sw.bb71, %sw.bb72, %sw.bb73, %sw.bb74, %sw.bb75, %sw.bb76, %sw.bb77
-  %block_read_cpu_time.sink = phi ptr [ %block_read_cpu_time, %sw.bb77 ], [ %internal_range_del_reseek_count, %sw.bb76 ], [ %blob_decompress_time, %sw.bb75 ], [ %blob_checksum_time, %sw.bb74 ], [ %blob_read_time, %sw.bb73 ], [ %blob_read_byte, %sw.bb72 ], [ %blob_read_count, %sw.bb71 ], [ %blob_cache_hit_count, %sw.bb70 ], [ %number_async_seek, %sw.bb69 ], [ %env_new_logger_nanos, %sw.bb68 ], [ %env_unlock_file_nanos, %sw.bb67 ], [ %env_lock_file_nanos, %sw.bb66 ], [ %env_link_file_nanos, %sw.bb65 ], [ %env_rename_file_nanos, %sw.bb64 ], [ %env_get_file_modification_time_nanos, %sw.bb63 ], [ %env_get_file_size_nanos, %sw.bb62 ], [ %env_delete_dir_nanos, %sw.bb61 ], [ %env_create_dir_if_missing_nanos, %sw.bb60 ], [ %env_create_dir_nanos, %sw.bb59 ], [ %env_delete_file_nanos, %sw.bb58 ], [ %env_get_children_file_attributes_nanos, %sw.bb57 ], [ %env_get_children_nanos, %sw.bb56 ], [ %env_file_exists_nanos, %sw.bb55 ], [ %env_new_directory_nanos, %sw.bb54 ], [ %env_new_random_rw_file_nanos, %sw.bb53 ], [ %env_reuse_writable_file_nanos, %sw.bb52 ], [ %env_new_writable_file_nanos, %sw.bb51 ], [ %env_new_random_access_file_nanos, %sw.bb50 ], [ %env_new_sequential_file_nanos, %sw.bb49 ], [ %key_lock_wait_count, %sw.bb48 ], [ %key_lock_wait_time, %sw.bb47 ], [ %bloom_sst_miss_count, %sw.bb46 ], [ %bloom_sst_hit_count, %sw.bb45 ], [ %bloom_memtable_miss_count, %sw.bb44 ], [ %bloom_memtable_hit_count, %sw.bb43 ], [ %find_table_nanos, %sw.bb42 ], [ %block_seek_nanos, %sw.bb41 ], [ %new_table_iterator_nanos, %sw.bb40 ], [ %new_table_block_iter_nanos, %sw.bb39 ], [ %read_filter_block_nanos, %sw.bb38 ], [ %read_index_block_nanos, %sw.bb37 ], [ %merge_operator_time_nanos, %sw.bb36 ], [ %db_condition_wait_nanos, %sw.bb35 ], [ %db_mutex_lock_nanos, %sw.bb34 ], [ %write_pre_and_post_process_time, %sw.bb33 ], [ %write_delay_time, %sw.bb32 ], [ %write_memtable_time, %sw.bb31 ], [ %write_wal_time, %sw.bb30 ], [ %find_next_user_entry_time, %sw.bb29 ], [ %seek_internal_seek_time, %sw.bb28 ], [ %seek_max_heap_time, %sw.bb27 ], [ %seek_min_heap_time, %sw.bb26 ], [ %seek_child_seek_count, %sw.bb25 ], [ %seek_child_seek_time, %sw.bb24 ], [ %prev_on_memtable_count, %sw.bb23 ], [ %next_on_memtable_count, %sw.bb22 ], [ %seek_on_memtable_count, %sw.bb21 ], [ %seek_on_memtable_time, %sw.bb20 ], [ %get_from_output_files_time, %sw.bb19 ], [ %get_post_process_time, %sw.bb18 ], [ %get_from_memtable_count, %sw.bb17 ], [ %get_from_memtable_time, %sw.bb16 ], [ %get_snapshot_time, %sw.bb15 ], [ %internal_merge_count, %sw.bb14 ], [ %internal_recent_skipped_count, %sw.bb13 ], [ %internal_delete_skipped_count, %sw.bb12 ], [ %internal_key_skipped_count, %sw.bb11 ], [ %iter_read_bytes, %sw.bb10 ], [ %multiget_read_bytes, %sw.bb9 ], [ %get_read_bytes, %sw.bb8 ], [ %block_decompress_time, %sw.bb7 ], [ %block_checksum_time, %sw.bb6 ], [ %block_read_time, %sw.bb5 ], [ %block_read_byte, %sw.bb4 ], [ %block_read_count, %sw.bb3 ], [ %block_cache_hit_count, %sw.bb2 ], [ %0, %entry ]
-  %1 = load i64, ptr %block_read_cpu_time.sink, align 8
+  %77 = load i64, ptr %block_read_cpu_time, align 8
   br label %return
 
-return:                                           ; preds = %return.sink.split, %entry
-  %retval.0 = phi i64 [ 0, %entry ], [ %1, %return.sink.split ]
+return:                                           ; preds = %entry, %sw.bb77, %sw.bb76, %sw.bb75, %sw.bb74, %sw.bb73, %sw.bb72, %sw.bb71, %sw.bb70, %sw.bb69, %sw.bb68, %sw.bb67, %sw.bb66, %sw.bb65, %sw.bb64, %sw.bb63, %sw.bb62, %sw.bb61, %sw.bb60, %sw.bb59, %sw.bb58, %sw.bb57, %sw.bb56, %sw.bb55, %sw.bb54, %sw.bb53, %sw.bb52, %sw.bb51, %sw.bb50, %sw.bb49, %sw.bb48, %sw.bb47, %sw.bb46, %sw.bb45, %sw.bb44, %sw.bb43, %sw.bb42, %sw.bb41, %sw.bb40, %sw.bb39, %sw.bb38, %sw.bb37, %sw.bb36, %sw.bb35, %sw.bb34, %sw.bb33, %sw.bb32, %sw.bb31, %sw.bb30, %sw.bb29, %sw.bb28, %sw.bb27, %sw.bb26, %sw.bb25, %sw.bb24, %sw.bb23, %sw.bb22, %sw.bb21, %sw.bb20, %sw.bb19, %sw.bb18, %sw.bb17, %sw.bb16, %sw.bb15, %sw.bb14, %sw.bb13, %sw.bb12, %sw.bb11, %sw.bb10, %sw.bb9, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb
+  %retval.0 = phi i64 [ %77, %sw.bb77 ], [ %76, %sw.bb76 ], [ %75, %sw.bb75 ], [ %74, %sw.bb74 ], [ %73, %sw.bb73 ], [ %72, %sw.bb72 ], [ %71, %sw.bb71 ], [ %70, %sw.bb70 ], [ %69, %sw.bb69 ], [ %68, %sw.bb68 ], [ %67, %sw.bb67 ], [ %66, %sw.bb66 ], [ %65, %sw.bb65 ], [ %64, %sw.bb64 ], [ %63, %sw.bb63 ], [ %62, %sw.bb62 ], [ %61, %sw.bb61 ], [ %60, %sw.bb60 ], [ %59, %sw.bb59 ], [ %58, %sw.bb58 ], [ %57, %sw.bb57 ], [ %56, %sw.bb56 ], [ %55, %sw.bb55 ], [ %54, %sw.bb54 ], [ %53, %sw.bb53 ], [ %52, %sw.bb52 ], [ %51, %sw.bb51 ], [ %50, %sw.bb50 ], [ %49, %sw.bb49 ], [ %48, %sw.bb48 ], [ %47, %sw.bb47 ], [ %46, %sw.bb46 ], [ %45, %sw.bb45 ], [ %44, %sw.bb44 ], [ %43, %sw.bb43 ], [ %42, %sw.bb42 ], [ %41, %sw.bb41 ], [ %40, %sw.bb40 ], [ %39, %sw.bb39 ], [ %38, %sw.bb38 ], [ %37, %sw.bb37 ], [ %36, %sw.bb36 ], [ %35, %sw.bb35 ], [ %34, %sw.bb34 ], [ %33, %sw.bb33 ], [ %32, %sw.bb32 ], [ %31, %sw.bb31 ], [ %30, %sw.bb30 ], [ %29, %sw.bb29 ], [ %28, %sw.bb28 ], [ %27, %sw.bb27 ], [ %26, %sw.bb26 ], [ %25, %sw.bb25 ], [ %24, %sw.bb24 ], [ %23, %sw.bb23 ], [ %22, %sw.bb22 ], [ %21, %sw.bb21 ], [ %20, %sw.bb20 ], [ %19, %sw.bb19 ], [ %18, %sw.bb18 ], [ %17, %sw.bb17 ], [ %16, %sw.bb16 ], [ %15, %sw.bb15 ], [ %14, %sw.bb14 ], [ %13, %sw.bb13 ], [ %12, %sw.bb12 ], [ %11, %sw.bb11 ], [ %10, %sw.bb10 ], [ %9, %sw.bb9 ], [ %8, %sw.bb8 ], [ %7, %sw.bb7 ], [ %6, %sw.bb6 ], [ %5, %sw.bb5 ], [ %4, %sw.bb4 ], [ %3, %sw.bb3 ], [ %2, %sw.bb2 ], [ %1, %sw.bb ], [ 0, %entry ]
   ret i64 %retval.0
 }
 
@@ -49280,22 +49355,18 @@ if.then:                                          ; preds = %while.body
 
 if.then15:                                        ; preds = %if.then
   %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
-  br label %if.end22.sink.split
+  store ptr %__p.022, ptr %arrayidx16, align 8
+  br label %if.end22
 
 if.else:                                          ; preds = %while.body
   %6 = load ptr, ptr %3, align 8
   store ptr %6, ptr %__p.022, align 8
   %7 = load ptr, ptr %arrayidx, align 8
-  br label %if.end22.sink.split
-
-if.end22.sink.split:                              ; preds = %if.else, %if.then15
-  %arrayidx16.sink = phi ptr [ %arrayidx16, %if.then15 ], [ %7, %if.else ]
-  %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then15 ], [ %__bbegin_bkt.021, %if.else ]
-  store ptr %__p.022, ptr %arrayidx16.sink, align 8
+  store ptr %__p.022, ptr %7, align 8
   br label %if.end22
 
-if.end22:                                         ; preds = %if.end22.sink.split, %if.then
-  %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then ], [ %__bbegin_bkt.1.ph, %if.end22.sink.split ]
+if.end22:                                         ; preds = %if.then, %if.then15, %if.else
+  %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.021, %if.else ], [ %rem.i.i, %if.then15 ], [ %rem.i.i, %if.then ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !178
 
@@ -50239,22 +50310,18 @@ if.then:                                          ; preds = %while.body
 
 if.then15:                                        ; preds = %if.then
   %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
-  br label %if.end22.sink.split
+  store ptr %__p.022, ptr %arrayidx16, align 8
+  br label %if.end22
 
 if.else:                                          ; preds = %while.body
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %__p.022, align 8
   %8 = load ptr, ptr %arrayidx, align 8
-  br label %if.end22.sink.split
-
-if.end22.sink.split:                              ; preds = %if.else, %if.then15
-  %arrayidx16.sink = phi ptr [ %arrayidx16, %if.then15 ], [ %8, %if.else ]
-  %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then15 ], [ %__bbegin_bkt.021, %if.else ]
-  store ptr %__p.022, ptr %arrayidx16.sink, align 8
+  store ptr %__p.022, ptr %8, align 8
   br label %if.end22
 
-if.end22:                                         ; preds = %if.end22.sink.split, %if.then
-  %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then ], [ %__bbegin_bkt.1.ph, %if.end22.sink.split ]
+if.end22:                                         ; preds = %if.then, %if.then15, %if.else
+  %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.021, %if.else ], [ %rem.i.i, %if.then15 ], [ %rem.i.i, %if.then ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !192
 
@@ -50537,22 +50604,18 @@ if.then:                                          ; preds = %while.body
 
 if.then15:                                        ; preds = %if.then
   %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
-  br label %if.end22.sink.split
+  store ptr %__p.022, ptr %arrayidx16, align 8
+  br label %if.end22
 
 if.else:                                          ; preds = %while.body
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %__p.022, align 8
   %8 = load ptr, ptr %arrayidx, align 8
-  br label %if.end22.sink.split
-
-if.end22.sink.split:                              ; preds = %if.else, %if.then15
-  %arrayidx16.sink = phi ptr [ %arrayidx16, %if.then15 ], [ %8, %if.else ]
-  %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then15 ], [ %__bbegin_bkt.021, %if.else ]
-  store ptr %__p.022, ptr %arrayidx16.sink, align 8
+  store ptr %__p.022, ptr %8, align 8
   br label %if.end22
 
-if.end22:                                         ; preds = %if.end22.sink.split, %if.then
-  %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then ], [ %__bbegin_bkt.1.ph, %if.end22.sink.split ]
+if.end22:                                         ; preds = %if.then, %if.then15, %if.else
+  %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.021, %if.else ], [ %rem.i.i, %if.then15 ], [ %rem.i.i, %if.then ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !195
 

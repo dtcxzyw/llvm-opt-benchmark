@@ -2152,12 +2152,12 @@ if.then35:                                        ; preds = %_ZNK17array_recogni
   br label %if.end39.sink.split
 
 if.end39.sink.split:                              ; preds = %for.end, %if.then35
-  %m_args.i86.sink = phi ptr [ %m_args.i86, %if.then35 ], [ %arrayidx.i48, %for.end ]
+  %.sink121.in = phi ptr [ %m_args.i86, %if.then35 ], [ %arrayidx.i48, %for.end ]
   %is_index.2.ph = phi i8 [ %is_index.0109, %if.then35 ], [ %is_index.1.lcssa, %for.end ]
   %is_array.1.ph = phi i8 [ %is_array.0110, %if.then35 ], [ %spec.select, %for.end ]
-  %35 = load ptr, ptr %m_args.i86.sink, align 8
-  %36 = getelementptr i8, ptr %35, i64 64
-  %call36.val = load ptr, ptr %36, align 8
+  %.sink121 = load ptr, ptr %.sink121.in, align 8
+  %35 = getelementptr i8, ptr %.sink121, i64 64
+  %call36.val = load ptr, ptr %35, align 8
   %cmp.i88 = icmp eq ptr %call36.val, %2
   %spec.select98 = select i1 %cmp.i88, i8 1, i8 %is_value.0108
   br label %if.end39
@@ -2166,11 +2166,11 @@ if.end39:                                         ; preds = %for.body27, %if.end
   %is_value.1 = phi i8 [ %is_value.0108, %_ZNK17array_recognizers8is_constEP4expr.exit ], [ %is_value.0108, %for.body ], [ %is_value.0108, %if.then21 ], [ %is_value.0108, %land.rhs.i.i35 ], [ %spec.select98, %if.end39.sink.split ], [ %is_value.0108, %for.body27 ]
   %is_index.2 = phi i8 [ %is_index.0109, %_ZNK17array_recognizers8is_constEP4expr.exit ], [ %is_index.0109, %for.body ], [ %is_index.0109, %if.then21 ], [ %is_index.0109, %land.rhs.i.i35 ], [ %is_index.2.ph, %if.end39.sink.split ], [ %spec.select97, %for.body27 ]
   %is_array.1 = phi i8 [ %is_array.0110, %_ZNK17array_recognizers8is_constEP4expr.exit ], [ %is_array.0110, %for.body ], [ %spec.select96, %if.then21 ], [ %is_array.0110, %land.rhs.i.i35 ], [ %is_array.1.ph, %if.end39.sink.split ], [ %spec.select96, %for.body27 ]
-  %37 = and i8 %is_array.1, 1
-  %38 = and i8 %is_index.2, 1
-  %39 = and i8 %is_value.1, 1
-  %narrow = add nuw nsw i8 %38, %39
-  %narrow20 = add nuw nsw i8 %narrow, %37
+  %36 = and i8 %is_array.1, 1
+  %37 = and i8 %is_index.2, 1
+  %38 = and i8 %is_value.1, 1
+  %narrow = add nuw nsw i8 %37, %38
+  %narrow20 = add nuw nsw i8 %narrow, %36
   %cmp45 = icmp ugt i8 %narrow20, 1
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.0111, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.i

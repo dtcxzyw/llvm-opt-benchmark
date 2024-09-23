@@ -26122,6 +26122,7 @@ for.body.i.preheader:                             ; preds = %for.body, %if.end6
 
 if.then.i:                                        ; preds = %if.end6
   store i8 48, ptr %ref.tmp, align 1, !alias.scope !159
+  store i8 0, ptr %arrayidx.i.i, align 1, !alias.scope !159
   br label %_ZN5boost10stacktrace6detail12to_dec_arrayEm.exit
 
 for.cond4.preheader.i:                            ; preds = %for.body.i
@@ -26158,11 +26159,10 @@ for.body5.i:                                      ; preds = %for.body5.i, %for.b
 
 for.end11.i:                                      ; preds = %for.body5.i, %for.cond4.preheader.i
   %arrayidx.i11.i = getelementptr inbounds [40 x i8], ptr %ref.tmp, i64 0, i64 %inc.i
+  store i8 0, ptr %arrayidx.i11.i, align 1, !alias.scope !159
   br label %_ZN5boost10stacktrace6detail12to_dec_arrayEm.exit
 
 _ZN5boost10stacktrace6detail12to_dec_arrayEm.exit: ; preds = %if.then.i, %for.end11.i
-  %arrayidx.i11.sink.i = phi ptr [ %arrayidx.i11.i, %for.end11.i ], [ %arrayidx.i.i, %if.then.i ]
-  store i8 0, ptr %arrayidx.i11.sink.i, align 1, !alias.scope !159
   %call10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %ref.tmp)
           to label %invoke.cont9 unwind label %lpad4
 

@@ -663,7 +663,15 @@ nrvo.unused:                                      ; preds = %invoke.cont31, %if.
   %state_.i22 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %31 = load ptr, ptr %state_.i22, align 8
   %cmp.not.i.i23 = icmp eq ptr %31, null
-  br i1 %cmp.not.i.i23, label %if.end53, label %if.end53.sink.split
+  br i1 %cmp.not.i.i23, label %nrvo.skipdtor.thread, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i24
+
+_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i24: ; preds = %nrvo.unused
+  call void @_ZdaPv(ptr noundef nonnull %31) #16
+  br label %nrvo.skipdtor.thread
+
+nrvo.skipdtor.thread:                             ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i24, %nrvo.unused
+  store ptr null, ptr %state_.i22, align 8
+  br label %if.end53
 
 if.else:                                          ; preds = %if.end9
   %call40 = invoke noundef ptr %11(ptr noundef nonnull align 64 dereferenceable(6660) %this)
@@ -682,17 +690,17 @@ nrvo.unused49:                                    ; preds = %cleanup47
   %state_.i31 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %33 = load ptr, ptr %state_.i31, align 8
   %cmp.not.i.i32 = icmp eq ptr %33, null
-  br i1 %cmp.not.i.i32, label %if.end53, label %if.end53.sink.split
+  br i1 %cmp.not.i.i32, label %_ZN7rocksdb6StatusD2Ev.exit34, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i33
 
-if.end53.sink.split:                              ; preds = %nrvo.unused49, %nrvo.unused
-  %.sink = phi ptr [ %31, %nrvo.unused ], [ %33, %nrvo.unused49 ]
-  %state_.i22.sink.ph = phi ptr [ %state_.i22, %nrvo.unused ], [ %state_.i31, %nrvo.unused49 ]
-  call void @_ZdaPv(ptr noundef nonnull %.sink) #16
+_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i33: ; preds = %nrvo.unused49
+  call void @_ZdaPv(ptr noundef nonnull %33) #16
+  br label %_ZN7rocksdb6StatusD2Ev.exit34
+
+_ZN7rocksdb6StatusD2Ev.exit34:                    ; preds = %nrvo.unused49, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i33
+  store ptr null, ptr %state_.i31, align 8
   br label %if.end53
 
-if.end53:                                         ; preds = %if.end53.sink.split, %nrvo.unused49, %nrvo.unused
-  %state_.i22.sink = phi ptr [ %state_.i22, %nrvo.unused ], [ %state_.i31, %nrvo.unused49 ], [ %state_.i22.sink.ph, %if.end53.sink.split ]
-  store ptr null, ptr %state_.i22.sink, align 8
+if.end53:                                         ; preds = %nrvo.skipdtor.thread, %_ZN7rocksdb6StatusD2Ev.exit34
   %tobool54.not = icmp eq ptr %timestamp, null
   br i1 %tobool54.not, label %invoke.cont57, label %if.then55
 
@@ -1822,7 +1830,15 @@ cleanup:                                          ; preds = %if.end25, %invoke.c
   %state_.i102 = getelementptr inbounds i8, ptr %s12, i64 8
   %42 = load ptr, ptr %state_.i102, align 8
   %cmp.not.i.i103 = icmp eq ptr %42, null
-  br i1 %cmp.not.i.i103, label %if.end65, label %if.end65.sink.split
+  br i1 %cmp.not.i.i103, label %_ZN7rocksdb6StatusD2Ev.exit105, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i104
+
+_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i104: ; preds = %cleanup
+  call void @_ZdaPv(ptr noundef nonnull %42) #16
+  br label %_ZN7rocksdb6StatusD2Ev.exit105
+
+_ZN7rocksdb6StatusD2Ev.exit105:                   ; preds = %cleanup, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i104
+  store ptr null, ptr %state_.i102, align 8
+  br label %if.end65
 
 ehcleanup:                                        ; preds = %lpad42, %if.then.i.i.i94, %lpad.i92, %lpad23, %if.then.i.i.i68, %lpad.i66, %lpad18
   %.pn34 = phi { ptr, i32 } [ %24, %lpad18 ], [ %25, %lpad23 ], [ %21, %if.then.i.i.i68 ], [ %21, %lpad.i66 ], [ %41, %lpad42 ], [ %39, %if.then.i.i.i94 ], [ %39, %lpad.i92 ]
@@ -1932,17 +1948,17 @@ if.end65.critedge:                                ; preds = %invoke.cont53
   %state_.i138 = getelementptr inbounds i8, ptr %s46, i64 8
   %50 = load ptr, ptr %state_.i138, align 8
   %cmp.not.i.i139 = icmp eq ptr %50, null
-  br i1 %cmp.not.i.i139, label %if.end65, label %if.end65.sink.split
+  br i1 %cmp.not.i.i139, label %_ZN7rocksdb6StatusD2Ev.exit141, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i140
 
-if.end65.sink.split:                              ; preds = %if.end65.critedge, %cleanup
-  %.sink = phi ptr [ %42, %cleanup ], [ %50, %if.end65.critedge ]
-  %state_.i138.sink.ph = phi ptr [ %state_.i102, %cleanup ], [ %state_.i138, %if.end65.critedge ]
-  call void @_ZdaPv(ptr noundef nonnull %.sink) #16
+_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i140: ; preds = %if.end65.critedge
+  call void @_ZdaPv(ptr noundef nonnull %50) #16
+  br label %_ZN7rocksdb6StatusD2Ev.exit141
+
+_ZN7rocksdb6StatusD2Ev.exit141:                   ; preds = %if.end65.critedge, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i140
+  store ptr null, ptr %state_.i138, align 8
   br label %if.end65
 
-if.end65:                                         ; preds = %if.end65.sink.split, %if.end65.critedge, %cleanup
-  %state_.i138.sink = phi ptr [ %state_.i102, %cleanup ], [ %state_.i138, %if.end65.critedge ], [ %state_.i138.sink.ph, %if.end65.sink.split ]
-  store ptr null, ptr %state_.i138.sink, align 8
+if.end65:                                         ; preds = %_ZN7rocksdb6StatusD2Ev.exit141, %_ZN7rocksdb6StatusD2Ev.exit105
   %tobool66.not = icmp eq ptr %timestamps, null
   br i1 %tobool66.not, label %invoke.cont75, label %if.then67
 

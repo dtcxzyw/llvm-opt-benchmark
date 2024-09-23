@@ -712,35 +712,41 @@ _ZN4node6crypto5SPKAC15ExportChallengeERKNS0_25ArrayBufferOrViewContentsIcEE.exi
 if.then16:                                        ; preds = %_ZN4node6crypto5SPKAC15ExportChallengeERKNS0_25ArrayBufferOrViewContentsIcEE.exit.thread, %_ZN4node6crypto5SPKAC15ExportChallengeERKNS0_25ArrayBufferOrViewContentsIcEE.exit
   %30 = load ptr, ptr %args, align 8
   %arrayidx.i41 = getelementptr inbounds i8, ptr %30, i64 24
-  br label %cleanup.sink.split
+  %arrayidx.i118 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = load ptr, ptr %arrayidx.i118, align 8
+  %32 = ptrtoint ptr %31 to i64
+  %add1.i.i112 = add i64 %32, 648
+  %33 = inttoptr i64 %add1.i.i112 to ptr
+  %34 = load i64, ptr %33, align 8
+  store i64 %34, ptr %arrayidx.i41, align 8
+  br label %cleanup
 
 if.end20:                                         ; preds = %_ZN4node6crypto5SPKAC15ExportChallengeERKNS0_25ArrayBufferOrViewContentsIcEE.exit
   %isolate_.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 88
-  %31 = load ptr, ptr %isolate_.i, align 8
+  %35 = load ptr, ptr %isolate_.i, align 8
   %size_.i = getelementptr inbounds i8, ptr %cert, i64 16
-  %32 = load i64, ptr %size_.i, align 8
-  %call24 = call ptr @_ZN4node6EncodeEPN2v87IsolateEPKcmNS_8encodingE(ptr noundef %31, ptr noundef nonnull %.pr, i64 noundef %32, i32 noundef 6) #15
-  %33 = load ptr, ptr %args, align 8
-  %arrayidx.i = getelementptr inbounds i8, ptr %33, i64 24
+  %36 = load i64, ptr %size_.i, align 8
+  %call24 = call ptr @_ZN4node6EncodeEPN2v87IsolateEPKcmNS_8encodingE(ptr noundef %35, ptr noundef nonnull %.pr, i64 noundef %36, i32 noundef 6) #15
+  %37 = load ptr, ptr %args, align 8
+  %arrayidx.i = getelementptr inbounds i8, ptr %37, i64 24
   %cmp.i62 = icmp eq ptr %call24, null
-  br i1 %cmp.i62, label %cleanup.sink.split, label %cleanup
+  br i1 %cmp.i62, label %if.then.i56, label %_ZN2v811ReturnValueINS_5ValueEE3SetIS1_EEvNS_5LocalIT_EE.exit
 
-cleanup.sink.split:                               ; preds = %if.end20, %if.then16
-  %.sink = phi ptr [ %30, %if.then16 ], [ %33, %if.end20 ]
-  %.sink22 = phi i64 [ 648, %if.then16 ], [ 616, %if.end20 ]
-  %arrayidx.i.sink.ph = phi ptr [ %arrayidx.i41, %if.then16 ], [ %arrayidx.i, %if.end20 ]
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %.sink, i64 8
-  %34 = load ptr, ptr %arrayidx.i.i, align 8
-  %35 = ptrtoint ptr %34 to i64
-  %add1.i.i.i = add i64 %.sink22, %35
-  %36 = inttoptr i64 %add1.i.i.i to ptr
+if.then.i56:                                      ; preds = %if.end20
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = load ptr, ptr %arrayidx.i.i, align 8
+  %39 = ptrtoint ptr %38 to i64
+  %add1.i.i.i = add i64 %39, 616
+  %40 = inttoptr i64 %add1.i.i.i to ptr
+  br label %_ZN2v811ReturnValueINS_5ValueEE3SetIS1_EEvNS_5LocalIT_EE.exit
+
+_ZN2v811ReturnValueINS_5ValueEE3SetIS1_EEvNS_5LocalIT_EE.exit: ; preds = %if.end20, %if.then.i56
+  %storemerge.in = phi ptr [ %40, %if.then.i56 ], [ %call24, %if.end20 ]
+  %storemerge = load i64, ptr %storemerge.in, align 8
+  store i64 %storemerge, ptr %arrayidx.i, align 8
   br label %cleanup
 
-cleanup:                                          ; preds = %cleanup.sink.split, %if.end20
-  %storemerge.in.sink = phi ptr [ %call24, %if.end20 ], [ %36, %cleanup.sink.split ]
-  %arrayidx.i.sink = phi ptr [ %arrayidx.i, %if.end20 ], [ %arrayidx.i.sink.ph, %cleanup.sink.split ]
-  %storemerge = load i64, ptr %storemerge.in.sink, align 8
-  store i64 %storemerge, ptr %arrayidx.i.sink, align 8
+cleanup:                                          ; preds = %_ZN2v811ReturnValueINS_5ValueEE3SetIS1_EEvNS_5LocalIT_EE.exit, %if.then16
   call void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %cert) #15
   br label %cleanup.cont
 

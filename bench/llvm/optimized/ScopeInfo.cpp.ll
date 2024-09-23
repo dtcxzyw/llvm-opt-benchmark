@@ -1104,7 +1104,7 @@ define dso_local void @_ZNK5clang4sema15LambdaScopeInfo22visitPotentialCapturesE
   br i1 %.not44, label %._crit_edge, label %.lr.ph46
 
 .lr.ph46:                                         ; preds = %3, %.loopexit
-  %.045 = phi ptr [ %29, %.loopexit ], [ %5, %3 ]
+  %.045 = phi ptr [ %28, %.loopexit ], [ %5, %3 ]
   %8 = load ptr, ptr %.045, align 8
   %9 = load i8, ptr %8, align 8
   switch i8 %9, label %20 [
@@ -1154,14 +1154,14 @@ define dso_local void @_ZNK5clang4sema15LambdaScopeInfo22visitPotentialCapturesE
   br i1 %.not31, label %.loopexit, label %.lr.ph
 
 .loopexit.sink.split:                             ; preds = %18, %10
-  %.in.i.sink = phi ptr [ %.in.i, %10 ], [ %19, %18 ]
-  %28 = load ptr, ptr %.in.i.sink, align 8
-  tail call void %1(i64 noundef %2, ptr noundef %28, ptr noundef nonnull %8) #13
+  %.sink.in = phi ptr [ %.in.i, %10 ], [ %19, %18 ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  tail call void %1(i64 noundef %2, ptr noundef %.sink, ptr noundef nonnull %8) #13
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.loopexit.sink.split, %20
-  %29 = getelementptr inbounds i8, ptr %.045, i64 8
-  %.not = icmp eq ptr %29, %7
+  %28 = getelementptr inbounds i8, ptr %.045, i64 8
+  %.not = icmp eq ptr %28, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph46
 
 ._crit_edge:                                      ; preds = %.loopexit, %3
@@ -2682,7 +2682,8 @@ _ZN4llvm15SmallVectorImplIN5clang4sema17FunctionScopeInfo9WeakUseTyEE12assignRem
   store i32 %19, ptr %20, align 4
   store ptr %6, ptr %1, align 8
   store i32 0, ptr %18, align 4
-  br label %.sink.split
+  store i32 0, ptr %15, align 8
+  br label %53
 
 21:                                               ; preds = %4
   %22 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #13
@@ -2711,7 +2712,8 @@ _ZSt4moveIPN5clang4sema17FunctionScopeInfo9WeakUseTyES4_ET0_T_S6_S5_.exit: ; pre
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %22) #13
   %31 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #13
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
+  store i32 0, ptr %32, align 8
+  br label %53
 
 33:                                               ; preds = %21
   %34 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
@@ -2758,14 +2760,10 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang4sema17FunctionScopeInfo9WeakUseTyELb1E
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %22) #13
   %51 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #13
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %_ZN4llvm15SmallVectorImplIN5clang4sema17FunctionScopeInfo9WeakUseTyEE12assignRemoteEOS5_.exit, %_ZSt4moveIPN5clang4sema17FunctionScopeInfo9WeakUseTyES4_ET0_T_S6_S5_.exit, %_ZN4llvm23SmallVectorTemplateBaseIN5clang4sema17FunctionScopeInfo9WeakUseTyELb1EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit
-  %.sink = phi ptr [ %52, %_ZN4llvm23SmallVectorTemplateBaseIN5clang4sema17FunctionScopeInfo9WeakUseTyELb1EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit ], [ %32, %_ZSt4moveIPN5clang4sema17FunctionScopeInfo9WeakUseTyES4_ET0_T_S6_S5_.exit ], [ %15, %_ZN4llvm15SmallVectorImplIN5clang4sema17FunctionScopeInfo9WeakUseTyEE12assignRemoteEOS5_.exit ]
-  store i32 0, ptr %.sink, align 8
+  store i32 0, ptr %52, align 8
   br label %53
 
-53:                                               ; preds = %.sink.split, %2
+53:                                               ; preds = %2, %_ZN4llvm23SmallVectorTemplateBaseIN5clang4sema17FunctionScopeInfo9WeakUseTyELb1EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit, %_ZSt4moveIPN5clang4sema17FunctionScopeInfo9WeakUseTyES4_ET0_T_S6_S5_.exit, %_ZN4llvm15SmallVectorImplIN5clang4sema17FunctionScopeInfo9WeakUseTyEE12assignRemoteEOS5_.exit
   ret ptr %0
 }
 

@@ -83,64 +83,66 @@ define dso_local noundef zeroext i1 @_Z14isAbsolutePathSt17basic_string_viewIcSt
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_Z20isExplicitlyRelativeSt17basic_string_viewIcSt11char_traitsIcEE(i64 %0, ptr nocapture readonly %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  switch i64 %0, label %4 [
-    i64 1, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.sink.split
+  switch i64 %0, label %5 [
+    i64 1, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
     i64 2, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3
   ]
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3:  ; preds = %2
-  %bcmp.i4 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %1, ptr noundef nonnull dereferenceable(2) @.str.1, i64 2)
-  %3 = icmp eq i32 %bcmp.i4, 0
-  br i1 %3, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit, label %.thread.thread
-
-4:                                                ; preds = %2
-  %5 = icmp ugt i64 %0, 1
-  br i1 %5, label %.thread, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
-
-.thread:                                          ; preds = %4
-  %6 = load i8, ptr %1, align 1
-  %7 = icmp eq i8 %6, 46
-  br i1 %7, label %10, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
-
-.thread.thread:                                   ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3
-  %8 = load i8, ptr %1, align 1
-  %9 = icmp eq i8 %8, 46
-  br i1 %9, label %.thread21, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
-
-10:                                               ; preds = %.thread
-  %11 = getelementptr inbounds i8, ptr %1, i64 1
-  %12 = load i8, ptr %11, align 1
-  %13 = icmp eq i8 %12, 47
-  br i1 %13, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit, label %15
-
-.thread21:                                        ; preds = %.thread.thread
-  %14 = getelementptr inbounds i8, ptr %1, i64 1
-  br label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.sink.split
-
-15:                                               ; preds = %10
-  %.not = icmp eq i64 %0, 2
-  br i1 %.not, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit, label %16
-
-16:                                               ; preds = %15
-  %17 = getelementptr inbounds i8, ptr %1, i64 1
-  %18 = load i8, ptr %17, align 1
-  %19 = icmp eq i8 %18, 46
-  br i1 %19, label %20, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
-
-20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %1, i64 2
-  br label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.sink.split
-
-_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.sink.split: ; preds = %2, %20, %.thread21
-  %.sink26 = phi ptr [ %14, %.thread21 ], [ %21, %20 ], [ %1, %2 ]
-  %.sink25 = phi i8 [ 47, %.thread21 ], [ 47, %20 ], [ 46, %2 ]
-  %22 = load i8, ptr %.sink26, align 1
-  %23 = icmp eq i8 %22, %.sink25
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %2
+  %lhsc = load i8, ptr %1, align 1
+  %3 = icmp eq i8 %lhsc, 46
   br label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
 
-_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit: ; preds = %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.sink.split, %.thread, %.thread.thread, %4, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3, %15, %16, %10
-  %24 = phi i1 [ true, %10 ], [ false, %16 ], [ false, %15 ], [ true, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3 ], [ false, %4 ], [ false, %.thread.thread ], [ false, %.thread ], [ %23, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.sink.split ]
-  ret i1 %24
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3:  ; preds = %2
+  %bcmp.i4 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %1, ptr noundef nonnull dereferenceable(2) @.str.1, i64 2)
+  %4 = icmp eq i32 %bcmp.i4, 0
+  br i1 %4, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit, label %.thread.thread
+
+5:                                                ; preds = %2
+  %6 = icmp ugt i64 %0, 1
+  br i1 %6, label %.thread, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
+
+.thread:                                          ; preds = %5
+  %7 = load i8, ptr %1, align 1
+  %8 = icmp eq i8 %7, 46
+  br i1 %8, label %11, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
+
+.thread.thread:                                   ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3
+  %9 = load i8, ptr %1, align 1
+  %10 = icmp eq i8 %9, 46
+  br i1 %10, label %.thread21, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
+
+11:                                               ; preds = %.thread
+  %12 = getelementptr inbounds i8, ptr %1, i64 1
+  %13 = load i8, ptr %12, align 1
+  %14 = icmp eq i8 %13, 47
+  br i1 %14, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit, label %18
+
+.thread21:                                        ; preds = %.thread.thread
+  %15 = getelementptr inbounds i8, ptr %1, i64 1
+  %16 = load i8, ptr %15, align 1
+  %17 = icmp eq i8 %16, 47
+  br label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
+
+18:                                               ; preds = %11
+  %.not = icmp eq i64 %0, 2
+  br i1 %.not, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit, label %19
+
+19:                                               ; preds = %18
+  %20 = getelementptr inbounds i8, ptr %1, i64 1
+  %21 = load i8, ptr %20, align 1
+  %22 = icmp eq i8 %21, 46
+  br i1 %22, label %23, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
+
+23:                                               ; preds = %19
+  %24 = getelementptr inbounds i8, ptr %1, i64 2
+  %25 = load i8, ptr %24, align 1
+  %26 = icmp eq i8 %25, 47
+  br label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
+
+_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit: ; preds = %.thread21, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %.thread, %.thread.thread, %5, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3, %18, %19, %23, %11
+  %27 = phi i1 [ true, %11 ], [ false, %19 ], [ false, %18 ], [ %26, %23 ], [ true, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3 ], [ false, %5 ], [ false, %.thread.thread ], [ %3, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ %17, %.thread21 ], [ false, %.thread ]
+  ret i1 %27
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

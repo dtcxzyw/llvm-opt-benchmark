@@ -4276,7 +4276,11 @@ if.then.i.i.i108:                                 ; preds = %_ZNSt10shared_ptrIK
   %21 = load atomic i64, ptr %_M_use_count.i.i.i.i109 acquire, align 8
   %cmp.i.i.i.i110 = icmp eq i64 %21, 4294967297
   %22 = trunc i64 %21 to i32
-  br i1 %cmp.i.i.i.i110, label %if.end139.sink.split.sink.split, label %if.end.i.i.i.i111
+  br i1 %cmp.i.i.i.i110, label %if.then.i.i.i.i133, label %if.end.i.i.i.i111
+
+if.then.i.i.i.i133:                               ; preds = %if.then.i.i.i108
+  store i32 0, ptr %_M_use_count.i.i.i.i109, align 8
+  br label %if.end139.sink.split.sink.split
 
 if.end.i.i.i.i111:                                ; preds = %if.then.i.i.i108
   %23 = load i8, ptr @__libc_single_threaded, align 1
@@ -4915,7 +4919,11 @@ if.then.i.i.i349:                                 ; preds = %_ZNSt10shared_ptrIN
   %113 = load atomic i64, ptr %_M_use_count.i.i.i.i350 acquire, align 8
   %cmp.i.i.i.i351 = icmp eq i64 %113, 4294967297
   %114 = trunc i64 %113 to i32
-  br i1 %cmp.i.i.i.i351, label %if.end139.sink.split.sink.split, label %if.end.i.i.i.i352
+  br i1 %cmp.i.i.i.i351, label %if.then.i.i.i.i374, label %if.end.i.i.i.i352
+
+if.then.i.i.i.i374:                               ; preds = %if.then.i.i.i349
+  store i32 0, ptr %_M_use_count.i.i.i.i350, align 8
+  br label %if.end139.sink.split.sink.split
 
 if.end.i.i.i.i352:                                ; preds = %if.then.i.i.i349
   %115 = load i8, ptr @__libc_single_threaded, align 1
@@ -5017,14 +5025,12 @@ ehcleanup138:                                     ; preds = %ehcleanup137, %lpad
   call void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %inputColorSpace) #28
   br label %ehcleanup293
 
-if.end139.sink.split.sink.split:                  ; preds = %if.then.i.i.i349, %if.then.i.i.i108
-  %_M_use_count.i.i.i.i350.sink = phi ptr [ %_M_use_count.i.i.i.i109, %if.then.i.i.i108 ], [ %_M_use_count.i.i.i.i350, %if.then.i.i.i349 ]
-  %.sink832 = phi ptr [ %20, %if.then.i.i.i108 ], [ %112, %if.then.i.i.i349 ]
-  %shaperInData.sroa.0.3.ph.ph = phi ptr [ %call5.i.i.i.i562, %if.then.i.i.i108 ], [ %call5.i.i.i.i654, %if.then.i.i.i349 ]
-  %shaperInData.sroa.19.0.ph.ph = phi ptr [ %add.ptr37.i556, %if.then.i.i.i108 ], [ %add.ptr37.i648, %if.then.i.i.i349 ]
-  %shaperOutData.sroa.0.3.ph.ph = phi ptr [ %call5.i.i.i.i516, %if.then.i.i.i108 ], [ %call5.i.i.i.i608, %if.then.i.i.i349 ]
-  %shaperOutData.sroa.13.0.ph.ph = phi ptr [ %add.ptr37.i510, %if.then.i.i.i108 ], [ %add.ptr37.i602, %if.then.i.i.i349 ]
-  store i32 0, ptr %_M_use_count.i.i.i.i350.sink, align 8
+if.end139.sink.split.sink.split:                  ; preds = %if.then.i.i.i.i133, %if.then.i.i.i.i374
+  %.sink832 = phi ptr [ %112, %if.then.i.i.i.i374 ], [ %20, %if.then.i.i.i.i133 ]
+  %shaperInData.sroa.0.3.ph.ph = phi ptr [ %call5.i.i.i.i654, %if.then.i.i.i.i374 ], [ %call5.i.i.i.i562, %if.then.i.i.i.i133 ]
+  %shaperInData.sroa.19.0.ph.ph = phi ptr [ %add.ptr37.i648, %if.then.i.i.i.i374 ], [ %add.ptr37.i556, %if.then.i.i.i.i133 ]
+  %shaperOutData.sroa.0.3.ph.ph = phi ptr [ %call5.i.i.i.i608, %if.then.i.i.i.i374 ], [ %call5.i.i.i.i516, %if.then.i.i.i.i133 ]
+  %shaperOutData.sroa.13.0.ph.ph = phi ptr [ %add.ptr37.i602, %if.then.i.i.i.i374 ], [ %add.ptr37.i510, %if.then.i.i.i.i133 ]
   %_M_weak_count.i.i.i.i375 = getelementptr inbounds i8, ptr %.sink832, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i375, align 4
   %vtable.i.i.i.i376 = load ptr, ptr %.sink832, align 8

@@ -6988,73 +6988,82 @@ define internal fastcc range(i32 -1, 1) i32 @_set_work_dir() unnamed_addr #0 {
   store ptr %9, ptr %1, align 8
   %10 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %9, i32 noundef 47) #24
   %11 = icmp eq ptr %10, %9
-  %12 = getelementptr inbounds i8, ptr %9, i64 1
-  %.sink = select i1 %11, ptr %12, ptr %10
-  store i8 0, ptr %.sink, align 1
-  %13 = tail call i32 @access(ptr noundef %9, i32 noundef 2) #20
-  %.not8 = icmp eq i32 %13, 0
-  br i1 %.not8, label %14, label %17
+  br i1 %11, label %12, label %14
+
+12:                                               ; preds = %8
+  %13 = getelementptr inbounds i8, ptr %9, i64 1
+  store i8 0, ptr %13, align 1
+  br label %15
 
 14:                                               ; preds = %8
-  %15 = tail call i32 @chdir(ptr noundef %9) #20
-  %16 = icmp slt i32 %15, 0
-  br i1 %16, label %17, label %.thread13
+  store i8 0, ptr %10, align 1
+  br label %15
 
-.thread13:                                        ; preds = %14
+15:                                               ; preds = %14, %12
+  %16 = tail call i32 @access(ptr noundef %9, i32 noundef 2) #20
+  %.not8 = icmp eq i32 %16, 0
+  br i1 %.not8, label %17, label %20
+
+17:                                               ; preds = %15
+  %18 = tail call i32 @chdir(ptr noundef %9) #20
+  %19 = icmp slt i32 %18, 0
+  br i1 %19, label %20, label %.thread13
+
+.thread13:                                        ; preds = %17
   call void @slurm_xfree(ptr noundef nonnull %1) #20
   br label %.thread16
 
-17:                                               ; preds = %8, %14
-  %18 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.241, ptr noundef %9) #20
+20:                                               ; preds = %15, %17
+  %21 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.241, ptr noundef %9) #20
   call void @slurm_xfree(ptr noundef nonnull %1) #20
   %.pre = load ptr, ptr @conf, align 8
   br label %.thread
 
-.thread:                                          ; preds = %0, %5, %17
-  %19 = phi ptr [ %2, %0 ], [ %2, %5 ], [ %.pre, %17 ]
-  %20 = getelementptr inbounds i8, ptr %19, i64 4360
-  %21 = load ptr, ptr %20, align 8
-  %22 = call i32 @access(ptr noundef %21, i32 noundef 2) #20
-  %.not9 = icmp eq i32 %22, 0
-  br i1 %.not9, label %23, label %29
+.thread:                                          ; preds = %0, %5, %20
+  %22 = phi ptr [ %2, %0 ], [ %2, %5 ], [ %.pre, %20 ]
+  %23 = getelementptr inbounds i8, ptr %22, i64 4360
+  %24 = load ptr, ptr %23, align 8
+  %25 = call i32 @access(ptr noundef %24, i32 noundef 2) #20
+  %.not9 = icmp eq i32 %25, 0
+  br i1 %.not9, label %26, label %32
 
-23:                                               ; preds = %.thread
-  %24 = load ptr, ptr @conf, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 4360
-  %26 = load ptr, ptr %25, align 8
-  %27 = call i32 @chdir(ptr noundef %26) #20
-  %28 = icmp slt i32 %27, 0
-  br i1 %28, label %29, label %.thread16
+26:                                               ; preds = %.thread
+  %27 = load ptr, ptr @conf, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 4360
+  %29 = load ptr, ptr %28, align 8
+  %30 = call i32 @chdir(ptr noundef %29) #20
+  %31 = icmp slt i32 %30, 0
+  br i1 %31, label %32, label %.thread16
 
-29:                                               ; preds = %23, %.thread
-  %30 = load ptr, ptr @conf, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 4360
-  %32 = load ptr, ptr %31, align 8
-  %33 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.241, ptr noundef %32) #20
-  %34 = call i32 @access(ptr noundef nonnull @.str.242, i32 noundef 2) #20
-  %.not10 = icmp eq i32 %34, 0
-  br i1 %.not10, label %35, label %38
+32:                                               ; preds = %26, %.thread
+  %33 = load ptr, ptr @conf, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 4360
+  %35 = load ptr, ptr %34, align 8
+  %36 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.241, ptr noundef %35) #20
+  %37 = call i32 @access(ptr noundef nonnull @.str.242, i32 noundef 2) #20
+  %.not10 = icmp eq i32 %37, 0
+  br i1 %.not10, label %38, label %41
 
-35:                                               ; preds = %29
-  %36 = call i32 @chdir(ptr noundef nonnull @.str.242) #20
-  %37 = icmp slt i32 %36, 0
-  br i1 %37, label %38, label %40
+38:                                               ; preds = %32
+  %39 = call i32 @chdir(ptr noundef nonnull @.str.242) #20
+  %40 = icmp slt i32 %39, 0
+  br i1 %40, label %41, label %43
 
-38:                                               ; preds = %35, %29
-  %39 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.243) #20
+41:                                               ; preds = %38, %32
+  %42 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.243) #20
   br label %.thread16
 
-40:                                               ; preds = %35
-  %41 = call i32 @get_log_level() #20
-  %42 = icmp sgt i32 %41, 2
-  br i1 %42, label %43, label %.thread16
+43:                                               ; preds = %38
+  %44 = call i32 @get_log_level() #20
+  %45 = icmp sgt i32 %44, 2
+  br i1 %45, label %46, label %.thread16
 
-43:                                               ; preds = %40
+46:                                               ; preds = %43
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.244) #20
   br label %.thread16
 
-.thread16:                                        ; preds = %.thread13, %23, %40, %43, %38
-  %.0 = phi i32 [ -1, %38 ], [ 0, %43 ], [ 0, %40 ], [ 0, %23 ], [ 0, %.thread13 ]
+.thread16:                                        ; preds = %.thread13, %26, %43, %46, %41
+  %.0 = phi i32 [ -1, %41 ], [ 0, %46 ], [ 0, %43 ], [ 0, %26 ], [ 0, %.thread13 ]
   ret i32 %.0
 }
 

@@ -478,240 +478,248 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define hidden void @freeCKMechanismPtr(ptr noundef %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %105, label %2
+  br i1 %.not, label %117, label %2
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not73 = icmp eq ptr %4, null
-  br i1 %.not73, label %104, label %5
+  br i1 %.not73, label %116, label %5
 
 5:                                                ; preds = %2
   %6 = load i64, ptr %0, align 8
-  switch i64 %6, label %103 [
+  switch i64 %6, label %115 [
     i64 4231, label %7
-    i64 4232, label %16
-    i64 16417, label %20
-    i64 888, label %23
-    i64 2147484531, label %23
-    i64 881, label %30
-    i64 885, label %30
-    i64 883, label %30
-    i64 887, label %30
-    i64 882, label %35
-    i64 886, label %35
-    i64 992, label %48
-    i64 994, label %48
-    i64 993, label %53
-    i64 4176, label %66
-    i64 4177, label %66
-    i64 3461563248, label %93
-    i64 3461563247, label %93
-    i64 3461563246, label %93
-    i64 3461563245, label %93
-    i64 944, label %70
-    i64 960, label %93
+    i64 4232, label %18
+    i64 16417, label %23
+    i64 888, label %27
+    i64 2147484531, label %27
+    i64 881, label %35
+    i64 885, label %35
+    i64 883, label %35
+    i64 887, label %35
+    i64 882, label %41
+    i64 886, label %41
+    i64 992, label %55
+    i64 994, label %55
+    i64 993, label %61
+    i64 4176, label %75
+    i64 4177, label %75
+    i64 3461563248, label %104
+    i64 3461563247, label %104
+    i64 3461563246, label %104
+    i64 3461563245, label %104
+    i64 944, label %80
+    i64 960, label %104
   ]
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
-  switch i64 %9, label %103 [
+  switch i64 %9, label %115 [
     i64 48, label %10
-    i64 40, label %13
+    i64 40, label %14
   ]
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr %4, align 8
   tail call void @free(ptr noundef %11) #15
   %12 = getelementptr inbounds i8, ptr %4, i64 24
-  br label %.sink.split.sink.split
+  %13 = load ptr, ptr %12, align 8
+  br label %.sink.split
 
-13:                                               ; preds = %7
-  %14 = load ptr, ptr %4, align 8
-  tail call void @free(ptr noundef %14) #15
-  %15 = getelementptr inbounds i8, ptr %4, i64 16
-  br label %.sink.split.sink.split
+14:                                               ; preds = %7
+  %15 = load ptr, ptr %4, align 8
+  tail call void @free(ptr noundef %15) #15
+  %16 = getelementptr inbounds i8, ptr %4, i64 16
+  %17 = load ptr, ptr %16, align 8
+  br label %.sink.split
 
-16:                                               ; preds = %5
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
-  %18 = load ptr, ptr %17, align 8
-  tail call void @free(ptr noundef %18) #15
-  %19 = getelementptr inbounds i8, ptr %4, i64 24
-  br label %.sink.split.sink.split
+18:                                               ; preds = %5
+  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  %20 = load ptr, ptr %19, align 8
+  tail call void @free(ptr noundef %20) #15
+  %21 = getelementptr inbounds i8, ptr %4, i64 24
+  %22 = load ptr, ptr %21, align 8
+  br label %.sink.split
 
-20:                                               ; preds = %5
-  %21 = load ptr, ptr %4, align 8
-  tail call void @free(ptr noundef %21) #15
-  %22 = getelementptr inbounds i8, ptr %4, i64 16
-  br label %.sink.split.sink.split
-
-23:                                               ; preds = %5, %5
+23:                                               ; preds = %5
   %24 = load ptr, ptr %4, align 8
   tail call void @free(ptr noundef %24) #15
   %25 = getelementptr inbounds i8, ptr %4, i64 16
   %26 = load ptr, ptr %25, align 8
-  tail call void @free(ptr noundef %26) #15
-  %27 = getelementptr inbounds i8, ptr %4, i64 40
-  %28 = load ptr, ptr %27, align 8
-  tail call void @free(ptr noundef %28) #15
-  %29 = getelementptr inbounds i8, ptr %4, i64 32
-  br label %.sink.split.sink.split
-
-30:                                               ; preds = %5, %5, %5, %5
-  %31 = load ptr, ptr %4, align 8
-  tail call void @free(ptr noundef %31) #15
-  %32 = getelementptr inbounds i8, ptr %4, i64 16
-  %33 = load ptr, ptr %32, align 8
-  tail call void @free(ptr noundef %33) #15
-  %34 = getelementptr inbounds i8, ptr %4, i64 32
-  br label %.sink.split.sink.split
-
-35:                                               ; preds = %5, %5
-  %36 = getelementptr inbounds i8, ptr %4, i64 32
-  %37 = load ptr, ptr %36, align 8
-  tail call void @free(ptr noundef %37) #15
-  %38 = getelementptr inbounds i8, ptr %4, i64 48
-  %39 = load ptr, ptr %38, align 8
-  tail call void @free(ptr noundef %39) #15
-  %40 = getelementptr inbounds i8, ptr %4, i64 64
-  %41 = load ptr, ptr %40, align 8
-  %.not79 = icmp eq ptr %41, null
-  br i1 %.not79, label %103, label %42
-
-42:                                               ; preds = %35
-  %43 = getelementptr inbounds i8, ptr %41, i64 32
-  %44 = load ptr, ptr %43, align 8
-  tail call void @free(ptr noundef %44) #15
-  %45 = load ptr, ptr %40, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 40
-  %47 = load ptr, ptr %46, align 8
-  tail call void @free(ptr noundef %47) #15
-  br label %.sink.split.sink.split
-
-48:                                               ; preds = %5, %5
-  %49 = load ptr, ptr %4, align 8
-  tail call void @free(ptr noundef %49) #15
-  %50 = getelementptr inbounds i8, ptr %4, i64 16
-  %51 = load ptr, ptr %50, align 8
-  tail call void @free(ptr noundef %51) #15
-  %52 = getelementptr inbounds i8, ptr %4, i64 32
-  br label %.sink.split.sink.split
-
-53:                                               ; preds = %5
-  %54 = getelementptr inbounds i8, ptr %4, i64 32
-  %55 = load ptr, ptr %54, align 8
-  tail call void @free(ptr noundef %55) #15
-  %56 = getelementptr inbounds i8, ptr %4, i64 48
-  %57 = load ptr, ptr %56, align 8
-  tail call void @free(ptr noundef %57) #15
-  %58 = getelementptr inbounds i8, ptr %4, i64 64
-  %59 = load ptr, ptr %58, align 8
-  %.not78 = icmp eq ptr %59, null
-  br i1 %.not78, label %103, label %60
-
-60:                                               ; preds = %53
-  %61 = getelementptr inbounds i8, ptr %59, i64 32
-  %62 = load ptr, ptr %61, align 8
-  tail call void @free(ptr noundef %62) #15
-  %63 = load ptr, ptr %58, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 40
-  %65 = load ptr, ptr %64, align 8
-  tail call void @free(ptr noundef %65) #15
-  br label %.sink.split.sink.split
-
-66:                                               ; preds = %5, %5
-  %67 = getelementptr inbounds i8, ptr %4, i64 16
-  %68 = load ptr, ptr %67, align 8
-  tail call void @free(ptr noundef %68) #15
-  %69 = getelementptr inbounds i8, ptr %4, i64 32
-  br label %.sink.split.sink.split
-
-70:                                               ; preds = %5
-  %71 = getelementptr inbounds i8, ptr %4, i64 72
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 0
-  %74 = getelementptr inbounds i8, ptr %4, i64 8
-  %75 = load ptr, ptr %74, align 8
-  tail call void @free(ptr noundef %75) #15
-  %76 = getelementptr inbounds i8, ptr %4, i64 40
-  %77 = load ptr, ptr %76, align 8
-  tail call void @free(ptr noundef %77) #15
-  %78 = getelementptr inbounds i8, ptr %4, i64 56
-  %79 = load ptr, ptr %78, align 8
-  %.not75 = icmp eq ptr %79, null
-  br i1 %73, label %80, label %89
-
-80:                                               ; preds = %70
-  br i1 %.not75, label %86, label %81
-
-81:                                               ; preds = %80
-  %82 = getelementptr inbounds i8, ptr %4, i64 64
-  %83 = load ptr, ptr %82, align 8
-  %.not76 = icmp eq ptr %83, null
-  br i1 %.not76, label %86, label %84
-
-84:                                               ; preds = %81
-  %85 = load i64, ptr %83, align 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %79, i8 0, i64 %85, i1 false)
-  %.pre80 = load ptr, ptr %78, align 8
-  br label %86
-
-86:                                               ; preds = %84, %81, %80
-  %87 = phi ptr [ %.pre80, %84 ], [ %79, %81 ], [ null, %80 ]
-  tail call void @free(ptr noundef %87) #15
-  %88 = getelementptr inbounds i8, ptr %4, i64 64
-  br label %.sink.split.sink.split
-
-89:                                               ; preds = %70
-  br i1 %.not75, label %.sink.split, label %90
-
-90:                                               ; preds = %89
-  %91 = getelementptr inbounds i8, ptr %4, i64 64
-  %92 = load i64, ptr %91, align 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %79, i8 0, i64 %92, i1 false)
-  br label %.sink.split.sink.split
-
-93:                                               ; preds = %5, %5, %5, %5, %5
-  %94 = load ptr, ptr %4, align 8
-  tail call void @free(ptr noundef %94) #15
-  %95 = getelementptr inbounds i8, ptr %4, i64 8
-  %96 = load ptr, ptr %95, align 8
-  %.not77 = icmp eq ptr %96, null
-  br i1 %.not77, label %100, label %97
-
-97:                                               ; preds = %93
-  %98 = getelementptr inbounds i8, ptr %4, i64 16
-  %99 = load i64, ptr %98, align 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %96, i8 0, i64 %99, i1 false)
-  %.pre81 = load ptr, ptr %95, align 8
-  br label %100
-
-100:                                              ; preds = %97, %93
-  %101 = phi ptr [ %.pre81, %97 ], [ null, %93 ]
-  tail call void @free(ptr noundef %101) #15
-  %102 = getelementptr inbounds i8, ptr %4, i64 24
-  br label %.sink.split.sink.split
-
-.sink.split.sink.split:                           ; preds = %86, %60, %42, %10, %13, %100, %66, %48, %30, %23, %20, %16, %90
-  %.sink82 = phi ptr [ %78, %90 ], [ %19, %16 ], [ %22, %20 ], [ %29, %23 ], [ %34, %30 ], [ %52, %48 ], [ %69, %66 ], [ %102, %100 ], [ %15, %13 ], [ %12, %10 ], [ %40, %42 ], [ %58, %60 ], [ %88, %86 ]
-  %.pre = load ptr, ptr %.sink82, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.sink.split.sink.split, %89
-  %.sink = phi ptr [ null, %89 ], [ %.pre, %.sink.split.sink.split ]
+27:                                               ; preds = %5, %5
+  %28 = load ptr, ptr %4, align 8
+  tail call void @free(ptr noundef %28) #15
+  %29 = getelementptr inbounds i8, ptr %4, i64 16
+  %30 = load ptr, ptr %29, align 8
+  tail call void @free(ptr noundef %30) #15
+  %31 = getelementptr inbounds i8, ptr %4, i64 40
+  %32 = load ptr, ptr %31, align 8
+  tail call void @free(ptr noundef %32) #15
+  %33 = getelementptr inbounds i8, ptr %4, i64 32
+  %34 = load ptr, ptr %33, align 8
+  br label %.sink.split
+
+35:                                               ; preds = %5, %5, %5, %5
+  %36 = load ptr, ptr %4, align 8
+  tail call void @free(ptr noundef %36) #15
+  %37 = getelementptr inbounds i8, ptr %4, i64 16
+  %38 = load ptr, ptr %37, align 8
+  tail call void @free(ptr noundef %38) #15
+  %39 = getelementptr inbounds i8, ptr %4, i64 32
+  %40 = load ptr, ptr %39, align 8
+  br label %.sink.split
+
+41:                                               ; preds = %5, %5
+  %42 = getelementptr inbounds i8, ptr %4, i64 32
+  %43 = load ptr, ptr %42, align 8
+  tail call void @free(ptr noundef %43) #15
+  %44 = getelementptr inbounds i8, ptr %4, i64 48
+  %45 = load ptr, ptr %44, align 8
+  tail call void @free(ptr noundef %45) #15
+  %46 = getelementptr inbounds i8, ptr %4, i64 64
+  %47 = load ptr, ptr %46, align 8
+  %.not79 = icmp eq ptr %47, null
+  br i1 %.not79, label %115, label %48
+
+48:                                               ; preds = %41
+  %49 = getelementptr inbounds i8, ptr %47, i64 32
+  %50 = load ptr, ptr %49, align 8
+  tail call void @free(ptr noundef %50) #15
+  %51 = load ptr, ptr %46, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 40
+  %53 = load ptr, ptr %52, align 8
+  tail call void @free(ptr noundef %53) #15
+  %54 = load ptr, ptr %46, align 8
+  br label %.sink.split
+
+55:                                               ; preds = %5, %5
+  %56 = load ptr, ptr %4, align 8
+  tail call void @free(ptr noundef %56) #15
+  %57 = getelementptr inbounds i8, ptr %4, i64 16
+  %58 = load ptr, ptr %57, align 8
+  tail call void @free(ptr noundef %58) #15
+  %59 = getelementptr inbounds i8, ptr %4, i64 32
+  %60 = load ptr, ptr %59, align 8
+  br label %.sink.split
+
+61:                                               ; preds = %5
+  %62 = getelementptr inbounds i8, ptr %4, i64 32
+  %63 = load ptr, ptr %62, align 8
+  tail call void @free(ptr noundef %63) #15
+  %64 = getelementptr inbounds i8, ptr %4, i64 48
+  %65 = load ptr, ptr %64, align 8
+  tail call void @free(ptr noundef %65) #15
+  %66 = getelementptr inbounds i8, ptr %4, i64 64
+  %67 = load ptr, ptr %66, align 8
+  %.not78 = icmp eq ptr %67, null
+  br i1 %.not78, label %115, label %68
+
+68:                                               ; preds = %61
+  %69 = getelementptr inbounds i8, ptr %67, i64 32
+  %70 = load ptr, ptr %69, align 8
+  tail call void @free(ptr noundef %70) #15
+  %71 = load ptr, ptr %66, align 8
+  %72 = getelementptr inbounds i8, ptr %71, i64 40
+  %73 = load ptr, ptr %72, align 8
+  tail call void @free(ptr noundef %73) #15
+  %74 = load ptr, ptr %66, align 8
+  br label %.sink.split
+
+75:                                               ; preds = %5, %5
+  %76 = getelementptr inbounds i8, ptr %4, i64 16
+  %77 = load ptr, ptr %76, align 8
+  tail call void @free(ptr noundef %77) #15
+  %78 = getelementptr inbounds i8, ptr %4, i64 32
+  %79 = load ptr, ptr %78, align 8
+  br label %.sink.split
+
+80:                                               ; preds = %5
+  %81 = getelementptr inbounds i8, ptr %4, i64 72
+  %82 = load i32, ptr %81, align 8
+  %83 = icmp eq i32 %82, 0
+  %84 = getelementptr inbounds i8, ptr %4, i64 8
+  %85 = load ptr, ptr %84, align 8
+  tail call void @free(ptr noundef %85) #15
+  %86 = getelementptr inbounds i8, ptr %4, i64 40
+  %87 = load ptr, ptr %86, align 8
+  tail call void @free(ptr noundef %87) #15
+  %88 = getelementptr inbounds i8, ptr %4, i64 56
+  %89 = load ptr, ptr %88, align 8
+  %.not75 = icmp eq ptr %89, null
+  br i1 %83, label %90, label %100
+
+90:                                               ; preds = %80
+  br i1 %.not75, label %96, label %91
+
+91:                                               ; preds = %90
+  %92 = getelementptr inbounds i8, ptr %4, i64 64
+  %93 = load ptr, ptr %92, align 8
+  %.not76 = icmp eq ptr %93, null
+  br i1 %.not76, label %96, label %94
+
+94:                                               ; preds = %91
+  %95 = load i64, ptr %93, align 8
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %89, i8 0, i64 %95, i1 false)
+  %.pre80 = load ptr, ptr %88, align 8
+  br label %96
+
+96:                                               ; preds = %94, %91, %90
+  %97 = phi ptr [ %.pre80, %94 ], [ %89, %91 ], [ null, %90 ]
+  tail call void @free(ptr noundef %97) #15
+  %98 = getelementptr inbounds i8, ptr %4, i64 64
+  %99 = load ptr, ptr %98, align 8
+  br label %.sink.split
+
+100:                                              ; preds = %80
+  br i1 %.not75, label %.sink.split, label %101
+
+101:                                              ; preds = %100
+  %102 = getelementptr inbounds i8, ptr %4, i64 64
+  %103 = load i64, ptr %102, align 8
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %89, i8 0, i64 %103, i1 false)
+  %.pre = load ptr, ptr %88, align 8
+  br label %.sink.split
+
+104:                                              ; preds = %5, %5, %5, %5, %5
+  %105 = load ptr, ptr %4, align 8
+  tail call void @free(ptr noundef %105) #15
+  %106 = getelementptr inbounds i8, ptr %4, i64 8
+  %107 = load ptr, ptr %106, align 8
+  %.not77 = icmp eq ptr %107, null
+  br i1 %.not77, label %111, label %108
+
+108:                                              ; preds = %104
+  %109 = getelementptr inbounds i8, ptr %4, i64 16
+  %110 = load i64, ptr %109, align 8
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %107, i8 0, i64 %110, i1 false)
+  %.pre81 = load ptr, ptr %106, align 8
+  br label %111
+
+111:                                              ; preds = %108, %104
+  %112 = phi ptr [ %.pre81, %108 ], [ null, %104 ]
+  tail call void @free(ptr noundef %112) #15
+  %113 = getelementptr inbounds i8, ptr %4, i64 24
+  %114 = load ptr, ptr %113, align 8
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %100, %101, %18, %23, %27, %35, %55, %75, %111, %14, %10, %48, %68, %96
+  %.sink = phi ptr [ %99, %96 ], [ %74, %68 ], [ %54, %48 ], [ %13, %10 ], [ %17, %14 ], [ %114, %111 ], [ %79, %75 ], [ %60, %55 ], [ %40, %35 ], [ %34, %27 ], [ %26, %23 ], [ %22, %18 ], [ %.pre, %101 ], [ null, %100 ]
   tail call void @free(ptr noundef %.sink) #15
-  br label %103
+  br label %115
 
-103:                                              ; preds = %.sink.split, %7, %5, %53, %35
+115:                                              ; preds = %.sink.split, %7, %5, %61, %41
   tail call void @free(ptr noundef nonnull %4) #15
-  br label %104
+  br label %116
 
-104:                                              ; preds = %2, %103
+116:                                              ; preds = %2, %115
   tail call void @free(ptr noundef nonnull %0) #15
-  br label %105
+  br label %117
 
-105:                                              ; preds = %104, %1
+117:                                              ; preds = %116, %1
   ret void
 }
 

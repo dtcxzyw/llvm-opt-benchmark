@@ -152,70 +152,76 @@ define range(i32 0, 2) i32 @hsearch_r(ptr %0, ptr %1, i32 noundef %2, ptr nocapt
   br i1 %21, label %.thread, label %16, !llvm.loop !11
 
 22:                                               ; preds = %16
-  switch i32 %2, label %35 [
-    i32 2, label %43
-    i32 0, label %34
+  switch i32 %2, label %39 [
+    i32 2, label %47
+    i32 0, label %38
   ]
 
 .thread:                                          ; preds = %17
   %23 = getelementptr inbounds i8, ptr %.042, i64 8
   %24 = icmp eq i32 %2, 2
-  br i1 %24, label %25, label %33
+  br i1 %24, label %25, label %37
 
 25:                                               ; preds = %.thread
   %26 = load ptr, ptr %15, align 8
   %27 = icmp eq ptr %26, %.042
-  br i1 %27, label %.loopexit, label %.preheader
+  br i1 %27, label %28, label %.preheader
+
+28:                                               ; preds = %25
+  %29 = load ptr, ptr %26, align 8
+  store ptr %29, ptr %15, align 8
+  br label %33
 
 .preheader:                                       ; preds = %25, %.preheader
-  %.0 = phi ptr [ %28, %.preheader ], [ %26, %25 ]
-  %28 = load ptr, ptr %.0, align 8
-  %.not48 = icmp eq ptr %28, %.042
-  br i1 %.not48, label %.loopexit, label %.preheader, !llvm.loop !12
+  %.0 = phi ptr [ %30, %.preheader ], [ %26, %25 ]
+  %30 = load ptr, ptr %.0, align 8
+  %.not48 = icmp eq ptr %30, %.042
+  br i1 %.not48, label %31, label %.preheader, !llvm.loop !12
 
-.loopexit:                                        ; preds = %.preheader, %25
-  %.sink56 = phi ptr [ %26, %25 ], [ %28, %.preheader ]
-  %.sink55 = phi ptr [ %15, %25 ], [ %.0, %.preheader ]
-  %29 = load ptr, ptr %.sink56, align 8
-  store ptr %29, ptr %.sink55, align 8
-  %30 = load ptr, ptr %23, align 8
-  tail call void @free(ptr noundef %30)
-  %31 = getelementptr inbounds i8, ptr %.042, i64 16
-  %32 = load ptr, ptr %31, align 8
-  tail call void @free(ptr noundef %32)
+31:                                               ; preds = %.preheader
+  %32 = load ptr, ptr %30, align 8
+  store ptr %32, ptr %.0, align 8
+  br label %33
+
+33:                                               ; preds = %28, %31
+  %34 = load ptr, ptr %23, align 8
+  tail call void @free(ptr noundef %34)
+  %35 = getelementptr inbounds i8, ptr %.042, i64 16
+  %36 = load ptr, ptr %35, align 8
+  tail call void @free(ptr noundef %36)
   tail call void @free(ptr noundef %.042)
-  br label %43
+  br label %47
 
-33:                                               ; preds = %.thread
+37:                                               ; preds = %.thread
   store ptr %23, ptr %3, align 8
-  br label %43
+  br label %47
 
-34:                                               ; preds = %22
+38:                                               ; preds = %22
   store ptr null, ptr %3, align 8
-  br label %43
+  br label %47
 
-35:                                               ; preds = %22
-  %36 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #6
-  %37 = icmp eq ptr %36, null
-  br i1 %37, label %38, label %39
+39:                                               ; preds = %22
+  %40 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #6
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %42, label %43
 
-38:                                               ; preds = %35
+42:                                               ; preds = %39
   store ptr null, ptr %3, align 8
-  br label %43
+  br label %47
 
-39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %36, i64 8
-  store ptr %0, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %36, i64 16
-  store ptr %1, ptr %41, align 8
-  %42 = load ptr, ptr %15, align 8
-  store ptr %42, ptr %36, align 8
-  store ptr %36, ptr %15, align 8
-  store ptr %40, ptr %3, align 8
-  br label %43
+43:                                               ; preds = %39
+  %44 = getelementptr inbounds i8, ptr %40, i64 8
+  store ptr %0, ptr %44, align 8
+  %45 = getelementptr inbounds i8, ptr %40, i64 16
+  store ptr %1, ptr %45, align 8
+  %46 = load ptr, ptr %15, align 8
+  store ptr %46, ptr %40, align 8
+  store ptr %40, ptr %15, align 8
+  store ptr %44, ptr %3, align 8
+  br label %47
 
-43:                                               ; preds = %22, %39, %38, %34, %33, %.loopexit
-  %.041 = phi i32 [ 1, %.loopexit ], [ 1, %33 ], [ 0, %34 ], [ 0, %38 ], [ 1, %39 ], [ 0, %22 ]
+47:                                               ; preds = %22, %43, %42, %38, %37, %33
+  %.041 = phi i32 [ 1, %33 ], [ 1, %37 ], [ 0, %38 ], [ 0, %42 ], [ 1, %43 ], [ 0, %22 ]
   ret i32 %.041
 }
 

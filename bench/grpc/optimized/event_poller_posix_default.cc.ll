@@ -457,7 +457,11 @@ if.then.i.i.i73:                                  ; preds = %_ZNSt10shared_ptrIN
   %49 = load atomic i64, ptr %_M_use_count.i.i.i.i74 acquire, align 8
   %cmp.i.i.i.i75 = icmp eq i64 %49, 4294967297
   %50 = trunc i64 %49 to i32
-  br i1 %cmp.i.i.i.i75, label %for.inc.sink.split.sink.split, label %if.end.i.i.i.i76
+  br i1 %cmp.i.i.i.i75, label %if.then.i.i.i.i98, label %if.end.i.i.i.i76
+
+if.then.i.i.i.i98:                                ; preds = %if.then.i.i.i73
+  store i32 0, ptr %_M_use_count.i.i.i.i74, align 8
+  br label %for.inc.sink.split.sink.split
 
 if.end.i.i.i.i76:                                 ; preds = %if.then.i.i.i73
   %51 = load i8, ptr @__libc_single_threaded, align 1
@@ -605,7 +609,11 @@ if.then.i.i.i156:                                 ; preds = %_ZNSt10shared_ptrIN
   %71 = load atomic i64, ptr %_M_use_count.i.i.i.i157 acquire, align 8
   %cmp.i.i.i.i158 = icmp eq i64 %71, 4294967297
   %72 = trunc i64 %71 to i32
-  br i1 %cmp.i.i.i.i158, label %for.inc.sink.split.sink.split, label %if.end.i.i.i.i159
+  br i1 %cmp.i.i.i.i158, label %if.then.i.i.i.i181, label %if.end.i.i.i.i159
+
+if.then.i.i.i.i181:                               ; preds = %if.then.i.i.i156
+  store i32 0, ptr %_M_use_count.i.i.i.i157, align 8
+  br label %for.inc.sink.split.sink.split
 
 if.end.i.i.i.i159:                                ; preds = %if.then.i.i.i156
   %73 = load i8, ptr @__libc_single_threaded, align 1
@@ -651,10 +659,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i173: ; preds = %i
   %cmp.i.i.i.i.i.i175 = icmp eq i32 %retval.i.0.i.i.i.i.i.i174, 1
   br i1 %cmp.i.i.i.i.i.i175, label %for.inc.sink.split, label %for.inc
 
-for.inc.sink.split.sink.split:                    ; preds = %if.then.i.i.i156, %if.then.i.i.i73
-  %_M_use_count.i.i.i.i157.sink = phi ptr [ %_M_use_count.i.i.i.i74, %if.then.i.i.i73 ], [ %_M_use_count.i.i.i.i157, %if.then.i.i.i156 ]
-  %.sink256 = phi ptr [ %48, %if.then.i.i.i73 ], [ %70, %if.then.i.i.i156 ]
-  store i32 0, ptr %_M_use_count.i.i.i.i157.sink, align 8
+for.inc.sink.split.sink.split:                    ; preds = %if.then.i.i.i.i98, %if.then.i.i.i.i181
+  %.sink256 = phi ptr [ %70, %if.then.i.i.i.i181 ], [ %48, %if.then.i.i.i.i98 ]
   %_M_weak_count.i.i.i.i182 = getelementptr inbounds i8, ptr %.sink256, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i182, align 4
   %vtable.i.i.i.i183 = load ptr, ptr %.sink256, align 8

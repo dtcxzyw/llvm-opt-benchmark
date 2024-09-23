@@ -2634,13 +2634,15 @@ land.lhs.true:                                    ; preds = %while.body
   %is_theory_atom = getelementptr inbounds i8, ptr %add.ptr.i197, i64 8
   %10 = load i8, ptr %is_theory_atom, align 4
   %tobool42 = trunc i8 %10 to i1
+  br i1 %tobool42, label %land.lhs.true43, label %cond.true47
+
+land.lhs.true43:                                  ; preds = %land.lhs.true
   %11 = load i32, ptr %add.ptr.i197, align 4
   %conv = zext i32 %11 to i64
-  %cmp44.not = icmp uge i64 %sub.ptr.div.i.i, %conv
-  %or.cond.not = select i1 %tobool42, i1 %cmp44.not, i1 false
-  br i1 %or.cond.not, label %if.then, label %cond.true47
+  %cmp44.not = icmp ult i64 %sub.ptr.div.i.i, %conv
+  br i1 %cmp44.not, label %cond.true47, label %if.then
 
-if.then:                                          ; preds = %land.lhs.true
+if.then:                                          ; preds = %land.lhs.true43
   %cmp.not.i201 = icmp eq ptr %fixed.sroa.6.0652, %fixed.sroa.11.0651
   br i1 %cmp.not.i201, label %if.else.i, label %if.then.i202
 
@@ -2732,7 +2734,7 @@ if.then.i.i.i209:                                 ; preds = %lpad
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %lpad, %if.then.i.i.i209
   resume { ptr, i32 } %lpad.phi
 
-cond.true47:                                      ; preds = %while.body, %land.lhs.true
+cond.true47:                                      ; preds = %while.body, %land.lhs.true, %land.lhs.true43
   %is_active = getelementptr inbounds %"struct.cvc5::internal::prop::CadicalPropagator::VarInfo", ptr %8, i64 %7, i32 4
   store i8 0, ptr %is_active, align 2
   %13 = load ptr, ptr %d_solver, align 8

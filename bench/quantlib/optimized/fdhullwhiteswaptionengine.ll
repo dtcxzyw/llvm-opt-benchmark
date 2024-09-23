@@ -10622,6 +10622,7 @@ if.then.i.i.i.i124:                               ; preds = %_ZN5boost10shared_p
   store ptr null, ptr %_M_parent.i.i.i.i, align 8, !tbaa !13
   store ptr %add.ptr.i.i.i, ptr %_M_left.i.i.i.i.i, align 8, !tbaa !14
   store ptr %add.ptr.i.i.i, ptr %_M_right.i.i.i.i.i, align 8, !tbaa !15
+  store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8, !tbaa !16
   br label %_ZNSt3mapIdN8QuantLib4DateESt4lessIdESaISt4pairIKdS1_EEEC2EOS8_.exit
 
 if.else.i.i.i.i:                                  ; preds = %_ZN5boost10shared_ptrIN8QuantLib9IborIndexEED2Ev.exit
@@ -10632,12 +10633,11 @@ if.else.i.i.i.i:                                  ; preds = %_ZN5boost10shared_p
   %_M_right.i4.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
   store ptr %42, ptr %_M_right.i4.i.i.i.i, align 8, !tbaa !15
   %_M_node_count.i5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 144
+  store i64 0, ptr %_M_node_count.i5.i.i.i.i, align 8, !tbaa !16
   br label %_ZNSt3mapIdN8QuantLib4DateESt4lessIdESaISt4pairIKdS1_EEEC2EOS8_.exit
 
 _ZNSt3mapIdN8QuantLib4DateESt4lessIdESaISt4pairIKdS1_EEEC2EOS8_.exit: ; preds = %if.then.i.i.i.i124, %if.else.i.i.i.i
-  %_M_node_count.i5.sink.i.i.i.i = phi ptr [ %_M_node_count.i5.i.i.i.i, %if.else.i.i.i.i ], [ %_M_node_count.i.i.i.i.i, %if.then.i.i.i.i124 ]
   %.sink.i.i.i.i = phi i32 [ 0, %if.else.i.i.i.i ], [ %44, %if.then.i.i.i.i124 ]
-  store i64 0, ptr %_M_node_count.i5.sink.i.i.i.i, align 8, !tbaa !16
   store i32 %.sink.i.i.i.i, ptr %42, align 8
   %mesher_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   %48 = load ptr, ptr %mesher, align 8, !tbaa !143

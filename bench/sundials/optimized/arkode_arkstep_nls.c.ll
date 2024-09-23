@@ -413,10 +413,10 @@ switch.lookup46:                                  ; preds = %43
   br label %51
 
 51:                                               ; preds = %switch.lookup46, %switch.lookup
-  %switch.gep47.sink = phi ptr [ %switch.gep47, %switch.lookup46 ], [ %switch.gep, %switch.lookup ]
-  %switch.load48 = load ptr, ptr %switch.gep47.sink, align 8
+  %arkStep_NlsFPFunction_MassFixed.sink.in = phi ptr [ %switch.gep, %switch.lookup ], [ %switch.gep47, %switch.lookup46 ]
+  %arkStep_NlsFPFunction_MassFixed.sink = load ptr, ptr %arkStep_NlsFPFunction_MassFixed.sink.in, align 8
   %52 = load ptr, ptr %30, align 8
-  %53 = tail call i32 @SUNNonlinSolSetSysFn(ptr noundef %52, ptr noundef nonnull %switch.load48) #4
+  %53 = tail call i32 @SUNNonlinSolSetSysFn(ptr noundef %52, ptr noundef nonnull %arkStep_NlsFPFunction_MassFixed.sink) #4
   %.not44 = icmp eq i32 %53, 0
   br i1 %.not44, label %55, label %54
 

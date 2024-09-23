@@ -1911,7 +1911,11 @@ if.then.i.i.i79:                                  ; preds = %_ZNSt10shared_ptrIN
   %52 = load atomic i64, ptr %_M_use_count.i.i.i.i80 acquire, align 8
   %cmp.i.i.i.i81 = icmp eq i64 %52, 4294967297
   %53 = trunc i64 %52 to i32
-  br i1 %cmp.i.i.i.i81, label %if.end57.sink.split.sink.split, label %if.end.i.i.i.i82
+  br i1 %cmp.i.i.i.i81, label %if.then.i.i.i.i104, label %if.end.i.i.i.i82
+
+if.then.i.i.i.i104:                               ; preds = %if.then.i.i.i79
+  store i32 0, ptr %_M_use_count.i.i.i.i80, align 8
+  br label %if.end57.sink.split.sink.split
 
 if.end.i.i.i.i82:                                 ; preds = %if.then.i.i.i79
   %54 = load i8, ptr @__libc_single_threaded, align 1
@@ -2116,7 +2120,11 @@ if.then.i.i.i168:                                 ; preds = %_ZNSt10shared_ptrIN
   %82 = load atomic i64, ptr %_M_use_count.i.i.i.i169 acquire, align 8
   %cmp.i.i.i.i170 = icmp eq i64 %82, 4294967297
   %83 = trunc i64 %82 to i32
-  br i1 %cmp.i.i.i.i170, label %if.end57.sink.split.sink.split, label %if.end.i.i.i.i171
+  br i1 %cmp.i.i.i.i170, label %if.then.i.i.i.i193, label %if.end.i.i.i.i171
+
+if.then.i.i.i.i193:                               ; preds = %if.then.i.i.i168
+  store i32 0, ptr %_M_use_count.i.i.i.i169, align 8
+  br label %if.end57.sink.split.sink.split
 
 if.end.i.i.i.i171:                                ; preds = %if.then.i.i.i168
   %84 = load i8, ptr @__libc_single_threaded, align 1
@@ -2314,7 +2322,11 @@ if.then.i.i.i257:                                 ; preds = %_ZNSt10shared_ptrIN
   %112 = load atomic i64, ptr %_M_use_count.i.i.i.i258 acquire, align 8
   %cmp.i.i.i.i259 = icmp eq i64 %112, 4294967297
   %113 = trunc i64 %112 to i32
-  br i1 %cmp.i.i.i.i259, label %if.end57.sink.split.sink.split, label %if.end.i.i.i.i260
+  br i1 %cmp.i.i.i.i259, label %if.then.i.i.i.i282, label %if.end.i.i.i.i260
+
+if.then.i.i.i.i282:                               ; preds = %if.then.i.i.i257
+  store i32 0, ptr %_M_use_count.i.i.i.i258, align 8
+  br label %if.end57.sink.split.sink.split
 
 if.end.i.i.i.i260:                                ; preds = %if.then.i.i.i257
   %114 = load i8, ptr @__libc_single_threaded, align 1
@@ -2366,10 +2378,8 @@ lpad49:                                           ; preds = %call5.i.noexc210, %
   call void @_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev18LogAffineTransformEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %logTransform40) #19
   br label %ehcleanup
 
-if.end57.sink.split.sink.split:                   ; preds = %if.then.i.i.i257, %if.then.i.i.i168, %if.then.i.i.i79
-  %_M_use_count.i.i.i.i258.sink = phi ptr [ %_M_use_count.i.i.i.i80, %if.then.i.i.i79 ], [ %_M_use_count.i.i.i.i169, %if.then.i.i.i168 ], [ %_M_use_count.i.i.i.i258, %if.then.i.i.i257 ]
-  %.sink359 = phi ptr [ %51, %if.then.i.i.i79 ], [ %81, %if.then.i.i.i168 ], [ %111, %if.then.i.i.i257 ]
-  store i32 0, ptr %_M_use_count.i.i.i.i258.sink, align 8
+if.end57.sink.split.sink.split:                   ; preds = %if.then.i.i.i.i104, %if.then.i.i.i.i193, %if.then.i.i.i.i282
+  %.sink359 = phi ptr [ %111, %if.then.i.i.i.i282 ], [ %81, %if.then.i.i.i.i193 ], [ %51, %if.then.i.i.i.i104 ]
   %_M_weak_count.i.i.i.i283 = getelementptr inbounds i8, ptr %.sink359, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i283, align 4
   %vtable.i.i.i.i284 = load ptr, ptr %.sink359, align 8

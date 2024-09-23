@@ -11049,7 +11049,7 @@ define linkonce_odr hidden void @_ZN4llvm13LiveIntervals8HMEditor14handleMoveDow
   %7 = and i64 %.0.copyload.i.i.i.i.i, -8
   %8 = tail call noundef ptr @_ZN4llvm9LiveRange4findENS_9SlotIndexE(ptr noundef nonnull align 8 dereferenceable(104) %1, i64 %7) #16
   %9 = icmp eq ptr %8, %5
-  br i1 %9, label %286, label %10
+  br i1 %9, label %287, label %10
 
 10:                                               ; preds = %2
   %.sroa.0119.0.copyload = load i64, ptr %6, align 8
@@ -11063,7 +11063,7 @@ define linkonce_odr hidden void @_ZN4llvm13LiveIntervals8HMEditor14handleMoveDow
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load i32, ptr %17, align 8
   %19 = icmp ult i32 %14, %18
-  br i1 %19, label %286, label %20
+  br i1 %19, label %287, label %20
 
 20:                                               ; preds = %10
   %21 = icmp ult i32 %18, %14
@@ -11083,7 +11083,7 @@ define linkonce_odr hidden void @_ZN4llvm13LiveIntervals8HMEditor14handleMoveDow
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = load i32, ptr %31, align 8
   %.not212 = icmp ult i32 %28, %32
-  br i1 %.not212, label %33, label %286
+  br i1 %.not212, label %33, label %287
 
 33:                                               ; preds = %22
   %34 = getelementptr inbounds nuw i8, ptr %26, i64 16
@@ -11327,7 +11327,7 @@ _ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseINS_14MachineOpe
 144:                                              ; preds = %141, %131
   %145 = load i64, ptr %115, align 8
   store i64 %145, ptr %24, align 8
-  br label %286
+  br label %287
 
 146:                                              ; preds = %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseINS_14MachineOperandEEESt20forward_iterator_tagS2_lPS2_RS2_EneERKS3_.exit._crit_edge, %120, %116
   %.0.copyload.i.i.i.i.i162 = phi i64 [ %.0.copyload.i.i.i.i.i162.pre, %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseINS_14MachineOperandEEESt20forward_iterator_tagS2_lPS2_RS2_EneERKS3_.exit._crit_edge ], [ %.0.copyload.i.i.i.i.i162.pre237, %120 ], [ %.0.copyload.i.i.i.i.i162.pre237, %116 ]
@@ -11342,7 +11342,7 @@ _ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseINS_14MachineOpe
   %154 = or disjoint i64 %153, %152
   store i64 %154, ptr %24, align 8
   %or.cond = or i1 %.not155, %149
-  br i1 %or.cond, label %286, label %155
+  br i1 %or.cond, label %287, label %155
 
 155:                                              ; preds = %146
   %.sroa.061.0.copyload = load i64, ptr %6, align 8
@@ -11352,7 +11352,7 @@ _ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseINS_14MachineOpe
   %158 = and i64 %.sroa.060.0.copyload, -8
   %159 = inttoptr i64 %158 to ptr
   %160 = icmp eq ptr %157, %159
-  br i1 %160, label %161, label %286
+  br i1 %160, label %161, label %287
 
 161:                                              ; preds = %20, %155
   %.0.copyload.i.i.i.i.i163 = phi i64 [ %.sroa.060.0.copyload, %155 ], [ %.sroa.0118.0.copyload, %20 ]
@@ -11382,7 +11382,7 @@ _ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseINS_14MachineOpe
   %180 = getelementptr inbounds nuw i8, ptr %163, i64 8
   store i64 %169, ptr %180, align 8
   store i64 %169, ptr %.0, align 8
-  br label %286
+  br label %287
 
 181:                                              ; preds = %161
   %182 = load ptr, ptr %1, align 8
@@ -11430,7 +11430,7 @@ _ZN4llvm9LiveRange9advanceToEPNS0_7SegmentENS_9SlotIndexE.exit: ; preds = %.preh
   %.0.copyload.i.i.i.i.i167 = load i64, ptr %170, align 8
   %210 = and i64 %.0.copyload.i.i.i.i.i167, 6
   %211 = icmp eq i64 %210, 6
-  br i1 %211, label %271, label %212
+  br i1 %211, label %272, label %212
 
 212:                                              ; preds = %_ZN4llvm9LiveRange9advanceToEPNS0_7SegmentENS_9SlotIndexE.exit
   %213 = and i64 %.0.copyload.i.i.i.i.i167, -8
@@ -11439,12 +11439,12 @@ _ZN4llvm9LiveRange9advanceToEPNS0_7SegmentENS_9SlotIndexE.exit: ; preds = %.preh
   %216 = load i32, ptr %215, align 8
   %217 = load i32, ptr %172, align 8
   %218 = icmp ult i32 %216, %217
-  br i1 %218, label %219, label %271
+  br i1 %218, label %219, label %272
 
 219:                                              ; preds = %212
   %220 = load ptr, ptr %1, align 8
   %.not156 = icmp eq ptr %.0, %220
-  br i1 %.not156, label %232, label %221
+  br i1 %.not156, label %233, label %221
 
 221:                                              ; preds = %219
   %222 = getelementptr inbounds i8, ptr %.0, i64 -16
@@ -11459,142 +11459,145 @@ _ZN4llvm9LiveRange9advanceToEPNS0_7SegmentENS_9SlotIndexE.exit: ; preds = %.preh
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 24
   %230 = load i32, ptr %229, align 8
   %231 = icmp ult i32 %226, %230
-  br i1 %231, label %232, label %237
+  br i1 %231, label %233, label %232
 
-232:                                              ; preds = %221, %219
-  %233 = getelementptr inbounds i8, ptr %.0, i64 24
-  store i64 %.0.copyload.i.i.i.i.i167, ptr %233, align 8
-  %234 = getelementptr inbounds i8, ptr %.0, i64 40
-  %235 = load ptr, ptr %234, align 8
-  %236 = getelementptr inbounds nuw i8, ptr %235, i64 8
-  br label %237
+232:                                              ; preds = %221
+  store i64 %.0.copyload.i.i.i.i.i167, ptr %222, align 8
+  br label %238
 
-237:                                              ; preds = %221, %232
-  %.sink = phi ptr [ %236, %232 ], [ %222, %221 ]
-  store i64 %.0.copyload.i.i.i.i.i167, ptr %.sink, align 8
-  %238 = icmp eq ptr %.0.i, %5
-  br i1 %238, label %239, label %249
+233:                                              ; preds = %221, %219
+  %234 = getelementptr inbounds i8, ptr %.0, i64 24
+  store i64 %.0.copyload.i.i.i.i.i167, ptr %234, align 8
+  %235 = getelementptr inbounds i8, ptr %.0, i64 40
+  %236 = load ptr, ptr %235, align 8
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 8
+  store i64 %.0.copyload.i.i.i.i.i167, ptr %237, align 8
+  br label %238
 
-239:                                              ; preds = %237
-  %240 = getelementptr inbounds i8, ptr %.0, i64 24
-  %.not.i.i.i.i.i = icmp eq ptr %5, %240
-  br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit, label %241
+238:                                              ; preds = %233, %232
+  %239 = icmp eq ptr %.0.i, %5
+  br i1 %239, label %240, label %250
 
-241:                                              ; preds = %239
-  %242 = ptrtoint ptr %5 to i64
-  %243 = ptrtoint ptr %240 to i64
-  %244 = sub i64 %242, %243
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %.0, ptr nonnull align 8 %240, i64 %244, i1 false)
+240:                                              ; preds = %238
+  %241 = getelementptr inbounds i8, ptr %.0, i64 24
+  %.not.i.i.i.i.i = icmp eq ptr %5, %241
+  br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit, label %242
+
+242:                                              ; preds = %240
+  %243 = ptrtoint ptr %5 to i64
+  %244 = ptrtoint ptr %241 to i64
+  %245 = sub i64 %243, %244
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %.0, ptr nonnull align 8 %241, i64 %245, i1 false)
   br label %_ZSt4copyIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit
 
-_ZSt4copyIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit: ; preds = %239, %241
-  %245 = getelementptr inbounds i8, ptr %5, i64 -24
-  %246 = or disjoint i64 %167, 6
-  store i64 %169, ptr %245, align 8
+_ZSt4copyIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit: ; preds = %240, %242
+  %246 = getelementptr inbounds i8, ptr %5, i64 -24
+  %247 = or disjoint i64 %167, 6
+  store i64 %169, ptr %246, align 8
   %.sroa.2184.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 -16
-  store i64 %246, ptr %.sroa.2184.0..sroa_idx, align 8
+  store i64 %247, ptr %.sroa.2184.0..sroa_idx, align 8
   %.sroa.3185.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 -8
   store ptr %163, ptr %.sroa.3185.0..sroa_idx, align 8
-  %247 = getelementptr inbounds nuw i8, ptr %163, i64 8
-  store i64 %169, ptr %247, align 8
-  %248 = getelementptr inbounds i8, ptr %5, i64 -40
+  %248 = getelementptr inbounds nuw i8, ptr %163, i64 8
   store i64 %169, ptr %248, align 8
-  br label %286
+  %249 = getelementptr inbounds i8, ptr %5, i64 -40
+  store i64 %169, ptr %249, align 8
+  br label %287
 
-249:                                              ; preds = %237
+250:                                              ; preds = %238
   %.not.i.i.i.i.i169 = icmp eq ptr %.0.i, %.0
-  br i1 %.not.i.i.i.i.i169, label %_ZSt4copyIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit170, label %250
+  br i1 %.not.i.i.i.i.i169, label %_ZSt4copyIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit170, label %251
 
-250:                                              ; preds = %249
-  %251 = getelementptr inbounds i8, ptr %.0, i64 24
-  %252 = getelementptr inbounds i8, ptr %.0.i, i64 24
-  %253 = ptrtoint ptr %252 to i64
-  %254 = ptrtoint ptr %251 to i64
-  %255 = sub i64 %253, %254
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %.0, ptr nonnull align 8 %251, i64 %255, i1 false)
+251:                                              ; preds = %250
+  %252 = getelementptr inbounds i8, ptr %.0, i64 24
+  %253 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %254 = ptrtoint ptr %253 to i64
+  %255 = ptrtoint ptr %252 to i64
+  %256 = sub i64 %254, %255
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %.0, ptr nonnull align 8 %252, i64 %256, i1 false)
   br label %_ZSt4copyIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit170
 
-_ZSt4copyIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit170: ; preds = %249, %250
-  %256 = getelementptr inbounds i8, ptr %.0.i, i64 -24
-  %.sroa.014.0.copyload = load i64, ptr %256, align 8
-  %257 = and i64 %.sroa.014.0.copyload, -8
-  %258 = inttoptr i64 %257 to ptr
-  %259 = getelementptr inbounds nuw i8, ptr %258, i64 24
-  %260 = load i32, ptr %259, align 8
-  %261 = load i32, ptr %172, align 8
-  %262 = icmp ult i32 %260, %261
-  br i1 %262, label %263, label %269
+_ZSt4copyIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit170: ; preds = %250, %251
+  %257 = getelementptr inbounds i8, ptr %.0.i, i64 -24
+  %.sroa.014.0.copyload = load i64, ptr %257, align 8
+  %258 = and i64 %.sroa.014.0.copyload, -8
+  %259 = inttoptr i64 %258 to ptr
+  %260 = getelementptr inbounds nuw i8, ptr %259, i64 24
+  %261 = load i32, ptr %260, align 8
+  %262 = load i32, ptr %172, align 8
+  %263 = icmp ult i32 %261, %262
+  br i1 %263, label %264, label %270
 
-263:                                              ; preds = %_ZSt4copyIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit170
-  %264 = getelementptr inbounds i8, ptr %.0.i, i64 -16
-  %.sroa.010.0.copyload = load i64, ptr %264, align 8
-  %265 = getelementptr inbounds i8, ptr %.0.i, i64 -8
-  %266 = load ptr, ptr %265, align 8
+264:                                              ; preds = %_ZSt4copyIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit170
+  %265 = getelementptr inbounds i8, ptr %.0.i, i64 -16
+  %.sroa.010.0.copyload = load i64, ptr %265, align 8
+  %266 = getelementptr inbounds i8, ptr %.0.i, i64 -8
+  %267 = load ptr, ptr %266, align 8
   store i64 %169, ptr %.0.i, align 8
   %.sroa.2181.0..0.i.sroa_idx = getelementptr inbounds i8, ptr %.0.i, i64 8
   store i64 %.sroa.010.0.copyload, ptr %.sroa.2181.0..0.i.sroa_idx, align 8
   %.sroa.3182.0..0.i.sroa_idx = getelementptr inbounds i8, ptr %.0.i, i64 16
-  store ptr %266, ptr %.sroa.3182.0..0.i.sroa_idx, align 8
-  %267 = getelementptr inbounds nuw i8, ptr %266, i64 8
-  store i64 %169, ptr %267, align 8
-  %.sroa.09.0.copyload = load i64, ptr %256, align 8
-  store i64 %169, ptr %264, align 8
-  store ptr %163, ptr %265, align 8
-  %268 = getelementptr inbounds nuw i8, ptr %163, i64 8
-  store i64 %.sroa.09.0.copyload, ptr %268, align 8
-  br label %286
+  store ptr %267, ptr %.sroa.3182.0..0.i.sroa_idx, align 8
+  %268 = getelementptr inbounds nuw i8, ptr %267, i64 8
+  store i64 %169, ptr %268, align 8
+  %.sroa.09.0.copyload = load i64, ptr %257, align 8
+  store i64 %169, ptr %265, align 8
+  store ptr %163, ptr %266, align 8
+  %269 = getelementptr inbounds nuw i8, ptr %163, i64 8
+  store i64 %.sroa.09.0.copyload, ptr %269, align 8
+  br label %287
 
-269:                                              ; preds = %_ZSt4copyIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit170
+270:                                              ; preds = %_ZSt4copyIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit170
   %.sroa.06.0.copyload = load i64, ptr %.0.i, align 8
-  store i64 %169, ptr %256, align 8
+  store i64 %169, ptr %257, align 8
   %.sroa.2175.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i, i64 -16
   store i64 %.sroa.06.0.copyload, ptr %.sroa.2175.0..sroa_idx, align 8
   %.sroa.3176.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i, i64 -8
   store ptr %163, ptr %.sroa.3176.0..sroa_idx, align 8
-  %270 = getelementptr inbounds nuw i8, ptr %163, i64 8
-  store i64 %169, ptr %270, align 8
-  br label %286
+  %271 = getelementptr inbounds nuw i8, ptr %163, i64 8
+  store i64 %169, ptr %271, align 8
+  br label %287
 
-271:                                              ; preds = %212, %_ZN4llvm9LiveRange9advanceToEPNS0_7SegmentENS_9SlotIndexE.exit
+272:                                              ; preds = %212, %_ZN4llvm9LiveRange9advanceToEPNS0_7SegmentENS_9SlotIndexE.exit
   %.not157 = icmp eq ptr %.0.i, %5
-  br i1 %.not157, label %277, label %272
+  br i1 %.not157, label %278, label %273
 
-272:                                              ; preds = %271
+273:                                              ; preds = %272
   %.sroa.05.0.copyload = load i64, ptr %.0.i, align 8
-  %273 = and i64 %.sroa.05.0.copyload, -8
-  %274 = inttoptr i64 %273 to ptr
-  %275 = icmp eq ptr %274, %171
-  br i1 %275, label %276, label %277
+  %274 = and i64 %.sroa.05.0.copyload, -8
+  %275 = inttoptr i64 %274 to ptr
+  %276 = icmp eq ptr %275, %171
+  br i1 %276, label %277, label %278
 
-276:                                              ; preds = %272
+277:                                              ; preds = %273
   tail call void @_ZN4llvm9LiveRange11removeValNoEPNS_6VNInfoE(ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef %163) #16
-  br label %286
+  br label %287
 
-277:                                              ; preds = %272, %271
-  %278 = getelementptr inbounds i8, ptr %.0, i64 24
-  %.not.i.i.i.i.i171 = icmp eq ptr %.0.i, %278
-  br i1 %.not.i.i.i.i.i171, label %_ZSt4copyIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit172, label %279
+278:                                              ; preds = %273, %272
+  %279 = getelementptr inbounds i8, ptr %.0, i64 24
+  %.not.i.i.i.i.i171 = icmp eq ptr %.0.i, %279
+  br i1 %.not.i.i.i.i.i171, label %_ZSt4copyIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit172, label %280
 
-279:                                              ; preds = %277
-  %280 = ptrtoint ptr %.0.i to i64
-  %281 = ptrtoint ptr %278 to i64
-  %282 = sub i64 %280, %281
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %.0, ptr nonnull align 8 %278, i64 %282, i1 false)
+280:                                              ; preds = %278
+  %281 = ptrtoint ptr %.0.i to i64
+  %282 = ptrtoint ptr %279 to i64
+  %283 = sub i64 %281, %282
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %.0, ptr nonnull align 8 %279, i64 %283, i1 false)
   br label %_ZSt4copyIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit172
 
-_ZSt4copyIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit172: ; preds = %277, %279
-  %283 = getelementptr inbounds i8, ptr %.0.i, i64 -24
-  %284 = getelementptr inbounds nuw i8, ptr %163, i64 8
+_ZSt4copyIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit172: ; preds = %278, %280
+  %284 = getelementptr inbounds i8, ptr %.0.i, i64 -24
+  %285 = getelementptr inbounds nuw i8, ptr %163, i64 8
+  store i64 %169, ptr %285, align 8
+  %286 = or disjoint i64 %167, 6
   store i64 %169, ptr %284, align 8
-  %285 = or disjoint i64 %167, 6
-  store i64 %169, ptr %283, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i, i64 -16
-  store i64 %285, ptr %.sroa.2.0..sroa_idx, align 8
+  store i64 %286, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i, i64 -8
   store ptr %163, ptr %.sroa.3.0..sroa_idx, align 8
-  br label %286
+  br label %287
 
-286:                                              ; preds = %_ZSt4copyIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit, %269, %263, %155, %146, %22, %2, %10, %_ZSt4copyIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit172, %276, %179, %144
+287:                                              ; preds = %_ZSt4copyIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit, %270, %264, %155, %146, %22, %2, %10, %_ZSt4copyIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit172, %277, %179, %144
   ret void
 }
 

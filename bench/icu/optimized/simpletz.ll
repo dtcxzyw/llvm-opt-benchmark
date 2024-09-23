@@ -2659,33 +2659,40 @@ if.end11:                                         ; preds = %if.then8, %lor.lhs.
 
 land.lhs.true25:                                  ; preds = %if.end11
   %.pre16 = load double, ptr %stdDate, align 8
-  br i1 %tobool33.not, label %return.sink.split, label %lor.lhs.false27
+  br i1 %tobool33.not, label %if.then29, label %lor.lhs.false27
 
 lor.lhs.false27:                                  ; preds = %land.lhs.true25
   %13 = load double, ptr %dstDate, align 8
   %cmp28 = fcmp olt double %.pre16, %13
-  br i1 %cmp28, label %return.sink.split, label %lor.lhs.false36
+  br i1 %cmp28, label %if.then29, label %lor.lhs.false36
+
+if.then29:                                        ; preds = %lor.lhs.false27, %land.lhs.true25
+  call void @_ZN6icu_7518TimeZoneTransition7setTimeEd(ptr noundef nonnull align 8 dereferenceable(32) %result, double noundef %.pre16)
+  br label %return.sink.split
 
 if.end32:                                         ; preds = %if.end11
   br i1 %tobool33.not, label %return, label %if.end32.if.then38_crit_edge
 
 if.end32.if.then38_crit_edge:                     ; preds = %if.end32
   %.pre17 = load double, ptr %dstDate, align 8
-  br label %return.sink.split
+  br label %if.then38
 
 lor.lhs.false36:                                  ; preds = %lor.lhs.false27
   %cmp37 = fcmp olt double %13, %.pre16
-  br i1 %cmp37, label %return.sink.split, label %return
+  br i1 %cmp37, label %if.then38, label %return
 
-return.sink.split:                                ; preds = %lor.lhs.false36, %if.end32.if.then38_crit_edge, %land.lhs.true25, %lor.lhs.false27
-  %.sink = phi double [ %.pre16, %lor.lhs.false27 ], [ %.pre16, %land.lhs.true25 ], [ %.pre17, %if.end32.if.then38_crit_edge ], [ %13, %lor.lhs.false36 ]
-  %stdRule.sink = phi ptr [ %dstRule, %lor.lhs.false27 ], [ %dstRule, %land.lhs.true25 ], [ %stdRule, %if.end32.if.then38_crit_edge ], [ %stdRule, %lor.lhs.false36 ]
-  %dstRule.sink = phi ptr [ %stdRule, %lor.lhs.false27 ], [ %stdRule, %land.lhs.true25 ], [ %dstRule, %if.end32.if.then38_crit_edge ], [ %dstRule, %lor.lhs.false36 ]
-  call void @_ZN6icu_7518TimeZoneTransition7setTimeEd(ptr noundef nonnull align 8 dereferenceable(32) %result, double noundef %.sink)
-  %14 = load ptr, ptr %stdRule.sink, align 8
-  call void @_ZN6icu_7518TimeZoneTransition7setFromERKNS_12TimeZoneRuleE(ptr noundef nonnull align 8 dereferenceable(32) %result, ptr noundef nonnull align 8 dereferenceable(80) %14)
-  %15 = load ptr, ptr %dstRule.sink, align 8
-  call void @_ZN6icu_7518TimeZoneTransition5setToERKNS_12TimeZoneRuleE(ptr noundef nonnull align 8 dereferenceable(32) %result, ptr noundef nonnull align 8 dereferenceable(80) %15)
+if.then38:                                        ; preds = %if.end32.if.then38_crit_edge, %lor.lhs.false36
+  %14 = phi double [ %.pre17, %if.end32.if.then38_crit_edge ], [ %13, %lor.lhs.false36 ]
+  call void @_ZN6icu_7518TimeZoneTransition7setTimeEd(ptr noundef nonnull align 8 dereferenceable(32) %result, double noundef %14)
+  br label %return.sink.split
+
+return.sink.split:                                ; preds = %if.then29, %if.then38
+  %.sink19.in = phi ptr [ %dstRule, %if.then29 ], [ %stdRule, %if.then38 ]
+  %.sink.in = phi ptr [ %stdRule, %if.then29 ], [ %dstRule, %if.then38 ]
+  %.sink19 = load ptr, ptr %.sink19.in, align 8
+  call void @_ZN6icu_7518TimeZoneTransition7setFromERKNS_12TimeZoneRuleE(ptr noundef nonnull align 8 dereferenceable(32) %result, ptr noundef nonnull align 8 dereferenceable(80) %.sink19)
+  %.sink = load ptr, ptr %.sink.in, align 8
+  call void @_ZN6icu_7518TimeZoneTransition5setToERKNS_12TimeZoneRuleE(ptr noundef nonnull align 8 dereferenceable(32) %result, ptr noundef nonnull align 8 dereferenceable(80) %.sink)
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end32, %lor.lhs.false36, %_ZNK6icu_7514SimpleTimeZone20checkTransitionRulesER10UErrorCode.exit, %entry
@@ -2803,33 +2810,40 @@ if.end9:                                          ; preds = %lor.lhs.false
 
 land.lhs.true23:                                  ; preds = %if.end9
   %.pre15 = load double, ptr %stdDate, align 8
-  br i1 %tobool31.not, label %return.sink.split, label %lor.lhs.false25
+  br i1 %tobool31.not, label %if.then27, label %lor.lhs.false25
 
 lor.lhs.false25:                                  ; preds = %land.lhs.true23
   %12 = load double, ptr %dstDate, align 8
   %cmp26 = fcmp ogt double %.pre15, %12
-  br i1 %cmp26, label %return.sink.split, label %lor.lhs.false34
+  br i1 %cmp26, label %if.then27, label %lor.lhs.false34
+
+if.then27:                                        ; preds = %lor.lhs.false25, %land.lhs.true23
+  call void @_ZN6icu_7518TimeZoneTransition7setTimeEd(ptr noundef nonnull align 8 dereferenceable(32) %result, double noundef %.pre15)
+  br label %return.sink.split
 
 if.end30:                                         ; preds = %if.end9
   br i1 %tobool31.not, label %return, label %if.end30.if.then36_crit_edge
 
 if.end30.if.then36_crit_edge:                     ; preds = %if.end30
   %.pre16 = load double, ptr %dstDate, align 8
-  br label %return.sink.split
+  br label %if.then36
 
 lor.lhs.false34:                                  ; preds = %lor.lhs.false25
   %cmp35 = fcmp ogt double %12, %.pre15
-  br i1 %cmp35, label %return.sink.split, label %return
+  br i1 %cmp35, label %if.then36, label %return
 
-return.sink.split:                                ; preds = %lor.lhs.false34, %if.end30.if.then36_crit_edge, %land.lhs.true23, %lor.lhs.false25
-  %.sink = phi double [ %.pre15, %lor.lhs.false25 ], [ %.pre15, %land.lhs.true23 ], [ %.pre16, %if.end30.if.then36_crit_edge ], [ %12, %lor.lhs.false34 ]
-  %stdRule.sink = phi ptr [ %dstRule, %lor.lhs.false25 ], [ %dstRule, %land.lhs.true23 ], [ %stdRule, %if.end30.if.then36_crit_edge ], [ %stdRule, %lor.lhs.false34 ]
-  %dstRule.sink = phi ptr [ %stdRule, %lor.lhs.false25 ], [ %stdRule, %land.lhs.true23 ], [ %dstRule, %if.end30.if.then36_crit_edge ], [ %dstRule, %lor.lhs.false34 ]
-  call void @_ZN6icu_7518TimeZoneTransition7setTimeEd(ptr noundef nonnull align 8 dereferenceable(32) %result, double noundef %.sink)
-  %13 = load ptr, ptr %stdRule.sink, align 8
-  call void @_ZN6icu_7518TimeZoneTransition7setFromERKNS_12TimeZoneRuleE(ptr noundef nonnull align 8 dereferenceable(32) %result, ptr noundef nonnull align 8 dereferenceable(80) %13)
-  %14 = load ptr, ptr %dstRule.sink, align 8
-  call void @_ZN6icu_7518TimeZoneTransition5setToERKNS_12TimeZoneRuleE(ptr noundef nonnull align 8 dereferenceable(32) %result, ptr noundef nonnull align 8 dereferenceable(80) %14)
+if.then36:                                        ; preds = %if.end30.if.then36_crit_edge, %lor.lhs.false34
+  %13 = phi double [ %.pre16, %if.end30.if.then36_crit_edge ], [ %12, %lor.lhs.false34 ]
+  call void @_ZN6icu_7518TimeZoneTransition7setTimeEd(ptr noundef nonnull align 8 dereferenceable(32) %result, double noundef %13)
+  br label %return.sink.split
+
+return.sink.split:                                ; preds = %if.then27, %if.then36
+  %.sink18.in = phi ptr [ %dstRule, %if.then27 ], [ %stdRule, %if.then36 ]
+  %.sink.in = phi ptr [ %stdRule, %if.then27 ], [ %dstRule, %if.then36 ]
+  %.sink18 = load ptr, ptr %.sink18.in, align 8
+  call void @_ZN6icu_7518TimeZoneTransition7setFromERKNS_12TimeZoneRuleE(ptr noundef nonnull align 8 dereferenceable(32) %result, ptr noundef nonnull align 8 dereferenceable(80) %.sink18)
+  %.sink = load ptr, ptr %.sink.in, align 8
+  call void @_ZN6icu_7518TimeZoneTransition5setToERKNS_12TimeZoneRuleE(ptr noundef nonnull align 8 dereferenceable(32) %result, ptr noundef nonnull align 8 dereferenceable(80) %.sink)
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end30, %lor.lhs.false34, %if.end4, %lor.lhs.false, %_ZNK6icu_7514SimpleTimeZone20checkTransitionRulesER10UErrorCode.exit, %entry

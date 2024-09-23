@@ -322,6 +322,7 @@ php_socket_error_str.exit:                        ; preds = %20
   %29 = getelementptr inbounds i8, ptr %25, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %29, ptr align 1 %21, i64 %22, i1 false)
   %30 = getelementptr inbounds [1 x i8], ptr %29, i64 0, i64 %22
+  store i8 0, ptr %30, align 1
   br label %.sink.split
 
 31:                                               ; preds = %19
@@ -417,12 +418,11 @@ php_socket_error_str.exit41:                      ; preds = %56
   %65 = getelementptr inbounds i8, ptr %61, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %65, ptr align 1 %57, i64 %58, i1 false)
   %66 = getelementptr inbounds [1 x i8], ptr %65, i64 0, i64 %58
+  store i8 0, ptr %66, align 1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %php_socket_error_str.exit, %php_socket_error_str.exit41
-  %.sink47 = phi ptr [ %66, %php_socket_error_str.exit41 ], [ %30, %php_socket_error_str.exit ]
   %.sink = phi ptr [ %61, %php_socket_error_str.exit41 ], [ %25, %php_socket_error_str.exit ]
-  store i8 0, ptr %.sink47, align 1
   store ptr %.sink, ptr %5, align 8
   br label %67
 

@@ -2749,7 +2749,8 @@ _ZN14core_hashtableIN7obj_mapI9func_declP10quantifierE13obj_map_entryE8obj_hashI
   %m_size = getelementptr inbounds i8, ptr %this, i64 12
   store i32 0, ptr %m_size, align 4
   %m_num_deleted = getelementptr inbounds i8, ptr %this, i64 16
-  br label %if.end.sink.split
+  store i32 0, ptr %m_num_deleted, align 8
+  br label %if.end
 
 if.else:                                          ; preds = %entry
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 12
@@ -2829,14 +2830,10 @@ _ZN14core_hashtableIN7obj_mapI9func_declP10quantifierE13obj_map_entryE8obj_hashI
 
 if.end18.i:                                       ; preds = %_ZN14core_hashtableIN7obj_mapI9func_declP10quantifierE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE11alloc_tableEj.exit.i, %for.end.i, %if.end.i
   store i32 0, ptr %m_size.i, align 4
-  br label %if.end.sink.split
-
-if.end.sink.split:                                ; preds = %_ZN14core_hashtableIN7obj_mapI9func_declP10quantifierE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE12delete_tableEv.exit, %if.end18.i
-  %m_num_deleted.i.sink = phi ptr [ %m_num_deleted.i, %if.end18.i ], [ %m_num_deleted, %_ZN14core_hashtableIN7obj_mapI9func_declP10quantifierE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE12delete_tableEv.exit ]
-  store i32 0, ptr %m_num_deleted.i.sink, align 8
+  store i32 0, ptr %m_num_deleted.i, align 8
   br label %if.end
 
-if.end:                                           ; preds = %if.end.sink.split, %if.else
+if.end:                                           ; preds = %if.end18.i, %if.else, %_ZN14core_hashtableIN7obj_mapI9func_declP10quantifierE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE12delete_tableEv.exit
   ret void
 }
 
@@ -2866,7 +2863,8 @@ _ZN14core_hashtableIN7obj_mapI9func_declP3appE13obj_map_entryE8obj_hashINS4_8key
   %m_size = getelementptr inbounds i8, ptr %this, i64 12
   store i32 0, ptr %m_size, align 4
   %m_num_deleted = getelementptr inbounds i8, ptr %this, i64 16
-  br label %if.end.sink.split
+  store i32 0, ptr %m_num_deleted, align 8
+  br label %if.end
 
 if.else:                                          ; preds = %entry
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 12
@@ -2946,14 +2944,10 @@ _ZN14core_hashtableIN7obj_mapI9func_declP3appE13obj_map_entryE8obj_hashINS4_8key
 
 if.end18.i:                                       ; preds = %_ZN14core_hashtableIN7obj_mapI9func_declP3appE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE11alloc_tableEj.exit.i, %for.end.i, %if.end.i
   store i32 0, ptr %m_size.i, align 4
-  br label %if.end.sink.split
-
-if.end.sink.split:                                ; preds = %_ZN14core_hashtableIN7obj_mapI9func_declP3appE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE12delete_tableEv.exit, %if.end18.i
-  %m_num_deleted.i.sink = phi ptr [ %m_num_deleted.i, %if.end18.i ], [ %m_num_deleted, %_ZN14core_hashtableIN7obj_mapI9func_declP3appE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE12delete_tableEv.exit ]
-  store i32 0, ptr %m_num_deleted.i.sink, align 8
+  store i32 0, ptr %m_num_deleted.i, align 8
   br label %if.end
 
-if.end:                                           ; preds = %if.end.sink.split, %if.else
+if.end:                                           ; preds = %if.end18.i, %if.else, %_ZN14core_hashtableIN7obj_mapI9func_declP3appE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE12delete_tableEv.exit
   ret void
 }
 
@@ -2983,7 +2977,8 @@ _ZN14core_hashtableIN7obj_mapI9func_declPN18dependency_managerIN11ast_manager22e
   %m_size = getelementptr inbounds i8, ptr %this, i64 12
   store i32 0, ptr %m_size, align 4
   %m_num_deleted = getelementptr inbounds i8, ptr %this, i64 16
-  br label %if.end.sink.split
+  store i32 0, ptr %m_num_deleted, align 8
+  br label %if.end
 
 if.else:                                          ; preds = %entry
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 12
@@ -3063,14 +3058,10 @@ _ZN14core_hashtableIN7obj_mapI9func_declPN18dependency_managerIN11ast_manager22e
 
 if.end18.i:                                       ; preds = %_ZN14core_hashtableIN7obj_mapI9func_declPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyEE13obj_map_entryE8obj_hashINS8_8key_dataEE10default_eqISB_EE11alloc_tableEj.exit.i, %for.end.i, %if.end.i
   store i32 0, ptr %m_size.i, align 4
-  br label %if.end.sink.split
-
-if.end.sink.split:                                ; preds = %_ZN14core_hashtableIN7obj_mapI9func_declPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyEE13obj_map_entryE8obj_hashINS8_8key_dataEE10default_eqISB_EE12delete_tableEv.exit, %if.end18.i
-  %m_num_deleted.i.sink = phi ptr [ %m_num_deleted.i, %if.end18.i ], [ %m_num_deleted, %_ZN14core_hashtableIN7obj_mapI9func_declPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyEE13obj_map_entryE8obj_hashINS8_8key_dataEE10default_eqISB_EE12delete_tableEv.exit ]
-  store i32 0, ptr %m_num_deleted.i.sink, align 8
+  store i32 0, ptr %m_num_deleted.i, align 8
   br label %if.end
 
-if.end:                                           ; preds = %if.end.sink.split, %if.else
+if.end:                                           ; preds = %if.end18.i, %if.else, %_ZN14core_hashtableIN7obj_mapI9func_declPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyEE13obj_map_entryE8obj_hashINS8_8key_dataEE10default_eqISB_EE12delete_tableEv.exit
   ret void
 }
 

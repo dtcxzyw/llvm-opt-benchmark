@@ -5368,89 +5368,89 @@ for.body241:                                      ; preds = %for.body241.prehead
   br i1 %exitcond180.not, label %sw.epilog262, label %for.body241, !llvm.loop !21
 
 sw.epilog262:                                     ; preds = %for.body241, %for.body189
-  %io_buffer210.sink = phi ptr [ %io_buffer172, %for.body189 ], [ %io_buffer210, %for.body241 ]
-  %91 = load ptr, ptr %io_buffer210.sink, align 8
-  %arrayidx255 = getelementptr i8, ptr %91, i64 511
-  %92 = load i8, ptr %arrayidx255, align 1
-  %sub257 = sub i8 0, %92
+  %.sink220.in = phi ptr [ %io_buffer172, %for.body189 ], [ %io_buffer210, %for.body241 ]
+  %.sink220 = load ptr, ptr %.sink220.in, align 8
+  %arrayidx255 = getelementptr i8, ptr %.sink220, i64 511
+  %91 = load i8, ptr %arrayidx255, align 1
+  %sub257 = sub i8 0, %91
   store i8 %sub257, ptr %arrayidx255, align 1
   %status263 = getelementptr inbounds i8, ptr %s, i64 665
   store i8 80, ptr %status263, align 1
   %io_buffer264 = getelementptr inbounds i8, ptr %s, i64 888
-  %93 = load ptr, ptr %io_buffer264, align 8
-  %call.i137 = tail call zeroext i1 @ide_transfer_start_norecurse(ptr noundef nonnull %s, ptr noundef %93, i32 noundef 512, ptr noundef nonnull @ide_transfer_stop)
+  %92 = load ptr, ptr %io_buffer264, align 8
+  %call.i137 = tail call zeroext i1 @ide_transfer_start_norecurse(ptr noundef nonnull %s, ptr noundef %92, i32 noundef 512, ptr noundef nonnull @ide_transfer_stop)
   %.pre212 = load ptr, ptr %s, align 8
   br i1 %call.i137, label %if.then.i138, label %ide_transfer_start.exit139
 
 if.then.i138:                                     ; preds = %sw.epilog262
   %end_transfer_func.i.i156 = getelementptr inbounds i8, ptr %s, i64 864
   store ptr @ide_transfer_stop, ptr %end_transfer_func.i.i156, align 8
-  %94 = load ptr, ptr %io_buffer264, align 8
+  %93 = load ptr, ptr %io_buffer264, align 8
   %data_ptr.i.i158 = getelementptr inbounds i8, ptr %s, i64 872
-  store ptr %94, ptr %data_ptr.i.i158, align 8
+  store ptr %93, ptr %data_ptr.i.i158, align 8
   %data_end.i.i159 = getelementptr inbounds i8, ptr %s, i64 880
-  store ptr %94, ptr %data_end.i.i159, align 8
-  %95 = load i8, ptr %status263, align 1
-  %96 = and i8 %95, -9
-  store i8 %96, ptr %status263, align 1
-  %97 = getelementptr i8, ptr %.pre212, i64 2120
-  %s.val.val.i162 = load ptr, ptr %97, align 8
-  %98 = load ptr, ptr %s.val.val.i162, align 8
-  %cmd_done.i.i163 = getelementptr inbounds i8, ptr %98, i64 64
-  %99 = load ptr, ptr %cmd_done.i.i163, align 8
-  %tobool.not.i.i164 = icmp eq ptr %99, null
+  store ptr %93, ptr %data_end.i.i159, align 8
+  %94 = load i8, ptr %status263, align 1
+  %95 = and i8 %94, -9
+  store i8 %95, ptr %status263, align 1
+  %96 = getelementptr i8, ptr %.pre212, i64 2120
+  %s.val.val.i162 = load ptr, ptr %96, align 8
+  %97 = load ptr, ptr %s.val.val.i162, align 8
+  %cmd_done.i.i163 = getelementptr inbounds i8, ptr %97, i64 64
+  %98 = load ptr, ptr %cmd_done.i.i163, align 8
+  %tobool.not.i.i164 = icmp eq ptr %98, null
   br i1 %tobool.not.i.i164, label %ide_transfer_start.exit139, label %if.then.i.i165
 
 if.then.i.i165:                                   ; preds = %if.then.i138
-  tail call void %99(ptr noundef nonnull %s.val.val.i162) #17
+  tail call void %98(ptr noundef nonnull %s.val.val.i162) #17
   %.pre211 = load ptr, ptr %s, align 8
   br label %ide_transfer_start.exit139
 
 ide_transfer_start.exit139:                       ; preds = %if.then.i.i165, %if.then.i138, %sw.epilog262
-  %100 = phi ptr [ %.pre211, %if.then.i.i165 ], [ %.pre212, %if.then.i138 ], [ %.pre212, %sw.epilog262 ]
-  %cmd.i140 = getelementptr inbounds i8, ptr %100, i64 2129
-  %101 = load i8, ptr %cmd.i140, align 1
-  %102 = and i8 %101, 2
-  %tobool.not.i141 = icmp eq i8 %102, 0
+  %99 = phi ptr [ %.pre211, %if.then.i.i165 ], [ %.pre212, %if.then.i138 ], [ %.pre212, %sw.epilog262 ]
+  %cmd.i140 = getelementptr inbounds i8, ptr %99, i64 2129
+  %100 = load i8, ptr %cmd.i140, align 1
+  %101 = and i8 %100, 2
+  %tobool.not.i141 = icmp eq i8 %101, 0
   br i1 %tobool.not.i141, label %if.then.i142, label %return
 
 if.then.i142:                                     ; preds = %ide_transfer_start.exit139
-  %irq.i143 = getelementptr inbounds i8, ptr %100, i64 2136
-  %103 = load ptr, ptr %irq.i143, align 8
-  tail call void @qemu_set_irq(ptr noundef %103, i32 noundef 1) #17
+  %irq.i143 = getelementptr inbounds i8, ptr %99, i64 2136
+  %102 = load ptr, ptr %irq.i143, align 8
+  tail call void @qemu_set_irq(ptr noundef %102, i32 noundef 1) #17
   br label %return
 
 sw.bb266:                                         ; preds = %if.end9
   %sector267 = getelementptr inbounds i8, ptr %s, i64 656
-  %104 = load i8, ptr %sector267, align 8
-  %switch = icmp ult i8 %104, 3
+  %103 = load i8, ptr %sector267, align 8
+  %switch = icmp ult i8 %103, 3
   br i1 %switch, label %sw.bb269, label %abort_cmd
 
 sw.bb269:                                         ; preds = %sw.bb266
   %smart_selftest_count270 = getelementptr inbounds i8, ptr %s, i64 960
-  %105 = load i8, ptr %smart_selftest_count270, align 8
-  %inc271 = add i8 %105, 1
+  %104 = load i8, ptr %smart_selftest_count270, align 8
+  %inc271 = add i8 %104, 1
   %cmp274 = icmp ugt i8 %inc271, 21
   %spec.select = select i1 %cmp274, i8 1, i8 %inc271
   store i8 %spec.select, ptr %smart_selftest_count270, align 8
   %conv280 = zext i8 %spec.select to i64
-  %106 = mul nuw nsw i64 %conv280, 24
+  %105 = mul nuw nsw i64 %conv280, 24
   %smart_selftest_data285 = getelementptr inbounds i8, ptr %s, i64 968
-  %107 = load ptr, ptr %smart_selftest_data285, align 8
-  %108 = getelementptr i8, ptr %107, i64 %106
-  %arrayidx287 = getelementptr i8, ptr %108, i64 -22
-  store i8 %104, ptr %arrayidx287, align 1
-  %109 = load ptr, ptr %smart_selftest_data285, align 8
-  %110 = getelementptr i8, ptr %109, i64 %106
-  %arrayidx291 = getelementptr i8, ptr %110, i64 -21
+  %106 = load ptr, ptr %smart_selftest_data285, align 8
+  %107 = getelementptr i8, ptr %106, i64 %105
+  %arrayidx287 = getelementptr i8, ptr %107, i64 -22
+  store i8 %103, ptr %arrayidx287, align 1
+  %108 = load ptr, ptr %smart_selftest_data285, align 8
+  %109 = getelementptr i8, ptr %108, i64 %105
+  %arrayidx291 = getelementptr i8, ptr %109, i64 -21
   store i8 0, ptr %arrayidx291, align 1
-  %111 = load ptr, ptr %smart_selftest_data285, align 8
-  %112 = getelementptr i8, ptr %111, i64 %106
-  %arrayidx295 = getelementptr i8, ptr %112, i64 -20
+  %110 = load ptr, ptr %smart_selftest_data285, align 8
+  %111 = getelementptr i8, ptr %110, i64 %105
+  %arrayidx295 = getelementptr i8, ptr %111, i64 -20
   store i8 52, ptr %arrayidx295, align 1
-  %113 = load ptr, ptr %smart_selftest_data285, align 8
-  %114 = getelementptr i8, ptr %113, i64 %106
-  %arrayidx299 = getelementptr i8, ptr %114, i64 -19
+  %112 = load ptr, ptr %smart_selftest_data285, align 8
+  %113 = getelementptr i8, ptr %112, i64 %105
+  %arrayidx299 = getelementptr i8, ptr %113, i64 -19
   store i8 18, ptr %arrayidx299, align 1
   br label %return
 
@@ -5461,23 +5461,23 @@ abort_cmd:                                        ; preds = %sw.bb266, %if.end9,
   %end_transfer_func.i.i.i = getelementptr inbounds i8, ptr %s, i64 864
   store ptr @ide_transfer_stop, ptr %end_transfer_func.i.i.i, align 8
   %io_buffer.i.i.i = getelementptr inbounds i8, ptr %s, i64 888
-  %115 = load ptr, ptr %io_buffer.i.i.i, align 8
+  %114 = load ptr, ptr %io_buffer.i.i.i, align 8
   %data_ptr.i.i.i = getelementptr inbounds i8, ptr %s, i64 872
-  store ptr %115, ptr %data_ptr.i.i.i, align 8
+  store ptr %114, ptr %data_ptr.i.i.i, align 8
   %data_end.i.i.i = getelementptr inbounds i8, ptr %s, i64 880
-  store ptr %115, ptr %data_end.i.i.i, align 8
+  store ptr %114, ptr %data_end.i.i.i, align 8
   store i8 65, ptr %status.i, align 1
   %s.val.i.i = load ptr, ptr %s, align 8
-  %116 = getelementptr i8, ptr %s.val.i.i, i64 2120
-  %s.val.val.i.i = load ptr, ptr %116, align 8
-  %117 = load ptr, ptr %s.val.val.i.i, align 8
-  %cmd_done.i.i.i = getelementptr inbounds i8, ptr %117, i64 64
-  %118 = load ptr, ptr %cmd_done.i.i.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %118, null
+  %115 = getelementptr i8, ptr %s.val.i.i, i64 2120
+  %s.val.val.i.i = load ptr, ptr %115, align 8
+  %116 = load ptr, ptr %s.val.val.i.i, align 8
+  %cmd_done.i.i.i = getelementptr inbounds i8, ptr %116, i64 64
+  %117 = load ptr, ptr %cmd_done.i.i.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %117, null
   br i1 %tobool.not.i.i.i, label %return, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %abort_cmd
-  tail call void %118(ptr noundef nonnull %s.val.val.i.i) #17
+  tail call void %117(ptr noundef nonnull %s.val.val.i.i) #17
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i, %abort_cmd, %if.then.i142, %ide_transfer_start.exit139, %if.then.i134, %ide_transfer_start.exit131, %if.then.i128, %ide_transfer_start.exit, %sw.bb17, %sw.bb18, %sw.bb269, %sw.bb20, %sw.bb13, %sw.bb
@@ -6137,7 +6137,8 @@ if.end125.i:                                      ; preds = %if.then122.i, %if.e
   %shr16.i.i = lshr i64 %27, 48
   %conv.i17.i.i = trunc nuw i64 %shr16.i.i to i16
   store i16 %conv.i17.i.i, ptr %add.ptr14.i.i, align 2
-  br label %if.end.sink.split
+  store i32 1, ptr %identify_set.i, align 4
+  br label %if.end
 
 if.else:                                          ; preds = %land.lhs.true
   %identify_data.i12 = getelementptr inbounds i8, ptr %s, i64 56
@@ -6317,16 +6318,11 @@ if.end32.i:                                       ; preds = %if.then29.i, %padst
   store i16 %conv.i8.i.i, ptr %add.ptr4.i.i, align 2
   %add.ptr7.i.i = getelementptr i8, ptr %s, i64 178
   store i16 %conv.i.i.i63, ptr %add.ptr7.i.i, align 2
-  br label %if.end.sink.split
-
-if.end.sink.split:                                ; preds = %if.end125.i, %if.end32.i
-  %identify_set.i13.sink = phi ptr [ %identify_set.i13, %if.end32.i ], [ %identify_set.i, %if.end125.i ]
-  %identify_data.i12.sink.ph = phi ptr [ %identify_data.i12, %if.end32.i ], [ %identify_data.i, %if.end125.i ]
-  store i32 1, ptr %identify_set.i13.sink, align 4
+  store i32 1, ptr %identify_set.i13, align 4
   br label %if.end
 
-if.end:                                           ; preds = %if.end.sink.split, %if.else, %if.then3
-  %identify_data.i12.sink = phi ptr [ %identify_data.i, %if.then3 ], [ %identify_data.i12, %if.else ], [ %identify_data.i12.sink.ph, %if.end.sink.split ]
+if.end:                                           ; preds = %if.end32.i, %if.else, %if.end125.i, %if.then3
+  %identify_data.i12.sink = phi ptr [ %identify_data.i, %if.then3 ], [ %identify_data.i, %if.end125.i ], [ %identify_data.i12, %if.else ], [ %identify_data.i12, %if.end32.i ]
   %io_buffer.i15 = getelementptr inbounds i8, ptr %s, i64 888
   %39 = load ptr, ptr %io_buffer.i15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %39, ptr noundef nonnull align 2 dereferenceable(512) %identify_data.i12.sink, i64 512, i1 false)

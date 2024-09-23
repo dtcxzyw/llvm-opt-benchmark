@@ -25694,7 +25694,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_34HdConeSchemaTokens_Sta
   store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource20_GetAdjustmentMatrixEfE6result, i64 56), align 8
   store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource20_GetAdjustmentMatrixEfE6result, i64 64), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource20_GetAdjustmentMatrixEfE6result, i64 72), i8 0, i64 48, i1 false)
-  br label %.sink.split.sink.split.i
+  store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource20_GetAdjustmentMatrixEfE6result, i64 120), align 8
+  br label %.sink.split.i
 
 136:                                              ; preds = %141, %109
   %137 = landingpad { ptr, i32 }
@@ -25766,7 +25767,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_34HdConeSchemaTokens_Sta
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource20_GetAdjustmentMatrixEfE6result_0, i64 40), i8 0, i64 32, i1 false)
   store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource20_GetAdjustmentMatrixEfE6result_0, i64 72), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource20_GetAdjustmentMatrixEfE6result_0, i64 80), i8 0, i64 40, i1 false)
-  br label %.sink.split.sink.split.i
+  store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource20_GetAdjustmentMatrixEfE6result_0, i64 120), align 8
+  br label %.sink.split.i
 
 168:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_34HdConeSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit14.i
   %169 = load atomic i8, ptr @_ZGVZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource20_GetAdjustmentMatrixEfE6result_1 acquire, align 8
@@ -25788,16 +25790,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_34HdConeSchemaTokens_Sta
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource20_GetAdjustmentMatrixEfE6result_1) #24
   br label %.body.i
 
-.sink.split.sink.split.i:                         ; preds = %167, %135
-  %.sink.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource20_GetAdjustmentMatrixEfE6result, i64 120), %135 ], [ getelementptr inbounds (i8, ptr @_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource20_GetAdjustmentMatrixEfE6result_0, i64 120), %167 ]
-  %_ZGVZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource20_GetAdjustmentMatrixEfE6result_1.sink.ph.i = phi ptr [ @_ZGVZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource20_GetAdjustmentMatrixEfE6result, %135 ], [ @_ZGVZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource20_GetAdjustmentMatrixEfE6result_0, %167 ]
-  %.05.ph.ph.i = phi ptr [ @_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource20_GetAdjustmentMatrixEfE6result, %135 ], [ @_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource20_GetAdjustmentMatrixEfE6result_0, %167 ]
-  store double 1.000000e+00, ptr %.sink.i, align 8
-  br label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %.sink.split.sink.split.i, %173
-  %_ZGVZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource20_GetAdjustmentMatrixEfE6result_1.sink.i = phi ptr [ @_ZGVZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource20_GetAdjustmentMatrixEfE6result_1, %173 ], [ %_ZGVZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource20_GetAdjustmentMatrixEfE6result_1.sink.ph.i, %.sink.split.sink.split.i ]
-  %.05.ph.i = phi ptr [ @_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource20_GetAdjustmentMatrixEfE6result_1, %173 ], [ %.05.ph.ph.i, %.sink.split.sink.split.i ]
+.sink.split.i:                                    ; preds = %173, %167, %135
+  %_ZGVZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource20_GetAdjustmentMatrixEfE6result_1.sink.i = phi ptr [ @_ZGVZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource20_GetAdjustmentMatrixEfE6result_0, %167 ], [ @_ZGVZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource20_GetAdjustmentMatrixEfE6result, %135 ], [ @_ZGVZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource20_GetAdjustmentMatrixEfE6result_1, %173 ]
+  %.05.ph.i = phi ptr [ @_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource20_GetAdjustmentMatrixEfE6result_0, %167 ], [ @_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource20_GetAdjustmentMatrixEfE6result, %135 ], [ @_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource20_GetAdjustmentMatrixEfE6result_1, %173 ]
   call void @__cxa_guard_release(ptr nonnull %_ZGVZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource20_GetAdjustmentMatrixEfE6result_1.sink.i) #24
   br label %177
 
@@ -30805,7 +30800,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_34HdConeSchemaTokens_Sta
   store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_CylinderToTransformedCylinder17_MatrixDataSource20_GetAdjustmentMatrixEfE6result, i64 56), align 8
   store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_CylinderToTransformedCylinder17_MatrixDataSource20_GetAdjustmentMatrixEfE6result, i64 64), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_CylinderToTransformedCylinder17_MatrixDataSource20_GetAdjustmentMatrixEfE6result, i64 72), i8 0, i64 48, i1 false)
-  br label %.sink.split.sink.split.i
+  store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_CylinderToTransformedCylinder17_MatrixDataSource20_GetAdjustmentMatrixEfE6result, i64 120), align 8
+  br label %.sink.split.i
 
 82:                                               ; preds = %87, %55
   %83 = landingpad { ptr, i32 }
@@ -30877,7 +30873,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_34HdConeSchemaTokens_Sta
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_CylinderToTransformedCylinder17_MatrixDataSource20_GetAdjustmentMatrixEfE6result_0, i64 40), i8 0, i64 32, i1 false)
   store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_CylinderToTransformedCylinder17_MatrixDataSource20_GetAdjustmentMatrixEfE6result_0, i64 72), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_CylinderToTransformedCylinder17_MatrixDataSource20_GetAdjustmentMatrixEfE6result_0, i64 80), i8 0, i64 40, i1 false)
-  br label %.sink.split.sink.split.i
+  store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_CylinderToTransformedCylinder17_MatrixDataSource20_GetAdjustmentMatrixEfE6result_0, i64 120), align 8
+  br label %.sink.split.i
 
 114:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_34HdConeSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit14.i
   %115 = load atomic i8, ptr @_ZGVZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_CylinderToTransformedCylinder17_MatrixDataSource20_GetAdjustmentMatrixEfE6result_1 acquire, align 8
@@ -30899,16 +30896,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_34HdConeSchemaTokens_Sta
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_CylinderToTransformedCylinder17_MatrixDataSource20_GetAdjustmentMatrixEfE6result_1) #24
   br label %.body.i
 
-.sink.split.sink.split.i:                         ; preds = %113, %81
-  %.sink.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_CylinderToTransformedCylinder17_MatrixDataSource20_GetAdjustmentMatrixEfE6result, i64 120), %81 ], [ getelementptr inbounds (i8, ptr @_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_CylinderToTransformedCylinder17_MatrixDataSource20_GetAdjustmentMatrixEfE6result_0, i64 120), %113 ]
-  %_ZGVZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_CylinderToTransformedCylinder17_MatrixDataSource20_GetAdjustmentMatrixEfE6result_1.sink.ph.i = phi ptr [ @_ZGVZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_CylinderToTransformedCylinder17_MatrixDataSource20_GetAdjustmentMatrixEfE6result, %81 ], [ @_ZGVZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_CylinderToTransformedCylinder17_MatrixDataSource20_GetAdjustmentMatrixEfE6result_0, %113 ]
-  %.05.ph.ph.i = phi ptr [ @_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_CylinderToTransformedCylinder17_MatrixDataSource20_GetAdjustmentMatrixEfE6result, %81 ], [ @_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_CylinderToTransformedCylinder17_MatrixDataSource20_GetAdjustmentMatrixEfE6result_0, %113 ]
-  store double 1.000000e+00, ptr %.sink.i, align 8
-  br label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %.sink.split.sink.split.i, %119
-  %_ZGVZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_CylinderToTransformedCylinder17_MatrixDataSource20_GetAdjustmentMatrixEfE6result_1.sink.i = phi ptr [ @_ZGVZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_CylinderToTransformedCylinder17_MatrixDataSource20_GetAdjustmentMatrixEfE6result_1, %119 ], [ %_ZGVZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_CylinderToTransformedCylinder17_MatrixDataSource20_GetAdjustmentMatrixEfE6result_1.sink.ph.i, %.sink.split.sink.split.i ]
-  %.05.ph.i = phi ptr [ @_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_CylinderToTransformedCylinder17_MatrixDataSource20_GetAdjustmentMatrixEfE6result_1, %119 ], [ %.05.ph.ph.i, %.sink.split.sink.split.i ]
+.sink.split.i:                                    ; preds = %119, %113, %81
+  %_ZGVZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_CylinderToTransformedCylinder17_MatrixDataSource20_GetAdjustmentMatrixEfE6result_1.sink.i = phi ptr [ @_ZGVZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_CylinderToTransformedCylinder17_MatrixDataSource20_GetAdjustmentMatrixEfE6result_0, %113 ], [ @_ZGVZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_CylinderToTransformedCylinder17_MatrixDataSource20_GetAdjustmentMatrixEfE6result, %81 ], [ @_ZGVZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_CylinderToTransformedCylinder17_MatrixDataSource20_GetAdjustmentMatrixEfE6result_1, %119 ]
+  %.05.ph.i = phi ptr [ @_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_CylinderToTransformedCylinder17_MatrixDataSource20_GetAdjustmentMatrixEfE6result_0, %113 ], [ @_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_CylinderToTransformedCylinder17_MatrixDataSource20_GetAdjustmentMatrixEfE6result, %81 ], [ @_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_CylinderToTransformedCylinder17_MatrixDataSource20_GetAdjustmentMatrixEfE6result_1, %119 ]
   call void @__cxa_guard_release(ptr nonnull %_ZGVZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_CylinderToTransformedCylinder17_MatrixDataSource20_GetAdjustmentMatrixEfE6result_1.sink.i) #24
   br label %123
 

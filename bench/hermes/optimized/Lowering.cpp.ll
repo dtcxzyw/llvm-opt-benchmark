@@ -922,16 +922,17 @@ if.then.i.i28.i.i.i:                              ; preds = %while.end.i.i.i
 
 if.end.i.i:                                       ; preds = %"_ZZL22orderBlocksByDominanceIZN6hermes16LowerAllocObject13collectStoresEPNS0_15AllocObjectInstERKN4llvh8DenseMapIPNS0_10BasicBlockENS4_11SmallVectorIPNS0_23StoreNewOwnPropertyInstELj4EEENS4_12DenseMapInfoIS7_EENS4_6detail12DenseMapPairIS7_SB_EEEERKNS0_13DominanceInfoEE3$_0ENS8_IS7_Lj4EEESM_S7_OT_EN18OrderBlocksContextC2ESM_S7_OSN_.exit.i"
   %cmp.i.i.i = icmp eq ptr %.pre2.i, %add.ptr.i.i.i.i.i.i.i
-  br i1 %cmp.i.i.i, label %if.end24.i.i, label %if.end8.i.i
+  br i1 %cmp.i.i.i, label %if.end24.i.i, label %"_ZZL22orderBlocksByDominanceIZN6hermes16LowerAllocObject13collectStoresEPNS0_15AllocObjectInstERKN4llvh8DenseMapIPNS0_10BasicBlockENS4_11SmallVectorIPNS0_23StoreNewOwnPropertyInstELj4EEENS4_12DenseMapInfoIS7_EENS4_6detail12DenseMapPairIS7_SB_EEEERKNS0_13DominanceInfoEE3$_0ENS8_IS7_Lj4EEESM_S7_OT_ENO18OrderBlocksContext3getEv.exit.thread.i"
 
-if.end8.i.i:                                      ; preds = %if.end.i.i
+"_ZZL22orderBlocksByDominanceIZN6hermes16LowerAllocObject13collectStoresEPNS0_15AllocObjectInstERKN4llvh8DenseMapIPNS0_10BasicBlockENS4_11SmallVectorIPNS0_23StoreNewOwnPropertyInstELj4EEENS4_12DenseMapInfoIS7_EENS4_6detail12DenseMapPairIS7_SB_EEEERKNS0_13DominanceInfoEE3$_0ENS8_IS7_Lj4EEESM_S7_OT_ENO18OrderBlocksContext3getEv.exit.thread.i": ; preds = %if.end.i.i
   store ptr %.pre2.i, ptr %sortedBlocks, align 8, !alias.scope !9
   store i32 %41, ptr %Size.i.i.i.i.i.i2.i, align 8, !alias.scope !9
   %42 = load i32, ptr %Capacity2.i.i.i.i.i.i.i, align 4, !noalias !9
   store i32 %42, ptr %Capacity2.i.i.i.i.i.i3.i, align 4, !alias.scope !9
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %sortedBasicBlocks_.i.i, align 8, !noalias !9
   store i32 0, ptr %Capacity2.i.i.i.i.i.i.i, align 4, !noalias !9
-  br label %return.sink.split.i.i
+  store i32 0, ptr %Size.i.i.i.i.i.i.i, align 8, !noalias !9
+  br label %_ZN4llvh11SmallVectorIPN6hermes10BasicBlockELj4EED2Ev.exit.i.i
 
 if.end24.i.i:                                     ; preds = %if.end.i.i
   %cmp26.i.i = icmp ugt i32 %41, 4
@@ -941,7 +942,7 @@ if.end37.i.i:                                     ; preds = %if.end24.i.i
   %conv.i30.i.i = zext i32 %41 to i64
   call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %sortedBlocks, ptr noundef nonnull %add.ptr.i.i.i.i.i.i1.i, i64 noundef %conv.i30.i.i, i64 noundef 8) #13
   %.pre.i = load i32, ptr %Size.i.i.i.i.i.i.i, align 8, !noalias !9
-  %.pre1.pre.pre4.pre.i = load ptr, ptr %sortedBasicBlocks_.i.i, align 8, !noalias !9
+  %.pre1.pre3.pre.i = load ptr, ptr %sortedBasicBlocks_.i.i, align 8, !noalias !9
   %cmp.not.i.i.i18.i = icmp eq i32 %.pre.i, 0
   br i1 %cmp.not.i.i.i18.i, label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i.i, label %if.end37.i.i.if.then.i.i.i19.i_crit_edge
 
@@ -952,25 +953,21 @@ if.end37.i.i.if.then.i.i.i19.i_crit_edge:         ; preds = %if.end37.i.i
 if.then.i.i.i19.i:                                ; preds = %if.end37.i.i.if.then.i.i.i19.i_crit_edge, %if.end24.i.i
   %43 = phi ptr [ %.pre, %if.end37.i.i.if.then.i.i.i19.i_crit_edge ], [ %add.ptr.i.i.i.i.i.i1.i, %if.end24.i.i ]
   %44 = phi i32 [ %.pre.i, %if.end37.i.i.if.then.i.i.i19.i_crit_edge ], [ %41, %if.end24.i.i ]
-  %.pre1.pre.pre49.i = phi ptr [ %.pre1.pre.pre4.pre.i, %if.end37.i.i.if.then.i.i.i19.i_crit_edge ], [ %.pre2.i, %if.end24.i.i ]
+  %.pre1.pre38.i = phi ptr [ %.pre1.pre3.pre.i, %if.end37.i.i.if.then.i.i.i19.i_crit_edge ], [ %.pre2.i, %if.end24.i.i ]
   %conv.i51.i.i = zext i32 %44 to i64
   %gepdiff.i.i = shl nuw nsw i64 %conv.i51.i.i, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %43, ptr align 8 %.pre1.pre.pre49.i, i64 %gepdiff.i.i, i1 false)
-  %.pre1.pre.pre.i = load ptr, ptr %sortedBasicBlocks_.i.i, align 8, !noalias !9
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %43, ptr align 8 %.pre1.pre38.i, i64 %gepdiff.i.i, i1 false)
+  %.pre1.pre.i = load ptr, ptr %sortedBasicBlocks_.i.i, align 8, !noalias !9
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i.i
 
 _ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i.i: ; preds = %if.then.i.i.i19.i, %if.end37.i.i
-  %.pre1.pre.i = phi ptr [ %.pre1.pre.pre.i, %if.then.i.i.i19.i ], [ %.pre1.pre.pre4.pre.i, %if.end37.i.i ]
+  %.pre1.i = phi ptr [ %.pre1.pre.i, %if.then.i.i.i19.i ], [ %.pre1.pre3.pre.i, %if.end37.i.i ]
   store i32 %41, ptr %Size.i.i.i.i.i.i2.i, align 8, !alias.scope !9
-  br label %return.sink.split.i.i
-
-return.sink.split.i.i:                            ; preds = %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i.i, %if.end8.i.i
-  %.pre1.i = phi ptr [ %.pre1.pre.i, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.end8.i.i ]
   store i32 0, ptr %Size.i.i.i.i.i.i.i, align 8, !noalias !9
   br label %"_ZZL22orderBlocksByDominanceIZN6hermes16LowerAllocObject13collectStoresEPNS0_15AllocObjectInstERKN4llvh8DenseMapIPNS0_10BasicBlockENS4_11SmallVectorIPNS0_23StoreNewOwnPropertyInstELj4EEENS4_12DenseMapInfoIS7_EENS4_6detail12DenseMapPairIS7_SB_EEEERKNS0_13DominanceInfoEE3$_0ENS8_IS7_Lj4EEESM_S7_OT_ENO18OrderBlocksContext3getEv.exit.i"
 
-"_ZZL22orderBlocksByDominanceIZN6hermes16LowerAllocObject13collectStoresEPNS0_15AllocObjectInstERKN4llvh8DenseMapIPNS0_10BasicBlockENS4_11SmallVectorIPNS0_23StoreNewOwnPropertyInstELj4EEENS4_12DenseMapInfoIS7_EENS4_6detail12DenseMapPairIS7_SB_EEEERKNS0_13DominanceInfoEE3$_0ENS8_IS7_Lj4EEESM_S7_OT_ENO18OrderBlocksContext3getEv.exit.i": ; preds = %return.sink.split.i.i, %"_ZZL22orderBlocksByDominanceIZN6hermes16LowerAllocObject13collectStoresEPNS0_15AllocObjectInstERKN4llvh8DenseMapIPNS0_10BasicBlockENS4_11SmallVectorIPNS0_23StoreNewOwnPropertyInstELj4EEENS4_12DenseMapInfoIS7_EENS4_6detail12DenseMapPairIS7_SB_EEEERKNS0_13DominanceInfoEE3$_0ENS8_IS7_Lj4EEESM_S7_OT_EN18OrderBlocksContextC2ESM_S7_OSN_.exit.i"
-  %45 = phi ptr [ %.pre1.i, %return.sink.split.i.i ], [ %.pre2.i, %"_ZZL22orderBlocksByDominanceIZN6hermes16LowerAllocObject13collectStoresEPNS0_15AllocObjectInstERKN4llvh8DenseMapIPNS0_10BasicBlockENS4_11SmallVectorIPNS0_23StoreNewOwnPropertyInstELj4EEENS4_12DenseMapInfoIS7_EENS4_6detail12DenseMapPairIS7_SB_EEEERKNS0_13DominanceInfoEE3$_0ENS8_IS7_Lj4EEESM_S7_OT_EN18OrderBlocksContextC2ESM_S7_OSN_.exit.i" ]
+"_ZZL22orderBlocksByDominanceIZN6hermes16LowerAllocObject13collectStoresEPNS0_15AllocObjectInstERKN4llvh8DenseMapIPNS0_10BasicBlockENS4_11SmallVectorIPNS0_23StoreNewOwnPropertyInstELj4EEENS4_12DenseMapInfoIS7_EENS4_6detail12DenseMapPairIS7_SB_EEEERKNS0_13DominanceInfoEE3$_0ENS8_IS7_Lj4EEESM_S7_OT_ENO18OrderBlocksContext3getEv.exit.i": ; preds = %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i.i, %"_ZZL22orderBlocksByDominanceIZN6hermes16LowerAllocObject13collectStoresEPNS0_15AllocObjectInstERKN4llvh8DenseMapIPNS0_10BasicBlockENS4_11SmallVectorIPNS0_23StoreNewOwnPropertyInstELj4EEENS4_12DenseMapInfoIS7_EENS4_6detail12DenseMapPairIS7_SB_EEEERKNS0_13DominanceInfoEE3$_0ENS8_IS7_Lj4EEESM_S7_OT_EN18OrderBlocksContextC2ESM_S7_OSN_.exit.i"
+  %45 = phi ptr [ %.pre1.i, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i.i ], [ %.pre2.i, %"_ZZL22orderBlocksByDominanceIZN6hermes16LowerAllocObject13collectStoresEPNS0_15AllocObjectInstERKN4llvh8DenseMapIPNS0_10BasicBlockENS4_11SmallVectorIPNS0_23StoreNewOwnPropertyInstELj4EEENS4_12DenseMapInfoIS7_EENS4_6detail12DenseMapPairIS7_SB_EEEERKNS0_13DominanceInfoEE3$_0ENS8_IS7_Lj4EEESM_S7_OT_EN18OrderBlocksContextC2ESM_S7_OSN_.exit.i" ]
   %cmp.i.i.i.i9.i = icmp eq ptr %45, %add.ptr.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i9.i, label %_ZN4llvh11SmallVectorIPN6hermes10BasicBlockELj4EED2Ev.exit.i.i, label %if.then.i.i.i10.i
 
@@ -978,7 +975,7 @@ if.then.i.i.i10.i:                                ; preds = %"_ZZL22orderBlocksB
   call void @free(ptr noundef %45) #13
   br label %_ZN4llvh11SmallVectorIPN6hermes10BasicBlockELj4EED2Ev.exit.i.i
 
-_ZN4llvh11SmallVectorIPN6hermes10BasicBlockELj4EED2Ev.exit.i.i: ; preds = %if.then.i.i.i10.i, %"_ZZL22orderBlocksByDominanceIZN6hermes16LowerAllocObject13collectStoresEPNS0_15AllocObjectInstERKN4llvh8DenseMapIPNS0_10BasicBlockENS4_11SmallVectorIPNS0_23StoreNewOwnPropertyInstELj4EEENS4_12DenseMapInfoIS7_EENS4_6detail12DenseMapPairIS7_SB_EEEERKNS0_13DominanceInfoEE3$_0ENS8_IS7_Lj4EEESM_S7_OT_ENO18OrderBlocksContext3getEv.exit.i"
+_ZN4llvh11SmallVectorIPN6hermes10BasicBlockELj4EED2Ev.exit.i.i: ; preds = %if.then.i.i.i10.i, %"_ZZL22orderBlocksByDominanceIZN6hermes16LowerAllocObject13collectStoresEPNS0_15AllocObjectInstERKN4llvh8DenseMapIPNS0_10BasicBlockENS4_11SmallVectorIPNS0_23StoreNewOwnPropertyInstELj4EEENS4_12DenseMapInfoIS7_EENS4_6detail12DenseMapPairIS7_SB_EEEERKNS0_13DominanceInfoEE3$_0ENS8_IS7_Lj4EEESM_S7_OT_ENO18OrderBlocksContext3getEv.exit.i", %"_ZZL22orderBlocksByDominanceIZN6hermes16LowerAllocObject13collectStoresEPNS0_15AllocObjectInstERKN4llvh8DenseMapIPNS0_10BasicBlockENS4_11SmallVectorIPNS0_23StoreNewOwnPropertyInstELj4EEENS4_12DenseMapInfoIS7_EENS4_6detail12DenseMapPairIS7_SB_EEEERKNS0_13DominanceInfoEE3$_0ENS8_IS7_Lj4EEESM_S7_OT_ENO18OrderBlocksContext3getEv.exit.thread.i"
   store ptr null, ptr %ref.tmp.i, align 8, !noalias !9
   %46 = load ptr, ptr %Slabs.i.i.i.i.i, align 8, !noalias !9
   %47 = load i32, ptr %Size.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !9
@@ -4910,7 +4907,8 @@ if.end8:                                          ; preds = %if.then6, %if.then2
   store i32 %4, ptr %Capacity11, align 4
   store ptr %add.ptr.i.i, ptr %RHS, align 8
   store i32 0, ptr %Capacity, align 4
-  br label %return.sink.split
+  store i32 0, ptr %Size, align 8
+  br label %return
 
 if.end12:                                         ; preds = %if.end
   %Size.i29 = getelementptr inbounds i8, ptr %RHS, i64 8
@@ -4934,7 +4932,8 @@ if.then.i.i.i.i.i:                                ; preds = %if.then16
 
 if.end22:                                         ; preds = %if.then.i.i.i.i.i, %if.then16
   store i32 %5, ptr %Size.i31, align 8
-  br label %return.sink.split
+  store i32 0, ptr %Size.i29, align 8
+  br label %return
 
 if.end24:                                         ; preds = %if.end12
   %Capacity.i38 = getelementptr inbounds i8, ptr %this, i64 12
@@ -4978,14 +4977,10 @@ if.then.i.i:                                      ; preds = %if.end37
 
 _ZN4llvh23SmallVectorTemplateBaseIPN6hermes23StoreNewOwnPropertyInstELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit: ; preds = %if.end37, %if.then.i.i
   store i32 %5, ptr %Size.i31, align 8
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.end8, %if.end22, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes23StoreNewOwnPropertyInstELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit
-  %Size.i29.sink = phi ptr [ %Size.i29, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes23StoreNewOwnPropertyInstELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit ], [ %Size.i29, %if.end22 ], [ %Size, %if.end8 ]
-  store i32 0, ptr %Size.i29.sink, align 8
+  store i32 0, ptr %Size.i29, align 8
   br label %return
 
-return:                                           ; preds = %return.sink.split, %entry
+return:                                           ; preds = %entry, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes23StoreNewOwnPropertyInstELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit, %if.end22, %if.end8
   ret ptr %this
 }
 

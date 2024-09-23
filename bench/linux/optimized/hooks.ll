@@ -11441,23 +11441,23 @@ define internal range(i32 -22, 1) i32 @selinux_socket_getpeersec_dgram(ptr nound
 
 .thread:                                          ; preds = %29, %11
   store i32 0, ptr %2, align 4
-  br label %43
-
-41:                                               ; preds = %40, %20
-  %.sink = phi ptr [ %6, %40 ], [ %28, %20 ]
-  %.pre = load i32, ptr %.sink, align 4
-  %.pre.fr = freeze i32 %.pre
-  store i32 %.pre.fr, ptr %2, align 4
-  %42 = icmp eq i32 %.pre.fr, 0
-  br i1 %42, label %43, label %44
-
-43:                                               ; preds = %.thread, %41
   br label %44
 
-44:                                               ; preds = %41, %43
-  %45 = phi i32 [ -22, %43 ], [ 0, %41 ]
+41:                                               ; preds = %40, %20
+  %.in = phi ptr [ %6, %40 ], [ %28, %20 ]
+  %42 = load i32, ptr %.in, align 4
+  %.fr = freeze i32 %42
+  store i32 %.fr, ptr %2, align 4
+  %43 = icmp eq i32 %.fr, 0
+  br i1 %43, label %44, label %45
+
+44:                                               ; preds = %.thread, %41
+  br label %45
+
+45:                                               ; preds = %41, %44
+  %46 = phi i32 [ -22, %44 ], [ 0, %41 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #24
-  ret i32 %45
+  ret i32 %46
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

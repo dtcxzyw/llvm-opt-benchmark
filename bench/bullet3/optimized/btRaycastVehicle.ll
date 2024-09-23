@@ -1583,18 +1583,18 @@ if.then.i:                                        ; preds = %for.body.i
   %m_wheelsSuspensionForce.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 288
   store float %mul10.i, ptr %m_wheelsSuspensionForce.i, align 8
   %cmp12.i = fcmp olt float %mul10.i, 0.000000e+00
-  br i1 %cmp12.i, label %for.inc.sink.split.i, label %for.inc.i
+  br i1 %cmp12.i, label %if.then13.i, label %for.inc.i
+
+if.then13.i:                                      ; preds = %if.then.i
+  store float 0.000000e+00, ptr %m_wheelsSuspensionForce.i, align 8
+  br label %for.inc.i
 
 if.else16.i:                                      ; preds = %for.body.i
   %m_wheelsSuspensionForce17.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 288
-  br label %for.inc.sink.split.i
-
-for.inc.sink.split.i:                             ; preds = %if.else16.i, %if.then.i
-  %m_wheelsSuspensionForce17.sink.i = phi ptr [ %m_wheelsSuspensionForce17.i, %if.else16.i ], [ %m_wheelsSuspensionForce.i, %if.then.i ]
-  store float 0.000000e+00, ptr %m_wheelsSuspensionForce17.sink.i, align 8
+  store float 0.000000e+00, ptr %m_wheelsSuspensionForce17.i, align 8
   br label %for.inc.i
 
-for.inc.i:                                        ; preds = %for.inc.sink.split.i, %if.then.i
+for.inc.i:                                        ; preds = %if.else16.i, %if.then13.i, %if.then.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %30 = load i32, ptr %m_size.i.i, align 4
   %31 = sext i32 %30 to i64
@@ -1839,18 +1839,18 @@ if.then:                                          ; preds = %for.body
   %m_wheelsSuspensionForce = getelementptr inbounds i8, ptr %arrayidx.i, i64 288
   store float %mul10, ptr %m_wheelsSuspensionForce, align 8
   %cmp12 = fcmp olt float %mul10, 0.000000e+00
-  br i1 %cmp12, label %for.inc.sink.split, label %for.inc
+  br i1 %cmp12, label %if.then13, label %for.inc
+
+if.then13:                                        ; preds = %if.then
+  store float 0.000000e+00, ptr %m_wheelsSuspensionForce, align 8
+  br label %for.inc
 
 if.else16:                                        ; preds = %for.body
   %m_wheelsSuspensionForce17 = getelementptr inbounds i8, ptr %arrayidx.i, i64 288
-  br label %for.inc.sink.split
-
-for.inc.sink.split:                               ; preds = %if.then, %if.else16
-  %m_wheelsSuspensionForce17.sink = phi ptr [ %m_wheelsSuspensionForce17, %if.else16 ], [ %m_wheelsSuspensionForce, %if.then ]
-  store float 0.000000e+00, ptr %m_wheelsSuspensionForce17.sink, align 8
+  store float 0.000000e+00, ptr %m_wheelsSuspensionForce17, align 8
   br label %for.inc
 
-for.inc:                                          ; preds = %for.inc.sink.split, %if.then
+for.inc:                                          ; preds = %if.else16, %if.then13, %if.then
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i32, ptr %m_size.i.i, align 4
   %11 = sext i32 %10 to i64

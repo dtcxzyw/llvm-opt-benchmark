@@ -2295,7 +2295,7 @@ define hidden noundef nonnull align 4 dereferenceable(8) ptr @"_ZN4core4cell4onc
   %12 = extractvalue { i32, i32 } %8, 1
   store i32 %9, ptr %0, align 4, !alias.scope !417, !noalias !414
   %13 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %12, ptr %13, align 4
+  store i32 %12, ptr %13, align 4, !alias.scope !417, !noalias !414
   br label %20
 
 "_ZN4core4cell4once17OnceCell$LT$T$GT$10try_insert17h0dbab45c81847cc0E.exit": ; preds = %7

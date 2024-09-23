@@ -40939,6 +40939,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   %87 = getelementptr inbounds { i128, i64, [1 x i64] }, ptr %46, i64 %59
   %88 = getelementptr inbounds i8, ptr %87, i64 -16
   %89 = load i64, ptr %88, align 16, !noundef !12
+  store i64 %2, ptr %88, align 16
   br label %108
 
 90:                                               ; preds = %79, %74
@@ -40966,13 +40967,12 @@ define hidden { i64, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   %106 = getelementptr inbounds i8, ptr %105, i64 -32
   store i128 %1, ptr %106, align 16, !noalias !10086
   %107 = getelementptr inbounds i8, ptr %105, i64 -16
+  store i64 %2, ptr %107, align 16, !noalias !10086
   br label %108
 
 108:                                              ; preds = %90, %86
-  %.sink = phi ptr [ %107, %90 ], [ %88, %86 ]
   %.sroa.3.0 = phi i64 [ undef, %90 ], [ %89, %86 ]
   %.sroa.0.0 = phi i64 [ 0, %90 ], [ 1, %86 ]
-  store i64 %2, ptr %.sink, align 16
   %109 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %110 = insertvalue { i64, i64 } %109, i64 %.sroa.3.0, 1
   ret { i64, i64 } %110
@@ -93845,8 +93845,8 @@ _ZN3std3sys3pal4unix5locks12futex_rwlock6RwLock5write17h01ce5007a136bf6dE.exit: 
 .loopexit:                                        ; preds = %204, %232
   %249 = phi i64 [ %246, %232 ], [ %201, %204 ]
   %250 = getelementptr inbounds { { ptr, i64 }, i32, [1 x i32] }, ptr %190, i64 %249
-  %.sroa.5.0..sroa_idx.sink.i = getelementptr inbounds i8, ptr %250, i64 -8
-  store i32 %.sroa.5.0, ptr %.sroa.5.0..sroa_idx.sink.i, align 8
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %250, i64 -8
+  store i32 %.sroa.5.0, ptr %.sroa.5.0..sroa_idx.i, align 8
   %251 = getelementptr inbounds i8, ptr %149, i64 16
   %252 = getelementptr inbounds i8, ptr %149, i64 32
   %253 = load i64, ptr %252, align 8, !alias.scope !23065, !noalias !23068, !noundef !12
@@ -113563,7 +113563,7 @@ _ZN3std3sys3pal4unix5locks12futex_rwlock6RwLock5write17h01ce5007a136bf6dE.exit.i
   %.sroa.412.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %545, i64 -16
   store ptr %449, ptr %.sroa.412.0..sroa_idx.i.i, align 16, !noalias !26994
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %545, i64 -8
-  store i64 %450, ptr %.sroa.5.0..sroa_idx.i.i, align 8
+  store i64 %450, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !noalias !26994
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   store ptr null, ptr %9, align 8
   br label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$ecow..vec..EcoVec$LT$typst..foundations..content..Content$GT$$GT$$GT$17hb8c73719a5612999E.exit.i"

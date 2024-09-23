@@ -8586,6 +8586,7 @@ land.lhs.true54:                                  ; preds = %land.lhs.true50
 if.then66:                                        ; preds = %land.lhs.true54, %land.lhs.true50, %cond.end
   store i16 2693, ptr %ot1.i91, align 4
   store i16 %conv36, ptr %fold.i90, align 8
+  store i16 %conv, ptr %op2.i94, align 2
   br label %return.sink.split
 
 if.end73:                                         ; preds = %entry, %if.end, %if.then24
@@ -8595,11 +8596,10 @@ if.end73:                                         ; preds = %entry, %if.end, %if
   store i16 2707, ptr %ot1.i, align 4
   store i16 %conv74, ptr %fold.i, align 8
   %op2.i = getelementptr inbounds i8, ptr %J, i64 186
+  store i16 %conv, ptr %op2.i, align 2
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end73, %if.then66
-  %op2.i.sink = phi ptr [ %op2.i, %if.end73 ], [ %op2.i94, %if.then66 ]
-  store i16 %conv, ptr %op2.i.sink, align 2
   %call69 = tail call i32 @lj_opt_fold(ptr noundef nonnull %J) #7
   br label %return
 

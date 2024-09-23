@@ -2609,7 +2609,7 @@ define hidden noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef ptr @_ZN4Dict6InsertEPvS0_b(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull %0, ptr noundef nonnull %0, i1 noundef zeroext false) #17
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %27, label %11
+  br i1 %.not, label %28, label %11
 
 11:                                               ; preds = %1
   %12 = icmp eq ptr %10, %0
@@ -2629,72 +2629,75 @@ define hidden noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align
   %24 = getelementptr inbounds i8, ptr %22, i64 32
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %23, %25
-  br i1 %26, label %_ZN4TypedlEPv.exit.sink.split, label %_ZN4TypedlEPv.exit
+  br i1 %26, label %27, label %_ZN4TypedlEPv.exit
 
-27:                                               ; preds = %1
-  %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 40
-  %30 = load ptr, ptr %29, align 8
-  %31 = tail call noundef ptr %30(ptr noundef nonnull align 8 dereferenceable(20) %0) #17
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %31, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
-  %34 = load i32, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %31, i64 16
-  %36 = load i32, ptr %35, align 8
-  %.not.i = icmp eq i32 %34, %36
-  br i1 %.not.i, label %_ZN4Type6equalsEPKS_S1_.exit, label %_ZN4Type6equalsEPKS_S1_.exit.thread
-
-_ZN4Type6equalsEPKS_S1_.exit:                     ; preds = %27
-  %37 = load ptr, ptr %0, align 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = tail call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull %31) #17
-  %.pre = load ptr, ptr %32, align 8
-  br i1 %39, label %40, label %_ZN4Type6equalsEPKS_S1_.exit.thread
-
-40:                                               ; preds = %_ZN4Type6equalsEPKS_S1_.exit
-  %.not10 = icmp eq ptr %.pre, %0
-  br i1 %.not10, label %_ZN4TypedlEPv.exit, label %41
-
-41:                                               ; preds = %40
-  %42 = icmp eq ptr %.pre, null
-  br i1 %42, label %_ZN4TypedlEPv.exit.sink.split, label %43
-
-43:                                               ; preds = %41
-  %44 = load ptr, ptr %2, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 1808
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 128
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 888
-  %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %48, i64 848
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %.pre, i64 %50
-  %54 = getelementptr inbounds i8, ptr %52, i64 32
-  %55 = load ptr, ptr %54, align 8
-  %56 = icmp eq ptr %53, %55
-  br i1 %56, label %57, label %_ZN4TypedlEPv.exit.sink.split
-
-57:                                               ; preds = %43
-  store ptr %.pre, ptr %54, align 8
-  br label %_ZN4TypedlEPv.exit.sink.split
-
-_ZN4Type6equalsEPKS_S1_.exit.thread:              ; preds = %27, %_ZN4Type6equalsEPKS_S1_.exit
-  %58 = phi ptr [ %31, %27 ], [ %.pre, %_ZN4Type6equalsEPKS_S1_.exit ]
-  %59 = tail call noundef ptr @_ZN4Dict6InsertEPvS0_b(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef %58, ptr noundef %58, i1 noundef zeroext true) #17
-  %60 = load ptr, ptr %32, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 8
-  br label %_ZN4TypedlEPv.exit.sink.split
-
-_ZN4TypedlEPv.exit.sink.split:                    ; preds = %41, %43, %57, %13, %_ZN4Type6equalsEPKS_S1_.exit.thread
-  %.sink = phi ptr [ %61, %_ZN4Type6equalsEPKS_S1_.exit.thread ], [ %24, %13 ], [ %32, %57 ], [ %32, %43 ], [ %32, %41 ]
-  %.0.ph = phi ptr [ %0, %_ZN4Type6equalsEPKS_S1_.exit.thread ], [ %10, %13 ], [ %0, %57 ], [ %0, %43 ], [ %0, %41 ]
-  store ptr %0, ptr %.sink, align 8
+27:                                               ; preds = %13
+  store ptr %0, ptr %24, align 8
   br label %_ZN4TypedlEPv.exit
 
-_ZN4TypedlEPv.exit:                               ; preds = %_ZN4TypedlEPv.exit.sink.split, %13, %40, %11
-  %.0 = phi ptr [ %10, %11 ], [ %0, %40 ], [ %10, %13 ], [ %.0.ph, %_ZN4TypedlEPv.exit.sink.split ]
+28:                                               ; preds = %1
+  %29 = load ptr, ptr %0, align 8
+  %30 = getelementptr inbounds i8, ptr %29, i64 40
+  %31 = load ptr, ptr %30, align 8
+  %32 = tail call noundef ptr %31(ptr noundef nonnull align 8 dereferenceable(20) %0) #17
+  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %32, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %0, i64 16
+  %35 = load i32, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %32, i64 16
+  %37 = load i32, ptr %36, align 8
+  %.not.i = icmp eq i32 %35, %37
+  br i1 %.not.i, label %_ZN4Type6equalsEPKS_S1_.exit, label %_ZN4Type6equalsEPKS_S1_.exit.thread
+
+_ZN4Type6equalsEPKS_S1_.exit:                     ; preds = %28
+  %38 = load ptr, ptr %0, align 8
+  %39 = load ptr, ptr %38, align 8
+  %40 = tail call noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull %32) #17
+  %.pre = load ptr, ptr %33, align 8
+  br i1 %40, label %41, label %_ZN4Type6equalsEPKS_S1_.exit.thread
+
+41:                                               ; preds = %_ZN4Type6equalsEPKS_S1_.exit
+  %.not10 = icmp eq ptr %.pre, %0
+  br i1 %.not10, label %_ZN4TypedlEPv.exit, label %42
+
+42:                                               ; preds = %41
+  %43 = icmp eq ptr %.pre, null
+  br i1 %43, label %_ZN4TypedlEPv.exit11, label %44
+
+44:                                               ; preds = %42
+  %45 = load ptr, ptr %2, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 1808
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i64 128
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds i8, ptr %49, i64 888
+  %51 = load i64, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %49, i64 848
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds i8, ptr %.pre, i64 %51
+  %55 = getelementptr inbounds i8, ptr %53, i64 32
+  %56 = load ptr, ptr %55, align 8
+  %57 = icmp eq ptr %54, %56
+  br i1 %57, label %58, label %_ZN4TypedlEPv.exit11
+
+58:                                               ; preds = %44
+  store ptr %.pre, ptr %55, align 8
+  br label %_ZN4TypedlEPv.exit11
+
+_ZN4TypedlEPv.exit11:                             ; preds = %58, %44, %42
+  store ptr %0, ptr %33, align 8
+  br label %_ZN4TypedlEPv.exit
+
+_ZN4Type6equalsEPKS_S1_.exit.thread:              ; preds = %28, %_ZN4Type6equalsEPKS_S1_.exit
+  %59 = phi ptr [ %32, %28 ], [ %.pre, %_ZN4Type6equalsEPKS_S1_.exit ]
+  %60 = tail call noundef ptr @_ZN4Dict6InsertEPvS0_b(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef %59, ptr noundef %59, i1 noundef zeroext true) #17
+  %61 = load ptr, ptr %33, align 8
+  %62 = getelementptr inbounds i8, ptr %61, i64 8
+  store ptr %0, ptr %62, align 8
+  br label %_ZN4TypedlEPv.exit
+
+_ZN4TypedlEPv.exit:                               ; preds = %27, %13, %41, %_ZN4TypedlEPv.exit11, %11, %_ZN4Type6equalsEPKS_S1_.exit.thread
+  %.0 = phi ptr [ %0, %_ZN4Type6equalsEPKS_S1_.exit.thread ], [ %10, %11 ], [ %0, %_ZN4TypedlEPv.exit11 ], [ %0, %41 ], [ %10, %13 ], [ %10, %27 ]
   ret ptr %.0
 }
 

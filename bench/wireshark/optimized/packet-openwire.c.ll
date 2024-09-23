@@ -970,7 +970,7 @@ define internal i32 @dissect_openwire(ptr noundef %0, ptr noundef %1, ptr nounde
   tail call void @col_clear(ptr noundef %7, i32 noundef 25) #2
   %8 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #2
   %9 = icmp sgt i32 %8, 4
-  br i1 %9, label %10, label %82
+  br i1 %9, label %10, label %84
 
 10:                                               ; preds = %4
   %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #2
@@ -982,7 +982,7 @@ define internal i32 @dissect_openwire(ptr noundef %0, ptr noundef %1, ptr nounde
   tail call void @col_set_fence(ptr noundef %15, i32 noundef 25) #2
   %16 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0) #2
   %17 = icmp sgt i32 %16, 11
-  br i1 %17, label %18, label %36
+  br i1 %17, label %18, label %38
 
 18:                                               ; preds = %10
   switch i8 %11, label %detect_protocol_options.exit [
@@ -1016,114 +1016,117 @@ define internal i32 @dissect_openwire(ptr noundef %0, ptr noundef %1, ptr nounde
   %29 = getelementptr inbounds i8, ptr %28, i64 4
   store i32 0, ptr %29, align 4
   %30 = icmp sgt i32 %26, 16777216
-  br i1 %30, label %.sink.split.i, label %31
+  br i1 %30, label %31, label %32
 
 31:                                               ; preds = %23
-  %32 = icmp eq i8 %24, 1
-  %33 = icmp eq i8 %25, 0
-  %or.cond22.i = select i1 %32, i1 %33, i1 false
-  br i1 %or.cond22.i, label %.sink.split.i, label %34
+  store i32 1, ptr %29, align 4
+  br label %36
 
-.sink.split.i:                                    ; preds = %31, %23
-  %.sink.i = phi ptr [ %29, %23 ], [ %28, %31 ]
-  store i32 1, ptr %.sink.i, align 4
-  br label %34
+32:                                               ; preds = %23
+  %33 = icmp eq i8 %24, 1
+  %34 = icmp eq i8 %25, 0
+  %or.cond22.i = select i1 %33, i1 %34, i1 false
+  br i1 %or.cond22.i, label %35, label %36
 
-34:                                               ; preds = %.sink.split.i, %31
-  %35 = load i32, ptr @proto_openwire, align 4
-  tail call void @conversation_add_proto_data(ptr noundef nonnull %20, i32 noundef %35, ptr noundef nonnull %28) #2
+35:                                               ; preds = %32
+  store i32 1, ptr %28, align 4
+  br label %36
+
+36:                                               ; preds = %35, %32, %31
+  %37 = load i32, ptr @proto_openwire, align 4
+  tail call void @conversation_add_proto_data(ptr noundef nonnull %20, i32 noundef %37, ptr noundef nonnull %28) #2
   br label %detect_protocol_options.exit
 
-36:                                               ; preds = %10
-  %37 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #2
-  %38 = icmp eq i8 %37, 10
-  br i1 %38, label %39, label %detect_protocol_options.exit
+38:                                               ; preds = %10
+  %39 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #2
+  %40 = icmp eq i8 %39, 10
+  br i1 %40, label %41, label %detect_protocol_options.exit
 
-39:                                               ; preds = %36
-  %40 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
-  %41 = icmp eq i32 %40, 11
-  br i1 %41, label %42, label %detect_protocol_options.exit
+41:                                               ; preds = %38
+  %42 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
+  %43 = icmp eq i32 %42, 11
+  br i1 %43, label %44, label %detect_protocol_options.exit
 
-42:                                               ; preds = %39
-  %43 = tail call nonnull ptr @find_or_create_conversation(ptr noundef nonnull %1) #2
-  %44 = load i32, ptr @proto_openwire, align 4
-  %45 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %43, i32 noundef %44) #2
-  %.not.i = icmp eq ptr %45, null
-  br i1 %.not.i, label %46, label %detect_protocol_options.exit
+44:                                               ; preds = %41
+  %45 = tail call nonnull ptr @find_or_create_conversation(ptr noundef nonnull %1) #2
+  %46 = load i32, ptr @proto_openwire, align 4
+  %47 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %45, i32 noundef %46) #2
+  %.not.i = icmp eq ptr %47, null
+  br i1 %.not.i, label %48, label %detect_protocol_options.exit
 
-46:                                               ; preds = %42
-  %47 = tail call ptr @wmem_file_scope() #2
-  %48 = tail call noalias ptr @wmem_alloc(ptr noundef %47, i64 noundef 8) #2
-  %49 = getelementptr inbounds i8, ptr %48, i64 4
-  store i32 1, ptr %49, align 4
-  store i32 0, ptr %48, align 4
-  %50 = load i32, ptr @proto_openwire, align 4
-  tail call void @conversation_add_proto_data(ptr noundef nonnull %43, i32 noundef %50, ptr noundef nonnull %48) #2
+48:                                               ; preds = %44
+  %49 = tail call ptr @wmem_file_scope() #2
+  %50 = tail call noalias ptr @wmem_alloc(ptr noundef %49, i64 noundef 8) #2
+  %51 = getelementptr inbounds i8, ptr %50, i64 4
+  store i32 1, ptr %51, align 4
+  store i32 0, ptr %50, align 4
+  %52 = load i32, ptr @proto_openwire, align 4
+  tail call void @conversation_add_proto_data(ptr noundef nonnull %45, i32 noundef %52, ptr noundef nonnull %50) #2
   br label %detect_protocol_options.exit
 
-detect_protocol_options.exit:                     ; preds = %18, %19, %34, %36, %39, %42, %46
-  %51 = load i32, ptr @proto_openwire, align 4
-  %52 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %51, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
-  %53 = tail call ptr @val_to_str_ext(i32 noundef %13, ptr noundef nonnull @openwire_opcode_vals_ext, ptr noundef nonnull @.str.586) #2
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %52, ptr noundef nonnull @.str.587, ptr noundef %53) #2
-  %54 = load i32, ptr @ett_openwire, align 4
-  %55 = tail call ptr @proto_item_add_subtree(ptr noundef %52, i32 noundef %54) #2
-  %56 = load i32, ptr @hf_openwire_length, align 4
-  %57 = tail call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %56, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #2
+detect_protocol_options.exit:                     ; preds = %18, %19, %36, %38, %41, %44, %48
+  %53 = load i32, ptr @proto_openwire, align 4
+  %54 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %53, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
+  %55 = tail call ptr @val_to_str_ext(i32 noundef %13, ptr noundef nonnull @openwire_opcode_vals_ext, ptr noundef nonnull @.str.586) #2
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %54, ptr noundef nonnull @.str.587, ptr noundef %55) #2
+  %56 = load i32, ptr @ett_openwire, align 4
+  %57 = tail call ptr @proto_item_add_subtree(ptr noundef %54, i32 noundef %56) #2
+  %58 = load i32, ptr @hf_openwire_length, align 4
+  %59 = tail call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %58, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #2
   %.not = icmp eq i8 %11, 1
-  br i1 %.not, label %retrieve_tight.exit.thread, label %58
+  br i1 %.not, label %retrieve_tight.exit.thread, label %60
 
-58:                                               ; preds = %detect_protocol_options.exit
-  %59 = tail call nonnull ptr @find_or_create_conversation(ptr noundef nonnull %1) #2
-  %60 = load i32, ptr @proto_openwire, align 4
-  %61 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %59, i32 noundef %60) #2
-  %.not.i52 = icmp eq ptr %61, null
-  br i1 %.not.i52, label %retrieve_tight.exit.thread, label %62
+60:                                               ; preds = %detect_protocol_options.exit
+  %61 = tail call nonnull ptr @find_or_create_conversation(ptr noundef nonnull %1) #2
+  %62 = load i32, ptr @proto_openwire, align 4
+  %63 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %61, i32 noundef %62) #2
+  %.not.i52 = icmp eq ptr %63, null
+  br i1 %.not.i52, label %retrieve_tight.exit.thread, label %64
 
-62:                                               ; preds = %58
-  %63 = getelementptr inbounds i8, ptr %61, i64 4
-  %64 = load i32, ptr %63, align 4
-  %.not5.i = icmp eq i32 %64, 0
+64:                                               ; preds = %60
+  %65 = getelementptr inbounds i8, ptr %63, i64 4
+  %66 = load i32, ptr %65, align 4
+  %.not5.i = icmp eq i32 %66, 0
   br i1 %.not5.i, label %retrieve_tight.exit.thread, label %retrieve_tight.exit
 
-retrieve_tight.exit:                              ; preds = %62
-  %65 = load i32, ptr @hf_openwire_command, align 4
-  %66 = tail call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %65, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #2
-  %67 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %55, ptr noundef nonnull @ei_openwire_tight_encoding_not_supported) #2
-  br label %82
+retrieve_tight.exit:                              ; preds = %64
+  %67 = load i32, ptr @hf_openwire_command, align 4
+  %68 = tail call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %67, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #2
+  %69 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %57, ptr noundef nonnull @ei_openwire_tight_encoding_not_supported) #2
+  br label %84
 
-retrieve_tight.exit.thread:                       ; preds = %62, %58, %detect_protocol_options.exit
-  %68 = tail call nonnull ptr @find_or_create_conversation(ptr noundef nonnull %1) #2
-  %69 = load i32, ptr @proto_openwire, align 4
-  %70 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %68, i32 noundef %69) #2
-  %.not.i53 = icmp eq ptr %70, null
+retrieve_tight.exit.thread:                       ; preds = %64, %60, %detect_protocol_options.exit
+  %70 = tail call nonnull ptr @find_or_create_conversation(ptr noundef nonnull %1) #2
+  %71 = load i32, ptr @proto_openwire, align 4
+  %72 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %70, i32 noundef %71) #2
+  %.not.i53 = icmp eq ptr %72, null
   br i1 %.not.i53, label %retrieve_caching.exit.thread, label %retrieve_caching.exit
 
 retrieve_caching.exit:                            ; preds = %retrieve_tight.exit.thread
-  %71 = load i32, ptr %70, align 4
-  %.not51 = icmp eq i32 %71, 0
-  br i1 %.not51, label %retrieve_caching.exit.thread, label %72
+  %73 = load i32, ptr %72, align 4
+  %.not51 = icmp eq i32 %73, 0
+  br i1 %.not51, label %retrieve_caching.exit.thread, label %74
 
-72:                                               ; preds = %retrieve_caching.exit
-  %73 = load i32, ptr @hf_openwire_cached_enabled, align 4
-  %74 = sext i32 %71 to i64
-  %75 = tail call ptr @proto_tree_add_boolean(ptr noundef %55, i32 noundef %73, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %74) #2
+74:                                               ; preds = %retrieve_caching.exit
+  %75 = load i32, ptr @hf_openwire_cached_enabled, align 4
+  %76 = sext i32 %73 to i64
+  %77 = tail call ptr @proto_tree_add_boolean(ptr noundef %57, i32 noundef %75, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %76) #2
   br label %retrieve_caching.exit.thread
 
-retrieve_caching.exit.thread:                     ; preds = %retrieve_tight.exit.thread, %72, %retrieve_caching.exit
-  %76 = tail call fastcc i32 @dissect_openwire_command(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %55, i32 noundef 4, i32 noundef %13)
-  %77 = add i32 %76, 4
-  %78 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %77) #2
-  %79 = icmp sgt i32 %78, 0
-  br i1 %79, label %80, label %82
+retrieve_caching.exit.thread:                     ; preds = %retrieve_tight.exit.thread, %74, %retrieve_caching.exit
+  %78 = tail call fastcc i32 @dissect_openwire_command(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %57, i32 noundef 4, i32 noundef %13)
+  %79 = add i32 %78, 4
+  %80 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %79) #2
+  %81 = icmp sgt i32 %80, 0
+  br i1 %81, label %82, label %84
 
-80:                                               ; preds = %retrieve_caching.exit.thread
-  %81 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull @ei_openwire_command_not_supported, ptr noundef nonnull @.str.588, i32 noundef %13) #2
-  br label %82
+82:                                               ; preds = %retrieve_caching.exit.thread
+  %83 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull @ei_openwire_command_not_supported, ptr noundef nonnull @.str.588, i32 noundef %13) #2
+  br label %84
 
-82:                                               ; preds = %4, %80, %retrieve_caching.exit.thread, %retrieve_tight.exit
-  %83 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
-  ret i32 %83
+84:                                               ; preds = %4, %82, %retrieve_caching.exit.thread, %retrieve_tight.exit
+  %85 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
+  ret i32 %85
 }
 
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1

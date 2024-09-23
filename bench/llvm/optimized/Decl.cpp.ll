@@ -12291,7 +12291,8 @@ define dso_local i32 @_ZNK5clang7VarDecl23getPointOfInstantiationEv(ptr noundef 
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  br label %_ZNK5clang7VarDecl27getMemberSpecializationInfoEv.exit.thread.sink.split
+  %.sroa.0.0.copyload.i = load i32, ptr %6, align 8
+  br label %_ZNK5clang7VarDecl27getMemberSpecializationInfoEv.exit.thread
 
 7:                                                ; preds = %1
   %8 = and i32 %3, 127
@@ -12333,15 +12334,11 @@ _ZNK5clang7VarDecl18isStaticDataMemberEv.exit.i:  ; preds = %15, %9
 26:                                               ; preds = %21
   %27 = inttoptr i64 %25 to ptr
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  br label %_ZNK5clang7VarDecl27getMemberSpecializationInfoEv.exit.thread.sink.split
-
-_ZNK5clang7VarDecl27getMemberSpecializationInfoEv.exit.thread.sink.split: ; preds = %5, %26
-  %.sink = phi ptr [ %28, %26 ], [ %6, %5 ]
-  %.sroa.0.0.copyload.i7 = load i32, ptr %.sink, align 8
+  %.sroa.0.0.copyload.i7 = load i32, ptr %28, align 8
   br label %_ZNK5clang7VarDecl27getMemberSpecializationInfoEv.exit.thread
 
-_ZNK5clang7VarDecl27getMemberSpecializationInfoEv.exit.thread: ; preds = %_ZNK5clang7VarDecl27getMemberSpecializationInfoEv.exit.thread.sink.split, %21, %7, %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.i
-  %.sroa.0.0 = phi i32 [ 0, %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.i ], [ 0, %7 ], [ 0, %21 ], [ %.sroa.0.0.copyload.i7, %_ZNK5clang7VarDecl27getMemberSpecializationInfoEv.exit.thread.sink.split ]
+_ZNK5clang7VarDecl27getMemberSpecializationInfoEv.exit.thread: ; preds = %21, %7, %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.i, %26, %5
+  %.sroa.0.0 = phi i32 [ %.sroa.0.0.copyload.i7, %26 ], [ %.sroa.0.0.copyload.i, %5 ], [ 0, %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.i ], [ 0, %7 ], [ 0, %21 ]
   ret i32 %.sroa.0.0
 }
 
@@ -22057,9 +22054,18 @@ define dso_local void @_ZN5clang9FieldDecl21setInClassInitializerEPNS_4ExprE(ptr
   %6 = and i32 %5, 1
   %.not.i = icmp eq i32 %6, 0
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %8 = load ptr, ptr %7, align 8
-  %.sink.i = select i1 %.not.i, ptr %7, ptr %8
-  store i64 %3, ptr %.sink.i, align 8
+  br i1 %.not.i, label %10, label %8
+
+8:                                                ; preds = %2
+  %9 = load ptr, ptr %7, align 8
+  store i64 %3, ptr %9, align 8
+  br label %_ZN5clang9FieldDecl25setLazyInClassInitializerENS_13LazyOffsetPtrINS_4StmtEmXadL_ZNS_17ExternalASTSource19GetExternalDeclStmtEmEEEE.exit
+
+10:                                               ; preds = %2
+  store i64 %3, ptr %7, align 8
+  br label %_ZN5clang9FieldDecl25setLazyInClassInitializerENS_13LazyOffsetPtrINS_4StmtEmXadL_ZNS_17ExternalASTSource19GetExternalDeclStmtEmEEEE.exit
+
+_ZN5clang9FieldDecl25setLazyInClassInitializerENS_13LazyOffsetPtrINS_4StmtEmXadL_ZNS_17ExternalASTSource19GetExternalDeclStmtEmEEEE.exit: ; preds = %8, %10
   ret void
 }
 
@@ -22070,9 +22076,18 @@ define dso_local void @_ZN5clang9FieldDecl25setLazyInClassInitializerENS_13LazyO
   %5 = and i32 %4, 1
   %.not = icmp eq i32 %5, 0
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %7 = load ptr, ptr %6, align 8
-  %.sink = select i1 %.not, ptr %6, ptr %7
-  store i64 %1, ptr %.sink, align 8
+  br i1 %.not, label %9, label %7
+
+7:                                                ; preds = %2
+  %8 = load ptr, ptr %6, align 8
+  store i64 %1, ptr %8, align 8
+  br label %10
+
+9:                                                ; preds = %2
+  store i64 %1, ptr %6, align 8
+  br label %10
+
+10:                                               ; preds = %9, %7
   ret void
 }
 

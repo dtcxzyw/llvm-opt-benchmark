@@ -6901,7 +6901,8 @@ _ZN5Darts7Details8AutoPoolIhE6appendERKh.exit:    ; preds = %61, %64
   store i64 %66, ptr %8, align 8
   %67 = load ptr, ptr %7, align 8
   %68 = getelementptr inbounds i8, ptr %67, i64 %65
-  br label %.sink.split
+  store i8 %.0.i58, ptr %68, align 1
+  br label %88
 
 69:                                               ; preds = %58
   %70 = load ptr, ptr %7, align 8
@@ -6941,14 +6942,10 @@ _ZN5Darts7Details8AutoPoolIhE6appendERKh.exit47:  ; preds = %79, %82
   %86 = add i64 %85, 1
   store i64 %86, ptr %8, align 8
   %87 = getelementptr inbounds i8, ptr %84, i64 %85
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %_ZN5Darts7Details8AutoPoolIhE6appendERKh.exit47, %_ZN5Darts7Details8AutoPoolIhE6appendERKh.exit
-  %.sink = phi ptr [ %68, %_ZN5Darts7Details8AutoPoolIhE6appendERKh.exit ], [ %87, %_ZN5Darts7Details8AutoPoolIhE6appendERKh.exit47 ]
-  store i8 %.0.i58, ptr %.sink, align 1
+  store i8 %.0.i58, ptr %87, align 1
   br label %88
 
-88:                                               ; preds = %.sink.split, %69
+88:                                               ; preds = %_ZN5Darts7Details8AutoPoolIhE6appendERKh.exit, %_ZN5Darts7Details8AutoPoolIhE6appendERKh.exit47, %69
   %89 = add i64 %.03676, 1
   %exitcond.not = icmp eq i64 %89, %3
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %14, !llvm.loop !79

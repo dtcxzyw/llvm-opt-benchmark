@@ -2205,6 +2205,8 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %path3 = getelementptr inbounds i8, ptr %sb, i64 64
+  %buf = getelementptr inbounds i8, ptr %ci, i64 40
+  %buf29 = getelementptr inbounds i8, ptr %ci, i64 16
   %author_mail.i = getelementptr inbounds i8, ptr %ci, i64 24
   %author_tz.i = getelementptr inbounds i8, ptr %ci, i64 56
   %committer.i = getelementptr inbounds i8, ptr %ci, i64 80
@@ -2278,12 +2280,12 @@ if.then17:                                        ; preds = %if.end15
   %12 = load i32, ptr %option, align 4
   %and25 = and i32 %12, 256
   %tobool26.not = icmp eq i32 %and25, 0
-  %buf29.buf.v.sroa.sel.v = select i1 %tobool26.not, i64 16, i64 40
-  %buf29.buf.v.sroa.sel = getelementptr inbounds i8, ptr %ci, i64 %buf29.buf.v.sroa.sel.v
-  %13 = load ptr, ptr %buf29.buf.v.sroa.sel, align 8
-  %call30 = call i32 @utf8_strwidth(ptr noundef %13) #17
-  %14 = load i32, ptr @longest_author, align 4
-  %cmp32 = icmp slt i32 %14, %call30
+  %13 = load ptr, ptr %buf29, align 8
+  %14 = load ptr, ptr %buf, align 8
+  %.sink = select i1 %tobool26.not, ptr %13, ptr %14
+  %call30 = call i32 @utf8_strwidth(ptr noundef %.sink) #17
+  %15 = load i32, ptr @longest_author, align 4
+  %cmp32 = icmp slt i32 %15, %call30
   br i1 %cmp32, label %if.then34, label %if.end35
 
 if.then34:                                        ; preds = %if.then17
@@ -2302,14 +2304,14 @@ if.end35:                                         ; preds = %if.then34, %if.then
 
 if.end36:                                         ; preds = %if.end35, %if.end15
   %s_lno = getelementptr inbounds i8, ptr %e.036, i64 24
-  %15 = load i32, ptr %s_lno, align 8
+  %16 = load i32, ptr %s_lno, align 8
   %num_lines = getelementptr inbounds i8, ptr %e.036, i64 12
-  %16 = load i32, ptr %num_lines, align 4
-  %add = add nsw i32 %16, %15
+  %17 = load i32, ptr %num_lines, align 4
+  %add = add nsw i32 %17, %16
   %spec.select = call i32 @llvm.smax.i32(i32 %longest_src_lines.035, i32 %add)
   %lno = getelementptr inbounds i8, ptr %e.036, i64 8
-  %17 = load i32, ptr %lno, align 8
-  %add42 = add nsw i32 %17, %16
+  %18 = load i32, ptr %lno, align 8
+  %add42 = add nsw i32 %18, %17
   %longest_dst_lines.1 = call i32 @llvm.smax.i32(i32 %longest_dst_lines.033, i32 %add42)
   %call47 = call i32 @blame_entry_score(ptr noundef nonnull %sb, ptr noundef nonnull %e.036) #17
   %cmp48 = icmp ult i32 %largest_score.032, %call47
@@ -2326,16 +2328,16 @@ for.inc:                                          ; preds = %if.end36, %if.then5
   br i1 %tobool.not, label %for.end.loopexit, label %for.body, !llvm.loop !10
 
 for.end.loopexit:                                 ; preds = %for.inc
-  %18 = zext nneg i32 %spec.select to i64
-  %19 = zext nneg i32 %longest_dst_lines.1 to i64
-  %20 = zext i32 %largest_score.1 to i64
+  %19 = zext nneg i32 %spec.select to i64
+  %20 = zext nneg i32 %longest_dst_lines.1 to i64
+  %21 = zext i32 %largest_score.1 to i64
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %entry
-  %largest_score.0.lcssa = phi i64 [ 0, %entry ], [ %20, %for.end.loopexit ]
-  %longest_dst_lines.0.lcssa = phi i64 [ 0, %entry ], [ %19, %for.end.loopexit ]
+  %largest_score.0.lcssa = phi i64 [ 0, %entry ], [ %21, %for.end.loopexit ]
+  %longest_dst_lines.0.lcssa = phi i64 [ 0, %entry ], [ %20, %for.end.loopexit ]
   %auto_abbrev.0.lcssa = phi i32 [ %1, %entry ], [ %auto_abbrev.1, %for.end.loopexit ]
-  %longest_src_lines.0.lcssa = phi i64 [ 0, %entry ], [ %18, %for.end.loopexit ]
+  %longest_src_lines.0.lcssa = phi i64 [ 0, %entry ], [ %19, %for.end.loopexit ]
   %call54 = call i32 @decimal_width(i64 noundef %longest_src_lines.0.lcssa) #17
   store i32 %call54, ptr @max_orig_digits, align 4
   %call56 = call i32 @decimal_width(i64 noundef %longest_dst_lines.0.lcssa) #17

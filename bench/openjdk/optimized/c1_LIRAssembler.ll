@@ -692,7 +692,7 @@ _ZN13LIR_Assembler15check_codespaceEv.exit.i:     ; preds = %62, %46
   %90 = trunc i64 %89 to i32
   %91 = load ptr, ptr %7, align 8
   %92 = icmp eq ptr %91, %78
-  br i1 %92, label %.sink.split.i, label %93
+  br i1 %92, label %_ZN13LIR_Assembler18process_debug_infoEP6LIR_Op.exit.sink.split, label %93
 
 93:                                               ; preds = %80
   %94 = load ptr, ptr %78, align 8
@@ -723,7 +723,7 @@ _ZN13LIR_Assembler15check_codespaceEv.exit.i:     ; preds = %62, %46
   %.0.in.i16.i = select i1 %.not.i15.i, ptr %109, ptr %108
   %.0.i17.i = load ptr, ptr %.0.in.i16.i, align 8
   %110 = icmp eq ptr %.0.i17.i, %.0.i.i
-  br i1 %110, label %.sink.split.i, label %111
+  br i1 %110, label %_ZN13LIR_Assembler18process_debug_infoEP6LIR_Op.exit.sink.split, label %111
 
 111:                                              ; preds = %103
   %112 = load i32, ptr %8, align 8
@@ -764,13 +764,13 @@ _ZN24DebugInformationRecorder14last_pc_offsetEv.exit.i: ; preds = %116
 
 131:                                              ; preds = %_ZN24DebugInformationRecorder14last_pc_offsetEv.exit.i
   store ptr %78, ptr %7, align 8
-  br label %.sink.split.i
+  br label %_ZN13LIR_Assembler18process_debug_infoEP6LIR_Op.exit.sink.split
 
-.sink.split.i:                                    ; preds = %80, %131, %103
+_ZN13LIR_Assembler18process_debug_infoEP6LIR_Op.exit.sink.split: ; preds = %103, %80, %131
   store i32 %90, ptr %8, align 8
   br label %_ZN13LIR_Assembler18process_debug_infoEP6LIR_Op.exit
 
-_ZN13LIR_Assembler18process_debug_infoEP6LIR_Op.exit: ; preds = %.sink.split.i, %_ZN24DebugInformationRecorder14last_pc_offsetEv.exit.i, %93, %76, %67
+_ZN13LIR_Assembler18process_debug_infoEP6LIR_Op.exit: ; preds = %_ZN13LIR_Assembler18process_debug_infoEP6LIR_Op.exit.sink.split, %_ZN24DebugInformationRecorder14last_pc_offsetEv.exit.i, %93, %76, %67
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN13LIR_Assembler13emit_lir_listEP8LIR_List.exit, label %46, !llvm.loop !10
@@ -1024,7 +1024,7 @@ define hidden void @_ZN13LIR_Assembler18process_debug_infoEP6LIR_Op(ptr nocaptur
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %64, label %6
+  br i1 %5, label %65, label %6
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %0, align 8
@@ -1044,7 +1044,8 @@ define hidden void @_ZN13LIR_Assembler18process_debug_infoEP6LIR_Op(ptr nocaptur
 
 20:                                               ; preds = %6
   %21 = getelementptr inbounds i8, ptr %0, i64 48
-  br label %.sink.split
+  store i32 %16, ptr %21, align 8
+  br label %65
 
 22:                                               ; preds = %6
   %23 = load ptr, ptr %4, align 8
@@ -1057,12 +1058,12 @@ define hidden void @_ZN13LIR_Assembler18process_debug_infoEP6LIR_Op(ptr nocaptur
   %.0.in.i = select i1 %.not.i, ptr %28, ptr %27
   %.0.i = load ptr, ptr %.0.in.i, align 8
   %29 = icmp eq ptr %.0.i, null
-  br i1 %29, label %64, label %30
+  br i1 %29, label %65, label %30
 
 30:                                               ; preds = %22
   %31 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %31, null
-  br i1 %.not, label %46, label %32
+  br i1 %.not, label %47, label %32
 
 32:                                               ; preds = %30
   %33 = load ptr, ptr %31, align 8
@@ -1076,57 +1077,57 @@ define hidden void @_ZN13LIR_Assembler18process_debug_infoEP6LIR_Op(ptr nocaptur
   %.0.i17 = load ptr, ptr %.0.in.i16, align 8
   %39 = icmp eq ptr %.0.i17, %.0.i
   %40 = getelementptr inbounds i8, ptr %0, i64 48
-  br i1 %39, label %.sink.split, label %41
+  br i1 %39, label %41, label %42
 
 41:                                               ; preds = %32
-  %42 = load i32, ptr %40, align 8
-  %43 = icmp slt i32 %42, %16
-  br i1 %43, label %44, label %45
+  store i32 %16, ptr %40, align 8
+  br label %65
 
-44:                                               ; preds = %41
+42:                                               ; preds = %32
+  %43 = load i32, ptr %40, align 8
+  %44 = icmp slt i32 %43, %16
+  br i1 %44, label %45, label %46
+
+45:                                               ; preds = %42
   tail call void @_ZN13LIR_Assembler31record_non_safepoint_debug_infoEv(ptr noundef nonnull align 8 dereferenceable(96) %0)
-  br label %45
-
-45:                                               ; preds = %44, %41
-  store ptr null, ptr %17, align 8
   br label %46
 
-46:                                               ; preds = %45, %30
-  %47 = getelementptr inbounds i8, ptr %0, i64 16
-  %48 = load ptr, ptr %47, align 8
-  %49 = tail call noundef ptr @_ZNK11Compilation19debug_info_recorderEv(ptr noundef nonnull align 8 dereferenceable(704) %48) #11
-  %50 = getelementptr inbounds i8, ptr %49, i64 68
-  %51 = load i32, ptr %50, align 4
-  %52 = icmp sgt i32 %51, 0
-  br i1 %52, label %_ZN24DebugInformationRecorder14last_pc_offsetEv.exit, label %53
+46:                                               ; preds = %45, %42
+  store ptr null, ptr %17, align 8
+  br label %47
 
-53:                                               ; preds = %46
-  %54 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %54, align 1
+47:                                               ; preds = %46, %30
+  %48 = getelementptr inbounds i8, ptr %0, i64 16
+  %49 = load ptr, ptr %48, align 8
+  %50 = tail call noundef ptr @_ZNK11Compilation19debug_info_recorderEv(ptr noundef nonnull align 8 dereferenceable(704) %49) #11
+  %51 = getelementptr inbounds i8, ptr %50, i64 68
+  %52 = load i32, ptr %51, align 4
+  %53 = icmp sgt i32 %52, 0
+  br i1 %53, label %_ZN24DebugInformationRecorder14last_pc_offsetEv.exit, label %54
+
+54:                                               ; preds = %47
+  %55 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %55, align 1
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.7, i32 noundef 192, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9) #12
   unreachable
 
-_ZN24DebugInformationRecorder14last_pc_offsetEv.exit: ; preds = %46
-  %55 = getelementptr inbounds i8, ptr %49, i64 56
-  %56 = load ptr, ptr %55, align 8
-  %57 = zext nneg i32 %51 to i64
-  %58 = getelementptr %class.PcDesc, ptr %56, i64 %57
-  %59 = getelementptr i8, ptr %58, i64 -16
-  %60 = load i32, ptr %59, align 4
-  %61 = icmp slt i32 %60, %16
-  br i1 %61, label %62, label %64
+_ZN24DebugInformationRecorder14last_pc_offsetEv.exit: ; preds = %47
+  %56 = getelementptr inbounds i8, ptr %50, i64 56
+  %57 = load ptr, ptr %56, align 8
+  %58 = zext nneg i32 %52 to i64
+  %59 = getelementptr %class.PcDesc, ptr %57, i64 %58
+  %60 = getelementptr i8, ptr %59, i64 -16
+  %61 = load i32, ptr %60, align 4
+  %62 = icmp slt i32 %61, %16
+  br i1 %62, label %63, label %65
 
-62:                                               ; preds = %_ZN24DebugInformationRecorder14last_pc_offsetEv.exit
+63:                                               ; preds = %_ZN24DebugInformationRecorder14last_pc_offsetEv.exit
   store ptr %4, ptr %17, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 48
-  br label %.sink.split
+  %64 = getelementptr inbounds i8, ptr %0, i64 48
+  store i32 %16, ptr %64, align 8
+  br label %65
 
-.sink.split:                                      ; preds = %32, %20, %62
-  %.sink = phi ptr [ %63, %62 ], [ %21, %20 ], [ %40, %32 ]
-  store i32 %16, ptr %.sink, align 8
-  br label %64
-
-64:                                               ; preds = %.sink.split, %22, %2, %_ZN24DebugInformationRecorder14last_pc_offsetEv.exit
+65:                                               ; preds = %22, %2, %63, %_ZN24DebugInformationRecorder14last_pc_offsetEv.exit, %41, %20
   ret void
 }
 

@@ -2764,7 +2764,7 @@ define internal void @ppmd_write(ptr nocapture noundef readonly %0, i8 noundef z
   %6 = getelementptr inbounds i8, ptr %5, i64 168
   %7 = load i64, ptr %6, align 8
   %.not = icmp eq i64 %7, 0
-  br i1 %.not, label %15, label %8
+  br i1 %.not, label %17, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %5, i64 160
@@ -2776,33 +2776,32 @@ define internal void @ppmd_write(ptr nocapture noundef readonly %0, i8 noundef z
   %13 = add i64 %12, -1
   store i64 %13, ptr %6, align 8
   %14 = getelementptr inbounds i8, ptr %5, i64 176
-  br label %.sink.split
+  %15 = load i64, ptr %14, align 8
+  %16 = add i64 %15, 1
+  store i64 %16, ptr %14, align 8
+  br label %30
 
-15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %5, i64 208
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 19248
+17:                                               ; preds = %2
+  %18 = getelementptr inbounds i8, ptr %5, i64 208
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %17, i64 19256
+  %20 = getelementptr inbounds i8, ptr %19, i64 19248
   %21 = load ptr, ptr %20, align 8
-  %22 = icmp ult ptr %19, %21
-  br i1 %22, label %23, label %28
+  %22 = getelementptr inbounds i8, ptr %19, i64 19256
+  %23 = load ptr, ptr %22, align 8
+  %24 = icmp ult ptr %21, %23
+  br i1 %24, label %25, label %30
 
-23:                                               ; preds = %15
-  %24 = getelementptr inbounds i8, ptr %19, i64 1
-  store ptr %24, ptr %18, align 8
-  store i8 %1, ptr %19, align 1
-  %25 = getelementptr inbounds i8, ptr %17, i64 19264
-  br label %.sink.split
+25:                                               ; preds = %17
+  %26 = getelementptr inbounds i8, ptr %21, i64 1
+  store ptr %26, ptr %20, align 8
+  store i8 %1, ptr %21, align 1
+  %27 = getelementptr inbounds i8, ptr %19, i64 19264
+  %28 = load i64, ptr %27, align 8
+  %29 = add i64 %28, 1
+  store i64 %29, ptr %27, align 8
+  br label %30
 
-.sink.split:                                      ; preds = %8, %23
-  %.sink = phi ptr [ %25, %23 ], [ %14, %8 ]
-  %26 = load i64, ptr %.sink, align 8
-  %27 = add i64 %26, 1
-  store i64 %27, ptr %.sink, align 8
-  br label %28
-
-28:                                               ; preds = %.sink.split, %15
+30:                                               ; preds = %25, %17, %8
   ret void
 }
 

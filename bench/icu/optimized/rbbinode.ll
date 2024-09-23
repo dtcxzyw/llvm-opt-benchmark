@@ -767,20 +767,23 @@ if.then11.i:                                      ; preds = %if.then9.i
   %fLeftChild12.i = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load ptr, ptr %fLeftChild12.i, align 8
   %cmp13.i = icmp eq ptr %8, %nextNode.031.i
-  br i1 %cmp13.i, label %delete.notnull.sink.split.i, label %if.else.i
+  br i1 %cmp13.i, label %if.then14.i, label %if.else.i
+
+if.then14.i:                                      ; preds = %if.then11.i
+  store ptr null, ptr %fLeftChild12.i, align 8
+  br label %delete.notnull.i
 
 if.else.i:                                        ; preds = %if.then11.i
   %fRightChild16.i = getelementptr inbounds i8, ptr %7, i64 24
   %9 = load ptr, ptr %fRightChild16.i, align 8
   %cmp17.i = icmp eq ptr %9, %nextNode.031.i
-  br i1 %cmp17.i, label %delete.notnull.sink.split.i, label %delete.notnull.i
+  br i1 %cmp17.i, label %if.then18.i, label %delete.notnull.i
 
-delete.notnull.sink.split.i:                      ; preds = %if.else.i, %if.then11.i
-  %fRightChild16.sink.i = phi ptr [ %fLeftChild12.i, %if.then11.i ], [ %fRightChild16.i, %if.else.i ]
-  store ptr null, ptr %fRightChild16.sink.i, align 8
+if.then18.i:                                      ; preds = %if.else.i
+  store ptr null, ptr %fRightChild16.i, align 8
   br label %delete.notnull.i
 
-delete.notnull.i:                                 ; preds = %delete.notnull.sink.split.i, %if.else.i, %if.then9.i
+delete.notnull.i:                                 ; preds = %if.then18.i, %if.else.i, %if.then14.i, %if.then9.i
   tail call void @_ZN6icu_758RBBINodeD1Ev(ptr noundef nonnull align 8 dereferenceable(160) %nextNode.031.i) #10
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %nextNode.031.i) #10
   br label %if.end45.i
@@ -864,20 +867,23 @@ if.then11.i16:                                    ; preds = %if.then9.i13
   %fLeftChild12.i17 = getelementptr inbounds i8, ptr %19, i64 16
   %20 = load ptr, ptr %fLeftChild12.i17, align 8
   %cmp13.i18 = icmp eq ptr %20, %nextNode.031.i9
-  br i1 %cmp13.i18, label %delete.notnull.sink.split.i27, label %if.else.i19
+  br i1 %cmp13.i18, label %if.then14.i28, label %if.else.i19
+
+if.then14.i28:                                    ; preds = %if.then11.i16
+  store ptr null, ptr %fLeftChild12.i17, align 8
+  br label %delete.notnull.i22
 
 if.else.i19:                                      ; preds = %if.then11.i16
   %fRightChild16.i20 = getelementptr inbounds i8, ptr %19, i64 24
   %21 = load ptr, ptr %fRightChild16.i20, align 8
   %cmp17.i21 = icmp eq ptr %21, %nextNode.031.i9
-  br i1 %cmp17.i21, label %delete.notnull.sink.split.i27, label %delete.notnull.i22
+  br i1 %cmp17.i21, label %if.then18.i27, label %delete.notnull.i22
 
-delete.notnull.sink.split.i27:                    ; preds = %if.else.i19, %if.then11.i16
-  %fRightChild16.sink.i28 = phi ptr [ %fLeftChild12.i17, %if.then11.i16 ], [ %fRightChild16.i20, %if.else.i19 ]
-  store ptr null, ptr %fRightChild16.sink.i28, align 8
+if.then18.i27:                                    ; preds = %if.else.i19
+  store ptr null, ptr %fRightChild16.i20, align 8
   br label %delete.notnull.i22
 
-delete.notnull.i22:                               ; preds = %delete.notnull.sink.split.i27, %if.else.i19, %if.then9.i13
+delete.notnull.i22:                               ; preds = %if.then18.i27, %if.else.i19, %if.then14.i28, %if.then9.i13
   tail call void @_ZN6icu_758RBBINodeD1Ev(ptr noundef nonnull align 8 dereferenceable(160) %nextNode.031.i9) #10
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %nextNode.031.i9) #10
   br label %if.end45.i23
@@ -1012,20 +1018,23 @@ if.then11:                                        ; preds = %if.then9
   %fLeftChild12 = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load ptr, ptr %fLeftChild12, align 8
   %cmp13 = icmp eq ptr %5, %nextNode.031
-  br i1 %cmp13, label %delete.notnull.sink.split, label %if.else
+  br i1 %cmp13, label %if.then14, label %if.else
+
+if.then14:                                        ; preds = %if.then11
+  store ptr null, ptr %fLeftChild12, align 8
+  br label %delete.notnull
 
 if.else:                                          ; preds = %if.then11
   %fRightChild16 = getelementptr inbounds i8, ptr %4, i64 24
   %6 = load ptr, ptr %fRightChild16, align 8
   %cmp17 = icmp eq ptr %6, %nextNode.031
-  br i1 %cmp17, label %delete.notnull.sink.split, label %delete.notnull
+  br i1 %cmp17, label %if.then18, label %delete.notnull
 
-delete.notnull.sink.split:                        ; preds = %if.else, %if.then11
-  %fRightChild16.sink = phi ptr [ %fLeftChild12, %if.then11 ], [ %fRightChild16, %if.else ]
-  store ptr null, ptr %fRightChild16.sink, align 8
+if.then18:                                        ; preds = %if.else
+  store ptr null, ptr %fRightChild16, align 8
   br label %delete.notnull
 
-delete.notnull:                                   ; preds = %delete.notnull.sink.split, %if.then9, %if.else
+delete.notnull:                                   ; preds = %if.then9, %if.else, %if.then18, %if.then14
   tail call void @_ZN6icu_758RBBINodeD1Ev(ptr noundef nonnull align 8 dereferenceable(160) %nextNode.031) #10
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %nextNode.031) #10
   br label %if.end45

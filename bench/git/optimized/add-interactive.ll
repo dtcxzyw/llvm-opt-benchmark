@@ -1235,10 +1235,10 @@ if.end24:                                         ; preds = %if.else
   br label %if.end26
 
 if.end26:                                         ; preds = %if.end24, %if.then16
-  %algo.i26.sink = phi ptr [ %algo.i26, %if.end24 ], [ %algo.i, %if.then16 ]
-  %7 = load i32, ptr %algo.i26.sink, align 4
+  %.sink.in = phi ptr [ %algo.i26, %if.end24 ], [ %algo.i, %if.then16 ]
+  %.sink = load i32, ptr %.sink.in, align 4
   %algo3.i27 = getelementptr inbounds i8, ptr %oid, i64 32
-  store i32 %7, ptr %algo3.i27, align 4
+  store i32 %.sink, ptr %algo3.i27, align 4
   %add = add i64 %call6, 1
   %mul.ov.i = icmp ugt i64 %add, 2305843009213693951
   br i1 %mul.ov.i, label %if.then.i, label %st_mult.exit
@@ -1250,8 +1250,8 @@ if.then.i:                                        ; preds = %if.end26
 st_mult.exit:                                     ; preds = %if.end26
   %mul.i = shl nuw i64 %add, 3
   %call28 = call ptr @xmalloc(i64 noundef %mul.i) #17
-  %8 = load i64, ptr %nr, align 8
-  %cmp3133.not = icmp eq i64 %8, 0
+  %7 = load i64, ptr %nr, align 8
+  %cmp3133.not = icmp eq i64 %7, 0
   br i1 %cmp3133.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %st_mult.exit
@@ -1259,30 +1259,30 @@ for.body.lr.ph:                                   ; preds = %st_mult.exit
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %9 = phi i64 [ %8, %for.body.lr.ph ], [ %14, %for.inc ]
+  %8 = phi i64 [ %7, %for.body.lr.ph ], [ %13, %for.inc ]
   %i.035 = phi i64 [ 0, %for.body.lr.ph ], [ %inc39, %for.inc ]
   %j.034 = phi i64 [ 0, %for.body.lr.ph ], [ %j.1, %for.inc ]
-  %10 = load ptr, ptr %selected, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %10, i64 %i.035
-  %11 = load i32, ptr %arrayidx, align 4
-  %tobool32.not = icmp eq i32 %11, 0
+  %9 = load ptr, ptr %selected, align 8
+  %arrayidx = getelementptr inbounds i32, ptr %9, i64 %i.035
+  %10 = load i32, ptr %arrayidx, align 4
+  %tobool32.not = icmp eq i32 %10, 0
   br i1 %tobool32.not, label %for.inc, label %if.then33
 
 if.then33:                                        ; preds = %for.body
-  %12 = load ptr, ptr %files, align 8
-  %arrayidx36 = getelementptr inbounds %struct.string_list_item, ptr %12, i64 %i.035
-  %13 = load ptr, ptr %arrayidx36, align 8
+  %11 = load ptr, ptr %files, align 8
+  %arrayidx36 = getelementptr inbounds %struct.string_list_item, ptr %11, i64 %i.035
+  %12 = load ptr, ptr %arrayidx36, align 8
   %inc = add i64 %j.034, 1
   %arrayidx37 = getelementptr inbounds ptr, ptr %call28, i64 %j.034
-  store ptr %13, ptr %arrayidx37, align 8
+  store ptr %12, ptr %arrayidx37, align 8
   %.pre = load i64, ptr %nr, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then33
-  %14 = phi i64 [ %.pre, %if.then33 ], [ %9, %for.body ]
+  %13 = phi i64 [ %.pre, %if.then33 ], [ %8, %for.body ]
   %j.1 = phi i64 [ %inc, %if.then33 ], [ %j.034, %for.body ]
   %inc39 = add nuw i64 %i.035, 1
-  %cmp31 = icmp ult i64 %inc39, %14
+  %cmp31 = icmp ult i64 %inc39, %13
   br i1 %cmp31, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.inc, %st_mult.exit
@@ -1297,9 +1297,9 @@ for.end:                                          ; preds = %for.inc, %st_mult.e
   store ptr @revert_from_diff, ptr %format_callback, align 8
   %override_submodule_config = getelementptr inbounds i8, ptr %diffopt, i64 212
   store i32 1, ptr %override_submodule_config, align 4
-  %15 = load ptr, ptr %s, align 8
+  %14 = load ptr, ptr %s, align 8
   %repo = getelementptr inbounds i8, ptr %diffopt, i64 576
-  store ptr %15, ptr %repo, align 8
+  store ptr %14, ptr %repo, align 8
   %call42 = call i32 @do_diff_cache(ptr noundef nonnull %oid, ptr noundef nonnull %diffopt) #17
   %tobool43.not = icmp eq i32 %call42, 0
   br i1 %tobool43.not, label %land.lhs.true, label %if.end46
@@ -1313,22 +1313,22 @@ land.lhs.true:                                    ; preds = %for.end
   call void @diffcore_std(ptr noundef nonnull %diffopt) #17
   call void @diff_flush(ptr noundef nonnull %diffopt) #17
   call void @free(ptr noundef nonnull %call28) #17
-  %16 = load ptr, ptr %s, align 8
-  %index = getelementptr inbounds i8, ptr %16, i64 240
-  %17 = load ptr, ptr %index, align 8
-  %call49 = call i32 @write_locked_index(ptr noundef %17, ptr noundef nonnull %index_lock, i32 noundef 1) #17
+  %15 = load ptr, ptr %s, align 8
+  %index = getelementptr inbounds i8, ptr %15, i64 240
+  %16 = load ptr, ptr %index, align 8
+  %call49 = call i32 @write_locked_index(ptr noundef %16, ptr noundef nonnull %index_lock, i32 noundef 1) #17
   %cmp50 = icmp slt i32 %call49, 0
   br i1 %cmp50, label %return.sink.split, label %if.end55
 
 if.end55:                                         ; preds = %land.lhs.true, %if.end46
-  %18 = load ptr, ptr %s, align 8
-  %call54 = call i32 @repo_refresh_and_write_index(ptr noundef %18, i32 noundef 4, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef null) #17
+  %17 = load ptr, ptr %s, align 8
+  %call54 = call i32 @repo_refresh_and_write_index(ptr noundef %17, i32 noundef 4, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef null) #17
   %tobool56.not = icmp eq i32 %call54, 0
   br i1 %tobool56.not, label %if.then57, label %return.sink.split
 
 if.then57:                                        ; preds = %if.end55
-  %19 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool.not.i = icmp eq i32 %19, 0
+  %18 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool.not.i = icmp eq i32 %18, 0
   br i1 %tobool.not.i, label %if.then.i30, label %if.end.i
 
 if.then.i30:                                      ; preds = %if.then57

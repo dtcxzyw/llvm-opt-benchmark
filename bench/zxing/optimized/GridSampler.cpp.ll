@@ -559,50 +559,54 @@ define internal fastcc i64 @"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vecto
   %.not1517 = icmp eq ptr %.0.val.0.val, %.0.val.8.val
   br i1 %.not1517, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %25
-  %.sroa.08.018 = phi ptr [ %26, %25 ], [ %.0.val.0.val, %1 ]
+.lr.ph:                                           ; preds = %1, %27
+  %.sroa.08.018 = phi ptr [ %28, %27 ], [ %.0.val.0.val, %1 ]
   %2 = load i32, ptr %.sroa.08.018, align 8
   %.not = icmp sgt i32 %2, %.sroa.011.0.extract.trunc
-  %3 = getelementptr inbounds i8, ptr %.sroa.08.018, i64 4
-  %4 = load i32, ptr %3, align 4
-  %.not9 = icmp slt i32 %4, %.sroa.011.0.extract.trunc
-  %or.cond = select i1 %.not, i1 true, i1 %.not9
-  br i1 %or.cond, label %25, label %5
+  br i1 %.not, label %27, label %3
 
-5:                                                ; preds = %.lr.ph
-  %6 = getelementptr inbounds i8, ptr %.sroa.08.018, i64 8
-  %7 = load i32, ptr %6, align 8
-  %.not10 = icmp sgt i32 %7, %.sroa.3.0.extract.trunc
-  %8 = getelementptr inbounds i8, ptr %.sroa.08.018, i64 12
-  %9 = load i32, ptr %8, align 4
-  %.not11 = icmp slt i32 %9, %.sroa.3.0.extract.trunc
-  %or.cond14 = select i1 %.not10, i1 true, i1 %.not11
-  br i1 %or.cond14, label %25, label %10
+3:                                                ; preds = %.lr.ph
+  %4 = getelementptr inbounds i8, ptr %.sroa.08.018, i64 4
+  %5 = load i32, ptr %4, align 4
+  %.not9 = icmp slt i32 %5, %.sroa.011.0.extract.trunc
+  br i1 %.not9, label %27, label %6
 
-10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %.sroa.08.018, i64 16
-  %12 = sitofp i32 %.sroa.011.0.extract.trunc to double
-  %13 = sitofp i32 %.sroa.3.0.extract.trunc to double
-  %14 = tail call { double, double } @_ZNK5ZXing20PerspectiveTransformclENS_6PointTIdEE(ptr noundef nonnull align 8 dereferenceable(72) %11, double %12, double %13)
-  %15 = extractvalue { double, double } %14, 0
-  %16 = extractvalue { double, double } %14, 1
-  %17 = fadd double %15, 5.000000e-01
-  %18 = fadd double %16, 5.000000e-01
-  %19 = fptosi double %17 to i32
-  %20 = fptosi double %18 to i32
-  %21 = zext i32 %20 to i64
-  %22 = shl nuw i64 %21, 32
-  %23 = zext i32 %19 to i64
-  %24 = or disjoint i64 %22, %23
+6:                                                ; preds = %3
+  %7 = getelementptr inbounds i8, ptr %.sroa.08.018, i64 8
+  %8 = load i32, ptr %7, align 8
+  %.not10 = icmp sgt i32 %8, %.sroa.3.0.extract.trunc
+  br i1 %.not10, label %27, label %9
+
+9:                                                ; preds = %6
+  %10 = getelementptr inbounds i8, ptr %.sroa.08.018, i64 12
+  %11 = load i32, ptr %10, align 4
+  %.not11 = icmp slt i32 %11, %.sroa.3.0.extract.trunc
+  br i1 %.not11, label %27, label %12
+
+12:                                               ; preds = %9
+  %13 = getelementptr inbounds i8, ptr %.sroa.08.018, i64 16
+  %14 = sitofp i32 %.sroa.011.0.extract.trunc to double
+  %15 = sitofp i32 %.sroa.3.0.extract.trunc to double
+  %16 = tail call { double, double } @_ZNK5ZXing20PerspectiveTransformclENS_6PointTIdEE(ptr noundef nonnull align 8 dereferenceable(72) %13, double %14, double %15)
+  %17 = extractvalue { double, double } %16, 0
+  %18 = extractvalue { double, double } %16, 1
+  %19 = fadd double %17, 5.000000e-01
+  %20 = fadd double %18, 5.000000e-01
+  %21 = fptosi double %19 to i32
+  %22 = fptosi double %20 to i32
+  %23 = zext i32 %22 to i64
+  %24 = shl nuw i64 %23, 32
+  %25 = zext i32 %21 to i64
+  %26 = or disjoint i64 %24, %25
   br label %.loopexit
 
-25:                                               ; preds = %.lr.ph, %5
-  %26 = getelementptr inbounds i8, ptr %.sroa.08.018, i64 88
-  %.not15 = icmp eq ptr %26, %.0.val.8.val
+27:                                               ; preds = %.lr.ph, %3, %6, %9
+  %28 = getelementptr inbounds i8, ptr %.sroa.08.018, i64 88
+  %.not15 = icmp eq ptr %28, %.0.val.8.val
   br i1 %.not15, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %25, %1, %10
-  %.sroa.014.0.insert.insert = phi i64 [ %24, %10 ], [ 0, %1 ], [ 0, %25 ]
+.loopexit:                                        ; preds = %27, %1, %12
+  %.sroa.014.0.insert.insert = phi i64 [ %26, %12 ], [ 0, %1 ], [ 0, %27 ]
   ret i64 %.sroa.014.0.insert.insert
 }
 

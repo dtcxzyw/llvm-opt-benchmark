@@ -996,9 +996,9 @@ define internal void @"_ZN4stdx7process16streaming_output28_$u7b$$u7b$closure$u7
   %56 = load ptr, ptr %55, align 8, !nonnull !4, !align !175
   %57 = getelementptr inbounds i8, ptr %0, i64 24
   %58 = load ptr, ptr %57, align 8, !nonnull !4, !align !5
-  %spec.select.v = select i1 %1, ptr %58, ptr %54
-  %spec.select = getelementptr inbounds i8, ptr %spec.select.v, i64 32
-  %spec.select87 = select i1 %1, ptr %56, ptr %52
+  %. = select i1 %1, ptr %56, ptr %52
+  %.95 = select i1 %1, ptr %58, ptr %54
+  %.in = getelementptr inbounds i8, ptr %.95, i64 32
   br label %59
 
 59:                                               ; preds = %.lr.ph, %144
@@ -1220,8 +1220,8 @@ select.unfold.i:                                  ; preds = %117, %"_ZN4core3str
 
 .invoke:                                          ; preds = %121
   %135 = extractvalue { ptr, i64 } %120, 1
-  %136 = load ptr, ptr %spec.select, align 8, !invariant.load !4, !nonnull !4
-  invoke void %136(ptr noundef nonnull align 1 %spec.select87, ptr noalias noundef nonnull readonly align 1 %122, i64 noundef %135)
+  %136 = load ptr, ptr %.in, align 8, !invariant.load !4, !nonnull !4
+  invoke void %136(ptr noundef nonnull align 1 %., ptr noalias noundef nonnull readonly align 1 %122, i64 noundef %135)
           to label %144 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 137:                                              ; preds = %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hff98cb6afdf827e8E.exit"

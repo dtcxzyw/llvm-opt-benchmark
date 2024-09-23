@@ -30879,9 +30879,9 @@ return.sink.split:                                ; preds = %if.then.i.i.i.i43, 
   %.sink = phi i32 [ 63, %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree14IdentifierNodeEJRPNS_12UniqueStringEPNS2_4NodeERbEEEPT_S8_DpOT0_.exit ], [ 55, %if.then.i.i.i.i43 ], [ 55, %if.end.i.i.i.i27 ]
   %call.i14.sink = phi ptr [ %13, %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree14IdentifierNodeEJRPNS_12UniqueStringEPNS2_4NodeERbEEEPT_S8_DpOT0_.exit ], [ %call.i14, %if.then.i.i.i.i43 ], [ %call.i14, %if.end.i.i.i.i27 ]
   %call.i15.sink = phi ptr [ %call.i, %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree14IdentifierNodeEJRPNS_12UniqueStringEPNS2_4NodeERbEEEPT_S8_DpOT0_.exit ], [ %call.i15, %if.then.i.i.i.i43 ], [ %call.i15, %if.end.i.i.i.i27 ]
-  %_computed.sink = getelementptr inbounds i8, ptr %node, i64 64
-  %27 = load i8, ptr %_computed.sink, align 1
-  %frombool.i.i31 = and i8 %27, 1
+  %.sink55.in = getelementptr inbounds i8, ptr %node, i64 64
+  %.sink55 = load i8, ptr %.sink55.in, align 1
+  %frombool.i.i31 = and i8 %.sink55, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i30.sink54, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i30.sink54, i64 16
   store i32 %.sink, ptr %kind_.i.i.i.i, align 8
@@ -31843,7 +31843,7 @@ if.then.i47:                                      ; preds = %for.body.i
 if.end.i126.i.i:                                  ; preds = %if.then.i47
   %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(11) %call7.val.val.i, ptr noundef nonnull dereferenceable(11) @.str.12, i64 11)
   %45 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %45, label %for.inc.sink.split.i, label %if.end19.i.i
+  br i1 %45, label %if.then9.i, label %if.end19.i.i
 
 if.end.i117.i.i:                                  ; preds = %if.then.i47
   %bcmp20.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %call7.val.val.i, ptr noundef nonnull dereferenceable(6) @.str.13, i64 6)
@@ -31863,6 +31863,10 @@ if.end.i.i.i48:                                   ; preds = %if.end.i108.i.i
 if.end19.i.i:                                     ; preds = %if.end.i.i.i48, %if.end.i117.i.i, %if.end.i126.i.i, %if.then.i47
   call void @_ZN6hermes12hermes_fatalEPKc(ptr noundef nonnull @.str.11) #18
   unreachable
+
+if.then9.i:                                       ; preds = %if.end.i126.i.i
+  store ptr %__begin2.sroa.0.061.i, ptr %classMembers, align 8, !alias.scope !20
+  br label %for.inc.i
 
 if.end.i:                                         ; preds = %if.end.i.i.i48, %if.end.i108.i.i, %if.end.i117.i.i
   %retval.0.i.ph.i = phi i32 [ 3, %if.end.i.i.i48 ], [ 2, %if.end.i108.i.i ], [ 1, %if.end.i117.i.i ]
@@ -32149,33 +32153,27 @@ if.end30.i:                                       ; preds = %_ZN4llvh15SmallVect
 
 sw.bb.i:                                          ; preds = %if.end30.i
   %method.i = getelementptr inbounds i8, ptr %resolvedClassMember.0.i, i64 16
-  br label %for.inc.sink.split.i
+  store ptr %__begin2.sroa.0.061.i, ptr %method.i, align 8
+  br label %for.inc.i
 
 sw.bb31.i:                                        ; preds = %if.end30.i
   %getter.i = getelementptr inbounds i8, ptr %resolvedClassMember.0.i, i64 24
-  br label %for.inc.sink.split.i
+  store ptr %__begin2.sroa.0.061.i, ptr %getter.i, align 8
+  br label %for.inc.i
 
 sw.bb32.i:                                        ; preds = %if.end30.i
   %setter.i = getelementptr inbounds i8, ptr %resolvedClassMember.0.i, i64 32
-  br label %for.inc.sink.split.i
+  store ptr %__begin2.sroa.0.061.i, ptr %setter.i, align 8
+  br label %for.inc.i
 
 default.unreachable:                              ; preds = %if.end30.i
   unreachable
 
-for.inc.sink.split.i:                             ; preds = %sw.bb32.i, %sw.bb31.i, %sw.bb.i, %if.end.i126.i.i
-  %setter.sink.i = phi ptr [ %setter.i, %sw.bb32.i ], [ %getter.i, %sw.bb31.i ], [ %method.i, %sw.bb.i ], [ %classMembers, %if.end.i126.i.i ]
-  %classMemberIndexByIdentifier.sroa.23.1.ph.i = phi i32 [ %classMemberIndexByIdentifier.sroa.23.2.i, %sw.bb32.i ], [ %classMemberIndexByIdentifier.sroa.23.2.i, %sw.bb31.i ], [ %classMemberIndexByIdentifier.sroa.23.2.i, %sw.bb.i ], [ %classMemberIndexByIdentifier.sroa.23.057.i, %if.end.i126.i.i ]
-  %classMemberIndexByIdentifier.sroa.18.1.ph.i = phi i32 [ %classMemberIndexByIdentifier.sroa.18.2.i, %sw.bb32.i ], [ %classMemberIndexByIdentifier.sroa.18.2.i, %sw.bb31.i ], [ %classMemberIndexByIdentifier.sroa.18.2.i, %sw.bb.i ], [ %classMemberIndexByIdentifier.sroa.18.058.i, %if.end.i126.i.i ]
-  %classMemberIndexByIdentifier.sroa.11.1.ph.i = phi i32 [ %classMemberIndexByIdentifier.sroa.11.2.i, %sw.bb32.i ], [ %classMemberIndexByIdentifier.sroa.11.2.i, %sw.bb31.i ], [ %classMemberIndexByIdentifier.sroa.11.2.i, %sw.bb.i ], [ %classMemberIndexByIdentifier.sroa.11.059.i, %if.end.i126.i.i ]
-  %classMemberIndexByIdentifier.sroa.0.1.ph.i = phi ptr [ %classMemberIndexByIdentifier.sroa.0.2.i, %sw.bb32.i ], [ %classMemberIndexByIdentifier.sroa.0.2.i, %sw.bb31.i ], [ %classMemberIndexByIdentifier.sroa.0.2.i, %sw.bb.i ], [ %classMemberIndexByIdentifier.sroa.0.060.i, %if.end.i126.i.i ]
-  store ptr %__begin2.sroa.0.061.i, ptr %setter.sink.i, align 8
-  br label %for.inc.i
-
-for.inc.i:                                        ; preds = %for.inc.sink.split.i, %for.body.i
-  %classMemberIndexByIdentifier.sroa.23.1.i = phi i32 [ %classMemberIndexByIdentifier.sroa.23.057.i, %for.body.i ], [ %classMemberIndexByIdentifier.sroa.23.1.ph.i, %for.inc.sink.split.i ]
-  %classMemberIndexByIdentifier.sroa.18.1.i = phi i32 [ %classMemberIndexByIdentifier.sroa.18.058.i, %for.body.i ], [ %classMemberIndexByIdentifier.sroa.18.1.ph.i, %for.inc.sink.split.i ]
-  %classMemberIndexByIdentifier.sroa.11.1.i = phi i32 [ %classMemberIndexByIdentifier.sroa.11.059.i, %for.body.i ], [ %classMemberIndexByIdentifier.sroa.11.1.ph.i, %for.inc.sink.split.i ]
-  %classMemberIndexByIdentifier.sroa.0.1.i = phi ptr [ %classMemberIndexByIdentifier.sroa.0.060.i, %for.body.i ], [ %classMemberIndexByIdentifier.sroa.0.1.ph.i, %for.inc.sink.split.i ]
+for.inc.i:                                        ; preds = %sw.bb32.i, %sw.bb31.i, %sw.bb.i, %if.then9.i, %for.body.i
+  %classMemberIndexByIdentifier.sroa.23.1.i = phi i32 [ %classMemberIndexByIdentifier.sroa.23.057.i, %for.body.i ], [ %classMemberIndexByIdentifier.sroa.23.057.i, %if.then9.i ], [ %classMemberIndexByIdentifier.sroa.23.2.i, %sw.bb32.i ], [ %classMemberIndexByIdentifier.sroa.23.2.i, %sw.bb31.i ], [ %classMemberIndexByIdentifier.sroa.23.2.i, %sw.bb.i ]
+  %classMemberIndexByIdentifier.sroa.18.1.i = phi i32 [ %classMemberIndexByIdentifier.sroa.18.058.i, %for.body.i ], [ %classMemberIndexByIdentifier.sroa.18.058.i, %if.then9.i ], [ %classMemberIndexByIdentifier.sroa.18.2.i, %sw.bb32.i ], [ %classMemberIndexByIdentifier.sroa.18.2.i, %sw.bb31.i ], [ %classMemberIndexByIdentifier.sroa.18.2.i, %sw.bb.i ]
+  %classMemberIndexByIdentifier.sroa.11.1.i = phi i32 [ %classMemberIndexByIdentifier.sroa.11.059.i, %for.body.i ], [ %classMemberIndexByIdentifier.sroa.11.059.i, %if.then9.i ], [ %classMemberIndexByIdentifier.sroa.11.2.i, %sw.bb32.i ], [ %classMemberIndexByIdentifier.sroa.11.2.i, %sw.bb31.i ], [ %classMemberIndexByIdentifier.sroa.11.2.i, %sw.bb.i ]
+  %classMemberIndexByIdentifier.sroa.0.1.i = phi ptr [ %classMemberIndexByIdentifier.sroa.0.060.i, %for.body.i ], [ %classMemberIndexByIdentifier.sroa.0.060.i, %if.then9.i ], [ %classMemberIndexByIdentifier.sroa.0.2.i, %sw.bb32.i ], [ %classMemberIndexByIdentifier.sroa.0.2.i, %sw.bb31.i ], [ %classMemberIndexByIdentifier.sroa.0.2.i, %sw.bb.i ]
   %Next.i.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.061.i, i64 8
   %__begin2.sroa.0.0.i = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %__begin2.sroa.0.0.i, %_body.i

@@ -739,7 +739,8 @@ _opal_progress_unregister.exit:                   ; preds = %.lr.ph.i, %18
   %.lcssa.i = phi i64 [ %20, %18 ], [ %23, %.lr.ph.i ]
   store i64 %.lcssa.i, ptr @callbacks_len, align 8
   %31 = getelementptr inbounds ptr, ptr %9, i64 %.lcssa.i
-  br label %_opal_progress_unregister.exit15.sink.split
+  store volatile ptr @fake_cb, ptr %31, align 8
+  br label %_opal_progress_unregister.exit15
 
 .loopexit:                                        ; preds = %14, %opal_progress_find_cb.exit.i, %opal_atomic_lock.exit
   %32 = load ptr, ptr @callbacks_lp, align 8
@@ -791,15 +792,11 @@ opal_progress_find_cb.exit.i9:                    ; preds = %.lr.ph.i.i5
   %.lcssa.i12 = phi i64 [ %43, %41 ], [ %46, %.lr.ph.i13 ]
   store i64 %.lcssa.i12, ptr @callbacks_lp_len, align 8
   %54 = getelementptr inbounds ptr, ptr %32, i64 %.lcssa.i12
-  br label %_opal_progress_unregister.exit15.sink.split
-
-_opal_progress_unregister.exit15.sink.split:      ; preds = %_opal_progress_unregister.exit, %._crit_edge.i11
-  %.sink = phi ptr [ %54, %._crit_edge.i11 ], [ %31, %_opal_progress_unregister.exit ]
-  store volatile ptr @fake_cb, ptr %.sink, align 8
+  store volatile ptr @fake_cb, ptr %54, align 8
   br label %_opal_progress_unregister.exit15
 
-_opal_progress_unregister.exit15:                 ; preds = %37, %_opal_progress_unregister.exit15.sink.split, %opal_progress_find_cb.exit.i9, %.loopexit
-  %.0 = phi i32 [ -13, %opal_progress_find_cb.exit.i9 ], [ -13, %.loopexit ], [ 0, %_opal_progress_unregister.exit15.sink.split ], [ -13, %37 ]
+_opal_progress_unregister.exit15:                 ; preds = %37, %._crit_edge.i11, %opal_progress_find_cb.exit.i9, %.loopexit, %_opal_progress_unregister.exit
+  %.0 = phi i32 [ 0, %_opal_progress_unregister.exit ], [ 0, %._crit_edge.i11 ], [ -13, %opal_progress_find_cb.exit.i9 ], [ -13, %.loopexit ], [ -13, %37 ]
   fence release
   store volatile i32 0, ptr @progress_lock, align 4
   ret i32 %.0

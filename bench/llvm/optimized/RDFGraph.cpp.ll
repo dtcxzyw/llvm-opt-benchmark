@@ -14096,22 +14096,18 @@ _ZNSt10_HashtableIjSt4pairIKjN4llvm3rdf13DataFlowGraph8DefStackEESaIS6_ENSt8__de
 
 733:                                              ; preds = %730
   %734 = getelementptr inbounds ptr, ptr %.0.i.i273, i64 %.02530.i
-  br label %.sink.split.i
+  store ptr %.031.i, ptr %734, align 8
+  br label %738
 
 735:                                              ; preds = %.lr.ph.i275
   %736 = load ptr, ptr %729, align 8
   store ptr %736, ptr %.031.i, align 8
   %737 = load ptr, ptr %728, align 8
-  br label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %735, %733
-  %.sink.i = phi ptr [ %734, %733 ], [ %737, %735 ]
-  %.1.ph.i = phi i64 [ %727, %733 ], [ %.02530.i, %735 ]
-  store ptr %.031.i, ptr %.sink.i, align 8
+  store ptr %.031.i, ptr %737, align 8
   br label %738
 
-738:                                              ; preds = %.sink.split.i, %730
-  %.1.i = phi i64 [ %727, %730 ], [ %.1.ph.i, %.sink.split.i ]
+738:                                              ; preds = %735, %733, %730
+  %.1.i = phi i64 [ %.02530.i, %735 ], [ %727, %733 ], [ %727, %730 ]
   %.not.i276 = icmp eq ptr %723, null
   br i1 %.not.i276, label %._crit_edge.i277, label %.lr.ph.i275, !llvm.loop !135
 
@@ -14548,10 +14544,10 @@ _ZN4llvm8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS1_12DenseSe
   br i1 %177, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS2_12DenseSetPairIjEEEEjS3_S5_S7_E15LookupBucketForIjEEbRKT_RPS7_.exit.i, label %178
 
 178:                                              ; preds = %_ZN4llvm8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS1_12DenseSetPairIjEEE4growEj.exit137.thread, %_ZN4llvm8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS1_12DenseSetPairIjEEE4growEj.exit137
-  %.pr280 = phi i32 [ %138, %_ZN4llvm8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS1_12DenseSetPairIjEEE4growEj.exit137.thread ], [ %.pr.pre, %_ZN4llvm8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS1_12DenseSetPairIjEEE4growEj.exit137 ]
+  %.pr274 = phi i32 [ %138, %_ZN4llvm8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS1_12DenseSetPairIjEEE4growEj.exit137.thread ], [ %.pr.pre, %_ZN4llvm8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS1_12DenseSetPairIjEEE4growEj.exit137 ]
   %179 = phi ptr [ %136, %_ZN4llvm8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS1_12DenseSetPairIjEEE4growEj.exit137.thread ], [ %.pre, %_ZN4llvm8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS1_12DenseSetPairIjEEE4growEj.exit137 ]
   %180 = mul i32 %.sroa.1.0.copyload, 37
-  %181 = add i32 %.pr280, -1
+  %181 = add i32 %.pr274, -1
   %.02532.i.i.i = and i32 %181, %180
   %182 = zext i32 %.02532.i.i.i to i64
   %183 = getelementptr inbounds %"class.llvm::detail::DenseSetPair.484", ptr %179, i64 %182
@@ -14721,10 +14717,10 @@ _ZN4llvm8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS1_12DenseSe
   br i1 %262, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS2_12DenseSetPairIjEEEEjS3_S5_S7_E15LookupBucketForIjEEbRKT_RPS7_.exit.i, label %263
 
 263:                                              ; preds = %_ZN4llvm8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS1_12DenseSetPairIjEEE4growEj.exit.thread, %_ZN4llvm8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS1_12DenseSetPairIjEEE4growEj.exit
-  %.pr168282 = phi i32 [ %223, %_ZN4llvm8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS1_12DenseSetPairIjEEE4growEj.exit.thread ], [ %.pr168.pre, %_ZN4llvm8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS1_12DenseSetPairIjEEE4growEj.exit ]
+  %.pr168276 = phi i32 [ %223, %_ZN4llvm8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS1_12DenseSetPairIjEEE4growEj.exit.thread ], [ %.pr168.pre, %_ZN4llvm8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS1_12DenseSetPairIjEEE4growEj.exit ]
   %264 = phi ptr [ %221, %_ZN4llvm8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS1_12DenseSetPairIjEEE4growEj.exit.thread ], [ %.pre272, %_ZN4llvm8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS1_12DenseSetPairIjEEE4growEj.exit ]
   %265 = mul i32 %.sroa.1.0.copyload, 37
-  %266 = add i32 %.pr168282, -1
+  %266 = add i32 %.pr168276, -1
   %.02532.i.i10.i = and i32 %266, %265
   %267 = zext i32 %.02532.i.i10.i to i64
   %268 = getelementptr inbounds %"class.llvm::detail::DenseSetPair.484", ptr %264, i64 %267
@@ -14869,7 +14865,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7PhiNodeEEENS0_8NodeAddrIT_EEj.exit: ; pr
   br i1 %.not37221, label %._crit_edge224, label %.lr.ph223
 
 .lr.ph223:                                        ; preds = %"_ZZN4llvm3rdf13DataFlowGraph16removeUnusedPhisEvENK3$_0clERNS_11SmallVectorINS0_8NodeAddrIPNS0_8NodeBaseEEELj4EEE.exit", %_ZN4llvm3rdf13DataFlowGraph9unlinkDefENS0_8NodeAddrIPNS0_7DefNodeEEEb.exit
-  %.035222 = phi ptr [ %700, %_ZN4llvm3rdf13DataFlowGraph9unlinkDefENS0_8NodeAddrIPNS0_7DefNodeEEEb.exit ], [ %334, %"_ZZN4llvm3rdf13DataFlowGraph16removeUnusedPhisEvENK3$_0clERNS_11SmallVectorINS0_8NodeAddrIPNS0_8NodeBaseEEELj4EEE.exit" ]
+  %.035222 = phi ptr [ %704, %_ZN4llvm3rdf13DataFlowGraph9unlinkDefENS0_8NodeAddrIPNS0_7DefNodeEEEb.exit ], [ %334, %"_ZZN4llvm3rdf13DataFlowGraph16removeUnusedPhisEvENK3$_0clERNS_11SmallVectorINS0_8NodeAddrIPNS0_8NodeBaseEEELj4EEE.exit" ]
   %337 = load ptr, ptr %.035222, align 8
   %338 = getelementptr inbounds nuw i8, ptr %.035222, i64 8
   %339 = load i32, ptr %338, align 8
@@ -15271,378 +15267,375 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i.i.
   %576 = getelementptr inbounds nuw i8, ptr %337, i64 12
   %577 = load i32, ptr %576, align 4
   %578 = icmp eq i32 %575, 0
-  %.pre274 = load i32, ptr %27, align 4
-  %.pre276 = load i32, ptr %28, align 8
-  %.pre278 = load ptr, ptr %29, align 8
   br i1 %578, label %_ZN4llvm3rdf13DataFlowGraph11unlinkUseDFENS0_8NodeAddrIPNS0_7UseNodeEEE.exit.i, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7DefNodeEEENS0_8NodeAddrIT_EEj.exit.i.i
 
 _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7DefNodeEEENS0_8NodeAddrIT_EEj.exit.i.i: ; preds = %574
   %579 = add i32 %575, -1
-  %580 = lshr i32 %579, %.pre274
-  %581 = and i32 %.pre276, %579
-  %582 = shl i32 %581, 5
-  %583 = zext i32 %580 to i64
-  %584 = getelementptr inbounds ptr, ptr %.pre278, i64 %583
-  %585 = load ptr, ptr %584, align 8
-  %586 = zext i32 %582 to i64
-  %587 = getelementptr inbounds i8, ptr %585, i64 %586
-  %588 = getelementptr inbounds nuw i8, ptr %587, i64 20
-  %589 = load i32, ptr %588, align 4
-  %590 = icmp eq i32 %589, 0
-  br i1 %590, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit.i.i, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit.thread.i.i
+  %580 = load i32, ptr %27, align 4
+  %581 = lshr i32 %579, %580
+  %582 = load i32, ptr %28, align 8
+  %583 = and i32 %582, %579
+  %584 = shl i32 %583, 5
+  %585 = zext i32 %581 to i64
+  %586 = load ptr, ptr %29, align 8
+  %587 = getelementptr inbounds ptr, ptr %586, i64 %585
+  %588 = load ptr, ptr %587, align 8
+  %589 = zext i32 %584 to i64
+  %590 = getelementptr inbounds i8, ptr %588, i64 %589
+  %591 = getelementptr inbounds nuw i8, ptr %590, i64 20
+  %592 = load i32, ptr %591, align 4
+  %593 = icmp eq i32 %592, 0
+  br i1 %593, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit.i.i, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit.thread.i.i
 
 _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit.i.i: ; preds = %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7DefNodeEEENS0_8NodeAddrIT_EEj.exit.i.i
-  %591 = icmp eq i32 %339, 0
-  br i1 %591, label %.loopexit.sink.split.i.i, label %_ZN4llvm3rdf13DataFlowGraph11unlinkUseDFENS0_8NodeAddrIPNS0_7UseNodeEEE.exit.i
+  %594 = icmp eq i32 %339, 0
+  br i1 %594, label %608, label %_ZN4llvm3rdf13DataFlowGraph11unlinkUseDFENS0_8NodeAddrIPNS0_7UseNodeEEE.exit.i
 
 _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit.thread.i.i: ; preds = %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7DefNodeEEENS0_8NodeAddrIT_EEj.exit.i.i
-  %592 = icmp eq i32 %589, %339
-  br i1 %592, label %.loopexit.sink.split.i.i, label %.lr.ph.i.preheader.i
+  %595 = icmp eq i32 %592, %339
+  br i1 %595, label %608, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit.thread.i.i
-  %593 = add i32 %589, -1
-  %594 = lshr i32 %593, %.pre274
-  %595 = zext i32 %594 to i64
-  %596 = getelementptr inbounds ptr, ptr %.pre278, i64 %595
-  %597 = load ptr, ptr %596, align 8
-  %598 = and i32 %593, %.pre276
-  %599 = shl i32 %598, 5
-  %600 = zext i32 %599 to i64
-  %601 = getelementptr inbounds i8, ptr %597, i64 %600
-  %602 = getelementptr inbounds nuw i8, ptr %601, i64 12
-  %603 = load i32, ptr %602, align 4
-  %604 = icmp eq i32 %603, %339
-  br i1 %604, label %.loopexit.sink.split.i.loopexit.i, label %.lr.ph.i60
+  %596 = add i32 %592, -1
+  %597 = lshr i32 %596, %580
+  %598 = zext i32 %597 to i64
+  %599 = getelementptr inbounds ptr, ptr %586, i64 %598
+  %600 = load ptr, ptr %599, align 8
+  %601 = and i32 %596, %582
+  %602 = shl i32 %601, 5
+  %603 = zext i32 %602 to i64
+  %604 = getelementptr inbounds i8, ptr %600, i64 %603
+  %605 = getelementptr inbounds nuw i8, ptr %604, i64 12
+  %606 = load i32, ptr %605, align 4
+  %607 = icmp eq i32 %606, %339
+  br i1 %607, label %.lr.ph.i._crit_edge.i, label %.lr.ph.i60
 
-.lr.ph.i60:                                       ; preds = %.lr.ph.i.preheader.i, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit32.i.i
-  %605 = phi i32 [ %617, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit32.i.i ], [ %603, %.lr.ph.i.preheader.i ]
-  %606 = icmp eq i32 %605, 0
-  br i1 %606, label %_ZN4llvm3rdf13DataFlowGraph11unlinkUseDFENS0_8NodeAddrIPNS0_7UseNodeEEE.exit.i, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit32.i.i
-
-_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit32.i.i: ; preds = %.lr.ph.i60
-  %607 = add i32 %605, -1
-  %608 = lshr i32 %607, %.pre274
-  %609 = and i32 %607, %.pre276
-  %610 = shl i32 %609, 5
-  %611 = zext i32 %608 to i64
-  %612 = getelementptr inbounds ptr, ptr %.pre278, i64 %611
-  %613 = load ptr, ptr %612, align 8
-  %614 = zext i32 %610 to i64
-  %615 = getelementptr inbounds i8, ptr %613, i64 %614
-  %616 = getelementptr inbounds nuw i8, ptr %615, i64 12
-  %617 = load i32, ptr %616, align 4
-  %618 = icmp eq i32 %617, %339
-  br i1 %618, label %.loopexit.sink.split.i.loopexit.i, label %.lr.ph.i60, !llvm.loop !151
-
-.loopexit.sink.split.i.loopexit.i:                ; preds = %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit32.i.i, %.lr.ph.i.preheader.i
-  %.0.i.i.i26.pn36.i.lcssa.i = phi ptr [ %601, %.lr.ph.i.preheader.i ], [ %615, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit32.i.i ]
-  %619 = getelementptr inbounds nuw i8, ptr %.0.i.i.i26.pn36.i.lcssa.i, i64 12
-  br label %.loopexit.sink.split.i.i
-
-.loopexit.sink.split.i.i:                         ; preds = %.loopexit.sink.split.i.loopexit.i, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit.thread.i.i, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit.i.i
-  %.sink.i.i = phi ptr [ %588, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit.thread.i.i ], [ %588, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit.i.i ], [ %619, %.loopexit.sink.split.i.loopexit.i ]
-  store i32 %577, ptr %.sink.i.i, align 4
-  %.pre273 = load i32, ptr %27, align 4
-  %.pre275 = load i32, ptr %28, align 8
-  %.pre277 = load ptr, ptr %29, align 8
+608:                                              ; preds = %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit.thread.i.i, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit.i.i
+  store i32 %577, ptr %591, align 4
   br label %_ZN4llvm3rdf13DataFlowGraph11unlinkUseDFENS0_8NodeAddrIPNS0_7UseNodeEEE.exit.i
 
-_ZN4llvm3rdf13DataFlowGraph11unlinkUseDFENS0_8NodeAddrIPNS0_7UseNodeEEE.exit.i: ; preds = %.lr.ph.i60, %.loopexit.sink.split.i.i, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit.i.i, %574
-  %620 = phi ptr [ %.pre277, %.loopexit.sink.split.i.i ], [ %.pre278, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit.i.i ], [ %.pre278, %574 ], [ %.pre278, %.lr.ph.i60 ]
-  %621 = phi i32 [ %.pre275, %.loopexit.sink.split.i.i ], [ %.pre276, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit.i.i ], [ %.pre276, %574 ], [ %.pre276, %.lr.ph.i60 ]
-  %622 = phi i32 [ %.pre273, %.loopexit.sink.split.i.i ], [ %.pre274, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit.i.i ], [ %.pre274, %574 ], [ %.pre274, %.lr.ph.i60 ]
-  %623 = getelementptr inbounds nuw i8, ptr %337, i64 4
-  %624 = load i32, ptr %623, align 4
-  %625 = icmp ne i32 %624, 0
-  call void @llvm.assume(i1 %625)
-  %626 = add i32 %624, -1
-  %627 = lshr i32 %626, %622
-  %628 = and i32 %621, %626
-  %629 = shl i32 %628, 5
-  %630 = zext i32 %627 to i64
-  %631 = getelementptr inbounds ptr, ptr %620, i64 %630
-  %632 = load ptr, ptr %631, align 8
+.lr.ph.i._crit_edge.i:                            ; preds = %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit32.i.i, %.lr.ph.i.preheader.i
+  %.0.i.i.i26.pn36.i.lcssa.i = phi ptr [ %604, %.lr.ph.i.preheader.i ], [ %620, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit32.i.i ]
+  %609 = getelementptr inbounds nuw i8, ptr %.0.i.i.i26.pn36.i.lcssa.i, i64 12
+  store i32 %577, ptr %609, align 4
+  br label %_ZN4llvm3rdf13DataFlowGraph11unlinkUseDFENS0_8NodeAddrIPNS0_7UseNodeEEE.exit.i
+
+.lr.ph.i60:                                       ; preds = %.lr.ph.i.preheader.i, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit32.i.i
+  %610 = phi i32 [ %622, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit32.i.i ], [ %606, %.lr.ph.i.preheader.i ]
+  %611 = icmp eq i32 %610, 0
+  br i1 %611, label %_ZN4llvm3rdf13DataFlowGraph11unlinkUseDFENS0_8NodeAddrIPNS0_7UseNodeEEE.exit.i, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit32.i.i
+
+_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit32.i.i: ; preds = %.lr.ph.i60
+  %612 = add i32 %610, -1
+  %613 = lshr i32 %612, %580
+  %614 = and i32 %612, %582
+  %615 = shl i32 %614, 5
+  %616 = zext i32 %613 to i64
+  %617 = getelementptr inbounds ptr, ptr %586, i64 %616
+  %618 = load ptr, ptr %617, align 8
+  %619 = zext i32 %615 to i64
+  %620 = getelementptr inbounds i8, ptr %618, i64 %619
+  %621 = getelementptr inbounds nuw i8, ptr %620, i64 12
+  %622 = load i32, ptr %621, align 4
+  %623 = icmp eq i32 %622, %339
+  br i1 %623, label %.lr.ph.i._crit_edge.i, label %.lr.ph.i60, !llvm.loop !151
+
+_ZN4llvm3rdf13DataFlowGraph11unlinkUseDFENS0_8NodeAddrIPNS0_7UseNodeEEE.exit.i: ; preds = %.lr.ph.i60, %.lr.ph.i._crit_edge.i, %608, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit.i.i, %574
+  %624 = getelementptr inbounds nuw i8, ptr %337, i64 4
+  %625 = load i32, ptr %624, align 4
+  %626 = icmp ne i32 %625, 0
+  call void @llvm.assume(i1 %626)
+  %627 = add i32 %625, -1
+  %628 = load i32, ptr %27, align 4
+  %629 = lshr i32 %627, %628
+  %630 = load i32, ptr %28, align 8
+  %631 = and i32 %630, %627
+  %632 = shl i32 %631, 5
   %633 = zext i32 %629 to i64
-  %634 = getelementptr inbounds i8, ptr %632, i64 %633
-  %635 = icmp ne ptr %634, %337
-  call void @llvm.assume(i1 %635)
-  %636 = load i16, ptr %634, align 8
-  %637 = and i16 %636, 3
-  %638 = icmp eq i16 %637, 1
-  br i1 %638, label %_ZN4llvm3rdf7RefNode8getOwnerERKNS0_13DataFlowGraphE.exit.i.i63, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit16.i.i.i61
+  %634 = load ptr, ptr %29, align 8
+  %635 = getelementptr inbounds ptr, ptr %634, i64 %633
+  %636 = load ptr, ptr %635, align 8
+  %637 = zext i32 %632 to i64
+  %638 = getelementptr inbounds i8, ptr %636, i64 %637
+  %639 = icmp ne ptr %638, %337
+  call void @llvm.assume(i1 %639)
+  %640 = load i16, ptr %638, align 8
+  %641 = and i16 %640, 3
+  %642 = icmp eq i16 %641, 1
+  br i1 %642, label %_ZN4llvm3rdf7RefNode8getOwnerERKNS0_13DataFlowGraphE.exit.i.i63, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit16.i.i.i61
 
 _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit16.i.i.i61: ; preds = %_ZN4llvm3rdf13DataFlowGraph11unlinkUseDFENS0_8NodeAddrIPNS0_7UseNodeEEE.exit.i, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit16.i.i.i61
-  %.0.i.i.i.pn19.i.i.i62 = phi ptr [ %650, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit16.i.i.i61 ], [ %634, %_ZN4llvm3rdf13DataFlowGraph11unlinkUseDFENS0_8NodeAddrIPNS0_7UseNodeEEE.exit.i ]
-  %639 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.pn19.i.i.i62, i64 4
-  %640 = load i32, ptr %639, align 4
-  %641 = icmp ne i32 %640, 0
-  call void @llvm.assume(i1 %641)
-  %642 = add i32 %640, -1
-  %643 = lshr i32 %642, %622
-  %644 = and i32 %642, %621
-  %645 = shl i32 %644, 5
-  %646 = zext i32 %643 to i64
-  %647 = getelementptr inbounds ptr, ptr %620, i64 %646
-  %648 = load ptr, ptr %647, align 8
-  %649 = zext i32 %645 to i64
-  %650 = getelementptr inbounds i8, ptr %648, i64 %649
-  %651 = icmp ne ptr %650, %337
-  call void @llvm.assume(i1 %651)
-  %652 = load i16, ptr %650, align 8
-  %653 = and i16 %652, 3
-  %654 = icmp eq i16 %653, 1
-  br i1 %654, label %_ZN4llvm3rdf7RefNode8getOwnerERKNS0_13DataFlowGraphE.exit.i.i63, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit16.i.i.i61, !llvm.loop !14
+  %.0.i.i.i.pn19.i.i.i62 = phi ptr [ %654, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit16.i.i.i61 ], [ %638, %_ZN4llvm3rdf13DataFlowGraph11unlinkUseDFENS0_8NodeAddrIPNS0_7UseNodeEEE.exit.i ]
+  %643 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.pn19.i.i.i62, i64 4
+  %644 = load i32, ptr %643, align 4
+  %645 = icmp ne i32 %644, 0
+  call void @llvm.assume(i1 %645)
+  %646 = add i32 %644, -1
+  %647 = lshr i32 %646, %628
+  %648 = and i32 %646, %630
+  %649 = shl i32 %648, 5
+  %650 = zext i32 %647 to i64
+  %651 = getelementptr inbounds ptr, ptr %634, i64 %650
+  %652 = load ptr, ptr %651, align 8
+  %653 = zext i32 %649 to i64
+  %654 = getelementptr inbounds i8, ptr %652, i64 %653
+  %655 = icmp ne ptr %654, %337
+  call void @llvm.assume(i1 %655)
+  %656 = load i16, ptr %654, align 8
+  %657 = and i16 %656, 3
+  %658 = icmp eq i16 %657, 1
+  br i1 %658, label %_ZN4llvm3rdf7RefNode8getOwnerERKNS0_13DataFlowGraphE.exit.i.i63, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit16.i.i.i61, !llvm.loop !14
 
 _ZN4llvm3rdf7RefNode8getOwnerERKNS0_13DataFlowGraphE.exit.i.i63: ; preds = %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit16.i.i.i61, %_ZN4llvm3rdf13DataFlowGraph11unlinkUseDFENS0_8NodeAddrIPNS0_7UseNodeEEE.exit.i
-  %.0.i.i.i.pn.lcssa.i.i.i64 = phi ptr [ %634, %_ZN4llvm3rdf13DataFlowGraph11unlinkUseDFENS0_8NodeAddrIPNS0_7UseNodeEEE.exit.i ], [ %650, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit16.i.i.i61 ]
-  %655 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.pn.lcssa.i.i.i64, i64 16
-  %656 = load i32, ptr %655, align 8
-  %657 = icmp eq i32 %656, 0
-  br i1 %657, label %_ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i.i.i66, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i.i.i.i65
+  %.0.i.i.i.pn.lcssa.i.i.i64 = phi ptr [ %638, %_ZN4llvm3rdf13DataFlowGraph11unlinkUseDFENS0_8NodeAddrIPNS0_7UseNodeEEE.exit.i ], [ %654, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit16.i.i.i61 ]
+  %659 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.pn.lcssa.i.i.i64, i64 16
+  %660 = load i32, ptr %659, align 8
+  %661 = icmp eq i32 %660, 0
+  br i1 %661, label %_ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i.i.i66, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i.i.i.i65
 
 _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i.i.i.i65: ; preds = %_ZN4llvm3rdf7RefNode8getOwnerERKNS0_13DataFlowGraphE.exit.i.i63
-  %658 = add i32 %656, -1
-  %659 = lshr i32 %658, %622
-  %660 = and i32 %658, %621
-  %661 = shl i32 %660, 5
-  %662 = zext i32 %659 to i64
-  %663 = getelementptr inbounds ptr, ptr %620, i64 %662
-  %664 = load ptr, ptr %663, align 8
-  %665 = zext i32 %661 to i64
-  %666 = getelementptr inbounds i8, ptr %664, i64 %665
+  %662 = add i32 %660, -1
+  %663 = lshr i32 %662, %628
+  %664 = and i32 %662, %630
+  %665 = shl i32 %664, 5
+  %666 = zext i32 %663 to i64
+  %667 = getelementptr inbounds ptr, ptr %634, i64 %666
+  %668 = load ptr, ptr %667, align 8
+  %669 = zext i32 %665 to i64
+  %670 = getelementptr inbounds i8, ptr %668, i64 %669
   br label %_ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i.i.i66
 
 _ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i.i.i66: ; preds = %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i.i.i.i65, %_ZN4llvm3rdf7RefNode8getOwnerERKNS0_13DataFlowGraphE.exit.i.i63
-  %.sroa.0.0.i.i.i.i67 = phi ptr [ %666, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i.i.i.i65 ], [ null, %_ZN4llvm3rdf7RefNode8getOwnerERKNS0_13DataFlowGraphE.exit.i.i63 ]
-  %667 = icmp eq i32 %656, %339
-  br i1 %667, label %672, label %.preheader.i.i.i68
+  %.sroa.0.0.i.i.i.i67 = phi ptr [ %670, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i.i.i.i65 ], [ null, %_ZN4llvm3rdf7RefNode8getOwnerERKNS0_13DataFlowGraphE.exit.i.i63 ]
+  %671 = icmp eq i32 %660, %339
+  br i1 %671, label %676, label %.preheader.i.i.i68
 
 .preheader.i.i.i68:                               ; preds = %_ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i.i.i66
-  %668 = icmp ne ptr %.sroa.0.0.i.i.i.i67, %.0.i.i.i.pn.lcssa.i.i.i64
-  call void @llvm.assume(i1 %668)
-  %669 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i67, i64 4
-  %670 = load i32, ptr %669, align 4
-  %671 = icmp eq i32 %670, %339
-  br i1 %671, label %._crit_edge.i.i.i70, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i.i.i69
-
-672:                                              ; preds = %_ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i.i.i66
-  %673 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.pn.lcssa.i.i.i64, i64 20
+  %672 = icmp ne ptr %.sroa.0.0.i.i.i.i67, %.0.i.i.i.pn.lcssa.i.i.i64
+  call void @llvm.assume(i1 %672)
+  %673 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i67, i64 4
   %674 = load i32, ptr %673, align 4
   %675 = icmp eq i32 %674, %339
-  br i1 %675, label %676, label %677
+  br i1 %675, label %._crit_edge.i.i.i70, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i.i.i69
 
-676:                                              ; preds = %672
-  store i32 0, ptr %673, align 4
-  store i32 0, ptr %655, align 8
+676:                                              ; preds = %_ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i.i.i66
+  %677 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.pn.lcssa.i.i.i64, i64 20
+  %678 = load i32, ptr %677, align 4
+  %679 = icmp eq i32 %678, %339
+  br i1 %679, label %680, label %681
+
+680:                                              ; preds = %676
+  store i32 0, ptr %677, align 4
+  store i32 0, ptr %659, align 8
   br label %_ZN4llvm3rdf13DataFlowGraph9unlinkDefENS0_8NodeAddrIPNS0_7DefNodeEEEb.exit
 
-677:                                              ; preds = %672
-  %678 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i67, i64 4
-  %679 = load i32, ptr %678, align 4
-  store i32 %679, ptr %655, align 8
+681:                                              ; preds = %676
+  %682 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i67, i64 4
+  %683 = load i32, ptr %682, align 4
+  store i32 %683, ptr %659, align 8
   br label %_ZN4llvm3rdf13DataFlowGraph9unlinkDefENS0_8NodeAddrIPNS0_7DefNodeEEEb.exit
 
 ._crit_edge.i.i.i70:                              ; preds = %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i.i.i69, %.preheader.i.i.i68
-  %.sroa.08.0.lcssa.i.i.i71 = phi ptr [ %.sroa.0.0.i.i.i.i67, %.preheader.i.i.i68 ], [ %695, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i.i.i69 ]
-  %.sroa.6.0.lcssa.i.i.i72 = phi i32 [ %656, %.preheader.i.i.i68 ], [ %685, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i.i.i69 ]
-  %680 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.lcssa.i.i.i71, i64 4
-  store i32 %624, ptr %680, align 4
-  %681 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.pn.lcssa.i.i.i64, i64 20
-  %682 = load i32, ptr %681, align 4
-  %683 = icmp eq i32 %682, %339
-  br i1 %683, label %684, label %_ZN4llvm3rdf13DataFlowGraph9unlinkDefENS0_8NodeAddrIPNS0_7DefNodeEEEb.exit
+  %.sroa.08.0.lcssa.i.i.i71 = phi ptr [ %.sroa.0.0.i.i.i.i67, %.preheader.i.i.i68 ], [ %699, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i.i.i69 ]
+  %.sroa.6.0.lcssa.i.i.i72 = phi i32 [ %660, %.preheader.i.i.i68 ], [ %689, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i.i.i69 ]
+  %684 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.lcssa.i.i.i71, i64 4
+  store i32 %625, ptr %684, align 4
+  %685 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.pn.lcssa.i.i.i64, i64 20
+  %686 = load i32, ptr %685, align 4
+  %687 = icmp eq i32 %686, %339
+  br i1 %687, label %688, label %_ZN4llvm3rdf13DataFlowGraph9unlinkDefENS0_8NodeAddrIPNS0_7DefNodeEEEb.exit
 
-684:                                              ; preds = %._crit_edge.i.i.i70
-  store i32 %.sroa.6.0.lcssa.i.i.i72, ptr %681, align 4
+688:                                              ; preds = %._crit_edge.i.i.i70
+  store i32 %.sroa.6.0.lcssa.i.i.i72, ptr %685, align 4
   br label %_ZN4llvm3rdf13DataFlowGraph9unlinkDefENS0_8NodeAddrIPNS0_7DefNodeEEEb.exit
 
 _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i.i.i69: ; preds = %.preheader.i.i.i68, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i.i.i69
-  %685 = phi i32 [ %698, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i.i.i69 ], [ %670, %.preheader.i.i.i68 ]
-  %686 = icmp ne i32 %685, 0
-  call void @llvm.assume(i1 %686)
-  %687 = add i32 %685, -1
-  %688 = lshr i32 %687, %622
-  %689 = and i32 %687, %621
-  %690 = shl i32 %689, 5
-  %691 = zext i32 %688 to i64
-  %692 = getelementptr inbounds ptr, ptr %620, i64 %691
-  %693 = load ptr, ptr %692, align 8
-  %694 = zext i32 %690 to i64
-  %695 = getelementptr inbounds i8, ptr %693, i64 %694
-  %696 = icmp ne ptr %695, %.0.i.i.i.pn.lcssa.i.i.i64
-  call void @llvm.assume(i1 %696)
-  %697 = getelementptr inbounds nuw i8, ptr %695, i64 4
-  %698 = load i32, ptr %697, align 4
-  %699 = icmp eq i32 %698, %339
-  br i1 %699, label %._crit_edge.i.i.i70, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i.i.i69, !llvm.loop !15
+  %689 = phi i32 [ %702, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i.i.i69 ], [ %674, %.preheader.i.i.i68 ]
+  %690 = icmp ne i32 %689, 0
+  call void @llvm.assume(i1 %690)
+  %691 = add i32 %689, -1
+  %692 = lshr i32 %691, %628
+  %693 = and i32 %691, %630
+  %694 = shl i32 %693, 5
+  %695 = zext i32 %692 to i64
+  %696 = getelementptr inbounds ptr, ptr %634, i64 %695
+  %697 = load ptr, ptr %696, align 8
+  %698 = zext i32 %694 to i64
+  %699 = getelementptr inbounds i8, ptr %697, i64 %698
+  %700 = icmp ne ptr %699, %.0.i.i.i.pn.lcssa.i.i.i64
+  call void @llvm.assume(i1 %700)
+  %701 = getelementptr inbounds nuw i8, ptr %699, i64 4
+  %702 = load i32, ptr %701, align 4
+  %703 = icmp eq i32 %702, %339
+  br i1 %703, label %._crit_edge.i.i.i70, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i.i.i69, !llvm.loop !15
 
-_ZN4llvm3rdf13DataFlowGraph9unlinkDefENS0_8NodeAddrIPNS0_7DefNodeEEEb.exit: ; preds = %684, %._crit_edge.i.i.i70, %677, %676, %558, %._crit_edge.i.i.i, %551, %550
-  %700 = getelementptr inbounds i8, ptr %.035222, i64 16
-  %.not37 = icmp eq ptr %700, %336
+_ZN4llvm3rdf13DataFlowGraph9unlinkDefENS0_8NodeAddrIPNS0_7DefNodeEEEb.exit: ; preds = %688, %._crit_edge.i.i.i70, %681, %680, %558, %._crit_edge.i.i.i, %551, %550
+  %704 = getelementptr inbounds i8, ptr %.035222, i64 16
+  %.not37 = icmp eq ptr %704, %336
   br i1 %.not37, label %._crit_edge224, label %.lr.ph223
 
 ._crit_edge224:                                   ; preds = %_ZN4llvm3rdf13DataFlowGraph9unlinkDefENS0_8NodeAddrIPNS0_7DefNodeEEEb.exit, %"_ZZN4llvm3rdf13DataFlowGraph16removeUnusedPhisEvENK3$_0clERNS_11SmallVectorINS0_8NodeAddrIPNS0_8NodeBaseEEELj4EEE.exit"
-  %701 = load ptr, ptr %5, align 8
-  %702 = getelementptr inbounds nuw i8, ptr %701, i64 4
-  %703 = load i32, ptr %702, align 4
-  %704 = icmp ne i32 %703, 0
-  call void @llvm.assume(i1 %704)
-  %705 = add i32 %703, -1
-  %706 = load i32, ptr %27, align 4
-  %707 = lshr i32 %705, %706
-  %708 = load i32, ptr %28, align 8
-  %709 = and i32 %708, %705
-  %710 = shl i32 %709, 5
-  %711 = zext i32 %707 to i64
-  %712 = load ptr, ptr %29, align 8
-  %713 = getelementptr inbounds ptr, ptr %712, i64 %711
-  %714 = load ptr, ptr %713, align 8
-  %715 = zext i32 %710 to i64
-  %716 = getelementptr inbounds i8, ptr %714, i64 %715
-  %717 = icmp ne ptr %716, %701
-  call void @llvm.assume(i1 %717)
-  %718 = load i16, ptr %716, align 8
-  %719 = and i16 %718, 28
-  %720 = icmp eq i16 %719, 20
-  br i1 %720, label %_ZN4llvm3rdf9InstrNode8getOwnerERKNS0_13DataFlowGraphE.exit, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit16.i74
+  %705 = load ptr, ptr %5, align 8
+  %706 = getelementptr inbounds nuw i8, ptr %705, i64 4
+  %707 = load i32, ptr %706, align 4
+  %708 = icmp ne i32 %707, 0
+  call void @llvm.assume(i1 %708)
+  %709 = add i32 %707, -1
+  %710 = load i32, ptr %27, align 4
+  %711 = lshr i32 %709, %710
+  %712 = load i32, ptr %28, align 8
+  %713 = and i32 %712, %709
+  %714 = shl i32 %713, 5
+  %715 = zext i32 %711 to i64
+  %716 = load ptr, ptr %29, align 8
+  %717 = getelementptr inbounds ptr, ptr %716, i64 %715
+  %718 = load ptr, ptr %717, align 8
+  %719 = zext i32 %714 to i64
+  %720 = getelementptr inbounds i8, ptr %718, i64 %719
+  %721 = icmp ne ptr %720, %705
+  call void @llvm.assume(i1 %721)
+  %722 = load i16, ptr %720, align 8
+  %723 = and i16 %722, 28
+  %724 = icmp eq i16 %723, 20
+  br i1 %724, label %_ZN4llvm3rdf9InstrNode8getOwnerERKNS0_13DataFlowGraphE.exit, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit16.i74
 
 _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit16.i74: ; preds = %._crit_edge224, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit16.i74
-  %.0.i.i.i.pn19.i75 = phi ptr [ %732, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit16.i74 ], [ %716, %._crit_edge224 ]
-  %721 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.pn19.i75, i64 4
-  %722 = load i32, ptr %721, align 4
-  %723 = icmp ne i32 %722, 0
-  call void @llvm.assume(i1 %723)
-  %724 = add i32 %722, -1
-  %725 = lshr i32 %724, %706
-  %726 = and i32 %724, %708
-  %727 = shl i32 %726, 5
-  %728 = zext i32 %725 to i64
-  %729 = getelementptr inbounds ptr, ptr %712, i64 %728
-  %730 = load ptr, ptr %729, align 8
-  %731 = zext i32 %727 to i64
-  %732 = getelementptr inbounds i8, ptr %730, i64 %731
-  %733 = icmp ne ptr %732, %701
-  call void @llvm.assume(i1 %733)
-  %734 = load i16, ptr %732, align 8
-  %735 = and i16 %734, 28
-  %736 = icmp eq i16 %735, 20
-  br i1 %736, label %_ZN4llvm3rdf9InstrNode8getOwnerERKNS0_13DataFlowGraphE.exit, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit16.i74, !llvm.loop !16
+  %.0.i.i.i.pn19.i75 = phi ptr [ %736, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit16.i74 ], [ %720, %._crit_edge224 ]
+  %725 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.pn19.i75, i64 4
+  %726 = load i32, ptr %725, align 4
+  %727 = icmp ne i32 %726, 0
+  call void @llvm.assume(i1 %727)
+  %728 = add i32 %726, -1
+  %729 = lshr i32 %728, %710
+  %730 = and i32 %728, %712
+  %731 = shl i32 %730, 5
+  %732 = zext i32 %729 to i64
+  %733 = getelementptr inbounds ptr, ptr %716, i64 %732
+  %734 = load ptr, ptr %733, align 8
+  %735 = zext i32 %731 to i64
+  %736 = getelementptr inbounds i8, ptr %734, i64 %735
+  %737 = icmp ne ptr %736, %705
+  call void @llvm.assume(i1 %737)
+  %738 = load i16, ptr %736, align 8
+  %739 = and i16 %738, 28
+  %740 = icmp eq i16 %739, 20
+  br i1 %740, label %_ZN4llvm3rdf9InstrNode8getOwnerERKNS0_13DataFlowGraphE.exit, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit16.i74, !llvm.loop !16
 
 _ZN4llvm3rdf9InstrNode8getOwnerERKNS0_13DataFlowGraphE.exit: ; preds = %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit16.i74, %._crit_edge224
-  %.0.i.i.i.pn.lcssa.i76 = phi ptr [ %716, %._crit_edge224 ], [ %732, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit16.i74 ]
-  %737 = load i32, ptr %.sroa.220.0..sroa_idx, align 8
-  %738 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.pn.lcssa.i76, i64 16
-  %739 = load i32, ptr %738, align 8
-  %740 = icmp eq i32 %739, 0
-  br i1 %740, label %_ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i80, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i.i
+  %.0.i.i.i.pn.lcssa.i76 = phi ptr [ %720, %._crit_edge224 ], [ %736, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit16.i74 ]
+  %741 = load i32, ptr %.sroa.220.0..sroa_idx, align 8
+  %742 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.pn.lcssa.i76, i64 16
+  %743 = load i32, ptr %742, align 8
+  %744 = icmp eq i32 %743, 0
+  br i1 %744, label %_ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i80, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i.i
 
 _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i.i: ; preds = %_ZN4llvm3rdf9InstrNode8getOwnerERKNS0_13DataFlowGraphE.exit
-  %741 = add i32 %739, -1
-  %742 = lshr i32 %741, %706
-  %743 = and i32 %741, %708
-  %744 = shl i32 %743, 5
-  %745 = zext i32 %742 to i64
-  %746 = getelementptr inbounds ptr, ptr %712, i64 %745
-  %747 = load ptr, ptr %746, align 8
-  %748 = zext i32 %744 to i64
-  %749 = getelementptr inbounds i8, ptr %747, i64 %748
+  %745 = add i32 %743, -1
+  %746 = lshr i32 %745, %710
+  %747 = and i32 %745, %712
+  %748 = shl i32 %747, 5
+  %749 = zext i32 %746 to i64
+  %750 = getelementptr inbounds ptr, ptr %716, i64 %749
+  %751 = load ptr, ptr %750, align 8
+  %752 = zext i32 %748 to i64
+  %753 = getelementptr inbounds i8, ptr %751, i64 %752
   br label %_ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i80
 
 _ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i80: ; preds = %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i.i, %_ZN4llvm3rdf9InstrNode8getOwnerERKNS0_13DataFlowGraphE.exit
-  %.sroa.0.0.i.i = phi ptr [ %749, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i.i ], [ null, %_ZN4llvm3rdf9InstrNode8getOwnerERKNS0_13DataFlowGraphE.exit ]
-  %750 = icmp eq i32 %739, %737
-  br i1 %750, label %755, label %.preheader.i
+  %.sroa.0.0.i.i = phi ptr [ %753, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i.i ], [ null, %_ZN4llvm3rdf9InstrNode8getOwnerERKNS0_13DataFlowGraphE.exit ]
+  %754 = icmp eq i32 %743, %741
+  br i1 %754, label %759, label %.preheader.i
 
 .preheader.i:                                     ; preds = %_ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i80
-  %751 = icmp ne ptr %.sroa.0.0.i.i, %.0.i.i.i.pn.lcssa.i76
-  call void @llvm.assume(i1 %751)
-  %752 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 4
-  %753 = load i32, ptr %752, align 4
-  %754 = icmp eq i32 %753, %737
-  br i1 %754, label %._crit_edge.i, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i82
-
-755:                                              ; preds = %_ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i80
-  %756 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.pn.lcssa.i76, i64 20
+  %755 = icmp ne ptr %.sroa.0.0.i.i, %.0.i.i.i.pn.lcssa.i76
+  call void @llvm.assume(i1 %755)
+  %756 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 4
   %757 = load i32, ptr %756, align 4
-  %758 = icmp eq i32 %757, %737
-  br i1 %758, label %759, label %760
+  %758 = icmp eq i32 %757, %741
+  br i1 %758, label %._crit_edge.i, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i82
 
-759:                                              ; preds = %755
-  store i32 0, ptr %756, align 4
-  store i32 0, ptr %738, align 8
+759:                                              ; preds = %_ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i80
+  %760 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.pn.lcssa.i76, i64 20
+  %761 = load i32, ptr %760, align 4
+  %762 = icmp eq i32 %761, %741
+  br i1 %762, label %763, label %764
+
+763:                                              ; preds = %759
+  store i32 0, ptr %760, align 4
+  store i32 0, ptr %742, align 8
   br label %_ZN4llvm3rdf8CodeNode12removeMemberENS0_8NodeAddrIPNS0_8NodeBaseEEERKNS0_13DataFlowGraphE.exit
 
-760:                                              ; preds = %755
-  %761 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 4
-  %762 = load i32, ptr %761, align 4
-  store i32 %762, ptr %738, align 8
+764:                                              ; preds = %759
+  %765 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 4
+  %766 = load i32, ptr %765, align 4
+  store i32 %766, ptr %742, align 8
   br label %_ZN4llvm3rdf8CodeNode12removeMemberENS0_8NodeAddrIPNS0_8NodeBaseEEERKNS0_13DataFlowGraphE.exit
 
 ._crit_edge.i:                                    ; preds = %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i82, %.preheader.i
-  %.sroa.08.0.lcssa.i = phi ptr [ %.sroa.0.0.i.i, %.preheader.i ], [ %778, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i82 ]
-  %.sroa.6.0.lcssa.i = phi i32 [ %739, %.preheader.i ], [ %768, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i82 ]
-  %763 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.lcssa.i, i64 4
-  store i32 %703, ptr %763, align 4
-  %764 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.pn.lcssa.i76, i64 20
-  %765 = load i32, ptr %764, align 4
-  %766 = icmp eq i32 %765, %737
-  br i1 %766, label %767, label %_ZN4llvm3rdf8CodeNode12removeMemberENS0_8NodeAddrIPNS0_8NodeBaseEEERKNS0_13DataFlowGraphE.exit
+  %.sroa.08.0.lcssa.i = phi ptr [ %.sroa.0.0.i.i, %.preheader.i ], [ %782, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i82 ]
+  %.sroa.6.0.lcssa.i = phi i32 [ %743, %.preheader.i ], [ %772, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i82 ]
+  %767 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.lcssa.i, i64 4
+  store i32 %707, ptr %767, align 4
+  %768 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.pn.lcssa.i76, i64 20
+  %769 = load i32, ptr %768, align 4
+  %770 = icmp eq i32 %769, %741
+  br i1 %770, label %771, label %_ZN4llvm3rdf8CodeNode12removeMemberENS0_8NodeAddrIPNS0_8NodeBaseEEERKNS0_13DataFlowGraphE.exit
 
-767:                                              ; preds = %._crit_edge.i
-  store i32 %.sroa.6.0.lcssa.i, ptr %764, align 4
+771:                                              ; preds = %._crit_edge.i
+  store i32 %.sroa.6.0.lcssa.i, ptr %768, align 4
   br label %_ZN4llvm3rdf8CodeNode12removeMemberENS0_8NodeAddrIPNS0_8NodeBaseEEERKNS0_13DataFlowGraphE.exit
 
 _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i82: ; preds = %.preheader.i, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i82
-  %768 = phi i32 [ %781, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i82 ], [ %753, %.preheader.i ]
-  %769 = icmp ne i32 %768, 0
-  call void @llvm.assume(i1 %769)
-  %770 = add i32 %768, -1
-  %771 = lshr i32 %770, %706
-  %772 = and i32 %770, %708
-  %773 = shl i32 %772, 5
-  %774 = zext i32 %771 to i64
-  %775 = getelementptr inbounds ptr, ptr %712, i64 %774
-  %776 = load ptr, ptr %775, align 8
-  %777 = zext i32 %773 to i64
-  %778 = getelementptr inbounds i8, ptr %776, i64 %777
-  %779 = icmp ne ptr %778, %.0.i.i.i.pn.lcssa.i76
-  call void @llvm.assume(i1 %779)
-  %780 = getelementptr inbounds nuw i8, ptr %778, i64 4
-  %781 = load i32, ptr %780, align 4
-  %782 = icmp eq i32 %781, %737
-  br i1 %782, label %._crit_edge.i, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i82, !llvm.loop !15
+  %772 = phi i32 [ %785, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i82 ], [ %757, %.preheader.i ]
+  %773 = icmp ne i32 %772, 0
+  call void @llvm.assume(i1 %773)
+  %774 = add i32 %772, -1
+  %775 = lshr i32 %774, %710
+  %776 = and i32 %774, %712
+  %777 = shl i32 %776, 5
+  %778 = zext i32 %775 to i64
+  %779 = getelementptr inbounds ptr, ptr %716, i64 %778
+  %780 = load ptr, ptr %779, align 8
+  %781 = zext i32 %777 to i64
+  %782 = getelementptr inbounds i8, ptr %780, i64 %781
+  %783 = icmp ne ptr %782, %.0.i.i.i.pn.lcssa.i76
+  call void @llvm.assume(i1 %783)
+  %784 = getelementptr inbounds nuw i8, ptr %782, i64 4
+  %785 = load i32, ptr %784, align 4
+  %786 = icmp eq i32 %785, %741
+  br i1 %786, label %._crit_edge.i, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i82, !llvm.loop !15
 
-_ZN4llvm3rdf8CodeNode12removeMemberENS0_8NodeAddrIPNS0_8NodeBaseEEERKNS0_13DataFlowGraphE.exit: ; preds = %329, %326, %767, %._crit_edge.i, %760, %759
-  %783 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #22
-  %784 = load ptr, ptr %6, align 8
-  %785 = icmp eq ptr %784, %33
-  br i1 %785, label %_ZN4llvm11SmallVectorINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELj4EED2Ev.exit83, label %786
+_ZN4llvm3rdf8CodeNode12removeMemberENS0_8NodeAddrIPNS0_8NodeBaseEEERKNS0_13DataFlowGraphE.exit: ; preds = %329, %326, %771, %._crit_edge.i, %764, %763
+  %787 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #22
+  %788 = load ptr, ptr %6, align 8
+  %789 = icmp eq ptr %788, %33
+  br i1 %789, label %_ZN4llvm11SmallVectorINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELj4EED2Ev.exit83, label %790
 
-786:                                              ; preds = %_ZN4llvm3rdf8CodeNode12removeMemberENS0_8NodeAddrIPNS0_8NodeBaseEEERKNS0_13DataFlowGraphE.exit
-  call void @free(ptr noundef %784) #22
+790:                                              ; preds = %_ZN4llvm3rdf8CodeNode12removeMemberENS0_8NodeAddrIPNS0_8NodeBaseEEERKNS0_13DataFlowGraphE.exit
+  call void @free(ptr noundef %788) #22
   br label %_ZN4llvm11SmallVectorINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELj4EED2Ev.exit83
 
-_ZN4llvm11SmallVectorINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELj4EED2Ev.exit83: ; preds = %_ZN4llvm3rdf8CodeNode12removeMemberENS0_8NodeAddrIPNS0_8NodeBaseEEERKNS0_13DataFlowGraphE.exit, %786
-  %787 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #22
-  br i1 %787, label %._crit_edge226, label %302
+_ZN4llvm11SmallVectorINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELj4EED2Ev.exit83: ; preds = %_ZN4llvm3rdf8CodeNode12removeMemberENS0_8NodeAddrIPNS0_8NodeBaseEEERKNS0_13DataFlowGraphE.exit, %790
+  %791 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #22
+  br i1 %791, label %._crit_edge226, label %302
 
 ._crit_edge226:                                   ; preds = %_ZN4llvm11SmallVectorINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELj4EED2Ev.exit83, %_ZN4llvm11SmallVectorINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELj4EED2Ev.exit
-  %788 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #22
-  %789 = load ptr, ptr %7, align 8
-  %790 = icmp eq ptr %789, %8
-  br i1 %790, label %_ZN4llvm9SetVectorIjNS_11SmallVectorIjLj0EEENS_8DenseSetIjNS_12DenseMapInfoIjvEEEELj0EED2Ev.exit, label %791
+  %792 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #22
+  %793 = load ptr, ptr %7, align 8
+  %794 = icmp eq ptr %793, %8
+  br i1 %794, label %_ZN4llvm9SetVectorIjNS_11SmallVectorIjLj0EEENS_8DenseSetIjNS_12DenseMapInfoIjvEEEELj0EED2Ev.exit, label %795
 
-791:                                              ; preds = %._crit_edge226
-  call void @free(ptr noundef %789) #22
+795:                                              ; preds = %._crit_edge226
+  call void @free(ptr noundef %793) #22
   br label %_ZN4llvm9SetVectorIjNS_11SmallVectorIjLj0EEENS_8DenseSetIjNS_12DenseMapInfoIjvEEEELj0EED2Ev.exit
 
-_ZN4llvm9SetVectorIjNS_11SmallVectorIjLj0EEENS_8DenseSetIjNS_12DenseMapInfoIjvEEEELj0EED2Ev.exit: ; preds = %._crit_edge226, %791
-  %792 = load ptr, ptr %2, align 8
-  %793 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %794 = load i32, ptr %793, align 8
-  %795 = zext i32 %794 to i64
-  %796 = shl nuw nsw i64 %795, 2
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %792, i64 noundef %796, i64 noundef 4) #22
+_ZN4llvm9SetVectorIjNS_11SmallVectorIjLj0EEENS_8DenseSetIjNS_12DenseMapInfoIjvEEEELj0EED2Ev.exit: ; preds = %._crit_edge226, %795
+  %796 = load ptr, ptr %2, align 8
+  %797 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %798 = load i32, ptr %797, align 8
+  %799 = zext i32 %798 to i64
+  %800 = shl nuw nsw i64 %799, 2
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %796, i64 noundef %800, i64 noundef 4) #22
   ret void
 }
 
@@ -18454,10 +18447,10 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7DefNodeEEENS0_8NodeAddrIT_EEj.exit: ; pr
   br i1 %26, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit.thread
 
 _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit: ; preds = %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7DefNodeEEENS0_8NodeAddrIT_EEj.exit
-  br i1 %27, label %.loopexit.sink.split, label %.loopexit
+  br i1 %27, label %40, label %.loopexit
 
 _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit.thread: ; preds = %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7DefNodeEEENS0_8NodeAddrIT_EEj.exit
-  br i1 %27, label %.loopexit.sink.split, label %.lr.ph.preheader
+  br i1 %27, label %40, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit.thread
   %28 = add i32 %25, -1
@@ -18474,37 +18467,37 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit.threa
   %39 = icmp eq i32 %38, %2
   br i1 %39, label %.lr.ph._crit_edge, label %.lr.ph45
 
-.lr.ph._crit_edge:                                ; preds = %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit32, %.lr.ph.preheader
-  %.0.i.i.i26.pn36.lcssa = phi ptr [ %36, %.lr.ph.preheader ], [ %51, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit32 ]
-  %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i26.pn36.lcssa, i64 12
-  br label %.loopexit.sink.split
-
-.lr.ph45:                                         ; preds = %.lr.ph.preheader, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit32
-  %41 = phi i32 [ %53, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit32 ], [ %38, %.lr.ph.preheader ]
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %.loopexit, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit32
-
-_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit32: ; preds = %.lr.ph45
-  %43 = add i32 %41, -1
-  %44 = lshr i32 %43, %11
-  %45 = and i32 %14, %43
-  %46 = shl i32 %45, 5
-  %47 = zext i32 %44 to i64
-  %48 = getelementptr inbounds ptr, ptr %19, i64 %47
-  %49 = load ptr, ptr %48, align 8
-  %50 = zext i32 %46 to i64
-  %51 = getelementptr inbounds i8, ptr %49, i64 %50
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 12
-  %53 = load i32, ptr %52, align 4
-  %54 = icmp eq i32 %53, %2
-  br i1 %54, label %.lr.ph._crit_edge, label %.lr.ph45, !llvm.loop !151
-
-.loopexit.sink.split:                             ; preds = %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit.thread, %.lr.ph._crit_edge
-  %.sink = phi ptr [ %40, %.lr.ph._crit_edge ], [ %24, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit.thread ], [ %24, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit ]
-  store i32 %7, ptr %.sink, align 4
+40:                                               ; preds = %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit.thread, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit
+  store i32 %7, ptr %24, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph45, %.loopexit.sink.split, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit, %3
+.lr.ph._crit_edge:                                ; preds = %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit32, %.lr.ph.preheader
+  %.0.i.i.i26.pn36.lcssa = phi ptr [ %36, %.lr.ph.preheader ], [ %52, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit32 ]
+  %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i26.pn36.lcssa, i64 12
+  store i32 %7, ptr %41, align 4
+  br label %.loopexit
+
+.lr.ph45:                                         ; preds = %.lr.ph.preheader, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit32
+  %42 = phi i32 [ %54, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit32 ], [ %38, %.lr.ph.preheader ]
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %.loopexit, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit32
+
+_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit32: ; preds = %.lr.ph45
+  %44 = add i32 %42, -1
+  %45 = lshr i32 %44, %11
+  %46 = and i32 %14, %44
+  %47 = shl i32 %46, 5
+  %48 = zext i32 %45 to i64
+  %49 = getelementptr inbounds ptr, ptr %19, i64 %48
+  %50 = load ptr, ptr %49, align 8
+  %51 = zext i32 %47 to i64
+  %52 = getelementptr inbounds i8, ptr %50, i64 %51
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, %2
+  br i1 %55, label %.lr.ph._crit_edge, label %.lr.ph45, !llvm.loop !151
+
+.loopexit:                                        ; preds = %.lr.ph45, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit, %3, %.lr.ph._crit_edge, %40
   ret void
 }
 
@@ -19837,7 +19830,7 @@ define linkonce_odr void @_ZN4llvm10make_rangeINS_3rdf12RegisterAggr12ref_iterat
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not.i.i.i.i.i = icmp eq ptr %8, null
-  br i1 %.not.i.i.i.i.i, label %23, label %9
+  br i1 %.not.i.i.i.i.i, label %22, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %1, i64 8
@@ -19857,177 +19850,171 @@ define linkonce_odr void @_ZN4llvm10make_rangeINS_3rdf12RegisterAggr12ref_iterat
   store ptr %6, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %1, i64 40
   %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %4, i64 40
-  store i64 %21, ptr %22, align 8
   store ptr null, ptr %7, align 8
   store ptr %10, ptr %13, align 8
   store ptr %10, ptr %16, align 8
+  store i64 0, ptr %20, align 8
   br label %_ZN4llvm3rdf12RegisterAggr12ref_iteratorC2EOS2_.exit
 
-23:                                               ; preds = %3
+22:                                               ; preds = %3
   store i32 0, ptr %6, align 8
-  %24 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr null, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %4, i64 24
+  %23 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr null, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %4, i64 24
+  store ptr %6, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %4, i64 32
   store ptr %6, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr %6, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 40
   br label %_ZN4llvm3rdf12RegisterAggr12ref_iteratorC2EOS2_.exit
 
-_ZN4llvm3rdf12RegisterAggr12ref_iteratorC2EOS2_.exit: ; preds = %9, %23
-  %.sink.i.i.i.i.i = phi ptr [ %27, %23 ], [ %20, %9 ]
-  store i64 0, ptr %.sink.i.i.i.i.i, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %29, i64 24, i1 false)
-  %30 = getelementptr inbounds i8, ptr %5, i64 8
-  %31 = getelementptr inbounds i8, ptr %2, i64 16
-  %32 = load ptr, ptr %31, align 8
-  %.not.i.i.i.i.i1 = icmp eq ptr %32, null
-  br i1 %.not.i.i.i.i.i1, label %47, label %33
+_ZN4llvm3rdf12RegisterAggr12ref_iteratorC2EOS2_.exit: ; preds = %9, %22
+  %.sink = phi i64 [ 0, %22 ], [ %21, %9 ]
+  %26 = getelementptr inbounds i8, ptr %4, i64 40
+  store i64 %.sink, ptr %26, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %28, i64 24, i1 false)
+  %29 = getelementptr inbounds i8, ptr %5, i64 8
+  %30 = getelementptr inbounds i8, ptr %2, i64 16
+  %31 = load ptr, ptr %30, align 8
+  %.not.i.i.i.i.i1 = icmp eq ptr %31, null
+  br i1 %.not.i.i.i.i.i1, label %45, label %32
 
-33:                                               ; preds = %_ZN4llvm3rdf12RegisterAggr12ref_iteratorC2EOS2_.exit
-  %34 = getelementptr inbounds i8, ptr %2, i64 8
-  %35 = load i32, ptr %34, align 8
-  store i32 %35, ptr %30, align 8
-  %36 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr %32, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %2, i64 24
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr %38, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %2, i64 32
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr %41, ptr %42, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store ptr %30, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %2, i64 40
-  %45 = load i64, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %5, i64 40
-  store i64 %45, ptr %46, align 8
-  store ptr null, ptr %31, align 8
-  store ptr %34, ptr %37, align 8
-  store ptr %34, ptr %40, align 8
+32:                                               ; preds = %_ZN4llvm3rdf12RegisterAggr12ref_iteratorC2EOS2_.exit
+  %33 = getelementptr inbounds i8, ptr %2, i64 8
+  %34 = load i32, ptr %33, align 8
+  store i32 %34, ptr %29, align 8
+  %35 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr %31, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %2, i64 24
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %5, i64 24
+  store ptr %37, ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %2, i64 32
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %5, i64 32
+  store ptr %40, ptr %41, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store ptr %29, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %2, i64 40
+  %44 = load i64, ptr %43, align 8
+  store ptr null, ptr %30, align 8
+  store ptr %33, ptr %36, align 8
+  store ptr %33, ptr %39, align 8
+  store i64 0, ptr %43, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br label %_ZN4llvm3rdf12RegisterAggr12ref_iteratorC2EOS2_.exit3
+  br label %_ZN4llvm3rdf12RegisterAggr12ref_iteratorC2EOS2_.exit2
 
-47:                                               ; preds = %_ZN4llvm3rdf12RegisterAggr12ref_iteratorC2EOS2_.exit
-  store i32 0, ptr %30, align 8
-  %48 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr null, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr %30, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr %30, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %5, i64 40
-  br label %_ZN4llvm3rdf12RegisterAggr12ref_iteratorC2EOS2_.exit3
+45:                                               ; preds = %_ZN4llvm3rdf12RegisterAggr12ref_iteratorC2EOS2_.exit
+  store i32 0, ptr %29, align 8
+  %46 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr null, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %5, i64 24
+  store ptr %29, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %5, i64 32
+  store ptr %29, ptr %48, align 8
+  br label %_ZN4llvm3rdf12RegisterAggr12ref_iteratorC2EOS2_.exit2
 
-_ZN4llvm3rdf12RegisterAggr12ref_iteratorC2EOS2_.exit3: ; preds = %33, %47
-  %52 = phi ptr [ %8, %47 ], [ %.pre, %33 ]
-  %.sink.i.i.i.i.i2 = phi ptr [ %51, %47 ], [ %44, %33 ]
-  store i64 0, ptr %.sink.i.i.i.i.i2, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %54 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, ptr noundef nonnull align 8 dereferenceable(24) %54, i64 24, i1 false)
-  %55 = getelementptr inbounds i8, ptr %0, i64 8
-  %56 = getelementptr inbounds i8, ptr %4, i64 16
-  %.not.i.i.i.i.i.i = icmp eq ptr %52, null
-  br i1 %.not.i.i.i.i.i.i, label %70, label %57
+_ZN4llvm3rdf12RegisterAggr12ref_iteratorC2EOS2_.exit2: ; preds = %32, %45
+  %49 = phi ptr [ %8, %45 ], [ %.pre, %32 ]
+  %.sink3 = phi i64 [ 0, %45 ], [ %44, %32 ]
+  %50 = getelementptr inbounds i8, ptr %5, i64 40
+  store i64 %.sink3, ptr %50, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull align 8 dereferenceable(24) %52, i64 24, i1 false)
+  %53 = getelementptr inbounds i8, ptr %0, i64 8
+  %54 = getelementptr inbounds i8, ptr %4, i64 16
+  %.not.i.i.i.i.i.i = icmp eq ptr %49, null
+  br i1 %.not.i.i.i.i.i.i, label %66, label %55
 
-57:                                               ; preds = %_ZN4llvm3rdf12RegisterAggr12ref_iteratorC2EOS2_.exit3
-  %58 = load i32, ptr %6, align 8
-  store i32 %58, ptr %55, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %52, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %4, i64 24
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %61, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %4, i64 32
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %64, ptr %65, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  store ptr %55, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %4, i64 40
-  %68 = load i64, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %68, ptr %69, align 8
-  store ptr null, ptr %56, align 8
-  store ptr %6, ptr %60, align 8
-  store ptr %6, ptr %63, align 8
-  %.phi.trans.insert4 = getelementptr inbounds i8, ptr %5, i64 16
-  %.pre5 = load ptr, ptr %.phi.trans.insert4, align 8
+55:                                               ; preds = %_ZN4llvm3rdf12RegisterAggr12ref_iteratorC2EOS2_.exit2
+  %56 = load i32, ptr %6, align 8
+  store i32 %56, ptr %53, align 8
+  %57 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %49, ptr %57, align 8
+  %58 = getelementptr inbounds i8, ptr %4, i64 24
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %59, ptr %60, align 8
+  %61 = getelementptr inbounds i8, ptr %4, i64 32
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %62, ptr %63, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  store ptr %53, ptr %64, align 8
+  %65 = load i64, ptr %26, align 8
+  store ptr null, ptr %54, align 8
+  store ptr %6, ptr %58, align 8
+  store ptr %6, ptr %61, align 8
+  store i64 0, ptr %26, align 8
+  %.phi.trans.insert6 = getelementptr inbounds i8, ptr %5, i64 16
+  %.pre7 = load ptr, ptr %.phi.trans.insert6, align 8
   br label %_ZN4llvm3rdf12RegisterAggr12ref_iteratorC2EOS2_.exit.i
 
-70:                                               ; preds = %_ZN4llvm3rdf12RegisterAggr12ref_iteratorC2EOS2_.exit3
-  store i32 0, ptr %55, align 8
-  %71 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr null, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %55, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %55, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %0, i64 40
+66:                                               ; preds = %_ZN4llvm3rdf12RegisterAggr12ref_iteratorC2EOS2_.exit2
+  store i32 0, ptr %53, align 8
+  %67 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr null, ptr %67, align 8
+  %68 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %53, ptr %68, align 8
+  %69 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %53, ptr %69, align 8
   br label %_ZN4llvm3rdf12RegisterAggr12ref_iteratorC2EOS2_.exit.i
 
-_ZN4llvm3rdf12RegisterAggr12ref_iteratorC2EOS2_.exit.i: ; preds = %70, %57
-  %.pre6 = phi ptr [ %32, %70 ], [ %.pre5, %57 ]
-  %.sink.i.i.i.i.i.i = phi ptr [ %74, %70 ], [ %67, %57 ]
-  store i64 0, ptr %.sink.i.i.i.i.i.i, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %75, ptr noundef nonnull align 8 dereferenceable(24) %28, i64 24, i1 false)
-  %76 = getelementptr inbounds i8, ptr %0, i64 80
-  %.not.i.i.i.i.i1.i = icmp eq ptr %.pre6, null
-  br i1 %.not.i.i.i.i.i1.i, label %91, label %77
+_ZN4llvm3rdf12RegisterAggr12ref_iteratorC2EOS2_.exit.i: ; preds = %66, %55
+  %.pre8 = phi ptr [ %31, %66 ], [ %.pre7, %55 ]
+  %.sink4 = phi i64 [ 0, %66 ], [ %65, %55 ]
+  %70 = getelementptr inbounds i8, ptr %0, i64 40
+  store i64 %.sink4, ptr %70, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %71, ptr noundef nonnull align 8 dereferenceable(24) %27, i64 24, i1 false)
+  %72 = getelementptr inbounds i8, ptr %0, i64 80
+  %.not.i.i.i.i.i1.i = icmp eq ptr %.pre8, null
+  br i1 %.not.i.i.i.i.i1.i, label %85, label %73
 
-77:                                               ; preds = %_ZN4llvm3rdf12RegisterAggr12ref_iteratorC2EOS2_.exit.i
-  %78 = getelementptr inbounds i8, ptr %5, i64 16
-  %79 = load i32, ptr %30, align 8
-  store i32 %79, ptr %76, align 8
-  %80 = getelementptr inbounds i8, ptr %0, i64 88
-  store ptr %.pre6, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %5, i64 24
-  %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %0, i64 96
-  store ptr %82, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %5, i64 32
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %0, i64 104
-  store ptr %85, ptr %86, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %.pre6, i64 8
-  store ptr %76, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %5, i64 40
-  %89 = load i64, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %0, i64 112
-  store i64 %89, ptr %90, align 8
-  store ptr null, ptr %78, align 8
-  store ptr %30, ptr %81, align 8
-  store ptr %30, ptr %84, align 8
+73:                                               ; preds = %_ZN4llvm3rdf12RegisterAggr12ref_iteratorC2EOS2_.exit.i
+  %74 = getelementptr inbounds i8, ptr %5, i64 16
+  %75 = load i32, ptr %29, align 8
+  store i32 %75, ptr %72, align 8
+  %76 = getelementptr inbounds i8, ptr %0, i64 88
+  store ptr %.pre8, ptr %76, align 8
+  %77 = getelementptr inbounds i8, ptr %5, i64 24
+  %78 = load ptr, ptr %77, align 8
+  %79 = getelementptr inbounds i8, ptr %0, i64 96
+  store ptr %78, ptr %79, align 8
+  %80 = getelementptr inbounds i8, ptr %5, i64 32
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds i8, ptr %0, i64 104
+  store ptr %81, ptr %82, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %.pre8, i64 8
+  store ptr %72, ptr %83, align 8
+  %84 = load i64, ptr %50, align 8
+  store ptr null, ptr %74, align 8
+  store ptr %29, ptr %77, align 8
+  store ptr %29, ptr %80, align 8
+  store i64 0, ptr %50, align 8
   br label %_ZN4llvm14iterator_rangeINS_3rdf12RegisterAggr12ref_iteratorEEC2ES3_S3_.exit
 
-91:                                               ; preds = %_ZN4llvm3rdf12RegisterAggr12ref_iteratorC2EOS2_.exit.i
-  store i32 0, ptr %76, align 8
-  %92 = getelementptr inbounds i8, ptr %0, i64 88
-  store ptr null, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %0, i64 96
-  store ptr %76, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %0, i64 104
-  store ptr %76, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %0, i64 112
+85:                                               ; preds = %_ZN4llvm3rdf12RegisterAggr12ref_iteratorC2EOS2_.exit.i
+  store i32 0, ptr %72, align 8
+  %86 = getelementptr inbounds i8, ptr %0, i64 88
+  store ptr null, ptr %86, align 8
+  %87 = getelementptr inbounds i8, ptr %0, i64 96
+  store ptr %72, ptr %87, align 8
+  %88 = getelementptr inbounds i8, ptr %0, i64 104
+  store ptr %72, ptr %88, align 8
   br label %_ZN4llvm14iterator_rangeINS_3rdf12RegisterAggr12ref_iteratorEEC2ES3_S3_.exit
 
-_ZN4llvm14iterator_rangeINS_3rdf12RegisterAggr12ref_iteratorEEC2ES3_S3_.exit: ; preds = %77, %91
-  %.sink.i.i.i.i.i2.i = phi ptr [ %95, %91 ], [ %88, %77 ]
-  store i64 0, ptr %.sink.i.i.i.i.i2.i, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %96, ptr noundef nonnull align 8 dereferenceable(24) %53, i64 24, i1 false)
+_ZN4llvm14iterator_rangeINS_3rdf12RegisterAggr12ref_iteratorEEC2ES3_S3_.exit: ; preds = %73, %85
+  %.sink5 = phi i64 [ 0, %85 ], [ %84, %73 ]
+  %89 = getelementptr inbounds i8, ptr %0, i64 112
+  store i64 %.sink5, ptr %89, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %90, ptr noundef nonnull align 8 dereferenceable(24) %51, i64 24, i1 false)
   call void @_ZNSt8_Rb_treeIjSt4pairIKjN4llvm11LaneBitmaskEESt10_Select1stIS4_ESt4lessIjESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef null)
-  %97 = load ptr, ptr %56, align 8
-  call void @_ZNSt8_Rb_treeIjSt4pairIKjN4llvm11LaneBitmaskEESt10_Select1stIS4_ESt4lessIjESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %97)
+  %91 = load ptr, ptr %54, align 8
+  call void @_ZNSt8_Rb_treeIjSt4pairIKjN4llvm11LaneBitmaskEESt10_Select1stIS4_ESt4lessIjESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %91)
   ret void
 }
 
@@ -20816,22 +20803,18 @@ _ZNSt10_HashtableIjSt4pairIKjN4llvm3rdf13DataFlowGraph8DefStackEESaIS6_ENSt8__de
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
-  br label %.sink.split
+  store ptr %.031, ptr %27, align 8
+  br label %31
 
 28:                                               ; preds = %.lr.ph
   %29 = load ptr, ptr %22, align 8
   store ptr %29, ptr %.031, align 8
   %30 = load ptr, ptr %21, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %28, %26
-  %.sink = phi ptr [ %27, %26 ], [ %30, %28 ]
-  %.1.ph = phi i64 [ %20, %26 ], [ %.02530, %28 ]
-  store ptr %.031, ptr %.sink, align 8
+  store ptr %.031, ptr %30, align 8
   br label %31
 
-31:                                               ; preds = %.sink.split, %23
-  %.1 = phi i64 [ %20, %23 ], [ %.1.ph, %.sink.split ]
+31:                                               ; preds = %23, %26, %28
+  %.1 = phi i64 [ %.02530, %28 ], [ %20, %26 ], [ %20, %23 ]
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !135
 

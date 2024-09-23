@@ -5448,16 +5448,17 @@ define void @_ZN19pyo3_macros_backend12frompyobject26build_derive_from_pyobject1
 .noexc89:                                         ; preds = %245
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4, ptr noundef nonnull align 8 dereferenceable(16) %43, i64 16, i1 false)
   %.sroa.8.8..sroa_idx98 = getelementptr inbounds i8, ptr %43, i64 16
+  %.sroa.8.8.copyload99 = load ptr, ptr %.sroa.8.8..sroa_idx98, align 8
   br label %.thread
 
 246:                                              ; preds = %.noexc88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4, ptr noundef nonnull align 8 dereferenceable(16) %241, i64 16, i1 false)
   %.sroa.8.8..sroa_idx96 = getelementptr inbounds i8, ptr %42, i64 24
+  %.sroa.8.8.copyload97 = load ptr, ptr %.sroa.8.8..sroa_idx96, align 8
   br label %.thread
 
 .thread:                                          ; preds = %.noexc89, %246
-  %.sroa.8.8..sroa_idx98.sink = phi ptr [ %.sroa.8.8..sroa_idx98, %.noexc89 ], [ %.sroa.8.8..sroa_idx96, %246 ]
-  %.sroa.8.8.copyload99 = load ptr, ptr %.sroa.8.8..sroa_idx98.sink, align 8
+  %.sroa.8.0.ph = phi ptr [ %.sroa.8.8.copyload97, %246 ], [ %.sroa.8.8.copyload99, %.noexc89 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %41)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %42)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %43)
@@ -6304,7 +6305,7 @@ define void @_ZN19pyo3_macros_backend12frompyobject26build_derive_from_pyobject1
           to label %256 unwind label %380, !noalias !16
 
 472:                                              ; preds = %.thread, %247
-  %.sroa.8.0113 = phi ptr [ %.sroa.8.8.copyload99, %.thread ], [ %248, %247 ]
+  %.sroa.8.0113 = phi ptr [ %.sroa.8.0.ph, %.thread ], [ %248, %247 ]
   %473 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %473, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4, i64 16, i1 false)
   %.sroa.2109.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24

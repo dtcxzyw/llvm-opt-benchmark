@@ -765,64 +765,61 @@ lxb_html_tree_current_node.exit:                  ; preds = %11, %6, %3
 
 40:                                               ; preds = %36
   %41 = load ptr, ptr %.val38, align 8
-  br label %lxb_html_tree_open_elements_first.exit.sink.split
+  %42 = load ptr, ptr %41, align 8
+  br label %lxb_html_tree_open_elements_first.exit
 
 .thread:                                          ; preds = %31, %35
-  %42 = getelementptr inbounds i8, ptr %28, i64 56
-  %43 = load ptr, ptr %42, align 8
-  %.not37 = icmp eq ptr %43, null
-  br i1 %.not37, label %45, label %44
+  %43 = getelementptr inbounds i8, ptr %28, i64 56
+  %44 = load ptr, ptr %43, align 8
+  %.not37 = icmp eq ptr %44, null
+  br i1 %.not37, label %46, label %45
 
-44:                                               ; preds = %.thread
+45:                                               ; preds = %.thread
   store i32 1, ptr %2, align 4
   br label %lxb_html_tree_open_elements_first.exit.thread
 
-45:                                               ; preds = %.thread
-  %46 = load i64, ptr %5, align 8
-  %47 = add i64 %46, -1
-  %48 = getelementptr i8, ptr %0, i64 32
-  %.val39 = load ptr, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %.val39, i64 16
-  %50 = load i64, ptr %49, align 8
-  %.not.i.i = icmp ult i64 %47, %50
-  br i1 %.not.i.i, label %51, label %lxb_html_tree_open_elements_first.exit.thread44
+46:                                               ; preds = %.thread
+  %47 = load i64, ptr %5, align 8
+  %48 = add i64 %47, -1
+  %49 = getelementptr i8, ptr %0, i64 32
+  %.val39 = load ptr, ptr %49, align 8
+  %50 = getelementptr inbounds i8, ptr %.val39, i64 16
+  %51 = load i64, ptr %50, align 8
+  %.not.i.i = icmp ult i64 %48, %51
+  br i1 %.not.i.i, label %52, label %lxb_html_tree_open_elements_first.exit.thread44
 
-51:                                               ; preds = %45
-  %52 = load ptr, ptr %.val39, align 8
-  %53 = getelementptr inbounds ptr, ptr %52, i64 %47
-  br label %lxb_html_tree_open_elements_first.exit.sink.split
-
-lxb_html_tree_open_elements_first.exit.sink.split: ; preds = %40, %51
-  %.sink = phi ptr [ %53, %51 ], [ %41, %40 ]
-  %54 = load ptr, ptr %.sink, align 8
+52:                                               ; preds = %46
+  %53 = load ptr, ptr %.val39, align 8
+  %54 = getelementptr inbounds ptr, ptr %53, i64 %48
+  %55 = load ptr, ptr %54, align 8
   br label %lxb_html_tree_open_elements_first.exit
 
-lxb_html_tree_open_elements_first.exit:           ; preds = %lxb_html_tree_open_elements_first.exit.sink.split, %lxb_html_tree_current_node.exit
-  %.031 = phi ptr [ %.030, %lxb_html_tree_current_node.exit ], [ %54, %lxb_html_tree_open_elements_first.exit.sink.split ]
-  %55 = icmp eq ptr %.031, null
-  br i1 %55, label %lxb_html_tree_open_elements_first.exit.thread44, label %lxb_html_tree_open_elements_first.exit.thread
+lxb_html_tree_open_elements_first.exit:           ; preds = %52, %40, %lxb_html_tree_current_node.exit
+  %.031 = phi ptr [ %.030, %lxb_html_tree_current_node.exit ], [ %42, %40 ], [ %55, %52 ]
+  %56 = icmp eq ptr %.031, null
+  br i1 %56, label %lxb_html_tree_open_elements_first.exit.thread44, label %lxb_html_tree_open_elements_first.exit.thread
 
-lxb_html_tree_open_elements_first.exit.thread:    ; preds = %19, %23, %44, %lxb_html_tree_open_elements_first.exit
-  %.03142 = phi ptr [ %.031, %lxb_html_tree_open_elements_first.exit ], [ %.030, %19 ], [ %.030, %23 ], [ %28, %44 ]
-  %56 = getelementptr inbounds i8, ptr %.03142, i64 8
-  %57 = load i64, ptr %56, align 8
-  %58 = icmp eq i64 %57, 179
-  br i1 %58, label %lxb_html_tree_node_is.exit, label %lxb_html_tree_open_elements_first.exit.thread44
+lxb_html_tree_open_elements_first.exit.thread:    ; preds = %19, %23, %45, %lxb_html_tree_open_elements_first.exit
+  %.03142 = phi ptr [ %.031, %lxb_html_tree_open_elements_first.exit ], [ %.030, %19 ], [ %.030, %23 ], [ %28, %45 ]
+  %57 = getelementptr inbounds i8, ptr %.03142, i64 8
+  %58 = load i64, ptr %57, align 8
+  %59 = icmp eq i64 %58, 179
+  br i1 %59, label %lxb_html_tree_node_is.exit, label %lxb_html_tree_open_elements_first.exit.thread44
 
 lxb_html_tree_node_is.exit:                       ; preds = %lxb_html_tree_open_elements_first.exit.thread
-  %59 = getelementptr inbounds i8, ptr %.03142, i64 24
-  %60 = load i64, ptr %59, align 8
-  %61 = icmp eq i64 %60, 2
-  br i1 %61, label %lxb_html_tree_open_elements_first.exit.thread44.sink.split, label %lxb_html_tree_open_elements_first.exit.thread44
+  %60 = getelementptr inbounds i8, ptr %.03142, i64 24
+  %61 = load i64, ptr %60, align 8
+  %62 = icmp eq i64 %61, 2
+  br i1 %62, label %lxb_html_tree_open_elements_first.exit.thread44.sink.split, label %lxb_html_tree_open_elements_first.exit.thread44
 
 lxb_html_tree_open_elements_first.exit.thread44.sink.split: ; preds = %lxb_html_tree_node_is.exit, %30, %31
   %.03142.sink = phi ptr [ %27, %31 ], [ %27, %30 ], [ %.03142, %lxb_html_tree_node_is.exit ]
-  %62 = getelementptr inbounds i8, ptr %.03142.sink, i64 184
-  %63 = load ptr, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %.03142.sink, i64 184
+  %64 = load ptr, ptr %63, align 8
   br label %lxb_html_tree_open_elements_first.exit.thread44
 
-lxb_html_tree_open_elements_first.exit.thread44:  ; preds = %lxb_html_tree_open_elements_first.exit.thread44.sink.split, %lxb_html_tree_open_elements_first.exit.thread, %45, %36, %lxb_html_tree_node_is.exit, %lxb_html_tree_open_elements_first.exit
-  %.0 = phi ptr [ null, %lxb_html_tree_open_elements_first.exit ], [ %.03142, %lxb_html_tree_node_is.exit ], [ null, %36 ], [ null, %45 ], [ %.03142, %lxb_html_tree_open_elements_first.exit.thread ], [ %63, %lxb_html_tree_open_elements_first.exit.thread44.sink.split ]
+lxb_html_tree_open_elements_first.exit.thread44:  ; preds = %lxb_html_tree_open_elements_first.exit.thread44.sink.split, %lxb_html_tree_open_elements_first.exit.thread, %46, %36, %lxb_html_tree_node_is.exit, %lxb_html_tree_open_elements_first.exit
+  %.0 = phi ptr [ null, %lxb_html_tree_open_elements_first.exit ], [ %.03142, %lxb_html_tree_node_is.exit ], [ null, %36 ], [ null, %46 ], [ %.03142, %lxb_html_tree_open_elements_first.exit.thread ], [ %64, %lxb_html_tree_open_elements_first.exit.thread44.sink.split ]
   ret ptr %.0
 }
 

@@ -4538,7 +4538,7 @@ define internal i32 @dissect_camel_T_local(i1 noundef zeroext %0, ptr noundef %1
   %15 = tail call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %.0, ptr noundef nonnull @opcode) #8
   %16 = load i32, ptr @is_ExtensionField, align 4
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %46
+  br i1 %17, label %18, label %44
 
 18:                                               ; preds = %14
   %19 = load i32, ptr @camel_opcode_type, align 4
@@ -4567,23 +4567,23 @@ define internal i32 @dissect_camel_T_local(i1 noundef zeroext %0, ptr noundef %1
   br label %35
 
 35:                                               ; preds = %28, %21
-  %.sink15 = phi ptr [ %29, %28 ], [ %23, %21 ]
-  %36 = load ptr, ptr %.sink15, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
-  %38 = load ptr, ptr %37, align 8
-  tail call void @col_append_str(ptr noundef %38, i32 noundef 25, ptr noundef nonnull @.str.1385) #8
-  %39 = load ptr, ptr %.sink15, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
-  %41 = load ptr, ptr %40, align 8
-  tail call void @col_set_fence(ptr noundef %41, i32 noundef 25) #8
-  %42 = load i32, ptr @opcode, align 4
-  %43 = trunc i32 %42 to i8
-  %44 = load ptr, ptr @gp_camelsrt_info, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 16
-  store i8 %43, ptr %45, align 8
-  br label %46
+  %.sink.in = phi ptr [ %29, %28 ], [ %23, %21 ]
+  %.sink15 = load ptr, ptr %.sink.in, align 8
+  %36 = getelementptr inbounds i8, ptr %.sink15, i64 8
+  %37 = load ptr, ptr %36, align 8
+  tail call void @col_append_str(ptr noundef %37, i32 noundef 25, ptr noundef nonnull @.str.1385) #8
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %38 = getelementptr inbounds i8, ptr %.sink, i64 8
+  %39 = load ptr, ptr %38, align 8
+  tail call void @col_set_fence(ptr noundef %39, i32 noundef 25) #8
+  %40 = load i32, ptr @opcode, align 4
+  %41 = trunc i32 %40 to i8
+  %42 = load ptr, ptr @gp_camelsrt_info, align 8
+  %43 = getelementptr inbounds i8, ptr %42, i64 16
+  store i8 %41, ptr %43, align 8
+  br label %44
 
-46:                                               ; preds = %35, %14
+44:                                               ; preds = %35, %14
   ret i32 %15
 }
 

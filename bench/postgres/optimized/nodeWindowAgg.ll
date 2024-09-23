@@ -1963,7 +1963,8 @@ initialize_windowaggregate.exit.i:                ; preds = %575, %572
   %592 = getelementptr inbounds i8, ptr %560, i64 184
   store i64 0, ptr %592, align 8
   %593 = getelementptr inbounds i8, ptr %560, i64 192
-  br label %.sink.split.i
+  store i8 1, ptr %593, align 8
+  br label %608
 
 594:                                              ; preds = %.lr.ph221.i
   %595 = getelementptr inbounds i8, ptr %560, i64 192
@@ -1987,14 +1988,10 @@ initialize_windowaggregate.exit.i:                ; preds = %575, %572
 606:                                              ; preds = %602, %598
   %607 = getelementptr inbounds i8, ptr %560, i64 184
   store i64 0, ptr %607, align 8
-  br label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %606, %initialize_windowaggregate.exit.i
-  %.sink.i = phi ptr [ %593, %initialize_windowaggregate.exit.i ], [ %595, %606 ]
-  store i8 1, ptr %.sink.i, align 8
+  store i8 1, ptr %595, align 8
   br label %608
 
-608:                                              ; preds = %.sink.split.i, %594
+608:                                              ; preds = %606, %594, %initialize_windowaggregate.exit.i
   %indvars.iv.next242.i = add nuw nsw i64 %indvars.iv241.i, 1
   %exitcond245.not.i = icmp eq i64 %indvars.iv.next242.i, %wide.trip.count234.i
   br i1 %exitcond245.not.i, label %._crit_edge222.i, label %.lr.ph221.i, !llvm.loop !14

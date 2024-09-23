@@ -203,9 +203,9 @@ define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr nocapture no
           to label %.invoke83 unwind label %45
 
 .invoke83:                                        ; preds = %62, %51
-  %.sink = phi ptr [ %47, %51 ], [ %58, %62 ]
   %64 = phi ptr [ %52, %51 ], [ %63, %62 ]
-  %65 = load ptr, ptr %.sink, align 8
+  %.in = phi ptr [ %47, %51 ], [ %58, %62 ]
+  %65 = load ptr, ptr %.in, align 8
   %66 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %64, ptr noundef %65)
           to label %.invoke unwind label %45
 

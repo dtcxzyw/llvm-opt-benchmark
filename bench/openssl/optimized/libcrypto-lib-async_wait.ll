@@ -299,9 +299,18 @@ if.then6:                                         ; preds = %if.then4
   %cmp8 = icmp eq ptr %curr.019, %curr.022
   %next10 = getelementptr inbounds i8, ptr %curr.022, i64 40
   %3 = load ptr, ptr %next10, align 8
+  br i1 %cmp8, label %if.then9, label %if.else
+
+if.then9:                                         ; preds = %if.then6
+  store ptr %3, ptr %ctx, align 8
+  br label %if.end14
+
+if.else:                                          ; preds = %if.then6
   %next13 = getelementptr inbounds i8, ptr %prev.021, i64 40
-  %next13.sink = select i1 %cmp8, ptr %ctx, ptr %next13
-  store ptr %3, ptr %next13.sink, align 8
+  store ptr %3, ptr %next13, align 8
+  br label %if.end14
+
+if.end14:                                         ; preds = %if.else, %if.then9
   tail call void @CRYPTO_free(ptr noundef nonnull %curr.022, ptr noundef nonnull @.str, i32 noundef 163) #8
   br label %return.sink.split
 
@@ -310,9 +319,9 @@ if.end15:                                         ; preds = %if.then4
   store i32 1, ptr %del.le, align 4
   br label %return.sink.split
 
-return.sink.split:                                ; preds = %if.then6, %if.end15
-  %.sink = phi i64 [ 16, %if.end15 ], [ 8, %if.then6 ]
-  %.sink29 = phi i64 [ 1, %if.end15 ], [ -1, %if.then6 ]
+return.sink.split:                                ; preds = %if.end14, %if.end15
+  %.sink = phi i64 [ 16, %if.end15 ], [ 8, %if.end14 ]
+  %.sink29 = phi i64 [ 1, %if.end15 ], [ -1, %if.end14 ]
   %numdel = getelementptr inbounds i8, ptr %ctx, i64 %.sink
   %4 = load i64, ptr %numdel, align 8
   %inc = add i64 %4, %.sink29

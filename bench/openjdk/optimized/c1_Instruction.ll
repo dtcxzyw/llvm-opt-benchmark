@@ -4174,25 +4174,25 @@ define hidden noundef i32 @_ZNK3Phi13operand_countEv(ptr nocapture noundef nonnu
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 4
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %11, label %7
+  br i1 %.not, label %13, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %3, i64 248
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %_ZN10BlockBegin26number_of_exception_statesEv.exit, label %_ZN10BlockBegin26number_of_exception_statesEv.exit.sink.split
+  br i1 %10, label %_ZN10BlockBegin26number_of_exception_statesEv.exit, label %11
 
-11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %3, i64 160
-  br label %_ZN10BlockBegin26number_of_exception_statesEv.exit.sink.split
-
-_ZN10BlockBegin26number_of_exception_statesEv.exit.sink.split: ; preds = %7, %11
-  %.sink = phi ptr [ %12, %11 ], [ %9, %7 ]
-  %13 = load i32, ptr %.sink, align 4
+11:                                               ; preds = %7
+  %12 = load i32, ptr %9, align 4
   br label %_ZN10BlockBegin26number_of_exception_statesEv.exit
 
-_ZN10BlockBegin26number_of_exception_statesEv.exit: ; preds = %_ZN10BlockBegin26number_of_exception_statesEv.exit.sink.split, %7
-  %.0 = phi i32 [ 0, %7 ], [ %13, %_ZN10BlockBegin26number_of_exception_statesEv.exit.sink.split ]
+13:                                               ; preds = %1
+  %14 = getelementptr inbounds i8, ptr %3, i64 160
+  %15 = load i32, ptr %14, align 4
+  br label %_ZN10BlockBegin26number_of_exception_statesEv.exit
+
+_ZN10BlockBegin26number_of_exception_statesEv.exit: ; preds = %11, %7, %13
+  %.0 = phi i32 [ %15, %13 ], [ %12, %11 ], [ 0, %7 ]
   ret i32 %.0
 }
 

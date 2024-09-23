@@ -489,6 +489,8 @@ $_ZN8nlohmann6detail9exceptionD0Ev = comdat any
 
 $_ZN8nlohmann6detail8to_charsIdEEPcS2_PKcT_ = comdat any
 
+$_ZN8nlohmann6detail9dtoa_impl13format_bufferEPciiii = comdat any
+
 $_ZN8nlohmann6detail9dtoa_impl6grisu2EPcRiS3_NS1_5diyfpES4_S4_ = comdat any
 
 $_ZN8nlohmann6detail9dtoa_impl16grisu2_digit_genEPcRiS3_NS1_5diyfpES4_S4_ = comdat any
@@ -8451,7 +8453,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
 .split:                                           ; preds = %29
   %30 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %30, align 8
-  br label %.sink.split
+  store i8 0, ptr %6, align 1
+  br label %39
 
 .split12:                                         ; preds = %.thread, %29
   %31 = phi ptr [ %25, %.thread ], [ %6, %29 ]
@@ -8473,14 +8476,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit: ; pre
   store i64 %5, ptr %36, align 8
   %37 = load ptr, ptr %0, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 %5
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %.split, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit
-  %.sink = phi ptr [ %38, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit ], [ %6, %.split ]
-  store i8 0, ptr %.sink, align 1
+  store i8 0, ptr %38, align 1
   br label %39
 
-39:                                               ; preds = %.sink.split, %2
+39:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit, %.split, %2
   ret void
 }
 
@@ -18347,6 +18346,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %30
   %38 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %37, ptr %38, align 8
   store ptr %28, ptr %25, align 8
+  store i64 0, ptr %36, align 8
+  store i8 0, ptr %28, align 8
   br label %64
 
 39:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit10
@@ -18423,13 +18424,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit12: ; preds = %
   %63 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %62, ptr %63, align 8
   store ptr %10, ptr %1, align 8
+  store i64 0, ptr %4, align 8
+  store i8 0, ptr %10, align 8
   br label %64
 
 64:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit12, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
-  %.sink14 = phi ptr [ %4, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit12 ], [ %36, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit ]
-  %.sink = phi ptr [ %10, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit12 ], [ %28, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit ]
-  store i64 0, ptr %.sink14, align 8
-  store i8 0, ptr %.sink, align 1
   ret void
 }
 
@@ -19369,7 +19368,7 @@ define linkonce_odr noundef nonnull ptr @_ZN8nlohmann6detail8to_charsIdEEPcS2_PK
   store i8 46, ptr %16, align 1
   %18 = getelementptr inbounds i8, ptr %.012, i64 3
   store i8 48, ptr %17, align 1
-  br label %_ZN8nlohmann6detail9dtoa_impl13format_bufferEPciiii.exit
+  br label %58
 
 19:                                               ; preds = %13
   store i32 0, ptr %6, align 4
@@ -19452,134 +19451,143 @@ _ZN8nlohmann6detail9dtoa_impl6grisu2IdEEvPcRiS4_T_.exit: ; preds = %.lr.ph.i23.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %55 = load i32, ptr %6, align 4
   %56 = load i32, ptr %7, align 4
-  %57 = add nsw i32 %56, %55
-  %.not.i = icmp slt i32 %56, 0
-  %.not59.i = icmp sgt i32 %57, 15
-  %or.cond61.i = select i1 %.not.i, i1 true, i1 %.not59.i
-  br i1 %or.cond61.i, label %66, label %58
+  %57 = call noundef nonnull ptr @_ZN8nlohmann6detail9dtoa_impl13format_bufferEPciiii(ptr noundef %.012, i32 noundef %55, i32 noundef %56, i32 noundef -4, i32 noundef 15)
+  br label %58
 
-58:                                               ; preds = %_ZN8nlohmann6detail9dtoa_impl6grisu2IdEEvPcRiS4_T_.exit
-  %59 = sext i32 %55 to i64
-  %60 = getelementptr inbounds i8, ptr %.012, i64 %59
-  %61 = sext i32 %57 to i64
-  %62 = sub nsw i64 %61, %59
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %60, i8 48, i64 %62, i1 false)
-  %63 = getelementptr inbounds i8, ptr %.012, i64 %61
-  store i8 46, ptr %63, align 1
-  %64 = getelementptr i8, ptr %63, i64 1
-  store i8 48, ptr %64, align 1
-  %65 = getelementptr i8, ptr %63, i64 2
-  br label %_ZN8nlohmann6detail9dtoa_impl13format_bufferEPciiii.exit
+58:                                               ; preds = %_ZN8nlohmann6detail9dtoa_impl6grisu2IdEEvPcRiS4_T_.exit, %15
+  %.0 = phi ptr [ %18, %15 ], [ %57, %_ZN8nlohmann6detail9dtoa_impl6grisu2IdEEvPcRiS4_T_.exit ]
+  ret ptr %.0
+}
 
-66:                                               ; preds = %_ZN8nlohmann6detail9dtoa_impl6grisu2IdEEvPcRiS4_T_.exit
-  %67 = icmp slt i32 %57, 1
-  %68 = add i32 %57, -16
-  %or.cond62.i = icmp ult i32 %68, -15
-  br i1 %or.cond62.i, label %77, label %69
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef nonnull ptr @_ZN8nlohmann6detail9dtoa_impl13format_bufferEPciiii(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #4 comdat {
+  %6 = add nsw i32 %2, %1
+  %.not = icmp slt i32 %2, 0
+  %.not59 = icmp sgt i32 %6, %4
+  %or.cond61 = select i1 %.not, i1 true, i1 %.not59
+  br i1 %or.cond61, label %15, label %7
 
-69:                                               ; preds = %66
-  %70 = zext nneg i32 %57 to i64
-  %71 = getelementptr inbounds i8, ptr %.012, i64 %70
-  %72 = getelementptr inbounds i8, ptr %71, i64 1
-  %73 = sext i32 %55 to i64
-  %74 = sub nsw i64 %73, %70
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %72, ptr nonnull align 1 %71, i64 %74, i1 false)
-  store i8 46, ptr %71, align 1
-  %75 = getelementptr i8, ptr %.012, i64 %73
-  %76 = getelementptr i8, ptr %75, i64 1
-  br label %_ZN8nlohmann6detail9dtoa_impl13format_bufferEPciiii.exit
+7:                                                ; preds = %5
+  %8 = sext i32 %1 to i64
+  %9 = getelementptr inbounds i8, ptr %0, i64 %8
+  %10 = sext i32 %6 to i64
+  %11 = sub nsw i64 %10, %8
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %9, i8 48, i64 %11, i1 false)
+  %12 = getelementptr inbounds i8, ptr %0, i64 %10
+  store i8 46, ptr %12, align 1
+  %13 = getelementptr i8, ptr %12, i64 1
+  store i8 48, ptr %13, align 1
+  %14 = getelementptr i8, ptr %12, i64 2
+  br label %_ZN8nlohmann6detail9dtoa_impl15append_exponentEPci.exit
 
-77:                                               ; preds = %66
-  %78 = add i32 %57, 3
-  %or.cond.i = icmp ult i32 %78, 4
-  br i1 %or.cond.i, label %79, label %88
+15:                                               ; preds = %5
+  %16 = icmp slt i32 %6, 1
+  %or.cond62 = or i1 %16, %.not59
+  br i1 %or.cond62, label %25, label %17
 
-79:                                               ; preds = %77
-  %80 = sub nsw i32 0, %57
-  %81 = zext nneg i32 %80 to i64
-  %82 = getelementptr i8, ptr %.012, i64 %81
-  %83 = getelementptr i8, ptr %82, i64 2
-  %84 = sext i32 %55 to i64
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %83, ptr nonnull align 1 %.012, i64 %84, i1 false)
-  store i8 48, ptr %.012, align 1
-  %85 = getelementptr inbounds i8, ptr %.012, i64 1
-  store i8 46, ptr %85, align 1
-  %86 = getelementptr inbounds i8, ptr %.012, i64 2
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %86, i8 48, i64 %81, i1 false)
-  %87 = getelementptr i8, ptr %83, i64 %84
-  br label %_ZN8nlohmann6detail9dtoa_impl13format_bufferEPciiii.exit
+17:                                               ; preds = %15
+  %18 = zext nneg i32 %6 to i64
+  %19 = getelementptr inbounds i8, ptr %0, i64 %18
+  %20 = getelementptr inbounds i8, ptr %19, i64 1
+  %21 = sext i32 %1 to i64
+  %22 = sub nsw i64 %21, %18
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull align 1 %19, i64 %22, i1 false)
+  store i8 46, ptr %19, align 1
+  %23 = getelementptr i8, ptr %0, i64 %21
+  %24 = getelementptr i8, ptr %23, i64 1
+  br label %_ZN8nlohmann6detail9dtoa_impl15append_exponentEPci.exit
 
-88:                                               ; preds = %77
-  %89 = icmp eq i32 %55, 1
-  br i1 %89, label %96, label %90
+25:                                               ; preds = %15
+  %26 = icmp slt i32 %3, %6
+  %or.cond = and i1 %26, %16
+  br i1 %or.cond, label %27, label %36
 
-90:                                               ; preds = %88
-  %91 = getelementptr inbounds i8, ptr %.012, i64 2
-  %92 = getelementptr inbounds i8, ptr %.012, i64 1
-  %93 = sext i32 %55 to i64
-  %94 = add nsw i64 %93, -1
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %91, ptr nonnull align 1 %92, i64 %94, i1 false)
-  store i8 46, ptr %92, align 1
-  %95 = getelementptr i8, ptr %.012, i64 %93
-  br label %96
+27:                                               ; preds = %25
+  %28 = sub nsw i32 0, %6
+  %29 = zext nneg i32 %28 to i64
+  %30 = getelementptr i8, ptr %0, i64 %29
+  %31 = getelementptr i8, ptr %30, i64 2
+  %32 = sext i32 %1 to i64
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %31, ptr nonnull align 1 %0, i64 %32, i1 false)
+  store i8 48, ptr %0, align 1
+  %33 = getelementptr inbounds i8, ptr %0, i64 1
+  store i8 46, ptr %33, align 1
+  %34 = getelementptr inbounds i8, ptr %0, i64 2
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %34, i8 48, i64 %29, i1 false)
+  %35 = getelementptr i8, ptr %31, i64 %32
+  br label %_ZN8nlohmann6detail9dtoa_impl15append_exponentEPci.exit
 
-96:                                               ; preds = %90, %88
-  %.pn.i = phi ptr [ %95, %90 ], [ %.012, %88 ]
-  %.056.i = getelementptr i8, ptr %.pn.i, i64 1
-  %97 = getelementptr i8, ptr %.pn.i, i64 2
-  store i8 101, ptr %.056.i, align 1
-  %98 = add nsw i32 %57, -1
-  %storemerge.i.i = select i1 %67, i8 45, i8 43
-  %.0.i.i = call i32 @llvm.abs.i32(i32 %98, i1 true)
-  %.023.i.i = getelementptr i8, ptr %.pn.i, i64 3
-  store i8 %storemerge.i.i, ptr %97, align 1
-  %99 = icmp ult i32 %.0.i.i, 10
-  br i1 %99, label %100, label %103
+36:                                               ; preds = %25
+  %37 = icmp eq i32 %1, 1
+  br i1 %37, label %44, label %38
 
-100:                                              ; preds = %96
-  %101 = getelementptr i8, ptr %.pn.i, i64 4
-  store i8 48, ptr %.023.i.i, align 1
-  %102 = trunc nuw i32 %.0.i.i to i8
-  br label %_ZN8nlohmann6detail9dtoa_impl15append_exponentEPci.exit.i
+38:                                               ; preds = %36
+  %39 = getelementptr inbounds i8, ptr %0, i64 2
+  %40 = getelementptr inbounds i8, ptr %0, i64 1
+  %41 = sext i32 %1 to i64
+  %42 = add nsw i64 %41, -1
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %39, ptr nonnull align 1 %40, i64 %42, i1 false)
+  store i8 46, ptr %40, align 1
+  %43 = getelementptr i8, ptr %0, i64 %41
+  br label %44
 
-103:                                              ; preds = %96
-  %104 = icmp ult i32 %.0.i.i, 100
-  %105 = getelementptr i8, ptr %.pn.i, i64 4
-  br i1 %104, label %106, label %110
+44:                                               ; preds = %36, %38
+  %.pn = phi ptr [ %43, %38 ], [ %0, %36 ]
+  %.056 = getelementptr i8, ptr %.pn, i64 1
+  %45 = getelementptr i8, ptr %.pn, i64 2
+  store i8 101, ptr %.056, align 1
+  %46 = add nsw i32 %6, -1
+  %storemerge.i = select i1 %16, i8 45, i8 43
+  %.0.i = tail call i32 @llvm.abs.i32(i32 %46, i1 true)
+  %.023.i = getelementptr i8, ptr %.pn, i64 3
+  store i8 %storemerge.i, ptr %45, align 1
+  %47 = icmp ult i32 %.0.i, 10
+  br i1 %47, label %48, label %53
 
-106:                                              ; preds = %103
-  %.lhs.trunc.i.i = trunc nuw i32 %.0.i.i to i8
-  %107 = udiv i8 %.lhs.trunc.i.i, 10
-  %108 = or disjoint i8 %107, 48
-  store i8 %108, ptr %.023.i.i, align 1
-  %109 = urem i8 %.lhs.trunc.i.i, 10
-  br label %_ZN8nlohmann6detail9dtoa_impl15append_exponentEPci.exit.i
+48:                                               ; preds = %44
+  %49 = getelementptr i8, ptr %.pn, i64 4
+  store i8 48, ptr %.023.i, align 1
+  %50 = trunc nuw i32 %.0.i to i8
+  %51 = or disjoint i8 %50, 48
+  %52 = getelementptr i8, ptr %.pn, i64 5
+  store i8 %51, ptr %49, align 1
+  br label %_ZN8nlohmann6detail9dtoa_impl15append_exponentEPci.exit
 
-110:                                              ; preds = %103
-  %111 = udiv i32 %.0.i.i, 100
-  %112 = trunc i32 %111 to i8
-  %113 = add i8 %112, 48
-  store i8 %113, ptr %.023.i.i, align 1
-  %114 = urem i32 %.0.i.i, 100
-  %.lhs.trunc28.i.i = trunc nuw nsw i32 %114 to i8
-  %115 = udiv i8 %.lhs.trunc28.i.i, 10
-  %116 = or disjoint i8 %115, 48
-  %117 = getelementptr i8, ptr %.pn.i, i64 5
-  store i8 %116, ptr %105, align 1
-  %118 = urem i8 %.lhs.trunc28.i.i, 10
-  br label %_ZN8nlohmann6detail9dtoa_impl15append_exponentEPci.exit.i
+53:                                               ; preds = %44
+  %54 = icmp ult i32 %.0.i, 100
+  %55 = getelementptr i8, ptr %.pn, i64 4
+  br i1 %54, label %56, label %62
 
-_ZN8nlohmann6detail9dtoa_impl15append_exponentEPci.exit.i: ; preds = %110, %106, %100
-  %.sink34.i.i = phi i8 [ %109, %106 ], [ %118, %110 ], [ %102, %100 ]
-  %.sink33.i.i = phi i64 [ 3, %106 ], [ 4, %110 ], [ 3, %100 ]
-  %.sink32.i.i = phi ptr [ %105, %106 ], [ %117, %110 ], [ %101, %100 ]
-  %119 = or disjoint i8 %.sink34.i.i, 48
-  %120 = getelementptr inbounds i8, ptr %97, i64 %.sink33.i.i
-  store i8 %119, ptr %.sink32.i.i, align 1
-  br label %_ZN8nlohmann6detail9dtoa_impl13format_bufferEPciiii.exit
+56:                                               ; preds = %53
+  %.lhs.trunc.i = trunc nuw i32 %.0.i to i8
+  %57 = udiv i8 %.lhs.trunc.i, 10
+  %58 = or disjoint i8 %57, 48
+  store i8 %58, ptr %.023.i, align 1
+  %59 = urem i8 %.lhs.trunc.i, 10
+  %60 = or disjoint i8 %59, 48
+  %61 = getelementptr i8, ptr %.pn, i64 5
+  store i8 %60, ptr %55, align 1
+  br label %_ZN8nlohmann6detail9dtoa_impl15append_exponentEPci.exit
 
-_ZN8nlohmann6detail9dtoa_impl13format_bufferEPciiii.exit: ; preds = %_ZN8nlohmann6detail9dtoa_impl15append_exponentEPci.exit.i, %79, %69, %58, %15
-  %.0 = phi ptr [ %18, %15 ], [ %65, %58 ], [ %76, %69 ], [ %87, %79 ], [ %120, %_ZN8nlohmann6detail9dtoa_impl15append_exponentEPci.exit.i ]
+62:                                               ; preds = %53
+  %63 = udiv i32 %.0.i, 100
+  %64 = trunc i32 %63 to i8
+  %65 = add i8 %64, 48
+  store i8 %65, ptr %.023.i, align 1
+  %66 = urem i32 %.0.i, 100
+  %.lhs.trunc28.i = trunc nuw nsw i32 %66 to i8
+  %67 = udiv i8 %.lhs.trunc28.i, 10
+  %68 = or disjoint i8 %67, 48
+  %69 = getelementptr i8, ptr %.pn, i64 5
+  store i8 %68, ptr %55, align 1
+  %70 = urem i8 %.lhs.trunc28.i, 10
+  %71 = or disjoint i8 %70, 48
+  %72 = getelementptr i8, ptr %.pn, i64 6
+  store i8 %71, ptr %69, align 1
+  br label %_ZN8nlohmann6detail9dtoa_impl15append_exponentEPci.exit
+
+_ZN8nlohmann6detail9dtoa_impl15append_exponentEPci.exit: ; preds = %62, %56, %48, %27, %17, %7
+  %.0 = phi ptr [ %14, %7 ], [ %24, %17 ], [ %35, %27 ], [ %52, %48 ], [ %61, %56 ], [ %72, %62 ]
   ret ptr %.0
 }
 

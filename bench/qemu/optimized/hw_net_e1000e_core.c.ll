@@ -8987,25 +8987,28 @@ e1000x_inc_reg_if_not_full.exit.i.i:              ; preds = %if.then.i.i79.i, %i
 sw.bb.i.i:                                        ; preds = %e1000x_inc_reg_if_not_full.exit.i.i
   %89 = load i32, ptr %arrayidx.i11.i.i, align 4
   %cmp.not.i12.i.i = icmp eq i32 %89, -1
-  br i1 %cmp.not.i12.i.i, label %sw.epilog.i.i, label %sw.epilog.sink.split.i.i
+  br i1 %cmp.not.i12.i.i, label %sw.epilog.i.i, label %if.then.i13.i.i
+
+if.then.i13.i.i:                                  ; preds = %sw.bb.i.i
+  %inc.i14.i.i = add nuw i32 %89, 1
+  store i32 %inc.i14.i.i, ptr %arrayidx.i11.i.i, align 4
+  br label %sw.epilog.i.i
 
 sw.bb9.i.i:                                       ; preds = %e1000x_inc_reg_if_not_full.exit.i.i
   %90 = load i32, ptr %arrayidx.i16.i.i, align 4
   %cmp.not.i17.i.i = icmp eq i32 %90, -1
-  br i1 %cmp.not.i17.i.i, label %sw.epilog.i.i, label %sw.epilog.sink.split.i.i
+  br i1 %cmp.not.i17.i.i, label %sw.epilog.i.i, label %if.then.i18.i.i
+
+if.then.i18.i.i:                                  ; preds = %sw.bb9.i.i
+  %inc.i19.i.i = add nuw i32 %90, 1
+  store i32 %inc.i19.i.i, ptr %arrayidx.i16.i.i, align 4
+  br label %sw.epilog.i.i
 
 do.body.i.i:                                      ; preds = %e1000x_inc_reg_if_not_full.exit.i.i
   call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 707, ptr noundef nonnull @__func__.e1000e_on_tx_done_update_stats, ptr noundef null) #14
   unreachable
 
-sw.epilog.sink.split.i.i:                         ; preds = %sw.bb9.i.i, %sw.bb.i.i
-  %.sink.i.i = phi i32 [ %89, %sw.bb.i.i ], [ %90, %sw.bb9.i.i ]
-  %arrayidx.i16.sink.i.i = phi ptr [ %arrayidx.i11.i.i, %sw.bb.i.i ], [ %arrayidx.i16.i.i, %sw.bb9.i.i ]
-  %inc.i19.i.i = add nuw i32 %.sink.i.i, 1
-  store i32 %inc.i19.i.i, ptr %arrayidx.i16.sink.i.i, align 4
-  br label %sw.epilog.i.i
-
-sw.epilog.i.i:                                    ; preds = %sw.epilog.sink.split.i.i, %sw.bb9.i.i, %sw.bb.i.i, %e1000x_inc_reg_if_not_full.exit.i.i
+sw.epilog.i.i:                                    ; preds = %if.then.i18.i.i, %sw.bb9.i.i, %if.then.i13.i.i, %sw.bb.i.i, %e1000x_inc_reg_if_not_full.exit.i.i
   %91 = load i32, ptr %arrayidx.i21.i.i, align 4
   %cmp.not.i22.i.i = icmp eq i32 %91, -1
   br i1 %cmp.not.i22.i.i, label %e1000e_on_tx_done_update_stats.exit.i, label %if.then.i23.i.i

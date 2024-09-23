@@ -1091,7 +1091,9 @@ if.then19.i:                                      ; preds = %for.end.i
   store i8 %10, ptr %ascii_data.1.lcssa.i, align 1
   %incdec.ptr25.i = getelementptr i8, ptr %ascii_data.1.lcssa.i, i64 2
   store i8 61, ptr %incdec.ptr24.i, align 1
-  br label %if.end37.sink.split.i
+  %incdec.ptr26.i = getelementptr i8, ptr %ascii_data.1.lcssa.i, i64 3
+  store i8 61, ptr %incdec.ptr25.i, align 1
+  br label %if.end37.i
 
 if.then29.i:                                      ; preds = %for.end.i
   %and30.i = shl nuw nsw i32 %conv.i, 2
@@ -1101,17 +1103,12 @@ if.then29.i:                                      ; preds = %for.end.i
   %11 = load i8, ptr %arrayidx33.i, align 4
   %incdec.ptr34.i = getelementptr i8, ptr %ascii_data.1.lcssa.i, i64 1
   store i8 %11, ptr %ascii_data.1.lcssa.i, align 1
-  br label %if.end37.sink.split.i
-
-if.end37.sink.split.i:                            ; preds = %if.then29.i, %if.then19.i
-  %.sink.i = phi i64 [ 2, %if.then29.i ], [ 3, %if.then19.i ]
-  %incdec.ptr34.sink.i = phi ptr [ %incdec.ptr34.i, %if.then29.i ], [ %incdec.ptr25.i, %if.then19.i ]
-  %incdec.ptr35.i = getelementptr i8, ptr %ascii_data.1.lcssa.i, i64 %.sink.i
-  store i8 61, ptr %incdec.ptr34.sink.i, align 1
+  %incdec.ptr35.i = getelementptr i8, ptr %ascii_data.1.lcssa.i, i64 2
+  store i8 61, ptr %incdec.ptr34.i, align 1
   br label %if.end37.i
 
-if.end37.i:                                       ; preds = %if.end37.sink.split.i, %for.end.i, %for.cond.preheader.i
-  %ascii_data.2.i = phi ptr [ %ascii_data.1.lcssa.i, %for.end.i ], [ %call6.i, %for.cond.preheader.i ], [ %incdec.ptr35.i, %if.end37.sink.split.i ]
+if.end37.i:                                       ; preds = %if.then29.i, %if.then19.i, %for.end.i, %for.cond.preheader.i
+  %ascii_data.2.i = phi ptr [ %incdec.ptr26.i, %if.then19.i ], [ %incdec.ptr35.i, %if.then29.i ], [ %ascii_data.1.lcssa.i, %for.end.i ], [ %call6.i, %for.cond.preheader.i ]
   br i1 %tobool.not.i, label %if.end41.i, label %if.then39.i
 
 if.then39.i:                                      ; preds = %if.end37.i

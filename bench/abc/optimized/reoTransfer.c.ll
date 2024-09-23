@@ -239,7 +239,7 @@ define ptr @reoTransferUnitsToNodes_rec(ptr noundef %0, ptr noundef %1) local_un
   %35 = ptrtoint ptr %34 to i64
   %36 = xor i64 %6, %35
   %37 = inttoptr i64 %36 to ptr
-  br label %142
+  br label %144
 
 38:                                               ; preds = %.lr.ph
   %39 = add nsw i32 %.182, 1
@@ -256,7 +256,7 @@ define ptr @reoTransferUnitsToNodes_rec(ptr noundef %0, ptr noundef %1) local_un
   %46 = icmp eq i16 %45, 30000
   %47 = getelementptr inbounds i8, ptr %8, i64 16
   %48 = load ptr, ptr %47, align 8
-  br i1 %46, label %49, label %58
+  br i1 %46, label %49, label %60
 
 49:                                               ; preds = %.loopexit
   %50 = ptrtoint ptr %48 to i64
@@ -267,144 +267,145 @@ define ptr @reoTransferUnitsToNodes_rec(ptr noundef %0, ptr noundef %1) local_un
   %55 = and i64 %54, -2
   %56 = inttoptr i64 %55 to ptr
   %57 = getelementptr inbounds i8, ptr %56, i64 4
-  br label %98
+  %58 = load i32, ptr %57, align 4
+  %59 = add i32 %58, 1
+  store i32 %59, ptr %57, align 4
+  br label %102
 
-58:                                               ; preds = %.loopexit
-  %59 = tail call ptr @reoTransferUnitsToNodes_rec(ptr noundef nonnull %0, ptr noundef %48)
-  %60 = icmp eq ptr %59, null
-  br i1 %60, label %142, label %61
+60:                                               ; preds = %.loopexit
+  %61 = tail call ptr @reoTransferUnitsToNodes_rec(ptr noundef nonnull %0, ptr noundef %48)
+  %62 = icmp eq ptr %61, null
+  br i1 %62, label %144, label %63
 
-61:                                               ; preds = %58
-  %62 = ptrtoint ptr %59 to i64
-  %63 = and i64 %62, -2
-  %64 = inttoptr i64 %63 to ptr
-  %65 = getelementptr inbounds i8, ptr %64, i64 4
-  %66 = load i32, ptr %65, align 4
-  %67 = add i32 %66, 1
-  store i32 %67, ptr %65, align 4
-  %68 = getelementptr inbounds i8, ptr %8, i64 24
-  %69 = load ptr, ptr %68, align 8
-  %70 = tail call ptr @reoTransferUnitsToNodes_rec(ptr noundef nonnull %0, ptr noundef %69)
-  %71 = icmp eq ptr %70, null
-  br i1 %71, label %72, label %73
+63:                                               ; preds = %60
+  %64 = ptrtoint ptr %61 to i64
+  %65 = and i64 %64, -2
+  %66 = inttoptr i64 %65 to ptr
+  %67 = getelementptr inbounds i8, ptr %66, i64 4
+  %68 = load i32, ptr %67, align 4
+  %69 = add i32 %68, 1
+  store i32 %69, ptr %67, align 4
+  %70 = getelementptr inbounds i8, ptr %8, i64 24
+  %71 = load ptr, ptr %70, align 8
+  %72 = tail call ptr @reoTransferUnitsToNodes_rec(ptr noundef nonnull %0, ptr noundef %71)
+  %73 = icmp eq ptr %72, null
+  br i1 %73, label %74, label %75
 
-72:                                               ; preds = %61
-  tail call void @Cudd_RecursiveDeref(ptr noundef %4, ptr noundef nonnull %59) #2
-  br label %142
+74:                                               ; preds = %63
+  tail call void @Cudd_RecursiveDeref(ptr noundef %4, ptr noundef nonnull %61) #2
+  br label %144
 
-73:                                               ; preds = %61
-  %74 = ptrtoint ptr %70 to i64
-  %75 = and i64 %74, -2
-  %76 = inttoptr i64 %75 to ptr
-  %77 = getelementptr inbounds i8, ptr %76, i64 4
-  %78 = load i32, ptr %77, align 4
-  %79 = add i32 %78, 1
-  store i32 %79, ptr %77, align 4
-  %80 = getelementptr inbounds i8, ptr %0, i64 160
-  %81 = load ptr, ptr %80, align 8
-  %82 = load i16, ptr %8, align 8
-  %83 = sext i16 %82 to i64
-  %84 = getelementptr inbounds i32, ptr %81, i64 %83
-  %85 = load i32, ptr %84, align 4
-  %86 = tail call ptr @cuddUniqueInter(ptr noundef %4, i32 noundef %85, ptr noundef nonnull %70, ptr noundef nonnull %59) #2
-  %87 = icmp eq ptr %86, null
-  br i1 %87, label %88, label %89
+75:                                               ; preds = %63
+  %76 = ptrtoint ptr %72 to i64
+  %77 = and i64 %76, -2
+  %78 = inttoptr i64 %77 to ptr
+  %79 = getelementptr inbounds i8, ptr %78, i64 4
+  %80 = load i32, ptr %79, align 4
+  %81 = add i32 %80, 1
+  store i32 %81, ptr %79, align 4
+  %82 = getelementptr inbounds i8, ptr %0, i64 160
+  %83 = load ptr, ptr %82, align 8
+  %84 = load i16, ptr %8, align 8
+  %85 = sext i16 %84 to i64
+  %86 = getelementptr inbounds i32, ptr %83, i64 %85
+  %87 = load i32, ptr %86, align 4
+  %88 = tail call ptr @cuddUniqueInter(ptr noundef %4, i32 noundef %87, ptr noundef nonnull %72, ptr noundef nonnull %61) #2
+  %89 = icmp eq ptr %88, null
+  br i1 %89, label %90, label %91
 
-88:                                               ; preds = %73
-  tail call void @Cudd_RecursiveDeref(ptr noundef %4, ptr noundef nonnull %59) #2
-  tail call void @Cudd_RecursiveDeref(ptr noundef %4, ptr noundef nonnull %70) #2
-  br label %142
+90:                                               ; preds = %75
+  tail call void @Cudd_RecursiveDeref(ptr noundef %4, ptr noundef nonnull %61) #2
+  tail call void @Cudd_RecursiveDeref(ptr noundef %4, ptr noundef nonnull %72) #2
+  br label %144
 
-89:                                               ; preds = %73
-  %90 = ptrtoint ptr %86 to i64
-  %91 = and i64 %90, -2
-  %92 = inttoptr i64 %91 to ptr
-  %93 = getelementptr inbounds i8, ptr %92, i64 4
-  %94 = load i32, ptr %93, align 4
-  %95 = add i32 %94, 1
-  store i32 %95, ptr %93, align 4
-  %96 = load i32, ptr %65, align 4
-  %97 = add i32 %96, -1
-  store i32 %97, ptr %65, align 4
-  br label %98
+91:                                               ; preds = %75
+  %92 = ptrtoint ptr %88 to i64
+  %93 = and i64 %92, -2
+  %94 = inttoptr i64 %93 to ptr
+  %95 = getelementptr inbounds i8, ptr %94, i64 4
+  %96 = load i32, ptr %95, align 4
+  %97 = add i32 %96, 1
+  store i32 %97, ptr %95, align 4
+  %98 = load i32, ptr %67, align 4
+  %99 = add i32 %98, -1
+  store i32 %99, ptr %67, align 4
+  %100 = load i32, ptr %79, align 4
+  %101 = add i32 %100, -1
+  store i32 %101, ptr %79, align 4
+  br label %102
 
-98:                                               ; preds = %89, %49
-  %.sink = phi ptr [ %77, %89 ], [ %57, %49 ]
-  %.sink98 = phi i32 [ -1, %89 ], [ 1, %49 ]
-  %.070 = phi ptr [ %86, %89 ], [ %53, %49 ]
-  %99 = load i32, ptr %.sink, align 4
-  %100 = add i32 %99, %.sink98
-  store i32 %100, ptr %.sink, align 4
-  %101 = load i16, ptr %9, align 2
-  %.not75 = icmp eq i16 %101, 1
-  br i1 %.not75, label %130, label %.preheader
+102:                                              ; preds = %91, %49
+  %.070 = phi ptr [ %53, %49 ], [ %88, %91 ]
+  %103 = load i16, ptr %9, align 2
+  %.not75 = icmp eq i16 %103, 1
+  br i1 %.not75, label %132, label %.preheader
 
-.preheader:                                       ; preds = %98
-  %102 = getelementptr inbounds i8, ptr %0, i64 200
-  %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %0, i64 212
-  %105 = load i32, ptr %104, align 4
-  %106 = sext i32 %.069 to i64
-  %107 = getelementptr inbounds %struct._reo_hash, ptr %103, i64 %106
-  %108 = load i32, ptr %107, align 8
-  %109 = icmp eq i32 %108, %105
-  br i1 %109, label %.lr.ph84, label %._crit_edge
+.preheader:                                       ; preds = %102
+  %104 = getelementptr inbounds i8, ptr %0, i64 200
+  %105 = load ptr, ptr %104, align 8
+  %106 = getelementptr inbounds i8, ptr %0, i64 212
+  %107 = load i32, ptr %106, align 4
+  %108 = sext i32 %.069 to i64
+  %109 = getelementptr inbounds %struct._reo_hash, ptr %105, i64 %108
+  %110 = load i32, ptr %109, align 8
+  %111 = icmp eq i32 %110, %107
+  br i1 %111, label %.lr.ph84, label %._crit_edge
 
 .lr.ph84:                                         ; preds = %.preheader
-  %110 = getelementptr inbounds i8, ptr %0, i64 208
-  %111 = load i32, ptr %110, align 8
-  br label %112
+  %112 = getelementptr inbounds i8, ptr %0, i64 208
+  %113 = load i32, ptr %112, align 8
+  br label %114
 
-112:                                              ; preds = %.lr.ph84, %112
-  %.283 = phi i32 [ %.069, %.lr.ph84 ], [ %114, %112 ]
-  %113 = add nsw i32 %.283, 1
-  %114 = srem i32 %113, %111
-  %115 = sext i32 %114 to i64
-  %116 = getelementptr inbounds %struct._reo_hash, ptr %103, i64 %115
-  %117 = load i32, ptr %116, align 8
-  %118 = icmp eq i32 %117, %105
-  br i1 %118, label %112, label %._crit_edge, !llvm.loop !8
+114:                                              ; preds = %.lr.ph84, %114
+  %.283 = phi i32 [ %.069, %.lr.ph84 ], [ %116, %114 ]
+  %115 = add nsw i32 %.283, 1
+  %116 = srem i32 %115, %113
+  %117 = sext i32 %116 to i64
+  %118 = getelementptr inbounds %struct._reo_hash, ptr %105, i64 %117
+  %119 = load i32, ptr %118, align 8
+  %120 = icmp eq i32 %119, %107
+  br i1 %120, label %114, label %._crit_edge, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %112, %.preheader
-  %.lcssa77 = phi i64 [ %106, %.preheader ], [ %115, %112 ]
-  %.lcssa76 = phi ptr [ %107, %.preheader ], [ %116, %112 ]
-  store i32 %105, ptr %.lcssa76, align 8
-  %119 = load ptr, ptr %102, align 8
-  %120 = getelementptr inbounds %struct._reo_hash, ptr %119, i64 %.lcssa77, i32 1
-  store ptr %8, ptr %120, align 8
-  %121 = load ptr, ptr %102, align 8
-  %122 = getelementptr inbounds %struct._reo_hash, ptr %121, i64 %.lcssa77, i32 2
-  store ptr %.070, ptr %122, align 8
-  %123 = getelementptr inbounds i8, ptr %0, i64 224
-  %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds i8, ptr %0, i64 232
-  %126 = load i32, ptr %125, align 8
-  %127 = add nsw i32 %126, 1
-  store i32 %127, ptr %125, align 8
-  %128 = sext i32 %126 to i64
-  %129 = getelementptr inbounds ptr, ptr %124, i64 %128
-  store ptr %.070, ptr %129, align 8
+._crit_edge:                                      ; preds = %114, %.preheader
+  %.lcssa77 = phi i64 [ %108, %.preheader ], [ %117, %114 ]
+  %.lcssa76 = phi ptr [ %109, %.preheader ], [ %118, %114 ]
+  store i32 %107, ptr %.lcssa76, align 8
+  %121 = load ptr, ptr %104, align 8
+  %122 = getelementptr inbounds %struct._reo_hash, ptr %121, i64 %.lcssa77, i32 1
+  store ptr %8, ptr %122, align 8
+  %123 = load ptr, ptr %104, align 8
+  %124 = getelementptr inbounds %struct._reo_hash, ptr %123, i64 %.lcssa77, i32 2
+  store ptr %.070, ptr %124, align 8
+  %125 = getelementptr inbounds i8, ptr %0, i64 224
+  %126 = load ptr, ptr %125, align 8
+  %127 = getelementptr inbounds i8, ptr %0, i64 232
+  %128 = load i32, ptr %127, align 8
+  %129 = add nsw i32 %128, 1
+  store i32 %129, ptr %127, align 8
+  %130 = sext i32 %128 to i64
+  %131 = getelementptr inbounds ptr, ptr %126, i64 %130
+  store ptr %.070, ptr %131, align 8
   tail call void @Cudd_Ref(ptr noundef %.070) #2
-  br label %130
+  br label %132
 
-130:                                              ; preds = %._crit_edge, %98
-  %131 = getelementptr inbounds i8, ptr %0, i64 100
-  %132 = load i32, ptr %131, align 4
-  %133 = add nsw i32 %132, 1
-  store i32 %133, ptr %131, align 4
-  %134 = ptrtoint ptr %.070 to i64
-  %135 = and i64 %134, -2
-  %136 = inttoptr i64 %135 to ptr
-  %137 = getelementptr inbounds i8, ptr %136, i64 4
-  %138 = load i32, ptr %137, align 4
-  %139 = add i32 %138, -1
-  store i32 %139, ptr %137, align 4
-  %140 = xor i64 %6, %134
-  %141 = inttoptr i64 %140 to ptr
-  br label %142
+132:                                              ; preds = %._crit_edge, %102
+  %133 = getelementptr inbounds i8, ptr %0, i64 100
+  %134 = load i32, ptr %133, align 4
+  %135 = add nsw i32 %134, 1
+  store i32 %135, ptr %133, align 4
+  %136 = ptrtoint ptr %.070 to i64
+  %137 = and i64 %136, -2
+  %138 = inttoptr i64 %137 to ptr
+  %139 = getelementptr inbounds i8, ptr %138, i64 4
+  %140 = load i32, ptr %139, align 4
+  %141 = add i32 %140, -1
+  store i32 %141, ptr %139, align 4
+  %142 = xor i64 %6, %136
+  %143 = inttoptr i64 %142 to ptr
+  br label %144
 
-142:                                              ; preds = %58, %130, %88, %72, %32
-  %.0 = phi ptr [ %37, %32 ], [ %141, %130 ], [ null, %72 ], [ null, %88 ], [ null, %58 ]
+144:                                              ; preds = %60, %132, %90, %74, %32
+  %.0 = phi ptr [ %37, %32 ], [ %143, %132 ], [ null, %74 ], [ null, %90 ], [ null, %60 ]
   ret ptr %.0
 }
 

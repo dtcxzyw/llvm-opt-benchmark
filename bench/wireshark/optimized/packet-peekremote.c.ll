@@ -411,7 +411,8 @@ define internal i32 @dissect_peekremote_legacy(ptr noundef %0, ptr noundef %1, p
 86:                                               ; preds = %60, %60, %60, %60, %60, %60
   store i32 4, ptr %68, align 8
   %87 = getelementptr inbounds i8, ptr %5, i64 12
-  br label %.sink.split
+  store i8 0, ptr %87, align 4
+  br label %93
 
 88:                                               ; preds = %60, %60, %60, %60, %60, %60, %60, %60
   %89 = icmp ult i8 %70, 15
@@ -420,18 +421,15 @@ define internal i32 @dissect_peekremote_legacy(ptr noundef %0, ptr noundef %1, p
 
 91:                                               ; preds = %88
   store i32 6, ptr %68, align 8
-  br label %.sink.split
+  store i8 0, ptr %90, align 4
+  br label %93
 
 92:                                               ; preds = %88
   store i32 5, ptr %68, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %86, %91, %92
-  %.sink = phi ptr [ %90, %92 ], [ %90, %91 ], [ %87, %86 ]
-  store i8 0, ptr %.sink, align 4
+  store i8 0, ptr %90, align 4
   br label %93
 
-93:                                               ; preds = %.sink.split, %60
+93:                                               ; preds = %60, %92, %91, %86
   %94 = load ptr, ptr @wlan_radio_handle, align 8
   %95 = call i32 @call_dissector_with_data(ptr noundef %94, ptr noundef %62, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5) #4
   %96 = add i32 %95, 20

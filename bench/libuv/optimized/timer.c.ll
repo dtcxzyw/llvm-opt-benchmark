@@ -198,18 +198,27 @@ if.then17.i.i:                                    ; preds = %if.end14.i.i
 if.end20.i.i:                                     ; preds = %if.then17.i.i, %if.end14.i.i
   %19 = load ptr, ptr %parent1.i, align 8
   %cmp22.i.i = icmp eq ptr %19, null
-  br i1 %cmp22.i.i, label %heap_node_swap.exit.i, label %if.else24.i.i
+  br i1 %cmp22.i.i, label %if.then23.i.i, label %if.else24.i.i
+
+if.then23.i.i:                                    ; preds = %if.end20.i.i
+  store ptr %heap_node, ptr %timer_heap.i, align 8
+  br label %heap_node_swap.exit.i
 
 if.else24.i.i:                                    ; preds = %if.end20.i.i
   %20 = load ptr, ptr %19, align 8
   %cmp27.i.i = icmp eq ptr %20, %11
-  %spec.select.idx.i.i = select i1 %cmp27.i.i, i64 0, i64 8
-  %spec.select.i.i = getelementptr inbounds i8, ptr %19, i64 %spec.select.idx.i.i
+  br i1 %cmp27.i.i, label %if.then28.i.i, label %if.else31.i.i
+
+if.then28.i.i:                                    ; preds = %if.else24.i.i
+  store ptr %heap_node, ptr %19, align 8
   br label %heap_node_swap.exit.i
 
-heap_node_swap.exit.i:                            ; preds = %if.else24.i.i, %if.end20.i.i
-  %.sink.i.i = phi ptr [ %timer_heap.i, %if.end20.i.i ], [ %spec.select.i.i, %if.else24.i.i ]
-  store ptr %heap_node, ptr %.sink.i.i, align 8
+if.else31.i.i:                                    ; preds = %if.else24.i.i
+  %right33.i.i = getelementptr inbounds i8, ptr %19, i64 8
+  store ptr %heap_node, ptr %right33.i.i, align 8
+  br label %heap_node_swap.exit.i
+
+heap_node_swap.exit.i:                            ; preds = %if.else31.i.i, %if.then28.i.i, %if.then23.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %t.i.i)
   %21 = load ptr, ptr %parent1.i, align 8
   %cmp12.not.i = icmp eq ptr %21, null
@@ -341,18 +350,27 @@ if.then30.i:                                      ; preds = %if.end27.i
 if.end33.i:                                       ; preds = %if.then30.i, %if.end27.i
   %11 = load ptr, ptr %parent.i, align 8
   %cmp35.i = icmp eq ptr %11, null
-  br i1 %cmp35.i, label %if.end49.i, label %if.else38.i
+  br i1 %cmp35.i, label %if.then36.i, label %if.else38.i
+
+if.then36.i:                                      ; preds = %if.end33.i
+  store ptr %5, ptr %timer_heap.i, align 8
+  br label %if.end49.i
 
 if.else38.i:                                      ; preds = %if.end33.i
   %12 = load ptr, ptr %11, align 8
   %cmp41.i = icmp eq ptr %12, %heap_node
-  %spec.select.idx.i = select i1 %cmp41.i, i64 0, i64 8
-  %spec.select.i = getelementptr inbounds i8, ptr %11, i64 %spec.select.idx.i
+  br i1 %cmp41.i, label %if.then42.i, label %if.else45.i
+
+if.then42.i:                                      ; preds = %if.else38.i
+  store ptr %5, ptr %11, align 8
   br label %if.end49.i
 
-if.end49.i:                                       ; preds = %if.else38.i, %if.end33.i
-  %.sink.i = phi ptr [ %timer_heap.i, %if.end33.i ], [ %spec.select.i, %if.else38.i ]
-  store ptr %5, ptr %.sink.i, align 8
+if.else45.i:                                      ; preds = %if.else38.i
+  %right47.i = getelementptr inbounds i8, ptr %11, i64 8
+  store ptr %5, ptr %right47.i, align 8
+  br label %if.end49.i
+
+if.end49.i:                                       ; preds = %if.else45.i, %if.then42.i, %if.then36.i
   %timeout2.i.i = getelementptr inbounds i8, ptr %5, i64 24
   %start_id8.i.i = getelementptr inbounds i8, ptr %5, i64 40
   br label %for.cond50.i
@@ -477,23 +495,32 @@ if.end20.i.i:                                     ; preds = %if.then17.i.i, %if.
   %parent21.i.i = getelementptr inbounds i8, ptr %smallest.1.i, i64 16
   %27 = load ptr, ptr %parent21.i.i, align 8
   %cmp22.i.i = icmp eq ptr %27, null
-  br i1 %cmp22.i.i, label %heap_node_swap.exit.i, label %if.else24.i.i
+  br i1 %cmp22.i.i, label %if.then23.i.i, label %if.else24.i.i
+
+if.then23.i.i:                                    ; preds = %if.end20.i.i
+  store ptr %smallest.1.i, ptr %timer_heap.i, align 8
+  br label %heap_node_swap.exit.i
 
 if.else24.i.i:                                    ; preds = %if.end20.i.i
   %28 = load ptr, ptr %27, align 8
   %cmp27.i.i = icmp eq ptr %28, %5
-  %spec.select.idx.i.i = select i1 %cmp27.i.i, i64 0, i64 8
-  %spec.select.i.i = getelementptr inbounds i8, ptr %27, i64 %spec.select.idx.i.i
+  br i1 %cmp27.i.i, label %if.then28.i.i, label %if.else31.i.i
+
+if.then28.i.i:                                    ; preds = %if.else24.i.i
+  store ptr %smallest.1.i, ptr %27, align 8
   br label %heap_node_swap.exit.i
 
-heap_node_swap.exit.i:                            ; preds = %if.else24.i.i, %if.end20.i.i
-  %.sink.i.i = phi ptr [ %timer_heap.i, %if.end20.i.i ], [ %spec.select.i.i, %if.else24.i.i ]
-  store ptr %smallest.1.i, ptr %.sink.i.i, align 8
+if.else31.i.i:                                    ; preds = %if.else24.i.i
+  %right33.i.i = getelementptr inbounds i8, ptr %27, i64 8
+  store ptr %smallest.1.i, ptr %right33.i.i, align 8
+  br label %heap_node_swap.exit.i
+
+heap_node_swap.exit.i:                            ; preds = %if.else31.i.i, %if.then28.i.i, %if.then23.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %t.i.i)
   br label %for.cond50.i
 
-land.rhs.i:                                       ; preds = %while.cond71.preheader.i, %heap_node_swap.exit122.i
-  %29 = phi ptr [ %39, %heap_node_swap.exit122.i ], [ %23, %while.cond71.preheader.i ]
+land.rhs.i:                                       ; preds = %while.cond71.preheader.i, %heap_node_swap.exit123.i
+  %29 = phi ptr [ %39, %heap_node_swap.exit123.i ], [ %23, %while.cond71.preheader.i ]
   %30 = load i64, ptr %timeout2.i.i, align 8
   %timeout2.i81.i = getelementptr inbounds i8, ptr %29, i64 24
   %31 = load i64, ptr %timeout2.i81.i, align 8
@@ -520,19 +547,19 @@ while.body77.i:                                   ; preds = %timer_less_than.exi
   store ptr %5, ptr %parent1.i93.i, align 8
   %34 = load ptr, ptr %5, align 8
   %cmp.i94.i = icmp eq ptr %34, %5
-  br i1 %cmp.i94.i, label %if.then.i119.i, label %if.else.i95.i
+  br i1 %cmp.i94.i, label %if.then.i120.i, label %if.else.i95.i
 
-if.then.i119.i:                                   ; preds = %while.body77.i
+if.then.i120.i:                                   ; preds = %while.body77.i
   store ptr %29, ptr %5, align 8
-  %sibling.0.pr.i121.i = load ptr, ptr %right20.i, align 8
+  %sibling.0.pr.i122.i = load ptr, ptr %right20.i, align 8
   br label %if.end.i97.i
 
 if.else.i95.i:                                    ; preds = %while.body77.i
   store ptr %29, ptr %right20.i, align 8
   br label %if.end.i97.i
 
-if.end.i97.i:                                     ; preds = %if.else.i95.i, %if.then.i119.i
-  %sibling.0.i98.i = phi ptr [ %34, %if.else.i95.i ], [ %sibling.0.pr.i121.i, %if.then.i119.i ]
+if.end.i97.i:                                     ; preds = %if.else.i95.i, %if.then.i120.i
+  %sibling.0.i98.i = phi ptr [ %34, %if.else.i95.i ], [ %sibling.0.pr.i122.i, %if.then.i120.i ]
   %cmp5.not.i99.i = icmp eq ptr %sibling.0.i98.i, null
   br i1 %cmp5.not.i99.i, label %if.end8.i102.i, label %if.then6.i100.i
 
@@ -565,24 +592,33 @@ if.then17.i109.i:                                 ; preds = %if.end14.i106.i
 if.end20.i111.i:                                  ; preds = %if.then17.i109.i, %if.end14.i106.i
   %37 = load ptr, ptr %parent21.i, align 8
   %cmp22.i113.i = icmp eq ptr %37, null
-  br i1 %cmp22.i113.i, label %heap_node_swap.exit122.i, label %if.else24.i114.i
+  br i1 %cmp22.i113.i, label %if.then23.i119.i, label %if.else24.i114.i
+
+if.then23.i119.i:                                 ; preds = %if.end20.i111.i
+  store ptr %5, ptr %timer_heap.i, align 8
+  br label %heap_node_swap.exit123.i
 
 if.else24.i114.i:                                 ; preds = %if.end20.i111.i
   %38 = load ptr, ptr %37, align 8
   %cmp27.i115.i = icmp eq ptr %38, %29
-  %spec.select.idx.i116.i = select i1 %cmp27.i115.i, i64 0, i64 8
-  %spec.select.i117.i = getelementptr inbounds i8, ptr %37, i64 %spec.select.idx.i116.i
-  br label %heap_node_swap.exit122.i
+  br i1 %cmp27.i115.i, label %if.then28.i118.i, label %if.else31.i116.i
 
-heap_node_swap.exit122.i:                         ; preds = %if.else24.i114.i, %if.end20.i111.i
-  %.sink.i118.i = phi ptr [ %timer_heap.i, %if.end20.i111.i ], [ %spec.select.i117.i, %if.else24.i114.i ]
-  store ptr %5, ptr %.sink.i118.i, align 8
+if.then28.i118.i:                                 ; preds = %if.else24.i114.i
+  store ptr %5, ptr %37, align 8
+  br label %heap_node_swap.exit123.i
+
+if.else31.i116.i:                                 ; preds = %if.else24.i114.i
+  %right33.i117.i = getelementptr inbounds i8, ptr %37, i64 8
+  store ptr %5, ptr %right33.i117.i, align 8
+  br label %heap_node_swap.exit123.i
+
+heap_node_swap.exit123.i:                         ; preds = %if.else31.i116.i, %if.then28.i118.i, %if.then23.i119.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %t.i92.i)
   %39 = load ptr, ptr %parent21.i, align 8
   %cmp73.not.i = icmp eq ptr %39, null
   br i1 %cmp73.not.i, label %heap_remove.exit, label %land.rhs.i
 
-heap_remove.exit:                                 ; preds = %if.end.i83.i, %timer_less_than.exit91.i, %heap_node_swap.exit122.i, %if.end, %if.then10.i, %if.then13.i, %while.cond71.preheader.i
+heap_remove.exit:                                 ; preds = %if.end.i83.i, %timer_less_than.exit91.i, %heap_node_swap.exit123.i, %if.end, %if.then10.i, %if.then13.i, %while.cond71.preheader.i
   %40 = load i32, ptr %flags, align 8
   %and2 = and i32 %40, 4
   %cmp3 = icmp eq i32 %and2, 0

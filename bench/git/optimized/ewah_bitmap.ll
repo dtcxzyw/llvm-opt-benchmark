@@ -696,6 +696,7 @@ buffer_push.exit:                                 ; preds = %buffer_push_rlw.exi
   store ptr %add.ptr.i.i, ptr %rlw, align 8
   store i64 %inc.pre-phi.i, ptr %buffer_size.i.i, align 8
   %arrayidx.i = getelementptr inbounds i64, ptr %16, i64 %15
+  store i64 %new_data, ptr %arrayidx.i, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -747,12 +748,11 @@ buffer_push.exit36:                               ; preds = %if.end, %st_mult.ex
   store ptr %add.ptr.i.i23, ptr %rlw, align 8
   store i64 %inc.pre-phi.i18, ptr %buffer_size.i13, align 8
   %arrayidx.i24 = getelementptr inbounds i64, ptr %24, i64 %23
+  store i64 %new_data, ptr %arrayidx.i24, align 8
   br label %return
 
 return:                                           ; preds = %buffer_push.exit36, %buffer_push.exit
-  %arrayidx.i24.sink = phi ptr [ %arrayidx.i24, %buffer_push.exit36 ], [ %arrayidx.i, %buffer_push.exit ]
-  %retval.0 = phi i64 [ 1, %buffer_push.exit36 ], [ 2, %buffer_push.exit ]
-  store i64 %new_data, ptr %arrayidx.i24.sink, align 8
+  %retval.0 = phi i64 [ 2, %buffer_push.exit ], [ 1, %buffer_push.exit36 ]
   ret i64 %retval.0
 }
 

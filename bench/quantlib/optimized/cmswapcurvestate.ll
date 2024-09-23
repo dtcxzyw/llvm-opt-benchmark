@@ -3397,15 +3397,15 @@ if.else:                                          ; preds = %do.end111
   br label %return
 
 return:                                           ; preds = %if.else, %if.then113
-  %discRatios_117.sink = phi ptr [ %discRatios_117, %if.else ], [ %discRatios_, %if.then113 ]
+  %.sink146.in = phi ptr [ %discRatios_117, %if.else ], [ %discRatios_, %if.then113 ]
   %.pn147.in = phi ptr [ %irrCMSwapAnnuities_, %if.else ], [ %cmSwapAnnuities_, %if.then113 ]
   %.pn147 = load ptr, ptr %.pn147.in, align 8, !tbaa !18
   %.sink.in = getelementptr inbounds nuw double, ptr %.pn147, i64 %i
   %.sink = load double, ptr %.sink.in, align 8, !tbaa !20
-  %66 = load ptr, ptr %discRatios_117.sink, align 8, !tbaa !18
-  %add.ptr.i90 = getelementptr inbounds nuw double, ptr %66, i64 %numeraire
-  %67 = load double, ptr %add.ptr.i90, align 8, !tbaa !20
-  %div122 = fdiv double %.sink, %67
+  %.sink146 = load ptr, ptr %.sink146.in, align 8, !tbaa !18
+  %add.ptr.i90 = getelementptr inbounds nuw double, ptr %.sink146, i64 %numeraire
+  %66 = load double, ptr %add.ptr.i90, align 8, !tbaa !20
+  %div122 = fdiv double %.sink, %66
   ret double %div122
 
 eh.resume:                                        ; preds = %ehcleanup108, %ehcleanup64, %ehcleanup23

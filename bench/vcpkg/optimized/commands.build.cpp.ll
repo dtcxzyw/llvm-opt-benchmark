@@ -8568,62 +8568,88 @@ _ZNSt12_Vector_baseIN5vcpkg11FeatureSpecESaIS1_EED2Ev.exit: ; preds = %_ZSt8_Des
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN5vcpkg17BuildResultCounts9incrementENS_11BuildResultE(ptr nocapture noundef nonnull align 4 dereferenceable(36) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = alloca %"struct.vcpkg::LineInfo", align 8
-  switch i32 %1, label %20 [
-    i32 0, label %22
-    i32 1, label %4
-    i32 2, label %6
-    i32 3, label %8
-    i32 4, label %10
-    i32 5, label %12
-    i32 6, label %14
-    i32 7, label %16
-    i32 8, label %18
+  switch i32 %1, label %39 [
+    i32 0, label %4
+    i32 1, label %7
+    i32 2, label %11
+    i32 3, label %15
+    i32 4, label %19
+    i32 5, label %23
+    i32 6, label %27
+    i32 7, label %31
+    i32 8, label %35
   ]
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
-  br label %22
+  %5 = load i32, ptr %0, align 4
+  %6 = add nsw i32 %5, 1
+  store i32 %6, ptr %0, align 4
+  br label %41
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %22
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %9 = load i32, ptr %8, align 4
+  %10 = add nsw i32 %9, 1
+  store i32 %10, ptr %8, align 4
+  br label %41
 
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 12
-  br label %22
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = load i32, ptr %12, align 4
+  %14 = add nsw i32 %13, 1
+  store i32 %14, ptr %12, align 4
+  br label %41
 
-10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
-  br label %22
+15:                                               ; preds = %2
+  %16 = getelementptr inbounds i8, ptr %0, i64 12
+  %17 = load i32, ptr %16, align 4
+  %18 = add nsw i32 %17, 1
+  store i32 %18, ptr %16, align 4
+  br label %41
 
-12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 20
-  br label %22
+19:                                               ; preds = %2
+  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = load i32, ptr %20, align 4
+  %22 = add nsw i32 %21, 1
+  store i32 %22, ptr %20, align 4
+  br label %41
 
-14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
-  br label %22
+23:                                               ; preds = %2
+  %24 = getelementptr inbounds i8, ptr %0, i64 20
+  %25 = load i32, ptr %24, align 4
+  %26 = add nsw i32 %25, 1
+  store i32 %26, ptr %24, align 4
+  br label %41
 
-16:                                               ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %0, i64 28
-  br label %22
+27:                                               ; preds = %2
+  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %29 = load i32, ptr %28, align 4
+  %30 = add nsw i32 %29, 1
+  store i32 %30, ptr %28, align 4
+  br label %41
 
-18:                                               ; preds = %2
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
-  br label %22
+31:                                               ; preds = %2
+  %32 = getelementptr inbounds i8, ptr %0, i64 28
+  %33 = load i32, ptr %32, align 4
+  %34 = add nsw i32 %33, 1
+  store i32 %34, ptr %32, align 4
+  br label %41
 
-20:                                               ; preds = %2
+35:                                               ; preds = %2
+  %36 = getelementptr inbounds i8, ptr %0, i64 32
+  %37 = load i32, ptr %36, align 4
+  %38 = add nsw i32 %37, 1
+  store i32 %38, ptr %36, align 4
+  br label %41
+
+39:                                               ; preds = %2
   store i32 1387, ptr %3, align 8
-  %21 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr @.str, ptr %21, align 8
+  %40 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr @.str, ptr %40, align 8
   call void @_ZN5vcpkg6Checks11unreachableERKNS_8LineInfoE(ptr noundef nonnull align 8 dereferenceable(16) %3) #25
   unreachable
 
-22:                                               ; preds = %2, %18, %16, %14, %12, %10, %8, %6, %4
-  %.sink = phi ptr [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ], [ %5, %4 ], [ %0, %2 ]
-  %23 = load i32, ptr %.sink, align 4
-  %24 = add nsw i32 %23, 1
-  store i32 %24, ptr %.sink, align 4
+41:                                               ; preds = %35, %31, %27, %23, %19, %15, %11, %7, %4
   ret void
 }
 
@@ -17341,6 +17367,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit: ; preds = %6
   %18 = load ptr, ptr %17, align 8
   store i64 %.pre-phi.i.i, ptr %7, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 %16
+  store i8 92, ptr %19, align 1
   br label %82
 
 20:                                               ; preds = %2
@@ -17367,6 +17394,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit28: ; preds = 
   %32 = load ptr, ptr %31, align 8
   store i64 %.pre-phi.i.i25, ptr %21, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 %30
+  store i8 92, ptr %33, align 1
   br label %82
 
 34:                                               ; preds = %2
@@ -17393,6 +17421,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit33: ; preds = 
   %46 = load ptr, ptr %45, align 8
   store i64 %.pre-phi.i.i30, ptr %35, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 %44
+  store i8 92, ptr %47, align 1
   br label %82
 
 48:                                               ; preds = %2, %2, %2
@@ -17419,6 +17448,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit38: ; preds = 
   %60 = load ptr, ptr %59, align 8
   store i64 %.pre-phi.i.i35, ptr %49, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 %58
+  store i8 92, ptr %61, align 1
   br label %82
 
 62:                                               ; preds = %2
@@ -17463,9 +17493,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit38: ; preds = 
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 82:                                               ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit38, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit33, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit28, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit
-  %.sink = phi ptr [ %61, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit38 ], [ %47, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit33 ], [ %33, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit28 ], [ %19, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit ]
   %.054 = phi i8 [ %5, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit38 ], [ 116, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit33 ], [ 114, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit28 ], [ 110, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit ]
-  store i8 92, ptr %.sink, align 1
   %83 = getelementptr inbounds i8, ptr %0, i64 16
   %84 = load i64, ptr %83, align 8
   %85 = add i64 %84, 1
@@ -27426,22 +27454,18 @@ _ZNSt10_HashtableIN5vcpkg11BuildPolicyESt4pairIKS1_bESaIS4_ENSt8__detail10_Selec
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
-  br label %.sink.split
+  store ptr %.031, ptr %25, align 8
+  br label %29
 
 26:                                               ; preds = %.lr.ph
   %27 = load ptr, ptr %20, align 8
   store ptr %27, ptr %.031, align 8
   %28 = load ptr, ptr %19, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %26, %24
-  %.sink = phi ptr [ %25, %24 ], [ %28, %26 ]
-  %.1.ph = phi i64 [ %18, %24 ], [ %.02530, %26 ]
-  store ptr %.031, ptr %.sink, align 8
+  store ptr %.031, ptr %28, align 8
   br label %29
 
-29:                                               ; preds = %.sink.split, %21
-  %.1 = phi i64 [ %18, %21 ], [ %.1.ph, %.sink.split ]
+29:                                               ; preds = %21, %24, %26
+  %.1 = phi i64 [ %.02530, %26 ], [ %18, %24 ], [ %18, %21 ]
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !398
 
@@ -28136,6 +28160,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg8EnvCache15TripletMapEntryC2EOS1_(p
   store ptr null, ptr %4, align 8
   store ptr %7, ptr %11, align 8
   store ptr %7, ptr %14, align 8
+  store i64 0, ptr %18, align 8
   br label %_ZN5vcpkg5CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4lessIvEEC2EOS9_.exit
 
 21:                                               ; preds = %2
@@ -28147,11 +28172,10 @@ define linkonce_odr dso_local void @_ZN5vcpkg8EnvCache15TripletMapEntryC2EOS1_(p
   %24 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %3, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 72
+  store i64 0, ptr %25, align 8
   br label %_ZN5vcpkg5CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4lessIvEEC2EOS9_.exit
 
 _ZN5vcpkg5CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4lessIvEEC2EOS9_.exit: ; preds = %6, %21
-  %.sink.i.i.i.i.i = phi ptr [ %25, %21 ], [ %18, %6 ]
-  store i64 0, ptr %.sink.i.i.i.i.i, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 88
   %27 = getelementptr inbounds i8, ptr %1, i64 96
   %28 = load ptr, ptr %27, align 8
@@ -28182,7 +28206,8 @@ _ZN5vcpkg5CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4lessIv
   store ptr null, ptr %27, align 8
   store ptr %30, ptr %34, align 8
   store ptr %30, ptr %37, align 8
-  br label %_ZN5vcpkg5CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4lessIvEEC2EOS9_.exit7
+  store i64 0, ptr %41, align 8
+  br label %_ZN5vcpkg5CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4lessIvEEC2EOS9_.exit6
 
 44:                                               ; preds = %_ZN5vcpkg5CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4lessIvEEC2EOS9_.exit
   store i32 0, ptr %26, align 8
@@ -28193,18 +28218,17 @@ _ZN5vcpkg5CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4lessIv
   %47 = getelementptr inbounds i8, ptr %0, i64 112
   store ptr %26, ptr %47, align 8
   %48 = getelementptr inbounds i8, ptr %0, i64 120
-  br label %_ZN5vcpkg5CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4lessIvEEC2EOS9_.exit7
+  store i64 0, ptr %48, align 8
+  br label %_ZN5vcpkg5CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4lessIvEEC2EOS9_.exit6
 
-_ZN5vcpkg5CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4lessIvEEC2EOS9_.exit7: ; preds = %29, %44
-  %.sink.i.i.i.i.i6 = phi ptr [ %48, %44 ], [ %41, %29 ]
-  store i64 0, ptr %.sink.i.i.i.i.i6, align 8
+_ZN5vcpkg5CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4lessIvEEC2EOS9_.exit6: ; preds = %29, %44
   %49 = getelementptr inbounds i8, ptr %0, i64 136
   %50 = getelementptr inbounds i8, ptr %1, i64 144
   %51 = load ptr, ptr %50, align 8
-  %.not.i.i.i.i.i8 = icmp eq ptr %51, null
-  br i1 %.not.i.i.i.i.i8, label %67, label %52
+  %.not.i.i.i.i.i7 = icmp eq ptr %51, null
+  br i1 %.not.i.i.i.i.i7, label %67, label %52
 
-52:                                               ; preds = %_ZN5vcpkg5CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4lessIvEEC2EOS9_.exit7
+52:                                               ; preds = %_ZN5vcpkg5CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4lessIvEEC2EOS9_.exit6
   %53 = getelementptr inbounds i8, ptr %1, i64 136
   %54 = load i32, ptr %53, align 8
   store i32 %54, ptr %49, align 8
@@ -28228,9 +28252,10 @@ _ZN5vcpkg5CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4lessIv
   store ptr null, ptr %50, align 8
   store ptr %53, ptr %57, align 8
   store ptr %53, ptr %60, align 8
+  store i64 0, ptr %64, align 8
   br label %_ZN5vcpkg5CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12CompilerInfoESt4lessIvEEC2EOSA_.exit
 
-67:                                               ; preds = %_ZN5vcpkg5CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4lessIvEEC2EOS9_.exit7
+67:                                               ; preds = %_ZN5vcpkg5CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4lessIvEEC2EOS9_.exit6
   store i32 0, ptr %49, align 8
   %68 = getelementptr inbounds i8, ptr %0, i64 144
   store ptr null, ptr %68, align 8
@@ -28239,11 +28264,10 @@ _ZN5vcpkg5CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4lessIv
   %70 = getelementptr inbounds i8, ptr %0, i64 160
   store ptr %49, ptr %70, align 8
   %71 = getelementptr inbounds i8, ptr %0, i64 168
+  store i64 0, ptr %71, align 8
   br label %_ZN5vcpkg5CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12CompilerInfoESt4lessIvEEC2EOSA_.exit
 
 _ZN5vcpkg5CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12CompilerInfoESt4lessIvEEC2EOSA_.exit: ; preds = %52, %67
-  %.sink.i.i.i.i.i9 = phi ptr [ %71, %67 ], [ %64, %52 ]
-  store i64 0, ptr %.sink.i.i.i.i.i9, align 8
   ret void
 }
 

@@ -4105,9 +4105,18 @@ define hidden void @_ZN23JvmtiDeferredEventQueue7enqueueE18JvmtiDeferredEvent(pt
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
-  %.sink = select i1 %7, ptr %0, ptr %8
-  store ptr %3, ptr %.sink, align 8
+  br i1 %7, label %8, label %9
+
+8:                                                ; preds = %2
+  store ptr %3, ptr %0, align 8
+  br label %11
+
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds i8, ptr %6, i64 32
+  store ptr %3, ptr %10, align 8
+  br label %11
+
+11:                                               ; preds = %9, %8
   store ptr %3, ptr %5, align 8
   ret void
 }

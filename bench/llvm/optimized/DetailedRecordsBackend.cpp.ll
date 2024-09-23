@@ -1496,8 +1496,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_122DetailedRecordsEmitter17printSup
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 48
   br label %51
 
-51:                                               ; preds = %.lr.ph, %61
-  %.04 = phi ptr [ %12, %.lr.ph ], [ %63, %61 ]
+51:                                               ; preds = %.lr.ph, %63
+  %.04 = phi ptr [ %12, %.lr.ph ], [ %64, %63 ]
   %52 = load ptr, ptr %.04, align 8
   %53 = call noundef zeroext i1 @_ZNK4llvm6Record19hasDirectSuperClassEPKS0_(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %52) #13
   %54 = load ptr, ptr %.04, align 8
@@ -1505,7 +1505,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122DetailedRecordsEmitter17printSup
   %56 = load ptr, ptr %55, align 8, !noalias !57
   %57 = getelementptr inbounds i8, ptr %56, i64 48
   %58 = load ptr, ptr %57, align 8, !noalias !57
-  br i1 %53, label %59, label %60
+  br i1 %53, label %59, label %61
 
 59:                                               ; preds = %51
   call void %58(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 8 dereferenceable(10) %55) #13
@@ -1530,9 +1530,11 @@ define internal fastcc void @_ZN12_GLOBAL__N_122DetailedRecordsEmitter17printSup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %45) #13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
-  br label %61
+  %60 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_19formatv_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(33) %7) #13
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %49, align 8
+  br label %63
 
-60:                                               ; preds = %51
+61:                                               ; preds = %51
   call void %58(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull align 8 dereferenceable(10) %55) #13
   call void @llvm.experimental.noalias.scope.decl(metadata !67)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
@@ -1555,38 +1557,36 @@ define internal fastcc void @_ZN12_GLOBAL__N_122DetailedRecordsEmitter17printSup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
-  br label %61
+  %62 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_19formatv_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(33) %9) #13
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %42, align 8
+  br label %63
 
-61:                                               ; preds = %59, %60
-  %.sink7 = phi ptr [ %7, %59 ], [ %9, %60 ]
-  %.sink6 = phi ptr [ %49, %59 ], [ %42, %60 ]
-  %.sink5 = phi ptr [ %50, %59 ], [ %43, %60 ]
-  %.sink = phi ptr [ %8, %59 ], [ %10, %60 ]
-  %62 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_19formatv_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(33) %.sink7) #13
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %.sink6, align 8
+63:                                               ; preds = %59, %61
+  %.sink5 = phi ptr [ %50, %59 ], [ %43, %61 ]
+  %.sink = phi ptr [ %8, %59 ], [ %10, %61 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink5) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #13
-  %63 = getelementptr inbounds i8, ptr %.04, i64 24
-  %.not = icmp eq ptr %63, %36
+  %64 = getelementptr inbounds i8, ptr %.04, i64 24
+  %.not = icmp eq ptr %64, %36
   br i1 %.not, label %._crit_edge, label %51
 
-._crit_edge:                                      ; preds = %61
-  %64 = load ptr, ptr %17, align 8
-  %65 = load ptr, ptr %15, align 8
-  %.not.i = icmp ult ptr %64, %65
-  br i1 %.not.i, label %68, label %66
+._crit_edge:                                      ; preds = %63
+  %65 = load ptr, ptr %17, align 8
+  %66 = load ptr, ptr %15, align 8
+  %.not.i = icmp ult ptr %65, %66
+  br i1 %.not.i, label %69, label %67
 
-66:                                               ; preds = %._crit_edge
-  %67 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 noundef zeroext 10) #13
+67:                                               ; preds = %._crit_edge
+  %68 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 noundef zeroext 10) #13
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
-68:                                               ; preds = %._crit_edge
-  %69 = getelementptr inbounds i8, ptr %64, i64 1
-  store ptr %69, ptr %17, align 8
-  store i8 10, ptr %64, align 1
+69:                                               ; preds = %._crit_edge
+  %70 = getelementptr inbounds i8, ptr %65, i64 1
+  store ptr %70, ptr %17, align 8
+  store i8 10, ptr %65, align 1
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
-_ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %68, %66, %26, %24
+_ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %69, %67, %26, %24
   ret void
 }
 

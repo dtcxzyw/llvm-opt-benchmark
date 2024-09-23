@@ -311,6 +311,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt7__cxx1112basi
   store ptr null, ptr %_M_parent.i.i.i.i, align 8, !tbaa !36
   store ptr %add.ptr.i.i.i, ptr %_M_left.i.i.i.i.i, align 8, !tbaa !38
   store ptr %add.ptr.i.i.i, ptr %_M_right.i.i.i.i.i, align 8, !tbaa !39
+  store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8, !tbaa !41
   br label %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEC2EOS9_.exit
 
 if.else.i.i.i.i:                                  ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit27
@@ -321,12 +322,11 @@ if.else.i.i.i.i:                                  ; preds = %_ZNSt7__cxx1112basi
   %_M_right.i4.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 232
   store ptr %27, ptr %_M_right.i4.i.i.i.i, align 8, !tbaa !39
   %_M_node_count.i5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 240
+  store i64 0, ptr %_M_node_count.i5.i.i.i.i, align 8, !tbaa !41
   br label %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEC2EOS9_.exit
 
 _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEC2EOS9_.exit: ; preds = %if.then.i.i.i.i, %if.else.i.i.i.i
-  %_M_node_count.i.sink.i.i.i.i = phi ptr [ %_M_node_count.i.i.i.i.i, %if.then.i.i.i.i ], [ %_M_node_count.i5.i.i.i.i, %if.else.i.i.i.i ]
-  %.sink.i.i.i.i = phi i32 [ %29, %if.then.i.i.i.i ], [ 0, %if.else.i.i.i.i ]
-  store i64 0, ptr %_M_node_count.i.sink.i.i.i.i, align 8, !tbaa !41
+  %.sink.i.i.i.i = phi i32 [ 0, %if.else.i.i.i.i ], [ %29, %if.then.i.i.i.i ]
   store i32 %.sink.i.i.i.i, ptr %27, align 8
   ret void
 }
@@ -533,6 +533,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt7__cxx1112basi
   store ptr null, ptr %_M_parent.i.i.i.i, align 8, !tbaa !36
   store ptr %add.ptr.i.i.i, ptr %_M_left.i.i.i.i.i, align 8, !tbaa !38
   store ptr %add.ptr.i.i.i, ptr %_M_right.i.i.i.i.i, align 8, !tbaa !39
+  store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8, !tbaa !41
   br label %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEC2EOS9_.exit
 
 if.else.i.i.i.i:                                  ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit36
@@ -543,12 +544,11 @@ if.else.i.i.i.i:                                  ; preds = %_ZNSt7__cxx1112basi
   %_M_right.i4.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 232
   store ptr %32, ptr %_M_right.i4.i.i.i.i, align 8, !tbaa !39
   %_M_node_count.i5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 240
+  store i64 0, ptr %_M_node_count.i5.i.i.i.i, align 8, !tbaa !41
   br label %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEC2EOS9_.exit
 
 _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEC2EOS9_.exit: ; preds = %if.then.i.i.i.i, %if.else.i.i.i.i
-  %_M_node_count.i.sink.i.i.i.i = phi ptr [ %_M_node_count.i.i.i.i.i, %if.then.i.i.i.i ], [ %_M_node_count.i5.i.i.i.i, %if.else.i.i.i.i ]
-  %.sink.i.i.i.i = phi i32 [ %34, %if.then.i.i.i.i ], [ 0, %if.else.i.i.i.i ]
-  store i64 0, ptr %_M_node_count.i.sink.i.i.i.i, align 8, !tbaa !41
+  %.sink.i.i.i.i = phi i32 [ 0, %if.else.i.i.i.i ], [ %34, %if.then.i.i.i.i ]
   store i32 %.sink.i.i.i.i, ptr %32, align 8
   ret void
 }

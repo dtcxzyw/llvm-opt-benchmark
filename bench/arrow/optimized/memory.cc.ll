@@ -5639,7 +5639,11 @@ if.then.i.i.i.i.i.i10:                            ; preds = %delete.notnull.i.i7
   %2 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i11 acquire, align 8
   %cmp.i.i.i.i.i.i.i12 = icmp eq i64 %2, 4294967297
   %3 = trunc i64 %2 to i32
-  br i1 %cmp.i.i.i.i.i.i.i12, label %return.sink.split.sink.split.sink.split, label %if.end.i.i.i.i.i.i.i13
+  br i1 %cmp.i.i.i.i.i.i.i12, label %if.then.i.i.i.i.i.i.i38, label %if.end.i.i.i.i.i.i.i13
+
+if.then.i.i.i.i.i.i.i38:                          ; preds = %if.then.i.i.i.i.i.i10
+  store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i11, align 8
+  br label %return.sink.split.sink.split.sink.split
 
 if.end.i.i.i.i.i.i.i13:                           ; preds = %if.then.i.i.i.i.i.i10
   %4 = load i8, ptr @__libc_single_threaded, align 1
@@ -5794,7 +5798,11 @@ if.then.i.i.i.i.i.i.i89:                          ; preds = %delete.notnull.i.i.
   %20 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %20, 4294967297
   %21 = trunc i64 %20 to i32
-  br i1 %cmp.i.i.i.i.i.i.i.i, label %return.sink.split.sink.split.sink.split, label %if.end.i.i.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i90, label %if.end.i.i.i.i.i.i.i.i
+
+if.then.i.i.i.i.i.i.i.i90:                        ; preds = %if.then.i.i.i.i.i.i.i89
+  store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 8
+  br label %return.sink.split.sink.split.sink.split
 
 if.end.i.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i.i89
   %22 = load i8, ptr @__libc_single_threaded, align 1
@@ -5840,11 +5848,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i: ; preds
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %return.sink.split.sink.split, label %return.sink.split
 
-return.sink.split.sink.split.sink.split:          ; preds = %if.then.i.i.i.i.i.i.i89, %if.then.i.i.i.i.i.i10
-  %_M_use_count.i.i.i.i.i.i.i.i.sink = phi ptr [ %_M_use_count.i.i.i.i.i.i.i11, %if.then.i.i.i.i.i.i10 ], [ %_M_use_count.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i89 ]
-  %.sink108 = phi ptr [ %1, %if.then.i.i.i.i.i.i10 ], [ %19, %if.then.i.i.i.i.i.i.i89 ]
-  %.pr97.sink103.ph.ph = phi ptr [ %.pr97, %if.then.i.i.i.i.i.i10 ], [ %18, %if.then.i.i.i.i.i.i.i89 ]
-  store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i.i.sink, align 8
+return.sink.split.sink.split.sink.split:          ; preds = %if.then.i.i.i.i.i.i.i38, %if.then.i.i.i.i.i.i.i.i90
+  %.sink108 = phi ptr [ %19, %if.then.i.i.i.i.i.i.i.i90 ], [ %1, %if.then.i.i.i.i.i.i.i38 ]
+  %.pr97.sink103.ph.ph = phi ptr [ %18, %if.then.i.i.i.i.i.i.i.i90 ], [ %.pr97, %if.then.i.i.i.i.i.i.i38 ]
   %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sink108, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %.sink108, align 8

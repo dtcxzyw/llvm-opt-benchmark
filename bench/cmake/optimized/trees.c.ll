@@ -134,7 +134,7 @@ define dso_local void @cm_zlib__tr_stored_block(ptr nocapture noundef %0, ptr no
   %42 = phi i16 [ %39, %34 ], [ %32, %8 ]
   %storemerge = phi i32 [ %40, %34 ], [ %33, %8 ]
   %43 = icmp sgt i32 %storemerge, 8
-  br i1 %43, label %44, label %55
+  br i1 %43, label %44, label %60
 
 44:                                               ; preds = %41
   %45 = getelementptr inbounds i8, ptr %0, i64 5936
@@ -149,82 +149,83 @@ define dso_local void @cm_zlib__tr_stored_block(ptr nocapture noundef %0, ptr no
   store i8 %46, ptr %52, align 1
   %53 = load i16, ptr %45, align 8
   %54 = lshr i16 %53, 8
-  br label %.sink.split.i
-
-55:                                               ; preds = %41
-  %56 = icmp sgt i32 %storemerge, 0
-  br i1 %56, label %57, label %bi_windup.exit
-
-57:                                               ; preds = %55
-  %58 = getelementptr inbounds i8, ptr %0, i64 16
-  %59 = getelementptr inbounds i8, ptr %0, i64 40
-  br label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %57, %44
-  %.sink19.i = phi ptr [ %59, %57 ], [ %49, %44 ]
-  %.sink14.in.i = phi ptr [ %58, %57 ], [ %47, %44 ]
-  %.sink.in.i = phi i16 [ %42, %57 ], [ %54, %44 ]
-  %.sink.i = trunc i16 %.sink.in.i to i8
-  %.sink14.i = load ptr, ptr %.sink14.in.i, align 8
-  %60 = load i64, ptr %.sink19.i, align 8
-  %61 = add i64 %60, 1
-  store i64 %61, ptr %.sink19.i, align 8
-  %62 = getelementptr inbounds i8, ptr %.sink14.i, i64 %60
-  store i8 %.sink.i, ptr %62, align 1
+  %55 = trunc nuw i16 %54 to i8
+  %56 = load ptr, ptr %47, align 8
+  %57 = load i64, ptr %49, align 8
+  %58 = add i64 %57, 1
+  store i64 %58, ptr %49, align 8
+  %59 = getelementptr inbounds i8, ptr %56, i64 %57
+  store i8 %55, ptr %59, align 1
   br label %bi_windup.exit
 
-bi_windup.exit:                                   ; preds = %55, %.sink.split.i
-  %63 = getelementptr inbounds i8, ptr %0, i64 5936
-  store i16 0, ptr %63, align 8
+60:                                               ; preds = %41
+  %61 = icmp sgt i32 %storemerge, 0
+  br i1 %61, label %62, label %bi_windup.exit
+
+62:                                               ; preds = %60
+  %63 = trunc i16 %42 to i8
+  %64 = getelementptr inbounds i8, ptr %0, i64 16
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds i8, ptr %0, i64 40
+  %67 = load i64, ptr %66, align 8
+  %68 = add i64 %67, 1
+  store i64 %68, ptr %66, align 8
+  %69 = getelementptr inbounds i8, ptr %65, i64 %67
+  store i8 %63, ptr %69, align 1
+  br label %bi_windup.exit
+
+bi_windup.exit:                                   ; preds = %44, %60, %62
+  %70 = getelementptr inbounds i8, ptr %0, i64 5936
+  store i16 0, ptr %70, align 8
   store i32 0, ptr %5, align 4
-  %64 = trunc i64 %2 to i8
-  %65 = getelementptr inbounds i8, ptr %0, i64 16
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 40
-  %68 = load i64, ptr %67, align 8
-  %69 = add i64 %68, 1
-  store i64 %69, ptr %67, align 8
-  %70 = getelementptr inbounds i8, ptr %66, i64 %68
-  store i8 %64, ptr %70, align 1
-  %71 = lshr i64 %2, 8
-  %72 = trunc i64 %71 to i8
-  %73 = load ptr, ptr %65, align 8
-  %74 = load i64, ptr %67, align 8
-  %75 = add i64 %74, 1
-  store i64 %75, ptr %67, align 8
-  %76 = getelementptr inbounds i8, ptr %73, i64 %74
-  store i8 %72, ptr %76, align 1
-  %77 = trunc i64 %2 to i32
-  %78 = xor i32 %77, 65535
-  %79 = trunc i32 %78 to i8
-  %80 = load ptr, ptr %65, align 8
-  %81 = load i64, ptr %67, align 8
+  %71 = trunc i64 %2 to i8
+  %72 = getelementptr inbounds i8, ptr %0, i64 16
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds i8, ptr %0, i64 40
+  %75 = load i64, ptr %74, align 8
+  %76 = add i64 %75, 1
+  store i64 %76, ptr %74, align 8
+  %77 = getelementptr inbounds i8, ptr %73, i64 %75
+  store i8 %71, ptr %77, align 1
+  %78 = lshr i64 %2, 8
+  %79 = trunc i64 %78 to i8
+  %80 = load ptr, ptr %72, align 8
+  %81 = load i64, ptr %74, align 8
   %82 = add i64 %81, 1
-  store i64 %82, ptr %67, align 8
+  store i64 %82, ptr %74, align 8
   %83 = getelementptr inbounds i8, ptr %80, i64 %81
   store i8 %79, ptr %83, align 1
-  %84 = lshr i32 %78, 8
-  %85 = trunc i32 %84 to i8
-  %86 = load ptr, ptr %65, align 8
-  %87 = load i64, ptr %67, align 8
-  %88 = add i64 %87, 1
-  store i64 %88, ptr %67, align 8
-  %89 = getelementptr inbounds i8, ptr %86, i64 %87
-  store i8 %85, ptr %89, align 1
+  %84 = trunc i64 %2 to i32
+  %85 = xor i32 %84, 65535
+  %86 = trunc i32 %85 to i8
+  %87 = load ptr, ptr %72, align 8
+  %88 = load i64, ptr %74, align 8
+  %89 = add i64 %88, 1
+  store i64 %89, ptr %74, align 8
+  %90 = getelementptr inbounds i8, ptr %87, i64 %88
+  store i8 %86, ptr %90, align 1
+  %91 = lshr i32 %85, 8
+  %92 = trunc i32 %91 to i8
+  %93 = load ptr, ptr %72, align 8
+  %94 = load i64, ptr %74, align 8
+  %95 = add i64 %94, 1
+  store i64 %95, ptr %74, align 8
+  %96 = getelementptr inbounds i8, ptr %93, i64 %94
+  store i8 %92, ptr %96, align 1
   %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %94, label %90
+  br i1 %.not, label %101, label %97
 
-90:                                               ; preds = %bi_windup.exit
-  %91 = load ptr, ptr %65, align 8
-  %92 = load i64, ptr %67, align 8
-  %93 = getelementptr inbounds i8, ptr %91, i64 %92
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %93, ptr align 1 %1, i64 %2, i1 false)
-  br label %94
+97:                                               ; preds = %bi_windup.exit
+  %98 = load ptr, ptr %72, align 8
+  %99 = load i64, ptr %74, align 8
+  %100 = getelementptr inbounds i8, ptr %98, i64 %99
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %100, ptr align 1 %1, i64 %2, i1 false)
+  br label %101
 
-94:                                               ; preds = %90, %bi_windup.exit
-  %95 = load i64, ptr %67, align 8
-  %96 = add i64 %95, %2
-  store i64 %96, ptr %67, align 8
+101:                                              ; preds = %97, %bi_windup.exit
+  %102 = load i64, ptr %74, align 8
+  %103 = add i64 %102, %2
+  store i64 %103, ptr %74, align 8
   ret void
 }
 
@@ -1174,13 +1175,13 @@ init_block.exit:                                  ; preds = %412
   store i32 0, ptr %416, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %415, i8 0, i64 20, i1 false)
   %.not89 = icmp eq i32 %3, 0
-  br i1 %.not89, label %444, label %417
+  br i1 %.not89, label %451, label %417
 
 417:                                              ; preds = %init_block.exit
   %418 = getelementptr inbounds i8, ptr %0, i64 5940
   %419 = load i32, ptr %418, align 4
   %420 = icmp sgt i32 %419, 8
-  br i1 %420, label %421, label %433
+  br i1 %420, label %421, label %438
 
 421:                                              ; preds = %417
   %422 = getelementptr inbounds i8, ptr %0, i64 5936
@@ -1196,39 +1197,40 @@ init_block.exit:                                  ; preds = %412
   store i8 %424, ptr %430, align 1
   %431 = load i16, ptr %422, align 8
   %432 = lshr i16 %431, 8
-  br label %.sink.split.i
-
-433:                                              ; preds = %417
-  %434 = icmp sgt i32 %419, 0
-  br i1 %434, label %435, label %bi_windup.exit
-
-435:                                              ; preds = %433
-  %436 = getelementptr inbounds i8, ptr %0, i64 5936
-  %437 = load i16, ptr %436, align 8
-  %438 = getelementptr inbounds i8, ptr %0, i64 16
-  %439 = getelementptr inbounds i8, ptr %0, i64 40
-  br label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %435, %421
-  %.sink19.i = phi ptr [ %439, %435 ], [ %427, %421 ]
-  %.sink14.in.i = phi ptr [ %438, %435 ], [ %425, %421 ]
-  %.sink.in.i = phi i16 [ %437, %435 ], [ %432, %421 ]
-  %.sink.i = trunc i16 %.sink.in.i to i8
-  %.sink14.i = load ptr, ptr %.sink14.in.i, align 8
-  %440 = load i64, ptr %.sink19.i, align 8
-  %441 = add i64 %440, 1
-  store i64 %441, ptr %.sink19.i, align 8
-  %442 = getelementptr inbounds i8, ptr %.sink14.i, i64 %440
-  store i8 %.sink.i, ptr %442, align 1
+  %433 = trunc nuw i16 %432 to i8
+  %434 = load ptr, ptr %425, align 8
+  %435 = load i64, ptr %427, align 8
+  %436 = add i64 %435, 1
+  store i64 %436, ptr %427, align 8
+  %437 = getelementptr inbounds i8, ptr %434, i64 %435
+  store i8 %433, ptr %437, align 1
   br label %bi_windup.exit
 
-bi_windup.exit:                                   ; preds = %433, %.sink.split.i
-  %443 = getelementptr inbounds i8, ptr %0, i64 5936
-  store i16 0, ptr %443, align 8
-  store i32 0, ptr %418, align 4
-  br label %444
+438:                                              ; preds = %417
+  %439 = icmp sgt i32 %419, 0
+  br i1 %439, label %440, label %bi_windup.exit
 
-444:                                              ; preds = %bi_windup.exit, %init_block.exit
+440:                                              ; preds = %438
+  %441 = getelementptr inbounds i8, ptr %0, i64 5936
+  %442 = load i16, ptr %441, align 8
+  %443 = trunc i16 %442 to i8
+  %444 = getelementptr inbounds i8, ptr %0, i64 16
+  %445 = load ptr, ptr %444, align 8
+  %446 = getelementptr inbounds i8, ptr %0, i64 40
+  %447 = load i64, ptr %446, align 8
+  %448 = add i64 %447, 1
+  store i64 %448, ptr %446, align 8
+  %449 = getelementptr inbounds i8, ptr %445, i64 %447
+  store i8 %443, ptr %449, align 1
+  br label %bi_windup.exit
+
+bi_windup.exit:                                   ; preds = %421, %438, %440
+  %450 = getelementptr inbounds i8, ptr %0, i64 5936
+  store i16 0, ptr %450, align 8
+  store i32 0, ptr %418, align 4
+  br label %451
+
+451:                                              ; preds = %bi_windup.exit, %init_block.exit
   ret void
 }
 
@@ -2391,53 +2393,55 @@ define dso_local range(i32 0, 2) i32 @cm_zlib__tr_tally(ptr nocapture noundef %0
   %24 = getelementptr inbounds i8, ptr %20, i64 %23
   store i8 %19, ptr %24, align 1
   %25 = icmp eq i32 %1, 0
-  br i1 %25, label %26, label %30
+  br i1 %25, label %26, label %32
 
 26:                                               ; preds = %3
   %27 = getelementptr inbounds i8, ptr %0, i64 212
   %28 = zext i32 %2 to i64
   %29 = getelementptr inbounds [573 x %struct.ct_data_s], ptr %27, i64 0, i64 %28
-  br label %50
+  %30 = load i16, ptr %29, align 4
+  %31 = add i16 %30, 1
+  store i16 %31, ptr %29, align 4
+  br label %54
 
-30:                                               ; preds = %3
-  %31 = getelementptr inbounds i8, ptr %0, i64 5928
-  %32 = load i32, ptr %31, align 8
-  %33 = add i32 %32, 1
-  store i32 %33, ptr %31, align 8
-  %34 = add i32 %1, -1
-  %35 = getelementptr inbounds i8, ptr %0, i64 212
-  %36 = zext i32 %2 to i64
-  %37 = getelementptr inbounds [256 x i8], ptr @cm_zlib__length_code, i64 0, i64 %36
-  %38 = load i8, ptr %37, align 1
-  %39 = zext i8 %38 to i64
-  %40 = add nuw nsw i64 %39, 257
-  %41 = getelementptr inbounds [573 x %struct.ct_data_s], ptr %35, i64 0, i64 %40
-  %42 = load i16, ptr %41, align 4
-  %43 = add i16 %42, 1
-  store i16 %43, ptr %41, align 4
-  %44 = getelementptr inbounds i8, ptr %0, i64 2504
-  %45 = icmp ult i32 %1, 257
-  %46 = lshr i32 %34, 7
-  %47 = add nuw nsw i32 %46, 256
-  %.pn.in = select i1 %45, i32 %34, i32 %47
+32:                                               ; preds = %3
+  %33 = getelementptr inbounds i8, ptr %0, i64 5928
+  %34 = load i32, ptr %33, align 8
+  %35 = add i32 %34, 1
+  store i32 %35, ptr %33, align 8
+  %36 = add i32 %1, -1
+  %37 = getelementptr inbounds i8, ptr %0, i64 212
+  %38 = zext i32 %2 to i64
+  %39 = getelementptr inbounds [256 x i8], ptr @cm_zlib__length_code, i64 0, i64 %38
+  %40 = load i8, ptr %39, align 1
+  %41 = zext i8 %40 to i64
+  %42 = add nuw nsw i64 %41, 257
+  %43 = getelementptr inbounds [573 x %struct.ct_data_s], ptr %37, i64 0, i64 %42
+  %44 = load i16, ptr %43, align 4
+  %45 = add i16 %44, 1
+  store i16 %45, ptr %43, align 4
+  %46 = getelementptr inbounds i8, ptr %0, i64 2504
+  %47 = icmp ult i32 %1, 257
+  %48 = lshr i32 %36, 7
+  %49 = add nuw nsw i32 %48, 256
+  %.pn.in = select i1 %47, i32 %36, i32 %49
   %.pn = zext nneg i32 %.pn.in to i64
   %.in.in = getelementptr inbounds [512 x i8], ptr @cm_zlib__dist_code, i64 0, i64 %.pn
   %.in = load i8, ptr %.in.in, align 1
-  %48 = zext i8 %.in to i64
-  %49 = getelementptr inbounds [61 x %struct.ct_data_s], ptr %44, i64 0, i64 %48
-  br label %50
+  %50 = zext i8 %.in to i64
+  %51 = getelementptr inbounds [61 x %struct.ct_data_s], ptr %46, i64 0, i64 %50
+  %52 = load i16, ptr %51, align 4
+  %53 = add i16 %52, 1
+  store i16 %53, ptr %51, align 4
+  br label %54
 
-50:                                               ; preds = %30, %26
-  %.sink = phi ptr [ %49, %30 ], [ %29, %26 ]
-  %51 = load i16, ptr %.sink, align 4
-  %52 = add i16 %51, 1
-  store i16 %52, ptr %.sink, align 4
-  %53 = load i32, ptr %7, align 4
-  %54 = getelementptr inbounds i8, ptr %0, i64 5904
-  %55 = load i32, ptr %54, align 8
-  %56 = icmp eq i32 %53, %55
-  %57 = zext i1 %56 to i32
-  ret i32 %57
+54:                                               ; preds = %32, %26
+  %55 = load i32, ptr %7, align 4
+  %56 = getelementptr inbounds i8, ptr %0, i64 5904
+  %57 = load i32, ptr %56, align 8
+  %58 = icmp eq i32 %55, %57
+  %59 = zext i1 %58 to i32
+  ret i32 %59
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable

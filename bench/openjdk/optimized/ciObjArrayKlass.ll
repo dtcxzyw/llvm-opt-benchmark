@@ -250,7 +250,8 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN5ciEnv9get_klass
   %55 = getelementptr inbounds i8, ptr %14, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %55) #7
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !7
-  br label %.sink.split
+  store volatile i32 4, ptr %17, align 4
+  br label %102
 
 56:                                               ; preds = %_ZNK10ciMetadata9is_loadedEv.exit
   %57 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -337,14 +338,10 @@ _ZN17HandleMarkCleanerD2Ev.exit16:                ; preds = %_ZN20ThreadInVMfrom
   %101 = getelementptr inbounds i8, ptr %58, i64 928
   call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %101) #7
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !7
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %_ZN17HandleMarkCleanerD2Ev.exit16, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.sink = phi ptr [ %17, %_ZN17HandleMarkCleanerD2Ev.exit ], [ %61, %_ZN17HandleMarkCleanerD2Ev.exit16 ]
-  store volatile i32 4, ptr %.sink, align 4
+  store volatile i32 4, ptr %61, align 4
   br label %102
 
-102:                                              ; preds = %.sink.split, %1
+102:                                              ; preds = %_ZN17HandleMarkCleanerD2Ev.exit, %_ZN17HandleMarkCleanerD2Ev.exit16, %1
   %103 = load ptr, ptr %3, align 8
   ret ptr %103
 }
@@ -422,6 +419,7 @@ _ZN9Signature12has_envelopeEPK6Symbol.exit:       ; preds = %_ZNK6Symbol9ends_wi
   %40 = add nsw i32 %.0.lcssa, %5
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds i8, ptr %10, i64 %41
+  store i8 0, ptr %42, align 1
   br label %55
 
 _ZN9Signature12has_envelopeEPK6Symbol.exit.thread: ; preds = %_ZN9Signature8is_arrayEPK6Symbol.exit.thread, %_ZNK6Symbol9ends_withEc.exit.i, %_ZN9Signature12has_envelopeEPK6Symbol.exit
@@ -439,11 +437,10 @@ _ZN9Signature12has_envelopeEPK6Symbol.exit.thread: ; preds = %_ZN9Signature8is_a
   %53 = getelementptr inbounds i8, ptr %10, i64 %52
   store i8 59, ptr %53, align 1
   %54 = getelementptr i8, ptr %53, i64 1
+  store i8 0, ptr %54, align 1
   br label %55
 
 55:                                               ; preds = %_ZN9Signature12has_envelopeEPK6Symbol.exit.thread, %34
-  %.sink = phi ptr [ %54, %_ZN9Signature12has_envelopeEPK6Symbol.exit.thread ], [ %42, %34 ]
-  store i8 0, ptr %.sink, align 1
   %56 = tail call noundef ptr @_ZN8ciSymbol4makeEPKc(ptr noundef nonnull %10) #7
   ret ptr %56
 }

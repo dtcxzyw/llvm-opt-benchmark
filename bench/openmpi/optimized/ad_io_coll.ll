@@ -1691,54 +1691,58 @@ define void @ADIOI_IOFiletype(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   %or.cond = select i1 %56, i1 %58, i1 false
   %59 = icmp eq i32 %7, 26
   %60 = getelementptr inbounds i8, ptr %0, i64 56
-  br i1 %or.cond, label %61, label %67
+  br i1 %or.cond, label %61, label %69
 
 61:                                               ; preds = %55
   store i64 0, ptr %27, align 8
   %62 = load ptr, ptr %60, align 8
-  br i1 %59, label %63, label %65
+  br i1 %59, label %63, label %66
 
 63:                                               ; preds = %61
   %64 = getelementptr inbounds i8, ptr %62, i64 16
-  br label %73
+  %65 = load ptr, ptr %64, align 8
+  call void %65(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef %5, ptr noundef %8, ptr noundef %9) #3
+  br label %77
 
-65:                                               ; preds = %61
-  %66 = getelementptr inbounds i8, ptr %62, i64 24
-  br label %73
+66:                                               ; preds = %61
+  %67 = getelementptr inbounds i8, ptr %62, i64 24
+  %68 = load ptr, ptr %67, align 8
+  call void %68(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef %5, ptr noundef %8, ptr noundef %9) #3
+  br label %77
 
-67:                                               ; preds = %55
+69:                                               ; preds = %55
   store i64 %5, ptr %27, align 8
-  %68 = load ptr, ptr %60, align 8
-  br i1 %59, label %69, label %71
+  %70 = load ptr, ptr %60, align 8
+  br i1 %59, label %71, label %74
 
-69:                                               ; preds = %67
-  %70 = getelementptr inbounds i8, ptr %68, i64 72
-  br label %73
+71:                                               ; preds = %69
+  %72 = getelementptr inbounds i8, ptr %70, i64 72
+  %73 = load ptr, ptr %72, align 8
+  call void %73(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef 0, ptr noundef %8, ptr noundef %9) #3
+  br label %77
 
-71:                                               ; preds = %67
-  %72 = getelementptr inbounds i8, ptr %68, i64 80
-  br label %73
+74:                                               ; preds = %69
+  %75 = getelementptr inbounds i8, ptr %70, i64 80
+  %76 = load ptr, ptr %75, align 8
+  call void %76(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef 0, ptr noundef %8, ptr noundef %9) #3
+  br label %77
 
-73:                                               ; preds = %69, %71, %63, %65
-  %.sink84 = phi ptr [ %70, %69 ], [ %72, %71 ], [ %64, %63 ], [ %66, %65 ]
-  %.sink82 = phi i64 [ 0, %69 ], [ 0, %71 ], [ %5, %63 ], [ %5, %65 ]
-  %74 = load ptr, ptr %.sink84, align 8
-  call void %74(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef %.sink82, ptr noundef %8, ptr noundef %9) #3
+77:                                               ; preds = %71, %74, %63, %66
   store ptr %24, ptr %23, align 8
   store ptr %26, ptr %25, align 8
   store i64 %28, ptr %27, align 8
-  %75 = load ptr, ptr %29, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 48
-  store i32 %32, ptr %76, align 8
-  %77 = load ptr, ptr %29, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 52
-  store i32 %34, ptr %78, align 4
-  %79 = load ptr, ptr %29, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 64
-  store i32 %36, ptr %80, align 8
-  %81 = load ptr, ptr %29, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 60
-  store i32 %38, ptr %82, align 4
+  %78 = load ptr, ptr %29, align 8
+  %79 = getelementptr inbounds i8, ptr %78, i64 48
+  store i32 %32, ptr %79, align 8
+  %80 = load ptr, ptr %29, align 8
+  %81 = getelementptr inbounds i8, ptr %80, i64 52
+  store i32 %34, ptr %81, align 4
+  %82 = load ptr, ptr %29, align 8
+  %83 = getelementptr inbounds i8, ptr %82, i64 64
+  store i32 %36, ptr %83, align 8
+  %84 = load ptr, ptr %29, align 8
+  %85 = getelementptr inbounds i8, ptr %84, i64 60
+  store i32 %38, ptr %85, align 4
   ret void
 }
 

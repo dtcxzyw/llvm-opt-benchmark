@@ -253,27 +253,33 @@ if.end12:                                         ; preds = %if.then6
 
 if.end19:                                         ; preds = %if.end12
   %arrayidx21 = getelementptr inbounds i16, ptr %add.ptr, i64 %idxprom7
-  br label %if.end32.sink.split
+  %7 = load i16, ptr %arrayidx21, align 2
+  %conv22 = zext i16 %7 to i32
+  br label %if.end32
 
 if.else:                                          ; preds = %if.end
-  %7 = and i16 %4, -64
-  %or.cond1 = icmp eq i16 %7, 8192
+  %8 = and i16 %4, -64
+  %or.cond1 = icmp eq i16 %8, 8192
   br i1 %or.cond1, label %if.then26, label %if.else30
 
 if.then26:                                        ; preds = %if.else
-  %8 = zext nneg i16 %4 to i64
-  %gep616 = getelementptr i16, ptr %invariant.gep, i64 %8
-  br label %if.end32.sink.split
+  %9 = zext nneg i16 %4 to i64
+  %gep616 = getelementptr i16, ptr %invariant.gep, i64 %9
+  %10 = load i16, ptr %gep616, align 2
+  %conv29 = zext i16 %10 to i32
+  br label %if.end32
 
 if.else30:                                        ; preds = %if.else
-  %9 = and i32 %conv4, 65472
-  %or.cond.i = icmp eq i32 %9, 8192
+  %11 = and i32 %conv4, 65472
+  %or.cond.i = icmp eq i32 %11, 8192
   br i1 %or.cond.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.else30
-  %10 = zext i16 %4 to i64
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %10
-  br label %if.end32.sink.split
+  %12 = zext i16 %4 to i64
+  %gep = getelementptr i16, ptr %invariant.gep, i64 %12
+  %13 = load i16, ptr %gep, align 2
+  %conv.i = zext i16 %13 to i32
+  br label %if.end32
 
 if.else.i:                                        ; preds = %if.else30
   %switch.selectcmp.i = icmp eq i16 %4, -1
@@ -281,14 +287,8 @@ if.else.i:                                        ; preds = %if.else30
   %switch.selectcmp5.i = icmp eq i16 %4, -2
   br i1 %switch.selectcmp5.i, label %if.else36, label %if.end32
 
-if.end32.sink.split:                              ; preds = %if.end19, %if.then26, %if.then.i
-  %gep.sink = phi ptr [ %gep, %if.then.i ], [ %gep616, %if.then26 ], [ %arrayidx21, %if.end19 ]
-  %11 = load i16, ptr %gep.sink, align 2
-  %conv.i = zext i16 %11 to i32
-  br label %if.end32
-
-if.end32:                                         ; preds = %if.end32.sink.split, %if.else.i
-  %leftPair.3 = phi i32 [ %switch.select.i, %if.else.i ], [ %conv.i, %if.end32.sink.split ]
+if.end32:                                         ; preds = %if.else.i, %if.then.i, %if.then26, %if.end19
+  %leftPair.3 = phi i32 [ %conv22, %if.end19 ], [ %conv29, %if.then26 ], [ %conv.i, %if.then.i ], [ %switch.select.i, %if.else.i ]
   %cmp33 = icmp ugt i32 %leftPair.3, 4095
   br i1 %cmp33, label %if.then34, label %if.else36
 
@@ -347,72 +347,72 @@ while.end:                                        ; preds = %_ZN6icu_7518Collati
   br i1 %cmp49627, label %while.body50, label %while.end107
 
 while.body50:                                     ; preds = %while.end, %_ZN6icu_7518CollationFastLatin12getPrimariesEjj.exit280
-  %12 = load i32, ptr %rightIndex, align 4
-  %13 = load i32, ptr %rightLength.addr, align 4
-  %cmp51 = icmp eq i32 %12, %13
+  %14 = load i32, ptr %rightIndex, align 4
+  %15 = load i32, ptr %rightLength.addr, align 4
+  %cmp51 = icmp eq i32 %14, %15
   br i1 %cmp51, label %while.end107, label %if.end53
 
 if.end53:                                         ; preds = %while.body50
-  %inc55 = add nsw i32 %12, 1
+  %inc55 = add nsw i32 %14, 1
   store i32 %inc55, ptr %rightIndex, align 4
-  %idxprom56 = sext i32 %12 to i64
+  %idxprom56 = sext i32 %14 to i64
   %arrayidx57 = getelementptr inbounds i16, ptr %right, i64 %idxprom56
-  %14 = load i16, ptr %arrayidx57, align 2
-  %conv58 = zext i16 %14 to i32
-  %cmp59 = icmp ult i16 %14, 384
+  %16 = load i16, ptr %arrayidx57, align 2
+  %conv58 = zext i16 %16 to i32
+  %cmp59 = icmp ult i16 %16, 384
   br i1 %cmp59, label %if.then60, label %if.else78
 
 if.then60:                                        ; preds = %if.end53
-  %idxprom61 = zext nneg i16 %14 to i64
+  %idxprom61 = zext nneg i16 %16 to i64
   %arrayidx62 = getelementptr inbounds i16, ptr %primaries, i64 %idxprom61
-  %15 = load i16, ptr %arrayidx62, align 2
-  %cmp64.not = icmp eq i16 %15, 0
+  %17 = load i16, ptr %arrayidx62, align 2
+  %cmp64.not = icmp eq i16 %17, 0
   br i1 %cmp64.not, label %if.end66, label %while.end107.loopexit.split.loop.exit618
 
 if.end66:                                         ; preds = %if.then60
-  %16 = add nsw i16 %14, -58
-  %or.cond2 = icmp ult i16 %16, -10
+  %18 = add nsw i16 %16, -58
+  %or.cond2 = icmp ult i16 %18, -10
   %or.cond253 = or i1 %cmp17.not, %or.cond2
   br i1 %or.cond253, label %if.end74, label %return
 
 if.end74:                                         ; preds = %if.end66
   %arrayidx76 = getelementptr inbounds i16, ptr %add.ptr, i64 %idxprom61
-  br label %if.end91.sink.split
+  %19 = load i16, ptr %arrayidx76, align 2
+  %conv77 = zext i16 %19 to i32
+  br label %if.end91
 
 if.else78:                                        ; preds = %if.end53
-  %17 = and i16 %14, -64
-  %or.cond3 = icmp eq i16 %17, 8192
+  %20 = and i16 %16, -64
+  %or.cond3 = icmp eq i16 %20, 8192
   br i1 %or.cond3, label %if.then82, label %if.else88
 
 if.then82:                                        ; preds = %if.else78
-  %18 = zext nneg i16 %14 to i64
-  %gep626 = getelementptr i16, ptr %invariant.gep, i64 %18
-  br label %if.end91.sink.split
+  %21 = zext nneg i16 %16 to i64
+  %gep626 = getelementptr i16, ptr %invariant.gep, i64 %21
+  %22 = load i16, ptr %gep626, align 2
+  %conv87 = zext i16 %22 to i32
+  br label %if.end91
 
 if.else88:                                        ; preds = %if.else78
-  %19 = and i32 %conv58, 65472
-  %or.cond.i257 = icmp eq i32 %19, 8192
+  %23 = and i32 %conv58, 65472
+  %or.cond.i257 = icmp eq i32 %23, 8192
   br i1 %or.cond.i257, label %if.then.i264, label %if.else.i258
 
 if.then.i264:                                     ; preds = %if.else88
-  %20 = zext i16 %14 to i64
-  %gep624 = getelementptr i16, ptr %invariant.gep, i64 %20
-  br label %if.end91.sink.split
-
-if.else.i258:                                     ; preds = %if.else88
-  %switch.selectcmp.i259 = icmp eq i16 %14, -1
-  %switch.select.i260 = select i1 %switch.selectcmp.i259, i32 64680, i32 1
-  %switch.selectcmp5.i261 = icmp eq i16 %14, -2
-  br i1 %switch.selectcmp5.i261, label %if.else95, label %if.end91
-
-if.end91.sink.split:                              ; preds = %if.end74, %if.then82, %if.then.i264
-  %gep624.sink = phi ptr [ %gep624, %if.then.i264 ], [ %gep626, %if.then82 ], [ %arrayidx76, %if.end74 ]
-  %21 = load i16, ptr %gep624.sink, align 2
-  %conv.i266 = zext i16 %21 to i32
+  %24 = zext i16 %16 to i64
+  %gep624 = getelementptr i16, ptr %invariant.gep, i64 %24
+  %25 = load i16, ptr %gep624, align 2
+  %conv.i266 = zext i16 %25 to i32
   br label %if.end91
 
-if.end91:                                         ; preds = %if.end91.sink.split, %if.else.i258
-  %rightPair.3 = phi i32 [ %switch.select.i260, %if.else.i258 ], [ %conv.i266, %if.end91.sink.split ]
+if.else.i258:                                     ; preds = %if.else88
+  %switch.selectcmp.i259 = icmp eq i16 %16, -1
+  %switch.select.i260 = select i1 %switch.selectcmp.i259, i32 64680, i32 1
+  %switch.selectcmp5.i261 = icmp eq i16 %16, -2
+  br i1 %switch.selectcmp5.i261, label %if.else95, label %if.end91
+
+if.end91:                                         ; preds = %if.else.i258, %if.then.i264, %if.then82, %if.end74
+  %rightPair.3 = phi i32 [ %conv77, %if.end74 ], [ %conv87, %if.then82 ], [ %conv.i266, %if.then.i264 ], [ %switch.select.i260, %if.else.i258 ]
   %cmp92 = icmp ugt i32 %rightPair.3, 4095
   br i1 %cmp92, label %if.then93, label %if.else95
 
@@ -462,7 +462,7 @@ _ZN6icu_7518CollationFastLatin12getPrimariesEjj.exit280: ; preds = %if.end5.i272
   br i1 %cmp49, label %while.body50, label %while.end107, !llvm.loop !8
 
 while.end107.loopexit.split.loop.exit618:         ; preds = %if.then60
-  %conv63.le = zext i16 %15 to i32
+  %conv63.le = zext i16 %17 to i32
   br label %while.end107
 
 while.end107:                                     ; preds = %_ZN6icu_7518CollationFastLatin12getPrimariesEjj.exit280, %while.body50, %while.end107.loopexit.split.loop.exit618, %while.end, %if.then97, %if.then93
@@ -515,41 +515,41 @@ for.cond128:                                      ; preds = %for.cond128.backedg
   br i1 %cmp130633, label %while.body131, label %while.end170
 
 while.body131:                                    ; preds = %for.cond128, %_ZN6icu_7518CollationFastLatin14getSecondariesEjj.exit
-  %22 = load i32, ptr %leftIndex, align 4
-  %23 = load i32, ptr %leftLength.addr, align 4
-  %cmp132 = icmp eq i32 %22, %23
+  %26 = load i32, ptr %leftIndex, align 4
+  %27 = load i32, ptr %leftLength.addr, align 4
+  %cmp132 = icmp eq i32 %26, %27
   br i1 %cmp132, label %while.end170, label %if.end134
 
 if.end134:                                        ; preds = %while.body131
-  %inc136 = add nsw i32 %22, 1
+  %inc136 = add nsw i32 %26, 1
   store i32 %inc136, ptr %leftIndex, align 4
-  %idxprom137 = sext i32 %22 to i64
+  %idxprom137 = sext i32 %26 to i64
   %arrayidx138 = getelementptr inbounds i16, ptr %left, i64 %idxprom137
-  %24 = load i16, ptr %arrayidx138, align 2
-  %conv139 = zext i16 %24 to i32
-  %cmp140 = icmp ult i16 %24, 384
+  %28 = load i16, ptr %arrayidx138, align 2
+  %conv139 = zext i16 %28 to i32
+  %cmp140 = icmp ult i16 %28, 384
   br i1 %cmp140, label %if.end158.sink.split, label %if.else145
 
 if.else145:                                       ; preds = %if.end134
-  %25 = and i16 %24, -64
-  %or.cond4 = icmp eq i16 %25, 8192
-  %26 = and i32 %conv139, 65472
-  %or.cond.i281 = icmp eq i32 %26, 8192
+  %29 = and i16 %28, -64
+  %or.cond4 = icmp eq i16 %29, 8192
+  %30 = and i32 %conv139, 65472
+  %or.cond.i281 = icmp eq i32 %30, 8192
   %or.cond749 = or i1 %or.cond4, %or.cond.i281
   br i1 %or.cond749, label %if.end158.sink.split, label %if.else.i282
 
 if.else.i282:                                     ; preds = %if.else145
-  %switch.selectcmp.i283 = icmp eq i16 %24, -1
+  %switch.selectcmp.i283 = icmp eq i16 %28, -1
   %switch.select.i284 = select i1 %switch.selectcmp.i283, i32 64680, i32 1
-  %switch.selectcmp5.i285 = icmp eq i16 %24, -2
+  %switch.selectcmp5.i285 = icmp eq i16 %28, -2
   br i1 %switch.selectcmp5.i285, label %if.else162, label %if.end158
 
 if.end158.sink.split:                             ; preds = %if.else145, %if.end134
   %invariant.gep.sink = phi ptr [ %add.ptr, %if.end134 ], [ %invariant.gep, %if.else145 ]
-  %27 = zext i16 %24 to i64
-  %gep630 = getelementptr i16, ptr %invariant.gep.sink, i64 %27
-  %28 = load i16, ptr %gep630, align 2
-  %conv.i290 = zext i16 %28 to i32
+  %31 = zext i16 %28 to i64
+  %gep630 = getelementptr i16, ptr %invariant.gep.sink, i64 %31
+  %32 = load i16, ptr %gep630, align 2
+  %conv.i290 = zext i16 %32 to i32
   br label %if.end158
 
 if.end158:                                        ; preds = %if.end158.sink.split, %if.else.i282
@@ -623,41 +623,41 @@ while.end170:                                     ; preds = %if.else14.i, %if.el
   br i1 %cmp172641, label %while.body173, label %while.end212
 
 while.body173:                                    ; preds = %while.end170, %_ZN6icu_7518CollationFastLatin14getSecondariesEjj.exit343
-  %29 = load i32, ptr %rightIndex, align 4
-  %30 = load i32, ptr %rightLength.addr, align 4
-  %cmp174 = icmp eq i32 %29, %30
+  %33 = load i32, ptr %rightIndex, align 4
+  %34 = load i32, ptr %rightLength.addr, align 4
+  %cmp174 = icmp eq i32 %33, %34
   br i1 %cmp174, label %while.end212, label %if.end176
 
 if.end176:                                        ; preds = %while.body173
-  %inc178 = add nsw i32 %29, 1
+  %inc178 = add nsw i32 %33, 1
   store i32 %inc178, ptr %rightIndex, align 4
-  %idxprom179 = sext i32 %29 to i64
+  %idxprom179 = sext i32 %33 to i64
   %arrayidx180 = getelementptr inbounds i16, ptr %right, i64 %idxprom179
-  %31 = load i16, ptr %arrayidx180, align 2
-  %conv181 = zext i16 %31 to i32
-  %cmp182 = icmp ult i16 %31, 384
+  %35 = load i16, ptr %arrayidx180, align 2
+  %conv181 = zext i16 %35 to i32
+  %cmp182 = icmp ult i16 %35, 384
   br i1 %cmp182, label %if.end200.sink.split, label %if.else187
 
 if.else187:                                       ; preds = %if.end176
-  %32 = and i16 %31, -64
-  %or.cond5 = icmp eq i16 %32, 8192
-  %33 = and i32 %conv181, 65472
-  %or.cond.i301 = icmp eq i32 %33, 8192
+  %36 = and i16 %35, -64
+  %or.cond5 = icmp eq i16 %36, 8192
+  %37 = and i32 %conv181, 65472
+  %or.cond.i301 = icmp eq i32 %37, 8192
   %or.cond750 = or i1 %or.cond5, %or.cond.i301
   br i1 %or.cond750, label %if.end200.sink.split, label %if.else.i302
 
 if.else.i302:                                     ; preds = %if.else187
-  %switch.selectcmp.i303 = icmp eq i16 %31, -1
+  %switch.selectcmp.i303 = icmp eq i16 %35, -1
   %switch.select.i304 = select i1 %switch.selectcmp.i303, i32 64680, i32 1
-  %switch.selectcmp5.i305 = icmp eq i16 %31, -2
+  %switch.selectcmp5.i305 = icmp eq i16 %35, -2
   br i1 %switch.selectcmp5.i305, label %if.else204, label %if.end200
 
 if.end200.sink.split:                             ; preds = %if.else187, %if.end176
   %invariant.gep.sink737 = phi ptr [ %add.ptr, %if.end176 ], [ %invariant.gep, %if.else187 ]
-  %34 = zext i16 %31 to i64
-  %gep638 = getelementptr i16, ptr %invariant.gep.sink737, i64 %34
-  %35 = load i16, ptr %gep638, align 2
-  %conv.i310 = zext i16 %35 to i32
+  %38 = zext i16 %35 to i64
+  %gep638 = getelementptr i16, ptr %invariant.gep.sink737, i64 %38
+  %39 = load i16, ptr %gep638, align 2
+  %conv.i310 = zext i16 %39 to i32
   br label %if.end200
 
 if.end200:                                        ; preds = %if.end200.sink.split, %if.else.i302
@@ -781,38 +781,38 @@ for.cond243:                                      ; preds = %for.cond243.backedg
   br i1 %cmp245647, label %while.body246, label %while.end266
 
 while.body246:                                    ; preds = %for.cond243, %_ZN6icu_7518CollationFastLatin8getCasesEjaj.exit
-  %36 = load i32, ptr %leftIndex, align 4
-  %37 = load i32, ptr %leftLength.addr, align 4
-  %cmp247 = icmp eq i32 %36, %37
+  %40 = load i32, ptr %leftIndex, align 4
+  %41 = load i32, ptr %leftLength.addr, align 4
+  %cmp247 = icmp eq i32 %40, %41
   br i1 %cmp247, label %while.end266, label %if.end249
 
 if.end249:                                        ; preds = %while.body246
-  %inc251 = add nsw i32 %36, 1
+  %inc251 = add nsw i32 %40, 1
   store i32 %inc251, ptr %leftIndex, align 4
-  %idxprom252 = sext i32 %36 to i64
+  %idxprom252 = sext i32 %40 to i64
   %arrayidx253 = getelementptr inbounds i16, ptr %left, i64 %idxprom252
-  %38 = load i16, ptr %arrayidx253, align 2
-  %conv254 = zext i16 %38 to i32
-  %cmp255 = icmp ult i16 %38, 384
+  %42 = load i16, ptr %arrayidx253, align 2
+  %conv254 = zext i16 %42 to i32
+  %cmp255 = icmp ult i16 %42, 384
   br i1 %cmp255, label %cond.end.sink.split, label %cond.false
 
 cond.false:                                       ; preds = %if.end249
-  %39 = and i32 %conv254, 65472
-  %or.cond.i345 = icmp eq i32 %39, 8192
+  %43 = and i32 %conv254, 65472
+  %or.cond.i345 = icmp eq i32 %43, 8192
   br i1 %or.cond.i345, label %cond.end.sink.split, label %if.else.i346
 
 if.else.i346:                                     ; preds = %cond.false
-  %switch.selectcmp.i347 = icmp eq i16 %38, -1
+  %switch.selectcmp.i347 = icmp eq i16 %42, -1
   %switch.select.i348 = select i1 %switch.selectcmp.i347, i32 64680, i32 1
-  %switch.selectcmp5.i349 = icmp eq i16 %38, -2
+  %switch.selectcmp5.i349 = icmp eq i16 %42, -2
   br i1 %switch.selectcmp5.i349, label %if.end264, label %cond.end
 
 cond.end.sink.split:                              ; preds = %cond.false, %if.end249
   %invariant.gep.sink739 = phi ptr [ %add.ptr, %if.end249 ], [ %invariant.gep, %cond.false ]
-  %40 = zext i16 %38 to i64
-  %gep646 = getelementptr i16, ptr %invariant.gep.sink739, i64 %40
-  %41 = load i16, ptr %gep646, align 2
-  %conv.i354 = zext i16 %41 to i32
+  %44 = zext i16 %42 to i64
+  %gep646 = getelementptr i16, ptr %invariant.gep.sink739, i64 %44
+  %45 = load i16, ptr %gep646, align 2
+  %conv.i354 = zext i16 %45 to i32
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.end.sink.split, %if.else.i346
@@ -884,38 +884,38 @@ while.end266:                                     ; preds = %while.body246, %_ZN
   br i1 %cmp268652, label %while.body269, label %while.end292
 
 while.body269:                                    ; preds = %while.end266, %_ZN6icu_7518CollationFastLatin8getCasesEjaj.exit410
-  %42 = load i32, ptr %rightIndex, align 4
-  %43 = load i32, ptr %rightLength.addr, align 4
-  %cmp270 = icmp eq i32 %42, %43
+  %46 = load i32, ptr %rightIndex, align 4
+  %47 = load i32, ptr %rightLength.addr, align 4
+  %cmp270 = icmp eq i32 %46, %47
   br i1 %cmp270, label %while.end292, label %if.end272
 
 if.end272:                                        ; preds = %while.body269
-  %inc274 = add nsw i32 %42, 1
+  %inc274 = add nsw i32 %46, 1
   store i32 %inc274, ptr %rightIndex, align 4
-  %idxprom275 = sext i32 %42 to i64
+  %idxprom275 = sext i32 %46 to i64
   %arrayidx276 = getelementptr inbounds i16, ptr %right, i64 %idxprom275
-  %44 = load i16, ptr %arrayidx276, align 2
-  %conv277 = zext i16 %44 to i32
-  %cmp278 = icmp ult i16 %44, 384
+  %48 = load i16, ptr %arrayidx276, align 2
+  %conv277 = zext i16 %48 to i32
+  %cmp278 = icmp ult i16 %48, 384
   br i1 %cmp278, label %cond.end285.sink.split, label %cond.false283
 
 cond.false283:                                    ; preds = %if.end272
-  %45 = and i32 %conv277, 65472
-  %or.cond.i369 = icmp eq i32 %45, 8192
+  %49 = and i32 %conv277, 65472
+  %or.cond.i369 = icmp eq i32 %49, 8192
   br i1 %or.cond.i369, label %cond.end285.sink.split, label %if.else.i370
 
 if.else.i370:                                     ; preds = %cond.false283
-  %switch.selectcmp.i371 = icmp eq i16 %44, -1
+  %switch.selectcmp.i371 = icmp eq i16 %48, -1
   %switch.select.i372 = select i1 %switch.selectcmp.i371, i32 64680, i32 1
-  %switch.selectcmp5.i373 = icmp eq i16 %44, -2
+  %switch.selectcmp5.i373 = icmp eq i16 %48, -2
   br i1 %switch.selectcmp5.i373, label %if.end290, label %cond.end285
 
 cond.end285.sink.split:                           ; preds = %cond.false283, %if.end272
   %invariant.gep.sink741 = phi ptr [ %add.ptr, %if.end272 ], [ %invariant.gep, %cond.false283 ]
-  %46 = zext i16 %44 to i64
-  %gep651 = getelementptr i16, ptr %invariant.gep.sink741, i64 %46
-  %47 = load i16, ptr %gep651, align 2
-  %conv.i378 = zext i16 %47 to i32
+  %50 = zext i16 %48 to i64
+  %gep651 = getelementptr i16, ptr %invariant.gep.sink741, i64 %50
+  %51 = load i16, ptr %gep651, align 2
+  %conv.i378 = zext i16 %51 to i32
   br label %cond.end285
 
 cond.end285:                                      ; preds = %cond.end285.sink.split, %if.else.i370
@@ -1045,38 +1045,38 @@ for.cond324:                                      ; preds = %for.cond324.backedg
   br i1 %cmp326657, label %while.body327, label %while.end350
 
 while.body327:                                    ; preds = %for.cond324, %_ZN6icu_7518CollationFastLatin13getTertiariesEjaj.exit
-  %48 = load i32, ptr %leftIndex, align 4
-  %49 = load i32, ptr %leftLength.addr, align 4
-  %cmp328 = icmp eq i32 %48, %49
+  %52 = load i32, ptr %leftIndex, align 4
+  %53 = load i32, ptr %leftLength.addr, align 4
+  %cmp328 = icmp eq i32 %52, %53
   br i1 %cmp328, label %while.end350, label %if.end330
 
 if.end330:                                        ; preds = %while.body327
-  %inc332 = add nsw i32 %48, 1
+  %inc332 = add nsw i32 %52, 1
   store i32 %inc332, ptr %leftIndex, align 4
-  %idxprom333 = sext i32 %48 to i64
+  %idxprom333 = sext i32 %52 to i64
   %arrayidx334 = getelementptr inbounds i16, ptr %left, i64 %idxprom333
-  %50 = load i16, ptr %arrayidx334, align 2
-  %conv335 = zext i16 %50 to i32
-  %cmp336 = icmp ult i16 %50, 384
+  %54 = load i16, ptr %arrayidx334, align 2
+  %conv335 = zext i16 %54 to i32
+  %cmp336 = icmp ult i16 %54, 384
   br i1 %cmp336, label %cond.end343.sink.split, label %cond.false341
 
 cond.false341:                                    ; preds = %if.end330
-  %51 = and i32 %conv335, 65472
-  %or.cond.i415 = icmp eq i32 %51, 8192
+  %55 = and i32 %conv335, 65472
+  %or.cond.i415 = icmp eq i32 %55, 8192
   br i1 %or.cond.i415, label %cond.end343.sink.split, label %if.else.i416
 
 if.else.i416:                                     ; preds = %cond.false341
-  %switch.selectcmp.i417 = icmp eq i16 %50, -1
+  %switch.selectcmp.i417 = icmp eq i16 %54, -1
   %switch.select.i418 = select i1 %switch.selectcmp.i417, i32 64680, i32 1
-  %switch.selectcmp5.i419 = icmp eq i16 %50, -2
+  %switch.selectcmp5.i419 = icmp eq i16 %54, -2
   br i1 %switch.selectcmp5.i419, label %if.end348, label %cond.end343
 
 cond.end343.sink.split:                           ; preds = %cond.false341, %if.end330
   %invariant.gep.sink743 = phi ptr [ %add.ptr, %if.end330 ], [ %invariant.gep, %cond.false341 ]
-  %52 = zext i16 %50 to i64
-  %gep656 = getelementptr i16, ptr %invariant.gep.sink743, i64 %52
-  %53 = load i16, ptr %gep656, align 2
-  %conv.i424 = zext i16 %53 to i32
+  %56 = zext i16 %54 to i64
+  %gep656 = getelementptr i16, ptr %invariant.gep.sink743, i64 %56
+  %57 = load i16, ptr %gep656, align 2
+  %conv.i424 = zext i16 %57 to i32
   br label %cond.end343
 
 cond.end343:                                      ; preds = %cond.end343.sink.split, %if.else.i416
@@ -1156,38 +1156,38 @@ while.end350:                                     ; preds = %_ZN6icu_7518Collati
   br i1 %cmp352662, label %while.body353, label %while.end376
 
 while.body353:                                    ; preds = %while.end350, %_ZN6icu_7518CollationFastLatin13getTertiariesEjaj.exit489
-  %54 = load i32, ptr %rightIndex, align 4
-  %55 = load i32, ptr %rightLength.addr, align 4
-  %cmp354 = icmp eq i32 %54, %55
+  %58 = load i32, ptr %rightIndex, align 4
+  %59 = load i32, ptr %rightLength.addr, align 4
+  %cmp354 = icmp eq i32 %58, %59
   br i1 %cmp354, label %while.end376, label %if.end356
 
 if.end356:                                        ; preds = %while.body353
-  %inc358 = add nsw i32 %54, 1
+  %inc358 = add nsw i32 %58, 1
   store i32 %inc358, ptr %rightIndex, align 4
-  %idxprom359 = sext i32 %54 to i64
+  %idxprom359 = sext i32 %58 to i64
   %arrayidx360 = getelementptr inbounds i16, ptr %right, i64 %idxprom359
-  %56 = load i16, ptr %arrayidx360, align 2
-  %conv361 = zext i16 %56 to i32
-  %cmp362 = icmp ult i16 %56, 384
+  %60 = load i16, ptr %arrayidx360, align 2
+  %conv361 = zext i16 %60 to i32
+  %cmp362 = icmp ult i16 %60, 384
   br i1 %cmp362, label %cond.end369.sink.split, label %cond.false367
 
 cond.false367:                                    ; preds = %if.end356
-  %57 = and i32 %conv361, 65472
-  %or.cond.i437 = icmp eq i32 %57, 8192
+  %61 = and i32 %conv361, 65472
+  %or.cond.i437 = icmp eq i32 %61, 8192
   br i1 %or.cond.i437, label %cond.end369.sink.split, label %if.else.i438
 
 if.else.i438:                                     ; preds = %cond.false367
-  %switch.selectcmp.i439 = icmp eq i16 %56, -1
+  %switch.selectcmp.i439 = icmp eq i16 %60, -1
   %switch.select.i440 = select i1 %switch.selectcmp.i439, i32 64680, i32 1
-  %switch.selectcmp5.i441 = icmp eq i16 %56, -2
+  %switch.selectcmp5.i441 = icmp eq i16 %60, -2
   br i1 %switch.selectcmp5.i441, label %if.end374, label %cond.end369
 
 cond.end369.sink.split:                           ; preds = %cond.false367, %if.end356
   %invariant.gep.sink745 = phi ptr [ %add.ptr, %if.end356 ], [ %invariant.gep, %cond.false367 ]
-  %58 = zext i16 %56 to i64
-  %gep661 = getelementptr i16, ptr %invariant.gep.sink745, i64 %58
-  %59 = load i16, ptr %gep661, align 2
-  %conv.i446 = zext i16 %59 to i32
+  %62 = zext i16 %60 to i64
+  %gep661 = getelementptr i16, ptr %invariant.gep.sink745, i64 %62
+  %63 = load i16, ptr %gep661, align 2
+  %conv.i446 = zext i16 %63 to i32
   br label %cond.end369
 
 cond.end369:                                      ; preds = %cond.end369.sink.split, %if.else.i438
@@ -1327,38 +1327,38 @@ for.cond410:                                      ; preds = %for.cond410.backedg
   br i1 %cmp412667, label %while.body413, label %while.end436
 
 while.body413:                                    ; preds = %for.cond410, %_ZN6icu_7518CollationFastLatin15getQuaternariesEjj.exit
-  %60 = load i32, ptr %leftIndex, align 4
-  %61 = load i32, ptr %leftLength.addr, align 4
-  %cmp414 = icmp eq i32 %60, %61
+  %64 = load i32, ptr %leftIndex, align 4
+  %65 = load i32, ptr %leftLength.addr, align 4
+  %cmp414 = icmp eq i32 %64, %65
   br i1 %cmp414, label %while.end436, label %if.end416
 
 if.end416:                                        ; preds = %while.body413
-  %inc418 = add nsw i32 %60, 1
+  %inc418 = add nsw i32 %64, 1
   store i32 %inc418, ptr %leftIndex, align 4
-  %idxprom419 = sext i32 %60 to i64
+  %idxprom419 = sext i32 %64 to i64
   %arrayidx420 = getelementptr inbounds i16, ptr %left, i64 %idxprom419
-  %62 = load i16, ptr %arrayidx420, align 2
-  %conv421 = zext i16 %62 to i32
-  %cmp422 = icmp ult i16 %62, 384
+  %66 = load i16, ptr %arrayidx420, align 2
+  %conv421 = zext i16 %66 to i32
+  %cmp422 = icmp ult i16 %66, 384
   br i1 %cmp422, label %cond.end429.sink.split, label %cond.false427
 
 cond.false427:                                    ; preds = %if.end416
-  %63 = and i32 %conv421, 65472
-  %or.cond.i494 = icmp eq i32 %63, 8192
+  %67 = and i32 %conv421, 65472
+  %or.cond.i494 = icmp eq i32 %67, 8192
   br i1 %or.cond.i494, label %cond.end429.sink.split, label %if.else.i495
 
 if.else.i495:                                     ; preds = %cond.false427
-  %switch.selectcmp.i496 = icmp eq i16 %62, -1
+  %switch.selectcmp.i496 = icmp eq i16 %66, -1
   %switch.select.i497 = select i1 %switch.selectcmp.i496, i32 64680, i32 1
-  %switch.selectcmp5.i498 = icmp eq i16 %62, -2
+  %switch.selectcmp5.i498 = icmp eq i16 %66, -2
   br i1 %switch.selectcmp5.i498, label %if.end434, label %cond.end429
 
 cond.end429.sink.split:                           ; preds = %cond.false427, %if.end416
   %invariant.gep.sink747 = phi ptr [ %add.ptr, %if.end416 ], [ %invariant.gep, %cond.false427 ]
-  %64 = zext i16 %62 to i64
-  %gep666 = getelementptr i16, ptr %invariant.gep.sink747, i64 %64
-  %65 = load i16, ptr %gep666, align 2
-  %conv.i503 = zext i16 %65 to i32
+  %68 = zext i16 %66 to i64
+  %gep666 = getelementptr i16, ptr %invariant.gep.sink747, i64 %68
+  %69 = load i16, ptr %gep666, align 2
+  %conv.i503 = zext i16 %69 to i32
   br label %cond.end429
 
 cond.end429:                                      ; preds = %cond.end429.sink.split, %if.else.i495
@@ -1410,38 +1410,38 @@ while.end436:                                     ; preds = %if.else15.i506, %if
   br i1 %cmp438672, label %while.body439, label %while.end462
 
 while.body439:                                    ; preds = %while.end436, %_ZN6icu_7518CollationFastLatin15getQuaternariesEjj.exit551
-  %66 = load i32, ptr %rightIndex, align 4
-  %67 = load i32, ptr %rightLength.addr, align 4
-  %cmp440 = icmp eq i32 %66, %67
+  %70 = load i32, ptr %rightIndex, align 4
+  %71 = load i32, ptr %rightLength.addr, align 4
+  %cmp440 = icmp eq i32 %70, %71
   br i1 %cmp440, label %while.end462, label %if.end442
 
 if.end442:                                        ; preds = %while.body439
-  %inc444 = add nsw i32 %66, 1
+  %inc444 = add nsw i32 %70, 1
   store i32 %inc444, ptr %rightIndex, align 4
-  %idxprom445 = sext i32 %66 to i64
+  %idxprom445 = sext i32 %70 to i64
   %arrayidx446 = getelementptr inbounds i16, ptr %right, i64 %idxprom445
-  %68 = load i16, ptr %arrayidx446, align 2
-  %conv447 = zext i16 %68 to i32
-  %cmp448 = icmp ult i16 %68, 384
+  %72 = load i16, ptr %arrayidx446, align 2
+  %conv447 = zext i16 %72 to i32
+  %cmp448 = icmp ult i16 %72, 384
   br i1 %cmp448, label %cond.end455.sink.split, label %cond.false453
 
 cond.false453:                                    ; preds = %if.end442
-  %69 = and i32 %conv447, 65472
-  %or.cond.i521 = icmp eq i32 %69, 8192
+  %73 = and i32 %conv447, 65472
+  %or.cond.i521 = icmp eq i32 %73, 8192
   br i1 %or.cond.i521, label %cond.end455.sink.split, label %if.else.i522
 
 if.else.i522:                                     ; preds = %cond.false453
-  %switch.selectcmp.i523 = icmp eq i16 %68, -1
+  %switch.selectcmp.i523 = icmp eq i16 %72, -1
   %switch.select.i524 = select i1 %switch.selectcmp.i523, i32 64680, i32 1
-  %switch.selectcmp5.i525 = icmp eq i16 %68, -2
+  %switch.selectcmp5.i525 = icmp eq i16 %72, -2
   br i1 %switch.selectcmp5.i525, label %if.end460, label %cond.end455
 
 cond.end455.sink.split:                           ; preds = %cond.false453, %if.end442
   %invariant.gep.sink748 = phi ptr [ %add.ptr, %if.end442 ], [ %invariant.gep, %cond.false453 ]
-  %70 = zext i16 %68 to i64
-  %gep671 = getelementptr i16, ptr %invariant.gep.sink748, i64 %70
-  %71 = load i16, ptr %gep671, align 2
-  %conv.i530 = zext i16 %71 to i32
+  %74 = zext i16 %72 to i64
+  %gep671 = getelementptr i16, ptr %invariant.gep.sink748, i64 %74
+  %75 = load i16, ptr %gep671, align 2
+  %conv.i530 = zext i16 %75 to i32
   br label %cond.end455
 
 cond.end455:                                      ; preds = %cond.end455.sink.split, %if.else.i522

@@ -1913,7 +1913,8 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction10StartThunkEPN4llvm8Fu
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 144
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 18424
-  br label %.sink.split
+  %.sroa.0.0.copyload.i = load i64, ptr %21, align 8
+  br label %52
 
 22:                                               ; preds = %6
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 224
@@ -1939,7 +1940,8 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction10StartThunkEPN4llvm8Fu
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 144
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 18848
-  br label %.sink.split
+  %.sroa.0.0.copyload.i13 = load i64, ptr %41, align 8
+  br label %52
 
 42:                                               ; preds = %29
   %43 = getelementptr inbounds nuw i8, ptr %14, i64 48
@@ -1959,15 +1961,11 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction10StartThunkEPN4llvm8Fu
 _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit: ; preds = %42, %49
   %.0.i = phi ptr [ %50, %49 ], [ %46, %42 ]
   %51 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %18, %37, %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit
-  %.sink27 = phi ptr [ %51, %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit ], [ %41, %37 ], [ %21, %18 ]
-  %.sroa.0.0.copyload.i15 = load i64, ptr %.sink27, align 8
+  %.sroa.0.0.copyload.i15 = load i64, ptr %51, align 8
   br label %52
 
-52:                                               ; preds = %.sink.split, %22
-  %.sink = phi i64 [ %15, %22 ], [ %.sroa.0.0.copyload.i15, %.sink.split ]
+52:                                               ; preds = %22, %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit, %37, %18
+  %.sink = phi i64 [ %.sroa.0.0.copyload.i15, %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit ], [ %.sroa.0.0.copyload.i13, %37 ], [ %.sroa.0.0.copyload.i, %18 ], [ %15, %22 ]
   store i64 %.sink, ptr %7, align 8
   %53 = getelementptr inbounds i8, ptr %8, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %53, i64 noundef 16) #17
@@ -2302,19 +2300,16 @@ _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit: ; preds = %._crit_ed
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 144
   %114 = load ptr, ptr %113, align 8
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 18848
-  br label %.sink.split131
+  %.sroa.0.0.copyload.i54 = load i64, ptr %115, align 8
+  br label %118
 
 116:                                              ; preds = %103
   %117 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
-  br label %.sink.split131
-
-.sink.split131:                                   ; preds = %116, %111
-  %.sink = phi ptr [ %115, %111 ], [ %117, %116 ]
-  %.sroa.0.0.copyload.i54 = load i64, ptr %.sink, align 8
+  %.sroa.0.0.copyload.i55 = load i64, ptr %117, align 8
   br label %118
 
-118:                                              ; preds = %.sink.split131, %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit
-  %.sroa.085.0 = phi i64 [ %63, %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit ], [ %.sroa.0.0.copyload.i54, %.sink.split131 ]
+118:                                              ; preds = %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit, %111, %116
+  %.sroa.085.0 = phi i64 [ %.sroa.0.0.copyload.i54, %111 ], [ %.sroa.0.0.copyload.i55, %116 ], [ %63, %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.475, i8 0, i64 16, i1 false), !alias.scope !24
   %.sroa.6.7..sroa_idx = getelementptr inbounds i8, ptr %.sroa.6, i64 7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.6.7..sroa_idx, i8 0, i64 16, i1 false), !alias.scope !24

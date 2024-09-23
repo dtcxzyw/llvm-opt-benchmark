@@ -4207,19 +4207,19 @@ if.end.i:                                         ; preds = %_ZNSt13__future_bas
 
 if.end4.i:                                        ; preds = %if.end.i
   %3 = load i64, ptr %__rel, align 8
-  %4 = icmp sgt i64 %3, 0
-  br i1 %4, label %land.rhs.i, label %_ZNSt13__future_base13_State_baseV28wait_forIlSt5ratioILl1ELl1EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit
+  %cmp.i9.i = icmp sgt i64 %3, 0
+  br i1 %cmp.i9.i, label %land.rhs.i, label %_ZNSt13__future_base13_State_baseV28wait_forIlSt5ratioILl1ELl1EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit
 
 land.rhs.i:                                       ; preds = %if.end4.i
   %call.i20.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #31
-  %5 = load i64, ptr %__rel, align 8
-  %6 = load atomic i32, ptr %_M_status.i acquire, align 4
-  %and.i.i.i = and i32 %6, 2147483647
+  %4 = load i64, ptr %__rel, align 8
+  %5 = load atomic i32, ptr %_M_status.i acquire, align 4
+  %and.i.i.i = and i32 %5, 2147483647
   %cmp.i.i = icmp eq i32 %and.i.i.i, 1
   br i1 %cmp.i.i, label %if.then13.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %land.rhs.i
-  %mul.i.i.i.i = mul nsw i64 %5, 1000000000
+  %mul.i.i.i.i = mul nsw i64 %4, 1000000000
   %add.i.i.i = add nsw i64 %mul.i.i.i.i, %call.i20.i
   %div.i.i.i.i.i = sdiv i64 %add.i.i.i, 1000000000
   %mul.i.i.i.neg.i.i.i.i = mul nsw i64 %div.i.i.i.i.i, -1000000000
@@ -4228,23 +4228,23 @@ if.end.i.i:                                       ; preds = %land.rhs.i
 
 for.cond.us.i.i:                                  ; preds = %for.cond.us.i.i, %if.end.i.i
   %__assumed.addr.0.us.i.i = phi i32 [ %and.i.i.i, %if.end.i.i ], [ %and.i.us.i.i, %for.cond.us.i.i ]
-  %7 = atomicrmw or ptr %_M_status.i, i32 -2147483648 monotonic, align 4
+  %6 = atomicrmw or ptr %_M_status.i, i32 -2147483648 monotonic, align 4
   %or.us.i.i = or disjoint i32 %__assumed.addr.0.us.i.i, -2147483648
   %call8.us.i.i = tail call noundef zeroext i1 @_ZNSt28__atomic_futex_unsigned_base26_M_futex_wait_until_steadyEPjjbNSt6chrono8durationIlSt5ratioILl1ELl1EEEENS2_IlS3_ILl1ELl1000000000EEEE(ptr noundef nonnull align 1 dereferenceable(1) %_M_status.i, ptr noundef nonnull %_M_status.i, i32 noundef %or.us.i.i, i1 noundef zeroext true, i64 %div.i.i.i.i.i, i64 %sub.i.i.i.i)
-  %8 = load atomic i32, ptr %_M_status.i acquire, align 4
-  %and.i.us.i.i = and i32 %8, 2147483647
-  %9 = icmp ne i32 %and.i.us.i.i, 1
-  %or.cond.not.us.i.i = select i1 %call8.us.i.i, i1 %9, i1 false
+  %7 = load atomic i32, ptr %_M_status.i acquire, align 4
+  %and.i.us.i.i = and i32 %7, 2147483647
+  %8 = icmp ne i32 %and.i.us.i.i, 1
+  %or.cond.not.us.i.i = select i1 %call8.us.i.i, i1 %8, i1 false
   br i1 %or.cond.not.us.i.i, label %for.cond.us.i.i, label %_ZNSt23__atomic_futex_unsignedILj2147483648EE29_M_load_and_test_until_steadyEjjbSt12memory_orderbNSt6chrono8durationIlSt5ratioILl1ELl1EEEENS3_IlS4_ILl1ELl1000000000EEEE.exit.i, !llvm.loop !33
 
 _ZNSt23__atomic_futex_unsignedILj2147483648EE29_M_load_and_test_until_steadyEjjbSt12memory_orderbNSt6chrono8durationIlSt5ratioILl1ELl1EEEENS3_IlS4_ILl1ELl1000000000EEEE.exit.i: ; preds = %for.cond.us.i.i
-  br i1 %9, label %_ZNSt13__future_base13_State_baseV28wait_forIlSt5ratioILl1ELl1EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit, label %if.then13.i
+  br i1 %8, label %_ZNSt13__future_base13_State_baseV28wait_forIlSt5ratioILl1ELl1EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit, label %if.then13.i
 
 if.then13.i:                                      ; preds = %_ZNSt23__atomic_futex_unsignedILj2147483648EE29_M_load_and_test_until_steadyEjjbSt12memory_orderbNSt6chrono8durationIlSt5ratioILl1ELl1EEEENS3_IlS4_ILl1ELl1000000000EEEE.exit.i, %land.rhs.i
   %vtable14.i = load ptr, ptr %0, align 8
   %vfn15.i = getelementptr inbounds i8, ptr %vtable14.i, i64 16
-  %10 = load ptr, ptr %vfn15.i, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(28) %0)
+  %9 = load ptr, ptr %vfn15.i, align 8
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(28) %0)
   br label %_ZNSt13__future_base13_State_baseV28wait_forIlSt5ratioILl1ELl1EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit
 
 _ZNSt13__future_base13_State_baseV28wait_forIlSt5ratioILl1ELl1EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit: ; preds = %_ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit, %if.end.i, %if.end4.i, %_ZNSt23__atomic_futex_unsignedILj2147483648EE29_M_load_and_test_until_steadyEjjbSt12memory_orderbNSt6chrono8durationIlSt5ratioILl1ELl1EEEENS3_IlS4_ILl1ELl1000000000EEEE.exit.i, %if.then13.i
@@ -4676,7 +4676,8 @@ if.end:                                           ; preds = %_ZNKSt7__cxx1112bas
 if.end.split:                                     ; preds = %if.end
   %_M_string_length.i.i13 = getelementptr inbounds i8, ptr %this, i64 8
   store i64 0, ptr %_M_string_length.i.i13, align 8
-  br label %if.end10.sink.split
+  store i8 0, ptr %1, align 1
+  br label %if.end10
 
 if.then6:                                         ; preds = %if.end.thread, %if.end
   %6 = phi ptr [ %call5.i.i.i, %if.end.thread ], [ %1, %if.end ]
@@ -4698,14 +4699,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit: ; pre
   store i64 %0, ptr %_M_string_length.i.i16, align 8
   %9 = load ptr, ptr %this, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %9, i64 %0
-  br label %if.end10.sink.split
-
-if.end10.sink.split:                              ; preds = %if.end.split, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit
-  %arrayidx.i.sink = phi ptr [ %arrayidx.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit ], [ %1, %if.end.split ]
-  store i8 0, ptr %arrayidx.i.sink, align 1
+  store i8 0, ptr %arrayidx.i, align 1
   br label %if.end10
 
-if.end10:                                         ; preds = %if.end10.sink.split, %entry
+if.end10:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit, %if.end.split, %entry
   ret void
 }
 

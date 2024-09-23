@@ -5782,33 +5782,33 @@ _ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i36: ; preds = %121, %117
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i36, %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i33, %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i, %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i
-  %.sink68 = phi ptr [ %46, %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i ], [ %46, %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i ], [ %66, %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i33 ], [ %66, %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i36 ]
-  %.sink67 = phi ptr [ %35, %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i ], [ %35, %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i ], [ %68, %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i33 ], [ %68, %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i36 ]
+  %.sink66.in = phi ptr [ %35, %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i ], [ %35, %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i ], [ %68, %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i33 ], [ %68, %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i36 ]
+  %.sink64.in = phi ptr [ %46, %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i ], [ %46, %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i ], [ %66, %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i33 ], [ %66, %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i36 ]
   %.sink = phi ptr [ %33, %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i ], [ %33, %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i ], [ %95, %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i33 ], [ %95, %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i36 ]
-  %124 = load i32, ptr %11, align 4
-  %125 = and i32 %124, 134217727
-  %126 = add nsw i32 %125, -1
-  %127 = load ptr, ptr %.sink68, align 8
-  %128 = load i32, ptr %.sink67, align 8
-  %129 = zext i32 %128 to i64
-  %130 = getelementptr inbounds %"class.llvm::Use", ptr %127, i64 %129
-  %131 = zext i32 %126 to i64
-  %132 = getelementptr inbounds ptr, ptr %130, i64 %131
-  store ptr %.sink, ptr %132, align 8
+  %.sink63.in.in = load i32, ptr %11, align 4
+  %.sink63.in = and i32 %.sink63.in.in, 134217727
+  %.sink63 = add nsw i32 %.sink63.in, -1
+  %.sink64 = load ptr, ptr %.sink64.in, align 8
+  %.sink66 = load i32, ptr %.sink66.in, align 8
+  %124 = zext i32 %.sink66 to i64
+  %125 = getelementptr inbounds %"class.llvm::Use", ptr %.sink64, i64 %124
+  %126 = zext i32 %.sink63 to i64
+  %127 = getelementptr inbounds ptr, ptr %125, i64 %126
+  store ptr %.sink, ptr %127, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %75, %.loopexit.sink.split, %.critedge
-  %133 = icmp eq ptr %.sroa.042.055, null
-  %134 = getelementptr inbounds i8, ptr %.sroa.042.055, i64 24
-  %spec.select.i.i.i.i = select i1 %133, ptr null, ptr %134
-  %135 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i, i64 8
-  %136 = load ptr, ptr %135, align 8
-  %137 = icmp eq ptr %136, null
-  %138 = getelementptr inbounds i8, ptr %136, i64 -24
-  %139 = select i1 %137, ptr null, ptr %138
-  %140 = load i8, ptr %139, align 8
-  %141 = icmp eq i8 %140, 84
-  %spec.select.i.i.i1.i = select i1 %141, ptr %139, ptr null
+  %128 = icmp eq ptr %.sroa.042.055, null
+  %129 = getelementptr inbounds i8, ptr %.sroa.042.055, i64 24
+  %spec.select.i.i.i.i = select i1 %128, ptr null, ptr %129
+  %130 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i, i64 8
+  %131 = load ptr, ptr %130, align 8
+  %132 = icmp eq ptr %131, null
+  %133 = getelementptr inbounds i8, ptr %131, i64 -24
+  %134 = select i1 %132, ptr null, ptr %133
+  %135 = load i8, ptr %134, align 8
+  %136 = icmp eq i8 %135, 84
+  %spec.select.i.i.i1.i = select i1 %136, ptr %134, ptr null
   %.not47 = icmp eq ptr %spec.select.i.i.i1.i, %7
   br i1 %.not47, label %._crit_edge, label %10
 

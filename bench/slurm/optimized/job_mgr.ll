@@ -7841,7 +7841,8 @@ define internal fastcc range(i32 0, 2) i32 @_job_fail_account(ptr noundef %0, pt
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 72
-  br label %.sink.split
+  store ptr null, ptr %9, align 8
+  br label %46
 
 10:                                               ; preds = %3
   %11 = icmp eq i32 %6, 0
@@ -7912,16 +7913,11 @@ define internal fastcc range(i32 0, 2) i32 @_job_fail_account(ptr noundef %0, pt
   store ptr %35, ptr %34, align 8
   store ptr %37, ptr %36, align 8
   store ptr %39, ptr %38, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %8, %45
-  %.sink = phi ptr [ %31, %45 ], [ %9, %8 ]
-  %.0.ph = phi i32 [ %.034, %45 ], [ 0, %8 ]
-  store ptr null, ptr %.sink, align 8
+  store ptr null, ptr %31, align 8
   br label %46
 
-46:                                               ; preds = %.sink.split, %30
-  %.0 = phi i32 [ %.034, %30 ], [ %.0.ph, %.sink.split ]
+46:                                               ; preds = %30, %45, %8
+  %.0 = phi i32 [ 0, %8 ], [ %.034, %45 ], [ %.034, %30 ]
   %47 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 0, ptr %47, align 8
   ret i32 %.0
@@ -40461,167 +40457,167 @@ define dso_local ptr @job_common_env_vars(ptr noundef %0, i1 noundef zeroext %1)
   %.not131 = icmp eq ptr %184, null
   %185 = getelementptr inbounds i8, ptr %0, i64 640
   %186 = getelementptr inbounds i8, ptr %184, i64 224
-  %.sink166 = select i1 %.not131, ptr %185, ptr %186
-  %187 = load ptr, ptr %.sink166, align 8
-  %188 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %3, ptr noundef nonnull @.str.279, ptr noundef nonnull @.str.250, ptr noundef %187) #28
-  %189 = getelementptr inbounds i8, ptr %0, i64 816
-  %190 = load ptr, ptr %189, align 8
-  %.not132 = icmp eq ptr %190, null
-  br i1 %.not132, label %195, label %191
+  %.sink.in = select i1 %.not131, ptr %185, ptr %186
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %187 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %3, ptr noundef nonnull @.str.279, ptr noundef nonnull @.str.250, ptr noundef %.sink) #28
+  %188 = getelementptr inbounds i8, ptr %0, i64 816
+  %189 = load ptr, ptr %188, align 8
+  %.not132 = icmp eq ptr %189, null
+  br i1 %.not132, label %194, label %190
 
-191:                                              ; preds = %182
-  %192 = getelementptr inbounds i8, ptr %190, i64 184
-  %193 = load ptr, ptr %192, align 8
-  %194 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %3, ptr noundef nonnull @.str.280, ptr noundef nonnull @.str.250, ptr noundef %193) #28
-  br label %195
+190:                                              ; preds = %182
+  %191 = getelementptr inbounds i8, ptr %189, i64 184
+  %192 = load ptr, ptr %191, align 8
+  %193 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %3, ptr noundef nonnull @.str.280, ptr noundef nonnull @.str.250, ptr noundef %192) #28
+  br label %194
 
-195:                                              ; preds = %191, %182
-  %196 = getelementptr inbounds i8, ptr %0, i64 778
-  %197 = load i16, ptr %196, align 2
-  %198 = zext i16 %197 to i32
-  %199 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %3, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.282, i32 noundef %198) #28
-  %200 = getelementptr inbounds i8, ptr %0, i64 888
-  %201 = load i64, ptr %200, align 8
-  %202 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %3, ptr noundef nonnull @.str.283, ptr noundef nonnull @.str.261, i64 noundef %201) #28
-  %203 = getelementptr inbounds i8, ptr %0, i64 1064
-  %204 = load i32, ptr %203, align 8
-  %205 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %3, ptr noundef nonnull @.str.284, ptr noundef nonnull @.str.62, i32 noundef %204) #28
-  %206 = call ptr @user_from_job(ptr noundef nonnull %0) #28
-  store ptr %206, ptr %4, align 8
-  %207 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %3, ptr noundef nonnull @.str.285, ptr noundef nonnull @.str.250, ptr noundef %206) #28
+194:                                              ; preds = %190, %182
+  %195 = getelementptr inbounds i8, ptr %0, i64 778
+  %196 = load i16, ptr %195, align 2
+  %197 = zext i16 %196 to i32
+  %198 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %3, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.282, i32 noundef %197) #28
+  %199 = getelementptr inbounds i8, ptr %0, i64 888
+  %200 = load i64, ptr %199, align 8
+  %201 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %3, ptr noundef nonnull @.str.283, ptr noundef nonnull @.str.261, i64 noundef %200) #28
+  %202 = getelementptr inbounds i8, ptr %0, i64 1064
+  %203 = load i32, ptr %202, align 8
+  %204 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %3, ptr noundef nonnull @.str.284, ptr noundef nonnull @.str.62, i32 noundef %203) #28
+  %205 = call ptr @user_from_job(ptr noundef nonnull %0) #28
+  store ptr %205, ptr %4, align 8
+  %206 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %3, ptr noundef nonnull @.str.285, ptr noundef nonnull @.str.250, ptr noundef %205) #28
   call void @slurm_xfree(ptr noundef nonnull %4) #28
-  %208 = getelementptr inbounds i8, ptr %0, i64 1088
-  %209 = load ptr, ptr %208, align 8
-  %.not133 = icmp eq ptr %209, null
-  br i1 %.not133, label %212, label %210
+  %207 = getelementptr inbounds i8, ptr %0, i64 1088
+  %208 = load ptr, ptr %207, align 8
+  %.not133 = icmp eq ptr %208, null
+  br i1 %.not133, label %211, label %209
 
-210:                                              ; preds = %195
-  %211 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %3, ptr noundef nonnull @.str.286, ptr noundef nonnull @.str.250, ptr noundef nonnull %209) #28
-  br label %212
+209:                                              ; preds = %194
+  %210 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %3, ptr noundef nonnull @.str.286, ptr noundef nonnull @.str.250, ptr noundef nonnull %208) #28
+  br label %211
 
-212:                                              ; preds = %210, %195
-  %213 = getelementptr inbounds i8, ptr %0, i64 216
-  %214 = load ptr, ptr %213, align 8
-  %.not134 = icmp eq ptr %214, null
-  br i1 %.not134, label %266, label %215
+211:                                              ; preds = %209, %194
+  %212 = getelementptr inbounds i8, ptr %0, i64 216
+  %213 = load ptr, ptr %212, align 8
+  %.not134 = icmp eq ptr %213, null
+  br i1 %.not134, label %265, label %214
 
-215:                                              ; preds = %212
-  %216 = getelementptr inbounds i8, ptr %214, i64 216
-  %217 = load ptr, ptr %216, align 8
-  %.not135 = icmp eq ptr %217, null
-  br i1 %.not135, label %.thread, label %218
+214:                                              ; preds = %211
+  %215 = getelementptr inbounds i8, ptr %213, i64 216
+  %216 = load ptr, ptr %215, align 8
+  %.not135 = icmp eq ptr %216, null
+  br i1 %.not135, label %.thread, label %217
 
-218:                                              ; preds = %215
-  %219 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %3, ptr noundef nonnull @.str.287, ptr noundef nonnull @.str.250, ptr noundef nonnull %217) #28
-  %.pre157 = load ptr, ptr %213, align 8
+217:                                              ; preds = %214
+  %218 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %3, ptr noundef nonnull @.str.287, ptr noundef nonnull @.str.250, ptr noundef nonnull %216) #28
+  %.pre157 = load ptr, ptr %212, align 8
   %.not.i = icmp eq ptr %.pre157, null
   br i1 %.not.i, label %get_job_share_value.exit, label %.thread
 
-.thread:                                          ; preds = %215, %218
-  %220 = phi ptr [ %.pre157, %218 ], [ %214, %215 ]
-  %221 = getelementptr inbounds i8, ptr %220, i64 394
-  %222 = load i8, ptr %221, align 2
-  switch i8 %222, label %223 [
+.thread:                                          ; preds = %214, %217
+  %219 = phi ptr [ %.pre157, %217 ], [ %213, %214 ]
+  %220 = getelementptr inbounds i8, ptr %219, i64 394
+  %221 = load i8, ptr %220, align 2
+  switch i8 %221, label %222 [
     i8 1, label %get_job_share_value.exit
-    i8 0, label %227
+    i8 0, label %226
   ]
 
-223:                                              ; preds = %.thread
-  %224 = getelementptr inbounds i8, ptr %220, i64 464
-  %225 = load i8, ptr %224, align 8
-  %switch.tableidx = add i8 %225, -1
-  %226 = icmp ult i8 %switch.tableidx, 3
-  br i1 %226, label %switch.lookup, label %228
+222:                                              ; preds = %.thread
+  %223 = getelementptr inbounds i8, ptr %219, i64 464
+  %224 = load i8, ptr %223, align 8
+  %switch.tableidx = add i8 %224, -1
+  %225 = icmp ult i8 %switch.tableidx, 3
+  br i1 %225, label %switch.lookup, label %227
 
-227:                                              ; preds = %.thread
+226:                                              ; preds = %.thread
   br label %get_job_share_value.exit
 
-228:                                              ; preds = %223
-  %229 = load ptr, ptr %183, align 8
-  %.not16.i = icmp eq ptr %229, null
-  br i1 %.not16.i, label %get_job_share_value.exit, label %230
+227:                                              ; preds = %222
+  %228 = load ptr, ptr %183, align 8
+  %.not16.i = icmp eq ptr %228, null
+  br i1 %.not16.i, label %get_job_share_value.exit, label %229
 
-230:                                              ; preds = %228
-  %231 = getelementptr inbounds i8, ptr %229, i64 168
-  %232 = load i16, ptr %231, align 8
-  %233 = and i16 %232, 64
-  %.not17.i = icmp eq i16 %233, 0
-  br i1 %.not17.i, label %234, label %get_job_share_value.exit
+229:                                              ; preds = %227
+  %230 = getelementptr inbounds i8, ptr %228, i64 168
+  %231 = load i16, ptr %230, align 8
+  %232 = and i16 %231, 64
+  %.not17.i = icmp eq i16 %232, 0
+  br i1 %.not17.i, label %233, label %get_job_share_value.exit
 
-234:                                              ; preds = %230
-  %235 = getelementptr inbounds i8, ptr %229, i64 208
-  %236 = load i16, ptr %235, align 8
-  %.not18.i = icmp sgt i16 %236, -1
-  %237 = and i16 %236, 32766
-  %.not19.i = icmp eq i16 %237, 0
+233:                                              ; preds = %229
+  %234 = getelementptr inbounds i8, ptr %228, i64 208
+  %235 = load i16, ptr %234, align 8
+  %.not18.i = icmp sgt i16 %235, -1
+  %236 = and i16 %235, 32766
+  %.not19.i = icmp eq i16 %236, 0
   %or.cond.i = or i1 %.not18.i, %.not19.i
-  br i1 %or.cond.i, label %238, label %get_job_share_value.exit
+  br i1 %or.cond.i, label %237, label %get_job_share_value.exit
 
-238:                                              ; preds = %234
-  %239 = icmp eq i16 %236, 0
-  %..i = select i1 %239, i16 0, i16 -2
+237:                                              ; preds = %233
+  %238 = icmp eq i16 %235, 0
+  %..i = select i1 %238, i16 0, i16 -2
   br label %get_job_share_value.exit
 
-switch.lookup:                                    ; preds = %223
-  %240 = shl nuw nsw i8 %switch.tableidx, 4
-  %switch.shiftamt = zext nneg i8 %240 to i48
+switch.lookup:                                    ; preds = %222
+  %239 = shl nuw nsw i8 %switch.tableidx, 4
+  %switch.shiftamt = zext nneg i8 %239 to i48
   %switch.downshift = lshr i48 12885032960, %switch.shiftamt
   %switch.masked = trunc i48 %switch.downshift to i16
   br label %get_job_share_value.exit
 
-get_job_share_value.exit:                         ; preds = %switch.lookup, %218, %.thread, %227, %228, %230, %234, %238
-  %.0.i = phi i16 [ 0, %227 ], [ -2, %218 ], [ 1, %.thread ], [ 2, %230 ], [ 1, %234 ], [ %..i, %238 ], [ -2, %228 ], [ %switch.masked, %switch.lookup ]
-  %241 = call ptr @job_share_string(i16 noundef zeroext %.0.i) #28
-  %242 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %3, ptr noundef nonnull @.str.288, ptr noundef nonnull @.str.250, ptr noundef %241) #28
-  %243 = load ptr, ptr %213, align 8
-  %244 = getelementptr inbounds i8, ptr %243, i64 416
-  %245 = load ptr, ptr %244, align 8
-  %.not136 = icmp eq ptr %245, null
-  br i1 %.not136, label %248, label %246
+get_job_share_value.exit:                         ; preds = %switch.lookup, %217, %.thread, %226, %227, %229, %233, %237
+  %.0.i = phi i16 [ 0, %226 ], [ -2, %217 ], [ 1, %.thread ], [ 2, %229 ], [ 1, %233 ], [ %..i, %237 ], [ -2, %227 ], [ %switch.masked, %switch.lookup ]
+  %240 = call ptr @job_share_string(i16 noundef zeroext %.0.i) #28
+  %241 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %3, ptr noundef nonnull @.str.288, ptr noundef nonnull @.str.250, ptr noundef %240) #28
+  %242 = load ptr, ptr %212, align 8
+  %243 = getelementptr inbounds i8, ptr %242, i64 416
+  %244 = load ptr, ptr %243, align 8
+  %.not136 = icmp eq ptr %244, null
+  br i1 %.not136, label %247, label %245
 
-246:                                              ; preds = %get_job_share_value.exit
-  %247 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %3, ptr noundef nonnull @.str.289, ptr noundef nonnull @.str.250, ptr noundef nonnull %245) #28
-  %.pre158 = load ptr, ptr %213, align 8
-  br label %248
+245:                                              ; preds = %get_job_share_value.exit
+  %246 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %3, ptr noundef nonnull @.str.289, ptr noundef nonnull @.str.250, ptr noundef nonnull %244) #28
+  %.pre158 = load ptr, ptr %212, align 8
+  br label %247
 
-248:                                              ; preds = %246, %get_job_share_value.exit
-  %249 = phi ptr [ %.pre158, %246 ], [ %243, %get_job_share_value.exit ]
-  %250 = getelementptr inbounds i8, ptr %249, i64 424
-  %251 = load ptr, ptr %250, align 8
-  %.not137 = icmp eq ptr %251, null
-  br i1 %.not137, label %254, label %252
+247:                                              ; preds = %245, %get_job_share_value.exit
+  %248 = phi ptr [ %.pre158, %245 ], [ %242, %get_job_share_value.exit ]
+  %249 = getelementptr inbounds i8, ptr %248, i64 424
+  %250 = load ptr, ptr %249, align 8
+  %.not137 = icmp eq ptr %250, null
+  br i1 %.not137, label %253, label %251
 
-252:                                              ; preds = %248
-  %253 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %3, ptr noundef nonnull @.str.290, ptr noundef nonnull @.str.250, ptr noundef nonnull %251) #28
-  %.pre159 = load ptr, ptr %213, align 8
-  br label %254
+251:                                              ; preds = %247
+  %252 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %3, ptr noundef nonnull @.str.290, ptr noundef nonnull @.str.250, ptr noundef nonnull %250) #28
+  %.pre159 = load ptr, ptr %212, align 8
+  br label %253
 
-254:                                              ; preds = %252, %248
-  %255 = phi ptr [ %.pre159, %252 ], [ %249, %248 ]
-  %256 = getelementptr inbounds i8, ptr %255, i64 432
-  %257 = load ptr, ptr %256, align 8
-  %.not138 = icmp eq ptr %257, null
-  br i1 %.not138, label %260, label %258
+253:                                              ; preds = %251, %247
+  %254 = phi ptr [ %.pre159, %251 ], [ %248, %247 ]
+  %255 = getelementptr inbounds i8, ptr %254, i64 432
+  %256 = load ptr, ptr %255, align 8
+  %.not138 = icmp eq ptr %256, null
+  br i1 %.not138, label %259, label %257
 
-258:                                              ; preds = %254
-  %259 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %3, ptr noundef nonnull @.str.291, ptr noundef nonnull @.str.250, ptr noundef nonnull %257) #28
-  %.pre160 = load ptr, ptr %213, align 8
-  br label %260
+257:                                              ; preds = %253
+  %258 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %3, ptr noundef nonnull @.str.291, ptr noundef nonnull @.str.250, ptr noundef nonnull %256) #28
+  %.pre160 = load ptr, ptr %212, align 8
+  br label %259
 
-260:                                              ; preds = %258, %254
-  %261 = phi ptr [ %.pre160, %258 ], [ %255, %254 ]
-  %262 = getelementptr inbounds i8, ptr %261, i64 472
-  %263 = load ptr, ptr %262, align 8
-  %.not139 = icmp eq ptr %263, null
-  br i1 %.not139, label %266, label %264
+259:                                              ; preds = %257, %253
+  %260 = phi ptr [ %.pre160, %257 ], [ %254, %253 ]
+  %261 = getelementptr inbounds i8, ptr %260, i64 472
+  %262 = load ptr, ptr %261, align 8
+  %.not139 = icmp eq ptr %262, null
+  br i1 %.not139, label %265, label %263
 
-264:                                              ; preds = %260
-  %265 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %3, ptr noundef nonnull @.str.292, ptr noundef nonnull @.str.250, ptr noundef nonnull %263) #28
-  br label %266
+263:                                              ; preds = %259
+  %264 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %3, ptr noundef nonnull @.str.292, ptr noundef nonnull @.str.250, ptr noundef nonnull %262) #28
+  br label %265
 
-266:                                              ; preds = %260, %264, %212
-  %267 = load ptr, ptr %3, align 8
-  ret ptr %267
+265:                                              ; preds = %259, %263, %211
+  %266 = load ptr, ptr %3, align 8
+  ret ptr %266
 }
 
 declare void @env_array_merge(ptr noundef, ptr noundef) local_unnamed_addr #1

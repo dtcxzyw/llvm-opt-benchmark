@@ -484,7 +484,7 @@ define dso_local void @_ZN5clang6format21sortJavaScriptImportsERKNS0_11FormatSty
   %47 = getelementptr inbounds i8, ptr %10, i64 16
   %48 = load ptr, ptr %47, align 8
   %.not.i.i.i.i.i = icmp eq ptr %48, null
-  br i1 %.not.i.i.i.i.i, label %63, label %49
+  br i1 %.not.i.i.i.i.i, label %62, label %49
 
 49:                                               ; preds = %17
   %50 = getelementptr inbounds i8, ptr %10, i64 8
@@ -504,62 +504,61 @@ define dso_local void @_ZN5clang6format21sortJavaScriptImportsERKNS0_11FormatSty
   store ptr %46, ptr %59, align 8
   %60 = getelementptr inbounds i8, ptr %10, i64 40
   %61 = load i64, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %61, ptr %62, align 8
   store ptr null, ptr %47, align 8
   store ptr %50, ptr %53, align 8
   store ptr %50, ptr %56, align 8
-  br label %68
+  store i64 0, ptr %60, align 8
+  br label %66
 
-63:                                               ; preds = %17
+62:                                               ; preds = %17
   store i32 0, ptr %46, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr null, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 24
+  %63 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr null, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %46, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %46, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %46, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 40
-  br label %68
+  br label %66
 
-68:                                               ; preds = %63, %49
-  %.sink.i.i.i.i.i = phi ptr [ %67, %63 ], [ %60, %49 ]
-  store i64 0, ptr %.sink.i.i.i.i.i, align 8
+66:                                               ; preds = %62, %49
+  %.sink = phi i64 [ 0, %62 ], [ %61, %49 ]
+  %67 = getelementptr inbounds i8, ptr %0, i64 40
+  store i64 %.sink, ptr %67, align 8
   call void @_ZNSt8_Rb_treeIN5clang7tooling11ReplacementES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef null)
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang6format22JavaScriptImportSorterE, i64 16), ptr %11, align 8
   call void @_ZN5clang6format11FormatTokenD2Ev(ptr noundef nonnull align 8 dereferenceable(305) %19) #14
   call void @_ZN5clang6format13TokenAnalyzerD2Ev(ptr noundef nonnull align 8 dereferenceable(4276) %11) #14
   %.pre = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %.pre, null
-  br i1 %.not.i, label %_ZNSt10unique_ptrIN5clang6format11EnvironmentESt14default_deleteIS2_EED2Ev.exit, label %69
+  br i1 %.not.i, label %_ZNSt10unique_ptrIN5clang6format11EnvironmentESt14default_deleteIS2_EED2Ev.exit, label %68
 
-69:                                               ; preds = %68
-  %70 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
-  %71 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %70) #14
-  %72 = load ptr, ptr %70, align 8
-  %73 = getelementptr inbounds i8, ptr %.pre, i64 40
-  %74 = icmp eq ptr %72, %73
-  br i1 %74, label %_ZN4llvm11SmallVectorIN5clang15CharSourceRangeELj8EED2Ev.exit.i.i.i, label %75
+68:                                               ; preds = %66
+  %69 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
+  %70 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %69) #14
+  %71 = load ptr, ptr %69, align 8
+  %72 = getelementptr inbounds i8, ptr %.pre, i64 40
+  %73 = icmp eq ptr %71, %72
+  br i1 %73, label %_ZN4llvm11SmallVectorIN5clang15CharSourceRangeELj8EED2Ev.exit.i.i.i, label %74
 
-75:                                               ; preds = %69
-  call void @free(ptr noundef %72) #14
+74:                                               ; preds = %68
+  call void @free(ptr noundef %71) #14
   br label %_ZN4llvm11SmallVectorIN5clang15CharSourceRangeELj8EED2Ev.exit.i.i.i
 
-_ZN4llvm11SmallVectorIN5clang15CharSourceRangeELj8EED2Ev.exit.i.i.i: ; preds = %75, %69
-  %76 = load ptr, ptr %.pre, align 8
-  %.not.i.i.i.i = icmp eq ptr %76, null
+_ZN4llvm11SmallVectorIN5clang15CharSourceRangeELj8EED2Ev.exit.i.i.i: ; preds = %74, %68
+  %75 = load ptr, ptr %.pre, align 8
+  %.not.i.i.i.i = icmp eq ptr %75, null
   br i1 %.not.i.i.i.i, label %_ZNKSt14default_deleteIN5clang6format11EnvironmentEEclEPS2_.exit.i, label %_ZNKSt14default_deleteIN5clang20SourceManagerForFileEEclEPS1_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIN5clang20SourceManagerForFileEEclEPS1_.exit.i.i.i.i: ; preds = %_ZN4llvm11SmallVectorIN5clang15CharSourceRangeELj8EED2Ev.exit.i.i.i
-  call void @_ZN5clang20SourceManagerForFileD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %76) #14
-  call void @_ZdlPvm(ptr noundef nonnull %76, i64 noundef 24) #16
+  call void @_ZN5clang20SourceManagerForFileD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %75) #14
+  call void @_ZdlPvm(ptr noundef nonnull %75, i64 noundef 24) #16
   br label %_ZNKSt14default_deleteIN5clang6format11EnvironmentEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIN5clang6format11EnvironmentEEclEPS2_.exit.i: ; preds = %_ZNKSt14default_deleteIN5clang20SourceManagerForFileEEclEPS1_.exit.i.i.i.i, %_ZN4llvm11SmallVectorIN5clang15CharSourceRangeELj8EED2Ev.exit.i.i.i
   call void @_ZdlPvm(ptr noundef nonnull %.pre, i64 noundef 152) #16
   br label %_ZNSt10unique_ptrIN5clang6format11EnvironmentESt14default_deleteIS2_EED2Ev.exit
 
-_ZNSt10unique_ptrIN5clang6format11EnvironmentESt14default_deleteIS2_EED2Ev.exit: ; preds = %.thread, %68, %_ZNKSt14default_deleteIN5clang6format11EnvironmentEEclEPS2_.exit.i
+_ZNSt10unique_ptrIN5clang6format11EnvironmentESt14default_deleteIS2_EED2Ev.exit: ; preds = %.thread, %66, %_ZNKSt14default_deleteIN5clang6format11EnvironmentEEclEPS2_.exit.i
   ret void
 }
 
@@ -2102,11 +2101,11 @@ _ZN4llvm11SmallVectorIN5clang6format16JsImportedSymbolELj1EEC2ERKS4_.exit: ; pre
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %33 = load i8, ptr %32, align 8
   %34 = trunc i8 %33 to i1
-  br i1 %34, label %49, label %35
+  br i1 %34, label %55, label %35
 
 35:                                               ; preds = %_ZN4llvm11SmallVectorIN5clang6format16JsImportedSymbolELj1EEC2ERKS4_.exit
   %36 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorImplIN5clang6format16JsImportedSymbolEEeqERKS4_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %27)
-  br i1 %36, label %37, label %49
+  br i1 %36, label %37, label %55
 
 37:                                               ; preds = %35
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 124
@@ -2120,150 +2119,155 @@ _ZN4llvm11SmallVectorIN5clang6format16JsImportedSymbolELj1EEC2ERKS4_.exit: ; pre
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 4608
   %44 = call i64 @_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %42, i32 %.sroa.0.0.extract.trunc.i)
+  %.sroa.1.0.extract.shift.i.i.i = lshr i64 %44, 32
   %45 = call i64 @_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %42, i32 %.sroa.2.0.extract.trunc.i)
   %.sroa.1.0.extract.shift.i10.i.i = lshr i64 %45, 32
   %46 = call i64 @_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %42, i32 %.sroa.0.0.extract.trunc.i)
   %.sroa.1.0.extract.shift.i12.i.i = lshr i64 %46, 32
   %47 = sub nsw i64 %.sroa.1.0.extract.shift.i10.i.i, %.sroa.1.0.extract.shift.i12.i.i
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 4616
-  br label %112
+  %48 = and i64 %47, 4294967295
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 4616
+  %50 = load i64, ptr %49, align 8
+  %.sroa.speculated5.i.i.i = call i64 @llvm.umin.i64(i64 %50, i64 %.sroa.1.0.extract.shift.i.i.i)
+  %51 = load ptr, ptr %43, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 %.sroa.speculated5.i.i.i
+  %53 = sub i64 %50, %.sroa.speculated5.i.i.i
+  %.sroa.speculated.i.i.i = call i64 @llvm.umin.i64(i64 %53, i64 %48)
+  %54 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %52, i64 noundef %.sroa.speculated.i.i.i) #14
+  br label %124
 
-49:                                               ; preds = %35, %_ZN4llvm11SmallVectorIN5clang6format16JsImportedSymbolELj1EEC2ERKS4_.exit
-  %50 = getelementptr inbounds nuw i8, ptr %2, i64 124
-  %.sroa.0.0.copyload.i48 = load i32, ptr %50, align 4
-  %51 = getelementptr inbounds nuw i8, ptr %2, i64 116
-  %.sroa.015.0.copyload = load i32, ptr %51, align 4
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 1792
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 4608
-  %57 = call i64 @_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %55, i32 %.sroa.0.0.copyload.i48)
-  %.sroa.1.0.extract.shift.i.i49 = lshr i64 %57, 32
-  %58 = call i64 @_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %55, i32 %.sroa.015.0.copyload)
-  %.sroa.1.0.extract.shift.i10.i50 = lshr i64 %58, 32
-  %59 = call i64 @_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %55, i32 %.sroa.0.0.copyload.i48)
-  %.sroa.1.0.extract.shift.i12.i51 = lshr i64 %59, 32
-  %60 = sub nsw i64 %.sroa.1.0.extract.shift.i10.i50, %.sroa.1.0.extract.shift.i12.i51
-  %61 = and i64 %60, 4294967295
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 4616
-  %63 = load i64, ptr %62, align 8
-  %.sroa.speculated5.i.i52 = call i64 @llvm.umin.i64(i64 %63, i64 %.sroa.1.0.extract.shift.i.i49)
-  %64 = load ptr, ptr %56, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 %.sroa.speculated5.i.i52
-  %66 = sub i64 %63, %.sroa.speculated5.i.i52
-  %.sroa.speculated.i.i53 = call i64 @llvm.umin.i64(i64 %66, i64 %61)
-  %67 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %65, i64 noundef %.sroa.speculated.i.i53) #14
-  %68 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
-  br i1 %68, label %.loopexit, label %69
+55:                                               ; preds = %35, %_ZN4llvm11SmallVectorIN5clang6format16JsImportedSymbolELj1EEC2ERKS4_.exit
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 124
+  %.sroa.0.0.copyload.i48 = load i32, ptr %56, align 4
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 116
+  %.sroa.015.0.copyload = load i32, ptr %57, align 4
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 1792
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 4608
+  %63 = call i64 @_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %61, i32 %.sroa.0.0.copyload.i48)
+  %.sroa.1.0.extract.shift.i.i49 = lshr i64 %63, 32
+  %64 = call i64 @_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %61, i32 %.sroa.015.0.copyload)
+  %.sroa.1.0.extract.shift.i10.i50 = lshr i64 %64, 32
+  %65 = call i64 @_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %61, i32 %.sroa.0.0.copyload.i48)
+  %.sroa.1.0.extract.shift.i12.i51 = lshr i64 %65, 32
+  %66 = sub nsw i64 %.sroa.1.0.extract.shift.i10.i50, %.sroa.1.0.extract.shift.i12.i51
+  %67 = and i64 %66, 4294967295
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 4616
+  %69 = load i64, ptr %68, align 8
+  %.sroa.speculated5.i.i52 = call i64 @llvm.umin.i64(i64 %69, i64 %.sroa.1.0.extract.shift.i.i49)
+  %70 = load ptr, ptr %62, align 8
+  %71 = getelementptr inbounds i8, ptr %70, i64 %.sroa.speculated5.i.i52
+  %72 = sub i64 %69, %.sroa.speculated5.i.i52
+  %.sroa.speculated.i.i53 = call i64 @llvm.umin.i64(i64 %72, i64 %67)
+  %73 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %71, i64 noundef %.sroa.speculated.i.i53) #14
+  %74 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
+  br i1 %74, label %.loopexit, label %75
 
-69:                                               ; preds = %49
-  %70 = load ptr, ptr %4, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 32
-  %.sroa.012.0.copyload = load i64, ptr %71, align 8
+75:                                               ; preds = %55
+  %76 = load ptr, ptr %4, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 32
+  %.sroa.012.0.copyload = load i64, ptr %77, align 8
   %.sroa.0.0.extract.trunc.i56 = trunc i64 %.sroa.012.0.copyload to i32
   %.sroa.2.0.extract.shift.i57 = lshr i64 %.sroa.012.0.copyload, 32
   %.sroa.2.0.extract.trunc.i58 = trunc nuw i64 %.sroa.2.0.extract.shift.i57 to i32
-  %72 = load ptr, ptr %52, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  %74 = load ptr, ptr %73, align 8
-  %75 = call i64 @_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %74, i32 %.sroa.0.0.extract.trunc.i56)
-  %.sroa.1.0.extract.shift.i.i.i59 = lshr i64 %75, 32
-  %76 = call i64 @_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %74, i32 %.sroa.2.0.extract.trunc.i58)
-  %.sroa.1.0.extract.shift.i10.i.i60 = lshr i64 %76, 32
-  %77 = call i64 @_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %74, i32 %.sroa.0.0.extract.trunc.i56)
-  %.sroa.1.0.extract.shift.i12.i.i61 = lshr i64 %77, 32
-  %78 = sub nsw i64 %.sroa.1.0.extract.shift.i10.i.i60, %.sroa.1.0.extract.shift.i12.i.i61
-  %79 = and i64 %78, 4294967295
-  %80 = load i64, ptr %62, align 8
-  %.sroa.speculated5.i.i.i62 = call i64 @llvm.umin.i64(i64 %80, i64 %.sroa.1.0.extract.shift.i.i.i59)
-  %81 = load ptr, ptr %56, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 %.sroa.speculated5.i.i.i62
-  %83 = sub i64 %80, %.sroa.speculated5.i.i.i62
-  %.sroa.speculated.i.i.i63 = call i64 @llvm.umin.i64(i64 %83, i64 %79)
-  %84 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %82, i64 noundef %.sroa.speculated.i.i.i63) #14
-  %85 = load ptr, ptr %4, align 8
-  %86 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
-  %.idx = mul nsw i64 %86, 40
-  %87 = getelementptr inbounds i8, ptr %85, i64 %.idx
-  %.not87 = icmp eq i64 %86, 1
+  %78 = load ptr, ptr %58, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %80 = load ptr, ptr %79, align 8
+  %81 = call i64 @_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %80, i32 %.sroa.0.0.extract.trunc.i56)
+  %.sroa.1.0.extract.shift.i.i.i59 = lshr i64 %81, 32
+  %82 = call i64 @_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %80, i32 %.sroa.2.0.extract.trunc.i58)
+  %.sroa.1.0.extract.shift.i10.i.i60 = lshr i64 %82, 32
+  %83 = call i64 @_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %80, i32 %.sroa.0.0.extract.trunc.i56)
+  %.sroa.1.0.extract.shift.i12.i.i61 = lshr i64 %83, 32
+  %84 = sub nsw i64 %.sroa.1.0.extract.shift.i10.i.i60, %.sroa.1.0.extract.shift.i12.i.i61
+  %85 = and i64 %84, 4294967295
+  %86 = load i64, ptr %68, align 8
+  %.sroa.speculated5.i.i.i62 = call i64 @llvm.umin.i64(i64 %86, i64 %.sroa.1.0.extract.shift.i.i.i59)
+  %87 = load ptr, ptr %62, align 8
+  %88 = getelementptr inbounds i8, ptr %87, i64 %.sroa.speculated5.i.i.i62
+  %89 = sub i64 %86, %.sroa.speculated5.i.i.i62
+  %.sroa.speculated.i.i.i63 = call i64 @llvm.umin.i64(i64 %89, i64 %85)
+  %90 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %88, i64 noundef %.sroa.speculated.i.i.i63) #14
+  %91 = load ptr, ptr %4, align 8
+  %92 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
+  %.idx = mul nsw i64 %92, 40
+  %93 = getelementptr inbounds i8, ptr %91, i64 %.idx
+  %.not87 = icmp eq i64 %92, 1
   br i1 %.not87, label %.loopexit, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %69
-  %.086 = getelementptr inbounds i8, ptr %85, i64 40
+.lr.ph.preheader:                                 ; preds = %75
+  %.086 = getelementptr inbounds i8, ptr %91, i64 40
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.089 = phi ptr [ %.0, %.lr.ph ], [ %.086, %.lr.ph.preheader ]
-  %.pn88 = phi ptr [ %.089, %.lr.ph ], [ %85, %.lr.ph.preheader ]
-  %88 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.5) #14
-  %89 = getelementptr inbounds i8, ptr %.pn88, i64 72
-  %.sroa.03.0.copyload = load i64, ptr %89, align 8
+  %.pn88 = phi ptr [ %.089, %.lr.ph ], [ %91, %.lr.ph.preheader ]
+  %94 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.5) #14
+  %95 = getelementptr inbounds i8, ptr %.pn88, i64 72
+  %.sroa.03.0.copyload = load i64, ptr %95, align 8
   %.sroa.0.0.extract.trunc.i68 = trunc i64 %.sroa.03.0.copyload to i32
   %.sroa.2.0.extract.shift.i69 = lshr i64 %.sroa.03.0.copyload, 32
   %.sroa.2.0.extract.trunc.i70 = trunc nuw i64 %.sroa.2.0.extract.shift.i69 to i32
-  %90 = load ptr, ptr %52, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  %92 = load ptr, ptr %91, align 8
-  %93 = call i64 @_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %92, i32 %.sroa.0.0.extract.trunc.i68)
-  %.sroa.1.0.extract.shift.i.i.i71 = lshr i64 %93, 32
-  %94 = call i64 @_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %92, i32 %.sroa.2.0.extract.trunc.i70)
-  %.sroa.1.0.extract.shift.i10.i.i72 = lshr i64 %94, 32
-  %95 = call i64 @_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %92, i32 %.sroa.0.0.extract.trunc.i68)
-  %.sroa.1.0.extract.shift.i12.i.i73 = lshr i64 %95, 32
-  %96 = sub nsw i64 %.sroa.1.0.extract.shift.i10.i.i72, %.sroa.1.0.extract.shift.i12.i.i73
-  %97 = and i64 %96, 4294967295
-  %98 = load i64, ptr %62, align 8
-  %.sroa.speculated5.i.i.i74 = call i64 @llvm.umin.i64(i64 %98, i64 %.sroa.1.0.extract.shift.i.i.i71)
-  %99 = load ptr, ptr %56, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 %.sroa.speculated5.i.i.i74
-  %101 = sub i64 %98, %.sroa.speculated5.i.i.i74
-  %.sroa.speculated.i.i.i75 = call i64 @llvm.umin.i64(i64 %101, i64 %97)
-  %102 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %100, i64 noundef %.sroa.speculated.i.i.i75) #14
+  %96 = load ptr, ptr %58, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
+  %98 = load ptr, ptr %97, align 8
+  %99 = call i64 @_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %98, i32 %.sroa.0.0.extract.trunc.i68)
+  %.sroa.1.0.extract.shift.i.i.i71 = lshr i64 %99, 32
+  %100 = call i64 @_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %98, i32 %.sroa.2.0.extract.trunc.i70)
+  %.sroa.1.0.extract.shift.i10.i.i72 = lshr i64 %100, 32
+  %101 = call i64 @_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %98, i32 %.sroa.0.0.extract.trunc.i68)
+  %.sroa.1.0.extract.shift.i12.i.i73 = lshr i64 %101, 32
+  %102 = sub nsw i64 %.sroa.1.0.extract.shift.i10.i.i72, %.sroa.1.0.extract.shift.i12.i.i73
+  %103 = and i64 %102, 4294967295
+  %104 = load i64, ptr %68, align 8
+  %.sroa.speculated5.i.i.i74 = call i64 @llvm.umin.i64(i64 %104, i64 %.sroa.1.0.extract.shift.i.i.i71)
+  %105 = load ptr, ptr %62, align 8
+  %106 = getelementptr inbounds i8, ptr %105, i64 %.sroa.speculated5.i.i.i74
+  %107 = sub i64 %104, %.sroa.speculated5.i.i.i74
+  %.sroa.speculated.i.i.i75 = call i64 @llvm.umin.i64(i64 %107, i64 %103)
+  %108 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %106, i64 noundef %.sroa.speculated.i.i.i75) #14
   %.0 = getelementptr inbounds i8, ptr %.089, i64 40
-  %.not = icmp eq ptr %.0, %87
+  %.not = icmp eq ptr %.0, %93
   br i1 %.not, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %.lr.ph, %69, %49
-  %103 = getelementptr inbounds nuw i8, ptr %2, i64 120
-  %.sroa.01.0.copyload = load i32, ptr %103, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %2, i64 128
-  %.sroa.0.0.copyload.i78 = load i32, ptr %104, align 8
-  %105 = load ptr, ptr %52, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  %107 = load ptr, ptr %106, align 8
-  %108 = call i64 @_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %107, i32 %.sroa.01.0.copyload)
-  %109 = call i64 @_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %107, i32 %.sroa.0.0.copyload.i78)
-  %.sroa.1.0.extract.shift.i10.i80 = lshr i64 %109, 32
-  %110 = call i64 @_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %107, i32 %.sroa.01.0.copyload)
-  %.sroa.1.0.extract.shift.i12.i81 = lshr i64 %110, 32
-  %111 = sub nsw i64 %.sroa.1.0.extract.shift.i10.i80, %.sroa.1.0.extract.shift.i12.i81
-  br label %112
+.loopexit:                                        ; preds = %.lr.ph, %75, %55
+  %109 = getelementptr inbounds nuw i8, ptr %2, i64 120
+  %.sroa.01.0.copyload = load i32, ptr %109, align 8
+  %110 = getelementptr inbounds nuw i8, ptr %2, i64 128
+  %.sroa.0.0.copyload.i78 = load i32, ptr %110, align 8
+  %111 = load ptr, ptr %58, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
+  %113 = load ptr, ptr %112, align 8
+  %114 = call i64 @_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %113, i32 %.sroa.01.0.copyload)
+  %.sroa.1.0.extract.shift.i.i79 = lshr i64 %114, 32
+  %115 = call i64 @_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %113, i32 %.sroa.0.0.copyload.i78)
+  %.sroa.1.0.extract.shift.i10.i80 = lshr i64 %115, 32
+  %116 = call i64 @_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %113, i32 %.sroa.01.0.copyload)
+  %.sroa.1.0.extract.shift.i12.i81 = lshr i64 %116, 32
+  %117 = sub nsw i64 %.sroa.1.0.extract.shift.i10.i80, %.sroa.1.0.extract.shift.i12.i81
+  %118 = and i64 %117, 4294967295
+  %119 = load i64, ptr %68, align 8
+  %.sroa.speculated5.i.i82 = call i64 @llvm.umin.i64(i64 %119, i64 %.sroa.1.0.extract.shift.i.i79)
+  %120 = load ptr, ptr %62, align 8
+  %121 = getelementptr inbounds i8, ptr %120, i64 %.sroa.speculated5.i.i82
+  %122 = sub i64 %119, %.sroa.speculated5.i.i82
+  %.sroa.speculated.i.i83 = call i64 @llvm.umin.i64(i64 %122, i64 %118)
+  %123 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %121, i64 noundef %.sroa.speculated.i.i83) #14
+  br label %124
 
-112:                                              ; preds = %.loopexit, %37
-  %.sink96 = phi ptr [ %62, %.loopexit ], [ %48, %37 ]
-  %.sroa.1.0.extract.shift.i.i79.sink.in = phi i64 [ %108, %.loopexit ], [ %44, %37 ]
-  %.sink = phi ptr [ %56, %.loopexit ], [ %43, %37 ]
-  %.sink91.in = phi i64 [ %111, %.loopexit ], [ %47, %37 ]
-  %.sink91 = and i64 %.sink91.in, 4294967295
-  %.sroa.1.0.extract.shift.i.i79.sink = lshr i64 %.sroa.1.0.extract.shift.i.i79.sink.in, 32
-  %113 = load i64, ptr %.sink96, align 8
-  %.sroa.speculated5.i.i82 = call i64 @llvm.umin.i64(i64 %113, i64 %.sroa.1.0.extract.shift.i.i79.sink)
-  %114 = load ptr, ptr %.sink, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 %.sroa.speculated5.i.i82
-  %116 = sub i64 %113, %.sroa.speculated5.i.i82
-  %.sroa.speculated.i.i83 = call i64 @llvm.umin.i64(i64 %116, i64 %.sink91)
-  %117 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %115, i64 noundef %.sroa.speculated.i.i83) #14
-  %118 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
-  %119 = load ptr, ptr %4, align 8
-  %120 = icmp eq ptr %119, %28
-  br i1 %120, label %_ZN4llvm11SmallVectorIN5clang6format16JsImportedSymbolELj1EED2Ev.exit, label %121
+124:                                              ; preds = %.loopexit, %37
+  %125 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
+  %126 = load ptr, ptr %4, align 8
+  %127 = icmp eq ptr %126, %28
+  br i1 %127, label %_ZN4llvm11SmallVectorIN5clang6format16JsImportedSymbolELj1EED2Ev.exit, label %128
 
-121:                                              ; preds = %112
-  call void @free(ptr noundef %119) #14
+128:                                              ; preds = %124
+  call void @free(ptr noundef %126) #14
   br label %_ZN4llvm11SmallVectorIN5clang6format16JsImportedSymbolELj1EED2Ev.exit
 
-_ZN4llvm11SmallVectorIN5clang6format16JsImportedSymbolELj1EED2Ev.exit: ; preds = %121, %112, %7
+_ZN4llvm11SmallVectorIN5clang6format16JsImportedSymbolELj1EED2Ev.exit: ; preds = %128, %124, %7
   ret void
 }
 
@@ -4106,7 +4110,8 @@ _ZN4llvm15SmallVectorImplIN5clang6format16JsImportedSymbolEE12assignRemoteEOS4_.
   store i32 %19, ptr %20, align 4
   store ptr %6, ptr %1, align 8
   store i32 0, ptr %18, align 4
-  br label %.sink.split
+  store i32 0, ptr %15, align 8
+  br label %52
 
 21:                                               ; preds = %4
   %22 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #14
@@ -4135,7 +4140,8 @@ _ZSt4moveIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit: ; preds = %29,
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %22) #14
   %31 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #14
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
+  store i32 0, ptr %32, align 8
+  br label %52
 
 33:                                               ; preds = %21
   %34 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
@@ -4182,14 +4188,10 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6format16JsImportedSymbolELb1EE18uninit
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %22) #14
   %50 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #14
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %_ZN4llvm15SmallVectorImplIN5clang6format16JsImportedSymbolEE12assignRemoteEOS4_.exit, %_ZSt4moveIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6format16JsImportedSymbolELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit
-  %.sink = phi ptr [ %51, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6format16JsImportedSymbolELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit ], [ %32, %_ZSt4moveIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit ], [ %15, %_ZN4llvm15SmallVectorImplIN5clang6format16JsImportedSymbolEE12assignRemoteEOS4_.exit ]
-  store i32 0, ptr %.sink, align 8
+  store i32 0, ptr %51, align 8
   br label %52
 
-52:                                               ; preds = %.sink.split, %2
+52:                                               ; preds = %2, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6format16JsImportedSymbolELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit, %_ZSt4moveIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit, %_ZN4llvm15SmallVectorImplIN5clang6format16JsImportedSymbolEE12assignRemoteEOS4_.exit
   ret ptr %0
 }
 
@@ -7117,7 +7119,8 @@ _ZN4llvm15SmallVectorImplIN5clang6format17JsModuleReferenceEE12assignRemoteEOS4_
   store i32 %29, ptr %30, align 4
   store ptr %7, ptr %1, align 8
   store i32 0, ptr %28, align 4
-  br label %.sink.split
+  store i32 0, ptr %25, align 8
+  br label %132
 
 31:                                               ; preds = %5
   %32 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #14
@@ -7210,7 +7213,8 @@ _ZN5clang6format17JsModuleReferenceD2Ev.exit.i.i38: ; preds = %68, %.lr.ph.i.i36
 
 _ZN4llvm15SmallVectorImplIN5clang6format17JsModuleReferenceEE5clearEv.exit: ; preds = %_ZN5clang6format17JsModuleReferenceD2Ev.exit.i.i38, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6format17JsModuleReferenceELb0EE13destroy_rangeEPS3_S5_.exit
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
+  store i32 0, ptr %69, align 8
+  br label %132
 
 70:                                               ; preds = %31
   %71 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
@@ -7365,14 +7369,10 @@ _ZN5clang6format17JsModuleReferenceD2Ev.exit.i.i61: ; preds = %130, %.lr.ph.i.i5
 
 _ZN4llvm15SmallVectorImplIN5clang6format17JsModuleReferenceEE5clearEv.exit64: ; preds = %_ZN5clang6format17JsModuleReferenceD2Ev.exit.i.i61, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6format17JsModuleReferenceELb0EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %_ZN4llvm15SmallVectorImplIN5clang6format17JsModuleReferenceEE12assignRemoteEOS4_.exit, %_ZN4llvm15SmallVectorImplIN5clang6format17JsModuleReferenceEE5clearEv.exit, %_ZN4llvm15SmallVectorImplIN5clang6format17JsModuleReferenceEE5clearEv.exit64
-  %.sink = phi ptr [ %131, %_ZN4llvm15SmallVectorImplIN5clang6format17JsModuleReferenceEE5clearEv.exit64 ], [ %69, %_ZN4llvm15SmallVectorImplIN5clang6format17JsModuleReferenceEE5clearEv.exit ], [ %25, %_ZN4llvm15SmallVectorImplIN5clang6format17JsModuleReferenceEE12assignRemoteEOS4_.exit ]
-  store i32 0, ptr %.sink, align 8
+  store i32 0, ptr %131, align 8
   br label %132
 
-132:                                              ; preds = %.sink.split, %2
+132:                                              ; preds = %2, %_ZN4llvm15SmallVectorImplIN5clang6format17JsModuleReferenceEE5clearEv.exit64, %_ZN4llvm15SmallVectorImplIN5clang6format17JsModuleReferenceEE5clearEv.exit, %_ZN4llvm15SmallVectorImplIN5clang6format17JsModuleReferenceEE12assignRemoteEOS4_.exit
   ret ptr %0
 }
 

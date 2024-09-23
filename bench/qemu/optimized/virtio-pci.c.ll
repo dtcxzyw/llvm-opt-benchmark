@@ -415,22 +415,22 @@ if.else:                                          ; preds = %entry
   br i1 %call.i4, label %do.end, label %do.end.sink.split
 
 do.end.sink.split:                                ; preds = %if.else, %entry.split
-  %pdev.i2.sink19 = phi ptr [ %pdev.i, %entry.split ], [ %pdev.i2, %if.else ]
-  %1 = load ptr, ptr %pdev.i2.sink19, align 8
-  %call.i.i6 = tail call zeroext i16 @qpci_config_readw(ptr noundef %1, i8 noundef zeroext 46) #7
-  %vdev.i.i7 = getelementptr inbounds i8, ptr %dev, i64 40
-  %device_type.i.i8 = getelementptr inbounds i8, ptr %dev, i64 48
-  store i16 %call.i.i6, ptr %device_type.i.i8, align 8
-  %bar_idx.i.i9 = getelementptr inbounds i8, ptr %dev, i64 124
-  store i32 0, ptr %bar_idx.i.i9, align 4
-  store ptr @qvirtio_pci_legacy, ptr %vdev.i.i7, align 8
-  %msix_ops.i.i10 = getelementptr inbounds i8, ptr %dev, i64 96
-  store ptr @qvirtio_pci_msix_ops_legacy, ptr %msix_ops.i.i10, align 8
-  %2 = load ptr, ptr %pdev.i2.sink19, align 8
-  %3 = load ptr, ptr %2, align 8
-  %qts.i.i11 = getelementptr inbounds i8, ptr %3, i64 128
-  %4 = load ptr, ptr %qts.i.i11, align 8
-  %call4.i.i12 = tail call zeroext i1 @qtest_big_endian(ptr noundef %4) #7
+  %.sink.in = phi ptr [ %pdev.i, %entry.split ], [ %pdev.i2, %if.else ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %call.i.i = tail call zeroext i16 @qpci_config_readw(ptr noundef %.sink, i8 noundef zeroext 46) #7
+  %vdev.i.i = getelementptr inbounds i8, ptr %dev, i64 40
+  %device_type.i.i = getelementptr inbounds i8, ptr %dev, i64 48
+  store i16 %call.i.i, ptr %device_type.i.i, align 8
+  %bar_idx.i.i = getelementptr inbounds i8, ptr %dev, i64 124
+  store i32 0, ptr %bar_idx.i.i, align 4
+  store ptr @qvirtio_pci_legacy, ptr %vdev.i.i, align 8
+  %msix_ops.i.i = getelementptr inbounds i8, ptr %dev, i64 96
+  store ptr @qvirtio_pci_msix_ops_legacy, ptr %msix_ops.i.i, align 8
+  %.sink18 = load ptr, ptr %.sink.in, align 8
+  %1 = load ptr, ptr %.sink18, align 8
+  %qts.i.i11 = getelementptr inbounds i8, ptr %1, i64 128
+  %2 = load ptr, ptr %qts.i.i11, align 8
+  %call4.i.i12 = tail call zeroext i1 @qtest_big_endian(ptr noundef %2) #7
   %big_endian.i.i13 = getelementptr inbounds i8, ptr %dev, i64 64
   %frombool.i.i14 = zext i1 %call4.i.i12 to i8
   store i8 %frombool.i.i14, ptr %big_endian.i.i13, align 8

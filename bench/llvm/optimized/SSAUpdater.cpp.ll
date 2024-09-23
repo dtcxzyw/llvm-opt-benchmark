@@ -2098,50 +2098,50 @@ define dso_local void @_ZN4llvm10SSAUpdater25RewriteUseAfterInsertionsERNS_3UseE
   br label %21
 
 21:                                               ; preds = %19, %6
-  %.sink11 = phi ptr [ %20, %19 ], [ %18, %6 ]
-  %22 = load ptr, ptr %.sink11, align 8
-  %23 = tail call noundef ptr @_ZN4llvm10SSAUpdater28GetValueAtEndOfBlockInternalEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %22)
-  %24 = load ptr, ptr %1, align 8
-  %.not.i = icmp eq ptr %24, null
-  br i1 %.not.i, label %_ZN4llvm3Use14removeFromListEv.exit.i, label %25
+  %.sink.in = phi ptr [ %20, %19 ], [ %18, %6 ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %22 = tail call noundef ptr @_ZN4llvm10SSAUpdater28GetValueAtEndOfBlockInternalEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %.sink)
+  %23 = load ptr, ptr %1, align 8
+  %.not.i = icmp eq ptr %23, null
+  br i1 %.not.i, label %_ZN4llvm3Use14removeFromListEv.exit.i, label %24
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %29 = load ptr, ptr %28, align 8
-  store ptr %27, ptr %29, align 8
-  %.not.i.i = icmp eq ptr %27, null
-  br i1 %.not.i.i, label %_ZN4llvm3Use14removeFromListEv.exit.i, label %30
+24:                                               ; preds = %21
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %28 = load ptr, ptr %27, align 8
+  store ptr %26, ptr %28, align 8
+  %.not.i.i = icmp eq ptr %26, null
+  br i1 %.not.i.i, label %_ZN4llvm3Use14removeFromListEv.exit.i, label %29
 
-30:                                               ; preds = %25
-  %31 = load ptr, ptr %28, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  store ptr %31, ptr %32, align 8
+29:                                               ; preds = %24
+  %30 = load ptr, ptr %27, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  store ptr %30, ptr %31, align 8
   br label %_ZN4llvm3Use14removeFromListEv.exit.i
 
-_ZN4llvm3Use14removeFromListEv.exit.i:            ; preds = %30, %25, %21
-  store ptr %23, ptr %1, align 8
-  %.not4.i = icmp eq ptr %23, null
-  br i1 %.not4.i, label %_ZN4llvm3Use3setEPNS_5ValueE.exit, label %33
+_ZN4llvm3Use14removeFromListEv.exit.i:            ; preds = %29, %24, %21
+  store ptr %22, ptr %1, align 8
+  %.not4.i = icmp eq ptr %22, null
+  br i1 %.not4.i, label %_ZN4llvm3Use3setEPNS_5ValueE.exit, label %32
 
-33:                                               ; preds = %_ZN4llvm3Use14removeFromListEv.exit.i
-  %34 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %35, ptr %36, align 8
-  %.not.i.i.i = icmp eq ptr %35, null
-  br i1 %.not.i.i.i, label %_ZN4llvm5Value6addUseERNS_3UseE.exit.i, label %37
+32:                                               ; preds = %_ZN4llvm3Use14removeFromListEv.exit.i
+  %33 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store ptr %34, ptr %35, align 8
+  %.not.i.i.i = icmp eq ptr %34, null
+  br i1 %.not.i.i.i, label %_ZN4llvm5Value6addUseERNS_3UseE.exit.i, label %36
 
-37:                                               ; preds = %33
-  %38 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  store ptr %36, ptr %38, align 8
+36:                                               ; preds = %32
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  store ptr %35, ptr %37, align 8
   br label %_ZN4llvm5Value6addUseERNS_3UseE.exit.i
 
-_ZN4llvm5Value6addUseERNS_3UseE.exit.i:           ; preds = %37, %33
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %34, ptr %39, align 8
-  store ptr %1, ptr %34, align 8
+_ZN4llvm5Value6addUseERNS_3UseE.exit.i:           ; preds = %36, %32
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr %33, ptr %38, align 8
+  store ptr %1, ptr %33, align 8
   br label %_ZN4llvm3Use3setEPNS_5ValueE.exit
 
 _ZN4llvm3Use3setEPNS_5ValueE.exit:                ; preds = %_ZN4llvm3Use14removeFromListEv.exit.i, %_ZN4llvm5Value6addUseERNS_3UseE.exit.i

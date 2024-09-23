@@ -2921,14 +2921,14 @@ if.else:                                          ; preds = %_ZN6icu_753LSRD2Ev.
   br label %return
 
 return:                                           ; preds = %if.else, %if.then5, %if.then
-  %arrayidx.sink = phi ptr [ %arrayidx, %if.else ], [ %defaultLocale6, %if.then5 ], [ %defaultLocale, %if.then ]
   %desiredLocale.sink = phi ptr [ %desiredLocale, %if.else ], [ null, %if.then5 ], [ null, %if.then ]
+  %.sink19.in = phi ptr [ %arrayidx, %if.else ], [ %defaultLocale6, %if.then5 ], [ %defaultLocale, %if.then ]
   %.sink = phi i32 [ 0, %if.else ], [ -1, %if.then5 ], [ -1, %if.then ]
   %call2.sink = phi i32 [ %call2, %if.else ], [ -1, %if.then5 ], [ -1, %if.then ]
-  %11 = load ptr, ptr %arrayidx.sink, align 8
+  %.sink19 = load ptr, ptr %.sink19.in, align 8
   store ptr %desiredLocale.sink, ptr %agg.result, align 8
   %supportedLocale.i15 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr %11, ptr %supportedLocale.i15, align 8
+  store ptr %.sink19, ptr %supportedLocale.i15, align 8
   %desiredIndex.i16 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i32 %.sink, ptr %desiredIndex.i16, align 8
   %supportedIndex.i17 = getelementptr inbounds i8, ptr %agg.result, i64 20

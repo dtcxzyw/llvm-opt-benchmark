@@ -2511,6 +2511,7 @@ _ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDelet
 if.then.i.i.i.i9:                                 ; preds = %_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE12MakeMapToAddIZNS_21promise_filter_detail30InterceptClientToServerMessageINS_23ClientCompressionFilterEEEvMNT_4CallEFS5_S5_PSB_EPNS8_14FilterCallDataISB_EERKNS_8CallArgsEEUlS5_E_ZNS6_9AppendMapISM_EEvSB_NS_13DebugLocationEEUlvE_EEPNS6_3MapESB_T0_SO_.exit.i.i.i
   store ptr %retval.0.i.i.i.i.i.i, ptr %6, align 8
   %last_map_.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %retval.0.i.i.i.i.i.i, ptr %last_map_.i.i.i.i, align 8
   br label %_ZN9grpc_core21promise_filter_detail30InterceptClientToServerMessageINS_23ClientCompressionFilterEEEvMNT_4CallEFSt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEES9_PS3_EPNS0_14FilterCallDataIS3_EERKNS_8CallArgsE.exit
 
 if.else.i.i.i.i8:                                 ; preds = %_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE12MakeMapToAddIZNS_21promise_filter_detail30InterceptClientToServerMessageINS_23ClientCompressionFilterEEEvMNT_4CallEFS5_S5_PSB_EPNS8_14FilterCallDataISB_EERKNS_8CallArgsEEUlS5_E_ZNS6_9AppendMapISM_EEvSB_NS_13DebugLocationEEUlvE_EEPNS6_3MapESB_T0_SO_.exit.i.i.i
@@ -2518,11 +2519,10 @@ if.else.i.i.i.i8:                                 ; preds = %_ZN9grpc_core15Inte
   %12 = load ptr, ptr %last_map_3.i.i.i.i, align 8
   %next_.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %retval.0.i.i.i.i.i.i, ptr %next_.i.i.i.i.i, align 8
+  store ptr %retval.0.i.i.i.i.i.i, ptr %last_map_3.i.i.i.i, align 8
   br label %_ZN9grpc_core21promise_filter_detail30InterceptClientToServerMessageINS_23ClientCompressionFilterEEEvMNT_4CallEFSt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEES9_PS3_EPNS0_14FilterCallDataIS3_EERKNS_8CallArgsE.exit
 
 _ZN9grpc_core21promise_filter_detail30InterceptClientToServerMessageINS_23ClientCompressionFilterEEEvMNT_4CallEFSt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEES9_PS3_EPNS0_14FilterCallDataIS3_EERKNS_8CallArgsE.exit: ; preds = %if.then.i.i.i.i9, %if.else.i.i.i.i8
-  %last_map_3.sink.i.i.i.i = phi ptr [ %last_map_3.i.i.i.i, %if.else.i.i.i.i8 ], [ %last_map_.i.i.i.i, %if.then.i.i.i.i9 ]
-  store ptr %retval.0.i.i.i.i.i.i, ptr %last_map_3.sink.i.i.i.i, align 8
   %server_initial_metadata.i = getelementptr inbounds i8, ptr %call_args, i64 32
   %13 = load ptr, ptr %server_initial_metadata.i, align 8
   %14 = load ptr, ptr %13, align 8
@@ -5303,6 +5303,7 @@ _ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDelet
 if.then.i.i.i.i9:                                 ; preds = %_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE12MakeMapToAddIZNS_21promise_filter_detail30InterceptClientToServerMessageINS_23ServerCompressionFilterEEEvMNT_4CallEFN4absl12lts_202308028StatusOrIS5_EES5_PSB_EPNS8_14FilterCallDataISB_EERKNS_8CallArgsEEUlS5_E_ZNS6_9AppendMapISQ_EEvSB_NS_13DebugLocationEEUlvE_EEPNS6_3MapESB_T0_SS_.exit.i.i.i
   store ptr %retval.0.i.i.i.i.i.i, ptr %6, align 8
   %last_map_.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %retval.0.i.i.i.i.i.i, ptr %last_map_.i.i.i.i, align 8
   br label %_ZN9grpc_core21promise_filter_detail30InterceptClientToServerMessageINS_23ServerCompressionFilterEEEvMNT_4CallEFN4absl12lts_202308028StatusOrISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEEESC_PS3_EPNS0_14FilterCallDataIS3_EERKNS_8CallArgsE.exit
 
 if.else.i.i.i.i8:                                 ; preds = %_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE12MakeMapToAddIZNS_21promise_filter_detail30InterceptClientToServerMessageINS_23ServerCompressionFilterEEEvMNT_4CallEFN4absl12lts_202308028StatusOrIS5_EES5_PSB_EPNS8_14FilterCallDataISB_EERKNS_8CallArgsEEUlS5_E_ZNS6_9AppendMapISQ_EEvSB_NS_13DebugLocationEEUlvE_EEPNS6_3MapESB_T0_SS_.exit.i.i.i
@@ -5310,11 +5311,10 @@ if.else.i.i.i.i8:                                 ; preds = %_ZN9grpc_core15Inte
   %12 = load ptr, ptr %last_map_3.i.i.i.i, align 8
   %next_.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %retval.0.i.i.i.i.i.i, ptr %next_.i.i.i.i.i, align 8
+  store ptr %retval.0.i.i.i.i.i.i, ptr %last_map_3.i.i.i.i, align 8
   br label %_ZN9grpc_core21promise_filter_detail30InterceptClientToServerMessageINS_23ServerCompressionFilterEEEvMNT_4CallEFN4absl12lts_202308028StatusOrISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEEESC_PS3_EPNS0_14FilterCallDataIS3_EERKNS_8CallArgsE.exit
 
 _ZN9grpc_core21promise_filter_detail30InterceptClientToServerMessageINS_23ServerCompressionFilterEEEvMNT_4CallEFN4absl12lts_202308028StatusOrISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEEESC_PS3_EPNS0_14FilterCallDataIS3_EERKNS_8CallArgsE.exit: ; preds = %if.then.i.i.i.i9, %if.else.i.i.i.i8
-  %last_map_3.sink.i.i.i.i = phi ptr [ %last_map_3.i.i.i.i, %if.else.i.i.i.i8 ], [ %last_map_.i.i.i.i, %if.then.i.i.i.i9 ]
-  store ptr %retval.0.i.i.i.i.i.i, ptr %last_map_3.sink.i.i.i.i, align 8
   %server_initial_metadata.i = getelementptr inbounds i8, ptr %call_args, i64 32
   %13 = load ptr, ptr %server_initial_metadata.i, align 8
   %14 = load ptr, ptr %13, align 8
@@ -7513,6 +7513,7 @@ _ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13Po
 if.then.i.i.i.i:                                  ; preds = %_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE12MakeMapToAddIZNS_21promise_filter_detail30InterceptClientInitialMetadataINS_23ClientCompressionFilterEEEvMNT_4CallEFvRS2_PSB_EPNSB_4CallESE_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_9AppendMapISL_EEvSB_NS_13DebugLocationEEUlvE_EEPNS6_3MapESB_T0_SN_.exit.i.i.i
   store ptr %retval.0.i.i.i.i.i.i, ptr %5, align 8
   %last_map_.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %retval.0.i.i.i.i.i.i, ptr %last_map_.i.i.i.i, align 8
   br label %_ZN9grpc_core21promise_filter_detail30InterceptClientInitialMetadataINS_23ClientCompressionFilterEEEvMNT_4CallEFvR19grpc_metadata_batchPS3_EPNS3_4CallES7_PNS_18CallSpineInterfaceE.exit
 
 if.else.i.i.i.i:                                  ; preds = %_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE12MakeMapToAddIZNS_21promise_filter_detail30InterceptClientInitialMetadataINS_23ClientCompressionFilterEEEvMNT_4CallEFvRS2_PSB_EPNSB_4CallESE_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_9AppendMapISL_EEvSB_NS_13DebugLocationEEUlvE_EEPNS6_3MapESB_T0_SN_.exit.i.i.i
@@ -7520,11 +7521,10 @@ if.else.i.i.i.i:                                  ; preds = %_ZN9grpc_core15Inte
   %11 = load ptr, ptr %last_map_3.i.i.i.i, align 8
   %next_.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %retval.0.i.i.i.i.i.i, ptr %next_.i.i.i.i.i, align 8
+  store ptr %retval.0.i.i.i.i.i.i, ptr %last_map_3.i.i.i.i, align 8
   br label %_ZN9grpc_core21promise_filter_detail30InterceptClientInitialMetadataINS_23ClientCompressionFilterEEEvMNT_4CallEFvR19grpc_metadata_batchPS3_EPNS3_4CallES7_PNS_18CallSpineInterfaceE.exit
 
 _ZN9grpc_core21promise_filter_detail30InterceptClientInitialMetadataINS_23ClientCompressionFilterEEEvMNT_4CallEFvR19grpc_metadata_batchPS3_EPNS3_4CallES7_PNS_18CallSpineInterfaceE.exit: ; preds = %if.then.i.i.i.i, %if.else.i.i.i.i
-  %last_map_3.sink.i.i.i.i = phi ptr [ %last_map_3.i.i.i.i, %if.else.i.i.i.i ], [ %last_map_.i.i.i.i, %if.then.i.i.i.i ]
-  store ptr %retval.0.i.i.i.i.i.i, ptr %last_map_3.sink.i.i.i.i, align 8
   %vtable.i10 = load ptr, ptr %call_spine, align 8
   %vfn.i11 = getelementptr inbounds i8, ptr %vtable.i10, i64 32
   %12 = load ptr, ptr %vfn.i11, align 8
@@ -7537,9 +7537,9 @@ _ZN9grpc_core21promise_filter_detail30InterceptClientInitialMetadataINS_23Client
   store i64 %.sroa.speculated.i.i.i.i15, ptr %promise_memory_required_.i.i.i.i14, align 8
   %15 = load ptr, ptr %0, align 8
   %cmp.not.i.i.i.i.i16 = icmp eq ptr %15, null
-  br i1 %cmp.not.i.i.i.i.i16, label %if.then.i.i.i.i.i37, label %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i17
+  br i1 %cmp.not.i.i.i.i.i16, label %if.then.i.i.i.i.i36, label %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i17
 
-if.then.i.i.i.i.i37:                              ; preds = %_ZN9grpc_core21promise_filter_detail30InterceptClientInitialMetadataINS_23ClientCompressionFilterEEEvMNT_4CallEFvR19grpc_metadata_batchPS3_EPNS3_4CallES7_PNS_18CallSpineInterfaceE.exit
+if.then.i.i.i.i.i36:                              ; preds = %_ZN9grpc_core21promise_filter_detail30InterceptClientInitialMetadataINS_23ClientCompressionFilterEEEvMNT_4CallEFvR19grpc_metadata_batchPS3_EPNS3_4CallES7_PNS_18CallSpineInterfaceE.exit
   tail call void @gpr_assertion_failed(ptr noundef nonnull @.str.17, i32 noundef 80, ptr noundef nonnull @.str.18) #24
   unreachable
 
@@ -7549,19 +7549,19 @@ _ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i17: ; preds = %_ZN9grpc_c
   %initial_zone_size_.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %15, i64 16
   %17 = load i64, ptr %initial_zone_size_.i.i.i.i.i.i19, align 8
   %cmp.not.i.i.i.i.i.i20 = icmp ugt i64 %add2.i.i.i.i.i.i18, %17
-  br i1 %cmp.not.i.i.i.i.i.i20, label %if.else.i.i.i.i.i.i35, label %if.then.i.i.i.i.i.i21
+  br i1 %cmp.not.i.i.i.i.i.i20, label %if.else.i.i.i.i.i.i34, label %if.then.i.i.i.i.i.i21
 
 if.then.i.i.i.i.i.i21:                            ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i17
   %add.ptr.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %15, i64 48
   %add.ptr3.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i22, i64 %16
   br label %_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE12MakeMapToAddIZNS_21promise_filter_detail30InterceptClientToServerMessageINS_23ClientCompressionFilterEEEvMNT_4CallEFS5_S5_PSB_EPNSB_4CallESD_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_9AppendMapISK_EEvSB_NS_13DebugLocationEEUlvE_EEPNS6_3MapESB_T0_SM_.exit.i.i.i
 
-if.else.i.i.i.i.i.i35:                            ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i17
-  %call4.i.i.i.i.i.i36 = tail call noundef ptr @_ZN9grpc_core5Arena9AllocZoneEm(ptr noundef nonnull align 8 dereferenceable(48) %15, i64 noundef 32)
+if.else.i.i.i.i.i.i34:                            ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i17
+  %call4.i.i.i.i.i.i35 = tail call noundef ptr @_ZN9grpc_core5Arena9AllocZoneEm(ptr noundef nonnull align 8 dereferenceable(48) %15, i64 noundef 32)
   br label %_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE12MakeMapToAddIZNS_21promise_filter_detail30InterceptClientToServerMessageINS_23ClientCompressionFilterEEEvMNT_4CallEFS5_S5_PSB_EPNSB_4CallESD_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_9AppendMapISK_EEvSB_NS_13DebugLocationEEUlvE_EEPNS6_3MapESB_T0_SM_.exit.i.i.i
 
-_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE12MakeMapToAddIZNS_21promise_filter_detail30InterceptClientToServerMessageINS_23ClientCompressionFilterEEEvMNT_4CallEFS5_S5_PSB_EPNSB_4CallESD_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_9AppendMapISK_EEvSB_NS_13DebugLocationEEUlvE_EEPNS6_3MapESB_T0_SM_.exit.i.i.i: ; preds = %if.else.i.i.i.i.i.i35, %if.then.i.i.i.i.i.i21
-  %retval.0.i.i.i.i.i.i24 = phi ptr [ %add.ptr3.i.i.i.i.i.i23, %if.then.i.i.i.i.i.i21 ], [ %call4.i.i.i.i.i.i36, %if.else.i.i.i.i.i.i35 ]
+_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE12MakeMapToAddIZNS_21promise_filter_detail30InterceptClientToServerMessageINS_23ClientCompressionFilterEEEvMNT_4CallEFS5_S5_PSB_EPNSB_4CallESD_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_9AppendMapISK_EEvSB_NS_13DebugLocationEEUlvE_EEPNS6_3MapESB_T0_SM_.exit.i.i.i: ; preds = %if.else.i.i.i.i.i.i34, %if.then.i.i.i.i.i.i21
+  %retval.0.i.i.i.i.i.i24 = phi ptr [ %add.ptr3.i.i.i.i.i.i23, %if.then.i.i.i.i.i.i21 ], [ %call4.i.i.i.i.i.i35, %if.else.i.i.i.i.i.i34 ]
   %next_.i.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i24, i64 8
   store ptr null, ptr %next_.i.i.i.i.i.i.i.i25, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptClientToServerMessageINS_23ClientCompressionFilterEEEvMNT_4CallEFS5_S5_PSB_EPNSB_4CallESD_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_9AppendMapISK_EEvSB_NS_13DebugLocationEEUlvE_EE, i64 16), ptr %retval.0.i.i.i.i.i.i24, align 8
@@ -7571,11 +7571,12 @@ _ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDelet
   store ptr %this, ptr %f.sroa.2.0.f_.sroa_idx.i.i.i.i.i.i.i.i27, align 8
   %18 = load ptr, ptr %13, align 8
   %cmp.i.i.i.i28 = icmp eq ptr %18, null
-  br i1 %cmp.i.i.i.i28, label %if.then.i.i.i.i33, label %if.else.i.i.i.i29
+  br i1 %cmp.i.i.i.i28, label %if.then.i.i.i.i32, label %if.else.i.i.i.i29
 
-if.then.i.i.i.i33:                                ; preds = %_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE12MakeMapToAddIZNS_21promise_filter_detail30InterceptClientToServerMessageINS_23ClientCompressionFilterEEEvMNT_4CallEFS5_S5_PSB_EPNSB_4CallESD_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_9AppendMapISK_EEvSB_NS_13DebugLocationEEUlvE_EEPNS6_3MapESB_T0_SM_.exit.i.i.i
+if.then.i.i.i.i32:                                ; preds = %_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE12MakeMapToAddIZNS_21promise_filter_detail30InterceptClientToServerMessageINS_23ClientCompressionFilterEEEvMNT_4CallEFS5_S5_PSB_EPNSB_4CallESD_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_9AppendMapISK_EEvSB_NS_13DebugLocationEEUlvE_EEPNS6_3MapESB_T0_SM_.exit.i.i.i
   store ptr %retval.0.i.i.i.i.i.i24, ptr %13, align 8
-  %last_map_.i.i.i.i34 = getelementptr inbounds i8, ptr %13, i64 8
+  %last_map_.i.i.i.i33 = getelementptr inbounds i8, ptr %13, i64 8
+  store ptr %retval.0.i.i.i.i.i.i24, ptr %last_map_.i.i.i.i33, align 8
   br label %_ZN9grpc_core21promise_filter_detail30InterceptClientToServerMessageINS_23ClientCompressionFilterEEEvMNT_4CallEFSt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEES9_PS3_EPNS3_4CallESA_PNS_18CallSpineInterfaceE.exit
 
 if.else.i.i.i.i29:                                ; preds = %_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE12MakeMapToAddIZNS_21promise_filter_detail30InterceptClientToServerMessageINS_23ClientCompressionFilterEEEvMNT_4CallEFS5_S5_PSB_EPNSB_4CallESD_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_9AppendMapISK_EEvSB_NS_13DebugLocationEEUlvE_EEPNS6_3MapESB_T0_SM_.exit.i.i.i
@@ -7583,113 +7584,112 @@ if.else.i.i.i.i29:                                ; preds = %_ZN9grpc_core15Inte
   %19 = load ptr, ptr %last_map_3.i.i.i.i30, align 8
   %next_.i.i.i.i.i31 = getelementptr inbounds i8, ptr %19, i64 8
   store ptr %retval.0.i.i.i.i.i.i24, ptr %next_.i.i.i.i.i31, align 8
+  store ptr %retval.0.i.i.i.i.i.i24, ptr %last_map_3.i.i.i.i30, align 8
   br label %_ZN9grpc_core21promise_filter_detail30InterceptClientToServerMessageINS_23ClientCompressionFilterEEEvMNT_4CallEFSt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEES9_PS3_EPNS3_4CallESA_PNS_18CallSpineInterfaceE.exit
 
-_ZN9grpc_core21promise_filter_detail30InterceptClientToServerMessageINS_23ClientCompressionFilterEEEvMNT_4CallEFSt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEES9_PS3_EPNS3_4CallESA_PNS_18CallSpineInterfaceE.exit: ; preds = %if.then.i.i.i.i33, %if.else.i.i.i.i29
-  %last_map_3.sink.i.i.i.i32 = phi ptr [ %last_map_3.i.i.i.i30, %if.else.i.i.i.i29 ], [ %last_map_.i.i.i.i34, %if.then.i.i.i.i33 ]
-  store ptr %retval.0.i.i.i.i.i.i24, ptr %last_map_3.sink.i.i.i.i32, align 8
-  %vtable.i38 = load ptr, ptr %call_spine, align 8
-  %vfn.i39 = getelementptr inbounds i8, ptr %vtable.i38, i64 24
-  %20 = load ptr, ptr %vfn.i39, align 8
-  %call2.i40 = tail call noundef nonnull align 8 dereferenceable(16) ptr %20(ptr noundef nonnull align 8 dereferenceable(8) %call_spine)
-  %21 = load ptr, ptr %call2.i40, align 8
-  %promise_memory_required_.i.i.i.i41 = getelementptr inbounds i8, ptr %21, i64 16
-  %22 = load i64, ptr %promise_memory_required_.i.i.i.i41, align 8
-  %.sroa.speculated.i.i.i.i42 = tail call i64 @llvm.umax.i64(i64 %22, i64 32)
-  store i64 %.sroa.speculated.i.i.i.i42, ptr %promise_memory_required_.i.i.i.i41, align 8
+_ZN9grpc_core21promise_filter_detail30InterceptClientToServerMessageINS_23ClientCompressionFilterEEEvMNT_4CallEFSt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEES9_PS3_EPNS3_4CallESA_PNS_18CallSpineInterfaceE.exit: ; preds = %if.then.i.i.i.i32, %if.else.i.i.i.i29
+  %vtable.i37 = load ptr, ptr %call_spine, align 8
+  %vfn.i38 = getelementptr inbounds i8, ptr %vtable.i37, i64 24
+  %20 = load ptr, ptr %vfn.i38, align 8
+  %call2.i39 = tail call noundef nonnull align 8 dereferenceable(16) ptr %20(ptr noundef nonnull align 8 dereferenceable(8) %call_spine)
+  %21 = load ptr, ptr %call2.i39, align 8
+  %promise_memory_required_.i.i.i.i40 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = load i64, ptr %promise_memory_required_.i.i.i.i40, align 8
+  %.sroa.speculated.i.i.i.i41 = tail call i64 @llvm.umax.i64(i64 %22, i64 32)
+  store i64 %.sroa.speculated.i.i.i.i41, ptr %promise_memory_required_.i.i.i.i40, align 8
   %23 = load ptr, ptr %0, align 8
-  %cmp.not.i.i.i.i.i43 = icmp eq ptr %23, null
-  br i1 %cmp.not.i.i.i.i.i43, label %if.then.i.i.i.i.i59, label %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i44
+  %cmp.not.i.i.i.i.i42 = icmp eq ptr %23, null
+  br i1 %cmp.not.i.i.i.i.i42, label %if.then.i.i.i.i.i58, label %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i43
 
-if.then.i.i.i.i.i59:                              ; preds = %_ZN9grpc_core21promise_filter_detail30InterceptClientToServerMessageINS_23ClientCompressionFilterEEEvMNT_4CallEFSt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEES9_PS3_EPNS3_4CallESA_PNS_18CallSpineInterfaceE.exit
+if.then.i.i.i.i.i58:                              ; preds = %_ZN9grpc_core21promise_filter_detail30InterceptClientToServerMessageINS_23ClientCompressionFilterEEEvMNT_4CallEFSt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEES9_PS3_EPNS3_4CallESA_PNS_18CallSpineInterfaceE.exit
   tail call void @gpr_assertion_failed(ptr noundef nonnull @.str.17, i32 noundef 80, ptr noundef nonnull @.str.18) #24
   unreachable
 
-_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i44: ; preds = %_ZN9grpc_core21promise_filter_detail30InterceptClientToServerMessageINS_23ClientCompressionFilterEEEvMNT_4CallEFSt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEES9_PS3_EPNS3_4CallESA_PNS_18CallSpineInterfaceE.exit
+_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i43: ; preds = %_ZN9grpc_core21promise_filter_detail30InterceptClientToServerMessageINS_23ClientCompressionFilterEEEvMNT_4CallEFSt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEES9_PS3_EPNS3_4CallESA_PNS_18CallSpineInterfaceE.exit
   %24 = atomicrmw add ptr %23, i64 32 monotonic, align 8
-  %add2.i.i.i.i.i.i45 = add i64 %24, 32
-  %initial_zone_size_.i.i.i.i.i.i46 = getelementptr inbounds i8, ptr %23, i64 16
-  %25 = load i64, ptr %initial_zone_size_.i.i.i.i.i.i46, align 8
-  %cmp.not.i.i.i.i.i.i47 = icmp ugt i64 %add2.i.i.i.i.i.i45, %25
-  br i1 %cmp.not.i.i.i.i.i.i47, label %if.else.i.i.i.i.i.i57, label %if.then.i.i.i.i.i.i48
+  %add2.i.i.i.i.i.i44 = add i64 %24, 32
+  %initial_zone_size_.i.i.i.i.i.i45 = getelementptr inbounds i8, ptr %23, i64 16
+  %25 = load i64, ptr %initial_zone_size_.i.i.i.i.i.i45, align 8
+  %cmp.not.i.i.i.i.i.i46 = icmp ugt i64 %add2.i.i.i.i.i.i44, %25
+  br i1 %cmp.not.i.i.i.i.i.i46, label %if.else.i.i.i.i.i.i56, label %if.then.i.i.i.i.i.i47
 
-if.then.i.i.i.i.i.i48:                            ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i44
-  %add.ptr.i.i.i.i.i.i49 = getelementptr inbounds i8, ptr %23, i64 48
-  %add.ptr3.i.i.i.i.i.i50 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i49, i64 %24
+if.then.i.i.i.i.i.i47:                            ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i43
+  %add.ptr.i.i.i.i.i.i48 = getelementptr inbounds i8, ptr %23, i64 48
+  %add.ptr3.i.i.i.i.i.i49 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i48, i64 %24
   br label %_ZN9grpc_core21promise_filter_detail30InterceptServerInitialMetadataINS_23ClientCompressionFilterEEEvMNT_4CallEFvR19grpc_metadata_batchPS3_EPNS3_4CallES7_PNS_18CallSpineInterfaceE.exit
 
-if.else.i.i.i.i.i.i57:                            ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i44
-  %call4.i.i.i.i.i.i58 = tail call noundef ptr @_ZN9grpc_core5Arena9AllocZoneEm(ptr noundef nonnull align 8 dereferenceable(48) %23, i64 noundef 32)
+if.else.i.i.i.i.i.i56:                            ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i43
+  %call4.i.i.i.i.i.i57 = tail call noundef ptr @_ZN9grpc_core5Arena9AllocZoneEm(ptr noundef nonnull align 8 dereferenceable(48) %23, i64 noundef 32)
   br label %_ZN9grpc_core21promise_filter_detail30InterceptServerInitialMetadataINS_23ClientCompressionFilterEEEvMNT_4CallEFvR19grpc_metadata_batchPS3_EPNS3_4CallES7_PNS_18CallSpineInterfaceE.exit
 
-_ZN9grpc_core21promise_filter_detail30InterceptServerInitialMetadataINS_23ClientCompressionFilterEEEvMNT_4CallEFvR19grpc_metadata_batchPS3_EPNS3_4CallES7_PNS_18CallSpineInterfaceE.exit: ; preds = %if.then.i.i.i.i.i.i48, %if.else.i.i.i.i.i.i57
-  %retval.0.i.i.i.i.i.i51 = phi ptr [ %add.ptr3.i.i.i.i.i.i50, %if.then.i.i.i.i.i.i48 ], [ %call4.i.i.i.i.i.i58, %if.else.i.i.i.i.i.i57 ]
-  %next_.i.i.i.i.i.i.i.i52 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i51, i64 8
-  store ptr null, ptr %next_.i.i.i.i.i.i.i.i52, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptServerInitialMetadataINS_23ClientCompressionFilterEEEvMNT_4CallEFvRS2_PSB_EPNSB_4CallESE_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_10PrependMapISL_EEvSB_NS_13DebugLocationEEUlvE_EE, i64 16), ptr %retval.0.i.i.i.i.i.i51, align 8
-  %fn_.i.i.i.i.i.i.i53 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i51, i64 16
-  store ptr %t.i.i.i.i, ptr %fn_.i.i.i.i.i.i.i53, align 8
-  %f.sroa.2.0.f_.sroa_idx.i.i.i.i.i.i.i.i54 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i51, i64 24
-  store ptr %this, ptr %f.sroa.2.0.f_.sroa_idx.i.i.i.i.i.i.i.i54, align 8
+_ZN9grpc_core21promise_filter_detail30InterceptServerInitialMetadataINS_23ClientCompressionFilterEEEvMNT_4CallEFvR19grpc_metadata_batchPS3_EPNS3_4CallES7_PNS_18CallSpineInterfaceE.exit: ; preds = %if.then.i.i.i.i.i.i47, %if.else.i.i.i.i.i.i56
+  %retval.0.i.i.i.i.i.i50 = phi ptr [ %add.ptr3.i.i.i.i.i.i49, %if.then.i.i.i.i.i.i47 ], [ %call4.i.i.i.i.i.i57, %if.else.i.i.i.i.i.i56 ]
+  %next_.i.i.i.i.i.i.i.i51 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i50, i64 8
+  store ptr null, ptr %next_.i.i.i.i.i.i.i.i51, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptServerInitialMetadataINS_23ClientCompressionFilterEEEvMNT_4CallEFvRS2_PSB_EPNSB_4CallESE_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_10PrependMapISL_EEvSB_NS_13DebugLocationEEUlvE_EE, i64 16), ptr %retval.0.i.i.i.i.i.i50, align 8
+  %fn_.i.i.i.i.i.i.i52 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i50, i64 16
+  store ptr %t.i.i.i.i, ptr %fn_.i.i.i.i.i.i.i52, align 8
+  %f.sroa.2.0.f_.sroa_idx.i.i.i.i.i.i.i.i53 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i50, i64 24
+  store ptr %this, ptr %f.sroa.2.0.f_.sroa_idx.i.i.i.i.i.i.i.i53, align 8
   %26 = load ptr, ptr %21, align 8
-  %cmp.i.i.i.i55 = icmp eq ptr %26, null
-  %this.f.i.i.i.i = select i1 %cmp.i.i.i.i55, ptr %21, ptr %retval.0.i.i.i.i.i.i51
-  %f..i.i.i.i = select i1 %cmp.i.i.i.i55, ptr %retval.0.i.i.i.i.i.i51, ptr %26
-  %next_.i.i.i.i.i56 = getelementptr inbounds i8, ptr %this.f.i.i.i.i, i64 8
-  store ptr %f..i.i.i.i, ptr %next_.i.i.i.i.i56, align 8
-  store ptr %retval.0.i.i.i.i.i.i51, ptr %21, align 8
-  %vtable.i60 = load ptr, ptr %call_spine, align 8
-  %vfn.i61 = getelementptr inbounds i8, ptr %vtable.i60, i64 40
-  %27 = load ptr, ptr %vfn.i61, align 8
-  %call2.i62 = tail call noundef nonnull align 8 dereferenceable(16) ptr %27(ptr noundef nonnull align 8 dereferenceable(8) %call_spine)
-  %28 = load ptr, ptr %call2.i62, align 8
-  %promise_memory_required_.i.i.i.i63 = getelementptr inbounds i8, ptr %28, i64 16
-  %29 = load i64, ptr %promise_memory_required_.i.i.i.i63, align 8
-  %.sroa.speculated.i.i.i.i64 = tail call i64 @llvm.umax.i64(i64 %29, i64 40)
-  store i64 %.sroa.speculated.i.i.i.i64, ptr %promise_memory_required_.i.i.i.i63, align 8
+  %cmp.i.i.i.i54 = icmp eq ptr %26, null
+  %this.f.i.i.i.i = select i1 %cmp.i.i.i.i54, ptr %21, ptr %retval.0.i.i.i.i.i.i50
+  %f..i.i.i.i = select i1 %cmp.i.i.i.i54, ptr %retval.0.i.i.i.i.i.i50, ptr %26
+  %next_.i.i.i.i.i55 = getelementptr inbounds i8, ptr %this.f.i.i.i.i, i64 8
+  store ptr %f..i.i.i.i, ptr %next_.i.i.i.i.i55, align 8
+  store ptr %retval.0.i.i.i.i.i.i50, ptr %21, align 8
+  %vtable.i59 = load ptr, ptr %call_spine, align 8
+  %vfn.i60 = getelementptr inbounds i8, ptr %vtable.i59, i64 40
+  %27 = load ptr, ptr %vfn.i60, align 8
+  %call2.i61 = tail call noundef nonnull align 8 dereferenceable(16) ptr %27(ptr noundef nonnull align 8 dereferenceable(8) %call_spine)
+  %28 = load ptr, ptr %call2.i61, align 8
+  %promise_memory_required_.i.i.i.i62 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = load i64, ptr %promise_memory_required_.i.i.i.i62, align 8
+  %.sroa.speculated.i.i.i.i63 = tail call i64 @llvm.umax.i64(i64 %29, i64 40)
+  store i64 %.sroa.speculated.i.i.i.i63, ptr %promise_memory_required_.i.i.i.i62, align 8
   %30 = load ptr, ptr %0, align 8
-  %cmp.not.i.i.i.i.i65 = icmp eq ptr %30, null
-  br i1 %cmp.not.i.i.i.i.i65, label %if.then.i.i.i.i.i82, label %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i66
+  %cmp.not.i.i.i.i.i64 = icmp eq ptr %30, null
+  br i1 %cmp.not.i.i.i.i.i64, label %if.then.i.i.i.i.i81, label %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i65
 
-if.then.i.i.i.i.i82:                              ; preds = %_ZN9grpc_core21promise_filter_detail30InterceptServerInitialMetadataINS_23ClientCompressionFilterEEEvMNT_4CallEFvR19grpc_metadata_batchPS3_EPNS3_4CallES7_PNS_18CallSpineInterfaceE.exit
+if.then.i.i.i.i.i81:                              ; preds = %_ZN9grpc_core21promise_filter_detail30InterceptServerInitialMetadataINS_23ClientCompressionFilterEEEvMNT_4CallEFvR19grpc_metadata_batchPS3_EPNS3_4CallES7_PNS_18CallSpineInterfaceE.exit
   tail call void @gpr_assertion_failed(ptr noundef nonnull @.str.17, i32 noundef 80, ptr noundef nonnull @.str.18) #24
   unreachable
 
-_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i66: ; preds = %_ZN9grpc_core21promise_filter_detail30InterceptServerInitialMetadataINS_23ClientCompressionFilterEEEvMNT_4CallEFvR19grpc_metadata_batchPS3_EPNS3_4CallES7_PNS_18CallSpineInterfaceE.exit
+_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i65: ; preds = %_ZN9grpc_core21promise_filter_detail30InterceptServerInitialMetadataINS_23ClientCompressionFilterEEEvMNT_4CallEFvR19grpc_metadata_batchPS3_EPNS3_4CallES7_PNS_18CallSpineInterfaceE.exit
   %31 = atomicrmw add ptr %30, i64 48 monotonic, align 8
-  %add2.i.i.i.i.i.i67 = add i64 %31, 48
-  %initial_zone_size_.i.i.i.i.i.i68 = getelementptr inbounds i8, ptr %30, i64 16
-  %32 = load i64, ptr %initial_zone_size_.i.i.i.i.i.i68, align 8
-  %cmp.not.i.i.i.i.i.i69 = icmp ugt i64 %add2.i.i.i.i.i.i67, %32
-  br i1 %cmp.not.i.i.i.i.i.i69, label %if.else.i.i.i.i.i.i80, label %if.then.i.i.i.i.i.i70
+  %add2.i.i.i.i.i.i66 = add i64 %31, 48
+  %initial_zone_size_.i.i.i.i.i.i67 = getelementptr inbounds i8, ptr %30, i64 16
+  %32 = load i64, ptr %initial_zone_size_.i.i.i.i.i.i67, align 8
+  %cmp.not.i.i.i.i.i.i68 = icmp ugt i64 %add2.i.i.i.i.i.i66, %32
+  br i1 %cmp.not.i.i.i.i.i.i68, label %if.else.i.i.i.i.i.i79, label %if.then.i.i.i.i.i.i69
 
-if.then.i.i.i.i.i.i70:                            ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i66
-  %add.ptr.i.i.i.i.i.i71 = getelementptr inbounds i8, ptr %30, i64 48
-  %add.ptr3.i.i.i.i.i.i72 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i71, i64 %31
+if.then.i.i.i.i.i.i69:                            ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i65
+  %add.ptr.i.i.i.i.i.i70 = getelementptr inbounds i8, ptr %30, i64 48
+  %add.ptr3.i.i.i.i.i.i71 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i70, i64 %31
   br label %_ZN9grpc_core21promise_filter_detail30InterceptServerToClientMessageINS_23ClientCompressionFilterEEEvMNT_4CallEFN4absl12lts_202308028StatusOrISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEEESC_PS3_EPNS3_4CallESE_PNS_18CallSpineInterfaceE.exit
 
-if.else.i.i.i.i.i.i80:                            ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i66
-  %call4.i.i.i.i.i.i81 = tail call noundef ptr @_ZN9grpc_core5Arena9AllocZoneEm(ptr noundef nonnull align 8 dereferenceable(48) %30, i64 noundef 48)
+if.else.i.i.i.i.i.i79:                            ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i65
+  %call4.i.i.i.i.i.i80 = tail call noundef ptr @_ZN9grpc_core5Arena9AllocZoneEm(ptr noundef nonnull align 8 dereferenceable(48) %30, i64 noundef 48)
   br label %_ZN9grpc_core21promise_filter_detail30InterceptServerToClientMessageINS_23ClientCompressionFilterEEEvMNT_4CallEFN4absl12lts_202308028StatusOrISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEEESC_PS3_EPNS3_4CallESE_PNS_18CallSpineInterfaceE.exit
 
-_ZN9grpc_core21promise_filter_detail30InterceptServerToClientMessageINS_23ClientCompressionFilterEEEvMNT_4CallEFN4absl12lts_202308028StatusOrISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEEESC_PS3_EPNS3_4CallESE_PNS_18CallSpineInterfaceE.exit: ; preds = %if.then.i.i.i.i.i.i70, %if.else.i.i.i.i.i.i80
-  %retval.0.i.i.i.i.i.i73 = phi ptr [ %add.ptr3.i.i.i.i.i.i72, %if.then.i.i.i.i.i.i70 ], [ %call4.i.i.i.i.i.i81, %if.else.i.i.i.i.i.i80 ]
-  %next_.i.i.i.i.i.i.i.i74 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i73, i64 8
-  store ptr null, ptr %next_.i.i.i.i.i.i.i.i74, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptServerToClientMessageINS_23ClientCompressionFilterEEEvMNT_4CallEFN4absl12lts_202308028StatusOrIS5_EES5_PSB_EPNSB_4CallESH_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_10PrependMapISO_EEvSB_NS_13DebugLocationEEUlvE_EE, i64 16), ptr %retval.0.i.i.i.i.i.i73, align 8
-  %fn_.i.i.i.i.i.i.i75 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i73, i64 16
-  store ptr %t.i.i.i.i, ptr %fn_.i.i.i.i.i.i.i75, align 8
-  %agg.tmp2.sroa.4.0.fn_.i.i.i.i.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i73, i64 24
+_ZN9grpc_core21promise_filter_detail30InterceptServerToClientMessageINS_23ClientCompressionFilterEEEvMNT_4CallEFN4absl12lts_202308028StatusOrISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEEESC_PS3_EPNS3_4CallESE_PNS_18CallSpineInterfaceE.exit: ; preds = %if.then.i.i.i.i.i.i69, %if.else.i.i.i.i.i.i79
+  %retval.0.i.i.i.i.i.i72 = phi ptr [ %add.ptr3.i.i.i.i.i.i71, %if.then.i.i.i.i.i.i69 ], [ %call4.i.i.i.i.i.i80, %if.else.i.i.i.i.i.i79 ]
+  %next_.i.i.i.i.i.i.i.i73 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i72, i64 8
+  store ptr null, ptr %next_.i.i.i.i.i.i.i.i73, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptServerToClientMessageINS_23ClientCompressionFilterEEEvMNT_4CallEFN4absl12lts_202308028StatusOrIS5_EES5_PSB_EPNSB_4CallESH_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_10PrependMapISO_EEvSB_NS_13DebugLocationEEUlvE_EE, i64 16), ptr %retval.0.i.i.i.i.i.i72, align 8
+  %fn_.i.i.i.i.i.i.i74 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i72, i64 16
+  store ptr %t.i.i.i.i, ptr %fn_.i.i.i.i.i.i.i74, align 8
+  %agg.tmp2.sroa.4.0.fn_.i.i.i.i.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i72, i64 24
   store ptr %call_spine, ptr %agg.tmp2.sroa.4.0.fn_.i.i.i.i.i.i.sroa_idx.i, align 8
-  %agg.tmp2.sroa.5.0.fn_.i.i.i.i.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i73, i64 32
+  %agg.tmp2.sroa.5.0.fn_.i.i.i.i.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i72, i64 32
   store ptr %this, ptr %agg.tmp2.sroa.5.0.fn_.i.i.i.i.i.i.sroa_idx.i, align 8
   %33 = load ptr, ptr %28, align 8
-  %cmp.i.i.i.i76 = icmp eq ptr %33, null
-  %this.f.i.i.i.i77 = select i1 %cmp.i.i.i.i76, ptr %28, ptr %retval.0.i.i.i.i.i.i73
-  %f..i.i.i.i78 = select i1 %cmp.i.i.i.i76, ptr %retval.0.i.i.i.i.i.i73, ptr %33
-  %next_.i.i.i.i.i79 = getelementptr inbounds i8, ptr %this.f.i.i.i.i77, i64 8
-  store ptr %f..i.i.i.i78, ptr %next_.i.i.i.i.i79, align 8
-  store ptr %retval.0.i.i.i.i.i.i73, ptr %28, align 8
+  %cmp.i.i.i.i75 = icmp eq ptr %33, null
+  %this.f.i.i.i.i76 = select i1 %cmp.i.i.i.i75, ptr %28, ptr %retval.0.i.i.i.i.i.i72
+  %f..i.i.i.i77 = select i1 %cmp.i.i.i.i75, ptr %retval.0.i.i.i.i.i.i72, ptr %33
+  %next_.i.i.i.i.i78 = getelementptr inbounds i8, ptr %this.f.i.i.i.i76, i64 8
+  store ptr %f..i.i.i.i77, ptr %next_.i.i.i.i.i78, align 8
+  store ptr %retval.0.i.i.i.i.i.i72, ptr %28, align 8
   ret void
 }
 
@@ -9402,6 +9402,7 @@ _ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13Po
 if.then.i.i.i.i:                                  ; preds = %_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE12MakeMapToAddIZNS_21promise_filter_detail30InterceptClientInitialMetadataINS_23ServerCompressionFilterEEEvMNT_4CallEFvRS2_PSB_EPNSB_4CallESE_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_9AppendMapISL_EEvSB_NS_13DebugLocationEEUlvE_EEPNS6_3MapESB_T0_SN_.exit.i.i.i
   store ptr %retval.0.i.i.i.i.i.i, ptr %5, align 8
   %last_map_.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %retval.0.i.i.i.i.i.i, ptr %last_map_.i.i.i.i, align 8
   br label %_ZN9grpc_core21promise_filter_detail30InterceptClientInitialMetadataINS_23ServerCompressionFilterEEEvMNT_4CallEFvR19grpc_metadata_batchPS3_EPNS3_4CallES7_PNS_18CallSpineInterfaceE.exit
 
 if.else.i.i.i.i:                                  ; preds = %_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE12MakeMapToAddIZNS_21promise_filter_detail30InterceptClientInitialMetadataINS_23ServerCompressionFilterEEEvMNT_4CallEFvRS2_PSB_EPNSB_4CallESE_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_9AppendMapISL_EEvSB_NS_13DebugLocationEEUlvE_EEPNS6_3MapESB_T0_SN_.exit.i.i.i
@@ -9409,11 +9410,10 @@ if.else.i.i.i.i:                                  ; preds = %_ZN9grpc_core15Inte
   %11 = load ptr, ptr %last_map_3.i.i.i.i, align 8
   %next_.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %retval.0.i.i.i.i.i.i, ptr %next_.i.i.i.i.i, align 8
+  store ptr %retval.0.i.i.i.i.i.i, ptr %last_map_3.i.i.i.i, align 8
   br label %_ZN9grpc_core21promise_filter_detail30InterceptClientInitialMetadataINS_23ServerCompressionFilterEEEvMNT_4CallEFvR19grpc_metadata_batchPS3_EPNS3_4CallES7_PNS_18CallSpineInterfaceE.exit
 
 _ZN9grpc_core21promise_filter_detail30InterceptClientInitialMetadataINS_23ServerCompressionFilterEEEvMNT_4CallEFvR19grpc_metadata_batchPS3_EPNS3_4CallES7_PNS_18CallSpineInterfaceE.exit: ; preds = %if.then.i.i.i.i, %if.else.i.i.i.i
-  %last_map_3.sink.i.i.i.i = phi ptr [ %last_map_3.i.i.i.i, %if.else.i.i.i.i ], [ %last_map_.i.i.i.i, %if.then.i.i.i.i ]
-  store ptr %retval.0.i.i.i.i.i.i, ptr %last_map_3.sink.i.i.i.i, align 8
   %vtable.i10 = load ptr, ptr %call_spine, align 8
   %vfn.i11 = getelementptr inbounds i8, ptr %vtable.i10, i64 32
   %12 = load ptr, ptr %vfn.i11, align 8
@@ -9426,9 +9426,9 @@ _ZN9grpc_core21promise_filter_detail30InterceptClientInitialMetadataINS_23Server
   store i64 %.sroa.speculated.i.i.i.i15, ptr %promise_memory_required_.i.i.i.i14, align 8
   %15 = load ptr, ptr %0, align 8
   %cmp.not.i.i.i.i.i16 = icmp eq ptr %15, null
-  br i1 %cmp.not.i.i.i.i.i16, label %if.then.i.i.i.i.i36, label %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i17
+  br i1 %cmp.not.i.i.i.i.i16, label %if.then.i.i.i.i.i35, label %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i17
 
-if.then.i.i.i.i.i36:                              ; preds = %_ZN9grpc_core21promise_filter_detail30InterceptClientInitialMetadataINS_23ServerCompressionFilterEEEvMNT_4CallEFvR19grpc_metadata_batchPS3_EPNS3_4CallES7_PNS_18CallSpineInterfaceE.exit
+if.then.i.i.i.i.i35:                              ; preds = %_ZN9grpc_core21promise_filter_detail30InterceptClientInitialMetadataINS_23ServerCompressionFilterEEEvMNT_4CallEFvR19grpc_metadata_batchPS3_EPNS3_4CallES7_PNS_18CallSpineInterfaceE.exit
   tail call void @gpr_assertion_failed(ptr noundef nonnull @.str.17, i32 noundef 80, ptr noundef nonnull @.str.18) #24
   unreachable
 
@@ -9438,19 +9438,19 @@ _ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i17: ; preds = %_ZN9grpc_c
   %initial_zone_size_.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %15, i64 16
   %17 = load i64, ptr %initial_zone_size_.i.i.i.i.i.i19, align 8
   %cmp.not.i.i.i.i.i.i20 = icmp ugt i64 %add2.i.i.i.i.i.i18, %17
-  br i1 %cmp.not.i.i.i.i.i.i20, label %if.else.i.i.i.i.i.i34, label %if.then.i.i.i.i.i.i21
+  br i1 %cmp.not.i.i.i.i.i.i20, label %if.else.i.i.i.i.i.i33, label %if.then.i.i.i.i.i.i21
 
 if.then.i.i.i.i.i.i21:                            ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i17
   %add.ptr.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %15, i64 48
   %add.ptr3.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i22, i64 %16
   br label %_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE12MakeMapToAddIZNS_21promise_filter_detail30InterceptClientToServerMessageINS_23ServerCompressionFilterEEEvMNT_4CallEFN4absl12lts_202308028StatusOrIS5_EES5_PSB_EPNSB_4CallESH_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_9AppendMapISO_EEvSB_NS_13DebugLocationEEUlvE_EEPNS6_3MapESB_T0_SQ_.exit.i.i.i
 
-if.else.i.i.i.i.i.i34:                            ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i17
-  %call4.i.i.i.i.i.i35 = tail call noundef ptr @_ZN9grpc_core5Arena9AllocZoneEm(ptr noundef nonnull align 8 dereferenceable(48) %15, i64 noundef 48)
+if.else.i.i.i.i.i.i33:                            ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i17
+  %call4.i.i.i.i.i.i34 = tail call noundef ptr @_ZN9grpc_core5Arena9AllocZoneEm(ptr noundef nonnull align 8 dereferenceable(48) %15, i64 noundef 48)
   br label %_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE12MakeMapToAddIZNS_21promise_filter_detail30InterceptClientToServerMessageINS_23ServerCompressionFilterEEEvMNT_4CallEFN4absl12lts_202308028StatusOrIS5_EES5_PSB_EPNSB_4CallESH_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_9AppendMapISO_EEvSB_NS_13DebugLocationEEUlvE_EEPNS6_3MapESB_T0_SQ_.exit.i.i.i
 
-_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE12MakeMapToAddIZNS_21promise_filter_detail30InterceptClientToServerMessageINS_23ServerCompressionFilterEEEvMNT_4CallEFN4absl12lts_202308028StatusOrIS5_EES5_PSB_EPNSB_4CallESH_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_9AppendMapISO_EEvSB_NS_13DebugLocationEEUlvE_EEPNS6_3MapESB_T0_SQ_.exit.i.i.i: ; preds = %if.else.i.i.i.i.i.i34, %if.then.i.i.i.i.i.i21
-  %retval.0.i.i.i.i.i.i24 = phi ptr [ %add.ptr3.i.i.i.i.i.i23, %if.then.i.i.i.i.i.i21 ], [ %call4.i.i.i.i.i.i35, %if.else.i.i.i.i.i.i34 ]
+_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE12MakeMapToAddIZNS_21promise_filter_detail30InterceptClientToServerMessageINS_23ServerCompressionFilterEEEvMNT_4CallEFN4absl12lts_202308028StatusOrIS5_EES5_PSB_EPNSB_4CallESH_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_9AppendMapISO_EEvSB_NS_13DebugLocationEEUlvE_EEPNS6_3MapESB_T0_SQ_.exit.i.i.i: ; preds = %if.else.i.i.i.i.i.i33, %if.then.i.i.i.i.i.i21
+  %retval.0.i.i.i.i.i.i24 = phi ptr [ %add.ptr3.i.i.i.i.i.i23, %if.then.i.i.i.i.i.i21 ], [ %call4.i.i.i.i.i.i34, %if.else.i.i.i.i.i.i33 ]
   %next_.i.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i24, i64 8
   store ptr null, ptr %next_.i.i.i.i.i.i.i.i25, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptClientToServerMessageINS_23ServerCompressionFilterEEEvMNT_4CallEFN4absl12lts_202308028StatusOrIS5_EES5_PSB_EPNSB_4CallESH_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_9AppendMapISO_EEvSB_NS_13DebugLocationEEUlvE_EE, i64 16), ptr %retval.0.i.i.i.i.i.i24, align 8
@@ -9462,11 +9462,12 @@ _ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDelet
   store ptr %this, ptr %agg.tmp2.sroa.5.0.fn_.i.i.i.i.i.i.sroa_idx.i, align 8
   %18 = load ptr, ptr %13, align 8
   %cmp.i.i.i.i27 = icmp eq ptr %18, null
-  br i1 %cmp.i.i.i.i27, label %if.then.i.i.i.i32, label %if.else.i.i.i.i28
+  br i1 %cmp.i.i.i.i27, label %if.then.i.i.i.i31, label %if.else.i.i.i.i28
 
-if.then.i.i.i.i32:                                ; preds = %_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE12MakeMapToAddIZNS_21promise_filter_detail30InterceptClientToServerMessageINS_23ServerCompressionFilterEEEvMNT_4CallEFN4absl12lts_202308028StatusOrIS5_EES5_PSB_EPNSB_4CallESH_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_9AppendMapISO_EEvSB_NS_13DebugLocationEEUlvE_EEPNS6_3MapESB_T0_SQ_.exit.i.i.i
+if.then.i.i.i.i31:                                ; preds = %_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE12MakeMapToAddIZNS_21promise_filter_detail30InterceptClientToServerMessageINS_23ServerCompressionFilterEEEvMNT_4CallEFN4absl12lts_202308028StatusOrIS5_EES5_PSB_EPNSB_4CallESH_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_9AppendMapISO_EEvSB_NS_13DebugLocationEEUlvE_EEPNS6_3MapESB_T0_SQ_.exit.i.i.i
   store ptr %retval.0.i.i.i.i.i.i24, ptr %13, align 8
-  %last_map_.i.i.i.i33 = getelementptr inbounds i8, ptr %13, i64 8
+  %last_map_.i.i.i.i32 = getelementptr inbounds i8, ptr %13, i64 8
+  store ptr %retval.0.i.i.i.i.i.i24, ptr %last_map_.i.i.i.i32, align 8
   br label %_ZN9grpc_core21promise_filter_detail30InterceptClientToServerMessageINS_23ServerCompressionFilterEEEvMNT_4CallEFN4absl12lts_202308028StatusOrISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEEESC_PS3_EPNS3_4CallESE_PNS_18CallSpineInterfaceE.exit
 
 if.else.i.i.i.i28:                                ; preds = %_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE12MakeMapToAddIZNS_21promise_filter_detail30InterceptClientToServerMessageINS_23ServerCompressionFilterEEEvMNT_4CallEFN4absl12lts_202308028StatusOrIS5_EES5_PSB_EPNSB_4CallESH_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_9AppendMapISO_EEvSB_NS_13DebugLocationEEUlvE_EEPNS6_3MapESB_T0_SQ_.exit.i.i.i
@@ -9474,111 +9475,110 @@ if.else.i.i.i.i28:                                ; preds = %_ZN9grpc_core15Inte
   %19 = load ptr, ptr %last_map_3.i.i.i.i29, align 8
   %next_.i.i.i.i.i30 = getelementptr inbounds i8, ptr %19, i64 8
   store ptr %retval.0.i.i.i.i.i.i24, ptr %next_.i.i.i.i.i30, align 8
+  store ptr %retval.0.i.i.i.i.i.i24, ptr %last_map_3.i.i.i.i29, align 8
   br label %_ZN9grpc_core21promise_filter_detail30InterceptClientToServerMessageINS_23ServerCompressionFilterEEEvMNT_4CallEFN4absl12lts_202308028StatusOrISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEEESC_PS3_EPNS3_4CallESE_PNS_18CallSpineInterfaceE.exit
 
-_ZN9grpc_core21promise_filter_detail30InterceptClientToServerMessageINS_23ServerCompressionFilterEEEvMNT_4CallEFN4absl12lts_202308028StatusOrISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEEESC_PS3_EPNS3_4CallESE_PNS_18CallSpineInterfaceE.exit: ; preds = %if.then.i.i.i.i32, %if.else.i.i.i.i28
-  %last_map_3.sink.i.i.i.i31 = phi ptr [ %last_map_3.i.i.i.i29, %if.else.i.i.i.i28 ], [ %last_map_.i.i.i.i33, %if.then.i.i.i.i32 ]
-  store ptr %retval.0.i.i.i.i.i.i24, ptr %last_map_3.sink.i.i.i.i31, align 8
-  %vtable.i37 = load ptr, ptr %call_spine, align 8
-  %vfn.i38 = getelementptr inbounds i8, ptr %vtable.i37, i64 24
-  %20 = load ptr, ptr %vfn.i38, align 8
-  %call2.i39 = tail call noundef nonnull align 8 dereferenceable(16) ptr %20(ptr noundef nonnull align 8 dereferenceable(8) %call_spine)
-  %21 = load ptr, ptr %call2.i39, align 8
-  %promise_memory_required_.i.i.i.i40 = getelementptr inbounds i8, ptr %21, i64 16
-  %22 = load i64, ptr %promise_memory_required_.i.i.i.i40, align 8
-  %.sroa.speculated.i.i.i.i41 = tail call i64 @llvm.umax.i64(i64 %22, i64 32)
-  store i64 %.sroa.speculated.i.i.i.i41, ptr %promise_memory_required_.i.i.i.i40, align 8
+_ZN9grpc_core21promise_filter_detail30InterceptClientToServerMessageINS_23ServerCompressionFilterEEEvMNT_4CallEFN4absl12lts_202308028StatusOrISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEEESC_PS3_EPNS3_4CallESE_PNS_18CallSpineInterfaceE.exit: ; preds = %if.then.i.i.i.i31, %if.else.i.i.i.i28
+  %vtable.i36 = load ptr, ptr %call_spine, align 8
+  %vfn.i37 = getelementptr inbounds i8, ptr %vtable.i36, i64 24
+  %20 = load ptr, ptr %vfn.i37, align 8
+  %call2.i38 = tail call noundef nonnull align 8 dereferenceable(16) ptr %20(ptr noundef nonnull align 8 dereferenceable(8) %call_spine)
+  %21 = load ptr, ptr %call2.i38, align 8
+  %promise_memory_required_.i.i.i.i39 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = load i64, ptr %promise_memory_required_.i.i.i.i39, align 8
+  %.sroa.speculated.i.i.i.i40 = tail call i64 @llvm.umax.i64(i64 %22, i64 32)
+  store i64 %.sroa.speculated.i.i.i.i40, ptr %promise_memory_required_.i.i.i.i39, align 8
   %23 = load ptr, ptr %0, align 8
-  %cmp.not.i.i.i.i.i42 = icmp eq ptr %23, null
-  br i1 %cmp.not.i.i.i.i.i42, label %if.then.i.i.i.i.i58, label %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i43
+  %cmp.not.i.i.i.i.i41 = icmp eq ptr %23, null
+  br i1 %cmp.not.i.i.i.i.i41, label %if.then.i.i.i.i.i57, label %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i42
 
-if.then.i.i.i.i.i58:                              ; preds = %_ZN9grpc_core21promise_filter_detail30InterceptClientToServerMessageINS_23ServerCompressionFilterEEEvMNT_4CallEFN4absl12lts_202308028StatusOrISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEEESC_PS3_EPNS3_4CallESE_PNS_18CallSpineInterfaceE.exit
+if.then.i.i.i.i.i57:                              ; preds = %_ZN9grpc_core21promise_filter_detail30InterceptClientToServerMessageINS_23ServerCompressionFilterEEEvMNT_4CallEFN4absl12lts_202308028StatusOrISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEEESC_PS3_EPNS3_4CallESE_PNS_18CallSpineInterfaceE.exit
   tail call void @gpr_assertion_failed(ptr noundef nonnull @.str.17, i32 noundef 80, ptr noundef nonnull @.str.18) #24
   unreachable
 
-_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i43: ; preds = %_ZN9grpc_core21promise_filter_detail30InterceptClientToServerMessageINS_23ServerCompressionFilterEEEvMNT_4CallEFN4absl12lts_202308028StatusOrISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEEESC_PS3_EPNS3_4CallESE_PNS_18CallSpineInterfaceE.exit
+_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i42: ; preds = %_ZN9grpc_core21promise_filter_detail30InterceptClientToServerMessageINS_23ServerCompressionFilterEEEvMNT_4CallEFN4absl12lts_202308028StatusOrISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEEESC_PS3_EPNS3_4CallESE_PNS_18CallSpineInterfaceE.exit
   %24 = atomicrmw add ptr %23, i64 32 monotonic, align 8
-  %add2.i.i.i.i.i.i44 = add i64 %24, 32
-  %initial_zone_size_.i.i.i.i.i.i45 = getelementptr inbounds i8, ptr %23, i64 16
-  %25 = load i64, ptr %initial_zone_size_.i.i.i.i.i.i45, align 8
-  %cmp.not.i.i.i.i.i.i46 = icmp ugt i64 %add2.i.i.i.i.i.i44, %25
-  br i1 %cmp.not.i.i.i.i.i.i46, label %if.else.i.i.i.i.i.i56, label %if.then.i.i.i.i.i.i47
+  %add2.i.i.i.i.i.i43 = add i64 %24, 32
+  %initial_zone_size_.i.i.i.i.i.i44 = getelementptr inbounds i8, ptr %23, i64 16
+  %25 = load i64, ptr %initial_zone_size_.i.i.i.i.i.i44, align 8
+  %cmp.not.i.i.i.i.i.i45 = icmp ugt i64 %add2.i.i.i.i.i.i43, %25
+  br i1 %cmp.not.i.i.i.i.i.i45, label %if.else.i.i.i.i.i.i55, label %if.then.i.i.i.i.i.i46
 
-if.then.i.i.i.i.i.i47:                            ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i43
-  %add.ptr.i.i.i.i.i.i48 = getelementptr inbounds i8, ptr %23, i64 48
-  %add.ptr3.i.i.i.i.i.i49 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i48, i64 %24
+if.then.i.i.i.i.i.i46:                            ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i42
+  %add.ptr.i.i.i.i.i.i47 = getelementptr inbounds i8, ptr %23, i64 48
+  %add.ptr3.i.i.i.i.i.i48 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i47, i64 %24
   br label %_ZN9grpc_core21promise_filter_detail30InterceptServerInitialMetadataINS_23ServerCompressionFilterEEEvMNT_4CallEFvR19grpc_metadata_batchPS3_EPNS3_4CallES7_PNS_18CallSpineInterfaceE.exit
 
-if.else.i.i.i.i.i.i56:                            ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i43
-  %call4.i.i.i.i.i.i57 = tail call noundef ptr @_ZN9grpc_core5Arena9AllocZoneEm(ptr noundef nonnull align 8 dereferenceable(48) %23, i64 noundef 32)
+if.else.i.i.i.i.i.i55:                            ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i42
+  %call4.i.i.i.i.i.i56 = tail call noundef ptr @_ZN9grpc_core5Arena9AllocZoneEm(ptr noundef nonnull align 8 dereferenceable(48) %23, i64 noundef 32)
   br label %_ZN9grpc_core21promise_filter_detail30InterceptServerInitialMetadataINS_23ServerCompressionFilterEEEvMNT_4CallEFvR19grpc_metadata_batchPS3_EPNS3_4CallES7_PNS_18CallSpineInterfaceE.exit
 
-_ZN9grpc_core21promise_filter_detail30InterceptServerInitialMetadataINS_23ServerCompressionFilterEEEvMNT_4CallEFvR19grpc_metadata_batchPS3_EPNS3_4CallES7_PNS_18CallSpineInterfaceE.exit: ; preds = %if.then.i.i.i.i.i.i47, %if.else.i.i.i.i.i.i56
-  %retval.0.i.i.i.i.i.i50 = phi ptr [ %add.ptr3.i.i.i.i.i.i49, %if.then.i.i.i.i.i.i47 ], [ %call4.i.i.i.i.i.i57, %if.else.i.i.i.i.i.i56 ]
-  %next_.i.i.i.i.i.i.i.i51 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i50, i64 8
-  store ptr null, ptr %next_.i.i.i.i.i.i.i.i51, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptServerInitialMetadataINS_23ServerCompressionFilterEEEvMNT_4CallEFvRS2_PSB_EPNSB_4CallESE_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_10PrependMapISL_EEvSB_NS_13DebugLocationEEUlvE_EE, i64 16), ptr %retval.0.i.i.i.i.i.i50, align 8
-  %fn_.i.i.i.i.i.i.i52 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i50, i64 16
-  store ptr %t.i.i.i.i, ptr %fn_.i.i.i.i.i.i.i52, align 8
-  %f.sroa.2.0.f_.sroa_idx.i.i.i.i.i.i.i.i53 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i50, i64 24
-  store ptr %this, ptr %f.sroa.2.0.f_.sroa_idx.i.i.i.i.i.i.i.i53, align 8
+_ZN9grpc_core21promise_filter_detail30InterceptServerInitialMetadataINS_23ServerCompressionFilterEEEvMNT_4CallEFvR19grpc_metadata_batchPS3_EPNS3_4CallES7_PNS_18CallSpineInterfaceE.exit: ; preds = %if.then.i.i.i.i.i.i46, %if.else.i.i.i.i.i.i55
+  %retval.0.i.i.i.i.i.i49 = phi ptr [ %add.ptr3.i.i.i.i.i.i48, %if.then.i.i.i.i.i.i46 ], [ %call4.i.i.i.i.i.i56, %if.else.i.i.i.i.i.i55 ]
+  %next_.i.i.i.i.i.i.i.i50 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i49, i64 8
+  store ptr null, ptr %next_.i.i.i.i.i.i.i.i50, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptServerInitialMetadataINS_23ServerCompressionFilterEEEvMNT_4CallEFvRS2_PSB_EPNSB_4CallESE_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_10PrependMapISL_EEvSB_NS_13DebugLocationEEUlvE_EE, i64 16), ptr %retval.0.i.i.i.i.i.i49, align 8
+  %fn_.i.i.i.i.i.i.i51 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i49, i64 16
+  store ptr %t.i.i.i.i, ptr %fn_.i.i.i.i.i.i.i51, align 8
+  %f.sroa.2.0.f_.sroa_idx.i.i.i.i.i.i.i.i52 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i49, i64 24
+  store ptr %this, ptr %f.sroa.2.0.f_.sroa_idx.i.i.i.i.i.i.i.i52, align 8
   %26 = load ptr, ptr %21, align 8
-  %cmp.i.i.i.i54 = icmp eq ptr %26, null
-  %this.f.i.i.i.i = select i1 %cmp.i.i.i.i54, ptr %21, ptr %retval.0.i.i.i.i.i.i50
-  %f..i.i.i.i = select i1 %cmp.i.i.i.i54, ptr %retval.0.i.i.i.i.i.i50, ptr %26
-  %next_.i.i.i.i.i55 = getelementptr inbounds i8, ptr %this.f.i.i.i.i, i64 8
-  store ptr %f..i.i.i.i, ptr %next_.i.i.i.i.i55, align 8
-  store ptr %retval.0.i.i.i.i.i.i50, ptr %21, align 8
-  %vtable.i59 = load ptr, ptr %call_spine, align 8
-  %vfn.i60 = getelementptr inbounds i8, ptr %vtable.i59, i64 40
-  %27 = load ptr, ptr %vfn.i60, align 8
-  %call2.i61 = tail call noundef nonnull align 8 dereferenceable(16) ptr %27(ptr noundef nonnull align 8 dereferenceable(8) %call_spine)
-  %28 = load ptr, ptr %call2.i61, align 8
-  %promise_memory_required_.i.i.i.i62 = getelementptr inbounds i8, ptr %28, i64 16
-  %29 = load i64, ptr %promise_memory_required_.i.i.i.i62, align 8
-  %.sroa.speculated.i.i.i.i63 = tail call i64 @llvm.umax.i64(i64 %29, i64 32)
-  store i64 %.sroa.speculated.i.i.i.i63, ptr %promise_memory_required_.i.i.i.i62, align 8
+  %cmp.i.i.i.i53 = icmp eq ptr %26, null
+  %this.f.i.i.i.i = select i1 %cmp.i.i.i.i53, ptr %21, ptr %retval.0.i.i.i.i.i.i49
+  %f..i.i.i.i = select i1 %cmp.i.i.i.i53, ptr %retval.0.i.i.i.i.i.i49, ptr %26
+  %next_.i.i.i.i.i54 = getelementptr inbounds i8, ptr %this.f.i.i.i.i, i64 8
+  store ptr %f..i.i.i.i, ptr %next_.i.i.i.i.i54, align 8
+  store ptr %retval.0.i.i.i.i.i.i49, ptr %21, align 8
+  %vtable.i58 = load ptr, ptr %call_spine, align 8
+  %vfn.i59 = getelementptr inbounds i8, ptr %vtable.i58, i64 40
+  %27 = load ptr, ptr %vfn.i59, align 8
+  %call2.i60 = tail call noundef nonnull align 8 dereferenceable(16) ptr %27(ptr noundef nonnull align 8 dereferenceable(8) %call_spine)
+  %28 = load ptr, ptr %call2.i60, align 8
+  %promise_memory_required_.i.i.i.i61 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = load i64, ptr %promise_memory_required_.i.i.i.i61, align 8
+  %.sroa.speculated.i.i.i.i62 = tail call i64 @llvm.umax.i64(i64 %29, i64 32)
+  store i64 %.sroa.speculated.i.i.i.i62, ptr %promise_memory_required_.i.i.i.i61, align 8
   %30 = load ptr, ptr %0, align 8
-  %cmp.not.i.i.i.i.i64 = icmp eq ptr %30, null
-  br i1 %cmp.not.i.i.i.i.i64, label %if.then.i.i.i.i.i82, label %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i65
+  %cmp.not.i.i.i.i.i63 = icmp eq ptr %30, null
+  br i1 %cmp.not.i.i.i.i.i63, label %if.then.i.i.i.i.i81, label %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i64
 
-if.then.i.i.i.i.i82:                              ; preds = %_ZN9grpc_core21promise_filter_detail30InterceptServerInitialMetadataINS_23ServerCompressionFilterEEEvMNT_4CallEFvR19grpc_metadata_batchPS3_EPNS3_4CallES7_PNS_18CallSpineInterfaceE.exit
+if.then.i.i.i.i.i81:                              ; preds = %_ZN9grpc_core21promise_filter_detail30InterceptServerInitialMetadataINS_23ServerCompressionFilterEEEvMNT_4CallEFvR19grpc_metadata_batchPS3_EPNS3_4CallES7_PNS_18CallSpineInterfaceE.exit
   tail call void @gpr_assertion_failed(ptr noundef nonnull @.str.17, i32 noundef 80, ptr noundef nonnull @.str.18) #24
   unreachable
 
-_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i65: ; preds = %_ZN9grpc_core21promise_filter_detail30InterceptServerInitialMetadataINS_23ServerCompressionFilterEEEvMNT_4CallEFvR19grpc_metadata_batchPS3_EPNS3_4CallES7_PNS_18CallSpineInterfaceE.exit
+_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i64: ; preds = %_ZN9grpc_core21promise_filter_detail30InterceptServerInitialMetadataINS_23ServerCompressionFilterEEEvMNT_4CallEFvR19grpc_metadata_batchPS3_EPNS3_4CallES7_PNS_18CallSpineInterfaceE.exit
   %31 = atomicrmw add ptr %30, i64 32 monotonic, align 8
-  %add2.i.i.i.i.i.i66 = add i64 %31, 32
-  %initial_zone_size_.i.i.i.i.i.i67 = getelementptr inbounds i8, ptr %30, i64 16
-  %32 = load i64, ptr %initial_zone_size_.i.i.i.i.i.i67, align 8
-  %cmp.not.i.i.i.i.i.i68 = icmp ugt i64 %add2.i.i.i.i.i.i66, %32
-  br i1 %cmp.not.i.i.i.i.i.i68, label %if.else.i.i.i.i.i.i80, label %if.then.i.i.i.i.i.i69
+  %add2.i.i.i.i.i.i65 = add i64 %31, 32
+  %initial_zone_size_.i.i.i.i.i.i66 = getelementptr inbounds i8, ptr %30, i64 16
+  %32 = load i64, ptr %initial_zone_size_.i.i.i.i.i.i66, align 8
+  %cmp.not.i.i.i.i.i.i67 = icmp ugt i64 %add2.i.i.i.i.i.i65, %32
+  br i1 %cmp.not.i.i.i.i.i.i67, label %if.else.i.i.i.i.i.i79, label %if.then.i.i.i.i.i.i68
 
-if.then.i.i.i.i.i.i69:                            ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i65
-  %add.ptr.i.i.i.i.i.i70 = getelementptr inbounds i8, ptr %30, i64 48
-  %add.ptr3.i.i.i.i.i.i71 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i70, i64 %31
+if.then.i.i.i.i.i.i68:                            ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i64
+  %add.ptr.i.i.i.i.i.i69 = getelementptr inbounds i8, ptr %30, i64 48
+  %add.ptr3.i.i.i.i.i.i70 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i69, i64 %31
   br label %_ZN9grpc_core21promise_filter_detail30InterceptServerToClientMessageINS_23ServerCompressionFilterEEEvMNT_4CallEFSt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEES9_PS3_EPNS3_4CallESA_PNS_18CallSpineInterfaceE.exit
 
-if.else.i.i.i.i.i.i80:                            ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i65
-  %call4.i.i.i.i.i.i81 = tail call noundef ptr @_ZN9grpc_core5Arena9AllocZoneEm(ptr noundef nonnull align 8 dereferenceable(48) %30, i64 noundef 32)
+if.else.i.i.i.i.i.i79:                            ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i64
+  %call4.i.i.i.i.i.i80 = tail call noundef ptr @_ZN9grpc_core5Arena9AllocZoneEm(ptr noundef nonnull align 8 dereferenceable(48) %30, i64 noundef 32)
   br label %_ZN9grpc_core21promise_filter_detail30InterceptServerToClientMessageINS_23ServerCompressionFilterEEEvMNT_4CallEFSt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEES9_PS3_EPNS3_4CallESA_PNS_18CallSpineInterfaceE.exit
 
-_ZN9grpc_core21promise_filter_detail30InterceptServerToClientMessageINS_23ServerCompressionFilterEEEvMNT_4CallEFSt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEES9_PS3_EPNS3_4CallESA_PNS_18CallSpineInterfaceE.exit: ; preds = %if.then.i.i.i.i.i.i69, %if.else.i.i.i.i.i.i80
-  %retval.0.i.i.i.i.i.i72 = phi ptr [ %add.ptr3.i.i.i.i.i.i71, %if.then.i.i.i.i.i.i69 ], [ %call4.i.i.i.i.i.i81, %if.else.i.i.i.i.i.i80 ]
-  %next_.i.i.i.i.i.i.i.i73 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i72, i64 8
-  store ptr null, ptr %next_.i.i.i.i.i.i.i.i73, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptServerToClientMessageINS_23ServerCompressionFilterEEEvMNT_4CallEFS5_S5_PSB_EPNSB_4CallESD_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_10PrependMapISK_EEvSB_NS_13DebugLocationEEUlvE_EE, i64 16), ptr %retval.0.i.i.i.i.i.i72, align 8
-  %fn_.i.i.i.i.i.i.i74 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i72, i64 16
-  store ptr %t.i.i.i.i, ptr %fn_.i.i.i.i.i.i.i74, align 8
-  %f.sroa.2.0.f_.sroa_idx.i.i.i.i.i.i.i.i75 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i72, i64 24
-  store ptr %this, ptr %f.sroa.2.0.f_.sroa_idx.i.i.i.i.i.i.i.i75, align 8
+_ZN9grpc_core21promise_filter_detail30InterceptServerToClientMessageINS_23ServerCompressionFilterEEEvMNT_4CallEFSt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEES9_PS3_EPNS3_4CallESA_PNS_18CallSpineInterfaceE.exit: ; preds = %if.then.i.i.i.i.i.i68, %if.else.i.i.i.i.i.i79
+  %retval.0.i.i.i.i.i.i71 = phi ptr [ %add.ptr3.i.i.i.i.i.i70, %if.then.i.i.i.i.i.i68 ], [ %call4.i.i.i.i.i.i80, %if.else.i.i.i.i.i.i79 ]
+  %next_.i.i.i.i.i.i.i.i72 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i71, i64 8
+  store ptr null, ptr %next_.i.i.i.i.i.i.i.i72, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptServerToClientMessageINS_23ServerCompressionFilterEEEvMNT_4CallEFS5_S5_PSB_EPNSB_4CallESD_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_10PrependMapISK_EEvSB_NS_13DebugLocationEEUlvE_EE, i64 16), ptr %retval.0.i.i.i.i.i.i71, align 8
+  %fn_.i.i.i.i.i.i.i73 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i71, i64 16
+  store ptr %t.i.i.i.i, ptr %fn_.i.i.i.i.i.i.i73, align 8
+  %f.sroa.2.0.f_.sroa_idx.i.i.i.i.i.i.i.i74 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i71, i64 24
+  store ptr %this, ptr %f.sroa.2.0.f_.sroa_idx.i.i.i.i.i.i.i.i74, align 8
   %33 = load ptr, ptr %28, align 8
-  %cmp.i.i.i.i76 = icmp eq ptr %33, null
-  %this.f.i.i.i.i77 = select i1 %cmp.i.i.i.i76, ptr %28, ptr %retval.0.i.i.i.i.i.i72
-  %f..i.i.i.i78 = select i1 %cmp.i.i.i.i76, ptr %retval.0.i.i.i.i.i.i72, ptr %33
-  %next_.i.i.i.i.i79 = getelementptr inbounds i8, ptr %this.f.i.i.i.i77, i64 8
-  store ptr %f..i.i.i.i78, ptr %next_.i.i.i.i.i79, align 8
-  store ptr %retval.0.i.i.i.i.i.i72, ptr %28, align 8
+  %cmp.i.i.i.i75 = icmp eq ptr %33, null
+  %this.f.i.i.i.i76 = select i1 %cmp.i.i.i.i75, ptr %28, ptr %retval.0.i.i.i.i.i.i71
+  %f..i.i.i.i77 = select i1 %cmp.i.i.i.i75, ptr %retval.0.i.i.i.i.i.i71, ptr %33
+  %next_.i.i.i.i.i78 = getelementptr inbounds i8, ptr %this.f.i.i.i.i76, i64 8
+  store ptr %f..i.i.i.i77, ptr %next_.i.i.i.i.i78, align 8
+  store ptr %retval.0.i.i.i.i.i.i71, ptr %28, align 8
   ret void
 }
 

@@ -3388,16 +3388,16 @@ define range(i32 -102, 1) i32 @cvLs_AccessLMemB(ptr noundef %0, i32 noundef %1, 
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %22
-  %.sink = phi ptr [ %26, %.lr.ph ], [ %23, %22 ]
-  %storemerge = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
-  store ptr %storemerge, ptr %5, align 8
-  %24 = load i32, ptr %storemerge, align 8
+  %storemerge.sink35.in = phi ptr [ %26, %.lr.ph ], [ %23, %22 ]
+  %storemerge.sink35 = load ptr, ptr %storemerge.sink35.in, align 8, !nonnull !4, !noundef !4
+  store ptr %storemerge.sink35, ptr %5, align 8
+  %24 = load i32, ptr %storemerge.sink35, align 8
   %25 = icmp eq i32 %1, %24
-  %26 = getelementptr inbounds i8, ptr %storemerge, i64 120
+  %26 = getelementptr inbounds i8, ptr %storemerge.sink35, i64 120
   br i1 %25, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %27 = getelementptr inbounds i8, ptr %storemerge, i64 72
+  %27 = getelementptr inbounds i8, ptr %storemerge.sink35, i64 72
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %32

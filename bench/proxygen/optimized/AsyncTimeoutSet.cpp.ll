@@ -109,15 +109,24 @@ if.end.i:                                         ; preds = %entry
   %cmp.i.i = icmp eq ptr %1, null
   %prev_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %prev_.i.i, align 8
-  %prev_4.i.i = getelementptr inbounds i8, ptr %1, i64 32
+  br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
+
+if.then.i.i:                                      ; preds = %if.end.i
   %tail_.i.i = getelementptr inbounds i8, ptr %0, i64 224
-  %prev_4.sink.i.i = select i1 %cmp.i.i, ptr %tail_.i.i, ptr %prev_4.i.i
-  store ptr %2, ptr %prev_4.sink.i.i, align 8
+  store ptr %2, ptr %tail_.i.i, align 8
+  br label %if.end.i.i
+
+if.else.i.i:                                      ; preds = %if.end.i
+  %prev_4.i.i = getelementptr inbounds i8, ptr %1, i64 32
+  store ptr %2, ptr %prev_4.i.i, align 8
+  br label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %if.else.i.i, %if.then.i.i
   %cmp6.i.i = icmp eq ptr %2, null
   %3 = load ptr, ptr %next_.i.i, align 8
   br i1 %cmp6.i.i, label %if.then7.i.i, label %if.else11.i.i
 
-if.then7.i.i:                                     ; preds = %if.end.i
+if.then7.i.i:                                     ; preds = %if.end.i.i
   %4 = load ptr, ptr %timeoutSet_.i, align 8
   %head_.i.i = getelementptr inbounds i8, ptr %4, i64 216
   store ptr %3, ptr %head_.i.i, align 8
@@ -125,7 +134,7 @@ if.then7.i.i:                                     ; preds = %if.end.i
   invoke void @_ZN8proxygen15AsyncTimeoutSet11headChangedEv(ptr noundef nonnull align 8 dereferenceable(249) %5)
           to label %_ZN8proxygen15AsyncTimeoutSet8Callback13cancelTimeoutEv.exit unwind label %terminate.lpad
 
-if.else11.i.i:                                    ; preds = %if.end.i
+if.else11.i.i:                                    ; preds = %if.end.i.i
   %next_14.i.i = getelementptr inbounds i8, ptr %2, i64 40
   store ptr %3, ptr %next_14.i.i, align 8
   br label %_ZN8proxygen15AsyncTimeoutSet8Callback13cancelTimeoutEv.exit
@@ -353,17 +362,26 @@ entry:
   %cmp = icmp eq ptr %0, null
   %prev_ = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %prev_, align 8
-  %prev_4 = getelementptr inbounds i8, ptr %0, i64 32
+  br i1 %cmp, label %if.then, label %if.else
+
+if.then:                                          ; preds = %entry
   %timeoutSet_ = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %timeoutSet_, align 8
   %tail_ = getelementptr inbounds i8, ptr %2, i64 224
-  %prev_4.sink = select i1 %cmp, ptr %tail_, ptr %prev_4
-  store ptr %1, ptr %prev_4.sink, align 8
+  store ptr %1, ptr %tail_, align 8
+  br label %if.end
+
+if.else:                                          ; preds = %entry
+  %prev_4 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %1, ptr %prev_4, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then
   %cmp6 = icmp eq ptr %1, null
   %3 = load ptr, ptr %next_, align 8
   br i1 %cmp6, label %if.then7, label %if.else11
 
-if.then7:                                         ; preds = %entry
+if.then7:                                         ; preds = %if.end
   %timeoutSet_9 = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load ptr, ptr %timeoutSet_9, align 8
   %head_ = getelementptr inbounds i8, ptr %4, i64 216
@@ -372,7 +390,7 @@ if.then7:                                         ; preds = %entry
   tail call void @_ZN8proxygen15AsyncTimeoutSet11headChangedEv(ptr noundef nonnull align 8 dereferenceable(249) %5)
   br label %if.end15
 
-if.else11:                                        ; preds = %entry
+if.else11:                                        ; preds = %if.end
   %next_14 = getelementptr inbounds i8, ptr %1, i64 40
   store ptr %3, ptr %next_14, align 8
   br label %if.end15
@@ -682,15 +700,24 @@ if.end.i:                                         ; preds = %while.body
   %cmp.i.i = icmp eq ptr %3, null
   %prev_.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load ptr, ptr %prev_.i.i, align 8
-  %prev_4.i.i = getelementptr inbounds i8, ptr %3, i64 32
+  br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
+
+if.then.i.i:                                      ; preds = %if.end.i
   %tail_.i.i = getelementptr inbounds i8, ptr %2, i64 224
-  %prev_4.sink.i.i = select i1 %cmp.i.i, ptr %tail_.i.i, ptr %prev_4.i.i
-  store ptr %4, ptr %prev_4.sink.i.i, align 8
+  store ptr %4, ptr %tail_.i.i, align 8
+  br label %if.end.i.i
+
+if.else.i.i:                                      ; preds = %if.end.i
+  %prev_4.i.i = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr %4, ptr %prev_4.i.i, align 8
+  br label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %if.else.i.i, %if.then.i.i
   %cmp6.i.i = icmp eq ptr %4, null
   %5 = load ptr, ptr %next_.i.i, align 8
   br i1 %cmp6.i.i, label %if.then7.i.i, label %if.else11.i.i
 
-if.then7.i.i:                                     ; preds = %if.end.i
+if.then7.i.i:                                     ; preds = %if.end.i.i
   %6 = load ptr, ptr %timeoutSet_.i, align 8
   %head_.i.i = getelementptr inbounds i8, ptr %6, i64 216
   store ptr %5, ptr %head_.i.i, align 8
@@ -698,7 +725,7 @@ if.then7.i.i:                                     ; preds = %if.end.i
   tail call void @_ZN8proxygen15AsyncTimeoutSet11headChangedEv(ptr noundef nonnull align 8 dereferenceable(249) %7)
   br label %_ZN8proxygen15AsyncTimeoutSet8Callback17cancelTimeoutImplEv.exit.i
 
-if.else11.i.i:                                    ; preds = %if.end.i
+if.else11.i.i:                                    ; preds = %if.end.i.i
   %next_14.i.i = getelementptr inbounds i8, ptr %4, i64 40
   store ptr %5, ptr %next_14.i.i, align 8
   br label %_ZN8proxygen15AsyncTimeoutSet8Callback17cancelTimeoutImplEv.exit.i
@@ -757,15 +784,24 @@ if.end.i.i:                                       ; preds = %while.body.i
   %cmp.i.i.i = icmp eq ptr %3, null
   %prev_.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load ptr, ptr %prev_.i.i.i, align 8
-  %prev_4.i.i.i = getelementptr inbounds i8, ptr %3, i64 32
+  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
+
+if.then.i.i.i:                                    ; preds = %if.end.i.i
   %tail_.i.i.i = getelementptr inbounds i8, ptr %2, i64 224
-  %prev_4.sink.i.i.i = select i1 %cmp.i.i.i, ptr %tail_.i.i.i, ptr %prev_4.i.i.i
-  store ptr %4, ptr %prev_4.sink.i.i.i, align 8
+  store ptr %4, ptr %tail_.i.i.i, align 8
+  br label %if.end.i.i.i
+
+if.else.i.i.i:                                    ; preds = %if.end.i.i
+  %prev_4.i.i.i = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr %4, ptr %prev_4.i.i.i, align 8
+  br label %if.end.i.i.i
+
+if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.then.i.i.i
   %cmp6.i.i.i = icmp eq ptr %4, null
   %5 = load ptr, ptr %next_.i.i.i, align 8
   br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %if.else11.i.i.i
 
-if.then7.i.i.i:                                   ; preds = %if.end.i.i
+if.then7.i.i.i:                                   ; preds = %if.end.i.i.i
   %6 = load ptr, ptr %timeoutSet_.i.i, align 8
   %head_.i.i.i = getelementptr inbounds i8, ptr %6, i64 216
   store ptr %5, ptr %head_.i.i.i, align 8
@@ -773,7 +809,7 @@ if.then7.i.i.i:                                   ; preds = %if.end.i.i
   tail call void @_ZN8proxygen15AsyncTimeoutSet11headChangedEv(ptr noundef nonnull align 8 dereferenceable(249) %7)
   br label %_ZN8proxygen15AsyncTimeoutSet8Callback17cancelTimeoutImplEv.exit.i.i
 
-if.else11.i.i.i:                                  ; preds = %if.end.i.i
+if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
   %next_14.i.i.i = getelementptr inbounds i8, ptr %4, i64 40
   store ptr %5, ptr %next_14.i.i.i, align 8
   br label %_ZN8proxygen15AsyncTimeoutSet8Callback17cancelTimeoutImplEv.exit.i.i
@@ -825,15 +861,24 @@ if.end.i:                                         ; preds = %entry
   %cmp.i.i = icmp eq ptr %1, null
   %prev_.i.i = getelementptr inbounds i8, ptr %callback, i64 32
   %2 = load ptr, ptr %prev_.i.i, align 8
-  %prev_4.i.i = getelementptr inbounds i8, ptr %1, i64 32
+  br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
+
+if.then.i.i:                                      ; preds = %if.end.i
   %tail_.i.i = getelementptr inbounds i8, ptr %0, i64 224
-  %prev_4.sink.i.i = select i1 %cmp.i.i, ptr %tail_.i.i, ptr %prev_4.i.i
-  store ptr %2, ptr %prev_4.sink.i.i, align 8
+  store ptr %2, ptr %tail_.i.i, align 8
+  br label %if.end.i.i
+
+if.else.i.i:                                      ; preds = %if.end.i
+  %prev_4.i.i = getelementptr inbounds i8, ptr %1, i64 32
+  store ptr %2, ptr %prev_4.i.i, align 8
+  br label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %if.else.i.i, %if.then.i.i
   %cmp6.i.i = icmp eq ptr %2, null
   %3 = load ptr, ptr %next_.i.i, align 8
   br i1 %cmp6.i.i, label %if.then7.i.i, label %if.else11.i.i
 
-if.then7.i.i:                                     ; preds = %if.end.i
+if.then7.i.i:                                     ; preds = %if.end.i.i
   %4 = load ptr, ptr %timeoutSet_.i, align 8
   %head_.i.i = getelementptr inbounds i8, ptr %4, i64 216
   store ptr %3, ptr %head_.i.i, align 8
@@ -841,7 +886,7 @@ if.then7.i.i:                                     ; preds = %if.end.i
   tail call void @_ZN8proxygen15AsyncTimeoutSet11headChangedEv(ptr noundef nonnull align 8 dereferenceable(249) %5)
   br label %_ZN8proxygen15AsyncTimeoutSet8Callback17cancelTimeoutImplEv.exit.i
 
-if.else11.i.i:                                    ; preds = %if.end.i
+if.else11.i.i:                                    ; preds = %if.end.i.i
   %next_14.i.i = getelementptr inbounds i8, ptr %2, i64 40
   store ptr %3, ptr %next_14.i.i, align 8
   br label %_ZN8proxygen15AsyncTimeoutSet8Callback17cancelTimeoutImplEv.exit.i
@@ -963,7 +1008,7 @@ if.then:                                          ; preds = %_ZNSt10shared_ptrIN
   %inTimeoutExpired_ = getelementptr inbounds i8, ptr %this, i64 248
   %24 = load i8, ptr %inTimeoutExpired_, align 8
   %tobool = trunc i8 %24 to i1
-  br i1 %tobool, label %if.end10, label %if.then2
+  br i1 %tobool, label %if.end, label %if.then2
 
 if.then2:                                         ; preds = %if.then
   %interval_ = getelementptr inbounds i8, ptr %this, i64 232
@@ -1003,7 +1048,7 @@ _ZN5folly14RequestContext11saveContextEv.exit26:  ; preds = %if.then2, %if.then.
 invoke.cont:                                      ; preds = %_ZN5folly14RequestContext11saveContextEv.exit26
   %31 = load ptr, ptr %_M_refcount.i.i.i17, align 8
   %cmp.not.i.i.i28 = icmp eq ptr %31, null
-  br i1 %cmp.not.i.i.i28, label %if.end10, label %if.then.i.i.i29
+  br i1 %cmp.not.i.i.i28, label %if.end, label %if.then.i.i.i29
 
 if.then.i.i.i29:                                  ; preds = %invoke.cont
   %_M_use_count.i.i.i.i30 = getelementptr inbounds i8, ptr %31, i64 8
@@ -1039,7 +1084,7 @@ if.else.i.i.i.i.i53:                              ; preds = %if.end.i.i.i.i32
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i36: ; preds = %if.else.i.i.i.i.i53, %if.then.i.i.i.i.i34
   %retval.i.0.i.i.i.i37 = phi i32 [ %33, %if.then.i.i.i.i.i34 ], [ %36, %if.else.i.i.i.i.i53 ]
   %cmp6.i.i.i.i38 = icmp eq i32 %retval.i.0.i.i.i.i37, 1
-  br i1 %cmp6.i.i.i.i38, label %if.then7.i.i.i.i39, label %if.end10
+  br i1 %cmp6.i.i.i.i38, label %if.then7.i.i.i.i39, label %if.end
 
 if.then7.i.i.i.i39:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i36
   %vtable.i.i.i.i.i.i40 = load ptr, ptr %31, align 8
@@ -1064,14 +1109,14 @@ if.else.i.i.i.i.i.i.i52:                          ; preds = %if.then7.i.i.i.i39
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i46: ; preds = %if.else.i.i.i.i.i.i.i52, %if.then.i.i.i.i.i.i.i44
   %retval.i.0.i.i.i.i.i.i47 = phi i32 [ %39, %if.then.i.i.i.i.i.i.i44 ], [ %40, %if.else.i.i.i.i.i.i.i52 ]
   %cmp.i.i.i.i.i.i48 = icmp eq i32 %retval.i.0.i.i.i.i.i.i47, 1
-  br i1 %cmp.i.i.i.i.i.i48, label %if.end8.sink.split.i.i.i.i49, label %if.end10
+  br i1 %cmp.i.i.i.i.i.i48, label %if.end8.sink.split.i.i.i.i49, label %if.end
 
 if.end8.sink.split.i.i.i.i49:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i46, %if.then.i.i.i.i54
   %vtable2.i.i.i.i.i.i50 = load ptr, ptr %31, align 8
   %vfn3.i.i.i.i.i.i51 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i50, i64 24
   %41 = load ptr, ptr %vfn3.i.i.i.i.i.i51, align 8
   call void %41(ptr noundef nonnull align 8 dereferenceable(16) %31) #15
-  br label %if.end10
+  br label %if.end
 
 lpad:                                             ; preds = %_ZN5folly14RequestContext11saveContextEv.exit26
   %42 = landingpad { ptr, i32 }
@@ -1079,13 +1124,16 @@ lpad:                                             ; preds = %_ZN5folly14RequestC
   call void @_ZNSt10shared_ptrIN5folly14RequestContextEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4) #15
   resume { ptr, i32 } %42
 
-if.else:                                          ; preds = %_ZNSt10shared_ptrIN5folly14RequestContextEED2Ev.exit
-  %next_ = getelementptr inbounds i8, ptr %22, i64 40
+if.end:                                           ; preds = %if.end8.sink.split.i.i.i.i49, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i46, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i36, %invoke.cont, %if.then
+  store ptr %callback, ptr %head_, align 8
   br label %if.end10
 
-if.end10:                                         ; preds = %if.then, %invoke.cont, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i36, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i46, %if.end8.sink.split.i.i.i.i49, %if.else
-  %next_.sink = phi ptr [ %next_, %if.else ], [ %head_, %if.end8.sink.split.i.i.i.i49 ], [ %head_, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i46 ], [ %head_, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i36 ], [ %head_, %invoke.cont ], [ %head_, %if.then ]
-  store ptr %callback, ptr %next_.sink, align 8
+if.else:                                          ; preds = %_ZNSt10shared_ptrIN5folly14RequestContextEED2Ev.exit
+  %next_ = getelementptr inbounds i8, ptr %22, i64 40
+  store ptr %callback, ptr %next_, align 8
+  br label %if.end10
+
+if.end10:                                         ; preds = %if.else, %if.end
   store ptr %callback, ptr %tail_, align 8
   store ptr %this, ptr %timeoutSet_.i, align 8
   %prev_.i = getelementptr inbounds i8, ptr %callback, i64 32
@@ -1272,15 +1320,24 @@ if.end.i:                                         ; preds = %if.end24
   %cmp.i.i6 = icmp eq ptr %24, null
   %prev_.i.i = getelementptr inbounds i8, ptr %4, i64 32
   %25 = load ptr, ptr %prev_.i.i, align 8
-  %prev_4.i.i = getelementptr inbounds i8, ptr %24, i64 32
+  br i1 %cmp.i.i6, label %if.then.i.i, label %if.else.i.i
+
+if.then.i.i:                                      ; preds = %if.end.i
   %tail_.i.i = getelementptr inbounds i8, ptr %23, i64 224
-  %prev_4.sink.i.i = select i1 %cmp.i.i6, ptr %tail_.i.i, ptr %prev_4.i.i
-  store ptr %25, ptr %prev_4.sink.i.i, align 8
+  store ptr %25, ptr %tail_.i.i, align 8
+  br label %if.end.i.i
+
+if.else.i.i:                                      ; preds = %if.end.i
+  %prev_4.i.i = getelementptr inbounds i8, ptr %24, i64 32
+  store ptr %25, ptr %prev_4.i.i, align 8
+  br label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %if.else.i.i, %if.then.i.i
   %cmp6.i.i = icmp eq ptr %25, null
   %26 = load ptr, ptr %next_.i.i, align 8
   br i1 %cmp6.i.i, label %if.then7.i.i, label %if.else11.i.i
 
-if.then7.i.i:                                     ; preds = %if.end.i
+if.then7.i.i:                                     ; preds = %if.end.i.i
   %27 = load ptr, ptr %timeoutSet_.i, align 8
   %head_.i.i = getelementptr inbounds i8, ptr %27, i64 216
   store ptr %26, ptr %head_.i.i, align 8
@@ -1288,7 +1345,7 @@ if.then7.i.i:                                     ; preds = %if.end.i
   invoke void @_ZN8proxygen15AsyncTimeoutSet11headChangedEv(ptr noundef nonnull align 8 dereferenceable(249) %28)
           to label %_ZN8proxygen15AsyncTimeoutSet8Callback17cancelTimeoutImplEv.exit.i unwind label %terminate.lpad.loopexit
 
-if.else11.i.i:                                    ; preds = %if.end.i
+if.else11.i.i:                                    ; preds = %if.end.i.i
   %next_14.i.i = getelementptr inbounds i8, ptr %25, i64 40
   store ptr %26, ptr %next_14.i.i, align 8
   br label %_ZN8proxygen15AsyncTimeoutSet8Callback17cancelTimeoutImplEv.exit.i

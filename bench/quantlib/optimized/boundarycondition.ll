@@ -94,6 +94,7 @@ sw.bb:                                            ; preds = %entry
   store double -1.000000e+00, ptr %1, align 8, !tbaa !15
   %upperDiagonal_.i = getelementptr inbounds nuw i8, ptr %L, i64 40
   %2 = load ptr, ptr %upperDiagonal_.i, align 8, !tbaa !13
+  store double 1.000000e+00, ptr %2, align 8, !tbaa !15
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry
@@ -107,6 +108,7 @@ sw.bb2:                                           ; preds = %entry
   %6 = load ptr, ptr %diagonal_.i6, align 8, !tbaa !13
   %7 = getelementptr double, ptr %6, i64 %3
   %arrayidx.i1.i = getelementptr i8, ptr %7, i64 -8
+  store double 1.000000e+00, ptr %arrayidx.i1.i, align 8, !tbaa !15
   br label %sw.epilog
 
 do.body:                                          ; preds = %entry
@@ -266,8 +268,6 @@ ehcleanup24:                                      ; preds = %_ZNKSt7__cxx1112bas
   resume { ptr, i32 } %.pn.pn.pn.pn
 
 sw.epilog:                                        ; preds = %sw.bb2, %sw.bb
-  %arrayidx.i1.i.sink = phi ptr [ %arrayidx.i1.i, %sw.bb2 ], [ %2, %sw.bb ]
-  store double 1.000000e+00, ptr %arrayidx.i1.i.sink, align 8, !tbaa !15
   ret void
 
 unreachable:                                      ; preds = %invoke.cont14

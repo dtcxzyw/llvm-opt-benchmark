@@ -73954,12 +73954,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_122ObjCMigrateASTConsumer24migrateO
   %9 = alloca %"class.clang::edit::Commit", align 8
   %10 = tail call noundef i32 @_ZNK5clang4Decl15getAvailabilityEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm12VersionTupleEPNS8_9StringRefE(ptr noundef nonnull align 8 dereferenceable(33) %2, ptr noundef null, i64 0, i64 0, ptr noundef null) #23
   %11 = icmp eq i32 %10, 2
-  %.sink96.i.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 504
-  %.sink96.i.sroa.gep58 = getelementptr inbounds nuw i8, ptr %8, i64 504
-  %.sink96.i.sroa.gep60 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %.sink96.i.sroa.gep61 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %.sink96.i.sroa.gep63 = getelementptr inbounds i8, ptr %9, i64 56
-  %.sink96.i.sroa.gep64 = getelementptr inbounds i8, ptr %8, i64 56
+  %.sink.i.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 504
+  %.sink.i.sroa.gep58 = getelementptr inbounds nuw i8, ptr %8, i64 504
+  %.sink.i.sroa.gep60 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %.sink.i.sroa.gep61 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %.sink.i.sroa.gep63 = getelementptr inbounds i8, ptr %9, i64 56
+  %.sink.i.sroa.gep64 = getelementptr inbounds i8, ptr %8, i64 56
   br i1 %11, label %.loopexit, label %12
 
 12:                                               ; preds = %3
@@ -74283,16 +74283,16 @@ _ZNK5clang4Type10isVoidTypeEv.exit64.i:           ; preds = %_ZL15AttributesMatc
   br label %_ZNK5clang4Type10isVoidTypeEv.exit64.thread.sink.split.i
 
 _ZNK5clang4Type10isVoidTypeEv.exit64.thread.sink.split.i: ; preds = %182, %170
-  %.sink96.i.sroa.phi = phi ptr [ %.sink96.i.sroa.gep, %182 ], [ %.sink96.i.sroa.gep58, %170 ]
-  %.sink96.i.sroa.phi59 = phi ptr [ %.sink96.i.sroa.gep60, %182 ], [ %.sink96.i.sroa.gep61, %170 ]
-  %.sink96.i.sroa.phi62 = phi ptr [ %.sink96.i.sroa.gep63, %182 ], [ %.sink96.i.sroa.gep64, %170 ]
-  %.sink96.i = phi ptr [ %9, %182 ], [ %8, %170 ]
+  %.sink104 = phi ptr [ %9, %182 ], [ %8, %170 ]
+  %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %182 ], [ %.sink.i.sroa.gep58, %170 ]
+  %.sink.i.sroa.phi59 = phi ptr [ %.sink.i.sroa.gep60, %182 ], [ %.sink.i.sroa.gep61, %170 ]
+  %.sink.i.sroa.phi62 = phi ptr [ %.sink.i.sroa.gep63, %182 ], [ %.sink.i.sroa.gep64, %170 ]
   %190 = load ptr, ptr %44, align 8
-  %191 = call noundef zeroext i1 @_ZN5clang4edit12EditedSource6commitERKNS0_6CommitE(ptr noundef nonnull align 8 dereferenceable(384) %190, ptr noundef nonnull align 8 dereferenceable(600) %.sink96.i) #23
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink96.i.sroa.phi) #23
-  %192 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.sink96.i.sroa.phi59) #23
-  %193 = load ptr, ptr %.sink96.i.sroa.phi59, align 8
-  %194 = icmp eq ptr %193, %.sink96.i.sroa.phi62
+  %191 = call noundef zeroext i1 @_ZN5clang4edit12EditedSource6commitERKNS0_6CommitE(ptr noundef nonnull align 8 dereferenceable(384) %190, ptr noundef nonnull align 8 dereferenceable(600) %.sink104) #23
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink.i.sroa.phi) #23
+  %192 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.sink.i.sroa.phi59) #23
+  %193 = load ptr, ptr %.sink.i.sroa.phi59, align 8
+  %194 = icmp eq ptr %193, %.sink.i.sroa.phi62
   br i1 %194, label %196, label %195
 
 195:                                              ; preds = %_ZNK5clang4Type10isVoidTypeEv.exit64.thread.sink.split.i
@@ -74588,7 +74588,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_122ObjCMigrateASTCons
   %8 = load i8, ptr %7, align 2
   %9 = and i8 %8, 1
   %.not63 = icmp eq i8 %9, 0
-  br i1 %.not63, label %143, label %10
+  br i1 %.not63, label %147, label %10
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -74597,257 +74597,264 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_122ObjCMigrateASTCons
   %14 = icmp ne i64 %13, 0
   %.not64 = icmp ult i64 %12, 8
   %.not = or i1 %.not64, %14
-  br i1 %.not, label %15, label %143
+  br i1 %.not, label %15, label %147
 
 15:                                               ; preds = %10
   %16 = tail call noundef i32 @_ZNK5clang4Decl15getAvailabilityEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm12VersionTupleEPNS8_9StringRefE(ptr noundef nonnull align 8 dereferenceable(33) %2, ptr noundef null, i64 0, i64 0, ptr noundef null) #23
   %17 = icmp eq i32 %16, 2
-  br i1 %17, label %143, label %18
+  br i1 %17, label %147, label %18
 
 18:                                               ; preds = %15
   %.not39 = icmp eq ptr %3, null
-  br i1 %.not39, label %19, label %89
+  br i1 %.not39, label %19, label %91
 
 19:                                               ; preds = %18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %21 = load ptr, ptr %20, align 8
   %.not40 = icmp eq ptr %21, null
-  br i1 %.not40, label %22, label %25
+  br i1 %.not40, label %23, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %24 = load ptr, ptr %23, align 8
-  %.not41 = icmp eq ptr %24, null
-  br i1 %.not41, label %143, label %25
+  store ptr null, ptr %20, align 8
+  br label %27
 
-25:                                               ; preds = %22, %19
-  %.sink = phi ptr [ %20, %19 ], [ %23, %22 ]
-  %.1 = phi ptr [ %21, %19 ], [ %24, %22 ]
-  store ptr null, ptr %.sink, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 88
+23:                                               ; preds = %19
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %25 = load ptr, ptr %24, align 8
+  %.not41 = icmp eq ptr %25, null
+  br i1 %.not41, label %147, label %26
+
+26:                                               ; preds = %23
+  store ptr null, ptr %24, align 8
+  br label %27
+
+27:                                               ; preds = %26, %22
+  %.1 = phi ptr [ %21, %22 ], [ %25, %26 ]
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %.1, i64 24
-  %.sroa.0.0.copyload.i = load i32, ptr %30, align 8
-  %31 = and i32 %.sroa.0.0.copyload.i, 2147483647
-  %32 = getelementptr inbounds nuw i8, ptr %29, i64 408
-  %.sroa.0.0.copyload.i.i = load i32, ptr %32, align 8
-  %33 = add i32 %.sroa.0.0.copyload.i.i, 1
-  %or.cond.i.i.i.i.i = icmp ult i32 %33, 2
-  br i1 %or.cond.i.i.i.i.i, label %34, label %37
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 88
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %.1, i64 24
+  %.sroa.0.0.copyload.i = load i32, ptr %32, align 8
+  %33 = and i32 %.sroa.0.0.copyload.i, 2147483647
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 408
+  %.sroa.0.0.copyload.i.i = load i32, ptr %34, align 8
+  %35 = add i32 %.sroa.0.0.copyload.i.i, 1
+  %or.cond.i.i.i.i.i = icmp ult i32 %35, 2
+  br i1 %or.cond.i.i.i.i.i, label %36, label %39
 
-34:                                               ; preds = %25
-  %35 = getelementptr inbounds nuw i8, ptr %29, i64 184
-  %36 = load ptr, ptr %35, align 8
+36:                                               ; preds = %27
+  %37 = getelementptr inbounds nuw i8, ptr %31, i64 184
+  %38 = load ptr, ptr %37, align 8
   br label %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i
 
-37:                                               ; preds = %25
-  %38 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang13SourceManager16getSLocEntryByIDEiPb(ptr noundef nonnull align 8 dereferenceable(696) %29, i32 noundef %.sroa.0.0.copyload.i.i, ptr noundef null)
+39:                                               ; preds = %27
+  %40 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang13SourceManager16getSLocEntryByIDEiPb(ptr noundef nonnull align 8 dereferenceable(696) %31, i32 noundef %.sroa.0.0.copyload.i.i, ptr noundef null)
   br label %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i
 
-_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i: ; preds = %37, %34
-  %.0.i.i.i.i.i = phi ptr [ %36, %34 ], [ %38, %37 ]
-  %39 = load i32, ptr %.0.i.i.i.i.i, align 8
-  %40 = and i32 %39, 2147483647
-  %41 = icmp ult i32 %31, %40
-  br i1 %41, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i, label %42
+_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i: ; preds = %39, %36
+  %.0.i.i.i.i.i = phi ptr [ %38, %36 ], [ %40, %39 ]
+  %41 = load i32, ptr %.0.i.i.i.i.i, align 8
+  %42 = and i32 %41, 2147483647
+  %43 = icmp ult i32 %33, %42
+  br i1 %43, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i, label %44
 
-42:                                               ; preds = %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i
-  %43 = icmp eq i32 %.sroa.0.0.copyload.i.i, -2
-  br i1 %43, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i, label %44
+44:                                               ; preds = %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i
+  %45 = icmp eq i32 %.sroa.0.0.copyload.i.i, -2
+  br i1 %45, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i, label %46
 
-44:                                               ; preds = %42
-  %45 = getelementptr inbounds nuw i8, ptr %29, i64 184
-  %46 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %45) #23
-  %47 = trunc i64 %46 to i32
-  %48 = icmp eq i32 %33, %47
-  br i1 %48, label %49, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i
+46:                                               ; preds = %44
+  %47 = getelementptr inbounds nuw i8, ptr %31, i64 184
+  %48 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %47) #23
+  %49 = trunc i64 %48 to i32
+  %50 = icmp eq i32 %35, %49
+  br i1 %50, label %51, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i
 
-49:                                               ; preds = %44
-  %50 = getelementptr inbounds nuw i8, ptr %29, i64 248
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp ult i32 %31, %51
-  br i1 %52, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i
+51:                                               ; preds = %46
+  %52 = getelementptr inbounds nuw i8, ptr %31, i64 248
+  %53 = load i32, ptr %52, align 8
+  %54 = icmp ult i32 %33, %53
+  br i1 %54, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i
 
-_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i: ; preds = %44
-  %53 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang13SourceManager16getSLocEntryByIDEiPb(ptr noundef nonnull align 8 dereferenceable(696) %29, i32 noundef %33, ptr noundef null)
-  %54 = load i32, ptr %53, align 8
-  %55 = and i32 %54, 2147483647
-  %56 = icmp ult i32 %31, %55
-  br i1 %56, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i
+_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i: ; preds = %46
+  %55 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang13SourceManager16getSLocEntryByIDEiPb(ptr noundef nonnull align 8 dereferenceable(696) %31, i32 noundef %35, ptr noundef null)
+  %56 = load i32, ptr %55, align 8
+  %57 = and i32 %56, 2147483647
+  %58 = icmp ult i32 %33, %57
+  br i1 %58, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i
 
-_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i: ; preds = %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i, %49, %42
-  %.sroa.02.0.copyload.i.i = load i32, ptr %32, align 8
+_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i: ; preds = %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i, %51, %44
+  %.sroa.02.0.copyload.i.i = load i32, ptr %34, align 8
   br label %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit
 
-_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i: ; preds = %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i, %49, %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i
-  %57 = tail call i32 @_ZNK5clang13SourceManager13getFileIDSlowEj(ptr noundef nonnull align 8 dereferenceable(696) %29, i32 noundef %31) #23
+_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i: ; preds = %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i, %51, %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i
+  %59 = tail call i32 @_ZNK5clang13SourceManager13getFileIDSlowEj(ptr noundef nonnull align 8 dereferenceable(696) %31, i32 noundef %33) #23
   br label %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit
 
 _ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit: ; preds = %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i, %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i
-  %.sroa.02.0.i.i = phi i32 [ %.sroa.02.0.copyload.i.i, %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i ], [ %57, %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i ]
-  %58 = load ptr, ptr %26, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 88
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.sroa.0.0.copyload.i43 = load i32, ptr %61, align 8
-  %62 = and i32 %.sroa.0.0.copyload.i43, 2147483647
-  %63 = getelementptr inbounds nuw i8, ptr %60, i64 408
-  %.sroa.0.0.copyload.i.i44 = load i32, ptr %63, align 8
-  %64 = add i32 %.sroa.0.0.copyload.i.i44, 1
-  %or.cond.i.i.i.i.i45 = icmp ult i32 %64, 2
-  br i1 %or.cond.i.i.i.i.i45, label %65, label %68
+  %.sroa.02.0.i.i = phi i32 [ %.sroa.02.0.copyload.i.i, %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i ], [ %59, %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i ]
+  %60 = load ptr, ptr %28, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 88
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %.sroa.0.0.copyload.i43 = load i32, ptr %63, align 8
+  %64 = and i32 %.sroa.0.0.copyload.i43, 2147483647
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 408
+  %.sroa.0.0.copyload.i.i44 = load i32, ptr %65, align 8
+  %66 = add i32 %.sroa.0.0.copyload.i.i44, 1
+  %or.cond.i.i.i.i.i45 = icmp ult i32 %66, 2
+  br i1 %or.cond.i.i.i.i.i45, label %67, label %70
 
-65:                                               ; preds = %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit
-  %66 = getelementptr inbounds nuw i8, ptr %60, i64 184
-  %67 = load ptr, ptr %66, align 8
+67:                                               ; preds = %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit
+  %68 = getelementptr inbounds nuw i8, ptr %62, i64 184
+  %69 = load ptr, ptr %68, align 8
   br label %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i46
 
-68:                                               ; preds = %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit
-  %69 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang13SourceManager16getSLocEntryByIDEiPb(ptr noundef nonnull align 8 dereferenceable(696) %60, i32 noundef %.sroa.0.0.copyload.i.i44, ptr noundef null)
+70:                                               ; preds = %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit
+  %71 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang13SourceManager16getSLocEntryByIDEiPb(ptr noundef nonnull align 8 dereferenceable(696) %62, i32 noundef %.sroa.0.0.copyload.i.i44, ptr noundef null)
   br label %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i46
 
-_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i46: ; preds = %68, %65
-  %.0.i.i.i.i.i47 = phi ptr [ %67, %65 ], [ %69, %68 ]
-  %70 = load i32, ptr %.0.i.i.i.i.i47, align 8
-  %71 = and i32 %70, 2147483647
-  %72 = icmp ult i32 %62, %71
-  br i1 %72, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i49, label %73
+_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i46: ; preds = %70, %67
+  %.0.i.i.i.i.i47 = phi ptr [ %69, %67 ], [ %71, %70 ]
+  %72 = load i32, ptr %.0.i.i.i.i.i47, align 8
+  %73 = and i32 %72, 2147483647
+  %74 = icmp ult i32 %64, %73
+  br i1 %74, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i49, label %75
 
-73:                                               ; preds = %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i46
-  %74 = icmp eq i32 %.sroa.0.0.copyload.i.i44, -2
-  br i1 %74, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i51, label %75
+75:                                               ; preds = %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i46
+  %76 = icmp eq i32 %.sroa.0.0.copyload.i.i44, -2
+  br i1 %76, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i51, label %77
 
-75:                                               ; preds = %73
-  %76 = getelementptr inbounds nuw i8, ptr %60, i64 184
-  %77 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %76) #23
-  %78 = trunc i64 %77 to i32
-  %79 = icmp eq i32 %64, %78
-  br i1 %79, label %80, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i48
+77:                                               ; preds = %75
+  %78 = getelementptr inbounds nuw i8, ptr %62, i64 184
+  %79 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %78) #23
+  %80 = trunc i64 %79 to i32
+  %81 = icmp eq i32 %66, %80
+  br i1 %81, label %82, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i48
 
-80:                                               ; preds = %75
-  %81 = getelementptr inbounds nuw i8, ptr %60, i64 248
-  %82 = load i32, ptr %81, align 8
-  %83 = icmp ult i32 %62, %82
-  br i1 %83, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i51, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i49
+82:                                               ; preds = %77
+  %83 = getelementptr inbounds nuw i8, ptr %62, i64 248
+  %84 = load i32, ptr %83, align 8
+  %85 = icmp ult i32 %64, %84
+  br i1 %85, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i51, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i49
 
-_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i48: ; preds = %75
-  %84 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang13SourceManager16getSLocEntryByIDEiPb(ptr noundef nonnull align 8 dereferenceable(696) %60, i32 noundef %64, ptr noundef null)
-  %85 = load i32, ptr %84, align 8
-  %86 = and i32 %85, 2147483647
-  %87 = icmp ult i32 %62, %86
-  br i1 %87, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i51, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i49
+_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i48: ; preds = %77
+  %86 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang13SourceManager16getSLocEntryByIDEiPb(ptr noundef nonnull align 8 dereferenceable(696) %62, i32 noundef %66, ptr noundef null)
+  %87 = load i32, ptr %86, align 8
+  %88 = and i32 %87, 2147483647
+  %89 = icmp ult i32 %64, %88
+  br i1 %89, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i51, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i49
 
-_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i51: ; preds = %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i48, %80, %73
-  %.sroa.02.0.copyload.i.i52 = load i32, ptr %63, align 8
+_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i51: ; preds = %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i48, %82, %75
+  %.sroa.02.0.copyload.i.i52 = load i32, ptr %65, align 8
   br label %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit53
 
-_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i49: ; preds = %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i48, %80, %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i46
-  %88 = tail call i32 @_ZNK5clang13SourceManager13getFileIDSlowEj(ptr noundef nonnull align 8 dereferenceable(696) %60, i32 noundef %62) #23
+_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i49: ; preds = %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i48, %82, %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i46
+  %90 = tail call i32 @_ZNK5clang13SourceManager13getFileIDSlowEj(ptr noundef nonnull align 8 dereferenceable(696) %62, i32 noundef %64) #23
   br label %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit53
 
 _ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit53: ; preds = %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i51, %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i49
-  %.sroa.02.0.i.i50 = phi i32 [ %.sroa.02.0.copyload.i.i52, %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i51 ], [ %88, %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i49 ]
+  %.sroa.02.0.i.i50 = phi i32 [ %.sroa.02.0.copyload.i.i52, %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i51 ], [ %90, %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i49 ]
   %.not65 = icmp eq i32 %.sroa.02.0.i.i, %.sroa.02.0.i.i50
-  br i1 %.not65, label %89, label %143
+  br i1 %.not65, label %91, label %147
 
-89:                                               ; preds = %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit53, %18
+91:                                               ; preds = %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit53, %18
   %.033 = phi ptr [ %3, %18 ], [ %.1, %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit53 ]
-  %90 = tail call noundef i32 @_ZNK5clang4Decl15getAvailabilityEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm12VersionTupleEPNS8_9StringRefE(ptr noundef nonnull align 8 dereferenceable(33) %.033, ptr noundef null, i64 0, i64 0, ptr noundef null) #23
-  %91 = icmp eq i32 %90, 2
-  br i1 %91, label %143, label %92
+  %92 = tail call noundef i32 @_ZNK5clang4Decl15getAvailabilityEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm12VersionTupleEPNS8_9StringRefE(ptr noundef nonnull align 8 dereferenceable(33) %.033, ptr noundef null, i64 0, i64 0, ptr noundef null) #23
+  %93 = icmp eq i32 %92, 2
+  br i1 %93, label %147, label %94
 
-92:                                               ; preds = %89
-  %93 = getelementptr inbounds nuw i8, ptr %.033, i64 80
-  %.0.copyload.i.i.i.i.i = load i64, ptr %93, align 8
-  %94 = and i64 %.0.copyload.i.i.i.i.i, 4
-  %.not.i = icmp eq i64 %94, 0
-  %95 = and i64 %.0.copyload.i.i.i.i.i, -8
-  %96 = inttoptr i64 %95 to ptr
-  br i1 %.not.i, label %_ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit, label %97
+94:                                               ; preds = %91
+  %95 = getelementptr inbounds nuw i8, ptr %.033, i64 80
+  %.0.copyload.i.i.i.i.i = load i64, ptr %95, align 8
+  %96 = and i64 %.0.copyload.i.i.i.i.i, 4
+  %.not.i = icmp eq i64 %96, 0
+  %97 = and i64 %.0.copyload.i.i.i.i.i, -8
+  %98 = inttoptr i64 %97 to ptr
+  br i1 %.not.i, label %_ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit, label %99
 
-97:                                               ; preds = %92
-  %98 = load ptr, ptr %96, align 8
+99:                                               ; preds = %94
+  %100 = load ptr, ptr %98, align 8
   br label %_ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit
 
-_ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit: ; preds = %92, %97
-  %99 = phi ptr [ %98, %97 ], [ %96, %92 ]
-  %.sroa.0.0.copyload.i54 = load i64, ptr %99, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %101 = load ptr, ptr %100, align 8
-  %102 = tail call { ptr, i64 } @_ZNK5clang5NSAPI17GetNSIntegralKindENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(712) %101, i64 %.sroa.0.0.copyload.i54) #23
-  %103 = extractvalue { ptr, i64 } %102, 0
-  %104 = extractvalue { ptr, i64 } %102, 1
-  %105 = icmp eq i64 %104, 0
-  br i1 %105, label %106, label %130
+_ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit: ; preds = %94, %99
+  %101 = phi ptr [ %100, %99 ], [ %98, %94 ]
+  %.sroa.0.0.copyload.i54 = load i64, ptr %101, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %103 = load ptr, ptr %102, align 8
+  %104 = tail call { ptr, i64 } @_ZNK5clang5NSAPI17GetNSIntegralKindENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(712) %103, i64 %.sroa.0.0.copyload.i54) #23
+  %105 = extractvalue { ptr, i64 } %104, 0
+  %106 = extractvalue { ptr, i64 } %104, 1
+  %107 = icmp eq i64 %106, 0
+  br i1 %107, label %108, label %134
 
-106:                                              ; preds = %_ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit
-  %107 = and i64 %.sroa.0.0.copyload.i54, -16
-  %108 = inttoptr i64 %107 to ptr
-  %109 = load ptr, ptr %108, align 16
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
-  %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %110, align 8
-  %111 = and i64 %.sroa.0.0.copyload.i.i.i.i, -16
-  %112 = inttoptr i64 %111 to ptr
-  %113 = load ptr, ptr %112, align 16
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 16
-  %115 = load i8, ptr %114, align 16
-  %116 = icmp ne i8 %115, 46
-  %.not4266 = icmp eq ptr %113, null
-  %.not42 = or i1 %.not4266, %116
-  br i1 %.not42, label %143, label %117
+108:                                              ; preds = %_ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit
+  %109 = and i64 %.sroa.0.0.copyload.i54, -16
+  %110 = inttoptr i64 %109 to ptr
+  %111 = load ptr, ptr %110, align 16
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
+  %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %112, align 8
+  %113 = and i64 %.sroa.0.0.copyload.i.i.i.i, -16
+  %114 = inttoptr i64 %113 to ptr
+  %115 = load ptr, ptr %114, align 16
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 16
+  %117 = load i8, ptr %116, align 16
+  %118 = icmp ne i8 %117, 46
+  %.not4266 = icmp eq ptr %115, null
+  %.not42 = or i1 %.not4266, %118
+  br i1 %.not42, label %147, label %119
 
-117:                                              ; preds = %106
-  %118 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %113) #23
-  %119 = icmp eq ptr %118, %2
-  br i1 %119, label %120, label %143
+119:                                              ; preds = %108
+  %120 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %115) #23
+  %121 = icmp eq ptr %120, %2
+  br i1 %121, label %122, label %147
 
-120:                                              ; preds = %117
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %122 = load ptr, ptr %121, align 8
-  %123 = tail call fastcc noundef zeroext i1 @_ZL17UseNSOptionsMacroRN5clang12PreprocessorERNS_10ASTContextEPKNS_8EnumDeclE(ptr noundef nonnull align 8 dereferenceable(3288) %122, ptr noundef %2)
-  %124 = getelementptr inbounds nuw i8, ptr %.033, i64 56
-  %.sroa.0.0.copyload.i56 = load i32, ptr %124, align 8
-  %125 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_122ObjCMigrateASTConsumer16InsertFoundationERN5clang10ASTContextENS1_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, i32 %.sroa.0.0.copyload.i56)
-  br i1 %125, label %126, label %143
+122:                                              ; preds = %119
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %124 = load ptr, ptr %123, align 8
+  %125 = tail call fastcc noundef zeroext i1 @_ZL17UseNSOptionsMacroRN5clang12PreprocessorERNS_10ASTContextEPKNS_8EnumDeclE(ptr noundef nonnull align 8 dereferenceable(3288) %124, ptr noundef %2)
+  %126 = getelementptr inbounds nuw i8, ptr %.033, i64 56
+  %.sroa.0.0.copyload.i56 = load i32, ptr %126, align 8
+  %127 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_122ObjCMigrateASTConsumer16InsertFoundationERN5clang10ASTContextENS1_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, i32 %.sroa.0.0.copyload.i56)
+  br i1 %127, label %128, label %147
 
-126:                                              ; preds = %120
-  %127 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %128 = load ptr, ptr %127, align 8
-  call void @_ZN5clang4edit6CommitC1ERNS0_12EditedSourceE(ptr noundef nonnull align 8 dereferenceable(600) %5, ptr noundef nonnull align 8 dereferenceable(384) %128) #23
-  %129 = xor i1 %123, true
-  call fastcc void @_ZL20rewriteToNSMacroDeclRN5clang10ASTContextEPKNS_8EnumDeclEPKNS_11TypedefDeclERKNS_5NSAPIERNS_4edit6CommitEb(ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr noundef %2, ptr noundef %.033, ptr noundef nonnull align 8 dereferenceable(600) %5, i1 noundef zeroext %129)
+128:                                              ; preds = %122
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %130 = load ptr, ptr %129, align 8
+  call void @_ZN5clang4edit6CommitC1ERNS0_12EditedSourceE(ptr noundef nonnull align 8 dereferenceable(600) %5, ptr noundef nonnull align 8 dereferenceable(384) %130) #23
+  %131 = xor i1 %125, true
+  call fastcc void @_ZL20rewriteToNSMacroDeclRN5clang10ASTContextEPKNS_8EnumDeclEPKNS_11TypedefDeclERKNS_5NSAPIERNS_4edit6CommitEb(ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr noundef %2, ptr noundef %.033, ptr noundef nonnull align 8 dereferenceable(600) %5, i1 noundef zeroext %131)
+  %132 = load ptr, ptr %129, align 8
+  %133 = call noundef zeroext i1 @_ZN5clang4edit12EditedSource6commitERKNS0_6CommitE(ptr noundef nonnull align 8 dereferenceable(384) %132, ptr noundef nonnull align 8 dereferenceable(600) %5) #23
   br label %.sink.split
 
-130:                                              ; preds = %_ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %132 = load ptr, ptr %131, align 8
-  %133 = tail call fastcc noundef zeroext i1 @_ZL17UseNSOptionsMacroRN5clang12PreprocessorERNS_10ASTContextEPKNS_8EnumDeclE(ptr noundef nonnull align 8 dereferenceable(3288) %132, ptr noundef %2)
-  %134 = getelementptr inbounds nuw i8, ptr %.033, i64 56
-  %.sroa.0.0.copyload.i57 = load i32, ptr %134, align 8
-  %135 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_122ObjCMigrateASTConsumer16InsertFoundationERN5clang10ASTContextENS1_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, i32 %.sroa.0.0.copyload.i57)
-  br i1 %135, label %136, label %143
+134:                                              ; preds = %_ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %136 = load ptr, ptr %135, align 8
+  %137 = tail call fastcc noundef zeroext i1 @_ZL17UseNSOptionsMacroRN5clang12PreprocessorERNS_10ASTContextEPKNS_8EnumDeclE(ptr noundef nonnull align 8 dereferenceable(3288) %136, ptr noundef %2)
+  %138 = getelementptr inbounds nuw i8, ptr %.033, i64 56
+  %.sroa.0.0.copyload.i57 = load i32, ptr %138, align 8
+  %139 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_122ObjCMigrateASTConsumer16InsertFoundationERN5clang10ASTContextENS1_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, i32 %.sroa.0.0.copyload.i57)
+  br i1 %139, label %140, label %147
 
-136:                                              ; preds = %130
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %138 = load ptr, ptr %137, align 8
-  call void @_ZN5clang4edit6CommitC1ERNS0_12EditedSourceE(ptr noundef nonnull align 8 dereferenceable(600) %6, ptr noundef nonnull align 8 dereferenceable(384) %138) #23
-  %139 = load ptr, ptr %100, align 8
-  %140 = call fastcc noundef zeroext i1 @_ZL19rewriteToNSEnumDeclPKN5clang8EnumDeclEPKNS_11TypedefDeclERKNS_5NSAPIERNS_4edit6CommitEN4llvm9StringRefEb(ptr noundef %2, ptr noundef %.033, ptr noundef nonnull align 8 dereferenceable(712) %139, ptr noundef nonnull align 8 dereferenceable(600) %6, ptr %103, i64 %104, i1 noundef zeroext %133)
+140:                                              ; preds = %134
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %142 = load ptr, ptr %141, align 8
+  call void @_ZN5clang4edit6CommitC1ERNS0_12EditedSourceE(ptr noundef nonnull align 8 dereferenceable(600) %6, ptr noundef nonnull align 8 dereferenceable(384) %142) #23
+  %143 = load ptr, ptr %102, align 8
+  %144 = call fastcc noundef zeroext i1 @_ZL19rewriteToNSEnumDeclPKN5clang8EnumDeclEPKNS_11TypedefDeclERKNS_5NSAPIERNS_4edit6CommitEN4llvm9StringRefEb(ptr noundef %2, ptr noundef %.033, ptr noundef nonnull align 8 dereferenceable(712) %143, ptr noundef nonnull align 8 dereferenceable(600) %6, ptr %105, i64 %106, i1 noundef zeroext %137)
+  %145 = load ptr, ptr %141, align 8
+  %146 = call noundef zeroext i1 @_ZN5clang4edit12EditedSource6commitERKNS0_6CommitE(ptr noundef nonnull align 8 dereferenceable(384) %145, ptr noundef nonnull align 8 dereferenceable(600) %6) #23
   br label %.sink.split
 
-.sink.split:                                      ; preds = %126, %136
-  %.sink70 = phi ptr [ %137, %136 ], [ %127, %126 ]
-  %.sink69 = phi ptr [ %6, %136 ], [ %5, %126 ]
-  %.0.ph = phi i1 [ %140, %136 ], [ true, %126 ]
-  %141 = load ptr, ptr %.sink70, align 8
-  %142 = call noundef zeroext i1 @_ZN5clang4edit12EditedSource6commitERKNS0_6CommitE(ptr noundef nonnull align 8 dereferenceable(384) %141, ptr noundef nonnull align 8 dereferenceable(600) %.sink69) #23
-  call void @_ZN5clang4edit6CommitD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %.sink69) #23
-  br label %143
+.sink.split:                                      ; preds = %128, %140
+  %.sink = phi ptr [ %6, %140 ], [ %5, %128 ]
+  %.0.ph = phi i1 [ %144, %140 ], [ true, %128 ]
+  call void @_ZN5clang4edit6CommitD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %.sink) #23
+  br label %147
 
-143:                                              ; preds = %.sink.split, %130, %106, %117, %120, %89, %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit53, %22, %4, %10, %15
-  %.0 = phi i1 [ false, %15 ], [ false, %10 ], [ false, %4 ], [ false, %22 ], [ false, %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit53 ], [ false, %89 ], [ false, %120 ], [ false, %117 ], [ false, %106 ], [ false, %130 ], [ %.0.ph, %.sink.split ]
+147:                                              ; preds = %.sink.split, %134, %108, %119, %122, %91, %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit53, %23, %4, %10, %15
+  %.0 = phi i1 [ false, %15 ], [ false, %10 ], [ false, %4 ], [ false, %23 ], [ false, %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit53 ], [ false, %91 ], [ false, %122 ], [ false, %119 ], [ false, %108 ], [ false, %134 ], [ %.0.ph, %.sink.split ]
   ret i1 %.0
 }
 

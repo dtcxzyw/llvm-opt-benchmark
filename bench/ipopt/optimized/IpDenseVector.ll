@@ -840,35 +840,33 @@ define noundef double @_ZNK5Ipopt11DenseVector8AmaxImplEv(ptr nocapture noundef 
   %4 = getelementptr inbounds i8, ptr %3, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %22, label %7
+  br i1 %6, label %24, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 233
   %9 = load i8, ptr %8, align 1
   %10 = trunc i8 %9 to i1
-  br i1 %10, label %11, label %13
+  br i1 %10, label %11, label %15
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds i8, ptr %0, i64 240
-  br label %.sink.split
+  %13 = load double, ptr %12, align 8
+  %14 = tail call noundef double @llvm.fabs.f64(double %13)
+  br label %24
 
-13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 216
-  %15 = load ptr, ptr %14, align 8
-  %16 = tail call noundef i32 @_ZN5Ipopt11IpBlasIamaxEiPKdi(i32 noundef %5, ptr noundef %15, i32 noundef 1)
-  %17 = sext i32 %16 to i64
-  %18 = getelementptr double, ptr %15, i64 %17
-  %19 = getelementptr i8, ptr %18, i64 -8
-  br label %.sink.split
+15:                                               ; preds = %7
+  %16 = getelementptr inbounds i8, ptr %0, i64 216
+  %17 = load ptr, ptr %16, align 8
+  %18 = tail call noundef i32 @_ZN5Ipopt11IpBlasIamaxEiPKdi(i32 noundef %5, ptr noundef %17, i32 noundef 1)
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr double, ptr %17, i64 %19
+  %21 = getelementptr i8, ptr %20, i64 -8
+  %22 = load double, ptr %21, align 8
+  %23 = tail call noundef double @llvm.fabs.f64(double %22)
+  br label %24
 
-.sink.split:                                      ; preds = %11, %13
-  %.sink2 = phi ptr [ %19, %13 ], [ %12, %11 ]
-  %20 = load double, ptr %.sink2, align 8
-  %21 = tail call noundef double @llvm.fabs.f64(double %20)
-  br label %22
-
-22:                                               ; preds = %.sink.split, %1
-  %.0 = phi double [ 0.000000e+00, %1 ], [ %21, %.sink.split ]
+24:                                               ; preds = %1, %15, %11
+  %.0 = phi double [ %14, %11 ], [ %23, %15 ], [ 0.000000e+00, %1 ]
   ret double %.0
 }
 

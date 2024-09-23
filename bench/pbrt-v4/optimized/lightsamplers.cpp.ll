@@ -4625,14 +4625,14 @@ invoke.cont32:                                    ; preds = %_ZN4pstd3pmr21polym
   %29 = load i64, ptr %nAlloc.i42, align 8
   %30 = load i64, ptr %nStored.i16, align 8
   %cmp.i44 = icmp eq i64 %29, %30
-  br i1 %cmp.i44, label %if.then.i48, label %if.end
+  br i1 %cmp.i44, label %if.then.i48, label %_ZN4pstd6vectorIN4pbrt5LightENS_3pmr21polymorphic_allocatorIS2_EEE9push_backERKS2_.exit
 
 if.then.i48:                                      ; preds = %invoke.cont32
   %cmp3.i49 = icmp eq i64 %29, 0
   %mul.i50 = shl i64 %29, 1
   %spec.select.i51 = select i1 %cmp3.i49, i64 4, i64 %mul.i50
   %cmp.not.i.i52 = icmp ult i64 %29, %spec.select.i51
-  br i1 %cmp.not.i.i52, label %if.end.i.i53, label %if.end
+  br i1 %cmp.not.i.i52, label %if.end.i.i53, label %_ZN4pstd6vectorIN4pbrt5LightENS_3pmr21polymorphic_allocatorIS2_EEE9push_backERKS2_.exit
 
 if.end.i.i53:                                     ; preds = %if.then.i48
   %mul.i.i.i54 = shl i64 %spec.select.i51, 3
@@ -4694,15 +4694,27 @@ _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE17deallocate_objectIS3_EEvPT_m
   %.pre1.i81 = phi i64 [ %.pre1.pre.i80, %.noexc83 ], [ %.pre13.i73, %for.end.i.i72 ]
   store i64 %spec.select.i51, ptr %nAlloc.i42, align 8
   store ptr %retval.0.i.i.i.i.i62, ptr %ptr.i10, align 8
+  br label %_ZN4pstd6vectorIN4pbrt5LightENS_3pmr21polymorphic_allocatorIS2_EEE9push_backERKS2_.exit
+
+_ZN4pstd6vectorIN4pbrt5LightENS_3pmr21polymorphic_allocatorIS2_EEE9push_backERKS2_.exit: ; preds = %invoke.cont32, %if.then.i48, %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE17deallocate_objectIS3_EEvPT_m.exit.i.i
+  %40 = phi i64 [ %.pre1.i81, %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE17deallocate_objectIS3_EEvPT_m.exit.i.i ], [ %29, %if.then.i48 ], [ %30, %invoke.cont32 ]
+  %41 = load ptr, ptr %ptr.i10, align 8
+  %add.ptr.i46 = getelementptr inbounds %"class.pbrt::Light", ptr %41, i64 %40
+  store i64 0, ptr %add.ptr.i46, align 8
+  %42 = load i64, ptr %__begin1.0149, align 8
+  store i64 %42, ptr %add.ptr.i46, align 8
+  %43 = load i64, ptr %nStored.i16, align 8
+  %inc.i47 = add i64 %43, 1
+  store i64 %inc.i47, ptr %nStored.i16, align 8
   br label %if.end
 
 lpad12:                                           ; preds = %_ZN4pstd6vectorIN4pbrt5LightENS_3pmr21polymorphic_allocatorIS2_EEEC2IPKS2_EET_SA_RKS5_.exit
-  %40 = landingpad { ptr, i32 }
+  %44 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup37
 
 lpad14:                                           ; preds = %for.body
-  %41 = landingpad { ptr, i32 }
+  %45 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
@@ -4718,8 +4730,8 @@ lpad20.loopexit.split-lp:                         ; preds = %land.rhs.i.i
 
 lpad20:                                           ; preds = %lpad20.loopexit.split-lp, %lpad20.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad20.loopexit ], [ %lpad.loopexit.split-lp, %lpad20.loopexit.split-lp ]
-  %42 = load i8, ptr %set.i, align 4
-  %tobool.i.i85 = trunc i8 %42 to i1
+  %46 = load i8, ptr %set.i, align 4
+  %tobool.i.i85 = trunc i8 %46 to i1
   br i1 %tobool.i.i85, label %_ZN4pstd8optionalIN4pbrt11LightBoundsEE5valueEv.exit.i.i, label %ehcleanup
 
 _ZN4pstd8optionalIN4pbrt11LightBoundsEE5valueEv.exit.i.i: ; preds = %lpad20
@@ -4727,17 +4739,17 @@ _ZN4pstd8optionalIN4pbrt11LightBoundsEE5valueEv.exit.i.i: ; preds = %lpad20
   br label %ehcleanup
 
 if.else:                                          ; preds = %invoke.cont19
-  %43 = load i64, ptr %nAlloc.i86, align 8
-  %44 = load i64, ptr %nStored.i87, align 8
-  %cmp.i88 = icmp eq i64 %43, %44
-  br i1 %cmp.i88, label %if.then.i92, label %if.end
+  %47 = load i64, ptr %nAlloc.i86, align 8
+  %48 = load i64, ptr %nStored.i87, align 8
+  %cmp.i88 = icmp eq i64 %47, %48
+  br i1 %cmp.i88, label %if.then.i92, label %_ZN4pstd6vectorIN4pbrt5LightENS_3pmr21polymorphic_allocatorIS2_EEE9push_backERKS2_.exit130
 
 if.then.i92:                                      ; preds = %if.else
-  %cmp3.i93 = icmp eq i64 %43, 0
-  %mul.i94 = shl i64 %43, 1
+  %cmp3.i93 = icmp eq i64 %47, 0
+  %mul.i94 = shl i64 %47, 1
   %spec.select.i95 = select i1 %cmp3.i93, i64 4, i64 %mul.i94
-  %cmp.not.i.i96 = icmp ult i64 %43, %spec.select.i95
-  br i1 %cmp.not.i.i96, label %if.end.i.i97, label %if.end
+  %cmp.not.i.i96 = icmp ult i64 %47, %spec.select.i95
+  br i1 %cmp.not.i.i96, label %if.end.i.i97, label %_ZN4pstd6vectorIN4pbrt5LightENS_3pmr21polymorphic_allocatorIS2_EEE9push_backERKS2_.exit130
 
 if.end.i.i97:                                     ; preds = %if.then.i92
   %mul.i.i.i98 = shl i64 %spec.select.i95, 3
@@ -4745,11 +4757,11 @@ if.end.i.i97:                                     ; preds = %if.then.i92
   br i1 %cmp.i.i.i.i.i99, label %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE15allocate_objectIS3_EEPT_m.exit.i.i105, label %if.end.i.i.i.i.i100
 
 if.end.i.i.i.i.i100:                              ; preds = %if.end.i.i97
-  %45 = load ptr, ptr %infiniteLights, align 8
-  %vtable.i.i.i.i.i101 = load ptr, ptr %45, align 8
+  %49 = load ptr, ptr %infiniteLights, align 8
+  %vtable.i.i.i.i.i101 = load ptr, ptr %49, align 8
   %vfn.i.i.i.i.i102 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i101, i64 16
-  %46 = load ptr, ptr %vfn.i.i.i.i.i102, align 8
-  %call.i.i.i.i.i103128 = invoke noundef ptr %46(ptr noundef nonnull align 8 dereferenceable(8) %45, i64 noundef %mul.i.i.i98, i64 noundef 8)
+  %50 = load ptr, ptr %vfn.i.i.i.i.i102, align 8
+  %call.i.i.i.i.i103128 = invoke noundef ptr %50(ptr noundef nonnull align 8 dereferenceable(8) %49, i64 noundef %mul.i.i.i98, i64 noundef 8)
           to label %call.i.i.i.i.i103.noexc unwind label %lpad20.loopexit
 
 call.i.i.i.i.i103.noexc:                          ; preds = %if.end.i.i.i.i.i100
@@ -4757,7 +4769,7 @@ call.i.i.i.i.i103.noexc:                          ; preds = %if.end.i.i.i.i.i100
   br label %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE15allocate_objectIS3_EEPT_m.exit.i.i105
 
 _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE15allocate_objectIS3_EEPT_m.exit.i.i105: ; preds = %call.i.i.i.i.i103.noexc, %if.end.i.i97
-  %.pre14.i106 = phi i64 [ %.pre.i104, %call.i.i.i.i.i103.noexc ], [ %43, %if.end.i.i97 ]
+  %.pre14.i106 = phi i64 [ %.pre.i104, %call.i.i.i.i.i103.noexc ], [ %47, %if.end.i.i97 ]
   %retval.0.i.i.i.i.i107 = phi ptr [ %call.i.i.i.i.i103128, %call.i.i.i.i.i103.noexc ], [ null, %if.end.i.i97 ]
   %cmp213.not.i.i108 = icmp eq i64 %.pre14.i106, 0
   br i1 %cmp213.not.i.i108, label %for.end.i.i117, label %for.body.i.i111
@@ -4765,30 +4777,30 @@ _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE15allocate_objectIS3_EEPT_m.ex
 for.body.i.i111:                                  ; preds = %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE15allocate_objectIS3_EEPT_m.exit.i.i105, %for.body.i.i111
   %indvars.iv.i.i112 = phi i64 [ %indvars.iv.next.i.i115, %for.body.i.i111 ], [ 0, %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE15allocate_objectIS3_EEPT_m.exit.i.i105 ]
   %add.ptr.i.i113 = getelementptr inbounds %"class.pbrt::Light", ptr %retval.0.i.i.i.i.i107, i64 %indvars.iv.i.i112
-  %47 = load ptr, ptr %ptr.i11, align 8
-  %arrayidx.i.i114 = getelementptr inbounds %"class.pbrt::Light", ptr %47, i64 %indvars.iv.i.i112
+  %51 = load ptr, ptr %ptr.i11, align 8
+  %arrayidx.i.i114 = getelementptr inbounds %"class.pbrt::Light", ptr %51, i64 %indvars.iv.i.i112
   store i64 0, ptr %add.ptr.i.i113, align 8
-  %48 = load i64, ptr %arrayidx.i.i114, align 8
-  store i64 %48, ptr %add.ptr.i.i113, align 8
+  %52 = load i64, ptr %arrayidx.i.i114, align 8
+  store i64 %52, ptr %add.ptr.i.i113, align 8
   %indvars.iv.next.i.i115 = add nuw nsw i64 %indvars.iv.i.i112, 1
-  %49 = load i64, ptr %nStored.i87, align 8
-  %cmp2.i.i116 = icmp ugt i64 %49, %indvars.iv.next.i.i115
+  %53 = load i64, ptr %nStored.i87, align 8
+  %cmp2.i.i116 = icmp ugt i64 %53, %indvars.iv.next.i.i115
   br i1 %cmp2.i.i116, label %for.body.i.i111, label %for.end.i.i117, !llvm.loop !8
 
 for.end.i.i117:                                   ; preds = %for.body.i.i111, %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE15allocate_objectIS3_EEPT_m.exit.i.i105
-  %.pre13.i118 = phi i64 [ 0, %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE15allocate_objectIS3_EEPT_m.exit.i.i105 ], [ %49, %for.body.i.i111 ]
-  %50 = load ptr, ptr %ptr.i11, align 8
-  %tobool.not.i.i.i.i.i120 = icmp eq ptr %50, null
+  %.pre13.i118 = phi i64 [ 0, %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE15allocate_objectIS3_EEPT_m.exit.i.i105 ], [ %53, %for.body.i.i111 ]
+  %54 = load ptr, ptr %ptr.i11, align 8
+  %tobool.not.i.i.i.i.i120 = icmp eq ptr %54, null
   br i1 %tobool.not.i.i.i.i.i120, label %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE17deallocate_objectIS3_EEvPT_m.exit.i.i126, label %if.end.i.i.i9.i.i121
 
 if.end.i.i.i9.i.i121:                             ; preds = %for.end.i.i117
-  %51 = load i64, ptr %nAlloc.i86, align 8
-  %mul.i10.i.i122 = shl i64 %51, 3
-  %52 = load ptr, ptr %infiniteLights, align 8
-  %vtable.i.i.i11.i.i123 = load ptr, ptr %52, align 8
+  %55 = load i64, ptr %nAlloc.i86, align 8
+  %mul.i10.i.i122 = shl i64 %55, 3
+  %56 = load ptr, ptr %infiniteLights, align 8
+  %vtable.i.i.i11.i.i123 = load ptr, ptr %56, align 8
   %vfn.i.i.i12.i.i124 = getelementptr inbounds i8, ptr %vtable.i.i.i11.i.i123, i64 24
-  %53 = load ptr, ptr %vfn.i.i.i12.i.i124, align 8
-  invoke void %53(ptr noundef nonnull align 8 dereferenceable(8) %52, ptr noundef nonnull %50, i64 noundef %mul.i10.i.i122, i64 noundef 8)
+  %57 = load ptr, ptr %vfn.i.i.i12.i.i124, align 8
+  invoke void %57(ptr noundef nonnull align 8 dereferenceable(8) %56, ptr noundef nonnull %54, i64 noundef %mul.i10.i.i122, i64 noundef 8)
           to label %.noexc129 unwind label %lpad20.loopexit
 
 .noexc129:                                        ; preds = %if.end.i.i.i9.i.i121
@@ -4799,22 +4811,23 @@ _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE17deallocate_objectIS3_EEvPT_m
   %.pre1.i127 = phi i64 [ %.pre1.pre.i125, %.noexc129 ], [ %.pre13.i118, %for.end.i.i117 ]
   store i64 %spec.select.i95, ptr %nAlloc.i86, align 8
   store ptr %retval.0.i.i.i.i.i107, ptr %ptr.i11, align 8
+  br label %_ZN4pstd6vectorIN4pbrt5LightENS_3pmr21polymorphic_allocatorIS2_EEE9push_backERKS2_.exit130
+
+_ZN4pstd6vectorIN4pbrt5LightENS_3pmr21polymorphic_allocatorIS2_EEE9push_backERKS2_.exit130: ; preds = %if.else, %if.then.i92, %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE17deallocate_objectIS3_EEvPT_m.exit.i.i126
+  %58 = phi i64 [ %.pre1.i127, %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE17deallocate_objectIS3_EEvPT_m.exit.i.i126 ], [ %47, %if.then.i92 ], [ %48, %if.else ]
+  %59 = load ptr, ptr %ptr.i11, align 8
+  %add.ptr.i90 = getelementptr inbounds %"class.pbrt::Light", ptr %59, i64 %58
+  store i64 0, ptr %add.ptr.i90, align 8
+  %60 = load i64, ptr %__begin1.0149, align 8
+  store i64 %60, ptr %add.ptr.i90, align 8
+  %61 = load i64, ptr %nStored.i87, align 8
+  %inc.i91 = add i64 %61, 1
+  store i64 %inc.i91, ptr %nStored.i87, align 8
   br label %if.end
 
-if.end:                                           ; preds = %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE17deallocate_objectIS3_EEvPT_m.exit.i.i126, %if.then.i92, %if.else, %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE17deallocate_objectIS3_EEvPT_m.exit.i.i, %if.then.i48, %invoke.cont32
-  %ptr.i11.sink = phi ptr [ %ptr.i10, %invoke.cont32 ], [ %ptr.i10, %if.then.i48 ], [ %ptr.i10, %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE17deallocate_objectIS3_EEvPT_m.exit.i.i ], [ %ptr.i11, %if.else ], [ %ptr.i11, %if.then.i92 ], [ %ptr.i11, %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE17deallocate_objectIS3_EEvPT_m.exit.i.i126 ]
-  %.sink157 = phi i64 [ %30, %invoke.cont32 ], [ %29, %if.then.i48 ], [ %.pre1.i81, %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE17deallocate_objectIS3_EEvPT_m.exit.i.i ], [ %44, %if.else ], [ %43, %if.then.i92 ], [ %.pre1.i127, %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE17deallocate_objectIS3_EEvPT_m.exit.i.i126 ]
-  %nStored.i87.sink155 = phi ptr [ %nStored.i16, %invoke.cont32 ], [ %nStored.i16, %if.then.i48 ], [ %nStored.i16, %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE17deallocate_objectIS3_EEvPT_m.exit.i.i ], [ %nStored.i87, %if.else ], [ %nStored.i87, %if.then.i92 ], [ %nStored.i87, %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE17deallocate_objectIS3_EEvPT_m.exit.i.i126 ]
-  %54 = load ptr, ptr %ptr.i11.sink, align 8
-  %add.ptr.i90 = getelementptr inbounds %"class.pbrt::Light", ptr %54, i64 %.sink157
-  store i64 0, ptr %add.ptr.i90, align 8
-  %55 = load i64, ptr %__begin1.0149, align 8
-  store i64 %55, ptr %add.ptr.i90, align 8
-  %56 = load i64, ptr %nStored.i87.sink155, align 8
-  %inc.i91 = add i64 %56, 1
-  store i64 %inc.i91, ptr %nStored.i87.sink155, align 8
-  %57 = load i8, ptr %set.i, align 4
-  %tobool.i.i132 = trunc i8 %57 to i1
+if.end:                                           ; preds = %_ZN4pstd6vectorIN4pbrt5LightENS_3pmr21polymorphic_allocatorIS2_EEE9push_backERKS2_.exit130, %_ZN4pstd6vectorIN4pbrt5LightENS_3pmr21polymorphic_allocatorIS2_EEE9push_backERKS2_.exit
+  %62 = load i8, ptr %set.i, align 4
+  %tobool.i.i132 = trunc i8 %62 to i1
   br i1 %tobool.i.i132, label %_ZN4pstd8optionalIN4pbrt11LightBoundsEE5valueEv.exit.i.i133, label %_ZN4pstd8optionalIN4pbrt11LightBoundsEED2Ev.exit134
 
 _ZN4pstd8optionalIN4pbrt11LightBoundsEE5valueEv.exit.i.i133: ; preds = %if.end
@@ -4830,12 +4843,12 @@ for.end:                                          ; preds = %_ZN4pstd8optionalIN
   ret void
 
 ehcleanup:                                        ; preds = %_ZN4pstd8optionalIN4pbrt11LightBoundsEE5valueEv.exit.i.i, %lpad20, %lpad14
-  %.pn = phi { ptr, i32 } [ %41, %lpad14 ], [ %lpad.phi, %lpad20 ], [ %lpad.phi, %_ZN4pstd8optionalIN4pbrt11LightBoundsEE5valueEv.exit.i.i ]
+  %.pn = phi { ptr, i32 } [ %45, %lpad14 ], [ %lpad.phi, %lpad20 ], [ %lpad.phi, %_ZN4pstd8optionalIN4pbrt11LightBoundsEE5valueEv.exit.i.i ]
   call void @_ZN4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_mEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %lightToBoundedIndex) #21
   br label %ehcleanup37
 
 ehcleanup37:                                      ; preds = %ehcleanup, %lpad12
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %40, %lpad12 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %44, %lpad12 ]
   call void @_ZN4pstd6vectorIN4pbrt11LightBoundsENS_3pmr21polymorphic_allocatorIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %lightBounds) #21
   call void @_ZN4pstd6vectorIN4pbrt5LightENS_3pmr21polymorphic_allocatorIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %infiniteLights) #21
   call void @_ZN4pstd6vectorIN4pbrt5LightENS_3pmr21polymorphic_allocatorIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %boundedLights) #21

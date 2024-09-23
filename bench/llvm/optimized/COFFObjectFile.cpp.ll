@@ -2654,14 +2654,14 @@ define dso_local void @_ZN4llvm6object14COFFObjectFile18initSymbolTablePtrEv(ptr
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %.thread175, label %7
+  br i1 %.not, label %.thread155, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.097.0.copyload = load ptr, ptr %9, align 8
-  %.sroa.298.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
-  %.sroa.298.0.copyload = load i64, ptr %.sroa.298.0..sroa_idx, align 8
+  %.sroa.093.0.copyload = load ptr, ptr %9, align 8
+  %.sroa.294.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.294.0.copyload = load i64, ptr %.sroa.294.0..sroa_idx, align 8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 2
   call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 1) ]
   %.0.copyload.i.i.i.i.i = load i16, ptr %10, align 1
@@ -2682,384 +2682,371 @@ _ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit.thread: ; preds
   call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 1) ]
   %.0.copyload.i.i.i.i = load i32, ptr %15, align 1
   %16 = zext i32 %.0.copyload.i.i.i.i to i64
-  %17 = getelementptr inbounds i8, ptr %.sroa.097.0.copyload, i64 %16
+  %17 = getelementptr inbounds i8, ptr %.sroa.093.0.copyload, i64 %16
   %18 = load ptr, ptr %8, align 8
-  %.not.i24171 = icmp eq ptr %18, null
+  %.not.i24151 = icmp eq ptr %18, null
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %20 = load ptr, ptr %19, align 8
-  %.not1.i172 = icmp eq ptr %20, null
-  %or.cond.i173 = select i1 %.not.i24171, i1 %.not1.i172, i1 false
-  br i1 %or.cond.i173, label %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit, label %.sink.split.i.i
+  %.not1.i152 = icmp eq ptr %20, null
+  %or.cond.i153 = select i1 %.not.i24151, i1 %.not1.i152, i1 false
+  br i1 %or.cond.i153, label %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit, label %22
 
 21:                                               ; preds = %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit
   call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 1) ]
   br label %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit
 
-.sink.split.i.i:                                  ; preds = %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit.thread
+22:                                               ; preds = %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit.thread
   call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 1) ]
-  %22 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 1) ]
-  %.0.copyload.i.i.i.i.i25 = load i32, ptr %22, align 1
-  %23 = zext i32 %.0.copyload.i.i.i.i.i25 to i64
-  %24 = mul nuw nsw i64 %23, 18
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 1) ]
+  %.0.copyload.i.i.i.i.i25 = load i32, ptr %23, align 1
+  %24 = zext i32 %.0.copyload.i.i.i.i.i25 to i64
+  %25 = mul nuw nsw i64 %24, 18
   br label %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit
 
-_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit: ; preds = %21, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit.thread, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit, %.sink.split.i.i
-  %25 = phi ptr [ %.sroa.097.0.copyload, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit ], [ %.sroa.097.0.copyload, %21 ], [ %17, %.sink.split.i.i ], [ %17, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit.thread ]
-  %.0.i26 = phi i64 [ 0, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit ], [ 0, %21 ], [ %24, %.sink.split.i.i ], [ 0, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit.thread ]
+_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit: ; preds = %21, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit.thread, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit, %22
+  %26 = phi ptr [ %.sroa.093.0.copyload, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit ], [ %17, %22 ], [ %.sroa.093.0.copyload, %21 ], [ %17, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit.thread ]
+  %.0.i26 = phi i64 [ 0, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit ], [ %25, %22 ], [ 0, %21 ], [ 0, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit.thread ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
-  %26 = ptrtoint ptr %25 to i64
-  %27 = add i64 %.0.i26, %26
-  %28 = icmp ult i64 %27, %26
-  %29 = getelementptr inbounds i8, ptr %.sroa.097.0.copyload, i64 %.sroa.298.0.copyload
-  %30 = ptrtoint ptr %29 to i64
-  %31 = icmp ugt i64 %27, %30
-  %or.cond = select i1 %28, i1 true, i1 %31
-  br i1 %or.cond, label %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i, label %33
+  %27 = ptrtoint ptr %26 to i64
+  %28 = add i64 %.0.i26, %27
+  %29 = icmp ult i64 %28, %27
+  %30 = getelementptr inbounds i8, ptr %.sroa.093.0.copyload, i64 %.sroa.294.0.copyload
+  %31 = ptrtoint ptr %30 to i64
+  %32 = icmp ugt i64 %28, %31
+  %or.cond = select i1 %29, i1 true, i1 %32
+  br i1 %or.cond, label %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i, label %34
 
 _ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i: ; preds = %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit
-  %32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6object15object_categoryEv() #28, !noalias !73
-  tail call void @_ZN4llvm16errorCodeToErrorESt10error_code(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, i32 4, ptr nonnull %32) #28
+  %33 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6object15object_categoryEv() #28, !noalias !73
+  tail call void @_ZN4llvm16errorCodeToErrorESt10error_code(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, i32 4, ptr nonnull %33) #28
   %.pr.i = load ptr, ptr %0, align 8
   %.not.i28 = icmp eq ptr %.pr.i, null
-  br i1 %.not.i28, label %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i..thread_crit_edge, label %148
+  br i1 %.not.i28, label %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i..thread_crit_edge, label %147
 
 _ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i..thread_crit_edge: ; preds = %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i
-  %.pre163.pre.pre = load ptr, ptr %5, align 8
-  br label %33
+  %.pre143.pre.pre = load ptr, ptr %5, align 8
+  br label %34
 
-33:                                               ; preds = %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit, %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i..thread_crit_edge
-  %.pre163.pre = phi ptr [ %.pre163.pre.pre, %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i..thread_crit_edge ], [ %6, %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit ]
-  store ptr %25, ptr %8, align 8, !noalias !70
+34:                                               ; preds = %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit, %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i..thread_crit_edge
+  %.pre143.pre = phi ptr [ %.pre143.pre.pre, %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i..thread_crit_edge ], [ %6, %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit ]
+  store ptr %26, ptr %8, align 8, !noalias !70
   store ptr null, ptr %0, align 8, !alias.scope !70
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %35 = load ptr, ptr %34, align 8
-  %.not16 = icmp eq ptr %35, null
-  br i1 %.not16, label %85, label %40
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %36 = load ptr, ptr %35, align 8
+  %.not16 = icmp eq ptr %36, null
+  br i1 %.not16, label %83, label %41
 
-.thread175:                                       ; preds = %2
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %37 = load ptr, ptr %36, align 8
-  %.not16177 = icmp eq ptr %37, null
-  br i1 %.not16177, label %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit63, label %.thread180
+.thread155:                                       ; preds = %2
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %38 = load ptr, ptr %37, align 8
+  %.not16157 = icmp eq ptr %38, null
+  br i1 %.not16157, label %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit60.thread, label %.thread159
 
-.thread180:                                       ; preds = %.thread175
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.0102.0.copyload182 = load ptr, ptr %39, align 8
-  %.sroa.2103.0..sroa_idx183 = getelementptr inbounds i8, ptr %1, i64 24
-  %.sroa.2103.0.copyload184 = load i64, ptr %.sroa.2103.0..sroa_idx183, align 8
-  br label %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit35
+.thread159:                                       ; preds = %.thread155
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.098.0.copyload161 = load ptr, ptr %40, align 8
+  %.sroa.299.0..sroa_idx162 = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.299.0.copyload163 = load i64, ptr %.sroa.299.0..sroa_idx162, align 8
+  br label %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit34.thread
 
-40:                                               ; preds = %33
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.0102.0.copyload = load ptr, ptr %42, align 8
-  %.sroa.2103.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
-  %.sroa.2103.0.copyload = load i64, ptr %.sroa.2103.0..sroa_idx, align 8
-  %.not.i29 = icmp eq ptr %.pre163.pre, null
-  br i1 %.not.i29, label %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit35, label %43
+41:                                               ; preds = %34
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.098.0.copyload = load ptr, ptr %43, align 8
+  %.sroa.299.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.299.0.copyload = load i64, ptr %.sroa.299.0..sroa_idx, align 8
+  %.not.i29 = icmp eq ptr %.pre143.pre, null
+  br i1 %.not.i29, label %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit34.thread, label %44
 
-43:                                               ; preds = %40
-  %44 = getelementptr inbounds nuw i8, ptr %.pre163.pre, i64 2
-  call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 1) ]
-  %.0.copyload.i.i.i.i.i30 = load i16, ptr %44, align 1
-  %45 = icmp eq i16 %.0.copyload.i.i.i.i.i30, -1
-  br i1 %45, label %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit35.thread, label %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit35.thread140
+44:                                               ; preds = %41
+  %45 = getelementptr inbounds nuw i8, ptr %.pre143.pre, i64 2
+  call void @llvm.assume(i1 true) [ "align"(ptr %45, i64 1) ]
+  %.0.copyload.i.i.i.i.i30 = load i16, ptr %45, align 1
+  %46 = icmp eq i16 %.0.copyload.i.i.i.i.i30, -1
+  br i1 %46, label %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit34, label %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit34.thread171
 
-_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit35: ; preds = %.thread180, %40
-  %.sroa.2103.0.copyload193 = phi i64 [ %.sroa.2103.0.copyload184, %.thread180 ], [ %.sroa.2103.0.copyload, %40 ]
-  %.sroa.0102.0.copyload190 = phi ptr [ %.sroa.0102.0.copyload182, %.thread180 ], [ %.sroa.0102.0.copyload, %40 ]
-  %46 = phi ptr [ %38, %.thread180 ], [ %41, %40 ]
-  %47 = phi ptr [ %36, %.thread180 ], [ %34, %40 ]
-  %48 = phi ptr [ %37, %.thread180 ], [ %35, %40 ]
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 48
-  call void @llvm.assume(i1 true) [ "align"(ptr %49, i64 1) ]
-  %.0.copyload.i.i.i.i33 = load i32, ptr %49, align 1
-  %50 = zext i32 %.0.copyload.i.i.i.i33 to i64
-  %51 = getelementptr inbounds i8, ptr %.sroa.0102.0.copyload190, i64 %50
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %53 = load ptr, ptr %52, align 8
-  %.not.i36 = icmp eq ptr %53, null
-  %54 = load ptr, ptr %46, align 8
-  %.not1.i37 = icmp eq ptr %54, null
-  %or.cond.i38 = select i1 %.not.i36, i1 %.not1.i37, i1 false
-  br i1 %or.cond.i38, label %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit45, label %66
+_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit34: ; preds = %44
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %48 = load ptr, ptr %47, align 8
+  %.not.i35 = icmp eq ptr %48, null
+  %49 = load ptr, ptr %42, align 8
+  %.not1.i36 = icmp eq ptr %49, null
+  %or.cond.i37 = select i1 %.not.i35, i1 %.not1.i36, i1 false
+  br i1 %or.cond.i37, label %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit43, label %65
 
-_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit35.thread140: ; preds = %43
-  %55 = getelementptr inbounds nuw i8, ptr %.pre163.pre, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %55, i64 1) ]
-  %.0.copyload.i.i.i.i33142 = load i32, ptr %55, align 1
-  %56 = zext i32 %.0.copyload.i.i.i.i33142 to i64
-  %57 = getelementptr inbounds i8, ptr %.sroa.0102.0.copyload, i64 %56
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %59 = load ptr, ptr %58, align 8
-  %.not.i36143 = icmp eq ptr %59, null
-  %60 = load ptr, ptr %41, align 8
-  %.not1.i37144 = icmp eq ptr %60, null
-  %or.cond.i38145 = select i1 %.not.i36143, i1 %.not1.i37144, i1 false
-  br i1 %or.cond.i38145, label %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit45, label %64
+_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit34.thread171: ; preds = %44
+  %50 = getelementptr inbounds nuw i8, ptr %.pre143.pre, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %50, i64 1) ]
+  %.0.copyload.i.i.i.i31 = load i32, ptr %50, align 1
+  %51 = zext i32 %.0.copyload.i.i.i.i31 to i64
+  %52 = getelementptr inbounds i8, ptr %.sroa.098.0.copyload, i64 %51
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %54 = load ptr, ptr %53, align 8
+  %.not.i35173 = icmp eq ptr %54, null
+  %55 = load ptr, ptr %42, align 8
+  %.not1.i36174 = icmp eq ptr %55, null
+  %or.cond.i37175 = select i1 %.not.i35173, i1 %.not1.i36174, i1 false
+  br i1 %or.cond.i37175, label %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit43, label %66
 
-_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit35.thread: ; preds = %43
-  %61 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %62 = load ptr, ptr %61, align 8
-  %.not.i36119 = icmp eq ptr %62, null
-  %63 = load ptr, ptr %41, align 8
-  %.not1.i37120 = icmp eq ptr %63, null
-  %or.cond.i38121 = select i1 %.not.i36119, i1 %.not1.i37120, i1 false
-  br i1 %or.cond.i38121, label %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit45, label %.thread122.thread
+_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit34.thread: ; preds = %.thread159, %41
+  %.sroa.299.0.copyload170 = phi i64 [ %.sroa.299.0.copyload163, %.thread159 ], [ %.sroa.299.0.copyload, %41 ]
+  %.sroa.098.0.copyload168 = phi ptr [ %.sroa.098.0.copyload161, %.thread159 ], [ %.sroa.098.0.copyload, %41 ]
+  %56 = phi ptr [ %39, %.thread159 ], [ %42, %41 ]
+  %57 = phi ptr [ %37, %.thread159 ], [ %35, %41 ]
+  %58 = phi ptr [ %38, %.thread159 ], [ %36, %41 ]
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 48
+  call void @llvm.assume(i1 true) [ "align"(ptr %59, i64 1) ]
+  %.0.copyload.i.i.i2.i33 = load i32, ptr %59, align 1
+  %60 = zext i32 %.0.copyload.i.i.i2.i33 to i64
+  %61 = getelementptr inbounds i8, ptr %.sroa.098.0.copyload168, i64 %60
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %63 = load ptr, ptr %62, align 8
+  %.not.i35115 = icmp eq ptr %63, null
+  %64 = load ptr, ptr %56, align 8
+  %.not1.i36116 = icmp eq ptr %64, null
+  %or.cond.i37117 = select i1 %.not.i35115, i1 %.not1.i36116, i1 false
+  br i1 %or.cond.i37117, label %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit43, label %.thread118
 
-.thread122.thread:                                ; preds = %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit35.thread
-  call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 1) ]
-  br label %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit45
+65:                                               ; preds = %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit34
+  call void @llvm.assume(i1 true) [ "align"(ptr %45, i64 1) ]
+  br label %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit43
 
-64:                                               ; preds = %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit35.thread140
-  call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 1) ]
-  %65 = getelementptr inbounds nuw i8, ptr %.pre163.pre, i64 12
-  br label %.sink.split.i.i41
+66:                                               ; preds = %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit34.thread171
+  call void @llvm.assume(i1 true) [ "align"(ptr %45, i64 1) ]
+  %67 = getelementptr inbounds nuw i8, ptr %.pre143.pre, i64 12
+  call void @llvm.assume(i1 true) [ "align"(ptr %67, i64 1) ]
+  %.0.copyload.i.i.i.i.i40 = load i32, ptr %67, align 1
+  br label %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit43
 
-66:                                               ; preds = %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit35
-  %67 = getelementptr inbounds nuw i8, ptr %48, i64 52
-  br label %.sink.split.i.i41
+.thread118:                                       ; preds = %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit34.thread
+  %68 = getelementptr inbounds nuw i8, ptr %58, i64 52
+  call void @llvm.assume(i1 true) [ "align"(ptr %68, i64 1) ]
+  %.0.copyload.i.i.i2.i.i42 = load i32, ptr %68, align 1
+  br label %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit43
 
-.sink.split.i.i41:                                ; preds = %66, %64
-  %.not.i29194 = phi i64 [ 18, %64 ], [ 20, %66 ]
-  %.sroa.2103.0.copyload191 = phi i64 [ %.sroa.2103.0.copyload, %64 ], [ %.sroa.2103.0.copyload193, %66 ]
-  %.sroa.0102.0.copyload188 = phi ptr [ %.sroa.0102.0.copyload, %64 ], [ %.sroa.0102.0.copyload190, %66 ]
-  %68 = phi ptr [ %41, %64 ], [ %46, %66 ]
-  %.pre163178187 = phi ptr [ %.pre163.pre, %64 ], [ null, %66 ]
-  %69 = phi ptr [ %34, %64 ], [ %47, %66 ]
-  %70 = phi ptr [ %57, %64 ], [ %51, %66 ]
-  %.sink3.i.i42 = phi ptr [ %65, %64 ], [ %67, %66 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sink3.i.i42, i64 1) ]
-  %.0.copyload.i.i.i.i.i43 = load i32, ptr %.sink3.i.i42, align 1
-  %71 = zext i32 %.0.copyload.i.i.i.i.i43 to i64
-  br label %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit45
-
-_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit45: ; preds = %.thread122.thread, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit35.thread140, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit35.thread, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit35, %.sink.split.i.i41
-  %.not.i29195 = phi i64 [ 20, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit35 ], [ %.not.i29194, %.sink.split.i.i41 ], [ 18, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit35.thread ], [ 18, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit35.thread140 ], [ 18, %.thread122.thread ]
-  %.sroa.2103.0.copyload192 = phi i64 [ %.sroa.2103.0.copyload193, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit35 ], [ %.sroa.2103.0.copyload191, %.sink.split.i.i41 ], [ %.sroa.2103.0.copyload, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit35.thread ], [ %.sroa.2103.0.copyload, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit35.thread140 ], [ %.sroa.2103.0.copyload, %.thread122.thread ]
-  %.sroa.0102.0.copyload189 = phi ptr [ %.sroa.0102.0.copyload190, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit35 ], [ %.sroa.0102.0.copyload188, %.sink.split.i.i41 ], [ %.sroa.0102.0.copyload, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit35.thread ], [ %.sroa.0102.0.copyload, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit35.thread140 ], [ %.sroa.0102.0.copyload, %.thread122.thread ]
-  %72 = phi ptr [ %46, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit35 ], [ %68, %.sink.split.i.i41 ], [ %41, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit35.thread ], [ %41, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit35.thread140 ], [ %41, %.thread122.thread ]
-  %73 = phi ptr [ %47, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit35 ], [ %69, %.sink.split.i.i41 ], [ %34, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit35.thread ], [ %34, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit35.thread140 ], [ %34, %.thread122.thread ]
-  %.pre163179 = phi ptr [ null, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit35 ], [ %.pre163178187, %.sink.split.i.i41 ], [ %.pre163.pre, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit35.thread ], [ %.pre163.pre, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit35.thread140 ], [ %.pre163.pre, %.thread122.thread ]
-  %74 = phi ptr [ %51, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit35 ], [ %70, %.sink.split.i.i41 ], [ %.sroa.0102.0.copyload, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit35.thread ], [ %57, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit35.thread140 ], [ %.sroa.0102.0.copyload, %.thread122.thread ]
-  %.0.i44 = phi i64 [ 0, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit35 ], [ %71, %.sink.split.i.i41 ], [ 0, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit35.thread ], [ 0, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit35.thread140 ], [ 0, %.thread122.thread ]
-  %75 = mul nuw nsw i64 %.0.i44, %.not.i29195
+_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit43: ; preds = %65, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit34.thread171, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit34.thread, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit34, %66, %.thread118
+  %.sroa.299.0.copyload169 = phi i64 [ %.sroa.299.0.copyload, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit34 ], [ %.sroa.299.0.copyload170, %.thread118 ], [ %.sroa.299.0.copyload, %66 ], [ %.sroa.299.0.copyload, %65 ], [ %.sroa.299.0.copyload170, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit34.thread ], [ %.sroa.299.0.copyload, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit34.thread171 ]
+  %.sroa.098.0.copyload167 = phi ptr [ %.sroa.098.0.copyload, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit34 ], [ %.sroa.098.0.copyload168, %.thread118 ], [ %.sroa.098.0.copyload, %66 ], [ %.sroa.098.0.copyload, %65 ], [ %.sroa.098.0.copyload168, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit34.thread ], [ %.sroa.098.0.copyload, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit34.thread171 ]
+  %69 = phi ptr [ %42, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit34 ], [ %56, %.thread118 ], [ %42, %66 ], [ %42, %65 ], [ %56, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit34.thread ], [ %42, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit34.thread171 ]
+  %.pre143158165 = phi ptr [ %.pre143.pre, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit34 ], [ null, %.thread118 ], [ %.pre143.pre, %66 ], [ %.pre143.pre, %65 ], [ null, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit34.thread ], [ %.pre143.pre, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit34.thread171 ]
+  %70 = phi ptr [ %35, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit34 ], [ %57, %.thread118 ], [ %35, %66 ], [ %35, %65 ], [ %57, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit34.thread ], [ %35, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit34.thread171 ]
+  %spec.select.i45 = phi i64 [ 18, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit34 ], [ 20, %.thread118 ], [ 18, %66 ], [ 18, %65 ], [ 20, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit34.thread ], [ 18, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit34.thread171 ]
+  %71 = phi ptr [ %.sroa.098.0.copyload, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit34 ], [ %61, %.thread118 ], [ %52, %66 ], [ %.sroa.098.0.copyload, %65 ], [ %61, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit34.thread ], [ %52, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit34.thread171 ]
+  %.0.i41 = phi i32 [ 0, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit34 ], [ %.0.copyload.i.i.i2.i.i42, %.thread118 ], [ %.0.copyload.i.i.i.i.i40, %66 ], [ 0, %65 ], [ 0, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit34.thread ], [ 0, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit34.thread171 ]
+  %72 = zext i32 %.0.i41 to i64
+  %73 = mul nuw nsw i64 %spec.select.i45, %72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
-  %76 = ptrtoint ptr %74 to i64
-  %77 = add i64 %75, %76
-  %78 = icmp ult i64 %77, %76
-  br i1 %78, label %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i53, label %79
+  %74 = ptrtoint ptr %71 to i64
+  %75 = add i64 %73, %74
+  %76 = icmp ult i64 %75, %74
+  br i1 %76, label %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i51, label %77
 
-79:                                               ; preds = %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit45
-  %80 = getelementptr inbounds i8, ptr %.sroa.0102.0.copyload189, i64 %.sroa.2103.0.copyload192
-  %81 = ptrtoint ptr %80 to i64
-  %82 = icmp ugt i64 %77, %81
-  %83 = icmp ult ptr %74, %.sroa.0102.0.copyload189
-  %or.cond.i.i51 = or i1 %83, %82
-  br i1 %or.cond.i.i51, label %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i53, label %.thread123
+77:                                               ; preds = %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit43
+  %78 = getelementptr inbounds i8, ptr %.sroa.098.0.copyload167, i64 %.sroa.299.0.copyload169
+  %79 = ptrtoint ptr %78 to i64
+  %80 = icmp ugt i64 %75, %79
+  %81 = icmp ult ptr %71, %.sroa.098.0.copyload167
+  %or.cond.i.i49 = or i1 %81, %80
+  br i1 %or.cond.i.i49, label %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i51, label %.thread119
 
-_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i53: ; preds = %79, %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit45
-  %84 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6object15object_categoryEv() #28, !noalias !79
-  tail call void @_ZN4llvm16errorCodeToErrorESt10error_code(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, i32 4, ptr nonnull %84) #28
-  %.pr.i54 = load ptr, ptr %0, align 8
-  %.not.i55 = icmp eq ptr %.pr.i54, null
-  br i1 %.not.i55, label %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i53..thread123_crit_edge, label %148
+_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i51: ; preds = %77, %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit43
+  %82 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6object15object_categoryEv() #28, !noalias !79
+  tail call void @_ZN4llvm16errorCodeToErrorESt10error_code(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, i32 4, ptr nonnull %82) #28
+  %.pr.i52 = load ptr, ptr %0, align 8
+  %.not.i53 = icmp eq ptr %.pr.i52, null
+  br i1 %.not.i53, label %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i51..thread119_crit_edge, label %147
 
-_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i53..thread123_crit_edge: ; preds = %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i53
+_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i51..thread119_crit_edge: ; preds = %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i51
   %.pre.pre = load ptr, ptr %5, align 8
-  br label %.thread123
+  br label %.thread119
 
-.thread123:                                       ; preds = %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i53..thread123_crit_edge, %79
-  %.pre = phi ptr [ %.pre.pre, %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i53..thread123_crit_edge ], [ %.pre163179, %79 ]
-  store ptr %74, ptr %72, align 8, !noalias !76
+.thread119:                                       ; preds = %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i51..thread119_crit_edge, %77
+  %.pre = phi ptr [ %.pre.pre, %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i51..thread119_crit_edge ], [ %.pre143158165, %77 ]
+  store ptr %71, ptr %69, align 8, !noalias !76
   store ptr null, ptr %0, align 8, !alias.scope !76
-  br label %85
+  br label %83
 
-85:                                               ; preds = %.thread123, %33
-  %86 = phi ptr [ %73, %.thread123 ], [ %34, %33 ]
-  %87 = phi ptr [ %.pre, %.thread123 ], [ %.pre163.pre, %33 ]
-  %.not.i57 = icmp eq ptr %87, null
-  br i1 %.not.i57, label %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit63, label %88
+83:                                               ; preds = %.thread119, %34
+  %84 = phi ptr [ %70, %.thread119 ], [ %35, %34 ]
+  %85 = phi ptr [ %.pre, %.thread119 ], [ %.pre143.pre, %34 ]
+  %.not.i55 = icmp eq ptr %85, null
+  br i1 %.not.i55, label %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit60.thread, label %86
 
-88:                                               ; preds = %85
-  %89 = getelementptr inbounds nuw i8, ptr %87, i64 2
-  call void @llvm.assume(i1 true) [ "align"(ptr %89, i64 1) ]
-  %.0.copyload.i.i.i.i.i58 = load i16, ptr %89, align 1
-  %90 = icmp eq i16 %.0.copyload.i.i.i.i.i58, -1
-  br i1 %90, label %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit63.thread, label %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit63.thread147
+86:                                               ; preds = %83
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 2
+  call void @llvm.assume(i1 true) [ "align"(ptr %87, i64 1) ]
+  %.0.copyload.i.i.i.i.i56 = load i16, ptr %87, align 1
+  %88 = icmp eq i16 %.0.copyload.i.i.i.i.i56, -1
+  br i1 %88, label %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit60, label %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit60.thread179
 
-_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit63: ; preds = %.thread175, %85
-  %91 = phi ptr [ %86, %85 ], [ %36, %.thread175 ]
-  %92 = load ptr, ptr %91, align 8, !nonnull !17, !noundef !17
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 48
+_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit60: ; preds = %86
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %90 = load ptr, ptr %89, align 8
+  %.not.i61 = icmp eq ptr %90, null
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %92 = load ptr, ptr %91, align 8
+  %.not1.i62 = icmp eq ptr %92, null
+  %or.cond.i63 = select i1 %.not.i61, i1 %.not1.i62, i1 false
+  br i1 %or.cond.i63, label %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit69, label %105
+
+_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit60.thread179: ; preds = %86
+  %93 = getelementptr inbounds nuw i8, ptr %85, i64 8
   call void @llvm.assume(i1 true) [ "align"(ptr %93, i64 1) ]
-  %.0.copyload.i.i.i.i61 = load i32, ptr %93, align 1
+  %.0.copyload.i.i.i.i57 = load i32, ptr %93, align 1
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %95 = load ptr, ptr %94, align 8
-  %.not.i64 = icmp eq ptr %95, null
+  %.not.i61181 = icmp eq ptr %95, null
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %97 = load ptr, ptr %96, align 8
-  %.not1.i65 = icmp eq ptr %97, null
-  %or.cond.i66 = select i1 %.not.i64, i1 %.not1.i65, i1 false
-  br i1 %or.cond.i66, label %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit73, label %109
+  %.not1.i62182 = icmp eq ptr %97, null
+  %or.cond.i63183 = select i1 %.not.i61181, i1 %.not1.i62182, i1 false
+  br i1 %or.cond.i63183, label %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit69, label %106
 
-_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit63.thread147: ; preds = %88
-  %98 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %98, i64 1) ]
-  %.0.copyload.i.i.i.i61149 = load i32, ptr %98, align 1
-  %99 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %100 = load ptr, ptr %99, align 8
-  %.not.i64150 = icmp eq ptr %100, null
-  %101 = getelementptr inbounds nuw i8, ptr %1, i64 104
+_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit60.thread: ; preds = %.thread155, %83
+  %98 = phi ptr [ %84, %83 ], [ %37, %.thread155 ]
+  %99 = load ptr, ptr %98, align 8, !nonnull !17, !noundef !17
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 48
+  call void @llvm.assume(i1 true) [ "align"(ptr %100, i64 1) ]
+  %.0.copyload.i.i.i2.i59 = load i32, ptr %100, align 1
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %102 = load ptr, ptr %101, align 8
-  %.not1.i65151 = icmp eq ptr %102, null
-  %or.cond.i66152 = select i1 %.not.i64150, i1 %.not1.i65151, i1 false
-  br i1 %or.cond.i66152, label %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit73, label %107
-
-_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit63.thread: ; preds = %88
-  %103 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %.not.i61122 = icmp eq ptr %102, null
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %104 = load ptr, ptr %103, align 8
-  %.not.i64126 = icmp eq ptr %104, null
-  %105 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %106 = load ptr, ptr %105, align 8
-  %.not1.i65127 = icmp eq ptr %106, null
-  %or.cond.i66128 = select i1 %.not.i64126, i1 %.not1.i65127, i1 false
-  br i1 %or.cond.i66128, label %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit73, label %.thread131.thread
+  %.not1.i62123 = icmp eq ptr %104, null
+  %or.cond.i63124 = select i1 %.not.i61122, i1 %.not1.i62123, i1 false
+  br i1 %or.cond.i63124, label %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit69, label %.thread127
 
-.thread131.thread:                                ; preds = %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit63.thread
-  call void @llvm.assume(i1 true) [ "align"(ptr %89, i64 1) ]
-  br label %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit73
+105:                                              ; preds = %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit60
+  call void @llvm.assume(i1 true) [ "align"(ptr %87, i64 1) ]
+  br label %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit69
 
-107:                                              ; preds = %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit63.thread147
-  call void @llvm.assume(i1 true) [ "align"(ptr %89, i64 1) ]
-  %108 = getelementptr inbounds nuw i8, ptr %87, i64 12
-  br label %.sink.split.i.i69
+106:                                              ; preds = %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit60.thread179
+  call void @llvm.assume(i1 true) [ "align"(ptr %87, i64 1) ]
+  %107 = getelementptr inbounds nuw i8, ptr %85, i64 12
+  call void @llvm.assume(i1 true) [ "align"(ptr %107, i64 1) ]
+  %.0.copyload.i.i.i.i.i66 = load i32, ptr %107, align 1
+  br label %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit69
 
-109:                                              ; preds = %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit63
-  %110 = getelementptr inbounds nuw i8, ptr %92, i64 52
-  br label %.sink.split.i.i69
+.thread127:                                       ; preds = %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit60.thread
+  %108 = getelementptr inbounds nuw i8, ptr %99, i64 52
+  call void @llvm.assume(i1 true) [ "align"(ptr %108, i64 1) ]
+  %.0.copyload.i.i.i2.i.i68 = load i32, ptr %108, align 1
+  br label %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit69
 
-.sink.split.i.i69:                                ; preds = %109, %107
-  %.not.i57199 = phi i32 [ 18, %107 ], [ 20, %109 ]
-  %.0.i62129134 = phi i32 [ %.0.copyload.i.i.i.i61149, %107 ], [ %.0.copyload.i.i.i.i61, %109 ]
-  %.sink3.i.i70 = phi ptr [ %108, %107 ], [ %110, %109 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sink3.i.i70, i64 1) ]
-  %.0.copyload.i.i.i.i.i71 = load i32, ptr %.sink3.i.i70, align 1
-  br label %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit73
-
-_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit73: ; preds = %.thread131.thread, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit63.thread147, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit63.thread, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit63, %.sink.split.i.i69
-  %.not.i57200 = phi i32 [ 20, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit63 ], [ %.not.i57199, %.sink.split.i.i69 ], [ 18, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit63.thread ], [ 18, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit63.thread147 ], [ 18, %.thread131.thread ]
-  %.0.i62130 = phi i32 [ %.0.copyload.i.i.i.i61, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit63 ], [ %.0.i62129134, %.sink.split.i.i69 ], [ 0, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit63.thread ], [ %.0.copyload.i.i.i.i61149, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit63.thread147 ], [ 0, %.thread131.thread ]
-  %.0.i72 = phi i32 [ 0, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit63 ], [ %.0.copyload.i.i.i.i.i71, %.sink.split.i.i69 ], [ 0, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit63.thread ], [ 0, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit63.thread147 ], [ 0, %.thread131.thread ]
-  %111 = mul i32 %.0.i72, %.not.i57200
-  %112 = add i32 %111, %.0.i62130
-  %113 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %114 = load ptr, ptr %113, align 8
-  %115 = zext i32 %112 to i64
-  %116 = getelementptr inbounds i8, ptr %114, i64 %115
-  %.sroa.2109.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
-  %.sroa.2109.0.copyload = load i64, ptr %.sroa.2109.0..sroa_idx, align 8
+_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit69: ; preds = %105, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit60.thread179, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit60.thread, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit60, %106, %.thread127
+  %109 = phi i32 [ 18, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit60 ], [ 20, %.thread127 ], [ 18, %106 ], [ 18, %105 ], [ 20, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit60.thread ], [ 18, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit60.thread179 ]
+  %.0.i58126 = phi i32 [ 0, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit60 ], [ %.0.copyload.i.i.i2.i59, %.thread127 ], [ %.0.copyload.i.i.i.i57, %106 ], [ 0, %105 ], [ %.0.copyload.i.i.i2.i59, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit60.thread ], [ %.0.copyload.i.i.i.i57, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit60.thread179 ]
+  %.0.i67 = phi i32 [ 0, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit60 ], [ %.0.copyload.i.i.i2.i.i68, %.thread127 ], [ %.0.copyload.i.i.i.i.i66, %106 ], [ 0, %105 ], [ 0, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit60.thread ], [ 0, %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit60.thread179 ]
+  %110 = mul i32 %.0.i67, %109
+  %111 = add i32 %110, %.0.i58126
+  %112 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %113 = load ptr, ptr %112, align 8
+  %114 = zext i32 %111 to i64
+  %115 = getelementptr inbounds i8, ptr %113, i64 %114
+  %.sroa.2105.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.2105.0.copyload = load i64, ptr %.sroa.2105.0..sroa_idx, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !82)
-  %117 = icmp ugt ptr %116, inttoptr (i64 -5 to ptr)
-  %118 = ptrtoint ptr %116 to i64
-  %119 = add i64 %118, 4
-  %120 = getelementptr inbounds i8, ptr %114, i64 %.sroa.2109.0.copyload
-  %121 = ptrtoint ptr %120 to i64
-  %122 = icmp ugt i64 %119, %121
-  %or.cond162 = select i1 %117, i1 true, i1 %122
-  br i1 %or.cond162, label %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i81, label %124
+  %116 = icmp ugt ptr %115, inttoptr (i64 -5 to ptr)
+  %117 = ptrtoint ptr %115 to i64
+  %118 = add i64 %117, 4
+  %119 = getelementptr inbounds i8, ptr %113, i64 %.sroa.2105.0.copyload
+  %120 = ptrtoint ptr %119 to i64
+  %121 = icmp ugt i64 %118, %120
+  %or.cond142 = select i1 %116, i1 true, i1 %121
+  br i1 %or.cond142, label %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i77, label %123
 
-_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i81: ; preds = %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit73
-  %123 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6object15object_categoryEv() #28, !noalias !85
-  tail call void @_ZN4llvm16errorCodeToErrorESt10error_code(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, i32 4, ptr nonnull %123) #28
-  %.pr.i82 = load ptr, ptr %0, align 8
-  %.not.i83 = icmp eq ptr %.pr.i82, null
-  br i1 %.not.i83, label %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i81._crit_edge, label %148
+_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i77: ; preds = %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit69
+  %122 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6object15object_categoryEv() #28, !noalias !85
+  tail call void @_ZN4llvm16errorCodeToErrorESt10error_code(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, i32 4, ptr nonnull %122) #28
+  %.pr.i78 = load ptr, ptr %0, align 8
+  %.not.i79 = icmp eq ptr %.pr.i78, null
+  br i1 %.not.i79, label %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i77._crit_edge, label %147
 
-_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i81._crit_edge: ; preds = %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i81
-  %.sroa.0114.0.copyload.pre = load ptr, ptr %113, align 8
-  %.sroa.2115.0.copyload.pre = load i64, ptr %.sroa.2109.0..sroa_idx, align 8
-  br label %124
+_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i77._crit_edge: ; preds = %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i77
+  %.sroa.0110.0.copyload.pre = load ptr, ptr %112, align 8
+  %.sroa.2111.0.copyload.pre = load i64, ptr %.sroa.2105.0..sroa_idx, align 8
+  br label %123
 
-124:                                              ; preds = %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i81._crit_edge, %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit73
-  %.sroa.2115.0.copyload = phi i64 [ %.sroa.2115.0.copyload.pre, %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i81._crit_edge ], [ %.sroa.2109.0.copyload, %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit73 ]
-  %.sroa.0114.0.copyload = phi ptr [ %.sroa.0114.0.copyload.pre, %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i81._crit_edge ], [ %114, %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit73 ]
+123:                                              ; preds = %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i77._crit_edge, %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit69
+  %.sroa.2111.0.copyload = phi i64 [ %.sroa.2111.0.copyload.pre, %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i77._crit_edge ], [ %.sroa.2105.0.copyload, %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit69 ]
+  %.sroa.0110.0.copyload = phi ptr [ %.sroa.0110.0.copyload.pre, %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i77._crit_edge ], [ %113, %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit69 ]
   store ptr null, ptr %0, align 8, !alias.scope !82
-  call void @llvm.assume(i1 true) [ "align"(ptr %116, i64 1) ]
-  %.0.copyload.i.i.i = load i32, ptr %116, align 1
-  %125 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store i32 %.0.copyload.i.i.i, ptr %125, align 8
-  %126 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %127 = zext i32 %.0.copyload.i.i.i to i64
+  call void @llvm.assume(i1 true) [ "align"(ptr %115, i64 1) ]
+  %.0.copyload.i.i.i = load i32, ptr %115, align 1
+  %124 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  store i32 %.0.copyload.i.i.i, ptr %124, align 8
+  %125 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %126 = zext i32 %.0.copyload.i.i.i to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !88)
-  %128 = add i64 %127, %118
-  %129 = icmp ult i64 %128, %118
-  br i1 %129, label %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i90, label %130
+  %127 = add i64 %126, %117
+  %128 = icmp ult i64 %127, %117
+  br i1 %128, label %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i86, label %129
 
-130:                                              ; preds = %124
-  %131 = getelementptr inbounds i8, ptr %.sroa.0114.0.copyload, i64 %.sroa.2115.0.copyload
-  %132 = ptrtoint ptr %131 to i64
-  %133 = icmp ugt i64 %128, %132
-  %134 = icmp ult ptr %116, %.sroa.0114.0.copyload
-  %or.cond.i.i88 = or i1 %134, %133
-  br i1 %or.cond.i.i88, label %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i90, label %136
+129:                                              ; preds = %123
+  %130 = getelementptr inbounds i8, ptr %.sroa.0110.0.copyload, i64 %.sroa.2111.0.copyload
+  %131 = ptrtoint ptr %130 to i64
+  %132 = icmp ugt i64 %127, %131
+  %133 = icmp ult ptr %115, %.sroa.0110.0.copyload
+  %or.cond.i.i84 = or i1 %133, %132
+  br i1 %or.cond.i.i84, label %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i86, label %135
 
-_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i90: ; preds = %130, %124
-  %135 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6object15object_categoryEv() #28, !noalias !91
-  tail call void @_ZN4llvm16errorCodeToErrorESt10error_code(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, i32 4, ptr nonnull %135) #28
-  %.pr.i91 = load ptr, ptr %0, align 8
-  %.not.i92 = icmp eq ptr %.pr.i91, null
-  br i1 %.not.i92, label %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i90._crit_edge, label %148
+_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i86: ; preds = %129, %123
+  %134 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6object15object_categoryEv() #28, !noalias !91
+  tail call void @_ZN4llvm16errorCodeToErrorESt10error_code(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, i32 4, ptr nonnull %134) #28
+  %.pr.i87 = load ptr, ptr %0, align 8
+  %.not.i88 = icmp eq ptr %.pr.i87, null
+  br i1 %.not.i88, label %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i86._crit_edge, label %147
 
-_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i90._crit_edge: ; preds = %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i90
-  %.pre166 = load i32, ptr %125, align 8
-  br label %136
+_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i86._crit_edge: ; preds = %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i86
+  %.pre146 = load i32, ptr %124, align 8
+  br label %135
 
-136:                                              ; preds = %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i90._crit_edge, %130
-  %137 = phi i32 [ %.pre166, %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i90._crit_edge ], [ %.0.copyload.i.i.i, %130 ]
-  store ptr %116, ptr %126, align 8, !noalias !88
+135:                                              ; preds = %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i86._crit_edge, %129
+  %136 = phi i32 [ %.pre146, %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i86._crit_edge ], [ %.0.copyload.i.i.i, %129 ]
+  store ptr %115, ptr %125, align 8, !noalias !88
   store ptr null, ptr %0, align 8, !alias.scope !88
-  %138 = icmp ult i32 %137, 4
-  br i1 %138, label %.thread139, label %139
+  %137 = icmp ult i32 %136, 4
+  br i1 %137, label %.thread134, label %138
 
-.thread139:                                       ; preds = %136
-  store i32 4, ptr %125, align 8
+.thread134:                                       ; preds = %135
+  store i32 4, ptr %124, align 8
   br label %_ZN4llvm12ErrorSuccessD2Ev.exit
 
-139:                                              ; preds = %136
-  %.not155 = icmp eq i32 %137, 4
-  br i1 %.not155, label %_ZN4llvm12ErrorSuccessD2Ev.exit, label %140
+138:                                              ; preds = %135
+  %.not135 = icmp eq i32 %136, 4
+  br i1 %.not135, label %_ZN4llvm12ErrorSuccessD2Ev.exit, label %139
 
-140:                                              ; preds = %139
-  %141 = add i32 %137, -1
-  %142 = zext i32 %141 to i64
-  %143 = getelementptr inbounds i8, ptr %116, i64 %142
-  %144 = load i8, ptr %143, align 1
-  %.not17 = icmp eq i8 %144, 0
-  br i1 %.not17, label %_ZN4llvm12ErrorSuccessD2Ev.exit, label %145
+139:                                              ; preds = %138
+  %140 = add i32 %136, -1
+  %141 = zext i32 %140 to i64
+  %142 = getelementptr inbounds i8, ptr %115, i64 %141
+  %143 = load i8, ptr %142, align 1
+  %.not17 = icmp eq i8 %143, 0
+  br i1 %.not17, label %_ZN4llvm12ErrorSuccessD2Ev.exit, label %144
 
-145:                                              ; preds = %140
-  %146 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6object15object_categoryEv() #28
+144:                                              ; preds = %139
+  %145 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6object15object_categoryEv() #28
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #28, !noalias !94
-  %147 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #28, !noalias !94
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %147, ptr noundef nonnull align 1 dereferenceable(1) %4) #28, !noalias !94
+  %146 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #28, !noalias !94
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %146, ptr noundef nonnull align 1 dereferenceable(1) %4) #28, !noalias !94
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.2, i64 36)), !noalias !94
-  call void @_ZN4llvm17createStringErrorEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10error_code(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 3, ptr nonnull %146) #28
+  call void @_ZN4llvm17createStringErrorEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10error_code(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 3, ptr nonnull %145) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #28
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  br label %148
+  br label %147
 
-_ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %139, %140, %.thread139
+_ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %138, %139, %.thread134
   store ptr null, ptr %0, align 8
-  br label %148
+  br label %147
 
-148:                                              ; preds = %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i90, %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i81, %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i53, %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i, %_ZN4llvm12ErrorSuccessD2Ev.exit, %145
+147:                                              ; preds = %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i86, %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i77, %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i51, %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i, %_ZN4llvm12ErrorSuccessD2Ev.exit, %144
   ret void
 }
 
@@ -5254,7 +5241,7 @@ _ZNK4llvm6object15DynamicRelocRef7getTypeEv.exit: ; preds = %68, %70, %71, %74
 
 77:                                               ; preds = %76
   %. = select i1 %.not9.i101, i64 8, i64 12
-  %.150 = select i1 %.not9.i101, i64 4, i64 8
+  %.152 = select i1 %.not9.i101, i64 4, i64 8
   br label %_ZNK4llvm6object15DynamicRelocRef11getContentsERNS_8ArrayRefIhEE.exit.sink.split.i.i
 
 78:                                               ; preds = %76
@@ -5265,7 +5252,7 @@ _ZNK4llvm6object15DynamicRelocRef7getTypeEv.exit: ; preds = %68, %70, %71, %74
 
 _ZNK4llvm6object15DynamicRelocRef11getContentsERNS_8ArrayRefIhEE.exit.sink.split.i.i: ; preds = %77, %78
   %.sink147 = phi i64 [ %79, %78 ], [ %., %77 ]
-  %.sink = phi i64 [ 4, %78 ], [ %.150, %77 ]
+  %.sink = phi i64 [ 4, %78 ], [ %.152, %77 ]
   %80 = getelementptr inbounds i8, ptr %22, i64 %.sink147
   %81 = getelementptr inbounds nuw i8, ptr %22, i64 %.sink
   call void @llvm.assume(i1 true) [ "align"(ptr %81, i64 1) ]
@@ -5280,30 +5267,30 @@ _ZNK4llvm6object15DynamicRelocRef18arm64x_reloc_beginEv.exit.i: ; preds = %_ZNK4
   ]
 
 82:                                               ; preds = %_ZNK4llvm6object15DynamicRelocRef18arm64x_reloc_beginEv.exit.i
-  %.151 = select i1 %.not9.i101, i64 8, i64 12
-  %.152 = select i1 %.not9.i101, i64 4, i64 8
-  br label %_ZNK4llvm6object15DynamicRelocRef11getContentsERNS_8ArrayRefIhEE.exit.sink.split.i5.i
+  %.153 = select i1 %.not9.i101, i64 8, i64 12
+  %.154 = select i1 %.not9.i101, i64 4, i64 8
+  br label %_ZNK4llvm6object15DynamicRelocRef13arm64x_relocsEv.exit.sink.split
 
 83:                                               ; preds = %_ZNK4llvm6object15DynamicRelocRef18arm64x_reloc_beginEv.exit.i
   call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 1) ]
   %.0.copyload.i.i.i15.i.i4.i = load i32, ptr %22, align 1, !noalias !289
   %84 = zext i32 %.0.copyload.i.i.i15.i.i4.i to i64
-  br label %_ZNK4llvm6object15DynamicRelocRef11getContentsERNS_8ArrayRefIhEE.exit.sink.split.i5.i
+  br label %_ZNK4llvm6object15DynamicRelocRef13arm64x_relocsEv.exit.sink.split
 
-_ZNK4llvm6object15DynamicRelocRef11getContentsERNS_8ArrayRefIhEE.exit.sink.split.i5.i: ; preds = %82, %83
-  %.sink149 = phi i64 [ %84, %83 ], [ %.151, %82 ]
-  %.sink148 = phi i64 [ 4, %83 ], [ %.152, %82 ]
-  %85 = getelementptr inbounds i8, ptr %22, i64 %.sink149
-  %86 = getelementptr inbounds nuw i8, ptr %22, i64 %.sink148
+_ZNK4llvm6object15DynamicRelocRef13arm64x_relocsEv.exit.sink.split: ; preds = %82, %83
+  %.sink151 = phi i64 [ %84, %83 ], [ %.153, %82 ]
+  %.sink150 = phi i64 [ 4, %83 ], [ %.154, %82 ]
+  %85 = getelementptr inbounds i8, ptr %22, i64 %.sink151
+  %86 = getelementptr inbounds nuw i8, ptr %22, i64 %.sink150
   call void @llvm.assume(i1 true) [ "align"(ptr %86, i64 1) ]
   %.0.copyload.i.i.i11.i.i.i = load i32, ptr %86, align 1, !noalias !289
   %87 = zext i32 %.0.copyload.i.i.i11.i.i.i to i64
   br label %_ZNK4llvm6object15DynamicRelocRef13arm64x_relocsEv.exit
 
-_ZNK4llvm6object15DynamicRelocRef13arm64x_relocsEv.exit: ; preds = %_ZNK4llvm6object15DynamicRelocRef18arm64x_reloc_beginEv.exit.i, %_ZNK4llvm6object15DynamicRelocRef11getContentsERNS_8ArrayRefIhEE.exit.sink.split.i5.i
-  %.sroa.5.0.shrunk.i.i = phi i64 [ 0, %_ZNK4llvm6object15DynamicRelocRef18arm64x_reloc_beginEv.exit.i ], [ %87, %_ZNK4llvm6object15DynamicRelocRef11getContentsERNS_8ArrayRefIhEE.exit.sink.split.i5.i ]
-  %.sroa.03.0.i7.i = phi ptr [ null, %_ZNK4llvm6object15DynamicRelocRef18arm64x_reloc_beginEv.exit.i ], [ %85, %_ZNK4llvm6object15DynamicRelocRef11getContentsERNS_8ArrayRefIhEE.exit.sink.split.i5.i ]
-  %88 = getelementptr inbounds i8, ptr %.sroa.03.0.i7.i, i64 %.sroa.5.0.shrunk.i.i
+_ZNK4llvm6object15DynamicRelocRef13arm64x_relocsEv.exit: ; preds = %_ZNK4llvm6object15DynamicRelocRef13arm64x_relocsEv.exit.sink.split, %_ZNK4llvm6object15DynamicRelocRef18arm64x_reloc_beginEv.exit.i
+  %.sroa.5.0.shrunk.i.i = phi i64 [ 0, %_ZNK4llvm6object15DynamicRelocRef18arm64x_reloc_beginEv.exit.i ], [ %87, %_ZNK4llvm6object15DynamicRelocRef13arm64x_relocsEv.exit.sink.split ]
+  %.sroa.03.0.i5.i = phi ptr [ null, %_ZNK4llvm6object15DynamicRelocRef18arm64x_reloc_beginEv.exit.i ], [ %85, %_ZNK4llvm6object15DynamicRelocRef13arm64x_relocsEv.exit.sink.split ]
+  %88 = getelementptr inbounds i8, ptr %.sroa.03.0.i5.i, i64 %.sroa.5.0.shrunk.i.i
   %.not114 = icmp eq ptr %.sroa.03.0.i.i, %88
   br i1 %.not114, label %_ZN4llvm12ErrorSuccessD2Ev.exit, label %_ZN4llvm5ErrorD2Ev.exit.lr.ph
 
@@ -5452,9 +5439,9 @@ define dso_local void @_ZN4llvm6object14COFFObjectFile10initializeEv(ptr dead_on
   %16 = alloca %"class.llvm::Error", align 8
   %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #31
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.1181.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
-  %.sroa.1181.0.copyload = load i64, ptr %.sroa.1181.0..sroa_idx, align 8
-  %19 = icmp ugt i64 %.sroa.1181.0.copyload, 19
+  %.sroa.1182.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.1182.0.copyload = load i64, ptr %.sroa.1182.0..sroa_idx, align 8
+  %19 = icmp ugt i64 %.sroa.1182.0.copyload, 19
   br i1 %19, label %22, label %20
 
 20:                                               ; preds = %2
@@ -5463,13 +5450,13 @@ define dso_local void @_ZN4llvm6object14COFFObjectFile10initializeEv(ptr dead_on
   br label %_ZN4llvm12ErrorSuccessD2Ev.exit
 
 22:                                               ; preds = %2
-  %23 = icmp ugt i64 %.sroa.1181.0.copyload, 67
+  %23 = icmp ugt i64 %.sroa.1182.0.copyload, 67
   br i1 %23, label %25, label %_ZL9checkSizeN4llvm15MemoryBufferRefERSt10error_codem.exit96
 
 _ZL9checkSizeN4llvm15MemoryBufferRefERSt10error_codem.exit96: ; preds = %22
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6object15object_categoryEv() #28
-  %.sroa.0186.0.copyload.pre = load ptr, ptr %18, align 8
-  %.sroa.2187.0.copyload.pre = load i64, ptr %.sroa.1181.0..sroa_idx, align 8
+  %.sroa.0187.0.copyload.pre = load ptr, ptr %18, align 8
+  %.sroa.2188.0.copyload.pre = load i64, ptr %.sroa.1182.0..sroa_idx, align 8
   br label %42
 
 25:                                               ; preds = %22
@@ -5514,17 +5501,17 @@ _ZL9checkSizeN4llvm15MemoryBufferRefERSt10error_codem.exit96: ; preds = %22
   br label %42
 
 42:                                               ; preds = %_ZL9checkSizeN4llvm15MemoryBufferRefERSt10error_codem.exit96, %25, %29, %40
-  %.sroa.2187.0.copyload = phi i64 [ %.sroa.1181.0.copyload, %40 ], [ %.sroa.1181.0.copyload, %29 ], [ %.sroa.1181.0.copyload, %25 ], [ %.sroa.2187.0.copyload.pre, %_ZL9checkSizeN4llvm15MemoryBufferRefERSt10error_codem.exit96 ]
-  %.sroa.0186.0.copyload = phi ptr [ %26, %40 ], [ %26, %29 ], [ %26, %25 ], [ %.sroa.0186.0.copyload.pre, %_ZL9checkSizeN4llvm15MemoryBufferRefERSt10error_codem.exit96 ]
+  %.sroa.2188.0.copyload = phi i64 [ %.sroa.1182.0.copyload, %40 ], [ %.sroa.1182.0.copyload, %29 ], [ %.sroa.1182.0.copyload, %25 ], [ %.sroa.2188.0.copyload.pre, %_ZL9checkSizeN4llvm15MemoryBufferRefERSt10error_codem.exit96 ]
+  %.sroa.0187.0.copyload = phi ptr [ %26, %40 ], [ %26, %29 ], [ %26, %25 ], [ %.sroa.0187.0.copyload.pre, %_ZL9checkSizeN4llvm15MemoryBufferRefERSt10error_codem.exit96 ]
   %.058 = phi i1 [ true, %40 ], [ false, %29 ], [ false, %25 ], [ false, %_ZL9checkSizeN4llvm15MemoryBufferRefERSt10error_codem.exit96 ]
   %.057 = phi i64 [ %41, %40 ], [ 0, %29 ], [ 0, %25 ], [ 0, %_ZL9checkSizeN4llvm15MemoryBufferRefERSt10error_codem.exit96 ]
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %44 = getelementptr inbounds i8, ptr %.sroa.0186.0.copyload, i64 %.057
+  %44 = getelementptr inbounds i8, ptr %.sroa.0187.0.copyload, i64 %.057
   tail call void @llvm.experimental.noalias.scope.decl(metadata !298)
   %45 = icmp ugt ptr %44, inttoptr (i64 -21 to ptr)
   %46 = ptrtoint ptr %44 to i64
   %47 = add i64 %46, 20
-  %48 = getelementptr inbounds i8, ptr %.sroa.0186.0.copyload, i64 %.sroa.2187.0.copyload
+  %48 = getelementptr inbounds i8, ptr %.sroa.0187.0.copyload, i64 %.sroa.2188.0.copyload
   %49 = ptrtoint ptr %48 to i64
   %50 = icmp ugt i64 %47, %49
   %or.cond = select i1 %45, i1 true, i1 %50
@@ -5546,7 +5533,7 @@ _ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i: ; preds = %4
   call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 1) ]
   %.0.copyload.i.i.i97 = load i16, ptr %44, align 1
   %54 = icmp eq i16 %.0.copyload.i.i.i97, 0
-  br i1 %54, label %55, label %.thread212
+  br i1 %54, label %55, label %.thread213
 
 55:                                               ; preds = %53
   %56 = getelementptr inbounds nuw i8, ptr %44, i64 2
@@ -5556,7 +5543,7 @@ _ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i: ; preds = %4
   br i1 %57, label %58, label %thread-pre-split
 
 58:                                               ; preds = %55
-  %.sroa.1.0.copyload = load i64, ptr %.sroa.1181.0..sroa_idx, align 8
+  %.sroa.1.0.copyload = load i64, ptr %.sroa.1182.0..sroa_idx, align 8
   %59 = icmp ugt i64 %.sroa.1.0.copyload, 55
   br i1 %59, label %_ZN4llvm5ErrorD2Ev.exit101, label %_ZL9checkSizeN4llvm15MemoryBufferRefERSt10error_codem.exit100
 
@@ -5570,8 +5557,8 @@ _ZN4llvm5ErrorD2Ev.exit101:                       ; preds = %58
   %63 = getelementptr inbounds i8, ptr %62, i64 %.057
   tail call fastcc void @_ZL9getObjectIN4llvm6object23coff_bigobj_file_headerEENS0_5ErrorERPKT_NS0_15MemoryBufferRefEPKvm(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %61, ptr noundef nonnull byval(%"class.llvm::MemoryBufferRef") align 8 %18, ptr noundef %63)
   %64 = load ptr, ptr %0, align 8
-  %.not251 = icmp eq ptr %64, null
-  br i1 %.not251, label %65, label %_ZN4llvm12ErrorSuccessD2Ev.exit
+  %.not252 = icmp eq ptr %64, null
+  br i1 %.not252, label %65, label %_ZN4llvm12ErrorSuccessD2Ev.exit
 
 65:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit101
   %66 = load ptr, ptr %61, align 8
@@ -5585,12 +5572,12 @@ _ZN4llvm5ErrorD2Ev.exit101:                       ; preds = %58
   %70 = getelementptr inbounds nuw i8, ptr %66, i64 12
   %bcmp66 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %70, ptr noundef nonnull dereferenceable(16) @_ZN4llvm4COFFL11BigObjMagicE, i64 16)
   %71 = icmp eq i32 %bcmp66, 0
-  br i1 %71, label %.thread225, label %73
+  br i1 %71, label %.thread226, label %73
 
-.thread225:                                       ; preds = %69
+.thread226:                                       ; preds = %69
   store ptr null, ptr %43, align 8
   %72 = add nuw nsw i64 %.057, 56
-  %.sroa.0203.0.copyload232.pre = load ptr, ptr %18, align 8
+  %.sroa.0204.0.copyload233.pre = load ptr, ptr %18, align 8
   br label %121
 
 73:                                               ; preds = %69, %65
@@ -5604,9 +5591,9 @@ thread-pre-split:                                 ; preds = %55, %73, %_ZL9check
 74:                                               ; preds = %thread-pre-split, %52
   %75 = phi ptr [ %.pr, %thread-pre-split ], [ %44, %52 ]
   %.not67 = icmp eq ptr %75, null
-  br i1 %.not67, label %81, label %.thread212
+  br i1 %.not67, label %81, label %.thread213
 
-.thread212:                                       ; preds = %53, %74
+.thread213:                                       ; preds = %53, %74
   %76 = phi ptr [ %75, %74 ], [ %44, %53 ]
   %77 = add nuw nsw i64 %.057, 20
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 2
@@ -5615,28 +5602,28 @@ thread-pre-split:                                 ; preds = %55, %73, %_ZL9check
   %79 = icmp eq i16 %.0.copyload.i.i.i.i, -1
   br i1 %79, label %80, label %81
 
-80:                                               ; preds = %.thread212
+80:                                               ; preds = %.thread213
   tail call void @_ZN4llvm16errorCodeToErrorESt10error_code(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, i32 0, ptr nonnull %17) #28
   br label %_ZN4llvm12ErrorSuccessD2Ev.exit
 
-81:                                               ; preds = %.thread212, %74
-  %.pr224268 = phi ptr [ %76, %.thread212 ], [ null, %74 ]
-  %.2 = phi i64 [ %77, %.thread212 ], [ %.057, %74 ]
-  %.sroa.0203.0.copyload232.pre269.pre274 = load ptr, ptr %18, align 8
+81:                                               ; preds = %.thread213, %74
+  %.pr225269 = phi ptr [ %76, %.thread213 ], [ null, %74 ]
+  %.2 = phi i64 [ %77, %.thread213 ], [ %.057, %74 ]
+  %.sroa.0204.0.copyload233.pre270.pre275 = load ptr, ptr %18, align 8
   br i1 %.058, label %82, label %113
 
 82:                                               ; preds = %81
-  %.sroa.2192.0.copyload = load i64, ptr %.sroa.1181.0..sroa_idx, align 8
-  %83 = getelementptr inbounds i8, ptr %.sroa.0203.0.copyload232.pre269.pre274, i64 %.2
+  %.sroa.2193.0.copyload = load i64, ptr %.sroa.1182.0..sroa_idx, align 8
+  %83 = getelementptr inbounds i8, ptr %.sroa.0204.0.copyload233.pre270.pre275, i64 %.2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !304)
   %84 = icmp ugt ptr %83, inttoptr (i64 -97 to ptr)
   %85 = ptrtoint ptr %83 to i64
   %86 = add i64 %85, 96
-  %87 = getelementptr inbounds i8, ptr %.sroa.0203.0.copyload232.pre269.pre274, i64 %.sroa.2192.0.copyload
+  %87 = getelementptr inbounds i8, ptr %.sroa.0204.0.copyload233.pre270.pre275, i64 %.sroa.2193.0.copyload
   %88 = ptrtoint ptr %87 to i64
   %89 = icmp ugt i64 %86, %88
-  %or.cond282 = select i1 %84, i1 true, i1 %89
-  br i1 %or.cond282, label %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i108, label %91
+  %or.cond283 = select i1 %84, i1 true, i1 %89
+  br i1 %or.cond283, label %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i108, label %91
 
 _ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i108: ; preds = %82
   %90 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6object15object_categoryEv() #28, !noalias !307
@@ -5663,21 +5650,21 @@ _ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i108: ; preds =
   br label %_ZN4llvm12ErrorSuccessD2Ev.exit
 
 97:                                               ; preds = %93, %91
-  %.sink286 = phi i64 [ 64, %91 ], [ 72, %93 ]
-  %.sink284 = phi i64 [ 96, %91 ], [ 112, %93 ]
-  %.sink283 = phi i64 [ 92, %91 ], [ 108, %93 ]
-  %98 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink286
+  %.sink287 = phi i64 [ 64, %91 ], [ 72, %93 ]
+  %.sink285 = phi i64 [ 96, %91 ], [ 112, %93 ]
+  %.sink284 = phi i64 [ 92, %91 ], [ 108, %93 ]
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink287
   store ptr %83, ptr %98, align 8
   %99 = load ptr, ptr %18, align 8
   %100 = getelementptr inbounds i8, ptr %99, i64 %.2
-  %101 = getelementptr inbounds i8, ptr %100, i64 %.sink284
-  %102 = getelementptr inbounds nuw i8, ptr %83, i64 %.sink283
+  %101 = getelementptr inbounds i8, ptr %100, i64 %.sink285
+  %102 = getelementptr inbounds nuw i8, ptr %83, i64 %.sink284
   call void @llvm.assume(i1 true) [ "align"(ptr %102, i64 1) ]
   %.054.in.in = load i32, ptr %102, align 1
   %.054.in = zext i32 %.054.in.in to i64
   %.054 = shl nuw nsw i64 %.054.in, 3
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %.sroa.2198.0.copyload = load i64, ptr %.sroa.1181.0..sroa_idx, align 8
+  %.sroa.2199.0.copyload = load i64, ptr %.sroa.1182.0..sroa_idx, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !310)
   %104 = ptrtoint ptr %101 to i64
   %105 = add i64 %.054, %104
@@ -5685,35 +5672,35 @@ _ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i108: ; preds =
   br i1 %106, label %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i122, label %107
 
 107:                                              ; preds = %97
-  %108 = getelementptr inbounds i8, ptr %99, i64 %.sroa.2198.0.copyload
+  %108 = getelementptr inbounds i8, ptr %99, i64 %.sroa.2199.0.copyload
   %109 = ptrtoint ptr %108 to i64
   %110 = icmp ugt i64 %105, %109
   %111 = icmp ult ptr %101, %99
   %or.cond.i.i120 = or i1 %111, %110
-  br i1 %or.cond.i.i120, label %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i122, label %.thread221
+  br i1 %or.cond.i.i120, label %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i122, label %.thread222
 
 _ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i122: ; preds = %107, %97
   %112 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6object15object_categoryEv() #28, !noalias !313
   tail call void @_ZN4llvm16errorCodeToErrorESt10error_code(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, i32 4, ptr nonnull %112) #28
   %.pr.i123 = load ptr, ptr %0, align 8
   %.not.i124 = icmp eq ptr %.pr.i123, null
-  br i1 %.not.i124, label %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i122..thread221_crit_edge, label %_ZN4llvm12ErrorSuccessD2Ev.exit
+  br i1 %.not.i124, label %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i122..thread222_crit_edge, label %_ZN4llvm12ErrorSuccessD2Ev.exit
 
-_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i122..thread221_crit_edge: ; preds = %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i122
-  %.sroa.0203.0.copyload232.pre269.pre.pre = load ptr, ptr %18, align 8
-  br label %.thread221
+_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i122..thread222_crit_edge: ; preds = %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i122
+  %.sroa.0204.0.copyload233.pre270.pre.pre = load ptr, ptr %18, align 8
+  br label %.thread222
 
-.thread221:                                       ; preds = %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i122..thread221_crit_edge, %107
-  %.sroa.0203.0.copyload232.pre269.pre = phi ptr [ %.sroa.0203.0.copyload232.pre269.pre.pre, %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i122..thread221_crit_edge ], [ %99, %107 ]
+.thread222:                                       ; preds = %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i122..thread222_crit_edge, %107
+  %.sroa.0204.0.copyload233.pre270.pre = phi ptr [ %.sroa.0204.0.copyload233.pre270.pre.pre, %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i122..thread222_crit_edge ], [ %99, %107 ]
   store ptr %101, ptr %103, align 8, !noalias !310
   store ptr null, ptr %0, align 8, !alias.scope !310
-  %.pr224.pre = load ptr, ptr %43, align 8
+  %.pr225.pre = load ptr, ptr %43, align 8
   br label %113
 
-113:                                              ; preds = %.thread221, %81
-  %.sroa.0203.0.copyload232.pre269 = phi ptr [ %.sroa.0203.0.copyload232.pre269.pre, %.thread221 ], [ %.sroa.0203.0.copyload232.pre269.pre274, %81 ]
-  %.pr224 = phi ptr [ %.pr224.pre, %.thread221 ], [ %.pr224268, %81 ]
-  %.not68 = icmp eq ptr %.pr224, null
+113:                                              ; preds = %.thread222, %81
+  %.sroa.0204.0.copyload233.pre270 = phi ptr [ %.sroa.0204.0.copyload233.pre270.pre, %.thread222 ], [ %.sroa.0204.0.copyload233.pre270.pre275, %81 ]
+  %.pr225 = phi ptr [ %.pr225.pre, %.thread222 ], [ %.pr225269, %81 ]
+  %.not68 = icmp eq ptr %.pr225, null
   br i1 %.not68, label %._crit_edge, label %114
 
 ._crit_edge:                                      ; preds = %113
@@ -5722,13 +5709,13 @@ _ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i122..thread221
   br label %121
 
 114:                                              ; preds = %113
-  %115 = getelementptr inbounds nuw i8, ptr %.pr224, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %.pr225, i64 16
   call void @llvm.assume(i1 true) [ "align"(ptr %115, i64 1) ]
   %.0.copyload.i.i.i126 = load i16, ptr %115, align 1
   %116 = zext i16 %.0.copyload.i.i.i126 to i64
-  %117 = getelementptr i8, ptr %.sroa.0203.0.copyload232.pre269, i64 %.2
+  %117 = getelementptr i8, ptr %.sroa.0204.0.copyload233.pre270, i64 %.2
   %118 = getelementptr i8, ptr %117, i64 %116
-  %119 = getelementptr inbounds nuw i8, ptr %.pr224, i64 2
+  %119 = getelementptr inbounds nuw i8, ptr %.pr225, i64 2
   call void @llvm.assume(i1 true) [ "align"(ptr %119, i64 1) ]
   %.0.copyload.i.i.i.i.i = load i16, ptr %119, align 1
   %120 = icmp eq i16 %.0.copyload.i.i.i.i.i, -1
@@ -5736,23 +5723,23 @@ _ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i122..thread221
   %spec.select.i = zext i16 %narrow.i to i32
   br label %_ZNK4llvm6object14COFFObjectFile19getNumberOfSectionsEv.exit
 
-121:                                              ; preds = %._crit_edge, %.thread225
-  %122 = phi ptr [ %66, %.thread225 ], [ %.pre, %._crit_edge ]
-  %.sroa.0203.0.copyload232 = phi ptr [ %.sroa.0203.0.copyload232.pre, %.thread225 ], [ %.sroa.0203.0.copyload232.pre269, %._crit_edge ]
-  %.3.ph = phi i64 [ %72, %.thread225 ], [ %.2, %._crit_edge ]
-  %123 = getelementptr inbounds i8, ptr %.sroa.0203.0.copyload232, i64 %.3.ph
+121:                                              ; preds = %._crit_edge, %.thread226
+  %122 = phi ptr [ %66, %.thread226 ], [ %.pre, %._crit_edge ]
+  %.sroa.0204.0.copyload233 = phi ptr [ %.sroa.0204.0.copyload233.pre, %.thread226 ], [ %.sroa.0204.0.copyload233.pre270, %._crit_edge ]
+  %.3.ph = phi i64 [ %72, %.thread226 ], [ %.2, %._crit_edge ]
+  %123 = getelementptr inbounds i8, ptr %.sroa.0204.0.copyload233, i64 %.3.ph
   %124 = getelementptr inbounds nuw i8, ptr %122, i64 44
   call void @llvm.assume(i1 true) [ "align"(ptr %124, i64 1) ]
   %.0.copyload.i.i.i2.i = load i32, ptr %124, align 1
   br label %_ZNK4llvm6object14COFFObjectFile19getNumberOfSectionsEv.exit
 
 _ZNK4llvm6object14COFFObjectFile19getNumberOfSectionsEv.exit: ; preds = %114, %121
-  %125 = phi ptr [ null, %121 ], [ %.pr224, %114 ]
+  %125 = phi ptr [ null, %121 ], [ %.pr225, %114 ]
   %126 = phi ptr [ %123, %121 ], [ %118, %114 ]
-  %.sroa.0203.0.copyload234 = phi ptr [ %.sroa.0203.0.copyload232, %121 ], [ %.sroa.0203.0.copyload232.pre269, %114 ]
+  %.sroa.0204.0.copyload235 = phi ptr [ %.sroa.0204.0.copyload233, %121 ], [ %.sroa.0204.0.copyload233.pre270, %114 ]
   %.0.i = phi i32 [ %.0.copyload.i.i.i2.i, %121 ], [ %spec.select.i, %114 ]
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %.sroa.2204.0.copyload236 = load i64, ptr %.sroa.1181.0..sroa_idx, align 8
+  %.sroa.2205.0.copyload237 = load i64, ptr %.sroa.1182.0..sroa_idx, align 8
   %128 = zext i32 %.0.i to i64
   %129 = mul nuw nsw i64 %128, 40
   tail call void @llvm.experimental.noalias.scope.decl(metadata !316)
@@ -5762,10 +5749,10 @@ _ZNK4llvm6object14COFFObjectFile19getNumberOfSectionsEv.exit: ; preds = %114, %1
   br i1 %132, label %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i133, label %133
 
 133:                                              ; preds = %_ZNK4llvm6object14COFFObjectFile19getNumberOfSectionsEv.exit
-  %134 = getelementptr inbounds i8, ptr %.sroa.0203.0.copyload234, i64 %.sroa.2204.0.copyload236
+  %134 = getelementptr inbounds i8, ptr %.sroa.0204.0.copyload235, i64 %.sroa.2205.0.copyload237
   %135 = ptrtoint ptr %134 to i64
   %136 = icmp ugt i64 %131, %135
-  %137 = icmp ult ptr %126, %.sroa.0203.0.copyload234
+  %137 = icmp ult ptr %126, %.sroa.0204.0.copyload235
   %or.cond.i.i131 = or i1 %137, %136
   br i1 %or.cond.i.i131, label %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i133, label %139
 
@@ -5777,11 +5764,11 @@ _ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i133: ; preds =
   br i1 %.not.i135, label %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i133._crit_edge, label %_ZN4llvm12ErrorSuccessD2Ev.exit
 
 _ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i133._crit_edge: ; preds = %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i133
-  %.pre271 = load ptr, ptr %43, align 8
+  %.pre272 = load ptr, ptr %43, align 8
   br label %139
 
 139:                                              ; preds = %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i133._crit_edge, %133
-  %140 = phi ptr [ %.pre271, %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i133._crit_edge ], [ %125, %133 ]
+  %140 = phi ptr [ %.pre272, %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i133._crit_edge ], [ %125, %133 ]
   store ptr %126, ptr %127, align 8, !noalias !316
   store ptr null, ptr %0, align 8, !alias.scope !316
   %.not.i137 = icmp eq ptr %140, null
@@ -5792,7 +5779,7 @@ _ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i133._crit_edge
   call void @llvm.assume(i1 true) [ "align"(ptr %142, i64 1) ]
   %.0.copyload.i.i.i.i.i138 = load i16, ptr %142, align 1
   %143 = icmp eq i16 %.0.copyload.i.i.i.i.i138, -1
-  br i1 %143, label %.thread244, label %144
+  br i1 %143, label %.thread245, label %144
 
 144:                                              ; preds = %141
   %145 = getelementptr inbounds nuw i8, ptr %140, i64 8
@@ -5805,17 +5792,17 @@ _ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i133._crit_edge
   br label %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit
 
 _ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit: ; preds = %144, %146
-  %.sink3.i = phi ptr [ %145, %144 ], [ %149, %146 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sink3.i, i64 1) ]
-  %.0.copyload.i.i.i.i139 = load i32, ptr %.sink3.i, align 1
-  %.not69 = icmp eq i32 %.0.copyload.i.i.i.i139, 0
+  %.sink = phi ptr [ %145, %144 ], [ %149, %146 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sink, i64 1) ]
+  %.0.i140 = load i32, ptr %.sink, align 1
+  %.not69 = icmp eq i32 %.0.i140, 0
   br i1 %.not69, label %166, label %150
 
 150:                                              ; preds = %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit
   call void @_ZN4llvm6object14COFFObjectFile18initSymbolTablePtrEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %8, ptr noundef nonnull align 8 dereferenceable(232) %1)
   %151 = load ptr, ptr %8, align 8
-  %.not252 = icmp eq ptr %151, null
-  br i1 %.not252, label %_ZN4llvm5ErrorD2Ev.exit142, label %152
+  %.not253 = icmp eq ptr %151, null
+  br i1 %.not253, label %_ZN4llvm5ErrorD2Ev.exit143, label %152
 
 152:                                              ; preds = %150
   store ptr %151, ptr %9, align 8
@@ -5835,54 +5822,54 @@ _ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit: ; preds = %144
 159:                                              ; preds = %155, %152
   %160 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %160, i8 0, i64 28, i1 false)
-  %.pr242 = load ptr, ptr %8, align 8
-  %161 = icmp eq ptr %.pr242, null
-  br i1 %161, label %_ZN4llvm5ErrorD2Ev.exit142, label %162
+  %.pr243 = load ptr, ptr %8, align 8
+  %161 = icmp eq ptr %.pr243, null
+  br i1 %161, label %_ZN4llvm5ErrorD2Ev.exit143, label %162
 
 162:                                              ; preds = %159
-  %163 = load ptr, ptr %.pr242, align 8
+  %163 = load ptr, ptr %.pr243, align 8
   %164 = getelementptr inbounds i8, ptr %163, i64 8
   %165 = load ptr, ptr %164, align 8
-  call void %165(ptr noundef nonnull align 8 dereferenceable(8) %.pr242) #28
-  br label %_ZN4llvm5ErrorD2Ev.exit142
+  call void %165(ptr noundef nonnull align 8 dereferenceable(8) %.pr243) #28
+  br label %_ZN4llvm5ErrorD2Ev.exit143
 
 166:                                              ; preds = %_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit
   %167 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %168 = load ptr, ptr %167, align 8
-  %.not.i143 = icmp eq ptr %168, null
+  %.not.i144 = icmp eq ptr %168, null
   %169 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %170 = load ptr, ptr %169, align 8
   %.not1.i = icmp eq ptr %170, null
-  %or.cond.i = select i1 %.not.i143, i1 %.not1.i, i1 false
-  br i1 %or.cond.i, label %_ZN4llvm5ErrorD2Ev.exit142, label %176
+  %or.cond.i = select i1 %.not.i144, i1 %.not1.i, i1 false
+  br i1 %or.cond.i, label %_ZN4llvm5ErrorD2Ev.exit143, label %176
 
-.thread244:                                       ; preds = %141
+.thread245:                                       ; preds = %141
   %171 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %172 = load ptr, ptr %171, align 8
-  %.not.i143245 = icmp eq ptr %172, null
+  %.not.i144246 = icmp eq ptr %172, null
   %173 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %174 = load ptr, ptr %173, align 8
-  %.not1.i246 = icmp eq ptr %174, null
-  %or.cond.i247 = select i1 %.not.i143245, i1 %.not1.i246, i1 false
-  br i1 %or.cond.i247, label %_ZN4llvm5ErrorD2Ev.exit142, label %.thread248.thread
+  %.not1.i247 = icmp eq ptr %174, null
+  %or.cond.i248 = select i1 %.not.i144246, i1 %.not1.i247, i1 false
+  br i1 %or.cond.i248, label %_ZN4llvm5ErrorD2Ev.exit143, label %.thread249.thread
 
-.thread248.thread:                                ; preds = %.thread244
+.thread249.thread:                                ; preds = %.thread245
   %175 = getelementptr inbounds nuw i8, ptr %140, i64 2
   call void @llvm.assume(i1 true) [ "align"(ptr %175, i64 1) ]
-  br label %_ZN4llvm5ErrorD2Ev.exit142
+  br label %_ZN4llvm5ErrorD2Ev.exit143
 
 176:                                              ; preds = %166
-  br i1 %.not.i137, label %181, label %.thread248
+  br i1 %.not.i137, label %181, label %.thread249
 
-.thread248:                                       ; preds = %176
-  %.phi.trans.insert272 = getelementptr inbounds nuw i8, ptr %140, i64 2
-  %.0.copyload.i.i.i.i.i.i.pre = load i16, ptr %.phi.trans.insert272, align 1
+.thread249:                                       ; preds = %176
+  %.phi.trans.insert273 = getelementptr inbounds nuw i8, ptr %140, i64 2
+  %.0.copyload.i.i.i.i.i.i.pre = load i16, ptr %.phi.trans.insert273, align 1
   %177 = icmp eq i16 %.0.copyload.i.i.i.i.i.i.pre, -1
   %178 = getelementptr inbounds nuw i8, ptr %140, i64 2
   call void @llvm.assume(i1 true) [ "align"(ptr %178, i64 1) ]
-  br i1 %177, label %_ZN4llvm5ErrorD2Ev.exit142, label %179
+  br i1 %177, label %_ZN4llvm5ErrorD2Ev.exit143, label %179
 
-179:                                              ; preds = %.thread248
+179:                                              ; preds = %.thread249
   %180 = getelementptr inbounds nuw i8, ptr %140, i64 12
   br label %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit
 
@@ -5893,25 +5880,25 @@ _ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv.exit: ; preds = %144
   br label %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit
 
 _ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit: ; preds = %179, %181
-  %.sink3.i.i = phi ptr [ %180, %179 ], [ %184, %181 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sink3.i.i, i64 1) ]
-  %.0.copyload.i.i.i.i.i144 = load i32, ptr %.sink3.i.i, align 1
-  %.not70 = icmp eq i32 %.0.copyload.i.i.i.i.i144, 0
-  br i1 %.not70, label %_ZN4llvm5ErrorD2Ev.exit142, label %185
+  %.sink288 = phi ptr [ %180, %179 ], [ %184, %181 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sink288, i64 1) ]
+  %.0.i146 = load i32, ptr %.sink288, align 1
+  %.not70 = icmp eq i32 %.0.i146, 0
+  br i1 %.not70, label %_ZN4llvm5ErrorD2Ev.exit143, label %185
 
 185:                                              ; preds = %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit
   %186 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6object15object_categoryEv() #28
   tail call void @_ZN4llvm17createStringErrorESt10error_codePKc(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, i32 3, ptr nonnull %186, ptr noundef nonnull @.str.25)
   br label %_ZN4llvm12ErrorSuccessD2Ev.exit
 
-_ZN4llvm5ErrorD2Ev.exit142:                       ; preds = %.thread248.thread, %.thread244, %.thread248, %166, %150, %162, %159, %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit
+_ZN4llvm5ErrorD2Ev.exit143:                       ; preds = %.thread249.thread, %.thread245, %.thread249, %166, %150, %162, %159, %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit
   call void @_ZN4llvm6object14COFFObjectFile18initImportTablePtrEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %10, ptr noundef nonnull align 8 dereferenceable(232) %1)
   call void @llvm.experimental.noalias.scope.decl(metadata !322)
   %187 = load ptr, ptr %10, align 8, !noalias !322
-  %.not.i.i147 = icmp eq ptr %187, null
-  br i1 %.not.i.i147, label %_ZNK4llvm5Error3isAINS_6object20SectionStrippedErrorEEEbv.exit.thread.i, label %_ZNK4llvm5Error3isAINS_6object20SectionStrippedErrorEEEbv.exit.i
+  %.not.i.i148 = icmp eq ptr %187, null
+  br i1 %.not.i.i148, label %_ZNK4llvm5Error3isAINS_6object20SectionStrippedErrorEEEbv.exit.thread.i, label %_ZNK4llvm5Error3isAINS_6object20SectionStrippedErrorEEEbv.exit.i
 
-_ZNK4llvm5Error3isAINS_6object20SectionStrippedErrorEEEbv.exit.i: ; preds = %_ZN4llvm5ErrorD2Ev.exit142
+_ZNK4llvm5Error3isAINS_6object20SectionStrippedErrorEEEbv.exit.i: ; preds = %_ZN4llvm5ErrorD2Ev.exit143
   %188 = load ptr, ptr %187, align 8, !noalias !322
   %189 = getelementptr inbounds i8, ptr %188, i64 48
   %190 = load ptr, ptr %189, align 8, !noalias !322
@@ -5931,141 +5918,141 @@ _ZNK4llvm5Error3isAINS_6object20SectionStrippedErrorEEEbv.exit.i: ; preds = %_ZN
   call void @llvm.assume(i1 %.not.i.i.i.i)
   %194 = load ptr, ptr %4, align 8, !noalias !322
   %195 = icmp eq ptr %194, null
-  br i1 %195, label %_ZN4llvm12ErrorSuccessD2Ev.exit.i148, label %196
+  br i1 %195, label %_ZN4llvm12ErrorSuccessD2Ev.exit.i149, label %196
 
 196:                                              ; preds = %192
   %197 = load ptr, ptr %194, align 8, !noalias !322
   %198 = getelementptr inbounds i8, ptr %197, i64 8
   %199 = load ptr, ptr %198, align 8, !noalias !322
   call void %199(ptr noundef nonnull align 8 dereferenceable(8) %194) #28, !noalias !322
-  br label %_ZN4llvm12ErrorSuccessD2Ev.exit.i148
+  br label %_ZN4llvm12ErrorSuccessD2Ev.exit.i149
 
-_ZN4llvm12ErrorSuccessD2Ev.exit.i148:             ; preds = %196, %192
+_ZN4llvm12ErrorSuccessD2Ev.exit.i149:             ; preds = %196, %192
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !322
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !322
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5), !noalias !322
   br label %_ZL20ignoreStrippedErrorsN4llvm5ErrorE.exit
 
-_ZNK4llvm5Error3isAINS_6object20SectionStrippedErrorEEEbv.exit.thread.i: ; preds = %_ZNK4llvm5Error3isAINS_6object20SectionStrippedErrorEEEbv.exit.i, %_ZN4llvm5ErrorD2Ev.exit142
-  %200 = phi ptr [ null, %_ZN4llvm5ErrorD2Ev.exit142 ], [ %.pre.i, %_ZNK4llvm5Error3isAINS_6object20SectionStrippedErrorEEEbv.exit.i ]
+_ZNK4llvm5Error3isAINS_6object20SectionStrippedErrorEEEbv.exit.thread.i: ; preds = %_ZNK4llvm5Error3isAINS_6object20SectionStrippedErrorEEEbv.exit.i, %_ZN4llvm5ErrorD2Ev.exit143
+  %200 = phi ptr [ null, %_ZN4llvm5ErrorD2Ev.exit143 ], [ %.pre.i, %_ZNK4llvm5Error3isAINS_6object20SectionStrippedErrorEEEbv.exit.i ]
   store ptr %200, ptr %0, align 8, !alias.scope !322
   br label %_ZL20ignoreStrippedErrorsN4llvm5ErrorE.exit
 
-_ZL20ignoreStrippedErrorsN4llvm5ErrorE.exit:      ; preds = %_ZN4llvm12ErrorSuccessD2Ev.exit.i148, %_ZNK4llvm5Error3isAINS_6object20SectionStrippedErrorEEEbv.exit.thread.i
-  %.sink.i = phi ptr [ %10, %_ZNK4llvm5Error3isAINS_6object20SectionStrippedErrorEEEbv.exit.thread.i ], [ %0, %_ZN4llvm12ErrorSuccessD2Ev.exit.i148 ]
+_ZL20ignoreStrippedErrorsN4llvm5ErrorE.exit:      ; preds = %_ZN4llvm12ErrorSuccessD2Ev.exit.i149, %_ZNK4llvm5Error3isAINS_6object20SectionStrippedErrorEEEbv.exit.thread.i
+  %.sink.i = phi ptr [ %10, %_ZNK4llvm5Error3isAINS_6object20SectionStrippedErrorEEEbv.exit.thread.i ], [ %0, %_ZN4llvm12ErrorSuccessD2Ev.exit.i149 ]
   store ptr null, ptr %.sink.i, align 8
   %201 = load ptr, ptr %10, align 8
   %202 = icmp eq ptr %201, null
-  br i1 %202, label %_ZN4llvm5ErrorD2Ev.exit149, label %203
+  br i1 %202, label %_ZN4llvm5ErrorD2Ev.exit150, label %203
 
 203:                                              ; preds = %_ZL20ignoreStrippedErrorsN4llvm5ErrorE.exit
   %204 = load ptr, ptr %201, align 8
   %205 = getelementptr inbounds i8, ptr %204, i64 8
   %206 = load ptr, ptr %205, align 8
   call void %206(ptr noundef nonnull align 8 dereferenceable(8) %201) #28
-  br label %_ZN4llvm5ErrorD2Ev.exit149
+  br label %_ZN4llvm5ErrorD2Ev.exit150
 
-_ZN4llvm5ErrorD2Ev.exit149:                       ; preds = %_ZL20ignoreStrippedErrorsN4llvm5ErrorE.exit, %203
+_ZN4llvm5ErrorD2Ev.exit150:                       ; preds = %_ZL20ignoreStrippedErrorsN4llvm5ErrorE.exit, %203
   %207 = load ptr, ptr %0, align 8
-  %.not253 = icmp eq ptr %207, null
-  br i1 %.not253, label %208, label %_ZN4llvm12ErrorSuccessD2Ev.exit
+  %.not254 = icmp eq ptr %207, null
+  br i1 %.not254, label %208, label %_ZN4llvm12ErrorSuccessD2Ev.exit
 
-208:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit149
+208:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit150
   call void @_ZN4llvm6object14COFFObjectFile23initDelayImportTablePtrEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %11, ptr noundef nonnull align 8 dereferenceable(232) %1)
   call fastcc void @_ZL20ignoreStrippedErrorsN4llvm5ErrorE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %11)
   %209 = load ptr, ptr %11, align 8
   %210 = icmp eq ptr %209, null
-  br i1 %210, label %_ZN4llvm5ErrorD2Ev.exit151, label %211
+  br i1 %210, label %_ZN4llvm5ErrorD2Ev.exit152, label %211
 
 211:                                              ; preds = %208
   %212 = load ptr, ptr %209, align 8
   %213 = getelementptr inbounds i8, ptr %212, i64 8
   %214 = load ptr, ptr %213, align 8
   call void %214(ptr noundef nonnull align 8 dereferenceable(8) %209) #28
-  br label %_ZN4llvm5ErrorD2Ev.exit151
+  br label %_ZN4llvm5ErrorD2Ev.exit152
 
-_ZN4llvm5ErrorD2Ev.exit151:                       ; preds = %208, %211
+_ZN4llvm5ErrorD2Ev.exit152:                       ; preds = %208, %211
   %215 = load ptr, ptr %0, align 8
-  %.not254 = icmp eq ptr %215, null
-  br i1 %.not254, label %216, label %_ZN4llvm12ErrorSuccessD2Ev.exit
+  %.not255 = icmp eq ptr %215, null
+  br i1 %.not255, label %216, label %_ZN4llvm12ErrorSuccessD2Ev.exit
 
-216:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit151
+216:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit152
   call void @_ZN4llvm6object14COFFObjectFile18initExportTablePtrEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %12, ptr noundef nonnull align 8 dereferenceable(232) %1)
   call fastcc void @_ZL20ignoreStrippedErrorsN4llvm5ErrorE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %12)
   %217 = load ptr, ptr %12, align 8
   %218 = icmp eq ptr %217, null
-  br i1 %218, label %_ZN4llvm5ErrorD2Ev.exit153, label %219
+  br i1 %218, label %_ZN4llvm5ErrorD2Ev.exit154, label %219
 
 219:                                              ; preds = %216
   %220 = load ptr, ptr %217, align 8
   %221 = getelementptr inbounds i8, ptr %220, i64 8
   %222 = load ptr, ptr %221, align 8
   call void %222(ptr noundef nonnull align 8 dereferenceable(8) %217) #28
-  br label %_ZN4llvm5ErrorD2Ev.exit153
+  br label %_ZN4llvm5ErrorD2Ev.exit154
 
-_ZN4llvm5ErrorD2Ev.exit153:                       ; preds = %216, %219
+_ZN4llvm5ErrorD2Ev.exit154:                       ; preds = %216, %219
   %223 = load ptr, ptr %0, align 8
-  %.not255 = icmp eq ptr %223, null
-  br i1 %.not255, label %224, label %_ZN4llvm12ErrorSuccessD2Ev.exit
+  %.not256 = icmp eq ptr %223, null
+  br i1 %.not256, label %224, label %_ZN4llvm12ErrorSuccessD2Ev.exit
 
-224:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit153
+224:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit154
   call void @_ZN4llvm6object14COFFObjectFile16initBaseRelocPtrEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %13, ptr noundef nonnull align 8 dereferenceable(232) %1)
   call fastcc void @_ZL20ignoreStrippedErrorsN4llvm5ErrorE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %13)
   %225 = load ptr, ptr %13, align 8
   %226 = icmp eq ptr %225, null
-  br i1 %226, label %_ZN4llvm5ErrorD2Ev.exit155, label %227
+  br i1 %226, label %_ZN4llvm5ErrorD2Ev.exit156, label %227
 
 227:                                              ; preds = %224
   %228 = load ptr, ptr %225, align 8
   %229 = getelementptr inbounds i8, ptr %228, i64 8
   %230 = load ptr, ptr %229, align 8
   call void %230(ptr noundef nonnull align 8 dereferenceable(8) %225) #28
-  br label %_ZN4llvm5ErrorD2Ev.exit155
+  br label %_ZN4llvm5ErrorD2Ev.exit156
 
-_ZN4llvm5ErrorD2Ev.exit155:                       ; preds = %224, %227
+_ZN4llvm5ErrorD2Ev.exit156:                       ; preds = %224, %227
   %231 = load ptr, ptr %0, align 8
-  %.not256 = icmp eq ptr %231, null
-  br i1 %.not256, label %232, label %_ZN4llvm12ErrorSuccessD2Ev.exit
+  %.not257 = icmp eq ptr %231, null
+  br i1 %.not257, label %232, label %_ZN4llvm12ErrorSuccessD2Ev.exit
 
-232:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit155
+232:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit156
   call void @_ZN4llvm6object14COFFObjectFile21initDebugDirectoryPtrEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %14, ptr noundef nonnull align 8 dereferenceable(232) %1)
   call fastcc void @_ZL20ignoreStrippedErrorsN4llvm5ErrorE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %14)
   %233 = load ptr, ptr %14, align 8
   %234 = icmp eq ptr %233, null
-  br i1 %234, label %_ZN4llvm5ErrorD2Ev.exit157, label %235
+  br i1 %234, label %_ZN4llvm5ErrorD2Ev.exit158, label %235
 
 235:                                              ; preds = %232
   %236 = load ptr, ptr %233, align 8
   %237 = getelementptr inbounds i8, ptr %236, i64 8
   %238 = load ptr, ptr %237, align 8
   call void %238(ptr noundef nonnull align 8 dereferenceable(8) %233) #28
-  br label %_ZN4llvm5ErrorD2Ev.exit157
+  br label %_ZN4llvm5ErrorD2Ev.exit158
 
-_ZN4llvm5ErrorD2Ev.exit157:                       ; preds = %232, %235
+_ZN4llvm5ErrorD2Ev.exit158:                       ; preds = %232, %235
   %239 = load ptr, ptr %0, align 8
-  %.not257 = icmp eq ptr %239, null
-  br i1 %.not257, label %240, label %_ZN4llvm12ErrorSuccessD2Ev.exit
+  %.not258 = icmp eq ptr %239, null
+  br i1 %.not258, label %240, label %_ZN4llvm12ErrorSuccessD2Ev.exit
 
-240:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit157
+240:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit158
   call void @_ZN4llvm6object14COFFObjectFile19initTLSDirectoryPtrEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %15, ptr noundef nonnull align 8 dereferenceable(232) %1)
   call fastcc void @_ZL20ignoreStrippedErrorsN4llvm5ErrorE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %15)
   %241 = load ptr, ptr %15, align 8
   %242 = icmp eq ptr %241, null
-  br i1 %242, label %_ZN4llvm5ErrorD2Ev.exit159, label %243
+  br i1 %242, label %_ZN4llvm5ErrorD2Ev.exit160, label %243
 
 243:                                              ; preds = %240
   %244 = load ptr, ptr %241, align 8
   %245 = getelementptr inbounds i8, ptr %244, i64 8
   %246 = load ptr, ptr %245, align 8
   call void %246(ptr noundef nonnull align 8 dereferenceable(8) %241) #28
-  br label %_ZN4llvm5ErrorD2Ev.exit159
+  br label %_ZN4llvm5ErrorD2Ev.exit160
 
-_ZN4llvm5ErrorD2Ev.exit159:                       ; preds = %240, %243
+_ZN4llvm5ErrorD2Ev.exit160:                       ; preds = %240, %243
   %247 = load ptr, ptr %0, align 8
-  %.not258 = icmp eq ptr %247, null
-  br i1 %.not258, label %248, label %_ZN4llvm12ErrorSuccessD2Ev.exit
+  %.not259 = icmp eq ptr %247, null
+  br i1 %.not259, label %248, label %_ZN4llvm12ErrorSuccessD2Ev.exit
 
-248:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit159
+248:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit160
   call void @_ZN4llvm6object14COFFObjectFile17initLoadConfigPtrEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %16, ptr noundef nonnull align 8 dereferenceable(232) %1)
   call fastcc void @_ZL20ignoreStrippedErrorsN4llvm5ErrorE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %16)
   %249 = load ptr, ptr %16, align 8
@@ -6079,7 +6066,7 @@ _ZN4llvm5ErrorD2Ev.exit159:                       ; preds = %240, %243
   call void %254(ptr noundef nonnull align 8 dereferenceable(8) %249) #28
   br label %_ZN4llvm12ErrorSuccessD2Ev.exit
 
-_ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %251, %248, %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i133, %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i122, %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i108, %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i, %_ZN4llvm5ErrorD2Ev.exit159, %_ZN4llvm5ErrorD2Ev.exit157, %_ZN4llvm5ErrorD2Ev.exit155, %_ZN4llvm5ErrorD2Ev.exit153, %_ZN4llvm5ErrorD2Ev.exit151, %_ZN4llvm5ErrorD2Ev.exit149, %_ZN4llvm5ErrorD2Ev.exit101, %185, %95, %80, %37, %20
+_ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %251, %248, %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i133, %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i122, %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i108, %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i, %_ZN4llvm5ErrorD2Ev.exit160, %_ZN4llvm5ErrorD2Ev.exit158, %_ZN4llvm5ErrorD2Ev.exit156, %_ZN4llvm5ErrorD2Ev.exit154, %_ZN4llvm5ErrorD2Ev.exit152, %_ZN4llvm5ErrorD2Ev.exit150, %_ZN4llvm5ErrorD2Ev.exit101, %185, %95, %80, %37, %20
   ret void
 }
 
@@ -6983,10 +6970,10 @@ define dso_local { i64, ptr } @_ZNK4llvm6object14COFFObjectFile19getRelocationSy
   br label %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit
 
 _ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit: ; preds = %15, %17
-  %.sink3.i.i = phi ptr [ %16, %15 ], [ %20, %17 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sink3.i.i, i64 1) ]
-  %.0.copyload.i.i.i.i.i = load i32, ptr %.sink3.i.i, align 1
-  %.not = icmp ult i32 %.0.copyload.i.i.i, %.0.copyload.i.i.i.i.i
+  %.sink = phi ptr [ %16, %15 ], [ %20, %17 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sink, i64 1) ]
+  %.0.i = load i32, ptr %.sink, align 1
+  %.not = icmp ult i32 %.0.copyload.i.i.i, %.0.i
   br i1 %.not, label %27, label %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit.thread
 
 _ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit.thread: ; preds = %12, %2, %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit
@@ -7105,41 +7092,42 @@ define dso_local { ptr, i64 } @_ZNK4llvm6object14COFFObjectFile21getRelocationTy
 switch.lookup:                                    ; preds = %7
   %15 = zext nneg i16 %1 to i64
   %switch.gep = getelementptr inbounds [17 x i64], ptr @switch.table._ZNK4llvm6object14COFFObjectFile21getRelocationTypeNameEt, i64 0, i64 %15
+  %switch.load = load i64, ptr %switch.gep, align 8
   %16 = zext nneg i16 %1 to i64
   %switch.gep4 = getelementptr inbounds [17 x ptr], ptr @switch.table._ZNK4llvm6object14COFFObjectFile21getRelocationTypeNameEt.23, i64 0, i64 %16
-  br label %.sink.split
+  %switch.load5 = load ptr, ptr %switch.gep4, align 8
+  br label %23
 
 switch.lookup6:                                   ; preds = %9
   %17 = zext nneg i16 %1 to i64
   %switch.gep7 = getelementptr inbounds [23 x i64], ptr @switch.table._ZNK4llvm6object14COFFObjectFile21getRelocationTypeNameEt.24, i64 0, i64 %17
+  %switch.load8 = load i64, ptr %switch.gep7, align 8
   %18 = zext nneg i16 %1 to i64
   %switch.gep9 = getelementptr inbounds [23 x ptr], ptr @switch.table._ZNK4llvm6object14COFFObjectFile21getRelocationTypeNameEt.25, i64 0, i64 %18
-  br label %.sink.split
+  %switch.load10 = load ptr, ptr %switch.gep9, align 8
+  br label %23
 
 switch.lookup11:                                  ; preds = %11
   %19 = zext nneg i16 %1 to i64
   %switch.gep12 = getelementptr inbounds [18 x i64], ptr @switch.table._ZNK4llvm6object14COFFObjectFile21getRelocationTypeNameEt.26, i64 0, i64 %19
+  %switch.load13 = load i64, ptr %switch.gep12, align 8
   %20 = zext nneg i16 %1 to i64
   %switch.gep14 = getelementptr inbounds [18 x ptr], ptr @switch.table._ZNK4llvm6object14COFFObjectFile21getRelocationTypeNameEt.27, i64 0, i64 %20
-  br label %.sink.split
+  %switch.load15 = load ptr, ptr %switch.gep14, align 8
+  br label %23
 
 switch.lookup16:                                  ; preds = %13
   %21 = zext nneg i16 %1 to i64
   %switch.gep17 = getelementptr inbounds [21 x i64], ptr @switch.table._ZNK4llvm6object14COFFObjectFile21getRelocationTypeNameEt.28, i64 0, i64 %21
+  %switch.load18 = load i64, ptr %switch.gep17, align 8
   %22 = zext nneg i16 %1 to i64
   %switch.gep19 = getelementptr inbounds [21 x ptr], ptr @switch.table._ZNK4llvm6object14COFFObjectFile21getRelocationTypeNameEt.29, i64 0, i64 %22
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %switch.lookup, %switch.lookup6, %switch.lookup11, %switch.lookup16
-  %switch.gep19.sink = phi ptr [ %switch.gep19, %switch.lookup16 ], [ %switch.gep14, %switch.lookup11 ], [ %switch.gep9, %switch.lookup6 ], [ %switch.gep4, %switch.lookup ]
-  %.sroa.69.0.ph.in = phi ptr [ %switch.gep17, %switch.lookup16 ], [ %switch.gep12, %switch.lookup11 ], [ %switch.gep7, %switch.lookup6 ], [ %switch.gep, %switch.lookup ]
-  %.sroa.69.0.ph = load i64, ptr %.sroa.69.0.ph.in, align 8
-  %switch.load20 = load ptr, ptr %switch.gep19.sink, align 8
+  %switch.load20 = load ptr, ptr %switch.gep19, align 8
   br label %23
 
-23:                                               ; preds = %.sink.split, %13, %11, %9, %7, %2
-  %.sroa.69.0 = phi i64 [ 7, %2 ], [ 7, %7 ], [ 7, %9 ], [ 7, %11 ], [ 7, %13 ], [ %.sroa.69.0.ph, %.sink.split ]
-  %.sroa.0.0 = phi ptr [ @.str.55, %2 ], [ @.str.55, %7 ], [ @.str.55, %9 ], [ @.str.55, %11 ], [ @.str.55, %13 ], [ %switch.load20, %.sink.split ]
+23:                                               ; preds = %13, %switch.lookup16, %11, %switch.lookup11, %9, %switch.lookup6, %7, %switch.lookup, %2
+  %.sroa.69.0 = phi i64 [ 7, %2 ], [ %switch.load, %switch.lookup ], [ 7, %7 ], [ %switch.load8, %switch.lookup6 ], [ 7, %9 ], [ %switch.load13, %switch.lookup11 ], [ 7, %11 ], [ %switch.load18, %switch.lookup16 ], [ 7, %13 ]
+  %.sroa.0.0 = phi ptr [ @.str.55, %2 ], [ %switch.load5, %switch.lookup ], [ @.str.55, %7 ], [ %switch.load10, %switch.lookup6 ], [ @.str.55, %9 ], [ %switch.load15, %switch.lookup11 ], [ @.str.55, %11 ], [ %switch.load20, %switch.lookup16 ], [ @.str.55, %13 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.69.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -7286,7 +7274,7 @@ _ZNK4llvm6object14COFFObjectFile14dynamic_relocsEv.exit: ; preds = %_ZNK4llvm6ob
   %.0.copyload.i.i.i.i.i = load i32, ptr %20, align 1, !noalias !349
   %21 = zext i32 %.0.copyload.i.i.i.i.i to i64
   %22 = getelementptr inbounds i8, ptr %19, i64 %21
-  %.ptr138 = getelementptr inbounds i8, ptr %22, i64 8
+  %.ptr140 = getelementptr inbounds i8, ptr %22, i64 8
   %.not110117 = icmp eq i32 %.0.copyload.i.i.i.i.i, 0
   br i1 %.not110117, label %_ZNK4llvm6object14COFFObjectFile10getMachineEv.exit.thread107, label %.lr.ph120
 
@@ -7351,7 +7339,7 @@ _ZNK4llvm6object15DynamicRelocRef7getTypeEv.exit: ; preds = %31, %33, %36, %38
 
 40:                                               ; preds = %39
   %. = select i1 %.not9.i, i64 8, i64 12
-  %.135 = select i1 %.not9.i, i64 4, i64 8
+  %.137 = select i1 %.not9.i, i64 4, i64 8
   br label %_ZNK4llvm6object15DynamicRelocRef11getContentsERNS_8ArrayRefIhEE.exit.sink.split.i.i
 
 41:                                               ; preds = %39
@@ -7362,7 +7350,7 @@ _ZNK4llvm6object15DynamicRelocRef7getTypeEv.exit: ; preds = %31, %33, %36, %38
 
 _ZNK4llvm6object15DynamicRelocRef11getContentsERNS_8ArrayRefIhEE.exit.sink.split.i.i: ; preds = %40, %41
   %.sink132 = phi i64 [ %42, %41 ], [ %., %40 ]
-  %.sink = phi i64 [ 4, %41 ], [ %.135, %40 ]
+  %.sink = phi i64 [ 4, %41 ], [ %.137, %40 ]
   %43 = getelementptr inbounds i8, ptr %.sroa.391.0118, i64 %.sink132
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.391.0118, i64 %.sink
   call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 1) ]
@@ -7377,30 +7365,30 @@ _ZNK4llvm6object15DynamicRelocRef18arm64x_reloc_beginEv.exit.i: ; preds = %_ZNK4
   ]
 
 45:                                               ; preds = %_ZNK4llvm6object15DynamicRelocRef18arm64x_reloc_beginEv.exit.i
-  %.136 = select i1 %.not9.i, i64 8, i64 12
-  %.137 = select i1 %.not9.i, i64 4, i64 8
-  br label %_ZNK4llvm6object15DynamicRelocRef11getContentsERNS_8ArrayRefIhEE.exit.sink.split.i5.i
+  %.138 = select i1 %.not9.i, i64 8, i64 12
+  %.139 = select i1 %.not9.i, i64 4, i64 8
+  br label %_ZNK4llvm6object15DynamicRelocRef13arm64x_relocsEv.exit.sink.split
 
 46:                                               ; preds = %_ZNK4llvm6object15DynamicRelocRef18arm64x_reloc_beginEv.exit.i
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.391.0118, i64 1) ]
   %.0.copyload.i.i.i15.i.i4.i = load i32, ptr %.sroa.391.0118, align 1, !noalias !352
   %47 = zext i32 %.0.copyload.i.i.i15.i.i4.i to i64
-  br label %_ZNK4llvm6object15DynamicRelocRef11getContentsERNS_8ArrayRefIhEE.exit.sink.split.i5.i
+  br label %_ZNK4llvm6object15DynamicRelocRef13arm64x_relocsEv.exit.sink.split
 
-_ZNK4llvm6object15DynamicRelocRef11getContentsERNS_8ArrayRefIhEE.exit.sink.split.i5.i: ; preds = %45, %46
-  %.sink134 = phi i64 [ %47, %46 ], [ %.136, %45 ]
-  %.sink133 = phi i64 [ 4, %46 ], [ %.137, %45 ]
-  %48 = getelementptr inbounds i8, ptr %.sroa.391.0118, i64 %.sink134
-  %49 = getelementptr inbounds nuw i8, ptr %.sroa.391.0118, i64 %.sink133
+_ZNK4llvm6object15DynamicRelocRef13arm64x_relocsEv.exit.sink.split: ; preds = %45, %46
+  %.sink136 = phi i64 [ %47, %46 ], [ %.138, %45 ]
+  %.sink135 = phi i64 [ 4, %46 ], [ %.139, %45 ]
+  %48 = getelementptr inbounds i8, ptr %.sroa.391.0118, i64 %.sink136
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.391.0118, i64 %.sink135
   call void @llvm.assume(i1 true) [ "align"(ptr %49, i64 1) ]
   %.0.copyload.i.i.i11.i.i.i = load i32, ptr %49, align 1, !noalias !352
   %50 = zext i32 %.0.copyload.i.i.i11.i.i.i to i64
   br label %_ZNK4llvm6object15DynamicRelocRef13arm64x_relocsEv.exit
 
-_ZNK4llvm6object15DynamicRelocRef13arm64x_relocsEv.exit: ; preds = %_ZNK4llvm6object15DynamicRelocRef18arm64x_reloc_beginEv.exit.i, %_ZNK4llvm6object15DynamicRelocRef11getContentsERNS_8ArrayRefIhEE.exit.sink.split.i5.i
-  %.sroa.5.0.shrunk.i.i = phi i64 [ 0, %_ZNK4llvm6object15DynamicRelocRef18arm64x_reloc_beginEv.exit.i ], [ %50, %_ZNK4llvm6object15DynamicRelocRef11getContentsERNS_8ArrayRefIhEE.exit.sink.split.i5.i ]
-  %.sroa.03.0.i7.i = phi ptr [ null, %_ZNK4llvm6object15DynamicRelocRef18arm64x_reloc_beginEv.exit.i ], [ %48, %_ZNK4llvm6object15DynamicRelocRef11getContentsERNS_8ArrayRefIhEE.exit.sink.split.i5.i ]
-  %51 = getelementptr inbounds i8, ptr %.sroa.03.0.i7.i, i64 %.sroa.5.0.shrunk.i.i
+_ZNK4llvm6object15DynamicRelocRef13arm64x_relocsEv.exit: ; preds = %_ZNK4llvm6object15DynamicRelocRef13arm64x_relocsEv.exit.sink.split, %_ZNK4llvm6object15DynamicRelocRef18arm64x_reloc_beginEv.exit.i
+  %.sroa.5.0.shrunk.i.i = phi i64 [ 0, %_ZNK4llvm6object15DynamicRelocRef18arm64x_reloc_beginEv.exit.i ], [ %50, %_ZNK4llvm6object15DynamicRelocRef13arm64x_relocsEv.exit.sink.split ]
+  %.sroa.03.0.i5.i = phi ptr [ null, %_ZNK4llvm6object15DynamicRelocRef18arm64x_reloc_beginEv.exit.i ], [ %48, %_ZNK4llvm6object15DynamicRelocRef13arm64x_relocsEv.exit.sink.split ]
+  %51 = getelementptr inbounds i8, ptr %.sroa.03.0.i5.i, i64 %.sroa.5.0.shrunk.i.i
   %.not122 = icmp eq ptr %.sroa.03.0.i.i, %51
   br i1 %.not122, label %.loopexit, label %.lr.ph
 
@@ -7677,7 +7665,7 @@ _ZN4llvm6object16content_iteratorINS0_14Arm64XRelocRefEEppEv.exit: ; preds = %13
 
 _ZN4llvm6object16content_iteratorINS0_15DynamicRelocRefEEppEv.exit: ; preds = %.loopexit, %141, %146, %151
   %.sroa.391.1 = phi ptr [ %.sroa.391.0118, %.loopexit ], [ %155, %151 ], [ %150, %146 ], [ %145, %141 ]
-  %.not110 = icmp eq ptr %.sroa.391.1, %.ptr138
+  %.not110 = icmp eq ptr %.sroa.391.1, %.ptr140
   br i1 %.not110, label %_ZNK4llvm6object14COFFObjectFile10getMachineEv.exit.thread107, label %27
 
 _ZNK4llvm6object14COFFObjectFile10getMachineEv.exit.thread107: ; preds = %_ZN4llvm6object16content_iteratorINS0_15DynamicRelocRefEEppEv.exit, %_ZNK4llvm6object14COFFObjectFile10getMachineEv.exit.thread, %_ZNK4llvm6object14COFFObjectFile14dynamic_relocsEv.exit, %_ZNK4llvm6object14COFFObjectFile10getMachineEv.exit, %12
@@ -7790,20 +7778,24 @@ _ZNK4llvm6object15DynamicRelocRef18arm64x_reloc_beginEv.exit: ; preds = %2, %_ZN
 23:                                               ; preds = %_ZNK4llvm6object15DynamicRelocRef18arm64x_reloc_beginEv.exit
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %25 = load ptr, ptr %24, align 8
-  %.not23.i.i10 = icmp eq ptr %25, null
+  %.not23.i.i8 = icmp eq ptr %25, null
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %27 = load ptr, ptr %26, align 8
-  br i1 %.not23.i.i10, label %31, label %28
+  br i1 %.not23.i.i8, label %31, label %28
 
 28:                                               ; preds = %23
   %29 = getelementptr inbounds i8, ptr %27, i64 12
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  br label %_ZNK4llvm6object15DynamicRelocRef11getContentsERNS_8ArrayRefIhEE.exit.sink.split.i5
+  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 1) ]
+  %.0.copyload.i.i.i11.i.i = load i32, ptr %30, align 1
+  br label %_ZNK4llvm6object15DynamicRelocRef16arm64x_reloc_endEv.exit
 
 31:                                               ; preds = %23
   %32 = getelementptr inbounds i8, ptr %27, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 4
-  br label %_ZNK4llvm6object15DynamicRelocRef11getContentsERNS_8ArrayRefIhEE.exit.sink.split.i5
+  call void @llvm.assume(i1 true) [ "align"(ptr %33, i64 1) ]
+  %.0.copyload.i.i.i12.i.i = load i32, ptr %33, align 1
+  br label %_ZNK4llvm6object15DynamicRelocRef16arm64x_reloc_endEv.exit
 
 34:                                               ; preds = %_ZNK4llvm6object15DynamicRelocRef18arm64x_reloc_beginEv.exit
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7813,25 +7805,20 @@ _ZNK4llvm6object15DynamicRelocRef18arm64x_reloc_beginEv.exit: ; preds = %2, %_ZN
   %37 = zext i32 %.0.copyload.i.i.i15.i.i4 to i64
   %38 = getelementptr inbounds i8, ptr %36, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  br label %_ZNK4llvm6object15DynamicRelocRef11getContentsERNS_8ArrayRefIhEE.exit.sink.split.i5
-
-_ZNK4llvm6object15DynamicRelocRef11getContentsERNS_8ArrayRefIhEE.exit.sink.split.i5: ; preds = %34, %31, %28
-  %.sink6.i = phi ptr [ %30, %28 ], [ %33, %31 ], [ %39, %34 ]
-  %.sroa.03.0.ph.i6 = phi ptr [ %29, %28 ], [ %32, %31 ], [ %38, %34 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sink6.i, i64 1) ]
-  %.0.copyload.i.i.i11.i.i = load i32, ptr %.sink6.i, align 1
-  %40 = zext i32 %.0.copyload.i.i.i11.i.i to i64
+  call void @llvm.assume(i1 true) [ "align"(ptr %39, i64 1) ]
+  %.0.copyload.i.i.i16.i.i = load i32, ptr %39, align 1
   br label %_ZNK4llvm6object15DynamicRelocRef16arm64x_reloc_endEv.exit
 
-_ZNK4llvm6object15DynamicRelocRef16arm64x_reloc_endEv.exit: ; preds = %_ZNK4llvm6object15DynamicRelocRef18arm64x_reloc_beginEv.exit, %_ZNK4llvm6object15DynamicRelocRef11getContentsERNS_8ArrayRefIhEE.exit.sink.split.i5
-  %.sroa.5.0.shrunk.i = phi i64 [ 0, %_ZNK4llvm6object15DynamicRelocRef18arm64x_reloc_beginEv.exit ], [ %40, %_ZNK4llvm6object15DynamicRelocRef11getContentsERNS_8ArrayRefIhEE.exit.sink.split.i5 ]
-  %.sroa.03.0.i7 = phi ptr [ null, %_ZNK4llvm6object15DynamicRelocRef18arm64x_reloc_beginEv.exit ], [ %.sroa.03.0.ph.i6, %_ZNK4llvm6object15DynamicRelocRef11getContentsERNS_8ArrayRefIhEE.exit.sink.split.i5 ]
-  %41 = getelementptr inbounds i8, ptr %.sroa.03.0.i7, i64 %.sroa.5.0.shrunk.i
+_ZNK4llvm6object15DynamicRelocRef16arm64x_reloc_endEv.exit: ; preds = %_ZNK4llvm6object15DynamicRelocRef18arm64x_reloc_beginEv.exit, %28, %31, %34
+  %.sroa.5.0.shrunk.i = phi i32 [ 0, %_ZNK4llvm6object15DynamicRelocRef18arm64x_reloc_beginEv.exit ], [ %.0.copyload.i.i.i16.i.i, %34 ], [ %.0.copyload.i.i.i12.i.i, %31 ], [ %.0.copyload.i.i.i11.i.i, %28 ]
+  %.sroa.03.0.i5 = phi ptr [ null, %_ZNK4llvm6object15DynamicRelocRef18arm64x_reloc_beginEv.exit ], [ %38, %34 ], [ %32, %31 ], [ %29, %28 ]
+  %.sroa.5.0.i = zext i32 %.sroa.5.0.shrunk.i to i64
+  %40 = getelementptr inbounds i8, ptr %.sroa.03.0.i5, i64 %.sroa.5.0.i
   store ptr %.sroa.03.0.i, ptr %0, align 8, !alias.scope !355
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %.sroa.22.0..sroa_idx.i.i, align 8, !alias.scope !355
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %41, ptr %42, align 8, !alias.scope !355
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %40, ptr %41, align 8, !alias.scope !355
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 24
   store i32 0, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !alias.scope !355
   ret void
@@ -10330,12 +10317,16 @@ define dso_local { ptr, i32 } @_ZNK4llvm6object15DynamicRelocRef16arm64x_reloc_e
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i8, ptr %9, i64 12
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  br label %_ZNK4llvm6object15DynamicRelocRef11getContentsERNS_8ArrayRefIhEE.exit.sink.split
+  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 1) ]
+  %.0.copyload.i.i.i11.i = load i32, ptr %12, align 1
+  br label %_ZNK4llvm6object15DynamicRelocRef11getContentsERNS_8ArrayRefIhEE.exit
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds i8, ptr %9, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  br label %_ZNK4llvm6object15DynamicRelocRef11getContentsERNS_8ArrayRefIhEE.exit.sink.split
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 1) ]
+  %.0.copyload.i.i.i12.i = load i32, ptr %15, align 1
+  br label %_ZNK4llvm6object15DynamicRelocRef11getContentsERNS_8ArrayRefIhEE.exit
 
 16:                                               ; preds = %1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10345,21 +10336,16 @@ define dso_local { ptr, i32 } @_ZNK4llvm6object15DynamicRelocRef16arm64x_reloc_e
   %19 = zext i32 %.0.copyload.i.i.i15.i to i64
   %20 = getelementptr inbounds i8, ptr %18, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  br label %_ZNK4llvm6object15DynamicRelocRef11getContentsERNS_8ArrayRefIhEE.exit.sink.split
-
-_ZNK4llvm6object15DynamicRelocRef11getContentsERNS_8ArrayRefIhEE.exit.sink.split: ; preds = %16, %13, %10
-  %.sink6 = phi ptr [ %12, %10 ], [ %15, %13 ], [ %21, %16 ]
-  %.sroa.03.0.ph = phi ptr [ %11, %10 ], [ %14, %13 ], [ %20, %16 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sink6, i64 1) ]
-  %.0.copyload.i.i.i11.i = load i32, ptr %.sink6, align 1
-  %22 = zext i32 %.0.copyload.i.i.i11.i to i64
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 1) ]
+  %.0.copyload.i.i.i16.i = load i32, ptr %21, align 1
   br label %_ZNK4llvm6object15DynamicRelocRef11getContentsERNS_8ArrayRefIhEE.exit
 
-_ZNK4llvm6object15DynamicRelocRef11getContentsERNS_8ArrayRefIhEE.exit: ; preds = %_ZNK4llvm6object15DynamicRelocRef11getContentsERNS_8ArrayRefIhEE.exit.sink.split, %1
-  %.sroa.5.0.shrunk = phi i64 [ 0, %1 ], [ %22, %_ZNK4llvm6object15DynamicRelocRef11getContentsERNS_8ArrayRefIhEE.exit.sink.split ]
-  %.sroa.03.0 = phi ptr [ null, %1 ], [ %.sroa.03.0.ph, %_ZNK4llvm6object15DynamicRelocRef11getContentsERNS_8ArrayRefIhEE.exit.sink.split ]
-  %23 = getelementptr inbounds i8, ptr %.sroa.03.0, i64 %.sroa.5.0.shrunk
-  %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %23, 0
+_ZNK4llvm6object15DynamicRelocRef11getContentsERNS_8ArrayRefIhEE.exit: ; preds = %1, %10, %13, %16
+  %.sroa.5.0.shrunk = phi i32 [ 0, %1 ], [ %.0.copyload.i.i.i16.i, %16 ], [ %.0.copyload.i.i.i12.i, %13 ], [ %.0.copyload.i.i.i11.i, %10 ]
+  %.sroa.03.0 = phi ptr [ null, %1 ], [ %20, %16 ], [ %14, %13 ], [ %11, %10 ]
+  %.sroa.5.0 = zext i32 %.sroa.5.0.shrunk to i64
+  %22 = getelementptr inbounds i8, ptr %.sroa.03.0, i64 %.sroa.5.0
+  %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %22, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 0, 1
   ret { ptr, i32 } %.fca.1.insert
 }
@@ -11740,8 +11726,8 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6object15coff_relocationESt
   br i1 %58, label %83, label %59
 
 59:                                               ; preds = %57
-  %.not199 = icmp ult i64 %.016.i.i, 2
-  br i1 %.not199, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6object15coff_relocationESt6vectorIS6_SaIS6_EEEEPS4_NS0_5__ops14_Iter_comp_valIZNS3_18ResourceSectionRef11getContentsERKNS3_24coff_resource_data_entryEE3$_0EEET_SL_SL_RKT0_T1_.exit.i.i", label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6object15coff_relocationESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i.i.i
+  %.not200 = icmp ult i64 %.016.i.i, 2
+  br i1 %.not200, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6object15coff_relocationESt6vectorIS6_SaIS6_EEEEPS4_NS0_5__ops14_Iter_comp_valIZNS3_18ResourceSectionRef11getContentsERKNS3_24coff_resource_data_entryEE3$_0EEET_SL_SL_RKT0_T1_.exit.i.i", label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6object15coff_relocationESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i.i.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6object15coff_relocationESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i.i.i: ; preds = %59, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6object15coff_relocationESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i.i.i
   %.04.i.i.i = phi i64 [ %.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6object15coff_relocationESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i.i.i ], [ %49, %59 ]
@@ -11796,8 +11782,8 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6object15coff_relocationESt
 
 "_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6object15coff_relocationESt6vectorIS6_SaIS6_EEEEPS4_ZNS3_18ResourceSectionRef11getContentsERKNS3_24coff_resource_data_entryEE3$_0ESt4pairIT_SJ_ESJ_SJ_RKT0_T1_.exit": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6object15coff_relocationESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i31.i.i, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6object15coff_relocationESt6vectorIS6_SaIS6_EEEEPS4_NS0_5__ops14_Iter_comp_valIZNS3_18ResourceSectionRef11getContentsERKNS3_24coff_resource_data_entryEE3$_0EEET_SL_SL_RKT0_T1_.exit.i.i"
   %.sroa.3.0.i.i = phi ptr [ %69, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6object15coff_relocationESt6vectorIS6_SaIS6_EEEEPS4_NS0_5__ops14_Iter_comp_valIZNS3_18ResourceSectionRef11getContentsERKNS3_24coff_resource_data_entryEE3$_0EEET_SL_SL_RKT0_T1_.exit.i.i" ], [ %.sroa.02.1.i37.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6object15coff_relocationESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i31.i.i ]
-  %.not175 = icmp eq ptr %.sroa.02.0.lcssa.i.i.i, %.sroa.3.0.i.i
-  br i1 %.not175, label %"_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6object15coff_relocationESt6vectorIS6_SaIS6_EEEEPS4_ZNS3_18ResourceSectionRef11getContentsERKNS3_24coff_resource_data_entryEE3$_0ESt4pairIT_SJ_ESJ_SJ_RKT0_T1_.exit.thread", label %85
+  %.not176 = icmp eq ptr %.sroa.02.0.lcssa.i.i.i, %.sroa.3.0.i.i
+  br i1 %.not176, label %"_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6object15coff_relocationESt6vectorIS6_SaIS6_EEEEPS4_ZNS3_18ResourceSectionRef11getContentsERKNS3_24coff_resource_data_entryEE3$_0ESt4pairIT_SJ_ESJ_SJ_RKT0_T1_.exit.thread", label %85
 
 85:                                               ; preds = %"_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6object15coff_relocationESt6vectorIS6_SaIS6_EEEEPS4_ZNS3_18ResourceSectionRef11getContentsERKNS3_24coff_resource_data_entryEE3$_0ESt4pairIT_SJ_ESJ_SJ_RKT0_T1_.exit"
   %86 = load ptr, ptr %.sroa.02.0.lcssa.i.i.i, align 8
@@ -11914,10 +11900,10 @@ _ZN4llvm5ErrorD2Ev.exit35:                        ; preds = %100
   br label %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit.i
 
 _ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit.i: ; preds = %124, %122
-  %.sink3.i.i.i = phi ptr [ %123, %122 ], [ %127, %124 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sink3.i.i.i, i64 1) ]
-  %.0.copyload.i.i.i.i.i.i = load i32, ptr %.sink3.i.i.i, align 1, !noalias !610
-  %.not.i = icmp ult i32 %.0.copyload.i.i.i36, %.0.copyload.i.i.i.i.i.i
+  %.sink.i = phi ptr [ %123, %122 ], [ %127, %124 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sink.i, i64 1) ]
+  %.0.i.i = load i32, ptr %.sink.i, align 1, !noalias !610
+  %.not.i = icmp ult i32 %.0.copyload.i.i.i36, %.0.i.i
   br i1 %.not.i, label %128, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i63
 
 128:                                              ; preds = %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit.i
@@ -12004,11 +11990,11 @@ _ZNK4llvm6object13COFFSymbolRef16getSectionNumberEv.exit: ; preds = %138, %140, 
   %164 = getelementptr inbounds nuw i8, ptr %150, i64 8
   %165 = getelementptr inbounds nuw i8, ptr %150, i64 16
   call void @llvm.assume(i1 true) [ "align"(ptr %165, i64 1) ]
-  %.0.copyload.i.i.i.i.i.i49 = load i32, ptr %165, align 1, !noalias !613
+  %.0.copyload.i.i.i.i.i.i = load i32, ptr %165, align 1, !noalias !613
   call void @llvm.assume(i1 true) [ "align"(ptr %164, i64 1) ]
   %.0.copyload.i.i.i5.i.i.i = load i32, ptr %164, align 1, !noalias !613
-  %166 = icmp ult i32 %.0.copyload.i.i.i.i.i.i49, %.0.copyload.i.i.i5.i.i.i
-  %167 = tail call i32 @llvm.umin.i32(i32 %.0.copyload.i.i.i.i.i.i49, i32 %.0.copyload.i.i.i5.i.i.i)
+  %166 = icmp ult i32 %.0.copyload.i.i.i.i.i.i, %.0.copyload.i.i.i5.i.i.i
+  %167 = tail call i32 @llvm.umin.i32(i32 %.0.copyload.i.i.i.i.i.i, i32 %.0.copyload.i.i.i5.i.i.i)
   %..i.i.i = select i1 %166, ptr %165, ptr %164
   call void @llvm.assume(i1 true) [ "align"(ptr %..i.i.i, i64 1) ]
   br label %_ZNK4llvm6object14COFFObjectFile14getSectionSizeEPKNS0_12coff_sectionE.exit.i
@@ -12021,8 +12007,8 @@ _ZNK4llvm6object13COFFSymbolRef16getSectionNumberEv.exit: ; preds = %138, %140, 
 
 _ZNK4llvm6object14COFFObjectFile14getSectionSizeEPKNS0_12coff_sectionE.exit.i: ; preds = %168, %163
   %.0.in.i.i = phi i32 [ %167, %163 ], [ %.0.in.pre.i.i, %168 ]
-  %.0.i.i = zext i32 %.0.in.i.i to i64
-  %170 = add i64 %158, %.0.i.i
+  %.0.i.i49 = zext i32 %.0.in.i.i to i64
+  %170 = add i64 %158, %.0.i.i49
   %171 = icmp ult i64 %170, %158
   br i1 %171, label %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i, label %172
 
@@ -12056,8 +12042,8 @@ _ZN4llvm5ErrorD2Ev.exit53:                        ; preds = %_ZN4llvm6object6Bin
   br label %_ZN4llvm8ExpectedINS_6object13COFFSymbolRefEED2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit54:                        ; preds = %145, %_ZN4llvm12ErrorSuccessD2Ev.exit12.i
-  %.sroa.3.0 = phi i64 [ 0, %145 ], [ %.0.i.i, %_ZN4llvm12ErrorSuccessD2Ev.exit12.i ]
-  %.sroa.0120.0 = phi ptr [ null, %145 ], [ %178, %_ZN4llvm12ErrorSuccessD2Ev.exit12.i ]
+  %.sroa.3.0 = phi i64 [ 0, %145 ], [ %.0.i.i49, %_ZN4llvm12ErrorSuccessD2Ev.exit12.i ]
+  %.sroa.0121.0 = phi ptr [ null, %145 ], [ %178, %_ZN4llvm12ErrorSuccessD2Ev.exit12.i ]
   store ptr null, ptr %21, align 8, !alias.scope !613
   %182 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %182, i64 1) ]
@@ -12080,14 +12066,14 @@ _ZN4llvm5ErrorD2Ev.exit57:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   br label %_ZN4llvm8ExpectedINS_6object13COFFSymbolRefEED2Ev.exit
 
 191:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit54
-  %192 = getelementptr inbounds i8, ptr %.sroa.0120.0, i64 %148
+  %192 = getelementptr inbounds i8, ptr %.sroa.0121.0, i64 %148
   call void @llvm.assume(i1 true) [ "align"(ptr %182, i64 1) ]
   %193 = load i8, ptr %186, align 8
   %194 = and i8 %193, -2
   store i8 %194, ptr %186, align 8
   store ptr %192, ptr %0, align 8
-  %.sroa.2117.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %183, ptr %.sroa.2117.0..sroa_idx, align 8
+  %.sroa.2118.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %183, ptr %.sroa.2118.0..sroa_idx, align 8
   br label %_ZN4llvm8ExpectedINS_6object13COFFSymbolRefEED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i60: ; preds = %_ZNK4llvm6object13COFFSymbolRef16getSectionNumberEv.exit
@@ -12104,14 +12090,14 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i63: ;
   %.sink = phi ptr [ %9, %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit.i ], [ %9, %119 ], [ %9, %109 ], [ %10, %129 ]
   %200 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6object15object_categoryEv() #28, !noalias !610
   call void @_ZN4llvm16errorCodeToErrorESt10error_code(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %.sink, i32 3, ptr nonnull %200) #28, !noalias !610
-  %.sroa.0125.1.in176 = load ptr, ptr %.sink, align 8, !noalias !610
+  %.sroa.0126.1.in177 = load ptr, ptr %.sink, align 8, !noalias !610
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %202 = load i8, ptr %201, align 8
   %203 = or i8 %202, 1
   store i8 %203, ptr %201, align 8
-  store ptr %.sroa.0125.1.in176, ptr %0, align 8, !alias.scope !631
+  store ptr %.sroa.0126.1.in177, ptr %0, align 8, !alias.scope !631
   br label %_ZN4llvm8ExpectedINS_6object13COFFSymbolRefEED2Ev.exit
 
 "_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6object15coff_relocationESt6vectorIS6_SaIS6_EEEEPS4_ZNS3_18ResourceSectionRef11getContentsERKNS3_24coff_resource_data_entryEE3$_0ESt4pairIT_SJ_ESJ_SJ_RKT0_T1_.exit.thread": ; preds = %83, %34, %"_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6object15coff_relocationESt6vectorIS6_SaIS6_EEEEPS4_ZNS3_18ResourceSectionRef11getContentsERKNS3_24coff_resource_data_entryEE3$_0ESt4pairIT_SJ_ESJ_SJ_RKT0_T1_.exit"
@@ -12191,21 +12177,21 @@ _ZNK4llvm6object14COFFObjectFile12getImageBaseEv.exit: ; preds = %219, %222, %22
   %240 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %233, ptr %240, align 8
   %241 = icmp ne ptr %233, %239
-  %.not.i.i.i.i183 = icmp ne i64 %232, %238
-  %.not2.i184 = select i1 %241, i1 true, i1 %.not.i.i.i.i183
-  br i1 %.not2.i184, label %.lr.ph, label %_ZN4llvm5ErrorD2Ev.exit98
+  %.not.i.i.i.i184 = icmp ne i64 %232, %238
+  %.not2.i185 = select i1 %241, i1 true, i1 %.not.i.i.i.i184
+  br i1 %.not2.i185, label %.lr.ph, label %_ZN4llvm5ErrorD2Ev.exit99
 
 .lr.ph:                                           ; preds = %_ZNK4llvm6object14COFFObjectFile12getImageBaseEv.exit
   %242 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %243
 
 243:                                              ; preds = %.lr.ph, %292
-  %lhsv.i.i.i.i185 = phi i64 [ %232, %.lr.ph ], [ %lhsv.i.i.i.i, %292 ]
+  %lhsv.i.i.i.i186 = phi i64 [ %232, %.lr.ph ], [ %lhsv.i.i.i.i, %292 ]
   %244 = phi ptr [ %233, %.lr.ph ], [ %297, %292 ]
   %245 = load ptr, ptr %244, align 8
   %246 = getelementptr inbounds i8, ptr %245, i64 152
   %247 = load ptr, ptr %246, align 8
-  %248 = call noundef i64 %247(ptr noundef nonnull align 8 dereferenceable(48) %244, i64 %lhsv.i.i.i.i185) #28
+  %248 = call noundef i64 %247(ptr noundef nonnull align 8 dereferenceable(48) %244, i64 %lhsv.i.i.i.i186) #28
   %.not29 = icmp ult i64 %227, %248
   br i1 %.not29, label %292, label %249
 
@@ -12247,7 +12233,7 @@ _ZNK4llvm6object14COFFObjectFile12getImageBaseEv.exit: ; preds = %219, %222, %22
   %273 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %274 = load i8, ptr %273, align 8, !noalias !643
   %275 = trunc i8 %274 to i1
-  br i1 %275, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i96, label %276
+  br i1 %275, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i97, label %276
 
 276:                                              ; preds = %263
   %277 = load ptr, ptr %6, align 8, !noalias !643
@@ -12256,8 +12242,8 @@ _ZNK4llvm6object14COFFObjectFile12getImageBaseEv.exit: ; preds = %219, %222, %22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   %280 = sub i64 %227, %268
   call void @llvm.assume(i1 true) [ "align"(ptr %242, i64 1) ]
-  %.0.copyload.i.i.i91 = load i32, ptr %242, align 1
-  %281 = zext i32 %.0.copyload.i.i.i91 to i64
+  %.0.copyload.i.i.i92 = load i32, ptr %242, align 1
+  %281 = zext i32 %.0.copyload.i.i.i92 to i64
   %.sroa.speculated5.i = call i64 @llvm.umin.i64(i64 %279, i64 %280)
   %282 = getelementptr inbounds i8, ptr %277, i64 %.sroa.speculated5.i
   %283 = sub i64 %279, %.sroa.speculated5.i
@@ -12267,11 +12253,11 @@ _ZNK4llvm6object14COFFObjectFile12getImageBaseEv.exit: ; preds = %219, %222, %22
   %286 = and i8 %285, -2
   store i8 %286, ptr %284, align 8
   store ptr %282, ptr %0, align 8
-  %.sroa.2100.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.speculated.i, ptr %.sroa.2100.0..sroa_idx, align 8
+  %.sroa.2101.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sroa.speculated.i, ptr %.sroa.2101.0..sroa_idx, align 8
   br label %_ZN4llvm8ExpectedINS_6object13COFFSymbolRefEED2Ev.exit
 
-_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i96: ; preds = %263
+_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i97: ; preds = %263
   %287 = load i64, ptr %6, align 8, !noalias !646
   %288 = inttoptr i64 %287 to ptr
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
@@ -12293,9 +12279,9 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i96: ;
   %lhsv.i.i.i.i = load i64, ptr %24, align 8
   %.not.i.i.i.i = icmp ne i64 %lhsv.i.i.i.i, %238
   %.not2.i = select i1 %298, i1 true, i1 %.not.i.i.i.i
-  br i1 %.not2.i, label %243, label %_ZN4llvm5ErrorD2Ev.exit98
+  br i1 %.not2.i, label %243, label %_ZN4llvm5ErrorD2Ev.exit99
 
-_ZN4llvm5ErrorD2Ev.exit98:                        ; preds = %292, %_ZNK4llvm6object14COFFObjectFile12getImageBaseEv.exit
+_ZN4llvm5ErrorD2Ev.exit99:                        ; preds = %292, %_ZNK4llvm6object14COFFObjectFile12getImageBaseEv.exit
   %299 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6object15object_categoryEv() #28
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
@@ -12317,7 +12303,7 @@ _ZN4llvm5ErrorD2Ev.exit98:                        ; preds = %292, %_ZNK4llvm6obj
   store ptr %304, ptr %0, align 8, !alias.scope !655
   br label %_ZN4llvm8ExpectedINS_6object13COFFSymbolRefEED2Ev.exit
 
-_ZN4llvm8ExpectedINS_6object13COFFSymbolRefEED2Ev.exit: ; preds = %_ZN4llvm5ErrorD2Ev.exit57, %191, %_ZN4llvm5ErrorD2Ev.exit53, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i60, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i96, %276, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i63, %_ZN4llvm5ErrorD2Ev.exit98, %_ZN4llvm5ErrorD2Ev.exit65, %_ZN4llvm5ErrorD2Ev.exit35, %_ZN4llvm5ErrorD2Ev.exit33, %_ZN4llvm5ErrorD2Ev.exit
+_ZN4llvm8ExpectedINS_6object13COFFSymbolRefEED2Ev.exit: ; preds = %_ZN4llvm5ErrorD2Ev.exit57, %191, %_ZN4llvm5ErrorD2Ev.exit53, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i60, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i97, %276, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i63, %_ZN4llvm5ErrorD2Ev.exit99, %_ZN4llvm5ErrorD2Ev.exit65, %_ZN4llvm5ErrorD2Ev.exit35, %_ZN4llvm5ErrorD2Ev.exit33, %_ZN4llvm5ErrorD2Ev.exit
   ret void
 }
 

@@ -1727,11 +1727,11 @@ define hidden nonnull ptr @get_sccp_assoc(ptr noundef %0, i32 noundef %1, ptr no
 
 232:                                              ; preds = %.preheader
   %233 = getelementptr inbounds i8, ptr %.095, i64 48
-  br label %234
+  store ptr %219, ptr %233, align 8
+  br label %.loopexit.sink.split
 
-234:                                              ; preds = %217, %232
-  %.sink = phi ptr [ %233, %232 ], [ %228, %217 ]
-  store ptr %219, ptr %.sink, align 8
+234:                                              ; preds = %217
+  store ptr %219, ptr %228, align 8
   br label %.loopexit.sink.split
 
 235:                                              ; preds = %211
@@ -1780,11 +1780,11 @@ define hidden nonnull ptr @get_sccp_assoc(ptr noundef %0, i32 noundef %1, ptr no
   %.not121 = icmp eq ptr %.0, null
   br i1 %.not121, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
-.loopexit.sink.split:                             ; preds = %253, %234
-  %.sink134 = phi ptr [ %219, %234 ], [ %.0127, %253 ]
+.loopexit.sink.split:                             ; preds = %253, %232, %234
+  %.sink = phi ptr [ %219, %234 ], [ %219, %232 ], [ %.0127, %253 ]
   %259 = load ptr, ptr %16, align 8
   %260 = getelementptr inbounds i8, ptr %259, i64 32
-  store ptr %.sink134, ptr %260, align 8
+  store ptr %.sink, ptr %260, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %257, %.loopexit.sink.split, %235, %206

@@ -762,35 +762,32 @@ define dso_local noundef ptr @_ZN4Luau7CodeGen30getBytecodeTypeName_DEPRECATEDEh
 define dso_local noundef ptr @_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc(i8 noundef zeroext %0, ptr noundef readonly %1) local_unnamed_addr #5 {
   %3 = and i8 %0, 96
   %or.cond = icmp eq i8 %3, 64
-  br i1 %or.cond, label %4, label %9
+  br i1 %or.cond, label %4, label %10
 
 4:                                                ; preds = %2
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %13, label %5
+  br i1 %.not, label %14, label %5
 
 5:                                                ; preds = %4
   %6 = and i8 %0, 31
   %7 = zext nneg i8 %6 to i64
   %8 = getelementptr inbounds ptr, ptr %1, i64 %7
-  br label %.sink.split
+  %9 = load ptr, ptr %8, align 8
+  br label %14
 
-9:                                                ; preds = %2
-  %10 = and i8 %0, 127
-  %11 = icmp ult i8 %10, 16
-  br i1 %11, label %switch.lookup, label %13
+10:                                               ; preds = %2
+  %11 = and i8 %0, 127
+  %12 = icmp ult i8 %11, 16
+  br i1 %12, label %switch.lookup, label %14
 
-switch.lookup:                                    ; preds = %9
-  %12 = zext nneg i8 %10 to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN4Luau7CodeGen8toStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13BytecodeTypesEPKPKc.6, i64 0, i64 %12
-  br label %.sink.split
+switch.lookup:                                    ; preds = %10
+  %13 = zext nneg i8 %11 to i64
+  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN4Luau7CodeGen8toStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13BytecodeTypesEPKPKc.6, i64 0, i64 %13
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  br label %14
 
-.sink.split:                                      ; preds = %5, %switch.lookup
-  %switch.gep.sink = phi ptr [ %switch.gep, %switch.lookup ], [ %8, %5 ]
-  %switch.load = load ptr, ptr %switch.gep.sink, align 8
-  br label %13
-
-13:                                               ; preds = %.sink.split, %9, %4
-  %.0 = phi ptr [ @.str.180, %4 ], [ null, %9 ], [ %switch.load, %.sink.split ]
+14:                                               ; preds = %10, %switch.lookup, %4, %5
+  %.0 = phi ptr [ %9, %5 ], [ @.str.180, %4 ], [ %switch.load, %switch.lookup ], [ null, %10 ]
   ret ptr %.0
 }
 
@@ -1330,7 +1327,7 @@ define dso_local void @_ZN4Luau7CodeGen8toStringERNSt7__cxx1112basic_stringIcSt1
   %4 = load i8, ptr %1, align 1
   %5 = and i8 %4, 96
   %or.cond.i = icmp eq i8 %5, 64
-  br i1 %or.cond.i, label %6, label %11
+  br i1 %or.cond.i, label %6, label %12
 
 6:                                                ; preds = %3
   %.not.i = icmp eq ptr %2, null
@@ -1340,147 +1337,135 @@ define dso_local void @_ZN4Luau7CodeGen8toStringERNSt7__cxx1112basic_stringIcSt1
   %8 = and i8 %4, 31
   %9 = zext nneg i8 %8 to i64
   %10 = getelementptr inbounds ptr, ptr %2, i64 %9
-  br label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit.sink.split
-
-11:                                               ; preds = %3
-  %12 = and i8 %4, 127
-  %13 = icmp ult i8 %12, 16
-  br i1 %13, label %switch.lookup, label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit
-
-switch.lookup:                                    ; preds = %11
-  %14 = zext nneg i8 %12 to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN4Luau7CodeGen8toStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13BytecodeTypesEPKPKc.6, i64 0, i64 %14
-  br label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit.sink.split
-
-_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit.sink.split: ; preds = %7, %switch.lookup
-  %switch.gep.sink = phi ptr [ %switch.gep, %switch.lookup ], [ %10, %7 ]
-  %switch.load = load ptr, ptr %switch.gep.sink, align 8
+  %11 = load ptr, ptr %10, align 8
   br label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit
 
-_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit: ; preds = %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit.sink.split, %11, %6
-  %.0.i = phi ptr [ @.str.180, %6 ], [ null, %11 ], [ %switch.load, %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit.sink.split ]
+12:                                               ; preds = %3
+  %13 = and i8 %4, 127
+  %14 = icmp ult i8 %13, 16
+  br i1 %14, label %switch.lookup, label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit
+
+switch.lookup:                                    ; preds = %12
+  %15 = zext nneg i8 %13 to i64
+  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN4Luau7CodeGen8toStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13BytecodeTypesEPKPKc.6, i64 0, i64 %15
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  br label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit
+
+_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit: ; preds = %12, %switch.lookup, %6, %7
+  %.0.i = phi ptr [ %11, %7 ], [ @.str.180, %6 ], [ %switch.load, %switch.lookup ], [ null, %12 ]
   %.not = icmp sgt i8 %4, -1
-  %15 = select i1 %.not, ptr @.str.191, ptr @.str.190
-  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.189, ptr noundef %.0.i, ptr noundef nonnull %15)
+  %16 = select i1 %.not, ptr @.str.191, ptr @.str.190
+  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.189, ptr noundef %.0.i, ptr noundef nonnull %16)
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.192)
-  %16 = getelementptr inbounds i8, ptr %1, i64 1
-  %17 = load i8, ptr %16, align 1
-  %18 = and i8 %17, 96
-  %or.cond.i24 = icmp eq i8 %18, 64
-  br i1 %or.cond.i24, label %19, label %24
+  %17 = getelementptr inbounds i8, ptr %1, i64 1
+  %18 = load i8, ptr %17, align 1
+  %19 = and i8 %18, 96
+  %or.cond.i24 = icmp eq i8 %19, 64
+  br i1 %or.cond.i24, label %20, label %26
 
-19:                                               ; preds = %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit
+20:                                               ; preds = %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit
   %.not.i26 = icmp eq ptr %2, null
-  br i1 %.not.i26, label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit27, label %20
+  br i1 %.not.i26, label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit27, label %21
 
-20:                                               ; preds = %19
-  %21 = and i8 %17, 31
-  %22 = zext nneg i8 %21 to i64
-  %23 = getelementptr inbounds ptr, ptr %2, i64 %22
-  br label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit27.sink.split
-
-24:                                               ; preds = %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit
-  %25 = and i8 %17, 127
-  %26 = icmp ult i8 %25, 16
-  br i1 %26, label %switch.lookup36, label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit27
-
-switch.lookup36:                                  ; preds = %24
-  %27 = zext nneg i8 %25 to i64
-  %switch.gep37 = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN4Luau7CodeGen8toStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13BytecodeTypesEPKPKc.6, i64 0, i64 %27
-  br label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit27.sink.split
-
-_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit27.sink.split: ; preds = %20, %switch.lookup36
-  %switch.gep37.sink = phi ptr [ %switch.gep37, %switch.lookup36 ], [ %23, %20 ]
-  %switch.load38 = load ptr, ptr %switch.gep37.sink, align 8
+21:                                               ; preds = %20
+  %22 = and i8 %18, 31
+  %23 = zext nneg i8 %22 to i64
+  %24 = getelementptr inbounds ptr, ptr %2, i64 %23
+  %25 = load ptr, ptr %24, align 8
   br label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit27
 
-_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit27: ; preds = %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit27.sink.split, %24, %19
-  %.0.i25 = phi ptr [ @.str.180, %19 ], [ null, %24 ], [ %switch.load38, %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit27.sink.split ]
-  %.not20 = icmp sgt i8 %17, -1
-  %28 = select i1 %.not20, ptr @.str.191, ptr @.str.190
-  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.189, ptr noundef %.0.i25, ptr noundef nonnull %28)
+26:                                               ; preds = %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit
+  %27 = and i8 %18, 127
+  %28 = icmp ult i8 %27, 16
+  br i1 %28, label %switch.lookup36, label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit27
+
+switch.lookup36:                                  ; preds = %26
+  %29 = zext nneg i8 %27 to i64
+  %switch.gep37 = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN4Luau7CodeGen8toStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13BytecodeTypesEPKPKc.6, i64 0, i64 %29
+  %switch.load38 = load ptr, ptr %switch.gep37, align 8
+  br label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit27
+
+_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit27: ; preds = %26, %switch.lookup36, %20, %21
+  %.0.i25 = phi ptr [ %25, %21 ], [ @.str.180, %20 ], [ %switch.load38, %switch.lookup36 ], [ null, %26 ]
+  %.not20 = icmp sgt i8 %18, -1
+  %30 = select i1 %.not20, ptr @.str.191, ptr @.str.190
+  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.189, ptr noundef %.0.i25, ptr noundef nonnull %30)
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.152)
-  %29 = getelementptr inbounds i8, ptr %1, i64 2
-  %30 = load i8, ptr %29, align 1
-  %31 = and i8 %30, 96
-  %or.cond.i28 = icmp eq i8 %31, 64
-  br i1 %or.cond.i28, label %32, label %37
+  %31 = getelementptr inbounds i8, ptr %1, i64 2
+  %32 = load i8, ptr %31, align 1
+  %33 = and i8 %32, 96
+  %or.cond.i28 = icmp eq i8 %33, 64
+  br i1 %or.cond.i28, label %34, label %40
 
-32:                                               ; preds = %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit27
+34:                                               ; preds = %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit27
   %.not.i30 = icmp eq ptr %2, null
-  br i1 %.not.i30, label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit31, label %33
+  br i1 %.not.i30, label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit31, label %35
 
-33:                                               ; preds = %32
-  %34 = and i8 %30, 31
-  %35 = zext nneg i8 %34 to i64
-  %36 = getelementptr inbounds ptr, ptr %2, i64 %35
-  br label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit31.sink.split
-
-37:                                               ; preds = %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit27
-  %38 = and i8 %30, 127
-  %39 = icmp ult i8 %38, 16
-  br i1 %39, label %switch.lookup39, label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit31
-
-switch.lookup39:                                  ; preds = %37
-  %40 = zext nneg i8 %38 to i64
-  %switch.gep40 = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN4Luau7CodeGen8toStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13BytecodeTypesEPKPKc.6, i64 0, i64 %40
-  br label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit31.sink.split
-
-_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit31.sink.split: ; preds = %33, %switch.lookup39
-  %switch.gep40.sink = phi ptr [ %switch.gep40, %switch.lookup39 ], [ %36, %33 ]
-  %switch.load41 = load ptr, ptr %switch.gep40.sink, align 8
+35:                                               ; preds = %34
+  %36 = and i8 %32, 31
+  %37 = zext nneg i8 %36 to i64
+  %38 = getelementptr inbounds ptr, ptr %2, i64 %37
+  %39 = load ptr, ptr %38, align 8
   br label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit31
 
-_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit31: ; preds = %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit31.sink.split, %37, %32
-  %.0.i29 = phi ptr [ @.str.180, %32 ], [ null, %37 ], [ %switch.load41, %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit31.sink.split ]
-  %.not21 = icmp sgt i8 %30, -1
-  %41 = select i1 %.not21, ptr @.str.191, ptr @.str.190
-  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.189, ptr noundef %.0.i29, ptr noundef nonnull %41)
-  %42 = getelementptr inbounds i8, ptr %1, i64 3
-  %43 = load i8, ptr %42, align 1
-  %.not22 = icmp eq i8 %43, 15
-  br i1 %.not22, label %57, label %44
+40:                                               ; preds = %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit27
+  %41 = and i8 %32, 127
+  %42 = icmp ult i8 %41, 16
+  br i1 %42, label %switch.lookup39, label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit31
 
-44:                                               ; preds = %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit31
+switch.lookup39:                                  ; preds = %40
+  %43 = zext nneg i8 %41 to i64
+  %switch.gep40 = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN4Luau7CodeGen8toStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13BytecodeTypesEPKPKc.6, i64 0, i64 %43
+  %switch.load41 = load ptr, ptr %switch.gep40, align 8
+  br label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit31
+
+_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit31: ; preds = %40, %switch.lookup39, %34, %35
+  %.0.i29 = phi ptr [ %39, %35 ], [ @.str.180, %34 ], [ %switch.load41, %switch.lookup39 ], [ null, %40 ]
+  %.not21 = icmp sgt i8 %32, -1
+  %44 = select i1 %.not21, ptr @.str.191, ptr @.str.190
+  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.189, ptr noundef %.0.i29, ptr noundef nonnull %44)
+  %45 = getelementptr inbounds i8, ptr %1, i64 3
+  %46 = load i8, ptr %45, align 1
+  %.not22 = icmp eq i8 %46, 15
+  br i1 %.not22, label %61, label %47
+
+47:                                               ; preds = %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit31
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.152)
-  %45 = load i8, ptr %42, align 1
-  %46 = and i8 %45, 96
-  %or.cond.i32 = icmp eq i8 %46, 64
-  br i1 %or.cond.i32, label %47, label %52
+  %48 = load i8, ptr %45, align 1
+  %49 = and i8 %48, 96
+  %or.cond.i32 = icmp eq i8 %49, 64
+  br i1 %or.cond.i32, label %50, label %56
 
-47:                                               ; preds = %44
+50:                                               ; preds = %47
   %.not.i34 = icmp eq ptr %2, null
-  br i1 %.not.i34, label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit35, label %48
+  br i1 %.not.i34, label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit35, label %51
 
-48:                                               ; preds = %47
-  %49 = and i8 %45, 31
-  %50 = zext nneg i8 %49 to i64
-  %51 = getelementptr inbounds ptr, ptr %2, i64 %50
-  br label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit35.sink.split
-
-52:                                               ; preds = %44
-  %53 = and i8 %45, 127
-  %54 = icmp ult i8 %53, 16
-  br i1 %54, label %switch.lookup42, label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit35
-
-switch.lookup42:                                  ; preds = %52
-  %55 = zext nneg i8 %53 to i64
-  %switch.gep43 = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN4Luau7CodeGen8toStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13BytecodeTypesEPKPKc.6, i64 0, i64 %55
-  br label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit35.sink.split
-
-_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit35.sink.split: ; preds = %48, %switch.lookup42
-  %switch.gep43.sink = phi ptr [ %switch.gep43, %switch.lookup42 ], [ %51, %48 ]
-  %switch.load44 = load ptr, ptr %switch.gep43.sink, align 8
+51:                                               ; preds = %50
+  %52 = and i8 %48, 31
+  %53 = zext nneg i8 %52 to i64
+  %54 = getelementptr inbounds ptr, ptr %2, i64 %53
+  %55 = load ptr, ptr %54, align 8
   br label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit35
 
-_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit35: ; preds = %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit35.sink.split, %52, %47
-  %.0.i33 = phi ptr [ @.str.180, %47 ], [ null, %52 ], [ %switch.load44, %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit35.sink.split ]
-  %.not23 = icmp sgt i8 %45, -1
-  %56 = select i1 %.not23, ptr @.str.191, ptr @.str.190
-  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.189, ptr noundef %.0.i33, ptr noundef nonnull %56)
-  br label %57
+56:                                               ; preds = %47
+  %57 = and i8 %48, 127
+  %58 = icmp ult i8 %57, 16
+  br i1 %58, label %switch.lookup42, label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit35
 
-57:                                               ; preds = %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit35, %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit31
+switch.lookup42:                                  ; preds = %56
+  %59 = zext nneg i8 %57 to i64
+  %switch.gep43 = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN4Luau7CodeGen8toStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13BytecodeTypesEPKPKc.6, i64 0, i64 %59
+  %switch.load44 = load ptr, ptr %switch.gep43, align 8
+  br label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit35
+
+_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit35: ; preds = %56, %switch.lookup42, %50, %51
+  %.0.i33 = phi ptr [ %55, %51 ], [ @.str.180, %50 ], [ %switch.load44, %switch.lookup42 ], [ null, %56 ]
+  %.not23 = icmp sgt i8 %48, -1
+  %60 = select i1 %.not23, ptr @.str.191, ptr @.str.190
+  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.189, ptr noundef %.0.i33, ptr noundef nonnull %60)
+  br label %61
+
+61:                                               ; preds = %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit35, %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit31
   ret void
 }
 
@@ -2285,24 +2270,24 @@ define dso_local void @_ZN4Luau7CodeGen8toStringB5cxx11ERKNS0_10IrFunctionENS0_1
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %1, align 8
-  %.not39 = icmp eq ptr %11, %12
-  br i1 %.not39, label %._crit_edge, label %.lr.ph38
+  %.not37 = icmp eq ptr %11, %12
+  br i1 %.not37, label %._crit_edge, label %.lr.ph36
 
-.lr.ph38:                                         ; preds = %3
+.lr.ph36:                                         ; preds = %3
   %13 = getelementptr inbounds i8, ptr %1, i64 24
   %14 = getelementptr inbounds i8, ptr %1, i64 32
   br label %15
 
-15:                                               ; preds = %.lr.ph38, %55
-  %16 = phi ptr [ %12, %.lr.ph38 ], [ %58, %55 ]
-  %.03037 = phi i64 [ 0, %.lr.ph38 ], [ %56, %55 ]
-  %17 = getelementptr inbounds %"struct.Luau::CodeGen::IrBlock", ptr %16, i64 %.03037
+15:                                               ; preds = %.lr.ph36, %53
+  %16 = phi ptr [ %12, %.lr.ph36 ], [ %56, %53 ]
+  %.03035 = phi i64 [ 0, %.lr.ph36 ], [ %54, %53 ]
+  %17 = getelementptr inbounds %"struct.Luau::CodeGen::IrBlock", ptr %16, i64 %.03035
   %18 = load i8, ptr %17, align 4
   %19 = icmp eq i8 %18, 4
-  br i1 %19, label %55, label %20
+  br i1 %19, label %53, label %20
 
 20:                                               ; preds = %15
-  %21 = trunc i64 %.03037 to i32
+  %21 = trunc i64 %.03035 to i32
   invoke void @_ZN4Luau7CodeGen16toStringDetailedERNS0_17IrToStringContextERKNS0_7IrBlockEjNS0_14IncludeUseInfoENS0_14IncludeCfgInfoENS0_18IncludeRegFlowInfoE(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 4 dereferenceable(32) %17, i32 noundef %21, i32 noundef %2, i32 noundef 1, i32 noundef 1)
           to label %22 unwind label %.loopexit.split-lp
 
@@ -2315,19 +2300,19 @@ define dso_local void @_ZN4Luau7CodeGen8toStringB5cxx11ERKNS0_10IrFunctionENS0_1
 .preheader:                                       ; preds = %22
   %26 = getelementptr inbounds i8, ptr %17, i64 8
   %27 = load i32, ptr %26, align 4
-  %.not34 = icmp ugt i32 %24, %27
-  br i1 %.not34, label %.invoke, label %.lr.ph.preheader
+  %.not32 = icmp ugt i32 %24, %27
+  br i1 %.not32, label %.invoke, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %28 = zext i32 %24 to i64
   br label %.lr.ph
 
-.invoke:                                          ; preds = %52, %.lr.ph, %22, %.preheader
-  %29 = phi ptr [ @.str.194, %.preheader ], [ @.str.205, %22 ], [ @.str.194, %.lr.ph ], [ @.str.194, %52 ]
+.invoke:                                          ; preds = %50, %.lr.ph, %22, %.preheader
+  %29 = phi ptr [ @.str.194, %.preheader ], [ @.str.205, %22 ], [ @.str.194, %.lr.ph ], [ @.str.194, %50 ]
   invoke void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %29)
-          to label %55 unwind label %.loopexit.split-lp
+          to label %53 unwind label %.loopexit.split-lp
 
-.loopexit:                                        ; preds = %49, %50
+.loopexit:                                        ; preds = %47, %48
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %30
@@ -2342,9 +2327,9 @@ define dso_local void @_ZN4Luau7CodeGen8toStringB5cxx11ERKNS0_10IrFunctionENS0_1
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #13
   resume { ptr, i32 } %lpad.phi
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %52
-  %31 = phi i32 [ %27, %.lr.ph.preheader ], [ %53, %52 ]
-  %indvars.iv = phi i64 [ %28, %.lr.ph.preheader ], [ %indvars.iv.next, %52 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %50
+  %31 = phi i32 [ %27, %.lr.ph.preheader ], [ %51, %50 ]
+  %indvars.iv = phi i64 [ %28, %.lr.ph.preheader ], [ %indvars.iv.next, %50 ]
   %32 = load ptr, ptr %14, align 8
   %33 = load ptr, ptr %13, align 8
   %34 = ptrtoint ptr %32 to i64
@@ -2358,47 +2343,49 @@ define dso_local void @_ZN4Luau7CodeGen8toStringB5cxx11ERKNS0_10IrFunctionENS0_1
 40:                                               ; preds = %.lr.ph
   %41 = getelementptr inbounds %"struct.Luau::CodeGen::IrInst", ptr %33, i64 %indvars.iv
   %42 = load i8, ptr %41, align 4
-  %43 = icmp eq i8 %42, 0
-  %44 = icmp eq i8 %42, 115
-  %45 = or i1 %43, %44
-  %46 = getelementptr inbounds i8, ptr %41, i64 36
-  %47 = load i16, ptr %46, align 4
-  %48 = icmp eq i16 %47, 0
-  %or.cond = select i1 %45, i1 %48, i1 false
-  br i1 %or.cond, label %52, label %49
+  switch i8 %42, label %47 [
+    i8 115, label %43
+    i8 0, label %43
+  ]
 
-49:                                               ; preds = %40
+43:                                               ; preds = %40, %40
+  %44 = getelementptr inbounds i8, ptr %41, i64 36
+  %45 = load i16, ptr %44, align 4
+  %46 = icmp eq i16 %45, 0
+  br i1 %46, label %50, label %47
+
+47:                                               ; preds = %40, %43
   invoke void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.151)
-          to label %50 unwind label %.loopexit
+          to label %48 unwind label %.loopexit
 
-50:                                               ; preds = %49
-  %51 = trunc nuw i64 %indvars.iv to i32
-  invoke void @_ZN4Luau7CodeGen16toStringDetailedERNS0_17IrToStringContextERKNS0_7IrBlockEjRKNS0_6IrInstEjNS0_14IncludeUseInfoE(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr nonnull align 4 poison, i32 noundef %21, ptr noundef nonnull align 4 dereferenceable(43) %41, i32 noundef %51, i32 noundef %2)
-          to label %._crit_edge41 unwind label %.loopexit
+48:                                               ; preds = %47
+  %49 = trunc nuw i64 %indvars.iv to i32
+  invoke void @_ZN4Luau7CodeGen16toStringDetailedERNS0_17IrToStringContextERKNS0_7IrBlockEjRKNS0_6IrInstEjNS0_14IncludeUseInfoE(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr nonnull align 4 poison, i32 noundef %21, ptr noundef nonnull align 4 dereferenceable(43) %41, i32 noundef %49, i32 noundef %2)
+          to label %._crit_edge39 unwind label %.loopexit
 
-._crit_edge41:                                    ; preds = %50
+._crit_edge39:                                    ; preds = %48
   %.pre = load i32, ptr %26, align 4
-  br label %52
+  br label %50
 
-52:                                               ; preds = %._crit_edge41, %40
-  %53 = phi i32 [ %.pre, %._crit_edge41 ], [ %31, %40 ]
+50:                                               ; preds = %._crit_edge39, %43
+  %51 = phi i32 [ %.pre, %._crit_edge39 ], [ %31, %43 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %54 = zext i32 %53 to i64
-  %.not.not = icmp ult i64 %indvars.iv, %54
+  %52 = zext i32 %51 to i64
+  %.not.not = icmp ult i64 %indvars.iv, %52
   br i1 %.not.not, label %.lr.ph, label %.invoke, !llvm.loop !16
 
-55:                                               ; preds = %.invoke, %15
-  %56 = add nuw i64 %.03037, 1
-  %57 = load ptr, ptr %10, align 8
-  %58 = load ptr, ptr %1, align 8
-  %59 = ptrtoint ptr %57 to i64
-  %60 = ptrtoint ptr %58 to i64
-  %61 = sub i64 %59, %60
-  %62 = ashr exact i64 %61, 5
-  %63 = icmp ult i64 %56, %62
-  br i1 %63, label %15, label %._crit_edge, !llvm.loop !17
+53:                                               ; preds = %.invoke, %15
+  %54 = add nuw i64 %.03035, 1
+  %55 = load ptr, ptr %10, align 8
+  %56 = load ptr, ptr %1, align 8
+  %57 = ptrtoint ptr %55 to i64
+  %58 = ptrtoint ptr %56 to i64
+  %59 = sub i64 %57, %58
+  %60 = ashr exact i64 %59, 5
+  %61 = icmp ult i64 %54, %60
+  br i1 %61, label %15, label %._crit_edge, !llvm.loop !17
 
-._crit_edge:                                      ; preds = %55, %3
+._crit_edge:                                      ; preds = %53, %3
   ret void
 }
 
@@ -2443,24 +2430,24 @@ define dso_local void @_ZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEb(ptr de
 
 11:                                               ; preds = %10
   invoke fastcc void @_ZN4Luau7CodeGenL12appendBlocksERNS0_17IrToStringContextERKNS0_10IrFunctionEbbbb(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(616) %1, i1 noundef zeroext %2, i1 noundef zeroext true, i1 noundef zeroext true)
-          to label %.preheader91 unwind label %.loopexit.split-lp
+          to label %.preheader90 unwind label %.loopexit.split-lp
 
-.preheader91:                                     ; preds = %11
+.preheader90:                                     ; preds = %11
   %12 = getelementptr inbounds i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %1, align 8
-  %.not96 = icmp eq ptr %13, %14
-  br i1 %.not96, label %._crit_edge, label %.lr.ph95
+  %.not93 = icmp eq ptr %13, %14
+  br i1 %.not93, label %._crit_edge, label %.lr.ph
 
-.lr.ph95:                                         ; preds = %.preheader91
+.lr.ph:                                           ; preds = %.preheader90
   %15 = getelementptr inbounds i8, ptr %1, i64 24
   br label %16
 
-16:                                               ; preds = %.lr.ph95, %.critedge
-  %17 = phi ptr [ %14, %.lr.ph95 ], [ %92, %.critedge ]
-  %18 = phi ptr [ %13, %.lr.ph95 ], [ %93, %.critedge ]
-  %storemerge94 = phi i64 [ 0, %.lr.ph95 ], [ %94, %.critedge ]
-  %19 = getelementptr inbounds %"struct.Luau::CodeGen::IrBlock", ptr %17, i64 %storemerge94
+16:                                               ; preds = %.lr.ph, %.critedge
+  %17 = phi ptr [ %14, %.lr.ph ], [ %92, %.critedge ]
+  %18 = phi ptr [ %13, %.lr.ph ], [ %93, %.critedge ]
+  %storemerge92 = phi i64 [ 0, %.lr.ph ], [ %94, %.critedge ]
+  %19 = getelementptr inbounds %"struct.Luau::CodeGen::IrBlock", ptr %17, i64 %storemerge92
   %20 = getelementptr inbounds i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, -1
@@ -2468,182 +2455,179 @@ define dso_local void @_ZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEb(ptr de
 
 .preheader:                                       ; preds = %16
   %23 = getelementptr inbounds i8, ptr %19, i64 8
-  %24 = load i32, ptr %23, align 4
-  %.not3392 = icmp ugt i32 %21, %24
-  br i1 %.not3392, label %.critedge, label %.lr.ph
+  %24 = trunc i64 %storemerge92 to i32
+  %25 = zext i32 %21 to i64
+  br label %27
 
-.lr.ph:                                           ; preds = %.preheader
-  %25 = trunc i64 %storemerge94 to i32
-  %26 = zext i32 %21 to i64
-  br label %28
-
-.loopexit:                                        ; preds = %.sink.split.i, %.sink.split.i35, %.sink.split.i40, %.sink.split.i45, %.sink.split.i50, %.sink.split.i55, %.sink.split.i60
+.loopexit:                                        ; preds = %.sink.split.i, %.sink.split.i34, %.sink.split.i39, %.sink.split.i44, %.sink.split.i49, %.sink.split.i54, %.sink.split.i59
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %27
+  br label %26
 
 .loopexit.split-lp:                               ; preds = %11, %3, %10, %._crit_edge
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %27
+  br label %26
 
-27:                                               ; preds = %.loopexit.split-lp, %.loopexit
+26:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #13
   resume { ptr, i32 } %lpad.phi
 
-28:                                               ; preds = %.lr.ph, %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit64"
-  %indvars.iv = phi i64 [ %26, %.lr.ph ], [ %indvars.iv.next, %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit64" ]
-  %29 = load ptr, ptr %15, align 8
-  %30 = getelementptr inbounds %"struct.Luau::CodeGen::IrInst", ptr %29, i64 %indvars.iv
-  %31 = getelementptr inbounds i8, ptr %30, i64 4
-  %.sroa.06.0.copyload = load i32, ptr %31, align 4
-  %32 = and i32 %.sroa.06.0.copyload, 15
-  %33 = icmp eq i32 %32, 5
-  br i1 %33, label %.sink.split.i, label %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit"
+27:                                               ; preds = %.preheader, %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit63"
+  %indvars.iv = phi i64 [ %25, %.preheader ], [ %indvars.iv.next, %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit63" ]
+  %28 = load i32, ptr %23, align 4
+  %29 = zext i32 %28 to i64
+  %.not33 = icmp ugt i64 %indvars.iv, %29
+  br i1 %.not33, label %.critedge.loopexit, label %30
 
-.sink.split.i:                                    ; preds = %28
-  %34 = lshr i32 %.sroa.06.0.copyload, 4
-  %35 = zext nneg i32 %34 to i64
-  %36 = load ptr, ptr %1, align 8
-  %37 = getelementptr inbounds %"struct.Luau::CodeGen::IrBlock", ptr %36, i64 %35
-  %38 = load i8, ptr %37, align 4
-  %.not.i = icmp eq i8 %38, 1
+30:                                               ; preds = %27
+  %31 = load ptr, ptr %15, align 8
+  %32 = getelementptr inbounds %"struct.Luau::CodeGen::IrInst", ptr %31, i64 %indvars.iv
+  %33 = getelementptr inbounds i8, ptr %32, i64 4
+  %.sroa.06.0.copyload = load i32, ptr %33, align 4
+  %34 = and i32 %.sroa.06.0.copyload, 15
+  %35 = icmp eq i32 %34, 5
+  br i1 %35, label %.sink.split.i, label %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit"
+
+.sink.split.i:                                    ; preds = %30
+  %36 = lshr i32 %.sroa.06.0.copyload, 4
+  %37 = zext nneg i32 %36 to i64
+  %38 = load ptr, ptr %1, align 8
+  %39 = getelementptr inbounds %"struct.Luau::CodeGen::IrBlock", ptr %38, i64 %37
+  %40 = load i8, ptr %39, align 4
+  %.not.i = icmp eq i8 %40, 1
   %.str.210..str.258.i = select i1 %.not.i, ptr @.str.210, ptr @.str.258
-  invoke void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.str.210..str.258.i, i32 noundef %25, i32 noundef %34)
+  invoke void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.str.210..str.258.i, i32 noundef %24, i32 noundef %36)
           to label %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit" unwind label %.loopexit
 
-"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit": ; preds = %28, %.sink.split.i
-  %39 = getelementptr inbounds i8, ptr %30, i64 8
-  %.sroa.05.0.copyload = load i32, ptr %39, align 4
-  %40 = and i32 %.sroa.05.0.copyload, 15
-  %41 = icmp eq i32 %40, 5
-  br i1 %41, label %.sink.split.i35, label %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit39"
+"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit": ; preds = %30, %.sink.split.i
+  %41 = getelementptr inbounds i8, ptr %32, i64 8
+  %.sroa.05.0.copyload = load i32, ptr %41, align 4
+  %42 = and i32 %.sroa.05.0.copyload, 15
+  %43 = icmp eq i32 %42, 5
+  br i1 %43, label %.sink.split.i34, label %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit38"
 
-.sink.split.i35:                                  ; preds = %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit"
-  %42 = lshr i32 %.sroa.05.0.copyload, 4
-  %43 = zext nneg i32 %42 to i64
-  %44 = load ptr, ptr %1, align 8
-  %45 = getelementptr inbounds %"struct.Luau::CodeGen::IrBlock", ptr %44, i64 %43
-  %46 = load i8, ptr %45, align 4
-  %.not.i36 = icmp eq i8 %46, 1
-  %.str.210..str.258.i37 = select i1 %.not.i36, ptr @.str.210, ptr @.str.258
-  invoke void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.str.210..str.258.i37, i32 noundef %25, i32 noundef %42)
-          to label %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit39" unwind label %.loopexit
+.sink.split.i34:                                  ; preds = %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit"
+  %44 = lshr i32 %.sroa.05.0.copyload, 4
+  %45 = zext nneg i32 %44 to i64
+  %46 = load ptr, ptr %1, align 8
+  %47 = getelementptr inbounds %"struct.Luau::CodeGen::IrBlock", ptr %46, i64 %45
+  %48 = load i8, ptr %47, align 4
+  %.not.i35 = icmp eq i8 %48, 1
+  %.str.210..str.258.i36 = select i1 %.not.i35, ptr @.str.210, ptr @.str.258
+  invoke void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.str.210..str.258.i36, i32 noundef %24, i32 noundef %44)
+          to label %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit38" unwind label %.loopexit
 
-"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit39": ; preds = %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit", %.sink.split.i35
-  %47 = getelementptr inbounds i8, ptr %30, i64 12
-  %.sroa.04.0.copyload = load i32, ptr %47, align 4
-  %48 = and i32 %.sroa.04.0.copyload, 15
-  %49 = icmp eq i32 %48, 5
-  br i1 %49, label %.sink.split.i40, label %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit44"
+"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit38": ; preds = %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit", %.sink.split.i34
+  %49 = getelementptr inbounds i8, ptr %32, i64 12
+  %.sroa.04.0.copyload = load i32, ptr %49, align 4
+  %50 = and i32 %.sroa.04.0.copyload, 15
+  %51 = icmp eq i32 %50, 5
+  br i1 %51, label %.sink.split.i39, label %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit43"
 
-.sink.split.i40:                                  ; preds = %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit39"
-  %50 = lshr i32 %.sroa.04.0.copyload, 4
-  %51 = zext nneg i32 %50 to i64
-  %52 = load ptr, ptr %1, align 8
-  %53 = getelementptr inbounds %"struct.Luau::CodeGen::IrBlock", ptr %52, i64 %51
-  %54 = load i8, ptr %53, align 4
-  %.not.i41 = icmp eq i8 %54, 1
-  %.str.210..str.258.i42 = select i1 %.not.i41, ptr @.str.210, ptr @.str.258
-  invoke void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.str.210..str.258.i42, i32 noundef %25, i32 noundef %50)
-          to label %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit44" unwind label %.loopexit
+.sink.split.i39:                                  ; preds = %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit38"
+  %52 = lshr i32 %.sroa.04.0.copyload, 4
+  %53 = zext nneg i32 %52 to i64
+  %54 = load ptr, ptr %1, align 8
+  %55 = getelementptr inbounds %"struct.Luau::CodeGen::IrBlock", ptr %54, i64 %53
+  %56 = load i8, ptr %55, align 4
+  %.not.i40 = icmp eq i8 %56, 1
+  %.str.210..str.258.i41 = select i1 %.not.i40, ptr @.str.210, ptr @.str.258
+  invoke void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.str.210..str.258.i41, i32 noundef %24, i32 noundef %52)
+          to label %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit43" unwind label %.loopexit
 
-"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit44": ; preds = %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit39", %.sink.split.i40
-  %55 = getelementptr inbounds i8, ptr %30, i64 16
-  %.sroa.03.0.copyload = load i32, ptr %55, align 4
-  %56 = and i32 %.sroa.03.0.copyload, 15
-  %57 = icmp eq i32 %56, 5
-  br i1 %57, label %.sink.split.i45, label %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit49"
+"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit43": ; preds = %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit38", %.sink.split.i39
+  %57 = getelementptr inbounds i8, ptr %32, i64 16
+  %.sroa.03.0.copyload = load i32, ptr %57, align 4
+  %58 = and i32 %.sroa.03.0.copyload, 15
+  %59 = icmp eq i32 %58, 5
+  br i1 %59, label %.sink.split.i44, label %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit48"
 
-.sink.split.i45:                                  ; preds = %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit44"
-  %58 = lshr i32 %.sroa.03.0.copyload, 4
-  %59 = zext nneg i32 %58 to i64
-  %60 = load ptr, ptr %1, align 8
-  %61 = getelementptr inbounds %"struct.Luau::CodeGen::IrBlock", ptr %60, i64 %59
-  %62 = load i8, ptr %61, align 4
-  %.not.i46 = icmp eq i8 %62, 1
-  %.str.210..str.258.i47 = select i1 %.not.i46, ptr @.str.210, ptr @.str.258
-  invoke void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.str.210..str.258.i47, i32 noundef %25, i32 noundef %58)
-          to label %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit49" unwind label %.loopexit
+.sink.split.i44:                                  ; preds = %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit43"
+  %60 = lshr i32 %.sroa.03.0.copyload, 4
+  %61 = zext nneg i32 %60 to i64
+  %62 = load ptr, ptr %1, align 8
+  %63 = getelementptr inbounds %"struct.Luau::CodeGen::IrBlock", ptr %62, i64 %61
+  %64 = load i8, ptr %63, align 4
+  %.not.i45 = icmp eq i8 %64, 1
+  %.str.210..str.258.i46 = select i1 %.not.i45, ptr @.str.210, ptr @.str.258
+  invoke void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.str.210..str.258.i46, i32 noundef %24, i32 noundef %60)
+          to label %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit48" unwind label %.loopexit
 
-"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit49": ; preds = %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit44", %.sink.split.i45
-  %63 = getelementptr inbounds i8, ptr %30, i64 20
-  %.sroa.02.0.copyload = load i32, ptr %63, align 4
-  %64 = and i32 %.sroa.02.0.copyload, 15
-  %65 = icmp eq i32 %64, 5
-  br i1 %65, label %.sink.split.i50, label %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit54"
+"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit48": ; preds = %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit43", %.sink.split.i44
+  %65 = getelementptr inbounds i8, ptr %32, i64 20
+  %.sroa.02.0.copyload = load i32, ptr %65, align 4
+  %66 = and i32 %.sroa.02.0.copyload, 15
+  %67 = icmp eq i32 %66, 5
+  br i1 %67, label %.sink.split.i49, label %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit53"
 
-.sink.split.i50:                                  ; preds = %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit49"
-  %66 = lshr i32 %.sroa.02.0.copyload, 4
-  %67 = zext nneg i32 %66 to i64
-  %68 = load ptr, ptr %1, align 8
-  %69 = getelementptr inbounds %"struct.Luau::CodeGen::IrBlock", ptr %68, i64 %67
-  %70 = load i8, ptr %69, align 4
-  %.not.i51 = icmp eq i8 %70, 1
-  %.str.210..str.258.i52 = select i1 %.not.i51, ptr @.str.210, ptr @.str.258
-  invoke void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.str.210..str.258.i52, i32 noundef %25, i32 noundef %66)
-          to label %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit54" unwind label %.loopexit
+.sink.split.i49:                                  ; preds = %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit48"
+  %68 = lshr i32 %.sroa.02.0.copyload, 4
+  %69 = zext nneg i32 %68 to i64
+  %70 = load ptr, ptr %1, align 8
+  %71 = getelementptr inbounds %"struct.Luau::CodeGen::IrBlock", ptr %70, i64 %69
+  %72 = load i8, ptr %71, align 4
+  %.not.i50 = icmp eq i8 %72, 1
+  %.str.210..str.258.i51 = select i1 %.not.i50, ptr @.str.210, ptr @.str.258
+  invoke void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.str.210..str.258.i51, i32 noundef %24, i32 noundef %68)
+          to label %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit53" unwind label %.loopexit
 
-"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit54": ; preds = %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit49", %.sink.split.i50
-  %71 = getelementptr inbounds i8, ptr %30, i64 24
-  %.sroa.01.0.copyload = load i32, ptr %71, align 4
-  %72 = and i32 %.sroa.01.0.copyload, 15
-  %73 = icmp eq i32 %72, 5
-  br i1 %73, label %.sink.split.i55, label %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit59"
+"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit53": ; preds = %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit48", %.sink.split.i49
+  %73 = getelementptr inbounds i8, ptr %32, i64 24
+  %.sroa.01.0.copyload = load i32, ptr %73, align 4
+  %74 = and i32 %.sroa.01.0.copyload, 15
+  %75 = icmp eq i32 %74, 5
+  br i1 %75, label %.sink.split.i54, label %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit58"
 
-.sink.split.i55:                                  ; preds = %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit54"
-  %74 = lshr i32 %.sroa.01.0.copyload, 4
-  %75 = zext nneg i32 %74 to i64
-  %76 = load ptr, ptr %1, align 8
-  %77 = getelementptr inbounds %"struct.Luau::CodeGen::IrBlock", ptr %76, i64 %75
-  %78 = load i8, ptr %77, align 4
-  %.not.i56 = icmp eq i8 %78, 1
-  %.str.210..str.258.i57 = select i1 %.not.i56, ptr @.str.210, ptr @.str.258
-  invoke void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.str.210..str.258.i57, i32 noundef %25, i32 noundef %74)
-          to label %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit59" unwind label %.loopexit
+.sink.split.i54:                                  ; preds = %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit53"
+  %76 = lshr i32 %.sroa.01.0.copyload, 4
+  %77 = zext nneg i32 %76 to i64
+  %78 = load ptr, ptr %1, align 8
+  %79 = getelementptr inbounds %"struct.Luau::CodeGen::IrBlock", ptr %78, i64 %77
+  %80 = load i8, ptr %79, align 4
+  %.not.i55 = icmp eq i8 %80, 1
+  %.str.210..str.258.i56 = select i1 %.not.i55, ptr @.str.210, ptr @.str.258
+  invoke void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.str.210..str.258.i56, i32 noundef %24, i32 noundef %76)
+          to label %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit58" unwind label %.loopexit
 
-"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit59": ; preds = %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit54", %.sink.split.i55
-  %79 = load i8, ptr @_ZN5FFlag16LuauCodegenInstGE, align 8
-  %80 = trunc i8 %79 to i1
-  br i1 %80, label %81, label %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit64"
+"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit58": ; preds = %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit53", %.sink.split.i54
+  %81 = load i8, ptr @_ZN5FFlag16LuauCodegenInstGE, align 8
+  %82 = trunc i8 %81 to i1
+  br i1 %82, label %83, label %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit63"
 
-81:                                               ; preds = %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit59"
-  %82 = getelementptr inbounds i8, ptr %30, i64 28
-  %.sroa.0.0.copyload = load i32, ptr %82, align 4
-  %83 = and i32 %.sroa.0.0.copyload, 15
-  %84 = icmp eq i32 %83, 5
-  br i1 %84, label %.sink.split.i60, label %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit64"
+83:                                               ; preds = %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit58"
+  %84 = getelementptr inbounds i8, ptr %32, i64 28
+  %.sroa.0.0.copyload = load i32, ptr %84, align 4
+  %85 = and i32 %.sroa.0.0.copyload, 15
+  %86 = icmp eq i32 %85, 5
+  br i1 %86, label %.sink.split.i59, label %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit63"
 
-.sink.split.i60:                                  ; preds = %81
-  %85 = lshr i32 %.sroa.0.0.copyload, 4
-  %86 = zext nneg i32 %85 to i64
-  %87 = load ptr, ptr %1, align 8
-  %88 = getelementptr inbounds %"struct.Luau::CodeGen::IrBlock", ptr %87, i64 %86
-  %89 = load i8, ptr %88, align 4
-  %.not.i61 = icmp eq i8 %89, 1
-  %.str.210..str.258.i62 = select i1 %.not.i61, ptr @.str.210, ptr @.str.258
-  invoke void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.str.210..str.258.i62, i32 noundef %25, i32 noundef %85)
-          to label %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit64" unwind label %.loopexit
+.sink.split.i59:                                  ; preds = %83
+  %87 = lshr i32 %.sroa.0.0.copyload, 4
+  %88 = zext nneg i32 %87 to i64
+  %89 = load ptr, ptr %1, align 8
+  %90 = getelementptr inbounds %"struct.Luau::CodeGen::IrBlock", ptr %89, i64 %88
+  %91 = load i8, ptr %90, align 4
+  %.not.i60 = icmp eq i8 %91, 1
+  %.str.210..str.258.i61 = select i1 %.not.i60, ptr @.str.210, ptr @.str.258
+  invoke void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.str.210..str.258.i61, i32 noundef %24, i32 noundef %87)
+          to label %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit63" unwind label %.loopexit
 
-"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit64": ; preds = %81, %.sink.split.i60, %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit59"
+"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit63": ; preds = %83, %.sink.split.i59, %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit58"
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, 4294967295
-  %90 = load i32, ptr %23, align 4
-  %91 = zext i32 %90 to i64
-  %.not33 = icmp uge i64 %indvars.iv, %91
-  %or.cond = select i1 %.not, i1 true, i1 %.not33
-  br i1 %or.cond, label %.critedge.loopexit, label %28, !llvm.loop !18
+  br i1 %.not, label %.critedge.loopexit, label %27, !llvm.loop !18
 
-.critedge.loopexit:                               ; preds = %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit64"
+.critedge.loopexit:                               ; preds = %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit63", %27
   %.pre = load ptr, ptr %12, align 8
-  %.pre98 = load ptr, ptr %1, align 8
+  %.pre95 = load ptr, ptr %1, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.loopexit, %.preheader, %16
-  %92 = phi ptr [ %.pre98, %.critedge.loopexit ], [ %17, %.preheader ], [ %17, %16 ]
-  %93 = phi ptr [ %.pre, %.critedge.loopexit ], [ %18, %.preheader ], [ %18, %16 ]
-  %94 = add nuw i64 %storemerge94, 1
+.critedge:                                        ; preds = %.critedge.loopexit, %16
+  %92 = phi ptr [ %.pre95, %.critedge.loopexit ], [ %17, %16 ]
+  %93 = phi ptr [ %.pre, %.critedge.loopexit ], [ %18, %16 ]
+  %94 = add nuw i64 %storemerge92, 1
   %95 = ptrtoint ptr %93 to i64
   %96 = ptrtoint ptr %92 to i64
   %97 = sub i64 %95, %96
@@ -2651,7 +2635,7 @@ define dso_local void @_ZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEb(ptr de
   %99 = icmp ult i64 %94, %98
   br i1 %99, label %16, label %._crit_edge, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %.critedge, %.preheader91
+._crit_edge:                                      ; preds = %.critedge, %.preheader90
   invoke void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.209)
           to label %100 unwind label %.loopexit.split-lp
 
@@ -2664,20 +2648,20 @@ define internal fastcc void @_ZN4Luau7CodeGenL12appendBlocksERNS0_17IrToStringCo
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %1, align 8
-  %.not59 = icmp eq ptr %7, %8
-  br i1 %.not59, label %._crit_edge, label %.lr.ph58
+  %.not54 = icmp eq ptr %7, %8
+  br i1 %.not54, label %._crit_edge, label %.lr.ph53
 
-.lr.ph58:                                         ; preds = %5
+.lr.ph53:                                         ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = getelementptr inbounds i8, ptr %1, i64 24
   br label %11
 
-11:                                               ; preds = %.lr.ph58, %55
-  %12 = phi ptr [ %8, %.lr.ph58 ], [ %59, %55 ]
-  %.057 = phi i64 [ 0, %.lr.ph58 ], [ %57, %55 ]
-  %13 = getelementptr inbounds %"struct.Luau::CodeGen::IrBlock", ptr %12, i64 %.057
+11:                                               ; preds = %.lr.ph53, %54
+  %12 = phi ptr [ %8, %.lr.ph53 ], [ %58, %54 ]
+  %.052 = phi i64 [ 0, %.lr.ph53 ], [ %56, %54 ]
+  %13 = getelementptr inbounds %"struct.Luau::CodeGen::IrBlock", ptr %12, i64 %.052
   %14 = load ptr, ptr %0, align 8
-  %15 = trunc i64 %.057 to i32
+  %15 = trunc i64 %.052 to i32
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.211, i32 noundef %15)
   %16 = load i8, ptr %13, align 4
   switch i8 %16, label %switch.lookup [
@@ -2710,84 +2694,88 @@ switch.lookup:                                    ; preds = %.sink.split, %11
   %25 = getelementptr inbounds i8, ptr %24, i64 192
   %.val = load ptr, ptr %25, align 8
   %26 = getelementptr i8, ptr %24, i64 200
-  %.val50 = load ptr, ptr %26, align 8
-  tail call fastcc void @_ZN4Luau7CodeGenL17appendLabelRegsetERNS0_17IrToStringContextERKSt6vectorINS0_11RegisterSetESaIS4_EEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %.val, ptr %.val50, i64 noundef %.057, ptr noundef nonnull @.str.251)
+  %.val45 = load ptr, ptr %26, align 8
+  tail call fastcc void @_ZN4Luau7CodeGenL17appendLabelRegsetERNS0_17IrToStringContextERKSt6vectorINS0_11RegisterSetESaIS4_EEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %.val, ptr %.val45, i64 noundef %.052, ptr noundef nonnull @.str.251)
   br label %27
 
 27:                                               ; preds = %23, %switch.lookup
-  %28 = getelementptr inbounds i8, ptr %13, i64 4
-  %29 = load i32, ptr %28, align 4
-  %.not = icmp ne i32 %29, -1
-  %or.cond49.not = select i1 %2, i1 %.not, i1 false
-  br i1 %or.cond49.not, label %.preheader, label %.loopexit
+  br i1 %2, label %28, label %.loopexit
 
-.preheader:                                       ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %13, i64 8
-  %31 = load i32, ptr %30, align 4
-  %.not4455 = icmp ugt i32 %29, %31
-  br i1 %.not4455, label %.loopexit, label %.lr.ph
+28:                                               ; preds = %27
+  %29 = getelementptr inbounds i8, ptr %13, i64 4
+  %30 = load i32, ptr %29, align 4
+  %.not = icmp eq i32 %30, -1
+  br i1 %.not, label %.loopexit, label %.preheader
 
-.lr.ph:                                           ; preds = %.preheader, %45
-  %32 = phi i32 [ %46, %45 ], [ %31, %.preheader ]
-  %.04156 = phi i32 [ %47, %45 ], [ %29, %.preheader ]
-  %33 = zext i32 %.04156 to i64
-  %34 = load ptr, ptr %10, align 8
-  %35 = getelementptr inbounds %"struct.Luau::CodeGen::IrInst", ptr %34, i64 %33
-  %36 = load i8, ptr %35, align 4
-  %37 = icmp eq i8 %36, 0
-  %38 = icmp eq i8 %36, 115
-  %39 = or i1 %37, %38
-  %40 = getelementptr inbounds i8, ptr %35, i64 36
-  %41 = load i16, ptr %40, align 4
-  %42 = icmp eq i16 %41, 0
-  %or.cond = select i1 %39, i1 %42, i1 false
-  br i1 %or.cond, label %45, label %43
+.preheader:                                       ; preds = %28
+  %31 = getelementptr inbounds i8, ptr %13, i64 8
+  %32 = load i32, ptr %31, align 4
+  %.not4450 = icmp ugt i32 %30, %32
+  br i1 %.not4450, label %.loopexit, label %.lr.ph
 
-43:                                               ; preds = %.lr.ph
-  %44 = load ptr, ptr %0, align 8
-  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull @.str.252)
-  tail call void @_ZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEj(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 4 dereferenceable(43) %35, i32 noundef %.04156)
-  %.pre = load i32, ptr %30, align 4
-  br label %45
+.lr.ph:                                           ; preds = %.preheader, %44
+  %33 = phi i32 [ %45, %44 ], [ %32, %.preheader ]
+  %.04151 = phi i32 [ %46, %44 ], [ %30, %.preheader ]
+  %34 = zext i32 %.04151 to i64
+  %35 = load ptr, ptr %10, align 8
+  %36 = getelementptr inbounds %"struct.Luau::CodeGen::IrInst", ptr %35, i64 %34
+  %37 = load i8, ptr %36, align 4
+  switch i8 %37, label %42 [
+    i8 115, label %38
+    i8 0, label %38
+  ]
 
-45:                                               ; preds = %.lr.ph, %43
-  %46 = phi i32 [ %32, %.lr.ph ], [ %.pre, %43 ]
-  %47 = add i32 %.04156, 1
-  %.not44 = icmp ugt i32 %47, %46
+38:                                               ; preds = %.lr.ph, %.lr.ph
+  %39 = getelementptr inbounds i8, ptr %36, i64 36
+  %40 = load i16, ptr %39, align 4
+  %41 = icmp eq i16 %40, 0
+  br i1 %41, label %44, label %42
+
+42:                                               ; preds = %.lr.ph, %38
+  %43 = load ptr, ptr %0, align 8
+  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull @.str.252)
+  tail call void @_ZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEj(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 4 dereferenceable(43) %36, i32 noundef %.04151)
+  %.pre = load i32, ptr %31, align 4
+  br label %44
+
+44:                                               ; preds = %38, %42
+  %45 = phi i32 [ %33, %38 ], [ %.pre, %42 ]
+  %46 = add i32 %.04151, 1
+  %.not44 = icmp ugt i32 %46, %45
   br i1 %.not44, label %.loopexit, label %.lr.ph, !llvm.loop !20
 
-.loopexit:                                        ; preds = %45, %.preheader, %27
-  %48 = load ptr, ptr %9, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 216
-  %.val51 = load ptr, ptr %49, align 8
-  %50 = getelementptr i8, ptr %48, i64 224
-  %.val52 = load ptr, ptr %50, align 8
-  tail call fastcc void @_ZN4Luau7CodeGenL17appendLabelRegsetERNS0_17IrToStringContextERKSt6vectorINS0_11RegisterSetESaIS4_EEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %.val51, ptr %.val52, i64 noundef %.057, ptr noundef nonnull @.str.253)
-  br i1 %4, label %51, label %55
+.loopexit:                                        ; preds = %44, %.preheader, %27, %28
+  %47 = load ptr, ptr %9, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i64 216
+  %.val46 = load ptr, ptr %48, align 8
+  %49 = getelementptr i8, ptr %47, i64 224
+  %.val47 = load ptr, ptr %49, align 8
+  tail call fastcc void @_ZN4Luau7CodeGenL17appendLabelRegsetERNS0_17IrToStringContextERKSt6vectorINS0_11RegisterSetESaIS4_EEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %.val46, ptr %.val47, i64 noundef %.052, ptr noundef nonnull @.str.253)
+  br i1 %4, label %50, label %54
 
-51:                                               ; preds = %.loopexit
-  %52 = load ptr, ptr %9, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 240
-  %.val53 = load ptr, ptr %53, align 8
-  %54 = getelementptr i8, ptr %52, i64 248
-  %.val54 = load ptr, ptr %54, align 8
-  tail call fastcc void @_ZN4Luau7CodeGenL17appendLabelRegsetERNS0_17IrToStringContextERKSt6vectorINS0_11RegisterSetESaIS4_EEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %.val53, ptr %.val54, i64 noundef %.057, ptr noundef nonnull @.str.254)
-  br label %55
+50:                                               ; preds = %.loopexit
+  %51 = load ptr, ptr %9, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 240
+  %.val48 = load ptr, ptr %52, align 8
+  %53 = getelementptr i8, ptr %51, i64 248
+  %.val49 = load ptr, ptr %53, align 8
+  tail call fastcc void @_ZN4Luau7CodeGenL17appendLabelRegsetERNS0_17IrToStringContextERKSt6vectorINS0_11RegisterSetESaIS4_EEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %.val48, ptr %.val49, i64 noundef %.052, ptr noundef nonnull @.str.254)
+  br label %54
 
-55:                                               ; preds = %51, %.loopexit
-  %56 = load ptr, ptr %0, align 8
-  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull @.str.255)
-  %57 = add nuw i64 %.057, 1
-  %58 = load ptr, ptr %6, align 8
-  %59 = load ptr, ptr %1, align 8
+54:                                               ; preds = %50, %.loopexit
+  %55 = load ptr, ptr %0, align 8
+  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %55, ptr noundef nonnull @.str.255)
+  %56 = add nuw i64 %.052, 1
+  %57 = load ptr, ptr %6, align 8
+  %58 = load ptr, ptr %1, align 8
+  %59 = ptrtoint ptr %57 to i64
   %60 = ptrtoint ptr %58 to i64
-  %61 = ptrtoint ptr %59 to i64
-  %62 = sub i64 %60, %61
-  %63 = ashr exact i64 %62, 5
-  %64 = icmp ult i64 %57, %63
-  br i1 %64, label %11, label %._crit_edge, !llvm.loop !21
+  %61 = sub i64 %59, %60
+  %62 = ashr exact i64 %61, 5
+  %63 = icmp ult i64 %56, %62
+  br i1 %63, label %11, label %._crit_edge, !llvm.loop !21
 
-._crit_edge:                                      ; preds = %55, %5
+._crit_edge:                                      ; preds = %54, %5
   ret void
 }
 

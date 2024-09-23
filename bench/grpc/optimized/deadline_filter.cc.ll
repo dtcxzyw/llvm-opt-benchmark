@@ -973,6 +973,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %_ZN9grpc_core10GetC
 if.then.i.i.i.i:                                  ; preds = %"_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE12MakeMapToAddIZNK3$_2clEP20grpc_channel_elementPNS_18CallSpineInterfaceEEUlS5_E_ZNS6_9AppendMapISD_EEvT_NS_13DebugLocationEEUlvE_EEPNS6_3MapESF_T0_SG_.exit.i.i.i"
   store ptr %retval.0.i.i.i.i.i.i, ptr %receiver.val.i, align 8
   %last_map_.i.i.i.i = getelementptr inbounds i8, ptr %receiver.val.i, i64 8
+  store ptr %retval.0.i.i.i.i.i.i, ptr %last_map_.i.i.i.i, align 8
   br label %"_ZNK3$_2clEP20grpc_channel_elementPN9grpc_core18CallSpineInterfaceE.exit"
 
 if.else.i.i.i.i:                                  ; preds = %"_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE12MakeMapToAddIZNK3$_2clEP20grpc_channel_elementPNS_18CallSpineInterfaceEEUlS5_E_ZNS6_9AppendMapISD_EEvT_NS_13DebugLocationEEUlvE_EEPNS6_3MapESF_T0_SG_.exit.i.i.i"
@@ -980,11 +981,10 @@ if.else.i.i.i.i:                                  ; preds = %"_ZN9grpc_core15Int
   %8 = load ptr, ptr %last_map_3.i.i.i.i, align 8
   %next_.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %retval.0.i.i.i.i.i.i, ptr %next_.i.i.i.i.i, align 8
+  store ptr %retval.0.i.i.i.i.i.i, ptr %last_map_3.i.i.i.i, align 8
   br label %"_ZNK3$_2clEP20grpc_channel_elementPN9grpc_core18CallSpineInterfaceE.exit"
 
 "_ZNK3$_2clEP20grpc_channel_elementPN9grpc_core18CallSpineInterfaceE.exit": ; preds = %if.then.i.i.i.i, %if.else.i.i.i.i
-  %last_map_3.sink.i.i.i.i = phi ptr [ %last_map_3.i.i.i.i, %if.else.i.i.i.i ], [ %last_map_.i.i.i.i, %if.then.i.i.i.i ]
-  store ptr %retval.0.i.i.i.i.i.i, ptr %last_map_3.sink.i.i.i.i, align 8
   ret void
 }
 

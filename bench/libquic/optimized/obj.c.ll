@@ -1445,7 +1445,8 @@ if.then6:                                         ; preds = %if.end4
 if.then8:                                         ; preds = %if.then6
   tail call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef nonnull @global_added_lock) #10
   %nid9 = getelementptr inbounds i8, ptr %call, i64 16
-  br label %return.sink.split
+  %2 = load i32, ptr %nid9, align 8
+  br label %return
 
 if.end11:                                         ; preds = %if.then6, %if.end4
   tail call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef nonnull @global_added_lock) #10
@@ -1454,18 +1455,14 @@ if.end11:                                         ; preds = %if.then6, %if.end4
   br i1 %cmp13, label %return, label %if.end15
 
 if.end15:                                         ; preds = %if.end11
-  %2 = load i32, ptr %call12, align 4
-  %idxprom = zext i32 %2 to i64
+  %3 = load i32, ptr %call12, align 4
+  %idxprom = zext i32 %3 to i64
   %nid16 = getelementptr inbounds [949 x %struct.asn1_object_st], ptr @kObjects, i64 0, i64 %idxprom, i32 2
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.then8, %if.end15
-  %nid16.sink = phi ptr [ %nid16, %if.end15 ], [ %nid9, %if.then8 ]
-  %3 = load i32, ptr %nid16.sink, align 8
+  %4 = load i32, ptr %nid16, align 8
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.end11, %if.end, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %0, %if.end ], [ 0, %if.end11 ], [ %3, %return.sink.split ]
+return:                                           ; preds = %if.end11, %if.end, %entry, %if.end15, %if.then8
+  %retval.0 = phi i32 [ %2, %if.then8 ], [ %4, %if.end15 ], [ 0, %entry ], [ %0, %if.end ], [ 0, %if.end11 ]
   ret i32 %retval.0
 }
 
@@ -1533,7 +1530,8 @@ if.then6.i:                                       ; preds = %if.end4.i
 if.then8.i:                                       ; preds = %if.then6.i
   call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef nonnull @global_added_lock) #10
   %nid9.i = getelementptr inbounds i8, ptr %call.i, i64 16
-  br label %return.sink.split.i
+  %1 = load i32, ptr %nid9.i, align 8
+  br label %OBJ_obj2nid.exit
 
 if.end11.i:                                       ; preds = %if.then6.i, %if.end4.i
   call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef nonnull @global_added_lock) #10
@@ -1542,18 +1540,14 @@ if.end11.i:                                       ; preds = %if.then6.i, %if.end
   br i1 %cmp13.i, label %OBJ_obj2nid.exit, label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.end11.i
-  %1 = load i32, ptr %call12.i, align 4
-  %idxprom.i = zext i32 %1 to i64
+  %2 = load i32, ptr %call12.i, align 4
+  %idxprom.i = zext i32 %2 to i64
   %nid16.i = getelementptr inbounds [949 x %struct.asn1_object_st], ptr @kObjects, i64 0, i64 %idxprom.i, i32 2
-  br label %return.sink.split.i
-
-return.sink.split.i:                              ; preds = %if.end15.i, %if.then8.i
-  %nid16.sink.i = phi ptr [ %nid16.i, %if.end15.i ], [ %nid9.i, %if.then8.i ]
-  %2 = load i32, ptr %nid16.sink.i, align 8
+  %3 = load i32, ptr %nid16.i, align 8
   br label %OBJ_obj2nid.exit
 
-OBJ_obj2nid.exit:                                 ; preds = %if.end11.i, %return.sink.split.i
-  %retval.0.i = phi i32 [ 0, %if.end11.i ], [ %2, %return.sink.split.i ]
+OBJ_obj2nid.exit:                                 ; preds = %if.then8.i, %if.end11.i, %if.end15.i
+  %retval.0.i = phi i32 [ %1, %if.then8.i ], [ %3, %if.end15.i ], [ 0, %if.end11.i ]
   ret i32 %retval.0.i
 }
 
@@ -1582,7 +1576,8 @@ if.then:                                          ; preds = %entry
 if.then2:                                         ; preds = %if.then
   call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef nonnull @global_added_lock) #10
   %nid = getelementptr inbounds i8, ptr %call, i64 16
-  br label %return.sink.split
+  %1 = load i32, ptr %nid, align 8
+  br label %return
 
 if.end3:                                          ; preds = %if.then, %entry
   call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef nonnull @global_added_lock) #10
@@ -1591,18 +1586,14 @@ if.end3:                                          ; preds = %if.then, %entry
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end3
-  %1 = load i32, ptr %call4, align 4
-  %idxprom = zext i32 %1 to i64
+  %2 = load i32, ptr %call4, align 4
+  %idxprom = zext i32 %2 to i64
   %nid8 = getelementptr inbounds [949 x %struct.asn1_object_st], ptr @kObjects, i64 0, i64 %idxprom, i32 2
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.then2, %if.end7
-  %nid8.sink = phi ptr [ %nid8, %if.end7 ], [ %nid, %if.then2 ]
-  %2 = load i32, ptr %nid8.sink, align 8
+  %3 = load i32, ptr %nid8, align 8
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.end3
-  %retval.0 = phi i32 [ 0, %if.end3 ], [ %2, %return.sink.split ]
+return:                                           ; preds = %if.end3, %if.end7, %if.then2
+  %retval.0 = phi i32 [ %1, %if.then2 ], [ %3, %if.end7 ], [ 0, %if.end3 ]
   ret i32 %retval.0
 }
 
@@ -1636,7 +1627,8 @@ if.then:                                          ; preds = %entry
 if.then2:                                         ; preds = %if.then
   call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef nonnull @global_added_lock) #10
   %nid = getelementptr inbounds i8, ptr %call, i64 16
-  br label %return.sink.split
+  %1 = load i32, ptr %nid, align 8
+  br label %return
 
 if.end3:                                          ; preds = %if.then, %entry
   call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef nonnull @global_added_lock) #10
@@ -1645,18 +1637,14 @@ if.end3:                                          ; preds = %if.then, %entry
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end3
-  %1 = load i32, ptr %call4, align 4
-  %idxprom = zext i32 %1 to i64
+  %2 = load i32, ptr %call4, align 4
+  %idxprom = zext i32 %2 to i64
   %nid8 = getelementptr inbounds [949 x %struct.asn1_object_st], ptr @kObjects, i64 0, i64 %idxprom, i32 2
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.then2, %if.end7
-  %nid8.sink = phi ptr [ %nid8, %if.end7 ], [ %nid, %if.then2 ]
-  %2 = load i32, ptr %nid8.sink, align 8
+  %3 = load i32, ptr %nid8, align 8
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.end3
-  %retval.0 = phi i32 [ 0, %if.end3 ], [ %2, %return.sink.split ]
+return:                                           ; preds = %if.end3, %if.end7, %if.then2
+  %retval.0 = phi i32 [ %1, %if.then2 ], [ %3, %if.end7 ], [ 0, %if.end3 ]
   ret i32 %retval.0
 }
 
@@ -1698,7 +1686,8 @@ if.then6.i:                                       ; preds = %if.end4.i
 if.then8.i:                                       ; preds = %if.then6.i
   tail call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef nonnull @global_added_lock) #10
   %nid9.i = getelementptr inbounds i8, ptr %call.i, i64 16
-  br label %return.sink.split.i
+  %2 = load i32, ptr %nid9.i, align 8
+  br label %OBJ_obj2nid.exit
 
 if.end11.i:                                       ; preds = %if.then6.i, %if.end4.i
   tail call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef nonnull @global_added_lock) #10
@@ -1707,18 +1696,14 @@ if.end11.i:                                       ; preds = %if.then6.i, %if.end
   br i1 %cmp13.i, label %OBJ_obj2nid.exit, label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.end11.i
-  %2 = load i32, ptr %call12.i, align 4
-  %idxprom.i = zext i32 %2 to i64
+  %3 = load i32, ptr %call12.i, align 4
+  %idxprom.i = zext i32 %3 to i64
   %nid16.i = getelementptr inbounds [949 x %struct.asn1_object_st], ptr @kObjects, i64 0, i64 %idxprom.i, i32 2
-  br label %return.sink.split.i
-
-return.sink.split.i:                              ; preds = %if.end15.i, %if.then8.i
-  %nid16.sink.i = phi ptr [ %nid16.i, %if.end15.i ], [ %nid9.i, %if.then8.i ]
-  %3 = load i32, ptr %nid16.sink.i, align 8
+  %4 = load i32, ptr %nid16.i, align 8
   br label %OBJ_obj2nid.exit
 
-OBJ_obj2nid.exit:                                 ; preds = %entry, %if.end.i, %if.end11.i, %return.sink.split.i
-  %retval.0.i = phi i32 [ 0, %entry ], [ %0, %if.end.i ], [ 0, %if.end11.i ], [ %3, %return.sink.split.i ]
+OBJ_obj2nid.exit:                                 ; preds = %entry, %if.end.i, %if.then8.i, %if.end11.i, %if.end15.i
+  %retval.0.i = phi i32 [ %2, %if.then8.i ], [ %4, %if.end15.i ], [ 0, %entry ], [ %0, %if.end.i ], [ 0, %if.end11.i ]
   tail call void @ASN1_OBJECT_free(ptr noundef %call) #10
   ret i32 %retval.0.i
 }
@@ -1726,7 +1711,7 @@ OBJ_obj2nid.exit:                                 ; preds = %entry, %if.end.i, %
 ; Function Attrs: nounwind uwtable
 define hidden ptr @OBJ_txt2obj(ptr noundef %s, i32 noundef %dont_search_names) local_unnamed_addr #0 {
 entry:
-  %template.i29 = alloca %struct.asn1_object_st, align 8
+  %template.i27 = alloca %struct.asn1_object_st, align 8
   %template.i13 = alloca %struct.asn1_object_st, align 8
   %template.i = alloca %struct.asn1_object_st, align 8
   %p = alloca ptr, align 8
@@ -1769,82 +1754,82 @@ if.end7.i:                                        ; preds = %if.end3.i
   br label %OBJ_sn2nid.exit
 
 OBJ_sn2nid.exit:                                  ; preds = %if.then2.i, %if.end7.i
-  %nid8.sink.i = phi ptr [ %nid8.i, %if.end7.i ], [ %nid.i, %if.then2.i ]
-  %2 = load i32, ptr %nid8.sink.i, align 8
+  %retval.0.i.in = phi ptr [ %nid.i, %if.then2.i ], [ %nid8.i, %if.end7.i ]
+  %retval.0.i = load i32, ptr %retval.0.i.in, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %template.i)
-  %cmp = icmp eq i32 %2, 0
+  %cmp = icmp eq i32 %retval.0.i, 0
   br i1 %cmp, label %if.then1, label %if.then4
 
 if.then1:                                         ; preds = %OBJ_sn2nid.exit.thread, %OBJ_sn2nid.exit
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %template.i13)
   call void @CRYPTO_STATIC_MUTEX_lock_read(ptr noundef nonnull @global_added_lock) #10
-  %3 = load ptr, ptr @global_added_by_long_name, align 8
-  %cmp.not.i14 = icmp eq ptr %3, null
-  br i1 %cmp.not.i14, label %if.end3.i23, label %if.then.i15
+  %2 = load ptr, ptr @global_added_by_long_name, align 8
+  %cmp.not.i14 = icmp eq ptr %2, null
+  br i1 %cmp.not.i14, label %if.end3.i21, label %if.then.i15
 
 if.then.i15:                                      ; preds = %if.then1
   %ln.i = getelementptr inbounds i8, ptr %template.i13, i64 8
   store ptr %s, ptr %ln.i, align 8
-  %call.i16 = call ptr @lh_retrieve(ptr noundef nonnull %3, ptr noundef nonnull %template.i13) #10
+  %call.i16 = call ptr @lh_retrieve(ptr noundef nonnull %2, ptr noundef nonnull %template.i13) #10
   %cmp1.not.i17 = icmp eq ptr %call.i16, null
-  br i1 %cmp1.not.i17, label %if.end3.i23, label %if.then2.i18
+  br i1 %cmp1.not.i17, label %if.end3.i21, label %if.then2.i18
 
 if.then2.i18:                                     ; preds = %if.then.i15
   call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef nonnull @global_added_lock) #10
   %nid.i19 = getelementptr inbounds i8, ptr %call.i16, i64 16
   br label %if.end
 
-if.end3.i23:                                      ; preds = %if.then.i15, %if.then1
+if.end3.i21:                                      ; preds = %if.then.i15, %if.then1
   call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef nonnull @global_added_lock) #10
-  %call4.i24 = call ptr @bsearch(ptr noundef %s, ptr noundef nonnull @kNIDsInLongNameOrder, i64 noundef 941, i64 noundef 4, ptr noundef nonnull @long_name_cmp) #10
-  %cmp5.i25 = icmp eq ptr %call4.i24, null
-  br i1 %cmp5.i25, label %if.end.thread40, label %if.end7.i26
+  %call4.i22 = call ptr @bsearch(ptr noundef %s, ptr noundef nonnull @kNIDsInLongNameOrder, i64 noundef 941, i64 noundef 4, ptr noundef nonnull @long_name_cmp) #10
+  %cmp5.i23 = icmp eq ptr %call4.i22, null
+  br i1 %cmp5.i23, label %if.end.thread38, label %if.end7.i24
 
-if.end.thread40:                                  ; preds = %if.end3.i23
+if.end.thread38:                                  ; preds = %if.end3.i21
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %template.i13)
   br label %if.end7
 
-if.end7.i26:                                      ; preds = %if.end3.i23
-  %4 = load i32, ptr %call4.i24, align 4
-  %idxprom.i27 = zext i32 %4 to i64
-  %nid8.i28 = getelementptr inbounds [949 x %struct.asn1_object_st], ptr @kObjects, i64 0, i64 %idxprom.i27, i32 2
+if.end7.i24:                                      ; preds = %if.end3.i21
+  %3 = load i32, ptr %call4.i22, align 4
+  %idxprom.i25 = zext i32 %3 to i64
+  %nid8.i26 = getelementptr inbounds [949 x %struct.asn1_object_st], ptr @kObjects, i64 0, i64 %idxprom.i25, i32 2
   br label %if.end
 
-if.end:                                           ; preds = %if.then2.i18, %if.end7.i26
-  %nid8.sink.i21 = phi ptr [ %nid8.i28, %if.end7.i26 ], [ %nid.i19, %if.then2.i18 ]
-  %5 = load i32, ptr %nid8.sink.i21, align 8
+if.end:                                           ; preds = %if.end7.i24, %if.then2.i18
+  %retval.0.i20.in = phi ptr [ %nid.i19, %if.then2.i18 ], [ %nid8.i26, %if.end7.i24 ]
+  %retval.0.i20 = load i32, ptr %retval.0.i20.in, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %template.i13)
-  %cmp3.not = icmp eq i32 %5, 0
+  %cmp3.not = icmp eq i32 %retval.0.i20, 0
   br i1 %cmp3.not, label %if.end7, label %if.then4
 
 if.then4:                                         ; preds = %OBJ_sn2nid.exit, %if.end
-  %nid.039 = phi i32 [ %5, %if.end ], [ %2, %OBJ_sn2nid.exit ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %template.i29)
-  %or.cond.i = icmp ult i32 %nid.039, 949
+  %nid.037 = phi i32 [ %retval.0.i20, %if.end ], [ %retval.0.i, %OBJ_sn2nid.exit ]
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %template.i27)
+  %or.cond.i = icmp ult i32 %nid.037, 949
   br i1 %or.cond.i, label %land.lhs.true3.i, label %if.end9.i
 
 land.lhs.true3.i:                                 ; preds = %if.then4
-  %idxprom.i33 = zext nneg i32 %nid.039 to i64
-  %nid4.i = getelementptr inbounds [949 x %struct.asn1_object_st], ptr @kObjects, i64 0, i64 %idxprom.i33, i32 2
-  %6 = load i32, ptr %nid4.i, align 8
-  %cmp5.i34 = icmp eq i32 %6, 0
-  br i1 %cmp5.i34, label %err.i, label %if.end.i
+  %idxprom.i31 = zext nneg i32 %nid.037 to i64
+  %nid4.i = getelementptr inbounds [949 x %struct.asn1_object_st], ptr @kObjects, i64 0, i64 %idxprom.i31, i32 2
+  %4 = load i32, ptr %nid4.i, align 8
+  %cmp5.i32 = icmp eq i32 %4, 0
+  br i1 %cmp5.i32, label %err.i, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true3.i
-  %arrayidx8.i = getelementptr inbounds [949 x %struct.asn1_object_st], ptr @kObjects, i64 0, i64 %idxprom.i33
+  %arrayidx8.i = getelementptr inbounds [949 x %struct.asn1_object_st], ptr @kObjects, i64 0, i64 %idxprom.i31
   br label %OBJ_nid2obj.exit
 
 if.end9.i:                                        ; preds = %if.then4
   call void @CRYPTO_STATIC_MUTEX_lock_read(ptr noundef nonnull @global_added_lock) #10
-  %7 = load ptr, ptr @global_added_by_nid, align 8
-  %cmp10.not.i = icmp eq ptr %7, null
+  %5 = load ptr, ptr @global_added_by_nid, align 8
+  %cmp10.not.i = icmp eq ptr %5, null
   br i1 %cmp10.not.i, label %if.end16.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.end9.i
-  %nid12.i = getelementptr inbounds i8, ptr %template.i29, i64 16
-  store i32 %nid.039, ptr %nid12.i, align 8
-  %call.i30 = call ptr @lh_retrieve(ptr noundef nonnull %7, ptr noundef nonnull %template.i29) #10
-  %cmp13.not.i = icmp eq ptr %call.i30, null
+  %nid12.i = getelementptr inbounds i8, ptr %template.i27, i64 16
+  store i32 %nid.037, ptr %nid12.i, align 8
+  %call.i28 = call ptr @lh_retrieve(ptr noundef nonnull %5, ptr noundef nonnull %template.i27) #10
+  %cmp13.not.i = icmp eq ptr %call.i28, null
   br i1 %cmp13.not.i, label %if.end16.i, label %if.then14.i
 
 if.then14.i:                                      ; preds = %if.then11.i
@@ -1860,11 +1845,11 @@ err.i:                                            ; preds = %if.end16.i, %land.l
   br label %OBJ_nid2obj.exit
 
 OBJ_nid2obj.exit:                                 ; preds = %if.end.i, %if.then14.i, %err.i
-  %retval.0.i31 = phi ptr [ null, %err.i ], [ %arrayidx8.i, %if.end.i ], [ %call.i30, %if.then14.i ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %template.i29)
+  %retval.0.i29 = phi ptr [ null, %err.i ], [ %arrayidx8.i, %if.end.i ], [ %call.i28, %if.then14.i ]
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %template.i27)
   br label %return
 
-if.end7:                                          ; preds = %if.end.thread40, %if.end, %entry
+if.end7:                                          ; preds = %if.end.thread38, %if.end, %entry
   %call8 = call i32 @a2d_ASN1_OBJECT(ptr noundef null, i32 noundef 0, ptr noundef %s, i32 noundef -1) #10
   %cmp9 = icmp slt i32 %call8, 1
   br i1 %cmp9, label %return, label %if.end11
@@ -1883,15 +1868,15 @@ if.then16:                                        ; preds = %if.end11
 if.end17:                                         ; preds = %if.end11
   store ptr %call13, ptr %p, align 8
   call void @ASN1_put_object(ptr noundef nonnull %p, i32 noundef 0, i32 noundef %call8, i32 noundef 6, i32 noundef 0) #10
-  %8 = load ptr, ptr %p, align 8
-  %call18 = call i32 @a2d_ASN1_OBJECT(ptr noundef %8, i32 noundef %call8, ptr noundef %s, i32 noundef -1) #10
+  %6 = load ptr, ptr %p, align 8
+  %call18 = call i32 @a2d_ASN1_OBJECT(ptr noundef %6, i32 noundef %call8, ptr noundef %s, i32 noundef -1) #10
   store ptr %call13, ptr %bufp, align 8
   %call20 = call ptr @d2i_ASN1_OBJECT(ptr noundef null, ptr noundef nonnull %bufp, i64 noundef %conv) #10
   call void @free(ptr noundef nonnull %call13) #10
   br label %return
 
 return:                                           ; preds = %if.end7, %if.end17, %if.then16, %OBJ_nid2obj.exit
-  %retval.0 = phi ptr [ null, %if.then16 ], [ %call20, %if.end17 ], [ %retval.0.i31, %OBJ_nid2obj.exit ], [ null, %if.end7 ]
+  %retval.0 = phi ptr [ null, %if.then16 ], [ %call20, %if.end17 ], [ %retval.0.i29, %OBJ_nid2obj.exit ], [ null, %if.end7 ]
   ret ptr %retval.0
 }
 
@@ -2228,13 +2213,13 @@ if.end15.i:                                       ; preds = %if.end11.i
   br label %OBJ_obj2nid.exit
 
 OBJ_obj2nid.exit:                                 ; preds = %if.then8.i, %if.end15.i
-  %nid16.sink.i = phi ptr [ %nid16.i, %if.end15.i ], [ %nid9.i, %if.then8.i ]
-  %4 = load i32, ptr %nid16.sink.i, align 8
-  %cmp7.not = icmp eq i32 %4, 0
+  %retval.0.i.in = phi ptr [ %nid9.i, %if.then8.i ], [ %nid16.i, %if.end15.i ]
+  %retval.0.i = load i32, ptr %retval.0.i.in, align 8
+  %cmp7.not = icmp eq i32 %retval.0.i, 0
   br i1 %cmp7.not, label %if.end23, label %if.then8
 
 if.then8:                                         ; preds = %if.end.i, %OBJ_obj2nid.exit
-  %retval.0.i90 = phi i32 [ %4, %OBJ_obj2nid.exit ], [ %1, %if.end.i ]
+  %retval.0.i90 = phi i32 [ %retval.0.i, %OBJ_obj2nid.exit ], [ %1, %if.end.i ]
   %call9 = tail call ptr @OBJ_nid2ln(i32 noundef %retval.0.i90)
   %cmp10 = icmp eq ptr %call9, null
   br i1 %cmp10, label %if.end13, label %if.then15
@@ -2260,41 +2245,41 @@ if.end19:                                         ; preds = %if.then17, %if.then
 
 if.end23:                                         ; preds = %if.end11.i, %if.end13, %OBJ_obj2nid.exit, %if.end4
   %length = getelementptr inbounds i8, ptr %obj, i64 20
-  %5 = load i32, ptr %length, align 4
-  %cmp25126 = icmp sgt i32 %5, 0
+  %4 = load i32, ptr %length, align 4
+  %cmp25126 = icmp sgt i32 %4, 0
   br i1 %cmp25126, label %for.cond.preheader.preheader, label %while.end
 
 for.cond.preheader.preheader:                     ; preds = %if.end23
-  %6 = load ptr, ptr %data, align 8
+  %5 = load ptr, ptr %data, align 8
   br label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %for.cond.preheader.preheader, %if.end158
   %out.addr.0133 = phi ptr [ %out.addr.5, %if.end158 ], [ %out, %for.cond.preheader.preheader ]
-  %p.0132 = phi ptr [ %incdec.ptr118, %if.end158 ], [ %6, %for.cond.preheader.preheader ]
+  %p.0132 = phi ptr [ %incdec.ptr118, %if.end158 ], [ %5, %for.cond.preheader.preheader ]
   %bl.0131 = phi ptr [ %bl.1115, %if.end158 ], [ null, %for.cond.preheader.preheader ]
   %tobool76.not130 = phi i1 [ true, %if.end158 ], [ false, %for.cond.preheader.preheader ]
   %out_len.addr.0129 = phi i32 [ %out_len.addr.5, %if.end158 ], [ %out_len, %for.cond.preheader.preheader ]
-  %len.0128 = phi i32 [ %dec119, %if.end158 ], [ %5, %for.cond.preheader.preheader ]
+  %len.0128 = phi i32 [ %dec119, %if.end158 ], [ %4, %for.cond.preheader.preheader ]
   %n.0127 = phi i32 [ %n.2, %if.end158 ], [ 0, %for.cond.preheader.preheader ]
-  %7 = load i8, ptr %p.0132, align 1
+  %6 = load i8, ptr %p.0132, align 1
   %dec110 = add nsw i32 %len.0128, -1
   %cmp27111 = icmp ne i32 %dec110, 0
-  %tobool31.not112 = icmp sgt i8 %7, -1
+  %tobool31.not112 = icmp sgt i8 %6, -1
   %or.cond84113 = select i1 %cmp27111, i1 true, i1 %tobool31.not112
   br i1 %or.cond84113, label %if.end33, label %err
 
 if.end33:                                         ; preds = %for.cond.preheader, %if.end75
   %tobool31.not120 = phi i1 [ %tobool31.not, %if.end75 ], [ %tobool31.not112, %for.cond.preheader ]
   %dec119 = phi i32 [ %dec, %if.end75 ], [ %dec110, %for.cond.preheader ]
-  %8 = phi i8 [ %10, %if.end75 ], [ %7, %for.cond.preheader ]
+  %7 = phi i8 [ %9, %if.end75 ], [ %6, %for.cond.preheader ]
   %incdec.ptr118.pn = phi ptr [ %incdec.ptr118, %if.end75 ], [ %p.0132, %for.cond.preheader ]
   %l.0116 = phi i64 [ %l.2, %if.end75 ], [ 0, %for.cond.preheader ]
   %bl.1115 = phi ptr [ %bl.3100, %if.end75 ], [ %bl.0131, %for.cond.preheader ]
   %use_bn.0114 = phi i32 [ %use_bn.197, %if.end75 ], [ 0, %for.cond.preheader ]
   %incdec.ptr118 = getelementptr inbounds i8, ptr %incdec.ptr118.pn, i64 1
   %tobool34.not = icmp eq i32 %use_bn.0114, 0
-  %9 = and i8 %8, 127
-  %conv45 = zext nneg i8 %9 to i64
+  %8 = and i8 %7, 127
+  %conv45 = zext nneg i8 %8 to i64
   br i1 %tobool34.not, label %if.else, label %if.then35
 
 if.then35:                                        ; preds = %if.end33
@@ -2348,10 +2333,10 @@ if.end75:                                         ; preds = %if.then69, %if.else
   %bl.3100 = phi ptr [ %bl.399, %if.then69 ], [ %bl.1115, %if.else74 ]
   %use_bn.197 = phi i32 [ %use_bn.198, %if.then69 ], [ 0, %if.else74 ]
   %l.2 = phi i64 [ %l.1, %if.then69 ], [ %shl, %if.else74 ]
-  %10 = load i8, ptr %incdec.ptr118, align 1
+  %9 = load i8, ptr %incdec.ptr118, align 1
   %dec = add nsw i32 %dec119, -1
   %cmp27 = icmp ne i32 %dec, 0
-  %tobool31.not = icmp sgt i8 %10, -1
+  %tobool31.not = icmp sgt i8 %9, -1
   %or.cond84 = select i1 %cmp27, i1 true, i1 %tobool31.not
   br i1 %or.cond84, label %if.end33, label %err
 
@@ -2379,11 +2364,11 @@ if.else89:                                        ; preds = %if.then77
   %conv90 = zext i1 %div.cmp to i8
   %mul.neg = select i1 %div.cmp, i64 -40, i64 0
   %sub92 = add nsw i64 %mul.neg, %l.1
-  %11 = or disjoint i8 %conv90, 48
+  %10 = or disjoint i8 %conv90, 48
   br label %if.end93
 
 if.end93:                                         ; preds = %if.else87, %if.then82, %if.else89
-  %i.0 = phi i8 [ 50, %if.then82 ], [ 50, %if.else87 ], [ %11, %if.else89 ]
+  %i.0 = phi i8 [ 50, %if.then82 ], [ 50, %if.else87 ], [ %10, %if.else89 ]
   %l.4 = phi i64 [ %l.1, %if.then82 ], [ %sub, %if.else87 ], [ %sub92, %if.else89 ]
   %tobool94 = icmp ne ptr %out.addr.0133, null
   %cmp96 = icmp sgt i32 %out_len.addr.0129, 1

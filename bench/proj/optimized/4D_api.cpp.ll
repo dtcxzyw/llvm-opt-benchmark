@@ -1486,35 +1486,35 @@ define hidden noundef i32 @_Z26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16P
   %35 = fcmp ogt double %34, 1.800000e+02
   %36 = getelementptr inbounds i8, ptr %7, i64 8
   %wide.trip.count = and i64 %15, 2147483647
-  %brmerge198 = or i1 %25, %27
-  %.mux199 = select i1 %25, double %21, double %26
-  %brmerge202 = or i1 %31, %33
-  %.mux203 = select i1 %31, double %23, double %32
+  %brmerge137 = or i1 %25, %27
+  %.mux138 = select i1 %25, double %21, double %26
+  %brmerge141 = or i1 %31, %33
+  %.mux142 = select i1 %31, double %23, double %32
   %brmerge = or i1 %25, %27
   %.mux = select i1 %25, double %21, double %26
-  %brmerge194 = or i1 %31, %33
-  %.mux195 = select i1 %31, double %23, double %32
+  %brmerge133 = or i1 %31, %33
+  %.mux134 = select i1 %31, double %23, double %32
   br label %37
 
-37:                                               ; preds = %.lr.ph, %265
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %265 ]
-  %.0189 = phi i32 [ -1, %.lr.ph ], [ %.1, %265 ]
-  %.087188 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.188, %265 ]
+37:                                               ; preds = %.lr.ph, %291
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %291 ]
+  %.0128 = phi i32 [ -1, %.lr.ph ], [ %.1, %291 ]
+  %.087127 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.188, %291 ]
   %38 = load i32, ptr %2, align 4
   %39 = zext i32 %38 to i64
   %40 = icmp eq i64 %indvars.iv, %39
-  br i1 %40, label %265, label %41
+  br i1 %40, label %291, label %41
 
 41:                                               ; preds = %37
   %42 = load i32, ptr %18, align 4
   %43 = zext i32 %42 to i64
   %44 = icmp eq i64 %indvars.iv, %43
-  br i1 %44, label %265, label %45
+  br i1 %44, label %291, label %45
 
 45:                                               ; preds = %41
   %46 = load ptr, ptr %1, align 8
   %47 = getelementptr inbounds %struct.PJCoordOperation, ptr %46, i64 %indvars.iv
-  br i1 %19, label %48, label %132
+  br i1 %19, label %48, label %145
 
 48:                                               ; preds = %45
   %49 = getelementptr inbounds i8, ptr %47, i64 168
@@ -1522,380 +1522,426 @@ define hidden noundef i32 @_Z26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16P
   %.not108 = icmp eq ptr %50, null
   %51 = getelementptr inbounds i8, ptr %47, i64 8
   %52 = load double, ptr %51, align 8
-  br i1 %.not108, label %78, label %53
+  br i1 %.not108, label %86, label %53
 
 53:                                               ; preds = %48
   %54 = fcmp oeq double %52, -1.800000e+02
-  %55 = getelementptr inbounds i8, ptr %47, i64 16
-  %56 = load double, ptr %55, align 8
-  %57 = fcmp oeq double %56, -9.000000e+01
-  %or.cond = select i1 %54, i1 %57, i1 false
-  %58 = getelementptr inbounds i8, ptr %47, i64 24
-  %59 = load double, ptr %58, align 8
-  %60 = fcmp oeq double %59, 1.800000e+02
-  %or.cond113 = select i1 %or.cond, i1 %60, i1 false
-  %61 = getelementptr inbounds i8, ptr %47, i64 32
-  %62 = load double, ptr %61, align 8
-  %63 = fcmp oeq double %62, 9.000000e+01
-  %or.cond116 = select i1 %or.cond113, i1 %63, i1 false
-  br i1 %or.cond116, label %.critedge, label %64
+  br i1 %54, label %55, label %67
 
-64:                                               ; preds = %53
+55:                                               ; preds = %53
+  %56 = getelementptr inbounds i8, ptr %47, i64 16
+  %57 = load double, ptr %56, align 8
+  %58 = fcmp oeq double %57, -9.000000e+01
+  br i1 %58, label %59, label %67
+
+59:                                               ; preds = %55
+  %60 = getelementptr inbounds i8, ptr %47, i64 24
+  %61 = load double, ptr %60, align 8
+  %62 = fcmp oeq double %61, 1.800000e+02
+  br i1 %62, label %63, label %67
+
+63:                                               ; preds = %59
+  %64 = getelementptr inbounds i8, ptr %47, i64 32
+  %65 = load double, ptr %64, align 8
+  %66 = fcmp oeq double %65, 9.000000e+01
+  br i1 %66, label %.critedge, label %67
+
+67:                                               ; preds = %63, %59, %55, %53
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
-  %65 = load ptr, ptr %49, align 8
-  %66 = call noundef zeroext i1 @_Z8pj_fwd4dR8PJ_COORDP8PJconsts(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %65)
-  %67 = load double, ptr %7, align 8
-  %68 = load double, ptr %51, align 8
-  %69 = fcmp ult double %67, %68
-  br i1 %69, label %265, label %70
+  %68 = load ptr, ptr %49, align 8
+  %69 = call noundef zeroext i1 @_Z8pj_fwd4dR8PJ_COORDP8PJconsts(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %68)
+  %70 = load double, ptr %7, align 8
+  %71 = load double, ptr %51, align 8
+  %72 = fcmp ult double %70, %71
+  br i1 %72, label %291, label %73
 
-70:                                               ; preds = %64
-  %71 = load double, ptr %36, align 8
-  %72 = load double, ptr %55, align 8
-  %73 = fcmp ult double %71, %72
-  %74 = load double, ptr %58, align 8
-  %75 = fcmp ugt double %67, %74
-  %or.cond119 = select i1 %73, i1 true, i1 %75
-  %76 = load double, ptr %61, align 8
-  %77 = fcmp ugt double %71, %76
-  %or.cond122 = select i1 %or.cond119, i1 true, i1 %77
-  br i1 %or.cond122, label %265, label %.critedge
+73:                                               ; preds = %67
+  %74 = load double, ptr %36, align 8
+  %75 = getelementptr inbounds i8, ptr %47, i64 16
+  %76 = load double, ptr %75, align 8
+  %77 = fcmp ult double %74, %76
+  br i1 %77, label %291, label %78
 
-78:                                               ; preds = %48
-  %79 = fcmp ult double %21, %52
-  br i1 %79, label %90, label %80
+78:                                               ; preds = %73
+  %79 = getelementptr inbounds i8, ptr %47, i64 24
+  %80 = load double, ptr %79, align 8
+  %81 = fcmp ugt double %70, %80
+  br i1 %81, label %291, label %82
 
-80:                                               ; preds = %78
-  %81 = getelementptr inbounds i8, ptr %47, i64 16
-  %82 = load double, ptr %81, align 8
-  %83 = fcmp ult double %23, %82
-  %84 = getelementptr inbounds i8, ptr %47, i64 24
-  %85 = load double, ptr %84, align 8
-  %86 = fcmp ugt double %21, %85
-  %or.cond125 = select i1 %83, i1 true, i1 %86
-  %87 = getelementptr inbounds i8, ptr %47, i64 32
-  %88 = load double, ptr %87, align 8
-  %89 = fcmp ugt double %23, %88
-  %or.cond128 = select i1 %or.cond125, i1 true, i1 %89
-  br i1 %or.cond128, label %90, label %.critedge
+82:                                               ; preds = %78
+  %83 = getelementptr inbounds i8, ptr %47, i64 32
+  %84 = load double, ptr %83, align 8
+  %85 = fcmp ugt double %74, %84
+  br i1 %85, label %291, label %.critedge
 
-90:                                               ; preds = %80, %78
-  %91 = getelementptr inbounds i8, ptr %47, i64 163
-  %92 = load i8, ptr %91, align 1
-  %93 = trunc i8 %92 to i1
-  br i1 %93, label %94, label %112
+86:                                               ; preds = %48
+  %87 = fcmp oge double %21, %52
+  br i1 %87, label %88, label %100
 
-94:                                               ; preds = %90
-  %95 = getelementptr inbounds i8, ptr %47, i64 16
-  %96 = load double, ptr %95, align 8
-  %97 = fcmp ult double %23, %96
-  %98 = getelementptr inbounds i8, ptr %47, i64 32
-  %99 = load double, ptr %98, align 8
-  %100 = fcmp ugt double %23, %99
-  %or.cond131 = select i1 %97, i1 true, i1 %100
-  br i1 %or.cond131, label %112, label %101
+88:                                               ; preds = %86
+  %89 = getelementptr inbounds i8, ptr %47, i64 16
+  %90 = load double, ptr %89, align 8
+  %91 = fcmp ult double %23, %90
+  br i1 %91, label %100, label %92
 
-101:                                              ; preds = %94
-  br i1 %24, label %102, label %103
+92:                                               ; preds = %88
+  %93 = getelementptr inbounds i8, ptr %47, i64 24
+  %94 = load double, ptr %93, align 8
+  %95 = fcmp ugt double %21, %94
+  br i1 %95, label %100, label %96
 
-102:                                              ; preds = %101
+96:                                               ; preds = %92
+  %97 = getelementptr inbounds i8, ptr %47, i64 32
+  %98 = load double, ptr %97, align 8
+  %99 = fcmp ugt double %23, %98
+  br i1 %99, label %100, label %.critedge
+
+100:                                              ; preds = %96, %92, %88, %86
+  %101 = getelementptr inbounds i8, ptr %47, i64 163
+  %102 = load i8, ptr %101, align 1
+  %103 = trunc i8 %102 to i1
+  br i1 %103, label %104, label %124
+
+104:                                              ; preds = %100
+  %105 = getelementptr inbounds i8, ptr %47, i64 16
+  %106 = load double, ptr %105, align 8
+  %107 = fcmp ult double %23, %106
+  br i1 %107, label %124, label %108
+
+108:                                              ; preds = %104
+  %109 = getelementptr inbounds i8, ptr %47, i64 32
+  %110 = load double, ptr %109, align 8
+  %111 = fcmp ugt double %23, %110
+  br i1 %111, label %124, label %112
+
+112:                                              ; preds = %108
+  br i1 %24, label %113, label %114
+
+113:                                              ; preds = %112
   br i1 %29, label %.sink.split.i, label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit"
 
-103:                                              ; preds = %101
+114:                                              ; preds = %112
   br i1 %brmerge, label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit", label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %103, %102
-  %.sink.i = phi double [ %28, %102 ], [ %26, %103 ]
-  %104 = fadd double %.sink.i, 1.800000e+02
-  %105 = call double @fmod(double noundef %104, double noundef 3.600000e+02) #34
-  %106 = fadd double %105, -1.800000e+02
-  %.pre205 = load double, ptr %51, align 8
+.sink.split.i:                                    ; preds = %114, %113
+  %.sink.i = phi double [ %28, %113 ], [ %26, %114 ]
+  %115 = fadd double %.sink.i, 1.800000e+02
+  %116 = call double @fmod(double noundef %115, double noundef 3.600000e+02) #34
+  %117 = fadd double %116, -1.800000e+02
+  %.pre144 = load double, ptr %51, align 8
   br label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit"
 
-"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit": ; preds = %103, %102, %.sink.split.i
-  %107 = phi double [ %52, %102 ], [ %52, %103 ], [ %.pre205, %.sink.split.i ]
-  %.0.i = phi double [ %28, %102 ], [ %.mux, %103 ], [ %106, %.sink.split.i ]
-  %108 = fcmp ult double %.0.i, %107
-  %109 = getelementptr inbounds i8, ptr %47, i64 24
-  %110 = load double, ptr %109, align 8
-  %111 = fcmp ugt double %.0.i, %110
-  %or.cond134 = select i1 %108, i1 true, i1 %111
-  br i1 %or.cond134, label %265, label %.critedge
+"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit": ; preds = %114, %113, %.sink.split.i
+  %118 = phi double [ %52, %113 ], [ %52, %114 ], [ %.pre144, %.sink.split.i ]
+  %.0.i = phi double [ %28, %113 ], [ %.mux, %114 ], [ %117, %.sink.split.i ]
+  %119 = fcmp ult double %.0.i, %118
+  br i1 %119, label %291, label %120
 
-112:                                              ; preds = %94, %90
-  %113 = getelementptr inbounds i8, ptr %47, i64 164
-  %114 = load i8, ptr %113, align 4
-  %115 = trunc i8 %114 to i1
-  br i1 %115, label %116, label %265
+120:                                              ; preds = %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit"
+  %121 = getelementptr inbounds i8, ptr %47, i64 24
+  %122 = load double, ptr %121, align 8
+  %123 = fcmp ugt double %.0.i, %122
+  br i1 %123, label %291, label %.critedge
 
-116:                                              ; preds = %112
-  %117 = getelementptr inbounds i8, ptr %47, i64 24
-  %118 = load double, ptr %117, align 8
-  %119 = fcmp ugt double %21, %118
-  %or.cond137 = select i1 %79, i1 true, i1 %119
-  br i1 %or.cond137, label %265, label %120
+124:                                              ; preds = %108, %104, %100
+  %125 = getelementptr inbounds i8, ptr %47, i64 164
+  %126 = load i8, ptr %125, align 4
+  %127 = trunc i8 %126 to i1
+  %brmerge.not = and i1 %87, %127
+  br i1 %brmerge.not, label %128, label %291
 
-120:                                              ; preds = %116
-  br i1 %30, label %121, label %122
-
-121:                                              ; preds = %120
-  br i1 %35, label %.sink.split.i176, label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit178"
-
-122:                                              ; preds = %120
-  br i1 %brmerge194, label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit178", label %.sink.split.i176
-
-.sink.split.i176:                                 ; preds = %122, %121
-  %.sink.i177 = phi double [ %34, %121 ], [ %32, %122 ]
-  %123 = fadd double %.sink.i177, 1.800000e+02
-  %124 = call double @fmod(double noundef %123, double noundef 3.600000e+02) #34
-  %125 = fadd double %124, -1.800000e+02
-  br label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit178"
-
-"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit178": ; preds = %122, %121, %.sink.split.i176
-  %.0.i175 = phi double [ %34, %121 ], [ %.mux195, %122 ], [ %125, %.sink.split.i176 ]
-  %126 = getelementptr inbounds i8, ptr %47, i64 16
-  %127 = load double, ptr %126, align 8
-  %128 = fcmp ult double %.0.i175, %127
-  %129 = getelementptr inbounds i8, ptr %47, i64 32
+128:                                              ; preds = %124
+  %129 = getelementptr inbounds i8, ptr %47, i64 24
   %130 = load double, ptr %129, align 8
-  %131 = fcmp ugt double %.0.i175, %130
-  %or.cond140 = select i1 %128, i1 true, i1 %131
-  br i1 %or.cond140, label %265, label %.critedge
+  %131 = fcmp ugt double %21, %130
+  br i1 %131, label %291, label %132
 
-132:                                              ; preds = %45
-  %133 = getelementptr inbounds i8, ptr %47, i64 176
-  %134 = load ptr, ptr %133, align 8
-  %.not = icmp eq ptr %134, null
-  %135 = getelementptr inbounds i8, ptr %47, i64 40
-  %136 = load double, ptr %135, align 8
-  br i1 %.not, label %162, label %137
+132:                                              ; preds = %128
+  br i1 %30, label %133, label %134
 
-137:                                              ; preds = %132
-  %138 = fcmp oeq double %136, -1.800000e+02
-  %139 = getelementptr inbounds i8, ptr %47, i64 48
-  %140 = load double, ptr %139, align 8
-  %141 = fcmp oeq double %140, -9.000000e+01
-  %or.cond143 = select i1 %138, i1 %141, i1 false
-  %142 = getelementptr inbounds i8, ptr %47, i64 56
+133:                                              ; preds = %132
+  br i1 %35, label %.sink.split.i110, label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit112"
+
+134:                                              ; preds = %132
+  br i1 %brmerge133, label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit112", label %.sink.split.i110
+
+.sink.split.i110:                                 ; preds = %134, %133
+  %.sink.i111 = phi double [ %34, %133 ], [ %32, %134 ]
+  %135 = fadd double %.sink.i111, 1.800000e+02
+  %136 = call double @fmod(double noundef %135, double noundef 3.600000e+02) #34
+  %137 = fadd double %136, -1.800000e+02
+  br label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit112"
+
+"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit112": ; preds = %134, %133, %.sink.split.i110
+  %.0.i109 = phi double [ %34, %133 ], [ %.mux134, %134 ], [ %137, %.sink.split.i110 ]
+  %138 = getelementptr inbounds i8, ptr %47, i64 16
+  %139 = load double, ptr %138, align 8
+  %140 = fcmp ult double %.0.i109, %139
+  br i1 %140, label %291, label %141
+
+141:                                              ; preds = %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit112"
+  %142 = getelementptr inbounds i8, ptr %47, i64 32
   %143 = load double, ptr %142, align 8
-  %144 = fcmp oeq double %143, 1.800000e+02
-  %or.cond146 = select i1 %or.cond143, i1 %144, i1 false
-  %145 = getelementptr inbounds i8, ptr %47, i64 64
-  %146 = load double, ptr %145, align 8
-  %147 = fcmp oeq double %146, 9.000000e+01
-  %or.cond149 = select i1 %or.cond146, i1 %147, i1 false
-  br i1 %or.cond149, label %.critedge, label %148
+  %144 = fcmp ugt double %.0.i109, %143
+  br i1 %144, label %291, label %.critedge
 
-148:                                              ; preds = %137
+145:                                              ; preds = %45
+  %146 = getelementptr inbounds i8, ptr %47, i64 176
+  %147 = load ptr, ptr %146, align 8
+  %.not = icmp eq ptr %147, null
+  %148 = getelementptr inbounds i8, ptr %47, i64 40
+  %149 = load double, ptr %148, align 8
+  br i1 %.not, label %183, label %150
+
+150:                                              ; preds = %145
+  %151 = fcmp oeq double %149, -1.800000e+02
+  br i1 %151, label %152, label %164
+
+152:                                              ; preds = %150
+  %153 = getelementptr inbounds i8, ptr %47, i64 48
+  %154 = load double, ptr %153, align 8
+  %155 = fcmp oeq double %154, -9.000000e+01
+  br i1 %155, label %156, label %164
+
+156:                                              ; preds = %152
+  %157 = getelementptr inbounds i8, ptr %47, i64 56
+  %158 = load double, ptr %157, align 8
+  %159 = fcmp oeq double %158, 1.800000e+02
+  br i1 %159, label %160, label %164
+
+160:                                              ; preds = %156
+  %161 = getelementptr inbounds i8, ptr %47, i64 64
+  %162 = load double, ptr %161, align 8
+  %163 = fcmp oeq double %162, 9.000000e+01
+  br i1 %163, label %.critedge, label %164
+
+164:                                              ; preds = %160, %156, %152, %150
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
-  %149 = load ptr, ptr %133, align 8
-  %150 = call noundef zeroext i1 @_Z8pj_fwd4dR8PJ_COORDP8PJconsts(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %149)
-  %151 = load double, ptr %8, align 8
-  %152 = load double, ptr %135, align 8
-  %153 = fcmp ult double %151, %152
-  br i1 %153, label %265, label %154
+  %165 = load ptr, ptr %146, align 8
+  %166 = call noundef zeroext i1 @_Z8pj_fwd4dR8PJ_COORDP8PJconsts(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %165)
+  %167 = load double, ptr %8, align 8
+  %168 = load double, ptr %148, align 8
+  %169 = fcmp ult double %167, %168
+  br i1 %169, label %291, label %170
 
-154:                                              ; preds = %148
-  %155 = load double, ptr %20, align 8
-  %156 = load double, ptr %139, align 8
-  %157 = fcmp ult double %155, %156
-  %158 = load double, ptr %142, align 8
-  %159 = fcmp ugt double %151, %158
-  %or.cond152 = select i1 %157, i1 true, i1 %159
-  %160 = load double, ptr %145, align 8
-  %161 = fcmp ugt double %155, %160
-  %or.cond155 = select i1 %or.cond152, i1 true, i1 %161
-  br i1 %or.cond155, label %265, label %.critedge
+170:                                              ; preds = %164
+  %171 = load double, ptr %20, align 8
+  %172 = getelementptr inbounds i8, ptr %47, i64 48
+  %173 = load double, ptr %172, align 8
+  %174 = fcmp ult double %171, %173
+  br i1 %174, label %291, label %175
 
-162:                                              ; preds = %132
-  %163 = fcmp ult double %21, %136
-  br i1 %163, label %174, label %164
+175:                                              ; preds = %170
+  %176 = getelementptr inbounds i8, ptr %47, i64 56
+  %177 = load double, ptr %176, align 8
+  %178 = fcmp ugt double %167, %177
+  br i1 %178, label %291, label %179
 
-164:                                              ; preds = %162
-  %165 = getelementptr inbounds i8, ptr %47, i64 48
-  %166 = load double, ptr %165, align 8
-  %167 = fcmp ult double %23, %166
-  %168 = getelementptr inbounds i8, ptr %47, i64 56
-  %169 = load double, ptr %168, align 8
-  %170 = fcmp ugt double %21, %169
-  %or.cond158 = select i1 %167, i1 true, i1 %170
-  %171 = getelementptr inbounds i8, ptr %47, i64 64
-  %172 = load double, ptr %171, align 8
-  %173 = fcmp ugt double %23, %172
-  %or.cond161 = select i1 %or.cond158, i1 true, i1 %173
-  br i1 %or.cond161, label %174, label %.critedge
+179:                                              ; preds = %175
+  %180 = getelementptr inbounds i8, ptr %47, i64 64
+  %181 = load double, ptr %180, align 8
+  %182 = fcmp ugt double %171, %181
+  br i1 %182, label %291, label %.critedge
 
-174:                                              ; preds = %164, %162
-  %175 = getelementptr inbounds i8, ptr %47, i64 165
-  %176 = load i8, ptr %175, align 1
-  %177 = trunc i8 %176 to i1
-  br i1 %177, label %178, label %196
+183:                                              ; preds = %145
+  %184 = fcmp oge double %21, %149
+  br i1 %184, label %185, label %197
 
-178:                                              ; preds = %174
-  %179 = getelementptr inbounds i8, ptr %47, i64 48
-  %180 = load double, ptr %179, align 8
-  %181 = fcmp ult double %23, %180
-  %182 = getelementptr inbounds i8, ptr %47, i64 64
-  %183 = load double, ptr %182, align 8
-  %184 = fcmp ugt double %23, %183
-  %or.cond164 = select i1 %181, i1 true, i1 %184
-  br i1 %or.cond164, label %196, label %185
+185:                                              ; preds = %183
+  %186 = getelementptr inbounds i8, ptr %47, i64 48
+  %187 = load double, ptr %186, align 8
+  %188 = fcmp ult double %23, %187
+  br i1 %188, label %197, label %189
 
-185:                                              ; preds = %178
-  br i1 %24, label %186, label %187
+189:                                              ; preds = %185
+  %190 = getelementptr inbounds i8, ptr %47, i64 56
+  %191 = load double, ptr %190, align 8
+  %192 = fcmp ugt double %21, %191
+  br i1 %192, label %197, label %193
 
-186:                                              ; preds = %185
-  br i1 %29, label %.sink.split.i180, label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit182"
+193:                                              ; preds = %189
+  %194 = getelementptr inbounds i8, ptr %47, i64 64
+  %195 = load double, ptr %194, align 8
+  %196 = fcmp ugt double %23, %195
+  br i1 %196, label %197, label %.critedge
 
-187:                                              ; preds = %185
-  br i1 %brmerge198, label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit182", label %.sink.split.i180
+197:                                              ; preds = %193, %189, %185, %183
+  %198 = getelementptr inbounds i8, ptr %47, i64 165
+  %199 = load i8, ptr %198, align 1
+  %200 = trunc i8 %199 to i1
+  br i1 %200, label %201, label %221
 
-.sink.split.i180:                                 ; preds = %187, %186
-  %.sink.i181 = phi double [ %28, %186 ], [ %26, %187 ]
-  %188 = fadd double %.sink.i181, 1.800000e+02
-  %189 = call double @fmod(double noundef %188, double noundef 3.600000e+02) #34
-  %190 = fadd double %189, -1.800000e+02
-  %.pre = load double, ptr %135, align 8
-  br label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit182"
+201:                                              ; preds = %197
+  %202 = getelementptr inbounds i8, ptr %47, i64 48
+  %203 = load double, ptr %202, align 8
+  %204 = fcmp ult double %23, %203
+  br i1 %204, label %221, label %205
 
-"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit182": ; preds = %187, %186, %.sink.split.i180
-  %191 = phi double [ %136, %186 ], [ %136, %187 ], [ %.pre, %.sink.split.i180 ]
-  %.0.i179 = phi double [ %28, %186 ], [ %.mux199, %187 ], [ %190, %.sink.split.i180 ]
-  %192 = fcmp ult double %.0.i179, %191
-  %193 = getelementptr inbounds i8, ptr %47, i64 56
-  %194 = load double, ptr %193, align 8
-  %195 = fcmp ugt double %.0.i179, %194
-  %or.cond167 = select i1 %192, i1 true, i1 %195
-  br i1 %or.cond167, label %265, label %.critedge
+205:                                              ; preds = %201
+  %206 = getelementptr inbounds i8, ptr %47, i64 64
+  %207 = load double, ptr %206, align 8
+  %208 = fcmp ugt double %23, %207
+  br i1 %208, label %221, label %209
 
-196:                                              ; preds = %178, %174
-  %197 = getelementptr inbounds i8, ptr %47, i64 166
-  %198 = load i8, ptr %197, align 2
-  %199 = trunc i8 %198 to i1
-  br i1 %199, label %200, label %265
+209:                                              ; preds = %205
+  br i1 %24, label %210, label %211
 
-200:                                              ; preds = %196
-  %201 = getelementptr inbounds i8, ptr %47, i64 56
-  %202 = load double, ptr %201, align 8
-  %203 = fcmp ugt double %21, %202
-  %or.cond170 = select i1 %163, i1 true, i1 %203
-  br i1 %or.cond170, label %265, label %204
+210:                                              ; preds = %209
+  br i1 %29, label %.sink.split.i114, label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit116"
 
-204:                                              ; preds = %200
-  br i1 %30, label %205, label %206
+211:                                              ; preds = %209
+  br i1 %brmerge137, label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit116", label %.sink.split.i114
 
-205:                                              ; preds = %204
-  br i1 %35, label %.sink.split.i184, label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit186"
+.sink.split.i114:                                 ; preds = %211, %210
+  %.sink.i115 = phi double [ %28, %210 ], [ %26, %211 ]
+  %212 = fadd double %.sink.i115, 1.800000e+02
+  %213 = call double @fmod(double noundef %212, double noundef 3.600000e+02) #34
+  %214 = fadd double %213, -1.800000e+02
+  %.pre = load double, ptr %148, align 8
+  br label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit116"
 
-206:                                              ; preds = %204
-  br i1 %brmerge202, label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit186", label %.sink.split.i184
+"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit116": ; preds = %211, %210, %.sink.split.i114
+  %215 = phi double [ %149, %210 ], [ %149, %211 ], [ %.pre, %.sink.split.i114 ]
+  %.0.i113 = phi double [ %28, %210 ], [ %.mux138, %211 ], [ %214, %.sink.split.i114 ]
+  %216 = fcmp ult double %.0.i113, %215
+  br i1 %216, label %291, label %217
 
-.sink.split.i184:                                 ; preds = %206, %205
-  %.sink.i185 = phi double [ %34, %205 ], [ %32, %206 ]
-  %207 = fadd double %.sink.i185, 1.800000e+02
-  %208 = call double @fmod(double noundef %207, double noundef 3.600000e+02) #34
-  %209 = fadd double %208, -1.800000e+02
-  br label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit186"
-
-"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit186": ; preds = %206, %205, %.sink.split.i184
-  %.0.i183 = phi double [ %34, %205 ], [ %.mux203, %206 ], [ %209, %.sink.split.i184 ]
-  %210 = getelementptr inbounds i8, ptr %47, i64 48
-  %211 = load double, ptr %210, align 8
-  %212 = fcmp ult double %.0.i183, %211
-  %213 = getelementptr inbounds i8, ptr %47, i64 64
-  %214 = load double, ptr %213, align 8
-  %215 = fcmp ugt double %.0.i183, %214
-  %or.cond173 = select i1 %212, i1 true, i1 %215
-  br i1 %or.cond173, label %265, label %.critedge
-
-.critedge:                                        ; preds = %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit186", %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit182", %154, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit178", %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit", %70, %164, %137, %80, %53
-  %216 = icmp slt i32 %.0189, 0
-  br i1 %216, label %249, label %217
-
-217:                                              ; preds = %.critedge
-  %218 = getelementptr inbounds i8, ptr %47, i64 112
+217:                                              ; preds = %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit116"
+  %218 = getelementptr inbounds i8, ptr %47, i64 56
   %219 = load double, ptr %218, align 8
-  %220 = fcmp oge double %219, 0.000000e+00
-  %221 = fcmp olt double %219, %.087188
-  %or.cond174 = select i1 %220, i1 %221, i1 false
-  br i1 %or.cond174, label %245, label %222
+  %220 = fcmp ugt double %.0.i113, %219
+  br i1 %220, label %291, label %.critedge
 
-222:                                              ; preds = %217
-  %223 = fcmp oeq double %219, %.087188
-  br i1 %223, label %224, label %265
+221:                                              ; preds = %205, %201, %197
+  %222 = getelementptr inbounds i8, ptr %47, i64 166
+  %223 = load i8, ptr %222, align 2
+  %224 = trunc i8 %223 to i1
+  %brmerge123.not = and i1 %184, %224
+  br i1 %brmerge123.not, label %225, label %291
 
-224:                                              ; preds = %222
-  %225 = getelementptr inbounds i8, ptr %47, i64 120
-  %226 = load double, ptr %225, align 8
-  %227 = zext nneg i32 %.0189 to i64
-  %228 = load ptr, ptr %1, align 8
-  %229 = getelementptr inbounds %struct.PJCoordOperation, ptr %228, i64 %227
-  %230 = getelementptr inbounds i8, ptr %229, i64 120
-  %231 = load double, ptr %230, align 8
-  %232 = fcmp olt double %226, %231
-  br i1 %232, label %233, label %265
+225:                                              ; preds = %221
+  %226 = getelementptr inbounds i8, ptr %47, i64 56
+  %227 = load double, ptr %226, align 8
+  %228 = fcmp ugt double %21, %227
+  br i1 %228, label %291, label %229
 
-233:                                              ; preds = %224
-  %234 = getelementptr inbounds i8, ptr %47, i64 161
-  %235 = load i8, ptr %234, align 1
-  %236 = trunc i8 %235 to i1
-  br i1 %236, label %237, label %241
+229:                                              ; preds = %225
+  br i1 %30, label %230, label %231
 
-237:                                              ; preds = %233
-  %238 = getelementptr inbounds i8, ptr %229, i64 161
-  %239 = load i8, ptr %238, align 1
-  %240 = trunc i8 %239 to i1
-  br i1 %240, label %241, label %265
+230:                                              ; preds = %229
+  br i1 %35, label %.sink.split.i118, label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit120"
 
-241:                                              ; preds = %237, %233
-  %242 = getelementptr inbounds i8, ptr %229, i64 162
-  %243 = load i8, ptr %242, align 2
-  %244 = trunc i8 %243 to i1
-  br i1 %244, label %265, label %245
+231:                                              ; preds = %229
+  br i1 %brmerge141, label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit120", label %.sink.split.i118
 
-245:                                              ; preds = %217, %241
-  %246 = getelementptr inbounds i8, ptr %47, i64 160
-  %247 = load i8, ptr %246, align 8
-  %248 = trunc i8 %247 to i1
-  br i1 %248, label %265, label %249
+.sink.split.i118:                                 ; preds = %231, %230
+  %.sink.i119 = phi double [ %34, %230 ], [ %32, %231 ]
+  %232 = fadd double %.sink.i119, 1.800000e+02
+  %233 = call double @fmod(double noundef %232, double noundef 3.600000e+02) #34
+  %234 = fadd double %233, -1.800000e+02
+  br label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit120"
 
-249:                                              ; preds = %245, %.critedge
-  br i1 %3, label %250, label %261
+"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit120": ; preds = %231, %230, %.sink.split.i118
+  %.0.i117 = phi double [ %34, %230 ], [ %.mux142, %231 ], [ %234, %.sink.split.i118 ]
+  %235 = getelementptr inbounds i8, ptr %47, i64 48
+  %236 = load double, ptr %235, align 8
+  %237 = fcmp ult double %.0.i117, %236
+  br i1 %237, label %291, label %238
 
-250:                                              ; preds = %249
-  %251 = getelementptr inbounds i8, ptr %47, i64 184
-  %252 = load i32, ptr %251, align 8
-  %253 = icmp eq i32 %252, -1
-  br i1 %253, label %254, label %_ZNK16PJCoordOperation14isInstantiableEv.exit
+238:                                              ; preds = %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit120"
+  %239 = getelementptr inbounds i8, ptr %47, i64 64
+  %240 = load double, ptr %239, align 8
+  %241 = fcmp ugt double %.0.i117, %240
+  br i1 %241, label %291, label %.critedge
 
-254:                                              ; preds = %250
-  %255 = getelementptr inbounds i8, ptr %47, i64 72
-  %256 = load ptr, ptr %255, align 8
-  %257 = load ptr, ptr %256, align 8
-  %258 = call i32 @proj_coordoperation_is_instantiable(ptr noundef %257, ptr noundef nonnull %256)
-  store i32 %258, ptr %251, align 8
+.critedge:                                        ; preds = %238, %217, %179, %141, %120, %82, %193, %160, %96, %63
+  %242 = icmp slt i32 %.0128, 0
+  br i1 %242, label %275, label %243
+
+243:                                              ; preds = %.critedge
+  %244 = getelementptr inbounds i8, ptr %47, i64 112
+  %245 = load double, ptr %244, align 8
+  %246 = fcmp oge double %245, 0.000000e+00
+  %247 = fcmp olt double %245, %.087127
+  %or.cond = select i1 %246, i1 %247, i1 false
+  br i1 %or.cond, label %271, label %248
+
+248:                                              ; preds = %243
+  %249 = fcmp oeq double %245, %.087127
+  br i1 %249, label %250, label %291
+
+250:                                              ; preds = %248
+  %251 = getelementptr inbounds i8, ptr %47, i64 120
+  %252 = load double, ptr %251, align 8
+  %253 = zext nneg i32 %.0128 to i64
+  %254 = load ptr, ptr %1, align 8
+  %255 = getelementptr inbounds %struct.PJCoordOperation, ptr %254, i64 %253
+  %256 = getelementptr inbounds i8, ptr %255, i64 120
+  %257 = load double, ptr %256, align 8
+  %258 = fcmp olt double %252, %257
+  br i1 %258, label %259, label %291
+
+259:                                              ; preds = %250
+  %260 = getelementptr inbounds i8, ptr %47, i64 161
+  %261 = load i8, ptr %260, align 1
+  %262 = trunc i8 %261 to i1
+  br i1 %262, label %263, label %267
+
+263:                                              ; preds = %259
+  %264 = getelementptr inbounds i8, ptr %255, i64 161
+  %265 = load i8, ptr %264, align 1
+  %266 = trunc i8 %265 to i1
+  br i1 %266, label %267, label %291
+
+267:                                              ; preds = %263, %259
+  %268 = getelementptr inbounds i8, ptr %255, i64 162
+  %269 = load i8, ptr %268, align 2
+  %270 = trunc i8 %269 to i1
+  br i1 %270, label %291, label %271
+
+271:                                              ; preds = %243, %267
+  %272 = getelementptr inbounds i8, ptr %47, i64 160
+  %273 = load i8, ptr %272, align 8
+  %274 = trunc i8 %273 to i1
+  br i1 %274, label %291, label %275
+
+275:                                              ; preds = %271, %.critedge
+  br i1 %3, label %276, label %287
+
+276:                                              ; preds = %275
+  %277 = getelementptr inbounds i8, ptr %47, i64 184
+  %278 = load i32, ptr %277, align 8
+  %279 = icmp eq i32 %278, -1
+  br i1 %279, label %280, label %_ZNK16PJCoordOperation14isInstantiableEv.exit
+
+280:                                              ; preds = %276
+  %281 = getelementptr inbounds i8, ptr %47, i64 72
+  %282 = load ptr, ptr %281, align 8
+  %283 = load ptr, ptr %282, align 8
+  %284 = call i32 @proj_coordoperation_is_instantiable(ptr noundef %283, ptr noundef nonnull %282)
+  store i32 %284, ptr %277, align 8
   br label %_ZNK16PJCoordOperation14isInstantiableEv.exit
 
-_ZNK16PJCoordOperation14isInstantiableEv.exit:    ; preds = %250, %254
-  %259 = phi i32 [ %258, %254 ], [ %252, %250 ]
-  %260 = icmp eq i32 %259, 1
-  br i1 %260, label %261, label %265
+_ZNK16PJCoordOperation14isInstantiableEv.exit:    ; preds = %276, %280
+  %285 = phi i32 [ %284, %280 ], [ %278, %276 ]
+  %286 = icmp eq i32 %285, 1
+  br i1 %286, label %287, label %291
 
-261:                                              ; preds = %_ZNK16PJCoordOperation14isInstantiableEv.exit, %249
-  %262 = getelementptr inbounds i8, ptr %47, i64 112
-  %263 = load double, ptr %262, align 8
-  %264 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %265
+287:                                              ; preds = %_ZNK16PJCoordOperation14isInstantiableEv.exit, %275
+  %288 = getelementptr inbounds i8, ptr %47, i64 112
+  %289 = load double, ptr %288, align 8
+  %290 = trunc nuw nsw i64 %indvars.iv to i32
+  br label %291
 
-265:                                              ; preds = %112, %116, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit178", %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit", %70, %64, %196, %200, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit186", %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit182", %154, %148, %261, %245, %241, %237, %224, %222, %_ZNK16PJCoordOperation14isInstantiableEv.exit, %37, %41
-  %.188 = phi double [ %.087188, %37 ], [ %.087188, %41 ], [ %263, %261 ], [ %.087188, %_ZNK16PJCoordOperation14isInstantiableEv.exit ], [ %.087188, %245 ], [ %.087188, %241 ], [ %.087188, %237 ], [ %.087188, %224 ], [ %.087188, %222 ], [ %.087188, %148 ], [ %.087188, %154 ], [ %.087188, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit182" ], [ %.087188, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit186" ], [ %.087188, %200 ], [ %.087188, %196 ], [ %.087188, %64 ], [ %.087188, %70 ], [ %.087188, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit" ], [ %.087188, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit178" ], [ %.087188, %116 ], [ %.087188, %112 ]
-  %.1 = phi i32 [ %.0189, %37 ], [ %.0189, %41 ], [ %264, %261 ], [ %.0189, %_ZNK16PJCoordOperation14isInstantiableEv.exit ], [ %.0189, %245 ], [ %.0189, %241 ], [ %.0189, %237 ], [ %.0189, %224 ], [ %.0189, %222 ], [ %.0189, %148 ], [ %.0189, %154 ], [ %.0189, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit182" ], [ %.0189, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit186" ], [ %.0189, %200 ], [ %.0189, %196 ], [ %.0189, %64 ], [ %.0189, %70 ], [ %.0189, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit" ], [ %.0189, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit178" ], [ %.0189, %116 ], [ %.0189, %112 ]
+291:                                              ; preds = %221, %124, %128, %141, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit112", %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit", %120, %82, %78, %73, %67, %225, %238, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit120", %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit116", %217, %179, %175, %170, %164, %287, %271, %267, %263, %250, %248, %_ZNK16PJCoordOperation14isInstantiableEv.exit, %37, %41
+  %.188 = phi double [ %.087127, %37 ], [ %.087127, %41 ], [ %289, %287 ], [ %.087127, %_ZNK16PJCoordOperation14isInstantiableEv.exit ], [ %.087127, %271 ], [ %.087127, %267 ], [ %.087127, %263 ], [ %.087127, %250 ], [ %.087127, %248 ], [ %.087127, %164 ], [ %.087127, %170 ], [ %.087127, %175 ], [ %.087127, %179 ], [ %.087127, %217 ], [ %.087127, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit116" ], [ %.087127, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit120" ], [ %.087127, %238 ], [ %.087127, %225 ], [ %.087127, %221 ], [ %.087127, %67 ], [ %.087127, %73 ], [ %.087127, %78 ], [ %.087127, %82 ], [ %.087127, %120 ], [ %.087127, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit" ], [ %.087127, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit112" ], [ %.087127, %141 ], [ %.087127, %128 ], [ %.087127, %124 ]
+  %.1 = phi i32 [ %.0128, %37 ], [ %.0128, %41 ], [ %290, %287 ], [ %.0128, %_ZNK16PJCoordOperation14isInstantiableEv.exit ], [ %.0128, %271 ], [ %.0128, %267 ], [ %.0128, %263 ], [ %.0128, %250 ], [ %.0128, %248 ], [ %.0128, %164 ], [ %.0128, %170 ], [ %.0128, %175 ], [ %.0128, %179 ], [ %.0128, %217 ], [ %.0128, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit116" ], [ %.0128, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit120" ], [ %.0128, %238 ], [ %.0128, %225 ], [ %.0128, %221 ], [ %.0128, %67 ], [ %.0128, %73 ], [ %.0128, %78 ], [ %.0128, %82 ], [ %.0128, %120 ], [ %.0128, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit" ], [ %.0128, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit112" ], [ %.0128, %141 ], [ %.0128, %128 ], [ %.0128, %124 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %265, %6
-  %.0.lcssa = phi i32 [ -1, %6 ], [ %.1, %265 ]
+._crit_edge:                                      ; preds = %291, %6
+  %.0.lcssa = phi i32 [ -1, %6 ], [ %.1, %291 ]
   ret i32 %.0.lcssa
 }
 

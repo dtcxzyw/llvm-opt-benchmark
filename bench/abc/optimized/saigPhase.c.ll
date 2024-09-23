@@ -1151,7 +1151,7 @@ define noalias noundef ptr @Saig_ManReachableTernary(ptr noundef %0, ptr noundef
   br label %72
 
 72:                                               ; preds = %.critedge2, %.critedge12
-  %.098192 = phi i32 [ 0, %.critedge2 ], [ %230, %.critedge12 ]
+  %.098192 = phi i32 [ 0, %.critedge2 ], [ %233, %.critedge12 ]
   %73 = tail call ptr @Saig_TsiStateNew(ptr noundef %4)
   %.val120180 = load i32, ptr %64, align 8
   %74 = icmp sgt i32 %.val120180, 0
@@ -1260,11 +1260,11 @@ Saig_TsiStateHash.exit.i:                         ; preds = %.lr.ph.i.i, %.crite
 
 Saig_TsiStateLookup.exit:                         ; preds = %.lr.ph.i
   %.not105 = icmp eq i32 %2, 0
-  br i1 %.not105, label %233, label %125
+  br i1 %.not105, label %236, label %125
 
 125:                                              ; preds = %Saig_TsiStateLookup.exit
   %126 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %.098192)
-  br label %233
+  br label %236
 
 .loopexit:                                        ; preds = %123, %Saig_TsiStateHash.exit.i
   br i1 %109, label %.lr.ph.preheader.i.i143, label %Saig_TsiStateInsert.exit
@@ -1427,7 +1427,7 @@ Saig_TsiStateInsert.exit:                         ; preds = %.lr.ph.i.i145, %.lo
   br i1 %207, label %.critedge8, label %.critedge10.preheader, !llvm.loop !29
 
 208:                                              ; preds = %.lr.ph191, %.critedge10
-  %.6190 = phi i32 [ 0, %.lr.ph191 ], [ %228, %.critedge10 ]
+  %.6190 = phi i32 [ 0, %.lr.ph191 ], [ %231, %.critedge10 ]
   %.val126 = load ptr, ptr %70, align 8
   %.val127 = load i32, ptr %71, align 8
   %209 = getelementptr i8, ptr %.val126, i64 8
@@ -1446,48 +1446,48 @@ Saig_TsiStateInsert.exit:                         ; preds = %.lr.ph.i.i145, %.lo
   %218 = load ptr, ptr %217, align 8
   %219 = getelementptr i8, ptr %213, i64 24
   %.val133 = load i64, ptr %219, align 8
-  br i1 %186, label %220, label %224
+  br i1 %186, label %220, label %226
 
 220:                                              ; preds = %208
   %221 = and i64 %.val133, -72057594037927936
   %222 = getelementptr inbounds i8, ptr %218, i64 24
   %223 = load i64, ptr %222, align 8
-  br label %.critedge10.sink.split
-
-224:                                              ; preds = %208
-  %225 = getelementptr i8, ptr %218, i64 24
-  %.val135 = load i64, ptr %225, align 8
-  %.not103.unshifted = xor i64 %.val135, %.val133
-  %.not103 = icmp ult i64 %.not103.unshifted, 72057594037927936
-  br i1 %.not103, label %.critedge10, label %.critedge10.sink.split
-
-.critedge10.sink.split:                           ; preds = %224, %220
-  %.val135.sink = phi i64 [ %223, %220 ], [ %.val135, %224 ]
-  %.sink211 = phi i64 [ %221, %220 ], [ 216172782113783808, %224 ]
-  %.sink209 = phi ptr [ %222, %220 ], [ %225, %224 ]
-  %226 = and i64 %.val135.sink, 72057594037927935
-  %227 = or disjoint i64 %226, %.sink211
-  store i64 %227, ptr %.sink209, align 8
+  %224 = and i64 %223, 72057594037927935
+  %225 = or disjoint i64 %224, %221
+  store i64 %225, ptr %222, align 8
   br label %.critedge10
 
-.critedge10:                                      ; preds = %.critedge10.sink.split, %224
-  %228 = add nuw nsw i32 %.6190, 1
+226:                                              ; preds = %208
+  %227 = getelementptr i8, ptr %218, i64 24
+  %.val135 = load i64, ptr %227, align 8
+  %.not103.unshifted = xor i64 %.val135, %.val133
+  %.not103 = icmp ult i64 %.not103.unshifted, 72057594037927936
+  br i1 %.not103, label %.critedge10, label %228
+
+228:                                              ; preds = %226
+  %229 = and i64 %.val135, 72057594037927935
+  %230 = or disjoint i64 %229, 216172782113783808
+  store i64 %230, ptr %227, align 8
+  br label %.critedge10
+
+.critedge10:                                      ; preds = %226, %228, %220
+  %231 = add nuw nsw i32 %.6190, 1
   %.val122 = load i32, ptr %64, align 8
-  %229 = icmp slt i32 %228, %.val122
-  br i1 %229, label %208, label %.critedge12, !llvm.loop !30
+  %232 = icmp slt i32 %231, %.val122
+  br i1 %232, label %208, label %.critedge12, !llvm.loop !30
 
 .critedge12:                                      ; preds = %.critedge10, %.critedge8.preheader, %.critedge10.preheader
-  %230 = add nuw nsw i32 %.098192, 1
-  %exitcond.not = icmp eq i32 %230, 10000
-  br i1 %exitcond.not, label %231, label %72, !llvm.loop !31
+  %233 = add nuw nsw i32 %.098192, 1
+  %exitcond.not = icmp eq i32 %233, 10000
+  br i1 %exitcond.not, label %234, label %72, !llvm.loop !31
 
-231:                                              ; preds = %.critedge12
-  %232 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef 10000)
+234:                                              ; preds = %.critedge12
+  %235 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef 10000)
   tail call void @Saig_TsiStop(ptr noundef %4)
-  br label %233
+  br label %236
 
-233:                                              ; preds = %Saig_TsiStateLookup.exit, %125, %231
-  %.097 = phi ptr [ null, %231 ], [ %4, %125 ], [ %4, %Saig_TsiStateLookup.exit ]
+236:                                              ; preds = %Saig_TsiStateLookup.exit, %125, %234
+  %.097 = phi ptr [ null, %234 ], [ %4, %125 ], [ %4, %Saig_TsiStateLookup.exit ]
   ret ptr %.097
 }
 

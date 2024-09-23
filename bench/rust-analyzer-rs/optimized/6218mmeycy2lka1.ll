@@ -23389,7 +23389,8 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$1
 27:                                               ; preds = %25
   %28 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume.sink.split
+  store i64 0, ptr %8, align 8
+  br label %common.resume
 
 "_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..Variant$GT$$GT$$GT$17hee57088579093c6bE.exit": ; preds = %.thread, %20, %16, %25
   %29 = phi ptr [ %10, %.thread ], [ %18, %20 ], [ %18, %16 ], [ %18, %25 ]
@@ -23459,14 +23460,8 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$1
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31, !noalias !9170
   unreachable
 
-common.resume.sink.split:                         ; preds = %80, %60, %27
-  %.sink = phi ptr [ %8, %27 ], [ %8, %60 ], [ %62, %80 ]
-  %common.resume.op.ph = phi { ptr, i32 } [ %28, %27 ], [ %61, %60 ], [ %81, %80 ]
-  store i64 0, ptr %.sink, align 8
-  br label %common.resume
-
-common.resume:                                    ; preds = %common.resume.sink.split, %43, %47
-  %common.resume.op = phi { ptr, i32 } [ %44, %47 ], [ %44, %43 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+common.resume:                                    ; preds = %27, %60, %80, %43, %47
+  %common.resume.op = phi { ptr, i32 } [ %44, %47 ], [ %44, %43 ], [ %81, %80 ], [ %61, %60 ], [ %28, %27 ]
   resume { ptr, i32 } %common.resume.op
 
 50:                                               ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3055d5786940789eE.exit.us.i.i.i"
@@ -23506,7 +23501,8 @@ common.resume:                                    ; preds = %common.resume.sink.
 60:                                               ; preds = %58
   %61 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume.sink.split
+  store i64 0, ptr %8, align 8
+  br label %common.resume
 
 "_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..Variant$GT$$GT$$GT$17hee57088579093c6bE.exit24": ; preds = %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..Variant$GT$$GT$$GT$17hee57088579093c6bE.exit", %31, %53, %50, %58
   store i64 0, ptr %8, align 8
@@ -23561,7 +23557,8 @@ common.resume:                                    ; preds = %common.resume.sink.
 80:                                               ; preds = %78
   %81 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume.sink.split
+  store i64 0, ptr %62, align 8
+  br label %common.resume
 
 "_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..Variant$GT$$GT$$GT$17hee57088579093c6bE.exit28": ; preds = %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..Variant$GT$$GT$$GT$17hee57088579093c6bE.exit24", %73, %69, %78
   store i64 0, ptr %62, align 8

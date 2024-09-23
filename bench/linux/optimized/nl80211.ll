@@ -37231,7 +37231,8 @@ define internal i32 @nl80211_vendor_cmd(ptr nocapture readnone %0, ptr noundef %
   %112 = getelementptr inbounds i8, ptr %101, i64 8
   store ptr %94, ptr %112, align 8
   %113 = getelementptr inbounds i8, ptr %101, i64 16
-  br label %.thread16.sink.split
+  store ptr null, ptr %113, align 8
+  br label %.thread16
 
 114:                                              ; preds = %96
   br i1 %107, label %115, label %120
@@ -37246,7 +37247,8 @@ define internal i32 @nl80211_vendor_cmd(ptr nocapture readnone %0, ptr noundef %
   %118 = getelementptr inbounds i8, ptr %101, i64 8
   store ptr %94, ptr %118, align 8
   %119 = getelementptr inbounds i8, ptr %101, i64 16
-  br label %.thread16.sink.split
+  store ptr null, ptr %119, align 8
+  br label %.thread16
 
 120:                                              ; preds = %114
   %121 = getelementptr inbounds i8, ptr %52, i64 40
@@ -37261,16 +37263,11 @@ define internal i32 @nl80211_vendor_cmd(ptr nocapture readnone %0, ptr noundef %
   store ptr %1, ptr %45, align 8
   %127 = load ptr, ptr %89, align 8
   %128 = tail call i32 %127(ptr noundef %12, ptr noundef %88, ptr noundef %125, i32 noundef %126) #26
-  br label %.thread16.sink.split
-
-.thread16.sink.split:                             ; preds = %.thread13, %111, %117
-  %.sink = phi ptr [ %119, %117 ], [ %113, %111 ], [ %45, %.thread13 ]
-  %.ph = phi i32 [ -22, %117 ], [ -22, %111 ], [ %128, %.thread13 ]
-  store ptr null, ptr %.sink, align 8
+  store ptr null, ptr %45, align 8
   br label %.thread16
 
-.thread16:                                        ; preds = %47, %.thread16.sink.split, %115, %109, %80, %120, %87, %84, %69, %64, %35, %31, %25, %22, %18, %2
-  %129 = phi i32 [ -95, %2 ], [ %20, %18 ], [ -22, %22 ], [ -22, %31 ], [ -22, %25 ], [ -95, %35 ], [ -100, %80 ], [ %123, %120 ], [ -95, %87 ], [ -100, %84 ], [ -22, %69 ], [ -22, %64 ], [ -22, %109 ], [ -22, %115 ], [ %.ph, %.thread16.sink.split ], [ -95, %47 ]
+.thread16:                                        ; preds = %47, %115, %117, %109, %111, %80, %120, %87, %84, %69, %64, %.thread13, %35, %31, %25, %22, %18, %2
+  %129 = phi i32 [ -95, %2 ], [ %20, %18 ], [ -22, %22 ], [ -22, %31 ], [ -22, %25 ], [ -95, %35 ], [ -100, %80 ], [ %123, %120 ], [ -95, %87 ], [ -100, %84 ], [ -22, %69 ], [ -22, %64 ], [ %128, %.thread13 ], [ -22, %111 ], [ -22, %109 ], [ -22, %117 ], [ -22, %115 ], [ -95, %47 ]
   ret i32 %129
 }
 

@@ -3956,7 +3956,8 @@ define dso_local noundef ptr @alloc_workqueue(ptr nocapture noundef readonly %0,
 
 .thread:                                          ; preds = %24
   %28 = getelementptr inbounds i8, ptr %19, i64 152
-  br label %.thread21.sink.split
+  store ptr null, ptr %28, align 8
+  br label %.thread21
 
 29:                                               ; preds = %24
   %30 = getelementptr inbounds i8, ptr %26, i64 8
@@ -4357,7 +4358,8 @@ apply_workqueue_attrs_locked.exit:                ; preds = %155
 .loopexit25:                                      ; preds = %209, %.thread23
   %230 = phi ptr [ %208, %.thread23 ], [ %213, %209 ]
   call void @free_percpu(ptr noundef %230) #26
-  br label %.thread21.sink.split
+  store ptr null, ptr %62, align 8
+  br label %.thread21
 
 .thread15:                                        ; preds = %71, %129, %77, %.thread18, %197, %194
   %231 = load i1, ptr @wq_online, align 1
@@ -4405,12 +4407,7 @@ apply_workqueue_attrs_locked.exit:                ; preds = %155
   call void @mutex_unlock(ptr noundef nonnull @wq_pool_mutex) #26
   br label %256
 
-.thread21.sink.split:                             ; preds = %.loopexit25, %.thread
-  %.sink = phi ptr [ %28, %.thread ], [ %62, %.loopexit25 ]
-  store ptr null, ptr %.sink, align 8
-  br label %.thread21
-
-.thread21:                                        ; preds = %.thread21.sink.split, %43, %201, %197
+.thread21:                                        ; preds = %43, %.thread, %.loopexit25, %201, %197
   %250 = getelementptr inbounds i8, ptr %19, i64 152
   %251 = load ptr, ptr %250, align 8
   %252 = icmp eq ptr %251, null

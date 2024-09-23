@@ -196,8 +196,8 @@ define hidden range(i32 -1, 1) i32 @hwloc_internal_distances_dup(ptr nocapture n
   %9 = getelementptr inbounds i8, ptr %0, i64 728
   br label %10
 
-10:                                               ; preds = %.lr.ph, %109
-  %.0920 = phi ptr [ %.0918, %.lr.ph ], [ %.09, %109 ]
+10:                                               ; preds = %.lr.ph, %121
+  %.0920 = phi ptr [ %.0918, %.lr.ph ], [ %.09, %121 ]
   %11 = load ptr, ptr %7, align 8
   %12 = getelementptr inbounds i8, ptr %.0920, i64 24
   %13 = load i32, ptr %12, align 8
@@ -423,24 +423,33 @@ hwloc_tma_malloc.exit88.i:                        ; preds = %97, %94
   %117 = getelementptr inbounds i8, ptr %.0.i.i, i64 72
   store ptr %116, ptr %117, align 8
   %.not74.i = icmp eq ptr %116, null
-  %118 = getelementptr inbounds i8, ptr %116, i64 80
-  %.sink.i = select i1 %.not74.i, ptr %9, ptr %118
-  store ptr %.0.i.i, ptr %.sink.i, align 8
+  br i1 %.not74.i, label %120, label %118
+
+118:                                              ; preds = %109
+  %119 = getelementptr inbounds i8, ptr %116, i64 80
+  store ptr %.0.i.i, ptr %119, align 8
+  br label %121
+
+120:                                              ; preds = %109
+  store ptr %.0.i.i, ptr %9, align 8
+  br label %121
+
+121:                                              ; preds = %120, %118
   store ptr %.0.i.i, ptr %8, align 8
-  %119 = getelementptr inbounds i8, ptr %.0920, i64 80
-  %.09 = load ptr, ptr %119, align 8
+  %122 = getelementptr inbounds i8, ptr %.0920, i64 80
+  %.09 = load ptr, ptr %122, align 8
   %.not = icmp eq ptr %.09, null
   br i1 %.not, label %hwloc_internal_distances_dup_one.exit.thread, label %10, !llvm.loop !6
 
 hwloc_internal_distances_dup_one.exit.thread.sink.split: ; preds = %103, %49, %29
-  %.sink33 = phi ptr [ %36, %29 ], [ %57, %49 ], [ %99, %103 ]
-  %120 = load ptr, ptr %.sink33, align 8
-  tail call void @free(ptr noundef %120) #25
+  %.sink.in = phi ptr [ %36, %29 ], [ %57, %49 ], [ %99, %103 ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  tail call void @free(ptr noundef %.sink) #25
   tail call void @free(ptr noundef nonnull %.0.i.i) #25
   br label %hwloc_internal_distances_dup_one.exit.thread
 
-hwloc_internal_distances_dup_one.exit.thread:     ; preds = %109, %hwloc_tma_malloc.exit.i, %hwloc_internal_distances_dup_one.exit.thread.sink.split, %2
-  %.0 = phi i32 [ 0, %2 ], [ -1, %hwloc_internal_distances_dup_one.exit.thread.sink.split ], [ 0, %109 ], [ -1, %hwloc_tma_malloc.exit.i ]
+hwloc_internal_distances_dup_one.exit.thread:     ; preds = %121, %hwloc_tma_malloc.exit.i, %hwloc_internal_distances_dup_one.exit.thread.sink.split, %2
+  %.0 = phi i32 [ 0, %2 ], [ -1, %hwloc_internal_distances_dup_one.exit.thread.sink.split ], [ 0, %121 ], [ -1, %hwloc_tma_malloc.exit.i ]
   ret i32 %.0
 }
 
@@ -537,56 +546,74 @@ define range(i32 -1, 1) i32 @hwloc_distances_remove_by_depth(ptr noundef %0, i32
   %15 = getelementptr inbounds i8, ptr %0, i64 736
   br label %16
 
-16:                                               ; preds = %.lr.ph, %37
-  %.02130 = phi ptr [ %14, %.lr.ph ], [ %18, %37 ]
+16:                                               ; preds = %.lr.ph, %43
+  %.02130 = phi ptr [ %14, %.lr.ph ], [ %18, %43 ]
   %17 = getelementptr inbounds i8, ptr %.02130, i64 80
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %.02130, i64 12
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, %10
-  br i1 %21, label %22, label %37
+  br i1 %21, label %22, label %43
 
 22:                                               ; preds = %16
   %.not27 = icmp eq ptr %18, null
   %23 = getelementptr inbounds i8, ptr %.02130, i64 72
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %18, i64 72
-  %.sink = select i1 %.not27, ptr %15, ptr %25
-  store ptr %24, ptr %.sink, align 8
+  br i1 %.not27, label %27, label %25
+
+25:                                               ; preds = %22
+  %26 = getelementptr inbounds i8, ptr %18, i64 72
+  store ptr %24, ptr %26, align 8
+  br label %28
+
+27:                                               ; preds = %22
+  store ptr %24, ptr %15, align 8
+  br label %28
+
+28:                                               ; preds = %27, %25
   %.not28 = icmp eq ptr %24, null
-  %26 = load ptr, ptr %17, align 8
-  %27 = getelementptr inbounds i8, ptr %24, i64 80
-  %.sink33 = select i1 %.not28, ptr %13, ptr %27
-  store ptr %26, ptr %.sink33, align 8
-  %28 = load ptr, ptr %.02130, align 8
-  tail call void @free(ptr noundef %28) #25
-  %29 = getelementptr inbounds i8, ptr %.02130, i64 16
-  %30 = load ptr, ptr %29, align 8
-  tail call void @free(ptr noundef %30) #25
-  %31 = getelementptr inbounds i8, ptr %.02130, i64 32
-  %32 = load ptr, ptr %31, align 8
-  tail call void @free(ptr noundef %32) #25
-  %33 = getelementptr inbounds i8, ptr %.02130, i64 64
-  %34 = load ptr, ptr %33, align 8
+  %29 = load ptr, ptr %17, align 8
+  br i1 %.not28, label %32, label %30
+
+30:                                               ; preds = %28
+  %31 = getelementptr inbounds i8, ptr %24, i64 80
+  store ptr %29, ptr %31, align 8
+  br label %33
+
+32:                                               ; preds = %28
+  store ptr %29, ptr %13, align 8
+  br label %33
+
+33:                                               ; preds = %32, %30
+  %34 = load ptr, ptr %.02130, align 8
   tail call void @free(ptr noundef %34) #25
-  %35 = getelementptr inbounds i8, ptr %.02130, i64 40
+  %35 = getelementptr inbounds i8, ptr %.02130, i64 16
   %36 = load ptr, ptr %35, align 8
   tail call void @free(ptr noundef %36) #25
+  %37 = getelementptr inbounds i8, ptr %.02130, i64 32
+  %38 = load ptr, ptr %37, align 8
+  tail call void @free(ptr noundef %38) #25
+  %39 = getelementptr inbounds i8, ptr %.02130, i64 64
+  %40 = load ptr, ptr %39, align 8
+  tail call void @free(ptr noundef %40) #25
+  %41 = getelementptr inbounds i8, ptr %.02130, i64 40
+  %42 = load ptr, ptr %41, align 8
+  tail call void @free(ptr noundef %42) #25
   tail call void @free(ptr noundef nonnull %.02130) #25
-  br label %37
+  br label %43
 
-37:                                               ; preds = %22, %16
+43:                                               ; preds = %33, %16
   %.not26 = icmp eq ptr %18, null
   br i1 %.not26, label %.loopexit, label %16, !llvm.loop !7
 
 .loopexit.sink.split:                             ; preds = %9, %6, %2
-  %.sink31 = phi i32 [ 22, %2 ], [ 1, %6 ], [ 22, %9 ]
-  %38 = tail call ptr @__errno_location() #28
-  store i32 %.sink31, ptr %38, align 4
+  %.sink = phi i32 [ 22, %2 ], [ 1, %6 ], [ 22, %9 ]
+  %44 = tail call ptr @__errno_location() #28
+  store i32 %.sink, ptr %44, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %37, %.loopexit.sink.split, %12
-  %.0 = phi i32 [ 0, %12 ], [ -1, %.loopexit.sink.split ], [ 0, %37 ]
+.loopexit:                                        ; preds = %43, %.loopexit.sink.split, %12
+  %.0 = phi i32 [ 0, %12 ], [ -1, %.loopexit.sink.split ], [ 0, %43 ]
   ret i32 %.0
 }
 
@@ -621,7 +648,7 @@ define range(i32 -1, 1) i32 @hwloc_distances_release_remove(ptr nocapture nounde
 .loopexit:                                        ; preds = %10, %2
   %12 = tail call ptr @__errno_location() #28
   store i32 22, ptr %12, align 4
-  br label %34
+  br label %40
 
 hwloc__internal_distances_from_public.exit:       ; preds = %6
   %13 = getelementptr inbounds i8, ptr %.011.i, i64 72
@@ -629,41 +656,59 @@ hwloc__internal_distances_from_public.exit:       ; preds = %6
   %.not19 = icmp eq ptr %14, null
   %15 = getelementptr inbounds i8, ptr %.011.i, i64 80
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 80
-  %.sink = select i1 %.not19, ptr %3, ptr %17
-  store ptr %16, ptr %.sink, align 8
+  br i1 %.not19, label %19, label %17
+
+17:                                               ; preds = %hwloc__internal_distances_from_public.exit
+  %18 = getelementptr inbounds i8, ptr %14, i64 80
+  store ptr %16, ptr %18, align 8
+  br label %20
+
+19:                                               ; preds = %hwloc__internal_distances_from_public.exit
+  store ptr %16, ptr %3, align 8
+  br label %20
+
+20:                                               ; preds = %19, %17
   %.not20 = icmp eq ptr %16, null
-  %18 = load ptr, ptr %13, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 736
-  %20 = getelementptr inbounds i8, ptr %16, i64 72
-  %.sink26 = select i1 %.not20, ptr %19, ptr %20
-  store ptr %18, ptr %.sink26, align 8
-  %21 = load ptr, ptr %.011.i, align 8
-  tail call void @free(ptr noundef %21) #25
-  %22 = getelementptr inbounds i8, ptr %.011.i, i64 16
-  %23 = load ptr, ptr %22, align 8
-  tail call void @free(ptr noundef %23) #25
-  %24 = getelementptr inbounds i8, ptr %.011.i, i64 32
-  %25 = load ptr, ptr %24, align 8
-  tail call void @free(ptr noundef %25) #25
-  %26 = getelementptr inbounds i8, ptr %.011.i, i64 64
-  %27 = load ptr, ptr %26, align 8
+  %21 = load ptr, ptr %13, align 8
+  br i1 %.not20, label %24, label %22
+
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds i8, ptr %16, i64 72
+  store ptr %21, ptr %23, align 8
+  br label %26
+
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds i8, ptr %0, i64 736
+  store ptr %21, ptr %25, align 8
+  br label %26
+
+26:                                               ; preds = %24, %22
+  %27 = load ptr, ptr %.011.i, align 8
   tail call void @free(ptr noundef %27) #25
-  %28 = getelementptr inbounds i8, ptr %.011.i, i64 40
+  %28 = getelementptr inbounds i8, ptr %.011.i, i64 16
   %29 = load ptr, ptr %28, align 8
   tail call void @free(ptr noundef %29) #25
-  tail call void @free(ptr noundef nonnull %.011.i) #25
-  %30 = getelementptr inbounds i8, ptr %1, i64 24
+  %30 = getelementptr inbounds i8, ptr %.011.i, i64 32
   %31 = load ptr, ptr %30, align 8
   tail call void @free(ptr noundef %31) #25
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds i8, ptr %.011.i, i64 64
   %33 = load ptr, ptr %32, align 8
   tail call void @free(ptr noundef %33) #25
+  %34 = getelementptr inbounds i8, ptr %.011.i, i64 40
+  %35 = load ptr, ptr %34, align 8
+  tail call void @free(ptr noundef %35) #25
+  tail call void @free(ptr noundef nonnull %.011.i) #25
+  %36 = getelementptr inbounds i8, ptr %1, i64 24
+  %37 = load ptr, ptr %36, align 8
+  tail call void @free(ptr noundef %37) #25
+  %38 = getelementptr inbounds i8, ptr %1, i64 8
+  %39 = load ptr, ptr %38, align 8
+  tail call void @free(ptr noundef %39) #25
   tail call void @free(ptr noundef nonnull %4) #25
-  br label %34
+  br label %40
 
-34:                                               ; preds = %hwloc__internal_distances_from_public.exit, %.loopexit
-  %.0 = phi i32 [ 0, %hwloc__internal_distances_from_public.exit ], [ -1, %.loopexit ]
+40:                                               ; preds = %26, %.loopexit
+  %.0 = phi i32 [ 0, %26 ], [ -1, %.loopexit ]
   ret i32 %.0
 }
 
@@ -2838,29 +2883,47 @@ hwloc_get_pu_obj_by_os_index.exit.i:              ; preds = %.lr.ph.split.i, %hw
   %87 = getelementptr inbounds i8, ptr %.026, i64 72
   %88 = load ptr, ptr %87, align 8
   %.not19 = icmp eq ptr %88, null
-  %89 = getelementptr inbounds i8, ptr %88, i64 80
-  %.sink = select i1 %.not19, ptr %2, ptr %89
-  store ptr %7, ptr %.sink, align 8
+  br i1 %.not19, label %91, label %89
+
+89:                                               ; preds = %86
+  %90 = getelementptr inbounds i8, ptr %88, i64 80
+  store ptr %7, ptr %90, align 8
+  br label %92
+
+91:                                               ; preds = %86
+  store ptr %7, ptr %2, align 8
+  br label %92
+
+92:                                               ; preds = %91, %89
   %.not20 = icmp eq ptr %7, null
-  %90 = load ptr, ptr %87, align 8
-  %91 = getelementptr inbounds i8, ptr %7, i64 72
-  %.sink33 = select i1 %.not20, ptr %4, ptr %91
-  store ptr %90, ptr %.sink33, align 8
-  %92 = load ptr, ptr %.026, align 8
-  tail call void @free(ptr noundef %92) #25
-  %93 = load ptr, ptr %10, align 8
-  tail call void @free(ptr noundef %93) #25
-  %94 = load ptr, ptr %16, align 8
-  tail call void @free(ptr noundef %94) #25
-  %95 = load ptr, ptr %14, align 8
-  tail call void @free(ptr noundef %95) #25
-  %96 = getelementptr inbounds i8, ptr %.026, i64 40
-  %97 = load ptr, ptr %96, align 8
-  tail call void @free(ptr noundef %97) #25
+  %93 = load ptr, ptr %87, align 8
+  br i1 %.not20, label %96, label %94
+
+94:                                               ; preds = %92
+  %95 = getelementptr inbounds i8, ptr %7, i64 72
+  store ptr %93, ptr %95, align 8
+  br label %97
+
+96:                                               ; preds = %92
+  store ptr %93, ptr %4, align 8
+  br label %97
+
+97:                                               ; preds = %96, %94
+  %98 = load ptr, ptr %.026, align 8
+  tail call void @free(ptr noundef %98) #25
+  %99 = load ptr, ptr %10, align 8
+  tail call void @free(ptr noundef %99) #25
+  %100 = load ptr, ptr %16, align 8
+  tail call void @free(ptr noundef %100) #25
+  %101 = load ptr, ptr %14, align 8
+  tail call void @free(ptr noundef %101) #25
+  %102 = getelementptr inbounds i8, ptr %.026, i64 40
+  %103 = load ptr, ptr %102, align 8
+  tail call void @free(ptr noundef %103) #25
   tail call void @free(ptr noundef nonnull %.026) #25
   br label %hwloc_internal_distances_refresh_one.exit
 
-hwloc_internal_distances_refresh_one.exit:        ; preds = %83, %5, %86
+hwloc_internal_distances_refresh_one.exit:        ; preds = %83, %5, %97
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %._crit_edge, label %5, !llvm.loop !39
 

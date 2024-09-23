@@ -184,7 +184,9 @@ base64_encode_value.exit:                         ; preds = %sw.bb, %if.end.i
   store i8 %retval.0.i, ptr %code_out, align 1
   %incdec.ptr1 = getelementptr inbounds i8, ptr %code_out, i64 2
   store i8 61, ptr %incdec.ptr, align 1
-  br label %sw.epilog.sink.split
+  %incdec.ptr2 = getelementptr inbounds i8, ptr %code_out, i64 3
+  store i8 61, ptr %incdec.ptr1, align 1
+  br label %sw.epilog
 
 sw.bb3:                                           ; preds = %entry
   %result4 = getelementptr inbounds i8, ptr %state_in, i64 4
@@ -202,17 +204,12 @@ base64_encode_value.exit15:                       ; preds = %sw.bb3, %if.end.i11
   %retval.0.i14 = phi i8 [ %4, %if.end.i11 ], [ 61, %sw.bb3 ]
   %incdec.ptr6 = getelementptr inbounds i8, ptr %code_out, i64 1
   store i8 %retval.0.i14, ptr %code_out, align 1
-  br label %sw.epilog.sink.split
-
-sw.epilog.sink.split:                             ; preds = %base64_encode_value.exit, %base64_encode_value.exit15
-  %.sink = phi i64 [ 2, %base64_encode_value.exit15 ], [ 3, %base64_encode_value.exit ]
-  %incdec.ptr6.sink = phi ptr [ %incdec.ptr6, %base64_encode_value.exit15 ], [ %incdec.ptr1, %base64_encode_value.exit ]
-  %incdec.ptr7 = getelementptr inbounds i8, ptr %code_out, i64 %.sink
-  store i8 61, ptr %incdec.ptr6.sink, align 1
+  %incdec.ptr7 = getelementptr inbounds i8, ptr %code_out, i64 2
+  store i8 61, ptr %incdec.ptr6, align 1
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.epilog.sink.split, %entry
-  %codechar.0 = phi ptr [ %code_out, %entry ], [ %incdec.ptr7, %sw.epilog.sink.split ]
+sw.epilog:                                        ; preds = %base64_encode_value.exit15, %base64_encode_value.exit, %entry
+  %codechar.0 = phi ptr [ %code_out, %entry ], [ %incdec.ptr7, %base64_encode_value.exit15 ], [ %incdec.ptr2, %base64_encode_value.exit ]
   %incdec.ptr9 = getelementptr inbounds i8, ptr %codechar.0, i64 1
   store i8 10, ptr %codechar.0, align 1
   %sub.ptr.lhs.cast = ptrtoint ptr %incdec.ptr9 to i64

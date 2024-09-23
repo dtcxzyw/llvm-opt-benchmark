@@ -3364,31 +3364,29 @@ define hidden i32 @psa_cipher_finish(ptr noundef %0, ptr noundef %1, i64 noundef
 17:                                               ; preds = %14
   %18 = tail call i32 @psa_driver_wrapper_cipher_abort(ptr noundef nonnull %0) #15
   store i32 0, ptr %0, align 8
-  br label %psa_cipher_abort.exit.sink.split
+  %19 = load i8, ptr %8, align 4
+  %20 = and i8 %19, -4
+  store i8 %20, ptr %8, align 4
+  br label %psa_cipher_abort.exit
 
 .thread:                                          ; preds = %7, %4, %11
   %.016 = phi i32 [ %12, %11 ], [ -137, %4 ], [ -137, %7 ]
   store i64 0, ptr %3, align 8
-  %19 = load i32, ptr %0, align 8
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %psa_cipher_abort.exit, label %21
+  %21 = load i32, ptr %0, align 8
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %psa_cipher_abort.exit, label %23
 
-21:                                               ; preds = %.thread
-  %22 = tail call i32 @psa_driver_wrapper_cipher_abort(ptr noundef nonnull %0) #15
+23:                                               ; preds = %.thread
+  %24 = tail call i32 @psa_driver_wrapper_cipher_abort(ptr noundef nonnull %0) #15
   store i32 0, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 4
-  br label %psa_cipher_abort.exit.sink.split
-
-psa_cipher_abort.exit.sink.split:                 ; preds = %17, %21
-  %.sink = phi ptr [ %23, %21 ], [ %8, %17 ]
-  %.012.ph = phi i32 [ %.016, %21 ], [ 0, %17 ]
-  %24 = load i8, ptr %.sink, align 4
-  %25 = and i8 %24, -4
-  store i8 %25, ptr %.sink, align 4
+  %25 = getelementptr inbounds i8, ptr %0, i64 4
+  %26 = load i8, ptr %25, align 4
+  %27 = and i8 %26, -4
+  store i8 %27, ptr %25, align 4
   br label %psa_cipher_abort.exit
 
-psa_cipher_abort.exit:                            ; preds = %psa_cipher_abort.exit.sink.split, %.thread, %14
-  %.012 = phi i32 [ 0, %14 ], [ %.016, %.thread ], [ %.012.ph, %psa_cipher_abort.exit.sink.split ]
+psa_cipher_abort.exit:                            ; preds = %23, %.thread, %17, %14
+  %.012 = phi i32 [ 0, %14 ], [ 0, %17 ], [ %.016, %.thread ], [ %.016, %23 ]
   ret i32 %.012
 }
 
@@ -5485,7 +5483,7 @@ define hidden i32 @psa_key_derivation_output_key(ptr nocapture noundef readonly 
 35:                                               ; preds = %25
   %36 = and i32 %32, 52992
   %37 = icmp eq i32 %36, 16640
-  br i1 %37, label %38, label %109
+  br i1 %37, label %38, label %112
 
 38:                                               ; preds = %35
   %39 = and i16 %31, 192
@@ -5674,9 +5672,9 @@ psa_generate_derived_ecc_key_weierstrass_helper.exit.i: ; preds = %.thread60.i.i
   br i1 %.not39.i, label %psa_generate_derived_ecc_key_weierstrass_helper.exit._crit_edge.i, label %.thread20
 
 psa_generate_derived_ecc_key_weierstrass_helper.exit._crit_edge.i: ; preds = %psa_generate_derived_ecc_key_weierstrass_helper.exit.i
-  %.pre.i = load i64, ptr %8, align 8
-  %91 = trunc i64 %.pre.i to i16
-  br label %122
+  %.pre92.i = load i64, ptr %8, align 8
+  %91 = trunc i64 %.pre92.i to i16
+  br label %125
 
 92:                                               ; preds = %38
   switch i16 %27, label %.thread20 [
@@ -5701,7 +5699,7 @@ psa_generate_derived_ecc_key_weierstrass_helper.exit._crit_edge.i: ; preds = %ps
 99:                                               ; preds = %97
   switch i16 %27, label %.thread20 [
     i16 255, label %100
-    i16 448, label %psa_generate_derived_ecc_key_montgomery_helper.exit.i
+    i16 448, label %106
   ]
 
 100:                                              ; preds = %99
@@ -5709,170 +5707,176 @@ psa_generate_derived_ecc_key_weierstrass_helper.exit._crit_edge.i: ; preds = %ps
   %102 = and i8 %101, -8
   store i8 %102, ptr %95, align 1
   %103 = getelementptr inbounds i8, ptr %95, i64 31
+  %104 = load i8, ptr %103, align 1
+  %105 = and i8 %104, 127
+  store i8 %105, ptr %103, align 1
   br label %psa_generate_derived_ecc_key_montgomery_helper.exit.i
 
-psa_generate_derived_ecc_key_montgomery_helper.exit.i: ; preds = %100, %99
-  %.sink.i.i = phi ptr [ %103, %100 ], [ %95, %99 ]
-  %.sink26.i.i = phi i8 [ 127, %100 ], [ -4, %99 ]
-  %.sink23.i.i = phi i64 [ 31, %100 ], [ 55, %99 ]
-  %.sink21.i.i = phi i8 [ 64, %100 ], [ -128, %99 ]
-  %104 = load i8, ptr %.sink.i.i, align 1
-  %105 = and i8 %104, %.sink26.i.i
-  store i8 %105, ptr %.sink.i.i, align 1
-  %106 = getelementptr inbounds i8, ptr %95, i64 %.sink23.i.i
-  %107 = load i8, ptr %106, align 1
-  %108 = or i8 %107, %.sink21.i.i
-  store i8 %108, ptr %106, align 1
-  br label %122
+106:                                              ; preds = %99
+  %107 = load i8, ptr %95, align 1
+  %108 = and i8 %107, -4
+  store i8 %108, ptr %95, align 1
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %95, i64 55
+  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 1
+  br label %psa_generate_derived_ecc_key_montgomery_helper.exit.i
 
-109:                                              ; preds = %35
-  %110 = and i16 %31, 28672
-  switch i16 %110, label %.thread17 [
-    i16 8192, label %111
-    i16 4096, label %111
+psa_generate_derived_ecc_key_montgomery_helper.exit.i: ; preds = %106, %100
+  %109 = phi i8 [ %105, %100 ], [ %.pre.i, %106 ]
+  %.sink23.i.i = phi i64 [ 31, %100 ], [ 55, %106 ]
+  %.sink21.i.i = phi i8 [ 64, %100 ], [ -128, %106 ]
+  %110 = getelementptr inbounds i8, ptr %95, i64 %.sink23.i.i
+  %111 = or i8 %.sink21.i.i, %109
+  store i8 %111, ptr %110, align 1
+  br label %125
+
+112:                                              ; preds = %35
+  %113 = and i16 %31, 28672
+  switch i16 %113, label %.thread17 [
+    i16 8192, label %114
+    i16 4096, label %114
   ]
 
-111:                                              ; preds = %109, %109
-  %112 = and i64 %28, 7
-  %.not36.i = icmp eq i64 %112, 0
-  br i1 %.not36.i, label %113, label %.thread17
+114:                                              ; preds = %112, %112
+  %115 = and i64 %28, 7
+  %.not36.i = icmp eq i64 %115, 0
+  br i1 %.not36.i, label %116, label %.thread17
 
-113:                                              ; preds = %111
-  %114 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %30) #14
-  %115 = icmp eq ptr %114, null
-  br i1 %115, label %.thread17, label %116
+116:                                              ; preds = %114
+  %117 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %30) #14
+  %118 = icmp eq ptr %117, null
+  br i1 %118, label %.thread17, label %119
 
-116:                                              ; preds = %113
-  %117 = call i32 @psa_key_derivation_output_bytes(ptr noundef nonnull %1, ptr noundef nonnull %114, i64 noundef %30)
-  %.not37.i = icmp eq i32 %117, 0
-  br i1 %.not37.i, label %118, label %.thread20
+119:                                              ; preds = %116
+  %120 = call i32 @psa_key_derivation_output_bytes(ptr noundef nonnull %1, ptr noundef nonnull %117, i64 noundef %30)
+  %.not37.i = icmp eq i32 %120, 0
+  br i1 %.not37.i, label %121, label %.thread20
 
-118:                                              ; preds = %116
-  %119 = load i16, ptr %26, align 8
-  %120 = icmp eq i16 %119, 8961
-  br i1 %120, label %121, label %122
+121:                                              ; preds = %119
+  %122 = load i16, ptr %26, align 8
+  %123 = icmp eq i16 %122, 8961
+  br i1 %123, label %124, label %125
 
-121:                                              ; preds = %118
-  call fastcc void @psa_des_set_key_parity(ptr noundef nonnull %114, i64 noundef %30)
-  br label %122
+124:                                              ; preds = %121
+  call fastcc void @psa_des_set_key_parity(ptr noundef nonnull %117, i64 noundef %30)
+  br label %125
 
-122:                                              ; preds = %121, %118, %psa_generate_derived_ecc_key_montgomery_helper.exit.i, %psa_generate_derived_ecc_key_weierstrass_helper.exit._crit_edge.i
-  %123 = phi i16 [ %91, %psa_generate_derived_ecc_key_weierstrass_helper.exit._crit_edge.i ], [ %27, %psa_generate_derived_ecc_key_montgomery_helper.exit.i ], [ %27, %121 ], [ %27, %118 ]
-  %.1.i = phi ptr [ %.4.i, %psa_generate_derived_ecc_key_weierstrass_helper.exit._crit_edge.i ], [ %95, %psa_generate_derived_ecc_key_montgomery_helper.exit.i ], [ %114, %121 ], [ %114, %118 ]
-  %124 = getelementptr inbounds i8, ptr %26, i64 2
-  store i16 %123, ptr %124, align 2
+125:                                              ; preds = %124, %121, %psa_generate_derived_ecc_key_montgomery_helper.exit.i, %psa_generate_derived_ecc_key_weierstrass_helper.exit._crit_edge.i
+  %126 = phi i16 [ %91, %psa_generate_derived_ecc_key_weierstrass_helper.exit._crit_edge.i ], [ %27, %psa_generate_derived_ecc_key_montgomery_helper.exit.i ], [ %27, %124 ], [ %27, %121 ]
+  %.1.i = phi ptr [ %.4.i, %psa_generate_derived_ecc_key_weierstrass_helper.exit._crit_edge.i ], [ %95, %psa_generate_derived_ecc_key_montgomery_helper.exit.i ], [ %117, %124 ], [ %117, %121 ]
+  %127 = getelementptr inbounds i8, ptr %26, i64 2
+  store i16 %126, ptr %127, align 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %10, ptr noundef nonnull align 8 dereferenceable(28) %26, i64 28, i1 false)
-  %125 = getelementptr inbounds i8, ptr %10, i64 32
-  %126 = getelementptr inbounds i8, ptr %10, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %125, i8 0, i64 16, i1 false)
-  %127 = load i32, ptr %126, align 4
-  %128 = icmp ult i32 %127, 256
-  br i1 %128, label %131, label %129
+  %128 = getelementptr inbounds i8, ptr %10, i64 32
+  %129 = getelementptr inbounds i8, ptr %10, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %128, i8 0, i64 16, i1 false)
+  %130 = load i32, ptr %129, align 4
+  %131 = icmp ult i32 %130, 256
+  br i1 %131, label %134, label %132
 
-129:                                              ; preds = %122
-  %130 = call i32 @psa_driver_wrapper_get_key_buffer_size(ptr noundef nonnull %10, ptr noundef nonnull %9) #15
-  %.not41.i = icmp eq i32 %130, 0
-  br i1 %.not41.i, label %131, label %.thread20
+132:                                              ; preds = %125
+  %133 = call i32 @psa_driver_wrapper_get_key_buffer_size(ptr noundef nonnull %10, ptr noundef nonnull %9) #15
+  %.not41.i = icmp eq i32 %133, 0
+  br i1 %.not41.i, label %134, label %.thread20
 
-131:                                              ; preds = %129, %122
-  %132 = load i64, ptr %9, align 8
-  %133 = getelementptr inbounds i8, ptr %26, i64 40
-  %134 = load ptr, ptr %133, align 8
-  %.not.i45.i = icmp eq ptr %134, null
-  br i1 %.not.i45.i, label %135, label %.thread20
+134:                                              ; preds = %132, %125
+  %135 = load i64, ptr %9, align 8
+  %136 = getelementptr inbounds i8, ptr %26, i64 40
+  %137 = load ptr, ptr %136, align 8
+  %.not.i45.i = icmp eq ptr %137, null
+  br i1 %.not.i45.i, label %138, label %.thread20
 
-135:                                              ; preds = %131
-  %136 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %132) #14
-  store ptr %136, ptr %133, align 8
-  %137 = icmp eq ptr %136, null
-  br i1 %137, label %.thread20, label %138
+138:                                              ; preds = %134
+  %139 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %135) #14
+  store ptr %139, ptr %136, align 8
+  %140 = icmp eq ptr %139, null
+  br i1 %140, label %.thread20, label %141
 
-138:                                              ; preds = %135
-  %139 = getelementptr inbounds i8, ptr %26, i64 48
-  store i64 %132, ptr %139, align 8
-  %140 = call i32 @psa_driver_wrapper_import_key(ptr noundef nonnull %10, ptr noundef %.1.i, i64 noundef %30, ptr noundef nonnull %136, i64 noundef %132, ptr noundef nonnull %139, ptr noundef nonnull %8) #15
-  %141 = load i64, ptr %8, align 8
-  %142 = load i16, ptr %124, align 2
-  %143 = zext i16 %142 to i64
-  %.not43.i = icmp eq i64 %141, %143
-  br i1 %.not43.i, label %144, label %.thread20
+141:                                              ; preds = %138
+  %142 = getelementptr inbounds i8, ptr %26, i64 48
+  store i64 %135, ptr %142, align 8
+  %143 = call i32 @psa_driver_wrapper_import_key(ptr noundef nonnull %10, ptr noundef %.1.i, i64 noundef %30, ptr noundef nonnull %139, i64 noundef %135, ptr noundef nonnull %142, ptr noundef nonnull %8) #15
+  %144 = load i64, ptr %8, align 8
+  %145 = load i16, ptr %127, align 2
+  %146 = zext i16 %145 to i64
+  %.not43.i = icmp eq i64 %144, %146
+  br i1 %.not43.i, label %147, label %.thread20
 
-.thread17:                                        ; preds = %25, %111, %113, %109
-  %.0.i.ph = phi i32 [ -134, %109 ], [ -141, %113 ], [ -135, %111 ], [ -135, %25 ]
+.thread17:                                        ; preds = %25, %114, %116, %112
+  %.0.i.ph = phi i32 [ -134, %112 ], [ -141, %116 ], [ -135, %114 ], [ -135, %25 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
   br label %.thread
 
-.thread20:                                        ; preds = %138, %129, %psa_generate_derived_ecc_key_weierstrass_helper.exit.i, %116, %97, %99, %94, %92, %131, %135
-  %.060.i.ph = phi ptr [ %.1.i, %135 ], [ %.1.i, %131 ], [ null, %92 ], [ null, %94 ], [ %95, %99 ], [ %95, %97 ], [ %114, %116 ], [ %.4.i, %psa_generate_derived_ecc_key_weierstrass_helper.exit.i ], [ %.1.i, %129 ], [ %.1.i, %138 ]
-  %.029.i.ph = phi i32 [ -141, %135 ], [ -139, %131 ], [ -135, %92 ], [ -141, %94 ], [ -151, %99 ], [ %98, %97 ], [ %117, %116 ], [ %.264.i.i, %psa_generate_derived_ecc_key_weierstrass_helper.exit.i ], [ %130, %129 ], [ -135, %138 ]
+.thread20:                                        ; preds = %141, %132, %psa_generate_derived_ecc_key_weierstrass_helper.exit.i, %119, %97, %99, %94, %92, %134, %138
+  %.060.i.ph = phi ptr [ %.1.i, %138 ], [ %.1.i, %134 ], [ null, %92 ], [ null, %94 ], [ %95, %99 ], [ %95, %97 ], [ %117, %119 ], [ %.4.i, %psa_generate_derived_ecc_key_weierstrass_helper.exit.i ], [ %.1.i, %132 ], [ %.1.i, %141 ]
+  %.029.i.ph = phi i32 [ -141, %138 ], [ -139, %134 ], [ -135, %92 ], [ -141, %94 ], [ -151, %99 ], [ %98, %97 ], [ %120, %119 ], [ %.264.i.i, %psa_generate_derived_ecc_key_weierstrass_helper.exit.i ], [ %133, %132 ], [ -135, %141 ]
   call void @free(ptr noundef %.060.i.ph) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
   br label %.thread
 
-144:                                              ; preds = %138
+147:                                              ; preds = %141
   call void @free(ptr noundef %.1.i) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
-  %145 = icmp eq i32 %140, 0
-  br i1 %145, label %146, label %.thread
+  %148 = icmp eq i32 %143, 0
+  br i1 %148, label %149, label %.thread
 
-146:                                              ; preds = %144
-  %147 = load ptr, ptr %11, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 4
-  %149 = load i32, ptr %148, align 4
-  %150 = and i32 %149, 255
-  %151 = icmp eq i32 %150, 0
-  br i1 %151, label %.thread.i, label %152
+149:                                              ; preds = %147
+  %150 = load ptr, ptr %11, align 8
+  %151 = getelementptr inbounds i8, ptr %150, i64 4
+  %152 = load i32, ptr %151, align 4
+  %153 = and i32 %152, 255
+  %154 = icmp eq i32 %153, 0
+  br i1 %154, label %.thread.i, label %155
 
-152:                                              ; preds = %146
-  %153 = getelementptr inbounds i8, ptr %147, i64 40
-  %154 = load ptr, ptr %153, align 8
-  %155 = getelementptr inbounds i8, ptr %147, i64 48
-  %156 = load i64, ptr %155, align 8
-  %157 = call i32 @psa_save_persistent_key(ptr noundef nonnull %147, ptr noundef %154, i64 noundef %156) #15
-  %158 = icmp eq i32 %157, 0
-  br i1 %158, label %.thread.i, label %.thread
+155:                                              ; preds = %149
+  %156 = getelementptr inbounds i8, ptr %150, i64 40
+  %157 = load ptr, ptr %156, align 8
+  %158 = getelementptr inbounds i8, ptr %150, i64 48
+  %159 = load i64, ptr %158, align 8
+  %160 = call i32 @psa_save_persistent_key(ptr noundef nonnull %150, ptr noundef %157, i64 noundef %159) #15
+  %161 = icmp eq i32 %160, 0
+  br i1 %161, label %.thread.i, label %.thread
 
-.thread.i:                                        ; preds = %152, %146
-  %159 = getelementptr inbounds i8, ptr %147, i64 8
-  %160 = load i32, ptr %159, align 8
-  store i32 %160, ptr %2, align 4
-  %161 = call i32 @psa_unlock_key_slot(ptr noundef nonnull %147) #15
-  %.not.i = icmp eq i32 %161, 0
-  br i1 %.not.i, label %psa_finish_key_creation.exit, label %162
+.thread.i:                                        ; preds = %155, %149
+  %162 = getelementptr inbounds i8, ptr %150, i64 8
+  %163 = load i32, ptr %162, align 8
+  store i32 %163, ptr %2, align 4
+  %164 = call i32 @psa_unlock_key_slot(ptr noundef nonnull %150) #15
+  %.not.i = icmp eq i32 %164, 0
+  br i1 %.not.i, label %psa_finish_key_creation.exit, label %165
 
-162:                                              ; preds = %.thread.i
+165:                                              ; preds = %.thread.i
   store i32 0, ptr %2, align 4
   br label %.thread
 
-.thread:                                          ; preds = %22, %144, %.thread17, %.thread20, %162, %152
-  %.1.ph = phi i32 [ %157, %152 ], [ %161, %162 ], [ %.029.i.ph, %.thread20 ], [ %.0.i.ph, %.thread17 ], [ %140, %144 ], [ %23, %22 ]
-  %163 = load ptr, ptr %11, align 8
-  %164 = icmp eq ptr %163, null
-  br i1 %164, label %psa_finish_key_creation.exit, label %165
+.thread:                                          ; preds = %22, %147, %.thread17, %.thread20, %165, %155
+  %.1.ph = phi i32 [ %160, %155 ], [ %164, %165 ], [ %.029.i.ph, %.thread20 ], [ %.0.i.ph, %.thread17 ], [ %143, %147 ], [ %23, %22 ]
+  %166 = load ptr, ptr %11, align 8
+  %167 = icmp eq ptr %166, null
+  br i1 %167, label %psa_finish_key_creation.exit, label %168
 
-165:                                              ; preds = %.thread
-  %166 = getelementptr inbounds i8, ptr %163, i64 40
-  %167 = load ptr, ptr %166, align 8
-  %.not.i.i.i = icmp eq ptr %167, null
-  br i1 %.not.i.i.i, label %psa_wipe_key_slot.exit.i, label %168
+168:                                              ; preds = %.thread
+  %169 = getelementptr inbounds i8, ptr %166, i64 40
+  %170 = load ptr, ptr %169, align 8
+  %.not.i.i.i = icmp eq ptr %170, null
+  br i1 %.not.i.i.i, label %psa_wipe_key_slot.exit.i, label %171
 
-168:                                              ; preds = %165
-  %169 = getelementptr inbounds i8, ptr %163, i64 48
-  %170 = load i64, ptr %169, align 8
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %167, i64 noundef %170) #15
-  %.pre.i.i.i = load ptr, ptr %166, align 8
+171:                                              ; preds = %168
+  %172 = getelementptr inbounds i8, ptr %166, i64 48
+  %173 = load i64, ptr %172, align 8
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %170, i64 noundef %173) #15
+  %.pre.i.i.i = load ptr, ptr %169, align 8
   br label %psa_wipe_key_slot.exit.i
 
-psa_wipe_key_slot.exit.i:                         ; preds = %168, %165
-  %171 = phi ptr [ %.pre.i.i.i, %168 ], [ null, %165 ]
-  call void @free(ptr noundef %171) #15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %163, i8 0, i64 56, i1 false)
+psa_wipe_key_slot.exit.i:                         ; preds = %171, %168
+  %174 = phi ptr [ %.pre.i.i.i, %171 ], [ null, %168 ]
+  call void @free(ptr noundef %174) #15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %166, i8 0, i64 56, i1 false)
   br label %psa_finish_key_creation.exit
 
 psa_finish_key_creation.exit:                     ; preds = %psa_wipe_key_slot.exit.i, %.thread, %.thread.i, %18, %15, %3

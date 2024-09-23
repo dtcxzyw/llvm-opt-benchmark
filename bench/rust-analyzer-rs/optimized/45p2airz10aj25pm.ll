@@ -20061,6 +20061,7 @@ default.unreachable388:                           ; preds = %221, %160, %.thread
   %.sroa.3155.0.copyload = load i32, ptr %.sroa.3155.0..sroa_idx, align 4
   %.sroa.4158.0.copyload = load i32, ptr %.sroa.4158.0..sroa_idx, align 8
   %.sroa.5161.0.copyload = load i32, ptr %.sroa.5161.0..sroa_idx, align 4
+  %.sroa.6164.0.copyload = load i32, ptr %.sroa.6164.0..sroa_idx, align 8
   br label %184
 
 180:                                              ; preds = %.noexc
@@ -20076,10 +20077,10 @@ default.unreachable388:                           ; preds = %221, %160, %.thread
   %.sroa.5161.0..sroa_idx162 = getelementptr inbounds i8, ptr %.038407, i64 44
   %.sroa.5161.0.copyload163 = load i32, ptr %.sroa.5161.0..sroa_idx162, align 4
   %.sroa.6164.0..sroa_idx165 = getelementptr inbounds i8, ptr %.038407, i64 48
+  %.sroa.6164.0.copyload166 = load i32, ptr %.sroa.6164.0..sroa_idx165, align 8
   br label %184
 
 184:                                              ; preds = %180, %179
-  %.sroa.6164.0..sroa_idx165.sink = phi ptr [ %.sroa.6164.0..sroa_idx165, %180 ], [ %.sroa.6164.0..sroa_idx, %179 ]
   %.sroa.0146.0 = phi i64 [ %181, %180 ], [ %158, %179 ]
   %.sroa.3.0 = phi ptr [ %182, %180 ], [ %.sroa.3.0.copyload, %179 ]
   %.sroa.4150.0 = phi i64 [ %.sroa.4.0.i, %180 ], [ %.sroa.4150.0.copyload, %179 ]
@@ -20087,7 +20088,7 @@ default.unreachable388:                           ; preds = %221, %160, %.thread
   %.sroa.3155.0 = phi i32 [ %.sroa.3155.0.copyload157, %180 ], [ %.sroa.3155.0.copyload, %179 ]
   %.sroa.4158.0 = phi i32 [ %.sroa.4158.0.copyload160, %180 ], [ %.sroa.4158.0.copyload, %179 ]
   %.sroa.5161.0 = phi i32 [ %.sroa.5161.0.copyload163, %180 ], [ %.sroa.5161.0.copyload, %179 ]
-  %.sroa.6164.0.copyload166 = load i32, ptr %.sroa.6164.0..sroa_idx165.sink, align 8
+  %.sroa.6164.0 = phi i32 [ %.sroa.6164.0.copyload166, %180 ], [ %.sroa.6164.0.copyload, %179 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %20)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21)
   store i64 %.sroa.0146.0, ptr %21, align 8
@@ -20135,7 +20136,7 @@ default.unreachable388:                           ; preds = %221, %160, %.thread
 
 198:                                              ; preds = %191
   %199 = icmp eq i32 %.sroa.29.0344, %.sroa.5161.0
-  %200 = icmp eq i32 %.sroa.35.0343, %.sroa.6164.0.copyload166
+  %200 = icmp eq i32 %.sroa.35.0343, %.sroa.6164.0
   %or.cond239 = select i1 %199, i1 %200, i1 false
   br i1 %or.cond239, label %201, label %"_ZN10hir_expand16builtin_fn_macro13concat_expand28_$u7b$$u7b$closure$u7d$$u7d$17h91f292e585550c38E.exit68"
 
@@ -20153,7 +20154,7 @@ default.unreachable388:                           ; preds = %221, %160, %.thread
   unreachable
 
 "_ZN10hir_expand16builtin_fn_macro13concat_expand28_$u7b$$u7b$closure$u7d$$u7d$17h91f292e585550c38E.exit68": ; preds = %198, %191, %201
-  %.sroa.35.4 = phi i32 [ %.sroa.35.0343, %198 ], [ %.sroa.6164.0.copyload166, %191 ], [ %.sroa.35.0343, %201 ]
+  %.sroa.35.4 = phi i32 [ %.sroa.35.0343, %198 ], [ %.sroa.6164.0, %191 ], [ %.sroa.35.0343, %201 ]
   %.sroa.29.4 = phi i32 [ %.sroa.29.0344, %198 ], [ %.sroa.5161.0, %191 ], [ %.sroa.29.0344, %201 ]
   %.sroa.20.4 = phi i32 [ %.sroa.20.0345, %198 ], [ %.sroa.4158.0, %191 ], [ %.0.sroa.speculated.i2.i.i64, %201 ]
   %.sroa.10.4 = phi i32 [ %.sroa.10.0346, %198 ], [ %.sroa.3155.0, %191 ], [ %.0.sroa.speculated.i.i.i63, %201 ]

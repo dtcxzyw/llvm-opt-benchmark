@@ -864,10 +864,10 @@ if.then12:                                        ; preds = %lor.lhs.false
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.then12, %if.end9.thread
-  %cmp_ctx.i.sink = phi ptr [ %cmp_ctx.i, %if.end9.thread ], [ %cmp_ctx, %if.then12 ]
+  %.sink.in = phi ptr [ %cmp_ctx.i, %if.end9.thread ], [ %cmp_ctx, %if.then12 ]
   %retval.0.ph = phi i32 [ 0, %if.end9.thread ], [ %call13, %if.then12 ]
-  %3 = load ptr, ptr %cmp_ctx.i.sink, align 8
-  call void @OSSL_CMP_CTX_free(ptr noundef %3) #8
+  %.sink = load ptr, ptr %.sink.in, align 8
+  call void @OSSL_CMP_CTX_free(ptr noundef %.sink) #8
   call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.13, i32 noundef 28) #8
   br label %return
 

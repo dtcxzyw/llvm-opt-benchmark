@@ -1525,11 +1525,15 @@ do.body10:                                        ; preds = %do.body
   %5 = load ptr, ptr %entry12, align 8
   store ptr %5, ptr %call, align 8
   %cmp14 = icmp eq ptr %5, null
-  br i1 %cmp14, label %if.then15, label %do.end41
+  br i1 %cmp14, label %if.then15, label %if.end17
 
 if.then15:                                        ; preds = %do.body10
   %sqh_last = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call, ptr %sqh_last, align 8
+  br label %if.end17
+
+if.end17:                                         ; preds = %if.then15, %do.body10
+  store ptr null, ptr %entry12, align 8
   br label %do.end41
 
 while.cond:                                       ; preds = %do.body, %while.cond
@@ -1554,11 +1558,10 @@ if.then33:                                        ; preds = %while.end
 
 if.end37:                                         ; preds = %if.then33, %while.end
   %entry38 = getelementptr inbounds i8, ptr %bm.06.i, i64 48
+  store ptr null, ptr %entry38, align 8
   br label %do.end41
 
-do.end41:                                         ; preds = %do.body10, %if.then15, %if.end37
-  %entry12.sink = phi ptr [ %entry38, %if.end37 ], [ %entry12, %if.then15 ], [ %entry12, %do.body10 ]
-  store ptr null, ptr %entry12.sink, align 8
+do.end41:                                         ; preds = %if.end17, %if.end37
   %call42 = tail call fastcc i32 @update_ext_header_and_dir(ptr noundef %bs, ptr noundef nonnull %call)
   %cmp43 = icmp slt i32 %call42, 0
   br i1 %cmp43, label %if.then44, label %if.end45

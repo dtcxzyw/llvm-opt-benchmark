@@ -126,9 +126,9 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i.i.i.i.i: ; pre
   br label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h00dd008218e383deE.exit.i"
 
 "_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h00dd008218e383deE.exit.i": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hc7670c4a2a8016a5E.exit.i.i.i.i.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he3e76ad84b28d587E.exit.i.i.i.i.i"
-  %.sink4.i.i.i.i.i = phi i64 [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hc7670c4a2a8016a5E.exit.i.i.i.i.i" ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he3e76ad84b28d587E.exit.i.i.i.i.i" ]
+  %.sink19.i = phi i64 [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he3e76ad84b28d587E.exit.i.i.i.i.i" ], [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hc7670c4a2a8016a5E.exit.i.i.i.i.i" ]
   %43 = load i64, ptr %11, align 8, !alias.scope !53, !noundef !4
-  %44 = add i64 %43, %.sink4.i.i.i.i.i
+  %44 = add i64 %43, %.sink19.i
   store i64 %44, ptr %11, align 8, !alias.scope !53
   %45 = add nuw i64 %.0.i, 1
   %46 = icmp eq i64 %45, %10
@@ -672,9 +672,9 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i.i.i.i: ; preds
   br label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h00dd008218e383deE.exit"
 
 "_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h00dd008218e383deE.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he3e76ad84b28d587E.exit.i.i.i.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hc7670c4a2a8016a5E.exit.i.i.i.i"
-  %.sink4.i.i.i.i = phi i64 [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hc7670c4a2a8016a5E.exit.i.i.i.i" ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he3e76ad84b28d587E.exit.i.i.i.i" ]
+  %.sink19 = phi i64 [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he3e76ad84b28d587E.exit.i.i.i.i" ], [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hc7670c4a2a8016a5E.exit.i.i.i.i" ]
   %43 = load i64, ptr %11, align 8, !alias.scope !360, !noundef !4
-  %44 = add i64 %43, %.sink4.i.i.i.i
+  %44 = add i64 %43, %.sink19
   store i64 %44, ptr %11, align 8, !alias.scope !360
   %45 = add nuw i64 %.0, 1
   %46 = icmp eq i64 %45, %10

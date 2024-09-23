@@ -531,16 +531,16 @@ if.end8.i.i:                                      ; preds = %if.then4.i.i, %if.e
 
 if.then10.i.i:                                    ; preds = %if.end8.i.i
   %links12.i.i = getelementptr inbounds i8, ptr %2, i64 72
+  store ptr %1, ptr %links12.i.i, align 8
   br label %if.end14.i.i
 
 if.else.i.i:                                      ; preds = %if.end8.i.i
   %call.i.i = tail call ptr @PyInterpreterState_Get() #17
   %executor_list_head.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 414928
+  store ptr %1, ptr %executor_list_head.i.i, align 8
   br label %if.end14.i.i
 
 if.end14.i.i:                                     ; preds = %if.else.i.i, %if.then10.i.i
-  %executor_list_head.sink.i.i = phi ptr [ %executor_list_head.i.i, %if.else.i.i ], [ %links12.i.i, %if.then10.i.i ]
-  store ptr %1, ptr %executor_list_head.sink.i.i, align 8
   store i8 0, ptr %linked.i.i, align 1
   br label %_Py_ExecutorClear.exit
 
@@ -823,16 +823,16 @@ if.end8.i.i:                                      ; preds = %if.then4.i.i, %if.e
 
 if.then10.i.i:                                    ; preds = %if.end8.i.i
   %links12.i.i = getelementptr inbounds i8, ptr %2, i64 72
+  store ptr %1, ptr %links12.i.i, align 8
   br label %if.end14.i.i
 
 if.else.i.i:                                      ; preds = %if.end8.i.i
   %call.i.i = tail call ptr @PyInterpreterState_Get() #17
   %executor_list_head.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 414928
+  store ptr %1, ptr %executor_list_head.i.i, align 8
   br label %if.end14.i.i
 
 if.end14.i.i:                                     ; preds = %if.else.i.i, %if.then10.i.i
-  %executor_list_head.sink.i.i = phi ptr [ %executor_list_head.i.i, %if.else.i.i ], [ %links12.i.i, %if.then10.i.i ]
-  store ptr %1, ptr %executor_list_head.sink.i.i, align 8
   store i8 0, ptr %linked.i.i, align 1
   br label %_Py_ExecutorClear.exit
 
@@ -1929,16 +1929,16 @@ if.end8.i:                                        ; preds = %if.then4.i, %if.end
 
 if.then10.i:                                      ; preds = %if.end8.i
   %links12.i = getelementptr inbounds i8, ptr %2, i64 72
+  store ptr %1, ptr %links12.i, align 8
   br label %if.end14.i
 
 if.else.i:                                        ; preds = %if.end8.i
   %call.i = tail call ptr @PyInterpreterState_Get() #17
   %executor_list_head.i = getelementptr inbounds i8, ptr %call.i, i64 414928
+  store ptr %1, ptr %executor_list_head.i, align 8
   br label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.else.i, %if.then10.i
-  %executor_list_head.sink.i = phi ptr [ %executor_list_head.i, %if.else.i ], [ %links12.i, %if.then10.i ]
-  store ptr %1, ptr %executor_list_head.sink.i, align 8
   store i8 0, ptr %linked.i, align 1
   br label %unlink_executor.exit
 
@@ -2080,16 +2080,16 @@ if.end8.i:                                        ; preds = %if.then4.i, %if.end
 
 if.then10.i:                                      ; preds = %if.end8.i
   %links12.i = getelementptr inbounds i8, ptr %7, i64 72
+  store ptr %3, ptr %links12.i, align 8
   br label %if.end14.i
 
 if.else.i:                                        ; preds = %if.end8.i
   %call.i = tail call ptr @PyInterpreterState_Get() #17
   %executor_list_head.i = getelementptr inbounds i8, ptr %call.i, i64 414928
+  store ptr %3, ptr %executor_list_head.i, align 8
   br label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.else.i, %if.then10.i
-  %executor_list_head.sink.i = phi ptr [ %executor_list_head.i, %if.else.i ], [ %links12.i, %if.then10.i ]
-  store ptr %3, ptr %executor_list_head.sink.i, align 8
   store i8 0, ptr %linked.i, align 1
   br label %if.end
 

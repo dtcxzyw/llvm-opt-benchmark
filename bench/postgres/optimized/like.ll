@@ -1266,79 +1266,81 @@ select.unfold.i:                                  ; preds = %47, %55, %52
 
 wchareq.exit.i:                                   ; preds = %.preheader.i.i
   %130 = trunc nuw i8 %.084123.i to i1
-  br i1 %130, label %wchareq.exit.threadthread-pre-split.i, label %.loopexit114.sink.split.sink.split.i
+  br i1 %130, label %wchareq.exit.threadthread-pre-split.i, label %131
+
+131:                                              ; preds = %wchareq.exit.i
+  %132 = getelementptr i8, ptr %.493121.i, i64 1
+  store i8 92, ptr %.493121.i, align 1
+  br label %.loopexit114.sink.split.i
 
 wchareq.exit.threadthread-pre-split.i:            ; preds = %124, %wchareq.exit.i, %121
   %.pr.i = load i8, ptr %.2124.i, align 1
   br label %wchareq.exit.thread.i
 
 wchareq.exit.thread.i:                            ; preds = %wchareq.exit.threadthread-pre-split.i, %.lr.ph125.i
-  %131 = phi i8 [ %.pr.i, %wchareq.exit.threadthread-pre-split.i ], [ %119, %.lr.ph125.i ]
-  %132 = icmp eq i8 %131, 92
-  br i1 %132, label %133, label %136
+  %133 = phi i8 [ %.pr.i, %wchareq.exit.threadthread-pre-split.i ], [ %119, %.lr.ph125.i ]
+  %134 = icmp eq i8 %133, 92
+  br i1 %134, label %135, label %140
 
-133:                                              ; preds = %wchareq.exit.thread.i
-  %134 = getelementptr i8, ptr %.493121.i, i64 1
+135:                                              ; preds = %wchareq.exit.thread.i
+  %136 = getelementptr i8, ptr %.493121.i, i64 1
   store i8 92, ptr %.493121.i, align 1
-  %135 = trunc nuw i8 %.084123.i to i1
-  br i1 %135, label %.loopexit114.sink.split.i, label %.loopexit114.sink.split.sink.split.i
+  %137 = trunc nuw i8 %.084123.i to i1
+  br i1 %137, label %.loopexit114.sink.split.i, label %138
 
-136:                                              ; preds = %wchareq.exit.thread.i
-  %137 = tail call i32 @pg_mblen(ptr noundef nonnull %.2124.i) #7
-  %138 = icmp sgt i32 %137, 0
-  br i1 %138, label %.lr.ph.i, label %.loopexit114.i
-
-.lr.ph.i:                                         ; preds = %136, %.lr.ph.i
-  %.0119.i = phi i32 [ %139, %.lr.ph.i ], [ %137, %136 ]
-  %.4118.i = phi ptr [ %140, %.lr.ph.i ], [ %.2124.i, %136 ]
-  %.7117.i = phi ptr [ %142, %.lr.ph.i ], [ %.493121.i, %136 ]
-  %139 = add nsw i32 %.0119.i, -1
-  %140 = getelementptr i8, ptr %.4118.i, i64 1
-  %141 = load i8, ptr %.4118.i, align 1
-  %142 = getelementptr i8, ptr %.7117.i, i64 1
-  store i8 %141, ptr %.7117.i, align 1
-  %143 = icmp ugt i32 %.0119.i, 1
-  br i1 %143, label %.lr.ph.i, label %.loopexit114.i, !llvm.loop !13
-
-.loopexit114.sink.split.sink.split.i:             ; preds = %133, %wchareq.exit.i
-  %.sink148.i = phi i64 [ 1, %wchareq.exit.i ], [ 2, %133 ]
-  %.sink.i = phi ptr [ %.493121.i, %wchareq.exit.i ], [ %134, %133 ]
-  %.185.ph.ph.i = phi i8 [ 1, %wchareq.exit.i ], [ 0, %133 ]
-  %144 = getelementptr i8, ptr %.493121.i, i64 %.sink148.i
-  store i8 92, ptr %.sink.i, align 1
+138:                                              ; preds = %135
+  %139 = getelementptr i8, ptr %.493121.i, i64 2
+  store i8 92, ptr %136, align 1
   br label %.loopexit114.sink.split.i
 
-.loopexit114.sink.split.i:                        ; preds = %.loopexit114.sink.split.sink.split.i, %133
-  %.5.ph.i = phi ptr [ %134, %133 ], [ %144, %.loopexit114.sink.split.sink.split.i ]
-  %.185.ph.i = phi i8 [ 0, %133 ], [ %.185.ph.ph.i, %.loopexit114.sink.split.sink.split.i ]
-  %145 = tail call i32 @pg_mblen(ptr noundef nonnull %.2124.i) #7
-  %146 = sext i32 %145 to i64
-  %147 = getelementptr i8, ptr %.2124.i, i64 %146
+140:                                              ; preds = %wchareq.exit.thread.i
+  %141 = tail call i32 @pg_mblen(ptr noundef nonnull %.2124.i) #7
+  %142 = icmp sgt i32 %141, 0
+  br i1 %142, label %.lr.ph.i, label %.loopexit114.i
+
+.lr.ph.i:                                         ; preds = %140, %.lr.ph.i
+  %.0119.i = phi i32 [ %143, %.lr.ph.i ], [ %141, %140 ]
+  %.4118.i = phi ptr [ %144, %.lr.ph.i ], [ %.2124.i, %140 ]
+  %.7117.i = phi ptr [ %146, %.lr.ph.i ], [ %.493121.i, %140 ]
+  %143 = add nsw i32 %.0119.i, -1
+  %144 = getelementptr i8, ptr %.4118.i, i64 1
+  %145 = load i8, ptr %.4118.i, align 1
+  %146 = getelementptr i8, ptr %.7117.i, i64 1
+  store i8 %145, ptr %.7117.i, align 1
+  %147 = icmp ugt i32 %.0119.i, 1
+  br i1 %147, label %.lr.ph.i, label %.loopexit114.i, !llvm.loop !13
+
+.loopexit114.sink.split.i:                        ; preds = %138, %135, %131
+  %.5.ph.i = phi ptr [ %132, %131 ], [ %136, %135 ], [ %139, %138 ]
+  %.185.ph.i = phi i8 [ 1, %131 ], [ 0, %135 ], [ 0, %138 ]
+  %148 = tail call i32 @pg_mblen(ptr noundef nonnull %.2124.i) #7
+  %149 = sext i32 %148 to i64
+  %150 = getelementptr i8, ptr %.2124.i, i64 %149
   br label %.loopexit114.i
 
-.loopexit114.i:                                   ; preds = %.lr.ph.i, %.loopexit114.sink.split.i, %136
-  %.5.i = phi ptr [ %.493121.i, %136 ], [ %.5.ph.i, %.loopexit114.sink.split.i ], [ %142, %.lr.ph.i ]
-  %.pn.i = phi i32 [ %137, %136 ], [ %145, %.loopexit114.sink.split.i ], [ %137, %.lr.ph.i ]
-  %.185.i = phi i8 [ 0, %136 ], [ %.185.ph.i, %.loopexit114.sink.split.i ], [ 0, %.lr.ph.i ]
-  %.3.i = phi ptr [ %.2124.i, %136 ], [ %147, %.loopexit114.sink.split.i ], [ %140, %.lr.ph.i ]
+.loopexit114.i:                                   ; preds = %.lr.ph.i, %.loopexit114.sink.split.i, %140
+  %.5.i = phi ptr [ %.493121.i, %140 ], [ %.5.ph.i, %.loopexit114.sink.split.i ], [ %146, %.lr.ph.i ]
+  %.pn.i = phi i32 [ %141, %140 ], [ %148, %.loopexit114.sink.split.i ], [ %141, %.lr.ph.i ]
+  %.185.i = phi i8 [ 0, %140 ], [ %.185.ph.i, %.loopexit114.sink.split.i ], [ 0, %.lr.ph.i ]
+  %.3.i = phi ptr [ %.2124.i, %140 ], [ %150, %.loopexit114.sink.split.i ], [ %144, %.lr.ph.i ]
   %.288.i = sub i32 %.187122.i, %.pn.i
-  %148 = icmp sgt i32 %.288.i, 0
-  br i1 %148, label %.lr.ph125.i, label %.loopexit113.i, !llvm.loop !14
+  %151 = icmp sgt i32 %.288.i, 0
+  br i1 %151, label %.lr.ph125.i, label %.loopexit113.i, !llvm.loop !14
 
 .loopexit113.i:                                   ; preds = %.loopexit114.i, %.loopexit.i, %.preheader115.i, %.preheader.i
   %.392.i = phi ptr [ %64, %.preheader.i ], [ %64, %.preheader115.i ], [ %.291.lcssa.i, %.loopexit.i ], [ %.5.i, %.loopexit114.i ]
-  %149 = ptrtoint ptr %.392.i to i64
-  %150 = ptrtoint ptr %63 to i64
-  %151 = sub i64 %149, %150
-  %152 = trunc i64 %151 to i32
-  %153 = shl i32 %152, 2
-  store i32 %153, ptr %63, align 4
+  %152 = ptrtoint ptr %.392.i to i64
+  %153 = ptrtoint ptr %63 to i64
+  %154 = sub i64 %152, %153
+  %155 = trunc i64 %154 to i32
+  %156 = shl i32 %155, 2
+  store i32 %156, ptr %63, align 4
   br label %MB_do_like_escape.exit
 
 MB_do_like_escape.exit:                           ; preds = %.loopexit113.i, %117, %12
   %.0 = phi ptr [ %13, %12 ], [ %63, %117 ], [ %63, %.loopexit113.i ]
-  %154 = ptrtoint ptr %.0 to i64
-  ret i64 %154
+  %157 = ptrtoint ptr %.0 to i64
+  ret i64 %157
 }
 
 declare i32 @pg_database_encoding_max_length() local_unnamed_addr #1

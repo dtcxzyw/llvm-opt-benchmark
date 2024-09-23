@@ -3343,18 +3343,18 @@ _ZNK17RootResolutionSet16compare_to_rangeERK16RootCallbackInfo.exit: ; preds = %
   br i1 %125, label %118, label %_ZNK17RootResolutionSet20in_set_address_rangeERK16RootCallbackInfo.exit.thread.sink.split, !llvm.loop !31
 
 _ZNK17RootResolutionSet20in_set_address_rangeERK16RootCallbackInfo.exit.thread.sink.split: ; preds = %118, %66, %112, %60
-  %.lcssa.i.i18.sink = phi i32 [ %62, %60 ], [ %114, %112 ], [ %71, %66 ], [ %123, %118 ]
-  %.sink48 = phi ptr [ %61, %60 ], [ %113, %112 ], [ %61, %66 ], [ %113, %118 ]
-  %.sink = phi ptr [ %9, %60 ], [ %75, %112 ], [ %9, %66 ], [ %75, %118 ]
-  %126 = add nsw i32 %.lcssa.i.i18.sink, -1
-  store i32 %126, ptr %.sink48, align 8
-  %127 = load ptr, ptr %.sink, align 8
-  %128 = load i32, ptr %127, align 4
-  %129 = icmp eq i32 %128, 0
+  %.lcssa.i.i.sink = phi i32 [ %62, %60 ], [ %114, %112 ], [ %71, %66 ], [ %123, %118 ]
+  %.sink56 = phi ptr [ %61, %60 ], [ %113, %112 ], [ %61, %66 ], [ %113, %118 ]
+  %.sink46.in = phi ptr [ %9, %60 ], [ %75, %112 ], [ %9, %66 ], [ %75, %118 ]
+  %126 = add nsw i32 %.lcssa.i.i.sink, -1
+  store i32 %126, ptr %.sink56, align 8
+  %.sink46 = load ptr, ptr %.sink46.in, align 8
+  %127 = load i32, ptr %.sink46, align 4
+  %128 = icmp eq i32 %127, 0
   br label %_ZNK17RootResolutionSet20in_set_address_rangeERK16RootCallbackInfo.exit.thread
 
 _ZNK17RootResolutionSet20in_set_address_rangeERK16RootCallbackInfo.exit.thread: ; preds = %91, %43, %_ZNK17RootResolutionSet20in_set_address_rangeERK16RootCallbackInfo.exit.thread.sink.split, %74, %6, %_ZNK17RootResolutionSet20in_set_address_rangeERK16RootCallbackInfo.exit
-  %.0 = phi i1 [ false, %_ZNK17RootResolutionSet20in_set_address_rangeERK16RootCallbackInfo.exit ], [ false, %6 ], [ false, %74 ], [ %129, %_ZNK17RootResolutionSet20in_set_address_rangeERK16RootCallbackInfo.exit.thread.sink.split ], [ false, %43 ], [ false, %91 ]
+  %.0 = phi i1 [ false, %_ZNK17RootResolutionSet20in_set_address_rangeERK16RootCallbackInfo.exit ], [ false, %6 ], [ false, %74 ], [ %128, %_ZNK17RootResolutionSet20in_set_address_rangeERK16RootCallbackInfo.exit.thread.sink.split ], [ false, %43 ], [ false, %91 ]
   ret i1 %.0
 }
 

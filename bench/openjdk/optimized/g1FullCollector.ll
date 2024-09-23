@@ -16916,10 +16916,10 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_proc
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(16) %2) #13
-  switch i32 %8, label %55 [
+  switch i32 %8, label %58 [
     i32 0, label %9
-    i32 1, label %39
-    i32 2, label %49
+    i32 1, label %40
+    i32 2, label %51
   ]
 
 9:                                                ; preds = %4
@@ -16973,45 +16973,46 @@ _ZN16InstanceRefKlass12try_discoverI9narrowOop20G1MarkAndPushClosureEEbP7oopDesc
   %36 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
   %37 = sext i32 %36 to i64
   %38 = add nsw i64 %.pre-phi.i, %37
-  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryI9narrowOop20G1MarkAndPushClosure14AlwaysContainsEEvP7oopDesc13ReferenceTypePT0_RT1_.exit.sink.split
+  %39 = inttoptr i64 %38 to ptr
+  %.val.i.i8.i = load ptr, ptr %35, align 8
+  tail call void @_ZN14G1FullGCMarker13mark_and_pushI9narrowOopEEvPT_(ptr noundef nonnull align 8 dereferenceable(1608) %.val.i.i8.i, ptr noundef %39)
+  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryI9narrowOop20G1MarkAndPushClosure14AlwaysContainsEEvP7oopDesc13ReferenceTypePT0_RT1_.exit
 
-39:                                               ; preds = %4
-  %40 = load i32, ptr @_ZN23java_lang_ref_Reference16_referent_offsetE, align 4
-  %41 = ptrtoint ptr %1 to i64
-  %42 = sext i32 %40 to i64
-  %43 = add nsw i64 %42, %41
-  %44 = inttoptr i64 %43 to ptr
-  %45 = getelementptr i8, ptr %2, i64 24
-  %.val.i.i.i14 = load ptr, ptr %45, align 8
-  tail call void @_ZN14G1FullGCMarker13mark_and_pushI9narrowOopEEvPT_(ptr noundef nonnull align 8 dereferenceable(1608) %.val.i.i.i14, ptr noundef %44)
-  %46 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
-  %47 = sext i32 %46 to i64
-  %48 = add nsw i64 %47, %41
-  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryI9narrowOop20G1MarkAndPushClosure14AlwaysContainsEEvP7oopDesc13ReferenceTypePT0_RT1_.exit.sink.split
+40:                                               ; preds = %4
+  %41 = load i32, ptr @_ZN23java_lang_ref_Reference16_referent_offsetE, align 4
+  %42 = ptrtoint ptr %1 to i64
+  %43 = sext i32 %41 to i64
+  %44 = add nsw i64 %43, %42
+  %45 = inttoptr i64 %44 to ptr
+  %46 = getelementptr i8, ptr %2, i64 24
+  %.val.i.i.i14 = load ptr, ptr %46, align 8
+  tail call void @_ZN14G1FullGCMarker13mark_and_pushI9narrowOopEEvPT_(ptr noundef nonnull align 8 dereferenceable(1608) %.val.i.i.i14, ptr noundef %45)
+  %47 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
+  %48 = sext i32 %47 to i64
+  %49 = add nsw i64 %48, %42
+  %50 = inttoptr i64 %49 to ptr
+  %.val.i.i6.i = load ptr, ptr %46, align 8
+  tail call void @_ZN14G1FullGCMarker13mark_and_pushI9narrowOopEEvPT_(ptr noundef nonnull align 8 dereferenceable(1608) %.val.i.i6.i, ptr noundef %50)
+  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryI9narrowOop20G1MarkAndPushClosure14AlwaysContainsEEvP7oopDesc13ReferenceTypePT0_RT1_.exit
 
-49:                                               ; preds = %4
-  %50 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
-  %51 = ptrtoint ptr %1 to i64
-  %52 = sext i32 %50 to i64
-  %53 = add nsw i64 %52, %51
-  %54 = getelementptr i8, ptr %2, i64 24
-  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryI9narrowOop20G1MarkAndPushClosure14AlwaysContainsEEvP7oopDesc13ReferenceTypePT0_RT1_.exit.sink.split
+51:                                               ; preds = %4
+  %52 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
+  %53 = ptrtoint ptr %1 to i64
+  %54 = sext i32 %52 to i64
+  %55 = add nsw i64 %54, %53
+  %56 = inttoptr i64 %55 to ptr
+  %57 = getelementptr i8, ptr %2, i64 24
+  %.val.i.i.i15 = load ptr, ptr %57, align 8
+  tail call void @_ZN14G1FullGCMarker13mark_and_pushI9narrowOopEEvPT_(ptr noundef nonnull align 8 dereferenceable(1608) %.val.i.i.i15, ptr noundef %56)
+  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryI9narrowOop20G1MarkAndPushClosure14AlwaysContainsEEvP7oopDesc13ReferenceTypePT0_RT1_.exit
 
-55:                                               ; preds = %4
-  %56 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %56, align 1
+58:                                               ; preds = %4
+  %59 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %59, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.42, i32 noundef 122) #14
   unreachable
 
-_ZN16InstanceRefKlass25oop_oop_iterate_discoveryI9narrowOop20G1MarkAndPushClosure14AlwaysContainsEEvP7oopDesc13ReferenceTypePT0_RT1_.exit.sink.split: ; preds = %39, %49, %_ZN16InstanceRefKlass12try_discoverI9narrowOop20G1MarkAndPushClosureEEbP7oopDesc13ReferenceTypePT0_.exit.thread.i
-  %.sink16 = phi ptr [ %35, %_ZN16InstanceRefKlass12try_discoverI9narrowOop20G1MarkAndPushClosureEEbP7oopDesc13ReferenceTypePT0_.exit.thread.i ], [ %54, %49 ], [ %45, %39 ]
-  %.sink.in = phi i64 [ %38, %_ZN16InstanceRefKlass12try_discoverI9narrowOop20G1MarkAndPushClosureEEbP7oopDesc13ReferenceTypePT0_.exit.thread.i ], [ %53, %49 ], [ %48, %39 ]
-  %.sink = inttoptr i64 %.sink.in to ptr
-  %.val.i.i8.i = load ptr, ptr %.sink16, align 8
-  tail call void @_ZN14G1FullGCMarker13mark_and_pushI9narrowOopEEvPT_(ptr noundef nonnull align 8 dereferenceable(1608) %.val.i.i8.i, ptr noundef %.sink)
-  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryI9narrowOop20G1MarkAndPushClosure14AlwaysContainsEEvP7oopDesc13ReferenceTypePT0_RT1_.exit
-
-_ZN16InstanceRefKlass25oop_oop_iterate_discoveryI9narrowOop20G1MarkAndPushClosure14AlwaysContainsEEvP7oopDesc13ReferenceTypePT0_RT1_.exit: ; preds = %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryI9narrowOop20G1MarkAndPushClosure14AlwaysContainsEEvP7oopDesc13ReferenceTypePT0_RT1_.exit.sink.split, %_ZN16InstanceRefKlass12try_discoverI9narrowOop20G1MarkAndPushClosureEEbP7oopDesc13ReferenceTypePT0_.exit.i
+_ZN16InstanceRefKlass25oop_oop_iterate_discoveryI9narrowOop20G1MarkAndPushClosure14AlwaysContainsEEvP7oopDesc13ReferenceTypePT0_RT1_.exit: ; preds = %_ZN16InstanceRefKlass12try_discoverI9narrowOop20G1MarkAndPushClosureEEbP7oopDesc13ReferenceTypePT0_.exit.thread.i, %_ZN16InstanceRefKlass12try_discoverI9narrowOop20G1MarkAndPushClosureEEbP7oopDesc13ReferenceTypePT0_.exit.i, %51, %40
   ret void
 }
 
@@ -17300,10 +17301,10 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_proc
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(16) %2) #13
-  switch i32 %8, label %55 [
+  switch i32 %8, label %58 [
     i32 0, label %9
-    i32 1, label %39
-    i32 2, label %49
+    i32 1, label %40
+    i32 2, label %51
   ]
 
 9:                                                ; preds = %4
@@ -17357,45 +17358,46 @@ _ZN16InstanceRefKlass12try_discoverIP7oopDesc20G1MarkAndPushClosureEEbS2_13Refer
   %36 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
   %37 = sext i32 %36 to i64
   %38 = add nsw i64 %.pre-phi.i, %37
-  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc20G1MarkAndPushClosure14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit.sink.split
+  %39 = inttoptr i64 %38 to ptr
+  %.val.i.i8.i = load ptr, ptr %35, align 8
+  tail call void @_ZN14G1FullGCMarker13mark_and_pushIP7oopDescEEvPT_(ptr noundef nonnull align 8 dereferenceable(1608) %.val.i.i8.i, ptr noundef %39)
+  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc20G1MarkAndPushClosure14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit
 
-39:                                               ; preds = %4
-  %40 = load i32, ptr @_ZN23java_lang_ref_Reference16_referent_offsetE, align 4
-  %41 = ptrtoint ptr %1 to i64
-  %42 = sext i32 %40 to i64
-  %43 = add nsw i64 %42, %41
-  %44 = inttoptr i64 %43 to ptr
-  %45 = getelementptr i8, ptr %2, i64 24
-  %.val.i.i.i14 = load ptr, ptr %45, align 8
-  tail call void @_ZN14G1FullGCMarker13mark_and_pushIP7oopDescEEvPT_(ptr noundef nonnull align 8 dereferenceable(1608) %.val.i.i.i14, ptr noundef %44)
-  %46 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
-  %47 = sext i32 %46 to i64
-  %48 = add nsw i64 %47, %41
-  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc20G1MarkAndPushClosure14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit.sink.split
+40:                                               ; preds = %4
+  %41 = load i32, ptr @_ZN23java_lang_ref_Reference16_referent_offsetE, align 4
+  %42 = ptrtoint ptr %1 to i64
+  %43 = sext i32 %41 to i64
+  %44 = add nsw i64 %43, %42
+  %45 = inttoptr i64 %44 to ptr
+  %46 = getelementptr i8, ptr %2, i64 24
+  %.val.i.i.i14 = load ptr, ptr %46, align 8
+  tail call void @_ZN14G1FullGCMarker13mark_and_pushIP7oopDescEEvPT_(ptr noundef nonnull align 8 dereferenceable(1608) %.val.i.i.i14, ptr noundef %45)
+  %47 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
+  %48 = sext i32 %47 to i64
+  %49 = add nsw i64 %48, %42
+  %50 = inttoptr i64 %49 to ptr
+  %.val.i.i6.i = load ptr, ptr %46, align 8
+  tail call void @_ZN14G1FullGCMarker13mark_and_pushIP7oopDescEEvPT_(ptr noundef nonnull align 8 dereferenceable(1608) %.val.i.i6.i, ptr noundef %50)
+  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc20G1MarkAndPushClosure14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit
 
-49:                                               ; preds = %4
-  %50 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
-  %51 = ptrtoint ptr %1 to i64
-  %52 = sext i32 %50 to i64
-  %53 = add nsw i64 %52, %51
-  %54 = getelementptr i8, ptr %2, i64 24
-  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc20G1MarkAndPushClosure14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit.sink.split
+51:                                               ; preds = %4
+  %52 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
+  %53 = ptrtoint ptr %1 to i64
+  %54 = sext i32 %52 to i64
+  %55 = add nsw i64 %54, %53
+  %56 = inttoptr i64 %55 to ptr
+  %57 = getelementptr i8, ptr %2, i64 24
+  %.val.i.i.i15 = load ptr, ptr %57, align 8
+  tail call void @_ZN14G1FullGCMarker13mark_and_pushIP7oopDescEEvPT_(ptr noundef nonnull align 8 dereferenceable(1608) %.val.i.i.i15, ptr noundef %56)
+  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc20G1MarkAndPushClosure14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit
 
-55:                                               ; preds = %4
-  %56 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %56, align 1
+58:                                               ; preds = %4
+  %59 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %59, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.42, i32 noundef 122) #14
   unreachable
 
-_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc20G1MarkAndPushClosure14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit.sink.split: ; preds = %39, %49, %_ZN16InstanceRefKlass12try_discoverIP7oopDesc20G1MarkAndPushClosureEEbS2_13ReferenceTypePT0_.exit.thread.i
-  %.sink16 = phi ptr [ %35, %_ZN16InstanceRefKlass12try_discoverIP7oopDesc20G1MarkAndPushClosureEEbS2_13ReferenceTypePT0_.exit.thread.i ], [ %54, %49 ], [ %45, %39 ]
-  %.sink.in = phi i64 [ %38, %_ZN16InstanceRefKlass12try_discoverIP7oopDesc20G1MarkAndPushClosureEEbS2_13ReferenceTypePT0_.exit.thread.i ], [ %53, %49 ], [ %48, %39 ]
-  %.sink = inttoptr i64 %.sink.in to ptr
-  %.val.i.i8.i = load ptr, ptr %.sink16, align 8
-  tail call void @_ZN14G1FullGCMarker13mark_and_pushIP7oopDescEEvPT_(ptr noundef nonnull align 8 dereferenceable(1608) %.val.i.i8.i, ptr noundef %.sink)
-  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc20G1MarkAndPushClosure14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit
-
-_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc20G1MarkAndPushClosure14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit: ; preds = %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc20G1MarkAndPushClosure14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit.sink.split, %_ZN16InstanceRefKlass12try_discoverIP7oopDesc20G1MarkAndPushClosureEEbS2_13ReferenceTypePT0_.exit.i
+_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc20G1MarkAndPushClosure14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit: ; preds = %_ZN16InstanceRefKlass12try_discoverIP7oopDesc20G1MarkAndPushClosureEEbS2_13ReferenceTypePT0_.exit.thread.i, %_ZN16InstanceRefKlass12try_discoverIP7oopDesc20G1MarkAndPushClosureEEbS2_13ReferenceTypePT0_.exit.i, %51, %40
   ret void
 }
 

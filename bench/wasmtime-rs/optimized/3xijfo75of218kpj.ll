@@ -8037,11 +8037,11 @@ _ZN20wasmtime_wit_bindgen8Wasmtime6export17h6d4bcb03cbc90dcfE.exit: ; preds = %1
   br label %.invoke117.i
 
 .invoke117.i:                                     ; preds = %2114, %2101
-  %.sink.i = phi ptr [ %2102, %2101 ], [ %2116, %2114 ]
-  %.in.i = phi ptr [ %2100, %2101 ], [ %2115, %2114 ]
-  %2117 = load ptr, ptr %.in.i, align 8, !nonnull !4, !noundef !4
-  %2118 = load i64, ptr %.sink.i, align 8, !noundef !4
-  invoke void @"_ZN48_$LT$str$u20$as$u20$heck..snake..ToSnakeCase$GT$13to_snake_case17h5496271f6053700bE"(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %72, ptr nonnull align 1 %2117, i64 %2118)
+  %.in.i = phi ptr [ %2115, %2114 ], [ %2100, %2101 ]
+  %.in118.i = phi ptr [ %2116, %2114 ], [ %2102, %2101 ]
+  %2117 = load i64, ptr %.in118.i, align 8, !noundef !4
+  %2118 = load ptr, ptr %.in.i, align 8, !nonnull !4, !noundef !4
+  invoke void @"_ZN48_$LT$str$u20$as$u20$heck..snake..ToSnakeCase$GT$13to_snake_case17h5496271f6053700bE"(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %72, ptr nonnull align 1 %2118, i64 %2117)
           to label %2108 unwind label %.loopexit.split-lp.loopexit.split-lp.i.loopexit
 
 2119:                                             ; preds = %2159, %2128, %2113

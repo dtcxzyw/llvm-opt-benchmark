@@ -30707,18 +30707,18 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13DICom
   br label %39
 
 39:                                               ; preds = %37, %9
-  %.sink16 = phi ptr [ %14, %37 ], [ %10, %9 ]
+  %.sink15.in = phi ptr [ %14, %37 ], [ %10, %9 ]
   %.sink12 = phi ptr [ %28, %37 ], [ %8, %9 ]
   %.sink = phi i8 [ 1, %37 ], [ 0, %9 ]
   %.sink13 = load ptr, ptr %1, align 8
-  %40 = load i32, ptr %.sink16, align 8
-  %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds %"class.llvm::detail::DenseSetPair.880", ptr %.sink13, i64 %41
+  %.sink15 = load i32, ptr %.sink15.in, align 8
+  %40 = zext i32 %.sink15 to i64
+  %41 = getelementptr inbounds %"class.llvm::detail::DenseSetPair.880", ptr %.sink13, i64 %40
   store ptr %.sink12, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %42, ptr %.sroa.2.0..sroa_idx, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %.sink, ptr %43, align 8
+  store ptr %41, ptr %.sroa.2.0..sroa_idx, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 %.sink, ptr %42, align 8
   ret void
 }
 

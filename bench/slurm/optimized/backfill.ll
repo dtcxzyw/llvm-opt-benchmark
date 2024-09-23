@@ -1458,11 +1458,11 @@ define internal fastcc void @_attempt_backfill() unnamed_addr #0 {
 34:                                               ; preds = %0
   %35 = tail call i32 @get_log_level() #16
   %36 = icmp sgt i32 %35, 2
-  br i1 %36, label %37, label %2042
+  br i1 %36, label %37, label %2069
 
 37:                                               ; preds = %34
   tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.66, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill) #16
-  br label %2042
+  br label %2069
 
 38:                                               ; preds = %0
   %39 = tail call i32 @bb_g_load_state(i1 noundef zeroext false) #16
@@ -1518,11 +1518,11 @@ define internal fastcc void @_attempt_backfill() unnamed_addr #0 {
 
 62:                                               ; preds = %.sink.split3845, %58, %60
   %.not757 = icmp eq ptr %51, null
-  br i1 %.not757, label %2042, label %63
+  br i1 %.not757, label %2069, label %63
 
 63:                                               ; preds = %62
   tail call void @list_destroy(ptr noundef nonnull %51) #16
-  br label %2042
+  br label %2069
 
 64:                                               ; preds = %48
   %65 = tail call i32 @get_log_level() #16
@@ -1728,1577 +1728,1607 @@ _restore_preempt_state.exit:                      ; preds = %122, %125, %131
   %152 = call ptr @list_pop(ptr noundef %51) #16
   store ptr %152, ptr %7, align 8
   %.not573 = icmp eq ptr %152, null
-  br i1 %.not573, label %153, label %160
+  br i1 %.not573, label %153, label %163
 
 153:                                              ; preds = %151
   %154 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %155 = and i64 %154, 4096
   %.not574 = icmp eq i64 %155, 0
-  br i1 %.not574, label %_set_job_time_limit.exit, label %156
+  br i1 %.not574, label %160, label %156
 
 156:                                              ; preds = %153
   %157 = call i32 @get_log_level() #16
   %158 = icmp sgt i32 %157, 3
-  br i1 %158, label %159, label %_set_job_time_limit.exit
+  br i1 %158, label %159, label %160
 
 159:                                              ; preds = %156
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.70, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill) #16
-  br label %_set_job_time_limit.exit
+  br label %160
 
-160:                                              ; preds = %151
-  %161 = load i32, ptr @job_test_cnt, align 4
-  %162 = load i32, ptr @max_backfill_job_cnt, align 4
-  %.not575 = icmp ult i32 %161, %162
-  br i1 %.not575, label %171, label %163
+160:                                              ; preds = %153, %156, %159
+  %161 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 136), align 8
+  %162 = add i32 %161, 1
+  store i32 %162, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 136), align 8
+  br label %1959
 
-163:                                              ; preds = %160
-  %164 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %165 = and i64 %164, 4096
-  %.not744 = icmp eq i64 %165, 0
-  br i1 %.not744, label %_set_job_time_limit.exit, label %166
+163:                                              ; preds = %151
+  %164 = load i32, ptr @job_test_cnt, align 4
+  %165 = load i32, ptr @max_backfill_job_cnt, align 4
+  %.not575 = icmp ult i32 %164, %165
+  br i1 %.not575, label %177, label %166
 
 166:                                              ; preds = %163
-  %167 = call i32 @get_log_level() #16
-  %168 = icmp sgt i32 %167, 3
-  br i1 %168, label %169, label %_set_job_time_limit.exit
+  %167 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %168 = and i64 %167, 4096
+  %.not744 = icmp eq i64 %168, 0
+  br i1 %.not744, label %174, label %169
 
 169:                                              ; preds = %166
-  %170 = load i32, ptr @max_backfill_job_cnt, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.71, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, i32 noundef %170) #16
-  br label %_set_job_time_limit.exit
+  %170 = call i32 @get_log_level() #16
+  %171 = icmp sgt i32 %170, 3
+  br i1 %171, label %172, label %174
 
-171:                                              ; preds = %160
-  %172 = icmp slt i64 %91, %.0377
-  br i1 %172, label %173, label %180
+172:                                              ; preds = %169
+  %173 = load i32, ptr @max_backfill_job_cnt, align 4
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.71, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, i32 noundef %173) #16
+  br label %174
 
-173:                                              ; preds = %171
-  %174 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %175 = and i64 %174, 4096
-  %.not743 = icmp eq i64 %175, 0
-  br i1 %.not743, label %_set_job_time_limit.exit, label %176
+174:                                              ; preds = %166, %169, %172
+  %175 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 144), align 8
+  %176 = add i32 %175, 1
+  store i32 %176, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 144), align 8
+  br label %1959
 
-176:                                              ; preds = %173
-  %177 = call i32 @get_log_level() #16
-  %178 = icmp sgt i32 %177, 3
-  br i1 %178, label %179, label %_set_job_time_limit.exit
+177:                                              ; preds = %163
+  %178 = icmp slt i64 %91, %.0377
+  br i1 %178, label %179, label %189
 
-179:                                              ; preds = %176
+179:                                              ; preds = %177
+  %180 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %181 = and i64 %180, 4096
+  %.not743 = icmp eq i64 %181, 0
+  br i1 %.not743, label %186, label %182
+
+182:                                              ; preds = %179
+  %183 = call i32 @get_log_level() #16
+  %184 = icmp sgt i32 %183, 3
+  br i1 %184, label %185, label %186
+
+185:                                              ; preds = %182
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.72, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill) #16
-  br label %_set_job_time_limit.exit
+  br label %186
 
-180:                                              ; preds = %171
-  %181 = getelementptr inbounds i8, ptr %152, i64 8
-  %182 = load ptr, ptr %181, align 8
-  store ptr %182, ptr %9, align 8
-  %183 = getelementptr inbounds i8, ptr %152, i64 16
-  %184 = load ptr, ptr %183, align 8
-  %185 = getelementptr inbounds i8, ptr %152, i64 24
-  %186 = load i32, ptr %185, align 8
-  %187 = getelementptr inbounds i8, ptr %152, i64 40
-  %188 = load i8, ptr %187, align 8
-  %189 = trunc i8 %188 to i1
-  %190 = getelementptr inbounds i8, ptr %182, i64 56
+186:                                              ; preds = %179, %182, %185
+  %187 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 156), align 4
+  %188 = add i32 %187, 1
+  store i32 %188, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 156), align 4
+  br label %1959
+
+189:                                              ; preds = %177
+  %190 = getelementptr inbounds i8, ptr %152, i64 8
   %191 = load ptr, ptr %190, align 8
-  %.not576 = icmp eq ptr %191, null
-  br i1 %.not576, label %195, label %192
+  store ptr %191, ptr %9, align 8
+  %192 = getelementptr inbounds i8, ptr %152, i64 16
+  %193 = load ptr, ptr %192, align 8
+  %194 = getelementptr inbounds i8, ptr %152, i64 24
+  %195 = load i32, ptr %194, align 8
+  %196 = getelementptr inbounds i8, ptr %152, i64 40
+  %197 = load i8, ptr %196, align 8
+  %198 = trunc i8 %197 to i1
+  %199 = getelementptr inbounds i8, ptr %191, i64 56
+  %200 = load ptr, ptr %199, align 8
+  %.not576 = icmp eq ptr %200, null
+  br i1 %.not576, label %204, label %201
 
-192:                                              ; preds = %180
-  %193 = load i32, ptr %152, align 8
-  %194 = icmp eq i32 %193, -2
-  br i1 %194, label %196, label %195
+201:                                              ; preds = %189
+  %202 = load i32, ptr %152, align 8
+  %203 = icmp eq i32 %202, -2
+  br i1 %203, label %205, label %204
 
-195:                                              ; preds = %192, %180
-  br label %196
+204:                                              ; preds = %201, %189
+  br label %205
 
-196:                                              ; preds = %192, %195
-  %.0416 = phi i1 [ false, %195 ], [ true, %192 ]
-  %197 = load i64, ptr getelementptr inbounds (i8, ptr @slurmctld_config, i64 328), align 8
-  %.not577 = icmp eq i64 %197, 0
-  br i1 %.not577, label %198, label %_set_job_time_limit.exit
+205:                                              ; preds = %201, %204
+  %.0416 = phi i1 [ false, %204 ], [ true, %201 ]
+  %206 = load i64, ptr getelementptr inbounds (i8, ptr @slurmctld_config, i64 328), align 8
+  %.not577 = icmp eq i64 %206, 0
+  br i1 %.not577, label %207, label %213
 
-198:                                              ; preds = %196
-  %199 = call i64 @time(ptr noundef null) #16
-  %200 = call double @difftime(i64 noundef %199, i64 noundef %.fr2921) #17
-  %201 = load i32, ptr @bf_max_time, align 4
-  %202 = sitofp i32 %201 to double
-  %203 = fcmp ult double %200, %202
-  br i1 %203, label %204, label %_set_job_time_limit.exit
+207:                                              ; preds = %205
+  %208 = call i64 @time(ptr noundef null) #16
+  %209 = call double @difftime(i64 noundef %208, i64 noundef %.fr2921) #17
+  %210 = load i32, ptr @bf_max_time, align 4
+  %211 = sitofp i32 %210 to double
+  %212 = fcmp ult double %209, %211
+  br i1 %212, label %216, label %213
 
-204:                                              ; preds = %198
-  %205 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurmctld_config, i64 392)) #16
-  %.not578 = icmp eq i32 %205, 0
-  br i1 %.not578, label %208, label %206
+213:                                              ; preds = %207, %205
+  %214 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 156), align 4
+  %215 = add i32 %214, 1
+  store i32 %215, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 156), align 4
+  br label %1959
 
-206:                                              ; preds = %204
-  %207 = tail call ptr @__errno_location() #17
-  store i32 %205, ptr %207, align 4
+216:                                              ; preds = %207
+  %217 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurmctld_config, i64 392)) #16
+  %.not578 = icmp eq i32 %217, 0
+  br i1 %.not578, label %220, label %218
+
+218:                                              ; preds = %216
+  %219 = tail call ptr @__errno_location() #17
+  store i32 %217, ptr %219, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1955, ptr noundef nonnull @__func__._attempt_backfill) #18
   unreachable
 
-208:                                              ; preds = %204
-  %209 = load i32, ptr @max_rpc_cnt, align 4
-  %210 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_config, i64 324), align 4
-  %211 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurmctld_config, i64 392)) #16
-  %.not580 = icmp eq i32 %211, 0
-  br i1 %.not580, label %214, label %212
+220:                                              ; preds = %216
+  %221 = load i32, ptr @max_rpc_cnt, align 4
+  %222 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_config, i64 324), align 4
+  %223 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurmctld_config, i64 392)) #16
+  %.not580 = icmp eq i32 %223, 0
+  br i1 %.not580, label %226, label %224
 
-212:                                              ; preds = %208
-  %213 = tail call ptr @__errno_location() #17
-  store i32 %211, ptr %213, align 4
+224:                                              ; preds = %220
+  %225 = tail call ptr @__errno_location() #17
+  store i32 %223, ptr %225, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 1959, ptr noundef nonnull @__func__._attempt_backfill) #18
   unreachable
 
-214:                                              ; preds = %208
-  %.not579 = icmp sge i32 %210, %209
-  %215 = icmp sgt i32 %209, 0
-  %or.cond758.not = select i1 %215, i1 %.not579, i1 false
-  br i1 %or.cond758.not, label %219, label %216
+226:                                              ; preds = %220
+  %.not579 = icmp sge i32 %222, %221
+  %227 = icmp sgt i32 %221, 0
+  %or.cond758.not = select i1 %227, i1 %.not579, i1 false
+  br i1 %or.cond758.not, label %231, label %228
 
-216:                                              ; preds = %214
-  %217 = call i32 @slurm_delta_tv(ptr noundef nonnull %20) #16
-  %218 = load i32, ptr @yield_interval, align 4
-  %.not581 = icmp slt i32 %217, %218
-  br i1 %.not581, label %244, label %219
+228:                                              ; preds = %226
+  %229 = call i32 @slurm_delta_tv(ptr noundef nonnull %20) #16
+  %230 = load i32, ptr @yield_interval, align 4
+  %.not581 = icmp slt i32 %229, %230
+  br i1 %.not581, label %259, label %231
 
-219:                                              ; preds = %216, %214
-  %220 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %221 = and i64 %220, 4096
-  %.not582 = icmp eq i64 %221, 0
-  br i1 %.not582, label %228, label %222
+231:                                              ; preds = %228, %226
+  %232 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %233 = and i64 %232, 4096
+  %.not582 = icmp eq i64 %233, 0
+  br i1 %.not582, label %240, label %234
 
-222:                                              ; preds = %219
-  %223 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #16
+234:                                              ; preds = %231
+  %235 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #16
   call void @slurm_diff_tv_str(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 20, ptr noundef null, i64 noundef 0, ptr noundef nonnull %6) #16
-  %224 = call i32 @get_log_level() #16
-  %225 = icmp sgt i32 %224, 2
-  br i1 %225, label %226, label %228
-
-226:                                              ; preds = %222
-  %227 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 160), align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.73, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, i32 noundef %227, i32 noundef %.0456, ptr noundef nonnull %5) #16
-  br label %228
-
-228:                                              ; preds = %222, %226, %219
-  %229 = load i32, ptr @yield_sleep, align 4
-  %230 = sext i32 %229 to i64
-  %231 = call fastcc i32 @_yield_locks(i64 noundef %230)
-  %.not583 = icmp eq i32 %231, 0
-  br i1 %.not583, label %240, label %232
-
-232:                                              ; preds = %228
-  %233 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %234 = and i64 %233, 4096
-  %.not742 = icmp eq i64 %234, 0
-  br i1 %.not742, label %_set_job_time_limit.exit, label %235
-
-235:                                              ; preds = %232
   %236 = call i32 @get_log_level() #16
-  %237 = icmp sgt i32 %236, 3
-  br i1 %237, label %238, label %_set_job_time_limit.exit
+  %237 = icmp sgt i32 %236, 2
+  br i1 %237, label %238, label %240
 
-238:                                              ; preds = %235
+238:                                              ; preds = %234
   %239 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 160), align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.74, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, i32 noundef %239, i32 noundef %.0456) #16
-  br label %_set_job_time_limit.exit
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.73, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, i32 noundef %239, i32 noundef %.0456, ptr noundef nonnull %5) #16
+  br label %240
 
-240:                                              ; preds = %228
-  %241 = call i64 @time(ptr noundef null) #16
-  %242 = call i32 @gettimeofday(ptr noundef nonnull %20, ptr noundef null) #16
-  %243 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #16
-  br label %244
+240:                                              ; preds = %234, %238, %231
+  %241 = load i32, ptr @yield_sleep, align 4
+  %242 = sext i32 %241 to i64
+  %243 = call fastcc i32 @_yield_locks(i64 noundef %242)
+  %.not583 = icmp eq i32 %243, 0
+  br i1 %.not583, label %255, label %244
 
-244:                                              ; preds = %240, %216
-  %.2458 = phi i32 [ 0, %240 ], [ %.0456, %216 ]
-  %.1452 = phi i32 [ 0, %240 ], [ %.0451, %216 ]
-  %.1381 = phi i64 [ %241, %240 ], [ %.0380, %216 ]
+244:                                              ; preds = %240
+  %245 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %246 = and i64 %245, 4096
+  %.not742 = icmp eq i64 %246, 0
+  br i1 %.not742, label %252, label %247
+
+247:                                              ; preds = %244
+  %248 = call i32 @get_log_level() #16
+  %249 = icmp sgt i32 %248, 3
+  br i1 %249, label %250, label %252
+
+250:                                              ; preds = %247
+  %251 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 160), align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.74, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, i32 noundef %251, i32 noundef %.0456) #16
+  br label %252
+
+252:                                              ; preds = %244, %247, %250
+  %253 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 148), align 4
+  %254 = add i32 %253, 1
+  store i32 %254, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 148), align 4
+  br label %1959
+
+255:                                              ; preds = %240
+  %256 = call i64 @time(ptr noundef null) #16
+  %257 = call i32 @gettimeofday(ptr noundef nonnull %20, ptr noundef null) #16
+  %258 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #16
+  br label %259
+
+259:                                              ; preds = %255, %228
+  %.2458 = phi i32 [ 0, %255 ], [ %.0456, %228 ]
+  %.1452 = phi i32 [ 0, %255 ], [ %.0451, %228 ]
+  %.1381 = phi i64 [ %256, %255 ], [ %.0380, %228 ]
   %.pre2865 = load ptr, ptr %9, align 8
-  br i1 %.0416, label %245, label %263
+  br i1 %.0416, label %260, label %278
 
-245:                                              ; preds = %244
-  %246 = getelementptr inbounds i8, ptr %.pre2865, i64 52
-  %247 = load i32, ptr %246, align 4
-  %.not584 = icmp eq i32 %247, -2
-  br i1 %.not584, label %263, label %248
+260:                                              ; preds = %259
+  %261 = getelementptr inbounds i8, ptr %.pre2865, i64 52
+  %262 = load i32, ptr %261, align 4
+  %.not584 = icmp eq i32 %262, -2
+  br i1 %.not584, label %278, label %263
 
-248:                                              ; preds = %245
-  %249 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %250 = and i64 %249, 4096
-  %.not585 = icmp eq i64 %250, 0
-  br i1 %.not585, label %255, label %251
+263:                                              ; preds = %260
+  %264 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %265 = and i64 %264, 4096
+  %.not585 = icmp eq i64 %265, 0
+  br i1 %.not585, label %270, label %266
 
-251:                                              ; preds = %248
-  %252 = call i32 @get_log_level() #16
-  %253 = icmp sgt i32 %252, 3
+266:                                              ; preds = %263
+  %267 = call i32 @get_log_level() #16
+  %268 = icmp sgt i32 %267, 3
   %.pre2864 = load ptr, ptr %9, align 8
-  br i1 %253, label %254, label %255
+  br i1 %268, label %269, label %270
 
-254:                                              ; preds = %251
+269:                                              ; preds = %266
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.75, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, ptr noundef %.pre2864) #16
   %.pre = load ptr, ptr %9, align 8
-  br label %255
+  br label %270
 
-255:                                              ; preds = %248, %251, %254
-  %256 = phi ptr [ %.pre2865, %248 ], [ %.pre2864, %251 ], [ %.pre, %254 ]
-  %257 = getelementptr inbounds i8, ptr %256, i64 48
-  %258 = load i32, ptr %257, align 8
-  %259 = call ptr @find_job_record(i32 noundef %258) #16
-  store ptr %259, ptr %9, align 8
-  %.not586 = icmp eq ptr %259, null
-  br i1 %.not586, label %.backedge.backedge, label %260
+270:                                              ; preds = %263, %266, %269
+  %271 = phi ptr [ %.pre2865, %263 ], [ %.pre2864, %266 ], [ %.pre, %269 ]
+  %272 = getelementptr inbounds i8, ptr %271, i64 48
+  %273 = load i32, ptr %272, align 8
+  %274 = call ptr @find_job_record(i32 noundef %273) #16
+  store ptr %274, ptr %9, align 8
+  %.not586 = icmp eq ptr %274, null
+  br i1 %.not586, label %.backedge.backedge, label %275
 
-260:                                              ; preds = %255
-  %261 = load ptr, ptr %7, align 8
-  %262 = getelementptr inbounds i8, ptr %261, i64 8
-  store ptr %259, ptr %262, align 8
-  br label %263
+275:                                              ; preds = %270
+  %276 = load ptr, ptr %7, align 8
+  %277 = getelementptr inbounds i8, ptr %276, i64 8
+  store ptr %274, ptr %277, align 8
+  br label %278
 
-263:                                              ; preds = %260, %245, %244
-  %264 = phi ptr [ %259, %260 ], [ %.pre2865, %245 ], [ %.pre2865, %244 ]
-  %265 = add nsw i64 %.0377, 31536000
-  call fastcc void @_het_job_start_set(ptr noundef %264, i64 noundef %265, i32 noundef -2)
-  %266 = load ptr, ptr %9, align 8
-  %267 = getelementptr inbounds i8, ptr %266, i64 360
-  %268 = load i32, ptr %267, align 8
-  %.not587 = icmp eq i32 %268, 0
-  br i1 %.not587, label %277, label %269
+278:                                              ; preds = %275, %260, %259
+  %279 = phi ptr [ %274, %275 ], [ %.pre2865, %260 ], [ %.pre2865, %259 ]
+  %280 = add nsw i64 %.0377, 31536000
+  call fastcc void @_het_job_start_set(ptr noundef %279, i64 noundef %280, i32 noundef -2)
+  %281 = load ptr, ptr %9, align 8
+  %282 = getelementptr inbounds i8, ptr %281, i64 360
+  %283 = load i32, ptr %282, align 8
+  %.not587 = icmp eq i32 %283, 0
+  br i1 %.not587, label %292, label %284
 
-269:                                              ; preds = %263
-  %270 = getelementptr inbounds i8, ptr %266, i64 904
-  %271 = load i32, ptr %270, align 8
-  %272 = icmp eq i32 %271, 0
-  br i1 %272, label %273, label %277
+284:                                              ; preds = %278
+  %285 = getelementptr inbounds i8, ptr %281, i64 904
+  %286 = load i32, ptr %285, align 8
+  %287 = icmp eq i32 %286, 0
+  br i1 %287, label %288, label %292
 
-273:                                              ; preds = %269
-  %274 = getelementptr inbounds i8, ptr %266, i64 896
-  call void @slurm_xfree(ptr noundef nonnull %274) #16
-  %275 = load ptr, ptr %9, align 8
-  %276 = getelementptr inbounds i8, ptr %275, i64 904
-  store i32 3, ptr %276, align 8
-  br label %277
+288:                                              ; preds = %284
+  %289 = getelementptr inbounds i8, ptr %281, i64 896
+  call void @slurm_xfree(ptr noundef nonnull %289) #16
+  %290 = load ptr, ptr %9, align 8
+  %291 = getelementptr inbounds i8, ptr %290, i64 904
+  store i32 3, ptr %291, align 8
+  br label %292
 
-277:                                              ; preds = %273, %269, %263
-  %278 = phi ptr [ %275, %273 ], [ %266, %269 ], [ %266, %263 ]
-  %279 = call fastcc zeroext i1 @_job_runnable_now(ptr noundef nonnull %278)
-  %280 = icmp ne ptr %184, null
-  %or.cond25 = select i1 %279, i1 %280, i1 false
-  br i1 %or.cond25, label %281, label %.backedge.backedge
+292:                                              ; preds = %288, %284, %278
+  %293 = phi ptr [ %290, %288 ], [ %281, %284 ], [ %281, %278 ]
+  %294 = call fastcc zeroext i1 @_job_runnable_now(ptr noundef nonnull %293)
+  %295 = icmp ne ptr %193, null
+  %or.cond25 = select i1 %294, i1 %295, i1 false
+  br i1 %or.cond25, label %296, label %.backedge.backedge
 
-281:                                              ; preds = %277
-  %282 = load ptr, ptr %9, align 8
-  %283 = getelementptr inbounds i8, ptr %282, i64 800
-  %284 = load ptr, ptr %283, align 8
-  %.not588 = icmp eq ptr %284, null
-  %285 = load ptr, ptr %7, align 8
-  br i1 %.not588, label %287, label %286
-
-286:                                              ; preds = %281
-  call void @job_queue_rec_resv_list(ptr noundef %285) #16
-  br label %288
-
-287:                                              ; preds = %281
-  call void @job_queue_rec_magnetic_resv(ptr noundef %285) #16
-  br label %288
-
-288:                                              ; preds = %287, %286
-  call void @slurm_xfree(ptr noundef nonnull %7) #16
-  %289 = load ptr, ptr %9, align 8
-  %290 = getelementptr inbounds i8, ptr %289, i64 112
-  %291 = load i64, ptr %290, align 8
-  %292 = or i64 %291, 4294967296
-  store i64 %292, ptr %290, align 8
-  %293 = getelementptr inbounds i8, ptr %289, i64 456
-  store i64 %.0377, ptr %293, align 8
-  %294 = getelementptr inbounds i8, ptr %289, i64 664
-  store ptr %184, ptr %294, align 8
-  %295 = getelementptr inbounds i8, ptr %289, i64 712
-  store i32 %186, ptr %295, align 8
-  %296 = call i32 @slurm_mcs_get_select(ptr noundef %289) #16
+296:                                              ; preds = %292
   %297 = load ptr, ptr %9, align 8
-  %298 = getelementptr inbounds i8, ptr %297, i64 360
-  %299 = load i32, ptr %298, align 8
-  %.not.i793 = icmp eq i32 %299, 0
-  br i1 %.not.i793, label %_het_job_start_find.exit, label %300
+  %298 = getelementptr inbounds i8, ptr %297, i64 800
+  %299 = load ptr, ptr %298, align 8
+  %.not588 = icmp eq ptr %299, null
+  %300 = load ptr, ptr %7, align 8
+  br i1 %.not588, label %302, label %301
 
-300:                                              ; preds = %288
-  %301 = load ptr, ptr @het_job_list, align 8
-  %302 = call ptr @list_find_first(ptr noundef %301, ptr noundef nonnull @_het_job_find_map, ptr noundef nonnull %298) #16
-  %.not10.i = icmp eq ptr %302, null
-  br i1 %.not10.i, label %317, label %303
+301:                                              ; preds = %296
+  call void @job_queue_rec_resv_list(ptr noundef %300) #16
+  br label %303
 
-303:                                              ; preds = %300
-  %304 = getelementptr inbounds i8, ptr %297, i64 392
-  %305 = load i32, ptr %304, align 8
-  %306 = getelementptr i8, ptr %302, i64 8
-  %.val.i = load ptr, ptr %306, align 8
-  %307 = getelementptr i8, ptr %302, i64 16
-  %.val12.i = load i64, ptr %307, align 8
-  %308 = call ptr @list_iterator_create(ptr noundef %.val.i) #16
+302:                                              ; preds = %296
+  call void @job_queue_rec_magnetic_resv(ptr noundef %300) #16
+  br label %303
+
+303:                                              ; preds = %302, %301
+  call void @slurm_xfree(ptr noundef nonnull %7) #16
+  %304 = load ptr, ptr %9, align 8
+  %305 = getelementptr inbounds i8, ptr %304, i64 112
+  %306 = load i64, ptr %305, align 8
+  %307 = or i64 %306, 4294967296
+  store i64 %307, ptr %305, align 8
+  %308 = getelementptr inbounds i8, ptr %304, i64 456
+  store i64 %.0377, ptr %308, align 8
+  %309 = getelementptr inbounds i8, ptr %304, i64 664
+  store ptr %193, ptr %309, align 8
+  %310 = getelementptr inbounds i8, ptr %304, i64 712
+  store i32 %195, ptr %310, align 8
+  %311 = call i32 @slurm_mcs_get_select(ptr noundef %304) #16
+  %312 = load ptr, ptr %9, align 8
+  %313 = getelementptr inbounds i8, ptr %312, i64 360
+  %314 = load i32, ptr %313, align 8
+  %.not.i793 = icmp eq i32 %314, 0
+  br i1 %.not.i793, label %_het_job_start_find.exit, label %315
+
+315:                                              ; preds = %303
+  %316 = load ptr, ptr @het_job_list, align 8
+  %317 = call ptr @list_find_first(ptr noundef %316, ptr noundef nonnull @_het_job_find_map, ptr noundef nonnull %313) #16
+  %.not10.i = icmp eq ptr %317, null
+  br i1 %.not10.i, label %332, label %318
+
+318:                                              ; preds = %315
+  %319 = getelementptr inbounds i8, ptr %312, i64 392
+  %320 = load i32, ptr %319, align 8
+  %321 = getelementptr i8, ptr %317, i64 8
+  %.val.i = load ptr, ptr %321, align 8
+  %322 = getelementptr i8, ptr %317, i64 16
+  %.val12.i = load i64, ptr %322, align 8
+  %323 = call ptr @list_iterator_create(ptr noundef %.val.i) #16
   br label %.outer.i.i
 
-.outer.i.i:                                       ; preds = %314, %303
-  %.0.ph.i.i = phi i64 [ %.0..i.i, %314 ], [ %.val12.i, %303 ]
-  br label %309
+.outer.i.i:                                       ; preds = %329, %318
+  %.0.ph.i.i = phi i64 [ %.0..i.i, %329 ], [ %.val12.i, %318 ]
+  br label %324
 
-309:                                              ; preds = %311, %.outer.i.i
-  %310 = call ptr @list_next(ptr noundef %308) #16
-  %.not.i.i = icmp eq ptr %310, null
-  br i1 %.not.i.i, label %_het_job_start_compute.exit.i, label %311
+324:                                              ; preds = %326, %.outer.i.i
+  %325 = call ptr @list_next(ptr noundef %323) #16
+  %.not.i.i = icmp eq ptr %325, null
+  br i1 %.not.i.i, label %_het_job_start_compute.exit.i, label %326
 
-311:                                              ; preds = %309
-  %312 = load i32, ptr %310, align 8
-  %313 = icmp eq i32 %312, %305
-  br i1 %313, label %309, label %314, !llvm.loop !10
+326:                                              ; preds = %324
+  %327 = load i32, ptr %325, align 8
+  %328 = icmp eq i32 %327, %320
+  br i1 %328, label %324, label %329, !llvm.loop !10
 
-314:                                              ; preds = %311
-  %315 = getelementptr inbounds i8, ptr %310, i64 16
-  %316 = load i64, ptr %315, align 8
-  %.0..i.i = call i64 @llvm.smax.i64(i64 %.0.ph.i.i, i64 %316)
+329:                                              ; preds = %326
+  %330 = getelementptr inbounds i8, ptr %325, i64 16
+  %331 = load i64, ptr %330, align 8
+  %.0..i.i = call i64 @llvm.smax.i64(i64 %.0.ph.i.i, i64 %331)
   br label %.outer.i.i, !llvm.loop !10
 
-_het_job_start_compute.exit.i:                    ; preds = %309
-  call void @list_iterator_destroy(ptr noundef %308) #16
-  br label %317
+_het_job_start_compute.exit.i:                    ; preds = %324
+  call void @list_iterator_destroy(ptr noundef %323) #16
+  br label %332
 
-317:                                              ; preds = %_het_job_start_compute.exit.i, %300
-  %.1.i = phi i64 [ %.0.ph.i.i, %_het_job_start_compute.exit.i ], [ 0, %300 ]
-  %318 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %319 = and i64 %318, 562949953421312
-  %.not11.i = icmp eq i64 %319, 0
-  br i1 %.not11.i, label %_het_job_start_find.exit, label %320
+332:                                              ; preds = %_het_job_start_compute.exit.i, %315
+  %.1.i = phi i64 [ %.0.ph.i.i, %_het_job_start_compute.exit.i ], [ 0, %315 ]
+  %333 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %334 = and i64 %333, 562949953421312
+  %.not11.i = icmp eq i64 %334, 0
+  br i1 %.not11.i, label %_het_job_start_find.exit, label %335
 
-320:                                              ; preds = %317
-  %321 = call i32 @get_log_level() #16
-  %322 = icmp sgt i32 %321, 3
-  br i1 %322, label %323, label %_het_job_start_find.exit
+335:                                              ; preds = %332
+  %336 = call i32 @get_log_level() #16
+  %337 = icmp sgt i32 %336, 3
+  br i1 %337, label %338, label %_het_job_start_find.exit
 
-323:                                              ; preds = %320
-  %324 = getelementptr inbounds i8, ptr %297, i64 664
-  %325 = load ptr, ptr %324, align 8
-  %326 = getelementptr inbounds i8, ptr %325, i64 224
-  %327 = load ptr, ptr %326, align 8
-  %328 = call i64 @time(ptr noundef null) #16
-  %329 = icmp slt i64 %.1.i, %328
-  br i1 %329, label %333, label %330
+338:                                              ; preds = %335
+  %339 = getelementptr inbounds i8, ptr %312, i64 664
+  %340 = load ptr, ptr %339, align 8
+  %341 = getelementptr inbounds i8, ptr %340, i64 224
+  %342 = load ptr, ptr %341, align 8
+  %343 = call i64 @time(ptr noundef null) #16
+  %344 = icmp slt i64 %.1.i, %343
+  br i1 %344, label %348, label %345
 
-330:                                              ; preds = %323
-  %331 = call i64 @time(ptr noundef null) #16
-  %332 = sub nsw i64 %.1.i, %331
-  br label %333
+345:                                              ; preds = %338
+  %346 = call i64 @time(ptr noundef null) #16
+  %347 = sub nsw i64 %.1.i, %346
+  br label %348
 
-333:                                              ; preds = %330, %323
-  %334 = phi i64 [ %332, %330 ], [ 0, %323 ]
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.124, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._het_job_start_find, ptr noundef nonnull %297, ptr noundef %327, i64 noundef %334) #16
+348:                                              ; preds = %345, %338
+  %349 = phi i64 [ %347, %345 ], [ 0, %338 ]
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.124, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._het_job_start_find, ptr noundef nonnull %312, ptr noundef %342, i64 noundef %349) #16
   br label %_het_job_start_find.exit
 
-_het_job_start_find.exit:                         ; preds = %288, %317, %320, %333
-  %.0.i = phi i64 [ %.1.i, %333 ], [ %.1.i, %320 ], [ %.1.i, %317 ], [ 0, %288 ]
-  %335 = load i32, ptr @backfill_window, align 4
-  %336 = sext i32 %335 to i64
-  %337 = add nsw i64 %.0377, %336
-  %338 = icmp sgt i64 %.0.i, %337
-  br i1 %338, label %.backedge.backedge, label %339
+_het_job_start_find.exit:                         ; preds = %303, %332, %335, %348
+  %.0.i = phi i64 [ %.1.i, %348 ], [ %.1.i, %335 ], [ %.1.i, %332 ], [ 0, %303 ]
+  %350 = load i32, ptr @backfill_window, align 4
+  %351 = sext i32 %350 to i64
+  %352 = add nsw i64 %.0377, %351
+  %353 = icmp sgt i64 %.0.i, %352
+  br i1 %353, label %.backedge.backedge, label %354
 
-339:                                              ; preds = %_het_job_start_find.exit
-  %340 = load ptr, ptr %9, align 8
-  %341 = getelementptr inbounds i8, ptr %340, i64 752
-  %342 = load i32, ptr %341, align 8
-  %.not589 = icmp eq i32 %342, 0
-  br i1 %.not589, label %384, label %343
+354:                                              ; preds = %_het_job_start_find.exit
+  %355 = load ptr, ptr %9, align 8
+  %356 = getelementptr inbounds i8, ptr %355, i64 752
+  %357 = load i32, ptr %356, align 8
+  %.not589 = icmp eq i32 %357, 0
+  br i1 %.not589, label %399, label %358
 
-343:                                              ; preds = %339
+358:                                              ; preds = %354
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %26, ptr noundef nonnull align 4 dereferenceable(28) @__const._attempt_backfill.locks, i64 28, i1 false)
   call void @assoc_mgr_lock(ptr noundef nonnull %26) #16
-  %344 = load ptr, ptr %9, align 8
-  %345 = getelementptr inbounds i8, ptr %344, i64 72
-  %346 = load ptr, ptr %345, align 8
-  %.not590 = icmp eq ptr %346, null
-  br i1 %.not590, label %374, label %347
+  %359 = load ptr, ptr %9, align 8
+  %360 = getelementptr inbounds i8, ptr %359, i64 72
+  %361 = load ptr, ptr %360, align 8
+  %.not590 = icmp eq ptr %361, null
+  br i1 %.not590, label %389, label %362
 
-347:                                              ; preds = %343
-  %348 = load i16, ptr @accounting_enforce, align 2
-  %349 = and i16 %348, 8
-  %.not591 = icmp eq i16 %349, 0
-  br i1 %.not591, label %374, label %350
+362:                                              ; preds = %358
+  %363 = load i16, ptr @accounting_enforce, align 2
+  %364 = and i16 %363, 8
+  %.not591 = icmp eq i16 %364, 0
+  br i1 %.not591, label %389, label %365
 
-350:                                              ; preds = %347
-  %351 = getelementptr inbounds i8, ptr %344, i64 752
-  %352 = load i32, ptr %351, align 8
-  %353 = load i32, ptr @g_qos_count, align 4
-  %.not592 = icmp ult i32 %352, %353
-  br i1 %.not592, label %354, label %._crit_edge
+365:                                              ; preds = %362
+  %366 = getelementptr inbounds i8, ptr %359, i64 752
+  %367 = load i32, ptr %366, align 8
+  %368 = load i32, ptr @g_qos_count, align 4
+  %.not592 = icmp ult i32 %367, %368
+  br i1 %.not592, label %369, label %._crit_edge
 
-354:                                              ; preds = %350
-  %355 = getelementptr inbounds i8, ptr %346, i64 312
-  %356 = load ptr, ptr %355, align 8
-  %.not593 = icmp eq ptr %356, null
-  br i1 %.not593, label %._crit_edge, label %357
+369:                                              ; preds = %365
+  %370 = getelementptr inbounds i8, ptr %361, i64 312
+  %371 = load ptr, ptr %370, align 8
+  %.not593 = icmp eq ptr %371, null
+  br i1 %.not593, label %._crit_edge, label %372
 
-357:                                              ; preds = %354
-  %358 = getelementptr inbounds i8, ptr %356, i64 192
-  %359 = load ptr, ptr %358, align 16
-  %.not594 = icmp eq ptr %359, null
-  br i1 %.not594, label %._crit_edge, label %360
+372:                                              ; preds = %369
+  %373 = getelementptr inbounds i8, ptr %371, i64 192
+  %374 = load ptr, ptr %373, align 16
+  %.not594 = icmp eq ptr %374, null
+  br i1 %.not594, label %._crit_edge, label %375
 
-360:                                              ; preds = %357
-  %361 = zext i32 %352 to i64
-  %362 = call i32 @bit_test(ptr noundef nonnull %359, i64 noundef %361) #16
-  %.not595 = icmp eq i32 %362, 0
+375:                                              ; preds = %372
+  %376 = zext i32 %367 to i64
+  %377 = call i32 @bit_test(ptr noundef nonnull %374, i64 noundef %376) #16
+  %.not595 = icmp eq i32 %377, 0
   %.pre2867 = load ptr, ptr %9, align 8
-  br i1 %.not595, label %._crit_edge, label %374
+  br i1 %.not595, label %._crit_edge, label %389
 
-._crit_edge:                                      ; preds = %360, %357, %354, %350
-  %363 = phi ptr [ %344, %357 ], [ %344, %354 ], [ %344, %350 ], [ %.pre2867, %360 ]
-  %364 = getelementptr inbounds i8, ptr %363, i64 488
-  %365 = load i16, ptr %364, align 8
-  %.not596 = icmp eq i16 %365, 0
-  br i1 %.not596, label %366, label %374
+._crit_edge:                                      ; preds = %375, %372, %369, %365
+  %378 = phi ptr [ %359, %372 ], [ %359, %369 ], [ %359, %365 ], [ %.pre2867, %375 ]
+  %379 = getelementptr inbounds i8, ptr %378, i64 488
+  %380 = load i16, ptr %379, align 8
+  %.not596 = icmp eq i16 %380, 0
+  br i1 %.not596, label %381, label %389
 
-366:                                              ; preds = %._crit_edge
-  %367 = call i32 @get_log_level() #16
-  %368 = icmp sgt i32 %367, 4
-  br i1 %368, label %369, label %371
+381:                                              ; preds = %._crit_edge
+  %382 = call i32 @get_log_level() #16
+  %383 = icmp sgt i32 %382, 4
+  br i1 %383, label %384, label %386
 
-369:                                              ; preds = %366
-  %370 = load ptr, ptr %9, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.76, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, ptr noundef %370) #16
-  br label %371
+384:                                              ; preds = %381
+  %385 = load ptr, ptr %9, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.76, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, ptr noundef %385) #16
+  br label %386
 
-371:                                              ; preds = %369, %366
+386:                                              ; preds = %384, %381
   call void @assoc_mgr_unlock(ptr noundef nonnull %26) #16
-  %372 = load ptr, ptr %9, align 8
-  %373 = call i32 @job_fail_qos(ptr noundef %372, ptr noundef nonnull @__func__._attempt_backfill, i1 noundef zeroext false) #16
+  %387 = load ptr, ptr %9, align 8
+  %388 = call i32 @job_fail_qos(ptr noundef %387, ptr noundef nonnull @__func__._attempt_backfill, i1 noundef zeroext false) #16
   store i64 %.0377, ptr @last_job_update, align 8
   br label %.backedge.backedge
 
-374:                                              ; preds = %._crit_edge, %360, %347, %343
-  %375 = phi ptr [ %363, %._crit_edge ], [ %.pre2867, %360 ], [ %344, %347 ], [ %344, %343 ]
-  %376 = getelementptr inbounds i8, ptr %375, i64 904
-  %377 = load i32, ptr %376, align 8
-  %378 = icmp eq i32 %377, 28
-  br i1 %378, label %379, label %383
+389:                                              ; preds = %._crit_edge, %375, %362, %358
+  %390 = phi ptr [ %378, %._crit_edge ], [ %.pre2867, %375 ], [ %359, %362 ], [ %359, %358 ]
+  %391 = getelementptr inbounds i8, ptr %390, i64 904
+  %392 = load i32, ptr %391, align 8
+  %393 = icmp eq i32 %392, 28
+  br i1 %393, label %394, label %398
 
-379:                                              ; preds = %374
-  %380 = getelementptr inbounds i8, ptr %375, i64 896
-  call void @slurm_xfree(ptr noundef nonnull %380) #16
-  %381 = load ptr, ptr %9, align 8
-  %382 = getelementptr inbounds i8, ptr %381, i64 904
-  store i32 0, ptr %382, align 8
+394:                                              ; preds = %389
+  %395 = getelementptr inbounds i8, ptr %390, i64 896
+  call void @slurm_xfree(ptr noundef nonnull %395) #16
+  %396 = load ptr, ptr %9, align 8
+  %397 = getelementptr inbounds i8, ptr %396, i64 904
+  store i32 0, ptr %397, align 8
   store i64 %.0377, ptr @last_job_update, align 8
-  br label %383
+  br label %398
 
-383:                                              ; preds = %374, %379
+398:                                              ; preds = %389, %394
   call void @assoc_mgr_unlock(ptr noundef nonnull %26) #16
-  br label %384
+  br label %399
 
-384:                                              ; preds = %383, %339
+399:                                              ; preds = %398, %354
   call void @assoc_mgr_lock(ptr noundef nonnull %24) #16
-  %385 = load ptr, ptr %9, align 8
-  %386 = getelementptr inbounds i8, ptr %385, i64 760
-  %387 = load ptr, ptr %386, align 8
-  %.not597 = icmp eq ptr %387, null
-  br i1 %.not597, label %393, label %388
+  %400 = load ptr, ptr %9, align 8
+  %401 = getelementptr inbounds i8, ptr %400, i64 760
+  %402 = load ptr, ptr %401, align 8
+  %.not597 = icmp eq ptr %402, null
+  br i1 %.not597, label %408, label %403
 
-388:                                              ; preds = %384
-  %389 = getelementptr inbounds i8, ptr %387, i64 12
-  %390 = load i32, ptr %389, align 4
-  %391 = getelementptr inbounds i8, ptr %387, i64 328
-  %392 = load i64, ptr %391, align 8
-  br label %393
+403:                                              ; preds = %399
+  %404 = getelementptr inbounds i8, ptr %402, i64 12
+  %405 = load i32, ptr %404, align 4
+  %406 = getelementptr inbounds i8, ptr %402, i64 328
+  %407 = load i64, ptr %406, align 8
+  br label %408
 
-393:                                              ; preds = %384, %388
-  %.1406 = phi i32 [ %390, %388 ], [ 0, %384 ]
-  %.0404 = phi i64 [ %392, %388 ], [ 0, %384 ]
-  %394 = getelementptr inbounds i8, ptr %385, i64 664
-  %395 = load ptr, ptr %394, align 8
-  %396 = getelementptr inbounds i8, ptr %395, i64 288
-  %397 = load ptr, ptr %396, align 8
-  %.not598 = icmp eq ptr %397, null
-  br i1 %.not598, label %401, label %398
+408:                                              ; preds = %399, %403
+  %.1406 = phi i32 [ %405, %403 ], [ 0, %399 ]
+  %.0404 = phi i64 [ %407, %403 ], [ 0, %399 ]
+  %409 = getelementptr inbounds i8, ptr %400, i64 664
+  %410 = load ptr, ptr %409, align 8
+  %411 = getelementptr inbounds i8, ptr %410, i64 288
+  %412 = load ptr, ptr %411, align 8
+  %.not598 = icmp eq ptr %412, null
+  br i1 %.not598, label %416, label %413
 
-398:                                              ; preds = %393
-  %399 = getelementptr inbounds i8, ptr %397, i64 328
-  %400 = load i64, ptr %399, align 8
-  br label %401
+413:                                              ; preds = %408
+  %414 = getelementptr inbounds i8, ptr %412, i64 328
+  %415 = load i64, ptr %414, align 8
+  br label %416
 
-401:                                              ; preds = %393, %398
-  %.0403 = phi i64 [ %400, %398 ], [ 0, %393 ]
-  %402 = getelementptr inbounds i8, ptr %385, i64 1064
-  %403 = load i32, ptr %402, align 8
-  %404 = call i32 @part_policy_valid_qos(ptr noundef nonnull %395, ptr noundef %387, i32 noundef %403, ptr noundef nonnull %385) #16
-  %.not599 = icmp eq i32 %404, 0
+416:                                              ; preds = %408, %413
+  %.0403 = phi i64 [ %415, %413 ], [ 0, %408 ]
+  %417 = getelementptr inbounds i8, ptr %400, i64 1064
+  %418 = load i32, ptr %417, align 8
+  %419 = call i32 @part_policy_valid_qos(ptr noundef nonnull %410, ptr noundef %402, i32 noundef %418, ptr noundef nonnull %400) #16
+  %.not599 = icmp eq i32 %419, 0
   call void @assoc_mgr_unlock(ptr noundef nonnull %24) #16
-  br i1 %.not599, label %405, label %.backedge.backedge
+  br i1 %.not599, label %420, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %1915, %1918, %1924, %_set_job_time_limit.exit822, %545, %_job_part_valid.exit, %579, %583, %587, %853, %556, %541, %536, %1575, %1579, %1584, %1571, %1570, %974, %979, %1013, %401, %1817, %1815, %1798, %1795, %1712, %1709, %1685, %1682, %1633, %1630, %1503, %1499, %1066, %1063, %1045, %1042, %1003, %1000, %997, %991, %988, %985, %845, %842, %839, %837, %834, %831, %829, %826, %823, %818, %815, %812, %807, %804, %801, %791, %788, %785, %754, %751, %748, %699, %696, %693, %672, %669, %665, %646, %643, %638, %371, %_set_job_time_limit.exit805, %1341, %1400, %255, %277, %_het_job_start_find.exit, %406, %.thread, %_set_job_time_limit.exit816
-  %.0834.be = phi i64 [ %.1835, %_het_job_start_find.exit ], [ %.1835, %.thread ], [ %.4838, %_set_job_time_limit.exit805 ], [ %.4838, %_set_job_time_limit.exit816 ], [ %.4838, %1400 ], [ %.4838, %1341 ], [ %.1835, %406 ], [ %.1835, %371 ], [ %.1835, %277 ], [ %.1835, %255 ], [ %.4838, %638 ], [ %.4838, %643 ], [ %.4838, %646 ], [ %.4838, %665 ], [ %.4838, %669 ], [ %.4838, %672 ], [ %.4838, %693 ], [ %.4838, %696 ], [ %.4838, %699 ], [ %.4838, %748 ], [ %.4838, %751 ], [ %.4838, %754 ], [ %.4838, %785 ], [ %.4838, %788 ], [ %.4838, %791 ], [ %.4838, %801 ], [ %.4838, %804 ], [ %.4838, %807 ], [ %.4838, %812 ], [ %.4838, %815 ], [ %.4838, %818 ], [ %.4838, %823 ], [ %.4838, %826 ], [ %.4838, %829 ], [ %.4838, %831 ], [ %.4838, %834 ], [ %.4838, %837 ], [ %.4838, %839 ], [ %.4838, %842 ], [ %.4838, %845 ], [ %.4838, %985 ], [ %.4838, %988 ], [ %.4838, %991 ], [ %.4838, %997 ], [ %.4838, %1000 ], [ %.4838, %1003 ], [ %.4838, %1042 ], [ %.4838, %1045 ], [ %.4838, %1063 ], [ %.4838, %1066 ], [ %.4838, %1499 ], [ %.4838, %1503 ], [ %.4838, %1630 ], [ %.4838, %1633 ], [ %.4838, %1682 ], [ %.4838, %1685 ], [ %.4838, %1709 ], [ %.4838, %1712 ], [ %.4838, %1795 ], [ %.4838, %1798 ], [ %.4838, %1815 ], [ %.4838, %1817 ], [ %.1835, %401 ], [ %.4838, %1013 ], [ %.4838, %979 ], [ %.4838, %974 ], [ %.4838, %1570 ], [ %.4838, %1571 ], [ %.4838, %1584 ], [ %.4838, %1579 ], [ %.4838, %1575 ], [ %.4838, %536 ], [ %.4838, %541 ], [ %.4838, %556 ], [ %.4838, %853 ], [ %.4838, %587 ], [ %.4838, %583 ], [ %.4838, %579 ], [ %.4838, %_job_part_valid.exit ], [ %.4838, %545 ], [ %.4838, %_set_job_time_limit.exit822 ], [ %.4838, %1924 ], [ %.4838, %1918 ], [ %.4838, %1915 ]
-  %.0829.be = phi i8 [ %.1830, %_het_job_start_find.exit ], [ %.1830, %.thread ], [ %.4833, %_set_job_time_limit.exit805 ], [ %.4833, %_set_job_time_limit.exit816 ], [ %.4833, %1400 ], [ %.4833, %1341 ], [ %.1830, %406 ], [ %.1830, %371 ], [ %.1830, %277 ], [ %.1830, %255 ], [ %.4833, %638 ], [ %.4833, %643 ], [ %.4833, %646 ], [ %.4833, %665 ], [ %.4833, %669 ], [ %.4833, %672 ], [ %.4833, %693 ], [ %.4833, %696 ], [ %.4833, %699 ], [ %.4833, %748 ], [ %.4833, %751 ], [ %.4833, %754 ], [ %.4833, %785 ], [ %.4833, %788 ], [ %.4833, %791 ], [ %.4833, %801 ], [ %.4833, %804 ], [ %.4833, %807 ], [ %.4833, %812 ], [ %.4833, %815 ], [ %.4833, %818 ], [ %.4833, %823 ], [ %.4833, %826 ], [ %.4833, %829 ], [ %.4833, %831 ], [ %.4833, %834 ], [ %.4833, %837 ], [ %.4833, %839 ], [ %.4833, %842 ], [ %.4833, %845 ], [ %.4833, %985 ], [ %.4833, %988 ], [ %.4833, %991 ], [ %.4833, %997 ], [ %.4833, %1000 ], [ %.4833, %1003 ], [ %.4833, %1042 ], [ %.4833, %1045 ], [ %.4833, %1063 ], [ %.4833, %1066 ], [ %.4833, %1499 ], [ %.4833, %1503 ], [ %.4833, %1630 ], [ %.4833, %1633 ], [ %.4833, %1682 ], [ %.4833, %1685 ], [ %.4833, %1709 ], [ %.4833, %1712 ], [ %.4833, %1795 ], [ %.4833, %1798 ], [ %.4833, %1815 ], [ %.4833, %1817 ], [ %.1830, %401 ], [ %.4833, %1013 ], [ %.4833, %979 ], [ %.4833, %974 ], [ %.4833, %1570 ], [ %.4833, %1571 ], [ %.4833, %1584 ], [ %.4833, %1579 ], [ %.4833, %1575 ], [ %.4833, %536 ], [ %.4833, %541 ], [ %.4833, %556 ], [ %.4833, %853 ], [ %.4833, %587 ], [ %.4833, %583 ], [ %.4833, %579 ], [ %.4833, %_job_part_valid.exit ], [ %.4833, %545 ], [ %.4833, %_set_job_time_limit.exit822 ], [ %.4833, %1924 ], [ %.4833, %1918 ], [ %.4833, %1915 ]
-  %.0456.be = phi i32 [ %.2458, %_het_job_start_find.exit ], [ %.2458, %.thread ], [ %.6462, %_set_job_time_limit.exit805 ], [ %.6462, %_set_job_time_limit.exit816 ], [ %.6462, %1400 ], [ %.6462, %1341 ], [ %.2458, %406 ], [ %.2458, %371 ], [ %.2458, %277 ], [ %.2458, %255 ], [ %.4460, %638 ], [ %.4460, %643 ], [ %.4460, %646 ], [ %.4460, %665 ], [ %.4460, %669 ], [ %.4460, %672 ], [ %.4460, %693 ], [ %.4460, %696 ], [ %.4460, %699 ], [ %.4460, %748 ], [ %.4460, %751 ], [ %.4460, %754 ], [ %.4460, %785 ], [ %.4460, %788 ], [ %.4460, %791 ], [ %.4460, %801 ], [ %.4460, %804 ], [ %.4460, %807 ], [ %.4460, %812 ], [ %.4460, %815 ], [ %.4460, %818 ], [ %.4460, %823 ], [ %.4460, %826 ], [ %.4460, %829 ], [ %.4460, %831 ], [ %.4460, %834 ], [ %.4460, %837 ], [ %.4460, %839 ], [ %.4460, %842 ], [ %.4460, %845 ], [ 1, %985 ], [ 1, %988 ], [ 1, %991 ], [ 1, %997 ], [ 1, %1000 ], [ 1, %1003 ], [ %.6462, %1042 ], [ %.6462, %1045 ], [ %.6462, %1063 ], [ %.6462, %1066 ], [ %.6462, %1499 ], [ %.6462, %1503 ], [ %.6462, %1630 ], [ %.6462, %1633 ], [ %.6462, %1682 ], [ %.6462, %1685 ], [ %.6462, %1709 ], [ %.6462, %1712 ], [ %.6462, %1795 ], [ %.6462, %1798 ], [ %.6462, %1815 ], [ %.6462, %1817 ], [ %.2458, %401 ], [ %.6462, %1013 ], [ 1, %979 ], [ 1, %974 ], [ %.6462, %1570 ], [ %.6462, %1571 ], [ %.6462, %1584 ], [ %.6462, %1579 ], [ %.6462, %1575 ], [ %.4460, %536 ], [ %.4460, %541 ], [ %.4460, %556 ], [ %.4460, %853 ], [ %.4460, %587 ], [ %.4460, %583 ], [ %.4460, %579 ], [ %.4460, %_job_part_valid.exit ], [ %.4460, %545 ], [ %.6462, %_set_job_time_limit.exit822 ], [ %.6462, %1924 ], [ %.6462, %1918 ], [ %.6462, %1915 ]
-  %.0451.be = phi i32 [ %.1452, %_het_job_start_find.exit ], [ %.1452, %.thread ], [ %.4455, %_set_job_time_limit.exit805 ], [ %.4455, %_set_job_time_limit.exit816 ], [ %.4455, %1400 ], [ %.4455, %1341 ], [ %.1452, %406 ], [ %.1452, %371 ], [ %.1452, %277 ], [ %.1452, %255 ], [ %.2453, %638 ], [ %.2453, %643 ], [ %.2453, %646 ], [ %.2453, %665 ], [ %.2453, %669 ], [ %.2453, %672 ], [ %.2453, %693 ], [ %.2453, %696 ], [ %.2453, %699 ], [ %.2453, %748 ], [ %.2453, %751 ], [ %.2453, %754 ], [ %.2453, %785 ], [ %.2453, %788 ], [ %.2453, %791 ], [ %.2453, %801 ], [ %.2453, %804 ], [ %.2453, %807 ], [ %.2453, %812 ], [ %.2453, %815 ], [ %.2453, %818 ], [ %.2453, %823 ], [ %.2453, %826 ], [ %.2453, %829 ], [ %.2453, %831 ], [ %.2453, %834 ], [ %.2453, %837 ], [ %.2453, %839 ], [ %.2453, %842 ], [ %.2453, %845 ], [ 0, %985 ], [ 0, %988 ], [ 0, %991 ], [ 0, %997 ], [ 0, %1000 ], [ 0, %1003 ], [ %.4455, %1042 ], [ %.4455, %1045 ], [ %.4455, %1063 ], [ %.4455, %1066 ], [ %.4455, %1499 ], [ %.4455, %1503 ], [ %.4455, %1630 ], [ %.4455, %1633 ], [ %.4455, %1682 ], [ %.4455, %1685 ], [ %.4455, %1709 ], [ %.4455, %1712 ], [ %.4455, %1795 ], [ %.4455, %1798 ], [ %.4455, %1815 ], [ %.4455, %1817 ], [ %.1452, %401 ], [ %.4455, %1013 ], [ 0, %979 ], [ 0, %974 ], [ %.4455, %1570 ], [ %.4455, %1571 ], [ %.4455, %1584 ], [ %.4455, %1579 ], [ %.4455, %1575 ], [ %.2453, %536 ], [ %.2453, %541 ], [ %.2453, %556 ], [ %.2453, %853 ], [ %.2453, %587 ], [ %.2453, %583 ], [ %.2453, %579 ], [ %.2453, %_job_part_valid.exit ], [ %.2453, %545 ], [ %.4455, %_set_job_time_limit.exit822 ], [ %.4455, %1924 ], [ %.4455, %1918 ], [ %.4455, %1915 ]
-  %.0443.be = phi ptr [ %.0443, %_het_job_start_find.exit ], [ %.0443, %.thread ], [ %.2445, %_set_job_time_limit.exit805 ], [ %.2445, %_set_job_time_limit.exit816 ], [ null, %1400 ], [ %.2445, %1341 ], [ %.0443, %406 ], [ %.0443, %371 ], [ %.0443, %277 ], [ %.0443, %255 ], [ %.2445, %638 ], [ %.2445, %643 ], [ %.2445, %646 ], [ %.2445, %665 ], [ %.2445, %669 ], [ %.2445, %672 ], [ %.2445, %693 ], [ %.2445, %696 ], [ %.2445, %699 ], [ %.2445, %748 ], [ %.2445, %751 ], [ %.2445, %754 ], [ %.2445, %785 ], [ %.2445, %788 ], [ %.2445, %791 ], [ %.2445, %801 ], [ %.2445, %804 ], [ %.2445, %807 ], [ %.2445, %812 ], [ %.2445, %815 ], [ %.2445, %818 ], [ %.2445, %823 ], [ %.2445, %826 ], [ %.2445, %829 ], [ %.2445, %831 ], [ %.2445, %834 ], [ %.2445, %837 ], [ %.2445, %839 ], [ %.2445, %842 ], [ %.2445, %845 ], [ %.2445, %985 ], [ %.2445, %988 ], [ %.2445, %991 ], [ %.2445, %997 ], [ %.2445, %1000 ], [ %.2445, %1003 ], [ %.2445, %1042 ], [ %.2445, %1045 ], [ %.2445, %1063 ], [ %.2445, %1066 ], [ %.2445, %1499 ], [ %.2445, %1503 ], [ %.2445, %1630 ], [ %.2445, %1633 ], [ %.2445, %1682 ], [ %.2445, %1685 ], [ %.2445, %1709 ], [ %.2445, %1712 ], [ %.2445, %1795 ], [ %.2445, %1798 ], [ %.2445, %1815 ], [ %.2445, %1817 ], [ %.0443, %401 ], [ %.2445, %1013 ], [ %.2445, %979 ], [ %.2445, %974 ], [ null, %1570 ], [ null, %1571 ], [ null, %1584 ], [ null, %1579 ], [ null, %1575 ], [ %.1444, %536 ], [ %.1444, %541 ], [ %.1444, %556 ], [ %.2445, %853 ], [ %.2445, %587 ], [ %561, %583 ], [ %.1444, %579 ], [ %.1444, %_job_part_valid.exit ], [ %.1444, %545 ], [ null, %_set_job_time_limit.exit822 ], [ null, %1924 ], [ null, %1918 ], [ null, %1915 ]
-  %.0440.be = phi ptr [ %.0440, %_het_job_start_find.exit ], [ %.0440, %.thread ], [ %.2442, %_set_job_time_limit.exit805 ], [ %.2442, %_set_job_time_limit.exit816 ], [ null, %1400 ], [ %.2442, %1341 ], [ %.0440, %406 ], [ %.0440, %371 ], [ %.0440, %277 ], [ %.0440, %255 ], [ %.2442, %638 ], [ %.2442, %643 ], [ %.2442, %646 ], [ %.2442, %665 ], [ %.2442, %669 ], [ %.2442, %672 ], [ %.2442, %693 ], [ %.2442, %696 ], [ %.2442, %699 ], [ %.2442, %748 ], [ %.2442, %751 ], [ %.2442, %754 ], [ %.2442, %785 ], [ %.2442, %788 ], [ %.2442, %791 ], [ %.2442, %801 ], [ %.2442, %804 ], [ %.2442, %807 ], [ %.2442, %812 ], [ %.2442, %815 ], [ %.2442, %818 ], [ %.2442, %823 ], [ %.2442, %826 ], [ %.2442, %829 ], [ %.2442, %831 ], [ %.2442, %834 ], [ %.2442, %837 ], [ %.2442, %839 ], [ %.2442, %842 ], [ %.2442, %845 ], [ %.2442, %985 ], [ %.2442, %988 ], [ %.2442, %991 ], [ %.2442, %997 ], [ %.2442, %1000 ], [ %.2442, %1003 ], [ %.2442, %1042 ], [ %.2442, %1045 ], [ %.2442, %1063 ], [ %.2442, %1066 ], [ %.2442, %1499 ], [ %.2442, %1503 ], [ %.2442, %1630 ], [ %.2442, %1633 ], [ %.2442, %1682 ], [ %.2442, %1685 ], [ %.2442, %1709 ], [ %.2442, %1712 ], [ %.2442, %1795 ], [ %.2442, %1798 ], [ %.2442, %1815 ], [ %.2442, %1817 ], [ %.0440, %401 ], [ %.2442, %1013 ], [ %.2442, %979 ], [ %.2442, %974 ], [ null, %1570 ], [ null, %1571 ], [ null, %1584 ], [ null, %1579 ], [ null, %1575 ], [ %.1441, %536 ], [ %.1441, %541 ], [ %.1441, %556 ], [ %.2442, %853 ], [ %.2442, %587 ], [ %184, %583 ], [ %.1441, %579 ], [ %.1441, %_job_part_valid.exit ], [ %.1441, %545 ], [ null, %_set_job_time_limit.exit822 ], [ null, %1924 ], [ null, %1918 ], [ null, %1915 ]
-  %.0437.be = phi ptr [ %.0437, %_het_job_start_find.exit ], [ %.0437, %.thread ], [ %.2439, %_set_job_time_limit.exit805 ], [ %.2439, %_set_job_time_limit.exit816 ], [ null, %1400 ], [ %.2439, %1341 ], [ %.0437, %406 ], [ %.0437, %371 ], [ %.0437, %277 ], [ %.0437, %255 ], [ %.2439, %638 ], [ %.2439, %643 ], [ %.2439, %646 ], [ %.2439, %665 ], [ %.2439, %669 ], [ %.2439, %672 ], [ %.2439, %693 ], [ %.2439, %696 ], [ %.2439, %699 ], [ %.2439, %748 ], [ %.2439, %751 ], [ %.2439, %754 ], [ %.2439, %785 ], [ %.2439, %788 ], [ %.2439, %791 ], [ %.2439, %801 ], [ %.2439, %804 ], [ %.2439, %807 ], [ %.2439, %812 ], [ %.2439, %815 ], [ %.2439, %818 ], [ %.2439, %823 ], [ %.2439, %826 ], [ %.2439, %829 ], [ %.2439, %831 ], [ %.2439, %834 ], [ %.2439, %837 ], [ %.2439, %839 ], [ %.2439, %842 ], [ %.2439, %845 ], [ %.2439, %985 ], [ %.2439, %988 ], [ %.2439, %991 ], [ %.2439, %997 ], [ %.2439, %1000 ], [ %.2439, %1003 ], [ %.2439, %1042 ], [ %.2439, %1045 ], [ %.2439, %1063 ], [ %.2439, %1066 ], [ %.2439, %1499 ], [ %.2439, %1503 ], [ %.2439, %1630 ], [ %.2439, %1633 ], [ %.2439, %1682 ], [ %.2439, %1685 ], [ %.2439, %1709 ], [ %.2439, %1712 ], [ %.2439, %1795 ], [ %.2439, %1798 ], [ %.2439, %1815 ], [ %.2439, %1817 ], [ %.0437, %401 ], [ %.2439, %1013 ], [ %.2439, %979 ], [ %.2439, %974 ], [ null, %1570 ], [ null, %1571 ], [ null, %1584 ], [ null, %1579 ], [ null, %1575 ], [ %.1438, %536 ], [ %.1438, %541 ], [ %.1438, %556 ], [ %.2439, %853 ], [ %.2439, %587 ], [ %585, %583 ], [ %.1438, %579 ], [ %.1438, %_job_part_valid.exit ], [ %.1438, %545 ], [ null, %_set_job_time_limit.exit822 ], [ null, %1924 ], [ null, %1918 ], [ null, %1915 ]
-  %.0434.be = phi i8 [ %.0434, %_het_job_start_find.exit ], [ %.0434, %.thread ], [ %.2436, %_set_job_time_limit.exit805 ], [ %.2436, %_set_job_time_limit.exit816 ], [ %.2436, %1400 ], [ %.2436, %1341 ], [ %.0434, %406 ], [ %.0434, %371 ], [ %.0434, %277 ], [ %.0434, %255 ], [ %.2436, %638 ], [ %.2436, %643 ], [ %.2436, %646 ], [ %.2436, %665 ], [ %.2436, %669 ], [ %.2436, %672 ], [ %.2436, %693 ], [ %.2436, %696 ], [ %.2436, %699 ], [ %.2436, %748 ], [ %.2436, %751 ], [ %.2436, %754 ], [ %.2436, %785 ], [ %.2436, %788 ], [ %.2436, %791 ], [ %.2436, %801 ], [ %.2436, %804 ], [ %.2436, %807 ], [ %.2436, %812 ], [ %.2436, %815 ], [ %.2436, %818 ], [ %.2436, %823 ], [ %.2436, %826 ], [ %.2436, %829 ], [ %.2436, %831 ], [ %.2436, %834 ], [ %.2436, %837 ], [ %.2436, %839 ], [ %.2436, %842 ], [ %.2436, %845 ], [ %.2436, %985 ], [ %.2436, %988 ], [ %.2436, %991 ], [ %.2436, %997 ], [ %.2436, %1000 ], [ %.2436, %1003 ], [ %.2436, %1042 ], [ %.2436, %1045 ], [ %.2436, %1063 ], [ %.2436, %1066 ], [ %.2436, %1499 ], [ %.2436, %1503 ], [ %.2436, %1630 ], [ %.2436, %1633 ], [ %.2436, %1682 ], [ %.2436, %1685 ], [ %.2436, %1709 ], [ %.2436, %1712 ], [ %.2436, %1795 ], [ %.2436, %1798 ], [ %.2436, %1815 ], [ %.2436, %1817 ], [ %.0434, %401 ], [ %.2436, %1013 ], [ %.2436, %979 ], [ %.2436, %974 ], [ %.2436, %1570 ], [ %.2436, %1571 ], [ %.2436, %1584 ], [ %.2436, %1579 ], [ %.2436, %1575 ], [ %.1435, %536 ], [ %.1435, %541 ], [ %.1435, %556 ], [ %.2436, %853 ], [ %.2436, %587 ], [ %188, %583 ], [ %.1435, %579 ], [ %.1435, %_job_part_valid.exit ], [ %.1435, %545 ], [ %.2436, %_set_job_time_limit.exit822 ], [ %.2436, %1924 ], [ %.2436, %1918 ], [ %.2436, %1915 ]
-  %.0429.be = phi i32 [ 0, %_het_job_start_find.exit ], [ 0, %.thread ], [ %.2431.ph, %_set_job_time_limit.exit805 ], [ %.2431.ph, %_set_job_time_limit.exit816 ], [ %.2431.ph, %1400 ], [ %.2431.ph, %1341 ], [ 0, %406 ], [ 0, %371 ], [ 0, %277 ], [ 0, %255 ], [ %.2431.ph, %638 ], [ %.2431.ph, %643 ], [ %.2431.ph, %646 ], [ %.2431.ph, %665 ], [ %.2431.ph, %669 ], [ %.2431.ph, %672 ], [ %.2431.ph, %693 ], [ %.2431.ph, %696 ], [ %.2431.ph, %699 ], [ %.2431.ph, %748 ], [ %.2431.ph, %751 ], [ %.2431.ph, %754 ], [ %.2431.ph, %785 ], [ %.2431.ph, %788 ], [ %.2431.ph, %791 ], [ %.2431.ph, %801 ], [ %.2431.ph, %804 ], [ %.2431.ph, %807 ], [ %.2431.ph, %812 ], [ %.2431.ph, %815 ], [ %.2431.ph, %818 ], [ %.2431.ph, %823 ], [ %.2431.ph, %826 ], [ %.2431.ph, %829 ], [ %.2431.ph, %831 ], [ %.2431.ph, %834 ], [ %.2431.ph, %837 ], [ %.2431.ph, %839 ], [ %.2431.ph, %842 ], [ %.2431.ph, %845 ], [ %.2431.ph, %985 ], [ %.2431.ph, %988 ], [ %.2431.ph, %991 ], [ %.2431.ph, %997 ], [ %.2431.ph, %1000 ], [ %.2431.ph, %1003 ], [ %.2431.ph, %1042 ], [ %.2431.ph, %1045 ], [ %.2431.ph, %1063 ], [ %.2431.ph, %1066 ], [ %.2431.ph, %1499 ], [ %.2431.ph, %1503 ], [ %.2431.ph, %1630 ], [ %.2431.ph, %1633 ], [ %.2431.ph, %1682 ], [ %.2431.ph, %1685 ], [ %.2431.ph, %1709 ], [ %.2431.ph, %1712 ], [ 0, %1795 ], [ 0, %1798 ], [ %.2431.ph, %1815 ], [ %.2431.ph, %1817 ], [ 0, %401 ], [ %.2431.ph, %1013 ], [ %.2431.ph, %979 ], [ %.2431.ph, %974 ], [ %.2431.ph, %1570 ], [ %.2431.ph, %1571 ], [ %.2431.ph, %1584 ], [ %.2431.ph, %1579 ], [ %.2431.ph, %1575 ], [ %.2431.ph, %536 ], [ %.2431.ph, %541 ], [ %.2431.ph, %556 ], [ %.2431.ph, %853 ], [ %.2431.ph, %587 ], [ %.2431.ph, %583 ], [ %.2431.ph, %579 ], [ %.2431.ph, %_job_part_valid.exit ], [ %.2431.ph, %545 ], [ %.2431.ph, %_set_job_time_limit.exit822 ], [ %.4433, %1924 ], [ %.4433, %1918 ], [ %.4433, %1915 ]
-  %.0425.be = phi i32 [ %.0425, %_het_job_start_find.exit ], [ %.0425, %.thread ], [ %.1426.ph, %_set_job_time_limit.exit805 ], [ %.1426.ph, %_set_job_time_limit.exit816 ], [ %.1426.ph, %1400 ], [ %.1426.ph, %1341 ], [ %.0425, %406 ], [ %.0425, %371 ], [ %.0425, %277 ], [ %.0425, %255 ], [ %.1426.ph, %638 ], [ %.1426.ph, %643 ], [ %.1426.ph, %646 ], [ %.1426.ph, %665 ], [ %.1426.ph, %669 ], [ %.1426.ph, %672 ], [ %.1426.ph, %693 ], [ %.1426.ph, %696 ], [ %.1426.ph, %699 ], [ %.1426.ph, %748 ], [ %.1426.ph, %751 ], [ %.1426.ph, %754 ], [ %.1426.ph, %785 ], [ %.1426.ph, %788 ], [ %.1426.ph, %791 ], [ %.1426.ph, %801 ], [ %.1426.ph, %804 ], [ %.1426.ph, %807 ], [ %.1426.ph, %812 ], [ %.1426.ph, %815 ], [ %.1426.ph, %818 ], [ %.1426.ph, %823 ], [ %.1426.ph, %826 ], [ %.1426.ph, %829 ], [ %.1426.ph, %831 ], [ %.1426.ph, %834 ], [ %.1426.ph, %837 ], [ %.1426.ph, %839 ], [ %.1426.ph, %842 ], [ %.1426.ph, %845 ], [ %.1426.ph, %985 ], [ %.1426.ph, %988 ], [ %.1426.ph, %991 ], [ %.1426.ph, %997 ], [ %.1426.ph, %1000 ], [ %.1426.ph, %1003 ], [ %.1426.ph, %1042 ], [ %.1426.ph, %1045 ], [ %.1426.ph, %1063 ], [ %.1426.ph, %1066 ], [ %.1426.ph, %1499 ], [ %.1426.ph, %1503 ], [ %.1426.ph, %1630 ], [ %.1426.ph, %1633 ], [ %.1426.ph, %1682 ], [ %.1426.ph, %1685 ], [ %.1426.ph, %1709 ], [ %.1426.ph, %1712 ], [ %.0425, %1795 ], [ %.0425, %1798 ], [ %.1426.ph, %1815 ], [ %.1426.ph, %1817 ], [ %.0425, %401 ], [ %.1426.ph, %1013 ], [ %.1426.ph, %979 ], [ %.1426.ph, %974 ], [ %.1426.ph, %1570 ], [ %.1426.ph, %1571 ], [ %.1426.ph, %1584 ], [ %.1426.ph, %1579 ], [ %.1426.ph, %1575 ], [ %.1426.ph, %536 ], [ %.1426.ph, %541 ], [ %.1426.ph, %556 ], [ %.1426.ph, %853 ], [ %.1426.ph, %587 ], [ %.1426.ph, %583 ], [ %.1426.ph, %579 ], [ %.1426.ph, %_job_part_valid.exit ], [ %.1426.ph, %545 ], [ %.1426.ph, %_set_job_time_limit.exit822 ], [ %.3428, %1924 ], [ %.3428, %1918 ], [ %.3428, %1915 ]
-  %.0421.be = phi i32 [ %.0421, %_het_job_start_find.exit ], [ %.0421, %.thread ], [ %.1422.ph, %_set_job_time_limit.exit805 ], [ %.1422.ph, %_set_job_time_limit.exit816 ], [ %.1422.ph, %1400 ], [ %.1422.ph, %1341 ], [ %.0421, %406 ], [ %.0421, %371 ], [ %.0421, %277 ], [ %.0421, %255 ], [ %.1422.ph, %638 ], [ %.1422.ph, %643 ], [ %.1422.ph, %646 ], [ %.1422.ph, %665 ], [ %.1422.ph, %669 ], [ %.1422.ph, %672 ], [ %.1422.ph, %693 ], [ %.1422.ph, %696 ], [ %.1422.ph, %699 ], [ %.1422.ph, %748 ], [ %.1422.ph, %751 ], [ %.1422.ph, %754 ], [ %.1422.ph, %785 ], [ %.1422.ph, %788 ], [ %.1422.ph, %791 ], [ %.1422.ph, %801 ], [ %.1422.ph, %804 ], [ %.1422.ph, %807 ], [ %.1422.ph, %812 ], [ %.1422.ph, %815 ], [ %.1422.ph, %818 ], [ %.1422.ph, %823 ], [ %.1422.ph, %826 ], [ %.1422.ph, %829 ], [ %.1422.ph, %831 ], [ %.1422.ph, %834 ], [ %.1422.ph, %837 ], [ %.1422.ph, %839 ], [ %.1422.ph, %842 ], [ %.1422.ph, %845 ], [ %.1422.ph, %985 ], [ %.1422.ph, %988 ], [ %.1422.ph, %991 ], [ %.1422.ph, %997 ], [ %.1422.ph, %1000 ], [ %.1422.ph, %1003 ], [ %.1422.ph, %1042 ], [ %.1422.ph, %1045 ], [ %.1422.ph, %1063 ], [ %.1422.ph, %1066 ], [ %.1422.ph, %1499 ], [ %.1422.ph, %1503 ], [ %.1422.ph, %1630 ], [ %.1422.ph, %1633 ], [ %.1422.ph, %1682 ], [ %.1422.ph, %1685 ], [ %.1422.ph, %1709 ], [ %.1422.ph, %1712 ], [ %.0421, %1795 ], [ %.0421, %1798 ], [ %.1422.ph, %1815 ], [ %.1422.ph, %1817 ], [ %.0421, %401 ], [ %.1422.ph, %1013 ], [ %.1422.ph, %979 ], [ %.1422.ph, %974 ], [ %.1422.ph, %1570 ], [ %.1422.ph, %1571 ], [ %.1422.ph, %1584 ], [ %.1422.ph, %1579 ], [ %.1422.ph, %1575 ], [ %.1422.ph, %536 ], [ %.1422.ph, %541 ], [ %.1422.ph, %556 ], [ %.1422.ph, %853 ], [ %.1422.ph, %587 ], [ %.1422.ph, %583 ], [ %.1422.ph, %579 ], [ %.1422.ph, %_job_part_valid.exit ], [ %.1422.ph, %545 ], [ %.1422.ph, %_set_job_time_limit.exit822 ], [ %.3424, %1924 ], [ %.3424, %1918 ], [ %.3424, %1915 ]
-  %.0412.be = phi i8 [ %.0412, %_het_job_start_find.exit ], [ %.0412, %.thread ], [ %.2414.ph1964, %_set_job_time_limit.exit805 ], [ %.3415847872, %_set_job_time_limit.exit816 ], [ %.3415847872, %1400 ], [ %.3415847872, %1341 ], [ %.0412, %406 ], [ %.0412, %371 ], [ %.0412, %277 ], [ %.0412, %255 ], [ %.1413, %638 ], [ %.1413, %643 ], [ %.1413, %646 ], [ %.1413, %665 ], [ %.1413, %669 ], [ %.1413, %672 ], [ %.1413, %693 ], [ %.1413, %696 ], [ %.1413, %699 ], [ %.1413, %748 ], [ %.1413, %751 ], [ %.1413, %754 ], [ %.1413, %785 ], [ %.1413, %788 ], [ %.1413, %791 ], [ %.1413, %801 ], [ %.1413, %804 ], [ %.1413, %807 ], [ %.1413, %812 ], [ %.1413, %815 ], [ %.1413, %818 ], [ %.1413, %823 ], [ %.1413, %826 ], [ %.1413, %829 ], [ %.1413, %831 ], [ %.1413, %834 ], [ %.1413, %837 ], [ %.1413, %839 ], [ %.1413, %842 ], [ %.1413, %845 ], [ %.2414.ph1964, %985 ], [ %.2414.ph1964, %988 ], [ %.2414.ph1964, %991 ], [ %.2414.ph1964, %997 ], [ %.2414.ph1964, %1000 ], [ %.2414.ph1964, %1003 ], [ %.2414.ph1964, %1042 ], [ %.2414.ph1964, %1045 ], [ %.2414.ph1964, %1063 ], [ %.2414.ph1964, %1066 ], [ %.3415847872, %1499 ], [ %.3415847872, %1503 ], [ %.3415847872, %1630 ], [ %.3415847872, %1633 ], [ %.3415847872, %1682 ], [ %.3415847872, %1685 ], [ %.3415847872, %1709 ], [ %.3415847872, %1712 ], [ %.3415847872, %1795 ], [ %.3415847872, %1798 ], [ %.3415847872, %1815 ], [ %.3415847872, %1817 ], [ %.0412, %401 ], [ %.2414.ph1964, %1013 ], [ %.2414.ph1964, %979 ], [ %.2414.ph1964, %974 ], [ %.3415847872, %1570 ], [ %.3415847872, %1571 ], [ %.3415847872, %1584 ], [ %.3415847872, %1579 ], [ %.3415847872, %1575 ], [ %.1413, %536 ], [ %.1413, %541 ], [ %.1413, %556 ], [ %.1413, %853 ], [ %.1413, %587 ], [ %.1413, %583 ], [ %.1413, %579 ], [ %.1413, %_job_part_valid.exit ], [ %.1413, %545 ], [ %.3415847872, %_set_job_time_limit.exit822 ], [ %.3415847872, %1924 ], [ %.3415847872, %1918 ], [ %.3415847872, %1915 ]
-  %.0408.be = phi i8 [ %.0408, %_het_job_start_find.exit ], [ %.0408, %.thread ], [ %.2410.ph1965, %_set_job_time_limit.exit805 ], [ %.3411849870, %_set_job_time_limit.exit816 ], [ %.3411849870, %1400 ], [ %.3411849870, %1341 ], [ %.0408, %406 ], [ %.0408, %371 ], [ %.0408, %277 ], [ %.0408, %255 ], [ %.1409, %638 ], [ %.1409, %643 ], [ %.1409, %646 ], [ %.1409, %665 ], [ %.1409, %669 ], [ %.1409, %672 ], [ %.1409, %693 ], [ %.1409, %696 ], [ %.1409, %699 ], [ %.1409, %748 ], [ %.1409, %751 ], [ %.1409, %754 ], [ %.1409, %785 ], [ %.1409, %788 ], [ %.1409, %791 ], [ %.1409, %801 ], [ %.1409, %804 ], [ %.1409, %807 ], [ %.1409, %812 ], [ %.1409, %815 ], [ %.1409, %818 ], [ %.1409, %823 ], [ %.1409, %826 ], [ %.1409, %829 ], [ %.1409, %831 ], [ %.1409, %834 ], [ %.1409, %837 ], [ %.1409, %839 ], [ %.1409, %842 ], [ %.1409, %845 ], [ %.2410.ph1965, %985 ], [ %.2410.ph1965, %988 ], [ %.2410.ph1965, %991 ], [ %.2410.ph1965, %997 ], [ %.2410.ph1965, %1000 ], [ %.2410.ph1965, %1003 ], [ %.2410.ph1965, %1042 ], [ %.2410.ph1965, %1045 ], [ %.2410.ph1965, %1063 ], [ %.2410.ph1965, %1066 ], [ %.3411849870, %1499 ], [ %.3411849870, %1503 ], [ %.3411849870, %1630 ], [ %.3411849870, %1633 ], [ %.3411849870, %1682 ], [ %.3411849870, %1685 ], [ %.3411849870, %1709 ], [ %.3411849870, %1712 ], [ %.3411849870, %1795 ], [ %.3411849870, %1798 ], [ %.3411849870, %1815 ], [ %.3411849870, %1817 ], [ %.0408, %401 ], [ %.2410.ph1965, %1013 ], [ %.2410.ph1965, %979 ], [ %.2410.ph1965, %974 ], [ %.3411849870, %1570 ], [ %.3411849870, %1571 ], [ %.3411849870, %1584 ], [ %.3411849870, %1579 ], [ %.3411849870, %1575 ], [ %.1409, %536 ], [ %.1409, %541 ], [ %.1409, %556 ], [ %.1409, %853 ], [ %.1409, %587 ], [ %.1409, %583 ], [ %.1409, %579 ], [ %.1409, %_job_part_valid.exit ], [ %.1409, %545 ], [ %.3411849870, %_set_job_time_limit.exit822 ], [ %.3411849870, %1924 ], [ %.3411849870, %1918 ], [ %.3411849870, %1915 ]
-  %.0405.be = phi i32 [ %.0405, %_het_job_start_find.exit ], [ %.1406, %.thread ], [ %.1406, %_set_job_time_limit.exit805 ], [ %.1406, %_set_job_time_limit.exit816 ], [ %.1406, %1400 ], [ %.1406, %1341 ], [ %.1406, %406 ], [ %.0405, %371 ], [ %.0405, %277 ], [ %.0405, %255 ], [ %.1406, %638 ], [ %.1406, %643 ], [ %.1406, %646 ], [ %.1406, %665 ], [ %.1406, %669 ], [ %.1406, %672 ], [ %.1406, %693 ], [ %.1406, %696 ], [ %.1406, %699 ], [ %.1406, %748 ], [ %.1406, %751 ], [ %.1406, %754 ], [ %.1406, %785 ], [ %.1406, %788 ], [ %.1406, %791 ], [ %.1406, %801 ], [ %.1406, %804 ], [ %.1406, %807 ], [ %.1406, %812 ], [ %.1406, %815 ], [ %.1406, %818 ], [ %.1406, %823 ], [ %.1406, %826 ], [ %.1406, %829 ], [ %.1406, %831 ], [ %.1406, %834 ], [ %.1406, %837 ], [ %.1406, %839 ], [ %.1406, %842 ], [ %.1406, %845 ], [ %.1406, %985 ], [ %.1406, %988 ], [ %.1406, %991 ], [ %.1406, %997 ], [ %.1406, %1000 ], [ %.1406, %1003 ], [ %.1406, %1042 ], [ %.1406, %1045 ], [ %.1406, %1063 ], [ %.1406, %1066 ], [ %.1406, %1499 ], [ %.1406, %1503 ], [ %.1406, %1630 ], [ %.1406, %1633 ], [ %.1406, %1682 ], [ %.1406, %1685 ], [ %.1406, %1709 ], [ %.1406, %1712 ], [ %.1406, %1795 ], [ %.1406, %1798 ], [ %.1406, %1815 ], [ %.1406, %1817 ], [ %.1406, %401 ], [ %.1406, %1013 ], [ %.1406, %979 ], [ %.1406, %974 ], [ %.1406, %1570 ], [ %.1406, %1571 ], [ %.1406, %1584 ], [ %.1406, %1579 ], [ %.1406, %1575 ], [ %.1406, %536 ], [ %.1406, %541 ], [ %.1406, %556 ], [ %.1406, %853 ], [ %.1406, %587 ], [ %.1406, %583 ], [ %.1406, %579 ], [ %.1406, %_job_part_valid.exit ], [ %.1406, %545 ], [ %.1406, %_set_job_time_limit.exit822 ], [ %.1406, %1924 ], [ %.1406, %1918 ], [ %.1406, %1915 ]
-  %.0380.be = phi i64 [ %.1381, %_het_job_start_find.exit ], [ %.1381, %.thread ], [ %.4384, %_set_job_time_limit.exit805 ], [ %.4384, %_set_job_time_limit.exit816 ], [ %.4384, %1400 ], [ %.4384, %1341 ], [ %.1381, %406 ], [ %.1381, %371 ], [ %.1381, %277 ], [ %.1381, %255 ], [ %.2382, %638 ], [ %.2382, %643 ], [ %.2382, %646 ], [ %.2382, %665 ], [ %.2382, %669 ], [ %.2382, %672 ], [ %.2382, %693 ], [ %.2382, %696 ], [ %.2382, %699 ], [ %.2382, %748 ], [ %.2382, %751 ], [ %.2382, %754 ], [ %.2382, %785 ], [ %.2382, %788 ], [ %.2382, %791 ], [ %.2382, %801 ], [ %.2382, %804 ], [ %.2382, %807 ], [ %.2382, %812 ], [ %.2382, %815 ], [ %.2382, %818 ], [ %.2382, %823 ], [ %.2382, %826 ], [ %.2382, %829 ], [ %.2382, %831 ], [ %.2382, %834 ], [ %.2382, %837 ], [ %.2382, %839 ], [ %.2382, %842 ], [ %.2382, %845 ], [ %961, %985 ], [ %961, %988 ], [ %961, %991 ], [ %961, %997 ], [ %961, %1000 ], [ %961, %1003 ], [ %.4384, %1042 ], [ %.4384, %1045 ], [ %.4384, %1063 ], [ %.4384, %1066 ], [ %.4384, %1499 ], [ %.4384, %1503 ], [ %.4384, %1630 ], [ %.4384, %1633 ], [ %.4384, %1682 ], [ %.4384, %1685 ], [ %.4384, %1709 ], [ %.4384, %1712 ], [ %.4384, %1795 ], [ %.4384, %1798 ], [ %.4384, %1815 ], [ %.4384, %1817 ], [ %.1381, %401 ], [ %.4384, %1013 ], [ %961, %979 ], [ %961, %974 ], [ %.4384, %1570 ], [ %.4384, %1571 ], [ %.4384, %1584 ], [ %.4384, %1579 ], [ %.4384, %1575 ], [ %.2382, %536 ], [ %.2382, %541 ], [ %.2382, %556 ], [ %.2382, %853 ], [ %.2382, %587 ], [ %.2382, %583 ], [ %.2382, %579 ], [ %.2382, %_job_part_valid.exit ], [ %.2382, %545 ], [ %.4384, %_set_job_time_limit.exit822 ], [ %.4384, %1924 ], [ %.4384, %1918 ], [ %.4384, %1915 ]
-  %.0377.be = phi i64 [ %.0377, %_het_job_start_find.exit ], [ %.0377, %.thread ], [ %.2379.ph1969, %_set_job_time_limit.exit805 ], [ %1332, %_set_job_time_limit.exit816 ], [ %1332, %1400 ], [ %1332, %1341 ], [ %.0377, %406 ], [ %.0377, %371 ], [ %.0377, %277 ], [ %.0377, %255 ], [ %.1378, %638 ], [ %.1378, %643 ], [ %.1378, %646 ], [ %.1378, %665 ], [ %.1378, %669 ], [ %.1378, %672 ], [ %.1378, %693 ], [ %.1378, %696 ], [ %.1378, %699 ], [ %.1378, %748 ], [ %.1378, %751 ], [ %.1378, %754 ], [ %.1378, %785 ], [ %.1378, %788 ], [ %.1378, %791 ], [ %.1378, %801 ], [ %.1378, %804 ], [ %.1378, %807 ], [ %.1378, %812 ], [ %.1378, %815 ], [ %.1378, %818 ], [ %.1378, %823 ], [ %.1378, %826 ], [ %.1378, %829 ], [ %.1378, %831 ], [ %.1378, %834 ], [ %.1378, %837 ], [ %.1378, %839 ], [ %.1378, %842 ], [ %.1378, %845 ], [ %.2379.ph1969, %985 ], [ %.2379.ph1969, %988 ], [ %.2379.ph1969, %991 ], [ %.2379.ph1969, %997 ], [ %.2379.ph1969, %1000 ], [ %.2379.ph1969, %1003 ], [ %.2379.ph1969, %1042 ], [ %.2379.ph1969, %1045 ], [ %.2379.ph1969, %1063 ], [ %.2379.ph1969, %1066 ], [ %1332, %1499 ], [ %1332, %1503 ], [ %1332, %1630 ], [ %1332, %1633 ], [ %1332, %1682 ], [ %1332, %1685 ], [ %1332, %1709 ], [ %1332, %1712 ], [ %1332, %1795 ], [ %1332, %1798 ], [ %1332, %1815 ], [ %1332, %1817 ], [ %.0377, %401 ], [ %.2379.ph1969, %1013 ], [ %.2379.ph1969, %979 ], [ %.2379.ph1969, %974 ], [ %1332, %1570 ], [ %1332, %1571 ], [ %1332, %1584 ], [ %1332, %1579 ], [ %1332, %1575 ], [ %.1378, %536 ], [ %.1378, %541 ], [ %.1378, %556 ], [ %849, %853 ], [ %.1378, %587 ], [ %.1378, %583 ], [ %.1378, %579 ], [ %.1378, %_job_part_valid.exit ], [ %.1378, %545 ], [ %1332, %_set_job_time_limit.exit822 ], [ %1332, %1924 ], [ %1332, %1918 ], [ %1332, %1915 ]
-  %.0375.be = phi i32 [ %.0375, %_het_job_start_find.exit ], [ %.0375, %.thread ], [ %507, %_set_job_time_limit.exit805 ], [ %507, %_set_job_time_limit.exit816 ], [ %507, %1400 ], [ %507, %1341 ], [ %.0375, %406 ], [ %.0375, %371 ], [ %.0375, %277 ], [ %.0375, %255 ], [ %507, %638 ], [ %507, %643 ], [ %507, %646 ], [ %507, %665 ], [ %507, %669 ], [ %507, %672 ], [ %507, %693 ], [ %507, %696 ], [ %507, %699 ], [ %507, %748 ], [ %507, %751 ], [ %507, %754 ], [ %507, %785 ], [ %507, %788 ], [ %507, %791 ], [ %507, %801 ], [ %507, %804 ], [ %507, %807 ], [ %507, %812 ], [ %507, %815 ], [ %507, %818 ], [ %507, %823 ], [ %507, %826 ], [ %507, %829 ], [ %507, %831 ], [ %507, %834 ], [ %507, %837 ], [ %507, %839 ], [ %507, %842 ], [ %507, %845 ], [ %507, %985 ], [ %507, %988 ], [ %507, %991 ], [ %507, %997 ], [ %507, %1000 ], [ %507, %1003 ], [ %507, %1042 ], [ -2, %1045 ], [ %507, %1063 ], [ -2, %1066 ], [ %507, %1499 ], [ -2, %1503 ], [ %507, %1630 ], [ -2, %1633 ], [ %507, %1682 ], [ -2, %1685 ], [ %507, %1709 ], [ -2, %1712 ], [ %507, %1795 ], [ -2, %1798 ], [ %507, %1815 ], [ -2, %1817 ], [ %.0375, %401 ], [ %507, %1013 ], [ %507, %979 ], [ %507, %974 ], [ %507, %1570 ], [ %507, %1571 ], [ %507, %1584 ], [ %507, %1579 ], [ %507, %1575 ], [ %507, %536 ], [ %507, %541 ], [ %507, %556 ], [ %507, %853 ], [ %507, %587 ], [ %507, %583 ], [ %507, %579 ], [ %507, %_job_part_valid.exit ], [ %507, %545 ], [ %507, %_set_job_time_limit.exit822 ], [ %507, %1924 ], [ %507, %1918 ], [ %507, %1915 ]
+.backedge.backedge:                               ; preds = %1943, %1946, %1952, %_set_job_time_limit.exit822, %560, %_job_part_valid.exit, %594, %598, %602, %868, %571, %556, %551, %1601, %1605, %1610, %1597, %1596, %994, %999, %1033, %416, %1843, %1841, %1824, %1821, %1738, %1735, %1711, %1708, %1659, %1656, %1523, %1519, %1086, %1083, %1065, %1062, %1023, %1020, %1017, %1011, %1008, %1005, %860, %857, %854, %852, %849, %846, %844, %841, %838, %833, %830, %827, %822, %819, %816, %806, %803, %800, %769, %766, %763, %714, %711, %708, %687, %684, %680, %661, %658, %653, %386, %_set_job_time_limit.exit805, %1361, %1420, %270, %292, %_het_job_start_find.exit, %421, %.thread, %_set_job_time_limit.exit816
+  %.0834.be = phi i64 [ %.1835, %_het_job_start_find.exit ], [ %.1835, %.thread ], [ %.4838, %_set_job_time_limit.exit805 ], [ %.4838, %_set_job_time_limit.exit816 ], [ %.4838, %1420 ], [ %.4838, %1361 ], [ %.1835, %421 ], [ %.1835, %386 ], [ %.1835, %292 ], [ %.1835, %270 ], [ %.4838, %653 ], [ %.4838, %658 ], [ %.4838, %661 ], [ %.4838, %680 ], [ %.4838, %684 ], [ %.4838, %687 ], [ %.4838, %708 ], [ %.4838, %711 ], [ %.4838, %714 ], [ %.4838, %763 ], [ %.4838, %766 ], [ %.4838, %769 ], [ %.4838, %800 ], [ %.4838, %803 ], [ %.4838, %806 ], [ %.4838, %816 ], [ %.4838, %819 ], [ %.4838, %822 ], [ %.4838, %827 ], [ %.4838, %830 ], [ %.4838, %833 ], [ %.4838, %838 ], [ %.4838, %841 ], [ %.4838, %844 ], [ %.4838, %846 ], [ %.4838, %849 ], [ %.4838, %852 ], [ %.4838, %854 ], [ %.4838, %857 ], [ %.4838, %860 ], [ %.4838, %1005 ], [ %.4838, %1008 ], [ %.4838, %1011 ], [ %.4838, %1017 ], [ %.4838, %1020 ], [ %.4838, %1023 ], [ %.4838, %1062 ], [ %.4838, %1065 ], [ %.4838, %1083 ], [ %.4838, %1086 ], [ %.4838, %1519 ], [ %.4838, %1523 ], [ %.4838, %1656 ], [ %.4838, %1659 ], [ %.4838, %1708 ], [ %.4838, %1711 ], [ %.4838, %1735 ], [ %.4838, %1738 ], [ %.4838, %1821 ], [ %.4838, %1824 ], [ %.4838, %1841 ], [ %.4838, %1843 ], [ %.1835, %416 ], [ %.4838, %1033 ], [ %.4838, %999 ], [ %.4838, %994 ], [ %.4838, %1596 ], [ %.4838, %1597 ], [ %.4838, %1610 ], [ %.4838, %1605 ], [ %.4838, %1601 ], [ %.4838, %551 ], [ %.4838, %556 ], [ %.4838, %571 ], [ %.4838, %868 ], [ %.4838, %602 ], [ %.4838, %598 ], [ %.4838, %594 ], [ %.4838, %_job_part_valid.exit ], [ %.4838, %560 ], [ %.4838, %_set_job_time_limit.exit822 ], [ %.4838, %1952 ], [ %.4838, %1946 ], [ %.4838, %1943 ]
+  %.0829.be = phi i8 [ %.1830, %_het_job_start_find.exit ], [ %.1830, %.thread ], [ %.4833, %_set_job_time_limit.exit805 ], [ %.4833, %_set_job_time_limit.exit816 ], [ %.4833, %1420 ], [ %.4833, %1361 ], [ %.1830, %421 ], [ %.1830, %386 ], [ %.1830, %292 ], [ %.1830, %270 ], [ %.4833, %653 ], [ %.4833, %658 ], [ %.4833, %661 ], [ %.4833, %680 ], [ %.4833, %684 ], [ %.4833, %687 ], [ %.4833, %708 ], [ %.4833, %711 ], [ %.4833, %714 ], [ %.4833, %763 ], [ %.4833, %766 ], [ %.4833, %769 ], [ %.4833, %800 ], [ %.4833, %803 ], [ %.4833, %806 ], [ %.4833, %816 ], [ %.4833, %819 ], [ %.4833, %822 ], [ %.4833, %827 ], [ %.4833, %830 ], [ %.4833, %833 ], [ %.4833, %838 ], [ %.4833, %841 ], [ %.4833, %844 ], [ %.4833, %846 ], [ %.4833, %849 ], [ %.4833, %852 ], [ %.4833, %854 ], [ %.4833, %857 ], [ %.4833, %860 ], [ %.4833, %1005 ], [ %.4833, %1008 ], [ %.4833, %1011 ], [ %.4833, %1017 ], [ %.4833, %1020 ], [ %.4833, %1023 ], [ %.4833, %1062 ], [ %.4833, %1065 ], [ %.4833, %1083 ], [ %.4833, %1086 ], [ %.4833, %1519 ], [ %.4833, %1523 ], [ %.4833, %1656 ], [ %.4833, %1659 ], [ %.4833, %1708 ], [ %.4833, %1711 ], [ %.4833, %1735 ], [ %.4833, %1738 ], [ %.4833, %1821 ], [ %.4833, %1824 ], [ %.4833, %1841 ], [ %.4833, %1843 ], [ %.1830, %416 ], [ %.4833, %1033 ], [ %.4833, %999 ], [ %.4833, %994 ], [ %.4833, %1596 ], [ %.4833, %1597 ], [ %.4833, %1610 ], [ %.4833, %1605 ], [ %.4833, %1601 ], [ %.4833, %551 ], [ %.4833, %556 ], [ %.4833, %571 ], [ %.4833, %868 ], [ %.4833, %602 ], [ %.4833, %598 ], [ %.4833, %594 ], [ %.4833, %_job_part_valid.exit ], [ %.4833, %560 ], [ %.4833, %_set_job_time_limit.exit822 ], [ %.4833, %1952 ], [ %.4833, %1946 ], [ %.4833, %1943 ]
+  %.0456.be = phi i32 [ %.2458, %_het_job_start_find.exit ], [ %.2458, %.thread ], [ %.6462, %_set_job_time_limit.exit805 ], [ %.6462, %_set_job_time_limit.exit816 ], [ %.6462, %1420 ], [ %.6462, %1361 ], [ %.2458, %421 ], [ %.2458, %386 ], [ %.2458, %292 ], [ %.2458, %270 ], [ %.4460, %653 ], [ %.4460, %658 ], [ %.4460, %661 ], [ %.4460, %680 ], [ %.4460, %684 ], [ %.4460, %687 ], [ %.4460, %708 ], [ %.4460, %711 ], [ %.4460, %714 ], [ %.4460, %763 ], [ %.4460, %766 ], [ %.4460, %769 ], [ %.4460, %800 ], [ %.4460, %803 ], [ %.4460, %806 ], [ %.4460, %816 ], [ %.4460, %819 ], [ %.4460, %822 ], [ %.4460, %827 ], [ %.4460, %830 ], [ %.4460, %833 ], [ %.4460, %838 ], [ %.4460, %841 ], [ %.4460, %844 ], [ %.4460, %846 ], [ %.4460, %849 ], [ %.4460, %852 ], [ %.4460, %854 ], [ %.4460, %857 ], [ %.4460, %860 ], [ 1, %1005 ], [ 1, %1008 ], [ 1, %1011 ], [ 1, %1017 ], [ 1, %1020 ], [ 1, %1023 ], [ %.6462, %1062 ], [ %.6462, %1065 ], [ %.6462, %1083 ], [ %.6462, %1086 ], [ %.6462, %1519 ], [ %.6462, %1523 ], [ %.6462, %1656 ], [ %.6462, %1659 ], [ %.6462, %1708 ], [ %.6462, %1711 ], [ %.6462, %1735 ], [ %.6462, %1738 ], [ %.6462, %1821 ], [ %.6462, %1824 ], [ %.6462, %1841 ], [ %.6462, %1843 ], [ %.2458, %416 ], [ %.6462, %1033 ], [ 1, %999 ], [ 1, %994 ], [ %.6462, %1596 ], [ %.6462, %1597 ], [ %.6462, %1610 ], [ %.6462, %1605 ], [ %.6462, %1601 ], [ %.4460, %551 ], [ %.4460, %556 ], [ %.4460, %571 ], [ %.4460, %868 ], [ %.4460, %602 ], [ %.4460, %598 ], [ %.4460, %594 ], [ %.4460, %_job_part_valid.exit ], [ %.4460, %560 ], [ %.6462, %_set_job_time_limit.exit822 ], [ %.6462, %1952 ], [ %.6462, %1946 ], [ %.6462, %1943 ]
+  %.0451.be = phi i32 [ %.1452, %_het_job_start_find.exit ], [ %.1452, %.thread ], [ %.4455, %_set_job_time_limit.exit805 ], [ %.4455, %_set_job_time_limit.exit816 ], [ %.4455, %1420 ], [ %.4455, %1361 ], [ %.1452, %421 ], [ %.1452, %386 ], [ %.1452, %292 ], [ %.1452, %270 ], [ %.2453, %653 ], [ %.2453, %658 ], [ %.2453, %661 ], [ %.2453, %680 ], [ %.2453, %684 ], [ %.2453, %687 ], [ %.2453, %708 ], [ %.2453, %711 ], [ %.2453, %714 ], [ %.2453, %763 ], [ %.2453, %766 ], [ %.2453, %769 ], [ %.2453, %800 ], [ %.2453, %803 ], [ %.2453, %806 ], [ %.2453, %816 ], [ %.2453, %819 ], [ %.2453, %822 ], [ %.2453, %827 ], [ %.2453, %830 ], [ %.2453, %833 ], [ %.2453, %838 ], [ %.2453, %841 ], [ %.2453, %844 ], [ %.2453, %846 ], [ %.2453, %849 ], [ %.2453, %852 ], [ %.2453, %854 ], [ %.2453, %857 ], [ %.2453, %860 ], [ 0, %1005 ], [ 0, %1008 ], [ 0, %1011 ], [ 0, %1017 ], [ 0, %1020 ], [ 0, %1023 ], [ %.4455, %1062 ], [ %.4455, %1065 ], [ %.4455, %1083 ], [ %.4455, %1086 ], [ %.4455, %1519 ], [ %.4455, %1523 ], [ %.4455, %1656 ], [ %.4455, %1659 ], [ %.4455, %1708 ], [ %.4455, %1711 ], [ %.4455, %1735 ], [ %.4455, %1738 ], [ %.4455, %1821 ], [ %.4455, %1824 ], [ %.4455, %1841 ], [ %.4455, %1843 ], [ %.1452, %416 ], [ %.4455, %1033 ], [ 0, %999 ], [ 0, %994 ], [ %.4455, %1596 ], [ %.4455, %1597 ], [ %.4455, %1610 ], [ %.4455, %1605 ], [ %.4455, %1601 ], [ %.2453, %551 ], [ %.2453, %556 ], [ %.2453, %571 ], [ %.2453, %868 ], [ %.2453, %602 ], [ %.2453, %598 ], [ %.2453, %594 ], [ %.2453, %_job_part_valid.exit ], [ %.2453, %560 ], [ %.4455, %_set_job_time_limit.exit822 ], [ %.4455, %1952 ], [ %.4455, %1946 ], [ %.4455, %1943 ]
+  %.0443.be = phi ptr [ %.0443, %_het_job_start_find.exit ], [ %.0443, %.thread ], [ %.2445, %_set_job_time_limit.exit805 ], [ %.2445, %_set_job_time_limit.exit816 ], [ null, %1420 ], [ %.2445, %1361 ], [ %.0443, %421 ], [ %.0443, %386 ], [ %.0443, %292 ], [ %.0443, %270 ], [ %.2445, %653 ], [ %.2445, %658 ], [ %.2445, %661 ], [ %.2445, %680 ], [ %.2445, %684 ], [ %.2445, %687 ], [ %.2445, %708 ], [ %.2445, %711 ], [ %.2445, %714 ], [ %.2445, %763 ], [ %.2445, %766 ], [ %.2445, %769 ], [ %.2445, %800 ], [ %.2445, %803 ], [ %.2445, %806 ], [ %.2445, %816 ], [ %.2445, %819 ], [ %.2445, %822 ], [ %.2445, %827 ], [ %.2445, %830 ], [ %.2445, %833 ], [ %.2445, %838 ], [ %.2445, %841 ], [ %.2445, %844 ], [ %.2445, %846 ], [ %.2445, %849 ], [ %.2445, %852 ], [ %.2445, %854 ], [ %.2445, %857 ], [ %.2445, %860 ], [ %.2445, %1005 ], [ %.2445, %1008 ], [ %.2445, %1011 ], [ %.2445, %1017 ], [ %.2445, %1020 ], [ %.2445, %1023 ], [ %.2445, %1062 ], [ %.2445, %1065 ], [ %.2445, %1083 ], [ %.2445, %1086 ], [ %.2445, %1519 ], [ %.2445, %1523 ], [ %.2445, %1656 ], [ %.2445, %1659 ], [ %.2445, %1708 ], [ %.2445, %1711 ], [ %.2445, %1735 ], [ %.2445, %1738 ], [ %.2445, %1821 ], [ %.2445, %1824 ], [ %.2445, %1841 ], [ %.2445, %1843 ], [ %.0443, %416 ], [ %.2445, %1033 ], [ %.2445, %999 ], [ %.2445, %994 ], [ null, %1596 ], [ null, %1597 ], [ null, %1610 ], [ null, %1605 ], [ null, %1601 ], [ %.1444, %551 ], [ %.1444, %556 ], [ %.1444, %571 ], [ %.2445, %868 ], [ %.2445, %602 ], [ %576, %598 ], [ %.1444, %594 ], [ %.1444, %_job_part_valid.exit ], [ %.1444, %560 ], [ null, %_set_job_time_limit.exit822 ], [ null, %1952 ], [ null, %1946 ], [ null, %1943 ]
+  %.0440.be = phi ptr [ %.0440, %_het_job_start_find.exit ], [ %.0440, %.thread ], [ %.2442, %_set_job_time_limit.exit805 ], [ %.2442, %_set_job_time_limit.exit816 ], [ null, %1420 ], [ %.2442, %1361 ], [ %.0440, %421 ], [ %.0440, %386 ], [ %.0440, %292 ], [ %.0440, %270 ], [ %.2442, %653 ], [ %.2442, %658 ], [ %.2442, %661 ], [ %.2442, %680 ], [ %.2442, %684 ], [ %.2442, %687 ], [ %.2442, %708 ], [ %.2442, %711 ], [ %.2442, %714 ], [ %.2442, %763 ], [ %.2442, %766 ], [ %.2442, %769 ], [ %.2442, %800 ], [ %.2442, %803 ], [ %.2442, %806 ], [ %.2442, %816 ], [ %.2442, %819 ], [ %.2442, %822 ], [ %.2442, %827 ], [ %.2442, %830 ], [ %.2442, %833 ], [ %.2442, %838 ], [ %.2442, %841 ], [ %.2442, %844 ], [ %.2442, %846 ], [ %.2442, %849 ], [ %.2442, %852 ], [ %.2442, %854 ], [ %.2442, %857 ], [ %.2442, %860 ], [ %.2442, %1005 ], [ %.2442, %1008 ], [ %.2442, %1011 ], [ %.2442, %1017 ], [ %.2442, %1020 ], [ %.2442, %1023 ], [ %.2442, %1062 ], [ %.2442, %1065 ], [ %.2442, %1083 ], [ %.2442, %1086 ], [ %.2442, %1519 ], [ %.2442, %1523 ], [ %.2442, %1656 ], [ %.2442, %1659 ], [ %.2442, %1708 ], [ %.2442, %1711 ], [ %.2442, %1735 ], [ %.2442, %1738 ], [ %.2442, %1821 ], [ %.2442, %1824 ], [ %.2442, %1841 ], [ %.2442, %1843 ], [ %.0440, %416 ], [ %.2442, %1033 ], [ %.2442, %999 ], [ %.2442, %994 ], [ null, %1596 ], [ null, %1597 ], [ null, %1610 ], [ null, %1605 ], [ null, %1601 ], [ %.1441, %551 ], [ %.1441, %556 ], [ %.1441, %571 ], [ %.2442, %868 ], [ %.2442, %602 ], [ %193, %598 ], [ %.1441, %594 ], [ %.1441, %_job_part_valid.exit ], [ %.1441, %560 ], [ null, %_set_job_time_limit.exit822 ], [ null, %1952 ], [ null, %1946 ], [ null, %1943 ]
+  %.0437.be = phi ptr [ %.0437, %_het_job_start_find.exit ], [ %.0437, %.thread ], [ %.2439, %_set_job_time_limit.exit805 ], [ %.2439, %_set_job_time_limit.exit816 ], [ null, %1420 ], [ %.2439, %1361 ], [ %.0437, %421 ], [ %.0437, %386 ], [ %.0437, %292 ], [ %.0437, %270 ], [ %.2439, %653 ], [ %.2439, %658 ], [ %.2439, %661 ], [ %.2439, %680 ], [ %.2439, %684 ], [ %.2439, %687 ], [ %.2439, %708 ], [ %.2439, %711 ], [ %.2439, %714 ], [ %.2439, %763 ], [ %.2439, %766 ], [ %.2439, %769 ], [ %.2439, %800 ], [ %.2439, %803 ], [ %.2439, %806 ], [ %.2439, %816 ], [ %.2439, %819 ], [ %.2439, %822 ], [ %.2439, %827 ], [ %.2439, %830 ], [ %.2439, %833 ], [ %.2439, %838 ], [ %.2439, %841 ], [ %.2439, %844 ], [ %.2439, %846 ], [ %.2439, %849 ], [ %.2439, %852 ], [ %.2439, %854 ], [ %.2439, %857 ], [ %.2439, %860 ], [ %.2439, %1005 ], [ %.2439, %1008 ], [ %.2439, %1011 ], [ %.2439, %1017 ], [ %.2439, %1020 ], [ %.2439, %1023 ], [ %.2439, %1062 ], [ %.2439, %1065 ], [ %.2439, %1083 ], [ %.2439, %1086 ], [ %.2439, %1519 ], [ %.2439, %1523 ], [ %.2439, %1656 ], [ %.2439, %1659 ], [ %.2439, %1708 ], [ %.2439, %1711 ], [ %.2439, %1735 ], [ %.2439, %1738 ], [ %.2439, %1821 ], [ %.2439, %1824 ], [ %.2439, %1841 ], [ %.2439, %1843 ], [ %.0437, %416 ], [ %.2439, %1033 ], [ %.2439, %999 ], [ %.2439, %994 ], [ null, %1596 ], [ null, %1597 ], [ null, %1610 ], [ null, %1605 ], [ null, %1601 ], [ %.1438, %551 ], [ %.1438, %556 ], [ %.1438, %571 ], [ %.2439, %868 ], [ %.2439, %602 ], [ %600, %598 ], [ %.1438, %594 ], [ %.1438, %_job_part_valid.exit ], [ %.1438, %560 ], [ null, %_set_job_time_limit.exit822 ], [ null, %1952 ], [ null, %1946 ], [ null, %1943 ]
+  %.0434.be = phi i8 [ %.0434, %_het_job_start_find.exit ], [ %.0434, %.thread ], [ %.2436, %_set_job_time_limit.exit805 ], [ %.2436, %_set_job_time_limit.exit816 ], [ %.2436, %1420 ], [ %.2436, %1361 ], [ %.0434, %421 ], [ %.0434, %386 ], [ %.0434, %292 ], [ %.0434, %270 ], [ %.2436, %653 ], [ %.2436, %658 ], [ %.2436, %661 ], [ %.2436, %680 ], [ %.2436, %684 ], [ %.2436, %687 ], [ %.2436, %708 ], [ %.2436, %711 ], [ %.2436, %714 ], [ %.2436, %763 ], [ %.2436, %766 ], [ %.2436, %769 ], [ %.2436, %800 ], [ %.2436, %803 ], [ %.2436, %806 ], [ %.2436, %816 ], [ %.2436, %819 ], [ %.2436, %822 ], [ %.2436, %827 ], [ %.2436, %830 ], [ %.2436, %833 ], [ %.2436, %838 ], [ %.2436, %841 ], [ %.2436, %844 ], [ %.2436, %846 ], [ %.2436, %849 ], [ %.2436, %852 ], [ %.2436, %854 ], [ %.2436, %857 ], [ %.2436, %860 ], [ %.2436, %1005 ], [ %.2436, %1008 ], [ %.2436, %1011 ], [ %.2436, %1017 ], [ %.2436, %1020 ], [ %.2436, %1023 ], [ %.2436, %1062 ], [ %.2436, %1065 ], [ %.2436, %1083 ], [ %.2436, %1086 ], [ %.2436, %1519 ], [ %.2436, %1523 ], [ %.2436, %1656 ], [ %.2436, %1659 ], [ %.2436, %1708 ], [ %.2436, %1711 ], [ %.2436, %1735 ], [ %.2436, %1738 ], [ %.2436, %1821 ], [ %.2436, %1824 ], [ %.2436, %1841 ], [ %.2436, %1843 ], [ %.0434, %416 ], [ %.2436, %1033 ], [ %.2436, %999 ], [ %.2436, %994 ], [ %.2436, %1596 ], [ %.2436, %1597 ], [ %.2436, %1610 ], [ %.2436, %1605 ], [ %.2436, %1601 ], [ %.1435, %551 ], [ %.1435, %556 ], [ %.1435, %571 ], [ %.2436, %868 ], [ %.2436, %602 ], [ %197, %598 ], [ %.1435, %594 ], [ %.1435, %_job_part_valid.exit ], [ %.1435, %560 ], [ %.2436, %_set_job_time_limit.exit822 ], [ %.2436, %1952 ], [ %.2436, %1946 ], [ %.2436, %1943 ]
+  %.0429.be = phi i32 [ 0, %_het_job_start_find.exit ], [ 0, %.thread ], [ %.2431.ph, %_set_job_time_limit.exit805 ], [ %.2431.ph, %_set_job_time_limit.exit816 ], [ %.2431.ph, %1420 ], [ %.2431.ph, %1361 ], [ 0, %421 ], [ 0, %386 ], [ 0, %292 ], [ 0, %270 ], [ %.2431.ph, %653 ], [ %.2431.ph, %658 ], [ %.2431.ph, %661 ], [ %.2431.ph, %680 ], [ %.2431.ph, %684 ], [ %.2431.ph, %687 ], [ %.2431.ph, %708 ], [ %.2431.ph, %711 ], [ %.2431.ph, %714 ], [ %.2431.ph, %763 ], [ %.2431.ph, %766 ], [ %.2431.ph, %769 ], [ %.2431.ph, %800 ], [ %.2431.ph, %803 ], [ %.2431.ph, %806 ], [ %.2431.ph, %816 ], [ %.2431.ph, %819 ], [ %.2431.ph, %822 ], [ %.2431.ph, %827 ], [ %.2431.ph, %830 ], [ %.2431.ph, %833 ], [ %.2431.ph, %838 ], [ %.2431.ph, %841 ], [ %.2431.ph, %844 ], [ %.2431.ph, %846 ], [ %.2431.ph, %849 ], [ %.2431.ph, %852 ], [ %.2431.ph, %854 ], [ %.2431.ph, %857 ], [ %.2431.ph, %860 ], [ %.2431.ph, %1005 ], [ %.2431.ph, %1008 ], [ %.2431.ph, %1011 ], [ %.2431.ph, %1017 ], [ %.2431.ph, %1020 ], [ %.2431.ph, %1023 ], [ %.2431.ph, %1062 ], [ %.2431.ph, %1065 ], [ %.2431.ph, %1083 ], [ %.2431.ph, %1086 ], [ %.2431.ph, %1519 ], [ %.2431.ph, %1523 ], [ %.2431.ph, %1656 ], [ %.2431.ph, %1659 ], [ %.2431.ph, %1708 ], [ %.2431.ph, %1711 ], [ %.2431.ph, %1735 ], [ %.2431.ph, %1738 ], [ 0, %1821 ], [ 0, %1824 ], [ %.2431.ph, %1841 ], [ %.2431.ph, %1843 ], [ 0, %416 ], [ %.2431.ph, %1033 ], [ %.2431.ph, %999 ], [ %.2431.ph, %994 ], [ %.2431.ph, %1596 ], [ %.2431.ph, %1597 ], [ %.2431.ph, %1610 ], [ %.2431.ph, %1605 ], [ %.2431.ph, %1601 ], [ %.2431.ph, %551 ], [ %.2431.ph, %556 ], [ %.2431.ph, %571 ], [ %.2431.ph, %868 ], [ %.2431.ph, %602 ], [ %.2431.ph, %598 ], [ %.2431.ph, %594 ], [ %.2431.ph, %_job_part_valid.exit ], [ %.2431.ph, %560 ], [ %.2431.ph, %_set_job_time_limit.exit822 ], [ %.4433, %1952 ], [ %.4433, %1946 ], [ %.4433, %1943 ]
+  %.0425.be = phi i32 [ %.0425, %_het_job_start_find.exit ], [ %.0425, %.thread ], [ %.1426.ph, %_set_job_time_limit.exit805 ], [ %.1426.ph, %_set_job_time_limit.exit816 ], [ %.1426.ph, %1420 ], [ %.1426.ph, %1361 ], [ %.0425, %421 ], [ %.0425, %386 ], [ %.0425, %292 ], [ %.0425, %270 ], [ %.1426.ph, %653 ], [ %.1426.ph, %658 ], [ %.1426.ph, %661 ], [ %.1426.ph, %680 ], [ %.1426.ph, %684 ], [ %.1426.ph, %687 ], [ %.1426.ph, %708 ], [ %.1426.ph, %711 ], [ %.1426.ph, %714 ], [ %.1426.ph, %763 ], [ %.1426.ph, %766 ], [ %.1426.ph, %769 ], [ %.1426.ph, %800 ], [ %.1426.ph, %803 ], [ %.1426.ph, %806 ], [ %.1426.ph, %816 ], [ %.1426.ph, %819 ], [ %.1426.ph, %822 ], [ %.1426.ph, %827 ], [ %.1426.ph, %830 ], [ %.1426.ph, %833 ], [ %.1426.ph, %838 ], [ %.1426.ph, %841 ], [ %.1426.ph, %844 ], [ %.1426.ph, %846 ], [ %.1426.ph, %849 ], [ %.1426.ph, %852 ], [ %.1426.ph, %854 ], [ %.1426.ph, %857 ], [ %.1426.ph, %860 ], [ %.1426.ph, %1005 ], [ %.1426.ph, %1008 ], [ %.1426.ph, %1011 ], [ %.1426.ph, %1017 ], [ %.1426.ph, %1020 ], [ %.1426.ph, %1023 ], [ %.1426.ph, %1062 ], [ %.1426.ph, %1065 ], [ %.1426.ph, %1083 ], [ %.1426.ph, %1086 ], [ %.1426.ph, %1519 ], [ %.1426.ph, %1523 ], [ %.1426.ph, %1656 ], [ %.1426.ph, %1659 ], [ %.1426.ph, %1708 ], [ %.1426.ph, %1711 ], [ %.1426.ph, %1735 ], [ %.1426.ph, %1738 ], [ %.0425, %1821 ], [ %.0425, %1824 ], [ %.1426.ph, %1841 ], [ %.1426.ph, %1843 ], [ %.0425, %416 ], [ %.1426.ph, %1033 ], [ %.1426.ph, %999 ], [ %.1426.ph, %994 ], [ %.1426.ph, %1596 ], [ %.1426.ph, %1597 ], [ %.1426.ph, %1610 ], [ %.1426.ph, %1605 ], [ %.1426.ph, %1601 ], [ %.1426.ph, %551 ], [ %.1426.ph, %556 ], [ %.1426.ph, %571 ], [ %.1426.ph, %868 ], [ %.1426.ph, %602 ], [ %.1426.ph, %598 ], [ %.1426.ph, %594 ], [ %.1426.ph, %_job_part_valid.exit ], [ %.1426.ph, %560 ], [ %.1426.ph, %_set_job_time_limit.exit822 ], [ %.3428, %1952 ], [ %.3428, %1946 ], [ %.3428, %1943 ]
+  %.0421.be = phi i32 [ %.0421, %_het_job_start_find.exit ], [ %.0421, %.thread ], [ %.1422.ph, %_set_job_time_limit.exit805 ], [ %.1422.ph, %_set_job_time_limit.exit816 ], [ %.1422.ph, %1420 ], [ %.1422.ph, %1361 ], [ %.0421, %421 ], [ %.0421, %386 ], [ %.0421, %292 ], [ %.0421, %270 ], [ %.1422.ph, %653 ], [ %.1422.ph, %658 ], [ %.1422.ph, %661 ], [ %.1422.ph, %680 ], [ %.1422.ph, %684 ], [ %.1422.ph, %687 ], [ %.1422.ph, %708 ], [ %.1422.ph, %711 ], [ %.1422.ph, %714 ], [ %.1422.ph, %763 ], [ %.1422.ph, %766 ], [ %.1422.ph, %769 ], [ %.1422.ph, %800 ], [ %.1422.ph, %803 ], [ %.1422.ph, %806 ], [ %.1422.ph, %816 ], [ %.1422.ph, %819 ], [ %.1422.ph, %822 ], [ %.1422.ph, %827 ], [ %.1422.ph, %830 ], [ %.1422.ph, %833 ], [ %.1422.ph, %838 ], [ %.1422.ph, %841 ], [ %.1422.ph, %844 ], [ %.1422.ph, %846 ], [ %.1422.ph, %849 ], [ %.1422.ph, %852 ], [ %.1422.ph, %854 ], [ %.1422.ph, %857 ], [ %.1422.ph, %860 ], [ %.1422.ph, %1005 ], [ %.1422.ph, %1008 ], [ %.1422.ph, %1011 ], [ %.1422.ph, %1017 ], [ %.1422.ph, %1020 ], [ %.1422.ph, %1023 ], [ %.1422.ph, %1062 ], [ %.1422.ph, %1065 ], [ %.1422.ph, %1083 ], [ %.1422.ph, %1086 ], [ %.1422.ph, %1519 ], [ %.1422.ph, %1523 ], [ %.1422.ph, %1656 ], [ %.1422.ph, %1659 ], [ %.1422.ph, %1708 ], [ %.1422.ph, %1711 ], [ %.1422.ph, %1735 ], [ %.1422.ph, %1738 ], [ %.0421, %1821 ], [ %.0421, %1824 ], [ %.1422.ph, %1841 ], [ %.1422.ph, %1843 ], [ %.0421, %416 ], [ %.1422.ph, %1033 ], [ %.1422.ph, %999 ], [ %.1422.ph, %994 ], [ %.1422.ph, %1596 ], [ %.1422.ph, %1597 ], [ %.1422.ph, %1610 ], [ %.1422.ph, %1605 ], [ %.1422.ph, %1601 ], [ %.1422.ph, %551 ], [ %.1422.ph, %556 ], [ %.1422.ph, %571 ], [ %.1422.ph, %868 ], [ %.1422.ph, %602 ], [ %.1422.ph, %598 ], [ %.1422.ph, %594 ], [ %.1422.ph, %_job_part_valid.exit ], [ %.1422.ph, %560 ], [ %.1422.ph, %_set_job_time_limit.exit822 ], [ %.3424, %1952 ], [ %.3424, %1946 ], [ %.3424, %1943 ]
+  %.0412.be = phi i8 [ %.0412, %_het_job_start_find.exit ], [ %.0412, %.thread ], [ %.2414.ph1964, %_set_job_time_limit.exit805 ], [ %.3415847872, %_set_job_time_limit.exit816 ], [ %.3415847872, %1420 ], [ %.3415847872, %1361 ], [ %.0412, %421 ], [ %.0412, %386 ], [ %.0412, %292 ], [ %.0412, %270 ], [ %.1413, %653 ], [ %.1413, %658 ], [ %.1413, %661 ], [ %.1413, %680 ], [ %.1413, %684 ], [ %.1413, %687 ], [ %.1413, %708 ], [ %.1413, %711 ], [ %.1413, %714 ], [ %.1413, %763 ], [ %.1413, %766 ], [ %.1413, %769 ], [ %.1413, %800 ], [ %.1413, %803 ], [ %.1413, %806 ], [ %.1413, %816 ], [ %.1413, %819 ], [ %.1413, %822 ], [ %.1413, %827 ], [ %.1413, %830 ], [ %.1413, %833 ], [ %.1413, %838 ], [ %.1413, %841 ], [ %.1413, %844 ], [ %.1413, %846 ], [ %.1413, %849 ], [ %.1413, %852 ], [ %.1413, %854 ], [ %.1413, %857 ], [ %.1413, %860 ], [ %.2414.ph1964, %1005 ], [ %.2414.ph1964, %1008 ], [ %.2414.ph1964, %1011 ], [ %.2414.ph1964, %1017 ], [ %.2414.ph1964, %1020 ], [ %.2414.ph1964, %1023 ], [ %.2414.ph1964, %1062 ], [ %.2414.ph1964, %1065 ], [ %.2414.ph1964, %1083 ], [ %.2414.ph1964, %1086 ], [ %.3415847872, %1519 ], [ %.3415847872, %1523 ], [ %.3415847872, %1656 ], [ %.3415847872, %1659 ], [ %.3415847872, %1708 ], [ %.3415847872, %1711 ], [ %.3415847872, %1735 ], [ %.3415847872, %1738 ], [ %.3415847872, %1821 ], [ %.3415847872, %1824 ], [ %.3415847872, %1841 ], [ %.3415847872, %1843 ], [ %.0412, %416 ], [ %.2414.ph1964, %1033 ], [ %.2414.ph1964, %999 ], [ %.2414.ph1964, %994 ], [ %.3415847872, %1596 ], [ %.3415847872, %1597 ], [ %.3415847872, %1610 ], [ %.3415847872, %1605 ], [ %.3415847872, %1601 ], [ %.1413, %551 ], [ %.1413, %556 ], [ %.1413, %571 ], [ %.1413, %868 ], [ %.1413, %602 ], [ %.1413, %598 ], [ %.1413, %594 ], [ %.1413, %_job_part_valid.exit ], [ %.1413, %560 ], [ %.3415847872, %_set_job_time_limit.exit822 ], [ %.3415847872, %1952 ], [ %.3415847872, %1946 ], [ %.3415847872, %1943 ]
+  %.0408.be = phi i8 [ %.0408, %_het_job_start_find.exit ], [ %.0408, %.thread ], [ %.2410.ph1965, %_set_job_time_limit.exit805 ], [ %.3411849870, %_set_job_time_limit.exit816 ], [ %.3411849870, %1420 ], [ %.3411849870, %1361 ], [ %.0408, %421 ], [ %.0408, %386 ], [ %.0408, %292 ], [ %.0408, %270 ], [ %.1409, %653 ], [ %.1409, %658 ], [ %.1409, %661 ], [ %.1409, %680 ], [ %.1409, %684 ], [ %.1409, %687 ], [ %.1409, %708 ], [ %.1409, %711 ], [ %.1409, %714 ], [ %.1409, %763 ], [ %.1409, %766 ], [ %.1409, %769 ], [ %.1409, %800 ], [ %.1409, %803 ], [ %.1409, %806 ], [ %.1409, %816 ], [ %.1409, %819 ], [ %.1409, %822 ], [ %.1409, %827 ], [ %.1409, %830 ], [ %.1409, %833 ], [ %.1409, %838 ], [ %.1409, %841 ], [ %.1409, %844 ], [ %.1409, %846 ], [ %.1409, %849 ], [ %.1409, %852 ], [ %.1409, %854 ], [ %.1409, %857 ], [ %.1409, %860 ], [ %.2410.ph1965, %1005 ], [ %.2410.ph1965, %1008 ], [ %.2410.ph1965, %1011 ], [ %.2410.ph1965, %1017 ], [ %.2410.ph1965, %1020 ], [ %.2410.ph1965, %1023 ], [ %.2410.ph1965, %1062 ], [ %.2410.ph1965, %1065 ], [ %.2410.ph1965, %1083 ], [ %.2410.ph1965, %1086 ], [ %.3411849870, %1519 ], [ %.3411849870, %1523 ], [ %.3411849870, %1656 ], [ %.3411849870, %1659 ], [ %.3411849870, %1708 ], [ %.3411849870, %1711 ], [ %.3411849870, %1735 ], [ %.3411849870, %1738 ], [ %.3411849870, %1821 ], [ %.3411849870, %1824 ], [ %.3411849870, %1841 ], [ %.3411849870, %1843 ], [ %.0408, %416 ], [ %.2410.ph1965, %1033 ], [ %.2410.ph1965, %999 ], [ %.2410.ph1965, %994 ], [ %.3411849870, %1596 ], [ %.3411849870, %1597 ], [ %.3411849870, %1610 ], [ %.3411849870, %1605 ], [ %.3411849870, %1601 ], [ %.1409, %551 ], [ %.1409, %556 ], [ %.1409, %571 ], [ %.1409, %868 ], [ %.1409, %602 ], [ %.1409, %598 ], [ %.1409, %594 ], [ %.1409, %_job_part_valid.exit ], [ %.1409, %560 ], [ %.3411849870, %_set_job_time_limit.exit822 ], [ %.3411849870, %1952 ], [ %.3411849870, %1946 ], [ %.3411849870, %1943 ]
+  %.0405.be = phi i32 [ %.0405, %_het_job_start_find.exit ], [ %.1406, %.thread ], [ %.1406, %_set_job_time_limit.exit805 ], [ %.1406, %_set_job_time_limit.exit816 ], [ %.1406, %1420 ], [ %.1406, %1361 ], [ %.1406, %421 ], [ %.0405, %386 ], [ %.0405, %292 ], [ %.0405, %270 ], [ %.1406, %653 ], [ %.1406, %658 ], [ %.1406, %661 ], [ %.1406, %680 ], [ %.1406, %684 ], [ %.1406, %687 ], [ %.1406, %708 ], [ %.1406, %711 ], [ %.1406, %714 ], [ %.1406, %763 ], [ %.1406, %766 ], [ %.1406, %769 ], [ %.1406, %800 ], [ %.1406, %803 ], [ %.1406, %806 ], [ %.1406, %816 ], [ %.1406, %819 ], [ %.1406, %822 ], [ %.1406, %827 ], [ %.1406, %830 ], [ %.1406, %833 ], [ %.1406, %838 ], [ %.1406, %841 ], [ %.1406, %844 ], [ %.1406, %846 ], [ %.1406, %849 ], [ %.1406, %852 ], [ %.1406, %854 ], [ %.1406, %857 ], [ %.1406, %860 ], [ %.1406, %1005 ], [ %.1406, %1008 ], [ %.1406, %1011 ], [ %.1406, %1017 ], [ %.1406, %1020 ], [ %.1406, %1023 ], [ %.1406, %1062 ], [ %.1406, %1065 ], [ %.1406, %1083 ], [ %.1406, %1086 ], [ %.1406, %1519 ], [ %.1406, %1523 ], [ %.1406, %1656 ], [ %.1406, %1659 ], [ %.1406, %1708 ], [ %.1406, %1711 ], [ %.1406, %1735 ], [ %.1406, %1738 ], [ %.1406, %1821 ], [ %.1406, %1824 ], [ %.1406, %1841 ], [ %.1406, %1843 ], [ %.1406, %416 ], [ %.1406, %1033 ], [ %.1406, %999 ], [ %.1406, %994 ], [ %.1406, %1596 ], [ %.1406, %1597 ], [ %.1406, %1610 ], [ %.1406, %1605 ], [ %.1406, %1601 ], [ %.1406, %551 ], [ %.1406, %556 ], [ %.1406, %571 ], [ %.1406, %868 ], [ %.1406, %602 ], [ %.1406, %598 ], [ %.1406, %594 ], [ %.1406, %_job_part_valid.exit ], [ %.1406, %560 ], [ %.1406, %_set_job_time_limit.exit822 ], [ %.1406, %1952 ], [ %.1406, %1946 ], [ %.1406, %1943 ]
+  %.0380.be = phi i64 [ %.1381, %_het_job_start_find.exit ], [ %.1381, %.thread ], [ %.4384, %_set_job_time_limit.exit805 ], [ %.4384, %_set_job_time_limit.exit816 ], [ %.4384, %1420 ], [ %.4384, %1361 ], [ %.1381, %421 ], [ %.1381, %386 ], [ %.1381, %292 ], [ %.1381, %270 ], [ %.2382, %653 ], [ %.2382, %658 ], [ %.2382, %661 ], [ %.2382, %680 ], [ %.2382, %684 ], [ %.2382, %687 ], [ %.2382, %708 ], [ %.2382, %711 ], [ %.2382, %714 ], [ %.2382, %763 ], [ %.2382, %766 ], [ %.2382, %769 ], [ %.2382, %800 ], [ %.2382, %803 ], [ %.2382, %806 ], [ %.2382, %816 ], [ %.2382, %819 ], [ %.2382, %822 ], [ %.2382, %827 ], [ %.2382, %830 ], [ %.2382, %833 ], [ %.2382, %838 ], [ %.2382, %841 ], [ %.2382, %844 ], [ %.2382, %846 ], [ %.2382, %849 ], [ %.2382, %852 ], [ %.2382, %854 ], [ %.2382, %857 ], [ %.2382, %860 ], [ %981, %1005 ], [ %981, %1008 ], [ %981, %1011 ], [ %981, %1017 ], [ %981, %1020 ], [ %981, %1023 ], [ %.4384, %1062 ], [ %.4384, %1065 ], [ %.4384, %1083 ], [ %.4384, %1086 ], [ %.4384, %1519 ], [ %.4384, %1523 ], [ %.4384, %1656 ], [ %.4384, %1659 ], [ %.4384, %1708 ], [ %.4384, %1711 ], [ %.4384, %1735 ], [ %.4384, %1738 ], [ %.4384, %1821 ], [ %.4384, %1824 ], [ %.4384, %1841 ], [ %.4384, %1843 ], [ %.1381, %416 ], [ %.4384, %1033 ], [ %981, %999 ], [ %981, %994 ], [ %.4384, %1596 ], [ %.4384, %1597 ], [ %.4384, %1610 ], [ %.4384, %1605 ], [ %.4384, %1601 ], [ %.2382, %551 ], [ %.2382, %556 ], [ %.2382, %571 ], [ %.2382, %868 ], [ %.2382, %602 ], [ %.2382, %598 ], [ %.2382, %594 ], [ %.2382, %_job_part_valid.exit ], [ %.2382, %560 ], [ %.4384, %_set_job_time_limit.exit822 ], [ %.4384, %1952 ], [ %.4384, %1946 ], [ %.4384, %1943 ]
+  %.0377.be = phi i64 [ %.0377, %_het_job_start_find.exit ], [ %.0377, %.thread ], [ %.2379.ph1969, %_set_job_time_limit.exit805 ], [ %1352, %_set_job_time_limit.exit816 ], [ %1352, %1420 ], [ %1352, %1361 ], [ %.0377, %421 ], [ %.0377, %386 ], [ %.0377, %292 ], [ %.0377, %270 ], [ %.1378, %653 ], [ %.1378, %658 ], [ %.1378, %661 ], [ %.1378, %680 ], [ %.1378, %684 ], [ %.1378, %687 ], [ %.1378, %708 ], [ %.1378, %711 ], [ %.1378, %714 ], [ %.1378, %763 ], [ %.1378, %766 ], [ %.1378, %769 ], [ %.1378, %800 ], [ %.1378, %803 ], [ %.1378, %806 ], [ %.1378, %816 ], [ %.1378, %819 ], [ %.1378, %822 ], [ %.1378, %827 ], [ %.1378, %830 ], [ %.1378, %833 ], [ %.1378, %838 ], [ %.1378, %841 ], [ %.1378, %844 ], [ %.1378, %846 ], [ %.1378, %849 ], [ %.1378, %852 ], [ %.1378, %854 ], [ %.1378, %857 ], [ %.1378, %860 ], [ %.2379.ph1969, %1005 ], [ %.2379.ph1969, %1008 ], [ %.2379.ph1969, %1011 ], [ %.2379.ph1969, %1017 ], [ %.2379.ph1969, %1020 ], [ %.2379.ph1969, %1023 ], [ %.2379.ph1969, %1062 ], [ %.2379.ph1969, %1065 ], [ %.2379.ph1969, %1083 ], [ %.2379.ph1969, %1086 ], [ %1352, %1519 ], [ %1352, %1523 ], [ %1352, %1656 ], [ %1352, %1659 ], [ %1352, %1708 ], [ %1352, %1711 ], [ %1352, %1735 ], [ %1352, %1738 ], [ %1352, %1821 ], [ %1352, %1824 ], [ %1352, %1841 ], [ %1352, %1843 ], [ %.0377, %416 ], [ %.2379.ph1969, %1033 ], [ %.2379.ph1969, %999 ], [ %.2379.ph1969, %994 ], [ %1352, %1596 ], [ %1352, %1597 ], [ %1352, %1610 ], [ %1352, %1605 ], [ %1352, %1601 ], [ %.1378, %551 ], [ %.1378, %556 ], [ %.1378, %571 ], [ %864, %868 ], [ %.1378, %602 ], [ %.1378, %598 ], [ %.1378, %594 ], [ %.1378, %_job_part_valid.exit ], [ %.1378, %560 ], [ %1352, %_set_job_time_limit.exit822 ], [ %1352, %1952 ], [ %1352, %1946 ], [ %1352, %1943 ]
+  %.0375.be = phi i32 [ %.0375, %_het_job_start_find.exit ], [ %.0375, %.thread ], [ %522, %_set_job_time_limit.exit805 ], [ %522, %_set_job_time_limit.exit816 ], [ %522, %1420 ], [ %522, %1361 ], [ %.0375, %421 ], [ %.0375, %386 ], [ %.0375, %292 ], [ %.0375, %270 ], [ %522, %653 ], [ %522, %658 ], [ %522, %661 ], [ %522, %680 ], [ %522, %684 ], [ %522, %687 ], [ %522, %708 ], [ %522, %711 ], [ %522, %714 ], [ %522, %763 ], [ %522, %766 ], [ %522, %769 ], [ %522, %800 ], [ %522, %803 ], [ %522, %806 ], [ %522, %816 ], [ %522, %819 ], [ %522, %822 ], [ %522, %827 ], [ %522, %830 ], [ %522, %833 ], [ %522, %838 ], [ %522, %841 ], [ %522, %844 ], [ %522, %846 ], [ %522, %849 ], [ %522, %852 ], [ %522, %854 ], [ %522, %857 ], [ %522, %860 ], [ %522, %1005 ], [ %522, %1008 ], [ %522, %1011 ], [ %522, %1017 ], [ %522, %1020 ], [ %522, %1023 ], [ %522, %1062 ], [ -2, %1065 ], [ %522, %1083 ], [ -2, %1086 ], [ %522, %1519 ], [ -2, %1523 ], [ %522, %1656 ], [ -2, %1659 ], [ %522, %1708 ], [ -2, %1711 ], [ %522, %1735 ], [ -2, %1738 ], [ %522, %1821 ], [ -2, %1824 ], [ %522, %1841 ], [ -2, %1843 ], [ %.0375, %416 ], [ %522, %1033 ], [ %522, %999 ], [ %522, %994 ], [ %522, %1596 ], [ %522, %1597 ], [ %522, %1610 ], [ %522, %1605 ], [ %522, %1601 ], [ %522, %551 ], [ %522, %556 ], [ %522, %571 ], [ %522, %868 ], [ %522, %602 ], [ %522, %598 ], [ %522, %594 ], [ %522, %_job_part_valid.exit ], [ %522, %560 ], [ %522, %_set_job_time_limit.exit822 ], [ %522, %1952 ], [ %522, %1946 ], [ %522, %1943 ]
   br label %.backedge
 
-405:                                              ; preds = %401
+420:                                              ; preds = %416
   %.b551600 = load i1, ptr @assoc_limit_stop, align 1
-  br i1 %.b551600, label %409, label %406
+  br i1 %.b551600, label %424, label %421
 
-406:                                              ; preds = %405
-  %407 = load ptr, ptr %9, align 8
-  %408 = call zeroext i1 @acct_policy_job_runnable_pre_select(ptr noundef %407, i1 noundef zeroext false) #16
-  br i1 %408, label %409, label %.backedge.backedge
+421:                                              ; preds = %420
+  %422 = load ptr, ptr %9, align 8
+  %423 = call zeroext i1 @acct_policy_job_runnable_pre_select(ptr noundef %422, i1 noundef zeroext false) #16
+  br i1 %423, label %424, label %.backedge.backedge
 
-409:                                              ; preds = %406, %405
-  %410 = load ptr, ptr %9, align 8
-  %411 = call i32 @acct_policy_get_prio_thresh(ptr noundef %410, i1 noundef zeroext false) #16
-  %.not601 = icmp eq i32 %411, 0
-  %412 = load i32, ptr @bf_min_prio_reserve, align 4
-  %spec.select = select i1 %.not601, i32 %412, i32 %411
+424:                                              ; preds = %421, %420
+  %425 = load ptr, ptr %9, align 8
+  %426 = call i32 @acct_policy_get_prio_thresh(ptr noundef %425, i1 noundef zeroext false) #16
+  %.not601 = icmp eq i32 %426, 0
+  %427 = load i32, ptr @bf_min_prio_reserve, align 4
+  %spec.select = select i1 %.not601, i32 %427, i32 %426
   %.not602 = icmp eq i32 %spec.select, 0
-  br i1 %.not602, label %..critedge_crit_edge, label %413
+  br i1 %.not602, label %..critedge_crit_edge, label %428
 
-..critedge_crit_edge:                             ; preds = %409
+..critedge_crit_edge:                             ; preds = %424
   %.pre2870.pre.pre = load ptr, ptr %9, align 8
   br label %.critedge
 
-413:                                              ; preds = %409
-  %414 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %415 = and i64 %414, 4096
-  %.not603 = icmp eq i64 %415, 0
-  br i1 %.not603, label %421, label %416
+428:                                              ; preds = %424
+  %429 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %430 = and i64 %429, 4096
+  %.not603 = icmp eq i64 %430, 0
+  br i1 %.not603, label %436, label %431
 
-416:                                              ; preds = %413
-  %417 = call i32 @get_log_level() #16
-  %418 = icmp sgt i32 %417, 3
-  br i1 %418, label %419, label %421
+431:                                              ; preds = %428
+  %432 = call i32 @get_log_level() #16
+  %433 = icmp sgt i32 %432, 3
+  br i1 %433, label %434, label %436
 
-419:                                              ; preds = %416
-  %420 = load ptr, ptr %9, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.77, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, ptr noundef %420, i32 noundef %spec.select) #16
-  br label %421
+434:                                              ; preds = %431
+  %435 = load ptr, ptr %9, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.77, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, ptr noundef %435, i32 noundef %spec.select) #16
+  br label %436
 
-421:                                              ; preds = %413, %416, %419
-  %422 = load ptr, ptr %9, align 8
-  %423 = getelementptr inbounds i8, ptr %422, i64 712
-  %424 = load i32, ptr %423, align 8
-  %425 = icmp ult i32 %424, %spec.select
-  br i1 %425, label %443, label %.critedge
+436:                                              ; preds = %428, %431, %434
+  %437 = load ptr, ptr %9, align 8
+  %438 = getelementptr inbounds i8, ptr %437, i64 712
+  %439 = load i32, ptr %438, align 8
+  %440 = icmp ult i32 %439, %spec.select
+  br i1 %440, label %458, label %.critedge
 
-.critedge:                                        ; preds = %..critedge_crit_edge, %421
-  %.pre2870.pre = phi ptr [ %.pre2870.pre.pre, %..critedge_crit_edge ], [ %422, %421 ]
-  %426 = load i32, ptr @bf_min_age_reserve, align 4
-  %.not604 = icmp eq i32 %426, 0
-  br i1 %.not604, label %443, label %427
-
-427:                                              ; preds = %.critedge
-  %428 = getelementptr inbounds i8, ptr %.pre2870.pre, i64 216
-  %429 = load ptr, ptr %428, align 8
-  %430 = getelementptr inbounds i8, ptr %429, i64 48
-  %431 = load i64, ptr %430, align 8
-  %.not605 = icmp eq i64 %431, 0
-  br i1 %.not605, label %443, label %432
-
-432:                                              ; preds = %427
-  %433 = call i64 @time(ptr noundef null) #16
-  %434 = load ptr, ptr %9, align 8
-  %435 = getelementptr inbounds i8, ptr %434, i64 216
-  %436 = load ptr, ptr %435, align 8
-  %437 = getelementptr inbounds i8, ptr %436, i64 48
-  %438 = load i64, ptr %437, align 8
-  %439 = call double @difftime(i64 noundef %433, i64 noundef %438) #17
-  %440 = fptosi double %439 to i32
+.critedge:                                        ; preds = %..critedge_crit_edge, %436
+  %.pre2870.pre = phi ptr [ %.pre2870.pre.pre, %..critedge_crit_edge ], [ %437, %436 ]
   %441 = load i32, ptr @bf_min_age_reserve, align 4
-  %442 = icmp sgt i32 %441, %440
-  %spec.select759 = select i1 %442, i32 32, i32 0
-  br label %443
+  %.not604 = icmp eq i32 %441, 0
+  br i1 %.not604, label %458, label %442
 
-443:                                              ; preds = %432, %421, %.critedge, %427
-  %.pre2870 = phi ptr [ %.pre2870.pre, %427 ], [ %.pre2870.pre, %.critedge ], [ %422, %421 ], [ %434, %432 ]
-  %.0417 = phi i32 [ 0, %427 ], [ 0, %.critedge ], [ 32, %421 ], [ %spec.select759, %432 ]
-  %.b556606 = load i1, ptr @bf_one_resv_per_job, align 1
-  br i1 %.b556606, label %444, label %458
-
-444:                                              ; preds = %443
-  %445 = getelementptr inbounds i8, ptr %.pre2870, i64 888
+442:                                              ; preds = %.critedge
+  %443 = getelementptr inbounds i8, ptr %.pre2870.pre, i64 216
+  %444 = load ptr, ptr %443, align 8
+  %445 = getelementptr inbounds i8, ptr %444, i64 48
   %446 = load i64, ptr %445, align 8
-  %.not607 = icmp eq i64 %446, 0
-  br i1 %.not607, label %458, label %447
+  %.not605 = icmp eq i64 %446, 0
+  br i1 %.not605, label %458, label %447
 
-447:                                              ; preds = %444
-  %448 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %449 = and i64 %448, 4096
-  %.not608 = icmp eq i64 %449, 0
-  br i1 %.not608, label %458, label %450
-
-450:                                              ; preds = %447
-  %451 = call i32 @get_log_level() #16
-  %452 = icmp sgt i32 %451, 3
-  %.pre2869 = load ptr, ptr %9, align 8
-  br i1 %452, label %453, label %458
-
-453:                                              ; preds = %450
-  %454 = getelementptr inbounds i8, ptr %.pre2869, i64 664
-  %455 = load ptr, ptr %454, align 8
-  %456 = getelementptr inbounds i8, ptr %455, i64 224
-  %457 = load ptr, ptr %456, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.78, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, ptr noundef %.pre2869, ptr noundef %457) #16
-  %.pre2868 = load ptr, ptr %9, align 8
+447:                                              ; preds = %442
+  %448 = call i64 @time(ptr noundef null) #16
+  %449 = load ptr, ptr %9, align 8
+  %450 = getelementptr inbounds i8, ptr %449, i64 216
+  %451 = load ptr, ptr %450, align 8
+  %452 = getelementptr inbounds i8, ptr %451, i64 48
+  %453 = load i64, ptr %452, align 8
+  %454 = call double @difftime(i64 noundef %448, i64 noundef %453) #17
+  %455 = fptosi double %454 to i32
+  %456 = load i32, ptr @bf_min_age_reserve, align 4
+  %457 = icmp sgt i32 %456, %455
+  %spec.select759 = select i1 %457, i32 32, i32 0
   br label %458
 
-458:                                              ; preds = %453, %450, %447, %444, %443
-  %459 = phi ptr [ %.pre2870, %444 ], [ %.pre2870, %443 ], [ %.pre2870, %447 ], [ %.pre2869, %450 ], [ %.pre2868, %453 ]
-  %.1418 = phi i32 [ %.0417, %444 ], [ %.0417, %443 ], [ 32, %447 ], [ 32, %450 ], [ 32, %453 ]
-  %spec.select760 = select i1 %189, i32 32, i32 %.1418
-  %460 = getelementptr inbounds i8, ptr %459, i64 664
-  %461 = load ptr, ptr %460, align 8
-  %462 = getelementptr inbounds i8, ptr %461, i64 344
-  %463 = load ptr, ptr %462, align 8
-  %.not609 = icmp eq ptr %463, null
+458:                                              ; preds = %447, %436, %.critedge, %442
+  %.pre2870 = phi ptr [ %.pre2870.pre, %442 ], [ %.pre2870.pre, %.critedge ], [ %437, %436 ], [ %449, %447 ]
+  %.0417 = phi i32 [ 0, %442 ], [ 0, %.critedge ], [ 32, %436 ], [ %spec.select759, %447 ]
+  %.b556606 = load i1, ptr @bf_one_resv_per_job, align 1
+  br i1 %.b556606, label %459, label %473
+
+459:                                              ; preds = %458
+  %460 = getelementptr inbounds i8, ptr %.pre2870, i64 888
+  %461 = load i64, ptr %460, align 8
+  %.not607 = icmp eq i64 %461, 0
+  br i1 %.not607, label %473, label %462
+
+462:                                              ; preds = %459
+  %463 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %464 = and i64 %463, 4096
+  %.not608 = icmp eq i64 %464, 0
+  br i1 %.not608, label %473, label %465
+
+465:                                              ; preds = %462
+  %466 = call i32 @get_log_level() #16
+  %467 = icmp sgt i32 %466, 3
+  %.pre2869 = load ptr, ptr %9, align 8
+  br i1 %467, label %468, label %473
+
+468:                                              ; preds = %465
+  %469 = getelementptr inbounds i8, ptr %.pre2869, i64 664
+  %470 = load ptr, ptr %469, align 8
+  %471 = getelementptr inbounds i8, ptr %470, i64 224
+  %472 = load ptr, ptr %471, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.78, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, ptr noundef %.pre2869, ptr noundef %472) #16
+  %.pre2868 = load ptr, ptr %9, align 8
+  br label %473
+
+473:                                              ; preds = %468, %465, %462, %459, %458
+  %474 = phi ptr [ %.pre2870, %459 ], [ %.pre2870, %458 ], [ %.pre2870, %462 ], [ %.pre2869, %465 ], [ %.pre2868, %468 ]
+  %.1418 = phi i32 [ %.0417, %459 ], [ %.0417, %458 ], [ 32, %462 ], [ 32, %465 ], [ 32, %468 ]
+  %spec.select760 = select i1 %198, i32 32, i32 %.1418
+  %475 = getelementptr inbounds i8, ptr %474, i64 664
+  %476 = load ptr, ptr %475, align 8
+  %477 = getelementptr inbounds i8, ptr %476, i64 344
+  %478 = load ptr, ptr %477, align 8
+  %.not609 = icmp eq ptr %478, null
   %.pre2872 = load i32, ptr @bf_job_part_count_reserve, align 4
-  br i1 %.not609, label %464, label %481
+  br i1 %.not609, label %479, label %496
 
-464:                                              ; preds = %458
-  %465 = icmp ne i32 %.pre2872, 0
-  %466 = load i32, ptr @max_backfill_job_per_user_part, align 4
-  %467 = icmp ne i32 %466, 0
-  %or.cond5 = select i1 %465, i1 true, i1 %467
-  %468 = load i32, ptr @max_backfill_job_per_part, align 4
-  %469 = icmp ne i32 %468, 0
-  %or.cond7 = select i1 %or.cond5, i1 true, i1 %469
-  br i1 %or.cond7, label %470, label %.thread
+479:                                              ; preds = %473
+  %480 = icmp ne i32 %.pre2872, 0
+  %481 = load i32, ptr @max_backfill_job_per_user_part, align 4
+  %482 = icmp ne i32 %481, 0
+  %or.cond5 = select i1 %480, i1 true, i1 %482
+  %483 = load i32, ptr @max_backfill_job_per_part, align 4
+  %484 = icmp ne i32 %483, 0
+  %or.cond7 = select i1 %or.cond5, i1 true, i1 %484
+  br i1 %or.cond7, label %485, label %.thread
 
-470:                                              ; preds = %464
-  %471 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 2123, ptr noundef nonnull @__func__._attempt_backfill) #16
-  %472 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 2125, ptr noundef nonnull @__func__._attempt_backfill) #16
-  store ptr %472, ptr %471, align 8
-  %473 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 2127, ptr noundef nonnull @__func__._attempt_backfill) #16
-  %474 = getelementptr inbounds i8, ptr %471, i64 8
-  store ptr %473, ptr %474, align 8
-  %475 = call ptr @xhash_init(ptr noundef nonnull @_bf_map_key_id, ptr noundef nonnull @_bf_map_free) #16
-  %476 = getelementptr inbounds i8, ptr %471, i64 16
-  store ptr %475, ptr %476, align 8
-  %477 = load ptr, ptr %9, align 8
-  %478 = getelementptr inbounds i8, ptr %477, i64 664
-  %479 = load ptr, ptr %478, align 8
-  %480 = getelementptr inbounds i8, ptr %479, i64 344
-  store ptr %471, ptr %480, align 8
+485:                                              ; preds = %479
+  %486 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 2123, ptr noundef nonnull @__func__._attempt_backfill) #16
+  %487 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 2125, ptr noundef nonnull @__func__._attempt_backfill) #16
+  store ptr %487, ptr %486, align 8
+  %488 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 2127, ptr noundef nonnull @__func__._attempt_backfill) #16
+  %489 = getelementptr inbounds i8, ptr %486, i64 8
+  store ptr %488, ptr %489, align 8
+  %490 = call ptr @xhash_init(ptr noundef nonnull @_bf_map_key_id, ptr noundef nonnull @_bf_map_free) #16
+  %491 = getelementptr inbounds i8, ptr %486, i64 16
+  store ptr %490, ptr %491, align 8
+  %492 = load ptr, ptr %9, align 8
+  %493 = getelementptr inbounds i8, ptr %492, i64 664
+  %494 = load ptr, ptr %493, align 8
+  %495 = getelementptr inbounds i8, ptr %494, i64 344
+  store ptr %486, ptr %495, align 8
   %.pre2871 = load i32, ptr @bf_job_part_count_reserve, align 4
-  br label %481
+  br label %496
 
-481:                                              ; preds = %470, %458
-  %482 = phi ptr [ %477, %470 ], [ %459, %458 ]
-  %483 = phi i32 [ %.pre2871, %470 ], [ %.pre2872, %458 ]
-  %484 = icmp eq i32 %spec.select760, 0
-  %485 = icmp ne i32 %483, 0
-  %or.cond9 = select i1 %484, i1 %485, i1 false
-  br i1 %or.cond9, label %486, label %.thread
+496:                                              ; preds = %485, %473
+  %497 = phi ptr [ %492, %485 ], [ %474, %473 ]
+  %498 = phi i32 [ %.pre2871, %485 ], [ %.pre2872, %473 ]
+  %499 = icmp eq i32 %spec.select760, 0
+  %500 = icmp ne i32 %498, 0
+  %or.cond9 = select i1 %499, i1 %500, i1 false
+  br i1 %or.cond9, label %501, label %.thread
 
-486:                                              ; preds = %481
-  %487 = getelementptr inbounds i8, ptr %482, i64 664
-  %488 = load ptr, ptr %487, align 8
-  %489 = getelementptr inbounds i8, ptr %488, i64 344
-  %490 = load ptr, ptr %489, align 8
-  %491 = getelementptr inbounds i8, ptr %490, i64 8
-  %492 = load ptr, ptr %491, align 8
-  %493 = getelementptr inbounds i8, ptr %492, i64 8
-  %494 = load i64, ptr %493, align 8
-  %495 = icmp slt i64 %494, %.fr2921
-  br i1 %495, label %_check_bf_usage.exit.thread, label %_check_bf_usage.exit
+501:                                              ; preds = %496
+  %502 = getelementptr inbounds i8, ptr %497, i64 664
+  %503 = load ptr, ptr %502, align 8
+  %504 = getelementptr inbounds i8, ptr %503, i64 344
+  %505 = load ptr, ptr %504, align 8
+  %506 = getelementptr inbounds i8, ptr %505, i64 8
+  %507 = load ptr, ptr %506, align 8
+  %508 = getelementptr inbounds i8, ptr %507, i64 8
+  %509 = load i64, ptr %508, align 8
+  %510 = icmp slt i64 %509, %.fr2921
+  br i1 %510, label %_check_bf_usage.exit.thread, label %_check_bf_usage.exit
 
-_check_bf_usage.exit.thread:                      ; preds = %486
-  store i64 %.fr2921, ptr %493, align 8
-  store i64 0, ptr %492, align 8
+_check_bf_usage.exit.thread:                      ; preds = %501
+  store i64 %.fr2921, ptr %508, align 8
+  store i64 0, ptr %507, align 8
   %.pre2873 = load ptr, ptr %9, align 8
   br label %.thread
 
-_check_bf_usage.exit:                             ; preds = %486
-  %496 = load i64, ptr %492, align 8
-  %497 = sext i32 %483 to i64
-  %498 = icmp uge i64 %496, %497
-  %cond.fr = freeze i1 %498
+_check_bf_usage.exit:                             ; preds = %501
+  %511 = load i64, ptr %507, align 8
+  %512 = sext i32 %498 to i64
+  %513 = icmp uge i64 %511, %512
+  %cond.fr = freeze i1 %513
   %spec.select914 = select i1 %cond.fr, i32 32, i32 0
   br label %.thread
 
-.thread:                                          ; preds = %464, %_check_bf_usage.exit, %_check_bf_usage.exit.thread, %481
-  %499 = phi ptr [ %482, %481 ], [ %.pre2873, %_check_bf_usage.exit.thread ], [ %482, %_check_bf_usage.exit ], [ %459, %464 ]
-  %.3420 = phi i32 [ %spec.select760, %481 ], [ 0, %_check_bf_usage.exit.thread ], [ %spec.select914, %_check_bf_usage.exit ], [ %spec.select760, %464 ]
-  %500 = getelementptr inbounds i8, ptr %499, i64 696
-  %501 = load i8, ptr %500, align 8
-  %502 = trunc i8 %501 to i1
-  br i1 %502, label %.backedge.backedge, label %503
+.thread:                                          ; preds = %479, %_check_bf_usage.exit, %_check_bf_usage.exit.thread, %496
+  %514 = phi ptr [ %497, %496 ], [ %.pre2873, %_check_bf_usage.exit.thread ], [ %497, %_check_bf_usage.exit ], [ %474, %479 ]
+  %.3420 = phi i32 [ %spec.select760, %496 ], [ 0, %_check_bf_usage.exit.thread ], [ %spec.select914, %_check_bf_usage.exit ], [ %spec.select760, %479 ]
+  %515 = getelementptr inbounds i8, ptr %514, i64 696
+  %516 = load i8, ptr %515, align 8
+  %517 = trunc i8 %516 to i1
+  br i1 %517, label %.backedge.backedge, label %518
 
-503:                                              ; preds = %.thread
-  %504 = getelementptr inbounds i8, ptr %499, i64 888
-  %505 = load i64, ptr %504, align 8
-  %506 = getelementptr inbounds i8, ptr %499, i64 944
-  %507 = load i32, ptr %506, align 8
-  %508 = getelementptr inbounds i8, ptr %184, i64 298
-  %509 = getelementptr inbounds i8, ptr %184, i64 232
-  %510 = getelementptr inbounds i8, ptr %184, i64 212
-  %511 = and i32 %.1406, 16
-  %.not625 = icmp eq i32 %511, 0
-  %512 = icmp eq i32 %507, -2
-  %513 = icmp ne i32 %.3420, 0
-  %514 = or i32 %.3420, 8
-  %515 = zext nneg i32 %514 to i64
-  %516 = icmp eq i64 %505, 0
-  %517 = icmp ne i64 %505, 0
+518:                                              ; preds = %.thread
+  %519 = getelementptr inbounds i8, ptr %514, i64 888
+  %520 = load i64, ptr %519, align 8
+  %521 = getelementptr inbounds i8, ptr %514, i64 944
+  %522 = load i32, ptr %521, align 8
+  %523 = getelementptr inbounds i8, ptr %193, i64 298
+  %524 = getelementptr inbounds i8, ptr %193, i64 232
+  %525 = getelementptr inbounds i8, ptr %193, i64 212
+  %526 = and i32 %.1406, 16
+  %.not625 = icmp eq i32 %526, 0
+  %527 = icmp eq i32 %522, -2
+  %528 = icmp ne i32 %.3420, 0
+  %529 = or i32 %.3420, 8
+  %530 = zext nneg i32 %529 to i64
+  %531 = icmp eq i64 %520, 0
+  %532 = icmp ne i64 %520, 0
   br label %.outer922
 
-.outer922:                                        ; preds = %.outer922.backedge, %503
-  %.3837.ph = phi i64 [ %.1835, %503 ], [ %.4838, %.outer922.backedge ]
-  %.3832.ph = phi i8 [ %.1830, %503 ], [ %.4833, %.outer922.backedge ]
-  %.3459.ph = phi i32 [ %.2458, %503 ], [ %.6462, %.outer922.backedge ]
-  %.2453.ph = phi i32 [ %.1452, %503 ], [ %.4455, %.outer922.backedge ]
-  %.1444.ph = phi ptr [ %.0443, %503 ], [ null, %.outer922.backedge ]
-  %.1441.ph = phi ptr [ %.0440, %503 ], [ null, %.outer922.backedge ]
-  %.1438.ph = phi ptr [ %.0437, %503 ], [ null, %.outer922.backedge ]
-  %.1435.ph = phi i8 [ %.0434, %503 ], [ %.2436, %.outer922.backedge ]
-  %.2431.ph = phi i32 [ 0, %503 ], [ %.4433, %.outer922.backedge ]
-  %.1426.ph = phi i32 [ %.0425, %503 ], [ %.3428, %.outer922.backedge ]
-  %.1422.ph = phi i32 [ %.0421, %503 ], [ %.3424, %.outer922.backedge ]
-  %.1413.ph = phi i8 [ %.0412, %503 ], [ %.3415847872, %.outer922.backedge ]
-  %.1409.ph = phi i8 [ %.0408, %503 ], [ %.3411849870, %.outer922.backedge ]
-  %.0397.ph = phi i1 [ false, %503 ], [ %.2399854868, %.outer922.backedge ]
-  %.2382.ph = phi i64 [ %.1381, %503 ], [ %.4384, %.outer922.backedge ]
-  %.1378.ph = phi i64 [ %.0377, %503 ], [ %1332, %.outer922.backedge ]
-  br label %518
+.outer922:                                        ; preds = %.outer922.backedge, %518
+  %.3837.ph = phi i64 [ %.1835, %518 ], [ %.4838, %.outer922.backedge ]
+  %.3832.ph = phi i8 [ %.1830, %518 ], [ %.4833, %.outer922.backedge ]
+  %.3459.ph = phi i32 [ %.2458, %518 ], [ %.6462, %.outer922.backedge ]
+  %.2453.ph = phi i32 [ %.1452, %518 ], [ %.4455, %.outer922.backedge ]
+  %.1444.ph = phi ptr [ %.0443, %518 ], [ null, %.outer922.backedge ]
+  %.1441.ph = phi ptr [ %.0440, %518 ], [ null, %.outer922.backedge ]
+  %.1438.ph = phi ptr [ %.0437, %518 ], [ null, %.outer922.backedge ]
+  %.1435.ph = phi i8 [ %.0434, %518 ], [ %.2436, %.outer922.backedge ]
+  %.2431.ph = phi i32 [ 0, %518 ], [ %.4433, %.outer922.backedge ]
+  %.1426.ph = phi i32 [ %.0425, %518 ], [ %.3428, %.outer922.backedge ]
+  %.1422.ph = phi i32 [ %.0421, %518 ], [ %.3424, %.outer922.backedge ]
+  %.1413.ph = phi i8 [ %.0412, %518 ], [ %.3415847872, %.outer922.backedge ]
+  %.1409.ph = phi i8 [ %.0408, %518 ], [ %.3411849870, %.outer922.backedge ]
+  %.0397.ph = phi i1 [ false, %518 ], [ %.2399854868, %.outer922.backedge ]
+  %.2382.ph = phi i64 [ %.1381, %518 ], [ %.4384, %.outer922.backedge ]
+  %.1378.ph = phi i64 [ %.0377, %518 ], [ %1352, %.outer922.backedge ]
+  br label %533
 
-518:                                              ; preds = %.outer922, %1584
-  %.3837 = phi i64 [ %.4838, %1584 ], [ %.3837.ph, %.outer922 ]
-  %.3832 = phi i8 [ %.4833, %1584 ], [ %.3832.ph, %.outer922 ]
-  %.3459 = phi i32 [ %.6462, %1584 ], [ %.3459.ph, %.outer922 ]
-  %.2453 = phi i32 [ %.4455, %1584 ], [ %.2453.ph, %.outer922 ]
-  %.1444 = phi ptr [ null, %1584 ], [ %.1444.ph, %.outer922 ]
-  %.1441 = phi ptr [ null, %1584 ], [ %.1441.ph, %.outer922 ]
-  %.1438 = phi ptr [ null, %1584 ], [ %.1438.ph, %.outer922 ]
-  %.1435 = phi i8 [ %.2436, %1584 ], [ %.1435.ph, %.outer922 ]
-  %.1413 = phi i8 [ %.3415847872, %1584 ], [ %.1413.ph, %.outer922 ]
-  %.1409 = phi i8 [ %.3411849870, %1584 ], [ %.1409.ph, %.outer922 ]
-  %.0397 = phi i1 [ %.2399854868, %1584 ], [ %.0397.ph, %.outer922 ]
-  %.2382 = phi i64 [ %.4384, %1584 ], [ %.2382.ph, %.outer922 ]
-  %.1378 = phi i64 [ %1332, %1584 ], [ %.1378.ph, %.outer922 ]
-  %519 = load ptr, ptr %9, align 8
-  %520 = getelementptr inbounds i8, ptr %519, i64 696
-  %521 = load i8, ptr %520, align 8
-  %522 = trunc i8 %521 to i1
-  br i1 %522, label %523, label %528
+533:                                              ; preds = %.outer922, %1610
+  %.3837 = phi i64 [ %.4838, %1610 ], [ %.3837.ph, %.outer922 ]
+  %.3832 = phi i8 [ %.4833, %1610 ], [ %.3832.ph, %.outer922 ]
+  %.3459 = phi i32 [ %.6462, %1610 ], [ %.3459.ph, %.outer922 ]
+  %.2453 = phi i32 [ %.4455, %1610 ], [ %.2453.ph, %.outer922 ]
+  %.1444 = phi ptr [ null, %1610 ], [ %.1444.ph, %.outer922 ]
+  %.1441 = phi ptr [ null, %1610 ], [ %.1441.ph, %.outer922 ]
+  %.1438 = phi ptr [ null, %1610 ], [ %.1438.ph, %.outer922 ]
+  %.1435 = phi i8 [ %.2436, %1610 ], [ %.1435.ph, %.outer922 ]
+  %.1413 = phi i8 [ %.3415847872, %1610 ], [ %.1413.ph, %.outer922 ]
+  %.1409 = phi i8 [ %.3411849870, %1610 ], [ %.1409.ph, %.outer922 ]
+  %.0397 = phi i1 [ %.2399854868, %1610 ], [ %.0397.ph, %.outer922 ]
+  %.2382 = phi i64 [ %.4384, %1610 ], [ %.2382.ph, %.outer922 ]
+  %.1378 = phi i64 [ %1352, %1610 ], [ %.1378.ph, %.outer922 ]
+  %534 = load ptr, ptr %9, align 8
+  %535 = getelementptr inbounds i8, ptr %534, i64 696
+  %536 = load i8, ptr %535, align 8
+  %537 = trunc i8 %536 to i1
+  br i1 %537, label %538, label %543
 
-523:                                              ; preds = %518
-  %524 = getelementptr inbounds i8, ptr %519, i64 216
-  %525 = load ptr, ptr %524, align 8
-  %526 = getelementptr inbounds i8, ptr %525, i64 368
-  %527 = load i64, ptr %526, align 8
-  store i64 0, ptr %526, align 8
-  store i8 0, ptr %520, align 8
-  br label %528
+538:                                              ; preds = %533
+  %539 = getelementptr inbounds i8, ptr %534, i64 216
+  %540 = load ptr, ptr %539, align 8
+  %541 = getelementptr inbounds i8, ptr %540, i64 368
+  %542 = load i64, ptr %541, align 8
+  store i64 0, ptr %541, align 8
+  store i8 0, ptr %535, align 8
+  br label %543
 
-528:                                              ; preds = %523, %518
-  %.4838 = phi i64 [ %527, %523 ], [ %.3837, %518 ]
-  %.4833 = phi i8 [ 1, %523 ], [ %.3832, %518 ]
-  %529 = getelementptr inbounds i8, ptr %519, i64 112
-  %530 = load i64, ptr %529, align 8
-  %531 = and i64 %530, 1073741824
-  %.not610 = icmp ne i64 %531, 0
-  br i1 %.not610, label %536, label %532
+543:                                              ; preds = %538, %533
+  %.4838 = phi i64 [ %542, %538 ], [ %.3837, %533 ]
+  %.4833 = phi i8 [ 1, %538 ], [ %.3832, %533 ]
+  %544 = getelementptr inbounds i8, ptr %534, i64 112
+  %545 = load i64, ptr %544, align 8
+  %546 = and i64 %545, 1073741824
+  %.not610 = icmp ne i64 %546, 0
+  br i1 %.not610, label %551, label %547
 
-532:                                              ; preds = %528
-  %533 = add nsw i32 %.3459, 1
-  %534 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 160), align 8
-  %535 = add i32 %534, 1
-  store i32 %535, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 160), align 8
-  br label %536
+547:                                              ; preds = %543
+  %548 = add nsw i32 %.3459, 1
+  %549 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 160), align 8
+  %550 = add i32 %549, 1
+  store i32 %550, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 160), align 8
+  br label %551
 
-536:                                              ; preds = %528, %532
-  %.4460 = phi i32 [ %533, %532 ], [ %.3459, %528 ]
-  %537 = getelementptr inbounds i8, ptr %519, i64 448
-  %538 = load i32, ptr %537, align 8
-  %539 = and i32 %538, 255
-  %540 = icmp eq i32 %539, 0
-  br i1 %540, label %541, label %.backedge.backedge
+551:                                              ; preds = %543, %547
+  %.4460 = phi i32 [ %548, %547 ], [ %.3459, %543 ]
+  %552 = getelementptr inbounds i8, ptr %534, i64 448
+  %553 = load i32, ptr %552, align 8
+  %554 = and i32 %553, 255
+  %555 = icmp eq i32 %554, 0
+  br i1 %555, label %556, label %.backedge.backedge
 
-541:                                              ; preds = %536
-  %542 = getelementptr inbounds i8, ptr %519, i64 712
-  %543 = load i32, ptr %542, align 8
-  %544 = icmp eq i32 %543, 0
-  br i1 %544, label %.backedge.backedge, label %545
+556:                                              ; preds = %551
+  %557 = getelementptr inbounds i8, ptr %534, i64 712
+  %558 = load i32, ptr %557, align 8
+  %559 = icmp eq i32 %558, 0
+  br i1 %559, label %.backedge.backedge, label %560
 
-545:                                              ; preds = %541
-  %546 = call zeroext i1 @avail_front_end(ptr noundef nonnull %519) #16
-  br i1 %546, label %547, label %.backedge.backedge
+560:                                              ; preds = %556
+  %561 = call zeroext i1 @avail_front_end(ptr noundef nonnull %534) #16
+  br i1 %561, label %562, label %.backedge.backedge
 
-547:                                              ; preds = %545
-  %548 = load ptr, ptr %9, align 8
-  %549 = getelementptr inbounds i8, ptr %548, i64 648
-  %550 = load ptr, ptr %549, align 8
-  %.not.i795 = icmp eq ptr %550, null
-  br i1 %.not.i795, label %_job_part_valid.exit, label %551
+562:                                              ; preds = %560
+  %563 = load ptr, ptr %9, align 8
+  %564 = getelementptr inbounds i8, ptr %563, i64 648
+  %565 = load ptr, ptr %564, align 8
+  %.not.i795 = icmp eq ptr %565, null
+  br i1 %.not.i795, label %_job_part_valid.exit, label %566
 
-551:                                              ; preds = %547
-  %552 = call ptr @list_iterator_create(ptr noundef nonnull %550) #16
-  br label %553
+566:                                              ; preds = %562
+  %567 = call ptr @list_iterator_create(ptr noundef nonnull %565) #16
+  br label %568
 
-553:                                              ; preds = %553, %551
-  %554 = call ptr @list_next(ptr noundef %552) #16
-  %.not10.i796 = icmp ne ptr %554, null
-  %555 = icmp ne ptr %554, %184
-  %or.cond.not.i = and i1 %555, %.not10.i796
-  br i1 %or.cond.not.i, label %553, label %556, !llvm.loop !11
+568:                                              ; preds = %568, %566
+  %569 = call ptr @list_next(ptr noundef %567) #16
+  %.not10.i796 = icmp ne ptr %569, null
+  %570 = icmp ne ptr %569, %193
+  %or.cond.not.i = and i1 %570, %.not10.i796
+  br i1 %or.cond.not.i, label %568, label %571, !llvm.loop !11
 
-556:                                              ; preds = %553
-  call void @list_iterator_destroy(ptr noundef %552) #16
+571:                                              ; preds = %568
+  call void @list_iterator_destroy(ptr noundef %567) #16
   br i1 %.not10.i796, label %._crit_edge2874, label %.backedge.backedge
 
-._crit_edge2874:                                  ; preds = %556
+._crit_edge2874:                                  ; preds = %571
   %.pre2875 = load ptr, ptr %9, align 8
-  br label %560
+  br label %575
 
-_job_part_valid.exit:                             ; preds = %547
-  %557 = getelementptr inbounds i8, ptr %548, i64 664
-  %558 = load ptr, ptr %557, align 8
-  %559 = icmp eq ptr %558, %184
-  br i1 %559, label %560, label %.backedge.backedge
+_job_part_valid.exit:                             ; preds = %562
+  %572 = getelementptr inbounds i8, ptr %563, i64 664
+  %573 = load ptr, ptr %572, align 8
+  %574 = icmp eq ptr %573, %193
+  br i1 %574, label %575, label %.backedge.backedge
 
-560:                                              ; preds = %._crit_edge2874, %_job_part_valid.exit
-  %561 = phi ptr [ %.pre2875, %._crit_edge2874 ], [ %548, %_job_part_valid.exit ]
-  %562 = getelementptr inbounds i8, ptr %561, i64 52
-  %563 = load i32, ptr %562, align 4
-  %.not611 = icmp eq i32 %563, -2
-  br i1 %.not611, label %564, label %567
-
-564:                                              ; preds = %560
-  %565 = getelementptr inbounds i8, ptr %561, i64 56
-  %566 = load ptr, ptr %565, align 8
-  %.not612 = icmp eq ptr %566, null
-  br i1 %.not612, label %587, label %567
-
-567:                                              ; preds = %564, %560
-  %.not613 = icmp eq ptr %.1444, null
-  br i1 %.not613, label %583, label %568
-
-568:                                              ; preds = %567
-  %569 = getelementptr inbounds i8, ptr %.1444, i64 48
-  %570 = load i32, ptr %569, align 8
-  %571 = getelementptr inbounds i8, ptr %561, i64 48
-  %572 = load i32, ptr %571, align 8
-  %573 = icmp eq i32 %570, %572
-  %574 = icmp eq ptr %.1441, %184
-  %or.cond762 = select i1 %573, i1 %574, i1 false
-  br i1 %or.cond762, label %575, label %583
-
-575:                                              ; preds = %568
-  %576 = getelementptr inbounds i8, ptr %561, i64 816
-  %577 = load ptr, ptr %576, align 8
-  %578 = icmp eq ptr %.1438, %577
-  br i1 %578, label %579, label %583
+575:                                              ; preds = %._crit_edge2874, %_job_part_valid.exit
+  %576 = phi ptr [ %.pre2875, %._crit_edge2874 ], [ %563, %_job_part_valid.exit ]
+  %577 = getelementptr inbounds i8, ptr %576, i64 52
+  %578 = load i32, ptr %577, align 4
+  %.not611 = icmp eq i32 %578, -2
+  br i1 %.not611, label %579, label %582
 
 579:                                              ; preds = %575
-  %580 = xor i8 %.1435, %188
-  %581 = and i8 %580, 1
-  %582 = icmp eq i8 %581, 0
-  br i1 %582, label %.backedge.backedge, label %583
+  %580 = getelementptr inbounds i8, ptr %576, i64 56
+  %581 = load ptr, ptr %580, align 8
+  %.not612 = icmp eq ptr %581, null
+  br i1 %.not612, label %602, label %582
 
-583:                                              ; preds = %579, %575, %568, %567
-  %584 = getelementptr inbounds i8, ptr %561, i64 816
-  %585 = load ptr, ptr %584, align 8
-  %586 = call zeroext i1 @job_array_start_test(ptr noundef nonnull %561) #16
-  br i1 %586, label %._crit_edge2876, label %.backedge.backedge
+582:                                              ; preds = %579, %575
+  %.not613 = icmp eq ptr %.1444, null
+  br i1 %.not613, label %598, label %583
 
-._crit_edge2876:                                  ; preds = %583
+583:                                              ; preds = %582
+  %584 = getelementptr inbounds i8, ptr %.1444, i64 48
+  %585 = load i32, ptr %584, align 8
+  %586 = getelementptr inbounds i8, ptr %576, i64 48
+  %587 = load i32, ptr %586, align 8
+  %588 = icmp eq i32 %585, %587
+  %589 = icmp eq ptr %.1441, %193
+  %or.cond762 = select i1 %588, i1 %589, i1 false
+  br i1 %or.cond762, label %590, label %598
+
+590:                                              ; preds = %583
+  %591 = getelementptr inbounds i8, ptr %576, i64 816
+  %592 = load ptr, ptr %591, align 8
+  %593 = icmp eq ptr %.1438, %592
+  br i1 %593, label %594, label %598
+
+594:                                              ; preds = %590
+  %595 = xor i8 %.1435, %197
+  %596 = and i8 %595, 1
+  %597 = icmp eq i8 %596, 0
+  br i1 %597, label %.backedge.backedge, label %598
+
+598:                                              ; preds = %594, %590, %583, %582
+  %599 = getelementptr inbounds i8, ptr %576, i64 816
+  %600 = load ptr, ptr %599, align 8
+  %601 = call zeroext i1 @job_array_start_test(ptr noundef nonnull %576) #16
+  br i1 %601, label %._crit_edge2876, label %.backedge.backedge
+
+._crit_edge2876:                                  ; preds = %598
   %.pre2877 = load ptr, ptr %9, align 8
-  br label %587
+  br label %602
 
-587:                                              ; preds = %._crit_edge2876, %564
-  %588 = phi ptr [ %.pre2877, %._crit_edge2876 ], [ %561, %564 ]
-  %.2445 = phi ptr [ %561, %._crit_edge2876 ], [ %.1444, %564 ]
-  %.2442 = phi ptr [ %184, %._crit_edge2876 ], [ %.1441, %564 ]
-  %.2439 = phi ptr [ %585, %._crit_edge2876 ], [ %.1438, %564 ]
-  %.2436 = phi i8 [ %188, %._crit_edge2876 ], [ %.1435, %564 ]
-  %589 = getelementptr inbounds i8, ptr %588, i64 664
-  store ptr %184, ptr %589, align 8
-  %590 = call i32 @job_limits_check(ptr noundef nonnull %9, i1 noundef zeroext true) #16
-  %.not614 = icmp eq i32 %590, 0
-  br i1 %.not614, label %591, label %.backedge.backedge
+602:                                              ; preds = %._crit_edge2876, %579
+  %603 = phi ptr [ %.pre2877, %._crit_edge2876 ], [ %576, %579 ]
+  %.2445 = phi ptr [ %576, %._crit_edge2876 ], [ %.1444, %579 ]
+  %.2442 = phi ptr [ %193, %._crit_edge2876 ], [ %.1441, %579 ]
+  %.2439 = phi ptr [ %600, %._crit_edge2876 ], [ %.1438, %579 ]
+  %.2436 = phi i8 [ %197, %._crit_edge2876 ], [ %.1435, %579 ]
+  %604 = getelementptr inbounds i8, ptr %603, i64 664
+  store ptr %193, ptr %604, align 8
+  %605 = call i32 @job_limits_check(ptr noundef nonnull %9, i1 noundef zeroext true) #16
+  %.not614 = icmp eq i32 %605, 0
+  br i1 %.not614, label %606, label %.backedge.backedge
 
-591:                                              ; preds = %587
-  %592 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %593 = and i64 %592, 4096
-  %.not615 = icmp eq i64 %593, 0
-  br i1 %.not615, label %612, label %594
+606:                                              ; preds = %602
+  %607 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %608 = and i64 %607, 4096
+  %.not615 = icmp eq i64 %608, 0
+  br i1 %.not615, label %627, label %609
 
-594:                                              ; preds = %591
-  %595 = call i32 @get_log_level() #16
-  %596 = icmp sgt i32 %595, 3
-  br i1 %596, label %597, label %612
+609:                                              ; preds = %606
+  %610 = call i32 @get_log_level() #16
+  %611 = icmp sgt i32 %610, 3
+  br i1 %611, label %612, label %627
 
-597:                                              ; preds = %594
-  %598 = load ptr, ptr %9, align 8
-  %599 = getelementptr inbounds i8, ptr %598, i64 712
-  %600 = load i32, ptr %599, align 8
-  %601 = getelementptr inbounds i8, ptr %598, i64 664
-  %602 = load ptr, ptr %601, align 8
-  %603 = getelementptr inbounds i8, ptr %602, i64 224
-  %604 = load ptr, ptr %603, align 8
-  %605 = getelementptr inbounds i8, ptr %598, i64 816
-  %606 = load ptr, ptr %605, align 8
-  %.not616 = icmp eq ptr %606, null
-  br i1 %.not616, label %610, label %607
-
-607:                                              ; preds = %597
-  %608 = getelementptr inbounds i8, ptr %606, i64 184
-  %609 = load ptr, ptr %608, align 8
-  br label %610
-
-610:                                              ; preds = %597, %607
-  %611 = phi ptr [ %609, %607 ], [ @.str.80, %597 ]
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.79, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, ptr noundef nonnull %598, i32 noundef %600, ptr noundef %604, ptr noundef %611) #16
-  br label %612
-
-612:                                              ; preds = %591, %594, %610
+612:                                              ; preds = %609
   %613 = load ptr, ptr %9, align 8
-  %614 = getelementptr inbounds i8, ptr %613, i64 72
-  %615 = load ptr, ptr %614, align 8
+  %614 = getelementptr inbounds i8, ptr %613, i64 712
+  %615 = load i32, ptr %614, align 8
   %616 = getelementptr inbounds i8, ptr %613, i64 664
   %617 = load ptr, ptr %616, align 8
-  %618 = load i32, ptr @max_backfill_job_per_user_part, align 4
-  %.not.i798 = icmp eq i32 %618, 0
-  br i1 %.not.i798, label %654, label %619
-
-619:                                              ; preds = %612
-  %620 = getelementptr inbounds i8, ptr %617, i64 344
+  %618 = getelementptr inbounds i8, ptr %617, i64 224
+  %619 = load ptr, ptr %618, align 8
+  %620 = getelementptr inbounds i8, ptr %613, i64 816
   %621 = load ptr, ptr %620, align 8
-  %622 = getelementptr inbounds i8, ptr %621, i64 16
-  %623 = load ptr, ptr %622, align 8
-  %624 = getelementptr inbounds i8, ptr %613, i64 1064
-  %625 = load i32, ptr %624, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
-  store i32 %625, ptr %2, align 4
-  %626 = call ptr @xhash_get(ptr noundef %623, ptr noundef nonnull %2, i32 noundef 4) #16
-  %.not.i.i799 = icmp eq ptr %626, null
-  br i1 %.not.i.i799, label %627, label %_bf_map_find_add.exit.i
+  %.not616 = icmp eq ptr %621, null
+  br i1 %.not616, label %625, label %622
 
-627:                                              ; preds = %619
-  %628 = load i32, ptr %2, align 4
-  %629 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 1556, ptr noundef nonnull @__func__._bf_map_add_user) #16
-  %630 = getelementptr inbounds i8, ptr %629, i64 16
-  store i32 %628, ptr %630, align 8
-  %631 = call ptr @xhash_add(ptr noundef %623, ptr noundef %629) #16
+622:                                              ; preds = %612
+  %623 = getelementptr inbounds i8, ptr %621, i64 184
+  %624 = load ptr, ptr %623, align 8
+  br label %625
+
+625:                                              ; preds = %612, %622
+  %626 = phi ptr [ %624, %622 ], [ @.str.80, %612 ]
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.79, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, ptr noundef nonnull %613, i32 noundef %615, ptr noundef %619, ptr noundef %626) #16
+  br label %627
+
+627:                                              ; preds = %606, %609, %625
+  %628 = load ptr, ptr %9, align 8
+  %629 = getelementptr inbounds i8, ptr %628, i64 72
+  %630 = load ptr, ptr %629, align 8
+  %631 = getelementptr inbounds i8, ptr %628, i64 664
+  %632 = load ptr, ptr %631, align 8
+  %633 = load i32, ptr @max_backfill_job_per_user_part, align 4
+  %.not.i798 = icmp eq i32 %633, 0
+  br i1 %.not.i798, label %669, label %634
+
+634:                                              ; preds = %627
+  %635 = getelementptr inbounds i8, ptr %632, i64 344
+  %636 = load ptr, ptr %635, align 8
+  %637 = getelementptr inbounds i8, ptr %636, i64 16
+  %638 = load ptr, ptr %637, align 8
+  %639 = getelementptr inbounds i8, ptr %628, i64 1064
+  %640 = load i32, ptr %639, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
+  store i32 %640, ptr %2, align 4
+  %641 = call ptr @xhash_get(ptr noundef %638, ptr noundef nonnull %2, i32 noundef 4) #16
+  %.not.i.i799 = icmp eq ptr %641, null
+  br i1 %.not.i.i799, label %642, label %_bf_map_find_add.exit.i
+
+642:                                              ; preds = %634
+  %643 = load i32, ptr %2, align 4
+  %644 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 1556, ptr noundef nonnull @__func__._bf_map_add_user) #16
+  %645 = getelementptr inbounds i8, ptr %644, i64 16
+  store i32 %643, ptr %645, align 8
+  %646 = call ptr @xhash_add(ptr noundef %638, ptr noundef %644) #16
   br label %_bf_map_find_add.exit.i
 
-_bf_map_find_add.exit.i:                          ; preds = %627, %619
-  %.0.i.i = phi ptr [ %626, %619 ], [ %629, %627 ]
+_bf_map_find_add.exit.i:                          ; preds = %642, %634
+  %.0.i.i = phi ptr [ %641, %634 ], [ %644, %642 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  %632 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
-  %633 = load i64, ptr %632, align 8
-  %634 = icmp slt i64 %633, %.fr2921
-  br i1 %634, label %_check_bf_usage.exit.thread.i, label %_check_bf_usage.exit.i
+  %647 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
+  %648 = load i64, ptr %647, align 8
+  %649 = icmp slt i64 %648, %.fr2921
+  br i1 %649, label %_check_bf_usage.exit.thread.i, label %_check_bf_usage.exit.i
 
 _check_bf_usage.exit.thread.i:                    ; preds = %_bf_map_find_add.exit.i
-  store i64 %.fr2921, ptr %632, align 8
+  store i64 %.fr2921, ptr %647, align 8
   store i64 0, ptr %.0.i.i, align 8
-  br label %654
+  br label %669
 
 _check_bf_usage.exit.i:                           ; preds = %_bf_map_find_add.exit.i
-  %635 = load i32, ptr @max_backfill_job_per_user_part, align 4
-  %636 = load i64, ptr %.0.i.i, align 8
-  %637 = sext i32 %635 to i64
-  %.not85.i = icmp ult i64 %636, %637
-  br i1 %.not85.i, label %654, label %638
+  %650 = load i32, ptr @max_backfill_job_per_user_part, align 4
+  %651 = load i64, ptr %.0.i.i, align 8
+  %652 = sext i32 %650 to i64
+  %.not85.i = icmp ult i64 %651, %652
+  br i1 %.not85.i, label %669, label %653
 
-638:                                              ; preds = %_check_bf_usage.exit.i
-  %639 = getelementptr inbounds i8, ptr %613, i64 664
-  %640 = getelementptr inbounds i8, ptr %613, i64 1064
-  %641 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %642 = and i64 %641, 4096
-  %.not70.i = icmp eq i64 %642, 0
-  br i1 %.not70.i, label %.backedge.backedge, label %643
+653:                                              ; preds = %_check_bf_usage.exit.i
+  %654 = getelementptr inbounds i8, ptr %628, i64 664
+  %655 = getelementptr inbounds i8, ptr %628, i64 1064
+  %656 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %657 = and i64 %656, 4096
+  %.not70.i = icmp eq i64 %657, 0
+  br i1 %.not70.i, label %.backedge.backedge, label %658
 
-643:                                              ; preds = %638
-  %644 = call i32 @get_log_level() #16
-  %645 = icmp sgt i32 %644, 3
-  br i1 %645, label %646, label %.backedge.backedge
+658:                                              ; preds = %653
+  %659 = call i32 @get_log_level() #16
+  %660 = icmp sgt i32 %659, 3
+  br i1 %660, label %661, label %.backedge.backedge
 
-646:                                              ; preds = %643
-  %647 = load i32, ptr @max_backfill_job_per_user_part, align 4
-  %648 = load i32, ptr %640, align 8
-  %649 = load ptr, ptr %639, align 8
-  %650 = getelementptr inbounds i8, ptr %649, i64 224
-  %651 = load ptr, ptr %650, align 8
-  %652 = getelementptr inbounds i8, ptr %613, i64 392
-  %653 = load i32, ptr %652, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.125, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._job_exceeds_max_bf_param, i32 noundef %647, i32 noundef %648, ptr noundef %651, i32 noundef %653, ptr noundef nonnull %613) #16
+661:                                              ; preds = %658
+  %662 = load i32, ptr @max_backfill_job_per_user_part, align 4
+  %663 = load i32, ptr %655, align 8
+  %664 = load ptr, ptr %654, align 8
+  %665 = getelementptr inbounds i8, ptr %664, i64 224
+  %666 = load ptr, ptr %665, align 8
+  %667 = getelementptr inbounds i8, ptr %628, i64 392
+  %668 = load i32, ptr %667, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.125, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._job_exceeds_max_bf_param, i32 noundef %662, i32 noundef %663, ptr noundef %666, i32 noundef %668, ptr noundef nonnull %628) #16
   br label %.backedge.backedge
 
-654:                                              ; preds = %_check_bf_usage.exit.i, %_check_bf_usage.exit.thread.i, %612
-  %.045.i = phi ptr [ %.0.i.i, %_check_bf_usage.exit.i ], [ null, %612 ], [ %.0.i.i, %_check_bf_usage.exit.thread.i ]
-  %655 = load i32, ptr @max_backfill_job_per_part, align 4
-  %.not52.i = icmp eq i32 %655, 0
-  br i1 %.not52.i, label %677, label %656
+669:                                              ; preds = %_check_bf_usage.exit.i, %_check_bf_usage.exit.thread.i, %627
+  %.045.i = phi ptr [ %.0.i.i, %_check_bf_usage.exit.i ], [ null, %627 ], [ %.0.i.i, %_check_bf_usage.exit.thread.i ]
+  %670 = load i32, ptr @max_backfill_job_per_part, align 4
+  %.not52.i = icmp eq i32 %670, 0
+  br i1 %.not52.i, label %692, label %671
 
-656:                                              ; preds = %654
-  %657 = getelementptr inbounds i8, ptr %617, i64 344
-  %658 = load ptr, ptr %657, align 8
-  %659 = load ptr, ptr %658, align 8
-  %660 = getelementptr inbounds i8, ptr %659, i64 8
-  %661 = load i64, ptr %660, align 8
-  %662 = icmp slt i64 %661, %.fr2921
-  br i1 %662, label %_check_bf_usage.exit73.thread.i, label %_check_bf_usage.exit73.i
+671:                                              ; preds = %669
+  %672 = getelementptr inbounds i8, ptr %632, i64 344
+  %673 = load ptr, ptr %672, align 8
+  %674 = load ptr, ptr %673, align 8
+  %675 = getelementptr inbounds i8, ptr %674, i64 8
+  %676 = load i64, ptr %675, align 8
+  %677 = icmp slt i64 %676, %.fr2921
+  br i1 %677, label %_check_bf_usage.exit73.thread.i, label %_check_bf_usage.exit73.i
 
-_check_bf_usage.exit73.thread.i:                  ; preds = %656
-  store i64 %.fr2921, ptr %660, align 8
-  store i64 0, ptr %659, align 8
-  br label %677
+_check_bf_usage.exit73.thread.i:                  ; preds = %671
+  store i64 %.fr2921, ptr %675, align 8
+  store i64 0, ptr %674, align 8
+  br label %692
 
-_check_bf_usage.exit73.i:                         ; preds = %656
-  %663 = load i64, ptr %659, align 8
-  %664 = sext i32 %655 to i64
-  %.not86.i = icmp ult i64 %663, %664
-  br i1 %.not86.i, label %677, label %665
+_check_bf_usage.exit73.i:                         ; preds = %671
+  %678 = load i64, ptr %674, align 8
+  %679 = sext i32 %670 to i64
+  %.not86.i = icmp ult i64 %678, %679
+  br i1 %.not86.i, label %692, label %680
 
-665:                                              ; preds = %_check_bf_usage.exit73.i
-  %666 = getelementptr inbounds i8, ptr %613, i64 664
-  %667 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %668 = and i64 %667, 4096
-  %.not69.i = icmp eq i64 %668, 0
-  br i1 %.not69.i, label %.backedge.backedge, label %669
+680:                                              ; preds = %_check_bf_usage.exit73.i
+  %681 = getelementptr inbounds i8, ptr %628, i64 664
+  %682 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %683 = and i64 %682, 4096
+  %.not69.i = icmp eq i64 %683, 0
+  br i1 %.not69.i, label %.backedge.backedge, label %684
 
-669:                                              ; preds = %665
-  %670 = call i32 @get_log_level() #16
-  %671 = icmp sgt i32 %670, 3
-  br i1 %671, label %672, label %.backedge.backedge
+684:                                              ; preds = %680
+  %685 = call i32 @get_log_level() #16
+  %686 = icmp sgt i32 %685, 3
+  br i1 %686, label %687, label %.backedge.backedge
 
-672:                                              ; preds = %669
-  %673 = load i32, ptr @max_backfill_job_per_part, align 4
-  %674 = load ptr, ptr %666, align 8
-  %675 = getelementptr inbounds i8, ptr %674, i64 224
-  %676 = load ptr, ptr %675, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.126, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._job_exceeds_max_bf_param, i32 noundef %673, ptr noundef %676, ptr noundef nonnull %613) #16
+687:                                              ; preds = %684
+  %688 = load i32, ptr @max_backfill_job_per_part, align 4
+  %689 = load ptr, ptr %681, align 8
+  %690 = getelementptr inbounds i8, ptr %689, i64 224
+  %691 = load ptr, ptr %690, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.126, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._job_exceeds_max_bf_param, i32 noundef %688, ptr noundef %691, ptr noundef nonnull %628) #16
   br label %.backedge.backedge
 
-677:                                              ; preds = %_check_bf_usage.exit73.i, %_check_bf_usage.exit73.thread.i, %654
-  %.044.i = phi ptr [ %659, %_check_bf_usage.exit73.i ], [ null, %654 ], [ %659, %_check_bf_usage.exit73.thread.i ]
-  %678 = load i32, ptr @max_backfill_job_per_assoc, align 4
-  %.not53.i = icmp eq i32 %678, 0
-  br i1 %.not53.i, label %714, label %679
+692:                                              ; preds = %_check_bf_usage.exit73.i, %_check_bf_usage.exit73.thread.i, %669
+  %.044.i = phi ptr [ %674, %_check_bf_usage.exit73.i ], [ null, %669 ], [ %674, %_check_bf_usage.exit73.thread.i ]
+  %693 = load i32, ptr @max_backfill_job_per_assoc, align 4
+  %.not53.i = icmp eq i32 %693, 0
+  br i1 %.not53.i, label %729, label %694
 
-679:                                              ; preds = %677
-  %.not54.i = icmp eq ptr %615, null
-  br i1 %.not54.i, label %705, label %680
+694:                                              ; preds = %692
+  %.not54.i = icmp eq ptr %630, null
+  br i1 %.not54.i, label %720, label %695
 
-680:                                              ; preds = %679
-  %681 = getelementptr inbounds i8, ptr %615, i64 32
-  %682 = load ptr, ptr %681, align 8
-  %.not56.i = icmp eq ptr %682, null
-  br i1 %.not56.i, label %683, label %685
+695:                                              ; preds = %694
+  %696 = getelementptr inbounds i8, ptr %630, i64 32
+  %697 = load ptr, ptr %696, align 8
+  %.not56.i = icmp eq ptr %697, null
+  br i1 %.not56.i, label %698, label %700
 
-683:                                              ; preds = %680
-  %684 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 1633, ptr noundef nonnull @__func__._job_exceeds_max_bf_param) #16
-  store ptr %684, ptr %681, align 8
-  br label %685
+698:                                              ; preds = %695
+  %699 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 1633, ptr noundef nonnull @__func__._job_exceeds_max_bf_param) #16
+  store ptr %699, ptr %696, align 8
+  br label %700
 
-685:                                              ; preds = %683, %680
-  %686 = phi ptr [ %684, %683 ], [ %682, %680 ]
-  %687 = getelementptr inbounds i8, ptr %686, i64 8
-  %688 = load i64, ptr %687, align 8
-  %689 = icmp slt i64 %688, %.fr2921
-  br i1 %689, label %_check_bf_usage.exit75.thread.i, label %_check_bf_usage.exit75.i
+700:                                              ; preds = %698, %695
+  %701 = phi ptr [ %699, %698 ], [ %697, %695 ]
+  %702 = getelementptr inbounds i8, ptr %701, i64 8
+  %703 = load i64, ptr %702, align 8
+  %704 = icmp slt i64 %703, %.fr2921
+  br i1 %704, label %_check_bf_usage.exit75.thread.i, label %_check_bf_usage.exit75.i
 
-_check_bf_usage.exit75.thread.i:                  ; preds = %685
-  store i64 %.fr2921, ptr %687, align 8
-  store i64 0, ptr %686, align 8
-  br label %714
+_check_bf_usage.exit75.thread.i:                  ; preds = %700
+  store i64 %.fr2921, ptr %702, align 8
+  store i64 0, ptr %701, align 8
+  br label %729
 
-_check_bf_usage.exit75.i:                         ; preds = %685
-  %690 = load i32, ptr @max_backfill_job_per_assoc, align 4
-  %691 = load i64, ptr %686, align 8
-  %692 = sext i32 %690 to i64
-  %.not87.i = icmp ult i64 %691, %692
-  br i1 %.not87.i, label %714, label %693
+_check_bf_usage.exit75.i:                         ; preds = %700
+  %705 = load i32, ptr @max_backfill_job_per_assoc, align 4
+  %706 = load i64, ptr %701, align 8
+  %707 = sext i32 %705 to i64
+  %.not87.i = icmp ult i64 %706, %707
+  br i1 %.not87.i, label %729, label %708
 
-693:                                              ; preds = %_check_bf_usage.exit75.i
-  %694 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %695 = and i64 %694, 4096
-  %.not68.i = icmp eq i64 %695, 0
-  br i1 %.not68.i, label %.backedge.backedge, label %696
-
-696:                                              ; preds = %693
-  %697 = call i32 @get_log_level() #16
-  %698 = icmp sgt i32 %697, 3
-  br i1 %698, label %699, label %.backedge.backedge
-
-699:                                              ; preds = %696
-  %700 = load i32, ptr @max_backfill_job_per_assoc, align 4
-  %701 = getelementptr inbounds i8, ptr %613, i64 1064
-  %702 = load i32, ptr %701, align 8
-  %703 = getelementptr inbounds i8, ptr %613, i64 64
-  %704 = load i32, ptr %703, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.127, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._job_exceeds_max_bf_param, i32 noundef %700, i32 noundef %702, i32 noundef %704, ptr noundef nonnull %613) #16
-  br label %.backedge.backedge
-
-705:                                              ; preds = %679
-  %706 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %707 = and i64 %706, 4096
-  %.not55.i = icmp eq i64 %707, 0
-  br i1 %.not55.i, label %714, label %708
-
-708:                                              ; preds = %705
-  %709 = call i32 @get_log_level() #16
-  %710 = icmp sgt i32 %709, 3
-  br i1 %710, label %711, label %714
+708:                                              ; preds = %_check_bf_usage.exit75.i
+  %709 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %710 = and i64 %709, 4096
+  %.not68.i = icmp eq i64 %710, 0
+  br i1 %.not68.i, label %.backedge.backedge, label %711
 
 711:                                              ; preds = %708
-  %712 = getelementptr inbounds i8, ptr %613, i64 392
-  %713 = load i32, ptr %712, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.128, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._job_exceeds_max_bf_param, i32 noundef %713) #16
-  br label %714
+  %712 = call i32 @get_log_level() #16
+  %713 = icmp sgt i32 %712, 3
+  br i1 %713, label %714, label %.backedge.backedge
 
-714:                                              ; preds = %711, %708, %705, %_check_bf_usage.exit75.i, %_check_bf_usage.exit75.thread.i, %677
-  %.046.i = phi ptr [ %686, %_check_bf_usage.exit75.i ], [ null, %677 ], [ null, %705 ], [ null, %708 ], [ null, %711 ], [ %686, %_check_bf_usage.exit75.thread.i ]
-  %715 = load i32, ptr @max_backfill_job_per_user, align 4
-  %.not57.i = icmp eq i32 %715, 0
-  br i1 %.not57.i, label %758, label %716
+714:                                              ; preds = %711
+  %715 = load i32, ptr @max_backfill_job_per_assoc, align 4
+  %716 = getelementptr inbounds i8, ptr %628, i64 1064
+  %717 = load i32, ptr %716, align 8
+  %718 = getelementptr inbounds i8, ptr %628, i64 64
+  %719 = load i32, ptr %718, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.127, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._job_exceeds_max_bf_param, i32 noundef %715, i32 noundef %717, i32 noundef %719, ptr noundef nonnull %628) #16
+  br label %.backedge.backedge
 
-716:                                              ; preds = %714
-  %.not58.i = icmp eq ptr %615, null
-  br i1 %.not58.i, label %727, label %717
-
-717:                                              ; preds = %716
-  %718 = getelementptr inbounds i8, ptr %615, i64 328
-  %719 = load ptr, ptr %718, align 8
-  %.not59.i = icmp eq ptr %719, null
-  br i1 %.not59.i, label %727, label %720
-
-720:                                              ; preds = %717
-  %721 = getelementptr inbounds i8, ptr %719, i64 16
-  %722 = load ptr, ptr %721, align 8
-  %.not61.i = icmp eq ptr %722, null
-  br i1 %.not61.i, label %723, label %741
+720:                                              ; preds = %694
+  %721 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %722 = and i64 %721, 4096
+  %.not55.i = icmp eq i64 %722, 0
+  br i1 %.not55.i, label %729, label %723
 
 723:                                              ; preds = %720
-  %724 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 1657, ptr noundef nonnull @__func__._job_exceeds_max_bf_param) #16
-  %725 = load ptr, ptr %718, align 8
-  %726 = getelementptr inbounds i8, ptr %725, i64 16
-  store ptr %724, ptr %726, align 8
-  %.pre.i = load ptr, ptr %718, align 8
+  %724 = call i32 @get_log_level() #16
+  %725 = icmp sgt i32 %724, 3
+  br i1 %725, label %726, label %729
+
+726:                                              ; preds = %723
+  %727 = getelementptr inbounds i8, ptr %628, i64 392
+  %728 = load i32, ptr %727, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.128, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._job_exceeds_max_bf_param, i32 noundef %728) #16
+  br label %729
+
+729:                                              ; preds = %726, %723, %720, %_check_bf_usage.exit75.i, %_check_bf_usage.exit75.thread.i, %692
+  %.046.i = phi ptr [ %701, %_check_bf_usage.exit75.i ], [ null, %692 ], [ null, %720 ], [ null, %723 ], [ null, %726 ], [ %701, %_check_bf_usage.exit75.thread.i ]
+  %730 = load i32, ptr @max_backfill_job_per_user, align 4
+  %.not57.i = icmp eq i32 %730, 0
+  br i1 %.not57.i, label %773, label %731
+
+731:                                              ; preds = %729
+  %.not58.i = icmp eq ptr %630, null
+  br i1 %.not58.i, label %742, label %732
+
+732:                                              ; preds = %731
+  %733 = getelementptr inbounds i8, ptr %630, i64 328
+  %734 = load ptr, ptr %733, align 8
+  %.not59.i = icmp eq ptr %734, null
+  br i1 %.not59.i, label %742, label %735
+
+735:                                              ; preds = %732
+  %736 = getelementptr inbounds i8, ptr %734, i64 16
+  %737 = load ptr, ptr %736, align 8
+  %.not61.i = icmp eq ptr %737, null
+  br i1 %.not61.i, label %738, label %756
+
+738:                                              ; preds = %735
+  %739 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 1657, ptr noundef nonnull @__func__._job_exceeds_max_bf_param) #16
+  %740 = load ptr, ptr %733, align 8
+  %741 = getelementptr inbounds i8, ptr %740, i64 16
+  store ptr %739, ptr %741, align 8
+  %.pre.i = load ptr, ptr %733, align 8
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 16
   %.pre89.i = load ptr, ptr %.phi.trans.insert.i, align 8
-  br label %741
+  br label %756
 
-727:                                              ; preds = %717, %716
-  %728 = load ptr, ptr @user_usage_map, align 8
-  %.not60.i = icmp eq ptr %728, null
-  br i1 %.not60.i, label %729, label %731
+742:                                              ; preds = %732, %731
+  %743 = load ptr, ptr @user_usage_map, align 8
+  %.not60.i = icmp eq ptr %743, null
+  br i1 %.not60.i, label %744, label %746
 
-729:                                              ; preds = %727
-  %730 = call ptr @xhash_init(ptr noundef nonnull @_bf_map_key_id, ptr noundef nonnull @_bf_map_free) #16
-  store ptr %730, ptr @user_usage_map, align 8
-  br label %731
+744:                                              ; preds = %742
+  %745 = call ptr @xhash_init(ptr noundef nonnull @_bf_map_key_id, ptr noundef nonnull @_bf_map_free) #16
+  store ptr %745, ptr @user_usage_map, align 8
+  br label %746
 
-731:                                              ; preds = %729, %727
-  %732 = phi ptr [ %730, %729 ], [ %728, %727 ]
-  %733 = getelementptr inbounds i8, ptr %613, i64 1064
-  %734 = load i32, ptr %733, align 8
+746:                                              ; preds = %744, %742
+  %747 = phi ptr [ %745, %744 ], [ %743, %742 ]
+  %748 = getelementptr inbounds i8, ptr %628, i64 1064
+  %749 = load i32, ptr %748, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1)
-  store i32 %734, ptr %1, align 4
-  %735 = call ptr @xhash_get(ptr noundef %732, ptr noundef nonnull %1, i32 noundef 4) #16
-  %.not.i76.i = icmp eq ptr %735, null
-  br i1 %.not.i76.i, label %736, label %_bf_map_find_add.exit78.i
+  store i32 %749, ptr %1, align 4
+  %750 = call ptr @xhash_get(ptr noundef %747, ptr noundef nonnull %1, i32 noundef 4) #16
+  %.not.i76.i = icmp eq ptr %750, null
+  br i1 %.not.i76.i, label %751, label %_bf_map_find_add.exit78.i
 
-736:                                              ; preds = %731
-  %737 = load i32, ptr %1, align 4
-  %738 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 1556, ptr noundef nonnull @__func__._bf_map_add_user) #16
-  %739 = getelementptr inbounds i8, ptr %738, i64 16
-  store i32 %737, ptr %739, align 8
-  %740 = call ptr @xhash_add(ptr noundef %732, ptr noundef %738) #16
+751:                                              ; preds = %746
+  %752 = load i32, ptr %1, align 4
+  %753 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 1556, ptr noundef nonnull @__func__._bf_map_add_user) #16
+  %754 = getelementptr inbounds i8, ptr %753, i64 16
+  store i32 %752, ptr %754, align 8
+  %755 = call ptr @xhash_add(ptr noundef %747, ptr noundef %753) #16
   br label %_bf_map_find_add.exit78.i
 
-_bf_map_find_add.exit78.i:                        ; preds = %736, %731
-  %.0.i77.i = phi ptr [ %735, %731 ], [ %738, %736 ]
+_bf_map_find_add.exit78.i:                        ; preds = %751, %746
+  %.0.i77.i = phi ptr [ %750, %746 ], [ %753, %751 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1)
-  br label %741
+  br label %756
 
-741:                                              ; preds = %_bf_map_find_add.exit78.i, %723, %720
-  %.1.i801 = phi ptr [ %.0.i77.i, %_bf_map_find_add.exit78.i ], [ %.pre89.i, %723 ], [ %722, %720 ]
-  %742 = getelementptr inbounds i8, ptr %.1.i801, i64 8
-  %743 = load i64, ptr %742, align 8
-  %744 = icmp slt i64 %743, %.fr2921
-  br i1 %744, label %_check_bf_usage.exit80.thread.i, label %_check_bf_usage.exit80.i
+756:                                              ; preds = %_bf_map_find_add.exit78.i, %738, %735
+  %.1.i801 = phi ptr [ %.0.i77.i, %_bf_map_find_add.exit78.i ], [ %.pre89.i, %738 ], [ %737, %735 ]
+  %757 = getelementptr inbounds i8, ptr %.1.i801, i64 8
+  %758 = load i64, ptr %757, align 8
+  %759 = icmp slt i64 %758, %.fr2921
+  br i1 %759, label %_check_bf_usage.exit80.thread.i, label %_check_bf_usage.exit80.i
 
-_check_bf_usage.exit80.thread.i:                  ; preds = %741
-  store i64 %.fr2921, ptr %742, align 8
+_check_bf_usage.exit80.thread.i:                  ; preds = %756
+  store i64 %.fr2921, ptr %757, align 8
   store i64 0, ptr %.1.i801, align 8
-  br label %758
+  br label %773
 
-_check_bf_usage.exit80.i:                         ; preds = %741
-  %745 = load i32, ptr @max_backfill_job_per_user, align 4
-  %746 = load i64, ptr %.1.i801, align 8
-  %747 = sext i32 %745 to i64
-  %.not88.i = icmp ult i64 %746, %747
-  br i1 %.not88.i, label %758, label %748
+_check_bf_usage.exit80.i:                         ; preds = %756
+  %760 = load i32, ptr @max_backfill_job_per_user, align 4
+  %761 = load i64, ptr %.1.i801, align 8
+  %762 = sext i32 %760 to i64
+  %.not88.i = icmp ult i64 %761, %762
+  br i1 %.not88.i, label %773, label %763
 
-748:                                              ; preds = %_check_bf_usage.exit80.i
-  %749 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %750 = and i64 %749, 4096
-  %.not67.i = icmp eq i64 %750, 0
-  br i1 %.not67.i, label %.backedge.backedge, label %751
+763:                                              ; preds = %_check_bf_usage.exit80.i
+  %764 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %765 = and i64 %764, 4096
+  %.not67.i = icmp eq i64 %765, 0
+  br i1 %.not67.i, label %.backedge.backedge, label %766
 
-751:                                              ; preds = %748
-  %752 = call i32 @get_log_level() #16
-  %753 = icmp sgt i32 %752, 3
-  br i1 %753, label %754, label %.backedge.backedge
+766:                                              ; preds = %763
+  %767 = call i32 @get_log_level() #16
+  %768 = icmp sgt i32 %767, 3
+  br i1 %768, label %769, label %.backedge.backedge
 
-754:                                              ; preds = %751
-  %755 = load i32, ptr @max_backfill_job_per_user, align 4
-  %756 = getelementptr inbounds i8, ptr %613, i64 1064
-  %757 = load i32, ptr %756, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.129, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._job_exceeds_max_bf_param, i32 noundef %755, i32 noundef %757, ptr noundef nonnull %613) #16
+769:                                              ; preds = %766
+  %770 = load i32, ptr @max_backfill_job_per_user, align 4
+  %771 = getelementptr inbounds i8, ptr %628, i64 1064
+  %772 = load i32, ptr %771, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.129, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._job_exceeds_max_bf_param, i32 noundef %770, i32 noundef %772, ptr noundef nonnull %628) #16
   br label %.backedge.backedge
 
-758:                                              ; preds = %_check_bf_usage.exit80.i, %_check_bf_usage.exit80.thread.i, %714
-  %.047.i = phi ptr [ %.1.i801, %_check_bf_usage.exit80.i ], [ null, %714 ], [ %.1.i801, %_check_bf_usage.exit80.thread.i ]
-  %759 = getelementptr inbounds i8, ptr %613, i64 112
-  %760 = load i64, ptr %759, align 8
-  %761 = and i64 %760, 1073741824
-  %.not62.i = icmp eq i64 %761, 0
-  br i1 %.not62.i, label %762, label %778
+773:                                              ; preds = %_check_bf_usage.exit80.i, %_check_bf_usage.exit80.thread.i, %729
+  %.047.i = phi ptr [ %.1.i801, %_check_bf_usage.exit80.i ], [ null, %729 ], [ %.1.i801, %_check_bf_usage.exit80.thread.i ]
+  %774 = getelementptr inbounds i8, ptr %628, i64 112
+  %775 = load i64, ptr %774, align 8
+  %776 = and i64 %775, 1073741824
+  %.not62.i = icmp eq i64 %776, 0
+  br i1 %.not62.i, label %777, label %793
 
-762:                                              ; preds = %758
+777:                                              ; preds = %773
   %.not63.i = icmp eq ptr %.045.i, null
-  br i1 %.not63.i, label %766, label %763
+  br i1 %.not63.i, label %781, label %778
 
-763:                                              ; preds = %762
-  %764 = load i64, ptr %.045.i, align 8
-  %765 = add i64 %764, 1
-  store i64 %765, ptr %.045.i, align 8
-  br label %766
+778:                                              ; preds = %777
+  %779 = load i64, ptr %.045.i, align 8
+  %780 = add i64 %779, 1
+  store i64 %780, ptr %.045.i, align 8
+  br label %781
 
-766:                                              ; preds = %763, %762
+781:                                              ; preds = %778, %777
   %.not64.i = icmp eq ptr %.044.i, null
-  br i1 %.not64.i, label %770, label %767
+  br i1 %.not64.i, label %785, label %782
 
-767:                                              ; preds = %766
-  %768 = load i64, ptr %.044.i, align 8
-  %769 = add i64 %768, 1
-  store i64 %769, ptr %.044.i, align 8
-  br label %770
+782:                                              ; preds = %781
+  %783 = load i64, ptr %.044.i, align 8
+  %784 = add i64 %783, 1
+  store i64 %784, ptr %.044.i, align 8
+  br label %785
 
-770:                                              ; preds = %767, %766
+785:                                              ; preds = %782, %781
   %.not65.i = icmp eq ptr %.047.i, null
-  br i1 %.not65.i, label %774, label %771
+  br i1 %.not65.i, label %789, label %786
 
-771:                                              ; preds = %770
-  %772 = load i64, ptr %.047.i, align 8
-  %773 = add i64 %772, 1
-  store i64 %773, ptr %.047.i, align 8
-  br label %774
+786:                                              ; preds = %785
+  %787 = load i64, ptr %.047.i, align 8
+  %788 = add i64 %787, 1
+  store i64 %788, ptr %.047.i, align 8
+  br label %789
 
-774:                                              ; preds = %771, %770
+789:                                              ; preds = %786, %785
   %.not66.i = icmp eq ptr %.046.i, null
-  br i1 %.not66.i, label %778, label %775
+  br i1 %.not66.i, label %793, label %790
 
-775:                                              ; preds = %774
-  %776 = load i64, ptr %.046.i, align 8
-  %777 = add i64 %776, 1
-  store i64 %777, ptr %.046.i, align 8
-  br label %778
+790:                                              ; preds = %789
+  %791 = load i64, ptr %.046.i, align 8
+  %792 = add i64 %791, 1
+  store i64 %792, ptr %.046.i, align 8
+  br label %793
 
-778:                                              ; preds = %758, %775, %774
-  %779 = load i16, ptr %508, align 2
-  %780 = and i16 %779, 2
-  %781 = icmp eq i16 %780, 0
-  br i1 %781, label %785, label %782
+793:                                              ; preds = %773, %790, %789
+  %794 = load i16, ptr %523, align 2
+  %795 = and i16 %794, 2
+  %796 = icmp eq i16 %795, 0
+  br i1 %796, label %800, label %797
 
-782:                                              ; preds = %778
-  %783 = load ptr, ptr %509, align 8
-  %784 = icmp eq ptr %783, null
-  br i1 %784, label %785, label %797
+797:                                              ; preds = %793
+  %798 = load ptr, ptr %524, align 8
+  %799 = icmp eq ptr %798, null
+  br i1 %799, label %800, label %812
 
-785:                                              ; preds = %778, %782
-  %786 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %787 = and i64 %786, 4096
-  %.not741 = icmp eq i64 %787, 0
-  br i1 %.not741, label %.backedge.backedge, label %788
+800:                                              ; preds = %793, %797
+  %801 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %802 = and i64 %801, 4096
+  %.not741 = icmp eq i64 %802, 0
+  br i1 %.not741, label %.backedge.backedge, label %803
 
-788:                                              ; preds = %785
-  %789 = call i32 @get_log_level() #16
-  %790 = icmp sgt i32 %789, 3
-  br i1 %790, label %791, label %.backedge.backedge
+803:                                              ; preds = %800
+  %804 = call i32 @get_log_level() #16
+  %805 = icmp sgt i32 %804, 3
+  br i1 %805, label %806, label %.backedge.backedge
 
-791:                                              ; preds = %788
-  %792 = load ptr, ptr %9, align 8
-  %793 = getelementptr inbounds i8, ptr %792, i64 664
-  %794 = load ptr, ptr %793, align 8
-  %795 = getelementptr inbounds i8, ptr %794, i64 224
-  %796 = load ptr, ptr %795, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.81, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, ptr noundef %796) #16
+806:                                              ; preds = %803
+  %807 = load ptr, ptr %9, align 8
+  %808 = getelementptr inbounds i8, ptr %807, i64 664
+  %809 = load ptr, ptr %808, align 8
+  %810 = getelementptr inbounds i8, ptr %809, i64 224
+  %811 = load ptr, ptr %810, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.81, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, ptr noundef %811) #16
   br label %.backedge.backedge
 
-797:                                              ; preds = %782
+812:                                              ; preds = %797
   %.b559617 = load i1, ptr @bf_licenses, align 1
   %.pre2880 = load ptr, ptr %9, align 8
-  br i1 %.b559617, label %809, label %798
+  br i1 %.b559617, label %824, label %813
 
-798:                                              ; preds = %797
-  %799 = call i64 @time(ptr noundef null) #16
-  %800 = call i32 @license_job_test(ptr noundef %.pre2880, i64 noundef %799, i1 noundef zeroext true) #16
-  %.not618 = icmp eq i32 %800, 0
-  br i1 %.not618, label %._crit_edge2878, label %801
+813:                                              ; preds = %812
+  %814 = call i64 @time(ptr noundef null) #16
+  %815 = call i32 @license_job_test(ptr noundef %.pre2880, i64 noundef %814, i1 noundef zeroext true) #16
+  %.not618 = icmp eq i32 %815, 0
+  br i1 %.not618, label %._crit_edge2878, label %816
 
-._crit_edge2878:                                  ; preds = %798
+._crit_edge2878:                                  ; preds = %813
   %.pre2879 = load ptr, ptr %9, align 8
-  br label %809
+  br label %824
 
-801:                                              ; preds = %798
-  %802 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %803 = and i64 %802, 4096
-  %.not619 = icmp eq i64 %803, 0
-  br i1 %.not619, label %.backedge.backedge, label %804
+816:                                              ; preds = %813
+  %817 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %818 = and i64 %817, 4096
+  %.not619 = icmp eq i64 %818, 0
+  br i1 %.not619, label %.backedge.backedge, label %819
 
-804:                                              ; preds = %801
-  %805 = call i32 @get_log_level() #16
-  %806 = icmp sgt i32 %805, 3
-  br i1 %806, label %807, label %.backedge.backedge
+819:                                              ; preds = %816
+  %820 = call i32 @get_log_level() #16
+  %821 = icmp sgt i32 %820, 3
+  br i1 %821, label %822, label %.backedge.backedge
 
-807:                                              ; preds = %804
-  %808 = load ptr, ptr %9, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.82, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, ptr noundef %808) #16
+822:                                              ; preds = %819
+  %823 = load ptr, ptr %9, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.82, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, ptr noundef %823) #16
   br label %.backedge.backedge
 
-809:                                              ; preds = %._crit_edge2878, %797
-  %810 = phi ptr [ %.pre2879, %._crit_edge2878 ], [ %.pre2880, %797 ]
-  %811 = call zeroext i1 @job_independent(ptr noundef %810) #16
-  br i1 %811, label %820, label %812
+824:                                              ; preds = %._crit_edge2878, %812
+  %825 = phi ptr [ %.pre2879, %._crit_edge2878 ], [ %.pre2880, %812 ]
+  %826 = call zeroext i1 @job_independent(ptr noundef %825) #16
+  br i1 %826, label %835, label %827
 
-812:                                              ; preds = %809
-  %813 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %814 = and i64 %813, 4096
-  %.not620 = icmp eq i64 %814, 0
-  br i1 %.not620, label %.backedge.backedge, label %815
+827:                                              ; preds = %824
+  %828 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %829 = and i64 %828, 4096
+  %.not620 = icmp eq i64 %829, 0
+  br i1 %.not620, label %.backedge.backedge, label %830
 
-815:                                              ; preds = %812
-  %816 = call i32 @get_log_level() #16
-  %817 = icmp sgt i32 %816, 3
-  br i1 %817, label %818, label %.backedge.backedge
+830:                                              ; preds = %827
+  %831 = call i32 @get_log_level() #16
+  %832 = icmp sgt i32 %831, 3
+  br i1 %832, label %833, label %.backedge.backedge
 
-818:                                              ; preds = %815
-  %819 = load ptr, ptr %9, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.83, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, ptr noundef %819) #16
+833:                                              ; preds = %830
+  %834 = load ptr, ptr %9, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.83, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, ptr noundef %834) #16
   br label %.backedge.backedge
 
-820:                                              ; preds = %809
-  %821 = load ptr, ptr %9, align 8
-  %822 = call i32 @get_node_cnts(ptr noundef %821, i32 noundef %.1406, ptr noundef nonnull %184, ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef nonnull %11) #16
-  switch i32 %822, label %839 [
-    i32 2050, label %823
-    i32 2015, label %831
-    i32 0, label %848
+835:                                              ; preds = %824
+  %836 = load ptr, ptr %9, align 8
+  %837 = call i32 @get_node_cnts(ptr noundef %836, i32 noundef %.1406, ptr noundef nonnull %193, ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef nonnull %11) #16
+  switch i32 %837, label %854 [
+    i32 2050, label %838
+    i32 2015, label %846
+    i32 0, label %863
   ]
 
-823:                                              ; preds = %820
-  %824 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %825 = and i64 %824, 4096
-  %.not740 = icmp eq i64 %825, 0
-  br i1 %.not740, label %.backedge.backedge, label %826
+838:                                              ; preds = %835
+  %839 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %840 = and i64 %839, 4096
+  %.not740 = icmp eq i64 %840, 0
+  br i1 %.not740, label %.backedge.backedge, label %841
 
-826:                                              ; preds = %823
-  %827 = call i32 @get_log_level() #16
-  %828 = icmp sgt i32 %827, 3
-  br i1 %828, label %829, label %.backedge.backedge
+841:                                              ; preds = %838
+  %842 = call i32 @get_log_level() #16
+  %843 = icmp sgt i32 %842, 3
+  br i1 %843, label %844, label %.backedge.backedge
 
-829:                                              ; preds = %826
-  %830 = load ptr, ptr %9, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.84, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, ptr noundef %830) #16
+844:                                              ; preds = %841
+  %845 = load ptr, ptr %9, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.84, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, ptr noundef %845) #16
   br label %.backedge.backedge
 
-831:                                              ; preds = %820
-  %832 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %833 = and i64 %832, 4096
-  %.not739 = icmp eq i64 %833, 0
-  br i1 %.not739, label %.backedge.backedge, label %834
+846:                                              ; preds = %835
+  %847 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %848 = and i64 %847, 4096
+  %.not739 = icmp eq i64 %848, 0
+  br i1 %.not739, label %.backedge.backedge, label %849
 
-834:                                              ; preds = %831
-  %835 = call i32 @get_log_level() #16
-  %836 = icmp sgt i32 %835, 3
-  br i1 %836, label %837, label %.backedge.backedge
+849:                                              ; preds = %846
+  %850 = call i32 @get_log_level() #16
+  %851 = icmp sgt i32 %850, 3
+  br i1 %851, label %852, label %.backedge.backedge
 
-837:                                              ; preds = %834
-  %838 = load ptr, ptr %9, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.85, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, ptr noundef %838) #16
+852:                                              ; preds = %849
+  %853 = load ptr, ptr %9, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.85, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, ptr noundef %853) #16
   br label %.backedge.backedge
 
-839:                                              ; preds = %820
-  %840 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %841 = and i64 %840, 4096
-  %.not738 = icmp eq i64 %841, 0
-  br i1 %.not738, label %.backedge.backedge, label %842
+854:                                              ; preds = %835
+  %855 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %856 = and i64 %855, 4096
+  %.not738 = icmp eq i64 %856, 0
+  br i1 %.not738, label %.backedge.backedge, label %857
 
-842:                                              ; preds = %839
-  %843 = call i32 @get_log_level() #16
-  %844 = icmp sgt i32 %843, 3
-  br i1 %844, label %845, label %.backedge.backedge
+857:                                              ; preds = %854
+  %858 = call i32 @get_log_level() #16
+  %859 = icmp sgt i32 %858, 3
+  br i1 %859, label %860, label %.backedge.backedge
 
-845:                                              ; preds = %842
-  %846 = load ptr, ptr %9, align 8
-  %847 = call ptr @slurm_strerror(i32 noundef %822) #16
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.86, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, ptr noundef %846, ptr noundef %847) #16
+860:                                              ; preds = %857
+  %861 = load ptr, ptr %9, align 8
+  %862 = call ptr @slurm_strerror(i32 noundef %837) #16
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.86, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, ptr noundef %861, ptr noundef %862) #16
   br label %.backedge.backedge
 
-848:                                              ; preds = %820
-  %849 = call i64 @time(ptr noundef null) #16
-  %850 = load ptr, ptr %9, align 8
-  %851 = getelementptr inbounds i8, ptr %850, i64 200
-  %852 = load i64, ptr %851, align 8
-  switch i64 %852, label %853 [
-    i64 0, label %862
-    i64 4294967294, label %862
+863:                                              ; preds = %835
+  %864 = call i64 @time(ptr noundef null) #16
+  %865 = load ptr, ptr %9, align 8
+  %866 = getelementptr inbounds i8, ptr %865, i64 200
+  %867 = load i64, ptr %866, align 8
+  switch i64 %867, label %868 [
+    i64 0, label %877
+    i64 4294967294, label %877
   ]
 
-853:                                              ; preds = %848
-  %854 = call zeroext i1 @deadline_ok(ptr noundef nonnull %850, ptr noundef nonnull @__func__._attempt_backfill) #16
-  br i1 %854, label %855, label %.backedge.backedge
+868:                                              ; preds = %863
+  %869 = call zeroext i1 @deadline_ok(ptr noundef nonnull %865, ptr noundef nonnull @__func__._attempt_backfill) #16
+  br i1 %869, label %870, label %.backedge.backedge
 
-855:                                              ; preds = %853
-  %856 = load ptr, ptr %9, align 8
-  %857 = getelementptr inbounds i8, ptr %856, i64 200
-  %858 = load i64, ptr %857, align 8
-  %859 = sub nsw i64 %858, %849
-  %860 = sdiv i64 %859, 60
-  %861 = trunc i64 %860 to i32
-  br label %862
+870:                                              ; preds = %868
+  %871 = load ptr, ptr %9, align 8
+  %872 = getelementptr inbounds i8, ptr %871, i64 200
+  %873 = load i64, ptr %872, align 8
+  %874 = sub nsw i64 %873, %864
+  %875 = sdiv i64 %874, 60
+  %876 = trunc i64 %875 to i32
+  br label %877
 
-862:                                              ; preds = %848, %848, %855
-  %863 = phi ptr [ %856, %855 ], [ %850, %848 ], [ %850, %848 ]
-  %.0360 = phi i32 [ %861, %855 ], [ 0, %848 ], [ 0, %848 ]
-  %864 = load i32, ptr %510, align 4
-  %865 = icmp eq i32 %864, -1
-  %866 = getelementptr inbounds i8, ptr %863, i64 944
-  %867 = load i32, ptr %866, align 8
-  %switch784 = icmp ugt i32 %867, -3
-  br i1 %switch784, label %868, label %870
+877:                                              ; preds = %863, %863, %870
+  %878 = phi ptr [ %871, %870 ], [ %865, %863 ], [ %865, %863 ]
+  %.0360 = phi i32 [ %876, %870 ], [ 0, %863 ], [ 0, %863 ]
+  %879 = load i32, ptr %525, align 4
+  %880 = icmp eq i32 %879, -1
+  %881 = getelementptr inbounds i8, ptr %878, i64 944
+  %882 = load i32, ptr %881, align 8
+  %switch784 = icmp ugt i32 %882, -3
+  br i1 %switch784, label %883, label %885
 
-868:                                              ; preds = %862
-  %. = select i1 %865, i32 525600, i32 %864
-  %869 = getelementptr inbounds i8, ptr %863, i64 490
-  store i16 1, ptr %869, align 2
-  br label %872
+883:                                              ; preds = %877
+  %. = select i1 %880, i32 525600, i32 %879
+  %884 = getelementptr inbounds i8, ptr %878, i64 490
+  store i16 1, ptr %884, align 2
+  br label %887
 
-870:                                              ; preds = %862
-  br i1 %865, label %872, label %871
+885:                                              ; preds = %877
+  br i1 %880, label %887, label %886
 
-871:                                              ; preds = %870
-  %.. = call i32 @llvm.umin.i32(i32 %867, i32 %864)
-  br label %872
+886:                                              ; preds = %885
+  %.. = call i32 @llvm.umin.i32(i32 %882, i32 %879)
+  br label %887
 
-872:                                              ; preds = %870, %871, %868
-  %.0366 = phi i32 [ %., %868 ], [ %.., %871 ], [ %867, %870 ]
-  %873 = icmp ne i32 %.0360, 0
-  br i1 %873, label %874, label %876
+887:                                              ; preds = %885, %886, %883
+  %.0366 = phi i32 [ %., %883 ], [ %.., %886 ], [ %882, %885 ]
+  %888 = icmp ne i32 %.0360, 0
+  br i1 %888, label %889, label %891
 
-874:                                              ; preds = %872
-  %875 = call i32 @llvm.umin.i32(i32 %.0366, i32 %.0360)
-  br label %881
+889:                                              ; preds = %887
+  %890 = call i32 @llvm.umin.i32(i32 %.0366, i32 %.0360)
+  br label %896
 
-876:                                              ; preds = %872
-  %877 = getelementptr inbounds i8, ptr %863, i64 948
-  %878 = load i32, ptr %877, align 4
-  %.not624 = icmp ne i32 %878, 0
-  %879 = icmp ult i32 %878, %.0366
-  %or.cond763 = select i1 %.not624, i1 %879, i1 false
-  br i1 %or.cond763, label %880, label %881
+891:                                              ; preds = %887
+  %892 = getelementptr inbounds i8, ptr %878, i64 948
+  %893 = load i32, ptr %892, align 4
+  %.not624 = icmp ne i32 %893, 0
+  %894 = icmp ult i32 %893, %.0366
+  %or.cond763 = select i1 %.not624, i1 %894, i1 false
+  br i1 %or.cond763, label %895, label %896
 
-880:                                              ; preds = %876
-  store i32 %878, ptr %866, align 8
-  br label %881
+895:                                              ; preds = %891
+  store i32 %893, ptr %881, align 8
+  br label %896
 
-881:                                              ; preds = %876, %880, %874
-  %.0372 = phi i32 [ %875, %874 ], [ %878, %880 ], [ %.0366, %876 ]
-  %.1367 = phi i32 [ %.0366, %874 ], [ %878, %880 ], [ %.0366, %876 ]
-  %882 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 796), align 4
-  %.not626 = icmp eq i16 %882, 0
+896:                                              ; preds = %891, %895, %889
+  %.0372 = phi i32 [ %890, %889 ], [ %893, %895 ], [ %.0366, %891 ]
+  %.1367 = phi i32 [ %.0366, %889 ], [ %893, %895 ], [ %.0366, %891 ]
+  %897 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 796), align 4
+  %.not626 = icmp eq i16 %897, 0
   %or.cond764 = select i1 %.not625, i1 true, i1 %.not626
-  br i1 %or.cond764, label %884, label %883
+  br i1 %or.cond764, label %899, label %898
 
-883:                                              ; preds = %881
-  store i32 1, ptr %866, align 8
-  br label %884
+898:                                              ; preds = %896
+  store i32 1, ptr %881, align 8
+  br label %899
 
-884:                                              ; preds = %883, %881
-  %.2368 = phi i32 [ 1, %883 ], [ %.1367, %881 ]
+899:                                              ; preds = %898, %896
+  %.2368 = phi i32 [ 1, %898 ], [ %.1367, %896 ]
   %.b550627 = load i1, ptr @assoc_limit_stop, align 1
-  br i1 %.b550627, label %885, label %903
+  br i1 %.b550627, label %900, label %918
 
-885:                                              ; preds = %884
-  %886 = icmp sgt i64 %.0404, %849
-  br i1 %886, label %887, label %894
+900:                                              ; preds = %899
+  %901 = icmp sgt i64 %.0404, %864
+  br i1 %901, label %902, label %909
 
-887:                                              ; preds = %885
-  %888 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %889 = and i64 %888, 4096
-  %.not628 = icmp eq i64 %889, 0
-  br i1 %.not628, label %894, label %890
+902:                                              ; preds = %900
+  %903 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %904 = and i64 %903, 4096
+  %.not628 = icmp eq i64 %904, 0
+  br i1 %.not628, label %909, label %905
 
-890:                                              ; preds = %887
-  %891 = call i32 @get_log_level() #16
-  %892 = icmp sgt i32 %891, 3
-  br i1 %892, label %893, label %894
+905:                                              ; preds = %902
+  %906 = call i32 @get_log_level() #16
+  %907 = icmp sgt i32 %906, 3
+  br i1 %907, label %908, label %909
 
-893:                                              ; preds = %890
+908:                                              ; preds = %905
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.87, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, i64 noundef %.0404) #16
-  br label %894
+  br label %909
 
-894:                                              ; preds = %893, %890, %887, %885
-  %.1386 = phi i64 [ %.0404, %893 ], [ %.0404, %890 ], [ %.0404, %887 ], [ %849, %885 ]
-  %895 = icmp sgt i64 %.0403, %.1386
-  br i1 %895, label %896, label %903
+909:                                              ; preds = %908, %905, %902, %900
+  %.1386 = phi i64 [ %.0404, %908 ], [ %.0404, %905 ], [ %.0404, %902 ], [ %864, %900 ]
+  %910 = icmp sgt i64 %.0403, %.1386
+  br i1 %910, label %911, label %918
 
-896:                                              ; preds = %894
-  %897 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %898 = and i64 %897, 4096
-  %.not629 = icmp eq i64 %898, 0
-  br i1 %.not629, label %903, label %899
+911:                                              ; preds = %909
+  %912 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %913 = and i64 %912, 4096
+  %.not629 = icmp eq i64 %913, 0
+  br i1 %.not629, label %918, label %914
 
-899:                                              ; preds = %896
-  %900 = call i32 @get_log_level() #16
-  %901 = icmp sgt i32 %900, 3
-  br i1 %901, label %902, label %903
+914:                                              ; preds = %911
+  %915 = call i32 @get_log_level() #16
+  %916 = icmp sgt i32 %915, 3
+  br i1 %916, label %917, label %918
 
-902:                                              ; preds = %899
+917:                                              ; preds = %914
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.88, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, i64 noundef %.0403) #16
-  br label %903
+  br label %918
 
-903:                                              ; preds = %894, %896, %899, %902, %884
-  %.0385 = phi i64 [ %.0403, %902 ], [ %.0403, %899 ], [ %.0403, %896 ], [ %.1386, %894 ], [ %849, %884 ]
-  %904 = load i64, ptr getelementptr inbounds (i8, ptr @slurmctld_config, i64 328), align 8
-  %.not630194019601981 = icmp eq i64 %904, 0
+918:                                              ; preds = %909, %911, %914, %917, %899
+  %.0385 = phi i64 [ %.0403, %917 ], [ %.0403, %914 ], [ %.0403, %911 ], [ %.1386, %909 ], [ %864, %899 ]
+  %919 = load i64, ptr getelementptr inbounds (i8, ptr @slurmctld_config, i64 328), align 8
+  %.not630194019601981 = icmp eq i64 %919, 0
   br i1 %.not630194019601981, label %.lr.ph.lr.ph, label %.outer._crit_edge
 
-.lr.ph.lr.ph:                                     ; preds = %903, %.outer.outer.backedge
-  %.3369.ph.ph1992 = phi i32 [ %.4370, %.outer.outer.backedge ], [ %.2368, %903 ]
-  %.1373.ph.ph1991 = phi i32 [ %.2374, %.outer.outer.backedge ], [ %.0372, %903 ]
-  %.2379.ph.ph1990 = phi i64 [ %1332, %.outer.outer.backedge ], [ %849, %903 ]
-  %.3383.ph.ph1989 = phi i64 [ %.4384, %.outer.outer.backedge ], [ %.2382, %903 ]
-  %.2387.ph.ph1988 = phi i64 [ %.2387.ph.ph.be, %.outer.outer.backedge ], [ %.0385, %903 ]
-  %.1398.ph.ph1987 = phi i1 [ %.2399854868, %.outer.outer.backedge ], [ %.0397, %903 ]
-  %.2410.ph.ph1986 = phi i8 [ %.3411849870, %.outer.outer.backedge ], [ %.1409, %903 ]
-  %.2414.ph.ph1985 = phi i8 [ %.3415847872, %.outer.outer.backedge ], [ %.1413, %903 ]
-  %.1449.ph.ph1984 = phi i1 [ true, %.outer.outer.backedge ], [ %.not610, %903 ]
-  %.3454.ph.ph1983 = phi i32 [ %.4455, %.outer.outer.backedge ], [ %.2453, %903 ]
-  %.5461.ph.ph1982 = phi i32 [ %.6462, %.outer.outer.backedge ], [ %.4460, %903 ]
-  %905 = mul i32 %.3369.ph.ph1992, 60
+.lr.ph.lr.ph:                                     ; preds = %918, %.outer.outer.backedge
+  %.3369.ph.ph1992 = phi i32 [ %.4370, %.outer.outer.backedge ], [ %.2368, %918 ]
+  %.1373.ph.ph1991 = phi i32 [ %.2374, %.outer.outer.backedge ], [ %.0372, %918 ]
+  %.2379.ph.ph1990 = phi i64 [ %1352, %.outer.outer.backedge ], [ %864, %918 ]
+  %.3383.ph.ph1989 = phi i64 [ %.4384, %.outer.outer.backedge ], [ %.2382, %918 ]
+  %.2387.ph.ph1988 = phi i64 [ %.2387.ph.ph.be, %.outer.outer.backedge ], [ %.0385, %918 ]
+  %.1398.ph.ph1987 = phi i1 [ %.2399854868, %.outer.outer.backedge ], [ %.0397, %918 ]
+  %.2410.ph.ph1986 = phi i8 [ %.3411849870, %.outer.outer.backedge ], [ %.1409, %918 ]
+  %.2414.ph.ph1985 = phi i8 [ %.3415847872, %.outer.outer.backedge ], [ %.1413, %918 ]
+  %.1449.ph.ph1984 = phi i1 [ true, %.outer.outer.backedge ], [ %.not610, %918 ]
+  %.3454.ph.ph1983 = phi i32 [ %.4455, %.outer.outer.backedge ], [ %.2453, %918 ]
+  %.5461.ph.ph1982 = phi i32 [ %.6462, %.outer.outer.backedge ], [ %.4460, %918 ]
+  %920 = mul i32 %.3369.ph.ph1992, 60
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
-  %.2379.ph1969 = phi i64 [ %.2379.ph.ph1990, %.lr.ph.lr.ph ], [ %1332, %.outer ]
+  %.2379.ph1969 = phi i64 [ %.2379.ph.ph1990, %.lr.ph.lr.ph ], [ %1352, %.outer ]
   %.3383.ph1968 = phi i64 [ %.3383.ph.ph1989, %.lr.ph.lr.ph ], [ %.4384, %.outer ]
   %.2387.ph1967 = phi i64 [ %.2387.ph.ph1988, %.lr.ph.lr.ph ], [ %.9874, %.outer ]
   %.1398.ph1966 = phi i1 [ %.1398.ph.ph1987, %.lr.ph.lr.ph ], [ %.2399854868, %.outer ]
@@ -3307,1858 +3337,1882 @@ _check_bf_usage.exit80.i:                         ; preds = %741
   %.1449.ph1963 = phi i1 [ %.1449.ph.ph1984, %.lr.ph.lr.ph ], [ true, %.outer ]
   %.3454.ph1962 = phi i32 [ %.3454.ph.ph1983, %.lr.ph.lr.ph ], [ %.4455, %.outer ]
   %.5461.ph1961 = phi i32 [ %.5461.ph.ph1982, %.lr.ph.lr.ph ], [ %.6462, %.outer ]
-  br label %906
+  br label %921
 
-906:                                              ; preds = %.lr.ph, %1188
-  %.33831944 = phi i64 [ %.3383.ph1968, %.lr.ph ], [ %.4384, %1188 ]
-  %.23871943 = phi i64 [ %.2387.ph1967, %.lr.ph ], [ %.8, %1188 ]
-  %.34541942 = phi i32 [ %.3454.ph1962, %.lr.ph ], [ %.4455, %1188 ]
-  %.54611941 = phi i32 [ %.5461.ph1961, %.lr.ph ], [ %.6462, %1188 ]
-  %907 = call i64 @time(ptr noundef null) #16
-  %908 = call double @difftime(i64 noundef %907, i64 noundef %.fr2921) #17
-  %909 = load i32, ptr @bf_max_time, align 4
-  %910 = sitofp i32 %909 to double
-  %911 = fcmp ult double %908, %910
-  br i1 %911, label %916, label %.outer._crit_edge
+921:                                              ; preds = %.lr.ph, %1208
+  %.33831944 = phi i64 [ %.3383.ph1968, %.lr.ph ], [ %.4384, %1208 ]
+  %.23871943 = phi i64 [ %.2387.ph1967, %.lr.ph ], [ %.8, %1208 ]
+  %.34541942 = phi i32 [ %.3454.ph1962, %.lr.ph ], [ %.4455, %1208 ]
+  %.54611941 = phi i32 [ %.5461.ph1961, %.lr.ph ], [ %.6462, %1208 ]
+  %922 = call i64 @time(ptr noundef null) #16
+  %923 = call double @difftime(i64 noundef %922, i64 noundef %.fr2921) #17
+  %924 = load i32, ptr @bf_max_time, align 4
+  %925 = sitofp i32 %924 to double
+  %926 = fcmp ult double %923, %925
+  br i1 %926, label %933, label %.outer._crit_edge
 
-.outer._crit_edge:                                ; preds = %903, %.outer.outer.backedge, %.outer, %1188, %906
-  %.5461.lcssa = phi i32 [ %.54611941, %906 ], [ %.6462, %1188 ], [ %.6462, %.outer ], [ %.6462, %.outer.outer.backedge ], [ %.4460, %903 ]
-  %912 = load ptr, ptr %9, align 8
-  %913 = getelementptr inbounds i8, ptr %912, i64 944
-  store i32 %507, ptr %913, align 8
-  br i1 %512, label %914, label %_set_job_time_limit.exit
+.outer._crit_edge:                                ; preds = %918, %.outer.outer.backedge, %.outer, %1208, %921
+  %.5461.lcssa = phi i32 [ %.54611941, %921 ], [ %.6462, %1208 ], [ %.6462, %.outer ], [ %.6462, %.outer.outer.backedge ], [ %.4460, %918 ]
+  %927 = load ptr, ptr %9, align 8
+  %928 = getelementptr inbounds i8, ptr %927, i64 944
+  store i32 %522, ptr %928, align 8
+  br i1 %527, label %929, label %_set_job_time_limit.exit
 
-914:                                              ; preds = %.outer._crit_edge
-  %915 = getelementptr inbounds i8, ptr %912, i64 490
-  store i16 0, ptr %915, align 2
+929:                                              ; preds = %.outer._crit_edge
+  %930 = getelementptr inbounds i8, ptr %927, i64 490
+  store i16 0, ptr %930, align 2
   br label %_set_job_time_limit.exit
 
-916:                                              ; preds = %906
-  %917 = add nsw i32 %.34541942, 1
-  %918 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurmctld_config, i64 392)) #16
-  %.not631 = icmp eq i32 %918, 0
-  br i1 %.not631, label %921, label %919
+_set_job_time_limit.exit:                         ; preds = %.outer._crit_edge, %929
+  %931 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 156), align 4
+  %932 = add i32 %931, 1
+  store i32 %932, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 156), align 4
+  br label %1959
 
-919:                                              ; preds = %916
-  %920 = tail call ptr @__errno_location() #17
-  store i32 %918, ptr %920, align 4
+933:                                              ; preds = %921
+  %934 = add nsw i32 %.34541942, 1
+  %935 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurmctld_config, i64 392)) #16
+  %.not631 = icmp eq i32 %935, 0
+  br i1 %.not631, label %938, label %936
+
+936:                                              ; preds = %933
+  %937 = tail call ptr @__errno_location() #17
+  store i32 %935, ptr %937, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2313, ptr noundef nonnull @__func__._attempt_backfill) #18
   unreachable
 
-921:                                              ; preds = %916
-  %922 = load i32, ptr @max_rpc_cnt, align 4
-  %923 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_config, i64 324), align 4
-  %924 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurmctld_config, i64 392)) #16
-  %.not633 = icmp eq i32 %924, 0
-  br i1 %.not633, label %927, label %925
+938:                                              ; preds = %933
+  %939 = load i32, ptr @max_rpc_cnt, align 4
+  %940 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_config, i64 324), align 4
+  %941 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurmctld_config, i64 392)) #16
+  %.not633 = icmp eq i32 %941, 0
+  br i1 %.not633, label %944, label %942
 
-925:                                              ; preds = %921
-  %926 = tail call ptr @__errno_location() #17
-  store i32 %924, ptr %926, align 4
+942:                                              ; preds = %938
+  %943 = tail call ptr @__errno_location() #17
+  store i32 %941, ptr %943, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 2317, ptr noundef nonnull @__func__._attempt_backfill) #18
   unreachable
 
-927:                                              ; preds = %921
-  %.not632 = icmp sge i32 %923, %922
-  %928 = icmp sgt i32 %922, 0
-  %or.cond765.not = select i1 %928, i1 %.not632, i1 false
-  br i1 %or.cond765.not, label %932, label %929
+944:                                              ; preds = %938
+  %.not632 = icmp sge i32 %940, %939
+  %945 = icmp sgt i32 %939, 0
+  %or.cond765.not = select i1 %945, i1 %.not632, i1 false
+  br i1 %or.cond765.not, label %949, label %946
 
-929:                                              ; preds = %927
-  %930 = call i32 @slurm_delta_tv(ptr noundef nonnull %20) #16
-  %931 = load i32, ptr @yield_interval, align 4
-  %.not634 = icmp slt i32 %930, %931
-  br i1 %.not634, label %1009, label %932
+946:                                              ; preds = %944
+  %947 = call i32 @slurm_delta_tv(ptr noundef nonnull %20) #16
+  %948 = load i32, ptr @yield_interval, align 4
+  %.not634 = icmp slt i32 %947, %948
+  br i1 %.not634, label %1029, label %949
 
-932:                                              ; preds = %929, %927
-  %933 = load ptr, ptr %9, align 8
-  %934 = getelementptr inbounds i8, ptr %933, i64 944
-  %935 = load i32, ptr %934, align 8
-  %936 = getelementptr inbounds i8, ptr %933, i64 816
-  %937 = load ptr, ptr %936, align 8
-  store i32 %507, ptr %934, align 8
-  br i1 %512, label %938, label %_set_job_time_limit.exit802
+949:                                              ; preds = %946, %944
+  %950 = load ptr, ptr %9, align 8
+  %951 = getelementptr inbounds i8, ptr %950, i64 944
+  %952 = load i32, ptr %951, align 8
+  %953 = getelementptr inbounds i8, ptr %950, i64 816
+  %954 = load ptr, ptr %953, align 8
+  store i32 %522, ptr %951, align 8
+  br i1 %527, label %955, label %_set_job_time_limit.exit802
 
-938:                                              ; preds = %932
-  %939 = getelementptr inbounds i8, ptr %933, i64 490
-  store i16 0, ptr %939, align 2
+955:                                              ; preds = %949
+  %956 = getelementptr inbounds i8, ptr %950, i64 490
+  store i16 0, ptr %956, align 2
   br label %_set_job_time_limit.exit802
 
-_set_job_time_limit.exit802:                      ; preds = %932, %938
-  %940 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %941 = and i64 %940, 4096
-  %.not635 = icmp eq i64 %941, 0
-  br i1 %.not635, label %948, label %942
+_set_job_time_limit.exit802:                      ; preds = %949, %955
+  %957 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %958 = and i64 %957, 4096
+  %.not635 = icmp eq i64 %958, 0
+  br i1 %.not635, label %965, label %959
 
-942:                                              ; preds = %_set_job_time_limit.exit802
-  %943 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #16
+959:                                              ; preds = %_set_job_time_limit.exit802
+  %960 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #16
   call void @slurm_diff_tv_str(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 20, ptr noundef null, i64 noundef 0, ptr noundef nonnull %6) #16
-  %944 = call i32 @get_log_level() #16
-  %945 = icmp sgt i32 %944, 2
-  br i1 %945, label %946, label %948
+  %961 = call i32 @get_log_level() #16
+  %962 = icmp sgt i32 %961, 2
+  br i1 %962, label %963, label %965
 
-946:                                              ; preds = %942
-  %947 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 160), align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.89, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, i32 noundef %947, i32 noundef %.54611941, i32 noundef %917, ptr noundef nonnull %5) #16
-  br label %948
+963:                                              ; preds = %959
+  %964 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 160), align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.89, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, i32 noundef %964, i32 noundef %.54611941, i32 noundef %934, ptr noundef nonnull %5) #16
+  br label %965
 
-948:                                              ; preds = %942, %946, %_set_job_time_limit.exit802
-  %949 = load i32, ptr @yield_sleep, align 4
-  %950 = sext i32 %949 to i64
-  %951 = call fastcc i32 @_yield_locks(i64 noundef %950)
-  %.not636 = icmp eq i32 %951, 0
-  br i1 %.not636, label %960, label %952
+965:                                              ; preds = %959, %963, %_set_job_time_limit.exit802
+  %966 = load i32, ptr @yield_sleep, align 4
+  %967 = sext i32 %966 to i64
+  %968 = call fastcc i32 @_yield_locks(i64 noundef %967)
+  %.not636 = icmp eq i32 %968, 0
+  br i1 %.not636, label %980, label %969
 
-952:                                              ; preds = %948
-  %953 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %954 = and i64 %953, 4096
-  %.not737 = icmp eq i64 %954, 0
-  br i1 %.not737, label %_set_job_time_limit.exit, label %955
+969:                                              ; preds = %965
+  %970 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %971 = and i64 %970, 4096
+  %.not737 = icmp eq i64 %971, 0
+  br i1 %.not737, label %977, label %972
 
-955:                                              ; preds = %952
-  %956 = call i32 @get_log_level() #16
-  %957 = icmp sgt i32 %956, 3
-  br i1 %957, label %958, label %_set_job_time_limit.exit
+972:                                              ; preds = %969
+  %973 = call i32 @get_log_level() #16
+  %974 = icmp sgt i32 %973, 3
+  br i1 %974, label %975, label %977
 
-958:                                              ; preds = %955
-  %959 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 160), align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.74, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, i32 noundef %959, i32 noundef %.54611941) #16
-  br label %_set_job_time_limit.exit
+975:                                              ; preds = %972
+  %976 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 160), align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.74, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, i32 noundef %976, i32 noundef %.54611941) #16
+  br label %977
 
-960:                                              ; preds = %948
-  %961 = call i64 @time(ptr noundef null) #16
-  %962 = call i32 @gettimeofday(ptr noundef nonnull %20, ptr noundef null) #16
-  %963 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #16
+977:                                              ; preds = %969, %972, %975
+  %978 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 148), align 4
+  %979 = add i32 %978, 1
+  store i32 %979, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 148), align 4
+  br label %1959
+
+980:                                              ; preds = %965
+  %981 = call i64 @time(ptr noundef null) #16
+  %982 = call i32 @gettimeofday(ptr noundef nonnull %20, ptr noundef null) #16
+  %983 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #16
   %.pre2883 = load ptr, ptr %9, align 8
-  br i1 %.0416, label %964, label %979
+  br i1 %.0416, label %984, label %999
 
-964:                                              ; preds = %960
-  %965 = getelementptr inbounds i8, ptr %.pre2883, i64 52
-  %966 = load i32, ptr %965, align 4
-  %.not637 = icmp eq i32 %966, -2
-  br i1 %.not637, label %979, label %967
+984:                                              ; preds = %980
+  %985 = getelementptr inbounds i8, ptr %.pre2883, i64 52
+  %986 = load i32, ptr %985, align 4
+  %.not637 = icmp eq i32 %986, -2
+  br i1 %.not637, label %999, label %987
 
-967:                                              ; preds = %964
-  %968 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %969 = and i64 %968, 4096
-  %.not638 = icmp eq i64 %969, 0
-  br i1 %.not638, label %974, label %970
+987:                                              ; preds = %984
+  %988 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %989 = and i64 %988, 4096
+  %.not638 = icmp eq i64 %989, 0
+  br i1 %.not638, label %994, label %990
 
-970:                                              ; preds = %967
-  %971 = call i32 @get_log_level() #16
-  %972 = icmp sgt i32 %971, 3
+990:                                              ; preds = %987
+  %991 = call i32 @get_log_level() #16
+  %992 = icmp sgt i32 %991, 3
   %.pre2882 = load ptr, ptr %9, align 8
-  br i1 %972, label %973, label %974
+  br i1 %992, label %993, label %994
 
-973:                                              ; preds = %970
+993:                                              ; preds = %990
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.75, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, ptr noundef %.pre2882) #16
   %.pre2881 = load ptr, ptr %9, align 8
-  br label %974
+  br label %994
 
-974:                                              ; preds = %967, %970, %973
-  %975 = phi ptr [ %.pre2883, %967 ], [ %.pre2882, %970 ], [ %.pre2881, %973 ]
-  %976 = getelementptr inbounds i8, ptr %975, i64 48
-  %977 = load i32, ptr %976, align 8
-  %978 = call ptr @find_job_record(i32 noundef %977) #16
-  store ptr %978, ptr %9, align 8
-  %.not639 = icmp eq ptr %978, null
-  br i1 %.not639, label %.backedge.backedge, label %979
+994:                                              ; preds = %987, %990, %993
+  %995 = phi ptr [ %.pre2883, %987 ], [ %.pre2882, %990 ], [ %.pre2881, %993 ]
+  %996 = getelementptr inbounds i8, ptr %995, i64 48
+  %997 = load i32, ptr %996, align 8
+  %998 = call ptr @find_job_record(i32 noundef %997) #16
+  store ptr %998, ptr %9, align 8
+  %.not639 = icmp eq ptr %998, null
+  br i1 %.not639, label %.backedge.backedge, label %999
 
-979:                                              ; preds = %974, %964, %960
-  %980 = phi ptr [ %978, %974 ], [ %.pre2883, %964 ], [ %.pre2883, %960 ]
-  %981 = call fastcc zeroext i1 @_job_runnable_now(ptr noundef %980)
-  br i1 %981, label %982, label %.backedge.backedge
+999:                                              ; preds = %994, %984, %980
+  %1000 = phi ptr [ %998, %994 ], [ %.pre2883, %984 ], [ %.pre2883, %980 ]
+  %1001 = call fastcc zeroext i1 @_job_runnable_now(ptr noundef %1000)
+  br i1 %1001, label %1002, label %.backedge.backedge
 
-982:                                              ; preds = %979
-  %983 = load ptr, ptr %9, align 8
-  %984 = call zeroext i1 @avail_front_end(ptr noundef %983) #16
-  br i1 %984, label %993, label %985
+1002:                                             ; preds = %999
+  %1003 = load ptr, ptr %9, align 8
+  %1004 = call zeroext i1 @avail_front_end(ptr noundef %1003) #16
+  br i1 %1004, label %1013, label %1005
 
-985:                                              ; preds = %982
-  %986 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %987 = and i64 %986, 4096
-  %.not640 = icmp eq i64 %987, 0
-  br i1 %.not640, label %.backedge.backedge, label %988
+1005:                                             ; preds = %1002
+  %1006 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %1007 = and i64 %1006, 4096
+  %.not640 = icmp eq i64 %1007, 0
+  br i1 %.not640, label %.backedge.backedge, label %1008
 
-988:                                              ; preds = %985
-  %989 = call i32 @get_log_level() #16
-  %990 = icmp sgt i32 %989, 3
-  br i1 %990, label %991, label %.backedge.backedge
+1008:                                             ; preds = %1005
+  %1009 = call i32 @get_log_level() #16
+  %1010 = icmp sgt i32 %1009, 3
+  br i1 %1010, label %1011, label %.backedge.backedge
 
-991:                                              ; preds = %988
-  %992 = load ptr, ptr %9, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.90, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, ptr noundef %992) #16
+1011:                                             ; preds = %1008
+  %1012 = load ptr, ptr %9, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.90, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, ptr noundef %1012) #16
   br label %.backedge.backedge
 
-993:                                              ; preds = %982
-  %994 = load ptr, ptr %9, align 8
-  %995 = getelementptr inbounds i8, ptr %994, i64 816
-  store ptr %937, ptr %995, align 8
-  %996 = call zeroext i1 @job_independent(ptr noundef %994) #16
-  br i1 %996, label %1005, label %997
+1013:                                             ; preds = %1002
+  %1014 = load ptr, ptr %9, align 8
+  %1015 = getelementptr inbounds i8, ptr %1014, i64 816
+  store ptr %954, ptr %1015, align 8
+  %1016 = call zeroext i1 @job_independent(ptr noundef %1014) #16
+  br i1 %1016, label %1025, label %1017
 
-997:                                              ; preds = %993
-  %998 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %999 = and i64 %998, 4096
-  %.not641 = icmp eq i64 %999, 0
-  br i1 %.not641, label %.backedge.backedge, label %1000
+1017:                                             ; preds = %1013
+  %1018 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %1019 = and i64 %1018, 4096
+  %.not641 = icmp eq i64 %1019, 0
+  br i1 %.not641, label %.backedge.backedge, label %1020
 
-1000:                                             ; preds = %997
-  %1001 = call i32 @get_log_level() #16
-  %1002 = icmp sgt i32 %1001, 3
-  br i1 %1002, label %1003, label %.backedge.backedge
+1020:                                             ; preds = %1017
+  %1021 = call i32 @get_log_level() #16
+  %1022 = icmp sgt i32 %1021, 3
+  br i1 %1022, label %1023, label %.backedge.backedge
 
-1003:                                             ; preds = %1000
-  %1004 = load ptr, ptr %9, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.91, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, ptr noundef %1004) #16
+1023:                                             ; preds = %1020
+  %1024 = load ptr, ptr %9, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.91, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, ptr noundef %1024) #16
   br label %.backedge.backedge
 
-1005:                                             ; preds = %993
-  %1006 = load ptr, ptr %9, align 8
-  %1007 = getelementptr inbounds i8, ptr %1006, i64 944
-  store i32 %935, ptr %1007, align 8
-  %1008 = getelementptr inbounds i8, ptr %1006, i64 664
-  store ptr %184, ptr %1008, align 8
-  br label %1009
+1025:                                             ; preds = %1013
+  %1026 = load ptr, ptr %9, align 8
+  %1027 = getelementptr inbounds i8, ptr %1026, i64 944
+  store i32 %952, ptr %1027, align 8
+  %1028 = getelementptr inbounds i8, ptr %1026, i64 664
+  store ptr %193, ptr %1028, align 8
+  br label %1029
 
-1009:                                             ; preds = %1005, %929
-  %.6462 = phi i32 [ 1, %1005 ], [ %.54611941, %929 ]
-  %.4455 = phi i32 [ 0, %1005 ], [ %917, %929 ]
-  %.4384 = phi i64 [ %961, %1005 ], [ %.33831944, %929 ]
-  %1010 = load ptr, ptr %9, align 8
-  %1011 = getelementptr inbounds i8, ptr %1010, i64 216
-  %1012 = load ptr, ptr %1011, align 8
-  br i1 %189, label %1013, label %1016
+1029:                                             ; preds = %1025, %946
+  %.6462 = phi i32 [ 1, %1025 ], [ %.54611941, %946 ]
+  %.4455 = phi i32 [ 0, %1025 ], [ %934, %946 ]
+  %.4384 = phi i64 [ %981, %1025 ], [ %.33831944, %946 ]
+  %1030 = load ptr, ptr %9, align 8
+  %1031 = getelementptr inbounds i8, ptr %1030, i64 216
+  %1032 = load ptr, ptr %1031, align 8
+  br i1 %198, label %1033, label %1036
 
-1013:                                             ; preds = %1009
-  %1014 = getelementptr inbounds i8, ptr %1012, i64 344
-  %1015 = load ptr, ptr %1014, align 8
-  %.not642 = icmp eq ptr %1015, null
-  br i1 %.not642, label %.backedge.backedge, label %1019
+1033:                                             ; preds = %1029
+  %1034 = getelementptr inbounds i8, ptr %1032, i64 344
+  %1035 = load ptr, ptr %1034, align 8
+  %.not642 = icmp eq ptr %1035, null
+  br i1 %.not642, label %.backedge.backedge, label %1039
 
-1016:                                             ; preds = %1009
-  %1017 = getelementptr inbounds i8, ptr %1012, i64 208
-  %1018 = load ptr, ptr %1017, align 8
-  br label %1019
+1036:                                             ; preds = %1029
+  %1037 = getelementptr inbounds i8, ptr %1032, i64 208
+  %1038 = load ptr, ptr %1037, align 8
+  br label %1039
 
-1019:                                             ; preds = %1013, %1016
-  %.sink3853 = phi ptr [ %1018, %1016 ], [ %1015, %1013 ]
-  %.sink3852 = phi i64 [ 192, %1016 ], [ 336, %1013 ]
-  %1020 = getelementptr inbounds i8, ptr %1012, i64 216
-  store ptr %.sink3853, ptr %1020, align 8
-  %1021 = load ptr, ptr %1011, align 8
-  %1022 = getelementptr inbounds i8, ptr %1021, i64 %.sink3852
-  %1023 = load ptr, ptr %1022, align 8
-  %1024 = getelementptr inbounds i8, ptr %1021, i64 200
-  store ptr %1023, ptr %1024, align 8
-  %1025 = load ptr, ptr %14, align 8
-  %.not643 = icmp eq ptr %1025, null
-  br i1 %.not643, label %1027, label %1026
+1039:                                             ; preds = %1033, %1036
+  %.sink3853 = phi ptr [ %1038, %1036 ], [ %1035, %1033 ]
+  %.sink3852 = phi i64 [ 192, %1036 ], [ 336, %1033 ]
+  %1040 = getelementptr inbounds i8, ptr %1032, i64 216
+  store ptr %.sink3853, ptr %1040, align 8
+  %1041 = load ptr, ptr %1031, align 8
+  %1042 = getelementptr inbounds i8, ptr %1041, i64 %.sink3852
+  %1043 = load ptr, ptr %1042, align 8
+  %1044 = getelementptr inbounds i8, ptr %1041, i64 200
+  store ptr %1043, ptr %1044, align 8
+  %1045 = load ptr, ptr %14, align 8
+  %.not643 = icmp eq ptr %1045, null
+  br i1 %.not643, label %1047, label %1046
 
-1026:                                             ; preds = %1019
+1046:                                             ; preds = %1039
   call void @slurm_bit_free(ptr noundef nonnull %14) #16
-  br label %1027
+  br label %1047
 
-1027:                                             ; preds = %1026, %1019
+1047:                                             ; preds = %1046, %1039
   store ptr null, ptr %14, align 8
   call void @reservation_delete_resv_exc_parts(ptr noundef nonnull %23) #16
-  %1028 = call i64 @llvm.smax.i64(i64 %.23871943, i64 %.0.i)
-  store i64 %1028, ptr %16, align 8
-  %1029 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 796), align 4
-  %.not644 = icmp eq i16 %1029, 0
+  %1048 = call i64 @llvm.smax.i64(i64 %.23871943, i64 %.0.i)
+  store i64 %1048, ptr %16, align 8
+  %1049 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 796), align 4
+  %.not644 = icmp eq i16 %1049, 0
   %or.cond766 = select i1 %.not625, i1 true, i1 %.not644
   %.pre2884 = load ptr, ptr %9, align 8
-  br i1 %or.cond766, label %1032, label %1030
+  br i1 %or.cond766, label %1052, label %1050
 
-1030:                                             ; preds = %1027
-  %1031 = getelementptr inbounds i8, ptr %.pre2884, i64 944
-  store i32 %507, ptr %1031, align 8
-  br label %1032
-
-1032:                                             ; preds = %1030, %1027
-  %1033 = call i32 @job_test_resv(ptr noundef %.pre2884, ptr noundef nonnull %16, i1 noundef zeroext true, ptr noundef nonnull %14, ptr noundef nonnull %23, ptr noundef nonnull %21, i1 noundef zeroext false) #16
-  %.not645 = icmp eq i32 %1033, 0
-  br i1 %.not645, label %1047, label %1034
-
-1034:                                             ; preds = %1032
-  %1035 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %1036 = and i64 %1035, 4096
-  %.not736 = icmp eq i64 %1036, 0
-  br i1 %.not736, label %1042, label %1037
-
-1037:                                             ; preds = %1034
-  %1038 = call i32 @get_log_level() #16
-  %1039 = icmp sgt i32 %1038, 3
-  br i1 %1039, label %1040, label %1042
-
-1040:                                             ; preds = %1037
-  %1041 = load ptr, ptr %9, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.92, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, ptr noundef %1041) #16
-  br label %1042
-
-1042:                                             ; preds = %1034, %1037, %1040
-  %1043 = load ptr, ptr %9, align 8
-  %1044 = getelementptr inbounds i8, ptr %1043, i64 944
-  store i32 %507, ptr %1044, align 8
-  br i1 %512, label %1045, label %.backedge.backedge
-
-1045:                                             ; preds = %1042
-  %1046 = getelementptr inbounds i8, ptr %1043, i64 490
-  store i16 0, ptr %1046, align 2
-  br label %.backedge.backedge
-
-1047:                                             ; preds = %1032
-  %1048 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 796), align 4
-  %.not646 = icmp eq i16 %1048, 0
-  %or.cond767 = select i1 %.not625, i1 true, i1 %.not646
-  br i1 %or.cond767, label %1052, label %1049
-
-1049:                                             ; preds = %1047
-  %1050 = load ptr, ptr %9, align 8
-  %1051 = getelementptr inbounds i8, ptr %1050, i64 944
-  store i32 %.3369.ph.ph1992, ptr %1051, align 8
+1050:                                             ; preds = %1047
+  %1051 = getelementptr inbounds i8, ptr %.pre2884, i64 944
+  store i32 %522, ptr %1051, align 8
   br label %1052
 
-1052:                                             ; preds = %1047, %1049
-  %1053 = load i64, ptr %16, align 8
-  %1054 = icmp slt i64 %91, %1053
-  br i1 %1054, label %1055, label %1068
+1052:                                             ; preds = %1050, %1047
+  %1053 = call i32 @job_test_resv(ptr noundef %.pre2884, ptr noundef nonnull %16, i1 noundef zeroext true, ptr noundef nonnull %14, ptr noundef nonnull %23, ptr noundef nonnull %21, i1 noundef zeroext false) #16
+  %.not645 = icmp eq i32 %1053, 0
+  br i1 %.not645, label %1067, label %1054
 
-1055:                                             ; preds = %1052
-  %1056 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %1057 = and i64 %1056, 4096
-  %.not735 = icmp eq i64 %1057, 0
-  br i1 %.not735, label %1063, label %1058
+1054:                                             ; preds = %1052
+  %1055 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %1056 = and i64 %1055, 4096
+  %.not736 = icmp eq i64 %1056, 0
+  br i1 %.not736, label %1062, label %1057
 
-1058:                                             ; preds = %1055
-  %1059 = call i32 @get_log_level() #16
-  %1060 = icmp sgt i32 %1059, 3
-  br i1 %1060, label %1061, label %1063
+1057:                                             ; preds = %1054
+  %1058 = call i32 @get_log_level() #16
+  %1059 = icmp sgt i32 %1058, 3
+  br i1 %1059, label %1060, label %1062
 
-1061:                                             ; preds = %1058
-  %1062 = load ptr, ptr %9, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.93, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, ptr noundef %1062) #16
-  br label %1063
+1060:                                             ; preds = %1057
+  %1061 = load ptr, ptr %9, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.92, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, ptr noundef %1061) #16
+  br label %1062
 
-1063:                                             ; preds = %1055, %1058, %1061
-  %1064 = load ptr, ptr %9, align 8
-  %1065 = getelementptr inbounds i8, ptr %1064, i64 944
-  store i32 %507, ptr %1065, align 8
-  br i1 %512, label %1066, label %.backedge.backedge
+1062:                                             ; preds = %1054, %1057, %1060
+  %1063 = load ptr, ptr %9, align 8
+  %1064 = getelementptr inbounds i8, ptr %1063, i64 944
+  store i32 %522, ptr %1064, align 8
+  br i1 %527, label %1065, label %.backedge.backedge
 
-1066:                                             ; preds = %1063
-  %1067 = getelementptr inbounds i8, ptr %1064, i64 490
-  store i16 0, ptr %1067, align 2
+1065:                                             ; preds = %1062
+  %1066 = getelementptr inbounds i8, ptr %1063, i64 490
+  store i16 0, ptr %1066, align 2
   br label %.backedge.backedge
 
-1068:                                             ; preds = %1052
-  %.0359.v.v = call i64 @llvm.smax.i64(i64 %1053, i64 %.2379.ph1969)
+1067:                                             ; preds = %1052
+  %1068 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 796), align 4
+  %.not646 = icmp eq i16 %1068, 0
+  %or.cond767 = select i1 %.not625, i1 true, i1 %.not646
+  br i1 %or.cond767, label %1072, label %1069
+
+1069:                                             ; preds = %1067
+  %1070 = load ptr, ptr %9, align 8
+  %1071 = getelementptr inbounds i8, ptr %1070, i64 944
+  store i32 %.3369.ph.ph1992, ptr %1071, align 8
+  br label %1072
+
+1072:                                             ; preds = %1067, %1069
+  %1073 = load i64, ptr %16, align 8
+  %1074 = icmp slt i64 %91, %1073
+  br i1 %1074, label %1075, label %1088
+
+1075:                                             ; preds = %1072
+  %1076 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %1077 = and i64 %1076, 4096
+  %.not735 = icmp eq i64 %1077, 0
+  br i1 %.not735, label %1083, label %1078
+
+1078:                                             ; preds = %1075
+  %1079 = call i32 @get_log_level() #16
+  %1080 = icmp sgt i32 %1079, 3
+  br i1 %1080, label %1081, label %1083
+
+1081:                                             ; preds = %1078
+  %1082 = load ptr, ptr %9, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.93, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, ptr noundef %1082) #16
+  br label %1083
+
+1083:                                             ; preds = %1075, %1078, %1081
+  %1084 = load ptr, ptr %9, align 8
+  %1085 = getelementptr inbounds i8, ptr %1084, i64 944
+  store i32 %522, ptr %1085, align 8
+  br i1 %527, label %1086, label %.backedge.backedge
+
+1086:                                             ; preds = %1083
+  %1087 = getelementptr inbounds i8, ptr %1084, i64 490
+  store i16 0, ptr %1087, align 2
+  br label %.backedge.backedge
+
+1088:                                             ; preds = %1072
+  %.0359.v.v = call i64 @llvm.smax.i64(i64 %1073, i64 %.2379.ph1969)
   %.0359.v = trunc i64 %.0359.v.v to i32
-  %.0359 = add i32 %905, %.0359.v
-  %1069 = zext i32 %.0359 to i64
-  %1070 = icmp sgt i64 %.2379.ph1969, %1069
-  %spec.store.select = select i1 %1070, i32 -1, i32 %.0359
-  %1071 = load i8, ptr %21, align 1
-  %1072 = trunc i8 %1071 to i1
-  br i1 %1072, label %1073, label %1076
+  %.0359 = add i32 %920, %.0359.v
+  %1089 = zext i32 %.0359 to i64
+  %1090 = icmp sgt i64 %.2379.ph1969, %1089
+  %spec.store.select = select i1 %1090, i32 -1, i32 %.0359
+  %1091 = load i8, ptr %21, align 1
+  %1092 = trunc i8 %1091 to i1
+  br i1 %1092, label %1093, label %1096
 
-1073:                                             ; preds = %1068
-  %1074 = load i32, ptr @backfill_resolution, align 4
-  %1075 = call i64 @find_resv_end(i64 noundef %1053, i32 noundef %1074) #16
-  br label %1076
+1093:                                             ; preds = %1088
+  %1094 = load i32, ptr @backfill_resolution, align 4
+  %1095 = call i64 @find_resv_end(i64 noundef %1073, i32 noundef %1094) #16
+  br label %1096
 
-1076:                                             ; preds = %1073, %1068
-  %.0392 = phi i64 [ %1075, %1073 ], [ 0, %1068 ]
-  %1077 = load ptr, ptr %14, align 8
-  %1078 = load ptr, ptr %509, align 8
-  call void @bit_and(ptr noundef %1077, ptr noundef %1078) #16
-  %1079 = load ptr, ptr %14, align 8
-  %1080 = load ptr, ptr @up_node_bitmap, align 8
-  call void @bit_and(ptr noundef %1079, ptr noundef %1080) #16
-  %1081 = load ptr, ptr %14, align 8
-  %1082 = load ptr, ptr @bf_ignore_node_bitmap, align 8
-  call void @bit_and_not(ptr noundef %1081, ptr noundef %1082) #16
-  %1083 = load ptr, ptr %9, align 8
-  %1084 = load ptr, ptr %14, align 8
-  call void @filter_by_node_owner(ptr noundef %1083, ptr noundef %1084) #16
-  %1085 = load ptr, ptr %9, align 8
-  %1086 = load ptr, ptr %14, align 8
-  call void @filter_by_node_mcs(ptr noundef %1085, i32 noundef %296, ptr noundef %1086) #16
-  %1087 = load ptr, ptr %14, align 8
-  %1088 = call ptr @bit_copy(ptr noundef %1087) #16
-  store ptr %1088, ptr %22, align 8
-  %1089 = zext i32 %spec.store.select to i64
+1096:                                             ; preds = %1093, %1088
+  %.0392 = phi i64 [ %1095, %1093 ], [ 0, %1088 ]
+  %1097 = load ptr, ptr %14, align 8
+  %1098 = load ptr, ptr %524, align 8
+  call void @bit_and(ptr noundef %1097, ptr noundef %1098) #16
+  %1099 = load ptr, ptr %14, align 8
+  %1100 = load ptr, ptr @up_node_bitmap, align 8
+  call void @bit_and(ptr noundef %1099, ptr noundef %1100) #16
+  %1101 = load ptr, ptr %14, align 8
+  %1102 = load ptr, ptr @bf_ignore_node_bitmap, align 8
+  call void @bit_and_not(ptr noundef %1101, ptr noundef %1102) #16
+  %1103 = load ptr, ptr %9, align 8
+  %1104 = load ptr, ptr %14, align 8
+  call void @filter_by_node_owner(ptr noundef %1103, ptr noundef %1104) #16
+  %1105 = load ptr, ptr %9, align 8
+  %1106 = load ptr, ptr %14, align 8
+  call void @filter_by_node_mcs(ptr noundef %1105, i32 noundef %311, ptr noundef %1106) #16
+  %1107 = load ptr, ptr %14, align 8
+  %1108 = call ptr @bit_copy(ptr noundef %1107) #16
+  store ptr %1108, ptr %22, align 8
+  %1109 = zext i32 %spec.store.select to i64
   %.pre2885 = load ptr, ptr %17, align 8
-  br label %1090
+  br label %1110
 
-1090:                                             ; preds = %1144, %1076
-  %.0394 = phi i1 [ false, %1076 ], [ %.1395, %1144 ]
-  %.3388 = phi i64 [ 0, %1076 ], [ %.6391, %1144 ]
-  %.0358 = phi i32 [ 0, %1076 ], [ %1146, %1144 ]
-  %1091 = sext i32 %.0358 to i64
-  %1092 = getelementptr inbounds %struct.node_space_map_t, ptr %.pre2885, i64 %1091
-  %1093 = getelementptr inbounds i8, ptr %1092, i64 8
-  %1094 = load i64, ptr %1093, align 8
-  %1095 = load i64, ptr %16, align 8
-  %1096 = icmp sgt i64 %1094, %1095
-  br i1 %1096, label %1097, label %1127
+1110:                                             ; preds = %1164, %1096
+  %.0394 = phi i1 [ false, %1096 ], [ %.1395, %1164 ]
+  %.3388 = phi i64 [ 0, %1096 ], [ %.6391, %1164 ]
+  %.0358 = phi i32 [ 0, %1096 ], [ %1166, %1164 ]
+  %1111 = sext i32 %.0358 to i64
+  %1112 = getelementptr inbounds %struct.node_space_map_t, ptr %.pre2885, i64 %1111
+  %1113 = getelementptr inbounds i8, ptr %1112, i64 8
+  %1114 = load i64, ptr %1113, align 8
+  %1115 = load i64, ptr %16, align 8
+  %1116 = icmp sgt i64 %1114, %1115
+  br i1 %1116, label %1117, label %1147
 
-1097:                                             ; preds = %1090
-  %1098 = getelementptr inbounds i8, ptr %1092, i64 32
-  %1099 = load i32, ptr %1098, align 8
-  %1100 = icmp ne i32 %1099, 0
-  %1101 = icmp eq i64 %.3388, 0
-  %or.cond11 = select i1 %1100, i1 %1101, i1 false
-  br i1 %or.cond11, label %1102, label %1127
+1117:                                             ; preds = %1110
+  %1118 = getelementptr inbounds i8, ptr %1112, i64 32
+  %1119 = load i32, ptr %1118, align 8
+  %1120 = icmp ne i32 %1119, 0
+  %1121 = icmp eq i64 %.3388, 0
+  %or.cond11 = select i1 %1120, i1 %1121, i1 false
+  br i1 %or.cond11, label %1122, label %1147
 
-1102:                                             ; preds = %1097
-  %1103 = load ptr, ptr %22, align 8
-  %1104 = call ptr @bit_copy(ptr noundef %1103) #16
-  store ptr %1104, ptr %27, align 8
-  %1105 = load ptr, ptr %14, align 8
-  %1106 = call ptr @bit_copy(ptr noundef %1105) #16
-  store ptr %1106, ptr %28, align 8
-  %1107 = load ptr, ptr %27, align 8
-  %1108 = sext i32 %1099 to i64
-  %1109 = getelementptr inbounds %struct.node_space_map_t, ptr %.pre2885, i64 %1108, i32 2
-  %1110 = load ptr, ptr %1109, align 8
-  call void @bit_and(ptr noundef %1107, ptr noundef %1110) #16
-  %1111 = load ptr, ptr %28, align 8
-  %1112 = getelementptr inbounds %struct.node_space_map_t, ptr %.pre2885, i64 %1091, i32 2
-  %1113 = load ptr, ptr %1112, align 8
-  call void @bit_and(ptr noundef %1111, ptr noundef %1113) #16
-  %1114 = load ptr, ptr %27, align 8
-  %1115 = load ptr, ptr %28, align 8
-  %1116 = call i32 @bit_super_set(ptr noundef %1114, ptr noundef %1115) #16
-  %.not647 = icmp eq i32 %1116, 0
-  br i1 %.not647, label %1117, label %1120
+1122:                                             ; preds = %1117
+  %1123 = load ptr, ptr %22, align 8
+  %1124 = call ptr @bit_copy(ptr noundef %1123) #16
+  store ptr %1124, ptr %27, align 8
+  %1125 = load ptr, ptr %14, align 8
+  %1126 = call ptr @bit_copy(ptr noundef %1125) #16
+  store ptr %1126, ptr %28, align 8
+  %1127 = load ptr, ptr %27, align 8
+  %1128 = sext i32 %1119 to i64
+  %1129 = getelementptr inbounds %struct.node_space_map_t, ptr %.pre2885, i64 %1128, i32 2
+  %1130 = load ptr, ptr %1129, align 8
+  call void @bit_and(ptr noundef %1127, ptr noundef %1130) #16
+  %1131 = load ptr, ptr %28, align 8
+  %1132 = getelementptr inbounds %struct.node_space_map_t, ptr %.pre2885, i64 %1111, i32 2
+  %1133 = load ptr, ptr %1132, align 8
+  call void @bit_and(ptr noundef %1131, ptr noundef %1133) #16
+  %1134 = load ptr, ptr %27, align 8
+  %1135 = load ptr, ptr %28, align 8
+  %1136 = call i32 @bit_super_set(ptr noundef %1134, ptr noundef %1135) #16
+  %.not647 = icmp eq i32 %1136, 0
+  br i1 %.not647, label %1137, label %1140
 
-1117:                                             ; preds = %1102
-  %1118 = getelementptr inbounds %struct.node_space_map_t, ptr %.pre2885, i64 %1091, i32 1
-  %1119 = load i64, ptr %1118, align 8
-  br label %1120
+1137:                                             ; preds = %1122
+  %1138 = getelementptr inbounds %struct.node_space_map_t, ptr %.pre2885, i64 %1111, i32 1
+  %1139 = load i64, ptr %1138, align 8
+  br label %1140
 
-1120:                                             ; preds = %1102, %1117
-  %.5390 = phi i64 [ 0, %1102 ], [ %1119, %1117 ]
-  %1121 = load ptr, ptr %27, align 8
-  %.not648 = icmp eq ptr %1121, null
-  br i1 %.not648, label %1123, label %1122
+1140:                                             ; preds = %1122, %1137
+  %.5390 = phi i64 [ 0, %1122 ], [ %1139, %1137 ]
+  %1141 = load ptr, ptr %27, align 8
+  %.not648 = icmp eq ptr %1141, null
+  br i1 %.not648, label %1143, label %1142
 
-1122:                                             ; preds = %1120
+1142:                                             ; preds = %1140
   call void @slurm_bit_free(ptr noundef nonnull %27) #16
-  br label %1123
+  br label %1143
 
-1123:                                             ; preds = %1122, %1120
+1143:                                             ; preds = %1142, %1140
   store ptr null, ptr %27, align 8
-  %1124 = load ptr, ptr %28, align 8
-  %.not649 = icmp eq ptr %1124, null
-  br i1 %.not649, label %1126, label %1125
+  %1144 = load ptr, ptr %28, align 8
+  %.not649 = icmp eq ptr %1144, null
+  br i1 %.not649, label %1146, label %1145
 
-1125:                                             ; preds = %1123
+1145:                                             ; preds = %1143
   call void @slurm_bit_free(ptr noundef nonnull %28) #16
-  br label %1126
+  br label %1146
 
-1126:                                             ; preds = %1125, %1123
+1146:                                             ; preds = %1145, %1143
   store ptr null, ptr %28, align 8
-  %.pre2886 = load i64, ptr %1093, align 8
+  %.pre2886 = load i64, ptr %1113, align 8
   %.pre2887 = load i64, ptr %16, align 8
-  br label %1127
+  br label %1147
 
-1127:                                             ; preds = %1126, %1097, %1090
-  %1128 = phi i64 [ %.pre2887, %1126 ], [ %1095, %1097 ], [ %1095, %1090 ]
-  %1129 = phi i64 [ %.pre2886, %1126 ], [ %1094, %1097 ], [ %1094, %1090 ]
-  %.4389 = phi i64 [ %.5390, %1126 ], [ %.3388, %1097 ], [ %.3388, %1090 ]
-  %.not650 = icmp sgt i64 %1129, %1128
-  br i1 %.not650, label %1130, label %1144
+1147:                                             ; preds = %1146, %1117, %1110
+  %1148 = phi i64 [ %.pre2887, %1146 ], [ %1115, %1117 ], [ %1115, %1110 ]
+  %1149 = phi i64 [ %.pre2886, %1146 ], [ %1114, %1117 ], [ %1114, %1110 ]
+  %.4389 = phi i64 [ %.5390, %1146 ], [ %.3388, %1117 ], [ %.3388, %1110 ]
+  %.not650 = icmp sgt i64 %1149, %1148
+  br i1 %.not650, label %1150, label %1164
 
-1130:                                             ; preds = %1127
-  %1131 = load i64, ptr %1092, align 8
-  %.not651 = icmp sgt i64 %1131, %1089
-  br i1 %.not651, label %1148, label %1132
+1150:                                             ; preds = %1147
+  %1151 = load i64, ptr %1112, align 8
+  %.not651 = icmp sgt i64 %1151, %1109
+  br i1 %.not651, label %1168, label %1152
 
-1132:                                             ; preds = %1130
-  %1133 = load ptr, ptr %14, align 8
-  %1134 = getelementptr inbounds i8, ptr %1092, i64 16
-  %1135 = load ptr, ptr %1134, align 8
-  call void @bit_and(ptr noundef %1133, ptr noundef %1135) #16
-  %1136 = getelementptr inbounds %struct.node_space_map_t, ptr %.pre2885, i64 %1091, i32 3
-  %1137 = load ptr, ptr %1136, align 8
-  %.not652 = icmp eq ptr %1137, null
-  br i1 %.not652, label %1144, label %1138
+1152:                                             ; preds = %1150
+  %1153 = load ptr, ptr %14, align 8
+  %1154 = getelementptr inbounds i8, ptr %1112, i64 16
+  %1155 = load ptr, ptr %1154, align 8
+  call void @bit_and(ptr noundef %1153, ptr noundef %1155) #16
+  %1156 = getelementptr inbounds %struct.node_space_map_t, ptr %.pre2885, i64 %1111, i32 3
+  %1157 = load ptr, ptr %1156, align 8
+  %.not652 = icmp eq ptr %1157, null
+  br i1 %.not652, label %1164, label %1158
 
-1138:                                             ; preds = %1132
-  %1139 = load ptr, ptr %9, align 8
-  %1140 = call zeroext i1 @slurm_bf_licenses_avail(ptr noundef nonnull %1137, ptr noundef %1139) #16
-  br i1 %1140, label %1144, label %1141
+1158:                                             ; preds = %1152
+  %1159 = load ptr, ptr %9, align 8
+  %1160 = call zeroext i1 @slurm_bf_licenses_avail(ptr noundef nonnull %1157, ptr noundef %1159) #16
+  br i1 %1160, label %1164, label %1161
 
-1141:                                             ; preds = %1138
-  %1142 = getelementptr inbounds %struct.node_space_map_t, ptr %.pre2885, i64 %1091, i32 1
-  %1143 = load i64, ptr %1142, align 8
-  br label %1144
+1161:                                             ; preds = %1158
+  %1162 = getelementptr inbounds %struct.node_space_map_t, ptr %.pre2885, i64 %1111, i32 1
+  %1163 = load i64, ptr %1162, align 8
+  br label %1164
 
-1144:                                             ; preds = %1132, %1141, %1138, %1127
-  %.1395 = phi i1 [ %.0394, %1127 ], [ %.0394, %1138 ], [ true, %1141 ], [ %.0394, %1132 ]
-  %.6391 = phi i64 [ %.4389, %1127 ], [ %.4389, %1138 ], [ %1143, %1141 ], [ %.4389, %1132 ]
-  %1145 = getelementptr inbounds %struct.node_space_map_t, ptr %.pre2885, i64 %1091, i32 4
-  %1146 = load i32, ptr %1145, align 8
-  %1147 = icmp eq i32 %1146, 0
-  br i1 %1147, label %1148, label %1090
+1164:                                             ; preds = %1152, %1161, %1158, %1147
+  %.1395 = phi i1 [ %.0394, %1147 ], [ %.0394, %1158 ], [ true, %1161 ], [ %.0394, %1152 ]
+  %.6391 = phi i64 [ %.4389, %1147 ], [ %.4389, %1158 ], [ %1163, %1161 ], [ %.4389, %1152 ]
+  %1165 = getelementptr inbounds %struct.node_space_map_t, ptr %.pre2885, i64 %1111, i32 4
+  %1166 = load i32, ptr %1165, align 8
+  %1167 = icmp eq i32 %1166, 0
+  br i1 %1167, label %1168, label %1110
 
-1148:                                             ; preds = %1130, %1144
-  %.2396 = phi i1 [ %.1395, %1144 ], [ %.0394, %1130 ]
-  %.7 = phi i64 [ %.6391, %1144 ], [ %.4389, %1130 ]
-  %1149 = load ptr, ptr %22, align 8
-  %.not653 = icmp eq ptr %1149, null
-  br i1 %.not653, label %1151, label %1150
+1168:                                             ; preds = %1150, %1164
+  %.2396 = phi i1 [ %.1395, %1164 ], [ %.0394, %1150 ]
+  %.7 = phi i64 [ %.6391, %1164 ], [ %.4389, %1150 ]
+  %1169 = load ptr, ptr %22, align 8
+  %.not653 = icmp eq ptr %1169, null
+  br i1 %.not653, label %1171, label %1170
 
-1150:                                             ; preds = %1148
+1170:                                             ; preds = %1168
   call void @slurm_bit_free(ptr noundef nonnull %22) #16
-  br label %1151
+  br label %1171
 
-1151:                                             ; preds = %1150, %1148
+1171:                                             ; preds = %1170, %1168
   store ptr null, ptr %22, align 8
   %.not654 = icmp eq i64 %.0392, 0
-  br i1 %.not654, label %1158, label %1152
+  br i1 %.not654, label %1178, label %1172
 
-1152:                                             ; preds = %1151
-  %1153 = add nsw i64 %.0392, 1
-  %1154 = icmp slt i64 %1153, %91
-  br i1 %1154, label %1155, label %1158
+1172:                                             ; preds = %1171
+  %1173 = add nsw i64 %.0392, 1
+  %1174 = icmp slt i64 %1173, %91
+  br i1 %1174, label %1175, label %1178
 
-1155:                                             ; preds = %1152
-  %1156 = icmp eq i64 %.7, 0
-  %1157 = call i64 @llvm.smin.i64(i64 %1153, i64 %.7)
-  %spec.select786 = select i1 %1156, i64 %1153, i64 %1157
-  br label %1158
+1175:                                             ; preds = %1172
+  %1176 = icmp eq i64 %.7, 0
+  %1177 = call i64 @llvm.smin.i64(i64 %1173, i64 %.7)
+  %spec.select786 = select i1 %1176, i64 %1173, i64 %1177
+  br label %1178
 
-1158:                                             ; preds = %1155, %1152, %1151
-  %.8 = phi i64 [ %.7, %1152 ], [ %.7, %1151 ], [ %spec.select786, %1155 ]
-  %1159 = load ptr, ptr %9, align 8
-  %1160 = getelementptr inbounds i8, ptr %1159, i64 216
-  %1161 = load ptr, ptr %1160, align 8
-  %1162 = getelementptr inbounds i8, ptr %1161, i64 168
-  %1163 = load ptr, ptr %1162, align 8
-  %.not655 = icmp eq ptr %1163, null
-  br i1 %.not655, label %1166, label %1164
+1178:                                             ; preds = %1175, %1172, %1171
+  %.8 = phi i64 [ %.7, %1172 ], [ %.7, %1171 ], [ %spec.select786, %1175 ]
+  %1179 = load ptr, ptr %9, align 8
+  %1180 = getelementptr inbounds i8, ptr %1179, i64 216
+  %1181 = load ptr, ptr %1180, align 8
+  %1182 = getelementptr inbounds i8, ptr %1181, i64 168
+  %1183 = load ptr, ptr %1182, align 8
+  %.not655 = icmp eq ptr %1183, null
+  br i1 %.not655, label %1186, label %1184
 
-1164:                                             ; preds = %1158
-  %1165 = load ptr, ptr %14, align 8
-  call void @bit_and_not(ptr noundef %1165, ptr noundef nonnull %1163) #16
-  br label %1166
+1184:                                             ; preds = %1178
+  %1185 = load ptr, ptr %14, align 8
+  call void @bit_and_not(ptr noundef %1185, ptr noundef nonnull %1183) #16
+  br label %1186
 
-1166:                                             ; preds = %1164, %1158
-  br i1 %.2396, label %1185, label %1167
+1186:                                             ; preds = %1184, %1178
+  br i1 %.2396, label %1205, label %1187
 
-1167:                                             ; preds = %1166
-  %1168 = load ptr, ptr %14, align 8
-  %1169 = call i32 @bit_set_count(ptr noundef %1168) #16
-  %1170 = load i32, ptr %10, align 4
-  %1171 = icmp ult i32 %1169, %1170
-  br i1 %1171, label %1185, label %1172
+1187:                                             ; preds = %1186
+  %1188 = load ptr, ptr %14, align 8
+  %1189 = call i32 @bit_set_count(ptr noundef %1188) #16
+  %1190 = load i32, ptr %10, align 4
+  %1191 = icmp ult i32 %1189, %1190
+  br i1 %1191, label %1205, label %1192
 
-1172:                                             ; preds = %1167
-  %1173 = load ptr, ptr %9, align 8
-  %1174 = getelementptr inbounds i8, ptr %1173, i64 216
-  %1175 = load ptr, ptr %1174, align 8
-  %1176 = getelementptr inbounds i8, ptr %1175, i64 360
-  %1177 = load ptr, ptr %1176, align 8
-  %.not656 = icmp eq ptr %1177, null
-  br i1 %.not656, label %1181, label %1178
+1192:                                             ; preds = %1187
+  %1193 = load ptr, ptr %9, align 8
+  %1194 = getelementptr inbounds i8, ptr %1193, i64 216
+  %1195 = load ptr, ptr %1194, align 8
+  %1196 = getelementptr inbounds i8, ptr %1195, i64 360
+  %1197 = load ptr, ptr %1196, align 8
+  %.not656 = icmp eq ptr %1197, null
+  br i1 %.not656, label %1201, label %1198
 
-1178:                                             ; preds = %1172
-  %1179 = load ptr, ptr %14, align 8
-  %1180 = call i32 @bit_super_set(ptr noundef nonnull %1177, ptr noundef %1179) #16
-  %.not657 = icmp eq i32 %1180, 0
-  br i1 %.not657, label %1185, label %._crit_edge2888
+1198:                                             ; preds = %1192
+  %1199 = load ptr, ptr %14, align 8
+  %1200 = call i32 @bit_super_set(ptr noundef nonnull %1197, ptr noundef %1199) #16
+  %.not657 = icmp eq i32 %1200, 0
+  br i1 %.not657, label %1205, label %._crit_edge2888
 
-._crit_edge2888:                                  ; preds = %1178
+._crit_edge2888:                                  ; preds = %1198
   %.pre2889 = load ptr, ptr %9, align 8
-  br label %1181
+  br label %1201
 
-1181:                                             ; preds = %._crit_edge2888, %1172
-  %1182 = phi ptr [ %.pre2889, %._crit_edge2888 ], [ %1173, %1172 ]
-  %1183 = load ptr, ptr %14, align 8
-  %1184 = call i32 @job_req_node_filter(ptr noundef %1182, ptr noundef %1183, i1 noundef zeroext true) #16
-  %.not658 = icmp eq i32 %1184, 0
-  br i1 %.not658, label %1196, label %1185
+1201:                                             ; preds = %._crit_edge2888, %1192
+  %1202 = phi ptr [ %.pre2889, %._crit_edge2888 ], [ %1193, %1192 ]
+  %1203 = load ptr, ptr %14, align 8
+  %1204 = call i32 @job_req_node_filter(ptr noundef %1202, ptr noundef %1203, i1 noundef zeroext true) #16
+  %.not658 = icmp eq i32 %1204, 0
+  br i1 %.not658, label %1216, label %1205
 
-1185:                                             ; preds = %1181, %1178, %1167, %1166
-  %1186 = icmp eq i64 %.8, 0
-  %or.cond13 = or i1 %513, %1186
-  %1187 = load ptr, ptr %9, align 8
-  br i1 %or.cond13, label %1191, label %1188
+1205:                                             ; preds = %1201, %1198, %1187, %1186
+  %1206 = icmp eq i64 %.8, 0
+  %or.cond13 = or i1 %528, %1206
+  %1207 = load ptr, ptr %9, align 8
+  br i1 %or.cond13, label %1211, label %1208
 
-1188:                                             ; preds = %1185
-  %1189 = getelementptr inbounds i8, ptr %1187, i64 888
-  store i64 0, ptr %1189, align 8
-  %1190 = load i64, ptr getelementptr inbounds (i8, ptr @slurmctld_config, i64 328), align 8
-  %.not630 = icmp eq i64 %1190, 0
-  br i1 %.not630, label %906, label %.outer._crit_edge
+1208:                                             ; preds = %1205
+  %1209 = getelementptr inbounds i8, ptr %1207, i64 888
+  store i64 0, ptr %1209, align 8
+  %1210 = load i64, ptr getelementptr inbounds (i8, ptr @slurmctld_config, i64 328), align 8
+  %.not630 = icmp eq i64 %1210, 0
+  br i1 %.not630, label %921, label %.outer._crit_edge
 
-1191:                                             ; preds = %1185
-  %1192 = getelementptr inbounds i8, ptr %1187, i64 944
-  store i32 %507, ptr %1192, align 8
-  br i1 %512, label %1193, label %_set_job_time_limit.exit805
+1211:                                             ; preds = %1205
+  %1212 = getelementptr inbounds i8, ptr %1207, i64 944
+  store i32 %522, ptr %1212, align 8
+  br i1 %527, label %1213, label %_set_job_time_limit.exit805
 
-1193:                                             ; preds = %1191
-  %1194 = getelementptr inbounds i8, ptr %1187, i64 490
-  store i16 0, ptr %1194, align 2
+1213:                                             ; preds = %1211
+  %1214 = getelementptr inbounds i8, ptr %1207, i64 490
+  store i16 0, ptr %1214, align 2
   br label %_set_job_time_limit.exit805
 
-_set_job_time_limit.exit805:                      ; preds = %1191, %1193
-  %1195 = getelementptr inbounds i8, ptr %1187, i64 888
-  store i64 %505, ptr %1195, align 8
+_set_job_time_limit.exit805:                      ; preds = %1211, %1213
+  %1215 = getelementptr inbounds i8, ptr %1207, i64 888
+  store i64 %520, ptr %1215, align 8
   br label %.backedge.backedge
 
-1196:                                             ; preds = %1181
-  %1197 = load ptr, ptr %15, align 8
-  %.not659 = icmp eq ptr %1197, null
-  br i1 %.not659, label %1199, label %1198
+1216:                                             ; preds = %1201
+  %1217 = load ptr, ptr %15, align 8
+  %.not659 = icmp eq ptr %1217, null
+  br i1 %.not659, label %1219, label %1218
 
-1198:                                             ; preds = %1196
+1218:                                             ; preds = %1216
   call void @slurm_bit_free(ptr noundef nonnull %15) #16
-  br label %1199
-
-1199:                                             ; preds = %1198, %1196
-  store ptr null, ptr %15, align 8
-  %1200 = load ptr, ptr %14, align 8
-  %1201 = call ptr @bit_copy(ptr noundef %1200) #16
-  store ptr %1201, ptr %15, align 8
-  call void @bit_not(ptr noundef %1201) #16
-  %1202 = call i32 @get_log_level() #16
-  %1203 = icmp sgt i32 %1202, 5
-  br i1 %1203, label %1204, label %1206
-
-1204:                                             ; preds = %1199
-  %1205 = load ptr, ptr %9, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.94, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, ptr noundef %1205) #16
-  br label %1206
-
-1206:                                             ; preds = %1204, %1199
-  br i1 %.1449.ph1963, label %1212, label %1207
-
-1207:                                             ; preds = %1206
-  %1208 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 164), align 4
-  %1209 = add i32 %1208, 1
-  store i32 %1209, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 164), align 4
-  %1210 = load i32, ptr @job_test_cnt, align 4
-  %1211 = add i32 %1210, 1
-  store i32 %1211, ptr @job_test_cnt, align 4
-  br label %1212
-
-1212:                                             ; preds = %1207, %1206
-  %1213 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %1214 = and i64 %1213, 134217728
-  %.not660 = icmp eq i64 %1214, 0
-  br i1 %.not660, label %1219, label %1215
-
-1215:                                             ; preds = %1212
-  %1216 = load ptr, ptr %9, align 8
-  %1217 = load ptr, ptr %14, align 8
-  %1218 = load i64, ptr %16, align 8
-  call fastcc void @_dump_job_test(ptr noundef %1216, ptr noundef %1217, i64 noundef %1218)
   br label %1219
 
-1219:                                             ; preds = %1215, %1212
-  %1220 = load ptr, ptr %9, align 8
-  %1221 = load ptr, ptr %14, align 8
-  call void @build_active_feature_bitmap(ptr noundef %1220, ptr noundef %1221, ptr noundef nonnull %13) #16
-  %1222 = load ptr, ptr %9, align 8
-  %1223 = getelementptr inbounds i8, ptr %1222, i64 112
-  %1224 = load i64, ptr %1223, align 8
-  %1225 = or i64 %1224, %515
-  store i64 %1225, ptr %1223, align 8
-  %1226 = load ptr, ptr %13, align 8
-  %.not661.not = icmp eq ptr %1226, null
-  br i1 %.not661.not, label %.loopexit, label %1227
+1219:                                             ; preds = %1218, %1216
+  store ptr null, ptr %15, align 8
+  %1220 = load ptr, ptr %14, align 8
+  %1221 = call ptr @bit_copy(ptr noundef %1220) #16
+  store ptr %1221, ptr %15, align 8
+  call void @bit_not(ptr noundef %1221) #16
+  %1222 = call i32 @get_log_level() #16
+  %1223 = icmp sgt i32 %1222, 5
+  br i1 %1223, label %1224, label %1226
 
-1227:                                             ; preds = %1219
-  %1228 = load i32, ptr %10, align 4
-  %1229 = load i32, ptr %11, align 4
-  %1230 = load i32, ptr %12, align 4
-  %1231 = call fastcc i32 @_try_sched(ptr noundef nonnull %1222, ptr noundef %13, i32 noundef %1228, i32 noundef %1229, i32 noundef %1230, ptr noundef %23)
-  %1232 = icmp eq i32 %1231, 0
-  br i1 %1232, label %1233, label %1236
+1224:                                             ; preds = %1219
+  %1225 = load ptr, ptr %9, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.94, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, ptr noundef %1225) #16
+  br label %1226
 
-1233:                                             ; preds = %1227
-  %1234 = load ptr, ptr %14, align 8
-  %.not665 = icmp eq ptr %1234, null
-  br i1 %.not665, label %1314, label %1235
+1226:                                             ; preds = %1224, %1219
+  br i1 %.1449.ph1963, label %1232, label %1227
 
-1235:                                             ; preds = %1233
-  call void @slurm_bit_free(ptr noundef nonnull %14) #16
-  br label %1314
+1227:                                             ; preds = %1226
+  %1228 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 164), align 4
+  %1229 = add i32 %1228, 1
+  store i32 %1229, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 164), align 4
+  %1230 = load i32, ptr @job_test_cnt, align 4
+  %1231 = add i32 %1230, 1
+  store i32 %1231, ptr @job_test_cnt, align 4
+  br label %1232
 
-1236:                                             ; preds = %1227
-  %1237 = load ptr, ptr %13, align 8
-  %1238 = call i32 @node_features_g_overlap(ptr noundef %1237) #16
-  %.not662 = icmp ne i32 %1238, 0
-  %spec.select769 = select i1 %.not662, i1 true, i1 %.1398.ph1966
-  %1239 = load ptr, ptr %13, align 8
-  %.not663 = icmp eq ptr %1239, null
-  br i1 %.not663, label %1241, label %1240
+1232:                                             ; preds = %1227, %1226
+  %1233 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %1234 = and i64 %1233, 134217728
+  %.not660 = icmp eq i64 %1234, 0
+  br i1 %.not660, label %1239, label %1235
 
-1240:                                             ; preds = %1236
-  call void @slurm_bit_free(ptr noundef nonnull %13) #16
-  br label %1241
+1235:                                             ; preds = %1232
+  %1236 = load ptr, ptr %9, align 8
+  %1237 = load ptr, ptr %14, align 8
+  %1238 = load i64, ptr %16, align 8
+  call fastcc void @_dump_job_test(ptr noundef %1236, ptr noundef %1237, i64 noundef %1238)
+  br label %1239
 
-1241:                                             ; preds = %1240, %1236
-  store ptr null, ptr %13, align 8
+1239:                                             ; preds = %1235, %1232
+  %1240 = load ptr, ptr %9, align 8
+  %1241 = load ptr, ptr %14, align 8
+  call void @build_active_feature_bitmap(ptr noundef %1240, ptr noundef %1241, ptr noundef nonnull %13) #16
   %1242 = load ptr, ptr %9, align 8
-  %1243 = getelementptr inbounds i8, ptr %1242, i64 216
-  %1244 = load ptr, ptr %1243, align 8
-  %1245 = getelementptr inbounds i8, ptr %1244, i64 394
-  %1246 = load i8, ptr %1245, align 2
-  %1247 = getelementptr inbounds i8, ptr %1244, i64 464
-  %1248 = load i8, ptr %1247, align 8
-  store i8 0, ptr %1245, align 2
-  %1249 = load ptr, ptr %1243, align 8
-  %1250 = getelementptr inbounds i8, ptr %1249, i64 464
-  store i8 1, ptr %1250, align 8
-  %.not664 = icmp eq i8 %1248, 0
-  br i1 %.not664, label %1251, label %1255
+  %1243 = getelementptr inbounds i8, ptr %1242, i64 112
+  %1244 = load i64, ptr %1243, align 8
+  %1245 = or i64 %1244, %530
+  store i64 %1245, ptr %1243, align 8
+  %1246 = load ptr, ptr %13, align 8
+  %.not661.not = icmp eq ptr %1246, null
+  br i1 %.not661.not, label %.loopexit, label %1247
 
-1251:                                             ; preds = %1241
-  %1252 = getelementptr inbounds i8, ptr %1242, i64 112
-  %1253 = load i64, ptr %1252, align 8
-  %1254 = or i64 %1253, 65536
-  store i64 %1254, ptr %1252, align 8
-  br label %1255
+1247:                                             ; preds = %1239
+  %1248 = load i32, ptr %10, align 4
+  %1249 = load i32, ptr %11, align 4
+  %1250 = load i32, ptr %12, align 4
+  %1251 = call fastcc i32 @_try_sched(ptr noundef nonnull %1242, ptr noundef %13, i32 noundef %1248, i32 noundef %1249, i32 noundef %1250, ptr noundef %23)
+  %1252 = icmp eq i32 %1251, 0
+  br i1 %1252, label %1253, label %1256
 
-1255:                                             ; preds = %1251, %1241
+1253:                                             ; preds = %1247
+  %1254 = load ptr, ptr %14, align 8
+  %.not665 = icmp eq ptr %1254, null
+  br i1 %.not665, label %1334, label %1255
+
+1255:                                             ; preds = %1253
+  call void @slurm_bit_free(ptr noundef nonnull %14) #16
+  br label %1334
+
+1256:                                             ; preds = %1247
+  %1257 = load ptr, ptr %13, align 8
+  %1258 = call i32 @node_features_g_overlap(ptr noundef %1257) #16
+  %.not662 = icmp ne i32 %1258, 0
+  %spec.select769 = select i1 %.not662, i1 true, i1 %.1398.ph1966
+  %1259 = load ptr, ptr %13, align 8
+  %.not663 = icmp eq ptr %1259, null
+  br i1 %.not663, label %1261, label %1260
+
+1260:                                             ; preds = %1256
+  call void @slurm_bit_free(ptr noundef nonnull %13) #16
+  br label %1261
+
+1261:                                             ; preds = %1260, %1256
+  store ptr null, ptr %13, align 8
+  %1262 = load ptr, ptr %9, align 8
+  %1263 = getelementptr inbounds i8, ptr %1262, i64 216
+  %1264 = load ptr, ptr %1263, align 8
+  %1265 = getelementptr inbounds i8, ptr %1264, i64 394
+  %1266 = load i8, ptr %1265, align 2
+  %1267 = getelementptr inbounds i8, ptr %1264, i64 464
+  %1268 = load i8, ptr %1267, align 8
+  store i8 0, ptr %1265, align 2
+  %1269 = load ptr, ptr %1263, align 8
+  %1270 = getelementptr inbounds i8, ptr %1269, i64 464
+  store i8 1, ptr %1270, align 8
+  %.not664 = icmp eq i8 %1268, 0
+  br i1 %.not664, label %1271, label %1275
+
+1271:                                             ; preds = %1261
+  %1272 = getelementptr inbounds i8, ptr %1262, i64 112
+  %1273 = load i64, ptr %1272, align 8
+  %1274 = or i64 %1273, 65536
+  store i64 %1274, ptr %1272, align 8
+  br label %1275
+
+1275:                                             ; preds = %1271, %1261
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %29, i8 0, i64 48, i1 false)
   store ptr null, ptr %30, align 8
-  %1256 = call i32 @get_log_level() #16
-  %1257 = icmp sgt i32 %1256, 5
-  br i1 %1257, label %1258, label %1260
+  %1276 = call i32 @get_log_level() #16
+  %1277 = icmp sgt i32 %1276, 5
+  br i1 %1277, label %1278, label %1280
 
-1258:                                             ; preds = %1255
-  %1259 = load ptr, ptr %9, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.95, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, ptr noundef %1259) #16
-  br label %1260
+1278:                                             ; preds = %1275
+  %1279 = load ptr, ptr %9, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.95, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, ptr noundef %1279) #16
+  br label %1280
 
-1260:                                             ; preds = %1258, %1255
-  %1261 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 796), align 4
-  %.not666 = icmp eq i16 %1261, 0
+1280:                                             ; preds = %1278, %1275
+  %1281 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 796), align 4
+  %.not666 = icmp eq i16 %1281, 0
   %or.cond770 = select i1 %.not625, i1 true, i1 %.not666
   %.pre2890 = load ptr, ptr %9, align 8
-  br i1 %or.cond770, label %1264, label %1262
+  br i1 %or.cond770, label %1284, label %1282
 
-1262:                                             ; preds = %1260
-  %1263 = getelementptr inbounds i8, ptr %.pre2890, i64 944
-  store i32 %507, ptr %1263, align 8
-  br label %1264
+1282:                                             ; preds = %1280
+  %1283 = getelementptr inbounds i8, ptr %.pre2890, i64 944
+  store i32 %522, ptr %1283, align 8
+  br label %1284
 
-1264:                                             ; preds = %1262, %1260
-  %1265 = call i32 @job_test_resv(ptr noundef %.pre2890, ptr noundef nonnull %16, i1 noundef zeroext false, ptr noundef nonnull %30, ptr noundef nonnull %29, ptr noundef nonnull %21, i1 noundef zeroext true) #16
-  %1266 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 796), align 4
-  %.not667 = icmp eq i16 %1266, 0
+1284:                                             ; preds = %1282, %1280
+  %1285 = call i32 @job_test_resv(ptr noundef %.pre2890, ptr noundef nonnull %16, i1 noundef zeroext false, ptr noundef nonnull %30, ptr noundef nonnull %29, ptr noundef nonnull %21, i1 noundef zeroext true) #16
+  %1286 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 796), align 4
+  %.not667 = icmp eq i16 %1286, 0
   %or.cond771 = select i1 %.not625, i1 true, i1 %.not667
-  br i1 %or.cond771, label %1270, label %1267
+  br i1 %or.cond771, label %1290, label %1287
 
-1267:                                             ; preds = %1264
-  %1268 = load ptr, ptr %9, align 8
-  %1269 = getelementptr inbounds i8, ptr %1268, i64 944
-  store i32 %.3369.ph.ph1992, ptr %1269, align 8
-  br label %1270
-
-1270:                                             ; preds = %1267, %1264
-  %1271 = load i8, ptr %21, align 1
-  %1272 = trunc i8 %1271 to i1
-  br i1 %1272, label %1273, label %.thread855
-
-1273:                                             ; preds = %1270
-  %1274 = load i64, ptr %16, align 8
-  %1275 = load i32, ptr @backfill_resolution, align 4
-  %1276 = call i64 @find_resv_end(i64 noundef %1274, i32 noundef %1275) #16
-  %.not668 = icmp eq i64 %1276, 0
-  br i1 %.not668, label %.thread855, label %1277
-
-1277:                                             ; preds = %1273
-  %1278 = add nsw i64 %1276, 1
-  %1279 = icmp slt i64 %1278, %91
-  br i1 %1279, label %1280, label %.thread855
-
-1280:                                             ; preds = %1277
-  %1281 = icmp eq i64 %.8, 0
-  %1282 = call i64 @llvm.smin.i64(i64 %1278, i64 %.8)
-  %spec.select787 = select i1 %1281, i64 %1278, i64 %1282
-  br label %.thread855
-
-.thread855:                                       ; preds = %1270, %1280, %1277, %1273
-  %.10 = phi i64 [ %.8, %1277 ], [ %.8, %1273 ], [ %spec.select787, %1280 ], [ %.8, %1270 ]
-  %1283 = icmp eq i32 %1265, 0
-  br i1 %1283, label %1284, label %1290
-
-1284:                                             ; preds = %.thread855
-  call void @reservation_delete_resv_exc_parts(ptr noundef nonnull %23) #16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %29, i64 48, i1 false)
-  %1285 = load ptr, ptr %14, align 8
-  %1286 = load ptr, ptr %30, align 8
-  call void @bit_and(ptr noundef %1285, ptr noundef %1286) #16
-  %1287 = load ptr, ptr %30, align 8
-  %.not669 = icmp eq ptr %1287, null
-  br i1 %.not669, label %1289, label %1288
-
-1288:                                             ; preds = %1284
-  call void @slurm_bit_free(ptr noundef nonnull %30) #16
-  br label %1289
-
-1289:                                             ; preds = %1288, %1284
-  store ptr null, ptr %30, align 8
+1287:                                             ; preds = %1284
+  %1288 = load ptr, ptr %9, align 8
+  %1289 = getelementptr inbounds i8, ptr %1288, i64 944
+  store i32 %.3369.ph.ph1992, ptr %1289, align 8
   br label %1290
 
-1290:                                             ; preds = %1289, %.thread855
-  br i1 %spec.select769, label %1291, label %1293
+1290:                                             ; preds = %1287, %1284
+  %1291 = load i8, ptr %21, align 1
+  %1292 = trunc i8 %1291 to i1
+  br i1 %1292, label %1293, label %.thread855
 
-1291:                                             ; preds = %1290
-  %1292 = call i32 @node_features_g_boot_time() #16
-  br label %1293
+1293:                                             ; preds = %1290
+  %1294 = load i64, ptr %16, align 8
+  %1295 = load i32, ptr @backfill_resolution, align 4
+  %1296 = call i64 @find_resv_end(i64 noundef %1294, i32 noundef %1295) #16
+  %.not668 = icmp eq i64 %1296, 0
+  br i1 %.not668, label %.thread855, label %1297
 
-1293:                                             ; preds = %1291, %1290
-  %.1365 = phi i32 [ %1292, %1291 ], [ 0, %1290 ]
-  %1294 = add i32 %.1365, %spec.store.select
-  %1295 = zext i32 %1294 to i64
-  br label %1296
+1297:                                             ; preds = %1293
+  %1298 = add nsw i64 %1296, 1
+  %1299 = icmp slt i64 %1298, %91
+  br i1 %1299, label %1300, label %.thread855
 
-1296:                                             ; preds = %1310, %1293
-  %.4 = phi i32 [ 0, %1293 ], [ %1312, %1310 ]
-  %1297 = sext i32 %.4 to i64
-  %1298 = getelementptr inbounds %struct.node_space_map_t, ptr %.pre2885, i64 %1297
-  %1299 = getelementptr inbounds i8, ptr %1298, i64 8
-  %1300 = load i64, ptr %1299, align 8
-  %1301 = load i64, ptr %16, align 8
-  %.not670 = icmp sgt i64 %1300, %1301
-  br i1 %.not670, label %1302, label %1310
+1300:                                             ; preds = %1297
+  %1301 = icmp eq i64 %.8, 0
+  %1302 = call i64 @llvm.smin.i64(i64 %1298, i64 %.8)
+  %spec.select787 = select i1 %1301, i64 %1298, i64 %1302
+  br label %.thread855
 
-1302:                                             ; preds = %1296
-  %1303 = load i64, ptr %1298, align 8
-  %.not671 = icmp sgt i64 %1303, %1295
-  br i1 %.not671, label %.loopexit.loopexit, label %1304
+.thread855:                                       ; preds = %1290, %1300, %1297, %1293
+  %.10 = phi i64 [ %.8, %1297 ], [ %.8, %1293 ], [ %spec.select787, %1300 ], [ %.8, %1290 ]
+  %1303 = icmp eq i32 %1285, 0
+  br i1 %1303, label %1304, label %1310
 
-1304:                                             ; preds = %1302
-  %1305 = icmp sgt i64 %1303, %1089
-  br i1 %1305, label %1306, label %1310
+1304:                                             ; preds = %.thread855
+  call void @reservation_delete_resv_exc_parts(ptr noundef nonnull %23) #16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %29, i64 48, i1 false)
+  %1305 = load ptr, ptr %14, align 8
+  %1306 = load ptr, ptr %30, align 8
+  call void @bit_and(ptr noundef %1305, ptr noundef %1306) #16
+  %1307 = load ptr, ptr %30, align 8
+  %.not669 = icmp eq ptr %1307, null
+  br i1 %.not669, label %1309, label %1308
 
-1306:                                             ; preds = %1304
-  %1307 = load ptr, ptr %14, align 8
-  %1308 = getelementptr inbounds i8, ptr %1298, i64 16
-  %1309 = load ptr, ptr %1308, align 8
-  call void @bit_and(ptr noundef %1307, ptr noundef %1309) #16
+1308:                                             ; preds = %1304
+  call void @slurm_bit_free(ptr noundef nonnull %30) #16
+  br label %1309
+
+1309:                                             ; preds = %1308, %1304
+  store ptr null, ptr %30, align 8
   br label %1310
 
-1310:                                             ; preds = %1306, %1304, %1296
-  %1311 = getelementptr inbounds %struct.node_space_map_t, ptr %.pre2885, i64 %1297, i32 4
-  %1312 = load i32, ptr %1311, align 8
-  %1313 = icmp eq i32 %1312, 0
-  br i1 %1313, label %.loopexit.loopexit, label %1296
+1310:                                             ; preds = %1309, %.thread855
+  br i1 %spec.select769, label %1311, label %1313
 
-1314:                                             ; preds = %1233, %1235
-  %1315 = load ptr, ptr %13, align 8
-  store ptr %1315, ptr %14, align 8
+1311:                                             ; preds = %1310
+  %1312 = call i32 @node_features_g_boot_time() #16
+  br label %1313
+
+1313:                                             ; preds = %1311, %1310
+  %.1365 = phi i32 [ %1312, %1311 ], [ 0, %1310 ]
+  %1314 = add i32 %.1365, %spec.store.select
+  %1315 = zext i32 %1314 to i64
+  br label %1316
+
+1316:                                             ; preds = %1330, %1313
+  %.4 = phi i32 [ 0, %1313 ], [ %1332, %1330 ]
+  %1317 = sext i32 %.4 to i64
+  %1318 = getelementptr inbounds %struct.node_space_map_t, ptr %.pre2885, i64 %1317
+  %1319 = getelementptr inbounds i8, ptr %1318, i64 8
+  %1320 = load i64, ptr %1319, align 8
+  %1321 = load i64, ptr %16, align 8
+  %.not670 = icmp sgt i64 %1320, %1321
+  br i1 %.not670, label %1322, label %1330
+
+1322:                                             ; preds = %1316
+  %1323 = load i64, ptr %1318, align 8
+  %.not671 = icmp sgt i64 %1323, %1315
+  br i1 %.not671, label %.loopexit.loopexit, label %1324
+
+1324:                                             ; preds = %1322
+  %1325 = icmp sgt i64 %1323, %1109
+  br i1 %1325, label %1326, label %1330
+
+1326:                                             ; preds = %1324
+  %1327 = load ptr, ptr %14, align 8
+  %1328 = getelementptr inbounds i8, ptr %1318, i64 16
+  %1329 = load ptr, ptr %1328, align 8
+  call void @bit_and(ptr noundef %1327, ptr noundef %1329) #16
+  br label %1330
+
+1330:                                             ; preds = %1326, %1324, %1316
+  %1331 = getelementptr inbounds %struct.node_space_map_t, ptr %.pre2885, i64 %1317, i32 4
+  %1332 = load i32, ptr %1331, align 8
+  %1333 = icmp eq i32 %1332, 0
+  br i1 %1333, label %.loopexit.loopexit, label %1316
+
+1334:                                             ; preds = %1253, %1255
+  %1335 = load ptr, ptr %13, align 8
+  store ptr %1335, ptr %14, align 8
   store ptr null, ptr %13, align 8
   %.pre2892 = load ptr, ptr %9, align 8
-  br label %1327
+  br label %1347
 
-.loopexit.loopexit:                               ; preds = %1302, %1310
+.loopexit.loopexit:                               ; preds = %1322, %1330
   %.pre2891 = load ptr, ptr %9, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %1219
-  %1316 = phi ptr [ %1222, %1219 ], [ %.pre2891, %.loopexit.loopexit ]
-  %.2399854.ph = phi i1 [ %.1398.ph1966, %1219 ], [ %spec.select769, %.loopexit.loopexit ]
-  %.3411849.ph = phi i8 [ %.2410.ph1965, %1219 ], [ %1248, %.loopexit.loopexit ]
-  %.3415847.ph = phi i8 [ %.2414.ph1964, %1219 ], [ %1246, %.loopexit.loopexit ]
-  %.9.ph = phi i64 [ %.8, %1219 ], [ %.10, %.loopexit.loopexit ]
-  %.0364.ph = phi i32 [ 0, %1219 ], [ %.1365, %.loopexit.loopexit ]
-  %1317 = load i32, ptr %10, align 4
-  %1318 = load i32, ptr %11, align 4
-  %1319 = load i32, ptr %12, align 4
-  %1320 = call fastcc i32 @_try_sched(ptr noundef %1316, ptr noundef %14, i32 noundef %1317, i32 noundef %1318, i32 noundef %1319, ptr noundef %23)
+.loopexit:                                        ; preds = %.loopexit.loopexit, %1239
+  %1336 = phi ptr [ %1242, %1239 ], [ %.pre2891, %.loopexit.loopexit ]
+  %.2399854.ph = phi i1 [ %.1398.ph1966, %1239 ], [ %spec.select769, %.loopexit.loopexit ]
+  %.3411849.ph = phi i8 [ %.2410.ph1965, %1239 ], [ %1268, %.loopexit.loopexit ]
+  %.3415847.ph = phi i8 [ %.2414.ph1964, %1239 ], [ %1266, %.loopexit.loopexit ]
+  %.9.ph = phi i64 [ %.8, %1239 ], [ %.10, %.loopexit.loopexit ]
+  %.0364.ph = phi i32 [ 0, %1239 ], [ %.1365, %.loopexit.loopexit ]
+  %1337 = load i32, ptr %10, align 4
+  %1338 = load i32, ptr %11, align 4
+  %1339 = load i32, ptr %12, align 4
+  %1340 = call fastcc i32 @_try_sched(ptr noundef %1336, ptr noundef %14, i32 noundef %1337, i32 noundef %1338, i32 noundef %1339, ptr noundef %23)
   %.pre2893 = load ptr, ptr %9, align 8
-  br i1 %.not661.not, label %1327, label %1321
+  br i1 %.not661.not, label %1347, label %1341
 
-1321:                                             ; preds = %.loopexit
-  %1322 = getelementptr inbounds i8, ptr %.pre2893, i64 216
-  %1323 = load ptr, ptr %1322, align 8
-  %1324 = getelementptr inbounds i8, ptr %1323, i64 394
-  store i8 %.3415847.ph, ptr %1324, align 2
-  %1325 = load ptr, ptr %1322, align 8
-  %1326 = getelementptr inbounds i8, ptr %1325, i64 464
-  store i8 %.3411849.ph, ptr %1326, align 8
-  br label %1327
+1341:                                             ; preds = %.loopexit
+  %1342 = getelementptr inbounds i8, ptr %.pre2893, i64 216
+  %1343 = load ptr, ptr %1342, align 8
+  %1344 = getelementptr inbounds i8, ptr %1343, i64 394
+  store i8 %.3415847.ph, ptr %1344, align 2
+  %1345 = load ptr, ptr %1342, align 8
+  %1346 = getelementptr inbounds i8, ptr %1345, i64 464
+  store i8 %.3411849.ph, ptr %1346, align 8
+  br label %1347
 
-1327:                                             ; preds = %1314, %.loopexit, %1321
-  %1328 = phi ptr [ %.pre2893, %1321 ], [ %.pre2893, %.loopexit ], [ %.pre2892, %1314 ]
-  %.0364876 = phi i32 [ %.0364.ph, %1321 ], [ %.0364.ph, %.loopexit ], [ 0, %1314 ]
-  %.9874 = phi i64 [ %.9.ph, %1321 ], [ %.9.ph, %.loopexit ], [ %.8, %1314 ]
-  %.3415847872 = phi i8 [ %.3415847.ph, %1321 ], [ %.3415847.ph, %.loopexit ], [ %.2414.ph1964, %1314 ]
-  %.3411849870 = phi i8 [ %.3411849.ph, %1321 ], [ %.3411849.ph, %.loopexit ], [ %.2410.ph1965, %1314 ]
-  %.2399854868 = phi i1 [ %.2399854.ph, %1321 ], [ %.2399854.ph, %.loopexit ], [ %.1398.ph1966, %1314 ]
-  %.5 = phi i32 [ %1320, %1321 ], [ %1320, %.loopexit ], [ 0, %1314 ]
-  %1329 = getelementptr inbounds i8, ptr %1328, i64 112
-  %1330 = load i64, ptr %1329, align 8
-  %1331 = and i64 %1330, -65577
-  store i64 %1331, ptr %1329, align 8
-  %1332 = call i64 @time(ptr noundef null) #16
+1347:                                             ; preds = %1334, %.loopexit, %1341
+  %1348 = phi ptr [ %.pre2893, %1341 ], [ %.pre2893, %.loopexit ], [ %.pre2892, %1334 ]
+  %.0364876 = phi i32 [ %.0364.ph, %1341 ], [ %.0364.ph, %.loopexit ], [ 0, %1334 ]
+  %.9874 = phi i64 [ %.9.ph, %1341 ], [ %.9.ph, %.loopexit ], [ %.8, %1334 ]
+  %.3415847872 = phi i8 [ %.3415847.ph, %1341 ], [ %.3415847.ph, %.loopexit ], [ %.2414.ph1964, %1334 ]
+  %.3411849870 = phi i8 [ %.3411849.ph, %1341 ], [ %.3411849.ph, %.loopexit ], [ %.2410.ph1965, %1334 ]
+  %.2399854868 = phi i1 [ %.2399854.ph, %1341 ], [ %.2399854.ph, %.loopexit ], [ %.1398.ph1966, %1334 ]
+  %.5 = phi i32 [ %1340, %1341 ], [ %1340, %.loopexit ], [ 0, %1334 ]
+  %1349 = getelementptr inbounds i8, ptr %1348, i64 112
+  %1350 = load i64, ptr %1349, align 8
+  %1351 = and i64 %1350, -65577
+  store i64 %1351, ptr %1349, align 8
+  %1352 = call i64 @time(ptr noundef null) #16
   %.not673 = icmp eq i32 %.5, 0
-  br i1 %.not673, label %1342, label %1333
+  br i1 %.not673, label %1362, label %1353
 
-1333:                                             ; preds = %1327
-  %1334 = load ptr, ptr %9, align 8
-  %1335 = getelementptr inbounds i8, ptr %1334, i64 944
-  store i32 %507, ptr %1335, align 8
-  br i1 %512, label %1336, label %_set_job_time_limit.exit806
+1353:                                             ; preds = %1347
+  %1354 = load ptr, ptr %9, align 8
+  %1355 = getelementptr inbounds i8, ptr %1354, i64 944
+  store i32 %522, ptr %1355, align 8
+  br i1 %527, label %1356, label %_set_job_time_limit.exit806
 
-1336:                                             ; preds = %1333
-  %1337 = getelementptr inbounds i8, ptr %1334, i64 490
-  store i16 0, ptr %1337, align 2
+1356:                                             ; preds = %1353
+  %1357 = getelementptr inbounds i8, ptr %1354, i64 490
+  store i16 0, ptr %1357, align 2
   br label %_set_job_time_limit.exit806
 
-_set_job_time_limit.exit806:                      ; preds = %1333, %1336
-  %1338 = icmp eq i64 %.9874, 0
-  %or.cond15 = or i1 %513, %1338
-  %1339 = getelementptr inbounds i8, ptr %1334, i64 888
-  br i1 %or.cond15, label %1341, label %.outer
+_set_job_time_limit.exit806:                      ; preds = %1353, %1356
+  %1358 = icmp eq i64 %.9874, 0
+  %or.cond15 = or i1 %528, %1358
+  %1359 = getelementptr inbounds i8, ptr %1354, i64 888
+  br i1 %or.cond15, label %1361, label %.outer
 
 .outer:                                           ; preds = %_set_job_time_limit.exit806
-  store i64 0, ptr %1339, align 8
-  %1340 = load i64, ptr getelementptr inbounds (i8, ptr @slurmctld_config, i64 328), align 8
-  %.not6301940 = icmp eq i64 %1340, 0
+  store i64 0, ptr %1359, align 8
+  %1360 = load i64, ptr getelementptr inbounds (i8, ptr @slurmctld_config, i64 328), align 8
+  %.not6301940 = icmp eq i64 %1360, 0
   br i1 %.not6301940, label %.lr.ph, label %.outer._crit_edge
 
-1341:                                             ; preds = %_set_job_time_limit.exit806
-  store i64 %505, ptr %1339, align 8
+1361:                                             ; preds = %_set_job_time_limit.exit806
+  store i64 %520, ptr %1359, align 8
   br label %.backedge.backedge
 
-1342:                                             ; preds = %1327
-  %1343 = load i64, ptr %16, align 8
-  %1344 = load ptr, ptr %9, align 8
-  %1345 = getelementptr inbounds i8, ptr %1344, i64 888
-  %1346 = load i64, ptr %1345, align 8
-  %1347 = icmp sgt i64 %1343, %1346
-  br i1 %1347, label %1348, label %1349
+1362:                                             ; preds = %1347
+  %1363 = load i64, ptr %16, align 8
+  %1364 = load ptr, ptr %9, align 8
+  %1365 = getelementptr inbounds i8, ptr %1364, i64 888
+  %1366 = load i64, ptr %1365, align 8
+  %1367 = icmp sgt i64 %1363, %1366
+  br i1 %1367, label %1368, label %1369
 
-1348:                                             ; preds = %1342
-  store i64 %1343, ptr %1345, align 8
-  store i64 %1332, ptr @last_job_update, align 8
-  br label %1349
+1368:                                             ; preds = %1362
+  store i64 %1363, ptr %1365, align 8
+  store i64 %1352, ptr @last_job_update, align 8
+  br label %1369
 
-1349:                                             ; preds = %1348, %1342
-  %1350 = phi i64 [ %1343, %1348 ], [ %1346, %1342 ]
-  %.not674 = icmp sgt i64 %1350, %1332
-  br i1 %.not674, label %1362, label %1351
+1369:                                             ; preds = %1368, %1362
+  %1370 = phi i64 [ %1363, %1368 ], [ %1366, %1362 ]
+  %.not674 = icmp sgt i64 %1370, %1352
+  br i1 %.not674, label %1382, label %1371
 
-1351:                                             ; preds = %1349
-  %1352 = load ptr, ptr %14, align 8
-  %1353 = load ptr, ptr @cg_node_bitmap, align 8
-  %1354 = call i32 @bit_overlap_any(ptr noundef %1352, ptr noundef %1353) #16
-  %.not675 = icmp eq i32 %1354, 0
-  br i1 %.not675, label %1355, label %.thread2924
+1371:                                             ; preds = %1369
+  %1372 = load ptr, ptr %14, align 8
+  %1373 = load ptr, ptr @cg_node_bitmap, align 8
+  %1374 = call i32 @bit_overlap_any(ptr noundef %1372, ptr noundef %1373) #16
+  %.not675 = icmp eq i32 %1374, 0
+  br i1 %.not675, label %1375, label %.thread2924
 
-1355:                                             ; preds = %1351
-  %1356 = load ptr, ptr %14, align 8
-  %1357 = load ptr, ptr @rs_node_bitmap, align 8
-  %1358 = call i32 @bit_overlap_any(ptr noundef %1356, ptr noundef %1357) #16
-  %.not676 = icmp eq i32 %1358, 0
+1375:                                             ; preds = %1371
+  %1376 = load ptr, ptr %14, align 8
+  %1377 = load ptr, ptr @rs_node_bitmap, align 8
+  %1378 = call i32 @bit_overlap_any(ptr noundef %1376, ptr noundef %1377) #16
+  %.not676 = icmp eq i32 %1378, 0
   br i1 %.not676, label %._crit_edge2894, label %.thread2924
 
-._crit_edge2894:                                  ; preds = %1355
+._crit_edge2894:                                  ; preds = %1375
   %.pre2895 = load ptr, ptr %9, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre2895, i64 888
   %.pre2896 = load i64, ptr %.phi.trans.insert, align 8
-  br label %1362
+  br label %1382
 
-.thread2924:                                      ; preds = %1351, %1355
-  %1359 = add nsw i64 %1332, 1
-  %1360 = load ptr, ptr %9, align 8
-  %1361 = getelementptr inbounds i8, ptr %1360, i64 888
-  store i64 %1359, ptr %1361, align 8
-  br label %1404
+.thread2924:                                      ; preds = %1371, %1375
+  %1379 = add nsw i64 %1352, 1
+  %1380 = load ptr, ptr %9, align 8
+  %1381 = getelementptr inbounds i8, ptr %1380, i64 888
+  store i64 %1379, ptr %1381, align 8
+  br label %1424
 
-1362:                                             ; preds = %._crit_edge2894, %1349
-  %1363 = phi i64 [ %.pre2896, %._crit_edge2894 ], [ %1350, %1349 ]
-  %1364 = phi ptr [ %.pre2895, %._crit_edge2894 ], [ %1344, %1349 ]
-  %.not677 = icmp sgt i64 %1363, %1332
-  br i1 %.not677, label %1404, label %1365
+1382:                                             ; preds = %._crit_edge2894, %1369
+  %1383 = phi i64 [ %.pre2896, %._crit_edge2894 ], [ %1370, %1369 ]
+  %1384 = phi ptr [ %.pre2895, %._crit_edge2894 ], [ %1364, %1369 ]
+  %.not677 = icmp sgt i64 %1383, %1352
+  br i1 %.not677, label %1424, label %1385
 
-1365:                                             ; preds = %1362
-  %1366 = call i32 @bb_g_job_test_stage_in(ptr noundef nonnull %1364, i1 noundef zeroext true) #16
-  %.not678 = icmp eq i32 %1366, 1
+1385:                                             ; preds = %1382
+  %1386 = call i32 @bb_g_job_test_stage_in(ptr noundef nonnull %1384, i1 noundef zeroext true) #16
+  %.not678 = icmp eq i32 %1386, 1
   %.pre2897 = load ptr, ptr %9, align 8
-  br i1 %.not678, label %1404, label %1367
+  br i1 %.not678, label %1424, label %1387
 
-1367:                                             ; preds = %1365
-  %1368 = getelementptr inbounds i8, ptr %.pre2897, i64 904
-  %1369 = load i32, ptr %1368, align 8
-  %.not704 = icmp eq i32 %1369, 0
-  br i1 %.not704, label %1370, label %1379
-
-1370:                                             ; preds = %1367
-  %1371 = icmp eq i32 %1366, -1
-  %1372 = getelementptr inbounds i8, ptr %.pre2897, i64 896
-  call void @slurm_xfree(ptr noundef nonnull %1372) #16
-  %1373 = load ptr, ptr %9, align 8
-  %1374 = getelementptr inbounds i8, ptr %1373, i64 904
-  br i1 %1371, label %1375, label %1376
-
-1375:                                             ; preds = %1370
-  store i32 73, ptr %1374, align 8
-  br label %1379
-
-1376:                                             ; preds = %1370
-  store i32 74, ptr %1374, align 8
-  %1377 = add nsw i64 %1332, 1
-  %1378 = getelementptr inbounds i8, ptr %1373, i64 888
-  store i64 %1377, ptr %1378, align 8
-  br label %1379
-
-1379:                                             ; preds = %1367, %1376, %1375
-  %1380 = call i32 @get_sched_log_level() #16
-  %1381 = icmp sgt i32 %1380, 6
-  br i1 %1381, label %1382, label %1394
-
-1382:                                             ; preds = %1379
-  %1383 = load ptr, ptr %9, align 8
-  %1384 = getelementptr inbounds i8, ptr %1383, i64 448
-  %1385 = load i32, ptr %1384, align 8
-  %1386 = call ptr @job_state_string(i32 noundef %1385) #16
-  %1387 = load ptr, ptr %9, align 8
-  %1388 = getelementptr inbounds i8, ptr %1387, i64 904
+1387:                                             ; preds = %1385
+  %1388 = getelementptr inbounds i8, ptr %.pre2897, i64 904
   %1389 = load i32, ptr %1388, align 8
-  %1390 = call ptr @job_state_reason_string(i32 noundef %1389) #16
-  %1391 = load ptr, ptr %9, align 8
-  %1392 = getelementptr inbounds i8, ptr %1391, i64 712
-  %1393 = load i32, ptr %1392, align 8
-  call void (i32, ptr, ...) @sched_log_var(i32 noundef 7, ptr noundef nonnull @.str.96, ptr noundef %1383, ptr noundef %1386, ptr noundef %1390, i32 noundef %1393) #16
-  br label %1394
+  %.not704 = icmp eq i32 %1389, 0
+  br i1 %.not704, label %1390, label %1399
 
-1394:                                             ; preds = %1379, %1382
-  store i64 %1332, ptr @last_job_update, align 8
-  %1395 = load ptr, ptr %9, align 8
-  %1396 = getelementptr inbounds i8, ptr %1395, i64 944
-  store i32 %507, ptr %1396, align 8
-  br i1 %512, label %1397, label %_set_job_time_limit.exit807
+1390:                                             ; preds = %1387
+  %1391 = icmp eq i32 %1386, -1
+  %1392 = getelementptr inbounds i8, ptr %.pre2897, i64 896
+  call void @slurm_xfree(ptr noundef nonnull %1392) #16
+  %1393 = load ptr, ptr %9, align 8
+  %1394 = getelementptr inbounds i8, ptr %1393, i64 904
+  br i1 %1391, label %1395, label %1396
 
-1397:                                             ; preds = %1394
-  %1398 = getelementptr inbounds i8, ptr %1395, i64 490
-  store i16 0, ptr %1398, align 2
+1395:                                             ; preds = %1390
+  store i32 73, ptr %1394, align 8
+  br label %1399
+
+1396:                                             ; preds = %1390
+  store i32 74, ptr %1394, align 8
+  %1397 = add nsw i64 %1352, 1
+  %1398 = getelementptr inbounds i8, ptr %1393, i64 888
+  store i64 %1397, ptr %1398, align 8
+  br label %1399
+
+1399:                                             ; preds = %1387, %1396, %1395
+  %1400 = call i32 @get_sched_log_level() #16
+  %1401 = icmp sgt i32 %1400, 6
+  br i1 %1401, label %1402, label %1414
+
+1402:                                             ; preds = %1399
+  %1403 = load ptr, ptr %9, align 8
+  %1404 = getelementptr inbounds i8, ptr %1403, i64 448
+  %1405 = load i32, ptr %1404, align 8
+  %1406 = call ptr @job_state_string(i32 noundef %1405) #16
+  %1407 = load ptr, ptr %9, align 8
+  %1408 = getelementptr inbounds i8, ptr %1407, i64 904
+  %1409 = load i32, ptr %1408, align 8
+  %1410 = call ptr @job_state_reason_string(i32 noundef %1409) #16
+  %1411 = load ptr, ptr %9, align 8
+  %1412 = getelementptr inbounds i8, ptr %1411, i64 712
+  %1413 = load i32, ptr %1412, align 8
+  call void (i32, ptr, ...) @sched_log_var(i32 noundef 7, ptr noundef nonnull @.str.96, ptr noundef %1403, ptr noundef %1406, ptr noundef %1410, i32 noundef %1413) #16
+  br label %1414
+
+1414:                                             ; preds = %1399, %1402
+  store i64 %1352, ptr @last_job_update, align 8
+  %1415 = load ptr, ptr %9, align 8
+  %1416 = getelementptr inbounds i8, ptr %1415, i64 944
+  store i32 %522, ptr %1416, align 8
+  br i1 %527, label %1417, label %_set_job_time_limit.exit807
+
+1417:                                             ; preds = %1414
+  %1418 = getelementptr inbounds i8, ptr %1415, i64 490
+  store i16 0, ptr %1418, align 2
   br label %_set_job_time_limit.exit807
 
-_set_job_time_limit.exit807:                      ; preds = %1394, %1397
-  %1399 = icmp eq i32 %1366, -1
-  br i1 %1399, label %1400, label %_set_job_time_limit.exit811
+_set_job_time_limit.exit807:                      ; preds = %1414, %1417
+  %1419 = icmp eq i32 %1386, -1
+  br i1 %1419, label %1420, label %_set_job_time_limit.exit811
 
-1400:                                             ; preds = %_set_job_time_limit.exit807
-  %1401 = call i64 @bb_g_job_get_est_start(ptr noundef nonnull %1395) #16
-  %1402 = load ptr, ptr %9, align 8
-  %1403 = getelementptr inbounds i8, ptr %1402, i64 888
-  store i64 %1401, ptr %1403, align 8
+1420:                                             ; preds = %_set_job_time_limit.exit807
+  %1421 = call i64 @bb_g_job_get_est_start(ptr noundef nonnull %1415) #16
+  %1422 = load ptr, ptr %9, align 8
+  %1423 = getelementptr inbounds i8, ptr %1422, i64 888
+  store i64 %1421, ptr %1423, align 8
   br label %.backedge.backedge
 
-1404:                                             ; preds = %.thread2924, %1365, %1362
-  %.112927 = phi i64 [ %.9874, %1365 ], [ %.9874, %1362 ], [ 0, %.thread2924 ]
-  %1405 = phi ptr [ %.pre2897, %1365 ], [ %1364, %1362 ], [ %1360, %.thread2924 ]
-  %1406 = getelementptr inbounds i8, ptr %1405, i64 360
-  %1407 = load i32, ptr %1406, align 8
-  %1408 = icmp eq i32 %1407, 0
-  br i1 %1408, label %1409, label %1587
-
-1409:                                             ; preds = %1404
-  %1410 = getelementptr inbounds i8, ptr %1405, i64 888
-  %1411 = load i64, ptr %1410, align 8
-  %.not679 = icmp sgt i64 %1411, %1332
-  br i1 %.not679, label %_set_job_time_limit.exit811, label %1412
-
-1412:                                             ; preds = %1409
-  %1413 = getelementptr inbounds i8, ptr %1405, i64 944
-  %1414 = load i32, ptr %1413, align 8
-  %1415 = call i32 @fed_mgr_job_lock(ptr noundef nonnull %1405) #16
-  %.not683 = icmp eq i32 %1415, 0
-  br i1 %.not683, label %1424, label %1416
-
-1416:                                             ; preds = %1412
-  %1417 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %1418 = and i64 %1417, 4096
-  %.not684 = icmp eq i64 %1418, 0
-  br i1 %.not684, label %1432, label %1419
-
-1419:                                             ; preds = %1416
-  %1420 = call i32 @get_log_level() #16
-  %1421 = icmp sgt i32 %1420, 3
-  br i1 %1421, label %1422, label %1432
-
-1422:                                             ; preds = %1419
-  %1423 = load ptr, ptr %9, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.97, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, ptr noundef %1423) #16
-  br label %1432
-
-1424:                                             ; preds = %1412
-  %1425 = load ptr, ptr %9, align 8
-  %1426 = load ptr, ptr %15, align 8
-  %1427 = call fastcc i32 @_start_job(ptr noundef %1425, ptr noundef %1426)
+1424:                                             ; preds = %.thread2924, %1385, %1382
+  %.112927 = phi i64 [ %.9874, %1385 ], [ %.9874, %1382 ], [ 0, %.thread2924 ]
+  %1425 = phi ptr [ %.pre2897, %1385 ], [ %1384, %1382 ], [ %1380, %.thread2924 ]
+  %1426 = getelementptr inbounds i8, ptr %1425, i64 360
+  %1427 = load i32, ptr %1426, align 8
   %1428 = icmp eq i32 %1427, 0
-  %1429 = load ptr, ptr %9, align 8
-  br i1 %1428, label %.thread877, label %1430
+  br i1 %1428, label %1429, label %1613
 
-1430:                                             ; preds = %1424
-  %1431 = call i32 @fed_mgr_job_unlock(ptr noundef %1429) #16
-  br label %1432
+1429:                                             ; preds = %1424
+  %1430 = getelementptr inbounds i8, ptr %1425, i64 888
+  %1431 = load i64, ptr %1430, align 8
+  %.not679 = icmp sgt i64 %1431, %1352
+  br i1 %.not679, label %_set_job_time_limit.exit811, label %1432
 
-1432:                                             ; preds = %1422, %1419, %1416, %1430
-  %.0361 = phi i32 [ %1427, %1430 ], [ 7105, %1416 ], [ 7105, %1419 ], [ 7105, %1422 ]
-  br i1 %.not625, label %.critedge774, label %1436
+1432:                                             ; preds = %1429
+  %1433 = getelementptr inbounds i8, ptr %1425, i64 944
+  %1434 = load i32, ptr %1433, align 8
+  %1435 = call i32 @fed_mgr_job_lock(ptr noundef nonnull %1425) #16
+  %.not683 = icmp eq i32 %1435, 0
+  br i1 %.not683, label %1444, label %1436
 
-.thread877:                                       ; preds = %1424
-  %1433 = getelementptr inbounds i8, ptr %1429, i64 888
-  %1434 = load i64, ptr %1433, align 8
-  %1435 = call i32 @fed_mgr_job_start(ptr noundef %1429, i64 noundef %1434) #16
-  br i1 %.not625, label %1444, label %1436
+1436:                                             ; preds = %1432
+  %1437 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %1438 = and i64 %1437, 4096
+  %.not684 = icmp eq i64 %1438, 0
+  br i1 %.not684, label %1452, label %1439
 
-1436:                                             ; preds = %.thread877, %1432
-  %.0361880 = phi i32 [ 0, %.thread877 ], [ %.0361, %1432 ]
-  %1437 = load ptr, ptr %9, align 8
-  br i1 %512, label %1438, label %_set_job_time_limit.exit808
+1439:                                             ; preds = %1436
+  %1440 = call i32 @get_log_level() #16
+  %1441 = icmp sgt i32 %1440, 3
+  br i1 %1441, label %1442, label %1452
 
-1438:                                             ; preds = %1436
-  call void @acct_policy_alter_job(ptr noundef %1437, i32 noundef %.1373.ph.ph1991) #16
-  %1439 = load ptr, ptr %9, align 8
-  %1440 = getelementptr inbounds i8, ptr %1439, i64 944
-  store i32 %.1373.ph.ph1991, ptr %1440, align 8
-  %1441 = getelementptr inbounds i8, ptr %1439, i64 490
-  store i16 1, ptr %1441, align 2
-  br label %1468
+1442:                                             ; preds = %1439
+  %1443 = load ptr, ptr %9, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.97, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, ptr noundef %1443) #16
+  br label %1452
 
-_set_job_time_limit.exit808:                      ; preds = %1436
-  call void @acct_policy_alter_job(ptr noundef %1437, i32 noundef %507) #16
-  %1442 = load ptr, ptr %9, align 8
-  %1443 = getelementptr inbounds i8, ptr %1442, i64 944
-  store i32 %507, ptr %1443, align 8
-  br label %1468
-
-1444:                                             ; preds = %.thread877
-  %.b562685 = load i1, ptr @soft_time_limit, align 1
-  %.pre2898 = load ptr, ptr %9, align 8
-  %1445 = getelementptr inbounds i8, ptr %.pre2898, i64 948
-  %1446 = load i32, ptr %1445, align 4
-  %.not686 = icmp eq i32 %1446, 0
-  br i1 %.b562685, label %1447, label %1451
-
-1447:                                             ; preds = %1444
-  br i1 %.not686, label %.critedge774, label %1448
-
-1448:                                             ; preds = %1447
-  call void @acct_policy_alter_job(ptr noundef nonnull %.pre2898, i32 noundef %507) #16
+1444:                                             ; preds = %1432
+  %1445 = load ptr, ptr %9, align 8
+  %1446 = load ptr, ptr %15, align 8
+  %1447 = call fastcc i32 @_start_job(ptr noundef %1445, ptr noundef %1446)
+  %1448 = icmp eq i32 %1447, 0
   %1449 = load ptr, ptr %9, align 8
-  %1450 = getelementptr inbounds i8, ptr %1449, i64 944
-  store i32 %507, ptr %1450, align 8
-  br label %1468
+  br i1 %1448, label %.thread877, label %1450
 
-1451:                                             ; preds = %1444
-  br i1 %.not686, label %.critedge774, label %1452
+1450:                                             ; preds = %1444
+  %1451 = call i32 @fed_mgr_job_unlock(ptr noundef %1449) #16
+  br label %1452
 
-1452:                                             ; preds = %1451
-  call void @acct_policy_alter_job(ptr noundef nonnull %.pre2898, i32 noundef %.1373.ph.ph1991) #16
-  %1453 = load ptr, ptr %9, align 8
-  %1454 = getelementptr inbounds i8, ptr %1453, i64 944
-  store i32 %.1373.ph.ph1991, ptr %1454, align 8
-  br label %1468
+1452:                                             ; preds = %1442, %1439, %1436, %1450
+  %.0361 = phi i32 [ %1447, %1450 ], [ 7105, %1436 ], [ 7105, %1439 ], [ 7105, %1442 ]
+  br i1 %.not625, label %.critedge774, label %1456
 
-.critedge774:                                     ; preds = %1447, %1432, %1451
-  %1455 = phi i1 [ true, %1451 ], [ false, %1432 ], [ true, %1447 ]
-  %.0361881885 = phi i32 [ 0, %1451 ], [ %.0361, %1432 ], [ 0, %1447 ]
-  br i1 %512, label %1456, label %1461
+.thread877:                                       ; preds = %1444
+  %1453 = getelementptr inbounds i8, ptr %1449, i64 888
+  %1454 = load i64, ptr %1453, align 8
+  %1455 = call i32 @fed_mgr_job_start(ptr noundef %1449, i64 noundef %1454) #16
+  br i1 %.not625, label %1464, label %1456
 
-1456:                                             ; preds = %.critedge774
+1456:                                             ; preds = %.thread877, %1452
+  %.0361880 = phi i32 [ 0, %.thread877 ], [ %.0361, %1452 ]
   %1457 = load ptr, ptr %9, align 8
+  br i1 %527, label %1458, label %_set_job_time_limit.exit808
+
+1458:                                             ; preds = %1456
   call void @acct_policy_alter_job(ptr noundef %1457, i32 noundef %.1373.ph.ph1991) #16
-  %1458 = load ptr, ptr %9, align 8
-  %1459 = getelementptr inbounds i8, ptr %1458, i64 944
-  store i32 %.1373.ph.ph1991, ptr %1459, align 8
-  %1460 = getelementptr inbounds i8, ptr %1458, i64 490
-  store i16 1, ptr %1460, align 2
-  br label %1468
-
-1461:                                             ; preds = %.critedge774
-  %or.cond17 = and i1 %873, %1455
-  %1462 = load ptr, ptr %9, align 8
-  br i1 %or.cond17, label %1463, label %_set_job_time_limit.exit809
-
-1463:                                             ; preds = %1461
-  call void @acct_policy_alter_job(ptr noundef %1462, i32 noundef %.1373.ph.ph1991) #16
-  %1464 = load ptr, ptr %9, align 8
-  %1465 = getelementptr inbounds i8, ptr %1464, i64 944
-  store i32 %.1373.ph.ph1991, ptr %1465, align 8
-  br label %1468
-
-_set_job_time_limit.exit809:                      ; preds = %1461
-  call void @acct_policy_alter_job(ptr noundef %1462, i32 noundef %507) #16
-  %1466 = load ptr, ptr %9, align 8
-  %1467 = getelementptr inbounds i8, ptr %1466, i64 944
-  store i32 %507, ptr %1467, align 8
-  br label %1468
-
-1468:                                             ; preds = %1448, %1456, %_set_job_time_limit.exit809, %1463, %1452, %1438, %_set_job_time_limit.exit808
-  %1469 = phi i32 [ %.1373.ph.ph1991, %1438 ], [ %507, %_set_job_time_limit.exit808 ], [ %507, %1448 ], [ %.1373.ph.ph1991, %1452 ], [ %.1373.ph.ph1991, %1456 ], [ %.1373.ph.ph1991, %1463 ], [ %507, %_set_job_time_limit.exit809 ]
-  %1470 = phi ptr [ %1439, %1438 ], [ %1442, %_set_job_time_limit.exit808 ], [ %1449, %1448 ], [ %1453, %1452 ], [ %1458, %1456 ], [ %1464, %1463 ], [ %1466, %_set_job_time_limit.exit809 ]
-  %.0361879 = phi i32 [ %.0361880, %1438 ], [ %.0361880, %_set_job_time_limit.exit808 ], [ 0, %1448 ], [ 0, %1452 ], [ %.0361881885, %1456 ], [ %.0361881885, %1463 ], [ %.0361881885, %_set_job_time_limit.exit809 ]
-  %.0362 = phi i1 [ false, %1438 ], [ false, %_set_job_time_limit.exit808 ], [ false, %1448 ], [ true, %1452 ], [ false, %1456 ], [ true, %1463 ], [ false, %_set_job_time_limit.exit809 ]
-  %1471 = getelementptr inbounds i8, ptr %1470, i64 448
-  %1472 = load i32, ptr %1471, align 8
-  %1473 = and i32 %1472, 255
-  %1474 = icmp ugt i32 %1473, 2
-  br i1 %1474, label %1493, label %1475
-
-1475:                                             ; preds = %1468
-  %1476 = getelementptr inbounds i8, ptr %1470, i64 888
-  %1477 = load i64, ptr %1476, align 8
-  %.not688 = icmp eq i64 %1477, 0
-  br i1 %.not688, label %1491, label %1478
-
-1478:                                             ; preds = %1475
-  %1479 = load ptr, ptr %17, align 8
-  store ptr %1479, ptr %31, align 8
-  store ptr %8, ptr %120, align 8
-  %1480 = icmp eq i32 %1469, -1
-  %1481 = mul i32 %1469, 60
-  %narrow = select i1 %1480, i32 31536000, i32 %1481
-  %.0363 = zext i32 %narrow to i64
-  %1482 = add nsw i64 %1477, %.0363
-  %1483 = getelementptr inbounds i8, ptr %1470, i64 232
-  store i64 %1482, ptr %1483, align 8
-  br i1 %.0362, label %1484, label %1488
-
-1484:                                             ; preds = %1478
-  call fastcc void @_reset_job_time_limit(ptr noundef nonnull %1470, i64 noundef %1332, ptr noundef %1479)
-  %1485 = load ptr, ptr %9, align 8
-  %1486 = getelementptr inbounds i8, ptr %1485, i64 944
-  %1487 = load i32, ptr %1486, align 8
+  %1459 = load ptr, ptr %9, align 8
+  %1460 = getelementptr inbounds i8, ptr %1459, i64 944
+  store i32 %.1373.ph.ph1991, ptr %1460, align 8
+  %1461 = getelementptr inbounds i8, ptr %1459, i64 490
+  store i16 1, ptr %1461, align 2
   br label %1488
 
-1488:                                             ; preds = %1484, %1478
-  %1489 = phi ptr [ %1485, %1484 ], [ %1470, %1478 ]
-  %.6 = phi i32 [ %1487, %1484 ], [ %.3369.ph.ph1992, %1478 ]
-  %1490 = call i32 @_bf_reserve_running(ptr noundef nonnull %1489, ptr noundef nonnull %31)
-  br label %1493
+_set_job_time_limit.exit808:                      ; preds = %1456
+  call void @acct_policy_alter_job(ptr noundef %1457, i32 noundef %522) #16
+  %1462 = load ptr, ptr %9, align 8
+  %1463 = getelementptr inbounds i8, ptr %1462, i64 944
+  store i32 %522, ptr %1463, align 8
+  br label %1488
 
-1491:                                             ; preds = %1475
-  %1492 = icmp eq i32 %.0361879, 0
-  br i1 %1492, label %.thread905, label %1493
+1464:                                             ; preds = %.thread877
+  %.b562685 = load i1, ptr @soft_time_limit, align 1
+  %.pre2898 = load ptr, ptr %9, align 8
+  %1465 = getelementptr inbounds i8, ptr %.pre2898, i64 948
+  %1466 = load i32, ptr %1465, align 4
+  %.not686 = icmp eq i32 %1466, 0
+  br i1 %.b562685, label %1467, label %1471
 
-1493:                                             ; preds = %1488, %1491, %1468
-  %.5371 = phi i32 [ %.3369.ph.ph1992, %1468 ], [ %.6, %1488 ], [ %.3369.ph.ph1992, %1491 ]
+1467:                                             ; preds = %1464
+  br i1 %.not686, label %.critedge774, label %1468
+
+1468:                                             ; preds = %1467
+  call void @acct_policy_alter_job(ptr noundef nonnull %.pre2898, i32 noundef %522) #16
+  %1469 = load ptr, ptr %9, align 8
+  %1470 = getelementptr inbounds i8, ptr %1469, i64 944
+  store i32 %522, ptr %1470, align 8
+  br label %1488
+
+1471:                                             ; preds = %1464
+  br i1 %.not686, label %.critedge774, label %1472
+
+1472:                                             ; preds = %1471
+  call void @acct_policy_alter_job(ptr noundef nonnull %.pre2898, i32 noundef %.1373.ph.ph1991) #16
+  %1473 = load ptr, ptr %9, align 8
+  %1474 = getelementptr inbounds i8, ptr %1473, i64 944
+  store i32 %.1373.ph.ph1991, ptr %1474, align 8
+  br label %1488
+
+.critedge774:                                     ; preds = %1467, %1452, %1471
+  %1475 = phi i1 [ true, %1471 ], [ false, %1452 ], [ true, %1467 ]
+  %.0361881885 = phi i32 [ 0, %1471 ], [ %.0361, %1452 ], [ 0, %1467 ]
+  br i1 %527, label %1476, label %1481
+
+1476:                                             ; preds = %.critedge774
+  %1477 = load ptr, ptr %9, align 8
+  call void @acct_policy_alter_job(ptr noundef %1477, i32 noundef %.1373.ph.ph1991) #16
+  %1478 = load ptr, ptr %9, align 8
+  %1479 = getelementptr inbounds i8, ptr %1478, i64 944
+  store i32 %.1373.ph.ph1991, ptr %1479, align 8
+  %1480 = getelementptr inbounds i8, ptr %1478, i64 490
+  store i16 1, ptr %1480, align 2
+  br label %1488
+
+1481:                                             ; preds = %.critedge774
+  %or.cond17 = and i1 %888, %1475
+  %1482 = load ptr, ptr %9, align 8
+  br i1 %or.cond17, label %1483, label %_set_job_time_limit.exit809
+
+1483:                                             ; preds = %1481
+  call void @acct_policy_alter_job(ptr noundef %1482, i32 noundef %.1373.ph.ph1991) #16
+  %1484 = load ptr, ptr %9, align 8
+  %1485 = getelementptr inbounds i8, ptr %1484, i64 944
+  store i32 %.1373.ph.ph1991, ptr %1485, align 8
+  br label %1488
+
+_set_job_time_limit.exit809:                      ; preds = %1481
+  call void @acct_policy_alter_job(ptr noundef %1482, i32 noundef %522) #16
+  %1486 = load ptr, ptr %9, align 8
+  %1487 = getelementptr inbounds i8, ptr %1486, i64 944
+  store i32 %522, ptr %1487, align 8
+  br label %1488
+
+1488:                                             ; preds = %1468, %1476, %_set_job_time_limit.exit809, %1483, %1472, %1458, %_set_job_time_limit.exit808
+  %1489 = phi i32 [ %.1373.ph.ph1991, %1458 ], [ %522, %_set_job_time_limit.exit808 ], [ %522, %1468 ], [ %.1373.ph.ph1991, %1472 ], [ %.1373.ph.ph1991, %1476 ], [ %.1373.ph.ph1991, %1483 ], [ %522, %_set_job_time_limit.exit809 ]
+  %1490 = phi ptr [ %1459, %1458 ], [ %1462, %_set_job_time_limit.exit808 ], [ %1469, %1468 ], [ %1473, %1472 ], [ %1478, %1476 ], [ %1484, %1483 ], [ %1486, %_set_job_time_limit.exit809 ]
+  %.0361879 = phi i32 [ %.0361880, %1458 ], [ %.0361880, %_set_job_time_limit.exit808 ], [ 0, %1468 ], [ 0, %1472 ], [ %.0361881885, %1476 ], [ %.0361881885, %1483 ], [ %.0361881885, %_set_job_time_limit.exit809 ]
+  %.0362 = phi i1 [ false, %1458 ], [ false, %_set_job_time_limit.exit808 ], [ false, %1468 ], [ true, %1472 ], [ false, %1476 ], [ true, %1483 ], [ false, %_set_job_time_limit.exit809 ]
+  %1491 = getelementptr inbounds i8, ptr %1490, i64 448
+  %1492 = load i32, ptr %1491, align 8
+  %1493 = and i32 %1492, 255
+  %1494 = icmp ugt i32 %1493, 2
+  br i1 %1494, label %1513, label %1495
+
+1495:                                             ; preds = %1488
+  %1496 = getelementptr inbounds i8, ptr %1490, i64 888
+  %1497 = load i64, ptr %1496, align 8
+  %.not688 = icmp eq i64 %1497, 0
+  br i1 %.not688, label %1511, label %1498
+
+1498:                                             ; preds = %1495
+  %1499 = load ptr, ptr %17, align 8
+  store ptr %1499, ptr %31, align 8
+  store ptr %8, ptr %120, align 8
+  %1500 = icmp eq i32 %1489, -1
+  %1501 = mul i32 %1489, 60
+  %narrow = select i1 %1500, i32 31536000, i32 %1501
+  %.0363 = zext i32 %narrow to i64
+  %1502 = add nsw i64 %1497, %.0363
+  %1503 = getelementptr inbounds i8, ptr %1490, i64 232
+  store i64 %1502, ptr %1503, align 8
+  br i1 %.0362, label %1504, label %1508
+
+1504:                                             ; preds = %1498
+  call fastcc void @_reset_job_time_limit(ptr noundef nonnull %1490, i64 noundef %1352, ptr noundef %1499)
+  %1505 = load ptr, ptr %9, align 8
+  %1506 = getelementptr inbounds i8, ptr %1505, i64 944
+  %1507 = load i32, ptr %1506, align 8
+  br label %1508
+
+1508:                                             ; preds = %1504, %1498
+  %1509 = phi ptr [ %1505, %1504 ], [ %1490, %1498 ]
+  %.6 = phi i32 [ %1507, %1504 ], [ %.3369.ph.ph1992, %1498 ]
+  %1510 = call i32 @_bf_reserve_running(ptr noundef nonnull %1509, ptr noundef nonnull %31)
+  br label %1513
+
+1511:                                             ; preds = %1495
+  %1512 = icmp eq i32 %.0361879, 0
+  br i1 %1512, label %.thread905, label %1513
+
+1513:                                             ; preds = %1508, %1511, %1488
+  %.5371 = phi i32 [ %.3369.ph.ph1992, %1488 ], [ %.6, %1508 ], [ %.3369.ph.ph1992, %1511 ]
   switch i32 %.0361879, label %.thread908 [
-    i32 2055, label %1499
-    i32 2050, label %1494
-    i32 2014, label %1495
+    i32 2055, label %1519
+    i32 2050, label %1514
+    i32 2014, label %1515
     i32 0, label %.loopexit920
   ]
 
-1494:                                             ; preds = %1493
+1514:                                             ; preds = %1513
   %.b549689 = load i1, ptr @assoc_limit_stop, align 1
-  br i1 %.b549689, label %1506, label %1499
+  br i1 %.b549689, label %1526, label %1519
 
-1495:                                             ; preds = %1493
-  %1496 = load ptr, ptr %9, align 8
-  %1497 = getelementptr inbounds i8, ptr %1496, i64 264
-  %1498 = load ptr, ptr %1497, align 8
-  %.not690 = icmp eq ptr %1498, null
-  br i1 %.not690, label %.thread908, label %1499
+1515:                                             ; preds = %1513
+  %1516 = load ptr, ptr %9, align 8
+  %1517 = getelementptr inbounds i8, ptr %1516, i64 264
+  %1518 = load ptr, ptr %1517, align 8
+  %.not690 = icmp eq ptr %1518, null
+  br i1 %.not690, label %.thread908, label %1519
 
-1499:                                             ; preds = %1493, %1495, %1494
-  %1500 = load ptr, ptr %9, align 8
-  %1501 = getelementptr inbounds i8, ptr %1500, i64 888
-  store i64 %505, ptr %1501, align 8
-  %1502 = getelementptr inbounds i8, ptr %1500, i64 944
-  store i32 %507, ptr %1502, align 8
-  br i1 %512, label %1503, label %.backedge.backedge
+1519:                                             ; preds = %1513, %1515, %1514
+  %1520 = load ptr, ptr %9, align 8
+  %1521 = getelementptr inbounds i8, ptr %1520, i64 888
+  store i64 %520, ptr %1521, align 8
+  %1522 = getelementptr inbounds i8, ptr %1520, i64 944
+  store i32 %522, ptr %1522, align 8
+  br i1 %527, label %1523, label %.backedge.backedge
 
-1503:                                             ; preds = %1499
-  %1504 = getelementptr inbounds i8, ptr %1500, i64 490
-  store i16 0, ptr %1504, align 2
+1523:                                             ; preds = %1519
+  %1524 = getelementptr inbounds i8, ptr %1520, i64 490
+  store i16 0, ptr %1524, align 2
   br label %.backedge.backedge
 
-.thread905:                                       ; preds = %1491
-  %1505 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.98) #16
+.thread905:                                       ; preds = %1511
+  %1525 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.98) #16
   br label %.loopexit920
 
-1506:                                             ; preds = %1494
+1526:                                             ; preds = %1514
   %.not702 = icmp eq i64 %.112927, 0
-  %1507 = add nsw i64 %1332, 500
-  %.sink3855 = select i1 %.not702, i64 %1507, i64 %.112927
-  %1508 = load ptr, ptr %9, align 8
-  %1509 = getelementptr inbounds i8, ptr %1508, i64 888
-  store i64 %.sink3855, ptr %1509, align 8
-  %1510 = getelementptr inbounds i8, ptr %1508, i64 768
-  %1511 = load ptr, ptr %1510, align 8
-  %.not703 = icmp eq ptr %1511, null
-  br i1 %.not703, label %_set_job_time_limit.exit811, label %1512
+  %1527 = add nsw i64 %1352, 500
+  %.sink3855 = select i1 %.not702, i64 %1527, i64 %.112927
+  %1528 = load ptr, ptr %9, align 8
+  %1529 = getelementptr inbounds i8, ptr %1528, i64 888
+  store i64 %.sink3855, ptr %1529, align 8
+  %1530 = getelementptr inbounds i8, ptr %1528, i64 768
+  %1531 = load ptr, ptr %1530, align 8
+  %.not703 = icmp eq ptr %1531, null
+  br i1 %.not703, label %_set_job_time_limit.exit811, label %1532
 
-1512:                                             ; preds = %1506
-  %1513 = getelementptr inbounds i8, ptr %1508, i64 904
-  %1514 = load i32, ptr %1513, align 8
-  %1515 = call zeroext i1 @job_state_reason_check(i32 noundef %1514, i32 noundef 1) #16
-  br i1 %1515, label %1516, label %_set_job_time_limit.exit811
+1532:                                             ; preds = %1526
+  %1533 = getelementptr inbounds i8, ptr %1528, i64 904
+  %1534 = load i32, ptr %1533, align 8
+  %1535 = call zeroext i1 @job_state_reason_check(i32 noundef %1534, i32 noundef 1) #16
+  br i1 %1535, label %1536, label %_set_job_time_limit.exit811
 
-1516:                                             ; preds = %1512
+1536:                                             ; preds = %1532
   call void @assoc_mgr_lock(ptr noundef nonnull %24) #16
-  %1517 = load ptr, ptr %9, align 8
-  %1518 = getelementptr inbounds i8, ptr %1517, i64 768
-  %1519 = load ptr, ptr %1518, align 8
-  %1520 = getelementptr inbounds i8, ptr %1519, i64 328
-  %1521 = load i64, ptr %1520, align 8
-  %1522 = getelementptr inbounds i8, ptr %1517, i64 888
-  %1523 = load i64, ptr %1522, align 8
-  %1524 = icmp slt i64 %1521, %1523
-  br i1 %1524, label %1525, label %1526
+  %1537 = load ptr, ptr %9, align 8
+  %1538 = getelementptr inbounds i8, ptr %1537, i64 768
+  %1539 = load ptr, ptr %1538, align 8
+  %1540 = getelementptr inbounds i8, ptr %1539, i64 328
+  %1541 = load i64, ptr %1540, align 8
+  %1542 = getelementptr inbounds i8, ptr %1537, i64 888
+  %1543 = load i64, ptr %1542, align 8
+  %1544 = icmp slt i64 %1541, %1543
+  br i1 %1544, label %1545, label %1546
 
-1525:                                             ; preds = %1516
-  store i64 %1523, ptr %1520, align 8
-  br label %1526
+1545:                                             ; preds = %1536
+  store i64 %1543, ptr %1540, align 8
+  br label %1546
 
-1526:                                             ; preds = %1525, %1516
+1546:                                             ; preds = %1545, %1536
   call void @assoc_mgr_unlock(ptr noundef nonnull %24) #16
   br label %_set_job_time_limit.exit811
 
-.thread908:                                       ; preds = %1493, %1495
-  %1527 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %1528 = and i64 %1527, 4096
-  %.not701 = icmp eq i64 %1528, 0
-  br i1 %.not701, label %1535, label %1529
+.thread908:                                       ; preds = %1513, %1515
+  %1547 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %1548 = and i64 %1547, 4096
+  %.not701 = icmp eq i64 %1548, 0
+  br i1 %.not701, label %1555, label %1549
 
-1529:                                             ; preds = %.thread908
-  %1530 = call i32 @get_log_level() #16
-  %1531 = icmp sgt i32 %1530, 3
-  br i1 %1531, label %1532, label %1535
+1549:                                             ; preds = %.thread908
+  %1550 = call i32 @get_log_level() #16
+  %1551 = icmp sgt i32 %1550, 3
+  br i1 %1551, label %1552, label %1555
 
-1532:                                             ; preds = %1529
-  %1533 = load ptr, ptr %9, align 8
-  %1534 = call ptr @slurm_strerror(i32 noundef %.0361879) #16
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.99, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, ptr noundef %1533, ptr noundef %1534) #16
-  br label %1535
+1552:                                             ; preds = %1549
+  %1553 = load ptr, ptr %9, align 8
+  %1554 = call ptr @slurm_strerror(i32 noundef %.0361879) #16
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.99, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, ptr noundef %1553, ptr noundef %1554) #16
+  br label %1555
 
-1535:                                             ; preds = %.thread908, %1529, %1532
-  %1536 = load ptr, ptr %9, align 8
-  %1537 = getelementptr inbounds i8, ptr %1536, i64 944
-  store i32 %507, ptr %1537, align 8
-  br i1 %512, label %1538, label %_set_job_time_limit.exit811
+1555:                                             ; preds = %.thread908, %1549, %1552
+  %1556 = load ptr, ptr %9, align 8
+  %1557 = getelementptr inbounds i8, ptr %1556, i64 944
+  store i32 %522, ptr %1557, align 8
+  br i1 %527, label %1558, label %_set_job_time_limit.exit811
 
-1538:                                             ; preds = %1535
-  %1539 = getelementptr inbounds i8, ptr %1536, i64 490
-  store i16 0, ptr %1539, align 2
+1558:                                             ; preds = %1555
+  %1559 = getelementptr inbounds i8, ptr %1556, i64 490
+  store i16 0, ptr %1559, align 2
   br label %_set_job_time_limit.exit811
 
-.loopexit920:                                     ; preds = %1493, %.thread905
-  %1540 = load ptr, ptr %9, align 8
-  %1541 = getelementptr inbounds i8, ptr %1540, i64 944
-  %1542 = load i32, ptr %1541, align 8
-  %.not692 = icmp eq i32 %1414, %1542
-  br i1 %.not692, label %1546, label %1543
+.loopexit920:                                     ; preds = %1513, %.thread905
+  %1560 = load ptr, ptr %9, align 8
+  %1561 = getelementptr inbounds i8, ptr %1560, i64 944
+  %1562 = load i32, ptr %1561, align 8
+  %.not692 = icmp eq i32 %1434, %1562
+  br i1 %.not692, label %1566, label %1563
 
-1543:                                             ; preds = %.loopexit920
-  %1544 = load ptr, ptr @acct_db_conn, align 8
-  %1545 = call i32 @jobacct_storage_job_start_direct(ptr noundef %1544, ptr noundef nonnull %1540) #16
-  br label %1546
+1563:                                             ; preds = %.loopexit920
+  %1564 = load ptr, ptr @acct_db_conn, align 8
+  %1565 = call i32 @jobacct_storage_job_start_direct(ptr noundef %1564, ptr noundef nonnull %1560) #16
+  br label %1566
 
-1546:                                             ; preds = %1543, %.loopexit920
-  %1547 = load i32, ptr @job_start_cnt, align 4
-  %.fr917 = freeze i32 %1547
-  %1548 = add i32 %.fr917, 1
-  store i32 %1548, ptr @job_start_cnt, align 4
-  %1549 = load i32, ptr @max_backfill_jobs_start, align 4
-  %1550 = add i32 %1549, -1
-  %or.cond775.not = icmp ult i32 %1550, %1548
-  br i1 %or.cond775.not, label %1551, label %1559
+1566:                                             ; preds = %1563, %.loopexit920
+  %1567 = load i32, ptr @job_start_cnt, align 4
+  %.fr917 = freeze i32 %1567
+  %1568 = add i32 %.fr917, 1
+  store i32 %1568, ptr @job_start_cnt, align 4
+  %1569 = load i32, ptr @max_backfill_jobs_start, align 4
+  %1570 = add i32 %1569, -1
+  %or.cond775.not = icmp ult i32 %1570, %1568
+  br i1 %or.cond775.not, label %1571, label %1582
 
-1551:                                             ; preds = %1546
-  %1552 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %1553 = and i64 %1552, 4096
-  %.not700 = icmp eq i64 %1553, 0
-  br i1 %.not700, label %_set_job_time_limit.exit, label %1554
+1571:                                             ; preds = %1566
+  %1572 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %1573 = and i64 %1572, 4096
+  %.not700 = icmp eq i64 %1573, 0
+  br i1 %.not700, label %1579, label %1574
 
-1554:                                             ; preds = %1551
-  %1555 = call i32 @get_log_level() #16
-  %1556 = icmp sgt i32 %1555, 3
-  br i1 %1556, label %1557, label %_set_job_time_limit.exit
+1574:                                             ; preds = %1571
+  %1575 = call i32 @get_log_level() #16
+  %1576 = icmp sgt i32 %1575, 3
+  br i1 %1576, label %1577, label %1579
 
-1557:                                             ; preds = %1554
-  %1558 = load i32, ptr @max_backfill_jobs_start, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.100, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, i32 noundef %1558) #16
-  br label %_set_job_time_limit.exit
+1577:                                             ; preds = %1574
+  %1578 = load i32, ptr @max_backfill_jobs_start, align 4
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.100, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, i32 noundef %1578) #16
+  br label %1579
 
-1559:                                             ; preds = %1546
-  %1560 = load i32, ptr @job_test_cnt, align 4
-  %1561 = load i32, ptr @max_backfill_job_cnt, align 4
-  %.not695 = icmp ult i32 %1560, %1561
-  br i1 %.not695, label %1570, label %1562
+1579:                                             ; preds = %1571, %1574, %1577
+  %1580 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 140), align 4
+  %1581 = add i32 %1580, 1
+  store i32 %1581, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 140), align 4
+  br label %1959
 
-1562:                                             ; preds = %1559
-  %1563 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %1564 = and i64 %1563, 4096
-  %.not699 = icmp eq i64 %1564, 0
-  br i1 %.not699, label %_set_job_time_limit.exit, label %1565
+1582:                                             ; preds = %1566
+  %1583 = load i32, ptr @job_test_cnt, align 4
+  %1584 = load i32, ptr @max_backfill_job_cnt, align 4
+  %.not695 = icmp ult i32 %1583, %1584
+  br i1 %.not695, label %1596, label %1585
 
-1565:                                             ; preds = %1562
-  %1566 = call i32 @get_log_level() #16
-  %1567 = icmp sgt i32 %1566, 3
-  br i1 %1567, label %1568, label %_set_job_time_limit.exit
+1585:                                             ; preds = %1582
+  %1586 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %1587 = and i64 %1586, 4096
+  %.not699 = icmp eq i64 %1587, 0
+  br i1 %.not699, label %1593, label %1588
 
-1568:                                             ; preds = %1565
-  %1569 = load i32, ptr @max_backfill_job_cnt, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.71, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, i32 noundef %1569) #16
-  br label %_set_job_time_limit.exit
+1588:                                             ; preds = %1585
+  %1589 = call i32 @get_log_level() #16
+  %1590 = icmp sgt i32 %1589, 3
+  br i1 %1590, label %1591, label %1593
 
-1570:                                             ; preds = %1559
-  br i1 %.0416, label %1571, label %.backedge.backedge
+1591:                                             ; preds = %1588
+  %1592 = load i32, ptr @max_backfill_job_cnt, align 4
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.71, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, i32 noundef %1592) #16
+  br label %1593
 
-1571:                                             ; preds = %1570
-  %1572 = load ptr, ptr %9, align 8
-  %1573 = getelementptr inbounds i8, ptr %1572, i64 52
-  %1574 = load i32, ptr %1573, align 4
-  %.not696 = icmp eq i32 %1574, -2
-  br i1 %.not696, label %.backedge.backedge, label %1575
+1593:                                             ; preds = %1585, %1588, %1591
+  %1594 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 144), align 8
+  %1595 = add i32 %1594, 1
+  store i32 %1595, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 144), align 8
+  br label %1959
 
-1575:                                             ; preds = %1571
-  %1576 = getelementptr inbounds i8, ptr %1572, i64 48
-  %1577 = load i32, ptr %1576, align 8
-  %1578 = call ptr @find_job_record(i32 noundef %1577) #16
-  store ptr %1578, ptr %9, align 8
-  %.not697 = icmp eq ptr %1578, null
-  %.not698 = icmp eq ptr %1578, %1572
-  %or.cond776 = or i1 %.not697, %.not698
-  br i1 %or.cond776, label %.backedge.backedge, label %1579
+1596:                                             ; preds = %1582
+  br i1 %.0416, label %1597, label %.backedge.backedge
 
-1579:                                             ; preds = %1575
-  %1580 = getelementptr inbounds i8, ptr %1578, i64 448
-  %1581 = load i32, ptr %1580, align 8
-  %1582 = and i32 %1581, 255
-  %1583 = icmp eq i32 %1582, 0
-  br i1 %1583, label %1584, label %.backedge.backedge
-
-1584:                                             ; preds = %1579
-  %1585 = call i32 @bb_g_job_test_stage_in(ptr noundef nonnull %1578, i1 noundef zeroext false) #16
-  %1586 = icmp eq i32 %1585, 1
-  br i1 %1586, label %518, label %.backedge.backedge
-
-1587:                                             ; preds = %1404
-  %1588 = call fastcc i32 @_get_job_max_tl(ptr noundef nonnull %1405, i64 noundef %1332, ptr noundef nonnull %.pre2885)
-  %1589 = call i32 @llvm.umin.i32(i32 %.1373.ph.ph1991, i32 %1588)
-  %1590 = load ptr, ptr %14, align 8
-  %1591 = call i32 @bit_set_count(ptr noundef %1590) #16
-  %1592 = icmp sgt i32 %1591, 1
-  br i1 %1592, label %1593, label %1596
-
-1593:                                             ; preds = %1587
-  %1594 = load ptr, ptr %14, align 8
-  %1595 = call i32 @bit_set_count(ptr noundef %1594) #16
-  br label %1596
-
-1596:                                             ; preds = %1587, %1593
-  %1597 = phi i32 [ %1595, %1593 ], [ 1, %1587 ]
+1597:                                             ; preds = %1596
   %1598 = load ptr, ptr %9, align 8
-  %1599 = getelementptr inbounds i8, ptr %1598, i64 604
-  store i32 %1597, ptr %1599, align 4
-  %1600 = getelementptr inbounds i8, ptr %1598, i64 888
-  %1601 = load i64, ptr %1600, align 8
-  call fastcc void @_het_job_start_set(ptr noundef %1598, i64 noundef %1601, i32 noundef %1589)
-  %1602 = load ptr, ptr %9, align 8
-  %1603 = getelementptr inbounds i8, ptr %1602, i64 944
-  store i32 %507, ptr %1603, align 8
-  br i1 %512, label %1604, label %_set_job_time_limit.exit812
+  %1599 = getelementptr inbounds i8, ptr %1598, i64 52
+  %1600 = load i32, ptr %1599, align 4
+  %.not696 = icmp eq i32 %1600, -2
+  br i1 %.not696, label %.backedge.backedge, label %1601
 
-1604:                                             ; preds = %1596
-  %1605 = getelementptr inbounds i8, ptr %1602, i64 490
-  store i16 0, ptr %1605, align 2
+1601:                                             ; preds = %1597
+  %1602 = getelementptr inbounds i8, ptr %1598, i64 48
+  %1603 = load i32, ptr %1602, align 8
+  %1604 = call ptr @find_job_record(i32 noundef %1603) #16
+  store ptr %1604, ptr %9, align 8
+  %.not697 = icmp eq ptr %1604, null
+  %.not698 = icmp eq ptr %1604, %1598
+  %or.cond776 = or i1 %.not697, %.not698
+  br i1 %or.cond776, label %.backedge.backedge, label %1605
+
+1605:                                             ; preds = %1601
+  %1606 = getelementptr inbounds i8, ptr %1604, i64 448
+  %1607 = load i32, ptr %1606, align 8
+  %1608 = and i32 %1607, 255
+  %1609 = icmp eq i32 %1608, 0
+  br i1 %1609, label %1610, label %.backedge.backedge
+
+1610:                                             ; preds = %1605
+  %1611 = call i32 @bb_g_job_test_stage_in(ptr noundef nonnull %1604, i1 noundef zeroext false) #16
+  %1612 = icmp eq i32 %1611, 1
+  br i1 %1612, label %533, label %.backedge.backedge
+
+1613:                                             ; preds = %1424
+  %1614 = call fastcc i32 @_get_job_max_tl(ptr noundef nonnull %1425, i64 noundef %1352, ptr noundef nonnull %.pre2885)
+  %1615 = call i32 @llvm.umin.i32(i32 %.1373.ph.ph1991, i32 %1614)
+  %1616 = load ptr, ptr %14, align 8
+  %1617 = call i32 @bit_set_count(ptr noundef %1616) #16
+  %1618 = icmp sgt i32 %1617, 1
+  br i1 %1618, label %1619, label %1622
+
+1619:                                             ; preds = %1613
+  %1620 = load ptr, ptr %14, align 8
+  %1621 = call i32 @bit_set_count(ptr noundef %1620) #16
+  br label %1622
+
+1622:                                             ; preds = %1613, %1619
+  %1623 = phi i32 [ %1621, %1619 ], [ 1, %1613 ]
+  %1624 = load ptr, ptr %9, align 8
+  %1625 = getelementptr inbounds i8, ptr %1624, i64 604
+  store i32 %1623, ptr %1625, align 4
+  %1626 = getelementptr inbounds i8, ptr %1624, i64 888
+  %1627 = load i64, ptr %1626, align 8
+  call fastcc void @_het_job_start_set(ptr noundef %1624, i64 noundef %1627, i32 noundef %1615)
+  %1628 = load ptr, ptr %9, align 8
+  %1629 = getelementptr inbounds i8, ptr %1628, i64 944
+  store i32 %522, ptr %1629, align 8
+  br i1 %527, label %1630, label %_set_job_time_limit.exit812
+
+1630:                                             ; preds = %1622
+  %1631 = getelementptr inbounds i8, ptr %1628, i64 490
+  store i16 0, ptr %1631, align 2
   br label %_set_job_time_limit.exit812
 
-_set_job_time_limit.exit812:                      ; preds = %1596, %1604
+_set_job_time_limit.exit812:                      ; preds = %1622, %1630
   %.b554681 = load i1, ptr @bf_hetjob_immediate, align 1
-  br i1 %.b554681, label %1606, label %_set_job_time_limit.exit811
+  br i1 %.b554681, label %1632, label %_set_job_time_limit.exit811
 
-1606:                                             ; preds = %_set_job_time_limit.exit812
-  %1607 = load i32, ptr @max_backfill_jobs_start, align 4
-  %1608 = load i32, ptr @job_start_cnt, align 4
-  %1609 = freeze i32 %1608
-  %1610 = add i32 %1607, -1
-  %or.cond778.not = icmp ult i32 %1610, %1609
-  br i1 %or.cond778.not, label %_set_job_time_limit.exit811, label %1611
+1632:                                             ; preds = %_set_job_time_limit.exit812
+  %1633 = load i32, ptr @max_backfill_jobs_start, align 4
+  %1634 = load i32, ptr @job_start_cnt, align 4
+  %1635 = freeze i32 %1634
+  %1636 = add i32 %1633, -1
+  %or.cond778.not = icmp ult i32 %1636, %1635
+  br i1 %or.cond778.not, label %_set_job_time_limit.exit811, label %1637
 
-1611:                                             ; preds = %1606
-  %1612 = load ptr, ptr %17, align 8
-  %1613 = getelementptr inbounds i8, ptr %1602, i64 360
-  %1614 = load i32, ptr %1613, align 8
-  call fastcc void @_het_job_start_test(ptr noundef %1612, i32 noundef %1614)
+1637:                                             ; preds = %1632
+  %1638 = load ptr, ptr %17, align 8
+  %1639 = getelementptr inbounds i8, ptr %1628, i64 360
+  %1640 = load i32, ptr %1639, align 8
+  call fastcc void @_het_job_start_test(ptr noundef %1638, i32 noundef %1640)
   br label %_set_job_time_limit.exit811
 
-_set_job_time_limit.exit811:                      ; preds = %1409, %1538, %1535, %1606, %1526, %1512, %1506, %_set_job_time_limit.exit812, %1611, %_set_job_time_limit.exit807
-  %.12 = phi i64 [ 0, %_set_job_time_limit.exit807 ], [ %.112927, %1526 ], [ %.112927, %1512 ], [ %.112927, %1506 ], [ %.112927, %1611 ], [ %.112927, %_set_job_time_limit.exit812 ], [ %.112927, %1606 ], [ 0, %1535 ], [ 0, %1538 ], [ %.112927, %1409 ]
-  %.2374 = phi i32 [ %.1373.ph.ph1991, %_set_job_time_limit.exit807 ], [ %.1373.ph.ph1991, %1526 ], [ %.1373.ph.ph1991, %1512 ], [ %.1373.ph.ph1991, %1506 ], [ %1589, %1611 ], [ %1589, %_set_job_time_limit.exit812 ], [ %1589, %1606 ], [ %.1373.ph.ph1991, %1535 ], [ %.1373.ph.ph1991, %1538 ], [ %.1373.ph.ph1991, %1409 ]
-  %.4370 = phi i32 [ %.3369.ph.ph1992, %_set_job_time_limit.exit807 ], [ %.5371, %1526 ], [ %.5371, %1512 ], [ %.5371, %1506 ], [ %.3369.ph.ph1992, %1611 ], [ %.3369.ph.ph1992, %_set_job_time_limit.exit812 ], [ %.3369.ph.ph1992, %1606 ], [ %.5371, %1535 ], [ %.5371, %1538 ], [ %.3369.ph.ph1992, %1409 ]
-  %1615 = load ptr, ptr %9, align 8
-  %1616 = getelementptr inbounds i8, ptr %1615, i64 888
-  %1617 = load i64, ptr %1616, align 8
-  %.fr707 = freeze i64 %1617
-  %1618 = icmp sgt i64 %.fr707, %1332
-  %or.cond19 = and i1 %513, %1618
-  br i1 %or.cond19, label %1619, label %1635
+_set_job_time_limit.exit811:                      ; preds = %1429, %1558, %1555, %1632, %1546, %1532, %1526, %_set_job_time_limit.exit812, %1637, %_set_job_time_limit.exit807
+  %.12 = phi i64 [ 0, %_set_job_time_limit.exit807 ], [ %.112927, %1546 ], [ %.112927, %1532 ], [ %.112927, %1526 ], [ %.112927, %1637 ], [ %.112927, %_set_job_time_limit.exit812 ], [ %.112927, %1632 ], [ 0, %1555 ], [ 0, %1558 ], [ %.112927, %1429 ]
+  %.2374 = phi i32 [ %.1373.ph.ph1991, %_set_job_time_limit.exit807 ], [ %.1373.ph.ph1991, %1546 ], [ %.1373.ph.ph1991, %1532 ], [ %.1373.ph.ph1991, %1526 ], [ %1615, %1637 ], [ %1615, %_set_job_time_limit.exit812 ], [ %1615, %1632 ], [ %.1373.ph.ph1991, %1555 ], [ %.1373.ph.ph1991, %1558 ], [ %.1373.ph.ph1991, %1429 ]
+  %.4370 = phi i32 [ %.3369.ph.ph1992, %_set_job_time_limit.exit807 ], [ %.5371, %1546 ], [ %.5371, %1532 ], [ %.5371, %1526 ], [ %.3369.ph.ph1992, %1637 ], [ %.3369.ph.ph1992, %_set_job_time_limit.exit812 ], [ %.3369.ph.ph1992, %1632 ], [ %.5371, %1555 ], [ %.5371, %1558 ], [ %.3369.ph.ph1992, %1429 ]
+  %1641 = load ptr, ptr %9, align 8
+  %1642 = getelementptr inbounds i8, ptr %1641, i64 888
+  %1643 = load i64, ptr %1642, align 8
+  %.fr707 = freeze i64 %1643
+  %1644 = icmp sgt i64 %.fr707, %1352
+  %or.cond19 = and i1 %528, %1644
+  br i1 %or.cond19, label %1645, label %1661
 
-1619:                                             ; preds = %_set_job_time_limit.exit811
-  %1620 = icmp slt i64 %505, %.fr707
-  %or.cond779 = and i1 %517, %1620
-  br i1 %or.cond779, label %1621, label %1623
+1645:                                             ; preds = %_set_job_time_limit.exit811
+  %1646 = icmp slt i64 %520, %.fr707
+  %or.cond779 = and i1 %532, %1646
+  br i1 %or.cond779, label %1647, label %1649
 
-1621:                                             ; preds = %1619
-  %1622 = getelementptr inbounds i8, ptr %1615, i64 888
-  store i64 %505, ptr %1622, align 8
-  br label %1630
+1647:                                             ; preds = %1645
+  %1648 = getelementptr inbounds i8, ptr %1641, i64 888
+  store i64 %520, ptr %1648, align 8
+  br label %1656
 
-1623:                                             ; preds = %1619
-  %1624 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %1625 = and i64 %1624, 4096
-  %.not734 = icmp eq i64 %1625, 0
-  br i1 %.not734, label %1630, label %1626
+1649:                                             ; preds = %1645
+  %1650 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %1651 = and i64 %1650, 4096
+  %.not734 = icmp eq i64 %1651, 0
+  br i1 %.not734, label %1656, label %1652
 
-1626:                                             ; preds = %1623
-  %1627 = call i32 @get_log_level() #16
-  %1628 = icmp sgt i32 %1627, 3
+1652:                                             ; preds = %1649
+  %1653 = call i32 @get_log_level() #16
+  %1654 = icmp sgt i32 %1653, 3
   %.pre2916 = load ptr, ptr %9, align 8
-  br i1 %1628, label %1629, label %1630
+  br i1 %1654, label %1655, label %1656
 
-1629:                                             ; preds = %1626
+1655:                                             ; preds = %1652
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.101, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, ptr noundef %.pre2916) #16
   %.pre2915 = load ptr, ptr %9, align 8
-  br label %1630
+  br label %1656
 
-1630:                                             ; preds = %1629, %1626, %1623, %1621
-  %1631 = phi ptr [ %.pre2915, %1629 ], [ %.pre2916, %1626 ], [ %1615, %1623 ], [ %1615, %1621 ]
-  %1632 = getelementptr inbounds i8, ptr %1631, i64 944
-  store i32 %507, ptr %1632, align 8
-  br i1 %512, label %1633, label %.backedge.backedge
+1656:                                             ; preds = %1655, %1652, %1649, %1647
+  %1657 = phi ptr [ %.pre2915, %1655 ], [ %.pre2916, %1652 ], [ %1641, %1649 ], [ %1641, %1647 ]
+  %1658 = getelementptr inbounds i8, ptr %1657, i64 944
+  store i32 %522, ptr %1658, align 8
+  br i1 %527, label %1659, label %.backedge.backedge
 
-1633:                                             ; preds = %1630
-  %1634 = getelementptr inbounds i8, ptr %1631, i64 490
-  store i16 0, ptr %1634, align 2
+1659:                                             ; preds = %1656
+  %1660 = getelementptr inbounds i8, ptr %1657, i64 490
+  store i16 0, ptr %1660, align 2
   br label %.backedge.backedge
 
-1635:                                             ; preds = %_set_job_time_limit.exit811
+1661:                                             ; preds = %_set_job_time_limit.exit811
   %.not705 = icmp ne i64 %.12, 0
-  %1636 = icmp sgt i64 %.fr707, %.12
-  %or.cond780 = and i1 %.not705, %1636
-  br i1 %or.cond780, label %1637, label %1647
+  %1662 = icmp sgt i64 %.fr707, %.12
+  %or.cond780 = and i1 %.not705, %1662
+  br i1 %or.cond780, label %1663, label %1673
 
-1637:                                             ; preds = %1635
-  %1638 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %1639 = and i64 %1638, 4096
-  %.not732 = icmp eq i64 %1639, 0
-  br i1 %.not732, label %1644, label %1640
+1663:                                             ; preds = %1661
+  %1664 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %1665 = and i64 %1664, 4096
+  %.not732 = icmp eq i64 %1665, 0
+  br i1 %.not732, label %1670, label %1666
 
-1640:                                             ; preds = %1637
-  %1641 = call i32 @get_log_level() #16
-  %1642 = icmp sgt i32 %1641, 3
+1666:                                             ; preds = %1663
+  %1667 = call i32 @get_log_level() #16
+  %1668 = icmp sgt i32 %1667, 3
   %.pre2914 = load ptr, ptr %9, align 8
-  br i1 %1642, label %1643, label %1644
+  br i1 %1668, label %1669, label %1670
 
-1643:                                             ; preds = %1640
+1669:                                             ; preds = %1666
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.102, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, ptr noundef %.pre2914, i64 noundef %.12) #16
   %.pre2913 = load ptr, ptr %9, align 8
-  br label %1644
+  br label %1670
 
-1644:                                             ; preds = %1637, %1640, %1643
-  %1645 = phi ptr [ %1615, %1637 ], [ %.pre2914, %1640 ], [ %.pre2913, %1643 ]
-  %1646 = getelementptr inbounds i8, ptr %1645, i64 888
-  store i64 0, ptr %1646, align 8
+1670:                                             ; preds = %1663, %1666, %1669
+  %1671 = phi ptr [ %1641, %1663 ], [ %.pre2914, %1666 ], [ %.pre2913, %1669 ]
+  %1672 = getelementptr inbounds i8, ptr %1671, i64 888
+  store i64 0, ptr %1672, align 8
   br label %.outer.outer.backedge
 
-1647:                                             ; preds = %1635
-  %1648 = trunc i64 %.fr707 to i32
-  %1649 = mul i32 %.4370, 60
-  %1650 = add i32 %1649, %.0364876
-  %.fr2006 = freeze i32 %1650
-  %1651 = add i32 %.fr2006, %1648
-  %1652 = load i32, ptr @backfill_resolution, align 4
-  %1653 = urem i32 %1648, %1652
-  %1654 = sub nuw i32 %1648, %1653
-  %1655 = urem i32 %1651, %1652
-  %1656 = sub nuw i32 %1651, %1655
-  %1657 = load i32, ptr @backfill_window, align 4
-  %1658 = sext i32 %1657 to i64
-  %1659 = add nsw i64 %.4384, %1658
-  %1660 = icmp sgt i64 %.fr707, %1659
-  br i1 %1660, label %1661, label %1687
+1673:                                             ; preds = %1661
+  %1674 = trunc i64 %.fr707 to i32
+  %1675 = mul i32 %.4370, 60
+  %1676 = add i32 %1675, %.0364876
+  %.fr2006 = freeze i32 %1676
+  %1677 = add i32 %.fr2006, %1674
+  %1678 = load i32, ptr @backfill_resolution, align 4
+  %1679 = urem i32 %1674, %1678
+  %1680 = sub nuw i32 %1674, %1679
+  %1681 = urem i32 %1677, %1678
+  %1682 = sub nuw i32 %1677, %1681
+  %1683 = load i32, ptr @backfill_window, align 4
+  %1684 = sext i32 %1683 to i64
+  %1685 = add nsw i64 %.4384, %1684
+  %1686 = icmp sgt i64 %.fr707, %1685
+  br i1 %1686, label %1687, label %1713
 
-1661:                                             ; preds = %1647
-  %1662 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %1663 = and i64 %1662, 4096
-  %.not729 = icmp eq i64 %1663, 0
-  br i1 %.not729, label %1667, label %1664
+1687:                                             ; preds = %1673
+  %1688 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %1689 = and i64 %1688, 4096
+  %.not729 = icmp eq i64 %1689, 0
+  br i1 %.not729, label %1693, label %1690
 
-1664:                                             ; preds = %1661
-  %1665 = zext i32 %1656 to i64
-  %1666 = load ptr, ptr %14, align 8
-  call fastcc void @_dump_job_sched(ptr noundef nonnull %1615, i64 noundef %1665, ptr noundef %1666)
-  br label %1667
+1690:                                             ; preds = %1687
+  %1691 = zext i32 %1682 to i64
+  %1692 = load ptr, ptr %14, align 8
+  call fastcc void @_dump_job_sched(ptr noundef nonnull %1641, i64 noundef %1691, ptr noundef %1692)
+  br label %1693
 
-1667:                                             ; preds = %1664, %1661
-  br i1 %516, label %1674, label %1668
+1693:                                             ; preds = %1690, %1687
+  br i1 %531, label %1700, label %1694
 
-1668:                                             ; preds = %1667
-  %1669 = load ptr, ptr %9, align 8
-  %1670 = getelementptr inbounds i8, ptr %1669, i64 888
-  %1671 = load i64, ptr %1670, align 8
-  %1672 = icmp slt i64 %505, %1671
-  br i1 %1672, label %1673, label %1674
-
-1673:                                             ; preds = %1668
-  store i64 %505, ptr %1670, align 8
-  br label %1682
-
-1674:                                             ; preds = %1667, %1668
-  %1675 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %1676 = and i64 %1675, 4096
-  %.not731 = icmp eq i64 %1676, 0
-  br i1 %.not731, label %1682, label %1677
-
-1677:                                             ; preds = %1674
-  %1678 = call i32 @get_log_level() #16
-  %1679 = icmp sgt i32 %1678, 3
-  br i1 %1679, label %1680, label %1682
-
-1680:                                             ; preds = %1677
-  %1681 = load ptr, ptr %9, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.103, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, ptr noundef %1681) #16
-  br label %1682
-
-1682:                                             ; preds = %1680, %1677, %1674, %1673
-  %1683 = load ptr, ptr %9, align 8
-  %1684 = getelementptr inbounds i8, ptr %1683, i64 944
-  store i32 %507, ptr %1684, align 8
-  br i1 %512, label %1685, label %.backedge.backedge
-
-1685:                                             ; preds = %1682
-  %1686 = getelementptr inbounds i8, ptr %1683, i64 490
-  store i16 0, ptr %1686, align 2
-  br label %.backedge.backedge
-
-1687:                                             ; preds = %1647
-  br i1 %1618, label %1688, label %1706
-
-1688:                                             ; preds = %1687
-  %1689 = getelementptr inbounds i8, ptr %1615, i64 904
-  %1690 = load i32, ptr %1689, align 8
-  %.off788 = add i32 %1690, -73
-  %switch789 = icmp ult i32 %.off788, 2
-  br i1 %switch789, label %1706, label %1691
-
-1691:                                             ; preds = %1688
-  %1692 = load ptr, ptr %17, align 8
-  %1693 = load ptr, ptr %14, align 8
-  %1694 = call fastcc zeroext i1 @_test_resv_overlap(ptr noundef %1692, ptr noundef %1693, ptr noundef nonnull %1615, i32 noundef %1654, i32 noundef %1656)
-  %.pre2902 = load ptr, ptr %9, align 8
-  br i1 %1694, label %1695, label %1706
-
-1695:                                             ; preds = %1691
-  %1696 = getelementptr inbounds i8, ptr %.pre2902, i64 888
+1694:                                             ; preds = %1693
+  %1695 = load ptr, ptr %9, align 8
+  %1696 = getelementptr inbounds i8, ptr %1695, i64 888
   %1697 = load i64, ptr %1696, align 8
-  store i64 0, ptr %1696, align 8
-  %1698 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %1699 = and i64 %1698, 4096
-  %.not728 = icmp eq i64 %1699, 0
-  br i1 %.not728, label %.outer.outer.backedge, label %1700
+  %1698 = icmp slt i64 %520, %1697
+  br i1 %1698, label %1699, label %1700
 
-1700:                                             ; preds = %1695
-  %1701 = call i32 @get_log_level() #16
-  %1702 = icmp sgt i32 %1701, 3
-  br i1 %1702, label %1703, label %.outer.outer.backedge
+1699:                                             ; preds = %1694
+  store i64 %520, ptr %1696, align 8
+  br label %1708
+
+1700:                                             ; preds = %1693, %1694
+  %1701 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %1702 = and i64 %1701, 4096
+  %.not731 = icmp eq i64 %1702, 0
+  br i1 %.not731, label %1708, label %1703
 
 1703:                                             ; preds = %1700
-  %1704 = load ptr, ptr %9, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.104, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, ptr noundef %1704, i32 noundef %1654, i32 noundef %1656, i32 noundef %.0364876, i64 noundef %1697) #16
+  %1704 = call i32 @get_log_level() #16
+  %1705 = icmp sgt i32 %1704, 3
+  br i1 %1705, label %1706, label %1708
+
+1706:                                             ; preds = %1703
+  %1707 = load ptr, ptr %9, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.103, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, ptr noundef %1707) #16
+  br label %1708
+
+1708:                                             ; preds = %1706, %1703, %1700, %1699
+  %1709 = load ptr, ptr %9, align 8
+  %1710 = getelementptr inbounds i8, ptr %1709, i64 944
+  store i32 %522, ptr %1710, align 8
+  br i1 %527, label %1711, label %.backedge.backedge
+
+1711:                                             ; preds = %1708
+  %1712 = getelementptr inbounds i8, ptr %1709, i64 490
+  store i16 0, ptr %1712, align 2
+  br label %.backedge.backedge
+
+1713:                                             ; preds = %1673
+  br i1 %1644, label %1714, label %1732
+
+1714:                                             ; preds = %1713
+  %1715 = getelementptr inbounds i8, ptr %1641, i64 904
+  %1716 = load i32, ptr %1715, align 8
+  %.off788 = add i32 %1716, -73
+  %switch789 = icmp ult i32 %.off788, 2
+  br i1 %switch789, label %1732, label %1717
+
+1717:                                             ; preds = %1714
+  %1718 = load ptr, ptr %17, align 8
+  %1719 = load ptr, ptr %14, align 8
+  %1720 = call fastcc zeroext i1 @_test_resv_overlap(ptr noundef %1718, ptr noundef %1719, ptr noundef nonnull %1641, i32 noundef %1680, i32 noundef %1682)
+  %.pre2902 = load ptr, ptr %9, align 8
+  br i1 %1720, label %1721, label %1732
+
+1721:                                             ; preds = %1717
+  %1722 = getelementptr inbounds i8, ptr %.pre2902, i64 888
+  %1723 = load i64, ptr %1722, align 8
+  store i64 0, ptr %1722, align 8
+  %1724 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %1725 = and i64 %1724, 4096
+  %.not728 = icmp eq i64 %1725, 0
+  br i1 %.not728, label %.outer.outer.backedge, label %1726
+
+1726:                                             ; preds = %1721
+  %1727 = call i32 @get_log_level() #16
+  %1728 = icmp sgt i32 %1727, 3
+  br i1 %1728, label %1729, label %.outer.outer.backedge
+
+1729:                                             ; preds = %1726
+  %1730 = load ptr, ptr %9, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.104, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, ptr noundef %1730, i32 noundef %1680, i32 noundef %1682, i32 noundef %.0364876, i64 noundef %1723) #16
   br label %.outer.outer.backedge
 
-.outer.outer.backedge:                            ; preds = %1703, %1700, %1695, %1644
-  %.2387.ph.ph.be = phi i64 [ %.12, %1644 ], [ %1697, %1695 ], [ %1697, %1700 ], [ %1697, %1703 ]
-  %1705 = load i64, ptr getelementptr inbounds (i8, ptr @slurmctld_config, i64 328), align 8
-  %.not63019401960 = icmp eq i64 %1705, 0
+.outer.outer.backedge:                            ; preds = %1729, %1726, %1721, %1670
+  %.2387.ph.ph.be = phi i64 [ %.12, %1670 ], [ %1723, %1721 ], [ %1723, %1726 ], [ %1723, %1729 ]
+  %1731 = load i64, ptr getelementptr inbounds (i8, ptr @slurmctld_config, i64 328), align 8
+  %.not63019401960 = icmp eq i64 %1731, 0
   br i1 %.not63019401960, label %.lr.ph.lr.ph, label %.outer._crit_edge
 
-1706:                                             ; preds = %1688, %1691, %1687
-  %1707 = phi ptr [ %1615, %1688 ], [ %.pre2902, %1691 ], [ %1615, %1687 ]
-  %1708 = call fastcc zeroext i1 @_het_job_deadlock_test(ptr noundef %1707)
-  br i1 %1708, label %1709, label %1714
+1732:                                             ; preds = %1714, %1717, %1713
+  %1733 = phi ptr [ %1641, %1714 ], [ %.pre2902, %1717 ], [ %1641, %1713 ]
+  %1734 = call fastcc zeroext i1 @_het_job_deadlock_test(ptr noundef %1733)
+  br i1 %1734, label %1735, label %1740
 
-1709:                                             ; preds = %1706
-  %1710 = load ptr, ptr %9, align 8
-  %1711 = getelementptr inbounds i8, ptr %1710, i64 944
-  store i32 %507, ptr %1711, align 8
-  br i1 %512, label %1712, label %.backedge.backedge
+1735:                                             ; preds = %1732
+  %1736 = load ptr, ptr %9, align 8
+  %1737 = getelementptr inbounds i8, ptr %1736, i64 944
+  store i32 %522, ptr %1737, align 8
+  br i1 %527, label %1738, label %.backedge.backedge
 
-1712:                                             ; preds = %1709
-  %1713 = getelementptr inbounds i8, ptr %1710, i64 490
-  store i16 0, ptr %1713, align 2
+1738:                                             ; preds = %1735
+  %1739 = getelementptr inbounds i8, ptr %1736, i64 490
+  store i16 0, ptr %1739, align 2
   br label %.backedge.backedge
 
-1714:                                             ; preds = %1706
+1740:                                             ; preds = %1732
   %.b711 = load i1, ptr @assoc_limit_stop, align 1
-  br i1 %.b711, label %1787, label %1715
+  br i1 %.b711, label %1813, label %1741
 
-1715:                                             ; preds = %1714
-  %1716 = load i32, ptr @slurmctld_tres_cnt, align 4
-  %1717 = zext i32 %1716 to i64
-  %1718 = call ptr @llvm.stacksave.p0()
-  %1719 = alloca i64, i64 %1717, align 16
+1741:                                             ; preds = %1740
+  %1742 = load i32, ptr @slurmctld_tres_cnt, align 4
+  %1743 = zext i32 %1742 to i64
+  %1744 = call ptr @llvm.stacksave.p0()
+  %1745 = alloca i64, i64 %1743, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %32, ptr noundef nonnull align 4 dereferenceable(28) @__const._het_job_limit_check.locks, i64 28, i1 false)
-  %1720 = load ptr, ptr %14, align 8
-  %1721 = call i32 @bit_set_count(ptr noundef %1720) #16
-  %1722 = load ptr, ptr %9, align 8
-  %1723 = getelementptr inbounds i8, ptr %1722, i64 1016
-  %1724 = load ptr, ptr %1723, align 8
-  %1725 = shl nuw nsw i64 %1717, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %1719, ptr align 8 %1724, i64 %1725, i1 false)
-  %1726 = getelementptr inbounds i8, ptr %1722, i64 960
-  %1727 = load i32, ptr %1726, align 8
-  %.not712 = icmp eq i32 %1727, 0
-  br i1 %.not712, label %1728, label %1733
+  %1746 = load ptr, ptr %14, align 8
+  %1747 = call i32 @bit_set_count(ptr noundef %1746) #16
+  %1748 = load ptr, ptr %9, align 8
+  %1749 = getelementptr inbounds i8, ptr %1748, i64 1016
+  %1750 = load ptr, ptr %1749, align 8
+  %1751 = shl nuw nsw i64 %1743, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %1745, ptr align 8 %1750, i64 %1751, i1 false)
+  %1752 = getelementptr inbounds i8, ptr %1748, i64 960
+  %1753 = load i32, ptr %1752, align 8
+  %.not712 = icmp eq i32 %1753, 0
+  br i1 %.not712, label %1754, label %1759
 
-1728:                                             ; preds = %1715
-  %1729 = getelementptr inbounds i8, ptr %1722, i64 216
-  %1730 = load ptr, ptr %1729, align 8
-  %1731 = getelementptr inbounds i8, ptr %1730, i64 268
-  %1732 = load i32, ptr %1731, align 4
-  br label %1733
+1754:                                             ; preds = %1741
+  %1755 = getelementptr inbounds i8, ptr %1748, i64 216
+  %1756 = load ptr, ptr %1755, align 8
+  %1757 = getelementptr inbounds i8, ptr %1756, i64 268
+  %1758 = load i32, ptr %1757, align 4
+  br label %1759
 
-1733:                                             ; preds = %1715, %1728
-  %1734 = phi i32 [ %1732, %1728 ], [ %1727, %1715 ]
-  %1735 = zext i32 %1734 to i64
-  store i64 %1735, ptr %1719, align 16
-  %1736 = call zeroext i16 @job_get_sockets_per_node(ptr noundef nonnull %1722) #16
-  %1737 = load ptr, ptr %9, align 8
-  %1738 = getelementptr inbounds i8, ptr %1737, i64 440
-  %1739 = load ptr, ptr %1738, align 8
-  %1740 = getelementptr inbounds i8, ptr %1737, i64 216
-  %1741 = load ptr, ptr %1740, align 8
-  %1742 = getelementptr inbounds i8, ptr %1741, i64 312
-  %1743 = load i64, ptr %1742, align 8
-  %1744 = load i64, ptr %1719, align 16
-  %1745 = trunc i64 %1744 to i32
-  %1746 = getelementptr inbounds i8, ptr %1737, i64 664
-  %1747 = load ptr, ptr %1746, align 8
-  %1748 = getelementptr inbounds i8, ptr %1737, i64 296
-  %1749 = load ptr, ptr %1748, align 8
-  %1750 = getelementptr inbounds i8, ptr %1737, i64 112
-  %1751 = load i64, ptr %1750, align 8
-  %1752 = and i64 %1751, 8388608
-  %1753 = icmp ne i64 %1752, 0
-  %1754 = getelementptr inbounds i8, ptr %1741, i64 296
-  %1755 = load i32, ptr %1754, align 8
-  %1756 = call i64 @job_get_tres_mem(ptr noundef %1739, i64 noundef %1743, i32 noundef %1745, i32 noundef %1721, ptr noundef %1747, ptr noundef %1749, i1 noundef zeroext %1753, i16 noundef zeroext %1736, i32 noundef %1755) #16
-  %1757 = getelementptr inbounds i8, ptr %1719, i64 8
-  store i64 %1756, ptr %1757, align 8
-  %1758 = zext i32 %1721 to i64
-  %1759 = getelementptr inbounds i8, ptr %1719, i64 24
-  store i64 %1758, ptr %1759, align 8
-  call void @assoc_mgr_lock(ptr noundef nonnull %32) #16
-  %1760 = load ptr, ptr %9, align 8
-  %1761 = getelementptr inbounds i8, ptr %1760, i64 296
-  %1762 = load ptr, ptr %1761, align 8
-  call void @gres_ctld_set_job_tres_cnt(ptr noundef %1762, i32 noundef %1721, ptr noundef nonnull %1719, i1 noundef zeroext true) #16
+1759:                                             ; preds = %1741, %1754
+  %1760 = phi i32 [ %1758, %1754 ], [ %1753, %1741 ]
+  %1761 = zext i32 %1760 to i64
+  store i64 %1761, ptr %1745, align 16
+  %1762 = call zeroext i16 @job_get_sockets_per_node(ptr noundef nonnull %1748) #16
   %1763 = load ptr, ptr %9, align 8
-  %1764 = getelementptr inbounds i8, ptr %1763, i64 664
+  %1764 = getelementptr inbounds i8, ptr %1763, i64 440
   %1765 = load ptr, ptr %1764, align 8
-  %1766 = getelementptr inbounds i8, ptr %1765, i64 88
+  %1766 = getelementptr inbounds i8, ptr %1763, i64 216
   %1767 = load ptr, ptr %1766, align 8
-  %1768 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 842), align 2
-  %1769 = call double @assoc_mgr_tres_weighted(ptr noundef nonnull %1719, ptr noundef %1767, i16 noundef zeroext %1768, i1 noundef zeroext true) #16
-  %1770 = fptoui double %1769 to i64
-  %1771 = getelementptr inbounds i8, ptr %1719, i64 32
-  store i64 %1770, ptr %1771, align 16
-  %1772 = load ptr, ptr %9, align 8
-  %1773 = call zeroext i1 @acct_policy_job_runnable_post_select(ptr noundef %1772, ptr noundef nonnull %1719, i1 noundef zeroext true) #16
+  %1768 = getelementptr inbounds i8, ptr %1767, i64 312
+  %1769 = load i64, ptr %1768, align 8
+  %1770 = load i64, ptr %1745, align 16
+  %1771 = trunc i64 %1770 to i32
+  %1772 = getelementptr inbounds i8, ptr %1763, i64 664
+  %1773 = load ptr, ptr %1772, align 8
+  %1774 = getelementptr inbounds i8, ptr %1763, i64 296
+  %1775 = load ptr, ptr %1774, align 8
+  %1776 = getelementptr inbounds i8, ptr %1763, i64 112
+  %1777 = load i64, ptr %1776, align 8
+  %1778 = and i64 %1777, 8388608
+  %1779 = icmp ne i64 %1778, 0
+  %1780 = getelementptr inbounds i8, ptr %1767, i64 296
+  %1781 = load i32, ptr %1780, align 8
+  %1782 = call i64 @job_get_tres_mem(ptr noundef %1765, i64 noundef %1769, i32 noundef %1771, i32 noundef %1747, ptr noundef %1773, ptr noundef %1775, i1 noundef zeroext %1779, i16 noundef zeroext %1762, i32 noundef %1781) #16
+  %1783 = getelementptr inbounds i8, ptr %1745, i64 8
+  store i64 %1782, ptr %1783, align 8
+  %1784 = zext i32 %1747 to i64
+  %1785 = getelementptr inbounds i8, ptr %1745, i64 24
+  store i64 %1784, ptr %1785, align 8
+  call void @assoc_mgr_lock(ptr noundef nonnull %32) #16
+  %1786 = load ptr, ptr %9, align 8
+  %1787 = getelementptr inbounds i8, ptr %1786, i64 296
+  %1788 = load ptr, ptr %1787, align 8
+  call void @gres_ctld_set_job_tres_cnt(ptr noundef %1788, i32 noundef %1747, ptr noundef nonnull %1745, i1 noundef zeroext true) #16
+  %1789 = load ptr, ptr %9, align 8
+  %1790 = getelementptr inbounds i8, ptr %1789, i64 664
+  %1791 = load ptr, ptr %1790, align 8
+  %1792 = getelementptr inbounds i8, ptr %1791, i64 88
+  %1793 = load ptr, ptr %1792, align 8
+  %1794 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 842), align 2
+  %1795 = call double @assoc_mgr_tres_weighted(ptr noundef nonnull %1745, ptr noundef %1793, i16 noundef zeroext %1794, i1 noundef zeroext true) #16
+  %1796 = fptoui double %1795 to i64
+  %1797 = getelementptr inbounds i8, ptr %1745, i64 32
+  store i64 %1796, ptr %1797, align 16
+  %1798 = load ptr, ptr %9, align 8
+  %1799 = call zeroext i1 @acct_policy_job_runnable_post_select(ptr noundef %1798, ptr noundef nonnull %1745, i1 noundef zeroext true) #16
   call void @assoc_mgr_unlock(ptr noundef nonnull %32) #16
-  br i1 %1773, label %_set_job_time_limit.exit816.thread, label %1774
+  br i1 %1799, label %_set_job_time_limit.exit816.thread, label %1800
 
-1774:                                             ; preds = %1733
-  %1775 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %1776 = and i64 %1775, 4096
-  %.not713 = icmp eq i64 %1776, 0
-  br i1 %.not713, label %1782, label %1777
+1800:                                             ; preds = %1759
+  %1801 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %1802 = and i64 %1801, 4096
+  %.not713 = icmp eq i64 %1802, 0
+  br i1 %.not713, label %1808, label %1803
 
-1777:                                             ; preds = %1774
-  %1778 = call i32 @get_log_level() #16
-  %1779 = icmp sgt i32 %1778, 3
-  br i1 %1779, label %1780, label %1782
+1803:                                             ; preds = %1800
+  %1804 = call i32 @get_log_level() #16
+  %1805 = icmp sgt i32 %1804, 3
+  br i1 %1805, label %1806, label %1808
 
-1780:                                             ; preds = %1777
-  %1781 = load ptr, ptr %9, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.106, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, ptr noundef %1781) #16
-  br label %1782
+1806:                                             ; preds = %1803
+  %1807 = load ptr, ptr %9, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.106, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, ptr noundef %1807) #16
+  br label %1808
 
-1782:                                             ; preds = %1777, %1780, %1774
-  %1783 = load ptr, ptr %9, align 8
-  %1784 = getelementptr inbounds i8, ptr %1783, i64 944
-  store i32 %507, ptr %1784, align 8
-  br i1 %512, label %1785, label %_set_job_time_limit.exit816
+1808:                                             ; preds = %1803, %1806, %1800
+  %1809 = load ptr, ptr %9, align 8
+  %1810 = getelementptr inbounds i8, ptr %1809, i64 944
+  store i32 %522, ptr %1810, align 8
+  br i1 %527, label %1811, label %_set_job_time_limit.exit816
 
-1785:                                             ; preds = %1782
-  %1786 = getelementptr inbounds i8, ptr %1783, i64 490
-  store i16 0, ptr %1786, align 2
+1811:                                             ; preds = %1808
+  %1812 = getelementptr inbounds i8, ptr %1809, i64 490
+  store i16 0, ptr %1812, align 2
   br label %_set_job_time_limit.exit816
 
-_set_job_time_limit.exit816.thread:               ; preds = %1733
-  call void @llvm.stackrestore.p0(ptr %1718)
-  br label %1787
+_set_job_time_limit.exit816.thread:               ; preds = %1759
+  call void @llvm.stackrestore.p0(ptr %1744)
+  br label %1813
 
-_set_job_time_limit.exit816:                      ; preds = %1785, %1782
-  call void @llvm.stackrestore.p0(ptr %1718)
+_set_job_time_limit.exit816:                      ; preds = %1811, %1808
+  call void @llvm.stackrestore.p0(ptr %1744)
   br label %.backedge.backedge
 
-1787:                                             ; preds = %_set_job_time_limit.exit816.thread, %1714
-  %1788 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %1789 = and i64 %1788, 4096
-  %.not714 = icmp eq i64 %1789, 0
-  br i1 %.not714, label %1794, label %1790
+1813:                                             ; preds = %_set_job_time_limit.exit816.thread, %1740
+  %1814 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %1815 = and i64 %1814, 4096
+  %.not714 = icmp eq i64 %1815, 0
+  br i1 %.not714, label %1820, label %1816
 
-1790:                                             ; preds = %1787
-  %1791 = load ptr, ptr %9, align 8
-  %1792 = zext i32 %1656 to i64
-  %1793 = load ptr, ptr %14, align 8
-  call fastcc void @_dump_job_sched(ptr noundef %1791, i64 noundef %1792, ptr noundef %1793)
-  br label %1794
+1816:                                             ; preds = %1813
+  %1817 = load ptr, ptr %9, align 8
+  %1818 = zext i32 %1682 to i64
+  %1819 = load ptr, ptr %14, align 8
+  call fastcc void @_dump_job_sched(ptr noundef %1817, i64 noundef %1818, ptr noundef %1819)
+  br label %1820
 
-1794:                                             ; preds = %1790, %1787
-  br i1 %.not625, label %1800, label %1795
+1820:                                             ; preds = %1816, %1813
+  br i1 %.not625, label %1826, label %1821
 
-1795:                                             ; preds = %1794
-  %1796 = load ptr, ptr %9, align 8
-  %1797 = getelementptr inbounds i8, ptr %1796, i64 944
-  store i32 %507, ptr %1797, align 8
-  br i1 %512, label %1798, label %.backedge.backedge
+1821:                                             ; preds = %1820
+  %1822 = load ptr, ptr %9, align 8
+  %1823 = getelementptr inbounds i8, ptr %1822, i64 944
+  store i32 %522, ptr %1823, align 8
+  br i1 %527, label %1824, label %.backedge.backedge
 
-1798:                                             ; preds = %1795
-  %1799 = getelementptr inbounds i8, ptr %1796, i64 490
-  store i16 0, ptr %1799, align 2
+1824:                                             ; preds = %1821
+  %1825 = getelementptr inbounds i8, ptr %1822, i64 490
+  store i16 0, ptr %1825, align 2
   br label %.backedge.backedge
 
-1800:                                             ; preds = %1794
-  %1801 = load i32, ptr @bf_job_part_count_reserve, align 4
-  %.not715 = icmp eq i32 %1801, 0
-  br i1 %.not715, label %1823, label %1802
+1826:                                             ; preds = %1820
+  %1827 = load i32, ptr @bf_job_part_count_reserve, align 4
+  %.not715 = icmp eq i32 %1827, 0
+  br i1 %.not715, label %1849, label %1828
 
-1802:                                             ; preds = %1800
-  %1803 = load ptr, ptr %9, align 8
-  %1804 = getelementptr inbounds i8, ptr %1803, i64 664
-  %1805 = load ptr, ptr %1804, align 8
-  %1806 = getelementptr inbounds i8, ptr %1805, i64 344
-  %1807 = load ptr, ptr %1806, align 8
-  %1808 = getelementptr inbounds i8, ptr %1807, i64 8
-  %1809 = load ptr, ptr %1808, align 8
-  %1810 = getelementptr inbounds i8, ptr %1809, i64 8
-  %1811 = load i64, ptr %1810, align 8
-  %1812 = icmp slt i64 %1811, %.fr2921
-  br i1 %1812, label %_check_bf_usage.exit819.thread, label %_check_bf_usage.exit819
+1828:                                             ; preds = %1826
+  %1829 = load ptr, ptr %9, align 8
+  %1830 = getelementptr inbounds i8, ptr %1829, i64 664
+  %1831 = load ptr, ptr %1830, align 8
+  %1832 = getelementptr inbounds i8, ptr %1831, i64 344
+  %1833 = load ptr, ptr %1832, align 8
+  %1834 = getelementptr inbounds i8, ptr %1833, i64 8
+  %1835 = load ptr, ptr %1834, align 8
+  %1836 = getelementptr inbounds i8, ptr %1835, i64 8
+  %1837 = load i64, ptr %1836, align 8
+  %1838 = icmp slt i64 %1837, %.fr2921
+  br i1 %1838, label %_check_bf_usage.exit819.thread, label %_check_bf_usage.exit819
 
-_check_bf_usage.exit819.thread:                   ; preds = %1802
-  store i64 %.fr2921, ptr %1810, align 8
-  store i64 0, ptr %1809, align 8
+_check_bf_usage.exit819.thread:                   ; preds = %1828
+  store i64 %.fr2921, ptr %1836, align 8
+  store i64 0, ptr %1835, align 8
   %.pre2903 = load ptr, ptr %9, align 8
   %.phi.trans.insert2904 = getelementptr inbounds i8, ptr %.pre2903, i64 664
   %.pre2905 = load ptr, ptr %.phi.trans.insert2904, align 8
@@ -5167,497 +5221,499 @@ _check_bf_usage.exit819.thread:                   ; preds = %1802
   %.phi.trans.insert2908 = getelementptr inbounds i8, ptr %.pre2907, i64 8
   %.pre2909 = load ptr, ptr %.phi.trans.insert2908, align 8
   %.pre2910 = load i64, ptr %.pre2909, align 8
-  br label %1819
+  br label %1845
 
-_check_bf_usage.exit819:                          ; preds = %1802
-  %1813 = load i64, ptr %1809, align 8
-  %1814 = sext i32 %1801 to i64
-  %.not918 = icmp ult i64 %1813, %1814
-  br i1 %.not918, label %1819, label %1815
+_check_bf_usage.exit819:                          ; preds = %1828
+  %1839 = load i64, ptr %1835, align 8
+  %1840 = sext i32 %1827 to i64
+  %.not918 = icmp ult i64 %1839, %1840
+  br i1 %.not918, label %1845, label %1841
 
-1815:                                             ; preds = %_check_bf_usage.exit819
-  %1816 = getelementptr inbounds i8, ptr %1803, i64 944
-  store i32 %507, ptr %1816, align 8
-  br i1 %512, label %1817, label %.backedge.backedge
+1841:                                             ; preds = %_check_bf_usage.exit819
+  %1842 = getelementptr inbounds i8, ptr %1829, i64 944
+  store i32 %522, ptr %1842, align 8
+  br i1 %527, label %1843, label %.backedge.backedge
 
-1817:                                             ; preds = %1815
-  %1818 = getelementptr inbounds i8, ptr %1803, i64 490
-  store i16 0, ptr %1818, align 2
+1843:                                             ; preds = %1841
+  %1844 = getelementptr inbounds i8, ptr %1829, i64 490
+  store i16 0, ptr %1844, align 2
   br label %.backedge.backedge
 
-1819:                                             ; preds = %_check_bf_usage.exit819.thread, %_check_bf_usage.exit819
-  %1820 = phi i64 [ %.pre2910, %_check_bf_usage.exit819.thread ], [ %1813, %_check_bf_usage.exit819 ]
-  %1821 = phi ptr [ %.pre2909, %_check_bf_usage.exit819.thread ], [ %1809, %_check_bf_usage.exit819 ]
-  %1822 = add i64 %1820, 1
-  store i64 %1822, ptr %1821, align 8
-  br label %1823
+1845:                                             ; preds = %_check_bf_usage.exit819.thread, %_check_bf_usage.exit819
+  %1846 = phi i64 [ %.pre2910, %_check_bf_usage.exit819.thread ], [ %1839, %_check_bf_usage.exit819 ]
+  %1847 = phi ptr [ %.pre2909, %_check_bf_usage.exit819.thread ], [ %1835, %_check_bf_usage.exit819 ]
+  %1848 = add i64 %1846, 1
+  store i64 %1848, ptr %1847, align 8
+  br label %1849
 
-1823:                                             ; preds = %1819, %1800
+1849:                                             ; preds = %1845, %1826
   %.pre2911 = load ptr, ptr %9, align 8
-  br i1 %516, label %1828, label %1824
+  br i1 %531, label %1854, label %1850
 
-1824:                                             ; preds = %1823
-  %1825 = getelementptr inbounds i8, ptr %.pre2911, i64 888
-  %1826 = load i64, ptr %1825, align 8
-  %1827 = icmp slt i64 %1826, %505
-  br i1 %1827, label %1828, label %1836
+1850:                                             ; preds = %1849
+  %1851 = getelementptr inbounds i8, ptr %.pre2911, i64 888
+  %1852 = load i64, ptr %1851, align 8
+  %1853 = icmp slt i64 %1852, %520
+  br i1 %1853, label %1854, label %1862
 
-1828:                                             ; preds = %1824, %1823
-  %1829 = getelementptr inbounds i8, ptr %.pre2911, i64 840
-  call void @slurm_xfree(ptr noundef nonnull %1829) #16
-  %1830 = load ptr, ptr %14, align 8
-  %1831 = call ptr @bitmap2node_name(ptr noundef %1830) #16
-  %1832 = load ptr, ptr %9, align 8
-  %1833 = getelementptr inbounds i8, ptr %1832, i64 840
-  store ptr %1831, ptr %1833, align 8
-  %1834 = load ptr, ptr @planned_bitmap, align 8
-  %1835 = load ptr, ptr %14, align 8
-  call void @bit_or(ptr noundef %1834, ptr noundef %1835) #16
-  br label %1836
+1854:                                             ; preds = %1850, %1849
+  %1855 = getelementptr inbounds i8, ptr %.pre2911, i64 840
+  call void @slurm_xfree(ptr noundef nonnull %1855) #16
+  %1856 = load ptr, ptr %14, align 8
+  %1857 = call ptr @bitmap2node_name(ptr noundef %1856) #16
+  %1858 = load ptr, ptr %9, align 8
+  %1859 = getelementptr inbounds i8, ptr %1858, i64 840
+  store ptr %1857, ptr %1859, align 8
+  %1860 = load ptr, ptr @planned_bitmap, align 8
+  %1861 = load ptr, ptr %14, align 8
+  call void @bit_or(ptr noundef %1860, ptr noundef %1861) #16
+  br label %1862
 
-1836:                                             ; preds = %1828, %1824
-  %1837 = load ptr, ptr %14, align 8
-  call void @bit_not(ptr noundef %1837) #16
+1862:                                             ; preds = %1854, %1850
+  %1863 = load ptr, ptr %14, align 8
+  call void @bit_not(ptr noundef %1863) #16
   %.b555716 = load i1, ptr @bf_one_resv_per_job, align 1
-  %or.cond21 = select i1 %.b555716, i1 %517, i1 false
-  br i1 %or.cond21, label %1883, label %1838
+  %or.cond21 = select i1 %.b555716, i1 %532, i1 false
+  br i1 %or.cond21, label %1911, label %1864
 
-1838:                                             ; preds = %1836
-  %1839 = load ptr, ptr %9, align 8
-  %1840 = getelementptr inbounds i8, ptr %1839, i64 112
-  %1841 = load i64, ptr %1840, align 8
-  %1842 = and i64 %1841, 1073741824
-  %.not717 = icmp eq i64 %1842, 0
-  br i1 %.not717, label %1843, label %1883
+1864:                                             ; preds = %1862
+  %1865 = load ptr, ptr %9, align 8
+  %1866 = getelementptr inbounds i8, ptr %1865, i64 112
+  %1867 = load i64, ptr %1866, align 8
+  %1868 = and i64 %1867, 1073741824
+  %.not717 = icmp eq i64 %1868, 0
+  br i1 %.not717, label %1869, label %1911
 
-1843:                                             ; preds = %1838
-  %1844 = load i32, ptr %8, align 4
-  %1845 = load i32, ptr @bf_node_space_size, align 4
-  %.not718 = icmp slt i32 %1844, %1845
-  br i1 %.not718, label %1880, label %1846
-
-1846:                                             ; preds = %1843
-  %1847 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %1848 = and i64 %1847, 4096
-  %.not719 = icmp eq i64 %1848, 0
-  br i1 %.not719, label %1854, label %1849
-
-1849:                                             ; preds = %1846
-  %1850 = call i32 @get_log_level() #16
-  %1851 = icmp sgt i32 %1850, 3
-  br i1 %1851, label %1852, label %1854
-
-1852:                                             ; preds = %1849
-  %1853 = load i32, ptr @bf_node_space_size, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.107, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, i32 noundef %1853) #16
-  br label %1854
-
-1854:                                             ; preds = %1846, %1849, %1852
-  %1855 = load i32, ptr @max_backfill_job_per_part, align 4
-  %.not720 = icmp eq i32 %1855, 0
-  br i1 %.not720, label %1861, label %1856
-
-1856:                                             ; preds = %1854
-  %1857 = load i32, ptr @bf_node_space_size, align 4
-  %1858 = sdiv i32 %1857, 2
-  %.not721 = icmp slt i32 %1855, %1858
-  br i1 %.not721, label %1861, label %1859
-
-1859:                                             ; preds = %1856
-  %1860 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.108, i32 noundef %1855, i32 noundef %1858) #16
-  br label %1875
-
-1861:                                             ; preds = %1856, %1854
-  %1862 = load i32, ptr @max_backfill_job_per_user, align 4
-  %.not722 = icmp eq i32 %1862, 0
-  br i1 %.not722, label %1868, label %1863
-
-1863:                                             ; preds = %1861
-  %1864 = load i32, ptr @bf_node_space_size, align 4
-  %1865 = sdiv i32 %1864, 2
-  %1866 = icmp sgt i32 %1862, %1865
-  br i1 %1866, label %1867, label %1868
-
-1867:                                             ; preds = %1863
-  call void (ptr, ...) @warning(ptr noundef nonnull @.str.109, i32 noundef %1862, i32 noundef %1865) #16
-  br label %1875
-
-1868:                                             ; preds = %1863, %1861
-  %1869 = load i32, ptr @max_backfill_job_per_assoc, align 4
-  %.not723 = icmp eq i32 %1869, 0
-  br i1 %.not723, label %1875, label %1870
-
-1870:                                             ; preds = %1868
+1869:                                             ; preds = %1864
+  %1870 = load i32, ptr %8, align 4
   %1871 = load i32, ptr @bf_node_space_size, align 4
-  %1872 = sdiv i32 %1871, 2
-  %1873 = icmp sgt i32 %1869, %1872
-  br i1 %1873, label %1874, label %1875
+  %.not718 = icmp slt i32 %1870, %1871
+  br i1 %.not718, label %1908, label %1872
 
-1874:                                             ; preds = %1870
-  call void (ptr, ...) @warning(ptr noundef nonnull @.str.110, i32 noundef %1869, i32 noundef %1872) #16
-  br label %1875
+1872:                                             ; preds = %1869
+  %1873 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %1874 = and i64 %1873, 4096
+  %.not719 = icmp eq i64 %1874, 0
+  br i1 %.not719, label %1880, label %1875
 
-1875:                                             ; preds = %1867, %1874, %1870, %1868, %1859
-  %1876 = load ptr, ptr %9, align 8
-  %1877 = getelementptr inbounds i8, ptr %1876, i64 944
-  store i32 %507, ptr %1877, align 8
-  br i1 %512, label %1878, label %_set_job_time_limit.exit
+1875:                                             ; preds = %1872
+  %1876 = call i32 @get_log_level() #16
+  %1877 = icmp sgt i32 %1876, 3
+  br i1 %1877, label %1878, label %1880
 
 1878:                                             ; preds = %1875
-  %1879 = getelementptr inbounds i8, ptr %1876, i64 490
-  store i16 0, ptr %1879, align 2
-  br label %_set_job_time_limit.exit
+  %1879 = load i32, ptr @bf_node_space_size, align 4
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.107, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, i32 noundef %1879) #16
+  br label %1880
 
-1880:                                             ; preds = %1843
-  %1881 = load ptr, ptr %14, align 8
-  %1882 = load ptr, ptr %17, align 8
-  call fastcc void @_add_reservation(i32 noundef %1654, i32 noundef %1656, ptr noundef %1881, ptr noundef nonnull %1839, ptr noundef %1882, ptr noundef nonnull %8)
-  br label %1883
+1880:                                             ; preds = %1872, %1875, %1878
+  %1881 = load i32, ptr @max_backfill_job_per_part, align 4
+  %.not720 = icmp eq i32 %1881, 0
+  br i1 %.not720, label %1887, label %1882
 
-1883:                                             ; preds = %1836, %1880, %1838
-  %1884 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %1885 = and i64 %1884, 134217728
-  %.not724 = icmp eq i64 %1885, 0
-  br i1 %.not724, label %1888, label %1886
+1882:                                             ; preds = %1880
+  %1883 = load i32, ptr @bf_node_space_size, align 4
+  %1884 = sdiv i32 %1883, 2
+  %.not721 = icmp slt i32 %1881, %1884
+  br i1 %.not721, label %1887, label %1885
 
-1886:                                             ; preds = %1883
-  %1887 = load ptr, ptr %17, align 8
-  call fastcc void @_dump_node_space_table(ptr noundef %1887)
-  br label %1888
+1885:                                             ; preds = %1882
+  %1886 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.108, i32 noundef %1881, i32 noundef %1884) #16
+  br label %1901
 
-1888:                                             ; preds = %1886, %1883
-  %.pre2912 = load ptr, ptr %9, align 8
-  br i1 %517, label %1889, label %1894
+1887:                                             ; preds = %1882, %1880
+  %1888 = load i32, ptr @max_backfill_job_per_user, align 4
+  %.not722 = icmp eq i32 %1888, 0
+  br i1 %.not722, label %1894, label %1889
 
-1889:                                             ; preds = %1888
-  %1890 = getelementptr inbounds i8, ptr %.pre2912, i64 888
-  %1891 = load i64, ptr %1890, align 8
-  %1892 = icmp slt i64 %505, %1891
+1889:                                             ; preds = %1887
+  %1890 = load i32, ptr @bf_node_space_size, align 4
+  %1891 = sdiv i32 %1890, 2
+  %1892 = icmp sgt i32 %1888, %1891
   br i1 %1892, label %1893, label %1894
 
 1893:                                             ; preds = %1889
-  store i64 %505, ptr %1890, align 8
-  br label %1894
+  call void (ptr, ...) @warning(ptr noundef nonnull @.str.109, i32 noundef %1888, i32 noundef %1891) #16
+  br label %1901
 
-1894:                                             ; preds = %1893, %1889, %1888
-  %1895 = getelementptr inbounds i8, ptr %.pre2912, i64 944
-  store i32 %507, ptr %1895, align 8
-  br i1 %512, label %1896, label %_set_job_time_limit.exit822
+1894:                                             ; preds = %1889, %1887
+  %1895 = load i32, ptr @max_backfill_job_per_assoc, align 4
+  %.not723 = icmp eq i32 %1895, 0
+  br i1 %.not723, label %1901, label %1896
 
 1896:                                             ; preds = %1894
-  %1897 = getelementptr inbounds i8, ptr %.pre2912, i64 490
-  store i16 0, ptr %1897, align 2
+  %1897 = load i32, ptr @bf_node_space_size, align 4
+  %1898 = sdiv i32 %1897, 2
+  %1899 = icmp sgt i32 %1895, %1898
+  br i1 %1899, label %1900, label %1901
+
+1900:                                             ; preds = %1896
+  call void (ptr, ...) @warning(ptr noundef nonnull @.str.110, i32 noundef %1895, i32 noundef %1898) #16
+  br label %1901
+
+1901:                                             ; preds = %1893, %1900, %1896, %1894, %1885
+  %1902 = load ptr, ptr %9, align 8
+  %1903 = getelementptr inbounds i8, ptr %1902, i64 944
+  store i32 %522, ptr %1903, align 8
+  br i1 %527, label %1904, label %_set_job_time_limit.exit821
+
+1904:                                             ; preds = %1901
+  %1905 = getelementptr inbounds i8, ptr %1902, i64 490
+  store i16 0, ptr %1905, align 2
+  br label %_set_job_time_limit.exit821
+
+_set_job_time_limit.exit821:                      ; preds = %1901, %1904
+  %1906 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 152), align 8
+  %1907 = add i32 %1906, 1
+  store i32 %1907, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 152), align 8
+  br label %1959
+
+1908:                                             ; preds = %1869
+  %1909 = load ptr, ptr %14, align 8
+  %1910 = load ptr, ptr %17, align 8
+  call fastcc void @_add_reservation(i32 noundef %1680, i32 noundef %1682, ptr noundef %1909, ptr noundef nonnull %1865, ptr noundef %1910, ptr noundef nonnull %8)
+  br label %1911
+
+1911:                                             ; preds = %1862, %1908, %1864
+  %1912 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %1913 = and i64 %1912, 134217728
+  %.not724 = icmp eq i64 %1913, 0
+  br i1 %.not724, label %1916, label %1914
+
+1914:                                             ; preds = %1911
+  %1915 = load ptr, ptr %17, align 8
+  call fastcc void @_dump_node_space_table(ptr noundef %1915)
+  br label %1916
+
+1916:                                             ; preds = %1914, %1911
+  %.pre2912 = load ptr, ptr %9, align 8
+  br i1 %532, label %1917, label %1922
+
+1917:                                             ; preds = %1916
+  %1918 = getelementptr inbounds i8, ptr %.pre2912, i64 888
+  %1919 = load i64, ptr %1918, align 8
+  %1920 = icmp slt i64 %520, %1919
+  br i1 %1920, label %1921, label %1922
+
+1921:                                             ; preds = %1917
+  store i64 %520, ptr %1918, align 8
+  br label %1922
+
+1922:                                             ; preds = %1921, %1917, %1916
+  %1923 = getelementptr inbounds i8, ptr %.pre2912, i64 944
+  store i32 %522, ptr %1923, align 8
+  br i1 %527, label %1924, label %_set_job_time_limit.exit822
+
+1924:                                             ; preds = %1922
+  %1925 = getelementptr inbounds i8, ptr %.pre2912, i64 490
+  store i16 0, ptr %1925, align 2
   br label %_set_job_time_limit.exit822
 
-_set_job_time_limit.exit822:                      ; preds = %1894, %1896
-  %1898 = getelementptr inbounds i8, ptr %.pre2912, i64 56
-  %1899 = load ptr, ptr %1898, align 8
-  %.not725 = icmp eq ptr %1899, null
-  br i1 %.not725, label %.backedge.backedge, label %1900
+_set_job_time_limit.exit822:                      ; preds = %1922, %1924
+  %1926 = getelementptr inbounds i8, ptr %.pre2912, i64 56
+  %1927 = load ptr, ptr %1926, align 8
+  %.not725 = icmp eq ptr %1927, null
+  br i1 %.not725, label %.backedge.backedge, label %1928
 
-1900:                                             ; preds = %_set_job_time_limit.exit822
-  %1901 = getelementptr inbounds i8, ptr %.pre2912, i64 48
-  %1902 = load i32, ptr %1901, align 8
-  %.not726 = icmp eq i32 %.1426.ph, %1902
-  br i1 %.not726, label %1907, label %1903
+1928:                                             ; preds = %_set_job_time_limit.exit822
+  %1929 = getelementptr inbounds i8, ptr %.pre2912, i64 48
+  %1930 = load i32, ptr %1929, align 8
+  %.not726 = icmp eq i32 %.1426.ph, %1930
+  br i1 %.not726, label %1935, label %1931
 
-1903:                                             ; preds = %1900
-  %1904 = getelementptr inbounds i8, ptr %.pre2912, i64 888
-  %1905 = load i64, ptr %1904, align 8
-  %1906 = trunc i64 %1905 to i32
-  br label %1915
+1931:                                             ; preds = %1928
+  %1932 = getelementptr inbounds i8, ptr %.pre2912, i64 888
+  %1933 = load i64, ptr %1932, align 8
+  %1934 = trunc i64 %1933 to i32
+  br label %1943
 
-1907:                                             ; preds = %1900
-  %1908 = add i32 %.1422.ph, 1
-  %1909 = zext i32 %.2431.ph to i64
-  %1910 = getelementptr inbounds i8, ptr %.pre2912, i64 888
-  %1911 = load i64, ptr %1910, align 8
-  %1912 = icmp sgt i64 %1911, %1909
-  %1913 = trunc i64 %1911 to i32
-  %1914 = select i1 %1912, i32 %.2431.ph, i32 %1913
-  br label %1915
+1935:                                             ; preds = %1928
+  %1936 = add i32 %.1422.ph, 1
+  %1937 = zext i32 %.2431.ph to i64
+  %1938 = getelementptr inbounds i8, ptr %.pre2912, i64 888
+  %1939 = load i64, ptr %1938, align 8
+  %1940 = icmp sgt i64 %1939, %1937
+  %1941 = trunc i64 %1939 to i32
+  %1942 = select i1 %1940, i32 %.2431.ph, i32 %1941
+  br label %1943
 
-1915:                                             ; preds = %1907, %1903
-  %.4433 = phi i32 [ %1906, %1903 ], [ %1914, %1907 ]
-  %.3428 = phi i32 [ %1902, %1903 ], [ %.1426.ph, %1907 ]
-  %.3424 = phi i32 [ 1, %1903 ], [ %1908, %1907 ]
-  %1916 = load i32, ptr @bf_max_job_array_resv, align 4
-  %1917 = icmp ult i32 %.3424, %1916
-  br i1 %1917, label %1918, label %.backedge.backedge
+1943:                                             ; preds = %1935, %1931
+  %.4433 = phi i32 [ %1934, %1931 ], [ %1942, %1935 ]
+  %.3428 = phi i32 [ %1930, %1931 ], [ %.1426.ph, %1935 ]
+  %.3424 = phi i32 [ 1, %1931 ], [ %1936, %1935 ]
+  %1944 = load i32, ptr @bf_max_job_array_resv, align 4
+  %1945 = icmp ult i32 %.3424, %1944
+  br i1 %1945, label %1946, label %.backedge.backedge
 
-1918:                                             ; preds = %1915
-  %1919 = load i32, ptr %1899, align 8
-  %1920 = icmp ult i32 %.3424, %1919
-  br i1 %1920, label %1921, label %.backedge.backedge
+1946:                                             ; preds = %1943
+  %1947 = load i32, ptr %1927, align 8
+  %1948 = icmp ult i32 %.3424, %1947
+  br i1 %1948, label %1949, label %.backedge.backedge
 
-1921:                                             ; preds = %1918
-  %1922 = getelementptr inbounds i8, ptr %1899, i64 28
-  %1923 = load i32, ptr %1922, align 4
-  %.not727 = icmp eq i32 %1923, 0
-  br i1 %.not727, label %.outer922.backedge, label %1924
+1949:                                             ; preds = %1946
+  %1950 = getelementptr inbounds i8, ptr %1927, i64 28
+  %1951 = load i32, ptr %1950, align 4
+  %.not727 = icmp eq i32 %1951, 0
+  br i1 %.not727, label %.outer922.backedge, label %1952
 
-1924:                                             ; preds = %1921
-  %1925 = getelementptr inbounds i8, ptr %1899, i64 44
-  %1926 = load i32, ptr %1925, align 4
-  %..3424 = call i32 @llvm.umax.i32(i32 %1926, i32 %.3424)
-  %1927 = getelementptr inbounds i8, ptr %1899, i64 32
-  %1928 = load i32, ptr %1927, align 8
-  %1929 = add i32 %..3424, %1928
-  %1930 = icmp ult i32 %1929, %1923
-  br i1 %1930, label %.outer922.backedge, label %.backedge.backedge
+1952:                                             ; preds = %1949
+  %1953 = getelementptr inbounds i8, ptr %1927, i64 44
+  %1954 = load i32, ptr %1953, align 4
+  %..3424 = call i32 @llvm.umax.i32(i32 %1954, i32 %.3424)
+  %1955 = getelementptr inbounds i8, ptr %1927, i64 32
+  %1956 = load i32, ptr %1955, align 8
+  %1957 = add i32 %..3424, %1956
+  %1958 = icmp ult i32 %1957, %1951
+  br i1 %1958, label %.outer922.backedge, label %.backedge.backedge
 
-.outer922.backedge:                               ; preds = %1924, %1921
+.outer922.backedge:                               ; preds = %1952, %1949
   br label %.outer922
 
-_set_job_time_limit.exit:                         ; preds = %196, %198, %1878, %1875, %1568, %1565, %1562, %1557, %1554, %1551, %958, %955, %952, %914, %.outer._crit_edge, %238, %235, %232, %179, %176, %173, %169, %166, %163, %159, %156, %153
-  %.sink3861 = phi ptr [ getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 136), %153 ], [ getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 136), %156 ], [ getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 136), %159 ], [ getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 144), %163 ], [ getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 144), %166 ], [ getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 144), %169 ], [ getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 156), %173 ], [ getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 156), %176 ], [ getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 156), %179 ], [ getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 148), %232 ], [ getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 148), %235 ], [ getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 148), %238 ], [ getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 156), %.outer._crit_edge ], [ getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 156), %914 ], [ getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 148), %952 ], [ getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 148), %955 ], [ getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 148), %958 ], [ getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 140), %1551 ], [ getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 140), %1554 ], [ getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 140), %1557 ], [ getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 144), %1562 ], [ getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 144), %1565 ], [ getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 144), %1568 ], [ getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 152), %1875 ], [ getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 152), %1878 ], [ getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 156), %198 ], [ getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 156), %196 ]
-  %.2836 = phi i64 [ %.1835, %153 ], [ %.1835, %156 ], [ %.1835, %159 ], [ %.1835, %163 ], [ %.1835, %166 ], [ %.1835, %169 ], [ %.1835, %173 ], [ %.1835, %176 ], [ %.1835, %179 ], [ %.1835, %232 ], [ %.1835, %235 ], [ %.1835, %238 ], [ %.4838, %.outer._crit_edge ], [ %.4838, %914 ], [ %.4838, %952 ], [ %.4838, %955 ], [ %.4838, %958 ], [ %.4838, %1551 ], [ %.4838, %1554 ], [ %.4838, %1557 ], [ %.4838, %1562 ], [ %.4838, %1565 ], [ %.4838, %1568 ], [ %.4838, %1875 ], [ %.4838, %1878 ], [ %.1835, %198 ], [ %.1835, %196 ]
-  %.2831 = phi i8 [ %.1830, %153 ], [ %.1830, %156 ], [ %.1830, %159 ], [ %.1830, %163 ], [ %.1830, %166 ], [ %.1830, %169 ], [ %.1830, %173 ], [ %.1830, %176 ], [ %.1830, %179 ], [ %.1830, %232 ], [ %.1830, %235 ], [ %.1830, %238 ], [ %.4833, %.outer._crit_edge ], [ %.4833, %914 ], [ %.4833, %952 ], [ %.4833, %955 ], [ %.4833, %958 ], [ %.4833, %1551 ], [ %.4833, %1554 ], [ %.4833, %1557 ], [ %.4833, %1562 ], [ %.4833, %1565 ], [ %.4833, %1568 ], [ %.4833, %1875 ], [ %.4833, %1878 ], [ %.1830, %198 ], [ %.1830, %196 ]
-  %.1457 = phi i32 [ %.0456, %153 ], [ %.0456, %156 ], [ %.0456, %159 ], [ %.0456, %163 ], [ %.0456, %166 ], [ %.0456, %169 ], [ %.0456, %173 ], [ %.0456, %176 ], [ %.0456, %179 ], [ %.0456, %232 ], [ %.0456, %235 ], [ %.0456, %238 ], [ %.5461.lcssa, %.outer._crit_edge ], [ %.5461.lcssa, %914 ], [ %.54611941, %952 ], [ %.54611941, %955 ], [ %.54611941, %958 ], [ %.6462, %1551 ], [ %.6462, %1554 ], [ %.6462, %1557 ], [ %.6462, %1562 ], [ %.6462, %1565 ], [ %.6462, %1568 ], [ %.6462, %1875 ], [ %.6462, %1878 ], [ %.0456, %198 ], [ %.0456, %196 ]
-  %.1430 = phi i32 [ 0, %153 ], [ 0, %156 ], [ 0, %159 ], [ 0, %163 ], [ 0, %166 ], [ 0, %169 ], [ 0, %173 ], [ 0, %176 ], [ 0, %179 ], [ 0, %232 ], [ 0, %235 ], [ 0, %238 ], [ %.2431.ph, %.outer._crit_edge ], [ %.2431.ph, %914 ], [ %.2431.ph, %952 ], [ %.2431.ph, %955 ], [ %.2431.ph, %958 ], [ %.2431.ph, %1551 ], [ %.2431.ph, %1554 ], [ %.2431.ph, %1557 ], [ %.2431.ph, %1562 ], [ %.2431.ph, %1565 ], [ %.2431.ph, %1568 ], [ %.2431.ph, %1875 ], [ %.2431.ph, %1878 ], [ 0, %198 ], [ 0, %196 ]
-  %.0402 = phi i1 [ false, %153 ], [ false, %156 ], [ false, %159 ], [ false, %163 ], [ false, %166 ], [ false, %169 ], [ false, %173 ], [ false, %176 ], [ false, %179 ], [ true, %232 ], [ true, %235 ], [ true, %238 ], [ false, %.outer._crit_edge ], [ false, %914 ], [ true, %952 ], [ true, %955 ], [ true, %958 ], [ false, %1551 ], [ false, %1554 ], [ false, %1557 ], [ false, %1562 ], [ false, %1565 ], [ false, %1568 ], [ false, %1875 ], [ false, %1878 ], [ false, %198 ], [ false, %196 ]
-  %1931 = load i32, ptr %.sink3861, align 4
-  %1932 = add i32 %1931, 1
-  store i32 %1932, ptr %.sink3861, align 4
+1959:                                             ; preds = %_set_job_time_limit.exit821, %1593, %1579, %977, %_set_job_time_limit.exit, %252, %213, %186, %174, %160
+  %.2836 = phi i64 [ %.1835, %160 ], [ %.1835, %186 ], [ %.4838, %_set_job_time_limit.exit821 ], [ %.4838, %1593 ], [ %.4838, %1579 ], [ %.4838, %977 ], [ %.4838, %_set_job_time_limit.exit ], [ %.1835, %252 ], [ %.1835, %213 ], [ %.1835, %174 ]
+  %.2831 = phi i8 [ %.1830, %160 ], [ %.1830, %186 ], [ %.4833, %_set_job_time_limit.exit821 ], [ %.4833, %1593 ], [ %.4833, %1579 ], [ %.4833, %977 ], [ %.4833, %_set_job_time_limit.exit ], [ %.1830, %252 ], [ %.1830, %213 ], [ %.1830, %174 ]
+  %.1457 = phi i32 [ %.0456, %160 ], [ %.0456, %186 ], [ %.6462, %_set_job_time_limit.exit821 ], [ %.6462, %1593 ], [ %.6462, %1579 ], [ %.54611941, %977 ], [ %.5461.lcssa, %_set_job_time_limit.exit ], [ %.0456, %252 ], [ %.0456, %213 ], [ %.0456, %174 ]
+  %.1430 = phi i32 [ 0, %160 ], [ 0, %186 ], [ %.2431.ph, %_set_job_time_limit.exit821 ], [ %.2431.ph, %1593 ], [ %.2431.ph, %1579 ], [ %.2431.ph, %977 ], [ %.2431.ph, %_set_job_time_limit.exit ], [ 0, %252 ], [ 0, %213 ], [ 0, %174 ]
+  %.0402 = phi i1 [ false, %160 ], [ false, %186 ], [ false, %_set_job_time_limit.exit821 ], [ false, %1593 ], [ false, %1579 ], [ true, %977 ], [ false, %_set_job_time_limit.exit ], [ true, %252 ], [ false, %213 ], [ false, %174 ]
   call fastcc void @_handle_planned(i1 noundef zeroext true)
   call void @slurm_xfree(ptr noundef nonnull %7) #16
-  %1933 = load ptr, ptr %9, align 8
-  %.not745 = icmp eq ptr %1933, null
-  br i1 %.not745, label %1952, label %1934
+  %1960 = load ptr, ptr %9, align 8
+  %.not745 = icmp eq ptr %1960, null
+  br i1 %.not745, label %1979, label %1961
 
-1934:                                             ; preds = %_set_job_time_limit.exit
+1961:                                             ; preds = %1959
   %.not.i823 = icmp eq i64 %.2836, 0
-  br i1 %.not.i823, label %_restore_preempt_state.exit824, label %1935
+  br i1 %.not.i823, label %_restore_preempt_state.exit824, label %1962
 
-1935:                                             ; preds = %1934
-  %1936 = getelementptr inbounds i8, ptr %1933, i64 216
-  %1937 = load ptr, ptr %1936, align 8
-  %1938 = getelementptr inbounds i8, ptr %1937, i64 368
-  %1939 = load i64, ptr %1938, align 8
-  %1940 = icmp eq i64 %1939, 0
-  br i1 %1940, label %1941, label %_restore_preempt_state.exit824
+1962:                                             ; preds = %1961
+  %1963 = getelementptr inbounds i8, ptr %1960, i64 216
+  %1964 = load ptr, ptr %1963, align 8
+  %1965 = getelementptr inbounds i8, ptr %1964, i64 368
+  %1966 = load i64, ptr %1965, align 8
+  %1967 = icmp eq i64 %1966, 0
+  br i1 %1967, label %1968, label %_restore_preempt_state.exit824
 
-1941:                                             ; preds = %1935
-  store i64 %.2836, ptr %1938, align 8
-  %1942 = getelementptr inbounds i8, ptr %1933, i64 696
-  %1943 = and i8 %.2831, 1
-  store i8 %1943, ptr %1942, align 8
+1968:                                             ; preds = %1962
+  store i64 %.2836, ptr %1965, align 8
+  %1969 = getelementptr inbounds i8, ptr %1960, i64 696
+  %1970 = and i8 %.2831, 1
+  store i8 %1970, ptr %1969, align 8
   br label %_restore_preempt_state.exit824
 
-_restore_preempt_state.exit824:                   ; preds = %1934, %1935, %1941
-  call void @job_resv_clear_magnetic_flag(ptr noundef nonnull %1933) #16
-  %1944 = load ptr, ptr %9, align 8
-  %1945 = getelementptr inbounds i8, ptr %1944, i64 56
-  %1946 = load ptr, ptr %1945, align 8
-  %1947 = icmp ne ptr %1946, null
-  %1948 = icmp ne i32 %.1430, 0
-  %or.cond23 = select i1 %1947, i1 %1948, i1 false
-  br i1 %or.cond23, label %1949, label %1952
+_restore_preempt_state.exit824:                   ; preds = %1961, %1962, %1968
+  call void @job_resv_clear_magnetic_flag(ptr noundef nonnull %1960) #16
+  %1971 = load ptr, ptr %9, align 8
+  %1972 = getelementptr inbounds i8, ptr %1971, i64 56
+  %1973 = load ptr, ptr %1972, align 8
+  %1974 = icmp ne ptr %1973, null
+  %1975 = icmp ne i32 %.1430, 0
+  %or.cond23 = select i1 %1974, i1 %1975, i1 false
+  br i1 %or.cond23, label %1976, label %1979
 
-1949:                                             ; preds = %_restore_preempt_state.exit824
-  %1950 = zext i32 %.1430 to i64
-  %1951 = getelementptr inbounds i8, ptr %1944, i64 888
-  store i64 %1950, ptr %1951, align 8
-  br label %1952
+1976:                                             ; preds = %_restore_preempt_state.exit824
+  %1977 = zext i32 %.1430 to i64
+  %1978 = getelementptr inbounds i8, ptr %1971, i64 888
+  store i64 %1977, ptr %1978, align 8
+  br label %1979
 
-1952:                                             ; preds = %_restore_preempt_state.exit824, %1949, %_set_job_time_limit.exit
-  %1953 = load ptr, ptr @deadlock_global_list, align 8
-  %.not.i825 = icmp eq ptr %1953, null
-  br i1 %.not.i825, label %_het_job_deadlock_fini.exit, label %1954
+1979:                                             ; preds = %_restore_preempt_state.exit824, %1976, %1959
+  %1980 = load ptr, ptr @deadlock_global_list, align 8
+  %.not.i825 = icmp eq ptr %1980, null
+  br i1 %.not.i825, label %_het_job_deadlock_fini.exit, label %1981
 
-1954:                                             ; preds = %1952
-  call void @list_destroy(ptr noundef nonnull %1953) #16
+1981:                                             ; preds = %1979
+  call void @list_destroy(ptr noundef nonnull %1980) #16
   br label %_het_job_deadlock_fini.exit
 
-_het_job_deadlock_fini.exit:                      ; preds = %1952, %1954
+_het_job_deadlock_fini.exit:                      ; preds = %1979, %1981
   store ptr null, ptr @deadlock_global_list, align 8
   %.b553746 = load i1, ptr @bf_hetjob_immediate, align 1
   %brmerge = or i1 %.0402, %.b553746
-  br i1 %brmerge, label %1964, label %1955
+  br i1 %brmerge, label %1991, label %1982
 
-1955:                                             ; preds = %_het_job_deadlock_fini.exit
-  %1956 = load i32, ptr @max_backfill_jobs_start, align 4
-  %1957 = load i32, ptr @job_start_cnt, align 4
-  %1958 = freeze i32 %1957
-  %1959 = add i32 %1956, -1
-  %or.cond782.not = icmp ult i32 %1959, %1958
-  br i1 %or.cond782.not, label %1964, label %1960
+1982:                                             ; preds = %_het_job_deadlock_fini.exit
+  %1983 = load i32, ptr @max_backfill_jobs_start, align 4
+  %1984 = load i32, ptr @job_start_cnt, align 4
+  %1985 = freeze i32 %1984
+  %1986 = add i32 %1983, -1
+  %or.cond782.not = icmp ult i32 %1986, %1985
+  br i1 %or.cond782.not, label %1991, label %1987
 
-1960:                                             ; preds = %1955
-  %1961 = load ptr, ptr %17, align 8
-  %1962 = load ptr, ptr @het_job_list, align 8
-  %1963 = call i32 @list_for_each(ptr noundef %1962, ptr noundef nonnull @_het_job_start_test_list, ptr noundef %1961) #16
-  br label %1964
+1987:                                             ; preds = %1982
+  %1988 = load ptr, ptr %17, align 8
+  %1989 = load ptr, ptr @het_job_list, align 8
+  %1990 = call i32 @list_for_each(ptr noundef %1989, ptr noundef nonnull @_het_job_start_test_list, ptr noundef %1988) #16
+  br label %1991
 
-1964:                                             ; preds = %1955, %_het_job_deadlock_fini.exit, %1960
-  %1965 = load ptr, ptr %14, align 8
-  %.not748 = icmp eq ptr %1965, null
-  br i1 %.not748, label %1967, label %1966
+1991:                                             ; preds = %1982, %_het_job_deadlock_fini.exit, %1987
+  %1992 = load ptr, ptr %14, align 8
+  %.not748 = icmp eq ptr %1992, null
+  br i1 %.not748, label %1994, label %1993
 
-1966:                                             ; preds = %1964
+1993:                                             ; preds = %1991
   call void @slurm_bit_free(ptr noundef nonnull %14) #16
-  br label %1967
+  br label %1994
 
-1967:                                             ; preds = %1966, %1964
+1994:                                             ; preds = %1993, %1991
   store ptr null, ptr %14, align 8
   call void @reservation_delete_resv_exc_parts(ptr noundef nonnull %23) #16
-  %1968 = load ptr, ptr %15, align 8
-  %.not749 = icmp eq ptr %1968, null
-  br i1 %.not749, label %1970, label %1969
+  %1995 = load ptr, ptr %15, align 8
+  %.not749 = icmp eq ptr %1995, null
+  br i1 %.not749, label %1997, label %1996
 
-1969:                                             ; preds = %1967
+1996:                                             ; preds = %1994
   call void @slurm_bit_free(ptr noundef nonnull %15) #16
-  br label %1970
+  br label %1997
 
-1970:                                             ; preds = %1969, %1967
+1997:                                             ; preds = %1996, %1994
   store ptr null, ptr %15, align 8
   %.pre2917 = load ptr, ptr %17, align 8
-  br label %1971
+  br label %1998
 
-1971:                                             ; preds = %1984, %1970
-  %1972 = phi ptr [ %.pre2917, %1970 ], [ %1980, %1984 ]
-  %.0 = phi i32 [ 0, %1970 ], [ %1986, %1984 ]
-  %1973 = sext i32 %.0 to i64
-  %1974 = getelementptr inbounds %struct.node_space_map_t, ptr %1972, i64 %1973, i32 2
-  %1975 = load ptr, ptr %1974, align 8
-  %.not750 = icmp eq ptr %1975, null
-  br i1 %.not750, label %1977, label %1976
+1998:                                             ; preds = %2011, %1997
+  %1999 = phi ptr [ %.pre2917, %1997 ], [ %2007, %2011 ]
+  %.0 = phi i32 [ 0, %1997 ], [ %2013, %2011 ]
+  %2000 = sext i32 %.0 to i64
+  %2001 = getelementptr inbounds %struct.node_space_map_t, ptr %1999, i64 %2000, i32 2
+  %2002 = load ptr, ptr %2001, align 8
+  %.not750 = icmp eq ptr %2002, null
+  br i1 %.not750, label %2004, label %2003
 
-1976:                                             ; preds = %1971
-  call void @slurm_bit_free(ptr noundef nonnull %1974) #16
+2003:                                             ; preds = %1998
+  call void @slurm_bit_free(ptr noundef nonnull %2001) #16
   %.pre2918 = load ptr, ptr %17, align 8
-  br label %1977
+  br label %2004
 
-1977:                                             ; preds = %1976, %1971
-  %1978 = phi ptr [ %.pre2918, %1976 ], [ %1972, %1971 ]
-  %1979 = getelementptr inbounds %struct.node_space_map_t, ptr %1978, i64 %1973, i32 2
-  store ptr null, ptr %1979, align 8
-  %1980 = load ptr, ptr %17, align 8
-  %1981 = getelementptr inbounds %struct.node_space_map_t, ptr %1980, i64 %1973, i32 3
-  %1982 = load ptr, ptr %1981, align 8
-  %.not751 = icmp eq ptr %1982, null
-  br i1 %.not751, label %1984, label %1983
+2004:                                             ; preds = %2003, %1998
+  %2005 = phi ptr [ %.pre2918, %2003 ], [ %1999, %1998 ]
+  %2006 = getelementptr inbounds %struct.node_space_map_t, ptr %2005, i64 %2000, i32 2
+  store ptr null, ptr %2006, align 8
+  %2007 = load ptr, ptr %17, align 8
+  %2008 = getelementptr inbounds %struct.node_space_map_t, ptr %2007, i64 %2000, i32 3
+  %2009 = load ptr, ptr %2008, align 8
+  %.not751 = icmp eq ptr %2009, null
+  br i1 %.not751, label %2011, label %2010
 
-1983:                                             ; preds = %1977
-  call void @list_destroy(ptr noundef nonnull %1982) #16
-  br label %1984
+2010:                                             ; preds = %2004
+  call void @list_destroy(ptr noundef nonnull %2009) #16
+  br label %2011
 
-1984:                                             ; preds = %1983, %1977
-  store ptr null, ptr %1981, align 8
-  %1985 = getelementptr inbounds %struct.node_space_map_t, ptr %1980, i64 %1973, i32 4
-  %1986 = load i32, ptr %1985, align 8
-  %1987 = icmp eq i32 %1986, 0
-  br i1 %1987, label %1988, label %1971
+2011:                                             ; preds = %2010, %2004
+  store ptr null, ptr %2008, align 8
+  %2012 = getelementptr inbounds %struct.node_space_map_t, ptr %2007, i64 %2000, i32 4
+  %2013 = load i32, ptr %2012, align 8
+  %2014 = icmp eq i32 %2013, 0
+  br i1 %2014, label %2015, label %1998
 
-1988:                                             ; preds = %1984
+2015:                                             ; preds = %2011
   call void @slurm_xfree(ptr noundef nonnull %17) #16
   %.not752 = icmp eq ptr %51, null
-  br i1 %.not752, label %1990, label %1989
+  br i1 %.not752, label %2017, label %2016
 
-1989:                                             ; preds = %1988
+2016:                                             ; preds = %2015
   call void @list_destroy(ptr noundef nonnull %51) #16
-  br label %1990
+  br label %2017
 
-1990:                                             ; preds = %1989, %1988
-  %1991 = call i32 @gettimeofday(ptr noundef nonnull %19, ptr noundef null) #16
-  %1992 = load i32, ptr %8, align 4
+2017:                                             ; preds = %2016, %2015
+  %2018 = call i32 @gettimeofday(ptr noundef nonnull %19, ptr noundef null) #16
+  %2019 = load i32, ptr %8, align 4
   %.val = load i64, ptr %18, align 8
-  %1993 = getelementptr inbounds i8, ptr %18, i64 8
-  %.val790 = load i64, ptr %1993, align 8
+  %2020 = getelementptr inbounds i8, ptr %18, i64 8
+  %.val790 = load i64, ptr %2020, align 8
   %.val791 = load i64, ptr %19, align 8
-  %1994 = getelementptr inbounds i8, ptr %19, i64 8
-  %.val792 = load i64, ptr %1994, align 8
-  %1995 = sub nsw i64 %.val791, %.val
-  %1996 = mul i64 %1995, 1000000
-  %1997 = sub i64 %.val792, %.val790
-  %1998 = add i64 %1997, %1996
-  %1999 = trunc i64 %1998 to i32
-  %2000 = load i32, ptr @bf_sleep_usec, align 4
-  %2001 = sub i32 %1999, %2000
-  %2002 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 104), align 8
-  %2003 = add i32 %2002, 1
-  store i32 %2003, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 104), align 8
-  %2004 = zext i32 %2001 to i64
-  %2005 = load i64, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 120), align 8
-  %2006 = add i64 %2005, %2004
-  store i64 %2006, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 120), align 8
-  store i32 %2001, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 108), align 4
-  %2007 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 160), align 8
-  %2008 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 128), align 8
-  %2009 = add i32 %2008, %2007
-  store i32 %2009, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 128), align 8
-  %2010 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 164), align 4
-  %2011 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 132), align 4
-  %2012 = add i32 %2011, %2010
-  store i32 %2012, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 132), align 4
-  %2013 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 112), align 8
-  %2014 = icmp ugt i32 %2001, %2013
-  br i1 %2014, label %2015, label %_do_diag_stats.exit
+  %2021 = getelementptr inbounds i8, ptr %19, i64 8
+  %.val792 = load i64, ptr %2021, align 8
+  %2022 = sub nsw i64 %.val791, %.val
+  %2023 = mul i64 %2022, 1000000
+  %2024 = sub i64 %.val792, %.val790
+  %2025 = add i64 %2024, %2023
+  %2026 = trunc i64 %2025 to i32
+  %2027 = load i32, ptr @bf_sleep_usec, align 4
+  %2028 = sub i32 %2026, %2027
+  %2029 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 104), align 8
+  %2030 = add i32 %2029, 1
+  store i32 %2030, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 104), align 8
+  %2031 = zext i32 %2028 to i64
+  %2032 = load i64, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 120), align 8
+  %2033 = add i64 %2032, %2031
+  store i64 %2033, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 120), align 8
+  store i32 %2028, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 108), align 4
+  %2034 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 160), align 8
+  %2035 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 128), align 8
+  %2036 = add i32 %2035, %2034
+  store i32 %2036, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 128), align 8
+  %2037 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 164), align 4
+  %2038 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 132), align 4
+  %2039 = add i32 %2038, %2037
+  store i32 %2039, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 132), align 4
+  %2040 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 112), align 8
+  %2041 = icmp ugt i32 %2028, %2040
+  br i1 %2041, label %2042, label %_do_diag_stats.exit
 
-2015:                                             ; preds = %1990
-  store i32 %2001, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 112), align 8
+2042:                                             ; preds = %2017
+  store i32 %2028, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 112), align 8
   br label %_do_diag_stats.exit
 
-_do_diag_stats.exit:                              ; preds = %1990, %2015
-  store i32 %1992, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 176), align 8
-  %2016 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 180), align 4
-  %2017 = add i32 %2016, %1992
-  store i32 %2017, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 180), align 4
-  %2018 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %2019 = and i64 %2018, 4096
-  %.not753 = icmp eq i64 %2019, 0
-  br i1 %.not753, label %2026, label %2020
+_do_diag_stats.exit:                              ; preds = %2017, %2042
+  store i32 %2019, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 176), align 8
+  %2043 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 180), align 4
+  %2044 = add i32 %2043, %2019
+  store i32 %2044, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 180), align 4
+  %2045 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %2046 = and i64 %2045, 4096
+  %.not753 = icmp eq i64 %2046, 0
+  br i1 %.not753, label %2053, label %2047
 
-2020:                                             ; preds = %_do_diag_stats.exit
-  %2021 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #16
+2047:                                             ; preds = %_do_diag_stats.exit
+  %2048 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #16
   call void @slurm_diff_tv_str(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 20, ptr noundef null, i64 noundef 0, ptr noundef nonnull %6) #16
-  %2022 = call i32 @get_log_level() #16
-  %2023 = icmp sgt i32 %2022, 2
-  br i1 %2023, label %2024, label %2026
+  %2049 = call i32 @get_log_level() #16
+  %2050 = icmp sgt i32 %2049, 2
+  br i1 %2050, label %2051, label %2053
 
-2024:                                             ; preds = %2020
-  %2025 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 160), align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.111, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, i32 noundef %2025, i32 noundef %.1457, ptr noundef nonnull %5) #16
-  br label %2026
+2051:                                             ; preds = %2047
+  %2052 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 160), align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.111, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, i32 noundef %2052, i32 noundef %.1457, ptr noundef nonnull %5) #16
+  br label %2053
 
-2026:                                             ; preds = %_do_diag_stats.exit, %2024, %2020
-  %2027 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurmctld_config, i64 392)) #16
-  %.not754 = icmp eq i32 %2027, 0
-  br i1 %.not754, label %2030, label %2028
+2053:                                             ; preds = %_do_diag_stats.exit, %2051, %2047
+  %2054 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurmctld_config, i64 392)) #16
+  %.not754 = icmp eq i32 %2054, 0
+  br i1 %.not754, label %2057, label %2055
 
-2028:                                             ; preds = %2026
-  %2029 = tail call ptr @__errno_location() #17
-  store i32 %2027, ptr %2029, align 4
+2055:                                             ; preds = %2053
+  %2056 = tail call ptr @__errno_location() #17
+  store i32 %2054, ptr %2056, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 3202, ptr noundef nonnull @__func__._attempt_backfill) #18
   unreachable
 
-2030:                                             ; preds = %2026
-  %2031 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_config, i64 324), align 4
-  %2032 = icmp sgt i32 %2031, 149
-  br i1 %2032, label %2033, label %2038
+2057:                                             ; preds = %2053
+  %2058 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_config, i64 324), align 4
+  %2059 = icmp sgt i32 %2058, 149
+  br i1 %2059, label %2060, label %2065
 
-2033:                                             ; preds = %2030
-  %2034 = call i32 @get_log_level() #16
-  %2035 = icmp sgt i32 %2034, 2
-  br i1 %2035, label %2036, label %2038
+2060:                                             ; preds = %2057
+  %2061 = call i32 @get_log_level() #16
+  %2062 = icmp sgt i32 %2061, 2
+  br i1 %2062, label %2063, label %2065
 
-2036:                                             ; preds = %2033
-  %2037 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_config, i64 324), align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.112, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, i32 noundef %2037) #16
-  br label %2038
+2063:                                             ; preds = %2060
+  %2064 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_config, i64 324), align 4
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.112, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, i32 noundef %2064) #16
+  br label %2065
 
-2038:                                             ; preds = %2030, %2036, %2033
-  %2039 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurmctld_config, i64 392)) #16
-  %.not755 = icmp eq i32 %2039, 0
-  br i1 %.not755, label %2042, label %2040
+2065:                                             ; preds = %2057, %2063, %2060
+  %2066 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurmctld_config, i64 392)) #16
+  %.not755 = icmp eq i32 %2066, 0
+  br i1 %.not755, label %2069, label %2067
 
-2040:                                             ; preds = %2038
-  %2041 = tail call ptr @__errno_location() #17
-  store i32 %2039, ptr %2041, align 4
+2067:                                             ; preds = %2065
+  %2068 = tail call ptr @__errno_location() #17
+  store i32 %2066, ptr %2068, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 3208, ptr noundef nonnull @__func__._attempt_backfill) #18
   unreachable
 
-2042:                                             ; preds = %62, %63, %2038, %34, %37
+2069:                                             ; preds = %62, %63, %2065, %34, %37
   ret void
 }
 

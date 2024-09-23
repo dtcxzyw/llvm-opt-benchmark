@@ -281,12 +281,12 @@ for.end118:                                       ; preds = %for.inc116, %for.co
   br label %for.cond79
 
 for.inc125.sink.split:                            ; preds = %for.body86, %for.body104
-  %z.098.lcssa118.sink = phi i64 [ %z.1101, %for.body104 ], [ %z.098, %for.body86 ]
-  %arrayidx88.le.sink = getelementptr inbounds [8 x i64], ptr %arrayidx82, i64 0, i64 %z.098.lcssa118.sink
-  store i64 %10, ptr %arrayidx88.le.sink, align 8
+  %z.1101.sink = phi i64 [ %z.1101, %for.body104 ], [ %z.098, %for.body86 ]
+  %arrayidx106.le = getelementptr inbounds [8 x i64], ptr %arrayidx82, i64 0, i64 %z.1101.sink
+  store i64 %10, ptr %arrayidx106.le, align 8
   %15 = load i64, ptr %arrayidx70, align 8
   %index95 = getelementptr inbounds i8, ptr %arrayidx82, i64 64
-  %arrayidx96 = getelementptr inbounds [8 x i64], ptr %index95, i64 0, i64 %z.098.lcssa118.sink
+  %arrayidx96 = getelementptr inbounds [8 x i64], ptr %index95, i64 0, i64 %z.1101.sink
   store i64 %15, ptr %arrayidx96, align 8
   br label %for.inc125
 

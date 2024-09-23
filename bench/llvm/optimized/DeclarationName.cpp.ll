@@ -2470,7 +2470,7 @@ _ZNK5clang15DeclarationName11getNameKindEv.exit:  ; preds = %1, %5
   %.0.i = phi i32 [ %9, %5 ], [ %4, %1 ]
   %.off = add nsw i32 %.0.i, -3
   %switch = icmp ult i32 %.off, 3
-  br i1 %switch, label %10, label %24
+  br i1 %switch, label %10, label %23
 
 10:                                               ; preds = %_ZNK5clang15DeclarationName11getNameKindEv.exit
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2488,19 +2488,19 @@ _ZNK5clang15DeclarationName14getCXXNameTypeEv.exit: ; preds = %10
   br label %.sink.split
 
 .sink.split:                                      ; preds = %10, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit
-  %.sink10 = phi ptr [ %15, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit ], [ %12, %10 ]
-  %16 = load i64, ptr %.sink10, align 8
-  %17 = and i64 %16, -16
-  %18 = inttoptr i64 %17 to ptr
-  %19 = load ptr, ptr %18, align 16
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 17
-  %21 = load i16, ptr %20, align 1
-  %22 = and i16 %21, 1
-  %23 = icmp ne i16 %22, 0
-  br label %24
+  %.sink.in = phi ptr [ %15, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit ], [ %12, %10 ]
+  %.sink = load i64, ptr %.sink.in, align 8
+  %16 = and i64 %.sink, -16
+  %17 = inttoptr i64 %16 to ptr
+  %18 = load ptr, ptr %17, align 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 17
+  %20 = load i16, ptr %19, align 1
+  %21 = and i16 %20, 1
+  %22 = icmp ne i16 %21, 0
+  br label %23
 
-24:                                               ; preds = %.sink.split, %_ZNK5clang15DeclarationName11getNameKindEv.exit
-  %.0 = phi i1 [ false, %_ZNK5clang15DeclarationName11getNameKindEv.exit ], [ %23, %.sink.split ]
+23:                                               ; preds = %.sink.split, %_ZNK5clang15DeclarationName11getNameKindEv.exit
+  %.0 = phi i1 [ false, %_ZNK5clang15DeclarationName11getNameKindEv.exit ], [ %22, %.sink.split ]
   ret i1 %.0
 }
 
@@ -2524,7 +2524,7 @@ _ZNK5clang15DeclarationName11getNameKindEv.exit:  ; preds = %1, %5
   %.0.i = phi i32 [ %9, %5 ], [ %4, %1 ]
   %.off = add nsw i32 %.0.i, -3
   %switch = icmp ult i32 %.off, 3
-  br i1 %switch, label %10, label %24
+  br i1 %switch, label %10, label %23
 
 10:                                               ; preds = %_ZNK5clang15DeclarationName11getNameKindEv.exit
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2542,19 +2542,19 @@ _ZNK5clang15DeclarationName14getCXXNameTypeEv.exit: ; preds = %10
   br label %.sink.split
 
 .sink.split:                                      ; preds = %10, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit
-  %.sink10 = phi ptr [ %15, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit ], [ %12, %10 ]
-  %16 = load i64, ptr %.sink10, align 8
-  %17 = and i64 %16, -16
-  %18 = inttoptr i64 %17 to ptr
-  %19 = load ptr, ptr %18, align 16
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 17
-  %21 = load i16, ptr %20, align 1
-  %22 = and i16 %21, 2
-  %23 = icmp ne i16 %22, 0
-  br label %24
+  %.sink.in = phi ptr [ %15, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit ], [ %12, %10 ]
+  %.sink = load i64, ptr %.sink.in, align 8
+  %16 = and i64 %.sink, -16
+  %17 = inttoptr i64 %16 to ptr
+  %18 = load ptr, ptr %17, align 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 17
+  %20 = load i16, ptr %19, align 1
+  %21 = and i16 %20, 2
+  %22 = icmp ne i16 %21, 0
+  br label %23
 
-24:                                               ; preds = %.sink.split, %_ZNK5clang15DeclarationName11getNameKindEv.exit
-  %.0 = phi i1 [ false, %_ZNK5clang15DeclarationName11getNameKindEv.exit ], [ %23, %.sink.split ]
+23:                                               ; preds = %.sink.split, %_ZNK5clang15DeclarationName11getNameKindEv.exit
+  %.0 = phi i1 [ false, %_ZNK5clang15DeclarationName11getNameKindEv.exit ], [ %22, %.sink.split ]
   ret i1 %.0
 }
 

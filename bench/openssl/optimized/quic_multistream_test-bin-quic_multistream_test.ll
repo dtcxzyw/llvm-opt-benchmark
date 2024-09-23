@@ -460,10 +460,10 @@ if.then:                                          ; preds = %for.body
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %for.body, %if.then
-  %frame_type.sink = phi ptr [ %frame_type, %if.then ], [ %expected_err, %for.body ]
-  %2 = load i64, ptr %frame_type.sink, align 8
+  %.sink.in = phi ptr [ %frame_type, %if.then ], [ %expected_err, %for.body ]
+  %.sink = load i64, ptr %.sink.in, align 8
   %arg2 = getelementptr inbounds i8, ptr %arrayidx, i64 40
-  store i64 %2, ptr %arg2, align 8
+  store i64 %.sink, ptr %arg2, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %for.body
@@ -3775,7 +3775,8 @@ helper_cleanup_streams.exit:                      ; preds = %if.then, %if.end.i4
   %c_conn = getelementptr inbounds i8, ptr %h, i64 112
   %14 = load ptr, ptr %c_conn, align 8
   call void @SSL_free(ptr noundef %14) #14
-  br label %if.end.sink.split
+  store ptr null, ptr %c_conn, align 8
+  br label %if.end
 
 if.else:                                          ; preds = %join_server_thread.exit
   %c_conn6 = getelementptr inbounds i8, ptr %h, i64 112
@@ -3791,14 +3792,10 @@ if.end.i50:                                       ; preds = %if.else
   call void @OPENSSL_LH_doall(ptr noundef nonnull %16, ptr noundef nonnull @cleanup_stream) #14
   %17 = load ptr, ptr %c_streams8, align 8
   call void @OPENSSL_LH_free(ptr noundef %17) #14
-  br label %if.end.sink.split
-
-if.end.sink.split:                                ; preds = %helper_cleanup_streams.exit, %if.end.i50
-  %c_streams8.sink = phi ptr [ %c_streams8, %if.end.i50 ], [ %c_conn, %helper_cleanup_streams.exit ]
-  store ptr null, ptr %c_streams8.sink, align 8
+  store ptr null, ptr %c_streams8, align 8
   br label %if.end
 
-if.end:                                           ; preds = %if.end.sink.split, %if.else
+if.end:                                           ; preds = %if.end.i50, %if.else, %helper_cleanup_streams.exit
   %s_streams = getelementptr inbounds i8, ptr %h, i64 72
   %18 = load ptr, ptr %s_streams, align 8
   %cmp.i52 = icmp eq ptr %18, null

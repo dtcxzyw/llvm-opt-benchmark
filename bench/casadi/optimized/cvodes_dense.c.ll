@@ -228,7 +228,7 @@ define internal range(i32 -1, 2) i32 @cvDenseSetup(ptr noundef %0, i32 noundef %
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -5, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9) #7
   %51 = getelementptr inbounds i8, ptr %10, i64 128
   store i64 -5, ptr %51, align 8
-  br label %70
+  br label %69
 
 52:                                               ; preds = %.critedge
   %.not = icmp eq i32 %48, 0
@@ -237,33 +237,33 @@ define internal range(i32 -1, 2) i32 @cvDenseSetup(ptr noundef %0, i32 noundef %
 53:                                               ; preds = %52
   %54 = getelementptr inbounds i8, ptr %10, i64 128
   store i64 -6, ptr %54, align 8
-  br label %70
+  br label %69
 
 55:                                               ; preds = %52, %30
-  %.sink52 = phi ptr [ %31, %30 ], [ %37, %52 ]
   %.sink51 = phi i64 [ 72, %30 ], [ 80, %52 ]
-  %56 = load ptr, ptr %.sink52, align 8
-  %57 = getelementptr inbounds i8, ptr %10, i64 %.sink51
-  %58 = load ptr, ptr %57, align 8
-  tail call void @DenseCopy(ptr noundef %56, ptr noundef %58) #7
-  %59 = load double, ptr %11, align 8
-  %60 = fneg double %59
-  %61 = getelementptr inbounds i8, ptr %10, i64 72
-  %62 = load ptr, ptr %61, align 8
-  tail call void @DenseScale(double noundef %60, ptr noundef %62) #7
-  %63 = load ptr, ptr %61, align 8
-  tail call void @AddIdentity(ptr noundef %63) #7
-  %64 = load ptr, ptr %61, align 8
-  %65 = getelementptr inbounds i8, ptr %10, i64 96
-  %66 = load ptr, ptr %65, align 8
-  %67 = tail call i64 @DenseGETRF(ptr noundef %64, ptr noundef %66) #7
-  %68 = getelementptr inbounds i8, ptr %10, i64 128
-  store i64 %67, ptr %68, align 8
-  %69 = icmp sgt i64 %67, 0
-  %. = zext i1 %69 to i32
-  br label %70
+  %.sink.in = phi ptr [ %31, %30 ], [ %37, %52 ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %56 = getelementptr inbounds i8, ptr %10, i64 %.sink51
+  %57 = load ptr, ptr %56, align 8
+  tail call void @DenseCopy(ptr noundef %.sink, ptr noundef %57) #7
+  %58 = load double, ptr %11, align 8
+  %59 = fneg double %58
+  %60 = getelementptr inbounds i8, ptr %10, i64 72
+  %61 = load ptr, ptr %60, align 8
+  tail call void @DenseScale(double noundef %59, ptr noundef %61) #7
+  %62 = load ptr, ptr %60, align 8
+  tail call void @AddIdentity(ptr noundef %62) #7
+  %63 = load ptr, ptr %60, align 8
+  %64 = getelementptr inbounds i8, ptr %10, i64 96
+  %65 = load ptr, ptr %64, align 8
+  %66 = tail call i64 @DenseGETRF(ptr noundef %63, ptr noundef %65) #7
+  %67 = getelementptr inbounds i8, ptr %10, i64 128
+  store i64 %66, ptr %67, align 8
+  %68 = icmp sgt i64 %66, 0
+  %. = zext i1 %68 to i32
+  br label %69
 
-70:                                               ; preds = %55, %53, %50
+69:                                               ; preds = %55, %53, %50
   %.0 = phi i32 [ -1, %50 ], [ 1, %53 ], [ %., %55 ]
   ret i32 %.0
 }
@@ -367,15 +367,15 @@ define range(i32 -101, 1) i32 @CVDenseB(ptr noundef %0, i32 noundef %1, i64 noun
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %17
-  %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
-  %.026 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
-  %19 = load i32, ptr %.026, align 8
+  %.026.sink.in = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
+  %.026.sink = load ptr, ptr %.026.sink.in, align 8, !nonnull !4, !noundef !4
+  %19 = load i32, ptr %.026.sink, align 8
   %20 = icmp eq i32 %1, %19
-  %21 = getelementptr inbounds i8, ptr %.026, i64 120
+  %21 = getelementptr inbounds i8, ptr %.026.sink, i64 120
   br i1 %20, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %22 = getelementptr inbounds i8, ptr %.026, i64 16
+  %22 = getelementptr inbounds i8, ptr %.026.sink, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #8
   %25 = icmp eq ptr %24, null
@@ -389,9 +389,9 @@ define range(i32 -101, 1) i32 @CVDenseB(ptr noundef %0, i32 noundef %1, i64 noun
   store i32 1, ptr %24, align 8
   %28 = getelementptr inbounds i8, ptr %24, i64 8
   store ptr null, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %.026, i64 72
+  %29 = getelementptr inbounds i8, ptr %.026.sink, i64 72
   store ptr %24, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %.026, i64 80
+  %30 = getelementptr inbounds i8, ptr %.026.sink, i64 80
   store ptr @cvDenseFreeB, ptr %30, align 8
   %31 = tail call i32 @CVDense(ptr noundef %23, i64 noundef %2)
   %.not31 = icmp eq i32 %31, 0

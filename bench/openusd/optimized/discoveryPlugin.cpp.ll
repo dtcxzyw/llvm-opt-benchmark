@@ -3137,7 +3137,8 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__29U
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %64, %51
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  br label %.critedge2.sink.split
+  store i32 0, ptr %68, align 4
+  br label %.critedge2
 
 69:                                               ; preds = %49
   %70 = icmp eq ptr %47, %storemerge75
@@ -3404,7 +3405,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Usd_PrimData11IsPrototypeEv.exit: ; pred
 205:                                              ; preds = %200
   store i32 0, ptr %1, align 4
   %.not.i.i.i57 = icmp eq i32 %204, 0
-  br i1 %.not.i.i.i57, label %.critedge2.sink.split, label %206
+  br i1 %.not.i.i.i57, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit60, label %206
 
 206:                                              ; preds = %205
   %207 = and i64 %.0.copyload.i2.i, 255
@@ -3418,11 +3419,11 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Usd_PrimData11IsPrototypeEv.exit: ; pred
   %215 = atomicrmw sub ptr %214, i32 1 seq_cst, align 4
   %216 = and i32 %215, 2147483647
   %217 = icmp eq i32 %216, 1
-  br i1 %217, label %218, label %.critedge2.sink.split
+  br i1 %217, label %218, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit60
 
 218:                                              ; preds = %206
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_PathNode8_DestroyEv(ptr noundef nonnull align 8 dereferenceable(16) %213)
-          to label %.critedge2.sink.split unwind label %219
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit60 unwind label %219
 
 219:                                              ; preds = %218
   %220 = landingpad { ptr, i32 }
@@ -3431,12 +3432,11 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Usd_PrimData11IsPrototypeEv.exit: ; pred
   call void @__clang_call_terminate(ptr %221) #21
   unreachable
 
-.critedge2.sink.split:                            ; preds = %205, %206, %218, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit
-  %.sink = phi ptr [ %68, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit ], [ %181, %218 ], [ %181, %206 ], [ %181, %205 ]
-  store i32 0, ptr %.sink, align 4
+_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit60: ; preds = %218, %206, %205
+  store i32 0, ptr %181, align 4
   br label %.critedge2
 
-.critedge2:                                       ; preds = %.critedge2.sink.split, %183, %132, %119, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit49, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit55, %_ZNK32pxrInternal_v0_24__pxrReserved__12Usd_PrimData11IsPrototypeEv.exit, %192, %200, %.critedge.thread
+.critedge2:                                       ; preds = %183, %132, %119, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit49, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit55, %_ZNK32pxrInternal_v0_24__pxrReserved__12Usd_PrimData11IsPrototypeEv.exit, %192, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit60, %200, %.critedge.thread
   %222 = load ptr, ptr %0, align 8
   %223 = icmp ne ptr %222, null
   %224 = select i1 %.not73, i1 %223, i1 false

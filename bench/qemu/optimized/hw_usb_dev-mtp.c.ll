@@ -384,23 +384,32 @@ land.rhs.lr.ph.i:                                 ; preds = %trace_usb_mtp_reset
   %tql_prev9.i = getelementptr inbounds i8, ptr %call.i, i64 5960
   br label %land.rhs.i
 
-land.rhs.i:                                       ; preds = %land.rhs.i, %land.rhs.lr.ph.i
-  %e.016.i = phi ptr [ %7, %land.rhs.lr.ph.i ], [ %8, %land.rhs.i ]
+land.rhs.i:                                       ; preds = %if.end.i, %land.rhs.lr.ph.i
+  %e.016.i = phi ptr [ %7, %land.rhs.lr.ph.i ], [ %8, %if.end.i ]
   %next.i = getelementptr inbounds i8, ptr %e.016.i, i64 8
   %8 = load ptr, ptr %next.i, align 8
   %cmp.not.i = icmp eq ptr %8, null
   %tql_prev7.i = getelementptr inbounds i8, ptr %e.016.i, i64 16
   %9 = load ptr, ptr %tql_prev7.i, align 8
+  br i1 %cmp.not.i, label %if.else.i, label %if.then.i
+
+if.then.i:                                        ; preds = %land.rhs.i
   %tql_prev5.i = getelementptr inbounds i8, ptr %8, i64 16
-  %tql_prev9.sink.i = select i1 %cmp.not.i, ptr %tql_prev9.i, ptr %tql_prev5.i
-  store ptr %9, ptr %tql_prev9.sink.i, align 8
+  store ptr %9, ptr %tql_prev5.i, align 8
+  br label %if.end.i
+
+if.else.i:                                        ; preds = %land.rhs.i
+  store ptr %9, ptr %tql_prev9.i, align 8
+  br label %if.end.i
+
+if.end.i:                                         ; preds = %if.else.i, %if.then.i
   %10 = load ptr, ptr %next.i, align 8
   store ptr %10, ptr %9, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i, i8 0, i64 16, i1 false)
   tail call void @g_free(ptr noundef nonnull %e.016.i) #15
   br i1 %cmp.not.i, label %usb_mtp_file_monitor_cleanup.exit, label %land.rhs.i, !llvm.loop !5
 
-usb_mtp_file_monitor_cleanup.exit:                ; preds = %land.rhs.i, %trace_usb_mtp_reset.exit
+usb_mtp_file_monitor_cleanup.exit:                ; preds = %if.end.i, %trace_usb_mtp_reset.exit
   %file_monitor.i = getelementptr inbounds i8, ptr %call.i, i64 5944
   %11 = load ptr, ptr %file_monitor.i, align 8
   tail call void @qemu_file_monitor_free(ptr noundef %11) #15
@@ -413,19 +422,19 @@ usb_mtp_file_monitor_cleanup.exit:                ; preds = %land.rhs.i, %trace_
   %data_in = getelementptr inbounds i8, ptr %call.i, i64 5888
   %13 = load ptr, ptr %data_in, align 8
   %cmp.i = icmp eq ptr %13, null
-  br i1 %cmp.i, label %usb_mtp_data_free.exit, label %if.end.i
+  br i1 %cmp.i, label %usb_mtp_data_free.exit, label %if.end.i11
 
-if.end.i:                                         ; preds = %usb_mtp_file_monitor_cleanup.exit
+if.end.i11:                                       ; preds = %usb_mtp_file_monitor_cleanup.exit
   %fd.i = getelementptr inbounds i8, ptr %13, i64 44
   %14 = load i32, ptr %fd.i, align 4
   %cmp1.not.i = icmp eq i32 %14, -1
   br i1 %cmp1.not.i, label %if.end4.i, label %if.then2.i
 
-if.then2.i:                                       ; preds = %if.end.i
-  %call.i11 = tail call i32 @close(i32 noundef %14) #15
+if.then2.i:                                       ; preds = %if.end.i11
+  %call.i12 = tail call i32 @close(i32 noundef %14) #15
   br label %if.end4.i
 
-if.end4.i:                                        ; preds = %if.then2.i, %if.end.i
+if.end4.i:                                        ; preds = %if.then2.i, %if.end.i11
   %data5.i = getelementptr inbounds i8, ptr %13, i64 32
   %15 = load ptr, ptr %data5.i, align 8
   tail call void @g_free(ptr noundef %15) #15
@@ -436,27 +445,27 @@ usb_mtp_data_free.exit:                           ; preds = %usb_mtp_file_monito
   store ptr null, ptr %data_in, align 8
   %data_out = getelementptr inbounds i8, ptr %call.i, i64 5896
   %16 = load ptr, ptr %data_out, align 8
-  %cmp.i12 = icmp eq ptr %16, null
-  br i1 %cmp.i12, label %usb_mtp_data_free.exit20, label %if.end.i13
+  %cmp.i13 = icmp eq ptr %16, null
+  br i1 %cmp.i13, label %usb_mtp_data_free.exit21, label %if.end.i14
 
-if.end.i13:                                       ; preds = %usb_mtp_data_free.exit
-  %fd.i14 = getelementptr inbounds i8, ptr %16, i64 44
-  %17 = load i32, ptr %fd.i14, align 4
-  %cmp1.not.i15 = icmp eq i32 %17, -1
-  br i1 %cmp1.not.i15, label %if.end4.i18, label %if.then2.i16
+if.end.i14:                                       ; preds = %usb_mtp_data_free.exit
+  %fd.i15 = getelementptr inbounds i8, ptr %16, i64 44
+  %17 = load i32, ptr %fd.i15, align 4
+  %cmp1.not.i16 = icmp eq i32 %17, -1
+  br i1 %cmp1.not.i16, label %if.end4.i19, label %if.then2.i17
 
-if.then2.i16:                                     ; preds = %if.end.i13
-  %call.i17 = tail call i32 @close(i32 noundef %17) #15
-  br label %if.end4.i18
+if.then2.i17:                                     ; preds = %if.end.i14
+  %call.i18 = tail call i32 @close(i32 noundef %17) #15
+  br label %if.end4.i19
 
-if.end4.i18:                                      ; preds = %if.then2.i16, %if.end.i13
-  %data5.i19 = getelementptr inbounds i8, ptr %16, i64 32
-  %18 = load ptr, ptr %data5.i19, align 8
+if.end4.i19:                                      ; preds = %if.then2.i17, %if.end.i14
+  %data5.i20 = getelementptr inbounds i8, ptr %16, i64 32
+  %18 = load ptr, ptr %data5.i20, align 8
   tail call void @g_free(ptr noundef %18) #15
   tail call void @g_free(ptr noundef nonnull %16) #15
-  br label %usb_mtp_data_free.exit20
+  br label %usb_mtp_data_free.exit21
 
-usb_mtp_data_free.exit20:                         ; preds = %usb_mtp_data_free.exit, %if.end4.i18
+usb_mtp_data_free.exit21:                         ; preds = %usb_mtp_data_free.exit, %if.end4.i19
   store ptr null, ptr %data_out, align 8
   %result = getelementptr inbounds i8, ptr %call.i, i64 5904
   %19 = load ptr, ptr %result, align 8
@@ -1180,41 +1189,46 @@ sw.bb326:                                         ; preds = %entry
   br i1 %cmp327, label %if.end377, label %if.then329
 
 if.then329:                                       ; preds = %sw.bb326
+  %tql_prev = getelementptr inbounds i8, ptr %call.i, i64 5960
+  %95 = load ptr, ptr %tql_prev, align 8
+  %tql_prev331 = getelementptr inbounds i8, ptr %95, i64 8
+  %96 = load ptr, ptr %tql_prev331, align 8
+  %97 = load ptr, ptr %96, align 8
   %size333 = getelementptr inbounds i8, ptr %p, i64 64
-  %95 = load i64, ptr %size333, align 8
-  %cmp335 = icmp ult i64 %95, 16
+  %98 = load i64, ptr %size333, align 8
+  %cmp335 = icmp ult i64 %98, 16
   br i1 %cmp335, label %if.then337, label %do.body
 
 if.then337:                                       ; preds = %if.then329
   %addr339 = getelementptr inbounds i8, ptr %call.i, i64 224
-  %96 = load i8, ptr %addr339, align 8
-  %conv340 = zext i8 %96 to i32
+  %99 = load i8, ptr %addr339, align 8
+  %conv340 = zext i8 %99 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i190)
-  %97 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i191 = icmp ne i32 %97, 0
-  %98 = load i16, ptr @_TRACE_USB_MTP_STALL_DSTATE, align 2
-  %tobool4.i.i192 = icmp ne i16 %98, 0
+  %100 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i191 = icmp ne i32 %100, 0
+  %101 = load i16, ptr @_TRACE_USB_MTP_STALL_DSTATE, align 2
+  %tobool4.i.i192 = icmp ne i16 %101, 0
   %or.cond.i.i193 = select i1 %tobool.i.i191, i1 %tobool4.i.i192, i1 false
   br i1 %or.cond.i.i193, label %land.lhs.true5.i.i194, label %trace_usb_mtp_stall.exit204
 
 land.lhs.true5.i.i194:                            ; preds = %if.then337
-  %99 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i195 = and i32 %99, 32768
+  %102 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i195 = and i32 %102, 32768
   %cmp.i.not.i.i196 = icmp eq i32 %and.i.i.i195, 0
   br i1 %cmp.i.not.i.i196, label %trace_usb_mtp_stall.exit204, label %if.then.i.i197
 
 if.then.i.i197:                                   ; preds = %land.lhs.true5.i.i194
-  %100 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i198 = trunc i8 %100 to i1
+  %103 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i198 = trunc i8 %103 to i1
   br i1 %tobool7.i.i198, label %if.then8.i.i200, label %if.else.i.i199
 
 if.then8.i.i200:                                  ; preds = %if.then.i.i197
   %call9.i.i201 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i190, ptr noundef null) #15
   %call10.i.i202 = tail call i32 @qemu_get_thread_id() #15
-  %101 = load i64, ptr %_now.i.i190, align 8
+  %104 = load i64, ptr %_now.i.i190, align 8
   %tv_usec.i.i203 = getelementptr inbounds i8, ptr %_now.i.i190, i64 8
-  %102 = load i64, ptr %tv_usec.i.i203, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i202, i64 noundef %101, i64 noundef %102, i32 noundef %conv340, ptr noundef nonnull @.str.34) #15
+  %105 = load i64, ptr %tv_usec.i.i203, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i202, i64 noundef %104, i64 noundef %105, i32 noundef %conv340, ptr noundef nonnull @.str.34) #15
   br label %trace_usb_mtp_stall.exit204
 
 if.else.i.i199:                                   ; preds = %if.then.i.i197
@@ -1228,37 +1242,41 @@ trace_usb_mtp_stall.exit204:                      ; preds = %if.then337, %land.l
   br label %return
 
 do.body:                                          ; preds = %if.then329
-  %tql_prev = getelementptr inbounds i8, ptr %call.i, i64 5960
-  %103 = load ptr, ptr %tql_prev, align 8
-  %tql_prev331 = getelementptr inbounds i8, ptr %103, i64 8
-  %104 = load ptr, ptr %tql_prev331, align 8
-  %105 = load ptr, ptr %104, align 8
-  %next = getelementptr inbounds i8, ptr %105, i64 8
+  %next = getelementptr inbounds i8, ptr %97, i64 8
   %106 = load ptr, ptr %next, align 8
   %cmp343.not = icmp eq ptr %106, null
-  %tql_prev353 = getelementptr inbounds i8, ptr %105, i64 16
+  %tql_prev353 = getelementptr inbounds i8, ptr %97, i64 16
   %107 = load ptr, ptr %tql_prev353, align 8
+  br i1 %cmp343.not, label %if.else351, label %if.then345
+
+if.then345:                                       ; preds = %do.body
   %tql_prev350 = getelementptr inbounds i8, ptr %106, i64 16
-  %tql_prev.sink = select i1 %cmp343.not, ptr %tql_prev, ptr %tql_prev350
-  store ptr %107, ptr %tql_prev.sink, align 8
+  store ptr %107, ptr %tql_prev350, align 8
+  br label %if.end356
+
+if.else351:                                       ; preds = %do.body
+  store ptr %107, ptr %tql_prev, align 8
+  br label %if.end356
+
+if.end356:                                        ; preds = %if.else351, %if.then345
   %108 = load ptr, ptr %next, align 8
   store ptr %108, ptr %107, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next, i8 0, i64 16, i1 false)
   store i32 16, ptr %container, align 4
   %type370 = getelementptr inbounds i8, ptr %container, i64 4
   store i16 4, ptr %type370, align 4
-  %109 = load i32, ptr %105, align 8
+  %109 = load i32, ptr %97, align 8
   %conv371 = trunc i32 %109 to i16
   %code373 = getelementptr inbounds i8, ptr %container, i64 6
   store i16 %conv371, ptr %code373, align 2
   %trans374 = getelementptr inbounds i8, ptr %container, i64 8
   store i32 0, ptr %trans374, align 4
-  %handle375 = getelementptr inbounds i8, ptr %105, i64 4
+  %handle375 = getelementptr inbounds i8, ptr %97, i64 4
   %110 = load i32, ptr %handle375, align 4
   store i32 %110, ptr %handle, align 4
   call void @usb_packet_copy(ptr noundef nonnull %p, ptr noundef nonnull %container, i64 noundef 12) #15
   call void @usb_packet_copy(ptr noundef nonnull %p, ptr noundef nonnull %handle, i64 noundef 4) #15
-  call void @g_free(ptr noundef nonnull %105) #15
+  call void @g_free(ptr noundef nonnull %97) #15
   br label %return
 
 if.end377:                                        ; preds = %sw.bb326
@@ -1399,7 +1417,7 @@ trace_usb_mtp_xfer.exit:                          ; preds = %if.else395, %land.l
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i234)
   br label %return
 
-return:                                           ; preds = %sw.bb319, %trace_usb_mtp_xfer.exit, %trace_usb_mtp_nak.exit, %trace_usb_mtp_stall.exit219, %if.end377, %do.body, %trace_usb_mtp_stall.exit204, %sw.default, %if.then246, %trace_usb_mtp_stall.exit189, %trace_usb_mtp_stall.exit174, %trace_usb_mtp_stall.exit159, %trace_usb_mtp_stall.exit
+return:                                           ; preds = %sw.bb319, %trace_usb_mtp_xfer.exit, %trace_usb_mtp_nak.exit, %trace_usb_mtp_stall.exit219, %if.end377, %if.end356, %trace_usb_mtp_stall.exit204, %sw.default, %if.then246, %trace_usb_mtp_stall.exit189, %trace_usb_mtp_stall.exit174, %trace_usb_mtp_stall.exit159, %trace_usb_mtp_stall.exit
   ret void
 }
 
@@ -1495,10 +1513,19 @@ do.body:                                          ; preds = %trace_usb_mtp_objec
   %cmp8.not = icmp eq ptr %12, null
   %tql_prev16 = getelementptr inbounds i8, ptr %o, i64 232
   %13 = load ptr, ptr %tql_prev16, align 8
-  %tql_prev17 = getelementptr inbounds i8, ptr %s, i64 5936
+  br i1 %cmp8.not, label %if.else, label %if.then10
+
+if.then10:                                        ; preds = %do.body
   %tql_prev14 = getelementptr inbounds i8, ptr %12, i64 232
-  %tql_prev17.sink = select i1 %cmp8.not, ptr %tql_prev17, ptr %tql_prev14
-  store ptr %13, ptr %tql_prev17.sink, align 8
+  store ptr %13, ptr %tql_prev14, align 8
+  br label %if.end18
+
+if.else:                                          ; preds = %do.body
+  %tql_prev17 = getelementptr inbounds i8, ptr %s, i64 5936
+  store ptr %13, ptr %tql_prev17, align 8
+  br label %if.end18
+
+if.end18:                                         ; preds = %if.else, %if.then10
   %14 = load ptr, ptr %next, align 8
   store ptr %14, ptr %13, align 8
   %parent = getelementptr inbounds i8, ptr %o, i64 176
@@ -1507,7 +1534,7 @@ do.body:                                          ; preds = %trace_usb_mtp_objec
   %tobool27.not = icmp eq ptr %15, null
   br i1 %tobool27.not, label %if.end49, label %do.body29
 
-do.body29:                                        ; preds = %do.body
+do.body29:                                        ; preds = %if.end18
   %list = getelementptr inbounds i8, ptr %o, i64 200
   %16 = load ptr, ptr %list, align 8
   %cmp30.not = icmp eq ptr %16, null
@@ -1532,7 +1559,7 @@ if.end38:                                         ; preds = %do.body29, %if.then
   store i32 %dec, ptr %nchildren, align 8
   br label %if.end49
 
-if.end49:                                         ; preds = %if.end38, %do.body
+if.end49:                                         ; preds = %if.end38, %if.end18
   %children = getelementptr inbounds i8, ptr %o, i64 192
   %20 = load ptr, ptr %children, align 8
   %cmp50.not36 = icmp eq ptr %20, null
@@ -1824,11 +1851,11 @@ _nocheck__trace_usb_mtp_command.exit:             ; preds = %entry, %land.lhs.tr
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @usb_mtp_command(ptr noundef %s, ptr noundef nonnull readonly %c) unnamed_addr #0 {
 entry:
-  %_now.i.i568 = alloca %struct.timeval, align 8
-  %_now.i.i.i289 = alloca %struct.timeval, align 8
-  %_now.i.i.i215 = alloca %struct.timeval, align 8
+  %_now.i.i573 = alloca %struct.timeval, align 8
+  %_now.i.i.i294 = alloca %struct.timeval, align 8
+  %_now.i.i.i216 = alloca %struct.timeval, align 8
   %buf.i = alloca %struct.statvfs, align 8
-  %_now.i.i.i194 = alloca %struct.timeval, align 8
+  %_now.i.i.i195 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
   %err = alloca ptr, align 8
@@ -2352,23 +2379,32 @@ land.rhs.lr.ph.i:                                 ; preds = %trace_usb_mtp_op_cl
   %tql_prev9.i = getelementptr inbounds i8, ptr %s, i64 5960
   br label %land.rhs.i
 
-land.rhs.i:                                       ; preds = %land.rhs.i, %land.rhs.lr.ph.i
-  %e.016.i = phi ptr [ %95, %land.rhs.lr.ph.i ], [ %96, %land.rhs.i ]
+land.rhs.i:                                       ; preds = %if.end.i, %land.rhs.lr.ph.i
+  %e.016.i = phi ptr [ %95, %land.rhs.lr.ph.i ], [ %96, %if.end.i ]
   %next.i = getelementptr inbounds i8, ptr %e.016.i, i64 8
   %96 = load ptr, ptr %next.i, align 8
   %cmp.not.i = icmp eq ptr %96, null
   %tql_prev7.i = getelementptr inbounds i8, ptr %e.016.i, i64 16
   %97 = load ptr, ptr %tql_prev7.i, align 8
+  br i1 %cmp.not.i, label %if.else.i194, label %if.then.i
+
+if.then.i:                                        ; preds = %land.rhs.i
   %tql_prev5.i = getelementptr inbounds i8, ptr %96, i64 16
-  %tql_prev9.sink.i = select i1 %cmp.not.i, ptr %tql_prev9.i, ptr %tql_prev5.i
-  store ptr %97, ptr %tql_prev9.sink.i, align 8
+  store ptr %97, ptr %tql_prev5.i, align 8
+  br label %if.end.i
+
+if.else.i194:                                     ; preds = %land.rhs.i
+  store ptr %97, ptr %tql_prev9.i, align 8
+  br label %if.end.i
+
+if.end.i:                                         ; preds = %if.else.i194, %if.then.i
   %98 = load ptr, ptr %next.i, align 8
   store ptr %98, ptr %97, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i, i8 0, i64 16, i1 false)
   tail call void @g_free(ptr noundef nonnull %e.016.i) #15
   br i1 %cmp.not.i, label %usb_mtp_file_monitor_cleanup.exit, label %land.rhs.i, !llvm.loop !5
 
-usb_mtp_file_monitor_cleanup.exit:                ; preds = %land.rhs.i, %trace_usb_mtp_op_close_session.exit
+usb_mtp_file_monitor_cleanup.exit:                ; preds = %if.end.i, %trace_usb_mtp_op_close_session.exit
   %file_monitor.i = getelementptr inbounds i8, ptr %s, i64 5944
   %99 = load ptr, ptr %file_monitor.i, align 8
   tail call void @qemu_file_monitor_free(ptr noundef %99) #15
@@ -2385,55 +2421,55 @@ if.else38:                                        ; preds = %usb_mtp_file_monito
   unreachable
 
 sw.bb40:                                          ; preds = %if.end
-  %call.i.i195 = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 64) #17
+  %call.i.i196 = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 64) #17
   %102 = load i16, ptr %c, align 4
-  store i16 %102, ptr %call.i.i195, align 8
-  %trans.i.i196 = getelementptr inbounds i8, ptr %c, i64 4
-  %103 = load i32, ptr %trans.i.i196, align 4
-  %trans2.i.i197 = getelementptr inbounds i8, ptr %call.i.i195, i64 4
-  store i32 %103, ptr %trans2.i.i197, align 4
-  %fd.i.i198 = getelementptr inbounds i8, ptr %call.i.i195, i64 44
-  store i32 -1, ptr %fd.i.i198, align 4
-  %first.i.i199 = getelementptr inbounds i8, ptr %call.i.i195, i64 40
-  store i8 1, ptr %first.i.i199, align 8
-  %addr.i200 = getelementptr inbounds i8, ptr %s, i64 224
-  %104 = load i8, ptr %addr.i200, align 8
-  %conv.i201 = zext i8 %104 to i32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i194)
+  store i16 %102, ptr %call.i.i196, align 8
+  %trans.i.i197 = getelementptr inbounds i8, ptr %c, i64 4
+  %103 = load i32, ptr %trans.i.i197, align 4
+  %trans2.i.i198 = getelementptr inbounds i8, ptr %call.i.i196, i64 4
+  store i32 %103, ptr %trans2.i.i198, align 4
+  %fd.i.i199 = getelementptr inbounds i8, ptr %call.i.i196, i64 44
+  store i32 -1, ptr %fd.i.i199, align 4
+  %first.i.i200 = getelementptr inbounds i8, ptr %call.i.i196, i64 40
+  store i8 1, ptr %first.i.i200, align 8
+  %addr.i201 = getelementptr inbounds i8, ptr %s, i64 224
+  %104 = load i8, ptr %addr.i201, align 8
+  %conv.i202 = zext i8 %104 to i32
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i195)
   %105 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i202 = icmp ne i32 %105, 0
+  %tobool.i.i.i203 = icmp ne i32 %105, 0
   %106 = load i16, ptr @_TRACE_USB_MTP_OP_GET_STORAGE_IDS_DSTATE, align 2
-  %tobool4.i.i.i203 = icmp ne i16 %106, 0
-  %or.cond.i.i.i204 = select i1 %tobool.i.i.i202, i1 %tobool4.i.i.i203, i1 false
-  br i1 %or.cond.i.i.i204, label %land.lhs.true5.i.i.i205, label %usb_mtp_get_storage_ids.exit
+  %tobool4.i.i.i204 = icmp ne i16 %106, 0
+  %or.cond.i.i.i205 = select i1 %tobool.i.i.i203, i1 %tobool4.i.i.i204, i1 false
+  br i1 %or.cond.i.i.i205, label %land.lhs.true5.i.i.i206, label %usb_mtp_get_storage_ids.exit
 
-land.lhs.true5.i.i.i205:                          ; preds = %sw.bb40
+land.lhs.true5.i.i.i206:                          ; preds = %sw.bb40
   %107 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i206 = and i32 %107, 32768
-  %cmp.i.not.i.i.i207 = icmp eq i32 %and.i.i.i.i206, 0
-  br i1 %cmp.i.not.i.i.i207, label %usb_mtp_get_storage_ids.exit, label %if.then.i.i.i208
+  %and.i.i.i.i207 = and i32 %107, 32768
+  %cmp.i.not.i.i.i208 = icmp eq i32 %and.i.i.i.i207, 0
+  br i1 %cmp.i.not.i.i.i208, label %usb_mtp_get_storage_ids.exit, label %if.then.i.i.i209
 
-if.then.i.i.i208:                                 ; preds = %land.lhs.true5.i.i.i205
+if.then.i.i.i209:                                 ; preds = %land.lhs.true5.i.i.i206
   %108 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i.i209 = trunc i8 %108 to i1
-  br i1 %tobool7.i.i.i209, label %if.then8.i.i.i211, label %if.else.i.i.i210
+  %tobool7.i.i.i210 = trunc i8 %108 to i1
+  br i1 %tobool7.i.i.i210, label %if.then8.i.i.i212, label %if.else.i.i.i211
 
-if.then8.i.i.i211:                                ; preds = %if.then.i.i.i208
-  %call9.i.i.i212 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i194, ptr noundef null) #15
-  %call10.i.i.i213 = tail call i32 @qemu_get_thread_id() #15
-  %109 = load i64, ptr %_now.i.i.i194, align 8
-  %tv_usec.i.i.i214 = getelementptr inbounds i8, ptr %_now.i.i.i194, i64 8
-  %110 = load i64, ptr %tv_usec.i.i.i214, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.62, i32 noundef %call10.i.i.i213, i64 noundef %109, i64 noundef %110, i32 noundef %conv.i201) #15
+if.then8.i.i.i212:                                ; preds = %if.then.i.i.i209
+  %call9.i.i.i213 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i195, ptr noundef null) #15
+  %call10.i.i.i214 = tail call i32 @qemu_get_thread_id() #15
+  %109 = load i64, ptr %_now.i.i.i195, align 8
+  %tv_usec.i.i.i215 = getelementptr inbounds i8, ptr %_now.i.i.i195, i64 8
+  %110 = load i64, ptr %tv_usec.i.i.i215, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.62, i32 noundef %call10.i.i.i214, i64 noundef %109, i64 noundef %110, i32 noundef %conv.i202) #15
   br label %usb_mtp_get_storage_ids.exit
 
-if.else.i.i.i210:                                 ; preds = %if.then.i.i.i208
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.63, i32 noundef %conv.i201) #15
+if.else.i.i.i211:                                 ; preds = %if.then.i.i.i209
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.63, i32 noundef %conv.i202) #15
   br label %usb_mtp_get_storage_ids.exit
 
-usb_mtp_get_storage_ids.exit:                     ; preds = %sw.bb40, %land.lhs.true5.i.i.i205, %if.then8.i.i.i211, %if.else.i.i.i210
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i194)
-  tail call fastcc void @usb_mtp_add_u32_array(ptr noundef nonnull %call.i.i195, i32 noundef 1, ptr noundef nonnull @usb_mtp_get_storage_ids.ids)
+usb_mtp_get_storage_ids.exit:                     ; preds = %sw.bb40, %land.lhs.true5.i.i.i206, %if.then8.i.i.i212, %if.else.i.i.i211
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i195)
+  tail call fastcc void @usb_mtp_add_u32_array(ptr noundef nonnull %call.i.i196, i32 noundef 1, ptr noundef nonnull @usb_mtp_get_storage_ids.ids)
   br label %if.then302
 
 sw.bb42:                                          ; preds = %if.end
@@ -2452,116 +2488,116 @@ if.then52:                                        ; preds = %sw.bb42
 
 if.end54:                                         ; preds = %sw.bb42, %sw.bb42
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %buf.i)
-  %call.i.i216 = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 64) #17
+  %call.i.i217 = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 64) #17
   %113 = load i16, ptr %c, align 4
-  store i16 %113, ptr %call.i.i216, align 8
-  %trans.i.i217 = getelementptr inbounds i8, ptr %c, i64 4
-  %114 = load i32, ptr %trans.i.i217, align 4
-  %trans2.i.i218 = getelementptr inbounds i8, ptr %call.i.i216, i64 4
-  store i32 %114, ptr %trans2.i.i218, align 4
-  %fd.i.i219 = getelementptr inbounds i8, ptr %call.i.i216, i64 44
-  store i32 -1, ptr %fd.i.i219, align 4
-  %first.i.i220 = getelementptr inbounds i8, ptr %call.i.i216, i64 40
-  store i8 1, ptr %first.i.i220, align 8
-  %addr.i221 = getelementptr inbounds i8, ptr %s, i64 224
-  %115 = load i8, ptr %addr.i221, align 8
-  %conv.i222 = zext i8 %115 to i32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i215)
+  store i16 %113, ptr %call.i.i217, align 8
+  %trans.i.i218 = getelementptr inbounds i8, ptr %c, i64 4
+  %114 = load i32, ptr %trans.i.i218, align 4
+  %trans2.i.i219 = getelementptr inbounds i8, ptr %call.i.i217, i64 4
+  store i32 %114, ptr %trans2.i.i219, align 4
+  %fd.i.i220 = getelementptr inbounds i8, ptr %call.i.i217, i64 44
+  store i32 -1, ptr %fd.i.i220, align 4
+  %first.i.i221 = getelementptr inbounds i8, ptr %call.i.i217, i64 40
+  store i8 1, ptr %first.i.i221, align 8
+  %addr.i222 = getelementptr inbounds i8, ptr %s, i64 224
+  %115 = load i8, ptr %addr.i222, align 8
+  %conv.i223 = zext i8 %115 to i32
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i216)
   %116 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i223 = icmp ne i32 %116, 0
+  %tobool.i.i.i224 = icmp ne i32 %116, 0
   %117 = load i16, ptr @_TRACE_USB_MTP_OP_GET_STORAGE_INFO_DSTATE, align 2
-  %tobool4.i.i.i224 = icmp ne i16 %117, 0
-  %or.cond.i.i.i225 = select i1 %tobool.i.i.i223, i1 %tobool4.i.i.i224, i1 false
-  br i1 %or.cond.i.i.i225, label %land.lhs.true5.i.i.i250, label %trace_usb_mtp_op_get_storage_info.exit.i
+  %tobool4.i.i.i225 = icmp ne i16 %117, 0
+  %or.cond.i.i.i226 = select i1 %tobool.i.i.i224, i1 %tobool4.i.i.i225, i1 false
+  br i1 %or.cond.i.i.i226, label %land.lhs.true5.i.i.i255, label %trace_usb_mtp_op_get_storage_info.exit.i
 
-land.lhs.true5.i.i.i250:                          ; preds = %if.end54
+land.lhs.true5.i.i.i255:                          ; preds = %if.end54
   %118 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i251 = and i32 %118, 32768
-  %cmp.i.not.i.i.i252 = icmp eq i32 %and.i.i.i.i251, 0
-  br i1 %cmp.i.not.i.i.i252, label %trace_usb_mtp_op_get_storage_info.exit.i, label %if.then.i.i.i253
+  %and.i.i.i.i256 = and i32 %118, 32768
+  %cmp.i.not.i.i.i257 = icmp eq i32 %and.i.i.i.i256, 0
+  br i1 %cmp.i.not.i.i.i257, label %trace_usb_mtp_op_get_storage_info.exit.i, label %if.then.i.i.i258
 
-if.then.i.i.i253:                                 ; preds = %land.lhs.true5.i.i.i250
+if.then.i.i.i258:                                 ; preds = %land.lhs.true5.i.i.i255
   %119 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i.i254 = trunc i8 %119 to i1
-  br i1 %tobool7.i.i.i254, label %if.then8.i.i.i256, label %if.else.i.i.i255
+  %tobool7.i.i.i259 = trunc i8 %119 to i1
+  br i1 %tobool7.i.i.i259, label %if.then8.i.i.i261, label %if.else.i.i.i260
 
-if.then8.i.i.i256:                                ; preds = %if.then.i.i.i253
-  %call9.i.i.i257 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i215, ptr noundef null) #15
-  %call10.i.i.i258 = tail call i32 @qemu_get_thread_id() #15
-  %120 = load i64, ptr %_now.i.i.i215, align 8
-  %tv_usec.i.i.i259 = getelementptr inbounds i8, ptr %_now.i.i.i215, i64 8
-  %121 = load i64, ptr %tv_usec.i.i.i259, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.65, i32 noundef %call10.i.i.i258, i64 noundef %120, i64 noundef %121, i32 noundef %conv.i222) #15
+if.then8.i.i.i261:                                ; preds = %if.then.i.i.i258
+  %call9.i.i.i262 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i216, ptr noundef null) #15
+  %call10.i.i.i263 = tail call i32 @qemu_get_thread_id() #15
+  %120 = load i64, ptr %_now.i.i.i216, align 8
+  %tv_usec.i.i.i264 = getelementptr inbounds i8, ptr %_now.i.i.i216, i64 8
+  %121 = load i64, ptr %tv_usec.i.i.i264, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.65, i32 noundef %call10.i.i.i263, i64 noundef %120, i64 noundef %121, i32 noundef %conv.i223) #15
   br label %trace_usb_mtp_op_get_storage_info.exit.i
 
-if.else.i.i.i255:                                 ; preds = %if.then.i.i.i253
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.66, i32 noundef %conv.i222) #15
+if.else.i.i.i260:                                 ; preds = %if.then.i.i.i258
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.66, i32 noundef %conv.i223) #15
   br label %trace_usb_mtp_op_get_storage_info.exit.i
 
-trace_usb_mtp_op_get_storage_info.exit.i:         ; preds = %if.else.i.i.i255, %if.then8.i.i.i256, %land.lhs.true5.i.i.i250, %if.end54
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i215)
+trace_usb_mtp_op_get_storage_info.exit.i:         ; preds = %if.else.i.i.i260, %if.then8.i.i.i261, %land.lhs.true5.i.i.i255, %if.end54
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i216)
   %flags.i = getelementptr inbounds i8, ptr %s, i64 5880
   %122 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %122, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
-  %length.i.i56.i = getelementptr inbounds i8, ptr %call.i.i216, i64 16
+  %length.i.i56.i = getelementptr inbounds i8, ptr %call.i.i217, i64 16
   %123 = load i64, ptr %length.i.i56.i, align 8
   %add.i.i57.i = add i64 %123, 2
-  %alloc.i.i58.i = getelementptr inbounds i8, ptr %call.i.i216, i64 24
+  %alloc.i.i58.i = getelementptr inbounds i8, ptr %call.i.i217, i64 24
   %124 = load i64, ptr %alloc.i.i58.i, align 8
   %cmp.not.i.i59.i = icmp ugt i64 %add.i.i57.i, %124
-  br i1 %tobool.not.i, label %if.else.i249, label %if.then.i
+  br i1 %tobool.not.i, label %if.else.i254, label %if.then.i227
 
-if.then.i:                                        ; preds = %trace_usb_mtp_op_get_storage_info.exit.i
-  br i1 %cmp.not.i.i59.i, label %if.end.i.i.i243, label %entry.usb_mtp_realloc.exit_crit_edge.i.i226
+if.then.i227:                                     ; preds = %trace_usb_mtp_op_get_storage_info.exit.i
+  br i1 %cmp.not.i.i59.i, label %if.end.i.i.i248, label %entry.usb_mtp_realloc.exit_crit_edge.i.i228
 
-entry.usb_mtp_realloc.exit_crit_edge.i.i226:      ; preds = %if.then.i
-  %data2.phi.trans.insert.i.i227 = getelementptr inbounds i8, ptr %call.i.i216, i64 32
-  %.pre.i.i228 = load ptr, ptr %data2.phi.trans.insert.i.i227, align 8
-  br label %usb_mtp_add_u16.exit.i229
+entry.usb_mtp_realloc.exit_crit_edge.i.i228:      ; preds = %if.then.i227
+  %data2.phi.trans.insert.i.i229 = getelementptr inbounds i8, ptr %call.i.i217, i64 32
+  %.pre.i.i230 = load ptr, ptr %data2.phi.trans.insert.i.i229, align 8
+  br label %usb_mtp_add_u16.exit.i231
 
-if.end.i.i.i243:                                  ; preds = %if.then.i
-  %add5.i.i.i244 = add i64 %123, 257
-  %and.i.i.i245 = and i64 %add5.i.i.i244, -256
-  store i64 %and.i.i.i245, ptr %alloc.i.i58.i, align 8
-  %data7.i.i.i246 = getelementptr inbounds i8, ptr %call.i.i216, i64 32
-  %125 = load ptr, ptr %data7.i.i.i246, align 8
-  %call.i.i.i247 = tail call ptr @g_realloc(ptr noundef %125, i64 noundef %and.i.i.i245) #15
-  store ptr %call.i.i.i247, ptr %data7.i.i.i246, align 8
-  %.pre6.i.i248 = load i64, ptr %length.i.i56.i, align 8
-  br label %usb_mtp_add_u16.exit.i229
+if.end.i.i.i248:                                  ; preds = %if.then.i227
+  %add5.i.i.i249 = add i64 %123, 257
+  %and.i.i.i250 = and i64 %add5.i.i.i249, -256
+  store i64 %and.i.i.i250, ptr %alloc.i.i58.i, align 8
+  %data7.i.i.i251 = getelementptr inbounds i8, ptr %call.i.i217, i64 32
+  %125 = load ptr, ptr %data7.i.i.i251, align 8
+  %call.i.i.i252 = tail call ptr @g_realloc(ptr noundef %125, i64 noundef %and.i.i.i250) #15
+  store ptr %call.i.i.i252, ptr %data7.i.i.i251, align 8
+  %.pre6.i.i253 = load i64, ptr %length.i.i56.i, align 8
+  br label %usb_mtp_add_u16.exit.i231
 
-usb_mtp_add_u16.exit.i229:                        ; preds = %if.end.i.i.i243, %entry.usb_mtp_realloc.exit_crit_edge.i.i226
-  %126 = phi i64 [ %123, %entry.usb_mtp_realloc.exit_crit_edge.i.i226 ], [ %.pre6.i.i248, %if.end.i.i.i243 ]
-  %127 = phi ptr [ %.pre.i.i228, %entry.usb_mtp_realloc.exit_crit_edge.i.i226 ], [ %call.i.i.i247, %if.end.i.i.i243 ]
-  %data2.i.i230 = getelementptr inbounds i8, ptr %call.i.i216, i64 32
-  %inc.i.i231 = add i64 %126, 1
-  store i64 %inc.i.i231, ptr %length.i.i56.i, align 8
-  %arrayidx.i.i232 = getelementptr i8, ptr %127, i64 %126
-  store i8 3, ptr %arrayidx.i.i232, align 1
-  %128 = load ptr, ptr %data2.i.i230, align 8
+usb_mtp_add_u16.exit.i231:                        ; preds = %if.end.i.i.i248, %entry.usb_mtp_realloc.exit_crit_edge.i.i228
+  %126 = phi i64 [ %123, %entry.usb_mtp_realloc.exit_crit_edge.i.i228 ], [ %.pre6.i.i253, %if.end.i.i.i248 ]
+  %127 = phi ptr [ %.pre.i.i230, %entry.usb_mtp_realloc.exit_crit_edge.i.i228 ], [ %call.i.i.i252, %if.end.i.i.i248 ]
+  %data2.i.i232 = getelementptr inbounds i8, ptr %call.i.i217, i64 32
+  %inc.i.i233 = add i64 %126, 1
+  store i64 %inc.i.i233, ptr %length.i.i56.i, align 8
+  %arrayidx.i.i234 = getelementptr i8, ptr %127, i64 %126
+  store i8 3, ptr %arrayidx.i.i234, align 1
+  %128 = load ptr, ptr %data2.i.i232, align 8
   %129 = load i64, ptr %length.i.i56.i, align 8
-  %inc9.i.i233 = add i64 %129, 1
-  store i64 %inc9.i.i233, ptr %length.i.i56.i, align 8
-  %arrayidx10.i.i234 = getelementptr i8, ptr %128, i64 %129
-  store i8 0, ptr %arrayidx10.i.i234, align 1
+  %inc9.i.i235 = add i64 %129, 1
+  store i64 %inc9.i.i235, ptr %length.i.i56.i, align 8
+  %arrayidx10.i.i236 = getelementptr i8, ptr %128, i64 %129
+  store i8 0, ptr %arrayidx10.i.i236, align 1
   %130 = load i64, ptr %length.i.i56.i, align 8
   %add.i.i19.i = add i64 %130, 2
   %131 = load i64, ptr %alloc.i.i58.i, align 8
   %cmp.not.i.i21.i = icmp ugt i64 %add.i.i19.i, %131
   br i1 %cmp.not.i.i21.i, label %if.end.i.i30.i, label %entry.usb_mtp_realloc.exit_crit_edge.i22.i
 
-entry.usb_mtp_realloc.exit_crit_edge.i22.i:       ; preds = %usb_mtp_add_u16.exit.i229
-  %.pre.i24.i = load ptr, ptr %data2.i.i230, align 8
+entry.usb_mtp_realloc.exit_crit_edge.i22.i:       ; preds = %usb_mtp_add_u16.exit.i231
+  %.pre.i24.i = load ptr, ptr %data2.i.i232, align 8
   br label %usb_mtp_add_u16.exit36.i
 
-if.end.i.i30.i:                                   ; preds = %usb_mtp_add_u16.exit.i229
+if.end.i.i30.i:                                   ; preds = %usb_mtp_add_u16.exit.i231
   %add5.i.i31.i = add i64 %130, 257
   %and.i.i32.i = and i64 %add5.i.i31.i, -256
   store i64 %and.i.i32.i, ptr %alloc.i.i58.i, align 8
-  %132 = load ptr, ptr %data2.i.i230, align 8
+  %132 = load ptr, ptr %data2.i.i232, align 8
   %call.i.i34.i = tail call ptr @g_realloc(ptr noundef %132, i64 noundef %and.i.i32.i) #15
-  store ptr %call.i.i34.i, ptr %data2.i.i230, align 8
+  store ptr %call.i.i34.i, ptr %data2.i.i232, align 8
   %.pre6.i35.i = load i64, ptr %length.i.i56.i, align 8
   br label %usb_mtp_add_u16.exit36.i
 
@@ -2572,7 +2608,7 @@ usb_mtp_add_u16.exit36.i:                         ; preds = %if.end.i.i30.i, %en
   store i64 %inc.i26.i, ptr %length.i.i56.i, align 8
   %arrayidx.i27.i = getelementptr i8, ptr %134, i64 %133
   store i8 2, ptr %arrayidx.i27.i, align 1
-  %135 = load ptr, ptr %data2.i.i230, align 8
+  %135 = load ptr, ptr %data2.i.i232, align 8
   %136 = load i64, ptr %length.i.i56.i, align 8
   %inc9.i28.i = add i64 %136, 1
   store i64 %inc9.i28.i, ptr %length.i.i56.i, align 8
@@ -2585,16 +2621,16 @@ usb_mtp_add_u16.exit36.i:                         ; preds = %if.end.i.i30.i, %en
   br i1 %cmp.not.i.i40.i, label %if.end.i.i49.i, label %entry.usb_mtp_realloc.exit_crit_edge.i41.i
 
 entry.usb_mtp_realloc.exit_crit_edge.i41.i:       ; preds = %usb_mtp_add_u16.exit36.i
-  %.pre.i43.i = load ptr, ptr %data2.i.i230, align 8
+  %.pre.i43.i = load ptr, ptr %data2.i.i232, align 8
   br label %usb_mtp_add_u16.exit55.i
 
 if.end.i.i49.i:                                   ; preds = %usb_mtp_add_u16.exit36.i
   %add5.i.i50.i = add i64 %137, 257
   %and.i.i51.i = and i64 %add5.i.i50.i, -256
   store i64 %and.i.i51.i, ptr %alloc.i.i58.i, align 8
-  %139 = load ptr, ptr %data2.i.i230, align 8
+  %139 = load ptr, ptr %data2.i.i232, align 8
   %call.i.i53.i = tail call ptr @g_realloc(ptr noundef %139, i64 noundef %and.i.i51.i) #15
-  store ptr %call.i.i53.i, ptr %data2.i.i230, align 8
+  store ptr %call.i.i53.i, ptr %data2.i.i232, align 8
   %.pre6.i54.i = load i64, ptr %length.i.i56.i, align 8
   br label %usb_mtp_add_u16.exit55.i
 
@@ -2605,21 +2641,21 @@ usb_mtp_add_u16.exit55.i:                         ; preds = %if.end.i.i49.i, %en
   store i64 %inc.i45.i, ptr %length.i.i56.i, align 8
   %arrayidx.i46.i = getelementptr i8, ptr %141, i64 %140
   store i8 0, ptr %arrayidx.i46.i, align 1
-  br label %if.end.i
+  br label %if.end.i237
 
-if.else.i249:                                     ; preds = %trace_usb_mtp_op_get_storage_info.exit.i
+if.else.i254:                                     ; preds = %trace_usb_mtp_op_get_storage_info.exit.i
   br i1 %cmp.not.i.i59.i, label %if.end.i.i68.i, label %entry.usb_mtp_realloc.exit_crit_edge.i60.i
 
-entry.usb_mtp_realloc.exit_crit_edge.i60.i:       ; preds = %if.else.i249
-  %data2.phi.trans.insert.i61.i = getelementptr inbounds i8, ptr %call.i.i216, i64 32
+entry.usb_mtp_realloc.exit_crit_edge.i60.i:       ; preds = %if.else.i254
+  %data2.phi.trans.insert.i61.i = getelementptr inbounds i8, ptr %call.i.i217, i64 32
   %.pre.i62.i = load ptr, ptr %data2.phi.trans.insert.i61.i, align 8
   br label %usb_mtp_add_u16.exit74.i
 
-if.end.i.i68.i:                                   ; preds = %if.else.i249
+if.end.i.i68.i:                                   ; preds = %if.else.i254
   %add5.i.i69.i = add i64 %123, 257
   %and.i.i70.i = and i64 %add5.i.i69.i, -256
   store i64 %and.i.i70.i, ptr %alloc.i.i58.i, align 8
-  %data7.i.i71.i = getelementptr inbounds i8, ptr %call.i.i216, i64 32
+  %data7.i.i71.i = getelementptr inbounds i8, ptr %call.i.i217, i64 32
   %142 = load ptr, ptr %data7.i.i71.i, align 8
   %call.i.i72.i = tail call ptr @g_realloc(ptr noundef %142, i64 noundef %and.i.i70.i) #15
   store ptr %call.i.i72.i, ptr %data7.i.i71.i, align 8
@@ -2629,7 +2665,7 @@ if.end.i.i68.i:                                   ; preds = %if.else.i249
 usb_mtp_add_u16.exit74.i:                         ; preds = %if.end.i.i68.i, %entry.usb_mtp_realloc.exit_crit_edge.i60.i
   %143 = phi i64 [ %123, %entry.usb_mtp_realloc.exit_crit_edge.i60.i ], [ %.pre6.i73.i, %if.end.i.i68.i ]
   %144 = phi ptr [ %.pre.i62.i, %entry.usb_mtp_realloc.exit_crit_edge.i60.i ], [ %call.i.i72.i, %if.end.i.i68.i ]
-  %data2.i63.i = getelementptr inbounds i8, ptr %call.i.i216, i64 32
+  %data2.i63.i = getelementptr inbounds i8, ptr %call.i.i217, i64 32
   %inc.i64.i = add i64 %143, 1
   store i64 %inc.i64.i, ptr %length.i.i56.i, align 8
   %arrayidx.i65.i = getelementptr i8, ptr %144, i64 %143
@@ -2700,228 +2736,228 @@ usb_mtp_add_u16.exit112.i:                        ; preds = %if.end.i.i106.i, %e
   store i64 %inc.i102.i, ptr %length.i.i56.i, align 8
   %arrayidx.i103.i = getelementptr i8, ptr %158, i64 %157
   store i8 1, ptr %arrayidx.i103.i, align 1
-  br label %if.end.i
+  br label %if.end.i237
 
-if.end.i:                                         ; preds = %usb_mtp_add_u16.exit112.i, %usb_mtp_add_u16.exit55.i
-  %data2.i63.sink.i = phi ptr [ %data2.i63.i, %usb_mtp_add_u16.exit112.i ], [ %data2.i.i230, %usb_mtp_add_u16.exit55.i ]
-  %159 = load ptr, ptr %data2.i63.sink.i, align 8
-  %160 = load i64, ptr %length.i.i56.i, align 8
-  %inc9.i104.i = add i64 %160, 1
+if.end.i237:                                      ; preds = %usb_mtp_add_u16.exit112.i, %usb_mtp_add_u16.exit55.i
+  %.sink.in.i = phi ptr [ %data2.i63.i, %usb_mtp_add_u16.exit112.i ], [ %data2.i.i232, %usb_mtp_add_u16.exit55.i ]
+  %.sink.i = load ptr, ptr %.sink.in.i, align 8
+  %159 = load i64, ptr %length.i.i56.i, align 8
+  %inc9.i104.i = add i64 %159, 1
   store i64 %inc9.i104.i, ptr %length.i.i56.i, align 8
-  %arrayidx10.i105.i = getelementptr i8, ptr %159, i64 %160
+  %arrayidx10.i105.i = getelementptr i8, ptr %.sink.i, i64 %159
   store i8 0, ptr %arrayidx10.i105.i, align 1
   %root.i = getelementptr inbounds i8, ptr %s, i64 5864
-  %161 = load ptr, ptr %root.i, align 8
-  %call1.i = call i32 @statvfs64(ptr noundef %161, ptr noundef nonnull %buf.i) #15
+  %160 = load ptr, ptr %root.i, align 8
+  %call1.i = call i32 @statvfs64(ptr noundef %160, ptr noundef nonnull %buf.i) #15
   %cmp.i = icmp eq i32 %call1.i, 0
   br i1 %cmp.i, label %if.then3.i, label %if.else7.i
 
-if.then3.i:                                       ; preds = %if.end.i
+if.then3.i:                                       ; preds = %if.end.i237
   %f_frsize.i = getelementptr inbounds i8, ptr %buf.i, i64 8
-  %162 = load i64, ptr %f_frsize.i, align 8
+  %161 = load i64, ptr %f_frsize.i, align 8
   %f_blocks.i = getelementptr inbounds i8, ptr %buf.i, i64 16
-  %163 = load i64, ptr %f_blocks.i, align 8
-  %mul.i = mul i64 %163, %162
-  tail call fastcc void @usb_mtp_add_u64(ptr noundef nonnull %call.i.i216, i64 noundef %mul.i)
+  %162 = load i64, ptr %f_blocks.i, align 8
+  %mul.i = mul i64 %162, %161
+  tail call fastcc void @usb_mtp_add_u64(ptr noundef nonnull %call.i.i217, i64 noundef %mul.i)
   %f_bavail.i = getelementptr inbounds i8, ptr %buf.i, i64 32
-  %164 = load i64, ptr %f_bavail.i, align 8
-  %mul5.i = mul i64 %164, %163
-  tail call fastcc void @usb_mtp_add_u64(ptr noundef nonnull %call.i.i216, i64 noundef %mul5.i)
+  %163 = load i64, ptr %f_bavail.i, align 8
+  %mul5.i = mul i64 %163, %162
+  tail call fastcc void @usb_mtp_add_u64(ptr noundef nonnull %call.i.i217, i64 noundef %mul5.i)
   %f_ffree.i = getelementptr inbounds i8, ptr %buf.i, i64 48
-  %165 = load i64, ptr %f_ffree.i, align 8
-  %166 = load i64, ptr %length.i.i56.i, align 8
-  %add.i.i114.i = add i64 %166, 4
-  %167 = load i64, ptr %alloc.i.i58.i, align 8
-  %cmp.not.i.i116.i = icmp ugt i64 %add.i.i114.i, %167
+  %164 = load i64, ptr %f_ffree.i, align 8
+  %165 = load i64, ptr %length.i.i56.i, align 8
+  %add.i.i114.i = add i64 %165, 4
+  %166 = load i64, ptr %alloc.i.i58.i, align 8
+  %cmp.not.i.i116.i = icmp ugt i64 %add.i.i114.i, %166
   br i1 %cmp.not.i.i116.i, label %if.end.i.i121.i, label %entry.usb_mtp_realloc.exit_crit_edge.i117.i
 
 entry.usb_mtp_realloc.exit_crit_edge.i117.i:      ; preds = %if.then3.i
-  %data1.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %call.i.i216, i64 32
+  %data1.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %call.i.i217, i64 32
   %.pre.i118.i = load ptr, ptr %data1.phi.trans.insert.i.i, align 8
-  br label %usb_mtp_add_u32.exit.i237
+  br label %usb_mtp_add_u32.exit.i240
 
 if.end.i.i121.i:                                  ; preds = %if.then3.i
-  %add5.i.i122.i = add i64 %166, 259
+  %add5.i.i122.i = add i64 %165, 259
   %and.i.i123.i = and i64 %add5.i.i122.i, -256
   store i64 %and.i.i123.i, ptr %alloc.i.i58.i, align 8
-  %data7.i.i124.i = getelementptr inbounds i8, ptr %call.i.i216, i64 32
-  %168 = load ptr, ptr %data7.i.i124.i, align 8
-  %call.i.i125.i = tail call ptr @g_realloc(ptr noundef %168, i64 noundef %and.i.i123.i) #15
+  %data7.i.i124.i = getelementptr inbounds i8, ptr %call.i.i217, i64 32
+  %167 = load ptr, ptr %data7.i.i124.i, align 8
+  %call.i.i125.i = tail call ptr @g_realloc(ptr noundef %167, i64 noundef %and.i.i123.i) #15
   store ptr %call.i.i125.i, ptr %data7.i.i124.i, align 8
-  %.pre12.i.i242 = load i64, ptr %length.i.i56.i, align 8
-  br label %usb_mtp_add_u32.exit.i237
+  %.pre12.i.i247 = load i64, ptr %length.i.i56.i, align 8
+  br label %usb_mtp_add_u32.exit.i240
 
-usb_mtp_add_u32.exit.i237:                        ; preds = %if.end.i.i121.i, %entry.usb_mtp_realloc.exit_crit_edge.i117.i
-  %169 = phi i64 [ %166, %entry.usb_mtp_realloc.exit_crit_edge.i117.i ], [ %.pre12.i.i242, %if.end.i.i121.i ]
-  %170 = phi ptr [ %.pre.i118.i, %entry.usb_mtp_realloc.exit_crit_edge.i117.i ], [ %call.i.i125.i, %if.end.i.i121.i ]
-  %conv.i.i = trunc i64 %165 to i8
-  %data1.i.i = getelementptr inbounds i8, ptr %call.i.i216, i64 32
-  %inc.i119.i = add i64 %169, 1
+usb_mtp_add_u32.exit.i240:                        ; preds = %if.end.i.i121.i, %entry.usb_mtp_realloc.exit_crit_edge.i117.i
+  %168 = phi i64 [ %165, %entry.usb_mtp_realloc.exit_crit_edge.i117.i ], [ %.pre12.i.i247, %if.end.i.i121.i ]
+  %169 = phi ptr [ %.pre.i118.i, %entry.usb_mtp_realloc.exit_crit_edge.i117.i ], [ %call.i.i125.i, %if.end.i.i121.i ]
+  %conv.i.i = trunc i64 %164 to i8
+  %data1.i.i = getelementptr inbounds i8, ptr %call.i.i217, i64 32
+  %inc.i119.i = add i64 %168, 1
   store i64 %inc.i119.i, ptr %length.i.i56.i, align 8
-  %arrayidx.i120.i = getelementptr i8, ptr %170, i64 %169
+  %arrayidx.i120.i = getelementptr i8, ptr %169, i64 %168
   store i8 %conv.i.i, ptr %arrayidx.i120.i, align 1
-  %shr2.i151.i = lshr i64 %165, 8
+  %shr2.i151.i = lshr i64 %164, 8
   %conv4.i.i = trunc i64 %shr2.i151.i to i8
-  %171 = load ptr, ptr %data1.i.i, align 8
-  %172 = load i64, ptr %length.i.i56.i, align 8
-  %inc7.i.i238 = add i64 %172, 1
-  store i64 %inc7.i.i238, ptr %length.i.i56.i, align 8
-  %arrayidx8.i.i239 = getelementptr i8, ptr %171, i64 %172
-  store i8 %conv4.i.i, ptr %arrayidx8.i.i239, align 1
-  %shr9.i152.i = lshr i64 %165, 16
+  %170 = load ptr, ptr %data1.i.i, align 8
+  %171 = load i64, ptr %length.i.i56.i, align 8
+  %inc7.i.i241 = add i64 %171, 1
+  store i64 %inc7.i.i241, ptr %length.i.i56.i, align 8
+  %arrayidx8.i.i242 = getelementptr i8, ptr %170, i64 %171
+  store i8 %conv4.i.i, ptr %arrayidx8.i.i242, align 1
+  %shr9.i152.i = lshr i64 %164, 16
   %conv11.i.i = trunc i64 %shr9.i152.i to i8
-  %173 = load ptr, ptr %data1.i.i, align 8
-  %174 = load i64, ptr %length.i.i56.i, align 8
-  %inc14.i.i240 = add i64 %174, 1
-  store i64 %inc14.i.i240, ptr %length.i.i56.i, align 8
-  %arrayidx15.i.i241 = getelementptr i8, ptr %173, i64 %174
-  store i8 %conv11.i.i, ptr %arrayidx15.i.i241, align 1
-  %shr16.i153.i = lshr i64 %165, 24
+  %172 = load ptr, ptr %data1.i.i, align 8
+  %173 = load i64, ptr %length.i.i56.i, align 8
+  %inc14.i.i243 = add i64 %173, 1
+  store i64 %inc14.i.i243, ptr %length.i.i56.i, align 8
+  %arrayidx15.i.i244 = getelementptr i8, ptr %172, i64 %173
+  store i8 %conv11.i.i, ptr %arrayidx15.i.i244, align 1
+  %shr16.i153.i = lshr i64 %164, 24
   %conv18.i.i = trunc i64 %shr16.i153.i to i8
   br label %if.end8.i
 
-if.else7.i:                                       ; preds = %if.end.i
-  tail call fastcc void @usb_mtp_add_u64(ptr noundef nonnull %call.i.i216, i64 noundef 4294967295)
-  tail call fastcc void @usb_mtp_add_u64(ptr noundef nonnull %call.i.i216, i64 noundef 4294967295)
-  %175 = load i64, ptr %length.i.i56.i, align 8
-  %add.i.i127.i = add i64 %175, 4
-  %176 = load i64, ptr %alloc.i.i58.i, align 8
-  %cmp.not.i.i129.i = icmp ugt i64 %add.i.i127.i, %176
+if.else7.i:                                       ; preds = %if.end.i237
+  tail call fastcc void @usb_mtp_add_u64(ptr noundef nonnull %call.i.i217, i64 noundef 4294967295)
+  tail call fastcc void @usb_mtp_add_u64(ptr noundef nonnull %call.i.i217, i64 noundef 4294967295)
+  %174 = load i64, ptr %length.i.i56.i, align 8
+  %add.i.i127.i = add i64 %174, 4
+  %175 = load i64, ptr %alloc.i.i58.i, align 8
+  %cmp.not.i.i129.i = icmp ugt i64 %add.i.i127.i, %175
   br i1 %cmp.not.i.i129.i, label %if.end.i.i142.i, label %entry.usb_mtp_realloc.exit_crit_edge.i130.i
 
 entry.usb_mtp_realloc.exit_crit_edge.i130.i:      ; preds = %if.else7.i
-  %data1.phi.trans.insert.i131.i = getelementptr inbounds i8, ptr %call.i.i216, i64 32
+  %data1.phi.trans.insert.i131.i = getelementptr inbounds i8, ptr %call.i.i217, i64 32
   %.pre.i132.i = load ptr, ptr %data1.phi.trans.insert.i131.i, align 8
   br label %usb_mtp_add_u32.exit148.i
 
 if.end.i.i142.i:                                  ; preds = %if.else7.i
-  %add5.i.i143.i = add i64 %175, 259
+  %add5.i.i143.i = add i64 %174, 259
   %and.i.i144.i = and i64 %add5.i.i143.i, -256
   store i64 %and.i.i144.i, ptr %alloc.i.i58.i, align 8
-  %data7.i.i145.i = getelementptr inbounds i8, ptr %call.i.i216, i64 32
-  %177 = load ptr, ptr %data7.i.i145.i, align 8
-  %call.i.i146.i = tail call ptr @g_realloc(ptr noundef %177, i64 noundef %and.i.i144.i) #15
+  %data7.i.i145.i = getelementptr inbounds i8, ptr %call.i.i217, i64 32
+  %176 = load ptr, ptr %data7.i.i145.i, align 8
+  %call.i.i146.i = tail call ptr @g_realloc(ptr noundef %176, i64 noundef %and.i.i144.i) #15
   store ptr %call.i.i146.i, ptr %data7.i.i145.i, align 8
   %.pre12.i147.i = load i64, ptr %length.i.i56.i, align 8
   br label %usb_mtp_add_u32.exit148.i
 
 usb_mtp_add_u32.exit148.i:                        ; preds = %if.end.i.i142.i, %entry.usb_mtp_realloc.exit_crit_edge.i130.i
-  %178 = phi i64 [ %175, %entry.usb_mtp_realloc.exit_crit_edge.i130.i ], [ %.pre12.i147.i, %if.end.i.i142.i ]
-  %179 = phi ptr [ %.pre.i132.i, %entry.usb_mtp_realloc.exit_crit_edge.i130.i ], [ %call.i.i146.i, %if.end.i.i142.i ]
-  %data1.i133.i = getelementptr inbounds i8, ptr %call.i.i216, i64 32
-  %inc.i134.i = add i64 %178, 1
+  %177 = phi i64 [ %174, %entry.usb_mtp_realloc.exit_crit_edge.i130.i ], [ %.pre12.i147.i, %if.end.i.i142.i ]
+  %178 = phi ptr [ %.pre.i132.i, %entry.usb_mtp_realloc.exit_crit_edge.i130.i ], [ %call.i.i146.i, %if.end.i.i142.i ]
+  %data1.i133.i = getelementptr inbounds i8, ptr %call.i.i217, i64 32
+  %inc.i134.i = add i64 %177, 1
   store i64 %inc.i134.i, ptr %length.i.i56.i, align 8
-  %arrayidx.i135.i = getelementptr i8, ptr %179, i64 %178
+  %arrayidx.i135.i = getelementptr i8, ptr %178, i64 %177
   store i8 -1, ptr %arrayidx.i135.i, align 1
-  %180 = load ptr, ptr %data1.i133.i, align 8
-  %181 = load i64, ptr %length.i.i56.i, align 8
-  %inc7.i136.i = add i64 %181, 1
+  %179 = load ptr, ptr %data1.i133.i, align 8
+  %180 = load i64, ptr %length.i.i56.i, align 8
+  %inc7.i136.i = add i64 %180, 1
   store i64 %inc7.i136.i, ptr %length.i.i56.i, align 8
-  %arrayidx8.i137.i = getelementptr i8, ptr %180, i64 %181
+  %arrayidx8.i137.i = getelementptr i8, ptr %179, i64 %180
   store i8 -1, ptr %arrayidx8.i137.i, align 1
-  %182 = load ptr, ptr %data1.i133.i, align 8
-  %183 = load i64, ptr %length.i.i56.i, align 8
-  %inc14.i138.i = add i64 %183, 1
+  %181 = load ptr, ptr %data1.i133.i, align 8
+  %182 = load i64, ptr %length.i.i56.i, align 8
+  %inc14.i138.i = add i64 %182, 1
   store i64 %inc14.i138.i, ptr %length.i.i56.i, align 8
-  %arrayidx15.i139.i = getelementptr i8, ptr %182, i64 %183
+  %arrayidx15.i139.i = getelementptr i8, ptr %181, i64 %182
   store i8 -1, ptr %arrayidx15.i139.i, align 1
   br label %if.end8.i
 
-if.end8.i:                                        ; preds = %usb_mtp_add_u32.exit148.i, %usb_mtp_add_u32.exit.i237
-  %data1.i133.sink.i = phi ptr [ %data1.i133.i, %usb_mtp_add_u32.exit148.i ], [ %data1.i.i, %usb_mtp_add_u32.exit.i237 ]
-  %.sink.i = phi i8 [ -1, %usb_mtp_add_u32.exit148.i ], [ %conv18.i.i, %usb_mtp_add_u32.exit.i237 ]
-  %184 = load ptr, ptr %data1.i133.sink.i, align 8
-  %185 = load i64, ptr %length.i.i56.i, align 8
-  %inc21.i140.i = add i64 %185, 1
+if.end8.i:                                        ; preds = %usb_mtp_add_u32.exit148.i, %usb_mtp_add_u32.exit.i240
+  %.sink672.in = phi ptr [ %data1.i133.i, %usb_mtp_add_u32.exit148.i ], [ %data1.i.i, %usb_mtp_add_u32.exit.i240 ]
+  %.sink = phi i8 [ -1, %usb_mtp_add_u32.exit148.i ], [ %conv18.i.i, %usb_mtp_add_u32.exit.i240 ]
+  %.sink672 = load ptr, ptr %.sink672.in, align 8
+  %183 = load i64, ptr %length.i.i56.i, align 8
+  %inc21.i140.i = add i64 %183, 1
   store i64 %inc21.i140.i, ptr %length.i.i56.i, align 8
-  %arrayidx22.i141.i = getelementptr i8, ptr %184, i64 %185
-  store i8 %.sink.i, ptr %arrayidx22.i141.i, align 1
+  %arrayidx22.i141.i = getelementptr i8, ptr %.sink672, i64 %183
+  store i8 %.sink, ptr %arrayidx22.i141.i, align 1
   %desc.i = getelementptr inbounds i8, ptr %s, i64 5872
-  %186 = load ptr, ptr %desc.i, align 8
-  %call.i149.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %186) #19
+  %184 = load ptr, ptr %desc.i, align 8
+  %call.i149.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %184) #19
   %conv.i150.i = add i64 %call.i149.i, 1
   %conv1.i.i = and i64 %conv.i150.i, 4294967295
   %call2.i.i = tail call noalias ptr @g_malloc_n(i64 noundef %conv1.i.i, i64 noundef 4) #17
-  %call4.i.i = tail call i64 @mbstowcs(ptr noundef %call2.i.i, ptr noundef %186, i64 noundef %conv1.i.i) #15
+  %call4.i.i = tail call i64 @mbstowcs(ptr noundef %call2.i.i, ptr noundef %184, i64 noundef %conv1.i.i) #15
   %cmp.i.i = icmp eq i64 %call4.i.i, -1
-  br i1 %cmp.i.i, label %if.then.i.i236, label %if.else.i.i235
+  br i1 %cmp.i.i, label %if.then.i.i239, label %if.else.i.i238
 
-if.then.i.i236:                                   ; preds = %if.end8.i
-  tail call fastcc void @usb_mtp_add_wstr(ptr noundef nonnull %call.i.i216, ptr noundef nonnull @.str.67)
+if.then.i.i239:                                   ; preds = %if.end8.i
+  tail call fastcc void @usb_mtp_add_wstr(ptr noundef nonnull %call.i.i217, ptr noundef nonnull @.str.67)
   br label %usb_mtp_get_storage_info.exit
 
-if.else.i.i235:                                   ; preds = %if.end8.i
-  tail call fastcc void @usb_mtp_add_wstr(ptr noundef nonnull %call.i.i216, ptr noundef %call2.i.i)
+if.else.i.i238:                                   ; preds = %if.end8.i
+  tail call fastcc void @usb_mtp_add_wstr(ptr noundef nonnull %call.i.i217, ptr noundef %call2.i.i)
   br label %usb_mtp_get_storage_info.exit
 
-usb_mtp_get_storage_info.exit:                    ; preds = %if.then.i.i236, %if.else.i.i235
+usb_mtp_get_storage_info.exit:                    ; preds = %if.then.i.i239, %if.else.i.i238
   tail call void @g_free(ptr noundef %call2.i.i) #15
-  tail call fastcc void @usb_mtp_add_wstr(ptr noundef nonnull %call.i.i216, ptr noundef nonnull @.str.64)
+  tail call fastcc void @usb_mtp_add_wstr(ptr noundef nonnull %call.i.i217, ptr noundef nonnull @.str.64)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %buf.i)
   br label %if.then302
 
 sw.bb56:                                          ; preds = %if.end, %if.end
   %argv57 = getelementptr inbounds i8, ptr %c, i64 12
-  %187 = load i32, ptr %argv57, align 4
-  switch i32 %187, label %if.then66 [
+  %185 = load i32, ptr %argv57, align 4
+  switch i32 %185, label %if.then66 [
     i32 65537, label %if.end68
     i32 -1, label %if.end68
   ]
 
 if.then66:                                        ; preds = %sw.bb56
   %trans67 = getelementptr inbounds i8, ptr %c, i64 4
-  %188 = load i32, ptr %trans67, align 4
-  %call.i260 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #17
-  store i16 8200, ptr %call.i260, align 4
-  %trans2.i261 = getelementptr inbounds i8, ptr %call.i260, i64 4
-  store i32 %188, ptr %trans2.i261, align 4
-  %argc3.i262 = getelementptr inbounds i8, ptr %call.i260, i64 8
-  store i32 0, ptr %argc3.i262, align 4
-  %result.i263 = getelementptr inbounds i8, ptr %s, i64 5904
-  %189 = load ptr, ptr %result.i263, align 8
-  %cmp14.i264 = icmp eq ptr %189, null
-  br i1 %cmp14.i264, label %usb_mtp_queue_result.exit266, label %if.else.i265
+  %186 = load i32, ptr %trans67, align 4
+  %call.i265 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #17
+  store i16 8200, ptr %call.i265, align 4
+  %trans2.i266 = getelementptr inbounds i8, ptr %call.i265, i64 4
+  store i32 %186, ptr %trans2.i266, align 4
+  %argc3.i267 = getelementptr inbounds i8, ptr %call.i265, i64 8
+  store i32 0, ptr %argc3.i267, align 4
+  %result.i268 = getelementptr inbounds i8, ptr %s, i64 5904
+  %187 = load ptr, ptr %result.i268, align 8
+  %cmp14.i269 = icmp eq ptr %187, null
+  br i1 %cmp14.i269, label %usb_mtp_queue_result.exit271, label %if.else.i270
 
-if.else.i265:                                     ; preds = %if.then66
+if.else.i270:                                     ; preds = %if.then66
   tail call void @__assert_fail(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.8, i32 noundef 800, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_mtp_queue_result) #18
   unreachable
 
-usb_mtp_queue_result.exit266:                     ; preds = %if.then66
-  store ptr %call.i260, ptr %result.i263, align 8
+usb_mtp_queue_result.exit271:                     ; preds = %if.then66
+  store ptr %call.i265, ptr %result.i268, align 8
   br label %return
 
 if.end68:                                         ; preds = %sw.bb56, %sw.bb56
   %arrayidx70 = getelementptr i8, ptr %c, i64 16
-  %190 = load i32, ptr %arrayidx70, align 4
-  %cmp71.not = icmp eq i32 %190, 0
+  %188 = load i32, ptr %arrayidx70, align 4
+  %cmp71.not = icmp eq i32 %188, 0
   br i1 %cmp71.not, label %if.end75, label %if.then73
 
 if.then73:                                        ; preds = %if.end68
   %trans74 = getelementptr inbounds i8, ptr %c, i64 4
-  %191 = load i32, ptr %trans74, align 4
-  %call.i267 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #17
-  store i16 8212, ptr %call.i267, align 4
-  %trans2.i268 = getelementptr inbounds i8, ptr %call.i267, i64 4
-  store i32 %191, ptr %trans2.i268, align 4
-  %argc3.i269 = getelementptr inbounds i8, ptr %call.i267, i64 8
-  store i32 0, ptr %argc3.i269, align 4
-  %result.i270 = getelementptr inbounds i8, ptr %s, i64 5904
-  %192 = load ptr, ptr %result.i270, align 8
-  %cmp14.i271 = icmp eq ptr %192, null
-  br i1 %cmp14.i271, label %usb_mtp_queue_result.exit273, label %if.else.i272
+  %189 = load i32, ptr %trans74, align 4
+  %call.i272 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #17
+  store i16 8212, ptr %call.i272, align 4
+  %trans2.i273 = getelementptr inbounds i8, ptr %call.i272, i64 4
+  store i32 %189, ptr %trans2.i273, align 4
+  %argc3.i274 = getelementptr inbounds i8, ptr %call.i272, i64 8
+  store i32 0, ptr %argc3.i274, align 4
+  %result.i275 = getelementptr inbounds i8, ptr %s, i64 5904
+  %190 = load ptr, ptr %result.i275, align 8
+  %cmp14.i276 = icmp eq ptr %190, null
+  br i1 %cmp14.i276, label %usb_mtp_queue_result.exit278, label %if.else.i277
 
-if.else.i272:                                     ; preds = %if.then73
+if.else.i277:                                     ; preds = %if.then73
   tail call void @__assert_fail(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.8, i32 noundef 800, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_mtp_queue_result) #18
   unreachable
 
-usb_mtp_queue_result.exit273:                     ; preds = %if.then73
-  store ptr %call.i267, ptr %result.i270, align 8
+usb_mtp_queue_result.exit278:                     ; preds = %if.then73
+  store ptr %call.i272, ptr %result.i275, align 8
   br label %return
 
 if.end75:                                         ; preds = %if.end68
   %arrayidx77 = getelementptr i8, ptr %c, i64 20
-  %193 = load i32, ptr %arrayidx77, align 4
-  switch i32 %193, label %if.else86 [
+  %191 = load i32, ptr %arrayidx77, align 4
+  switch i32 %191, label %if.else86 [
     i32 0, label %if.end90
     i32 -1, label %if.end90
   ]
@@ -2934,1126 +2970,1126 @@ if.else86:                                        ; preds = %if.end75
 
 for.body.i:                                       ; preds = %if.else86, %for.inc.i
   %o.06.i = phi ptr [ %o.0.i, %for.inc.i ], [ %o.04.i, %if.else86 ]
-  %194 = load i32, ptr %o.06.i, align 8
-  %cmp.i274 = icmp eq i32 %194, %193
-  br i1 %cmp.i274, label %if.end95, label %for.inc.i
+  %192 = load i32, ptr %o.06.i, align 8
+  %cmp.i279 = icmp eq i32 %192, %191
+  br i1 %cmp.i279, label %if.end95, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %next.i275 = getelementptr inbounds i8, ptr %o.06.i, i64 224
-  %o.0.i = load ptr, ptr %next.i275, align 8
-  %tobool.not.i276 = icmp eq ptr %o.0.i, null
-  br i1 %tobool.not.i276, label %if.then93, label %for.body.i, !llvm.loop !9
+  %next.i280 = getelementptr inbounds i8, ptr %o.06.i, i64 224
+  %o.0.i = load ptr, ptr %next.i280, align 8
+  %tobool.not.i281 = icmp eq ptr %o.0.i, null
+  br i1 %tobool.not.i281, label %if.then93, label %for.body.i, !llvm.loop !9
 
 if.end90:                                         ; preds = %if.end75, %if.end75
   %objects85 = getelementptr inbounds i8, ptr %s, i64 5928
-  %195 = load ptr, ptr %objects85, align 8
-  %cmp91 = icmp eq ptr %195, null
+  %193 = load ptr, ptr %objects85, align 8
+  %cmp91 = icmp eq ptr %193, null
   br i1 %cmp91, label %if.then93, label %if.end95
 
 if.then93:                                        ; preds = %for.inc.i, %if.else86, %if.end90
   %trans94 = getelementptr inbounds i8, ptr %c, i64 4
-  %196 = load i32, ptr %trans94, align 4
-  tail call fastcc void @usb_mtp_queue_result(ptr noundef %s, i16 noundef zeroext 8201, i32 noundef %196, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %194 = load i32, ptr %trans94, align 4
+  tail call fastcc void @usb_mtp_queue_result(ptr noundef %s, i16 noundef zeroext 8201, i32 noundef %194, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   br label %return
 
 if.end95:                                         ; preds = %for.body.i, %if.end90
-  %o.0607 = phi ptr [ %195, %if.end90 ], [ %o.06.i, %for.body.i ]
-  %format = getelementptr inbounds i8, ptr %o.0607, i64 4
-  %197 = load i16, ptr %format, align 4
-  %cmp97.not = icmp eq i16 %197, 12289
+  %o.0612 = phi ptr [ %193, %if.end90 ], [ %o.06.i, %for.body.i ]
+  %format = getelementptr inbounds i8, ptr %o.0612, i64 4
+  %195 = load i16, ptr %format, align 4
+  %cmp97.not = icmp eq i16 %195, 12289
   br i1 %cmp97.not, label %if.end101, label %if.then99
 
 if.then99:                                        ; preds = %if.end95
   %trans100 = getelementptr inbounds i8, ptr %c, i64 4
-  %198 = load i32, ptr %trans100, align 4
-  tail call fastcc void @usb_mtp_queue_result(ptr noundef %s, i16 noundef zeroext 8218, i32 noundef %198, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %196 = load i32, ptr %trans100, align 4
+  tail call fastcc void @usb_mtp_queue_result(ptr noundef %s, i16 noundef zeroext 8218, i32 noundef %196, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   br label %return
 
 if.end101:                                        ; preds = %if.end95
-  tail call fastcc void @usb_mtp_object_readdir(ptr noundef %s, ptr noundef %o.0607)
-  %199 = load i16, ptr %c, align 4
-  %cmp104 = icmp eq i16 %199, 4102
+  tail call fastcc void @usb_mtp_object_readdir(ptr noundef %s, ptr noundef %o.0612)
+  %197 = load i16, ptr %c, align 4
+  %cmp104 = icmp eq i16 %197, 4102
   br i1 %cmp104, label %if.then106, label %sw.epilog
 
 if.then106:                                       ; preds = %if.end101
   %addr108 = getelementptr inbounds i8, ptr %s, i64 224
-  %200 = load i8, ptr %addr108, align 8
-  %conv109 = zext i8 %200 to i32
-  %201 = load i32, ptr %o.0607, align 8
-  %path = getelementptr inbounds i8, ptr %o.0607, i64 16
-  %202 = load ptr, ptr %path, align 8
-  tail call fastcc void @trace_usb_mtp_op_get_num_objects(i32 noundef %conv109, i32 noundef %201, ptr noundef %202)
-  %nchildren = getelementptr inbounds i8, ptr %o.0607, i64 184
-  %203 = load i32, ptr %nchildren, align 8
+  %198 = load i8, ptr %addr108, align 8
+  %conv109 = zext i8 %198 to i32
+  %199 = load i32, ptr %o.0612, align 8
+  %path = getelementptr inbounds i8, ptr %o.0612, i64 16
+  %200 = load ptr, ptr %path, align 8
+  tail call fastcc void @trace_usb_mtp_op_get_num_objects(i32 noundef %conv109, i32 noundef %199, ptr noundef %200)
+  %nchildren = getelementptr inbounds i8, ptr %o.0612, i64 184
+  %201 = load i32, ptr %nchildren, align 8
   br label %if.end310
 
 sw.bb113:                                         ; preds = %if.end
   %argv114 = getelementptr inbounds i8, ptr %c, i64 12
-  %204 = load i32, ptr %argv114, align 4
-  %objects.i277 = getelementptr inbounds i8, ptr %s, i64 5928
-  %o.04.i278 = load ptr, ptr %objects.i277, align 8
-  %tobool.not5.i279 = icmp eq ptr %o.04.i278, null
-  br i1 %tobool.not5.i279, label %if.then119, label %for.body.i280
+  %202 = load i32, ptr %argv114, align 4
+  %objects.i282 = getelementptr inbounds i8, ptr %s, i64 5928
+  %o.04.i283 = load ptr, ptr %objects.i282, align 8
+  %tobool.not5.i284 = icmp eq ptr %o.04.i283, null
+  br i1 %tobool.not5.i284, label %if.then119, label %for.body.i285
 
-for.body.i280:                                    ; preds = %sw.bb113, %for.inc.i283
-  %o.06.i281 = phi ptr [ %o.0.i285, %for.inc.i283 ], [ %o.04.i278, %sw.bb113 ]
-  %205 = load i32, ptr %o.06.i281, align 8
-  %cmp.i282 = icmp eq i32 %205, %204
-  br i1 %cmp.i282, label %if.end121, label %for.inc.i283
+for.body.i285:                                    ; preds = %sw.bb113, %for.inc.i288
+  %o.06.i286 = phi ptr [ %o.0.i290, %for.inc.i288 ], [ %o.04.i283, %sw.bb113 ]
+  %203 = load i32, ptr %o.06.i286, align 8
+  %cmp.i287 = icmp eq i32 %203, %202
+  br i1 %cmp.i287, label %if.end121, label %for.inc.i288
 
-for.inc.i283:                                     ; preds = %for.body.i280
-  %next.i284 = getelementptr inbounds i8, ptr %o.06.i281, i64 224
-  %o.0.i285 = load ptr, ptr %next.i284, align 8
-  %tobool.not.i286 = icmp eq ptr %o.0.i285, null
-  br i1 %tobool.not.i286, label %if.then119, label %for.body.i280, !llvm.loop !9
+for.inc.i288:                                     ; preds = %for.body.i285
+  %next.i289 = getelementptr inbounds i8, ptr %o.06.i286, i64 224
+  %o.0.i290 = load ptr, ptr %next.i289, align 8
+  %tobool.not.i291 = icmp eq ptr %o.0.i290, null
+  br i1 %tobool.not.i291, label %if.then119, label %for.body.i285, !llvm.loop !9
 
-if.then119:                                       ; preds = %for.inc.i283, %sw.bb113
+if.then119:                                       ; preds = %for.inc.i288, %sw.bb113
   %trans120 = getelementptr inbounds i8, ptr %c, i64 4
-  %206 = load i32, ptr %trans120, align 4
-  tail call fastcc void @usb_mtp_queue_result(ptr noundef %s, i16 noundef zeroext 8201, i32 noundef %206, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %204 = load i32, ptr %trans120, align 4
+  tail call fastcc void @usb_mtp_queue_result(ptr noundef %s, i16 noundef zeroext 8201, i32 noundef %204, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   br label %return
 
-if.end121:                                        ; preds = %for.body.i280
-  %call.i.i290 = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 64) #17
-  %207 = load i16, ptr %c, align 4
-  store i16 %207, ptr %call.i.i290, align 8
-  %trans.i.i291 = getelementptr inbounds i8, ptr %c, i64 4
-  %208 = load i32, ptr %trans.i.i291, align 4
-  %trans2.i.i292 = getelementptr inbounds i8, ptr %call.i.i290, i64 4
-  store i32 %208, ptr %trans2.i.i292, align 4
-  %fd.i.i293 = getelementptr inbounds i8, ptr %call.i.i290, i64 44
-  store i32 -1, ptr %fd.i.i293, align 4
-  %first.i.i294 = getelementptr inbounds i8, ptr %call.i.i290, i64 40
-  store i8 1, ptr %first.i.i294, align 8
-  %addr.i295 = getelementptr inbounds i8, ptr %s, i64 224
-  %209 = load i8, ptr %addr.i295, align 8
-  %conv.i296 = zext i8 %209 to i32
-  %210 = load i32, ptr %o.06.i281, align 8
-  %path.i = getelementptr inbounds i8, ptr %o.06.i281, i64 16
-  %211 = load ptr, ptr %path.i, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i289)
-  %212 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i297 = icmp ne i32 %212, 0
-  %213 = load i16, ptr @_TRACE_USB_MTP_OP_GET_OBJECT_INFO_DSTATE, align 2
-  %tobool4.i.i.i298 = icmp ne i16 %213, 0
-  %or.cond.i.i.i299 = select i1 %tobool.i.i.i297, i1 %tobool4.i.i.i298, i1 false
-  br i1 %or.cond.i.i.i299, label %land.lhs.true5.i.i.i343, label %trace_usb_mtp_op_get_object_info.exit.i
+if.end121:                                        ; preds = %for.body.i285
+  %call.i.i295 = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 64) #17
+  %205 = load i16, ptr %c, align 4
+  store i16 %205, ptr %call.i.i295, align 8
+  %trans.i.i296 = getelementptr inbounds i8, ptr %c, i64 4
+  %206 = load i32, ptr %trans.i.i296, align 4
+  %trans2.i.i297 = getelementptr inbounds i8, ptr %call.i.i295, i64 4
+  store i32 %206, ptr %trans2.i.i297, align 4
+  %fd.i.i298 = getelementptr inbounds i8, ptr %call.i.i295, i64 44
+  store i32 -1, ptr %fd.i.i298, align 4
+  %first.i.i299 = getelementptr inbounds i8, ptr %call.i.i295, i64 40
+  store i8 1, ptr %first.i.i299, align 8
+  %addr.i300 = getelementptr inbounds i8, ptr %s, i64 224
+  %207 = load i8, ptr %addr.i300, align 8
+  %conv.i301 = zext i8 %207 to i32
+  %208 = load i32, ptr %o.06.i286, align 8
+  %path.i = getelementptr inbounds i8, ptr %o.06.i286, i64 16
+  %209 = load ptr, ptr %path.i, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i294)
+  %210 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i302 = icmp ne i32 %210, 0
+  %211 = load i16, ptr @_TRACE_USB_MTP_OP_GET_OBJECT_INFO_DSTATE, align 2
+  %tobool4.i.i.i303 = icmp ne i16 %211, 0
+  %or.cond.i.i.i304 = select i1 %tobool.i.i.i302, i1 %tobool4.i.i.i303, i1 false
+  br i1 %or.cond.i.i.i304, label %land.lhs.true5.i.i.i348, label %trace_usb_mtp_op_get_object_info.exit.i
 
-land.lhs.true5.i.i.i343:                          ; preds = %if.end121
-  %214 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i344 = and i32 %214, 32768
-  %cmp.i.not.i.i.i345 = icmp eq i32 %and.i.i.i.i344, 0
-  br i1 %cmp.i.not.i.i.i345, label %trace_usb_mtp_op_get_object_info.exit.i, label %if.then.i.i.i346
+land.lhs.true5.i.i.i348:                          ; preds = %if.end121
+  %212 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i349 = and i32 %212, 32768
+  %cmp.i.not.i.i.i350 = icmp eq i32 %and.i.i.i.i349, 0
+  br i1 %cmp.i.not.i.i.i350, label %trace_usb_mtp_op_get_object_info.exit.i, label %if.then.i.i.i351
 
-if.then.i.i.i346:                                 ; preds = %land.lhs.true5.i.i.i343
-  %215 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i.i347 = trunc i8 %215 to i1
-  br i1 %tobool7.i.i.i347, label %if.then8.i.i.i349, label %if.else.i.i.i348
+if.then.i.i.i351:                                 ; preds = %land.lhs.true5.i.i.i348
+  %213 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i.i352 = trunc i8 %213 to i1
+  br i1 %tobool7.i.i.i352, label %if.then8.i.i.i354, label %if.else.i.i.i353
 
-if.then8.i.i.i349:                                ; preds = %if.then.i.i.i346
-  %call9.i.i.i350 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i289, ptr noundef null) #15
-  %call10.i.i.i351 = tail call i32 @qemu_get_thread_id() #15
-  %216 = load i64, ptr %_now.i.i.i289, align 8
-  %tv_usec.i.i.i352 = getelementptr inbounds i8, ptr %_now.i.i.i289, i64 8
-  %217 = load i64, ptr %tv_usec.i.i.i352, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.83, i32 noundef %call10.i.i.i351, i64 noundef %216, i64 noundef %217, i32 noundef %conv.i296, i32 noundef %210, ptr noundef %211) #15
+if.then8.i.i.i354:                                ; preds = %if.then.i.i.i351
+  %call9.i.i.i355 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i294, ptr noundef null) #15
+  %call10.i.i.i356 = tail call i32 @qemu_get_thread_id() #15
+  %214 = load i64, ptr %_now.i.i.i294, align 8
+  %tv_usec.i.i.i357 = getelementptr inbounds i8, ptr %_now.i.i.i294, i64 8
+  %215 = load i64, ptr %tv_usec.i.i.i357, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.83, i32 noundef %call10.i.i.i356, i64 noundef %214, i64 noundef %215, i32 noundef %conv.i301, i32 noundef %208, ptr noundef %209) #15
   br label %trace_usb_mtp_op_get_object_info.exit.i
 
-if.else.i.i.i348:                                 ; preds = %if.then.i.i.i346
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.84, i32 noundef %conv.i296, i32 noundef %210, ptr noundef %211) #15
+if.else.i.i.i353:                                 ; preds = %if.then.i.i.i351
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.84, i32 noundef %conv.i301, i32 noundef %208, ptr noundef %209) #15
   br label %trace_usb_mtp_op_get_object_info.exit.i
 
-trace_usb_mtp_op_get_object_info.exit.i:          ; preds = %if.else.i.i.i348, %if.then8.i.i.i349, %land.lhs.true5.i.i.i343, %if.end121
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i289)
-  %length.i.i.i300 = getelementptr inbounds i8, ptr %call.i.i290, i64 16
-  %218 = load i64, ptr %length.i.i.i300, align 8
-  %add.i.i.i301 = add i64 %218, 4
-  %alloc.i.i.i302 = getelementptr inbounds i8, ptr %call.i.i290, i64 24
-  %219 = load i64, ptr %alloc.i.i.i302, align 8
-  %cmp.not.i.i.i303 = icmp ugt i64 %add.i.i.i301, %219
-  br i1 %cmp.not.i.i.i303, label %if.end.i.i.i337, label %entry.usb_mtp_realloc.exit_crit_edge.i.i304
+trace_usb_mtp_op_get_object_info.exit.i:          ; preds = %if.else.i.i.i353, %if.then8.i.i.i354, %land.lhs.true5.i.i.i348, %if.end121
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i294)
+  %length.i.i.i305 = getelementptr inbounds i8, ptr %call.i.i295, i64 16
+  %216 = load i64, ptr %length.i.i.i305, align 8
+  %add.i.i.i306 = add i64 %216, 4
+  %alloc.i.i.i307 = getelementptr inbounds i8, ptr %call.i.i295, i64 24
+  %217 = load i64, ptr %alloc.i.i.i307, align 8
+  %cmp.not.i.i.i308 = icmp ugt i64 %add.i.i.i306, %217
+  br i1 %cmp.not.i.i.i308, label %if.end.i.i.i342, label %entry.usb_mtp_realloc.exit_crit_edge.i.i309
 
-entry.usb_mtp_realloc.exit_crit_edge.i.i304:      ; preds = %trace_usb_mtp_op_get_object_info.exit.i
-  %data1.phi.trans.insert.i.i305 = getelementptr inbounds i8, ptr %call.i.i290, i64 32
-  %.pre.i.i306 = load ptr, ptr %data1.phi.trans.insert.i.i305, align 8
-  br label %usb_mtp_add_u32.exit.i307
+entry.usb_mtp_realloc.exit_crit_edge.i.i309:      ; preds = %trace_usb_mtp_op_get_object_info.exit.i
+  %data1.phi.trans.insert.i.i310 = getelementptr inbounds i8, ptr %call.i.i295, i64 32
+  %.pre.i.i311 = load ptr, ptr %data1.phi.trans.insert.i.i310, align 8
+  br label %usb_mtp_add_u32.exit.i312
 
-if.end.i.i.i337:                                  ; preds = %trace_usb_mtp_op_get_object_info.exit.i
-  %add5.i.i.i338 = add i64 %218, 259
-  %and.i.i.i339 = and i64 %add5.i.i.i338, -256
-  store i64 %and.i.i.i339, ptr %alloc.i.i.i302, align 8
-  %data7.i.i.i340 = getelementptr inbounds i8, ptr %call.i.i290, i64 32
-  %220 = load ptr, ptr %data7.i.i.i340, align 8
-  %call.i.i.i341 = tail call ptr @g_realloc(ptr noundef %220, i64 noundef %and.i.i.i339) #15
-  store ptr %call.i.i.i341, ptr %data7.i.i.i340, align 8
-  %.pre12.i.i342 = load i64, ptr %length.i.i.i300, align 8
-  br label %usb_mtp_add_u32.exit.i307
+if.end.i.i.i342:                                  ; preds = %trace_usb_mtp_op_get_object_info.exit.i
+  %add5.i.i.i343 = add i64 %216, 259
+  %and.i.i.i344 = and i64 %add5.i.i.i343, -256
+  store i64 %and.i.i.i344, ptr %alloc.i.i.i307, align 8
+  %data7.i.i.i345 = getelementptr inbounds i8, ptr %call.i.i295, i64 32
+  %218 = load ptr, ptr %data7.i.i.i345, align 8
+  %call.i.i.i346 = tail call ptr @g_realloc(ptr noundef %218, i64 noundef %and.i.i.i344) #15
+  store ptr %call.i.i.i346, ptr %data7.i.i.i345, align 8
+  %.pre12.i.i347 = load i64, ptr %length.i.i.i305, align 8
+  br label %usb_mtp_add_u32.exit.i312
 
-usb_mtp_add_u32.exit.i307:                        ; preds = %if.end.i.i.i337, %entry.usb_mtp_realloc.exit_crit_edge.i.i304
-  %221 = phi i64 [ %218, %entry.usb_mtp_realloc.exit_crit_edge.i.i304 ], [ %.pre12.i.i342, %if.end.i.i.i337 ]
-  %222 = phi ptr [ %.pre.i.i306, %entry.usb_mtp_realloc.exit_crit_edge.i.i304 ], [ %call.i.i.i341, %if.end.i.i.i337 ]
-  %data1.i.i308 = getelementptr inbounds i8, ptr %call.i.i290, i64 32
-  %inc.i.i309 = add i64 %221, 1
-  store i64 %inc.i.i309, ptr %length.i.i.i300, align 8
-  %arrayidx.i.i310 = getelementptr i8, ptr %222, i64 %221
-  store i8 1, ptr %arrayidx.i.i310, align 1
-  %223 = load ptr, ptr %data1.i.i308, align 8
-  %224 = load i64, ptr %length.i.i.i300, align 8
-  %inc7.i.i311 = add i64 %224, 1
-  store i64 %inc7.i.i311, ptr %length.i.i.i300, align 8
-  %arrayidx8.i.i312 = getelementptr i8, ptr %223, i64 %224
-  store i8 0, ptr %arrayidx8.i.i312, align 1
-  %225 = load ptr, ptr %data1.i.i308, align 8
-  %226 = load i64, ptr %length.i.i.i300, align 8
-  %inc14.i.i313 = add i64 %226, 1
-  store i64 %inc14.i.i313, ptr %length.i.i.i300, align 8
-  %arrayidx15.i.i314 = getelementptr i8, ptr %225, i64 %226
-  store i8 1, ptr %arrayidx15.i.i314, align 1
-  %227 = load ptr, ptr %data1.i.i308, align 8
-  %228 = load i64, ptr %length.i.i.i300, align 8
-  %inc21.i.i315 = add i64 %228, 1
-  store i64 %inc21.i.i315, ptr %length.i.i.i300, align 8
-  %arrayidx22.i.i316 = getelementptr i8, ptr %227, i64 %228
-  store i8 0, ptr %arrayidx22.i.i316, align 1
-  %format.i = getelementptr inbounds i8, ptr %o.06.i281, i64 4
-  %229 = load i16, ptr %format.i, align 4
-  %230 = load i64, ptr %length.i.i.i300, align 8
-  %add.i.i37.i = add i64 %230, 2
-  %231 = load i64, ptr %alloc.i.i.i302, align 8
-  %cmp.not.i.i39.i = icmp ugt i64 %add.i.i37.i, %231
+usb_mtp_add_u32.exit.i312:                        ; preds = %if.end.i.i.i342, %entry.usb_mtp_realloc.exit_crit_edge.i.i309
+  %219 = phi i64 [ %216, %entry.usb_mtp_realloc.exit_crit_edge.i.i309 ], [ %.pre12.i.i347, %if.end.i.i.i342 ]
+  %220 = phi ptr [ %.pre.i.i311, %entry.usb_mtp_realloc.exit_crit_edge.i.i309 ], [ %call.i.i.i346, %if.end.i.i.i342 ]
+  %data1.i.i313 = getelementptr inbounds i8, ptr %call.i.i295, i64 32
+  %inc.i.i314 = add i64 %219, 1
+  store i64 %inc.i.i314, ptr %length.i.i.i305, align 8
+  %arrayidx.i.i315 = getelementptr i8, ptr %220, i64 %219
+  store i8 1, ptr %arrayidx.i.i315, align 1
+  %221 = load ptr, ptr %data1.i.i313, align 8
+  %222 = load i64, ptr %length.i.i.i305, align 8
+  %inc7.i.i316 = add i64 %222, 1
+  store i64 %inc7.i.i316, ptr %length.i.i.i305, align 8
+  %arrayidx8.i.i317 = getelementptr i8, ptr %221, i64 %222
+  store i8 0, ptr %arrayidx8.i.i317, align 1
+  %223 = load ptr, ptr %data1.i.i313, align 8
+  %224 = load i64, ptr %length.i.i.i305, align 8
+  %inc14.i.i318 = add i64 %224, 1
+  store i64 %inc14.i.i318, ptr %length.i.i.i305, align 8
+  %arrayidx15.i.i319 = getelementptr i8, ptr %223, i64 %224
+  store i8 1, ptr %arrayidx15.i.i319, align 1
+  %225 = load ptr, ptr %data1.i.i313, align 8
+  %226 = load i64, ptr %length.i.i.i305, align 8
+  %inc21.i.i320 = add i64 %226, 1
+  store i64 %inc21.i.i320, ptr %length.i.i.i305, align 8
+  %arrayidx22.i.i321 = getelementptr i8, ptr %225, i64 %226
+  store i8 0, ptr %arrayidx22.i.i321, align 1
+  %format.i = getelementptr inbounds i8, ptr %o.06.i286, i64 4
+  %227 = load i16, ptr %format.i, align 4
+  %228 = load i64, ptr %length.i.i.i305, align 8
+  %add.i.i37.i = add i64 %228, 2
+  %229 = load i64, ptr %alloc.i.i.i307, align 8
+  %cmp.not.i.i39.i = icmp ugt i64 %add.i.i37.i, %229
   br i1 %cmp.not.i.i39.i, label %if.end.i.i44.i, label %entry.usb_mtp_realloc.exit_crit_edge.i40.i
 
-entry.usb_mtp_realloc.exit_crit_edge.i40.i:       ; preds = %usb_mtp_add_u32.exit.i307
-  %.pre.i41.i = load ptr, ptr %data1.i.i308, align 8
-  br label %usb_mtp_add_u16.exit.i317
+entry.usb_mtp_realloc.exit_crit_edge.i40.i:       ; preds = %usb_mtp_add_u32.exit.i312
+  %.pre.i41.i = load ptr, ptr %data1.i.i313, align 8
+  br label %usb_mtp_add_u16.exit.i322
 
-if.end.i.i44.i:                                   ; preds = %usb_mtp_add_u32.exit.i307
-  %add5.i.i45.i = add i64 %230, 257
+if.end.i.i44.i:                                   ; preds = %usb_mtp_add_u32.exit.i312
+  %add5.i.i45.i = add i64 %228, 257
   %and.i.i46.i = and i64 %add5.i.i45.i, -256
-  store i64 %and.i.i46.i, ptr %alloc.i.i.i302, align 8
-  %232 = load ptr, ptr %data1.i.i308, align 8
-  %call.i.i48.i = tail call ptr @g_realloc(ptr noundef %232, i64 noundef %and.i.i46.i) #15
-  store ptr %call.i.i48.i, ptr %data1.i.i308, align 8
-  %.pre6.i.i336 = load i64, ptr %length.i.i.i300, align 8
-  br label %usb_mtp_add_u16.exit.i317
+  store i64 %and.i.i46.i, ptr %alloc.i.i.i307, align 8
+  %230 = load ptr, ptr %data1.i.i313, align 8
+  %call.i.i48.i = tail call ptr @g_realloc(ptr noundef %230, i64 noundef %and.i.i46.i) #15
+  store ptr %call.i.i48.i, ptr %data1.i.i313, align 8
+  %.pre6.i.i341 = load i64, ptr %length.i.i.i305, align 8
+  br label %usb_mtp_add_u16.exit.i322
 
-usb_mtp_add_u16.exit.i317:                        ; preds = %if.end.i.i44.i, %entry.usb_mtp_realloc.exit_crit_edge.i40.i
-  %233 = phi i64 [ %230, %entry.usb_mtp_realloc.exit_crit_edge.i40.i ], [ %.pre6.i.i336, %if.end.i.i44.i ]
-  %234 = phi ptr [ %.pre.i41.i, %entry.usb_mtp_realloc.exit_crit_edge.i40.i ], [ %call.i.i48.i, %if.end.i.i44.i ]
-  %conv1.i.i318 = trunc i16 %229 to i8
-  %inc.i42.i = add i64 %233, 1
-  store i64 %inc.i42.i, ptr %length.i.i.i300, align 8
-  %arrayidx.i43.i = getelementptr i8, ptr %234, i64 %233
-  store i8 %conv1.i.i318, ptr %arrayidx.i43.i, align 1
-  %235 = lshr i16 %229, 8
-  %conv6.i.i = trunc nuw i16 %235 to i8
-  %236 = load ptr, ptr %data1.i.i308, align 8
-  %237 = load i64, ptr %length.i.i.i300, align 8
-  %inc9.i.i319 = add i64 %237, 1
-  store i64 %inc9.i.i319, ptr %length.i.i.i300, align 8
-  %arrayidx10.i.i320 = getelementptr i8, ptr %236, i64 %237
-  store i8 %conv6.i.i, ptr %arrayidx10.i.i320, align 1
-  %238 = load i64, ptr %length.i.i.i300, align 8
-  %add.i.i50.i = add i64 %238, 2
-  %239 = load i64, ptr %alloc.i.i.i302, align 8
-  %cmp.not.i.i52.i = icmp ugt i64 %add.i.i50.i, %239
+usb_mtp_add_u16.exit.i322:                        ; preds = %if.end.i.i44.i, %entry.usb_mtp_realloc.exit_crit_edge.i40.i
+  %231 = phi i64 [ %228, %entry.usb_mtp_realloc.exit_crit_edge.i40.i ], [ %.pre6.i.i341, %if.end.i.i44.i ]
+  %232 = phi ptr [ %.pre.i41.i, %entry.usb_mtp_realloc.exit_crit_edge.i40.i ], [ %call.i.i48.i, %if.end.i.i44.i ]
+  %conv1.i.i323 = trunc i16 %227 to i8
+  %inc.i42.i = add i64 %231, 1
+  store i64 %inc.i42.i, ptr %length.i.i.i305, align 8
+  %arrayidx.i43.i = getelementptr i8, ptr %232, i64 %231
+  store i8 %conv1.i.i323, ptr %arrayidx.i43.i, align 1
+  %233 = lshr i16 %227, 8
+  %conv6.i.i = trunc nuw i16 %233 to i8
+  %234 = load ptr, ptr %data1.i.i313, align 8
+  %235 = load i64, ptr %length.i.i.i305, align 8
+  %inc9.i.i324 = add i64 %235, 1
+  store i64 %inc9.i.i324, ptr %length.i.i.i305, align 8
+  %arrayidx10.i.i325 = getelementptr i8, ptr %234, i64 %235
+  store i8 %conv6.i.i, ptr %arrayidx10.i.i325, align 1
+  %236 = load i64, ptr %length.i.i.i305, align 8
+  %add.i.i50.i = add i64 %236, 2
+  %237 = load i64, ptr %alloc.i.i.i307, align 8
+  %cmp.not.i.i52.i = icmp ugt i64 %add.i.i50.i, %237
   br i1 %cmp.not.i.i52.i, label %if.end.i.i61.i, label %entry.usb_mtp_realloc.exit_crit_edge.i53.i
 
-entry.usb_mtp_realloc.exit_crit_edge.i53.i:       ; preds = %usb_mtp_add_u16.exit.i317
-  %.pre.i55.i = load ptr, ptr %data1.i.i308, align 8
+entry.usb_mtp_realloc.exit_crit_edge.i53.i:       ; preds = %usb_mtp_add_u16.exit.i322
+  %.pre.i55.i = load ptr, ptr %data1.i.i313, align 8
   br label %usb_mtp_add_u16.exit67.i
 
-if.end.i.i61.i:                                   ; preds = %usb_mtp_add_u16.exit.i317
-  %add5.i.i62.i = add i64 %238, 257
+if.end.i.i61.i:                                   ; preds = %usb_mtp_add_u16.exit.i322
+  %add5.i.i62.i = add i64 %236, 257
   %and.i.i63.i = and i64 %add5.i.i62.i, -256
-  store i64 %and.i.i63.i, ptr %alloc.i.i.i302, align 8
-  %240 = load ptr, ptr %data1.i.i308, align 8
-  %call.i.i65.i = tail call ptr @g_realloc(ptr noundef %240, i64 noundef %and.i.i63.i) #15
-  store ptr %call.i.i65.i, ptr %data1.i.i308, align 8
-  %.pre6.i66.i = load i64, ptr %length.i.i.i300, align 8
+  store i64 %and.i.i63.i, ptr %alloc.i.i.i307, align 8
+  %238 = load ptr, ptr %data1.i.i313, align 8
+  %call.i.i65.i = tail call ptr @g_realloc(ptr noundef %238, i64 noundef %and.i.i63.i) #15
+  store ptr %call.i.i65.i, ptr %data1.i.i313, align 8
+  %.pre6.i66.i = load i64, ptr %length.i.i.i305, align 8
   br label %usb_mtp_add_u16.exit67.i
 
 usb_mtp_add_u16.exit67.i:                         ; preds = %if.end.i.i61.i, %entry.usb_mtp_realloc.exit_crit_edge.i53.i
-  %241 = phi i64 [ %238, %entry.usb_mtp_realloc.exit_crit_edge.i53.i ], [ %.pre6.i66.i, %if.end.i.i61.i ]
-  %242 = phi ptr [ %.pre.i55.i, %entry.usb_mtp_realloc.exit_crit_edge.i53.i ], [ %call.i.i65.i, %if.end.i.i61.i ]
-  %inc.i57.i = add i64 %241, 1
-  store i64 %inc.i57.i, ptr %length.i.i.i300, align 8
-  %arrayidx.i58.i = getelementptr i8, ptr %242, i64 %241
+  %239 = phi i64 [ %236, %entry.usb_mtp_realloc.exit_crit_edge.i53.i ], [ %.pre6.i66.i, %if.end.i.i61.i ]
+  %240 = phi ptr [ %.pre.i55.i, %entry.usb_mtp_realloc.exit_crit_edge.i53.i ], [ %call.i.i65.i, %if.end.i.i61.i ]
+  %inc.i57.i = add i64 %239, 1
+  store i64 %inc.i57.i, ptr %length.i.i.i305, align 8
+  %arrayidx.i58.i = getelementptr i8, ptr %240, i64 %239
   store i8 0, ptr %arrayidx.i58.i, align 1
-  %243 = load ptr, ptr %data1.i.i308, align 8
-  %244 = load i64, ptr %length.i.i.i300, align 8
-  %inc9.i59.i = add i64 %244, 1
-  store i64 %inc9.i59.i, ptr %length.i.i.i300, align 8
-  %arrayidx10.i60.i = getelementptr i8, ptr %243, i64 %244
+  %241 = load ptr, ptr %data1.i.i313, align 8
+  %242 = load i64, ptr %length.i.i.i305, align 8
+  %inc9.i59.i = add i64 %242, 1
+  store i64 %inc9.i59.i, ptr %length.i.i.i305, align 8
+  %arrayidx10.i60.i = getelementptr i8, ptr %241, i64 %242
   store i8 0, ptr %arrayidx10.i60.i, align 1
-  %st_size.i = getelementptr inbounds i8, ptr %o.06.i281, i64 72
-  %245 = load i64, ptr %st_size.i, align 8
-  %cmp.i321 = icmp sgt i64 %245, 4294967295
-  %246 = load i64, ptr %length.i.i.i300, align 8
-  %add.i.i69.i = add i64 %246, 4
-  %247 = load i64, ptr %alloc.i.i.i302, align 8
-  %cmp.not.i.i71.i = icmp ugt i64 %add.i.i69.i, %247
-  br i1 %cmp.i321, label %if.then.i335, label %if.else.i322
+  %st_size.i = getelementptr inbounds i8, ptr %o.06.i286, i64 72
+  %243 = load i64, ptr %st_size.i, align 8
+  %cmp.i326 = icmp sgt i64 %243, 4294967295
+  %244 = load i64, ptr %length.i.i.i305, align 8
+  %add.i.i69.i = add i64 %244, 4
+  %245 = load i64, ptr %alloc.i.i.i307, align 8
+  %cmp.not.i.i71.i = icmp ugt i64 %add.i.i69.i, %245
+  br i1 %cmp.i326, label %if.then.i340, label %if.else.i327
 
-if.then.i335:                                     ; preds = %usb_mtp_add_u16.exit67.i
+if.then.i340:                                     ; preds = %usb_mtp_add_u16.exit67.i
   br i1 %cmp.not.i.i71.i, label %if.end.i.i84.i, label %entry.usb_mtp_realloc.exit_crit_edge.i72.i
 
-entry.usb_mtp_realloc.exit_crit_edge.i72.i:       ; preds = %if.then.i335
-  %.pre.i74.i = load ptr, ptr %data1.i.i308, align 8
+entry.usb_mtp_realloc.exit_crit_edge.i72.i:       ; preds = %if.then.i340
+  %.pre.i74.i = load ptr, ptr %data1.i.i313, align 8
   br label %usb_mtp_add_u32.exit90.i
 
-if.end.i.i84.i:                                   ; preds = %if.then.i335
-  %add5.i.i85.i = add i64 %246, 259
+if.end.i.i84.i:                                   ; preds = %if.then.i340
+  %add5.i.i85.i = add i64 %244, 259
   %and.i.i86.i = and i64 %add5.i.i85.i, -256
-  store i64 %and.i.i86.i, ptr %alloc.i.i.i302, align 8
-  %248 = load ptr, ptr %data1.i.i308, align 8
-  %call.i.i88.i = tail call ptr @g_realloc(ptr noundef %248, i64 noundef %and.i.i86.i) #15
-  store ptr %call.i.i88.i, ptr %data1.i.i308, align 8
-  %.pre12.i89.i = load i64, ptr %length.i.i.i300, align 8
+  store i64 %and.i.i86.i, ptr %alloc.i.i.i307, align 8
+  %246 = load ptr, ptr %data1.i.i313, align 8
+  %call.i.i88.i = tail call ptr @g_realloc(ptr noundef %246, i64 noundef %and.i.i86.i) #15
+  store ptr %call.i.i88.i, ptr %data1.i.i313, align 8
+  %.pre12.i89.i = load i64, ptr %length.i.i.i305, align 8
   br label %usb_mtp_add_u32.exit90.i
 
 usb_mtp_add_u32.exit90.i:                         ; preds = %if.end.i.i84.i, %entry.usb_mtp_realloc.exit_crit_edge.i72.i
-  %249 = phi i64 [ %246, %entry.usb_mtp_realloc.exit_crit_edge.i72.i ], [ %.pre12.i89.i, %if.end.i.i84.i ]
-  %250 = phi ptr [ %.pre.i74.i, %entry.usb_mtp_realloc.exit_crit_edge.i72.i ], [ %call.i.i88.i, %if.end.i.i84.i ]
-  %inc.i76.i = add i64 %249, 1
-  store i64 %inc.i76.i, ptr %length.i.i.i300, align 8
-  %arrayidx.i77.i = getelementptr i8, ptr %250, i64 %249
+  %247 = phi i64 [ %244, %entry.usb_mtp_realloc.exit_crit_edge.i72.i ], [ %.pre12.i89.i, %if.end.i.i84.i ]
+  %248 = phi ptr [ %.pre.i74.i, %entry.usb_mtp_realloc.exit_crit_edge.i72.i ], [ %call.i.i88.i, %if.end.i.i84.i ]
+  %inc.i76.i = add i64 %247, 1
+  store i64 %inc.i76.i, ptr %length.i.i.i305, align 8
+  %arrayidx.i77.i = getelementptr i8, ptr %248, i64 %247
   store i8 -1, ptr %arrayidx.i77.i, align 1
-  %251 = load ptr, ptr %data1.i.i308, align 8
-  %252 = load i64, ptr %length.i.i.i300, align 8
-  %inc7.i78.i = add i64 %252, 1
-  store i64 %inc7.i78.i, ptr %length.i.i.i300, align 8
-  %arrayidx8.i79.i = getelementptr i8, ptr %251, i64 %252
+  %249 = load ptr, ptr %data1.i.i313, align 8
+  %250 = load i64, ptr %length.i.i.i305, align 8
+  %inc7.i78.i = add i64 %250, 1
+  store i64 %inc7.i78.i, ptr %length.i.i.i305, align 8
+  %arrayidx8.i79.i = getelementptr i8, ptr %249, i64 %250
   store i8 -1, ptr %arrayidx8.i79.i, align 1
-  %253 = load ptr, ptr %data1.i.i308, align 8
-  %254 = load i64, ptr %length.i.i.i300, align 8
-  %inc14.i80.i = add i64 %254, 1
-  store i64 %inc14.i80.i, ptr %length.i.i.i300, align 8
-  %arrayidx15.i81.i = getelementptr i8, ptr %253, i64 %254
+  %251 = load ptr, ptr %data1.i.i313, align 8
+  %252 = load i64, ptr %length.i.i.i305, align 8
+  %inc14.i80.i = add i64 %252, 1
+  store i64 %inc14.i80.i, ptr %length.i.i.i305, align 8
+  %arrayidx15.i81.i = getelementptr i8, ptr %251, i64 %252
   store i8 -1, ptr %arrayidx15.i81.i, align 1
-  br label %if.end.i327
+  br label %if.end.i332
 
-if.else.i322:                                     ; preds = %usb_mtp_add_u16.exit67.i
+if.else.i327:                                     ; preds = %usb_mtp_add_u16.exit67.i
   br i1 %cmp.not.i.i71.i, label %if.end.i.i107.i, label %entry.usb_mtp_realloc.exit_crit_edge.i95.i
 
-entry.usb_mtp_realloc.exit_crit_edge.i95.i:       ; preds = %if.else.i322
-  %.pre.i97.i = load ptr, ptr %data1.i.i308, align 8
+entry.usb_mtp_realloc.exit_crit_edge.i95.i:       ; preds = %if.else.i327
+  %.pre.i97.i = load ptr, ptr %data1.i.i313, align 8
   br label %usb_mtp_add_u32.exit113.i
 
-if.end.i.i107.i:                                  ; preds = %if.else.i322
-  %add5.i.i108.i = add i64 %246, 259
+if.end.i.i107.i:                                  ; preds = %if.else.i327
+  %add5.i.i108.i = add i64 %244, 259
   %and.i.i109.i = and i64 %add5.i.i108.i, -256
-  store i64 %and.i.i109.i, ptr %alloc.i.i.i302, align 8
-  %255 = load ptr, ptr %data1.i.i308, align 8
-  %call.i.i111.i = tail call ptr @g_realloc(ptr noundef %255, i64 noundef %and.i.i109.i) #15
-  store ptr %call.i.i111.i, ptr %data1.i.i308, align 8
-  %.pre12.i112.i = load i64, ptr %length.i.i.i300, align 8
+  store i64 %and.i.i109.i, ptr %alloc.i.i.i307, align 8
+  %253 = load ptr, ptr %data1.i.i313, align 8
+  %call.i.i111.i = tail call ptr @g_realloc(ptr noundef %253, i64 noundef %and.i.i109.i) #15
+  store ptr %call.i.i111.i, ptr %data1.i.i313, align 8
+  %.pre12.i112.i = load i64, ptr %length.i.i.i305, align 8
   br label %usb_mtp_add_u32.exit113.i
 
 usb_mtp_add_u32.exit113.i:                        ; preds = %if.end.i.i107.i, %entry.usb_mtp_realloc.exit_crit_edge.i95.i
-  %256 = phi i64 [ %246, %entry.usb_mtp_realloc.exit_crit_edge.i95.i ], [ %.pre12.i112.i, %if.end.i.i107.i ]
-  %257 = phi ptr [ %.pre.i97.i, %entry.usb_mtp_realloc.exit_crit_edge.i95.i ], [ %call.i.i111.i, %if.end.i.i107.i ]
-  %conv.i.i323 = trunc i64 %245 to i8
-  %inc.i99.i = add i64 %256, 1
-  store i64 %inc.i99.i, ptr %length.i.i.i300, align 8
-  %arrayidx.i100.i = getelementptr i8, ptr %257, i64 %256
-  store i8 %conv.i.i323, ptr %arrayidx.i100.i, align 1
-  %shr2.i457.i = lshr i64 %245, 8
-  %conv4.i.i324 = trunc i64 %shr2.i457.i to i8
-  %258 = load ptr, ptr %data1.i.i308, align 8
-  %259 = load i64, ptr %length.i.i.i300, align 8
-  %inc7.i101.i = add i64 %259, 1
-  store i64 %inc7.i101.i, ptr %length.i.i.i300, align 8
-  %arrayidx8.i102.i = getelementptr i8, ptr %258, i64 %259
-  store i8 %conv4.i.i324, ptr %arrayidx8.i102.i, align 1
-  %shr9.i458.i = lshr i64 %245, 16
-  %conv11.i.i325 = trunc i64 %shr9.i458.i to i8
-  %260 = load ptr, ptr %data1.i.i308, align 8
-  %261 = load i64, ptr %length.i.i.i300, align 8
-  %inc14.i103.i = add i64 %261, 1
-  store i64 %inc14.i103.i, ptr %length.i.i.i300, align 8
-  %arrayidx15.i104.i = getelementptr i8, ptr %260, i64 %261
-  store i8 %conv11.i.i325, ptr %arrayidx15.i104.i, align 1
-  %shr16.i459.i = lshr i64 %245, 24
-  %conv18.i.i326 = trunc i64 %shr16.i459.i to i8
-  br label %if.end.i327
+  %254 = phi i64 [ %244, %entry.usb_mtp_realloc.exit_crit_edge.i95.i ], [ %.pre12.i112.i, %if.end.i.i107.i ]
+  %255 = phi ptr [ %.pre.i97.i, %entry.usb_mtp_realloc.exit_crit_edge.i95.i ], [ %call.i.i111.i, %if.end.i.i107.i ]
+  %conv.i.i328 = trunc i64 %243 to i8
+  %inc.i99.i = add i64 %254, 1
+  store i64 %inc.i99.i, ptr %length.i.i.i305, align 8
+  %arrayidx.i100.i = getelementptr i8, ptr %255, i64 %254
+  store i8 %conv.i.i328, ptr %arrayidx.i100.i, align 1
+  %shr2.i457.i = lshr i64 %243, 8
+  %conv4.i.i329 = trunc i64 %shr2.i457.i to i8
+  %256 = load ptr, ptr %data1.i.i313, align 8
+  %257 = load i64, ptr %length.i.i.i305, align 8
+  %inc7.i101.i = add i64 %257, 1
+  store i64 %inc7.i101.i, ptr %length.i.i.i305, align 8
+  %arrayidx8.i102.i = getelementptr i8, ptr %256, i64 %257
+  store i8 %conv4.i.i329, ptr %arrayidx8.i102.i, align 1
+  %shr9.i458.i = lshr i64 %243, 16
+  %conv11.i.i330 = trunc i64 %shr9.i458.i to i8
+  %258 = load ptr, ptr %data1.i.i313, align 8
+  %259 = load i64, ptr %length.i.i.i305, align 8
+  %inc14.i103.i = add i64 %259, 1
+  store i64 %inc14.i103.i, ptr %length.i.i.i305, align 8
+  %arrayidx15.i104.i = getelementptr i8, ptr %258, i64 %259
+  store i8 %conv11.i.i330, ptr %arrayidx15.i104.i, align 1
+  %shr16.i459.i = lshr i64 %243, 24
+  %conv18.i.i331 = trunc i64 %shr16.i459.i to i8
+  br label %if.end.i332
 
-if.end.i327:                                      ; preds = %usb_mtp_add_u32.exit113.i, %usb_mtp_add_u32.exit90.i
-  %conv18.i.sink.i = phi i8 [ %conv18.i.i326, %usb_mtp_add_u32.exit113.i ], [ -1, %usb_mtp_add_u32.exit90.i ]
-  %262 = load ptr, ptr %data1.i.i308, align 8
-  %263 = load i64, ptr %length.i.i.i300, align 8
-  %inc21.i105.i = add i64 %263, 1
-  store i64 %inc21.i105.i, ptr %length.i.i.i300, align 8
-  %arrayidx22.i106.i = getelementptr i8, ptr %262, i64 %263
+if.end.i332:                                      ; preds = %usb_mtp_add_u32.exit113.i, %usb_mtp_add_u32.exit90.i
+  %conv18.i.sink.i = phi i8 [ %conv18.i.i331, %usb_mtp_add_u32.exit113.i ], [ -1, %usb_mtp_add_u32.exit90.i ]
+  %260 = load ptr, ptr %data1.i.i313, align 8
+  %261 = load i64, ptr %length.i.i.i305, align 8
+  %inc21.i105.i = add i64 %261, 1
+  store i64 %inc21.i105.i, ptr %length.i.i.i305, align 8
+  %arrayidx22.i106.i = getelementptr i8, ptr %260, i64 %261
   store i8 %conv18.i.sink.i, ptr %arrayidx22.i106.i, align 1
-  %264 = load i64, ptr %length.i.i.i300, align 8
-  %add.i.i115.i = add i64 %264, 2
-  %265 = load i64, ptr %alloc.i.i.i302, align 8
-  %cmp.not.i.i117.i = icmp ugt i64 %add.i.i115.i, %265
+  %262 = load i64, ptr %length.i.i.i305, align 8
+  %add.i.i115.i = add i64 %262, 2
+  %263 = load i64, ptr %alloc.i.i.i307, align 8
+  %cmp.not.i.i117.i = icmp ugt i64 %add.i.i115.i, %263
   br i1 %cmp.not.i.i117.i, label %if.end.i.i126.i, label %entry.usb_mtp_realloc.exit_crit_edge.i118.i
 
-entry.usb_mtp_realloc.exit_crit_edge.i118.i:      ; preds = %if.end.i327
-  %.pre.i120.i = load ptr, ptr %data1.i.i308, align 8
+entry.usb_mtp_realloc.exit_crit_edge.i118.i:      ; preds = %if.end.i332
+  %.pre.i120.i = load ptr, ptr %data1.i.i313, align 8
   br label %usb_mtp_add_u16.exit132.i
 
-if.end.i.i126.i:                                  ; preds = %if.end.i327
-  %add5.i.i127.i = add i64 %264, 257
+if.end.i.i126.i:                                  ; preds = %if.end.i332
+  %add5.i.i127.i = add i64 %262, 257
   %and.i.i128.i = and i64 %add5.i.i127.i, -256
-  store i64 %and.i.i128.i, ptr %alloc.i.i.i302, align 8
-  %266 = load ptr, ptr %data1.i.i308, align 8
-  %call.i.i130.i = tail call ptr @g_realloc(ptr noundef %266, i64 noundef %and.i.i128.i) #15
-  store ptr %call.i.i130.i, ptr %data1.i.i308, align 8
-  %.pre6.i131.i = load i64, ptr %length.i.i.i300, align 8
+  store i64 %and.i.i128.i, ptr %alloc.i.i.i307, align 8
+  %264 = load ptr, ptr %data1.i.i313, align 8
+  %call.i.i130.i = tail call ptr @g_realloc(ptr noundef %264, i64 noundef %and.i.i128.i) #15
+  store ptr %call.i.i130.i, ptr %data1.i.i313, align 8
+  %.pre6.i131.i = load i64, ptr %length.i.i.i305, align 8
   br label %usb_mtp_add_u16.exit132.i
 
 usb_mtp_add_u16.exit132.i:                        ; preds = %if.end.i.i126.i, %entry.usb_mtp_realloc.exit_crit_edge.i118.i
-  %267 = phi i64 [ %264, %entry.usb_mtp_realloc.exit_crit_edge.i118.i ], [ %.pre6.i131.i, %if.end.i.i126.i ]
-  %268 = phi ptr [ %.pre.i120.i, %entry.usb_mtp_realloc.exit_crit_edge.i118.i ], [ %call.i.i130.i, %if.end.i.i126.i ]
-  %inc.i122.i = add i64 %267, 1
-  store i64 %inc.i122.i, ptr %length.i.i.i300, align 8
-  %arrayidx.i123.i = getelementptr i8, ptr %268, i64 %267
+  %265 = phi i64 [ %262, %entry.usb_mtp_realloc.exit_crit_edge.i118.i ], [ %.pre6.i131.i, %if.end.i.i126.i ]
+  %266 = phi ptr [ %.pre.i120.i, %entry.usb_mtp_realloc.exit_crit_edge.i118.i ], [ %call.i.i130.i, %if.end.i.i126.i ]
+  %inc.i122.i = add i64 %265, 1
+  store i64 %inc.i122.i, ptr %length.i.i.i305, align 8
+  %arrayidx.i123.i = getelementptr i8, ptr %266, i64 %265
   store i8 0, ptr %arrayidx.i123.i, align 1
-  %269 = load ptr, ptr %data1.i.i308, align 8
-  %270 = load i64, ptr %length.i.i.i300, align 8
-  %inc9.i124.i = add i64 %270, 1
-  store i64 %inc9.i124.i, ptr %length.i.i.i300, align 8
-  %arrayidx10.i125.i = getelementptr i8, ptr %269, i64 %270
+  %267 = load ptr, ptr %data1.i.i313, align 8
+  %268 = load i64, ptr %length.i.i.i305, align 8
+  %inc9.i124.i = add i64 %268, 1
+  store i64 %inc9.i124.i, ptr %length.i.i.i305, align 8
+  %arrayidx10.i125.i = getelementptr i8, ptr %267, i64 %268
   store i8 0, ptr %arrayidx10.i125.i, align 1
-  %271 = load i64, ptr %length.i.i.i300, align 8
-  %add.i.i134.i = add i64 %271, 4
-  %272 = load i64, ptr %alloc.i.i.i302, align 8
-  %cmp.not.i.i136.i = icmp ugt i64 %add.i.i134.i, %272
+  %269 = load i64, ptr %length.i.i.i305, align 8
+  %add.i.i134.i = add i64 %269, 4
+  %270 = load i64, ptr %alloc.i.i.i307, align 8
+  %cmp.not.i.i136.i = icmp ugt i64 %add.i.i134.i, %270
   br i1 %cmp.not.i.i136.i, label %if.end.i.i149.i, label %entry.usb_mtp_realloc.exit_crit_edge.i137.i
 
 entry.usb_mtp_realloc.exit_crit_edge.i137.i:      ; preds = %usb_mtp_add_u16.exit132.i
-  %.pre.i139.i = load ptr, ptr %data1.i.i308, align 8
+  %.pre.i139.i = load ptr, ptr %data1.i.i313, align 8
   br label %usb_mtp_add_u32.exit155.i
 
 if.end.i.i149.i:                                  ; preds = %usb_mtp_add_u16.exit132.i
-  %add5.i.i150.i = add i64 %271, 259
+  %add5.i.i150.i = add i64 %269, 259
   %and.i.i151.i = and i64 %add5.i.i150.i, -256
-  store i64 %and.i.i151.i, ptr %alloc.i.i.i302, align 8
-  %273 = load ptr, ptr %data1.i.i308, align 8
-  %call.i.i153.i = tail call ptr @g_realloc(ptr noundef %273, i64 noundef %and.i.i151.i) #15
-  store ptr %call.i.i153.i, ptr %data1.i.i308, align 8
-  %.pre12.i154.i = load i64, ptr %length.i.i.i300, align 8
+  store i64 %and.i.i151.i, ptr %alloc.i.i.i307, align 8
+  %271 = load ptr, ptr %data1.i.i313, align 8
+  %call.i.i153.i = tail call ptr @g_realloc(ptr noundef %271, i64 noundef %and.i.i151.i) #15
+  store ptr %call.i.i153.i, ptr %data1.i.i313, align 8
+  %.pre12.i154.i = load i64, ptr %length.i.i.i305, align 8
   br label %usb_mtp_add_u32.exit155.i
 
 usb_mtp_add_u32.exit155.i:                        ; preds = %if.end.i.i149.i, %entry.usb_mtp_realloc.exit_crit_edge.i137.i
-  %274 = phi i64 [ %271, %entry.usb_mtp_realloc.exit_crit_edge.i137.i ], [ %.pre12.i154.i, %if.end.i.i149.i ]
-  %275 = phi ptr [ %.pre.i139.i, %entry.usb_mtp_realloc.exit_crit_edge.i137.i ], [ %call.i.i153.i, %if.end.i.i149.i ]
-  %inc.i141.i = add i64 %274, 1
-  store i64 %inc.i141.i, ptr %length.i.i.i300, align 8
-  %arrayidx.i142.i = getelementptr i8, ptr %275, i64 %274
+  %272 = phi i64 [ %269, %entry.usb_mtp_realloc.exit_crit_edge.i137.i ], [ %.pre12.i154.i, %if.end.i.i149.i ]
+  %273 = phi ptr [ %.pre.i139.i, %entry.usb_mtp_realloc.exit_crit_edge.i137.i ], [ %call.i.i153.i, %if.end.i.i149.i ]
+  %inc.i141.i = add i64 %272, 1
+  store i64 %inc.i141.i, ptr %length.i.i.i305, align 8
+  %arrayidx.i142.i = getelementptr i8, ptr %273, i64 %272
   store i8 0, ptr %arrayidx.i142.i, align 1
-  %276 = load ptr, ptr %data1.i.i308, align 8
-  %277 = load i64, ptr %length.i.i.i300, align 8
-  %inc7.i143.i = add i64 %277, 1
-  store i64 %inc7.i143.i, ptr %length.i.i.i300, align 8
-  %arrayidx8.i144.i = getelementptr i8, ptr %276, i64 %277
+  %274 = load ptr, ptr %data1.i.i313, align 8
+  %275 = load i64, ptr %length.i.i.i305, align 8
+  %inc7.i143.i = add i64 %275, 1
+  store i64 %inc7.i143.i, ptr %length.i.i.i305, align 8
+  %arrayidx8.i144.i = getelementptr i8, ptr %274, i64 %275
   store i8 0, ptr %arrayidx8.i144.i, align 1
-  %278 = load ptr, ptr %data1.i.i308, align 8
-  %279 = load i64, ptr %length.i.i.i300, align 8
-  %inc14.i145.i = add i64 %279, 1
-  store i64 %inc14.i145.i, ptr %length.i.i.i300, align 8
-  %arrayidx15.i146.i = getelementptr i8, ptr %278, i64 %279
+  %276 = load ptr, ptr %data1.i.i313, align 8
+  %277 = load i64, ptr %length.i.i.i305, align 8
+  %inc14.i145.i = add i64 %277, 1
+  store i64 %inc14.i145.i, ptr %length.i.i.i305, align 8
+  %arrayidx15.i146.i = getelementptr i8, ptr %276, i64 %277
   store i8 0, ptr %arrayidx15.i146.i, align 1
-  %280 = load ptr, ptr %data1.i.i308, align 8
-  %281 = load i64, ptr %length.i.i.i300, align 8
-  %inc21.i147.i = add i64 %281, 1
-  store i64 %inc21.i147.i, ptr %length.i.i.i300, align 8
-  %arrayidx22.i148.i = getelementptr i8, ptr %280, i64 %281
+  %278 = load ptr, ptr %data1.i.i313, align 8
+  %279 = load i64, ptr %length.i.i.i305, align 8
+  %inc21.i147.i = add i64 %279, 1
+  store i64 %inc21.i147.i, ptr %length.i.i.i305, align 8
+  %arrayidx22.i148.i = getelementptr i8, ptr %278, i64 %279
   store i8 0, ptr %arrayidx22.i148.i, align 1
-  %282 = load i64, ptr %length.i.i.i300, align 8
-  %add.i.i157.i = add i64 %282, 4
-  %283 = load i64, ptr %alloc.i.i.i302, align 8
-  %cmp.not.i.i159.i = icmp ugt i64 %add.i.i157.i, %283
+  %280 = load i64, ptr %length.i.i.i305, align 8
+  %add.i.i157.i = add i64 %280, 4
+  %281 = load i64, ptr %alloc.i.i.i307, align 8
+  %cmp.not.i.i159.i = icmp ugt i64 %add.i.i157.i, %281
   br i1 %cmp.not.i.i159.i, label %if.end.i.i172.i, label %entry.usb_mtp_realloc.exit_crit_edge.i160.i
 
 entry.usb_mtp_realloc.exit_crit_edge.i160.i:      ; preds = %usb_mtp_add_u32.exit155.i
-  %.pre.i162.i = load ptr, ptr %data1.i.i308, align 8
+  %.pre.i162.i = load ptr, ptr %data1.i.i313, align 8
   br label %usb_mtp_add_u32.exit178.i
 
 if.end.i.i172.i:                                  ; preds = %usb_mtp_add_u32.exit155.i
-  %add5.i.i173.i = add i64 %282, 259
+  %add5.i.i173.i = add i64 %280, 259
   %and.i.i174.i = and i64 %add5.i.i173.i, -256
-  store i64 %and.i.i174.i, ptr %alloc.i.i.i302, align 8
-  %284 = load ptr, ptr %data1.i.i308, align 8
-  %call.i.i176.i = tail call ptr @g_realloc(ptr noundef %284, i64 noundef %and.i.i174.i) #15
-  store ptr %call.i.i176.i, ptr %data1.i.i308, align 8
-  %.pre12.i177.i = load i64, ptr %length.i.i.i300, align 8
+  store i64 %and.i.i174.i, ptr %alloc.i.i.i307, align 8
+  %282 = load ptr, ptr %data1.i.i313, align 8
+  %call.i.i176.i = tail call ptr @g_realloc(ptr noundef %282, i64 noundef %and.i.i174.i) #15
+  store ptr %call.i.i176.i, ptr %data1.i.i313, align 8
+  %.pre12.i177.i = load i64, ptr %length.i.i.i305, align 8
   br label %usb_mtp_add_u32.exit178.i
 
 usb_mtp_add_u32.exit178.i:                        ; preds = %if.end.i.i172.i, %entry.usb_mtp_realloc.exit_crit_edge.i160.i
-  %285 = phi i64 [ %282, %entry.usb_mtp_realloc.exit_crit_edge.i160.i ], [ %.pre12.i177.i, %if.end.i.i172.i ]
-  %286 = phi ptr [ %.pre.i162.i, %entry.usb_mtp_realloc.exit_crit_edge.i160.i ], [ %call.i.i176.i, %if.end.i.i172.i ]
-  %inc.i164.i = add i64 %285, 1
-  store i64 %inc.i164.i, ptr %length.i.i.i300, align 8
-  %arrayidx.i165.i = getelementptr i8, ptr %286, i64 %285
+  %283 = phi i64 [ %280, %entry.usb_mtp_realloc.exit_crit_edge.i160.i ], [ %.pre12.i177.i, %if.end.i.i172.i ]
+  %284 = phi ptr [ %.pre.i162.i, %entry.usb_mtp_realloc.exit_crit_edge.i160.i ], [ %call.i.i176.i, %if.end.i.i172.i ]
+  %inc.i164.i = add i64 %283, 1
+  store i64 %inc.i164.i, ptr %length.i.i.i305, align 8
+  %arrayidx.i165.i = getelementptr i8, ptr %284, i64 %283
   store i8 0, ptr %arrayidx.i165.i, align 1
-  %287 = load ptr, ptr %data1.i.i308, align 8
-  %288 = load i64, ptr %length.i.i.i300, align 8
-  %inc7.i166.i = add i64 %288, 1
-  store i64 %inc7.i166.i, ptr %length.i.i.i300, align 8
-  %arrayidx8.i167.i = getelementptr i8, ptr %287, i64 %288
+  %285 = load ptr, ptr %data1.i.i313, align 8
+  %286 = load i64, ptr %length.i.i.i305, align 8
+  %inc7.i166.i = add i64 %286, 1
+  store i64 %inc7.i166.i, ptr %length.i.i.i305, align 8
+  %arrayidx8.i167.i = getelementptr i8, ptr %285, i64 %286
   store i8 0, ptr %arrayidx8.i167.i, align 1
-  %289 = load ptr, ptr %data1.i.i308, align 8
-  %290 = load i64, ptr %length.i.i.i300, align 8
-  %inc14.i168.i = add i64 %290, 1
-  store i64 %inc14.i168.i, ptr %length.i.i.i300, align 8
-  %arrayidx15.i169.i = getelementptr i8, ptr %289, i64 %290
+  %287 = load ptr, ptr %data1.i.i313, align 8
+  %288 = load i64, ptr %length.i.i.i305, align 8
+  %inc14.i168.i = add i64 %288, 1
+  store i64 %inc14.i168.i, ptr %length.i.i.i305, align 8
+  %arrayidx15.i169.i = getelementptr i8, ptr %287, i64 %288
   store i8 0, ptr %arrayidx15.i169.i, align 1
-  %291 = load ptr, ptr %data1.i.i308, align 8
-  %292 = load i64, ptr %length.i.i.i300, align 8
-  %inc21.i170.i = add i64 %292, 1
-  store i64 %inc21.i170.i, ptr %length.i.i.i300, align 8
-  %arrayidx22.i171.i = getelementptr i8, ptr %291, i64 %292
+  %289 = load ptr, ptr %data1.i.i313, align 8
+  %290 = load i64, ptr %length.i.i.i305, align 8
+  %inc21.i170.i = add i64 %290, 1
+  store i64 %inc21.i170.i, ptr %length.i.i.i305, align 8
+  %arrayidx22.i171.i = getelementptr i8, ptr %289, i64 %290
   store i8 0, ptr %arrayidx22.i171.i, align 1
-  %293 = load i64, ptr %length.i.i.i300, align 8
-  %add.i.i180.i = add i64 %293, 4
-  %294 = load i64, ptr %alloc.i.i.i302, align 8
-  %cmp.not.i.i182.i = icmp ugt i64 %add.i.i180.i, %294
+  %291 = load i64, ptr %length.i.i.i305, align 8
+  %add.i.i180.i = add i64 %291, 4
+  %292 = load i64, ptr %alloc.i.i.i307, align 8
+  %cmp.not.i.i182.i = icmp ugt i64 %add.i.i180.i, %292
   br i1 %cmp.not.i.i182.i, label %if.end.i.i195.i, label %entry.usb_mtp_realloc.exit_crit_edge.i183.i
 
 entry.usb_mtp_realloc.exit_crit_edge.i183.i:      ; preds = %usb_mtp_add_u32.exit178.i
-  %.pre.i185.i = load ptr, ptr %data1.i.i308, align 8
+  %.pre.i185.i = load ptr, ptr %data1.i.i313, align 8
   br label %usb_mtp_add_u32.exit201.i
 
 if.end.i.i195.i:                                  ; preds = %usb_mtp_add_u32.exit178.i
-  %add5.i.i196.i = add i64 %293, 259
+  %add5.i.i196.i = add i64 %291, 259
   %and.i.i197.i = and i64 %add5.i.i196.i, -256
-  store i64 %and.i.i197.i, ptr %alloc.i.i.i302, align 8
-  %295 = load ptr, ptr %data1.i.i308, align 8
-  %call.i.i199.i = tail call ptr @g_realloc(ptr noundef %295, i64 noundef %and.i.i197.i) #15
-  store ptr %call.i.i199.i, ptr %data1.i.i308, align 8
-  %.pre12.i200.i = load i64, ptr %length.i.i.i300, align 8
+  store i64 %and.i.i197.i, ptr %alloc.i.i.i307, align 8
+  %293 = load ptr, ptr %data1.i.i313, align 8
+  %call.i.i199.i = tail call ptr @g_realloc(ptr noundef %293, i64 noundef %and.i.i197.i) #15
+  store ptr %call.i.i199.i, ptr %data1.i.i313, align 8
+  %.pre12.i200.i = load i64, ptr %length.i.i.i305, align 8
   br label %usb_mtp_add_u32.exit201.i
 
 usb_mtp_add_u32.exit201.i:                        ; preds = %if.end.i.i195.i, %entry.usb_mtp_realloc.exit_crit_edge.i183.i
-  %296 = phi i64 [ %293, %entry.usb_mtp_realloc.exit_crit_edge.i183.i ], [ %.pre12.i200.i, %if.end.i.i195.i ]
-  %297 = phi ptr [ %.pre.i185.i, %entry.usb_mtp_realloc.exit_crit_edge.i183.i ], [ %call.i.i199.i, %if.end.i.i195.i ]
-  %inc.i187.i = add i64 %296, 1
-  store i64 %inc.i187.i, ptr %length.i.i.i300, align 8
-  %arrayidx.i188.i = getelementptr i8, ptr %297, i64 %296
+  %294 = phi i64 [ %291, %entry.usb_mtp_realloc.exit_crit_edge.i183.i ], [ %.pre12.i200.i, %if.end.i.i195.i ]
+  %295 = phi ptr [ %.pre.i185.i, %entry.usb_mtp_realloc.exit_crit_edge.i183.i ], [ %call.i.i199.i, %if.end.i.i195.i ]
+  %inc.i187.i = add i64 %294, 1
+  store i64 %inc.i187.i, ptr %length.i.i.i305, align 8
+  %arrayidx.i188.i = getelementptr i8, ptr %295, i64 %294
   store i8 0, ptr %arrayidx.i188.i, align 1
-  %298 = load ptr, ptr %data1.i.i308, align 8
-  %299 = load i64, ptr %length.i.i.i300, align 8
-  %inc7.i189.i = add i64 %299, 1
-  store i64 %inc7.i189.i, ptr %length.i.i.i300, align 8
-  %arrayidx8.i190.i = getelementptr i8, ptr %298, i64 %299
+  %296 = load ptr, ptr %data1.i.i313, align 8
+  %297 = load i64, ptr %length.i.i.i305, align 8
+  %inc7.i189.i = add i64 %297, 1
+  store i64 %inc7.i189.i, ptr %length.i.i.i305, align 8
+  %arrayidx8.i190.i = getelementptr i8, ptr %296, i64 %297
   store i8 0, ptr %arrayidx8.i190.i, align 1
-  %300 = load ptr, ptr %data1.i.i308, align 8
-  %301 = load i64, ptr %length.i.i.i300, align 8
-  %inc14.i191.i = add i64 %301, 1
-  store i64 %inc14.i191.i, ptr %length.i.i.i300, align 8
-  %arrayidx15.i192.i = getelementptr i8, ptr %300, i64 %301
+  %298 = load ptr, ptr %data1.i.i313, align 8
+  %299 = load i64, ptr %length.i.i.i305, align 8
+  %inc14.i191.i = add i64 %299, 1
+  store i64 %inc14.i191.i, ptr %length.i.i.i305, align 8
+  %arrayidx15.i192.i = getelementptr i8, ptr %298, i64 %299
   store i8 0, ptr %arrayidx15.i192.i, align 1
-  %302 = load ptr, ptr %data1.i.i308, align 8
-  %303 = load i64, ptr %length.i.i.i300, align 8
-  %inc21.i193.i = add i64 %303, 1
-  store i64 %inc21.i193.i, ptr %length.i.i.i300, align 8
-  %arrayidx22.i194.i = getelementptr i8, ptr %302, i64 %303
+  %300 = load ptr, ptr %data1.i.i313, align 8
+  %301 = load i64, ptr %length.i.i.i305, align 8
+  %inc21.i193.i = add i64 %301, 1
+  store i64 %inc21.i193.i, ptr %length.i.i.i305, align 8
+  %arrayidx22.i194.i = getelementptr i8, ptr %300, i64 %301
   store i8 0, ptr %arrayidx22.i194.i, align 1
-  %304 = load i64, ptr %length.i.i.i300, align 8
-  %add.i.i203.i = add i64 %304, 4
-  %305 = load i64, ptr %alloc.i.i.i302, align 8
-  %cmp.not.i.i205.i = icmp ugt i64 %add.i.i203.i, %305
+  %302 = load i64, ptr %length.i.i.i305, align 8
+  %add.i.i203.i = add i64 %302, 4
+  %303 = load i64, ptr %alloc.i.i.i307, align 8
+  %cmp.not.i.i205.i = icmp ugt i64 %add.i.i203.i, %303
   br i1 %cmp.not.i.i205.i, label %if.end.i.i218.i, label %entry.usb_mtp_realloc.exit_crit_edge.i206.i
 
 entry.usb_mtp_realloc.exit_crit_edge.i206.i:      ; preds = %usb_mtp_add_u32.exit201.i
-  %.pre.i208.i = load ptr, ptr %data1.i.i308, align 8
+  %.pre.i208.i = load ptr, ptr %data1.i.i313, align 8
   br label %usb_mtp_add_u32.exit224.i
 
 if.end.i.i218.i:                                  ; preds = %usb_mtp_add_u32.exit201.i
-  %add5.i.i219.i = add i64 %304, 259
+  %add5.i.i219.i = add i64 %302, 259
   %and.i.i220.i = and i64 %add5.i.i219.i, -256
-  store i64 %and.i.i220.i, ptr %alloc.i.i.i302, align 8
-  %306 = load ptr, ptr %data1.i.i308, align 8
-  %call.i.i222.i = tail call ptr @g_realloc(ptr noundef %306, i64 noundef %and.i.i220.i) #15
-  store ptr %call.i.i222.i, ptr %data1.i.i308, align 8
-  %.pre12.i223.i = load i64, ptr %length.i.i.i300, align 8
+  store i64 %and.i.i220.i, ptr %alloc.i.i.i307, align 8
+  %304 = load ptr, ptr %data1.i.i313, align 8
+  %call.i.i222.i = tail call ptr @g_realloc(ptr noundef %304, i64 noundef %and.i.i220.i) #15
+  store ptr %call.i.i222.i, ptr %data1.i.i313, align 8
+  %.pre12.i223.i = load i64, ptr %length.i.i.i305, align 8
   br label %usb_mtp_add_u32.exit224.i
 
 usb_mtp_add_u32.exit224.i:                        ; preds = %if.end.i.i218.i, %entry.usb_mtp_realloc.exit_crit_edge.i206.i
-  %307 = phi i64 [ %304, %entry.usb_mtp_realloc.exit_crit_edge.i206.i ], [ %.pre12.i223.i, %if.end.i.i218.i ]
-  %308 = phi ptr [ %.pre.i208.i, %entry.usb_mtp_realloc.exit_crit_edge.i206.i ], [ %call.i.i222.i, %if.end.i.i218.i ]
-  %inc.i210.i = add i64 %307, 1
-  store i64 %inc.i210.i, ptr %length.i.i.i300, align 8
-  %arrayidx.i211.i = getelementptr i8, ptr %308, i64 %307
+  %305 = phi i64 [ %302, %entry.usb_mtp_realloc.exit_crit_edge.i206.i ], [ %.pre12.i223.i, %if.end.i.i218.i ]
+  %306 = phi ptr [ %.pre.i208.i, %entry.usb_mtp_realloc.exit_crit_edge.i206.i ], [ %call.i.i222.i, %if.end.i.i218.i ]
+  %inc.i210.i = add i64 %305, 1
+  store i64 %inc.i210.i, ptr %length.i.i.i305, align 8
+  %arrayidx.i211.i = getelementptr i8, ptr %306, i64 %305
   store i8 0, ptr %arrayidx.i211.i, align 1
-  %309 = load ptr, ptr %data1.i.i308, align 8
-  %310 = load i64, ptr %length.i.i.i300, align 8
-  %inc7.i212.i = add i64 %310, 1
-  store i64 %inc7.i212.i, ptr %length.i.i.i300, align 8
-  %arrayidx8.i213.i = getelementptr i8, ptr %309, i64 %310
+  %307 = load ptr, ptr %data1.i.i313, align 8
+  %308 = load i64, ptr %length.i.i.i305, align 8
+  %inc7.i212.i = add i64 %308, 1
+  store i64 %inc7.i212.i, ptr %length.i.i.i305, align 8
+  %arrayidx8.i213.i = getelementptr i8, ptr %307, i64 %308
   store i8 0, ptr %arrayidx8.i213.i, align 1
-  %311 = load ptr, ptr %data1.i.i308, align 8
-  %312 = load i64, ptr %length.i.i.i300, align 8
-  %inc14.i214.i = add i64 %312, 1
-  store i64 %inc14.i214.i, ptr %length.i.i.i300, align 8
-  %arrayidx15.i215.i = getelementptr i8, ptr %311, i64 %312
+  %309 = load ptr, ptr %data1.i.i313, align 8
+  %310 = load i64, ptr %length.i.i.i305, align 8
+  %inc14.i214.i = add i64 %310, 1
+  store i64 %inc14.i214.i, ptr %length.i.i.i305, align 8
+  %arrayidx15.i215.i = getelementptr i8, ptr %309, i64 %310
   store i8 0, ptr %arrayidx15.i215.i, align 1
-  %313 = load ptr, ptr %data1.i.i308, align 8
-  %314 = load i64, ptr %length.i.i.i300, align 8
-  %inc21.i216.i = add i64 %314, 1
-  store i64 %inc21.i216.i, ptr %length.i.i.i300, align 8
-  %arrayidx22.i217.i = getelementptr i8, ptr %313, i64 %314
+  %311 = load ptr, ptr %data1.i.i313, align 8
+  %312 = load i64, ptr %length.i.i.i305, align 8
+  %inc21.i216.i = add i64 %312, 1
+  store i64 %inc21.i216.i, ptr %length.i.i.i305, align 8
+  %arrayidx22.i217.i = getelementptr i8, ptr %311, i64 %312
   store i8 0, ptr %arrayidx22.i217.i, align 1
-  %315 = load i64, ptr %length.i.i.i300, align 8
-  %add.i.i226.i = add i64 %315, 4
-  %316 = load i64, ptr %alloc.i.i.i302, align 8
-  %cmp.not.i.i228.i = icmp ugt i64 %add.i.i226.i, %316
+  %313 = load i64, ptr %length.i.i.i305, align 8
+  %add.i.i226.i = add i64 %313, 4
+  %314 = load i64, ptr %alloc.i.i.i307, align 8
+  %cmp.not.i.i228.i = icmp ugt i64 %add.i.i226.i, %314
   br i1 %cmp.not.i.i228.i, label %if.end.i.i241.i, label %entry.usb_mtp_realloc.exit_crit_edge.i229.i
 
 entry.usb_mtp_realloc.exit_crit_edge.i229.i:      ; preds = %usb_mtp_add_u32.exit224.i
-  %.pre.i231.i = load ptr, ptr %data1.i.i308, align 8
+  %.pre.i231.i = load ptr, ptr %data1.i.i313, align 8
   br label %usb_mtp_add_u32.exit247.i
 
 if.end.i.i241.i:                                  ; preds = %usb_mtp_add_u32.exit224.i
-  %add5.i.i242.i = add i64 %315, 259
+  %add5.i.i242.i = add i64 %313, 259
   %and.i.i243.i = and i64 %add5.i.i242.i, -256
-  store i64 %and.i.i243.i, ptr %alloc.i.i.i302, align 8
-  %317 = load ptr, ptr %data1.i.i308, align 8
-  %call.i.i245.i = tail call ptr @g_realloc(ptr noundef %317, i64 noundef %and.i.i243.i) #15
-  store ptr %call.i.i245.i, ptr %data1.i.i308, align 8
-  %.pre12.i246.i = load i64, ptr %length.i.i.i300, align 8
+  store i64 %and.i.i243.i, ptr %alloc.i.i.i307, align 8
+  %315 = load ptr, ptr %data1.i.i313, align 8
+  %call.i.i245.i = tail call ptr @g_realloc(ptr noundef %315, i64 noundef %and.i.i243.i) #15
+  store ptr %call.i.i245.i, ptr %data1.i.i313, align 8
+  %.pre12.i246.i = load i64, ptr %length.i.i.i305, align 8
   br label %usb_mtp_add_u32.exit247.i
 
 usb_mtp_add_u32.exit247.i:                        ; preds = %if.end.i.i241.i, %entry.usb_mtp_realloc.exit_crit_edge.i229.i
-  %318 = phi i64 [ %315, %entry.usb_mtp_realloc.exit_crit_edge.i229.i ], [ %.pre12.i246.i, %if.end.i.i241.i ]
-  %319 = phi ptr [ %.pre.i231.i, %entry.usb_mtp_realloc.exit_crit_edge.i229.i ], [ %call.i.i245.i, %if.end.i.i241.i ]
-  %inc.i233.i = add i64 %318, 1
-  store i64 %inc.i233.i, ptr %length.i.i.i300, align 8
-  %arrayidx.i234.i = getelementptr i8, ptr %319, i64 %318
+  %316 = phi i64 [ %313, %entry.usb_mtp_realloc.exit_crit_edge.i229.i ], [ %.pre12.i246.i, %if.end.i.i241.i ]
+  %317 = phi ptr [ %.pre.i231.i, %entry.usb_mtp_realloc.exit_crit_edge.i229.i ], [ %call.i.i245.i, %if.end.i.i241.i ]
+  %inc.i233.i = add i64 %316, 1
+  store i64 %inc.i233.i, ptr %length.i.i.i305, align 8
+  %arrayidx.i234.i = getelementptr i8, ptr %317, i64 %316
   store i8 0, ptr %arrayidx.i234.i, align 1
-  %320 = load ptr, ptr %data1.i.i308, align 8
-  %321 = load i64, ptr %length.i.i.i300, align 8
-  %inc7.i235.i = add i64 %321, 1
-  store i64 %inc7.i235.i, ptr %length.i.i.i300, align 8
-  %arrayidx8.i236.i = getelementptr i8, ptr %320, i64 %321
+  %318 = load ptr, ptr %data1.i.i313, align 8
+  %319 = load i64, ptr %length.i.i.i305, align 8
+  %inc7.i235.i = add i64 %319, 1
+  store i64 %inc7.i235.i, ptr %length.i.i.i305, align 8
+  %arrayidx8.i236.i = getelementptr i8, ptr %318, i64 %319
   store i8 0, ptr %arrayidx8.i236.i, align 1
-  %322 = load ptr, ptr %data1.i.i308, align 8
-  %323 = load i64, ptr %length.i.i.i300, align 8
-  %inc14.i237.i = add i64 %323, 1
-  store i64 %inc14.i237.i, ptr %length.i.i.i300, align 8
-  %arrayidx15.i238.i = getelementptr i8, ptr %322, i64 %323
+  %320 = load ptr, ptr %data1.i.i313, align 8
+  %321 = load i64, ptr %length.i.i.i305, align 8
+  %inc14.i237.i = add i64 %321, 1
+  store i64 %inc14.i237.i, ptr %length.i.i.i305, align 8
+  %arrayidx15.i238.i = getelementptr i8, ptr %320, i64 %321
   store i8 0, ptr %arrayidx15.i238.i, align 1
-  %324 = load ptr, ptr %data1.i.i308, align 8
-  %325 = load i64, ptr %length.i.i.i300, align 8
-  %inc21.i239.i = add i64 %325, 1
-  store i64 %inc21.i239.i, ptr %length.i.i.i300, align 8
-  %arrayidx22.i240.i = getelementptr i8, ptr %324, i64 %325
+  %322 = load ptr, ptr %data1.i.i313, align 8
+  %323 = load i64, ptr %length.i.i.i305, align 8
+  %inc21.i239.i = add i64 %323, 1
+  store i64 %inc21.i239.i, ptr %length.i.i.i305, align 8
+  %arrayidx22.i240.i = getelementptr i8, ptr %322, i64 %323
   store i8 0, ptr %arrayidx22.i240.i, align 1
-  %326 = load i64, ptr %length.i.i.i300, align 8
-  %add.i.i249.i = add i64 %326, 4
-  %327 = load i64, ptr %alloc.i.i.i302, align 8
-  %cmp.not.i.i251.i = icmp ugt i64 %add.i.i249.i, %327
+  %324 = load i64, ptr %length.i.i.i305, align 8
+  %add.i.i249.i = add i64 %324, 4
+  %325 = load i64, ptr %alloc.i.i.i307, align 8
+  %cmp.not.i.i251.i = icmp ugt i64 %add.i.i249.i, %325
   br i1 %cmp.not.i.i251.i, label %if.end.i.i264.i, label %entry.usb_mtp_realloc.exit_crit_edge.i252.i
 
 entry.usb_mtp_realloc.exit_crit_edge.i252.i:      ; preds = %usb_mtp_add_u32.exit247.i
-  %.pre.i254.i = load ptr, ptr %data1.i.i308, align 8
+  %.pre.i254.i = load ptr, ptr %data1.i.i313, align 8
   br label %usb_mtp_add_u32.exit270.i
 
 if.end.i.i264.i:                                  ; preds = %usb_mtp_add_u32.exit247.i
-  %add5.i.i265.i = add i64 %326, 259
+  %add5.i.i265.i = add i64 %324, 259
   %and.i.i266.i = and i64 %add5.i.i265.i, -256
-  store i64 %and.i.i266.i, ptr %alloc.i.i.i302, align 8
-  %328 = load ptr, ptr %data1.i.i308, align 8
-  %call.i.i268.i = tail call ptr @g_realloc(ptr noundef %328, i64 noundef %and.i.i266.i) #15
-  store ptr %call.i.i268.i, ptr %data1.i.i308, align 8
-  %.pre12.i269.i = load i64, ptr %length.i.i.i300, align 8
+  store i64 %and.i.i266.i, ptr %alloc.i.i.i307, align 8
+  %326 = load ptr, ptr %data1.i.i313, align 8
+  %call.i.i268.i = tail call ptr @g_realloc(ptr noundef %326, i64 noundef %and.i.i266.i) #15
+  store ptr %call.i.i268.i, ptr %data1.i.i313, align 8
+  %.pre12.i269.i = load i64, ptr %length.i.i.i305, align 8
   br label %usb_mtp_add_u32.exit270.i
 
 usb_mtp_add_u32.exit270.i:                        ; preds = %if.end.i.i264.i, %entry.usb_mtp_realloc.exit_crit_edge.i252.i
-  %329 = phi i64 [ %326, %entry.usb_mtp_realloc.exit_crit_edge.i252.i ], [ %.pre12.i269.i, %if.end.i.i264.i ]
-  %330 = phi ptr [ %.pre.i254.i, %entry.usb_mtp_realloc.exit_crit_edge.i252.i ], [ %call.i.i268.i, %if.end.i.i264.i ]
-  %inc.i256.i = add i64 %329, 1
-  store i64 %inc.i256.i, ptr %length.i.i.i300, align 8
-  %arrayidx.i257.i = getelementptr i8, ptr %330, i64 %329
+  %327 = phi i64 [ %324, %entry.usb_mtp_realloc.exit_crit_edge.i252.i ], [ %.pre12.i269.i, %if.end.i.i264.i ]
+  %328 = phi ptr [ %.pre.i254.i, %entry.usb_mtp_realloc.exit_crit_edge.i252.i ], [ %call.i.i268.i, %if.end.i.i264.i ]
+  %inc.i256.i = add i64 %327, 1
+  store i64 %inc.i256.i, ptr %length.i.i.i305, align 8
+  %arrayidx.i257.i = getelementptr i8, ptr %328, i64 %327
   store i8 0, ptr %arrayidx.i257.i, align 1
-  %331 = load ptr, ptr %data1.i.i308, align 8
-  %332 = load i64, ptr %length.i.i.i300, align 8
-  %inc7.i258.i = add i64 %332, 1
-  store i64 %inc7.i258.i, ptr %length.i.i.i300, align 8
-  %arrayidx8.i259.i = getelementptr i8, ptr %331, i64 %332
+  %329 = load ptr, ptr %data1.i.i313, align 8
+  %330 = load i64, ptr %length.i.i.i305, align 8
+  %inc7.i258.i = add i64 %330, 1
+  store i64 %inc7.i258.i, ptr %length.i.i.i305, align 8
+  %arrayidx8.i259.i = getelementptr i8, ptr %329, i64 %330
   store i8 0, ptr %arrayidx8.i259.i, align 1
-  %333 = load ptr, ptr %data1.i.i308, align 8
-  %334 = load i64, ptr %length.i.i.i300, align 8
-  %inc14.i260.i = add i64 %334, 1
-  store i64 %inc14.i260.i, ptr %length.i.i.i300, align 8
-  %arrayidx15.i261.i = getelementptr i8, ptr %333, i64 %334
+  %331 = load ptr, ptr %data1.i.i313, align 8
+  %332 = load i64, ptr %length.i.i.i305, align 8
+  %inc14.i260.i = add i64 %332, 1
+  store i64 %inc14.i260.i, ptr %length.i.i.i305, align 8
+  %arrayidx15.i261.i = getelementptr i8, ptr %331, i64 %332
   store i8 0, ptr %arrayidx15.i261.i, align 1
-  %335 = load ptr, ptr %data1.i.i308, align 8
-  %336 = load i64, ptr %length.i.i.i300, align 8
-  %inc21.i262.i = add i64 %336, 1
-  store i64 %inc21.i262.i, ptr %length.i.i.i300, align 8
-  %arrayidx22.i263.i = getelementptr i8, ptr %335, i64 %336
+  %333 = load ptr, ptr %data1.i.i313, align 8
+  %334 = load i64, ptr %length.i.i.i305, align 8
+  %inc21.i262.i = add i64 %334, 1
+  store i64 %inc21.i262.i, ptr %length.i.i.i305, align 8
+  %arrayidx22.i263.i = getelementptr i8, ptr %333, i64 %334
   store i8 0, ptr %arrayidx22.i263.i, align 1
-  %parent.i = getelementptr inbounds i8, ptr %o.06.i281, i64 176
-  %337 = load ptr, ptr %parent.i, align 8
-  %tobool.not.i328 = icmp eq ptr %337, null
-  br i1 %tobool.not.i328, label %if.else8.i, label %if.then5.i
+  %parent.i = getelementptr inbounds i8, ptr %o.06.i286, i64 176
+  %335 = load ptr, ptr %parent.i, align 8
+  %tobool.not.i333 = icmp eq ptr %335, null
+  br i1 %tobool.not.i333, label %if.else8.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %usb_mtp_add_u32.exit270.i
-  %338 = load i32, ptr %337, align 8
-  %339 = load i64, ptr %length.i.i.i300, align 8
-  %add.i.i272.i = add i64 %339, 4
-  %340 = load i64, ptr %alloc.i.i.i302, align 8
-  %cmp.not.i.i274.i = icmp ugt i64 %add.i.i272.i, %340
+  %336 = load i32, ptr %335, align 8
+  %337 = load i64, ptr %length.i.i.i305, align 8
+  %add.i.i272.i = add i64 %337, 4
+  %338 = load i64, ptr %alloc.i.i.i307, align 8
+  %cmp.not.i.i274.i = icmp ugt i64 %add.i.i272.i, %338
   br i1 %cmp.not.i.i274.i, label %if.end.i.i294.i, label %entry.usb_mtp_realloc.exit_crit_edge.i275.i
 
 entry.usb_mtp_realloc.exit_crit_edge.i275.i:      ; preds = %if.then5.i
-  %.pre.i277.i = load ptr, ptr %data1.i.i308, align 8
+  %.pre.i277.i = load ptr, ptr %data1.i.i313, align 8
   br label %usb_mtp_add_u32.exit300.i
 
 if.end.i.i294.i:                                  ; preds = %if.then5.i
-  %add5.i.i295.i = add i64 %339, 259
+  %add5.i.i295.i = add i64 %337, 259
   %and.i.i296.i = and i64 %add5.i.i295.i, -256
-  store i64 %and.i.i296.i, ptr %alloc.i.i.i302, align 8
-  %341 = load ptr, ptr %data1.i.i308, align 8
-  %call.i.i298.i = tail call ptr @g_realloc(ptr noundef %341, i64 noundef %and.i.i296.i) #15
-  store ptr %call.i.i298.i, ptr %data1.i.i308, align 8
-  %.pre12.i299.i = load i64, ptr %length.i.i.i300, align 8
+  store i64 %and.i.i296.i, ptr %alloc.i.i.i307, align 8
+  %339 = load ptr, ptr %data1.i.i313, align 8
+  %call.i.i298.i = tail call ptr @g_realloc(ptr noundef %339, i64 noundef %and.i.i296.i) #15
+  store ptr %call.i.i298.i, ptr %data1.i.i313, align 8
+  %.pre12.i299.i = load i64, ptr %length.i.i.i305, align 8
   br label %usb_mtp_add_u32.exit300.i
 
 usb_mtp_add_u32.exit300.i:                        ; preds = %if.end.i.i294.i, %entry.usb_mtp_realloc.exit_crit_edge.i275.i
-  %342 = phi i64 [ %339, %entry.usb_mtp_realloc.exit_crit_edge.i275.i ], [ %.pre12.i299.i, %if.end.i.i294.i ]
-  %343 = phi ptr [ %.pre.i277.i, %entry.usb_mtp_realloc.exit_crit_edge.i275.i ], [ %call.i.i298.i, %if.end.i.i294.i ]
-  %conv.i278.i = trunc i32 %338 to i8
-  %inc.i280.i = add i64 %342, 1
-  store i64 %inc.i280.i, ptr %length.i.i.i300, align 8
-  %arrayidx.i281.i = getelementptr i8, ptr %343, i64 %342
+  %340 = phi i64 [ %337, %entry.usb_mtp_realloc.exit_crit_edge.i275.i ], [ %.pre12.i299.i, %if.end.i.i294.i ]
+  %341 = phi ptr [ %.pre.i277.i, %entry.usb_mtp_realloc.exit_crit_edge.i275.i ], [ %call.i.i298.i, %if.end.i.i294.i ]
+  %conv.i278.i = trunc i32 %336 to i8
+  %inc.i280.i = add i64 %340, 1
+  store i64 %inc.i280.i, ptr %length.i.i.i305, align 8
+  %arrayidx.i281.i = getelementptr i8, ptr %341, i64 %340
   store i8 %conv.i278.i, ptr %arrayidx.i281.i, align 1
-  %shr2.i282.i = lshr i32 %338, 8
+  %shr2.i282.i = lshr i32 %336, 8
   %conv4.i283.i = trunc i32 %shr2.i282.i to i8
-  %344 = load ptr, ptr %data1.i.i308, align 8
-  %345 = load i64, ptr %length.i.i.i300, align 8
-  %inc7.i284.i = add i64 %345, 1
-  store i64 %inc7.i284.i, ptr %length.i.i.i300, align 8
-  %arrayidx8.i285.i = getelementptr i8, ptr %344, i64 %345
+  %342 = load ptr, ptr %data1.i.i313, align 8
+  %343 = load i64, ptr %length.i.i.i305, align 8
+  %inc7.i284.i = add i64 %343, 1
+  store i64 %inc7.i284.i, ptr %length.i.i.i305, align 8
+  %arrayidx8.i285.i = getelementptr i8, ptr %342, i64 %343
   store i8 %conv4.i283.i, ptr %arrayidx8.i285.i, align 1
-  %shr9.i286.i = lshr i32 %338, 16
+  %shr9.i286.i = lshr i32 %336, 16
   %conv11.i287.i = trunc i32 %shr9.i286.i to i8
-  %346 = load ptr, ptr %data1.i.i308, align 8
-  %347 = load i64, ptr %length.i.i.i300, align 8
-  %inc14.i288.i = add i64 %347, 1
-  store i64 %inc14.i288.i, ptr %length.i.i.i300, align 8
-  %arrayidx15.i289.i = getelementptr i8, ptr %346, i64 %347
+  %344 = load ptr, ptr %data1.i.i313, align 8
+  %345 = load i64, ptr %length.i.i.i305, align 8
+  %inc14.i288.i = add i64 %345, 1
+  store i64 %inc14.i288.i, ptr %length.i.i.i305, align 8
+  %arrayidx15.i289.i = getelementptr i8, ptr %344, i64 %345
   store i8 %conv11.i287.i, ptr %arrayidx15.i289.i, align 1
-  %shr16.i290.i = lshr i32 %338, 24
+  %shr16.i290.i = lshr i32 %336, 24
   %conv18.i291.i = trunc nuw i32 %shr16.i290.i to i8
   br label %if.end9.i
 
 if.else8.i:                                       ; preds = %usb_mtp_add_u32.exit270.i
-  %348 = load i64, ptr %length.i.i.i300, align 8
-  %add.i.i302.i = add i64 %348, 4
-  %349 = load i64, ptr %alloc.i.i.i302, align 8
-  %cmp.not.i.i304.i = icmp ugt i64 %add.i.i302.i, %349
+  %346 = load i64, ptr %length.i.i.i305, align 8
+  %add.i.i302.i = add i64 %346, 4
+  %347 = load i64, ptr %alloc.i.i.i307, align 8
+  %cmp.not.i.i304.i = icmp ugt i64 %add.i.i302.i, %347
   br i1 %cmp.not.i.i304.i, label %if.end.i.i317.i, label %entry.usb_mtp_realloc.exit_crit_edge.i305.i
 
 entry.usb_mtp_realloc.exit_crit_edge.i305.i:      ; preds = %if.else8.i
-  %.pre.i307.i = load ptr, ptr %data1.i.i308, align 8
+  %.pre.i307.i = load ptr, ptr %data1.i.i313, align 8
   br label %usb_mtp_add_u32.exit323.i
 
 if.end.i.i317.i:                                  ; preds = %if.else8.i
-  %add5.i.i318.i = add i64 %348, 259
+  %add5.i.i318.i = add i64 %346, 259
   %and.i.i319.i = and i64 %add5.i.i318.i, -256
-  store i64 %and.i.i319.i, ptr %alloc.i.i.i302, align 8
-  %350 = load ptr, ptr %data1.i.i308, align 8
-  %call.i.i321.i = tail call ptr @g_realloc(ptr noundef %350, i64 noundef %and.i.i319.i) #15
-  store ptr %call.i.i321.i, ptr %data1.i.i308, align 8
-  %.pre12.i322.i = load i64, ptr %length.i.i.i300, align 8
+  store i64 %and.i.i319.i, ptr %alloc.i.i.i307, align 8
+  %348 = load ptr, ptr %data1.i.i313, align 8
+  %call.i.i321.i = tail call ptr @g_realloc(ptr noundef %348, i64 noundef %and.i.i319.i) #15
+  store ptr %call.i.i321.i, ptr %data1.i.i313, align 8
+  %.pre12.i322.i = load i64, ptr %length.i.i.i305, align 8
   br label %usb_mtp_add_u32.exit323.i
 
 usb_mtp_add_u32.exit323.i:                        ; preds = %if.end.i.i317.i, %entry.usb_mtp_realloc.exit_crit_edge.i305.i
-  %351 = phi i64 [ %348, %entry.usb_mtp_realloc.exit_crit_edge.i305.i ], [ %.pre12.i322.i, %if.end.i.i317.i ]
-  %352 = phi ptr [ %.pre.i307.i, %entry.usb_mtp_realloc.exit_crit_edge.i305.i ], [ %call.i.i321.i, %if.end.i.i317.i ]
-  %inc.i309.i = add i64 %351, 1
-  store i64 %inc.i309.i, ptr %length.i.i.i300, align 8
-  %arrayidx.i310.i = getelementptr i8, ptr %352, i64 %351
+  %349 = phi i64 [ %346, %entry.usb_mtp_realloc.exit_crit_edge.i305.i ], [ %.pre12.i322.i, %if.end.i.i317.i ]
+  %350 = phi ptr [ %.pre.i307.i, %entry.usb_mtp_realloc.exit_crit_edge.i305.i ], [ %call.i.i321.i, %if.end.i.i317.i ]
+  %inc.i309.i = add i64 %349, 1
+  store i64 %inc.i309.i, ptr %length.i.i.i305, align 8
+  %arrayidx.i310.i = getelementptr i8, ptr %350, i64 %349
   store i8 0, ptr %arrayidx.i310.i, align 1
-  %353 = load ptr, ptr %data1.i.i308, align 8
-  %354 = load i64, ptr %length.i.i.i300, align 8
-  %inc7.i311.i = add i64 %354, 1
-  store i64 %inc7.i311.i, ptr %length.i.i.i300, align 8
-  %arrayidx8.i312.i = getelementptr i8, ptr %353, i64 %354
+  %351 = load ptr, ptr %data1.i.i313, align 8
+  %352 = load i64, ptr %length.i.i.i305, align 8
+  %inc7.i311.i = add i64 %352, 1
+  store i64 %inc7.i311.i, ptr %length.i.i.i305, align 8
+  %arrayidx8.i312.i = getelementptr i8, ptr %351, i64 %352
   store i8 0, ptr %arrayidx8.i312.i, align 1
-  %355 = load ptr, ptr %data1.i.i308, align 8
-  %356 = load i64, ptr %length.i.i.i300, align 8
-  %inc14.i313.i = add i64 %356, 1
-  store i64 %inc14.i313.i, ptr %length.i.i.i300, align 8
-  %arrayidx15.i314.i = getelementptr i8, ptr %355, i64 %356
+  %353 = load ptr, ptr %data1.i.i313, align 8
+  %354 = load i64, ptr %length.i.i.i305, align 8
+  %inc14.i313.i = add i64 %354, 1
+  store i64 %inc14.i313.i, ptr %length.i.i.i305, align 8
+  %arrayidx15.i314.i = getelementptr i8, ptr %353, i64 %354
   store i8 0, ptr %arrayidx15.i314.i, align 1
   br label %if.end9.i
 
 if.end9.i:                                        ; preds = %usb_mtp_add_u32.exit323.i, %usb_mtp_add_u32.exit300.i
-  %.sink.i329 = phi i8 [ 0, %usb_mtp_add_u32.exit323.i ], [ %conv18.i291.i, %usb_mtp_add_u32.exit300.i ]
-  %357 = load ptr, ptr %data1.i.i308, align 8
-  %358 = load i64, ptr %length.i.i.i300, align 8
-  %inc21.i315.i = add i64 %358, 1
-  store i64 %inc21.i315.i, ptr %length.i.i.i300, align 8
-  %arrayidx22.i316.i = getelementptr i8, ptr %357, i64 %358
-  store i8 %.sink.i329, ptr %arrayidx22.i316.i, align 1
-  %359 = load i16, ptr %format.i, align 4
-  %cmp12.i = icmp eq i16 %359, 12289
-  %360 = load i64, ptr %length.i.i.i300, align 8
-  %add.i.i325.i = add i64 %360, 2
-  %361 = load i64, ptr %alloc.i.i.i302, align 8
-  %cmp.not.i.i327.i = icmp ugt i64 %add.i.i325.i, %361
+  %.sink.i334 = phi i8 [ 0, %usb_mtp_add_u32.exit323.i ], [ %conv18.i291.i, %usb_mtp_add_u32.exit300.i ]
+  %355 = load ptr, ptr %data1.i.i313, align 8
+  %356 = load i64, ptr %length.i.i.i305, align 8
+  %inc21.i315.i = add i64 %356, 1
+  store i64 %inc21.i315.i, ptr %length.i.i.i305, align 8
+  %arrayidx22.i316.i = getelementptr i8, ptr %355, i64 %356
+  store i8 %.sink.i334, ptr %arrayidx22.i316.i, align 1
+  %357 = load i16, ptr %format.i, align 4
+  %cmp12.i = icmp eq i16 %357, 12289
+  %358 = load i64, ptr %length.i.i.i305, align 8
+  %add.i.i325.i = add i64 %358, 2
+  %359 = load i64, ptr %alloc.i.i.i307, align 8
+  %cmp.not.i.i327.i = icmp ugt i64 %add.i.i325.i, %359
   br i1 %cmp12.i, label %if.then14.i, label %if.else15.i
 
 if.then14.i:                                      ; preds = %if.end9.i
   br i1 %cmp.not.i.i327.i, label %if.end.i.i336.i, label %entry.usb_mtp_realloc.exit_crit_edge.i328.i
 
 entry.usb_mtp_realloc.exit_crit_edge.i328.i:      ; preds = %if.then14.i
-  %.pre.i330.i = load ptr, ptr %data1.i.i308, align 8
+  %.pre.i330.i = load ptr, ptr %data1.i.i313, align 8
   br label %usb_mtp_add_u16.exit342.i
 
 if.end.i.i336.i:                                  ; preds = %if.then14.i
-  %add5.i.i337.i = add i64 %360, 257
+  %add5.i.i337.i = add i64 %358, 257
   %and.i.i338.i = and i64 %add5.i.i337.i, -256
-  store i64 %and.i.i338.i, ptr %alloc.i.i.i302, align 8
-  %362 = load ptr, ptr %data1.i.i308, align 8
-  %call.i.i340.i = tail call ptr @g_realloc(ptr noundef %362, i64 noundef %and.i.i338.i) #15
-  store ptr %call.i.i340.i, ptr %data1.i.i308, align 8
-  %.pre6.i341.i = load i64, ptr %length.i.i.i300, align 8
+  store i64 %and.i.i338.i, ptr %alloc.i.i.i307, align 8
+  %360 = load ptr, ptr %data1.i.i313, align 8
+  %call.i.i340.i = tail call ptr @g_realloc(ptr noundef %360, i64 noundef %and.i.i338.i) #15
+  store ptr %call.i.i340.i, ptr %data1.i.i313, align 8
+  %.pre6.i341.i = load i64, ptr %length.i.i.i305, align 8
   br label %usb_mtp_add_u16.exit342.i
 
 usb_mtp_add_u16.exit342.i:                        ; preds = %if.end.i.i336.i, %entry.usb_mtp_realloc.exit_crit_edge.i328.i
-  %363 = phi i64 [ %360, %entry.usb_mtp_realloc.exit_crit_edge.i328.i ], [ %.pre6.i341.i, %if.end.i.i336.i ]
-  %364 = phi ptr [ %.pre.i330.i, %entry.usb_mtp_realloc.exit_crit_edge.i328.i ], [ %call.i.i340.i, %if.end.i.i336.i ]
-  %inc.i332.i = add i64 %363, 1
-  store i64 %inc.i332.i, ptr %length.i.i.i300, align 8
-  %arrayidx.i333.i = getelementptr i8, ptr %364, i64 %363
+  %361 = phi i64 [ %358, %entry.usb_mtp_realloc.exit_crit_edge.i328.i ], [ %.pre6.i341.i, %if.end.i.i336.i ]
+  %362 = phi ptr [ %.pre.i330.i, %entry.usb_mtp_realloc.exit_crit_edge.i328.i ], [ %call.i.i340.i, %if.end.i.i336.i ]
+  %inc.i332.i = add i64 %361, 1
+  store i64 %inc.i332.i, ptr %length.i.i.i305, align 8
+  %arrayidx.i333.i = getelementptr i8, ptr %362, i64 %361
   store i8 1, ptr %arrayidx.i333.i, align 1
-  %365 = load ptr, ptr %data1.i.i308, align 8
-  %366 = load i64, ptr %length.i.i.i300, align 8
-  %inc9.i334.i = add i64 %366, 1
-  store i64 %inc9.i334.i, ptr %length.i.i.i300, align 8
-  %arrayidx10.i335.i = getelementptr i8, ptr %365, i64 %366
+  %363 = load ptr, ptr %data1.i.i313, align 8
+  %364 = load i64, ptr %length.i.i.i305, align 8
+  %inc9.i334.i = add i64 %364, 1
+  store i64 %inc9.i334.i, ptr %length.i.i.i305, align 8
+  %arrayidx10.i335.i = getelementptr i8, ptr %363, i64 %364
   store i8 0, ptr %arrayidx10.i335.i, align 1
-  %367 = load i64, ptr %length.i.i.i300, align 8
-  %add.i.i344.i = add i64 %367, 4
-  %368 = load i64, ptr %alloc.i.i.i302, align 8
-  %cmp.not.i.i346.i = icmp ugt i64 %add.i.i344.i, %368
+  %365 = load i64, ptr %length.i.i.i305, align 8
+  %add.i.i344.i = add i64 %365, 4
+  %366 = load i64, ptr %alloc.i.i.i307, align 8
+  %cmp.not.i.i346.i = icmp ugt i64 %add.i.i344.i, %366
   br i1 %cmp.not.i.i346.i, label %if.end.i.i359.i, label %entry.usb_mtp_realloc.exit_crit_edge.i347.i
 
 entry.usb_mtp_realloc.exit_crit_edge.i347.i:      ; preds = %usb_mtp_add_u16.exit342.i
-  %.pre.i349.i = load ptr, ptr %data1.i.i308, align 8
+  %.pre.i349.i = load ptr, ptr %data1.i.i313, align 8
   br label %usb_mtp_add_u32.exit365.i
 
 if.end.i.i359.i:                                  ; preds = %usb_mtp_add_u16.exit342.i
-  %add5.i.i360.i = add i64 %367, 259
+  %add5.i.i360.i = add i64 %365, 259
   %and.i.i361.i = and i64 %add5.i.i360.i, -256
-  store i64 %and.i.i361.i, ptr %alloc.i.i.i302, align 8
-  %369 = load ptr, ptr %data1.i.i308, align 8
-  %call.i.i363.i = tail call ptr @g_realloc(ptr noundef %369, i64 noundef %and.i.i361.i) #15
-  store ptr %call.i.i363.i, ptr %data1.i.i308, align 8
-  %.pre12.i364.i = load i64, ptr %length.i.i.i300, align 8
+  store i64 %and.i.i361.i, ptr %alloc.i.i.i307, align 8
+  %367 = load ptr, ptr %data1.i.i313, align 8
+  %call.i.i363.i = tail call ptr @g_realloc(ptr noundef %367, i64 noundef %and.i.i361.i) #15
+  store ptr %call.i.i363.i, ptr %data1.i.i313, align 8
+  %.pre12.i364.i = load i64, ptr %length.i.i.i305, align 8
   br label %usb_mtp_add_u32.exit365.i
 
 usb_mtp_add_u32.exit365.i:                        ; preds = %if.end.i.i359.i, %entry.usb_mtp_realloc.exit_crit_edge.i347.i
-  %370 = phi i64 [ %367, %entry.usb_mtp_realloc.exit_crit_edge.i347.i ], [ %.pre12.i364.i, %if.end.i.i359.i ]
-  %371 = phi ptr [ %.pre.i349.i, %entry.usb_mtp_realloc.exit_crit_edge.i347.i ], [ %call.i.i363.i, %if.end.i.i359.i ]
-  %inc.i351.i = add i64 %370, 1
-  store i64 %inc.i351.i, ptr %length.i.i.i300, align 8
-  %arrayidx.i352.i = getelementptr i8, ptr %371, i64 %370
+  %368 = phi i64 [ %365, %entry.usb_mtp_realloc.exit_crit_edge.i347.i ], [ %.pre12.i364.i, %if.end.i.i359.i ]
+  %369 = phi ptr [ %.pre.i349.i, %entry.usb_mtp_realloc.exit_crit_edge.i347.i ], [ %call.i.i363.i, %if.end.i.i359.i ]
+  %inc.i351.i = add i64 %368, 1
+  store i64 %inc.i351.i, ptr %length.i.i.i305, align 8
+  %arrayidx.i352.i = getelementptr i8, ptr %369, i64 %368
   store i8 1, ptr %arrayidx.i352.i, align 1
-  %372 = load ptr, ptr %data1.i.i308, align 8
-  %373 = load i64, ptr %length.i.i.i300, align 8
-  %inc7.i353.i = add i64 %373, 1
-  store i64 %inc7.i353.i, ptr %length.i.i.i300, align 8
-  %arrayidx8.i354.i = getelementptr i8, ptr %372, i64 %373
+  %370 = load ptr, ptr %data1.i.i313, align 8
+  %371 = load i64, ptr %length.i.i.i305, align 8
+  %inc7.i353.i = add i64 %371, 1
+  store i64 %inc7.i353.i, ptr %length.i.i.i305, align 8
+  %arrayidx8.i354.i = getelementptr i8, ptr %370, i64 %371
   store i8 0, ptr %arrayidx8.i354.i, align 1
-  %374 = load ptr, ptr %data1.i.i308, align 8
-  %375 = load i64, ptr %length.i.i.i300, align 8
-  %inc14.i355.i = add i64 %375, 1
-  store i64 %inc14.i355.i, ptr %length.i.i.i300, align 8
-  %arrayidx15.i356.i = getelementptr i8, ptr %374, i64 %375
+  %372 = load ptr, ptr %data1.i.i313, align 8
+  %373 = load i64, ptr %length.i.i.i305, align 8
+  %inc14.i355.i = add i64 %373, 1
+  store i64 %inc14.i355.i, ptr %length.i.i.i305, align 8
+  %arrayidx15.i356.i = getelementptr i8, ptr %372, i64 %373
   store i8 0, ptr %arrayidx15.i356.i, align 1
-  %376 = load ptr, ptr %data1.i.i308, align 8
-  %377 = load i64, ptr %length.i.i.i300, align 8
-  %inc21.i357.i = add i64 %377, 1
-  store i64 %inc21.i357.i, ptr %length.i.i.i300, align 8
-  %arrayidx22.i358.i = getelementptr i8, ptr %376, i64 %377
+  %374 = load ptr, ptr %data1.i.i313, align 8
+  %375 = load i64, ptr %length.i.i.i305, align 8
+  %inc21.i357.i = add i64 %375, 1
+  store i64 %inc21.i357.i, ptr %length.i.i.i305, align 8
+  %arrayidx22.i358.i = getelementptr i8, ptr %374, i64 %375
   store i8 0, ptr %arrayidx22.i358.i, align 1
-  %378 = load i64, ptr %length.i.i.i300, align 8
-  %add.i.i367.i = add i64 %378, 4
-  %379 = load i64, ptr %alloc.i.i.i302, align 8
-  %cmp.not.i.i369.i = icmp ugt i64 %add.i.i367.i, %379
+  %376 = load i64, ptr %length.i.i.i305, align 8
+  %add.i.i367.i = add i64 %376, 4
+  %377 = load i64, ptr %alloc.i.i.i307, align 8
+  %cmp.not.i.i369.i = icmp ugt i64 %add.i.i367.i, %377
   br i1 %cmp.not.i.i369.i, label %if.end.i.i382.i, label %entry.usb_mtp_realloc.exit_crit_edge.i370.i
 
 entry.usb_mtp_realloc.exit_crit_edge.i370.i:      ; preds = %usb_mtp_add_u32.exit365.i
-  %.pre.i372.i = load ptr, ptr %data1.i.i308, align 8
+  %.pre.i372.i = load ptr, ptr %data1.i.i313, align 8
   br label %usb_mtp_add_u32.exit388.i
 
 if.end.i.i382.i:                                  ; preds = %usb_mtp_add_u32.exit365.i
-  %add5.i.i383.i = add i64 %378, 259
+  %add5.i.i383.i = add i64 %376, 259
   %and.i.i384.i = and i64 %add5.i.i383.i, -256
-  store i64 %and.i.i384.i, ptr %alloc.i.i.i302, align 8
-  %380 = load ptr, ptr %data1.i.i308, align 8
-  %call.i.i386.i = tail call ptr @g_realloc(ptr noundef %380, i64 noundef %and.i.i384.i) #15
-  store ptr %call.i.i386.i, ptr %data1.i.i308, align 8
-  %.pre12.i387.i = load i64, ptr %length.i.i.i300, align 8
+  store i64 %and.i.i384.i, ptr %alloc.i.i.i307, align 8
+  %378 = load ptr, ptr %data1.i.i313, align 8
+  %call.i.i386.i = tail call ptr @g_realloc(ptr noundef %378, i64 noundef %and.i.i384.i) #15
+  store ptr %call.i.i386.i, ptr %data1.i.i313, align 8
+  %.pre12.i387.i = load i64, ptr %length.i.i.i305, align 8
   br label %usb_mtp_add_u32.exit388.i
 
 usb_mtp_add_u32.exit388.i:                        ; preds = %if.end.i.i382.i, %entry.usb_mtp_realloc.exit_crit_edge.i370.i
-  %381 = phi i64 [ %378, %entry.usb_mtp_realloc.exit_crit_edge.i370.i ], [ %.pre12.i387.i, %if.end.i.i382.i ]
-  %382 = phi ptr [ %.pre.i372.i, %entry.usb_mtp_realloc.exit_crit_edge.i370.i ], [ %call.i.i386.i, %if.end.i.i382.i ]
-  %inc.i374.i = add i64 %381, 1
-  store i64 %inc.i374.i, ptr %length.i.i.i300, align 8
-  %arrayidx.i375.i = getelementptr i8, ptr %382, i64 %381
+  %379 = phi i64 [ %376, %entry.usb_mtp_realloc.exit_crit_edge.i370.i ], [ %.pre12.i387.i, %if.end.i.i382.i ]
+  %380 = phi ptr [ %.pre.i372.i, %entry.usb_mtp_realloc.exit_crit_edge.i370.i ], [ %call.i.i386.i, %if.end.i.i382.i ]
+  %inc.i374.i = add i64 %379, 1
+  store i64 %inc.i374.i, ptr %length.i.i.i305, align 8
+  %arrayidx.i375.i = getelementptr i8, ptr %380, i64 %379
+  store i8 0, ptr %arrayidx.i375.i, align 1
   br label %if.end16.i
 
 if.else15.i:                                      ; preds = %if.end9.i
   br i1 %cmp.not.i.i327.i, label %if.end.i.i401.i, label %entry.usb_mtp_realloc.exit_crit_edge.i393.i
 
 entry.usb_mtp_realloc.exit_crit_edge.i393.i:      ; preds = %if.else15.i
-  %.pre.i395.i = load ptr, ptr %data1.i.i308, align 8
+  %.pre.i395.i = load ptr, ptr %data1.i.i313, align 8
   br label %usb_mtp_add_u16.exit407.i
 
 if.end.i.i401.i:                                  ; preds = %if.else15.i
-  %add5.i.i402.i = add i64 %360, 257
+  %add5.i.i402.i = add i64 %358, 257
   %and.i.i403.i = and i64 %add5.i.i402.i, -256
-  store i64 %and.i.i403.i, ptr %alloc.i.i.i302, align 8
-  %383 = load ptr, ptr %data1.i.i308, align 8
-  %call.i.i405.i = tail call ptr @g_realloc(ptr noundef %383, i64 noundef %and.i.i403.i) #15
-  store ptr %call.i.i405.i, ptr %data1.i.i308, align 8
-  %.pre6.i406.i = load i64, ptr %length.i.i.i300, align 8
+  store i64 %and.i.i403.i, ptr %alloc.i.i.i307, align 8
+  %381 = load ptr, ptr %data1.i.i313, align 8
+  %call.i.i405.i = tail call ptr @g_realloc(ptr noundef %381, i64 noundef %and.i.i403.i) #15
+  store ptr %call.i.i405.i, ptr %data1.i.i313, align 8
+  %.pre6.i406.i = load i64, ptr %length.i.i.i305, align 8
   br label %usb_mtp_add_u16.exit407.i
 
 usb_mtp_add_u16.exit407.i:                        ; preds = %if.end.i.i401.i, %entry.usb_mtp_realloc.exit_crit_edge.i393.i
-  %384 = phi i64 [ %360, %entry.usb_mtp_realloc.exit_crit_edge.i393.i ], [ %.pre6.i406.i, %if.end.i.i401.i ]
-  %385 = phi ptr [ %.pre.i395.i, %entry.usb_mtp_realloc.exit_crit_edge.i393.i ], [ %call.i.i405.i, %if.end.i.i401.i ]
-  %inc.i397.i = add i64 %384, 1
-  store i64 %inc.i397.i, ptr %length.i.i.i300, align 8
-  %arrayidx.i398.i = getelementptr i8, ptr %385, i64 %384
+  %382 = phi i64 [ %358, %entry.usb_mtp_realloc.exit_crit_edge.i393.i ], [ %.pre6.i406.i, %if.end.i.i401.i ]
+  %383 = phi ptr [ %.pre.i395.i, %entry.usb_mtp_realloc.exit_crit_edge.i393.i ], [ %call.i.i405.i, %if.end.i.i401.i ]
+  %inc.i397.i = add i64 %382, 1
+  store i64 %inc.i397.i, ptr %length.i.i.i305, align 8
+  %arrayidx.i398.i = getelementptr i8, ptr %383, i64 %382
   store i8 0, ptr %arrayidx.i398.i, align 1
-  %386 = load ptr, ptr %data1.i.i308, align 8
-  %387 = load i64, ptr %length.i.i.i300, align 8
-  %inc9.i399.i = add i64 %387, 1
-  store i64 %inc9.i399.i, ptr %length.i.i.i300, align 8
-  %arrayidx10.i400.i = getelementptr i8, ptr %386, i64 %387
+  %384 = load ptr, ptr %data1.i.i313, align 8
+  %385 = load i64, ptr %length.i.i.i305, align 8
+  %inc9.i399.i = add i64 %385, 1
+  store i64 %inc9.i399.i, ptr %length.i.i.i305, align 8
+  %arrayidx10.i400.i = getelementptr i8, ptr %384, i64 %385
   store i8 0, ptr %arrayidx10.i400.i, align 1
-  %388 = load i64, ptr %length.i.i.i300, align 8
-  %add.i.i409.i = add i64 %388, 4
-  %389 = load i64, ptr %alloc.i.i.i302, align 8
-  %cmp.not.i.i411.i = icmp ugt i64 %add.i.i409.i, %389
+  %386 = load i64, ptr %length.i.i.i305, align 8
+  %add.i.i409.i = add i64 %386, 4
+  %387 = load i64, ptr %alloc.i.i.i307, align 8
+  %cmp.not.i.i411.i = icmp ugt i64 %add.i.i409.i, %387
   br i1 %cmp.not.i.i411.i, label %if.end.i.i424.i, label %entry.usb_mtp_realloc.exit_crit_edge.i412.i
 
 entry.usb_mtp_realloc.exit_crit_edge.i412.i:      ; preds = %usb_mtp_add_u16.exit407.i
-  %.pre.i414.i = load ptr, ptr %data1.i.i308, align 8
+  %.pre.i414.i = load ptr, ptr %data1.i.i313, align 8
   br label %usb_mtp_add_u32.exit430.i
 
 if.end.i.i424.i:                                  ; preds = %usb_mtp_add_u16.exit407.i
-  %add5.i.i425.i = add i64 %388, 259
+  %add5.i.i425.i = add i64 %386, 259
   %and.i.i426.i = and i64 %add5.i.i425.i, -256
-  store i64 %and.i.i426.i, ptr %alloc.i.i.i302, align 8
-  %390 = load ptr, ptr %data1.i.i308, align 8
-  %call.i.i428.i = tail call ptr @g_realloc(ptr noundef %390, i64 noundef %and.i.i426.i) #15
-  store ptr %call.i.i428.i, ptr %data1.i.i308, align 8
-  %.pre12.i429.i = load i64, ptr %length.i.i.i300, align 8
+  store i64 %and.i.i426.i, ptr %alloc.i.i.i307, align 8
+  %388 = load ptr, ptr %data1.i.i313, align 8
+  %call.i.i428.i = tail call ptr @g_realloc(ptr noundef %388, i64 noundef %and.i.i426.i) #15
+  store ptr %call.i.i428.i, ptr %data1.i.i313, align 8
+  %.pre12.i429.i = load i64, ptr %length.i.i.i305, align 8
   br label %usb_mtp_add_u32.exit430.i
 
 usb_mtp_add_u32.exit430.i:                        ; preds = %if.end.i.i424.i, %entry.usb_mtp_realloc.exit_crit_edge.i412.i
-  %391 = phi i64 [ %388, %entry.usb_mtp_realloc.exit_crit_edge.i412.i ], [ %.pre12.i429.i, %if.end.i.i424.i ]
-  %392 = phi ptr [ %.pre.i414.i, %entry.usb_mtp_realloc.exit_crit_edge.i412.i ], [ %call.i.i428.i, %if.end.i.i424.i ]
-  %inc.i416.i = add i64 %391, 1
-  store i64 %inc.i416.i, ptr %length.i.i.i300, align 8
-  %arrayidx.i417.i = getelementptr i8, ptr %392, i64 %391
+  %389 = phi i64 [ %386, %entry.usb_mtp_realloc.exit_crit_edge.i412.i ], [ %.pre12.i429.i, %if.end.i.i424.i ]
+  %390 = phi ptr [ %.pre.i414.i, %entry.usb_mtp_realloc.exit_crit_edge.i412.i ], [ %call.i.i428.i, %if.end.i.i424.i ]
+  %inc.i416.i = add i64 %389, 1
+  store i64 %inc.i416.i, ptr %length.i.i.i305, align 8
+  %arrayidx.i417.i = getelementptr i8, ptr %390, i64 %389
   store i8 0, ptr %arrayidx.i417.i, align 1
-  %393 = load ptr, ptr %data1.i.i308, align 8
-  %394 = load i64, ptr %length.i.i.i300, align 8
-  %inc7.i418.i = add i64 %394, 1
-  store i64 %inc7.i418.i, ptr %length.i.i.i300, align 8
-  %arrayidx8.i419.i = getelementptr i8, ptr %393, i64 %394
+  %391 = load ptr, ptr %data1.i.i313, align 8
+  %392 = load i64, ptr %length.i.i.i305, align 8
+  %inc7.i418.i = add i64 %392, 1
+  store i64 %inc7.i418.i, ptr %length.i.i.i305, align 8
+  %arrayidx8.i419.i = getelementptr i8, ptr %391, i64 %392
   store i8 0, ptr %arrayidx8.i419.i, align 1
-  %395 = load ptr, ptr %data1.i.i308, align 8
-  %396 = load i64, ptr %length.i.i.i300, align 8
-  %inc14.i420.i = add i64 %396, 1
-  store i64 %inc14.i420.i, ptr %length.i.i.i300, align 8
-  %arrayidx15.i421.i = getelementptr i8, ptr %395, i64 %396
+  %393 = load ptr, ptr %data1.i.i313, align 8
+  %394 = load i64, ptr %length.i.i.i305, align 8
+  %inc14.i420.i = add i64 %394, 1
+  store i64 %inc14.i420.i, ptr %length.i.i.i305, align 8
+  %arrayidx15.i421.i = getelementptr i8, ptr %393, i64 %394
   store i8 0, ptr %arrayidx15.i421.i, align 1
-  %397 = load ptr, ptr %data1.i.i308, align 8
-  %398 = load i64, ptr %length.i.i.i300, align 8
-  %inc21.i422.i = add i64 %398, 1
-  store i64 %inc21.i422.i, ptr %length.i.i.i300, align 8
-  %arrayidx22.i423.i = getelementptr i8, ptr %397, i64 %398
+  %395 = load ptr, ptr %data1.i.i313, align 8
+  %396 = load i64, ptr %length.i.i.i305, align 8
+  %inc21.i422.i = add i64 %396, 1
+  store i64 %inc21.i422.i, ptr %length.i.i.i305, align 8
+  %arrayidx22.i423.i = getelementptr i8, ptr %395, i64 %396
   store i8 0, ptr %arrayidx22.i423.i, align 1
-  %399 = load i64, ptr %length.i.i.i300, align 8
-  %add.i.i432.i = add i64 %399, 4
-  %400 = load i64, ptr %alloc.i.i.i302, align 8
-  %cmp.not.i.i434.i = icmp ugt i64 %add.i.i432.i, %400
+  %397 = load i64, ptr %length.i.i.i305, align 8
+  %add.i.i432.i = add i64 %397, 4
+  %398 = load i64, ptr %alloc.i.i.i307, align 8
+  %cmp.not.i.i434.i = icmp ugt i64 %add.i.i432.i, %398
   br i1 %cmp.not.i.i434.i, label %if.end.i.i447.i, label %entry.usb_mtp_realloc.exit_crit_edge.i435.i
 
 entry.usb_mtp_realloc.exit_crit_edge.i435.i:      ; preds = %usb_mtp_add_u32.exit430.i
-  %.pre.i437.i = load ptr, ptr %data1.i.i308, align 8
+  %.pre.i437.i = load ptr, ptr %data1.i.i313, align 8
   br label %usb_mtp_add_u32.exit453.i
 
 if.end.i.i447.i:                                  ; preds = %usb_mtp_add_u32.exit430.i
-  %add5.i.i448.i = add i64 %399, 259
+  %add5.i.i448.i = add i64 %397, 259
   %and.i.i449.i = and i64 %add5.i.i448.i, -256
-  store i64 %and.i.i449.i, ptr %alloc.i.i.i302, align 8
-  %401 = load ptr, ptr %data1.i.i308, align 8
-  %call.i.i451.i = tail call ptr @g_realloc(ptr noundef %401, i64 noundef %and.i.i449.i) #15
-  store ptr %call.i.i451.i, ptr %data1.i.i308, align 8
-  %.pre12.i452.i = load i64, ptr %length.i.i.i300, align 8
+  store i64 %and.i.i449.i, ptr %alloc.i.i.i307, align 8
+  %399 = load ptr, ptr %data1.i.i313, align 8
+  %call.i.i451.i = tail call ptr @g_realloc(ptr noundef %399, i64 noundef %and.i.i449.i) #15
+  store ptr %call.i.i451.i, ptr %data1.i.i313, align 8
+  %.pre12.i452.i = load i64, ptr %length.i.i.i305, align 8
   br label %usb_mtp_add_u32.exit453.i
 
 usb_mtp_add_u32.exit453.i:                        ; preds = %if.end.i.i447.i, %entry.usb_mtp_realloc.exit_crit_edge.i435.i
-  %402 = phi i64 [ %399, %entry.usb_mtp_realloc.exit_crit_edge.i435.i ], [ %.pre12.i452.i, %if.end.i.i447.i ]
-  %403 = phi ptr [ %.pre.i437.i, %entry.usb_mtp_realloc.exit_crit_edge.i435.i ], [ %call.i.i451.i, %if.end.i.i447.i ]
-  %inc.i439.i = add i64 %402, 1
-  store i64 %inc.i439.i, ptr %length.i.i.i300, align 8
-  %arrayidx.i440.i = getelementptr i8, ptr %403, i64 %402
+  %400 = phi i64 [ %397, %entry.usb_mtp_realloc.exit_crit_edge.i435.i ], [ %.pre12.i452.i, %if.end.i.i447.i ]
+  %401 = phi ptr [ %.pre.i437.i, %entry.usb_mtp_realloc.exit_crit_edge.i435.i ], [ %call.i.i451.i, %if.end.i.i447.i ]
+  %inc.i439.i = add i64 %400, 1
+  store i64 %inc.i439.i, ptr %length.i.i.i305, align 8
+  %arrayidx.i440.i = getelementptr i8, ptr %401, i64 %400
+  store i8 0, ptr %arrayidx.i440.i, align 1
   br label %if.end16.i
 
 if.end16.i:                                       ; preds = %usb_mtp_add_u32.exit453.i, %usb_mtp_add_u32.exit388.i
-  %arrayidx.i440.sink.i = phi ptr [ %arrayidx.i440.i, %usb_mtp_add_u32.exit453.i ], [ %arrayidx.i375.i, %usb_mtp_add_u32.exit388.i ]
-  store i8 0, ptr %arrayidx.i440.sink.i, align 1
-  %404 = load ptr, ptr %data1.i.i308, align 8
-  %405 = load i64, ptr %length.i.i.i300, align 8
-  %inc7.i441.i = add i64 %405, 1
-  store i64 %inc7.i441.i, ptr %length.i.i.i300, align 8
-  %arrayidx8.i442.i = getelementptr i8, ptr %404, i64 %405
+  %402 = load ptr, ptr %data1.i.i313, align 8
+  %403 = load i64, ptr %length.i.i.i305, align 8
+  %inc7.i441.i = add i64 %403, 1
+  store i64 %inc7.i441.i, ptr %length.i.i.i305, align 8
+  %arrayidx8.i442.i = getelementptr i8, ptr %402, i64 %403
   store i8 0, ptr %arrayidx8.i442.i, align 1
-  %406 = load ptr, ptr %data1.i.i308, align 8
-  %407 = load i64, ptr %length.i.i.i300, align 8
-  %inc14.i443.i = add i64 %407, 1
-  store i64 %inc14.i443.i, ptr %length.i.i.i300, align 8
-  %arrayidx15.i444.i = getelementptr i8, ptr %406, i64 %407
+  %404 = load ptr, ptr %data1.i.i313, align 8
+  %405 = load i64, ptr %length.i.i.i305, align 8
+  %inc14.i443.i = add i64 %405, 1
+  store i64 %inc14.i443.i, ptr %length.i.i.i305, align 8
+  %arrayidx15.i444.i = getelementptr i8, ptr %404, i64 %405
   store i8 0, ptr %arrayidx15.i444.i, align 1
-  %408 = load ptr, ptr %data1.i.i308, align 8
-  %409 = load i64, ptr %length.i.i.i300, align 8
-  %inc21.i445.i = add i64 %409, 1
-  store i64 %inc21.i445.i, ptr %length.i.i.i300, align 8
-  %arrayidx22.i446.i = getelementptr i8, ptr %408, i64 %409
+  %406 = load ptr, ptr %data1.i.i313, align 8
+  %407 = load i64, ptr %length.i.i.i305, align 8
+  %inc21.i445.i = add i64 %407, 1
+  store i64 %inc21.i445.i, ptr %length.i.i.i305, align 8
+  %arrayidx22.i446.i = getelementptr i8, ptr %406, i64 %407
   store i8 0, ptr %arrayidx22.i446.i, align 1
-  %name.i = getelementptr inbounds i8, ptr %o.06.i281, i64 8
-  %410 = load ptr, ptr %name.i, align 8
-  %call.i454.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %410) #19
+  %name.i = getelementptr inbounds i8, ptr %o.06.i286, i64 8
+  %408 = load ptr, ptr %name.i, align 8
+  %call.i454.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %408) #19
   %conv.i455.i = add i64 %call.i454.i, 1
   %conv1.i456.i = and i64 %conv.i455.i, 4294967295
-  %call2.i.i330 = tail call noalias ptr @g_malloc_n(i64 noundef %conv1.i456.i, i64 noundef 4) #17
-  %call4.i.i331 = tail call i64 @mbstowcs(ptr noundef %call2.i.i330, ptr noundef %410, i64 noundef %conv1.i456.i) #15
-  %cmp.i.i332 = icmp eq i64 %call4.i.i331, -1
-  br i1 %cmp.i.i332, label %if.then.i.i334, label %if.else.i.i333
+  %call2.i.i335 = tail call noalias ptr @g_malloc_n(i64 noundef %conv1.i456.i, i64 noundef 4) #17
+  %call4.i.i336 = tail call i64 @mbstowcs(ptr noundef %call2.i.i335, ptr noundef %408, i64 noundef %conv1.i456.i) #15
+  %cmp.i.i337 = icmp eq i64 %call4.i.i336, -1
+  br i1 %cmp.i.i337, label %if.then.i.i339, label %if.else.i.i338
 
-if.then.i.i334:                                   ; preds = %if.end16.i
-  tail call fastcc void @usb_mtp_add_wstr(ptr noundef nonnull %call.i.i290, ptr noundef nonnull @.str.67)
+if.then.i.i339:                                   ; preds = %if.end16.i
+  tail call fastcc void @usb_mtp_add_wstr(ptr noundef nonnull %call.i.i295, ptr noundef nonnull @.str.67)
   br label %usb_mtp_get_object_info.exit
 
-if.else.i.i333:                                   ; preds = %if.end16.i
-  tail call fastcc void @usb_mtp_add_wstr(ptr noundef nonnull %call.i.i290, ptr noundef %call2.i.i330)
+if.else.i.i338:                                   ; preds = %if.end16.i
+  tail call fastcc void @usb_mtp_add_wstr(ptr noundef nonnull %call.i.i295, ptr noundef %call2.i.i335)
   br label %usb_mtp_get_object_info.exit
 
-usb_mtp_get_object_info.exit:                     ; preds = %if.then.i.i334, %if.else.i.i333
-  tail call void @g_free(ptr noundef %call2.i.i330) #15
-  %st_ctim.i = getelementptr inbounds i8, ptr %o.06.i281, i64 128
-  %411 = load i64, ptr %st_ctim.i, align 8
-  tail call fastcc void @usb_mtp_add_time(ptr noundef nonnull %call.i.i290, i64 noundef %411)
-  %st_mtim.i = getelementptr inbounds i8, ptr %o.06.i281, i64 112
-  %412 = load i64, ptr %st_mtim.i, align 8
-  tail call fastcc void @usb_mtp_add_time(ptr noundef nonnull %call.i.i290, i64 noundef %412)
-  tail call fastcc void @usb_mtp_add_wstr(ptr noundef nonnull %call.i.i290, ptr noundef nonnull @.str.48)
+usb_mtp_get_object_info.exit:                     ; preds = %if.then.i.i339, %if.else.i.i338
+  tail call void @g_free(ptr noundef %call2.i.i335) #15
+  %st_ctim.i = getelementptr inbounds i8, ptr %o.06.i286, i64 128
+  %409 = load i64, ptr %st_ctim.i, align 8
+  tail call fastcc void @usb_mtp_add_time(ptr noundef nonnull %call.i.i295, i64 noundef %409)
+  %st_mtim.i = getelementptr inbounds i8, ptr %o.06.i286, i64 112
+  %410 = load i64, ptr %st_mtim.i, align 8
+  tail call fastcc void @usb_mtp_add_time(ptr noundef nonnull %call.i.i295, i64 noundef %410)
+  tail call fastcc void @usb_mtp_add_wstr(ptr noundef nonnull %call.i.i295, ptr noundef nonnull @.str.48)
   br label %if.then302
 
 sw.bb123:                                         ; preds = %if.end
   %argv124 = getelementptr inbounds i8, ptr %c, i64 12
-  %413 = load i32, ptr %argv124, align 4
-  %objects.i353 = getelementptr inbounds i8, ptr %s, i64 5928
-  %o.04.i354 = load ptr, ptr %objects.i353, align 8
-  %tobool.not5.i355 = icmp eq ptr %o.04.i354, null
-  br i1 %tobool.not5.i355, label %if.then129, label %for.body.i356
+  %411 = load i32, ptr %argv124, align 4
+  %objects.i358 = getelementptr inbounds i8, ptr %s, i64 5928
+  %o.04.i359 = load ptr, ptr %objects.i358, align 8
+  %tobool.not5.i360 = icmp eq ptr %o.04.i359, null
+  br i1 %tobool.not5.i360, label %if.then129, label %for.body.i361
 
-for.body.i356:                                    ; preds = %sw.bb123, %for.inc.i359
-  %o.06.i357 = phi ptr [ %o.0.i361, %for.inc.i359 ], [ %o.04.i354, %sw.bb123 ]
-  %414 = load i32, ptr %o.06.i357, align 8
-  %cmp.i358 = icmp eq i32 %414, %413
-  br i1 %cmp.i358, label %if.end131, label %for.inc.i359
+for.body.i361:                                    ; preds = %sw.bb123, %for.inc.i364
+  %o.06.i362 = phi ptr [ %o.0.i366, %for.inc.i364 ], [ %o.04.i359, %sw.bb123 ]
+  %412 = load i32, ptr %o.06.i362, align 8
+  %cmp.i363 = icmp eq i32 %412, %411
+  br i1 %cmp.i363, label %if.end131, label %for.inc.i364
 
-for.inc.i359:                                     ; preds = %for.body.i356
-  %next.i360 = getelementptr inbounds i8, ptr %o.06.i357, i64 224
-  %o.0.i361 = load ptr, ptr %next.i360, align 8
-  %tobool.not.i362 = icmp eq ptr %o.0.i361, null
-  br i1 %tobool.not.i362, label %if.then129, label %for.body.i356, !llvm.loop !9
+for.inc.i364:                                     ; preds = %for.body.i361
+  %next.i365 = getelementptr inbounds i8, ptr %o.06.i362, i64 224
+  %o.0.i366 = load ptr, ptr %next.i365, align 8
+  %tobool.not.i367 = icmp eq ptr %o.0.i366, null
+  br i1 %tobool.not.i367, label %if.then129, label %for.body.i361, !llvm.loop !9
 
-if.then129:                                       ; preds = %for.inc.i359, %sw.bb123
+if.then129:                                       ; preds = %for.inc.i364, %sw.bb123
   %trans130 = getelementptr inbounds i8, ptr %c, i64 4
-  %415 = load i32, ptr %trans130, align 4
-  tail call fastcc void @usb_mtp_queue_result(ptr noundef %s, i16 noundef zeroext 8201, i32 noundef %415, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %413 = load i32, ptr %trans130, align 4
+  tail call fastcc void @usb_mtp_queue_result(ptr noundef %s, i16 noundef zeroext 8201, i32 noundef %413, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   br label %return
 
-if.end131:                                        ; preds = %for.body.i356
-  %format132 = getelementptr inbounds i8, ptr %o.06.i357, i64 4
-  %416 = load i16, ptr %format132, align 4
-  %cmp134 = icmp eq i16 %416, 12289
+if.end131:                                        ; preds = %for.body.i361
+  %format132 = getelementptr inbounds i8, ptr %o.06.i362, i64 4
+  %414 = load i16, ptr %format132, align 4
+  %cmp134 = icmp eq i16 %414, 12289
   br i1 %cmp134, label %if.then136, label %if.end138
 
 if.then136:                                       ; preds = %if.end131
   %trans137 = getelementptr inbounds i8, ptr %c, i64 4
-  %417 = load i32, ptr %trans137, align 4
-  tail call fastcc void @usb_mtp_queue_result(ptr noundef %s, i16 noundef zeroext 8201, i32 noundef %417, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %415 = load i32, ptr %trans137, align 4
+  tail call fastcc void @usb_mtp_queue_result(ptr noundef %s, i16 noundef zeroext 8201, i32 noundef %415, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   br label %return
 
 if.end138:                                        ; preds = %if.end131
-  %call139 = tail call fastcc ptr @usb_mtp_get_object(ptr noundef %s, ptr noundef %c, ptr noundef %o.06.i357)
+  %call139 = tail call fastcc ptr @usb_mtp_get_object(ptr noundef %s, ptr noundef %c, ptr noundef %o.06.i362)
   %cmp140 = icmp eq ptr %call139, null
   br i1 %cmp140, label %if.then142, label %if.then302
 
 if.then142:                                       ; preds = %if.end138
   %trans143 = getelementptr inbounds i8, ptr %c, i64 4
-  %418 = load i32, ptr %trans143, align 4
-  tail call fastcc void @usb_mtp_queue_result(ptr noundef %s, i16 noundef zeroext 8194, i32 noundef %418, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %416 = load i32, ptr %trans143, align 4
+  tail call fastcc void @usb_mtp_queue_result(ptr noundef %s, i16 noundef zeroext 8194, i32 noundef %416, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   br label %return
 
 sw.bb145:                                         ; preds = %if.end
   %argv146 = getelementptr inbounds i8, ptr %c, i64 12
-  %419 = load i32, ptr %argv146, align 4
+  %417 = load i32, ptr %argv146, align 4
   %trans150 = getelementptr inbounds i8, ptr %c, i64 4
-  %420 = load i32, ptr %trans150, align 4
-  %flags.i365 = getelementptr inbounds i8, ptr %s, i64 5880
-  %421 = load i32, ptr %flags.i365, align 8
-  %and.i366 = and i32 %421, 1
-  %tobool.not.i367 = icmp eq i32 %and.i366, 0
-  br i1 %tobool.not.i367, label %if.then.i374, label %if.end.i368
+  %418 = load i32, ptr %trans150, align 4
+  %flags.i370 = getelementptr inbounds i8, ptr %s, i64 5880
+  %419 = load i32, ptr %flags.i370, align 8
+  %and.i371 = and i32 %419, 1
+  %tobool.not.i372 = icmp eq i32 %and.i371, 0
+  br i1 %tobool.not.i372, label %if.then.i379, label %if.end.i373
 
-if.then.i374:                                     ; preds = %sw.bb145
-  %call.i.i375 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #17
-  store i16 8206, ptr %call.i.i375, align 4
-  %trans2.i.i376 = getelementptr inbounds i8, ptr %call.i.i375, i64 4
-  store i32 %420, ptr %trans2.i.i376, align 4
-  %argc3.i.i = getelementptr inbounds i8, ptr %call.i.i375, i64 8
+if.then.i379:                                     ; preds = %sw.bb145
+  %call.i.i380 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #17
+  store i16 8206, ptr %call.i.i380, align 4
+  %trans2.i.i381 = getelementptr inbounds i8, ptr %call.i.i380, i64 4
+  store i32 %418, ptr %trans2.i.i381, align 4
+  %argc3.i.i = getelementptr inbounds i8, ptr %call.i.i380, i64 8
   store i32 0, ptr %argc3.i.i, align 4
   %result.i.i = getelementptr inbounds i8, ptr %s, i64 5904
-  %422 = load ptr, ptr %result.i.i, align 8
-  %cmp14.i.i = icmp eq ptr %422, null
-  br i1 %cmp14.i.i, label %usb_mtp_queue_result.exit.i, label %if.else.i.i377
+  %420 = load ptr, ptr %result.i.i, align 8
+  %cmp14.i.i = icmp eq ptr %420, null
+  br i1 %cmp14.i.i, label %usb_mtp_queue_result.exit.i, label %if.else.i.i382
 
-if.else.i.i377:                                   ; preds = %if.then.i374
+if.else.i.i382:                                   ; preds = %if.then.i379
   tail call void @__assert_fail(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.8, i32 noundef 800, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_mtp_queue_result) #18
   unreachable
 
-usb_mtp_queue_result.exit.i:                      ; preds = %if.then.i374
-  store ptr %call.i.i375, ptr %result.i.i, align 8
+usb_mtp_queue_result.exit.i:                      ; preds = %if.then.i379
+  store ptr %call.i.i380, ptr %result.i.i, align 8
   br label %return
 
-if.end.i368:                                      ; preds = %sw.bb145
+if.end.i373:                                      ; preds = %sw.bb145
   %arrayidx149 = getelementptr i8, ptr %c, i64 16
-  %423 = load i32, ptr %arrayidx149, align 4
-  %cmp.not.i369 = icmp eq i32 %423, 0
-  br i1 %cmp.not.i369, label %if.end2.i, label %if.then1.i
+  %421 = load i32, ptr %arrayidx149, align 4
+  %cmp.not.i374 = icmp eq i32 %421, 0
+  br i1 %cmp.not.i374, label %if.end2.i, label %if.then1.i
 
-if.then1.i:                                       ; preds = %if.end.i368
+if.then1.i:                                       ; preds = %if.end.i373
   %call.i18.i = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #17
   store i16 8212, ptr %call.i18.i, align 4
   %trans2.i19.i = getelementptr inbounds i8, ptr %call.i18.i, i64 4
-  store i32 %420, ptr %trans2.i19.i, align 4
+  store i32 %418, ptr %trans2.i19.i, align 4
   %argc3.i20.i = getelementptr inbounds i8, ptr %call.i18.i, i64 8
   store i32 0, ptr %argc3.i20.i, align 4
   %result.i21.i = getelementptr inbounds i8, ptr %s, i64 5904
-  %424 = load ptr, ptr %result.i21.i, align 8
-  %cmp14.i22.i = icmp eq ptr %424, null
+  %422 = load ptr, ptr %result.i21.i, align 8
+  %cmp14.i22.i = icmp eq ptr %422, null
   br i1 %cmp14.i22.i, label %usb_mtp_queue_result.exit24.i, label %if.else.i23.i
 
 if.else.i23.i:                                    ; preds = %if.then1.i
@@ -4064,21 +4100,21 @@ usb_mtp_queue_result.exit24.i:                    ; preds = %if.then1.i
   store ptr %call.i18.i, ptr %result.i21.i, align 8
   br label %return
 
-if.end2.i:                                        ; preds = %if.end.i368
-  %cmp3.i = icmp eq i32 %419, 268435455
-  %objects.i370 = getelementptr inbounds i8, ptr %s, i64 5928
-  %425 = load ptr, ptr %objects.i370, align 8
-  %cmp6.i = icmp eq ptr %425, null
-  br i1 %cmp3.i, label %if.end5.i, label %if.else.i371
+if.end2.i:                                        ; preds = %if.end.i373
+  %cmp3.i = icmp eq i32 %417, 268435455
+  %objects.i375 = getelementptr inbounds i8, ptr %s, i64 5928
+  %423 = load ptr, ptr %objects.i375, align 8
+  %cmp6.i = icmp eq ptr %423, null
+  br i1 %cmp3.i, label %if.end5.i, label %if.else.i376
 
-if.else.i371:                                     ; preds = %if.end2.i
+if.else.i376:                                     ; preds = %if.end2.i
   br i1 %cmp6.i, label %if.then7.i, label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %if.else.i371, %for.inc.i.i
-  %o.06.i.i = phi ptr [ %o.0.i.i, %for.inc.i.i ], [ %425, %if.else.i371 ]
-  %426 = load i32, ptr %o.06.i.i, align 8
-  %cmp.i.i372 = icmp eq i32 %426, %419
-  br i1 %cmp.i.i372, label %if.end8.i373, label %for.inc.i.i
+for.body.i.i:                                     ; preds = %if.else.i376, %for.inc.i.i
+  %o.06.i.i = phi ptr [ %o.0.i.i, %for.inc.i.i ], [ %423, %if.else.i376 ]
+  %424 = load i32, ptr %o.06.i.i, align 8
+  %cmp.i.i377 = icmp eq i32 %424, %417
+  br i1 %cmp.i.i377, label %if.end8.i378, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
   %next.i.i = getelementptr inbounds i8, ptr %o.06.i.i, i64 224
@@ -4087,18 +4123,18 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %tobool.not.i.i, label %if.then7.i, label %for.body.i.i, !llvm.loop !9
 
 if.end5.i:                                        ; preds = %if.end2.i
-  br i1 %cmp6.i, label %if.then7.i, label %if.end8.i373
+  br i1 %cmp6.i, label %if.then7.i, label %if.end8.i378
 
-if.then7.i:                                       ; preds = %for.inc.i.i, %if.end5.i, %if.else.i371
+if.then7.i:                                       ; preds = %for.inc.i.i, %if.end5.i, %if.else.i376
   %call.i25.i = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #17
   store i16 8201, ptr %call.i25.i, align 4
   %trans2.i26.i = getelementptr inbounds i8, ptr %call.i25.i, i64 4
-  store i32 %420, ptr %trans2.i26.i, align 4
+  store i32 %418, ptr %trans2.i26.i, align 4
   %argc3.i27.i = getelementptr inbounds i8, ptr %call.i25.i, i64 8
   store i32 0, ptr %argc3.i27.i, align 4
   %result.i28.i = getelementptr inbounds i8, ptr %s, i64 5904
-  %427 = load ptr, ptr %result.i28.i, align 8
-  %cmp14.i29.i = icmp eq ptr %427, null
+  %425 = load ptr, ptr %result.i28.i, align 8
+  %cmp14.i29.i = icmp eq ptr %425, null
   br i1 %cmp14.i29.i, label %usb_mtp_queue_result.exit31.i, label %if.else.i30.i
 
 if.else.i30.i:                                    ; preds = %if.then7.i
@@ -4109,8 +4145,8 @@ usb_mtp_queue_result.exit31.i:                    ; preds = %if.then7.i
   store ptr %call.i25.i, ptr %result.i28.i, align 8
   br label %return
 
-if.end8.i373:                                     ; preds = %for.body.i.i, %if.end5.i
-  %o.058.i = phi ptr [ %425, %if.end5.i ], [ %o.06.i.i, %for.body.i.i ]
+if.end8.i378:                                     ; preds = %for.body.i.i, %if.end5.i
+  %o.058.i = phi ptr [ %423, %if.end5.i ], [ %o.06.i.i, %for.body.i.i ]
   %call9.i = tail call fastcc i32 @usb_mtp_deletefn(ptr noundef %s, ptr noundef %o.058.i)
   switch i32 %call9.i, label %default.unreachable [
     i32 1, label %sw.bb.i
@@ -4119,16 +4155,16 @@ if.end8.i373:                                     ; preds = %for.body.i.i, %if.e
     i32 0, label %do.body.i
   ]
 
-sw.bb.i:                                          ; preds = %if.end8.i373
+sw.bb.i:                                          ; preds = %if.end8.i378
   %call.i32.i = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #17
   store i16 8193, ptr %call.i32.i, align 4
   %trans2.i33.i = getelementptr inbounds i8, ptr %call.i32.i, i64 4
-  store i32 %420, ptr %trans2.i33.i, align 4
+  store i32 %418, ptr %trans2.i33.i, align 4
   %argc3.i34.i = getelementptr inbounds i8, ptr %call.i32.i, i64 8
   store i32 0, ptr %argc3.i34.i, align 4
   %result.i35.i = getelementptr inbounds i8, ptr %s, i64 5904
-  %428 = load ptr, ptr %result.i35.i, align 8
-  %cmp14.i36.i = icmp eq ptr %428, null
+  %426 = load ptr, ptr %result.i35.i, align 8
+  %cmp14.i36.i = icmp eq ptr %426, null
   br i1 %cmp14.i36.i, label %usb_mtp_queue_result.exit38.i, label %if.else.i37.i
 
 if.else.i37.i:                                    ; preds = %sw.bb.i
@@ -4139,16 +4175,16 @@ usb_mtp_queue_result.exit38.i:                    ; preds = %sw.bb.i
   store ptr %call.i32.i, ptr %result.i35.i, align 8
   br label %return
 
-sw.bb10.i:                                        ; preds = %if.end8.i373
+sw.bb10.i:                                        ; preds = %if.end8.i378
   %call.i39.i = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #17
   store i16 8210, ptr %call.i39.i, align 4
   %trans2.i40.i = getelementptr inbounds i8, ptr %call.i39.i, i64 4
-  store i32 %420, ptr %trans2.i40.i, align 4
+  store i32 %418, ptr %trans2.i40.i, align 4
   %argc3.i41.i = getelementptr inbounds i8, ptr %call.i39.i, i64 8
   store i32 0, ptr %argc3.i41.i, align 4
   %result.i42.i = getelementptr inbounds i8, ptr %s, i64 5904
-  %429 = load ptr, ptr %result.i42.i, align 8
-  %cmp14.i43.i = icmp eq ptr %429, null
+  %427 = load ptr, ptr %result.i42.i, align 8
+  %cmp14.i43.i = icmp eq ptr %427, null
   br i1 %cmp14.i43.i, label %usb_mtp_queue_result.exit45.i, label %if.else.i44.i
 
 if.else.i44.i:                                    ; preds = %sw.bb10.i
@@ -4159,16 +4195,16 @@ usb_mtp_queue_result.exit45.i:                    ; preds = %sw.bb10.i
   store ptr %call.i39.i, ptr %result.i42.i, align 8
   br label %return
 
-sw.bb11.i:                                        ; preds = %if.end8.i373
+sw.bb11.i:                                        ; preds = %if.end8.i378
   %call.i46.i = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #17
   store i16 8210, ptr %call.i46.i, align 4
   %trans2.i47.i = getelementptr inbounds i8, ptr %call.i46.i, i64 4
-  store i32 %420, ptr %trans2.i47.i, align 4
+  store i32 %418, ptr %trans2.i47.i, align 4
   %argc3.i48.i = getelementptr inbounds i8, ptr %call.i46.i, i64 8
   store i32 0, ptr %argc3.i48.i, align 4
   %result.i49.i = getelementptr inbounds i8, ptr %s, i64 5904
-  %430 = load ptr, ptr %result.i49.i, align 8
-  %cmp14.i50.i = icmp eq ptr %430, null
+  %428 = load ptr, ptr %result.i49.i, align 8
+  %cmp14.i50.i = icmp eq ptr %428, null
   br i1 %cmp14.i50.i, label %usb_mtp_queue_result.exit52.i, label %if.else.i51.i
 
 if.else.i51.i:                                    ; preds = %sw.bb11.i
@@ -4179,343 +4215,343 @@ usb_mtp_queue_result.exit52.i:                    ; preds = %sw.bb11.i
   store ptr %call.i46.i, ptr %result.i49.i, align 8
   br label %return
 
-default.unreachable:                              ; preds = %if.end8.i373
+default.unreachable:                              ; preds = %if.end8.i378
   unreachable
 
-do.body.i:                                        ; preds = %if.end8.i373
+do.body.i:                                        ; preds = %if.end8.i378
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.8, i32 noundef 1235, ptr noundef nonnull @__func__.usb_mtp_object_delete, ptr noundef null) #18
   unreachable
 
 sw.bb151:                                         ; preds = %if.end
   %argv152 = getelementptr inbounds i8, ptr %c, i64 12
-  %431 = load i32, ptr %argv152, align 4
-  %objects.i378 = getelementptr inbounds i8, ptr %s, i64 5928
-  %o.04.i379 = load ptr, ptr %objects.i378, align 8
-  %tobool.not5.i380 = icmp eq ptr %o.04.i379, null
-  br i1 %tobool.not5.i380, label %if.then157, label %for.body.i381
+  %429 = load i32, ptr %argv152, align 4
+  %objects.i383 = getelementptr inbounds i8, ptr %s, i64 5928
+  %o.04.i384 = load ptr, ptr %objects.i383, align 8
+  %tobool.not5.i385 = icmp eq ptr %o.04.i384, null
+  br i1 %tobool.not5.i385, label %if.then157, label %for.body.i386
 
-for.body.i381:                                    ; preds = %sw.bb151, %for.inc.i384
-  %o.06.i382 = phi ptr [ %o.0.i386, %for.inc.i384 ], [ %o.04.i379, %sw.bb151 ]
-  %432 = load i32, ptr %o.06.i382, align 8
-  %cmp.i383 = icmp eq i32 %432, %431
-  br i1 %cmp.i383, label %if.end159, label %for.inc.i384
+for.body.i386:                                    ; preds = %sw.bb151, %for.inc.i389
+  %o.06.i387 = phi ptr [ %o.0.i391, %for.inc.i389 ], [ %o.04.i384, %sw.bb151 ]
+  %430 = load i32, ptr %o.06.i387, align 8
+  %cmp.i388 = icmp eq i32 %430, %429
+  br i1 %cmp.i388, label %if.end159, label %for.inc.i389
 
-for.inc.i384:                                     ; preds = %for.body.i381
-  %next.i385 = getelementptr inbounds i8, ptr %o.06.i382, i64 224
-  %o.0.i386 = load ptr, ptr %next.i385, align 8
-  %tobool.not.i387 = icmp eq ptr %o.0.i386, null
-  br i1 %tobool.not.i387, label %if.then157, label %for.body.i381, !llvm.loop !9
+for.inc.i389:                                     ; preds = %for.body.i386
+  %next.i390 = getelementptr inbounds i8, ptr %o.06.i387, i64 224
+  %o.0.i391 = load ptr, ptr %next.i390, align 8
+  %tobool.not.i392 = icmp eq ptr %o.0.i391, null
+  br i1 %tobool.not.i392, label %if.then157, label %for.body.i386, !llvm.loop !9
 
-if.then157:                                       ; preds = %for.inc.i384, %sw.bb151
+if.then157:                                       ; preds = %for.inc.i389, %sw.bb151
   %trans158 = getelementptr inbounds i8, ptr %c, i64 4
-  %433 = load i32, ptr %trans158, align 4
-  tail call fastcc void @usb_mtp_queue_result(ptr noundef %s, i16 noundef zeroext 8201, i32 noundef %433, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %431 = load i32, ptr %trans158, align 4
+  tail call fastcc void @usb_mtp_queue_result(ptr noundef %s, i16 noundef zeroext 8201, i32 noundef %431, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   br label %return
 
-if.end159:                                        ; preds = %for.body.i381
-  %format160 = getelementptr inbounds i8, ptr %o.06.i382, i64 4
-  %434 = load i16, ptr %format160, align 4
-  %cmp162 = icmp eq i16 %434, 12289
+if.end159:                                        ; preds = %for.body.i386
+  %format160 = getelementptr inbounds i8, ptr %o.06.i387, i64 4
+  %432 = load i16, ptr %format160, align 4
+  %cmp162 = icmp eq i16 %432, 12289
   br i1 %cmp162, label %if.then164, label %if.end166
 
 if.then164:                                       ; preds = %if.end159
   %trans165 = getelementptr inbounds i8, ptr %c, i64 4
-  %435 = load i32, ptr %trans165, align 4
-  tail call fastcc void @usb_mtp_queue_result(ptr noundef %s, i16 noundef zeroext 8201, i32 noundef %435, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %433 = load i32, ptr %trans165, align 4
+  tail call fastcc void @usb_mtp_queue_result(ptr noundef %s, i16 noundef zeroext 8201, i32 noundef %433, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   br label %return
 
 if.end166:                                        ; preds = %if.end159
-  %call167 = tail call fastcc ptr @usb_mtp_get_partial_object(ptr noundef %s, ptr noundef %c, ptr noundef %o.06.i382)
+  %call167 = tail call fastcc ptr @usb_mtp_get_partial_object(ptr noundef %s, ptr noundef %c, ptr noundef %o.06.i387)
   %cmp168 = icmp eq ptr %call167, null
   br i1 %cmp168, label %if.then170, label %if.end172
 
 if.then170:                                       ; preds = %if.end166
   %trans171 = getelementptr inbounds i8, ptr %c, i64 4
-  %436 = load i32, ptr %trans171, align 4
-  tail call fastcc void @usb_mtp_queue_result(ptr noundef %s, i16 noundef zeroext 8194, i32 noundef %436, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %434 = load i32, ptr %trans171, align 4
+  tail call fastcc void @usb_mtp_queue_result(ptr noundef %s, i16 noundef zeroext 8194, i32 noundef %434, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   br label %return
 
 if.end172:                                        ; preds = %if.end166
   %length = getelementptr inbounds i8, ptr %call167, i64 16
-  %437 = load i64, ptr %length, align 8
-  %conv173 = trunc i64 %437 to i32
+  %435 = load i64, ptr %length, align 8
+  %conv173 = trunc i64 %435 to i32
   br label %if.then302
 
 sw.bb174:                                         ; preds = %if.end
   %flags = getelementptr inbounds i8, ptr %s, i64 5880
-  %438 = load i32, ptr %flags, align 8
-  %and = and i32 %438, 1
+  %436 = load i32, ptr %flags, align 8
+  %and = and i32 %436, 1
   %tobool175.not = icmp eq i32 %and, 0
   br i1 %tobool175.not, label %if.then176, label %if.else178
 
 if.then176:                                       ; preds = %sw.bb174
   %trans177 = getelementptr inbounds i8, ptr %c, i64 4
-  %439 = load i32, ptr %trans177, align 4
-  %call.i390 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #17
-  store i16 8206, ptr %call.i390, align 4
-  %trans2.i391 = getelementptr inbounds i8, ptr %call.i390, i64 4
-  store i32 %439, ptr %trans2.i391, align 4
-  %argc3.i392 = getelementptr inbounds i8, ptr %call.i390, i64 8
-  store i32 0, ptr %argc3.i392, align 4
-  %result.i393 = getelementptr inbounds i8, ptr %s, i64 5904
-  %440 = load ptr, ptr %result.i393, align 8
-  %cmp14.i394 = icmp eq ptr %440, null
-  br i1 %cmp14.i394, label %usb_mtp_queue_result.exit397, label %if.else.i395
+  %437 = load i32, ptr %trans177, align 4
+  %call.i395 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #17
+  store i16 8206, ptr %call.i395, align 4
+  %trans2.i396 = getelementptr inbounds i8, ptr %call.i395, i64 4
+  store i32 %437, ptr %trans2.i396, align 4
+  %argc3.i397 = getelementptr inbounds i8, ptr %call.i395, i64 8
+  store i32 0, ptr %argc3.i397, align 4
+  %result.i398 = getelementptr inbounds i8, ptr %s, i64 5904
+  %438 = load ptr, ptr %result.i398, align 8
+  %cmp14.i399 = icmp eq ptr %438, null
+  br i1 %cmp14.i399, label %usb_mtp_queue_result.exit402, label %if.else.i400
 
-if.else.i395:                                     ; preds = %if.then176
+if.else.i400:                                     ; preds = %if.then176
   tail call void @__assert_fail(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.8, i32 noundef 800, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_mtp_queue_result) #18
   unreachable
 
-usb_mtp_queue_result.exit397:                     ; preds = %if.then176
-  store ptr %call.i390, ptr %result.i393, align 8
+usb_mtp_queue_result.exit402:                     ; preds = %if.then176
+  store ptr %call.i395, ptr %result.i398, align 8
   br label %if.end232
 
 if.else178:                                       ; preds = %sw.bb174
   %argv179 = getelementptr inbounds i8, ptr %c, i64 12
-  %441 = load i32, ptr %argv179, align 4
-  switch i32 %441, label %if.then187 [
+  %439 = load i32, ptr %argv179, align 4
+  switch i32 %439, label %if.then187 [
     i32 0, label %if.else189
     i32 65537, label %if.else189
   ]
 
 if.then187:                                       ; preds = %if.else178
   %trans188 = getelementptr inbounds i8, ptr %c, i64 4
-  %442 = load i32, ptr %trans188, align 4
-  tail call fastcc void @usb_mtp_queue_result(ptr noundef nonnull %s, i16 noundef zeroext 8211, i32 noundef %442, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %440 = load i32, ptr %trans188, align 4
+  tail call fastcc void @usb_mtp_queue_result(ptr noundef nonnull %s, i16 noundef zeroext 8211, i32 noundef %440, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   br label %if.end232
 
 if.else189:                                       ; preds = %if.else178, %if.else178
   %arrayidx191 = getelementptr i8, ptr %c, i64 16
-  %443 = load i32, ptr %arrayidx191, align 4
-  %tobool192.not = icmp eq i32 %443, 0
+  %441 = load i32, ptr %arrayidx191, align 4
+  %tobool192.not = icmp eq i32 %441, 0
   br i1 %tobool192.not, label %if.end212, label %land.lhs.true193
 
 land.lhs.true193:                                 ; preds = %if.else189
-  %tobool196.not = icmp eq i32 %441, 0
+  %tobool196.not = icmp eq i32 %439, 0
   br i1 %tobool196.not, label %if.then197, label %if.else199
 
 if.then197:                                       ; preds = %land.lhs.true193
   %trans198 = getelementptr inbounds i8, ptr %c, i64 4
-  %444 = load i32, ptr %trans198, align 4
-  tail call fastcc void @usb_mtp_queue_result(ptr noundef nonnull %s, i16 noundef zeroext 8224, i32 noundef %444, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %442 = load i32, ptr %trans198, align 4
+  tail call fastcc void @usb_mtp_queue_result(ptr noundef nonnull %s, i16 noundef zeroext 8224, i32 noundef %442, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   br label %if.end232
 
 if.else199:                                       ; preds = %land.lhs.true193
-  %445 = add i32 %443, 1
-  %or.cond = icmp ult i32 %445, 2
+  %443 = add i32 %441, 1
+  %or.cond = icmp ult i32 %443, 2
   br i1 %or.cond, label %if.end212, label %if.else210
 
 if.else210:                                       ; preds = %if.else199
-  %objects.i398 = getelementptr inbounds i8, ptr %s, i64 5928
-  %o.04.i399 = load ptr, ptr %objects.i398, align 8
-  %tobool.not5.i400 = icmp eq ptr %o.04.i399, null
-  br i1 %tobool.not5.i400, label %if.then215, label %for.body.i401
+  %objects.i403 = getelementptr inbounds i8, ptr %s, i64 5928
+  %o.04.i404 = load ptr, ptr %objects.i403, align 8
+  %tobool.not5.i405 = icmp eq ptr %o.04.i404, null
+  br i1 %tobool.not5.i405, label %if.then215, label %for.body.i406
 
-for.body.i401:                                    ; preds = %if.else210, %for.inc.i404
-  %o.06.i402 = phi ptr [ %o.0.i406, %for.inc.i404 ], [ %o.04.i399, %if.else210 ]
-  %446 = load i32, ptr %o.06.i402, align 8
-  %cmp.i403 = icmp eq i32 %446, %443
-  br i1 %cmp.i403, label %if.else217, label %for.inc.i404
+for.body.i406:                                    ; preds = %if.else210, %for.inc.i409
+  %o.06.i407 = phi ptr [ %o.0.i411, %for.inc.i409 ], [ %o.04.i404, %if.else210 ]
+  %444 = load i32, ptr %o.06.i407, align 8
+  %cmp.i408 = icmp eq i32 %444, %441
+  br i1 %cmp.i408, label %if.else217, label %for.inc.i409
 
-for.inc.i404:                                     ; preds = %for.body.i401
-  %next.i405 = getelementptr inbounds i8, ptr %o.06.i402, i64 224
-  %o.0.i406 = load ptr, ptr %next.i405, align 8
-  %tobool.not.i407 = icmp eq ptr %o.0.i406, null
-  br i1 %tobool.not.i407, label %if.then215, label %for.body.i401, !llvm.loop !9
+for.inc.i409:                                     ; preds = %for.body.i406
+  %next.i410 = getelementptr inbounds i8, ptr %o.06.i407, i64 224
+  %o.0.i411 = load ptr, ptr %next.i410, align 8
+  %tobool.not.i412 = icmp eq ptr %o.0.i411, null
+  br i1 %tobool.not.i412, label %if.then215, label %for.body.i406, !llvm.loop !9
 
 if.end212:                                        ; preds = %if.else189, %if.else199
   %objects209 = getelementptr inbounds i8, ptr %s, i64 5928
-  %447 = load ptr, ptr %objects209, align 8
-  %cmp213 = icmp eq ptr %447, null
+  %445 = load ptr, ptr %objects209, align 8
+  %cmp213 = icmp eq ptr %445, null
   br i1 %cmp213, label %if.then215, label %if.else217
 
-if.then215:                                       ; preds = %for.inc.i404, %if.else210, %if.end212
+if.then215:                                       ; preds = %for.inc.i409, %if.else210, %if.end212
   %trans216 = getelementptr inbounds i8, ptr %c, i64 4
-  %448 = load i32, ptr %trans216, align 4
-  tail call fastcc void @usb_mtp_queue_result(ptr noundef %s, i16 noundef zeroext 8201, i32 noundef %448, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %446 = load i32, ptr %trans216, align 4
+  tail call fastcc void @usb_mtp_queue_result(ptr noundef %s, i16 noundef zeroext 8201, i32 noundef %446, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   br label %if.end232
 
-if.else217:                                       ; preds = %for.body.i401, %if.end212
-  %o.2620 = phi ptr [ %447, %if.end212 ], [ %o.06.i402, %for.body.i401 ]
-  %format218 = getelementptr inbounds i8, ptr %o.2620, i64 4
-  %449 = load i16, ptr %format218, align 4
-  %cmp220.not = icmp eq i16 %449, 12289
+if.else217:                                       ; preds = %for.body.i406, %if.end212
+  %o.2625 = phi ptr [ %445, %if.end212 ], [ %o.06.i407, %for.body.i406 ]
+  %format218 = getelementptr inbounds i8, ptr %o.2625, i64 4
+  %447 = load i16, ptr %format218, align 4
+  %cmp220.not = icmp eq i16 %447, 12289
   br i1 %cmp220.not, label %if.then230, label %if.then222
 
 if.then222:                                       ; preds = %if.else217
   %trans223 = getelementptr inbounds i8, ptr %c, i64 4
-  %450 = load i32, ptr %trans223, align 4
-  tail call fastcc void @usb_mtp_queue_result(ptr noundef %s, i16 noundef zeroext 8218, i32 noundef %450, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %448 = load i32, ptr %trans223, align 4
+  tail call fastcc void @usb_mtp_queue_result(ptr noundef %s, i16 noundef zeroext 8218, i32 noundef %448, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   br label %if.then230
 
 if.then230:                                       ; preds = %if.else217, %if.then222
-  %451 = load i32, ptr %o.2620, align 8
+  %449 = load i32, ptr %o.2625, align 8
   %dataset = getelementptr inbounds i8, ptr %s, i64 5976
-  store i32 %451, ptr %dataset, align 8
+  store i32 %449, ptr %dataset, align 8
   br label %if.end232
 
-if.end232:                                        ; preds = %usb_mtp_queue_result.exit397, %if.then197, %if.then215, %if.then187, %if.then230
-  %call.i410 = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 64) #17
-  %452 = load i16, ptr %c, align 4
-  store i16 %452, ptr %call.i410, align 8
+if.end232:                                        ; preds = %usb_mtp_queue_result.exit402, %if.then197, %if.then215, %if.then187, %if.then230
+  %call.i415 = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 64) #17
+  %450 = load i16, ptr %c, align 4
+  store i16 %450, ptr %call.i415, align 8
   %trans.i = getelementptr inbounds i8, ptr %c, i64 4
-  %453 = load i32, ptr %trans.i, align 4
-  %trans2.i411 = getelementptr inbounds i8, ptr %call.i410, i64 4
-  store i32 %453, ptr %trans2.i411, align 4
-  %fd.i = getelementptr inbounds i8, ptr %call.i410, i64 44
+  %451 = load i32, ptr %trans.i, align 4
+  %trans2.i416 = getelementptr inbounds i8, ptr %call.i415, i64 4
+  store i32 %451, ptr %trans2.i416, align 4
+  %fd.i = getelementptr inbounds i8, ptr %call.i415, i64 44
   store i32 -1, ptr %fd.i, align 4
-  %first.i = getelementptr inbounds i8, ptr %call.i410, i64 40
+  %first.i = getelementptr inbounds i8, ptr %call.i415, i64 40
   store i8 1, ptr %first.i, align 8
   %data_out = getelementptr inbounds i8, ptr %s, i64 5896
-  store ptr %call.i410, ptr %data_out, align 8
+  store ptr %call.i415, ptr %data_out, align 8
   br label %return
 
 sw.bb234:                                         ; preds = %if.end
   %flags235 = getelementptr inbounds i8, ptr %s, i64 5880
-  %454 = load i32, ptr %flags235, align 8
-  %and236 = and i32 %454, 1
+  %452 = load i32, ptr %flags235, align 8
+  %and236 = and i32 %452, 1
   %tobool237.not = icmp eq i32 %and236, 0
   br i1 %tobool237.not, label %if.then238, label %if.end240
 
 if.then238:                                       ; preds = %sw.bb234
   %trans239 = getelementptr inbounds i8, ptr %c, i64 4
-  %455 = load i32, ptr %trans239, align 4
-  %call.i412 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #17
-  store i16 8206, ptr %call.i412, align 4
-  %trans2.i413 = getelementptr inbounds i8, ptr %call.i412, i64 4
-  store i32 %455, ptr %trans2.i413, align 4
-  %argc3.i414 = getelementptr inbounds i8, ptr %call.i412, i64 8
-  store i32 0, ptr %argc3.i414, align 4
-  %result.i415 = getelementptr inbounds i8, ptr %s, i64 5904
-  %456 = load ptr, ptr %result.i415, align 8
-  %cmp14.i416 = icmp eq ptr %456, null
-  br i1 %cmp14.i416, label %usb_mtp_queue_result.exit419, label %if.else.i417
+  %453 = load i32, ptr %trans239, align 4
+  %call.i417 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #17
+  store i16 8206, ptr %call.i417, align 4
+  %trans2.i418 = getelementptr inbounds i8, ptr %call.i417, i64 4
+  store i32 %453, ptr %trans2.i418, align 4
+  %argc3.i419 = getelementptr inbounds i8, ptr %call.i417, i64 8
+  store i32 0, ptr %argc3.i419, align 4
+  %result.i420 = getelementptr inbounds i8, ptr %s, i64 5904
+  %454 = load ptr, ptr %result.i420, align 8
+  %cmp14.i421 = icmp eq ptr %454, null
+  br i1 %cmp14.i421, label %usb_mtp_queue_result.exit424, label %if.else.i422
 
-if.else.i417:                                     ; preds = %if.then238
+if.else.i422:                                     ; preds = %if.then238
   tail call void @__assert_fail(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.8, i32 noundef 800, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_mtp_queue_result) #18
   unreachable
 
-usb_mtp_queue_result.exit419:                     ; preds = %if.then238
-  store ptr %call.i412, ptr %result.i415, align 8
+usb_mtp_queue_result.exit424:                     ; preds = %if.then238
+  store ptr %call.i417, ptr %result.i420, align 8
   br label %return
 
 if.end240:                                        ; preds = %sw.bb234
   %write_pending = getelementptr inbounds i8, ptr %s, i64 5968
-  %457 = load i8, ptr %write_pending, align 8
-  %tobool241 = trunc i8 %457 to i1
+  %455 = load i8, ptr %write_pending, align 8
+  %tobool241 = trunc i8 %455 to i1
   br i1 %tobool241, label %if.end244, label %if.then242
 
 if.then242:                                       ; preds = %if.end240
   %trans243 = getelementptr inbounds i8, ptr %c, i64 4
-  %458 = load i32, ptr %trans243, align 4
-  tail call fastcc void @usb_mtp_queue_result(ptr noundef nonnull %s, i16 noundef zeroext 8213, i32 noundef %458, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %456 = load i32, ptr %trans243, align 4
+  tail call fastcc void @usb_mtp_queue_result(ptr noundef nonnull %s, i16 noundef zeroext 8213, i32 noundef %456, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   br label %return
 
 if.end244:                                        ; preds = %if.end240
-  %call.i420 = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 64) #17
-  %459 = load i16, ptr %c, align 4
-  store i16 %459, ptr %call.i420, align 8
-  %trans.i421 = getelementptr inbounds i8, ptr %c, i64 4
-  %460 = load i32, ptr %trans.i421, align 4
-  %trans2.i422 = getelementptr inbounds i8, ptr %call.i420, i64 4
-  store i32 %460, ptr %trans2.i422, align 4
-  %fd.i423 = getelementptr inbounds i8, ptr %call.i420, i64 44
-  store i32 -1, ptr %fd.i423, align 4
-  %first.i424 = getelementptr inbounds i8, ptr %call.i420, i64 40
-  store i8 1, ptr %first.i424, align 8
+  %call.i425 = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 64) #17
+  %457 = load i16, ptr %c, align 4
+  store i16 %457, ptr %call.i425, align 8
+  %trans.i426 = getelementptr inbounds i8, ptr %c, i64 4
+  %458 = load i32, ptr %trans.i426, align 4
+  %trans2.i427 = getelementptr inbounds i8, ptr %call.i425, i64 4
+  store i32 %458, ptr %trans2.i427, align 4
+  %fd.i428 = getelementptr inbounds i8, ptr %call.i425, i64 44
+  store i32 -1, ptr %fd.i428, align 4
+  %first.i429 = getelementptr inbounds i8, ptr %call.i425, i64 40
+  store i8 1, ptr %first.i429, align 8
   %data_out246 = getelementptr inbounds i8, ptr %s, i64 5896
-  store ptr %call.i420, ptr %data_out246, align 8
+  store ptr %call.i425, ptr %data_out246, align 8
   br label %return
 
 sw.bb247:                                         ; preds = %if.end
   %argv248 = getelementptr inbounds i8, ptr %c, i64 12
-  %461 = load i32, ptr %argv248, align 4
-  %462 = and i32 %461, -2
-  %switch = icmp eq i32 %462, 12288
+  %459 = load i32, ptr %argv248, align 4
+  %460 = and i32 %459, -2
+  %switch = icmp eq i32 %460, 12288
   br i1 %switch, label %if.end259, label %if.then257
 
 if.then257:                                       ; preds = %sw.bb247
   %trans258 = getelementptr inbounds i8, ptr %c, i64 4
-  %463 = load i32, ptr %trans258, align 4
-  %call.i425 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #17
-  store i16 8203, ptr %call.i425, align 4
-  %trans2.i426 = getelementptr inbounds i8, ptr %call.i425, i64 4
-  store i32 %463, ptr %trans2.i426, align 4
-  %argc3.i427 = getelementptr inbounds i8, ptr %call.i425, i64 8
-  store i32 0, ptr %argc3.i427, align 4
-  %result.i428 = getelementptr inbounds i8, ptr %s, i64 5904
-  %464 = load ptr, ptr %result.i428, align 8
-  %cmp14.i429 = icmp eq ptr %464, null
-  br i1 %cmp14.i429, label %usb_mtp_queue_result.exit432, label %if.else.i430
+  %461 = load i32, ptr %trans258, align 4
+  %call.i430 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #17
+  store i16 8203, ptr %call.i430, align 4
+  %trans2.i431 = getelementptr inbounds i8, ptr %call.i430, i64 4
+  store i32 %461, ptr %trans2.i431, align 4
+  %argc3.i432 = getelementptr inbounds i8, ptr %call.i430, i64 8
+  store i32 0, ptr %argc3.i432, align 4
+  %result.i433 = getelementptr inbounds i8, ptr %s, i64 5904
+  %462 = load ptr, ptr %result.i433, align 8
+  %cmp14.i434 = icmp eq ptr %462, null
+  br i1 %cmp14.i434, label %usb_mtp_queue_result.exit437, label %if.else.i435
 
-if.else.i430:                                     ; preds = %if.then257
+if.else.i435:                                     ; preds = %if.then257
   tail call void @__assert_fail(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.8, i32 noundef 800, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_mtp_queue_result) #18
   unreachable
 
-usb_mtp_queue_result.exit432:                     ; preds = %if.then257
-  store ptr %call.i425, ptr %result.i428, align 8
+usb_mtp_queue_result.exit437:                     ; preds = %if.then257
+  store ptr %call.i430, ptr %result.i433, align 8
   br label %return
 
 if.end259:                                        ; preds = %sw.bb247
-  %call.i.i433 = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 64) #17
-  %465 = load i16, ptr %c, align 4
-  store i16 %465, ptr %call.i.i433, align 8
-  %trans.i.i434 = getelementptr inbounds i8, ptr %c, i64 4
-  %466 = load i32, ptr %trans.i.i434, align 4
-  %trans2.i.i435 = getelementptr inbounds i8, ptr %call.i.i433, i64 4
-  store i32 %466, ptr %trans2.i.i435, align 4
-  %fd.i.i436 = getelementptr inbounds i8, ptr %call.i.i433, i64 44
-  store i32 -1, ptr %fd.i.i436, align 4
-  %first.i.i437 = getelementptr inbounds i8, ptr %call.i.i433, i64 40
-  store i8 1, ptr %first.i.i437, align 8
-  tail call fastcc void @usb_mtp_add_u16_array(ptr noundef nonnull %call.i.i433, i32 noundef 6, ptr noundef nonnull @usb_mtp_get_object_props_supported.props)
+  %call.i.i438 = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 64) #17
+  %463 = load i16, ptr %c, align 4
+  store i16 %463, ptr %call.i.i438, align 8
+  %trans.i.i439 = getelementptr inbounds i8, ptr %c, i64 4
+  %464 = load i32, ptr %trans.i.i439, align 4
+  %trans2.i.i440 = getelementptr inbounds i8, ptr %call.i.i438, i64 4
+  store i32 %464, ptr %trans2.i.i440, align 4
+  %fd.i.i441 = getelementptr inbounds i8, ptr %call.i.i438, i64 44
+  store i32 -1, ptr %fd.i.i441, align 4
+  %first.i.i442 = getelementptr inbounds i8, ptr %call.i.i438, i64 40
+  store i8 1, ptr %first.i.i442, align 8
+  tail call fastcc void @usb_mtp_add_u16_array(ptr noundef nonnull %call.i.i438, i32 noundef 6, ptr noundef nonnull @usb_mtp_get_object_props_supported.props)
   br label %if.then302
 
 sw.bb261:                                         ; preds = %if.end
   %arrayidx263 = getelementptr i8, ptr %c, i64 16
-  %467 = load i32, ptr %arrayidx263, align 4
-  %468 = and i32 %467, -2
-  %switch185 = icmp eq i32 %468, 12288
+  %465 = load i32, ptr %arrayidx263, align 4
+  %466 = and i32 %465, -2
+  %switch185 = icmp eq i32 %466, 12288
   br i1 %switch185, label %if.end273, label %if.then271
 
 if.then271:                                       ; preds = %sw.bb261
   %trans272 = getelementptr inbounds i8, ptr %c, i64 4
-  %469 = load i32, ptr %trans272, align 4
-  %call.i438 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #17
-  store i16 8203, ptr %call.i438, align 4
-  %trans2.i439 = getelementptr inbounds i8, ptr %call.i438, i64 4
-  store i32 %469, ptr %trans2.i439, align 4
-  %argc3.i440 = getelementptr inbounds i8, ptr %call.i438, i64 8
-  store i32 0, ptr %argc3.i440, align 4
-  %result.i441 = getelementptr inbounds i8, ptr %s, i64 5904
-  %470 = load ptr, ptr %result.i441, align 8
-  %cmp14.i442 = icmp eq ptr %470, null
-  br i1 %cmp14.i442, label %usb_mtp_queue_result.exit445, label %if.else.i443
+  %467 = load i32, ptr %trans272, align 4
+  %call.i443 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #17
+  store i16 8203, ptr %call.i443, align 4
+  %trans2.i444 = getelementptr inbounds i8, ptr %call.i443, i64 4
+  store i32 %467, ptr %trans2.i444, align 4
+  %argc3.i445 = getelementptr inbounds i8, ptr %call.i443, i64 8
+  store i32 0, ptr %argc3.i445, align 4
+  %result.i446 = getelementptr inbounds i8, ptr %s, i64 5904
+  %468 = load ptr, ptr %result.i446, align 8
+  %cmp14.i447 = icmp eq ptr %468, null
+  br i1 %cmp14.i447, label %usb_mtp_queue_result.exit450, label %if.else.i448
 
-if.else.i443:                                     ; preds = %if.then271
+if.else.i448:                                     ; preds = %if.then271
   tail call void @__assert_fail(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.8, i32 noundef 800, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_mtp_queue_result) #18
   unreachable
 
-usb_mtp_queue_result.exit445:                     ; preds = %if.then271
-  store ptr %call.i438, ptr %result.i441, align 8
+usb_mtp_queue_result.exit450:                     ; preds = %if.then271
+  store ptr %call.i443, ptr %result.i446, align 8
   br label %return
 
 if.end273:                                        ; preds = %sw.bb261
-  %call.i.i446 = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 64) #17
-  %471 = load i16, ptr %c, align 4
-  store i16 %471, ptr %call.i.i446, align 8
-  %trans.i.i447 = getelementptr inbounds i8, ptr %c, i64 4
-  %472 = load i32, ptr %trans.i.i447, align 4
-  %trans2.i.i448 = getelementptr inbounds i8, ptr %call.i.i446, i64 4
-  store i32 %472, ptr %trans2.i.i448, align 4
-  %fd.i.i449 = getelementptr inbounds i8, ptr %call.i.i446, i64 44
-  store i32 -1, ptr %fd.i.i449, align 4
-  %first.i.i450 = getelementptr inbounds i8, ptr %call.i.i446, i64 40
-  store i8 1, ptr %first.i.i450, align 8
-  %argv.i451 = getelementptr inbounds i8, ptr %c, i64 12
-  %473 = load i32, ptr %argv.i451, align 4
-  switch i32 %473, label %if.then277 [
-    i32 56321, label %sw.bb.i461
+  %call.i.i451 = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 64) #17
+  %469 = load i16, ptr %c, align 4
+  store i16 %469, ptr %call.i.i451, align 8
+  %trans.i.i452 = getelementptr inbounds i8, ptr %c, i64 4
+  %470 = load i32, ptr %trans.i.i452, align 4
+  %trans2.i.i453 = getelementptr inbounds i8, ptr %call.i.i451, i64 4
+  store i32 %470, ptr %trans2.i.i453, align 4
+  %fd.i.i454 = getelementptr inbounds i8, ptr %call.i.i451, i64 44
+  store i32 -1, ptr %fd.i.i454, align 4
+  %first.i.i455 = getelementptr inbounds i8, ptr %call.i.i451, i64 40
+  store i8 1, ptr %first.i.i455, align 8
+  %argv.i456 = getelementptr inbounds i8, ptr %c, i64 12
+  %471 = load i32, ptr %argv.i456, align 4
+  switch i32 %471, label %if.then277 [
+    i32 56321, label %sw.bb.i466
     i32 56322, label %sw.bb1.i
     i32 56324, label %sw.bb2.i
     i32 56331, label %sw.bb3.i
@@ -4523,269 +4559,269 @@ if.end273:                                        ; preds = %sw.bb261
     i32 56388, label %sw.bb5.i
   ]
 
-sw.bb.i461:                                       ; preds = %if.end273
-  %length.i.i.i462 = getelementptr inbounds i8, ptr %call.i.i446, i64 16
-  %474 = load i64, ptr %length.i.i.i462, align 8
-  %add.i.i.i463 = add i64 %474, 2
-  %alloc.i.i.i464 = getelementptr inbounds i8, ptr %call.i.i446, i64 24
-  %475 = load i64, ptr %alloc.i.i.i464, align 8
-  %cmp.not.i.i.i465 = icmp ugt i64 %add.i.i.i463, %475
-  br i1 %cmp.not.i.i.i465, label %if.end.i.i.i484, label %entry.usb_mtp_realloc.exit_crit_edge.i.i466
+sw.bb.i466:                                       ; preds = %if.end273
+  %length.i.i.i467 = getelementptr inbounds i8, ptr %call.i.i451, i64 16
+  %472 = load i64, ptr %length.i.i.i467, align 8
+  %add.i.i.i468 = add i64 %472, 2
+  %alloc.i.i.i469 = getelementptr inbounds i8, ptr %call.i.i451, i64 24
+  %473 = load i64, ptr %alloc.i.i.i469, align 8
+  %cmp.not.i.i.i470 = icmp ugt i64 %add.i.i.i468, %473
+  br i1 %cmp.not.i.i.i470, label %if.end.i.i.i489, label %entry.usb_mtp_realloc.exit_crit_edge.i.i471
 
-entry.usb_mtp_realloc.exit_crit_edge.i.i466:      ; preds = %sw.bb.i461
-  %data2.phi.trans.insert.i.i467 = getelementptr inbounds i8, ptr %call.i.i446, i64 32
-  %.pre.i.i468 = load ptr, ptr %data2.phi.trans.insert.i.i467, align 8
-  br label %usb_mtp_add_u16.exit.i469
+entry.usb_mtp_realloc.exit_crit_edge.i.i471:      ; preds = %sw.bb.i466
+  %data2.phi.trans.insert.i.i472 = getelementptr inbounds i8, ptr %call.i.i451, i64 32
+  %.pre.i.i473 = load ptr, ptr %data2.phi.trans.insert.i.i472, align 8
+  br label %usb_mtp_add_u16.exit.i474
 
-if.end.i.i.i484:                                  ; preds = %sw.bb.i461
-  %add5.i.i.i485 = add i64 %474, 257
-  %and.i.i.i486 = and i64 %add5.i.i.i485, -256
-  store i64 %and.i.i.i486, ptr %alloc.i.i.i464, align 8
-  %data7.i.i.i487 = getelementptr inbounds i8, ptr %call.i.i446, i64 32
-  %476 = load ptr, ptr %data7.i.i.i487, align 8
-  %call.i.i.i488 = tail call ptr @g_realloc(ptr noundef %476, i64 noundef %and.i.i.i486) #15
-  store ptr %call.i.i.i488, ptr %data7.i.i.i487, align 8
-  %.pre6.i.i489 = load i64, ptr %length.i.i.i462, align 8
-  br label %usb_mtp_add_u16.exit.i469
+if.end.i.i.i489:                                  ; preds = %sw.bb.i466
+  %add5.i.i.i490 = add i64 %472, 257
+  %and.i.i.i491 = and i64 %add5.i.i.i490, -256
+  store i64 %and.i.i.i491, ptr %alloc.i.i.i469, align 8
+  %data7.i.i.i492 = getelementptr inbounds i8, ptr %call.i.i451, i64 32
+  %474 = load ptr, ptr %data7.i.i.i492, align 8
+  %call.i.i.i493 = tail call ptr @g_realloc(ptr noundef %474, i64 noundef %and.i.i.i491) #15
+  store ptr %call.i.i.i493, ptr %data7.i.i.i492, align 8
+  %.pre6.i.i494 = load i64, ptr %length.i.i.i467, align 8
+  br label %usb_mtp_add_u16.exit.i474
 
-usb_mtp_add_u16.exit.i469:                        ; preds = %if.end.i.i.i484, %entry.usb_mtp_realloc.exit_crit_edge.i.i466
-  %477 = phi i64 [ %474, %entry.usb_mtp_realloc.exit_crit_edge.i.i466 ], [ %.pre6.i.i489, %if.end.i.i.i484 ]
-  %478 = phi ptr [ %.pre.i.i468, %entry.usb_mtp_realloc.exit_crit_edge.i.i466 ], [ %call.i.i.i488, %if.end.i.i.i484 ]
-  %data2.i.i470 = getelementptr inbounds i8, ptr %call.i.i446, i64 32
-  %inc.i.i471 = add i64 %477, 1
-  store i64 %inc.i.i471, ptr %length.i.i.i462, align 8
-  %arrayidx.i.i472 = getelementptr i8, ptr %478, i64 %477
-  store i8 1, ptr %arrayidx.i.i472, align 1
-  %479 = load ptr, ptr %data2.i.i470, align 8
-  %480 = load i64, ptr %length.i.i.i462, align 8
-  %inc9.i.i473 = add i64 %480, 1
-  store i64 %inc9.i.i473, ptr %length.i.i.i462, align 8
-  %arrayidx10.i.i474 = getelementptr i8, ptr %479, i64 %480
-  store i8 -36, ptr %arrayidx10.i.i474, align 1
-  %481 = load i64, ptr %length.i.i.i462, align 8
-  %add.i.i41.i = add i64 %481, 2
-  %482 = load i64, ptr %alloc.i.i.i464, align 8
-  %cmp.not.i.i43.i = icmp ugt i64 %add.i.i41.i, %482
+usb_mtp_add_u16.exit.i474:                        ; preds = %if.end.i.i.i489, %entry.usb_mtp_realloc.exit_crit_edge.i.i471
+  %475 = phi i64 [ %472, %entry.usb_mtp_realloc.exit_crit_edge.i.i471 ], [ %.pre6.i.i494, %if.end.i.i.i489 ]
+  %476 = phi ptr [ %.pre.i.i473, %entry.usb_mtp_realloc.exit_crit_edge.i.i471 ], [ %call.i.i.i493, %if.end.i.i.i489 ]
+  %data2.i.i475 = getelementptr inbounds i8, ptr %call.i.i451, i64 32
+  %inc.i.i476 = add i64 %475, 1
+  store i64 %inc.i.i476, ptr %length.i.i.i467, align 8
+  %arrayidx.i.i477 = getelementptr i8, ptr %476, i64 %475
+  store i8 1, ptr %arrayidx.i.i477, align 1
+  %477 = load ptr, ptr %data2.i.i475, align 8
+  %478 = load i64, ptr %length.i.i.i467, align 8
+  %inc9.i.i478 = add i64 %478, 1
+  store i64 %inc9.i.i478, ptr %length.i.i.i467, align 8
+  %arrayidx10.i.i479 = getelementptr i8, ptr %477, i64 %478
+  store i8 -36, ptr %arrayidx10.i.i479, align 1
+  %479 = load i64, ptr %length.i.i.i467, align 8
+  %add.i.i41.i = add i64 %479, 2
+  %480 = load i64, ptr %alloc.i.i.i469, align 8
+  %cmp.not.i.i43.i = icmp ugt i64 %add.i.i41.i, %480
   br i1 %cmp.not.i.i43.i, label %if.end.i.i52.i, label %entry.usb_mtp_realloc.exit_crit_edge.i44.i
 
-entry.usb_mtp_realloc.exit_crit_edge.i44.i:       ; preds = %usb_mtp_add_u16.exit.i469
-  %.pre.i46.i = load ptr, ptr %data2.i.i470, align 8
+entry.usb_mtp_realloc.exit_crit_edge.i44.i:       ; preds = %usb_mtp_add_u16.exit.i474
+  %.pre.i46.i = load ptr, ptr %data2.i.i475, align 8
   br label %usb_mtp_add_u16.exit58.i
 
-if.end.i.i52.i:                                   ; preds = %usb_mtp_add_u16.exit.i469
-  %add5.i.i53.i = add i64 %481, 257
+if.end.i.i52.i:                                   ; preds = %usb_mtp_add_u16.exit.i474
+  %add5.i.i53.i = add i64 %479, 257
   %and.i.i54.i = and i64 %add5.i.i53.i, -256
-  store i64 %and.i.i54.i, ptr %alloc.i.i.i464, align 8
-  %483 = load ptr, ptr %data2.i.i470, align 8
-  %call.i.i56.i = tail call ptr @g_realloc(ptr noundef %483, i64 noundef %and.i.i54.i) #15
-  store ptr %call.i.i56.i, ptr %data2.i.i470, align 8
-  %.pre6.i57.i = load i64, ptr %length.i.i.i462, align 8
+  store i64 %and.i.i54.i, ptr %alloc.i.i.i469, align 8
+  %481 = load ptr, ptr %data2.i.i475, align 8
+  %call.i.i56.i = tail call ptr @g_realloc(ptr noundef %481, i64 noundef %and.i.i54.i) #15
+  store ptr %call.i.i56.i, ptr %data2.i.i475, align 8
+  %.pre6.i57.i = load i64, ptr %length.i.i.i467, align 8
   br label %usb_mtp_add_u16.exit58.i
 
 usb_mtp_add_u16.exit58.i:                         ; preds = %if.end.i.i52.i, %entry.usb_mtp_realloc.exit_crit_edge.i44.i
-  %484 = phi i64 [ %481, %entry.usb_mtp_realloc.exit_crit_edge.i44.i ], [ %.pre6.i57.i, %if.end.i.i52.i ]
-  %485 = phi ptr [ %.pre.i46.i, %entry.usb_mtp_realloc.exit_crit_edge.i44.i ], [ %call.i.i56.i, %if.end.i.i52.i ]
-  %inc.i48.i = add i64 %484, 1
-  store i64 %inc.i48.i, ptr %length.i.i.i462, align 8
-  %arrayidx.i49.i = getelementptr i8, ptr %485, i64 %484
+  %482 = phi i64 [ %479, %entry.usb_mtp_realloc.exit_crit_edge.i44.i ], [ %.pre6.i57.i, %if.end.i.i52.i ]
+  %483 = phi ptr [ %.pre.i46.i, %entry.usb_mtp_realloc.exit_crit_edge.i44.i ], [ %call.i.i56.i, %if.end.i.i52.i ]
+  %inc.i48.i = add i64 %482, 1
+  store i64 %inc.i48.i, ptr %length.i.i.i467, align 8
+  %arrayidx.i49.i = getelementptr i8, ptr %483, i64 %482
   store i8 6, ptr %arrayidx.i49.i, align 1
-  %486 = load ptr, ptr %data2.i.i470, align 8
-  %487 = load i64, ptr %length.i.i.i462, align 8
-  %inc9.i50.i = add i64 %487, 1
-  store i64 %inc9.i50.i, ptr %length.i.i.i462, align 8
-  %arrayidx10.i51.i = getelementptr i8, ptr %486, i64 %487
+  %484 = load ptr, ptr %data2.i.i475, align 8
+  %485 = load i64, ptr %length.i.i.i467, align 8
+  %inc9.i50.i = add i64 %485, 1
+  store i64 %inc9.i50.i, ptr %length.i.i.i467, align 8
+  %arrayidx10.i51.i = getelementptr i8, ptr %484, i64 %485
   store i8 0, ptr %arrayidx10.i51.i, align 1
-  %488 = load i64, ptr %length.i.i.i462, align 8
-  %add.i.i60.i = add i64 %488, 1
-  %489 = load i64, ptr %alloc.i.i.i464, align 8
-  %cmp.not.i.i62.i = icmp ugt i64 %add.i.i60.i, %489
+  %486 = load i64, ptr %length.i.i.i467, align 8
+  %add.i.i60.i = add i64 %486, 1
+  %487 = load i64, ptr %alloc.i.i.i469, align 8
+  %cmp.not.i.i62.i = icmp ugt i64 %add.i.i60.i, %487
   br i1 %cmp.not.i.i62.i, label %if.end.i.i66.i, label %entry.usb_mtp_realloc.exit_crit_edge.i63.i
 
 entry.usb_mtp_realloc.exit_crit_edge.i63.i:       ; preds = %usb_mtp_add_u16.exit58.i
-  %.pre.i64.i = load ptr, ptr %data2.i.i470, align 8
+  %.pre.i64.i = load ptr, ptr %data2.i.i475, align 8
   br label %usb_mtp_add_u8.exit.i
 
 if.end.i.i66.i:                                   ; preds = %usb_mtp_add_u16.exit58.i
-  %490 = and i64 %488, -256
-  %and.i.i67.i = add i64 %490, 256
-  store i64 %and.i.i67.i, ptr %alloc.i.i.i464, align 8
-  %491 = load ptr, ptr %data2.i.i470, align 8
-  %call.i.i69.i = tail call ptr @g_realloc(ptr noundef %491, i64 noundef %and.i.i67.i) #15
-  store ptr %call.i.i69.i, ptr %data2.i.i470, align 8
-  %.pre3.i.i = load i64, ptr %length.i.i.i462, align 8
+  %488 = and i64 %486, -256
+  %and.i.i67.i = add i64 %488, 256
+  store i64 %and.i.i67.i, ptr %alloc.i.i.i469, align 8
+  %489 = load ptr, ptr %data2.i.i475, align 8
+  %call.i.i69.i = tail call ptr @g_realloc(ptr noundef %489, i64 noundef %and.i.i67.i) #15
+  store ptr %call.i.i69.i, ptr %data2.i.i475, align 8
+  %.pre3.i.i = load i64, ptr %length.i.i.i467, align 8
   %.pre4.i.i = add i64 %.pre3.i.i, 1
   br label %usb_mtp_add_u8.exit.i
 
 usb_mtp_add_u8.exit.i:                            ; preds = %if.end.i.i66.i, %entry.usb_mtp_realloc.exit_crit_edge.i63.i
   %inc.pre-phi.i.i = phi i64 [ %add.i.i60.i, %entry.usb_mtp_realloc.exit_crit_edge.i63.i ], [ %.pre4.i.i, %if.end.i.i66.i ]
-  %492 = phi i64 [ %488, %entry.usb_mtp_realloc.exit_crit_edge.i63.i ], [ %.pre3.i.i, %if.end.i.i66.i ]
-  %493 = phi ptr [ %.pre.i64.i, %entry.usb_mtp_realloc.exit_crit_edge.i63.i ], [ %call.i.i69.i, %if.end.i.i66.i ]
-  store i64 %inc.pre-phi.i.i, ptr %length.i.i.i462, align 8
-  %arrayidx.i65.i475 = getelementptr i8, ptr %493, i64 %492
-  store i8 0, ptr %arrayidx.i65.i475, align 1
-  %494 = load i64, ptr %length.i.i.i462, align 8
-  %add.i.i71.i = add i64 %494, 4
-  %495 = load i64, ptr %alloc.i.i.i464, align 8
-  %cmp.not.i.i73.i = icmp ugt i64 %add.i.i71.i, %495
+  %490 = phi i64 [ %486, %entry.usb_mtp_realloc.exit_crit_edge.i63.i ], [ %.pre3.i.i, %if.end.i.i66.i ]
+  %491 = phi ptr [ %.pre.i64.i, %entry.usb_mtp_realloc.exit_crit_edge.i63.i ], [ %call.i.i69.i, %if.end.i.i66.i ]
+  store i64 %inc.pre-phi.i.i, ptr %length.i.i.i467, align 8
+  %arrayidx.i65.i480 = getelementptr i8, ptr %491, i64 %490
+  store i8 0, ptr %arrayidx.i65.i480, align 1
+  %492 = load i64, ptr %length.i.i.i467, align 8
+  %add.i.i71.i = add i64 %492, 4
+  %493 = load i64, ptr %alloc.i.i.i469, align 8
+  %cmp.not.i.i73.i = icmp ugt i64 %add.i.i71.i, %493
   br i1 %cmp.not.i.i73.i, label %if.end.i.i79.i, label %entry.usb_mtp_realloc.exit_crit_edge.i74.i
 
 entry.usb_mtp_realloc.exit_crit_edge.i74.i:       ; preds = %usb_mtp_add_u8.exit.i
-  %.pre.i76.i = load ptr, ptr %data2.i.i470, align 8
-  br label %usb_mtp_add_u32.exit.i476
+  %.pre.i76.i = load ptr, ptr %data2.i.i475, align 8
+  br label %usb_mtp_add_u32.exit.i481
 
 if.end.i.i79.i:                                   ; preds = %usb_mtp_add_u8.exit.i
-  %add5.i.i80.i = add i64 %494, 259
+  %add5.i.i80.i = add i64 %492, 259
   %and.i.i81.i = and i64 %add5.i.i80.i, -256
-  store i64 %and.i.i81.i, ptr %alloc.i.i.i464, align 8
-  %496 = load ptr, ptr %data2.i.i470, align 8
-  %call.i.i83.i = tail call ptr @g_realloc(ptr noundef %496, i64 noundef %and.i.i81.i) #15
-  store ptr %call.i.i83.i, ptr %data2.i.i470, align 8
-  %.pre12.i.i483 = load i64, ptr %length.i.i.i462, align 8
-  br label %usb_mtp_add_u32.exit.i476
+  store i64 %and.i.i81.i, ptr %alloc.i.i.i469, align 8
+  %494 = load ptr, ptr %data2.i.i475, align 8
+  %call.i.i83.i = tail call ptr @g_realloc(ptr noundef %494, i64 noundef %and.i.i81.i) #15
+  store ptr %call.i.i83.i, ptr %data2.i.i475, align 8
+  %.pre12.i.i488 = load i64, ptr %length.i.i.i467, align 8
+  br label %usb_mtp_add_u32.exit.i481
 
-usb_mtp_add_u32.exit.i476:                        ; preds = %if.end.i.i79.i, %entry.usb_mtp_realloc.exit_crit_edge.i74.i
-  %497 = phi i64 [ %494, %entry.usb_mtp_realloc.exit_crit_edge.i74.i ], [ %.pre12.i.i483, %if.end.i.i79.i ]
-  %498 = phi ptr [ %.pre.i76.i, %entry.usb_mtp_realloc.exit_crit_edge.i74.i ], [ %call.i.i83.i, %if.end.i.i79.i ]
-  %inc.i77.i = add i64 %497, 1
-  store i64 %inc.i77.i, ptr %length.i.i.i462, align 8
-  %arrayidx.i78.i = getelementptr i8, ptr %498, i64 %497
+usb_mtp_add_u32.exit.i481:                        ; preds = %if.end.i.i79.i, %entry.usb_mtp_realloc.exit_crit_edge.i74.i
+  %495 = phi i64 [ %492, %entry.usb_mtp_realloc.exit_crit_edge.i74.i ], [ %.pre12.i.i488, %if.end.i.i79.i ]
+  %496 = phi ptr [ %.pre.i76.i, %entry.usb_mtp_realloc.exit_crit_edge.i74.i ], [ %call.i.i83.i, %if.end.i.i79.i ]
+  %inc.i77.i = add i64 %495, 1
+  store i64 %inc.i77.i, ptr %length.i.i.i467, align 8
+  %arrayidx.i78.i = getelementptr i8, ptr %496, i64 %495
   store i8 0, ptr %arrayidx.i78.i, align 1
-  %499 = load ptr, ptr %data2.i.i470, align 8
-  %500 = load i64, ptr %length.i.i.i462, align 8
-  %inc7.i.i477 = add i64 %500, 1
-  store i64 %inc7.i.i477, ptr %length.i.i.i462, align 8
-  %arrayidx8.i.i478 = getelementptr i8, ptr %499, i64 %500
-  store i8 0, ptr %arrayidx8.i.i478, align 1
-  %501 = load ptr, ptr %data2.i.i470, align 8
-  %502 = load i64, ptr %length.i.i.i462, align 8
-  %inc14.i.i479 = add i64 %502, 1
-  store i64 %inc14.i.i479, ptr %length.i.i.i462, align 8
-  %arrayidx15.i.i480 = getelementptr i8, ptr %501, i64 %502
-  store i8 0, ptr %arrayidx15.i.i480, align 1
-  %503 = load ptr, ptr %data2.i.i470, align 8
-  %504 = load i64, ptr %length.i.i.i462, align 8
-  %inc21.i.i481 = add i64 %504, 1
-  store i64 %inc21.i.i481, ptr %length.i.i.i462, align 8
-  %arrayidx22.i.i482 = getelementptr i8, ptr %503, i64 %504
-  store i8 0, ptr %arrayidx22.i.i482, align 1
-  %505 = load i64, ptr %length.i.i.i462, align 8
-  %add.i.i85.i = add i64 %505, 4
-  %506 = load i64, ptr %alloc.i.i.i464, align 8
-  %cmp.not.i.i87.i = icmp ugt i64 %add.i.i85.i, %506
+  %497 = load ptr, ptr %data2.i.i475, align 8
+  %498 = load i64, ptr %length.i.i.i467, align 8
+  %inc7.i.i482 = add i64 %498, 1
+  store i64 %inc7.i.i482, ptr %length.i.i.i467, align 8
+  %arrayidx8.i.i483 = getelementptr i8, ptr %497, i64 %498
+  store i8 0, ptr %arrayidx8.i.i483, align 1
+  %499 = load ptr, ptr %data2.i.i475, align 8
+  %500 = load i64, ptr %length.i.i.i467, align 8
+  %inc14.i.i484 = add i64 %500, 1
+  store i64 %inc14.i.i484, ptr %length.i.i.i467, align 8
+  %arrayidx15.i.i485 = getelementptr i8, ptr %499, i64 %500
+  store i8 0, ptr %arrayidx15.i.i485, align 1
+  %501 = load ptr, ptr %data2.i.i475, align 8
+  %502 = load i64, ptr %length.i.i.i467, align 8
+  %inc21.i.i486 = add i64 %502, 1
+  store i64 %inc21.i.i486, ptr %length.i.i.i467, align 8
+  %arrayidx22.i.i487 = getelementptr i8, ptr %501, i64 %502
+  store i8 0, ptr %arrayidx22.i.i487, align 1
+  %503 = load i64, ptr %length.i.i.i467, align 8
+  %add.i.i85.i = add i64 %503, 4
+  %504 = load i64, ptr %alloc.i.i.i469, align 8
+  %cmp.not.i.i87.i = icmp ugt i64 %add.i.i85.i, %504
   br i1 %cmp.not.i.i87.i, label %if.end.i.i100.i, label %entry.usb_mtp_realloc.exit_crit_edge.i88.i
 
-entry.usb_mtp_realloc.exit_crit_edge.i88.i:       ; preds = %usb_mtp_add_u32.exit.i476
-  %.pre.i90.i = load ptr, ptr %data2.i.i470, align 8
+entry.usb_mtp_realloc.exit_crit_edge.i88.i:       ; preds = %usb_mtp_add_u32.exit.i481
+  %.pre.i90.i = load ptr, ptr %data2.i.i475, align 8
   br label %usb_mtp_add_u32.exit106.i
 
-if.end.i.i100.i:                                  ; preds = %usb_mtp_add_u32.exit.i476
-  %add5.i.i101.i = add i64 %505, 259
+if.end.i.i100.i:                                  ; preds = %usb_mtp_add_u32.exit.i481
+  %add5.i.i101.i = add i64 %503, 259
   %and.i.i102.i = and i64 %add5.i.i101.i, -256
-  store i64 %and.i.i102.i, ptr %alloc.i.i.i464, align 8
-  %507 = load ptr, ptr %data2.i.i470, align 8
-  %call.i.i104.i = tail call ptr @g_realloc(ptr noundef %507, i64 noundef %and.i.i102.i) #15
-  store ptr %call.i.i104.i, ptr %data2.i.i470, align 8
-  %.pre12.i105.i = load i64, ptr %length.i.i.i462, align 8
+  store i64 %and.i.i102.i, ptr %alloc.i.i.i469, align 8
+  %505 = load ptr, ptr %data2.i.i475, align 8
+  %call.i.i104.i = tail call ptr @g_realloc(ptr noundef %505, i64 noundef %and.i.i102.i) #15
+  store ptr %call.i.i104.i, ptr %data2.i.i475, align 8
+  %.pre12.i105.i = load i64, ptr %length.i.i.i467, align 8
   br label %usb_mtp_add_u32.exit106.i
 
 usb_mtp_add_u32.exit106.i:                        ; preds = %if.end.i.i100.i, %entry.usb_mtp_realloc.exit_crit_edge.i88.i
-  %508 = phi i64 [ %505, %entry.usb_mtp_realloc.exit_crit_edge.i88.i ], [ %.pre12.i105.i, %if.end.i.i100.i ]
-  %509 = phi ptr [ %.pre.i90.i, %entry.usb_mtp_realloc.exit_crit_edge.i88.i ], [ %call.i.i104.i, %if.end.i.i100.i ]
-  %inc.i92.i = add i64 %508, 1
-  store i64 %inc.i92.i, ptr %length.i.i.i462, align 8
-  %arrayidx.i93.i = getelementptr i8, ptr %509, i64 %508
+  %506 = phi i64 [ %503, %entry.usb_mtp_realloc.exit_crit_edge.i88.i ], [ %.pre12.i105.i, %if.end.i.i100.i ]
+  %507 = phi ptr [ %.pre.i90.i, %entry.usb_mtp_realloc.exit_crit_edge.i88.i ], [ %call.i.i104.i, %if.end.i.i100.i ]
+  %inc.i92.i = add i64 %506, 1
+  store i64 %inc.i92.i, ptr %length.i.i.i467, align 8
+  %arrayidx.i93.i = getelementptr i8, ptr %507, i64 %506
   store i8 0, ptr %arrayidx.i93.i, align 1
-  %510 = load ptr, ptr %data2.i.i470, align 8
-  %511 = load i64, ptr %length.i.i.i462, align 8
-  %inc7.i94.i = add i64 %511, 1
-  store i64 %inc7.i94.i, ptr %length.i.i.i462, align 8
-  %arrayidx8.i95.i = getelementptr i8, ptr %510, i64 %511
+  %508 = load ptr, ptr %data2.i.i475, align 8
+  %509 = load i64, ptr %length.i.i.i467, align 8
+  %inc7.i94.i = add i64 %509, 1
+  store i64 %inc7.i94.i, ptr %length.i.i.i467, align 8
+  %arrayidx8.i95.i = getelementptr i8, ptr %508, i64 %509
   store i8 0, ptr %arrayidx8.i95.i, align 1
-  %512 = load ptr, ptr %data2.i.i470, align 8
-  %513 = load i64, ptr %length.i.i.i462, align 8
-  %inc14.i96.i = add i64 %513, 1
-  store i64 %inc14.i96.i, ptr %length.i.i.i462, align 8
-  %arrayidx15.i97.i = getelementptr i8, ptr %512, i64 %513
+  %510 = load ptr, ptr %data2.i.i475, align 8
+  %511 = load i64, ptr %length.i.i.i467, align 8
+  %inc14.i96.i = add i64 %511, 1
+  store i64 %inc14.i96.i, ptr %length.i.i.i467, align 8
+  %arrayidx15.i97.i = getelementptr i8, ptr %510, i64 %511
   store i8 0, ptr %arrayidx15.i97.i, align 1
-  %514 = load ptr, ptr %data2.i.i470, align 8
-  %515 = load i64, ptr %length.i.i.i462, align 8
-  %inc21.i98.i = add i64 %515, 1
-  store i64 %inc21.i98.i, ptr %length.i.i.i462, align 8
-  %arrayidx22.i99.i = getelementptr i8, ptr %514, i64 %515
+  %512 = load ptr, ptr %data2.i.i475, align 8
+  %513 = load i64, ptr %length.i.i.i467, align 8
+  %inc21.i98.i = add i64 %513, 1
+  store i64 %inc21.i98.i, ptr %length.i.i.i467, align 8
+  %arrayidx22.i99.i = getelementptr i8, ptr %512, i64 %513
   store i8 0, ptr %arrayidx22.i99.i, align 1
-  %516 = load i64, ptr %length.i.i.i462, align 8
-  %add.i.i108.i = add i64 %516, 1
-  %517 = load i64, ptr %alloc.i.i.i464, align 8
-  %cmp.not.i.i110.i = icmp ugt i64 %add.i.i108.i, %517
+  %514 = load i64, ptr %length.i.i.i467, align 8
+  %add.i.i108.i = add i64 %514, 1
+  %515 = load i64, ptr %alloc.i.i.i469, align 8
+  %cmp.not.i.i110.i = icmp ugt i64 %add.i.i108.i, %515
   br i1 %cmp.not.i.i110.i, label %if.end.i.i116.i, label %entry.usb_mtp_realloc.exit_crit_edge.i111.i
 
 entry.usb_mtp_realloc.exit_crit_edge.i111.i:      ; preds = %usb_mtp_add_u32.exit106.i
-  %.pre.i113.i = load ptr, ptr %data2.i.i470, align 8
+  %.pre.i113.i = load ptr, ptr %data2.i.i475, align 8
   br label %usb_mtp_add_u8.exit122.i
 
 if.end.i.i116.i:                                  ; preds = %usb_mtp_add_u32.exit106.i
-  %518 = and i64 %516, -256
-  %and.i.i117.i = add i64 %518, 256
-  store i64 %and.i.i117.i, ptr %alloc.i.i.i464, align 8
-  %519 = load ptr, ptr %data2.i.i470, align 8
-  %call.i.i119.i = tail call ptr @g_realloc(ptr noundef %519, i64 noundef %and.i.i117.i) #15
-  store ptr %call.i.i119.i, ptr %data2.i.i470, align 8
-  %.pre3.i120.i = load i64, ptr %length.i.i.i462, align 8
+  %516 = and i64 %514, -256
+  %and.i.i117.i = add i64 %516, 256
+  store i64 %and.i.i117.i, ptr %alloc.i.i.i469, align 8
+  %517 = load ptr, ptr %data2.i.i475, align 8
+  %call.i.i119.i = tail call ptr @g_realloc(ptr noundef %517, i64 noundef %and.i.i117.i) #15
+  store ptr %call.i.i119.i, ptr %data2.i.i475, align 8
+  %.pre3.i120.i = load i64, ptr %length.i.i.i467, align 8
   %.pre4.i121.i = add i64 %.pre3.i120.i, 1
   br label %usb_mtp_add_u8.exit122.i
 
 usb_mtp_add_u8.exit122.i:                         ; preds = %if.end.i.i116.i, %entry.usb_mtp_realloc.exit_crit_edge.i111.i
   %inc.pre-phi.i114.i = phi i64 [ %add.i.i108.i, %entry.usb_mtp_realloc.exit_crit_edge.i111.i ], [ %.pre4.i121.i, %if.end.i.i116.i ]
-  %520 = phi i64 [ %516, %entry.usb_mtp_realloc.exit_crit_edge.i111.i ], [ %.pre3.i120.i, %if.end.i.i116.i ]
-  %521 = phi ptr [ %.pre.i113.i, %entry.usb_mtp_realloc.exit_crit_edge.i111.i ], [ %call.i.i119.i, %if.end.i.i116.i ]
-  store i64 %inc.pre-phi.i114.i, ptr %length.i.i.i462, align 8
-  %arrayidx.i115.i = getelementptr i8, ptr %521, i64 %520
+  %518 = phi i64 [ %514, %entry.usb_mtp_realloc.exit_crit_edge.i111.i ], [ %.pre3.i120.i, %if.end.i.i116.i ]
+  %519 = phi ptr [ %.pre.i113.i, %entry.usb_mtp_realloc.exit_crit_edge.i111.i ], [ %call.i.i119.i, %if.end.i.i116.i ]
+  store i64 %inc.pre-phi.i114.i, ptr %length.i.i.i467, align 8
+  %arrayidx.i115.i = getelementptr i8, ptr %519, i64 %518
   store i8 0, ptr %arrayidx.i115.i, align 1
   br label %if.then302
 
 sw.bb1.i:                                         ; preds = %if.end273
-  %length.i.i123.i = getelementptr inbounds i8, ptr %call.i.i446, i64 16
-  %522 = load i64, ptr %length.i.i123.i, align 8
-  %add.i.i124.i = add i64 %522, 2
-  %alloc.i.i125.i = getelementptr inbounds i8, ptr %call.i.i446, i64 24
-  %523 = load i64, ptr %alloc.i.i125.i, align 8
-  %cmp.not.i.i126.i = icmp ugt i64 %add.i.i124.i, %523
+  %length.i.i123.i = getelementptr inbounds i8, ptr %call.i.i451, i64 16
+  %520 = load i64, ptr %length.i.i123.i, align 8
+  %add.i.i124.i = add i64 %520, 2
+  %alloc.i.i125.i = getelementptr inbounds i8, ptr %call.i.i451, i64 24
+  %521 = load i64, ptr %alloc.i.i125.i, align 8
+  %cmp.not.i.i126.i = icmp ugt i64 %add.i.i124.i, %521
   br i1 %cmp.not.i.i126.i, label %if.end.i.i135.i, label %entry.usb_mtp_realloc.exit_crit_edge.i127.i
 
 entry.usb_mtp_realloc.exit_crit_edge.i127.i:      ; preds = %sw.bb1.i
-  %data2.phi.trans.insert.i128.i = getelementptr inbounds i8, ptr %call.i.i446, i64 32
+  %data2.phi.trans.insert.i128.i = getelementptr inbounds i8, ptr %call.i.i451, i64 32
   %.pre.i129.i = load ptr, ptr %data2.phi.trans.insert.i128.i, align 8
   br label %usb_mtp_add_u16.exit141.i
 
 if.end.i.i135.i:                                  ; preds = %sw.bb1.i
-  %add5.i.i136.i = add i64 %522, 257
+  %add5.i.i136.i = add i64 %520, 257
   %and.i.i137.i = and i64 %add5.i.i136.i, -256
   store i64 %and.i.i137.i, ptr %alloc.i.i125.i, align 8
-  %data7.i.i138.i = getelementptr inbounds i8, ptr %call.i.i446, i64 32
-  %524 = load ptr, ptr %data7.i.i138.i, align 8
-  %call.i.i139.i = tail call ptr @g_realloc(ptr noundef %524, i64 noundef %and.i.i137.i) #15
+  %data7.i.i138.i = getelementptr inbounds i8, ptr %call.i.i451, i64 32
+  %522 = load ptr, ptr %data7.i.i138.i, align 8
+  %call.i.i139.i = tail call ptr @g_realloc(ptr noundef %522, i64 noundef %and.i.i137.i) #15
   store ptr %call.i.i139.i, ptr %data7.i.i138.i, align 8
   %.pre6.i140.i = load i64, ptr %length.i.i123.i, align 8
   br label %usb_mtp_add_u16.exit141.i
 
 usb_mtp_add_u16.exit141.i:                        ; preds = %if.end.i.i135.i, %entry.usb_mtp_realloc.exit_crit_edge.i127.i
-  %525 = phi i64 [ %522, %entry.usb_mtp_realloc.exit_crit_edge.i127.i ], [ %.pre6.i140.i, %if.end.i.i135.i ]
-  %526 = phi ptr [ %.pre.i129.i, %entry.usb_mtp_realloc.exit_crit_edge.i127.i ], [ %call.i.i139.i, %if.end.i.i135.i ]
-  %data2.i130.i = getelementptr inbounds i8, ptr %call.i.i446, i64 32
-  %inc.i131.i = add i64 %525, 1
+  %523 = phi i64 [ %520, %entry.usb_mtp_realloc.exit_crit_edge.i127.i ], [ %.pre6.i140.i, %if.end.i.i135.i ]
+  %524 = phi ptr [ %.pre.i129.i, %entry.usb_mtp_realloc.exit_crit_edge.i127.i ], [ %call.i.i139.i, %if.end.i.i135.i ]
+  %data2.i130.i = getelementptr inbounds i8, ptr %call.i.i451, i64 32
+  %inc.i131.i = add i64 %523, 1
   store i64 %inc.i131.i, ptr %length.i.i123.i, align 8
-  %arrayidx.i132.i = getelementptr i8, ptr %526, i64 %525
+  %arrayidx.i132.i = getelementptr i8, ptr %524, i64 %523
   store i8 2, ptr %arrayidx.i132.i, align 1
-  %527 = load ptr, ptr %data2.i130.i, align 8
-  %528 = load i64, ptr %length.i.i123.i, align 8
-  %inc9.i133.i = add i64 %528, 1
+  %525 = load ptr, ptr %data2.i130.i, align 8
+  %526 = load i64, ptr %length.i.i123.i, align 8
+  %inc9.i133.i = add i64 %526, 1
   store i64 %inc9.i133.i, ptr %length.i.i123.i, align 8
-  %arrayidx10.i134.i = getelementptr i8, ptr %527, i64 %528
+  %arrayidx10.i134.i = getelementptr i8, ptr %525, i64 %526
   store i8 -36, ptr %arrayidx10.i134.i, align 1
-  %529 = load i64, ptr %length.i.i123.i, align 8
-  %add.i.i143.i = add i64 %529, 2
-  %530 = load i64, ptr %alloc.i.i125.i, align 8
-  %cmp.not.i.i145.i = icmp ugt i64 %add.i.i143.i, %530
+  %527 = load i64, ptr %length.i.i123.i, align 8
+  %add.i.i143.i = add i64 %527, 2
+  %528 = load i64, ptr %alloc.i.i125.i, align 8
+  %cmp.not.i.i145.i = icmp ugt i64 %add.i.i143.i, %528
   br i1 %cmp.not.i.i145.i, label %if.end.i.i154.i, label %entry.usb_mtp_realloc.exit_crit_edge.i146.i
 
 entry.usb_mtp_realloc.exit_crit_edge.i146.i:      ; preds = %usb_mtp_add_u16.exit141.i
@@ -4793,32 +4829,32 @@ entry.usb_mtp_realloc.exit_crit_edge.i146.i:      ; preds = %usb_mtp_add_u16.exi
   br label %usb_mtp_add_u16.exit160.i
 
 if.end.i.i154.i:                                  ; preds = %usb_mtp_add_u16.exit141.i
-  %add5.i.i155.i = add i64 %529, 257
+  %add5.i.i155.i = add i64 %527, 257
   %and.i.i156.i = and i64 %add5.i.i155.i, -256
   store i64 %and.i.i156.i, ptr %alloc.i.i125.i, align 8
-  %531 = load ptr, ptr %data2.i130.i, align 8
-  %call.i.i158.i = tail call ptr @g_realloc(ptr noundef %531, i64 noundef %and.i.i156.i) #15
+  %529 = load ptr, ptr %data2.i130.i, align 8
+  %call.i.i158.i = tail call ptr @g_realloc(ptr noundef %529, i64 noundef %and.i.i156.i) #15
   store ptr %call.i.i158.i, ptr %data2.i130.i, align 8
   %.pre6.i159.i = load i64, ptr %length.i.i123.i, align 8
   br label %usb_mtp_add_u16.exit160.i
 
 usb_mtp_add_u16.exit160.i:                        ; preds = %if.end.i.i154.i, %entry.usb_mtp_realloc.exit_crit_edge.i146.i
-  %532 = phi i64 [ %529, %entry.usb_mtp_realloc.exit_crit_edge.i146.i ], [ %.pre6.i159.i, %if.end.i.i154.i ]
-  %533 = phi ptr [ %.pre.i148.i, %entry.usb_mtp_realloc.exit_crit_edge.i146.i ], [ %call.i.i158.i, %if.end.i.i154.i ]
-  %inc.i150.i = add i64 %532, 1
+  %530 = phi i64 [ %527, %entry.usb_mtp_realloc.exit_crit_edge.i146.i ], [ %.pre6.i159.i, %if.end.i.i154.i ]
+  %531 = phi ptr [ %.pre.i148.i, %entry.usb_mtp_realloc.exit_crit_edge.i146.i ], [ %call.i.i158.i, %if.end.i.i154.i ]
+  %inc.i150.i = add i64 %530, 1
   store i64 %inc.i150.i, ptr %length.i.i123.i, align 8
-  %arrayidx.i151.i = getelementptr i8, ptr %533, i64 %532
+  %arrayidx.i151.i = getelementptr i8, ptr %531, i64 %530
   store i8 4, ptr %arrayidx.i151.i, align 1
-  %534 = load ptr, ptr %data2.i130.i, align 8
-  %535 = load i64, ptr %length.i.i123.i, align 8
-  %inc9.i152.i = add i64 %535, 1
+  %532 = load ptr, ptr %data2.i130.i, align 8
+  %533 = load i64, ptr %length.i.i123.i, align 8
+  %inc9.i152.i = add i64 %533, 1
   store i64 %inc9.i152.i, ptr %length.i.i123.i, align 8
-  %arrayidx10.i153.i = getelementptr i8, ptr %534, i64 %535
+  %arrayidx10.i153.i = getelementptr i8, ptr %532, i64 %533
   store i8 0, ptr %arrayidx10.i153.i, align 1
-  %536 = load i64, ptr %length.i.i123.i, align 8
-  %add.i.i162.i = add i64 %536, 1
-  %537 = load i64, ptr %alloc.i.i125.i, align 8
-  %cmp.not.i.i164.i = icmp ugt i64 %add.i.i162.i, %537
+  %534 = load i64, ptr %length.i.i123.i, align 8
+  %add.i.i162.i = add i64 %534, 1
+  %535 = load i64, ptr %alloc.i.i125.i, align 8
+  %cmp.not.i.i164.i = icmp ugt i64 %add.i.i162.i, %535
   br i1 %cmp.not.i.i164.i, label %if.end.i.i170.i, label %entry.usb_mtp_realloc.exit_crit_edge.i165.i
 
 entry.usb_mtp_realloc.exit_crit_edge.i165.i:      ; preds = %usb_mtp_add_u16.exit160.i
@@ -4826,11 +4862,11 @@ entry.usb_mtp_realloc.exit_crit_edge.i165.i:      ; preds = %usb_mtp_add_u16.exi
   br label %usb_mtp_add_u8.exit176.i
 
 if.end.i.i170.i:                                  ; preds = %usb_mtp_add_u16.exit160.i
-  %538 = and i64 %536, -256
-  %and.i.i171.i = add i64 %538, 256
+  %536 = and i64 %534, -256
+  %and.i.i171.i = add i64 %536, 256
   store i64 %and.i.i171.i, ptr %alloc.i.i125.i, align 8
-  %539 = load ptr, ptr %data2.i130.i, align 8
-  %call.i.i173.i = tail call ptr @g_realloc(ptr noundef %539, i64 noundef %and.i.i171.i) #15
+  %537 = load ptr, ptr %data2.i130.i, align 8
+  %call.i.i173.i = tail call ptr @g_realloc(ptr noundef %537, i64 noundef %and.i.i171.i) #15
   store ptr %call.i.i173.i, ptr %data2.i130.i, align 8
   %.pre3.i174.i = load i64, ptr %length.i.i123.i, align 8
   %.pre4.i175.i = add i64 %.pre3.i174.i, 1
@@ -4838,15 +4874,15 @@ if.end.i.i170.i:                                  ; preds = %usb_mtp_add_u16.exi
 
 usb_mtp_add_u8.exit176.i:                         ; preds = %if.end.i.i170.i, %entry.usb_mtp_realloc.exit_crit_edge.i165.i
   %inc.pre-phi.i168.i = phi i64 [ %add.i.i162.i, %entry.usb_mtp_realloc.exit_crit_edge.i165.i ], [ %.pre4.i175.i, %if.end.i.i170.i ]
-  %540 = phi i64 [ %536, %entry.usb_mtp_realloc.exit_crit_edge.i165.i ], [ %.pre3.i174.i, %if.end.i.i170.i ]
-  %541 = phi ptr [ %.pre.i167.i, %entry.usb_mtp_realloc.exit_crit_edge.i165.i ], [ %call.i.i173.i, %if.end.i.i170.i ]
+  %538 = phi i64 [ %534, %entry.usb_mtp_realloc.exit_crit_edge.i165.i ], [ %.pre3.i174.i, %if.end.i.i170.i ]
+  %539 = phi ptr [ %.pre.i167.i, %entry.usb_mtp_realloc.exit_crit_edge.i165.i ], [ %call.i.i173.i, %if.end.i.i170.i ]
   store i64 %inc.pre-phi.i168.i, ptr %length.i.i123.i, align 8
-  %arrayidx.i169.i = getelementptr i8, ptr %541, i64 %540
+  %arrayidx.i169.i = getelementptr i8, ptr %539, i64 %538
   store i8 0, ptr %arrayidx.i169.i, align 1
-  %542 = load i64, ptr %length.i.i123.i, align 8
-  %add.i.i178.i = add i64 %542, 2
-  %543 = load i64, ptr %alloc.i.i125.i, align 8
-  %cmp.not.i.i180.i = icmp ugt i64 %add.i.i178.i, %543
+  %540 = load i64, ptr %length.i.i123.i, align 8
+  %add.i.i178.i = add i64 %540, 2
+  %541 = load i64, ptr %alloc.i.i125.i, align 8
+  %cmp.not.i.i180.i = icmp ugt i64 %add.i.i178.i, %541
   br i1 %cmp.not.i.i180.i, label %if.end.i.i189.i, label %entry.usb_mtp_realloc.exit_crit_edge.i181.i
 
 entry.usb_mtp_realloc.exit_crit_edge.i181.i:      ; preds = %usb_mtp_add_u8.exit176.i
@@ -4854,32 +4890,32 @@ entry.usb_mtp_realloc.exit_crit_edge.i181.i:      ; preds = %usb_mtp_add_u8.exit
   br label %usb_mtp_add_u16.exit195.i
 
 if.end.i.i189.i:                                  ; preds = %usb_mtp_add_u8.exit176.i
-  %add5.i.i190.i = add i64 %542, 257
+  %add5.i.i190.i = add i64 %540, 257
   %and.i.i191.i = and i64 %add5.i.i190.i, -256
   store i64 %and.i.i191.i, ptr %alloc.i.i125.i, align 8
-  %544 = load ptr, ptr %data2.i130.i, align 8
-  %call.i.i193.i = tail call ptr @g_realloc(ptr noundef %544, i64 noundef %and.i.i191.i) #15
+  %542 = load ptr, ptr %data2.i130.i, align 8
+  %call.i.i193.i = tail call ptr @g_realloc(ptr noundef %542, i64 noundef %and.i.i191.i) #15
   store ptr %call.i.i193.i, ptr %data2.i130.i, align 8
   %.pre6.i194.i = load i64, ptr %length.i.i123.i, align 8
   br label %usb_mtp_add_u16.exit195.i
 
 usb_mtp_add_u16.exit195.i:                        ; preds = %if.end.i.i189.i, %entry.usb_mtp_realloc.exit_crit_edge.i181.i
-  %545 = phi i64 [ %542, %entry.usb_mtp_realloc.exit_crit_edge.i181.i ], [ %.pre6.i194.i, %if.end.i.i189.i ]
-  %546 = phi ptr [ %.pre.i183.i, %entry.usb_mtp_realloc.exit_crit_edge.i181.i ], [ %call.i.i193.i, %if.end.i.i189.i ]
-  %inc.i185.i = add i64 %545, 1
+  %543 = phi i64 [ %540, %entry.usb_mtp_realloc.exit_crit_edge.i181.i ], [ %.pre6.i194.i, %if.end.i.i189.i ]
+  %544 = phi ptr [ %.pre.i183.i, %entry.usb_mtp_realloc.exit_crit_edge.i181.i ], [ %call.i.i193.i, %if.end.i.i189.i ]
+  %inc.i185.i = add i64 %543, 1
   store i64 %inc.i185.i, ptr %length.i.i123.i, align 8
-  %arrayidx.i186.i = getelementptr i8, ptr %546, i64 %545
+  %arrayidx.i186.i = getelementptr i8, ptr %544, i64 %543
   store i8 0, ptr %arrayidx.i186.i, align 1
-  %547 = load ptr, ptr %data2.i130.i, align 8
-  %548 = load i64, ptr %length.i.i123.i, align 8
-  %inc9.i187.i = add i64 %548, 1
+  %545 = load ptr, ptr %data2.i130.i, align 8
+  %546 = load i64, ptr %length.i.i123.i, align 8
+  %inc9.i187.i = add i64 %546, 1
   store i64 %inc9.i187.i, ptr %length.i.i123.i, align 8
-  %arrayidx10.i188.i = getelementptr i8, ptr %547, i64 %548
+  %arrayidx10.i188.i = getelementptr i8, ptr %545, i64 %546
   store i8 0, ptr %arrayidx10.i188.i, align 1
-  %549 = load i64, ptr %length.i.i123.i, align 8
-  %add.i.i197.i = add i64 %549, 4
-  %550 = load i64, ptr %alloc.i.i125.i, align 8
-  %cmp.not.i.i199.i = icmp ugt i64 %add.i.i197.i, %550
+  %547 = load i64, ptr %length.i.i123.i, align 8
+  %add.i.i197.i = add i64 %547, 4
+  %548 = load i64, ptr %alloc.i.i125.i, align 8
+  %cmp.not.i.i199.i = icmp ugt i64 %add.i.i197.i, %548
   br i1 %cmp.not.i.i199.i, label %if.end.i.i212.i, label %entry.usb_mtp_realloc.exit_crit_edge.i200.i
 
 entry.usb_mtp_realloc.exit_crit_edge.i200.i:      ; preds = %usb_mtp_add_u16.exit195.i
@@ -4887,44 +4923,44 @@ entry.usb_mtp_realloc.exit_crit_edge.i200.i:      ; preds = %usb_mtp_add_u16.exi
   br label %usb_mtp_add_u32.exit218.i
 
 if.end.i.i212.i:                                  ; preds = %usb_mtp_add_u16.exit195.i
-  %add5.i.i213.i = add i64 %549, 259
+  %add5.i.i213.i = add i64 %547, 259
   %and.i.i214.i = and i64 %add5.i.i213.i, -256
   store i64 %and.i.i214.i, ptr %alloc.i.i125.i, align 8
-  %551 = load ptr, ptr %data2.i130.i, align 8
-  %call.i.i216.i = tail call ptr @g_realloc(ptr noundef %551, i64 noundef %and.i.i214.i) #15
+  %549 = load ptr, ptr %data2.i130.i, align 8
+  %call.i.i216.i = tail call ptr @g_realloc(ptr noundef %549, i64 noundef %and.i.i214.i) #15
   store ptr %call.i.i216.i, ptr %data2.i130.i, align 8
   %.pre12.i217.i = load i64, ptr %length.i.i123.i, align 8
   br label %usb_mtp_add_u32.exit218.i
 
 usb_mtp_add_u32.exit218.i:                        ; preds = %if.end.i.i212.i, %entry.usb_mtp_realloc.exit_crit_edge.i200.i
-  %552 = phi i64 [ %549, %entry.usb_mtp_realloc.exit_crit_edge.i200.i ], [ %.pre12.i217.i, %if.end.i.i212.i ]
-  %553 = phi ptr [ %.pre.i202.i, %entry.usb_mtp_realloc.exit_crit_edge.i200.i ], [ %call.i.i216.i, %if.end.i.i212.i ]
-  %inc.i204.i = add i64 %552, 1
+  %550 = phi i64 [ %547, %entry.usb_mtp_realloc.exit_crit_edge.i200.i ], [ %.pre12.i217.i, %if.end.i.i212.i ]
+  %551 = phi ptr [ %.pre.i202.i, %entry.usb_mtp_realloc.exit_crit_edge.i200.i ], [ %call.i.i216.i, %if.end.i.i212.i ]
+  %inc.i204.i = add i64 %550, 1
   store i64 %inc.i204.i, ptr %length.i.i123.i, align 8
-  %arrayidx.i205.i = getelementptr i8, ptr %553, i64 %552
+  %arrayidx.i205.i = getelementptr i8, ptr %551, i64 %550
   store i8 0, ptr %arrayidx.i205.i, align 1
+  %552 = load ptr, ptr %data2.i130.i, align 8
+  %553 = load i64, ptr %length.i.i123.i, align 8
+  %inc7.i206.i = add i64 %553, 1
+  store i64 %inc7.i206.i, ptr %length.i.i123.i, align 8
+  %arrayidx8.i207.i = getelementptr i8, ptr %552, i64 %553
+  store i8 0, ptr %arrayidx8.i207.i, align 1
   %554 = load ptr, ptr %data2.i130.i, align 8
   %555 = load i64, ptr %length.i.i123.i, align 8
-  %inc7.i206.i = add i64 %555, 1
-  store i64 %inc7.i206.i, ptr %length.i.i123.i, align 8
-  %arrayidx8.i207.i = getelementptr i8, ptr %554, i64 %555
-  store i8 0, ptr %arrayidx8.i207.i, align 1
+  %inc14.i208.i = add i64 %555, 1
+  store i64 %inc14.i208.i, ptr %length.i.i123.i, align 8
+  %arrayidx15.i209.i = getelementptr i8, ptr %554, i64 %555
+  store i8 0, ptr %arrayidx15.i209.i, align 1
   %556 = load ptr, ptr %data2.i130.i, align 8
   %557 = load i64, ptr %length.i.i123.i, align 8
-  %inc14.i208.i = add i64 %557, 1
-  store i64 %inc14.i208.i, ptr %length.i.i123.i, align 8
-  %arrayidx15.i209.i = getelementptr i8, ptr %556, i64 %557
-  store i8 0, ptr %arrayidx15.i209.i, align 1
-  %558 = load ptr, ptr %data2.i130.i, align 8
-  %559 = load i64, ptr %length.i.i123.i, align 8
-  %inc21.i210.i = add i64 %559, 1
+  %inc21.i210.i = add i64 %557, 1
   store i64 %inc21.i210.i, ptr %length.i.i123.i, align 8
-  %arrayidx22.i211.i = getelementptr i8, ptr %558, i64 %559
+  %arrayidx22.i211.i = getelementptr i8, ptr %556, i64 %557
   store i8 0, ptr %arrayidx22.i211.i, align 1
-  %560 = load i64, ptr %length.i.i123.i, align 8
-  %add.i.i220.i = add i64 %560, 1
-  %561 = load i64, ptr %alloc.i.i125.i, align 8
-  %cmp.not.i.i222.i = icmp ugt i64 %add.i.i220.i, %561
+  %558 = load i64, ptr %length.i.i123.i, align 8
+  %add.i.i220.i = add i64 %558, 1
+  %559 = load i64, ptr %alloc.i.i125.i, align 8
+  %cmp.not.i.i222.i = icmp ugt i64 %add.i.i220.i, %559
   br i1 %cmp.not.i.i222.i, label %if.end.i.i228.i, label %entry.usb_mtp_realloc.exit_crit_edge.i223.i
 
 entry.usb_mtp_realloc.exit_crit_edge.i223.i:      ; preds = %usb_mtp_add_u32.exit218.i
@@ -4932,11 +4968,11 @@ entry.usb_mtp_realloc.exit_crit_edge.i223.i:      ; preds = %usb_mtp_add_u32.exi
   br label %usb_mtp_add_u8.exit234.i
 
 if.end.i.i228.i:                                  ; preds = %usb_mtp_add_u32.exit218.i
-  %562 = and i64 %560, -256
-  %and.i.i229.i = add i64 %562, 256
+  %560 = and i64 %558, -256
+  %and.i.i229.i = add i64 %560, 256
   store i64 %and.i.i229.i, ptr %alloc.i.i125.i, align 8
-  %563 = load ptr, ptr %data2.i130.i, align 8
-  %call.i.i231.i = tail call ptr @g_realloc(ptr noundef %563, i64 noundef %and.i.i229.i) #15
+  %561 = load ptr, ptr %data2.i130.i, align 8
+  %call.i.i231.i = tail call ptr @g_realloc(ptr noundef %561, i64 noundef %and.i.i229.i) #15
   store ptr %call.i.i231.i, ptr %data2.i130.i, align 8
   %.pre3.i232.i = load i64, ptr %length.i.i123.i, align 8
   %.pre4.i233.i = add i64 %.pre3.i232.i, 1
@@ -4944,56 +4980,56 @@ if.end.i.i228.i:                                  ; preds = %usb_mtp_add_u32.exi
 
 usb_mtp_add_u8.exit234.i:                         ; preds = %if.end.i.i228.i, %entry.usb_mtp_realloc.exit_crit_edge.i223.i
   %inc.pre-phi.i226.i = phi i64 [ %add.i.i220.i, %entry.usb_mtp_realloc.exit_crit_edge.i223.i ], [ %.pre4.i233.i, %if.end.i.i228.i ]
-  %564 = phi i64 [ %560, %entry.usb_mtp_realloc.exit_crit_edge.i223.i ], [ %.pre3.i232.i, %if.end.i.i228.i ]
-  %565 = phi ptr [ %.pre.i225.i, %entry.usb_mtp_realloc.exit_crit_edge.i223.i ], [ %call.i.i231.i, %if.end.i.i228.i ]
+  %562 = phi i64 [ %558, %entry.usb_mtp_realloc.exit_crit_edge.i223.i ], [ %.pre3.i232.i, %if.end.i.i228.i ]
+  %563 = phi ptr [ %.pre.i225.i, %entry.usb_mtp_realloc.exit_crit_edge.i223.i ], [ %call.i.i231.i, %if.end.i.i228.i ]
   store i64 %inc.pre-phi.i226.i, ptr %length.i.i123.i, align 8
-  %arrayidx.i227.i = getelementptr i8, ptr %565, i64 %564
+  %arrayidx.i227.i = getelementptr i8, ptr %563, i64 %562
   store i8 0, ptr %arrayidx.i227.i, align 1
   br label %if.then302
 
 sw.bb2.i:                                         ; preds = %if.end273
-  %length.i.i235.i = getelementptr inbounds i8, ptr %call.i.i446, i64 16
-  %566 = load i64, ptr %length.i.i235.i, align 8
-  %add.i.i236.i = add i64 %566, 2
-  %alloc.i.i237.i = getelementptr inbounds i8, ptr %call.i.i446, i64 24
-  %567 = load i64, ptr %alloc.i.i237.i, align 8
-  %cmp.not.i.i238.i = icmp ugt i64 %add.i.i236.i, %567
+  %length.i.i235.i = getelementptr inbounds i8, ptr %call.i.i451, i64 16
+  %564 = load i64, ptr %length.i.i235.i, align 8
+  %add.i.i236.i = add i64 %564, 2
+  %alloc.i.i237.i = getelementptr inbounds i8, ptr %call.i.i451, i64 24
+  %565 = load i64, ptr %alloc.i.i237.i, align 8
+  %cmp.not.i.i238.i = icmp ugt i64 %add.i.i236.i, %565
   br i1 %cmp.not.i.i238.i, label %if.end.i.i247.i, label %entry.usb_mtp_realloc.exit_crit_edge.i239.i
 
 entry.usb_mtp_realloc.exit_crit_edge.i239.i:      ; preds = %sw.bb2.i
-  %data2.phi.trans.insert.i240.i = getelementptr inbounds i8, ptr %call.i.i446, i64 32
+  %data2.phi.trans.insert.i240.i = getelementptr inbounds i8, ptr %call.i.i451, i64 32
   %.pre.i241.i = load ptr, ptr %data2.phi.trans.insert.i240.i, align 8
   br label %usb_mtp_add_u16.exit253.i
 
 if.end.i.i247.i:                                  ; preds = %sw.bb2.i
-  %add5.i.i248.i = add i64 %566, 257
+  %add5.i.i248.i = add i64 %564, 257
   %and.i.i249.i = and i64 %add5.i.i248.i, -256
   store i64 %and.i.i249.i, ptr %alloc.i.i237.i, align 8
-  %data7.i.i250.i = getelementptr inbounds i8, ptr %call.i.i446, i64 32
-  %568 = load ptr, ptr %data7.i.i250.i, align 8
-  %call.i.i251.i = tail call ptr @g_realloc(ptr noundef %568, i64 noundef %and.i.i249.i) #15
+  %data7.i.i250.i = getelementptr inbounds i8, ptr %call.i.i451, i64 32
+  %566 = load ptr, ptr %data7.i.i250.i, align 8
+  %call.i.i251.i = tail call ptr @g_realloc(ptr noundef %566, i64 noundef %and.i.i249.i) #15
   store ptr %call.i.i251.i, ptr %data7.i.i250.i, align 8
   %.pre6.i252.i = load i64, ptr %length.i.i235.i, align 8
   br label %usb_mtp_add_u16.exit253.i
 
 usb_mtp_add_u16.exit253.i:                        ; preds = %if.end.i.i247.i, %entry.usb_mtp_realloc.exit_crit_edge.i239.i
-  %569 = phi i64 [ %566, %entry.usb_mtp_realloc.exit_crit_edge.i239.i ], [ %.pre6.i252.i, %if.end.i.i247.i ]
-  %570 = phi ptr [ %.pre.i241.i, %entry.usb_mtp_realloc.exit_crit_edge.i239.i ], [ %call.i.i251.i, %if.end.i.i247.i ]
-  %data2.i242.i = getelementptr inbounds i8, ptr %call.i.i446, i64 32
-  %inc.i243.i = add i64 %569, 1
+  %567 = phi i64 [ %564, %entry.usb_mtp_realloc.exit_crit_edge.i239.i ], [ %.pre6.i252.i, %if.end.i.i247.i ]
+  %568 = phi ptr [ %.pre.i241.i, %entry.usb_mtp_realloc.exit_crit_edge.i239.i ], [ %call.i.i251.i, %if.end.i.i247.i ]
+  %data2.i242.i = getelementptr inbounds i8, ptr %call.i.i451, i64 32
+  %inc.i243.i = add i64 %567, 1
   store i64 %inc.i243.i, ptr %length.i.i235.i, align 8
-  %arrayidx.i244.i = getelementptr i8, ptr %570, i64 %569
+  %arrayidx.i244.i = getelementptr i8, ptr %568, i64 %567
   store i8 4, ptr %arrayidx.i244.i, align 1
-  %571 = load ptr, ptr %data2.i242.i, align 8
-  %572 = load i64, ptr %length.i.i235.i, align 8
-  %inc9.i245.i = add i64 %572, 1
+  %569 = load ptr, ptr %data2.i242.i, align 8
+  %570 = load i64, ptr %length.i.i235.i, align 8
+  %inc9.i245.i = add i64 %570, 1
   store i64 %inc9.i245.i, ptr %length.i.i235.i, align 8
-  %arrayidx10.i246.i = getelementptr i8, ptr %571, i64 %572
+  %arrayidx10.i246.i = getelementptr i8, ptr %569, i64 %570
   store i8 -36, ptr %arrayidx10.i246.i, align 1
-  %573 = load i64, ptr %length.i.i235.i, align 8
-  %add.i.i255.i = add i64 %573, 2
-  %574 = load i64, ptr %alloc.i.i237.i, align 8
-  %cmp.not.i.i257.i = icmp ugt i64 %add.i.i255.i, %574
+  %571 = load i64, ptr %length.i.i235.i, align 8
+  %add.i.i255.i = add i64 %571, 2
+  %572 = load i64, ptr %alloc.i.i237.i, align 8
+  %cmp.not.i.i257.i = icmp ugt i64 %add.i.i255.i, %572
   br i1 %cmp.not.i.i257.i, label %if.end.i.i266.i, label %entry.usb_mtp_realloc.exit_crit_edge.i258.i
 
 entry.usb_mtp_realloc.exit_crit_edge.i258.i:      ; preds = %usb_mtp_add_u16.exit253.i
@@ -5001,32 +5037,32 @@ entry.usb_mtp_realloc.exit_crit_edge.i258.i:      ; preds = %usb_mtp_add_u16.exi
   br label %usb_mtp_add_u16.exit272.i
 
 if.end.i.i266.i:                                  ; preds = %usb_mtp_add_u16.exit253.i
-  %add5.i.i267.i = add i64 %573, 257
+  %add5.i.i267.i = add i64 %571, 257
   %and.i.i268.i = and i64 %add5.i.i267.i, -256
   store i64 %and.i.i268.i, ptr %alloc.i.i237.i, align 8
-  %575 = load ptr, ptr %data2.i242.i, align 8
-  %call.i.i270.i = tail call ptr @g_realloc(ptr noundef %575, i64 noundef %and.i.i268.i) #15
+  %573 = load ptr, ptr %data2.i242.i, align 8
+  %call.i.i270.i = tail call ptr @g_realloc(ptr noundef %573, i64 noundef %and.i.i268.i) #15
   store ptr %call.i.i270.i, ptr %data2.i242.i, align 8
   %.pre6.i271.i = load i64, ptr %length.i.i235.i, align 8
   br label %usb_mtp_add_u16.exit272.i
 
 usb_mtp_add_u16.exit272.i:                        ; preds = %if.end.i.i266.i, %entry.usb_mtp_realloc.exit_crit_edge.i258.i
-  %576 = phi i64 [ %573, %entry.usb_mtp_realloc.exit_crit_edge.i258.i ], [ %.pre6.i271.i, %if.end.i.i266.i ]
-  %577 = phi ptr [ %.pre.i260.i, %entry.usb_mtp_realloc.exit_crit_edge.i258.i ], [ %call.i.i270.i, %if.end.i.i266.i ]
-  %inc.i262.i = add i64 %576, 1
+  %574 = phi i64 [ %571, %entry.usb_mtp_realloc.exit_crit_edge.i258.i ], [ %.pre6.i271.i, %if.end.i.i266.i ]
+  %575 = phi ptr [ %.pre.i260.i, %entry.usb_mtp_realloc.exit_crit_edge.i258.i ], [ %call.i.i270.i, %if.end.i.i266.i ]
+  %inc.i262.i = add i64 %574, 1
   store i64 %inc.i262.i, ptr %length.i.i235.i, align 8
-  %arrayidx.i263.i = getelementptr i8, ptr %577, i64 %576
+  %arrayidx.i263.i = getelementptr i8, ptr %575, i64 %574
   store i8 8, ptr %arrayidx.i263.i, align 1
-  %578 = load ptr, ptr %data2.i242.i, align 8
-  %579 = load i64, ptr %length.i.i235.i, align 8
-  %inc9.i264.i = add i64 %579, 1
+  %576 = load ptr, ptr %data2.i242.i, align 8
+  %577 = load i64, ptr %length.i.i235.i, align 8
+  %inc9.i264.i = add i64 %577, 1
   store i64 %inc9.i264.i, ptr %length.i.i235.i, align 8
-  %arrayidx10.i265.i = getelementptr i8, ptr %578, i64 %579
+  %arrayidx10.i265.i = getelementptr i8, ptr %576, i64 %577
   store i8 0, ptr %arrayidx10.i265.i, align 1
-  %580 = load i64, ptr %length.i.i235.i, align 8
-  %add.i.i274.i = add i64 %580, 1
-  %581 = load i64, ptr %alloc.i.i237.i, align 8
-  %cmp.not.i.i276.i = icmp ugt i64 %add.i.i274.i, %581
+  %578 = load i64, ptr %length.i.i235.i, align 8
+  %add.i.i274.i = add i64 %578, 1
+  %579 = load i64, ptr %alloc.i.i237.i, align 8
+  %cmp.not.i.i276.i = icmp ugt i64 %add.i.i274.i, %579
   br i1 %cmp.not.i.i276.i, label %if.end.i.i282.i, label %entry.usb_mtp_realloc.exit_crit_edge.i277.i
 
 entry.usb_mtp_realloc.exit_crit_edge.i277.i:      ; preds = %usb_mtp_add_u16.exit272.i
@@ -5034,11 +5070,11 @@ entry.usb_mtp_realloc.exit_crit_edge.i277.i:      ; preds = %usb_mtp_add_u16.exi
   br label %usb_mtp_add_u8.exit288.i
 
 if.end.i.i282.i:                                  ; preds = %usb_mtp_add_u16.exit272.i
-  %582 = and i64 %580, -256
-  %and.i.i283.i = add i64 %582, 256
+  %580 = and i64 %578, -256
+  %and.i.i283.i = add i64 %580, 256
   store i64 %and.i.i283.i, ptr %alloc.i.i237.i, align 8
-  %583 = load ptr, ptr %data2.i242.i, align 8
-  %call.i.i285.i = tail call ptr @g_realloc(ptr noundef %583, i64 noundef %and.i.i283.i) #15
+  %581 = load ptr, ptr %data2.i242.i, align 8
+  %call.i.i285.i = tail call ptr @g_realloc(ptr noundef %581, i64 noundef %and.i.i283.i) #15
   store ptr %call.i.i285.i, ptr %data2.i242.i, align 8
   %.pre3.i286.i = load i64, ptr %length.i.i235.i, align 8
   %.pre4.i287.i = add i64 %.pre3.i286.i, 1
@@ -5046,16 +5082,16 @@ if.end.i.i282.i:                                  ; preds = %usb_mtp_add_u16.exi
 
 usb_mtp_add_u8.exit288.i:                         ; preds = %if.end.i.i282.i, %entry.usb_mtp_realloc.exit_crit_edge.i277.i
   %inc.pre-phi.i280.i = phi i64 [ %add.i.i274.i, %entry.usb_mtp_realloc.exit_crit_edge.i277.i ], [ %.pre4.i287.i, %if.end.i.i282.i ]
-  %584 = phi i64 [ %580, %entry.usb_mtp_realloc.exit_crit_edge.i277.i ], [ %.pre3.i286.i, %if.end.i.i282.i ]
-  %585 = phi ptr [ %.pre.i279.i, %entry.usb_mtp_realloc.exit_crit_edge.i277.i ], [ %call.i.i285.i, %if.end.i.i282.i ]
+  %582 = phi i64 [ %578, %entry.usb_mtp_realloc.exit_crit_edge.i277.i ], [ %.pre3.i286.i, %if.end.i.i282.i ]
+  %583 = phi ptr [ %.pre.i279.i, %entry.usb_mtp_realloc.exit_crit_edge.i277.i ], [ %call.i.i285.i, %if.end.i.i282.i ]
   store i64 %inc.pre-phi.i280.i, ptr %length.i.i235.i, align 8
-  %arrayidx.i281.i460 = getelementptr i8, ptr %585, i64 %584
-  store i8 0, ptr %arrayidx.i281.i460, align 1
-  tail call fastcc void @usb_mtp_add_u64(ptr noundef nonnull %call.i.i446, i64 noundef 0)
-  %586 = load i64, ptr %length.i.i235.i, align 8
-  %add.i.i290.i = add i64 %586, 4
-  %587 = load i64, ptr %alloc.i.i237.i, align 8
-  %cmp.not.i.i292.i = icmp ugt i64 %add.i.i290.i, %587
+  %arrayidx.i281.i465 = getelementptr i8, ptr %583, i64 %582
+  store i8 0, ptr %arrayidx.i281.i465, align 1
+  tail call fastcc void @usb_mtp_add_u64(ptr noundef nonnull %call.i.i451, i64 noundef 0)
+  %584 = load i64, ptr %length.i.i235.i, align 8
+  %add.i.i290.i = add i64 %584, 4
+  %585 = load i64, ptr %alloc.i.i237.i, align 8
+  %cmp.not.i.i292.i = icmp ugt i64 %add.i.i290.i, %585
   br i1 %cmp.not.i.i292.i, label %if.end.i.i305.i, label %entry.usb_mtp_realloc.exit_crit_edge.i293.i
 
 entry.usb_mtp_realloc.exit_crit_edge.i293.i:      ; preds = %usb_mtp_add_u8.exit288.i
@@ -5063,44 +5099,44 @@ entry.usb_mtp_realloc.exit_crit_edge.i293.i:      ; preds = %usb_mtp_add_u8.exit
   br label %usb_mtp_add_u32.exit311.i
 
 if.end.i.i305.i:                                  ; preds = %usb_mtp_add_u8.exit288.i
-  %add5.i.i306.i = add i64 %586, 259
+  %add5.i.i306.i = add i64 %584, 259
   %and.i.i307.i = and i64 %add5.i.i306.i, -256
   store i64 %and.i.i307.i, ptr %alloc.i.i237.i, align 8
-  %588 = load ptr, ptr %data2.i242.i, align 8
-  %call.i.i309.i = tail call ptr @g_realloc(ptr noundef %588, i64 noundef %and.i.i307.i) #15
+  %586 = load ptr, ptr %data2.i242.i, align 8
+  %call.i.i309.i = tail call ptr @g_realloc(ptr noundef %586, i64 noundef %and.i.i307.i) #15
   store ptr %call.i.i309.i, ptr %data2.i242.i, align 8
   %.pre12.i310.i = load i64, ptr %length.i.i235.i, align 8
   br label %usb_mtp_add_u32.exit311.i
 
 usb_mtp_add_u32.exit311.i:                        ; preds = %if.end.i.i305.i, %entry.usb_mtp_realloc.exit_crit_edge.i293.i
-  %589 = phi i64 [ %586, %entry.usb_mtp_realloc.exit_crit_edge.i293.i ], [ %.pre12.i310.i, %if.end.i.i305.i ]
-  %590 = phi ptr [ %.pre.i295.i, %entry.usb_mtp_realloc.exit_crit_edge.i293.i ], [ %call.i.i309.i, %if.end.i.i305.i ]
-  %inc.i297.i = add i64 %589, 1
+  %587 = phi i64 [ %584, %entry.usb_mtp_realloc.exit_crit_edge.i293.i ], [ %.pre12.i310.i, %if.end.i.i305.i ]
+  %588 = phi ptr [ %.pre.i295.i, %entry.usb_mtp_realloc.exit_crit_edge.i293.i ], [ %call.i.i309.i, %if.end.i.i305.i ]
+  %inc.i297.i = add i64 %587, 1
   store i64 %inc.i297.i, ptr %length.i.i235.i, align 8
-  %arrayidx.i298.i = getelementptr i8, ptr %590, i64 %589
+  %arrayidx.i298.i = getelementptr i8, ptr %588, i64 %587
   store i8 0, ptr %arrayidx.i298.i, align 1
+  %589 = load ptr, ptr %data2.i242.i, align 8
+  %590 = load i64, ptr %length.i.i235.i, align 8
+  %inc7.i299.i = add i64 %590, 1
+  store i64 %inc7.i299.i, ptr %length.i.i235.i, align 8
+  %arrayidx8.i300.i = getelementptr i8, ptr %589, i64 %590
+  store i8 0, ptr %arrayidx8.i300.i, align 1
   %591 = load ptr, ptr %data2.i242.i, align 8
   %592 = load i64, ptr %length.i.i235.i, align 8
-  %inc7.i299.i = add i64 %592, 1
-  store i64 %inc7.i299.i, ptr %length.i.i235.i, align 8
-  %arrayidx8.i300.i = getelementptr i8, ptr %591, i64 %592
-  store i8 0, ptr %arrayidx8.i300.i, align 1
+  %inc14.i301.i = add i64 %592, 1
+  store i64 %inc14.i301.i, ptr %length.i.i235.i, align 8
+  %arrayidx15.i302.i = getelementptr i8, ptr %591, i64 %592
+  store i8 0, ptr %arrayidx15.i302.i, align 1
   %593 = load ptr, ptr %data2.i242.i, align 8
   %594 = load i64, ptr %length.i.i235.i, align 8
-  %inc14.i301.i = add i64 %594, 1
-  store i64 %inc14.i301.i, ptr %length.i.i235.i, align 8
-  %arrayidx15.i302.i = getelementptr i8, ptr %593, i64 %594
-  store i8 0, ptr %arrayidx15.i302.i, align 1
-  %595 = load ptr, ptr %data2.i242.i, align 8
-  %596 = load i64, ptr %length.i.i235.i, align 8
-  %inc21.i303.i = add i64 %596, 1
+  %inc21.i303.i = add i64 %594, 1
   store i64 %inc21.i303.i, ptr %length.i.i235.i, align 8
-  %arrayidx22.i304.i = getelementptr i8, ptr %595, i64 %596
+  %arrayidx22.i304.i = getelementptr i8, ptr %593, i64 %594
   store i8 0, ptr %arrayidx22.i304.i, align 1
-  %597 = load i64, ptr %length.i.i235.i, align 8
-  %add.i.i313.i = add i64 %597, 1
-  %598 = load i64, ptr %alloc.i.i237.i, align 8
-  %cmp.not.i.i315.i = icmp ugt i64 %add.i.i313.i, %598
+  %595 = load i64, ptr %length.i.i235.i, align 8
+  %add.i.i313.i = add i64 %595, 1
+  %596 = load i64, ptr %alloc.i.i237.i, align 8
+  %cmp.not.i.i315.i = icmp ugt i64 %add.i.i313.i, %596
   br i1 %cmp.not.i.i315.i, label %if.end.i.i321.i, label %entry.usb_mtp_realloc.exit_crit_edge.i316.i
 
 entry.usb_mtp_realloc.exit_crit_edge.i316.i:      ; preds = %usb_mtp_add_u32.exit311.i
@@ -5108,11 +5144,11 @@ entry.usb_mtp_realloc.exit_crit_edge.i316.i:      ; preds = %usb_mtp_add_u32.exi
   br label %usb_mtp_add_u8.exit327.i
 
 if.end.i.i321.i:                                  ; preds = %usb_mtp_add_u32.exit311.i
-  %599 = and i64 %597, -256
-  %and.i.i322.i = add i64 %599, 256
+  %597 = and i64 %595, -256
+  %and.i.i322.i = add i64 %597, 256
   store i64 %and.i.i322.i, ptr %alloc.i.i237.i, align 8
-  %600 = load ptr, ptr %data2.i242.i, align 8
-  %call.i.i324.i = tail call ptr @g_realloc(ptr noundef %600, i64 noundef %and.i.i322.i) #15
+  %598 = load ptr, ptr %data2.i242.i, align 8
+  %call.i.i324.i = tail call ptr @g_realloc(ptr noundef %598, i64 noundef %and.i.i322.i) #15
   store ptr %call.i.i324.i, ptr %data2.i242.i, align 8
   %.pre3.i325.i = load i64, ptr %length.i.i235.i, align 8
   %.pre4.i326.i = add i64 %.pre3.i325.i, 1
@@ -5120,117 +5156,117 @@ if.end.i.i321.i:                                  ; preds = %usb_mtp_add_u32.exi
 
 usb_mtp_add_u8.exit327.i:                         ; preds = %if.end.i.i321.i, %entry.usb_mtp_realloc.exit_crit_edge.i316.i
   %inc.pre-phi.i319.i = phi i64 [ %add.i.i313.i, %entry.usb_mtp_realloc.exit_crit_edge.i316.i ], [ %.pre4.i326.i, %if.end.i.i321.i ]
-  %601 = phi i64 [ %597, %entry.usb_mtp_realloc.exit_crit_edge.i316.i ], [ %.pre3.i325.i, %if.end.i.i321.i ]
-  %602 = phi ptr [ %.pre.i318.i, %entry.usb_mtp_realloc.exit_crit_edge.i316.i ], [ %call.i.i324.i, %if.end.i.i321.i ]
+  %599 = phi i64 [ %595, %entry.usb_mtp_realloc.exit_crit_edge.i316.i ], [ %.pre3.i325.i, %if.end.i.i321.i ]
+  %600 = phi ptr [ %.pre.i318.i, %entry.usb_mtp_realloc.exit_crit_edge.i316.i ], [ %call.i.i324.i, %if.end.i.i321.i ]
   store i64 %inc.pre-phi.i319.i, ptr %length.i.i235.i, align 8
-  %arrayidx.i320.i = getelementptr i8, ptr %602, i64 %601
+  %arrayidx.i320.i = getelementptr i8, ptr %600, i64 %599
   store i8 0, ptr %arrayidx.i320.i, align 1
   br label %if.then302
 
 sw.bb3.i:                                         ; preds = %if.end273
-  %length.i.i328.i = getelementptr inbounds i8, ptr %call.i.i446, i64 16
-  %603 = load i64, ptr %length.i.i328.i, align 8
-  %add.i.i329.i = add i64 %603, 2
-  %alloc.i.i330.i = getelementptr inbounds i8, ptr %call.i.i446, i64 24
-  %604 = load i64, ptr %alloc.i.i330.i, align 8
-  %cmp.not.i.i331.i = icmp ugt i64 %add.i.i329.i, %604
+  %length.i.i328.i = getelementptr inbounds i8, ptr %call.i.i451, i64 16
+  %601 = load i64, ptr %length.i.i328.i, align 8
+  %add.i.i329.i = add i64 %601, 2
+  %alloc.i.i330.i = getelementptr inbounds i8, ptr %call.i.i451, i64 24
+  %602 = load i64, ptr %alloc.i.i330.i, align 8
+  %cmp.not.i.i331.i = icmp ugt i64 %add.i.i329.i, %602
   br i1 %cmp.not.i.i331.i, label %if.end.i.i340.i, label %entry.usb_mtp_realloc.exit_crit_edge.i332.i
 
 entry.usb_mtp_realloc.exit_crit_edge.i332.i:      ; preds = %sw.bb3.i
-  %data2.phi.trans.insert.i333.i = getelementptr inbounds i8, ptr %call.i.i446, i64 32
+  %data2.phi.trans.insert.i333.i = getelementptr inbounds i8, ptr %call.i.i451, i64 32
   %.pre.i334.i = load ptr, ptr %data2.phi.trans.insert.i333.i, align 8
   br label %usb_mtp_add_u16.exit346.i
 
 if.end.i.i340.i:                                  ; preds = %sw.bb3.i
-  %add5.i.i341.i = add i64 %603, 257
+  %add5.i.i341.i = add i64 %601, 257
   %and.i.i342.i = and i64 %add5.i.i341.i, -256
   store i64 %and.i.i342.i, ptr %alloc.i.i330.i, align 8
-  %data7.i.i343.i = getelementptr inbounds i8, ptr %call.i.i446, i64 32
-  %605 = load ptr, ptr %data7.i.i343.i, align 8
-  %call.i.i344.i = tail call ptr @g_realloc(ptr noundef %605, i64 noundef %and.i.i342.i) #15
+  %data7.i.i343.i = getelementptr inbounds i8, ptr %call.i.i451, i64 32
+  %603 = load ptr, ptr %data7.i.i343.i, align 8
+  %call.i.i344.i = tail call ptr @g_realloc(ptr noundef %603, i64 noundef %and.i.i342.i) #15
   store ptr %call.i.i344.i, ptr %data7.i.i343.i, align 8
   %.pre6.i345.i = load i64, ptr %length.i.i328.i, align 8
   br label %usb_mtp_add_u16.exit346.i
 
 usb_mtp_add_u16.exit346.i:                        ; preds = %if.end.i.i340.i, %entry.usb_mtp_realloc.exit_crit_edge.i332.i
-  %606 = phi i64 [ %603, %entry.usb_mtp_realloc.exit_crit_edge.i332.i ], [ %.pre6.i345.i, %if.end.i.i340.i ]
-  %607 = phi ptr [ %.pre.i334.i, %entry.usb_mtp_realloc.exit_crit_edge.i332.i ], [ %call.i.i344.i, %if.end.i.i340.i ]
-  %data2.i335.i = getelementptr inbounds i8, ptr %call.i.i446, i64 32
-  %inc.i336.i = add i64 %606, 1
+  %604 = phi i64 [ %601, %entry.usb_mtp_realloc.exit_crit_edge.i332.i ], [ %.pre6.i345.i, %if.end.i.i340.i ]
+  %605 = phi ptr [ %.pre.i334.i, %entry.usb_mtp_realloc.exit_crit_edge.i332.i ], [ %call.i.i344.i, %if.end.i.i340.i ]
+  %data2.i335.i = getelementptr inbounds i8, ptr %call.i.i451, i64 32
+  %inc.i336.i = add i64 %604, 1
   store i64 %inc.i336.i, ptr %length.i.i328.i, align 8
-  %arrayidx.i337.i = getelementptr i8, ptr %607, i64 %606
+  %arrayidx.i337.i = getelementptr i8, ptr %605, i64 %604
   store i8 11, ptr %arrayidx.i337.i, align 1
-  %608 = load ptr, ptr %data2.i335.i, align 8
-  %609 = load i64, ptr %length.i.i328.i, align 8
-  %inc9.i338.i = add i64 %609, 1
+  %606 = load ptr, ptr %data2.i335.i, align 8
+  %607 = load i64, ptr %length.i.i328.i, align 8
+  %inc9.i338.i = add i64 %607, 1
   store i64 %inc9.i338.i, ptr %length.i.i328.i, align 8
-  %arrayidx10.i339.i = getelementptr i8, ptr %608, i64 %609
+  %arrayidx10.i339.i = getelementptr i8, ptr %606, i64 %607
   store i8 -36, ptr %arrayidx10.i339.i, align 1
-  %610 = load i64, ptr %length.i.i328.i, align 8
-  %add.i.i348.i = add i64 %610, 2
-  %611 = load i64, ptr %alloc.i.i330.i, align 8
-  %cmp.not.i.i350.i = icmp ugt i64 %add.i.i348.i, %611
-  br i1 %cmp.not.i.i350.i, label %if.end.i.i359.i456, label %entry.usb_mtp_realloc.exit_crit_edge.i351.i
+  %608 = load i64, ptr %length.i.i328.i, align 8
+  %add.i.i348.i = add i64 %608, 2
+  %609 = load i64, ptr %alloc.i.i330.i, align 8
+  %cmp.not.i.i350.i = icmp ugt i64 %add.i.i348.i, %609
+  br i1 %cmp.not.i.i350.i, label %if.end.i.i359.i461, label %entry.usb_mtp_realloc.exit_crit_edge.i351.i
 
 entry.usb_mtp_realloc.exit_crit_edge.i351.i:      ; preds = %usb_mtp_add_u16.exit346.i
   %.pre.i353.i = load ptr, ptr %data2.i335.i, align 8
   br label %usb_mtp_add_u16.exit365.i
 
-if.end.i.i359.i456:                               ; preds = %usb_mtp_add_u16.exit346.i
-  %add5.i.i360.i457 = add i64 %610, 257
-  %and.i.i361.i458 = and i64 %add5.i.i360.i457, -256
-  store i64 %and.i.i361.i458, ptr %alloc.i.i330.i, align 8
-  %612 = load ptr, ptr %data2.i335.i, align 8
-  %call.i.i363.i459 = tail call ptr @g_realloc(ptr noundef %612, i64 noundef %and.i.i361.i458) #15
-  store ptr %call.i.i363.i459, ptr %data2.i335.i, align 8
+if.end.i.i359.i461:                               ; preds = %usb_mtp_add_u16.exit346.i
+  %add5.i.i360.i462 = add i64 %608, 257
+  %and.i.i361.i463 = and i64 %add5.i.i360.i462, -256
+  store i64 %and.i.i361.i463, ptr %alloc.i.i330.i, align 8
+  %610 = load ptr, ptr %data2.i335.i, align 8
+  %call.i.i363.i464 = tail call ptr @g_realloc(ptr noundef %610, i64 noundef %and.i.i361.i463) #15
+  store ptr %call.i.i363.i464, ptr %data2.i335.i, align 8
   %.pre6.i364.i = load i64, ptr %length.i.i328.i, align 8
   br label %usb_mtp_add_u16.exit365.i
 
-usb_mtp_add_u16.exit365.i:                        ; preds = %if.end.i.i359.i456, %entry.usb_mtp_realloc.exit_crit_edge.i351.i
-  %613 = phi i64 [ %610, %entry.usb_mtp_realloc.exit_crit_edge.i351.i ], [ %.pre6.i364.i, %if.end.i.i359.i456 ]
-  %614 = phi ptr [ %.pre.i353.i, %entry.usb_mtp_realloc.exit_crit_edge.i351.i ], [ %call.i.i363.i459, %if.end.i.i359.i456 ]
-  %inc.i355.i = add i64 %613, 1
+usb_mtp_add_u16.exit365.i:                        ; preds = %if.end.i.i359.i461, %entry.usb_mtp_realloc.exit_crit_edge.i351.i
+  %611 = phi i64 [ %608, %entry.usb_mtp_realloc.exit_crit_edge.i351.i ], [ %.pre6.i364.i, %if.end.i.i359.i461 ]
+  %612 = phi ptr [ %.pre.i353.i, %entry.usb_mtp_realloc.exit_crit_edge.i351.i ], [ %call.i.i363.i464, %if.end.i.i359.i461 ]
+  %inc.i355.i = add i64 %611, 1
   store i64 %inc.i355.i, ptr %length.i.i328.i, align 8
-  %arrayidx.i356.i = getelementptr i8, ptr %614, i64 %613
+  %arrayidx.i356.i = getelementptr i8, ptr %612, i64 %611
   store i8 6, ptr %arrayidx.i356.i, align 1
-  %615 = load ptr, ptr %data2.i335.i, align 8
-  %616 = load i64, ptr %length.i.i328.i, align 8
-  %inc9.i357.i = add i64 %616, 1
+  %613 = load ptr, ptr %data2.i335.i, align 8
+  %614 = load i64, ptr %length.i.i328.i, align 8
+  %inc9.i357.i = add i64 %614, 1
   store i64 %inc9.i357.i, ptr %length.i.i328.i, align 8
-  %arrayidx10.i358.i = getelementptr i8, ptr %615, i64 %616
+  %arrayidx10.i358.i = getelementptr i8, ptr %613, i64 %614
   store i8 0, ptr %arrayidx10.i358.i, align 1
-  %617 = load i64, ptr %length.i.i328.i, align 8
-  %add.i.i367.i452 = add i64 %617, 1
-  %618 = load i64, ptr %alloc.i.i330.i, align 8
-  %cmp.not.i.i369.i453 = icmp ugt i64 %add.i.i367.i452, %618
-  br i1 %cmp.not.i.i369.i453, label %if.end.i.i375.i, label %entry.usb_mtp_realloc.exit_crit_edge.i370.i454
+  %615 = load i64, ptr %length.i.i328.i, align 8
+  %add.i.i367.i457 = add i64 %615, 1
+  %616 = load i64, ptr %alloc.i.i330.i, align 8
+  %cmp.not.i.i369.i458 = icmp ugt i64 %add.i.i367.i457, %616
+  br i1 %cmp.not.i.i369.i458, label %if.end.i.i375.i, label %entry.usb_mtp_realloc.exit_crit_edge.i370.i459
 
-entry.usb_mtp_realloc.exit_crit_edge.i370.i454:   ; preds = %usb_mtp_add_u16.exit365.i
-  %.pre.i372.i455 = load ptr, ptr %data2.i335.i, align 8
+entry.usb_mtp_realloc.exit_crit_edge.i370.i459:   ; preds = %usb_mtp_add_u16.exit365.i
+  %.pre.i372.i460 = load ptr, ptr %data2.i335.i, align 8
   br label %usb_mtp_add_u8.exit381.i
 
 if.end.i.i375.i:                                  ; preds = %usb_mtp_add_u16.exit365.i
-  %619 = and i64 %617, -256
-  %and.i.i376.i = add i64 %619, 256
+  %617 = and i64 %615, -256
+  %and.i.i376.i = add i64 %617, 256
   store i64 %and.i.i376.i, ptr %alloc.i.i330.i, align 8
-  %620 = load ptr, ptr %data2.i335.i, align 8
-  %call.i.i378.i = tail call ptr @g_realloc(ptr noundef %620, i64 noundef %and.i.i376.i) #15
+  %618 = load ptr, ptr %data2.i335.i, align 8
+  %call.i.i378.i = tail call ptr @g_realloc(ptr noundef %618, i64 noundef %and.i.i376.i) #15
   store ptr %call.i.i378.i, ptr %data2.i335.i, align 8
   %.pre3.i379.i = load i64, ptr %length.i.i328.i, align 8
   %.pre4.i380.i = add i64 %.pre3.i379.i, 1
   br label %usb_mtp_add_u8.exit381.i
 
-usb_mtp_add_u8.exit381.i:                         ; preds = %if.end.i.i375.i, %entry.usb_mtp_realloc.exit_crit_edge.i370.i454
-  %inc.pre-phi.i373.i = phi i64 [ %add.i.i367.i452, %entry.usb_mtp_realloc.exit_crit_edge.i370.i454 ], [ %.pre4.i380.i, %if.end.i.i375.i ]
-  %621 = phi i64 [ %617, %entry.usb_mtp_realloc.exit_crit_edge.i370.i454 ], [ %.pre3.i379.i, %if.end.i.i375.i ]
-  %622 = phi ptr [ %.pre.i372.i455, %entry.usb_mtp_realloc.exit_crit_edge.i370.i454 ], [ %call.i.i378.i, %if.end.i.i375.i ]
+usb_mtp_add_u8.exit381.i:                         ; preds = %if.end.i.i375.i, %entry.usb_mtp_realloc.exit_crit_edge.i370.i459
+  %inc.pre-phi.i373.i = phi i64 [ %add.i.i367.i457, %entry.usb_mtp_realloc.exit_crit_edge.i370.i459 ], [ %.pre4.i380.i, %if.end.i.i375.i ]
+  %619 = phi i64 [ %615, %entry.usb_mtp_realloc.exit_crit_edge.i370.i459 ], [ %.pre3.i379.i, %if.end.i.i375.i ]
+  %620 = phi ptr [ %.pre.i372.i460, %entry.usb_mtp_realloc.exit_crit_edge.i370.i459 ], [ %call.i.i378.i, %if.end.i.i375.i ]
   store i64 %inc.pre-phi.i373.i, ptr %length.i.i328.i, align 8
-  %arrayidx.i374.i = getelementptr i8, ptr %622, i64 %621
+  %arrayidx.i374.i = getelementptr i8, ptr %620, i64 %619
   store i8 0, ptr %arrayidx.i374.i, align 1
-  %623 = load i64, ptr %length.i.i328.i, align 8
-  %add.i.i383.i = add i64 %623, 4
-  %624 = load i64, ptr %alloc.i.i330.i, align 8
-  %cmp.not.i.i385.i = icmp ugt i64 %add.i.i383.i, %624
+  %621 = load i64, ptr %length.i.i328.i, align 8
+  %add.i.i383.i = add i64 %621, 4
+  %622 = load i64, ptr %alloc.i.i330.i, align 8
+  %cmp.not.i.i385.i = icmp ugt i64 %add.i.i383.i, %622
   br i1 %cmp.not.i.i385.i, label %if.end.i.i398.i, label %entry.usb_mtp_realloc.exit_crit_edge.i386.i
 
 entry.usb_mtp_realloc.exit_crit_edge.i386.i:      ; preds = %usb_mtp_add_u8.exit381.i
@@ -5238,44 +5274,44 @@ entry.usb_mtp_realloc.exit_crit_edge.i386.i:      ; preds = %usb_mtp_add_u8.exit
   br label %usb_mtp_add_u32.exit404.i
 
 if.end.i.i398.i:                                  ; preds = %usb_mtp_add_u8.exit381.i
-  %add5.i.i399.i = add i64 %623, 259
+  %add5.i.i399.i = add i64 %621, 259
   %and.i.i400.i = and i64 %add5.i.i399.i, -256
   store i64 %and.i.i400.i, ptr %alloc.i.i330.i, align 8
-  %625 = load ptr, ptr %data2.i335.i, align 8
-  %call.i.i402.i = tail call ptr @g_realloc(ptr noundef %625, i64 noundef %and.i.i400.i) #15
+  %623 = load ptr, ptr %data2.i335.i, align 8
+  %call.i.i402.i = tail call ptr @g_realloc(ptr noundef %623, i64 noundef %and.i.i400.i) #15
   store ptr %call.i.i402.i, ptr %data2.i335.i, align 8
   %.pre12.i403.i = load i64, ptr %length.i.i328.i, align 8
   br label %usb_mtp_add_u32.exit404.i
 
 usb_mtp_add_u32.exit404.i:                        ; preds = %if.end.i.i398.i, %entry.usb_mtp_realloc.exit_crit_edge.i386.i
-  %626 = phi i64 [ %623, %entry.usb_mtp_realloc.exit_crit_edge.i386.i ], [ %.pre12.i403.i, %if.end.i.i398.i ]
-  %627 = phi ptr [ %.pre.i388.i, %entry.usb_mtp_realloc.exit_crit_edge.i386.i ], [ %call.i.i402.i, %if.end.i.i398.i ]
-  %inc.i390.i = add i64 %626, 1
+  %624 = phi i64 [ %621, %entry.usb_mtp_realloc.exit_crit_edge.i386.i ], [ %.pre12.i403.i, %if.end.i.i398.i ]
+  %625 = phi ptr [ %.pre.i388.i, %entry.usb_mtp_realloc.exit_crit_edge.i386.i ], [ %call.i.i402.i, %if.end.i.i398.i ]
+  %inc.i390.i = add i64 %624, 1
   store i64 %inc.i390.i, ptr %length.i.i328.i, align 8
-  %arrayidx.i391.i = getelementptr i8, ptr %627, i64 %626
+  %arrayidx.i391.i = getelementptr i8, ptr %625, i64 %624
   store i8 0, ptr %arrayidx.i391.i, align 1
+  %626 = load ptr, ptr %data2.i335.i, align 8
+  %627 = load i64, ptr %length.i.i328.i, align 8
+  %inc7.i392.i = add i64 %627, 1
+  store i64 %inc7.i392.i, ptr %length.i.i328.i, align 8
+  %arrayidx8.i393.i = getelementptr i8, ptr %626, i64 %627
+  store i8 0, ptr %arrayidx8.i393.i, align 1
   %628 = load ptr, ptr %data2.i335.i, align 8
   %629 = load i64, ptr %length.i.i328.i, align 8
-  %inc7.i392.i = add i64 %629, 1
-  store i64 %inc7.i392.i, ptr %length.i.i328.i, align 8
-  %arrayidx8.i393.i = getelementptr i8, ptr %628, i64 %629
-  store i8 0, ptr %arrayidx8.i393.i, align 1
+  %inc14.i394.i = add i64 %629, 1
+  store i64 %inc14.i394.i, ptr %length.i.i328.i, align 8
+  %arrayidx15.i395.i = getelementptr i8, ptr %628, i64 %629
+  store i8 0, ptr %arrayidx15.i395.i, align 1
   %630 = load ptr, ptr %data2.i335.i, align 8
   %631 = load i64, ptr %length.i.i328.i, align 8
-  %inc14.i394.i = add i64 %631, 1
-  store i64 %inc14.i394.i, ptr %length.i.i328.i, align 8
-  %arrayidx15.i395.i = getelementptr i8, ptr %630, i64 %631
-  store i8 0, ptr %arrayidx15.i395.i, align 1
-  %632 = load ptr, ptr %data2.i335.i, align 8
-  %633 = load i64, ptr %length.i.i328.i, align 8
-  %inc21.i396.i = add i64 %633, 1
+  %inc21.i396.i = add i64 %631, 1
   store i64 %inc21.i396.i, ptr %length.i.i328.i, align 8
-  %arrayidx22.i397.i = getelementptr i8, ptr %632, i64 %633
+  %arrayidx22.i397.i = getelementptr i8, ptr %630, i64 %631
   store i8 0, ptr %arrayidx22.i397.i, align 1
-  %634 = load i64, ptr %length.i.i328.i, align 8
-  %add.i.i406.i = add i64 %634, 4
-  %635 = load i64, ptr %alloc.i.i330.i, align 8
-  %cmp.not.i.i408.i = icmp ugt i64 %add.i.i406.i, %635
+  %632 = load i64, ptr %length.i.i328.i, align 8
+  %add.i.i406.i = add i64 %632, 4
+  %633 = load i64, ptr %alloc.i.i330.i, align 8
+  %cmp.not.i.i408.i = icmp ugt i64 %add.i.i406.i, %633
   br i1 %cmp.not.i.i408.i, label %if.end.i.i421.i, label %entry.usb_mtp_realloc.exit_crit_edge.i409.i
 
 entry.usb_mtp_realloc.exit_crit_edge.i409.i:      ; preds = %usb_mtp_add_u32.exit404.i
@@ -5283,44 +5319,44 @@ entry.usb_mtp_realloc.exit_crit_edge.i409.i:      ; preds = %usb_mtp_add_u32.exi
   br label %usb_mtp_add_u32.exit427.i
 
 if.end.i.i421.i:                                  ; preds = %usb_mtp_add_u32.exit404.i
-  %add5.i.i422.i = add i64 %634, 259
+  %add5.i.i422.i = add i64 %632, 259
   %and.i.i423.i = and i64 %add5.i.i422.i, -256
   store i64 %and.i.i423.i, ptr %alloc.i.i330.i, align 8
-  %636 = load ptr, ptr %data2.i335.i, align 8
-  %call.i.i425.i = tail call ptr @g_realloc(ptr noundef %636, i64 noundef %and.i.i423.i) #15
+  %634 = load ptr, ptr %data2.i335.i, align 8
+  %call.i.i425.i = tail call ptr @g_realloc(ptr noundef %634, i64 noundef %and.i.i423.i) #15
   store ptr %call.i.i425.i, ptr %data2.i335.i, align 8
   %.pre12.i426.i = load i64, ptr %length.i.i328.i, align 8
   br label %usb_mtp_add_u32.exit427.i
 
 usb_mtp_add_u32.exit427.i:                        ; preds = %if.end.i.i421.i, %entry.usb_mtp_realloc.exit_crit_edge.i409.i
-  %637 = phi i64 [ %634, %entry.usb_mtp_realloc.exit_crit_edge.i409.i ], [ %.pre12.i426.i, %if.end.i.i421.i ]
-  %638 = phi ptr [ %.pre.i411.i, %entry.usb_mtp_realloc.exit_crit_edge.i409.i ], [ %call.i.i425.i, %if.end.i.i421.i ]
-  %inc.i413.i = add i64 %637, 1
+  %635 = phi i64 [ %632, %entry.usb_mtp_realloc.exit_crit_edge.i409.i ], [ %.pre12.i426.i, %if.end.i.i421.i ]
+  %636 = phi ptr [ %.pre.i411.i, %entry.usb_mtp_realloc.exit_crit_edge.i409.i ], [ %call.i.i425.i, %if.end.i.i421.i ]
+  %inc.i413.i = add i64 %635, 1
   store i64 %inc.i413.i, ptr %length.i.i328.i, align 8
-  %arrayidx.i414.i = getelementptr i8, ptr %638, i64 %637
+  %arrayidx.i414.i = getelementptr i8, ptr %636, i64 %635
   store i8 0, ptr %arrayidx.i414.i, align 1
+  %637 = load ptr, ptr %data2.i335.i, align 8
+  %638 = load i64, ptr %length.i.i328.i, align 8
+  %inc7.i415.i = add i64 %638, 1
+  store i64 %inc7.i415.i, ptr %length.i.i328.i, align 8
+  %arrayidx8.i416.i = getelementptr i8, ptr %637, i64 %638
+  store i8 0, ptr %arrayidx8.i416.i, align 1
   %639 = load ptr, ptr %data2.i335.i, align 8
   %640 = load i64, ptr %length.i.i328.i, align 8
-  %inc7.i415.i = add i64 %640, 1
-  store i64 %inc7.i415.i, ptr %length.i.i328.i, align 8
-  %arrayidx8.i416.i = getelementptr i8, ptr %639, i64 %640
-  store i8 0, ptr %arrayidx8.i416.i, align 1
+  %inc14.i417.i = add i64 %640, 1
+  store i64 %inc14.i417.i, ptr %length.i.i328.i, align 8
+  %arrayidx15.i418.i = getelementptr i8, ptr %639, i64 %640
+  store i8 0, ptr %arrayidx15.i418.i, align 1
   %641 = load ptr, ptr %data2.i335.i, align 8
   %642 = load i64, ptr %length.i.i328.i, align 8
-  %inc14.i417.i = add i64 %642, 1
-  store i64 %inc14.i417.i, ptr %length.i.i328.i, align 8
-  %arrayidx15.i418.i = getelementptr i8, ptr %641, i64 %642
-  store i8 0, ptr %arrayidx15.i418.i, align 1
-  %643 = load ptr, ptr %data2.i335.i, align 8
-  %644 = load i64, ptr %length.i.i328.i, align 8
-  %inc21.i419.i = add i64 %644, 1
+  %inc21.i419.i = add i64 %642, 1
   store i64 %inc21.i419.i, ptr %length.i.i328.i, align 8
-  %arrayidx22.i420.i = getelementptr i8, ptr %643, i64 %644
+  %arrayidx22.i420.i = getelementptr i8, ptr %641, i64 %642
   store i8 0, ptr %arrayidx22.i420.i, align 1
-  %645 = load i64, ptr %length.i.i328.i, align 8
-  %add.i.i429.i = add i64 %645, 1
-  %646 = load i64, ptr %alloc.i.i330.i, align 8
-  %cmp.not.i.i431.i = icmp ugt i64 %add.i.i429.i, %646
+  %643 = load i64, ptr %length.i.i328.i, align 8
+  %add.i.i429.i = add i64 %643, 1
+  %644 = load i64, ptr %alloc.i.i330.i, align 8
+  %cmp.not.i.i431.i = icmp ugt i64 %add.i.i429.i, %644
   br i1 %cmp.not.i.i431.i, label %if.end.i.i437.i, label %entry.usb_mtp_realloc.exit_crit_edge.i432.i
 
 entry.usb_mtp_realloc.exit_crit_edge.i432.i:      ; preds = %usb_mtp_add_u32.exit427.i
@@ -5328,11 +5364,11 @@ entry.usb_mtp_realloc.exit_crit_edge.i432.i:      ; preds = %usb_mtp_add_u32.exi
   br label %usb_mtp_add_u8.exit443.i
 
 if.end.i.i437.i:                                  ; preds = %usb_mtp_add_u32.exit427.i
-  %647 = and i64 %645, -256
-  %and.i.i438.i = add i64 %647, 256
+  %645 = and i64 %643, -256
+  %and.i.i438.i = add i64 %645, 256
   store i64 %and.i.i438.i, ptr %alloc.i.i330.i, align 8
-  %648 = load ptr, ptr %data2.i335.i, align 8
-  %call.i.i440.i = tail call ptr @g_realloc(ptr noundef %648, i64 noundef %and.i.i438.i) #15
+  %646 = load ptr, ptr %data2.i335.i, align 8
+  %call.i.i440.i = tail call ptr @g_realloc(ptr noundef %646, i64 noundef %and.i.i438.i) #15
   store ptr %call.i.i440.i, ptr %data2.i335.i, align 8
   %.pre3.i441.i = load i64, ptr %length.i.i328.i, align 8
   %.pre4.i442.i = add i64 %.pre3.i441.i, 1
@@ -5340,56 +5376,56 @@ if.end.i.i437.i:                                  ; preds = %usb_mtp_add_u32.exi
 
 usb_mtp_add_u8.exit443.i:                         ; preds = %if.end.i.i437.i, %entry.usb_mtp_realloc.exit_crit_edge.i432.i
   %inc.pre-phi.i435.i = phi i64 [ %add.i.i429.i, %entry.usb_mtp_realloc.exit_crit_edge.i432.i ], [ %.pre4.i442.i, %if.end.i.i437.i ]
-  %649 = phi i64 [ %645, %entry.usb_mtp_realloc.exit_crit_edge.i432.i ], [ %.pre3.i441.i, %if.end.i.i437.i ]
-  %650 = phi ptr [ %.pre.i434.i, %entry.usb_mtp_realloc.exit_crit_edge.i432.i ], [ %call.i.i440.i, %if.end.i.i437.i ]
+  %647 = phi i64 [ %643, %entry.usb_mtp_realloc.exit_crit_edge.i432.i ], [ %.pre3.i441.i, %if.end.i.i437.i ]
+  %648 = phi ptr [ %.pre.i434.i, %entry.usb_mtp_realloc.exit_crit_edge.i432.i ], [ %call.i.i440.i, %if.end.i.i437.i ]
   store i64 %inc.pre-phi.i435.i, ptr %length.i.i328.i, align 8
-  %arrayidx.i436.i = getelementptr i8, ptr %650, i64 %649
+  %arrayidx.i436.i = getelementptr i8, ptr %648, i64 %647
   store i8 0, ptr %arrayidx.i436.i, align 1
   br label %if.then302
 
 sw.bb4.i:                                         ; preds = %if.end273
-  %length.i.i444.i = getelementptr inbounds i8, ptr %call.i.i446, i64 16
-  %651 = load i64, ptr %length.i.i444.i, align 8
-  %add.i.i445.i = add i64 %651, 2
-  %alloc.i.i446.i = getelementptr inbounds i8, ptr %call.i.i446, i64 24
-  %652 = load i64, ptr %alloc.i.i446.i, align 8
-  %cmp.not.i.i447.i = icmp ugt i64 %add.i.i445.i, %652
+  %length.i.i444.i = getelementptr inbounds i8, ptr %call.i.i451, i64 16
+  %649 = load i64, ptr %length.i.i444.i, align 8
+  %add.i.i445.i = add i64 %649, 2
+  %alloc.i.i446.i = getelementptr inbounds i8, ptr %call.i.i451, i64 24
+  %650 = load i64, ptr %alloc.i.i446.i, align 8
+  %cmp.not.i.i447.i = icmp ugt i64 %add.i.i445.i, %650
   br i1 %cmp.not.i.i447.i, label %if.end.i.i456.i, label %entry.usb_mtp_realloc.exit_crit_edge.i448.i
 
 entry.usb_mtp_realloc.exit_crit_edge.i448.i:      ; preds = %sw.bb4.i
-  %data2.phi.trans.insert.i449.i = getelementptr inbounds i8, ptr %call.i.i446, i64 32
+  %data2.phi.trans.insert.i449.i = getelementptr inbounds i8, ptr %call.i.i451, i64 32
   %.pre.i450.i = load ptr, ptr %data2.phi.trans.insert.i449.i, align 8
   br label %usb_mtp_add_u16.exit462.i
 
 if.end.i.i456.i:                                  ; preds = %sw.bb4.i
-  %add5.i.i457.i = add i64 %651, 257
+  %add5.i.i457.i = add i64 %649, 257
   %and.i.i458.i = and i64 %add5.i.i457.i, -256
   store i64 %and.i.i458.i, ptr %alloc.i.i446.i, align 8
-  %data7.i.i459.i = getelementptr inbounds i8, ptr %call.i.i446, i64 32
-  %653 = load ptr, ptr %data7.i.i459.i, align 8
-  %call.i.i460.i = tail call ptr @g_realloc(ptr noundef %653, i64 noundef %and.i.i458.i) #15
+  %data7.i.i459.i = getelementptr inbounds i8, ptr %call.i.i451, i64 32
+  %651 = load ptr, ptr %data7.i.i459.i, align 8
+  %call.i.i460.i = tail call ptr @g_realloc(ptr noundef %651, i64 noundef %and.i.i458.i) #15
   store ptr %call.i.i460.i, ptr %data7.i.i459.i, align 8
   %.pre6.i461.i = load i64, ptr %length.i.i444.i, align 8
   br label %usb_mtp_add_u16.exit462.i
 
 usb_mtp_add_u16.exit462.i:                        ; preds = %if.end.i.i456.i, %entry.usb_mtp_realloc.exit_crit_edge.i448.i
-  %654 = phi i64 [ %651, %entry.usb_mtp_realloc.exit_crit_edge.i448.i ], [ %.pre6.i461.i, %if.end.i.i456.i ]
-  %655 = phi ptr [ %.pre.i450.i, %entry.usb_mtp_realloc.exit_crit_edge.i448.i ], [ %call.i.i460.i, %if.end.i.i456.i ]
-  %data2.i451.i = getelementptr inbounds i8, ptr %call.i.i446, i64 32
-  %inc.i452.i = add i64 %654, 1
+  %652 = phi i64 [ %649, %entry.usb_mtp_realloc.exit_crit_edge.i448.i ], [ %.pre6.i461.i, %if.end.i.i456.i ]
+  %653 = phi ptr [ %.pre.i450.i, %entry.usb_mtp_realloc.exit_crit_edge.i448.i ], [ %call.i.i460.i, %if.end.i.i456.i ]
+  %data2.i451.i = getelementptr inbounds i8, ptr %call.i.i451, i64 32
+  %inc.i452.i = add i64 %652, 1
   store i64 %inc.i452.i, ptr %length.i.i444.i, align 8
-  %arrayidx.i453.i = getelementptr i8, ptr %655, i64 %654
+  %arrayidx.i453.i = getelementptr i8, ptr %653, i64 %652
   store i8 65, ptr %arrayidx.i453.i, align 1
-  %656 = load ptr, ptr %data2.i451.i, align 8
-  %657 = load i64, ptr %length.i.i444.i, align 8
-  %inc9.i454.i = add i64 %657, 1
+  %654 = load ptr, ptr %data2.i451.i, align 8
+  %655 = load i64, ptr %length.i.i444.i, align 8
+  %inc9.i454.i = add i64 %655, 1
   store i64 %inc9.i454.i, ptr %length.i.i444.i, align 8
-  %arrayidx10.i455.i = getelementptr i8, ptr %656, i64 %657
+  %arrayidx10.i455.i = getelementptr i8, ptr %654, i64 %655
   store i8 -36, ptr %arrayidx10.i455.i, align 1
-  %658 = load i64, ptr %length.i.i444.i, align 8
-  %add.i.i464.i = add i64 %658, 2
-  %659 = load i64, ptr %alloc.i.i446.i, align 8
-  %cmp.not.i.i466.i = icmp ugt i64 %add.i.i464.i, %659
+  %656 = load i64, ptr %length.i.i444.i, align 8
+  %add.i.i464.i = add i64 %656, 2
+  %657 = load i64, ptr %alloc.i.i446.i, align 8
+  %cmp.not.i.i466.i = icmp ugt i64 %add.i.i464.i, %657
   br i1 %cmp.not.i.i466.i, label %if.end.i.i475.i, label %entry.usb_mtp_realloc.exit_crit_edge.i467.i
 
 entry.usb_mtp_realloc.exit_crit_edge.i467.i:      ; preds = %usb_mtp_add_u16.exit462.i
@@ -5397,32 +5433,32 @@ entry.usb_mtp_realloc.exit_crit_edge.i467.i:      ; preds = %usb_mtp_add_u16.exi
   br label %usb_mtp_add_u16.exit481.i
 
 if.end.i.i475.i:                                  ; preds = %usb_mtp_add_u16.exit462.i
-  %add5.i.i476.i = add i64 %658, 257
+  %add5.i.i476.i = add i64 %656, 257
   %and.i.i477.i = and i64 %add5.i.i476.i, -256
   store i64 %and.i.i477.i, ptr %alloc.i.i446.i, align 8
-  %660 = load ptr, ptr %data2.i451.i, align 8
-  %call.i.i479.i = tail call ptr @g_realloc(ptr noundef %660, i64 noundef %and.i.i477.i) #15
+  %658 = load ptr, ptr %data2.i451.i, align 8
+  %call.i.i479.i = tail call ptr @g_realloc(ptr noundef %658, i64 noundef %and.i.i477.i) #15
   store ptr %call.i.i479.i, ptr %data2.i451.i, align 8
   %.pre6.i480.i = load i64, ptr %length.i.i444.i, align 8
   br label %usb_mtp_add_u16.exit481.i
 
 usb_mtp_add_u16.exit481.i:                        ; preds = %if.end.i.i475.i, %entry.usb_mtp_realloc.exit_crit_edge.i467.i
-  %661 = phi i64 [ %658, %entry.usb_mtp_realloc.exit_crit_edge.i467.i ], [ %.pre6.i480.i, %if.end.i.i475.i ]
-  %662 = phi ptr [ %.pre.i469.i, %entry.usb_mtp_realloc.exit_crit_edge.i467.i ], [ %call.i.i479.i, %if.end.i.i475.i ]
-  %inc.i471.i = add i64 %661, 1
+  %659 = phi i64 [ %656, %entry.usb_mtp_realloc.exit_crit_edge.i467.i ], [ %.pre6.i480.i, %if.end.i.i475.i ]
+  %660 = phi ptr [ %.pre.i469.i, %entry.usb_mtp_realloc.exit_crit_edge.i467.i ], [ %call.i.i479.i, %if.end.i.i475.i ]
+  %inc.i471.i = add i64 %659, 1
   store i64 %inc.i471.i, ptr %length.i.i444.i, align 8
-  %arrayidx.i472.i = getelementptr i8, ptr %662, i64 %661
+  %arrayidx.i472.i = getelementptr i8, ptr %660, i64 %659
   store i8 10, ptr %arrayidx.i472.i, align 1
-  %663 = load ptr, ptr %data2.i451.i, align 8
-  %664 = load i64, ptr %length.i.i444.i, align 8
-  %inc9.i473.i = add i64 %664, 1
+  %661 = load ptr, ptr %data2.i451.i, align 8
+  %662 = load i64, ptr %length.i.i444.i, align 8
+  %inc9.i473.i = add i64 %662, 1
   store i64 %inc9.i473.i, ptr %length.i.i444.i, align 8
-  %arrayidx10.i474.i = getelementptr i8, ptr %663, i64 %664
+  %arrayidx10.i474.i = getelementptr i8, ptr %661, i64 %662
   store i8 0, ptr %arrayidx10.i474.i, align 1
-  %665 = load i64, ptr %length.i.i444.i, align 8
-  %add.i.i483.i = add i64 %665, 1
-  %666 = load i64, ptr %alloc.i.i446.i, align 8
-  %cmp.not.i.i485.i = icmp ugt i64 %add.i.i483.i, %666
+  %663 = load i64, ptr %length.i.i444.i, align 8
+  %add.i.i483.i = add i64 %663, 1
+  %664 = load i64, ptr %alloc.i.i446.i, align 8
+  %cmp.not.i.i485.i = icmp ugt i64 %add.i.i483.i, %664
   br i1 %cmp.not.i.i485.i, label %if.end.i.i491.i, label %entry.usb_mtp_realloc.exit_crit_edge.i486.i
 
 entry.usb_mtp_realloc.exit_crit_edge.i486.i:      ; preds = %usb_mtp_add_u16.exit481.i
@@ -5430,11 +5466,11 @@ entry.usb_mtp_realloc.exit_crit_edge.i486.i:      ; preds = %usb_mtp_add_u16.exi
   br label %usb_mtp_add_u8.exit497.i
 
 if.end.i.i491.i:                                  ; preds = %usb_mtp_add_u16.exit481.i
-  %667 = and i64 %665, -256
-  %and.i.i492.i = add i64 %667, 256
+  %665 = and i64 %663, -256
+  %and.i.i492.i = add i64 %665, 256
   store i64 %and.i.i492.i, ptr %alloc.i.i446.i, align 8
-  %668 = load ptr, ptr %data2.i451.i, align 8
-  %call.i.i494.i = tail call ptr @g_realloc(ptr noundef %668, i64 noundef %and.i.i492.i) #15
+  %666 = load ptr, ptr %data2.i451.i, align 8
+  %call.i.i494.i = tail call ptr @g_realloc(ptr noundef %666, i64 noundef %and.i.i492.i) #15
   store ptr %call.i.i494.i, ptr %data2.i451.i, align 8
   %.pre3.i495.i = load i64, ptr %length.i.i444.i, align 8
   %.pre4.i496.i = add i64 %.pre3.i495.i, 1
@@ -5442,17 +5478,17 @@ if.end.i.i491.i:                                  ; preds = %usb_mtp_add_u16.exi
 
 usb_mtp_add_u8.exit497.i:                         ; preds = %if.end.i.i491.i, %entry.usb_mtp_realloc.exit_crit_edge.i486.i
   %inc.pre-phi.i489.i = phi i64 [ %add.i.i483.i, %entry.usb_mtp_realloc.exit_crit_edge.i486.i ], [ %.pre4.i496.i, %if.end.i.i491.i ]
-  %669 = phi i64 [ %665, %entry.usb_mtp_realloc.exit_crit_edge.i486.i ], [ %.pre3.i495.i, %if.end.i.i491.i ]
-  %670 = phi ptr [ %.pre.i488.i, %entry.usb_mtp_realloc.exit_crit_edge.i486.i ], [ %call.i.i494.i, %if.end.i.i491.i ]
+  %667 = phi i64 [ %663, %entry.usb_mtp_realloc.exit_crit_edge.i486.i ], [ %.pre3.i495.i, %if.end.i.i491.i ]
+  %668 = phi ptr [ %.pre.i488.i, %entry.usb_mtp_realloc.exit_crit_edge.i486.i ], [ %call.i.i494.i, %if.end.i.i491.i ]
   store i64 %inc.pre-phi.i489.i, ptr %length.i.i444.i, align 8
-  %arrayidx.i490.i = getelementptr i8, ptr %670, i64 %669
+  %arrayidx.i490.i = getelementptr i8, ptr %668, i64 %667
   store i8 0, ptr %arrayidx.i490.i, align 1
-  tail call fastcc void @usb_mtp_add_u64(ptr noundef nonnull %call.i.i446, i64 noundef 0)
-  tail call fastcc void @usb_mtp_add_u64(ptr noundef nonnull %call.i.i446, i64 noundef 0)
-  %671 = load i64, ptr %length.i.i444.i, align 8
-  %add.i.i499.i = add i64 %671, 4
-  %672 = load i64, ptr %alloc.i.i446.i, align 8
-  %cmp.not.i.i501.i = icmp ugt i64 %add.i.i499.i, %672
+  tail call fastcc void @usb_mtp_add_u64(ptr noundef nonnull %call.i.i451, i64 noundef 0)
+  tail call fastcc void @usb_mtp_add_u64(ptr noundef nonnull %call.i.i451, i64 noundef 0)
+  %669 = load i64, ptr %length.i.i444.i, align 8
+  %add.i.i499.i = add i64 %669, 4
+  %670 = load i64, ptr %alloc.i.i446.i, align 8
+  %cmp.not.i.i501.i = icmp ugt i64 %add.i.i499.i, %670
   br i1 %cmp.not.i.i501.i, label %if.end.i.i514.i, label %entry.usb_mtp_realloc.exit_crit_edge.i502.i
 
 entry.usb_mtp_realloc.exit_crit_edge.i502.i:      ; preds = %usb_mtp_add_u8.exit497.i
@@ -5460,44 +5496,44 @@ entry.usb_mtp_realloc.exit_crit_edge.i502.i:      ; preds = %usb_mtp_add_u8.exit
   br label %usb_mtp_add_u32.exit520.i
 
 if.end.i.i514.i:                                  ; preds = %usb_mtp_add_u8.exit497.i
-  %add5.i.i515.i = add i64 %671, 259
+  %add5.i.i515.i = add i64 %669, 259
   %and.i.i516.i = and i64 %add5.i.i515.i, -256
   store i64 %and.i.i516.i, ptr %alloc.i.i446.i, align 8
-  %673 = load ptr, ptr %data2.i451.i, align 8
-  %call.i.i518.i = tail call ptr @g_realloc(ptr noundef %673, i64 noundef %and.i.i516.i) #15
+  %671 = load ptr, ptr %data2.i451.i, align 8
+  %call.i.i518.i = tail call ptr @g_realloc(ptr noundef %671, i64 noundef %and.i.i516.i) #15
   store ptr %call.i.i518.i, ptr %data2.i451.i, align 8
   %.pre12.i519.i = load i64, ptr %length.i.i444.i, align 8
   br label %usb_mtp_add_u32.exit520.i
 
 usb_mtp_add_u32.exit520.i:                        ; preds = %if.end.i.i514.i, %entry.usb_mtp_realloc.exit_crit_edge.i502.i
-  %674 = phi i64 [ %671, %entry.usb_mtp_realloc.exit_crit_edge.i502.i ], [ %.pre12.i519.i, %if.end.i.i514.i ]
-  %675 = phi ptr [ %.pre.i504.i, %entry.usb_mtp_realloc.exit_crit_edge.i502.i ], [ %call.i.i518.i, %if.end.i.i514.i ]
-  %inc.i506.i = add i64 %674, 1
+  %672 = phi i64 [ %669, %entry.usb_mtp_realloc.exit_crit_edge.i502.i ], [ %.pre12.i519.i, %if.end.i.i514.i ]
+  %673 = phi ptr [ %.pre.i504.i, %entry.usb_mtp_realloc.exit_crit_edge.i502.i ], [ %call.i.i518.i, %if.end.i.i514.i ]
+  %inc.i506.i = add i64 %672, 1
   store i64 %inc.i506.i, ptr %length.i.i444.i, align 8
-  %arrayidx.i507.i = getelementptr i8, ptr %675, i64 %674
+  %arrayidx.i507.i = getelementptr i8, ptr %673, i64 %672
   store i8 0, ptr %arrayidx.i507.i, align 1
+  %674 = load ptr, ptr %data2.i451.i, align 8
+  %675 = load i64, ptr %length.i.i444.i, align 8
+  %inc7.i508.i = add i64 %675, 1
+  store i64 %inc7.i508.i, ptr %length.i.i444.i, align 8
+  %arrayidx8.i509.i = getelementptr i8, ptr %674, i64 %675
+  store i8 0, ptr %arrayidx8.i509.i, align 1
   %676 = load ptr, ptr %data2.i451.i, align 8
   %677 = load i64, ptr %length.i.i444.i, align 8
-  %inc7.i508.i = add i64 %677, 1
-  store i64 %inc7.i508.i, ptr %length.i.i444.i, align 8
-  %arrayidx8.i509.i = getelementptr i8, ptr %676, i64 %677
-  store i8 0, ptr %arrayidx8.i509.i, align 1
+  %inc14.i510.i = add i64 %677, 1
+  store i64 %inc14.i510.i, ptr %length.i.i444.i, align 8
+  %arrayidx15.i511.i = getelementptr i8, ptr %676, i64 %677
+  store i8 0, ptr %arrayidx15.i511.i, align 1
   %678 = load ptr, ptr %data2.i451.i, align 8
   %679 = load i64, ptr %length.i.i444.i, align 8
-  %inc14.i510.i = add i64 %679, 1
-  store i64 %inc14.i510.i, ptr %length.i.i444.i, align 8
-  %arrayidx15.i511.i = getelementptr i8, ptr %678, i64 %679
-  store i8 0, ptr %arrayidx15.i511.i, align 1
-  %680 = load ptr, ptr %data2.i451.i, align 8
-  %681 = load i64, ptr %length.i.i444.i, align 8
-  %inc21.i512.i = add i64 %681, 1
+  %inc21.i512.i = add i64 %679, 1
   store i64 %inc21.i512.i, ptr %length.i.i444.i, align 8
-  %arrayidx22.i513.i = getelementptr i8, ptr %680, i64 %681
+  %arrayidx22.i513.i = getelementptr i8, ptr %678, i64 %679
   store i8 0, ptr %arrayidx22.i513.i, align 1
-  %682 = load i64, ptr %length.i.i444.i, align 8
-  %add.i.i522.i = add i64 %682, 1
-  %683 = load i64, ptr %alloc.i.i446.i, align 8
-  %cmp.not.i.i524.i = icmp ugt i64 %add.i.i522.i, %683
+  %680 = load i64, ptr %length.i.i444.i, align 8
+  %add.i.i522.i = add i64 %680, 1
+  %681 = load i64, ptr %alloc.i.i446.i, align 8
+  %cmp.not.i.i524.i = icmp ugt i64 %add.i.i522.i, %681
   br i1 %cmp.not.i.i524.i, label %if.end.i.i530.i, label %entry.usb_mtp_realloc.exit_crit_edge.i525.i
 
 entry.usb_mtp_realloc.exit_crit_edge.i525.i:      ; preds = %usb_mtp_add_u32.exit520.i
@@ -5505,11 +5541,11 @@ entry.usb_mtp_realloc.exit_crit_edge.i525.i:      ; preds = %usb_mtp_add_u32.exi
   br label %usb_mtp_add_u8.exit536.i
 
 if.end.i.i530.i:                                  ; preds = %usb_mtp_add_u32.exit520.i
-  %684 = and i64 %682, -256
-  %and.i.i531.i = add i64 %684, 256
+  %682 = and i64 %680, -256
+  %and.i.i531.i = add i64 %682, 256
   store i64 %and.i.i531.i, ptr %alloc.i.i446.i, align 8
-  %685 = load ptr, ptr %data2.i451.i, align 8
-  %call.i.i533.i = tail call ptr @g_realloc(ptr noundef %685, i64 noundef %and.i.i531.i) #15
+  %683 = load ptr, ptr %data2.i451.i, align 8
+  %call.i.i533.i = tail call ptr @g_realloc(ptr noundef %683, i64 noundef %and.i.i531.i) #15
   store ptr %call.i.i533.i, ptr %data2.i451.i, align 8
   %.pre3.i534.i = load i64, ptr %length.i.i444.i, align 8
   %.pre4.i535.i = add i64 %.pre3.i534.i, 1
@@ -5517,56 +5553,56 @@ if.end.i.i530.i:                                  ; preds = %usb_mtp_add_u32.exi
 
 usb_mtp_add_u8.exit536.i:                         ; preds = %if.end.i.i530.i, %entry.usb_mtp_realloc.exit_crit_edge.i525.i
   %inc.pre-phi.i528.i = phi i64 [ %add.i.i522.i, %entry.usb_mtp_realloc.exit_crit_edge.i525.i ], [ %.pre4.i535.i, %if.end.i.i530.i ]
-  %686 = phi i64 [ %682, %entry.usb_mtp_realloc.exit_crit_edge.i525.i ], [ %.pre3.i534.i, %if.end.i.i530.i ]
-  %687 = phi ptr [ %.pre.i527.i, %entry.usb_mtp_realloc.exit_crit_edge.i525.i ], [ %call.i.i533.i, %if.end.i.i530.i ]
+  %684 = phi i64 [ %680, %entry.usb_mtp_realloc.exit_crit_edge.i525.i ], [ %.pre3.i534.i, %if.end.i.i530.i ]
+  %685 = phi ptr [ %.pre.i527.i, %entry.usb_mtp_realloc.exit_crit_edge.i525.i ], [ %call.i.i533.i, %if.end.i.i530.i ]
   store i64 %inc.pre-phi.i528.i, ptr %length.i.i444.i, align 8
-  %arrayidx.i529.i = getelementptr i8, ptr %687, i64 %686
+  %arrayidx.i529.i = getelementptr i8, ptr %685, i64 %684
   store i8 0, ptr %arrayidx.i529.i, align 1
   br label %if.then302
 
 sw.bb5.i:                                         ; preds = %if.end273
-  %length.i.i537.i = getelementptr inbounds i8, ptr %call.i.i446, i64 16
-  %688 = load i64, ptr %length.i.i537.i, align 8
-  %add.i.i538.i = add i64 %688, 2
-  %alloc.i.i539.i = getelementptr inbounds i8, ptr %call.i.i446, i64 24
-  %689 = load i64, ptr %alloc.i.i539.i, align 8
-  %cmp.not.i.i540.i = icmp ugt i64 %add.i.i538.i, %689
+  %length.i.i537.i = getelementptr inbounds i8, ptr %call.i.i451, i64 16
+  %686 = load i64, ptr %length.i.i537.i, align 8
+  %add.i.i538.i = add i64 %686, 2
+  %alloc.i.i539.i = getelementptr inbounds i8, ptr %call.i.i451, i64 24
+  %687 = load i64, ptr %alloc.i.i539.i, align 8
+  %cmp.not.i.i540.i = icmp ugt i64 %add.i.i538.i, %687
   br i1 %cmp.not.i.i540.i, label %if.end.i.i549.i, label %entry.usb_mtp_realloc.exit_crit_edge.i541.i
 
 entry.usb_mtp_realloc.exit_crit_edge.i541.i:      ; preds = %sw.bb5.i
-  %data2.phi.trans.insert.i542.i = getelementptr inbounds i8, ptr %call.i.i446, i64 32
+  %data2.phi.trans.insert.i542.i = getelementptr inbounds i8, ptr %call.i.i451, i64 32
   %.pre.i543.i = load ptr, ptr %data2.phi.trans.insert.i542.i, align 8
   br label %usb_mtp_add_u16.exit555.i
 
 if.end.i.i549.i:                                  ; preds = %sw.bb5.i
-  %add5.i.i550.i = add i64 %688, 257
+  %add5.i.i550.i = add i64 %686, 257
   %and.i.i551.i = and i64 %add5.i.i550.i, -256
   store i64 %and.i.i551.i, ptr %alloc.i.i539.i, align 8
-  %data7.i.i552.i = getelementptr inbounds i8, ptr %call.i.i446, i64 32
-  %690 = load ptr, ptr %data7.i.i552.i, align 8
-  %call.i.i553.i = tail call ptr @g_realloc(ptr noundef %690, i64 noundef %and.i.i551.i) #15
+  %data7.i.i552.i = getelementptr inbounds i8, ptr %call.i.i451, i64 32
+  %688 = load ptr, ptr %data7.i.i552.i, align 8
+  %call.i.i553.i = tail call ptr @g_realloc(ptr noundef %688, i64 noundef %and.i.i551.i) #15
   store ptr %call.i.i553.i, ptr %data7.i.i552.i, align 8
   %.pre6.i554.i = load i64, ptr %length.i.i537.i, align 8
   br label %usb_mtp_add_u16.exit555.i
 
 usb_mtp_add_u16.exit555.i:                        ; preds = %if.end.i.i549.i, %entry.usb_mtp_realloc.exit_crit_edge.i541.i
-  %691 = phi i64 [ %688, %entry.usb_mtp_realloc.exit_crit_edge.i541.i ], [ %.pre6.i554.i, %if.end.i.i549.i ]
-  %692 = phi ptr [ %.pre.i543.i, %entry.usb_mtp_realloc.exit_crit_edge.i541.i ], [ %call.i.i553.i, %if.end.i.i549.i ]
-  %data2.i544.i = getelementptr inbounds i8, ptr %call.i.i446, i64 32
-  %inc.i545.i = add i64 %691, 1
+  %689 = phi i64 [ %686, %entry.usb_mtp_realloc.exit_crit_edge.i541.i ], [ %.pre6.i554.i, %if.end.i.i549.i ]
+  %690 = phi ptr [ %.pre.i543.i, %entry.usb_mtp_realloc.exit_crit_edge.i541.i ], [ %call.i.i553.i, %if.end.i.i549.i ]
+  %data2.i544.i = getelementptr inbounds i8, ptr %call.i.i451, i64 32
+  %inc.i545.i = add i64 %689, 1
   store i64 %inc.i545.i, ptr %length.i.i537.i, align 8
-  %arrayidx.i546.i = getelementptr i8, ptr %692, i64 %691
+  %arrayidx.i546.i = getelementptr i8, ptr %690, i64 %689
   store i8 68, ptr %arrayidx.i546.i, align 1
-  %693 = load ptr, ptr %data2.i544.i, align 8
-  %694 = load i64, ptr %length.i.i537.i, align 8
-  %inc9.i547.i = add i64 %694, 1
+  %691 = load ptr, ptr %data2.i544.i, align 8
+  %692 = load i64, ptr %length.i.i537.i, align 8
+  %inc9.i547.i = add i64 %692, 1
   store i64 %inc9.i547.i, ptr %length.i.i537.i, align 8
-  %arrayidx10.i548.i = getelementptr i8, ptr %693, i64 %694
+  %arrayidx10.i548.i = getelementptr i8, ptr %691, i64 %692
   store i8 -36, ptr %arrayidx10.i548.i, align 1
-  %695 = load i64, ptr %length.i.i537.i, align 8
-  %add.i.i557.i = add i64 %695, 2
-  %696 = load i64, ptr %alloc.i.i539.i, align 8
-  %cmp.not.i.i559.i = icmp ugt i64 %add.i.i557.i, %696
+  %693 = load i64, ptr %length.i.i537.i, align 8
+  %add.i.i557.i = add i64 %693, 2
+  %694 = load i64, ptr %alloc.i.i539.i, align 8
+  %cmp.not.i.i559.i = icmp ugt i64 %add.i.i557.i, %694
   br i1 %cmp.not.i.i559.i, label %if.end.i.i568.i, label %entry.usb_mtp_realloc.exit_crit_edge.i560.i
 
 entry.usb_mtp_realloc.exit_crit_edge.i560.i:      ; preds = %usb_mtp_add_u16.exit555.i
@@ -5574,32 +5610,32 @@ entry.usb_mtp_realloc.exit_crit_edge.i560.i:      ; preds = %usb_mtp_add_u16.exi
   br label %usb_mtp_add_u16.exit574.i
 
 if.end.i.i568.i:                                  ; preds = %usb_mtp_add_u16.exit555.i
-  %add5.i.i569.i = add i64 %695, 257
+  %add5.i.i569.i = add i64 %693, 257
   %and.i.i570.i = and i64 %add5.i.i569.i, -256
   store i64 %and.i.i570.i, ptr %alloc.i.i539.i, align 8
-  %697 = load ptr, ptr %data2.i544.i, align 8
-  %call.i.i572.i = tail call ptr @g_realloc(ptr noundef %697, i64 noundef %and.i.i570.i) #15
+  %695 = load ptr, ptr %data2.i544.i, align 8
+  %call.i.i572.i = tail call ptr @g_realloc(ptr noundef %695, i64 noundef %and.i.i570.i) #15
   store ptr %call.i.i572.i, ptr %data2.i544.i, align 8
   %.pre6.i573.i = load i64, ptr %length.i.i537.i, align 8
   br label %usb_mtp_add_u16.exit574.i
 
 usb_mtp_add_u16.exit574.i:                        ; preds = %if.end.i.i568.i, %entry.usb_mtp_realloc.exit_crit_edge.i560.i
-  %698 = phi i64 [ %695, %entry.usb_mtp_realloc.exit_crit_edge.i560.i ], [ %.pre6.i573.i, %if.end.i.i568.i ]
-  %699 = phi ptr [ %.pre.i562.i, %entry.usb_mtp_realloc.exit_crit_edge.i560.i ], [ %call.i.i572.i, %if.end.i.i568.i ]
-  %inc.i564.i = add i64 %698, 1
+  %696 = phi i64 [ %693, %entry.usb_mtp_realloc.exit_crit_edge.i560.i ], [ %.pre6.i573.i, %if.end.i.i568.i ]
+  %697 = phi ptr [ %.pre.i562.i, %entry.usb_mtp_realloc.exit_crit_edge.i560.i ], [ %call.i.i572.i, %if.end.i.i568.i ]
+  %inc.i564.i = add i64 %696, 1
   store i64 %inc.i564.i, ptr %length.i.i537.i, align 8
-  %arrayidx.i565.i = getelementptr i8, ptr %699, i64 %698
+  %arrayidx.i565.i = getelementptr i8, ptr %697, i64 %696
   store i8 -1, ptr %arrayidx.i565.i, align 1
-  %700 = load ptr, ptr %data2.i544.i, align 8
-  %701 = load i64, ptr %length.i.i537.i, align 8
-  %inc9.i566.i = add i64 %701, 1
+  %698 = load ptr, ptr %data2.i544.i, align 8
+  %699 = load i64, ptr %length.i.i537.i, align 8
+  %inc9.i566.i = add i64 %699, 1
   store i64 %inc9.i566.i, ptr %length.i.i537.i, align 8
-  %arrayidx10.i567.i = getelementptr i8, ptr %700, i64 %701
+  %arrayidx10.i567.i = getelementptr i8, ptr %698, i64 %699
   store i8 -1, ptr %arrayidx10.i567.i, align 1
-  %702 = load i64, ptr %length.i.i537.i, align 8
-  %add.i.i576.i = add i64 %702, 1
-  %703 = load i64, ptr %alloc.i.i539.i, align 8
-  %cmp.not.i.i578.i = icmp ugt i64 %add.i.i576.i, %703
+  %700 = load i64, ptr %length.i.i537.i, align 8
+  %add.i.i576.i = add i64 %700, 1
+  %701 = load i64, ptr %alloc.i.i539.i, align 8
+  %cmp.not.i.i578.i = icmp ugt i64 %add.i.i576.i, %701
   br i1 %cmp.not.i.i578.i, label %if.end.i.i584.i, label %entry.usb_mtp_realloc.exit_crit_edge.i579.i
 
 entry.usb_mtp_realloc.exit_crit_edge.i579.i:      ; preds = %usb_mtp_add_u16.exit574.i
@@ -5607,11 +5643,11 @@ entry.usb_mtp_realloc.exit_crit_edge.i579.i:      ; preds = %usb_mtp_add_u16.exi
   br label %usb_mtp_add_u8.exit590.i
 
 if.end.i.i584.i:                                  ; preds = %usb_mtp_add_u16.exit574.i
-  %704 = and i64 %702, -256
-  %and.i.i585.i = add i64 %704, 256
+  %702 = and i64 %700, -256
+  %and.i.i585.i = add i64 %702, 256
   store i64 %and.i.i585.i, ptr %alloc.i.i539.i, align 8
-  %705 = load ptr, ptr %data2.i544.i, align 8
-  %call.i.i587.i = tail call ptr @g_realloc(ptr noundef %705, i64 noundef %and.i.i585.i) #15
+  %703 = load ptr, ptr %data2.i544.i, align 8
+  %call.i.i587.i = tail call ptr @g_realloc(ptr noundef %703, i64 noundef %and.i.i585.i) #15
   store ptr %call.i.i587.i, ptr %data2.i544.i, align 8
   %.pre3.i588.i = load i64, ptr %length.i.i537.i, align 8
   %.pre4.i589.i = add i64 %.pre3.i588.i, 1
@@ -5619,15 +5655,15 @@ if.end.i.i584.i:                                  ; preds = %usb_mtp_add_u16.exi
 
 usb_mtp_add_u8.exit590.i:                         ; preds = %if.end.i.i584.i, %entry.usb_mtp_realloc.exit_crit_edge.i579.i
   %inc.pre-phi.i582.i = phi i64 [ %add.i.i576.i, %entry.usb_mtp_realloc.exit_crit_edge.i579.i ], [ %.pre4.i589.i, %if.end.i.i584.i ]
-  %706 = phi i64 [ %702, %entry.usb_mtp_realloc.exit_crit_edge.i579.i ], [ %.pre3.i588.i, %if.end.i.i584.i ]
-  %707 = phi ptr [ %.pre.i581.i, %entry.usb_mtp_realloc.exit_crit_edge.i579.i ], [ %call.i.i587.i, %if.end.i.i584.i ]
+  %704 = phi i64 [ %700, %entry.usb_mtp_realloc.exit_crit_edge.i579.i ], [ %.pre3.i588.i, %if.end.i.i584.i ]
+  %705 = phi ptr [ %.pre.i581.i, %entry.usb_mtp_realloc.exit_crit_edge.i579.i ], [ %call.i.i587.i, %if.end.i.i584.i ]
   store i64 %inc.pre-phi.i582.i, ptr %length.i.i537.i, align 8
-  %arrayidx.i583.i = getelementptr i8, ptr %707, i64 %706
+  %arrayidx.i583.i = getelementptr i8, ptr %705, i64 %704
   store i8 0, ptr %arrayidx.i583.i, align 1
-  %708 = load i64, ptr %length.i.i537.i, align 8
-  %add.i.i592.i = add i64 %708, 1
-  %709 = load i64, ptr %alloc.i.i539.i, align 8
-  %cmp.not.i.i594.i = icmp ugt i64 %add.i.i592.i, %709
+  %706 = load i64, ptr %length.i.i537.i, align 8
+  %add.i.i592.i = add i64 %706, 1
+  %707 = load i64, ptr %alloc.i.i539.i, align 8
+  %cmp.not.i.i594.i = icmp ugt i64 %add.i.i592.i, %707
   br i1 %cmp.not.i.i594.i, label %if.end.i.i600.i, label %entry.usb_mtp_realloc.exit_crit_edge.i595.i
 
 entry.usb_mtp_realloc.exit_crit_edge.i595.i:      ; preds = %usb_mtp_add_u8.exit590.i
@@ -5635,11 +5671,11 @@ entry.usb_mtp_realloc.exit_crit_edge.i595.i:      ; preds = %usb_mtp_add_u8.exit
   br label %usb_mtp_add_u8.exit606.i
 
 if.end.i.i600.i:                                  ; preds = %usb_mtp_add_u8.exit590.i
-  %710 = and i64 %708, -256
-  %and.i.i601.i = add i64 %710, 256
+  %708 = and i64 %706, -256
+  %and.i.i601.i = add i64 %708, 256
   store i64 %and.i.i601.i, ptr %alloc.i.i539.i, align 8
-  %711 = load ptr, ptr %data2.i544.i, align 8
-  %call.i.i603.i = tail call ptr @g_realloc(ptr noundef %711, i64 noundef %and.i.i601.i) #15
+  %709 = load ptr, ptr %data2.i544.i, align 8
+  %call.i.i603.i = tail call ptr @g_realloc(ptr noundef %709, i64 noundef %and.i.i601.i) #15
   store ptr %call.i.i603.i, ptr %data2.i544.i, align 8
   %.pre3.i604.i = load i64, ptr %length.i.i537.i, align 8
   %.pre4.i605.i = add i64 %.pre3.i604.i, 1
@@ -5647,15 +5683,15 @@ if.end.i.i600.i:                                  ; preds = %usb_mtp_add_u8.exit
 
 usb_mtp_add_u8.exit606.i:                         ; preds = %if.end.i.i600.i, %entry.usb_mtp_realloc.exit_crit_edge.i595.i
   %inc.pre-phi.i598.i = phi i64 [ %add.i.i592.i, %entry.usb_mtp_realloc.exit_crit_edge.i595.i ], [ %.pre4.i605.i, %if.end.i.i600.i ]
-  %712 = phi i64 [ %708, %entry.usb_mtp_realloc.exit_crit_edge.i595.i ], [ %.pre3.i604.i, %if.end.i.i600.i ]
-  %713 = phi ptr [ %.pre.i597.i, %entry.usb_mtp_realloc.exit_crit_edge.i595.i ], [ %call.i.i603.i, %if.end.i.i600.i ]
+  %710 = phi i64 [ %706, %entry.usb_mtp_realloc.exit_crit_edge.i595.i ], [ %.pre3.i604.i, %if.end.i.i600.i ]
+  %711 = phi ptr [ %.pre.i597.i, %entry.usb_mtp_realloc.exit_crit_edge.i595.i ], [ %call.i.i603.i, %if.end.i.i600.i ]
   store i64 %inc.pre-phi.i598.i, ptr %length.i.i537.i, align 8
-  %arrayidx.i599.i = getelementptr i8, ptr %713, i64 %712
+  %arrayidx.i599.i = getelementptr i8, ptr %711, i64 %710
   store i8 0, ptr %arrayidx.i599.i, align 1
-  %714 = load i64, ptr %length.i.i537.i, align 8
-  %add.i.i608.i = add i64 %714, 4
-  %715 = load i64, ptr %alloc.i.i539.i, align 8
-  %cmp.not.i.i610.i = icmp ugt i64 %add.i.i608.i, %715
+  %712 = load i64, ptr %length.i.i537.i, align 8
+  %add.i.i608.i = add i64 %712, 4
+  %713 = load i64, ptr %alloc.i.i539.i, align 8
+  %cmp.not.i.i610.i = icmp ugt i64 %add.i.i608.i, %713
   br i1 %cmp.not.i.i610.i, label %if.end.i.i623.i, label %entry.usb_mtp_realloc.exit_crit_edge.i611.i
 
 entry.usb_mtp_realloc.exit_crit_edge.i611.i:      ; preds = %usb_mtp_add_u8.exit606.i
@@ -5663,44 +5699,44 @@ entry.usb_mtp_realloc.exit_crit_edge.i611.i:      ; preds = %usb_mtp_add_u8.exit
   br label %usb_mtp_add_u32.exit629.i
 
 if.end.i.i623.i:                                  ; preds = %usb_mtp_add_u8.exit606.i
-  %add5.i.i624.i = add i64 %714, 259
+  %add5.i.i624.i = add i64 %712, 259
   %and.i.i625.i = and i64 %add5.i.i624.i, -256
   store i64 %and.i.i625.i, ptr %alloc.i.i539.i, align 8
-  %716 = load ptr, ptr %data2.i544.i, align 8
-  %call.i.i627.i = tail call ptr @g_realloc(ptr noundef %716, i64 noundef %and.i.i625.i) #15
+  %714 = load ptr, ptr %data2.i544.i, align 8
+  %call.i.i627.i = tail call ptr @g_realloc(ptr noundef %714, i64 noundef %and.i.i625.i) #15
   store ptr %call.i.i627.i, ptr %data2.i544.i, align 8
   %.pre12.i628.i = load i64, ptr %length.i.i537.i, align 8
   br label %usb_mtp_add_u32.exit629.i
 
 usb_mtp_add_u32.exit629.i:                        ; preds = %if.end.i.i623.i, %entry.usb_mtp_realloc.exit_crit_edge.i611.i
-  %717 = phi i64 [ %714, %entry.usb_mtp_realloc.exit_crit_edge.i611.i ], [ %.pre12.i628.i, %if.end.i.i623.i ]
-  %718 = phi ptr [ %.pre.i613.i, %entry.usb_mtp_realloc.exit_crit_edge.i611.i ], [ %call.i.i627.i, %if.end.i.i623.i ]
-  %inc.i615.i = add i64 %717, 1
+  %715 = phi i64 [ %712, %entry.usb_mtp_realloc.exit_crit_edge.i611.i ], [ %.pre12.i628.i, %if.end.i.i623.i ]
+  %716 = phi ptr [ %.pre.i613.i, %entry.usb_mtp_realloc.exit_crit_edge.i611.i ], [ %call.i.i627.i, %if.end.i.i623.i ]
+  %inc.i615.i = add i64 %715, 1
   store i64 %inc.i615.i, ptr %length.i.i537.i, align 8
-  %arrayidx.i616.i = getelementptr i8, ptr %718, i64 %717
+  %arrayidx.i616.i = getelementptr i8, ptr %716, i64 %715
   store i8 0, ptr %arrayidx.i616.i, align 1
+  %717 = load ptr, ptr %data2.i544.i, align 8
+  %718 = load i64, ptr %length.i.i537.i, align 8
+  %inc7.i617.i = add i64 %718, 1
+  store i64 %inc7.i617.i, ptr %length.i.i537.i, align 8
+  %arrayidx8.i618.i = getelementptr i8, ptr %717, i64 %718
+  store i8 0, ptr %arrayidx8.i618.i, align 1
   %719 = load ptr, ptr %data2.i544.i, align 8
   %720 = load i64, ptr %length.i.i537.i, align 8
-  %inc7.i617.i = add i64 %720, 1
-  store i64 %inc7.i617.i, ptr %length.i.i537.i, align 8
-  %arrayidx8.i618.i = getelementptr i8, ptr %719, i64 %720
-  store i8 0, ptr %arrayidx8.i618.i, align 1
+  %inc14.i619.i = add i64 %720, 1
+  store i64 %inc14.i619.i, ptr %length.i.i537.i, align 8
+  %arrayidx15.i620.i = getelementptr i8, ptr %719, i64 %720
+  store i8 0, ptr %arrayidx15.i620.i, align 1
   %721 = load ptr, ptr %data2.i544.i, align 8
   %722 = load i64, ptr %length.i.i537.i, align 8
-  %inc14.i619.i = add i64 %722, 1
-  store i64 %inc14.i619.i, ptr %length.i.i537.i, align 8
-  %arrayidx15.i620.i = getelementptr i8, ptr %721, i64 %722
-  store i8 0, ptr %arrayidx15.i620.i, align 1
-  %723 = load ptr, ptr %data2.i544.i, align 8
-  %724 = load i64, ptr %length.i.i537.i, align 8
-  %inc21.i621.i = add i64 %724, 1
+  %inc21.i621.i = add i64 %722, 1
   store i64 %inc21.i621.i, ptr %length.i.i537.i, align 8
-  %arrayidx22.i622.i = getelementptr i8, ptr %723, i64 %724
+  %arrayidx22.i622.i = getelementptr i8, ptr %721, i64 %722
   store i8 0, ptr %arrayidx22.i622.i, align 1
-  %725 = load i64, ptr %length.i.i537.i, align 8
-  %add.i.i631.i = add i64 %725, 1
-  %726 = load i64, ptr %alloc.i.i539.i, align 8
-  %cmp.not.i.i633.i = icmp ugt i64 %add.i.i631.i, %726
+  %723 = load i64, ptr %length.i.i537.i, align 8
+  %add.i.i631.i = add i64 %723, 1
+  %724 = load i64, ptr %alloc.i.i539.i, align 8
+  %cmp.not.i.i633.i = icmp ugt i64 %add.i.i631.i, %724
   br i1 %cmp.not.i.i633.i, label %if.end.i.i639.i, label %entry.usb_mtp_realloc.exit_crit_edge.i634.i
 
 entry.usb_mtp_realloc.exit_crit_edge.i634.i:      ; preds = %usb_mtp_add_u32.exit629.i
@@ -5708,11 +5744,11 @@ entry.usb_mtp_realloc.exit_crit_edge.i634.i:      ; preds = %usb_mtp_add_u32.exi
   br label %usb_mtp_add_u8.exit645.i
 
 if.end.i.i639.i:                                  ; preds = %usb_mtp_add_u32.exit629.i
-  %727 = and i64 %725, -256
-  %and.i.i640.i = add i64 %727, 256
+  %725 = and i64 %723, -256
+  %and.i.i640.i = add i64 %725, 256
   store i64 %and.i.i640.i, ptr %alloc.i.i539.i, align 8
-  %728 = load ptr, ptr %data2.i544.i, align 8
-  %call.i.i642.i = tail call ptr @g_realloc(ptr noundef %728, i64 noundef %and.i.i640.i) #15
+  %726 = load ptr, ptr %data2.i544.i, align 8
+  %call.i.i642.i = tail call ptr @g_realloc(ptr noundef %726, i64 noundef %and.i.i640.i) #15
   store ptr %call.i.i642.i, ptr %data2.i544.i, align 8
   %.pre3.i643.i = load i64, ptr %length.i.i537.i, align 8
   %.pre4.i644.i = add i64 %.pre3.i643.i, 1
@@ -5720,407 +5756,407 @@ if.end.i.i639.i:                                  ; preds = %usb_mtp_add_u32.exi
 
 usb_mtp_add_u8.exit645.i:                         ; preds = %if.end.i.i639.i, %entry.usb_mtp_realloc.exit_crit_edge.i634.i
   %inc.pre-phi.i637.i = phi i64 [ %add.i.i631.i, %entry.usb_mtp_realloc.exit_crit_edge.i634.i ], [ %.pre4.i644.i, %if.end.i.i639.i ]
-  %729 = phi i64 [ %725, %entry.usb_mtp_realloc.exit_crit_edge.i634.i ], [ %.pre3.i643.i, %if.end.i.i639.i ]
-  %730 = phi ptr [ %.pre.i636.i, %entry.usb_mtp_realloc.exit_crit_edge.i634.i ], [ %call.i.i642.i, %if.end.i.i639.i ]
+  %727 = phi i64 [ %723, %entry.usb_mtp_realloc.exit_crit_edge.i634.i ], [ %.pre3.i643.i, %if.end.i.i639.i ]
+  %728 = phi ptr [ %.pre.i636.i, %entry.usb_mtp_realloc.exit_crit_edge.i634.i ], [ %call.i.i642.i, %if.end.i.i639.i ]
   store i64 %inc.pre-phi.i637.i, ptr %length.i.i537.i, align 8
-  %arrayidx.i638.i = getelementptr i8, ptr %730, i64 %729
+  %arrayidx.i638.i = getelementptr i8, ptr %728, i64 %727
   store i8 0, ptr %arrayidx.i638.i, align 1
   br label %if.then302
 
 if.then277:                                       ; preds = %if.end273
-  %data5.i.i = getelementptr inbounds i8, ptr %call.i.i446, i64 32
-  %731 = load ptr, ptr %data5.i.i, align 8
-  tail call void @g_free(ptr noundef %731) #15
-  tail call void @g_free(ptr noundef nonnull %call.i.i446) #15
-  %732 = load i32, ptr %trans.i.i447, align 4
-  tail call fastcc void @usb_mtp_queue_result(ptr noundef %s, i16 noundef zeroext -22527, i32 noundef %732, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %data5.i.i = getelementptr inbounds i8, ptr %call.i.i451, i64 32
+  %729 = load ptr, ptr %data5.i.i, align 8
+  tail call void @g_free(ptr noundef %729) #15
+  tail call void @g_free(ptr noundef nonnull %call.i.i451) #15
+  %730 = load i32, ptr %trans.i.i452, align 4
+  tail call fastcc void @usb_mtp_queue_result(ptr noundef %s, i16 noundef zeroext -22527, i32 noundef %730, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   br label %return
 
 sw.bb280:                                         ; preds = %if.end
   %argv281 = getelementptr inbounds i8, ptr %c, i64 12
-  %733 = load i32, ptr %argv281, align 4
-  %objects.i490 = getelementptr inbounds i8, ptr %s, i64 5928
-  %o.04.i491 = load ptr, ptr %objects.i490, align 8
-  %tobool.not5.i492 = icmp eq ptr %o.04.i491, null
-  br i1 %tobool.not5.i492, label %if.then286, label %for.body.i493
+  %731 = load i32, ptr %argv281, align 4
+  %objects.i495 = getelementptr inbounds i8, ptr %s, i64 5928
+  %o.04.i496 = load ptr, ptr %objects.i495, align 8
+  %tobool.not5.i497 = icmp eq ptr %o.04.i496, null
+  br i1 %tobool.not5.i497, label %if.then286, label %for.body.i498
 
-for.body.i493:                                    ; preds = %sw.bb280, %for.inc.i496
-  %o.06.i494 = phi ptr [ %o.0.i498, %for.inc.i496 ], [ %o.04.i491, %sw.bb280 ]
-  %734 = load i32, ptr %o.06.i494, align 8
-  %cmp.i495 = icmp eq i32 %734, %733
-  br i1 %cmp.i495, label %if.end288, label %for.inc.i496
+for.body.i498:                                    ; preds = %sw.bb280, %for.inc.i501
+  %o.06.i499 = phi ptr [ %o.0.i503, %for.inc.i501 ], [ %o.04.i496, %sw.bb280 ]
+  %732 = load i32, ptr %o.06.i499, align 8
+  %cmp.i500 = icmp eq i32 %732, %731
+  br i1 %cmp.i500, label %if.end288, label %for.inc.i501
 
-for.inc.i496:                                     ; preds = %for.body.i493
-  %next.i497 = getelementptr inbounds i8, ptr %o.06.i494, i64 224
-  %o.0.i498 = load ptr, ptr %next.i497, align 8
-  %tobool.not.i499 = icmp eq ptr %o.0.i498, null
-  br i1 %tobool.not.i499, label %if.then286, label %for.body.i493, !llvm.loop !9
+for.inc.i501:                                     ; preds = %for.body.i498
+  %next.i502 = getelementptr inbounds i8, ptr %o.06.i499, i64 224
+  %o.0.i503 = load ptr, ptr %next.i502, align 8
+  %tobool.not.i504 = icmp eq ptr %o.0.i503, null
+  br i1 %tobool.not.i504, label %if.then286, label %for.body.i498, !llvm.loop !9
 
-if.then286:                                       ; preds = %for.inc.i496, %sw.bb280
+if.then286:                                       ; preds = %for.inc.i501, %sw.bb280
   %trans287 = getelementptr inbounds i8, ptr %c, i64 4
-  %735 = load i32, ptr %trans287, align 4
-  tail call fastcc void @usb_mtp_queue_result(ptr noundef %s, i16 noundef zeroext 8201, i32 noundef %735, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %733 = load i32, ptr %trans287, align 4
+  tail call fastcc void @usb_mtp_queue_result(ptr noundef %s, i16 noundef zeroext 8201, i32 noundef %733, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   br label %return
 
-if.end288:                                        ; preds = %for.body.i493
-  %call.i.i502 = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 64) #17
-  %736 = load i16, ptr %c, align 4
-  store i16 %736, ptr %call.i.i502, align 8
-  %trans.i.i503 = getelementptr inbounds i8, ptr %c, i64 4
-  %737 = load i32, ptr %trans.i.i503, align 4
-  %trans2.i.i504 = getelementptr inbounds i8, ptr %call.i.i502, i64 4
-  store i32 %737, ptr %trans2.i.i504, align 4
-  %fd.i.i505 = getelementptr inbounds i8, ptr %call.i.i502, i64 44
-  store i32 -1, ptr %fd.i.i505, align 4
-  %first.i.i506 = getelementptr inbounds i8, ptr %call.i.i502, i64 40
-  store i8 1, ptr %first.i.i506, align 8
+if.end288:                                        ; preds = %for.body.i498
+  %call.i.i507 = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 64) #17
+  %734 = load i16, ptr %c, align 4
+  store i16 %734, ptr %call.i.i507, align 8
+  %trans.i.i508 = getelementptr inbounds i8, ptr %c, i64 4
+  %735 = load i32, ptr %trans.i.i508, align 4
+  %trans2.i.i509 = getelementptr inbounds i8, ptr %call.i.i507, i64 4
+  store i32 %735, ptr %trans2.i.i509, align 4
+  %fd.i.i510 = getelementptr inbounds i8, ptr %call.i.i507, i64 44
+  store i32 -1, ptr %fd.i.i510, align 4
+  %first.i.i511 = getelementptr inbounds i8, ptr %call.i.i507, i64 40
+  store i8 1, ptr %first.i.i511, align 8
   %arrayidx.i = getelementptr i8, ptr %c, i64 16
-  %738 = load i32, ptr %arrayidx.i, align 4
-  switch i32 %738, label %if.then292 [
-    i32 56321, label %sw.bb.i542
-    i32 56322, label %sw.bb1.i532
-    i32 56324, label %sw.bb2.i530
-    i32 56331, label %sw.bb3.i516
-    i32 56385, label %sw.bb5.i514
+  %736 = load i32, ptr %arrayidx.i, align 4
+  switch i32 %736, label %if.then292 [
+    i32 56321, label %sw.bb.i547
+    i32 56322, label %sw.bb1.i537
+    i32 56324, label %sw.bb2.i535
+    i32 56331, label %sw.bb3.i521
+    i32 56385, label %sw.bb5.i519
     i32 56388, label %sw.bb7.i
   ]
 
-sw.bb.i542:                                       ; preds = %if.end288
-  %length.i.i.i543 = getelementptr inbounds i8, ptr %call.i.i502, i64 16
-  %739 = load i64, ptr %length.i.i.i543, align 8
-  %add.i.i.i544 = add i64 %739, 4
-  %alloc.i.i.i545 = getelementptr inbounds i8, ptr %call.i.i502, i64 24
-  %740 = load i64, ptr %alloc.i.i.i545, align 8
-  %cmp.not.i.i.i546 = icmp ugt i64 %add.i.i.i544, %740
-  br i1 %cmp.not.i.i.i546, label %if.end.i.i.i560, label %entry.usb_mtp_realloc.exit_crit_edge.i.i547
+sw.bb.i547:                                       ; preds = %if.end288
+  %length.i.i.i548 = getelementptr inbounds i8, ptr %call.i.i507, i64 16
+  %737 = load i64, ptr %length.i.i.i548, align 8
+  %add.i.i.i549 = add i64 %737, 4
+  %alloc.i.i.i550 = getelementptr inbounds i8, ptr %call.i.i507, i64 24
+  %738 = load i64, ptr %alloc.i.i.i550, align 8
+  %cmp.not.i.i.i551 = icmp ugt i64 %add.i.i.i549, %738
+  br i1 %cmp.not.i.i.i551, label %if.end.i.i.i565, label %entry.usb_mtp_realloc.exit_crit_edge.i.i552
 
-entry.usb_mtp_realloc.exit_crit_edge.i.i547:      ; preds = %sw.bb.i542
-  %data1.phi.trans.insert.i.i548 = getelementptr inbounds i8, ptr %call.i.i502, i64 32
-  %.pre.i.i549 = load ptr, ptr %data1.phi.trans.insert.i.i548, align 8
-  br label %usb_mtp_add_u32.exit.i550
+entry.usb_mtp_realloc.exit_crit_edge.i.i552:      ; preds = %sw.bb.i547
+  %data1.phi.trans.insert.i.i553 = getelementptr inbounds i8, ptr %call.i.i507, i64 32
+  %.pre.i.i554 = load ptr, ptr %data1.phi.trans.insert.i.i553, align 8
+  br label %usb_mtp_add_u32.exit.i555
 
-if.end.i.i.i560:                                  ; preds = %sw.bb.i542
-  %add5.i.i.i561 = add i64 %739, 259
-  %and.i.i.i562 = and i64 %add5.i.i.i561, -256
-  store i64 %and.i.i.i562, ptr %alloc.i.i.i545, align 8
-  %data7.i.i.i563 = getelementptr inbounds i8, ptr %call.i.i502, i64 32
-  %741 = load ptr, ptr %data7.i.i.i563, align 8
-  %call.i.i.i564 = tail call ptr @g_realloc(ptr noundef %741, i64 noundef %and.i.i.i562) #15
-  store ptr %call.i.i.i564, ptr %data7.i.i.i563, align 8
-  %.pre12.i.i565 = load i64, ptr %length.i.i.i543, align 8
-  br label %usb_mtp_add_u32.exit.i550
+if.end.i.i.i565:                                  ; preds = %sw.bb.i547
+  %add5.i.i.i566 = add i64 %737, 259
+  %and.i.i.i567 = and i64 %add5.i.i.i566, -256
+  store i64 %and.i.i.i567, ptr %alloc.i.i.i550, align 8
+  %data7.i.i.i568 = getelementptr inbounds i8, ptr %call.i.i507, i64 32
+  %739 = load ptr, ptr %data7.i.i.i568, align 8
+  %call.i.i.i569 = tail call ptr @g_realloc(ptr noundef %739, i64 noundef %and.i.i.i567) #15
+  store ptr %call.i.i.i569, ptr %data7.i.i.i568, align 8
+  %.pre12.i.i570 = load i64, ptr %length.i.i.i548, align 8
+  br label %usb_mtp_add_u32.exit.i555
 
-usb_mtp_add_u32.exit.i550:                        ; preds = %if.end.i.i.i560, %entry.usb_mtp_realloc.exit_crit_edge.i.i547
-  %742 = phi i64 [ %739, %entry.usb_mtp_realloc.exit_crit_edge.i.i547 ], [ %.pre12.i.i565, %if.end.i.i.i560 ]
-  %743 = phi ptr [ %.pre.i.i549, %entry.usb_mtp_realloc.exit_crit_edge.i.i547 ], [ %call.i.i.i564, %if.end.i.i.i560 ]
-  %data1.i.i551 = getelementptr inbounds i8, ptr %call.i.i502, i64 32
-  %inc.i.i552 = add i64 %742, 1
-  store i64 %inc.i.i552, ptr %length.i.i.i543, align 8
-  %arrayidx.i.i553 = getelementptr i8, ptr %743, i64 %742
-  store i8 1, ptr %arrayidx.i.i553, align 1
-  %744 = load ptr, ptr %data1.i.i551, align 8
-  %745 = load i64, ptr %length.i.i.i543, align 8
-  %inc7.i.i554 = add i64 %745, 1
-  store i64 %inc7.i.i554, ptr %length.i.i.i543, align 8
-  %arrayidx8.i.i555 = getelementptr i8, ptr %744, i64 %745
-  store i8 0, ptr %arrayidx8.i.i555, align 1
-  %746 = load ptr, ptr %data1.i.i551, align 8
-  %747 = load i64, ptr %length.i.i.i543, align 8
-  %inc14.i.i556 = add i64 %747, 1
-  store i64 %inc14.i.i556, ptr %length.i.i.i543, align 8
-  %arrayidx15.i.i557 = getelementptr i8, ptr %746, i64 %747
-  store i8 1, ptr %arrayidx15.i.i557, align 1
-  %748 = load ptr, ptr %data1.i.i551, align 8
-  %749 = load i64, ptr %length.i.i.i543, align 8
-  %inc21.i.i558 = add i64 %749, 1
-  store i64 %inc21.i.i558, ptr %length.i.i.i543, align 8
-  %arrayidx22.i.i559 = getelementptr i8, ptr %748, i64 %749
-  store i8 0, ptr %arrayidx22.i.i559, align 1
+usb_mtp_add_u32.exit.i555:                        ; preds = %if.end.i.i.i565, %entry.usb_mtp_realloc.exit_crit_edge.i.i552
+  %740 = phi i64 [ %737, %entry.usb_mtp_realloc.exit_crit_edge.i.i552 ], [ %.pre12.i.i570, %if.end.i.i.i565 ]
+  %741 = phi ptr [ %.pre.i.i554, %entry.usb_mtp_realloc.exit_crit_edge.i.i552 ], [ %call.i.i.i569, %if.end.i.i.i565 ]
+  %data1.i.i556 = getelementptr inbounds i8, ptr %call.i.i507, i64 32
+  %inc.i.i557 = add i64 %740, 1
+  store i64 %inc.i.i557, ptr %length.i.i.i548, align 8
+  %arrayidx.i.i558 = getelementptr i8, ptr %741, i64 %740
+  store i8 1, ptr %arrayidx.i.i558, align 1
+  %742 = load ptr, ptr %data1.i.i556, align 8
+  %743 = load i64, ptr %length.i.i.i548, align 8
+  %inc7.i.i559 = add i64 %743, 1
+  store i64 %inc7.i.i559, ptr %length.i.i.i548, align 8
+  %arrayidx8.i.i560 = getelementptr i8, ptr %742, i64 %743
+  store i8 0, ptr %arrayidx8.i.i560, align 1
+  %744 = load ptr, ptr %data1.i.i556, align 8
+  %745 = load i64, ptr %length.i.i.i548, align 8
+  %inc14.i.i561 = add i64 %745, 1
+  store i64 %inc14.i.i561, ptr %length.i.i.i548, align 8
+  %arrayidx15.i.i562 = getelementptr i8, ptr %744, i64 %745
+  store i8 1, ptr %arrayidx15.i.i562, align 1
+  %746 = load ptr, ptr %data1.i.i556, align 8
+  %747 = load i64, ptr %length.i.i.i548, align 8
+  %inc21.i.i563 = add i64 %747, 1
+  store i64 %inc21.i.i563, ptr %length.i.i.i548, align 8
+  %arrayidx22.i.i564 = getelementptr i8, ptr %746, i64 %747
+  store i8 0, ptr %arrayidx22.i.i564, align 1
   br label %if.then302
 
-sw.bb1.i532:                                      ; preds = %if.end288
-  %format.i533 = getelementptr inbounds i8, ptr %o.06.i494, i64 4
-  %750 = load i16, ptr %format.i533, align 4
-  %length.i.i16.i = getelementptr inbounds i8, ptr %call.i.i502, i64 16
-  %751 = load i64, ptr %length.i.i16.i, align 8
-  %add.i.i17.i = add i64 %751, 2
-  %alloc.i.i18.i = getelementptr inbounds i8, ptr %call.i.i502, i64 24
-  %752 = load i64, ptr %alloc.i.i18.i, align 8
-  %cmp.not.i.i19.i = icmp ugt i64 %add.i.i17.i, %752
+sw.bb1.i537:                                      ; preds = %if.end288
+  %format.i538 = getelementptr inbounds i8, ptr %o.06.i499, i64 4
+  %748 = load i16, ptr %format.i538, align 4
+  %length.i.i16.i = getelementptr inbounds i8, ptr %call.i.i507, i64 16
+  %749 = load i64, ptr %length.i.i16.i, align 8
+  %add.i.i17.i = add i64 %749, 2
+  %alloc.i.i18.i = getelementptr inbounds i8, ptr %call.i.i507, i64 24
+  %750 = load i64, ptr %alloc.i.i18.i, align 8
+  %cmp.not.i.i19.i = icmp ugt i64 %add.i.i17.i, %750
   br i1 %cmp.not.i.i19.i, label %if.end.i.i24.i, label %entry.usb_mtp_realloc.exit_crit_edge.i20.i
 
-entry.usb_mtp_realloc.exit_crit_edge.i20.i:       ; preds = %sw.bb1.i532
-  %data2.phi.trans.insert.i.i534 = getelementptr inbounds i8, ptr %call.i.i502, i64 32
-  %.pre.i21.i = load ptr, ptr %data2.phi.trans.insert.i.i534, align 8
-  br label %usb_mtp_add_u16.exit.i535
+entry.usb_mtp_realloc.exit_crit_edge.i20.i:       ; preds = %sw.bb1.i537
+  %data2.phi.trans.insert.i.i539 = getelementptr inbounds i8, ptr %call.i.i507, i64 32
+  %.pre.i21.i = load ptr, ptr %data2.phi.trans.insert.i.i539, align 8
+  br label %usb_mtp_add_u16.exit.i540
 
-if.end.i.i24.i:                                   ; preds = %sw.bb1.i532
-  %add5.i.i25.i = add i64 %751, 257
+if.end.i.i24.i:                                   ; preds = %sw.bb1.i537
+  %add5.i.i25.i = add i64 %749, 257
   %and.i.i26.i = and i64 %add5.i.i25.i, -256
   store i64 %and.i.i26.i, ptr %alloc.i.i18.i, align 8
-  %data7.i.i27.i = getelementptr inbounds i8, ptr %call.i.i502, i64 32
-  %753 = load ptr, ptr %data7.i.i27.i, align 8
-  %call.i.i28.i = tail call ptr @g_realloc(ptr noundef %753, i64 noundef %and.i.i26.i) #15
+  %data7.i.i27.i = getelementptr inbounds i8, ptr %call.i.i507, i64 32
+  %751 = load ptr, ptr %data7.i.i27.i, align 8
+  %call.i.i28.i = tail call ptr @g_realloc(ptr noundef %751, i64 noundef %and.i.i26.i) #15
   store ptr %call.i.i28.i, ptr %data7.i.i27.i, align 8
-  %.pre6.i.i541 = load i64, ptr %length.i.i16.i, align 8
-  br label %usb_mtp_add_u16.exit.i535
+  %.pre6.i.i546 = load i64, ptr %length.i.i16.i, align 8
+  br label %usb_mtp_add_u16.exit.i540
 
-usb_mtp_add_u16.exit.i535:                        ; preds = %if.end.i.i24.i, %entry.usb_mtp_realloc.exit_crit_edge.i20.i
-  %754 = phi i64 [ %751, %entry.usb_mtp_realloc.exit_crit_edge.i20.i ], [ %.pre6.i.i541, %if.end.i.i24.i ]
-  %755 = phi ptr [ %.pre.i21.i, %entry.usb_mtp_realloc.exit_crit_edge.i20.i ], [ %call.i.i28.i, %if.end.i.i24.i ]
-  %conv1.i.i536 = trunc i16 %750 to i8
-  %data2.i.i537 = getelementptr inbounds i8, ptr %call.i.i502, i64 32
-  %inc.i22.i = add i64 %754, 1
+usb_mtp_add_u16.exit.i540:                        ; preds = %if.end.i.i24.i, %entry.usb_mtp_realloc.exit_crit_edge.i20.i
+  %752 = phi i64 [ %749, %entry.usb_mtp_realloc.exit_crit_edge.i20.i ], [ %.pre6.i.i546, %if.end.i.i24.i ]
+  %753 = phi ptr [ %.pre.i21.i, %entry.usb_mtp_realloc.exit_crit_edge.i20.i ], [ %call.i.i28.i, %if.end.i.i24.i ]
+  %conv1.i.i541 = trunc i16 %748 to i8
+  %data2.i.i542 = getelementptr inbounds i8, ptr %call.i.i507, i64 32
+  %inc.i22.i = add i64 %752, 1
   store i64 %inc.i22.i, ptr %length.i.i16.i, align 8
-  %arrayidx.i23.i = getelementptr i8, ptr %755, i64 %754
-  store i8 %conv1.i.i536, ptr %arrayidx.i23.i, align 1
-  %756 = lshr i16 %750, 8
-  %conv6.i.i538 = trunc nuw i16 %756 to i8
-  %757 = load ptr, ptr %data2.i.i537, align 8
-  %758 = load i64, ptr %length.i.i16.i, align 8
-  %inc9.i.i539 = add i64 %758, 1
-  store i64 %inc9.i.i539, ptr %length.i.i16.i, align 8
-  %arrayidx10.i.i540 = getelementptr i8, ptr %757, i64 %758
-  store i8 %conv6.i.i538, ptr %arrayidx10.i.i540, align 1
+  %arrayidx.i23.i = getelementptr i8, ptr %753, i64 %752
+  store i8 %conv1.i.i541, ptr %arrayidx.i23.i, align 1
+  %754 = lshr i16 %748, 8
+  %conv6.i.i543 = trunc nuw i16 %754 to i8
+  %755 = load ptr, ptr %data2.i.i542, align 8
+  %756 = load i64, ptr %length.i.i16.i, align 8
+  %inc9.i.i544 = add i64 %756, 1
+  store i64 %inc9.i.i544, ptr %length.i.i16.i, align 8
+  %arrayidx10.i.i545 = getelementptr i8, ptr %755, i64 %756
+  store i8 %conv6.i.i543, ptr %arrayidx10.i.i545, align 1
   br label %if.then302
 
-sw.bb2.i530:                                      ; preds = %if.end288
-  %st_size.i531 = getelementptr inbounds i8, ptr %o.06.i494, i64 72
-  %759 = load i64, ptr %st_size.i531, align 8
-  tail call fastcc void @usb_mtp_add_u64(ptr noundef nonnull %call.i.i502, i64 noundef %759)
+sw.bb2.i535:                                      ; preds = %if.end288
+  %st_size.i536 = getelementptr inbounds i8, ptr %o.06.i499, i64 72
+  %757 = load i64, ptr %st_size.i536, align 8
+  tail call fastcc void @usb_mtp_add_u64(ptr noundef nonnull %call.i.i507, i64 noundef %757)
   br label %if.then302
 
-sw.bb3.i516:                                      ; preds = %if.end288
-  %parent.i517 = getelementptr inbounds i8, ptr %o.06.i494, i64 176
-  %760 = load ptr, ptr %parent.i517, align 8
-  %cmp.i518 = icmp eq ptr %760, null
-  br i1 %cmp.i518, label %if.then.i529, label %if.else.i519
+sw.bb3.i521:                                      ; preds = %if.end288
+  %parent.i522 = getelementptr inbounds i8, ptr %o.06.i499, i64 176
+  %758 = load ptr, ptr %parent.i522, align 8
+  %cmp.i523 = icmp eq ptr %758, null
+  br i1 %cmp.i523, label %if.then.i534, label %if.else.i524
 
-if.then.i529:                                     ; preds = %sw.bb3.i516
-  %length.i.i29.i = getelementptr inbounds i8, ptr %call.i.i502, i64 16
-  %761 = load i64, ptr %length.i.i29.i, align 8
-  %add.i.i30.i = add i64 %761, 4
-  %alloc.i.i31.i = getelementptr inbounds i8, ptr %call.i.i502, i64 24
-  %762 = load i64, ptr %alloc.i.i31.i, align 8
-  %cmp.not.i.i32.i = icmp ugt i64 %add.i.i30.i, %762
+if.then.i534:                                     ; preds = %sw.bb3.i521
+  %length.i.i29.i = getelementptr inbounds i8, ptr %call.i.i507, i64 16
+  %759 = load i64, ptr %length.i.i29.i, align 8
+  %add.i.i30.i = add i64 %759, 4
+  %alloc.i.i31.i = getelementptr inbounds i8, ptr %call.i.i507, i64 24
+  %760 = load i64, ptr %alloc.i.i31.i, align 8
+  %cmp.not.i.i32.i = icmp ugt i64 %add.i.i30.i, %760
   br i1 %cmp.not.i.i32.i, label %if.end.i.i45.i, label %entry.usb_mtp_realloc.exit_crit_edge.i33.i
 
-entry.usb_mtp_realloc.exit_crit_edge.i33.i:       ; preds = %if.then.i529
-  %data1.phi.trans.insert.i34.i = getelementptr inbounds i8, ptr %call.i.i502, i64 32
+entry.usb_mtp_realloc.exit_crit_edge.i33.i:       ; preds = %if.then.i534
+  %data1.phi.trans.insert.i34.i = getelementptr inbounds i8, ptr %call.i.i507, i64 32
   %.pre.i35.i = load ptr, ptr %data1.phi.trans.insert.i34.i, align 8
   br label %usb_mtp_add_u32.exit51.i
 
-if.end.i.i45.i:                                   ; preds = %if.then.i529
-  %add5.i.i46.i = add i64 %761, 259
+if.end.i.i45.i:                                   ; preds = %if.then.i534
+  %add5.i.i46.i = add i64 %759, 259
   %and.i.i47.i = and i64 %add5.i.i46.i, -256
   store i64 %and.i.i47.i, ptr %alloc.i.i31.i, align 8
-  %data7.i.i48.i = getelementptr inbounds i8, ptr %call.i.i502, i64 32
-  %763 = load ptr, ptr %data7.i.i48.i, align 8
-  %call.i.i49.i = tail call ptr @g_realloc(ptr noundef %763, i64 noundef %and.i.i47.i) #15
+  %data7.i.i48.i = getelementptr inbounds i8, ptr %call.i.i507, i64 32
+  %761 = load ptr, ptr %data7.i.i48.i, align 8
+  %call.i.i49.i = tail call ptr @g_realloc(ptr noundef %761, i64 noundef %and.i.i47.i) #15
   store ptr %call.i.i49.i, ptr %data7.i.i48.i, align 8
   %.pre12.i50.i = load i64, ptr %length.i.i29.i, align 8
   br label %usb_mtp_add_u32.exit51.i
 
 usb_mtp_add_u32.exit51.i:                         ; preds = %if.end.i.i45.i, %entry.usb_mtp_realloc.exit_crit_edge.i33.i
-  %764 = phi i64 [ %761, %entry.usb_mtp_realloc.exit_crit_edge.i33.i ], [ %.pre12.i50.i, %if.end.i.i45.i ]
-  %765 = phi ptr [ %.pre.i35.i, %entry.usb_mtp_realloc.exit_crit_edge.i33.i ], [ %call.i.i49.i, %if.end.i.i45.i ]
-  %data1.i36.i = getelementptr inbounds i8, ptr %call.i.i502, i64 32
-  %inc.i37.i = add i64 %764, 1
+  %762 = phi i64 [ %759, %entry.usb_mtp_realloc.exit_crit_edge.i33.i ], [ %.pre12.i50.i, %if.end.i.i45.i ]
+  %763 = phi ptr [ %.pre.i35.i, %entry.usb_mtp_realloc.exit_crit_edge.i33.i ], [ %call.i.i49.i, %if.end.i.i45.i ]
+  %data1.i36.i = getelementptr inbounds i8, ptr %call.i.i507, i64 32
+  %inc.i37.i = add i64 %762, 1
   store i64 %inc.i37.i, ptr %length.i.i29.i, align 8
-  %arrayidx.i38.i = getelementptr i8, ptr %765, i64 %764
+  %arrayidx.i38.i = getelementptr i8, ptr %763, i64 %762
   store i8 0, ptr %arrayidx.i38.i, align 1
+  %764 = load ptr, ptr %data1.i36.i, align 8
+  %765 = load i64, ptr %length.i.i29.i, align 8
+  %inc7.i39.i = add i64 %765, 1
+  store i64 %inc7.i39.i, ptr %length.i.i29.i, align 8
+  %arrayidx8.i40.i = getelementptr i8, ptr %764, i64 %765
+  store i8 0, ptr %arrayidx8.i40.i, align 1
   %766 = load ptr, ptr %data1.i36.i, align 8
   %767 = load i64, ptr %length.i.i29.i, align 8
-  %inc7.i39.i = add i64 %767, 1
-  store i64 %inc7.i39.i, ptr %length.i.i29.i, align 8
-  %arrayidx8.i40.i = getelementptr i8, ptr %766, i64 %767
-  store i8 0, ptr %arrayidx8.i40.i, align 1
+  %inc14.i41.i = add i64 %767, 1
+  store i64 %inc14.i41.i, ptr %length.i.i29.i, align 8
+  %arrayidx15.i42.i = getelementptr i8, ptr %766, i64 %767
+  store i8 0, ptr %arrayidx15.i42.i, align 1
   %768 = load ptr, ptr %data1.i36.i, align 8
   %769 = load i64, ptr %length.i.i29.i, align 8
-  %inc14.i41.i = add i64 %769, 1
-  store i64 %inc14.i41.i, ptr %length.i.i29.i, align 8
-  %arrayidx15.i42.i = getelementptr i8, ptr %768, i64 %769
-  store i8 0, ptr %arrayidx15.i42.i, align 1
-  %770 = load ptr, ptr %data1.i36.i, align 8
-  %771 = load i64, ptr %length.i.i29.i, align 8
-  %inc21.i43.i = add i64 %771, 1
+  %inc21.i43.i = add i64 %769, 1
   store i64 %inc21.i43.i, ptr %length.i.i29.i, align 8
-  %arrayidx22.i44.i = getelementptr i8, ptr %770, i64 %771
+  %arrayidx22.i44.i = getelementptr i8, ptr %768, i64 %769
   store i8 0, ptr %arrayidx22.i44.i, align 1
   br label %if.then302
 
-if.else.i519:                                     ; preds = %sw.bb3.i516
-  %772 = load i32, ptr %760, align 8
-  %length.i.i52.i = getelementptr inbounds i8, ptr %call.i.i502, i64 16
-  %773 = load i64, ptr %length.i.i52.i, align 8
-  %add.i.i53.i = add i64 %773, 4
-  %alloc.i.i54.i = getelementptr inbounds i8, ptr %call.i.i502, i64 24
-  %774 = load i64, ptr %alloc.i.i54.i, align 8
-  %cmp.not.i.i55.i = icmp ugt i64 %add.i.i53.i, %774
-  br i1 %cmp.not.i.i55.i, label %if.end.i.i68.i524, label %entry.usb_mtp_realloc.exit_crit_edge.i56.i
+if.else.i524:                                     ; preds = %sw.bb3.i521
+  %770 = load i32, ptr %758, align 8
+  %length.i.i52.i = getelementptr inbounds i8, ptr %call.i.i507, i64 16
+  %771 = load i64, ptr %length.i.i52.i, align 8
+  %add.i.i53.i = add i64 %771, 4
+  %alloc.i.i54.i = getelementptr inbounds i8, ptr %call.i.i507, i64 24
+  %772 = load i64, ptr %alloc.i.i54.i, align 8
+  %cmp.not.i.i55.i = icmp ugt i64 %add.i.i53.i, %772
+  br i1 %cmp.not.i.i55.i, label %if.end.i.i68.i529, label %entry.usb_mtp_realloc.exit_crit_edge.i56.i
 
-entry.usb_mtp_realloc.exit_crit_edge.i56.i:       ; preds = %if.else.i519
-  %data1.phi.trans.insert.i57.i = getelementptr inbounds i8, ptr %call.i.i502, i64 32
+entry.usb_mtp_realloc.exit_crit_edge.i56.i:       ; preds = %if.else.i524
+  %data1.phi.trans.insert.i57.i = getelementptr inbounds i8, ptr %call.i.i507, i64 32
   %.pre.i58.i = load ptr, ptr %data1.phi.trans.insert.i57.i, align 8
   br label %usb_mtp_add_u32.exit74.i
 
-if.end.i.i68.i524:                                ; preds = %if.else.i519
-  %add5.i.i69.i525 = add i64 %773, 259
-  %and.i.i70.i526 = and i64 %add5.i.i69.i525, -256
-  store i64 %and.i.i70.i526, ptr %alloc.i.i54.i, align 8
-  %data7.i.i71.i527 = getelementptr inbounds i8, ptr %call.i.i502, i64 32
-  %775 = load ptr, ptr %data7.i.i71.i527, align 8
-  %call.i.i72.i528 = tail call ptr @g_realloc(ptr noundef %775, i64 noundef %and.i.i70.i526) #15
-  store ptr %call.i.i72.i528, ptr %data7.i.i71.i527, align 8
+if.end.i.i68.i529:                                ; preds = %if.else.i524
+  %add5.i.i69.i530 = add i64 %771, 259
+  %and.i.i70.i531 = and i64 %add5.i.i69.i530, -256
+  store i64 %and.i.i70.i531, ptr %alloc.i.i54.i, align 8
+  %data7.i.i71.i532 = getelementptr inbounds i8, ptr %call.i.i507, i64 32
+  %773 = load ptr, ptr %data7.i.i71.i532, align 8
+  %call.i.i72.i533 = tail call ptr @g_realloc(ptr noundef %773, i64 noundef %and.i.i70.i531) #15
+  store ptr %call.i.i72.i533, ptr %data7.i.i71.i532, align 8
   %.pre12.i73.i = load i64, ptr %length.i.i52.i, align 8
   br label %usb_mtp_add_u32.exit74.i
 
-usb_mtp_add_u32.exit74.i:                         ; preds = %if.end.i.i68.i524, %entry.usb_mtp_realloc.exit_crit_edge.i56.i
-  %776 = phi i64 [ %773, %entry.usb_mtp_realloc.exit_crit_edge.i56.i ], [ %.pre12.i73.i, %if.end.i.i68.i524 ]
-  %777 = phi ptr [ %.pre.i58.i, %entry.usb_mtp_realloc.exit_crit_edge.i56.i ], [ %call.i.i72.i528, %if.end.i.i68.i524 ]
-  %conv.i.i520 = trunc i32 %772 to i8
-  %data1.i59.i = getelementptr inbounds i8, ptr %call.i.i502, i64 32
-  %inc.i60.i = add i64 %776, 1
+usb_mtp_add_u32.exit74.i:                         ; preds = %if.end.i.i68.i529, %entry.usb_mtp_realloc.exit_crit_edge.i56.i
+  %774 = phi i64 [ %771, %entry.usb_mtp_realloc.exit_crit_edge.i56.i ], [ %.pre12.i73.i, %if.end.i.i68.i529 ]
+  %775 = phi ptr [ %.pre.i58.i, %entry.usb_mtp_realloc.exit_crit_edge.i56.i ], [ %call.i.i72.i533, %if.end.i.i68.i529 ]
+  %conv.i.i525 = trunc i32 %770 to i8
+  %data1.i59.i = getelementptr inbounds i8, ptr %call.i.i507, i64 32
+  %inc.i60.i = add i64 %774, 1
   store i64 %inc.i60.i, ptr %length.i.i52.i, align 8
-  %arrayidx.i61.i = getelementptr i8, ptr %777, i64 %776
-  store i8 %conv.i.i520, ptr %arrayidx.i61.i, align 1
-  %shr2.i.i = lshr i32 %772, 8
-  %conv4.i.i521 = trunc i32 %shr2.i.i to i8
+  %arrayidx.i61.i = getelementptr i8, ptr %775, i64 %774
+  store i8 %conv.i.i525, ptr %arrayidx.i61.i, align 1
+  %shr2.i.i = lshr i32 %770, 8
+  %conv4.i.i526 = trunc i32 %shr2.i.i to i8
+  %776 = load ptr, ptr %data1.i59.i, align 8
+  %777 = load i64, ptr %length.i.i52.i, align 8
+  %inc7.i62.i = add i64 %777, 1
+  store i64 %inc7.i62.i, ptr %length.i.i52.i, align 8
+  %arrayidx8.i63.i = getelementptr i8, ptr %776, i64 %777
+  store i8 %conv4.i.i526, ptr %arrayidx8.i63.i, align 1
+  %shr9.i.i = lshr i32 %770, 16
+  %conv11.i.i527 = trunc i32 %shr9.i.i to i8
   %778 = load ptr, ptr %data1.i59.i, align 8
   %779 = load i64, ptr %length.i.i52.i, align 8
-  %inc7.i62.i = add i64 %779, 1
-  store i64 %inc7.i62.i, ptr %length.i.i52.i, align 8
-  %arrayidx8.i63.i = getelementptr i8, ptr %778, i64 %779
-  store i8 %conv4.i.i521, ptr %arrayidx8.i63.i, align 1
-  %shr9.i.i = lshr i32 %772, 16
-  %conv11.i.i522 = trunc i32 %shr9.i.i to i8
+  %inc14.i64.i = add i64 %779, 1
+  store i64 %inc14.i64.i, ptr %length.i.i52.i, align 8
+  %arrayidx15.i65.i = getelementptr i8, ptr %778, i64 %779
+  store i8 %conv11.i.i527, ptr %arrayidx15.i65.i, align 1
+  %shr16.i.i = lshr i32 %770, 24
+  %conv18.i.i528 = trunc nuw i32 %shr16.i.i to i8
   %780 = load ptr, ptr %data1.i59.i, align 8
   %781 = load i64, ptr %length.i.i52.i, align 8
-  %inc14.i64.i = add i64 %781, 1
-  store i64 %inc14.i64.i, ptr %length.i.i52.i, align 8
-  %arrayidx15.i65.i = getelementptr i8, ptr %780, i64 %781
-  store i8 %conv11.i.i522, ptr %arrayidx15.i65.i, align 1
-  %shr16.i.i = lshr i32 %772, 24
-  %conv18.i.i523 = trunc nuw i32 %shr16.i.i to i8
-  %782 = load ptr, ptr %data1.i59.i, align 8
-  %783 = load i64, ptr %length.i.i52.i, align 8
-  %inc21.i66.i = add i64 %783, 1
+  %inc21.i66.i = add i64 %781, 1
   store i64 %inc21.i66.i, ptr %length.i.i52.i, align 8
-  %arrayidx22.i67.i = getelementptr i8, ptr %782, i64 %783
-  store i8 %conv18.i.i523, ptr %arrayidx22.i67.i, align 1
+  %arrayidx22.i67.i = getelementptr i8, ptr %780, i64 %781
+  store i8 %conv18.i.i528, ptr %arrayidx22.i67.i, align 1
   br label %if.then302
 
-sw.bb5.i514:                                      ; preds = %if.end288
-  tail call fastcc void @usb_mtp_add_u64(ptr noundef nonnull %call.i.i502, i64 noundef 0)
-  %784 = load i32, ptr %o.06.i494, align 8
-  %conv.i515 = zext i32 %784 to i64
-  tail call fastcc void @usb_mtp_add_u64(ptr noundef nonnull %call.i.i502, i64 noundef %conv.i515)
+sw.bb5.i519:                                      ; preds = %if.end288
+  tail call fastcc void @usb_mtp_add_u64(ptr noundef nonnull %call.i.i507, i64 noundef 0)
+  %782 = load i32, ptr %o.06.i499, align 8
+  %conv.i520 = zext i32 %782 to i64
+  tail call fastcc void @usb_mtp_add_u64(ptr noundef nonnull %call.i.i507, i64 noundef %conv.i520)
   br label %if.then302
 
 sw.bb7.i:                                         ; preds = %if.end288
-  %name.i507 = getelementptr inbounds i8, ptr %o.06.i494, i64 8
-  %785 = load ptr, ptr %name.i507, align 8
-  %call.i75.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %785) #19
+  %name.i512 = getelementptr inbounds i8, ptr %o.06.i499, i64 8
+  %783 = load ptr, ptr %name.i512, align 8
+  %call.i75.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %783) #19
   %conv.i76.i = add i64 %call.i75.i, 1
   %conv1.i77.i = and i64 %conv.i76.i, 4294967295
-  %call2.i.i508 = tail call noalias ptr @g_malloc_n(i64 noundef %conv1.i77.i, i64 noundef 4) #17
-  %call4.i.i509 = tail call i64 @mbstowcs(ptr noundef %call2.i.i508, ptr noundef %785, i64 noundef %conv1.i77.i) #15
-  %cmp.i.i510 = icmp eq i64 %call4.i.i509, -1
-  br i1 %cmp.i.i510, label %if.then.i.i513, label %if.else.i.i511
+  %call2.i.i513 = tail call noalias ptr @g_malloc_n(i64 noundef %conv1.i77.i, i64 noundef 4) #17
+  %call4.i.i514 = tail call i64 @mbstowcs(ptr noundef %call2.i.i513, ptr noundef %783, i64 noundef %conv1.i77.i) #15
+  %cmp.i.i515 = icmp eq i64 %call4.i.i514, -1
+  br i1 %cmp.i.i515, label %if.then.i.i518, label %if.else.i.i516
 
-if.then.i.i513:                                   ; preds = %sw.bb7.i
-  tail call fastcc void @usb_mtp_add_wstr(ptr noundef nonnull %call.i.i502, ptr noundef nonnull @.str.67)
+if.then.i.i518:                                   ; preds = %sw.bb7.i
+  tail call fastcc void @usb_mtp_add_wstr(ptr noundef nonnull %call.i.i507, ptr noundef nonnull @.str.67)
   br label %usb_mtp_add_str.exit.i
 
-if.else.i.i511:                                   ; preds = %sw.bb7.i
-  tail call fastcc void @usb_mtp_add_wstr(ptr noundef nonnull %call.i.i502, ptr noundef %call2.i.i508)
+if.else.i.i516:                                   ; preds = %sw.bb7.i
+  tail call fastcc void @usb_mtp_add_wstr(ptr noundef nonnull %call.i.i507, ptr noundef %call2.i.i513)
   br label %usb_mtp_add_str.exit.i
 
-usb_mtp_add_str.exit.i:                           ; preds = %if.else.i.i511, %if.then.i.i513
-  tail call void @g_free(ptr noundef %call2.i.i508) #15
+usb_mtp_add_str.exit.i:                           ; preds = %if.else.i.i516, %if.then.i.i518
+  tail call void @g_free(ptr noundef %call2.i.i513) #15
   br label %if.then302
 
 if.then292:                                       ; preds = %if.end288
-  %data5.i.i567 = getelementptr inbounds i8, ptr %call.i.i502, i64 32
-  %786 = load ptr, ptr %data5.i.i567, align 8
-  tail call void @g_free(ptr noundef %786) #15
-  tail call void @g_free(ptr noundef nonnull %call.i.i502) #15
-  %787 = load i32, ptr %trans.i.i503, align 4
-  tail call fastcc void @usb_mtp_queue_result(ptr noundef %s, i16 noundef zeroext -22527, i32 noundef %787, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %data5.i.i572 = getelementptr inbounds i8, ptr %call.i.i507, i64 32
+  %784 = load ptr, ptr %data5.i.i572, align 8
+  tail call void @g_free(ptr noundef %784) #15
+  tail call void @g_free(ptr noundef nonnull %call.i.i507) #15
+  %785 = load i32, ptr %trans.i.i508, align 4
+  tail call fastcc void @usb_mtp_queue_result(ptr noundef %s, i16 noundef zeroext -22527, i32 noundef %785, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   br label %return
 
 sw.default:                                       ; preds = %if.end
   %conv5 = zext i16 %0 to i32
   %addr296 = getelementptr inbounds i8, ptr %s, i64 224
-  %788 = load i8, ptr %addr296, align 8
-  %conv297 = zext i8 %788 to i32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i568)
-  %789 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i569 = icmp ne i32 %789, 0
-  %790 = load i16, ptr @_TRACE_USB_MTP_OP_UNKNOWN_DSTATE, align 2
-  %tobool4.i.i570 = icmp ne i16 %790, 0
-  %or.cond.i.i571 = select i1 %tobool.i.i569, i1 %tobool4.i.i570, i1 false
-  br i1 %or.cond.i.i571, label %land.lhs.true5.i.i572, label %trace_usb_mtp_op_unknown.exit
+  %786 = load i8, ptr %addr296, align 8
+  %conv297 = zext i8 %786 to i32
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i573)
+  %787 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i574 = icmp ne i32 %787, 0
+  %788 = load i16, ptr @_TRACE_USB_MTP_OP_UNKNOWN_DSTATE, align 2
+  %tobool4.i.i575 = icmp ne i16 %788, 0
+  %or.cond.i.i576 = select i1 %tobool.i.i574, i1 %tobool4.i.i575, i1 false
+  br i1 %or.cond.i.i576, label %land.lhs.true5.i.i577, label %trace_usb_mtp_op_unknown.exit
 
-land.lhs.true5.i.i572:                            ; preds = %sw.default
-  %791 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i573 = and i32 %791, 32768
-  %cmp.i.not.i.i574 = icmp eq i32 %and.i.i.i573, 0
-  br i1 %cmp.i.not.i.i574, label %trace_usb_mtp_op_unknown.exit, label %if.then.i.i575
+land.lhs.true5.i.i577:                            ; preds = %sw.default
+  %789 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i578 = and i32 %789, 32768
+  %cmp.i.not.i.i579 = icmp eq i32 %and.i.i.i578, 0
+  br i1 %cmp.i.not.i.i579, label %trace_usb_mtp_op_unknown.exit, label %if.then.i.i580
 
-if.then.i.i575:                                   ; preds = %land.lhs.true5.i.i572
-  %792 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i576 = trunc i8 %792 to i1
-  br i1 %tobool7.i.i576, label %if.then8.i.i578, label %if.else.i.i577
+if.then.i.i580:                                   ; preds = %land.lhs.true5.i.i577
+  %790 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i581 = trunc i8 %790 to i1
+  br i1 %tobool7.i.i581, label %if.then8.i.i583, label %if.else.i.i582
 
-if.then8.i.i578:                                  ; preds = %if.then.i.i575
-  %call9.i.i579 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i568, ptr noundef null) #15
-  %call10.i.i580 = tail call i32 @qemu_get_thread_id() #15
-  %793 = load i64, ptr %_now.i.i568, align 8
-  %tv_usec.i.i581 = getelementptr inbounds i8, ptr %_now.i.i568, i64 8
-  %794 = load i64, ptr %tv_usec.i.i581, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.90, i32 noundef %call10.i.i580, i64 noundef %793, i64 noundef %794, i32 noundef %conv297, i32 noundef %conv5) #15
+if.then8.i.i583:                                  ; preds = %if.then.i.i580
+  %call9.i.i584 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i573, ptr noundef null) #15
+  %call10.i.i585 = tail call i32 @qemu_get_thread_id() #15
+  %791 = load i64, ptr %_now.i.i573, align 8
+  %tv_usec.i.i586 = getelementptr inbounds i8, ptr %_now.i.i573, i64 8
+  %792 = load i64, ptr %tv_usec.i.i586, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.90, i32 noundef %call10.i.i585, i64 noundef %791, i64 noundef %792, i32 noundef %conv297, i32 noundef %conv5) #15
   br label %trace_usb_mtp_op_unknown.exit
 
-if.else.i.i577:                                   ; preds = %if.then.i.i575
+if.else.i.i582:                                   ; preds = %if.then.i.i580
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.91, i32 noundef %conv297, i32 noundef %conv5) #15
   br label %trace_usb_mtp_op_unknown.exit
 
-trace_usb_mtp_op_unknown.exit:                    ; preds = %sw.default, %land.lhs.true5.i.i572, %if.then8.i.i578, %if.else.i.i577
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i568)
+trace_usb_mtp_op_unknown.exit:                    ; preds = %sw.default, %land.lhs.true5.i.i577, %if.then8.i.i583, %if.else.i.i582
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i573)
   %trans300 = getelementptr inbounds i8, ptr %c, i64 4
-  %795 = load i32, ptr %trans300, align 4
-  %call.i582 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #17
-  store i16 8197, ptr %call.i582, align 4
-  %trans2.i583 = getelementptr inbounds i8, ptr %call.i582, i64 4
-  store i32 %795, ptr %trans2.i583, align 4
-  %argc3.i584 = getelementptr inbounds i8, ptr %call.i582, i64 8
-  store i32 0, ptr %argc3.i584, align 4
-  %result.i585 = getelementptr inbounds i8, ptr %s, i64 5904
-  %796 = load ptr, ptr %result.i585, align 8
-  %cmp14.i586 = icmp eq ptr %796, null
-  br i1 %cmp14.i586, label %usb_mtp_queue_result.exit589, label %if.else.i587
+  %793 = load i32, ptr %trans300, align 4
+  %call.i587 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #17
+  store i16 8197, ptr %call.i587, align 4
+  %trans2.i588 = getelementptr inbounds i8, ptr %call.i587, i64 4
+  store i32 %793, ptr %trans2.i588, align 4
+  %argc3.i589 = getelementptr inbounds i8, ptr %call.i587, i64 8
+  store i32 0, ptr %argc3.i589, align 4
+  %result.i590 = getelementptr inbounds i8, ptr %s, i64 5904
+  %794 = load ptr, ptr %result.i590, align 8
+  %cmp14.i591 = icmp eq ptr %794, null
+  br i1 %cmp14.i591, label %usb_mtp_queue_result.exit594, label %if.else.i592
 
-if.else.i587:                                     ; preds = %trace_usb_mtp_op_unknown.exit
+if.else.i592:                                     ; preds = %trace_usb_mtp_op_unknown.exit
   tail call void @__assert_fail(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.8, i32 noundef 800, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_mtp_queue_result) #18
   unreachable
 
-usb_mtp_queue_result.exit589:                     ; preds = %trace_usb_mtp_op_unknown.exit
-  store ptr %call.i582, ptr %result.i585, align 8
+usb_mtp_queue_result.exit594:                     ; preds = %trace_usb_mtp_op_unknown.exit
+  store ptr %call.i587, ptr %result.i590, align 8
   br label %return
 
 sw.epilog:                                        ; preds = %if.end101
-  %call111 = tail call fastcc ptr @usb_mtp_get_object_handles(ptr noundef %s, ptr noundef %c, ptr noundef %o.0607)
+  %call111 = tail call fastcc ptr @usb_mtp_get_object_handles(ptr noundef %s, ptr noundef %c, ptr noundef %o.0612)
   %tobool301.not = icmp eq ptr %call111, null
   br i1 %tobool301.not, label %if.end310, label %if.then302
 
-if.then302:                                       ; preds = %usb_mtp_add_u32.exit.i550, %usb_mtp_add_u16.exit.i535, %sw.bb2.i530, %sw.bb5.i514, %usb_mtp_add_str.exit.i, %usb_mtp_add_u32.exit74.i, %usb_mtp_add_u32.exit51.i, %usb_mtp_add_u8.exit122.i, %usb_mtp_add_u8.exit234.i, %usb_mtp_add_u8.exit327.i, %usb_mtp_add_u8.exit443.i, %usb_mtp_add_u8.exit536.i, %usb_mtp_add_u8.exit645.i, %usb_mtp_get_device_info.exit, %usb_mtp_get_storage_ids.exit, %usb_mtp_get_storage_info.exit, %usb_mtp_get_object_info.exit, %if.end138, %if.end172, %if.end259, %sw.epilog
-  %data_in.0637 = phi ptr [ %call111, %sw.epilog ], [ %call.i.i, %usb_mtp_get_device_info.exit ], [ %call.i.i195, %usb_mtp_get_storage_ids.exit ], [ %call.i.i216, %usb_mtp_get_storage_info.exit ], [ %call.i.i290, %usb_mtp_get_object_info.exit ], [ %call139, %if.end138 ], [ %call167, %if.end172 ], [ %call.i.i433, %if.end259 ], [ %call.i.i446, %usb_mtp_add_u8.exit645.i ], [ %call.i.i446, %usb_mtp_add_u8.exit536.i ], [ %call.i.i446, %usb_mtp_add_u8.exit443.i ], [ %call.i.i446, %usb_mtp_add_u8.exit327.i ], [ %call.i.i446, %usb_mtp_add_u8.exit234.i ], [ %call.i.i446, %usb_mtp_add_u8.exit122.i ], [ %call.i.i502, %usb_mtp_add_u32.exit51.i ], [ %call.i.i502, %usb_mtp_add_u32.exit74.i ], [ %call.i.i502, %usb_mtp_add_str.exit.i ], [ %call.i.i502, %sw.bb5.i514 ], [ %call.i.i502, %sw.bb2.i530 ], [ %call.i.i502, %usb_mtp_add_u16.exit.i535 ], [ %call.i.i502, %usb_mtp_add_u32.exit.i550 ]
-  %res0.0635 = phi i32 [ 0, %sw.epilog ], [ 0, %usb_mtp_get_device_info.exit ], [ 0, %usb_mtp_get_storage_ids.exit ], [ 0, %usb_mtp_get_storage_info.exit ], [ 0, %usb_mtp_get_object_info.exit ], [ 0, %if.end138 ], [ %conv173, %if.end172 ], [ 0, %if.end259 ], [ 0, %usb_mtp_add_u8.exit645.i ], [ 0, %usb_mtp_add_u8.exit536.i ], [ 0, %usb_mtp_add_u8.exit443.i ], [ 0, %usb_mtp_add_u8.exit327.i ], [ 0, %usb_mtp_add_u8.exit234.i ], [ 0, %usb_mtp_add_u8.exit122.i ], [ 0, %usb_mtp_add_u32.exit51.i ], [ 0, %usb_mtp_add_u32.exit74.i ], [ 0, %usb_mtp_add_str.exit.i ], [ 0, %sw.bb5.i514 ], [ 0, %sw.bb2.i530 ], [ 0, %usb_mtp_add_u16.exit.i535 ], [ 0, %usb_mtp_add_u32.exit.i550 ]
-  %nres.0633 = phi i32 [ 0, %sw.epilog ], [ 0, %usb_mtp_get_device_info.exit ], [ 0, %usb_mtp_get_storage_ids.exit ], [ 0, %usb_mtp_get_storage_info.exit ], [ 0, %usb_mtp_get_object_info.exit ], [ 0, %if.end138 ], [ 1, %if.end172 ], [ 0, %if.end259 ], [ 0, %usb_mtp_add_u8.exit645.i ], [ 0, %usb_mtp_add_u8.exit536.i ], [ 0, %usb_mtp_add_u8.exit443.i ], [ 0, %usb_mtp_add_u8.exit327.i ], [ 0, %usb_mtp_add_u8.exit234.i ], [ 0, %usb_mtp_add_u8.exit122.i ], [ 0, %usb_mtp_add_u32.exit51.i ], [ 0, %usb_mtp_add_u32.exit74.i ], [ 0, %usb_mtp_add_str.exit.i ], [ 0, %sw.bb5.i514 ], [ 0, %sw.bb2.i530 ], [ 0, %usb_mtp_add_u16.exit.i535 ], [ 0, %usb_mtp_add_u32.exit.i550 ]
+if.then302:                                       ; preds = %usb_mtp_add_u32.exit.i555, %usb_mtp_add_u16.exit.i540, %sw.bb2.i535, %sw.bb5.i519, %usb_mtp_add_str.exit.i, %usb_mtp_add_u32.exit74.i, %usb_mtp_add_u32.exit51.i, %usb_mtp_add_u8.exit122.i, %usb_mtp_add_u8.exit234.i, %usb_mtp_add_u8.exit327.i, %usb_mtp_add_u8.exit443.i, %usb_mtp_add_u8.exit536.i, %usb_mtp_add_u8.exit645.i, %usb_mtp_get_device_info.exit, %usb_mtp_get_storage_ids.exit, %usb_mtp_get_storage_info.exit, %usb_mtp_get_object_info.exit, %if.end138, %if.end172, %if.end259, %sw.epilog
+  %data_in.0642 = phi ptr [ %call111, %sw.epilog ], [ %call.i.i, %usb_mtp_get_device_info.exit ], [ %call.i.i196, %usb_mtp_get_storage_ids.exit ], [ %call.i.i217, %usb_mtp_get_storage_info.exit ], [ %call.i.i295, %usb_mtp_get_object_info.exit ], [ %call139, %if.end138 ], [ %call167, %if.end172 ], [ %call.i.i438, %if.end259 ], [ %call.i.i451, %usb_mtp_add_u8.exit645.i ], [ %call.i.i451, %usb_mtp_add_u8.exit536.i ], [ %call.i.i451, %usb_mtp_add_u8.exit443.i ], [ %call.i.i451, %usb_mtp_add_u8.exit327.i ], [ %call.i.i451, %usb_mtp_add_u8.exit234.i ], [ %call.i.i451, %usb_mtp_add_u8.exit122.i ], [ %call.i.i507, %usb_mtp_add_u32.exit51.i ], [ %call.i.i507, %usb_mtp_add_u32.exit74.i ], [ %call.i.i507, %usb_mtp_add_str.exit.i ], [ %call.i.i507, %sw.bb5.i519 ], [ %call.i.i507, %sw.bb2.i535 ], [ %call.i.i507, %usb_mtp_add_u16.exit.i540 ], [ %call.i.i507, %usb_mtp_add_u32.exit.i555 ]
+  %res0.0640 = phi i32 [ 0, %sw.epilog ], [ 0, %usb_mtp_get_device_info.exit ], [ 0, %usb_mtp_get_storage_ids.exit ], [ 0, %usb_mtp_get_storage_info.exit ], [ 0, %usb_mtp_get_object_info.exit ], [ 0, %if.end138 ], [ %conv173, %if.end172 ], [ 0, %if.end259 ], [ 0, %usb_mtp_add_u8.exit645.i ], [ 0, %usb_mtp_add_u8.exit536.i ], [ 0, %usb_mtp_add_u8.exit443.i ], [ 0, %usb_mtp_add_u8.exit327.i ], [ 0, %usb_mtp_add_u8.exit234.i ], [ 0, %usb_mtp_add_u8.exit122.i ], [ 0, %usb_mtp_add_u32.exit51.i ], [ 0, %usb_mtp_add_u32.exit74.i ], [ 0, %usb_mtp_add_str.exit.i ], [ 0, %sw.bb5.i519 ], [ 0, %sw.bb2.i535 ], [ 0, %usb_mtp_add_u16.exit.i540 ], [ 0, %usb_mtp_add_u32.exit.i555 ]
+  %nres.0638 = phi i32 [ 0, %sw.epilog ], [ 0, %usb_mtp_get_device_info.exit ], [ 0, %usb_mtp_get_storage_ids.exit ], [ 0, %usb_mtp_get_storage_info.exit ], [ 0, %usb_mtp_get_object_info.exit ], [ 0, %if.end138 ], [ 1, %if.end172 ], [ 0, %if.end259 ], [ 0, %usb_mtp_add_u8.exit645.i ], [ 0, %usb_mtp_add_u8.exit536.i ], [ 0, %usb_mtp_add_u8.exit443.i ], [ 0, %usb_mtp_add_u8.exit327.i ], [ 0, %usb_mtp_add_u8.exit234.i ], [ 0, %usb_mtp_add_u8.exit122.i ], [ 0, %usb_mtp_add_u32.exit51.i ], [ 0, %usb_mtp_add_u32.exit74.i ], [ 0, %usb_mtp_add_str.exit.i ], [ 0, %sw.bb5.i519 ], [ 0, %sw.bb2.i535 ], [ 0, %usb_mtp_add_u16.exit.i540 ], [ 0, %usb_mtp_add_u32.exit.i555 ]
   %data_in303 = getelementptr inbounds i8, ptr %s, i64 5888
-  %797 = load ptr, ptr %data_in303, align 8
-  %cmp304 = icmp eq ptr %797, null
+  %795 = load ptr, ptr %data_in303, align 8
+  %cmp304 = icmp eq ptr %795, null
   br i1 %cmp304, label %if.end308, label %if.else307
 
 if.else307:                                       ; preds = %if.then302
@@ -6128,43 +6164,43 @@ if.else307:                                       ; preds = %if.then302
   unreachable
 
 if.end308:                                        ; preds = %if.then302
-  store ptr %data_in.0637, ptr %data_in303, align 8
+  store ptr %data_in.0642, ptr %data_in303, align 8
   br label %if.end310
 
 if.end310:                                        ; preds = %do.body, %if.then24, %usb_mtp_file_monitor_cleanup.exit, %if.then106, %if.end308, %sw.epilog
-  %res0.0636 = phi i32 [ %res0.0635, %if.end308 ], [ 0, %sw.epilog ], [ 0, %do.body ], [ 0, %if.then24 ], [ 0, %usb_mtp_file_monitor_cleanup.exit ], [ %203, %if.then106 ]
-  %nres.0634 = phi i32 [ %nres.0633, %if.end308 ], [ 0, %sw.epilog ], [ 0, %do.body ], [ 0, %if.then24 ], [ 0, %usb_mtp_file_monitor_cleanup.exit ], [ 1, %if.then106 ]
+  %res0.0641 = phi i32 [ %res0.0640, %if.end308 ], [ 0, %sw.epilog ], [ 0, %do.body ], [ 0, %if.then24 ], [ 0, %usb_mtp_file_monitor_cleanup.exit ], [ %201, %if.then106 ]
+  %nres.0639 = phi i32 [ %nres.0638, %if.end308 ], [ 0, %sw.epilog ], [ 0, %do.body ], [ 0, %if.then24 ], [ 0, %usb_mtp_file_monitor_cleanup.exit ], [ 1, %if.then106 ]
   %trans311 = getelementptr inbounds i8, ptr %c, i64 4
-  %798 = load i32, ptr %trans311, align 4
-  %call.i590 = call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #17
-  store i16 8193, ptr %call.i590, align 4
-  %trans2.i591 = getelementptr inbounds i8, ptr %call.i590, i64 4
-  store i32 %798, ptr %trans2.i591, align 4
-  %argc3.i592 = getelementptr inbounds i8, ptr %call.i590, i64 8
-  store i32 %nres.0634, ptr %argc3.i592, align 4
-  %cmp.not.i593 = icmp eq i32 %nres.0634, 0
-  br i1 %cmp.not.i593, label %if.end13.i, label %if.end.i594
+  %796 = load i32, ptr %trans311, align 4
+  %call.i595 = call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #17
+  store i16 8193, ptr %call.i595, align 4
+  %trans2.i596 = getelementptr inbounds i8, ptr %call.i595, i64 4
+  store i32 %796, ptr %trans2.i596, align 4
+  %argc3.i597 = getelementptr inbounds i8, ptr %call.i595, i64 8
+  store i32 %nres.0639, ptr %argc3.i597, align 4
+  %cmp.not.i598 = icmp eq i32 %nres.0639, 0
+  br i1 %cmp.not.i598, label %if.end13.i, label %if.end.i599
 
-if.end.i594:                                      ; preds = %if.end310
-  %argv.i595 = getelementptr inbounds i8, ptr %call.i590, i64 12
-  store i32 %res0.0636, ptr %argv.i595, align 4
+if.end.i599:                                      ; preds = %if.end310
+  %argv.i600 = getelementptr inbounds i8, ptr %call.i595, i64 12
+  store i32 %res0.0641, ptr %argv.i600, align 4
   br label %if.end13.i
 
-if.end13.i:                                       ; preds = %if.end.i594, %if.end310
-  %result.i597 = getelementptr inbounds i8, ptr %s, i64 5904
-  %799 = load ptr, ptr %result.i597, align 8
-  %cmp14.i598 = icmp eq ptr %799, null
-  br i1 %cmp14.i598, label %usb_mtp_queue_result.exit601, label %if.else.i599
+if.end13.i:                                       ; preds = %if.end.i599, %if.end310
+  %result.i602 = getelementptr inbounds i8, ptr %s, i64 5904
+  %797 = load ptr, ptr %result.i602, align 8
+  %cmp14.i603 = icmp eq ptr %797, null
+  br i1 %cmp14.i603, label %usb_mtp_queue_result.exit606, label %if.else.i604
 
-if.else.i599:                                     ; preds = %if.end13.i
+if.else.i604:                                     ; preds = %if.end13.i
   call void @__assert_fail(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.8, i32 noundef 800, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_mtp_queue_result) #18
   unreachable
 
-usb_mtp_queue_result.exit601:                     ; preds = %if.end13.i
-  store ptr %call.i590, ptr %result.i597, align 8
+usb_mtp_queue_result.exit606:                     ; preds = %if.end13.i
+  store ptr %call.i595, ptr %result.i602, align 8
   br label %return
 
-return:                                           ; preds = %usb_mtp_queue_result.exit52.i, %usb_mtp_queue_result.exit45.i, %usb_mtp_queue_result.exit38.i, %usb_mtp_queue_result.exit31.i, %usb_mtp_queue_result.exit24.i, %usb_mtp_queue_result.exit.i, %usb_mtp_queue_result.exit601, %usb_mtp_queue_result.exit589, %if.then292, %if.then286, %if.then277, %usb_mtp_queue_result.exit445, %usb_mtp_queue_result.exit432, %if.end244, %if.then242, %usb_mtp_queue_result.exit419, %if.end232, %if.then170, %if.then164, %if.then157, %if.then142, %if.then136, %if.then129, %if.then119, %if.then99, %if.then93, %usb_mtp_queue_result.exit273, %usb_mtp_queue_result.exit266, %if.then52, %if.then14, %usb_mtp_queue_result.exit192, %usb_mtp_queue_result.exit
+return:                                           ; preds = %usb_mtp_queue_result.exit52.i, %usb_mtp_queue_result.exit45.i, %usb_mtp_queue_result.exit38.i, %usb_mtp_queue_result.exit31.i, %usb_mtp_queue_result.exit24.i, %usb_mtp_queue_result.exit.i, %usb_mtp_queue_result.exit606, %usb_mtp_queue_result.exit594, %if.then292, %if.then286, %if.then277, %usb_mtp_queue_result.exit450, %usb_mtp_queue_result.exit437, %if.end244, %if.then242, %usb_mtp_queue_result.exit424, %if.end232, %if.then170, %if.then164, %if.then157, %if.then142, %if.then136, %if.then129, %if.then119, %if.then99, %if.then93, %usb_mtp_queue_result.exit278, %usb_mtp_queue_result.exit271, %if.then52, %if.then14, %usb_mtp_queue_result.exit192, %usb_mtp_queue_result.exit
   ret void
 }
 
@@ -8088,16 +8124,25 @@ do.body44:                                        ; preds = %trace_usb_mtp_file_
   %next = getelementptr inbounds i8, ptr %entry1.0.ph, i64 8
   store ptr %38, ptr %next, align 8
   %cmp.not = icmp eq ptr %38, null
-  %tql_prev52 = getelementptr inbounds i8, ptr %opaque, i64 5960
+  br i1 %cmp.not, label %if.else, label %if.then46
+
+if.then46:                                        ; preds = %do.body44
   %tql_prev = getelementptr inbounds i8, ptr %38, i64 16
-  %tql_prev52.sink = select i1 %cmp.not, ptr %tql_prev52, ptr %tql_prev
-  store ptr %next, ptr %tql_prev52.sink, align 8
+  store ptr %next, ptr %tql_prev, align 8
+  br label %if.end53
+
+if.else:                                          ; preds = %do.body44
+  %tql_prev52 = getelementptr inbounds i8, ptr %opaque, i64 5960
+  store ptr %next, ptr %tql_prev52, align 8
+  br label %if.end53
+
+if.end53:                                         ; preds = %if.else, %if.then46
   store ptr %entry1.0.ph, ptr %events, align 8
   %tql_prev57 = getelementptr inbounds i8, ptr %entry1.0.ph, i64 16
   store ptr %events, ptr %tql_prev57, align 8
   br label %if.end59
 
-if.end59:                                         ; preds = %for.inc.i, %for.inc.i92, %for.inc.i59, %for.body.i42, %sw.bb23, %sw.bb11, %entry, %trace_usb_mtp_file_monitor_event.exit127, %if.end, %do.body44, %if.then9
+if.end59:                                         ; preds = %for.inc.i, %for.inc.i92, %for.inc.i59, %for.body.i42, %sw.bb23, %sw.bb11, %entry, %trace_usb_mtp_file_monitor_event.exit127, %if.end, %if.end53, %if.then9
   ret void
 }
 

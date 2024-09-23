@@ -1088,7 +1088,7 @@ define hidden noundef range(i32 0, 2) i32 @_ZN2cv13wechat_qrcode10DecoderMgr9Try
 
 _ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit:    ; preds = %17, %19, %24
   %28 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #17
-          to label %29 unwind label %158
+          to label %29 unwind label %159
 
 29:                                               ; preds = %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit
   %30 = load ptr, ptr %6, align 8
@@ -1105,7 +1105,7 @@ _ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit:    ; preds = %17, %19, %24
 35:                                               ; preds = %29, %31
   store ptr %30, ptr %8, align 8
   invoke void @_ZN5zxing12BinaryBitmapC1ENS_3RefINS_9BinarizerEEE(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull %8)
-          to label %36 unwind label %160
+          to label %36 unwind label %161
 
 36:                                               ; preds = %35
   %37 = getelementptr inbounds i8, ptr %28, i64 8
@@ -1345,17 +1345,17 @@ _ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit:       ; preds = %_ZNSt6vectorIN5zxin
   %142 = load ptr, ptr %100, align 8
   %143 = load ptr, ptr %2, align 8
   %144 = icmp eq ptr %142, %143
-  br i1 %144, label %181, label %145
+  br i1 %144, label %182, label %145
 
 145:                                              ; preds = %_ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit
   %146 = load ptr, ptr %143, align 8
   %147 = invoke noundef i32 @_ZN2cv13wechat_qrcode12BinarizerMgr15GetCurBinarizerEv(ptr noundef nonnull align 8 dereferenceable(32) %10)
-          to label %148 unwind label %172
+          to label %148 unwind label %173
 
 148:                                              ; preds = %145
   %149 = getelementptr inbounds i8, ptr %146, i64 112
   store i32 %147, ptr %149, align 8
-  br label %181
+  br label %182
 
 150:                                              ; preds = %16
   %151 = landingpad { ptr, i32 }
@@ -1370,144 +1370,150 @@ _ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit:       ; preds = %_ZNSt6vectorIN5zxin
   %156 = add i32 %155, -1
   store i32 %156, ptr %154, align 8
   %157 = icmp eq i32 %156, 0
-  br i1 %157, label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit37.sink.split, label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit37
+  br i1 %157, label %158, label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit37
 
-158:                                              ; preds = %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit
-  %159 = landingpad { ptr, i32 }
+158:                                              ; preds = %153
+  store i32 -559026175, ptr %154, align 8
+  br label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit37.sink.split
+
+159:                                              ; preds = %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit
+  %160 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit47
 
-160:                                              ; preds = %35
-  %161 = landingpad { ptr, i32 }
+161:                                              ; preds = %35
+  %162 = landingpad { ptr, i32 }
           cleanup
-  %162 = load ptr, ptr %8, align 8
-  %.not.i38 = icmp eq ptr %162, null
-  br i1 %.not.i38, label %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit39, label %163
+  %163 = load ptr, ptr %8, align 8
+  %.not.i38 = icmp eq ptr %163, null
+  br i1 %.not.i38, label %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit39, label %164
 
-163:                                              ; preds = %160
-  %164 = getelementptr inbounds i8, ptr %162, i64 8
-  %165 = load i32, ptr %164, align 8
-  %166 = add i32 %165, -1
-  store i32 %166, ptr %164, align 8
-  %167 = icmp eq i32 %166, 0
-  br i1 %167, label %168, label %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit39
+164:                                              ; preds = %161
+  %165 = getelementptr inbounds i8, ptr %163, i64 8
+  %166 = load i32, ptr %165, align 8
+  %167 = add i32 %166, -1
+  store i32 %167, ptr %165, align 8
+  %168 = icmp eq i32 %167, 0
+  br i1 %168, label %169, label %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit39
 
-168:                                              ; preds = %163
-  store i32 -559026175, ptr %164, align 8
-  %169 = load ptr, ptr %162, align 8
-  %170 = getelementptr inbounds i8, ptr %169, i64 8
-  %171 = load ptr, ptr %170, align 8
-  call void %171(ptr noundef nonnull align 8 dereferenceable(12) %162) #16
+169:                                              ; preds = %164
+  store i32 -559026175, ptr %165, align 8
+  %170 = load ptr, ptr %163, align 8
+  %171 = getelementptr inbounds i8, ptr %170, i64 8
+  %172 = load ptr, ptr %171, align 8
+  call void %172(ptr noundef nonnull align 8 dereferenceable(12) %163) #16
   br label %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit39
 
-_ZN5zxing3RefINS_9BinarizerEED2Ev.exit39:         ; preds = %160, %163, %168
+_ZN5zxing3RefINS_9BinarizerEED2Ev.exit39:         ; preds = %161, %164, %169
   call void @_ZdlPv(ptr noundef nonnull %28) #18
   br label %_ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit47
 
-172:                                              ; preds = %145
-  %173 = landingpad { ptr, i32 }
+173:                                              ; preds = %145
+  %174 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit41
 
 .body:                                            ; preds = %94, %89, %86
-  %174 = load i32, ptr %37, align 8
-  %175 = add i32 %174, -1
-  store i32 %175, ptr %37, align 8
-  %176 = icmp eq i32 %175, 0
-  br i1 %176, label %177, label %_ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit41
+  %175 = load i32, ptr %37, align 8
+  %176 = add i32 %175, -1
+  store i32 %176, ptr %37, align 8
+  %177 = icmp eq i32 %176, 0
+  br i1 %177, label %178, label %_ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit41
 
-177:                                              ; preds = %.body
+178:                                              ; preds = %.body
   store i32 -559026175, ptr %37, align 8
-  %178 = load ptr, ptr %28, align 8
-  %179 = getelementptr inbounds i8, ptr %178, i64 8
-  %180 = load ptr, ptr %179, align 8
-  call void %180(ptr noundef nonnull align 8 dereferenceable(12) %28) #16
+  %179 = load ptr, ptr %28, align 8
+  %180 = getelementptr inbounds i8, ptr %179, i64 8
+  %181 = load ptr, ptr %180, align 8
+  call void %181(ptr noundef nonnull align 8 dereferenceable(12) %28) #16
   br label %_ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit41
 
-181:                                              ; preds = %_ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit, %148
-  %182 = load i32, ptr %37, align 8
-  %183 = add i32 %182, -1
-  store i32 %183, ptr %37, align 8
-  %184 = icmp eq i32 %183, 0
-  br i1 %184, label %185, label %_ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit43
+182:                                              ; preds = %_ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit, %148
+  %183 = load i32, ptr %37, align 8
+  %184 = add i32 %183, -1
+  store i32 %184, ptr %37, align 8
+  %185 = icmp eq i32 %184, 0
+  br i1 %185, label %186, label %_ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit43
 
-185:                                              ; preds = %181
+186:                                              ; preds = %182
   store i32 -559026175, ptr %37, align 8
-  %186 = load ptr, ptr %28, align 8
-  %187 = getelementptr inbounds i8, ptr %186, i64 8
-  %188 = load ptr, ptr %187, align 8
-  call void %188(ptr noundef nonnull align 8 dereferenceable(12) %28) #16
+  %187 = load ptr, ptr %28, align 8
+  %188 = getelementptr inbounds i8, ptr %187, i64 8
+  %189 = load ptr, ptr %188, align 8
+  call void %189(ptr noundef nonnull align 8 dereferenceable(12) %28) #16
   br label %_ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit43
 
-_ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit43:     ; preds = %181, %185
-  %189 = load ptr, ptr %6, align 8
-  %.not.i44 = icmp eq ptr %189, null
-  br i1 %.not.i44, label %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit45, label %190
+_ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit43:     ; preds = %182, %186
+  %190 = load ptr, ptr %6, align 8
+  %.not.i44 = icmp eq ptr %190, null
+  br i1 %.not.i44, label %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit45, label %191
 
-190:                                              ; preds = %_ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit43
-  %191 = getelementptr inbounds i8, ptr %189, i64 8
-  %192 = load i32, ptr %191, align 8
-  %193 = add i32 %192, -1
-  store i32 %193, ptr %191, align 8
-  %194 = icmp eq i32 %193, 0
-  br i1 %194, label %195, label %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit45
+191:                                              ; preds = %_ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit43
+  %192 = getelementptr inbounds i8, ptr %190, i64 8
+  %193 = load i32, ptr %192, align 8
+  %194 = add i32 %193, -1
+  store i32 %194, ptr %192, align 8
+  %195 = icmp eq i32 %194, 0
+  br i1 %195, label %196, label %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit45
 
-195:                                              ; preds = %190
-  store i32 -559026175, ptr %191, align 8
-  %196 = load ptr, ptr %189, align 8
-  %197 = getelementptr inbounds i8, ptr %196, i64 8
-  %198 = load ptr, ptr %197, align 8
-  call void %198(ptr noundef nonnull align 8 dereferenceable(12) %189) #16
+196:                                              ; preds = %191
+  store i32 -559026175, ptr %192, align 8
+  %197 = load ptr, ptr %190, align 8
+  %198 = getelementptr inbounds i8, ptr %197, i64 8
+  %199 = load ptr, ptr %198, align 8
+  call void %199(ptr noundef nonnull align 8 dereferenceable(12) %190) #16
   br label %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit45
 
-_ZN5zxing3RefINS_9BinarizerEED2Ev.exit45:         ; preds = %_ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit43, %190, %195
-  %199 = zext i1 %144 to i32
+_ZN5zxing3RefINS_9BinarizerEED2Ev.exit45:         ; preds = %_ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit43, %191, %196
+  %200 = zext i1 %144 to i32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #16
-  ret i32 %199
+  ret i32 %200
 
-_ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit41:     ; preds = %172, %.body, %177
-  %.pn15 = phi { ptr, i32 } [ %173, %172 ], [ %87, %.body ], [ %87, %177 ]
-  %200 = load i32, ptr %37, align 8
-  %201 = add i32 %200, -1
-  store i32 %201, ptr %37, align 8
-  %202 = icmp eq i32 %201, 0
-  br i1 %202, label %203, label %_ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit47
+_ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit41:     ; preds = %173, %.body, %178
+  %.pn15 = phi { ptr, i32 } [ %174, %173 ], [ %87, %.body ], [ %87, %178 ]
+  %201 = load i32, ptr %37, align 8
+  %202 = add i32 %201, -1
+  store i32 %202, ptr %37, align 8
+  %203 = icmp eq i32 %202, 0
+  br i1 %203, label %204, label %_ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit47
 
-203:                                              ; preds = %_ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit41
+204:                                              ; preds = %_ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit41
   store i32 -559026175, ptr %37, align 8
-  %204 = load ptr, ptr %28, align 8
-  %205 = getelementptr inbounds i8, ptr %204, i64 8
-  %206 = load ptr, ptr %205, align 8
-  call void %206(ptr noundef nonnull align 8 dereferenceable(12) %28) #16
+  %205 = load ptr, ptr %28, align 8
+  %206 = getelementptr inbounds i8, ptr %205, i64 8
+  %207 = load ptr, ptr %206, align 8
+  call void %207(ptr noundef nonnull align 8 dereferenceable(12) %28) #16
   br label %_ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit47
 
-_ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit47:     ; preds = %203, %_ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit41, %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit39, %158
-  %.pn15.pn = phi { ptr, i32 } [ %161, %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit39 ], [ %159, %158 ], [ %.pn15, %_ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit41 ], [ %.pn15, %203 ]
-  %207 = load ptr, ptr %6, align 8
-  %.not.i48 = icmp eq ptr %207, null
-  br i1 %.not.i48, label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit37, label %208
+_ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit47:     ; preds = %204, %_ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit41, %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit39, %159
+  %.pn15.pn = phi { ptr, i32 } [ %162, %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit39 ], [ %160, %159 ], [ %.pn15, %_ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit41 ], [ %.pn15, %204 ]
+  %208 = load ptr, ptr %6, align 8
+  %.not.i48 = icmp eq ptr %208, null
+  br i1 %.not.i48, label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit37, label %209
 
-208:                                              ; preds = %_ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit47
-  %209 = getelementptr inbounds i8, ptr %207, i64 8
-  %210 = load i32, ptr %209, align 8
-  %211 = add i32 %210, -1
-  store i32 %211, ptr %209, align 8
-  %212 = icmp eq i32 %211, 0
-  br i1 %212, label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit37.sink.split, label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit37
+209:                                              ; preds = %_ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit47
+  %210 = getelementptr inbounds i8, ptr %208, i64 8
+  %211 = load i32, ptr %210, align 8
+  %212 = add i32 %211, -1
+  store i32 %212, ptr %210, align 8
+  %213 = icmp eq i32 %212, 0
+  br i1 %213, label %214, label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit37
 
-_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit37.sink.split: ; preds = %208, %153
-  %.sink60 = phi ptr [ %154, %153 ], [ %209, %208 ]
-  %.sink59 = phi ptr [ %152, %153 ], [ %207, %208 ]
-  %.pn15.pn.pn.ph = phi { ptr, i32 } [ %151, %153 ], [ %.pn15.pn, %208 ]
-  store i32 -559026175, ptr %.sink60, align 8
-  %213 = load ptr, ptr %.sink59, align 8
-  %214 = getelementptr inbounds i8, ptr %213, i64 8
-  %215 = load ptr, ptr %214, align 8
-  call void %215(ptr noundef nonnull align 8 dereferenceable(12) %.sink59) #16
+214:                                              ; preds = %209
+  store i32 -559026175, ptr %210, align 8
+  br label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit37.sink.split
+
+_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit37.sink.split: ; preds = %158, %214
+  %.sink59 = phi ptr [ %208, %214 ], [ %152, %158 ]
+  %.pn15.pn.pn.ph = phi { ptr, i32 } [ %.pn15.pn, %214 ], [ %151, %158 ]
+  %215 = load ptr, ptr %.sink59, align 8
+  %216 = getelementptr inbounds i8, ptr %215, i64 8
+  %217 = load ptr, ptr %216, align 8
+  call void %217(ptr noundef nonnull align 8 dereferenceable(12) %.sink59) #16
   br label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit37
 
-_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit37:  ; preds = %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit37.sink.split, %208, %_ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit47, %153, %150
-  %.pn15.pn.pn = phi { ptr, i32 } [ %151, %150 ], [ %151, %153 ], [ %.pn15.pn, %_ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit47 ], [ %.pn15.pn, %208 ], [ %.pn15.pn.pn.ph, %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit37.sink.split ]
+_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit37:  ; preds = %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit37.sink.split, %209, %_ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit47, %153, %150
+  %.pn15.pn.pn = phi { ptr, i32 } [ %151, %150 ], [ %151, %153 ], [ %.pn15.pn, %_ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit47 ], [ %.pn15.pn, %209 ], [ %.pn15.pn.pn.ph, %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit37.sink.split ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #16
   resume { ptr, i32 } %.pn15.pn.pn
 }

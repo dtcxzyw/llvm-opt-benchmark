@@ -10130,7 +10130,7 @@ define linkonce_odr hidden void @_ZN17SignatureIterator16do_parameters_onI17Comp
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, -1
   %spec.select.i = icmp ult i64 %6, -2
-  br i1 %spec.select.i, label %37, label %7
+  br i1 %spec.select.i, label %36, label %7
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %0, align 8
@@ -10177,94 +10177,94 @@ _Z17is_reference_type9BasicTypeb.exit.i:          ; preds = %15
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %27, %18
-  %.sink15.i = phi i32 [ %19, %18 ], [ %28, %27 ]
-  %.sink.i = phi i32 [ %21, %18 ], [ %.sroa.03.0.copyload.i, %27 ]
+  %storemerge.in = phi i32 [ %28, %27 ], [ %19, %18 ]
+  %.sink.i = phi i32 [ %.sroa.03.0.copyload.i, %27 ], [ %21, %18 ]
   %.sink10.i = load ptr, ptr %13, align 8
-  %29 = add nsw i32 %.sink15.i, 1
-  store i32 %29, ptr %14, align 8
-  %30 = sext i32 %.sink15.i to i64
-  %31 = getelementptr inbounds %class.CellTypeState, ptr %.sink10.i, i64 %30
-  store i32 %.sink.i, ptr %31, align 4
+  %storemerge = add nsw i32 %storemerge.in, 1
+  store i32 %storemerge, ptr %14, align 8
+  %29 = sext i32 %storemerge.in to i64
+  %30 = getelementptr inbounds %class.CellTypeState, ptr %.sink10.i, i64 %29
+  store i32 %.sink.i, ptr %30, align 4
   br label %_ZN17ComputeEntryStack7do_typeE9BasicTypeb.exit
 
 _ZN17ComputeEntryStack7do_typeE9BasicTypeb.exit:  ; preds = %_Z17is_reference_type9BasicTypeb.exit.i, %.sink.split.i
   call void @_ZN15SignatureStream4nextEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #18
-  %32 = load i32, ptr %9, align 4
-  %33 = icmp eq i32 %32, 3
-  br i1 %33, label %._crit_edge, label %15, !llvm.loop !59
+  %31 = load i32, ptr %9, align 4
+  %32 = icmp eq i32 %31, 3
+  br i1 %32, label %._crit_edge, label %15, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %_ZN17ComputeEntryStack7do_typeE9BasicTypeb.exit, %7
-  %34 = getelementptr inbounds i8, ptr %3, i64 24
-  %35 = load i8, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
-  store i8 %35, ptr %36, align 8
+  %33 = getelementptr inbounds i8, ptr %3, i64 24
+  %34 = load i8, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  store i8 %34, ptr %35, align 8
   call void @_ZN15SignatureStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #18
   br label %.loopexit
 
-37:                                               ; preds = %2
-  %38 = lshr i64 %5, 5
-  %39 = trunc i64 %38 to i8
-  %40 = and i8 %39, 15
-  %.not14 = icmp eq i8 %40, 0
-  br i1 %.not14, label %.loopexit, label %.lr.ph16
+36:                                               ; preds = %2
+  %37 = lshr i64 %5, 5
+  %38 = trunc i64 %37 to i8
+  %39 = and i8 %38, 15
+  %.not12 = icmp eq i8 %39, 0
+  br i1 %.not12, label %.loopexit, label %.lr.ph14
 
-.lr.ph16:                                         ; preds = %37
-  %41 = lshr i64 %5, 9
-  %42 = getelementptr inbounds i8, ptr %1, i64 24
-  %43 = getelementptr inbounds i8, ptr %1, i64 32
-  br label %44
+.lr.ph14:                                         ; preds = %36
+  %40 = lshr i64 %5, 9
+  %41 = getelementptr inbounds i8, ptr %1, i64 24
+  %42 = getelementptr inbounds i8, ptr %1, i64 32
+  br label %43
 
-44:                                               ; preds = %.lr.ph16, %_ZN17ComputeEntryStack7do_typeE9BasicTypeb.exit12
-  %45 = phi i64 [ %41, %.lr.ph16 ], [ %65, %_ZN17ComputeEntryStack7do_typeE9BasicTypeb.exit12 ]
-  %46 = phi i8 [ %40, %.lr.ph16 ], [ %64, %_ZN17ComputeEntryStack7do_typeE9BasicTypeb.exit12 ]
-  %47 = phi i8 [ %39, %.lr.ph16 ], [ %63, %_ZN17ComputeEntryStack7do_typeE9BasicTypeb.exit12 ]
-  %48 = and i8 %47, 14
-  %or.cond.i.i3 = icmp eq i8 %48, 12
-  br i1 %or.cond.i.i3, label %49, label %_Z17is_reference_type9BasicTypeb.exit.i4
+43:                                               ; preds = %.lr.ph14, %_ZN17ComputeEntryStack7do_typeE9BasicTypeb.exit10
+  %44 = phi i64 [ %40, %.lr.ph14 ], [ %63, %_ZN17ComputeEntryStack7do_typeE9BasicTypeb.exit10 ]
+  %45 = phi i8 [ %39, %.lr.ph14 ], [ %62, %_ZN17ComputeEntryStack7do_typeE9BasicTypeb.exit10 ]
+  %46 = phi i8 [ %38, %.lr.ph14 ], [ %61, %_ZN17ComputeEntryStack7do_typeE9BasicTypeb.exit10 ]
+  %47 = and i8 %46, 14
+  %or.cond.i.i3 = icmp eq i8 %47, 12
+  br i1 %or.cond.i.i3, label %48, label %_Z17is_reference_type9BasicTypeb.exit.i4
 
-49:                                               ; preds = %44
-  %50 = load i32, ptr %43, align 8
-  %51 = and i32 %50, 16777215
-  %52 = or disjoint i32 %51, 1191182336
+48:                                               ; preds = %43
+  %49 = load i32, ptr %42, align 8
+  %50 = and i32 %49, 16777215
+  %51 = or disjoint i32 %50, 1191182336
   br label %.sink.split.i6
 
-_Z17is_reference_type9BasicTypeb.exit.i4:         ; preds = %44
+_Z17is_reference_type9BasicTypeb.exit.i4:         ; preds = %43
   %.sroa.03.0.copyload.i5 = load i32, ptr @_ZN13CellTypeState5valueE, align 4
-  %53 = load ptr, ptr %42, align 8
-  %54 = load i32, ptr %43, align 8
-  %55 = add nsw i32 %54, 1
-  store i32 %55, ptr %43, align 8
-  %56 = sext i32 %54 to i64
-  %57 = getelementptr inbounds %class.CellTypeState, ptr %53, i64 %56
-  store i32 %.sroa.03.0.copyload.i5, ptr %57, align 4
-  switch i8 %46, label %_ZN17ComputeEntryStack7do_typeE9BasicTypeb.exit12 [
-    i8 11, label %58
-    i8 7, label %58
+  %52 = load ptr, ptr %41, align 8
+  %53 = load i32, ptr %42, align 8
+  %54 = add nsw i32 %53, 1
+  store i32 %54, ptr %42, align 8
+  %55 = sext i32 %53 to i64
+  %56 = getelementptr inbounds %class.CellTypeState, ptr %52, i64 %55
+  store i32 %.sroa.03.0.copyload.i5, ptr %56, align 4
+  switch i8 %45, label %_ZN17ComputeEntryStack7do_typeE9BasicTypeb.exit10 [
+    i8 11, label %57
+    i8 7, label %57
   ]
 
-58:                                               ; preds = %_Z17is_reference_type9BasicTypeb.exit.i4, %_Z17is_reference_type9BasicTypeb.exit.i4
-  %59 = load i32, ptr %43, align 8
+57:                                               ; preds = %_Z17is_reference_type9BasicTypeb.exit.i4, %_Z17is_reference_type9BasicTypeb.exit.i4
+  %58 = load i32, ptr %42, align 8
   br label %.sink.split.i6
 
-.sink.split.i6:                                   ; preds = %58, %49
-  %.sink15.i7 = phi i32 [ %50, %49 ], [ %59, %58 ]
-  %.sink.i10 = phi i32 [ %52, %49 ], [ %.sroa.03.0.copyload.i5, %58 ]
-  %.sink10.i11 = load ptr, ptr %42, align 8
-  %60 = add nsw i32 %.sink15.i7, 1
-  store i32 %60, ptr %43, align 8
-  %61 = sext i32 %.sink15.i7 to i64
-  %62 = getelementptr inbounds %class.CellTypeState, ptr %.sink10.i11, i64 %61
-  store i32 %.sink.i10, ptr %62, align 4
-  br label %_ZN17ComputeEntryStack7do_typeE9BasicTypeb.exit12
+.sink.split.i6:                                   ; preds = %57, %48
+  %storemerge15.in = phi i32 [ %58, %57 ], [ %49, %48 ]
+  %.sink.i9 = phi i32 [ %.sroa.03.0.copyload.i5, %57 ], [ %51, %48 ]
+  %.sink10.i8 = load ptr, ptr %41, align 8
+  %storemerge15 = add nsw i32 %storemerge15.in, 1
+  store i32 %storemerge15, ptr %42, align 8
+  %59 = sext i32 %storemerge15.in to i64
+  %60 = getelementptr inbounds %class.CellTypeState, ptr %.sink10.i8, i64 %59
+  store i32 %.sink.i9, ptr %60, align 4
+  br label %_ZN17ComputeEntryStack7do_typeE9BasicTypeb.exit10
 
-_ZN17ComputeEntryStack7do_typeE9BasicTypeb.exit12: ; preds = %_Z17is_reference_type9BasicTypeb.exit.i4, %.sink.split.i6
-  %63 = trunc i64 %45 to i8
-  %64 = and i8 %63, 15
-  %65 = lshr i64 %45, 4
-  %.not = icmp eq i8 %64, 0
-  br i1 %.not, label %.loopexit, label %44, !llvm.loop !60
+_ZN17ComputeEntryStack7do_typeE9BasicTypeb.exit10: ; preds = %_Z17is_reference_type9BasicTypeb.exit.i4, %.sink.split.i6
+  %61 = trunc i64 %44 to i8
+  %62 = and i8 %61, 15
+  %63 = lshr i64 %44, 4
+  %.not = icmp eq i8 %62, 0
+  br i1 %.not, label %.loopexit, label %43, !llvm.loop !60
 
-.loopexit:                                        ; preds = %_ZN17ComputeEntryStack7do_typeE9BasicTypeb.exit12, %37, %._crit_edge
+.loopexit:                                        ; preds = %_ZN17ComputeEntryStack7do_typeE9BasicTypeb.exit10, %36, %._crit_edge
   ret void
 }
 

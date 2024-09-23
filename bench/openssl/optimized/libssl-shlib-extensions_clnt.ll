@@ -3618,7 +3618,11 @@ if.end52:                                         ; preds = %if.end45
   %session = getelementptr inbounds i8, ptr %s, i64 2176
   %13 = load ptr, ptr %session, align 8
   %kex_group = getelementptr inbounds i8, ptr %13, i64 784
-  br i1 %tobool53.not, label %if.end71.sink.split, label %if.else
+  br i1 %tobool53.not, label %if.then54, label %if.else
+
+if.then54:                                        ; preds = %if.end52
+  store i32 %or.i.i, ptr %kex_group, align 8
+  br label %if.end71
 
 if.else:                                          ; preds = %if.end52
   %14 = load i32, ptr %kex_group, align 8
@@ -3641,14 +3645,10 @@ if.end65:                                         ; preds = %if.then59
   tail call void @SSL_SESSION_free(ptr noundef %15) #10
   store ptr %call61, ptr %session, align 8
   %kex_group69 = getelementptr inbounds i8, ptr %call61, i64 784
-  br label %if.end71.sink.split
-
-if.end71.sink.split:                              ; preds = %if.end52, %if.end65
-  %kex_group69.sink = phi ptr [ %kex_group69, %if.end65 ], [ %kex_group, %if.end52 ]
-  store i32 %or.i.i, ptr %kex_group69.sink, align 8
+  store i32 %or.i.i, ptr %kex_group69, align 8
   br label %if.end71
 
-if.end71:                                         ; preds = %if.end71.sink.split, %if.else
+if.end71:                                         ; preds = %if.else, %if.end65, %if.then54
   %ctx = getelementptr inbounds i8, ptr %s, i64 8
   %16 = load ptr, ptr %ctx, align 8
   %conv72 = trunc nuw i32 %or.i.i to i16

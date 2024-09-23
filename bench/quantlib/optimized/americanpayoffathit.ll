@@ -1538,11 +1538,11 @@ if.then383:                                       ; preds = %if.then.i.i.i211, %
   %186 = load i8, ptr %inTheMoney_274, align 8, !tbaa !57, !range !72, !noundef !61
   %loadedv385 = trunc nuw i8 %186 to i1
   %strike_.i219 = getelementptr inbounds nuw i8, ptr %183, i64 16
-  %this.sink = select i1 %loadedv385, ptr %this, ptr %strike_.i219
+  %.sink401.in = select i1 %loadedv385, ptr %this, ptr %strike_.i219
   %.sink400 = select i1 %loadedv385, double 0.000000e+00, double 1.000000e+00
-  %187 = load double, ptr %this.sink, align 8, !tbaa !60
+  %.sink401 = load double, ptr %.sink401.in, align 8, !tbaa !60
   %K_388 = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store double %187, ptr %K_388, align 8, !tbaa !67
+  store double %.sink401, ptr %K_388, align 8, !tbaa !67
   %DKDstrike_389 = getelementptr inbounds nuw i8, ptr %this, i64 56
   store double %.sink400, ptr %DKDstrike_389, align 8, !tbaa !68
   %cmp.not.i.i = icmp eq ptr %aoo.sroa.5.0, null
@@ -1550,35 +1550,35 @@ if.then383:                                       ; preds = %if.then.i.i.i211, %
 
 if.then.i.i220:                                   ; preds = %if.then383
   %use_count_.i.i.i = getelementptr inbounds nuw i8, ptr %aoo.sroa.5.0, i64 8
-  %188 = atomicrmw sub ptr %use_count_.i.i.i, i32 1 acq_rel, align 4
-  %cmp.i.i.i221 = icmp eq i32 %188, 1
+  %187 = atomicrmw sub ptr %use_count_.i.i.i, i32 1 acq_rel, align 4
+  %cmp.i.i.i221 = icmp eq i32 %187, 1
   br i1 %cmp.i.i.i221, label %if.then.i.i.i222, label %_ZN5boost10shared_ptrIN8QuantLib20AssetOrNothingPayoffEED2Ev.exit
 
 if.then.i.i.i222:                                 ; preds = %if.then.i.i220
   %vtable.i.i.i = load ptr, ptr %aoo.sroa.5.0, align 8, !tbaa !14
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
-  %189 = load ptr, ptr %vfn.i.i.i, align 8
-  invoke void %189(ptr noundef nonnull align 8 dereferenceable(16) %aoo.sroa.5.0)
+  %188 = load ptr, ptr %vfn.i.i.i, align 8
+  invoke void %188(ptr noundef nonnull align 8 dereferenceable(16) %aoo.sroa.5.0)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
 
 .noexc.i.i:                                       ; preds = %if.then.i.i.i222
   %weak_count_.i.i.i.i = getelementptr inbounds nuw i8, ptr %aoo.sroa.5.0, i64 12
-  %190 = atomicrmw sub ptr %weak_count_.i.i.i.i, i32 1 acq_rel, align 4
-  %cmp.i.i.i.i = icmp eq i32 %190, 1
+  %189 = atomicrmw sub ptr %weak_count_.i.i.i.i, i32 1 acq_rel, align 4
+  %cmp.i.i.i.i = icmp eq i32 %189, 1
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN5boost10shared_ptrIN8QuantLib20AssetOrNothingPayoffEED2Ev.exit
 
 if.then.i.i.i.i:                                  ; preds = %.noexc.i.i
   %vtable.i.i.i.i = load ptr, ptr %aoo.sroa.5.0, align 8, !tbaa !14
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
-  %191 = load ptr, ptr %vfn.i.i.i.i, align 8
-  invoke void %191(ptr noundef nonnull align 8 dereferenceable(16) %aoo.sroa.5.0)
+  %190 = load ptr, ptr %vfn.i.i.i.i, align 8
+  invoke void %190(ptr noundef nonnull align 8 dereferenceable(16) %aoo.sroa.5.0)
           to label %_ZN5boost10shared_ptrIN8QuantLib20AssetOrNothingPayoffEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i, %if.then.i.i.i222
-  %192 = landingpad { ptr, i32 }
+  %191 = landingpad { ptr, i32 }
           catch ptr null
-  %193 = extractvalue { ptr, i32 } %192, 0
-  call void @__clang_call_terminate(ptr %193) #20
+  %192 = extractvalue { ptr, i32 } %191, 0
+  call void @__clang_call_terminate(ptr %192) #20
   unreachable
 
 _ZN5boost10shared_ptrIN8QuantLib20AssetOrNothingPayoffEED2Ev.exit: ; preds = %dynamic_cast.end3.i205, %if.end381, %if.then383, %if.then.i.i220, %.noexc.i.i, %if.then.i.i.i.i
@@ -1588,35 +1588,35 @@ _ZN5boost10shared_ptrIN8QuantLib20AssetOrNothingPayoffEED2Ev.exit: ; preds = %dy
 
 if.then.i.i225:                                   ; preds = %_ZN5boost10shared_ptrIN8QuantLib20AssetOrNothingPayoffEED2Ev.exit
   %use_count_.i.i.i226 = getelementptr inbounds nuw i8, ptr %coo.sroa.5.0385392, i64 8
-  %194 = atomicrmw sub ptr %use_count_.i.i.i226, i32 1 acq_rel, align 4
-  %cmp.i.i.i227 = icmp eq i32 %194, 1
+  %193 = atomicrmw sub ptr %use_count_.i.i.i226, i32 1 acq_rel, align 4
+  %cmp.i.i.i227 = icmp eq i32 %193, 1
   br i1 %cmp.i.i.i227, label %if.then.i.i.i228, label %_ZN5boost10shared_ptrIN8QuantLib19CashOrNothingPayoffEED2Ev.exit
 
 if.then.i.i.i228:                                 ; preds = %if.then.i.i225
   %vtable.i.i.i229 = load ptr, ptr %coo.sroa.5.0385392, align 8, !tbaa !14
   %vfn.i.i.i230 = getelementptr inbounds i8, ptr %vtable.i.i.i229, i64 16
-  %195 = load ptr, ptr %vfn.i.i.i230, align 8
-  invoke void %195(ptr noundef nonnull align 8 dereferenceable(16) %coo.sroa.5.0385392)
+  %194 = load ptr, ptr %vfn.i.i.i230, align 8
+  invoke void %194(ptr noundef nonnull align 8 dereferenceable(16) %coo.sroa.5.0385392)
           to label %.noexc.i.i232 unwind label %terminate.lpad.i.i231
 
 .noexc.i.i232:                                    ; preds = %if.then.i.i.i228
   %weak_count_.i.i.i.i233 = getelementptr inbounds nuw i8, ptr %coo.sroa.5.0385392, i64 12
-  %196 = atomicrmw sub ptr %weak_count_.i.i.i.i233, i32 1 acq_rel, align 4
-  %cmp.i.i.i.i234 = icmp eq i32 %196, 1
+  %195 = atomicrmw sub ptr %weak_count_.i.i.i.i233, i32 1 acq_rel, align 4
+  %cmp.i.i.i.i234 = icmp eq i32 %195, 1
   br i1 %cmp.i.i.i.i234, label %if.then.i.i.i.i235, label %_ZN5boost10shared_ptrIN8QuantLib19CashOrNothingPayoffEED2Ev.exit
 
 if.then.i.i.i.i235:                               ; preds = %.noexc.i.i232
   %vtable.i.i.i.i236 = load ptr, ptr %coo.sroa.5.0385392, align 8, !tbaa !14
   %vfn.i.i.i.i237 = getelementptr inbounds i8, ptr %vtable.i.i.i.i236, i64 24
-  %197 = load ptr, ptr %vfn.i.i.i.i237, align 8
-  invoke void %197(ptr noundef nonnull align 8 dereferenceable(16) %coo.sroa.5.0385392)
+  %196 = load ptr, ptr %vfn.i.i.i.i237, align 8
+  invoke void %196(ptr noundef nonnull align 8 dereferenceable(16) %coo.sroa.5.0385392)
           to label %_ZN5boost10shared_ptrIN8QuantLib19CashOrNothingPayoffEED2Ev.exit unwind label %terminate.lpad.i.i231
 
 terminate.lpad.i.i231:                            ; preds = %if.then.i.i.i.i235, %if.then.i.i.i228
-  %198 = landingpad { ptr, i32 }
+  %197 = landingpad { ptr, i32 }
           catch ptr null
-  %199 = extractvalue { ptr, i32 } %198, 0
-  call void @__clang_call_terminate(ptr %199) #20
+  %198 = extractvalue { ptr, i32 } %197, 0
+  call void @__clang_call_terminate(ptr %198) #20
   unreachable
 
 _ZN5boost10shared_ptrIN8QuantLib19CashOrNothingPayoffEED2Ev.exit: ; preds = %if.end373, %_ZN5boost10shared_ptrIN8QuantLib20AssetOrNothingPayoffEED2Ev.exit, %if.then.i.i225, %.noexc.i.i232, %if.then.i.i.i.i235

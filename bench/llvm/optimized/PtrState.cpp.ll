@@ -893,9 +893,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm7objcarc16BottomUpPtrState12InitBot
   %11 = load ptr, ptr %1, align 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef i32 @_ZNK4llvm11LLVMContext11getMDKindIDENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr nonnull @.str.6, i64 23) #7
-  %.sroa.02.0.insert.ext.i = zext i32 %13 to i64
-  %.sroa.02.0.insert.insert.i = or disjoint i64 %.sroa.02.0.insert.ext.i, 4294967296
-  store i64 %.sroa.02.0.insert.insert.i, ptr %6, align 8
+  %.sroa.017.0.insert.ext.i = zext i32 %13 to i64
+  %.sroa.017.0.insert.insert.i = or disjoint i64 %.sroa.017.0.insert.ext.i, 4294967296
+  store i64 %.sroa.017.0.insert.insert.i, ptr %6, align 8
   br label %_ZN4llvm7objcarc14ARCMDKindCache3getENS0_11ARCMDKindIDE.exit
 
 _ZN4llvm7objcarc14ARCMDKindCache3getENS0_11ARCMDKindIDE.exit: ; preds = %._ZN4llvm7objcarc14ARCMDKindCache3getENS0_11ARCMDKindIDE.exit_crit_edge, %10
@@ -1680,9 +1680,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm7objcarc15TopDownPtrState16MatchWit
   %11 = load ptr, ptr %1, align 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef i32 @_ZNK4llvm11LLVMContext11getMDKindIDENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr nonnull @.str.6, i64 23) #7
-  %.sroa.02.0.insert.ext.i = zext i32 %13 to i64
-  %.sroa.02.0.insert.insert.i = or disjoint i64 %.sroa.02.0.insert.ext.i, 4294967296
-  store i64 %.sroa.02.0.insert.insert.i, ptr %6, align 8
+  %.sroa.017.0.insert.ext.i = zext i32 %13 to i64
+  %.sroa.017.0.insert.insert.i = or disjoint i64 %.sroa.017.0.insert.ext.i, 4294967296
+  store i64 %.sroa.017.0.insert.insert.i, ptr %6, align 8
   br label %_ZN4llvm7objcarc14ARCMDKindCache3getENS0_11ARCMDKindIDE.exit
 
 _ZN4llvm7objcarc14ARCMDKindCache3getENS0_11ARCMDKindIDE.exit: ; preds = %._ZN4llvm7objcarc14ARCMDKindCache3getENS0_11ARCMDKindIDE.exit_crit_edge, %10

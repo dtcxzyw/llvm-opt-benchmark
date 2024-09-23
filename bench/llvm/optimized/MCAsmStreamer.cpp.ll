@@ -12989,7 +12989,7 @@ define internal noundef ptr @_ZN12_GLOBAL__N_113MCAsmStreamer19emitDwarfUnitLeng
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 428
   %8 = load i8, ptr %7, align 4
   %9 = trunc i8 %8 to i1
-  br i1 %9, label %23, label %10
+  br i1 %9, label %24, label %10
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12998,50 +12998,48 @@ define internal noundef ptr @_ZN12_GLOBAL__N_113MCAsmStreamer19emitDwarfUnitLeng
   tail call void @llvm.experimental.noalias.scope.decl(metadata !59)
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %14 = load i8, ptr %13, align 8, !noalias !62
-  switch i8 %14, label %15 [
+  switch i8 %14, label %16 [
     i8 0, label %_ZN4llvmplERKNS_5TwineES2_.exit
-    i8 1, label %_ZN4llvmplERKNS_5TwineES2_.exit.sink.split
+    i8 1, label %15
   ]
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 33
-  %17 = load i8, ptr %16, align 1, !noalias !62
-  %18 = icmp eq i8 %17, 1
+  store ptr @.str.221, ptr %4, align 8
+  br label %_ZN4llvmplERKNS_5TwineES2_.exit
+
+16:                                               ; preds = %10
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 33
+  %18 = load i8, ptr %17, align 1, !noalias !62
+  %19 = icmp eq i8 %18, 1
   %.sroa.05.0.copyload.i.i = load ptr, ptr %1, align 8, !noalias !62
   %.sroa.36.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.36.0.copyload.i.i = load i64, ptr %.sroa.36.0..sroa_idx.i.i, align 8, !noalias !62
-  %.014.i.i = select i1 %18, i8 %14, i8 2
-  %.sroa.05.0.i.i = select i1 %18, ptr %.sroa.05.0.copyload.i.i, ptr %1
-  %.sroa.36.0.i.i = select i1 %18, i64 %.sroa.36.0.copyload.i.i, i64 undef
+  %.014.i.i = select i1 %19, i8 %14, i8 2
+  %.sroa.05.0.i.i = select i1 %19, ptr %.sroa.05.0.copyload.i.i, ptr %1
+  %.sroa.36.0.i.i = select i1 %19, i64 %.sroa.36.0.copyload.i.i, i64 undef
   store ptr %.sroa.05.0.i.i, ptr %4, align 8, !alias.scope !62
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %.sroa.36.0.i.i, ptr %.sroa.23.0..sroa_idx.i.i.i, align 8, !alias.scope !62
-  %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  br label %_ZN4llvmplERKNS_5TwineES2_.exit.sink.split
-
-_ZN4llvmplERKNS_5TwineES2_.exit.sink.split:       ; preds = %10, %15
-  %.sink9 = phi ptr [ %19, %15 ], [ %4, %10 ]
-  %.sink7.ph = phi i8 [ %.014.i.i, %15 ], [ 3, %10 ]
-  %.sink.ph = phi i8 [ 3, %15 ], [ %14, %10 ]
-  store ptr @.str.221, ptr %.sink9, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr @.str.221, ptr %20, align 8, !alias.scope !62
   br label %_ZN4llvmplERKNS_5TwineES2_.exit
 
-_ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit.sink.split, %10
-  %.sink7 = phi i8 [ %14, %10 ], [ %.sink7.ph, %_ZN4llvmplERKNS_5TwineES2_.exit.sink.split ]
-  %.sink = phi i8 [ 1, %10 ], [ %.sink.ph, %_ZN4llvmplERKNS_5TwineES2_.exit.sink.split ]
-  %20 = getelementptr inbounds i8, ptr %4, i64 32
-  store i8 %.sink7, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 33
-  store i8 %.sink, ptr %21, align 1
-  %22 = call noundef ptr @_ZN4llvm9MCContext16createTempSymbolERKNS_5TwineEb(ptr noundef nonnull align 8 dereferenceable(2432) %12, ptr noundef nonnull align 8 dereferenceable(34) %4, i1 noundef zeroext true) #21
-  br label %25
+_ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %10, %15, %16
+  %.sink7 = phi i8 [ 3, %15 ], [ %.014.i.i, %16 ], [ %14, %10 ]
+  %.sink = phi i8 [ 1, %15 ], [ 3, %16 ], [ 1, %10 ]
+  %21 = getelementptr inbounds i8, ptr %4, i64 32
+  store i8 %.sink7, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %4, i64 33
+  store i8 %.sink, ptr %22, align 1
+  %23 = call noundef ptr @_ZN4llvm9MCContext16createTempSymbolERKNS_5TwineEb(ptr noundef nonnull align 8 dereferenceable(2432) %12, ptr noundef nonnull align 8 dereferenceable(34) %4, i1 noundef zeroext true) #21
+  br label %26
 
-23:                                               ; preds = %3
-  %24 = tail call noundef ptr @_ZN4llvm10MCStreamer19emitDwarfUnitLengthERKNS_5TwineES3_(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 8 dereferenceable(34) %1, ptr noundef nonnull align 8 dereferenceable(34) %2) #21
-  br label %25
+24:                                               ; preds = %3
+  %25 = tail call noundef ptr @_ZN4llvm10MCStreamer19emitDwarfUnitLengthERKNS_5TwineES3_(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 8 dereferenceable(34) %1, ptr noundef nonnull align 8 dereferenceable(34) %2) #21
+  br label %26
 
-25:                                               ; preds = %23, %_ZN4llvmplERKNS_5TwineES2_.exit
-  %.0 = phi ptr [ %24, %23 ], [ %22, %_ZN4llvmplERKNS_5TwineES2_.exit ]
+26:                                               ; preds = %24, %_ZN4llvmplERKNS_5TwineES2_.exit
+  %.0 = phi ptr [ %25, %24 ], [ %23, %_ZN4llvmplERKNS_5TwineES2_.exit ]
   ret ptr %.0
 }
 

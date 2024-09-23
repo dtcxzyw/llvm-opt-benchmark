@@ -7784,7 +7784,11 @@ if.then.i.i.i22:                                  ; preds = %_ZNSt10shared_ptrIN
   %13 = load atomic i64, ptr %_M_use_count.i.i.i.i23 acquire, align 8
   %cmp.i.i.i.i24 = icmp eq i64 %13, 4294967297
   %14 = trunc i64 %13 to i32
-  br i1 %cmp.i.i.i.i24, label %cleanup.sink.split.sink.split, label %if.end.i.i.i.i25
+  br i1 %cmp.i.i.i.i24, label %if.then.i.i.i.i47, label %if.end.i.i.i.i25
+
+if.then.i.i.i.i47:                                ; preds = %if.then.i.i.i22
+  store i32 0, ptr %_M_use_count.i.i.i.i23, align 8
+  br label %cleanup.sink.split.sink.split
 
 if.end.i.i.i.i25:                                 ; preds = %if.then.i.i.i22
   %15 = load i8, ptr @__libc_single_threaded, align 1
@@ -7913,7 +7917,11 @@ if.then.i.i.i88:                                  ; preds = %_ZNSt10shared_ptrIN
   %33 = load atomic i64, ptr %_M_use_count.i.i.i.i89 acquire, align 8
   %cmp.i.i.i.i90 = icmp eq i64 %33, 4294967297
   %34 = trunc i64 %33 to i32
-  br i1 %cmp.i.i.i.i90, label %cleanup.sink.split.sink.split, label %if.end.i.i.i.i91
+  br i1 %cmp.i.i.i.i90, label %if.then.i.i.i.i113, label %if.end.i.i.i.i91
+
+if.then.i.i.i.i113:                               ; preds = %if.then.i.i.i88
+  store i32 0, ptr %_M_use_count.i.i.i.i89, align 8
+  br label %cleanup.sink.split.sink.split
 
 if.end.i.i.i.i91:                                 ; preds = %if.then.i.i.i88
   %35 = load i8, ptr @__libc_single_threaded, align 1
@@ -8146,7 +8154,11 @@ if.then.i.i.i209:                                 ; preds = %_ZNSt10shared_ptrIN
   %66 = load atomic i64, ptr %_M_use_count.i.i.i.i210 acquire, align 8
   %cmp.i.i.i.i211 = icmp eq i64 %66, 4294967297
   %67 = trunc i64 %66 to i32
-  br i1 %cmp.i.i.i.i211, label %cleanup.sink.split.sink.split, label %if.end.i.i.i.i212
+  br i1 %cmp.i.i.i.i211, label %if.then.i.i.i.i234, label %if.end.i.i.i.i212
+
+if.then.i.i.i.i234:                               ; preds = %if.then.i.i.i209
+  store i32 0, ptr %_M_use_count.i.i.i.i210, align 8
+  br label %cleanup.sink.split.sink.split
 
 if.end.i.i.i.i212:                                ; preds = %if.then.i.i.i209
   %68 = load i8, ptr @__libc_single_threaded, align 1
@@ -8212,10 +8224,8 @@ sw.default:                                       ; preds = %_ZN8facebook5velox1
   tail call void @llvm.trap()
   unreachable
 
-cleanup.sink.split.sink.split:                    ; preds = %if.then.i.i.i209, %if.then.i.i.i88, %if.then.i.i.i22
-  %_M_use_count.i.i.i.i210.sink = phi ptr [ %_M_use_count.i.i.i.i23, %if.then.i.i.i22 ], [ %_M_use_count.i.i.i.i89, %if.then.i.i.i88 ], [ %_M_use_count.i.i.i.i210, %if.then.i.i.i209 ]
-  %.sink251 = phi ptr [ %12, %if.then.i.i.i22 ], [ %32, %if.then.i.i.i88 ], [ %65, %if.then.i.i.i209 ]
-  store i32 0, ptr %_M_use_count.i.i.i.i210.sink, align 8
+cleanup.sink.split.sink.split:                    ; preds = %if.then.i.i.i.i47, %if.then.i.i.i.i113, %if.then.i.i.i.i234
+  %.sink251 = phi ptr [ %65, %if.then.i.i.i.i234 ], [ %32, %if.then.i.i.i.i113 ], [ %12, %if.then.i.i.i.i47 ]
   %_M_weak_count.i.i.i.i235 = getelementptr inbounds i8, ptr %.sink251, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i235, align 4
   %vtable.i.i.i.i236 = load ptr, ptr %.sink251, align 8
@@ -31922,7 +31932,11 @@ if.then:                                          ; preds = %entry
   %containsLazyAndIsWrapped_.i = getelementptr inbounds i8, ptr %1, i64 97
   %2 = load i8, ptr %containsLazyAndIsWrapped_.i, align 1
   %tobool.i = trunc i8 %2 to i1
-  br i1 %tobool.i, label %if.then6, label %return
+  br i1 %tobool.i, label %if.then6, label %_ZN8facebook5velox10BaseVector30markAsContainingLazyAndWrappedEv.exit.thread
+
+_ZN8facebook5velox10BaseVector30markAsContainingLazyAndWrappedEv.exit.thread: ; preds = %if.then
+  store i8 1, ptr %containsLazyAndIsWrapped_.i, align 1
+  br label %return
 
 if.then6:                                         ; preds = %if.then
   tail call void @llvm.trap()
@@ -32062,11 +32076,10 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
 if.end47:                                         ; preds = %if.end43, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i, %if.end7
   tail call void @_ZN8facebook5velox14ConstantVectorImE15makeNullsBufferEv(ptr noundef nonnull align 32 dereferenceable(224) %this)
   %initialized_ = getelementptr inbounds i8, ptr %this, i64 185
+  store i8 1, ptr %initialized_, align 1
   br label %return
 
-return:                                           ; preds = %if.then, %if.end47
-  %containsLazyAndIsWrapped_.i.sink = phi ptr [ %initialized_, %if.end47 ], [ %containsLazyAndIsWrapped_.i, %if.then ]
-  store i8 1, ptr %containsLazyAndIsWrapped_.i.sink, align 1
+return:                                           ; preds = %_ZN8facebook5velox10BaseVector30markAsContainingLazyAndWrappedEv.exit.thread, %if.end47
   ret void
 }
 
@@ -32842,7 +32855,11 @@ if.then:                                          ; preds = %entry
   %containsLazyAndIsWrapped_.i = getelementptr inbounds i8, ptr %1, i64 97
   %2 = load i8, ptr %containsLazyAndIsWrapped_.i, align 1
   %tobool.i = trunc i8 %2 to i1
-  br i1 %tobool.i, label %if.then6, label %return
+  br i1 %tobool.i, label %if.then6, label %_ZN8facebook5velox10BaseVector30markAsContainingLazyAndWrappedEv.exit.thread
+
+_ZN8facebook5velox10BaseVector30markAsContainingLazyAndWrappedEv.exit.thread: ; preds = %if.then
+  store i8 1, ptr %containsLazyAndIsWrapped_.i, align 1
+  br label %return
 
 if.then6:                                         ; preds = %if.then
   tail call void @llvm.trap()
@@ -32982,11 +32999,10 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
 if.end47:                                         ; preds = %if.end43, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i, %if.end7
   tail call void @_ZN8facebook5velox14ConstantVectorIlE15makeNullsBufferEv(ptr noundef nonnull align 32 dereferenceable(224) %this)
   %initialized_ = getelementptr inbounds i8, ptr %this, i64 185
+  store i8 1, ptr %initialized_, align 1
   br label %return
 
-return:                                           ; preds = %if.then, %if.end47
-  %containsLazyAndIsWrapped_.i.sink = phi ptr [ %initialized_, %if.end47 ], [ %containsLazyAndIsWrapped_.i, %if.then ]
-  store i8 1, ptr %containsLazyAndIsWrapped_.i.sink, align 1
+return:                                           ; preds = %_ZN8facebook5velox10BaseVector30markAsContainingLazyAndWrappedEv.exit.thread, %if.end47
   ret void
 }
 
@@ -35983,7 +35999,11 @@ if.then:                                          ; preds = %entry
   %containsLazyAndIsWrapped_.i = getelementptr inbounds i8, ptr %1, i64 97
   %2 = load i8, ptr %containsLazyAndIsWrapped_.i, align 1
   %tobool.i = trunc i8 %2 to i1
-  br i1 %tobool.i, label %if.then6, label %return
+  br i1 %tobool.i, label %if.then6, label %_ZN8facebook5velox10BaseVector30markAsContainingLazyAndWrappedEv.exit.thread
+
+_ZN8facebook5velox10BaseVector30markAsContainingLazyAndWrappedEv.exit.thread: ; preds = %if.then
+  store i8 1, ptr %containsLazyAndIsWrapped_.i, align 1
+  br label %return
 
 if.then6:                                         ; preds = %if.then
   tail call void @llvm.trap()
@@ -36129,11 +36149,10 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
 if.end47:                                         ; preds = %if.end43, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i, %if.end7
   tail call void @_ZN8facebook5velox14ConstantVectorInE15makeNullsBufferEv(ptr noundef nonnull align 16 dereferenceable(240) %this)
   %initialized_ = getelementptr inbounds i8, ptr %this, i64 225
+  store i8 1, ptr %initialized_, align 1
   br label %return
 
-return:                                           ; preds = %if.then, %if.end47
-  %containsLazyAndIsWrapped_.i.sink = phi ptr [ %initialized_, %if.end47 ], [ %containsLazyAndIsWrapped_.i, %if.then ]
-  store i8 1, ptr %containsLazyAndIsWrapped_.i.sink, align 1
+return:                                           ; preds = %_ZN8facebook5velox10BaseVector30markAsContainingLazyAndWrappedEv.exit.thread, %if.end47
   ret void
 }
 
@@ -42166,7 +42185,11 @@ if.then:                                          ; preds = %entry
   %containsLazyAndIsWrapped_.i = getelementptr inbounds i8, ptr %1, i64 97
   %2 = load i8, ptr %containsLazyAndIsWrapped_.i, align 1
   %tobool.i = trunc i8 %2 to i1
-  br i1 %tobool.i, label %if.then6, label %return
+  br i1 %tobool.i, label %if.then6, label %_ZN8facebook5velox10BaseVector30markAsContainingLazyAndWrappedEv.exit.thread
+
+_ZN8facebook5velox10BaseVector30markAsContainingLazyAndWrappedEv.exit.thread: ; preds = %if.then
+  store i8 1, ptr %containsLazyAndIsWrapped_.i, align 1
+  br label %return
 
 if.then6:                                         ; preds = %if.then
   tail call void @llvm.trap()
@@ -42306,11 +42329,10 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
 if.end47:                                         ; preds = %if.end43, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i, %if.end7
   tail call void @_ZN8facebook5velox14ConstantVectorIiE15makeNullsBufferEv(ptr noundef nonnull align 32 dereferenceable(224) %this)
   %initialized_ = getelementptr inbounds i8, ptr %this, i64 165
+  store i8 1, ptr %initialized_, align 1
   br label %return
 
-return:                                           ; preds = %if.then, %if.end47
-  %containsLazyAndIsWrapped_.i.sink = phi ptr [ %initialized_, %if.end47 ], [ %containsLazyAndIsWrapped_.i, %if.then ]
-  store i8 1, ptr %containsLazyAndIsWrapped_.i.sink, align 1
+return:                                           ; preds = %_ZN8facebook5velox10BaseVector30markAsContainingLazyAndWrappedEv.exit.thread, %if.end47
   ret void
 }
 
@@ -48451,7 +48473,11 @@ if.then:                                          ; preds = %entry
   %containsLazyAndIsWrapped_.i = getelementptr inbounds i8, ptr %1, i64 97
   %2 = load i8, ptr %containsLazyAndIsWrapped_.i, align 1
   %tobool.i = trunc i8 %2 to i1
-  br i1 %tobool.i, label %if.then6, label %return
+  br i1 %tobool.i, label %if.then6, label %_ZN8facebook5velox10BaseVector30markAsContainingLazyAndWrappedEv.exit.thread
+
+_ZN8facebook5velox10BaseVector30markAsContainingLazyAndWrappedEv.exit.thread: ; preds = %if.then
+  store i8 1, ptr %containsLazyAndIsWrapped_.i, align 1
+  br label %return
 
 if.then6:                                         ; preds = %if.then
   tail call void @llvm.trap()
@@ -48591,11 +48617,10 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
 if.end47:                                         ; preds = %if.end43, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i, %if.end7
   tail call void @_ZN8facebook5velox14ConstantVectorIsE15makeNullsBufferEv(ptr noundef nonnull align 32 dereferenceable(192) %this)
   %initialized_ = getelementptr inbounds i8, ptr %this, i64 155
+  store i8 1, ptr %initialized_, align 1
   br label %return
 
-return:                                           ; preds = %if.then, %if.end47
-  %containsLazyAndIsWrapped_.i.sink = phi ptr [ %initialized_, %if.end47 ], [ %containsLazyAndIsWrapped_.i, %if.then ]
-  store i8 1, ptr %containsLazyAndIsWrapped_.i.sink, align 1
+return:                                           ; preds = %_ZN8facebook5velox10BaseVector30markAsContainingLazyAndWrappedEv.exit.thread, %if.end47
   ret void
 }
 
@@ -51621,7 +51646,11 @@ if.then:                                          ; preds = %entry
   %containsLazyAndIsWrapped_.i = getelementptr inbounds i8, ptr %1, i64 97
   %2 = load i8, ptr %containsLazyAndIsWrapped_.i, align 1
   %tobool.i = trunc i8 %2 to i1
-  br i1 %tobool.i, label %if.then6, label %return
+  br i1 %tobool.i, label %if.then6, label %_ZN8facebook5velox10BaseVector30markAsContainingLazyAndWrappedEv.exit.thread
+
+_ZN8facebook5velox10BaseVector30markAsContainingLazyAndWrappedEv.exit.thread: ; preds = %if.then
+  store i8 1, ptr %containsLazyAndIsWrapped_.i, align 1
+  br label %return
 
 if.then6:                                         ; preds = %if.then
   tail call void @llvm.trap()
@@ -51761,11 +51790,10 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
 if.end47:                                         ; preds = %if.end43, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i, %if.end7
   tail call void @_ZN8facebook5velox14ConstantVectorIfE15makeNullsBufferEv(ptr noundef nonnull align 8 dereferenceable(168) %this)
   %initialized_ = getelementptr inbounds i8, ptr %this, i64 165
+  store i8 1, ptr %initialized_, align 1
   br label %return
 
-return:                                           ; preds = %if.then, %if.end47
-  %containsLazyAndIsWrapped_.i.sink = phi ptr [ %initialized_, %if.end47 ], [ %containsLazyAndIsWrapped_.i, %if.then ]
-  store i8 1, ptr %containsLazyAndIsWrapped_.i.sink, align 1
+return:                                           ; preds = %_ZN8facebook5velox10BaseVector30markAsContainingLazyAndWrappedEv.exit.thread, %if.end47
   ret void
 }
 
@@ -54764,7 +54792,11 @@ if.then:                                          ; preds = %entry
   %containsLazyAndIsWrapped_.i = getelementptr inbounds i8, ptr %1, i64 97
   %2 = load i8, ptr %containsLazyAndIsWrapped_.i, align 1
   %tobool.i = trunc i8 %2 to i1
-  br i1 %tobool.i, label %if.then6, label %return
+  br i1 %tobool.i, label %if.then6, label %_ZN8facebook5velox10BaseVector30markAsContainingLazyAndWrappedEv.exit.thread
+
+_ZN8facebook5velox10BaseVector30markAsContainingLazyAndWrappedEv.exit.thread: ; preds = %if.then
+  store i8 1, ptr %containsLazyAndIsWrapped_.i, align 1
+  br label %return
 
 if.then6:                                         ; preds = %if.then
   tail call void @llvm.trap()
@@ -54904,11 +54936,10 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
 if.end47:                                         ; preds = %if.end43, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i, %if.end7
   tail call void @_ZN8facebook5velox14ConstantVectorIdE15makeNullsBufferEv(ptr noundef nonnull align 8 dereferenceable(192) %this)
   %initialized_ = getelementptr inbounds i8, ptr %this, i64 185
+  store i8 1, ptr %initialized_, align 1
   br label %return
 
-return:                                           ; preds = %if.then, %if.end47
-  %containsLazyAndIsWrapped_.i.sink = phi ptr [ %initialized_, %if.end47 ], [ %containsLazyAndIsWrapped_.i, %if.then ]
-  store i8 1, ptr %containsLazyAndIsWrapped_.i.sink, align 1
+return:                                           ; preds = %_ZN8facebook5velox10BaseVector30markAsContainingLazyAndWrappedEv.exit.thread, %if.end47
   ret void
 }
 
@@ -59603,7 +59634,11 @@ if.then:                                          ; preds = %entry
   %containsLazyAndIsWrapped_.i = getelementptr inbounds i8, ptr %1, i64 97
   %2 = load i8, ptr %containsLazyAndIsWrapped_.i, align 1
   %tobool.i = trunc i8 %2 to i1
-  br i1 %tobool.i, label %if.then6, label %return
+  br i1 %tobool.i, label %if.then6, label %_ZN8facebook5velox10BaseVector30markAsContainingLazyAndWrappedEv.exit.thread
+
+_ZN8facebook5velox10BaseVector30markAsContainingLazyAndWrappedEv.exit.thread: ; preds = %if.then
+  store i8 1, ptr %containsLazyAndIsWrapped_.i, align 1
+  br label %return
 
 if.then6:                                         ; preds = %if.then
   tail call void @llvm.trap()
@@ -59833,11 +59868,10 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
 if.end65:                                         ; preds = %if.end61, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i, %if.end7
   call void @_ZN8facebook5velox14ConstantVectorINS0_10StringViewEE15makeNullsBufferEv(ptr noundef nonnull align 8 dereferenceable(264) %this)
   %initialized_ = getelementptr inbounds i8, ptr %this, i64 257
+  store i8 1, ptr %initialized_, align 1
   br label %return
 
-return:                                           ; preds = %if.then, %if.end65
-  %containsLazyAndIsWrapped_.i.sink = phi ptr [ %initialized_, %if.end65 ], [ %containsLazyAndIsWrapped_.i, %if.then ]
-  store i8 1, ptr %containsLazyAndIsWrapped_.i.sink, align 1
+return:                                           ; preds = %_ZN8facebook5velox10BaseVector30markAsContainingLazyAndWrappedEv.exit.thread, %if.end65
   ret void
 }
 
@@ -63355,7 +63389,11 @@ if.then:                                          ; preds = %entry
   %containsLazyAndIsWrapped_.i = getelementptr inbounds i8, ptr %1, i64 97
   %2 = load i8, ptr %containsLazyAndIsWrapped_.i, align 1
   %tobool.i = trunc i8 %2 to i1
-  br i1 %tobool.i, label %if.then6, label %return
+  br i1 %tobool.i, label %if.then6, label %_ZN8facebook5velox10BaseVector30markAsContainingLazyAndWrappedEv.exit.thread
+
+_ZN8facebook5velox10BaseVector30markAsContainingLazyAndWrappedEv.exit.thread: ; preds = %if.then
+  store i8 1, ptr %containsLazyAndIsWrapped_.i, align 1
+  br label %return
 
 if.then6:                                         ; preds = %if.then
   tail call void @llvm.trap()
@@ -63499,11 +63537,10 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
 if.end48:                                         ; preds = %if.end44, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i, %if.end7
   tail call void @_ZN8facebook5velox14ConstantVectorINS0_9TimestampEE15makeNullsBufferEv(ptr noundef nonnull align 8 dereferenceable(216) %this)
   %initialized_ = getelementptr inbounds i8, ptr %this, i64 209
+  store i8 1, ptr %initialized_, align 1
   br label %return
 
-return:                                           ; preds = %if.then, %if.end48
-  %containsLazyAndIsWrapped_.i.sink = phi ptr [ %initialized_, %if.end48 ], [ %containsLazyAndIsWrapped_.i, %if.then ]
-  store i8 1, ptr %containsLazyAndIsWrapped_.i.sink, align 1
+return:                                           ; preds = %_ZN8facebook5velox10BaseVector30markAsContainingLazyAndWrappedEv.exit.thread, %if.end48
   ret void
 }
 
@@ -69308,22 +69345,18 @@ if.then:                                          ; preds = %while.body
 
 if.then15:                                        ; preds = %if.then
   %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
-  br label %if.end22.sink.split
+  store ptr %__p.022, ptr %arrayidx16, align 8
+  br label %if.end22
 
 if.else:                                          ; preds = %while.body
   %6 = load ptr, ptr %3, align 8
   store ptr %6, ptr %__p.022, align 8
   %7 = load ptr, ptr %arrayidx, align 8
-  br label %if.end22.sink.split
-
-if.end22.sink.split:                              ; preds = %if.else, %if.then15
-  %arrayidx16.sink = phi ptr [ %arrayidx16, %if.then15 ], [ %7, %if.else ]
-  %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then15 ], [ %__bbegin_bkt.021, %if.else ]
-  store ptr %__p.022, ptr %arrayidx16.sink, align 8
+  store ptr %__p.022, ptr %7, align 8
   br label %if.end22
 
-if.end22:                                         ; preds = %if.end22.sink.split, %if.then
-  %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then ], [ %__bbegin_bkt.1.ph, %if.end22.sink.split ]
+if.end22:                                         ; preds = %if.then, %if.then15, %if.else
+  %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.021, %if.else ], [ %rem.i.i, %if.then15 ], [ %rem.i.i, %if.then ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !776
 

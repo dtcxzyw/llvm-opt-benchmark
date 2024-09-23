@@ -94,7 +94,11 @@ if.end22:                                         ; preds = %if.end20, %if.end9
   br i1 %cmp23, label %if.then24, label %if.else
 
 if.then24:                                        ; preds = %if.end22
-  br i1 %cmp25.not, label %if.end34, label %err
+  br i1 %cmp25.not, label %if.end27, label %err
+
+if.end27:                                         ; preds = %if.then24
+  store ptr %e, ptr @engine_dyn_list_head, align 8
+  br label %if.end34
 
 if.else:                                          ; preds = %if.end22
   br i1 %cmp25.not, label %err, label %lor.lhs.false
@@ -103,12 +107,14 @@ lor.lhs.false:                                    ; preds = %if.else
   %next_dyn = getelementptr inbounds i8, ptr %4, i64 208
   %5 = load ptr, ptr %next_dyn, align 8
   %cmp29.not = icmp eq ptr %5, null
-  br i1 %cmp29.not, label %if.end34, label %err
+  br i1 %cmp29.not, label %if.end31, label %err
 
-if.end34:                                         ; preds = %lor.lhs.false, %if.then24
-  %next_dyn.sink = phi ptr [ @engine_dyn_list_head, %if.then24 ], [ %next_dyn, %lor.lhs.false ]
-  %.sink = phi ptr [ null, %if.then24 ], [ %4, %lor.lhs.false ]
-  store ptr %e, ptr %next_dyn.sink, align 8
+if.end31:                                         ; preds = %lor.lhs.false
+  store ptr %e, ptr %next_dyn, align 8
+  br label %if.end34
+
+if.end34:                                         ; preds = %if.end31, %if.end27
+  %.sink = phi ptr [ %4, %if.end31 ], [ null, %if.end27 ]
   %prev_dyn33 = getelementptr inbounds i8, ptr %e, i64 200
   store ptr %.sink, ptr %prev_dyn33, align 8
   store ptr %e, ptr @engine_dyn_list_tail, align 8
@@ -469,28 +475,34 @@ if.then16.i:                                      ; preds = %if.end6.thread.i
 if.end19.i:                                       ; preds = %if.end6.thread.i
   %call20.i = tail call i32 @engine_cleanup_add_last(ptr noundef nonnull @engine_list_cleanup) #4
   %tobool21.not.i = icmp eq i32 %call20.i, 0
-  br i1 %tobool21.not.i, label %if.then22.i, label %engine_list_add.exit
+  br i1 %tobool21.not.i, label %if.then22.i, label %if.end25.i
 
 if.then22.i:                                      ; preds = %if.end19.i
   %11 = atomicrmw sub ptr %struct_ref26.i, i32 1 monotonic, align 4
   %cmp.i16.i = icmp eq i32 %11, 1
   br i1 %cmp.i16.i, label %if.then9.sink.split, label %if.then9
 
+if.end25.i:                                       ; preds = %if.end19.i
+  store ptr %e, ptr @engine_list_head, align 8
+  br label %engine_list_add.exit
+
 lor.lhs.false.i:                                  ; preds = %if.end6.i
   %next28.i = getelementptr inbounds i8, ptr %9, i64 192
   %12 = load ptr, ptr %next28.i, align 8
   %cmp29.not.i = icmp eq ptr %12, null
-  br i1 %cmp29.not.i, label %engine_list_add.exit, label %if.then31.i
+  br i1 %cmp29.not.i, label %if.end34.i, label %if.then31.i
 
 if.then31.i:                                      ; preds = %lor.lhs.false.i, %if.end6.i
   %13 = atomicrmw sub ptr %struct_ref.i, i32 1 monotonic, align 4
   %cmp.i20.i = icmp eq i32 %13, 1
   br i1 %cmp.i20.i, label %if.then9.sink.split, label %if.then9
 
-engine_list_add.exit:                             ; preds = %if.end19.i, %lor.lhs.false.i
-  %next28.sink.i = phi ptr [ @engine_list_head, %if.end19.i ], [ %next28.i, %lor.lhs.false.i ]
-  %.sink.i = phi ptr [ null, %if.end19.i ], [ %9, %lor.lhs.false.i ]
-  store ptr %e, ptr %next28.sink.i, align 8
+if.end34.i:                                       ; preds = %lor.lhs.false.i
+  store ptr %e, ptr %next28.i, align 8
+  br label %engine_list_add.exit
+
+engine_list_add.exit:                             ; preds = %if.end25.i, %if.end34.i
+  %.sink.i = phi ptr [ %9, %if.end34.i ], [ null, %if.end25.i ]
   %prev36.i = getelementptr inbounds i8, ptr %e, i64 184
   store ptr %.sink.i, ptr %prev36.i, align 8
   store ptr %e, ptr @engine_list_tail, align 8
@@ -849,7 +861,11 @@ if.end5.i:                                        ; preds = %entry
   br i1 %cmp23.i, label %if.then24.i, label %if.else.i
 
 if.then24.i:                                      ; preds = %if.end5.i
-  br i1 %cmp25.not.i, label %if.end34.i, label %engine_add_dynamic_id.exit
+  br i1 %cmp25.not.i, label %if.end27.i, label %engine_add_dynamic_id.exit
+
+if.end27.i:                                       ; preds = %if.then24.i
+  store ptr %dest, ptr @engine_dyn_list_head, align 8
+  br label %if.end34.i
 
 if.else.i:                                        ; preds = %if.end5.i
   br i1 %cmp25.not.i, label %engine_add_dynamic_id.exit, label %lor.lhs.false.i
@@ -858,12 +874,14 @@ lor.lhs.false.i:                                  ; preds = %if.else.i
   %next_dyn.i = getelementptr inbounds i8, ptr %19, i64 208
   %20 = load ptr, ptr %next_dyn.i, align 8
   %cmp29.not.i = icmp eq ptr %20, null
-  br i1 %cmp29.not.i, label %if.end34.i, label %engine_add_dynamic_id.exit
+  br i1 %cmp29.not.i, label %if.end31.i, label %engine_add_dynamic_id.exit
 
-if.end34.i:                                       ; preds = %lor.lhs.false.i, %if.then24.i
-  %next_dyn.sink.i = phi ptr [ @engine_dyn_list_head, %if.then24.i ], [ %next_dyn.i, %lor.lhs.false.i ]
-  %.sink.i = phi ptr [ null, %if.then24.i ], [ %19, %lor.lhs.false.i ]
-  store ptr %dest, ptr %next_dyn.sink.i, align 8
+if.end31.i:                                       ; preds = %lor.lhs.false.i
+  store ptr %dest, ptr %next_dyn.i, align 8
+  br label %if.end34.i
+
+if.end34.i:                                       ; preds = %if.end31.i, %if.end27.i
+  %.sink.i = phi ptr [ %19, %if.end31.i ], [ null, %if.end27.i ]
   %prev_dyn33.i = getelementptr inbounds i8, ptr %dest, i64 200
   store ptr %.sink.i, ptr %prev_dyn33.i, align 8
   store ptr %dest, ptr @engine_dyn_list_tail, align 8

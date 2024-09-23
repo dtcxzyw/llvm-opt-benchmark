@@ -6544,31 +6544,31 @@ _ZN10Block_ListC2Ev.exit:                         ; preds = %34
   store i32 0, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 64
   %39 = load i32, ptr %38, align 8
-  %.05291 = add i32 %39, -1
-  %.not92 = icmp eq i32 %.05291, 0
-  br i1 %.not92, label %.lr.ph96, label %_ZNK5Block4headEv.exit.lr.ph
+  %.05292 = add i32 %39, -1
+  %.not93 = icmp eq i32 %.05292, 0
+  br i1 %.not93, label %.lr.ph97, label %_ZNK5Block4headEv.exit.lr.ph
 
 _ZNK5Block4headEv.exit.lr.ph:                     ; preds = %_ZN10Block_ListC2Ev.exit
   %40 = getelementptr inbounds i8, ptr %0, i64 48
   %41 = getelementptr inbounds i8, ptr %0, i64 120
-  %42 = zext i32 %.05291 to i64
+  %42 = zext i32 %.05292 to i64
   br label %_ZNK5Block4headEv.exit
 
-.preheader:                                       ; preds = %.loopexit82
-  %.pre106 = load i32, ptr %38, align 8
-  %.not97 = icmp eq i32 %.pre106, 0
-  br i1 %.not97, label %._crit_edge, label %.lr.ph96
+.preheader:                                       ; preds = %.loopexit83
+  %.pre107 = load i32, ptr %38, align 8
+  %.not98 = icmp eq i32 %.pre107, 0
+  br i1 %.not98, label %._crit_edge, label %.lr.ph97
 
-.lr.ph96:                                         ; preds = %_ZN10Block_ListC2Ev.exit, %.preheader
+.lr.ph97:                                         ; preds = %_ZN10Block_ListC2Ev.exit, %.preheader
   %43 = getelementptr inbounds i8, ptr %0, i64 48
   %44 = getelementptr inbounds i8, ptr %3, i64 40
-  br label %192
+  br label %194
 
-_ZNK5Block4headEv.exit:                           ; preds = %_ZNK5Block4headEv.exit.lr.ph, %.loopexit82
-  %indvars.iv99 = phi i64 [ %42, %_ZNK5Block4headEv.exit.lr.ph ], [ %indvars.iv.next100, %.loopexit82 ]
-  %.04993 = phi i32 [ 1, %_ZNK5Block4headEv.exit.lr.ph ], [ %.1, %.loopexit82 ]
+_ZNK5Block4headEv.exit:                           ; preds = %_ZNK5Block4headEv.exit.lr.ph, %.loopexit83
+  %indvars.iv100 = phi i64 [ %42, %_ZNK5Block4headEv.exit.lr.ph ], [ %indvars.iv.next101, %.loopexit83 ]
+  %.04994 = phi i32 [ 1, %_ZNK5Block4headEv.exit.lr.ph ], [ %.1, %.loopexit83 ]
   %45 = load ptr, ptr %40, align 8
-  %46 = getelementptr inbounds ptr, ptr %45, i64 %indvars.iv99
+  %46 = getelementptr inbounds ptr, ptr %45, i64 %indvars.iv100
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 24
   %49 = load i32, ptr %48, align 8
@@ -6581,7 +6581,7 @@ _ZNK5Block4headEv.exit:                           ; preds = %_ZNK5Block4headEv.e
   %54 = load i32, ptr %53, align 4
   %55 = and i32 %54, 127
   %56 = icmp eq i32 %55, 96
-  br i1 %56, label %57, label %.loopexit82
+  br i1 %56, label %57, label %.loopexit83
 
 57:                                               ; preds = %_ZNK5Block4headEv.exit
   %58 = getelementptr inbounds i8, ptr %52, i64 8
@@ -6597,17 +6597,17 @@ _ZNK5Block4headEv.exit:                           ; preds = %_ZNK5Block4headEv.e
   %68 = getelementptr inbounds i8, ptr %67, i64 104
   %69 = load i32, ptr %68, align 8
   %70 = zext i32 %69 to i64
-  %.not58 = icmp ugt i64 %indvars.iv99, %70
-  br i1 %.not58, label %.loopexit82, label %71
+  %.not58 = icmp ugt i64 %indvars.iv100, %70
+  br i1 %.not58, label %.loopexit83, label %71
 
 71:                                               ; preds = %57
   %72 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 104, i32 noundef 0) #14
-  %73 = add nsw i32 %.04993, 1
+  %73 = add nsw i32 %.04994, 1
   %74 = getelementptr inbounds i8, ptr %72, i64 8
   store double 0.000000e+00, ptr %74, align 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV7CFGLoop, i64 16), ptr %72, align 8
   %75 = getelementptr inbounds i8, ptr %72, i64 16
-  store i32 %.04993, ptr %75, align 8
+  store i32 %.04994, ptr %75, align 8
   %76 = getelementptr inbounds i8, ptr %72, i64 20
   %77 = getelementptr inbounds i8, ptr %72, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %76, i8 0, i64 28, i1 false)
@@ -6663,15 +6663,15 @@ _ZN7CFGLoop10add_memberEP10CFGElement.exit:       ; preds = %71, %92
   store ptr %47, ptr %104, align 8
   call void @_ZN7CFGLoop9push_predEP5BlockiR10Block_ListP8PhaseCFG(ptr noundef nonnull align 8 dereferenceable(104) %72, ptr noundef nonnull %47, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef nonnull %0)
   %105 = load i32, ptr %37, align 8
-  %.not5989 = icmp eq i32 %105, 0
-  br i1 %.not5989, label %.loopexit82, label %.lr.ph90
+  %.not5990 = icmp eq i32 %105, 0
+  br i1 %.not5990, label %.loopexit83, label %.lr.ph91
 
-.lr.ph90:                                         ; preds = %_ZN7CFGLoop10add_memberEP10CFGElement.exit
+.lr.ph91:                                         ; preds = %_ZN7CFGLoop10add_memberEP10CFGElement.exit
   %106 = getelementptr inbounds i8, ptr %72, i64 40
   br label %107
 
-107:                                              ; preds = %.lr.ph90, %.loopexit
-  %108 = phi i32 [ %105, %.lr.ph90 ], [ %190, %.loopexit ]
+107:                                              ; preds = %.lr.ph91, %.loopexit
+  %108 = phi i32 [ %105, %.lr.ph91 ], [ %192, %.loopexit ]
   %109 = load ptr, ptr %33, align 8
   %110 = add i32 %108, -1
   store i32 %110, ptr %37, align 8
@@ -6679,14 +6679,14 @@ _ZN7CFGLoop10add_memberEP10CFGElement.exit:       ; preds = %71, %92
   %112 = getelementptr inbounds ptr, ptr %109, i64 %111
   %113 = load ptr, ptr %112, align 8
   %.not60 = icmp eq ptr %113, %47
-  br i1 %.not60, label %.loopexit, label %.preheader81
+  br i1 %.not60, label %.loopexit, label %.preheader82
 
-.preheader81:                                     ; preds = %107
+.preheader82:                                     ; preds = %107
   %114 = getelementptr inbounds i8, ptr %113, i64 24
   %115 = getelementptr inbounds i8, ptr %113, i64 32
   %116 = load i32, ptr %114, align 8
-  %.not.i.i6187 = icmp ne i32 %116, 0
-  call void @llvm.assume(i1 %.not.i.i6187)
+  %.not.i.i6188 = icmp ne i32 %116, 0
+  call void @llvm.assume(i1 %.not.i.i6188)
   %117 = load ptr, ptr %115, align 8
   %118 = load ptr, ptr %117, align 8
   %119 = getelementptr inbounds i8, ptr %118, i64 24
@@ -6694,9 +6694,9 @@ _ZN7CFGLoop10add_memberEP10CFGElement.exit:       ; preds = %71, %92
   %121 = icmp ugt i32 %120, 1
   br i1 %121, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %.preheader81, %_ZN7CFGLoop9push_predEP5BlockiR10Block_ListP8PhaseCFG.exit
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN7CFGLoop9push_predEP5BlockiR10Block_ListP8PhaseCFG.exit ], [ 1, %.preheader81 ]
-  %122 = phi ptr [ %185, %_ZN7CFGLoop9push_predEP5BlockiR10Block_ListP8PhaseCFG.exit ], [ %118, %.preheader81 ]
+.lr.ph:                                           ; preds = %.preheader82, %_ZN7CFGLoop9push_predEP5BlockiR10Block_ListP8PhaseCFG.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN7CFGLoop9push_predEP5BlockiR10Block_ListP8PhaseCFG.exit ], [ 1, %.preheader82 ]
+  %122 = phi ptr [ %187, %_ZN7CFGLoop9push_predEP5BlockiR10Block_ListP8PhaseCFG.exit ], [ %118, %.preheader82 ]
   %123 = getelementptr inbounds i8, ptr %122, i64 8
   %124 = load ptr, ptr %123, align 8
   %125 = getelementptr inbounds ptr, ptr %124, i64 %indvars.iv
@@ -6713,7 +6713,7 @@ _ZN7CFGLoop10add_memberEP10CFGElement.exit:       ; preds = %71, %92
   br i1 %135, label %tailrecurse._crit_edge.i, label %.lr.ph.i
 
 tailrecurse._crit_edge.i:                         ; preds = %_ZN7CFGLoop15add_nested_loopEPS_.exit.i, %.lr.ph
-  %.lcssa.i = phi ptr [ %132, %.lr.ph ], [ %179, %_ZN7CFGLoop15add_nested_loopEPS_.exit.i ]
+  %.lcssa.i = phi ptr [ %132, %.lr.ph ], [ %181, %_ZN7CFGLoop15add_nested_loopEPS_.exit.i ]
   %136 = getelementptr inbounds i8, ptr %.lcssa.i, i64 104
   %137 = load i32, ptr %136, align 8
   %138 = load ptr, ptr %80, align 8
@@ -6745,7 +6745,7 @@ _ZN10Block_List4pushEP5Block.exit.i:              ; preds = %148, %143
   br label %_ZN7CFGLoop9push_predEP5BlockiR10Block_ListP8PhaseCFG.exit
 
 .lr.ph.i:                                         ; preds = %.lr.ph, %_ZN7CFGLoop15add_nested_loopEPS_.exit.i
-  %152 = phi ptr [ %181, %_ZN7CFGLoop15add_nested_loopEPS_.exit.i ], [ %134, %.lr.ph ]
+  %152 = phi ptr [ %183, %_ZN7CFGLoop15add_nested_loopEPS_.exit.i ], [ %134, %.lr.ph ]
   %.not.i62 = icmp eq ptr %152, %72
   br i1 %.not.i62, label %_ZN7CFGLoop9push_predEP5BlockiR10Block_ListP8PhaseCFG.exit, label %.preheader.i
 
@@ -6766,214 +6766,217 @@ _ZN10Block_List4pushEP5Block.exit.i:              ; preds = %148, %143
   store ptr %72, ptr %156, align 8
   %157 = load ptr, ptr %106, align 8
   %158 = icmp eq ptr %157, null
-  br i1 %158, label %_ZN7CFGLoop15add_nested_loopEPS_.exit.i, label %.preheader.i.i
+  br i1 %158, label %159, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %155, %.preheader.i.i
-  %.0.i.i = phi ptr [ %160, %.preheader.i.i ], [ %157, %155 ]
-  %159 = getelementptr inbounds i8, ptr %.0.i.i, i64 32
-  %160 = load ptr, ptr %159, align 8
-  %.not.i.i63 = icmp eq ptr %160, null
-  br i1 %.not.i.i63, label %_ZN7CFGLoop15add_nested_loopEPS_.exit.i.loopexit, label %.preheader.i.i, !llvm.loop !63
-
-_ZN7CFGLoop15add_nested_loopEPS_.exit.i.loopexit: ; preds = %.preheader.i.i
-  %161 = getelementptr inbounds i8, ptr %.0.i.i, i64 32
+159:                                              ; preds = %155
+  store ptr %.0.i, ptr %106, align 8
   br label %_ZN7CFGLoop15add_nested_loopEPS_.exit.i
 
-_ZN7CFGLoop15add_nested_loopEPS_.exit.i:          ; preds = %_ZN7CFGLoop15add_nested_loopEPS_.exit.i.loopexit, %155
-  %.sink.i.i = phi ptr [ %106, %155 ], [ %161, %_ZN7CFGLoop15add_nested_loopEPS_.exit.i.loopexit ]
-  store ptr %.0.i, ptr %.sink.i.i, align 8
-  %162 = getelementptr inbounds i8, ptr %.0.i, i64 56
-  %163 = load ptr, ptr %162, align 8
-  %164 = load ptr, ptr %163, align 8
-  %165 = getelementptr inbounds i8, ptr %164, i64 24
-  %166 = load i32, ptr %165, align 8
-  %.not.i.i.i = icmp ne i32 %166, 0
+.preheader.i.i:                                   ; preds = %155, %.preheader.i.i
+  %.0.i.i = phi ptr [ %161, %.preheader.i.i ], [ %157, %155 ]
+  %160 = getelementptr inbounds i8, ptr %.0.i.i, i64 32
+  %161 = load ptr, ptr %160, align 8
+  %.not.i.i63 = icmp eq ptr %161, null
+  br i1 %.not.i.i63, label %162, label %.preheader.i.i, !llvm.loop !63
+
+162:                                              ; preds = %.preheader.i.i
+  %163 = getelementptr inbounds i8, ptr %.0.i.i, i64 32
+  store ptr %.0.i, ptr %163, align 8
+  br label %_ZN7CFGLoop15add_nested_loopEPS_.exit.i
+
+_ZN7CFGLoop15add_nested_loopEPS_.exit.i:          ; preds = %162, %159
+  %164 = getelementptr inbounds i8, ptr %.0.i, i64 56
+  %165 = load ptr, ptr %164, align 8
+  %166 = load ptr, ptr %165, align 8
+  %167 = getelementptr inbounds i8, ptr %166, i64 24
+  %168 = load i32, ptr %167, align 8
+  %.not.i.i.i = icmp ne i32 %168, 0
   call void @llvm.assume(i1 %.not.i.i.i)
-  %167 = getelementptr inbounds i8, ptr %164, i64 32
-  %168 = load ptr, ptr %167, align 8
-  %169 = load ptr, ptr %168, align 8
-  %170 = getelementptr inbounds i8, ptr %169, i64 8
+  %169 = getelementptr inbounds i8, ptr %166, i64 32
+  %170 = load ptr, ptr %169, align 8
   %171 = load ptr, ptr %170, align 8
   %172 = getelementptr inbounds i8, ptr %171, i64 8
   %173 = load ptr, ptr %172, align 8
-  %174 = getelementptr inbounds i8, ptr %173, i64 40
-  %175 = load i32, ptr %174, align 8
-  %176 = load ptr, ptr %41, align 8
-  %177 = zext i32 %175 to i64
-  %178 = getelementptr inbounds ptr, ptr %176, i64 %177
-  %179 = load ptr, ptr %178, align 8
-  %180 = getelementptr inbounds i8, ptr %179, i64 96
+  %174 = getelementptr inbounds i8, ptr %173, i64 8
+  %175 = load ptr, ptr %174, align 8
+  %176 = getelementptr inbounds i8, ptr %175, i64 40
+  %177 = load i32, ptr %176, align 8
+  %178 = load ptr, ptr %41, align 8
+  %179 = zext i32 %177 to i64
+  %180 = getelementptr inbounds ptr, ptr %178, i64 %179
   %181 = load ptr, ptr %180, align 8
-  %182 = icmp eq ptr %181, null
-  br i1 %182, label %tailrecurse._crit_edge.i, label %.lr.ph.i
+  %182 = getelementptr inbounds i8, ptr %181, i64 96
+  %183 = load ptr, ptr %182, align 8
+  %184 = icmp eq ptr %183, null
+  br i1 %184, label %tailrecurse._crit_edge.i, label %.lr.ph.i
 
 _ZN7CFGLoop9push_predEP5BlockiR10Block_ListP8PhaseCFG.exit: ; preds = %.lr.ph.i, %.critedge.i, %tailrecurse._crit_edge.i, %_ZN10Block_List4pushEP5Block.exit.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %183 = load i32, ptr %114, align 8
-  %.not.i.i61 = icmp ne i32 %183, 0
+  %185 = load i32, ptr %114, align 8
+  %.not.i.i61 = icmp ne i32 %185, 0
   call void @llvm.assume(i1 %.not.i.i61)
-  %184 = load ptr, ptr %115, align 8
-  %185 = load ptr, ptr %184, align 8
-  %186 = getelementptr inbounds i8, ptr %185, i64 24
-  %187 = load i32, ptr %186, align 8
-  %188 = zext i32 %187 to i64
-  %189 = icmp ult i64 %indvars.iv.next, %188
-  br i1 %189, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !64
+  %186 = load ptr, ptr %115, align 8
+  %187 = load ptr, ptr %186, align 8
+  %188 = getelementptr inbounds i8, ptr %187, i64 24
+  %189 = load i32, ptr %188, align 8
+  %190 = zext i32 %189 to i64
+  %191 = icmp ult i64 %indvars.iv.next, %190
+  br i1 %191, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !64
 
 .loopexit.loopexit:                               ; preds = %_ZN7CFGLoop9push_predEP5BlockiR10Block_ListP8PhaseCFG.exit
   %.pre = load i32, ptr %37, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader81, %107
-  %190 = phi i32 [ %.pre, %.loopexit.loopexit ], [ %110, %.preheader81 ], [ %110, %107 ]
-  %.not59 = icmp eq i32 %190, 0
-  br i1 %.not59, label %.loopexit82, label %107, !llvm.loop !65
+.loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader82, %107
+  %192 = phi i32 [ %.pre, %.loopexit.loopexit ], [ %110, %.preheader82 ], [ %110, %107 ]
+  %.not59 = icmp eq i32 %192, 0
+  br i1 %.not59, label %.loopexit83, label %107, !llvm.loop !65
 
-.loopexit82:                                      ; preds = %.loopexit, %_ZN7CFGLoop10add_memberEP10CFGElement.exit, %_ZNK5Block4headEv.exit, %57
-  %.1 = phi i32 [ %.04993, %57 ], [ %.04993, %_ZNK5Block4headEv.exit ], [ %73, %_ZN7CFGLoop10add_memberEP10CFGElement.exit ], [ %73, %.loopexit ]
-  %indvars.iv.next100 = add nsw i64 %indvars.iv99, -1
-  %191 = and i64 %indvars.iv.next100, 4294967295
-  %.not = icmp eq i64 %191, 0
+.loopexit83:                                      ; preds = %.loopexit, %_ZN7CFGLoop10add_memberEP10CFGElement.exit, %_ZNK5Block4headEv.exit, %57
+  %.1 = phi i32 [ %.04994, %57 ], [ %.04994, %_ZNK5Block4headEv.exit ], [ %73, %_ZN7CFGLoop10add_memberEP10CFGElement.exit ], [ %73, %.loopexit ]
+  %indvars.iv.next101 = add nsw i64 %indvars.iv100, -1
+  %193 = and i64 %indvars.iv.next101, 4294967295
+  %.not = icmp eq i64 %193, 0
   br i1 %.not, label %.preheader, label %_ZNK5Block4headEv.exit, !llvm.loop !66
 
-192:                                              ; preds = %.lr.ph96, %262
-  %indvars.iv102 = phi i64 [ 0, %.lr.ph96 ], [ %indvars.iv.next103, %262 ]
-  %193 = load ptr, ptr %43, align 8
-  %194 = getelementptr inbounds ptr, ptr %193, i64 %indvars.iv102
-  %195 = load ptr, ptr %194, align 8
-  %196 = getelementptr inbounds i8, ptr %195, i64 96
+194:                                              ; preds = %.lr.ph97, %265
+  %indvars.iv103 = phi i64 [ 0, %.lr.ph97 ], [ %indvars.iv.next104, %265 ]
+  %195 = load ptr, ptr %43, align 8
+  %196 = getelementptr inbounds ptr, ptr %195, i64 %indvars.iv103
   %197 = load ptr, ptr %196, align 8
-  %198 = icmp eq ptr %197, null
-  br i1 %198, label %.thread, label %199
+  %198 = getelementptr inbounds i8, ptr %197, i64 96
+  %199 = load ptr, ptr %198, align 8
+  %200 = icmp eq ptr %199, null
+  br i1 %200, label %.thread, label %201
 
-.thread:                                          ; preds = %192
-  store ptr %3, ptr %196, align 8
-  br label %205
+.thread:                                          ; preds = %194
+  store ptr %3, ptr %198, align 8
+  br label %207
 
-199:                                              ; preds = %192
-  %200 = icmp eq ptr %197, %3
-  br i1 %200, label %205, label %201
+201:                                              ; preds = %194
+  %202 = icmp eq ptr %199, %3
+  br i1 %202, label %207, label %203
 
-201:                                              ; preds = %199
-  %202 = getelementptr inbounds i8, ptr %197, i64 56
-  %203 = load ptr, ptr %202, align 8
-  %204 = load ptr, ptr %203, align 8
-  %.not56 = icmp eq ptr %195, %204
-  br i1 %.not56, label %.thread78, label %205
+203:                                              ; preds = %201
+  %204 = getelementptr inbounds i8, ptr %199, i64 56
+  %205 = load ptr, ptr %204, align 8
+  %206 = load ptr, ptr %205, align 8
+  %.not56 = icmp eq ptr %197, %206
+  br i1 %.not56, label %.thread79, label %207
 
-205:                                              ; preds = %.thread, %201, %199
-  %206 = phi i1 [ true, %.thread ], [ false, %201 ], [ true, %199 ]
-  %.076 = phi ptr [ %3, %.thread ], [ %197, %201 ], [ %197, %199 ]
-  %207 = getelementptr inbounds i8, ptr %.076, i64 48
-  %208 = load i32, ptr %207, align 8
-  %209 = getelementptr inbounds i8, ptr %.076, i64 52
-  %210 = load i32, ptr %209, align 4
-  %211 = icmp eq i32 %208, %210
-  br i1 %211, label %212, label %220
+207:                                              ; preds = %.thread, %203, %201
+  %208 = phi i1 [ true, %.thread ], [ false, %203 ], [ true, %201 ]
+  %.076 = phi ptr [ %3, %.thread ], [ %199, %203 ], [ %199, %201 ]
+  %209 = getelementptr inbounds i8, ptr %.076, i64 48
+  %210 = load i32, ptr %209, align 8
+  %211 = getelementptr inbounds i8, ptr %.076, i64 52
+  %212 = load i32, ptr %211, align 4
+  %213 = icmp eq i32 %210, %212
+  br i1 %213, label %214, label %222
 
-212:                                              ; preds = %205
-  %213 = add nsw i32 %208, 1
-  %214 = icmp sgt i32 %208, -1
-  %215 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %213)
-  %216 = icmp ult i32 %215, 2
-  %or.cond.i.i.i.i.i.i64 = select i1 %214, i1 %216, i1 false
-  %217 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %213, i1 true)
-  %218 = sub nuw nsw i32 32, %217
-  %219 = shl nuw i32 1, %218
-  %.0.i.i.i.i.i.i65 = select i1 %or.cond.i.i.i.i.i.i64, i32 %213, i32 %219
-  call void @_ZN26GrowableArrayWithAllocatorIP10CFGElement13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %207, i32 noundef %.0.i.i.i.i.i.i65)
-  %.pre.i.i.i66 = load i32, ptr %207, align 8
-  br label %220
+214:                                              ; preds = %207
+  %215 = add nsw i32 %210, 1
+  %216 = icmp sgt i32 %210, -1
+  %217 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %215)
+  %218 = icmp ult i32 %217, 2
+  %or.cond.i.i.i.i.i.i64 = select i1 %216, i1 %218, i1 false
+  %219 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %215, i1 true)
+  %220 = sub nuw nsw i32 32, %219
+  %221 = shl nuw i32 1, %220
+  %.0.i.i.i.i.i.i65 = select i1 %or.cond.i.i.i.i.i.i64, i32 %215, i32 %221
+  call void @_ZN26GrowableArrayWithAllocatorIP10CFGElement13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %209, i32 noundef %.0.i.i.i.i.i.i65)
+  %.pre.i.i.i66 = load i32, ptr %209, align 8
+  br label %222
 
-220:                                              ; preds = %212, %205
-  %221 = phi i32 [ %.pre.i.i.i66, %212 ], [ %208, %205 ]
-  %222 = add nsw i32 %221, 1
-  store i32 %222, ptr %207, align 8
-  %223 = getelementptr inbounds i8, ptr %.076, i64 56
-  %224 = load ptr, ptr %223, align 8
-  %225 = sext i32 %221 to i64
-  %226 = getelementptr inbounds ptr, ptr %224, i64 %225
-  store ptr %195, ptr %226, align 8
-  br i1 %206, label %262, label %.thread78
+222:                                              ; preds = %214, %207
+  %223 = phi i32 [ %.pre.i.i.i66, %214 ], [ %210, %207 ]
+  %224 = add nsw i32 %223, 1
+  store i32 %224, ptr %209, align 8
+  %225 = getelementptr inbounds i8, ptr %.076, i64 56
+  %226 = load ptr, ptr %225, align 8
+  %227 = sext i32 %223 to i64
+  %228 = getelementptr inbounds ptr, ptr %226, i64 %227
+  store ptr %197, ptr %228, align 8
+  br i1 %208, label %265, label %.thread79
 
-.thread78:                                        ; preds = %201, %220
-  %.07780 = phi ptr [ %.076, %220 ], [ %197, %201 ]
-  %227 = getelementptr inbounds i8, ptr %.07780, i64 24
-  %228 = load ptr, ptr %227, align 8
-  %229 = icmp eq ptr %228, null
-  br i1 %229, label %230, label %236
+.thread79:                                        ; preds = %203, %222
+  %.07781 = phi ptr [ %.076, %222 ], [ %199, %203 ]
+  %229 = getelementptr inbounds i8, ptr %.07781, i64 24
+  %230 = load ptr, ptr %229, align 8
+  %231 = icmp eq ptr %230, null
+  br i1 %231, label %232, label %_ZN7CFGLoop15add_nested_loopEPS_.exit
 
-230:                                              ; preds = %.thread78
-  store ptr %3, ptr %227, align 8
-  %231 = load ptr, ptr %44, align 8
-  %232 = icmp eq ptr %231, null
-  br i1 %232, label %_ZN7CFGLoop15add_nested_loopEPS_.exit, label %.preheader.i68
+232:                                              ; preds = %.thread79
+  store ptr %3, ptr %229, align 8
+  %233 = load ptr, ptr %44, align 8
+  %234 = icmp eq ptr %233, null
+  br i1 %234, label %235, label %.preheader.i68
 
-.preheader.i68:                                   ; preds = %230, %.preheader.i68
-  %.0.i69 = phi ptr [ %234, %.preheader.i68 ], [ %231, %230 ]
-  %233 = getelementptr inbounds i8, ptr %.0.i69, i64 32
-  %234 = load ptr, ptr %233, align 8
-  %.not.i70 = icmp eq ptr %234, null
-  br i1 %.not.i70, label %_ZN7CFGLoop15add_nested_loopEPS_.exit.loopexit, label %.preheader.i68, !llvm.loop !63
-
-_ZN7CFGLoop15add_nested_loopEPS_.exit.loopexit:   ; preds = %.preheader.i68
-  %235 = getelementptr inbounds i8, ptr %.0.i69, i64 32
+235:                                              ; preds = %232
+  store ptr %.07781, ptr %44, align 8
   br label %_ZN7CFGLoop15add_nested_loopEPS_.exit
 
-_ZN7CFGLoop15add_nested_loopEPS_.exit:            ; preds = %_ZN7CFGLoop15add_nested_loopEPS_.exit.loopexit, %230
-  %.sink.i = phi ptr [ %44, %230 ], [ %235, %_ZN7CFGLoop15add_nested_loopEPS_.exit.loopexit ]
-  store ptr %.07780, ptr %.sink.i, align 8
-  br label %236
+.preheader.i68:                                   ; preds = %232, %.preheader.i68
+  %.0.i69 = phi ptr [ %237, %.preheader.i68 ], [ %233, %232 ]
+  %236 = getelementptr inbounds i8, ptr %.0.i69, i64 32
+  %237 = load ptr, ptr %236, align 8
+  %.not.i70 = icmp eq ptr %237, null
+  br i1 %.not.i70, label %238, label %.preheader.i68, !llvm.loop !63
 
-236:                                              ; preds = %_ZN7CFGLoop15add_nested_loopEPS_.exit, %.thread78
-  %237 = getelementptr inbounds i8, ptr %.07780, i64 56
-  %238 = load ptr, ptr %237, align 8
-  %239 = load ptr, ptr %238, align 8
-  %240 = icmp eq ptr %195, %239
-  br i1 %240, label %241, label %262
+238:                                              ; preds = %.preheader.i68
+  %239 = getelementptr inbounds i8, ptr %.0.i69, i64 32
+  store ptr %.07781, ptr %239, align 8
+  br label %_ZN7CFGLoop15add_nested_loopEPS_.exit
 
-241:                                              ; preds = %236
-  %242 = load ptr, ptr %227, align 8
-  %243 = getelementptr inbounds i8, ptr %242, i64 48
-  %244 = load i32, ptr %243, align 8
-  %245 = getelementptr inbounds i8, ptr %242, i64 52
-  %246 = load i32, ptr %245, align 4
-  %247 = icmp eq i32 %244, %246
-  br i1 %247, label %248, label %_ZN7CFGLoop10add_memberEP10CFGElement.exit74
+_ZN7CFGLoop15add_nested_loopEPS_.exit:            ; preds = %238, %235, %.thread79
+  %240 = getelementptr inbounds i8, ptr %.07781, i64 56
+  %241 = load ptr, ptr %240, align 8
+  %242 = load ptr, ptr %241, align 8
+  %243 = icmp eq ptr %197, %242
+  br i1 %243, label %244, label %265
 
-248:                                              ; preds = %241
-  %249 = add nsw i32 %244, 1
-  %250 = icmp sgt i32 %244, -1
-  %251 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %249)
-  %252 = icmp ult i32 %251, 2
-  %or.cond.i.i.i.i.i.i71 = select i1 %250, i1 %252, i1 false
-  %253 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %249, i1 true)
-  %254 = sub nuw nsw i32 32, %253
-  %255 = shl nuw i32 1, %254
-  %.0.i.i.i.i.i.i72 = select i1 %or.cond.i.i.i.i.i.i71, i32 %249, i32 %255
-  call void @_ZN26GrowableArrayWithAllocatorIP10CFGElement13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %243, i32 noundef %.0.i.i.i.i.i.i72)
-  %.pre.i.i.i73 = load i32, ptr %243, align 8
+244:                                              ; preds = %_ZN7CFGLoop15add_nested_loopEPS_.exit
+  %245 = load ptr, ptr %229, align 8
+  %246 = getelementptr inbounds i8, ptr %245, i64 48
+  %247 = load i32, ptr %246, align 8
+  %248 = getelementptr inbounds i8, ptr %245, i64 52
+  %249 = load i32, ptr %248, align 4
+  %250 = icmp eq i32 %247, %249
+  br i1 %250, label %251, label %_ZN7CFGLoop10add_memberEP10CFGElement.exit74
+
+251:                                              ; preds = %244
+  %252 = add nsw i32 %247, 1
+  %253 = icmp sgt i32 %247, -1
+  %254 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %252)
+  %255 = icmp ult i32 %254, 2
+  %or.cond.i.i.i.i.i.i71 = select i1 %253, i1 %255, i1 false
+  %256 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %252, i1 true)
+  %257 = sub nuw nsw i32 32, %256
+  %258 = shl nuw i32 1, %257
+  %.0.i.i.i.i.i.i72 = select i1 %or.cond.i.i.i.i.i.i71, i32 %252, i32 %258
+  call void @_ZN26GrowableArrayWithAllocatorIP10CFGElement13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %246, i32 noundef %.0.i.i.i.i.i.i72)
+  %.pre.i.i.i73 = load i32, ptr %246, align 8
   br label %_ZN7CFGLoop10add_memberEP10CFGElement.exit74
 
-_ZN7CFGLoop10add_memberEP10CFGElement.exit74:     ; preds = %241, %248
-  %256 = phi i32 [ %.pre.i.i.i73, %248 ], [ %244, %241 ]
-  %257 = add nsw i32 %256, 1
-  store i32 %257, ptr %243, align 8
-  %258 = getelementptr inbounds i8, ptr %242, i64 56
-  %259 = load ptr, ptr %258, align 8
-  %260 = sext i32 %256 to i64
-  %261 = getelementptr inbounds ptr, ptr %259, i64 %260
-  store ptr %.07780, ptr %261, align 8
-  br label %262
+_ZN7CFGLoop10add_memberEP10CFGElement.exit74:     ; preds = %244, %251
+  %259 = phi i32 [ %.pre.i.i.i73, %251 ], [ %247, %244 ]
+  %260 = add nsw i32 %259, 1
+  store i32 %260, ptr %246, align 8
+  %261 = getelementptr inbounds i8, ptr %245, i64 56
+  %262 = load ptr, ptr %261, align 8
+  %263 = sext i32 %259 to i64
+  %264 = getelementptr inbounds ptr, ptr %262, i64 %263
+  store ptr %.07781, ptr %264, align 8
+  br label %265
 
-262:                                              ; preds = %220, %_ZN7CFGLoop10add_memberEP10CFGElement.exit74, %236
-  %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
-  %263 = load i32, ptr %38, align 8
-  %264 = zext i32 %263 to i64
-  %265 = icmp ult i64 %indvars.iv.next103, %264
-  br i1 %265, label %192, label %._crit_edge, !llvm.loop !67
+265:                                              ; preds = %222, %_ZN7CFGLoop10add_memberEP10CFGElement.exit74, %_ZN7CFGLoop15add_nested_loopEPS_.exit
+  %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
+  %266 = load i32, ptr %38, align 8
+  %267 = zext i32 %266 to i64
+  %268 = icmp ult i64 %indvars.iv.next104, %267
+  br i1 %268, label %194, label %._crit_edge, !llvm.loop !67
 
-._crit_edge:                                      ; preds = %262, %.preheader
+._crit_edge:                                      ; preds = %265, %.preheader
   ret ptr %3
 }
 
@@ -7428,7 +7431,7 @@ define hidden void @_ZN7CFGLoop9push_predEP5BlockiR10Block_ListP8PhaseCFG(ptr no
   br label %46
 
 tailrecurse._crit_edge:                           ; preds = %_ZN7CFGLoop15add_nested_loopEPS_.exit, %5
-  %.lcssa = phi ptr [ %22, %5 ], [ %74, %_ZN7CFGLoop15add_nested_loopEPS_.exit ]
+  %.lcssa = phi ptr [ %22, %5 ], [ %76, %_ZN7CFGLoop15add_nested_loopEPS_.exit ]
   %27 = getelementptr inbounds i8, ptr %.lcssa, i64 104
   %28 = load i32, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %0, i64 56
@@ -7463,7 +7466,7 @@ _ZN10Block_List4pushEP5Block.exit:                ; preds = %35, %41
   br label %.loopexit
 
 46:                                               ; preds = %.lr.ph, %_ZN7CFGLoop15add_nested_loopEPS_.exit
-  %47 = phi ptr [ %24, %.lr.ph ], [ %76, %_ZN7CFGLoop15add_nested_loopEPS_.exit ]
+  %47 = phi ptr [ %24, %.lr.ph ], [ %78, %_ZN7CFGLoop15add_nested_loopEPS_.exit ]
   %.not = icmp eq ptr %47, %0
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -7484,46 +7487,49 @@ _ZN10Block_List4pushEP5Block.exit:                ; preds = %35, %41
   store ptr %0, ptr %51, align 8
   %52 = load ptr, ptr %26, align 8
   %53 = icmp eq ptr %52, null
-  br i1 %53, label %_ZN7CFGLoop15add_nested_loopEPS_.exit, label %.preheader.i
+  br i1 %53, label %54, label %.preheader.i
 
-.preheader.i:                                     ; preds = %50, %.preheader.i
-  %.0.i = phi ptr [ %55, %.preheader.i ], [ %52, %50 ]
-  %54 = getelementptr inbounds i8, ptr %.0.i, i64 32
-  %55 = load ptr, ptr %54, align 8
-  %.not.i = icmp eq ptr %55, null
-  br i1 %.not.i, label %_ZN7CFGLoop15add_nested_loopEPS_.exit.loopexit, label %.preheader.i, !llvm.loop !63
-
-_ZN7CFGLoop15add_nested_loopEPS_.exit.loopexit:   ; preds = %.preheader.i
-  %56 = getelementptr inbounds i8, ptr %.0.i, i64 32
+54:                                               ; preds = %50
+  store ptr %.0, ptr %26, align 8
   br label %_ZN7CFGLoop15add_nested_loopEPS_.exit
 
-_ZN7CFGLoop15add_nested_loopEPS_.exit:            ; preds = %_ZN7CFGLoop15add_nested_loopEPS_.exit.loopexit, %50
-  %.sink.i = phi ptr [ %26, %50 ], [ %56, %_ZN7CFGLoop15add_nested_loopEPS_.exit.loopexit ]
-  store ptr %.0, ptr %.sink.i, align 8
-  %57 = getelementptr inbounds i8, ptr %.0, i64 56
-  %58 = load ptr, ptr %57, align 8
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 24
-  %61 = load i32, ptr %60, align 8
-  %.not.i.i = icmp ne i32 %61, 0
+.preheader.i:                                     ; preds = %50, %.preheader.i
+  %.0.i = phi ptr [ %56, %.preheader.i ], [ %52, %50 ]
+  %55 = getelementptr inbounds i8, ptr %.0.i, i64 32
+  %56 = load ptr, ptr %55, align 8
+  %.not.i = icmp eq ptr %56, null
+  br i1 %.not.i, label %57, label %.preheader.i, !llvm.loop !63
+
+57:                                               ; preds = %.preheader.i
+  %58 = getelementptr inbounds i8, ptr %.0.i, i64 32
+  store ptr %.0, ptr %58, align 8
+  br label %_ZN7CFGLoop15add_nested_loopEPS_.exit
+
+_ZN7CFGLoop15add_nested_loopEPS_.exit:            ; preds = %54, %57
+  %59 = getelementptr inbounds i8, ptr %.0, i64 56
+  %60 = load ptr, ptr %59, align 8
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds i8, ptr %61, i64 24
+  %63 = load i32, ptr %62, align 8
+  %.not.i.i = icmp ne i32 %63, 0
   tail call void @llvm.assume(i1 %.not.i.i)
-  %62 = getelementptr inbounds i8, ptr %59, i64 32
-  %63 = load ptr, ptr %62, align 8
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 8
+  %64 = getelementptr inbounds i8, ptr %61, i64 32
+  %65 = load ptr, ptr %64, align 8
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 8
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 40
-  %70 = load i32, ptr %69, align 8
-  %71 = load ptr, ptr %6, align 8
-  %72 = zext i32 %70 to i64
-  %73 = getelementptr inbounds ptr, ptr %71, i64 %72
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 96
+  %69 = getelementptr inbounds i8, ptr %68, i64 8
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds i8, ptr %70, i64 40
+  %72 = load i32, ptr %71, align 8
+  %73 = load ptr, ptr %6, align 8
+  %74 = zext i32 %72 to i64
+  %75 = getelementptr inbounds ptr, ptr %73, i64 %74
   %76 = load ptr, ptr %75, align 8
-  %77 = icmp eq ptr %76, null
-  br i1 %77, label %tailrecurse._crit_edge, label %46
+  %77 = getelementptr inbounds i8, ptr %76, i64 96
+  %78 = load ptr, ptr %77, align 8
+  %79 = icmp eq ptr %78, null
+  br i1 %79, label %tailrecurse._crit_edge, label %46
 
 .loopexit:                                        ; preds = %46, %.critedge, %tailrecurse._crit_edge, %_ZN10Block_List4pushEP5Block.exit
   ret void
@@ -7536,22 +7542,25 @@ define hidden void @_ZN7CFGLoop15add_nested_loopEPS_(ptr noundef nonnull align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %11, label %.preheader
+  br i1 %6, label %7, label %.preheader
+
+7:                                                ; preds = %2
+  store ptr %1, ptr %4, align 8
+  br label %12
 
 .preheader:                                       ; preds = %2, %.preheader
-  %.0 = phi ptr [ %8, %.preheader ], [ %5, %2 ]
-  %7 = getelementptr inbounds i8, ptr %.0, i64 32
-  %8 = load ptr, ptr %7, align 8
-  %.not = icmp eq ptr %8, null
-  br i1 %.not, label %9, label %.preheader, !llvm.loop !63
+  %.0 = phi ptr [ %9, %.preheader ], [ %5, %2 ]
+  %8 = getelementptr inbounds i8, ptr %.0, i64 32
+  %9 = load ptr, ptr %8, align 8
+  %.not = icmp eq ptr %9, null
+  br i1 %.not, label %10, label %.preheader, !llvm.loop !63
 
-9:                                                ; preds = %.preheader
-  %10 = getelementptr inbounds i8, ptr %.0, i64 32
-  br label %11
+10:                                               ; preds = %.preheader
+  %11 = getelementptr inbounds i8, ptr %.0, i64 32
+  store ptr %1, ptr %11, align 8
+  br label %12
 
-11:                                               ; preds = %2, %9
-  %.sink = phi ptr [ %10, %9 ], [ %4, %2 ]
-  store ptr %1, ptr %.sink, align 8
+12:                                               ; preds = %10, %7
   ret void
 }
 

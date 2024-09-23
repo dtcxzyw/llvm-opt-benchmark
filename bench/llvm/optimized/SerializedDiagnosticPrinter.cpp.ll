@@ -3192,7 +3192,8 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit22:          ; preds = %_ZN5clang17Diagnost
   %139 = getelementptr inbounds nuw i8, ptr %83, i64 72
   store i32 0, ptr %139, align 8
   %.sroa.21.0..sroa_idx.i = getelementptr inbounds i8, ptr %83, i64 80
-  br label %_ZNSt10unique_ptrIN4llvm14raw_fd_ostreamESt14default_deleteIS1_EED2Ev.exit.sink.split
+  store ptr %80, ptr %.sroa.21.0..sroa_idx.i, align 8
+  br label %_ZNSt10unique_ptrIN4llvm14raw_fd_ostreamESt14default_deleteIS1_EED2Ev.exit
 
 140:                                              ; preds = %_ZSt11make_uniqueIN4llvm14raw_fd_ostreamEJPKcRSt10error_codeNS0_3sys2fs9OpenFlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
   %.val6 = load ptr, ptr %14, align 8
@@ -3331,14 +3332,10 @@ _ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17Diagnosti
 
 _ZN5clang17DiagnosticBuilderD2Ev.exit36:          ; preds = %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i31, %188, %_ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE.exit.i.i.i.i35
   store i32 0, ptr %150, align 8
-  br label %_ZNSt10unique_ptrIN4llvm14raw_fd_ostreamESt14default_deleteIS1_EED2Ev.exit.sink.split
-
-_ZNSt10unique_ptrIN4llvm14raw_fd_ostreamESt14default_deleteIS1_EED2Ev.exit.sink.split: ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit22, %_ZN5clang17DiagnosticBuilderD2Ev.exit36
-  %.sroa.21.0..sroa_idx.i30.sink = phi ptr [ %.sroa.21.0..sroa_idx.i30, %_ZN5clang17DiagnosticBuilderD2Ev.exit36 ], [ %.sroa.21.0..sroa_idx.i, %_ZN5clang17DiagnosticBuilderD2Ev.exit22 ]
-  store ptr %80, ptr %.sroa.21.0..sroa_idx.i30.sink, align 8
+  store ptr %80, ptr %.sroa.21.0..sroa_idx.i30, align 8
   br label %_ZNSt10unique_ptrIN4llvm14raw_fd_ostreamESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4llvm14raw_fd_ostreamESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm14raw_fd_ostreamESt14default_deleteIS1_EED2Ev.exit.sink.split, %_ZN4llvm11raw_ostream5flushEv.exit
+_ZNSt10unique_ptrIN4llvm14raw_fd_ostreamESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN4llvm11raw_ostream5flushEv.exit, %_ZN5clang17DiagnosticBuilderD2Ev.exit36, %_ZN5clang17DiagnosticBuilderD2Ev.exit22
   %201 = load ptr, ptr %83, align 8
   %202 = getelementptr inbounds i8, ptr %201, i64 8
   %203 = load ptr, ptr %202, align 8

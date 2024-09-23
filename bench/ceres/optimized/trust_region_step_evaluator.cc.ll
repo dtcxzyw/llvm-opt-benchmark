@@ -69,6 +69,7 @@ define hidden void @_ZN5ceres8internal24TrustRegionStepEvaluator12StepAcceptedEd
   %15 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 0, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 32
+  store double %1, ptr %16, align 8
   br label %.sink.split
 
 17:                                               ; preds = %3
@@ -79,30 +80,32 @@ define hidden void @_ZN5ceres8internal24TrustRegionStepEvaluator12StepAcceptedEd
   %21 = getelementptr inbounds i8, ptr %0, i64 32
   %22 = load double, ptr %21, align 8
   %23 = fcmp ogt double %1, %22
-  br i1 %23, label %.sink.split, label %24
+  br i1 %23, label %24, label %25
 
-.sink.split:                                      ; preds = %17, %14
-  %.sink = phi ptr [ %16, %14 ], [ %21, %17 ]
-  %.ph = phi i32 [ 0, %14 ], [ %20, %17 ]
-  store double %1, ptr %.sink, align 8
+24:                                               ; preds = %17
+  store double %1, ptr %21, align 8
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %14, %24
+  %.ph = phi i32 [ 0, %14 ], [ %20, %24 ]
   store double 0.000000e+00, ptr %5, align 8
-  br label %24
+  br label %25
 
-24:                                               ; preds = %.sink.split, %17
-  %25 = phi double [ %7, %17 ], [ 0.000000e+00, %.sink.split ]
-  %26 = phi double [ %22, %17 ], [ %1, %.sink.split ]
-  %27 = phi i32 [ %20, %17 ], [ %.ph, %.sink.split ]
-  %28 = load i32, ptr %0, align 8
-  %29 = icmp eq i32 %27, %28
-  br i1 %29, label %30, label %32
+25:                                               ; preds = %.sink.split, %17
+  %26 = phi double [ %7, %17 ], [ 0.000000e+00, %.sink.split ]
+  %27 = phi double [ %22, %17 ], [ %1, %.sink.split ]
+  %28 = phi i32 [ %20, %17 ], [ %.ph, %.sink.split ]
+  %29 = load i32, ptr %0, align 8
+  %30 = icmp eq i32 %28, %29
+  br i1 %30, label %31, label %33
 
-30:                                               ; preds = %24
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
-  store double %26, ptr %31, align 8
-  store double %25, ptr %8, align 8
-  br label %32
+31:                                               ; preds = %25
+  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  store double %27, ptr %32, align 8
+  store double %26, ptr %8, align 8
+  br label %33
 
-32:                                               ; preds = %30, %24
+33:                                               ; preds = %31, %25
   ret void
 }
 

@@ -2954,23 +2954,18 @@ Wln_ObjFanin.exit:                                ; preds = %22, %25
 44:                                               ; preds = %43
   %45 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %41, i32 noundef 1)
   tail call void @Wln_ObjPrint(ptr noundef nonnull %0, i32 noundef %1) #23
-  br label %.sink.split.sink.split
+  %.val49.pre = load ptr, ptr %39, align 8
+  br label %.sink.split
 
 46:                                               ; preds = %.critedge
   %.val54 = load i32, ptr %4, align 8
-  br label %.sink.split.sink.split
-
-.sink.split.sink.split:                           ; preds = %46, %44
-  %.sink72 = phi ptr [ %39, %44 ], [ %5, %46 ]
-  %.sink.ph = phi i32 [ 1, %44 ], [ %.val54, %46 ]
-  %.035.ph.ph = phi i32 [ 1, %44 ], [ 0, %46 ]
-  %.val49.pre = load ptr, ptr %.sink72, align 8
+  %.val55 = load ptr, ptr %5, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.sink.split.sink.split, %43
-  %.val49.sink = phi ptr [ %.val46, %43 ], [ %.val49.pre, %.sink.split.sink.split ]
-  %.sink = phi i32 [ 1, %43 ], [ %.sink.ph, %.sink.split.sink.split ]
-  %.035.ph = phi i32 [ 1, %43 ], [ %.035.ph.ph, %.sink.split.sink.split ]
+.sink.split:                                      ; preds = %44, %43, %46
+  %.val49.sink = phi ptr [ %.val55, %46 ], [ %.val46, %43 ], [ %.val49.pre, %44 ]
+  %.sink = phi i32 [ %.val54, %46 ], [ 1, %43 ], [ 1, %44 ]
+  %.035.ph = phi i32 [ 0, %46 ], [ 1, %43 ], [ 1, %44 ]
   %47 = getelementptr inbounds i32, ptr %.val49.sink, i64 %6
   store i32 %.sink, ptr %47, align 4
   br label %48

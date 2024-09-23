@@ -427,7 +427,8 @@ define dso_local void @_ZN5clang6interp11InterpState10deallocateEPNS0_5BlockE(pt
   %43 = getelementptr inbounds nuw i8, ptr %12, i64 51
   %44 = and i8 %42, 1
   store i8 %44, ptr %43, align 1
-  br label %.sink.split
+  store i8 0, ptr %20, align 1
+  br label %58
 
 45:                                               ; preds = %2
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 27
@@ -439,7 +440,7 @@ define dso_local void @_ZN5clang6interp11InterpState10deallocateEPNS0_5BlockE(pt
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %51 = load ptr, ptr %50, align 8
   %.not.i = icmp eq ptr %51, null
-  br i1 %.not.i, label %.sink.split, label %52
+  br i1 %.not.i, label %_ZN5clang6interp5Block10invokeDtorEv.exit, label %52
 
 52:                                               ; preds = %49
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -448,14 +449,13 @@ define dso_local void @_ZN5clang6interp11InterpState10deallocateEPNS0_5BlockE(pt
   %56 = getelementptr inbounds i8, ptr %1, i64 40
   %57 = getelementptr inbounds i8, ptr %56, i64 %55
   tail call void %51(ptr noundef nonnull %1, ptr noundef nonnull %57, ptr noundef nonnull %4) #12
-  br label %.sink.split
+  br label %_ZN5clang6interp5Block10invokeDtorEv.exit
 
-.sink.split:                                      ; preds = %52, %49, %41
-  %.sink = phi ptr [ %20, %41 ], [ %46, %49 ], [ %46, %52 ]
-  store i8 0, ptr %.sink, align 1
+_ZN5clang6interp5Block10invokeDtorEv.exit:        ; preds = %49, %52
+  store i8 0, ptr %46, align 1
   br label %58
 
-58:                                               ; preds = %.sink.split, %45
+58:                                               ; preds = %45, %_ZN5clang6interp5Block10invokeDtorEv.exit, %41
   ret void
 }
 

@@ -1298,7 +1298,7 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
   br i1 %exitcond.not, label %._crit_edge, label %37
 
 ._crit_edge:                                      ; preds = %37, %6
-  br i1 %19, label %64, label %306
+  br i1 %19, label %64, label %316
 
 64:                                               ; preds = %._crit_edge
   %65 = add nuw nsw i32 %18, 1
@@ -1605,263 +1605,275 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
 .lr.ph405:                                        ; preds = %247
   %252 = getelementptr inbounds i8, ptr %0, i64 24
   %253 = sext i32 %250 to i64
-  %.sink480.idx = select i1 %22, i64 0, i64 8
-  %.sink478.in.v = select i1 %22, i64 16, i64 24
   br label %254
 
-254:                                              ; preds = %.lr.ph405, %254
-  %indvars.iv448 = phi i64 [ %253, %.lr.ph405 ], [ %indvars.iv.next449, %254 ]
+254:                                              ; preds = %.lr.ph405, %272
+  %indvars.iv448 = phi i64 [ %253, %.lr.ph405 ], [ %indvars.iv.next449, %272 ]
   %255 = load ptr, ptr %15, align 8
   %256 = getelementptr inbounds i8, ptr %255, i64 24
   %257 = load i32, ptr %256, align 8
   %258 = trunc nsw i64 %indvars.iv448 to i32
   %259 = sub nsw i32 %258, %257
   %260 = getelementptr inbounds %struct.boxf, ptr %178, i64 %indvars.iv448
-  %.sink480 = getelementptr inbounds i8, ptr %260, i64 %.sink480.idx
-  %.sink478.in = getelementptr inbounds i8, ptr %260, i64 %.sink478.in.v
-  %.sink478 = load double, ptr %.sink478.in, align 8
-  %261 = load double, ptr %.sink480, align 8
-  %262 = fsub double %.sink478, %261
-  %.0 = fmul double %262, -5.000000e-01
-  %263 = getelementptr inbounds ptr, ptr %177, i64 %indvars.iv448
-  %264 = load ptr, ptr %263, align 8
-  %265 = load ptr, ptr %252, align 8
-  %266 = shl nsw i32 %259, 1
-  %267 = add nsw i32 %266, %.0357
-  %268 = sext i32 %267 to i64
-  %269 = getelementptr inbounds ptr, ptr %265, i64 %268
-  %270 = load ptr, ptr %269, align 8
-  tail call void @remapInConstraints(ptr noundef %264, ptr noundef %270, double noundef %.0) #13
-  %271 = load ptr, ptr %263, align 8
-  %272 = load ptr, ptr %252, align 8
-  %273 = getelementptr ptr, ptr %272, i64 %268
-  %274 = getelementptr i8, ptr %273, i64 8
-  %275 = load ptr, ptr %274, align 8
-  tail call void @remapOutConstraints(ptr noundef %271, ptr noundef %275, double noundef %.0) #13
-  %276 = load ptr, ptr %263, align 8
-  tail call void @deleteVariable(ptr noundef %276) #13
+  br i1 %22, label %261, label %266
+
+261:                                              ; preds = %254
+  %262 = getelementptr inbounds i8, ptr %260, i64 16
+  %263 = load double, ptr %262, align 8
+  %264 = load double, ptr %260, align 8
+  %265 = fsub double %263, %264
+  br label %272
+
+266:                                              ; preds = %254
+  %267 = getelementptr inbounds i8, ptr %260, i64 24
+  %268 = load double, ptr %267, align 8
+  %269 = getelementptr inbounds i8, ptr %260, i64 8
+  %270 = load double, ptr %269, align 8
+  %271 = fsub double %268, %270
+  br label %272
+
+272:                                              ; preds = %266, %261
+  %.0.in = phi double [ %265, %261 ], [ %271, %266 ]
+  %.0 = fmul double %.0.in, -5.000000e-01
+  %273 = getelementptr inbounds ptr, ptr %177, i64 %indvars.iv448
+  %274 = load ptr, ptr %273, align 8
+  %275 = load ptr, ptr %252, align 8
+  %276 = shl nsw i32 %259, 1
+  %277 = add nsw i32 %276, %.0357
+  %278 = sext i32 %277 to i64
+  %279 = getelementptr inbounds ptr, ptr %275, i64 %278
+  %280 = load ptr, ptr %279, align 8
+  tail call void @remapInConstraints(ptr noundef %274, ptr noundef %280, double noundef %.0) #13
+  %281 = load ptr, ptr %273, align 8
+  %282 = load ptr, ptr %252, align 8
+  %283 = getelementptr ptr, ptr %282, i64 %278
+  %284 = getelementptr i8, ptr %283, i64 8
+  %285 = load ptr, ptr %284, align 8
+  tail call void @remapOutConstraints(ptr noundef %281, ptr noundef %285, double noundef %.0) #13
+  %286 = load ptr, ptr %273, align 8
+  tail call void @deleteVariable(ptr noundef %286) #13
   %indvars.iv.next449 = add nsw i64 %indvars.iv448, 1
   %lftr.wideiv451 = trunc i64 %indvars.iv.next449 to i32
   %exitcond452.not = icmp eq i32 %175, %lftr.wideiv451
   br i1 %exitcond452.not, label %._crit_edge406.loopexit, label %254
 
-._crit_edge406.loopexit:                          ; preds = %254
+._crit_edge406.loopexit:                          ; preds = %272
   %.pre465 = load ptr, ptr %15, align 8
   br label %._crit_edge406
 
 ._crit_edge406:                                   ; preds = %._crit_edge406.loopexit, %247
-  %277 = phi ptr [ %.pre465, %._crit_edge406.loopexit ], [ %248, %247 ]
-  %278 = getelementptr inbounds i8, ptr %277, i64 4
-  %279 = load i32, ptr %278, align 4
-  %280 = sext i32 %279 to i64
-  %281 = getelementptr inbounds i32, ptr %73, i64 %280
-  %282 = load i32, ptr %281, align 4
-  %283 = add nsw i32 %282, %.0355.lcssa
+  %287 = phi ptr [ %.pre465, %._crit_edge406.loopexit ], [ %248, %247 ]
+  %288 = getelementptr inbounds i8, ptr %287, i64 4
+  %289 = load i32, ptr %288, align 4
+  %290 = sext i32 %289 to i64
+  %291 = getelementptr inbounds i32, ptr %73, i64 %290
+  %292 = load i32, ptr %291, align 4
+  %293 = add nsw i32 %292, %.0355.lcssa
   tail call void @free(ptr noundef %177) #13
   tail call void @free(ptr noundef %178) #13
-  %284 = tail call ptr @newConstraints(i32 noundef %283) #13
-  store ptr %284, ptr %7, align 8
-  %285 = load ptr, ptr %15, align 8
-  %286 = getelementptr inbounds i8, ptr %285, i64 4
-  %287 = load i32, ptr %286, align 4
-  %.not413 = icmp slt i32 %287, 0
+  %294 = tail call ptr @newConstraints(i32 noundef %293) #13
+  store ptr %294, ptr %7, align 8
+  %295 = load ptr, ptr %15, align 8
+  %296 = getelementptr inbounds i8, ptr %295, i64 4
+  %297 = load i32, ptr %296, align 4
+  %.not413 = icmp slt i32 %297, 0
   br i1 %.not413, label %._crit_edge416, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge406, %._crit_edge410
   %indvars.iv456 = phi i64 [ %indvars.iv.next457, %._crit_edge410 ], [ 0, %._crit_edge406 ]
-  %.0350415 = phi ptr [ %.1.lcssa, %._crit_edge410 ], [ %284, %._crit_edge406 ]
-  %288 = getelementptr inbounds i32, ptr %73, i64 %indvars.iv456
-  %289 = load i32, ptr %288, align 4
-  %290 = icmp sgt i32 %289, 0
-  br i1 %290, label %.lr.ph409, label %._crit_edge410
+  %.0350415 = phi ptr [ %.1.lcssa, %._crit_edge410 ], [ %294, %._crit_edge406 ]
+  %298 = getelementptr inbounds i32, ptr %73, i64 %indvars.iv456
+  %299 = load i32, ptr %298, align 4
+  %300 = icmp sgt i32 %299, 0
+  br i1 %300, label %.lr.ph409, label %._crit_edge410
 
 .lr.ph409:                                        ; preds = %.preheader
-  %291 = getelementptr inbounds ptr, ptr %67, i64 %indvars.iv456
-  br label %292
+  %301 = getelementptr inbounds ptr, ptr %67, i64 %indvars.iv456
+  br label %302
 
-292:                                              ; preds = %.lr.ph409, %292
-  %indvars.iv453 = phi i64 [ 0, %.lr.ph409 ], [ %indvars.iv.next454, %292 ]
-  %.1408 = phi ptr [ %.0350415, %.lr.ph409 ], [ %296, %292 ]
-  %293 = load ptr, ptr %291, align 8
-  %294 = getelementptr inbounds ptr, ptr %293, i64 %indvars.iv453
-  %295 = load ptr, ptr %294, align 8
-  %296 = getelementptr inbounds i8, ptr %.1408, i64 8
-  store ptr %295, ptr %.1408, align 8
+302:                                              ; preds = %.lr.ph409, %302
+  %indvars.iv453 = phi i64 [ 0, %.lr.ph409 ], [ %indvars.iv.next454, %302 ]
+  %.1408 = phi ptr [ %.0350415, %.lr.ph409 ], [ %306, %302 ]
+  %303 = load ptr, ptr %301, align 8
+  %304 = getelementptr inbounds ptr, ptr %303, i64 %indvars.iv453
+  %305 = load ptr, ptr %304, align 8
+  %306 = getelementptr inbounds i8, ptr %.1408, i64 8
+  store ptr %305, ptr %.1408, align 8
   %indvars.iv.next454 = add nuw nsw i64 %indvars.iv453, 1
-  %297 = load i32, ptr %288, align 4
-  %298 = sext i32 %297 to i64
-  %299 = icmp slt i64 %indvars.iv.next454, %298
-  br i1 %299, label %292, label %._crit_edge410
+  %307 = load i32, ptr %298, align 4
+  %308 = sext i32 %307 to i64
+  %309 = icmp slt i64 %indvars.iv.next454, %308
+  br i1 %309, label %302, label %._crit_edge410
 
-._crit_edge410:                                   ; preds = %292, %.preheader
-  %.1.lcssa = phi ptr [ %.0350415, %.preheader ], [ %296, %292 ]
-  %300 = getelementptr inbounds ptr, ptr %67, i64 %indvars.iv456
-  %301 = load ptr, ptr %300, align 8
-  tail call void @deleteConstraints(i32 noundef 0, ptr noundef %301) #13
+._crit_edge410:                                   ; preds = %302, %.preheader
+  %.1.lcssa = phi ptr [ %.0350415, %.preheader ], [ %306, %302 ]
+  %310 = getelementptr inbounds ptr, ptr %67, i64 %indvars.iv456
+  %311 = load ptr, ptr %310, align 8
+  tail call void @deleteConstraints(i32 noundef 0, ptr noundef %311) #13
   %indvars.iv.next457 = add nuw nsw i64 %indvars.iv456, 1
-  %302 = load ptr, ptr %15, align 8
-  %303 = getelementptr inbounds i8, ptr %302, i64 4
-  %304 = load i32, ptr %303, align 4
-  %305 = sext i32 %304 to i64
-  %.not.not = icmp slt i64 %indvars.iv456, %305
+  %312 = load ptr, ptr %15, align 8
+  %313 = getelementptr inbounds i8, ptr %312, i64 4
+  %314 = load i32, ptr %313, align 4
+  %315 = sext i32 %314 to i64
+  %.not.not = icmp slt i64 %indvars.iv456, %315
   br i1 %.not.not, label %.preheader, label %._crit_edge416
 
 ._crit_edge416:                                   ; preds = %._crit_edge410, %._crit_edge406
   tail call void @free(ptr noundef %67) #13
   tail call void @free(ptr noundef nonnull %73) #13
-  br label %313
+  br label %323
 
-306:                                              ; preds = %._crit_edge
-  %307 = getelementptr inbounds i8, ptr %0, i64 24
-  %308 = load ptr, ptr %307, align 8
-  br i1 %22, label %309, label %311
+316:                                              ; preds = %._crit_edge
+  %317 = getelementptr inbounds i8, ptr %0, i64 24
+  %318 = load ptr, ptr %317, align 8
+  br i1 %22, label %319, label %321
 
-309:                                              ; preds = %306
-  %310 = call i32 @genXConstraints(i32 noundef %12, ptr noundef %14, ptr noundef %308, ptr noundef nonnull %7, i1 noundef zeroext %4) #13
-  br label %313
+319:                                              ; preds = %316
+  %320 = call i32 @genXConstraints(i32 noundef %12, ptr noundef %14, ptr noundef %318, ptr noundef nonnull %7, i1 noundef zeroext %4) #13
+  br label %323
 
-311:                                              ; preds = %306
-  %312 = call i32 @genYConstraints(i32 noundef %12, ptr noundef %14, ptr noundef %308, ptr noundef nonnull %7) #13
-  br label %313
+321:                                              ; preds = %316
+  %322 = call i32 @genYConstraints(i32 noundef %12, ptr noundef %14, ptr noundef %318, ptr noundef nonnull %7) #13
+  br label %323
 
-313:                                              ; preds = %309, %311, %._crit_edge416
-  %.1356 = phi i32 [ %283, %._crit_edge416 ], [ %310, %309 ], [ %312, %311 ]
-  %314 = getelementptr inbounds i8, ptr %0, i64 32
-  %315 = load i32, ptr %314, align 8
-  %316 = icmp sgt i32 %315, 0
-  br i1 %316, label %317, label %338
+323:                                              ; preds = %319, %321, %._crit_edge416
+  %.1356 = phi i32 [ %293, %._crit_edge416 ], [ %320, %319 ], [ %322, %321 ]
+  %324 = getelementptr inbounds i8, ptr %0, i64 32
+  %325 = load i32, ptr %324, align 8
+  %326 = icmp sgt i32 %325, 0
+  br i1 %326, label %327, label %348
 
-317:                                              ; preds = %313
-  %318 = getelementptr inbounds i8, ptr %0, i64 56
-  %319 = load ptr, ptr %318, align 8
-  call void @deleteVPSC(ptr noundef %319) #13
-  %320 = getelementptr inbounds i8, ptr %0, i64 36
-  %321 = load i32, ptr %320, align 4
-  %322 = load i32, ptr %314, align 8
-  %323 = icmp slt i32 %321, %322
-  br i1 %323, label %.lr.ph419, label %._crit_edge420
-
-.lr.ph419:                                        ; preds = %317
-  %324 = getelementptr inbounds i8, ptr %0, i64 40
-  %325 = sext i32 %321 to i64
-  br label %326
-
-326:                                              ; preds = %.lr.ph419, %326
-  %indvars.iv459 = phi i64 [ %325, %.lr.ph419 ], [ %indvars.iv.next460, %326 ]
-  %327 = load ptr, ptr %324, align 8
-  %328 = getelementptr inbounds ptr, ptr %327, i64 %indvars.iv459
+327:                                              ; preds = %323
+  %328 = getelementptr inbounds i8, ptr %0, i64 56
   %329 = load ptr, ptr %328, align 8
-  call void @deleteConstraint(ptr noundef %329) #13
+  call void @deleteVPSC(ptr noundef %329) #13
+  %330 = getelementptr inbounds i8, ptr %0, i64 36
+  %331 = load i32, ptr %330, align 4
+  %332 = load i32, ptr %324, align 8
+  %333 = icmp slt i32 %331, %332
+  br i1 %333, label %.lr.ph419, label %._crit_edge420
+
+.lr.ph419:                                        ; preds = %327
+  %334 = getelementptr inbounds i8, ptr %0, i64 40
+  %335 = sext i32 %331 to i64
+  br label %336
+
+336:                                              ; preds = %.lr.ph419, %336
+  %indvars.iv459 = phi i64 [ %335, %.lr.ph419 ], [ %indvars.iv.next460, %336 ]
+  %337 = load ptr, ptr %334, align 8
+  %338 = getelementptr inbounds ptr, ptr %337, i64 %indvars.iv459
+  %339 = load ptr, ptr %338, align 8
+  call void @deleteConstraint(ptr noundef %339) #13
   %indvars.iv.next460 = add nsw i64 %indvars.iv459, 1
-  %330 = load i32, ptr %314, align 8
-  %331 = sext i32 %330 to i64
-  %332 = icmp slt i64 %indvars.iv.next460, %331
-  br i1 %332, label %326, label %._crit_edge420
+  %340 = load i32, ptr %324, align 8
+  %341 = sext i32 %340 to i64
+  %342 = icmp slt i64 %indvars.iv.next460, %341
+  br i1 %342, label %336, label %._crit_edge420
 
-._crit_edge420:                                   ; preds = %326, %317
-  %333 = getelementptr inbounds i8, ptr %0, i64 40
-  %334 = load ptr, ptr %333, align 8
-  %335 = getelementptr inbounds i8, ptr %0, i64 48
-  %336 = load ptr, ptr %335, align 8
-  %.not370 = icmp eq ptr %334, %336
-  br i1 %.not370, label %338, label %337
+._crit_edge420:                                   ; preds = %336, %327
+  %343 = getelementptr inbounds i8, ptr %0, i64 40
+  %344 = load ptr, ptr %343, align 8
+  %345 = getelementptr inbounds i8, ptr %0, i64 48
+  %346 = load ptr, ptr %345, align 8
+  %.not370 = icmp eq ptr %344, %346
+  br i1 %.not370, label %348, label %347
 
-337:                                              ; preds = %._crit_edge420
-  call void @deleteConstraints(i32 noundef 0, ptr noundef %334) #13
-  br label %338
+347:                                              ; preds = %._crit_edge420
+  call void @deleteConstraints(i32 noundef 0, ptr noundef %344) #13
+  br label %348
 
-338:                                              ; preds = %._crit_edge420, %337, %313
-  %339 = getelementptr inbounds i8, ptr %0, i64 36
-  %340 = load i32, ptr %339, align 4
-  %341 = icmp eq i32 %340, 0
-  br i1 %341, label %342, label %345
+348:                                              ; preds = %._crit_edge420, %347, %323
+  %349 = getelementptr inbounds i8, ptr %0, i64 36
+  %350 = load i32, ptr %349, align 4
+  %351 = icmp eq i32 %350, 0
+  br i1 %351, label %352, label %355
 
-342:                                              ; preds = %338
-  store i32 %.1356, ptr %314, align 8
-  %343 = load ptr, ptr %7, align 8
-  %344 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %343, ptr %344, align 8
-  br label %373
+352:                                              ; preds = %348
+  store i32 %.1356, ptr %324, align 8
+  %353 = load ptr, ptr %7, align 8
+  %354 = getelementptr inbounds i8, ptr %0, i64 40
+  store ptr %353, ptr %354, align 8
+  br label %382
 
-345:                                              ; preds = %338
-  %346 = add nsw i32 %340, %.1356
-  store i32 %346, ptr %314, align 8
-  %347 = call ptr @newConstraints(i32 noundef %346) #13
-  %348 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %347, ptr %348, align 8
-  %349 = load i32, ptr %314, align 8
-  %350 = icmp sgt i32 %349, 0
-  br i1 %350, label %.lr.ph423, label %._crit_edge424
+355:                                              ; preds = %348
+  %356 = add nsw i32 %350, %.1356
+  store i32 %356, ptr %324, align 8
+  %357 = call ptr @newConstraints(i32 noundef %356) #13
+  %358 = getelementptr inbounds i8, ptr %0, i64 40
+  store ptr %357, ptr %358, align 8
+  %359 = load i32, ptr %324, align 8
+  %360 = icmp sgt i32 %359, 0
+  br i1 %360, label %.lr.ph423, label %._crit_edge424
 
-.lr.ph423:                                        ; preds = %345
-  %351 = getelementptr inbounds i8, ptr %0, i64 48
-  br label %352
+.lr.ph423:                                        ; preds = %355
+  %361 = getelementptr inbounds i8, ptr %0, i64 48
+  br label %362
 
-352:                                              ; preds = %.lr.ph423, %365
-  %indvars.iv462 = phi i64 [ 0, %.lr.ph423 ], [ %indvars.iv.next463, %365 ]
-  %353 = load i32, ptr %339, align 4
-  %354 = sext i32 %353 to i64
-  %355 = icmp slt i64 %indvars.iv462, %354
-  br i1 %355, label %356, label %359
+362:                                              ; preds = %.lr.ph423, %375
+  %indvars.iv462 = phi i64 [ 0, %.lr.ph423 ], [ %indvars.iv.next463, %375 ]
+  %363 = load i32, ptr %349, align 4
+  %364 = sext i32 %363 to i64
+  %365 = icmp slt i64 %indvars.iv462, %364
+  br i1 %365, label %366, label %369
 
-356:                                              ; preds = %352
-  %357 = load ptr, ptr %351, align 8
-  %358 = getelementptr inbounds ptr, ptr %357, i64 %indvars.iv462
-  br label %365
-
-359:                                              ; preds = %352
-  %360 = load ptr, ptr %7, align 8
-  %361 = trunc nuw nsw i64 %indvars.iv462 to i32
-  %362 = sub nsw i32 %361, %353
-  %363 = sext i32 %362 to i64
-  %364 = getelementptr inbounds ptr, ptr %360, i64 %363
-  br label %365
-
-365:                                              ; preds = %356, %359
-  %.sink484 = phi ptr [ %358, %356 ], [ %364, %359 ]
-  %366 = load ptr, ptr %.sink484, align 8
-  %367 = load ptr, ptr %348, align 8
+366:                                              ; preds = %362
+  %367 = load ptr, ptr %361, align 8
   %368 = getelementptr inbounds ptr, ptr %367, i64 %indvars.iv462
-  store ptr %366, ptr %368, align 8
+  br label %375
+
+369:                                              ; preds = %362
+  %370 = load ptr, ptr %7, align 8
+  %371 = trunc nuw nsw i64 %indvars.iv462 to i32
+  %372 = sub nsw i32 %371, %363
+  %373 = sext i32 %372 to i64
+  %374 = getelementptr inbounds ptr, ptr %370, i64 %373
+  br label %375
+
+375:                                              ; preds = %366, %369
+  %.sink478.in = phi ptr [ %368, %366 ], [ %374, %369 ]
+  %.sink478 = load ptr, ptr %.sink478.in, align 8
+  %376 = load ptr, ptr %358, align 8
+  %377 = getelementptr inbounds ptr, ptr %376, i64 %indvars.iv462
+  store ptr %.sink478, ptr %377, align 8
   %indvars.iv.next463 = add nuw nsw i64 %indvars.iv462, 1
-  %369 = load i32, ptr %314, align 8
-  %370 = sext i32 %369 to i64
-  %371 = icmp slt i64 %indvars.iv.next463, %370
-  br i1 %371, label %352, label %._crit_edge424
+  %378 = load i32, ptr %324, align 8
+  %379 = sext i32 %378 to i64
+  %380 = icmp slt i64 %indvars.iv.next463, %379
+  br i1 %380, label %362, label %._crit_edge424
 
-._crit_edge424:                                   ; preds = %365, %345
-  %372 = load ptr, ptr %7, align 8
-  call void @deleteConstraints(i32 noundef 0, ptr noundef %372) #13
-  %.pre467.pre = load i32, ptr %314, align 8
-  br label %373
+._crit_edge424:                                   ; preds = %375, %355
+  %381 = load ptr, ptr %7, align 8
+  call void @deleteConstraints(i32 noundef 0, ptr noundef %381) #13
+  %.pre467.pre = load i32, ptr %324, align 8
+  br label %382
 
-373:                                              ; preds = %._crit_edge424, %342
-  %.pre467 = phi i32 [ %.pre467.pre, %._crit_edge424 ], [ %.1356, %342 ]
-  %374 = load i8, ptr @Verbose, align 1
-  %.not371 = icmp eq i8 %374, 0
-  br i1 %.not371, label %378, label %375
+382:                                              ; preds = %._crit_edge424, %352
+  %.pre467 = phi i32 [ %.pre467.pre, %._crit_edge424 ], [ %.1356, %352 ]
+  %383 = load i8, ptr @Verbose, align 1
+  %.not371 = icmp eq i8 %383, 0
+  br i1 %.not371, label %387, label %384
 
-375:                                              ; preds = %373
-  %376 = load ptr, ptr @stderr, align 8
-  %377 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %376, ptr noundef nonnull @.str.3, i32 noundef %.pre467) #15
-  %.pre466 = load i32, ptr %314, align 8
-  br label %378
+384:                                              ; preds = %382
+  %385 = load ptr, ptr @stderr, align 8
+  %386 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %385, ptr noundef nonnull @.str.3, i32 noundef %.pre467) #15
+  %.pre466 = load i32, ptr %324, align 8
+  br label %387
 
-378:                                              ; preds = %375, %373
-  %379 = phi i32 [ %.pre466, %375 ], [ %.pre467, %373 ]
-  %380 = load i32, ptr %8, align 8
-  %381 = load i32, ptr %10, align 4
-  %382 = add nsw i32 %381, %380
-  %383 = getelementptr inbounds i8, ptr %0, i64 16
-  %384 = load i32, ptr %383, align 8
-  %385 = add nsw i32 %382, %384
-  %386 = getelementptr inbounds i8, ptr %0, i64 24
-  %387 = load ptr, ptr %386, align 8
-  %388 = getelementptr inbounds i8, ptr %0, i64 40
-  %389 = load ptr, ptr %388, align 8
-  %390 = call ptr @newIncVPSC(i32 noundef %385, ptr noundef %387, i32 noundef %379, ptr noundef %389) #13
-  %391 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr %390, ptr %391, align 8
+387:                                              ; preds = %384, %382
+  %388 = phi i32 [ %.pre466, %384 ], [ %.pre467, %382 ]
+  %389 = load i32, ptr %8, align 8
+  %390 = load i32, ptr %10, align 4
+  %391 = add nsw i32 %390, %389
+  %392 = getelementptr inbounds i8, ptr %0, i64 16
+  %393 = load i32, ptr %392, align 8
+  %394 = add nsw i32 %391, %393
+  %395 = getelementptr inbounds i8, ptr %0, i64 24
+  %396 = load ptr, ptr %395, align 8
+  %397 = getelementptr inbounds i8, ptr %0, i64 40
+  %398 = load ptr, ptr %397, align 8
+  %399 = call ptr @newIncVPSC(i32 noundef %394, ptr noundef %396, i32 noundef %388, ptr noundef %398) #13
+  %400 = getelementptr inbounds i8, ptr %0, i64 56
+  store ptr %399, ptr %400, align 8
   call void @free(ptr noundef %14) #13
   ret void
 }

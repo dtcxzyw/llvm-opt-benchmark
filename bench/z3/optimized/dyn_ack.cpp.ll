@@ -7103,10 +7103,10 @@ lpad:                                             ; preds = %if.else.sink.split,
   resume { ptr, i32 } %2
 
 if.else.sink.split:                               ; preds = %_ZNSt17_Temporary_bufferIPSt4pairIP3appS2_ES3_EC2ES4_l.exit.thread30, %_ZNSt17_Temporary_bufferIPSt4pairIP3appS2_ES3_EC2ES4_l.exit
-  %second.i.i.i.i.sink = phi ptr [ %second.i.i.i.i, %_ZNSt17_Temporary_bufferIPSt4pairIP3appS2_ES3_EC2ES4_l.exit ], [ %second.i.i.i.i32, %_ZNSt17_Temporary_bufferIPSt4pairIP3appS2_ES3_EC2ES4_l.exit.thread30 ]
-  %3 = load ptr, ptr %second.i.i.i.i.sink, align 8
+  %.sink.in = phi ptr [ %second.i.i.i.i, %_ZNSt17_Temporary_bufferIPSt4pairIP3appS2_ES3_EC2ES4_l.exit ], [ %second.i.i.i.i32, %_ZNSt17_Temporary_bufferIPSt4pairIP3appS2_ES3_EC2ES4_l.exit.thread30 ]
+  %.sink = load ptr, ptr %.sink.in, align 8
   %second3.i.i.i.i = getelementptr inbounds i8, ptr %__first, i64 8
-  store ptr %3, ptr %second3.i.i.i.i, align 8
+  store ptr %.sink, ptr %second3.i.i.i.i, align 8
   invoke void @_ZSt22__stable_sort_adaptiveIPSt4pairIP3appS2_ES4_lN9__gnu_cxx5__ops15_Iter_comp_iterIN3smt11app_pair_ltEEEEvT_SB_T0_T1_T2_(ptr noundef %__first, ptr noundef %__last, ptr noundef nonnull %call.i.i, i64 noundef %storemerge27.i.i, ptr %__comp.coerce)
           to label %if.end15 unwind label %lpad
 

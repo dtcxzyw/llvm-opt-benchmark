@@ -8121,7 +8121,7 @@ terminate.lpad.i.i.i:                             ; preds = %invoke.cont.i.i
 
 common.resume:                                    ; preds = %lpad.i.i54, %lpad.i.i43, %lpad.i.i29, %lpad.i.i21, %lpad.i.i
   %ref.tmp.i.i52.sink = phi ptr [ %ref.tmp.i.i52, %lpad.i.i54 ], [ %ref.tmp.i.i41, %lpad.i.i43 ], [ %ref.tmp.i.i27, %lpad.i.i29 ], [ %ref.tmp.i.i19, %lpad.i.i21 ], [ %ref.tmp.i.i, %lpad.i.i ]
-  %common.resume.op = phi { ptr, i32 } [ %18, %lpad.i.i54 ], [ %14, %lpad.i.i43 ], [ %9, %lpad.i.i29 ], [ %5, %lpad.i.i21 ], [ %2, %lpad.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %26, %lpad.i.i54 ], [ %20, %lpad.i.i43 ], [ %11, %lpad.i.i29 ], [ %5, %lpad.i.i21 ], [ %2, %lpad.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i52.sink) #20
   resume { ptr, i32 } %common.resume.op
 
@@ -8174,6 +8174,12 @@ if.then2:                                         ; preds = %_ZN9__gnu_cxx5__ops
   %6 = load i64, ptr %__b, align 8
   store i64 %6, ptr %__result, align 8
   store ptr %__tmp.sroa.0.0.copyload.i.i.i.i, ptr %__b, align 8
+  %second.i.i.i = getelementptr inbounds i8, ptr %__result, i64 8
+  %second3.i.i.i = getelementptr inbounds i8, ptr %__b, i64 8
+  %7 = load ptr, ptr %second.i.i.i, align 8
+  %8 = load ptr, ptr %second3.i.i.i, align 8
+  store ptr %8, ptr %second.i.i.i, align 8
+  store ptr %7, ptr %second3.i.i.i, align 8
   br label %if.end16
 
 if.else:                                          ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN8help_cmd12named_cmd_ltEEclIPSt4pairI6symbolP3cmdESB_EEbT_T0_.exit26
@@ -8188,14 +8194,14 @@ invoke.cont.i.i30:                                ; preds = %if.else
           to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN8help_cmd12named_cmd_ltEEclIPSt4pairI6symbolP3cmdESB_EEbT_T0_.exit34 unwind label %terminate.lpad.i.i.i32
 
 terminate.lpad.i.i.i32:                           ; preds = %invoke.cont.i.i30
-  %7 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #22
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #22
   unreachable
 
 lpad.i.i29:                                       ; preds = %if.else
-  %9 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
@@ -8206,18 +8212,29 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN8help_cmd12named_cmd_ltEEclIPSt4pairI6symb
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i27)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2.i.i28)
   %__tmp.sroa.0.0.copyload.i.i.i.i35 = load ptr, ptr %__result, align 8
+  %second.i.i.i36 = getelementptr inbounds i8, ptr %__result, i64 8
   br i1 %cmp.i.i.i33, label %if.then4, label %if.else5
 
 if.then4:                                         ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN8help_cmd12named_cmd_ltEEclIPSt4pairI6symbolP3cmdESB_EEbT_T0_.exit34
-  %10 = load i64, ptr %__c, align 8
-  store i64 %10, ptr %__result, align 8
+  %12 = load i64, ptr %__c, align 8
+  store i64 %12, ptr %__result, align 8
   store ptr %__tmp.sroa.0.0.copyload.i.i.i.i35, ptr %__c, align 8
+  %second3.i.i.i37 = getelementptr inbounds i8, ptr %__c, i64 8
+  %13 = load ptr, ptr %second.i.i.i36, align 8
+  %14 = load ptr, ptr %second3.i.i.i37, align 8
+  store ptr %14, ptr %second.i.i.i36, align 8
+  store ptr %13, ptr %second3.i.i.i37, align 8
   br label %if.end16
 
 if.else5:                                         ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN8help_cmd12named_cmd_ltEEclIPSt4pairI6symbolP3cmdESB_EEbT_T0_.exit34
-  %11 = load i64, ptr %__a, align 8
-  store i64 %11, ptr %__result, align 8
+  %15 = load i64, ptr %__a, align 8
+  store i64 %15, ptr %__result, align 8
   store ptr %__tmp.sroa.0.0.copyload.i.i.i.i35, ptr %__a, align 8
+  %second3.i.i.i40 = getelementptr inbounds i8, ptr %__a, i64 8
+  %16 = load ptr, ptr %second.i.i.i36, align 8
+  %17 = load ptr, ptr %second3.i.i.i40, align 8
+  store ptr %17, ptr %second.i.i.i36, align 8
+  store ptr %16, ptr %second3.i.i.i40, align 8
   br label %if.end16
 
 if.else7:                                         ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN8help_cmd12named_cmd_ltEEclIPSt4pairI6symbolP3cmdESB_EEbT_T0_.exit
@@ -8232,14 +8249,14 @@ invoke.cont.i.i44:                                ; preds = %if.else7
           to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN8help_cmd12named_cmd_ltEEclIPSt4pairI6symbolP3cmdESB_EEbT_T0_.exit48 unwind label %terminate.lpad.i.i.i46
 
 terminate.lpad.i.i.i46:                           ; preds = %invoke.cont.i.i44
-  %12 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #22
+  %19 = extractvalue { ptr, i32 } %18, 0
+  call void @__clang_call_terminate(ptr %19) #22
   unreachable
 
 lpad.i.i43:                                       ; preds = %if.else7
-  %14 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
@@ -8253,9 +8270,15 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN8help_cmd12named_cmd_ltEEclIPSt4pairI6symb
 
 if.then9:                                         ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN8help_cmd12named_cmd_ltEEclIPSt4pairI6symbolP3cmdESB_EEbT_T0_.exit48
   %__tmp.sroa.0.0.copyload.i.i.i.i49 = load ptr, ptr %__result, align 8
-  %15 = load i64, ptr %__a, align 8
-  store i64 %15, ptr %__result, align 8
+  %21 = load i64, ptr %__a, align 8
+  store i64 %21, ptr %__result, align 8
   store ptr %__tmp.sroa.0.0.copyload.i.i.i.i49, ptr %__a, align 8
+  %second.i.i.i50 = getelementptr inbounds i8, ptr %__result, i64 8
+  %second3.i.i.i51 = getelementptr inbounds i8, ptr %__a, i64 8
+  %22 = load ptr, ptr %second.i.i.i50, align 8
+  %23 = load ptr, ptr %second3.i.i.i51, align 8
+  store ptr %23, ptr %second.i.i.i50, align 8
+  store ptr %22, ptr %second3.i.i.i51, align 8
   br label %if.end16
 
 if.else10:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN8help_cmd12named_cmd_ltEEclIPSt4pairI6symbolP3cmdESB_EEbT_T0_.exit48
@@ -8270,14 +8293,14 @@ invoke.cont.i.i55:                                ; preds = %if.else10
           to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN8help_cmd12named_cmd_ltEEclIPSt4pairI6symbolP3cmdESB_EEbT_T0_.exit59 unwind label %terminate.lpad.i.i.i57
 
 terminate.lpad.i.i.i57:                           ; preds = %invoke.cont.i.i55
-  %16 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #22
+  %25 = extractvalue { ptr, i32 } %24, 0
+  call void @__clang_call_terminate(ptr %25) #22
   unreachable
 
 lpad.i.i54:                                       ; preds = %if.else10
-  %18 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
@@ -8288,28 +8311,32 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN8help_cmd12named_cmd_ltEEclIPSt4pairI6symb
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i52)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2.i.i53)
   %__tmp.sroa.0.0.copyload.i.i.i.i60 = load ptr, ptr %__result, align 8
+  %second.i.i.i61 = getelementptr inbounds i8, ptr %__result, i64 8
   br i1 %cmp.i.i.i58, label %if.then12, label %if.else13
 
 if.then12:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN8help_cmd12named_cmd_ltEEclIPSt4pairI6symbolP3cmdESB_EEbT_T0_.exit59
-  %19 = load i64, ptr %__c, align 8
-  store i64 %19, ptr %__result, align 8
+  %27 = load i64, ptr %__c, align 8
+  store i64 %27, ptr %__result, align 8
   store ptr %__tmp.sroa.0.0.copyload.i.i.i.i60, ptr %__c, align 8
+  %second3.i.i.i62 = getelementptr inbounds i8, ptr %__c, i64 8
+  %28 = load ptr, ptr %second.i.i.i61, align 8
+  %29 = load ptr, ptr %second3.i.i.i62, align 8
+  store ptr %29, ptr %second.i.i.i61, align 8
+  store ptr %28, ptr %second3.i.i.i62, align 8
   br label %if.end16
 
 if.else13:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN8help_cmd12named_cmd_ltEEclIPSt4pairI6symbolP3cmdESB_EEbT_T0_.exit59
-  %20 = load i64, ptr %__b, align 8
-  store i64 %20, ptr %__result, align 8
+  %30 = load i64, ptr %__b, align 8
+  store i64 %30, ptr %__result, align 8
   store ptr %__tmp.sroa.0.0.copyload.i.i.i.i60, ptr %__b, align 8
+  %second3.i.i.i65 = getelementptr inbounds i8, ptr %__b, i64 8
+  %31 = load ptr, ptr %second.i.i.i61, align 8
+  %32 = load ptr, ptr %second3.i.i.i65, align 8
+  store ptr %32, ptr %second.i.i.i61, align 8
+  store ptr %31, ptr %second3.i.i.i65, align 8
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then9, %if.else13, %if.then12, %if.then2, %if.else5, %if.then4
-  %__a.sink = phi ptr [ %__a, %if.then9 ], [ %__b, %if.else13 ], [ %__c, %if.then12 ], [ %__b, %if.then2 ], [ %__a, %if.else5 ], [ %__c, %if.then4 ]
-  %second.i.i.i50.sink68 = getelementptr inbounds i8, ptr %__result, i64 8
-  %second3.i.i.i51 = getelementptr inbounds i8, ptr %__a.sink, i64 8
-  %21 = load ptr, ptr %second.i.i.i50.sink68, align 8
-  %22 = load ptr, ptr %second3.i.i.i51, align 8
-  store ptr %22, ptr %second.i.i.i50.sink68, align 8
-  store ptr %21, ptr %second3.i.i.i51, align 8
   ret void
 }
 

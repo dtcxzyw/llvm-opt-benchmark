@@ -132,387 +132,393 @@ define hidden void @CandumpParser(ptr noundef %0, i32 noundef %1, i64 %2, i64 %3
   br label %24
 
 24:                                               ; preds = %yy_reduce.exit, %5
-  %.0 = phi i8 [ %10, %5 ], [ %149, %yy_reduce.exit ]
+  %.0 = phi i8 [ %10, %5 ], [ %153, %yy_reduce.exit ]
   %25 = icmp ugt i8 %.0, 24
-  br i1 %25, label %yy_find_shift_action.exit, label %.sink.split.i
+  br i1 %25, label %yy_find_shift_action.exit, label %26
 
-.sink.split.i:                                    ; preds = %24
-  %26 = zext nneg i8 %.0 to i64
-  %27 = getelementptr [25 x i8], ptr @yy_shift_ofst, i64 0, i64 %26
-  %28 = load i8, ptr %27, align 1
-  %29 = zext i8 %28 to i64
-  %30 = add nuw nsw i64 %29, %12
-  %31 = getelementptr [106 x i8], ptr @yy_lookahead, i64 0, i64 %30
-  %32 = load i8, ptr %31, align 1
-  %.not.i = icmp eq i8 %32, %11
-  %33 = getelementptr [97 x i8], ptr @yy_action, i64 0, i64 %30
-  %34 = getelementptr [25 x i8], ptr @yy_default, i64 0, i64 %26
-  %.sink.i = select i1 %.not.i, ptr %33, ptr %34
-  %35 = load i8, ptr %.sink.i, align 1
+26:                                               ; preds = %24
+  %27 = zext nneg i8 %.0 to i64
+  %28 = getelementptr [25 x i8], ptr @yy_shift_ofst, i64 0, i64 %27
+  %29 = load i8, ptr %28, align 1
+  %30 = zext i8 %29 to i64
+  %31 = add nuw nsw i64 %30, %12
+  %32 = getelementptr [106 x i8], ptr @yy_lookahead, i64 0, i64 %31
+  %33 = load i8, ptr %32, align 1
+  %.not.i = icmp eq i8 %33, %11
+  br i1 %.not.i, label %37, label %34
+
+34:                                               ; preds = %26
+  %35 = getelementptr [25 x i8], ptr @yy_default, i64 0, i64 %27
+  %36 = load i8, ptr %35, align 1
   br label %yy_find_shift_action.exit
 
-yy_find_shift_action.exit:                        ; preds = %24, %.sink.split.i
-  %.0.i = phi i8 [ %.0, %24 ], [ %35, %.sink.split.i ]
-  %36 = icmp ugt i8 %.0.i, 121
-  br i1 %36, label %37, label %152
+37:                                               ; preds = %26
+  %38 = getelementptr [97 x i8], ptr @yy_action, i64 0, i64 %31
+  %39 = load i8, ptr %38, align 1
+  br label %yy_find_shift_action.exit
 
-37:                                               ; preds = %yy_find_shift_action.exit
-  %38 = zext i8 %.0.i to i64
-  %39 = add nuw nsw i64 %38, 4294967174
+yy_find_shift_action.exit:                        ; preds = %24, %34, %37
+  %.0.i = phi i8 [ %36, %34 ], [ %39, %37 ], [ %.0, %24 ]
+  %40 = icmp ugt i8 %.0.i, 121
+  br i1 %40, label %41, label %156
+
+41:                                               ; preds = %yy_find_shift_action.exit
+  %42 = zext i8 %.0.i to i64
+  %43 = add nuw nsw i64 %42, 4294967174
   switch i8 %.0.i, label %._crit_edge [
-    i8 -107, label %40
-    i8 -124, label %40
+    i8 -107, label %44
+    i8 -124, label %44
   ]
 
-._crit_edge:                                      ; preds = %37
+._crit_edge:                                      ; preds = %41
   %.pre = load ptr, ptr %0, align 8
-  br label %49
+  br label %53
 
-40:                                               ; preds = %37, %37
-  %41 = load ptr, ptr %0, align 8
-  %42 = load ptr, ptr %13, align 8
-  %.not = icmp ult ptr %41, %42
-  br i1 %.not, label %49, label %43
+44:                                               ; preds = %41, %41
+  %45 = load ptr, ptr %0, align 8
+  %46 = load ptr, ptr %13, align 8
+  %.not = icmp ult ptr %45, %46
+  br i1 %.not, label %53, label %47
 
-43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %0, i64 24
-  %45 = icmp ugt ptr %41, %44
-  br i1 %45, label %.lr.ph.i, label %yyStackOverflow.exit
+47:                                               ; preds = %44
+  %48 = getelementptr inbounds i8, ptr %0, i64 24
+  %49 = icmp ugt ptr %45, %48
+  br i1 %49, label %.lr.ph.i, label %yyStackOverflow.exit
 
-.lr.ph.i:                                         ; preds = %43, %.lr.ph.i
-  %46 = phi ptr [ %47, %.lr.ph.i ], [ %41, %43 ]
-  %47 = getelementptr i8, ptr %46, i64 -104
-  %48 = icmp ugt ptr %47, %44
-  br i1 %48, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !6
+.lr.ph.i:                                         ; preds = %47, %.lr.ph.i
+  %50 = phi ptr [ %51, %.lr.ph.i ], [ %45, %47 ]
+  %51 = getelementptr i8, ptr %50, i64 -104
+  %52 = icmp ugt ptr %51, %48
+  br i1 %52, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  store ptr %47, ptr %0, align 8
+  store ptr %51, ptr %0, align 8
   br label %yyStackOverflow.exit
 
-49:                                               ; preds = %._crit_edge, %40
-  %50 = phi ptr [ %.pre, %._crit_edge ], [ %41, %40 ]
+53:                                               ; preds = %._crit_edge, %44
+  %54 = phi ptr [ %.pre, %._crit_edge ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6)
   switch i8 %.0.i, label %yy_reduce.exit [
-    i8 122, label %51
-    i8 -109, label %123
-    i8 124, label %55
-    i8 125, label %63
-    i8 126, label %68
-    i8 127, label %75
-    i8 -128, label %82
-    i8 -127, label %86
-    i8 -126, label %93
-    i8 -125, label %93
-    i8 -124, label %97
-    i8 -123, label %99
-    i8 -122, label %102
-    i8 -121, label %107
-    i8 -120, label %114
-    i8 -119, label %123
-    i8 -118, label %123
-    i8 -117, label %123
-    i8 -116, label %123
-    i8 -115, label %123
-    i8 -114, label %123
-    i8 -113, label %123
-    i8 -112, label %123
-    i8 -111, label %123
-    i8 -110, label %123
+    i8 122, label %55
+    i8 -109, label %127
+    i8 124, label %59
+    i8 125, label %67
+    i8 126, label %72
+    i8 127, label %79
+    i8 -128, label %86
+    i8 -127, label %90
+    i8 -126, label %97
+    i8 -125, label %97
+    i8 -124, label %101
+    i8 -123, label %103
+    i8 -122, label %106
+    i8 -121, label %111
+    i8 -120, label %118
+    i8 -119, label %127
+    i8 -118, label %127
+    i8 -117, label %127
+    i8 -116, label %127
+    i8 -115, label %127
+    i8 -114, label %127
+    i8 -113, label %127
+    i8 -112, label %127
+    i8 -111, label %127
+    i8 -110, label %127
   ]
 
-51:                                               ; preds = %49
-  %52 = load ptr, ptr %7, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 8
-  %54 = getelementptr inbounds i8, ptr %50, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %53, ptr noundef nonnull align 8 dereferenceable(96) %54, i64 96, i1 false)
-  store i32 1, ptr %52, align 8
+55:                                               ; preds = %53
+  %56 = load ptr, ptr %7, align 8
+  %57 = getelementptr inbounds i8, ptr %56, i64 8
+  %58 = getelementptr inbounds i8, ptr %54, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %57, ptr noundef nonnull align 8 dereferenceable(96) %58, i64 96, i1 false)
+  store i32 1, ptr %56, align 8
   br label %yy_reduce.exit
 
-55:                                               ; preds = %49
-  %56 = getelementptr i8, ptr %50, i64 -512
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %56, i64 16, i1 false)
+59:                                               ; preds = %53
+  %60 = getelementptr i8, ptr %54, i64 -512
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %60, i64 16, i1 false)
   store i32 0, ptr %19, align 4
-  %57 = getelementptr i8, ptr %50, i64 -96
-  %58 = load i32, ptr %57, align 8
-  %59 = or i32 %58, 1073741824
-  store i32 %59, ptr %20, align 8
-  %60 = getelementptr inbounds i8, ptr %50, i64 8
-  %61 = load i64, ptr %60, align 8
-  %62 = trunc i64 %61 to i8
-  store i8 %62, ptr %22, align 1
+  %61 = getelementptr i8, ptr %54, i64 -96
+  %62 = load i32, ptr %61, align 8
+  %63 = or i32 %62, 1073741824
+  store i32 %63, ptr %20, align 8
+  %64 = getelementptr inbounds i8, ptr %54, i64 8
+  %65 = load i64, ptr %64, align 8
+  %66 = trunc i64 %65 to i8
+  store i8 %66, ptr %22, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(64) %23, i8 0, i64 64, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %56, ptr noundef nonnull align 8 dereferenceable(96) %6, i64 96, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %60, ptr noundef nonnull align 8 dereferenceable(96) %6, i64 96, i1 false)
   br label %yy_reduce.exit
 
-63:                                               ; preds = %49
-  %64 = getelementptr i8, ptr %50, i64 -512
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %64, i64 16, i1 false)
+67:                                               ; preds = %53
+  %68 = getelementptr i8, ptr %54, i64 -512
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %68, i64 16, i1 false)
   store i32 0, ptr %19, align 4
-  %65 = getelementptr i8, ptr %50, i64 -96
-  %66 = load i32, ptr %65, align 8
-  store i32 %66, ptr %20, align 8
-  %67 = getelementptr inbounds i8, ptr %50, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(65) %22, ptr noundef nonnull align 8 dereferenceable(65) %67, i64 65, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %64, ptr noundef nonnull align 8 dereferenceable(96) %6, i64 96, i1 false)
+  %69 = getelementptr i8, ptr %54, i64 -96
+  %70 = load i32, ptr %69, align 8
+  store i32 %70, ptr %20, align 8
+  %71 = getelementptr inbounds i8, ptr %54, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(65) %22, ptr noundef nonnull align 8 dereferenceable(65) %71, i64 65, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %68, ptr noundef nonnull align 8 dereferenceable(96) %6, i64 96, i1 false)
   br label %yy_reduce.exit
 
-68:                                               ; preds = %49
-  %69 = getelementptr i8, ptr %50, i64 -616
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false)
+72:                                               ; preds = %53
+  %73 = getelementptr i8, ptr %54, i64 -616
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %73, i64 16, i1 false)
   store i32 1, ptr %19, align 4
-  %70 = getelementptr i8, ptr %50, i64 -200
-  %71 = load i32, ptr %70, align 8
-  store i32 %71, ptr %20, align 8
-  %72 = getelementptr i8, ptr %50, i64 -96
-  %73 = load i8, ptr %72, align 8
-  store i8 %73, ptr %21, align 8
-  %74 = getelementptr inbounds i8, ptr %50, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(65) %22, ptr noundef nonnull align 8 dereferenceable(65) %74, i64 65, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %69, ptr noundef nonnull align 8 dereferenceable(96) %6, i64 96, i1 false)
+  %74 = getelementptr i8, ptr %54, i64 -200
+  %75 = load i32, ptr %74, align 8
+  store i32 %75, ptr %20, align 8
+  %76 = getelementptr i8, ptr %54, i64 -96
+  %77 = load i8, ptr %76, align 8
+  store i8 %77, ptr %21, align 8
+  %78 = getelementptr inbounds i8, ptr %54, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(65) %22, ptr noundef nonnull align 8 dereferenceable(65) %78, i64 65, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %73, ptr noundef nonnull align 8 dereferenceable(96) %6, i64 96, i1 false)
   br label %yy_reduce.exit
 
-75:                                               ; preds = %49
-  %76 = getelementptr inbounds i8, ptr %50, i64 8
-  %77 = load i64, ptr %76, align 8
-  store i64 %77, ptr %6, align 8
-  %78 = getelementptr inbounds i8, ptr %50, i64 16
-  %79 = load i64, ptr %78, align 8
-  %80 = trunc i64 %79 to i32
-  %81 = mul i32 %80, 1000
-  store i32 %81, ptr %18, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
+79:                                               ; preds = %53
+  %80 = getelementptr inbounds i8, ptr %54, i64 8
+  %81 = load i64, ptr %80, align 8
+  store i64 %81, ptr %6, align 8
+  %82 = getelementptr inbounds i8, ptr %54, i64 16
+  %83 = load i64, ptr %82, align 8
+  %84 = trunc i64 %83 to i32
+  %85 = mul i32 %84, 1000
+  store i32 %85, ptr %18, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
   br label %yy_reduce.exit
 
-82:                                               ; preds = %49
-  %83 = getelementptr inbounds i8, ptr %50, i64 8
-  %84 = load i64, ptr %83, align 8
-  %85 = trunc i64 %84 to i32
-  store i32 %85, ptr %83, align 8
-  br label %yy_reduce.exit
-
-86:                                               ; preds = %49
-  %87 = getelementptr inbounds i8, ptr %50, i64 8
+86:                                               ; preds = %53
+  %87 = getelementptr inbounds i8, ptr %54, i64 8
   %88 = load i64, ptr %87, align 8
   %89 = trunc i64 %88 to i32
-  %90 = shl i32 %89, 2
-  %91 = and i32 %90, -2147483648
-  %92 = xor i32 %91, -2147483648
-  %spec.select.i = or i32 %92, %89
-  store i32 %spec.select.i, ptr %87, align 8
+  store i32 %89, ptr %87, align 8
   br label %yy_reduce.exit
 
-93:                                               ; preds = %49, %49
-  %94 = getelementptr inbounds i8, ptr %50, i64 8
-  %95 = load i64, ptr %94, align 8
-  %96 = trunc i64 %95 to i8
-  store i8 %96, ptr %94, align 8
+90:                                               ; preds = %53
+  %91 = getelementptr inbounds i8, ptr %54, i64 8
+  %92 = load i64, ptr %91, align 8
+  %93 = trunc i64 %92 to i32
+  %94 = shl i32 %93, 2
+  %95 = and i32 %94, -2147483648
+  %96 = xor i32 %95, -2147483648
+  %spec.select.i = or i32 %96, %93
+  store i32 %spec.select.i, ptr %91, align 8
   br label %yy_reduce.exit
 
-97:                                               ; preds = %49
-  %98 = getelementptr i8, ptr %50, i64 112
-  store i8 0, ptr %98, align 8
+97:                                               ; preds = %53, %53
+  %98 = getelementptr inbounds i8, ptr %54, i64 8
+  %99 = load i64, ptr %98, align 8
+  %100 = trunc i64 %99 to i8
+  store i8 %100, ptr %98, align 8
   br label %yy_reduce.exit
 
-99:                                               ; preds = %49
+101:                                              ; preds = %53
+  %102 = getelementptr i8, ptr %54, i64 112
+  store i8 0, ptr %102, align 8
+  br label %yy_reduce.exit
+
+103:                                              ; preds = %53
   store i8 1, ptr %6, align 8
-  %100 = getelementptr inbounds i8, ptr %50, i64 8
-  %101 = load i8, ptr %100, align 8
-  store i8 %101, ptr %14, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %100, ptr noundef nonnull align 8 dereferenceable(65) %6, i64 65, i1 false)
+  %104 = getelementptr inbounds i8, ptr %54, i64 8
+  %105 = load i8, ptr %104, align 8
+  store i8 %105, ptr %14, align 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %104, ptr noundef nonnull align 8 dereferenceable(65) %6, i64 65, i1 false)
   br label %yy_reduce.exit
 
-102:                                              ; preds = %49
+106:                                              ; preds = %53
   store i8 2, ptr %6, align 8
-  %103 = getelementptr i8, ptr %50, i64 -96
-  %104 = load i8, ptr %103, align 8
-  store i8 %104, ptr %14, align 1
-  %105 = getelementptr inbounds i8, ptr %50, i64 8
-  %106 = load i8, ptr %105, align 8
-  store i8 %106, ptr %15, align 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %103, ptr noundef nonnull align 8 dereferenceable(65) %6, i64 65, i1 false)
+  %107 = getelementptr i8, ptr %54, i64 -96
+  %108 = load i8, ptr %107, align 8
+  store i8 %108, ptr %14, align 1
+  %109 = getelementptr inbounds i8, ptr %54, i64 8
+  %110 = load i8, ptr %109, align 8
+  store i8 %110, ptr %15, align 2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %107, ptr noundef nonnull align 8 dereferenceable(65) %6, i64 65, i1 false)
   br label %yy_reduce.exit
 
-107:                                              ; preds = %49
+111:                                              ; preds = %53
   store i8 3, ptr %6, align 8
-  %108 = getelementptr i8, ptr %50, i64 -200
-  %109 = load i8, ptr %108, align 8
-  store i8 %109, ptr %14, align 1
-  %110 = getelementptr i8, ptr %50, i64 -96
-  %111 = load i8, ptr %110, align 8
-  store i8 %111, ptr %15, align 2
-  %112 = getelementptr inbounds i8, ptr %50, i64 8
+  %112 = getelementptr i8, ptr %54, i64 -200
   %113 = load i8, ptr %112, align 8
-  store i8 %113, ptr %16, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %108, ptr noundef nonnull align 8 dereferenceable(65) %6, i64 65, i1 false)
+  store i8 %113, ptr %14, align 1
+  %114 = getelementptr i8, ptr %54, i64 -96
+  %115 = load i8, ptr %114, align 8
+  store i8 %115, ptr %15, align 2
+  %116 = getelementptr inbounds i8, ptr %54, i64 8
+  %117 = load i8, ptr %116, align 8
+  store i8 %117, ptr %16, align 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %112, ptr noundef nonnull align 8 dereferenceable(65) %6, i64 65, i1 false)
   br label %yy_reduce.exit
 
-114:                                              ; preds = %49
+118:                                              ; preds = %53
   store i8 4, ptr %6, align 8
-  %115 = getelementptr i8, ptr %50, i64 -304
-  %116 = load i8, ptr %115, align 8
-  store i8 %116, ptr %14, align 1
-  %117 = getelementptr i8, ptr %50, i64 -200
-  %118 = load i8, ptr %117, align 8
-  store i8 %118, ptr %15, align 2
-  %119 = getelementptr i8, ptr %50, i64 -96
+  %119 = getelementptr i8, ptr %54, i64 -304
   %120 = load i8, ptr %119, align 8
-  store i8 %120, ptr %16, align 1
-  %121 = getelementptr inbounds i8, ptr %50, i64 8
+  store i8 %120, ptr %14, align 1
+  %121 = getelementptr i8, ptr %54, i64 -200
   %122 = load i8, ptr %121, align 8
-  store i8 %122, ptr %17, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %115, ptr noundef nonnull align 8 dereferenceable(65) %6, i64 65, i1 false)
+  store i8 %122, ptr %15, align 2
+  %123 = getelementptr i8, ptr %54, i64 -96
+  %124 = load i8, ptr %123, align 8
+  store i8 %124, ptr %16, align 1
+  %125 = getelementptr inbounds i8, ptr %54, i64 8
+  %126 = load i8, ptr %125, align 8
+  store i8 %126, ptr %17, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %119, ptr noundef nonnull align 8 dereferenceable(65) %6, i64 65, i1 false)
   br label %yy_reduce.exit
 
-123:                                              ; preds = %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49
-  %124 = getelementptr i8, ptr %50, i64 -96
-  %125 = getelementptr inbounds i8, ptr %50, i64 8
-  %126 = load i8, ptr %124, align 1
-  %127 = load i8, ptr %125, align 1
-  %128 = add i8 %127, %126
-  store i8 %128, ptr %6, align 8
-  %129 = getelementptr i8, ptr %50, i64 -95
-  %130 = zext i8 %126 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr nonnull readonly align 1 %129, i64 %130, i1 false)
-  %131 = getelementptr [64 x i8], ptr %14, i64 0, i64 %130
-  %132 = getelementptr inbounds i8, ptr %50, i64 9
-  %133 = zext i8 %127 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %131, ptr nonnull readonly align 1 %132, i64 %133, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %124, ptr noundef nonnull align 8 dereferenceable(65) %6, i64 65, i1 false)
+127:                                              ; preds = %53, %53, %53, %53, %53, %53, %53, %53, %53, %53, %53
+  %128 = getelementptr i8, ptr %54, i64 -96
+  %129 = getelementptr inbounds i8, ptr %54, i64 8
+  %130 = load i8, ptr %128, align 1
+  %131 = load i8, ptr %129, align 1
+  %132 = add i8 %131, %130
+  store i8 %132, ptr %6, align 8
+  %133 = getelementptr i8, ptr %54, i64 -95
+  %134 = zext i8 %130 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr nonnull readonly align 1 %133, i64 %134, i1 false)
+  %135 = getelementptr [64 x i8], ptr %14, i64 0, i64 %134
+  %136 = getelementptr inbounds i8, ptr %54, i64 9
+  %137 = zext i8 %131 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %135, ptr nonnull readonly align 1 %136, i64 %137, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %128, ptr noundef nonnull align 8 dereferenceable(65) %6, i64 65, i1 false)
   br label %yy_reduce.exit
 
-yy_reduce.exit:                                   ; preds = %49, %51, %55, %63, %68, %75, %82, %86, %93, %97, %99, %102, %107, %114, %123
-  %134 = and i64 %39, 4294967295
-  %135 = getelementptr [54 x i8], ptr @yyRuleInfoLhs, i64 0, i64 %134
-  %136 = load i8, ptr %135, align 1
-  %137 = getelementptr [54 x i8], ptr @yyRuleInfoNRhs, i64 0, i64 %134
-  %138 = load i8, ptr %137, align 1
-  %139 = sext i8 %138 to i64
-  %140 = getelementptr %struct.yyStackEntry, ptr %50, i64 %139
-  %141 = load i8, ptr %140, align 8
-  %142 = zext i8 %141 to i64
-  %143 = getelementptr [23 x i8], ptr @yy_reduce_ofst, i64 0, i64 %142
-  %144 = load i8, ptr %143, align 1
-  %145 = sext i8 %144 to i64
-  %146 = zext i8 %136 to i64
-  %147 = add nsw i64 %145, %146
-  %148 = getelementptr [97 x i8], ptr @yy_action, i64 0, i64 %147
-  %149 = load i8, ptr %148, align 1
-  %150 = getelementptr i8, ptr %140, i64 104
-  store ptr %150, ptr %0, align 8
-  store i8 %149, ptr %150, align 8
-  %151 = getelementptr i8, ptr %140, i64 105
-  store i8 %136, ptr %151, align 1
+yy_reduce.exit:                                   ; preds = %53, %55, %59, %67, %72, %79, %86, %90, %97, %101, %103, %106, %111, %118, %127
+  %138 = and i64 %43, 4294967295
+  %139 = getelementptr [54 x i8], ptr @yyRuleInfoLhs, i64 0, i64 %138
+  %140 = load i8, ptr %139, align 1
+  %141 = getelementptr [54 x i8], ptr @yyRuleInfoNRhs, i64 0, i64 %138
+  %142 = load i8, ptr %141, align 1
+  %143 = sext i8 %142 to i64
+  %144 = getelementptr %struct.yyStackEntry, ptr %54, i64 %143
+  %145 = load i8, ptr %144, align 8
+  %146 = zext i8 %145 to i64
+  %147 = getelementptr [23 x i8], ptr @yy_reduce_ofst, i64 0, i64 %146
+  %148 = load i8, ptr %147, align 1
+  %149 = sext i8 %148 to i64
+  %150 = zext i8 %140 to i64
+  %151 = add nsw i64 %149, %150
+  %152 = getelementptr [97 x i8], ptr @yy_action, i64 0, i64 %151
+  %153 = load i8, ptr %152, align 1
+  %154 = getelementptr i8, ptr %144, i64 104
+  store ptr %154, ptr %0, align 8
+  store i8 %153, ptr %154, align 8
+  %155 = getelementptr i8, ptr %144, i64 105
+  store i8 %140, ptr %155, align 1
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6)
   br label %24
 
-152:                                              ; preds = %yy_find_shift_action.exit
-  %153 = icmp ult i8 %.0.i, 119
-  br i1 %153, label %154, label %173
+156:                                              ; preds = %yy_find_shift_action.exit
+  %157 = icmp ult i8 %.0.i, 119
+  br i1 %157, label %158, label %177
 
-154:                                              ; preds = %152
-  %155 = load ptr, ptr %0, align 8
-  %156 = getelementptr i8, ptr %155, i64 104
-  store ptr %156, ptr %0, align 8
-  %157 = load ptr, ptr %13, align 8
-  %158 = icmp ugt ptr %156, %157
-  br i1 %158, label %159, label %165
+158:                                              ; preds = %156
+  %159 = load ptr, ptr %0, align 8
+  %160 = getelementptr i8, ptr %159, i64 104
+  store ptr %160, ptr %0, align 8
+  %161 = load ptr, ptr %13, align 8
+  %162 = icmp ugt ptr %160, %161
+  br i1 %162, label %163, label %169
 
-159:                                              ; preds = %154
-  store ptr %155, ptr %0, align 8
-  %160 = getelementptr inbounds i8, ptr %0, i64 24
-  %161 = icmp ugt ptr %155, %160
-  br i1 %161, label %.lr.ph.i.i, label %yy_shift.exit
+163:                                              ; preds = %158
+  store ptr %159, ptr %0, align 8
+  %164 = getelementptr inbounds i8, ptr %0, i64 24
+  %165 = icmp ugt ptr %159, %164
+  br i1 %165, label %.lr.ph.i.i, label %yy_shift.exit
 
-.lr.ph.i.i:                                       ; preds = %159, %.lr.ph.i.i
-  %162 = phi ptr [ %163, %.lr.ph.i.i ], [ %155, %159 ]
-  %163 = getelementptr i8, ptr %162, i64 -104
-  %164 = icmp ugt ptr %163, %160
-  br i1 %164, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !6
+.lr.ph.i.i:                                       ; preds = %163, %.lr.ph.i.i
+  %166 = phi ptr [ %167, %.lr.ph.i.i ], [ %159, %163 ]
+  %167 = getelementptr i8, ptr %166, i64 -104
+  %168 = icmp ugt ptr %167, %164
+  br i1 %168, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !6
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
-  store ptr %163, ptr %0, align 8
+  store ptr %167, ptr %0, align 8
   br label %yy_shift.exit
 
-165:                                              ; preds = %154
-  %166 = icmp ugt i8 %.0.i, 24
-  %167 = add nuw i8 %.0.i, 57
-  %spec.select.i37 = select i1 %166, i8 %167, i8 %.0.i
-  store i8 %spec.select.i37, ptr %156, align 8
-  %168 = getelementptr i8, ptr %155, i64 105
-  store i8 %11, ptr %168, align 1
-  %169 = getelementptr i8, ptr %155, i64 112
-  store i64 %2, ptr %169, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr i8, ptr %155, i64 120
+169:                                              ; preds = %158
+  %170 = icmp ugt i8 %.0.i, 24
+  %171 = add nuw i8 %.0.i, 57
+  %spec.select.i37 = select i1 %170, i8 %171, i8 %.0.i
+  store i8 %spec.select.i37, ptr %160, align 8
+  %172 = getelementptr i8, ptr %159, i64 105
+  store i8 %11, ptr %172, align 1
+  %173 = getelementptr i8, ptr %159, i64 112
+  store i64 %2, ptr %173, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr i8, ptr %159, i64 120
   store i64 %3, ptr %.sroa.2.0..sroa_idx.i, align 8
   br label %yy_shift.exit
 
-yy_shift.exit:                                    ; preds = %159, %._crit_edge.i.i, %165
-  %170 = getelementptr inbounds i8, ptr %0, i64 8
-  %171 = load i32, ptr %170, align 8
-  %172 = add i32 %171, -1
-  store i32 %172, ptr %170, align 8
+yy_shift.exit:                                    ; preds = %163, %._crit_edge.i.i, %169
+  %174 = getelementptr inbounds i8, ptr %0, i64 8
+  %175 = load i32, ptr %174, align 8
+  %176 = add i32 %175, -1
+  store i32 %176, ptr %174, align 8
   br label %yyStackOverflow.exit
 
-173:                                              ; preds = %152
-  %174 = icmp eq i8 %.0.i, 120
-  br i1 %174, label %175, label %179
+177:                                              ; preds = %156
+  %178 = icmp eq i8 %.0.i, 120
+  br i1 %178, label %179, label %183
 
-175:                                              ; preds = %173
-  %176 = load ptr, ptr %0, align 8
-  %177 = getelementptr i8, ptr %176, i64 -104
-  store ptr %177, ptr %0, align 8
-  %178 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 -1, ptr %178, align 8
+179:                                              ; preds = %177
+  %180 = load ptr, ptr %0, align 8
+  %181 = getelementptr i8, ptr %180, i64 -104
+  store ptr %181, ptr %0, align 8
+  %182 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 -1, ptr %182, align 8
   br label %yyStackOverflow.exit
 
-179:                                              ; preds = %173
-  %180 = getelementptr inbounds i8, ptr %0, i64 8
-  %181 = load i32, ptr %180, align 8
-  %182 = icmp slt i32 %181, 1
-  br i1 %182, label %183, label %188
+183:                                              ; preds = %177
+  %184 = getelementptr inbounds i8, ptr %0, i64 8
+  %185 = load i32, ptr %184, align 8
+  %186 = icmp slt i32 %185, 1
+  br i1 %186, label %187, label %192
 
-183:                                              ; preds = %179
-  %184 = load ptr, ptr %7, align 8
-  %185 = getelementptr inbounds i8, ptr %184, i64 136
-  %186 = load ptr, ptr %185, align 8
-  tail call void @g_free(ptr noundef %186) #10
-  %187 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str) #10
-  store ptr %187, ptr %185, align 8
-  store ptr %184, ptr %7, align 8
-  br label %188
+187:                                              ; preds = %183
+  %188 = load ptr, ptr %7, align 8
+  %189 = getelementptr inbounds i8, ptr %188, i64 136
+  %190 = load ptr, ptr %189, align 8
+  tail call void @g_free(ptr noundef %190) #10
+  %191 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str) #10
+  store ptr %191, ptr %189, align 8
+  store ptr %188, ptr %7, align 8
+  br label %192
 
-188:                                              ; preds = %183, %179
-  store i32 3, ptr %180, align 8
-  br i1 %8, label %189, label %yyStackOverflow.exit
+192:                                              ; preds = %187, %183
+  store i32 3, ptr %184, align 8
+  br i1 %8, label %193, label %yyStackOverflow.exit
 
-189:                                              ; preds = %188
-  %190 = load ptr, ptr %7, align 8
-  %191 = getelementptr inbounds i8, ptr %0, i64 24
+193:                                              ; preds = %192
+  %194 = load ptr, ptr %7, align 8
+  %195 = getelementptr inbounds i8, ptr %0, i64 24
   %.promoted.i38 = load ptr, ptr %0, align 8
-  %192 = icmp ugt ptr %.promoted.i38, %191
-  br i1 %192, label %.lr.ph.i39, label %yy_parse_failed.exit
+  %196 = icmp ugt ptr %.promoted.i38, %195
+  br i1 %196, label %.lr.ph.i39, label %yy_parse_failed.exit
 
-.lr.ph.i39:                                       ; preds = %189, %.lr.ph.i39
-  %193 = phi ptr [ %194, %.lr.ph.i39 ], [ %.promoted.i38, %189 ]
-  %194 = getelementptr i8, ptr %193, i64 -104
-  %195 = icmp ugt ptr %194, %191
-  br i1 %195, label %.lr.ph.i39, label %._crit_edge.i40, !llvm.loop !7
+.lr.ph.i39:                                       ; preds = %193, %.lr.ph.i39
+  %197 = phi ptr [ %198, %.lr.ph.i39 ], [ %.promoted.i38, %193 ]
+  %198 = getelementptr i8, ptr %197, i64 -104
+  %199 = icmp ugt ptr %198, %195
+  br i1 %199, label %.lr.ph.i39, label %._crit_edge.i40, !llvm.loop !7
 
 ._crit_edge.i40:                                  ; preds = %.lr.ph.i39
-  store ptr %194, ptr %0, align 8
+  store ptr %198, ptr %0, align 8
   br label %yy_parse_failed.exit
 
-yy_parse_failed.exit:                             ; preds = %189, %._crit_edge.i40
-  %196 = getelementptr inbounds i8, ptr %190, i64 136
-  %197 = load ptr, ptr %196, align 8
-  tail call void @g_free(ptr noundef %197) #10
-  %198 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.1) #10
-  store ptr %198, ptr %196, align 8
-  store ptr %190, ptr %7, align 8
-  store i32 -1, ptr %180, align 8
+yy_parse_failed.exit:                             ; preds = %193, %._crit_edge.i40
+  %200 = getelementptr inbounds i8, ptr %194, i64 136
+  %201 = load ptr, ptr %200, align 8
+  tail call void @g_free(ptr noundef %201) #10
+  %202 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.1) #10
+  store ptr %202, ptr %200, align 8
+  store ptr %194, ptr %7, align 8
+  store i32 -1, ptr %184, align 8
   br label %yyStackOverflow.exit
 
-yyStackOverflow.exit:                             ; preds = %._crit_edge.i, %43, %yy_shift.exit, %yy_parse_failed.exit, %188, %175
+yyStackOverflow.exit:                             ; preds = %._crit_edge.i, %47, %yy_shift.exit, %yy_parse_failed.exit, %192, %179
   ret void
 }
 

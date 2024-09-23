@@ -242,6 +242,7 @@ _ZN6XStackIPS_I15XMarkStackEntryLm254EELm15EE4pushES2_.exit.us: ; preds = %.lr.p
 
 6:                                                ; preds = %_ZN6XStackIPS_I15XMarkStackEntryLm254EELm15EE4pushES2_.exit.us, %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  store ptr %2, ptr %0, align 8
   br label %10
 
 _ZN6XStackIPS_I15XMarkStackEntryLm254EELm15EE4pushES2_.exit.thread: ; preds = %.lr.ph.split.us
@@ -249,11 +250,10 @@ _ZN6XStackIPS_I15XMarkStackEntryLm254EELm15EE4pushES2_.exit.thread: ; preds = %.
   %8 = add i64 %5, 1
   store i64 %8, ptr %.pr, align 8
   %9 = getelementptr inbounds [15 x ptr], ptr %7, i64 0, i64 %5
+  store ptr %2, ptr %9, align 8
   br label %10
 
 10:                                               ; preds = %_ZN6XStackIPS_I15XMarkStackEntryLm254EELm15EE4pushES2_.exit.thread, %6
-  %.sink = phi ptr [ %9, %_ZN6XStackIPS_I15XMarkStackEntryLm254EELm15EE4pushES2_.exit.thread ], [ %0, %6 ]
-  store ptr %2, ptr %.sink, align 8
   ret void
 }
 
@@ -555,6 +555,7 @@ _ZN6XStackIPS_I15XMarkStackEntryLm254EELm15EE4pushES2_.exit.us.i: ; preds = %.lr
 
 70:                                               ; preds = %_ZN6XStackIPS_I15XMarkStackEntryLm254EELm15EE4pushES2_.exit.us.i, %_ZN6XStackI15XMarkStackEntryLm254EE3popERS0_.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.1, i8 0, i64 16, i1 false)
+  store ptr %.1, ptr %0, align 8
   br label %_ZN22XMarkThreadLocalStacks10free_stackEP19XMarkStackAllocatorP6XStackI15XMarkStackEntryLm254EE.exit
 
 _ZN6XStackIPS_I15XMarkStackEntryLm254EELm15EE4pushES2_.exit.thread.i: ; preds = %.lr.ph.split.us.i
@@ -562,11 +563,10 @@ _ZN6XStackIPS_I15XMarkStackEntryLm254EELm15EE4pushES2_.exit.thread.i: ; preds = 
   %72 = add i64 %69, 1
   store i64 %72, ptr %.pr.i, align 8
   %73 = getelementptr inbounds [15 x ptr], ptr %71, i64 0, i64 %69
+  store ptr %.1, ptr %73, align 8
   br label %_ZN22XMarkThreadLocalStacks10free_stackEP19XMarkStackAllocatorP6XStackI15XMarkStackEntryLm254EE.exit
 
 _ZN22XMarkThreadLocalStacks10free_stackEP19XMarkStackAllocatorP6XStackI15XMarkStackEntryLm254EE.exit: ; preds = %70, %_ZN6XStackIPS_I15XMarkStackEntryLm254EELm15EE4pushES2_.exit.thread.i
-  %.sink.i = phi ptr [ %73, %_ZN6XStackIPS_I15XMarkStackEntryLm254EELm15EE4pushES2_.exit.thread.i ], [ %0, %70 ]
-  store ptr %.1, ptr %.sink.i, align 8
   store ptr null, ptr %3, align 8
   br label %8, !llvm.loop !13
 
@@ -617,6 +617,7 @@ _ZN6XStackIPS_I15XMarkStackEntryLm254EELm15EE4pushES2_.exit.us.i: ; preds = %.lr
 
 19:                                               ; preds = %_ZN6XStackIPS_I15XMarkStackEntryLm254EELm15EE4pushES2_.exit.us.i, %16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
+  store ptr %11, ptr %0, align 8
   br label %_ZN22XMarkThreadLocalStacks10free_stackEP19XMarkStackAllocatorP6XStackI15XMarkStackEntryLm254EE.exit
 
 _ZN6XStackIPS_I15XMarkStackEntryLm254EELm15EE4pushES2_.exit.thread.i: ; preds = %.lr.ph.split.us.i
@@ -624,12 +625,8 @@ _ZN6XStackIPS_I15XMarkStackEntryLm254EELm15EE4pushES2_.exit.thread.i: ; preds = 
   %21 = add i64 %18, 1
   store i64 %21, ptr %.pr.i, align 8
   %22 = getelementptr inbounds [15 x ptr], ptr %20, i64 0, i64 %18
+  store ptr %11, ptr %22, align 8
   br label %_ZN22XMarkThreadLocalStacks10free_stackEP19XMarkStackAllocatorP6XStackI15XMarkStackEntryLm254EE.exit
-
-_ZN22XMarkThreadLocalStacks10free_stackEP19XMarkStackAllocatorP6XStackI15XMarkStackEntryLm254EE.exit: ; preds = %19, %_ZN6XStackIPS_I15XMarkStackEntryLm254EELm15EE4pushES2_.exit.thread.i
-  %.sink.i = phi ptr [ %22, %_ZN6XStackIPS_I15XMarkStackEntryLm254EELm15EE4pushES2_.exit.thread.i ], [ %0, %19 ]
-  store ptr %11, ptr %.sink.i, align 8
-  br label %_ZN11XMarkStripe13publish_stackEP6XStackI15XMarkStackEntryLm254EEb.exit
 
 23:                                               ; preds = %13
   %24 = load volatile ptr, ptr %9, align 8
@@ -657,17 +654,17 @@ _ZN22XMarkThreadLocalStacks10free_stackEP19XMarkStackAllocatorP6XStackI15XMarkSt
   %40 = inttoptr i64 %39 to ptr
   %41 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %40, ptr %.0.i.i, ptr nonnull %9) #9, !srcloc !9
   %42 = icmp eq ptr %41, %.0.i.i
-  br i1 %42, label %_ZN11XMarkStripe13publish_stackEP6XStackI15XMarkStackEntryLm254EEb.exit, label %.split.i.i, !llvm.loop !10
+  br i1 %42, label %_ZN22XMarkThreadLocalStacks10free_stackEP19XMarkStackAllocatorP6XStackI15XMarkStackEntryLm254EE.exit, label %.split.i.i, !llvm.loop !10
 
-_ZN11XMarkStripe13publish_stackEP6XStackI15XMarkStackEntryLm254EEb.exit: ; preds = %.split.i.i, %_ZN22XMarkThreadLocalStacks10free_stackEP19XMarkStackAllocatorP6XStackI15XMarkStackEntryLm254EE.exit
-  %.2 = phi i1 [ %.018, %_ZN22XMarkThreadLocalStacks10free_stackEP19XMarkStackAllocatorP6XStackI15XMarkStackEntryLm254EE.exit ], [ true, %.split.i.i ]
+_ZN22XMarkThreadLocalStacks10free_stackEP19XMarkStackAllocatorP6XStackI15XMarkStackEntryLm254EE.exit: ; preds = %.split.i.i, %_ZN6XStackIPS_I15XMarkStackEntryLm254EELm15EE4pushES2_.exit.thread.i, %19
+  %.2 = phi i1 [ %.018, %19 ], [ %.018, %_ZN6XStackIPS_I15XMarkStackEntryLm254EELm15EE4pushES2_.exit.thread.i ], [ true, %.split.i.i ]
   store ptr null, ptr %10, align 8
   %.pre = load i64, ptr %2, align 64
   br label %43
 
-43:                                               ; preds = %7, %_ZN11XMarkStripe13publish_stackEP6XStackI15XMarkStackEntryLm254EEb.exit
-  %44 = phi i64 [ %8, %7 ], [ %.pre, %_ZN11XMarkStripe13publish_stackEP6XStackI15XMarkStackEntryLm254EEb.exit ]
-  %.1 = phi i1 [ %.018, %7 ], [ %.2, %_ZN11XMarkStripe13publish_stackEP6XStackI15XMarkStackEntryLm254EEb.exit ]
+43:                                               ; preds = %7, %_ZN22XMarkThreadLocalStacks10free_stackEP19XMarkStackAllocatorP6XStackI15XMarkStackEntryLm254EE.exit
+  %44 = phi i64 [ %8, %7 ], [ %.pre, %_ZN22XMarkThreadLocalStacks10free_stackEP19XMarkStackAllocatorP6XStackI15XMarkStackEntryLm254EE.exit ]
+  %.1 = phi i1 [ %.018, %7 ], [ %.2, %_ZN22XMarkThreadLocalStacks10free_stackEP19XMarkStackAllocatorP6XStackI15XMarkStackEntryLm254EE.exit ]
   %45 = add nuw i64 %.01517, 1
   %46 = icmp ult i64 %45, %44
   br i1 %46, label %7, label %._crit_edge, !llvm.loop !14

@@ -1025,7 +1025,8 @@ if.then:                                          ; preds = %entry
 if.end.i:                                         ; preds = %if.then
   %elements.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %1 = load ptr, ptr %elements.i, align 8
-  br label %return.sink.split
+  store ptr %a, ptr %1, align 8
+  br label %return
 
 cond.end:                                         ; preds = %entry
   %2 = load i64, ptr %seq, align 8
@@ -1069,16 +1070,11 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %9 = load ptr, ptr %elements15, align 8
   %10 = getelementptr ptr, ptr %9, i64 %8
   %arrayidx22 = getelementptr i8, ptr %10, i64 -8
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %for.end, %if.end.i
-  %.sink = phi ptr [ %1, %if.end.i ], [ %arrayidx22, %for.end ]
-  %retval.0.ph = phi ptr [ %call.i, %if.end.i ], [ %call1, %for.end ]
-  store ptr %a, ptr %.sink, align 8
+  store ptr %a, ptr %arrayidx22, align 8
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.then, %cond.end
-  %retval.0 = phi ptr [ null, %cond.end ], [ null, %if.then ], [ %retval.0.ph, %return.sink.split ]
+return:                                           ; preds = %if.end.i, %if.then, %cond.end, %for.end
+  %retval.0 = phi ptr [ %call1, %for.end ], [ null, %cond.end ], [ null, %if.then ], [ %call.i, %if.end.i ]
   ret ptr %retval.0
 }
 

@@ -46102,11 +46102,10 @@ if.then.i.i.i.i:                                  ; preds = %entry
   store ptr %0, ptr %_M_parent16.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i = getelementptr inbounds i8, ptr %__a, i64 40
   %5 = load i64, ptr %_M_node_count.i.i.i.i.i, align 8
-  %_M_node_count17.i.i.i.i.i = getelementptr inbounds i8, ptr %__tmp, i64 40
-  store i64 %5, ptr %_M_node_count17.i.i.i.i.i, align 8
   store ptr null, ptr %_M_parent.i.i.i.i, align 8
   store ptr %add.ptr.i.i.i, ptr %_M_left.i.i.i.i.i, align 8
   store ptr %add.ptr.i.i.i, ptr %_M_right.i.i.i.i.i, align 8
+  store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8
   br label %_ZNSt3setIiSt4lessIiESaIiEEC2EOS3_.exit
 
 if.else.i.i.i.i:                                  ; preds = %entry
@@ -46117,20 +46116,20 @@ if.else.i.i.i.i:                                  ; preds = %entry
   store ptr %0, ptr %_M_left.i3.i.i.i.i, align 8
   %_M_right.i4.i.i.i.i = getelementptr inbounds i8, ptr %__tmp, i64 32
   store ptr %0, ptr %_M_right.i4.i.i.i.i, align 8
-  %_M_node_count.i5.i.i.i.i = getelementptr inbounds i8, ptr %__tmp, i64 40
   br label %_ZNSt3setIiSt4lessIiESaIiEEC2EOS3_.exit
 
 _ZNSt3setIiSt4lessIiESaIiEEC2EOS3_.exit:          ; preds = %if.then.i.i.i.i, %if.else.i.i.i.i
-  %_M_node_count.i5.sink.i.i.i.i = phi ptr [ %_M_node_count.i5.i.i.i.i, %if.else.i.i.i.i ], [ %_M_node_count.i.i.i.i.i, %if.then.i.i.i.i ]
-  store i64 0, ptr %_M_node_count.i5.sink.i.i.i.i, align 8
+  %.sink = phi i64 [ 0, %if.else.i.i.i.i ], [ %5, %if.then.i.i.i.i ]
+  %6 = getelementptr inbounds i8, ptr %__tmp, i64 40
+  store i64 %.sink, ptr %6, align 8
   invoke void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_M_eraseEPSt13_Rb_tree_nodeIiE(ptr noundef nonnull align 8 dereferenceable(48) %__a, ptr noundef null)
           to label %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE5clearEv.exit.i.i.i unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %_ZNSt3setIiSt4lessIiESaIiEEC2EOS3_.exit
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #14
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #14
   unreachable
 
 _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE5clearEv.exit.i.i.i: ; preds = %_ZNSt3setIiSt4lessIiESaIiEEC2EOS3_.exit
@@ -46143,27 +46142,27 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE5clearEv.exit.i.i.i: ; preds = %
   %_M_node_count.i.i.i.i.i5 = getelementptr inbounds i8, ptr %__a, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i5, align 8
   %_M_parent.i.i.i.i6 = getelementptr inbounds i8, ptr %__b, i64 16
-  %8 = load ptr, ptr %_M_parent.i.i.i.i6, align 8
-  %cmp.not.i.i.i = icmp eq ptr %8, null
+  %9 = load ptr, ptr %_M_parent.i.i.i.i6, align 8
+  %cmp.not.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.not.i.i.i, label %_ZNSt3setIiSt4lessIiESaIiEEaSEOS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE5clearEv.exit.i.i.i
   %add.ptr3.i.i.i.i = getelementptr inbounds i8, ptr %__b, i64 8
-  %9 = load i32, ptr %add.ptr3.i.i.i.i, align 8
-  store i32 %9, ptr %add.ptr.i.i.i.i, align 8
-  %10 = load ptr, ptr %_M_parent.i.i.i.i6, align 8
-  store ptr %10, ptr %_M_parent.i.i.i.i, align 8
+  %10 = load i32, ptr %add.ptr3.i.i.i.i, align 8
+  store i32 %10, ptr %add.ptr.i.i.i.i, align 8
+  %11 = load ptr, ptr %_M_parent.i.i.i.i6, align 8
+  store ptr %11, ptr %_M_parent.i.i.i.i, align 8
   %_M_left.i.i4.i.i.i = getelementptr inbounds i8, ptr %__b, i64 24
-  %11 = load ptr, ptr %_M_left.i.i4.i.i.i, align 8
-  store ptr %11, ptr %_M_left.i.i.i.i.i3, align 8
+  %12 = load ptr, ptr %_M_left.i.i4.i.i.i, align 8
+  store ptr %12, ptr %_M_left.i.i.i.i.i3, align 8
   %_M_right.i.i5.i.i.i = getelementptr inbounds i8, ptr %__b, i64 32
-  %12 = load ptr, ptr %_M_right.i.i5.i.i.i, align 8
-  store ptr %12, ptr %_M_right.i.i.i.i.i4, align 8
-  %_M_parent16.i.i.i.i.i7 = getelementptr inbounds i8, ptr %10, i64 8
+  %13 = load ptr, ptr %_M_right.i.i5.i.i.i, align 8
+  store ptr %13, ptr %_M_right.i.i.i.i.i4, align 8
+  %_M_parent16.i.i.i.i.i7 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %add.ptr.i.i.i.i, ptr %_M_parent16.i.i.i.i.i7, align 8
   %_M_node_count.i.i6.i.i.i = getelementptr inbounds i8, ptr %__b, i64 40
-  %13 = load i64, ptr %_M_node_count.i.i6.i.i.i, align 8
-  store i64 %13, ptr %_M_node_count.i.i.i.i.i5, align 8
+  %14 = load i64, ptr %_M_node_count.i.i6.i.i.i, align 8
+  store i64 %14, ptr %_M_node_count.i.i.i.i.i5, align 8
   store ptr null, ptr %_M_parent.i.i.i.i6, align 8
   store ptr %add.ptr3.i.i.i.i, ptr %_M_left.i.i4.i.i.i, align 8
   store ptr %add.ptr3.i.i.i.i, ptr %_M_right.i.i5.i.i.i, align 8
@@ -46175,10 +46174,10 @@ _ZNSt3setIiSt4lessIiESaIiEEaSEOS3_.exit:          ; preds = %_ZNSt8_Rb_treeIiiSt
           to label %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE5clearEv.exit.i.i.i10 unwind label %terminate.lpad.i.i.i.i9
 
 terminate.lpad.i.i.i.i9:                          ; preds = %_ZNSt3setIiSt4lessIiESaIiEEaSEOS3_.exit
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #14
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #14
   unreachable
 
 _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE5clearEv.exit.i.i.i10: ; preds = %_ZNSt3setIiSt4lessIiESaIiEEaSEOS3_.exit
@@ -46191,29 +46190,28 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE5clearEv.exit.i.i.i10: ; preds =
   %_M_node_count.i.i.i.i.i14 = getelementptr inbounds i8, ptr %__b, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i14, align 8
   %_M_parent.i.i.i.i15 = getelementptr inbounds i8, ptr %__tmp, i64 16
-  %16 = load ptr, ptr %_M_parent.i.i.i.i15, align 8
-  %cmp.not.i.i.i16 = icmp eq ptr %16, null
+  %17 = load ptr, ptr %_M_parent.i.i.i.i15, align 8
+  %cmp.not.i.i.i16 = icmp eq ptr %17, null
   br i1 %cmp.not.i.i.i16, label %_ZNSt3setIiSt4lessIiESaIiEEaSEOS3_.exit23, label %if.then.i.i.i17
 
 if.then.i.i.i17:                                  ; preds = %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE5clearEv.exit.i.i.i10
-  %17 = load i32, ptr %0, align 8
-  store i32 %17, ptr %add.ptr.i.i.i.i11, align 8
-  store ptr %16, ptr %_M_parent.i.i.i.i6, align 8
+  %18 = load i32, ptr %0, align 8
+  store i32 %18, ptr %add.ptr.i.i.i.i11, align 8
+  store ptr %17, ptr %_M_parent.i.i.i.i6, align 8
   %_M_left.i.i4.i.i.i19 = getelementptr inbounds i8, ptr %__tmp, i64 24
-  %18 = load ptr, ptr %_M_left.i.i4.i.i.i19, align 8
-  store ptr %18, ptr %_M_left.i.i.i.i.i12, align 8
+  %19 = load ptr, ptr %_M_left.i.i4.i.i.i19, align 8
+  store ptr %19, ptr %_M_left.i.i.i.i.i12, align 8
   %_M_right.i.i5.i.i.i20 = getelementptr inbounds i8, ptr %__tmp, i64 32
-  %19 = load ptr, ptr %_M_right.i.i5.i.i.i20, align 8
-  store ptr %19, ptr %_M_right.i.i.i.i.i13, align 8
-  %_M_parent16.i.i.i.i.i21 = getelementptr inbounds i8, ptr %16, i64 8
+  %20 = load ptr, ptr %_M_right.i.i5.i.i.i20, align 8
+  store ptr %20, ptr %_M_right.i.i.i.i.i13, align 8
+  %_M_parent16.i.i.i.i.i21 = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %add.ptr.i.i.i.i11, ptr %_M_parent16.i.i.i.i.i21, align 8
-  %_M_node_count.i.i6.i.i.i22 = getelementptr inbounds i8, ptr %__tmp, i64 40
-  %20 = load i64, ptr %_M_node_count.i.i6.i.i.i22, align 8
-  store i64 %20, ptr %_M_node_count.i.i.i.i.i14, align 8
+  %21 = load i64, ptr %6, align 8
+  store i64 %21, ptr %_M_node_count.i.i.i.i.i14, align 8
   store ptr null, ptr %_M_parent.i.i.i.i15, align 8
   store ptr %0, ptr %_M_left.i.i4.i.i.i19, align 8
   store ptr %0, ptr %_M_right.i.i5.i.i.i20, align 8
-  store i64 0, ptr %_M_node_count.i.i6.i.i.i22, align 8
+  store i64 0, ptr %6, align 8
   br label %_ZNSt3setIiSt4lessIiESaIiEEaSEOS3_.exit23
 
 _ZNSt3setIiSt4lessIiESaIiEEaSEOS3_.exit23:        ; preds = %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE5clearEv.exit.i.i.i10, %if.then.i.i.i17
@@ -46221,10 +46219,10 @@ _ZNSt3setIiSt4lessIiESaIiEEaSEOS3_.exit23:        ; preds = %_ZNSt8_Rb_treeIiiSt
           to label %_ZNSt3setIiSt4lessIiESaIiEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %_ZNSt3setIiSt4lessIiESaIiEEaSEOS3_.exit23
-  %21 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #14
+  %23 = extractvalue { ptr, i32 } %22, 0
+  call void @__clang_call_terminate(ptr %23) #14
   unreachable
 
 _ZNSt3setIiSt4lessIiESaIiEED2Ev.exit:             ; preds = %_ZNSt3setIiSt4lessIiESaIiEEaSEOS3_.exit23
@@ -47524,11 +47522,10 @@ if.then.i.i.i.i:                                  ; preds = %entry
   store ptr %0, ptr %_M_parent16.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i = getelementptr inbounds i8, ptr %__a, i64 40
   %5 = load i64, ptr %_M_node_count.i.i.i.i.i, align 8
-  %_M_node_count17.i.i.i.i.i = getelementptr inbounds i8, ptr %__tmp, i64 40
-  store i64 %5, ptr %_M_node_count17.i.i.i.i.i, align 8
   store ptr null, ptr %_M_parent.i.i.i.i, align 8
   store ptr %add.ptr.i.i.i, ptr %_M_left.i.i.i.i.i, align 8
   store ptr %add.ptr.i.i.i, ptr %_M_right.i.i.i.i.i, align 8
+  store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8
   br label %_ZNSt3setI10TestObjectSt4lessIS0_ESaIS0_EEC2EOS4_.exit
 
 if.else.i.i.i.i:                                  ; preds = %entry
@@ -47539,20 +47536,20 @@ if.else.i.i.i.i:                                  ; preds = %entry
   store ptr %0, ptr %_M_left.i3.i.i.i.i, align 8
   %_M_right.i4.i.i.i.i = getelementptr inbounds i8, ptr %__tmp, i64 32
   store ptr %0, ptr %_M_right.i4.i.i.i.i, align 8
-  %_M_node_count.i5.i.i.i.i = getelementptr inbounds i8, ptr %__tmp, i64 40
   br label %_ZNSt3setI10TestObjectSt4lessIS0_ESaIS0_EEC2EOS4_.exit
 
 _ZNSt3setI10TestObjectSt4lessIS0_ESaIS0_EEC2EOS4_.exit: ; preds = %if.then.i.i.i.i, %if.else.i.i.i.i
-  %_M_node_count.i5.sink.i.i.i.i = phi ptr [ %_M_node_count.i5.i.i.i.i, %if.else.i.i.i.i ], [ %_M_node_count.i.i.i.i.i, %if.then.i.i.i.i ]
-  store i64 0, ptr %_M_node_count.i5.sink.i.i.i.i, align 8
+  %.sink = phi i64 [ 0, %if.else.i.i.i.i ], [ %5, %if.then.i.i.i.i ]
+  %6 = getelementptr inbounds i8, ptr %__tmp, i64 40
+  store i64 %.sink, ptr %6, align 8
   invoke void @_ZNSt8_Rb_treeI10TestObjectS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE8_M_eraseEPSt13_Rb_tree_nodeIS0_E(ptr noundef nonnull align 8 dereferenceable(48) %__a, ptr noundef null)
           to label %_ZNSt8_Rb_treeI10TestObjectS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE5clearEv.exit.i.i.i unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %_ZNSt3setI10TestObjectSt4lessIS0_ESaIS0_EEC2EOS4_.exit
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #14
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #14
   unreachable
 
 _ZNSt8_Rb_treeI10TestObjectS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE5clearEv.exit.i.i.i: ; preds = %_ZNSt3setI10TestObjectSt4lessIS0_ESaIS0_EEC2EOS4_.exit
@@ -47565,27 +47562,27 @@ _ZNSt8_Rb_treeI10TestObjectS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE5clearEv.exit
   %_M_node_count.i.i.i.i.i5 = getelementptr inbounds i8, ptr %__a, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i5, align 8
   %_M_parent.i.i.i.i6 = getelementptr inbounds i8, ptr %__b, i64 16
-  %8 = load ptr, ptr %_M_parent.i.i.i.i6, align 8
-  %cmp.not.i.i.i = icmp eq ptr %8, null
+  %9 = load ptr, ptr %_M_parent.i.i.i.i6, align 8
+  %cmp.not.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.not.i.i.i, label %_ZNSt3setI10TestObjectSt4lessIS0_ESaIS0_EEaSEOS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt8_Rb_treeI10TestObjectS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE5clearEv.exit.i.i.i
   %add.ptr3.i.i.i.i = getelementptr inbounds i8, ptr %__b, i64 8
-  %9 = load i32, ptr %add.ptr3.i.i.i.i, align 8
-  store i32 %9, ptr %add.ptr.i.i.i.i, align 8
-  %10 = load ptr, ptr %_M_parent.i.i.i.i6, align 8
-  store ptr %10, ptr %_M_parent.i.i.i.i, align 8
+  %10 = load i32, ptr %add.ptr3.i.i.i.i, align 8
+  store i32 %10, ptr %add.ptr.i.i.i.i, align 8
+  %11 = load ptr, ptr %_M_parent.i.i.i.i6, align 8
+  store ptr %11, ptr %_M_parent.i.i.i.i, align 8
   %_M_left.i.i4.i.i.i = getelementptr inbounds i8, ptr %__b, i64 24
-  %11 = load ptr, ptr %_M_left.i.i4.i.i.i, align 8
-  store ptr %11, ptr %_M_left.i.i.i.i.i3, align 8
+  %12 = load ptr, ptr %_M_left.i.i4.i.i.i, align 8
+  store ptr %12, ptr %_M_left.i.i.i.i.i3, align 8
   %_M_right.i.i5.i.i.i = getelementptr inbounds i8, ptr %__b, i64 32
-  %12 = load ptr, ptr %_M_right.i.i5.i.i.i, align 8
-  store ptr %12, ptr %_M_right.i.i.i.i.i4, align 8
-  %_M_parent16.i.i.i.i.i7 = getelementptr inbounds i8, ptr %10, i64 8
+  %13 = load ptr, ptr %_M_right.i.i5.i.i.i, align 8
+  store ptr %13, ptr %_M_right.i.i.i.i.i4, align 8
+  %_M_parent16.i.i.i.i.i7 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %add.ptr.i.i.i.i, ptr %_M_parent16.i.i.i.i.i7, align 8
   %_M_node_count.i.i6.i.i.i = getelementptr inbounds i8, ptr %__b, i64 40
-  %13 = load i64, ptr %_M_node_count.i.i6.i.i.i, align 8
-  store i64 %13, ptr %_M_node_count.i.i.i.i.i5, align 8
+  %14 = load i64, ptr %_M_node_count.i.i6.i.i.i, align 8
+  store i64 %14, ptr %_M_node_count.i.i.i.i.i5, align 8
   store ptr null, ptr %_M_parent.i.i.i.i6, align 8
   store ptr %add.ptr3.i.i.i.i, ptr %_M_left.i.i4.i.i.i, align 8
   store ptr %add.ptr3.i.i.i.i, ptr %_M_right.i.i5.i.i.i, align 8
@@ -47597,10 +47594,10 @@ _ZNSt3setI10TestObjectSt4lessIS0_ESaIS0_EEaSEOS4_.exit: ; preds = %_ZNSt8_Rb_tre
           to label %_ZNSt8_Rb_treeI10TestObjectS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE5clearEv.exit.i.i.i10 unwind label %terminate.lpad.i.i.i.i9
 
 terminate.lpad.i.i.i.i9:                          ; preds = %_ZNSt3setI10TestObjectSt4lessIS0_ESaIS0_EEaSEOS4_.exit
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #14
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #14
   unreachable
 
 _ZNSt8_Rb_treeI10TestObjectS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE5clearEv.exit.i.i.i10: ; preds = %_ZNSt3setI10TestObjectSt4lessIS0_ESaIS0_EEaSEOS4_.exit
@@ -47613,29 +47610,28 @@ _ZNSt8_Rb_treeI10TestObjectS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE5clearEv.exit
   %_M_node_count.i.i.i.i.i14 = getelementptr inbounds i8, ptr %__b, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i14, align 8
   %_M_parent.i.i.i.i15 = getelementptr inbounds i8, ptr %__tmp, i64 16
-  %16 = load ptr, ptr %_M_parent.i.i.i.i15, align 8
-  %cmp.not.i.i.i16 = icmp eq ptr %16, null
+  %17 = load ptr, ptr %_M_parent.i.i.i.i15, align 8
+  %cmp.not.i.i.i16 = icmp eq ptr %17, null
   br i1 %cmp.not.i.i.i16, label %_ZNSt3setI10TestObjectSt4lessIS0_ESaIS0_EEaSEOS4_.exit23, label %if.then.i.i.i17
 
 if.then.i.i.i17:                                  ; preds = %_ZNSt8_Rb_treeI10TestObjectS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE5clearEv.exit.i.i.i10
-  %17 = load i32, ptr %0, align 8
-  store i32 %17, ptr %add.ptr.i.i.i.i11, align 8
-  store ptr %16, ptr %_M_parent.i.i.i.i6, align 8
+  %18 = load i32, ptr %0, align 8
+  store i32 %18, ptr %add.ptr.i.i.i.i11, align 8
+  store ptr %17, ptr %_M_parent.i.i.i.i6, align 8
   %_M_left.i.i4.i.i.i19 = getelementptr inbounds i8, ptr %__tmp, i64 24
-  %18 = load ptr, ptr %_M_left.i.i4.i.i.i19, align 8
-  store ptr %18, ptr %_M_left.i.i.i.i.i12, align 8
+  %19 = load ptr, ptr %_M_left.i.i4.i.i.i19, align 8
+  store ptr %19, ptr %_M_left.i.i.i.i.i12, align 8
   %_M_right.i.i5.i.i.i20 = getelementptr inbounds i8, ptr %__tmp, i64 32
-  %19 = load ptr, ptr %_M_right.i.i5.i.i.i20, align 8
-  store ptr %19, ptr %_M_right.i.i.i.i.i13, align 8
-  %_M_parent16.i.i.i.i.i21 = getelementptr inbounds i8, ptr %16, i64 8
+  %20 = load ptr, ptr %_M_right.i.i5.i.i.i20, align 8
+  store ptr %20, ptr %_M_right.i.i.i.i.i13, align 8
+  %_M_parent16.i.i.i.i.i21 = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %add.ptr.i.i.i.i11, ptr %_M_parent16.i.i.i.i.i21, align 8
-  %_M_node_count.i.i6.i.i.i22 = getelementptr inbounds i8, ptr %__tmp, i64 40
-  %20 = load i64, ptr %_M_node_count.i.i6.i.i.i22, align 8
-  store i64 %20, ptr %_M_node_count.i.i.i.i.i14, align 8
+  %21 = load i64, ptr %6, align 8
+  store i64 %21, ptr %_M_node_count.i.i.i.i.i14, align 8
   store ptr null, ptr %_M_parent.i.i.i.i15, align 8
   store ptr %0, ptr %_M_left.i.i4.i.i.i19, align 8
   store ptr %0, ptr %_M_right.i.i5.i.i.i20, align 8
-  store i64 0, ptr %_M_node_count.i.i6.i.i.i22, align 8
+  store i64 0, ptr %6, align 8
   br label %_ZNSt3setI10TestObjectSt4lessIS0_ESaIS0_EEaSEOS4_.exit23
 
 _ZNSt3setI10TestObjectSt4lessIS0_ESaIS0_EEaSEOS4_.exit23: ; preds = %_ZNSt8_Rb_treeI10TestObjectS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE5clearEv.exit.i.i.i10, %if.then.i.i.i17
@@ -47643,10 +47639,10 @@ _ZNSt3setI10TestObjectSt4lessIS0_ESaIS0_EEaSEOS4_.exit23: ; preds = %_ZNSt8_Rb_t
           to label %_ZNSt3setI10TestObjectSt4lessIS0_ESaIS0_EED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %_ZNSt3setI10TestObjectSt4lessIS0_ESaIS0_EEaSEOS4_.exit23
-  %21 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #14
+  %23 = extractvalue { ptr, i32 } %22, 0
+  call void @__clang_call_terminate(ptr %23) #14
   unreachable
 
 _ZNSt3setI10TestObjectSt4lessIS0_ESaIS0_EED2Ev.exit: ; preds = %_ZNSt3setI10TestObjectSt4lessIS0_ESaIS0_EEaSEOS4_.exit23
@@ -49319,11 +49315,10 @@ if.then.i.i.i.i:                                  ; preds = %entry
   store ptr %0, ptr %_M_parent16.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i = getelementptr inbounds i8, ptr %__a, i64 40
   %5 = load i64, ptr %_M_node_count.i.i.i.i.i, align 8
-  %_M_node_count17.i.i.i.i.i = getelementptr inbounds i8, ptr %__tmp, i64 40
-  store i64 %5, ptr %_M_node_count17.i.i.i.i.i, align 8
   store ptr null, ptr %_M_parent.i.i.i.i, align 8
   store ptr %add.ptr.i.i.i, ptr %_M_left.i.i.i.i.i, align 8
   store ptr %add.ptr.i.i.i, ptr %_M_right.i.i.i.i.i, align 8
+  store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8
   br label %_ZNSt8multisetIiSt4lessIiESaIiEEC2EOS3_.exit
 
 if.else.i.i.i.i:                                  ; preds = %entry
@@ -49334,20 +49329,20 @@ if.else.i.i.i.i:                                  ; preds = %entry
   store ptr %0, ptr %_M_left.i3.i.i.i.i, align 8
   %_M_right.i4.i.i.i.i = getelementptr inbounds i8, ptr %__tmp, i64 32
   store ptr %0, ptr %_M_right.i4.i.i.i.i, align 8
-  %_M_node_count.i5.i.i.i.i = getelementptr inbounds i8, ptr %__tmp, i64 40
   br label %_ZNSt8multisetIiSt4lessIiESaIiEEC2EOS3_.exit
 
 _ZNSt8multisetIiSt4lessIiESaIiEEC2EOS3_.exit:     ; preds = %if.then.i.i.i.i, %if.else.i.i.i.i
-  %_M_node_count.i5.sink.i.i.i.i = phi ptr [ %_M_node_count.i5.i.i.i.i, %if.else.i.i.i.i ], [ %_M_node_count.i.i.i.i.i, %if.then.i.i.i.i ]
-  store i64 0, ptr %_M_node_count.i5.sink.i.i.i.i, align 8
+  %.sink = phi i64 [ 0, %if.else.i.i.i.i ], [ %5, %if.then.i.i.i.i ]
+  %6 = getelementptr inbounds i8, ptr %__tmp, i64 40
+  store i64 %.sink, ptr %6, align 8
   invoke void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_M_eraseEPSt13_Rb_tree_nodeIiE(ptr noundef nonnull align 8 dereferenceable(48) %__a, ptr noundef null)
           to label %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE5clearEv.exit.i.i.i unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %_ZNSt8multisetIiSt4lessIiESaIiEEC2EOS3_.exit
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #14
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #14
   unreachable
 
 _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE5clearEv.exit.i.i.i: ; preds = %_ZNSt8multisetIiSt4lessIiESaIiEEC2EOS3_.exit
@@ -49360,27 +49355,27 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE5clearEv.exit.i.i.i: ; preds = %
   %_M_node_count.i.i.i.i.i5 = getelementptr inbounds i8, ptr %__a, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i5, align 8
   %_M_parent.i.i.i.i6 = getelementptr inbounds i8, ptr %__b, i64 16
-  %8 = load ptr, ptr %_M_parent.i.i.i.i6, align 8
-  %cmp.not.i.i.i = icmp eq ptr %8, null
+  %9 = load ptr, ptr %_M_parent.i.i.i.i6, align 8
+  %cmp.not.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.not.i.i.i, label %_ZNSt8multisetIiSt4lessIiESaIiEEaSEOS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE5clearEv.exit.i.i.i
   %add.ptr3.i.i.i.i = getelementptr inbounds i8, ptr %__b, i64 8
-  %9 = load i32, ptr %add.ptr3.i.i.i.i, align 8
-  store i32 %9, ptr %add.ptr.i.i.i.i, align 8
-  %10 = load ptr, ptr %_M_parent.i.i.i.i6, align 8
-  store ptr %10, ptr %_M_parent.i.i.i.i, align 8
+  %10 = load i32, ptr %add.ptr3.i.i.i.i, align 8
+  store i32 %10, ptr %add.ptr.i.i.i.i, align 8
+  %11 = load ptr, ptr %_M_parent.i.i.i.i6, align 8
+  store ptr %11, ptr %_M_parent.i.i.i.i, align 8
   %_M_left.i.i4.i.i.i = getelementptr inbounds i8, ptr %__b, i64 24
-  %11 = load ptr, ptr %_M_left.i.i4.i.i.i, align 8
-  store ptr %11, ptr %_M_left.i.i.i.i.i3, align 8
+  %12 = load ptr, ptr %_M_left.i.i4.i.i.i, align 8
+  store ptr %12, ptr %_M_left.i.i.i.i.i3, align 8
   %_M_right.i.i5.i.i.i = getelementptr inbounds i8, ptr %__b, i64 32
-  %12 = load ptr, ptr %_M_right.i.i5.i.i.i, align 8
-  store ptr %12, ptr %_M_right.i.i.i.i.i4, align 8
-  %_M_parent16.i.i.i.i.i7 = getelementptr inbounds i8, ptr %10, i64 8
+  %13 = load ptr, ptr %_M_right.i.i5.i.i.i, align 8
+  store ptr %13, ptr %_M_right.i.i.i.i.i4, align 8
+  %_M_parent16.i.i.i.i.i7 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %add.ptr.i.i.i.i, ptr %_M_parent16.i.i.i.i.i7, align 8
   %_M_node_count.i.i6.i.i.i = getelementptr inbounds i8, ptr %__b, i64 40
-  %13 = load i64, ptr %_M_node_count.i.i6.i.i.i, align 8
-  store i64 %13, ptr %_M_node_count.i.i.i.i.i5, align 8
+  %14 = load i64, ptr %_M_node_count.i.i6.i.i.i, align 8
+  store i64 %14, ptr %_M_node_count.i.i.i.i.i5, align 8
   store ptr null, ptr %_M_parent.i.i.i.i6, align 8
   store ptr %add.ptr3.i.i.i.i, ptr %_M_left.i.i4.i.i.i, align 8
   store ptr %add.ptr3.i.i.i.i, ptr %_M_right.i.i5.i.i.i, align 8
@@ -49392,10 +49387,10 @@ _ZNSt8multisetIiSt4lessIiESaIiEEaSEOS3_.exit:     ; preds = %_ZNSt8_Rb_treeIiiSt
           to label %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE5clearEv.exit.i.i.i10 unwind label %terminate.lpad.i.i.i.i9
 
 terminate.lpad.i.i.i.i9:                          ; preds = %_ZNSt8multisetIiSt4lessIiESaIiEEaSEOS3_.exit
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #14
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #14
   unreachable
 
 _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE5clearEv.exit.i.i.i10: ; preds = %_ZNSt8multisetIiSt4lessIiESaIiEEaSEOS3_.exit
@@ -49408,29 +49403,28 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE5clearEv.exit.i.i.i10: ; preds =
   %_M_node_count.i.i.i.i.i14 = getelementptr inbounds i8, ptr %__b, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i14, align 8
   %_M_parent.i.i.i.i15 = getelementptr inbounds i8, ptr %__tmp, i64 16
-  %16 = load ptr, ptr %_M_parent.i.i.i.i15, align 8
-  %cmp.not.i.i.i16 = icmp eq ptr %16, null
+  %17 = load ptr, ptr %_M_parent.i.i.i.i15, align 8
+  %cmp.not.i.i.i16 = icmp eq ptr %17, null
   br i1 %cmp.not.i.i.i16, label %_ZNSt8multisetIiSt4lessIiESaIiEEaSEOS3_.exit23, label %if.then.i.i.i17
 
 if.then.i.i.i17:                                  ; preds = %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE5clearEv.exit.i.i.i10
-  %17 = load i32, ptr %0, align 8
-  store i32 %17, ptr %add.ptr.i.i.i.i11, align 8
-  store ptr %16, ptr %_M_parent.i.i.i.i6, align 8
+  %18 = load i32, ptr %0, align 8
+  store i32 %18, ptr %add.ptr.i.i.i.i11, align 8
+  store ptr %17, ptr %_M_parent.i.i.i.i6, align 8
   %_M_left.i.i4.i.i.i19 = getelementptr inbounds i8, ptr %__tmp, i64 24
-  %18 = load ptr, ptr %_M_left.i.i4.i.i.i19, align 8
-  store ptr %18, ptr %_M_left.i.i.i.i.i12, align 8
+  %19 = load ptr, ptr %_M_left.i.i4.i.i.i19, align 8
+  store ptr %19, ptr %_M_left.i.i.i.i.i12, align 8
   %_M_right.i.i5.i.i.i20 = getelementptr inbounds i8, ptr %__tmp, i64 32
-  %19 = load ptr, ptr %_M_right.i.i5.i.i.i20, align 8
-  store ptr %19, ptr %_M_right.i.i.i.i.i13, align 8
-  %_M_parent16.i.i.i.i.i21 = getelementptr inbounds i8, ptr %16, i64 8
+  %20 = load ptr, ptr %_M_right.i.i5.i.i.i20, align 8
+  store ptr %20, ptr %_M_right.i.i.i.i.i13, align 8
+  %_M_parent16.i.i.i.i.i21 = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %add.ptr.i.i.i.i11, ptr %_M_parent16.i.i.i.i.i21, align 8
-  %_M_node_count.i.i6.i.i.i22 = getelementptr inbounds i8, ptr %__tmp, i64 40
-  %20 = load i64, ptr %_M_node_count.i.i6.i.i.i22, align 8
-  store i64 %20, ptr %_M_node_count.i.i.i.i.i14, align 8
+  %21 = load i64, ptr %6, align 8
+  store i64 %21, ptr %_M_node_count.i.i.i.i.i14, align 8
   store ptr null, ptr %_M_parent.i.i.i.i15, align 8
   store ptr %0, ptr %_M_left.i.i4.i.i.i19, align 8
   store ptr %0, ptr %_M_right.i.i5.i.i.i20, align 8
-  store i64 0, ptr %_M_node_count.i.i6.i.i.i22, align 8
+  store i64 0, ptr %6, align 8
   br label %_ZNSt8multisetIiSt4lessIiESaIiEEaSEOS3_.exit23
 
 _ZNSt8multisetIiSt4lessIiESaIiEEaSEOS3_.exit23:   ; preds = %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE5clearEv.exit.i.i.i10, %if.then.i.i.i17
@@ -49438,10 +49432,10 @@ _ZNSt8multisetIiSt4lessIiESaIiEEaSEOS3_.exit23:   ; preds = %_ZNSt8_Rb_treeIiiSt
           to label %_ZNSt8multisetIiSt4lessIiESaIiEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %_ZNSt8multisetIiSt4lessIiESaIiEEaSEOS3_.exit23
-  %21 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #14
+  %23 = extractvalue { ptr, i32 } %22, 0
+  call void @__clang_call_terminate(ptr %23) #14
   unreachable
 
 _ZNSt8multisetIiSt4lessIiESaIiEED2Ev.exit:        ; preds = %_ZNSt8multisetIiSt4lessIiESaIiEEaSEOS3_.exit23
@@ -50190,11 +50184,10 @@ if.then.i.i.i.i:                                  ; preds = %entry
   store ptr %0, ptr %_M_parent16.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i = getelementptr inbounds i8, ptr %__a, i64 40
   %5 = load i64, ptr %_M_node_count.i.i.i.i.i, align 8
-  %_M_node_count17.i.i.i.i.i = getelementptr inbounds i8, ptr %__tmp, i64 40
-  store i64 %5, ptr %_M_node_count17.i.i.i.i.i, align 8
   store ptr null, ptr %_M_parent.i.i.i.i, align 8
   store ptr %add.ptr.i.i.i, ptr %_M_left.i.i.i.i.i, align 8
   store ptr %add.ptr.i.i.i, ptr %_M_right.i.i.i.i.i, align 8
+  store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8
   br label %_ZNSt8multisetI10TestObjectSt4lessIS0_ESaIS0_EEC2EOS4_.exit
 
 if.else.i.i.i.i:                                  ; preds = %entry
@@ -50205,20 +50198,20 @@ if.else.i.i.i.i:                                  ; preds = %entry
   store ptr %0, ptr %_M_left.i3.i.i.i.i, align 8
   %_M_right.i4.i.i.i.i = getelementptr inbounds i8, ptr %__tmp, i64 32
   store ptr %0, ptr %_M_right.i4.i.i.i.i, align 8
-  %_M_node_count.i5.i.i.i.i = getelementptr inbounds i8, ptr %__tmp, i64 40
   br label %_ZNSt8multisetI10TestObjectSt4lessIS0_ESaIS0_EEC2EOS4_.exit
 
 _ZNSt8multisetI10TestObjectSt4lessIS0_ESaIS0_EEC2EOS4_.exit: ; preds = %if.then.i.i.i.i, %if.else.i.i.i.i
-  %_M_node_count.i5.sink.i.i.i.i = phi ptr [ %_M_node_count.i5.i.i.i.i, %if.else.i.i.i.i ], [ %_M_node_count.i.i.i.i.i, %if.then.i.i.i.i ]
-  store i64 0, ptr %_M_node_count.i5.sink.i.i.i.i, align 8
+  %.sink = phi i64 [ 0, %if.else.i.i.i.i ], [ %5, %if.then.i.i.i.i ]
+  %6 = getelementptr inbounds i8, ptr %__tmp, i64 40
+  store i64 %.sink, ptr %6, align 8
   invoke void @_ZNSt8_Rb_treeI10TestObjectS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE8_M_eraseEPSt13_Rb_tree_nodeIS0_E(ptr noundef nonnull align 8 dereferenceable(48) %__a, ptr noundef null)
           to label %_ZNSt8_Rb_treeI10TestObjectS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE5clearEv.exit.i.i.i unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %_ZNSt8multisetI10TestObjectSt4lessIS0_ESaIS0_EEC2EOS4_.exit
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #14
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #14
   unreachable
 
 _ZNSt8_Rb_treeI10TestObjectS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE5clearEv.exit.i.i.i: ; preds = %_ZNSt8multisetI10TestObjectSt4lessIS0_ESaIS0_EEC2EOS4_.exit
@@ -50231,27 +50224,27 @@ _ZNSt8_Rb_treeI10TestObjectS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE5clearEv.exit
   %_M_node_count.i.i.i.i.i5 = getelementptr inbounds i8, ptr %__a, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i5, align 8
   %_M_parent.i.i.i.i6 = getelementptr inbounds i8, ptr %__b, i64 16
-  %8 = load ptr, ptr %_M_parent.i.i.i.i6, align 8
-  %cmp.not.i.i.i = icmp eq ptr %8, null
+  %9 = load ptr, ptr %_M_parent.i.i.i.i6, align 8
+  %cmp.not.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.not.i.i.i, label %_ZNSt8multisetI10TestObjectSt4lessIS0_ESaIS0_EEaSEOS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt8_Rb_treeI10TestObjectS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE5clearEv.exit.i.i.i
   %add.ptr3.i.i.i.i = getelementptr inbounds i8, ptr %__b, i64 8
-  %9 = load i32, ptr %add.ptr3.i.i.i.i, align 8
-  store i32 %9, ptr %add.ptr.i.i.i.i, align 8
-  %10 = load ptr, ptr %_M_parent.i.i.i.i6, align 8
-  store ptr %10, ptr %_M_parent.i.i.i.i, align 8
+  %10 = load i32, ptr %add.ptr3.i.i.i.i, align 8
+  store i32 %10, ptr %add.ptr.i.i.i.i, align 8
+  %11 = load ptr, ptr %_M_parent.i.i.i.i6, align 8
+  store ptr %11, ptr %_M_parent.i.i.i.i, align 8
   %_M_left.i.i4.i.i.i = getelementptr inbounds i8, ptr %__b, i64 24
-  %11 = load ptr, ptr %_M_left.i.i4.i.i.i, align 8
-  store ptr %11, ptr %_M_left.i.i.i.i.i3, align 8
+  %12 = load ptr, ptr %_M_left.i.i4.i.i.i, align 8
+  store ptr %12, ptr %_M_left.i.i.i.i.i3, align 8
   %_M_right.i.i5.i.i.i = getelementptr inbounds i8, ptr %__b, i64 32
-  %12 = load ptr, ptr %_M_right.i.i5.i.i.i, align 8
-  store ptr %12, ptr %_M_right.i.i.i.i.i4, align 8
-  %_M_parent16.i.i.i.i.i7 = getelementptr inbounds i8, ptr %10, i64 8
+  %13 = load ptr, ptr %_M_right.i.i5.i.i.i, align 8
+  store ptr %13, ptr %_M_right.i.i.i.i.i4, align 8
+  %_M_parent16.i.i.i.i.i7 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %add.ptr.i.i.i.i, ptr %_M_parent16.i.i.i.i.i7, align 8
   %_M_node_count.i.i6.i.i.i = getelementptr inbounds i8, ptr %__b, i64 40
-  %13 = load i64, ptr %_M_node_count.i.i6.i.i.i, align 8
-  store i64 %13, ptr %_M_node_count.i.i.i.i.i5, align 8
+  %14 = load i64, ptr %_M_node_count.i.i6.i.i.i, align 8
+  store i64 %14, ptr %_M_node_count.i.i.i.i.i5, align 8
   store ptr null, ptr %_M_parent.i.i.i.i6, align 8
   store ptr %add.ptr3.i.i.i.i, ptr %_M_left.i.i4.i.i.i, align 8
   store ptr %add.ptr3.i.i.i.i, ptr %_M_right.i.i5.i.i.i, align 8
@@ -50263,10 +50256,10 @@ _ZNSt8multisetI10TestObjectSt4lessIS0_ESaIS0_EEaSEOS4_.exit: ; preds = %_ZNSt8_R
           to label %_ZNSt8_Rb_treeI10TestObjectS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE5clearEv.exit.i.i.i10 unwind label %terminate.lpad.i.i.i.i9
 
 terminate.lpad.i.i.i.i9:                          ; preds = %_ZNSt8multisetI10TestObjectSt4lessIS0_ESaIS0_EEaSEOS4_.exit
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #14
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #14
   unreachable
 
 _ZNSt8_Rb_treeI10TestObjectS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE5clearEv.exit.i.i.i10: ; preds = %_ZNSt8multisetI10TestObjectSt4lessIS0_ESaIS0_EEaSEOS4_.exit
@@ -50279,29 +50272,28 @@ _ZNSt8_Rb_treeI10TestObjectS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE5clearEv.exit
   %_M_node_count.i.i.i.i.i14 = getelementptr inbounds i8, ptr %__b, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i14, align 8
   %_M_parent.i.i.i.i15 = getelementptr inbounds i8, ptr %__tmp, i64 16
-  %16 = load ptr, ptr %_M_parent.i.i.i.i15, align 8
-  %cmp.not.i.i.i16 = icmp eq ptr %16, null
+  %17 = load ptr, ptr %_M_parent.i.i.i.i15, align 8
+  %cmp.not.i.i.i16 = icmp eq ptr %17, null
   br i1 %cmp.not.i.i.i16, label %_ZNSt8multisetI10TestObjectSt4lessIS0_ESaIS0_EEaSEOS4_.exit23, label %if.then.i.i.i17
 
 if.then.i.i.i17:                                  ; preds = %_ZNSt8_Rb_treeI10TestObjectS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE5clearEv.exit.i.i.i10
-  %17 = load i32, ptr %0, align 8
-  store i32 %17, ptr %add.ptr.i.i.i.i11, align 8
-  store ptr %16, ptr %_M_parent.i.i.i.i6, align 8
+  %18 = load i32, ptr %0, align 8
+  store i32 %18, ptr %add.ptr.i.i.i.i11, align 8
+  store ptr %17, ptr %_M_parent.i.i.i.i6, align 8
   %_M_left.i.i4.i.i.i19 = getelementptr inbounds i8, ptr %__tmp, i64 24
-  %18 = load ptr, ptr %_M_left.i.i4.i.i.i19, align 8
-  store ptr %18, ptr %_M_left.i.i.i.i.i12, align 8
+  %19 = load ptr, ptr %_M_left.i.i4.i.i.i19, align 8
+  store ptr %19, ptr %_M_left.i.i.i.i.i12, align 8
   %_M_right.i.i5.i.i.i20 = getelementptr inbounds i8, ptr %__tmp, i64 32
-  %19 = load ptr, ptr %_M_right.i.i5.i.i.i20, align 8
-  store ptr %19, ptr %_M_right.i.i.i.i.i13, align 8
-  %_M_parent16.i.i.i.i.i21 = getelementptr inbounds i8, ptr %16, i64 8
+  %20 = load ptr, ptr %_M_right.i.i5.i.i.i20, align 8
+  store ptr %20, ptr %_M_right.i.i.i.i.i13, align 8
+  %_M_parent16.i.i.i.i.i21 = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %add.ptr.i.i.i.i11, ptr %_M_parent16.i.i.i.i.i21, align 8
-  %_M_node_count.i.i6.i.i.i22 = getelementptr inbounds i8, ptr %__tmp, i64 40
-  %20 = load i64, ptr %_M_node_count.i.i6.i.i.i22, align 8
-  store i64 %20, ptr %_M_node_count.i.i.i.i.i14, align 8
+  %21 = load i64, ptr %6, align 8
+  store i64 %21, ptr %_M_node_count.i.i.i.i.i14, align 8
   store ptr null, ptr %_M_parent.i.i.i.i15, align 8
   store ptr %0, ptr %_M_left.i.i4.i.i.i19, align 8
   store ptr %0, ptr %_M_right.i.i5.i.i.i20, align 8
-  store i64 0, ptr %_M_node_count.i.i6.i.i.i22, align 8
+  store i64 0, ptr %6, align 8
   br label %_ZNSt8multisetI10TestObjectSt4lessIS0_ESaIS0_EEaSEOS4_.exit23
 
 _ZNSt8multisetI10TestObjectSt4lessIS0_ESaIS0_EEaSEOS4_.exit23: ; preds = %_ZNSt8_Rb_treeI10TestObjectS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE5clearEv.exit.i.i.i10, %if.then.i.i.i17
@@ -50309,10 +50301,10 @@ _ZNSt8multisetI10TestObjectSt4lessIS0_ESaIS0_EEaSEOS4_.exit23: ; preds = %_ZNSt8
           to label %_ZNSt8multisetI10TestObjectSt4lessIS0_ESaIS0_EED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %_ZNSt8multisetI10TestObjectSt4lessIS0_ESaIS0_EEaSEOS4_.exit23
-  %21 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #14
+  %23 = extractvalue { ptr, i32 } %22, 0
+  call void @__clang_call_terminate(ptr %23) #14
   unreachable
 
 _ZNSt8multisetI10TestObjectSt4lessIS0_ESaIS0_EED2Ev.exit: ; preds = %_ZNSt8multisetI10TestObjectSt4lessIS0_ESaIS0_EEaSEOS4_.exit23

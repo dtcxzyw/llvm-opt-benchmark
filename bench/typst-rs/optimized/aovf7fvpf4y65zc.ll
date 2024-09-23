@@ -2725,7 +2725,7 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$alloc..vec..drain..Drain$LT$
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %7 = load i64, ptr %6, align 8, !alias.scope !1049, !noundef !4
   %.not.i.i.i = icmp eq i64 %7, 0
-  br i1 %5, label %8, label %16
+  br i1 %5, label %8, label %23
 
 8:                                                ; preds = %1
   br i1 %.not.i.i.i, label %"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h162a7eeb2428027bE.llvm.18157932453617260866.exit", label %9
@@ -2738,41 +2738,48 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$alloc..vec..drain..Drain$LT$
   %14 = getelementptr inbounds i8, ptr %0, i64 24
   %15 = load i64, ptr %14, align 8, !alias.scope !1049, !noundef !4
   %.not3.i.i.i = icmp eq i64 %15, %13
-  br i1 %.not3.i.i.i, label %"_ZN4core3ptr149drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u8$C$alloc..alloc..Global$GT$$GT$17hde8424c6c0151204E.exit.sink.split.i", label %"_ZN4core3ptr149drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u8$C$alloc..alloc..Global$GT$$GT$17hde8424c6c0151204E.exit.sink.split.sink.split.i"
+  br i1 %.not3.i.i.i, label %16, label %18
 
-16:                                               ; preds = %1
-  br i1 %.not.i.i.i, label %"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h162a7eeb2428027bE.llvm.18157932453617260866.exit", label %17
-
-17:                                               ; preds = %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
-  %19 = load ptr, ptr %18, align 8, !alias.scope !1049, !nonnull !4, !noundef !4
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
-  %21 = load i64, ptr %20, align 8, !noalias !1049, !noundef !4
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
-  %23 = load i64, ptr %22, align 8, !alias.scope !1049, !noundef !4
-  %.not3.i.i14.i = icmp eq i64 %23, %21
-  br i1 %.not3.i.i14.i, label %"_ZN4core3ptr149drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u8$C$alloc..alloc..Global$GT$$GT$17hde8424c6c0151204E.exit.sink.split.i", label %"_ZN4core3ptr149drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u8$C$alloc..alloc..Global$GT$$GT$17hde8424c6c0151204E.exit.sink.split.sink.split.i"
-
-"_ZN4core3ptr149drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u8$C$alloc..alloc..Global$GT$$GT$17hde8424c6c0151204E.exit.sink.split.sink.split.i": ; preds = %17, %9
-  %.sink.i = phi ptr [ %11, %9 ], [ %19, %17 ]
-  %.sink24.i = phi i64 [ %15, %9 ], [ %23, %17 ]
-  %.sink23.i = phi i64 [ %13, %9 ], [ %21, %17 ]
-  %.sink19.ph.i = phi ptr [ %12, %9 ], [ %20, %17 ]
-  %24 = getelementptr inbounds i8, ptr %.sink.i, i64 8
-  %25 = load ptr, ptr %24, align 8, !noalias !1049, !nonnull !4, !noundef !4
-  %26 = getelementptr inbounds i8, ptr %25, i64 %.sink24.i
-  %27 = getelementptr inbounds i8, ptr %25, i64 %.sink23.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %27, ptr nonnull align 1 %26, i64 %7, i1 false), !noalias !1049
-  br label %"_ZN4core3ptr149drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u8$C$alloc..alloc..Global$GT$$GT$17hde8424c6c0151204E.exit.sink.split.i"
-
-"_ZN4core3ptr149drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u8$C$alloc..alloc..Global$GT$$GT$17hde8424c6c0151204E.exit.sink.split.i": ; preds = %"_ZN4core3ptr149drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u8$C$alloc..alloc..Global$GT$$GT$17hde8424c6c0151204E.exit.sink.split.sink.split.i", %17, %9
-  %.sink20.i = phi i64 [ %13, %9 ], [ %21, %17 ], [ %.sink23.i, %"_ZN4core3ptr149drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u8$C$alloc..alloc..Global$GT$$GT$17hde8424c6c0151204E.exit.sink.split.sink.split.i" ]
-  %.sink19.i = phi ptr [ %12, %9 ], [ %20, %17 ], [ %.sink19.ph.i, %"_ZN4core3ptr149drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u8$C$alloc..alloc..Global$GT$$GT$17hde8424c6c0151204E.exit.sink.split.sink.split.i" ]
-  %28 = add i64 %.sink20.i, %7
-  store i64 %28, ptr %.sink19.i, align 8, !noalias !1049
+16:                                               ; preds = %18, %9
+  %17 = add i64 %13, %7
+  store i64 %17, ptr %12, align 8, !noalias !1049
   br label %"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h162a7eeb2428027bE.llvm.18157932453617260866.exit"
 
-"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h162a7eeb2428027bE.llvm.18157932453617260866.exit": ; preds = %8, %16, %"_ZN4core3ptr149drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u8$C$alloc..alloc..Global$GT$$GT$17hde8424c6c0151204E.exit.sink.split.i"
+18:                                               ; preds = %9
+  %19 = getelementptr inbounds i8, ptr %11, i64 8
+  %20 = load ptr, ptr %19, align 8, !noalias !1049, !nonnull !4, !noundef !4
+  %21 = getelementptr inbounds i8, ptr %20, i64 %15
+  %22 = getelementptr inbounds i8, ptr %20, i64 %13
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %22, ptr nonnull align 1 %21, i64 %7, i1 false), !noalias !1049
+  br label %16
+
+23:                                               ; preds = %1
+  br i1 %.not.i.i.i, label %"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h162a7eeb2428027bE.llvm.18157932453617260866.exit", label %24
+
+24:                                               ; preds = %23
+  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = load ptr, ptr %25, align 8, !alias.scope !1049, !nonnull !4, !noundef !4
+  %27 = getelementptr inbounds i8, ptr %26, i64 16
+  %28 = load i64, ptr %27, align 8, !noalias !1049, !noundef !4
+  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %30 = load i64, ptr %29, align 8, !alias.scope !1049, !noundef !4
+  %.not3.i.i14.i = icmp eq i64 %30, %28
+  br i1 %.not3.i.i14.i, label %31, label %33
+
+31:                                               ; preds = %33, %24
+  %32 = add i64 %28, %7
+  store i64 %32, ptr %27, align 8, !noalias !1049
+  br label %"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h162a7eeb2428027bE.llvm.18157932453617260866.exit"
+
+33:                                               ; preds = %24
+  %34 = getelementptr inbounds i8, ptr %26, i64 8
+  %35 = load ptr, ptr %34, align 8, !noalias !1049, !nonnull !4, !noundef !4
+  %36 = getelementptr inbounds i8, ptr %35, i64 %30
+  %37 = getelementptr inbounds i8, ptr %35, i64 %28
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %37, ptr nonnull align 1 %36, i64 %7, i1 false), !noalias !1049
+  br label %31
+
+"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h162a7eeb2428027bE.llvm.18157932453617260866.exit": ; preds = %8, %16, %23, %31
   ret void
 }
 
@@ -3813,7 +3820,7 @@ define hidden void @"_ZN4core3ptr77drop_in_place$LT$alloc..vec..splice..Splice$L
   %9 = getelementptr inbounds i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8, !alias.scope !1363, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %10, 0
-  br i1 %8, label %11, label %19
+  br i1 %8, label %11, label %26
 
 11:                                               ; preds = %4
   br i1 %.not.i.i.i.i, label %"_ZN4core3ptr55drop_in_place$LT$alloc..vec..drain..Drain$LT$u8$GT$$GT$17hb1cd468756d4921aE.exit", label %12
@@ -3826,41 +3833,48 @@ define hidden void @"_ZN4core3ptr77drop_in_place$LT$alloc..vec..splice..Splice$L
   %17 = getelementptr inbounds i8, ptr %0, i64 24
   %18 = load i64, ptr %17, align 8, !alias.scope !1363, !noundef !4
   %.not3.i.i.i.i = icmp eq i64 %18, %16
-  br i1 %.not3.i.i.i.i, label %"_ZN4core3ptr149drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u8$C$alloc..alloc..Global$GT$$GT$17hde8424c6c0151204E.exit.sink.split.i.i", label %"_ZN4core3ptr149drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u8$C$alloc..alloc..Global$GT$$GT$17hde8424c6c0151204E.exit.sink.split.sink.split.i.i"
+  br i1 %.not3.i.i.i.i, label %19, label %21
 
-19:                                               ; preds = %4
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr55drop_in_place$LT$alloc..vec..drain..Drain$LT$u8$GT$$GT$17hb1cd468756d4921aE.exit", label %20
-
-20:                                               ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
-  %22 = load ptr, ptr %21, align 8, !alias.scope !1363, !nonnull !4, !noundef !4
-  %23 = getelementptr inbounds i8, ptr %22, i64 16
-  %24 = load i64, ptr %23, align 8, !noalias !1363, !noundef !4
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
-  %26 = load i64, ptr %25, align 8, !alias.scope !1363, !noundef !4
-  %.not3.i.i14.i.i = icmp eq i64 %26, %24
-  br i1 %.not3.i.i14.i.i, label %"_ZN4core3ptr149drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u8$C$alloc..alloc..Global$GT$$GT$17hde8424c6c0151204E.exit.sink.split.i.i", label %"_ZN4core3ptr149drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u8$C$alloc..alloc..Global$GT$$GT$17hde8424c6c0151204E.exit.sink.split.sink.split.i.i"
-
-"_ZN4core3ptr149drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u8$C$alloc..alloc..Global$GT$$GT$17hde8424c6c0151204E.exit.sink.split.sink.split.i.i": ; preds = %20, %12
-  %.sink.i.i = phi ptr [ %14, %12 ], [ %22, %20 ]
-  %.sink24.i.i = phi i64 [ %18, %12 ], [ %26, %20 ]
-  %.sink23.i.i = phi i64 [ %16, %12 ], [ %24, %20 ]
-  %.sink19.ph.i.i = phi ptr [ %15, %12 ], [ %23, %20 ]
-  %27 = getelementptr inbounds i8, ptr %.sink.i.i, i64 8
-  %28 = load ptr, ptr %27, align 8, !noalias !1363, !nonnull !4, !noundef !4
-  %29 = getelementptr inbounds i8, ptr %28, i64 %.sink24.i.i
-  %30 = getelementptr inbounds i8, ptr %28, i64 %.sink23.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %30, ptr nonnull align 1 %29, i64 %10, i1 false), !noalias !1363
-  br label %"_ZN4core3ptr149drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u8$C$alloc..alloc..Global$GT$$GT$17hde8424c6c0151204E.exit.sink.split.i.i"
-
-"_ZN4core3ptr149drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u8$C$alloc..alloc..Global$GT$$GT$17hde8424c6c0151204E.exit.sink.split.i.i": ; preds = %"_ZN4core3ptr149drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u8$C$alloc..alloc..Global$GT$$GT$17hde8424c6c0151204E.exit.sink.split.sink.split.i.i", %20, %12
-  %.sink20.i.i = phi i64 [ %16, %12 ], [ %24, %20 ], [ %.sink23.i.i, %"_ZN4core3ptr149drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u8$C$alloc..alloc..Global$GT$$GT$17hde8424c6c0151204E.exit.sink.split.sink.split.i.i" ]
-  %.sink19.i.i = phi ptr [ %15, %12 ], [ %23, %20 ], [ %.sink19.ph.i.i, %"_ZN4core3ptr149drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u8$C$alloc..alloc..Global$GT$$GT$17hde8424c6c0151204E.exit.sink.split.sink.split.i.i" ]
-  %31 = add i64 %.sink20.i.i, %10
-  store i64 %31, ptr %.sink19.i.i, align 8, !noalias !1363
+19:                                               ; preds = %21, %12
+  %20 = add i64 %16, %10
+  store i64 %20, ptr %15, align 8, !noalias !1363
   br label %"_ZN4core3ptr55drop_in_place$LT$alloc..vec..drain..Drain$LT$u8$GT$$GT$17hb1cd468756d4921aE.exit"
 
-"_ZN4core3ptr55drop_in_place$LT$alloc..vec..drain..Drain$LT$u8$GT$$GT$17hb1cd468756d4921aE.exit": ; preds = %11, %19, %"_ZN4core3ptr149drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u8$C$alloc..alloc..Global$GT$$GT$17hde8424c6c0151204E.exit.sink.split.i.i"
+21:                                               ; preds = %12
+  %22 = getelementptr inbounds i8, ptr %14, i64 8
+  %23 = load ptr, ptr %22, align 8, !noalias !1363, !nonnull !4, !noundef !4
+  %24 = getelementptr inbounds i8, ptr %23, i64 %18
+  %25 = getelementptr inbounds i8, ptr %23, i64 %16
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %25, ptr nonnull align 1 %24, i64 %10, i1 false), !noalias !1363
+  br label %19
+
+26:                                               ; preds = %4
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr55drop_in_place$LT$alloc..vec..drain..Drain$LT$u8$GT$$GT$17hb1cd468756d4921aE.exit", label %27
+
+27:                                               ; preds = %26
+  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = load ptr, ptr %28, align 8, !alias.scope !1363, !nonnull !4, !noundef !4
+  %30 = getelementptr inbounds i8, ptr %29, i64 16
+  %31 = load i64, ptr %30, align 8, !noalias !1363, !noundef !4
+  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %33 = load i64, ptr %32, align 8, !alias.scope !1363, !noundef !4
+  %.not3.i.i14.i.i = icmp eq i64 %33, %31
+  br i1 %.not3.i.i14.i.i, label %34, label %36
+
+34:                                               ; preds = %36, %27
+  %35 = add i64 %31, %10
+  store i64 %35, ptr %30, align 8, !noalias !1363
+  br label %"_ZN4core3ptr55drop_in_place$LT$alloc..vec..drain..Drain$LT$u8$GT$$GT$17hb1cd468756d4921aE.exit"
+
+36:                                               ; preds = %27
+  %37 = getelementptr inbounds i8, ptr %29, i64 8
+  %38 = load ptr, ptr %37, align 8, !noalias !1363, !nonnull !4, !noundef !4
+  %39 = getelementptr inbounds i8, ptr %38, i64 %33
+  %40 = getelementptr inbounds i8, ptr %38, i64 %31
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %40, ptr nonnull align 1 %39, i64 %10, i1 false), !noalias !1363
+  br label %34
+
+"_ZN4core3ptr55drop_in_place$LT$alloc..vec..drain..Drain$LT$u8$GT$$GT$17hb1cd468756d4921aE.exit": ; preds = %11, %19, %26, %34
   ret void
 }
 
@@ -5777,7 +5791,7 @@ define hidden void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %7 = load i64, ptr %6, align 8, !noundef !4
   %.not.i.i = icmp eq i64 %7, 0
-  br i1 %5, label %8, label %16
+  br i1 %5, label %8, label %23
 
 8:                                                ; preds = %1
   br i1 %.not.i.i, label %"_ZN4core3ptr149drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u8$C$alloc..alloc..Global$GT$$GT$17hde8424c6c0151204E.exit", label %9
@@ -5790,41 +5804,48 @@ define hidden void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$
   %14 = getelementptr inbounds i8, ptr %0, i64 24
   %15 = load i64, ptr %14, align 8, !noundef !4
   %.not3.i.i = icmp eq i64 %15, %13
-  br i1 %.not3.i.i, label %"_ZN4core3ptr149drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u8$C$alloc..alloc..Global$GT$$GT$17hde8424c6c0151204E.exit.sink.split", label %"_ZN4core3ptr149drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u8$C$alloc..alloc..Global$GT$$GT$17hde8424c6c0151204E.exit.sink.split.sink.split"
+  br i1 %.not3.i.i, label %16, label %18
 
-16:                                               ; preds = %1
-  br i1 %.not.i.i, label %"_ZN4core3ptr149drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u8$C$alloc..alloc..Global$GT$$GT$17hde8424c6c0151204E.exit", label %17
-
-17:                                               ; preds = %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
-  %19 = load ptr, ptr %18, align 8, !nonnull !4, !noundef !4
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
-  %21 = load i64, ptr %20, align 8, !noundef !4
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
-  %23 = load i64, ptr %22, align 8, !noundef !4
-  %.not3.i.i14 = icmp eq i64 %23, %21
-  br i1 %.not3.i.i14, label %"_ZN4core3ptr149drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u8$C$alloc..alloc..Global$GT$$GT$17hde8424c6c0151204E.exit.sink.split", label %"_ZN4core3ptr149drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u8$C$alloc..alloc..Global$GT$$GT$17hde8424c6c0151204E.exit.sink.split.sink.split"
-
-"_ZN4core3ptr149drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u8$C$alloc..alloc..Global$GT$$GT$17hde8424c6c0151204E.exit.sink.split.sink.split": ; preds = %17, %9
-  %.sink = phi ptr [ %11, %9 ], [ %19, %17 ]
-  %.sink24 = phi i64 [ %15, %9 ], [ %23, %17 ]
-  %.sink23 = phi i64 [ %13, %9 ], [ %21, %17 ]
-  %.sink19.ph = phi ptr [ %12, %9 ], [ %20, %17 ]
-  %24 = getelementptr inbounds i8, ptr %.sink, i64 8
-  %25 = load ptr, ptr %24, align 8, !nonnull !4, !noundef !4
-  %26 = getelementptr inbounds i8, ptr %25, i64 %.sink24
-  %27 = getelementptr inbounds i8, ptr %25, i64 %.sink23
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %27, ptr nonnull align 1 %26, i64 %7, i1 false)
-  br label %"_ZN4core3ptr149drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u8$C$alloc..alloc..Global$GT$$GT$17hde8424c6c0151204E.exit.sink.split"
-
-"_ZN4core3ptr149drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u8$C$alloc..alloc..Global$GT$$GT$17hde8424c6c0151204E.exit.sink.split": ; preds = %"_ZN4core3ptr149drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u8$C$alloc..alloc..Global$GT$$GT$17hde8424c6c0151204E.exit.sink.split.sink.split", %17, %9
-  %.sink20 = phi i64 [ %13, %9 ], [ %21, %17 ], [ %.sink23, %"_ZN4core3ptr149drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u8$C$alloc..alloc..Global$GT$$GT$17hde8424c6c0151204E.exit.sink.split.sink.split" ]
-  %.sink19 = phi ptr [ %12, %9 ], [ %20, %17 ], [ %.sink19.ph, %"_ZN4core3ptr149drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u8$C$alloc..alloc..Global$GT$$GT$17hde8424c6c0151204E.exit.sink.split.sink.split" ]
-  %28 = add i64 %.sink20, %7
-  store i64 %28, ptr %.sink19, align 8
+16:                                               ; preds = %18, %9
+  %17 = add i64 %13, %7
+  store i64 %17, ptr %12, align 8
   br label %"_ZN4core3ptr149drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u8$C$alloc..alloc..Global$GT$$GT$17hde8424c6c0151204E.exit"
 
-"_ZN4core3ptr149drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u8$C$alloc..alloc..Global$GT$$GT$17hde8424c6c0151204E.exit": ; preds = %"_ZN4core3ptr149drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u8$C$alloc..alloc..Global$GT$$GT$17hde8424c6c0151204E.exit.sink.split", %16, %8
+18:                                               ; preds = %9
+  %19 = getelementptr inbounds i8, ptr %11, i64 8
+  %20 = load ptr, ptr %19, align 8, !nonnull !4, !noundef !4
+  %21 = getelementptr inbounds i8, ptr %20, i64 %15
+  %22 = getelementptr inbounds i8, ptr %20, i64 %13
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %22, ptr nonnull align 1 %21, i64 %7, i1 false)
+  br label %16
+
+23:                                               ; preds = %1
+  br i1 %.not.i.i, label %"_ZN4core3ptr149drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u8$C$alloc..alloc..Global$GT$$GT$17hde8424c6c0151204E.exit", label %24
+
+24:                                               ; preds = %23
+  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = load ptr, ptr %25, align 8, !nonnull !4, !noundef !4
+  %27 = getelementptr inbounds i8, ptr %26, i64 16
+  %28 = load i64, ptr %27, align 8, !noundef !4
+  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %30 = load i64, ptr %29, align 8, !noundef !4
+  %.not3.i.i14 = icmp eq i64 %30, %28
+  br i1 %.not3.i.i14, label %31, label %33
+
+31:                                               ; preds = %33, %24
+  %32 = add i64 %28, %7
+  store i64 %32, ptr %27, align 8
+  br label %"_ZN4core3ptr149drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u8$C$alloc..alloc..Global$GT$$GT$17hde8424c6c0151204E.exit"
+
+33:                                               ; preds = %24
+  %34 = getelementptr inbounds i8, ptr %26, i64 8
+  %35 = load ptr, ptr %34, align 8, !nonnull !4, !noundef !4
+  %36 = getelementptr inbounds i8, ptr %35, i64 %30
+  %37 = getelementptr inbounds i8, ptr %35, i64 %28
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %37, ptr nonnull align 1 %36, i64 %7, i1 false)
+  br label %31
+
+"_ZN4core3ptr149drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u8$C$alloc..alloc..Global$GT$$GT$17hde8424c6c0151204E.exit": ; preds = %31, %23, %16, %8
   ret void
 }
 

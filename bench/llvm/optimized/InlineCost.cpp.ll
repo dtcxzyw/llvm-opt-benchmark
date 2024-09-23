@@ -7182,7 +7182,7 @@ _ZNK4llvm8Function10hasOptSizeEv.exit.i:          ; preds = %34
   %.052.i = phi i32 [ 50, %_ZNK4llvm8Function10hasOptSizeEv.exit.i ], [ %.052.ph.i, %.sink.split.i ]
   %.051.i = phi i32 [ %32, %_ZNK4llvm8Function10hasOptSizeEv.exit.i ], [ %.051.ph.i, %.sink.split.i ]
   %45 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %29, i32 noundef 17) #28
-  br i1 %45, label %157, label %46
+  br i1 %45, label %161, label %46
 
 46:                                               ; preds = %44
   %47 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %9, i32 noundef 15) #28
@@ -7221,319 +7221,320 @@ _ZNK4llvm8Function10hasOptSizeEv.exit.i:          ; preds = %34
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %66 = load ptr, ptr %65, align 8
   %.not.i29.i = icmp eq ptr %66, null
-  br i1 %.not.i29.i, label %74, label %67
+  br i1 %.not.i29.i, label %77, label %67
 
 67:                                               ; preds = %63
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %69 = load ptr, ptr %68, align 8
   %.not17.i.i = icmp eq ptr %69, null
-  br i1 %.not17.i.i, label %74, label %70
+  br i1 %.not17.i.i, label %77, label %70
 
 70:                                               ; preds = %67
   %71 = tail call noundef zeroext i1 @_ZNK4llvm18ProfileSummaryInfo13isHotCallSiteERKNS_8CallBaseEPNS_18BlockFrequencyInfoE(ptr noundef nonnull align 8 dereferenceable(80) %66, ptr noundef nonnull align 8 dereferenceable(88) %7, ptr noundef %64) #28
-  br i1 %71, label %72, label %74
+  br i1 %71, label %72, label %77
 
 72:                                               ; preds = %70
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  br label %.sink.split.i.i
-
-74:                                               ; preds = %70, %67, %63
-  %.not9.i.i = icmp eq ptr %64, null
-  br i1 %.not9.i.i, label %_ZN12_GLOBAL__N_122InlineCostCallAnalyzer23getHotCallSiteThresholdERN4llvm8CallBaseEPNS1_18BlockFrequencyInfoE.exit.i, label %75
-
-75:                                               ; preds = %74
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 48
-  %79 = load i8, ptr %78, align 4
-  %80 = trunc i8 %79 to i1
-  br i1 %80, label %81, label %_ZN12_GLOBAL__N_122InlineCostCallAnalyzer23getHotCallSiteThresholdERN4llvm8CallBaseEPNS1_18BlockFrequencyInfoE.exit.i
-
-81:                                               ; preds = %75
-  %82 = getelementptr inbounds i8, ptr %7, i64 40
-  %83 = load ptr, ptr %82, align 8
-  %84 = tail call i64 @_ZNK4llvm18BlockFrequencyInfo12getBlockFreqEPKNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(8) %64, ptr noundef %83) #28
-  %85 = tail call i64 @_ZNK4llvm18BlockFrequencyInfo12getEntryFreqEv(ptr noundef nonnull align 8 dereferenceable(8) %64) #28
-  store i64 %85, ptr %5, align 8
-  %86 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL18HotCallSiteRelFreq, i64 128), align 8
-  %87 = call { i64, i8 } @_ZNK4llvm14BlockFrequency3mulEm(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %86) #28
-  %88 = extractvalue { i64, i8 } %87, 0
-  %89 = extractvalue { i64, i8 } %87, 1
-  %90 = trunc i8 %89 to i1
-  %91 = icmp uge i64 %84, %88
-  %or.cond.i.i = select i1 %90, i1 %91, i1 false
-  br i1 %or.cond.i.i, label %.sink.split.i.i, label %_ZN12_GLOBAL__N_122InlineCostCallAnalyzer23getHotCallSiteThresholdERN4llvm8CallBaseEPNS1_18BlockFrequencyInfoE.exit.i
-
-.sink.split.i.i:                                  ; preds = %81, %72
-  %.sink20.i.i = phi ptr [ %73, %72 ], [ %76, %81 ]
-  %.sink19.i.i = phi i64 [ 36, %72 ], [ 44, %81 ]
-  %92 = load ptr, ptr %.sink20.i.i, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 %.sink19.i.i
-  %94 = load i64, ptr %93, align 4
+  %74 = load ptr, ptr %73, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 36
+  %76 = load i64, ptr %75, align 4
   br label %_ZN12_GLOBAL__N_122InlineCostCallAnalyzer23getHotCallSiteThresholdERN4llvm8CallBaseEPNS1_18BlockFrequencyInfoE.exit.i
 
-_ZN12_GLOBAL__N_122InlineCostCallAnalyzer23getHotCallSiteThresholdERN4llvm8CallBaseEPNS1_18BlockFrequencyInfoE.exit.i: ; preds = %.sink.split.i.i, %81, %75, %74
-  %.sroa.3.0.i.i = phi i64 [ 0, %75 ], [ 0, %74 ], [ 0, %81 ], [ %94, %.sink.split.i.i ]
+77:                                               ; preds = %70, %67, %63
+  %.not9.i.i = icmp eq ptr %64, null
+  br i1 %.not9.i.i, label %_ZN12_GLOBAL__N_122InlineCostCallAnalyzer23getHotCallSiteThresholdERN4llvm8CallBaseEPNS1_18BlockFrequencyInfoE.exit.i, label %78
+
+78:                                               ; preds = %77
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 608
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 48
+  %82 = load i8, ptr %81, align 4
+  %83 = trunc i8 %82 to i1
+  br i1 %83, label %84, label %_ZN12_GLOBAL__N_122InlineCostCallAnalyzer23getHotCallSiteThresholdERN4llvm8CallBaseEPNS1_18BlockFrequencyInfoE.exit.i
+
+84:                                               ; preds = %78
+  %85 = getelementptr inbounds i8, ptr %7, i64 40
+  %86 = load ptr, ptr %85, align 8
+  %87 = tail call i64 @_ZNK4llvm18BlockFrequencyInfo12getBlockFreqEPKNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(8) %64, ptr noundef %86) #28
+  %88 = tail call i64 @_ZNK4llvm18BlockFrequencyInfo12getEntryFreqEv(ptr noundef nonnull align 8 dereferenceable(8) %64) #28
+  store i64 %88, ptr %5, align 8
+  %89 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL18HotCallSiteRelFreq, i64 128), align 8
+  %90 = call { i64, i8 } @_ZNK4llvm14BlockFrequency3mulEm(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %89) #28
+  %91 = extractvalue { i64, i8 } %90, 0
+  %92 = extractvalue { i64, i8 } %90, 1
+  %93 = trunc i8 %92 to i1
+  %94 = icmp uge i64 %87, %91
+  %or.cond.i.i = select i1 %93, i1 %94, i1 false
+  br i1 %or.cond.i.i, label %95, label %_ZN12_GLOBAL__N_122InlineCostCallAnalyzer23getHotCallSiteThresholdERN4llvm8CallBaseEPNS1_18BlockFrequencyInfoE.exit.i
+
+95:                                               ; preds = %84
+  %96 = load ptr, ptr %79, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 44
+  %98 = load i64, ptr %97, align 4
+  br label %_ZN12_GLOBAL__N_122InlineCostCallAnalyzer23getHotCallSiteThresholdERN4llvm8CallBaseEPNS1_18BlockFrequencyInfoE.exit.i
+
+_ZN12_GLOBAL__N_122InlineCostCallAnalyzer23getHotCallSiteThresholdERN4llvm8CallBaseEPNS1_18BlockFrequencyInfoE.exit.i: ; preds = %95, %84, %78, %77, %72
+  %.sroa.3.0.i.i = phi i64 [ %98, %95 ], [ %76, %72 ], [ 0, %78 ], [ 0, %77 ], [ 0, %84 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.3.0.i.i to i32
-  %95 = call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %29, i32 noundef 45) #28
-  br i1 %95, label %_ZNK4llvm8Function10hasOptSizeEv.exit30.thread.i, label %_ZNK4llvm8Function10hasOptSizeEv.exit30.i
+  %99 = call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %29, i32 noundef 45) #28
+  br i1 %99, label %_ZNK4llvm8Function10hasOptSizeEv.exit30.thread.i, label %_ZNK4llvm8Function10hasOptSizeEv.exit30.i
 
 _ZNK4llvm8Function10hasOptSizeEv.exit30.i:        ; preds = %_ZN12_GLOBAL__N_122InlineCostCallAnalyzer23getHotCallSiteThresholdERN4llvm8CallBaseEPNS1_18BlockFrequencyInfoE.exit.i
-  %96 = call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %29, i32 noundef 17) #28
-  %97 = and i64 %.sroa.3.0.i.i, 4294967296
-  %.not60.i = icmp eq i64 %97, 0
-  %or.cond62.i = select i1 %96, i1 true, i1 %.not60.i
-  br i1 %or.cond62.i, label %_ZNK4llvm8Function10hasOptSizeEv.exit30.thread.i, label %98
+  %100 = call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %29, i32 noundef 17) #28
+  %101 = and i64 %.sroa.3.0.i.i, 4294967296
+  %.not60.i = icmp eq i64 %101, 0
+  %or.cond62.i = select i1 %100, i1 true, i1 %.not60.i
+  br i1 %or.cond62.i, label %_ZNK4llvm8Function10hasOptSizeEv.exit30.thread.i, label %102
 
-98:                                               ; preds = %_ZNK4llvm8Function10hasOptSizeEv.exit30.i
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  store i32 %.sroa.0.0.extract.trunc.i, ptr %99, align 8
-  br label %157
+102:                                              ; preds = %_ZNK4llvm8Function10hasOptSizeEv.exit30.i
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 640
+  store i32 %.sroa.0.0.extract.trunc.i, ptr %103, align 8
+  br label %161
 
 _ZNK4llvm8Function10hasOptSizeEv.exit30.thread.i: ; preds = %_ZNK4llvm8Function10hasOptSizeEv.exit30.i, %_ZN12_GLOBAL__N_122InlineCostCallAnalyzer23getHotCallSiteThresholdERN4llvm8CallBaseEPNS1_18BlockFrequencyInfoE.exit.i
   %.val.i = load ptr, ptr %65, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %.not.i31.i = icmp eq ptr %.val.i, null
-  br i1 %.not.i31.i, label %105, label %100
+  br i1 %.not.i31.i, label %109, label %104
 
-100:                                              ; preds = %_ZNK4llvm8Function10hasOptSizeEv.exit30.thread.i
-  %101 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
-  %102 = load ptr, ptr %101, align 8
-  %.not1.i.i = icmp eq ptr %102, null
-  br i1 %.not1.i.i, label %105, label %103
+104:                                              ; preds = %_ZNK4llvm8Function10hasOptSizeEv.exit30.thread.i
+  %105 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
+  %106 = load ptr, ptr %105, align 8
+  %.not1.i.i = icmp eq ptr %106, null
+  br i1 %.not1.i.i, label %109, label %107
 
-103:                                              ; preds = %100
-  %104 = call noundef zeroext i1 @_ZNK4llvm18ProfileSummaryInfo14isColdCallSiteERKNS_8CallBaseEPNS_18BlockFrequencyInfoE(ptr noundef nonnull align 8 dereferenceable(80) %.val.i, ptr noundef nonnull align 8 dereferenceable(88) %7, ptr noundef %64) #28
+107:                                              ; preds = %104
+  %108 = call noundef zeroext i1 @_ZNK4llvm18ProfileSummaryInfo14isColdCallSiteERKNS_8CallBaseEPNS_18BlockFrequencyInfoE(ptr noundef nonnull align 8 dereferenceable(80) %.val.i, ptr noundef nonnull align 8 dereferenceable(88) %7, ptr noundef %64) #28
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br i1 %104, label %119, label %127
+  br i1 %108, label %123, label %131
 
-105:                                              ; preds = %100, %_ZNK4llvm8Function10hasOptSizeEv.exit30.thread.i
+109:                                              ; preds = %104, %_ZNK4llvm8Function10hasOptSizeEv.exit30.thread.i
   %.not13.i.i = icmp eq ptr %64, null
   br i1 %.not13.i.i, label %_ZN12_GLOBAL__N_122InlineCostCallAnalyzer14isColdCallSiteERN4llvm8CallBaseEPNS1_18BlockFrequencyInfoE.exit.thread.i, label %_ZN12_GLOBAL__N_122InlineCostCallAnalyzer14isColdCallSiteERN4llvm8CallBaseEPNS1_18BlockFrequencyInfoE.exit.i
 
-_ZN12_GLOBAL__N_122InlineCostCallAnalyzer14isColdCallSiteERN4llvm8CallBaseEPNS1_18BlockFrequencyInfoE.exit.thread.i: ; preds = %105
+_ZN12_GLOBAL__N_122InlineCostCallAnalyzer14isColdCallSiteERN4llvm8CallBaseEPNS1_18BlockFrequencyInfoE.exit.thread.i: ; preds = %109
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %127
+  br label %131
 
-_ZN12_GLOBAL__N_122InlineCostCallAnalyzer14isColdCallSiteERN4llvm8CallBaseEPNS1_18BlockFrequencyInfoE.exit.i: ; preds = %105
-  %106 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL19ColdCallSiteRelFreq, i64 128), align 8
-  call void @_ZN4llvm17BranchProbabilityC1Ejj(ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef %106, i32 noundef 100) #28
-  %107 = getelementptr inbounds i8, ptr %7, i64 40
-  %108 = load ptr, ptr %107, align 8
-  %109 = call i64 @_ZNK4llvm18BlockFrequencyInfo12getBlockFreqEPKNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(8) %64, ptr noundef %108) #28
-  %110 = call noundef ptr @_ZN4llvm8CallBase9getCallerEv(ptr noundef nonnull align 8 dereferenceable(88) %7) #28
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 80
+_ZN12_GLOBAL__N_122InlineCostCallAnalyzer14isColdCallSiteERN4llvm8CallBaseEPNS1_18BlockFrequencyInfoE.exit.i: ; preds = %109
+  %110 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL19ColdCallSiteRelFreq, i64 128), align 8
+  call void @_ZN4llvm17BranchProbabilityC1Ejj(ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef %110, i32 noundef 100) #28
+  %111 = getelementptr inbounds i8, ptr %7, i64 40
   %112 = load ptr, ptr %111, align 8
-  %113 = icmp eq ptr %112, null
-  %114 = getelementptr inbounds i8, ptr %112, i64 -24
-  %115 = select i1 %113, ptr null, ptr %114
-  %116 = call i64 @_ZNK4llvm18BlockFrequencyInfo12getBlockFreqEPKNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(8) %64, ptr noundef nonnull %115) #28
-  store i64 %116, ptr %4, align 8
+  %113 = call i64 @_ZNK4llvm18BlockFrequencyInfo12getBlockFreqEPKNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(8) %64, ptr noundef %112) #28
+  %114 = call noundef ptr @_ZN4llvm8CallBase9getCallerEv(ptr noundef nonnull align 8 dereferenceable(88) %7) #28
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 80
+  %116 = load ptr, ptr %115, align 8
+  %117 = icmp eq ptr %116, null
+  %118 = getelementptr inbounds i8, ptr %116, i64 -24
+  %119 = select i1 %117, ptr null, ptr %118
+  %120 = call i64 @_ZNK4llvm18BlockFrequencyInfo12getBlockFreqEPKNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(8) %64, ptr noundef nonnull %119) #28
+  store i64 %120, ptr %4, align 8
   %.sroa.0.0.copyload.i.i = load i32, ptr %3, align 4
-  %117 = call i64 @_ZNK4llvm14BlockFrequencymlENS_17BranchProbabilityE(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 %.sroa.0.0.copyload.i.i) #28
-  %118 = icmp ult i64 %109, %117
+  %121 = call i64 @_ZNK4llvm14BlockFrequencymlENS_17BranchProbabilityE(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 %.sroa.0.0.copyload.i.i) #28
+  %122 = icmp ult i64 %113, %121
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br i1 %118, label %119, label %127
+  br i1 %122, label %123, label %131
 
-119:                                              ; preds = %_ZN12_GLOBAL__N_122InlineCostCallAnalyzer14isColdCallSiteERN4llvm8CallBaseEPNS1_18BlockFrequencyInfoE.exit.i, %103
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  %121 = load i32, ptr %120, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 52
-  %.sroa.02.0.copyload.i = load i64, ptr %124, align 4
+123:                                              ; preds = %_ZN12_GLOBAL__N_122InlineCostCallAnalyzer14isColdCallSiteERN4llvm8CallBaseEPNS1_18BlockFrequencyInfoE.exit.i, %107
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 640
+  %125 = load i32, ptr %124, align 8
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 608
+  %127 = load ptr, ptr %126, align 8
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 52
+  %.sroa.02.0.copyload.i = load i64, ptr %128, align 4
   %.sroa.0.0.extract.trunc.i33.i = trunc i64 %.sroa.02.0.copyload.i to i32
-  %125 = and i64 %.sroa.02.0.copyload.i, 4294967296
-  %.not.i34.i = icmp eq i64 %125, 0
-  %..i.val.i35.i = call i32 @llvm.smin.i32(i32 %121, i32 %.sroa.0.0.extract.trunc.i33.i)
-  %126 = select i1 %.not.i34.i, i32 %121, i32 %..i.val.i35.i
-  store i32 %126, ptr %120, align 8
-  br label %157
+  %129 = and i64 %.sroa.02.0.copyload.i, 4294967296
+  %.not.i34.i = icmp eq i64 %129, 0
+  %..i.val.i35.i = call i32 @llvm.smin.i32(i32 %125, i32 %.sroa.0.0.extract.trunc.i33.i)
+  %130 = select i1 %.not.i34.i, i32 %125, i32 %..i.val.i35.i
+  store i32 %130, ptr %124, align 8
+  br label %161
 
-127:                                              ; preds = %_ZN12_GLOBAL__N_122InlineCostCallAnalyzer14isColdCallSiteERN4llvm8CallBaseEPNS1_18BlockFrequencyInfoE.exit.i, %_ZN12_GLOBAL__N_122InlineCostCallAnalyzer14isColdCallSiteERN4llvm8CallBaseEPNS1_18BlockFrequencyInfoE.exit.thread.i, %103
-  %128 = load ptr, ptr %65, align 8
-  %.not.i = icmp eq ptr %128, null
-  br i1 %.not.i, label %157, label %129
+131:                                              ; preds = %_ZN12_GLOBAL__N_122InlineCostCallAnalyzer14isColdCallSiteERN4llvm8CallBaseEPNS1_18BlockFrequencyInfoE.exit.i, %_ZN12_GLOBAL__N_122InlineCostCallAnalyzer14isColdCallSiteERN4llvm8CallBaseEPNS1_18BlockFrequencyInfoE.exit.thread.i, %107
+  %132 = load ptr, ptr %65, align 8
+  %.not.i = icmp eq ptr %132, null
+  br i1 %.not.i, label %161, label %133
 
-129:                                              ; preds = %127
+133:                                              ; preds = %131
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  %130 = getelementptr inbounds nuw i8, ptr %128, i64 8
-  %131 = load ptr, ptr %130, align 8
-  %.not61.i = icmp eq ptr %131, null
-  br i1 %.not61.i, label %_ZNK4llvm18ProfileSummaryInfo18isFunctionEntryHotINS_8FunctionEEEbPKT_.exit.thread.i, label %132
+  %134 = getelementptr inbounds nuw i8, ptr %132, i64 8
+  %135 = load ptr, ptr %134, align 8
+  %.not61.i = icmp eq ptr %135, null
+  br i1 %.not61.i, label %_ZNK4llvm18ProfileSummaryInfo18isFunctionEntryHotINS_8FunctionEEEbPKT_.exit.thread.i, label %136
 
-132:                                              ; preds = %129
+136:                                              ; preds = %133
   call void @_ZNK4llvm8Function13getEntryCountEb(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.275") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %9, i1 noundef zeroext false) #28
-  %133 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %134 = load i8, ptr %133, align 8
-  %135 = trunc i8 %134 to i1
-  br i1 %135, label %_ZNK4llvm18ProfileSummaryInfo18isFunctionEntryHotINS_8FunctionEEEbPKT_.exit.i, label %_ZNK4llvm18ProfileSummaryInfo18isFunctionEntryHotINS_8FunctionEEEbPKT_.exit.thread.i
+  %137 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %138 = load i8, ptr %137, align 8
+  %139 = trunc i8 %138 to i1
+  br i1 %139, label %_ZNK4llvm18ProfileSummaryInfo18isFunctionEntryHotINS_8FunctionEEEbPKT_.exit.i, label %_ZNK4llvm18ProfileSummaryInfo18isFunctionEntryHotINS_8FunctionEEEbPKT_.exit.thread.i
 
-_ZNK4llvm18ProfileSummaryInfo18isFunctionEntryHotINS_8FunctionEEEbPKT_.exit.thread.i: ; preds = %132, %129
+_ZNK4llvm18ProfileSummaryInfo18isFunctionEntryHotINS_8FunctionEEEbPKT_.exit.thread.i: ; preds = %136, %133
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  br label %146
+  br label %150
 
-_ZNK4llvm18ProfileSummaryInfo18isFunctionEntryHotINS_8FunctionEEEbPKT_.exit.i: ; preds = %132
-  %136 = load i64, ptr %2, align 8
-  %137 = call noundef zeroext i1 @_ZNK4llvm18ProfileSummaryInfo10isHotCountEm(ptr noundef nonnull align 8 dereferenceable(80) %128, i64 noundef %136) #28
+_ZNK4llvm18ProfileSummaryInfo18isFunctionEntryHotINS_8FunctionEEEbPKT_.exit.i: ; preds = %136
+  %140 = load i64, ptr %2, align 8
+  %141 = call noundef zeroext i1 @_ZNK4llvm18ProfileSummaryInfo10isHotCountEm(ptr noundef nonnull align 8 dereferenceable(80) %132, i64 noundef %140) #28
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  br i1 %137, label %138, label %146
+  br i1 %141, label %142, label %150
 
-138:                                              ; preds = %_ZNK4llvm18ProfileSummaryInfo18isFunctionEntryHotINS_8FunctionEEEbPKT_.exit.i
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  %140 = load i32, ptr %139, align 8
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %142 = load ptr, ptr %141, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 4
-  %.sroa.01.0.copyload.i = load i64, ptr %143, align 4
+142:                                              ; preds = %_ZNK4llvm18ProfileSummaryInfo18isFunctionEntryHotINS_8FunctionEEEbPKT_.exit.i
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 640
+  %144 = load i32, ptr %143, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 608
+  %146 = load ptr, ptr %145, align 8
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 4
+  %.sroa.01.0.copyload.i = load i64, ptr %147, align 4
   %.sroa.0.0.extract.trunc.i39.i = trunc i64 %.sroa.01.0.copyload.i to i32
-  %144 = and i64 %.sroa.01.0.copyload.i, 4294967296
-  %.not.i40.i = icmp eq i64 %144, 0
-  %..i.val.i41.i = call i32 @llvm.smax.i32(i32 %140, i32 %.sroa.0.0.extract.trunc.i39.i)
-  %145 = select i1 %.not.i40.i, i32 %140, i32 %..i.val.i41.i
-  store i32 %145, ptr %139, align 8
-  br label %157
+  %148 = and i64 %.sroa.01.0.copyload.i, 4294967296
+  %.not.i40.i = icmp eq i64 %148, 0
+  %..i.val.i41.i = call i32 @llvm.smax.i32(i32 %144, i32 %.sroa.0.0.extract.trunc.i39.i)
+  %149 = select i1 %.not.i40.i, i32 %144, i32 %..i.val.i41.i
+  store i32 %149, ptr %143, align 8
+  br label %161
 
-146:                                              ; preds = %_ZNK4llvm18ProfileSummaryInfo18isFunctionEntryHotINS_8FunctionEEEbPKT_.exit.i, %_ZNK4llvm18ProfileSummaryInfo18isFunctionEntryHotINS_8FunctionEEEbPKT_.exit.thread.i
-  %147 = load ptr, ptr %65, align 8
-  %148 = call noundef zeroext i1 @_ZNK4llvm18ProfileSummaryInfo19isFunctionEntryColdEPKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(80) %147, ptr noundef nonnull %9) #28
-  br i1 %148, label %149, label %157
+150:                                              ; preds = %_ZNK4llvm18ProfileSummaryInfo18isFunctionEntryHotINS_8FunctionEEEbPKT_.exit.i, %_ZNK4llvm18ProfileSummaryInfo18isFunctionEntryHotINS_8FunctionEEEbPKT_.exit.thread.i
+  %151 = load ptr, ptr %65, align 8
+  %152 = call noundef zeroext i1 @_ZNK4llvm18ProfileSummaryInfo19isFunctionEntryColdEPKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(80) %151, ptr noundef nonnull %9) #28
+  br i1 %152, label %153, label %161
 
-149:                                              ; preds = %146
-  %150 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  %151 = load i32, ptr %150, align 8
-  %152 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %153 = load ptr, ptr %152, align 8
-  %154 = getelementptr inbounds nuw i8, ptr %153, i64 12
-  %.sroa.0.0.copyload.i = load i64, ptr %154, align 4
+153:                                              ; preds = %150
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 640
+  %155 = load i32, ptr %154, align 8
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 608
+  %157 = load ptr, ptr %156, align 8
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 12
+  %.sroa.0.0.copyload.i = load i64, ptr %158, align 4
   %.sroa.0.0.extract.trunc.i42.i = trunc i64 %.sroa.0.0.copyload.i to i32
-  %155 = and i64 %.sroa.0.0.copyload.i, 4294967296
-  %.not.i43.i = icmp eq i64 %155, 0
-  %..i.val.i44.i = call i32 @llvm.smin.i32(i32 %151, i32 %.sroa.0.0.extract.trunc.i42.i)
-  %156 = select i1 %.not.i43.i, i32 %151, i32 %..i.val.i44.i
-  store i32 %156, ptr %150, align 8
-  br label %157
+  %159 = and i64 %.sroa.0.0.copyload.i, 4294967296
+  %.not.i43.i = icmp eq i64 %159, 0
+  %..i.val.i44.i = call i32 @llvm.smin.i32(i32 %155, i32 %.sroa.0.0.extract.trunc.i42.i)
+  %160 = select i1 %.not.i43.i, i32 %155, i32 %..i.val.i44.i
+  store i32 %160, ptr %154, align 8
+  br label %161
 
-157:                                              ; preds = %149, %146, %138, %127, %119, %98, %44
-  %.153.i = phi i32 [ %.052.i, %44 ], [ 0, %119 ], [ %.052.i, %127 ], [ %.052.i, %138 ], [ 0, %149 ], [ %.052.i, %146 ], [ %.052.i, %98 ]
-  %.1.i = phi i32 [ %.051.i, %44 ], [ 0, %119 ], [ %.051.i, %127 ], [ %.051.i, %138 ], [ 0, %149 ], [ %.051.i, %146 ], [ %.051.i, %98 ]
-  %.0.i = phi i32 [ 15000, %44 ], [ 0, %119 ], [ 15000, %127 ], [ 15000, %138 ], [ 0, %149 ], [ 15000, %146 ], [ 15000, %98 ]
-  %158 = load ptr, ptr %30, align 8
-  %159 = call noundef i32 @_ZNK4llvm19TargetTransformInfo23adjustInliningThresholdEPKNS_8CallBaseE(ptr noundef nonnull align 8 dereferenceable(8) %158, ptr noundef nonnull %7) #28
-  %160 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  %161 = load i32, ptr %160, align 8
-  %162 = add i32 %161, %159
-  store i32 %162, ptr %160, align 8
-  %163 = load ptr, ptr %30, align 8
-  %164 = call noundef i32 @_ZNK4llvm19TargetTransformInfo30getInliningThresholdMultiplierEv(ptr noundef nonnull align 8 dereferenceable(8) %163) #28
-  %165 = load i32, ptr %160, align 8
-  %166 = mul i32 %165, %164
-  store i32 %166, ptr %160, align 8
-  %167 = mul nsw i32 %166, %.153.i
-  %168 = sdiv i32 %167, 100
-  %169 = getelementptr inbounds nuw i8, ptr %0, i64 604
-  store i32 %168, ptr %169, align 4
-  %170 = mul nsw i32 %166, %.1.i
-  %171 = sdiv i32 %170, 100
-  %172 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  store i32 %171, ptr %172, align 8
-  %173 = load ptr, ptr %8, align 8
-  %174 = getelementptr inbounds nuw i8, ptr %173, i64 32
-  %175 = load i32, ptr %174, align 8
-  %176 = and i32 %175, 15
-  %177 = add nsw i32 %176, -7
-  %spec.select.i.i.i.i = icmp ult i32 %177, 2
-  br i1 %spec.select.i.i.i.i, label %178, label %_ZN12_GLOBAL__N_122InlineCostCallAnalyzer15updateThresholdERN4llvm8CallBaseERNS1_8FunctionE.exit
+161:                                              ; preds = %153, %150, %142, %131, %123, %102, %44
+  %.153.i = phi i32 [ %.052.i, %44 ], [ 0, %123 ], [ %.052.i, %131 ], [ %.052.i, %142 ], [ 0, %153 ], [ %.052.i, %150 ], [ %.052.i, %102 ]
+  %.1.i = phi i32 [ %.051.i, %44 ], [ 0, %123 ], [ %.051.i, %131 ], [ %.051.i, %142 ], [ 0, %153 ], [ %.051.i, %150 ], [ %.051.i, %102 ]
+  %.0.i = phi i32 [ 15000, %44 ], [ 0, %123 ], [ 15000, %131 ], [ 15000, %142 ], [ 0, %153 ], [ 15000, %150 ], [ 15000, %102 ]
+  %162 = load ptr, ptr %30, align 8
+  %163 = call noundef i32 @_ZNK4llvm19TargetTransformInfo23adjustInliningThresholdEPKNS_8CallBaseE(ptr noundef nonnull align 8 dereferenceable(8) %162, ptr noundef nonnull %7) #28
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 640
+  %165 = load i32, ptr %164, align 8
+  %166 = add i32 %165, %163
+  store i32 %166, ptr %164, align 8
+  %167 = load ptr, ptr %30, align 8
+  %168 = call noundef i32 @_ZNK4llvm19TargetTransformInfo30getInliningThresholdMultiplierEv(ptr noundef nonnull align 8 dereferenceable(8) %167) #28
+  %169 = load i32, ptr %164, align 8
+  %170 = mul i32 %169, %168
+  store i32 %170, ptr %164, align 8
+  %171 = mul nsw i32 %170, %.153.i
+  %172 = sdiv i32 %171, 100
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 604
+  store i32 %172, ptr %173, align 4
+  %174 = mul nsw i32 %170, %.1.i
+  %175 = sdiv i32 %174, 100
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 600
+  store i32 %175, ptr %176, align 8
+  %177 = load ptr, ptr %8, align 8
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 32
+  %179 = load i32, ptr %178, align 8
+  %180 = and i32 %179, 15
+  %181 = add nsw i32 %180, -7
+  %spec.select.i.i.i.i = icmp ult i32 %181, 2
+  br i1 %spec.select.i.i.i.i, label %182, label %_ZN12_GLOBAL__N_122InlineCostCallAnalyzer15updateThresholdERN4llvm8CallBaseERNS1_8FunctionE.exit
 
-178:                                              ; preds = %157
-  %179 = call noundef zeroext i1 @_ZNK4llvm8Constant13hasOneLiveUseEv(ptr noundef nonnull align 8 dereferenceable(24) %173) #28
-  br i1 %179, label %180, label %_ZN12_GLOBAL__N_122InlineCostCallAnalyzer15updateThresholdERN4llvm8CallBaseERNS1_8FunctionE.exit
+182:                                              ; preds = %161
+  %183 = call noundef zeroext i1 @_ZNK4llvm8Constant13hasOneLiveUseEv(ptr noundef nonnull align 8 dereferenceable(24) %177) #28
+  br i1 %183, label %184, label %_ZN12_GLOBAL__N_122InlineCostCallAnalyzer15updateThresholdERN4llvm8CallBaseERNS1_8FunctionE.exit
 
-180:                                              ; preds = %178
-  %181 = getelementptr inbounds i8, ptr %7, i64 -32
-  %182 = load ptr, ptr %181, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %182, null
-  br i1 %.not.i.i.i.i.i, label %_ZN12_GLOBAL__N_122InlineCostCallAnalyzer15updateThresholdERN4llvm8CallBaseERNS1_8FunctionE.exit, label %183
+184:                                              ; preds = %182
+  %185 = getelementptr inbounds i8, ptr %7, i64 -32
+  %186 = load ptr, ptr %185, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %186, null
+  br i1 %.not.i.i.i.i.i, label %_ZN12_GLOBAL__N_122InlineCostCallAnalyzer15updateThresholdERN4llvm8CallBaseERNS1_8FunctionE.exit, label %187
 
-183:                                              ; preds = %180
-  %184 = load i8, ptr %182, align 8
-  %185 = icmp eq i8 %184, 0
-  br i1 %185, label %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i, label %_ZN12_GLOBAL__N_122InlineCostCallAnalyzer15updateThresholdERN4llvm8CallBaseERNS1_8FunctionE.exit
+187:                                              ; preds = %184
+  %188 = load i8, ptr %186, align 8
+  %189 = icmp eq i8 %188, 0
+  br i1 %189, label %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i, label %_ZN12_GLOBAL__N_122InlineCostCallAnalyzer15updateThresholdERN4llvm8CallBaseERNS1_8FunctionE.exit
 
-_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i: ; preds = %183
-  %186 = getelementptr inbounds nuw i8, ptr %182, i64 24
-  %187 = load ptr, ptr %186, align 8
-  %188 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  %189 = load ptr, ptr %188, align 8
-  %190 = icmp eq ptr %187, %189
-  %191 = icmp eq ptr %173, %182
-  %or.cond.i = and i1 %191, %190
-  br i1 %or.cond.i, label %192, label %_ZN12_GLOBAL__N_122InlineCostCallAnalyzer15updateThresholdERN4llvm8CallBaseERNS1_8FunctionE.exit
+_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i: ; preds = %187
+  %190 = getelementptr inbounds nuw i8, ptr %186, i64 24
+  %191 = load ptr, ptr %190, align 8
+  %192 = getelementptr inbounds nuw i8, ptr %7, i64 80
+  %193 = load ptr, ptr %192, align 8
+  %194 = icmp eq ptr %191, %193
+  %195 = icmp eq ptr %177, %186
+  %or.cond.i = and i1 %195, %194
+  br i1 %or.cond.i, label %196, label %_ZN12_GLOBAL__N_122InlineCostCallAnalyzer15updateThresholdERN4llvm8CallBaseERNS1_8FunctionE.exit
 
-192:                                              ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i
-  %193 = getelementptr inbounds nuw i8, ptr %0, i64 652
-  %194 = load i32, ptr %193, align 4
-  %195 = sub nsw i32 %194, %.0.i
-  store i32 %195, ptr %193, align 4
-  %196 = getelementptr inbounds nuw i8, ptr %0, i64 644
-  store i32 %.0.i, ptr %196, align 4
+196:                                              ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i
+  %197 = getelementptr inbounds nuw i8, ptr %0, i64 652
+  %198 = load i32, ptr %197, align 4
+  %199 = sub nsw i32 %198, %.0.i
+  store i32 %199, ptr %197, align 4
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 644
+  store i32 %.0.i, ptr %200, align 4
   br label %_ZN12_GLOBAL__N_122InlineCostCallAnalyzer15updateThresholdERN4llvm8CallBaseERNS1_8FunctionE.exit
 
-_ZN12_GLOBAL__N_122InlineCostCallAnalyzer15updateThresholdERN4llvm8CallBaseERNS1_8FunctionE.exit: ; preds = %27, %157, %178, %180, %183, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i, %192
-  %197 = getelementptr inbounds nuw i8, ptr %0, i64 604
-  %198 = load i32, ptr %197, align 4
-  %199 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  %200 = load i32, ptr %199, align 8
-  %201 = add nsw i32 %200, %198
-  %202 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  %203 = load i32, ptr %202, align 8
-  %204 = add nsw i32 %201, %203
-  store i32 %204, ptr %202, align 8
-  %205 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %206 = load ptr, ptr %205, align 8
-  %207 = load ptr, ptr %6, align 8
-  %208 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %209 = load ptr, ptr %208, align 8
-  %210 = call noundef i32 @_ZN4llvm15getCallsiteCostERKNS_19TargetTransformInfoERKNS_8CallBaseERKNS_10DataLayoutE(ptr noundef nonnull align 8 dereferenceable(8) %206, ptr noundef nonnull align 8 dereferenceable(88) %207, ptr noundef nonnull align 8 dereferenceable(512) %209)
-  %211 = sub nsw i32 0, %210
-  %212 = getelementptr inbounds nuw i8, ptr %0, i64 652
-  %213 = load i32, ptr %212, align 4
-  %214 = call i32 @llvm.sadd.sat.i32(i32 %211, i32 %213)
-  store i32 %214, ptr %212, align 4
-  %215 = load ptr, ptr %8, align 8
-  %216 = getelementptr inbounds nuw i8, ptr %215, i64 2
-  %217 = load i16, ptr %216, align 2
-  %218 = and i16 %217, 16368
-  %219 = icmp eq i16 %218, 144
-  br i1 %219, label %220, label %222
+_ZN12_GLOBAL__N_122InlineCostCallAnalyzer15updateThresholdERN4llvm8CallBaseERNS1_8FunctionE.exit: ; preds = %27, %161, %182, %184, %187, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i, %196
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 604
+  %202 = load i32, ptr %201, align 4
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 600
+  %204 = load i32, ptr %203, align 8
+  %205 = add nsw i32 %204, %202
+  %206 = getelementptr inbounds nuw i8, ptr %0, i64 640
+  %207 = load i32, ptr %206, align 8
+  %208 = add nsw i32 %205, %207
+  store i32 %208, ptr %206, align 8
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %210 = load ptr, ptr %209, align 8
+  %211 = load ptr, ptr %6, align 8
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %213 = load ptr, ptr %212, align 8
+  %214 = call noundef i32 @_ZN4llvm15getCallsiteCostERKNS_19TargetTransformInfoERKNS_8CallBaseERKNS_10DataLayoutE(ptr noundef nonnull align 8 dereferenceable(8) %210, ptr noundef nonnull align 8 dereferenceable(88) %211, ptr noundef nonnull align 8 dereferenceable(512) %213)
+  %215 = sub nsw i32 0, %214
+  %216 = getelementptr inbounds nuw i8, ptr %0, i64 652
+  %217 = load i32, ptr %216, align 4
+  %218 = call i32 @llvm.sadd.sat.i32(i32 %215, i32 %217)
+  store i32 %218, ptr %216, align 4
+  %219 = load ptr, ptr %8, align 8
+  %220 = getelementptr inbounds nuw i8, ptr %219, i64 2
+  %221 = load i16, ptr %220, align 2
+  %222 = and i16 %221, 16368
+  %223 = icmp eq i16 %222, 144
+  br i1 %223, label %224, label %226
 
-220:                                              ; preds = %_ZN12_GLOBAL__N_122InlineCostCallAnalyzer15updateThresholdERN4llvm8CallBaseERNS1_8FunctionE.exit
-  %221 = add nsw i32 %214, 2000
-  store i32 %221, ptr %212, align 4
-  br label %222
+224:                                              ; preds = %_ZN12_GLOBAL__N_122InlineCostCallAnalyzer15updateThresholdERN4llvm8CallBaseERNS1_8FunctionE.exit
+  %225 = add nsw i32 %218, 2000
+  store i32 %225, ptr %216, align 4
+  br label %226
 
-222:                                              ; preds = %220, %_ZN12_GLOBAL__N_122InlineCostCallAnalyzer15updateThresholdERN4llvm8CallBaseERNS1_8FunctionE.exit
-  %223 = phi i32 [ %221, %220 ], [ %214, %_ZN12_GLOBAL__N_122InlineCostCallAnalyzer15updateThresholdERN4llvm8CallBaseERNS1_8FunctionE.exit ]
-  %224 = load i32, ptr %202, align 8
-  %.not = icmp slt i32 %223, %224
-  br i1 %.not, label %229, label %225
+226:                                              ; preds = %224, %_ZN12_GLOBAL__N_122InlineCostCallAnalyzer15updateThresholdERN4llvm8CallBaseERNS1_8FunctionE.exit
+  %227 = phi i32 [ %225, %224 ], [ %218, %_ZN12_GLOBAL__N_122InlineCostCallAnalyzer15updateThresholdERN4llvm8CallBaseERNS1_8FunctionE.exit ]
+  %228 = load i32, ptr %206, align 8
+  %.not = icmp slt i32 %227, %228
+  br i1 %.not, label %233, label %229
 
-225:                                              ; preds = %222
-  %226 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  %227 = load i8, ptr %226, align 8
-  %228 = trunc i8 %227 to i1
-  br i1 %228, label %229, label %230
+229:                                              ; preds = %226
+  %230 = getelementptr inbounds nuw i8, ptr %0, i64 592
+  %231 = load i8, ptr %230, align 8
+  %232 = trunc i8 %231 to i1
+  br i1 %232, label %233, label %234
 
-229:                                              ; preds = %225, %222
-  br label %230
+233:                                              ; preds = %229, %226
+  br label %234
 
-230:                                              ; preds = %225, %229
-  %.sroa.0.0 = phi ptr [ null, %229 ], [ @.str.110, %225 ]
+234:                                              ; preds = %229, %233
+  %.sroa.0.0 = phi ptr [ null, %233 ], [ @.str.110, %229 ]
   ret ptr %.sroa.0.0
 }
 

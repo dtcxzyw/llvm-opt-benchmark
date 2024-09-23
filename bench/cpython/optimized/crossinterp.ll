@@ -1827,12 +1827,12 @@ define internal fastcc ptr @_xidregistry_find_type(ptr nocapture noundef %xidreg
 entry:
   %head = getelementptr inbounds i8, ptr %xidregistry, i64 16
   %0 = load ptr, ptr %head, align 8
-  %cmp.not17 = icmp eq ptr %0, null
-  br i1 %cmp.not17, label %return, label %while.body
+  %cmp.not18 = icmp eq ptr %0, null
+  br i1 %cmp.not18, label %return, label %while.body
 
 while.body:                                       ; preds = %entry, %while.cond.backedge
-  %cur.018 = phi ptr [ %cur.0.be, %while.cond.backedge ], [ %0, %entry ]
-  %weakref = getelementptr inbounds i8, ptr %cur.018, i64 24
+  %cur.019 = phi ptr [ %cur.0.be, %while.cond.backedge ], [ %0, %entry ]
+  %weakref = getelementptr inbounds i8, ptr %cur.019, i64 24
   %1 = load ptr, ptr %weakref, align 8
   %cmp1.not = icmp eq ptr %1, null
   br i1 %cmp1.not, label %if.end6, label %if.then
@@ -1860,22 +1860,31 @@ if.end.i.i.i:                                     ; preds = %if.end3.i
   br label %if.end
 
 if.then4:                                         ; preds = %if.end.i12, %if.then
-  %next2.i = getelementptr inbounds i8, ptr %cur.018, i64 8
+  %next2.i = getelementptr inbounds i8, ptr %cur.019, i64 8
   %4 = load ptr, ptr %next2.i, align 8
-  %5 = load ptr, ptr %cur.018, align 8
+  %5 = load ptr, ptr %cur.019, align 8
   %cmp.not.i = icmp eq ptr %5, null
+  br i1 %cmp.not.i, label %if.else.i, label %if.then.i
+
+if.then.i:                                        ; preds = %if.then4
   %next4.i = getelementptr inbounds i8, ptr %5, i64 8
-  %head.sink.i = select i1 %cmp.not.i, ptr %head, ptr %next4.i
-  store ptr %4, ptr %head.sink.i, align 8
+  store ptr %4, ptr %next4.i, align 8
+  br label %if.end.i13
+
+if.else.i:                                        ; preds = %if.then4
+  store ptr %4, ptr %head, align 8
+  br label %if.end.i13
+
+if.end.i13:                                       ; preds = %if.else.i, %if.then.i
   %cmp5.not.i = icmp eq ptr %4, null
   br i1 %cmp5.not.i, label %if.end9.i, label %if.then6.i
 
-if.then6.i:                                       ; preds = %if.then4
-  %6 = load ptr, ptr %cur.018, align 8
+if.then6.i:                                       ; preds = %if.end.i13
+  %6 = load ptr, ptr %cur.019, align 8
   store ptr %6, ptr %4, align 8
   br label %if.end9.i
 
-if.end9.i:                                        ; preds = %if.then6.i, %if.then4
+if.end9.i:                                        ; preds = %if.then6.i, %if.end.i13
   %7 = load ptr, ptr %weakref, align 8
   %cmp.not.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i, label %_xidregistry_remove_entry.exit, label %if.then.i.i
@@ -1884,20 +1893,20 @@ if.then.i.i:                                      ; preds = %if.end9.i
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 2147483648
   %cmp.i2.not.i.i = icmp eq i64 %9, 0
-  br i1 %cmp.i2.not.i.i, label %if.end.i.i.i13, label %_xidregistry_remove_entry.exit
+  br i1 %cmp.i2.not.i.i, label %if.end.i.i.i14, label %_xidregistry_remove_entry.exit
 
-if.end.i.i.i13:                                   ; preds = %if.then.i.i
+if.end.i.i.i14:                                   ; preds = %if.then.i.i
   %dec.i.i.i = add i64 %8, -1
   store i64 %dec.i.i.i, ptr %7, align 8
-  %cmp.i.i.i14 = icmp eq i64 %dec.i.i.i, 0
-  br i1 %cmp.i.i.i14, label %if.then1.i.i.i, label %_xidregistry_remove_entry.exit
+  %cmp.i.i.i15 = icmp eq i64 %dec.i.i.i, 0
+  br i1 %cmp.i.i.i15, label %if.then1.i.i.i, label %_xidregistry_remove_entry.exit
 
-if.then1.i.i.i:                                   ; preds = %if.end.i.i.i13
+if.then1.i.i.i:                                   ; preds = %if.end.i.i.i14
   tail call void @_Py_Dealloc(ptr noundef nonnull %7) #13
   br label %_xidregistry_remove_entry.exit
 
-_xidregistry_remove_entry.exit:                   ; preds = %if.end9.i, %if.then.i.i, %if.end.i.i.i13, %if.then1.i.i.i
-  tail call void @PyMem_RawFree(ptr noundef nonnull %cur.018) #13
+_xidregistry_remove_entry.exit:                   ; preds = %if.end9.i, %if.then.i.i, %if.end.i.i.i14, %if.then1.i.i.i
+  tail call void @PyMem_RawFree(ptr noundef nonnull %cur.019) #13
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %_xidregistry_remove_entry.exit, %if.end10
@@ -1922,18 +1931,18 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %if.end6
 
 if.end6:                                          ; preds = %if.end.i, %if.then1.i, %if.end, %while.body
-  %cls7 = getelementptr inbounds i8, ptr %cur.018, i64 16
+  %cls7 = getelementptr inbounds i8, ptr %cur.019, i64 16
   %12 = load ptr, ptr %cls7, align 8
   %cmp8 = icmp eq ptr %12, %cls
   br i1 %cmp8, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.end6
-  %next = getelementptr inbounds i8, ptr %cur.018, i64 8
+  %next = getelementptr inbounds i8, ptr %cur.019, i64 8
   %13 = load ptr, ptr %next, align 8
   br label %while.cond.backedge
 
 return:                                           ; preds = %if.end6, %while.cond.backedge, %entry
-  %cur.0.lcssa = phi ptr [ null, %entry ], [ null, %while.cond.backedge ], [ %cur.018, %if.end6 ]
+  %cur.0.lcssa = phi ptr [ null, %entry ], [ null, %while.cond.backedge ], [ %cur.019, %if.end6 ]
   ret ptr %cur.0.lcssa
 }
 
@@ -1985,31 +1994,40 @@ if.then5:                                         ; preds = %if.then
   %9 = load ptr, ptr %next2.i, align 8
   %10 = load ptr, ptr %call2, align 8
   %cmp.not.i = icmp eq ptr %10, null
-  %head.i = getelementptr inbounds i8, ptr %spec.select.i, i64 16
+  br i1 %cmp.not.i, label %if.else.i, label %if.then.i9
+
+if.then.i9:                                       ; preds = %if.then5
   %next4.i = getelementptr inbounds i8, ptr %10, i64 8
-  %head.sink.i = select i1 %cmp.not.i, ptr %head.i, ptr %next4.i
-  store ptr %9, ptr %head.sink.i, align 8
+  store ptr %9, ptr %next4.i, align 8
+  br label %if.end.i
+
+if.else.i:                                        ; preds = %if.then5
+  %head.i = getelementptr inbounds i8, ptr %spec.select.i, i64 16
+  store ptr %9, ptr %head.i, align 8
+  br label %if.end.i
+
+if.end.i:                                         ; preds = %if.else.i, %if.then.i9
   %cmp5.not.i = icmp eq ptr %9, null
   br i1 %cmp5.not.i, label %if.end9.i, label %if.then6.i
 
-if.then6.i:                                       ; preds = %if.then5
+if.then6.i:                                       ; preds = %if.end.i
   %11 = load ptr, ptr %call2, align 8
   store ptr %11, ptr %9, align 8
   br label %if.end9.i
 
-if.end9.i:                                        ; preds = %if.then6.i, %if.then5
+if.end9.i:                                        ; preds = %if.then6.i, %if.end.i
   %weakref.i = getelementptr inbounds i8, ptr %call2, i64 24
   %12 = load ptr, ptr %weakref.i, align 8
   %cmp.not.i.i = icmp eq ptr %12, null
-  br i1 %cmp.not.i.i, label %_xidregistry_remove_entry.exit, label %if.then.i.i9
+  br i1 %cmp.not.i.i, label %_xidregistry_remove_entry.exit, label %if.then.i.i10
 
-if.then.i.i9:                                     ; preds = %if.end9.i
+if.then.i.i10:                                    ; preds = %if.end9.i
   %13 = load i64, ptr %12, align 8
   %14 = and i64 %13, 2147483648
   %cmp.i2.not.i.i = icmp eq i64 %14, 0
   br i1 %cmp.i2.not.i.i, label %if.end.i.i.i, label %_xidregistry_remove_entry.exit
 
-if.end.i.i.i:                                     ; preds = %if.then.i.i9
+if.end.i.i.i:                                     ; preds = %if.then.i.i10
   %dec.i.i.i = add i64 %13, -1
   store i64 %dec.i.i.i, ptr %12, align 8
   %cmp.i.i.i = icmp eq i64 %dec.i.i.i, 0
@@ -2019,27 +2037,27 @@ if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %12) #13
   br label %_xidregistry_remove_entry.exit
 
-_xidregistry_remove_entry.exit:                   ; preds = %if.end9.i, %if.then.i.i9, %if.end.i.i.i, %if.then1.i.i.i
+_xidregistry_remove_entry.exit:                   ; preds = %if.end9.i, %if.then.i.i10, %if.end.i.i.i, %if.then1.i.i.i
   tail call void @PyMem_RawFree(ptr noundef nonnull %call2) #13
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then, %_xidregistry_remove_entry.exit, %_xidregistry_lock.exit
   %res.0 = phi i32 [ 0, %_xidregistry_lock.exit ], [ 1, %_xidregistry_remove_entry.exit ], [ 1, %if.then ]
   %15 = load i32, ptr %spec.select.i, align 8
-  %tobool.not.i10 = icmp eq i32 %15, 0
-  br i1 %tobool.not.i10, label %_xidregistry_unlock.exit, label %if.then.i11
+  %tobool.not.i11 = icmp eq i32 %15, 0
+  br i1 %tobool.not.i11, label %_xidregistry_unlock.exit, label %if.then.i12
 
-if.then.i11:                                      ; preds = %if.end7
-  %mutex.i12 = getelementptr inbounds i8, ptr %spec.select.i, i64 8
-  %16 = cmpxchg ptr %mutex.i12, i8 1, i8 0 seq_cst seq_cst, align 1
+if.then.i12:                                      ; preds = %if.end7
+  %mutex.i13 = getelementptr inbounds i8, ptr %spec.select.i, i64 8
+  %16 = cmpxchg ptr %mutex.i13, i8 1, i8 0 seq_cst seq_cst, align 1
   %17 = extractvalue { i8, i1 } %16, 1
-  br i1 %17, label %_xidregistry_unlock.exit, label %if.then.i.i13
+  br i1 %17, label %_xidregistry_unlock.exit, label %if.then.i.i14
 
-if.then.i.i13:                                    ; preds = %if.then.i11
-  tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull %mutex.i12) #13
+if.then.i.i14:                                    ; preds = %if.then.i12
+  tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull %mutex.i13) #13
   br label %_xidregistry_unlock.exit
 
-_xidregistry_unlock.exit:                         ; preds = %if.end7, %if.then.i11, %if.then.i.i13
+_xidregistry_unlock.exit:                         ; preds = %if.end7, %if.then.i12, %if.then.i.i14
   ret i32 %res.0
 }
 
@@ -2751,13 +2769,13 @@ for.body.preheader:                               ; preds = %if.end10
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %i.068 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
+  %i.066 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
   %call15 = call i32 @PyDict_Next(ptr noundef %names, ptr noundef nonnull %pos, ptr noundef nonnull %key, ptr noundef null) #13
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %error, label %if.end18
 
 if.end18:                                         ; preds = %for.body
-  %arrayidx = getelementptr %struct._sharednsitem, ptr %call6, i64 %i.068
+  %arrayidx = getelementptr %struct._sharednsitem, ptr %call6, i64 %i.066
   %2 = load ptr, ptr %key, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %size.i.i)
   store i64 -1, ptr %size.i.i, align 8
@@ -2787,9 +2805,9 @@ for.inc:                                          ; preds = %if.end.i.i
   store ptr %call1.i.i, ptr %arrayidx, align 8
   %data.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store ptr null, ptr %data.i, align 8
-  %inc = add nuw nsw i64 %i.068, 1
-  %exitcond81.not = icmp eq i64 %inc, %cond
-  br i1 %exitcond81.not, label %if.end44, label %for.body, !llvm.loop !8
+  %inc = add nuw nsw i64 %i.066, 1
+  %exitcond79.not = icmp eq i64 %inc, %cond
+  br i1 %exitcond79.not, label %if.end44, label %for.body, !llvm.loop !8
 
 if.else:                                          ; preds = %if.end10
   %call23 = tail call i32 @PySequence_Check(ptr noundef nonnull %names) #13
@@ -2797,51 +2815,51 @@ if.else:                                          ; preds = %if.end10
   br i1 %tobool24.not, label %error.thread, label %for.body28
 
 for.body28:                                       ; preds = %if.else, %for.inc39
-  %i.266 = phi i64 [ %inc40, %for.inc39 ], [ 0, %if.else ]
-  %call30 = call ptr @PySequence_GetItem(ptr noundef %names, i64 noundef %i.266) #13
+  %i.264 = phi i64 [ %inc40, %for.inc39 ], [ 0, %if.else ]
+  %call30 = call ptr @PySequence_GetItem(ptr noundef %names, i64 noundef %i.264) #13
   %cmp31 = icmp eq ptr %call30, null
   br i1 %cmp31, label %error, label %if.end33
 
 if.end33:                                         ; preds = %for.body28
-  %arrayidx34 = getelementptr %struct._sharednsitem, ptr %call6, i64 %i.266
+  %arrayidx34 = getelementptr %struct._sharednsitem, ptr %call6, i64 %i.264
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %size.i.i36)
   store i64 -1, ptr %size.i.i36, align 8
   %call.i.i37 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef nonnull %call30, ptr noundef nonnull %size.i.i36) #13
   %cmp.i.i38 = icmp eq ptr %call.i.i37, null
-  br i1 %cmp.i.i38, label %_copy_string_obj_raw.exit.thread.i50, label %if.end.i.i39
+  br i1 %cmp.i.i38, label %_copy_string_obj_raw.exit.thread.i49, label %if.end.i.i39
 
 if.end.i.i39:                                     ; preds = %if.end33
   %4 = load i64, ptr %size.i.i36, align 8
   %add.i.i40 = add i64 %4, 1
   %call1.i.i41 = call ptr @PyMem_RawMalloc(i64 noundef %add.i.i40) #13
   %cmp2.i.i42 = icmp eq ptr %call1.i.i41, null
-  br i1 %cmp2.i.i42, label %if.then3.i.i48, label %if.end.i43
+  br i1 %cmp2.i.i42, label %if.then3.i.i47, label %if.end.i43
 
-if.then3.i.i48:                                   ; preds = %if.end.i.i39
-  %call4.i.i49 = call ptr @PyErr_NoMemory() #13
-  br label %_copy_string_obj_raw.exit.thread.i50
+if.then3.i.i47:                                   ; preds = %if.end.i.i39
+  %call4.i.i48 = call ptr @PyErr_NoMemory() #13
+  br label %_copy_string_obj_raw.exit.thread.i49
 
-_copy_string_obj_raw.exit.thread.i50:             ; preds = %if.then3.i.i48, %if.end33
+_copy_string_obj_raw.exit.thread.i49:             ; preds = %if.then3.i.i47, %if.end33
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %size.i.i36)
-  br label %_sharednsitem_init.exit51
+  store ptr null, ptr %arrayidx34, align 8
+  br label %_sharednsitem_init.exit50
 
 if.end.i43:                                       ; preds = %if.end.i.i39
   %call6.i.i44 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %call1.i.i41, ptr noundef nonnull dereferenceable(1) %call.i.i37) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %size.i.i36)
   store ptr %call1.i.i41, ptr %arrayidx34, align 8
   %data.i45 = getelementptr inbounds i8, ptr %arrayidx34, i64 8
-  br label %_sharednsitem_init.exit51
+  store ptr null, ptr %data.i45, align 8
+  br label %_sharednsitem_init.exit50
 
-_sharednsitem_init.exit51:                        ; preds = %_copy_string_obj_raw.exit.thread.i50, %if.end.i43
-  %item.sink.i46 = phi ptr [ %arrayidx34, %_copy_string_obj_raw.exit.thread.i50 ], [ %data.i45, %if.end.i43 ]
-  %cmp36 = phi i1 [ true, %_copy_string_obj_raw.exit.thread.i50 ], [ false, %if.end.i43 ]
-  store ptr null, ptr %item.sink.i46, align 8
+_sharednsitem_init.exit50:                        ; preds = %_copy_string_obj_raw.exit.thread.i49, %if.end.i43
+  %cmp36 = phi i1 [ false, %if.end.i43 ], [ true, %_copy_string_obj_raw.exit.thread.i49 ]
   %5 = load i64, ptr %call30, align 8
   %6 = and i64 %5, 2147483648
   %cmp.i55.not = icmp eq i64 %6, 0
   br i1 %cmp.i55.not, label %if.end.i, label %Py_DECREF.exit
 
-if.end.i:                                         ; preds = %_sharednsitem_init.exit51
+if.end.i:                                         ; preds = %_sharednsitem_init.exit50
   %dec.i = add i64 %5, -1
   store i64 %dec.i, ptr %call30, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
@@ -2851,11 +2869,11 @@ if.then1.i:                                       ; preds = %if.end.i
   call void @_Py_Dealloc(ptr noundef nonnull %call30) #13
   br label %Py_DECREF.exit
 
-Py_DECREF.exit:                                   ; preds = %_sharednsitem_init.exit51, %if.then1.i, %if.end.i
+Py_DECREF.exit:                                   ; preds = %_sharednsitem_init.exit50, %if.then1.i, %if.end.i
   br i1 %cmp36, label %error, label %for.inc39
 
 for.inc39:                                        ; preds = %Py_DECREF.exit
-  %inc40 = add nuw nsw i64 %i.266, 1
+  %inc40 = add nuw nsw i64 %i.264, 1
   %exitcond.not = icmp eq i64 %inc40, %cond
   br i1 %exitcond.not, label %if.end44, label %for.body28, !llvm.loop !9
 
@@ -2871,13 +2889,13 @@ if.end44:                                         ; preds = %for.inc39, %for.inc
   br label %return
 
 error:                                            ; preds = %Py_DECREF.exit, %for.body28, %for.body, %_sharednsitem_init.exit.thread
-  %i.1 = phi i64 [ %i.068, %_sharednsitem_init.exit.thread ], [ %i.068, %for.body ], [ %i.266, %for.body28 ], [ %i.266, %Py_DECREF.exit ]
-  %cmp4869.not = icmp eq i64 %i.1, 0
-  br i1 %cmp4869.not, label %for.end53, label %for.body49
+  %i.1 = phi i64 [ %i.066, %_sharednsitem_init.exit.thread ], [ %i.066, %for.body ], [ %i.264, %for.body28 ], [ %i.264, %Py_DECREF.exit ]
+  %cmp4867.not = icmp eq i64 %i.1, 0
+  br i1 %cmp4867.not, label %for.end53, label %for.body49
 
 for.body49:                                       ; preds = %error, %_sharednsitem_clear.exit
-  %j.070 = phi i64 [ %inc52, %_sharednsitem_clear.exit ], [ 0, %error ]
-  %arrayidx50 = getelementptr %struct._sharednsitem, ptr %call6, i64 %j.070
+  %j.068 = phi i64 [ %inc52, %_sharednsitem_clear.exit ], [ 0, %error ]
+  %arrayidx50 = getelementptr %struct._sharednsitem, ptr %call6, i64 %j.068
   %8 = load ptr, ptr %arrayidx50, align 8
   %cmp.not.i = icmp eq ptr %8, null
   br i1 %cmp.not.i, label %_sharednsitem_clear.exit, label %if.then.i
@@ -2889,9 +2907,9 @@ if.then.i:                                        ; preds = %for.body49
 
 _sharednsitem_clear.exit:                         ; preds = %for.body49, %if.then.i
   call fastcc void @_sharednsitem_clear_value(ptr noundef nonnull %arrayidx50)
-  %inc52 = add nuw nsw i64 %j.070, 1
-  %exitcond82.not = icmp eq i64 %inc52, %i.1
-  br i1 %exitcond82.not, label %for.end53, label %for.body49, !llvm.loop !10
+  %inc52 = add nuw nsw i64 %j.068, 1
+  %exitcond80.not = icmp eq i64 %inc52, %i.1
+  br i1 %exitcond80.not, label %for.end53, label %for.body49, !llvm.loop !10
 
 for.end53:                                        ; preds = %_sharednsitem_clear.exit, %error.thread, %error
   call void @PyMem_RawFree(ptr noundef nonnull %call6) #13

@@ -1304,22 +1304,18 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__46UsdUtilsCoalescingDiagnos
 
 196:                                              ; preds = %193
   %197 = getelementptr inbounds ptr, ptr %.0.i.i.i.i.i.i.i, i64 %.02531.i.i.i.i.i.i
-  br label %.sink.split.i.i.i.i.i.i
+  store ptr %.032.i.i.i.i.i.i, ptr %197, align 8
+  br label %201
 
 198:                                              ; preds = %.lr.ph.i.i.i.i.i.i
   %199 = load ptr, ptr %192, align 8
   store ptr %199, ptr %.032.i.i.i.i.i.i, align 8
   %200 = load ptr, ptr %191, align 8
-  br label %.sink.split.i.i.i.i.i.i
-
-.sink.split.i.i.i.i.i.i:                          ; preds = %198, %196
-  %.sink.i.i.i.i.i.i = phi ptr [ %197, %196 ], [ %200, %198 ]
-  %.1.ph.i.i.i.i.i.i = phi i64 [ %190, %196 ], [ %.02531.i.i.i.i.i.i, %198 ]
-  store ptr %.032.i.i.i.i.i.i, ptr %.sink.i.i.i.i.i.i, align 8
+  store ptr %.032.i.i.i.i.i.i, ptr %200, align 8
   br label %201
 
-201:                                              ; preds = %.sink.split.i.i.i.i.i.i, %193
-  %.1.i.i.i.i.i.i = phi i64 [ %190, %193 ], [ %.1.ph.i.i.i.i.i.i, %.sink.split.i.i.i.i.i.i ]
+201:                                              ; preds = %198, %196, %193
+  %.1.i.i.i.i.i.i = phi i64 [ %.02531.i.i.i.i.i.i, %198 ], [ %190, %196 ], [ %190, %193 ]
   %.not.i.i.i.i.i.i = icmp eq ptr %188, null
   br i1 %.not.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !18
 

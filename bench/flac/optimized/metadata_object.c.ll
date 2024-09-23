@@ -3849,7 +3849,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %cddb_add_digits_.exit
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %cddb_add_digits_.exit ]
-  %sum.043 = phi i32 [ 0, %for.body.lr.ph ], [ %add, %cddb_add_digits_.exit ]
+  %sum.045 = phi i32 [ 0, %for.body.lr.ph ], [ %add, %cddb_add_digits_.exit ]
   %cmp.not.i = icmp ult i64 %indvars.iv, %1
   br i1 %cmp.not.i, label %lor.lhs.false.i, label %cddb_add_digits_.exit
 
@@ -3883,13 +3883,13 @@ if.then40.i:                                      ; preds = %if.else30.i
   %arrayidx35.i = getelementptr inbounds i8, ptr %4, i64 16
   br label %get_index_01_offset_.exit
 
-get_index_01_offset_.exit:                        ; preds = %if.else.i, %if.then40.i
-  %arrayidx35.sink.i = phi ptr [ %arrayidx35.i, %if.then40.i ], [ %4, %if.else.i ]
-  %7 = load i64, ptr %arrayidx35.sink.i, align 8
-  %8 = load i64, ptr %arrayidx.i, align 8
-  %add51.i = add i64 %8, %7
-  %9 = load i64, ptr %lead_in52.i, align 8
-  %add53.i = add i64 %add51.i, %9
+get_index_01_offset_.exit:                        ; preds = %if.then40.i, %if.else.i
+  %.sink19.in.i = phi ptr [ %arrayidx35.i, %if.then40.i ], [ %4, %if.else.i ]
+  %.sink19.i = load i64, ptr %.sink19.in.i, align 8
+  %7 = load i64, ptr %arrayidx.i, align 8
+  %add51.i = add i64 %7, %.sink19.i
+  %8 = load i64, ptr %lead_in52.i, align 8
+  %add53.i = add i64 %add51.i, %8
   %div = udiv i64 %add53.i, 44100
   %conv = trunc i64 %div to i32
   %tobool.not4.i = icmp eq i32 %conv, 0
@@ -3906,70 +3906,70 @@ while.body.i:                                     ; preds = %get_index_01_offset
 
 cddb_add_digits_.exit:                            ; preds = %while.body.i, %if.else30.i, %if.else21.i, %for.body, %lor.lhs.false.i, %get_index_01_offset_.exit
   %n.0.lcssa.i = phi i32 [ 0, %get_index_01_offset_.exit ], [ 0, %lor.lhs.false.i ], [ 0, %for.body ], [ 0, %if.else21.i ], [ 0, %if.else30.i ], [ %add.i, %while.body.i ]
-  %add = add i32 %n.0.lcssa.i, %sum.043
+  %add = add i32 %n.0.lcssa.i, %sum.045
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %1
   br i1 %exitcond.not, label %lor.lhs.false.i15, label %for.body, !llvm.loop !31
 
 lor.lhs.false.i15:                                ; preds = %cddb_add_digits_.exit
-  %10 = urem i32 %add, 255
-  %11 = shl nuw i32 %10, 24
+  %9 = urem i32 %add, 255
+  %10 = shl nuw i32 %9, 24
   %tracks = getelementptr inbounds i8, ptr %object, i64 168
-  %12 = load ptr, ptr %tracks, align 8
-  %arrayidx = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %12, i64 %1
-  %13 = load i64, ptr %arrayidx, align 8
+  %11 = load ptr, ptr %tracks, align 8
+  %arrayidx = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %11, i64 %1
+  %12 = load i64, ptr %arrayidx, align 8
   %lead_in = getelementptr inbounds i8, ptr %object, i64 152
-  %14 = load i64, ptr %lead_in, align 8
-  %add6 = add i64 %14, %13
+  %13 = load i64, ptr %lead_in, align 8
+  %add6 = add i64 %13, %12
   %div7 = udiv i64 %add6, 44100
   %conv8 = trunc i64 %div7 to i32
-  %num_indices.i18 = getelementptr inbounds i8, ptr %12, i64 23
-  %15 = load i8, ptr %num_indices.i18, align 1
-  %cmp1.i19 = icmp eq i8 %15, 0
-  br i1 %cmp1.i19, label %get_index_01_offset_.exit36, label %if.else.i20
+  %num_indices.i18 = getelementptr inbounds i8, ptr %11, i64 23
+  %14 = load i8, ptr %num_indices.i18, align 1
+  %cmp1.i19 = icmp eq i8 %14, 0
+  br i1 %cmp1.i19, label %get_index_01_offset_.exit38, label %if.else.i20
 
 if.else.i20:                                      ; preds = %lor.lhs.false.i15
-  %indices.i21 = getelementptr inbounds i8, ptr %12, i64 24
-  %16 = load ptr, ptr %indices.i21, align 8
-  %number.i22 = getelementptr inbounds i8, ptr %16, i64 8
-  %17 = load i8, ptr %number.i22, align 8
-  %cmp8.i23 = icmp eq i8 %17, 1
+  %indices.i21 = getelementptr inbounds i8, ptr %11, i64 24
+  %15 = load ptr, ptr %indices.i21, align 8
+  %number.i22 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = load i8, ptr %number.i22, align 8
+  %cmp8.i23 = icmp eq i8 %16, 1
   br i1 %cmp8.i23, label %return.sink.split.i31, label %if.else21.i24
 
 if.else21.i24:                                    ; preds = %if.else.i20
-  %cmp27.i25 = icmp eq i8 %15, 1
-  br i1 %cmp27.i25, label %get_index_01_offset_.exit36, label %if.else30.i26
+  %cmp27.i25 = icmp eq i8 %14, 1
+  br i1 %cmp27.i25, label %get_index_01_offset_.exit38, label %if.else30.i26
 
 if.else30.i26:                                    ; preds = %if.else21.i24
-  %number36.i27 = getelementptr inbounds i8, ptr %16, i64 24
-  %18 = load i8, ptr %number36.i27, align 8
-  %cmp38.i28 = icmp eq i8 %18, 1
-  br i1 %cmp38.i28, label %if.then40.i29, label %get_index_01_offset_.exit36
+  %number36.i27 = getelementptr inbounds i8, ptr %15, i64 24
+  %17 = load i8, ptr %number36.i27, align 8
+  %cmp38.i28 = icmp eq i8 %17, 1
+  br i1 %cmp38.i28, label %if.then40.i29, label %get_index_01_offset_.exit38
 
 if.then40.i29:                                    ; preds = %if.else30.i26
-  %arrayidx35.i30 = getelementptr inbounds i8, ptr %16, i64 16
+  %arrayidx35.i30 = getelementptr inbounds i8, ptr %15, i64 16
   br label %return.sink.split.i31
 
-return.sink.split.i31:                            ; preds = %if.then40.i29, %if.else.i20
-  %arrayidx35.sink.i32 = phi ptr [ %arrayidx35.i30, %if.then40.i29 ], [ %16, %if.else.i20 ]
-  %19 = load i64, ptr %arrayidx35.sink.i32, align 8
-  %20 = load i64, ptr %12, align 8
-  %add51.i33 = add i64 %20, %19
-  %add53.i35 = add i64 %add51.i33, %14
-  %21 = udiv i64 %add53.i35, 44100
-  %22 = trunc i64 %21 to i32
-  br label %get_index_01_offset_.exit36
+return.sink.split.i31:                            ; preds = %if.else.i20, %if.then40.i29
+  %.sink19.in.i32 = phi ptr [ %arrayidx35.i30, %if.then40.i29 ], [ %15, %if.else.i20 ]
+  %.sink19.i33 = load i64, ptr %.sink19.in.i32, align 8
+  %18 = load i64, ptr %11, align 8
+  %add51.i34 = add i64 %18, %.sink19.i33
+  %add53.i36 = add i64 %add51.i34, %13
+  %19 = udiv i64 %add53.i36, 44100
+  %20 = trunc i64 %19 to i32
+  br label %get_index_01_offset_.exit38
 
-get_index_01_offset_.exit36:                      ; preds = %lor.lhs.false.i15, %if.else21.i24, %if.else30.i26, %return.sink.split.i31
-  %retval.0.i14 = phi i32 [ 0, %lor.lhs.false.i15 ], [ 0, %if.else21.i24 ], [ 0, %if.else30.i26 ], [ %22, %return.sink.split.i31 ]
+get_index_01_offset_.exit38:                      ; preds = %lor.lhs.false.i15, %if.else21.i24, %if.else30.i26, %return.sink.split.i31
+  %retval.0.i14 = phi i32 [ 0, %lor.lhs.false.i15 ], [ 0, %if.else21.i24 ], [ 0, %if.else30.i26 ], [ %20, %return.sink.split.i31 ]
   %sub12 = sub i32 %conv8, %retval.0.i14
   %shl13 = shl i32 %sub12, 8
-  %23 = or i32 %11, %shl13
-  %or16 = or i32 %23, %sub
+  %21 = or i32 %10, %shl13
+  %or16 = or i32 %21, %sub
   br label %return
 
-return:                                           ; preds = %entry, %get_index_01_offset_.exit36
-  %retval.0 = phi i32 [ %or16, %get_index_01_offset_.exit36 ], [ 0, %entry ]
+return:                                           ; preds = %entry, %get_index_01_offset_.exit38
+  %retval.0 = phi i32 [ %or16, %get_index_01_offset_.exit38 ], [ 0, %entry ]
   ret i32 %retval.0
 }
 

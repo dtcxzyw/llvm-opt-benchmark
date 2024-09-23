@@ -11417,6 +11417,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   store ptr null, ptr %18, align 8
   store ptr %21, ptr %25, align 8
   store ptr %21, ptr %28, align 8
+  store i64 0, ptr %32, align 8
   br label %_ZN10open_spiel13GameParameterC2EOS0_.exit
 
 35:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -11428,11 +11429,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %38 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %17, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 128
+  store i64 0, ptr %39, align 8
   br label %_ZN10open_spiel13GameParameterC2EOS0_.exit
 
 _ZN10open_spiel13GameParameterC2EOS0_.exit:       ; preds = %20, %35
-  %.sink.i.i.i.i.i = phi ptr [ %39, %35 ], [ %32, %20 ]
-  store i64 0, ptr %.sink.i.i.i.i.i, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %42 = load i32, ptr %41, align 8
@@ -11515,6 +11515,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   store ptr null, ptr %18, align 8
   store ptr %21, ptr %25, align 8
   store ptr %21, ptr %28, align 8
+  store i64 0, ptr %32, align 8
   br label %_ZN10open_spiel13GameParameterC2EOS0_.exit
 
 35:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -11526,11 +11527,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %38 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %17, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 128
+  store i64 0, ptr %39, align 8
   br label %_ZN10open_spiel13GameParameterC2EOS0_.exit
 
 _ZN10open_spiel13GameParameterC2EOS0_.exit:       ; preds = %20, %35
-  %.sink.i.i.i.i.i = phi ptr [ %39, %35 ], [ %32, %20 ]
-  store i64 0, ptr %.sink.i.i.i.i.i, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %42 = load i32, ptr %41, align 8
@@ -11682,6 +11682,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   store ptr null, ptr %18, align 8
   store ptr %21, ptr %25, align 8
   store ptr %21, ptr %28, align 8
+  store i64 0, ptr %32, align 8
   br label %_ZN10open_spiel13GameParameterC2EOS0_.exit
 
 35:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -11693,11 +11694,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %38 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %17, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 128
+  store i64 0, ptr %39, align 8
   br label %_ZN10open_spiel13GameParameterC2EOS0_.exit
 
 _ZN10open_spiel13GameParameterC2EOS0_.exit:       ; preds = %20, %35
-  %.sink.i.i.i.i.i = phi ptr [ %39, %35 ], [ %32, %20 ]
-  store i64 0, ptr %.sink.i.i.i.i.i, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %42 = load i32, ptr %41, align 8
@@ -11780,6 +11780,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   store ptr null, ptr %18, align 8
   store ptr %21, ptr %25, align 8
   store ptr %21, ptr %28, align 8
+  store i64 0, ptr %32, align 8
   br label %_ZN10open_spiel13GameParameterC2EOS0_.exit
 
 35:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -11791,11 +11792,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %38 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %17, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 128
+  store i64 0, ptr %39, align 8
   br label %_ZN10open_spiel13GameParameterC2EOS0_.exit
 
 _ZN10open_spiel13GameParameterC2EOS0_.exit:       ; preds = %20, %35
-  %.sink.i.i.i.i.i = phi ptr [ %39, %35 ], [ %32, %20 ]
-  store i64 0, ptr %.sink.i.i.i.i.i, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %42 = load i32, ptr %41, align 8
@@ -11935,6 +11935,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   store ptr null, ptr %18, align 8
   store ptr %21, ptr %25, align 8
   store ptr %21, ptr %28, align 8
+  store i64 0, ptr %32, align 8
   br label %_ZN10open_spiel13GameParameterC2EOS0_.exit
 
 35:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -11946,11 +11947,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %38 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %17, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 128
+  store i64 0, ptr %39, align 8
   br label %_ZN10open_spiel13GameParameterC2EOS0_.exit
 
 _ZN10open_spiel13GameParameterC2EOS0_.exit:       ; preds = %20, %35
-  %.sink.i.i.i.i.i = phi ptr [ %39, %35 ], [ %32, %20 ]
-  store i64 0, ptr %.sink.i.i.i.i.i, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %42 = load i32, ptr %41, align 8
@@ -12089,6 +12089,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   store ptr null, ptr %18, align 8
   store ptr %21, ptr %25, align 8
   store ptr %21, ptr %28, align 8
+  store i64 0, ptr %32, align 8
   br label %_ZN10open_spiel13GameParameterC2EOS0_.exit
 
 35:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -12100,11 +12101,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %38 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %17, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 128
+  store i64 0, ptr %39, align 8
   br label %_ZN10open_spiel13GameParameterC2EOS0_.exit
 
 _ZN10open_spiel13GameParameterC2EOS0_.exit:       ; preds = %20, %35
-  %.sink.i.i.i.i.i = phi ptr [ %39, %35 ], [ %32, %20 ]
-  store i64 0, ptr %.sink.i.i.i.i.i, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %42 = load i32, ptr %41, align 8
@@ -15274,22 +15274,18 @@ _ZNSt10_HashtableIlSt4pairIKldESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
-  br label %.sink.split
+  store ptr %.031, ptr %24, align 8
+  br label %28
 
 25:                                               ; preds = %.lr.ph
   %26 = load ptr, ptr %19, align 8
   store ptr %26, ptr %.031, align 8
   %27 = load ptr, ptr %18, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %25, %23
-  %.sink = phi ptr [ %24, %23 ], [ %27, %25 ]
-  %.1.ph = phi i64 [ %17, %23 ], [ %.02530, %25 ]
-  store ptr %.031, ptr %.sink, align 8
+  store ptr %.031, ptr %27, align 8
   br label %28
 
-28:                                               ; preds = %.sink.split, %20
-  %.1 = phi i64 [ %17, %20 ], [ %.1.ph, %.sink.split ]
+28:                                               ; preds = %20, %23, %25
+  %.1 = phi i64 [ %.02530, %25 ], [ %17, %23 ], [ %17, %20 ]
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !93
 

@@ -155,10 +155,10 @@ define ptr @cli_dconf_init(ptr noundef %0) local_unnamed_addr #0 {
   %12 = getelementptr inbounds i8, ptr %2, i64 4
   br label %sub_0
 
-sub_0:                                            ; preds = %.preheader, %77
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %77 ]
-  %13 = phi ptr [ @.str, %.preheader ], [ %79, %77 ]
-  %14 = phi ptr [ @modules, %.preheader ], [ %78, %77 ]
+sub_0:                                            ; preds = %.preheader, %128
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %128 ]
+  %13 = phi ptr [ @.str, %.preheader ], [ %130, %128 ]
+  %14 = phi ptr [ @modules, %.preheader ], [ %129, %128 ]
   %15 = load i8, ptr %13, align 1
   %.not76 = icmp eq i8 %15, 80
   br i1 %.not76, label %sub_1, label %.tail.thread
@@ -179,135 +179,214 @@ sub_1:                                            ; preds = %sub_0
   %22 = getelementptr inbounds i8, ptr %14, i64 20
   %23 = load i8, ptr %22, align 4
   %.not54 = icmp eq i8 %23, 0
-  br i1 %.not54, label %77, label %.sink.split
+  br i1 %.not54, label %128, label %24
+
+24:                                               ; preds = %21
+  %25 = getelementptr inbounds i8, ptr %14, i64 16
+  %26 = load i32, ptr %25, align 8
+  %27 = load i32, ptr %2, align 4
+  %28 = or i32 %27, %26
+  store i32 %28, ptr %2, align 4
+  br label %128
 
 .tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
-  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(4) @.str.1) #9
-  %.not55 = icmp eq i32 %24, 0
-  br i1 %.not55, label %25, label %28
+  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(4) @.str.1) #9
+  %.not55 = icmp eq i32 %29, 0
+  br i1 %.not55, label %30, label %38
 
-25:                                               ; preds = %.tail.thread
-  %26 = getelementptr inbounds i8, ptr %14, i64 20
-  %27 = load i8, ptr %26, align 4
-  %.not56 = icmp eq i8 %27, 0
-  br i1 %.not56, label %77, label %.sink.split
-
-28:                                               ; preds = %.tail.thread
-  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(6) @.str.2) #9
-  %.not57 = icmp eq i32 %29, 0
-  br i1 %.not57, label %30, label %33
-
-30:                                               ; preds = %28
+30:                                               ; preds = %.tail.thread
   %31 = getelementptr inbounds i8, ptr %14, i64 20
   %32 = load i8, ptr %31, align 4
-  %.not58 = icmp eq i8 %32, 0
-  br i1 %.not58, label %77, label %.sink.split
+  %.not56 = icmp eq i8 %32, 0
+  br i1 %.not56, label %128, label %33
 
-33:                                               ; preds = %28
-  %34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(8) @.str.3) #9
-  %.not59 = icmp eq i32 %34, 0
-  br i1 %.not59, label %35, label %38
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds i8, ptr %14, i64 16
+  %35 = load i32, ptr %34, align 8
+  %36 = load i32, ptr %12, align 4
+  %37 = or i32 %36, %35
+  store i32 %37, ptr %12, align 4
+  br label %128
 
-35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %14, i64 20
-  %37 = load i8, ptr %36, align 4
-  %.not60 = icmp eq i8 %37, 0
-  br i1 %.not60, label %77, label %.sink.split
-
-38:                                               ; preds = %33
-  %39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(9) @.str.4) #9
-  %.not61 = icmp eq i32 %39, 0
-  br i1 %.not61, label %40, label %43
+38:                                               ; preds = %.tail.thread
+  %39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(6) @.str.2) #9
+  %.not57 = icmp eq i32 %39, 0
+  br i1 %.not57, label %40, label %48
 
 40:                                               ; preds = %38
   %41 = getelementptr inbounds i8, ptr %14, i64 20
   %42 = load i8, ptr %41, align 4
-  %.not62 = icmp eq i8 %42, 0
-  br i1 %.not62, label %77, label %.sink.split
+  %.not58 = icmp eq i8 %42, 0
+  br i1 %.not58, label %128, label %43
 
-43:                                               ; preds = %38
-  %44 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(5) @.str.5) #9
-  %.not63 = icmp eq i32 %44, 0
-  br i1 %.not63, label %45, label %48
+43:                                               ; preds = %40
+  %44 = getelementptr inbounds i8, ptr %14, i64 16
+  %45 = load i32, ptr %44, align 8
+  %46 = load i32, ptr %11, align 4
+  %47 = or i32 %46, %45
+  store i32 %47, ptr %11, align 4
+  br label %128
 
-45:                                               ; preds = %43
-  %46 = getelementptr inbounds i8, ptr %14, i64 20
-  %47 = load i8, ptr %46, align 4
-  %.not64 = icmp eq i8 %47, 0
-  br i1 %.not64, label %77, label %.sink.split
-
-48:                                               ; preds = %43
-  %49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(6) @.str.6) #9
-  %.not65 = icmp eq i32 %49, 0
-  br i1 %.not65, label %50, label %53
+48:                                               ; preds = %38
+  %49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(8) @.str.3) #9
+  %.not59 = icmp eq i32 %49, 0
+  br i1 %.not59, label %50, label %58
 
 50:                                               ; preds = %48
   %51 = getelementptr inbounds i8, ptr %14, i64 20
   %52 = load i8, ptr %51, align 4
-  %.not66 = icmp eq i8 %52, 0
-  br i1 %.not66, label %77, label %.sink.split
+  %.not60 = icmp eq i8 %52, 0
+  br i1 %.not60, label %128, label %53
 
-53:                                               ; preds = %48
-  %54 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(9) @.str.7) #9
-  %.not67 = icmp eq i32 %54, 0
-  br i1 %.not67, label %55, label %58
+53:                                               ; preds = %50
+  %54 = getelementptr inbounds i8, ptr %14, i64 16
+  %55 = load i32, ptr %54, align 8
+  %56 = load i32, ptr %10, align 4
+  %57 = or i32 %56, %55
+  store i32 %57, ptr %10, align 4
+  br label %128
 
-55:                                               ; preds = %53
-  %56 = getelementptr inbounds i8, ptr %14, i64 20
-  %57 = load i8, ptr %56, align 4
-  %.not68 = icmp eq i8 %57, 0
-  br i1 %.not68, label %77, label %.sink.split
-
-58:                                               ; preds = %53
-  %59 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(9) @.str.8) #9
-  %.not69 = icmp eq i32 %59, 0
-  br i1 %.not69, label %60, label %63
+58:                                               ; preds = %48
+  %59 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(9) @.str.4) #9
+  %.not61 = icmp eq i32 %59, 0
+  br i1 %.not61, label %60, label %68
 
 60:                                               ; preds = %58
   %61 = getelementptr inbounds i8, ptr %14, i64 20
   %62 = load i8, ptr %61, align 4
-  %.not70 = icmp eq i8 %62, 0
-  br i1 %.not70, label %77, label %.sink.split
+  %.not62 = icmp eq i8 %62, 0
+  br i1 %.not62, label %128, label %63
 
-63:                                               ; preds = %58
-  %64 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(6) @.str.9) #9
-  %.not71 = icmp eq i32 %64, 0
-  br i1 %.not71, label %65, label %68
+63:                                               ; preds = %60
+  %64 = getelementptr inbounds i8, ptr %14, i64 16
+  %65 = load i32, ptr %64, align 8
+  %66 = load i32, ptr %9, align 4
+  %67 = or i32 %66, %65
+  store i32 %67, ptr %9, align 4
+  br label %128
 
-65:                                               ; preds = %63
-  %66 = getelementptr inbounds i8, ptr %14, i64 20
-  %67 = load i8, ptr %66, align 4
-  %.not72 = icmp eq i8 %67, 0
-  br i1 %.not72, label %77, label %.sink.split
-
-68:                                               ; preds = %63
-  %69 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(5) @.str.10) #9
-  %.not73 = icmp eq i32 %69, 0
-  br i1 %.not73, label %70, label %77
+68:                                               ; preds = %58
+  %69 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(5) @.str.5) #9
+  %.not63 = icmp eq i32 %69, 0
+  br i1 %.not63, label %70, label %78
 
 70:                                               ; preds = %68
   %71 = getelementptr inbounds i8, ptr %14, i64 20
   %72 = load i8, ptr %71, align 4
-  %.not74 = icmp eq i8 %72, 0
-  br i1 %.not74, label %77, label %.sink.split
+  %.not64 = icmp eq i8 %72, 0
+  br i1 %.not64, label %128, label %73
 
-.sink.split:                                      ; preds = %70, %65, %60, %55, %50, %45, %40, %35, %30, %25, %21
-  %.sink = phi ptr [ %2, %21 ], [ %12, %25 ], [ %11, %30 ], [ %10, %35 ], [ %9, %40 ], [ %8, %45 ], [ %7, %50 ], [ %6, %55 ], [ %5, %60 ], [ %4, %65 ], [ %3, %70 ]
-  %73 = getelementptr inbounds i8, ptr %14, i64 16
-  %74 = load i32, ptr %73, align 8
-  %75 = load i32, ptr %.sink, align 4
-  %76 = or i32 %75, %74
-  store i32 %76, ptr %.sink, align 4
-  br label %77
+73:                                               ; preds = %70
+  %74 = getelementptr inbounds i8, ptr %14, i64 16
+  %75 = load i32, ptr %74, align 8
+  %76 = load i32, ptr %8, align 4
+  %77 = or i32 %76, %75
+  store i32 %77, ptr %8, align 4
+  br label %128
 
-77:                                               ; preds = %.sink.split, %21, %30, %40, %50, %60, %68, %70, %65, %55, %45, %35, %25
+78:                                               ; preds = %68
+  %79 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(6) @.str.6) #9
+  %.not65 = icmp eq i32 %79, 0
+  br i1 %.not65, label %80, label %88
+
+80:                                               ; preds = %78
+  %81 = getelementptr inbounds i8, ptr %14, i64 20
+  %82 = load i8, ptr %81, align 4
+  %.not66 = icmp eq i8 %82, 0
+  br i1 %.not66, label %128, label %83
+
+83:                                               ; preds = %80
+  %84 = getelementptr inbounds i8, ptr %14, i64 16
+  %85 = load i32, ptr %84, align 8
+  %86 = load i32, ptr %7, align 4
+  %87 = or i32 %86, %85
+  store i32 %87, ptr %7, align 4
+  br label %128
+
+88:                                               ; preds = %78
+  %89 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(9) @.str.7) #9
+  %.not67 = icmp eq i32 %89, 0
+  br i1 %.not67, label %90, label %98
+
+90:                                               ; preds = %88
+  %91 = getelementptr inbounds i8, ptr %14, i64 20
+  %92 = load i8, ptr %91, align 4
+  %.not68 = icmp eq i8 %92, 0
+  br i1 %.not68, label %128, label %93
+
+93:                                               ; preds = %90
+  %94 = getelementptr inbounds i8, ptr %14, i64 16
+  %95 = load i32, ptr %94, align 8
+  %96 = load i32, ptr %6, align 4
+  %97 = or i32 %96, %95
+  store i32 %97, ptr %6, align 4
+  br label %128
+
+98:                                               ; preds = %88
+  %99 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(9) @.str.8) #9
+  %.not69 = icmp eq i32 %99, 0
+  br i1 %.not69, label %100, label %108
+
+100:                                              ; preds = %98
+  %101 = getelementptr inbounds i8, ptr %14, i64 20
+  %102 = load i8, ptr %101, align 4
+  %.not70 = icmp eq i8 %102, 0
+  br i1 %.not70, label %128, label %103
+
+103:                                              ; preds = %100
+  %104 = getelementptr inbounds i8, ptr %14, i64 16
+  %105 = load i32, ptr %104, align 8
+  %106 = load i32, ptr %5, align 4
+  %107 = or i32 %106, %105
+  store i32 %107, ptr %5, align 4
+  br label %128
+
+108:                                              ; preds = %98
+  %109 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(6) @.str.9) #9
+  %.not71 = icmp eq i32 %109, 0
+  br i1 %.not71, label %110, label %118
+
+110:                                              ; preds = %108
+  %111 = getelementptr inbounds i8, ptr %14, i64 20
+  %112 = load i8, ptr %111, align 4
+  %.not72 = icmp eq i8 %112, 0
+  br i1 %.not72, label %128, label %113
+
+113:                                              ; preds = %110
+  %114 = getelementptr inbounds i8, ptr %14, i64 16
+  %115 = load i32, ptr %114, align 8
+  %116 = load i32, ptr %4, align 4
+  %117 = or i32 %116, %115
+  store i32 %117, ptr %4, align 4
+  br label %128
+
+118:                                              ; preds = %108
+  %119 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(5) @.str.10) #9
+  %.not73 = icmp eq i32 %119, 0
+  br i1 %.not73, label %120, label %128
+
+120:                                              ; preds = %118
+  %121 = getelementptr inbounds i8, ptr %14, i64 20
+  %122 = load i8, ptr %121, align 4
+  %.not74 = icmp eq i8 %122, 0
+  br i1 %.not74, label %128, label %123
+
+123:                                              ; preds = %120
+  %124 = getelementptr inbounds i8, ptr %14, i64 16
+  %125 = load i32, ptr %124, align 8
+  %126 = load i32, ptr %3, align 4
+  %127 = or i32 %126, %125
+  store i32 %127, ptr %3, align 4
+  br label %128
+
+128:                                              ; preds = %24, %21, %43, %40, %63, %60, %83, %80, %103, %100, %118, %123, %120, %110, %113, %90, %93, %70, %73, %50, %53, %30, %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %78 = getelementptr inbounds [92 x %struct.dconf_module], ptr @modules, i64 0, i64 %indvars.iv.next
-  %79 = load ptr, ptr %78, align 8
+  %129 = getelementptr inbounds [92 x %struct.dconf_module], ptr @modules, i64 0, i64 %indvars.iv.next
+  %130 = load ptr, ptr %129, align 8
   %exitcond = icmp eq i64 %indvars.iv.next, 91
   br i1 %exitcond, label %.loopexit, label %sub_0
 
-.loopexit:                                        ; preds = %77, %1
+.loopexit:                                        ; preds = %128, %1
   ret ptr %2
 }
 

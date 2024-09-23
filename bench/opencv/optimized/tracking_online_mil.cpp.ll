@@ -1562,7 +1562,7 @@ define hidden void @_ZN2cv6detail8tracking14ClfOnlineStump6updateERKNS_3MatES5_R
 68:                                               ; preds = %64, %55
   %69 = landingpad { ptr, i32 }
           cleanup
-  br label %300
+  br label %299
 
 70:                                               ; preds = %65, %5
   %.036 = phi float [ %67, %65 ], [ 0.000000e+00, %5 ]
@@ -1607,7 +1607,7 @@ define hidden void @_ZN2cv6detail8tracking14ClfOnlineStump6updateERKNS_3MatES5_R
 87:                                               ; preds = %83, %74
   %88 = landingpad { ptr, i32 }
           cleanup
-  br label %300
+  br label %299
 
 89:                                               ; preds = %84, %70
   %.035 = phi float [ %86, %84 ], [ 0.000000e+00, %70 ]
@@ -1664,7 +1664,7 @@ define hidden void @_ZN2cv6detail8tracking14ClfOnlineStump6updateERKNS_3MatES5_R
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %24) #20
   call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %25) #20
-  br label %300
+  br label %299
 
 117:                                              ; preds = %111
   %118 = getelementptr inbounds i8, ptr %25, i64 208
@@ -1718,12 +1718,12 @@ define hidden void @_ZN2cv6detail8tracking14ClfOnlineStump6updateERKNS_3MatES5_R
 140:                                              ; preds = %96
   %141 = landingpad { ptr, i32 }
           cleanup
-  br label %300
+  br label %299
 
 142:                                              ; preds = %117
   %143 = landingpad { ptr, i32 }
           cleanup
-  br label %300
+  br label %299
 
 144:                                              ; preds = %128
   %145 = landingpad { ptr, i32 }
@@ -1738,7 +1738,7 @@ define hidden void @_ZN2cv6detail8tracking14ClfOnlineStump6updateERKNS_3MatES5_R
 148:                                              ; preds = %146, %144
   %.pn52 = phi { ptr, i32 } [ %147, %146 ], [ %145, %144 ]
   call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %30) #20
-  br label %300
+  br label %299
 
 149:                                              ; preds = %132, %93
   %150 = load i32, ptr %71, align 4
@@ -1787,7 +1787,7 @@ define hidden void @_ZN2cv6detail8tracking14ClfOnlineStump6updateERKNS_3MatES5_R
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %32) #20
   call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %33) #20
-  br label %300
+  br label %299
 
 172:                                              ; preds = %166
   %173 = getelementptr inbounds i8, ptr %33, i64 208
@@ -1841,12 +1841,12 @@ define hidden void @_ZN2cv6detail8tracking14ClfOnlineStump6updateERKNS_3MatES5_R
 195:                                              ; preds = %152
   %196 = landingpad { ptr, i32 }
           cleanup
-  br label %300
+  br label %299
 
 197:                                              ; preds = %172
   %198 = landingpad { ptr, i32 }
           cleanup
-  br label %300
+  br label %299
 
 199:                                              ; preds = %183
   %200 = landingpad { ptr, i32 }
@@ -1861,7 +1861,7 @@ define hidden void @_ZN2cv6detail8tracking14ClfOnlineStump6updateERKNS_3MatES5_R
 203:                                              ; preds = %201, %199
   %.pn58 = phi { ptr, i32 } [ %202, %201 ], [ %200, %199 ]
   call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %38) #20
-  br label %300
+  br label %299
 
 204:                                              ; preds = %187, %149
   %205 = getelementptr inbounds i8, ptr %0, i64 4
@@ -1940,7 +1940,7 @@ define hidden void @_ZN2cv6detail8tracking14ClfOnlineStump6updateERKNS_3MatES5_R
 241:                                              ; preds = %235, %221
   %242 = landingpad { ptr, i32 }
           cleanup
-  br label %300
+  br label %299
 
 243:                                              ; preds = %236, %218
   %244 = load i32, ptr %71, align 4
@@ -2004,7 +2004,7 @@ define hidden void @_ZN2cv6detail8tracking14ClfOnlineStump6updateERKNS_3MatES5_R
 265:                                              ; preds = %259, %246
   %266 = landingpad { ptr, i32 }
           cleanup
-  br label %300
+  br label %299
 
 267:                                              ; preds = %._crit_edge, %260
   %268 = phi float [ %.pre, %._crit_edge ], [ %263, %260 ]
@@ -2025,9 +2025,9 @@ define hidden void @_ZN2cv6detail8tracking14ClfOnlineStump6updateERKNS_3MatES5_R
   br label %281
 
 281:                                              ; preds = %267, %204
-  %.sink77 = phi float [ %268, %267 ], [ %217, %204 ]
-  %.sink68 = phi ptr [ %280, %267 ], [ %216, %204 ]
-  %282 = call noundef float @powf(float noundef %.sink77, float noundef 5.000000e-01) #20
+  %.sink84 = phi float [ %268, %267 ], [ %217, %204 ]
+  %.sink.in = phi ptr [ %280, %267 ], [ %216, %204 ]
+  %282 = call noundef float @powf(float noundef %.sink84, float noundef 5.000000e-01) #20
   %283 = fdiv float 1.000000e+00, %282
   %284 = call noundef float @logf(float noundef %283) #20
   %285 = getelementptr inbounds i8, ptr %0, i64 28
@@ -2044,17 +2044,17 @@ define hidden void @_ZN2cv6detail8tracking14ClfOnlineStump6updateERKNS_3MatES5_R
   %294 = fdiv float -1.000000e+00, %293
   %295 = getelementptr inbounds i8, ptr %0, i64 32
   store float %294, ptr %295, align 4
-  %296 = load float, ptr %.sink68, align 4
-  %297 = call float @llvm.fmuladd.f32(float %296, float 2.000000e+00, float 0x3810000000000000)
-  %298 = fdiv float -1.000000e+00, %297
-  %299 = getelementptr inbounds i8, ptr %0, i64 36
-  store float %298, ptr %299, align 4
+  %.sink = load float, ptr %.sink.in, align 4
+  %296 = call float @llvm.fmuladd.f32(float %.sink, float 2.000000e+00, float 0x3810000000000000)
+  %297 = fdiv float -1.000000e+00, %296
+  %298 = getelementptr inbounds i8, ptr %0, i64 36
+  store float %297, ptr %298, align 4
   ret void
 
-300:                                              ; preds = %203, %197, %195, %.body63, %148, %142, %140, %.body, %265, %241, %87, %68
-  %.sink = phi ptr [ %49, %265 ], [ %43, %241 ], [ %23, %87 ], [ %20, %68 ], [ %26, %.body ], [ %26, %140 ], [ %24, %142 ], [ %24, %148 ], [ %34, %.body63 ], [ %34, %195 ], [ %32, %197 ], [ %32, %203 ]
+299:                                              ; preds = %203, %197, %195, %.body63, %148, %142, %140, %.body, %265, %241, %87, %68
+  %.sink68 = phi ptr [ %49, %265 ], [ %43, %241 ], [ %23, %87 ], [ %20, %68 ], [ %26, %.body ], [ %26, %140 ], [ %24, %142 ], [ %24, %148 ], [ %34, %.body63 ], [ %34, %195 ], [ %32, %197 ], [ %32, %203 ]
   %.pn58.pn.pn.pn = phi { ptr, i32 } [ %266, %265 ], [ %242, %241 ], [ %88, %87 ], [ %69, %68 ], [ %116, %.body ], [ %141, %140 ], [ %143, %142 ], [ %.pn52, %148 ], [ %171, %.body63 ], [ %196, %195 ], [ %198, %197 ], [ %.pn58, %203 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink) #20
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink68) #20
   resume { ptr, i32 } %.pn58.pn.pn.pn
 }
 

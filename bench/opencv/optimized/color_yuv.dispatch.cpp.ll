@@ -1936,17 +1936,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_120RGB8toYUV420pInvo
   %135 = getelementptr inbounds i8, ptr %.1, i64 %indvars.iv94
   store i8 %spec.select.us, ptr %135, align 1
   %136 = getelementptr inbounds i8, ptr %.157, i64 %indvars.iv94
+  store i8 %spec.select83.us, ptr %136, align 1
   br label %140
 
 137:                                              ; preds = %89
   %138 = getelementptr inbounds i8, ptr %.160, i64 %69
   store i8 %spec.select.us, ptr %138, align 1
   %139 = getelementptr inbounds i8, ptr %.160, i64 %78
+  store i8 %spec.select83.us, ptr %139, align 1
   br label %140
 
 140:                                              ; preds = %137, %134
-  %.sink = phi ptr [ %139, %137 ], [ %136, %134 ]
-  store i8 %spec.select83.us, ptr %.sink, align 1
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %exitcond98.not = icmp eq i64 %indvars.iv.next95, %wide.trip.count97
   br i1 %exitcond98.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !7

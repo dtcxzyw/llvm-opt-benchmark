@@ -3539,24 +3539,24 @@ define internal fastcc noundef ptr @decrypt_data_payload(ptr noundef %0, i32 nou
   %16 = getelementptr inbounds i8, ptr %.052, i64 28
   %17 = load i32, ptr %16, align 4
   %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %18, label %96
+  br i1 %.not, label %18, label %97
 
 18:                                               ; preds = %15
   %19 = tail call ptr @find_conversation_pinfo(ptr noundef %3, i32 noundef 0) #12
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %99, label %21
+  br i1 %20, label %100, label %21
 
 21:                                               ; preds = %18
   %22 = load i32, ptr @proto_ntlmssp, align 4
   %23 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %19, i32 noundef %22) #12
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %99, label %25
+  br i1 %24, label %100, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds i8, ptr %23, i64 68
   %27 = load i32, ptr %26, align 4
   %.not58 = icmp eq i32 %27, 0
-  br i1 %.not58, label %99, label %28
+  br i1 %.not58, label %100, label %28
 
 28:                                               ; preds = %25
   %.not59 = icmp eq ptr %4, null
@@ -3576,7 +3576,7 @@ define internal fastcc noundef ptr @decrypt_data_payload(ptr noundef %0, i32 nou
 
 36:                                               ; preds = %32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.052, ptr noundef nonnull align 8 dereferenceable(48) %31, i64 48, i1 false)
-  br label %96
+  br label %97
 
 .thread:                                          ; preds = %28, %32, %29
   %37 = getelementptr inbounds i8, ptr %23, i64 56
@@ -3586,7 +3586,7 @@ define internal fastcc noundef ptr @decrypt_data_payload(ptr noundef %0, i32 nou
   %41 = icmp eq i32 %38, %40
   %42 = tail call ptr @find_conversation_pinfo(ptr noundef nonnull %3, i32 noundef 0) #12
   %43 = icmp eq ptr %42, null
-  br i1 %41, label %44, label %58
+  br i1 %41, label %44, label %59
 
 44:                                               ; preds = %.thread
   br i1 %43, label %get_encrypted_state.exit, label %45
@@ -3616,95 +3616,91 @@ get_encrypted_state.exit:                         ; preds = %44, %45, %.sink.spl
 
 .sink.split.i62:                                  ; preds = %53
   %57 = getelementptr inbounds i8, ptr %55, i64 16
-  br label %get_encrypted_state.exit64.sink.split
-
-58:                                               ; preds = %.thread
-  br i1 %43, label %get_encrypted_state.exit67, label %59
-
-59:                                               ; preds = %58
-  %60 = load i32, ptr @proto_ntlmssp, align 4
-  %61 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %42, i32 noundef %60) #12
-  %62 = icmp eq ptr %61, null
-  br i1 %62, label %get_encrypted_state.exit67, label %.sink.split.i65
-
-.sink.split.i65:                                  ; preds = %59
-  %63 = getelementptr inbounds i8, ptr %61, i64 16
-  %64 = load ptr, ptr %63, align 8
-  br label %get_encrypted_state.exit67
-
-get_encrypted_state.exit67:                       ; preds = %58, %59, %.sink.split.i65
-  %.0.i66 = phi ptr [ null, %58 ], [ null, %59 ], [ %64, %.sink.split.i65 ]
-  %65 = tail call ptr @find_conversation_pinfo(ptr noundef nonnull %3, i32 noundef 0) #12
-  %66 = icmp eq ptr %65, null
-  br i1 %66, label %get_encrypted_state.exit64, label %67
-
-67:                                               ; preds = %get_encrypted_state.exit67
-  %68 = load i32, ptr @proto_ntlmssp, align 4
-  %69 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %65, i32 noundef %68) #12
-  %70 = icmp eq ptr %69, null
-  br i1 %70, label %get_encrypted_state.exit64, label %.sink.split.i68
-
-.sink.split.i68:                                  ; preds = %67
-  %71 = getelementptr inbounds i8, ptr %69, i64 8
-  br label %get_encrypted_state.exit64.sink.split
-
-get_encrypted_state.exit64.sink.split:            ; preds = %.sink.split.i62, %.sink.split.i68
-  %.sink = phi ptr [ %71, %.sink.split.i68 ], [ %57, %.sink.split.i62 ]
-  %.051.ph = phi ptr [ %.0.i66, %.sink.split.i68 ], [ %.0.i, %.sink.split.i62 ]
-  %72 = load ptr, ptr %.sink, align 8
+  %58 = load ptr, ptr %57, align 8
   br label %get_encrypted_state.exit64
 
-get_encrypted_state.exit64:                       ; preds = %get_encrypted_state.exit64.sink.split, %67, %get_encrypted_state.exit67, %53, %get_encrypted_state.exit
-  %.051 = phi ptr [ %.0.i, %get_encrypted_state.exit ], [ %.0.i, %53 ], [ %.0.i66, %get_encrypted_state.exit67 ], [ %.0.i66, %67 ], [ %.051.ph, %get_encrypted_state.exit64.sink.split ]
-  %.050 = phi ptr [ null, %get_encrypted_state.exit ], [ null, %53 ], [ null, %get_encrypted_state.exit67 ], [ null, %67 ], [ %72, %get_encrypted_state.exit64.sink.split ]
-  %73 = icmp eq ptr %.051, null
-  br i1 %73, label %99, label %74
+59:                                               ; preds = %.thread
+  br i1 %43, label %get_encrypted_state.exit67, label %60
 
-74:                                               ; preds = %get_encrypted_state.exit64
-  %75 = tail call ptr @wmem_file_scope() #12
-  %76 = zext i32 %2 to i64
-  %77 = tail call ptr @tvb_memdup(ptr noundef %75, ptr noundef %0, i32 noundef %1, i64 noundef %76) #12
-  store ptr %77, ptr %.052, align 8
-  %78 = trunc i32 %2 to i8
-  %79 = getelementptr inbounds i8, ptr %.052, i64 8
-  store i8 %78, ptr %79, align 8
-  %80 = load ptr, ptr @decrypted_payloads, align 8
-  %81 = tail call ptr @g_slist_prepend(ptr noundef %80, ptr noundef %77) #12
-  store ptr %81, ptr @decrypted_payloads, align 8
-  br i1 %.not59, label %85, label %82
+60:                                               ; preds = %59
+  %61 = load i32, ptr @proto_ntlmssp, align 4
+  %62 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %42, i32 noundef %61) #12
+  %63 = icmp eq ptr %62, null
+  br i1 %63, label %get_encrypted_state.exit67, label %.sink.split.i65
 
-82:                                               ; preds = %74
-  %83 = load ptr, ptr @hash_packet, align 8
-  %84 = tail call i32 @g_hash_table_insert(ptr noundef %83, ptr noundef nonnull %4, ptr noundef nonnull %.052) #12
-  br label %85
+.sink.split.i65:                                  ; preds = %60
+  %64 = getelementptr inbounds i8, ptr %62, i64 16
+  %65 = load ptr, ptr %64, align 8
+  br label %get_encrypted_state.exit67
 
-85:                                               ; preds = %82, %74
-  %86 = load ptr, ptr %.052, align 8
-  %87 = tail call i32 @gcry_cipher_decrypt(ptr noundef nonnull %.051, ptr noundef %86, i64 noundef %76, ptr noundef null, i64 noundef 0) #12
-  %88 = load i32, ptr %23, align 8
-  %89 = and i32 %88, 1073741824
-  %.not61 = icmp eq i32 %89, 0
-  br i1 %.not61, label %90, label %95
+get_encrypted_state.exit67:                       ; preds = %59, %60, %.sink.split.i65
+  %.0.i66 = phi ptr [ null, %59 ], [ null, %60 ], [ %65, %.sink.split.i65 ]
+  %66 = tail call ptr @find_conversation_pinfo(ptr noundef nonnull %3, i32 noundef 0) #12
+  %67 = icmp eq ptr %66, null
+  br i1 %67, label %get_encrypted_state.exit64, label %68
 
-90:                                               ; preds = %85
-  %91 = tail call ptr @wmem_packet_scope() #12
-  %92 = load ptr, ptr %.052, align 8
-  %93 = tail call noalias ptr @wmem_memdup(ptr noundef %91, ptr noundef %92, i64 noundef %76) #12
-  %94 = tail call i32 @gcry_cipher_decrypt(ptr noundef %.050, ptr noundef %93, i64 noundef %76, ptr noundef null, i64 noundef 0) #12
-  br label %95
+68:                                               ; preds = %get_encrypted_state.exit67
+  %69 = load i32, ptr @proto_ntlmssp, align 4
+  %70 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %66, i32 noundef %69) #12
+  %71 = icmp eq ptr %70, null
+  br i1 %71, label %get_encrypted_state.exit64, label %.sink.split.i68
 
-95:                                               ; preds = %90, %85
-  store i32 1, ptr %16, align 4
+.sink.split.i68:                                  ; preds = %68
+  %72 = getelementptr inbounds i8, ptr %70, i64 8
+  %73 = load ptr, ptr %72, align 8
+  br label %get_encrypted_state.exit64
+
+get_encrypted_state.exit64:                       ; preds = %.sink.split.i68, %68, %get_encrypted_state.exit67, %.sink.split.i62, %53, %get_encrypted_state.exit
+  %.051 = phi ptr [ %.0.i, %get_encrypted_state.exit ], [ %.0.i, %53 ], [ %.0.i, %.sink.split.i62 ], [ %.0.i66, %get_encrypted_state.exit67 ], [ %.0.i66, %68 ], [ %.0.i66, %.sink.split.i68 ]
+  %.050 = phi ptr [ null, %get_encrypted_state.exit ], [ null, %53 ], [ %58, %.sink.split.i62 ], [ null, %get_encrypted_state.exit67 ], [ null, %68 ], [ %73, %.sink.split.i68 ]
+  %74 = icmp eq ptr %.051, null
+  br i1 %74, label %100, label %75
+
+75:                                               ; preds = %get_encrypted_state.exit64
+  %76 = tail call ptr @wmem_file_scope() #12
+  %77 = zext i32 %2 to i64
+  %78 = tail call ptr @tvb_memdup(ptr noundef %76, ptr noundef %0, i32 noundef %1, i64 noundef %77) #12
+  store ptr %78, ptr %.052, align 8
+  %79 = trunc i32 %2 to i8
+  %80 = getelementptr inbounds i8, ptr %.052, i64 8
+  store i8 %79, ptr %80, align 8
+  %81 = load ptr, ptr @decrypted_payloads, align 8
+  %82 = tail call ptr @g_slist_prepend(ptr noundef %81, ptr noundef %78) #12
+  store ptr %82, ptr @decrypted_payloads, align 8
+  br i1 %.not59, label %86, label %83
+
+83:                                               ; preds = %75
+  %84 = load ptr, ptr @hash_packet, align 8
+  %85 = tail call i32 @g_hash_table_insert(ptr noundef %84, ptr noundef nonnull %4, ptr noundef nonnull %.052) #12
+  br label %86
+
+86:                                               ; preds = %83, %75
+  %87 = load ptr, ptr %.052, align 8
+  %88 = tail call i32 @gcry_cipher_decrypt(ptr noundef nonnull %.051, ptr noundef %87, i64 noundef %77, ptr noundef null, i64 noundef 0) #12
+  %89 = load i32, ptr %23, align 8
+  %90 = and i32 %89, 1073741824
+  %.not61 = icmp eq i32 %90, 0
+  br i1 %.not61, label %91, label %96
+
+91:                                               ; preds = %86
+  %92 = tail call ptr @wmem_packet_scope() #12
+  %93 = load ptr, ptr %.052, align 8
+  %94 = tail call noalias ptr @wmem_memdup(ptr noundef %92, ptr noundef %93, i64 noundef %77) #12
+  %95 = tail call i32 @gcry_cipher_decrypt(ptr noundef %.050, ptr noundef %94, i64 noundef %77, ptr noundef null, i64 noundef 0) #12
   br label %96
 
-96:                                               ; preds = %36, %95, %15
-  %97 = load ptr, ptr %.052, align 8
-  %98 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %97, i32 noundef %2, i32 noundef %2) #12
-  tail call void @add_new_data_source(ptr noundef %3, ptr noundef %98, ptr noundef nonnull @.str.303) #12
-  br label %99
+96:                                               ; preds = %91, %86
+  store i32 1, ptr %16, align 4
+  br label %97
 
-99:                                               ; preds = %get_encrypted_state.exit64, %25, %21, %18, %96
-  %.0 = phi ptr [ %98, %96 ], [ null, %18 ], [ null, %21 ], [ null, %25 ], [ null, %get_encrypted_state.exit64 ]
+97:                                               ; preds = %36, %96, %15
+  %98 = load ptr, ptr %.052, align 8
+  %99 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %98, i32 noundef %2, i32 noundef %2) #12
+  tail call void @add_new_data_source(ptr noundef %3, ptr noundef %99, ptr noundef nonnull @.str.303) #12
+  br label %100
+
+100:                                              ; preds = %get_encrypted_state.exit64, %25, %21, %18, %97
+  %.0 = phi ptr [ %99, %97 ], [ null, %18 ], [ null, %21 ], [ null, %25 ], [ null, %get_encrypted_state.exit64 ]
   ret ptr %.0
 }
 

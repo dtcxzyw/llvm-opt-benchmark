@@ -2800,20 +2800,17 @@ _ZN11ModuleEntry26set_has_default_read_edgesEv.exit: ; preds = %_ZN11MutexLocker
   %81 = getelementptr inbounds i8, ptr %80, i64 48
   store ptr null, ptr %81, align 8
   %82 = getelementptr inbounds i8, ptr %80, i64 56
-  br label %.sink.split
+  store i32 100, ptr %82, align 8
+  br label %86
 
 83:                                               ; preds = %_ZN11JvmtiExport22get_jvmti_thread_stateEP10JavaThread.exit
   %84 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr null, ptr %84, align 8
   %85 = getelementptr inbounds i8, ptr %0, i64 96
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %79, %83
-  %.sink = phi ptr [ %85, %83 ], [ %82, %79 ]
-  store i32 100, ptr %.sink, align 8
+  store i32 100, ptr %85, align 8
   br label %86
 
-86:                                               ; preds = %.sink.split, %7
+86:                                               ; preds = %7, %83, %79
   ret void
 }
 
@@ -16977,62 +16974,63 @@ _ZN16JvmtiThreadState9state_forEP10JavaThread6Handle.exit.thread: ; preds = %1, 
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(17) %0) #20
-  br i1 %17, label %18, label %25
+  br i1 %17, label %18, label %27
 
 18:                                               ; preds = %_ZN16JvmtiThreadState9state_forEP10JavaThread6Handle.exit.thread
   %19 = getelementptr inbounds i8, ptr %.0.i17, i64 120
   %20 = load ptr, ptr %19, align 8
   %.not14 = icmp eq ptr %20, null
-  br i1 %.not14, label %.sink.split.sink.split, label %21
+  br i1 %.not14, label %25, label %21
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %20, i64 32
   %23 = load i8, ptr %22, align 8
   %24 = trunc i8 %23 to i1
-  br i1 %24, label %.sink.split.sink.split, label %43
+  br i1 %24, label %25, label %46
 
-25:                                               ; preds = %_ZN16JvmtiThreadState9state_forEP10JavaThread6Handle.exit.thread
-  %26 = load ptr, ptr %0, align 8
-  %27 = load ptr, ptr %26, align 8
-  %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(17) %0) #20
-  br i1 %28, label %29, label %32
+25:                                               ; preds = %21, %18
+  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %20, ptr %26, align 8
+  store ptr %0, ptr %19, align 8
+  br label %44
 
-29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %.0.i17, i64 112
-  %31 = load ptr, ptr %30, align 8
-  br label %.sink.split.sink.split
+27:                                               ; preds = %_ZN16JvmtiThreadState9state_forEP10JavaThread6Handle.exit.thread
+  %28 = load ptr, ptr %0, align 8
+  %29 = load ptr, ptr %28, align 8
+  %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(17) %0) #20
+  br i1 %30, label %31, label %35
 
-32:                                               ; preds = %25
-  %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
-  %35 = load ptr, ptr %34, align 8
-  %36 = tail call noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(17) %0) #20
-  br i1 %36, label %37, label %41
+31:                                               ; preds = %27
+  %32 = getelementptr inbounds i8, ptr %.0.i17, i64 112
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %33, ptr %34, align 8
+  store ptr %0, ptr %32, align 8
+  br label %44
 
-37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %.0.i17, i64 128
-  %39 = load ptr, ptr %38, align 8
-  %.not13 = icmp eq ptr %39, null
-  br i1 %.not13, label %.sink.split, label %43
+35:                                               ; preds = %27
+  %36 = load ptr, ptr %0, align 8
+  %37 = getelementptr inbounds i8, ptr %36, i64 16
+  %38 = load ptr, ptr %37, align 8
+  %39 = tail call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(17) %0) #20
+  br i1 %39, label %40, label %44
 
-.sink.split.sink.split:                           ; preds = %18, %21, %29
-  %.sink18 = phi ptr [ %31, %29 ], [ %20, %21 ], [ %20, %18 ]
-  %.sink.ph = phi ptr [ %30, %29 ], [ %19, %21 ], [ %19, %18 ]
-  %40 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sink18, ptr %40, align 8
-  br label %.sink.split
+40:                                               ; preds = %35
+  %41 = getelementptr inbounds i8, ptr %.0.i17, i64 128
+  %42 = load ptr, ptr %41, align 8
+  %.not13 = icmp eq ptr %42, null
+  br i1 %.not13, label %43, label %46
 
-.sink.split:                                      ; preds = %.sink.split.sink.split, %37
-  %.sink = phi ptr [ %38, %37 ], [ %.sink.ph, %.sink.split.sink.split ]
-  store ptr %0, ptr %.sink, align 8
-  br label %41
+43:                                               ; preds = %40
+  store ptr %0, ptr %41, align 8
+  br label %44
 
-41:                                               ; preds = %.sink.split, %32
-  %42 = getelementptr inbounds i8, ptr %0, i64 16
-  store i8 1, ptr %42, align 8
-  br label %43
+44:                                               ; preds = %31, %43, %35, %25
+  %45 = getelementptr inbounds i8, ptr %0, i64 16
+  store i8 1, ptr %45, align 8
+  br label %46
 
-43:                                               ; preds = %37, %21, %41
+46:                                               ; preds = %40, %21, %44
   ret void
 }
 
@@ -17041,7 +17039,7 @@ define hidden void @_ZN19JvmtiEventCollector24unset_jvmti_thread_stateEv(ptr nou
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
-  br i1 %4, label %5, label %38
+  br i1 %4, label %5, label %45
 
 5:                                                ; preds = %1
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -17049,54 +17047,65 @@ define hidden void @_ZN19JvmtiEventCollector24unset_jvmti_thread_stateEv(ptr nou
   %8 = getelementptr inbounds i8, ptr %7, i64 1536
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %38, label %10
+  br i1 %.not, label %45, label %10
 
 10:                                               ; preds = %5
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(17) %0) #20
-  br i1 %14, label %15, label %19
+  br i1 %14, label %15, label %22
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds i8, ptr %9, i64 120
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, %0
-  br i1 %18, label %.sink.split, label %38
+  br i1 %18, label %19, label %45
 
-19:                                               ; preds = %10
-  %20 = load ptr, ptr %0, align 8
+19:                                               ; preds = %15
+  %20 = getelementptr inbounds i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(17) %0) #20
-  br i1 %22, label %23, label %27
+  store ptr %21, ptr %16, align 8
+  br label %45
 
-23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %9, i64 112
-  %25 = load ptr, ptr %24, align 8
-  %26 = icmp eq ptr %25, %0
-  br i1 %26, label %.sink.split, label %38
+22:                                               ; preds = %10
+  %23 = load ptr, ptr %0, align 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = tail call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(17) %0) #20
+  br i1 %25, label %26, label %33
 
-27:                                               ; preds = %19
-  %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 16
-  %30 = load ptr, ptr %29, align 8
-  %31 = tail call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(17) %0) #20
-  br i1 %31, label %32, label %38
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds i8, ptr %9, i64 112
+  %28 = load ptr, ptr %27, align 8
+  %29 = icmp eq ptr %28, %0
+  br i1 %29, label %30, label %45
 
-32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %9, i64 128
-  %34 = load ptr, ptr %33, align 8
-  %35 = icmp eq ptr %34, %0
-  br i1 %35, label %.sink.split, label %38
+30:                                               ; preds = %26
+  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = load ptr, ptr %31, align 8
+  store ptr %32, ptr %27, align 8
+  br label %45
 
-.sink.split:                                      ; preds = %32, %23, %15
-  %.sink9 = phi ptr [ %16, %15 ], [ %24, %23 ], [ %33, %32 ]
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
-  %37 = load ptr, ptr %36, align 8
-  store ptr %37, ptr %.sink9, align 8
-  br label %38
+33:                                               ; preds = %22
+  %34 = load ptr, ptr %0, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 16
+  %36 = load ptr, ptr %35, align 8
+  %37 = tail call noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(17) %0) #20
+  br i1 %37, label %38, label %45
 
-38:                                               ; preds = %.sink.split, %15, %27, %32, %23, %1, %5
+38:                                               ; preds = %33
+  %39 = getelementptr inbounds i8, ptr %9, i64 128
+  %40 = load ptr, ptr %39, align 8
+  %41 = icmp eq ptr %40, %0
+  br i1 %41, label %42, label %45
+
+42:                                               ; preds = %38
+  %43 = getelementptr inbounds i8, ptr %0, i64 8
+  %44 = load ptr, ptr %43, align 8
+  store ptr %44, ptr %39, align 8
+  br label %45
+
+45:                                               ; preds = %15, %19, %33, %38, %42, %30, %26, %1, %5
   ret void
 }
 
@@ -17207,47 +17216,58 @@ _ZN13GrowableArrayIP17JvmtiCodeBlobDescED2Ev.exit: ; preds = %._crit_edge, %27
   %39 = getelementptr inbounds i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = call noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(17) %0) #20
-  br i1 %41, label %42, label %46
+  br i1 %41, label %42, label %49
 
 42:                                               ; preds = %37
   %43 = getelementptr inbounds i8, ptr %36, i64 120
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, %0
-  br i1 %45, label %.sink.split.i, label %_ZN19JvmtiEventCollector24unset_jvmti_thread_stateEv.exit
+  br i1 %45, label %46, label %_ZN19JvmtiEventCollector24unset_jvmti_thread_stateEv.exit
 
-46:                                               ; preds = %37
-  %47 = load ptr, ptr %0, align 8
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds i8, ptr %0, i64 8
   %48 = load ptr, ptr %47, align 8
-  %49 = call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(17) %0) #20
-  br i1 %49, label %50, label %54
-
-50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %36, i64 112
-  %52 = load ptr, ptr %51, align 8
-  %53 = icmp eq ptr %52, %0
-  br i1 %53, label %.sink.split.i, label %_ZN19JvmtiEventCollector24unset_jvmti_thread_stateEv.exit
-
-54:                                               ; preds = %46
-  %55 = load ptr, ptr %0, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 16
-  %57 = load ptr, ptr %56, align 8
-  %58 = call noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(17) %0) #20
-  br i1 %58, label %59, label %_ZN19JvmtiEventCollector24unset_jvmti_thread_stateEv.exit
-
-59:                                               ; preds = %54
-  %60 = getelementptr inbounds i8, ptr %36, i64 128
-  %61 = load ptr, ptr %60, align 8
-  %62 = icmp eq ptr %61, %0
-  br i1 %62, label %.sink.split.i, label %_ZN19JvmtiEventCollector24unset_jvmti_thread_stateEv.exit
-
-.sink.split.i:                                    ; preds = %59, %50, %42
-  %.sink9.i = phi ptr [ %43, %42 ], [ %51, %50 ], [ %60, %59 ]
-  %63 = getelementptr inbounds i8, ptr %0, i64 8
-  %64 = load ptr, ptr %63, align 8
-  store ptr %64, ptr %.sink9.i, align 8
+  store ptr %48, ptr %43, align 8
   br label %_ZN19JvmtiEventCollector24unset_jvmti_thread_stateEv.exit
 
-_ZN19JvmtiEventCollector24unset_jvmti_thread_stateEv.exit: ; preds = %28, %32, %42, %50, %54, %59, %.sink.split.i
+49:                                               ; preds = %37
+  %50 = load ptr, ptr %0, align 8
+  %51 = load ptr, ptr %50, align 8
+  %52 = call noundef zeroext i1 %51(ptr noundef nonnull align 8 dereferenceable(17) %0) #20
+  br i1 %52, label %53, label %60
+
+53:                                               ; preds = %49
+  %54 = getelementptr inbounds i8, ptr %36, i64 112
+  %55 = load ptr, ptr %54, align 8
+  %56 = icmp eq ptr %55, %0
+  br i1 %56, label %57, label %_ZN19JvmtiEventCollector24unset_jvmti_thread_stateEv.exit
+
+57:                                               ; preds = %53
+  %58 = getelementptr inbounds i8, ptr %0, i64 8
+  %59 = load ptr, ptr %58, align 8
+  store ptr %59, ptr %54, align 8
+  br label %_ZN19JvmtiEventCollector24unset_jvmti_thread_stateEv.exit
+
+60:                                               ; preds = %49
+  %61 = load ptr, ptr %0, align 8
+  %62 = getelementptr inbounds i8, ptr %61, i64 16
+  %63 = load ptr, ptr %62, align 8
+  %64 = call noundef zeroext i1 %63(ptr noundef nonnull align 8 dereferenceable(17) %0) #20
+  br i1 %64, label %65, label %_ZN19JvmtiEventCollector24unset_jvmti_thread_stateEv.exit
+
+65:                                               ; preds = %60
+  %66 = getelementptr inbounds i8, ptr %36, i64 128
+  %67 = load ptr, ptr %66, align 8
+  %68 = icmp eq ptr %67, %0
+  br i1 %68, label %69, label %_ZN19JvmtiEventCollector24unset_jvmti_thread_stateEv.exit
+
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds i8, ptr %0, i64 8
+  %71 = load ptr, ptr %70, align 8
+  store ptr %71, ptr %66, align 8
+  br label %_ZN19JvmtiEventCollector24unset_jvmti_thread_stateEv.exit
+
+_ZN19JvmtiEventCollector24unset_jvmti_thread_stateEv.exit: ; preds = %28, %32, %42, %46, %53, %57, %60, %65, %69
   ret void
 }
 
@@ -17482,47 +17502,58 @@ define hidden void @_ZN32JvmtiVMObjectAllocEventCollectorD2Ev(ptr noundef nonnul
   %17 = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(17) %0) #20
-  br i1 %19, label %20, label %24
+  br i1 %19, label %20, label %27
 
 20:                                               ; preds = %15
   %21 = getelementptr inbounds i8, ptr %14, i64 120
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, %0
-  br i1 %23, label %.sink.split.i, label %_ZN19JvmtiEventCollector24unset_jvmti_thread_stateEv.exit
+  br i1 %23, label %24, label %_ZN19JvmtiEventCollector24unset_jvmti_thread_stateEv.exit
 
-24:                                               ; preds = %15
-  %25 = load ptr, ptr %0, align 8
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(17) %0) #20
-  br i1 %27, label %28, label %32
-
-28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %14, i64 112
-  %30 = load ptr, ptr %29, align 8
-  %31 = icmp eq ptr %30, %0
-  br i1 %31, label %.sink.split.i, label %_ZN19JvmtiEventCollector24unset_jvmti_thread_stateEv.exit
-
-32:                                               ; preds = %24
-  %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
-  %35 = load ptr, ptr %34, align 8
-  %36 = tail call noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(17) %0) #20
-  br i1 %36, label %37, label %_ZN19JvmtiEventCollector24unset_jvmti_thread_stateEv.exit
-
-37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %14, i64 128
-  %39 = load ptr, ptr %38, align 8
-  %40 = icmp eq ptr %39, %0
-  br i1 %40, label %.sink.split.i, label %_ZN19JvmtiEventCollector24unset_jvmti_thread_stateEv.exit
-
-.sink.split.i:                                    ; preds = %37, %28, %20
-  %.sink9.i = phi ptr [ %21, %20 ], [ %29, %28 ], [ %38, %37 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = load ptr, ptr %41, align 8
-  store ptr %42, ptr %.sink9.i, align 8
+  store ptr %26, ptr %21, align 8
   br label %_ZN19JvmtiEventCollector24unset_jvmti_thread_stateEv.exit
 
-_ZN19JvmtiEventCollector24unset_jvmti_thread_stateEv.exit: ; preds = %6, %10, %20, %28, %32, %37, %.sink.split.i
+27:                                               ; preds = %15
+  %28 = load ptr, ptr %0, align 8
+  %29 = load ptr, ptr %28, align 8
+  %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(17) %0) #20
+  br i1 %30, label %31, label %38
+
+31:                                               ; preds = %27
+  %32 = getelementptr inbounds i8, ptr %14, i64 112
+  %33 = load ptr, ptr %32, align 8
+  %34 = icmp eq ptr %33, %0
+  br i1 %34, label %35, label %_ZN19JvmtiEventCollector24unset_jvmti_thread_stateEv.exit
+
+35:                                               ; preds = %31
+  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = load ptr, ptr %36, align 8
+  store ptr %37, ptr %32, align 8
+  br label %_ZN19JvmtiEventCollector24unset_jvmti_thread_stateEv.exit
+
+38:                                               ; preds = %27
+  %39 = load ptr, ptr %0, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 16
+  %41 = load ptr, ptr %40, align 8
+  %42 = tail call noundef zeroext i1 %41(ptr noundef nonnull align 8 dereferenceable(17) %0) #20
+  br i1 %42, label %43, label %_ZN19JvmtiEventCollector24unset_jvmti_thread_stateEv.exit
+
+43:                                               ; preds = %38
+  %44 = getelementptr inbounds i8, ptr %14, i64 128
+  %45 = load ptr, ptr %44, align 8
+  %46 = icmp eq ptr %45, %0
+  br i1 %46, label %47, label %_ZN19JvmtiEventCollector24unset_jvmti_thread_stateEv.exit
+
+47:                                               ; preds = %43
+  %48 = getelementptr inbounds i8, ptr %0, i64 8
+  %49 = load ptr, ptr %48, align 8
+  store ptr %49, ptr %44, align 8
+  br label %_ZN19JvmtiEventCollector24unset_jvmti_thread_stateEv.exit
+
+_ZN19JvmtiEventCollector24unset_jvmti_thread_stateEv.exit: ; preds = %6, %10, %20, %24, %31, %35, %38, %43, %47
   ret void
 }
 
@@ -17635,47 +17666,58 @@ define hidden void @_ZN37JvmtiSampledObjectAllocEventCollectorD2Ev(ptr noundef n
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(17) %0) #20
-  br i1 %18, label %19, label %23
+  br i1 %18, label %19, label %26
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds i8, ptr %13, i64 120
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, %0
-  br i1 %22, label %.sink.split.i, label %_ZN19JvmtiEventCollector24unset_jvmti_thread_stateEv.exit
+  br i1 %22, label %23, label %_ZN19JvmtiEventCollector24unset_jvmti_thread_stateEv.exit
 
-23:                                               ; preds = %14
-  %24 = load ptr, ptr %0, align 8
+23:                                               ; preds = %19
+  %24 = getelementptr inbounds i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(17) %0) #20
-  br i1 %26, label %27, label %31
-
-27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %13, i64 112
-  %29 = load ptr, ptr %28, align 8
-  %30 = icmp eq ptr %29, %0
-  br i1 %30, label %.sink.split.i, label %_ZN19JvmtiEventCollector24unset_jvmti_thread_stateEv.exit
-
-31:                                               ; preds = %23
-  %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
-  %34 = load ptr, ptr %33, align 8
-  %35 = tail call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(17) %0) #20
-  br i1 %35, label %36, label %_ZN19JvmtiEventCollector24unset_jvmti_thread_stateEv.exit
-
-36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %13, i64 128
-  %38 = load ptr, ptr %37, align 8
-  %39 = icmp eq ptr %38, %0
-  br i1 %39, label %.sink.split.i, label %_ZN19JvmtiEventCollector24unset_jvmti_thread_stateEv.exit
-
-.sink.split.i:                                    ; preds = %36, %27, %19
-  %.sink9.i = phi ptr [ %20, %19 ], [ %28, %27 ], [ %37, %36 ]
-  %40 = getelementptr inbounds i8, ptr %0, i64 8
-  %41 = load ptr, ptr %40, align 8
-  store ptr %41, ptr %.sink9.i, align 8
+  store ptr %25, ptr %20, align 8
   br label %_ZN19JvmtiEventCollector24unset_jvmti_thread_stateEv.exit
 
-_ZN19JvmtiEventCollector24unset_jvmti_thread_stateEv.exit: ; preds = %.sink.split.i, %36, %31, %27, %19, %9, %5, %1
+26:                                               ; preds = %14
+  %27 = load ptr, ptr %0, align 8
+  %28 = load ptr, ptr %27, align 8
+  %29 = tail call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(17) %0) #20
+  br i1 %29, label %30, label %37
+
+30:                                               ; preds = %26
+  %31 = getelementptr inbounds i8, ptr %13, i64 112
+  %32 = load ptr, ptr %31, align 8
+  %33 = icmp eq ptr %32, %0
+  br i1 %33, label %34, label %_ZN19JvmtiEventCollector24unset_jvmti_thread_stateEv.exit
+
+34:                                               ; preds = %30
+  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = load ptr, ptr %35, align 8
+  store ptr %36, ptr %31, align 8
+  br label %_ZN19JvmtiEventCollector24unset_jvmti_thread_stateEv.exit
+
+37:                                               ; preds = %26
+  %38 = load ptr, ptr %0, align 8
+  %39 = getelementptr inbounds i8, ptr %38, i64 16
+  %40 = load ptr, ptr %39, align 8
+  %41 = tail call noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(17) %0) #20
+  br i1 %41, label %42, label %_ZN19JvmtiEventCollector24unset_jvmti_thread_stateEv.exit
+
+42:                                               ; preds = %37
+  %43 = getelementptr inbounds i8, ptr %13, i64 128
+  %44 = load ptr, ptr %43, align 8
+  %45 = icmp eq ptr %44, %0
+  br i1 %45, label %46, label %_ZN19JvmtiEventCollector24unset_jvmti_thread_stateEv.exit
+
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  %48 = load ptr, ptr %47, align 8
+  store ptr %48, ptr %43, align 8
+  br label %_ZN19JvmtiEventCollector24unset_jvmti_thread_stateEv.exit
+
+_ZN19JvmtiEventCollector24unset_jvmti_thread_stateEv.exit: ; preds = %46, %42, %37, %34, %30, %23, %19, %9, %5, %1
   ret void
 }
 

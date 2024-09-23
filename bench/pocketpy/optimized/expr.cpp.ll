@@ -1788,8 +1788,8 @@ define noundef zeroext i1 @_ZN4pkpy15CodeEmitContext9add_labelENS_7StrNameE(ptr 
   br label %_ZNK4pkpy12NameDictImplIiE8containsENS_7StrNameE.exit
 
 _ZNK4pkpy12NameDictImplIiE8containsENS_7StrNameE.exit: ; preds = %15, %.lr.ph.i._crit_edge.i.i
-  %.sink.i.i = phi ptr [ %34, %.lr.ph.i._crit_edge.i.i ], [ %17, %15 ]
-  %35 = load i32, ptr %.sink.i.i, align 4
+  %.in = phi ptr [ %17, %15 ], [ %34, %.lr.ph.i._crit_edge.i.i ]
+  %35 = load i32, ptr %.in, align 4
   %.not = icmp eq i32 %35, -1
   br i1 %.not, label %_ZNK4pkpy12NameDictImplIiE8containsENS_7StrNameE.exit.thread, label %45
 
@@ -2217,8 +2217,8 @@ define noundef i32 @_ZN4pkpy15CodeEmitContext11add_varnameENS_7StrNameE(ptr noca
   br label %_ZNK4pkpy12NameDictImplIiE7try_getENS_7StrNameE.exit
 
 _ZNK4pkpy12NameDictImplIiE7try_getENS_7StrNameE.exit: ; preds = %15, %.lr.ph.i._crit_edge.i
-  %.sink.i = phi ptr [ %34, %.lr.ph.i._crit_edge.i ], [ %17, %15 ]
-  %35 = load i32, ptr %.sink.i, align 4
+  %.in = phi ptr [ %17, %15 ], [ %34, %.lr.ph.i._crit_edge.i ]
+  %35 = load i32, ptr %.in, align 4
   %36 = icmp sgt i32 %35, -1
   br i1 %36, label %78, label %_ZNK4pkpy12NameDictImplIiE7try_getENS_7StrNameE.exit.thread
 
@@ -2852,8 +2852,8 @@ _ZNK4pkpy12NameDictImplIiE7try_getENS_7StrNameE.exit.thread: ; preds = %.lr.ph.i
   br label %48
 
 _ZNK4pkpy12NameDictImplIiE7try_getENS_7StrNameE.exit: ; preds = %16, %.lr.ph.i._crit_edge.i
-  %.sink.i = phi ptr [ %35, %.lr.ph.i._crit_edge.i ], [ %18, %16 ]
-  %38 = load i32, ptr %.sink.i, align 4
+  %.in = phi ptr [ %18, %16 ], [ %35, %.lr.ph.i._crit_edge.i ]
+  %38 = load i32, ptr %.in, align 4
   %39 = getelementptr inbounds i8, ptr %0, i64 16
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0

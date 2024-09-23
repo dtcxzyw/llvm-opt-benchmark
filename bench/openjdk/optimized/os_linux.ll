@@ -5189,7 +5189,7 @@ define linkonce_odr hidden void @_ZN8JfrEventI20EventResidentSetSizeE6commitEv(p
 
 ._crit_edge:                                      ; preds = %5
   %.pre = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  br label %22
+  br label %25
 
 9:                                                ; preds = %1
   %10 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 185), align 1
@@ -5199,57 +5199,61 @@ define linkonce_odr hidden void @_ZN8JfrEventI20EventResidentSetSizeE6commitEv(p
 11:                                               ; preds = %9
   %12 = load i64, ptr %0, align 8
   %13 = icmp eq i64 %12, 0
-  br i1 %13, label %.sink.split.i.i, label %14
+  br i1 %13, label %14, label %16
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
-  %16 = load i64, ptr %15, align 8
-  %17 = icmp eq i64 %16, 0
-  br i1 %17, label %.sink.split.i.i, label %_ZN8JfrEventI20EventResidentSetSizeE12should_writeEv.exit
-
-.sink.split.i.i:                                  ; preds = %14, %11
-  %.sink2.i.i = phi ptr [ %0, %11 ], [ %15, %14 ]
-  %18 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #26
-  store i64 %18, ptr %.sink2.i.i, align 8
+  %15 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #26
+  store i64 %15, ptr %0, align 8
   br label %_ZN8JfrEventI20EventResidentSetSizeE12should_writeEv.exit
 
-_ZN8JfrEventI20EventResidentSetSizeE12should_writeEv.exit: ; preds = %14, %.sink.split.i.i
-  %19 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef zeroext i1 @_ZN14JfrThreadLocal11is_includedEPK6Thread(ptr noundef %20) #26
-  br i1 %21, label %22, label %_ZN8JfrEventI20EventResidentSetSizeE11write_eventEv.exit
+16:                                               ; preds = %11
+  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = load i64, ptr %17, align 8
+  %19 = icmp eq i64 %18, 0
+  br i1 %19, label %20, label %_ZN8JfrEventI20EventResidentSetSizeE12should_writeEv.exit
 
-22:                                               ; preds = %._crit_edge, %_ZN8JfrEventI20EventResidentSetSizeE12should_writeEv.exit
-  %.pre-phi = phi ptr [ %.pre, %._crit_edge ], [ %19, %_ZN8JfrEventI20EventResidentSetSizeE12should_writeEv.exit ]
-  %23 = load ptr, ptr %.pre-phi, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 600
-  %25 = load ptr, ptr %24, align 8
-  %.not.i.i = icmp eq ptr %25, null
+20:                                               ; preds = %16
+  %21 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #26
+  store i64 %21, ptr %17, align 8
+  br label %_ZN8JfrEventI20EventResidentSetSizeE12should_writeEv.exit
+
+_ZN8JfrEventI20EventResidentSetSizeE12should_writeEv.exit: ; preds = %14, %16, %20
+  %22 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %23 = load ptr, ptr %22, align 8
+  %24 = tail call noundef zeroext i1 @_ZN14JfrThreadLocal11is_includedEPK6Thread(ptr noundef %23) #26
+  br i1 %24, label %25, label %_ZN8JfrEventI20EventResidentSetSizeE11write_eventEv.exit
+
+25:                                               ; preds = %._crit_edge, %_ZN8JfrEventI20EventResidentSetSizeE12should_writeEv.exit
+  %.pre-phi = phi ptr [ %.pre, %._crit_edge ], [ %22, %_ZN8JfrEventI20EventResidentSetSizeE12should_writeEv.exit ]
+  %26 = load ptr, ptr %.pre-phi, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 600
+  %28 = load ptr, ptr %27, align 8
+  %.not.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i, label %_ZNK14JfrThreadLocal13native_bufferEv.exit.i, label %_ZNK14JfrThreadLocal13native_bufferEv.exit.thread.i
 
-_ZNK14JfrThreadLocal13native_bufferEv.exit.i:     ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %23, i64 584
-  %27 = tail call noundef ptr @_ZNK14JfrThreadLocal21install_native_bufferEv(ptr noundef nonnull align 8 dereferenceable(195) %26) #26
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %_ZN8JfrEventI20EventResidentSetSizeE11write_eventEv.exit, label %_ZNK14JfrThreadLocal13native_bufferEv.exit.thread.i
+_ZNK14JfrThreadLocal13native_bufferEv.exit.i:     ; preds = %25
+  %29 = getelementptr inbounds i8, ptr %26, i64 584
+  %30 = tail call noundef ptr @_ZNK14JfrThreadLocal21install_native_bufferEv(ptr noundef nonnull align 8 dereferenceable(195) %29) #26
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %_ZN8JfrEventI20EventResidentSetSizeE11write_eventEv.exit, label %_ZNK14JfrThreadLocal13native_bufferEv.exit.thread.i
 
-_ZNK14JfrThreadLocal13native_bufferEv.exit.thread.i: ; preds = %_ZNK14JfrThreadLocal13native_bufferEv.exit.i, %22
-  %29 = phi ptr [ %27, %_ZNK14JfrThreadLocal13native_bufferEv.exit.i ], [ %25, %22 ]
-  %30 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 186), align 2
-  %31 = icmp ne i8 %30, 0
-  %32 = tail call noundef zeroext i1 @_ZN8JfrEventI20EventResidentSetSizeE17write_sized_eventEP9JfrBufferP6Threadmmb(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %29, ptr noundef nonnull %23, i64 noundef 0, i64 noundef 0, i1 noundef zeroext %31)
-  %brmerge.i = or i1 %32, %31
-  br i1 %brmerge.i, label %_ZN8JfrEventI20EventResidentSetSizeE11write_eventEv.exit, label %33
+_ZNK14JfrThreadLocal13native_bufferEv.exit.thread.i: ; preds = %_ZNK14JfrThreadLocal13native_bufferEv.exit.i, %25
+  %32 = phi ptr [ %30, %_ZNK14JfrThreadLocal13native_bufferEv.exit.i ], [ %28, %25 ]
+  %33 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 186), align 2
+  %34 = icmp ne i8 %33, 0
+  %35 = tail call noundef zeroext i1 @_ZN8JfrEventI20EventResidentSetSizeE17write_sized_eventEP9JfrBufferP6Threadmmb(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %32, ptr noundef nonnull %26, i64 noundef 0, i64 noundef 0, i1 noundef zeroext %34)
+  %brmerge.i = or i1 %35, %34
+  br i1 %brmerge.i, label %_ZN8JfrEventI20EventResidentSetSizeE11write_eventEv.exit, label %36
 
-33:                                               ; preds = %_ZNK14JfrThreadLocal13native_bufferEv.exit.thread.i
-  %34 = tail call noundef zeroext i1 @_ZN8JfrEventI20EventResidentSetSizeE17write_sized_eventEP9JfrBufferP6Threadmmb(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %29, ptr noundef nonnull %23, i64 noundef 0, i64 noundef 0, i1 noundef zeroext true)
-  br i1 %34, label %35, label %_ZN8JfrEventI20EventResidentSetSizeE11write_eventEv.exit
+36:                                               ; preds = %_ZNK14JfrThreadLocal13native_bufferEv.exit.thread.i
+  %37 = tail call noundef zeroext i1 @_ZN8JfrEventI20EventResidentSetSizeE17write_sized_eventEP9JfrBufferP6Threadmmb(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %32, ptr noundef nonnull %26, i64 noundef 0, i64 noundef 0, i1 noundef zeroext true)
+  br i1 %37, label %38, label %_ZN8JfrEventI20EventResidentSetSizeE11write_eventEv.exit
 
-35:                                               ; preds = %33
+38:                                               ; preds = %36
   tail call void @_ZN15JfrEventSetting9set_largeE10JfrEventId(i32 noundef 7) #26
   br label %_ZN8JfrEventI20EventResidentSetSizeE11write_eventEv.exit
 
-_ZN8JfrEventI20EventResidentSetSizeE11write_eventEv.exit: ; preds = %9, %35, %33, %_ZNK14JfrThreadLocal13native_bufferEv.exit.thread.i, %_ZNK14JfrThreadLocal13native_bufferEv.exit.i, %5, %_ZN8JfrEventI20EventResidentSetSizeE12should_writeEv.exit
+_ZN8JfrEventI20EventResidentSetSizeE11write_eventEv.exit: ; preds = %9, %38, %36, %_ZNK14JfrThreadLocal13native_bufferEv.exit.thread.i, %_ZNK14JfrThreadLocal13native_bufferEv.exit.i, %5, %_ZN8JfrEventI20EventResidentSetSizeE12should_writeEv.exit
   ret void
 }
 
@@ -9951,7 +9955,7 @@ define hidden noundef i32 @_ZN2os13get_core_pathEPcm(ptr noundef %0, i64 noundef
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(129) %3, i8 0, i64 129, i1 false)
   %6 = tail call i32 (ptr, i32, ...) @open64(ptr noundef nonnull @.str.249, i32 noundef 0) #26
   %7 = icmp eq i32 %6, -1
-  br i1 %7, label %68, label %8
+  br i1 %7, label %71, label %8
 
 8:                                                ; preds = %2
   %9 = call i64 @read(i32 noundef %6, ptr noundef nonnull %3, i64 noundef 129) #26
@@ -9961,106 +9965,115 @@ define hidden noundef i32 @_ZN2os13get_core_pathEPcm(ptr noundef %0, i64 noundef
   %12 = load i8, ptr %3, align 16
   %13 = icmp eq i8 %12, 10
   %or.cond5 = select i1 %or.cond, i1 true, i1 %13
-  br i1 %or.cond5, label %68, label %14
+  br i1 %or.cond5, label %71, label %14
 
 14:                                               ; preds = %8
   %15 = add nsw i64 %9, -1
   %16 = getelementptr inbounds [129 x i8], ptr %3, i64 0, i64 %15
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 10
-  %19 = getelementptr inbounds [129 x i8], ptr %3, i64 0, i64 %9
-  %.sink = select i1 %18, ptr %16, ptr %19
-  store i8 0, ptr %.sink, align 1
-  %20 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.250) #27
-  %.not = icmp eq ptr %20, null
-  %21 = getelementptr inbounds i8, ptr %20, i64 2
-  %22 = load i8, ptr %3, align 16
-  %23 = icmp eq i8 %22, 47
-  br i1 %23, label %24, label %30
+  br i1 %18, label %19, label %20
 
-24:                                               ; preds = %14
-  br i1 %.not, label %28, label %25
+19:                                               ; preds = %14
+  store i8 0, ptr %16, align 1
+  br label %22
 
-25:                                               ; preds = %24
-  store i8 0, ptr %20, align 1
-  %26 = call noundef i32 @getpid() #26
-  %27 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.251, ptr noundef nonnull %3, i32 noundef %26, ptr noundef nonnull %21) #26
-  br label %46
+20:                                               ; preds = %14
+  %21 = getelementptr inbounds [129 x i8], ptr %3, i64 0, i64 %9
+  store i8 0, ptr %21, align 1
+  br label %22
 
-28:                                               ; preds = %24
-  %29 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.46, ptr noundef nonnull %3) #26
-  br label %46
+22:                                               ; preds = %20, %19
+  %23 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.250) #27
+  %.not = icmp eq ptr %23, null
+  %24 = getelementptr inbounds i8, ptr %23, i64 2
+  %25 = load i8, ptr %3, align 16
+  %26 = icmp eq i8 %25, 47
+  br i1 %26, label %27, label %33
 
-30:                                               ; preds = %14
-  %31 = call noundef ptr @_ZN2os21get_current_directoryEPcm(ptr noundef nonnull %4, i64 noundef 4096) #26
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %68, label %33
+27:                                               ; preds = %22
+  br i1 %.not, label %31, label %28
 
-33:                                               ; preds = %30
-  %34 = load i8, ptr %3, align 16
-  %35 = icmp eq i8 %34, 124
-  br i1 %35, label %36, label %40
+28:                                               ; preds = %27
+  store i8 0, ptr %23, align 1
+  %29 = call noundef i32 @getpid() #26
+  %30 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.251, ptr noundef nonnull %3, i32 noundef %29, ptr noundef nonnull %24) #26
+  br label %49
+
+31:                                               ; preds = %27
+  %32 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.46, ptr noundef nonnull %3) #26
+  br label %49
+
+33:                                               ; preds = %22
+  %34 = call noundef ptr @_ZN2os21get_current_directoryEPcm(ptr noundef nonnull %4, i64 noundef 4096) #26
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %71, label %36
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %3, i64 1
-  %38 = call noundef i32 @getpid() #26
-  %39 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.252, ptr noundef nonnull %37, ptr noundef nonnull %31, i32 noundef %38) #26
-  br label %46
+  %37 = load i8, ptr %3, align 16
+  %38 = icmp eq i8 %37, 124
+  br i1 %38, label %39, label %43
 
-40:                                               ; preds = %33
-  br i1 %.not, label %44, label %41
+39:                                               ; preds = %36
+  %40 = getelementptr inbounds i8, ptr %3, i64 1
+  %41 = call noundef i32 @getpid() #26
+  %42 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.252, ptr noundef nonnull %40, ptr noundef nonnull %34, i32 noundef %41) #26
+  br label %49
 
-41:                                               ; preds = %40
-  store i8 0, ptr %20, align 1
-  %42 = call noundef i32 @getpid() #26
-  %43 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.253, ptr noundef nonnull %31, ptr noundef nonnull %3, i32 noundef %42, ptr noundef nonnull %21) #26
-  br label %46
+43:                                               ; preds = %36
+  br i1 %.not, label %47, label %44
 
-44:                                               ; preds = %40
-  %45 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.254, ptr noundef nonnull %31, ptr noundef nonnull %3) #26
-  br label %46
+44:                                               ; preds = %43
+  store i8 0, ptr %23, align 1
+  %45 = call noundef i32 @getpid() #26
+  %46 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.253, ptr noundef nonnull %34, ptr noundef nonnull %3, i32 noundef %45, ptr noundef nonnull %24) #26
+  br label %49
 
-46:                                               ; preds = %36, %44, %41, %25, %28
-  %.053 = phi i32 [ %27, %25 ], [ %29, %28 ], [ %39, %36 ], [ %43, %41 ], [ %45, %44 ]
-  %47 = icmp slt i32 %.053, 0
-  br i1 %47, label %68, label %48
+47:                                               ; preds = %43
+  %48 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.254, ptr noundef nonnull %34, ptr noundef nonnull %3) #26
+  br label %49
 
-48:                                               ; preds = %46
-  %49 = zext nneg i32 %.053 to i64
-  %50 = icmp ugt i64 %1, %49
-  %or.cond7 = and i1 %.not, %50
-  %51 = load i8, ptr %3, align 16
-  %52 = icmp ne i8 %51, 124
-  %or.cond11 = select i1 %or.cond7, i1 %52, i1 false
-  br i1 %or.cond11, label %53, label %65
+49:                                               ; preds = %39, %47, %44, %28, %31
+  %.053 = phi i32 [ %30, %28 ], [ %32, %31 ], [ %42, %39 ], [ %46, %44 ], [ %48, %47 ]
+  %50 = icmp slt i32 %.053, 0
+  br i1 %50, label %71, label %51
 
-53:                                               ; preds = %48
-  %54 = call i32 (ptr, i32, ...) @open64(ptr noundef nonnull @.str.255, i32 noundef 0) #26
-  %.not61 = icmp eq i32 %54, -1
-  br i1 %.not61, label %65, label %55
+51:                                               ; preds = %49
+  %52 = zext nneg i32 %.053 to i64
+  %53 = icmp ugt i64 %1, %52
+  %or.cond7 = and i1 %.not, %53
+  %54 = load i8, ptr %3, align 16
+  %55 = icmp ne i8 %54, 124
+  %or.cond11 = select i1 %or.cond7, i1 %55, i1 false
+  br i1 %or.cond11, label %56, label %68
 
-55:                                               ; preds = %53
+56:                                               ; preds = %51
+  %57 = call i32 (ptr, i32, ...) @open64(ptr noundef nonnull @.str.255, i32 noundef 0) #26
+  %.not61 = icmp eq i32 %57, -1
+  br i1 %.not61, label %68, label %58
+
+58:                                               ; preds = %56
   store i8 0, ptr %5, align 1
-  %56 = call i64 @read(i32 noundef %54, ptr noundef nonnull %5, i64 noundef 1) #26
-  %57 = call i32 @close(i32 noundef %54) #26
-  %58 = load i8, ptr %5, align 1
-  %59 = icmp eq i8 %58, 49
-  br i1 %59, label %60, label %65
+  %59 = call i64 @read(i32 noundef %57, ptr noundef nonnull %5, i64 noundef 1) #26
+  %60 = call i32 @close(i32 noundef %57) #26
+  %61 = load i8, ptr %5, align 1
+  %62 = icmp eq i8 %61, 49
+  br i1 %62, label %63, label %68
 
-60:                                               ; preds = %55
-  %61 = getelementptr inbounds i8, ptr %0, i64 %49
-  %62 = sub i64 %1, %49
-  %63 = call noundef i32 @getpid() #26
-  %64 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %61, i64 noundef %62, ptr noundef nonnull @.str.256, i32 noundef %63) #26
-  br label %65
-
-65:                                               ; preds = %53, %60, %55, %48
-  %66 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #27
-  %67 = trunc i64 %66 to i32
+63:                                               ; preds = %58
+  %64 = getelementptr inbounds i8, ptr %0, i64 %52
+  %65 = sub i64 %1, %52
+  %66 = call noundef i32 @getpid() #26
+  %67 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %64, i64 noundef %65, ptr noundef nonnull @.str.256, i32 noundef %66) #26
   br label %68
 
-68:                                               ; preds = %46, %30, %8, %2, %65
-  %.0 = phi i32 [ %67, %65 ], [ -1, %2 ], [ -1, %8 ], [ -1, %30 ], [ -1, %46 ]
+68:                                               ; preds = %56, %63, %58, %51
+  %69 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #27
+  %70 = trunc i64 %69 to i32
+  br label %71
+
+71:                                               ; preds = %49, %33, %8, %2, %68
+  %.0 = phi i32 [ %70, %68 ], [ -1, %2 ], [ -1, %8 ], [ -1, %33 ], [ -1, %49 ]
   ret i32 %.0
 }
 

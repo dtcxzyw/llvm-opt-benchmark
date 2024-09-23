@@ -3202,6 +3202,7 @@ _ZNSt6vectorIiSaIiEEaSERKS1_.exit:                ; preds = %108, %_ZNSt12_Vecto
   %149 = getelementptr i8, ptr %126, i64 -8
   store i32 %97, ptr %149, align 4
   %150 = getelementptr i8, ptr %126, i64 -4
+  store i32 %101, ptr %150, align 4
   br label %156
 
 _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i:  ; preds = %107
@@ -3217,13 +3218,12 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %_ZNKSt6vectorIiSaIi
   store ptr %154, ptr %152, align 8
   store i32 %97, ptr %151, align 4
   %155 = getelementptr inbounds i8, ptr %151, i64 4
+  store i32 %101, ptr %155, align 4
   br label %156
 
 156:                                              ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit, %._crit_edge
-  %.sink = phi ptr [ %155, %_ZNSt6vectorIiSaIiEE6resizeEm.exit ], [ %150, %._crit_edge ]
   %157 = phi ptr [ %151, %_ZNSt6vectorIiSaIiEE6resizeEm.exit ], [ %125, %._crit_edge ]
   %158 = phi ptr [ %154, %_ZNSt6vectorIiSaIiEE6resizeEm.exit ], [ %126, %._crit_edge ]
-  store i32 %101, ptr %.sink, align 4
   %159 = icmp eq i32 %26, 3
   br i1 %159, label %160, label %_ZNSt6vectorIiSaIiEED2Ev.exit
 

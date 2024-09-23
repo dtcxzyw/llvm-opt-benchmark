@@ -844,17 +844,13 @@ entry:
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %_offsets, align 8
   %cmp104.not = icmp eq ptr %0, %1
-  br i1 %cmp104.not, label %for.end56, label %for.cond4.preheader.lr.ph
+  br i1 %cmp104.not, label %for.end56, label %for.cond4.preheader
 
-for.cond4.preheader.lr.ph:                        ; preds = %entry
-  %_numXLevels.i = getelementptr inbounds i8, ptr %this, i64 4
-  br label %for.cond4.preheader
-
-for.cond4.preheader:                              ; preds = %for.cond4.preheader.lr.ph, %for.inc54
-  %2 = phi ptr [ %1, %for.cond4.preheader.lr.ph ], [ %49, %for.inc54 ]
-  %3 = phi ptr [ %0, %for.cond4.preheader.lr.ph ], [ %50, %for.inc54 ]
-  %conv106 = phi i64 [ 0, %for.cond4.preheader.lr.ph ], [ %conv, %for.inc54 ]
-  %l.0105 = phi i32 [ 0, %for.cond4.preheader.lr.ph ], [ %inc55, %for.inc54 ]
+for.cond4.preheader:                              ; preds = %entry, %for.inc54
+  %2 = phi ptr [ %41, %for.inc54 ], [ %1, %entry ]
+  %3 = phi ptr [ %42, %for.inc54 ], [ %0, %entry ]
+  %conv106 = phi i64 [ %conv, %for.inc54 ], [ 0, %entry ]
+  %l.0105 = phi i32 [ %inc55, %for.inc54 ], [ 0, %entry ]
   %add.ptr.i91 = getelementptr inbounds %"class.std::vector.0", ptr %2, i64 %conv106
   %_M_finish.i1992 = getelementptr inbounds i8, ptr %add.ptr.i91, i64 8
   %4 = load ptr, ptr %_M_finish.i1992, align 8
@@ -864,8 +860,8 @@ for.cond4.preheader:                              ; preds = %for.cond4.preheader
 
 for.cond12.preheader:                             ; preds = %for.cond4.preheader, %for.inc51
   %.pre = phi ptr [ %.pre109, %for.inc51 ], [ %5, %for.cond4.preheader ]
-  %6 = phi ptr [ %46, %for.inc51 ], [ %2, %for.cond4.preheader ]
-  %7 = phi ptr [ %47, %for.inc51 ], [ %2, %for.cond4.preheader ]
+  %6 = phi ptr [ %38, %for.inc51 ], [ %2, %for.cond4.preheader ]
+  %7 = phi ptr [ %39, %for.inc51 ], [ %2, %for.cond4.preheader ]
   %conv599 = phi i64 [ %conv5, %for.inc51 ], [ 0, %for.cond4.preheader ]
   %dy.098 = phi i32 [ %inc52, %for.inc51 ], [ 0, %for.cond4.preheader ]
   %add.ptr.i2583 = getelementptr inbounds %"class.std::vector.5", ptr %.pre, i64 %conv599
@@ -960,7 +956,7 @@ invoke.cont:                                      ; preds = %if.then32
 lpad:                                             ; preds = %if.then32
   %25 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume
+  br label %eh.resume
 
 if.end33:                                         ; preds = %lor.lhs.false29
   %26 = trunc i64 %add to i32
@@ -1021,7 +1017,7 @@ invoke.cont41:                                    ; preds = %if.then38
 lpad40:                                           ; preds = %if.then38
   %31 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume
+  br label %eh.resume
 
 if.end42:                                         ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %c.i59)
@@ -1065,89 +1061,36 @@ if.end46:                                         ; preds = %if.end43
   br i1 %call47, label %if.end49, label %for.end56
 
 if.end49:                                         ; preds = %if.end46
-  %34 = load i32, ptr %this, align 8
-  switch i32 %34, label %sw.default.i [
-    i32 0, label %sw.bb.i
-    i32 1, label %sw.bb5.i
-    i32 2, label %sw.bb13.i
-  ]
-
-sw.bb.i:                                          ; preds = %if.end49
-  %35 = load ptr, ptr %_offsets, align 8
-  br label %_ZN7Imf_3_211TileOffsetsclEiiii.exit
-
-sw.bb5.i:                                         ; preds = %if.end49
-  %conv7.i = sext i32 %17 to i64
-  %36 = load ptr, ptr %_offsets, align 8
-  %add.ptr.i7.i = getelementptr inbounds %"class.std::vector.0", ptr %36, i64 %conv7.i
-  br label %_ZN7Imf_3_211TileOffsetsclEiiii.exit
-
-sw.bb13.i:                                        ; preds = %if.end49
-  %37 = load i32, ptr %_numXLevels.i, align 4
-  %mul.i = mul nsw i32 %37, %19
-  %add.i = add nsw i32 %mul.i, %17
-  %conv15.i = sext i32 %add.i to i64
-  %38 = load ptr, ptr %_offsets, align 8
-  %add.ptr.i10.i = getelementptr inbounds %"class.std::vector.0", ptr %38, i64 %conv15.i
-  br label %_ZN7Imf_3_211TileOffsetsclEiiii.exit
-
-sw.default.i:                                     ; preds = %if.end49
-  %exception.i = call ptr @__cxa_allocate_exception(i64 72) #25
-  invoke void @_ZN7Iex_3_26ArgExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %exception.i, ptr noundef nonnull @.str.6)
-          to label %invoke.cont.i unwind label %lpad.i
-
-invoke.cont.i:                                    ; preds = %sw.default.i
-  call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN7Iex_3_26ArgExcE, ptr nonnull @_ZN7Iex_3_26ArgExcD1Ev) #24
-  unreachable
-
-common.resume:                                    ; preds = %lpad, %lpad40, %lpad.i
-  %exception.sink = phi ptr [ %exception, %lpad ], [ %exception39, %lpad40 ], [ %exception.i, %lpad.i ]
-  %common.resume.op = phi { ptr, i32 } [ %25, %lpad ], [ %31, %lpad40 ], [ %39, %lpad.i ]
-  call void @__cxa_free_exception(ptr %exception.sink) #25
-  resume { ptr, i32 } %common.resume.op
-
-lpad.i:                                           ; preds = %sw.default.i
-  %39 = landingpad { ptr, i32 }
-          cleanup
-  br label %common.resume
-
-_ZN7Imf_3_211TileOffsetsclEiiii.exit:             ; preds = %sw.bb.i, %sw.bb5.i, %sw.bb13.i
-  %add.ptr.i10.sink.i = phi ptr [ %add.ptr.i10.i, %sw.bb13.i ], [ %add.ptr.i7.i, %sw.bb5.i ], [ %35, %sw.bb.i ]
-  %conv17.i = sext i32 %15 to i64
-  %40 = load ptr, ptr %add.ptr.i10.sink.i, align 8
-  %add.ptr.i11.i = getelementptr inbounds %"class.std::vector.5", ptr %40, i64 %conv17.i
-  %conv19.i = sext i32 %13 to i64
-  %41 = load ptr, ptr %add.ptr.i11.i, align 8
-  %add.ptr.i12.i = getelementptr inbounds i64, ptr %41, i64 %conv19.i
-  store i64 %call22, ptr %add.ptr.i12.i, align 8
+  %call50 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7Imf_3_211TileOffsetsclEiiii(ptr noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %13, i32 noundef %15, i32 noundef %17, i32 noundef %19)
+  store i64 %call22, ptr %call50, align 8
   br label %for.inc
 
-for.inc:                                          ; preds = %if.end43, %_ZN7Imf_3_211TileOffsetsclEiiii.exit
+for.inc:                                          ; preds = %if.end43, %if.end49
   %inc = add i32 %dx.090, 1
   %conv13 = zext i32 %inc to i64
-  %42 = load ptr, ptr %_offsets, align 8
-  %add.ptr.i24 = getelementptr inbounds %"class.std::vector.0", ptr %42, i64 %conv106
-  %43 = load ptr, ptr %add.ptr.i24, align 8
-  %add.ptr.i25 = getelementptr inbounds %"class.std::vector.5", ptr %43, i64 %conv599
+  %34 = load ptr, ptr %_offsets, align 8
+  %add.ptr.i24 = getelementptr inbounds %"class.std::vector.0", ptr %34, i64 %conv106
+  %35 = load ptr, ptr %add.ptr.i24, align 8
+  %add.ptr.i25 = getelementptr inbounds %"class.std::vector.5", ptr %35, i64 %conv599
   %_M_finish.i26 = getelementptr inbounds i8, ptr %add.ptr.i25, i64 8
-  %44 = load ptr, ptr %_M_finish.i26, align 8
-  %45 = load ptr, ptr %add.ptr.i25, align 8
-  %sub.ptr.lhs.cast.i27 = ptrtoint ptr %44 to i64
-  %sub.ptr.rhs.cast.i28 = ptrtoint ptr %45 to i64
+  %36 = load ptr, ptr %_M_finish.i26, align 8
+  %37 = load ptr, ptr %add.ptr.i25, align 8
+  %sub.ptr.lhs.cast.i27 = ptrtoint ptr %36 to i64
+  %sub.ptr.rhs.cast.i28 = ptrtoint ptr %37 to i64
   %sub.ptr.sub.i29 = sub i64 %sub.ptr.lhs.cast.i27, %sub.ptr.rhs.cast.i28
   %sub.ptr.div.i30 = ashr exact i64 %sub.ptr.sub.i29, 3
   %cmp20 = icmp ugt i64 %sub.ptr.div.i30, %conv13
   br i1 %cmp20, label %for.body21, label %for.inc51, !llvm.loop !23
 
 for.inc51:                                        ; preds = %for.inc, %for.cond12.preheader
-  %.pre109 = phi ptr [ %.pre, %for.cond12.preheader ], [ %43, %for.inc ]
-  %46 = phi ptr [ %6, %for.cond12.preheader ], [ %42, %for.inc ]
-  %47 = phi ptr [ %7, %for.cond12.preheader ], [ %42, %for.inc ]
+  %.pre109 = phi ptr [ %.pre, %for.cond12.preheader ], [ %35, %for.inc ]
+  %38 = phi ptr [ %6, %for.cond12.preheader ], [ %34, %for.inc ]
+  %39 = phi ptr [ %7, %for.cond12.preheader ], [ %34, %for.inc ]
   %inc52 = add i32 %dy.098, 1
   %conv5 = zext i32 %inc52 to i64
-  %_M_finish.i19 = getelementptr inbounds %"class.std::vector.0", ptr %47, i64 %conv106, i32 0, i32 0, i32 0, i32 1
-  %48 = load ptr, ptr %_M_finish.i19, align 8
-  %sub.ptr.lhs.cast.i20 = ptrtoint ptr %48 to i64
+  %_M_finish.i19 = getelementptr inbounds %"class.std::vector.0", ptr %39, i64 %conv106, i32 0, i32 0, i32 0, i32 1
+  %40 = load ptr, ptr %_M_finish.i19, align 8
+  %sub.ptr.lhs.cast.i20 = ptrtoint ptr %40 to i64
   %sub.ptr.rhs.cast.i21 = ptrtoint ptr %.pre109 to i64
   %sub.ptr.sub.i22 = sub i64 %sub.ptr.lhs.cast.i20, %sub.ptr.rhs.cast.i21
   %sub.ptr.div.i23 = sdiv exact i64 %sub.ptr.sub.i22, 24
@@ -1159,12 +1102,12 @@ for.inc54.loopexit:                               ; preds = %for.inc51
   br label %for.inc54
 
 for.inc54:                                        ; preds = %for.inc54.loopexit, %for.cond4.preheader
-  %49 = phi ptr [ %46, %for.inc54.loopexit ], [ %2, %for.cond4.preheader ]
-  %50 = phi ptr [ %.pre108, %for.inc54.loopexit ], [ %3, %for.cond4.preheader ]
+  %41 = phi ptr [ %38, %for.inc54.loopexit ], [ %2, %for.cond4.preheader ]
+  %42 = phi ptr [ %.pre108, %for.inc54.loopexit ], [ %3, %for.cond4.preheader ]
   %inc55 = add i32 %l.0105, 1
   %conv = zext i32 %inc55 to i64
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %50 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %49 to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %42 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %41 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
   %cmp = icmp ugt i64 %sub.ptr.div.i, %conv
@@ -1172,6 +1115,12 @@ for.inc54:                                        ; preds = %for.inc54.loopexit,
 
 for.end56:                                        ; preds = %for.inc54, %if.end46, %entry
   ret void
+
+eh.resume:                                        ; preds = %lpad40, %lpad
+  %exception39.sink = phi ptr [ %exception39, %lpad40 ], [ %exception, %lpad ]
+  %.pn = phi { ptr, i32 } [ %31, %lpad40 ], [ %25, %lpad ]
+  call void @__cxa_free_exception(ptr %exception39.sink) #25
+  resume { ptr, i32 } %.pn
 }
 
 declare void @_ZN7Iex_3_25IoExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef) unnamed_addr #0
@@ -1363,24 +1312,42 @@ entry:
 sw.bb:                                            ; preds = %entry
   %_offsets = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_offsets, align 8
+  %conv = sext i32 %dy to i64
+  %2 = load ptr, ptr %1, align 8
+  %add.ptr.i = getelementptr inbounds %"class.std::vector.5", ptr %2, i64 %conv
+  %conv3 = sext i32 %dx to i64
+  %3 = load ptr, ptr %add.ptr.i, align 8
+  %add.ptr.i6 = getelementptr inbounds i64, ptr %3, i64 %conv3
   br label %return
 
 sw.bb5:                                           ; preds = %entry
   %_offsets6 = getelementptr inbounds i8, ptr %this, i64 16
   %conv7 = sext i32 %lx to i64
-  %2 = load ptr, ptr %_offsets6, align 8
-  %add.ptr.i7 = getelementptr inbounds %"class.std::vector.0", ptr %2, i64 %conv7
+  %4 = load ptr, ptr %_offsets6, align 8
+  %add.ptr.i7 = getelementptr inbounds %"class.std::vector.0", ptr %4, i64 %conv7
+  %conv9 = sext i32 %dy to i64
+  %5 = load ptr, ptr %add.ptr.i7, align 8
+  %add.ptr.i8 = getelementptr inbounds %"class.std::vector.5", ptr %5, i64 %conv9
+  %conv11 = sext i32 %dx to i64
+  %6 = load ptr, ptr %add.ptr.i8, align 8
+  %add.ptr.i9 = getelementptr inbounds i64, ptr %6, i64 %conv11
   br label %return
 
 sw.bb13:                                          ; preds = %entry
   %_offsets14 = getelementptr inbounds i8, ptr %this, i64 16
   %_numXLevels = getelementptr inbounds i8, ptr %this, i64 4
-  %3 = load i32, ptr %_numXLevels, align 4
-  %mul = mul nsw i32 %3, %ly
+  %7 = load i32, ptr %_numXLevels, align 4
+  %mul = mul nsw i32 %7, %ly
   %add = add nsw i32 %mul, %lx
   %conv15 = sext i32 %add to i64
-  %4 = load ptr, ptr %_offsets14, align 8
-  %add.ptr.i10 = getelementptr inbounds %"class.std::vector.0", ptr %4, i64 %conv15
+  %8 = load ptr, ptr %_offsets14, align 8
+  %add.ptr.i10 = getelementptr inbounds %"class.std::vector.0", ptr %8, i64 %conv15
+  %conv17 = sext i32 %dy to i64
+  %9 = load ptr, ptr %add.ptr.i10, align 8
+  %add.ptr.i11 = getelementptr inbounds %"class.std::vector.5", ptr %9, i64 %conv17
+  %conv19 = sext i32 %dx to i64
+  %10 = load ptr, ptr %add.ptr.i11, align 8
+  %add.ptr.i12 = getelementptr inbounds i64, ptr %10, i64 %conv19
   br label %return
 
 sw.default:                                       ; preds = %entry
@@ -1393,20 +1360,14 @@ invoke.cont:                                      ; preds = %sw.default
   unreachable
 
 lpad:                                             ; preds = %sw.default
-  %5 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_free_exception(ptr %exception) #25
-  resume { ptr, i32 } %5
+  resume { ptr, i32 } %11
 
 return:                                           ; preds = %sw.bb13, %sw.bb5, %sw.bb
-  %add.ptr.i10.sink = phi ptr [ %add.ptr.i10, %sw.bb13 ], [ %add.ptr.i7, %sw.bb5 ], [ %1, %sw.bb ]
-  %conv17 = sext i32 %dy to i64
-  %6 = load ptr, ptr %add.ptr.i10.sink, align 8
-  %add.ptr.i11 = getelementptr inbounds %"class.std::vector.5", ptr %6, i64 %conv17
-  %conv19 = sext i32 %dx to i64
-  %7 = load ptr, ptr %add.ptr.i11, align 8
-  %add.ptr.i12 = getelementptr inbounds i64, ptr %7, i64 %conv19
-  ret ptr %add.ptr.i12
+  %retval.0 = phi ptr [ %add.ptr.i12, %sw.bb13 ], [ %add.ptr.i9, %sw.bb5 ], [ %add.ptr.i6, %sw.bb ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2628,62 +2589,10 @@ return:                                           ; preds = %for.inc31, %for.bod
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN7Imf_3_211TileOffsetsclEiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i32 noundef %dx, i32 noundef %dy, i32 noundef %l) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN7Imf_3_211TileOffsetsclEiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i32 noundef %dx, i32 noundef %dy, i32 noundef %l) local_unnamed_addr #3 align 2 {
 entry:
-  %0 = load i32, ptr %this, align 8
-  switch i32 %0, label %sw.default.i [
-    i32 0, label %sw.bb.i
-    i32 1, label %sw.bb5.i
-    i32 2, label %sw.bb13.i
-  ]
-
-sw.bb.i:                                          ; preds = %entry
-  %_offsets.i = getelementptr inbounds i8, ptr %this, i64 16
-  %1 = load ptr, ptr %_offsets.i, align 8
-  br label %_ZN7Imf_3_211TileOffsetsclEiiii.exit
-
-sw.bb5.i:                                         ; preds = %entry
-  %_offsets6.i = getelementptr inbounds i8, ptr %this, i64 16
-  %conv7.i = sext i32 %l to i64
-  %2 = load ptr, ptr %_offsets6.i, align 8
-  %add.ptr.i7.i = getelementptr inbounds %"class.std::vector.0", ptr %2, i64 %conv7.i
-  br label %_ZN7Imf_3_211TileOffsetsclEiiii.exit
-
-sw.bb13.i:                                        ; preds = %entry
-  %_offsets14.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_numXLevels.i = getelementptr inbounds i8, ptr %this, i64 4
-  %3 = load i32, ptr %_numXLevels.i, align 4
-  %mul.i2 = add i32 %3, 1
-  %add.i = mul i32 %mul.i2, %l
-  %conv15.i = sext i32 %add.i to i64
-  %4 = load ptr, ptr %_offsets14.i, align 8
-  %add.ptr.i10.i = getelementptr inbounds %"class.std::vector.0", ptr %4, i64 %conv15.i
-  br label %_ZN7Imf_3_211TileOffsetsclEiiii.exit
-
-sw.default.i:                                     ; preds = %entry
-  %exception.i = tail call ptr @__cxa_allocate_exception(i64 72) #25
-  invoke void @_ZN7Iex_3_26ArgExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %exception.i, ptr noundef nonnull @.str.6)
-          to label %invoke.cont.i unwind label %lpad.i
-
-invoke.cont.i:                                    ; preds = %sw.default.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN7Iex_3_26ArgExcE, ptr nonnull @_ZN7Iex_3_26ArgExcD1Ev) #24
-  unreachable
-
-lpad.i:                                           ; preds = %sw.default.i
-  %5 = landingpad { ptr, i32 }
-          cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #25
-  resume { ptr, i32 } %5
-
-_ZN7Imf_3_211TileOffsetsclEiiii.exit:             ; preds = %sw.bb.i, %sw.bb5.i, %sw.bb13.i
-  %add.ptr.i10.sink.i = phi ptr [ %add.ptr.i10.i, %sw.bb13.i ], [ %add.ptr.i7.i, %sw.bb5.i ], [ %1, %sw.bb.i ]
-  %conv17.i = sext i32 %dy to i64
-  %6 = load ptr, ptr %add.ptr.i10.sink.i, align 8
-  %add.ptr.i11.i = getelementptr inbounds %"class.std::vector.5", ptr %6, i64 %conv17.i
-  %conv19.i = sext i32 %dx to i64
-  %7 = load ptr, ptr %add.ptr.i11.i, align 8
-  %add.ptr.i12.i = getelementptr inbounds i64, ptr %7, i64 %conv19.i
-  ret ptr %add.ptr.i12.i
+  %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7Imf_3_211TileOffsetsclEiiii(ptr noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %dx, i32 noundef %dy, i32 noundef %l, i32 noundef %l)
+  ret ptr %call
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2699,24 +2608,42 @@ entry:
 sw.bb:                                            ; preds = %entry
   %_offsets = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_offsets, align 8
+  %conv = sext i32 %dy to i64
+  %2 = load ptr, ptr %1, align 8
+  %add.ptr.i = getelementptr inbounds %"class.std::vector.5", ptr %2, i64 %conv
+  %conv3 = sext i32 %dx to i64
+  %3 = load ptr, ptr %add.ptr.i, align 8
+  %add.ptr.i6 = getelementptr inbounds i64, ptr %3, i64 %conv3
   br label %return
 
 sw.bb5:                                           ; preds = %entry
   %_offsets6 = getelementptr inbounds i8, ptr %this, i64 16
   %conv7 = sext i32 %lx to i64
-  %2 = load ptr, ptr %_offsets6, align 8
-  %add.ptr.i7 = getelementptr inbounds %"class.std::vector.0", ptr %2, i64 %conv7
+  %4 = load ptr, ptr %_offsets6, align 8
+  %add.ptr.i7 = getelementptr inbounds %"class.std::vector.0", ptr %4, i64 %conv7
+  %conv9 = sext i32 %dy to i64
+  %5 = load ptr, ptr %add.ptr.i7, align 8
+  %add.ptr.i8 = getelementptr inbounds %"class.std::vector.5", ptr %5, i64 %conv9
+  %conv11 = sext i32 %dx to i64
+  %6 = load ptr, ptr %add.ptr.i8, align 8
+  %add.ptr.i9 = getelementptr inbounds i64, ptr %6, i64 %conv11
   br label %return
 
 sw.bb13:                                          ; preds = %entry
   %_offsets14 = getelementptr inbounds i8, ptr %this, i64 16
   %_numXLevels = getelementptr inbounds i8, ptr %this, i64 4
-  %3 = load i32, ptr %_numXLevels, align 4
-  %mul = mul nsw i32 %3, %ly
+  %7 = load i32, ptr %_numXLevels, align 4
+  %mul = mul nsw i32 %7, %ly
   %add = add nsw i32 %mul, %lx
   %conv15 = sext i32 %add to i64
-  %4 = load ptr, ptr %_offsets14, align 8
-  %add.ptr.i10 = getelementptr inbounds %"class.std::vector.0", ptr %4, i64 %conv15
+  %8 = load ptr, ptr %_offsets14, align 8
+  %add.ptr.i10 = getelementptr inbounds %"class.std::vector.0", ptr %8, i64 %conv15
+  %conv17 = sext i32 %dy to i64
+  %9 = load ptr, ptr %add.ptr.i10, align 8
+  %add.ptr.i11 = getelementptr inbounds %"class.std::vector.5", ptr %9, i64 %conv17
+  %conv19 = sext i32 %dx to i64
+  %10 = load ptr, ptr %add.ptr.i11, align 8
+  %add.ptr.i12 = getelementptr inbounds i64, ptr %10, i64 %conv19
   br label %return
 
 sw.default:                                       ; preds = %entry
@@ -2729,79 +2656,21 @@ invoke.cont:                                      ; preds = %sw.default
   unreachable
 
 lpad:                                             ; preds = %sw.default
-  %5 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_free_exception(ptr %exception) #25
-  resume { ptr, i32 } %5
+  resume { ptr, i32 } %11
 
 return:                                           ; preds = %sw.bb13, %sw.bb5, %sw.bb
-  %add.ptr.i10.sink = phi ptr [ %add.ptr.i10, %sw.bb13 ], [ %add.ptr.i7, %sw.bb5 ], [ %1, %sw.bb ]
-  %conv17 = sext i32 %dy to i64
-  %6 = load ptr, ptr %add.ptr.i10.sink, align 8
-  %add.ptr.i11 = getelementptr inbounds %"class.std::vector.5", ptr %6, i64 %conv17
-  %conv19 = sext i32 %dx to i64
-  %7 = load ptr, ptr %add.ptr.i11, align 8
-  %add.ptr.i12 = getelementptr inbounds i64, ptr %7, i64 %conv19
-  ret ptr %add.ptr.i12
+  %retval.0 = phi ptr [ %add.ptr.i12, %sw.bb13 ], [ %add.ptr.i9, %sw.bb5 ], [ %add.ptr.i6, %sw.bb ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_211TileOffsetsclEiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i32 noundef %dx, i32 noundef %dy, i32 noundef %l) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_211TileOffsetsclEiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i32 noundef %dx, i32 noundef %dy, i32 noundef %l) local_unnamed_addr #3 align 2 {
 entry:
-  %0 = load i32, ptr %this, align 8
-  switch i32 %0, label %sw.default.i [
-    i32 0, label %sw.bb.i
-    i32 1, label %sw.bb5.i
-    i32 2, label %sw.bb13.i
-  ]
-
-sw.bb.i:                                          ; preds = %entry
-  %_offsets.i = getelementptr inbounds i8, ptr %this, i64 16
-  %1 = load ptr, ptr %_offsets.i, align 8
-  br label %_ZNK7Imf_3_211TileOffsetsclEiiii.exit
-
-sw.bb5.i:                                         ; preds = %entry
-  %_offsets6.i = getelementptr inbounds i8, ptr %this, i64 16
-  %conv7.i = sext i32 %l to i64
-  %2 = load ptr, ptr %_offsets6.i, align 8
-  %add.ptr.i7.i = getelementptr inbounds %"class.std::vector.0", ptr %2, i64 %conv7.i
-  br label %_ZNK7Imf_3_211TileOffsetsclEiiii.exit
-
-sw.bb13.i:                                        ; preds = %entry
-  %_offsets14.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_numXLevels.i = getelementptr inbounds i8, ptr %this, i64 4
-  %3 = load i32, ptr %_numXLevels.i, align 4
-  %mul.i2 = add i32 %3, 1
-  %add.i = mul i32 %mul.i2, %l
-  %conv15.i = sext i32 %add.i to i64
-  %4 = load ptr, ptr %_offsets14.i, align 8
-  %add.ptr.i10.i = getelementptr inbounds %"class.std::vector.0", ptr %4, i64 %conv15.i
-  br label %_ZNK7Imf_3_211TileOffsetsclEiiii.exit
-
-sw.default.i:                                     ; preds = %entry
-  %exception.i = tail call ptr @__cxa_allocate_exception(i64 72) #25
-  invoke void @_ZN7Iex_3_26ArgExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %exception.i, ptr noundef nonnull @.str.6)
-          to label %invoke.cont.i unwind label %lpad.i
-
-invoke.cont.i:                                    ; preds = %sw.default.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN7Iex_3_26ArgExcE, ptr nonnull @_ZN7Iex_3_26ArgExcD1Ev) #24
-  unreachable
-
-lpad.i:                                           ; preds = %sw.default.i
-  %5 = landingpad { ptr, i32 }
-          cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #25
-  resume { ptr, i32 } %5
-
-_ZNK7Imf_3_211TileOffsetsclEiiii.exit:            ; preds = %sw.bb.i, %sw.bb5.i, %sw.bb13.i
-  %add.ptr.i10.sink.i = phi ptr [ %add.ptr.i10.i, %sw.bb13.i ], [ %add.ptr.i7.i, %sw.bb5.i ], [ %1, %sw.bb.i ]
-  %conv17.i = sext i32 %dy to i64
-  %6 = load ptr, ptr %add.ptr.i10.sink.i, align 8
-  %add.ptr.i11.i = getelementptr inbounds %"class.std::vector.5", ptr %6, i64 %conv17.i
-  %conv19.i = sext i32 %dx to i64
-  %7 = load ptr, ptr %add.ptr.i11.i, align 8
-  %add.ptr.i12.i = getelementptr inbounds i64, ptr %7, i64 %conv19.i
-  ret ptr %add.ptr.i12.i
+  %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_211TileOffsetsclEiiii(ptr noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %dx, i32 noundef %dy, i32 noundef %l, i32 noundef %l)
+  ret ptr %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

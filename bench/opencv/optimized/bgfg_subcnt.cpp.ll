@@ -759,6 +759,7 @@ _ZN2cv4Mat_INS_3VecIiLi4EEEEaSERKNS_7MatExprE.exit: ; preds = %_ZN2cv4Mat_INS_3V
   %133 = getelementptr inbounds i8, ptr %114, i64 32
   store ptr %127, ptr %133, align 8
   %134 = getelementptr inbounds i8, ptr %114, i64 40
+  store ptr %10, ptr %134, align 8
   br label %149
 
 135:                                              ; preds = %108
@@ -782,12 +783,11 @@ _ZN2cv4Mat_INS_3VecIiLi4EEEEaSERKNS_7MatExprE.exit: ; preds = %_ZN2cv4Mat_INS_3V
   %147 = getelementptr inbounds i8, ptr %136, i64 24
   store ptr %143, ptr %147, align 8
   %148 = getelementptr inbounds i8, ptr %136, i64 32
+  store ptr %10, ptr %148, align 8
   br label %149
 
 149:                                              ; preds = %137, %115
-  %.sink = phi ptr [ %148, %137 ], [ %134, %115 ]
-  %.046 = phi ptr [ %136, %137 ], [ %114, %115 ]
-  store ptr %10, ptr %.sink, align 8
+  %.046 = phi ptr [ %114, %115 ], [ %136, %137 ]
   %150 = getelementptr inbounds i8, ptr %0, i64 21
   %151 = load i8, ptr %150, align 1
   %152 = trunc i8 %151 to i1

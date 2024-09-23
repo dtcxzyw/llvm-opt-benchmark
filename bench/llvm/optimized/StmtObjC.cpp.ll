@@ -219,7 +219,7 @@ define dso_local i32 @_ZNK5clang13ObjCAtTryStmt9getEndLocEv(ptr nocapture nounde
   %3 = load i8, ptr %2, align 2
   %4 = and i8 %3, 1
   %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %11, label %_ZNK5clang13ObjCAtTryStmt14getFinallyStmtEv.exit
+  br i1 %.not, label %13, label %_ZNK5clang13ObjCAtTryStmt14getFinallyStmtEv.exit
 
 _ZNK5clang13ObjCAtTryStmt14getFinallyStmtEv.exit: ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -228,31 +228,29 @@ _ZNK5clang13ObjCAtTryStmt14getFinallyStmtEv.exit: ; preds = %1
   %8 = zext i16 %7 to i64
   %9 = getelementptr inbounds ptr, ptr %5, i64 %8
   %10 = getelementptr inbounds i8, ptr %9, i64 8
-  br label %.sink.split
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  br label %22
 
-11:                                               ; preds = %1
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %13 = load i16, ptr %12, align 4
-  %.not1 = icmp eq i16 %13, 0
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
-  br i1 %.not1, label %20, label %15
+13:                                               ; preds = %1
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %15 = load i16, ptr %14, align 4
+  %.not1 = icmp eq i16 %15, 0
+  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  br i1 %.not1, label %22, label %17
 
-15:                                               ; preds = %11
-  %16 = zext i16 %13 to i64
-  %17 = getelementptr inbounds ptr, ptr %14, i64 %16
-  br label %.sink.split
+17:                                               ; preds = %13
+  %18 = zext i16 %15 to i64
+  %19 = getelementptr inbounds ptr, ptr %16, i64 %18
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  br label %22
 
-.sink.split:                                      ; preds = %_ZNK5clang13ObjCAtTryStmt14getFinallyStmtEv.exit, %15
-  %.sink3 = phi ptr [ %17, %15 ], [ %10, %_ZNK5clang13ObjCAtTryStmt14getFinallyStmtEv.exit ]
-  %18 = load ptr, ptr %.sink3, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  br label %20
-
-20:                                               ; preds = %.sink.split, %11
-  %.sink2 = phi ptr [ %14, %11 ], [ %19, %.sink.split ]
-  %21 = load ptr, ptr %.sink2, align 8
-  %22 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %21) #6
-  ret i32 %22
+22:                                               ; preds = %13, %17, %_ZNK5clang13ObjCAtTryStmt14getFinallyStmtEv.exit
+  %.sink.in = phi ptr [ %21, %17 ], [ %12, %_ZNK5clang13ObjCAtTryStmt14getFinallyStmtEv.exit ], [ %16, %13 ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %23 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #6
+  ret i32 %23
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)

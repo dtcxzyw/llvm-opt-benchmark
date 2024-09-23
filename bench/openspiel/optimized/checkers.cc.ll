@@ -660,6 +660,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   store ptr null, ptr %18, align 8
   store ptr %21, ptr %25, align 8
   store ptr %21, ptr %28, align 8
+  store i64 0, ptr %32, align 8
   br label %_ZN10open_spiel13GameParameterC2EOS0_.exit
 
 35:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -671,11 +672,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %38 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %17, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 128
+  store i64 0, ptr %39, align 8
   br label %_ZN10open_spiel13GameParameterC2EOS0_.exit
 
 _ZN10open_spiel13GameParameterC2EOS0_.exit:       ; preds = %20, %35
-  %.sink.i.i.i.i.i = phi ptr [ %39, %35 ], [ %32, %20 ]
-  store i64 0, ptr %.sink.i.i.i.i.i, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %42 = load i32, ptr %41, align 8
@@ -758,6 +758,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   store ptr null, ptr %18, align 8
   store ptr %21, ptr %25, align 8
   store ptr %21, ptr %28, align 8
+  store i64 0, ptr %32, align 8
   br label %_ZN10open_spiel13GameParameterC2EOS0_.exit
 
 35:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -769,11 +770,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %38 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %17, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 128
+  store i64 0, ptr %39, align 8
   br label %_ZN10open_spiel13GameParameterC2EOS0_.exit
 
 _ZN10open_spiel13GameParameterC2EOS0_.exit:       ; preds = %20, %35
-  %.sink.i.i.i.i.i = phi ptr [ %39, %35 ], [ %32, %20 ]
-  store i64 0, ptr %.sink.i.i.i.i.i, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %42 = load i32, ptr %41, align 8
@@ -4927,37 +4927,43 @@ define void @_ZNK10open_spiel8checkers13CheckersState7ReturnsEv(ptr dead_on_unwi
   %10 = getelementptr inbounds i8, ptr %9, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %10, ptr %11, align 8
-  br i1 %or.cond, label %12, label %13
+  br i1 %or.cond, label %12, label %14
 
 12:                                               ; preds = %2
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
-  br label %17
+  store ptr %10, ptr %13, align 8
+  br label %21
 
-13:                                               ; preds = %2
-  switch i32 %4, label %16 [
-    i32 0, label %14
-    i32 1, label %15
+14:                                               ; preds = %2
+  switch i32 %4, label %19 [
+    i32 0, label %15
+    i32 1, label %17
   ]
 
-14:                                               ; preds = %13
+15:                                               ; preds = %14
   store double 1.000000e+00, ptr %9, align 8
   %.sroa.231.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
   store double -1.000000e+00, ptr %.sroa.231.0..sroa_idx, align 8
-  br label %17
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %10, ptr %16, align 8
+  br label %21
 
-15:                                               ; preds = %13
+17:                                               ; preds = %14
   store double -1.000000e+00, ptr %9, align 8
   %.sroa.229.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
   store double 1.000000e+00, ptr %.sroa.229.0..sroa_idx, align 8
-  br label %17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %10, ptr %18, align 8
+  br label %21
 
-16:                                               ; preds = %13
+19:                                               ; preds = %14
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
-  br label %17
+  store ptr %10, ptr %20, align 8
+  br label %21
 
-17:                                               ; preds = %16, %15, %14, %12
-  %.sink = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %10, ptr %.sink, align 8
+21:                                               ; preds = %19, %17, %15, %12
   ret void
 }
 
@@ -5737,7 +5743,7 @@ define void @_ZN10open_spiel8checkers13CheckersState10UndoActionEil(ptr nocaptur
 22:                                               ; preds = %20
   %23 = landingpad { ptr, i32 }
           cleanup
-  br label %104
+  br label %107
 
 24:                                               ; preds = %3
   %25 = getelementptr inbounds i8, ptr %16, i64 -24
@@ -5759,7 +5765,7 @@ define void @_ZN10open_spiel8checkers13CheckersState10UndoActionEil(ptr nocaptur
 30:                                               ; preds = %28
   %31 = landingpad { ptr, i32 }
           cleanup
-  br label %104
+  br label %107
 
 32:                                               ; preds = %24
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -5773,9 +5779,9 @@ define void @_ZN10open_spiel8checkers13CheckersState10UndoActionEil(ptr nocaptur
   %38 = getelementptr inbounds i8, ptr %16, i64 -8
   %39 = load i32, ptr %38, align 8
   %40 = tail call noundef i32 @_ZN10open_spiel8checkers28GetPieceStateFromTurnHistoryEii(i32 noundef %1, i32 noundef %39)
-  switch i32 %.sroa.16.8.extract.trunc, label %98 [
+  switch i32 %.sroa.16.8.extract.trunc, label %101 [
     i32 0, label %41
-    i32 1, label %60
+    i32 1, label %63
   ]
 
 41:                                               ; preds = %32
@@ -5799,72 +5805,70 @@ define void @_ZN10open_spiel8checkers13CheckersState10UndoActionEil(ptr nocaptur
   %57 = load i32, ptr %50, align 4
   %58 = mul nsw i32 %57, %45
   %59 = add nsw i32 %48, %58
-  br label %.sink.split
+  %60 = sext i32 %59 to i64
+  %61 = load ptr, ptr %49, align 8
+  %62 = getelementptr inbounds i32, ptr %61, i64 %60
+  store i32 0, ptr %62, align 4
+  br label %101
 
-60:                                               ; preds = %32
+63:                                               ; preds = %32
   %sext = shl i64 %14, 32
-  %61 = ashr exact i64 %sext, 32
-  %62 = getelementptr inbounds [4 x i32], ptr @_ZN10open_spiel8checkers12_GLOBAL__N_114kDirRowOffsetsE, i64 0, i64 %61
-  %63 = load i32, ptr %62, align 4
-  %64 = shl nsw i32 %63, 1
-  %65 = add nsw i32 %64, %.sroa.0.0.extract.trunc
-  %66 = getelementptr inbounds [4 x i32], ptr @_ZN10open_spiel8checkers12_GLOBAL__N_117kDirColumnOffsetsE, i64 0, i64 %61
-  %67 = load i32, ptr %66, align 4
-  %68 = shl nsw i32 %67, 1
-  %69 = add nsw i32 %68, %.sroa.6.0.extract.trunc
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %72 = load i32, ptr %71, align 4
-  %73 = mul nsw i32 %72, %.sroa.0.0.extract.trunc
-  %74 = add nsw i32 %73, %.sroa.6.0.extract.trunc
-  %75 = sext i32 %74 to i64
-  %76 = load ptr, ptr %70, align 8
-  %77 = getelementptr inbounds i32, ptr %76, i64 %75
-  store i32 %40, ptr %77, align 4
-  %78 = load i32, ptr %71, align 4
-  %79 = mul nsw i32 %78, %65
-  %80 = add nsw i32 %79, %69
-  %81 = sext i32 %80 to i64
-  %82 = load ptr, ptr %70, align 8
-  %83 = getelementptr inbounds i32, ptr %82, i64 %81
-  store i32 0, ptr %83, align 4
-  %84 = sub nsw i32 1, %1
-  %85 = getelementptr inbounds i8, ptr %16, i64 -12
-  %86 = load i32, ptr %85, align 4
-  %87 = tail call noundef i32 @_ZN10open_spiel8checkers28GetPieceStateFromTurnHistoryEii(i32 noundef %84, i32 noundef %86)
-  %88 = add nsw i32 %65, %.sroa.0.0.extract.trunc
-  %89 = sdiv i32 %88, 2
-  %90 = add nsw i32 %69, %.sroa.6.0.extract.trunc
-  %91 = sdiv i32 %90, 2
-  %92 = load i32, ptr %71, align 4
-  %93 = mul nsw i32 %92, %89
-  %94 = add nsw i32 %93, %91
-  br label %.sink.split
+  %64 = ashr exact i64 %sext, 32
+  %65 = getelementptr inbounds [4 x i32], ptr @_ZN10open_spiel8checkers12_GLOBAL__N_114kDirRowOffsetsE, i64 0, i64 %64
+  %66 = load i32, ptr %65, align 4
+  %67 = shl nsw i32 %66, 1
+  %68 = add nsw i32 %67, %.sroa.0.0.extract.trunc
+  %69 = getelementptr inbounds [4 x i32], ptr @_ZN10open_spiel8checkers12_GLOBAL__N_117kDirColumnOffsetsE, i64 0, i64 %64
+  %70 = load i32, ptr %69, align 4
+  %71 = shl nsw i32 %70, 1
+  %72 = add nsw i32 %71, %.sroa.6.0.extract.trunc
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %75 = load i32, ptr %74, align 4
+  %76 = mul nsw i32 %75, %.sroa.0.0.extract.trunc
+  %77 = add nsw i32 %76, %.sroa.6.0.extract.trunc
+  %78 = sext i32 %77 to i64
+  %79 = load ptr, ptr %73, align 8
+  %80 = getelementptr inbounds i32, ptr %79, i64 %78
+  store i32 %40, ptr %80, align 4
+  %81 = load i32, ptr %74, align 4
+  %82 = mul nsw i32 %81, %68
+  %83 = add nsw i32 %82, %72
+  %84 = sext i32 %83 to i64
+  %85 = load ptr, ptr %73, align 8
+  %86 = getelementptr inbounds i32, ptr %85, i64 %84
+  store i32 0, ptr %86, align 4
+  %87 = sub nsw i32 1, %1
+  %88 = getelementptr inbounds i8, ptr %16, i64 -12
+  %89 = load i32, ptr %88, align 4
+  %90 = tail call noundef i32 @_ZN10open_spiel8checkers28GetPieceStateFromTurnHistoryEii(i32 noundef %87, i32 noundef %89)
+  %91 = add nsw i32 %68, %.sroa.0.0.extract.trunc
+  %92 = sdiv i32 %91, 2
+  %93 = add nsw i32 %72, %.sroa.6.0.extract.trunc
+  %94 = sdiv i32 %93, 2
+  %95 = load i32, ptr %74, align 4
+  %96 = mul nsw i32 %95, %92
+  %97 = add nsw i32 %96, %94
+  %98 = sext i32 %97 to i64
+  %99 = load ptr, ptr %73, align 8
+  %100 = getelementptr inbounds i32, ptr %99, i64 %98
+  store i32 %90, ptr %100, align 4
+  br label %101
 
-.sink.split:                                      ; preds = %41, %60
-  %.sink40 = phi i32 [ %94, %60 ], [ %59, %41 ]
-  %.sink39 = phi ptr [ %70, %60 ], [ %49, %41 ]
-  %.sink = phi i32 [ %87, %60 ], [ 0, %41 ]
-  %95 = sext i32 %.sink40 to i64
-  %96 = load ptr, ptr %.sink39, align 8
-  %97 = getelementptr inbounds i32, ptr %96, i64 %95
-  store i32 %.sink, ptr %97, align 4
-  br label %98
-
-98:                                               ; preds = %.sink.split, %32
-  %99 = load ptr, ptr %15, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 -24
-  store ptr %100, ptr %15, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 -16
-  store ptr %103, ptr %101, align 8
+101:                                              ; preds = %63, %41, %32
+  %102 = load ptr, ptr %15, align 8
+  %103 = getelementptr inbounds i8, ptr %102, i64 -24
+  store ptr %103, ptr %15, align 8
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %105 = load ptr, ptr %104, align 8
+  %106 = getelementptr inbounds i8, ptr %105, i64 -16
+  store ptr %106, ptr %104, align 8
   ret void
 
-104:                                              ; preds = %30, %22
-  %.sink41 = phi ptr [ %10, %30 ], [ %6, %22 ]
+107:                                              ; preds = %30, %22
+  %.sink = phi ptr [ %10, %30 ], [ %6, %22 ]
   %.pn = phi { ptr, i32 } [ %31, %30 ], [ %23, %22 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink41) #24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #24
   resume { ptr, i32 } %.pn
 }
 

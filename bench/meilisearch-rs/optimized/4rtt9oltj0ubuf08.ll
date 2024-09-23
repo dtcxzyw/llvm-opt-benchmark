@@ -128569,57 +128569,75 @@ _ZN4core10intrinsics10typed_swap17hdab03f9ab1af2008E.llvm.8265446259410684974.ex
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden { ptr, ptr } @"_ZN5alloc11collections11linked_list23LinkedList$LT$T$C$A$GT$14pop_front_node17h6074b0ee3266dc6eE.llvm.8265446259410684974"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #29 {
   %2 = load ptr, ptr %0, align 8, !noundef !4
-  %3 = icmp eq ptr %2, null
-  br i1 %3, label %13, label %4
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = icmp eq ptr %2, null
+  br i1 %5, label %15, label %6
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %2, i64 24
   %8 = load ptr, ptr %7, align 8, !noalias !18989, !noundef !4
   store ptr %8, ptr %0, align 8, !noalias !18989
   %9 = icmp eq ptr %8, null
-  %10 = getelementptr inbounds i8, ptr %8, i64 32
-  %.sink.i = select i1 %9, ptr %6, ptr %10
-  store ptr null, ptr %.sink.i, align 8, !noalias !18989
-  %11 = load i64, ptr %5, align 8, !noalias !18989, !noundef !4
-  %12 = add i64 %11, -1
-  store i64 %12, ptr %5, align 8, !noalias !18989
-  br label %13
+  br i1 %9, label %10, label %11
 
-13:                                               ; preds = %1, %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
-  %15 = insertvalue { ptr, ptr } poison, ptr %2, 0
-  %16 = insertvalue { ptr, ptr } %15, ptr %14, 1
-  ret { ptr, ptr } %16
+10:                                               ; preds = %6
+  store ptr null, ptr %3, align 8, !noalias !18989
+  br label %"_ZN5alloc11collections11linked_list23LinkedList$LT$T$C$A$GT$14pop_front_node28_$u7b$$u7b$closure$u7d$$u7d$17hae496fc659d2a147E.llvm.8265446259410684974.exit"
+
+11:                                               ; preds = %6
+  %12 = getelementptr inbounds i8, ptr %8, i64 32
+  store ptr null, ptr %12, align 8, !noalias !18989
+  br label %"_ZN5alloc11collections11linked_list23LinkedList$LT$T$C$A$GT$14pop_front_node28_$u7b$$u7b$closure$u7d$$u7d$17hae496fc659d2a147E.llvm.8265446259410684974.exit"
+
+"_ZN5alloc11collections11linked_list23LinkedList$LT$T$C$A$GT$14pop_front_node28_$u7b$$u7b$closure$u7d$$u7d$17hae496fc659d2a147E.llvm.8265446259410684974.exit": ; preds = %10, %11
+  %13 = load i64, ptr %4, align 8, !noalias !18989, !noundef !4
+  %14 = add i64 %13, -1
+  store i64 %14, ptr %4, align 8, !noalias !18989
+  br label %15
+
+15:                                               ; preds = %1, %"_ZN5alloc11collections11linked_list23LinkedList$LT$T$C$A$GT$14pop_front_node28_$u7b$$u7b$closure$u7d$$u7d$17hae496fc659d2a147E.llvm.8265446259410684974.exit"
+  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = insertvalue { ptr, ptr } poison, ptr %2, 0
+  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
+  ret { ptr, ptr } %18
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden { ptr, ptr } @"_ZN5alloc11collections11linked_list23LinkedList$LT$T$C$A$GT$14pop_front_node17h6c1a30c45c304779E.llvm.8265446259410684974"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #29 {
   %2 = load ptr, ptr %0, align 8, !noundef !4
-  %3 = icmp eq ptr %2, null
-  br i1 %3, label %13, label %4
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = icmp eq ptr %2, null
+  br i1 %5, label %15, label %6
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %2, i64 24
   %8 = load ptr, ptr %7, align 8, !noalias !18992, !noundef !4
   store ptr %8, ptr %0, align 8, !noalias !18992
   %9 = icmp eq ptr %8, null
-  %10 = getelementptr inbounds i8, ptr %8, i64 32
-  %.sink.i = select i1 %9, ptr %6, ptr %10
-  store ptr null, ptr %.sink.i, align 8, !noalias !18992
-  %11 = load i64, ptr %5, align 8, !noalias !18992, !noundef !4
-  %12 = add i64 %11, -1
-  store i64 %12, ptr %5, align 8, !noalias !18992
-  br label %13
+  br i1 %9, label %10, label %11
 
-13:                                               ; preds = %1, %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
-  %15 = insertvalue { ptr, ptr } poison, ptr %2, 0
-  %16 = insertvalue { ptr, ptr } %15, ptr %14, 1
-  ret { ptr, ptr } %16
+10:                                               ; preds = %6
+  store ptr null, ptr %3, align 8, !noalias !18992
+  br label %"_ZN5alloc11collections11linked_list23LinkedList$LT$T$C$A$GT$14pop_front_node28_$u7b$$u7b$closure$u7d$$u7d$17hf831e933bab92ab7E.llvm.8265446259410684974.exit"
+
+11:                                               ; preds = %6
+  %12 = getelementptr inbounds i8, ptr %8, i64 32
+  store ptr null, ptr %12, align 8, !noalias !18992
+  br label %"_ZN5alloc11collections11linked_list23LinkedList$LT$T$C$A$GT$14pop_front_node28_$u7b$$u7b$closure$u7d$$u7d$17hf831e933bab92ab7E.llvm.8265446259410684974.exit"
+
+"_ZN5alloc11collections11linked_list23LinkedList$LT$T$C$A$GT$14pop_front_node28_$u7b$$u7b$closure$u7d$$u7d$17hf831e933bab92ab7E.llvm.8265446259410684974.exit": ; preds = %10, %11
+  %13 = load i64, ptr %4, align 8, !noalias !18992, !noundef !4
+  %14 = add i64 %13, -1
+  store i64 %14, ptr %4, align 8, !noalias !18992
+  br label %15
+
+15:                                               ; preds = %1, %"_ZN5alloc11collections11linked_list23LinkedList$LT$T$C$A$GT$14pop_front_node28_$u7b$$u7b$closure$u7d$$u7d$17hf831e933bab92ab7E.llvm.8265446259410684974.exit"
+  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = insertvalue { ptr, ptr } poison, ptr %2, 0
+  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
+  ret { ptr, ptr } %18
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
@@ -128631,19 +128649,28 @@ define hidden { ptr, ptr } @"_ZN5alloc11collections11linked_list23LinkedList$LT$
   %7 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   store ptr %6, ptr %7, align 8
   %8 = icmp eq ptr %6, null
-  %9 = getelementptr inbounds i8, ptr %6, i64 32
+  br i1 %8, label %9, label %12
+
+9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !nonnull !4, !align !5
-  %.sink = select i1 %8, ptr %11, ptr %9
-  store ptr null, ptr %.sink, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  %13 = load ptr, ptr %12, align 8, !nonnull !4, !align !5, !noundef !4
-  %14 = load i64, ptr %13, align 8, !noundef !4
-  %15 = add i64 %14, -1
-  store i64 %15, ptr %13, align 8
-  %16 = insertvalue { ptr, ptr } poison, ptr %1, 0
-  %17 = insertvalue { ptr, ptr } %16, ptr %4, 1
-  ret { ptr, ptr } %17
+  %11 = load ptr, ptr %10, align 8, !nonnull !4, !align !5, !noundef !4
+  store ptr null, ptr %11, align 8
+  br label %14
+
+12:                                               ; preds = %2
+  %13 = getelementptr inbounds i8, ptr %6, i64 32
+  store ptr null, ptr %13, align 8
+  br label %14
+
+14:                                               ; preds = %12, %9
+  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = load ptr, ptr %15, align 8, !nonnull !4, !align !5, !noundef !4
+  %17 = load i64, ptr %16, align 8, !noundef !4
+  %18 = add i64 %17, -1
+  store i64 %18, ptr %16, align 8
+  %19 = insertvalue { ptr, ptr } poison, ptr %1, 0
+  %20 = insertvalue { ptr, ptr } %19, ptr %4, 1
+  ret { ptr, ptr } %20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
@@ -128655,50 +128682,68 @@ define hidden { ptr, ptr } @"_ZN5alloc11collections11linked_list23LinkedList$LT$
   %7 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   store ptr %6, ptr %7, align 8
   %8 = icmp eq ptr %6, null
-  %9 = getelementptr inbounds i8, ptr %6, i64 32
+  br i1 %8, label %9, label %12
+
+9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !nonnull !4, !align !5
-  %.sink = select i1 %8, ptr %11, ptr %9
-  store ptr null, ptr %.sink, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  %13 = load ptr, ptr %12, align 8, !nonnull !4, !align !5, !noundef !4
-  %14 = load i64, ptr %13, align 8, !noundef !4
-  %15 = add i64 %14, -1
-  store i64 %15, ptr %13, align 8
-  %16 = insertvalue { ptr, ptr } poison, ptr %1, 0
-  %17 = insertvalue { ptr, ptr } %16, ptr %4, 1
-  ret { ptr, ptr } %17
+  %11 = load ptr, ptr %10, align 8, !nonnull !4, !align !5, !noundef !4
+  store ptr null, ptr %11, align 8
+  br label %14
+
+12:                                               ; preds = %2
+  %13 = getelementptr inbounds i8, ptr %6, i64 32
+  store ptr null, ptr %13, align 8
+  br label %14
+
+14:                                               ; preds = %12, %9
+  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = load ptr, ptr %15, align 8, !nonnull !4, !align !5, !noundef !4
+  %17 = load i64, ptr %16, align 8, !noundef !4
+  %18 = add i64 %17, -1
+  store i64 %18, ptr %16, align 8
+  %19 = insertvalue { ptr, ptr } poison, ptr %1, 0
+  %20 = insertvalue { ptr, ptr } %19, ptr %4, 1
+  ret { ptr, ptr } %20
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden void @"_ZN5alloc11collections11linked_list23LinkedList$LT$T$C$A$GT$9pop_front17h2df99a1130a94bf0E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #14 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18995)
   %3 = load ptr, ptr %1, align 8, !alias.scope !18995, !noundef !4
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %5, label %6
+  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = icmp eq ptr %3, null
+  br i1 %6, label %14, label %7
 
-5:                                                ; preds = %2
-  store i64 -9223372036854775808, ptr %0, align 8
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds i8, ptr %3, i64 24
+  %9 = load ptr, ptr %8, align 8, !noalias !18998, !noundef !4
+  store ptr %9, ptr %1, align 8, !alias.scope !18995, !noalias !19001
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %7
+  store ptr null, ptr %4, align 8, !alias.scope !18995, !noalias !19001
   br label %15
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 24
-  %10 = load ptr, ptr %9, align 8, !noalias !18998, !noundef !4
-  store ptr %10, ptr %1, align 8, !alias.scope !18995, !noalias !19001
-  %11 = icmp eq ptr %10, null
-  %12 = getelementptr inbounds i8, ptr %10, i64 32
-  %.sink.i.i = select i1 %11, ptr %8, ptr %12
-  store ptr null, ptr %.sink.i.i, align 8, !noalias !19001
-  %13 = load i64, ptr %7, align 8, !alias.scope !18995, !noalias !19001, !noundef !4
-  %14 = add i64 %13, -1
-  store i64 %14, ptr %7, align 8, !alias.scope !18995, !noalias !19001
+12:                                               ; preds = %7
+  %13 = getelementptr inbounds i8, ptr %9, i64 32
+  store ptr null, ptr %13, align 8, !noalias !18998
+  br label %15
+
+14:                                               ; preds = %2
+  store i64 -9223372036854775808, ptr %0, align 8
+  br label %18
+
+15:                                               ; preds = %12, %11
+  %16 = load i64, ptr %5, align 8, !alias.scope !18995, !noalias !19001, !noundef !4
+  %17 = add i64 %16, -1
+  store i64 %17, ptr %5, align 8, !alias.scope !18995, !noalias !19001
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef 40, i64 noundef 8) #47, !noalias !19002
-  br label %15
+  br label %18
 
-15:                                               ; preds = %6, %5
+18:                                               ; preds = %15, %14
   ret void
 }
 
@@ -128706,31 +128751,40 @@ define hidden void @"_ZN5alloc11collections11linked_list23LinkedList$LT$T$C$A$GT
 define hidden void @"_ZN5alloc11collections11linked_list23LinkedList$LT$T$C$A$GT$9pop_front17hac0dd66f59f084d8E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #14 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19009)
   %3 = load ptr, ptr %1, align 8, !alias.scope !19009, !noundef !4
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %5, label %6
+  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = icmp eq ptr %3, null
+  br i1 %6, label %14, label %7
 
-5:                                                ; preds = %2
-  store i64 -9223372036854775808, ptr %0, align 8
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds i8, ptr %3, i64 24
+  %9 = load ptr, ptr %8, align 8, !noalias !19012, !noundef !4
+  store ptr %9, ptr %1, align 8, !alias.scope !19009, !noalias !19015
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %7
+  store ptr null, ptr %4, align 8, !alias.scope !19009, !noalias !19015
   br label %15
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 24
-  %10 = load ptr, ptr %9, align 8, !noalias !19012, !noundef !4
-  store ptr %10, ptr %1, align 8, !alias.scope !19009, !noalias !19015
-  %11 = icmp eq ptr %10, null
-  %12 = getelementptr inbounds i8, ptr %10, i64 32
-  %.sink.i.i = select i1 %11, ptr %8, ptr %12
-  store ptr null, ptr %.sink.i.i, align 8, !noalias !19015
-  %13 = load i64, ptr %7, align 8, !alias.scope !19009, !noalias !19015, !noundef !4
-  %14 = add i64 %13, -1
-  store i64 %14, ptr %7, align 8, !alias.scope !19009, !noalias !19015
+12:                                               ; preds = %7
+  %13 = getelementptr inbounds i8, ptr %9, i64 32
+  store ptr null, ptr %13, align 8, !noalias !19012
+  br label %15
+
+14:                                               ; preds = %2
+  store i64 -9223372036854775808, ptr %0, align 8
+  br label %18
+
+15:                                               ; preds = %12, %11
+  %16 = load i64, ptr %5, align 8, !alias.scope !19009, !noalias !19015, !noundef !4
+  %17 = add i64 %16, -1
+  store i64 %17, ptr %5, align 8, !alias.scope !19009, !noalias !19015
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef 40, i64 noundef 8) #47, !noalias !19016
-  br label %15
+  br label %18
 
-15:                                               ; preds = %6, %5
+18:                                               ; preds = %15, %14
   ret void
 }
 
@@ -128785,14 +128839,23 @@ define hidden void @"_ZN5alloc11collections11linked_list23LinkedList$LT$T$C$A$GT
   %20 = getelementptr inbounds i8, ptr %7, i64 32
   store ptr %19, ptr %20, align 8
   %21 = icmp eq ptr %19, null
-  %22 = getelementptr inbounds i8, ptr %19, i64 24
-  %.sink = select i1 %21, ptr %0, ptr %22
-  store ptr %7, ptr %.sink, align 8
+  br i1 %21, label %22, label %23
+
+22:                                               ; preds = %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$6new_in17h91045f4e26b3f18dE.llvm.8265446259410684974.exit"
+  store ptr %7, ptr %0, align 8
+  br label %25
+
+23:                                               ; preds = %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$6new_in17h91045f4e26b3f18dE.llvm.8265446259410684974.exit"
+  %24 = getelementptr inbounds i8, ptr %19, i64 24
+  store ptr %7, ptr %24, align 8
+  br label %25
+
+25:                                               ; preds = %23, %22
   store ptr %7, ptr %18, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
-  %24 = load i64, ptr %23, align 8, !noundef !4
-  %25 = add i64 %24, 1
-  store i64 %25, ptr %23, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %27 = load i64, ptr %26, align 8, !noundef !4
+  %28 = add i64 %27, 1
+  store i64 %28, ptr %26, align 8
   ret void
 }
 
@@ -128847,14 +128910,23 @@ define hidden void @"_ZN5alloc11collections11linked_list23LinkedList$LT$T$C$A$GT
   %20 = getelementptr inbounds i8, ptr %7, i64 32
   store ptr %19, ptr %20, align 8
   %21 = icmp eq ptr %19, null
-  %22 = getelementptr inbounds i8, ptr %19, i64 24
-  %.sink = select i1 %21, ptr %0, ptr %22
-  store ptr %7, ptr %.sink, align 8
+  br i1 %21, label %22, label %23
+
+22:                                               ; preds = %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$6new_in17hbfe7f38d615db8bfE.llvm.8265446259410684974.exit"
+  store ptr %7, ptr %0, align 8
+  br label %25
+
+23:                                               ; preds = %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$6new_in17hbfe7f38d615db8bfE.llvm.8265446259410684974.exit"
+  %24 = getelementptr inbounds i8, ptr %19, i64 24
+  store ptr %7, ptr %24, align 8
+  br label %25
+
+25:                                               ; preds = %23, %22
   store ptr %7, ptr %18, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
-  %24 = load i64, ptr %23, align 8, !noundef !4
-  %25 = add i64 %24, 1
-  store i64 %25, ptr %23, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %27 = load i64, ptr %26, align 8, !noundef !4
+  %28 = add i64 %27, 1
+  store i64 %28, ptr %26, align 8
   ret void
 }
 

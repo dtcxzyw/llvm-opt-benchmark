@@ -3241,19 +3241,19 @@ define dso_local void @_ZN4llvm16TargetPassConfig7addPassEPNS_4PassE(ptr nocaptu
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %38 = load i8, ptr %37, align 8
   %39 = trunc i8 %38 to i1
-  br i1 %39, label %40, label %143
+  br i1 %39, label %40, label %142
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 105
   %42 = load i8, ptr %41, align 1
   %43 = trunc i8 %42 to i1
-  br i1 %43, label %143, label %44
+  br i1 %43, label %142, label %44
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 106
   %46 = load i8, ptr %45, align 2
   %47 = trunc i8 %46 to i1
-  br i1 %47, label %48, label %121
+  br i1 %47, label %48, label %120
 
 48:                                               ; preds = %44
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #26
@@ -3336,7 +3336,7 @@ _ZN4llvm16TargetPassConfig19addMachinePrePassesEb.exit: ; preds = %_ZStplIcSt11c
   call void %92(ptr noundef nonnull align 8 dereferenceable(8) %89, ptr noundef nonnull %1) #26
   %93 = load i8, ptr %73, align 1
   %94 = trunc i8 %93 to i1
-  br i1 %94, label %95, label %112
+  br i1 %94, label %95, label %111
 
 95:                                               ; preds = %_ZN4llvm16TargetPassConfig19addMachinePrePassesEb.exit
   %96 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL24DebugifyCheckAndStripAll, i64 128), align 8
@@ -3355,146 +3355,146 @@ _ZN4llvm16TargetPassConfig19addMachinePrePassesEb.exit: ; preds = %_ZStplIcSt11c
 104:                                              ; preds = %95
   %105 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL19DebugifyAndStripAll, i64 128), align 8
   %106 = icmp eq i32 %105, 1
-  br i1 %106, label %.sink.split.i, label %112
+  br i1 %106, label %.sink.split.i, label %111
 
 .sink.split.i:                                    ; preds = %104, %98
-  %107 = load ptr, ptr %88, align 8
-  %108 = call noundef ptr @_ZN4llvm33createStripDebugMachineModulePassEb(i1 noundef zeroext true) #26
-  %109 = load ptr, ptr %107, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 16
-  %111 = load ptr, ptr %110, align 8
-  call void %111(ptr noundef nonnull align 8 dereferenceable(8) %107, ptr noundef %108) #26
-  br label %112
+  %.sink6.i = load ptr, ptr %88, align 8
+  %107 = call noundef ptr @_ZN4llvm33createStripDebugMachineModulePassEb(i1 noundef zeroext true) #26
+  %108 = load ptr, ptr %.sink6.i, align 8
+  %109 = getelementptr inbounds i8, ptr %108, i64 16
+  %110 = load ptr, ptr %109, align 8
+  call void %110(ptr noundef nonnull align 8 dereferenceable(8) %.sink6.i, ptr noundef %107) #26
+  br label %111
 
-112:                                              ; preds = %.sink.split.i, %104, %_ZN4llvm16TargetPassConfig19addMachinePrePassesEb.exit
-  %113 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL17VerifyMachineCode, i64 128), align 8
-  %114 = icmp eq i32 %113, 1
-  br i1 %114, label %115, label %_ZN4llvm16TargetPassConfig20addMachinePostPassesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+111:                                              ; preds = %.sink.split.i, %104, %_ZN4llvm16TargetPassConfig19addMachinePrePassesEb.exit
+  %112 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL17VerifyMachineCode, i64 128), align 8
+  %113 = icmp eq i32 %112, 1
+  br i1 %113, label %114, label %_ZN4llvm16TargetPassConfig20addMachinePostPassesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-115:                                              ; preds = %112
-  %116 = load ptr, ptr %88, align 8
-  %117 = call noundef ptr @_ZN4llvm25createMachineVerifierPassERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %4) #26
-  %118 = load ptr, ptr %116, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 16
-  %120 = load ptr, ptr %119, align 8
-  call void %120(ptr noundef nonnull align 8 dereferenceable(8) %116, ptr noundef %117) #26
+114:                                              ; preds = %111
+  %115 = load ptr, ptr %88, align 8
+  %116 = call noundef ptr @_ZN4llvm25createMachineVerifierPassERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %4) #26
+  %117 = load ptr, ptr %115, align 8
+  %118 = getelementptr inbounds i8, ptr %117, i64 16
+  %119 = load ptr, ptr %118, align 8
+  call void %119(ptr noundef nonnull align 8 dereferenceable(8) %115, ptr noundef %116) #26
   br label %_ZN4llvm16TargetPassConfig20addMachinePostPassesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-_ZN4llvm16TargetPassConfig20addMachinePostPassesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %112, %115
+_ZN4llvm16TargetPassConfig20addMachinePostPassesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %111, %114
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #26
-  br label %127
+  br label %126
 
-121:                                              ; preds = %44
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 32
+120:                                              ; preds = %44
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %122 = load ptr, ptr %121, align 8
   %123 = load ptr, ptr %122, align 8
-  %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 16
-  %126 = load ptr, ptr %125, align 8
-  tail call void %126(ptr noundef nonnull align 8 dereferenceable(8) %123, ptr noundef nonnull %1) #26
-  br label %127
+  %124 = getelementptr inbounds i8, ptr %123, i64 16
+  %125 = load ptr, ptr %124, align 8
+  tail call void %125(ptr noundef nonnull align 8 dereferenceable(8) %122, ptr noundef nonnull %1) #26
+  br label %126
 
-127:                                              ; preds = %121, %_ZN4llvm16TargetPassConfig20addMachinePostPassesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %129 = load ptr, ptr %128, align 8
-  %130 = getelementptr inbounds nuw i8, ptr %129, i64 24
-  %.val = load ptr, ptr %130, align 8
-  %131 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %130) #26
-  %132 = getelementptr inbounds %"struct.(anonymous namespace)::InsertedPass", ptr %.val, i64 %131
-  %.not20 = icmp eq i64 %131, 0
+126:                                              ; preds = %120, %_ZN4llvm16TargetPassConfig20addMachinePostPassesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %128 = load ptr, ptr %127, align 8
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 24
+  %.val = load ptr, ptr %129, align 8
+  %130 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %129) #26
+  %131 = getelementptr inbounds %"struct.(anonymous namespace)::InsertedPass", ptr %.val, i64 %130
+  %.not20 = icmp eq i64 %130, 0
   br i1 %.not20, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %127, %141
-  %.021 = phi ptr [ %142, %141 ], [ %.val, %127 ]
-  %133 = load ptr, ptr %.021, align 8
-  %134 = icmp eq ptr %133, %10
-  br i1 %134, label %135, label %141
+.lr.ph:                                           ; preds = %126, %140
+  %.021 = phi ptr [ %141, %140 ], [ %.val, %126 ]
+  %132 = load ptr, ptr %.021, align 8
+  %133 = icmp eq ptr %132, %10
+  br i1 %133, label %134, label %140
 
-135:                                              ; preds = %.lr.ph
-  %136 = getelementptr i8, ptr %.021, i64 8
-  %.0.val = load ptr, ptr %136, align 8
-  %137 = getelementptr i8, ptr %.021, i64 16
-  %.0.val19 = load i8, ptr %137, align 8
-  %138 = trunc i8 %.0.val19 to i1
-  br i1 %138, label %_ZNK12_GLOBAL__N_112InsertedPass15getInsertedPassEv.exit, label %139
+134:                                              ; preds = %.lr.ph
+  %135 = getelementptr i8, ptr %.021, i64 8
+  %.0.val = load ptr, ptr %135, align 8
+  %136 = getelementptr i8, ptr %.021, i64 16
+  %.0.val19 = load i8, ptr %136, align 8
+  %137 = trunc i8 %.0.val19 to i1
+  br i1 %137, label %_ZNK12_GLOBAL__N_112InsertedPass15getInsertedPassEv.exit, label %138
 
-139:                                              ; preds = %135
-  %140 = call noundef ptr @_ZN4llvm4Pass10createPassEPKv(ptr noundef %.0.val) #26
+138:                                              ; preds = %134
+  %139 = call noundef ptr @_ZN4llvm4Pass10createPassEPKv(ptr noundef %.0.val) #26
   br label %_ZNK12_GLOBAL__N_112InsertedPass15getInsertedPassEv.exit
 
-_ZNK12_GLOBAL__N_112InsertedPass15getInsertedPassEv.exit: ; preds = %135, %139
-  %.0.i = phi ptr [ %140, %139 ], [ %.0.val, %135 ]
+_ZNK12_GLOBAL__N_112InsertedPass15getInsertedPassEv.exit: ; preds = %134, %138
+  %.0.i = phi ptr [ %139, %138 ], [ %.0.val, %134 ]
   call void @_ZN4llvm16TargetPassConfig7addPassEPNS_4PassE(ptr noundef nonnull align 8 dereferenceable(134) %0, ptr noundef %.0.i)
-  br label %141
+  br label %140
 
-141:                                              ; preds = %.lr.ph, %_ZNK12_GLOBAL__N_112InsertedPass15getInsertedPassEv.exit
-  %142 = getelementptr inbounds i8, ptr %.021, i64 24
-  %.not = icmp eq ptr %142, %132
+140:                                              ; preds = %.lr.ph, %_ZNK12_GLOBAL__N_112InsertedPass15getInsertedPassEv.exit
+  %141 = getelementptr inbounds i8, ptr %.021, i64 24
+  %.not = icmp eq ptr %141, %131
   br i1 %.not, label %.loopexit, label %.lr.ph
 
-143:                                              ; preds = %36, %40
-  %144 = load ptr, ptr %1, align 8
-  %145 = getelementptr inbounds i8, ptr %144, i64 8
-  %146 = load ptr, ptr %145, align 8
-  tail call void %146(ptr noundef nonnull align 8 dereferenceable(28) %1) #26
+142:                                              ; preds = %36, %40
+  %143 = load ptr, ptr %1, align 8
+  %144 = getelementptr inbounds i8, ptr %143, i64 8
+  %145 = load ptr, ptr %144, align 8
+  tail call void %145(ptr noundef nonnull align 8 dereferenceable(28) %1) #26
   br label %.loopexit
 
-.loopexit:                                        ; preds = %141, %127, %143
-  %147 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %148 = load ptr, ptr %147, align 8
-  %149 = icmp eq ptr %148, %10
-  br i1 %149, label %150, label %159
+.loopexit:                                        ; preds = %140, %126, %142
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %147 = load ptr, ptr %146, align 8
+  %148 = icmp eq ptr %147, %10
+  br i1 %148, label %149, label %158
 
-150:                                              ; preds = %.loopexit
-  %151 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %152 = load i32, ptr %151, align 4
-  %153 = add i32 %152, 1
-  store i32 %153, ptr %151, align 4
-  %154 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %155 = load i32, ptr %154, align 8
-  %156 = icmp eq i32 %152, %155
-  br i1 %156, label %157, label %159
+149:                                              ; preds = %.loopexit
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %151 = load i32, ptr %150, align 4
+  %152 = add i32 %151, 1
+  store i32 %152, ptr %150, align 4
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %154 = load i32, ptr %153, align 8
+  %155 = icmp eq i32 %151, %154
+  br i1 %155, label %156, label %158
 
-157:                                              ; preds = %150
-  %158 = getelementptr inbounds nuw i8, ptr %0, i64 105
-  store i8 1, ptr %158, align 1
-  br label %159
+156:                                              ; preds = %149
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 105
+  store i8 1, ptr %157, align 1
+  br label %158
 
-159:                                              ; preds = %157, %150, %.loopexit
-  %160 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %161 = load ptr, ptr %160, align 8
-  %162 = icmp eq ptr %161, %10
-  br i1 %162, label %163, label %171
+158:                                              ; preds = %156, %149, %.loopexit
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %160 = load ptr, ptr %159, align 8
+  %161 = icmp eq ptr %160, %10
+  br i1 %161, label %162, label %170
 
-163:                                              ; preds = %159
-  %164 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %165 = load i32, ptr %164, align 4
-  %166 = add i32 %165, 1
-  store i32 %166, ptr %164, align 4
-  %167 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %168 = load i32, ptr %167, align 8
-  %169 = icmp eq i32 %165, %168
-  br i1 %169, label %170, label %171
+162:                                              ; preds = %158
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %164 = load i32, ptr %163, align 4
+  %165 = add i32 %164, 1
+  store i32 %165, ptr %163, align 4
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %167 = load i32, ptr %166, align 8
+  %168 = icmp eq i32 %164, %167
+  br i1 %168, label %169, label %170
 
-170:                                              ; preds = %163
+169:                                              ; preds = %162
   store i8 1, ptr %37, align 8
-  br label %171
+  br label %170
 
-171:                                              ; preds = %170, %163, %159
-  %172 = getelementptr inbounds nuw i8, ptr %0, i64 105
-  %173 = load i8, ptr %172, align 1
-  %174 = trunc i8 %173 to i1
-  br i1 %174, label %175, label %179
+170:                                              ; preds = %169, %162, %158
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 105
+  %172 = load i8, ptr %171, align 1
+  %173 = trunc i8 %172 to i1
+  br i1 %173, label %174, label %178
 
-175:                                              ; preds = %171
-  %176 = load i8, ptr %37, align 8
-  %177 = trunc i8 %176 to i1
-  br i1 %177, label %179, label %178
+174:                                              ; preds = %170
+  %175 = load i8, ptr %37, align 8
+  %176 = trunc i8 %175 to i1
+  br i1 %176, label %178, label %177
 
-178:                                              ; preds = %175
+177:                                              ; preds = %174
   call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef nonnull @.str.161, i1 noundef zeroext true) #27
   unreachable
 
-179:                                              ; preds = %175, %171
+178:                                              ; preds = %174, %170
   ret void
 }
 
@@ -3541,7 +3541,7 @@ define dso_local void @_ZN4llvm16TargetPassConfig20addMachinePostPassesERKNSt7__
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 107
   %4 = load i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1
-  br i1 %5, label %6, label %26
+  br i1 %5, label %6, label %25
 
 6:                                                ; preds = %2
   %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL24DebugifyCheckAndStripAll, i64 128), align 8
@@ -3561,38 +3561,38 @@ define dso_local void @_ZN4llvm16TargetPassConfig20addMachinePostPassesERKNSt7__
 16:                                               ; preds = %6
   %17 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL19DebugifyAndStripAll, i64 128), align 8
   %18 = icmp eq i32 %17, 1
-  br i1 %18, label %19, label %26
+  br i1 %18, label %19, label %25
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %.sink.split
 
 .sink.split:                                      ; preds = %19, %9
-  %.sink7 = phi ptr [ %10, %9 ], [ %20, %19 ]
-  %21 = load ptr, ptr %.sink7, align 8
-  %22 = tail call noundef ptr @_ZN4llvm33createStripDebugMachineModulePassEb(i1 noundef zeroext true) #26
-  %23 = load ptr, ptr %21, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
-  %25 = load ptr, ptr %24, align 8
-  tail call void %25(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef %22) #26
-  br label %26
+  %.sink6.in = phi ptr [ %10, %9 ], [ %20, %19 ]
+  %.sink6 = load ptr, ptr %.sink6.in, align 8
+  %21 = tail call noundef ptr @_ZN4llvm33createStripDebugMachineModulePassEb(i1 noundef zeroext true) #26
+  %22 = load ptr, ptr %.sink6, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 16
+  %24 = load ptr, ptr %23, align 8
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(8) %.sink6, ptr noundef %21) #26
+  br label %25
 
-26:                                               ; preds = %.sink.split, %16, %2
-  %27 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL17VerifyMachineCode, i64 128), align 8
-  %28 = icmp eq i32 %27, 1
-  br i1 %28, label %29, label %_ZN4llvm16TargetPassConfig13addVerifyPassERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+25:                                               ; preds = %.sink.split, %16, %2
+  %26 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL17VerifyMachineCode, i64 128), align 8
+  %27 = icmp eq i32 %26, 1
+  br i1 %27, label %28, label %_ZN4llvm16TargetPassConfig13addVerifyPassERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-29:                                               ; preds = %26
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %31 = load ptr, ptr %30, align 8
-  %32 = tail call noundef ptr @_ZN4llvm25createMachineVerifierPassERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %1) #26
-  %33 = load ptr, ptr %31, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
-  %35 = load ptr, ptr %34, align 8
-  tail call void %35(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef %32) #26
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %30 = load ptr, ptr %29, align 8
+  %31 = tail call noundef ptr @_ZN4llvm25createMachineVerifierPassERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %1) #26
+  %32 = load ptr, ptr %30, align 8
+  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  %34 = load ptr, ptr %33, align 8
+  tail call void %34(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef %31) #26
   br label %_ZN4llvm16TargetPassConfig13addVerifyPassERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-_ZN4llvm16TargetPassConfig13addVerifyPassERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %26, %29
+_ZN4llvm16TargetPassConfig13addVerifyPassERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %25, %28
   ret void
 }
 

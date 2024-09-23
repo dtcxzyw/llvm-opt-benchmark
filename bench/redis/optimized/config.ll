@@ -3198,7 +3198,8 @@ if.end11:                                         ; preds = %if.then8, %if.then6
   tail call void @sdsfree(ptr noundef %9) #25
   %10 = load ptr, ptr %lines, align 8
   %arrayidx14 = getelementptr inbounds ptr, ptr %10, i64 %idxprom
-  br label %if.end20
+  store ptr %line, ptr %arrayidx14, align 8
+  br label %return
 
 if.else:                                          ; preds = %land.lhs.true3, %if.end
   %needs_signature = getelementptr inbounds i8, ptr %state, i64 32
@@ -3241,15 +3242,11 @@ if.end19:                                         ; preds = %if.then16, %if.else
   store i32 %inc.i29, ptr %numlines.i24, align 8
   %idxprom.i30 = sext i32 %17 to i64
   %arrayidx.i31 = getelementptr inbounds ptr, ptr %call.i28, i64 %idxprom.i30
-  br label %if.end20
-
-if.end20:                                         ; preds = %if.end19, %if.end11
-  %arrayidx.i31.sink = phi ptr [ %arrayidx.i31, %if.end19 ], [ %arrayidx14, %if.end11 ]
-  store ptr %line, ptr %arrayidx.i31.sink, align 8
+  store ptr %line, ptr %arrayidx.i31, align 8
   br label %return
 
-return:                                           ; preds = %if.end20, %if.then
-  %retval.0 = phi i32 [ 1, %if.end20 ], [ 0, %if.then ]
+return:                                           ; preds = %if.end11, %if.end19, %if.then
+  %retval.0 = phi i32 [ 0, %if.then ], [ 1, %if.end19 ], [ 1, %if.end11 ]
   tail call void @sdsfree(ptr noundef %call) #25
   ret i32 %retval.0
 }

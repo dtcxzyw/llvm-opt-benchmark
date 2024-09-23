@@ -85,7 +85,7 @@ define noundef ptr @parseXDotFOn(ptr noundef %0, ptr noundef readonly %1, i64 no
   %15 = alloca %struct.xdot_color, align 8
   %16 = alloca %struct._xdot_op, align 8
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %221, label %17
+  br i1 %.not, label %220, label %17
 
 17:                                               ; preds = %4
   %.not51 = icmp eq ptr %3, null
@@ -174,10 +174,10 @@ gv_calloc.exit:                                   ; preds = %32, %41
   %64 = getelementptr inbounds i8, ptr %1, i64 8
   br label %65
 
-65:                                               ; preds = %205, %gv_calloc.exit
-  %.142 = phi ptr [ %.041, %gv_calloc.exit ], [ %.243, %205 ]
-  %.040 = phi ptr [ %0, %gv_calloc.exit ], [ %.0.i.ph, %205 ]
-  %.1 = phi i64 [ %.039, %gv_calloc.exit ], [ %.2, %205 ]
+65:                                               ; preds = %204, %gv_calloc.exit
+  %.142 = phi ptr [ %.041, %gv_calloc.exit ], [ %.243, %204 ]
+  %.040 = phi ptr [ %0, %gv_calloc.exit ], [ %.0.i.ph, %204 ]
+  %.1 = phi i64 [ %.039, %gv_calloc.exit ], [ %.2, %204 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %15)
   br label %66
@@ -215,7 +215,7 @@ gv_isspace.exit.i:                                ; preds = %66
     i8 83, label %170
     i8 73, label %173
     i8 116, label %192
-    i8 0, label %211
+    i8 0, label %210
   ]
 
 71:                                               ; preds = %gv_isspace.exit.i
@@ -258,7 +258,7 @@ parseRect.exit.i:                                 ; preds = %83
   br i1 %.not213.i, label %.loopexit, label %87
 
 87:                                               ; preds = %parseRect.exit.i
-  br i1 %.not178.i, label %199, label %.sink.split
+  br i1 %.not178.i, label %198, label %.sink.split
 
 88:                                               ; preds = %gv_isspace.exit.i
   store i32 1, ptr %16, align 8
@@ -300,7 +300,7 @@ parseRect.exit218.i:                              ; preds = %100
   br i1 %.not211.i, label %.loopexit, label %104
 
 104:                                              ; preds = %parseRect.exit218.i
-  br i1 %.not178.i, label %199, label %.sink.split
+  br i1 %.not178.i, label %198, label %.sink.split
 
 105:                                              ; preds = %gv_isspace.exit.i
   store i32 2, ptr %16, align 8
@@ -309,7 +309,7 @@ parseRect.exit218.i:                              ; preds = %100
   br i1 %.not209.i, label %.loopexit, label %107
 
 107:                                              ; preds = %105
-  br i1 %.not178.i, label %199, label %.sink.split
+  br i1 %.not178.i, label %198, label %.sink.split
 
 108:                                              ; preds = %gv_isspace.exit.i
   store i32 3, ptr %16, align 8
@@ -318,7 +318,7 @@ parseRect.exit218.i:                              ; preds = %100
   br i1 %.not207.i, label %.loopexit, label %110
 
 110:                                              ; preds = %108
-  br i1 %.not178.i, label %199, label %.sink.split
+  br i1 %.not178.i, label %198, label %.sink.split
 
 111:                                              ; preds = %gv_isspace.exit.i
   store i32 4, ptr %16, align 8
@@ -327,7 +327,7 @@ parseRect.exit218.i:                              ; preds = %100
   br i1 %.not205.i, label %.loopexit, label %113
 
 113:                                              ; preds = %111
-  br i1 %.not178.i, label %199, label %.sink.split
+  br i1 %.not178.i, label %198, label %.sink.split
 
 114:                                              ; preds = %gv_isspace.exit.i
   store i32 5, ptr %16, align 8
@@ -336,7 +336,7 @@ parseRect.exit218.i:                              ; preds = %100
   br i1 %.not203.i, label %.loopexit, label %116
 
 116:                                              ; preds = %114
-  br i1 %.not178.i, label %199, label %.sink.split
+  br i1 %.not178.i, label %198, label %.sink.split
 
 117:                                              ; preds = %gv_isspace.exit.i
   %118 = call fastcc ptr @parseString(ptr noundef %70, ptr noundef nonnull %14)
@@ -358,12 +358,12 @@ parseRect.exit218.i:                              ; preds = %100
   store i32 9, ptr %16, align 8
   %126 = load ptr, ptr %60, align 8
   store ptr %126, ptr %47, align 8
-  br i1 %.not178.i, label %199, label %.sink.split
+  br i1 %.not178.i, label %198, label %.sink.split
 
 127:                                              ; preds = %122
   store i32 14, ptr %16, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %47, ptr noundef nonnull align 8 dereferenceable(72) %15, i64 72, i1 false)
-  br i1 %.not178.i, label %199, label %.sink.split
+  br i1 %.not178.i, label %198, label %.sink.split
 
 128:                                              ; preds = %gv_isspace.exit.i
   %129 = call fastcc ptr @parseString(ptr noundef %70, ptr noundef nonnull %14)
@@ -385,12 +385,12 @@ parseRect.exit218.i:                              ; preds = %100
   store i32 8, ptr %16, align 8
   %137 = load ptr, ptr %60, align 8
   store ptr %137, ptr %47, align 8
-  br i1 %.not178.i, label %199, label %.sink.split
+  br i1 %.not178.i, label %198, label %.sink.split
 
 138:                                              ; preds = %133
   store i32 13, ptr %16, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %47, ptr noundef nonnull align 8 dereferenceable(72) %15, i64 72, i1 false)
-  br i1 %.not178.i, label %199, label %.sink.split
+  br i1 %.not178.i, label %198, label %.sink.split
 
 139:                                              ; preds = %gv_isspace.exit.i
   store i32 6, ptr %16, align 8
@@ -399,7 +399,7 @@ parseRect.exit218.i:                              ; preds = %100
   br i1 %.not193.i, label %.loopexit, label %141
 
 141:                                              ; preds = %139
-  br i1 %.not178.i, label %199, label %.sink.split
+  br i1 %.not178.i, label %198, label %.sink.split
 
 142:                                              ; preds = %gv_isspace.exit.i
   store i32 7, ptr %16, align 8
@@ -475,7 +475,7 @@ parseReal.exit224.i:                              ; preds = %156
   br i1 %.not191.i, label %.loopexit, label %162
 
 162:                                              ; preds = %160
-  br i1 %.not178.i, label %199, label %.sink.split
+  br i1 %.not178.i, label %198, label %.sink.split
 
 163:                                              ; preds = %gv_isspace.exit.i
   store i32 10, ptr %16, align 8
@@ -501,7 +501,7 @@ parseReal.exit226.i:                              ; preds = %163
   br i1 %.not185.i, label %.loopexit, label %169
 
 169:                                              ; preds = %167
-  br i1 %.not178.i, label %199, label %.sink.split
+  br i1 %.not178.i, label %198, label %.sink.split
 
 170:                                              ; preds = %gv_isspace.exit.i
   store i32 11, ptr %16, align 8
@@ -510,7 +510,7 @@ parseReal.exit226.i:                              ; preds = %163
   br i1 %.not182.i, label %.loopexit, label %172
 
 172:                                              ; preds = %170
-  br i1 %.not178.i, label %199, label %.sink.split
+  br i1 %.not178.i, label %198, label %.sink.split
 
 173:                                              ; preds = %gv_isspace.exit.i
   store i32 12, ptr %16, align 8
@@ -557,7 +557,7 @@ parseRect.exit229.i:                              ; preds = %185
   br i1 %.not180.i, label %.loopexit, label %191
 
 191:                                              ; preds = %189
-  br i1 %.not178.i, label %199, label %.sink.split
+  br i1 %.not178.i, label %198, label %.sink.split
 
 192:                                              ; preds = %gv_isspace.exit.i
   store i32 15, ptr %16, align 8
@@ -573,73 +573,73 @@ parseRect.exit229.i:                              ; preds = %185
   br i1 %.not.i, label %.loopexit, label %197
 
 197:                                              ; preds = %192
-  br i1 %.not178.i, label %199, label %.sink.split
+  br i1 %.not178.i, label %198, label %.sink.split
 
 .sink.split:                                      ; preds = %197, %191, %172, %169, %162, %141, %138, %136, %127, %125, %116, %113, %110, %107, %104, %87
-  %.sink128 = phi ptr [ %1, %87 ], [ %1, %104 ], [ %64, %107 ], [ %64, %110 ], [ %63, %113 ], [ %63, %116 ], [ %62, %125 ], [ %59, %127 ], [ %61, %136 ], [ %59, %138 ], [ %58, %141 ], [ %57, %162 ], [ %56, %169 ], [ %55, %172 ], [ %54, %191 ], [ %48, %197 ]
+  %.sink.in = phi ptr [ %1, %87 ], [ %1, %104 ], [ %64, %107 ], [ %64, %110 ], [ %63, %113 ], [ %63, %116 ], [ %62, %125 ], [ %59, %127 ], [ %61, %136 ], [ %59, %138 ], [ %58, %141 ], [ %57, %162 ], [ %56, %169 ], [ %55, %172 ], [ %54, %191 ], [ %48, %197 ]
   %.0.i.ph.ph = phi ptr [ %85, %87 ], [ %102, %104 ], [ %106, %107 ], [ %109, %110 ], [ %112, %113 ], [ %115, %116 ], [ %118, %125 ], [ %118, %127 ], [ %129, %136 ], [ %129, %138 ], [ %140, %141 ], [ %161, %162 ], [ %168, %169 ], [ %171, %172 ], [ %190, %191 ], [ %195, %197 ]
-  %198 = load ptr, ptr %.sink128, align 8
-  store ptr %198, ptr %49, align 8
-  br label %199
+  %.sink = load ptr, ptr %.sink.in, align 8
+  store ptr %.sink, ptr %49, align 8
+  br label %198
 
-199:                                              ; preds = %.sink.split, %197, %191, %172, %169, %162, %141, %136, %138, %125, %127, %116, %113, %110, %107, %104, %87
+198:                                              ; preds = %.sink.split, %197, %191, %172, %169, %162, %141, %136, %138, %125, %127, %116, %113, %110, %107, %104, %87
   %.0.i.ph = phi ptr [ %85, %87 ], [ %102, %104 ], [ %106, %107 ], [ %109, %110 ], [ %112, %113 ], [ %115, %116 ], [ %118, %127 ], [ %118, %125 ], [ %129, %138 ], [ %129, %136 ], [ %140, %141 ], [ %161, %162 ], [ %168, %169 ], [ %171, %172 ], [ %190, %191 ], [ %195, %197 ], [ %.0.i.ph.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %15)
-  %200 = load i64, ptr %.044106, align 8
-  %201 = icmp eq i64 %200, %.1
-  br i1 %201, label %202, label %205
+  %199 = load i64, ptr %.044106, align 8
+  %200 = icmp eq i64 %199, %.1
+  br i1 %200, label %201, label %204
 
-202:                                              ; preds = %199
-  %203 = shl i64 %.1, 1
-  %204 = tail call fastcc ptr @gv_recalloc(ptr noundef %.142, i64 noundef %.1, i64 noundef %203, i64 noundef %46)
+201:                                              ; preds = %198
+  %202 = shl i64 %.1, 1
+  %203 = tail call fastcc ptr @gv_recalloc(ptr noundef %.142, i64 noundef %.1, i64 noundef %202, i64 noundef %46)
   %.pre104 = load i64, ptr %.044106, align 8
-  br label %205
+  br label %204
 
-205:                                              ; preds = %202, %199
-  %206 = phi i64 [ %.pre104, %202 ], [ %200, %199 ]
-  %.243 = phi ptr [ %204, %202 ], [ %.142, %199 ]
-  %.2 = phi i64 [ %203, %202 ], [ %.1, %199 ]
-  %207 = mul i64 %206, %46
-  %208 = getelementptr inbounds i8, ptr %.243, i64 %207
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %208, ptr noundef nonnull align 8 dereferenceable(88) %16, i64 88, i1 false)
-  %209 = load i64, ptr %.044106, align 8
-  %210 = add i64 %209, 1
-  store i64 %210, ptr %.044106, align 8
+204:                                              ; preds = %201, %198
+  %205 = phi i64 [ %.pre104, %201 ], [ %199, %198 ]
+  %.243 = phi ptr [ %203, %201 ], [ %.142, %198 ]
+  %.2 = phi i64 [ %202, %201 ], [ %.1, %198 ]
+  %206 = mul i64 %205, %46
+  %207 = getelementptr inbounds i8, ptr %.243, i64 %206
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %207, ptr noundef nonnull align 8 dereferenceable(88) %16, i64 88, i1 false)
+  %208 = load i64, ptr %.044106, align 8
+  %209 = add i64 %208, 1
+  store i64 %209, ptr %.044106, align 8
   br label %65
 
-211:                                              ; preds = %gv_isspace.exit.i
+210:                                              ; preds = %gv_isspace.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %15)
-  br label %215
+  br label %214
 
 .loopexit:                                        ; preds = %gv_isspace.exit.i, %parseRect.exit.i, %parseRect.exit218.i, %105, %108, %111, %114, %117, %119, %128, %130, %139, %parseReal.exit.i, %parseReal.exit221.i, %150, %parseReal.exit224.i, %160, %parseReal.exit226.i, %167, %170, %parseRect.exit229.i, %189, %192, %parseRect.exit.thread.i, %parseRect.exit218.thread.i, %parseReal.exit.thread.i, %parseReal.exit221.thread.i, %parseReal.exit224.thread.i, %parseReal.exit226.thread.i, %parseRect.exit229.thread.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %15)
-  %212 = getelementptr inbounds i8, ptr %.044106, i64 32
-  %213 = load i32, ptr %212, align 8
-  %214 = or i32 %213, 1
-  store i32 %214, ptr %212, align 8
-  br label %215
+  %211 = getelementptr inbounds i8, ptr %.044106, i64 32
+  %212 = load i32, ptr %211, align 8
+  %213 = or i32 %212, 1
+  store i32 %213, ptr %211, align 8
+  br label %214
 
-215:                                              ; preds = %211, %.loopexit
-  %216 = load i64, ptr %.044106, align 8
-  %.not54 = icmp eq i64 %216, 0
-  br i1 %.not54, label %220, label %217
+214:                                              ; preds = %210, %.loopexit
+  %215 = load i64, ptr %.044106, align 8
+  %.not54 = icmp eq i64 %215, 0
+  br i1 %.not54, label %219, label %216
 
-217:                                              ; preds = %215
-  %218 = tail call fastcc ptr @gv_recalloc(ptr noundef %.142, i64 noundef %.1, i64 noundef %216, i64 noundef %46)
-  %219 = getelementptr inbounds i8, ptr %.044106, i64 16
-  store ptr %218, ptr %219, align 8
-  br label %221
+216:                                              ; preds = %214
+  %217 = tail call fastcc ptr @gv_recalloc(ptr noundef %.142, i64 noundef %.1, i64 noundef %215, i64 noundef %46)
+  %218 = getelementptr inbounds i8, ptr %.044106, i64 16
+  store ptr %217, ptr %218, align 8
+  br label %220
 
-220:                                              ; preds = %215
+219:                                              ; preds = %214
   tail call void @free(ptr noundef %.142) #21
   tail call void @free(ptr noundef nonnull %.044106) #21
-  br label %221
+  br label %220
 
-221:                                              ; preds = %217, %220, %4
-  %.0 = phi ptr [ %3, %4 ], [ %.044106, %217 ], [ null, %220 ]
+220:                                              ; preds = %216, %219, %4
+  %.0 = phi ptr [ %3, %4 ], [ %.044106, %216 ], [ null, %219 ]
   ret ptr %.0
 }
 
@@ -5010,7 +5010,7 @@ define void @freeXDot(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br label %8
 
 8:                                                ; preds = %.lr.ph, %freeXOpData.exit
-  %.018 = phi i64 [ 0, %.lr.ph ], [ %58, %freeXOpData.exit ]
+  %.018 = phi i64 [ 0, %.lr.ph ], [ %57, %freeXOpData.exit ]
   %9 = load i64, ptr %7, align 8
   %10 = mul i64 %9, %.018
   %11 = getelementptr inbounds i8, ptr %5, i64 %10
@@ -5128,16 +5128,16 @@ define void @freeXDot(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br label %freeXDotColor.exit.sink.split.i
 
 freeXDotColor.exit.sink.split.i:                  ; preds = %55, %53, %51, %.sink.split.i.i, %23, %21, %19, %17, %15
-  %.sink13.i = phi ptr [ %50, %.sink.split.i.i ], [ %56, %55 ], [ %54, %53 ], [ %52, %51 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ]
-  %57 = load ptr, ptr %.sink13.i, align 8
-  tail call void @free(ptr noundef %57) #21
+  %.sink.in.i = phi ptr [ %50, %.sink.split.i.i ], [ %56, %55 ], [ %54, %53 ], [ %52, %51 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ]
+  %.sink.i = load ptr, ptr %.sink.in.i, align 8
+  tail call void @free(ptr noundef %.sink.i) #21
   br label %freeXOpData.exit
 
 freeXOpData.exit:                                 ; preds = %13, %25, %freeXDotColor.exit.sink.split.i
-  %58 = add nuw i64 %.018, 1
-  %59 = load i64, ptr %0, align 8
-  %60 = icmp ult i64 %58, %59
-  br i1 %60, label %8, label %._crit_edge
+  %57 = add nuw i64 %.018, 1
+  %58 = load i64, ptr %0, align 8
+  %59 = icmp ult i64 %57, %58
+  br i1 %59, label %8, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %freeXOpData.exit, %1
   tail call void @free(ptr noundef %5) #21

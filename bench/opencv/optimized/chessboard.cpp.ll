@@ -26115,12 +26115,12 @@ common.resume:                                    ; preds = %78, %188, %45
   br label %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit44
 
 _ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit44: ; preds = %46, %48, %51, %54
-  %.sink = phi ptr [ %47, %46 ], [ %50, %48 ], [ %53, %51 ], [ %56, %54 ]
-  %57 = phi ptr [ %47, %46 ], [ %49, %48 ], [ %52, %51 ], [ %55, %54 ]
-  %.04.i88 = load ptr, ptr %.sink, align 8
+  %57 = phi ptr [ %55, %54 ], [ %52, %51 ], [ %49, %48 ], [ %47, %46 ]
+  %.04.i42.in = phi ptr [ %56, %54 ], [ %53, %51 ], [ %50, %48 ], [ %47, %46 ]
+  %.04.i42 = load ptr, ptr %.04.i42.in, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
-  %58 = load float, ptr %.04.i88, align 4
+  %58 = load float, ptr %.04.i42, align 4
   %59 = fcmp ord float %58, 0.000000e+00
   br i1 %59, label %60, label %62
 
@@ -26213,7 +26213,7 @@ _ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit48: ; preds = %69, %71, %73,
 
 _ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit56.outer: ; preds = %192, %95
   %switch.ph = phi i64 [ 16, %192 ], [ 24, %95 ]
-  %switch134.ph = phi i1 [ false, %192 ], [ true, %95 ]
+  %switch133.ph = phi i1 [ false, %192 ], [ true, %95 ]
   %.sroa.7.0.ph = phi ptr [ %194, %192 ], [ %.0, %95 ]
   %.3.ph = phi i32 [ %.4, %192 ], [ %.2, %95 ]
   %.132.ph = phi i32 [ %191, %192 ], [ 0, %95 ]
@@ -26221,7 +26221,7 @@ _ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit56.outer: ; preds = %192, %9
 
 _ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit56: ; preds = %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit56.outer, %190
   %switch = phi i64 [ 16, %190 ], [ %switch.ph, %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit56.outer ]
-  %switch134 = phi i1 [ false, %190 ], [ %switch134.ph, %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit56.outer ]
+  %switch133 = phi i1 [ false, %190 ], [ %switch133.ph, %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit56.outer ]
   %.3 = phi i32 [ %.4, %190 ], [ %.3.ph, %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit56.outer ]
   %.132 = phi i32 [ %191, %190 ], [ %.132.ph, %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit56.outer ]
   %100 = getelementptr inbounds i8, ptr %.sroa.7.0.ph, i64 %switch
@@ -26434,7 +26434,7 @@ _ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit60: ; preds = %137
 190:                                              ; preds = %137, %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit60, %103
   %.4 = phi i32 [ %104, %103 ], [ %185, %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit60 ], [ %.3, %137 ]
   %191 = add nuw nsw i32 %.132, 1
-  br i1 %switch134, label %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit56, label %192, !llvm.loop !396
+  br i1 %switch133, label %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit56, label %192, !llvm.loop !396
 
 192:                                              ; preds = %190
   %193 = getelementptr inbounds i8, ptr %.sroa.7.0.ph, i64 48
@@ -26456,8 +26456,8 @@ _ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit60: ; preds = %137
   %202 = load ptr, ptr %201, align 8
   %.not108117 = icmp eq ptr %200, %202
   %203 = getelementptr inbounds i8, ptr %200, i64 8
-  %.not109115140 = icmp eq ptr %203, %202
-  %or.cond = select i1 %.not108117, i1 true, i1 %.not109115140
+  %.not109115139 = icmp eq ptr %203, %202
+  %or.cond = select i1 %.not108117, i1 true, i1 %.not109115139
   br i1 %or.cond, label %.loopexit110, label %.lr.ph
 
 .loopexit:                                        ; preds = %207
@@ -26467,9 +26467,9 @@ _ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit60: ; preds = %137
 
 .lr.ph:                                           ; preds = %199, %.loopexit
   %205 = phi ptr [ %204, %.loopexit ], [ %203, %199 ]
-  %.sroa.066.0118141 = phi ptr [ %205, %.loopexit ], [ %200, %199 ]
-  %.val = load float, ptr %.sroa.066.0118141, align 4
-  %206 = getelementptr i8, ptr %.sroa.066.0118141, i64 4
+  %.sroa.066.0118140 = phi ptr [ %205, %.loopexit ], [ %200, %199 ]
+  %.val = load float, ptr %.sroa.066.0118140, align 4
+  %206 = getelementptr i8, ptr %.sroa.066.0118140, i64 4
   %.val37 = load float, ptr %206, align 4
   br label %209
 

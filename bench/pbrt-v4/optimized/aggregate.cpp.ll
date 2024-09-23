@@ -2382,41 +2382,62 @@ if.end95:                                         ; preds = %if.then65, %if.end6
   %shr.i.i.i = lshr i64 %material35.sroa.0.0.lcssa, 57
   %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   switch i32 %conv.i.i.i, label %sw.default.i.i.i [
-    i32 1, label %return.sink.split.i.i.i
-    i32 2, label %return.sink.split.i.i.i
-    i32 3, label %return.sink.split.i.i.i
+    i32 1, label %sw.bb.i.i.i
+    i32 2, label %sw.bb1.i.i.i
+    i32 3, label %sw.bb2.i.i.i
     i32 4, label %sw.bb3.i.i.i
     i32 5, label %sw.bb4.i.i.i
-    i32 6, label %return.sink.split.i.i.i
+    i32 6, label %sw.bb5.i.i.i
     i32 7, label %_ZNK4pbrt8Material15GetDisplacementEv.exit
-    i32 8, label %return.sink.split.i.i.i
+    i32 8, label %sw.bb7.i.i.i
   ]
+
+sw.bb.i.i.i:                                      ; preds = %if.end95
+  %83 = load i64, ptr %82, align 8, !noalias !32
+  br label %_ZNK4pbrt8Material15GetDisplacementEv.exit
+
+sw.bb1.i.i.i:                                     ; preds = %if.end95
+  %84 = load i64, ptr %82, align 8, !noalias !43
+  br label %_ZNK4pbrt8Material15GetDisplacementEv.exit
+
+sw.bb2.i.i.i:                                     ; preds = %if.end95
+  %85 = load i64, ptr %82, align 8, !noalias !48
+  br label %_ZNK4pbrt8Material15GetDisplacementEv.exit
 
 sw.bb3.i.i.i:                                     ; preds = %if.end95
   %displacement.i.i.i.i.i = getelementptr inbounds i8, ptr %82, i64 8
-  br label %return.sink.split.i.i.i
+  %86 = load i64, ptr %displacement.i.i.i.i.i, align 8, !noalias !53
+  br label %_ZNK4pbrt8Material15GetDisplacementEv.exit
 
 sw.bb4.i.i.i:                                     ; preds = %if.end95
   %displacement.i.i18.i.i.i = getelementptr inbounds i8, ptr %82, i64 8
-  br label %return.sink.split.i.i.i
+  %87 = load i64, ptr %displacement.i.i18.i.i.i, align 8, !noalias !58
+  br label %_ZNK4pbrt8Material15GetDisplacementEv.exit
+
+sw.bb5.i.i.i:                                     ; preds = %if.end95
+  %88 = load i64, ptr %82, align 8, !noalias !63
+  br label %_ZNK4pbrt8Material15GetDisplacementEv.exit
+
+sw.bb7.i.i.i:                                     ; preds = %if.end95
+  %89 = load i64, ptr %82, align 8, !noalias !68
+  br label %_ZNK4pbrt8Material15GetDisplacementEv.exit
 
 sw.default.i.i.i:                                 ; preds = %if.end95
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
-  %83 = and i32 %sub.i.i, -2
-  %switch.i.i.i.i = icmp eq i32 %83, 8
-  br i1 %switch.i.i.i.i, label %return.sink.split.i.i.i, label %sw.default.i.i.i.i
+  %90 = and i32 %sub.i.i, -2
+  %switch.i.i.i.i = icmp eq i32 %90, 8
+  br i1 %switch.i.i.i.i, label %_ZN4pbrt6detail8DispatchIRZNKS_8Material15GetDisplacementEvEUlT_E_NS_12FloatTextureENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS3_PKvi.exit.i.i.i, label %sw.default.i.i.i.i
 
 sw.default.i.i.i.i:                               ; preds = %sw.default.i.i.i
-  call void @_ZN4pbrt8LogFatalENS_8LogLevelEPKciS2_(i32 noundef 2, ptr noundef nonnull @.str.15, i32 noundef 304, ptr noundef nonnull @.str.16) #25, !noalias !32
+  call void @_ZN4pbrt8LogFatalENS_8LogLevelEPKciS2_(i32 noundef 2, ptr noundef nonnull @.str.15, i32 noundef 304, ptr noundef nonnull @.str.16) #25, !noalias !73
   unreachable
 
-return.sink.split.i.i.i:                          ; preds = %sw.default.i.i.i, %sw.bb4.i.i.i, %sw.bb3.i.i.i, %if.end95, %if.end95, %if.end95, %if.end95, %if.end95
-  %ptr.sink.i.i.i = phi ptr [ %displacement.i.i18.i.i.i, %sw.bb4.i.i.i ], [ %displacement.i.i.i.i.i, %sw.bb3.i.i.i ], [ %82, %sw.default.i.i.i ], [ %82, %if.end95 ], [ %82, %if.end95 ], [ %82, %if.end95 ], [ %82, %if.end95 ], [ %82, %if.end95 ]
-  %storemerge.i.i.i.i = load i64, ptr %ptr.sink.i.i.i, align 8, !noalias !41
+_ZN4pbrt6detail8DispatchIRZNKS_8Material15GetDisplacementEvEUlT_E_NS_12FloatTextureENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS3_PKvi.exit.i.i.i: ; preds = %sw.default.i.i.i
+  %storemerge.i.i.i.i = load i64, ptr %82, align 8, !noalias !73
   br label %_ZNK4pbrt8Material15GetDisplacementEv.exit
 
-_ZNK4pbrt8Material15GetDisplacementEv.exit:       ; preds = %if.end95, %return.sink.split.i.i.i
-  %storemerge.i.sink.i.i.i = phi i64 [ 0, %if.end95 ], [ %storemerge.i.i.i.i, %return.sink.split.i.i.i ]
+_ZNK4pbrt8Material15GetDisplacementEv.exit:       ; preds = %if.end95, %sw.bb.i.i.i, %sw.bb1.i.i.i, %sw.bb2.i.i.i, %sw.bb3.i.i.i, %sw.bb4.i.i.i, %sw.bb5.i.i.i, %sw.bb7.i.i.i, %_ZN4pbrt6detail8DispatchIRZNKS_8Material15GetDisplacementEvEUlT_E_NS_12FloatTextureENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS3_PKvi.exit.i.i.i
+  %storemerge.i.sink.i.i.i = phi i64 [ %storemerge.i.i.i.i, %_ZN4pbrt6detail8DispatchIRZNKS_8Material15GetDisplacementEvEUlT_E_NS_12FloatTextureENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS3_PKvi.exit.i.i.i ], [ %89, %sw.bb7.i.i.i ], [ %88, %sw.bb5.i.i.i ], [ %87, %sw.bb4.i.i.i ], [ %86, %sw.bb3.i.i.i ], [ %85, %sw.bb2.i.i.i ], [ %84, %sw.bb1.i.i.i ], [ %83, %sw.bb.i.i.i ], [ 0, %if.end95 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %texEval.i27)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %eval.i)
   store ptr %texEval.i27, ptr %eval.i, align 8
@@ -2446,35 +2467,35 @@ for.inc.i:                                        ; preds = %land.lhs.true.i, %l
 cond.end106:                                      ; preds = %land.lhs.true.i, %for.inc.i, %_ZNK4pbrt8Material15GetDisplacementEv.exit, %land.lhs.true
   %cond = phi ptr [ %basicEvalMaterialQueue, %land.lhs.true ], [ %universalEvalMaterialQueue, %_ZNK4pbrt8Material15GetDisplacementEv.exit ], [ %basicEvalMaterialQueue, %for.inc.i ], [ %universalEvalMaterialQueue, %land.lhs.true.i ]
   store ptr %cond, ptr %enqueue, align 8
-  %84 = getelementptr inbounds i8, ptr %enqueue, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %84, ptr noundef nonnull align 8 dereferenceable(72) %intr, i64 72, i1 false)
+  %91 = getelementptr inbounds i8, ptr %enqueue, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %91, ptr noundef nonnull align 8 dereferenceable(72) %intr, i64 72, i1 false)
   %medium.i.i37 = getelementptr inbounds i8, ptr %enqueue, i64 80
   %medium3.i.i = getelementptr inbounds i8, ptr %intr, i64 72
-  %85 = load i64, ptr %medium3.i.i, align 8
-  store i64 %85, ptr %medium.i.i37, align 8
+  %92 = load i64, ptr %medium3.i.i, align 8
+  store i64 %92, ptr %medium.i.i37, align 8
   %dpdu.i38 = getelementptr inbounds i8, ptr %enqueue, i64 88
   %dpdu2.i = getelementptr inbounds i8, ptr %intr, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %dpdu.i38, ptr noundef nonnull align 8 dereferenceable(112) %dpdu2.i, i64 112, i1 false)
   %material.i = getelementptr inbounds i8, ptr %enqueue, i64 200
-  %86 = load i64, ptr %material36, align 8
-  store i64 %86, ptr %material.i, align 8
+  %93 = load i64, ptr %material36, align 8
+  store i64 %93, ptr %material.i, align 8
   %areaLight.i = getelementptr inbounds i8, ptr %enqueue, i64 208
-  %87 = load i64, ptr %areaLight63, align 8
-  store i64 %87, ptr %areaLight.i, align 8
+  %94 = load i64, ptr %areaLight63, align 8
+  store i64 %94, ptr %areaLight.i, align 8
   %dpdx.i = getelementptr inbounds i8, ptr %enqueue, i64 216
   %dpdx5.i = getelementptr inbounds i8, ptr %intr, i64 208
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %dpdx.i, ptr noundef nonnull align 8 dereferenceable(40) %dpdx5.i, i64 40, i1 false)
-  %88 = getelementptr inbounds i8, ptr %enqueue, i64 256
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %88, ptr noundef nonnull align 8 dereferenceable(28) %r, i64 28, i1 false)
+  %95 = getelementptr inbounds i8, ptr %enqueue, i64 256
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %95, ptr noundef nonnull align 8 dereferenceable(28) %r, i64 28, i1 false)
   %medium.i.i39 = getelementptr inbounds i8, ptr %enqueue, i64 288
   %medium3.i.i40 = getelementptr inbounds i8, ptr %r, i64 32
-  %89 = load i64, ptr %medium3.i.i40, align 8
-  store i64 %89, ptr %medium.i.i39, align 8
+  %96 = load i64, ptr %medium3.i.i40, align 8
+  store i64 %96, ptr %medium.i.i39, align 8
   %depth.i = getelementptr inbounds i8, ptr %enqueue, i64 296
   %depth3.i = getelementptr inbounds i8, ptr %r, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(148) %depth.i, ptr noundef nonnull align 8 dereferenceable(148) %depth3.i, i64 148, i1 false)
-  %90 = getelementptr inbounds i8, ptr %enqueue, i64 448
-  store i64 %mediumInterface.sroa.0.0, ptr %90, align 8
+  %97 = getelementptr inbounds i8, ptr %enqueue, i64 448
+  store i64 %mediumInterface.sroa.0.0, ptr %97, align 8
   %outside.i41 = getelementptr inbounds i8, ptr %enqueue, i64 456
   store i64 %mediumInterface.sroa.6.0, ptr %outside.i41, align 8
   call void @_ZN4pbrt6detail8DispatchIRZNS_28EnqueueWorkAfterIntersectionENS_11RayWorkItemENS_6MediumEfNS_18SurfaceInteractionEPNS_17MediumSampleQueueEPNS_8RayQueueEPNS_9WorkQueueINS_20HitAreaLightWorkItemEEEPNS_14MultiWorkQueueINS_8TypePackIJNS_20MaterialEvalWorkItemINS_21CoatedDiffuseMaterialEEENSF_INS_23CoatedConductorMaterialEEENSF_INS_17ConductorMaterialEEENSF_INS_18DielectricMaterialEEENSF_INS_15DiffuseMaterialEEENSF_INS_27DiffuseTransmissionMaterialEEENSF_INS_12HairMaterialEEENSF_INS_16MeasuredMaterialEEENSF_INS_18SubsurfaceMaterialEEENSF_INS_22ThinDielectricMaterialEEENSF_INS_11MixMaterialEEEEEEEES14_EUlT_E_vSG_SI_SK_SM_SO_SQ_SS_SU_JSW_SY_S10_EvEET0_OS15_Pvi(ptr noundef nonnull align 8 dereferenceable(464) %enqueue, ptr noundef nonnull %82, i32 noundef %sub.i.i31)
@@ -3244,8 +3265,8 @@ if.then5:                                         ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp2.i, ptr noundef nonnull align 8 dereferenceable(76) %ctx, i64 76, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %c.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %map.i.i)
-  store ptr %agg.tmp2.i, ptr %map.i.i, align 8, !noalias !42
-  %4 = load i64, ptr %3, align 8, !noalias !45
+  store ptr %agg.tmp2.i, ptr %map.i.i, align 8, !noalias !76
+  %4 = load i64, ptr %3, align 8, !noalias !79
   %and.i.i.i.i = and i64 %4, 144115188075855871
   %5 = inttoptr i64 %and.i.i.i.i to ptr
   %shr.i.i.i.i = lshr i64 %4, 57
@@ -3348,7 +3369,7 @@ declare noundef float @_ZNK4pbrt6MIPMap6FilterIfEET_NS_6Point2IfEENS_7Vector2IfE
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4pbrt6detail8DispatchIRZNKS_16TextureMapping2D3MapENS_18TextureEvalContextEEUlT_E_NS_10TexCoord2DENS_9UVMappingENS_16SphericalMappingENS_18CylindricalMappingENS_13PlanarMappingEEET0_OS4_PKvi(ptr noalias sret(%"struct.pbrt::TexCoord2D") align 4 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %func, ptr noundef %ptr, i32 noundef %index) local_unnamed_addr #10 comdat {
 entry:
-  %0 = load ptr, ptr %func, align 8, !noalias !48
+  %0 = load ptr, ptr %func, align 8, !noalias !82
   switch i32 %index, label %sw.default [
     i32 0, label %sw.bb
     i32 1, label %sw.bb3
@@ -3357,47 +3378,47 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   %agg.tmp.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 48
-  %agg.tmp.sroa.2.0.copyload.i = load float, ptr %agg.tmp.sroa.2.0..sroa_idx.i, align 4, !noalias !49
+  %agg.tmp.sroa.2.0.copyload.i = load float, ptr %agg.tmp.sroa.2.0..sroa_idx.i, align 4, !noalias !83
   %agg.tmp.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 52
-  %agg.tmp.sroa.3.0.copyload.i = load float, ptr %agg.tmp.sroa.3.0..sroa_idx.i, align 4, !noalias !49
+  %agg.tmp.sroa.3.0.copyload.i = load float, ptr %agg.tmp.sroa.3.0..sroa_idx.i, align 4, !noalias !83
   %agg.tmp.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 56
-  %agg.tmp.sroa.4.0.copyload.i = load float, ptr %agg.tmp.sroa.4.0..sroa_idx.i, align 4, !noalias !49
+  %agg.tmp.sroa.4.0.copyload.i = load float, ptr %agg.tmp.sroa.4.0..sroa_idx.i, align 4, !noalias !83
   %agg.tmp.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 60
-  %agg.tmp.sroa.5.0.copyload.i = load float, ptr %agg.tmp.sroa.5.0..sroa_idx.i, align 4, !noalias !49
+  %agg.tmp.sroa.5.0.copyload.i = load float, ptr %agg.tmp.sroa.5.0..sroa_idx.i, align 4, !noalias !83
   %agg.tmp.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 64
-  %agg.tmp.sroa.6.0.copyload.i = load float, ptr %agg.tmp.sroa.6.0..sroa_idx.i, align 4, !noalias !49
+  %agg.tmp.sroa.6.0.copyload.i = load float, ptr %agg.tmp.sroa.6.0..sroa_idx.i, align 4, !noalias !83
   %agg.tmp.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 68
-  %agg.tmp.sroa.7.0.copyload.i = load float, ptr %agg.tmp.sroa.7.0..sroa_idx.i, align 4, !noalias !49
-  %1 = load float, ptr %ptr, align 4, !noalias !52
+  %agg.tmp.sroa.7.0.copyload.i = load float, ptr %agg.tmp.sroa.7.0..sroa_idx.i, align 4, !noalias !83
+  %1 = load float, ptr %ptr, align 4, !noalias !86
   %mul.i.i = fmul float %agg.tmp.sroa.4.0.copyload.i, %1
   %mul3.i.i = fmul float %agg.tmp.sroa.5.0.copyload.i, %1
   %sv.i.i = getelementptr inbounds i8, ptr %ptr, i64 4
-  %2 = load float, ptr %sv.i.i, align 4, !noalias !52
+  %2 = load float, ptr %sv.i.i, align 4, !noalias !86
   %mul4.i.i = fmul float %agg.tmp.sroa.6.0.copyload.i, %2
   %mul6.i.i = fmul float %agg.tmp.sroa.7.0.copyload.i, %2
   %mul8.i.i = fmul float %agg.tmp.sroa.2.0.copyload.i, %1
   %du.i.i = getelementptr inbounds i8, ptr %ptr, i64 8
-  %3 = load float, ptr %du.i.i, align 4, !noalias !52
+  %3 = load float, ptr %du.i.i, align 4, !noalias !86
   %add.i.i = fadd float %mul8.i.i, %3
   %mul12.i.i = fmul float %agg.tmp.sroa.3.0.copyload.i, %2
   %dv.i.i = getelementptr inbounds i8, ptr %ptr, i64 12
-  %4 = load float, ptr %dv.i.i, align 4, !noalias !52
+  %4 = load float, ptr %dv.i.i, align 4, !noalias !86
   %add13.i.i = fadd float %mul12.i.i, %4
   br label %return
 
 sw.bb3:                                           ; preds = %entry
-  %agg.tmp.sroa.0.0.copyload.i = load <2 x float>, ptr %0, align 4, !noalias !55
+  %agg.tmp.sroa.0.0.copyload.i = load <2 x float>, ptr %0, align 4, !noalias !89
   %agg.tmp.sroa.2.0..sroa_idx.i7 = getelementptr inbounds i8, ptr %0, i64 8
-  %agg.tmp.sroa.2.0.copyload.i8 = load float, ptr %agg.tmp.sroa.2.0..sroa_idx.i7, align 4, !noalias !55
+  %agg.tmp.sroa.2.0.copyload.i8 = load float, ptr %agg.tmp.sroa.2.0..sroa_idx.i7, align 4, !noalias !89
   %agg.tmp.sroa.3.0..sroa_idx.i9 = getelementptr inbounds i8, ptr %0, i64 12
-  %agg.tmp.sroa.3.0.copyload.i10 = load <2 x float>, ptr %agg.tmp.sroa.3.0..sroa_idx.i9, align 4, !noalias !55
+  %agg.tmp.sroa.3.0.copyload.i10 = load <2 x float>, ptr %agg.tmp.sroa.3.0..sroa_idx.i9, align 4, !noalias !89
   %agg.tmp.sroa.4.0..sroa_idx.i11 = getelementptr inbounds i8, ptr %0, i64 20
-  %agg.tmp.sroa.4.0.copyload.i12 = load float, ptr %agg.tmp.sroa.4.0..sroa_idx.i11, align 4, !noalias !55
+  %agg.tmp.sroa.4.0.copyload.i12 = load float, ptr %agg.tmp.sroa.4.0..sroa_idx.i11, align 4, !noalias !89
   %agg.tmp.sroa.5.0..sroa_idx.i13 = getelementptr inbounds i8, ptr %0, i64 24
-  %agg.tmp.sroa.5.0.copyload.i14 = load <2 x float>, ptr %agg.tmp.sroa.5.0..sroa_idx.i13, align 4, !noalias !55
+  %agg.tmp.sroa.5.0.copyload.i14 = load <2 x float>, ptr %agg.tmp.sroa.5.0..sroa_idx.i13, align 4, !noalias !89
   %agg.tmp.sroa.6.0..sroa_idx.i15 = getelementptr inbounds i8, ptr %0, i64 32
-  %agg.tmp.sroa.6.0.copyload.i16 = load float, ptr %agg.tmp.sroa.6.0..sroa_idx.i15, align 4, !noalias !55
-  %call.i.i = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_6Point3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %ptr, <2 x float> %agg.tmp.sroa.0.0.copyload.i, float %agg.tmp.sroa.2.0.copyload.i8), !noalias !58
+  %agg.tmp.sroa.6.0.copyload.i16 = load float, ptr %agg.tmp.sroa.6.0..sroa_idx.i15, align 4, !noalias !89
+  %call.i.i = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_6Point3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %ptr, <2 x float> %agg.tmp.sroa.0.0.copyload.i, float %agg.tmp.sroa.2.0.copyload.i8), !noalias !92
   %call.fca.0.extract.i.i = extractvalue { <2 x float>, float } %call.i.i, 0
   %call.fca.1.extract.i.i = extractvalue { <2 x float>, float } %call.i.i, 1
   %pt.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %call.fca.0.extract.i.i, i64 0
@@ -3424,10 +3445,10 @@ sw.bb3:                                           ; preds = %entry
   %mul.i.i.i.i = fmul float %div18.i.i, %div.i.i
   %mul2.i.i.i.i = fmul float %div22.i.i, %div.i.i
   %mul3.i.i.i.i = fmul float %div.i.i, %fneg23.i.i
-  %call30.i.i = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %ptr, <2 x float> %agg.tmp.sroa.3.0.copyload.i10, float %agg.tmp.sroa.4.0.copyload.i12), !noalias !58
+  %call30.i.i = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %ptr, <2 x float> %agg.tmp.sroa.3.0.copyload.i10, float %agg.tmp.sroa.4.0.copyload.i12), !noalias !92
   %call30.fca.0.extract.i.i = extractvalue { <2 x float>, float } %call30.i.i, 0
   %call30.fca.1.extract.i.i = extractvalue { <2 x float>, float } %call30.i.i, 1
-  %call36.i.i = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %ptr, <2 x float> %agg.tmp.sroa.5.0.copyload.i14, float %agg.tmp.sroa.6.0.copyload.i16), !noalias !58
+  %call36.i.i = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %ptr, <2 x float> %agg.tmp.sroa.5.0.copyload.i14, float %agg.tmp.sroa.6.0.copyload.i16), !noalias !92
   %call36.fca.0.extract.i.i = extractvalue { <2 x float>, float } %call36.i.i, 0
   %call36.fca.1.extract.i.i = extractvalue { <2 x float>, float } %call36.i.i, 1
   %w.sroa.0.0.vec.extract.i.i.i = extractelement <2 x float> %call30.fca.0.extract.i.i, i64 0
@@ -3462,9 +3483,9 @@ sw.bb3:                                           ; preds = %entry
   %cmp3.i.i.i.i.i = fcmp ogt float %div3.i.i.i.i, 1.000000e+00
   %conv2.val.i.i.i.i.i = select i1 %cmp3.i.i.i.i.i, float 1.000000e+00, float %div3.i.i.i.i
   %retval.0.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, float -1.000000e+00, float %conv2.val.i.i.i.i.i
-  %call.i.i.i.i.i = tail call noundef float @acosf(float noundef %retval.0.i.i.i.i.i) #26, !noalias !58
+  %call.i.i.i.i.i = tail call noundef float @acosf(float noundef %retval.0.i.i.i.i.i) #26, !noalias !92
   %mul61.i.i = fmul float %call.i.i.i.i.i, 0x3FD45F3060000000
-  %call.i.i.i.i = tail call noundef float @atan2f(float noundef %div2.i.i.i.i, float noundef %div.i.i.i.i) #26, !noalias !58
+  %call.i.i.i.i = tail call noundef float @atan2f(float noundef %div2.i.i.i.i, float noundef %div.i.i.i.i) #26, !noalias !92
   %cmp.i.i.i = fcmp olt float %call.i.i.i.i, 0.000000e+00
   %add.i56.i.i = fadd float %call.i.i.i.i, 0x401921FB60000000
   %cond.i.i.i = select i1 %cmp.i.i.i, float %add.i56.i.i, float %call.i.i.i.i
@@ -3472,18 +3493,18 @@ sw.bb3:                                           ; preds = %entry
   br label %return
 
 sw.bb4:                                           ; preds = %entry
-  %agg.tmp.sroa.0.0.copyload.i21 = load <2 x float>, ptr %0, align 4, !noalias !61
+  %agg.tmp.sroa.0.0.copyload.i21 = load <2 x float>, ptr %0, align 4, !noalias !95
   %agg.tmp.sroa.2.0..sroa_idx.i22 = getelementptr inbounds i8, ptr %0, i64 8
-  %agg.tmp.sroa.2.0.copyload.i23 = load float, ptr %agg.tmp.sroa.2.0..sroa_idx.i22, align 4, !noalias !61
+  %agg.tmp.sroa.2.0.copyload.i23 = load float, ptr %agg.tmp.sroa.2.0..sroa_idx.i22, align 4, !noalias !95
   %agg.tmp.sroa.3.0..sroa_idx.i24 = getelementptr inbounds i8, ptr %0, i64 12
-  %agg.tmp.sroa.3.0.copyload.i25 = load <2 x float>, ptr %agg.tmp.sroa.3.0..sroa_idx.i24, align 4, !noalias !61
+  %agg.tmp.sroa.3.0.copyload.i25 = load <2 x float>, ptr %agg.tmp.sroa.3.0..sroa_idx.i24, align 4, !noalias !95
   %agg.tmp.sroa.4.0..sroa_idx.i26 = getelementptr inbounds i8, ptr %0, i64 20
-  %agg.tmp.sroa.4.0.copyload.i27 = load float, ptr %agg.tmp.sroa.4.0..sroa_idx.i26, align 4, !noalias !61
+  %agg.tmp.sroa.4.0.copyload.i27 = load float, ptr %agg.tmp.sroa.4.0..sroa_idx.i26, align 4, !noalias !95
   %agg.tmp.sroa.5.0..sroa_idx.i28 = getelementptr inbounds i8, ptr %0, i64 24
-  %agg.tmp.sroa.5.0.copyload.i29 = load <2 x float>, ptr %agg.tmp.sroa.5.0..sroa_idx.i28, align 4, !noalias !61
+  %agg.tmp.sroa.5.0.copyload.i29 = load <2 x float>, ptr %agg.tmp.sroa.5.0..sroa_idx.i28, align 4, !noalias !95
   %agg.tmp.sroa.6.0..sroa_idx.i30 = getelementptr inbounds i8, ptr %0, i64 32
-  %agg.tmp.sroa.6.0.copyload.i31 = load float, ptr %agg.tmp.sroa.6.0..sroa_idx.i30, align 4, !noalias !61
-  %call.i.i32 = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_6Point3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %ptr, <2 x float> %agg.tmp.sroa.0.0.copyload.i21, float %agg.tmp.sroa.2.0.copyload.i23), !noalias !64
+  %agg.tmp.sroa.6.0.copyload.i31 = load float, ptr %agg.tmp.sroa.6.0..sroa_idx.i30, align 4, !noalias !95
+  %call.i.i32 = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_6Point3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %ptr, <2 x float> %agg.tmp.sroa.0.0.copyload.i21, float %agg.tmp.sroa.2.0.copyload.i23), !noalias !98
   %call.fca.0.extract.i.i33 = extractvalue { <2 x float>, float } %call.i.i32, 0
   %call.fca.1.extract.i.i34 = extractvalue { <2 x float>, float } %call.i.i32, 1
   %pt.sroa.0.0.vec.extract.i.i35 = extractelement <2 x float> %call.fca.0.extract.i.i33, i64 0
@@ -3497,10 +3518,10 @@ sw.bb4:                                           ; preds = %entry
   %div.i.i.i40 = fdiv float %fneg.i.i38, %mul.i.i39
   %div2.i.i.i41 = fdiv float %pt.sroa.0.0.vec.extract.i.i35, %mul.i.i39
   %div3.i.i.i42 = fdiv float 0.000000e+00, %mul.i.i39
-  %call12.i.i = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %ptr, <2 x float> %agg.tmp.sroa.3.0.copyload.i25, float %agg.tmp.sroa.4.0.copyload.i27), !noalias !64
+  %call12.i.i = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %ptr, <2 x float> %agg.tmp.sroa.3.0.copyload.i25, float %agg.tmp.sroa.4.0.copyload.i27), !noalias !98
   %call12.fca.0.extract.i.i = extractvalue { <2 x float>, float } %call12.i.i, 0
   %call12.fca.1.extract.i.i = extractvalue { <2 x float>, float } %call12.i.i, 1
-  %call18.i.i = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %ptr, <2 x float> %agg.tmp.sroa.5.0.copyload.i29, float %agg.tmp.sroa.6.0.copyload.i31), !noalias !64
+  %call18.i.i = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %ptr, <2 x float> %agg.tmp.sroa.5.0.copyload.i29, float %agg.tmp.sroa.6.0.copyload.i31), !noalias !98
   %call18.fca.0.extract.i.i = extractvalue { <2 x float>, float } %call18.i.i, 0
   %call18.fca.1.extract.i.i = extractvalue { <2 x float>, float } %call18.i.i, 1
   %w.sroa.0.0.vec.extract.i.i.i43 = extractelement <2 x float> %call12.fca.0.extract.i.i, i64 0
@@ -3525,37 +3546,37 @@ sw.bb4:                                           ; preds = %entry
   %mul4.i39.i.i = fmul float %w.sroa.0.4.vec.extract.i20.i.i, 0.000000e+00
   %add.i40.i.i = fadd float %mul.i36.i.i, %mul4.i39.i.i
   %add7.i42.i.i = fadd float %call18.fca.1.extract.i.i, %add.i40.i.i
-  %call.i.i.i = tail call noundef float @atan2f(float noundef %pt.sroa.0.4.vec.extract.i.i, float noundef %pt.sroa.0.0.vec.extract.i.i35) #26, !noalias !64
+  %call.i.i.i = tail call noundef float @atan2f(float noundef %pt.sroa.0.4.vec.extract.i.i, float noundef %pt.sroa.0.0.vec.extract.i.i35) #26, !noalias !98
   %add36.i.i = fadd float %call.i.i.i, 0x400921FB60000000
   %mul37.i.i = fmul float %add36.i.i, 0x3FC45F3060000000
   br label %return
 
 sw.default:                                       ; preds = %entry
-  %agg.tmp.sroa.0.0.copyload.i50 = load <2 x float>, ptr %0, align 4, !noalias !67
+  %agg.tmp.sroa.0.0.copyload.i50 = load <2 x float>, ptr %0, align 4, !noalias !101
   %agg.tmp.sroa.2.0..sroa_idx.i51 = getelementptr inbounds i8, ptr %0, i64 8
-  %agg.tmp.sroa.2.0.copyload.i52 = load float, ptr %agg.tmp.sroa.2.0..sroa_idx.i51, align 4, !noalias !67
+  %agg.tmp.sroa.2.0.copyload.i52 = load float, ptr %agg.tmp.sroa.2.0..sroa_idx.i51, align 4, !noalias !101
   %agg.tmp.sroa.3.0..sroa_idx.i53 = getelementptr inbounds i8, ptr %0, i64 12
-  %agg.tmp.sroa.3.0.copyload.i54 = load <2 x float>, ptr %agg.tmp.sroa.3.0..sroa_idx.i53, align 4, !noalias !67
+  %agg.tmp.sroa.3.0.copyload.i54 = load <2 x float>, ptr %agg.tmp.sroa.3.0..sroa_idx.i53, align 4, !noalias !101
   %agg.tmp.sroa.4.0..sroa_idx.i55 = getelementptr inbounds i8, ptr %0, i64 20
-  %agg.tmp.sroa.4.0.copyload.i56 = load float, ptr %agg.tmp.sroa.4.0..sroa_idx.i55, align 4, !noalias !67
+  %agg.tmp.sroa.4.0.copyload.i56 = load float, ptr %agg.tmp.sroa.4.0..sroa_idx.i55, align 4, !noalias !101
   %agg.tmp.sroa.5.0..sroa_idx.i57 = getelementptr inbounds i8, ptr %0, i64 24
-  %agg.tmp.sroa.5.0.copyload.i58 = load <2 x float>, ptr %agg.tmp.sroa.5.0..sroa_idx.i57, align 4, !noalias !67
+  %agg.tmp.sroa.5.0.copyload.i58 = load <2 x float>, ptr %agg.tmp.sroa.5.0..sroa_idx.i57, align 4, !noalias !101
   %agg.tmp.sroa.6.0..sroa_idx.i59 = getelementptr inbounds i8, ptr %0, i64 32
-  %agg.tmp.sroa.6.0.copyload.i60 = load float, ptr %agg.tmp.sroa.6.0..sroa_idx.i59, align 4, !noalias !67
-  %call.i.i61 = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_6Point3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %ptr, <2 x float> %agg.tmp.sroa.0.0.copyload.i50, float %agg.tmp.sroa.2.0.copyload.i52), !noalias !70
+  %agg.tmp.sroa.6.0.copyload.i60 = load float, ptr %agg.tmp.sroa.6.0..sroa_idx.i59, align 4, !noalias !101
+  %call.i.i61 = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_6Point3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %ptr, <2 x float> %agg.tmp.sroa.0.0.copyload.i50, float %agg.tmp.sroa.2.0.copyload.i52), !noalias !104
   %call.fca.0.extract.i.i62 = extractvalue { <2 x float>, float } %call.i.i61, 0
   %call.fca.1.extract.i.i63 = extractvalue { <2 x float>, float } %call.i.i61, 1
   %p.sroa.0.4.vec.extract.i.i.i = extractelement <2 x float> %call.fca.0.extract.i.i62, i64 1
-  %call6.i.i = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %ptr, <2 x float> %agg.tmp.sroa.3.0.copyload.i54, float %agg.tmp.sroa.4.0.copyload.i56), !noalias !70
+  %call6.i.i = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %ptr, <2 x float> %agg.tmp.sroa.3.0.copyload.i54, float %agg.tmp.sroa.4.0.copyload.i56), !noalias !104
   %call6.fca.0.extract.i.i = extractvalue { <2 x float>, float } %call6.i.i, 0
   %call6.fca.1.extract.i.i = extractvalue { <2 x float>, float } %call6.i.i, 1
-  %call12.i.i64 = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %ptr, <2 x float> %agg.tmp.sroa.5.0.copyload.i58, float %agg.tmp.sroa.6.0.copyload.i60), !noalias !70
+  %call12.i.i64 = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %ptr, <2 x float> %agg.tmp.sroa.5.0.copyload.i58, float %agg.tmp.sroa.6.0.copyload.i60), !noalias !104
   %call12.fca.0.extract.i.i65 = extractvalue { <2 x float>, float } %call12.i.i64, 0
   %call12.fca.1.extract.i.i66 = extractvalue { <2 x float>, float } %call12.i.i64, 1
   %vs.i.i = getelementptr inbounds i8, ptr %ptr, i64 128
-  %agg.tmp15.sroa.0.0.copyload.i.i = load <2 x float>, ptr %vs.i.i, align 4, !noalias !70
+  %agg.tmp15.sroa.0.0.copyload.i.i = load <2 x float>, ptr %vs.i.i, align 4, !noalias !104
   %agg.tmp15.sroa.2.0.vs.sroa_idx.i.i = getelementptr inbounds i8, ptr %ptr, i64 136
-  %agg.tmp15.sroa.2.0.copyload.i.i = load float, ptr %agg.tmp15.sroa.2.0.vs.sroa_idx.i.i, align 4, !noalias !70
+  %agg.tmp15.sroa.2.0.copyload.i.i = load float, ptr %agg.tmp15.sroa.2.0.vs.sroa_idx.i.i, align 4, !noalias !104
   %7 = fmul <2 x float> %call6.fca.0.extract.i.i, %agg.tmp15.sroa.0.0.copyload.i.i
   %mul.i.i.i68 = extractelement <2 x float> %7, i64 0
   %v.sroa.0.4.vec.extract.i.i.i = extractelement <2 x float> %agg.tmp15.sroa.0.0.copyload.i.i, i64 1
@@ -3572,9 +3593,9 @@ sw.default:                                       ; preds = %entry
   %mul6.i10.i.i = fmul float %call12.fca.1.extract.i.i66, %agg.tmp15.sroa.2.0.copyload.i.i
   %add7.i11.i.i = fadd float %mul6.i10.i.i, %add.i9.i.i
   %vt.i.i = getelementptr inbounds i8, ptr %ptr, i64 140
-  %agg.tmp22.sroa.0.0.copyload.i.i = load <2 x float>, ptr %vt.i.i, align 4, !noalias !70
+  %agg.tmp22.sroa.0.0.copyload.i.i = load <2 x float>, ptr %vt.i.i, align 4, !noalias !104
   %agg.tmp22.sroa.2.0.vt.sroa_idx.i.i = getelementptr inbounds i8, ptr %ptr, i64 148
-  %agg.tmp22.sroa.2.0.copyload.i.i = load float, ptr %agg.tmp22.sroa.2.0.vt.sroa_idx.i.i, align 4, !noalias !70
+  %agg.tmp22.sroa.2.0.copyload.i.i = load float, ptr %agg.tmp22.sroa.2.0.vt.sroa_idx.i.i, align 4, !noalias !104
   %9 = fmul <2 x float> %call6.fca.0.extract.i.i, %agg.tmp22.sroa.0.0.copyload.i.i
   %mul.i14.i.i74 = extractelement <2 x float> %9, i64 0
   %v.sroa.0.4.vec.extract.i15.i.i = extractelement <2 x float> %agg.tmp22.sroa.0.0.copyload.i.i, i64 1
@@ -3589,7 +3610,7 @@ sw.default:                                       ; preds = %entry
   %mul6.i28.i.i = fmul float %call12.fca.1.extract.i.i66, %agg.tmp22.sroa.2.0.copyload.i.i
   %add7.i29.i.i = fadd float %mul6.i28.i.i, %add.i27.i.i
   %ds.i.i = getelementptr inbounds i8, ptr %ptr, i64 152
-  %11 = load float, ptr %ds.i.i, align 4, !noalias !70
+  %11 = load float, ptr %ds.i.i, align 4, !noalias !104
   %12 = fmul <2 x float> %call.fca.0.extract.i.i62, %agg.tmp15.sroa.0.0.copyload.i.i
   %mul.i32.i.i = extractelement <2 x float> %12, i64 0
   %mul4.i35.i.i = fmul float %p.sroa.0.4.vec.extract.i.i.i, %v.sroa.0.4.vec.extract.i.i.i
@@ -3598,7 +3619,7 @@ sw.default:                                       ; preds = %entry
   %add7.i38.i.i = fadd float %mul6.i37.i.i, %add.i36.i.i
   %add.i.i75 = fadd float %11, %add7.i38.i.i
   %dt.i.i = getelementptr inbounds i8, ptr %ptr, i64 156
-  %13 = load float, ptr %dt.i.i, align 4, !noalias !70
+  %13 = load float, ptr %dt.i.i, align 4, !noalias !104
   %14 = fmul <2 x float> %call.fca.0.extract.i.i62, %agg.tmp22.sroa.0.0.copyload.i.i
   %mul.i41.i.i = extractelement <2 x float> %14, i64 0
   %mul4.i44.i.i = fmul float %p.sroa.0.4.vec.extract.i.i.i, %v.sroa.0.4.vec.extract.i15.i.i
@@ -4549,7 +4570,7 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit84:         ; preds = %_ZN4pbrt13NextFloat
 for.inc:                                          ; preds = %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit58, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit84, %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit64
   %inc = add nuw nsw i32 %i.099, 1
   %exitcond.not = icmp eq i32 %inc, 3
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !73
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !107
 
 for.end:                                          ; preds = %for.inc
   %retval.sroa.0.0.retval.sroa.0.0.retval.sroa.0.0.retval.sroa.0.0.coerce.dive41.coerce.sroa.0.0.copyload = load <2 x float>, ptr %retval.sroa.0, align 8
@@ -10510,118 +10531,118 @@ entry:
   %0 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %1 = load ptr, ptr %0, align 8
   %2 = load ptr, ptr %__functor.val, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !108)
   %medium.i.i.i.i.i.i = getelementptr inbounds i8, ptr %w.i.i.i, i64 32
   %lambda.i.i.i.i.i = getelementptr inbounds i8, ptr %w.i.i.i, i64 44
   %x.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 24
-  %3 = load ptr, ptr %x.i.i.i.i.i.i, align 8, !noalias !77
+  %3 = load ptr, ptr %x.i.i.i.i.i.i, align 8, !noalias !111
   %sext.i.i = shl i64 %__args.val, 32
   %idxprom.i.i.i.i.i.i = ashr exact i64 %sext.i.i, 32
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds float, ptr %3, i64 %idxprom.i.i.i.i.i.i
-  %4 = load float, ptr %arrayidx.i.i.i.i.i.i, align 4, !noalias !77
+  %4 = load float, ptr %arrayidx.i.i.i.i.i.i, align 4, !noalias !111
   %retval.sroa.0.0.vec.insert.i.i.i.i.i.i = insertelement <2 x float> poison, float %4, i64 0
   %y.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 32
-  %5 = load ptr, ptr %y.i.i.i.i.i.i, align 8, !noalias !77
+  %5 = load ptr, ptr %y.i.i.i.i.i.i, align 8, !noalias !111
   %arrayidx6.i.i.i.i.i.i = getelementptr inbounds float, ptr %5, i64 %idxprom.i.i.i.i.i.i
-  %6 = load float, ptr %arrayidx6.i.i.i.i.i.i, align 4, !noalias !77
+  %6 = load float, ptr %arrayidx6.i.i.i.i.i.i, align 4, !noalias !111
   %retval.sroa.0.4.vec.insert.i.i.i.i.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i.i.i.i.i, float %6, i64 1
   %z.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 40
-  %7 = load ptr, ptr %z.i.i.i.i.i.i, align 8, !noalias !77
+  %7 = load ptr, ptr %z.i.i.i.i.i.i, align 8, !noalias !111
   %arrayidx11.i.i.i.i.i.i = getelementptr inbounds float, ptr %7, i64 %idxprom.i.i.i.i.i.i
-  %8 = load float, ptr %arrayidx11.i.i.i.i.i.i, align 4, !noalias !77
+  %8 = load float, ptr %arrayidx11.i.i.i.i.i.i, align 4, !noalias !111
   %x.i5.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 56
-  %9 = load ptr, ptr %x.i5.i.i.i.i.i, align 8, !noalias !77
+  %9 = load ptr, ptr %x.i5.i.i.i.i.i, align 8, !noalias !111
   %arrayidx.i8.i.i.i.i.i = getelementptr inbounds float, ptr %9, i64 %idxprom.i.i.i.i.i.i
-  %10 = load float, ptr %arrayidx.i8.i.i.i.i.i, align 4, !noalias !77
+  %10 = load float, ptr %arrayidx.i8.i.i.i.i.i, align 4, !noalias !111
   %retval.sroa.0.0.vec.insert.i9.i.i.i.i.i = insertelement <2 x float> poison, float %10, i64 0
   %y.i10.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 64
-  %11 = load ptr, ptr %y.i10.i.i.i.i.i, align 8, !noalias !77
+  %11 = load ptr, ptr %y.i10.i.i.i.i.i, align 8, !noalias !111
   %arrayidx6.i11.i.i.i.i.i = getelementptr inbounds float, ptr %11, i64 %idxprom.i.i.i.i.i.i
-  %12 = load float, ptr %arrayidx6.i11.i.i.i.i.i, align 4, !noalias !77
+  %12 = load float, ptr %arrayidx6.i11.i.i.i.i.i, align 4, !noalias !111
   %retval.sroa.0.4.vec.insert.i12.i.i.i.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i9.i.i.i.i.i, float %12, i64 1
   %z.i13.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 72
-  %13 = load ptr, ptr %z.i13.i.i.i.i.i, align 8, !noalias !77
+  %13 = load ptr, ptr %z.i13.i.i.i.i.i, align 8, !noalias !111
   %arrayidx11.i14.i.i.i.i.i = getelementptr inbounds float, ptr %13, i64 %idxprom.i.i.i.i.i.i
-  %14 = load float, ptr %arrayidx11.i14.i.i.i.i.i, align 4, !noalias !77
+  %14 = load float, ptr %arrayidx11.i14.i.i.i.i.i, align 4, !noalias !111
   %time.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 80
-  %15 = load ptr, ptr %time.i.i.i.i.i, align 8, !noalias !77
+  %15 = load ptr, ptr %time.i.i.i.i.i, align 8, !noalias !111
   %arrayidx.i.i.i.i.i = getelementptr inbounds float, ptr %15, i64 %idxprom.i.i.i.i.i.i
-  %16 = load float, ptr %arrayidx.i.i.i.i.i, align 4, !noalias !77
+  %16 = load float, ptr %arrayidx.i.i.i.i.i, align 4, !noalias !111
   %medium.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 88
-  %17 = load ptr, ptr %medium.i.i.i.i.i, align 8, !noalias !77
+  %17 = load ptr, ptr %medium.i.i.i.i.i, align 8, !noalias !111
   %arrayidx20.i.i.i.i.i = getelementptr inbounds %"class.pbrt::Medium", ptr %17, i64 %idxprom.i.i.i.i.i.i
-  %18 = load i64, ptr %arrayidx20.i.i.i.i.i, align 8, !noalias !77
-  store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i.i.i.i, ptr %w.i.i.i, align 8, !alias.scope !74
+  %18 = load i64, ptr %arrayidx20.i.i.i.i.i, align 8, !noalias !111
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i.i.i.i, ptr %w.i.i.i, align 8, !alias.scope !108
   %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %w.i.i.i, i64 8
-  store float %8, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i.i.i, align 8, !alias.scope !74
+  store float %8, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i.i.i, align 8, !alias.scope !108
   %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %w.i.i.i, i64 12
-  store <2 x float> %retval.sroa.0.4.vec.insert.i12.i.i.i.i.i, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i.i.i, align 4, !alias.scope !74
+  store <2 x float> %retval.sroa.0.4.vec.insert.i12.i.i.i.i.i, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i.i.i, align 4, !alias.scope !108
   %ref.tmp.sroa.4.0.agg.result.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %w.i.i.i, i64 20
-  store float %14, ptr %ref.tmp.sroa.4.0.agg.result.sroa_idx.i.i.i.i, align 4, !alias.scope !74
+  store float %14, ptr %ref.tmp.sroa.4.0.agg.result.sroa_idx.i.i.i.i, align 4, !alias.scope !108
   %ref.tmp.sroa.5.0.agg.result.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %w.i.i.i, i64 24
-  store float %16, ptr %ref.tmp.sroa.5.0.agg.result.sroa_idx.i.i.i.i, align 8, !alias.scope !74
-  store i64 %18, ptr %medium.i.i.i.i.i.i, align 8, !alias.scope !74
+  store float %16, ptr %ref.tmp.sroa.5.0.agg.result.sroa_idx.i.i.i.i, align 8, !alias.scope !108
+  store i64 %18, ptr %medium.i.i.i.i.i.i, align 8, !alias.scope !108
   %tMax.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 96
-  %19 = load ptr, ptr %tMax.i.i.i.i, align 8, !noalias !74
+  %19 = load ptr, ptr %tMax.i.i.i.i, align 8, !noalias !108
   %arrayidx.i.i.i.i = getelementptr inbounds float, ptr %19, i64 %idxprom.i.i.i.i.i.i
-  %20 = load float, ptr %arrayidx.i.i.i.i, align 4, !noalias !74
+  %20 = load float, ptr %arrayidx.i.i.i.i, align 4, !noalias !108
   %tMax7.i.i.i.i = getelementptr inbounds i8, ptr %w.i.i.i, i64 40
-  store float %20, ptr %tMax7.i.i.i.i, align 8, !alias.scope !74
+  store float %20, ptr %tMax7.i.i.i.i, align 8, !alias.scope !108
   %lambda4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 112
-  %21 = load ptr, ptr %lambda4.i.i.i.i.i.i.i, align 8, !noalias !80
+  %21 = load ptr, ptr %lambda4.i.i.i.i.i.i.i, align 8, !noalias !114
   %pdf4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 120
-  %22 = load ptr, ptr %pdf4.i.i.i.i.i.i.i, align 8, !noalias !80
+  %22 = load ptr, ptr %pdf4.i.i.i.i.i.i.i, align 8, !noalias !114
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %21, i64 %idxprom.i.i.i.i.i.i
-  %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i = load <2 x float>, ptr %add.ptr.i.i.i.i.i.i.i, align 16, !noalias !80
+  %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i = load <2 x float>, ptr %add.ptr.i.i.i.i.i.i.i, align 16, !noalias !114
   %retval.sroa.2.0.p.addr.0..sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i, i64 8
-  %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i = load <2 x float>, ptr %retval.sroa.2.0.p.addr.0..sroa_idx.i.i.i.i.i.i.i.i, align 8, !noalias !80
+  %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i = load <2 x float>, ptr %retval.sroa.2.0.p.addr.0..sroa_idx.i.i.i.i.i.i.i.i, align 8, !noalias !114
   %add.ptr4.i.i.i.i.i.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %22, i64 %idxprom.i.i.i.i.i.i
-  %retval.sroa.0.0.copyload.i11.i.i.i.i.i.i.i = load <2 x float>, ptr %add.ptr4.i.i.i.i.i.i.i, align 16, !noalias !80
+  %retval.sroa.0.0.copyload.i11.i.i.i.i.i.i.i = load <2 x float>, ptr %add.ptr4.i.i.i.i.i.i.i, align 16, !noalias !114
   %retval.sroa.2.0.p.addr.0..sroa_idx.i12.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr4.i.i.i.i.i.i.i, i64 8
-  %retval.sroa.2.0.copyload.i13.i.i.i.i.i.i.i = load <2 x float>, ptr %retval.sroa.2.0.p.addr.0..sroa_idx.i12.i.i.i.i.i.i.i, align 8, !noalias !80
-  store <2 x float> %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i, ptr %lambda.i.i.i.i.i, align 4, !alias.scope !74
+  %retval.sroa.2.0.copyload.i13.i.i.i.i.i.i.i = load <2 x float>, ptr %retval.sroa.2.0.p.addr.0..sroa_idx.i12.i.i.i.i.i.i.i, align 8, !noalias !114
+  store <2 x float> %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i, ptr %lambda.i.i.i.i.i, align 4, !alias.scope !108
   %ref.tmp8.sroa.2.0.lambda13.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %w.i.i.i, i64 52
-  store <2 x float> %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i, ptr %ref.tmp8.sroa.2.0.lambda13.sroa_idx.i.i.i.i, align 4, !alias.scope !74
+  store <2 x float> %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i, ptr %ref.tmp8.sroa.2.0.lambda13.sroa_idx.i.i.i.i, align 4, !alias.scope !108
   %ref.tmp8.sroa.3.0.lambda13.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %w.i.i.i, i64 60
-  store <2 x float> %retval.sroa.0.0.copyload.i11.i.i.i.i.i.i.i, ptr %ref.tmp8.sroa.3.0.lambda13.sroa_idx.i.i.i.i, align 4, !alias.scope !74
+  store <2 x float> %retval.sroa.0.0.copyload.i11.i.i.i.i.i.i.i, ptr %ref.tmp8.sroa.3.0.lambda13.sroa_idx.i.i.i.i, align 4, !alias.scope !108
   %ref.tmp8.sroa.4.0.lambda13.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %w.i.i.i, i64 68
-  store <2 x float> %retval.sroa.2.0.copyload.i13.i.i.i.i.i.i.i, ptr %ref.tmp8.sroa.4.0.lambda13.sroa_idx.i.i.i.i, align 4, !alias.scope !74
+  store <2 x float> %retval.sroa.2.0.copyload.i13.i.i.i.i.i.i.i, ptr %ref.tmp8.sroa.4.0.lambda13.sroa_idx.i.i.i.i, align 4, !alias.scope !108
   %ptr4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 152
-  %23 = load ptr, ptr %ptr4.i.i.i.i.i.i.i, align 8, !noalias !74
+  %23 = load ptr, ptr %ptr4.i.i.i.i.i.i.i, align 8, !noalias !108
   %add.ptr.i.i.i9.i.i.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %23, i64 %idxprom.i.i.i.i.i.i
-  %retval.sroa.0.0.copyload.i.i.i.i10.i.i.i.i = load <2 x float>, ptr %add.ptr.i.i.i9.i.i.i.i, align 16, !noalias !74
+  %retval.sroa.0.0.copyload.i.i.i.i10.i.i.i.i = load <2 x float>, ptr %add.ptr.i.i.i9.i.i.i.i, align 16, !noalias !108
   %retval.sroa.2.0.p.addr.0..sroa_idx.i.i.i.i11.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i9.i.i.i.i, i64 8
-  %retval.sroa.2.0.copyload.i.i.i.i12.i.i.i.i = load <2 x float>, ptr %retval.sroa.2.0.p.addr.0..sroa_idx.i.i.i.i11.i.i.i.i, align 8, !noalias !74
+  %retval.sroa.2.0.copyload.i.i.i.i12.i.i.i.i = load <2 x float>, ptr %retval.sroa.2.0.p.addr.0..sroa_idx.i.i.i.i11.i.i.i.i, align 8, !noalias !108
   %Ld21.i.i.i.i = getelementptr inbounds i8, ptr %w.i.i.i, i64 76
-  store <2 x float> %retval.sroa.0.0.copyload.i.i.i.i10.i.i.i.i, ptr %Ld21.i.i.i.i, align 4, !alias.scope !74
+  store <2 x float> %retval.sroa.0.0.copyload.i.i.i.i10.i.i.i.i, ptr %Ld21.i.i.i.i, align 4, !alias.scope !108
   %ref.tmp14.sroa.2.0.Ld21.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %w.i.i.i, i64 84
-  store <2 x float> %retval.sroa.2.0.copyload.i.i.i.i12.i.i.i.i, ptr %ref.tmp14.sroa.2.0.Ld21.sroa_idx.i.i.i.i, align 4, !alias.scope !74
+  store <2 x float> %retval.sroa.2.0.copyload.i.i.i.i12.i.i.i.i, ptr %ref.tmp14.sroa.2.0.Ld21.sroa_idx.i.i.i.i, align 4, !alias.scope !108
   %ptr4.i.i.i16.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 176
-  %24 = load ptr, ptr %ptr4.i.i.i16.i.i.i.i, align 8, !noalias !74
+  %24 = load ptr, ptr %ptr4.i.i.i16.i.i.i.i, align 8, !noalias !108
   %add.ptr.i.i.i18.i.i.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %24, i64 %idxprom.i.i.i.i.i.i
-  %retval.sroa.0.0.copyload.i.i.i.i19.i.i.i.i = load <2 x float>, ptr %add.ptr.i.i.i18.i.i.i.i, align 16, !noalias !74
+  %retval.sroa.0.0.copyload.i.i.i.i19.i.i.i.i = load <2 x float>, ptr %add.ptr.i.i.i18.i.i.i.i, align 16, !noalias !108
   %retval.sroa.2.0.p.addr.0..sroa_idx.i.i.i.i20.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i18.i.i.i.i, i64 8
-  %retval.sroa.2.0.copyload.i.i.i.i21.i.i.i.i = load <2 x float>, ptr %retval.sroa.2.0.p.addr.0..sroa_idx.i.i.i.i20.i.i.i.i, align 8, !noalias !74
+  %retval.sroa.2.0.copyload.i.i.i.i21.i.i.i.i = load <2 x float>, ptr %retval.sroa.2.0.p.addr.0..sroa_idx.i.i.i.i20.i.i.i.i, align 8, !noalias !108
   %r_u30.i.i.i.i = getelementptr inbounds i8, ptr %w.i.i.i, i64 92
-  store <2 x float> %retval.sroa.0.0.copyload.i.i.i.i19.i.i.i.i, ptr %r_u30.i.i.i.i, align 4, !alias.scope !74
+  store <2 x float> %retval.sroa.0.0.copyload.i.i.i.i19.i.i.i.i, ptr %r_u30.i.i.i.i, align 4, !alias.scope !108
   %ref.tmp22.sroa.2.0.r_u30.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %w.i.i.i, i64 100
-  store <2 x float> %retval.sroa.2.0.copyload.i.i.i.i21.i.i.i.i, ptr %ref.tmp22.sroa.2.0.r_u30.sroa_idx.i.i.i.i, align 4, !alias.scope !74
+  store <2 x float> %retval.sroa.2.0.copyload.i.i.i.i21.i.i.i.i, ptr %ref.tmp22.sroa.2.0.r_u30.sroa_idx.i.i.i.i, align 4, !alias.scope !108
   %ptr4.i.i.i27.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 200
-  %25 = load ptr, ptr %ptr4.i.i.i27.i.i.i.i, align 8, !noalias !74
+  %25 = load ptr, ptr %ptr4.i.i.i27.i.i.i.i, align 8, !noalias !108
   %add.ptr.i.i.i29.i.i.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %25, i64 %idxprom.i.i.i.i.i.i
-  %retval.sroa.0.0.copyload.i.i.i.i30.i.i.i.i = load <2 x float>, ptr %add.ptr.i.i.i29.i.i.i.i, align 16, !noalias !74
+  %retval.sroa.0.0.copyload.i.i.i.i30.i.i.i.i = load <2 x float>, ptr %add.ptr.i.i.i29.i.i.i.i, align 16, !noalias !108
   %retval.sroa.2.0.p.addr.0..sroa_idx.i.i.i.i31.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i29.i.i.i.i, i64 8
-  %retval.sroa.2.0.copyload.i.i.i.i32.i.i.i.i = load <2 x float>, ptr %retval.sroa.2.0.p.addr.0..sroa_idx.i.i.i.i31.i.i.i.i, align 8, !noalias !74
+  %retval.sroa.2.0.copyload.i.i.i.i32.i.i.i.i = load <2 x float>, ptr %retval.sroa.2.0.p.addr.0..sroa_idx.i.i.i.i31.i.i.i.i, align 8, !noalias !108
   %r_l39.i.i.i.i = getelementptr inbounds i8, ptr %w.i.i.i, i64 108
-  store <2 x float> %retval.sroa.0.0.copyload.i.i.i.i30.i.i.i.i, ptr %r_l39.i.i.i.i, align 4, !alias.scope !74
+  store <2 x float> %retval.sroa.0.0.copyload.i.i.i.i30.i.i.i.i, ptr %r_l39.i.i.i.i, align 4, !alias.scope !108
   %ref.tmp31.sroa.2.0.r_l39.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %w.i.i.i, i64 116
-  store <2 x float> %retval.sroa.2.0.copyload.i.i.i.i32.i.i.i.i, ptr %ref.tmp31.sroa.2.0.r_l39.sroa_idx.i.i.i.i, align 4, !alias.scope !74
+  store <2 x float> %retval.sroa.2.0.copyload.i.i.i.i32.i.i.i.i, ptr %ref.tmp31.sroa.2.0.r_l39.sroa_idx.i.i.i.i, align 4, !alias.scope !108
   %pixelIndex.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 216
-  %26 = load ptr, ptr %pixelIndex.i.i.i.i, align 8, !noalias !74
+  %26 = load ptr, ptr %pixelIndex.i.i.i.i, align 8, !noalias !108
   %arrayidx43.i.i.i.i = getelementptr inbounds i32, ptr %26, i64 %idxprom.i.i.i.i.i.i
-  %27 = load i32, ptr %arrayidx43.i.i.i.i, align 4, !noalias !74
+  %27 = load i32, ptr %arrayidx43.i.i.i.i, align 4, !noalias !108
   %pixelIndex44.i.i.i.i = getelementptr inbounds i8, ptr %w.i.i.i, i64 124
-  store i32 %27, ptr %pixelIndex44.i.i.i.i, align 4, !alias.scope !74
+  store i32 %27, ptr %pixelIndex44.i.i.i.i, align 4, !alias.scope !108
   %aggregate.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %call2.i.i.i = call noundef zeroext i1 @_ZNK4pbrt9Primitive10IntersectPERKNS_3RayEf(ptr noundef nonnull align 8 dereferenceable(8) %aggregate.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %w.i.i.i, float noundef %20)
   %tMax.i2.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 40
@@ -10648,7 +10669,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   store float %add.i.i.i.i.i.i, ptr %arrayidx.i4.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i.i.i.i.i, label %_ZNK4pbrt15SampledSpectrumplERKS0_.exit.i.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !87
+  br i1 %exitcond.not.i.i.i.i.i.i, label %_ZNK4pbrt15SampledSpectrumplERKS0_.exit.i.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !121
 
 _ZNK4pbrt15SampledSpectrumplERKS0_.exit.i.i.i.i:  ; preds = %for.body.i.i.i.i.i.i
   %retval.sroa.0.0.copyload.i.i.i.i.i = load <2 x float>, ptr %ret.i.i.i.i.i, align 8
@@ -10669,7 +10690,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %add.i.i.i.i.i = fadd float %sum.04.i.i.i.i.i, %34
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i.i.i.i, label %_ZNK4pbrt15SampledSpectrum7AverageEv.exit.i.i.i.i, label %for.body.i.i.i.i.i, !llvm.loop !88
+  br i1 %exitcond.not.i.i.i.i.i, label %_ZNK4pbrt15SampledSpectrum7AverageEv.exit.i.i.i.i, label %for.body.i.i.i.i.i, !llvm.loop !122
 
 _ZNK4pbrt15SampledSpectrum7AverageEv.exit.i.i.i.i: ; preds = %for.body.i.i.i.i.i
   %div.i.i.i.i.i = fmul float %add.i.i.i.i.i, 2.500000e-01
@@ -10685,7 +10706,7 @@ for.body.i.i3.i.i.i.i:                            ; preds = %for.body.i.i3.i.i.i
   store float %div.i.i.i.i.i.i, ptr %arrayidx.i.i.i5.i.i.i.i, align 4
   %indvars.iv.next.i.i6.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i4.i.i.i.i, 1
   %exitcond.not.i.i7.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i6.i.i.i.i, 4
-  br i1 %exitcond.not.i.i7.i.i.i.i, label %_ZNK4pbrt15SampledSpectrumdvEf.exit.i.i.i.i, label %for.body.i.i3.i.i.i.i, !llvm.loop !89
+  br i1 %exitcond.not.i.i7.i.i.i.i, label %_ZNK4pbrt15SampledSpectrumdvEf.exit.i.i.i.i, label %for.body.i.i3.i.i.i.i, !llvm.loop !123
 
 _ZNK4pbrt15SampledSpectrumdvEf.exit.i.i.i.i:      ; preds = %for.body.i.i3.i.i.i.i
   %retval.sroa.0.0.copyload.i8.i.i.i.i = load <2 x float>, ptr %ret.i2.i.i.i.i, align 8
@@ -10720,7 +10741,7 @@ for.body.i.i16.i.i.i.i:                           ; preds = %for.body.i.i16.i.i.
   store float %add.i.i20.i.i.i.i, ptr %arrayidx.i4.i.i19.i.i.i.i, align 4
   %indvars.iv.next.i.i21.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i17.i.i.i.i, 1
   %exitcond.not.i.i22.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i21.i.i.i.i, 4
-  br i1 %exitcond.not.i.i22.i.i.i.i, label %_ZNK4pbrt15SampledSpectrumplERKS0_.exit28.i.i.i.i, label %for.body.i.i16.i.i.i.i, !llvm.loop !87
+  br i1 %exitcond.not.i.i22.i.i.i.i, label %_ZNK4pbrt15SampledSpectrumplERKS0_.exit28.i.i.i.i, label %for.body.i.i16.i.i.i.i, !llvm.loop !121
 
 _ZNK4pbrt15SampledSpectrumplERKS0_.exit28.i.i.i.i: ; preds = %for.body.i.i16.i.i.i.i
   %retval.sroa.0.0.copyload.i23.i.i.i.i = load <2 x float>, ptr %ret.i15.i.i.i.i, align 8
@@ -10911,81 +10932,81 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %2 = load ptr, ptr %__functor.val, align 8
   %x.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 24
-  %3 = load ptr, ptr %x.i.i.i.i.i.i, align 8, !noalias !90
+  %3 = load ptr, ptr %x.i.i.i.i.i.i, align 8, !noalias !124
   %sext.i.i = shl i64 %__args.val, 32
   %idxprom.i.i.i.i.i.i = ashr exact i64 %sext.i.i, 32
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds float, ptr %3, i64 %idxprom.i.i.i.i.i.i
-  %4 = load float, ptr %arrayidx.i.i.i.i.i.i, align 4, !noalias !90
+  %4 = load float, ptr %arrayidx.i.i.i.i.i.i, align 4, !noalias !124
   %retval.sroa.0.0.vec.insert.i.i.i.i.i.i = insertelement <2 x float> poison, float %4, i64 0
   %y.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 32
-  %5 = load ptr, ptr %y.i.i.i.i.i.i, align 8, !noalias !90
+  %5 = load ptr, ptr %y.i.i.i.i.i.i, align 8, !noalias !124
   %arrayidx6.i.i.i.i.i.i = getelementptr inbounds float, ptr %5, i64 %idxprom.i.i.i.i.i.i
-  %6 = load float, ptr %arrayidx6.i.i.i.i.i.i, align 4, !noalias !90
+  %6 = load float, ptr %arrayidx6.i.i.i.i.i.i, align 4, !noalias !124
   %retval.sroa.0.4.vec.insert.i.i.i.i.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i.i.i.i.i, float %6, i64 1
   %z.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 40
-  %7 = load ptr, ptr %z.i.i.i.i.i.i, align 8, !noalias !90
+  %7 = load ptr, ptr %z.i.i.i.i.i.i, align 8, !noalias !124
   %arrayidx11.i.i.i.i.i.i = getelementptr inbounds float, ptr %7, i64 %idxprom.i.i.i.i.i.i
-  %8 = load float, ptr %arrayidx11.i.i.i.i.i.i, align 4, !noalias !90
+  %8 = load float, ptr %arrayidx11.i.i.i.i.i.i, align 4, !noalias !124
   %x.i5.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 56
-  %9 = load ptr, ptr %x.i5.i.i.i.i.i, align 8, !noalias !90
+  %9 = load ptr, ptr %x.i5.i.i.i.i.i, align 8, !noalias !124
   %arrayidx.i8.i.i.i.i.i = getelementptr inbounds float, ptr %9, i64 %idxprom.i.i.i.i.i.i
-  %10 = load float, ptr %arrayidx.i8.i.i.i.i.i, align 4, !noalias !90
+  %10 = load float, ptr %arrayidx.i8.i.i.i.i.i, align 4, !noalias !124
   %retval.sroa.0.0.vec.insert.i9.i.i.i.i.i = insertelement <2 x float> poison, float %10, i64 0
   %y.i10.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 64
-  %11 = load ptr, ptr %y.i10.i.i.i.i.i, align 8, !noalias !90
+  %11 = load ptr, ptr %y.i10.i.i.i.i.i, align 8, !noalias !124
   %arrayidx6.i11.i.i.i.i.i = getelementptr inbounds float, ptr %11, i64 %idxprom.i.i.i.i.i.i
-  %12 = load float, ptr %arrayidx6.i11.i.i.i.i.i, align 4, !noalias !90
+  %12 = load float, ptr %arrayidx6.i11.i.i.i.i.i, align 4, !noalias !124
   %retval.sroa.0.4.vec.insert.i12.i.i.i.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i9.i.i.i.i.i, float %12, i64 1
   %z.i13.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 72
-  %13 = load ptr, ptr %z.i13.i.i.i.i.i, align 8, !noalias !90
+  %13 = load ptr, ptr %z.i13.i.i.i.i.i, align 8, !noalias !124
   %arrayidx11.i14.i.i.i.i.i = getelementptr inbounds float, ptr %13, i64 %idxprom.i.i.i.i.i.i
-  %14 = load float, ptr %arrayidx11.i14.i.i.i.i.i, align 4, !noalias !90
+  %14 = load float, ptr %arrayidx11.i14.i.i.i.i.i, align 4, !noalias !124
   %time.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 80
-  %15 = load ptr, ptr %time.i.i.i.i.i, align 8, !noalias !90
+  %15 = load ptr, ptr %time.i.i.i.i.i, align 8, !noalias !124
   %arrayidx.i.i.i.i.i = getelementptr inbounds float, ptr %15, i64 %idxprom.i.i.i.i.i.i
-  %16 = load float, ptr %arrayidx.i.i.i.i.i, align 4, !noalias !90
+  %16 = load float, ptr %arrayidx.i.i.i.i.i, align 4, !noalias !124
   %medium.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 88
-  %17 = load ptr, ptr %medium.i.i.i.i.i, align 8, !noalias !90
+  %17 = load ptr, ptr %medium.i.i.i.i.i, align 8, !noalias !124
   %arrayidx20.i.i.i.i.i = getelementptr inbounds %"class.pbrt::Medium", ptr %17, i64 %idxprom.i.i.i.i.i.i
-  %18 = load i64, ptr %arrayidx20.i.i.i.i.i, align 8, !noalias !90
+  %18 = load i64, ptr %arrayidx20.i.i.i.i.i, align 8, !noalias !124
   %tMax.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 96
-  %19 = load ptr, ptr %tMax.i.i.i.i, align 8, !noalias !95
+  %19 = load ptr, ptr %tMax.i.i.i.i, align 8, !noalias !129
   %arrayidx.i.i.i.i = getelementptr inbounds float, ptr %19, i64 %idxprom.i.i.i.i.i.i
-  %20 = load float, ptr %arrayidx.i.i.i.i, align 4, !noalias !95
+  %20 = load float, ptr %arrayidx.i.i.i.i, align 4, !noalias !129
   %lambda4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 112
-  %21 = load ptr, ptr %lambda4.i.i.i.i.i.i.i, align 8, !noalias !96
+  %21 = load ptr, ptr %lambda4.i.i.i.i.i.i.i, align 8, !noalias !130
   %pdf4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 120
-  %22 = load ptr, ptr %pdf4.i.i.i.i.i.i.i, align 8, !noalias !96
+  %22 = load ptr, ptr %pdf4.i.i.i.i.i.i.i, align 8, !noalias !130
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %21, i64 %idxprom.i.i.i.i.i.i
-  %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i = load <2 x float>, ptr %add.ptr.i.i.i.i.i.i.i, align 16, !noalias !96
+  %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i = load <2 x float>, ptr %add.ptr.i.i.i.i.i.i.i, align 16, !noalias !130
   %retval.sroa.2.0.p.addr.0..sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i, i64 8
-  %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i = load <2 x float>, ptr %retval.sroa.2.0.p.addr.0..sroa_idx.i.i.i.i.i.i.i.i, align 8, !noalias !96
+  %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i = load <2 x float>, ptr %retval.sroa.2.0.p.addr.0..sroa_idx.i.i.i.i.i.i.i.i, align 8, !noalias !130
   %add.ptr4.i.i.i.i.i.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %22, i64 %idxprom.i.i.i.i.i.i
-  %retval.sroa.0.0.copyload.i11.i.i.i.i.i.i.i = load <2 x float>, ptr %add.ptr4.i.i.i.i.i.i.i, align 16, !noalias !96
+  %retval.sroa.0.0.copyload.i11.i.i.i.i.i.i.i = load <2 x float>, ptr %add.ptr4.i.i.i.i.i.i.i, align 16, !noalias !130
   %retval.sroa.2.0.p.addr.0..sroa_idx.i12.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr4.i.i.i.i.i.i.i, i64 8
-  %retval.sroa.2.0.copyload.i13.i.i.i.i.i.i.i = load <2 x float>, ptr %retval.sroa.2.0.p.addr.0..sroa_idx.i12.i.i.i.i.i.i.i, align 8, !noalias !96
+  %retval.sroa.2.0.copyload.i13.i.i.i.i.i.i.i = load <2 x float>, ptr %retval.sroa.2.0.p.addr.0..sroa_idx.i12.i.i.i.i.i.i.i, align 8, !noalias !130
   %ptr4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 152
-  %23 = load ptr, ptr %ptr4.i.i.i.i.i.i.i, align 8, !noalias !95
+  %23 = load ptr, ptr %ptr4.i.i.i.i.i.i.i, align 8, !noalias !129
   %add.ptr.i.i.i9.i.i.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %23, i64 %idxprom.i.i.i.i.i.i
-  %retval.sroa.0.0.copyload.i.i.i.i10.i.i.i.i = load <2 x float>, ptr %add.ptr.i.i.i9.i.i.i.i, align 16, !noalias !95
+  %retval.sroa.0.0.copyload.i.i.i.i10.i.i.i.i = load <2 x float>, ptr %add.ptr.i.i.i9.i.i.i.i, align 16, !noalias !129
   %retval.sroa.2.0.p.addr.0..sroa_idx.i.i.i.i11.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i9.i.i.i.i, i64 8
-  %retval.sroa.2.0.copyload.i.i.i.i12.i.i.i.i = load <2 x float>, ptr %retval.sroa.2.0.p.addr.0..sroa_idx.i.i.i.i11.i.i.i.i, align 8, !noalias !95
+  %retval.sroa.2.0.copyload.i.i.i.i12.i.i.i.i = load <2 x float>, ptr %retval.sroa.2.0.p.addr.0..sroa_idx.i.i.i.i11.i.i.i.i, align 8, !noalias !129
   %ptr4.i.i.i16.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 176
-  %24 = load ptr, ptr %ptr4.i.i.i16.i.i.i.i, align 8, !noalias !95
+  %24 = load ptr, ptr %ptr4.i.i.i16.i.i.i.i, align 8, !noalias !129
   %add.ptr.i.i.i18.i.i.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %24, i64 %idxprom.i.i.i.i.i.i
-  %retval.sroa.0.0.copyload.i.i.i.i19.i.i.i.i = load <2 x float>, ptr %add.ptr.i.i.i18.i.i.i.i, align 16, !noalias !95
+  %retval.sroa.0.0.copyload.i.i.i.i19.i.i.i.i = load <2 x float>, ptr %add.ptr.i.i.i18.i.i.i.i, align 16, !noalias !129
   %retval.sroa.2.0.p.addr.0..sroa_idx.i.i.i.i20.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i18.i.i.i.i, i64 8
-  %retval.sroa.2.0.copyload.i.i.i.i21.i.i.i.i = load <2 x float>, ptr %retval.sroa.2.0.p.addr.0..sroa_idx.i.i.i.i20.i.i.i.i, align 8, !noalias !95
+  %retval.sroa.2.0.copyload.i.i.i.i21.i.i.i.i = load <2 x float>, ptr %retval.sroa.2.0.p.addr.0..sroa_idx.i.i.i.i20.i.i.i.i, align 8, !noalias !129
   %ptr4.i.i.i27.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 200
-  %25 = load ptr, ptr %ptr4.i.i.i27.i.i.i.i, align 8, !noalias !95
+  %25 = load ptr, ptr %ptr4.i.i.i27.i.i.i.i, align 8, !noalias !129
   %add.ptr.i.i.i29.i.i.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %25, i64 %idxprom.i.i.i.i.i.i
-  %retval.sroa.0.0.copyload.i.i.i.i30.i.i.i.i = load <2 x float>, ptr %add.ptr.i.i.i29.i.i.i.i, align 16, !noalias !95
+  %retval.sroa.0.0.copyload.i.i.i.i30.i.i.i.i = load <2 x float>, ptr %add.ptr.i.i.i29.i.i.i.i, align 16, !noalias !129
   %retval.sroa.2.0.p.addr.0..sroa_idx.i.i.i.i31.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i29.i.i.i.i, i64 8
-  %retval.sroa.2.0.copyload.i.i.i.i32.i.i.i.i = load <2 x float>, ptr %retval.sroa.2.0.p.addr.0..sroa_idx.i.i.i.i31.i.i.i.i, align 8, !noalias !95
+  %retval.sroa.2.0.copyload.i.i.i.i32.i.i.i.i = load <2 x float>, ptr %retval.sroa.2.0.p.addr.0..sroa_idx.i.i.i.i31.i.i.i.i, align 8, !noalias !129
   %pixelIndex.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 216
-  %26 = load ptr, ptr %pixelIndex.i.i.i.i, align 8, !noalias !95
+  %26 = load ptr, ptr %pixelIndex.i.i.i.i, align 8, !noalias !129
   %arrayidx43.i.i.i.i = getelementptr inbounds i32, ptr %26, i64 %idxprom.i.i.i.i.i.i
-  %27 = load i32, ptr %arrayidx43.i.i.i.i, align 4, !noalias !95
+  %27 = load i32, ptr %arrayidx43.i.i.i.i, align 4, !noalias !129
   %set.i.i.i.i = getelementptr inbounds i8, ptr %si.i.i.i, i64 256
   store i8 0, ptr %set.i.i.i.i, align 8
   %28 = getelementptr inbounds i8, ptr %__functor.val, i64 8
@@ -11062,7 +11083,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   store float 1.000000e+00, ptr %arrayidx.i.i.i4.i.i.i, align 4
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i.i.i.i.i, label %_ZN4pbrt15SampledSpectrumC2Ef.exit.i.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !103
+  br i1 %exitcond.not.i.i.i.i.i.i, label %_ZN4pbrt15SampledSpectrumC2Ef.exit.i.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !137
 
 _ZN4pbrt15SampledSpectrumC2Ef.exit.i.i.i.i:       ; preds = %for.body.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %r_u.i.i.i.i, i8 0, i64 16, i1 false)
@@ -11074,7 +11095,7 @@ for.body.i.i19.i.i.i.i:                           ; preds = %for.body.i.i19.i.i.
   store float 1.000000e+00, ptr %arrayidx.i.i21.i.i.i.i, align 4
   %indvars.iv.next.i.i22.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i20.i.i.i.i, 1
   %exitcond.not.i.i23.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i22.i.i.i.i, 4
-  br i1 %exitcond.not.i.i23.i.i.i.i, label %_ZN4pbrt15SampledSpectrumC2Ef.exit24.i.i.i.i, label %for.body.i.i19.i.i.i.i, !llvm.loop !103
+  br i1 %exitcond.not.i.i23.i.i.i.i, label %_ZN4pbrt15SampledSpectrumC2Ef.exit24.i.i.i.i, label %for.body.i.i19.i.i.i.i, !llvm.loop !137
 
 _ZN4pbrt15SampledSpectrumC2Ef.exit24.i.i.i.i:     ; preds = %for.body.i.i19.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %r_l.i.i.i.i, i8 0, i64 16, i1 false)
@@ -11086,7 +11107,7 @@ for.body.i.i25.i.i.i.i:                           ; preds = %for.body.i.i25.i.i.
   store float 1.000000e+00, ptr %arrayidx.i.i27.i.i.i.i, align 4
   %indvars.iv.next.i.i28.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i26.i.i.i.i, 1
   %exitcond.not.i.i29.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i28.i.i.i.i, 4
-  br i1 %exitcond.not.i.i29.i.i.i.i, label %while.cond.preheader.i.i.i.i, label %for.body.i.i25.i.i.i.i, !llvm.loop !103
+  br i1 %exitcond.not.i.i29.i.i.i.i, label %while.cond.preheader.i.i.i.i, label %for.body.i.i25.i.i.i.i, !llvm.loop !137
 
 while.cond.preheader.i.i.i.i:                     ; preds = %for.body.i.i25.i.i.i.i
   %mul2.i.i.i.i.i.i = fmul float %12, %20
@@ -11297,33 +11318,33 @@ while.body.i.i.i.i:                               ; preds = %"_ZZZNK4pbrt12CPUAg
   store i64 %ray.sroa.30.0342.i.i.i.i, ptr %medium.i31.i.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %ref.tmp.i.i.i.i.i)
   call void @_ZNK4pbrt9Primitive9IntersectERKNS_3RayEf(ptr nonnull sret(%"class.pstd::optional") align 8 %ref.tmp.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %aggregate.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp12.i.i.i.i, float noundef %20)
-  %69 = load i8, ptr %set.i.i.i.i, align 8, !noalias !104
+  %69 = load i8, ptr %set.i.i.i.i, align 8, !noalias !138
   %tobool.i.i.i.i.i.i.i = trunc i8 %69 to i1
   br i1 %tobool.i.i.i.i.i.i.i, label %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEE5valueEv.exit.i.i.i.i.i.i.i, label %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEE5resetEv.exit.i.i.i.i.i.i
 
 _ZN4pstd8optionalIN4pbrt17ShapeIntersectionEE5valueEv.exit.i.i.i.i.i.i.i: ; preds = %while.body.i.i.i.i
-  store i8 0, ptr %set.i.i.i.i, align 8, !noalias !104
+  store i8 0, ptr %set.i.i.i.i, align 8, !noalias !138
   br label %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEE5resetEv.exit.i.i.i.i.i.i
 
 _ZN4pstd8optionalIN4pbrt17ShapeIntersectionEE5resetEv.exit.i.i.i.i.i.i: ; preds = %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEE5valueEv.exit.i.i.i.i.i.i.i, %while.body.i.i.i.i
   %70 = phi i8 [ 0, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEE5valueEv.exit.i.i.i.i.i.i.i ], [ %69, %while.body.i.i.i.i ]
-  %71 = load i8, ptr %set.i3.i.i.i.i.i.i, align 8, !noalias !104
+  %71 = load i8, ptr %set.i3.i.i.i.i.i.i, align 8, !noalias !138
   %tobool.i4.i.i.i.i.i.i = trunc i8 %71 to i1
   br i1 %tobool.i4.i.i.i.i.i.i, label %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit.i.thread.i.i.i.i, label %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit.i.i.i.i.i
 
 _ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit.i.thread.i.i.i.i: ; preds = %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEE5resetEv.exit.i.i.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %si.i.i.i, ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp.i.i.i.i.i, i64 72, i1 false), !noalias !104
-  %72 = load i64, ptr %medium3.i.i.i.i.i.i.i.i.i, align 8, !noalias !104
-  store i64 %72, ptr %medium.i.i.i.i.i.i.i.i.i, align 8, !noalias !104
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %dpdu.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(112) %dpdu2.i.i.i.i.i.i.i.i, i64 112, i1 false), !noalias !104
-  %73 = load i64, ptr %material3.i.i.i.i.i.i.i.i, align 8, !noalias !104
-  store i64 %73, ptr %material.i.i.i.i.i.i.i.i, align 8, !noalias !104
-  %74 = load i64, ptr %areaLight4.i.i.i.i.i.i.i.i, align 8, !noalias !104
-  store i64 %74, ptr %areaLight.i.i.i.i.i.i.i.i, align 8, !noalias !104
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %dpdx.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %dpdx5.i.i.i.i.i.i.i.i, i64 40, i1 false), !noalias !104
-  %75 = load float, ptr %tHit3.i.i.i.i.i.i.i, align 8, !noalias !104
-  store float %75, ptr %tHit.i.i.i.i.i.i.i, align 8, !noalias !104
-  store i8 1, ptr %set.i.i.i.i, align 8, !noalias !104
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %si.i.i.i, ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp.i.i.i.i.i, i64 72, i1 false), !noalias !138
+  %72 = load i64, ptr %medium3.i.i.i.i.i.i.i.i.i, align 8, !noalias !138
+  store i64 %72, ptr %medium.i.i.i.i.i.i.i.i.i, align 8, !noalias !138
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %dpdu.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(112) %dpdu2.i.i.i.i.i.i.i.i, i64 112, i1 false), !noalias !138
+  %73 = load i64, ptr %material3.i.i.i.i.i.i.i.i, align 8, !noalias !138
+  store i64 %73, ptr %material.i.i.i.i.i.i.i.i, align 8, !noalias !138
+  %74 = load i64, ptr %areaLight4.i.i.i.i.i.i.i.i, align 8, !noalias !138
+  store i64 %74, ptr %areaLight.i.i.i.i.i.i.i.i, align 8, !noalias !138
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %dpdx.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %dpdx5.i.i.i.i.i.i.i.i, i64 40, i1 false), !noalias !138
+  %75 = load float, ptr %tHit3.i.i.i.i.i.i.i, align 8, !noalias !138
+  store float %75, ptr %tHit.i.i.i.i.i.i.i, align 8, !noalias !138
+  store i8 1, ptr %set.i.i.i.i, align 8, !noalias !138
   br label %land.lhs.true.i.i.i.i
 
 _ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit.i.i.i.i.i: ; preds = %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEE5resetEv.exit.i.i.i.i.i.i
@@ -11331,17 +11352,17 @@ _ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit.i.i.i.i.i: ; preds = %_ZN
   br i1 %tobool.i.i.i.i.i.i, label %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit.i.i.land.lhs.true.i_crit_edge.i.i.i, label %if.end.thread.i.i.i.i
 
 _ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit.i.i.land.lhs.true.i_crit_edge.i.i.i: ; preds = %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit.i.i.i.i.i
-  %.pre.i.i.i = load i64, ptr %material.i.i.i.i.i.i.i.i, align 8, !noalias !104
+  %.pre.i.i.i = load i64, ptr %material.i.i.i.i.i.i.i.i, align 8, !noalias !138
   br label %land.lhs.true.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit.i.i.land.lhs.true.i_crit_edge.i.i.i, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit.i.thread.i.i.i.i
   %76 = phi i64 [ %.pre.i.i.i, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit.i.i.land.lhs.true.i_crit_edge.i.i.i ], [ %73, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit.i.thread.i.i.i.i ]
-  %agg.tmp.sroa.0.sroa.0.0.copyload.i.i.i.i.i.i = load float, ptr %si.i.i.i, align 8, !noalias !104
-  %agg.tmp.sroa.0.sroa.2.0.copyload.i.i.i.i.i.i = load float, ptr %agg.tmp.sroa.0.sroa.2.0.this.sroa_idx.i.i.i.i.i.i, align 4, !noalias !104
-  %agg.tmp.sroa.0.sroa.3.0.copyload.i.i.i.i.i.i = load float, ptr %agg.tmp.sroa.0.sroa.3.0.this.sroa_idx.i.i.i.i.i.i, align 8, !noalias !104
-  %agg.tmp.sroa.0.sroa.4.0.copyload.i.i.i.i.i.i = load float, ptr %agg.tmp.sroa.0.sroa.4.0.this.sroa_idx.i.i.i.i.i.i, align 4, !noalias !104
-  %agg.tmp.sroa.0.sroa.5.0.copyload.i.i.i.i.i.i = load float, ptr %agg.tmp.sroa.0.sroa.5.0.this.sroa_idx.i.i.i.i.i.i, align 8, !noalias !104
-  %agg.tmp.sroa.0.sroa.6.0.copyload.i.i.i.i.i.i = load float, ptr %agg.tmp.sroa.0.sroa.6.0.this.sroa_idx.i.i.i.i.i.i, align 4, !noalias !104
+  %agg.tmp.sroa.0.sroa.0.0.copyload.i.i.i.i.i.i = load float, ptr %si.i.i.i, align 8, !noalias !138
+  %agg.tmp.sroa.0.sroa.2.0.copyload.i.i.i.i.i.i = load float, ptr %agg.tmp.sroa.0.sroa.2.0.this.sroa_idx.i.i.i.i.i.i, align 4, !noalias !138
+  %agg.tmp.sroa.0.sroa.3.0.copyload.i.i.i.i.i.i = load float, ptr %agg.tmp.sroa.0.sroa.3.0.this.sroa_idx.i.i.i.i.i.i, align 8, !noalias !138
+  %agg.tmp.sroa.0.sroa.4.0.copyload.i.i.i.i.i.i = load float, ptr %agg.tmp.sroa.0.sroa.4.0.this.sroa_idx.i.i.i.i.i.i, align 4, !noalias !138
+  %agg.tmp.sroa.0.sroa.5.0.copyload.i.i.i.i.i.i = load float, ptr %agg.tmp.sroa.0.sroa.5.0.this.sroa_idx.i.i.i.i.i.i, align 8, !noalias !138
+  %agg.tmp.sroa.0.sroa.6.0.copyload.i.i.i.i.i.i = load float, ptr %agg.tmp.sroa.0.sroa.6.0.this.sroa_idx.i.i.i.i.i.i, align 4, !noalias !138
   %add.i.i.i.i.i.i.i.i.i = fadd float %agg.tmp.sroa.0.sroa.0.0.copyload.i.i.i.i.i.i, %agg.tmp.sroa.0.sroa.2.0.copyload.i.i.i.i.i.i
   %div.i.i.i.i.i.i.i.i.i = fmul float %add.i.i.i.i.i.i.i.i.i, 5.000000e-01
   %add.i.i2.i.i.i.i.i.i.i = fadd float %agg.tmp.sroa.0.sroa.3.0.copyload.i.i.i.i.i.i, %agg.tmp.sroa.0.sroa.4.0.copyload.i.i.i.i.i.i
@@ -11479,16 +11500,16 @@ for.body.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %for.body.i.i.i.i.i.
   store float 1.000000e+00, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i, label %while.cond.preheader.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !103
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i, label %while.cond.preheader.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !137
 
 while.cond.preheader.i.i.i.i.i.i.i.i.i:           ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i
-  %86 = load i8, ptr %called.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !107
+  %86 = load i8, ptr %called.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !141
   %tobool.i.i19.i.i.i.i.i.i.i.i = trunc i8 %86 to i1
   br i1 %tobool.i.i19.i.i.i.i.i.i.i.i, label %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.thread.i.i.i.i.i.i.i.i.i, label %invoke.cont9.i.i.i.i.i.i.i.i.i
 
 invoke.cont9.i.i.i.i.i.i.i.i.i:                   ; preds = %while.cond.preheader.i.i.i.i.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.i.i.i.i.i.i.i.i.i
   %u.addr.0297.i20.i.i.i.i.i.i.i.i = phi float [ %.sroa.speculated.i.i.i.i.i.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.i.i.i.i.i.i.i.i.i ], [ %.sroa.speculated.i.i.i.i.i, %while.cond.preheader.i.i.i.i.i.i.i.i.i ]
-  store i8 1, ptr %called.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !107
+  store i8 1, ptr %called.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !141
   %seg.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i = load float, ptr %iter.i.i.i.i.i.i.i.i.i, align 4
   %seg.sroa.4.0.copyload.i.i.i.i.i.i.i.i.i = load float, ptr %seg.sroa.4.0.iter.sroa_idx.i.i.i.i.i.i.i.i.i, align 4
   %seg.sroa.7.0.copyload.i.i.i.i.i.i.i.i.i = load <2 x float>, ptr %seg.sroa.7.0.iter.sroa_idx.i.i.i.i.i.i.i.i.i, align 4
@@ -11516,7 +11537,7 @@ for.body.i.i31.i.i.i.i.i.i.i.i.i:                 ; preds = %for.body.i.i31.i.i.
   store float %mul.i.i.i.i.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i33.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i32.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i34.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i33.i.i.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i34.i.i.i.i.i.i.i.i.i, label %invoke.cont28.i.i.i.i.i.i.i.i.i, label %for.body.i.i31.i.i.i.i.i.i.i.i.i, !llvm.loop !110
+  br i1 %exitcond.not.i.i34.i.i.i.i.i.i.i.i.i, label %invoke.cont28.i.i.i.i.i.i.i.i.i, label %for.body.i.i31.i.i.i.i.i.i.i.i.i, !llvm.loop !144
 
 invoke.cont28.i.i.i.i.i.i.i.i.i:                  ; preds = %for.body.i.i31.i.i.i.i.i.i.i.i.i
   %.fca.0.load.i.i.i.i.i.i.i.i.i.i.i = load <2 x float>, ptr %retval.i.i.i.i.i.i.i.i.i.i.i, align 8
@@ -11564,7 +11585,7 @@ _ZN4pbrt7FastExpEf.exit.i.i.i.i.i.i.i.i.i.i:      ; preds = %if.end5.i.i.i.i.i.i
   store float %retval.0.i.i.i.i.i.i.i.i.i.i.i, ptr %arrayidx.i.i6.i.i.i.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i, label %invoke.cont32.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i, !llvm.loop !111
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i, label %invoke.cont32.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i, !llvm.loop !145
 
 invoke.cont32.i.i.i.i.i.i.i.i.i:                  ; preds = %_ZN4pbrt7FastExpEf.exit.i.i.i.i.i.i.i.i.i.i
   %.fca.0.load.i.i.i.i.i.i.i.i.i.i = load <2 x float>, ptr %retval.i.i.i.i.i.i.i.i.i.i, align 8
@@ -11584,7 +11605,7 @@ for.body.i41.i.i.i.i.i.i.i.i.i:                   ; preds = %for.body.i41.i.i.i.
   store float %mul.i.i.i.i.i.i.i.i.i.i, ptr %arrayidx.i4.i.i.i.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i44.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i42.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i45.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i44.i.i.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i45.i.i.i.i.i.i.i.i.i, label %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.thread.i.i.i.i.i.i.i.i.i, label %for.body.i41.i.i.i.i.i.i.i.i.i, !llvm.loop !112
+  br i1 %exitcond.not.i45.i.i.i.i.i.i.i.i.i, label %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.thread.i.i.i.i.i.i.i.i.i, label %for.body.i41.i.i.i.i.i.i.i.i.i, !llvm.loop !146
 
 invoke.cont53.i.i.i.i.i.i.i.i.i:                  ; preds = %invoke.cont9.i.i.i.i.i.i.i.i.i, %invoke.cont98.i.i.i.i.i.i.i.i.i
   %tMin39.0.i.i.i.i.i.i.i.i.i = phi float [ %add.i.i.i.i.i52.i.i.i.i, %invoke.cont98.i.i.i.i.i.i.i.i.i ], [ %seg.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, %invoke.cont9.i.i.i.i.i.i.i.i.i ]
@@ -11628,7 +11649,7 @@ for.body.i.i73.i.i.i.i.i.i.i.i.i:                 ; preds = %for.body.i.i73.i.i.
   store float %mul.i.i76.i.i.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i75.i.i.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i77.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i74.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i78.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i77.i.i.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i78.i.i.i.i.i.i.i.i.i, label %invoke.cont65.i.i.i.i.i.i.i.i.i, label %for.body.i.i73.i.i.i.i.i.i.i.i.i, !llvm.loop !110
+  br i1 %exitcond.not.i.i78.i.i.i.i.i.i.i.i.i, label %invoke.cont65.i.i.i.i.i.i.i.i.i, label %for.body.i.i73.i.i.i.i.i.i.i.i.i, !llvm.loop !144
 
 invoke.cont65.i.i.i.i.i.i.i.i.i:                  ; preds = %for.body.i.i73.i.i.i.i.i.i.i.i.i
   %.fca.0.load.i.i79.i.i.i.i.i.i.i.i.i = load <2 x float>, ptr %retval.i.i72.i.i.i.i.i.i.i.i.i, align 8
@@ -11676,7 +11697,7 @@ _ZN4pbrt7FastExpEf.exit.i103.i.i.i.i.i.i.i.i.i:   ; preds = %if.end5.i.i98.i.i.i
   store float %retval.0.i.i104.i.i.i.i.i.i.i.i.i, ptr %arrayidx.i.i6.i105.i.i.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i106.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i87.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i107.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i106.i.i.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i107.i.i.i.i.i.i.i.i.i, label %invoke.cont69.i.i.i.i.i.i.i.i.i, label %for.body.i86.i.i.i.i.i.i.i.i.i, !llvm.loop !111
+  br i1 %exitcond.not.i107.i.i.i.i.i.i.i.i.i, label %invoke.cont69.i.i.i.i.i.i.i.i.i, label %for.body.i86.i.i.i.i.i.i.i.i.i, !llvm.loop !145
 
 invoke.cont69.i.i.i.i.i.i.i.i.i:                  ; preds = %_ZN4pbrt7FastExpEf.exit.i103.i.i.i.i.i.i.i.i.i
   %.fca.0.load.i108.i.i.i.i.i.i.i.i.i = load <2 x float>, ptr %retval.i85.i.i.i.i.i.i.i.i.i, align 8
@@ -11696,7 +11717,7 @@ for.body.i114.i.i.i.i.i.i.i.i.i:                  ; preds = %for.body.i114.i.i.i
   store float %mul.i118.i.i.i.i.i.i.i.i.i, ptr %arrayidx.i4.i117.i.i.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i119.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i115.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i120.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i119.i.i.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i120.i.i.i.i.i.i.i.i.i, label %invoke.cont76.i.i.i.i.i.i.i.i.i, label %for.body.i114.i.i.i.i.i.i.i.i.i, !llvm.loop !112
+  br i1 %exitcond.not.i120.i.i.i.i.i.i.i.i.i, label %invoke.cont76.i.i.i.i.i.i.i.i.i, label %for.body.i114.i.i.i.i.i.i.i.i.i, !llvm.loop !146
 
 invoke.cont76.i.i.i.i.i.i.i.i.i:                  ; preds = %for.body.i114.i.i.i.i.i.i.i.i.i
   %mul.i.i122.i.i.i.i.i.i.i.i.i = fmul float %div.i.i.i.i.i.i.i.i.i.i.i, %add.i.i.i.i.i52.i.i.i.i
@@ -11727,11 +11748,11 @@ for.body.i.i144.i.i.i.i.i.i.i.i.i:                ; preds = %for.body.i.i144.i.i
   store float 1.000000e+00, ptr %arrayidx.i.i146.i.i.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i147.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i145.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i148.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i147.i.i.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i148.i.i.i.i.i.i.i.i.i, label %invoke.cont98.i.i.i.i.i.i.i.i.i, label %for.body.i.i144.i.i.i.i.i.i.i.i.i, !llvm.loop !103
+  br i1 %exitcond.not.i.i148.i.i.i.i.i.i.i.i.i, label %invoke.cont98.i.i.i.i.i.i.i.i.i, label %for.body.i.i144.i.i.i.i.i.i.i.i.i, !llvm.loop !137
 
 invoke.cont98.i.i.i.i.i.i.i.i.i:                  ; preds = %for.body.i.i144.i.i.i.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %T_maj.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp97.i.i.i.i.i.i.i.i.i, i64 16, i1 false)
-  br label %invoke.cont53.i.i.i.i.i.i.i.i.i, !llvm.loop !113
+  br label %invoke.cont53.i.i.i.i.i.i.i.i.i, !llvm.loop !147
 
 invoke.cont104.i.i.i.i.i.i.i.i.i:                 ; preds = %invoke.cont53.i.i.i.i.i.i.i.i.i
   %sub103.i.i.i.i.i.i.i.i.i = fsub float %seg.sroa.4.0.copyload.i.i.i.i.i.i.i.i.i, %tMin39.0.i.i.i.i.i.i.i.i.i
@@ -11752,7 +11773,7 @@ for.body.i.i161.i.i.i.i.i.i.i.i.i:                ; preds = %for.body.i.i161.i.i
   store float %mul.i.i164.i.i.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i163.i.i.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i165.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i162.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i166.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i165.i.i.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i166.i.i.i.i.i.i.i.i.i, label %invoke.cont115.i.i.i.i.i.i.i.i.i, label %for.body.i.i161.i.i.i.i.i.i.i.i.i, !llvm.loop !110
+  br i1 %exitcond.not.i.i166.i.i.i.i.i.i.i.i.i, label %invoke.cont115.i.i.i.i.i.i.i.i.i, label %for.body.i.i161.i.i.i.i.i.i.i.i.i, !llvm.loop !144
 
 invoke.cont115.i.i.i.i.i.i.i.i.i:                 ; preds = %for.body.i.i161.i.i.i.i.i.i.i.i.i
   %.fca.0.load.i.i167.i.i.i.i.i.i.i.i.i = load <2 x float>, ptr %retval.i.i160.i.i.i.i.i.i.i.i.i, align 8
@@ -11800,7 +11821,7 @@ _ZN4pbrt7FastExpEf.exit.i191.i.i.i.i.i.i.i.i.i:   ; preds = %if.end5.i.i186.i.i.
   store float %retval.0.i.i192.i.i.i.i.i.i.i.i.i, ptr %arrayidx.i.i6.i193.i.i.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i194.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i175.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i195.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i194.i.i.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i195.i.i.i.i.i.i.i.i.i, label %invoke.cont119.i.i.i.i.i.i.i.i.i, label %for.body.i174.i.i.i.i.i.i.i.i.i, !llvm.loop !111
+  br i1 %exitcond.not.i195.i.i.i.i.i.i.i.i.i, label %invoke.cont119.i.i.i.i.i.i.i.i.i, label %for.body.i174.i.i.i.i.i.i.i.i.i, !llvm.loop !145
 
 invoke.cont119.i.i.i.i.i.i.i.i.i:                 ; preds = %_ZN4pbrt7FastExpEf.exit.i191.i.i.i.i.i.i.i.i.i
   %.fca.0.load.i196.i.i.i.i.i.i.i.i.i = load <2 x float>, ptr %retval.i173.i.i.i.i.i.i.i.i.i, align 8
@@ -11820,14 +11841,14 @@ for.body.i202.i.i.i.i.i.i.i.i.i:                  ; preds = %for.body.i202.i.i.i
   store float %mul.i206.i.i.i.i.i.i.i.i.i, ptr %arrayidx.i4.i205.i.i.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i207.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i203.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i208.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i207.i.i.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i208.i.i.i.i.i.i.i.i.i, label %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.i.i.i.i.i.i.i.i.i, label %for.body.i202.i.i.i.i.i.i.i.i.i, !llvm.loop !112
+  br i1 %exitcond.not.i208.i.i.i.i.i.i.i.i.i, label %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.i.i.i.i.i.i.i.i.i, label %for.body.i202.i.i.i.i.i.i.i.i.i, !llvm.loop !146
 
 _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.thread.i.i.i.i.i.i.i.i.i: ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.i.i.i.i.i.i.i.i.i, %for.body.i41.i.i.i.i.i.i.i.i.i, %while.cond.preheader.i.i.i.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %T_maj.i.i.i.i.i.i.i.i.i, i64 16, i1 false)
   br label %"_ZZN4pbrt11SampleT_majIZNS_18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS2_17IntersectShadowTrEiS6_SA_ENKSB_clEiEUlNS_6Point3IfEEE_EEvS4_SA_T_T0_EUlSF_NS_16MediumPropertiesENS_15SampledSpectrumESK_E_EESK_SC_ffRNS_3RNGERKNS_18SampledWavelengthsESH_ENKUlSH_E_clIPNS_17HomogeneousMediumEEEDaSH_.exit.i.i.i.i.i.i.i"
 
 _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.i.i.i.i.i.i.i.i.i: ; preds = %for.body.i202.i.i.i.i.i.i.i.i.i
-  %.pre.i.i.i.i.i.i.i.i = load i8, ptr %called.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !107
+  %.pre.i.i.i.i.i.i.i.i = load i8, ptr %called.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !141
   %127 = trunc i8 %.pre.i.i.i.i.i.i.i.i to i1
   br i1 %127, label %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.thread.i.i.i.i.i.i.i.i.i, label %invoke.cont9.i.i.i.i.i.i.i.i.i
 
@@ -11841,7 +11862,7 @@ for.body.i.i214.i.i.i.i.i.i.i.i.i:                ; preds = %for.body.i.i214.i.i
   store float 1.000000e+00, ptr %arrayidx.i.i216.i.i.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i217.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i215.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i218.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i217.i.i.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i218.i.i.i.i.i.i.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNS_18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS2_17IntersectShadowTrEiS6_SA_ENKSB_clEiEUlNS_6Point3IfEEE_EEvS4_SA_T_T0_EUlSF_NS_16MediumPropertiesENS_15SampledSpectrumESK_E_EESK_SC_ffRNS_3RNGERKNS_18SampledWavelengthsESH_ENKUlSH_E_clIPNS_17HomogeneousMediumEEEDaSH_.exit.i.i.i.i.i.i.i", label %for.body.i.i214.i.i.i.i.i.i.i.i.i, !llvm.loop !103
+  br i1 %exitcond.not.i.i218.i.i.i.i.i.i.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNS_18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS2_17IntersectShadowTrEiS6_SA_ENKSB_clEiEUlNS_6Point3IfEEE_EEvS4_SA_T_T0_EUlSF_NS_16MediumPropertiesENS_15SampledSpectrumESK_E_EESK_SC_ffRNS_3RNGERKNS_18SampledWavelengthsESH_ENKUlSH_E_clIPNS_17HomogeneousMediumEEEDaSH_.exit.i.i.i.i.i.i.i", label %for.body.i.i214.i.i.i.i.i.i.i.i.i, !llvm.loop !137
 
 "_ZZN4pbrt11SampleT_majIZNS_18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS2_17IntersectShadowTrEiS6_SA_ENKSB_clEiEUlNS_6Point3IfEEE_EEvS4_SA_T_T0_EUlSF_NS_16MediumPropertiesENS_15SampledSpectrumESK_E_EESK_SC_ffRNS_3RNGERKNS_18SampledWavelengthsESH_ENKUlSH_E_clIPNS_17HomogeneousMediumEEEDaSH_.exit.i.i.i.i.i.i.i": ; preds = %for.body.i.i214.i.i.i.i.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.thread.i.i.i.i.i.i.i.i.i
   %.fca.0.load.i.i.i.i.i.i.i.i.i = load <2 x float>, ptr %retval.i.i.i.i.i.i.i.i.i, align 8
@@ -11909,7 +11930,7 @@ for.body.i.i.i.i54.i.i.i.i.i.i.i:                 ; preds = %for.body.i.i.i.i54.
   store float 1.000000e+00, ptr %arrayidx.i.i.i.i56.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i.i.i57.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i55.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i58.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i57.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i.i.i58.i.i.i.i.i.i.i, label %while.cond.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i54.i.i.i.i.i.i.i, !llvm.loop !103
+  br i1 %exitcond.not.i.i.i.i58.i.i.i.i.i.i.i, label %while.cond.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i54.i.i.i.i.i.i.i, !llvm.loop !137
 
 while.cond.i.i.i.i.i.i.i.i.i:                     ; preds = %for.body.i.i.i.i54.i.i.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i.i.i.i.i.i.i.i
   %done.0.i.i.i.i.i.i.i.i.i = phi i1 [ %done.1.i.i.i.i.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i.i.i.i.i.i.i.i ], [ false, %for.body.i.i.i.i54.i.i.i.i.i.i.i ]
@@ -11951,7 +11972,7 @@ for.body.i.i30.i.i.i.i.i.i.i.i.i:                 ; preds = %for.body.i.i30.i.i.
   store float %mul.i.i.i.i91.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i90.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i32.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i31.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i33.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i32.i.i.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i33.i.i.i.i.i.i.i.i.i, label %invoke.cont27.i.i.i.i.i.i.i.i.i, label %for.body.i.i30.i.i.i.i.i.i.i.i.i, !llvm.loop !110
+  br i1 %exitcond.not.i.i33.i.i.i.i.i.i.i.i.i, label %invoke.cont27.i.i.i.i.i.i.i.i.i, label %for.body.i.i30.i.i.i.i.i.i.i.i.i, !llvm.loop !144
 
 invoke.cont27.i.i.i.i.i.i.i.i.i:                  ; preds = %for.body.i.i30.i.i.i.i.i.i.i.i.i
   %.fca.0.load.i.i.i.i92.i.i.i.i.i.i.i = load <2 x float>, ptr %retval.i.i.i.i11.i.i.i.i.i.i.i, align 8
@@ -11999,7 +12020,7 @@ _ZN4pbrt7FastExpEf.exit.i.i.i107.i.i.i.i.i.i.i:   ; preds = %if.end5.i.i.i.i103.
   store float %retval.0.i.i.i.i108.i.i.i.i.i.i.i, ptr %arrayidx.i.i6.i.i.i109.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i.i110.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i95.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i111.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i110.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i.i111.i.i.i.i.i.i.i, label %invoke.cont31.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i94.i.i.i.i.i.i.i, !llvm.loop !111
+  br i1 %exitcond.not.i.i.i111.i.i.i.i.i.i.i, label %invoke.cont31.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i94.i.i.i.i.i.i.i, !llvm.loop !145
 
 invoke.cont31.i.i.i.i.i.i.i.i.i:                  ; preds = %_ZN4pbrt7FastExpEf.exit.i.i.i107.i.i.i.i.i.i.i
   %.fca.0.load.i.i.i112.i.i.i.i.i.i.i = load <2 x float>, ptr %retval.i.i.i10.i.i.i.i.i.i.i, align 8
@@ -12019,10 +12040,10 @@ for.body.i40.i.i.i.i.i.i.i.i.i:                   ; preds = %for.body.i40.i.i.i.
   store float %mul.i.i.i115.i.i.i.i.i.i.i, ptr %arrayidx.i4.i.i.i114.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i43.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i41.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i44.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i43.i.i.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i44.i.i.i.i.i.i.i.i.i, label %_ZN4pbrt15SampledSpectrummLERKS0_.exit.i.i.i.i.i.i.i.i.i, label %for.body.i40.i.i.i.i.i.i.i.i.i, !llvm.loop !112
+  br i1 %exitcond.not.i44.i.i.i.i.i.i.i.i.i, label %_ZN4pbrt15SampledSpectrummLERKS0_.exit.i.i.i.i.i.i.i.i.i, label %for.body.i40.i.i.i.i.i.i.i.i.i, !llvm.loop !146
 
 _ZN4pbrt15SampledSpectrummLERKS0_.exit.i.i.i.i.i.i.i.i.i: ; preds = %for.body.i40.i.i.i.i.i.i.i.i.i
-  br label %cleanup.i.i.i.i.i.i.i.i.i, !llvm.loop !114
+  br label %cleanup.i.i.i.i.i.i.i.i.i, !llvm.loop !148
 
 invoke.cont48.preheader.i.i.i.i.i.i.i.i.i:        ; preds = %invoke.cont.i.i.i.i.i.i.i.i.i
   %146 = load float, ptr %seg.i.i.i.i.i.i.i.i.i, align 4
@@ -12080,7 +12101,7 @@ for.body.i.i72.i.i.i.i.i.i.i.i.i:                 ; preds = %for.body.i.i72.i.i.
   store float %mul.i.i75.i.i.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i74.i.i.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i76.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i73.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i77.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i76.i.i.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i77.i.i.i.i.i.i.i.i.i, label %invoke.cont64.i.i.i.i.i.i.i.i.i, label %for.body.i.i72.i.i.i.i.i.i.i.i.i, !llvm.loop !110
+  br i1 %exitcond.not.i.i77.i.i.i.i.i.i.i.i.i, label %invoke.cont64.i.i.i.i.i.i.i.i.i, label %for.body.i.i72.i.i.i.i.i.i.i.i.i, !llvm.loop !144
 
 invoke.cont64.i.i.i.i.i.i.i.i.i:                  ; preds = %for.body.i.i72.i.i.i.i.i.i.i.i.i
   %.fca.0.load.i.i78.i.i.i.i.i.i.i.i.i = load <2 x float>, ptr %retval.i.i71.i.i.i.i.i.i.i.i.i, align 8
@@ -12128,7 +12149,7 @@ _ZN4pbrt7FastExpEf.exit.i102.i.i.i.i.i.i.i.i.i:   ; preds = %if.end5.i.i97.i.i.i
   store float %retval.0.i.i103.i.i.i.i.i.i.i.i.i, ptr %arrayidx.i.i6.i104.i.i.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i105.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i86.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i106.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i105.i.i.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i106.i.i.i.i.i.i.i.i.i, label %invoke.cont68.i.i.i.i.i.i.i.i.i, label %for.body.i85.i.i.i.i.i.i.i.i.i, !llvm.loop !111
+  br i1 %exitcond.not.i106.i.i.i.i.i.i.i.i.i, label %invoke.cont68.i.i.i.i.i.i.i.i.i, label %for.body.i85.i.i.i.i.i.i.i.i.i, !llvm.loop !145
 
 invoke.cont68.i.i.i.i.i.i.i.i.i:                  ; preds = %_ZN4pbrt7FastExpEf.exit.i102.i.i.i.i.i.i.i.i.i
   %.fca.0.load.i107.i.i.i.i.i.i.i.i.i = load <2 x float>, ptr %retval.i84.i.i.i.i.i.i.i.i.i, align 8
@@ -12148,7 +12169,7 @@ for.body.i113.i.i.i.i.i.i.i.i.i:                  ; preds = %for.body.i113.i.i.i
   store float %mul.i117.i.i.i.i.i.i.i.i.i, ptr %arrayidx.i4.i116.i.i.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i118.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i114.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i119.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i118.i.i.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i119.i.i.i.i.i.i.i.i.i, label %invoke.cont75.i.i.i.i.i.i.i.i.i, label %for.body.i113.i.i.i.i.i.i.i.i.i, !llvm.loop !112
+  br i1 %exitcond.not.i119.i.i.i.i.i.i.i.i.i, label %invoke.cont75.i.i.i.i.i.i.i.i.i, label %for.body.i113.i.i.i.i.i.i.i.i.i, !llvm.loop !146
 
 invoke.cont75.i.i.i.i.i.i.i.i.i:                  ; preds = %for.body.i113.i.i.i.i.i.i.i.i.i
   %mul.i.i121.i.i.i.i.i.i.i.i.i = fmul float %div.i.i.i.i42.i.i.i.i.i.i.i, %add.i.i74.i.i.i.i.i.i.i
@@ -12186,13 +12207,13 @@ for.body.i.i143.i.i.i.i.i.i.i.i.i:                ; preds = %for.body.i.i143.i.i
   store float 1.000000e+00, ptr %arrayidx.i.i145.i.i.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i146.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i144.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i147.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i146.i.i.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i147.i.i.i.i.i.i.i.i.i, label %invoke.cont97.i.i.i.i.i.i.i.i.i, label %for.body.i.i143.i.i.i.i.i.i.i.i.i, !llvm.loop !103
+  br i1 %exitcond.not.i.i147.i.i.i.i.i.i.i.i.i, label %invoke.cont97.i.i.i.i.i.i.i.i.i, label %for.body.i.i143.i.i.i.i.i.i.i.i.i, !llvm.loop !137
 
 invoke.cont97.i.i.i.i.i.i.i.i.i:                  ; preds = %for.body.i.i143.i.i.i.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %T_maj.i.i15.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp96.i.i.i.i.i.i.i.i.i, i64 16, i1 false)
   %167 = load i8, ptr %set.i.i.i.i.i.i.i.i.i.i, align 4
   %tobool.i.i51.i.i.i.i.i.i.i.i.i = trunc i8 %167 to i1
-  br i1 %tobool.i.i51.i.i.i.i.i.i.i.i.i, label %invoke.cont48.i.i.i.i.i.i.i.i.i, label %land.rhs.i.i52.invoke.i.i.i.i.i.i.invoke.i.i.i, !llvm.loop !115
+  br i1 %tobool.i.i51.i.i.i.i.i.i.i.i.i, label %invoke.cont48.i.i.i.i.i.i.i.i.i, label %land.rhs.i.i52.invoke.i.i.i.i.i.i.invoke.i.i.i, !llvm.loop !149
 
 invoke.cont103.i.i.i.i.i.i.i.i.i:                 ; preds = %invoke.cont52.i.i.i.i.i.i.i.i.i
   %sub102.i.i.i.i.i.i.i.i.i = fsub float %154, %tMin38.0242.i.i.i.i.i.i.i.i.i
@@ -12212,7 +12233,7 @@ for.body.i.i160.i.i.i.i.i.i.i.i.i:                ; preds = %for.body.i.i160.i.i
   store float %mul.i.i163.i.i.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i162.i.i.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i164.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i161.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i165.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i164.i.i.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i165.i.i.i.i.i.i.i.i.i, label %invoke.cont114.i.i.i.i.i.i.i.i.i, label %for.body.i.i160.i.i.i.i.i.i.i.i.i, !llvm.loop !110
+  br i1 %exitcond.not.i.i165.i.i.i.i.i.i.i.i.i, label %invoke.cont114.i.i.i.i.i.i.i.i.i, label %for.body.i.i160.i.i.i.i.i.i.i.i.i, !llvm.loop !144
 
 invoke.cont114.i.i.i.i.i.i.i.i.i:                 ; preds = %for.body.i.i160.i.i.i.i.i.i.i.i.i
   %.fca.0.load.i.i166.i.i.i.i.i.i.i.i.i = load <2 x float>, ptr %retval.i.i159.i.i.i.i.i.i.i.i.i, align 8
@@ -12260,7 +12281,7 @@ _ZN4pbrt7FastExpEf.exit.i190.i.i.i.i.i.i.i.i.i:   ; preds = %if.end5.i.i185.i.i.
   store float %retval.0.i.i191.i.i.i.i.i.i.i.i.i, ptr %arrayidx.i.i6.i192.i.i.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i193.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i174.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i194.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i193.i.i.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i194.i.i.i.i.i.i.i.i.i, label %invoke.cont118.i.i.i.i.i.i.i.i.i, label %for.body.i173.i.i.i.i.i.i.i.i.i, !llvm.loop !111
+  br i1 %exitcond.not.i194.i.i.i.i.i.i.i.i.i, label %invoke.cont118.i.i.i.i.i.i.i.i.i, label %for.body.i173.i.i.i.i.i.i.i.i.i, !llvm.loop !145
 
 invoke.cont118.i.i.i.i.i.i.i.i.i:                 ; preds = %_ZN4pbrt7FastExpEf.exit.i190.i.i.i.i.i.i.i.i.i
   %.fca.0.load.i195.i.i.i.i.i.i.i.i.i = load <2 x float>, ptr %retval.i172.i.i.i.i.i.i.i.i.i, align 8
@@ -12280,7 +12301,7 @@ for.body.i201.i.i.i.i.i.i.i.i.i:                  ; preds = %for.body.i201.i.i.i
   store float %mul.i205.i.i.i.i.i.i.i.i.i, ptr %arrayidx.i4.i204.i.i.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i206.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i202.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i207.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i206.i.i.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i207.i.i.i.i.i.i.i.i.i, label %cleanup.i.i.i.i.i.i.i.i.i, label %for.body.i201.i.i.i.i.i.i.i.i.i, !llvm.loop !112
+  br i1 %exitcond.not.i207.i.i.i.i.i.i.i.i.i, label %cleanup.i.i.i.i.i.i.i.i.i, label %for.body.i201.i.i.i.i.i.i.i.i.i, !llvm.loop !146
 
 cleanup.loopexit245.i.i.i.i.i.i.i.i.i:            ; preds = %invoke.cont88.i.i.i.i.i.i.i.i.i
   %.pre.i.i.i.i.i.i.i.i.i = load i8, ptr %set.i.i.i.i.i.i.i.i.i.i, align 4
@@ -12310,7 +12331,7 @@ for.body.i.i213.i.i.i.i.i.i.i.i.i:                ; preds = %for.body.i.i213.i.i
   store float 1.000000e+00, ptr %arrayidx.i.i215.i.i.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i216.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i214.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i217.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i216.i.i.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i217.i.i.i.i.i.i.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNS_18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS2_17IntersectShadowTrEiS6_SA_ENKSB_clEiEUlNS_6Point3IfEEE_EEvS4_SA_T_T0_EUlSF_NS_16MediumPropertiesENS_15SampledSpectrumESK_E_EESK_SC_ffRNS_3RNGERKNS_18SampledWavelengthsESH_ENKUlSH_E_clIPNS_10GridMediumEEEDaSH_.exit.i.i.i.i.i.i.i", label %for.body.i.i213.i.i.i.i.i.i.i.i.i, !llvm.loop !103
+  br i1 %exitcond.not.i.i217.i.i.i.i.i.i.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNS_18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS2_17IntersectShadowTrEiS6_SA_ENKSB_clEiEUlNS_6Point3IfEEE_EEvS4_SA_T_T0_EUlSF_NS_16MediumPropertiesENS_15SampledSpectrumESK_E_EESK_SC_ffRNS_3RNGERKNS_18SampledWavelengthsESH_ENKUlSH_E_clIPNS_10GridMediumEEEDaSH_.exit.i.i.i.i.i.i.i", label %for.body.i.i213.i.i.i.i.i.i.i.i.i, !llvm.loop !137
 
 "_ZZN4pbrt11SampleT_majIZNS_18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS2_17IntersectShadowTrEiS6_SA_ENKSB_clEiEUlNS_6Point3IfEEE_EEvS4_SA_T_T0_EUlSF_NS_16MediumPropertiesENS_15SampledSpectrumESK_E_EESK_SC_ffRNS_3RNGERKNS_18SampledWavelengthsESH_ENKUlSH_E_clIPNS_10GridMediumEEEDaSH_.exit.i.i.i.i.i.i.i": ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i.i.i.i.i.i.i.i, %for.body.i.i213.i.i.i.i.i.i.i.i.i
   %.fca.0.load.i.i66.i.i.i.i.i.i.i = load <2 x float>, ptr %retval.i.i12.i.i.i.i.i.i.i, align 8
@@ -12379,7 +12400,7 @@ for.body.i.i.i.i170.i.i.i.i.i.i.i:                ; preds = %for.body.i.i.i.i170
   store float 1.000000e+00, ptr %arrayidx.i.i.i.i172.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i.i.i173.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i171.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i174.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i173.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i.i.i174.i.i.i.i.i.i.i, label %while.cond.i.i192.i.i.i.i.i.i.i, label %for.body.i.i.i.i170.i.i.i.i.i.i.i, !llvm.loop !103
+  br i1 %exitcond.not.i.i.i.i174.i.i.i.i.i.i.i, label %while.cond.i.i192.i.i.i.i.i.i.i, label %for.body.i.i.i.i170.i.i.i.i.i.i.i, !llvm.loop !137
 
 while.cond.i.i192.i.i.i.i.i.i.i:                  ; preds = %for.body.i.i.i.i170.i.i.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i202.i.i.i.i.i.i.i
   %done.0.i.i193.i.i.i.i.i.i.i = phi i1 [ %done.1.i.i199.i.i.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i202.i.i.i.i.i.i.i ], [ false, %for.body.i.i.i.i170.i.i.i.i.i.i.i ]
@@ -12421,7 +12442,7 @@ for.body.i.i30.i.i352.i.i.i.i.i.i.i:              ; preds = %for.body.i.i30.i.i3
   store float %mul.i.i.i.i355.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i354.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i32.i.i356.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i31.i.i353.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i33.i.i357.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i32.i.i356.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i33.i.i357.i.i.i.i.i.i.i, label %invoke.cont27.i.i358.i.i.i.i.i.i.i, label %for.body.i.i30.i.i352.i.i.i.i.i.i.i, !llvm.loop !110
+  br i1 %exitcond.not.i.i33.i.i357.i.i.i.i.i.i.i, label %invoke.cont27.i.i358.i.i.i.i.i.i.i, label %for.body.i.i30.i.i352.i.i.i.i.i.i.i, !llvm.loop !144
 
 invoke.cont27.i.i358.i.i.i.i.i.i.i:               ; preds = %for.body.i.i30.i.i352.i.i.i.i.i.i.i
   %.fca.0.load.i.i.i.i359.i.i.i.i.i.i.i = load <2 x float>, ptr %retval.i.i.i.i121.i.i.i.i.i.i.i, align 8
@@ -12469,7 +12490,7 @@ _ZN4pbrt7FastExpEf.exit.i.i.i378.i.i.i.i.i.i.i:   ; preds = %if.end5.i.i.i.i373.
   store float %retval.0.i.i.i.i379.i.i.i.i.i.i.i, ptr %arrayidx.i.i6.i.i.i380.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i.i381.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i362.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i382.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i381.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i.i382.i.i.i.i.i.i.i, label %invoke.cont31.i.i383.i.i.i.i.i.i.i, label %for.body.i.i.i361.i.i.i.i.i.i.i, !llvm.loop !111
+  br i1 %exitcond.not.i.i.i382.i.i.i.i.i.i.i, label %invoke.cont31.i.i383.i.i.i.i.i.i.i, label %for.body.i.i.i361.i.i.i.i.i.i.i, !llvm.loop !145
 
 invoke.cont31.i.i383.i.i.i.i.i.i.i:               ; preds = %_ZN4pbrt7FastExpEf.exit.i.i.i378.i.i.i.i.i.i.i
   %.fca.0.load.i.i.i384.i.i.i.i.i.i.i = load <2 x float>, ptr %retval.i.i.i120.i.i.i.i.i.i.i, align 8
@@ -12489,10 +12510,10 @@ for.body.i40.i.i386.i.i.i.i.i.i.i:                ; preds = %for.body.i40.i.i386
   store float %mul.i.i.i390.i.i.i.i.i.i.i, ptr %arrayidx.i4.i.i.i389.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i43.i.i391.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i41.i.i387.i.i.i.i.i.i.i, 1
   %exitcond.not.i44.i.i392.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i43.i.i391.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i44.i.i392.i.i.i.i.i.i.i, label %_ZN4pbrt15SampledSpectrummLERKS0_.exit.i.i393.i.i.i.i.i.i.i, label %for.body.i40.i.i386.i.i.i.i.i.i.i, !llvm.loop !112
+  br i1 %exitcond.not.i44.i.i392.i.i.i.i.i.i.i, label %_ZN4pbrt15SampledSpectrummLERKS0_.exit.i.i393.i.i.i.i.i.i.i, label %for.body.i40.i.i386.i.i.i.i.i.i.i, !llvm.loop !146
 
 _ZN4pbrt15SampledSpectrummLERKS0_.exit.i.i393.i.i.i.i.i.i.i: ; preds = %for.body.i40.i.i386.i.i.i.i.i.i.i
-  br label %cleanup.i.i198.i.i.i.i.i.i.i, !llvm.loop !116
+  br label %cleanup.i.i198.i.i.i.i.i.i.i, !llvm.loop !150
 
 invoke.cont48.preheader.i.i211.i.i.i.i.i.i.i:     ; preds = %invoke.cont.i.i209.i.i.i.i.i.i.i
   %199 = load float, ptr %seg.i.i126.i.i.i.i.i.i.i, align 4
@@ -12546,7 +12567,7 @@ for.body.i.i72.i.i281.i.i.i.i.i.i.i:              ; preds = %for.body.i.i72.i.i2
   store float %mul.i.i75.i.i284.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i74.i.i283.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i76.i.i285.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i73.i.i282.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i77.i.i286.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i76.i.i285.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i77.i.i286.i.i.i.i.i.i.i, label %invoke.cont64.i.i287.i.i.i.i.i.i.i, label %for.body.i.i72.i.i281.i.i.i.i.i.i.i, !llvm.loop !110
+  br i1 %exitcond.not.i.i77.i.i286.i.i.i.i.i.i.i, label %invoke.cont64.i.i287.i.i.i.i.i.i.i, label %for.body.i.i72.i.i281.i.i.i.i.i.i.i, !llvm.loop !144
 
 invoke.cont64.i.i287.i.i.i.i.i.i.i:               ; preds = %for.body.i.i72.i.i281.i.i.i.i.i.i.i
   %.fca.0.load.i.i78.i.i288.i.i.i.i.i.i.i = load <2 x float>, ptr %retval.i.i71.i.i119.i.i.i.i.i.i.i, align 8
@@ -12594,7 +12615,7 @@ _ZN4pbrt7FastExpEf.exit.i102.i.i307.i.i.i.i.i.i.i: ; preds = %if.end5.i.i97.i.i3
   store float %retval.0.i.i103.i.i308.i.i.i.i.i.i.i, ptr %arrayidx.i.i6.i104.i.i309.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i105.i.i310.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i86.i.i291.i.i.i.i.i.i.i, 1
   %exitcond.not.i106.i.i311.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i105.i.i310.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i106.i.i311.i.i.i.i.i.i.i, label %invoke.cont68.i.i312.i.i.i.i.i.i.i, label %for.body.i85.i.i290.i.i.i.i.i.i.i, !llvm.loop !111
+  br i1 %exitcond.not.i106.i.i311.i.i.i.i.i.i.i, label %invoke.cont68.i.i312.i.i.i.i.i.i.i, label %for.body.i85.i.i290.i.i.i.i.i.i.i, !llvm.loop !145
 
 invoke.cont68.i.i312.i.i.i.i.i.i.i:               ; preds = %_ZN4pbrt7FastExpEf.exit.i102.i.i307.i.i.i.i.i.i.i
   %.fca.0.load.i107.i.i313.i.i.i.i.i.i.i = load <2 x float>, ptr %retval.i84.i.i118.i.i.i.i.i.i.i, align 8
@@ -12614,7 +12635,7 @@ for.body.i113.i.i315.i.i.i.i.i.i.i:               ; preds = %for.body.i113.i.i31
   store float %mul.i117.i.i319.i.i.i.i.i.i.i, ptr %arrayidx.i4.i116.i.i318.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i118.i.i320.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i114.i.i316.i.i.i.i.i.i.i, 1
   %exitcond.not.i119.i.i321.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i118.i.i320.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i119.i.i321.i.i.i.i.i.i.i, label %invoke.cont75.i.i322.i.i.i.i.i.i.i, label %for.body.i113.i.i315.i.i.i.i.i.i.i, !llvm.loop !112
+  br i1 %exitcond.not.i119.i.i321.i.i.i.i.i.i.i, label %invoke.cont75.i.i322.i.i.i.i.i.i.i, label %for.body.i113.i.i315.i.i.i.i.i.i.i, !llvm.loop !146
 
 invoke.cont75.i.i322.i.i.i.i.i.i.i:               ; preds = %for.body.i113.i.i315.i.i.i.i.i.i.i
   %mul.i.i121.i.i323.i.i.i.i.i.i.i = fmul float %div.i.i.i.i158.i.i.i.i.i.i.i, %add.i.i217.i.i.i.i.i.i.i
@@ -12652,13 +12673,13 @@ for.body.i.i143.i.i341.i.i.i.i.i.i.i:             ; preds = %for.body.i.i143.i.i
   store float 1.000000e+00, ptr %arrayidx.i.i145.i.i343.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i146.i.i344.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i144.i.i342.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i147.i.i345.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i146.i.i344.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i147.i.i345.i.i.i.i.i.i.i, label %invoke.cont97.i.i346.i.i.i.i.i.i.i, label %for.body.i.i143.i.i341.i.i.i.i.i.i.i, !llvm.loop !103
+  br i1 %exitcond.not.i.i147.i.i345.i.i.i.i.i.i.i, label %invoke.cont97.i.i346.i.i.i.i.i.i.i, label %for.body.i.i143.i.i341.i.i.i.i.i.i.i, !llvm.loop !137
 
 invoke.cont97.i.i346.i.i.i.i.i.i.i:               ; preds = %for.body.i.i143.i.i341.i.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %T_maj.i.i125.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp96.i.i133.i.i.i.i.i.i.i, i64 16, i1 false)
   %220 = load i8, ptr %set.i.i.i176.i.i.i.i.i.i.i, align 4
   %tobool.i.i51.i.i347.i.i.i.i.i.i.i = trunc i8 %220 to i1
-  br i1 %tobool.i.i51.i.i347.i.i.i.i.i.i.i, label %invoke.cont48.i.i212.i.i.i.i.i.i.i, label %land.rhs.i.i52.invoke.i.i.i.i.i.i.invoke.i.i.i, !llvm.loop !117
+  br i1 %tobool.i.i51.i.i347.i.i.i.i.i.i.i, label %invoke.cont48.i.i212.i.i.i.i.i.i.i, label %land.rhs.i.i52.invoke.i.i.i.i.i.i.invoke.i.i.i, !llvm.loop !151
 
 invoke.cont103.i.i233.i.i.i.i.i.i.i:              ; preds = %invoke.cont52.i.i231.i.i.i.i.i.i.i
   %sub102.i.i234.i.i.i.i.i.i.i = fsub float %207, %tMin38.0242.i.i214.i.i.i.i.i.i.i
@@ -12678,7 +12699,7 @@ for.body.i.i160.i.i237.i.i.i.i.i.i.i:             ; preds = %for.body.i.i160.i.i
   store float %mul.i.i163.i.i240.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i162.i.i239.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i164.i.i241.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i161.i.i238.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i165.i.i242.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i164.i.i241.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i165.i.i242.i.i.i.i.i.i.i, label %invoke.cont114.i.i243.i.i.i.i.i.i.i, label %for.body.i.i160.i.i237.i.i.i.i.i.i.i, !llvm.loop !110
+  br i1 %exitcond.not.i.i165.i.i242.i.i.i.i.i.i.i, label %invoke.cont114.i.i243.i.i.i.i.i.i.i, label %for.body.i.i160.i.i237.i.i.i.i.i.i.i, !llvm.loop !144
 
 invoke.cont114.i.i243.i.i.i.i.i.i.i:              ; preds = %for.body.i.i160.i.i237.i.i.i.i.i.i.i
   %.fca.0.load.i.i166.i.i244.i.i.i.i.i.i.i = load <2 x float>, ptr %retval.i.i159.i.i117.i.i.i.i.i.i.i, align 8
@@ -12726,7 +12747,7 @@ _ZN4pbrt7FastExpEf.exit.i190.i.i263.i.i.i.i.i.i.i: ; preds = %if.end5.i.i185.i.i
   store float %retval.0.i.i191.i.i264.i.i.i.i.i.i.i, ptr %arrayidx.i.i6.i192.i.i265.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i193.i.i266.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i174.i.i247.i.i.i.i.i.i.i, 1
   %exitcond.not.i194.i.i267.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i193.i.i266.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i194.i.i267.i.i.i.i.i.i.i, label %invoke.cont118.i.i268.i.i.i.i.i.i.i, label %for.body.i173.i.i246.i.i.i.i.i.i.i, !llvm.loop !111
+  br i1 %exitcond.not.i194.i.i267.i.i.i.i.i.i.i, label %invoke.cont118.i.i268.i.i.i.i.i.i.i, label %for.body.i173.i.i246.i.i.i.i.i.i.i, !llvm.loop !145
 
 invoke.cont118.i.i268.i.i.i.i.i.i.i:              ; preds = %_ZN4pbrt7FastExpEf.exit.i190.i.i263.i.i.i.i.i.i.i
   %.fca.0.load.i195.i.i269.i.i.i.i.i.i.i = load <2 x float>, ptr %retval.i172.i.i116.i.i.i.i.i.i.i, align 8
@@ -12746,7 +12767,7 @@ for.body.i201.i.i271.i.i.i.i.i.i.i:               ; preds = %for.body.i201.i.i27
   store float %mul.i205.i.i275.i.i.i.i.i.i.i, ptr %arrayidx.i4.i204.i.i274.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i206.i.i276.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i202.i.i272.i.i.i.i.i.i.i, 1
   %exitcond.not.i207.i.i277.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i206.i.i276.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i207.i.i277.i.i.i.i.i.i.i, label %cleanup.i.i198.i.i.i.i.i.i.i, label %for.body.i201.i.i271.i.i.i.i.i.i.i, !llvm.loop !112
+  br i1 %exitcond.not.i207.i.i277.i.i.i.i.i.i.i, label %cleanup.i.i198.i.i.i.i.i.i.i, label %for.body.i201.i.i271.i.i.i.i.i.i.i, !llvm.loop !146
 
 cleanup.loopexit245.i.i338.i.i.i.i.i.i.i:         ; preds = %invoke.cont88.i.i332.i.i.i.i.i.i.i
   %.pre.i.i339.i.i.i.i.i.i.i = load i8, ptr %set.i.i.i176.i.i.i.i.i.i.i, align 4
@@ -12776,7 +12797,7 @@ for.body.i.i213.i.i395.i.i.i.i.i.i.i:             ; preds = %for.body.i.i213.i.i
   store float 1.000000e+00, ptr %arrayidx.i.i215.i.i397.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i216.i.i398.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i214.i.i396.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i217.i.i399.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i216.i.i398.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i217.i.i399.i.i.i.i.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNS_18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS2_17IntersectShadowTrEiS6_SA_ENKSB_clEiEUlNS_6Point3IfEEE_EEvS4_SA_T_T0_EUlSF_NS_16MediumPropertiesENS_15SampledSpectrumESK_E_EESK_SC_ffRNS_3RNGERKNS_18SampledWavelengthsESH_ENKUlSH_E_clIPNS_13RGBGridMediumEEEDaSH_.exit.i.i.i.i.i.i.i", label %for.body.i.i213.i.i395.i.i.i.i.i.i.i, !llvm.loop !103
+  br i1 %exitcond.not.i.i217.i.i399.i.i.i.i.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNS_18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS2_17IntersectShadowTrEiS6_SA_ENKSB_clEiEUlNS_6Point3IfEEE_EEvS4_SA_T_T0_EUlSF_NS_16MediumPropertiesENS_15SampledSpectrumESK_E_EESK_SC_ffRNS_3RNGERKNS_18SampledWavelengthsESH_ENKUlSH_E_clIPNS_13RGBGridMediumEEEDaSH_.exit.i.i.i.i.i.i.i", label %for.body.i.i213.i.i395.i.i.i.i.i.i.i, !llvm.loop !137
 
 "_ZZN4pbrt11SampleT_majIZNS_18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS2_17IntersectShadowTrEiS6_SA_ENKSB_clEiEUlNS_6Point3IfEEE_EEvS4_SA_T_T0_EUlSF_NS_16MediumPropertiesENS_15SampledSpectrumESK_E_EESK_SC_ffRNS_3RNGERKNS_18SampledWavelengthsESH_ENKUlSH_E_clIPNS_13RGBGridMediumEEEDaSH_.exit.i.i.i.i.i.i.i": ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i202.i.i.i.i.i.i.i, %for.body.i.i213.i.i395.i.i.i.i.i.i.i
   %.fca.0.load.i.i203.i.i.i.i.i.i.i = load <2 x float>, ptr %retval.i.i122.i.i.i.i.i.i.i, align 8
@@ -12844,16 +12865,16 @@ for.body.i.i.i.i453.i.i.i.i.i.i.i:                ; preds = %for.body.i.i.i.i453
   store float 1.000000e+00, ptr %arrayidx.i.i.i.i455.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i.i.i456.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i454.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i457.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i456.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i.i.i457.i.i.i.i.i.i.i, label %while.cond.preheader.i.i458.i.i.i.i.i.i.i, label %for.body.i.i.i.i453.i.i.i.i.i.i.i, !llvm.loop !103
+  br i1 %exitcond.not.i.i.i.i457.i.i.i.i.i.i.i, label %while.cond.preheader.i.i458.i.i.i.i.i.i.i, label %for.body.i.i.i.i453.i.i.i.i.i.i.i, !llvm.loop !137
 
 while.cond.preheader.i.i458.i.i.i.i.i.i.i:        ; preds = %for.body.i.i.i.i453.i.i.i.i.i.i.i
-  %236 = load i8, ptr %called.i.i.i459.i.i.i.i.i.i.i, align 4, !noalias !118
+  %236 = load i8, ptr %called.i.i.i459.i.i.i.i.i.i.i, align 4, !noalias !152
   %tobool.i.i19.i475.i.i.i.i.i.i.i = trunc i8 %236 to i1
   br i1 %tobool.i.i19.i475.i.i.i.i.i.i.i, label %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.thread.i.i548.i.i.i.i.i.i.i, label %invoke.cont.i.i476.i.i.i.i.i.i.i
 
 invoke.cont.i.i476.i.i.i.i.i.i.i:                 ; preds = %while.cond.preheader.i.i458.i.i.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.i.i546.i.i.i.i.i.i.i
   %u.addr.0297.i20.i477.i.i.i.i.i.i.i = phi float [ %.sroa.speculated.i.i.i499.i.i.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.i.i546.i.i.i.i.i.i.i ], [ %.sroa.speculated.i.i.i.i.i, %while.cond.preheader.i.i458.i.i.i.i.i.i.i ]
-  store i8 1, ptr %called.i.i.i459.i.i.i.i.i.i.i, align 4, !noalias !118
+  store i8 1, ptr %called.i.i.i459.i.i.i.i.i.i.i, align 4, !noalias !152
   %seg.sroa.0.0.copyload.i.i478.i.i.i.i.i.i.i = load float, ptr %iter.i.i407.i.i.i.i.i.i.i, align 4
   %seg.sroa.4.0.copyload.i.i479.i.i.i.i.i.i.i = load float, ptr %seg.sroa.4.0.iter.sroa_idx.i.i460.i.i.i.i.i.i.i, align 4
   %seg.sroa.7.0.copyload.i.i480.i.i.i.i.i.i.i = load <2 x float>, ptr %seg.sroa.7.0.iter.sroa_idx.i.i461.i.i.i.i.i.i.i, align 4
@@ -12881,7 +12902,7 @@ for.body.i.i31.i.i627.i.i.i.i.i.i.i:              ; preds = %for.body.i.i31.i.i6
   store float %mul.i.i.i.i630.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i629.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i33.i.i631.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i32.i.i628.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i34.i.i632.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i33.i.i631.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i34.i.i632.i.i.i.i.i.i.i, label %invoke.cont27.i.i633.i.i.i.i.i.i.i, label %for.body.i.i31.i.i627.i.i.i.i.i.i.i, !llvm.loop !110
+  br i1 %exitcond.not.i.i34.i.i632.i.i.i.i.i.i.i, label %invoke.cont27.i.i633.i.i.i.i.i.i.i, label %for.body.i.i31.i.i627.i.i.i.i.i.i.i, !llvm.loop !144
 
 invoke.cont27.i.i633.i.i.i.i.i.i.i:               ; preds = %for.body.i.i31.i.i627.i.i.i.i.i.i.i
   %.fca.0.load.i.i.i.i634.i.i.i.i.i.i.i = load <2 x float>, ptr %retval.i.i.i.i405.i.i.i.i.i.i.i, align 8
@@ -12929,7 +12950,7 @@ _ZN4pbrt7FastExpEf.exit.i.i.i653.i.i.i.i.i.i.i:   ; preds = %if.end5.i.i.i.i648.
   store float %retval.0.i.i.i.i654.i.i.i.i.i.i.i, ptr %arrayidx.i.i6.i.i.i655.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i.i656.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i637.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i657.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i656.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i.i657.i.i.i.i.i.i.i, label %invoke.cont31.i.i658.i.i.i.i.i.i.i, label %for.body.i.i.i636.i.i.i.i.i.i.i, !llvm.loop !111
+  br i1 %exitcond.not.i.i.i657.i.i.i.i.i.i.i, label %invoke.cont31.i.i658.i.i.i.i.i.i.i, label %for.body.i.i.i636.i.i.i.i.i.i.i, !llvm.loop !145
 
 invoke.cont31.i.i658.i.i.i.i.i.i.i:               ; preds = %_ZN4pbrt7FastExpEf.exit.i.i.i653.i.i.i.i.i.i.i
   %.fca.0.load.i.i.i659.i.i.i.i.i.i.i = load <2 x float>, ptr %retval.i.i.i404.i.i.i.i.i.i.i, align 8
@@ -12949,7 +12970,7 @@ for.body.i41.i.i661.i.i.i.i.i.i.i:                ; preds = %for.body.i41.i.i661
   store float %mul.i.i.i665.i.i.i.i.i.i.i, ptr %arrayidx.i4.i.i.i664.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i44.i.i666.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i42.i.i662.i.i.i.i.i.i.i, 1
   %exitcond.not.i45.i.i667.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i44.i.i666.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i45.i.i667.i.i.i.i.i.i.i, label %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.thread.i.i548.i.i.i.i.i.i.i, label %for.body.i41.i.i661.i.i.i.i.i.i.i, !llvm.loop !112
+  br i1 %exitcond.not.i45.i.i667.i.i.i.i.i.i.i, label %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.thread.i.i548.i.i.i.i.i.i.i, label %for.body.i41.i.i661.i.i.i.i.i.i.i, !llvm.loop !146
 
 invoke.cont52.i.i484.i.i.i.i.i.i.i:               ; preds = %invoke.cont.i.i476.i.i.i.i.i.i.i, %invoke.cont97.i.i622.i.i.i.i.i.i.i
   %tMin38.0.i.i.i.i.i.i.i.i.i = phi float [ %add.i.i488.i.i.i.i.i.i.i, %invoke.cont97.i.i622.i.i.i.i.i.i.i ], [ %seg.sroa.0.0.copyload.i.i478.i.i.i.i.i.i.i, %invoke.cont.i.i476.i.i.i.i.i.i.i ]
@@ -12993,7 +13014,7 @@ for.body.i.i73.i.i557.i.i.i.i.i.i.i:              ; preds = %for.body.i.i73.i.i5
   store float %mul.i.i76.i.i560.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i75.i.i559.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i77.i.i561.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i74.i.i558.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i78.i.i562.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i77.i.i561.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i78.i.i562.i.i.i.i.i.i.i, label %invoke.cont64.i.i563.i.i.i.i.i.i.i, label %for.body.i.i73.i.i557.i.i.i.i.i.i.i, !llvm.loop !110
+  br i1 %exitcond.not.i.i78.i.i562.i.i.i.i.i.i.i, label %invoke.cont64.i.i563.i.i.i.i.i.i.i, label %for.body.i.i73.i.i557.i.i.i.i.i.i.i, !llvm.loop !144
 
 invoke.cont64.i.i563.i.i.i.i.i.i.i:               ; preds = %for.body.i.i73.i.i557.i.i.i.i.i.i.i
   %.fca.0.load.i.i79.i.i564.i.i.i.i.i.i.i = load <2 x float>, ptr %retval.i.i72.i.i403.i.i.i.i.i.i.i, align 8
@@ -13041,7 +13062,7 @@ _ZN4pbrt7FastExpEf.exit.i103.i.i583.i.i.i.i.i.i.i: ; preds = %if.end5.i.i98.i.i5
   store float %retval.0.i.i104.i.i584.i.i.i.i.i.i.i, ptr %arrayidx.i.i6.i105.i.i585.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i106.i.i586.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i87.i.i567.i.i.i.i.i.i.i, 1
   %exitcond.not.i107.i.i587.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i106.i.i586.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i107.i.i587.i.i.i.i.i.i.i, label %invoke.cont68.i.i588.i.i.i.i.i.i.i, label %for.body.i86.i.i566.i.i.i.i.i.i.i, !llvm.loop !111
+  br i1 %exitcond.not.i107.i.i587.i.i.i.i.i.i.i, label %invoke.cont68.i.i588.i.i.i.i.i.i.i, label %for.body.i86.i.i566.i.i.i.i.i.i.i, !llvm.loop !145
 
 invoke.cont68.i.i588.i.i.i.i.i.i.i:               ; preds = %_ZN4pbrt7FastExpEf.exit.i103.i.i583.i.i.i.i.i.i.i
   %.fca.0.load.i108.i.i589.i.i.i.i.i.i.i = load <2 x float>, ptr %retval.i85.i.i402.i.i.i.i.i.i.i, align 8
@@ -13061,7 +13082,7 @@ for.body.i114.i.i591.i.i.i.i.i.i.i:               ; preds = %for.body.i114.i.i59
   store float %mul.i118.i.i595.i.i.i.i.i.i.i, ptr %arrayidx.i4.i117.i.i594.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i119.i.i596.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i115.i.i592.i.i.i.i.i.i.i, 1
   %exitcond.not.i120.i.i597.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i119.i.i596.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i120.i.i597.i.i.i.i.i.i.i, label %invoke.cont75.i.i598.i.i.i.i.i.i.i, label %for.body.i114.i.i591.i.i.i.i.i.i.i, !llvm.loop !112
+  br i1 %exitcond.not.i120.i.i597.i.i.i.i.i.i.i, label %invoke.cont75.i.i598.i.i.i.i.i.i.i, label %for.body.i114.i.i591.i.i.i.i.i.i.i, !llvm.loop !146
 
 invoke.cont75.i.i598.i.i.i.i.i.i.i:               ; preds = %for.body.i114.i.i591.i.i.i.i.i.i.i
   %mul.i.i122.i.i599.i.i.i.i.i.i.i = fmul float %div.i.i.i.i441.i.i.i.i.i.i.i, %add.i.i488.i.i.i.i.i.i.i
@@ -13092,11 +13113,11 @@ for.body.i.i144.i.i617.i.i.i.i.i.i.i:             ; preds = %for.body.i.i144.i.i
   store float 1.000000e+00, ptr %arrayidx.i.i146.i.i619.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i147.i.i620.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i145.i.i618.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i148.i.i621.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i147.i.i620.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i148.i.i621.i.i.i.i.i.i.i, label %invoke.cont97.i.i622.i.i.i.i.i.i.i, label %for.body.i.i144.i.i617.i.i.i.i.i.i.i, !llvm.loop !103
+  br i1 %exitcond.not.i.i148.i.i621.i.i.i.i.i.i.i, label %invoke.cont97.i.i622.i.i.i.i.i.i.i, label %for.body.i.i144.i.i617.i.i.i.i.i.i.i, !llvm.loop !137
 
 invoke.cont97.i.i622.i.i.i.i.i.i.i:               ; preds = %for.body.i.i144.i.i617.i.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %T_maj.i.i409.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp96.i.i416.i.i.i.i.i.i.i, i64 16, i1 false)
-  br label %invoke.cont52.i.i484.i.i.i.i.i.i.i, !llvm.loop !121
+  br label %invoke.cont52.i.i484.i.i.i.i.i.i.i, !llvm.loop !155
 
 invoke.cont103.i.i501.i.i.i.i.i.i.i:              ; preds = %invoke.cont52.i.i484.i.i.i.i.i.i.i
   %sub102.i.i502.i.i.i.i.i.i.i = fsub float %seg.sroa.4.0.copyload.i.i479.i.i.i.i.i.i.i, %tMin38.0.i.i.i.i.i.i.i.i.i
@@ -13117,7 +13138,7 @@ for.body.i.i161.i.i505.i.i.i.i.i.i.i:             ; preds = %for.body.i.i161.i.i
   store float %mul.i.i164.i.i508.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i163.i.i507.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i165.i.i509.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i162.i.i506.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i166.i.i510.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i165.i.i509.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i166.i.i510.i.i.i.i.i.i.i, label %invoke.cont114.i.i511.i.i.i.i.i.i.i, label %for.body.i.i161.i.i505.i.i.i.i.i.i.i, !llvm.loop !110
+  br i1 %exitcond.not.i.i166.i.i510.i.i.i.i.i.i.i, label %invoke.cont114.i.i511.i.i.i.i.i.i.i, label %for.body.i.i161.i.i505.i.i.i.i.i.i.i, !llvm.loop !144
 
 invoke.cont114.i.i511.i.i.i.i.i.i.i:              ; preds = %for.body.i.i161.i.i505.i.i.i.i.i.i.i
   %.fca.0.load.i.i167.i.i512.i.i.i.i.i.i.i = load <2 x float>, ptr %retval.i.i160.i.i401.i.i.i.i.i.i.i, align 8
@@ -13165,7 +13186,7 @@ _ZN4pbrt7FastExpEf.exit.i191.i.i531.i.i.i.i.i.i.i: ; preds = %if.end5.i.i186.i.i
   store float %retval.0.i.i192.i.i532.i.i.i.i.i.i.i, ptr %arrayidx.i.i6.i193.i.i533.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i194.i.i534.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i175.i.i515.i.i.i.i.i.i.i, 1
   %exitcond.not.i195.i.i535.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i194.i.i534.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i195.i.i535.i.i.i.i.i.i.i, label %invoke.cont118.i.i536.i.i.i.i.i.i.i, label %for.body.i174.i.i514.i.i.i.i.i.i.i, !llvm.loop !111
+  br i1 %exitcond.not.i195.i.i535.i.i.i.i.i.i.i, label %invoke.cont118.i.i536.i.i.i.i.i.i.i, label %for.body.i174.i.i514.i.i.i.i.i.i.i, !llvm.loop !145
 
 invoke.cont118.i.i536.i.i.i.i.i.i.i:              ; preds = %_ZN4pbrt7FastExpEf.exit.i191.i.i531.i.i.i.i.i.i.i
   %.fca.0.load.i196.i.i537.i.i.i.i.i.i.i = load <2 x float>, ptr %retval.i173.i.i400.i.i.i.i.i.i.i, align 8
@@ -13185,14 +13206,14 @@ for.body.i202.i.i539.i.i.i.i.i.i.i:               ; preds = %for.body.i202.i.i53
   store float %mul.i206.i.i543.i.i.i.i.i.i.i, ptr %arrayidx.i4.i205.i.i542.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i207.i.i544.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i203.i.i540.i.i.i.i.i.i.i, 1
   %exitcond.not.i208.i.i545.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i207.i.i544.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i208.i.i545.i.i.i.i.i.i.i, label %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.i.i546.i.i.i.i.i.i.i, label %for.body.i202.i.i539.i.i.i.i.i.i.i, !llvm.loop !112
+  br i1 %exitcond.not.i208.i.i545.i.i.i.i.i.i.i, label %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.i.i546.i.i.i.i.i.i.i, label %for.body.i202.i.i539.i.i.i.i.i.i.i, !llvm.loop !146
 
 _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.thread.i.i548.i.i.i.i.i.i.i: ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.i.i546.i.i.i.i.i.i.i, %for.body.i41.i.i661.i.i.i.i.i.i.i, %while.cond.preheader.i.i458.i.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i406.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %T_maj.i.i409.i.i.i.i.i.i.i, i64 16, i1 false)
   br label %"_ZZN4pbrt11SampleT_majIZNS_18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS2_17IntersectShadowTrEiS6_SA_ENKSB_clEiEUlNS_6Point3IfEEE_EEvS4_SA_T_T0_EUlSF_NS_16MediumPropertiesENS_15SampledSpectrumESK_E_EESK_SC_ffRNS_3RNGERKNS_18SampledWavelengthsESH_ENKUlSH_E_clIPNS_11CloudMediumEEEDaSH_.exit.i.i.i.i.i.i.i"
 
 _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.i.i546.i.i.i.i.i.i.i: ; preds = %for.body.i202.i.i539.i.i.i.i.i.i.i
-  %.pre.i547.i.i.i.i.i.i.i = load i8, ptr %called.i.i.i459.i.i.i.i.i.i.i, align 4, !noalias !118
+  %.pre.i547.i.i.i.i.i.i.i = load i8, ptr %called.i.i.i459.i.i.i.i.i.i.i, align 4, !noalias !152
   %277 = trunc i8 %.pre.i547.i.i.i.i.i.i.i to i1
   br i1 %277, label %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.thread.i.i548.i.i.i.i.i.i.i, label %invoke.cont.i.i476.i.i.i.i.i.i.i
 
@@ -13206,7 +13227,7 @@ for.body.i.i214.i.i611.i.i.i.i.i.i.i:             ; preds = %for.body.i.i214.i.i
   store float 1.000000e+00, ptr %arrayidx.i.i216.i.i613.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i217.i.i614.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i215.i.i612.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i218.i.i615.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i217.i.i614.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i218.i.i615.i.i.i.i.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNS_18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS2_17IntersectShadowTrEiS6_SA_ENKSB_clEiEUlNS_6Point3IfEEE_EEvS4_SA_T_T0_EUlSF_NS_16MediumPropertiesENS_15SampledSpectrumESK_E_EESK_SC_ffRNS_3RNGERKNS_18SampledWavelengthsESH_ENKUlSH_E_clIPNS_11CloudMediumEEEDaSH_.exit.i.i.i.i.i.i.i", label %for.body.i.i214.i.i611.i.i.i.i.i.i.i, !llvm.loop !103
+  br i1 %exitcond.not.i.i218.i.i615.i.i.i.i.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNS_18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS2_17IntersectShadowTrEiS6_SA_ENKSB_clEiEUlNS_6Point3IfEEE_EEvS4_SA_T_T0_EUlSF_NS_16MediumPropertiesENS_15SampledSpectrumESK_E_EESK_SC_ffRNS_3RNGERKNS_18SampledWavelengthsESH_ENKUlSH_E_clIPNS_11CloudMediumEEEDaSH_.exit.i.i.i.i.i.i.i", label %for.body.i.i214.i.i611.i.i.i.i.i.i.i, !llvm.loop !137
 
 "_ZZN4pbrt11SampleT_majIZNS_18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS2_17IntersectShadowTrEiS6_SA_ENKSB_clEiEUlNS_6Point3IfEEE_EEvS4_SA_T_T0_EUlSF_NS_16MediumPropertiesENS_15SampledSpectrumESK_E_EESK_SC_ffRNS_3RNGERKNS_18SampledWavelengthsESH_ENKUlSH_E_clIPNS_11CloudMediumEEEDaSH_.exit.i.i.i.i.i.i.i": ; preds = %for.body.i.i214.i.i611.i.i.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.thread.i.i548.i.i.i.i.i.i.i
   %.fca.0.load.i.i549.i.i.i.i.i.i.i = load <2 x float>, ptr %retval.i.i406.i.i.i.i.i.i.i, align 8
@@ -13274,7 +13295,7 @@ for.body.i.i.i.i722.i.i.i.i.i.i.i:                ; preds = %for.body.i.i.i.i722
   store float 1.000000e+00, ptr %arrayidx.i.i.i.i724.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i.i.i725.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i723.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i726.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i725.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i.i.i726.i.i.i.i.i.i.i, label %while.cond.i.i744.i.i.i.i.i.i.i, label %for.body.i.i.i.i722.i.i.i.i.i.i.i, !llvm.loop !103
+  br i1 %exitcond.not.i.i.i.i726.i.i.i.i.i.i.i, label %while.cond.i.i744.i.i.i.i.i.i.i, label %for.body.i.i.i.i722.i.i.i.i.i.i.i, !llvm.loop !137
 
 while.cond.i.i744.i.i.i.i.i.i.i:                  ; preds = %for.body.i.i.i.i722.i.i.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i754.i.i.i.i.i.i.i
   %done.0.i.i745.i.i.i.i.i.i.i = phi i1 [ %done.1.i.i751.i.i.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i754.i.i.i.i.i.i.i ], [ false, %for.body.i.i.i.i722.i.i.i.i.i.i.i ]
@@ -13316,7 +13337,7 @@ for.body.i.i30.i.i904.i.i.i.i.i.i.i:              ; preds = %for.body.i.i30.i.i9
   store float %mul.i.i.i.i907.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i906.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i32.i.i908.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i31.i.i905.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i33.i.i909.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i32.i.i908.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i33.i.i909.i.i.i.i.i.i.i, label %invoke.cont27.i.i910.i.i.i.i.i.i.i, label %for.body.i.i30.i.i904.i.i.i.i.i.i.i, !llvm.loop !110
+  br i1 %exitcond.not.i.i33.i.i909.i.i.i.i.i.i.i, label %invoke.cont27.i.i910.i.i.i.i.i.i.i, label %for.body.i.i30.i.i904.i.i.i.i.i.i.i, !llvm.loop !144
 
 invoke.cont27.i.i910.i.i.i.i.i.i.i:               ; preds = %for.body.i.i30.i.i904.i.i.i.i.i.i.i
   %.fca.0.load.i.i.i.i911.i.i.i.i.i.i.i = load <2 x float>, ptr %retval.i.i.i.i673.i.i.i.i.i.i.i, align 8
@@ -13364,7 +13385,7 @@ _ZN4pbrt7FastExpEf.exit.i.i.i930.i.i.i.i.i.i.i:   ; preds = %if.end5.i.i.i.i925.
   store float %retval.0.i.i.i.i931.i.i.i.i.i.i.i, ptr %arrayidx.i.i6.i.i.i932.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i.i933.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i914.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i934.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i933.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i.i934.i.i.i.i.i.i.i, label %invoke.cont31.i.i935.i.i.i.i.i.i.i, label %for.body.i.i.i913.i.i.i.i.i.i.i, !llvm.loop !111
+  br i1 %exitcond.not.i.i.i934.i.i.i.i.i.i.i, label %invoke.cont31.i.i935.i.i.i.i.i.i.i, label %for.body.i.i.i913.i.i.i.i.i.i.i, !llvm.loop !145
 
 invoke.cont31.i.i935.i.i.i.i.i.i.i:               ; preds = %_ZN4pbrt7FastExpEf.exit.i.i.i930.i.i.i.i.i.i.i
   %.fca.0.load.i.i.i936.i.i.i.i.i.i.i = load <2 x float>, ptr %retval.i.i.i672.i.i.i.i.i.i.i, align 8
@@ -13384,10 +13405,10 @@ for.body.i40.i.i938.i.i.i.i.i.i.i:                ; preds = %for.body.i40.i.i938
   store float %mul.i.i.i942.i.i.i.i.i.i.i, ptr %arrayidx.i4.i.i.i941.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i43.i.i943.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i41.i.i939.i.i.i.i.i.i.i, 1
   %exitcond.not.i44.i.i944.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i43.i.i943.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i44.i.i944.i.i.i.i.i.i.i, label %_ZN4pbrt15SampledSpectrummLERKS0_.exit.i.i945.i.i.i.i.i.i.i, label %for.body.i40.i.i938.i.i.i.i.i.i.i, !llvm.loop !112
+  br i1 %exitcond.not.i44.i.i944.i.i.i.i.i.i.i, label %_ZN4pbrt15SampledSpectrummLERKS0_.exit.i.i945.i.i.i.i.i.i.i, label %for.body.i40.i.i938.i.i.i.i.i.i.i, !llvm.loop !146
 
 _ZN4pbrt15SampledSpectrummLERKS0_.exit.i.i945.i.i.i.i.i.i.i: ; preds = %for.body.i40.i.i938.i.i.i.i.i.i.i
-  br label %cleanup.i.i750.i.i.i.i.i.i.i, !llvm.loop !122
+  br label %cleanup.i.i750.i.i.i.i.i.i.i, !llvm.loop !156
 
 invoke.cont48.preheader.i.i763.i.i.i.i.i.i.i:     ; preds = %invoke.cont.i.i761.i.i.i.i.i.i.i
   %296 = load float, ptr %seg.i.i678.i.i.i.i.i.i.i, align 4
@@ -13441,7 +13462,7 @@ for.body.i.i72.i.i833.i.i.i.i.i.i.i:              ; preds = %for.body.i.i72.i.i8
   store float %mul.i.i75.i.i836.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i74.i.i835.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i76.i.i837.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i73.i.i834.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i77.i.i838.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i76.i.i837.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i77.i.i838.i.i.i.i.i.i.i, label %invoke.cont64.i.i839.i.i.i.i.i.i.i, label %for.body.i.i72.i.i833.i.i.i.i.i.i.i, !llvm.loop !110
+  br i1 %exitcond.not.i.i77.i.i838.i.i.i.i.i.i.i, label %invoke.cont64.i.i839.i.i.i.i.i.i.i, label %for.body.i.i72.i.i833.i.i.i.i.i.i.i, !llvm.loop !144
 
 invoke.cont64.i.i839.i.i.i.i.i.i.i:               ; preds = %for.body.i.i72.i.i833.i.i.i.i.i.i.i
   %.fca.0.load.i.i78.i.i840.i.i.i.i.i.i.i = load <2 x float>, ptr %retval.i.i71.i.i671.i.i.i.i.i.i.i, align 8
@@ -13489,7 +13510,7 @@ _ZN4pbrt7FastExpEf.exit.i102.i.i859.i.i.i.i.i.i.i: ; preds = %if.end5.i.i97.i.i8
   store float %retval.0.i.i103.i.i860.i.i.i.i.i.i.i, ptr %arrayidx.i.i6.i104.i.i861.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i105.i.i862.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i86.i.i843.i.i.i.i.i.i.i, 1
   %exitcond.not.i106.i.i863.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i105.i.i862.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i106.i.i863.i.i.i.i.i.i.i, label %invoke.cont68.i.i864.i.i.i.i.i.i.i, label %for.body.i85.i.i842.i.i.i.i.i.i.i, !llvm.loop !111
+  br i1 %exitcond.not.i106.i.i863.i.i.i.i.i.i.i, label %invoke.cont68.i.i864.i.i.i.i.i.i.i, label %for.body.i85.i.i842.i.i.i.i.i.i.i, !llvm.loop !145
 
 invoke.cont68.i.i864.i.i.i.i.i.i.i:               ; preds = %_ZN4pbrt7FastExpEf.exit.i102.i.i859.i.i.i.i.i.i.i
   %.fca.0.load.i107.i.i865.i.i.i.i.i.i.i = load <2 x float>, ptr %retval.i84.i.i670.i.i.i.i.i.i.i, align 8
@@ -13509,7 +13530,7 @@ for.body.i113.i.i867.i.i.i.i.i.i.i:               ; preds = %for.body.i113.i.i86
   store float %mul.i117.i.i871.i.i.i.i.i.i.i, ptr %arrayidx.i4.i116.i.i870.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i118.i.i872.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i114.i.i868.i.i.i.i.i.i.i, 1
   %exitcond.not.i119.i.i873.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i118.i.i872.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i119.i.i873.i.i.i.i.i.i.i, label %invoke.cont75.i.i874.i.i.i.i.i.i.i, label %for.body.i113.i.i867.i.i.i.i.i.i.i, !llvm.loop !112
+  br i1 %exitcond.not.i119.i.i873.i.i.i.i.i.i.i, label %invoke.cont75.i.i874.i.i.i.i.i.i.i, label %for.body.i113.i.i867.i.i.i.i.i.i.i, !llvm.loop !146
 
 invoke.cont75.i.i874.i.i.i.i.i.i.i:               ; preds = %for.body.i113.i.i867.i.i.i.i.i.i.i
   %mul.i.i121.i.i875.i.i.i.i.i.i.i = fmul float %div.i.i.i.i710.i.i.i.i.i.i.i, %add.i.i769.i.i.i.i.i.i.i
@@ -13547,13 +13568,13 @@ for.body.i.i143.i.i893.i.i.i.i.i.i.i:             ; preds = %for.body.i.i143.i.i
   store float 1.000000e+00, ptr %arrayidx.i.i145.i.i895.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i146.i.i896.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i144.i.i894.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i147.i.i897.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i146.i.i896.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i147.i.i897.i.i.i.i.i.i.i, label %invoke.cont97.i.i898.i.i.i.i.i.i.i, label %for.body.i.i143.i.i893.i.i.i.i.i.i.i, !llvm.loop !103
+  br i1 %exitcond.not.i.i147.i.i897.i.i.i.i.i.i.i, label %invoke.cont97.i.i898.i.i.i.i.i.i.i, label %for.body.i.i143.i.i893.i.i.i.i.i.i.i, !llvm.loop !137
 
 invoke.cont97.i.i898.i.i.i.i.i.i.i:               ; preds = %for.body.i.i143.i.i893.i.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %T_maj.i.i677.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp96.i.i685.i.i.i.i.i.i.i, i64 16, i1 false)
   %317 = load i8, ptr %set.i.i.i728.i.i.i.i.i.i.i, align 4
   %tobool.i.i51.i.i899.i.i.i.i.i.i.i = trunc i8 %317 to i1
-  br i1 %tobool.i.i51.i.i899.i.i.i.i.i.i.i, label %invoke.cont48.i.i764.i.i.i.i.i.i.i, label %land.rhs.i.i52.invoke.i.i.i.i.i.i.invoke.i.i.i, !llvm.loop !123
+  br i1 %tobool.i.i51.i.i899.i.i.i.i.i.i.i, label %invoke.cont48.i.i764.i.i.i.i.i.i.i, label %land.rhs.i.i52.invoke.i.i.i.i.i.i.invoke.i.i.i, !llvm.loop !157
 
 invoke.cont103.i.i785.i.i.i.i.i.i.i:              ; preds = %invoke.cont52.i.i783.i.i.i.i.i.i.i
   %sub102.i.i786.i.i.i.i.i.i.i = fsub float %304, %tMin38.0242.i.i766.i.i.i.i.i.i.i
@@ -13573,7 +13594,7 @@ for.body.i.i160.i.i789.i.i.i.i.i.i.i:             ; preds = %for.body.i.i160.i.i
   store float %mul.i.i163.i.i792.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i162.i.i791.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i164.i.i793.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i161.i.i790.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i165.i.i794.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i164.i.i793.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i165.i.i794.i.i.i.i.i.i.i, label %invoke.cont114.i.i795.i.i.i.i.i.i.i, label %for.body.i.i160.i.i789.i.i.i.i.i.i.i, !llvm.loop !110
+  br i1 %exitcond.not.i.i165.i.i794.i.i.i.i.i.i.i, label %invoke.cont114.i.i795.i.i.i.i.i.i.i, label %for.body.i.i160.i.i789.i.i.i.i.i.i.i, !llvm.loop !144
 
 invoke.cont114.i.i795.i.i.i.i.i.i.i:              ; preds = %for.body.i.i160.i.i789.i.i.i.i.i.i.i
   %.fca.0.load.i.i166.i.i796.i.i.i.i.i.i.i = load <2 x float>, ptr %retval.i.i159.i.i669.i.i.i.i.i.i.i, align 8
@@ -13621,7 +13642,7 @@ _ZN4pbrt7FastExpEf.exit.i190.i.i815.i.i.i.i.i.i.i: ; preds = %if.end5.i.i185.i.i
   store float %retval.0.i.i191.i.i816.i.i.i.i.i.i.i, ptr %arrayidx.i.i6.i192.i.i817.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i193.i.i818.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i174.i.i799.i.i.i.i.i.i.i, 1
   %exitcond.not.i194.i.i819.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i193.i.i818.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i194.i.i819.i.i.i.i.i.i.i, label %invoke.cont118.i.i820.i.i.i.i.i.i.i, label %for.body.i173.i.i798.i.i.i.i.i.i.i, !llvm.loop !111
+  br i1 %exitcond.not.i194.i.i819.i.i.i.i.i.i.i, label %invoke.cont118.i.i820.i.i.i.i.i.i.i, label %for.body.i173.i.i798.i.i.i.i.i.i.i, !llvm.loop !145
 
 invoke.cont118.i.i820.i.i.i.i.i.i.i:              ; preds = %_ZN4pbrt7FastExpEf.exit.i190.i.i815.i.i.i.i.i.i.i
   %.fca.0.load.i195.i.i821.i.i.i.i.i.i.i = load <2 x float>, ptr %retval.i172.i.i668.i.i.i.i.i.i.i, align 8
@@ -13641,7 +13662,7 @@ for.body.i201.i.i823.i.i.i.i.i.i.i:               ; preds = %for.body.i201.i.i82
   store float %mul.i205.i.i827.i.i.i.i.i.i.i, ptr %arrayidx.i4.i204.i.i826.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i206.i.i828.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i202.i.i824.i.i.i.i.i.i.i, 1
   %exitcond.not.i207.i.i829.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i206.i.i828.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i207.i.i829.i.i.i.i.i.i.i, label %cleanup.i.i750.i.i.i.i.i.i.i, label %for.body.i201.i.i823.i.i.i.i.i.i.i, !llvm.loop !112
+  br i1 %exitcond.not.i207.i.i829.i.i.i.i.i.i.i, label %cleanup.i.i750.i.i.i.i.i.i.i, label %for.body.i201.i.i823.i.i.i.i.i.i.i, !llvm.loop !146
 
 cleanup.loopexit245.i.i890.i.i.i.i.i.i.i:         ; preds = %invoke.cont88.i.i884.i.i.i.i.i.i.i
   %.pre.i.i891.i.i.i.i.i.i.i = load i8, ptr %set.i.i.i728.i.i.i.i.i.i.i, align 4
@@ -13671,7 +13692,7 @@ for.body.i.i213.i.i947.i.i.i.i.i.i.i:             ; preds = %for.body.i.i213.i.i
   store float 1.000000e+00, ptr %arrayidx.i.i215.i.i949.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i216.i.i950.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i214.i.i948.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i217.i.i951.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i216.i.i950.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i217.i.i951.i.i.i.i.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNS_18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS2_17IntersectShadowTrEiS6_SA_ENKSB_clEiEUlNS_6Point3IfEEE_EEvS4_SA_T_T0_EUlSF_NS_16MediumPropertiesENS_15SampledSpectrumESK_E_EESK_SC_ffRNS_3RNGERKNS_18SampledWavelengthsESH_ENKUlSH_E_clIPNS_13NanoVDBMediumEEEDaSH_.exit.i.i.i.i.i.i.i", label %for.body.i.i213.i.i947.i.i.i.i.i.i.i, !llvm.loop !103
+  br i1 %exitcond.not.i.i217.i.i951.i.i.i.i.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNS_18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS2_17IntersectShadowTrEiS6_SA_ENKSB_clEiEUlNS_6Point3IfEEE_EEvS4_SA_T_T0_EUlSF_NS_16MediumPropertiesENS_15SampledSpectrumESK_E_EESK_SC_ffRNS_3RNGERKNS_18SampledWavelengthsESH_ENKUlSH_E_clIPNS_13NanoVDBMediumEEEDaSH_.exit.i.i.i.i.i.i.i", label %for.body.i.i213.i.i947.i.i.i.i.i.i.i, !llvm.loop !137
 
 "_ZZN4pbrt11SampleT_majIZNS_18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS2_17IntersectShadowTrEiS6_SA_ENKSB_clEiEUlNS_6Point3IfEEE_EEvS4_SA_T_T0_EUlSF_NS_16MediumPropertiesENS_15SampledSpectrumESK_E_EESK_SC_ffRNS_3RNGERKNS_18SampledWavelengthsESH_ENKUlSH_E_clIPNS_13NanoVDBMediumEEEDaSH_.exit.i.i.i.i.i.i.i": ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i754.i.i.i.i.i.i.i, %for.body.i.i213.i.i947.i.i.i.i.i.i.i
   %.fca.0.load.i.i755.i.i.i.i.i.i.i = load <2 x float>, ptr %retval.i.i674.i.i.i.i.i.i.i, align 8
@@ -13710,7 +13731,7 @@ for.body.i.i54.i.i.i.i:                           ; preds = %for.body.i.i54.i.i.
   store float %div.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i56.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i55.i.i.i.i, 1
   %exitcond.not.i.i57.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i56.i.i.i.i, 4
-  br i1 %exitcond.not.i.i57.i.i.i.i, label %_ZNK4pbrt15SampledSpectrumdvEf.exit.i.i.i.i, label %for.body.i.i54.i.i.i.i, !llvm.loop !89
+  br i1 %exitcond.not.i.i57.i.i.i.i, label %_ZNK4pbrt15SampledSpectrumdvEf.exit.i.i.i.i, label %for.body.i.i54.i.i.i.i, !llvm.loop !123
 
 _ZNK4pbrt15SampledSpectrumdvEf.exit.i.i.i.i:      ; preds = %for.body.i.i54.i.i.i.i
   %retval.sroa.0.0.copyload.i.i.i.i.i = load <2 x float>, ptr %ret.i.i.i.i.i, align 8
@@ -13730,7 +13751,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   store float %mul.i59.i.i.i.i, ptr %arrayidx.i4.i.i.i.i.i, align 4
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i.i.i.i, label %_ZN4pbrt15SampledSpectrummLERKS0_.exit.i.i.i.i, label %for.body.i.i.i.i.i, !llvm.loop !112
+  br i1 %exitcond.not.i.i.i.i.i, label %_ZN4pbrt15SampledSpectrummLERKS0_.exit.i.i.i.i, label %for.body.i.i.i.i.i, !llvm.loop !146
 
 _ZN4pbrt15SampledSpectrummLERKS0_.exit.i.i.i.i:   ; preds = %for.body.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ret.i61.i.i.i.i)
@@ -13746,7 +13767,7 @@ for.body.i.i62.i.i.i.i:                           ; preds = %for.body.i.i62.i.i.
   store float %div.i.i65.i.i.i.i, ptr %arrayidx.i.i.i64.i.i.i.i, align 4
   %indvars.iv.next.i.i66.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i63.i.i.i.i, 1
   %exitcond.not.i.i67.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i66.i.i.i.i, 4
-  br i1 %exitcond.not.i.i67.i.i.i.i, label %_ZNK4pbrt15SampledSpectrumdvEf.exit73.i.i.i.i, label %for.body.i.i62.i.i.i.i, !llvm.loop !89
+  br i1 %exitcond.not.i.i67.i.i.i.i, label %_ZNK4pbrt15SampledSpectrumdvEf.exit73.i.i.i.i, label %for.body.i.i62.i.i.i.i, !llvm.loop !123
 
 _ZNK4pbrt15SampledSpectrumdvEf.exit73.i.i.i.i:    ; preds = %for.body.i.i62.i.i.i.i
   %retval.sroa.0.0.copyload.i68.i.i.i.i = load <2 x float>, ptr %ret.i61.i.i.i.i, align 8
@@ -13766,7 +13787,7 @@ for.body.i74.i.i.i.i:                             ; preds = %for.body.i74.i.i.i.
   store float %mul.i78.i.i.i.i, ptr %arrayidx.i4.i77.i.i.i.i, align 4
   %indvars.iv.next.i79.i.i.i.i = add nuw nsw i64 %indvars.iv.i75.i.i.i.i, 1
   %exitcond.not.i80.i.i.i.i = icmp eq i64 %indvars.iv.next.i79.i.i.i.i, 4
-  br i1 %exitcond.not.i80.i.i.i.i, label %_ZN4pbrt15SampledSpectrummLERKS0_.exit81.i.i.i.i, label %for.body.i74.i.i.i.i, !llvm.loop !112
+  br i1 %exitcond.not.i80.i.i.i.i, label %_ZN4pbrt15SampledSpectrummLERKS0_.exit81.i.i.i.i, label %for.body.i74.i.i.i.i, !llvm.loop !146
 
 _ZN4pbrt15SampledSpectrummLERKS0_.exit81.i.i.i.i: ; preds = %for.body.i74.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ret.i83.i.i.i.i)
@@ -13782,7 +13803,7 @@ for.body.i.i84.i.i.i.i:                           ; preds = %for.body.i.i84.i.i.
   store float %div.i.i87.i.i.i.i, ptr %arrayidx.i.i.i86.i.i.i.i, align 4
   %indvars.iv.next.i.i88.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i85.i.i.i.i, 1
   %exitcond.not.i.i89.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i88.i.i.i.i, 4
-  br i1 %exitcond.not.i.i89.i.i.i.i, label %_ZNK4pbrt15SampledSpectrumdvEf.exit95.i.i.i.i, label %for.body.i.i84.i.i.i.i, !llvm.loop !89
+  br i1 %exitcond.not.i.i89.i.i.i.i, label %_ZNK4pbrt15SampledSpectrumdvEf.exit95.i.i.i.i, label %for.body.i.i84.i.i.i.i, !llvm.loop !123
 
 _ZNK4pbrt15SampledSpectrumdvEf.exit95.i.i.i.i:    ; preds = %for.body.i.i84.i.i.i.i
   %retval.sroa.0.0.copyload.i90.i.i.i.i = load <2 x float>, ptr %ret.i83.i.i.i.i, align 8
@@ -13802,7 +13823,7 @@ for.body.i96.i.i.i.i:                             ; preds = %for.body.i96.i.i.i.
   store float %mul.i100.i.i.i.i, ptr %arrayidx.i4.i99.i.i.i.i, align 4
   %indvars.iv.next.i101.i.i.i.i = add nuw nsw i64 %indvars.iv.i97.i.i.i.i, 1
   %exitcond.not.i102.i.i.i.i = icmp eq i64 %indvars.iv.next.i101.i.i.i.i, 4
-  br i1 %exitcond.not.i102.i.i.i.i, label %if.end49.i.i.i.i, label %for.body.i96.i.i.i.i, !llvm.loop !112
+  br i1 %exitcond.not.i102.i.i.i.i, label %if.end49.i.i.i.i, label %for.body.i96.i.i.i.i, !llvm.loop !146
 
 if.end49.i.i.i.i:                                 ; preds = %for.body.i96.i.i.i.i
   br i1 %tobool.i.i397.i.i.i.i, label %for.body.i104.i.i.i.i.preheader, label %for.body.i117.i.i.i.i.preheader
@@ -13818,26 +13839,26 @@ for.body.i104.i.i.i.i:                            ; preds = %for.body.i104.i.i.i
   %indvars.iv.next.i107.i.i.i.i = add nuw nsw i64 %indvars.iv.i105.i.i.i.i, 1
   %exitcond.not.i108.i.i.i.i = icmp eq i64 %indvars.iv.next.i107.i.i.i.i, 4
   %or.cond.i109.i.i.i.i = select i1 %cmp2.i.i.i.i.i, i1 true, i1 %exitcond.not.i108.i.i.i.i
-  br i1 %or.cond.i109.i.i.i.i, label %_ZNK4pbrt15SampledSpectrumcvbEv.exit.i.i.i.i, label %for.body.i104.i.i.i.i, !llvm.loop !124
+  br i1 %or.cond.i109.i.i.i.i, label %_ZNK4pbrt15SampledSpectrumcvbEv.exit.i.i.i.i, label %for.body.i104.i.i.i.i, !llvm.loop !158
 
 _ZNK4pbrt15SampledSpectrumcvbEv.exit.i.i.i.i:     ; preds = %for.body.i104.i.i.i.i
   br i1 %cmp2.i.i.i.i.i, label %if.end54.i.i.i.i, label %for.body.i117.i.i.i.i.preheader
 
 if.end54.i.i.i.i:                                 ; preds = %_ZNK4pbrt15SampledSpectrumcvbEv.exit.i.i.i.i
-  %341 = load i8, ptr %set.i.i.i.i, align 8, !noalias !125
+  %341 = load i8, ptr %set.i.i.i.i, align 8, !noalias !159
   %tobool.i.i.i111.i.i.i.i = trunc i8 %341 to i1
   br i1 %tobool.i.i.i111.i.i.i.i, label %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEEptEv.exit.i.i.i.i.i, label %land.rhs.i.i52.invoke.i.i.i.i.i.i.invoke.i.i.i
 
 _ZN4pstd8optionalIN4pbrt17ShapeIntersectionEEptEv.exit.i.i.i.i.i: ; preds = %if.end54.i.i.i.i
-  %agg.tmp1.i.sroa.0.0.copyload.i.i.i.i.i = load float, ptr %si.i.i.i, align 8, !noalias !128
-  %agg.tmp1.i.sroa.4.0.copyload.i.i.i.i.i = load float, ptr %agg.tmp.sroa.0.sroa.2.0.this.sroa_idx.i.i.i.i.i.i, align 4, !noalias !128
-  %agg.tmp1.i.sroa.5.0.copyload.i.i.i.i.i = load float, ptr %agg.tmp.sroa.0.sroa.3.0.this.sroa_idx.i.i.i.i.i.i, align 8, !noalias !128
-  %agg.tmp1.i.sroa.6.0.copyload.i.i.i.i.i = load float, ptr %agg.tmp.sroa.0.sroa.4.0.this.sroa_idx.i.i.i.i.i.i, align 4, !noalias !128
-  %agg.tmp1.i.sroa.7.0.copyload.i.i.i.i.i = load float, ptr %agg.tmp.sroa.0.sroa.5.0.this.sroa_idx.i.i.i.i.i.i, align 8, !noalias !128
-  %agg.tmp1.i.sroa.8.0.copyload.i.i.i.i.i = load float, ptr %agg.tmp.sroa.0.sroa.6.0.this.sroa_idx.i.i.i.i.i.i, align 4, !noalias !128
-  %agg.tmp2.sroa.0.0.copyload.i.i.i.i.i.i = load <2 x float>, ptr %n.i.i.i.i.i.i, align 8, !noalias !128
-  %agg.tmp2.sroa.2.0.copyload.i.i.i.i.i.i = load float, ptr %agg.tmp2.sroa.2.0.n.sroa_idx.i.i.i.i.i.i, align 8, !noalias !128
-  %342 = load float, ptr %time.i.i.i.i.i.i, align 8, !noalias !128
+  %agg.tmp1.i.sroa.0.0.copyload.i.i.i.i.i = load float, ptr %si.i.i.i, align 8, !noalias !162
+  %agg.tmp1.i.sroa.4.0.copyload.i.i.i.i.i = load float, ptr %agg.tmp.sroa.0.sroa.2.0.this.sroa_idx.i.i.i.i.i.i, align 4, !noalias !162
+  %agg.tmp1.i.sroa.5.0.copyload.i.i.i.i.i = load float, ptr %agg.tmp.sroa.0.sroa.3.0.this.sroa_idx.i.i.i.i.i.i, align 8, !noalias !162
+  %agg.tmp1.i.sroa.6.0.copyload.i.i.i.i.i = load float, ptr %agg.tmp.sroa.0.sroa.4.0.this.sroa_idx.i.i.i.i.i.i, align 4, !noalias !162
+  %agg.tmp1.i.sroa.7.0.copyload.i.i.i.i.i = load float, ptr %agg.tmp.sroa.0.sroa.5.0.this.sroa_idx.i.i.i.i.i.i, align 8, !noalias !162
+  %agg.tmp1.i.sroa.8.0.copyload.i.i.i.i.i = load float, ptr %agg.tmp.sroa.0.sroa.6.0.this.sroa_idx.i.i.i.i.i.i, align 4, !noalias !162
+  %agg.tmp2.sroa.0.0.copyload.i.i.i.i.i.i = load <2 x float>, ptr %n.i.i.i.i.i.i, align 8, !noalias !162
+  %agg.tmp2.sroa.2.0.copyload.i.i.i.i.i.i = load float, ptr %agg.tmp2.sroa.2.0.n.sroa_idx.i.i.i.i.i.i, align 8, !noalias !162
+  %342 = load float, ptr %time.i.i.i.i.i.i, align 8, !noalias !162
   %add.i.i.i.i.i.i.i.i.i.i = fadd float %agg.tmp1.i.sroa.0.0.copyload.i.i.i.i.i, %agg.tmp1.i.sroa.4.0.copyload.i.i.i.i.i
   %div.i.i.i.i.i.i.i.i.i.i = fmul float %add.i.i.i.i.i.i.i.i.i.i, 5.000000e-01
   %add.i.i2.i.i.i.i.i.i.i.i = fadd float %agg.tmp1.i.sroa.5.0.copyload.i.i.i.i.i, %agg.tmp1.i.sroa.6.0.copyload.i.i.i.i.i
@@ -13852,13 +13873,13 @@ _ZN4pstd8optionalIN4pbrt17ShapeIntersectionEEptEv.exit.i.i.i.i.i: ; preds = %if.
   %call.i.i.i.i.i28.i.i.i = call { <2 x float>, float } @_ZN4pbrt15OffsetRayOriginENS_8Point3fiENS_7Normal3IfEENS_7Vector3IfEE(ptr noundef nonnull byval(%"class.pbrt::Point3fi") align 8 %si.i.i.i, <2 x float> %agg.tmp2.sroa.0.0.copyload.i.i.i.i.i.i, float %agg.tmp2.sroa.2.0.copyload.i.i.i.i.i.i, <2 x float> %retval.sroa.0.4.vec.insert.i.i.i.i.i.i.i.i, float %sub6.i.i.i.i.i.i.i.i)
   %call.fca.0.extract.i.i.i.i.i.i.i.i = extractvalue { <2 x float>, float } %call.i.i.i.i.i28.i.i.i, 0
   %call.fca.1.extract.i.i.i.i.i.i.i.i = extractvalue { <2 x float>, float } %call.i.i.i.i.i28.i.i.i, 1
-  %343 = load ptr, ptr %mediumInterface.i.i.i.i.i.i.i, align 8, !noalias !131
+  %343 = load ptr, ptr %mediumInterface.i.i.i.i.i.i.i, align 8, !noalias !165
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %343, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %"_ZZZNK4pbrt12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiENKUlNS_6Point3IfEEE_clESB_.exit.i.i.i.i", label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEEptEv.exit.i.i.i.i.i
-  %agg.tmp2.sroa.0.0.copyload.i.i.i.i.i.i.i = load <2 x float>, ptr %n.i.i.i.i.i.i, align 8, !noalias !131
-  %agg.tmp2.sroa.2.0.copyload.i.i.i.i.i.i.i = load float, ptr %agg.tmp2.sroa.2.0.n.sroa_idx.i.i.i.i.i.i, align 8, !noalias !131
+  %agg.tmp2.sroa.0.0.copyload.i.i.i.i.i.i.i = load <2 x float>, ptr %n.i.i.i.i.i.i, align 8, !noalias !165
+  %agg.tmp2.sroa.2.0.copyload.i.i.i.i.i.i.i = load float, ptr %agg.tmp2.sroa.2.0.n.sroa_idx.i.i.i.i.i.i, align 8, !noalias !165
   %n.sroa.0.0.vec.extract.i.i.i.i.i.i.i.i = extractelement <2 x float> %agg.tmp2.sroa.0.0.copyload.i.i.i.i.i.i.i, i64 0
   %n.sroa.0.4.vec.extract.i.i.i.i.i.i.i.i = extractelement <2 x float> %agg.tmp2.sroa.0.0.copyload.i.i.i.i.i.i.i, i64 1
   %mul.i.i.i.i.i112.i.i.i.i = fmul float %sub6.i.i.i.i.i.i.i.i, %agg.tmp2.sroa.2.0.copyload.i.i.i.i.i.i.i
@@ -13874,13 +13895,13 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %_ZN4pstd8optionalIN
 
 "_ZZZNK4pbrt12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiENKUlNS_6Point3IfEEE_clESB_.exit.i.i.i.i": ; preds = %if.then.i.i.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEEptEv.exit.i.i.i.i.i
   %storemerge.in.i.i.i.i.i.i.i = phi ptr [ %cond-lvalue.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i ], [ %medium.i.i.i.i.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEEptEv.exit.i.i.i.i.i ]
-  %storemerge.i.i.i.i.i.i.i = load i64, ptr %storemerge.in.i.i.i.i.i.i.i, align 8, !noalias !131
+  %storemerge.i.i.i.i.i.i.i = load i64, ptr %storemerge.in.i.i.i.i.i.i.i, align 8, !noalias !165
   %cmp.i.i.i.i.i = fcmp une float %sub.i.i.i.i.i.i.i.i, 0.000000e+00
   %cmp4.i.i.i.i.i = fcmp une float %sub4.i.i.i.i.i.i.i.i, 0.000000e+00
   %or.cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i1 true, i1 %cmp4.i.i.i.i.i
   %cmp6.i.i.i.i.i = fcmp une float %sub6.i.i.i.i.i.i.i.i, 0.000000e+00
   %or.cond.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i1 true, i1 %cmp6.i.i.i.i.i
-  br i1 %or.cond.i.i.i.i, label %while.body.i.i.i.i, label %for.body.i117.i.i.i.i.preheader, !llvm.loop !134
+  br i1 %or.cond.i.i.i.i, label %while.body.i.i.i.i, label %for.body.i117.i.i.i.i.preheader, !llvm.loop !168
 
 for.body.i117.i.i.i.i.preheader:                  ; preds = %"_ZZZNK4pbrt12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiENKUlNS_6Point3IfEEE_clESB_.exit.i.i.i.i", %_ZNK4pbrt15SampledSpectrumcvbEv.exit.i.i.i.i, %if.end49.i.i.i.i, %if.end.thread.i.i.i.i, %if.then.i.i.i.i, %while.cond.preheader.i.i.i.i
   br label %for.body.i117.i.i.i.i
@@ -13893,7 +13914,7 @@ for.body.i117.i.i.i.i:                            ; preds = %for.body.i117.i.i.i
   %indvars.iv.next.i121.i.i.i.i = add nuw nsw i64 %indvars.iv.i118.i.i.i.i, 1
   %exitcond.not.i122.i.i.i.i = icmp eq i64 %indvars.iv.next.i121.i.i.i.i, 4
   %or.cond.i123.i.i.i.i = select i1 %cmp2.i120.i.i.i.i, i1 true, i1 %exitcond.not.i122.i.i.i.i
-  br i1 %or.cond.i123.i.i.i.i, label %_ZNK4pbrt15SampledSpectrumcvbEv.exit124.i.i.i.i, label %for.body.i117.i.i.i.i, !llvm.loop !124
+  br i1 %or.cond.i123.i.i.i.i, label %_ZNK4pbrt15SampledSpectrumcvbEv.exit124.i.i.i.i, label %for.body.i117.i.i.i.i, !llvm.loop !158
 
 _ZNK4pbrt15SampledSpectrumcvbEv.exit124.i.i.i.i:  ; preds = %for.body.i117.i.i.i.i
   br i1 %cmp2.i120.i.i.i.i, label %if.then59.i.i.i.i, label %"_ZSt10__invoke_rIvRZNK4pbrt12CPUAggregate17IntersectShadowTrEiPNS0_9WorkQueueINS0_17ShadowRayWorkItemEEEPNS0_3SOAINS0_16PixelSampleStateEEEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit"
@@ -13915,7 +13936,7 @@ for.body.i.i126.i.i.i.i:                          ; preds = %for.body.i.i126.i.i
   store float %mul.i.i129.i.i.i.i, ptr %arrayidx.i4.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i130.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i127.i.i.i.i, 1
   %exitcond.not.i.i131.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i130.i.i.i.i, 4
-  br i1 %exitcond.not.i.i131.i.i.i.i, label %_ZNK4pbrt15SampledSpectrummlERKS0_.exit.i.i.i.i, label %for.body.i.i126.i.i.i.i, !llvm.loop !112
+  br i1 %exitcond.not.i.i131.i.i.i.i, label %_ZNK4pbrt15SampledSpectrummlERKS0_.exit.i.i.i.i, label %for.body.i.i126.i.i.i.i, !llvm.loop !146
 
 _ZNK4pbrt15SampledSpectrummlERKS0_.exit.i.i.i.i:  ; preds = %for.body.i.i126.i.i.i.i
   %retval.sroa.0.0.copyload.i132.i.i.i.i = load <2 x float>, ptr %ret.i125.i.i.i.i, align 8
@@ -13937,7 +13958,7 @@ for.body.i.i138.i.i.i.i:                          ; preds = %for.body.i.i138.i.i
   store float %mul.i.i142.i.i.i.i, ptr %arrayidx.i4.i.i141.i.i.i.i, align 4
   %indvars.iv.next.i.i143.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i139.i.i.i.i, 1
   %exitcond.not.i.i144.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i143.i.i.i.i, 4
-  br i1 %exitcond.not.i.i144.i.i.i.i, label %_ZNK4pbrt15SampledSpectrummlERKS0_.exit150.i.i.i.i, label %for.body.i.i138.i.i.i.i, !llvm.loop !112
+  br i1 %exitcond.not.i.i144.i.i.i.i, label %_ZNK4pbrt15SampledSpectrummlERKS0_.exit150.i.i.i.i, label %for.body.i.i138.i.i.i.i, !llvm.loop !146
 
 _ZNK4pbrt15SampledSpectrummlERKS0_.exit150.i.i.i.i: ; preds = %for.body.i.i138.i.i.i.i
   %retval.sroa.0.0.copyload.i145.i.i.i.i = load <2 x float>, ptr %ret.i137.i.i.i.i, align 8
@@ -13962,7 +13983,7 @@ for.body.i.i152.i.i.i.i:                          ; preds = %for.body.i.i152.i.i
   store float %add.i.i156.i.i.i.i, ptr %arrayidx.i4.i.i155.i.i.i.i, align 4
   %indvars.iv.next.i.i157.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i153.i.i.i.i, 1
   %exitcond.not.i.i158.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i157.i.i.i.i, 4
-  br i1 %exitcond.not.i.i158.i.i.i.i, label %_ZNK4pbrt15SampledSpectrumplERKS0_.exit.i.i.i.i, label %for.body.i.i152.i.i.i.i, !llvm.loop !87
+  br i1 %exitcond.not.i.i158.i.i.i.i, label %_ZNK4pbrt15SampledSpectrumplERKS0_.exit.i.i.i.i, label %for.body.i.i152.i.i.i.i, !llvm.loop !121
 
 _ZNK4pbrt15SampledSpectrumplERKS0_.exit.i.i.i.i:  ; preds = %for.body.i.i152.i.i.i.i
   %retval.sroa.0.0.copyload.i159.i.i.i.i = load <2 x float>, ptr %ret.i151.i.i.i.i, align 8
@@ -13982,7 +14003,7 @@ for.body.i164.i.i.i.i:                            ; preds = %for.body.i164.i.i.i
   %add.i.i.i.i.i = fadd float %sum.04.i.i.i.i.i, %357
   %indvars.iv.next.i167.i.i.i.i = add nuw nsw i64 %indvars.iv.i165.i.i.i.i, 1
   %exitcond.not.i168.i.i.i.i = icmp eq i64 %indvars.iv.next.i167.i.i.i.i, 4
-  br i1 %exitcond.not.i168.i.i.i.i, label %_ZNK4pbrt15SampledSpectrum7AverageEv.exit.i.i.i.i, label %for.body.i164.i.i.i.i, !llvm.loop !88
+  br i1 %exitcond.not.i168.i.i.i.i, label %_ZNK4pbrt15SampledSpectrum7AverageEv.exit.i.i.i.i, label %for.body.i164.i.i.i.i, !llvm.loop !122
 
 _ZNK4pbrt15SampledSpectrum7AverageEv.exit.i.i.i.i: ; preds = %for.body.i164.i.i.i.i
   %div.i.i.i.i.i = fmul float %add.i.i.i.i.i, 2.500000e-01
@@ -13998,7 +14019,7 @@ for.body.i.i170.i.i.i.i:                          ; preds = %for.body.i.i170.i.i
   store float %div.i.i173.i.i.i.i, ptr %arrayidx.i.i.i172.i.i.i.i, align 4
   %indvars.iv.next.i.i174.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i171.i.i.i.i, 1
   %exitcond.not.i.i175.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i174.i.i.i.i, 4
-  br i1 %exitcond.not.i.i175.i.i.i.i, label %_ZNK4pbrt15SampledSpectrumdvEf.exit181.i.i.i.i, label %for.body.i.i170.i.i.i.i, !llvm.loop !89
+  br i1 %exitcond.not.i.i175.i.i.i.i, label %_ZNK4pbrt15SampledSpectrumdvEf.exit181.i.i.i.i, label %for.body.i.i170.i.i.i.i, !llvm.loop !123
 
 _ZNK4pbrt15SampledSpectrumdvEf.exit181.i.i.i.i:   ; preds = %for.body.i.i170.i.i.i.i
   %retval.sroa.0.0.copyload.i176.i.i.i.i = load <2 x float>, ptr %ret.i169.i.i.i.i, align 8
@@ -14020,7 +14041,7 @@ for.body.i182.i.i.i.i:                            ; preds = %for.body.i182.i.i.i
   store float %mul.i186.i.i.i.i, ptr %arrayidx.i4.i185.i.i.i.i, align 4
   %indvars.iv.next.i187.i.i.i.i = add nuw nsw i64 %indvars.iv.i183.i.i.i.i, 1
   %exitcond.not.i188.i.i.i.i = icmp eq i64 %indvars.iv.next.i187.i.i.i.i, 4
-  br i1 %exitcond.not.i188.i.i.i.i, label %_ZN4pbrt15SampledSpectrummLERKS0_.exit189.i.i.i.i, label %for.body.i182.i.i.i.i, !llvm.loop !112
+  br i1 %exitcond.not.i188.i.i.i.i, label %_ZN4pbrt15SampledSpectrummLERKS0_.exit189.i.i.i.i, label %for.body.i182.i.i.i.i, !llvm.loop !146
 
 _ZN4pbrt15SampledSpectrummLERKS0_.exit189.i.i.i.i: ; preds = %for.body.i182.i.i.i.i
   %ptr4.i.i.i.i6.i.i.i = getelementptr inbounds i8, ptr %29, i64 88
@@ -14046,7 +14067,7 @@ for.body.i.i193.i.i.i.i:                          ; preds = %for.body.i.i193.i.i
   store float %add.i.i197.i.i.i.i, ptr %arrayidx.i4.i.i196.i.i.i.i, align 4
   %indvars.iv.next.i.i198.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i194.i.i.i.i, 1
   %exitcond.not.i.i199.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i198.i.i.i.i, 4
-  br i1 %exitcond.not.i.i199.i.i.i.i, label %_ZNK4pbrt15SampledSpectrumplERKS0_.exit205.i.i.i.i, label %for.body.i.i193.i.i.i.i, !llvm.loop !87
+  br i1 %exitcond.not.i.i199.i.i.i.i, label %_ZNK4pbrt15SampledSpectrumplERKS0_.exit205.i.i.i.i, label %for.body.i.i193.i.i.i.i, !llvm.loop !121
 
 _ZNK4pbrt15SampledSpectrumplERKS0_.exit205.i.i.i.i: ; preds = %for.body.i.i193.i.i.i.i
   %retval.sroa.0.0.copyload.i200.i.i.i.i = load <2 x float>, ptr %ret.i192.i.i.i.i, align 8
@@ -14155,7 +14176,7 @@ for.inc.i:                                        ; preds = %if.else.i, %lor.lhs
   store float %.sink.i, ptr %arrayidx.i.i8.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit, label %for.body.i, !llvm.loop !135
+  br i1 %exitcond.not.i, label %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit, label %for.body.i, !llvm.loop !169
 
 _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; preds = %for.inc.i
   %.fca.0.load.i = load <2 x float>, ptr %retval.i, align 8
@@ -14198,7 +14219,7 @@ for.inc.i14:                                      ; preds = %if.else.i24, %lor.l
   store float %.sink.i15, ptr %arrayidx.i.i8.i16, align 4
   %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i6, 1
   %exitcond.not.i18 = icmp eq i64 %indvars.iv.next.i17, 4
-  br i1 %exitcond.not.i18, label %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit26, label %for.body.i5, !llvm.loop !135
+  br i1 %exitcond.not.i18, label %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit26, label %for.body.i5, !llvm.loop !169
 
 _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit26: ; preds = %for.inc.i14
   %.fca.0.load.i19 = load <2 x float>, ptr %retval.i2, align 8
@@ -14224,7 +14245,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %_ZNK
   store float %add.i.i, ptr %arrayidx.i4.i.i, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %exitcond.not.i.i, label %_ZNK4pbrt15SampledSpectrumplERKS0_.exit, label %for.body.i.i, !llvm.loop !87
+  br i1 %exitcond.not.i.i, label %_ZNK4pbrt15SampledSpectrumplERKS0_.exit, label %for.body.i.i, !llvm.loop !121
 
 _ZNK4pbrt15SampledSpectrumplERKS0_.exit:          ; preds = %for.body.i.i
   %retval.sroa.0.0.copyload.i = load <2 x float>, ptr %ret.i, align 8
@@ -14283,7 +14304,7 @@ for.inc.i:                                        ; preds = %if.else.i, %lor.lhs
   store float %.sink.i, ptr %arrayidx.i.i8.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit, label %for.body.i, !llvm.loop !135
+  br i1 %exitcond.not.i, label %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit, label %for.body.i, !llvm.loop !169
 
 _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; preds = %for.inc.i
   %.fca.0.load.i = load <2 x float>, ptr %retval.i, align 8
@@ -14326,7 +14347,7 @@ for.inc.i15:                                      ; preds = %if.else.i25, %lor.l
   store float %.sink.i16, ptr %arrayidx.i.i8.i17, align 4
   %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i7, 1
   %exitcond.not.i19 = icmp eq i64 %indvars.iv.next.i18, 4
-  br i1 %exitcond.not.i19, label %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit27, label %for.body.i6, !llvm.loop !135
+  br i1 %exitcond.not.i19, label %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit27, label %for.body.i6, !llvm.loop !169
 
 _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit27: ; preds = %for.inc.i15
   %.fca.0.load.i20 = load <2 x float>, ptr %retval.i3, align 8
@@ -14369,7 +14390,7 @@ for.inc.i40:                                      ; preds = %if.else.i50, %lor.l
   store float %.sink.i41, ptr %arrayidx.i.i8.i42, align 4
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i32, 1
   %exitcond.not.i44 = icmp eq i64 %indvars.iv.next.i43, 4
-  br i1 %exitcond.not.i44, label %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit52, label %for.body.i31, !llvm.loop !135
+  br i1 %exitcond.not.i44, label %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit52, label %for.body.i31, !llvm.loop !169
 
 _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit52: ; preds = %for.inc.i40
   %.fca.0.load.i45 = load <2 x float>, ptr %retval.i28, align 8
@@ -14434,7 +14455,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %entr
   store float %sub.i.i, ptr %arrayidx.i4.i.i, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %exitcond.not.i.i, label %_ZNK4pbrt15SampledSpectrummiERKS0_.exit, label %for.body.i.i, !llvm.loop !136
+  br i1 %exitcond.not.i.i, label %_ZNK4pbrt15SampledSpectrummiERKS0_.exit, label %for.body.i.i, !llvm.loop !170
 
 _ZNK4pbrt15SampledSpectrummiERKS0_.exit:          ; preds = %for.body.i.i
   %retval.sroa.0.0.copyload.i = load <2 x float>, ptr %ret.i, align 8
@@ -14458,7 +14479,7 @@ for.body.i.i5:                                    ; preds = %for.body.i.i5, %_ZN
   store float %sub.i.i9, ptr %arrayidx.i4.i.i8, align 4
   %indvars.iv.next.i.i10 = add nuw nsw i64 %indvars.iv.i.i6, 1
   %exitcond.not.i.i11 = icmp eq i64 %indvars.iv.next.i.i10, 4
-  br i1 %exitcond.not.i.i11, label %_ZNK4pbrt15SampledSpectrummiERKS0_.exit17, label %for.body.i.i5, !llvm.loop !136
+  br i1 %exitcond.not.i.i11, label %_ZNK4pbrt15SampledSpectrummiERKS0_.exit17, label %for.body.i.i5, !llvm.loop !170
 
 _ZNK4pbrt15SampledSpectrummiERKS0_.exit17:        ; preds = %for.body.i.i5
   %retval.sroa.0.0.copyload.i12 = load <2 x float>, ptr %ret.i4, align 8
@@ -14481,7 +14502,7 @@ for.body.i:                                       ; preds = %for.body.i, %_ZNK4p
   store float %.sroa.speculated.i, ptr %arrayidx.i.i5.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %_ZN4pbrt9ClampZeroERKNS_15SampledSpectrumE.exit, label %for.body.i, !llvm.loop !137
+  br i1 %exitcond.not.i, label %_ZN4pbrt9ClampZeroERKNS_15SampledSpectrumE.exit, label %for.body.i, !llvm.loop !171
 
 _ZN4pbrt9ClampZeroERKNS_15SampledSpectrumE.exit:  ; preds = %for.body.i
   %.fca.0.load.i = load <2 x float>, ptr %retval.i, align 8
@@ -14507,7 +14528,7 @@ for.body.i.i22:                                   ; preds = %for.body.i.i22, %_Z
   store float %mul.i.i, ptr %arrayidx.i4.i.i25, align 4
   %indvars.iv.next.i.i26 = add nuw nsw i64 %indvars.iv.i.i23, 1
   %exitcond.not.i.i27 = icmp eq i64 %indvars.iv.next.i.i26, 4
-  br i1 %exitcond.not.i.i27, label %_ZNK4pbrt15SampledSpectrummlERKS0_.exit, label %for.body.i.i22, !llvm.loop !112
+  br i1 %exitcond.not.i.i27, label %_ZNK4pbrt15SampledSpectrummlERKS0_.exit, label %for.body.i.i22, !llvm.loop !146
 
 _ZNK4pbrt15SampledSpectrummlERKS0_.exit:          ; preds = %for.body.i.i22
   %10 = fmul <2 x float> %T_maj.coerce0, %sigma_maj.coerce0
@@ -14529,7 +14550,7 @@ for.body.i.i34:                                   ; preds = %for.body.i.i34, %_Z
   store float %div.i.i, ptr %arrayidx.i.i.i36, align 4
   %indvars.iv.next.i.i37 = add nuw nsw i64 %indvars.iv.i.i35, 1
   %exitcond.not.i.i38 = icmp eq i64 %indvars.iv.next.i.i37, 4
-  br i1 %exitcond.not.i.i38, label %_ZNK4pbrt15SampledSpectrumdvEf.exit, label %for.body.i.i34, !llvm.loop !89
+  br i1 %exitcond.not.i.i38, label %_ZNK4pbrt15SampledSpectrumdvEf.exit, label %for.body.i.i34, !llvm.loop !123
 
 _ZNK4pbrt15SampledSpectrumdvEf.exit:              ; preds = %for.body.i.i34
   %retval.sroa.0.0.copyload.i39 = load <2 x float>, ptr %ret.i33, align 8
@@ -14551,7 +14572,7 @@ for.body.i44:                                     ; preds = %for.body.i44, %_ZNK
   store float %mul.i, ptr %arrayidx.i4.i, align 4
   %indvars.iv.next.i46 = add nuw nsw i64 %indvars.iv.i45, 1
   %exitcond.not.i47 = icmp eq i64 %indvars.iv.next.i46, 4
-  br i1 %exitcond.not.i47, label %_ZN4pbrt15SampledSpectrummLERKS0_.exit, label %for.body.i44, !llvm.loop !112
+  br i1 %exitcond.not.i47, label %_ZN4pbrt15SampledSpectrummLERKS0_.exit, label %for.body.i44, !llvm.loop !146
 
 _ZN4pbrt15SampledSpectrummLERKS0_.exit:           ; preds = %for.body.i44
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ret.i48)
@@ -14570,7 +14591,7 @@ for.body.i.i49:                                   ; preds = %for.body.i.i49, %_Z
   store float %mul.i.i53, ptr %arrayidx.i4.i.i52, align 4
   %indvars.iv.next.i.i54 = add nuw nsw i64 %indvars.iv.i.i50, 1
   %exitcond.not.i.i55 = icmp eq i64 %indvars.iv.next.i.i54, 4
-  br i1 %exitcond.not.i.i55, label %_ZNK4pbrt15SampledSpectrummlERKS0_.exit61, label %for.body.i.i49, !llvm.loop !112
+  br i1 %exitcond.not.i.i55, label %_ZNK4pbrt15SampledSpectrummlERKS0_.exit61, label %for.body.i.i49, !llvm.loop !146
 
 _ZNK4pbrt15SampledSpectrummlERKS0_.exit61:        ; preds = %for.body.i.i49
   %retval.sroa.0.0.copyload.i56 = load <2 x float>, ptr %ret.i48, align 8
@@ -14590,7 +14611,7 @@ for.body.i.i63:                                   ; preds = %for.body.i.i63, %_Z
   store float %div.i.i66, ptr %arrayidx.i.i.i65, align 4
   %indvars.iv.next.i.i67 = add nuw nsw i64 %indvars.iv.i.i64, 1
   %exitcond.not.i.i68 = icmp eq i64 %indvars.iv.next.i.i67, 4
-  br i1 %exitcond.not.i.i68, label %_ZNK4pbrt15SampledSpectrumdvEf.exit74, label %for.body.i.i63, !llvm.loop !89
+  br i1 %exitcond.not.i.i68, label %_ZNK4pbrt15SampledSpectrumdvEf.exit74, label %for.body.i.i63, !llvm.loop !123
 
 _ZNK4pbrt15SampledSpectrumdvEf.exit74:            ; preds = %for.body.i.i63
   %retval.sroa.0.0.copyload.i69 = load <2 x float>, ptr %ret.i62, align 8
@@ -14613,7 +14634,7 @@ for.body.i75:                                     ; preds = %for.body.i75, %_ZNK
   store float %mul.i79, ptr %arrayidx.i4.i78, align 4
   %indvars.iv.next.i80 = add nuw nsw i64 %indvars.iv.i76, 1
   %exitcond.not.i81 = icmp eq i64 %indvars.iv.next.i80, 4
-  br i1 %exitcond.not.i81, label %_ZN4pbrt15SampledSpectrummLERKS0_.exit82, label %for.body.i75, !llvm.loop !112
+  br i1 %exitcond.not.i81, label %_ZN4pbrt15SampledSpectrummLERKS0_.exit82, label %for.body.i75, !llvm.loop !146
 
 _ZN4pbrt15SampledSpectrummLERKS0_.exit82:         ; preds = %for.body.i75
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ret.i83)
@@ -14632,7 +14653,7 @@ for.body.i.i84:                                   ; preds = %for.body.i.i84, %_Z
   store float %mul.i.i88, ptr %arrayidx.i4.i.i87, align 4
   %indvars.iv.next.i.i89 = add nuw nsw i64 %indvars.iv.i.i85, 1
   %exitcond.not.i.i90 = icmp eq i64 %indvars.iv.next.i.i89, 4
-  br i1 %exitcond.not.i.i90, label %_ZNK4pbrt15SampledSpectrummlERKS0_.exit96, label %for.body.i.i84, !llvm.loop !112
+  br i1 %exitcond.not.i.i90, label %_ZNK4pbrt15SampledSpectrummlERKS0_.exit96, label %for.body.i.i84, !llvm.loop !146
 
 _ZNK4pbrt15SampledSpectrummlERKS0_.exit96:        ; preds = %for.body.i.i84
   %retval.sroa.0.0.copyload.i91 = load <2 x float>, ptr %ret.i83, align 8
@@ -14652,7 +14673,7 @@ for.body.i.i98:                                   ; preds = %for.body.i.i98, %_Z
   store float %div.i.i101, ptr %arrayidx.i.i.i100, align 4
   %indvars.iv.next.i.i102 = add nuw nsw i64 %indvars.iv.i.i99, 1
   %exitcond.not.i.i103 = icmp eq i64 %indvars.iv.next.i.i102, 4
-  br i1 %exitcond.not.i.i103, label %_ZNK4pbrt15SampledSpectrumdvEf.exit109, label %for.body.i.i98, !llvm.loop !89
+  br i1 %exitcond.not.i.i103, label %_ZNK4pbrt15SampledSpectrumdvEf.exit109, label %for.body.i.i98, !llvm.loop !123
 
 _ZNK4pbrt15SampledSpectrumdvEf.exit109:           ; preds = %for.body.i.i98
   %retval.sroa.0.0.copyload.i104 = load <2 x float>, ptr %ret.i97, align 8
@@ -14675,7 +14696,7 @@ for.body.i110:                                    ; preds = %for.body.i110, %_ZN
   store float %mul.i114, ptr %arrayidx.i4.i113, align 4
   %indvars.iv.next.i115 = add nuw nsw i64 %indvars.iv.i111, 1
   %exitcond.not.i116 = icmp eq i64 %indvars.iv.next.i115, 4
-  br i1 %exitcond.not.i116, label %_ZN4pbrt15SampledSpectrummLERKS0_.exit117, label %for.body.i110, !llvm.loop !112
+  br i1 %exitcond.not.i116, label %_ZN4pbrt15SampledSpectrummLERKS0_.exit117, label %for.body.i110, !llvm.loop !146
 
 _ZN4pbrt15SampledSpectrummLERKS0_.exit117:        ; preds = %for.body.i110
   %32 = load ptr, ptr %this, align 8
@@ -14695,7 +14716,7 @@ for.body.i.i119:                                  ; preds = %for.body.i.i119, %_
   store float %add.i.i, ptr %arrayidx.i4.i.i122, align 4
   %indvars.iv.next.i.i123 = add nuw nsw i64 %indvars.iv.i.i120, 1
   %exitcond.not.i.i124 = icmp eq i64 %indvars.iv.next.i.i123, 4
-  br i1 %exitcond.not.i.i124, label %_ZNK4pbrt15SampledSpectrumplERKS0_.exit, label %for.body.i.i119, !llvm.loop !87
+  br i1 %exitcond.not.i.i124, label %_ZNK4pbrt15SampledSpectrumplERKS0_.exit, label %for.body.i.i119, !llvm.loop !121
 
 _ZNK4pbrt15SampledSpectrumplERKS0_.exit:          ; preds = %for.body.i.i119
   %retval.sroa.0.0.copyload.i125 = load <2 x float>, ptr %ret.i118, align 8
@@ -14716,7 +14737,7 @@ for.body.i130:                                    ; preds = %for.body.i130, %_ZN
   %add.i = fadd float %sum.04.i, %39
   %indvars.iv.next.i133 = add nuw nsw i64 %indvars.iv.i131, 1
   %exitcond.not.i134 = icmp eq i64 %indvars.iv.next.i133, 4
-  br i1 %exitcond.not.i134, label %_ZNK4pbrt15SampledSpectrum7AverageEv.exit, label %for.body.i130, !llvm.loop !88
+  br i1 %exitcond.not.i134, label %_ZNK4pbrt15SampledSpectrum7AverageEv.exit, label %for.body.i130, !llvm.loop !122
 
 _ZNK4pbrt15SampledSpectrum7AverageEv.exit:        ; preds = %for.body.i130
   %div.i = fmul float %add.i, 2.500000e-01
@@ -14732,7 +14753,7 @@ for.body.i.i136:                                  ; preds = %for.body.i.i136, %_
   store float %div.i.i139, ptr %arrayidx.i.i.i138, align 4
   %indvars.iv.next.i.i140 = add nuw nsw i64 %indvars.iv.i.i137, 1
   %exitcond.not.i.i141 = icmp eq i64 %indvars.iv.next.i.i140, 4
-  br i1 %exitcond.not.i.i141, label %_ZNK4pbrt15SampledSpectrumdvEf.exit147, label %for.body.i.i136, !llvm.loop !89
+  br i1 %exitcond.not.i.i141, label %_ZNK4pbrt15SampledSpectrumdvEf.exit147, label %for.body.i.i136, !llvm.loop !123
 
 _ZNK4pbrt15SampledSpectrumdvEf.exit147:           ; preds = %for.body.i.i136
   %retval.sroa.0.0.copyload.i142 = load <2 x float>, ptr %ret.i135, align 8
@@ -14754,7 +14775,7 @@ for.body.i148:                                    ; preds = %for.body.i148, %_ZN
   %.sroa.speculated.i152 = select i1 %cmp.i.i151, float %43, float %m.04.i
   %indvars.iv.next.i153 = add nuw nsw i64 %indvars.iv.i149, 1
   %exitcond.not.i154 = icmp eq i64 %indvars.iv.next.i153, 4
-  br i1 %exitcond.not.i154, label %_ZNK4pbrt15SampledSpectrum17MaxComponentValueEv.exit, label %for.body.i148, !llvm.loop !138
+  br i1 %exitcond.not.i154, label %_ZNK4pbrt15SampledSpectrum17MaxComponentValueEv.exit, label %for.body.i148, !llvm.loop !172
 
 _ZNK4pbrt15SampledSpectrum17MaxComponentValueEv.exit: ; preds = %for.body.i148
   %cmp = fcmp olt float %.sroa.speculated.i152, 0x3FA99999A0000000
@@ -14796,7 +14817,7 @@ for.body.i165:                                    ; preds = %if.then, %for.body.
   store float %div.i168, ptr %arrayidx.i.i167, align 4
   %indvars.iv.next.i169 = add nuw nsw i64 %indvars.iv.i166, 1
   %exitcond.not.i170 = icmp eq i64 %indvars.iv.next.i169, 4
-  br i1 %exitcond.not.i170, label %if.end53, label %for.body.i165, !llvm.loop !89
+  br i1 %exitcond.not.i170, label %if.end53, label %for.body.i165, !llvm.loop !123
 
 if.end53:                                         ; preds = %for.body.i165, %if.then50, %_ZNK4pbrt15SampledSpectrum17MaxComponentValueEv.exit
   %52 = load ptr, ptr %this, align 8
@@ -14810,7 +14831,7 @@ for.body.i171:                                    ; preds = %for.body.i171, %if.
   %indvars.iv.next.i174 = add nuw nsw i64 %indvars.iv.i172, 1
   %exitcond.not.i175 = icmp eq i64 %indvars.iv.next.i174, 4
   %or.cond.i = select i1 %cmp2.i, i1 true, i1 %exitcond.not.i175
-  br i1 %or.cond.i, label %_ZNK4pbrt15SampledSpectrumcvbEv.exit, label %for.body.i171, !llvm.loop !124
+  br i1 %or.cond.i, label %_ZNK4pbrt15SampledSpectrumcvbEv.exit, label %for.body.i171, !llvm.loop !158
 
 _ZNK4pbrt15SampledSpectrumcvbEv.exit:             ; preds = %for.body.i171
   ret i1 %cmp2.i
@@ -14838,25 +14859,25 @@ entry:
   %renderFromMedium = getelementptr inbounds i8, ptr %this, i64 24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %o.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
-  %0 = load <4 x float>, ptr %ray, align 8, !noalias !139
+  %0 = load <4 x float>, ptr %ray, align 8, !noalias !173
   %agg.tmp.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %0, <4 x float> poison, <2 x i32> zeroinitializer
   %y.i.i = getelementptr inbounds i8, ptr %ray, i64 4
-  %1 = load <4 x float>, ptr %y.i.i, align 4, !noalias !139
+  %1 = load <4 x float>, ptr %y.i.i, align 4, !noalias !173
   %agg.tmp2.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %1, <4 x float> poison, <2 x i32> zeroinitializer
   %z.i.i = getelementptr inbounds i8, ptr %ray, i64 8
-  %2 = load <4 x float>, ptr %z.i.i, align 4, !noalias !139
+  %2 = load <4 x float>, ptr %z.i.i, align 4, !noalias !173
   %agg.tmp3.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %2, <4 x float> poison, <2 x i32> zeroinitializer
-  store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i.i, ptr %ref.tmp.i, align 8, !noalias !139
+  store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i.i, ptr %ref.tmp.i, align 8, !noalias !173
   %y3.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  store <2 x float> %agg.tmp2.sroa.0.4.vec.insert.i.i, ptr %y3.i.i.i.i, align 8, !noalias !139
+  store <2 x float> %agg.tmp2.sroa.0.4.vec.insert.i.i, ptr %y3.i.i.i.i, align 8, !noalias !173
   %z4.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
-  store <2 x float> %agg.tmp3.sroa.0.4.vec.insert.i.i, ptr %z4.i.i.i.i, align 8, !noalias !139
-  call void @_ZNK4pbrt9Transform12ApplyInverseERKNS_8Point3fiE(ptr nonnull sret(%"class.pbrt::Point3fi") align 4 %o.i, ptr noundef nonnull align 4 dereferenceable(128) %renderFromMedium, ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp.i), !noalias !139
+  store <2 x float> %agg.tmp3.sroa.0.4.vec.insert.i.i, ptr %z4.i.i.i.i, align 8, !noalias !173
+  call void @_ZNK4pbrt9Transform12ApplyInverseERKNS_8Point3fiE(ptr nonnull sret(%"class.pbrt::Point3fi") align 4 %o.i, ptr noundef nonnull align 4 dereferenceable(128) %renderFromMedium, ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp.i), !noalias !173
   %d3.i = getelementptr inbounds i8, ptr %ray, i64 12
-  %agg.tmp.sroa.0.0.copyload.i = load <2 x float>, ptr %d3.i, align 4, !noalias !139
+  %agg.tmp.sroa.0.0.copyload.i = load <2 x float>, ptr %d3.i, align 4, !noalias !173
   %agg.tmp.sroa.2.0.d3.sroa_idx.i = getelementptr inbounds i8, ptr %ray, i64 20
-  %agg.tmp.sroa.2.0.copyload.i = load float, ptr %agg.tmp.sroa.2.0.d3.sroa_idx.i, align 4, !noalias !139
-  %call.i = call { <2 x float>, float } @_ZNK4pbrt9Transform12ApplyInverseIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %renderFromMedium, <2 x float> %agg.tmp.sroa.0.0.copyload.i, float %agg.tmp.sroa.2.0.copyload.i), !noalias !139
+  %agg.tmp.sroa.2.0.copyload.i = load float, ptr %agg.tmp.sroa.2.0.d3.sroa_idx.i, align 4, !noalias !173
+  %call.i = call { <2 x float>, float } @_ZNK4pbrt9Transform12ApplyInverseIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %renderFromMedium, <2 x float> %agg.tmp.sroa.0.0.copyload.i, float %agg.tmp.sroa.2.0.copyload.i), !noalias !173
   %call.fca.0.extract.i = extractvalue { <2 x float>, float } %call.i, 0
   %call.fca.1.extract.i = extractvalue { <2 x float>, float } %call.i, 1
   %v.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %call.fca.0.extract.i, i64 0
@@ -14872,20 +14893,20 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %high.i.i = getelementptr inbounds i8, ptr %o.i, i64 4
-  %4 = load float, ptr %high.i.i, align 4, !noalias !139
-  %5 = load float, ptr %o.i, align 4, !noalias !139
+  %4 = load float, ptr %high.i.i, align 4, !noalias !173
+  %5 = load float, ptr %o.i, align 4, !noalias !173
   %sub.i.i = fsub float %4, %5
   %div.i = fmul float %sub.i.i, 5.000000e-01
   %y.i = getelementptr inbounds i8, ptr %o.i, i64 8
   %high.i7.i = getelementptr inbounds i8, ptr %o.i, i64 12
-  %6 = load float, ptr %high.i7.i, align 4, !noalias !139
-  %7 = load float, ptr %y.i, align 4, !noalias !139
+  %6 = load float, ptr %high.i7.i, align 4, !noalias !173
+  %7 = load float, ptr %y.i, align 4, !noalias !173
   %sub.i8.i = fsub float %6, %7
   %div8.i = fmul float %sub.i8.i, 5.000000e-01
   %z.i = getelementptr inbounds i8, ptr %o.i, i64 16
   %high.i9.i = getelementptr inbounds i8, ptr %o.i, i64 20
-  %8 = load float, ptr %high.i9.i, align 4, !noalias !139
-  %9 = load float, ptr %z.i, align 4, !noalias !139
+  %8 = load float, ptr %high.i9.i, align 4, !noalias !173
+  %9 = load float, ptr %z.i, align 4, !noalias !173
   %sub.i10.i = fsub float %8, %9
   %div10.i = fmul float %sub.i10.i, 5.000000e-01
   %10 = call noundef float @llvm.fabs.f32(float %v.sroa.0.0.vec.extract.i.i)
@@ -14902,23 +14923,23 @@ if.then.i:                                        ; preds = %entry
   %mul3.i.i = fmul float %call.fca.1.extract.i, %div18.i
   %retval.sroa.0.0.vec.insert.i17.i = insertelement <2 x float> poison, float %mul.i14.i, i64 0
   %retval.sroa.0.4.vec.insert.i18.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i17.i, float %mul2.i.i, i64 1
-  %call23.i = call noundef nonnull align 4 dereferenceable(24) ptr @_ZN4pbrt8Point3fipLIfEERS0_NS_7Vector3IT_EE(ptr noundef nonnull align 4 dereferenceable(24) %o.i, <2 x float> %retval.sroa.0.4.vec.insert.i18.i, float %mul3.i.i), !noalias !139
+  %call23.i = call noundef nonnull align 4 dereferenceable(24) ptr @_ZN4pbrt8Point3fipLIfEERS0_NS_7Vector3IT_EE(ptr noundef nonnull align 4 dereferenceable(24) %o.i, <2 x float> %retval.sroa.0.4.vec.insert.i18.i, float %mul3.i.i), !noalias !173
   %sub.i = fsub float %raytMax, %div18.i
   br label %_ZNK4pbrt9Transform12ApplyInverseERKNS_3RayEPf.exit
 
 _ZNK4pbrt9Transform12ApplyInverseERKNS_3RayEPf.exit: ; preds = %entry, %if.then.i
   %raytMax.addr.0 = phi float [ %sub.i, %if.then.i ], [ %raytMax, %entry ]
-  %agg.tmp27.sroa.0.sroa.0.0.copyload.i = load float, ptr %o.i, align 4, !noalias !139
+  %agg.tmp27.sroa.0.sroa.0.0.copyload.i = load float, ptr %o.i, align 4, !noalias !173
   %agg.tmp27.sroa.0.sroa.2.0.o.sroa_idx.i = getelementptr inbounds i8, ptr %o.i, i64 4
-  %agg.tmp27.sroa.0.sroa.2.0.copyload.i = load float, ptr %agg.tmp27.sroa.0.sroa.2.0.o.sroa_idx.i, align 4, !noalias !139
+  %agg.tmp27.sroa.0.sroa.2.0.copyload.i = load float, ptr %agg.tmp27.sroa.0.sroa.2.0.o.sroa_idx.i, align 4, !noalias !173
   %agg.tmp27.sroa.0.sroa.3.0.o.sroa_idx.i = getelementptr inbounds i8, ptr %o.i, i64 8
-  %agg.tmp27.sroa.0.sroa.3.0.copyload.i = load float, ptr %agg.tmp27.sroa.0.sroa.3.0.o.sroa_idx.i, align 4, !noalias !139
+  %agg.tmp27.sroa.0.sroa.3.0.copyload.i = load float, ptr %agg.tmp27.sroa.0.sroa.3.0.o.sroa_idx.i, align 4, !noalias !173
   %agg.tmp27.sroa.0.sroa.4.0.o.sroa_idx.i = getelementptr inbounds i8, ptr %o.i, i64 12
-  %agg.tmp27.sroa.0.sroa.4.0.copyload.i = load float, ptr %agg.tmp27.sroa.0.sroa.4.0.o.sroa_idx.i, align 4, !noalias !139
+  %agg.tmp27.sroa.0.sroa.4.0.copyload.i = load float, ptr %agg.tmp27.sroa.0.sroa.4.0.o.sroa_idx.i, align 4, !noalias !173
   %agg.tmp27.sroa.0.sroa.5.0.o.sroa_idx.i = getelementptr inbounds i8, ptr %o.i, i64 16
-  %agg.tmp27.sroa.0.sroa.5.0.copyload.i = load float, ptr %agg.tmp27.sroa.0.sroa.5.0.o.sroa_idx.i, align 4, !noalias !139
+  %agg.tmp27.sroa.0.sroa.5.0.copyload.i = load float, ptr %agg.tmp27.sroa.0.sroa.5.0.o.sroa_idx.i, align 4, !noalias !173
   %agg.tmp27.sroa.0.sroa.6.0.o.sroa_idx.i = getelementptr inbounds i8, ptr %o.i, i64 20
-  %agg.tmp27.sroa.0.sroa.6.0.copyload.i = load float, ptr %agg.tmp27.sroa.0.sroa.6.0.o.sroa_idx.i, align 4, !noalias !139
+  %agg.tmp27.sroa.0.sroa.6.0.copyload.i = load float, ptr %agg.tmp27.sroa.0.sroa.6.0.o.sroa_idx.i, align 4, !noalias !173
   %add.i.i.i.i = fadd float %agg.tmp27.sroa.0.sroa.0.0.copyload.i, %agg.tmp27.sroa.0.sroa.2.0.copyload.i
   %div.i.i.i.i = fmul float %add.i.i.i.i, 5.000000e-01
   %add.i.i2.i.i = fadd float %agg.tmp27.sroa.0.sroa.3.0.copyload.i, %agg.tmp27.sroa.0.sroa.4.0.copyload.i
@@ -14956,7 +14977,7 @@ _ZNK4pbrt9Transform12ApplyInverseERKNS_3RayEPf.exit: ; preds = %entry, %if.then.
 for.cond.i:                                       ; preds = %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit38.i
   %inc.i = add nuw nsw i32 %i.0113.i, 1
   %exitcond.i = icmp eq i32 %inc.i, 3
-  br i1 %exitcond.i, label %do.end, label %for.body.i, !llvm.loop !142
+  br i1 %exitcond.i, label %do.end, label %for.body.i, !llvm.loop !176
 
 for.body.i:                                       ; preds = %for.cond.i, %_ZNK4pbrt9Transform12ApplyInverseERKNS_3RayEPf.exit
   %i.0113.i = phi i32 [ 0, %_ZNK4pbrt9Transform12ApplyInverseERKNS_3RayEPf.exit ], [ %inc.i, %for.cond.i ]
@@ -15037,7 +15058,7 @@ for.inc.i:                                        ; preds = %if.else.i, %lor.lhs
   store float %.sink.i, ptr %arrayidx.i.i8.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit, label %for.body.i5, !llvm.loop !135
+  br i1 %exitcond.not.i, label %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit, label %for.body.i5, !llvm.loop !169
 
 _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; preds = %for.inc.i
   %.fca.0.load.i = load <2 x float>, ptr %retval.i, align 8
@@ -15080,7 +15101,7 @@ for.inc.i19:                                      ; preds = %if.else.i30, %lor.l
   store float %.sink.i20, ptr %arrayidx.i.i8.i21, align 4
   %indvars.iv.next.i22 = add nuw nsw i64 %indvars.iv.i11, 1
   %exitcond.not.i23 = icmp eq i64 %indvars.iv.next.i22, 4
-  br i1 %exitcond.not.i23, label %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit32, label %for.body.i10, !llvm.loop !135
+  br i1 %exitcond.not.i23, label %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit32, label %for.body.i10, !llvm.loop !169
 
 _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit32: ; preds = %for.inc.i19
   %.fca.0.load.i25 = load <2 x float>, ptr %retval.i7, align 8
@@ -15106,7 +15127,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %_ZNK
   store float %add.i.i34, ptr %arrayidx.i4.i.i, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %exitcond.not.i.i, label %_ZNK4pbrt15SampledSpectrumplERKS0_.exit, label %for.body.i.i, !llvm.loop !87
+  br i1 %exitcond.not.i.i, label %_ZNK4pbrt15SampledSpectrumplERKS0_.exit, label %for.body.i.i, !llvm.loop !121
 
 _ZNK4pbrt15SampledSpectrumplERKS0_.exit:          ; preds = %for.body.i.i
   %retval.sroa.0.0.copyload.i = load <2 x float>, ptr %ret.i, align 8
@@ -15192,7 +15213,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   store float %mul.i10, ptr %arrayidx.i.i9, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %_ZNK4pbrt15SampledSpectrummlEf.exit, label %for.body.i, !llvm.loop !110
+  br i1 %exitcond.not.i, label %_ZNK4pbrt15SampledSpectrummlEf.exit, label %for.body.i, !llvm.loop !144
 
 _ZNK4pbrt15SampledSpectrummlEf.exit:              ; preds = %for.body.i
   %cmp.i = fcmp olt float %6, %1
@@ -15298,7 +15319,7 @@ for.inc.i:                                        ; preds = %if.else.i, %lor.lhs
   store float %.sink.i, ptr %arrayidx.i.i8.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit, label %for.body.i, !llvm.loop !135
+  br i1 %exitcond.not.i, label %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit, label %for.body.i, !llvm.loop !169
 
 _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; preds = %for.inc.i
   %.fca.0.load.i = load <2 x float>, ptr %retval.i, align 8
@@ -15344,7 +15365,7 @@ for.inc.i25:                                      ; preds = %if.else.i35, %lor.l
   store float %.sink.i26, ptr %arrayidx.i.i8.i27, align 4
   %indvars.iv.next.i28 = add nuw nsw i64 %indvars.iv.i17, 1
   %exitcond.not.i29 = icmp eq i64 %indvars.iv.next.i28, 4
-  br i1 %exitcond.not.i29, label %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit37, label %for.body.i16, !llvm.loop !135
+  br i1 %exitcond.not.i29, label %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit37, label %for.body.i16, !llvm.loop !169
 
 _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit37: ; preds = %for.inc.i25
   %.fca.0.load.i30 = load <2 x float>, ptr %retval.i13, align 8
@@ -15401,7 +15422,7 @@ for.body.i40:                                     ; preds = %for.body.i40, %_ZNK
   store float %mul.i, ptr %arrayidx.i.i42, align 4
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i41, 1
   %exitcond.not.i44 = icmp eq i64 %indvars.iv.next.i43, 4
-  br i1 %exitcond.not.i44, label %for.body.i45, label %for.body.i40, !llvm.loop !143
+  br i1 %exitcond.not.i44, label %for.body.i45, label %for.body.i40, !llvm.loop !177
 
 for.body.i45:                                     ; preds = %for.body.i40, %for.body.i45
   %indvars.iv.i46 = phi i64 [ %indvars.iv.next.i49, %for.body.i45 ], [ 0, %for.body.i40 ]
@@ -15411,7 +15432,7 @@ for.body.i45:                                     ; preds = %for.body.i40, %for.
   store float %mul.i48, ptr %arrayidx.i.i47, align 4
   %indvars.iv.next.i49 = add nuw nsw i64 %indvars.iv.i46, 1
   %exitcond.not.i50 = icmp eq i64 %indvars.iv.next.i49, 4
-  br i1 %exitcond.not.i50, label %_ZN4pbrt15SampledSpectrummLEf.exit51, label %for.body.i45, !llvm.loop !143
+  br i1 %exitcond.not.i50, label %_ZN4pbrt15SampledSpectrummLEf.exit51, label %for.body.i45, !llvm.loop !177
 
 _ZN4pbrt15SampledSpectrummLEf.exit51:             ; preds = %for.body.i45
   %isEmissive = getelementptr inbounds i8, ptr %this, i64 432
@@ -15513,7 +15534,7 @@ for.body.i.i56:                                   ; preds = %for.body.i.i56, %_Z
   store float %mul.i.i59, ptr %arrayidx.i.i.i58, align 4
   %indvars.iv.next.i.i60 = add nuw nsw i64 %indvars.iv.i.i57, 1
   %exitcond.not.i.i61 = icmp eq i64 %indvars.iv.next.i.i60, 4
-  br i1 %exitcond.not.i.i61, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit, label %for.body.i.i56, !llvm.loop !110
+  br i1 %exitcond.not.i.i61, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit, label %for.body.i.i56, !llvm.loop !144
 
 _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit:         ; preds = %for.body.i.i56
   %.fca.0.load.i.i = load <2 x float>, ptr %retval.i.i, align 8
@@ -15558,7 +15579,7 @@ for.inc.i74:                                      ; preds = %if.else.i84, %lor.l
   store float %.sink.i75, ptr %arrayidx.i.i8.i76, align 4
   %indvars.iv.next.i77 = add nuw nsw i64 %indvars.iv.i66, 1
   %exitcond.not.i78 = icmp eq i64 %indvars.iv.next.i77, 4
-  br i1 %exitcond.not.i78, label %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit86, label %for.body.i65, !llvm.loop !135
+  br i1 %exitcond.not.i78, label %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit86, label %for.body.i65, !llvm.loop !169
 
 _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit86: ; preds = %for.inc.i74
   %.fca.0.load.i79 = load <2 x float>, ptr %retval.i62, align 8
@@ -15579,7 +15600,7 @@ for.body.i.i88:                                   ; preds = %for.body.i.i88, %_Z
   store float %mul.i.i91, ptr %arrayidx.i.i.i90, align 4
   %indvars.iv.next.i.i92 = add nuw nsw i64 %indvars.iv.i.i89, 1
   %exitcond.not.i.i93 = icmp eq i64 %indvars.iv.next.i.i92, 4
-  br i1 %exitcond.not.i.i93, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit99, label %for.body.i.i88, !llvm.loop !110
+  br i1 %exitcond.not.i.i93, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit99, label %for.body.i.i88, !llvm.loop !144
 
 _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit99:       ; preds = %for.body.i.i88
   %.fca.0.load.i.i94 = load <2 x float>, ptr %retval.i.i87, align 8
@@ -15671,7 +15692,7 @@ entry:
   %mul.i.i = fmul float %tMin, %div
   %rayGrid.sroa.5.4.y.i.i51.sroa_idx = getelementptr inbounds i8, ptr %rayGrid.sroa.5, i64 4
   %rayGrid.sroa.5.4.y.i.i51.sroa_idx327 = getelementptr inbounds i8, ptr %rayGrid.sroa.5, i64 4
-  %rayGrid.sroa.5.4.y.i.i51.sroa_idx328 = getelementptr inbounds i8, ptr %rayGrid.sroa.5, i64 4
+  %rayGrid.sroa.5.4.y.i.i51.sroa_idx330 = getelementptr inbounds i8, ptr %rayGrid.sroa.5, i64 4
   %mul2.i.i = fmul float %tMin, %div16
   %mul3.i.i = fmul float %tMin, %div19
   %add.i.i = fadd float %mul.i.i, %v.sroa.0.0.vec.extract.i
@@ -15687,8 +15708,8 @@ entry:
   %nextCrossingT = getelementptr inbounds i8, ptr %this, i64 32
   %step = getelementptr inbounds i8, ptr %this, i64 56
   %voxelLimit = getelementptr inbounds i8, ptr %this, i64 68
+  %rayGrid.sroa.5.4.y.i.i51.sroa_idx328 = getelementptr inbounds i8, ptr %rayGrid.sroa.5, i64 4
   %rayGrid.sroa.5.4.y.i.i51.sroa_idx329 = getelementptr inbounds i8, ptr %rayGrid.sroa.5, i64 4
-  %rayGrid.sroa.5.4.y.i.i51.sroa_idx330 = getelementptr inbounds i8, ptr %rayGrid.sroa.5, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
@@ -15734,7 +15755,7 @@ if.then3.i81:                                     ; preds = %for.body
   %retval.0.i68 = select i1 %cmp.i67, float 0.000000e+00, float %conv2.val.i
   %conv29 = fptosi float %retval.0.i68 to i32
   store i32 %conv29, ptr %arrayidx, align 4
-  %rayGrid.sroa.5.4.rayGrid.sroa.5.4. = load float, ptr %rayGrid.sroa.5.4.y.i.i51.sroa_idx329, align 4
+  %rayGrid.sroa.5.4.rayGrid.sroa.5.4. = load float, ptr %rayGrid.sroa.5.4.y.i.i51.sroa_idx328, align 4
   %10 = tail call noundef float @llvm.fabs.f32(float %rayGrid.sroa.5.4.rayGrid.sroa.5.4.)
   %retval.0.i77 = load i32, ptr %y.i56, align 4
   %conv35 = sitofp i32 %retval.0.i77 to float
@@ -15832,7 +15853,7 @@ if.then3.i118:                                    ; preds = %if.then48
   %conv55 = sitofp i32 %retval.0.i102 to float
   %div56 = fdiv float %conv52, %conv55
   %sub58 = fsub float %div56, %add4.i.i
-  %rayGrid.sroa.5.4.rayGrid.sroa.5.4.324 = load float, ptr %rayGrid.sroa.5.4.y.i.i51.sroa_idx330, align 4
+  %rayGrid.sroa.5.4.rayGrid.sroa.5.4.324 = load float, ptr %rayGrid.sroa.5.4.y.i.i51.sroa_idx329, align 4
   %div61 = fdiv float %sub58, %rayGrid.sroa.5.4.rayGrid.sroa.5.4.324
   br label %_ZNK4pbrt6Tuple3INS_6Point3EiEixEi.exit124
 
@@ -15868,11 +15889,11 @@ if.end4.i141:                                     ; preds = %if.else
   br label %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit143
 
 _ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit143:       ; preds = %if.else, %if.then3.i138, %if.end4.i141
-  %res.sink = phi ptr [ %y.i56, %if.then3.i138 ], [ %z.i59, %if.end4.i141 ], [ %res, %if.else ]
+  %retval.0.i128302.sink.in = phi ptr [ %y.i56, %if.then3.i138 ], [ %z.i59, %if.end4.i141 ], [ %res, %if.else ]
   %add.i.i.sink = phi float [ %add4.i.i, %if.then3.i138 ], [ %add6.i.i, %if.end4.i141 ], [ %add.i.i, %if.else ]
-  %retval.0.i140 = phi ptr [ %rayGrid.sroa.5.4.y.i.i51.sroa_idx328, %if.then3.i138 ], [ %rayGrid.sroa.20, %if.end4.i141 ], [ %rayGrid.sroa.5, %if.else ]
-  %retval.0.i128302 = load i32, ptr %res.sink, align 4
-  %conv78303 = sitofp i32 %retval.0.i128302 to float
+  %retval.0.i140 = phi ptr [ %rayGrid.sroa.5.4.y.i.i51.sroa_idx330, %if.then3.i138 ], [ %rayGrid.sroa.20, %if.end4.i141 ], [ %rayGrid.sroa.5, %if.else ]
+  %retval.0.i128302.sink = load i32, ptr %retval.0.i128302.sink.in, align 4
+  %conv78303 = sitofp i32 %retval.0.i128302.sink to float
   %div79304 = fdiv float %conv75, %conv78303
   %sub81313 = fsub float %div79304, %add.i.i.sink
   %15 = load float, ptr %retval.0.i140, align 4
@@ -15890,7 +15911,7 @@ for.inc:                                          ; preds = %_ZNK4pbrt6Tuple3INS
   store i32 %retval.0.i121.sink, ptr %arrayidx70, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !144
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !178
 
 for.end:                                          ; preds = %for.inc
   ret void
@@ -16499,7 +16520,7 @@ _ZN4pbrt9BlackbodyEff.exit.us:                    ; preds = %_ZN4pbrt7FastExpEf.
   store float %mul.us, ptr %arrayidx.i.i5.us, align 4
   %indvars.iv.next10 = add nuw nsw i64 %indvars.iv9, 1
   %exitcond12.not = icmp eq i64 %indvars.iv.next10, 4
-  br i1 %exitcond12.not, label %for.end, label %for.body.us, !llvm.loop !145
+  br i1 %exitcond12.not, label %for.end, label %for.body.us, !llvm.loop !179
 
 entry.split:                                      ; preds = %entry
   %mul = fmul float %1, 0.000000e+00
@@ -16511,7 +16532,7 @@ for.body:                                         ; preds = %entry.split, %for.b
   store float %mul, ptr %arrayidx.i.i5, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !145
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !179
 
 land.rhs.i:                                       ; preds = %_ZN4pbrt7FastExpEf.exit.i.us
   tail call void @_ZN4pbrt8LogFatalIJRA11_KcEEEvNS_8LogLevelEPS1_iS5_DpOT_(i32 noundef 2, ptr noundef nonnull @.str.28, i32 noundef 78, ptr noundef nonnull @.str.18, ptr noundef nonnull align 1 dereferenceable(11) @.str.29) #25
@@ -17742,25 +17763,25 @@ entry:
   %renderFromMedium = getelementptr inbounds i8, ptr %this, i64 24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %o.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
-  %0 = load <4 x float>, ptr %ray, align 8, !noalias !146
+  %0 = load <4 x float>, ptr %ray, align 8, !noalias !180
   %agg.tmp.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %0, <4 x float> poison, <2 x i32> zeroinitializer
   %y.i.i = getelementptr inbounds i8, ptr %ray, i64 4
-  %1 = load <4 x float>, ptr %y.i.i, align 4, !noalias !146
+  %1 = load <4 x float>, ptr %y.i.i, align 4, !noalias !180
   %agg.tmp2.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %1, <4 x float> poison, <2 x i32> zeroinitializer
   %z.i.i = getelementptr inbounds i8, ptr %ray, i64 8
-  %2 = load <4 x float>, ptr %z.i.i, align 4, !noalias !146
+  %2 = load <4 x float>, ptr %z.i.i, align 4, !noalias !180
   %agg.tmp3.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %2, <4 x float> poison, <2 x i32> zeroinitializer
-  store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i.i, ptr %ref.tmp.i, align 8, !noalias !146
+  store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i.i, ptr %ref.tmp.i, align 8, !noalias !180
   %y3.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  store <2 x float> %agg.tmp2.sroa.0.4.vec.insert.i.i, ptr %y3.i.i.i.i, align 8, !noalias !146
+  store <2 x float> %agg.tmp2.sroa.0.4.vec.insert.i.i, ptr %y3.i.i.i.i, align 8, !noalias !180
   %z4.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
-  store <2 x float> %agg.tmp3.sroa.0.4.vec.insert.i.i, ptr %z4.i.i.i.i, align 8, !noalias !146
-  call void @_ZNK4pbrt9Transform12ApplyInverseERKNS_8Point3fiE(ptr nonnull sret(%"class.pbrt::Point3fi") align 4 %o.i, ptr noundef nonnull align 4 dereferenceable(128) %renderFromMedium, ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp.i), !noalias !146
+  store <2 x float> %agg.tmp3.sroa.0.4.vec.insert.i.i, ptr %z4.i.i.i.i, align 8, !noalias !180
+  call void @_ZNK4pbrt9Transform12ApplyInverseERKNS_8Point3fiE(ptr nonnull sret(%"class.pbrt::Point3fi") align 4 %o.i, ptr noundef nonnull align 4 dereferenceable(128) %renderFromMedium, ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp.i), !noalias !180
   %d3.i = getelementptr inbounds i8, ptr %ray, i64 12
-  %agg.tmp.sroa.0.0.copyload.i = load <2 x float>, ptr %d3.i, align 4, !noalias !146
+  %agg.tmp.sroa.0.0.copyload.i = load <2 x float>, ptr %d3.i, align 4, !noalias !180
   %agg.tmp.sroa.2.0.d3.sroa_idx.i = getelementptr inbounds i8, ptr %ray, i64 20
-  %agg.tmp.sroa.2.0.copyload.i = load float, ptr %agg.tmp.sroa.2.0.d3.sroa_idx.i, align 4, !noalias !146
-  %call.i = call { <2 x float>, float } @_ZNK4pbrt9Transform12ApplyInverseIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %renderFromMedium, <2 x float> %agg.tmp.sroa.0.0.copyload.i, float %agg.tmp.sroa.2.0.copyload.i), !noalias !146
+  %agg.tmp.sroa.2.0.copyload.i = load float, ptr %agg.tmp.sroa.2.0.d3.sroa_idx.i, align 4, !noalias !180
+  %call.i = call { <2 x float>, float } @_ZNK4pbrt9Transform12ApplyInverseIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %renderFromMedium, <2 x float> %agg.tmp.sroa.0.0.copyload.i, float %agg.tmp.sroa.2.0.copyload.i), !noalias !180
   %call.fca.0.extract.i = extractvalue { <2 x float>, float } %call.i, 0
   %call.fca.1.extract.i = extractvalue { <2 x float>, float } %call.i, 1
   %v.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %call.fca.0.extract.i, i64 0
@@ -17776,20 +17797,20 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %high.i.i = getelementptr inbounds i8, ptr %o.i, i64 4
-  %4 = load float, ptr %high.i.i, align 4, !noalias !146
-  %5 = load float, ptr %o.i, align 4, !noalias !146
+  %4 = load float, ptr %high.i.i, align 4, !noalias !180
+  %5 = load float, ptr %o.i, align 4, !noalias !180
   %sub.i.i = fsub float %4, %5
   %div.i = fmul float %sub.i.i, 5.000000e-01
   %y.i = getelementptr inbounds i8, ptr %o.i, i64 8
   %high.i7.i = getelementptr inbounds i8, ptr %o.i, i64 12
-  %6 = load float, ptr %high.i7.i, align 4, !noalias !146
-  %7 = load float, ptr %y.i, align 4, !noalias !146
+  %6 = load float, ptr %high.i7.i, align 4, !noalias !180
+  %7 = load float, ptr %y.i, align 4, !noalias !180
   %sub.i8.i = fsub float %6, %7
   %div8.i = fmul float %sub.i8.i, 5.000000e-01
   %z.i = getelementptr inbounds i8, ptr %o.i, i64 16
   %high.i9.i = getelementptr inbounds i8, ptr %o.i, i64 20
-  %8 = load float, ptr %high.i9.i, align 4, !noalias !146
-  %9 = load float, ptr %z.i, align 4, !noalias !146
+  %8 = load float, ptr %high.i9.i, align 4, !noalias !180
+  %9 = load float, ptr %z.i, align 4, !noalias !180
   %sub.i10.i = fsub float %8, %9
   %div10.i = fmul float %sub.i10.i, 5.000000e-01
   %10 = call noundef float @llvm.fabs.f32(float %v.sroa.0.0.vec.extract.i.i)
@@ -17806,23 +17827,23 @@ if.then.i:                                        ; preds = %entry
   %mul3.i.i = fmul float %call.fca.1.extract.i, %div18.i
   %retval.sroa.0.0.vec.insert.i17.i = insertelement <2 x float> poison, float %mul.i14.i, i64 0
   %retval.sroa.0.4.vec.insert.i18.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i17.i, float %mul2.i.i, i64 1
-  %call23.i = call noundef nonnull align 4 dereferenceable(24) ptr @_ZN4pbrt8Point3fipLIfEERS0_NS_7Vector3IT_EE(ptr noundef nonnull align 4 dereferenceable(24) %o.i, <2 x float> %retval.sroa.0.4.vec.insert.i18.i, float %mul3.i.i), !noalias !146
+  %call23.i = call noundef nonnull align 4 dereferenceable(24) ptr @_ZN4pbrt8Point3fipLIfEERS0_NS_7Vector3IT_EE(ptr noundef nonnull align 4 dereferenceable(24) %o.i, <2 x float> %retval.sroa.0.4.vec.insert.i18.i, float %mul3.i.i), !noalias !180
   %sub.i = fsub float %raytMax, %div18.i
   br label %_ZNK4pbrt9Transform12ApplyInverseERKNS_3RayEPf.exit
 
 _ZNK4pbrt9Transform12ApplyInverseERKNS_3RayEPf.exit: ; preds = %entry, %if.then.i
   %raytMax.addr.0 = phi float [ %sub.i, %if.then.i ], [ %raytMax, %entry ]
-  %agg.tmp27.sroa.0.sroa.0.0.copyload.i = load float, ptr %o.i, align 4, !noalias !146
+  %agg.tmp27.sroa.0.sroa.0.0.copyload.i = load float, ptr %o.i, align 4, !noalias !180
   %agg.tmp27.sroa.0.sroa.2.0.o.sroa_idx.i = getelementptr inbounds i8, ptr %o.i, i64 4
-  %agg.tmp27.sroa.0.sroa.2.0.copyload.i = load float, ptr %agg.tmp27.sroa.0.sroa.2.0.o.sroa_idx.i, align 4, !noalias !146
+  %agg.tmp27.sroa.0.sroa.2.0.copyload.i = load float, ptr %agg.tmp27.sroa.0.sroa.2.0.o.sroa_idx.i, align 4, !noalias !180
   %agg.tmp27.sroa.0.sroa.3.0.o.sroa_idx.i = getelementptr inbounds i8, ptr %o.i, i64 8
-  %agg.tmp27.sroa.0.sroa.3.0.copyload.i = load float, ptr %agg.tmp27.sroa.0.sroa.3.0.o.sroa_idx.i, align 4, !noalias !146
+  %agg.tmp27.sroa.0.sroa.3.0.copyload.i = load float, ptr %agg.tmp27.sroa.0.sroa.3.0.o.sroa_idx.i, align 4, !noalias !180
   %agg.tmp27.sroa.0.sroa.4.0.o.sroa_idx.i = getelementptr inbounds i8, ptr %o.i, i64 12
-  %agg.tmp27.sroa.0.sroa.4.0.copyload.i = load float, ptr %agg.tmp27.sroa.0.sroa.4.0.o.sroa_idx.i, align 4, !noalias !146
+  %agg.tmp27.sroa.0.sroa.4.0.copyload.i = load float, ptr %agg.tmp27.sroa.0.sroa.4.0.o.sroa_idx.i, align 4, !noalias !180
   %agg.tmp27.sroa.0.sroa.5.0.o.sroa_idx.i = getelementptr inbounds i8, ptr %o.i, i64 16
-  %agg.tmp27.sroa.0.sroa.5.0.copyload.i = load float, ptr %agg.tmp27.sroa.0.sroa.5.0.o.sroa_idx.i, align 4, !noalias !146
+  %agg.tmp27.sroa.0.sroa.5.0.copyload.i = load float, ptr %agg.tmp27.sroa.0.sroa.5.0.o.sroa_idx.i, align 4, !noalias !180
   %agg.tmp27.sroa.0.sroa.6.0.o.sroa_idx.i = getelementptr inbounds i8, ptr %o.i, i64 20
-  %agg.tmp27.sroa.0.sroa.6.0.copyload.i = load float, ptr %agg.tmp27.sroa.0.sroa.6.0.o.sroa_idx.i, align 4, !noalias !146
+  %agg.tmp27.sroa.0.sroa.6.0.copyload.i = load float, ptr %agg.tmp27.sroa.0.sroa.6.0.o.sroa_idx.i, align 4, !noalias !180
   %add.i.i.i.i = fadd float %agg.tmp27.sroa.0.sroa.0.0.copyload.i, %agg.tmp27.sroa.0.sroa.2.0.copyload.i
   %div.i.i.i.i = fmul float %add.i.i.i.i, 5.000000e-01
   %add.i.i2.i.i = fadd float %agg.tmp27.sroa.0.sroa.3.0.copyload.i, %agg.tmp27.sroa.0.sroa.4.0.copyload.i
@@ -17861,7 +17882,7 @@ _ZNK4pbrt9Transform12ApplyInverseERKNS_3RayEPf.exit: ; preds = %entry, %if.then.
 for.cond.i:                                       ; preds = %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit38.i
   %inc.i = add nuw nsw i32 %i.0113.i, 1
   %exitcond.i = icmp eq i32 %inc.i, 3
-  br i1 %exitcond.i, label %do.end, label %for.body.i, !llvm.loop !142
+  br i1 %exitcond.i, label %do.end, label %for.body.i, !llvm.loop !176
 
 for.body.i:                                       ; preds = %for.cond.i, %_ZNK4pbrt9Transform12ApplyInverseERKNS_3RayEPf.exit
   %i.0113.i = phi i32 [ 0, %_ZNK4pbrt9Transform12ApplyInverseERKNS_3RayEPf.exit ], [ %inc.i, %for.cond.i ]
@@ -17915,7 +17936,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %do.e
   store float 1.000000e+00, ptr %arrayidx.i.i, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %exitcond.not.i.i, label %_ZN4pbrt15SampledSpectrumC2Ef.exit, label %for.body.i.i, !llvm.loop !103
+  br i1 %exitcond.not.i.i, label %_ZN4pbrt15SampledSpectrumC2Ef.exit, label %for.body.i.i, !llvm.loop !137
 
 _ZN4pbrt15SampledSpectrumC2Ef.exit:               ; preds = %for.body.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %agg.tmp4, ptr noundef nonnull align 8 dereferenceable(28) %ray, i64 28, i1 false)
@@ -18005,7 +18026,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %cond
   store float 1.000000e+00, ptr %arrayidx.i.i, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %exitcond.not.i.i, label %for.body.i.i6.preheader, label %for.body.i.i, !llvm.loop !103
+  br i1 %exitcond.not.i.i, label %for.body.i.i6.preheader, label %for.body.i.i, !llvm.loop !137
 
 for.body.i.i6.preheader:                          ; preds = %for.body.i.i, %_ZNK4pstd8optionalIN4pbrt11SampledGridINS1_20RGBUnboundedSpectrumEEEEptEv.exit
   br label %for.body.i.i6
@@ -18018,7 +18039,7 @@ for.body.i.i6:                                    ; preds = %for.body.i.i6.prehe
   store float %mul.i.i, ptr %arrayidx.i.i.i, align 4
   %indvars.iv.next.i.i8 = add nuw nsw i64 %indvars.iv.i.i7, 1
   %exitcond.not.i.i9 = icmp eq i64 %indvars.iv.next.i.i8, 4
-  br i1 %exitcond.not.i.i9, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit, label %for.body.i.i6, !llvm.loop !110
+  br i1 %exitcond.not.i.i9, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit, label %for.body.i.i6, !llvm.loop !144
 
 _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit:         ; preds = %for.body.i.i6
   %.fca.0.load.i.i = load <2 x float>, ptr %ref.tmp8, align 8
@@ -18050,7 +18071,7 @@ for.body.i.i16:                                   ; preds = %for.body.i.i16, %co
   store float 1.000000e+00, ptr %arrayidx.i.i18, align 4
   %indvars.iv.next.i.i19 = add nuw nsw i64 %indvars.iv.i.i17, 1
   %exitcond.not.i.i20 = icmp eq i64 %indvars.iv.next.i.i19, 4
-  br i1 %exitcond.not.i.i20, label %for.body.i.i23.preheader, label %for.body.i.i16, !llvm.loop !103
+  br i1 %exitcond.not.i.i20, label %for.body.i.i23.preheader, label %for.body.i.i16, !llvm.loop !137
 
 for.body.i.i23.preheader:                         ; preds = %for.body.i.i16, %_ZNK4pstd8optionalIN4pbrt11SampledGridINS1_20RGBUnboundedSpectrumEEEEptEv.exit15
   br label %for.body.i.i23
@@ -18063,7 +18084,7 @@ for.body.i.i23:                                   ; preds = %for.body.i.i23.preh
   store float %mul.i.i26, ptr %arrayidx.i.i.i25, align 4
   %indvars.iv.next.i.i27 = add nuw nsw i64 %indvars.iv.i.i24, 1
   %exitcond.not.i.i28 = icmp eq i64 %indvars.iv.next.i.i27, 4
-  br i1 %exitcond.not.i.i28, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit34, label %for.body.i.i23, !llvm.loop !110
+  br i1 %exitcond.not.i.i28, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit34, label %for.body.i.i23, !llvm.loop !144
 
 _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit34:       ; preds = %for.body.i.i23
   %.fca.0.load.i.i29 = load <2 x float>, ptr %ref.tmp21, align 8
@@ -18100,7 +18121,7 @@ for.body.i.i47:                                   ; preds = %for.body.i.i47, %_Z
   store float %mul.i.i50, ptr %arrayidx.i.i.i49, align 4
   %indvars.iv.next.i.i51 = add nuw nsw i64 %indvars.iv.i.i48, 1
   %exitcond.not.i.i52 = icmp eq i64 %indvars.iv.next.i.i51, 4
-  br i1 %exitcond.not.i.i52, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit58, label %for.body.i.i47, !llvm.loop !110
+  br i1 %exitcond.not.i.i52, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit58, label %for.body.i.i47, !llvm.loop !144
 
 _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit58:       ; preds = %for.body.i.i47
   %.fca.0.load.i.i53 = load <2 x float>, ptr %retval.i.i46, align 8
@@ -18266,7 +18287,7 @@ _ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i.i:   ; preds = %if.end.i.i.i.i.i, %
   store float %retval.0.i.i.i.i.i, ptr %arrayidx.i.i5.i.i.i, align 4
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
-  br i1 %exitcond.not.i.i.i, label %_ZZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEENKUlNS_20RGBUnboundedSpectrumEE_clES6_.exit.i, label %for.body.i.i.i, !llvm.loop !149
+  br i1 %exitcond.not.i.i.i, label %_ZZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEENKUlNS_20RGBUnboundedSpectrumEE_clES6_.exit.i, label %for.body.i.i.i, !llvm.loop !183
 
 _ZZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEENKUlNS_20RGBUnboundedSpectrumEE_clES6_.exit.i: ; preds = %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i.i
   %.fca.0.load.i.i.i = load <2 x float>, ptr %retval.i.i.i, align 8
@@ -18326,7 +18347,7 @@ _ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i23.i: ; preds = %if.end.i.i.i.i16.i,
   store float %mul.i.i25.i, ptr %arrayidx.i.i5.i.i26.i, align 4
   %indvars.iv.next.i.i27.i = add nuw nsw i64 %indvars.iv.i.i14.i, 1
   %exitcond.not.i.i28.i = icmp eq i64 %indvars.iv.next.i.i27.i, 4
-  br i1 %exitcond.not.i.i28.i, label %_ZZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEENKUlNS_20RGBUnboundedSpectrumEE_clES6_.exit37.i, label %for.body.i.i13.i, !llvm.loop !149
+  br i1 %exitcond.not.i.i28.i, label %_ZZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEENKUlNS_20RGBUnboundedSpectrumEE_clES6_.exit37.i, label %for.body.i.i13.i, !llvm.loop !183
 
 _ZZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEENKUlNS_20RGBUnboundedSpectrumEE_clES6_.exit37.i: ; preds = %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i23.i
   %.fca.0.load.i.i29.i = load <2 x float>, ptr %retval.i.i8.i, align 8
@@ -18380,7 +18401,7 @@ _ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i.i70: ; preds = %if.end.i.i.i.i.i63,
   store float %retval.0.i.i.i.i.i71, ptr %arrayidx.i.i5.i.i.i72, align 4
   %indvars.iv.next.i.i.i73 = add nuw nsw i64 %indvars.iv.i.i.i61, 1
   %exitcond.not.i.i.i74 = icmp eq i64 %indvars.iv.next.i.i.i73, 4
-  br i1 %exitcond.not.i.i.i74, label %_ZZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEENKUlNS_20RGBUnboundedSpectrumEE_clES6_.exit.i75, label %for.body.i.i.i60, !llvm.loop !149
+  br i1 %exitcond.not.i.i.i74, label %_ZZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEENKUlNS_20RGBUnboundedSpectrumEE_clES6_.exit.i75, label %for.body.i.i.i60, !llvm.loop !183
 
 _ZZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEENKUlNS_20RGBUnboundedSpectrumEE_clES6_.exit.i75: ; preds = %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i.i70
   %.fca.0.load.i.i.i76 = load <2 x float>, ptr %retval.i.i.i33, align 8
@@ -18440,7 +18461,7 @@ _ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i23.i108: ; preds = %if.end.i.i.i.i16
   store float %mul.i.i25.i110, ptr %arrayidx.i.i5.i.i26.i111, align 4
   %indvars.iv.next.i.i27.i112 = add nuw nsw i64 %indvars.iv.i.i14.i99, 1
   %exitcond.not.i.i28.i113 = icmp eq i64 %indvars.iv.next.i.i27.i112, 4
-  br i1 %exitcond.not.i.i28.i113, label %_ZZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEENKUlNS_20RGBUnboundedSpectrumEE_clES6_.exit37.i114, label %for.body.i.i13.i98, !llvm.loop !149
+  br i1 %exitcond.not.i.i28.i113, label %_ZZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEENKUlNS_20RGBUnboundedSpectrumEE_clES6_.exit37.i114, label %for.body.i.i13.i98, !llvm.loop !183
 
 _ZZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEENKUlNS_20RGBUnboundedSpectrumEE_clES6_.exit37.i114: ; preds = %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i23.i108
   %.fca.0.load.i.i29.i115 = load <2 x float>, ptr %retval.i.i8.i32, align 8
@@ -18469,7 +18490,7 @@ for.body.i.i.i124:                                ; preds = %for.body.i.i.i124, 
   store float %mul.i.i.i, ptr %arrayidx.i.i.i.i, align 4
   %indvars.iv.next.i.i.i126 = add nuw nsw i64 %indvars.iv.i.i.i125, 1
   %exitcond.not.i.i.i127 = icmp eq i64 %indvars.iv.next.i.i.i126, 4
-  br i1 %exitcond.not.i.i.i127, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i, label %for.body.i.i.i124, !llvm.loop !110
+  br i1 %exitcond.not.i.i.i127, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i, label %for.body.i.i.i124, !llvm.loop !144
 
 _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i:       ; preds = %for.body.i.i.i124
   %.fca.0.load.i.i.i128 = load <2 x float>, ptr %retval.i.i.i122, align 8
@@ -18489,7 +18510,7 @@ for.body.i.i3.i:                                  ; preds = %for.body.i.i3.i, %_
   store float %mul.i.i6.i, ptr %arrayidx.i.i.i5.i, align 4
   %indvars.iv.next.i.i7.i = add nuw nsw i64 %indvars.iv.i.i4.i, 1
   %exitcond.not.i.i8.i = icmp eq i64 %indvars.iv.next.i.i7.i, 4
-  br i1 %exitcond.not.i.i8.i, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit14.i, label %for.body.i.i3.i, !llvm.loop !110
+  br i1 %exitcond.not.i.i8.i, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit14.i, label %for.body.i.i3.i, !llvm.loop !144
 
 _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit14.i:     ; preds = %for.body.i.i3.i
   %.fca.0.load.i.i9.i = load <2 x float>, ptr %retval.i.i2.i, align 8
@@ -18514,7 +18535,7 @@ for.body.i.i15.i:                                 ; preds = %for.body.i.i15.i, %
   store float %add.i.i.i, ptr %arrayidx.i4.i.i.i, align 4
   %indvars.iv.next.i.i18.i = add nuw nsw i64 %indvars.iv.i.i16.i, 1
   %exitcond.not.i.i19.i = icmp eq i64 %indvars.iv.next.i.i18.i, 4
-  br i1 %exitcond.not.i.i19.i, label %_ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit, label %for.body.i.i15.i, !llvm.loop !87
+  br i1 %exitcond.not.i.i19.i, label %_ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit, label %for.body.i.i15.i, !llvm.loop !121
 
 _ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit:   ; preds = %for.body.i.i15.i
   %retval.sroa.0.0.copyload.i.i = load <2 x float>, ptr %ret.i.i, align 8
@@ -18562,7 +18583,7 @@ _ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i.i186: ; preds = %if.end.i.i.i.i.i17
   store float %retval.0.i.i.i.i.i187, ptr %arrayidx.i.i5.i.i.i188, align 4
   %indvars.iv.next.i.i.i189 = add nuw nsw i64 %indvars.iv.i.i.i177, 1
   %exitcond.not.i.i.i190 = icmp eq i64 %indvars.iv.next.i.i.i189, 4
-  br i1 %exitcond.not.i.i.i190, label %_ZZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEENKUlNS_20RGBUnboundedSpectrumEE_clES6_.exit.i191, label %for.body.i.i.i176, !llvm.loop !149
+  br i1 %exitcond.not.i.i.i190, label %_ZZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEENKUlNS_20RGBUnboundedSpectrumEE_clES6_.exit.i191, label %for.body.i.i.i176, !llvm.loop !183
 
 _ZZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEENKUlNS_20RGBUnboundedSpectrumEE_clES6_.exit.i191: ; preds = %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i.i186
   %.fca.0.load.i.i.i192 = load <2 x float>, ptr %retval.i.i.i149, align 8
@@ -18622,7 +18643,7 @@ _ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i23.i224: ; preds = %if.end.i.i.i.i16
   store float %mul.i.i25.i226, ptr %arrayidx.i.i5.i.i26.i227, align 4
   %indvars.iv.next.i.i27.i228 = add nuw nsw i64 %indvars.iv.i.i14.i215, 1
   %exitcond.not.i.i28.i229 = icmp eq i64 %indvars.iv.next.i.i27.i228, 4
-  br i1 %exitcond.not.i.i28.i229, label %_ZZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEENKUlNS_20RGBUnboundedSpectrumEE_clES6_.exit37.i230, label %for.body.i.i13.i214, !llvm.loop !149
+  br i1 %exitcond.not.i.i28.i229, label %_ZZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEENKUlNS_20RGBUnboundedSpectrumEE_clES6_.exit37.i230, label %for.body.i.i13.i214, !llvm.loop !183
 
 _ZZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEENKUlNS_20RGBUnboundedSpectrumEE_clES6_.exit37.i230: ; preds = %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i23.i224
   %.fca.0.load.i.i29.i231 = load <2 x float>, ptr %retval.i.i8.i148, align 8
@@ -18672,7 +18693,7 @@ _ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i.i293: ; preds = %if.end.i.i.i.i.i28
   store float %retval.0.i.i.i.i.i294, ptr %arrayidx.i.i5.i.i.i295, align 4
   %indvars.iv.next.i.i.i296 = add nuw nsw i64 %indvars.iv.i.i.i284, 1
   %exitcond.not.i.i.i297 = icmp eq i64 %indvars.iv.next.i.i.i296, 4
-  br i1 %exitcond.not.i.i.i297, label %_ZZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEENKUlNS_20RGBUnboundedSpectrumEE_clES6_.exit.i298, label %for.body.i.i.i283, !llvm.loop !149
+  br i1 %exitcond.not.i.i.i297, label %_ZZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEENKUlNS_20RGBUnboundedSpectrumEE_clES6_.exit.i298, label %for.body.i.i.i283, !llvm.loop !183
 
 _ZZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEENKUlNS_20RGBUnboundedSpectrumEE_clES6_.exit.i298: ; preds = %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i.i293
   %.fca.0.load.i.i.i299 = load <2 x float>, ptr %retval.i.i.i256, align 8
@@ -18732,7 +18753,7 @@ _ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i23.i331: ; preds = %if.end.i.i.i.i16
   store float %mul.i.i25.i333, ptr %arrayidx.i.i5.i.i26.i334, align 4
   %indvars.iv.next.i.i27.i335 = add nuw nsw i64 %indvars.iv.i.i14.i322, 1
   %exitcond.not.i.i28.i336 = icmp eq i64 %indvars.iv.next.i.i27.i335, 4
-  br i1 %exitcond.not.i.i28.i336, label %_ZZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEENKUlNS_20RGBUnboundedSpectrumEE_clES6_.exit37.i337, label %for.body.i.i13.i321, !llvm.loop !149
+  br i1 %exitcond.not.i.i28.i336, label %_ZZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEENKUlNS_20RGBUnboundedSpectrumEE_clES6_.exit37.i337, label %for.body.i.i13.i321, !llvm.loop !183
 
 _ZZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEENKUlNS_20RGBUnboundedSpectrumEE_clES6_.exit37.i337: ; preds = %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i23.i331
   %.fca.0.load.i.i29.i338 = load <2 x float>, ptr %retval.i.i8.i255, align 8
@@ -18760,7 +18781,7 @@ for.body.i.i.i350:                                ; preds = %for.body.i.i.i350, 
   store float %mul.i.i.i353, ptr %arrayidx.i.i.i.i352, align 4
   %indvars.iv.next.i.i.i354 = add nuw nsw i64 %indvars.iv.i.i.i351, 1
   %exitcond.not.i.i.i355 = icmp eq i64 %indvars.iv.next.i.i.i354, 4
-  br i1 %exitcond.not.i.i.i355, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i356, label %for.body.i.i.i350, !llvm.loop !110
+  br i1 %exitcond.not.i.i.i355, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i356, label %for.body.i.i.i350, !llvm.loop !144
 
 _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i356:    ; preds = %for.body.i.i.i350
   %.fca.0.load.i.i.i357 = load <2 x float>, ptr %retval.i.i.i347, align 8
@@ -18780,7 +18801,7 @@ for.body.i.i3.i360:                               ; preds = %for.body.i.i3.i360,
   store float %mul.i.i6.i363, ptr %arrayidx.i.i.i5.i362, align 4
   %indvars.iv.next.i.i7.i364 = add nuw nsw i64 %indvars.iv.i.i4.i361, 1
   %exitcond.not.i.i8.i365 = icmp eq i64 %indvars.iv.next.i.i7.i364, 4
-  br i1 %exitcond.not.i.i8.i365, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit14.i366, label %for.body.i.i3.i360, !llvm.loop !110
+  br i1 %exitcond.not.i.i8.i365, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit14.i366, label %for.body.i.i3.i360, !llvm.loop !144
 
 _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit14.i366:  ; preds = %for.body.i.i3.i360
   %.fca.0.load.i.i9.i367 = load <2 x float>, ptr %retval.i.i2.i346, align 8
@@ -18805,7 +18826,7 @@ for.body.i.i15.i371:                              ; preds = %for.body.i.i15.i371
   store float %add.i.i.i375, ptr %arrayidx.i4.i.i.i374, align 4
   %indvars.iv.next.i.i18.i376 = add nuw nsw i64 %indvars.iv.i.i16.i372, 1
   %exitcond.not.i.i19.i377 = icmp eq i64 %indvars.iv.next.i.i18.i376, 4
-  br i1 %exitcond.not.i.i19.i377, label %_ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit382, label %for.body.i.i15.i371, !llvm.loop !87
+  br i1 %exitcond.not.i.i19.i377, label %_ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit382, label %for.body.i.i15.i371, !llvm.loop !121
 
 _ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit382: ; preds = %for.body.i.i15.i371
   %retval.sroa.0.0.copyload.i.i378 = load <2 x float>, ptr %ret.i.i345, align 8
@@ -18852,7 +18873,7 @@ _ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i.i438: ; preds = %if.end.i.i.i.i.i43
   store float %retval.0.i.i.i.i.i439, ptr %arrayidx.i.i5.i.i.i440, align 4
   %indvars.iv.next.i.i.i441 = add nuw nsw i64 %indvars.iv.i.i.i429, 1
   %exitcond.not.i.i.i442 = icmp eq i64 %indvars.iv.next.i.i.i441, 4
-  br i1 %exitcond.not.i.i.i442, label %_ZZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEENKUlNS_20RGBUnboundedSpectrumEE_clES6_.exit.i443, label %for.body.i.i.i428, !llvm.loop !149
+  br i1 %exitcond.not.i.i.i442, label %_ZZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEENKUlNS_20RGBUnboundedSpectrumEE_clES6_.exit.i443, label %for.body.i.i.i428, !llvm.loop !183
 
 _ZZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEENKUlNS_20RGBUnboundedSpectrumEE_clES6_.exit.i443: ; preds = %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i.i438
   %.fca.0.load.i.i.i444 = load <2 x float>, ptr %retval.i.i.i401, align 8
@@ -18912,7 +18933,7 @@ _ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i23.i476: ; preds = %if.end.i.i.i.i16
   store float %mul.i.i25.i478, ptr %arrayidx.i.i5.i.i26.i479, align 4
   %indvars.iv.next.i.i27.i480 = add nuw nsw i64 %indvars.iv.i.i14.i467, 1
   %exitcond.not.i.i28.i481 = icmp eq i64 %indvars.iv.next.i.i27.i480, 4
-  br i1 %exitcond.not.i.i28.i481, label %_ZZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEENKUlNS_20RGBUnboundedSpectrumEE_clES6_.exit37.i482, label %for.body.i.i13.i466, !llvm.loop !149
+  br i1 %exitcond.not.i.i28.i481, label %_ZZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEENKUlNS_20RGBUnboundedSpectrumEE_clES6_.exit37.i482, label %for.body.i.i13.i466, !llvm.loop !183
 
 _ZZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEENKUlNS_20RGBUnboundedSpectrumEE_clES6_.exit37.i482: ; preds = %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i23.i476
   %.fca.0.load.i.i29.i483 = load <2 x float>, ptr %retval.i.i8.i400, align 8
@@ -18961,7 +18982,7 @@ _ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i.i545: ; preds = %if.end.i.i.i.i.i53
   store float %retval.0.i.i.i.i.i546, ptr %arrayidx.i.i5.i.i.i547, align 4
   %indvars.iv.next.i.i.i548 = add nuw nsw i64 %indvars.iv.i.i.i536, 1
   %exitcond.not.i.i.i549 = icmp eq i64 %indvars.iv.next.i.i.i548, 4
-  br i1 %exitcond.not.i.i.i549, label %_ZZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEENKUlNS_20RGBUnboundedSpectrumEE_clES6_.exit.i550, label %for.body.i.i.i535, !llvm.loop !149
+  br i1 %exitcond.not.i.i.i549, label %_ZZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEENKUlNS_20RGBUnboundedSpectrumEE_clES6_.exit.i550, label %for.body.i.i.i535, !llvm.loop !183
 
 _ZZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEENKUlNS_20RGBUnboundedSpectrumEE_clES6_.exit.i550: ; preds = %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i.i545
   %.fca.0.load.i.i.i551 = load <2 x float>, ptr %retval.i.i.i508, align 8
@@ -19021,7 +19042,7 @@ _ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i23.i583: ; preds = %if.end.i.i.i.i16
   store float %mul.i.i25.i585, ptr %arrayidx.i.i5.i.i26.i586, align 4
   %indvars.iv.next.i.i27.i587 = add nuw nsw i64 %indvars.iv.i.i14.i574, 1
   %exitcond.not.i.i28.i588 = icmp eq i64 %indvars.iv.next.i.i27.i587, 4
-  br i1 %exitcond.not.i.i28.i588, label %_ZZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEENKUlNS_20RGBUnboundedSpectrumEE_clES6_.exit37.i589, label %for.body.i.i13.i573, !llvm.loop !149
+  br i1 %exitcond.not.i.i28.i588, label %_ZZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEENKUlNS_20RGBUnboundedSpectrumEE_clES6_.exit37.i589, label %for.body.i.i13.i573, !llvm.loop !183
 
 _ZZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEENKUlNS_20RGBUnboundedSpectrumEE_clES6_.exit37.i589: ; preds = %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i23.i583
   %.fca.0.load.i.i29.i590 = load <2 x float>, ptr %retval.i.i8.i507, align 8
@@ -19049,7 +19070,7 @@ for.body.i.i.i602:                                ; preds = %for.body.i.i.i602, 
   store float %mul.i.i.i605, ptr %arrayidx.i.i.i.i604, align 4
   %indvars.iv.next.i.i.i606 = add nuw nsw i64 %indvars.iv.i.i.i603, 1
   %exitcond.not.i.i.i607 = icmp eq i64 %indvars.iv.next.i.i.i606, 4
-  br i1 %exitcond.not.i.i.i607, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i608, label %for.body.i.i.i602, !llvm.loop !110
+  br i1 %exitcond.not.i.i.i607, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i608, label %for.body.i.i.i602, !llvm.loop !144
 
 _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i608:    ; preds = %for.body.i.i.i602
   %.fca.0.load.i.i.i609 = load <2 x float>, ptr %retval.i.i.i599, align 8
@@ -19069,7 +19090,7 @@ for.body.i.i3.i612:                               ; preds = %for.body.i.i3.i612,
   store float %mul.i.i6.i615, ptr %arrayidx.i.i.i5.i614, align 4
   %indvars.iv.next.i.i7.i616 = add nuw nsw i64 %indvars.iv.i.i4.i613, 1
   %exitcond.not.i.i8.i617 = icmp eq i64 %indvars.iv.next.i.i7.i616, 4
-  br i1 %exitcond.not.i.i8.i617, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit14.i618, label %for.body.i.i3.i612, !llvm.loop !110
+  br i1 %exitcond.not.i.i8.i617, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit14.i618, label %for.body.i.i3.i612, !llvm.loop !144
 
 _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit14.i618:  ; preds = %for.body.i.i3.i612
   %.fca.0.load.i.i9.i619 = load <2 x float>, ptr %retval.i.i2.i598, align 8
@@ -19094,7 +19115,7 @@ for.body.i.i15.i623:                              ; preds = %for.body.i.i15.i623
   store float %add.i.i.i627, ptr %arrayidx.i4.i.i.i626, align 4
   %indvars.iv.next.i.i18.i628 = add nuw nsw i64 %indvars.iv.i.i16.i624, 1
   %exitcond.not.i.i19.i629 = icmp eq i64 %indvars.iv.next.i.i18.i628, 4
-  br i1 %exitcond.not.i.i19.i629, label %_ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit634, label %for.body.i.i15.i623, !llvm.loop !87
+  br i1 %exitcond.not.i.i19.i629, label %_ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit634, label %for.body.i.i15.i623, !llvm.loop !121
 
 _ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit634: ; preds = %for.body.i.i15.i623
   %retval.sroa.0.0.copyload.i.i630 = load <2 x float>, ptr %ret.i.i597, align 8
@@ -19137,7 +19158,7 @@ _ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i.i690: ; preds = %if.end.i.i.i.i.i68
   store float %retval.0.i.i.i.i.i691, ptr %arrayidx.i.i5.i.i.i692, align 4
   %indvars.iv.next.i.i.i693 = add nuw nsw i64 %indvars.iv.i.i.i681, 1
   %exitcond.not.i.i.i694 = icmp eq i64 %indvars.iv.next.i.i.i693, 4
-  br i1 %exitcond.not.i.i.i694, label %_ZZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEENKUlNS_20RGBUnboundedSpectrumEE_clES6_.exit.i695, label %for.body.i.i.i680, !llvm.loop !149
+  br i1 %exitcond.not.i.i.i694, label %_ZZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEENKUlNS_20RGBUnboundedSpectrumEE_clES6_.exit.i695, label %for.body.i.i.i680, !llvm.loop !183
 
 _ZZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEENKUlNS_20RGBUnboundedSpectrumEE_clES6_.exit.i695: ; preds = %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i.i690
   %.fca.0.load.i.i.i696 = load <2 x float>, ptr %retval.i.i.i653, align 8
@@ -19197,7 +19218,7 @@ _ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i23.i728: ; preds = %if.end.i.i.i.i16
   store float %mul.i.i25.i730, ptr %arrayidx.i.i5.i.i26.i731, align 4
   %indvars.iv.next.i.i27.i732 = add nuw nsw i64 %indvars.iv.i.i14.i719, 1
   %exitcond.not.i.i28.i733 = icmp eq i64 %indvars.iv.next.i.i27.i732, 4
-  br i1 %exitcond.not.i.i28.i733, label %_ZZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEENKUlNS_20RGBUnboundedSpectrumEE_clES6_.exit37.i734, label %for.body.i.i13.i718, !llvm.loop !149
+  br i1 %exitcond.not.i.i28.i733, label %_ZZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEENKUlNS_20RGBUnboundedSpectrumEE_clES6_.exit37.i734, label %for.body.i.i13.i718, !llvm.loop !183
 
 _ZZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEENKUlNS_20RGBUnboundedSpectrumEE_clES6_.exit37.i734: ; preds = %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i23.i728
   %.fca.0.load.i.i29.i735 = load <2 x float>, ptr %retval.i.i8.i652, align 8
@@ -19246,7 +19267,7 @@ _ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i.i797: ; preds = %if.end.i.i.i.i.i79
   store float %retval.0.i.i.i.i.i798, ptr %arrayidx.i.i5.i.i.i799, align 4
   %indvars.iv.next.i.i.i800 = add nuw nsw i64 %indvars.iv.i.i.i788, 1
   %exitcond.not.i.i.i801 = icmp eq i64 %indvars.iv.next.i.i.i800, 4
-  br i1 %exitcond.not.i.i.i801, label %_ZZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEENKUlNS_20RGBUnboundedSpectrumEE_clES6_.exit.i802, label %for.body.i.i.i787, !llvm.loop !149
+  br i1 %exitcond.not.i.i.i801, label %_ZZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEENKUlNS_20RGBUnboundedSpectrumEE_clES6_.exit.i802, label %for.body.i.i.i787, !llvm.loop !183
 
 _ZZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEENKUlNS_20RGBUnboundedSpectrumEE_clES6_.exit.i802: ; preds = %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i.i797
   %.fca.0.load.i.i.i803 = load <2 x float>, ptr %retval.i.i.i760, align 8
@@ -19306,7 +19327,7 @@ _ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i23.i835: ; preds = %if.end.i.i.i.i16
   store float %mul.i.i25.i837, ptr %arrayidx.i.i5.i.i26.i838, align 4
   %indvars.iv.next.i.i27.i839 = add nuw nsw i64 %indvars.iv.i.i14.i826, 1
   %exitcond.not.i.i28.i840 = icmp eq i64 %indvars.iv.next.i.i27.i839, 4
-  br i1 %exitcond.not.i.i28.i840, label %_ZZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEENKUlNS_20RGBUnboundedSpectrumEE_clES6_.exit37.i841, label %for.body.i.i13.i825, !llvm.loop !149
+  br i1 %exitcond.not.i.i28.i840, label %_ZZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEENKUlNS_20RGBUnboundedSpectrumEE_clES6_.exit37.i841, label %for.body.i.i13.i825, !llvm.loop !183
 
 _ZZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEENKUlNS_20RGBUnboundedSpectrumEE_clES6_.exit37.i841: ; preds = %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i23.i835
   %.fca.0.load.i.i29.i842 = load <2 x float>, ptr %retval.i.i8.i759, align 8
@@ -19334,7 +19355,7 @@ for.body.i.i.i854:                                ; preds = %for.body.i.i.i854, 
   store float %mul.i.i.i857, ptr %arrayidx.i.i.i.i856, align 4
   %indvars.iv.next.i.i.i858 = add nuw nsw i64 %indvars.iv.i.i.i855, 1
   %exitcond.not.i.i.i859 = icmp eq i64 %indvars.iv.next.i.i.i858, 4
-  br i1 %exitcond.not.i.i.i859, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i860, label %for.body.i.i.i854, !llvm.loop !110
+  br i1 %exitcond.not.i.i.i859, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i860, label %for.body.i.i.i854, !llvm.loop !144
 
 _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i860:    ; preds = %for.body.i.i.i854
   %.fca.0.load.i.i.i861 = load <2 x float>, ptr %retval.i.i.i851, align 8
@@ -19354,7 +19375,7 @@ for.body.i.i3.i864:                               ; preds = %for.body.i.i3.i864,
   store float %mul.i.i6.i867, ptr %arrayidx.i.i.i5.i866, align 4
   %indvars.iv.next.i.i7.i868 = add nuw nsw i64 %indvars.iv.i.i4.i865, 1
   %exitcond.not.i.i8.i869 = icmp eq i64 %indvars.iv.next.i.i7.i868, 4
-  br i1 %exitcond.not.i.i8.i869, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit14.i870, label %for.body.i.i3.i864, !llvm.loop !110
+  br i1 %exitcond.not.i.i8.i869, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit14.i870, label %for.body.i.i3.i864, !llvm.loop !144
 
 _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit14.i870:  ; preds = %for.body.i.i3.i864
   %.fca.0.load.i.i9.i871 = load <2 x float>, ptr %retval.i.i2.i850, align 8
@@ -19379,7 +19400,7 @@ for.body.i.i15.i875:                              ; preds = %for.body.i.i15.i875
   store float %add.i.i.i879, ptr %arrayidx.i4.i.i.i878, align 4
   %indvars.iv.next.i.i18.i880 = add nuw nsw i64 %indvars.iv.i.i16.i876, 1
   %exitcond.not.i.i19.i881 = icmp eq i64 %indvars.iv.next.i.i18.i880, 4
-  br i1 %exitcond.not.i.i19.i881, label %_ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit886, label %for.body.i.i15.i875, !llvm.loop !87
+  br i1 %exitcond.not.i.i19.i881, label %_ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit886, label %for.body.i.i15.i875, !llvm.loop !121
 
 _ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit886: ; preds = %for.body.i.i15.i875
   %retval.sroa.0.0.copyload.i.i882 = load <2 x float>, ptr %ret.i.i849, align 8
@@ -19402,7 +19423,7 @@ for.body.i.i.i892:                                ; preds = %for.body.i.i.i892, 
   store float %mul.i.i.i895, ptr %arrayidx.i.i.i.i894, align 4
   %indvars.iv.next.i.i.i896 = add nuw nsw i64 %indvars.iv.i.i.i893, 1
   %exitcond.not.i.i.i897 = icmp eq i64 %indvars.iv.next.i.i.i896, 4
-  br i1 %exitcond.not.i.i.i897, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i898, label %for.body.i.i.i892, !llvm.loop !110
+  br i1 %exitcond.not.i.i.i897, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i898, label %for.body.i.i.i892, !llvm.loop !144
 
 _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i898:    ; preds = %for.body.i.i.i892
   %.fca.0.load.i.i.i899 = load <2 x float>, ptr %retval.i.i.i889, align 8
@@ -19422,7 +19443,7 @@ for.body.i.i3.i902:                               ; preds = %for.body.i.i3.i902,
   store float %mul.i.i6.i905, ptr %arrayidx.i.i.i5.i904, align 4
   %indvars.iv.next.i.i7.i906 = add nuw nsw i64 %indvars.iv.i.i4.i903, 1
   %exitcond.not.i.i8.i907 = icmp eq i64 %indvars.iv.next.i.i7.i906, 4
-  br i1 %exitcond.not.i.i8.i907, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit14.i908, label %for.body.i.i3.i902, !llvm.loop !110
+  br i1 %exitcond.not.i.i8.i907, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit14.i908, label %for.body.i.i3.i902, !llvm.loop !144
 
 _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit14.i908:  ; preds = %for.body.i.i3.i902
   %.fca.0.load.i.i9.i909 = load <2 x float>, ptr %retval.i.i2.i888, align 8
@@ -19447,7 +19468,7 @@ for.body.i.i15.i913:                              ; preds = %for.body.i.i15.i913
   store float %add.i.i.i917, ptr %arrayidx.i4.i.i.i916, align 4
   %indvars.iv.next.i.i18.i918 = add nuw nsw i64 %indvars.iv.i.i16.i914, 1
   %exitcond.not.i.i19.i919 = icmp eq i64 %indvars.iv.next.i.i18.i918, 4
-  br i1 %exitcond.not.i.i19.i919, label %_ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit924, label %for.body.i.i15.i913, !llvm.loop !87
+  br i1 %exitcond.not.i.i19.i919, label %_ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit924, label %for.body.i.i15.i913, !llvm.loop !121
 
 _ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit924: ; preds = %for.body.i.i15.i913
   %retval.sroa.0.0.copyload.i.i920 = load <2 x float>, ptr %ret.i.i887, align 8
@@ -19469,7 +19490,7 @@ for.body.i.i.i930:                                ; preds = %for.body.i.i.i930, 
   store float %mul.i.i.i933, ptr %arrayidx.i.i.i.i932, align 4
   %indvars.iv.next.i.i.i934 = add nuw nsw i64 %indvars.iv.i.i.i931, 1
   %exitcond.not.i.i.i935 = icmp eq i64 %indvars.iv.next.i.i.i934, 4
-  br i1 %exitcond.not.i.i.i935, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i936, label %for.body.i.i.i930, !llvm.loop !110
+  br i1 %exitcond.not.i.i.i935, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i936, label %for.body.i.i.i930, !llvm.loop !144
 
 _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i936:    ; preds = %for.body.i.i.i930
   %.fca.0.load.i.i.i937 = load <2 x float>, ptr %retval.i.i.i927, align 8
@@ -19489,7 +19510,7 @@ for.body.i.i3.i940:                               ; preds = %for.body.i.i3.i940,
   store float %mul.i.i6.i943, ptr %arrayidx.i.i.i5.i942, align 4
   %indvars.iv.next.i.i7.i944 = add nuw nsw i64 %indvars.iv.i.i4.i941, 1
   %exitcond.not.i.i8.i945 = icmp eq i64 %indvars.iv.next.i.i7.i944, 4
-  br i1 %exitcond.not.i.i8.i945, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit14.i946, label %for.body.i.i3.i940, !llvm.loop !110
+  br i1 %exitcond.not.i.i8.i945, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit14.i946, label %for.body.i.i3.i940, !llvm.loop !144
 
 _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit14.i946:  ; preds = %for.body.i.i3.i940
   %.fca.0.load.i.i9.i947 = load <2 x float>, ptr %retval.i.i2.i926, align 8
@@ -19514,7 +19535,7 @@ for.body.i.i15.i951:                              ; preds = %for.body.i.i15.i951
   store float %add.i.i.i955, ptr %arrayidx.i4.i.i.i954, align 4
   %indvars.iv.next.i.i18.i956 = add nuw nsw i64 %indvars.iv.i.i16.i952, 1
   %exitcond.not.i.i19.i957 = icmp eq i64 %indvars.iv.next.i.i18.i956, 4
-  br i1 %exitcond.not.i.i19.i957, label %_ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit962, label %for.body.i.i15.i951, !llvm.loop !87
+  br i1 %exitcond.not.i.i19.i957, label %_ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit962, label %for.body.i.i15.i951, !llvm.loop !121
 
 _ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit962: ; preds = %for.body.i.i15.i951
   %retval.sroa.0.0.copyload.i.i958 = load <2 x float>, ptr %ret.i.i925, align 8
@@ -19537,7 +19558,7 @@ for.body.i.i.i968:                                ; preds = %for.body.i.i.i968, 
   store float %mul.i.i.i971, ptr %arrayidx.i.i.i.i970, align 4
   %indvars.iv.next.i.i.i972 = add nuw nsw i64 %indvars.iv.i.i.i969, 1
   %exitcond.not.i.i.i973 = icmp eq i64 %indvars.iv.next.i.i.i972, 4
-  br i1 %exitcond.not.i.i.i973, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i974, label %for.body.i.i.i968, !llvm.loop !110
+  br i1 %exitcond.not.i.i.i973, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i974, label %for.body.i.i.i968, !llvm.loop !144
 
 _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i974:    ; preds = %for.body.i.i.i968
   %.fca.0.load.i.i.i975 = load <2 x float>, ptr %retval.i.i.i965, align 8
@@ -19557,7 +19578,7 @@ for.body.i.i3.i978:                               ; preds = %for.body.i.i3.i978,
   store float %mul.i.i6.i981, ptr %arrayidx.i.i.i5.i980, align 4
   %indvars.iv.next.i.i7.i982 = add nuw nsw i64 %indvars.iv.i.i4.i979, 1
   %exitcond.not.i.i8.i983 = icmp eq i64 %indvars.iv.next.i.i7.i982, 4
-  br i1 %exitcond.not.i.i8.i983, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit14.i984, label %for.body.i.i3.i978, !llvm.loop !110
+  br i1 %exitcond.not.i.i8.i983, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit14.i984, label %for.body.i.i3.i978, !llvm.loop !144
 
 _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit14.i984:  ; preds = %for.body.i.i3.i978
   %.fca.0.load.i.i9.i985 = load <2 x float>, ptr %retval.i.i2.i964, align 8
@@ -19582,7 +19603,7 @@ for.body.i.i15.i989:                              ; preds = %for.body.i.i15.i989
   store float %add.i.i.i993, ptr %arrayidx.i4.i.i.i992, align 4
   %indvars.iv.next.i.i18.i994 = add nuw nsw i64 %indvars.iv.i.i16.i990, 1
   %exitcond.not.i.i19.i995 = icmp eq i64 %indvars.iv.next.i.i18.i994, 4
-  br i1 %exitcond.not.i.i19.i995, label %_ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit1000, label %for.body.i.i15.i989, !llvm.loop !87
+  br i1 %exitcond.not.i.i19.i995, label %_ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit1000, label %for.body.i.i15.i989, !llvm.loop !121
 
 _ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit1000: ; preds = %for.body.i.i15.i989
   %retval.sroa.0.0.copyload.i.i996 = load <2 x float>, ptr %ret.i.i963, align 8
@@ -19807,7 +19828,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %_Z
   store float %mul.i.i.i, ptr %arrayidx.i.i.i.i, align 4
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
-  br i1 %exitcond.not.i.i.i, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i, label %for.body.i.i.i, !llvm.loop !110
+  br i1 %exitcond.not.i.i.i, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i, label %for.body.i.i.i, !llvm.loop !144
 
 _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i:       ; preds = %for.body.i.i.i
   %17 = extractvalue { <2 x float>, <2 x float> } %call13.pn.i62, 1
@@ -19828,7 +19849,7 @@ for.body.i.i3.i:                                  ; preds = %for.body.i.i3.i, %_
   store float %mul.i.i6.i, ptr %arrayidx.i.i.i5.i, align 4
   %indvars.iv.next.i.i7.i = add nuw nsw i64 %indvars.iv.i.i4.i, 1
   %exitcond.not.i.i8.i = icmp eq i64 %indvars.iv.next.i.i7.i, 4
-  br i1 %exitcond.not.i.i8.i, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit14.i, label %for.body.i.i3.i, !llvm.loop !110
+  br i1 %exitcond.not.i.i8.i, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit14.i, label %for.body.i.i3.i, !llvm.loop !144
 
 _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit14.i:     ; preds = %for.body.i.i3.i
   %.fca.0.load.i.i9.i = load <2 x float>, ptr %retval.i.i2.i, align 8
@@ -19853,7 +19874,7 @@ for.body.i.i15.i:                                 ; preds = %for.body.i.i15.i, %
   store float %add.i.i.i, ptr %arrayidx.i4.i.i.i, align 4
   %indvars.iv.next.i.i18.i = add nuw nsw i64 %indvars.iv.i.i16.i, 1
   %exitcond.not.i.i19.i = icmp eq i64 %indvars.iv.next.i.i18.i, 4
-  br i1 %exitcond.not.i.i19.i, label %_ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit, label %for.body.i.i15.i, !llvm.loop !87
+  br i1 %exitcond.not.i.i19.i, label %_ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit, label %for.body.i.i15.i, !llvm.loop !121
 
 _ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit:   ; preds = %for.body.i.i15.i
   %retval.sroa.0.0.copyload.i.i = load <2 x float>, ptr %ret.i.i, align 8
@@ -19983,7 +20004,7 @@ for.body.i.i.i195:                                ; preds = %for.body.i.i.i195, 
   store float %mul.i.i.i198, ptr %arrayidx.i.i.i.i197, align 4
   %indvars.iv.next.i.i.i199 = add nuw nsw i64 %indvars.iv.i.i.i196, 1
   %exitcond.not.i.i.i200 = icmp eq i64 %indvars.iv.next.i.i.i199, 4
-  br i1 %exitcond.not.i.i.i200, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i201, label %for.body.i.i.i195, !llvm.loop !110
+  br i1 %exitcond.not.i.i.i200, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i201, label %for.body.i.i.i195, !llvm.loop !144
 
 _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i201:    ; preds = %for.body.i.i.i195
   %36 = extractvalue { <2 x float>, <2 x float> } %call13.pn.i179, 1
@@ -20004,7 +20025,7 @@ for.body.i.i3.i205:                               ; preds = %for.body.i.i3.i205,
   store float %mul.i.i6.i208, ptr %arrayidx.i.i.i5.i207, align 4
   %indvars.iv.next.i.i7.i209 = add nuw nsw i64 %indvars.iv.i.i4.i206, 1
   %exitcond.not.i.i8.i210 = icmp eq i64 %indvars.iv.next.i.i7.i209, 4
-  br i1 %exitcond.not.i.i8.i210, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit14.i211, label %for.body.i.i3.i205, !llvm.loop !110
+  br i1 %exitcond.not.i.i8.i210, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit14.i211, label %for.body.i.i3.i205, !llvm.loop !144
 
 _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit14.i211:  ; preds = %for.body.i.i3.i205
   %.fca.0.load.i.i9.i212 = load <2 x float>, ptr %retval.i.i2.i191, align 8
@@ -20029,7 +20050,7 @@ for.body.i.i15.i216:                              ; preds = %for.body.i.i15.i216
   store float %add.i.i.i220, ptr %arrayidx.i4.i.i.i219, align 4
   %indvars.iv.next.i.i18.i221 = add nuw nsw i64 %indvars.iv.i.i16.i217, 1
   %exitcond.not.i.i19.i222 = icmp eq i64 %indvars.iv.next.i.i18.i221, 4
-  br i1 %exitcond.not.i.i19.i222, label %_ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit227, label %for.body.i.i15.i216, !llvm.loop !87
+  br i1 %exitcond.not.i.i19.i222, label %_ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit227, label %for.body.i.i15.i216, !llvm.loop !121
 
 _ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit227: ; preds = %for.body.i.i15.i216
   %retval.sroa.0.0.copyload.i.i223 = load <2 x float>, ptr %ret.i.i190, align 8
@@ -20159,7 +20180,7 @@ for.body.i.i.i349:                                ; preds = %for.body.i.i.i349, 
   store float %mul.i.i.i352, ptr %arrayidx.i.i.i.i351, align 4
   %indvars.iv.next.i.i.i353 = add nuw nsw i64 %indvars.iv.i.i.i350, 1
   %exitcond.not.i.i.i354 = icmp eq i64 %indvars.iv.next.i.i.i353, 4
-  br i1 %exitcond.not.i.i.i354, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i355, label %for.body.i.i.i349, !llvm.loop !110
+  br i1 %exitcond.not.i.i.i354, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i355, label %for.body.i.i.i349, !llvm.loop !144
 
 _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i355:    ; preds = %for.body.i.i.i349
   %55 = extractvalue { <2 x float>, <2 x float> } %call13.pn.i333, 1
@@ -20180,7 +20201,7 @@ for.body.i.i3.i359:                               ; preds = %for.body.i.i3.i359,
   store float %mul.i.i6.i362, ptr %arrayidx.i.i.i5.i361, align 4
   %indvars.iv.next.i.i7.i363 = add nuw nsw i64 %indvars.iv.i.i4.i360, 1
   %exitcond.not.i.i8.i364 = icmp eq i64 %indvars.iv.next.i.i7.i363, 4
-  br i1 %exitcond.not.i.i8.i364, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit14.i365, label %for.body.i.i3.i359, !llvm.loop !110
+  br i1 %exitcond.not.i.i8.i364, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit14.i365, label %for.body.i.i3.i359, !llvm.loop !144
 
 _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit14.i365:  ; preds = %for.body.i.i3.i359
   %.fca.0.load.i.i9.i366 = load <2 x float>, ptr %retval.i.i2.i345, align 8
@@ -20205,7 +20226,7 @@ for.body.i.i15.i370:                              ; preds = %for.body.i.i15.i370
   store float %add.i.i.i374, ptr %arrayidx.i4.i.i.i373, align 4
   %indvars.iv.next.i.i18.i375 = add nuw nsw i64 %indvars.iv.i.i16.i371, 1
   %exitcond.not.i.i19.i376 = icmp eq i64 %indvars.iv.next.i.i18.i375, 4
-  br i1 %exitcond.not.i.i19.i376, label %_ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit381, label %for.body.i.i15.i370, !llvm.loop !87
+  br i1 %exitcond.not.i.i19.i376, label %_ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit381, label %for.body.i.i15.i370, !llvm.loop !121
 
 _ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit381: ; preds = %for.body.i.i15.i370
   %retval.sroa.0.0.copyload.i.i377 = load <2 x float>, ptr %ret.i.i344, align 8
@@ -20334,7 +20355,7 @@ for.body.i.i.i503:                                ; preds = %for.body.i.i.i503, 
   store float %mul.i.i.i506, ptr %arrayidx.i.i.i.i505, align 4
   %indvars.iv.next.i.i.i507 = add nuw nsw i64 %indvars.iv.i.i.i504, 1
   %exitcond.not.i.i.i508 = icmp eq i64 %indvars.iv.next.i.i.i507, 4
-  br i1 %exitcond.not.i.i.i508, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i509, label %for.body.i.i.i503, !llvm.loop !110
+  br i1 %exitcond.not.i.i.i508, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i509, label %for.body.i.i.i503, !llvm.loop !144
 
 _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i509:    ; preds = %for.body.i.i.i503
   %74 = extractvalue { <2 x float>, <2 x float> } %call13.pn.i487, 1
@@ -20355,7 +20376,7 @@ for.body.i.i3.i513:                               ; preds = %for.body.i.i3.i513,
   store float %mul.i.i6.i516, ptr %arrayidx.i.i.i5.i515, align 4
   %indvars.iv.next.i.i7.i517 = add nuw nsw i64 %indvars.iv.i.i4.i514, 1
   %exitcond.not.i.i8.i518 = icmp eq i64 %indvars.iv.next.i.i7.i517, 4
-  br i1 %exitcond.not.i.i8.i518, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit14.i519, label %for.body.i.i3.i513, !llvm.loop !110
+  br i1 %exitcond.not.i.i8.i518, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit14.i519, label %for.body.i.i3.i513, !llvm.loop !144
 
 _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit14.i519:  ; preds = %for.body.i.i3.i513
   %.fca.0.load.i.i9.i520 = load <2 x float>, ptr %retval.i.i2.i499, align 8
@@ -20380,7 +20401,7 @@ for.body.i.i15.i524:                              ; preds = %for.body.i.i15.i524
   store float %add.i.i.i528, ptr %arrayidx.i4.i.i.i527, align 4
   %indvars.iv.next.i.i18.i529 = add nuw nsw i64 %indvars.iv.i.i16.i525, 1
   %exitcond.not.i.i19.i530 = icmp eq i64 %indvars.iv.next.i.i18.i529, 4
-  br i1 %exitcond.not.i.i19.i530, label %_ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit535, label %for.body.i.i15.i524, !llvm.loop !87
+  br i1 %exitcond.not.i.i19.i530, label %_ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit535, label %for.body.i.i15.i524, !llvm.loop !121
 
 _ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit535: ; preds = %for.body.i.i15.i524
   %retval.sroa.0.0.copyload.i.i531 = load <2 x float>, ptr %ret.i.i498, align 8
@@ -20403,7 +20424,7 @@ for.body.i.i.i541:                                ; preds = %for.body.i.i.i541, 
   store float %mul.i.i.i544, ptr %arrayidx.i.i.i.i543, align 4
   %indvars.iv.next.i.i.i545 = add nuw nsw i64 %indvars.iv.i.i.i542, 1
   %exitcond.not.i.i.i546 = icmp eq i64 %indvars.iv.next.i.i.i545, 4
-  br i1 %exitcond.not.i.i.i546, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i547, label %for.body.i.i.i541, !llvm.loop !110
+  br i1 %exitcond.not.i.i.i546, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i547, label %for.body.i.i.i541, !llvm.loop !144
 
 _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i547:    ; preds = %for.body.i.i.i541
   %.fca.0.load.i.i.i548 = load <2 x float>, ptr %retval.i.i.i538, align 8
@@ -20423,7 +20444,7 @@ for.body.i.i3.i551:                               ; preds = %for.body.i.i3.i551,
   store float %mul.i.i6.i554, ptr %arrayidx.i.i.i5.i553, align 4
   %indvars.iv.next.i.i7.i555 = add nuw nsw i64 %indvars.iv.i.i4.i552, 1
   %exitcond.not.i.i8.i556 = icmp eq i64 %indvars.iv.next.i.i7.i555, 4
-  br i1 %exitcond.not.i.i8.i556, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit14.i557, label %for.body.i.i3.i551, !llvm.loop !110
+  br i1 %exitcond.not.i.i8.i556, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit14.i557, label %for.body.i.i3.i551, !llvm.loop !144
 
 _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit14.i557:  ; preds = %for.body.i.i3.i551
   %.fca.0.load.i.i9.i558 = load <2 x float>, ptr %retval.i.i2.i537, align 8
@@ -20448,7 +20469,7 @@ for.body.i.i15.i562:                              ; preds = %for.body.i.i15.i562
   store float %add.i.i.i566, ptr %arrayidx.i4.i.i.i565, align 4
   %indvars.iv.next.i.i18.i567 = add nuw nsw i64 %indvars.iv.i.i16.i563, 1
   %exitcond.not.i.i19.i568 = icmp eq i64 %indvars.iv.next.i.i18.i567, 4
-  br i1 %exitcond.not.i.i19.i568, label %_ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit573, label %for.body.i.i15.i562, !llvm.loop !87
+  br i1 %exitcond.not.i.i19.i568, label %_ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit573, label %for.body.i.i15.i562, !llvm.loop !121
 
 _ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit573: ; preds = %for.body.i.i15.i562
   %retval.sroa.0.0.copyload.i.i569 = load <2 x float>, ptr %ret.i.i536, align 8
@@ -20470,7 +20491,7 @@ for.body.i.i.i579:                                ; preds = %for.body.i.i.i579, 
   store float %mul.i.i.i582, ptr %arrayidx.i.i.i.i581, align 4
   %indvars.iv.next.i.i.i583 = add nuw nsw i64 %indvars.iv.i.i.i580, 1
   %exitcond.not.i.i.i584 = icmp eq i64 %indvars.iv.next.i.i.i583, 4
-  br i1 %exitcond.not.i.i.i584, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i585, label %for.body.i.i.i579, !llvm.loop !110
+  br i1 %exitcond.not.i.i.i584, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i585, label %for.body.i.i.i579, !llvm.loop !144
 
 _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i585:    ; preds = %for.body.i.i.i579
   %.fca.0.load.i.i.i586 = load <2 x float>, ptr %retval.i.i.i576, align 8
@@ -20490,7 +20511,7 @@ for.body.i.i3.i589:                               ; preds = %for.body.i.i3.i589,
   store float %mul.i.i6.i592, ptr %arrayidx.i.i.i5.i591, align 4
   %indvars.iv.next.i.i7.i593 = add nuw nsw i64 %indvars.iv.i.i4.i590, 1
   %exitcond.not.i.i8.i594 = icmp eq i64 %indvars.iv.next.i.i7.i593, 4
-  br i1 %exitcond.not.i.i8.i594, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit14.i595, label %for.body.i.i3.i589, !llvm.loop !110
+  br i1 %exitcond.not.i.i8.i594, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit14.i595, label %for.body.i.i3.i589, !llvm.loop !144
 
 _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit14.i595:  ; preds = %for.body.i.i3.i589
   %.fca.0.load.i.i9.i596 = load <2 x float>, ptr %retval.i.i2.i575, align 8
@@ -20515,7 +20536,7 @@ for.body.i.i15.i600:                              ; preds = %for.body.i.i15.i600
   store float %add.i.i.i604, ptr %arrayidx.i4.i.i.i603, align 4
   %indvars.iv.next.i.i18.i605 = add nuw nsw i64 %indvars.iv.i.i16.i601, 1
   %exitcond.not.i.i19.i606 = icmp eq i64 %indvars.iv.next.i.i18.i605, 4
-  br i1 %exitcond.not.i.i19.i606, label %_ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit611, label %for.body.i.i15.i600, !llvm.loop !87
+  br i1 %exitcond.not.i.i19.i606, label %_ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit611, label %for.body.i.i15.i600, !llvm.loop !121
 
 _ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit611: ; preds = %for.body.i.i15.i600
   %retval.sroa.0.0.copyload.i.i607 = load <2 x float>, ptr %ret.i.i574, align 8
@@ -20538,7 +20559,7 @@ for.body.i.i.i617:                                ; preds = %for.body.i.i.i617, 
   store float %mul.i.i.i620, ptr %arrayidx.i.i.i.i619, align 4
   %indvars.iv.next.i.i.i621 = add nuw nsw i64 %indvars.iv.i.i.i618, 1
   %exitcond.not.i.i.i622 = icmp eq i64 %indvars.iv.next.i.i.i621, 4
-  br i1 %exitcond.not.i.i.i622, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i623, label %for.body.i.i.i617, !llvm.loop !110
+  br i1 %exitcond.not.i.i.i622, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i623, label %for.body.i.i.i617, !llvm.loop !144
 
 _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i623:    ; preds = %for.body.i.i.i617
   %.fca.0.load.i.i.i624 = load <2 x float>, ptr %retval.i.i.i614, align 8
@@ -20558,7 +20579,7 @@ for.body.i.i3.i627:                               ; preds = %for.body.i.i3.i627,
   store float %mul.i.i6.i630, ptr %arrayidx.i.i.i5.i629, align 4
   %indvars.iv.next.i.i7.i631 = add nuw nsw i64 %indvars.iv.i.i4.i628, 1
   %exitcond.not.i.i8.i632 = icmp eq i64 %indvars.iv.next.i.i7.i631, 4
-  br i1 %exitcond.not.i.i8.i632, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit14.i633, label %for.body.i.i3.i627, !llvm.loop !110
+  br i1 %exitcond.not.i.i8.i632, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit14.i633, label %for.body.i.i3.i627, !llvm.loop !144
 
 _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit14.i633:  ; preds = %for.body.i.i3.i627
   %.fca.0.load.i.i9.i634 = load <2 x float>, ptr %retval.i.i2.i613, align 8
@@ -20583,7 +20604,7 @@ for.body.i.i15.i638:                              ; preds = %for.body.i.i15.i638
   store float %add.i.i.i642, ptr %arrayidx.i4.i.i.i641, align 4
   %indvars.iv.next.i.i18.i643 = add nuw nsw i64 %indvars.iv.i.i16.i639, 1
   %exitcond.not.i.i19.i644 = icmp eq i64 %indvars.iv.next.i.i18.i643, 4
-  br i1 %exitcond.not.i.i19.i644, label %_ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit649, label %for.body.i.i15.i638, !llvm.loop !87
+  br i1 %exitcond.not.i.i19.i644, label %_ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit649, label %for.body.i.i15.i638, !llvm.loop !121
 
 _ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit649: ; preds = %for.body.i.i15.i638
   %retval.sroa.0.0.copyload.i.i645 = load <2 x float>, ptr %ret.i.i612, align 8
@@ -20648,7 +20669,7 @@ _ZNK4pbrt20RGBSigmoidPolynomialclEf.exit:         ; preds = %if.then.i.i, %if.en
   store float %mul, ptr %arrayidx.i.i7, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !150
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !184
 
 for.end:                                          ; preds = %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
@@ -20686,7 +20707,7 @@ for.inc.i:                                        ; preds = %if.else.i, %lor.lhs
   store float %.sink.i, ptr %arrayidx.i.i8.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit, label %for.body.i, !llvm.loop !135
+  br i1 %exitcond.not.i, label %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit, label %for.body.i, !llvm.loop !169
 
 _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; preds = %for.inc.i
   %.fca.0.load.i = load <2 x float>, ptr %retval.i, align 8
@@ -20708,7 +20729,7 @@ for.body.i.i9:                                    ; preds = %for.body.i.i9, %_ZN
   store float %mul.i.i12, ptr %arrayidx.i4.i.i, align 4
   %indvars.iv.next.i.i13 = add nuw nsw i64 %indvars.iv.i.i10, 1
   %exitcond.not.i.i14 = icmp eq i64 %indvars.iv.next.i.i13, 4
-  br i1 %exitcond.not.i.i14, label %_ZNK4pbrt15SampledSpectrummlERKS0_.exit, label %for.body.i.i9, !llvm.loop !112
+  br i1 %exitcond.not.i.i14, label %_ZNK4pbrt15SampledSpectrummlERKS0_.exit, label %for.body.i.i9, !llvm.loop !146
 
 _ZNK4pbrt15SampledSpectrummlERKS0_.exit:          ; preds = %for.body.i.i9
   %retval.sroa.0.0.copyload.i = load <2 x float>, ptr %s, align 8
@@ -20736,25 +20757,25 @@ entry:
   %renderFromMedium = getelementptr inbounds i8, ptr %this, i64 24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %o.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
-  %0 = load <4 x float>, ptr %ray, align 8, !noalias !151
+  %0 = load <4 x float>, ptr %ray, align 8, !noalias !185
   %agg.tmp.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %0, <4 x float> poison, <2 x i32> zeroinitializer
   %y.i.i = getelementptr inbounds i8, ptr %ray, i64 4
-  %1 = load <4 x float>, ptr %y.i.i, align 4, !noalias !151
+  %1 = load <4 x float>, ptr %y.i.i, align 4, !noalias !185
   %agg.tmp2.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %1, <4 x float> poison, <2 x i32> zeroinitializer
   %z.i.i = getelementptr inbounds i8, ptr %ray, i64 8
-  %2 = load <4 x float>, ptr %z.i.i, align 4, !noalias !151
+  %2 = load <4 x float>, ptr %z.i.i, align 4, !noalias !185
   %agg.tmp3.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %2, <4 x float> poison, <2 x i32> zeroinitializer
-  store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i.i, ptr %ref.tmp.i, align 8, !noalias !151
+  store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i.i, ptr %ref.tmp.i, align 8, !noalias !185
   %y3.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  store <2 x float> %agg.tmp2.sroa.0.4.vec.insert.i.i, ptr %y3.i.i.i.i, align 8, !noalias !151
+  store <2 x float> %agg.tmp2.sroa.0.4.vec.insert.i.i, ptr %y3.i.i.i.i, align 8, !noalias !185
   %z4.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
-  store <2 x float> %agg.tmp3.sroa.0.4.vec.insert.i.i, ptr %z4.i.i.i.i, align 8, !noalias !151
-  call void @_ZNK4pbrt9Transform12ApplyInverseERKNS_8Point3fiE(ptr nonnull sret(%"class.pbrt::Point3fi") align 4 %o.i, ptr noundef nonnull align 4 dereferenceable(128) %renderFromMedium, ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp.i), !noalias !151
+  store <2 x float> %agg.tmp3.sroa.0.4.vec.insert.i.i, ptr %z4.i.i.i.i, align 8, !noalias !185
+  call void @_ZNK4pbrt9Transform12ApplyInverseERKNS_8Point3fiE(ptr nonnull sret(%"class.pbrt::Point3fi") align 4 %o.i, ptr noundef nonnull align 4 dereferenceable(128) %renderFromMedium, ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp.i), !noalias !185
   %d3.i = getelementptr inbounds i8, ptr %ray, i64 12
-  %agg.tmp.sroa.0.0.copyload.i = load <2 x float>, ptr %d3.i, align 4, !noalias !151
+  %agg.tmp.sroa.0.0.copyload.i = load <2 x float>, ptr %d3.i, align 4, !noalias !185
   %agg.tmp.sroa.2.0.d3.sroa_idx.i = getelementptr inbounds i8, ptr %ray, i64 20
-  %agg.tmp.sroa.2.0.copyload.i = load float, ptr %agg.tmp.sroa.2.0.d3.sroa_idx.i, align 4, !noalias !151
-  %call.i = call { <2 x float>, float } @_ZNK4pbrt9Transform12ApplyInverseIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %renderFromMedium, <2 x float> %agg.tmp.sroa.0.0.copyload.i, float %agg.tmp.sroa.2.0.copyload.i), !noalias !151
+  %agg.tmp.sroa.2.0.copyload.i = load float, ptr %agg.tmp.sroa.2.0.d3.sroa_idx.i, align 4, !noalias !185
+  %call.i = call { <2 x float>, float } @_ZNK4pbrt9Transform12ApplyInverseIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %renderFromMedium, <2 x float> %agg.tmp.sroa.0.0.copyload.i, float %agg.tmp.sroa.2.0.copyload.i), !noalias !185
   %call.fca.0.extract.i = extractvalue { <2 x float>, float } %call.i, 0
   %call.fca.1.extract.i = extractvalue { <2 x float>, float } %call.i, 1
   %v.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %call.fca.0.extract.i, i64 0
@@ -20770,20 +20791,20 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %high.i.i = getelementptr inbounds i8, ptr %o.i, i64 4
-  %4 = load float, ptr %high.i.i, align 4, !noalias !151
-  %5 = load float, ptr %o.i, align 4, !noalias !151
+  %4 = load float, ptr %high.i.i, align 4, !noalias !185
+  %5 = load float, ptr %o.i, align 4, !noalias !185
   %sub.i.i = fsub float %4, %5
   %div.i = fmul float %sub.i.i, 5.000000e-01
   %y.i = getelementptr inbounds i8, ptr %o.i, i64 8
   %high.i7.i = getelementptr inbounds i8, ptr %o.i, i64 12
-  %6 = load float, ptr %high.i7.i, align 4, !noalias !151
-  %7 = load float, ptr %y.i, align 4, !noalias !151
+  %6 = load float, ptr %high.i7.i, align 4, !noalias !185
+  %7 = load float, ptr %y.i, align 4, !noalias !185
   %sub.i8.i = fsub float %6, %7
   %div8.i = fmul float %sub.i8.i, 5.000000e-01
   %z.i = getelementptr inbounds i8, ptr %o.i, i64 16
   %high.i9.i = getelementptr inbounds i8, ptr %o.i, i64 20
-  %8 = load float, ptr %high.i9.i, align 4, !noalias !151
-  %9 = load float, ptr %z.i, align 4, !noalias !151
+  %8 = load float, ptr %high.i9.i, align 4, !noalias !185
+  %9 = load float, ptr %z.i, align 4, !noalias !185
   %sub.i10.i = fsub float %8, %9
   %div10.i = fmul float %sub.i10.i, 5.000000e-01
   %10 = call noundef float @llvm.fabs.f32(float %v.sroa.0.0.vec.extract.i.i)
@@ -20800,23 +20821,23 @@ if.then.i:                                        ; preds = %entry
   %mul3.i.i = fmul float %call.fca.1.extract.i, %div18.i
   %retval.sroa.0.0.vec.insert.i17.i = insertelement <2 x float> poison, float %mul.i14.i, i64 0
   %retval.sroa.0.4.vec.insert.i18.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i17.i, float %mul2.i.i, i64 1
-  %call23.i = call noundef nonnull align 4 dereferenceable(24) ptr @_ZN4pbrt8Point3fipLIfEERS0_NS_7Vector3IT_EE(ptr noundef nonnull align 4 dereferenceable(24) %o.i, <2 x float> %retval.sroa.0.4.vec.insert.i18.i, float %mul3.i.i), !noalias !151
+  %call23.i = call noundef nonnull align 4 dereferenceable(24) ptr @_ZN4pbrt8Point3fipLIfEERS0_NS_7Vector3IT_EE(ptr noundef nonnull align 4 dereferenceable(24) %o.i, <2 x float> %retval.sroa.0.4.vec.insert.i18.i, float %mul3.i.i), !noalias !185
   %sub.i = fsub float %raytMax, %div18.i
   br label %_ZNK4pbrt9Transform12ApplyInverseERKNS_3RayEPf.exit
 
 _ZNK4pbrt9Transform12ApplyInverseERKNS_3RayEPf.exit: ; preds = %entry, %if.then.i
   %raytMax.addr.0 = phi float [ %sub.i, %if.then.i ], [ %raytMax, %entry ]
-  %agg.tmp27.sroa.0.sroa.0.0.copyload.i = load float, ptr %o.i, align 4, !noalias !151
+  %agg.tmp27.sroa.0.sroa.0.0.copyload.i = load float, ptr %o.i, align 4, !noalias !185
   %agg.tmp27.sroa.0.sroa.2.0.o.sroa_idx.i = getelementptr inbounds i8, ptr %o.i, i64 4
-  %agg.tmp27.sroa.0.sroa.2.0.copyload.i = load float, ptr %agg.tmp27.sroa.0.sroa.2.0.o.sroa_idx.i, align 4, !noalias !151
+  %agg.tmp27.sroa.0.sroa.2.0.copyload.i = load float, ptr %agg.tmp27.sroa.0.sroa.2.0.o.sroa_idx.i, align 4, !noalias !185
   %agg.tmp27.sroa.0.sroa.3.0.o.sroa_idx.i = getelementptr inbounds i8, ptr %o.i, i64 8
-  %agg.tmp27.sroa.0.sroa.3.0.copyload.i = load float, ptr %agg.tmp27.sroa.0.sroa.3.0.o.sroa_idx.i, align 4, !noalias !151
+  %agg.tmp27.sroa.0.sroa.3.0.copyload.i = load float, ptr %agg.tmp27.sroa.0.sroa.3.0.o.sroa_idx.i, align 4, !noalias !185
   %agg.tmp27.sroa.0.sroa.4.0.o.sroa_idx.i = getelementptr inbounds i8, ptr %o.i, i64 12
-  %agg.tmp27.sroa.0.sroa.4.0.copyload.i = load float, ptr %agg.tmp27.sroa.0.sroa.4.0.o.sroa_idx.i, align 4, !noalias !151
+  %agg.tmp27.sroa.0.sroa.4.0.copyload.i = load float, ptr %agg.tmp27.sroa.0.sroa.4.0.o.sroa_idx.i, align 4, !noalias !185
   %agg.tmp27.sroa.0.sroa.5.0.o.sroa_idx.i = getelementptr inbounds i8, ptr %o.i, i64 16
-  %agg.tmp27.sroa.0.sroa.5.0.copyload.i = load float, ptr %agg.tmp27.sroa.0.sroa.5.0.o.sroa_idx.i, align 4, !noalias !151
+  %agg.tmp27.sroa.0.sroa.5.0.copyload.i = load float, ptr %agg.tmp27.sroa.0.sroa.5.0.o.sroa_idx.i, align 4, !noalias !185
   %agg.tmp27.sroa.0.sroa.6.0.o.sroa_idx.i = getelementptr inbounds i8, ptr %o.i, i64 20
-  %agg.tmp27.sroa.0.sroa.6.0.copyload.i = load float, ptr %agg.tmp27.sroa.0.sroa.6.0.o.sroa_idx.i, align 4, !noalias !151
+  %agg.tmp27.sroa.0.sroa.6.0.copyload.i = load float, ptr %agg.tmp27.sroa.0.sroa.6.0.o.sroa_idx.i, align 4, !noalias !185
   %add.i.i.i.i = fadd float %agg.tmp27.sroa.0.sroa.0.0.copyload.i, %agg.tmp27.sroa.0.sroa.2.0.copyload.i
   %div.i.i.i.i = fmul float %add.i.i.i.i, 5.000000e-01
   %add.i.i2.i.i = fadd float %agg.tmp27.sroa.0.sroa.3.0.copyload.i, %agg.tmp27.sroa.0.sroa.4.0.copyload.i
@@ -20853,7 +20874,7 @@ _ZNK4pbrt9Transform12ApplyInverseERKNS_3RayEPf.exit: ; preds = %entry, %if.then.
 for.cond.i:                                       ; preds = %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit38.i
   %inc.i = add nuw nsw i32 %i.0113.i, 1
   %exitcond.i = icmp eq i32 %inc.i, 3
-  br i1 %exitcond.i, label %do.end, label %for.body.i, !llvm.loop !142
+  br i1 %exitcond.i, label %do.end, label %for.body.i, !llvm.loop !176
 
 for.body.i:                                       ; preds = %for.cond.i, %_ZNK4pbrt9Transform12ApplyInverseERKNS_3RayEPf.exit
   %i.0113.i = phi i32 [ 0, %_ZNK4pbrt9Transform12ApplyInverseERKNS_3RayEPf.exit ], [ %inc.i, %for.cond.i ]
@@ -20931,7 +20952,7 @@ for.inc.i:                                        ; preds = %if.else.i, %lor.lhs
   store float %.sink.i, ptr %arrayidx.i.i8.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit, label %for.body.i5, !llvm.loop !135
+  br i1 %exitcond.not.i, label %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit, label %for.body.i5, !llvm.loop !169
 
 _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; preds = %for.inc.i
   %.fca.0.load.i = load <2 x float>, ptr %retval.i, align 8
@@ -20974,7 +20995,7 @@ for.inc.i19:                                      ; preds = %if.else.i30, %lor.l
   store float %.sink.i20, ptr %arrayidx.i.i8.i21, align 4
   %indvars.iv.next.i22 = add nuw nsw i64 %indvars.iv.i11, 1
   %exitcond.not.i23 = icmp eq i64 %indvars.iv.next.i22, 4
-  br i1 %exitcond.not.i23, label %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit32, label %for.body.i10, !llvm.loop !135
+  br i1 %exitcond.not.i23, label %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit32, label %for.body.i10, !llvm.loop !169
 
 _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit32: ; preds = %for.inc.i19
   %.fca.0.load.i25 = load <2 x float>, ptr %retval.i7, align 8
@@ -21000,7 +21021,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %_ZNK
   store float %add.i.i34, ptr %arrayidx.i4.i.i, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %exitcond.not.i.i, label %_ZNK4pbrt15SampledSpectrumplERKS0_.exit, label %for.body.i.i, !llvm.loop !87
+  br i1 %exitcond.not.i.i, label %_ZNK4pbrt15SampledSpectrumplERKS0_.exit, label %for.body.i.i, !llvm.loop !121
 
 _ZNK4pbrt15SampledSpectrumplERKS0_.exit:          ; preds = %for.body.i.i
   %retval.sroa.0.0.copyload.i = load <2 x float>, ptr %ret.i, align 8
@@ -21079,7 +21100,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
   %add6.i.i = fadd float %pp.sroa.7.149.i, %mul3.i.i25.i
   %mul18.i = fmul float %vomega.052.i, 5.000000e-01
   %mul19.i = fmul float %vlambda.051.i, 0x3FFFD70A40000000
-  br i1 %cmp3.i, label %for.body.i, label %if.end.i, !llvm.loop !154
+  br i1 %cmp3.i, label %for.body.i, label %if.end.i, !llvm.loop !188
 
 if.end.i:                                         ; preds = %for.body.i, %entry
   %pp.sroa.0.0.i = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i.i.i, %entry ], [ %pp.sroa.0.4.vec.insert.i, %for.body.i ]
@@ -21105,7 +21126,7 @@ for.body23.i:                                     ; preds = %for.body23.i, %if.e
   %mul32.i = fmul float %lambda.054.i, 0x3FFFD70A40000000
   %inc34.i = add nuw nsw i32 %i20.053.i, 1
   %exitcond.not.i = icmp eq i32 %inc34.i, 5
-  br i1 %exitcond.not.i, label %_ZNK4pbrt11CloudMedium7DensityENS_6Point3IfEE.exit, label %for.body23.i, !llvm.loop !155
+  br i1 %exitcond.not.i, label %_ZNK4pbrt11CloudMedium7DensityENS_6Point3IfEE.exit, label %for.body23.i, !llvm.loop !189
 
 _ZNK4pbrt11CloudMedium7DensityENS_6Point3IfEE.exit: ; preds = %for.body23.i
   %sub.i = fsub float 1.000000e+00, %t.sroa.0.4.vec.extract.i.i
@@ -21161,7 +21182,7 @@ for.inc.i:                                        ; preds = %if.else.i, %lor.lhs
   store float %.sink.i, ptr %arrayidx.i.i8.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i4 = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i4, label %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit, label %for.body.i3, !llvm.loop !135
+  br i1 %exitcond.not.i4, label %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit, label %for.body.i3, !llvm.loop !169
 
 _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; preds = %for.inc.i
   %cmp.i40.i = fcmp olt float %add46.i, 0.000000e+00
@@ -21184,7 +21205,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %_ZNK
   store float %mul.i.i, ptr %arrayidx.i.i.i5, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %exitcond.not.i.i, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit, label %for.body.i.i, !llvm.loop !110
+  br i1 %exitcond.not.i.i, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit, label %for.body.i.i, !llvm.loop !144
 
 _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit:         ; preds = %for.body.i.i
   %.fca.0.load.i.i = load <2 x float>, ptr %retval.i.i, align 8
@@ -21226,7 +21247,7 @@ for.inc.i18:                                      ; preds = %if.else.i28, %lor.l
   store float %.sink.i19, ptr %arrayidx.i.i8.i20, align 4
   %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i10, 1
   %exitcond.not.i22 = icmp eq i64 %indvars.iv.next.i21, 4
-  br i1 %exitcond.not.i22, label %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit30, label %for.body.i9, !llvm.loop !135
+  br i1 %exitcond.not.i22, label %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit30, label %for.body.i9, !llvm.loop !169
 
 _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit30: ; preds = %for.inc.i18
   %.fca.0.load.i23 = load <2 x float>, ptr %retval.i6, align 8
@@ -21247,7 +21268,7 @@ for.body.i.i32:                                   ; preds = %for.body.i.i32, %_Z
   store float %mul.i.i35, ptr %arrayidx.i.i.i34, align 4
   %indvars.iv.next.i.i36 = add nuw nsw i64 %indvars.iv.i.i33, 1
   %exitcond.not.i.i37 = icmp eq i64 %indvars.iv.next.i.i36, 4
-  br i1 %exitcond.not.i.i37, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit43, label %for.body.i.i32, !llvm.loop !110
+  br i1 %exitcond.not.i.i37, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit43, label %for.body.i.i32, !llvm.loop !144
 
 _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit43:       ; preds = %for.body.i.i32
   %.fca.0.load.i.i38 = load <2 x float>, ptr %retval.i.i31, align 8
@@ -21287,25 +21308,25 @@ entry:
   %renderFromMedium = getelementptr inbounds i8, ptr %this, i64 24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %o.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
-  %0 = load <4 x float>, ptr %ray, align 8, !noalias !156
+  %0 = load <4 x float>, ptr %ray, align 8, !noalias !190
   %agg.tmp.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %0, <4 x float> poison, <2 x i32> zeroinitializer
   %y.i.i = getelementptr inbounds i8, ptr %ray, i64 4
-  %1 = load <4 x float>, ptr %y.i.i, align 4, !noalias !156
+  %1 = load <4 x float>, ptr %y.i.i, align 4, !noalias !190
   %agg.tmp2.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %1, <4 x float> poison, <2 x i32> zeroinitializer
   %z.i.i = getelementptr inbounds i8, ptr %ray, i64 8
-  %2 = load <4 x float>, ptr %z.i.i, align 4, !noalias !156
+  %2 = load <4 x float>, ptr %z.i.i, align 4, !noalias !190
   %agg.tmp3.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %2, <4 x float> poison, <2 x i32> zeroinitializer
-  store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i.i, ptr %ref.tmp.i, align 8, !noalias !156
+  store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i.i, ptr %ref.tmp.i, align 8, !noalias !190
   %y3.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  store <2 x float> %agg.tmp2.sroa.0.4.vec.insert.i.i, ptr %y3.i.i.i.i, align 8, !noalias !156
+  store <2 x float> %agg.tmp2.sroa.0.4.vec.insert.i.i, ptr %y3.i.i.i.i, align 8, !noalias !190
   %z4.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
-  store <2 x float> %agg.tmp3.sroa.0.4.vec.insert.i.i, ptr %z4.i.i.i.i, align 8, !noalias !156
-  call void @_ZNK4pbrt9Transform12ApplyInverseERKNS_8Point3fiE(ptr nonnull sret(%"class.pbrt::Point3fi") align 4 %o.i, ptr noundef nonnull align 4 dereferenceable(128) %renderFromMedium, ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp.i), !noalias !156
+  store <2 x float> %agg.tmp3.sroa.0.4.vec.insert.i.i, ptr %z4.i.i.i.i, align 8, !noalias !190
+  call void @_ZNK4pbrt9Transform12ApplyInverseERKNS_8Point3fiE(ptr nonnull sret(%"class.pbrt::Point3fi") align 4 %o.i, ptr noundef nonnull align 4 dereferenceable(128) %renderFromMedium, ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp.i), !noalias !190
   %d3.i = getelementptr inbounds i8, ptr %ray, i64 12
-  %agg.tmp.sroa.0.0.copyload.i = load <2 x float>, ptr %d3.i, align 4, !noalias !156
+  %agg.tmp.sroa.0.0.copyload.i = load <2 x float>, ptr %d3.i, align 4, !noalias !190
   %agg.tmp.sroa.2.0.d3.sroa_idx.i = getelementptr inbounds i8, ptr %ray, i64 20
-  %agg.tmp.sroa.2.0.copyload.i = load float, ptr %agg.tmp.sroa.2.0.d3.sroa_idx.i, align 4, !noalias !156
-  %call.i = call { <2 x float>, float } @_ZNK4pbrt9Transform12ApplyInverseIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %renderFromMedium, <2 x float> %agg.tmp.sroa.0.0.copyload.i, float %agg.tmp.sroa.2.0.copyload.i), !noalias !156
+  %agg.tmp.sroa.2.0.copyload.i = load float, ptr %agg.tmp.sroa.2.0.d3.sroa_idx.i, align 4, !noalias !190
+  %call.i = call { <2 x float>, float } @_ZNK4pbrt9Transform12ApplyInverseIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %renderFromMedium, <2 x float> %agg.tmp.sroa.0.0.copyload.i, float %agg.tmp.sroa.2.0.copyload.i), !noalias !190
   %call.fca.0.extract.i = extractvalue { <2 x float>, float } %call.i, 0
   %call.fca.1.extract.i = extractvalue { <2 x float>, float } %call.i, 1
   %v.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %call.fca.0.extract.i, i64 0
@@ -21321,20 +21342,20 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %high.i.i = getelementptr inbounds i8, ptr %o.i, i64 4
-  %4 = load float, ptr %high.i.i, align 4, !noalias !156
-  %5 = load float, ptr %o.i, align 4, !noalias !156
+  %4 = load float, ptr %high.i.i, align 4, !noalias !190
+  %5 = load float, ptr %o.i, align 4, !noalias !190
   %sub.i.i = fsub float %4, %5
   %div.i = fmul float %sub.i.i, 5.000000e-01
   %y.i = getelementptr inbounds i8, ptr %o.i, i64 8
   %high.i7.i = getelementptr inbounds i8, ptr %o.i, i64 12
-  %6 = load float, ptr %high.i7.i, align 4, !noalias !156
-  %7 = load float, ptr %y.i, align 4, !noalias !156
+  %6 = load float, ptr %high.i7.i, align 4, !noalias !190
+  %7 = load float, ptr %y.i, align 4, !noalias !190
   %sub.i8.i = fsub float %6, %7
   %div8.i = fmul float %sub.i8.i, 5.000000e-01
   %z.i = getelementptr inbounds i8, ptr %o.i, i64 16
   %high.i9.i = getelementptr inbounds i8, ptr %o.i, i64 20
-  %8 = load float, ptr %high.i9.i, align 4, !noalias !156
-  %9 = load float, ptr %z.i, align 4, !noalias !156
+  %8 = load float, ptr %high.i9.i, align 4, !noalias !190
+  %9 = load float, ptr %z.i, align 4, !noalias !190
   %sub.i10.i = fsub float %8, %9
   %div10.i = fmul float %sub.i10.i, 5.000000e-01
   %10 = call noundef float @llvm.fabs.f32(float %v.sroa.0.0.vec.extract.i.i)
@@ -21351,23 +21372,23 @@ if.then.i:                                        ; preds = %entry
   %mul3.i.i = fmul float %call.fca.1.extract.i, %div18.i
   %retval.sroa.0.0.vec.insert.i17.i = insertelement <2 x float> poison, float %mul.i14.i, i64 0
   %retval.sroa.0.4.vec.insert.i18.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i17.i, float %mul2.i.i, i64 1
-  %call23.i = call noundef nonnull align 4 dereferenceable(24) ptr @_ZN4pbrt8Point3fipLIfEERS0_NS_7Vector3IT_EE(ptr noundef nonnull align 4 dereferenceable(24) %o.i, <2 x float> %retval.sroa.0.4.vec.insert.i18.i, float %mul3.i.i), !noalias !156
+  %call23.i = call noundef nonnull align 4 dereferenceable(24) ptr @_ZN4pbrt8Point3fipLIfEERS0_NS_7Vector3IT_EE(ptr noundef nonnull align 4 dereferenceable(24) %o.i, <2 x float> %retval.sroa.0.4.vec.insert.i18.i, float %mul3.i.i), !noalias !190
   %sub.i = fsub float %raytMax, %div18.i
   br label %_ZNK4pbrt9Transform12ApplyInverseERKNS_3RayEPf.exit
 
 _ZNK4pbrt9Transform12ApplyInverseERKNS_3RayEPf.exit: ; preds = %entry, %if.then.i
   %raytMax.addr.0 = phi float [ %sub.i, %if.then.i ], [ %raytMax, %entry ]
-  %agg.tmp27.sroa.0.sroa.0.0.copyload.i = load float, ptr %o.i, align 4, !noalias !156
+  %agg.tmp27.sroa.0.sroa.0.0.copyload.i = load float, ptr %o.i, align 4, !noalias !190
   %agg.tmp27.sroa.0.sroa.2.0.o.sroa_idx.i = getelementptr inbounds i8, ptr %o.i, i64 4
-  %agg.tmp27.sroa.0.sroa.2.0.copyload.i = load float, ptr %agg.tmp27.sroa.0.sroa.2.0.o.sroa_idx.i, align 4, !noalias !156
+  %agg.tmp27.sroa.0.sroa.2.0.copyload.i = load float, ptr %agg.tmp27.sroa.0.sroa.2.0.o.sroa_idx.i, align 4, !noalias !190
   %agg.tmp27.sroa.0.sroa.3.0.o.sroa_idx.i = getelementptr inbounds i8, ptr %o.i, i64 8
-  %agg.tmp27.sroa.0.sroa.3.0.copyload.i = load float, ptr %agg.tmp27.sroa.0.sroa.3.0.o.sroa_idx.i, align 4, !noalias !156
+  %agg.tmp27.sroa.0.sroa.3.0.copyload.i = load float, ptr %agg.tmp27.sroa.0.sroa.3.0.o.sroa_idx.i, align 4, !noalias !190
   %agg.tmp27.sroa.0.sroa.4.0.o.sroa_idx.i = getelementptr inbounds i8, ptr %o.i, i64 12
-  %agg.tmp27.sroa.0.sroa.4.0.copyload.i = load float, ptr %agg.tmp27.sroa.0.sroa.4.0.o.sroa_idx.i, align 4, !noalias !156
+  %agg.tmp27.sroa.0.sroa.4.0.copyload.i = load float, ptr %agg.tmp27.sroa.0.sroa.4.0.o.sroa_idx.i, align 4, !noalias !190
   %agg.tmp27.sroa.0.sroa.5.0.o.sroa_idx.i = getelementptr inbounds i8, ptr %o.i, i64 16
-  %agg.tmp27.sroa.0.sroa.5.0.copyload.i = load float, ptr %agg.tmp27.sroa.0.sroa.5.0.o.sroa_idx.i, align 4, !noalias !156
+  %agg.tmp27.sroa.0.sroa.5.0.copyload.i = load float, ptr %agg.tmp27.sroa.0.sroa.5.0.o.sroa_idx.i, align 4, !noalias !190
   %agg.tmp27.sroa.0.sroa.6.0.o.sroa_idx.i = getelementptr inbounds i8, ptr %o.i, i64 20
-  %agg.tmp27.sroa.0.sroa.6.0.copyload.i = load float, ptr %agg.tmp27.sroa.0.sroa.6.0.o.sroa_idx.i, align 4, !noalias !156
+  %agg.tmp27.sroa.0.sroa.6.0.copyload.i = load float, ptr %agg.tmp27.sroa.0.sroa.6.0.o.sroa_idx.i, align 4, !noalias !190
   %add.i.i.i.i = fadd float %agg.tmp27.sroa.0.sroa.0.0.copyload.i, %agg.tmp27.sroa.0.sroa.2.0.copyload.i
   %div.i.i.i.i = fmul float %add.i.i.i.i, 5.000000e-01
   %add.i.i2.i.i = fadd float %agg.tmp27.sroa.0.sroa.3.0.copyload.i, %agg.tmp27.sroa.0.sroa.4.0.copyload.i
@@ -21405,7 +21426,7 @@ _ZNK4pbrt9Transform12ApplyInverseERKNS_3RayEPf.exit: ; preds = %entry, %if.then.
 for.cond.i:                                       ; preds = %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit38.i
   %inc.i = add nuw nsw i32 %i.0113.i, 1
   %exitcond.i = icmp eq i32 %inc.i, 3
-  br i1 %exitcond.i, label %do.end, label %for.body.i, !llvm.loop !142
+  br i1 %exitcond.i, label %do.end, label %for.body.i, !llvm.loop !176
 
 for.body.i:                                       ; preds = %for.cond.i, %_ZNK4pbrt9Transform12ApplyInverseERKNS_3RayEPf.exit
   %i.0113.i = phi i32 [ 0, %_ZNK4pbrt9Transform12ApplyInverseERKNS_3RayEPf.exit ], [ %inc.i, %for.cond.i ]
@@ -21486,7 +21507,7 @@ for.inc.i:                                        ; preds = %if.else.i, %lor.lhs
   store float %.sink.i, ptr %arrayidx.i.i8.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit, label %for.body.i5, !llvm.loop !135
+  br i1 %exitcond.not.i, label %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit, label %for.body.i5, !llvm.loop !169
 
 _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; preds = %for.inc.i
   %.fca.0.load.i = load <2 x float>, ptr %retval.i, align 8
@@ -21529,7 +21550,7 @@ for.inc.i19:                                      ; preds = %if.else.i30, %lor.l
   store float %.sink.i20, ptr %arrayidx.i.i8.i21, align 4
   %indvars.iv.next.i22 = add nuw nsw i64 %indvars.iv.i11, 1
   %exitcond.not.i23 = icmp eq i64 %indvars.iv.next.i22, 4
-  br i1 %exitcond.not.i23, label %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit32, label %for.body.i10, !llvm.loop !135
+  br i1 %exitcond.not.i23, label %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit32, label %for.body.i10, !llvm.loop !169
 
 _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit32: ; preds = %for.inc.i19
   %.fca.0.load.i25 = load <2 x float>, ptr %retval.i7, align 8
@@ -21555,7 +21576,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %_ZNK
   store float %add.i.i34, ptr %arrayidx.i4.i.i, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %exitcond.not.i.i, label %_ZNK4pbrt15SampledSpectrumplERKS0_.exit, label %for.body.i.i, !llvm.loop !87
+  br i1 %exitcond.not.i.i, label %_ZNK4pbrt15SampledSpectrumplERKS0_.exit, label %for.body.i.i, !llvm.loop !121
 
 _ZNK4pbrt15SampledSpectrumplERKS0_.exit:          ; preds = %for.body.i.i
   %retval.sroa.0.0.copyload.i = load <2 x float>, ptr %ret.i, align 8
@@ -21617,7 +21638,7 @@ for.inc.i:                                        ; preds = %if.else.i, %lor.lhs
   store float %.sink.i, ptr %arrayidx.i.i8.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit, label %for.body.i, !llvm.loop !135
+  br i1 %exitcond.not.i, label %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit, label %for.body.i, !llvm.loop !169
 
 _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; preds = %for.inc.i
   %.fca.0.load.i = load <2 x float>, ptr %retval.i, align 8
@@ -21660,7 +21681,7 @@ for.inc.i18:                                      ; preds = %if.else.i28, %lor.l
   store float %.sink.i19, ptr %arrayidx.i.i8.i20, align 4
   %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i10, 1
   %exitcond.not.i22 = icmp eq i64 %indvars.iv.next.i21, 4
-  br i1 %exitcond.not.i22, label %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit30, label %for.body.i9, !llvm.loop !135
+  br i1 %exitcond.not.i22, label %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit30, label %for.body.i9, !llvm.loop !169
 
 _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit30: ; preds = %for.inc.i18
   %.fca.0.load.i23 = load <2 x float>, ptr %retval.i6, align 8
@@ -21730,7 +21751,7 @@ for.body.i32:                                     ; preds = %for.body.i32, %_ZNK
   store float %mul.i, ptr %arrayidx.i.i34, align 4
   %indvars.iv.next.i35 = add nuw nsw i64 %indvars.iv.i33, 1
   %exitcond.not.i36 = icmp eq i64 %indvars.iv.next.i35, 4
-  br i1 %exitcond.not.i36, label %_ZNK4pbrt15SampledSpectrummlEf.exit, label %for.body.i32, !llvm.loop !110
+  br i1 %exitcond.not.i36, label %_ZNK4pbrt15SampledSpectrummlEf.exit, label %for.body.i32, !llvm.loop !144
 
 _ZNK4pbrt15SampledSpectrummlEf.exit:              ; preds = %for.body.i32
   %.fca.0.load.i37 = load <2 x float>, ptr %retval.i31, align 8
@@ -21753,7 +21774,7 @@ for.body.i43:                                     ; preds = %for.body.i43, %_ZNK
   store float %mul.i46, ptr %arrayidx.i.i45, align 4
   %indvars.iv.next.i47 = add nuw nsw i64 %indvars.iv.i44, 1
   %exitcond.not.i48 = icmp eq i64 %indvars.iv.next.i47, 4
-  br i1 %exitcond.not.i48, label %_ZNK4pbrt15SampledSpectrummlEf.exit54, label %for.body.i43, !llvm.loop !110
+  br i1 %exitcond.not.i48, label %_ZNK4pbrt15SampledSpectrummlEf.exit54, label %for.body.i43, !llvm.loop !144
 
 _ZNK4pbrt15SampledSpectrummlEf.exit54:            ; preds = %for.body.i43
   %sigma_s21 = getelementptr inbounds i8, ptr %agg.result, i64 16
@@ -22022,7 +22043,7 @@ for.body.i.i11:                                   ; preds = %for.body.i.i11, %_Z
   store float %mul.i.i13, ptr %arrayidx.i.i.i, align 4
   %indvars.iv.next.i.i14 = add nuw nsw i64 %indvars.iv.i.i12, 1
   %exitcond.not.i.i15 = icmp eq i64 %indvars.iv.next.i.i14, 4
-  br i1 %exitcond.not.i.i15, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit, label %for.body.i.i11, !llvm.loop !110
+  br i1 %exitcond.not.i.i15, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit, label %for.body.i.i11, !llvm.loop !144
 
 _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit:         ; preds = %for.body.i.i11
   %.fca.0.load.i.i = load <2 x float>, ptr %retval.i.i, align 8
@@ -22069,7 +22090,7 @@ for.body.preheader.i:                             ; preds = %entry
 for.cond.i:                                       ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !159
+  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !193
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.cond.i ]
@@ -22334,7 +22355,7 @@ while.body.i.i.i:                                 ; preds = %_ZN4pstd8optionalIN
   %wrs.sroa.12.0.i.i.i = phi float [ 0.000000e+00, %_ZN4pbrt4HashIJNS_6Point3IfEES2_EEEmDpT_.exit.i.i.i ], [ %wrs.sroa.12.2.ph.i.i.i, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit30.i.i.i ]
   %wrs.sroa.10.0.i.i.i = phi float [ 0.000000e+00, %_ZN4pbrt4HashIJNS_6Point3IfEES2_EEEmDpT_.exit.i.i.i ], [ %wrs.sroa.10.2.ph.i.i.i, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit30.i.i.i ]
   %wrs.sroa.5.0.i.i.i = phi float [ 0.000000e+00, %_ZN4pbrt4HashIJNS_6Point3IfEES2_EEEmDpT_.exit.i.i.i ], [ %wrs.sroa.5.2.ph.i.i.i, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit30.i.i.i ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !160)
+  call void @llvm.experimental.noalias.scope.decl(metadata !194)
   %add.i.i.i.i.i.i.i.i = fadd float %agg.tmp1.i.sroa.4.0.copyload.i.i.i, %agg.tmp1.i.sroa.0.0.copyload.i.i.i
   %div.i.i.i.i.i.i.i.i = fmul float %add.i.i.i.i.i.i.i.i, 5.000000e-01
   %add.i.i2.i.i.i.i.i.i = fadd float %agg.tmp1.i.sroa.6.0.copyload.i.i.i, %agg.tmp1.i.sroa.5.0.copyload.i.i.i
@@ -22348,21 +22369,21 @@ while.body.i.i.i:                                 ; preds = %_ZN4pstd8optionalIN
   %sub6.i.i.i.i.i.i = fsub float %agg.tmp8.sroa.2.0.copyload.i.i.i, %div.i.i6.i.i.i.i.i.i
   %retval.sroa.0.0.vec.insert.i.i.i.i.i.i = insertelement <2 x float> poison, float %sub.i.i.i.i.i.i, i64 0
   %retval.sroa.0.4.vec.insert.i.i.i.i.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i.i.i.i.i, float %sub4.i.i.i.i.i.i, i64 1
-  %call.i.i.i.i.i.i = call { <2 x float>, float } @_ZN4pbrt15OffsetRayOriginENS_8Point3fiENS_7Normal3IfEENS_7Vector3IfEE(ptr noundef nonnull byval(%"class.pbrt::Point3fi") align 8 %base.i.i.i, <2 x float> %agg.tmp2.sroa.0.0.copyload.i.i.i.i, float %agg.tmp2.sroa.2.0.copyload.i.i.i.i, <2 x float> %retval.sroa.0.4.vec.insert.i.i.i.i.i.i, float %sub6.i.i.i.i.i.i), !noalias !160
+  %call.i.i.i.i.i.i = call { <2 x float>, float } @_ZN4pbrt15OffsetRayOriginENS_8Point3fiENS_7Normal3IfEENS_7Vector3IfEE(ptr noundef nonnull byval(%"class.pbrt::Point3fi") align 8 %base.i.i.i, <2 x float> %agg.tmp2.sroa.0.0.copyload.i.i.i.i, float %agg.tmp2.sroa.2.0.copyload.i.i.i.i, <2 x float> %retval.sroa.0.4.vec.insert.i.i.i.i.i.i, float %sub6.i.i.i.i.i.i), !noalias !194
   %call.fca.0.extract.i.i.i.i.i.i = extractvalue { <2 x float>, float } %call.i.i.i.i.i.i, 0
   %call.fca.1.extract.i.i.i.i.i.i = extractvalue { <2 x float>, float } %call.i.i.i.i.i.i, 1
-  store <2 x float> %call.fca.0.extract.i.i.i.i.i.i, ptr %r.i.i.i, align 8, !alias.scope !163
-  store float %call.fca.1.extract.i.i.i.i.i.i, ptr %o.sroa.2.0.o3.sroa_idx.i.i.i.i.i.i.i, align 8, !alias.scope !163
-  store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i.i.i.i, ptr %d4.i.i.i.i.i.i.i, align 4, !alias.scope !163
-  store float %sub6.i.i.i.i.i.i, ptr %d.sroa.2.0.d4.sroa_idx.i.i.i.i.i.i.i, align 4, !alias.scope !163
-  store float %6, ptr %time5.i.i.i.i.i.i.i, align 8, !alias.scope !163
-  %7 = load ptr, ptr %mediumInterface.i.i.i.i, align 8, !noalias !168
+  store <2 x float> %call.fca.0.extract.i.i.i.i.i.i, ptr %r.i.i.i, align 8, !alias.scope !197
+  store float %call.fca.1.extract.i.i.i.i.i.i, ptr %o.sroa.2.0.o3.sroa_idx.i.i.i.i.i.i.i, align 8, !alias.scope !197
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i.i.i.i, ptr %d4.i.i.i.i.i.i.i, align 4, !alias.scope !197
+  store float %sub6.i.i.i.i.i.i, ptr %d.sroa.2.0.d4.sroa_idx.i.i.i.i.i.i.i, align 4, !alias.scope !197
+  store float %6, ptr %time5.i.i.i.i.i.i.i, align 8, !alias.scope !197
+  %7 = load ptr, ptr %mediumInterface.i.i.i.i, align 8, !noalias !202
   %tobool.not.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZNK4pbrt11Interaction10SpawnRayToENS_6Point3IfEE.exit.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body.i.i.i
-  %agg.tmp2.sroa.0.0.copyload.i.i.i.i.i = load <2 x float>, ptr %n.i.i.i.i, align 8, !noalias !168
-  %agg.tmp2.sroa.2.0.copyload.i.i.i.i.i = load float, ptr %agg.tmp2.sroa.2.0.n.sroa_idx.i.i.i.i, align 8, !noalias !168
+  %agg.tmp2.sroa.0.0.copyload.i.i.i.i.i = load <2 x float>, ptr %n.i.i.i.i, align 8, !noalias !202
+  %agg.tmp2.sroa.2.0.copyload.i.i.i.i.i = load float, ptr %agg.tmp2.sroa.2.0.n.sroa_idx.i.i.i.i, align 8, !noalias !202
   %n.sroa.0.0.vec.extract.i.i.i.i.i.i = extractelement <2 x float> %agg.tmp2.sroa.0.0.copyload.i.i.i.i.i, i64 0
   %n.sroa.0.4.vec.extract.i.i.i.i.i.i = extractelement <2 x float> %agg.tmp2.sroa.0.0.copyload.i.i.i.i.i, i64 1
   %mul.i.i.i.i8.i.i.i = fmul float %sub6.i.i.i.i.i.i, %agg.tmp2.sroa.2.0.copyload.i.i.i.i.i
@@ -22378,8 +22399,8 @@ if.then.i.i.i.i.i:                                ; preds = %while.body.i.i.i
 
 _ZNK4pbrt11Interaction10SpawnRayToENS_6Point3IfEE.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %while.body.i.i.i
   %storemerge.in.i.i.i.i.i = phi ptr [ %cond-lvalue.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %medium3.i.i.i.i, %while.body.i.i.i ]
-  %storemerge.i.i.i.i.i = load i64, ptr %storemerge.in.i.i.i.i.i, align 8, !noalias !168
-  store i64 %storemerge.i.i.i.i.i, ptr %medium6.i.i.i.i.i.i.i, align 8, !alias.scope !160
+  %storemerge.i.i.i.i.i = load i64, ptr %storemerge.in.i.i.i.i.i, align 8, !noalias !202
+  store i64 %storemerge.i.i.i.i.i, ptr %medium6.i.i.i.i.i.i.i, align 8, !alias.scope !194
   %cmp.i.i.i.i = fcmp oeq float %sub.i.i.i.i.i.i, 0.000000e+00
   %cmp4.i.i.i.i = fcmp oeq float %sub4.i.i.i.i.i.i, 0.000000e+00
   %or.cond.i.i.i.i = select i1 %cmp.i.i.i.i, i1 %cmp4.i.i.i.i, i1 false
@@ -22479,15 +22500,15 @@ _ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit30.i.i.i: ; preds = %if.th
   store i8 0, ptr %set.i.i.i.i, align 8
   %agg.tmp8.sroa.0.0.copyload.pre.i.i.i = load <2 x float>, ptr %p1.i.i.i, align 4
   %agg.tmp8.sroa.2.0.copyload.pre.i.i.i = load float, ptr %agg.tmp3.sroa.2.0.p1.sroa_idx.i.i.i, align 4
-  %agg.tmp1.i.sroa.0.0.copyload.pre.i.i.i = load float, ptr %base.i.i.i, align 8, !noalias !160
-  %agg.tmp1.i.sroa.4.0.copyload.pre.i.i.i = load float, ptr %agg.tmp1.i.sroa.4.0.base.sroa_idx.i.i.i, align 4, !noalias !160
-  %agg.tmp1.i.sroa.5.0.copyload.pre.i.i.i = load float, ptr %y3.i.i.i.i.i.i.i, align 8, !noalias !160
-  %agg.tmp1.i.sroa.6.0.copyload.pre.i.i.i = load float, ptr %agg.tmp1.i.sroa.6.0.base.sroa_idx.i.i.i, align 4, !noalias !160
-  %agg.tmp1.i.sroa.7.0.copyload.pre.i.i.i = load float, ptr %z4.i.i.i.i.i.i.i, align 8, !noalias !160
-  %agg.tmp1.i.sroa.8.0.copyload.pre.i.i.i = load float, ptr %agg.tmp1.i.sroa.8.0.base.sroa_idx.i.i.i, align 4, !noalias !160
-  %agg.tmp2.sroa.0.0.copyload.i.pre.i.i.i = load <2 x float>, ptr %n.i.i.i.i, align 8, !noalias !160
-  %agg.tmp2.sroa.2.0.copyload.i.pre.i.i.i = load float, ptr %agg.tmp2.sroa.2.0.n.sroa_idx.i.i.i.i, align 8, !noalias !160
-  %.pre.i.i.i = load float, ptr %time2.i.i.i.i, align 8, !noalias !160
+  %agg.tmp1.i.sroa.0.0.copyload.pre.i.i.i = load float, ptr %base.i.i.i, align 8, !noalias !194
+  %agg.tmp1.i.sroa.4.0.copyload.pre.i.i.i = load float, ptr %agg.tmp1.i.sroa.4.0.base.sroa_idx.i.i.i, align 4, !noalias !194
+  %agg.tmp1.i.sroa.5.0.copyload.pre.i.i.i = load float, ptr %y3.i.i.i.i.i.i.i, align 8, !noalias !194
+  %agg.tmp1.i.sroa.6.0.copyload.pre.i.i.i = load float, ptr %agg.tmp1.i.sroa.6.0.base.sroa_idx.i.i.i, align 4, !noalias !194
+  %agg.tmp1.i.sroa.7.0.copyload.pre.i.i.i = load float, ptr %z4.i.i.i.i.i.i.i, align 8, !noalias !194
+  %agg.tmp1.i.sroa.8.0.copyload.pre.i.i.i = load float, ptr %agg.tmp1.i.sroa.8.0.base.sroa_idx.i.i.i, align 4, !noalias !194
+  %agg.tmp2.sroa.0.0.copyload.i.pre.i.i.i = load <2 x float>, ptr %n.i.i.i.i, align 8, !noalias !194
+  %agg.tmp2.sroa.2.0.copyload.i.pre.i.i.i = load float, ptr %agg.tmp2.sroa.2.0.n.sroa_idx.i.i.i.i, align 8, !noalias !194
+  %.pre.i.i.i = load float, ptr %time2.i.i.i.i, align 8, !noalias !194
   br label %while.body.i.i.i
 
 while.end.i.i.i:                                  ; preds = %if.end.i.i.i, %_ZNK4pbrt11Interaction10SpawnRayToENS_6Point3IfEE.exit.i.i.i
@@ -22705,67 +22726,67 @@ entry:
   %17 = load i64, ptr %arrayidx20, align 8
   store i64 %17, ptr %material.i, align 8
   %x.i.i = getelementptr inbounds i8, ptr %0, i64 104
-  %18 = load ptr, ptr %x.i.i, align 8, !noalias !171
+  %18 = load ptr, ptr %x.i.i, align 8, !noalias !205
   %arrayidx.i.i = getelementptr inbounds float, ptr %18, i64 %idxprom.i
-  %19 = load float, ptr %arrayidx.i.i, align 4, !noalias !171
+  %19 = load float, ptr %arrayidx.i.i, align 4, !noalias !205
   %retval.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %19, i64 0
   %y.i.i = getelementptr inbounds i8, ptr %0, i64 112
-  %20 = load ptr, ptr %y.i.i, align 8, !noalias !171
+  %20 = load ptr, ptr %y.i.i, align 8, !noalias !205
   %arrayidx6.i.i = getelementptr inbounds float, ptr %20, i64 %idxprom.i
-  %21 = load float, ptr %arrayidx6.i.i, align 4, !noalias !171
+  %21 = load float, ptr %arrayidx6.i.i, align 4, !noalias !205
   %retval.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i, float %21, i64 1
   %z.i.i = getelementptr inbounds i8, ptr %0, i64 120
-  %22 = load ptr, ptr %z.i.i, align 8, !noalias !171
+  %22 = load ptr, ptr %z.i.i, align 8, !noalias !205
   %arrayidx11.i.i = getelementptr inbounds float, ptr %22, i64 %idxprom.i
-  %23 = load float, ptr %arrayidx11.i.i, align 4, !noalias !171
+  %23 = load float, ptr %arrayidx11.i.i, align 4, !noalias !205
   %x.i5.i = getelementptr inbounds i8, ptr %0, i64 136
-  %24 = load ptr, ptr %x.i5.i, align 8, !noalias !171
+  %24 = load ptr, ptr %x.i5.i, align 8, !noalias !205
   %arrayidx.i8.i = getelementptr inbounds float, ptr %24, i64 %idxprom.i
-  %25 = load float, ptr %arrayidx.i8.i, align 4, !noalias !171
+  %25 = load float, ptr %arrayidx.i8.i, align 4, !noalias !205
   %retval.sroa.0.0.vec.insert.i9.i = insertelement <2 x float> poison, float %25, i64 0
   %y.i10.i = getelementptr inbounds i8, ptr %0, i64 144
-  %26 = load ptr, ptr %y.i10.i, align 8, !noalias !171
+  %26 = load ptr, ptr %y.i10.i, align 8, !noalias !205
   %arrayidx6.i11.i = getelementptr inbounds float, ptr %26, i64 %idxprom.i
-  %27 = load float, ptr %arrayidx6.i11.i, align 4, !noalias !171
+  %27 = load float, ptr %arrayidx6.i11.i, align 4, !noalias !205
   %retval.sroa.0.4.vec.insert.i12.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i9.i, float %27, i64 1
   %z.i13.i = getelementptr inbounds i8, ptr %0, i64 152
-  %28 = load ptr, ptr %z.i13.i, align 8, !noalias !171
+  %28 = load ptr, ptr %z.i13.i, align 8, !noalias !205
   %arrayidx11.i14.i = getelementptr inbounds float, ptr %28, i64 %idxprom.i
-  %29 = load float, ptr %arrayidx11.i14.i, align 4, !noalias !171
+  %29 = load float, ptr %arrayidx11.i14.i, align 4, !noalias !205
   %x.i19.i = getelementptr inbounds i8, ptr %0, i64 168
-  %30 = load ptr, ptr %x.i19.i, align 8, !noalias !171
+  %30 = load ptr, ptr %x.i19.i, align 8, !noalias !205
   %arrayidx.i22.i = getelementptr inbounds float, ptr %30, i64 %idxprom.i
-  %31 = load float, ptr %arrayidx.i22.i, align 4, !noalias !171
+  %31 = load float, ptr %arrayidx.i22.i, align 4, !noalias !205
   %retval.sroa.0.0.vec.insert.i23.i = insertelement <2 x float> poison, float %31, i64 0
   %y.i24.i = getelementptr inbounds i8, ptr %0, i64 176
-  %32 = load ptr, ptr %y.i24.i, align 8, !noalias !171
+  %32 = load ptr, ptr %y.i24.i, align 8, !noalias !205
   %arrayidx6.i25.i = getelementptr inbounds float, ptr %32, i64 %idxprom.i
-  %33 = load float, ptr %arrayidx6.i25.i, align 4, !noalias !171
+  %33 = load float, ptr %arrayidx6.i25.i, align 4, !noalias !205
   %retval.sroa.0.4.vec.insert.i26.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i23.i, float %33, i64 1
   %z.i27.i = getelementptr inbounds i8, ptr %0, i64 184
-  %34 = load ptr, ptr %z.i27.i, align 8, !noalias !171
+  %34 = load ptr, ptr %z.i27.i, align 8, !noalias !205
   %arrayidx11.i28.i = getelementptr inbounds float, ptr %34, i64 %idxprom.i
-  %35 = load float, ptr %arrayidx11.i28.i, align 4, !noalias !171
+  %35 = load float, ptr %arrayidx11.i28.i, align 4, !noalias !205
   %eta.i = getelementptr inbounds i8, ptr %0, i64 192
-  %36 = load ptr, ptr %eta.i, align 8, !noalias !171
+  %36 = load ptr, ptr %eta.i, align 8, !noalias !205
   %arrayidx.i21 = getelementptr inbounds float, ptr %36, i64 %idxprom.i
-  %37 = load float, ptr %arrayidx.i21, align 4, !noalias !171
+  %37 = load float, ptr %arrayidx.i21, align 4, !noalias !205
   %table.i = getelementptr inbounds i8, ptr %0, i64 200
-  %38 = load ptr, ptr %table.i, align 8, !noalias !171
+  %38 = load ptr, ptr %table.i, align 8, !noalias !205
   %arrayidx29.i = getelementptr inbounds ptr, ptr %38, i64 %idxprom.i
-  %39 = load ptr, ptr %arrayidx29.i, align 8, !noalias !171
+  %39 = load ptr, ptr %arrayidx29.i, align 8, !noalias !205
   %ptr4.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 216
-  %40 = load ptr, ptr %ptr4.i.i.i.i, align 8, !noalias !171
+  %40 = load ptr, ptr %ptr4.i.i.i.i, align 8, !noalias !205
   %add.ptr.i.i.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %40, i64 %idxprom.i
-  %retval.sroa.0.0.copyload.i.i.i.i.i = load <2 x float>, ptr %add.ptr.i.i.i.i, align 16, !noalias !171
+  %retval.sroa.0.0.copyload.i.i.i.i.i = load <2 x float>, ptr %add.ptr.i.i.i.i, align 16, !noalias !205
   %retval.sroa.2.0.p.addr.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 8
-  %retval.sroa.2.0.copyload.i.i.i.i.i = load <2 x float>, ptr %retval.sroa.2.0.p.addr.0..sroa_idx.i.i.i.i.i, align 8, !noalias !171
+  %retval.sroa.2.0.copyload.i.i.i.i.i = load <2 x float>, ptr %retval.sroa.2.0.p.addr.0..sroa_idx.i.i.i.i.i, align 8, !noalias !205
   %ptr4.i.i.i36.i = getelementptr inbounds i8, ptr %0, i64 240
-  %41 = load ptr, ptr %ptr4.i.i.i36.i, align 8, !noalias !171
+  %41 = load ptr, ptr %ptr4.i.i.i36.i, align 8, !noalias !205
   %add.ptr.i.i.i38.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %41, i64 %idxprom.i
-  %retval.sroa.0.0.copyload.i.i.i.i39.i = load <2 x float>, ptr %add.ptr.i.i.i38.i, align 16, !noalias !171
+  %retval.sroa.0.0.copyload.i.i.i.i39.i = load <2 x float>, ptr %add.ptr.i.i.i38.i, align 16, !noalias !205
   %retval.sroa.2.0.p.addr.0..sroa_idx.i.i.i.i40.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i38.i, i64 8
-  %retval.sroa.2.0.copyload.i.i.i.i41.i = load <2 x float>, ptr %retval.sroa.2.0.p.addr.0..sroa_idx.i.i.i.i40.i, align 8, !noalias !171
+  %retval.sroa.2.0.copyload.i.i.i.i41.i = load <2 x float>, ptr %retval.sroa.2.0.p.addr.0..sroa_idx.i.i.i.i40.i, align 8, !noalias !205
   %bssrdf28 = getelementptr inbounds i8, ptr %agg.result, i64 40
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i, ptr %bssrdf28, align 8
   %ref.tmp23.sroa.2.0.bssrdf28.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 48
@@ -22790,17 +22811,17 @@ entry:
   %ref.tmp23.sroa.12.0.bssrdf28.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 112
   store ptr %39, ptr %ref.tmp23.sroa.12.0.bssrdf28.sroa_idx, align 8
   %lambda4.i.i.i = getelementptr inbounds i8, ptr %0, i64 264
-  %42 = load ptr, ptr %lambda4.i.i.i, align 8, !noalias !174
+  %42 = load ptr, ptr %lambda4.i.i.i, align 8, !noalias !208
   %pdf4.i.i.i = getelementptr inbounds i8, ptr %0, i64 272
-  %43 = load ptr, ptr %pdf4.i.i.i, align 8, !noalias !174
+  %43 = load ptr, ptr %pdf4.i.i.i, align 8, !noalias !208
   %add.ptr.i.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %42, i64 %idxprom.i
-  %retval.sroa.0.0.copyload.i.i.i.i = load <2 x float>, ptr %add.ptr.i.i.i, align 16, !noalias !174
+  %retval.sroa.0.0.copyload.i.i.i.i = load <2 x float>, ptr %add.ptr.i.i.i, align 16, !noalias !208
   %retval.sroa.2.0.p.addr.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
-  %retval.sroa.2.0.copyload.i.i.i.i = load <2 x float>, ptr %retval.sroa.2.0.p.addr.0..sroa_idx.i.i.i.i, align 8, !noalias !174
+  %retval.sroa.2.0.copyload.i.i.i.i = load <2 x float>, ptr %retval.sroa.2.0.p.addr.0..sroa_idx.i.i.i.i, align 8, !noalias !208
   %add.ptr4.i.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %43, i64 %idxprom.i
-  %retval.sroa.0.0.copyload.i11.i.i.i = load <2 x float>, ptr %add.ptr4.i.i.i, align 16, !noalias !174
+  %retval.sroa.0.0.copyload.i11.i.i.i = load <2 x float>, ptr %add.ptr4.i.i.i, align 16, !noalias !208
   %retval.sroa.2.0.p.addr.0..sroa_idx.i12.i.i.i = getelementptr inbounds i8, ptr %add.ptr4.i.i.i, i64 8
-  %retval.sroa.2.0.copyload.i13.i.i.i = load <2 x float>, ptr %retval.sroa.2.0.p.addr.0..sroa_idx.i12.i.i.i, align 8, !noalias !174
+  %retval.sroa.2.0.copyload.i13.i.i.i = load <2 x float>, ptr %retval.sroa.2.0.p.addr.0..sroa_idx.i12.i.i.i, align 8, !noalias !208
   store <2 x float> %retval.sroa.0.0.copyload.i.i.i.i, ptr %lambda.i, align 8
   %ref.tmp29.sroa.2.0.lambda34.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 128
   store <2 x float> %retval.sroa.2.0.copyload.i.i.i.i, ptr %ref.tmp29.sroa.2.0.lambda34.sroa_idx, align 8
@@ -22829,13 +22850,13 @@ entry:
   %ref.tmp44.sroa.2.0.r_u52.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 176
   store <2 x float> %retval.sroa.2.0.copyload.i.i.i.i40, ptr %ref.tmp44.sroa.2.0.r_u52.sroa_idx, align 8
   %inside.i = getelementptr inbounds i8, ptr %0, i64 352
-  %46 = load ptr, ptr %inside.i, align 8, !noalias !181
+  %46 = load ptr, ptr %inside.i, align 8, !noalias !215
   %arrayidx.i47 = getelementptr inbounds %"class.pbrt::Medium", ptr %46, i64 %idxprom.i
-  %47 = load i64, ptr %arrayidx.i47, align 8, !noalias !181
+  %47 = load i64, ptr %arrayidx.i47, align 8, !noalias !215
   %outside.i = getelementptr inbounds i8, ptr %0, i64 360
-  %48 = load ptr, ptr %outside.i, align 8, !noalias !181
+  %48 = load ptr, ptr %outside.i, align 8, !noalias !215
   %arrayidx6.i48 = getelementptr inbounds %"class.pbrt::Medium", ptr %48, i64 %idxprom.i
-  %49 = load i64, ptr %arrayidx6.i48, align 8, !noalias !181
+  %49 = load i64, ptr %arrayidx6.i48, align 8, !noalias !215
   %mediumInterface58 = getelementptr inbounds i8, ptr %agg.result, i64 288
   store i64 %47, ptr %mediumInterface58, align 8
   %outside.i49 = getelementptr inbounds i8, ptr %agg.result, i64 296
@@ -22865,119 +22886,119 @@ entry:
   %uLight79 = getelementptr inbounds i8, ptr %agg.result, i64 188
   store float %57, ptr %uLight79, align 4
   %low.i.i.i = getelementptr inbounds i8, ptr %0, i64 424
-  %58 = load ptr, ptr %low.i.i.i, align 8, !noalias !184
+  %58 = load ptr, ptr %low.i.i.i, align 8, !noalias !218
   %arrayidx.i.i.i = getelementptr inbounds float, ptr %58, i64 %idxprom.i
-  %59 = load float, ptr %arrayidx.i.i.i, align 4, !noalias !184
+  %59 = load float, ptr %arrayidx.i.i.i, align 4, !noalias !218
   %retval.sroa.0.0.vec.insert.i.i.i = insertelement <2 x float> poison, float %59, i64 0
   %high.i.i.i = getelementptr inbounds i8, ptr %0, i64 432
-  %60 = load ptr, ptr %high.i.i.i, align 8, !noalias !184
+  %60 = load ptr, ptr %high.i.i.i, align 8, !noalias !218
   %arrayidx6.i.i.i = getelementptr inbounds float, ptr %60, i64 %idxprom.i
-  %61 = load float, ptr %arrayidx6.i.i.i, align 4, !noalias !184
+  %61 = load float, ptr %arrayidx6.i.i.i, align 4, !noalias !218
   %retval.sroa.0.4.vec.insert.i.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i.i, float %61, i64 1
   %low.i3.i.i = getelementptr inbounds i8, ptr %0, i64 448
-  %62 = load ptr, ptr %low.i3.i.i, align 8, !noalias !184
+  %62 = load ptr, ptr %low.i3.i.i, align 8, !noalias !218
   %arrayidx.i6.i.i = getelementptr inbounds float, ptr %62, i64 %idxprom.i
-  %63 = load float, ptr %arrayidx.i6.i.i, align 4, !noalias !184
+  %63 = load float, ptr %arrayidx.i6.i.i, align 4, !noalias !218
   %retval.sroa.0.0.vec.insert.i7.i.i = insertelement <2 x float> poison, float %63, i64 0
   %high.i8.i.i = getelementptr inbounds i8, ptr %0, i64 456
-  %64 = load ptr, ptr %high.i8.i.i, align 8, !noalias !184
+  %64 = load ptr, ptr %high.i8.i.i, align 8, !noalias !218
   %arrayidx6.i9.i.i = getelementptr inbounds float, ptr %64, i64 %idxprom.i
-  %65 = load float, ptr %arrayidx6.i9.i.i, align 4, !noalias !184
+  %65 = load float, ptr %arrayidx6.i9.i.i, align 4, !noalias !218
   %retval.sroa.0.4.vec.insert.i10.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i7.i.i, float %65, i64 1
   %low.i13.i.i = getelementptr inbounds i8, ptr %0, i64 472
-  %66 = load ptr, ptr %low.i13.i.i, align 8, !noalias !184
+  %66 = load ptr, ptr %low.i13.i.i, align 8, !noalias !218
   %arrayidx.i16.i.i = getelementptr inbounds float, ptr %66, i64 %idxprom.i
-  %67 = load float, ptr %arrayidx.i16.i.i, align 4, !noalias !184
+  %67 = load float, ptr %arrayidx.i16.i.i, align 4, !noalias !218
   %retval.sroa.0.0.vec.insert.i17.i.i = insertelement <2 x float> poison, float %67, i64 0
   %high.i18.i.i = getelementptr inbounds i8, ptr %0, i64 480
-  %68 = load ptr, ptr %high.i18.i.i, align 8, !noalias !184
+  %68 = load ptr, ptr %high.i18.i.i, align 8, !noalias !218
   %arrayidx6.i19.i.i = getelementptr inbounds float, ptr %68, i64 %idxprom.i
-  %69 = load float, ptr %arrayidx6.i19.i.i, align 4, !noalias !184
+  %69 = load float, ptr %arrayidx6.i19.i.i, align 4, !noalias !218
   %retval.sroa.0.4.vec.insert.i20.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i17.i.i, float %69, i64 1
   %x.i.i53 = getelementptr inbounds i8, ptr %0, i64 496
-  %70 = load ptr, ptr %x.i.i53, align 8, !noalias !189
+  %70 = load ptr, ptr %x.i.i53, align 8, !noalias !223
   %arrayidx.i.i54 = getelementptr inbounds float, ptr %70, i64 %idxprom.i
-  %71 = load float, ptr %arrayidx.i.i54, align 4, !noalias !189
+  %71 = load float, ptr %arrayidx.i.i54, align 4, !noalias !223
   %retval.sroa.0.0.vec.insert.i.i55 = insertelement <2 x float> poison, float %71, i64 0
   %y.i.i56 = getelementptr inbounds i8, ptr %0, i64 504
-  %72 = load ptr, ptr %y.i.i56, align 8, !noalias !189
+  %72 = load ptr, ptr %y.i.i56, align 8, !noalias !223
   %arrayidx6.i.i57 = getelementptr inbounds float, ptr %72, i64 %idxprom.i
-  %73 = load float, ptr %arrayidx6.i.i57, align 4, !noalias !189
+  %73 = load float, ptr %arrayidx6.i.i57, align 4, !noalias !223
   %retval.sroa.0.4.vec.insert.i.i58 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i55, float %73, i64 1
   %z.i.i59 = getelementptr inbounds i8, ptr %0, i64 512
-  %74 = load ptr, ptr %z.i.i59, align 8, !noalias !189
+  %74 = load ptr, ptr %z.i.i59, align 8, !noalias !223
   %arrayidx11.i.i60 = getelementptr inbounds float, ptr %74, i64 %idxprom.i
-  %75 = load float, ptr %arrayidx11.i.i60, align 4, !noalias !189
+  %75 = load float, ptr %arrayidx11.i.i60, align 4, !noalias !223
   %x.i8.i = getelementptr inbounds i8, ptr %0, i64 528
-  %76 = load ptr, ptr %x.i8.i, align 8, !noalias !189
+  %76 = load ptr, ptr %x.i8.i, align 8, !noalias !223
   %arrayidx.i11.i = getelementptr inbounds float, ptr %76, i64 %idxprom.i
-  %77 = load float, ptr %arrayidx.i11.i, align 4, !noalias !189
+  %77 = load float, ptr %arrayidx.i11.i, align 4, !noalias !223
   %retval.sroa.0.0.vec.insert.i12.i = insertelement <2 x float> poison, float %77, i64 0
   %y.i13.i = getelementptr inbounds i8, ptr %0, i64 536
-  %78 = load ptr, ptr %y.i13.i, align 8, !noalias !189
+  %78 = load ptr, ptr %y.i13.i, align 8, !noalias !223
   %arrayidx6.i14.i = getelementptr inbounds float, ptr %78, i64 %idxprom.i
-  %79 = load float, ptr %arrayidx6.i14.i, align 4, !noalias !189
+  %79 = load float, ptr %arrayidx6.i14.i, align 4, !noalias !223
   %retval.sroa.0.4.vec.insert.i15.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i12.i, float %79, i64 1
   %z.i16.i = getelementptr inbounds i8, ptr %0, i64 544
-  %80 = load ptr, ptr %z.i16.i, align 8, !noalias !189
+  %80 = load ptr, ptr %z.i16.i, align 8, !noalias !223
   %arrayidx11.i17.i = getelementptr inbounds float, ptr %80, i64 %idxprom.i
-  %81 = load float, ptr %arrayidx11.i17.i, align 4, !noalias !189
+  %81 = load float, ptr %arrayidx11.i17.i, align 4, !noalias !223
   %x.i22.i = getelementptr inbounds i8, ptr %0, i64 560
-  %82 = load ptr, ptr %x.i22.i, align 8, !noalias !189
+  %82 = load ptr, ptr %x.i22.i, align 8, !noalias !223
   %arrayidx.i25.i = getelementptr inbounds float, ptr %82, i64 %idxprom.i
-  %83 = load float, ptr %arrayidx.i25.i, align 4, !noalias !189
+  %83 = load float, ptr %arrayidx.i25.i, align 4, !noalias !223
   %retval.sroa.0.0.vec.insert.i26.i = insertelement <2 x float> poison, float %83, i64 0
   %y.i27.i = getelementptr inbounds i8, ptr %0, i64 568
-  %84 = load ptr, ptr %y.i27.i, align 8, !noalias !189
+  %84 = load ptr, ptr %y.i27.i, align 8, !noalias !223
   %arrayidx6.i28.i = getelementptr inbounds float, ptr %84, i64 %idxprom.i
-  %85 = load float, ptr %arrayidx6.i28.i, align 4, !noalias !189
+  %85 = load float, ptr %arrayidx6.i28.i, align 4, !noalias !223
   %retval.sroa.0.4.vec.insert.i29.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i26.i, float %85, i64 1
   %z.i30.i = getelementptr inbounds i8, ptr %0, i64 576
-  %86 = load ptr, ptr %z.i30.i, align 8, !noalias !189
+  %86 = load ptr, ptr %z.i30.i, align 8, !noalias !223
   %arrayidx11.i31.i = getelementptr inbounds float, ptr %86, i64 %idxprom.i
-  %87 = load float, ptr %arrayidx11.i31.i, align 4, !noalias !189
+  %87 = load float, ptr %arrayidx11.i31.i, align 4, !noalias !223
   %x.i36.i = getelementptr inbounds i8, ptr %0, i64 592
-  %88 = load ptr, ptr %x.i36.i, align 8, !noalias !189
+  %88 = load ptr, ptr %x.i36.i, align 8, !noalias !223
   %arrayidx.i39.i = getelementptr inbounds float, ptr %88, i64 %idxprom.i
-  %89 = load float, ptr %arrayidx.i39.i, align 4, !noalias !189
+  %89 = load float, ptr %arrayidx.i39.i, align 4, !noalias !223
   %retval.sroa.0.0.vec.insert.i40.i = insertelement <2 x float> poison, float %89, i64 0
   %y.i41.i = getelementptr inbounds i8, ptr %0, i64 600
-  %90 = load ptr, ptr %y.i41.i, align 8, !noalias !189
+  %90 = load ptr, ptr %y.i41.i, align 8, !noalias !223
   %arrayidx6.i42.i = getelementptr inbounds float, ptr %90, i64 %idxprom.i
-  %91 = load float, ptr %arrayidx6.i42.i, align 4, !noalias !189
+  %91 = load float, ptr %arrayidx6.i42.i, align 4, !noalias !223
   %retval.sroa.0.4.vec.insert.i43.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i40.i, float %91, i64 1
   %z.i44.i = getelementptr inbounds i8, ptr %0, i64 608
-  %92 = load ptr, ptr %z.i44.i, align 8, !noalias !189
+  %92 = load ptr, ptr %z.i44.i, align 8, !noalias !223
   %arrayidx11.i45.i = getelementptr inbounds float, ptr %92, i64 %idxprom.i
-  %93 = load float, ptr %arrayidx11.i45.i, align 4, !noalias !189
+  %93 = load float, ptr %arrayidx11.i45.i, align 4, !noalias !223
   %x.i50.i = getelementptr inbounds i8, ptr %0, i64 624
-  %94 = load ptr, ptr %x.i50.i, align 8, !noalias !189
+  %94 = load ptr, ptr %x.i50.i, align 8, !noalias !223
   %arrayidx.i53.i = getelementptr inbounds float, ptr %94, i64 %idxprom.i
-  %95 = load float, ptr %arrayidx.i53.i, align 4, !noalias !189
+  %95 = load float, ptr %arrayidx.i53.i, align 4, !noalias !223
   %retval.sroa.0.0.vec.insert.i54.i = insertelement <2 x float> poison, float %95, i64 0
   %y.i55.i = getelementptr inbounds i8, ptr %0, i64 632
-  %96 = load ptr, ptr %y.i55.i, align 8, !noalias !189
+  %96 = load ptr, ptr %y.i55.i, align 8, !noalias !223
   %arrayidx6.i56.i = getelementptr inbounds float, ptr %96, i64 %idxprom.i
-  %97 = load float, ptr %arrayidx6.i56.i, align 4, !noalias !189
+  %97 = load float, ptr %arrayidx6.i56.i, align 4, !noalias !223
   %retval.sroa.0.4.vec.insert.i57.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i54.i, float %97, i64 1
   %z.i58.i = getelementptr inbounds i8, ptr %0, i64 640
-  %98 = load ptr, ptr %z.i58.i, align 8, !noalias !189
+  %98 = load ptr, ptr %z.i58.i, align 8, !noalias !223
   %arrayidx11.i59.i = getelementptr inbounds float, ptr %98, i64 %idxprom.i
-  %99 = load float, ptr %arrayidx11.i59.i, align 4, !noalias !189
+  %99 = load float, ptr %arrayidx11.i59.i, align 4, !noalias !223
   %x.i64.i = getelementptr inbounds i8, ptr %0, i64 656
-  %100 = load ptr, ptr %x.i64.i, align 8, !noalias !189
+  %100 = load ptr, ptr %x.i64.i, align 8, !noalias !223
   %arrayidx.i67.i = getelementptr inbounds float, ptr %100, i64 %idxprom.i
-  %101 = load float, ptr %arrayidx.i67.i, align 4, !noalias !189
+  %101 = load float, ptr %arrayidx.i67.i, align 4, !noalias !223
   %retval.sroa.0.0.vec.insert.i68.i = insertelement <2 x float> poison, float %101, i64 0
   %y.i69.i = getelementptr inbounds i8, ptr %0, i64 664
-  %102 = load ptr, ptr %y.i69.i, align 8, !noalias !189
+  %102 = load ptr, ptr %y.i69.i, align 8, !noalias !223
   %arrayidx6.i70.i = getelementptr inbounds float, ptr %102, i64 %idxprom.i
-  %103 = load float, ptr %arrayidx6.i70.i, align 4, !noalias !189
+  %103 = load float, ptr %arrayidx6.i70.i, align 4, !noalias !223
   %retval.sroa.0.4.vec.insert.i71.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i68.i, float %103, i64 1
   %z.i72.i = getelementptr inbounds i8, ptr %0, i64 672
-  %104 = load ptr, ptr %z.i72.i, align 8, !noalias !189
+  %104 = load ptr, ptr %z.i72.i, align 8, !noalias !223
   %arrayidx11.i73.i = getelementptr inbounds float, ptr %104, i64 %idxprom.i
-  %105 = load float, ptr %arrayidx11.i73.i, align 4, !noalias !189
+  %105 = load float, ptr %arrayidx11.i73.i, align 4, !noalias !223
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i, ptr %ssi.i, align 8
   %ref.tmp80.sroa.2.0.ssi85.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 200
   store <2 x float> %retval.sroa.0.4.vec.insert.i10.i.i, ptr %ref.tmp80.sroa.2.0.ssi85.sroa_idx, align 8
@@ -23102,161 +23123,195 @@ attributes #26 = { nounwind }
 !29 = !{!30, !27}
 !30 = distinct !{!30, !31, !"_ZNK4pbrt11Interaction9GetMediumENS_7Vector3IfEE: %agg.result"}
 !31 = distinct !{!31, !"_ZNK4pbrt11Interaction9GetMediumENS_7Vector3IfEE"}
-!32 = !{!33, !35, !37, !39}
-!33 = distinct !{!33, !34, !"_ZN4pbrt6detail8DispatchIRZNKS_8Material15GetDisplacementEvEUlT_E_NS_12FloatTextureENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS3_PKvi: %agg.result"}
-!34 = distinct !{!34, !"_ZN4pbrt6detail8DispatchIRZNKS_8Material15GetDisplacementEvEUlT_E_NS_12FloatTextureENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS3_PKvi"}
-!35 = distinct !{!35, !36, !"_ZN4pbrt6detail8DispatchIRZNKS_8Material15GetDisplacementEvEUlT_E_NS_12FloatTextureENS_21CoatedDiffuseMaterialENS_23CoatedConductorMaterialENS_17ConductorMaterialENS_18DielectricMaterialENS_15DiffuseMaterialENS_27DiffuseTransmissionMaterialENS_12HairMaterialENS_16MeasuredMaterialEJNS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEvEET0_OS3_PKvi: %agg.result"}
-!36 = distinct !{!36, !"_ZN4pbrt6detail8DispatchIRZNKS_8Material15GetDisplacementEvEUlT_E_NS_12FloatTextureENS_21CoatedDiffuseMaterialENS_23CoatedConductorMaterialENS_17ConductorMaterialENS_18DielectricMaterialENS_15DiffuseMaterialENS_27DiffuseTransmissionMaterialENS_12HairMaterialENS_16MeasuredMaterialEJNS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEvEET0_OS3_PKvi"}
-!37 = distinct !{!37, !38, !"_ZNK4pbrt13TaggedPointerIJNS_21CoatedDiffuseMaterialENS_23CoatedConductorMaterialENS_17ConductorMaterialENS_18DielectricMaterialENS_15DiffuseMaterialENS_27DiffuseTransmissionMaterialENS_12HairMaterialENS_16MeasuredMaterialENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEE8DispatchIRZNKS_8Material15GetDisplacementEvEUlT_E_EEDcOSF_: %agg.result"}
-!38 = distinct !{!38, !"_ZNK4pbrt13TaggedPointerIJNS_21CoatedDiffuseMaterialENS_23CoatedConductorMaterialENS_17ConductorMaterialENS_18DielectricMaterialENS_15DiffuseMaterialENS_27DiffuseTransmissionMaterialENS_12HairMaterialENS_16MeasuredMaterialENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEE8DispatchIRZNKS_8Material15GetDisplacementEvEUlT_E_EEDcOSF_"}
-!39 = distinct !{!39, !40, !"_ZNK4pbrt8Material15GetDisplacementEv: %agg.result"}
-!40 = distinct !{!40, !"_ZNK4pbrt8Material15GetDisplacementEv"}
-!41 = !{!35, !37, !39}
-!42 = !{!43}
-!43 = distinct !{!43, !44, !"_ZNK4pbrt16TextureMapping2D3MapENS_18TextureEvalContextE: %agg.result"}
-!44 = distinct !{!44, !"_ZNK4pbrt16TextureMapping2D3MapENS_18TextureEvalContextE"}
-!45 = !{!46, !43}
-!46 = distinct !{!46, !47, !"_ZNK4pbrt13TaggedPointerIJNS_9UVMappingENS_16SphericalMappingENS_18CylindricalMappingENS_13PlanarMappingEEE8DispatchIRZNKS_16TextureMapping2D3MapENS_18TextureEvalContextEEUlT_E_EEDcOS9_: %agg.result"}
-!47 = distinct !{!47, !"_ZNK4pbrt13TaggedPointerIJNS_9UVMappingENS_16SphericalMappingENS_18CylindricalMappingENS_13PlanarMappingEEE8DispatchIRZNKS_16TextureMapping2D3MapENS_18TextureEvalContextEEUlT_E_EEDcOS9_"}
-!48 = !{}
-!49 = !{!50}
-!50 = distinct !{!50, !51, !"_ZZNK4pbrt16TextureMapping2D3MapENS_18TextureEvalContextEENKUlT_E_clIPKNS_9UVMappingEEEDaS2_: %agg.result"}
-!51 = distinct !{!51, !"_ZZNK4pbrt16TextureMapping2D3MapENS_18TextureEvalContextEENKUlT_E_clIPKNS_9UVMappingEEEDaS2_"}
-!52 = !{!53, !50}
-!53 = distinct !{!53, !54, !"_ZNK4pbrt9UVMapping3MapENS_18TextureEvalContextE: %agg.result"}
-!54 = distinct !{!54, !"_ZNK4pbrt9UVMapping3MapENS_18TextureEvalContextE"}
-!55 = !{!56}
-!56 = distinct !{!56, !57, !"_ZZNK4pbrt16TextureMapping2D3MapENS_18TextureEvalContextEENKUlT_E_clIPKNS_16SphericalMappingEEEDaS2_: %agg.result"}
-!57 = distinct !{!57, !"_ZZNK4pbrt16TextureMapping2D3MapENS_18TextureEvalContextEENKUlT_E_clIPKNS_16SphericalMappingEEEDaS2_"}
-!58 = !{!59, !56}
-!59 = distinct !{!59, !60, !"_ZNK4pbrt16SphericalMapping3MapENS_18TextureEvalContextE: %agg.result"}
-!60 = distinct !{!60, !"_ZNK4pbrt16SphericalMapping3MapENS_18TextureEvalContextE"}
-!61 = !{!62}
-!62 = distinct !{!62, !63, !"_ZZNK4pbrt16TextureMapping2D3MapENS_18TextureEvalContextEENKUlT_E_clIPKNS_18CylindricalMappingEEEDaS2_: %agg.result"}
-!63 = distinct !{!63, !"_ZZNK4pbrt16TextureMapping2D3MapENS_18TextureEvalContextEENKUlT_E_clIPKNS_18CylindricalMappingEEEDaS2_"}
-!64 = !{!65, !62}
-!65 = distinct !{!65, !66, !"_ZNK4pbrt18CylindricalMapping3MapENS_18TextureEvalContextE: %agg.result"}
-!66 = distinct !{!66, !"_ZNK4pbrt18CylindricalMapping3MapENS_18TextureEvalContextE"}
-!67 = !{!68}
-!68 = distinct !{!68, !69, !"_ZZNK4pbrt16TextureMapping2D3MapENS_18TextureEvalContextEENKUlT_E_clIPKNS_13PlanarMappingEEEDaS2_: %agg.result"}
-!69 = distinct !{!69, !"_ZZNK4pbrt16TextureMapping2D3MapENS_18TextureEvalContextEENKUlT_E_clIPKNS_13PlanarMappingEEEDaS2_"}
-!70 = !{!71, !68}
-!71 = distinct !{!71, !72, !"_ZNK4pbrt13PlanarMapping3MapENS_18TextureEvalContextE: %agg.result"}
-!72 = distinct !{!72, !"_ZNK4pbrt13PlanarMapping3MapENS_18TextureEvalContextE"}
-!73 = distinct !{!73, !6}
-!74 = !{!75}
-!75 = distinct !{!75, !76, !"_ZNK4pbrt3SOAINS_17ShadowRayWorkItemEE16GetSetIndirectorcvS1_Ev: %agg.result"}
-!76 = distinct !{!76, !"_ZNK4pbrt3SOAINS_17ShadowRayWorkItemEE16GetSetIndirectorcvS1_Ev"}
-!77 = !{!78, !75}
-!78 = distinct !{!78, !79, !"_ZNK4pbrt3SOAINS_3RayEE16GetSetIndirectorcvS1_Ev: %agg.result"}
-!79 = distinct !{!79, !"_ZNK4pbrt3SOAINS_3RayEE16GetSetIndirectorcvS1_Ev"}
-!80 = !{!81, !83, !85, !75}
-!81 = distinct !{!81, !82, !"_ZNK4pbrt3SOAINS_18SampledWavelengthsEEixEi: %agg.result"}
-!82 = distinct !{!82, !"_ZNK4pbrt3SOAINS_18SampledWavelengthsEEixEi"}
-!83 = distinct !{!83, !84, !"_ZNK4pbrt3SOAINS_18SampledWavelengthsEE4LoadEi: %agg.result"}
-!84 = distinct !{!84, !"_ZNK4pbrt3SOAINS_18SampledWavelengthsEE4LoadEi"}
-!85 = distinct !{!85, !86, !"_ZNK4pbrt3SOAINS_18SampledWavelengthsEE16GetSetIndirectorcvS1_Ev: %agg.result"}
-!86 = distinct !{!86, !"_ZNK4pbrt3SOAINS_18SampledWavelengthsEE16GetSetIndirectorcvS1_Ev"}
-!87 = distinct !{!87, !6}
-!88 = distinct !{!88, !6}
-!89 = distinct !{!89, !6}
-!90 = !{!91, !93}
-!91 = distinct !{!91, !92, !"_ZNK4pbrt3SOAINS_3RayEE16GetSetIndirectorcvS1_Ev: %agg.result"}
-!92 = distinct !{!92, !"_ZNK4pbrt3SOAINS_3RayEE16GetSetIndirectorcvS1_Ev"}
-!93 = distinct !{!93, !94, !"_ZNK4pbrt3SOAINS_17ShadowRayWorkItemEE16GetSetIndirectorcvS1_Ev: %agg.result"}
-!94 = distinct !{!94, !"_ZNK4pbrt3SOAINS_17ShadowRayWorkItemEE16GetSetIndirectorcvS1_Ev"}
-!95 = !{!93}
-!96 = !{!97, !99, !101, !93}
-!97 = distinct !{!97, !98, !"_ZNK4pbrt3SOAINS_18SampledWavelengthsEEixEi: %agg.result"}
-!98 = distinct !{!98, !"_ZNK4pbrt3SOAINS_18SampledWavelengthsEEixEi"}
-!99 = distinct !{!99, !100, !"_ZNK4pbrt3SOAINS_18SampledWavelengthsEE4LoadEi: %agg.result"}
-!100 = distinct !{!100, !"_ZNK4pbrt3SOAINS_18SampledWavelengthsEE4LoadEi"}
-!101 = distinct !{!101, !102, !"_ZNK4pbrt3SOAINS_18SampledWavelengthsEE16GetSetIndirectorcvS1_Ev: %agg.result"}
-!102 = distinct !{!102, !"_ZNK4pbrt3SOAINS_18SampledWavelengthsEE16GetSetIndirectorcvS1_Ev"}
-!103 = distinct !{!103, !6}
-!104 = !{!105}
-!105 = distinct !{!105, !106, !"_ZZZNK4pbrt12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiENKUlNS_3RayEfE_clESA_f: %agg.result"}
-!106 = distinct !{!106, !"_ZZZNK4pbrt12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiENKUlNS_3RayEfE_clESA_f"}
-!107 = !{!108}
-!108 = distinct !{!108, !109, !"_ZN4pbrt27HomogeneousMajorantIterator4NextEv: %agg.result"}
-!109 = distinct !{!109, !"_ZN4pbrt27HomogeneousMajorantIterator4NextEv"}
-!110 = distinct !{!110, !6}
-!111 = distinct !{!111, !6}
-!112 = distinct !{!112, !6}
-!113 = distinct !{!113, !6}
-!114 = distinct !{!114, !6}
-!115 = distinct !{!115, !6}
-!116 = distinct !{!116, !6}
-!117 = distinct !{!117, !6}
-!118 = !{!119}
-!119 = distinct !{!119, !120, !"_ZN4pbrt27HomogeneousMajorantIterator4NextEv: %agg.result"}
-!120 = distinct !{!120, !"_ZN4pbrt27HomogeneousMajorantIterator4NextEv"}
+!32 = !{!33, !35, !37, !39, !41}
+!33 = distinct !{!33, !34, !"_ZNK4pbrt21CoatedDiffuseMaterial15GetDisplacementEv: %agg.result"}
+!34 = distinct !{!34, !"_ZNK4pbrt21CoatedDiffuseMaterial15GetDisplacementEv"}
+!35 = distinct !{!35, !36, !"_ZZNK4pbrt8Material15GetDisplacementEvENKUlT_E_clIPKNS_21CoatedDiffuseMaterialEEEDaS1_: %agg.result"}
+!36 = distinct !{!36, !"_ZZNK4pbrt8Material15GetDisplacementEvENKUlT_E_clIPKNS_21CoatedDiffuseMaterialEEEDaS1_"}
+!37 = distinct !{!37, !38, !"_ZN4pbrt6detail8DispatchIRZNKS_8Material15GetDisplacementEvEUlT_E_NS_12FloatTextureENS_21CoatedDiffuseMaterialENS_23CoatedConductorMaterialENS_17ConductorMaterialENS_18DielectricMaterialENS_15DiffuseMaterialENS_27DiffuseTransmissionMaterialENS_12HairMaterialENS_16MeasuredMaterialEJNS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEvEET0_OS3_PKvi: %agg.result"}
+!38 = distinct !{!38, !"_ZN4pbrt6detail8DispatchIRZNKS_8Material15GetDisplacementEvEUlT_E_NS_12FloatTextureENS_21CoatedDiffuseMaterialENS_23CoatedConductorMaterialENS_17ConductorMaterialENS_18DielectricMaterialENS_15DiffuseMaterialENS_27DiffuseTransmissionMaterialENS_12HairMaterialENS_16MeasuredMaterialEJNS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEvEET0_OS3_PKvi"}
+!39 = distinct !{!39, !40, !"_ZNK4pbrt13TaggedPointerIJNS_21CoatedDiffuseMaterialENS_23CoatedConductorMaterialENS_17ConductorMaterialENS_18DielectricMaterialENS_15DiffuseMaterialENS_27DiffuseTransmissionMaterialENS_12HairMaterialENS_16MeasuredMaterialENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEE8DispatchIRZNKS_8Material15GetDisplacementEvEUlT_E_EEDcOSF_: %agg.result"}
+!40 = distinct !{!40, !"_ZNK4pbrt13TaggedPointerIJNS_21CoatedDiffuseMaterialENS_23CoatedConductorMaterialENS_17ConductorMaterialENS_18DielectricMaterialENS_15DiffuseMaterialENS_27DiffuseTransmissionMaterialENS_12HairMaterialENS_16MeasuredMaterialENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEE8DispatchIRZNKS_8Material15GetDisplacementEvEUlT_E_EEDcOSF_"}
+!41 = distinct !{!41, !42, !"_ZNK4pbrt8Material15GetDisplacementEv: %agg.result"}
+!42 = distinct !{!42, !"_ZNK4pbrt8Material15GetDisplacementEv"}
+!43 = !{!44, !46, !37, !39, !41}
+!44 = distinct !{!44, !45, !"_ZNK4pbrt23CoatedConductorMaterial15GetDisplacementEv: %agg.result"}
+!45 = distinct !{!45, !"_ZNK4pbrt23CoatedConductorMaterial15GetDisplacementEv"}
+!46 = distinct !{!46, !47, !"_ZZNK4pbrt8Material15GetDisplacementEvENKUlT_E_clIPKNS_23CoatedConductorMaterialEEEDaS1_: %agg.result"}
+!47 = distinct !{!47, !"_ZZNK4pbrt8Material15GetDisplacementEvENKUlT_E_clIPKNS_23CoatedConductorMaterialEEEDaS1_"}
+!48 = !{!49, !51, !37, !39, !41}
+!49 = distinct !{!49, !50, !"_ZNK4pbrt17ConductorMaterial15GetDisplacementEv: %agg.result"}
+!50 = distinct !{!50, !"_ZNK4pbrt17ConductorMaterial15GetDisplacementEv"}
+!51 = distinct !{!51, !52, !"_ZZNK4pbrt8Material15GetDisplacementEvENKUlT_E_clIPKNS_17ConductorMaterialEEEDaS1_: %agg.result"}
+!52 = distinct !{!52, !"_ZZNK4pbrt8Material15GetDisplacementEvENKUlT_E_clIPKNS_17ConductorMaterialEEEDaS1_"}
+!53 = !{!54, !56, !37, !39, !41}
+!54 = distinct !{!54, !55, !"_ZNK4pbrt18DielectricMaterial15GetDisplacementEv: %agg.result"}
+!55 = distinct !{!55, !"_ZNK4pbrt18DielectricMaterial15GetDisplacementEv"}
+!56 = distinct !{!56, !57, !"_ZZNK4pbrt8Material15GetDisplacementEvENKUlT_E_clIPKNS_18DielectricMaterialEEEDaS1_: %agg.result"}
+!57 = distinct !{!57, !"_ZZNK4pbrt8Material15GetDisplacementEvENKUlT_E_clIPKNS_18DielectricMaterialEEEDaS1_"}
+!58 = !{!59, !61, !37, !39, !41}
+!59 = distinct !{!59, !60, !"_ZNK4pbrt15DiffuseMaterial15GetDisplacementEv: %agg.result"}
+!60 = distinct !{!60, !"_ZNK4pbrt15DiffuseMaterial15GetDisplacementEv"}
+!61 = distinct !{!61, !62, !"_ZZNK4pbrt8Material15GetDisplacementEvENKUlT_E_clIPKNS_15DiffuseMaterialEEEDaS1_: %agg.result"}
+!62 = distinct !{!62, !"_ZZNK4pbrt8Material15GetDisplacementEvENKUlT_E_clIPKNS_15DiffuseMaterialEEEDaS1_"}
+!63 = !{!64, !66, !37, !39, !41}
+!64 = distinct !{!64, !65, !"_ZNK4pbrt27DiffuseTransmissionMaterial15GetDisplacementEv: %agg.result"}
+!65 = distinct !{!65, !"_ZNK4pbrt27DiffuseTransmissionMaterial15GetDisplacementEv"}
+!66 = distinct !{!66, !67, !"_ZZNK4pbrt8Material15GetDisplacementEvENKUlT_E_clIPKNS_27DiffuseTransmissionMaterialEEEDaS1_: %agg.result"}
+!67 = distinct !{!67, !"_ZZNK4pbrt8Material15GetDisplacementEvENKUlT_E_clIPKNS_27DiffuseTransmissionMaterialEEEDaS1_"}
+!68 = !{!69, !71, !37, !39, !41}
+!69 = distinct !{!69, !70, !"_ZNK4pbrt16MeasuredMaterial15GetDisplacementEv: %agg.result"}
+!70 = distinct !{!70, !"_ZNK4pbrt16MeasuredMaterial15GetDisplacementEv"}
+!71 = distinct !{!71, !72, !"_ZZNK4pbrt8Material15GetDisplacementEvENKUlT_E_clIPKNS_16MeasuredMaterialEEEDaS1_: %agg.result"}
+!72 = distinct !{!72, !"_ZZNK4pbrt8Material15GetDisplacementEvENKUlT_E_clIPKNS_16MeasuredMaterialEEEDaS1_"}
+!73 = !{!74, !37, !39, !41}
+!74 = distinct !{!74, !75, !"_ZN4pbrt6detail8DispatchIRZNKS_8Material15GetDisplacementEvEUlT_E_NS_12FloatTextureENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS3_PKvi: %agg.result"}
+!75 = distinct !{!75, !"_ZN4pbrt6detail8DispatchIRZNKS_8Material15GetDisplacementEvEUlT_E_NS_12FloatTextureENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS3_PKvi"}
+!76 = !{!77}
+!77 = distinct !{!77, !78, !"_ZNK4pbrt16TextureMapping2D3MapENS_18TextureEvalContextE: %agg.result"}
+!78 = distinct !{!78, !"_ZNK4pbrt16TextureMapping2D3MapENS_18TextureEvalContextE"}
+!79 = !{!80, !77}
+!80 = distinct !{!80, !81, !"_ZNK4pbrt13TaggedPointerIJNS_9UVMappingENS_16SphericalMappingENS_18CylindricalMappingENS_13PlanarMappingEEE8DispatchIRZNKS_16TextureMapping2D3MapENS_18TextureEvalContextEEUlT_E_EEDcOS9_: %agg.result"}
+!81 = distinct !{!81, !"_ZNK4pbrt13TaggedPointerIJNS_9UVMappingENS_16SphericalMappingENS_18CylindricalMappingENS_13PlanarMappingEEE8DispatchIRZNKS_16TextureMapping2D3MapENS_18TextureEvalContextEEUlT_E_EEDcOS9_"}
+!82 = !{}
+!83 = !{!84}
+!84 = distinct !{!84, !85, !"_ZZNK4pbrt16TextureMapping2D3MapENS_18TextureEvalContextEENKUlT_E_clIPKNS_9UVMappingEEEDaS2_: %agg.result"}
+!85 = distinct !{!85, !"_ZZNK4pbrt16TextureMapping2D3MapENS_18TextureEvalContextEENKUlT_E_clIPKNS_9UVMappingEEEDaS2_"}
+!86 = !{!87, !84}
+!87 = distinct !{!87, !88, !"_ZNK4pbrt9UVMapping3MapENS_18TextureEvalContextE: %agg.result"}
+!88 = distinct !{!88, !"_ZNK4pbrt9UVMapping3MapENS_18TextureEvalContextE"}
+!89 = !{!90}
+!90 = distinct !{!90, !91, !"_ZZNK4pbrt16TextureMapping2D3MapENS_18TextureEvalContextEENKUlT_E_clIPKNS_16SphericalMappingEEEDaS2_: %agg.result"}
+!91 = distinct !{!91, !"_ZZNK4pbrt16TextureMapping2D3MapENS_18TextureEvalContextEENKUlT_E_clIPKNS_16SphericalMappingEEEDaS2_"}
+!92 = !{!93, !90}
+!93 = distinct !{!93, !94, !"_ZNK4pbrt16SphericalMapping3MapENS_18TextureEvalContextE: %agg.result"}
+!94 = distinct !{!94, !"_ZNK4pbrt16SphericalMapping3MapENS_18TextureEvalContextE"}
+!95 = !{!96}
+!96 = distinct !{!96, !97, !"_ZZNK4pbrt16TextureMapping2D3MapENS_18TextureEvalContextEENKUlT_E_clIPKNS_18CylindricalMappingEEEDaS2_: %agg.result"}
+!97 = distinct !{!97, !"_ZZNK4pbrt16TextureMapping2D3MapENS_18TextureEvalContextEENKUlT_E_clIPKNS_18CylindricalMappingEEEDaS2_"}
+!98 = !{!99, !96}
+!99 = distinct !{!99, !100, !"_ZNK4pbrt18CylindricalMapping3MapENS_18TextureEvalContextE: %agg.result"}
+!100 = distinct !{!100, !"_ZNK4pbrt18CylindricalMapping3MapENS_18TextureEvalContextE"}
+!101 = !{!102}
+!102 = distinct !{!102, !103, !"_ZZNK4pbrt16TextureMapping2D3MapENS_18TextureEvalContextEENKUlT_E_clIPKNS_13PlanarMappingEEEDaS2_: %agg.result"}
+!103 = distinct !{!103, !"_ZZNK4pbrt16TextureMapping2D3MapENS_18TextureEvalContextEENKUlT_E_clIPKNS_13PlanarMappingEEEDaS2_"}
+!104 = !{!105, !102}
+!105 = distinct !{!105, !106, !"_ZNK4pbrt13PlanarMapping3MapENS_18TextureEvalContextE: %agg.result"}
+!106 = distinct !{!106, !"_ZNK4pbrt13PlanarMapping3MapENS_18TextureEvalContextE"}
+!107 = distinct !{!107, !6}
+!108 = !{!109}
+!109 = distinct !{!109, !110, !"_ZNK4pbrt3SOAINS_17ShadowRayWorkItemEE16GetSetIndirectorcvS1_Ev: %agg.result"}
+!110 = distinct !{!110, !"_ZNK4pbrt3SOAINS_17ShadowRayWorkItemEE16GetSetIndirectorcvS1_Ev"}
+!111 = !{!112, !109}
+!112 = distinct !{!112, !113, !"_ZNK4pbrt3SOAINS_3RayEE16GetSetIndirectorcvS1_Ev: %agg.result"}
+!113 = distinct !{!113, !"_ZNK4pbrt3SOAINS_3RayEE16GetSetIndirectorcvS1_Ev"}
+!114 = !{!115, !117, !119, !109}
+!115 = distinct !{!115, !116, !"_ZNK4pbrt3SOAINS_18SampledWavelengthsEEixEi: %agg.result"}
+!116 = distinct !{!116, !"_ZNK4pbrt3SOAINS_18SampledWavelengthsEEixEi"}
+!117 = distinct !{!117, !118, !"_ZNK4pbrt3SOAINS_18SampledWavelengthsEE4LoadEi: %agg.result"}
+!118 = distinct !{!118, !"_ZNK4pbrt3SOAINS_18SampledWavelengthsEE4LoadEi"}
+!119 = distinct !{!119, !120, !"_ZNK4pbrt3SOAINS_18SampledWavelengthsEE16GetSetIndirectorcvS1_Ev: %agg.result"}
+!120 = distinct !{!120, !"_ZNK4pbrt3SOAINS_18SampledWavelengthsEE16GetSetIndirectorcvS1_Ev"}
 !121 = distinct !{!121, !6}
 !122 = distinct !{!122, !6}
 !123 = distinct !{!123, !6}
-!124 = distinct !{!124, !6}
-!125 = !{!126}
-!126 = distinct !{!126, !127, !"_ZZZNK4pbrt12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiENKUlNS_6Point3IfEEE_clESB_: %agg.result"}
-!127 = distinct !{!127, !"_ZZZNK4pbrt12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiENKUlNS_6Point3IfEEE_clESB_"}
-!128 = !{!129, !126}
-!129 = distinct !{!129, !130, !"_ZNK4pbrt11Interaction10SpawnRayToENS_6Point3IfEE: %agg.result"}
-!130 = distinct !{!130, !"_ZNK4pbrt11Interaction10SpawnRayToENS_6Point3IfEE"}
-!131 = !{!132, !129, !126}
-!132 = distinct !{!132, !133, !"_ZNK4pbrt11Interaction9GetMediumENS_7Vector3IfEE: %agg.result"}
-!133 = distinct !{!133, !"_ZNK4pbrt11Interaction9GetMediumENS_7Vector3IfEE"}
-!134 = distinct !{!134, !6}
-!135 = distinct !{!135, !6}
-!136 = distinct !{!136, !6}
+!124 = !{!125, !127}
+!125 = distinct !{!125, !126, !"_ZNK4pbrt3SOAINS_3RayEE16GetSetIndirectorcvS1_Ev: %agg.result"}
+!126 = distinct !{!126, !"_ZNK4pbrt3SOAINS_3RayEE16GetSetIndirectorcvS1_Ev"}
+!127 = distinct !{!127, !128, !"_ZNK4pbrt3SOAINS_17ShadowRayWorkItemEE16GetSetIndirectorcvS1_Ev: %agg.result"}
+!128 = distinct !{!128, !"_ZNK4pbrt3SOAINS_17ShadowRayWorkItemEE16GetSetIndirectorcvS1_Ev"}
+!129 = !{!127}
+!130 = !{!131, !133, !135, !127}
+!131 = distinct !{!131, !132, !"_ZNK4pbrt3SOAINS_18SampledWavelengthsEEixEi: %agg.result"}
+!132 = distinct !{!132, !"_ZNK4pbrt3SOAINS_18SampledWavelengthsEEixEi"}
+!133 = distinct !{!133, !134, !"_ZNK4pbrt3SOAINS_18SampledWavelengthsEE4LoadEi: %agg.result"}
+!134 = distinct !{!134, !"_ZNK4pbrt3SOAINS_18SampledWavelengthsEE4LoadEi"}
+!135 = distinct !{!135, !136, !"_ZNK4pbrt3SOAINS_18SampledWavelengthsEE16GetSetIndirectorcvS1_Ev: %agg.result"}
+!136 = distinct !{!136, !"_ZNK4pbrt3SOAINS_18SampledWavelengthsEE16GetSetIndirectorcvS1_Ev"}
 !137 = distinct !{!137, !6}
-!138 = distinct !{!138, !6}
-!139 = !{!140}
-!140 = distinct !{!140, !141, !"_ZNK4pbrt9Transform12ApplyInverseERKNS_3RayEPf: %agg.result"}
-!141 = distinct !{!141, !"_ZNK4pbrt9Transform12ApplyInverseERKNS_3RayEPf"}
-!142 = distinct !{!142, !6}
-!143 = distinct !{!143, !6}
+!138 = !{!139}
+!139 = distinct !{!139, !140, !"_ZZZNK4pbrt12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiENKUlNS_3RayEfE_clESA_f: %agg.result"}
+!140 = distinct !{!140, !"_ZZZNK4pbrt12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiENKUlNS_3RayEfE_clESA_f"}
+!141 = !{!142}
+!142 = distinct !{!142, !143, !"_ZN4pbrt27HomogeneousMajorantIterator4NextEv: %agg.result"}
+!143 = distinct !{!143, !"_ZN4pbrt27HomogeneousMajorantIterator4NextEv"}
 !144 = distinct !{!144, !6}
 !145 = distinct !{!145, !6}
-!146 = !{!147}
-!147 = distinct !{!147, !148, !"_ZNK4pbrt9Transform12ApplyInverseERKNS_3RayEPf: %agg.result"}
-!148 = distinct !{!148, !"_ZNK4pbrt9Transform12ApplyInverseERKNS_3RayEPf"}
+!146 = distinct !{!146, !6}
+!147 = distinct !{!147, !6}
+!148 = distinct !{!148, !6}
 !149 = distinct !{!149, !6}
 !150 = distinct !{!150, !6}
-!151 = !{!152}
-!152 = distinct !{!152, !153, !"_ZNK4pbrt9Transform12ApplyInverseERKNS_3RayEPf: %agg.result"}
-!153 = distinct !{!153, !"_ZNK4pbrt9Transform12ApplyInverseERKNS_3RayEPf"}
-!154 = distinct !{!154, !6}
+!151 = distinct !{!151, !6}
+!152 = !{!153}
+!153 = distinct !{!153, !154, !"_ZN4pbrt27HomogeneousMajorantIterator4NextEv: %agg.result"}
+!154 = distinct !{!154, !"_ZN4pbrt27HomogeneousMajorantIterator4NextEv"}
 !155 = distinct !{!155, !6}
-!156 = !{!157}
-!157 = distinct !{!157, !158, !"_ZNK4pbrt9Transform12ApplyInverseERKNS_3RayEPf: %agg.result"}
-!158 = distinct !{!158, !"_ZNK4pbrt9Transform12ApplyInverseERKNS_3RayEPf"}
-!159 = distinct !{!159, !6}
-!160 = !{!161}
-!161 = distinct !{!161, !162, !"_ZNK4pbrt11Interaction10SpawnRayToENS_6Point3IfEE: %agg.result"}
-!162 = distinct !{!162, !"_ZNK4pbrt11Interaction10SpawnRayToENS_6Point3IfEE"}
-!163 = !{!164, !166, !161}
-!164 = distinct !{!164, !165, !"_ZN4pbrt8SpawnRayENS_8Point3fiENS_7Normal3IfEEfNS_7Vector3IfEE: %agg.result"}
-!165 = distinct !{!165, !"_ZN4pbrt8SpawnRayENS_8Point3fiENS_7Normal3IfEEfNS_7Vector3IfEE"}
-!166 = distinct !{!166, !167, !"_ZN4pbrt10SpawnRayToENS_8Point3fiENS_7Normal3IfEEfNS_6Point3IfEE: %agg.result"}
-!167 = distinct !{!167, !"_ZN4pbrt10SpawnRayToENS_8Point3fiENS_7Normal3IfEEfNS_6Point3IfEE"}
-!168 = !{!169, !161}
-!169 = distinct !{!169, !170, !"_ZNK4pbrt11Interaction9GetMediumENS_7Vector3IfEE: %agg.result"}
-!170 = distinct !{!170, !"_ZNK4pbrt11Interaction9GetMediumENS_7Vector3IfEE"}
-!171 = !{!172}
-!172 = distinct !{!172, !173, !"_ZNK4pbrt3SOAINS_15TabulatedBSSRDFEE16GetSetIndirectorcvS1_Ev: %agg.result"}
-!173 = distinct !{!173, !"_ZNK4pbrt3SOAINS_15TabulatedBSSRDFEE16GetSetIndirectorcvS1_Ev"}
-!174 = !{!175, !177, !179}
-!175 = distinct !{!175, !176, !"_ZNK4pbrt3SOAINS_18SampledWavelengthsEEixEi: %agg.result"}
-!176 = distinct !{!176, !"_ZNK4pbrt3SOAINS_18SampledWavelengthsEEixEi"}
-!177 = distinct !{!177, !178, !"_ZNK4pbrt3SOAINS_18SampledWavelengthsEE4LoadEi: %agg.result"}
-!178 = distinct !{!178, !"_ZNK4pbrt3SOAINS_18SampledWavelengthsEE4LoadEi"}
-!179 = distinct !{!179, !180, !"_ZNK4pbrt3SOAINS_18SampledWavelengthsEE16GetSetIndirectorcvS1_Ev: %agg.result"}
-!180 = distinct !{!180, !"_ZNK4pbrt3SOAINS_18SampledWavelengthsEE16GetSetIndirectorcvS1_Ev"}
-!181 = !{!182}
-!182 = distinct !{!182, !183, !"_ZNK4pbrt3SOAINS_15MediumInterfaceEE16GetSetIndirectorcvS1_Ev: %agg.result"}
-!183 = distinct !{!183, !"_ZNK4pbrt3SOAINS_15MediumInterfaceEE16GetSetIndirectorcvS1_Ev"}
-!184 = !{!185, !187}
-!185 = distinct !{!185, !186, !"_ZNK4pbrt3SOAINS_8Point3fiEE16GetSetIndirectorcvS1_Ev: %agg.result"}
-!186 = distinct !{!186, !"_ZNK4pbrt3SOAINS_8Point3fiEE16GetSetIndirectorcvS1_Ev"}
-!187 = distinct !{!187, !188, !"_ZNK4pbrt3SOAINS_21SubsurfaceInteractionEE16GetSetIndirectorcvS1_Ev: %agg.result"}
-!188 = distinct !{!188, !"_ZNK4pbrt3SOAINS_21SubsurfaceInteractionEE16GetSetIndirectorcvS1_Ev"}
-!189 = !{!187}
+!156 = distinct !{!156, !6}
+!157 = distinct !{!157, !6}
+!158 = distinct !{!158, !6}
+!159 = !{!160}
+!160 = distinct !{!160, !161, !"_ZZZNK4pbrt12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiENKUlNS_6Point3IfEEE_clESB_: %agg.result"}
+!161 = distinct !{!161, !"_ZZZNK4pbrt12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiENKUlNS_6Point3IfEEE_clESB_"}
+!162 = !{!163, !160}
+!163 = distinct !{!163, !164, !"_ZNK4pbrt11Interaction10SpawnRayToENS_6Point3IfEE: %agg.result"}
+!164 = distinct !{!164, !"_ZNK4pbrt11Interaction10SpawnRayToENS_6Point3IfEE"}
+!165 = !{!166, !163, !160}
+!166 = distinct !{!166, !167, !"_ZNK4pbrt11Interaction9GetMediumENS_7Vector3IfEE: %agg.result"}
+!167 = distinct !{!167, !"_ZNK4pbrt11Interaction9GetMediumENS_7Vector3IfEE"}
+!168 = distinct !{!168, !6}
+!169 = distinct !{!169, !6}
+!170 = distinct !{!170, !6}
+!171 = distinct !{!171, !6}
+!172 = distinct !{!172, !6}
+!173 = !{!174}
+!174 = distinct !{!174, !175, !"_ZNK4pbrt9Transform12ApplyInverseERKNS_3RayEPf: %agg.result"}
+!175 = distinct !{!175, !"_ZNK4pbrt9Transform12ApplyInverseERKNS_3RayEPf"}
+!176 = distinct !{!176, !6}
+!177 = distinct !{!177, !6}
+!178 = distinct !{!178, !6}
+!179 = distinct !{!179, !6}
+!180 = !{!181}
+!181 = distinct !{!181, !182, !"_ZNK4pbrt9Transform12ApplyInverseERKNS_3RayEPf: %agg.result"}
+!182 = distinct !{!182, !"_ZNK4pbrt9Transform12ApplyInverseERKNS_3RayEPf"}
+!183 = distinct !{!183, !6}
+!184 = distinct !{!184, !6}
+!185 = !{!186}
+!186 = distinct !{!186, !187, !"_ZNK4pbrt9Transform12ApplyInverseERKNS_3RayEPf: %agg.result"}
+!187 = distinct !{!187, !"_ZNK4pbrt9Transform12ApplyInverseERKNS_3RayEPf"}
+!188 = distinct !{!188, !6}
+!189 = distinct !{!189, !6}
+!190 = !{!191}
+!191 = distinct !{!191, !192, !"_ZNK4pbrt9Transform12ApplyInverseERKNS_3RayEPf: %agg.result"}
+!192 = distinct !{!192, !"_ZNK4pbrt9Transform12ApplyInverseERKNS_3RayEPf"}
+!193 = distinct !{!193, !6}
+!194 = !{!195}
+!195 = distinct !{!195, !196, !"_ZNK4pbrt11Interaction10SpawnRayToENS_6Point3IfEE: %agg.result"}
+!196 = distinct !{!196, !"_ZNK4pbrt11Interaction10SpawnRayToENS_6Point3IfEE"}
+!197 = !{!198, !200, !195}
+!198 = distinct !{!198, !199, !"_ZN4pbrt8SpawnRayENS_8Point3fiENS_7Normal3IfEEfNS_7Vector3IfEE: %agg.result"}
+!199 = distinct !{!199, !"_ZN4pbrt8SpawnRayENS_8Point3fiENS_7Normal3IfEEfNS_7Vector3IfEE"}
+!200 = distinct !{!200, !201, !"_ZN4pbrt10SpawnRayToENS_8Point3fiENS_7Normal3IfEEfNS_6Point3IfEE: %agg.result"}
+!201 = distinct !{!201, !"_ZN4pbrt10SpawnRayToENS_8Point3fiENS_7Normal3IfEEfNS_6Point3IfEE"}
+!202 = !{!203, !195}
+!203 = distinct !{!203, !204, !"_ZNK4pbrt11Interaction9GetMediumENS_7Vector3IfEE: %agg.result"}
+!204 = distinct !{!204, !"_ZNK4pbrt11Interaction9GetMediumENS_7Vector3IfEE"}
+!205 = !{!206}
+!206 = distinct !{!206, !207, !"_ZNK4pbrt3SOAINS_15TabulatedBSSRDFEE16GetSetIndirectorcvS1_Ev: %agg.result"}
+!207 = distinct !{!207, !"_ZNK4pbrt3SOAINS_15TabulatedBSSRDFEE16GetSetIndirectorcvS1_Ev"}
+!208 = !{!209, !211, !213}
+!209 = distinct !{!209, !210, !"_ZNK4pbrt3SOAINS_18SampledWavelengthsEEixEi: %agg.result"}
+!210 = distinct !{!210, !"_ZNK4pbrt3SOAINS_18SampledWavelengthsEEixEi"}
+!211 = distinct !{!211, !212, !"_ZNK4pbrt3SOAINS_18SampledWavelengthsEE4LoadEi: %agg.result"}
+!212 = distinct !{!212, !"_ZNK4pbrt3SOAINS_18SampledWavelengthsEE4LoadEi"}
+!213 = distinct !{!213, !214, !"_ZNK4pbrt3SOAINS_18SampledWavelengthsEE16GetSetIndirectorcvS1_Ev: %agg.result"}
+!214 = distinct !{!214, !"_ZNK4pbrt3SOAINS_18SampledWavelengthsEE16GetSetIndirectorcvS1_Ev"}
+!215 = !{!216}
+!216 = distinct !{!216, !217, !"_ZNK4pbrt3SOAINS_15MediumInterfaceEE16GetSetIndirectorcvS1_Ev: %agg.result"}
+!217 = distinct !{!217, !"_ZNK4pbrt3SOAINS_15MediumInterfaceEE16GetSetIndirectorcvS1_Ev"}
+!218 = !{!219, !221}
+!219 = distinct !{!219, !220, !"_ZNK4pbrt3SOAINS_8Point3fiEE16GetSetIndirectorcvS1_Ev: %agg.result"}
+!220 = distinct !{!220, !"_ZNK4pbrt3SOAINS_8Point3fiEE16GetSetIndirectorcvS1_Ev"}
+!221 = distinct !{!221, !222, !"_ZNK4pbrt3SOAINS_21SubsurfaceInteractionEE16GetSetIndirectorcvS1_Ev: %agg.result"}
+!222 = distinct !{!222, !"_ZNK4pbrt3SOAINS_21SubsurfaceInteractionEE16GetSetIndirectorcvS1_Ev"}
+!223 = !{!221}

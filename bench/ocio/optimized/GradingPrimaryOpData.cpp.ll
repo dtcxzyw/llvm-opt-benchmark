@@ -830,17 +830,21 @@ if.end:                                           ; preds = %entry
   %m_saturation4 = getelementptr inbounds i8, ptr %call3, i64 224
   %5 = load double, ptr %m_saturation4, align 8
   %cmp = fcmp oeq double %5, 1.000000e+00
+  br i1 %cmp, label %land.lhs.true, label %if.end56
+
+land.lhs.true:                                    ; preds = %if.end
   %m_clampBlack5 = getelementptr inbounds i8, ptr %call3, i64 256
   %6 = load double, ptr %m_clampBlack5, align 8
   %cmp6 = fcmp oeq double %call.i, %6
-  %or.cond = select i1 %cmp, i1 %cmp6, i1 false
+  br i1 %cmp6, label %land.lhs.true7, label %if.end56
+
+land.lhs.true7:                                   ; preds = %land.lhs.true
   %m_clampWhite8 = getelementptr inbounds i8, ptr %call3, i64 264
   %7 = load double, ptr %m_clampWhite8, align 8
   %cmp9 = fcmp oeq double %call2.i, %7
-  %or.cond15 = select i1 %or.cond, i1 %cmp9, i1 false
-  br i1 %or.cond15, label %if.then10, label %if.end56
+  br i1 %cmp9, label %if.then10, label %if.end56
 
-if.then10:                                        ; preds = %if.end
+if.then10:                                        ; preds = %land.lhs.true7
   %8 = load i32, ptr %m_style, align 8
   switch i32 %8, label %if.end56 [
     i32 0, label %sw.bb
@@ -852,13 +856,15 @@ sw.bb:                                            ; preds = %if.then10
   %m_pivotBlack12 = getelementptr inbounds i8, ptr %call3, i64 240
   %9 = load double, ptr %m_pivotBlack12, align 8
   %cmp13 = fcmp oeq double %9, 0.000000e+00
+  br i1 %cmp13, label %land.lhs.true14, label %if.end56
+
+land.lhs.true14:                                  ; preds = %sw.bb
   %m_pivotWhite15 = getelementptr inbounds i8, ptr %call3, i64 248
   %10 = load double, ptr %m_pivotWhite15, align 8
   %cmp16 = fcmp oeq double %10, 1.000000e+00
-  %or.cond16 = select i1 %cmp13, i1 %cmp16, i1 false
-  br i1 %or.cond16, label %land.lhs.true17, label %if.end56
+  br i1 %cmp16, label %land.lhs.true17, label %if.end56
 
-land.lhs.true17:                                  ; preds = %sw.bb
+land.lhs.true17:                                  ; preds = %land.lhs.true14
   %call19 = call noundef zeroext i1 @_ZN19OpenColorIO_v2_4deveqERKNS_11GradingRGBMES2_(ptr noundef nonnull align 8 dereferenceable(32) %defaultValues, ptr noundef nonnull align 8 dereferenceable(32) %call3)
   br i1 %call19, label %land.lhs.true20, label %if.end56
 
@@ -909,7 +915,7 @@ land.lhs.true51:                                  ; preds = %land.lhs.true48
   %call53 = call noundef zeroext i1 @_ZN19OpenColorIO_v2_4deveqERKNS_11GradingRGBMES2_(ptr noundef nonnull align 8 dereferenceable(32) %m_gain.i, ptr noundef nonnull align 8 dereferenceable(32) %m_gain52)
   br i1 %call53, label %return, label %if.end56
 
-if.end56:                                         ; preds = %if.then10, %land.lhs.true23, %land.lhs.true20, %land.lhs.true17, %sw.bb, %land.lhs.true35, %land.lhs.true32, %sw.bb28, %land.lhs.true51, %land.lhs.true48, %land.lhs.true44, %sw.bb40, %if.end
+if.end56:                                         ; preds = %if.then10, %land.lhs.true23, %land.lhs.true20, %land.lhs.true17, %land.lhs.true14, %sw.bb, %land.lhs.true35, %land.lhs.true32, %sw.bb28, %land.lhs.true51, %land.lhs.true48, %land.lhs.true44, %sw.bb40, %land.lhs.true7, %land.lhs.true, %if.end
   br label %return
 
 return:                                           ; preds = %land.lhs.true51, %land.lhs.true35, %land.lhs.true23, %entry, %if.end56

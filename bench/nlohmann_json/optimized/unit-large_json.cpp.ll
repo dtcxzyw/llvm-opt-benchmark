@@ -2119,22 +2119,25 @@ if.end.i:                                         ; preds = %land.lhs.true
   %chars_read_current_line.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load i64, ptr %chars_read_current_line.i.i, align 8
   %cmp.i.i = icmp eq i64 %2, 0
-  br i1 %cmp.i.i, label %if.then.i.i, label %if.end12.sink.split.i.i
+  br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   %lines_read.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %3 = load i64, ptr %lines_read.i.i, align 8
   %cmp4.not.i.i = icmp eq i64 %3, 0
-  br i1 %cmp4.not.i.i, label %if.end12.i.i, label %if.end12.sink.split.i.i
+  br i1 %cmp4.not.i.i, label %if.end12.i.i, label %if.then5.i.i
 
-if.end12.sink.split.i.i:                          ; preds = %if.then.i.i, %if.end.i
-  %.sink.i.i = phi i64 [ %3, %if.then.i.i ], [ %2, %if.end.i ]
-  %lines_read.sink.i.i = phi ptr [ %lines_read.i.i, %if.then.i.i ], [ %chars_read_current_line.i.i, %if.end.i ]
-  %dec8.i.i = add i64 %.sink.i.i, -1
-  store i64 %dec8.i.i, ptr %lines_read.sink.i.i, align 8
+if.then5.i.i:                                     ; preds = %if.then.i.i
+  %dec8.i.i = add i64 %3, -1
+  store i64 %dec8.i.i, ptr %lines_read.i.i, align 8
   br label %if.end12.i.i
 
-if.end12.i.i:                                     ; preds = %if.end12.sink.split.i.i, %if.then.i.i
+if.else.i.i:                                      ; preds = %if.end.i
+  %dec11.i.i = add i64 %2, -1
+  store i64 %dec11.i.i, ptr %chars_read_current_line.i.i, align 8
+  br label %if.end12.i.i
+
+if.end12.i.i:                                     ; preds = %if.else.i.i, %if.then5.i.i, %if.then.i.i
   %current.i.i = getelementptr inbounds i8, ptr %this, i64 20
   %4 = load i32, ptr %current.i.i, align 4
   %cmp13.not.i.i = icmp eq i32 %4, -1
@@ -2499,21 +2502,24 @@ sw.default11:                                     ; preds = %sw.bb8
   store i64 %dec.i, ptr %position.i, align 8
   %2 = load i64, ptr %chars_read_current_line.i, align 8
   %cmp.i = icmp eq i64 %2, 0
-  br i1 %cmp.i, label %if.then.i, label %if.end12.sink.split.i
+  br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %sw.default11
   %3 = load i64, ptr %lines_read.i, align 8
   %cmp4.not.i = icmp eq i64 %3, 0
-  br i1 %cmp4.not.i, label %if.end12.i, label %if.end12.sink.split.i
+  br i1 %cmp4.not.i, label %if.end12.i, label %if.then5.i
 
-if.end12.sink.split.i:                            ; preds = %if.then.i, %sw.default11
-  %.sink.i = phi i64 [ %3, %if.then.i ], [ %2, %sw.default11 ]
-  %lines_read.sink.i = phi ptr [ %lines_read.i, %if.then.i ], [ %chars_read_current_line.i, %sw.default11 ]
-  %dec8.i = add i64 %.sink.i, -1
-  store i64 %dec8.i, ptr %lines_read.sink.i, align 8
+if.then5.i:                                       ; preds = %if.then.i
+  %dec8.i = add i64 %3, -1
+  store i64 %dec8.i, ptr %lines_read.i, align 8
   br label %if.end12.i
 
-if.end12.i:                                       ; preds = %if.end12.sink.split.i, %if.then.i
+if.else.i:                                        ; preds = %sw.default11
+  %dec11.i = add i64 %2, -1
+  store i64 %dec11.i, ptr %chars_read_current_line.i, align 8
+  br label %if.end12.i
+
+if.end12.i:                                       ; preds = %if.else.i, %if.then5.i, %if.then.i
   %4 = load i32, ptr %current.i, align 4
   %cmp13.not.i = icmp eq i32 %4, -1
   br i1 %cmp13.not.i, label %while.body5.backedge, label %if.then15.i
@@ -3612,9 +3618,9 @@ sw.bb18:                                          ; preds = %if.end11.i, %if.end
 
 scan_number_decimal1:                             ; preds = %if.end11.i, %sw.bb13
   %token_buffer.i16.sink = phi ptr [ %token_buffer.i12, %sw.bb13 ], [ %token_buffer.i16, %if.end11.i ]
-  %.sink57.in = getelementptr inbounds i8, ptr %this, i64 144
-  %.sink57 = load i32, ptr %.sink57.in, align 8
-  %conv.i19 = trunc i32 %.sink57 to i8
+  %.sink58.in = getelementptr inbounds i8, ptr %this, i64 144
+  %.sink58 = load i32, ptr %.sink58.in, align 8
+  %conv.i19 = trunc i32 %.sink58 to i8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %token_buffer.i16.sink, i8 noundef signext %conv.i19)
   %call25 = tail call noundef i32 @_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcSB_EEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(148) %this)
   %call25.off = add i32 %call25, -48
@@ -3631,8 +3637,8 @@ sw.default28:                                     ; preds = %scan_number_decimal
   br label %return
 
 scan_number_decimal2:                             ; preds = %scan_number_decimal2.backedge, %sw.bb26
-  %.sink58 = load i32, ptr %current, align 4
-  %conv.i25 = trunc i32 %.sink58 to i8
+  %.sink59 = load i32, ptr %current, align 4
+  %conv.i25 = trunc i32 %.sink59 to i8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %token_buffer.i22, i8 noundef signext %conv.i25)
   %call30 = tail call noundef i32 @_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcSB_EEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(148) %this)
   switch i32 %call30, label %scan_number_done [
@@ -3658,9 +3664,9 @@ sw.bb33:                                          ; preds = %scan_number_decimal
   br label %scan_number_exponent
 
 scan_number_exponent:                             ; preds = %if.end11.i, %if.end11.i, %sw.bb33, %sw.bb14
-  %.sink59 = phi i32 [ %17, %sw.bb33 ], [ %3, %sw.bb14 ], [ %.pr.i, %if.end11.i ], [ %.pr.i, %if.end11.i ]
+  %.sink60 = phi i32 [ %17, %sw.bb33 ], [ %3, %sw.bb14 ], [ %.pr.i, %if.end11.i ], [ %.pr.i, %if.end11.i ]
   %token_buffer.i22.sink = phi ptr [ %token_buffer.i22, %sw.bb33 ], [ %token_buffer.i14, %sw.bb14 ], [ %token_buffer.i16, %if.end11.i ], [ %token_buffer.i16, %if.end11.i ]
-  %conv.i27 = trunc i32 %.sink59 to i8
+  %conv.i27 = trunc i32 %.sink60 to i8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %token_buffer.i22.sink, i8 noundef signext %conv.i27)
   %call36 = tail call noundef i32 @_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcSB_EEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(148) %this)
   switch i32 %call36, label %sw.default41 [
@@ -3699,13 +3705,13 @@ sw.default41:                                     ; preds = %scan_number_exponen
 
 scan_number_any2.preheader:                       ; preds = %sw.bb37, %sw.bb39
   %token_buffer.i30.sink = phi ptr [ %token_buffer.i30, %sw.bb39 ], [ %token_buffer.i28, %sw.bb37 ]
-  %.sink60 = load i32, ptr %current, align 4
-  %conv.i31 = trunc i32 %.sink60 to i8
+  %.sink61 = load i32, ptr %current, align 4
+  %conv.i31 = trunc i32 %.sink61 to i8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %token_buffer.i30.sink, i8 noundef signext %conv.i31)
-  %call4848 = tail call noundef i32 @_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcSB_EEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(148) %this)
-  %call48.off49 = add i32 %call4848, -48
-  %switch550 = icmp ult i32 %call48.off49, 10
-  br i1 %switch550, label %sw.bb49.lr.ph, label %scan_number_done
+  %call4849 = tail call noundef i32 @_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcSB_EEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(148) %this)
+  %call48.off50 = add i32 %call4849, -48
+  %switch551 = icmp ult i32 %call48.off50, 10
+  br i1 %switch551, label %sw.bb49.lr.ph, label %scan_number_done
 
 sw.bb49.lr.ph:                                    ; preds = %scan_number_any2.preheader
   %token_buffer.i34 = getelementptr inbounds i8, ptr %this, i64 80
@@ -3736,22 +3742,25 @@ scan_number_done:                                 ; preds = %if.end11.i, %if.end
   %chars_read_current_line.i38 = getelementptr inbounds i8, ptr %this, i64 40
   %21 = load i64, ptr %chars_read_current_line.i38, align 8
   %cmp.i = icmp eq i64 %21, 0
-  br i1 %cmp.i, label %if.then.i40, label %if.end12.sink.split.i
+  br i1 %cmp.i, label %if.then.i41, label %if.else.i39
 
-if.then.i40:                                      ; preds = %scan_number_done
-  %lines_read.i41 = getelementptr inbounds i8, ptr %this, i64 48
-  %22 = load i64, ptr %lines_read.i41, align 8
+if.then.i41:                                      ; preds = %scan_number_done
+  %lines_read.i42 = getelementptr inbounds i8, ptr %this, i64 48
+  %22 = load i64, ptr %lines_read.i42, align 8
   %cmp4.not.i = icmp eq i64 %22, 0
-  br i1 %cmp4.not.i, label %if.end12.i, label %if.end12.sink.split.i
+  br i1 %cmp4.not.i, label %if.end12.i, label %if.then5.i
 
-if.end12.sink.split.i:                            ; preds = %if.then.i40, %scan_number_done
-  %.sink.i = phi i64 [ %22, %if.then.i40 ], [ %21, %scan_number_done ]
-  %lines_read.sink.i = phi ptr [ %lines_read.i41, %if.then.i40 ], [ %chars_read_current_line.i38, %scan_number_done ]
-  %dec8.i = add i64 %.sink.i, -1
-  store i64 %dec8.i, ptr %lines_read.sink.i, align 8
+if.then5.i:                                       ; preds = %if.then.i41
+  %dec8.i = add i64 %22, -1
+  store i64 %dec8.i, ptr %lines_read.i42, align 8
   br label %if.end12.i
 
-if.end12.i:                                       ; preds = %if.end12.sink.split.i, %if.then.i40
+if.else.i39:                                      ; preds = %scan_number_done
+  %dec11.i = add i64 %21, -1
+  store i64 %dec11.i, ptr %chars_read_current_line.i38, align 8
+  br label %if.end12.i
+
+if.end12.i:                                       ; preds = %if.else.i39, %if.then5.i, %if.then.i41
   %23 = load i32, ptr %current, align 4
   %cmp13.not.i = icmp eq i32 %23, -1
   br i1 %cmp13.not.i, label %_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcSB_EEEEE5ungetEv.exit, label %if.then15.i
@@ -10616,36 +10625,37 @@ invoke.cont32:                                    ; preds = %if.end25
   %12 = load ptr, ptr %m_value, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #21
   %13 = load ptr, ptr %m_value, align 8
-  br label %if.end49.sink.split
+  tail call void @_ZdlPv(ptr noundef %13) #24
+  store ptr null, ptr %m_value, align 8
+  br label %if.end49
 
 if.then37:                                        ; preds = %if.end25
   %m_value40 = getelementptr inbounds i8, ptr %this, i64 8
   %14 = load ptr, ptr %m_value40, align 8
   %15 = load ptr, ptr %14, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %15, null
-  br i1 %tobool.not.i.i.i.i.i.i, label %if.end49.sink.split, label %if.then.i.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i, label %invoke.cont44, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then37
   tail call void @_ZdlPv(ptr noundef nonnull %15) #24
   %.pre = load ptr, ptr %m_value40, align 8
-  br label %if.end49.sink.split
+  br label %invoke.cont44
 
-if.end49.sink.split:                              ; preds = %if.then37, %if.then.i.i.i.i.i.i, %invoke.cont32
-  %.sink = phi ptr [ %13, %invoke.cont32 ], [ %.pre, %if.then.i.i.i.i.i.i ], [ %14, %if.then37 ]
-  %m_value40.sink = phi ptr [ %m_value, %invoke.cont32 ], [ %m_value40, %if.then.i.i.i.i.i.i ], [ %m_value40, %if.then37 ]
-  tail call void @_ZdlPv(ptr noundef %.sink) #24
-  store ptr null, ptr %m_value40.sink, align 8
+invoke.cont44:                                    ; preds = %if.then.i.i.i.i.i.i, %if.then37
+  %16 = phi ptr [ %.pre, %if.then.i.i.i.i.i.i ], [ %14, %if.then37 ]
+  tail call void @_ZdlPv(ptr noundef %16) #24
+  store ptr null, ptr %m_value40, align 8
   br label %if.end49
 
-if.end49:                                         ; preds = %if.end49.sink.split, %if.end25
+if.end49:                                         ; preds = %if.end25, %invoke.cont44, %invoke.cont32
   store i8 0, ptr %this, align 8
   br label %sw.epilog
 
 terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit.thread
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #23
+  %18 = extractvalue { ptr, i32 } %17, 0
+  tail call void @__clang_call_terminate(ptr %18) #23
   unreachable
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorISI_E.exit: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit.thread
@@ -10653,8 +10663,8 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_a
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i.i) #21
   tail call void @_ZdlPv(ptr noundef nonnull %call.i1.i.i) #24
   %_M_node_count.i.i.i = getelementptr inbounds i8, ptr %4, i64 40
-  %18 = load i64, ptr %_M_node_count.i.i.i, align 8
-  %dec.i.i.i = add i64 %18, -1
+  %19 = load i64, ptr %_M_node_count.i.i.i, align 8
+  %dec.i.i.i = add i64 %19, -1
   store i64 %dec.i.i.i, ptr %_M_node_count.i.i.i, align 8
   store ptr %call.i.i.i, ptr %m_it.i.i, align 8
   br label %sw.epilog
@@ -10671,7 +10681,7 @@ invoke.cont78:                                    ; preds = %sw.default
           to label %invoke.cont80 unwind label %ehcleanup83.thread19
 
 ehcleanup83.thread19:                             ; preds = %invoke.cont78
-  %19 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp74) #21
   br label %cleanup.action85
@@ -10681,18 +10691,18 @@ invoke.cont80:                                    ; preds = %invoke.cont78
           to label %unreachable unwind label %ehcleanup83
 
 ehcleanup83.thread:                               ; preds = %sw.default
-  %20 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
   br label %cleanup.action85
 
 ehcleanup83:                                      ; preds = %invoke.cont80
-  %21 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp74) #21
   br label %eh.resume
 
 cleanup.action85:                                 ; preds = %ehcleanup83.thread19, %ehcleanup83.thread
-  %.pn218 = phi { ptr, i32 } [ %20, %ehcleanup83.thread ], [ %19, %ehcleanup83.thread19 ]
+  %.pn218 = phi { ptr, i32 } [ %21, %ehcleanup83.thread ], [ %20, %ehcleanup83.thread19 ]
   call void @__cxa_free_exception(ptr %exception73) #21
   br label %eh.resume
 
@@ -10700,7 +10710,7 @@ sw.epilog:                                        ; preds = %_ZN8nlohmann16json_
   ret void
 
 eh.resume:                                        ; preds = %ehcleanup83, %cleanup.action85, %ehcleanup20, %cleanup.action23, %ehcleanup, %cleanup.action
-  %.pn4.pn = phi { ptr, i32 } [ %.pn411, %cleanup.action ], [ %2, %ehcleanup ], [ %.pn218, %cleanup.action85 ], [ %21, %ehcleanup83 ], [ %.pn15, %cleanup.action23 ], [ %11, %ehcleanup20 ]
+  %.pn4.pn = phi { ptr, i32 } [ %.pn411, %cleanup.action ], [ %2, %ehcleanup ], [ %.pn218, %cleanup.action85 ], [ %22, %ehcleanup83 ], [ %.pn15, %cleanup.action23 ], [ %11, %ehcleanup20 ]
   resume { ptr, i32 } %.pn4.pn
 
 unreachable:                                      ; preds = %invoke.cont80, %invoke.cont17, %invoke.cont5

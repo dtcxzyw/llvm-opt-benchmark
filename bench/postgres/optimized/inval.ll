@@ -1760,38 +1760,46 @@ define dso_local void @CacheRegisterSyscacheCallback(i32 noundef %0, ptr noundef
   %15 = getelementptr [83 x i16], ptr @syscache_callback_links, i64 0, i64 %14
   %16 = load i16, ptr %15, align 2
   %17 = icmp eq i16 %16, 0
-  br i1 %17, label %.loopexit, label %18
+  br i1 %17, label %18, label %21
 
 18:                                               ; preds = %13
-  %19 = sext i16 %16 to i64
-  br label %20
+  %19 = trunc i32 %8 to i16
+  %20 = add i16 %19, 1
+  store i16 %20, ptr %15, align 2
+  br label %31
 
-20:                                               ; preds = %20, %18
-  %.0.in = phi i64 [ %19, %18 ], [ %24, %20 ]
+21:                                               ; preds = %13
+  %22 = sext i16 %16 to i64
+  br label %23
+
+23:                                               ; preds = %23, %21
+  %.0.in = phi i64 [ %22, %21 ], [ %27, %23 ]
   %.0 = add nsw i64 %.0.in, -1
-  %21 = getelementptr [64 x %struct.SYSCACHECALLBACK], ptr @syscache_callback_list, i64 0, i64 %.0, i32 1
-  %22 = load i16, ptr %21, align 2
-  %23 = icmp sgt i16 %22, 0
-  %24 = zext nneg i16 %22 to i64
-  br i1 %23, label %20, label %.loopexit, !llvm.loop !14
+  %24 = getelementptr [64 x %struct.SYSCACHECALLBACK], ptr @syscache_callback_list, i64 0, i64 %.0, i32 1
+  %25 = load i16, ptr %24, align 2
+  %26 = icmp sgt i16 %25, 0
+  %27 = zext nneg i16 %25 to i64
+  br i1 %26, label %23, label %28, !llvm.loop !14
 
-.loopexit:                                        ; preds = %20, %13
-  %.lcssa.sink = phi ptr [ %15, %13 ], [ %21, %20 ]
-  %25 = trunc i32 %8 to i16
-  %26 = add i16 %25, 1
-  store i16 %26, ptr %.lcssa.sink, align 2
-  %27 = trunc nuw nsw i32 %0 to i16
-  %28 = sext i32 %8 to i64
-  %29 = getelementptr [64 x %struct.SYSCACHECALLBACK], ptr @syscache_callback_list, i64 0, i64 %28
-  store i16 %27, ptr %29, align 8
-  %30 = getelementptr [64 x %struct.SYSCACHECALLBACK], ptr @syscache_callback_list, i64 0, i64 %28, i32 1
-  store i16 0, ptr %30, align 2
-  %31 = getelementptr [64 x %struct.SYSCACHECALLBACK], ptr @syscache_callback_list, i64 0, i64 %28, i32 2
-  store ptr %1, ptr %31, align 8
-  %32 = getelementptr [64 x %struct.SYSCACHECALLBACK], ptr @syscache_callback_list, i64 0, i64 %28, i32 3
-  store i64 %2, ptr %32, align 8
-  %33 = add i32 %8, 1
-  store i32 %33, ptr @syscache_callback_count, align 4
+28:                                               ; preds = %23
+  %29 = trunc i32 %8 to i16
+  %30 = add i16 %29, 1
+  store i16 %30, ptr %24, align 2
+  br label %31
+
+31:                                               ; preds = %28, %18
+  %32 = trunc nuw nsw i32 %0 to i16
+  %33 = sext i32 %8 to i64
+  %34 = getelementptr [64 x %struct.SYSCACHECALLBACK], ptr @syscache_callback_list, i64 0, i64 %33
+  store i16 %32, ptr %34, align 8
+  %35 = getelementptr [64 x %struct.SYSCACHECALLBACK], ptr @syscache_callback_list, i64 0, i64 %33, i32 1
+  store i16 0, ptr %35, align 2
+  %36 = getelementptr [64 x %struct.SYSCACHECALLBACK], ptr @syscache_callback_list, i64 0, i64 %33, i32 2
+  store ptr %1, ptr %36, align 8
+  %37 = getelementptr [64 x %struct.SYSCACHECALLBACK], ptr @syscache_callback_list, i64 0, i64 %33, i32 3
+  store i64 %2, ptr %37, align 8
+  %38 = add i32 %8, 1
+  store i32 %38, ptr @syscache_callback_count, align 4
   ret void
 }
 

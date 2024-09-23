@@ -571,7 +571,7 @@ define hidden void @_ZN6BitMap9set_rangeEmm(ptr nocapture noundef nonnull readon
   %6 = lshr i64 %2, 6
   %7 = icmp ult i64 %5, %6
   %8 = and i64 %4, -64
-  br i1 %7, label %9, label %26
+  br i1 %7, label %9, label %28
 
 9:                                                ; preds = %3
   %.not.i = icmp eq i64 %1, %8
@@ -604,57 +604,55 @@ _ZN6BitMap18set_range_of_wordsEmm.exit:           ; preds = %9, %10
   %23 = xor i64 %.neg.i.i, -1
   %24 = load ptr, ptr %0, align 8
   %25 = getelementptr inbounds i64, ptr %24, i64 %6
-  br label %_ZN6BitMap21set_range_within_wordEmm.exit23.sink.split
-
-26:                                               ; preds = %3
-  %27 = tail call noundef i64 @llvm.umin.i64(i64 %8, i64 %2)
-  %.not.i24 = icmp eq i64 %1, %27
-  br i1 %.not.i24, label %_ZN6BitMap21set_range_within_wordEmm.exit29, label %28
-
-28:                                               ; preds = %26
-  %29 = and i64 %1, 63
-  %notmask.i.i25 = shl nsw i64 -1, %29
-  %30 = and i64 %27, 63
-  %.not.i.i26 = icmp eq i64 %30, 0
-  %.neg.i.i27 = shl nsw i64 -1, %30
-  %31 = xor i64 %.neg.i.i27, -1
-  %.not7.i28 = select i1 %.not.i.i26, i64 -1, i64 %31
-  %32 = and i64 %.not7.i28, %notmask.i.i25
-  %33 = load ptr, ptr %0, align 8
-  %34 = lshr i64 %1, 6
-  %35 = getelementptr inbounds i64, ptr %33, i64 %34
-  %36 = load i64, ptr %35, align 8
-  %37 = or i64 %36, %32
-  store i64 %37, ptr %35, align 8
-  br label %_ZN6BitMap21set_range_within_wordEmm.exit29
-
-_ZN6BitMap21set_range_within_wordEmm.exit29:      ; preds = %26, %28
-  %.not.i30.not = icmp ugt i64 %2, %8
-  br i1 %.not.i30.not, label %38, label %_ZN6BitMap21set_range_within_wordEmm.exit23
-
-38:                                               ; preds = %_ZN6BitMap21set_range_within_wordEmm.exit29
-  %39 = and i64 %27, 63
-  %notmask.i.i31 = shl nsw i64 -1, %39
-  %40 = and i64 %2, 63
-  %.not.i.i32 = icmp eq i64 %40, 0
-  %.neg.i.i33 = shl nsw i64 -1, %40
-  %41 = xor i64 %.neg.i.i33, -1
-  %.not7.i34 = select i1 %.not.i.i32, i64 -1, i64 %41
-  %42 = and i64 %notmask.i.i31, %.not7.i34
-  %43 = load ptr, ptr %0, align 8
-  %44 = lshr i64 %27, 6
-  %45 = getelementptr inbounds i64, ptr %43, i64 %44
-  br label %_ZN6BitMap21set_range_within_wordEmm.exit23.sink.split
-
-_ZN6BitMap21set_range_within_wordEmm.exit23.sink.split: ; preds = %22, %38
-  %.sink = phi ptr [ %45, %38 ], [ %25, %22 ]
-  %.sink38 = phi i64 [ %42, %38 ], [ %23, %22 ]
-  %46 = load i64, ptr %.sink, align 8
-  %47 = or i64 %46, %.sink38
-  store i64 %47, ptr %.sink, align 8
+  %26 = load i64, ptr %25, align 8
+  %27 = or i64 %26, %23
+  store i64 %27, ptr %25, align 8
   br label %_ZN6BitMap21set_range_within_wordEmm.exit23
 
-_ZN6BitMap21set_range_within_wordEmm.exit23:      ; preds = %_ZN6BitMap21set_range_within_wordEmm.exit23.sink.split, %_ZN6BitMap21set_range_within_wordEmm.exit29, %_ZN6BitMap18set_range_of_wordsEmm.exit
+28:                                               ; preds = %3
+  %29 = tail call noundef i64 @llvm.umin.i64(i64 %8, i64 %2)
+  %.not.i24 = icmp eq i64 %1, %29
+  br i1 %.not.i24, label %_ZN6BitMap21set_range_within_wordEmm.exit29, label %30
+
+30:                                               ; preds = %28
+  %31 = and i64 %1, 63
+  %notmask.i.i25 = shl nsw i64 -1, %31
+  %32 = and i64 %29, 63
+  %.not.i.i26 = icmp eq i64 %32, 0
+  %.neg.i.i27 = shl nsw i64 -1, %32
+  %33 = xor i64 %.neg.i.i27, -1
+  %.not7.i28 = select i1 %.not.i.i26, i64 -1, i64 %33
+  %34 = and i64 %.not7.i28, %notmask.i.i25
+  %35 = load ptr, ptr %0, align 8
+  %36 = lshr i64 %1, 6
+  %37 = getelementptr inbounds i64, ptr %35, i64 %36
+  %38 = load i64, ptr %37, align 8
+  %39 = or i64 %38, %34
+  store i64 %39, ptr %37, align 8
+  br label %_ZN6BitMap21set_range_within_wordEmm.exit29
+
+_ZN6BitMap21set_range_within_wordEmm.exit29:      ; preds = %28, %30
+  %.not.i30.not = icmp ugt i64 %2, %8
+  br i1 %.not.i30.not, label %40, label %_ZN6BitMap21set_range_within_wordEmm.exit23
+
+40:                                               ; preds = %_ZN6BitMap21set_range_within_wordEmm.exit29
+  %41 = and i64 %29, 63
+  %notmask.i.i31 = shl nsw i64 -1, %41
+  %42 = and i64 %2, 63
+  %.not.i.i32 = icmp eq i64 %42, 0
+  %.neg.i.i33 = shl nsw i64 -1, %42
+  %43 = xor i64 %.neg.i.i33, -1
+  %.not7.i34 = select i1 %.not.i.i32, i64 -1, i64 %43
+  %44 = and i64 %notmask.i.i31, %.not7.i34
+  %45 = load ptr, ptr %0, align 8
+  %46 = lshr i64 %29, 6
+  %47 = getelementptr inbounds i64, ptr %45, i64 %46
+  %48 = load i64, ptr %47, align 8
+  %49 = or i64 %48, %44
+  store i64 %49, ptr %47, align 8
+  br label %_ZN6BitMap21set_range_within_wordEmm.exit23
+
+_ZN6BitMap21set_range_within_wordEmm.exit23:      ; preds = %40, %_ZN6BitMap21set_range_within_wordEmm.exit29, %22, %_ZN6BitMap18set_range_of_wordsEmm.exit
   ret void
 }
 
@@ -665,7 +663,7 @@ define hidden void @_ZN6BitMap11clear_rangeEmm(ptr nocapture noundef nonnull rea
   %6 = lshr i64 %2, 6
   %7 = icmp ult i64 %5, %6
   %8 = and i64 %4, -64
-  br i1 %7, label %9, label %26
+  br i1 %7, label %9, label %28
 
 9:                                                ; preds = %3
   %.not.i = icmp eq i64 %1, %8
@@ -698,57 +696,55 @@ _ZN6BitMap20clear_range_of_wordsEmm.exit:         ; preds = %9, %10
   %.neg.i.i = shl nsw i64 -1, %22
   %24 = load ptr, ptr %0, align 8
   %25 = getelementptr inbounds i64, ptr %24, i64 %6
-  br label %_ZN6BitMap23clear_range_within_wordEmm.exit23.sink.split
-
-26:                                               ; preds = %3
-  %27 = tail call noundef i64 @llvm.umin.i64(i64 %8, i64 %2)
-  %.not.i24 = icmp eq i64 %1, %27
-  br i1 %.not.i24, label %_ZN6BitMap23clear_range_within_wordEmm.exit29, label %28
-
-28:                                               ; preds = %26
-  %29 = and i64 %1, 63
-  %notmask.i.i25 = shl nsw i64 -1, %29
-  %30 = xor i64 %notmask.i.i25, -1
-  %31 = and i64 %27, 63
-  %.not.i.i26 = icmp eq i64 %31, 0
-  %.neg.i.i27 = shl nsw i64 -1, %31
-  %32 = select i1 %.not.i.i26, i64 0, i64 %.neg.i.i27
-  %.0.i.i28 = or i64 %32, %30
-  %33 = load ptr, ptr %0, align 8
-  %34 = lshr i64 %1, 6
-  %35 = getelementptr inbounds i64, ptr %33, i64 %34
-  %36 = load i64, ptr %35, align 8
-  %37 = and i64 %36, %.0.i.i28
-  store i64 %37, ptr %35, align 8
-  br label %_ZN6BitMap23clear_range_within_wordEmm.exit29
-
-_ZN6BitMap23clear_range_within_wordEmm.exit29:    ; preds = %26, %28
-  %.not.i30.not = icmp ugt i64 %2, %8
-  br i1 %.not.i30.not, label %38, label %_ZN6BitMap23clear_range_within_wordEmm.exit23
-
-38:                                               ; preds = %_ZN6BitMap23clear_range_within_wordEmm.exit29
-  %39 = and i64 %27, 63
-  %notmask.i.i31 = shl nsw i64 -1, %39
-  %40 = xor i64 %notmask.i.i31, -1
-  %41 = and i64 %2, 63
-  %.not.i.i32 = icmp eq i64 %41, 0
-  %.neg.i.i33 = shl nsw i64 -1, %41
-  %42 = select i1 %.not.i.i32, i64 0, i64 %.neg.i.i33
-  %.0.i.i34 = or i64 %42, %40
-  %43 = load ptr, ptr %0, align 8
-  %44 = lshr i64 %27, 6
-  %45 = getelementptr inbounds i64, ptr %43, i64 %44
-  br label %_ZN6BitMap23clear_range_within_wordEmm.exit23.sink.split
-
-_ZN6BitMap23clear_range_within_wordEmm.exit23.sink.split: ; preds = %23, %38
-  %.sink = phi ptr [ %45, %38 ], [ %25, %23 ]
-  %.0.i.i34.sink = phi i64 [ %.0.i.i34, %38 ], [ %.neg.i.i, %23 ]
-  %46 = load i64, ptr %.sink, align 8
-  %47 = and i64 %46, %.0.i.i34.sink
-  store i64 %47, ptr %.sink, align 8
+  %26 = load i64, ptr %25, align 8
+  %27 = and i64 %26, %.neg.i.i
+  store i64 %27, ptr %25, align 8
   br label %_ZN6BitMap23clear_range_within_wordEmm.exit23
 
-_ZN6BitMap23clear_range_within_wordEmm.exit23:    ; preds = %_ZN6BitMap23clear_range_within_wordEmm.exit23.sink.split, %_ZN6BitMap23clear_range_within_wordEmm.exit29, %_ZN6BitMap20clear_range_of_wordsEmm.exit
+28:                                               ; preds = %3
+  %29 = tail call noundef i64 @llvm.umin.i64(i64 %8, i64 %2)
+  %.not.i24 = icmp eq i64 %1, %29
+  br i1 %.not.i24, label %_ZN6BitMap23clear_range_within_wordEmm.exit29, label %30
+
+30:                                               ; preds = %28
+  %31 = and i64 %1, 63
+  %notmask.i.i25 = shl nsw i64 -1, %31
+  %32 = xor i64 %notmask.i.i25, -1
+  %33 = and i64 %29, 63
+  %.not.i.i26 = icmp eq i64 %33, 0
+  %.neg.i.i27 = shl nsw i64 -1, %33
+  %34 = select i1 %.not.i.i26, i64 0, i64 %.neg.i.i27
+  %.0.i.i28 = or i64 %34, %32
+  %35 = load ptr, ptr %0, align 8
+  %36 = lshr i64 %1, 6
+  %37 = getelementptr inbounds i64, ptr %35, i64 %36
+  %38 = load i64, ptr %37, align 8
+  %39 = and i64 %38, %.0.i.i28
+  store i64 %39, ptr %37, align 8
+  br label %_ZN6BitMap23clear_range_within_wordEmm.exit29
+
+_ZN6BitMap23clear_range_within_wordEmm.exit29:    ; preds = %28, %30
+  %.not.i30.not = icmp ugt i64 %2, %8
+  br i1 %.not.i30.not, label %40, label %_ZN6BitMap23clear_range_within_wordEmm.exit23
+
+40:                                               ; preds = %_ZN6BitMap23clear_range_within_wordEmm.exit29
+  %41 = and i64 %29, 63
+  %notmask.i.i31 = shl nsw i64 -1, %41
+  %42 = xor i64 %notmask.i.i31, -1
+  %43 = and i64 %2, 63
+  %.not.i.i32 = icmp eq i64 %43, 0
+  %.neg.i.i33 = shl nsw i64 -1, %43
+  %44 = select i1 %.not.i.i32, i64 0, i64 %.neg.i.i33
+  %.0.i.i34 = or i64 %44, %42
+  %45 = load ptr, ptr %0, align 8
+  %46 = lshr i64 %29, 6
+  %47 = getelementptr inbounds i64, ptr %45, i64 %46
+  %48 = load i64, ptr %47, align 8
+  %49 = and i64 %48, %.0.i.i34
+  store i64 %49, ptr %47, align 8
+  br label %_ZN6BitMap23clear_range_within_wordEmm.exit23
+
+_ZN6BitMap23clear_range_within_wordEmm.exit23:    ; preds = %40, %_ZN6BitMap23clear_range_within_wordEmm.exit29, %23, %_ZN6BitMap20clear_range_of_wordsEmm.exit
   ret void
 }
 
@@ -766,128 +762,49 @@ define hidden void @_ZN6BitMap15set_large_rangeEmm(ptr nocapture noundef nonnull
   %6 = lshr i64 %2, 6
   %7 = add nuw nsw i64 %5, 32
   %.not = icmp ult i64 %7, %6
-  br i1 %.not, label %48, label %8
+  br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %3
-  %9 = icmp ult i64 %5, %6
+  tail call void @_ZN6BitMap9set_rangeEmm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2)
+  br label %_ZN6BitMap21set_range_within_wordEmm.exit18
+
+9:                                                ; preds = %3
   %10 = and i64 %4, -64
-  br i1 %9, label %11, label %28
+  %.not.i = icmp eq i64 %1, %10
+  br i1 %.not.i, label %_ZN6BitMap21set_range_within_wordEmm.exit, label %11
 
-11:                                               ; preds = %8
-  %.not.i.i = icmp eq i64 %1, %10
-  br i1 %.not.i.i, label %_ZN6BitMap18set_range_of_wordsEmm.exit.i, label %12
-
-12:                                               ; preds = %11
-  %13 = and i64 %1, 63
-  %notmask.i.i.i = shl nsw i64 -1, %13
-  %14 = load ptr, ptr %0, align 8
-  %15 = lshr i64 %1, 6
-  %16 = getelementptr inbounds i64, ptr %14, i64 %15
-  %17 = load i64, ptr %16, align 8
-  %18 = or i64 %17, %notmask.i.i.i
-  store i64 %18, ptr %16, align 8
-  br label %_ZN6BitMap18set_range_of_wordsEmm.exit.i
-
-_ZN6BitMap18set_range_of_wordsEmm.exit.i:         ; preds = %12, %11
-  %19 = load ptr, ptr %0, align 8
-  %20 = shl nuw nsw i64 %5, 3
-  %scevgep.i.i = getelementptr i8, ptr %19, i64 %20
-  %21 = sub nuw nsw i64 %6, %5
-  %22 = shl nuw nsw i64 %21, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i, i8 -1, i64 %22, i1 false)
-  %23 = and i64 %2, 63
-  %.not.i19.i = icmp eq i64 %23, 0
-  br i1 %.not.i19.i, label %_ZN6BitMap9set_rangeEmm.exit, label %24
-
-24:                                               ; preds = %_ZN6BitMap18set_range_of_wordsEmm.exit.i
-  %.neg.i.i.i = shl nsw i64 -1, %23
-  %25 = xor i64 %.neg.i.i.i, -1
-  %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i64, ptr %26, i64 %6
-  br label %_ZN6BitMap9set_rangeEmm.exit.sink.split
-
-28:                                               ; preds = %8
-  %29 = tail call noundef i64 @llvm.umin.i64(i64 %10, i64 %2)
-  %.not.i24.i = icmp eq i64 %1, %29
-  br i1 %.not.i24.i, label %_ZN6BitMap21set_range_within_wordEmm.exit29.i, label %30
-
-30:                                               ; preds = %28
-  %31 = and i64 %1, 63
-  %notmask.i.i25.i = shl nsw i64 -1, %31
-  %32 = and i64 %29, 63
-  %.not.i.i26.i = icmp eq i64 %32, 0
-  %.neg.i.i27.i = shl nsw i64 -1, %32
-  %33 = xor i64 %.neg.i.i27.i, -1
-  %.not7.i28.i = select i1 %.not.i.i26.i, i64 -1, i64 %33
-  %34 = and i64 %.not7.i28.i, %notmask.i.i25.i
-  %35 = load ptr, ptr %0, align 8
-  %36 = lshr i64 %1, 6
-  %37 = getelementptr inbounds i64, ptr %35, i64 %36
-  %38 = load i64, ptr %37, align 8
-  %39 = or i64 %38, %34
-  store i64 %39, ptr %37, align 8
-  br label %_ZN6BitMap21set_range_within_wordEmm.exit29.i
-
-_ZN6BitMap21set_range_within_wordEmm.exit29.i:    ; preds = %30, %28
-  %.not.i30.not.i = icmp ugt i64 %2, %10
-  br i1 %.not.i30.not.i, label %40, label %_ZN6BitMap9set_rangeEmm.exit
-
-40:                                               ; preds = %_ZN6BitMap21set_range_within_wordEmm.exit29.i
-  %41 = and i64 %29, 63
-  %notmask.i.i31.i = shl nsw i64 -1, %41
-  %42 = and i64 %2, 63
-  %.not.i.i32.i = icmp eq i64 %42, 0
-  %.neg.i.i33.i = shl nsw i64 -1, %42
-  %43 = xor i64 %.neg.i.i33.i, -1
-  %.not7.i34.i = select i1 %.not.i.i32.i, i64 -1, i64 %43
-  %44 = and i64 %notmask.i.i31.i, %.not7.i34.i
-  %45 = load ptr, ptr %0, align 8
-  %46 = lshr i64 %29, 6
-  %47 = getelementptr inbounds i64, ptr %45, i64 %46
-  br label %_ZN6BitMap9set_rangeEmm.exit.sink.split
-
-48:                                               ; preds = %3
-  %49 = and i64 %4, -64
-  %.not.i = icmp eq i64 %1, %49
-  br i1 %.not.i, label %_ZN6BitMap21set_range_within_wordEmm.exit, label %50
-
-50:                                               ; preds = %48
-  %51 = and i64 %1, 63
-  %notmask.i.i = shl nsw i64 -1, %51
-  %52 = load ptr, ptr %0, align 8
-  %53 = lshr i64 %1, 6
-  %54 = getelementptr inbounds i64, ptr %52, i64 %53
-  %55 = load i64, ptr %54, align 8
-  %56 = or i64 %55, %notmask.i.i
-  store i64 %56, ptr %54, align 8
+11:                                               ; preds = %9
+  %12 = and i64 %1, 63
+  %notmask.i.i = shl nsw i64 -1, %12
+  %13 = load ptr, ptr %0, align 8
+  %14 = lshr i64 %1, 6
+  %15 = getelementptr inbounds i64, ptr %13, i64 %14
+  %16 = load i64, ptr %15, align 8
+  %17 = or i64 %16, %notmask.i.i
+  store i64 %17, ptr %15, align 8
   br label %_ZN6BitMap21set_range_within_wordEmm.exit
 
-_ZN6BitMap21set_range_within_wordEmm.exit:        ; preds = %48, %50
-  %57 = load ptr, ptr %0, align 8
-  %58 = getelementptr inbounds i64, ptr %57, i64 %5
-  %59 = sub nsw i64 %6, %5
-  %60 = shl nsw i64 %59, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %58, i8 -1, i64 %60, i1 false)
-  %61 = and i64 %2, 63
-  %.not.i15 = icmp eq i64 %61, 0
-  br i1 %.not.i15, label %_ZN6BitMap9set_rangeEmm.exit, label %62
+_ZN6BitMap21set_range_within_wordEmm.exit:        ; preds = %9, %11
+  %18 = load ptr, ptr %0, align 8
+  %19 = getelementptr inbounds i64, ptr %18, i64 %5
+  %20 = sub nsw i64 %6, %5
+  %21 = shl nsw i64 %20, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %19, i8 -1, i64 %21, i1 false)
+  %22 = and i64 %2, 63
+  %.not.i14 = icmp eq i64 %22, 0
+  br i1 %.not.i14, label %_ZN6BitMap21set_range_within_wordEmm.exit18, label %23
 
-62:                                               ; preds = %_ZN6BitMap21set_range_within_wordEmm.exit
-  %.neg.i.i = shl nsw i64 -1, %61
-  %63 = xor i64 %.neg.i.i, -1
-  %64 = load ptr, ptr %0, align 8
-  %65 = getelementptr inbounds i64, ptr %64, i64 %6
-  br label %_ZN6BitMap9set_rangeEmm.exit.sink.split
+23:                                               ; preds = %_ZN6BitMap21set_range_within_wordEmm.exit
+  %.neg.i.i = shl nsw i64 -1, %22
+  %24 = xor i64 %.neg.i.i, -1
+  %25 = load ptr, ptr %0, align 8
+  %26 = getelementptr inbounds i64, ptr %25, i64 %6
+  %27 = load i64, ptr %26, align 8
+  %28 = or i64 %27, %24
+  store i64 %28, ptr %26, align 8
+  br label %_ZN6BitMap21set_range_within_wordEmm.exit18
 
-_ZN6BitMap9set_rangeEmm.exit.sink.split:          ; preds = %24, %40, %62
-  %.sink = phi ptr [ %65, %62 ], [ %47, %40 ], [ %27, %24 ]
-  %.sink22 = phi i64 [ %63, %62 ], [ %44, %40 ], [ %25, %24 ]
-  %66 = load i64, ptr %.sink, align 8
-  %67 = or i64 %66, %.sink22
-  store i64 %67, ptr %.sink, align 8
-  br label %_ZN6BitMap9set_rangeEmm.exit
-
-_ZN6BitMap9set_rangeEmm.exit:                     ; preds = %_ZN6BitMap9set_rangeEmm.exit.sink.split, %_ZN6BitMap21set_range_within_wordEmm.exit, %_ZN6BitMap21set_range_within_wordEmm.exit29.i, %_ZN6BitMap18set_range_of_wordsEmm.exit.i
+_ZN6BitMap21set_range_within_wordEmm.exit18:      ; preds = %23, %_ZN6BitMap21set_range_within_wordEmm.exit, %8
   ret void
 }
 
@@ -898,128 +815,49 @@ define hidden void @_ZN6BitMap17clear_large_rangeEmm(ptr nocapture noundef nonnu
   %6 = lshr i64 %2, 6
   %7 = add nuw nsw i64 %5, 32
   %.not = icmp ult i64 %7, %6
-  br i1 %.not, label %48, label %8
+  br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %3
-  %9 = icmp ult i64 %5, %6
+  tail call void @_ZN6BitMap11clear_rangeEmm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2)
+  br label %_ZN6BitMap23clear_range_within_wordEmm.exit18
+
+9:                                                ; preds = %3
   %10 = and i64 %4, -64
-  br i1 %9, label %11, label %28
+  %.not.i = icmp eq i64 %1, %10
+  br i1 %.not.i, label %_ZN6BitMap23clear_range_within_wordEmm.exit, label %11
 
-11:                                               ; preds = %8
-  %.not.i.i = icmp eq i64 %1, %10
-  br i1 %.not.i.i, label %_ZN6BitMap20clear_range_of_wordsEmm.exit.i, label %12
-
-12:                                               ; preds = %11
-  %13 = and i64 %1, 63
-  %notmask.i.i.i = shl nsw i64 -1, %13
-  %14 = xor i64 %notmask.i.i.i, -1
-  %15 = load ptr, ptr %0, align 8
-  %16 = lshr i64 %1, 6
-  %17 = getelementptr inbounds i64, ptr %15, i64 %16
-  %18 = load i64, ptr %17, align 8
-  %19 = and i64 %18, %14
-  store i64 %19, ptr %17, align 8
-  br label %_ZN6BitMap20clear_range_of_wordsEmm.exit.i
-
-_ZN6BitMap20clear_range_of_wordsEmm.exit.i:       ; preds = %12, %11
-  %20 = load ptr, ptr %0, align 8
-  %21 = shl nuw nsw i64 %5, 3
-  %scevgep.i.i.i = getelementptr i8, ptr %20, i64 %21
-  %22 = sub nuw nsw i64 %6, %5
-  %23 = shl nuw nsw i64 %22, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i.i, i8 0, i64 %23, i1 false)
-  %24 = and i64 %2, 63
-  %.not.i19.i = icmp eq i64 %24, 0
-  br i1 %.not.i19.i, label %_ZN6BitMap11clear_rangeEmm.exit, label %25
-
-25:                                               ; preds = %_ZN6BitMap20clear_range_of_wordsEmm.exit.i
-  %.neg.i.i.i = shl nsw i64 -1, %24
-  %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i64, ptr %26, i64 %6
-  br label %_ZN6BitMap11clear_rangeEmm.exit.sink.split
-
-28:                                               ; preds = %8
-  %29 = tail call noundef i64 @llvm.umin.i64(i64 %10, i64 %2)
-  %.not.i24.i = icmp eq i64 %1, %29
-  br i1 %.not.i24.i, label %_ZN6BitMap23clear_range_within_wordEmm.exit29.i, label %30
-
-30:                                               ; preds = %28
-  %31 = and i64 %1, 63
-  %notmask.i.i25.i = shl nsw i64 -1, %31
-  %32 = xor i64 %notmask.i.i25.i, -1
-  %33 = and i64 %29, 63
-  %.not.i.i26.i = icmp eq i64 %33, 0
-  %.neg.i.i27.i = shl nsw i64 -1, %33
-  %34 = select i1 %.not.i.i26.i, i64 0, i64 %.neg.i.i27.i
-  %.0.i.i28.i = or i64 %34, %32
-  %35 = load ptr, ptr %0, align 8
-  %36 = lshr i64 %1, 6
-  %37 = getelementptr inbounds i64, ptr %35, i64 %36
-  %38 = load i64, ptr %37, align 8
-  %39 = and i64 %38, %.0.i.i28.i
-  store i64 %39, ptr %37, align 8
-  br label %_ZN6BitMap23clear_range_within_wordEmm.exit29.i
-
-_ZN6BitMap23clear_range_within_wordEmm.exit29.i:  ; preds = %30, %28
-  %.not.i30.not.i = icmp ugt i64 %2, %10
-  br i1 %.not.i30.not.i, label %40, label %_ZN6BitMap11clear_rangeEmm.exit
-
-40:                                               ; preds = %_ZN6BitMap23clear_range_within_wordEmm.exit29.i
-  %41 = and i64 %29, 63
-  %notmask.i.i31.i = shl nsw i64 -1, %41
-  %42 = xor i64 %notmask.i.i31.i, -1
-  %43 = and i64 %2, 63
-  %.not.i.i32.i = icmp eq i64 %43, 0
-  %.neg.i.i33.i = shl nsw i64 -1, %43
-  %44 = select i1 %.not.i.i32.i, i64 0, i64 %.neg.i.i33.i
-  %.0.i.i34.i = or i64 %44, %42
-  %45 = load ptr, ptr %0, align 8
-  %46 = lshr i64 %29, 6
-  %47 = getelementptr inbounds i64, ptr %45, i64 %46
-  br label %_ZN6BitMap11clear_rangeEmm.exit.sink.split
-
-48:                                               ; preds = %3
-  %49 = and i64 %4, -64
-  %.not.i = icmp eq i64 %1, %49
-  br i1 %.not.i, label %_ZN6BitMap23clear_range_within_wordEmm.exit, label %50
-
-50:                                               ; preds = %48
-  %51 = and i64 %1, 63
-  %notmask.i.i = shl nsw i64 -1, %51
-  %52 = xor i64 %notmask.i.i, -1
-  %53 = load ptr, ptr %0, align 8
-  %54 = lshr i64 %1, 6
-  %55 = getelementptr inbounds i64, ptr %53, i64 %54
-  %56 = load i64, ptr %55, align 8
-  %57 = and i64 %56, %52
-  store i64 %57, ptr %55, align 8
+11:                                               ; preds = %9
+  %12 = and i64 %1, 63
+  %notmask.i.i = shl nsw i64 -1, %12
+  %13 = xor i64 %notmask.i.i, -1
+  %14 = load ptr, ptr %0, align 8
+  %15 = lshr i64 %1, 6
+  %16 = getelementptr inbounds i64, ptr %14, i64 %15
+  %17 = load i64, ptr %16, align 8
+  %18 = and i64 %17, %13
+  store i64 %18, ptr %16, align 8
   br label %_ZN6BitMap23clear_range_within_wordEmm.exit
 
-_ZN6BitMap23clear_range_within_wordEmm.exit:      ; preds = %48, %50
-  %58 = load ptr, ptr %0, align 8
-  %59 = getelementptr inbounds i64, ptr %58, i64 %5
-  %60 = sub nsw i64 %6, %5
-  %61 = shl nsw i64 %60, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %59, i8 0, i64 %61, i1 false)
-  %62 = and i64 %2, 63
-  %.not.i15 = icmp eq i64 %62, 0
-  br i1 %.not.i15, label %_ZN6BitMap11clear_rangeEmm.exit, label %63
+_ZN6BitMap23clear_range_within_wordEmm.exit:      ; preds = %9, %11
+  %19 = load ptr, ptr %0, align 8
+  %20 = getelementptr inbounds i64, ptr %19, i64 %5
+  %21 = sub nsw i64 %6, %5
+  %22 = shl nsw i64 %21, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %22, i1 false)
+  %23 = and i64 %2, 63
+  %.not.i14 = icmp eq i64 %23, 0
+  br i1 %.not.i14, label %_ZN6BitMap23clear_range_within_wordEmm.exit18, label %24
 
-63:                                               ; preds = %_ZN6BitMap23clear_range_within_wordEmm.exit
-  %.neg.i.i = shl nsw i64 -1, %62
-  %64 = load ptr, ptr %0, align 8
-  %65 = getelementptr inbounds i64, ptr %64, i64 %6
-  br label %_ZN6BitMap11clear_rangeEmm.exit.sink.split
+24:                                               ; preds = %_ZN6BitMap23clear_range_within_wordEmm.exit
+  %.neg.i.i = shl nsw i64 -1, %23
+  %25 = load ptr, ptr %0, align 8
+  %26 = getelementptr inbounds i64, ptr %25, i64 %6
+  %27 = load i64, ptr %26, align 8
+  %28 = and i64 %27, %.neg.i.i
+  store i64 %28, ptr %26, align 8
+  br label %_ZN6BitMap23clear_range_within_wordEmm.exit18
 
-_ZN6BitMap11clear_rangeEmm.exit.sink.split:       ; preds = %25, %40, %63
-  %.sink = phi ptr [ %65, %63 ], [ %47, %40 ], [ %27, %25 ]
-  %.neg.i.i.sink = phi i64 [ %.neg.i.i, %63 ], [ %.0.i.i34.i, %40 ], [ %.neg.i.i.i, %25 ]
-  %66 = load i64, ptr %.sink, align 8
-  %67 = and i64 %66, %.neg.i.i.sink
-  store i64 %67, ptr %.sink, align 8
-  br label %_ZN6BitMap11clear_rangeEmm.exit
-
-_ZN6BitMap11clear_rangeEmm.exit:                  ; preds = %_ZN6BitMap11clear_rangeEmm.exit.sink.split, %_ZN6BitMap23clear_range_within_wordEmm.exit, %_ZN6BitMap23clear_range_within_wordEmm.exit29.i, %_ZN6BitMap20clear_range_of_wordsEmm.exit.i
+_ZN6BitMap23clear_range_within_wordEmm.exit18:    ; preds = %24, %_ZN6BitMap23clear_range_within_wordEmm.exit, %8
   ret void
 }
 
@@ -1101,182 +939,17 @@ _ZN6BitMap11par_set_bitEm19atomic_memory_order.exit: ; preds = %21, %19, %13, %1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN6BitMap12at_put_rangeEmmb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #2 align 2 {
-  %5 = add i64 %1, 63
-  %6 = lshr i64 %5, 6
-  %7 = lshr i64 %2, 6
-  %8 = icmp ult i64 %6, %7
-  %9 = and i64 %5, -64
-  br i1 %3, label %10, label %50
+  br i1 %3, label %5, label %6
 
-10:                                               ; preds = %4
-  br i1 %8, label %11, label %28
+5:                                                ; preds = %4
+  tail call void @_ZN6BitMap9set_rangeEmm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2)
+  br label %7
 
-11:                                               ; preds = %10
-  %.not.i.i = icmp eq i64 %1, %9
-  br i1 %.not.i.i, label %_ZN6BitMap18set_range_of_wordsEmm.exit.i, label %12
+6:                                                ; preds = %4
+  tail call void @_ZN6BitMap11clear_rangeEmm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2)
+  br label %7
 
-12:                                               ; preds = %11
-  %13 = and i64 %1, 63
-  %notmask.i.i.i = shl nsw i64 -1, %13
-  %14 = load ptr, ptr %0, align 8
-  %15 = lshr i64 %1, 6
-  %16 = getelementptr inbounds i64, ptr %14, i64 %15
-  %17 = load i64, ptr %16, align 8
-  %18 = or i64 %17, %notmask.i.i.i
-  store i64 %18, ptr %16, align 8
-  br label %_ZN6BitMap18set_range_of_wordsEmm.exit.i
-
-_ZN6BitMap18set_range_of_wordsEmm.exit.i:         ; preds = %12, %11
-  %19 = load ptr, ptr %0, align 8
-  %20 = shl nuw nsw i64 %6, 3
-  %scevgep.i.i = getelementptr i8, ptr %19, i64 %20
-  %21 = sub nuw nsw i64 %7, %6
-  %22 = shl nuw nsw i64 %21, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i, i8 -1, i64 %22, i1 false)
-  %23 = and i64 %2, 63
-  %.not.i19.i = icmp eq i64 %23, 0
-  br i1 %.not.i19.i, label %_ZN6BitMap9set_rangeEmm.exit, label %24
-
-24:                                               ; preds = %_ZN6BitMap18set_range_of_wordsEmm.exit.i
-  %.neg.i.i.i = shl nsw i64 -1, %23
-  %25 = xor i64 %.neg.i.i.i, -1
-  %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i64, ptr %26, i64 %7
-  br label %_ZN6BitMap21set_range_within_wordEmm.exit23.sink.split.i
-
-28:                                               ; preds = %10
-  %29 = tail call noundef i64 @llvm.umin.i64(i64 %9, i64 %2)
-  %.not.i24.i = icmp eq i64 %1, %29
-  br i1 %.not.i24.i, label %_ZN6BitMap21set_range_within_wordEmm.exit29.i, label %30
-
-30:                                               ; preds = %28
-  %31 = and i64 %1, 63
-  %notmask.i.i25.i = shl nsw i64 -1, %31
-  %32 = and i64 %29, 63
-  %.not.i.i26.i = icmp eq i64 %32, 0
-  %.neg.i.i27.i = shl nsw i64 -1, %32
-  %33 = xor i64 %.neg.i.i27.i, -1
-  %.not7.i28.i = select i1 %.not.i.i26.i, i64 -1, i64 %33
-  %34 = and i64 %.not7.i28.i, %notmask.i.i25.i
-  %35 = load ptr, ptr %0, align 8
-  %36 = lshr i64 %1, 6
-  %37 = getelementptr inbounds i64, ptr %35, i64 %36
-  %38 = load i64, ptr %37, align 8
-  %39 = or i64 %38, %34
-  store i64 %39, ptr %37, align 8
-  br label %_ZN6BitMap21set_range_within_wordEmm.exit29.i
-
-_ZN6BitMap21set_range_within_wordEmm.exit29.i:    ; preds = %30, %28
-  %.not.i30.not.i = icmp ugt i64 %2, %9
-  br i1 %.not.i30.not.i, label %40, label %_ZN6BitMap9set_rangeEmm.exit
-
-40:                                               ; preds = %_ZN6BitMap21set_range_within_wordEmm.exit29.i
-  %41 = and i64 %29, 63
-  %notmask.i.i31.i = shl nsw i64 -1, %41
-  %42 = and i64 %2, 63
-  %.not.i.i32.i = icmp eq i64 %42, 0
-  %.neg.i.i33.i = shl nsw i64 -1, %42
-  %43 = xor i64 %.neg.i.i33.i, -1
-  %.not7.i34.i = select i1 %.not.i.i32.i, i64 -1, i64 %43
-  %44 = and i64 %notmask.i.i31.i, %.not7.i34.i
-  %45 = load ptr, ptr %0, align 8
-  %46 = lshr i64 %29, 6
-  %47 = getelementptr inbounds i64, ptr %45, i64 %46
-  br label %_ZN6BitMap21set_range_within_wordEmm.exit23.sink.split.i
-
-_ZN6BitMap21set_range_within_wordEmm.exit23.sink.split.i: ; preds = %40, %24
-  %.sink.i = phi ptr [ %47, %40 ], [ %27, %24 ]
-  %.sink38.i = phi i64 [ %44, %40 ], [ %25, %24 ]
-  %48 = load i64, ptr %.sink.i, align 8
-  %49 = or i64 %48, %.sink38.i
-  store i64 %49, ptr %.sink.i, align 8
-  br label %_ZN6BitMap9set_rangeEmm.exit
-
-50:                                               ; preds = %4
-  br i1 %8, label %51, label %68
-
-51:                                               ; preds = %50
-  %.not.i.i14 = icmp eq i64 %1, %9
-  br i1 %.not.i.i14, label %_ZN6BitMap20clear_range_of_wordsEmm.exit.i, label %52
-
-52:                                               ; preds = %51
-  %53 = and i64 %1, 63
-  %notmask.i.i.i15 = shl nsw i64 -1, %53
-  %54 = xor i64 %notmask.i.i.i15, -1
-  %55 = load ptr, ptr %0, align 8
-  %56 = lshr i64 %1, 6
-  %57 = getelementptr inbounds i64, ptr %55, i64 %56
-  %58 = load i64, ptr %57, align 8
-  %59 = and i64 %58, %54
-  store i64 %59, ptr %57, align 8
-  br label %_ZN6BitMap20clear_range_of_wordsEmm.exit.i
-
-_ZN6BitMap20clear_range_of_wordsEmm.exit.i:       ; preds = %52, %51
-  %60 = load ptr, ptr %0, align 8
-  %61 = shl nuw nsw i64 %6, 3
-  %scevgep.i.i.i = getelementptr i8, ptr %60, i64 %61
-  %62 = sub nuw nsw i64 %7, %6
-  %63 = shl nuw nsw i64 %62, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i.i, i8 0, i64 %63, i1 false)
-  %64 = and i64 %2, 63
-  %.not.i19.i16 = icmp eq i64 %64, 0
-  br i1 %.not.i19.i16, label %_ZN6BitMap9set_rangeEmm.exit, label %65
-
-65:                                               ; preds = %_ZN6BitMap20clear_range_of_wordsEmm.exit.i
-  %.neg.i.i.i17 = shl nsw i64 -1, %64
-  %66 = load ptr, ptr %0, align 8
-  %67 = getelementptr inbounds i64, ptr %66, i64 %7
-  br label %_ZN6BitMap23clear_range_within_wordEmm.exit23.sink.split.i
-
-68:                                               ; preds = %50
-  %69 = tail call noundef i64 @llvm.umin.i64(i64 %9, i64 %2)
-  %.not.i24.i5 = icmp eq i64 %1, %69
-  br i1 %.not.i24.i5, label %_ZN6BitMap23clear_range_within_wordEmm.exit29.i, label %70
-
-70:                                               ; preds = %68
-  %71 = and i64 %1, 63
-  %notmask.i.i25.i6 = shl nsw i64 -1, %71
-  %72 = xor i64 %notmask.i.i25.i6, -1
-  %73 = and i64 %69, 63
-  %.not.i.i26.i7 = icmp eq i64 %73, 0
-  %.neg.i.i27.i8 = shl nsw i64 -1, %73
-  %74 = select i1 %.not.i.i26.i7, i64 0, i64 %.neg.i.i27.i8
-  %.0.i.i28.i = or i64 %74, %72
-  %75 = load ptr, ptr %0, align 8
-  %76 = lshr i64 %1, 6
-  %77 = getelementptr inbounds i64, ptr %75, i64 %76
-  %78 = load i64, ptr %77, align 8
-  %79 = and i64 %78, %.0.i.i28.i
-  store i64 %79, ptr %77, align 8
-  br label %_ZN6BitMap23clear_range_within_wordEmm.exit29.i
-
-_ZN6BitMap23clear_range_within_wordEmm.exit29.i:  ; preds = %70, %68
-  %.not.i30.not.i9 = icmp ugt i64 %2, %9
-  br i1 %.not.i30.not.i9, label %80, label %_ZN6BitMap9set_rangeEmm.exit
-
-80:                                               ; preds = %_ZN6BitMap23clear_range_within_wordEmm.exit29.i
-  %81 = and i64 %69, 63
-  %notmask.i.i31.i10 = shl nsw i64 -1, %81
-  %82 = xor i64 %notmask.i.i31.i10, -1
-  %83 = and i64 %2, 63
-  %.not.i.i32.i11 = icmp eq i64 %83, 0
-  %.neg.i.i33.i12 = shl nsw i64 -1, %83
-  %84 = select i1 %.not.i.i32.i11, i64 0, i64 %.neg.i.i33.i12
-  %.0.i.i34.i = or i64 %84, %82
-  %85 = load ptr, ptr %0, align 8
-  %86 = lshr i64 %69, 6
-  %87 = getelementptr inbounds i64, ptr %85, i64 %86
-  br label %_ZN6BitMap23clear_range_within_wordEmm.exit23.sink.split.i
-
-_ZN6BitMap23clear_range_within_wordEmm.exit23.sink.split.i: ; preds = %80, %65
-  %.sink.i13 = phi ptr [ %87, %80 ], [ %67, %65 ]
-  %.0.i.i34.sink.i = phi i64 [ %.0.i.i34.i, %80 ], [ %.neg.i.i.i17, %65 ]
-  %88 = load i64, ptr %.sink.i13, align 8
-  %89 = and i64 %88, %.0.i.i34.sink.i
-  store i64 %89, ptr %.sink.i13, align 8
-  br label %_ZN6BitMap9set_rangeEmm.exit
-
-_ZN6BitMap9set_rangeEmm.exit:                     ; preds = %_ZN6BitMap23clear_range_within_wordEmm.exit23.sink.split.i, %_ZN6BitMap23clear_range_within_wordEmm.exit29.i, %_ZN6BitMap20clear_range_of_wordsEmm.exit.i, %_ZN6BitMap21set_range_within_wordEmm.exit23.sink.split.i, %_ZN6BitMap21set_range_within_wordEmm.exit29.i, %_ZN6BitMap18set_range_of_wordsEmm.exit.i
+7:                                                ; preds = %6, %5
   ret void
 }
 
@@ -1467,17 +1140,100 @@ _ZN6BitMap25par_put_range_within_wordEmmb.exit33: ; preds = %.lr.ph.split.i49, %
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN6BitMap18at_put_large_rangeEmmb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #2 align 2 {
-  br i1 %3, label %5, label %6
+  %5 = add i64 %1, 63
+  %6 = lshr i64 %5, 6
+  %7 = lshr i64 %2, 6
+  %8 = add nuw nsw i64 %6, 32
+  %.not.i = icmp ult i64 %8, %7
+  br i1 %3, label %9, label %31
 
-5:                                                ; preds = %4
-  tail call void @_ZN6BitMap15set_large_rangeEmm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2)
-  br label %7
+9:                                                ; preds = %4
+  br i1 %.not.i, label %11, label %10
 
-6:                                                ; preds = %4
-  tail call void @_ZN6BitMap17clear_large_rangeEmm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2)
-  br label %7
+10:                                               ; preds = %9
+  tail call void @_ZN6BitMap9set_rangeEmm(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2)
+  br label %_ZN6BitMap15set_large_rangeEmm.exit
 
-7:                                                ; preds = %6, %5
+11:                                               ; preds = %9
+  %12 = and i64 %5, -64
+  %.not.i.i = icmp eq i64 %1, %12
+  br i1 %.not.i.i, label %_ZN6BitMap21set_range_within_wordEmm.exit.i, label %13
+
+13:                                               ; preds = %11
+  %14 = and i64 %1, 63
+  %notmask.i.i.i = shl nsw i64 -1, %14
+  %15 = load ptr, ptr %0, align 8
+  %16 = lshr i64 %1, 6
+  %17 = getelementptr inbounds i64, ptr %15, i64 %16
+  %18 = load i64, ptr %17, align 8
+  %19 = or i64 %18, %notmask.i.i.i
+  store i64 %19, ptr %17, align 8
+  br label %_ZN6BitMap21set_range_within_wordEmm.exit.i
+
+_ZN6BitMap21set_range_within_wordEmm.exit.i:      ; preds = %13, %11
+  %20 = load ptr, ptr %0, align 8
+  %21 = getelementptr inbounds i64, ptr %20, i64 %6
+  %22 = sub nsw i64 %7, %6
+  %23 = shl nsw i64 %22, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %21, i8 -1, i64 %23, i1 false)
+  %24 = and i64 %2, 63
+  %.not.i14.i = icmp eq i64 %24, 0
+  br i1 %.not.i14.i, label %_ZN6BitMap15set_large_rangeEmm.exit, label %25
+
+25:                                               ; preds = %_ZN6BitMap21set_range_within_wordEmm.exit.i
+  %.neg.i.i.i = shl nsw i64 -1, %24
+  %26 = xor i64 %.neg.i.i.i, -1
+  %27 = load ptr, ptr %0, align 8
+  %28 = getelementptr inbounds i64, ptr %27, i64 %7
+  %29 = load i64, ptr %28, align 8
+  %30 = or i64 %29, %26
+  store i64 %30, ptr %28, align 8
+  br label %_ZN6BitMap15set_large_rangeEmm.exit
+
+31:                                               ; preds = %4
+  br i1 %.not.i, label %33, label %32
+
+32:                                               ; preds = %31
+  tail call void @_ZN6BitMap11clear_rangeEmm(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2)
+  br label %_ZN6BitMap15set_large_rangeEmm.exit
+
+33:                                               ; preds = %31
+  %34 = and i64 %5, -64
+  %.not.i.i6 = icmp eq i64 %1, %34
+  br i1 %.not.i.i6, label %_ZN6BitMap23clear_range_within_wordEmm.exit.i, label %35
+
+35:                                               ; preds = %33
+  %36 = and i64 %1, 63
+  %notmask.i.i.i7 = shl nsw i64 -1, %36
+  %37 = xor i64 %notmask.i.i.i7, -1
+  %38 = load ptr, ptr %0, align 8
+  %39 = lshr i64 %1, 6
+  %40 = getelementptr inbounds i64, ptr %38, i64 %39
+  %41 = load i64, ptr %40, align 8
+  %42 = and i64 %41, %37
+  store i64 %42, ptr %40, align 8
+  br label %_ZN6BitMap23clear_range_within_wordEmm.exit.i
+
+_ZN6BitMap23clear_range_within_wordEmm.exit.i:    ; preds = %35, %33
+  %43 = load ptr, ptr %0, align 8
+  %44 = getelementptr inbounds i64, ptr %43, i64 %6
+  %45 = sub nsw i64 %7, %6
+  %46 = shl nsw i64 %45, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %44, i8 0, i64 %46, i1 false)
+  %47 = and i64 %2, 63
+  %.not.i14.i8 = icmp eq i64 %47, 0
+  br i1 %.not.i14.i8, label %_ZN6BitMap15set_large_rangeEmm.exit, label %48
+
+48:                                               ; preds = %_ZN6BitMap23clear_range_within_wordEmm.exit.i
+  %.neg.i.i.i9 = shl nsw i64 -1, %47
+  %49 = load ptr, ptr %0, align 8
+  %50 = getelementptr inbounds i64, ptr %49, i64 %7
+  %51 = load i64, ptr %50, align 8
+  %52 = and i64 %51, %.neg.i.i.i9
+  store i64 %52, ptr %50, align 8
+  br label %_ZN6BitMap15set_large_rangeEmm.exit
+
+_ZN6BitMap15set_large_rangeEmm.exit:              ; preds = %48, %_ZN6BitMap23clear_range_within_wordEmm.exit.i, %32, %25, %_ZN6BitMap21set_range_within_wordEmm.exit.i, %10
   ret void
 }
 

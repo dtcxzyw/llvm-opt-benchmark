@@ -60,18 +60,19 @@ archive_handle_type_name.exit:                    ; preds = %4
 13:                                               ; preds = %12
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.2, ptr noundef %3, ptr noundef nonnull %.0.i.ph) #9
   %14 = getelementptr inbounds i8, ptr %0, i64 4
-  br label %.sink.split
+  store i32 32768, ptr %14, align 4
+  br label %53
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds i8, ptr %0, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = and i32 %17, %2
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %20, label %52
+  br i1 %19, label %20, label %53
 
 20:                                               ; preds = %15
   %.not20 = icmp eq i32 %17, 32768
-  br i1 %.not20, label %.sink.split, label %21
+  br i1 %.not20, label %52, label %21
 
 21:                                               ; preds = %20
   store i8 0, ptr %5, align 16
@@ -187,15 +188,14 @@ state_name.exit.i24:                              ; preds = %46, %45, %44, %43, 
 
 write_all_states.exit30:                          ; preds = %49, %write_all_states.exit
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.3, ptr noundef %3, ptr noundef nonnull %5, ptr noundef nonnull %6) #9
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %20, %write_all_states.exit30, %13
-  %.sink = phi ptr [ %14, %13 ], [ %16, %write_all_states.exit30 ], [ %16, %20 ]
-  store i32 32768, ptr %.sink, align 4
   br label %52
 
-52:                                               ; preds = %.sink.split, %15
-  %.0 = phi i32 [ 0, %15 ], [ -30, %.sink.split ]
+52:                                               ; preds = %write_all_states.exit30, %20
+  store i32 32768, ptr %16, align 4
+  br label %53
+
+53:                                               ; preds = %15, %52, %13
+  %.0 = phi i32 [ -30, %13 ], [ -30, %52 ], [ 0, %15 ]
   ret i32 %.0
 }
 

@@ -511,7 +511,7 @@ define dso_local void @_ZN4llvm14MemoryOpRemark18visitIntrinsicCallERKNS_13Intri
 
 38:                                               ; preds = %2
   call void @_ZN4llvm14MemoryOpRemark12visitUnknownERKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(72) %1)
-  br label %105
+  br label %104
 
 39:                                               ; preds = %35, %32, %29, %26, %23, %20, %17
   %.0 = phi i1 [ true, %35 ], [ true, %32 ], [ true, %29 ], [ false, %26 ], [ false, %23 ], [ false, %20 ], [ false, %17 ]
@@ -611,33 +611,33 @@ _ZN4llvm14MemoryOpRemark10makeRemarkIJPKcNS_9StringRefEPKNS_13IntrinsicInstEEEES
   br label %_ZNSt10unique_ptrIN4llvm28DiagnosticInfoIROptimizationESt14default_deleteIS1_EED2Ev.exit.sink.split
 
 _ZNSt10unique_ptrIN4llvm28DiagnosticInfoIROptimizationESt14default_deleteIS1_EED2Ev.exit.sink.split: ; preds = %80, %80, %91
-  %.sink39 = phi ptr [ %98, %91 ], [ %67, %80 ], [ %67, %80 ]
-  %99 = load ptr, ptr %.sink39, align 8
-  call void @_ZN4llvm14MemoryOpRemark8visitPtrEPNS_5ValueEbRNS_28DiagnosticInfoIROptimizationE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %99, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(432) %52)
+  %.sink.in = phi ptr [ %98, %91 ], [ %67, %80 ], [ %67, %80 ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  call void @_ZN4llvm14MemoryOpRemark8visitPtrEPNS_5ValueEbRNS_28DiagnosticInfoIROptimizationE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.sink, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(432) %52)
   br label %_ZNSt10unique_ptrIN4llvm28DiagnosticInfoIROptimizationESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvm28DiagnosticInfoIROptimizationESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm28DiagnosticInfoIROptimizationESt14default_deleteIS1_EED2Ev.exit.sink.split, %80
   call fastcc void @_ZL35inlineVolatileOrAtomicWithExtraArgsPbbbRN4llvm28DiagnosticInfoIROptimizationE(ptr noundef nonnull %4, i1 noundef zeroext %81, i1 noundef zeroext %.0, ptr noundef nonnull align 8 dereferenceable(432) %52)
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %101 = load ptr, ptr %100, align 8
-  call void @_ZN4llvm25OptimizationRemarkEmitter4emitERNS_30DiagnosticInfoOptimizationBaseE(ptr noundef nonnull align 8 dereferenceable(24) %101, ptr noundef nonnull align 8 dereferenceable(424) %52) #14
-  %102 = load ptr, ptr %52, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 16
-  %104 = load ptr, ptr %103, align 8
-  call void %104(ptr noundef nonnull align 8 dereferenceable(432) %52) #14
-  br label %105
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %100 = load ptr, ptr %99, align 8
+  call void @_ZN4llvm25OptimizationRemarkEmitter4emitERNS_30DiagnosticInfoOptimizationBaseE(ptr noundef nonnull align 8 dereferenceable(24) %100, ptr noundef nonnull align 8 dereferenceable(424) %52) #14
+  %101 = load ptr, ptr %52, align 8
+  %102 = getelementptr inbounds i8, ptr %101, i64 16
+  %103 = load ptr, ptr %102, align 8
+  call void %103(ptr noundef nonnull align 8 dereferenceable(432) %52) #14
+  br label %104
 
-105:                                              ; preds = %_ZNSt10unique_ptrIN4llvm28DiagnosticInfoIROptimizationESt14default_deleteIS1_EED2Ev.exit, %38
-  %106 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
-  %107 = load ptr, ptr %3, align 8
-  %108 = icmp eq ptr %107, %5
-  br i1 %108, label %_ZN4llvm11SmallStringILj32EED2Ev.exit, label %109
+104:                                              ; preds = %_ZNSt10unique_ptrIN4llvm28DiagnosticInfoIROptimizationESt14default_deleteIS1_EED2Ev.exit, %38
+  %105 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
+  %106 = load ptr, ptr %3, align 8
+  %107 = icmp eq ptr %106, %5
+  br i1 %107, label %_ZN4llvm11SmallStringILj32EED2Ev.exit, label %108
 
-109:                                              ; preds = %105
-  call void @free(ptr noundef %107) #14
+108:                                              ; preds = %104
+  call void @free(ptr noundef %106) #14
   br label %_ZN4llvm11SmallStringILj32EED2Ev.exit
 
-_ZN4llvm11SmallStringILj32EED2Ev.exit:            ; preds = %105, %109
+_ZN4llvm11SmallStringILj32EED2Ev.exit:            ; preds = %104, %108
   ret void
 }
 
@@ -1362,7 +1362,7 @@ define linkonce_odr void @_ZN4llvm14MemoryOpRemark11visitCalleeIPNS_8FunctionEEE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm14MemoryOpRemark17visitKnownLibCallERKNS_8CallInstENS_7LibFuncERNS_28DiagnosticInfoIROptimizationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(432) %3) local_unnamed_addr #1 align 2 {
-  switch i32 %2, label %45 [
+  switch i32 %2, label %44 [
     i32 124, label %5
     i32 353, label %5
     i32 188, label %14
@@ -1420,17 +1420,17 @@ define dso_local void @_ZN4llvm14MemoryOpRemark17visitKnownLibCallERKNS_8CallIns
   br label %.sink.split
 
 .sink.split:                                      ; preds = %5, %14, %23
-  %.sink = phi ptr [ %24, %23 ], [ %15, %14 ], [ %6, %5 ]
-  %39 = load i32, ptr %.sink, align 4
-  %40 = and i32 %39, 134217727
-  %41 = zext nneg i32 %40 to i64
-  %42 = sub nsw i64 0, %41
-  %43 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %42
-  %44 = load ptr, ptr %43, align 8
-  tail call void @_ZN4llvm14MemoryOpRemark8visitPtrEPNS_5ValueEbRNS_28DiagnosticInfoIROptimizationE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %44, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(432) %3)
-  br label %45
+  %.sink17.in = phi ptr [ %24, %23 ], [ %15, %14 ], [ %6, %5 ]
+  %.sink17 = load i32, ptr %.sink17.in, align 4
+  %39 = and i32 %.sink17, 134217727
+  %40 = zext nneg i32 %39 to i64
+  %41 = sub nsw i64 0, %40
+  %42 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %41
+  %43 = load ptr, ptr %42, align 8
+  tail call void @_ZN4llvm14MemoryOpRemark8visitPtrEPNS_5ValueEbRNS_28DiagnosticInfoIROptimizationE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %43, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(432) %3)
+  br label %44
 
-45:                                               ; preds = %.sink.split, %4
+44:                                               ; preds = %.sink.split, %4
   ret void
 }
 

@@ -2615,8 +2615,8 @@ uv__queue_move.exit:                              ; preds = %entry
   %2 = load ptr, ptr %prev4.i.i, align 8
   store ptr %2, ptr %prev.i4.i, align 8
   store ptr %handle_queue, ptr %2, align 8
-  %.pre = load ptr, ptr %queue, align 8
   store ptr %queue, ptr %prev4.i.i, align 8
+  %.pre = load ptr, ptr %queue, align 8
   %cmp.i.not6 = icmp eq ptr %queue, %.pre
   br i1 %cmp.i.not6, label %while.end, label %while.body.lr.ph
 

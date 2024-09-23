@@ -704,28 +704,28 @@ _ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit:
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8FunctionELb1EE9push_backES2_.exit
 
 _ZN4llvm23SmallVectorTemplateBaseIPNS_8FunctionELb1EE9push_backES2_.exit: ; preds = %22, %17, %15, %10
-  %.sink20 = phi ptr [ %11, %10 ], [ %11, %15 ], [ %18, %17 ], [ %18, %22 ]
-  %24 = load ptr, ptr %.sink20, align 8
-  %25 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.sink20) #8
-  %26 = getelementptr inbounds ptr, ptr %24, i64 %25
-  %27 = ptrtoint ptr %1 to i64
-  store i64 %27, ptr %26, align 1
-  %28 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.sink20) #8
-  %29 = add i64 %28, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %.sink20, i64 noundef %29) #8
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  %31 = load ptr, ptr %30, align 8
-  %.not = icmp eq ptr %31, null
-  br i1 %.not, label %36, label %32
+  %.sink19 = phi ptr [ %11, %10 ], [ %11, %15 ], [ %18, %17 ], [ %18, %22 ]
+  %.sink17 = load ptr, ptr %.sink19, align 8
+  %24 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.sink19) #8
+  %25 = getelementptr inbounds ptr, ptr %.sink17, i64 %24
+  %26 = ptrtoint ptr %1 to i64
+  store i64 %26, ptr %25, align 1
+  %27 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.sink19) #8
+  %28 = add i64 %27, 1
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %.sink19, i64 noundef %28) #8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  %30 = load ptr, ptr %29, align 8
+  %.not = icmp eq ptr %30, null
+  br i1 %.not, label %35, label %31
 
-32:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_8FunctionELb1EE9push_backES2_.exit
-  %33 = tail call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #8
-  %34 = extractvalue { ptr, i64 } %33, 0
-  %35 = extractvalue { ptr, i64 } %33, 1
-  tail call void @_ZN4llvm15AnalysisManagerINS_8FunctionEJEE5clearERS1_NS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %31, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr %34, i64 %35) #8
-  br label %36
+31:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_8FunctionELb1EE9push_backES2_.exit
+  %32 = tail call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #8
+  %33 = extractvalue { ptr, i64 } %32, 0
+  %34 = extractvalue { ptr, i64 } %32, 1
+  tail call void @_ZN4llvm15AnalysisManagerINS_8FunctionEJEE5clearERS1_NS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr %33, i64 %34) #8
+  br label %35
 
-36:                                               ; preds = %32, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8FunctionELb1EE9push_backES2_.exit
+35:                                               ; preds = %31, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8FunctionELb1EE9push_backES2_.exit
   ret void
 }
 

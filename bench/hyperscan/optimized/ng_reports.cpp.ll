@@ -411,8 +411,8 @@ invoke.cont:                                      ; preds = %entry
   %_M_left.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %0 = load ptr, ptr %_M_left.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %cmp.i.not17 = icmp eq ptr %0, %add.ptr.i.i
-  br i1 %cmp.i.not17, label %cleanup, label %for.body
+  %cmp.i.not16 = icmp eq ptr %0, %add.ptr.i.i
+  br i1 %cmp.i.not16, label %cleanup, label %for.body
 
 lpad:                                             ; preds = %entry
   %1 = landingpad { ptr, i32 }
@@ -420,9 +420,9 @@ lpad:                                             ; preds = %entry
   br label %ehcleanup
 
 for.body:                                         ; preds = %invoke.cont, %if.then
-  %maxOffset.019 = phi i64 [ %.sroa.speculated, %if.then ], [ 0, %invoke.cont ]
-  %__begin1.sroa.0.018 = phi ptr [ %call.i, %if.then ], [ %0, %invoke.cont ]
-  %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.018, i64 32
+  %maxOffset.018 = phi i64 [ %.sroa.speculated, %if.then ], [ 0, %invoke.cont ]
+  %__begin1.sroa.0.017 = phi ptr [ %call.i, %if.then ], [ %0, %invoke.cont ]
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.017, i64 32
   %2 = load i32, ptr %_M_storage.i.i, align 4
   %call7 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZNK3ue213ReportManager9getReportEj(ptr noundef nonnull align 8 dereferenceable(505) %rm, i32 noundef %2)
           to label %invoke.cont6 unwind label %lpad5
@@ -430,20 +430,22 @@ for.body:                                         ; preds = %invoke.cont, %if.th
 invoke.cont6:                                     ; preds = %for.body
   %minOffset.i = getelementptr inbounds i8, ptr %call7, i64 8
   %3 = load i64, ptr %minOffset.i, align 8
-  %cmp.not.i = icmp ne i64 %3, 0
+  %cmp.not.i = icmp eq i64 %3, 0
   %maxOffset.i = getelementptr inbounds i8, ptr %call7, i64 16
   %4 = load i64, ptr %maxOffset.i, align 8
-  %cmp2.not.i = icmp ne i64 %4, -1
-  %or.cond.i.not14 = select i1 %cmp.not.i, i1 true, i1 %cmp2.not.i
+  %cmp2.not.i = icmp eq i64 %4, -1
+  %or.cond.i = select i1 %cmp.not.i, i1 %cmp2.not.i, i1 false
+  br i1 %or.cond.i, label %_ZNK3ue26Report9hasBoundsEv.exit, label %if.then
+
+_ZNK3ue26Report9hasBoundsEv.exit:                 ; preds = %invoke.cont6
   %minLength.i = getelementptr inbounds i8, ptr %call7, i64 24
   %5 = load i64, ptr %minLength.i, align 8
-  %cmp3.i = icmp ne i64 %5, 0
-  %or.cond = select i1 %or.cond.i.not14, i1 true, i1 %cmp3.i
-  br i1 %or.cond, label %if.then, label %cleanup
+  %cmp3.i.not = icmp eq i64 %5, 0
+  br i1 %cmp3.i.not, label %cleanup, label %if.then
 
-if.then:                                          ; preds = %invoke.cont6
-  %.sroa.speculated = call i64 @llvm.umax.i64(i64 %maxOffset.019, i64 %4)
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin1.sroa.0.018) #18
+if.then:                                          ; preds = %invoke.cont6, %_ZNK3ue26Report9hasBoundsEv.exit
+  %.sroa.speculated = call i64 @llvm.umax.i64(i64 %maxOffset.018, i64 %4)
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin1.sroa.0.017) #18
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i.not, label %cleanup, label %for.body
 
@@ -453,8 +455,8 @@ lpad5:                                            ; preds = %for.body
   call void @_ZNSt3setIjSt4lessIjESaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp) #16
   br label %ehcleanup
 
-cleanup:                                          ; preds = %if.then, %invoke.cont6, %invoke.cont
-  %cmp.i.not.lcssa = phi i64 [ 0, %invoke.cont ], [ -1, %invoke.cont6 ], [ %.sroa.speculated, %if.then ]
+cleanup:                                          ; preds = %if.then, %_ZNK3ue26Report9hasBoundsEv.exit, %invoke.cont
+  %cmp.i.not.lcssa = phi i64 [ 0, %invoke.cont ], [ -1, %_ZNK3ue26Report9hasBoundsEv.exit ], [ %.sroa.speculated, %if.then ]
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %7 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE8_M_eraseEPSt13_Rb_tree_nodeIjE(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef %7)

@@ -1875,9 +1875,9 @@ define internal fastcc zeroext i1 @add_values_to_range(ptr noundef %0, ptr nound
   %15 = ptrtoint ptr %1 to i64
   br label %16
 
-16:                                               ; preds = %.lr.ph, %69
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %69 ]
-  %.03334 = phi i8 [ %7, %.lr.ph ], [ %.1, %69 ]
+16:                                               ; preds = %.lr.ph, %71
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %71 ]
+  %.03334 = phi i8 [ %7, %.lr.ph ], [ %.1, %71 ]
   %17 = getelementptr [0 x %struct.BrinValues], ptr %12, i64 0, i64 %indvars.iv
   %18 = load i8, ptr %6, align 1
   %19 = trunc i8 %18 to i1
@@ -1902,72 +1902,74 @@ define internal fastcc zeroext i1 @add_values_to_range(ptr noundef %0, ptr nound
   %32 = getelementptr inbounds i8, ptr %31, i64 2
   %33 = load i8, ptr %32, align 2
   %34 = trunc i8 %33 to i1
-  br i1 %34, label %35, label %43
+  br i1 %34, label %35, label %44
 
 35:                                               ; preds = %28
   %36 = getelementptr i8, ptr %4, i64 %indvars.iv
   %37 = load i8, ptr %36, align 1
   %38 = trunc i8 %37 to i1
-  br i1 %38, label %39, label %43
+  br i1 %38, label %39, label %44
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds i8, ptr %17, i64 2
   %41 = load i8, ptr %40, align 2
   %42 = trunc i8 %41 to i1
-  br i1 %42, label %69, label %.sink.split
+  br i1 %42, label %71, label %43
 
-43:                                               ; preds = %35, %28
-  %44 = trunc i64 %indvars.iv to i16
-  %45 = add i16 %44, 1
-  %46 = tail call ptr @index_getprocinfo(ptr noundef %0, i16 noundef signext %45, i16 noundef zeroext 2) #10
-  %47 = load ptr, ptr %14, align 8
-  %48 = getelementptr i32, ptr %47, i64 %indvars.iv
-  %49 = load i32, ptr %48, align 4
-  %50 = ptrtoint ptr %17 to i64
-  %51 = getelementptr i64, ptr %3, i64 %indvars.iv
-  %52 = load i64, ptr %51, align 8
-  %53 = getelementptr i8, ptr %4, i64 %indvars.iv
-  %54 = load i8, ptr %53, align 1
-  %55 = and i8 %54, 1
-  %56 = zext nneg i8 %55 to i64
-  %57 = tail call i64 @FunctionCall4Coll(ptr noundef %46, i32 noundef %49, i64 noundef %15, i64 noundef %50, i64 noundef %52, i64 noundef %56) #10
-  %58 = icmp ne i64 %57, 0
-  %59 = zext i1 %58 to i8
-  %60 = or i8 %.03334, %59
-  br i1 %29, label %61, label %69
+43:                                               ; preds = %39
+  store i8 1, ptr %40, align 2
+  br label %71
 
-61:                                               ; preds = %43
-  %62 = getelementptr inbounds i8, ptr %17, i64 2
-  %63 = load i8, ptr %62, align 2
-  %64 = trunc i8 %63 to i1
-  br i1 %64, label %69, label %65
+44:                                               ; preds = %35, %28
+  %45 = trunc i64 %indvars.iv to i16
+  %46 = add i16 %45, 1
+  %47 = tail call ptr @index_getprocinfo(ptr noundef %0, i16 noundef signext %46, i16 noundef zeroext 2) #10
+  %48 = load ptr, ptr %14, align 8
+  %49 = getelementptr i32, ptr %48, i64 %indvars.iv
+  %50 = load i32, ptr %49, align 4
+  %51 = ptrtoint ptr %17 to i64
+  %52 = getelementptr i64, ptr %3, i64 %indvars.iv
+  %53 = load i64, ptr %52, align 8
+  %54 = getelementptr i8, ptr %4, i64 %indvars.iv
+  %55 = load i8, ptr %54, align 1
+  %56 = and i8 %55, 1
+  %57 = zext nneg i8 %56 to i64
+  %58 = tail call i64 @FunctionCall4Coll(ptr noundef %47, i32 noundef %50, i64 noundef %15, i64 noundef %51, i64 noundef %53, i64 noundef %57) #10
+  %59 = icmp ne i64 %58, 0
+  %60 = zext i1 %59 to i8
+  %61 = or i8 %.03334, %60
+  br i1 %29, label %62, label %71
 
-65:                                               ; preds = %61
-  %66 = getelementptr inbounds i8, ptr %17, i64 3
-  %67 = load i8, ptr %66, align 1
-  %68 = trunc i8 %67 to i1
-  br i1 %68, label %69, label %.sink.split
+62:                                               ; preds = %44
+  %63 = getelementptr inbounds i8, ptr %17, i64 2
+  %64 = load i8, ptr %63, align 2
+  %65 = trunc i8 %64 to i1
+  br i1 %65, label %71, label %66
 
-.sink.split:                                      ; preds = %65, %39
-  %.sink = phi ptr [ %40, %39 ], [ %62, %65 ]
-  %.1.ph = phi i8 [ 1, %39 ], [ %60, %65 ]
-  store i8 1, ptr %.sink, align 2
-  br label %69
+66:                                               ; preds = %62
+  %67 = getelementptr inbounds i8, ptr %17, i64 3
+  %68 = load i8, ptr %67, align 1
+  %69 = trunc i8 %68 to i1
+  br i1 %69, label %71, label %70
 
-69:                                               ; preds = %.sink.split, %43, %61, %65, %39
-  %.1 = phi i8 [ %.03334, %39 ], [ %60, %61 ], [ %60, %65 ], [ %60, %43 ], [ %.1.ph, %.sink.split ]
+70:                                               ; preds = %66
+  store i8 1, ptr %63, align 2
+  br label %71
+
+71:                                               ; preds = %44, %62, %66, %70, %39, %43
+  %.1 = phi i8 [ %.03334, %39 ], [ 1, %43 ], [ %61, %62 ], [ %61, %66 ], [ %61, %70 ], [ %61, %44 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %70 = load ptr, ptr %8, align 8
-  %71 = load i32, ptr %70, align 8
-  %72 = sext i32 %71 to i64
-  %73 = icmp slt i64 %indvars.iv.next, %72
-  br i1 %73, label %16, label %._crit_edge, !llvm.loop !18
+  %72 = load ptr, ptr %8, align 8
+  %73 = load i32, ptr %72, align 8
+  %74 = sext i32 %73 to i64
+  %75 = icmp slt i64 %indvars.iv.next, %74
+  br i1 %75, label %16, label %._crit_edge, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %69, %5
-  %.033.lcssa = phi i8 [ %7, %5 ], [ %.1, %69 ]
+._crit_edge:                                      ; preds = %71, %5
+  %.033.lcssa = phi i8 [ %7, %5 ], [ %.1, %71 ]
   store i8 0, ptr %6, align 1
-  %74 = trunc i8 %.033.lcssa to i1
-  ret i1 %74
+  %76 = trunc i8 %.033.lcssa to i1
+  ret i1 %76
 }
 
 declare ptr @brin_copy_tuple(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

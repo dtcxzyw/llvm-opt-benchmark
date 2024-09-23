@@ -2804,6 +2804,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   store ptr @.str.79, ptr %1245, align 8, !alias.scope !17
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJiPKcEEE, i64 16), ptr %39, align 8, !alias.scope !17
   store ptr %1314, ptr %1246, align 8, !alias.scope !17
+  store i32 %1254, ptr %1247, align 8, !alias.scope !17
   br label %1317
 
 1316:                                             ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit
@@ -2811,12 +2812,11 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJiiPKcEEE, i64 16), ptr %40, align 8, !alias.scope !20
   store ptr %1314, ptr %1242, align 8, !alias.scope !20
   store i32 %1256, ptr %1243, align 8, !alias.scope !20
+  store i32 %1254, ptr %1244, align 4, !alias.scope !20
   br label %1317
 
 1317:                                             ; preds = %1316, %1315
-  %.sink1194 = phi ptr [ %1244, %1316 ], [ %1247, %1315 ]
   %.sink = phi ptr [ %40, %1316 ], [ %39, %1315 ]
-  store i32 %1254, ptr %.sink1194, align 4
   %1318 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %.sink) #18
   %1319 = call { ptr, i64 } @_ZNK4llvm6Record16getValueAsStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %1252, ptr nonnull @.str.38, i64 4) #18
   %1320 = extractvalue { ptr, i64 } %1319, 0

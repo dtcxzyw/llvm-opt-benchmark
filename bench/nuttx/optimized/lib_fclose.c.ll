@@ -27,17 +27,17 @@ define range(i32 -1, 1) i32 @fclose(ptr noundef %0) local_unnamed_addr #0 {
   %.039 = phi i32 [ %8, %6 ], [ 0, %2 ]
   %12 = tail call ptr @lib_get_stream(i32 noundef 0) #3
   %13 = icmp eq ptr %0, %12
-  br i1 %13, label %63, label %14
+  br i1 %13, label %66, label %14
 
 14:                                               ; preds = %11
   %15 = tail call ptr @lib_get_stream(i32 noundef 1) #3
   %16 = icmp eq ptr %0, %15
-  br i1 %16, label %63, label %17
+  br i1 %16, label %66, label %17
 
 17:                                               ; preds = %14
   %18 = tail call ptr @lib_get_stream(i32 noundef 2) #3
   %19 = icmp eq ptr %0, %18
-  br i1 %19, label %63, label %20
+  br i1 %19, label %66, label %20
 
 20:                                               ; preds = %17
   %21 = tail call ptr @lib_get_streams() #3
@@ -60,85 +60,94 @@ define range(i32 -1, 1) i32 @fclose(ptr noundef %0) local_unnamed_addr #0 {
   %28 = load ptr, ptr %23, align 8
   %29 = icmp eq ptr %0, %28
   %30 = load ptr, ptr %.043, align 8
-  %..044.lcssa62 = select i1 %29, ptr %23, ptr %.044
-  store ptr %30, ptr %..044.lcssa62, align 8
-  %31 = getelementptr inbounds i8, ptr %21, i64 648
-  %32 = load ptr, ptr %31, align 8
-  %33 = icmp eq ptr %0, %32
-  br i1 %33, label %34, label %.loopexit
+  br i1 %29, label %31, label %32
 
-34:                                               ; preds = %27
-  store ptr %.044, ptr %31, align 8
+31:                                               ; preds = %27
+  store ptr %30, ptr %23, align 8
+  br label %33
+
+32:                                               ; preds = %27
+  store ptr %30, ptr %.044, align 8
+  br label %33
+
+33:                                               ; preds = %32, %31
+  %34 = getelementptr inbounds i8, ptr %21, i64 648
+  %35 = load ptr, ptr %34, align 8
+  %36 = icmp eq ptr %0, %35
+  br i1 %36, label %37, label %.loopexit
+
+37:                                               ; preds = %33
+  store ptr %.044, ptr %34, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %24, %27, %34
-  %35 = tail call i32 @nxmutex_unlock(ptr noundef %21) #3
-  %36 = getelementptr inbounds i8, ptr %0, i64 80
-  %37 = load ptr, ptr %36, align 8
-  %.not50 = icmp eq ptr %37, null
-  %38 = getelementptr inbounds i8, ptr %0, i64 88
-  %39 = load ptr, ptr %38, align 8
-  br i1 %.not50, label %42, label %40
+.loopexit:                                        ; preds = %24, %33, %37
+  %38 = tail call i32 @nxmutex_unlock(ptr noundef %21) #3
+  %39 = getelementptr inbounds i8, ptr %0, i64 80
+  %40 = load ptr, ptr %39, align 8
+  %.not50 = icmp eq ptr %40, null
+  %41 = getelementptr inbounds i8, ptr %0, i64 88
+  %42 = load ptr, ptr %41, align 8
+  br i1 %.not50, label %45, label %43
 
-40:                                               ; preds = %.loopexit
-  %41 = tail call i32 %37(ptr noundef %39) #3
-  br label %46
+43:                                               ; preds = %.loopexit
+  %44 = tail call i32 %40(ptr noundef %42) #3
+  br label %49
 
-42:                                               ; preds = %.loopexit
-  %43 = ptrtoint ptr %39 to i64
-  %44 = trunc i64 %43 to i32
-  %45 = tail call i32 @close(i32 noundef %44) #3
-  br label %46
+45:                                               ; preds = %.loopexit
+  %46 = ptrtoint ptr %42 to i64
+  %47 = trunc i64 %46 to i32
+  %48 = tail call i32 @close(i32 noundef %47) #3
+  br label %49
 
-46:                                               ; preds = %42, %40
-  %.038 = phi i32 [ %41, %40 ], [ %45, %42 ]
-  %47 = icmp eq i32 %.039, 0
-  br i1 %47, label %48, label %51
+49:                                               ; preds = %45, %43
+  %.038 = phi i32 [ %44, %43 ], [ %48, %45 ]
+  %50 = icmp eq i32 %.039, 0
+  br i1 %50, label %51, label %54
 
-48:                                               ; preds = %46
-  %49 = tail call ptr @__errno() #3
-  %50 = load i32, ptr %49, align 4
-  br label %51
+51:                                               ; preds = %49
+  %52 = tail call ptr @__errno() #3
+  %53 = load i32, ptr %52, align 4
+  br label %54
 
-51:                                               ; preds = %48, %46
-  %.242 = phi i32 [ %50, %48 ], [ %.040, %46 ]
-  %.2 = phi i32 [ %.038, %48 ], [ %.039, %46 ]
-  %52 = getelementptr inbounds i8, ptr %0, i64 8
-  %53 = tail call i32 @nxrmutex_destroy(ptr noundef nonnull %52) #3
-  %54 = getelementptr inbounds i8, ptr %0, i64 96
-  %55 = load ptr, ptr %54, align 8
-  %.not51 = icmp eq ptr %55, null
-  br i1 %.not51, label %62, label %56
+54:                                               ; preds = %51, %49
+  %.242 = phi i32 [ %53, %51 ], [ %.040, %49 ]
+  %.2 = phi i32 [ %.038, %51 ], [ %.039, %49 ]
+  %55 = getelementptr inbounds i8, ptr %0, i64 8
+  %56 = tail call i32 @nxrmutex_destroy(ptr noundef nonnull %55) #3
+  %57 = getelementptr inbounds i8, ptr %0, i64 96
+  %58 = load ptr, ptr %57, align 8
+  %.not51 = icmp eq ptr %58, null
+  br i1 %.not51, label %65, label %59
 
-56:                                               ; preds = %51
-  %57 = getelementptr inbounds i8, ptr %0, i64 194
-  %58 = load i8, ptr %57, align 2
-  %59 = and i8 %58, 8
-  %60 = icmp eq i8 %59, 0
-  br i1 %60, label %61, label %62
+59:                                               ; preds = %54
+  %60 = getelementptr inbounds i8, ptr %0, i64 194
+  %61 = load i8, ptr %60, align 2
+  %62 = and i8 %61, 8
+  %63 = icmp eq i8 %62, 0
+  br i1 %63, label %64, label %65
 
-61:                                               ; preds = %56
-  tail call void @free(ptr noundef nonnull %55)
-  br label %62
-
-62:                                               ; preds = %61, %56, %51
-  tail call void @free(ptr noundef nonnull %0)
-  br label %63
-
-63:                                               ; preds = %62, %11, %14, %17
-  %.141 = phi i32 [ %.040, %11 ], [ %.040, %14 ], [ %.040, %17 ], [ %.242, %62 ]
-  %.1 = phi i32 [ %.039, %11 ], [ %.039, %14 ], [ %.039, %17 ], [ %.2, %62 ]
-  %.not52 = icmp eq i32 %.1, 0
-  br i1 %.not52, label %65, label %.thread
-
-.thread:                                          ; preds = %1, %63
-  %.14156 = phi i32 [ %.141, %63 ], [ 22, %1 ]
-  %64 = tail call ptr @__errno() #3
-  store i32 %.14156, ptr %64, align 4
+64:                                               ; preds = %59
+  tail call void @free(ptr noundef nonnull %58)
   br label %65
 
-65:                                               ; preds = %63, %.thread
-  %.0 = phi i32 [ -1, %.thread ], [ 0, %63 ]
+65:                                               ; preds = %64, %59, %54
+  tail call void @free(ptr noundef nonnull %0)
+  br label %66
+
+66:                                               ; preds = %65, %11, %14, %17
+  %.141 = phi i32 [ %.040, %11 ], [ %.040, %14 ], [ %.040, %17 ], [ %.242, %65 ]
+  %.1 = phi i32 [ %.039, %11 ], [ %.039, %14 ], [ %.039, %17 ], [ %.2, %65 ]
+  %.not52 = icmp eq i32 %.1, 0
+  br i1 %.not52, label %68, label %.thread
+
+.thread:                                          ; preds = %1, %66
+  %.14156 = phi i32 [ %.141, %66 ], [ 22, %1 ]
+  %67 = tail call ptr @__errno() #3
+  store i32 %.14156, ptr %67, align 4
+  br label %68
+
+68:                                               ; preds = %66, %.thread
+  %.0 = phi i32 [ -1, %.thread ], [ 0, %66 ]
   ret i32 %.0
 }
 

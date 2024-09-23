@@ -2999,11 +2999,15 @@ if.then65:                                        ; preds = %if.end58
   %align66 = getelementptr inbounds i8, ptr %format, i64 4
   %15 = load i32, ptr %align66, align 4
   switch i32 %15, label %sw.default78 [
-    i32 60, label %if.end80thread-pre-split.sink.split
+    i32 60, label %sw.bb67
     i32 94, label %sw.bb69
     i32 61, label %sw.bb74
     i32 62, label %if.end80.thread
   ]
+
+sw.bb67:                                          ; preds = %if.then65
+  store i64 %sub62, ptr %n_rpadding, align 8
+  br label %if.end80thread-pre-split
 
 sw.bb69:                                          ; preds = %if.then65
   %div79 = lshr i64 %sub62, 1
@@ -3013,7 +3017,8 @@ sw.bb69:                                          ; preds = %if.then65
   br label %if.end80
 
 sw.bb74:                                          ; preds = %if.then65
-  br label %if.end80thread-pre-split.sink.split
+  store i64 %sub62, ptr %n_spadding, align 8
+  br label %if.end80thread-pre-split
 
 if.end80.thread:                                  ; preds = %if.then65
   store i64 %sub62, ptr %spec, align 8
@@ -3022,12 +3027,7 @@ if.end80.thread:                                  ; preds = %if.then65
 sw.default78:                                     ; preds = %if.then65
   unreachable
 
-if.end80thread-pre-split.sink.split:              ; preds = %if.then65, %sw.bb74
-  %n_spadding.sink = phi ptr [ %n_spadding, %sw.bb74 ], [ %n_rpadding, %if.then65 ]
-  store i64 %sub62, ptr %n_spadding.sink, align 8
-  br label %if.end80thread-pre-split
-
-if.end80thread-pre-split:                         ; preds = %if.end80thread-pre-split.sink.split, %if.end58
+if.end80thread-pre-split:                         ; preds = %if.end58, %sw.bb74, %sw.bb67
   %.pr = load i64, ptr %spec, align 8
   br label %if.end80
 

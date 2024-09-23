@@ -2694,7 +2694,7 @@ define hidden noundef ptr @jPkcs5Pbkd2ParamToCKPkcs5Pbkd2ParamPtr(ptr noundef %0
 
 25:                                               ; preds = %20, %15
   tail call void @p11ThrowPKCS11RuntimeException(ptr noundef nonnull %0, ptr noundef nonnull @.str.80) #8
-  br label %148
+  br label %149
 
 26:                                               ; preds = %20, %10
   %.0138 = phi ptr [ %9, %10 ], [ %19, %20 ]
@@ -2704,7 +2704,7 @@ define hidden noundef ptr @jPkcs5Pbkd2ParamToCKPkcs5Pbkd2ParamPtr(ptr noundef %0
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr %29(ptr noundef nonnull %0, ptr noundef nonnull %.0138, ptr noundef nonnull @.str.81, ptr noundef nonnull @.str.17) #8
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %148, label %32
+  br i1 %31, label %149, label %32
 
 32:                                               ; preds = %26
   %33 = load ptr, ptr %0, align 8
@@ -2716,7 +2716,7 @@ define hidden noundef ptr @jPkcs5Pbkd2ParamToCKPkcs5Pbkd2ParamPtr(ptr noundef %0
   %39 = load ptr, ptr %38, align 8
   %40 = tail call ptr %39(ptr noundef nonnull %0, ptr noundef nonnull %.0138, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.24) #8
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %148, label %42
+  br i1 %41, label %149, label %42
 
 42:                                               ; preds = %32
   %43 = load ptr, ptr %0, align 8
@@ -2728,7 +2728,7 @@ define hidden noundef ptr @jPkcs5Pbkd2ParamToCKPkcs5Pbkd2ParamPtr(ptr noundef %0
   %49 = load ptr, ptr %48, align 8
   %50 = tail call ptr %49(ptr noundef nonnull %0, ptr noundef nonnull %.0138, ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.17) #8
   %51 = icmp eq ptr %50, null
-  br i1 %51, label %148, label %52
+  br i1 %51, label %149, label %52
 
 52:                                               ; preds = %42
   %53 = load ptr, ptr %0, align 8
@@ -2740,7 +2740,7 @@ define hidden noundef ptr @jPkcs5Pbkd2ParamToCKPkcs5Pbkd2ParamPtr(ptr noundef %0
   %59 = load ptr, ptr %58, align 8
   %60 = tail call ptr %59(ptr noundef nonnull %0, ptr noundef nonnull %.0138, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.17) #8
   %61 = icmp eq ptr %60, null
-  br i1 %61, label %148, label %62
+  br i1 %61, label %149, label %62
 
 62:                                               ; preds = %52
   %63 = load ptr, ptr %0, align 8
@@ -2752,7 +2752,7 @@ define hidden noundef ptr @jPkcs5Pbkd2ParamToCKPkcs5Pbkd2ParamPtr(ptr noundef %0
   %69 = load ptr, ptr %68, align 8
   %70 = tail call ptr %69(ptr noundef nonnull %0, ptr noundef nonnull %.0138, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.24) #8
   %71 = icmp eq ptr %70, null
-  br i1 %71, label %148, label %72
+  br i1 %71, label %149, label %72
 
 72:                                               ; preds = %62
   %73 = load ptr, ptr %0, align 8
@@ -2764,7 +2764,7 @@ define hidden noundef ptr @jPkcs5Pbkd2ParamToCKPkcs5Pbkd2ParamPtr(ptr noundef %0
   %79 = load ptr, ptr %78, align 8
   %80 = tail call ptr %79(ptr noundef nonnull %0, ptr noundef nonnull %.0138, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.13) #8
   %81 = icmp eq ptr %80, null
-  br i1 %81, label %148, label %82
+  br i1 %81, label %149, label %82
 
 82:                                               ; preds = %72
   %83 = load ptr, ptr %0, align 8
@@ -2777,7 +2777,7 @@ define hidden noundef ptr @jPkcs5Pbkd2ParamToCKPkcs5Pbkd2ParamPtr(ptr noundef %0
 
 89:                                               ; preds = %82
   tail call void @p11ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef null) #8
-  br label %148
+  br label %149
 
 90:                                               ; preds = %82
   %91 = getelementptr inbounds i8, ptr %87, i64 72
@@ -2843,11 +2843,11 @@ define hidden noundef ptr @jPkcs5Pbkd2ParamToCKPkcs5Pbkd2ParamPtr(ptr noundef %0
   br i1 %.not159, label %124, label %126
 
 124:                                              ; preds = %118
-  br i1 %.not, label %148, label %125
+  br i1 %.not, label %149, label %125
 
 125:                                              ; preds = %124
   store i64 72, ptr %2, align 8
-  br label %148
+  br label %149
 
 126:                                              ; preds = %113, %90, %98, %118
   %127 = load i32, ptr %91, align 8
@@ -2860,7 +2860,7 @@ define hidden noundef ptr @jPkcs5Pbkd2ParamToCKPkcs5Pbkd2ParamPtr(ptr noundef %0
   %132 = getelementptr inbounds i8, ptr %87, i64 56
   %133 = load ptr, ptr %132, align 8
   %.not161 = icmp eq ptr %133, null
-  br i1 %128, label %134, label %143
+  br i1 %128, label %134, label %144
 
 134:                                              ; preds = %126
   br i1 %.not161, label %140, label %135
@@ -2881,30 +2881,27 @@ define hidden noundef ptr @jPkcs5Pbkd2ParamToCKPkcs5Pbkd2ParamPtr(ptr noundef %0
   %141 = phi ptr [ %.pre163, %138 ], [ %133, %135 ], [ null, %134 ]
   tail call void @free(ptr noundef %141) #8
   %142 = getelementptr inbounds i8, ptr %87, i64 64
-  br label %.sink.split
-
-143:                                              ; preds = %126
-  br i1 %.not161, label %147, label %144
-
-144:                                              ; preds = %143
-  %145 = getelementptr inbounds i8, ptr %87, i64 64
-  %146 = load i64, ptr %145, align 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %133, i8 0, i64 %146, i1 false)
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %140, %144
-  %.sink164 = phi ptr [ %132, %144 ], [ %142, %140 ]
-  %.pre = load ptr, ptr %.sink164, align 8
-  br label %147
-
-147:                                              ; preds = %.sink.split, %143
-  %.sink = phi ptr [ null, %143 ], [ %.pre, %.sink.split ]
-  tail call void @free(ptr noundef %.sink) #8
-  tail call void @free(ptr noundef nonnull %87) #8
+  %143 = load ptr, ptr %142, align 8
   br label %148
 
-148:                                              ; preds = %124, %125, %72, %62, %52, %42, %32, %26, %147, %89, %25
-  %.0 = phi ptr [ null, %89 ], [ null, %147 ], [ null, %25 ], [ null, %26 ], [ null, %32 ], [ null, %42 ], [ null, %52 ], [ null, %62 ], [ null, %72 ], [ %87, %125 ], [ %87, %124 ]
+144:                                              ; preds = %126
+  br i1 %.not161, label %148, label %145
+
+145:                                              ; preds = %144
+  %146 = getelementptr inbounds i8, ptr %87, i64 64
+  %147 = load i64, ptr %146, align 8
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %133, i8 0, i64 %147, i1 false)
+  %.pre = load ptr, ptr %132, align 8
+  br label %148
+
+148:                                              ; preds = %144, %145, %140
+  %.sink = phi ptr [ %143, %140 ], [ %.pre, %145 ], [ null, %144 ]
+  tail call void @free(ptr noundef %.sink) #8
+  tail call void @free(ptr noundef nonnull %87) #8
+  br label %149
+
+149:                                              ; preds = %124, %125, %72, %62, %52, %42, %32, %26, %148, %89, %25
+  %.0 = phi ptr [ null, %89 ], [ null, %148 ], [ null, %25 ], [ null, %26 ], [ null, %32 ], [ null, %42 ], [ null, %52 ], [ null, %62 ], [ null, %72 ], [ %87, %125 ], [ %87, %124 ]
   ret ptr %.0
 }
 

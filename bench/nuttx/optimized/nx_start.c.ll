@@ -46,56 +46,65 @@ define void @nx_start() #0 {
   %2 = load ptr, ptr @g_readytorun, align 8
   store ptr %2, ptr @g_idletcb, align 16
   %.not = icmp eq ptr %2, null
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
-  %.sink = select i1 %.not, ptr getelementptr inbounds (i8, ptr @g_readytorun, i64 8), ptr %3
-  store ptr @g_idletcb, ptr %.sink, align 8
+  br i1 %.not, label %3, label %4
+
+3:                                                ; preds = %.critedge
+  store ptr @g_idletcb, ptr getelementptr inbounds (i8, ptr @g_readytorun, i64 8), align 8
+  br label %6
+
+4:                                                ; preds = %.critedge
+  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr @g_idletcb, ptr %5, align 8
+  br label %6
+
+6:                                                ; preds = %3, %4
   store ptr @g_idletcb, ptr @g_readytorun, align 8
   store ptr @g_idletcb, ptr @g_running_tasks, align 8
   store i8 2, ptr @g_nx_initstate, align 1
   tail call void @nxsem_initialize() #5
   call void @up_allocate_heap(ptr noundef nonnull %0, ptr noundef nonnull %1) #5
-  %4 = load ptr, ptr %0, align 8
-  %5 = load i64, ptr %1, align 8
-  call void @umm_initialize(ptr noundef %4, i64 noundef %5) #5
+  %7 = load ptr, ptr %0, align 8
+  %8 = load i64, ptr %1, align 8
+  call void @umm_initialize(ptr noundef %7, i64 noundef %8) #5
   store volatile i32 4, ptr @g_npidhash, align 4
-  %6 = load volatile i32, ptr @g_npidhash, align 4
-  %7 = icmp slt i32 %6, 2
-  br i1 %7, label %.lr.ph, label %.critedge49
+  %9 = load volatile i32, ptr @g_npidhash, align 4
+  %10 = icmp slt i32 %9, 2
+  br i1 %10, label %.lr.ph, label %.critedge49
 
-.lr.ph:                                           ; preds = %.critedge, %.lr.ph
-  %8 = load volatile i32, ptr @g_npidhash, align 4
-  %9 = shl i32 %8, 1
-  store volatile i32 %9, ptr @g_npidhash, align 4
-  %10 = load volatile i32, ptr @g_npidhash, align 4
-  %11 = icmp slt i32 %10, 2
-  br i1 %11, label %.lr.ph, label %.critedge49, !llvm.loop !6
+.lr.ph:                                           ; preds = %6, %.lr.ph
+  %11 = load volatile i32, ptr @g_npidhash, align 4
+  %12 = shl i32 %11, 1
+  store volatile i32 %12, ptr @g_npidhash, align 4
+  %13 = load volatile i32, ptr @g_npidhash, align 4
+  %14 = icmp slt i32 %13, 2
+  br i1 %14, label %.lr.ph, label %.critedge49, !llvm.loop !6
 
-.critedge49:                                      ; preds = %.lr.ph, %.critedge
-  %12 = load volatile i32, ptr @g_npidhash, align 4
-  %13 = sext i32 %12 to i64
-  %14 = shl nsw i64 %13, 3
-  %15 = call noalias ptr @zalloc(i64 noundef %14) #6
-  store ptr %15, ptr @g_pidhash, align 8
-  %16 = load volatile i32, ptr @g_npidhash, align 4
-  store ptr @g_idletcb, ptr %15, align 8
-  %17 = load i16, ptr getelementptr inbounds (i8, ptr @g_idletcb, i64 64), align 16
-  %18 = trunc i16 %17 to i8
-  %19 = call i32 @group_allocate(ptr noundef nonnull @g_idletcb, i8 noundef zeroext %18) #5
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @g_idletcb, i64 16), align 16
-  %21 = getelementptr inbounds i8, ptr %20, i64 856
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 40
-  store ptr @g_idleargv, ptr %23, align 8
+.critedge49:                                      ; preds = %.lr.ph, %6
+  %15 = load volatile i32, ptr @g_npidhash, align 4
+  %16 = sext i32 %15 to i64
+  %17 = shl nsw i64 %16, 3
+  %18 = call noalias ptr @zalloc(i64 noundef %17) #6
+  store ptr %18, ptr @g_pidhash, align 8
+  %19 = load volatile i32, ptr @g_npidhash, align 4
+  store ptr @g_idletcb, ptr %18, align 8
+  %20 = load i16, ptr getelementptr inbounds (i8, ptr @g_idletcb, i64 64), align 16
+  %21 = trunc i16 %20 to i8
+  %22 = call i32 @group_allocate(ptr noundef nonnull @g_idletcb, i8 noundef zeroext %21) #5
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @g_idletcb, i64 16), align 16
+  %24 = getelementptr inbounds i8, ptr %23, i64 856
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 40
+  store ptr @g_idleargv, ptr %26, align 8
   call void @up_initial_state(ptr noundef nonnull @g_idletcb) #5
-  %24 = call i32 @tls_init_info(ptr noundef nonnull @g_idletcb) #5
+  %27 = call i32 @tls_init_info(ptr noundef nonnull @g_idletcb) #5
   call void @group_initialize(ptr noundef nonnull @g_idletcb) #5
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @g_idletcb, i64 16), align 16
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
-  store i8 3, ptr %26, align 8
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @g_idletcb, i64 16), align 16
+  %29 = getelementptr inbounds i8, ptr %28, i64 16
+  store i8 3, ptr %29, align 8
   store volatile i32 0, ptr @g_lastpid, align 4
   store i8 3, ptr @g_nx_initstate, align 1
   call void @task_initialize() #5
-  %27 = call i32 @sched_lock() #5
+  %30 = call i32 @sched_lock() #5
   call void @instrument_initialize() #5
   call void @fs_initialize() #5
   call void @irq_initialize() #5
@@ -108,16 +117,16 @@ define void @nx_start() #0 {
   call void @up_initialize() #5
   call void @drivers_initialize() #5
   store i8 4, ptr @g_nx_initstate, align 1
-  %28 = call i32 @group_setupidlefiles() #5
+  %31 = call i32 @group_setupidlefiles() #5
   store i8 5, ptr @g_nx_initstate, align 1
-  %29 = call i32 @nx_bringup() #5
+  %32 = call i32 @nx_bringup() #5
   store i8 6, ptr @g_nx_initstate, align 1
-  %30 = call i32 @sched_unlock() #5
-  br label %31
+  %33 = call i32 @sched_unlock() #5
+  br label %34
 
-31:                                               ; preds = %31, %.critedge49
+34:                                               ; preds = %34, %.critedge49
   call void @up_idle() #5
-  br label %31
+  br label %34
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

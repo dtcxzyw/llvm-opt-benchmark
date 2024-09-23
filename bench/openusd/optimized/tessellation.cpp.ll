@@ -5690,6 +5690,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110appendQuadENS2_10FacetArrayEiiiii.exit
   %142 = getelementptr inbounds i8, ptr %136, i64 8
   store i32 %137, ptr %142, align 4
   %143 = getelementptr inbounds i8, ptr %136, i64 12
+  store i32 %111, ptr %143, align 4
   br label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110appendQuadENS2_10FacetArrayEiiiii.exit60
 
 144:                                              ; preds = %130
@@ -5713,12 +5714,11 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110appendQuadENS2_10FacetArrayEiiiii.exit
   %156 = getelementptr inbounds i8, ptr %153, i64 4
   store i32 %109, ptr %156, align 4
   %157 = getelementptr inbounds i8, ptr %153, i64 8
+  store i32 %111, ptr %157, align 4
   br label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110appendQuadENS2_10FacetArrayEiiiii.exit60
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110appendQuadENS2_10FacetArrayEiiiii.exit60: ; preds = %144, %140
-  %.sink = phi ptr [ %157, %144 ], [ %143, %140 ]
-  %.0.i59 = phi i32 [ 2, %144 ], [ 1, %140 ]
-  store i32 %111, ptr %.sink, align 4
+  %.0.i59 = phi i32 [ 1, %140 ], [ 2, %144 ]
   %158 = add nsw i32 %.0.i59, %.1
   br label %159
 
@@ -5920,6 +5920,7 @@ define internal fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110F
   %112 = getelementptr inbounds i8, ptr %107, i64 4
   store i32 %.0104237, ptr %112, align 4
   %113 = getelementptr inbounds i8, ptr %107, i64 8
+  store i32 %.0113230, ptr %113, align 4
   br label %133
 
 .thread:                                          ; preds = %81, %71, %94
@@ -5934,6 +5935,7 @@ define internal fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110F
   %120 = getelementptr inbounds i8, ptr %118, i64 8
   store i32 %.0117228, ptr %120, align 4
   %121 = getelementptr inbounds i8, ptr %118, i64 12
+  store i32 %.0113230, ptr %121, align 4
   br label %133
 
 .thread244:                                       ; preds = %72, %.thread186, %77
@@ -5955,9 +5957,7 @@ define internal fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110F
   br label %137
 
 133:                                              ; preds = %.thread213, %.thread
-  %.sink = phi ptr [ %113, %.thread213 ], [ %121, %.thread ]
   %.0108.shrunk198218 = phi i1 [ false, %.thread213 ], [ true, %.thread ]
-  store i32 %.0113230, ptr %.sink, align 4
   %134 = add nsw i32 %.0102238, %8
   %135 = add nsw i32 %.0104237, 1
   %.not139 = icmp slt i32 %134, %15

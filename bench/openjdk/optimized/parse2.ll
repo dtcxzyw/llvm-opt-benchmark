@@ -1348,7 +1348,7 @@ define hidden void @_ZN5Parse11array_storeE9BasicType(ptr noundef nonnull align 
   %8 = select i1 %7, i32 2, i32 1
   %9 = call noundef ptr @_ZN5Parse16array_addressingE9BasicTypeiRPK4Type(ptr noundef nonnull align 8 dereferenceable(352) %0, i8 noundef zeroext %1, i32 noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %10 = tail call noundef zeroext i1 @_ZN8GraphKit7stoppedEv(ptr noundef nonnull align 8 dereferenceable(84) %0) #15
-  br i1 %10, label %58, label %11
+  br i1 %10, label %57, label %11
 
 11:                                               ; preds = %2
   switch i8 %1, label %23 [
@@ -1360,7 +1360,7 @@ define hidden void @_ZN5Parse11array_storeE9BasicType(ptr noundef nonnull align 
 12:                                               ; preds = %11
   tail call void @_ZN5Parse17array_store_checkEv(ptr noundef nonnull align 8 dereferenceable(352) %0) #15
   %13 = tail call noundef zeroext i1 @_ZN8GraphKit7stoppedEv(ptr noundef nonnull align 8 dereferenceable(84) %0) #15
-  br i1 %13, label %58, label %23
+  br i1 %13, label %57, label %23
 
 14:                                               ; preds = %11, %11
   %15 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1387,43 +1387,43 @@ define hidden void @_ZN5Parse11array_storeE9BasicType(ptr noundef nonnull align 
   br label %31
 
 31:                                               ; preds = %23, %14
-  %.sink = phi ptr [ %27, %23 ], [ %21, %14 ]
+  %.sink18 = phi ptr [ %27, %23 ], [ %21, %14 ]
   %.sink16 = phi i32 [ %30, %23 ], [ %22, %14 ]
   %.pn = phi ptr [ %25, %23 ], [ %16, %14 ]
-  %32 = getelementptr inbounds i8, ptr %.sink, i64 16
+  %32 = getelementptr inbounds i8, ptr %.sink18, i64 16
   %33 = load i32, ptr %32, align 8
   %34 = add i32 %33, %.sink16
-  %.sink15 = getelementptr inbounds i8, ptr %.pn, i64 8
-  %35 = load ptr, ptr %.sink15, align 8
-  %36 = zext i32 %34 to i64
-  %37 = getelementptr inbounds ptr, ptr %35, i64 %36
-  %.012 = load ptr, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %.pn, i64 56
-  %39 = getelementptr inbounds i8, ptr %0, i64 80
-  %40 = add nsw i32 %.sink16, -1
-  store i32 %40, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %.pn, i64 8
-  %42 = load ptr, ptr %38, align 8
-  %43 = add nsw i32 %.sink16, -2
-  store i32 %43, ptr %39, align 8
-  %44 = getelementptr inbounds i8, ptr %42, i64 16
-  %45 = load i32, ptr %44, align 8
-  %46 = add i32 %45, %43
-  %47 = load ptr, ptr %41, align 8
-  %48 = zext i32 %46 to i64
-  %49 = getelementptr inbounds ptr, ptr %47, i64 %48
-  %50 = load ptr, ptr %49, align 8
-  %51 = load ptr, ptr %3, align 8
-  %52 = load ptr, ptr @_ZN7TypeInt4BOOLE, align 8
-  %53 = icmp eq ptr %51, %52
-  %spec.select = select i1 %53, i8 4, i8 %1
-  %54 = zext i8 %spec.select to i64
-  %55 = getelementptr inbounds [20 x ptr], ptr @_ZN10TypeAryPtr16_array_body_typeE, i64 0, i64 %54
-  %56 = load ptr, ptr %55, align 8
-  %57 = tail call noundef ptr @_ZN8GraphKit15access_store_atEP4NodeS1_PK7TypePtrS1_PK4Type9BasicTypem(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %50, ptr noundef %9, ptr noundef %56, ptr noundef %.012, ptr noundef %51, i8 noundef zeroext %spec.select, i64 noundef 2359360) #15
-  br label %58
+  %.sink.in = getelementptr inbounds i8, ptr %.pn, i64 8
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %35 = zext i32 %34 to i64
+  %36 = getelementptr inbounds ptr, ptr %.sink, i64 %35
+  %.012 = load ptr, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %.pn, i64 56
+  %38 = getelementptr inbounds i8, ptr %0, i64 80
+  %39 = add nsw i32 %.sink16, -1
+  store i32 %39, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %.pn, i64 8
+  %41 = load ptr, ptr %37, align 8
+  %42 = add nsw i32 %.sink16, -2
+  store i32 %42, ptr %38, align 8
+  %43 = getelementptr inbounds i8, ptr %41, i64 16
+  %44 = load i32, ptr %43, align 8
+  %45 = add i32 %44, %42
+  %46 = load ptr, ptr %40, align 8
+  %47 = zext i32 %45 to i64
+  %48 = getelementptr inbounds ptr, ptr %46, i64 %47
+  %49 = load ptr, ptr %48, align 8
+  %50 = load ptr, ptr %3, align 8
+  %51 = load ptr, ptr @_ZN7TypeInt4BOOLE, align 8
+  %52 = icmp eq ptr %50, %51
+  %spec.select = select i1 %52, i8 4, i8 %1
+  %53 = zext i8 %spec.select to i64
+  %54 = getelementptr inbounds [20 x ptr], ptr @_ZN10TypeAryPtr16_array_body_typeE, i64 0, i64 %53
+  %55 = load ptr, ptr %54, align 8
+  %56 = tail call noundef ptr @_ZN8GraphKit15access_store_atEP4NodeS1_PK7TypePtrS1_PK4Type9BasicTypem(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %49, ptr noundef %9, ptr noundef %55, ptr noundef %.012, ptr noundef %50, i8 noundef zeroext %spec.select, i64 noundef 2359360) #15
+  br label %57
 
-58:                                               ; preds = %12, %2, %31
+57:                                               ; preds = %12, %2, %31
   ret void
 }
 

@@ -4602,16 +4602,16 @@ _ZN4llvmeqENS_9StringRefES0_.exit78.i:            ; preds = %1475
   br i1 %.not.i79.i, label %1496, label %1495
 
 1495:                                             ; preds = %.thread.i
-  store ptr %.0167.i, ptr %37, align 8, !alias.scope !54
+  store ptr %35, ptr %1428, align 8, !alias.scope !54
   br label %1496
 
-1496:                                             ; preds = %1495, %.thread.i
-  %.sink.i = phi ptr [ %1428, %1495 ], [ %37, %.thread.i ]
+1496:                                             ; preds = %.thread.i, %1495
+  %.0167.i.sink = phi ptr [ %.0167.i, %1495 ], [ %35, %.thread.i ]
   %.sroa.05.0.i.i85.i = phi ptr [ %37, %1495 ], [ %35, %.thread.i ]
   %.014.i.i84.i = phi i8 [ 2, %1495 ], [ 11, %.thread.i ]
   %1497 = phi i8 [ 11, %1495 ], [ 1, %.thread.i ]
   %1498 = phi i8 [ 3, %1495 ], [ 11, %.thread.i ]
-  store ptr %35, ptr %.sink.i, align 8
+  store ptr %.0167.i.sink, ptr %37, align 8
   store i8 %1498, ptr %1429, align 8
   store i8 %1497, ptr %1430, align 1
   br label %_ZN4llvmplERKNS_5TwineES2_.exit95.i
@@ -4619,12 +4619,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit78.i:            ; preds = %1475
 _ZN4llvmplERKNS_5TwineES2_.exit95.i:              ; preds = %1475, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %_ZN4llvmeqENS_9StringRefES0_.exit78.i, %1496
   %storemerge116 = phi ptr [ %.sroa.05.0.i.i85.i, %1496 ], [ @.str.22, %_ZN4llvmeqENS_9StringRefES0_.exit78.i ], [ @.str.22, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ @.str.22, %1475 ]
   %storemerge = phi ptr [ @.str.27, %1496 ], [ %35, %_ZN4llvmeqENS_9StringRefES0_.exit78.i ], [ %35, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ %35, %1475 ]
-  %.sink210.i = phi i8 [ %.014.i.i84.i, %1496 ], [ 3, %_ZN4llvmeqENS_9StringRefES0_.exit78.i ], [ 3, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ 3, %1475 ]
-  %.sink209.i = phi i8 [ 3, %1496 ], [ 11, %_ZN4llvmeqENS_9StringRefES0_.exit78.i ], [ 11, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ 11, %1475 ]
+  %.sink209.i = phi i8 [ %.014.i.i84.i, %1496 ], [ 3, %_ZN4llvmeqENS_9StringRefES0_.exit78.i ], [ 3, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ 3, %1475 ]
+  %.sink.i = phi i8 [ 3, %1496 ], [ 11, %_ZN4llvmeqENS_9StringRefES0_.exit78.i ], [ 11, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ 11, %1475 ]
   store ptr %storemerge116, ptr %36, align 8
   store ptr %storemerge, ptr %1433, align 8
-  store i8 %.sink210.i, ptr %1431, align 8
-  store i8 %.sink209.i, ptr %1432, align 1
+  store i8 %.sink209.i, ptr %1431, align 8
+  store i8 %.sink.i, ptr %1432, align 1
   %1499 = call fastcc noundef ptr @_ZL22createCloneDeclarationRN4llvm8FunctionERNS_4coro5ShapeERKNS_5TwineENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS0_Lb0ELb0EvLb0EvEELb0ELb0EEEPNS_18AnyCoroSuspendInstE(ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull align 8 dereferenceable(34) %36, ptr %1420, ptr noundef nonnull %1479)
   %1500 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #15
   %1501 = add i64 %1500, 1

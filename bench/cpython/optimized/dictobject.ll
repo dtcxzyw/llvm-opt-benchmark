@@ -1952,7 +1952,7 @@ entry:
   br label %start
 
 start.backedge:                                   ; preds = %if.end17.i, %land.lhs.true.i, %if.end15.i, %land.lhs.true.i66
-  %.be = phi ptr [ %29, %land.lhs.true.i66 ], [ %29, %if.end15.i ], [ %14, %land.lhs.true.i ], [ %14, %if.end17.i ]
+  %.be = phi ptr [ %31, %land.lhs.true.i66 ], [ %31, %if.end15.i ], [ %14, %land.lhs.true.i ], [ %14, %if.end17.i ]
   br label %start
 
 start:                                            ; preds = %start.backedge, %entry
@@ -2112,34 +2112,36 @@ if.then14:                                        ; preds = %if.then11
   %ma_values = getelementptr inbounds i8, ptr %mp, i64 40
   %16 = load ptr, ptr %ma_values, align 8
   %arrayidx = getelementptr [1 x ptr], ptr %16, i64 0, i64 %ix.095
-  br label %if.end35.sink.split
+  %17 = load ptr, ptr %arrayidx, align 8
+  br label %if.end35
 
 if.else15:                                        ; preds = %if.then11
   %dk_indices.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %dk_log2_index_bytes.i.i = getelementptr inbounds i8, ptr %1, i64 9
-  %17 = load i8, ptr %dk_log2_index_bytes.i.i, align 1
-  %sh_prom.i.i = zext nneg i8 %17 to i64
+  %18 = load i8, ptr %dk_log2_index_bytes.i.i, align 1
+  %sh_prom.i.i = zext nneg i8 %18 to i64
   %shl.i.i = shl nuw i64 1, %sh_prom.i.i
   %arrayidx.i.i27 = getelementptr i8, ptr %dk_indices.i.i, i64 %shl.i.i
   %me_value = getelementptr %struct.PyDictUnicodeEntry, ptr %arrayidx.i.i27, i64 %ix.095, i32 1
-  br label %if.end35.sink.split
+  %19 = load ptr, ptr %me_value, align 8
+  br label %if.end35
 
 if.else21:                                        ; preds = %start
   %dk_indices.i.i.i28 = getelementptr inbounds i8, ptr %1, i64 32
   %dk_log2_index_bytes.i.i.i29 = getelementptr inbounds i8, ptr %1, i64 9
-  %18 = load i8, ptr %dk_log2_index_bytes.i.i.i29, align 1
-  %sh_prom.i.i.i30 = zext nneg i8 %18 to i64
+  %20 = load i8, ptr %dk_log2_index_bytes.i.i.i29, align 1
+  %sh_prom.i.i.i30 = zext nneg i8 %20 to i64
   %shl.i.i.i31 = shl nuw i64 1, %sh_prom.i.i.i30
   %arrayidx.i.i.i32 = getelementptr i8, ptr %dk_indices.i.i.i28, i64 %shl.i.i.i31
   %dk_log2_size.i33 = getelementptr inbounds i8, ptr %1, i64 8
-  %19 = load i8, ptr %dk_log2_size.i33, align 8
-  %sh_prom.i34 = zext nneg i8 %19 to i64
+  %21 = load i8, ptr %dk_log2_size.i33, align 8
+  %sh_prom.i34 = zext nneg i8 %21 to i64
   %notmask.i35 = shl nsw i64 -1, %sh_prom.i34
   %sub.i36 = xor i64 %notmask.i35, -1
   br label %for.cond.i38
 
 for.cond.i38:                                     ; preds = %if.end33.i, %if.else21
-  %.pr26.i39 = phi i8 [ %.pr.i54, %if.end33.i ], [ %19, %if.else21 ]
+  %.pr26.i39 = phi i8 [ %.pr.i54, %if.end33.i ], [ %21, %if.else21 ]
   %hash.pn.i40 = phi i64 [ %add34.i, %if.end33.i ], [ %hash, %if.else21 ]
   %perturb.0.i41 = phi i64 [ %shr.i55, %if.end33.i ], [ %hash, %if.else21 ]
   %i.0.i42 = and i64 %hash.pn.i40, %sub.i36
@@ -2148,8 +2150,8 @@ for.cond.i38:                                     ; preds = %if.end33.i, %if.els
 
 if.then.i.i77:                                    ; preds = %for.cond.i38
   %arrayidx.i.i78 = getelementptr i8, ptr %dk_indices.i.i.i28, i64 %i.0.i42
-  %20 = load i8, ptr %arrayidx.i.i78, align 1
-  %conv2.i.i79 = sext i8 %20 to i64
+  %22 = load i8, ptr %arrayidx.i.i78, align 1
+  %conv2.i.i79 = sext i8 %22 to i64
   br label %dictkeys_get_index.exit.i51
 
 if.else.i.i44:                                    ; preds = %for.cond.i38
@@ -2158,8 +2160,8 @@ if.else.i.i44:                                    ; preds = %for.cond.i38
 
 if.then5.i.i74:                                   ; preds = %if.else.i.i44
   %arrayidx9.i.i75 = getelementptr i16, ptr %dk_indices.i.i.i28, i64 %i.0.i42
-  %21 = load i16, ptr %arrayidx9.i.i75, align 2
-  %conv10.i.i76 = sext i16 %21 to i64
+  %23 = load i16, ptr %arrayidx9.i.i75, align 2
+  %conv10.i.i76 = sext i16 %23 to i64
   br label %dictkeys_get_index.exit.i51
 
 if.else11.i.i46:                                  ; preds = %if.else.i.i44
@@ -2168,57 +2170,57 @@ if.else11.i.i46:                                  ; preds = %if.else.i.i44
 
 if.then14.i.i72:                                  ; preds = %if.else11.i.i46
   %arrayidx18.i.i73 = getelementptr i64, ptr %dk_indices.i.i.i28, i64 %i.0.i42
-  %22 = load i64, ptr %arrayidx18.i.i73, align 8
+  %24 = load i64, ptr %arrayidx18.i.i73, align 8
   br label %dictkeys_get_index.exit.i51
 
 if.else19.i.i48:                                  ; preds = %if.else11.i.i46
   %arrayidx23.i.i49 = getelementptr i32, ptr %dk_indices.i.i.i28, i64 %i.0.i42
-  %23 = load i32, ptr %arrayidx23.i.i49, align 4
-  %conv24.i.i50 = sext i32 %23 to i64
+  %25 = load i32, ptr %arrayidx23.i.i49, align 4
+  %conv24.i.i50 = sext i32 %25 to i64
   br label %dictkeys_get_index.exit.i51
 
 dictkeys_get_index.exit.i51:                      ; preds = %if.else19.i.i48, %if.then14.i.i72, %if.then5.i.i74, %if.then.i.i77
-  %ix.0.i.i52 = phi i64 [ %conv2.i.i79, %if.then.i.i77 ], [ %conv10.i.i76, %if.then5.i.i74 ], [ %22, %if.then14.i.i72 ], [ %conv24.i.i50, %if.else19.i.i48 ]
+  %ix.0.i.i52 = phi i64 [ %conv2.i.i79, %if.then.i.i77 ], [ %conv10.i.i76, %if.then5.i.i74 ], [ %24, %if.then14.i.i72 ], [ %conv24.i.i50, %if.else19.i.i48 ]
   %cmp.i53 = icmp sgt i64 %ix.0.i.i52, -1
   br i1 %cmp.i53, label %if.then.i59, label %if.else28.i
 
 if.then.i59:                                      ; preds = %dictkeys_get_index.exit.i51
   %arrayidx.i60 = getelementptr %struct.PyDictKeyEntry, ptr %arrayidx.i.i.i32, i64 %ix.0.i.i52
   %me_key.i = getelementptr inbounds i8, ptr %arrayidx.i60, i64 8
-  %24 = load ptr, ptr %me_key.i, align 8
-  %cmp3.i61 = icmp eq ptr %24, %key
+  %26 = load ptr, ptr %me_key.i, align 8
+  %cmp3.i61 = icmp eq ptr %26, %key
   br i1 %cmp3.i61, label %if.then29, label %if.end.i62
 
 if.end.i62:                                       ; preds = %if.then.i59
-  %25 = load i64, ptr %arrayidx.i60, align 8
-  %cmp6.i = icmp eq i64 %25, %hash
+  %27 = load i64, ptr %arrayidx.i60, align 8
+  %cmp6.i = icmp eq i64 %27, %hash
   br i1 %cmp6.i, label %if.then8.i, label %if.end33.i
 
 if.then8.i:                                       ; preds = %if.end.i62
-  %26 = load i32, ptr %24, align 8
-  %add.i.i63 = add i32 %26, 1
+  %28 = load i32, ptr %26, align 8
+  %add.i.i63 = add i32 %28, 1
   %cmp.i37.i = icmp eq i32 %add.i.i63, 0
   br i1 %cmp.i37.i, label %Py_INCREF.exit.i64, label %if.end.i38.i
 
 if.end.i38.i:                                     ; preds = %if.then8.i
-  store i32 %add.i.i63, ptr %24, align 8
+  store i32 %add.i.i63, ptr %26, align 8
   br label %Py_INCREF.exit.i64
 
 Py_INCREF.exit.i64:                               ; preds = %if.end.i38.i, %if.then8.i
-  %call11.i = tail call i32 @PyObject_RichCompareBool(ptr noundef nonnull %24, ptr noundef %key, i32 noundef 2) #18
-  %27 = load i64, ptr %24, align 8
-  %28 = and i64 %27, 2147483648
-  %cmp.i41.not.i = icmp eq i64 %28, 0
+  %call11.i = tail call i32 @PyObject_RichCompareBool(ptr noundef nonnull %26, ptr noundef %key, i32 noundef 2) #18
+  %29 = load i64, ptr %26, align 8
+  %30 = and i64 %29, 2147483648
+  %cmp.i41.not.i = icmp eq i64 %30, 0
   br i1 %cmp.i41.not.i, label %if.end.i.i68, label %Py_DECREF.exit.i65
 
 if.end.i.i68:                                     ; preds = %Py_INCREF.exit.i64
-  %dec.i.i69 = add i64 %27, -1
-  store i64 %dec.i.i69, ptr %24, align 8
+  %dec.i.i69 = add i64 %29, -1
+  store i64 %dec.i.i69, ptr %26, align 8
   %cmp.i.i70 = icmp eq i64 %dec.i.i69, 0
   br i1 %cmp.i.i70, label %if.then1.i.i71, label %Py_DECREF.exit.i65
 
 if.then1.i.i71:                                   ; preds = %if.end.i.i68
-  tail call void @_Py_Dealloc(ptr noundef nonnull %24) #18
+  tail call void @_Py_Dealloc(ptr noundef nonnull %26) #18
   br label %Py_DECREF.exit.i65
 
 Py_DECREF.exit.i65:                               ; preds = %if.then1.i.i71, %if.end.i.i68, %Py_INCREF.exit.i64
@@ -2226,13 +2228,13 @@ Py_DECREF.exit.i65:                               ; preds = %if.then1.i.i71, %if
   br i1 %cmp12.i, label %if.end35, label %if.end15.i
 
 if.end15.i:                                       ; preds = %Py_DECREF.exit.i65
-  %29 = load ptr, ptr %ma_keys, align 8
-  %cmp16.i = icmp eq ptr %1, %29
+  %31 = load ptr, ptr %ma_keys, align 8
+  %cmp16.i = icmp eq ptr %1, %31
   br i1 %cmp16.i, label %land.lhs.true.i66, label %start.backedge
 
 land.lhs.true.i66:                                ; preds = %if.end15.i
-  %30 = load ptr, ptr %me_key.i, align 8
-  %cmp19.i = icmp eq ptr %30, %24
+  %32 = load ptr, ptr %me_key.i, align 8
+  %cmp19.i = icmp eq ptr %32, %26
   br i1 %cmp19.i, label %if.then21.i, label %start.backedge
 
 if.then21.i:                                      ; preds = %land.lhs.true.i66
@@ -2257,22 +2259,17 @@ if.end33.i:                                       ; preds = %if.else28.i, %if.th
 
 if.then29:                                        ; preds = %if.then21.i, %if.then.i59
   %dk_log2_index_bytes.i.i.i29.le = getelementptr inbounds i8, ptr %1, i64 9
-  %31 = load i8, ptr %dk_log2_index_bytes.i.i.i29.le, align 1
-  %sh_prom.i.i82 = zext nneg i8 %31 to i64
+  %33 = load i8, ptr %dk_log2_index_bytes.i.i.i29.le, align 1
+  %sh_prom.i.i82 = zext nneg i8 %33 to i64
   %shl.i.i83 = shl nuw i64 1, %sh_prom.i.i82
   %arrayidx.i.i84 = getelementptr i8, ptr %dk_indices.i.i.i28, i64 %shl.i.i83
   %me_value32 = getelementptr %struct.PyDictKeyEntry, ptr %arrayidx.i.i84, i64 %ix.0.i.i52, i32 2
-  br label %if.end35.sink.split
-
-if.end35.sink.split:                              ; preds = %if.then14, %if.else15, %if.then29
-  %me_value32.sink = phi ptr [ %me_value32, %if.then29 ], [ %me_value, %if.else15 ], [ %arrayidx, %if.then14 ]
-  %ix.1.ph = phi i64 [ %ix.0.i.i52, %if.then29 ], [ %ix.095, %if.else15 ], [ %ix.095, %if.then14 ]
-  %32 = load ptr, ptr %me_value32.sink, align 8
+  %34 = load ptr, ptr %me_value32, align 8
   br label %if.end35
 
-if.end35:                                         ; preds = %if.else30.i, %Py_DECREF.exit.i, %Py_DECREF.exit.i65, %if.else28.i, %if.end35.sink.split, %if.end8
-  %.sink = phi ptr [ null, %if.end8 ], [ %32, %if.end35.sink.split ], [ null, %if.else28.i ], [ null, %Py_DECREF.exit.i65 ], [ null, %Py_DECREF.exit.i ], [ null, %if.else30.i ]
-  %ix.1 = phi i64 [ -1, %if.end8 ], [ %ix.1.ph, %if.end35.sink.split ], [ -3, %Py_DECREF.exit.i65 ], [ -1, %if.else28.i ], [ -1, %if.else30.i ], [ -3, %Py_DECREF.exit.i ]
+if.end35:                                         ; preds = %if.else30.i, %Py_DECREF.exit.i, %Py_DECREF.exit.i65, %if.else28.i, %if.end8, %if.then29, %if.else15, %if.then14
+  %.sink = phi ptr [ %34, %if.then29 ], [ %19, %if.else15 ], [ %17, %if.then14 ], [ null, %if.end8 ], [ null, %if.else28.i ], [ null, %Py_DECREF.exit.i65 ], [ null, %Py_DECREF.exit.i ], [ null, %if.else30.i ]
+  %ix.1 = phi i64 [ %ix.0.i.i52, %if.then29 ], [ %ix.095, %if.else15 ], [ %ix.095, %if.then14 ], [ -1, %if.end8 ], [ -3, %Py_DECREF.exit.i65 ], [ -1, %if.else28.i ], [ -1, %if.else30.i ], [ -3, %Py_DECREF.exit.i ]
   store ptr %.sink, ptr %value_addr, align 8
   ret i64 %ix.1
 }
@@ -4234,10 +4231,12 @@ if.then52:                                        ; preds = %if.then46
   store i8 %inc.i, ptr %add.ptr.i, align 1
   %55 = load ptr, ptr %ma_values, align 8
   %arrayidx57 = getelementptr [1 x ptr], ptr %55, i64 0, i64 %53
+  store ptr %value, ptr %arrayidx57, align 8
   br label %if.end68
 
 if.else:                                          ; preds = %if.then46
   %me_value = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  store ptr %value, ptr %me_value, align 8
   br label %if.end68
 
 if.else59:                                        ; preds = %dictkeys_set_index.exit
@@ -4246,11 +4245,10 @@ if.else59:                                        ; preds = %dictkeys_set_index.
   store ptr %key, ptr %me_key66, align 8
   store i64 %hash, ptr %arrayidx65, align 8
   %me_value67 = getelementptr inbounds i8, ptr %arrayidx65, i64 16
+  store ptr %value, ptr %me_value67, align 8
   br label %if.end68
 
 if.end68:                                         ; preds = %if.then52, %if.else, %if.else59
-  %arrayidx57.sink = phi ptr [ %arrayidx57, %if.then52 ], [ %me_value, %if.else ], [ %me_value67, %if.else59 ]
-  store ptr %value, ptr %arrayidx57.sink, align 8
   %ma_used = getelementptr inbounds i8, ptr %mp, i64 16
   %56 = load i64, ptr %ma_used, align 8
   %inc = add i64 %56, 1
@@ -16153,22 +16151,23 @@ if.then7:                                         ; preds = %_Py_NewRef.exit
   %ma_values = getelementptr inbounds i8, ptr %dict, i64 40
   %3 = load ptr, ptr %ma_values, align 8
   %tobool.not = icmp eq ptr %3, null
-  br i1 %tobool.not, label %if.else, label %if.end15.sink.split
+  br i1 %tobool.not, label %if.else, label %if.then8
+
+if.then8:                                         ; preds = %if.then7
+  %4 = load i64, ptr %ma_used, align 8
+  %sub = add i64 %4, -1
+  br label %if.end15
 
 if.else:                                          ; preds = %if.then7
   %ma_keys = getelementptr inbounds i8, ptr %dict, i64 32
-  %4 = load ptr, ptr %ma_keys, align 8
-  %dk_nentries = getelementptr inbounds i8, ptr %4, i64 24
-  br label %if.end15.sink.split
-
-if.end15.sink.split:                              ; preds = %if.then7, %if.else
-  %ma_used.sink = phi ptr [ %dk_nentries, %if.else ], [ %ma_used, %if.then7 ]
-  %5 = load i64, ptr %ma_used.sink, align 8
-  %sub = add i64 %5, -1
+  %5 = load ptr, ptr %ma_keys, align 8
+  %dk_nentries = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = load i64, ptr %dk_nentries, align 8
+  %sub10 = add i64 %6, -1
   br label %if.end15
 
-if.end15:                                         ; preds = %if.end15.sink.split, %_Py_NewRef.exit
-  %sub.sink = phi i64 [ 0, %_Py_NewRef.exit ], [ %sub, %if.end15.sink.split ]
+if.end15:                                         ; preds = %_Py_NewRef.exit, %if.then8, %if.else
+  %sub.sink = phi i64 [ %sub, %if.then8 ], [ %sub10, %if.else ], [ 0, %_Py_NewRef.exit ]
   %di_pos = getelementptr inbounds i8, ptr %call, i64 32
   store i64 %sub.sink, ptr %di_pos, align 8
   %cmp16 = icmp eq ptr %itertype, @PyDictIterItem_Type
@@ -16183,13 +16182,13 @@ if.then19:                                        ; preds = %if.end15
   br i1 %cmp22, label %if.then23, label %if.end27
 
 if.then23:                                        ; preds = %if.then19
-  %6 = load i64, ptr %call, align 8
-  %7 = and i64 %6, 2147483648
-  %cmp.i29.not = icmp eq i64 %7, 0
+  %7 = load i64, ptr %call, align 8
+  %8 = and i64 %7, 2147483648
+  %cmp.i29.not = icmp eq i64 %8, 0
   br i1 %cmp.i29.not, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.then23
-  %dec.i = add i64 %6, -1
+  %dec.i = add i64 %7, -1
   store i64 %dec.i, ptr %call, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %return
@@ -16205,25 +16204,25 @@ if.else25:                                        ; preds = %if.end15
 
 if.end27:                                         ; preds = %if.then19, %if.else25
   %add.ptr.i.i = getelementptr i8, ptr %call, i64 -16
-  %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
-  %9 = load ptr, ptr %8, align 8
-  %interp.i.i = getelementptr inbounds i8, ptr %9, i64 16
-  %10 = load ptr, ptr %interp.i.i, align 8
-  %generation03.i = getelementptr inbounds i8, ptr %10, i64 1096
-  %11 = load ptr, ptr %generation03.i, align 8
-  %_gc_prev.i = getelementptr inbounds i8, ptr %11, i64 8
-  %12 = load i64, ptr %_gc_prev.i, align 8
-  %13 = inttoptr i64 %12 to ptr
-  %14 = ptrtoint ptr %add.ptr.i.i to i64
-  store i64 %14, ptr %13, align 8
+  %9 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
+  %10 = load ptr, ptr %9, align 8
+  %interp.i.i = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = load ptr, ptr %interp.i.i, align 8
+  %generation03.i = getelementptr inbounds i8, ptr %11, i64 1096
+  %12 = load ptr, ptr %generation03.i, align 8
+  %_gc_prev.i = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = load i64, ptr %_gc_prev.i, align 8
+  %14 = inttoptr i64 %13 to ptr
+  %15 = ptrtoint ptr %add.ptr.i.i to i64
+  store i64 %15, ptr %14, align 8
   %_gc_prev.i.i = getelementptr i8, ptr %call, i64 -8
-  %15 = load i64, ptr %_gc_prev.i.i, align 8
-  %and.i.i = and i64 %15, 3
-  %or.i.i = or i64 %and.i.i, %12
+  %16 = load i64, ptr %_gc_prev.i.i, align 8
+  %and.i.i = and i64 %16, 3
+  %or.i.i = or i64 %and.i.i, %13
   store i64 %or.i.i, ptr %_gc_prev.i.i, align 8
-  %16 = ptrtoint ptr %11 to i64
-  store i64 %16, ptr %add.ptr.i.i, align 8
-  store i64 %14, ptr %_gc_prev.i, align 8
+  %17 = ptrtoint ptr %12 to i64
+  store i64 %17, ptr %add.ptr.i.i, align 8
+  store i64 %15, ptr %_gc_prev.i, align 8
   br label %return
 
 return:                                           ; preds = %if.end.i, %if.then1.i, %if.then23, %entry, %if.end27
@@ -17441,45 +17440,45 @@ _Py_NewRef.exit.i.i:                              ; preds = %if.end.i.i.i.i, %if
   %ma_values.i.i = getelementptr inbounds i8, ptr %self, i64 40
   %2 = load ptr, ptr %ma_values.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %2, null
-  br i1 %tobool.not.i.i, label %if.else.i.i, label %if.end15.sink.split.i.i
+  br i1 %tobool.not.i.i, label %if.else.i.i, label %if.end15.i.i
 
 if.else.i.i:                                      ; preds = %_Py_NewRef.exit.i.i
   %ma_keys.i.i = getelementptr inbounds i8, ptr %self, i64 32
   %3 = load ptr, ptr %ma_keys.i.i, align 8
   %dk_nentries.i.i = getelementptr inbounds i8, ptr %3, i64 24
-  br label %if.end15.sink.split.i.i
+  br label %if.end15.i.i
 
-if.end15.sink.split.i.i:                          ; preds = %if.else.i.i, %_Py_NewRef.exit.i.i
-  %ma_used.sink.i.i = phi ptr [ %dk_nentries.i.i, %if.else.i.i ], [ %ma_used.i.i, %_Py_NewRef.exit.i.i ]
-  %4 = load i64, ptr %ma_used.sink.i.i, align 8
-  %sub.i.i = add i64 %4, -1
+if.end15.i.i:                                     ; preds = %if.else.i.i, %_Py_NewRef.exit.i.i
+  %sub.sink.i.in.in.i = phi ptr [ %dk_nentries.i.i, %if.else.i.i ], [ %ma_used.i.i, %_Py_NewRef.exit.i.i ]
+  %sub.sink.i.in.i = load i64, ptr %sub.sink.i.in.in.i, align 8
+  %sub.sink.i.i = add i64 %sub.sink.i.in.i, -1
   %di_pos.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
-  store i64 %sub.i.i, ptr %di_pos.i.i, align 8
+  store i64 %sub.sink.i.i, ptr %di_pos.i.i, align 8
   %di_result26.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
   store ptr null, ptr %di_result26.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr i8, ptr %call.i.i, i64 -16
-  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
-  %6 = load ptr, ptr %5, align 8
-  %interp.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
-  %7 = load ptr, ptr %interp.i.i.i.i, align 8
-  %generation03.i.i.i = getelementptr inbounds i8, ptr %7, i64 1096
-  %8 = load ptr, ptr %generation03.i.i.i, align 8
-  %_gc_prev.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
-  %9 = load i64, ptr %_gc_prev.i.i.i, align 8
-  %10 = inttoptr i64 %9 to ptr
-  %11 = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  store i64 %11, ptr %10, align 8
+  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
+  %5 = load ptr, ptr %4, align 8
+  %interp.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = load ptr, ptr %interp.i.i.i.i, align 8
+  %generation03.i.i.i = getelementptr inbounds i8, ptr %6, i64 1096
+  %7 = load ptr, ptr %generation03.i.i.i, align 8
+  %_gc_prev.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = load i64, ptr %_gc_prev.i.i.i, align 8
+  %9 = inttoptr i64 %8 to ptr
+  %10 = ptrtoint ptr %add.ptr.i.i.i.i to i64
+  store i64 %10, ptr %9, align 8
   %_gc_prev.i.i.i.i = getelementptr i8, ptr %call.i.i, i64 -8
-  %12 = load i64, ptr %_gc_prev.i.i.i.i, align 8
-  %and.i.i.i.i = and i64 %12, 3
-  %or.i.i.i.i = or i64 %and.i.i.i.i, %9
+  %11 = load i64, ptr %_gc_prev.i.i.i.i, align 8
+  %and.i.i.i.i = and i64 %11, 3
+  %or.i.i.i.i = or i64 %and.i.i.i.i, %8
   store i64 %or.i.i.i.i, ptr %_gc_prev.i.i.i.i, align 8
-  %13 = ptrtoint ptr %8 to i64
-  store i64 %13, ptr %add.ptr.i.i.i.i, align 8
-  store i64 %11, ptr %_gc_prev.i.i.i, align 8
+  %12 = ptrtoint ptr %7 to i64
+  store i64 %12, ptr %add.ptr.i.i.i.i, align 8
+  store i64 %10, ptr %_gc_prev.i.i.i, align 8
   br label %dict___reversed___impl.exit
 
-dict___reversed___impl.exit:                      ; preds = %entry, %if.end15.sink.split.i.i
+dict___reversed___impl.exit:                      ; preds = %entry, %if.end15.i.i
   ret ptr %call.i.i
 }
 
@@ -18657,46 +18656,46 @@ _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %if.e
   %ma_values.i = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %ma_values.i, align 8
   %tobool.not.i = icmp eq ptr %3, null
-  br i1 %tobool.not.i, label %if.else.i, label %if.end15.sink.split.i
+  br i1 %tobool.not.i, label %if.else.i, label %if.end15.i
 
 if.else.i:                                        ; preds = %_Py_NewRef.exit.i
   %ma_keys.i = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %ma_keys.i, align 8
   %dk_nentries.i = getelementptr inbounds i8, ptr %4, i64 24
-  br label %if.end15.sink.split.i
+  br label %if.end15.i
 
-if.end15.sink.split.i:                            ; preds = %if.else.i, %_Py_NewRef.exit.i
-  %ma_used.sink.i = phi ptr [ %dk_nentries.i, %if.else.i ], [ %ma_used.i, %_Py_NewRef.exit.i ]
-  %5 = load i64, ptr %ma_used.sink.i, align 8
-  %sub.i = add i64 %5, -1
+if.end15.i:                                       ; preds = %_Py_NewRef.exit.i, %if.else.i
+  %sub.sink.i.in.in = phi ptr [ %dk_nentries.i, %if.else.i ], [ %ma_used.i, %_Py_NewRef.exit.i ]
+  %sub.sink.i.in = load i64, ptr %sub.sink.i.in.in, align 8
+  %sub.sink.i = add i64 %sub.sink.i.in, -1
   %di_pos.i = getelementptr inbounds i8, ptr %call.i, i64 32
-  store i64 %sub.i, ptr %di_pos.i, align 8
+  store i64 %sub.sink.i, ptr %di_pos.i, align 8
   %di_result26.i = getelementptr inbounds i8, ptr %call.i, i64 40
   store ptr null, ptr %di_result26.i, align 8
   %add.ptr.i.i.i = getelementptr i8, ptr %call.i, i64 -16
-  %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
-  %7 = load ptr, ptr %6, align 8
-  %interp.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
-  %8 = load ptr, ptr %interp.i.i.i, align 8
-  %generation03.i.i = getelementptr inbounds i8, ptr %8, i64 1096
-  %9 = load ptr, ptr %generation03.i.i, align 8
-  %_gc_prev.i.i = getelementptr inbounds i8, ptr %9, i64 8
-  %10 = load i64, ptr %_gc_prev.i.i, align 8
-  %11 = inttoptr i64 %10 to ptr
-  %12 = ptrtoint ptr %add.ptr.i.i.i to i64
-  store i64 %12, ptr %11, align 8
+  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
+  %6 = load ptr, ptr %5, align 8
+  %interp.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = load ptr, ptr %interp.i.i.i, align 8
+  %generation03.i.i = getelementptr inbounds i8, ptr %7, i64 1096
+  %8 = load ptr, ptr %generation03.i.i, align 8
+  %_gc_prev.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = load i64, ptr %_gc_prev.i.i, align 8
+  %10 = inttoptr i64 %9 to ptr
+  %11 = ptrtoint ptr %add.ptr.i.i.i to i64
+  store i64 %11, ptr %10, align 8
   %_gc_prev.i.i.i = getelementptr i8, ptr %call.i, i64 -8
-  %13 = load i64, ptr %_gc_prev.i.i.i, align 8
-  %and.i.i.i = and i64 %13, 3
-  %or.i.i.i = or i64 %and.i.i.i, %10
+  %12 = load i64, ptr %_gc_prev.i.i.i, align 8
+  %and.i.i.i = and i64 %12, 3
+  %or.i.i.i = or i64 %and.i.i.i, %9
   store i64 %or.i.i.i, ptr %_gc_prev.i.i.i, align 8
-  %14 = ptrtoint ptr %9 to i64
-  store i64 %14, ptr %add.ptr.i.i.i, align 8
-  store i64 %12, ptr %_gc_prev.i.i, align 8
+  %13 = ptrtoint ptr %8 to i64
+  store i64 %13, ptr %add.ptr.i.i.i, align 8
+  store i64 %11, ptr %_gc_prev.i.i, align 8
   br label %return
 
-return:                                           ; preds = %if.end15.sink.split.i, %if.end, %entry
-  %retval.0 = phi ptr [ @_Py_NoneStruct, %entry ], [ %call.i, %if.end15.sink.split.i ], [ null, %if.end ]
+return:                                           ; preds = %if.end15.i, %if.end, %entry
+  %retval.0 = phi ptr [ @_Py_NoneStruct, %entry ], [ %call.i, %if.end15.i ], [ null, %if.end ]
   ret ptr %retval.0
 }
 
@@ -18763,46 +18762,46 @@ _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %if.e
   %ma_values.i = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %ma_values.i, align 8
   %tobool.not.i = icmp eq ptr %3, null
-  br i1 %tobool.not.i, label %if.else.i, label %if.end15.sink.split.i
+  br i1 %tobool.not.i, label %if.else.i, label %if.end15.i
 
 if.else.i:                                        ; preds = %_Py_NewRef.exit.i
   %ma_keys.i = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %ma_keys.i, align 8
   %dk_nentries.i = getelementptr inbounds i8, ptr %4, i64 24
-  br label %if.end15.sink.split.i
+  br label %if.end15.i
 
-if.end15.sink.split.i:                            ; preds = %if.else.i, %_Py_NewRef.exit.i
-  %ma_used.sink.i = phi ptr [ %dk_nentries.i, %if.else.i ], [ %ma_used.i, %_Py_NewRef.exit.i ]
-  %5 = load i64, ptr %ma_used.sink.i, align 8
-  %sub.i = add i64 %5, -1
+if.end15.i:                                       ; preds = %_Py_NewRef.exit.i, %if.else.i
+  %sub.sink.i.in.in = phi ptr [ %dk_nentries.i, %if.else.i ], [ %ma_used.i, %_Py_NewRef.exit.i ]
+  %sub.sink.i.in = load i64, ptr %sub.sink.i.in.in, align 8
+  %sub.sink.i = add i64 %sub.sink.i.in, -1
   %di_pos.i = getelementptr inbounds i8, ptr %call.i, i64 32
-  store i64 %sub.i, ptr %di_pos.i, align 8
+  store i64 %sub.sink.i, ptr %di_pos.i, align 8
   %di_result26.i = getelementptr inbounds i8, ptr %call.i, i64 40
   store ptr null, ptr %di_result26.i, align 8
   %add.ptr.i.i.i = getelementptr i8, ptr %call.i, i64 -16
-  %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
-  %7 = load ptr, ptr %6, align 8
-  %interp.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
-  %8 = load ptr, ptr %interp.i.i.i, align 8
-  %generation03.i.i = getelementptr inbounds i8, ptr %8, i64 1096
-  %9 = load ptr, ptr %generation03.i.i, align 8
-  %_gc_prev.i.i = getelementptr inbounds i8, ptr %9, i64 8
-  %10 = load i64, ptr %_gc_prev.i.i, align 8
-  %11 = inttoptr i64 %10 to ptr
-  %12 = ptrtoint ptr %add.ptr.i.i.i to i64
-  store i64 %12, ptr %11, align 8
+  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
+  %6 = load ptr, ptr %5, align 8
+  %interp.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = load ptr, ptr %interp.i.i.i, align 8
+  %generation03.i.i = getelementptr inbounds i8, ptr %7, i64 1096
+  %8 = load ptr, ptr %generation03.i.i, align 8
+  %_gc_prev.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = load i64, ptr %_gc_prev.i.i, align 8
+  %10 = inttoptr i64 %9 to ptr
+  %11 = ptrtoint ptr %add.ptr.i.i.i to i64
+  store i64 %11, ptr %10, align 8
   %_gc_prev.i.i.i = getelementptr i8, ptr %call.i, i64 -8
-  %13 = load i64, ptr %_gc_prev.i.i.i, align 8
-  %and.i.i.i = and i64 %13, 3
-  %or.i.i.i = or i64 %and.i.i.i, %10
+  %12 = load i64, ptr %_gc_prev.i.i.i, align 8
+  %and.i.i.i = and i64 %12, 3
+  %or.i.i.i = or i64 %and.i.i.i, %9
   store i64 %or.i.i.i, ptr %_gc_prev.i.i.i, align 8
-  %14 = ptrtoint ptr %9 to i64
-  store i64 %14, ptr %add.ptr.i.i.i, align 8
-  store i64 %12, ptr %_gc_prev.i.i, align 8
+  %13 = ptrtoint ptr %8 to i64
+  store i64 %13, ptr %add.ptr.i.i.i, align 8
+  store i64 %11, ptr %_gc_prev.i.i, align 8
   br label %return
 
-return:                                           ; preds = %if.end15.sink.split.i, %if.end, %entry
-  %retval.0 = phi ptr [ @_Py_NoneStruct, %entry ], [ %call.i, %if.end15.sink.split.i ], [ null, %if.end ]
+return:                                           ; preds = %if.end15.i, %if.end, %entry
+  %retval.0 = phi ptr [ @_Py_NoneStruct, %entry ], [ %call.i, %if.end15.i ], [ null, %if.end ]
   ret ptr %retval.0
 }
 

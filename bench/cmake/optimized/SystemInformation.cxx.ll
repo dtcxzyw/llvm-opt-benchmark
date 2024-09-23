@@ -5687,9 +5687,9 @@ switch.lookup27:                                  ; preds = %94
   br label %.invoke
 
 .invoke:                                          ; preds = %103, %79, %60, %41, %111
-  %.sink = phi ptr [ %112, %111 ], [ %38, %41 ], [ %57, %60 ], [ %76, %79 ], [ %95, %103 ]
   %113 = phi ptr [ %110, %111 ], [ %42, %41 ], [ %61, %60 ], [ %80, %79 ], [ %104, %103 ]
-  %114 = load i32, ptr %.sink, align 8
+  %.in = phi ptr [ %112, %111 ], [ %38, %41 ], [ %57, %60 ], [ %76, %79 ], [ %95, %103 ]
+  %114 = load i32, ptr %.in, align 8
   %115 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %113, i32 noundef %114)
           to label %116 unwind label %20
 

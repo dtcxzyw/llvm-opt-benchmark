@@ -13625,7 +13625,7 @@ while.body.lr.ph.i:                               ; preds = %_ZSt4copyIPKcPcET0_
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.backedge, %while.body.lr.ph.i
-  %state.addr.043.i = phi ptr [ %20, %while.body.lr.ph.i ], [ %add.ptr.i41.i, %while.body.i.backedge ]
+  %state.addr.043.i = phi ptr [ %20, %while.body.lr.ph.i ], [ %state.addr.043.i.be, %while.body.i.backedge ]
   %21 = load i32, ptr %state.addr.043.i, align 8, !tbaa !355
   switch i32 %21, label %sw.default.i [
     i32 29, label %sw.bb.i
@@ -13643,7 +13643,12 @@ sw.bb.i:                                          ; preds = %while.body.i
   %next.i73 = getelementptr inbounds i8, ptr %state.addr.043.i, i64 8
   %22 = load i64, ptr %next.i73, align 8, !tbaa !16
   %tobool2.not.i = icmp eq i64 %22, 0
-  br i1 %tobool2.not.i, label %while.end.sink.split.i, label %while.body.i.backedge
+  br i1 %tobool2.not.i, label %while.end.sink.split.i, label %if.then.i74
+
+if.then.i74:                                      ; preds = %sw.bb.i
+  %add.ptr.i.i75 = getelementptr inbounds i8, ptr %state.addr.043.i, i64 %22
+  store ptr %add.ptr.i.i75, ptr %next.i73, align 8, !tbaa !16
+  br label %while.body.i.backedge
 
 sw.bb6.i:                                         ; preds = %while.body.i, %while.body.i, %while.body.i, %while.body.i, %while.body.i
   %23 = load i32, ptr %m_repeater_id.i, align 4, !tbaa !364
@@ -13669,13 +13674,15 @@ sw.default.i:                                     ; preds = %sw.bb8.i, %while.bo
   %next11.i = getelementptr inbounds i8, ptr %state.addr.043.i, i64 8
   %25 = load i64, ptr %next11.i, align 8, !tbaa !16
   %tobool12.not.i = icmp eq i64 %25, 0
-  br i1 %tobool12.not.i, label %while.end.sink.split.i, label %while.body.i.backedge
+  br i1 %tobool12.not.i, label %while.end.sink.split.i, label %if.then13.i
 
-while.body.i.backedge:                            ; preds = %sw.default.i, %sw.bb.i
-  %.sink = phi i64 [ %22, %sw.bb.i ], [ %25, %sw.default.i ]
-  %next11.i.sink = phi ptr [ %next.i73, %sw.bb.i ], [ %next11.i, %sw.default.i ]
-  %add.ptr.i41.i = getelementptr inbounds i8, ptr %state.addr.043.i, i64 %.sink
-  store ptr %add.ptr.i41.i, ptr %next11.i.sink, align 8, !tbaa !16
+if.then13.i:                                      ; preds = %sw.default.i
+  %add.ptr.i41.i = getelementptr inbounds i8, ptr %state.addr.043.i, i64 %25
+  store ptr %add.ptr.i41.i, ptr %next11.i, align 8, !tbaa !16
+  br label %while.body.i.backedge
+
+while.body.i.backedge:                            ; preds = %if.then13.i, %if.then.i74
+  %state.addr.043.i.be = phi ptr [ %add.ptr.i41.i, %if.then13.i ], [ %add.ptr.i.i75, %if.then.i74 ]
   br label %while.body.i, !llvm.loop !402
 
 while.end.sink.split.i:                           ; preds = %sw.default.i, %sw.bb.i

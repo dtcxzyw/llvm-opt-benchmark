@@ -2490,11 +2490,11 @@ define internal fastcc void @Rescale(ptr nocapture noundef %0) unnamed_addr #9 {
   %59 = getelementptr inbounds i8, ptr %.187, i64 7
   %60 = load i8, ptr %59, align 1
   %61 = icmp eq i8 %60, 0
-  %.pre118 = load ptr, ptr %0, align 8
-  br i1 %61, label %62, label %196
+  %.pre117 = load ptr, ptr %0, align 8
+  br i1 %61, label %62, label %203
 
 62:                                               ; preds = %58
-  %63 = load i16, ptr %.pre118, align 4
+  %63 = load i16, ptr %.pre117, align 4
   br label %64
 
 64:                                               ; preds = %64, %62
@@ -2512,7 +2512,7 @@ define internal fastcc void @Rescale(ptr nocapture noundef %0) unnamed_addr #9 {
   %72 = add i32 %65, %39
   %73 = trunc i32 %65 to i16
   %74 = sub i16 %63, %73
-  store i16 %74, ptr %.pre118, align 4
+  store i16 %74, ptr %.pre117, align 4
   %75 = load ptr, ptr %0, align 8
   %76 = load i16, ptr %75, align 4
   %77 = icmp eq i16 %76, 1
@@ -2562,7 +2562,7 @@ define internal fastcc void @Rescale(ptr nocapture noundef %0) unnamed_addr #9 {
   store i8 %82, ptr %.sroa.2.0..sroa_idx2, align 1
   %.sroa.5.0..sroa_idx5 = getelementptr inbounds i8, ptr %102, i64 4
   store i32 %79, ptr %.sroa.5.0..sroa_idx5, align 2
-  br label %209
+  br label %216
 
 104:                                              ; preds = %70
   %105 = zext i16 %76 to i32
@@ -2571,7 +2571,7 @@ define internal fastcc void @Rescale(ptr nocapture noundef %0) unnamed_addr #9 {
   %108 = add nuw nsw i32 %105, 1
   %109 = lshr i32 %108, 1
   %.not100 = icmp eq i32 %107, %109
-  br i1 %.not100, label %196, label %110
+  br i1 %.not100, label %203, label %110
 
 110:                                              ; preds = %104
   %111 = getelementptr inbounds i8, ptr %0, i64 146
@@ -2588,7 +2588,7 @@ define internal fastcc void @Rescale(ptr nocapture noundef %0) unnamed_addr #9 {
 
 .ShrinkUnits.exit_crit_edge:                      ; preds = %110
   %.pre = load ptr, ptr %3, align 8
-  %.pre119 = ptrtoint ptr %.pre to i64
+  %.pre118 = ptrtoint ptr %.pre to i64
   br label %ShrinkUnits.exit
 
 121:                                              ; preds = %110
@@ -2597,7 +2597,7 @@ define internal fastcc void @Rescale(ptr nocapture noundef %0) unnamed_addr #9 {
   %124 = getelementptr inbounds [38 x i32], ptr %122, i64 0, i64 %123
   %125 = load i32, ptr %124, align 4
   %.not.i = icmp eq i32 %125, 0
-  br i1 %.not.i, label %144, label %126
+  br i1 %.not.i, label %151, label %126
 
 126:                                              ; preds = %121
   %127 = load ptr, ptr %3, align 8
@@ -2629,102 +2629,108 @@ define internal fastcc void @Rescale(ptr nocapture noundef %0) unnamed_addr #9 {
 
 142:                                              ; preds = %131
   %143 = zext i8 %115 to i64
-  br label %.sink.split.i
+  %144 = getelementptr inbounds [38 x i32], ptr %122, i64 0, i64 %143
+  %145 = load i32, ptr %144, align 4
+  store i32 %145, ptr %9, align 4
+  %146 = load ptr, ptr %3, align 8
+  %147 = ptrtoint ptr %9 to i64
+  %148 = ptrtoint ptr %146 to i64
+  %149 = sub i64 %147, %148
+  %150 = trunc i64 %149 to i32
+  store i32 %150, ptr %144, align 4
+  br label %ShrinkUnits.exit
 
-144:                                              ; preds = %121
-  %145 = getelementptr inbounds i8, ptr %0, i64 108
-  %146 = zext i8 %115 to i64
-  %147 = getelementptr inbounds [38 x i8], ptr %145, i64 0, i64 %146
-  %148 = load i8, ptr %147, align 1
-  %149 = zext i8 %148 to i32
-  %150 = getelementptr inbounds [38 x i8], ptr %145, i64 0, i64 %123
-  %151 = load i8, ptr %150, align 1
-  %152 = zext i8 %151 to i32
-  %153 = sub nsw i32 %149, %152
-  %154 = mul nuw nsw i32 %152, 12
-  %155 = zext nneg i32 %154 to i64
-  %156 = getelementptr inbounds i8, ptr %9, i64 %155
-  %157 = add nsw i32 %153, -1
-  %158 = zext i32 %157 to i64
-  %159 = getelementptr inbounds [128 x i8], ptr %111, i64 0, i64 %158
-  %160 = load i8, ptr %159, align 1
-  %161 = zext i8 %160 to i64
-  %162 = getelementptr inbounds [38 x i8], ptr %145, i64 0, i64 %161
-  %163 = load i8, ptr %162, align 1
-  %164 = zext i8 %163 to i32
-  %.not.i.i = icmp eq i32 %153, %164
-  br i1 %.not.i.i, label %.sink.split.i, label %165
+151:                                              ; preds = %121
+  %152 = getelementptr inbounds i8, ptr %0, i64 108
+  %153 = zext i8 %115 to i64
+  %154 = getelementptr inbounds [38 x i8], ptr %152, i64 0, i64 %153
+  %155 = load i8, ptr %154, align 1
+  %156 = zext i8 %155 to i32
+  %157 = getelementptr inbounds [38 x i8], ptr %152, i64 0, i64 %123
+  %158 = load i8, ptr %157, align 1
+  %159 = zext i8 %158 to i32
+  %160 = sub nsw i32 %156, %159
+  %161 = mul nuw nsw i32 %159, 12
+  %162 = zext nneg i32 %161 to i64
+  %163 = getelementptr inbounds i8, ptr %9, i64 %162
+  %164 = add nsw i32 %160, -1
+  %165 = zext i32 %164 to i64
+  %166 = getelementptr inbounds [128 x i8], ptr %111, i64 0, i64 %165
+  %167 = load i8, ptr %166, align 1
+  %168 = zext i8 %167 to i64
+  %169 = getelementptr inbounds [38 x i8], ptr %152, i64 0, i64 %168
+  %170 = load i8, ptr %169, align 1
+  %171 = zext i8 %170 to i32
+  %.not.i.i = icmp eq i32 %160, %171
+  br i1 %.not.i.i, label %SplitBlock.exit.i, label %172
 
-165:                                              ; preds = %144
-  %166 = add nuw nsw i64 %161, 4294967295
-  %167 = and i64 %166, 4294967295
-  %168 = getelementptr inbounds [38 x i8], ptr %145, i64 0, i64 %167
-  %169 = load i8, ptr %168, align 1
-  %170 = zext i8 %169 to i32
-  %171 = mul nuw nsw i32 %170, 12
-  %172 = zext nneg i32 %171 to i64
-  %173 = getelementptr inbounds i8, ptr %156, i64 %172
-  %174 = xor i32 %170, -1
-  %175 = add nsw i32 %153, %174
-  %176 = zext i32 %175 to i64
-  %177 = getelementptr inbounds [38 x i32], ptr %122, i64 0, i64 %176
-  %178 = load i32, ptr %177, align 4
-  store i32 %178, ptr %173, align 4
-  %179 = load ptr, ptr %3, align 8
-  %180 = ptrtoint ptr %173 to i64
-  %181 = ptrtoint ptr %179 to i64
-  %182 = sub i64 %180, %181
-  %183 = trunc i64 %182 to i32
-  store i32 %183, ptr %177, align 4
-  br label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %144, %165, %142
-  %.pre-phi.i.i.sink = phi i64 [ %143, %142 ], [ %167, %165 ], [ %161, %144 ]
-  %.sink127 = phi ptr [ %9, %142 ], [ %156, %165 ], [ %156, %144 ]
-  %.034.ph.i = phi ptr [ %129, %142 ], [ %9, %165 ], [ %9, %144 ]
-  %184 = getelementptr inbounds [38 x i32], ptr %122, i64 0, i64 %.pre-phi.i.i.sink
+172:                                              ; preds = %151
+  %173 = add nuw nsw i64 %168, 4294967295
+  %174 = and i64 %173, 4294967295
+  %175 = getelementptr inbounds [38 x i8], ptr %152, i64 0, i64 %174
+  %176 = load i8, ptr %175, align 1
+  %177 = zext i8 %176 to i32
+  %178 = mul nuw nsw i32 %177, 12
+  %179 = zext nneg i32 %178 to i64
+  %180 = getelementptr inbounds i8, ptr %163, i64 %179
+  %181 = xor i32 %177, -1
+  %182 = add nsw i32 %160, %181
+  %183 = zext i32 %182 to i64
+  %184 = getelementptr inbounds [38 x i32], ptr %122, i64 0, i64 %183
   %185 = load i32, ptr %184, align 4
-  store i32 %185, ptr %.sink127, align 4
+  store i32 %185, ptr %180, align 4
   %186 = load ptr, ptr %3, align 8
-  %187 = ptrtoint ptr %.sink127 to i64
+  %187 = ptrtoint ptr %180 to i64
   %188 = ptrtoint ptr %186 to i64
   %189 = sub i64 %187, %188
   %190 = trunc i64 %189 to i32
   store i32 %190, ptr %184, align 4
-  %.pre116 = load ptr, ptr %0, align 8
+  br label %SplitBlock.exit.i
+
+SplitBlock.exit.i:                                ; preds = %172, %151
+  %.pre-phi.i.i = phi i64 [ %174, %172 ], [ %168, %151 ]
+  %191 = getelementptr inbounds [38 x i32], ptr %122, i64 0, i64 %.pre-phi.i.i
+  %192 = load i32, ptr %191, align 4
+  store i32 %192, ptr %163, align 4
+  %193 = load ptr, ptr %3, align 8
+  %194 = ptrtoint ptr %163 to i64
+  %195 = ptrtoint ptr %193 to i64
+  %196 = sub i64 %194, %195
+  %197 = trunc i64 %196 to i32
+  store i32 %197, ptr %191, align 4
   br label %ShrinkUnits.exit
 
-ShrinkUnits.exit:                                 ; preds = %.ShrinkUnits.exit_crit_edge, %.sink.split.i
-  %.pre-phi = phi i64 [ %.pre119, %.ShrinkUnits.exit_crit_edge ], [ %188, %.sink.split.i ]
-  %191 = phi ptr [ %75, %.ShrinkUnits.exit_crit_edge ], [ %.pre116, %.sink.split.i ]
-  %.034.i = phi ptr [ %9, %.ShrinkUnits.exit_crit_edge ], [ %.034.ph.i, %.sink.split.i ]
-  %192 = ptrtoint ptr %.034.i to i64
-  %193 = sub i64 %192, %.pre-phi
-  %194 = trunc i64 %193 to i32
-  %195 = getelementptr inbounds i8, ptr %191, i64 4
-  store i32 %194, ptr %195, align 4
-  %.pre117 = load ptr, ptr %0, align 8
-  br label %196
+ShrinkUnits.exit:                                 ; preds = %.ShrinkUnits.exit_crit_edge, %142, %SplitBlock.exit.i
+  %.pre-phi = phi i64 [ %.pre118, %.ShrinkUnits.exit_crit_edge ], [ %148, %142 ], [ %195, %SplitBlock.exit.i ]
+  %.034.i = phi ptr [ %9, %.ShrinkUnits.exit_crit_edge ], [ %129, %142 ], [ %9, %SplitBlock.exit.i ]
+  %198 = ptrtoint ptr %.034.i to i64
+  %199 = sub i64 %198, %.pre-phi
+  %200 = trunc i64 %199 to i32
+  %201 = load ptr, ptr %0, align 8
+  %202 = getelementptr inbounds i8, ptr %201, i64 4
+  store i32 %200, ptr %202, align 4
+  %.pre116 = load ptr, ptr %0, align 8
+  br label %203
 
-196:                                              ; preds = %104, %ShrinkUnits.exit, %58
-  %197 = phi ptr [ %.pre117, %ShrinkUnits.exit ], [ %75, %104 ], [ %.pre118, %58 ]
+203:                                              ; preds = %104, %ShrinkUnits.exit, %58
+  %204 = phi ptr [ %.pre116, %ShrinkUnits.exit ], [ %75, %104 ], [ %.pre117, %58 ]
   %.185 = phi i32 [ %72, %ShrinkUnits.exit ], [ %72, %104 ], [ %39, %58 ]
-  %198 = add i32 %.185, %43
-  %199 = lshr i32 %.185, 1
-  %200 = sub i32 %198, %199
-  %201 = trunc i32 %200 to i16
-  %202 = getelementptr inbounds i8, ptr %197, i64 2
-  store i16 %201, ptr %202, align 2
-  %203 = load ptr, ptr %3, align 8
-  %204 = load ptr, ptr %0, align 8
-  %205 = getelementptr inbounds i8, ptr %204, i64 4
-  %206 = load i32, ptr %205, align 4
-  %207 = zext i32 %206 to i64
-  %208 = getelementptr inbounds i8, ptr %203, i64 %207
-  store ptr %208, ptr %10, align 8
-  br label %209
+  %205 = add i32 %.185, %43
+  %206 = lshr i32 %.185, 1
+  %207 = sub i32 %205, %206
+  %208 = trunc i32 %207 to i16
+  %209 = getelementptr inbounds i8, ptr %204, i64 2
+  store i16 %208, ptr %209, align 2
+  %210 = load ptr, ptr %3, align 8
+  %211 = load ptr, ptr %0, align 8
+  %212 = getelementptr inbounds i8, ptr %211, i64 4
+  %213 = load i32, ptr %212, align 4
+  %214 = zext i32 %213 to i64
+  %215 = getelementptr inbounds i8, ptr %210, i64 %214
+  store ptr %215, ptr %10, align 8
+  br label %216
 
-209:                                              ; preds = %196, %85
+216:                                              ; preds = %203, %85
   ret void
 }
 

@@ -155,103 +155,109 @@ define noundef i32 @nxmq_do_send(ptr noundef %0, ptr noundef %1, ptr nocapture n
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
   %17 = icmp ugt i32 %4, %16
-  br i1 %17, label %._crit_edge, label %.lr.ph77
+  br i1 %17, label %._crit_edge, label %.lr.ph73
 
-.lr.ph77:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0525976 = phi ptr [ %.052, %.lr.ph ], [ %.05256, %.lr.ph.preheader ]
-  %18 = getelementptr inbounds i8, ptr %.0525976, i64 8
+.lr.ph73:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.0525972 = phi ptr [ %.052, %.lr.ph ], [ %.05256, %.lr.ph.preheader ]
+  %18 = getelementptr inbounds i8, ptr %.0525972, i64 8
   %.052 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %.052, %12
   br i1 %.not, label %._crit_edge.thread64, label %.lr.ph, !llvm.loop !8
 
-.lr.ph:                                           ; preds = %.lr.ph77
+.lr.ph:                                           ; preds = %.lr.ph73
   %19 = getelementptr inbounds i8, ptr %.052, i64 17
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   %22 = icmp ugt i32 %4, %21
-  br i1 %22, label %._crit_edge, label %.lr.ph77, !llvm.loop !8
+  br i1 %22, label %._crit_edge, label %.lr.ph73, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader
-  %.058.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.0525976, %.lr.ph ]
+  %.058.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.0525972, %.lr.ph ]
   %.not53 = icmp eq ptr %.058.lcssa, null
   br i1 %.not53, label %._crit_edge.thread, label %._crit_edge.thread64
 
-._crit_edge.thread64:                             ; preds = %.lr.ph77, %._crit_edge
-  %.0.lcssa67 = phi ptr [ %.058.lcssa, %._crit_edge ], [ %.0525976, %.lr.ph77 ]
+._crit_edge.thread64:                             ; preds = %.lr.ph73, %._crit_edge
+  %.0.lcssa67 = phi ptr [ %.058.lcssa, %._crit_edge ], [ %.0525972, %.lr.ph73 ]
   %23 = getelementptr inbounds i8, ptr %.0.lcssa67, i64 8
   %24 = load ptr, ptr %23, align 8
-  br label %._crit_edge.thread
-
-._crit_edge.thread:                               ; preds = %._crit_edge, %5, %._crit_edge.thread64
-  %.05256.sink = phi ptr [ %24, %._crit_edge.thread64 ], [ %.05256, %5 ], [ %.05256, %._crit_edge ]
-  %.sink72 = phi ptr [ %.0.lcssa67, %._crit_edge.thread64 ], [ %12, %5 ], [ %12, %._crit_edge ]
-  %.sink71 = phi ptr [ %23, %._crit_edge.thread64 ], [ %13, %5 ], [ %13, %._crit_edge ]
   %25 = getelementptr inbounds i8, ptr %1, i64 8
-  store ptr %.05256.sink, ptr %25, align 8
-  store ptr %.sink72, ptr %1, align 8
-  %26 = load ptr, ptr %.sink71, align 8
+  store ptr %24, ptr %25, align 8
+  store ptr %.0.lcssa67, ptr %1, align 8
+  %26 = load ptr, ptr %23, align 8
   store ptr %1, ptr %26, align 8
-  store ptr %1, ptr %.sink71, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 66
-  %28 = load i16, ptr %27, align 2
-  %29 = add i16 %28, 1
-  store i16 %29, ptr %27, align 2
-  %30 = icmp eq i16 %28, 0
-  br i1 %30, label %31, label %33
+  store ptr %1, ptr %23, align 8
+  br label %29
 
-31:                                               ; preds = %._crit_edge.thread
-  %32 = getelementptr inbounds i8, ptr %0, i64 160
-  tail call void @poll_notify(ptr noundef nonnull %32, i32 noundef 4, i32 noundef 1) #7
-  br label %33
+._crit_edge.thread:                               ; preds = %5, %._crit_edge
+  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  store ptr %.05256, ptr %27, align 8
+  store ptr %12, ptr %1, align 8
+  %28 = load ptr, ptr %13, align 8
+  store ptr %1, ptr %28, align 8
+  store ptr %1, ptr %13, align 8
+  br label %29
 
-33:                                               ; preds = %31, %._crit_edge.thread
-  %34 = getelementptr inbounds i8, ptr %0, i64 72
-  %35 = load i32, ptr %34, align 8
-  %.not54 = icmp eq i32 %35, -1
-  br i1 %.not54, label %40, label %36
+29:                                               ; preds = %._crit_edge.thread, %._crit_edge.thread64
+  %30 = getelementptr inbounds i8, ptr %0, i64 66
+  %31 = load i16, ptr %30, align 2
+  %32 = add i16 %31, 1
+  store i16 %32, ptr %30, align 2
+  %33 = icmp eq i16 %31, 0
+  br i1 %33, label %34, label %36
 
-36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %0, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %37, i64 16, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, i8 0, i64 16, i1 false)
-  store i32 -1, ptr %34, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 96
-  %39 = call i32 @nxsig_notification(i32 noundef %35, ptr noundef nonnull %6, i32 noundef 4, ptr noundef nonnull %38) #7
-  br label %40
+34:                                               ; preds = %29
+  %35 = getelementptr inbounds i8, ptr %0, i64 160
+  tail call void @poll_notify(ptr noundef nonnull %35, i32 noundef 4, i32 noundef 1) #7
+  br label %36
 
-40:                                               ; preds = %36, %33
-  %41 = getelementptr inbounds i8, ptr %0, i64 34
-  %42 = load i16, ptr %41, align 2
-  %43 = icmp sgt i16 %42, 0
-  br i1 %43, label %44, label %58
+36:                                               ; preds = %34, %29
+  %37 = getelementptr inbounds i8, ptr %0, i64 72
+  %38 = load i32, ptr %37, align 8
+  %.not54 = icmp eq i32 %38, -1
+  br i1 %.not54, label %43, label %39
 
-44:                                               ; preds = %40
-  %45 = load ptr, ptr @g_readytorun, align 8
-  %46 = call ptr @dq_remfirst(ptr noundef nonnull %0) #7
-  %47 = getelementptr inbounds i8, ptr %46, i64 88
-  %48 = load ptr, ptr %47, align 8
-  %.not55 = icmp eq ptr %48, null
-  br i1 %.not55, label %52, label %49
+39:                                               ; preds = %36
+  %40 = getelementptr inbounds i8, ptr %0, i64 80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %40, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false)
+  store i32 -1, ptr %37, align 8
+  %41 = getelementptr inbounds i8, ptr %0, i64 96
+  %42 = call i32 @nxsig_notification(i32 noundef %38, ptr noundef nonnull %6, i32 noundef 4, ptr noundef nonnull %41) #7
+  br label %43
 
-49:                                               ; preds = %44
-  %50 = getelementptr inbounds i8, ptr %46, i64 72
-  %51 = call i32 @wd_cancel(ptr noundef nonnull %50) #7
-  br label %52
+43:                                               ; preds = %39, %36
+  %44 = getelementptr inbounds i8, ptr %0, i64 34
+  %45 = load i16, ptr %44, align 2
+  %46 = icmp sgt i16 %45, 0
+  br i1 %46, label %47, label %61
 
-52:                                               ; preds = %49, %44
-  %53 = load i16, ptr %41, align 2
-  %54 = add i16 %53, -1
-  store i16 %54, ptr %41, align 2
-  %55 = getelementptr inbounds i8, ptr %46, i64 128
-  store ptr null, ptr %55, align 16
-  %56 = call zeroext i1 @nxsched_add_readytorun(ptr noundef nonnull %46) #7
-  br i1 %56, label %57, label %58
+47:                                               ; preds = %43
+  %48 = load ptr, ptr @g_readytorun, align 8
+  %49 = call ptr @dq_remfirst(ptr noundef nonnull %0) #7
+  %50 = getelementptr inbounds i8, ptr %49, i64 88
+  %51 = load ptr, ptr %50, align 8
+  %.not55 = icmp eq ptr %51, null
+  br i1 %.not55, label %55, label %52
 
-57:                                               ; preds = %52
-  call void @up_switch_context(ptr noundef nonnull %46, ptr noundef %45) #7
-  br label %58
+52:                                               ; preds = %47
+  %53 = getelementptr inbounds i8, ptr %49, i64 72
+  %54 = call i32 @wd_cancel(ptr noundef nonnull %53) #7
+  br label %55
 
-58:                                               ; preds = %52, %57, %40
+55:                                               ; preds = %52, %47
+  %56 = load i16, ptr %44, align 2
+  %57 = add i16 %56, -1
+  store i16 %57, ptr %44, align 2
+  %58 = getelementptr inbounds i8, ptr %49, i64 128
+  store ptr null, ptr %58, align 16
+  %59 = call zeroext i1 @nxsched_add_readytorun(ptr noundef nonnull %49) #7
+  br i1 %59, label %60, label %61
+
+60:                                               ; preds = %55
+  call void @up_switch_context(ptr noundef nonnull %49, ptr noundef %48) #7
+  br label %61
+
+61:                                               ; preds = %55, %60, %43
   ret i32 0
 }
 

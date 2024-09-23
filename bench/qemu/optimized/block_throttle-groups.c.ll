@@ -1452,30 +1452,33 @@ sw.bb:                                            ; preds = %entry
   %1 = load i32, ptr %type, align 8
   %idxprom = zext i32 %1 to i64
   %arrayidx = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 %idxprom
+  %2 = load i64, ptr %arrayidx, align 8
   br label %sw.epilog.sink.split
 
 sw.bb1:                                           ; preds = %entry
   %type3 = getelementptr inbounds i8, ptr %opaque, i64 8
-  %2 = load i32, ptr %type3, align 8
-  %idxprom4 = zext i32 %2 to i64
+  %3 = load i32, ptr %type3, align 8
+  %idxprom4 = zext i32 %3 to i64
   %max = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 %idxprom4, i32 1
+  %4 = load i64, ptr %max, align 8
   br label %sw.epilog.sink.split
 
 sw.bb6:                                           ; preds = %entry
   %type8 = getelementptr inbounds i8, ptr %opaque, i64 8
-  %3 = load i32, ptr %type8, align 8
-  %idxprom9 = zext i32 %3 to i64
+  %5 = load i32, ptr %type8, align 8
+  %idxprom9 = zext i32 %5 to i64
   %burst_length = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 %idxprom9, i32 4
+  %6 = load i64, ptr %burst_length, align 8
   br label %sw.epilog.sink.split
 
 sw.bb11:                                          ; preds = %entry
   %op_size = getelementptr inbounds i8, ptr %cfg, i64 240
+  %7 = load i64, ptr %op_size, align 8
   br label %sw.epilog.sink.split
 
 sw.epilog.sink.split:                             ; preds = %sw.bb, %sw.bb1, %sw.bb6, %sw.bb11
-  %op_size.sink = phi ptr [ %op_size, %sw.bb11 ], [ %burst_length, %sw.bb6 ], [ %max, %sw.bb1 ], [ %arrayidx, %sw.bb ]
-  %4 = load i64, ptr %op_size.sink, align 8
-  store i64 %4, ptr %value, align 8
+  %.sink = phi i64 [ %7, %sw.bb11 ], [ %6, %sw.bb6 ], [ %4, %sw.bb1 ], [ %2, %sw.bb ]
+  store i64 %.sink, ptr %value, align 8
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %entry

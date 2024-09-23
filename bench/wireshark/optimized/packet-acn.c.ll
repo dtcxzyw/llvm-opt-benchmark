@@ -3216,8 +3216,8 @@ ltos.exit.i.i:                                    ; preds = %.lr.ph.preheader.i.
   %373 = getelementptr i8, ptr %.0115176.i.i, i64 %372
   store i8 0, ptr %373, align 1
   %374 = tail call ptr @g_strreverse(ptr noundef nonnull %.0115176.i.i) #6
-  %.sink.i.i.i = add i8 %.2.lcssa.i.i.i, 1
   store i8 32, ptr %373, align 1
+  %.sink.i.i.i = add i8 %.2.lcssa.i.i.i, 1
   %375 = zext i8 %.sink.i.i.i to i64
   %376 = getelementptr i8, ptr %.0115176.i.i, i64 %375
   store i8 0, ptr %376, align 1
@@ -3294,6 +3294,7 @@ ltos.exit.i.i:                                    ; preds = %.lr.ph.preheader.i.
 .preheader46.preheader.i.i.i:                     ; preds = %404
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.2180.i.i, i8 46, i64 %390, i1 false)
   %408 = getelementptr i8, ptr %.2180.i.i, i64 %390
+  store i8 32, ptr %408, align 1
   br label %ltos.exit144.i.i
 
 .preheader45.i129.i.i:                            ; preds = %.preheader45.i129.i.i.preheader, %.preheader45.i129.i.i
@@ -3330,13 +3331,12 @@ ltos.exit.i.i:                                    ; preds = %.lr.ph.preheader.i.
   %422 = getelementptr i8, ptr %.2180.i.i, i64 %.pre-phi.i.i
   store i8 0, ptr %422, align 1
   %423 = tail call ptr @g_strreverse(ptr noundef nonnull %.2180.i.i) #6
+  store i8 32, ptr %422, align 1
   br label %ltos.exit144.i.i
 
 ltos.exit144.i.i:                                 ; preds = %._crit_edge.i.i.i, %.preheader46.preheader.i.i.i
-  %.sink56.i.i.i = phi ptr [ %422, %._crit_edge.i.i.i ], [ %408, %.preheader46.preheader.i.i.i ]
   %.sink.in.i.i.i = phi i8 [ %.2.lcssa.i136.i.i, %._crit_edge.i.i.i ], [ %.0112.i.i, %.preheader46.preheader.i.i.i ]
   %.sink.i127.i.i = add i8 %.sink.in.i.i.i, 1
-  store i8 32, ptr %.sink56.i.i.i, align 1
   %424 = zext i8 %.sink.i127.i.i to i64
   %425 = getelementptr i8, ptr %.2180.i.i, i64 %424
   store i8 0, ptr %425, align 1

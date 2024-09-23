@@ -382,7 +382,7 @@ if.end16.thread.i:                                ; preds = %if.then2.i
   %conv.i14.i = or disjoint i8 %1, 48
   store i8 %conv.i14.i, ptr %p, align 1
   %add.ptr.i.i15.i = getelementptr inbounds i8, ptr %p, i64 1
-  br label %common.ret
+  br label %itoa_u32.exit
 
 if.else4.i:                                       ; preds = %if.else.i
   %cmp5.i = icmp ult i64 %u, 10000
@@ -509,12 +509,16 @@ sw.bb20.i.i:                                      ; preds = %sw.bb17.i.i, %if.th
   %9 = load i16, ptr %arrayidx.i33.i.i, align 2
   store i16 %9, ptr %p.addr.8.i.i, align 1
   %add.ptr.i34.i.i = getelementptr inbounds i8, ptr %p.addr.8.i.i, i64 2
-  br label %common.ret
+  br label %itoa_u32.exit
 
-common.ret:                                       ; preds = %sw.bb20.i.i, %if.end16.thread.i, %if.end
-  %p.addr.0.i.i.sink = phi ptr [ %add.ptr.i34.i, %if.end ], [ %add.ptr.i34.i.i, %sw.bb20.i.i ], [ %add.ptr.i.i15.i, %if.end16.thread.i ]
-  store i8 0, ptr %p.addr.0.i.i.sink, align 1
-  ret ptr %p.addr.0.i.i.sink
+itoa_u32.exit:                                    ; preds = %if.end16.thread.i, %sw.bb20.i.i
+  %p.addr.0.i.i = phi ptr [ %add.ptr.i34.i.i, %sw.bb20.i.i ], [ %add.ptr.i.i15.i, %if.end16.thread.i ]
+  store i8 0, ptr %p.addr.0.i.i, align 1
+  br label %common.ret12
+
+common.ret12:                                     ; preds = %if.end, %itoa_u32.exit
+  %common.ret12.op = phi ptr [ %p.addr.0.i.i, %itoa_u32.exit ], [ %add.ptr.i34.i, %if.end ]
+  ret ptr %common.ret12.op
 
 if.end:                                           ; preds = %entry
   %div = udiv i64 %u, 1000000000
@@ -558,7 +562,8 @@ if.end:                                           ; preds = %entry
   %14 = load i16, ptr %arrayidx.i33.i, align 2
   store i16 %14, ptr %add.ptr.i31.i, align 1
   %add.ptr.i34.i = getelementptr inbounds i8, ptr %call3, i64 9
-  br label %common.ret
+  store i8 0, ptr %add.ptr.i34.i, align 1
+  br label %common.ret12
 }
 
 ; Function Attrs: nofree nosync nounwind memory(write, inaccessiblemem: none) uwtable

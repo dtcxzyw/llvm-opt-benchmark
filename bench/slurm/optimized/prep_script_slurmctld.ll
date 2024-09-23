@@ -25,25 +25,34 @@ define void @slurmctld_script(ptr noundef %0, i1 noundef zeroext %1) local_unnam
   store ptr %8, ptr %4, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 392
   %10 = load i32, ptr %9, align 8
-  %.val = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 336), align 8
-  %.val16 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 936), align 8
-  %11 = select i1 %1, ptr %.val, ptr %.val16
-  call void @slurmscriptd_run_prepilog(i32 noundef %10, i1 noundef zeroext %1, ptr noundef %11, ptr noundef %8) #3
-  %12 = load ptr, ptr %8, align 8
-  %.not10 = icmp eq ptr %12, null
+  br i1 %1, label %13, label %11
+
+11:                                               ; preds = %2
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 936), align 8
+  call void @slurmscriptd_run_prepilog(i32 noundef %10, i1 noundef zeroext false, ptr noundef %12, ptr noundef %8) #3
+  br label %15
+
+13:                                               ; preds = %2
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 336), align 8
+  call void @slurmscriptd_run_prepilog(i32 noundef %10, i1 noundef zeroext true, ptr noundef %14, ptr noundef %8) #3
+  br label %15
+
+15:                                               ; preds = %13, %11
+  %16 = load ptr, ptr %8, align 8
+  %.not10 = icmp eq ptr %16, null
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %2 ]
-  %13 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
-  call void @slurm_xfree(ptr noundef nonnull %13) #3
+.lr.ph:                                           ; preds = %15, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %15 ]
+  %17 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
+  call void @slurm_xfree(ptr noundef nonnull %17) #3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %14 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv.next
-  %15 = load ptr, ptr %14, align 8
-  %.not = icmp eq ptr %15, null
+  %18 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv.next
+  %19 = load ptr, ptr %18, align 8
+  %.not = icmp eq ptr %19, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %.lr.ph, %2
+._crit_edge:                                      ; preds = %.lr.ph, %15
   call void @slurm_xfree(ptr noundef nonnull %4) #3
   ret void
 }

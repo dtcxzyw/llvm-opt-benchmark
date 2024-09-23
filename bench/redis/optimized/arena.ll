@@ -2887,7 +2887,11 @@ if.then35:                                        ; preds = %if.end33
   %slabs_full = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 216
   %32 = load ptr, ptr %slabs_full, align 8
   %cmp.i58 = icmp eq ptr %32, null
-  br i1 %cmp.i58, label %do.end38.sink.split, label %if.else.i59
+  br i1 %cmp.i58, label %do.body1.i, label %if.else.i59
+
+do.body1.i:                                       ; preds = %if.then35
+  store ptr %fulls.sroa.0.0.lcssa, ptr %slabs_full, align 8
+  br label %do.end38
 
 if.else.i59:                                      ; preds = %if.then35
   %cmp12.i = icmp eq ptr %fulls.sroa.0.0.lcssa, null
@@ -2914,14 +2918,10 @@ do.body14.i:                                      ; preds = %if.else.i59
   store ptr %40, ptr %42, align 8
   %43 = load ptr, ptr %qre_prev19.i61, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 40
-  br label %do.end38.sink.split
-
-do.end38.sink.split:                              ; preds = %if.then35, %do.body14.i
-  %.sink = phi ptr [ %44, %do.body14.i ], [ %slabs_full, %if.then35 ]
-  store ptr %fulls.sroa.0.0.lcssa, ptr %.sink, align 8
+  store ptr %fulls.sroa.0.0.lcssa, ptr %44, align 8
   br label %do.end38
 
-do.end38:                                         ; preds = %do.end38.sink.split, %if.else.i59, %if.end33
+do.end38:                                         ; preds = %if.else.i59, %do.body14.i, %do.body1.i, %if.end33
   %stats = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 112
   %nslabs = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 160
   %45 = load i64, ptr %nslabs, align 8

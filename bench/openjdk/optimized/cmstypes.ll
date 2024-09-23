@@ -6576,7 +6576,7 @@ ReadOneMLUC.exit65:                               ; preds = %176
 define internal range(i32 0, 2) i32 @Type_Dictionary_Write(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 %3) #0 {
   %5 = alloca %struct._cmsDICarray, align 8
   %6 = icmp eq ptr %2, null
-  br i1 %6, label %151, label %7
+  br i1 %6, label %149, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %1, i64 304
@@ -6584,25 +6584,25 @@ define internal range(i32 0, 2) i32 @Type_Dictionary_Write(ptr nocapture noundef
   %10 = tail call i32 %9(ptr noundef %1) #13
   %11 = add i32 %10, -8
   %12 = tail call ptr @cmsDictGetEntryList(ptr noundef nonnull %2) #13
-  %.not126 = icmp eq ptr %12, null
-  br i1 %.not126, label %._crit_edge.thread, label %.lr.ph
+  %.not127 = icmp eq ptr %12, null
+  br i1 %.not127, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %.lr.ph
-  %.062130 = phi ptr [ %18, %.lr.ph ], [ %12, %7 ]
-  %.063129 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %7 ]
-  %.067128 = phi i32 [ %17, %.lr.ph ], [ 0, %7 ]
-  %.069127 = phi i32 [ %.170, %.lr.ph ], [ 0, %7 ]
-  %13 = getelementptr inbounds i8, ptr %.062130, i64 8
+  %.062131 = phi ptr [ %18, %.lr.ph ], [ %12, %7 ]
+  %.063130 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %7 ]
+  %.067129 = phi i32 [ %17, %.lr.ph ], [ 0, %7 ]
+  %.069128 = phi i32 [ %.170, %.lr.ph ], [ 0, %7 ]
+  %13 = getelementptr inbounds i8, ptr %.062131, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not89 = icmp eq ptr %14, null
-  %spec.select = select i1 %.not89, i32 %.063129, i32 1
-  %15 = getelementptr inbounds i8, ptr %.062130, i64 16
+  %spec.select = select i1 %.not89, i32 %.063130, i32 1
+  %15 = getelementptr inbounds i8, ptr %.062131, i64 16
   %16 = load ptr, ptr %15, align 8
   %.fr = freeze ptr %16
   %.not90 = icmp eq ptr %.fr, null
-  %.170 = select i1 %.not90, i32 %.069127, i32 1
-  %17 = add i32 %.067128, 1
-  %18 = tail call ptr @cmsDictNextEntry(ptr noundef nonnull %.062130) #13
+  %.170 = select i1 %.not90, i32 %.069128, i32 1
+  %17 = add i32 %.067129, 1
+  %18 = tail call ptr @cmsDictNextEntry(ptr noundef nonnull %.062131) #13
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
 
@@ -6611,41 +6611,41 @@ define internal range(i32 0, 2) i32 @Type_Dictionary_Write(ptr nocapture noundef
   %20 = select i1 %19, i32 16, i32 24
   %21 = icmp eq i32 %.170, 0
   %22 = add nuw nsw i32 %20, 8
-  %spec.select151 = select i1 %21, i32 %20, i32 %22
+  %spec.select152 = select i1 %21, i32 %20, i32 %22
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge, %7
-  %.067.lcssa146 = phi i32 [ 0, %7 ], [ %17, %._crit_edge ]
-  %23 = phi i32 [ 16, %7 ], [ %spec.select151, %._crit_edge ]
-  %24 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %1, i32 noundef %.067.lcssa146) #13
+  %.067.lcssa147 = phi i32 [ 0, %7 ], [ %17, %._crit_edge ]
+  %23 = phi i32 [ 16, %7 ], [ %spec.select152, %._crit_edge ]
+  %24 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %1, i32 noundef %.067.lcssa147) #13
   %.not76 = icmp eq i32 %24, 0
-  br i1 %.not76, label %151, label %25
+  br i1 %.not76, label %149, label %25
 
 25:                                               ; preds = %._crit_edge.thread
   %26 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %1, i32 noundef %23) #13
   %.not77 = icmp eq i32 %26, 0
-  br i1 %.not77, label %151, label %27
+  br i1 %.not77, label %149, label %27
 
 27:                                               ; preds = %25
   %28 = load ptr, ptr %8, align 8
   %29 = tail call i32 %28(ptr noundef %1) #13
   %30 = getelementptr inbounds i8, ptr %0, i64 40
   %31 = load ptr, ptr %30, align 8
-  %32 = call fastcc i32 @AllocArray(ptr noundef %31, ptr noundef %5, i32 noundef %.067.lcssa146, i32 noundef %23)
+  %32 = call fastcc i32 @AllocArray(ptr noundef %31, ptr noundef %5, i32 noundef %.067.lcssa147, i32 noundef %23)
   %.not78 = icmp eq i32 %32, 0
   br i1 %.not78, label %WriteOneMLUC.exit, label %33
 
 33:                                               ; preds = %27
-  %34 = call fastcc i32 @WriteOffsetArray(ptr noundef nonnull %1, ptr noundef %5, i32 noundef %.067.lcssa146, i32 noundef %23)
+  %34 = call fastcc i32 @WriteOffsetArray(ptr noundef nonnull %1, ptr noundef %5, i32 noundef %.067.lcssa147, i32 noundef %23)
   %.not79 = icmp eq i32 %34, 0
   br i1 %.not79, label %WriteOneMLUC.exit, label %35
 
 35:                                               ; preds = %33
   %36 = tail call ptr @cmsDictGetEntryList(ptr noundef nonnull %2) #13
-  %.not138 = icmp eq i32 %.067.lcssa146, 0
-  br i1 %.not138, label %._crit_edge137, label %.lr.ph136
+  %.not139 = icmp eq i32 %.067.lcssa147, 0
+  br i1 %.not139, label %._crit_edge138, label %.lr.ph137
 
-.lr.ph136:                                        ; preds = %35
+.lr.ph137:                                        ; preds = %35
   %37 = getelementptr inbounds i8, ptr %5, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %5, i64 16
@@ -6662,17 +6662,17 @@ define internal range(i32 0, 2) i32 @Type_Dictionary_Write(ptr nocapture noundef
   %.not24.i = icmp eq ptr %48, null
   %49 = getelementptr inbounds i8, ptr %5, i64 80
   %50 = load ptr, ptr %49, align 8
-  %.not.i111 = icmp eq ptr %50, null
+  %.not.i112 = icmp eq ptr %50, null
   %51 = getelementptr inbounds i8, ptr %5, i64 88
   %52 = load ptr, ptr %51, align 8
-  %.not24.i113 = icmp eq ptr %52, null
-  %wide.trip.count = zext i32 %.067.lcssa146 to i64
+  %.not24.i114 = icmp eq ptr %52, null
+  %wide.trip.count = zext i32 %.067.lcssa147 to i64
   br label %53
 
-53:                                               ; preds = %.lr.ph136, %WriteOneMLUC.exit115.thread
-  %indvars.iv = phi i64 [ 0, %.lr.ph136 ], [ %indvars.iv.next, %WriteOneMLUC.exit115.thread ]
-  %.1134 = phi ptr [ %36, %.lr.ph136 ], [ %140, %WriteOneMLUC.exit115.thread ]
-  %54 = getelementptr inbounds i8, ptr %.1134, i64 24
+53:                                               ; preds = %.lr.ph137, %WriteOneMLUC.exit116.thread
+  %indvars.iv = phi i64 [ 0, %.lr.ph137 ], [ %indvars.iv.next, %WriteOneMLUC.exit116.thread ]
+  %.1135 = phi ptr [ %36, %.lr.ph137 ], [ %138, %WriteOneMLUC.exit116.thread ]
+  %54 = getelementptr inbounds i8, ptr %.1135, i64 24
   %55 = load ptr, ptr %54, align 8
   %56 = load ptr, ptr %8, align 8
   %57 = tail call i32 %56(ptr noundef nonnull %1) #13
@@ -6728,172 +6728,172 @@ mywcslen.exit.i:                                  ; preds = %.preheader.i
   br label %78
 
 78:                                               ; preds = %.loopexit.i, %61
-  %.sink26.i = phi ptr [ %39, %.loopexit.i ], [ %37, %61 ]
+  %.sink25.in.i = phi ptr [ %39, %.loopexit.i ], [ %37, %61 ]
   %.sink.i = phi i32 [ %77, %.loopexit.i ], [ 0, %61 ]
-  %79 = load ptr, ptr %.sink26.i, align 8
-  %80 = getelementptr inbounds i32, ptr %79, i64 %indvars.iv
-  store i32 %.sink.i, ptr %80, align 4
-  %81 = getelementptr inbounds i8, ptr %.1134, i64 32
-  %82 = load ptr, ptr %81, align 8
-  %83 = load ptr, ptr %8, align 8
-  %84 = tail call i32 %83(ptr noundef nonnull %1) #13
-  %85 = sub i32 %84, %11
-  %86 = getelementptr inbounds i32, ptr %42, i64 %indvars.iv
-  store i32 %85, ptr %86, align 4
-  %87 = icmp eq ptr %82, null
-  br i1 %87, label %88, label %.preheader.i92
+  %.sink25.i = load ptr, ptr %.sink25.in.i, align 8
+  %79 = getelementptr inbounds i32, ptr %.sink25.i, i64 %indvars.iv
+  store i32 %.sink.i, ptr %79, align 4
+  %80 = getelementptr inbounds i8, ptr %.1135, i64 32
+  %81 = load ptr, ptr %80, align 8
+  %82 = load ptr, ptr %8, align 8
+  %83 = tail call i32 %82(ptr noundef nonnull %1) #13
+  %84 = sub i32 %83, %11
+  %85 = getelementptr inbounds i32, ptr %42, i64 %indvars.iv
+  store i32 %84, ptr %85, align 4
+  %86 = icmp eq ptr %81, null
+  br i1 %86, label %87, label %.preheader.i92
 
-88:                                               ; preds = %78
-  %89 = getelementptr inbounds i32, ptr %44, i64 %indvars.iv
-  store i32 0, ptr %89, align 4
-  br label %105
+87:                                               ; preds = %78
+  %88 = getelementptr inbounds i32, ptr %44, i64 %indvars.iv
+  store i32 0, ptr %88, align 4
+  br label %104
 
 .preheader.i92:                                   ; preds = %78, %.preheader.i92
-  %.0.i.i93 = phi ptr [ %91, %.preheader.i92 ], [ %82, %78 ]
-  %90 = load i32, ptr %.0.i.i93, align 4
-  %.not.i.i94 = icmp eq i32 %90, 0
-  %91 = getelementptr inbounds i8, ptr %.0.i.i93, i64 4
+  %.0.i.i93 = phi ptr [ %90, %.preheader.i92 ], [ %81, %78 ]
+  %89 = load i32, ptr %.0.i.i93, align 4
+  %.not.i.i94 = icmp eq i32 %89, 0
+  %90 = getelementptr inbounds i8, ptr %.0.i.i93, i64 4
   br i1 %.not.i.i94, label %mywcslen.exit.i95, label %.preheader.i92, !llvm.loop !49
 
 mywcslen.exit.i95:                                ; preds = %.preheader.i92
-  %92 = ptrtoint ptr %.0.i.i93 to i64
-  %93 = ptrtoint ptr %82 to i64
-  %94 = sub i64 %92, %93
-  %95 = and i64 %94, 17179869180
-  %.not10.i.i96 = icmp eq i64 %95, 0
+  %91 = ptrtoint ptr %.0.i.i93 to i64
+  %92 = ptrtoint ptr %81 to i64
+  %93 = sub i64 %91, %92
+  %94 = and i64 %93, 17179869180
+  %.not10.i.i96 = icmp eq i64 %94, 0
   br i1 %.not10.i.i96, label %.loopexit.i104, label %.lr.ph.preheader.i.i97
 
 .lr.ph.preheader.i.i97:                           ; preds = %mywcslen.exit.i95
-  %96 = lshr exact i64 %94, 2
-  %wide.trip.count.i.i98 = and i64 %96, 4294967295
+  %95 = lshr exact i64 %93, 2
+  %wide.trip.count.i.i98 = and i64 %95, 4294967295
   br label %.lr.ph.i.i99
 
-97:                                               ; preds = %.lr.ph.i.i99
+96:                                               ; preds = %.lr.ph.i.i99
   %indvars.iv.next.i.i102 = add nuw nsw i64 %indvars.iv.i.i100, 1
   %exitcond.not.i.i103 = icmp eq i64 %indvars.iv.next.i.i102, %wide.trip.count.i.i98
   br i1 %exitcond.not.i.i103, label %.loopexit.i104, label %.lr.ph.i.i99, !llvm.loop !21
 
-.lr.ph.i.i99:                                     ; preds = %97, %.lr.ph.preheader.i.i97
-  %indvars.iv.i.i100 = phi i64 [ 0, %.lr.ph.preheader.i.i97 ], [ %indvars.iv.next.i.i102, %97 ]
-  %98 = getelementptr inbounds i32, ptr %82, i64 %indvars.iv.i.i100
-  %99 = load i32, ptr %98, align 4
-  %100 = trunc i32 %99 to i16
-  %101 = tail call i32 @_cmsWriteUInt16Number(ptr noundef %1, i16 noundef zeroext %100) #13
-  %.not.i21.i101 = icmp eq i32 %101, 0
-  br i1 %.not.i21.i101, label %WriteOneMLUC.exit, label %97
+.lr.ph.i.i99:                                     ; preds = %96, %.lr.ph.preheader.i.i97
+  %indvars.iv.i.i100 = phi i64 [ 0, %.lr.ph.preheader.i.i97 ], [ %indvars.iv.next.i.i102, %96 ]
+  %97 = getelementptr inbounds i32, ptr %81, i64 %indvars.iv.i.i100
+  %98 = load i32, ptr %97, align 4
+  %99 = trunc i32 %98 to i16
+  %100 = tail call i32 @_cmsWriteUInt16Number(ptr noundef %1, i16 noundef zeroext %99) #13
+  %.not.i21.i101 = icmp eq i32 %100, 0
+  br i1 %.not.i21.i101, label %WriteOneMLUC.exit, label %96
 
-.loopexit.i104:                                   ; preds = %97, %mywcslen.exit.i95
-  %102 = load ptr, ptr %8, align 8
-  %103 = tail call i32 %102(ptr noundef %1) #13
-  %104 = sub i32 %103, %84
-  br label %105
+.loopexit.i104:                                   ; preds = %96, %mywcslen.exit.i95
+  %101 = load ptr, ptr %8, align 8
+  %102 = tail call i32 %101(ptr noundef %1) #13
+  %103 = sub i32 %102, %83
+  br label %104
 
-105:                                              ; preds = %.loopexit.i104, %88
-  %.sink26.i106 = phi ptr [ %43, %.loopexit.i104 ], [ %41, %88 ]
-  %.sink.i107 = phi i32 [ %104, %.loopexit.i104 ], [ 0, %88 ]
-  %106 = load ptr, ptr %.sink26.i106, align 8
-  %107 = getelementptr inbounds i32, ptr %106, i64 %indvars.iv
-  store i32 %.sink.i107, ptr %107, align 4
-  %108 = getelementptr inbounds i8, ptr %.1134, i64 8
-  %109 = load ptr, ptr %108, align 8
-  %.not85 = icmp eq ptr %109, null
-  br i1 %.not85, label %WriteOneMLUC.exit.thread, label %110
+104:                                              ; preds = %.loopexit.i104, %87
+  %.sink25.in.i106 = phi ptr [ %43, %.loopexit.i104 ], [ %41, %87 ]
+  %.sink.i107 = phi i32 [ %103, %.loopexit.i104 ], [ 0, %87 ]
+  %.sink25.i108 = load ptr, ptr %.sink25.in.i106, align 8
+  %105 = getelementptr inbounds i32, ptr %.sink25.i108, i64 %indvars.iv
+  store i32 %.sink.i107, ptr %105, align 4
+  %106 = getelementptr inbounds i8, ptr %.1135, i64 8
+  %107 = load ptr, ptr %106, align 8
+  %.not85 = icmp eq ptr %107, null
+  br i1 %.not85, label %WriteOneMLUC.exit.thread, label %108
 
-110:                                              ; preds = %105
-  %111 = load ptr, ptr %8, align 8
-  %112 = tail call i32 %111(ptr noundef nonnull %1) #13
-  br i1 %.not.i, label %116, label %113
+108:                                              ; preds = %104
+  %109 = load ptr, ptr %8, align 8
+  %110 = tail call i32 %109(ptr noundef nonnull %1) #13
+  br i1 %.not.i, label %114, label %111
 
-113:                                              ; preds = %110
-  %114 = sub i32 %112, %11
-  %115 = getelementptr inbounds i32, ptr %46, i64 %indvars.iv
-  store i32 %114, ptr %115, align 4
-  br label %116
+111:                                              ; preds = %108
+  %112 = sub i32 %110, %11
+  %113 = getelementptr inbounds i32, ptr %46, i64 %indvars.iv
+  store i32 %112, ptr %113, align 4
+  br label %114
 
-116:                                              ; preds = %113, %110
-  %117 = tail call i32 @Type_MLU_Write(ptr readnone poison, ptr noundef nonnull %1, ptr noundef nonnull %109, i32 poison)
-  %.not23.i = icmp eq i32 %117, 0
-  br i1 %.not23.i, label %WriteOneMLUC.exit, label %118
+114:                                              ; preds = %111, %108
+  %115 = tail call i32 @Type_MLU_Write(ptr readnone poison, ptr noundef nonnull %1, ptr noundef nonnull %107, i32 poison)
+  %.not23.i = icmp eq i32 %115, 0
+  br i1 %.not23.i, label %WriteOneMLUC.exit, label %116
 
-118:                                              ; preds = %116
-  br i1 %.not24.i, label %WriteOneMLUC.exit.thread, label %119
+116:                                              ; preds = %114
+  br i1 %.not24.i, label %WriteOneMLUC.exit.thread, label %117
 
-119:                                              ; preds = %118
-  %120 = load ptr, ptr %8, align 8
-  %121 = tail call i32 %120(ptr noundef nonnull %1) #13
-  %122 = sub i32 %121, %112
-  %123 = getelementptr inbounds i32, ptr %48, i64 %indvars.iv
-  store i32 %122, ptr %123, align 4
+117:                                              ; preds = %116
+  %118 = load ptr, ptr %8, align 8
+  %119 = tail call i32 %118(ptr noundef nonnull %1) #13
+  %120 = sub i32 %119, %110
+  %121 = getelementptr inbounds i32, ptr %48, i64 %indvars.iv
+  store i32 %120, ptr %121, align 4
   br label %WriteOneMLUC.exit.thread
 
-WriteOneMLUC.exit.thread:                         ; preds = %118, %119, %105
-  %124 = getelementptr inbounds i8, ptr %.1134, i64 16
-  %125 = load ptr, ptr %124, align 8
-  %.not87 = icmp eq ptr %125, null
-  br i1 %.not87, label %WriteOneMLUC.exit115.thread, label %126
+WriteOneMLUC.exit.thread:                         ; preds = %116, %117, %104
+  %122 = getelementptr inbounds i8, ptr %.1135, i64 16
+  %123 = load ptr, ptr %122, align 8
+  %.not87 = icmp eq ptr %123, null
+  br i1 %.not87, label %WriteOneMLUC.exit116.thread, label %124
 
-126:                                              ; preds = %WriteOneMLUC.exit.thread
-  %127 = load ptr, ptr %8, align 8
-  %128 = tail call i32 %127(ptr noundef nonnull %1) #13
-  br i1 %.not.i111, label %132, label %129
+124:                                              ; preds = %WriteOneMLUC.exit.thread
+  %125 = load ptr, ptr %8, align 8
+  %126 = tail call i32 %125(ptr noundef nonnull %1) #13
+  br i1 %.not.i112, label %130, label %127
 
-129:                                              ; preds = %126
-  %130 = sub i32 %128, %11
-  %131 = getelementptr inbounds i32, ptr %50, i64 %indvars.iv
-  store i32 %130, ptr %131, align 4
-  br label %132
+127:                                              ; preds = %124
+  %128 = sub i32 %126, %11
+  %129 = getelementptr inbounds i32, ptr %50, i64 %indvars.iv
+  store i32 %128, ptr %129, align 4
+  br label %130
 
-132:                                              ; preds = %129, %126
-  %133 = tail call i32 @Type_MLU_Write(ptr readnone poison, ptr noundef nonnull %1, ptr noundef nonnull %125, i32 poison)
-  %.not23.i112 = icmp eq i32 %133, 0
-  br i1 %.not23.i112, label %WriteOneMLUC.exit, label %134
+130:                                              ; preds = %127, %124
+  %131 = tail call i32 @Type_MLU_Write(ptr readnone poison, ptr noundef nonnull %1, ptr noundef nonnull %123, i32 poison)
+  %.not23.i113 = icmp eq i32 %131, 0
+  br i1 %.not23.i113, label %WriteOneMLUC.exit, label %132
 
-134:                                              ; preds = %132
-  br i1 %.not24.i113, label %WriteOneMLUC.exit115.thread, label %135
+132:                                              ; preds = %130
+  br i1 %.not24.i114, label %WriteOneMLUC.exit116.thread, label %133
 
-135:                                              ; preds = %134
-  %136 = load ptr, ptr %8, align 8
-  %137 = tail call i32 %136(ptr noundef nonnull %1) #13
-  %138 = sub i32 %137, %128
-  %139 = getelementptr inbounds i32, ptr %52, i64 %indvars.iv
-  store i32 %138, ptr %139, align 4
-  br label %WriteOneMLUC.exit115.thread
+133:                                              ; preds = %132
+  %134 = load ptr, ptr %8, align 8
+  %135 = tail call i32 %134(ptr noundef nonnull %1) #13
+  %136 = sub i32 %135, %126
+  %137 = getelementptr inbounds i32, ptr %52, i64 %indvars.iv
+  store i32 %136, ptr %137, align 4
+  br label %WriteOneMLUC.exit116.thread
 
-WriteOneMLUC.exit115.thread:                      ; preds = %134, %135, %WriteOneMLUC.exit.thread
-  %140 = tail call ptr @cmsDictNextEntry(ptr noundef nonnull %.1134) #13
+WriteOneMLUC.exit116.thread:                      ; preds = %132, %133, %WriteOneMLUC.exit.thread
+  %138 = tail call ptr @cmsDictNextEntry(ptr noundef nonnull %.1135) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge137, label %53, !llvm.loop !50
+  br i1 %exitcond.not, label %._crit_edge138, label %53, !llvm.loop !50
 
-._crit_edge137:                                   ; preds = %WriteOneMLUC.exit115.thread, %35
-  %141 = load ptr, ptr %8, align 8
-  %142 = tail call i32 %141(ptr noundef nonnull %1) #13
-  %143 = getelementptr inbounds i8, ptr %1, i64 288
-  %144 = load ptr, ptr %143, align 8
-  %145 = tail call i32 %144(ptr noundef nonnull %1, i32 noundef %29) #13
-  %.not80 = icmp eq i32 %145, 0
-  br i1 %.not80, label %WriteOneMLUC.exit, label %146
+._crit_edge138:                                   ; preds = %WriteOneMLUC.exit116.thread, %35
+  %139 = load ptr, ptr %8, align 8
+  %140 = tail call i32 %139(ptr noundef nonnull %1) #13
+  %141 = getelementptr inbounds i8, ptr %1, i64 288
+  %142 = load ptr, ptr %141, align 8
+  %143 = tail call i32 %142(ptr noundef nonnull %1, i32 noundef %29) #13
+  %.not80 = icmp eq i32 %143, 0
+  br i1 %.not80, label %WriteOneMLUC.exit, label %144
 
-146:                                              ; preds = %._crit_edge137
-  %147 = call fastcc i32 @WriteOffsetArray(ptr noundef nonnull %1, ptr noundef %5, i32 noundef %.067.lcssa146, i32 noundef %23)
-  %.not81 = icmp eq i32 %147, 0
-  br i1 %.not81, label %WriteOneMLUC.exit, label %148
+144:                                              ; preds = %._crit_edge138
+  %145 = call fastcc i32 @WriteOffsetArray(ptr noundef nonnull %1, ptr noundef %5, i32 noundef %.067.lcssa147, i32 noundef %23)
+  %.not81 = icmp eq i32 %145, 0
+  br i1 %.not81, label %WriteOneMLUC.exit, label %146
 
-148:                                              ; preds = %146
-  %149 = load ptr, ptr %143, align 8
-  %150 = tail call i32 %149(ptr noundef nonnull %1, i32 noundef %142) #13
-  %.not82 = icmp eq i32 %150, 0
+146:                                              ; preds = %144
+  %147 = load ptr, ptr %141, align 8
+  %148 = tail call i32 %147(ptr noundef nonnull %1, i32 noundef %140) #13
+  %.not82 = icmp eq i32 %148, 0
   br i1 %.not82, label %WriteOneMLUC.exit, label %.sink.split
 
-WriteOneMLUC.exit:                                ; preds = %132, %116, %.lr.ph.i.i, %.lr.ph.i.i99, %148, %146, %._crit_edge137, %33, %27
+WriteOneMLUC.exit:                                ; preds = %130, %114, %.lr.ph.i.i, %.lr.ph.i.i99, %146, %144, %._crit_edge138, %33, %27
   br label %.sink.split
 
-.sink.split:                                      ; preds = %148, %WriteOneMLUC.exit
-  %.0.ph = phi i32 [ 0, %WriteOneMLUC.exit ], [ 1, %148 ]
+.sink.split:                                      ; preds = %146, %WriteOneMLUC.exit
+  %.0.ph = phi i32 [ 0, %WriteOneMLUC.exit ], [ 1, %146 ]
   call fastcc void @FreeArray(ptr noundef %5)
-  br label %151
+  br label %149
 
-151:                                              ; preds = %.sink.split, %25, %._crit_edge.thread, %4
+149:                                              ; preds = %.sink.split, %25, %._crit_edge.thread, %4
   %.0 = phi i32 [ 0, %4 ], [ 0, %._crit_edge.thread ], [ 0, %25 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
@@ -10718,9 +10718,9 @@ AllocElem.exit24:                                 ; preds = %39
   br label %.thread
 
 AllocElem.exit.thread.sink.split:                 ; preds = %39, %28, %17, %8
-  %.sink33 = phi ptr [ %6, %8 ], [ %15, %17 ], [ %26, %28 ], [ %37, %39 ]
-  %43 = load ptr, ptr %.sink33, align 8
-  tail call void @_cmsFree(ptr noundef %0, ptr noundef %43) #13
+  %.sink.in = phi ptr [ %6, %8 ], [ %15, %17 ], [ %26, %28 ], [ %37, %39 ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  tail call void @_cmsFree(ptr noundef %0, ptr noundef %.sink) #13
   br label %AllocElem.exit.thread
 
 AllocElem.exit.thread:                            ; preds = %AllocElem.exit.thread.sink.split, %34, %23, %12, %4

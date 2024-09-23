@@ -4919,8 +4919,8 @@ _ZZN7Reducer14getNestedStatsEPN4Luau7AstStatEENKUlPNS0_12AstStatBlockEE_clES4_.e
   br label %.invoke98
 
 .invoke98:                                        ; preds = %111, %116, %121, %128
-  %.sink = phi ptr [ %112, %111 ], [ %117, %116 ], [ %124, %121 ], [ %131, %128 ]
-  %132 = load ptr, ptr %.sink, align 8
+  %.in = phi ptr [ %131, %128 ], [ %124, %121 ], [ %117, %116 ], [ %112, %111 ]
+  %132 = load ptr, ptr %.in, align 8
   invoke void @_ZZN7Reducer14getNestedStatsEPN4Luau7AstStatEENKUlPNS0_12AstStatBlockEE_clES4_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %132)
           to label %_ZZN7Reducer14getNestedStatsEPN4Luau7AstStatEENKUlPNS0_12AstStatBlockEE_clES4_.exit unwind label %16
 

@@ -1547,7 +1547,7 @@ _ZN16Unique_Node_List4pushEP4Node.exit:           ; preds = %_ZN9VectorSet8test_
   br label %41
 
 41:                                               ; preds = %.lr.ph28, %._crit_edge
-  %42 = phi i32 [ %31, %.lr.ph28 ], [ %108, %._crit_edge ]
+  %42 = phi i32 [ %31, %.lr.ph28 ], [ %107, %._crit_edge ]
   %indvars.iv31 = phi i64 [ 0, %.lr.ph28 ], [ %indvars.iv.next32, %._crit_edge ]
   %43 = load i32, ptr %32, align 8
   %44 = zext i32 %43 to i64
@@ -1660,31 +1660,31 @@ _ZN9VectorSet8test_setEj.exit.i21:                ; preds = %88, %83
   br label %_ZN16Unique_Node_List4pushEP4Node.exit19.sink.split
 
 _ZN16Unique_Node_List4pushEP4Node.exit19.sink.split: ; preds = %97, %101, %75, %79
-  %.sink36 = phi ptr [ %40, %79 ], [ %40, %75 ], [ %33, %101 ], [ %33, %97 ]
   %.sink = phi i32 [ %76, %79 ], [ %76, %75 ], [ %98, %101 ], [ %98, %97 ]
-  %102 = load ptr, ptr %.sink36, align 8
-  %103 = zext i32 %.sink to i64
-  %104 = getelementptr inbounds ptr, ptr %102, i64 %103
-  store ptr %58, ptr %104, align 8
+  %.sink34.in = phi ptr [ %40, %79 ], [ %40, %75 ], [ %33, %101 ], [ %33, %97 ]
+  %.sink34 = load ptr, ptr %.sink34.in, align 8
+  %102 = zext i32 %.sink to i64
+  %103 = getelementptr inbounds ptr, ptr %.sink34, i64 %102
+  store ptr %58, ptr %103, align 8
   br label %_ZN16Unique_Node_List4pushEP4Node.exit19
 
 _ZN16Unique_Node_List4pushEP4Node.exit19:         ; preds = %_ZN16Unique_Node_List4pushEP4Node.exit19.sink.split, %_ZN9VectorSet8test_setEj.exit.i21, %_ZN9VectorSet8test_setEj.exit.i15, %80
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %105 = load i32, ptr %51, align 8
-  %106 = zext i32 %105 to i64
-  %107 = icmp ult i64 %indvars.iv.next, %106
-  br i1 %107, label %55, label %._crit_edge.loopexit, !llvm.loop !12
+  %104 = load i32, ptr %51, align 8
+  %105 = zext i32 %104 to i64
+  %106 = icmp ult i64 %indvars.iv.next, %105
+  br i1 %106, label %55, label %._crit_edge.loopexit, !llvm.loop !12
 
 ._crit_edge.loopexit:                             ; preds = %_ZN16Unique_Node_List4pushEP4Node.exit19
   %.pre = load i32, ptr %30, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNK10Node_ArrayixEj.exit
-  %108 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %42, %_ZNK10Node_ArrayixEj.exit ]
+  %107 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %42, %_ZNK10Node_ArrayixEj.exit ]
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
-  %109 = zext i32 %108 to i64
-  %110 = icmp ult i64 %indvars.iv.next32, %109
-  br i1 %110, label %41, label %._crit_edge29, !llvm.loop !13
+  %108 = zext i32 %107 to i64
+  %109 = icmp ult i64 %indvars.iv.next32, %108
+  br i1 %109, label %41, label %._crit_edge29, !llvm.loop !13
 
 ._crit_edge29:                                    ; preds = %._crit_edge, %_ZN16Unique_Node_List4pushEP4Node.exit
   ret void

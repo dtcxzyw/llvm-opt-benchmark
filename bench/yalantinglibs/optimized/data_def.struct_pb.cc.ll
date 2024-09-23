@@ -350,17 +350,35 @@ if.end:                                           ; preds = %if.end104.i, %if.en
 sw.bb:                                            ; preds = %if.end
   %add = add i64 %.lcssa96104, 4
   %cmp1 = icmp ugt i64 %add, %size
-  br i1 %cmp1, label %return, label %sw.epilog
+  br i1 %cmp1, label %return, label %if.end3
+
+if.end3:                                          ; preds = %sw.bb
+  %add.ptr = getelementptr inbounds i8, ptr %data, i64 %.lcssa96104
+  %fixed_tmp.0.copyload = load float, ptr %add.ptr, align 1
+  store float %fixed_tmp.0.copyload, ptr %t, align 4
+  br label %sw.epilog
 
 sw.bb5:                                           ; preds = %if.end
   %add6 = add i64 %.lcssa96104, 4
   %cmp7 = icmp ugt i64 %add6, %size
-  br i1 %cmp7, label %return, label %sw.epilog
+  br i1 %cmp7, label %return, label %if.end9
+
+if.end9:                                          ; preds = %sw.bb5
+  %add.ptr11 = getelementptr inbounds i8, ptr %data, i64 %.lcssa96104
+  %fixed_tmp10.0.copyload = load float, ptr %add.ptr11, align 1
+  store float %fixed_tmp10.0.copyload, ptr %y, align 4
+  br label %sw.epilog
 
 sw.bb13:                                          ; preds = %if.end
   %add14 = add i64 %.lcssa96104, 4
   %cmp15 = icmp ugt i64 %add14, %size
-  br i1 %cmp15, label %return, label %sw.epilog
+  br i1 %cmp15, label %return, label %if.end17
+
+if.end17:                                         ; preds = %sw.bb13
+  %add.ptr19 = getelementptr inbounds i8, ptr %data, i64 %.lcssa96104
+  %fixed_tmp18.0.copyload = load float, ptr %add.ptr19, align 1
+  store float %fixed_tmp18.0.copyload, ptr %z, align 4
+  br label %sw.epilog
 
 sw.default:                                       ; preds = %if.end
   store i64 %.lcssa96104, ptr %pos, align 8
@@ -368,12 +386,8 @@ sw.default:                                       ; preds = %if.end
   %call21 = call noundef zeroext i1 @_ZN9struct_pb8internal19deserialize_unknownEPKcRmmjRNS_13UnknownFieldsE(ptr noundef nonnull %data, ptr noundef nonnull align 8 dereferenceable(8) %pos, i64 noundef %size, i32 noundef %conv, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields)
   br label %return
 
-sw.epilog:                                        ; preds = %sw.bb13, %sw.bb5, %sw.bb
-  %z.sink = phi ptr [ %t, %sw.bb ], [ %y, %sw.bb5 ], [ %z, %sw.bb13 ]
-  %.lcssa96103 = phi i64 [ %add, %sw.bb ], [ %add6, %sw.bb5 ], [ %add14, %sw.bb13 ]
-  %add.ptr19 = getelementptr inbounds i8, ptr %data, i64 %.lcssa96104
-  %fixed_tmp18.0.copyload = load float, ptr %add.ptr19, align 1
-  store float %fixed_tmp18.0.copyload, ptr %z.sink, align 4
+sw.epilog:                                        ; preds = %if.end17, %if.end9, %if.end3
+  %.lcssa96103 = phi i64 [ %add14, %if.end17 ], [ %add6, %if.end9 ], [ %add, %if.end3 ]
   %cmp = icmp ult i64 %.lcssa96103, %size
   br i1 %cmp, label %land.lhs.true.i, label %return, !llvm.loop !7
 
@@ -6335,7 +6349,7 @@ land.lhs.true.i:                                  ; preds = %sw.bb
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   %inc.i = add nuw i64 %inc96.i478.lcssa479487, 1
-  br label %sw.epilog
+  br label %if.end5
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %sw.bb
   %sub.i = sub i64 %size, %inc96.i478.lcssa479487
@@ -6353,7 +6367,7 @@ if.then5.i:                                       ; preds = %if.end.i
   %17 = and i8 %16, 127
   %and9.i = zext nneg i8 %17 to i64
   %cmp10.i = icmp sgt i8 %16, -1
-  br i1 %cmp10.i, label %sw.epilog, label %if.end12.i
+  br i1 %cmp10.i, label %if.end5, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.then5.i
   %inc13.i = add i64 %inc96.i478.lcssa479487, 2
@@ -6364,7 +6378,7 @@ if.end12.i:                                       ; preds = %if.then5.i
   %shl.i = and i64 %and16.i, 16256
   %or.i = or disjoint i64 %shl.i, %and9.i
   %cmp17.i = icmp sgt i8 %18, -1
-  br i1 %cmp17.i, label %sw.epilog, label %if.end19.i
+  br i1 %cmp17.i, label %if.end5, label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.end12.i
   %inc20.i = add i64 %inc96.i478.lcssa479487, 3
@@ -6375,7 +6389,7 @@ if.end19.i:                                       ; preds = %if.end12.i
   %shl24.i = and i64 %and23.i, 2080768
   %or25.i = or disjoint i64 %shl24.i, %or.i
   %cmp26.i = icmp sgt i8 %19, -1
-  br i1 %cmp26.i, label %sw.epilog, label %if.end28.i
+  br i1 %cmp26.i, label %if.end5, label %if.end28.i
 
 if.end28.i:                                       ; preds = %if.end19.i
   %inc29.i = add i64 %inc96.i478.lcssa479487, 4
@@ -6386,7 +6400,7 @@ if.end28.i:                                       ; preds = %if.end19.i
   %shl33.i = and i64 %and32.i, 266338304
   %or34.i = or disjoint i64 %shl33.i, %or25.i
   %cmp35.i = icmp sgt i8 %20, -1
-  br i1 %cmp35.i, label %sw.epilog, label %if.end37.i
+  br i1 %cmp35.i, label %if.end5, label %if.end37.i
 
 if.end37.i:                                       ; preds = %if.end28.i
   %inc38.i = add i64 %inc96.i478.lcssa479487, 5
@@ -6397,35 +6411,35 @@ if.end37.i:                                       ; preds = %if.end28.i
   %shl42.i = and i64 %and41.i, 34091302912
   %or43.i = or disjoint i64 %shl42.i, %or34.i
   %cmp44.i = icmp sgt i8 %21, -1
-  br i1 %cmp44.i, label %sw.epilog, label %if.end46.i
+  br i1 %cmp44.i, label %if.end5, label %if.end46.i
 
 if.end46.i:                                       ; preds = %if.end37.i
   %inc47.i = add i64 %inc96.i478.lcssa479487, 6
   %arrayidx48.i = getelementptr inbounds i8, ptr %data, i64 %inc38.i
   %22 = load i8, ptr %arrayidx48.i, align 1
   %cmp53.i = icmp sgt i8 %22, -1
-  br i1 %cmp53.i, label %sw.epilog, label %if.end55.i
+  br i1 %cmp53.i, label %if.end5, label %if.end55.i
 
 if.end55.i:                                       ; preds = %if.end46.i
   %inc56.i = add i64 %inc96.i478.lcssa479487, 7
   %arrayidx57.i = getelementptr inbounds i8, ptr %data, i64 %inc47.i
   %23 = load i8, ptr %arrayidx57.i, align 1
   %cmp62.i = icmp sgt i8 %23, -1
-  br i1 %cmp62.i, label %sw.epilog, label %if.end64.i
+  br i1 %cmp62.i, label %if.end5, label %if.end64.i
 
 if.end64.i:                                       ; preds = %if.end55.i
   %inc65.i = add i64 %inc96.i478.lcssa479487, 8
   %arrayidx66.i = getelementptr inbounds i8, ptr %data, i64 %inc56.i
   %24 = load i8, ptr %arrayidx66.i, align 1
   %cmp71.i = icmp sgt i8 %24, -1
-  br i1 %cmp71.i, label %sw.epilog, label %if.end73.i
+  br i1 %cmp71.i, label %if.end5, label %if.end73.i
 
 if.end73.i:                                       ; preds = %if.end64.i
   %inc74.i = add i64 %inc96.i478.lcssa479487, 9
   %arrayidx75.i = getelementptr inbounds i8, ptr %data, i64 %inc65.i
   %25 = load i8, ptr %arrayidx75.i, align 1
   %cmp80.i = icmp sgt i8 %25, -1
-  br i1 %cmp80.i, label %sw.epilog, label %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit
+  br i1 %cmp80.i, label %if.end5, label %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit
 
 land.rhs.i:                                       ; preds = %while.cond.i.preheader, %while.body.i
   %val.i.1483 = phi i64 [ %or101.i, %while.body.i ], [ 0, %while.cond.i.preheader ]
@@ -6452,14 +6466,21 @@ if.end104.i:                                      ; preds = %land.rhs.i
   %sh_prom108.i = zext nneg i32 %shift.i.0482 to i64
   %shl109.i = shl i64 %conv107.i, %sh_prom108.i
   %or110.i = or i64 %shl109.i, %val.i.1483
-  br label %sw.epilog
+  br label %if.end5
 
 _ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit: ; preds = %if.end73.i
   %inc83.i = add i64 %inc96.i478.lcssa479487, 10
   %arrayidx84.i = getelementptr inbounds i8, ptr %data, i64 %inc74.i
   %28 = load i8, ptr %arrayidx84.i, align 1
   %cmp89.i = icmp sgt i8 %28, -1
-  br i1 %cmp89.i, label %sw.epilog, label %return
+  br i1 %cmp89.i, label %if.end5, label %return
+
+if.end5:                                          ; preds = %if.end104.i, %if.end73.i, %if.end64.i, %if.end55.i, %if.end46.i, %if.end37.i, %if.end28.i, %if.end19.i, %if.end12.i, %if.then5.i, %if.then.i, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit
+  %inc96.i478.lcssa479490 = phi i64 [ %inc83.i, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit ], [ %inc96.i, %if.end104.i ], [ %inc74.i, %if.end73.i ], [ %inc65.i, %if.end64.i ], [ %inc56.i, %if.end55.i ], [ %inc47.i, %if.end46.i ], [ %inc38.i, %if.end37.i ], [ %inc29.i, %if.end28.i ], [ %inc20.i, %if.end19.i ], [ %inc13.i, %if.end12.i ], [ %inc6.i, %if.then5.i ], [ %inc.i, %if.then.i ]
+  %varint_tmp.0397 = phi i64 [ %or43.i, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit ], [ %or110.i, %if.end104.i ], [ %or43.i, %if.end73.i ], [ %or43.i, %if.end64.i ], [ %or43.i, %if.end55.i ], [ %or43.i, %if.end46.i ], [ %or43.i, %if.end37.i ], [ %or34.i, %if.end28.i ], [ %or25.i, %if.end19.i ], [ %or.i, %if.end12.i ], [ %and9.i, %if.then5.i ], [ %conv.i, %if.then.i ]
+  %conv = trunc i64 %varint_tmp.0397 to i32
+  store i32 %conv, ptr %t, align 4
+  br label %sw.epilog
 
 sw.bb6:                                           ; preds = %if.end
   %cmp.i69 = icmp ult i64 %inc96.i478.lcssa479487, %size
@@ -6475,7 +6496,7 @@ land.lhs.true.i191:                               ; preds = %sw.bb6
 
 if.then.i196:                                     ; preds = %land.lhs.true.i191
   %inc.i199 = add nuw i64 %inc96.i478.lcssa479487, 1
-  br label %sw.epilog
+  br label %if.end12
 
 if.end.i70:                                       ; preds = %land.lhs.true.i191, %sw.bb6
   %sub.i71 = sub i64 %size, %inc96.i478.lcssa479487
@@ -6493,7 +6514,7 @@ if.then5.i101:                                    ; preds = %if.end.i70
   %31 = and i8 %30, 127
   %and9.i105 = zext nneg i8 %31 to i64
   %cmp10.i106 = icmp sgt i8 %30, -1
-  br i1 %cmp10.i106, label %sw.epilog, label %if.end12.i107
+  br i1 %cmp10.i106, label %if.end12, label %if.end12.i107
 
 if.end12.i107:                                    ; preds = %if.then5.i101
   %inc13.i108 = add i64 %inc96.i478.lcssa479487, 2
@@ -6504,7 +6525,7 @@ if.end12.i107:                                    ; preds = %if.then5.i101
   %shl.i112 = and i64 %and16.i111, 16256
   %or.i113 = or disjoint i64 %shl.i112, %and9.i105
   %cmp17.i114 = icmp sgt i8 %32, -1
-  br i1 %cmp17.i114, label %sw.epilog, label %if.end19.i115
+  br i1 %cmp17.i114, label %if.end12, label %if.end19.i115
 
 if.end19.i115:                                    ; preds = %if.end12.i107
   %inc20.i116 = add i64 %inc96.i478.lcssa479487, 3
@@ -6515,7 +6536,7 @@ if.end19.i115:                                    ; preds = %if.end12.i107
   %shl24.i120 = and i64 %and23.i119, 2080768
   %or25.i121 = or disjoint i64 %shl24.i120, %or.i113
   %cmp26.i122 = icmp sgt i8 %33, -1
-  br i1 %cmp26.i122, label %sw.epilog, label %if.end28.i123
+  br i1 %cmp26.i122, label %if.end12, label %if.end28.i123
 
 if.end28.i123:                                    ; preds = %if.end19.i115
   %inc29.i124 = add i64 %inc96.i478.lcssa479487, 4
@@ -6526,7 +6547,7 @@ if.end28.i123:                                    ; preds = %if.end19.i115
   %shl33.i128 = and i64 %and32.i127, 266338304
   %or34.i129 = or disjoint i64 %shl33.i128, %or25.i121
   %cmp35.i130 = icmp sgt i8 %34, -1
-  br i1 %cmp35.i130, label %sw.epilog, label %if.end37.i131
+  br i1 %cmp35.i130, label %if.end12, label %if.end37.i131
 
 if.end37.i131:                                    ; preds = %if.end28.i123
   %inc38.i132 = add i64 %inc96.i478.lcssa479487, 5
@@ -6537,35 +6558,35 @@ if.end37.i131:                                    ; preds = %if.end28.i123
   %shl42.i136 = and i64 %and41.i135, 34091302912
   %or43.i137 = or disjoint i64 %shl42.i136, %or34.i129
   %cmp44.i138 = icmp sgt i8 %35, -1
-  br i1 %cmp44.i138, label %sw.epilog, label %if.end46.i139
+  br i1 %cmp44.i138, label %if.end12, label %if.end46.i139
 
 if.end46.i139:                                    ; preds = %if.end37.i131
   %inc47.i140 = add i64 %inc96.i478.lcssa479487, 6
   %arrayidx48.i141 = getelementptr inbounds i8, ptr %data, i64 %inc38.i132
   %36 = load i8, ptr %arrayidx48.i141, align 1
   %cmp53.i146 = icmp sgt i8 %36, -1
-  br i1 %cmp53.i146, label %sw.epilog, label %if.end55.i147
+  br i1 %cmp53.i146, label %if.end12, label %if.end55.i147
 
 if.end55.i147:                                    ; preds = %if.end46.i139
   %inc56.i148 = add i64 %inc96.i478.lcssa479487, 7
   %arrayidx57.i149 = getelementptr inbounds i8, ptr %data, i64 %inc47.i140
   %37 = load i8, ptr %arrayidx57.i149, align 1
   %cmp62.i154 = icmp sgt i8 %37, -1
-  br i1 %cmp62.i154, label %sw.epilog, label %if.end64.i155
+  br i1 %cmp62.i154, label %if.end12, label %if.end64.i155
 
 if.end64.i155:                                    ; preds = %if.end55.i147
   %inc65.i156 = add i64 %inc96.i478.lcssa479487, 8
   %arrayidx66.i157 = getelementptr inbounds i8, ptr %data, i64 %inc56.i148
   %38 = load i8, ptr %arrayidx66.i157, align 1
   %cmp71.i162 = icmp sgt i8 %38, -1
-  br i1 %cmp71.i162, label %sw.epilog, label %if.end73.i163
+  br i1 %cmp71.i162, label %if.end12, label %if.end73.i163
 
 if.end73.i163:                                    ; preds = %if.end64.i155
   %inc74.i164 = add i64 %inc96.i478.lcssa479487, 9
   %arrayidx75.i165 = getelementptr inbounds i8, ptr %data, i64 %inc65.i156
   %39 = load i8, ptr %arrayidx75.i165, align 1
   %cmp80.i170 = icmp sgt i8 %39, -1
-  br i1 %cmp80.i170, label %sw.epilog, label %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit200
+  br i1 %cmp80.i170, label %if.end12, label %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit200
 
 land.rhs.i97:                                     ; preds = %while.cond.i74.preheader, %while.body.i88
   %val.i66.1474 = phi i64 [ %or101.i95, %while.body.i88 ], [ 0, %while.cond.i74.preheader ]
@@ -6592,14 +6613,21 @@ if.end104.i79:                                    ; preds = %land.rhs.i97
   %sh_prom108.i83 = zext nneg i32 %shift.i68.0473 to i64
   %shl109.i84 = shl i64 %conv107.i82, %sh_prom108.i83
   %or110.i85 = or i64 %shl109.i84, %val.i66.1474
-  br label %sw.epilog
+  br label %if.end12
 
 _ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit200: ; preds = %if.end73.i163
   %inc83.i172 = add i64 %inc96.i478.lcssa479487, 10
   %arrayidx84.i173 = getelementptr inbounds i8, ptr %data, i64 %inc74.i164
   %42 = load i8, ptr %arrayidx84.i173, align 1
   %cmp89.i178 = icmp sgt i8 %42, -1
-  br i1 %cmp89.i178, label %sw.epilog, label %return
+  br i1 %cmp89.i178, label %if.end12, label %return
+
+if.end12:                                         ; preds = %if.end104.i79, %if.end73.i163, %if.end64.i155, %if.end55.i147, %if.end46.i139, %if.end37.i131, %if.end28.i123, %if.end19.i115, %if.end12.i107, %if.then5.i101, %if.then.i196, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit200
+  %inc96.i478.lcssa479491 = phi i64 [ %inc83.i172, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit200 ], [ %inc96.i89, %if.end104.i79 ], [ %inc74.i164, %if.end73.i163 ], [ %inc65.i156, %if.end64.i155 ], [ %inc56.i148, %if.end55.i147 ], [ %inc47.i140, %if.end46.i139 ], [ %inc38.i132, %if.end37.i131 ], [ %inc29.i124, %if.end28.i123 ], [ %inc20.i116, %if.end19.i115 ], [ %inc13.i108, %if.end12.i107 ], [ %inc6.i102, %if.then5.i101 ], [ %inc.i199, %if.then.i196 ]
+  %varint_tmp7.0403 = phi i64 [ %or43.i137, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit200 ], [ %or110.i85, %if.end104.i79 ], [ %or43.i137, %if.end73.i163 ], [ %or43.i137, %if.end64.i155 ], [ %or43.i137, %if.end55.i147 ], [ %or43.i137, %if.end46.i139 ], [ %or43.i137, %if.end37.i131 ], [ %or34.i129, %if.end28.i123 ], [ %or25.i121, %if.end19.i115 ], [ %or.i113, %if.end12.i107 ], [ %and9.i105, %if.then5.i101 ], [ %conv.i193, %if.then.i196 ]
+  %conv13 = trunc i64 %varint_tmp7.0403 to i32
+  store i32 %conv13, ptr %y, align 4
+  br label %sw.epilog
 
 sw.bb14:                                          ; preds = %if.end
   %cmp.i211 = icmp ult i64 %inc96.i478.lcssa479487, %size
@@ -6615,7 +6643,7 @@ land.lhs.true.i333:                               ; preds = %sw.bb14
 
 if.then.i338:                                     ; preds = %land.lhs.true.i333
   %inc.i341 = add nuw i64 %inc96.i478.lcssa479487, 1
-  br label %sw.epilog
+  br label %if.end20
 
 if.end.i212:                                      ; preds = %land.lhs.true.i333, %sw.bb14
   %sub.i213 = sub i64 %size, %inc96.i478.lcssa479487
@@ -6633,7 +6661,7 @@ if.then5.i243:                                    ; preds = %if.end.i212
   %45 = and i8 %44, 127
   %and9.i247 = zext nneg i8 %45 to i64
   %cmp10.i248 = icmp sgt i8 %44, -1
-  br i1 %cmp10.i248, label %sw.epilog, label %if.end12.i249
+  br i1 %cmp10.i248, label %if.end20, label %if.end12.i249
 
 if.end12.i249:                                    ; preds = %if.then5.i243
   %inc13.i250 = add i64 %inc96.i478.lcssa479487, 2
@@ -6644,7 +6672,7 @@ if.end12.i249:                                    ; preds = %if.then5.i243
   %shl.i254 = and i64 %and16.i253, 16256
   %or.i255 = or disjoint i64 %shl.i254, %and9.i247
   %cmp17.i256 = icmp sgt i8 %46, -1
-  br i1 %cmp17.i256, label %sw.epilog, label %if.end19.i257
+  br i1 %cmp17.i256, label %if.end20, label %if.end19.i257
 
 if.end19.i257:                                    ; preds = %if.end12.i249
   %inc20.i258 = add i64 %inc96.i478.lcssa479487, 3
@@ -6655,7 +6683,7 @@ if.end19.i257:                                    ; preds = %if.end12.i249
   %shl24.i262 = and i64 %and23.i261, 2080768
   %or25.i263 = or disjoint i64 %shl24.i262, %or.i255
   %cmp26.i264 = icmp sgt i8 %47, -1
-  br i1 %cmp26.i264, label %sw.epilog, label %if.end28.i265
+  br i1 %cmp26.i264, label %if.end20, label %if.end28.i265
 
 if.end28.i265:                                    ; preds = %if.end19.i257
   %inc29.i266 = add i64 %inc96.i478.lcssa479487, 4
@@ -6666,7 +6694,7 @@ if.end28.i265:                                    ; preds = %if.end19.i257
   %shl33.i270 = and i64 %and32.i269, 266338304
   %or34.i271 = or disjoint i64 %shl33.i270, %or25.i263
   %cmp35.i272 = icmp sgt i8 %48, -1
-  br i1 %cmp35.i272, label %sw.epilog, label %if.end37.i273
+  br i1 %cmp35.i272, label %if.end20, label %if.end37.i273
 
 if.end37.i273:                                    ; preds = %if.end28.i265
   %inc38.i274 = add i64 %inc96.i478.lcssa479487, 5
@@ -6677,35 +6705,35 @@ if.end37.i273:                                    ; preds = %if.end28.i265
   %shl42.i278 = and i64 %and41.i277, 34091302912
   %or43.i279 = or disjoint i64 %shl42.i278, %or34.i271
   %cmp44.i280 = icmp sgt i8 %49, -1
-  br i1 %cmp44.i280, label %sw.epilog, label %if.end46.i281
+  br i1 %cmp44.i280, label %if.end20, label %if.end46.i281
 
 if.end46.i281:                                    ; preds = %if.end37.i273
   %inc47.i282 = add i64 %inc96.i478.lcssa479487, 6
   %arrayidx48.i283 = getelementptr inbounds i8, ptr %data, i64 %inc38.i274
   %50 = load i8, ptr %arrayidx48.i283, align 1
   %cmp53.i288 = icmp sgt i8 %50, -1
-  br i1 %cmp53.i288, label %sw.epilog, label %if.end55.i289
+  br i1 %cmp53.i288, label %if.end20, label %if.end55.i289
 
 if.end55.i289:                                    ; preds = %if.end46.i281
   %inc56.i290 = add i64 %inc96.i478.lcssa479487, 7
   %arrayidx57.i291 = getelementptr inbounds i8, ptr %data, i64 %inc47.i282
   %51 = load i8, ptr %arrayidx57.i291, align 1
   %cmp62.i296 = icmp sgt i8 %51, -1
-  br i1 %cmp62.i296, label %sw.epilog, label %if.end64.i297
+  br i1 %cmp62.i296, label %if.end20, label %if.end64.i297
 
 if.end64.i297:                                    ; preds = %if.end55.i289
   %inc65.i298 = add i64 %inc96.i478.lcssa479487, 8
   %arrayidx66.i299 = getelementptr inbounds i8, ptr %data, i64 %inc56.i290
   %52 = load i8, ptr %arrayidx66.i299, align 1
   %cmp71.i304 = icmp sgt i8 %52, -1
-  br i1 %cmp71.i304, label %sw.epilog, label %if.end73.i305
+  br i1 %cmp71.i304, label %if.end20, label %if.end73.i305
 
 if.end73.i305:                                    ; preds = %if.end64.i297
   %inc74.i306 = add i64 %inc96.i478.lcssa479487, 9
   %arrayidx75.i307 = getelementptr inbounds i8, ptr %data, i64 %inc65.i298
   %53 = load i8, ptr %arrayidx75.i307, align 1
   %cmp80.i312 = icmp sgt i8 %53, -1
-  br i1 %cmp80.i312, label %sw.epilog, label %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit342
+  br i1 %cmp80.i312, label %if.end20, label %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit342
 
 land.rhs.i239:                                    ; preds = %while.cond.i216.preheader, %while.body.i230
   %val.i208.1465 = phi i64 [ %or101.i237, %while.body.i230 ], [ 0, %while.cond.i216.preheader ]
@@ -6732,14 +6760,21 @@ if.end104.i221:                                   ; preds = %land.rhs.i239
   %sh_prom108.i225 = zext nneg i32 %shift.i210.0464 to i64
   %shl109.i226 = shl i64 %conv107.i224, %sh_prom108.i225
   %or110.i227 = or i64 %shl109.i226, %val.i208.1465
-  br label %sw.epilog
+  br label %if.end20
 
 _ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit342: ; preds = %if.end73.i305
   %inc83.i314 = add i64 %inc96.i478.lcssa479487, 10
   %arrayidx84.i315 = getelementptr inbounds i8, ptr %data, i64 %inc74.i306
   %56 = load i8, ptr %arrayidx84.i315, align 1
   %cmp89.i320 = icmp sgt i8 %56, -1
-  br i1 %cmp89.i320, label %sw.epilog, label %return
+  br i1 %cmp89.i320, label %if.end20, label %return
+
+if.end20:                                         ; preds = %if.end104.i221, %if.end73.i305, %if.end64.i297, %if.end55.i289, %if.end46.i281, %if.end37.i273, %if.end28.i265, %if.end19.i257, %if.end12.i249, %if.then5.i243, %if.then.i338, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit342
+  %inc96.i478.lcssa479492 = phi i64 [ %inc83.i314, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit342 ], [ %inc96.i231, %if.end104.i221 ], [ %inc74.i306, %if.end73.i305 ], [ %inc65.i298, %if.end64.i297 ], [ %inc56.i290, %if.end55.i289 ], [ %inc47.i282, %if.end46.i281 ], [ %inc38.i274, %if.end37.i273 ], [ %inc29.i266, %if.end28.i265 ], [ %inc20.i258, %if.end19.i257 ], [ %inc13.i250, %if.end12.i249 ], [ %inc6.i244, %if.then5.i243 ], [ %inc.i341, %if.then.i338 ]
+  %varint_tmp15.0409 = phi i64 [ %or43.i279, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit342 ], [ %or110.i227, %if.end104.i221 ], [ %or43.i279, %if.end73.i305 ], [ %or43.i279, %if.end64.i297 ], [ %or43.i279, %if.end55.i289 ], [ %or43.i279, %if.end46.i281 ], [ %or43.i279, %if.end37.i273 ], [ %or34.i271, %if.end28.i265 ], [ %or25.i263, %if.end19.i257 ], [ %or.i255, %if.end12.i249 ], [ %and9.i247, %if.then5.i243 ], [ %conv.i335, %if.then.i338 ]
+  %conv21 = trunc i64 %varint_tmp15.0409 to i32
+  store i32 %conv21, ptr %width, align 4
+  br label %sw.epilog
 
 sw.bb22:                                          ; preds = %if.end
   %cmp.i353 = icmp ult i64 %inc96.i478.lcssa479487, %size
@@ -6755,7 +6790,7 @@ land.lhs.true.i475:                               ; preds = %sw.bb22
 
 if.then.i480:                                     ; preds = %land.lhs.true.i475
   %inc.i483 = add nuw i64 %inc96.i478.lcssa479487, 1
-  br label %sw.epilog
+  br label %if.end28
 
 if.end.i354:                                      ; preds = %land.lhs.true.i475, %sw.bb22
   %sub.i355 = sub i64 %size, %inc96.i478.lcssa479487
@@ -6773,7 +6808,7 @@ if.then5.i385:                                    ; preds = %if.end.i354
   %59 = and i8 %58, 127
   %and9.i389 = zext nneg i8 %59 to i64
   %cmp10.i390 = icmp sgt i8 %58, -1
-  br i1 %cmp10.i390, label %sw.epilog, label %if.end12.i391
+  br i1 %cmp10.i390, label %if.end28, label %if.end12.i391
 
 if.end12.i391:                                    ; preds = %if.then5.i385
   %inc13.i392 = add i64 %inc96.i478.lcssa479487, 2
@@ -6784,7 +6819,7 @@ if.end12.i391:                                    ; preds = %if.then5.i385
   %shl.i396 = and i64 %and16.i395, 16256
   %or.i397 = or disjoint i64 %shl.i396, %and9.i389
   %cmp17.i398 = icmp sgt i8 %60, -1
-  br i1 %cmp17.i398, label %sw.epilog, label %if.end19.i399
+  br i1 %cmp17.i398, label %if.end28, label %if.end19.i399
 
 if.end19.i399:                                    ; preds = %if.end12.i391
   %inc20.i400 = add i64 %inc96.i478.lcssa479487, 3
@@ -6795,7 +6830,7 @@ if.end19.i399:                                    ; preds = %if.end12.i391
   %shl24.i404 = and i64 %and23.i403, 2080768
   %or25.i405 = or disjoint i64 %shl24.i404, %or.i397
   %cmp26.i406 = icmp sgt i8 %61, -1
-  br i1 %cmp26.i406, label %sw.epilog, label %if.end28.i407
+  br i1 %cmp26.i406, label %if.end28, label %if.end28.i407
 
 if.end28.i407:                                    ; preds = %if.end19.i399
   %inc29.i408 = add i64 %inc96.i478.lcssa479487, 4
@@ -6806,7 +6841,7 @@ if.end28.i407:                                    ; preds = %if.end19.i399
   %shl33.i412 = and i64 %and32.i411, 266338304
   %or34.i413 = or disjoint i64 %shl33.i412, %or25.i405
   %cmp35.i414 = icmp sgt i8 %62, -1
-  br i1 %cmp35.i414, label %sw.epilog, label %if.end37.i415
+  br i1 %cmp35.i414, label %if.end28, label %if.end37.i415
 
 if.end37.i415:                                    ; preds = %if.end28.i407
   %inc38.i416 = add i64 %inc96.i478.lcssa479487, 5
@@ -6817,35 +6852,35 @@ if.end37.i415:                                    ; preds = %if.end28.i407
   %shl42.i420 = and i64 %and41.i419, 34091302912
   %or43.i421 = or disjoint i64 %shl42.i420, %or34.i413
   %cmp44.i422 = icmp sgt i8 %63, -1
-  br i1 %cmp44.i422, label %sw.epilog, label %if.end46.i423
+  br i1 %cmp44.i422, label %if.end28, label %if.end46.i423
 
 if.end46.i423:                                    ; preds = %if.end37.i415
   %inc47.i424 = add i64 %inc96.i478.lcssa479487, 6
   %arrayidx48.i425 = getelementptr inbounds i8, ptr %data, i64 %inc38.i416
   %64 = load i8, ptr %arrayidx48.i425, align 1
   %cmp53.i430 = icmp sgt i8 %64, -1
-  br i1 %cmp53.i430, label %sw.epilog, label %if.end55.i431
+  br i1 %cmp53.i430, label %if.end28, label %if.end55.i431
 
 if.end55.i431:                                    ; preds = %if.end46.i423
   %inc56.i432 = add i64 %inc96.i478.lcssa479487, 7
   %arrayidx57.i433 = getelementptr inbounds i8, ptr %data, i64 %inc47.i424
   %65 = load i8, ptr %arrayidx57.i433, align 1
   %cmp62.i438 = icmp sgt i8 %65, -1
-  br i1 %cmp62.i438, label %sw.epilog, label %if.end64.i439
+  br i1 %cmp62.i438, label %if.end28, label %if.end64.i439
 
 if.end64.i439:                                    ; preds = %if.end55.i431
   %inc65.i440 = add i64 %inc96.i478.lcssa479487, 8
   %arrayidx66.i441 = getelementptr inbounds i8, ptr %data, i64 %inc56.i432
   %66 = load i8, ptr %arrayidx66.i441, align 1
   %cmp71.i446 = icmp sgt i8 %66, -1
-  br i1 %cmp71.i446, label %sw.epilog, label %if.end73.i447
+  br i1 %cmp71.i446, label %if.end28, label %if.end73.i447
 
 if.end73.i447:                                    ; preds = %if.end64.i439
   %inc74.i448 = add i64 %inc96.i478.lcssa479487, 9
   %arrayidx75.i449 = getelementptr inbounds i8, ptr %data, i64 %inc65.i440
   %67 = load i8, ptr %arrayidx75.i449, align 1
   %cmp80.i454 = icmp sgt i8 %67, -1
-  br i1 %cmp80.i454, label %sw.epilog, label %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit484
+  br i1 %cmp80.i454, label %if.end28, label %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit484
 
 land.rhs.i381:                                    ; preds = %while.cond.i358.preheader, %while.body.i372
   %val.i350.1456 = phi i64 [ %or101.i379, %while.body.i372 ], [ 0, %while.cond.i358.preheader ]
@@ -6872,14 +6907,21 @@ if.end104.i363:                                   ; preds = %land.rhs.i381
   %sh_prom108.i367 = zext nneg i32 %shift.i352.0455 to i64
   %shl109.i368 = shl i64 %conv107.i366, %sh_prom108.i367
   %or110.i369 = or i64 %shl109.i368, %val.i350.1456
-  br label %sw.epilog
+  br label %if.end28
 
 _ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit484: ; preds = %if.end73.i447
   %inc83.i456 = add i64 %inc96.i478.lcssa479487, 10
   %arrayidx84.i457 = getelementptr inbounds i8, ptr %data, i64 %inc74.i448
   %70 = load i8, ptr %arrayidx84.i457, align 1
   %cmp89.i462 = icmp sgt i8 %70, -1
-  br i1 %cmp89.i462, label %sw.epilog, label %return
+  br i1 %cmp89.i462, label %if.end28, label %return
+
+if.end28:                                         ; preds = %if.end104.i363, %if.end73.i447, %if.end64.i439, %if.end55.i431, %if.end46.i423, %if.end37.i415, %if.end28.i407, %if.end19.i399, %if.end12.i391, %if.then5.i385, %if.then.i480, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit484
+  %inc96.i478.lcssa479493 = phi i64 [ %inc83.i456, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit484 ], [ %inc96.i373, %if.end104.i363 ], [ %inc74.i448, %if.end73.i447 ], [ %inc65.i440, %if.end64.i439 ], [ %inc56.i432, %if.end55.i431 ], [ %inc47.i424, %if.end46.i423 ], [ %inc38.i416, %if.end37.i415 ], [ %inc29.i408, %if.end28.i407 ], [ %inc20.i400, %if.end19.i399 ], [ %inc13.i392, %if.end12.i391 ], [ %inc6.i386, %if.then5.i385 ], [ %inc.i483, %if.then.i480 ]
+  %varint_tmp23.0415 = phi i64 [ %or43.i421, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit484 ], [ %or110.i369, %if.end104.i363 ], [ %or43.i421, %if.end73.i447 ], [ %or43.i421, %if.end64.i439 ], [ %or43.i421, %if.end55.i431 ], [ %or43.i421, %if.end46.i423 ], [ %or43.i421, %if.end37.i415 ], [ %or34.i413, %if.end28.i407 ], [ %or25.i405, %if.end19.i399 ], [ %or.i397, %if.end12.i391 ], [ %and9.i389, %if.then5.i385 ], [ %conv.i477, %if.then.i480 ]
+  %conv29 = trunc i64 %varint_tmp23.0415 to i32
+  store i32 %conv29, ptr %height, align 4
+  br label %sw.epilog
 
 sw.default:                                       ; preds = %if.end
   store i64 %inc96.i478.lcssa479487, ptr %pos, align 8
@@ -6887,12 +6929,8 @@ sw.default:                                       ; preds = %if.end
   %call31 = call noundef zeroext i1 @_ZN9struct_pb8internal19deserialize_unknownEPKcRmmjRNS_13UnknownFieldsE(ptr noundef nonnull %data, ptr noundef nonnull align 8 dereferenceable(8) %pos, i64 noundef %size, i32 noundef %conv30, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields)
   br label %return
 
-sw.epilog:                                        ; preds = %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit484, %if.then.i480, %if.then5.i385, %if.end12.i391, %if.end19.i399, %if.end28.i407, %if.end37.i415, %if.end46.i423, %if.end55.i431, %if.end64.i439, %if.end73.i447, %if.end104.i363, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit342, %if.then.i338, %if.then5.i243, %if.end12.i249, %if.end19.i257, %if.end28.i265, %if.end37.i273, %if.end46.i281, %if.end55.i289, %if.end64.i297, %if.end73.i305, %if.end104.i221, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit200, %if.then.i196, %if.then5.i101, %if.end12.i107, %if.end19.i115, %if.end28.i123, %if.end37.i131, %if.end46.i139, %if.end55.i147, %if.end64.i155, %if.end73.i163, %if.end104.i79, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit, %if.then.i, %if.then5.i, %if.end12.i, %if.end19.i, %if.end28.i, %if.end37.i, %if.end46.i, %if.end55.i, %if.end64.i, %if.end73.i, %if.end104.i
-  %varint_tmp23.0415.sink = phi i64 [ %or43.i, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit ], [ %or110.i, %if.end104.i ], [ %or43.i, %if.end73.i ], [ %or43.i, %if.end64.i ], [ %or43.i, %if.end55.i ], [ %or43.i, %if.end46.i ], [ %or43.i, %if.end37.i ], [ %or34.i, %if.end28.i ], [ %or25.i, %if.end19.i ], [ %or.i, %if.end12.i ], [ %and9.i, %if.then5.i ], [ %conv.i, %if.then.i ], [ %or43.i137, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit200 ], [ %or110.i85, %if.end104.i79 ], [ %or43.i137, %if.end73.i163 ], [ %or43.i137, %if.end64.i155 ], [ %or43.i137, %if.end55.i147 ], [ %or43.i137, %if.end46.i139 ], [ %or43.i137, %if.end37.i131 ], [ %or34.i129, %if.end28.i123 ], [ %or25.i121, %if.end19.i115 ], [ %or.i113, %if.end12.i107 ], [ %and9.i105, %if.then5.i101 ], [ %conv.i193, %if.then.i196 ], [ %or43.i279, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit342 ], [ %or110.i227, %if.end104.i221 ], [ %or43.i279, %if.end73.i305 ], [ %or43.i279, %if.end64.i297 ], [ %or43.i279, %if.end55.i289 ], [ %or43.i279, %if.end46.i281 ], [ %or43.i279, %if.end37.i273 ], [ %or34.i271, %if.end28.i265 ], [ %or25.i263, %if.end19.i257 ], [ %or.i255, %if.end12.i249 ], [ %and9.i247, %if.then5.i243 ], [ %conv.i335, %if.then.i338 ], [ %or43.i421, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit484 ], [ %or110.i369, %if.end104.i363 ], [ %or43.i421, %if.end73.i447 ], [ %or43.i421, %if.end64.i439 ], [ %or43.i421, %if.end55.i431 ], [ %or43.i421, %if.end46.i423 ], [ %or43.i421, %if.end37.i415 ], [ %or34.i413, %if.end28.i407 ], [ %or25.i405, %if.end19.i399 ], [ %or.i397, %if.end12.i391 ], [ %and9.i389, %if.then5.i385 ], [ %conv.i477, %if.then.i480 ]
-  %height.sink = phi ptr [ %t, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit ], [ %t, %if.end104.i ], [ %t, %if.end73.i ], [ %t, %if.end64.i ], [ %t, %if.end55.i ], [ %t, %if.end46.i ], [ %t, %if.end37.i ], [ %t, %if.end28.i ], [ %t, %if.end19.i ], [ %t, %if.end12.i ], [ %t, %if.then5.i ], [ %t, %if.then.i ], [ %y, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit200 ], [ %y, %if.end104.i79 ], [ %y, %if.end73.i163 ], [ %y, %if.end64.i155 ], [ %y, %if.end55.i147 ], [ %y, %if.end46.i139 ], [ %y, %if.end37.i131 ], [ %y, %if.end28.i123 ], [ %y, %if.end19.i115 ], [ %y, %if.end12.i107 ], [ %y, %if.then5.i101 ], [ %y, %if.then.i196 ], [ %width, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit342 ], [ %width, %if.end104.i221 ], [ %width, %if.end73.i305 ], [ %width, %if.end64.i297 ], [ %width, %if.end55.i289 ], [ %width, %if.end46.i281 ], [ %width, %if.end37.i273 ], [ %width, %if.end28.i265 ], [ %width, %if.end19.i257 ], [ %width, %if.end12.i249 ], [ %width, %if.then5.i243 ], [ %width, %if.then.i338 ], [ %height, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit484 ], [ %height, %if.end104.i363 ], [ %height, %if.end73.i447 ], [ %height, %if.end64.i439 ], [ %height, %if.end55.i431 ], [ %height, %if.end46.i423 ], [ %height, %if.end37.i415 ], [ %height, %if.end28.i407 ], [ %height, %if.end19.i399 ], [ %height, %if.end12.i391 ], [ %height, %if.then5.i385 ], [ %height, %if.then.i480 ]
-  %inc96.i478.lcssa479489 = phi i64 [ %inc83.i, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit ], [ %inc96.i, %if.end104.i ], [ %inc74.i, %if.end73.i ], [ %inc65.i, %if.end64.i ], [ %inc56.i, %if.end55.i ], [ %inc47.i, %if.end46.i ], [ %inc38.i, %if.end37.i ], [ %inc29.i, %if.end28.i ], [ %inc20.i, %if.end19.i ], [ %inc13.i, %if.end12.i ], [ %inc6.i, %if.then5.i ], [ %inc.i, %if.then.i ], [ %inc83.i172, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit200 ], [ %inc96.i89, %if.end104.i79 ], [ %inc74.i164, %if.end73.i163 ], [ %inc65.i156, %if.end64.i155 ], [ %inc56.i148, %if.end55.i147 ], [ %inc47.i140, %if.end46.i139 ], [ %inc38.i132, %if.end37.i131 ], [ %inc29.i124, %if.end28.i123 ], [ %inc20.i116, %if.end19.i115 ], [ %inc13.i108, %if.end12.i107 ], [ %inc6.i102, %if.then5.i101 ], [ %inc.i199, %if.then.i196 ], [ %inc83.i314, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit342 ], [ %inc96.i231, %if.end104.i221 ], [ %inc74.i306, %if.end73.i305 ], [ %inc65.i298, %if.end64.i297 ], [ %inc56.i290, %if.end55.i289 ], [ %inc47.i282, %if.end46.i281 ], [ %inc38.i274, %if.end37.i273 ], [ %inc29.i266, %if.end28.i265 ], [ %inc20.i258, %if.end19.i257 ], [ %inc13.i250, %if.end12.i249 ], [ %inc6.i244, %if.then5.i243 ], [ %inc.i341, %if.then.i338 ], [ %inc83.i456, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit484 ], [ %inc96.i373, %if.end104.i363 ], [ %inc74.i448, %if.end73.i447 ], [ %inc65.i440, %if.end64.i439 ], [ %inc56.i432, %if.end55.i431 ], [ %inc47.i424, %if.end46.i423 ], [ %inc38.i416, %if.end37.i415 ], [ %inc29.i408, %if.end28.i407 ], [ %inc20.i400, %if.end19.i399 ], [ %inc13.i392, %if.end12.i391 ], [ %inc6.i386, %if.then5.i385 ], [ %inc.i483, %if.then.i480 ]
-  %conv29 = trunc i64 %varint_tmp23.0415.sink to i32
-  store i32 %conv29, ptr %height.sink, align 4
+sw.epilog:                                        ; preds = %if.end28, %if.end20, %if.end12, %if.end5
+  %inc96.i478.lcssa479489 = phi i64 [ %inc96.i478.lcssa479493, %if.end28 ], [ %inc96.i478.lcssa479492, %if.end20 ], [ %inc96.i478.lcssa479491, %if.end12 ], [ %inc96.i478.lcssa479490, %if.end5 ]
   %cmp = icmp ult i64 %inc96.i478.lcssa479489, %size
   br i1 %cmp, label %land.lhs.true.i617, label %return, !llvm.loop !19
 

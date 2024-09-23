@@ -1289,7 +1289,8 @@ _ZN4llvm15SmallVectorImplIN5clang6interp16DynamicAllocator10AllocationEE12assign
   store i32 %23, ptr %24, align 4
   store ptr %6, ptr %1, align 8
   store i32 0, ptr %22, align 4
-  br label %.sink.split
+  store i32 0, ptr %19, align 8
+  br label %87
 
 25:                                               ; preds = %4
   %26 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #11
@@ -1383,7 +1384,8 @@ _ZN5clang6interp16DynamicAllocator10AllocationD2Ev.exit.i.i40: ; preds = %_ZNKSt
 
 _ZN4llvm15SmallVectorImplIN5clang6interp16DynamicAllocator10AllocationEE5clearEv.exit: ; preds = %_ZN5clang6interp16DynamicAllocator10AllocationD2Ev.exit.i.i40, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6interp16DynamicAllocator10AllocationELb0EE13destroy_rangeEPS4_S6_.exit
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
+  store i32 0, ptr %50, align 8
+  br label %87
 
 51:                                               ; preds = %25
   %52 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
@@ -1511,14 +1513,10 @@ _ZN5clang6interp16DynamicAllocator10AllocationD2Ev.exit.i.i69: ; preds = %_ZNKSt
 
 _ZN4llvm15SmallVectorImplIN5clang6interp16DynamicAllocator10AllocationEE5clearEv.exit72: ; preds = %_ZN5clang6interp16DynamicAllocator10AllocationD2Ev.exit.i.i69, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6interp16DynamicAllocator10AllocationELb0EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %_ZN4llvm15SmallVectorImplIN5clang6interp16DynamicAllocator10AllocationEE12assignRemoteEOS5_.exit, %_ZN4llvm15SmallVectorImplIN5clang6interp16DynamicAllocator10AllocationEE5clearEv.exit, %_ZN4llvm15SmallVectorImplIN5clang6interp16DynamicAllocator10AllocationEE5clearEv.exit72
-  %.sink = phi ptr [ %86, %_ZN4llvm15SmallVectorImplIN5clang6interp16DynamicAllocator10AllocationEE5clearEv.exit72 ], [ %50, %_ZN4llvm15SmallVectorImplIN5clang6interp16DynamicAllocator10AllocationEE5clearEv.exit ], [ %19, %_ZN4llvm15SmallVectorImplIN5clang6interp16DynamicAllocator10AllocationEE12assignRemoteEOS5_.exit ]
-  store i32 0, ptr %.sink, align 8
+  store i32 0, ptr %86, align 8
   br label %87
 
-87:                                               ; preds = %.sink.split, %2
+87:                                               ; preds = %2, %_ZN4llvm15SmallVectorImplIN5clang6interp16DynamicAllocator10AllocationEE5clearEv.exit72, %_ZN4llvm15SmallVectorImplIN5clang6interp16DynamicAllocator10AllocationEE5clearEv.exit, %_ZN4llvm15SmallVectorImplIN5clang6interp16DynamicAllocator10AllocationEE12assignRemoteEOS5_.exit
   ret ptr %0
 }
 

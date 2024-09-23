@@ -4014,9 +4014,9 @@ define internal fastcc range(i32 0, 2) i32 @Super_CompareGates(ptr nocapture nou
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %40
 
-40:                                               ; preds = %94, %.lr.ph92
-  %.06789 = phi ptr [ %32, %.lr.ph92 ], [ %.06690, %94 ]
-  %.06888 = phi ptr [ null, %.lr.ph92 ], [ %.169, %94 ]
+40:                                               ; preds = %100, %.lr.ph92
+  %.06789 = phi ptr [ %32, %.lr.ph92 ], [ %.06690, %100 ]
+  %.06888 = phi ptr [ null, %.lr.ph92 ], [ %.169, %100 ]
   %.06690.in = getelementptr inbounds i8, ptr %.06789, i64 104
   %.06690 = load ptr, ptr %.06690.in, align 8
   %41 = load i32, ptr %33, align 4
@@ -4026,121 +4026,132 @@ define internal fastcc range(i32 0, 2) i32 @Super_CompareGates(ptr nocapture nou
   %44 = load i32, ptr %43, align 4
   %45 = load i32, ptr %1, align 4
   %.not77 = icmp eq i32 %44, %45
-  br i1 %.not77, label %46, label %.sink.split
+  br i1 %.not77, label %46, label %50
 
 46:                                               ; preds = %40
   %47 = getelementptr inbounds i8, ptr %.06789, i64 16
   %48 = load i32, ptr %47, align 4
   %49 = load i32, ptr %22, align 4
   %.not78 = icmp eq i32 %48, %49
-  br i1 %.not78, label %50, label %.sink.split
+  br i1 %.not78, label %53, label %50
 
-50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %.06789, i64 72
-  %52 = load float, ptr %51, align 8
-  %53 = fpext float %52 to double
-  %54 = fadd double %53, 1.000000e-03
-  %55 = fcmp olt double %54, %35
-  br i1 %55, label %59, label %56
+50:                                               ; preds = %46, %40
+  %51 = load i32, ptr %34, align 8
+  %52 = add nsw i32 %51, 1
+  store i32 %52, ptr %34, align 8
+  br label %100
 
-56:                                               ; preds = %50
-  %57 = fcmp olt double %36, %53
-  br i1 %57, label %58, label %59
+53:                                               ; preds = %46
+  %54 = getelementptr inbounds i8, ptr %.06789, i64 72
+  %55 = load float, ptr %54, align 8
+  %56 = fpext float %55 to double
+  %57 = fadd double %56, 1.000000e-03
+  %58 = fcmp olt double %57, %35
+  br i1 %58, label %62, label %59
 
-58:                                               ; preds = %56
-  br label %59
+59:                                               ; preds = %53
+  %60 = fcmp olt double %36, %56
+  br i1 %60, label %61, label %62
 
-59:                                               ; preds = %50, %56, %58
-  %.060 = phi i32 [ 1, %58 ], [ 0, %56 ], [ 0, %50 ]
-  %.059 = phi i32 [ 0, %58 ], [ 0, %56 ], [ 1, %50 ]
+61:                                               ; preds = %59
+  br label %62
+
+62:                                               ; preds = %53, %59, %61
+  %.060 = phi i32 [ 1, %61 ], [ 0, %59 ], [ 0, %53 ]
+  %.059 = phi i32 [ 0, %61 ], [ 0, %59 ], [ 1, %53 ]
   br i1 %37, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %59
-  %60 = getelementptr inbounds i8, ptr %.06789, i64 76
-  br label %61
+.lr.ph:                                           ; preds = %62
+  %63 = getelementptr inbounds i8, ptr %.06789, i64 76
+  br label %64
 
-61:                                               ; preds = %.lr.ph, %81
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %81 ]
-  %.182 = phi i32 [ %.059, %.lr.ph ], [ %.3, %81 ]
-  %.16181 = phi i32 [ %.060, %.lr.ph ], [ %.363, %81 ]
-  %62 = getelementptr inbounds [6 x float], ptr %60, i64 0, i64 %indvars.iv
-  %63 = load float, ptr %62, align 4
-  %64 = fpext float %63 to double
-  %65 = fcmp oeq float %63, -9.999000e+03
-  br i1 %65, label %81, label %66
+64:                                               ; preds = %.lr.ph, %84
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %84 ]
+  %.182 = phi i32 [ %.059, %.lr.ph ], [ %.3, %84 ]
+  %.16181 = phi i32 [ %.060, %.lr.ph ], [ %.363, %84 ]
+  %65 = getelementptr inbounds [6 x float], ptr %63, i64 0, i64 %indvars.iv
+  %66 = load float, ptr %65, align 4
+  %67 = fpext float %66 to double
+  %68 = fcmp oeq float %66, -9.999000e+03
+  br i1 %68, label %84, label %69
 
-66:                                               ; preds = %61
-  %67 = getelementptr inbounds float, ptr %3, i64 %indvars.iv
-  %68 = load float, ptr %67, align 4
-  %69 = fpext float %68 to double
-  %70 = fcmp oeq float %68, -9.999000e+03
-  br i1 %70, label %81, label %71
+69:                                               ; preds = %64
+  %70 = getelementptr inbounds float, ptr %3, i64 %indvars.iv
+  %71 = load float, ptr %70, align 4
+  %72 = fpext float %71 to double
+  %73 = fcmp oeq float %71, -9.999000e+03
+  br i1 %73, label %84, label %74
 
-71:                                               ; preds = %66
-  %72 = fadd double %64, 1.000000e-03
-  %73 = fcmp olt double %72, %69
-  br i1 %73, label %78, label %74
-
-74:                                               ; preds = %71
-  %75 = fadd double %69, 1.000000e-03
-  %76 = fcmp olt double %75, %64
-  br i1 %76, label %77, label %78
+74:                                               ; preds = %69
+  %75 = fadd double %67, 1.000000e-03
+  %76 = fcmp olt double %75, %72
+  br i1 %76, label %81, label %77
 
 77:                                               ; preds = %74
-  br label %78
+  %78 = fadd double %72, 1.000000e-03
+  %79 = fcmp olt double %78, %67
+  br i1 %79, label %80, label %81
 
-78:                                               ; preds = %71, %74, %77
-  %.464 = phi i32 [ 1, %77 ], [ %.16181, %74 ], [ %.16181, %71 ]
-  %.4 = phi i32 [ %.182, %77 ], [ %.182, %74 ], [ 1, %71 ]
-  %79 = icmp ne i32 %.4, 0
-  %80 = icmp ne i32 %.464, 0
-  %or.cond = select i1 %79, i1 %80, i1 false
-  br i1 %or.cond, label %._crit_edge, label %81
+80:                                               ; preds = %77
+  br label %81
 
-81:                                               ; preds = %78, %61, %66
-  %.363 = phi i32 [ %.16181, %61 ], [ %.16181, %66 ], [ %.464, %78 ]
-  %.3 = phi i32 [ %.182, %61 ], [ %.182, %66 ], [ %.4, %78 ]
+81:                                               ; preds = %74, %77, %80
+  %.464 = phi i32 [ 1, %80 ], [ %.16181, %77 ], [ %.16181, %74 ]
+  %.4 = phi i32 [ %.182, %80 ], [ %.182, %77 ], [ 1, %74 ]
+  %82 = icmp ne i32 %.4, 0
+  %83 = icmp ne i32 %.464, 0
+  %or.cond = select i1 %82, i1 %83, i1 false
+  br i1 %or.cond, label %._crit_edge, label %84
+
+84:                                               ; preds = %81, %64, %69
+  %.363 = phi i32 [ %.16181, %64 ], [ %.16181, %69 ], [ %.464, %81 ]
+  %.3 = phi i32 [ %.182, %64 ], [ %.182, %69 ], [ %.4, %81 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %61, !llvm.loop !54
+  br i1 %exitcond.not, label %._crit_edge, label %64, !llvm.loop !54
 
-._crit_edge:                                      ; preds = %81, %78, %59
-  %.262 = phi i32 [ %.060, %59 ], [ 1, %78 ], [ %.363, %81 ]
-  %.2 = phi i32 [ %.059, %59 ], [ 1, %78 ], [ %.3, %81 ]
-  %82 = icmp ne i32 %.2, 0
-  %83 = icmp ne i32 %.262, 0
-  %or.cond3 = select i1 %82, i1 %83, i1 false
-  br i1 %or.cond3, label %94, label %84
+._crit_edge:                                      ; preds = %84, %81, %62
+  %.262 = phi i32 [ %.060, %62 ], [ 1, %81 ], [ %.363, %84 ]
+  %.2 = phi i32 [ %.059, %62 ], [ 1, %81 ], [ %.3, %84 ]
+  %85 = icmp ne i32 %.2, 0
+  %86 = icmp ne i32 %.262, 0
+  %or.cond3 = select i1 %85, i1 %86, i1 false
+  br i1 %or.cond3, label %100, label %87
 
-84:                                               ; preds = %._crit_edge
-  br i1 %83, label %85, label %.loopexit
+87:                                               ; preds = %._crit_edge
+  br i1 %86, label %88, label %.loopexit
 
-85:                                               ; preds = %84
-  %86 = icmp eq ptr %.06888, null
-  %87 = getelementptr inbounds i8, ptr %.06789, i64 104
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %.06888, i64 104
-  %90 = load ptr, ptr %6, align 8
-  %.sink = select i1 %86, ptr %90, ptr %89
-  store ptr %88, ptr %.sink, align 8
-  %91 = load ptr, ptr %38, align 8
-  call void @Extra_MmFixedEntryRecycle(ptr noundef %91, ptr noundef nonnull %.06789) #19
-  br label %.sink.split
+88:                                               ; preds = %87
+  %89 = icmp eq ptr %.06888, null
+  %90 = getelementptr inbounds i8, ptr %.06789, i64 104
+  %91 = load ptr, ptr %90, align 8
+  br i1 %89, label %92, label %94
 
-.sink.split:                                      ; preds = %40, %46, %85
-  %.sink101 = phi ptr [ %39, %85 ], [ %34, %46 ], [ %34, %40 ]
-  %92 = load i32, ptr %.sink101, align 8
-  %93 = add nsw i32 %92, 1
-  store i32 %93, ptr %.sink101, align 8
-  br label %94
+92:                                               ; preds = %88
+  %93 = load ptr, ptr %6, align 8
+  store ptr %91, ptr %93, align 8
+  br label %96
 
-94:                                               ; preds = %.sink.split, %._crit_edge
-  %.169 = phi ptr [ %.06789, %._crit_edge ], [ %.06888, %.sink.split ]
+94:                                               ; preds = %88
+  %95 = getelementptr inbounds i8, ptr %.06888, i64 104
+  store ptr %91, ptr %95, align 8
+  br label %96
+
+96:                                               ; preds = %94, %92
+  %97 = load ptr, ptr %38, align 8
+  call void @Extra_MmFixedEntryRecycle(ptr noundef %97, ptr noundef nonnull %.06789) #19
+  %98 = load i32, ptr %39, align 8
+  %99 = add nsw i32 %98, 1
+  store i32 %99, ptr %39, align 8
+  br label %100
+
+100:                                              ; preds = %._crit_edge, %96, %50
+  %.169 = phi ptr [ %.06888, %50 ], [ %.06888, %96 ], [ %.06789, %._crit_edge ]
   %.not79 = icmp eq ptr %.06690, null
   br i1 %.not79, label %.loopexit, label %40, !llvm.loop !55
 
-.loopexit:                                        ; preds = %94, %84, %30, %.thread, %13, %17, %11, %11
-  %.0 = phi i32 [ 0, %11 ], [ 0, %11 ], [ 0, %17 ], [ 0, %13 ], [ 1, %.thread ], [ 1, %30 ], [ 1, %94 ], [ 0, %84 ]
+.loopexit:                                        ; preds = %100, %87, %30, %.thread, %13, %17, %11, %11
+  %.0 = phi i32 [ 0, %11 ], [ 0, %11 ], [ 0, %17 ], [ 0, %13 ], [ 1, %.thread ], [ 1, %30 ], [ 1, %100 ], [ 0, %87 ]
   ret i32 %.0
 }
 

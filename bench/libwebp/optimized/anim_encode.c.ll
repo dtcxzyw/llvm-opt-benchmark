@@ -2093,7 +2093,7 @@ SubFrameParamsInit.exit88:                        ; preds = %33
   %41 = load float, ptr %40, align 4
   %42 = call fastcc i32 @GetSubRects(ptr noundef %12, ptr noundef %11, i32 noundef %2, i32 noundef %18, float noundef %41, ptr noundef %7)
   %.not67 = icmp eq i32 %42, 0
-  br i1 %.not67, label %175, label %43
+  br i1 %.not67, label %174, label %43
 
 43:                                               ; preds = %39
   br i1 %., label %44, label %50
@@ -2179,7 +2179,7 @@ IsEmptyRect.exit.thread:                          ; preds = %51, %44
 DisposeFrameRectangle.exit:                       ; preds = %.lr.ph.us.i.i.i, %58, %.lr.ph18.i.i.i
   %89 = call fastcc i32 @GetSubRects(ptr noundef %59, ptr noundef %11, i32 noundef %2, i32 noundef %18, float noundef %41, ptr noundef %8)
   %.not70 = icmp eq i32 %89, 0
-  br i1 %.not70, label %175, label %90
+  br i1 %.not70, label %174, label %90
 
 90:                                               ; preds = %DisposeFrameRectangle.exit
   %91 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2236,7 +2236,7 @@ DisposeFrameRectangle.exit:                       ; preds = %.lr.ph.us.i.i.i, %5
 110:                                              ; preds = %.thread100, %109
   %111 = call fastcc i32 @GenerateCandidates(ptr noundef %0, ptr noundef %6, i32 noundef 0, i32 noundef %13, i32 noundef %2, ptr noundef %7, ptr noundef %9, ptr noundef %10)
   %.not73 = icmp eq i32 %111, 0
-  br i1 %.not73, label %112, label %175
+  br i1 %.not73, label %112, label %174
 
 112:                                              ; preds = %110, %109
   %.pr103 = load i32, ptr %8, align 8
@@ -2249,7 +2249,7 @@ DisposeFrameRectangle.exit:                       ; preds = %.lr.ph.us.i.i.i, %5
 113:                                              ; preds = %.thread104, %112
   %114 = call fastcc i32 @GenerateCandidates(ptr noundef %0, ptr noundef %6, i32 noundef 1, i32 noundef %13, i32 noundef %2, ptr noundef %8, ptr noundef %9, ptr noundef %10)
   %.not75 = icmp eq i32 %114, 0
-  br i1 %.not75, label %.preheader, label %175
+  br i1 %.not75, label %.preheader, label %174
 
 .preheader.i:                                     ; preds = %161
   %.idx.i = select i1 %.not62, i64 0, i64 48
@@ -2304,6 +2304,7 @@ DisposeFrameRectangle.exit:                       ; preds = %.lr.ph.us.i.i.i, %5
   %142 = getelementptr i8, ptr %139, i64 -176
   store i32 %119, ptr %142, align 8
   %143 = getelementptr i8, ptr %139, i64 -128
+  store i32 %119, ptr %143, align 8
   br label %SetPreviousDisposeMethod.exit.us.i
 
 144:                                              ; preds = %132
@@ -2314,11 +2315,10 @@ DisposeFrameRectangle.exit:                       ; preds = %.lr.ph.us.i.i.i, %5
   %.idx.i.us.i = select i1 %.not12.i.us.i, i64 0, i64 48
   %148 = getelementptr inbounds i8, ptr %145, i64 %.idx.i.us.i
   %149 = getelementptr inbounds i8, ptr %148, i64 32
+  store i32 %119, ptr %149, align 8
   br label %SetPreviousDisposeMethod.exit.us.i
 
 SetPreviousDisposeMethod.exit.us.i:               ; preds = %144, %141
-  %.sink.i.us.i = phi ptr [ %149, %144 ], [ %143, %141 ]
-  store i32 %119, ptr %.sink.i.us.i, align 8
   %150 = getelementptr inbounds i8, ptr %126, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %124, ptr noundef nonnull align 8 dereferenceable(16) %150, i64 16, i1 false)
   br label %151
@@ -2354,63 +2354,63 @@ SetPreviousDisposeMethod.exit.us.i:               ; preds = %144, %141
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %.preheader.i, label %152, !llvm.loop !17
 
-.preheader.split.i:                               ; preds = %.preheader.i, %174
-  %indvars.iv50.i = phi i64 [ %indvars.iv.next51.i, %174 ], [ 0, %.preheader.i ]
+.preheader.split.i:                               ; preds = %.preheader.i, %173
+  %indvars.iv50.i = phi i64 [ %indvars.iv.next51.i, %173 ], [ 0, %.preheader.i ]
   %162 = getelementptr inbounds %struct.Candidate, ptr %6, i64 %indvars.iv50.i
   %163 = getelementptr inbounds i8, ptr %162, i64 96
   %164 = load i32, ptr %163, align 8
   %.not.i91 = icmp eq i32 %164, 0
-  br i1 %.not.i91, label %174, label %165
+  br i1 %.not.i91, label %173, label %165
 
 165:                                              ; preds = %.preheader.split.i
   %166 = icmp eq i64 %indvars.iv50.i, %125
-  br i1 %166, label %167, label %173
+  br i1 %166, label %SetPreviousDisposeMethod.exit.i, label %172
 
-167:                                              ; preds = %165
-  %168 = getelementptr inbounds i8, ptr %162, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %115, ptr noundef nonnull align 8 dereferenceable(48) %168, i64 48, i1 false)
-  %169 = load ptr, ptr %162, align 8
-  store ptr %169, ptr %115, align 8
-  %170 = getelementptr inbounds i8, ptr %162, i64 8
-  %171 = load i64, ptr %170, align 8
-  store i64 %171, ptr %116, align 8
-  %172 = getelementptr inbounds i8, ptr %162, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %124, ptr noundef nonnull align 8 dereferenceable(16) %172, i64 16, i1 false)
-  br label %174
+SetPreviousDisposeMethod.exit.i:                  ; preds = %165
+  %167 = getelementptr inbounds i8, ptr %162, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %115, ptr noundef nonnull align 8 dereferenceable(48) %167, i64 48, i1 false)
+  %168 = load ptr, ptr %162, align 8
+  store ptr %168, ptr %115, align 8
+  %169 = getelementptr inbounds i8, ptr %162, i64 8
+  %170 = load i64, ptr %169, align 8
+  store i64 %170, ptr %116, align 8
+  %171 = getelementptr inbounds i8, ptr %162, i64 80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %124, ptr noundef nonnull align 8 dereferenceable(16) %171, i64 16, i1 false)
+  br label %173
 
-173:                                              ; preds = %165
+172:                                              ; preds = %165
   call void @WebPMemoryWriterClear(ptr noundef nonnull %162) #14
   store i32 0, ptr %163, align 8
-  br label %174
+  br label %173
 
-174:                                              ; preds = %173, %167, %.preheader.split.i
+173:                                              ; preds = %172, %SetPreviousDisposeMethod.exit.i, %.preheader.split.i
   %indvars.iv.next51.i = add nuw nsw i64 %indvars.iv50.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next51.i, 4
   br i1 %exitcond53.not.i, label %PickBestCandidate.exit, label %.preheader.split.i, !llvm.loop !16
 
-175:                                              ; preds = %DisposeFrameRectangle.exit, %39, %113, %110
+174:                                              ; preds = %DisposeFrameRectangle.exit, %39, %113, %110
   %.056 = phi i32 [ %111, %110 ], [ %114, %113 ], [ 4, %39 ], [ 4, %DisposeFrameRectangle.exit ]
-  br label %176
+  br label %175
 
-176:                                              ; preds = %175, %181
-  %indvars.iv = phi i64 [ 0, %175 ], [ %indvars.iv.next, %181 ]
-  %177 = getelementptr inbounds [4 x %struct.Candidate], ptr %6, i64 0, i64 %indvars.iv
-  %178 = getelementptr inbounds i8, ptr %177, i64 96
-  %179 = load i32, ptr %178, align 8
-  %.not76 = icmp eq i32 %179, 0
-  br i1 %.not76, label %181, label %180
+175:                                              ; preds = %174, %180
+  %indvars.iv = phi i64 [ 0, %174 ], [ %indvars.iv.next, %180 ]
+  %176 = getelementptr inbounds [4 x %struct.Candidate], ptr %6, i64 0, i64 %indvars.iv
+  %177 = getelementptr inbounds i8, ptr %176, i64 96
+  %178 = load i32, ptr %177, align 8
+  %.not76 = icmp eq i32 %178, 0
+  br i1 %.not76, label %180, label %179
 
-180:                                              ; preds = %176
-  call void @WebPMemoryWriterClear(ptr noundef nonnull %177) #14
-  br label %181
+179:                                              ; preds = %175
+  call void @WebPMemoryWriterClear(ptr noundef nonnull %176) #14
+  br label %180
 
-181:                                              ; preds = %176, %180
+180:                                              ; preds = %175, %179
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %PickBestCandidate.exit, label %176, !llvm.loop !18
+  br i1 %exitcond.not, label %PickBestCandidate.exit, label %175, !llvm.loop !18
 
-PickBestCandidate.exit:                           ; preds = %174, %151, %181, %IsEmptyRect.exit.thread
-  %.1 = phi i32 [ 0, %IsEmptyRect.exit.thread ], [ %.056, %181 ], [ 0, %151 ], [ 0, %174 ]
+PickBestCandidate.exit:                           ; preds = %173, %151, %180, %IsEmptyRect.exit.thread
+  %.1 = phi i32 [ 0, %IsEmptyRect.exit.thread ], [ %.056, %180 ], [ 0, %151 ], [ 0, %173 ]
   call void @WebPPictureFree(ptr noundef nonnull %29) #14
   call void @WebPPictureFree(ptr noundef nonnull %31) #14
   call void @WebPPictureFree(ptr noundef nonnull %35) #14

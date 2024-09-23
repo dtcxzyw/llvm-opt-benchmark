@@ -97,64 +97,13 @@ define hidden noundef ptr @_pysqlite_query_execute(ptr noundef %self, i32 nounde
 entry:
   %current_param101.i = alloca ptr, align 8
   %args.i = alloca [2 x ptr], align 16
-  %initialized.i = getelementptr inbounds i8, ptr %self, i64 88
-  %0 = load i32, ptr %initialized.i, align 8
-  %tobool.not.i = icmp eq i32 %0, 0
-  br i1 %tobool.not.i, label %if.then.i, label %if.end.i122
+  %call = tail call fastcc i32 @check_cursor(ptr noundef %self)
+  %tobool.not = icmp eq i32 %call, 0
+  br i1 %tobool.not, label %Py_XDECREF.exit222, label %if.end
 
-if.then.i:                                        ; preds = %entry
-  %1 = getelementptr i8, ptr %self, i64 8
-  %cur.val.i = load ptr, ptr %1, align 8
-  %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %cur.val.i, ptr noundef nonnull @_sqlite3module) #7
-  %call.i.i.i = tail call ptr @PyModule_GetState(ptr noundef %call.i.i) #7
-  %ProgrammingError.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
-  br label %return.sink.split.i
-
-if.end.i122:                                      ; preds = %entry
-  %closed.i = getelementptr inbounds i8, ptr %self, i64 80
-  %2 = load i32, ptr %closed.i, align 8
-  %tobool2.not.i = icmp eq i32 %2, 0
-  %connection7.i = getelementptr i8, ptr %self, i64 16
-  %3 = load ptr, ptr %connection7.i, align 8
-  br i1 %tobool2.not.i, label %if.end6.i, label %if.then3.i
-
-if.then3.i:                                       ; preds = %if.end.i122
-  %state4.i = getelementptr inbounds i8, ptr %3, i64 24
-  %4 = load ptr, ptr %state4.i, align 8
-  %ProgrammingError5.i = getelementptr inbounds i8, ptr %4, i64 64
-  br label %return.sink.split.i
-
-if.end6.i:                                        ; preds = %if.end.i122
-  %call8.i = tail call i32 @pysqlite_check_thread(ptr noundef %3) #7
-  %tobool9.not.i = icmp eq i32 %call8.i, 0
-  br i1 %tobool9.not.i, label %Py_XDECREF.exit233, label %land.lhs.true.i
-
-land.lhs.true.i:                                  ; preds = %if.end6.i
-  %5 = load ptr, ptr %connection7.i, align 8
-  %call11.i = tail call i32 @pysqlite_check_connection(ptr noundef %5) #7
-  %tobool12.not.i = icmp eq i32 %call11.i, 0
-  br i1 %tobool12.not.i, label %Py_XDECREF.exit233, label %land.rhs.i
-
-land.rhs.i:                                       ; preds = %land.lhs.true.i
-  %locked.i.i = getelementptr inbounds i8, ptr %self, i64 84
-  %6 = load i32, ptr %locked.i.i, align 4
-  %tobool.not.i.i = icmp eq i32 %6, 0
-  br i1 %tobool.not.i.i, label %if.end, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %land.rhs.i
-  %7 = load ptr, ptr %connection7.i, align 8
-  %ProgrammingError.i.i = getelementptr inbounds i8, ptr %7, i64 208
-  br label %return.sink.split.i
-
-return.sink.split.i:                              ; preds = %if.then.i.i, %if.then3.i, %if.then.i
-  %ProgrammingError.i.sink.i = phi ptr [ %ProgrammingError.i.i, %if.then.i.i ], [ %ProgrammingError5.i, %if.then3.i ], [ %ProgrammingError.i, %if.then.i ]
-  %.str.4.sink.i = phi ptr [ @.str.4, %if.then.i.i ], [ @.str.3, %if.then3.i ], [ @.str.2, %if.then.i ]
-  %8 = load ptr, ptr %ProgrammingError.i.sink.i, align 8
-  tail call void @PyErr_SetString(ptr noundef %8, ptr noundef nonnull %.str.4.sink.i) #7
-  br label %Py_XDECREF.exit233
-
-if.end:                                           ; preds = %land.rhs.i
-  store i32 1, ptr %locked.i.i, align 4
+if.end:                                           ; preds = %entry
+  %locked = getelementptr inbounds i8, ptr %self, i64 84
+  store i32 1, ptr %locked, align 4
   %tobool1.not = icmp eq i32 %multiple, 0
   br i1 %tobool1.not, label %if.else12, label %if.then2
 
@@ -164,8 +113,8 @@ if.then2:                                         ; preds = %if.end
   br i1 %tobool4.not, label %if.else, label %if.then5
 
 if.then5:                                         ; preds = %if.then2
-  %9 = load i32, ptr %second_argument, align 8
-  %add.i.i = add i32 %9, 1
+  %0 = load i32, ptr %second_argument, align 8
+  %add.i.i = add i32 %0, 1
   %cmp.i.i = icmp eq i32 %add.i.i, 0
   br i1 %cmp.i.i, label %if.end32, label %if.end.i.i
 
@@ -176,12 +125,12 @@ if.end.i.i:                                       ; preds = %if.then5
 if.else:                                          ; preds = %if.then2
   %call7 = tail call ptr @PyObject_GetIter(ptr noundef %second_argument) #7
   %tobool8.not = icmp eq ptr %call7, null
-  br i1 %tobool8.not, label %Py_XDECREF.exit233, label %if.end32
+  br i1 %tobool8.not, label %Py_XDECREF.exit222, label %if.end32
 
 if.else12:                                        ; preds = %if.end
   %call13 = tail call ptr @PyList_New(i64 noundef 0) #7
   %tobool14.not = icmp eq ptr %call13, null
-  br i1 %tobool14.not, label %Py_XDECREF.exit233, label %if.end16
+  br i1 %tobool14.not, label %Py_XDECREF.exit222, label %if.end16
 
 if.end16:                                         ; preds = %if.else12
   %cmp = icmp eq ptr %second_argument, null
@@ -190,11 +139,11 @@ if.end16:                                         ; preds = %if.else12
 if.then17:                                        ; preds = %if.end16
   %call18 = tail call ptr @PyTuple_New(i64 noundef 0) #7
   %tobool19.not = icmp eq ptr %call18, null
-  br i1 %tobool19.not, label %if.then.i226, label %if.end23
+  br i1 %tobool19.not, label %if.then.i215, label %if.end23
 
 if.else22:                                        ; preds = %if.end16
-  %10 = load i32, ptr %second_argument, align 8
-  %add.i242 = add i32 %10, 1
+  %1 = load i32, ptr %second_argument, align 8
+  %add.i242 = add i32 %1, 1
   %cmp.i243 = icmp eq i32 %add.i242, 0
   br i1 %cmp.i243, label %if.end23, label %if.end.i244
 
@@ -206,29 +155,29 @@ if.end23:                                         ; preds = %if.end.i244, %if.el
   %second_argument.addr.0 = phi ptr [ %call18, %if.then17 ], [ %second_argument, %if.else22 ], [ %second_argument, %if.end.i244 ]
   %call24 = tail call i32 @PyList_Append(ptr noundef nonnull %call13, ptr noundef nonnull %second_argument.addr.0) #7
   %cmp25.not = icmp eq i32 %call24, 0
-  %11 = load i64, ptr %second_argument.addr.0, align 8
-  %12 = and i64 %11, 2147483648
-  %cmp.i327.not = icmp eq i64 %12, 0
+  %2 = load i64, ptr %second_argument.addr.0, align 8
+  %3 = and i64 %2, 2147483648
+  %cmp.i327.not = icmp eq i64 %3, 0
   br i1 %cmp25.not, label %if.end27, label %if.then26
 
 if.then26:                                        ; preds = %if.end23
-  br i1 %cmp.i327.not, label %if.end.i317, label %if.then.i226
+  br i1 %cmp.i327.not, label %if.end.i317, label %if.then.i215
 
 if.end.i317:                                      ; preds = %if.then26
-  %dec.i318 = add i64 %11, -1
+  %dec.i318 = add i64 %2, -1
   store i64 %dec.i318, ptr %second_argument.addr.0, align 8
   %cmp.i319 = icmp eq i64 %dec.i318, 0
-  br i1 %cmp.i319, label %if.then1.i320, label %if.then.i226
+  br i1 %cmp.i319, label %if.then1.i320, label %if.then.i215
 
 if.then1.i320:                                    ; preds = %if.end.i317
   tail call void @_Py_Dealloc(ptr noundef nonnull %second_argument.addr.0) #7
-  br label %if.then.i226
+  br label %if.then.i215
 
 if.end27:                                         ; preds = %if.end23
   br i1 %cmp.i327.not, label %if.end.i308, label %Py_DECREF.exit313
 
 if.end.i308:                                      ; preds = %if.end27
-  %dec.i309 = add i64 %11, -1
+  %dec.i309 = add i64 %2, -1
   store i64 %dec.i309, ptr %second_argument.addr.0, align 8
   %cmp.i310 = icmp eq i64 %dec.i309, 0
   br i1 %cmp.i310, label %if.then1.i311, label %Py_DECREF.exit313
@@ -240,13 +189,13 @@ if.then1.i311:                                    ; preds = %if.end.i308
 Py_DECREF.exit313:                                ; preds = %if.end27, %if.then1.i311, %if.end.i308
   %call28 = tail call ptr @PyObject_GetIter(ptr noundef nonnull %call13) #7
   %tobool29.not = icmp eq ptr %call28, null
-  br i1 %tobool29.not, label %if.then.i226, label %if.end32
+  br i1 %tobool29.not, label %if.then.i215, label %if.end32
 
 if.end32:                                         ; preds = %if.end.i.i, %if.then5, %Py_DECREF.exit313, %if.else
   %parameters_iter.1 = phi ptr [ %call7, %if.else ], [ %call28, %Py_DECREF.exit313 ], [ %second_argument, %if.then5 ], [ %second_argument, %if.end.i.i ]
   %parameters_list.1 = phi ptr [ null, %if.else ], [ %call13, %Py_DECREF.exit313 ], [ null, %if.then5 ], [ null, %if.end.i.i ]
-  %13 = load i32, ptr @_Py_NoneStruct, align 8
-  %add.i = add i32 %13, 1
+  %4 = load i32, ptr @_Py_NoneStruct, align 8
+  %add.i = add i32 %4, 1
   %cmp.i = icmp eq i32 %add.i, 0
   br i1 %cmp.i, label %do.body, label %if.end.i
 
@@ -256,92 +205,93 @@ if.end.i:                                         ; preds = %if.end32
 
 do.body:                                          ; preds = %if.end.i, %if.end32
   %description = getelementptr inbounds i8, ptr %self, i64 24
-  %14 = load ptr, ptr %description, align 8
+  %5 = load ptr, ptr %description, align 8
   store ptr @_Py_NoneStruct, ptr %description, align 8
-  %15 = load i64, ptr %14, align 8
-  %16 = and i64 %15, 2147483648
-  %cmp.i331.not = icmp eq i64 %16, 0
+  %6 = load i64, ptr %5, align 8
+  %7 = and i64 %6, 2147483648
+  %cmp.i331.not = icmp eq i64 %7, 0
   br i1 %cmp.i331.not, label %if.end.i299, label %do.end
 
 if.end.i299:                                      ; preds = %do.body
-  %dec.i300 = add i64 %15, -1
-  store i64 %dec.i300, ptr %14, align 8
+  %dec.i300 = add i64 %6, -1
+  store i64 %dec.i300, ptr %5, align 8
   %cmp.i301 = icmp eq i64 %dec.i300, 0
   br i1 %cmp.i301, label %if.then1.i302, label %do.end
 
 if.then1.i302:                                    ; preds = %if.end.i299
-  tail call void @_Py_Dealloc(ptr noundef nonnull %14) #7
+  tail call void @_Py_Dealloc(ptr noundef nonnull %5) #7
   br label %do.end
 
 do.end:                                           ; preds = %if.end.i299, %if.then1.i302, %do.body
   %statement = getelementptr inbounds i8, ptr %self, i64 72
-  %17 = load ptr, ptr %statement, align 8
-  %tobool33.not = icmp eq ptr %17, null
+  %8 = load ptr, ptr %statement, align 8
+  %tobool33.not = icmp eq ptr %8, null
   br i1 %tobool33.not, label %if.end37, label %if.then34
 
 if.then34:                                        ; preds = %do.end
-  %st.i = getelementptr inbounds i8, ptr %17, i64 16
-  %18 = load ptr, ptr %st.i, align 8
-  %cmp.not.i = icmp eq ptr %18, null
-  br i1 %cmp.not.i, label %if.end37, label %if.then.i123
+  %st.i = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = load ptr, ptr %st.i, align 8
+  %cmp.not.i = icmp eq ptr %9, null
+  br i1 %cmp.not.i, label %if.end37, label %if.then.i
 
-if.then.i123:                                     ; preds = %if.then34
+if.then.i:                                        ; preds = %if.then34
   %call.i = tail call ptr @PyEval_SaveThread() #7
-  %19 = load ptr, ptr %st.i, align 8
-  %call2.i = tail call i32 @sqlite3_reset(ptr noundef %19) #7
+  %10 = load ptr, ptr %st.i, align 8
+  %call2.i = tail call i32 @sqlite3_reset(ptr noundef %10) #7
   tail call void @PyEval_RestoreThread(ptr noundef %call.i) #7
   br label %if.end37
 
-if.end37:                                         ; preds = %if.then.i123, %if.then34, %do.end
-  %self.val = load ptr, ptr %connection7.i, align 8
-  %20 = getelementptr i8, ptr %self.val, i64 72
-  %self.val.val = load ptr, ptr %20, align 8
+if.end37:                                         ; preds = %if.then.i, %if.then34, %do.end
+  %11 = getelementptr i8, ptr %self, i64 16
+  %self.val = load ptr, ptr %11, align 8
+  %12 = getelementptr i8, ptr %self.val, i64 72
+  %self.val.val = load ptr, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %args.i)
   store ptr null, ptr %args.i, align 16
   %arrayinit.element.i = getelementptr inbounds i8, ptr %args.i, i64 8
   store ptr %operation, ptr %arrayinit.element.i, align 8
-  %call.i125 = call ptr @PyObject_Vectorcall(ptr noundef %self.val.val, ptr noundef nonnull %arrayinit.element.i, i64 noundef -9223372036854775807, ptr noundef null) #7
+  %call.i123 = call ptr @PyObject_Vectorcall(ptr noundef %self.val.val, ptr noundef nonnull %arrayinit.element.i, i64 noundef -9223372036854775807, ptr noundef null) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i)
-  %21 = load ptr, ptr %statement, align 8
-  store ptr %call.i125, ptr %statement, align 8
-  %cmp.not.i126 = icmp eq ptr %21, null
-  br i1 %cmp.not.i126, label %Py_XDECREF.exit, label %if.then.i127
+  %13 = load ptr, ptr %statement, align 8
+  store ptr %call.i123, ptr %statement, align 8
+  %cmp.not.i124 = icmp eq ptr %13, null
+  br i1 %cmp.not.i124, label %Py_XDECREF.exit, label %if.then.i125
 
-if.then.i127:                                     ; preds = %if.end37
-  %22 = load i64, ptr %21, align 8
-  %23 = and i64 %22, 2147483648
-  %cmp.i2.not.i = icmp eq i64 %23, 0
-  br i1 %cmp.i2.not.i, label %if.end.i.i129, label %Py_XDECREF.exitthread-pre-split
+if.then.i125:                                     ; preds = %if.end37
+  %14 = load i64, ptr %13, align 8
+  %15 = and i64 %14, 2147483648
+  %cmp.i2.not.i = icmp eq i64 %15, 0
+  br i1 %cmp.i2.not.i, label %if.end.i.i127, label %Py_XDECREF.exitthread-pre-split
 
-if.end.i.i129:                                    ; preds = %if.then.i127
-  %dec.i.i = add i64 %22, -1
-  store i64 %dec.i.i, ptr %21, align 8
-  %cmp.i.i130 = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp.i.i130, label %if.then1.i.i, label %Py_XDECREF.exitthread-pre-split
+if.end.i.i127:                                    ; preds = %if.then.i125
+  %dec.i.i = add i64 %14, -1
+  store i64 %dec.i.i, ptr %13, align 8
+  %cmp.i.i128 = icmp eq i64 %dec.i.i, 0
+  br i1 %cmp.i.i128, label %if.then1.i.i, label %Py_XDECREF.exitthread-pre-split
 
-if.then1.i.i:                                     ; preds = %if.end.i.i129
-  call void @_Py_Dealloc(ptr noundef nonnull %21) #7
+if.then1.i.i:                                     ; preds = %if.end.i.i127
+  call void @_Py_Dealloc(ptr noundef nonnull %13) #7
   br label %Py_XDECREF.exitthread-pre-split
 
-Py_XDECREF.exitthread-pre-split:                  ; preds = %if.then1.i.i, %if.end.i.i129, %if.then.i127
+Py_XDECREF.exitthread-pre-split:                  ; preds = %if.then1.i.i, %if.end.i.i127, %if.then.i125
   %.pr = load ptr, ptr %statement, align 8
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %Py_XDECREF.exitthread-pre-split, %if.end37
-  %24 = phi ptr [ %.pr, %Py_XDECREF.exitthread-pre-split ], [ %call.i125, %if.end37 ]
-  %tobool45.not = icmp eq ptr %24, null
-  br i1 %tobool45.not, label %if.then.i217, label %if.end47
+  %16 = phi ptr [ %.pr, %Py_XDECREF.exitthread-pre-split ], [ %call.i123, %if.end37 ]
+  %tobool45.not = icmp eq ptr %16, null
+  br i1 %tobool45.not, label %if.then.i206, label %if.end47
 
 if.end47:                                         ; preds = %Py_XDECREF.exit
-  %25 = load ptr, ptr %connection7.i, align 8
-  %state48 = getelementptr inbounds i8, ptr %25, i64 24
-  %26 = load ptr, ptr %state48, align 8
+  %17 = load ptr, ptr %11, align 8
+  %state48 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = load ptr, ptr %state48, align 8
   br i1 %tobool1.not, label %if.end54, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end47
-  %st = getelementptr inbounds i8, ptr %24, i64 16
-  %27 = load ptr, ptr %st, align 8
-  %call51 = call i32 @sqlite3_stmt_readonly(ptr noundef %27) #7
+  %st = getelementptr inbounds i8, ptr %16, i64 16
+  %19 = load ptr, ptr %st, align 8
+  %call51 = call i32 @sqlite3_stmt_readonly(ptr noundef %19) #7
   %tobool52.not = icmp eq i32 %call51, 0
   br i1 %tobool52.not, label %land.lhs.true.if.end54_crit_edge, label %if.then53
 
@@ -350,162 +300,162 @@ land.lhs.true.if.end54_crit_edge:                 ; preds = %land.lhs.true
   br label %if.end54
 
 if.then53:                                        ; preds = %land.lhs.true
-  %ProgrammingError = getelementptr inbounds i8, ptr %26, i64 64
-  %28 = load ptr, ptr %ProgrammingError, align 8
-  call void @PyErr_SetString(ptr noundef %28, ptr noundef nonnull @.str) #7
-  br label %if.then.i217
+  %ProgrammingError = getelementptr inbounds i8, ptr %18, i64 64
+  %20 = load ptr, ptr %ProgrammingError, align 8
+  call void @PyErr_SetString(ptr noundef %20, ptr noundef nonnull @.str) #7
+  br label %if.then.i206
 
 if.end54:                                         ; preds = %land.lhs.true.if.end54_crit_edge, %if.end47
-  %29 = phi ptr [ %.pre, %land.lhs.true.if.end54_crit_edge ], [ %24, %if.end47 ]
-  %st56 = getelementptr inbounds i8, ptr %29, i64 16
-  %30 = load ptr, ptr %st56, align 8
-  %call57 = call i32 @sqlite3_stmt_busy(ptr noundef %30) #7
+  %21 = phi ptr [ %.pre, %land.lhs.true.if.end54_crit_edge ], [ %16, %if.end47 ]
+  %st56 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = load ptr, ptr %st56, align 8
+  %call57 = call i32 @sqlite3_stmt_busy(ptr noundef %22) #7
   %tobool58.not = icmp eq i32 %call57, 0
-  %.pre331 = load ptr, ptr %statement, align 8
+  %.pre318 = load ptr, ptr %statement, align 8
   br i1 %tobool58.not, label %if.end71, label %do.body60
 
 do.body60:                                        ; preds = %if.end54
-  %31 = load ptr, ptr %connection7.i, align 8
-  %call65 = call ptr @pysqlite_statement_create(ptr noundef %31, ptr noundef %operation) #7
+  %23 = load ptr, ptr %11, align 8
+  %call65 = call ptr @pysqlite_statement_create(ptr noundef %23, ptr noundef %operation) #7
   store ptr %call65, ptr %statement, align 8
-  %32 = load i64, ptr %.pre331, align 8
-  %33 = and i64 %32, 2147483648
-  %cmp.i335.not = icmp eq i64 %33, 0
+  %24 = load i64, ptr %.pre318, align 8
+  %25 = and i64 %24, 2147483648
+  %cmp.i335.not = icmp eq i64 %25, 0
   br i1 %cmp.i335.not, label %if.end.i290, label %do.end66
 
 if.end.i290:                                      ; preds = %do.body60
-  %dec.i291 = add i64 %32, -1
-  store i64 %dec.i291, ptr %.pre331, align 8
+  %dec.i291 = add i64 %24, -1
+  store i64 %dec.i291, ptr %.pre318, align 8
   %cmp.i292 = icmp eq i64 %dec.i291, 0
   br i1 %cmp.i292, label %if.then1.i293, label %do.end66thread-pre-split
 
 if.then1.i293:                                    ; preds = %if.end.i290
-  call void @_Py_Dealloc(ptr noundef nonnull %.pre331) #7
+  call void @_Py_Dealloc(ptr noundef nonnull %.pre318) #7
   br label %do.end66thread-pre-split
 
 do.end66thread-pre-split:                         ; preds = %if.then1.i293, %if.end.i290
-  %.pr248 = load ptr, ptr %statement, align 8
+  %.pr235 = load ptr, ptr %statement, align 8
   br label %do.end66
 
 do.end66:                                         ; preds = %do.end66thread-pre-split, %do.body60
-  %34 = phi ptr [ %.pr248, %do.end66thread-pre-split ], [ %call65, %do.body60 ]
-  %cmp68 = icmp eq ptr %34, null
-  br i1 %cmp68, label %if.then.i217, label %if.end71
+  %26 = phi ptr [ %.pr235, %do.end66thread-pre-split ], [ %call65, %do.body60 ]
+  %cmp68 = icmp eq ptr %26, null
+  br i1 %cmp68, label %if.then.i206, label %if.end71
 
 if.end71:                                         ; preds = %do.end66, %if.end54
-  %35 = phi ptr [ %34, %do.end66 ], [ %.pre331, %if.end54 ]
-  %st.i131 = getelementptr inbounds i8, ptr %35, i64 16
-  %36 = load ptr, ptr %st.i131, align 8
-  %cmp.not.i132 = icmp eq ptr %36, null
-  br i1 %cmp.not.i132, label %stmt_reset.exit138, label %if.then.i133
+  %27 = phi ptr [ %26, %do.end66 ], [ %.pre318, %if.end54 ]
+  %st.i129 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = load ptr, ptr %st.i129, align 8
+  %cmp.not.i130 = icmp eq ptr %28, null
+  br i1 %cmp.not.i130, label %stmt_reset.exit136, label %if.then.i131
 
-if.then.i133:                                     ; preds = %if.end71
-  %call.i134 = call ptr @PyEval_SaveThread() #7
-  %37 = load ptr, ptr %st.i131, align 8
-  %call2.i135 = call i32 @sqlite3_reset(ptr noundef %37) #7
-  call void @PyEval_RestoreThread(ptr noundef %call.i134) #7
-  %.pre332 = load ptr, ptr %statement, align 8
-  br label %stmt_reset.exit138
+if.then.i131:                                     ; preds = %if.end71
+  %call.i132 = call ptr @PyEval_SaveThread() #7
+  %29 = load ptr, ptr %st.i129, align 8
+  %call2.i133 = call i32 @sqlite3_reset(ptr noundef %29) #7
+  call void @PyEval_RestoreThread(ptr noundef %call.i132) #7
+  %.pre319 = load ptr, ptr %statement, align 8
+  br label %stmt_reset.exit136
 
-stmt_reset.exit138:                               ; preds = %if.end71, %if.then.i133
-  %38 = phi ptr [ %35, %if.end71 ], [ %.pre332, %if.then.i133 ]
-  %is_dml = getelementptr inbounds i8, ptr %38, i64 24
-  %39 = load i32, ptr %is_dml, align 8
-  %tobool75.not = icmp eq i32 %39, 0
+stmt_reset.exit136:                               ; preds = %if.end71, %if.then.i131
+  %30 = phi ptr [ %27, %if.end71 ], [ %.pre319, %if.then.i131 ]
+  %is_dml = getelementptr inbounds i8, ptr %30, i64 24
+  %31 = load i32, ptr %is_dml, align 8
+  %tobool75.not = icmp eq i32 %31, 0
   %cond = sext i1 %tobool75.not to i64
   %rowcount = getelementptr inbounds i8, ptr %self, i64 56
   store i64 %cond, ptr %rowcount, align 8
-  %40 = load ptr, ptr %connection7.i, align 8
-  %autocommit = getelementptr inbounds i8, ptr %40, i64 48
-  %41 = load i32, ptr %autocommit, align 8
-  %cmp77 = icmp eq i32 %41, -1
+  %32 = load ptr, ptr %11, align 8
+  %autocommit = getelementptr inbounds i8, ptr %32, i64 48
+  %33 = load i32, ptr %autocommit, align 8
+  %cmp77 = icmp eq i32 %33, -1
   br i1 %cmp77, label %land.lhs.true78, label %if.end95
 
-land.lhs.true78:                                  ; preds = %stmt_reset.exit138
-  %isolation_level = getelementptr inbounds i8, ptr %40, i64 40
-  %42 = load ptr, ptr %isolation_level, align 8
-  %tobool80.not = icmp eq ptr %42, null
+land.lhs.true78:                                  ; preds = %stmt_reset.exit136
+  %isolation_level = getelementptr inbounds i8, ptr %32, i64 40
+  %34 = load ptr, ptr %isolation_level, align 8
+  %tobool80.not = icmp eq ptr %34, null
   br i1 %tobool80.not, label %if.end95, label %land.lhs.true81
 
 land.lhs.true81:                                  ; preds = %land.lhs.true78
-  %43 = load i32, ptr %is_dml, align 8
-  %tobool84.not = icmp eq i32 %43, 0
+  %35 = load i32, ptr %is_dml, align 8
+  %tobool84.not = icmp eq i32 %35, 0
   br i1 %tobool84.not, label %if.end95, label %land.lhs.true85
 
 land.lhs.true85:                                  ; preds = %land.lhs.true81
-  %db = getelementptr inbounds i8, ptr %40, i64 16
-  %44 = load ptr, ptr %db, align 8
-  %call87 = call i32 @sqlite3_get_autocommit(ptr noundef %44) #7
+  %db = getelementptr inbounds i8, ptr %32, i64 16
+  %36 = load ptr, ptr %db, align 8
+  %call87 = call i32 @sqlite3_get_autocommit(ptr noundef %36) #7
   %tobool88.not = icmp eq i32 %call87, 0
   br i1 %tobool88.not, label %if.end95, label %if.then89
 
 if.then89:                                        ; preds = %land.lhs.true85
-  %45 = load ptr, ptr %connection7.i, align 8
-  %call91 = call fastcc i32 @begin_transaction(ptr noundef %45)
+  %37 = load ptr, ptr %11, align 8
+  %call91 = call fastcc i32 @begin_transaction(ptr noundef %37)
   %cmp92 = icmp slt i32 %call91, 0
-  br i1 %cmp92, label %if.then.i217, label %if.end95
+  br i1 %cmp92, label %if.then.i206, label %if.end95
 
-if.end95:                                         ; preds = %if.then89, %land.lhs.true85, %land.lhs.true81, %land.lhs.true78, %stmt_reset.exit138
-  %call96304 = call ptr @PyIter_Next(ptr noundef nonnull %parameters_iter.1) #7
-  %tobool97.not305 = icmp eq ptr %call96304, null
-  br i1 %tobool97.not305, label %while.end, label %if.end99.lr.ph
+if.end95:                                         ; preds = %if.then89, %land.lhs.true85, %land.lhs.true81, %land.lhs.true78, %stmt_reset.exit136
+  %call96291 = call ptr @PyIter_Next(ptr noundef nonnull %parameters_iter.1) #7
+  %tobool97.not292 = icmp eq ptr %call96291, null
+  br i1 %tobool97.not292, label %while.end, label %if.end99.lr.ph
 
 if.end99.lr.ph:                                   ; preds = %if.end95
-  %46 = getelementptr i8, ptr %26, i64 104
-  %PrepareProtocolType120.i = getelementptr inbounds i8, ptr %26, i64 136
-  %ProgrammingError111.i = getelementptr inbounds i8, ptr %26, i64 64
+  %38 = getelementptr i8, ptr %18, i64 104
+  %PrepareProtocolType120.i = getelementptr inbounds i8, ptr %18, i64 136
+  %ProgrammingError111.i = getelementptr inbounds i8, ptr %18, i64 64
   %row_cast_map.i = getelementptr inbounds i8, ptr %self, i64 32
   br label %if.end99
 
-if.end99:                                         ; preds = %if.end99.lr.ph, %Py_XDECREF.exit206
-  %call96306 = phi ptr [ %call96304, %if.end99.lr.ph ], [ %call96, %Py_XDECREF.exit206 ]
-  %47 = load ptr, ptr %statement, align 8
+if.end99:                                         ; preds = %if.end99.lr.ph, %Py_XDECREF.exit195
+  %call96293 = phi ptr [ %call96291, %if.end99.lr.ph ], [ %call96, %Py_XDECREF.exit195 ]
+  %39 = load ptr, ptr %statement, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %current_param101.i)
-  %call.i139 = call ptr @PyEval_SaveThread() #7
-  %st.i140 = getelementptr inbounds i8, ptr %47, i64 16
-  %48 = load ptr, ptr %st.i140, align 8
-  %call1.i = call i32 @sqlite3_bind_parameter_count(ptr noundef %48) #7
-  call void @PyEval_RestoreThread(ptr noundef %call.i139) #7
-  %49 = getelementptr i8, ptr %call96306, i64 8
-  %parameters.val76.i = load ptr, ptr %49, align 8
+  %call.i137 = call ptr @PyEval_SaveThread() #7
+  %st.i138 = getelementptr inbounds i8, ptr %39, i64 16
+  %40 = load ptr, ptr %st.i138, align 8
+  %call1.i = call i32 @sqlite3_bind_parameter_count(ptr noundef %40) #7
+  call void @PyEval_RestoreThread(ptr noundef %call.i137) #7
+  %41 = getelementptr i8, ptr %call96293, i64 8
+  %parameters.val76.i = load ptr, ptr %41, align 8
   %cmp.i85.not.i = icmp eq ptr %parameters.val76.i, @PyTuple_Type
   %cmp.i86.not.i = icmp eq ptr %parameters.val76.i, @PyList_Type
   %or.cond.i = or i1 %cmp.i85.not.i, %cmp.i86.not.i
-  br i1 %or.cond.i, label %if.then.i146, label %lor.lhs.false5.i
+  br i1 %or.cond.i, label %if.then.i143, label %lor.lhs.false5.i
 
 lor.lhs.false5.i:                                 ; preds = %if.end99
-  %50 = getelementptr i8, ptr %parameters.val76.i, i64 168
-  %call6.val.i = load i64, ptr %50, align 8
-  %51 = and i64 %call6.val.i, 536870912
-  %tobool8.not.i = icmp eq i64 %51, 0
-  br i1 %tobool8.not.i, label %land.lhs.true.i145, label %if.else83.i
+  %42 = getelementptr i8, ptr %parameters.val76.i, i64 168
+  %call6.val.i = load i64, ptr %42, align 8
+  %43 = and i64 %call6.val.i, 536870912
+  %tobool8.not.i = icmp eq i64 %43, 0
+  br i1 %tobool8.not.i, label %land.lhs.true.i, label %if.else83.i
 
-land.lhs.true.i145:                               ; preds = %lor.lhs.false5.i
-  %call9.i = call i32 @PySequence_Check(ptr noundef nonnull %call96306) #7
+land.lhs.true.i:                                  ; preds = %lor.lhs.false5.i
+  %call9.i = call i32 @PySequence_Check(ptr noundef nonnull %call96293) #7
   %tobool10.not.i = icmp eq i32 %call9.i, 0
-  %parameters.val78.pre.i = load ptr, ptr %49, align 8
-  br i1 %tobool10.not.i, label %land.lhs.true.if.else83_crit_edge.i, label %if.then.i146
+  %parameters.val78.pre.i = load ptr, ptr %41, align 8
+  br i1 %tobool10.not.i, label %land.lhs.true.if.else83_crit_edge.i, label %if.then.i143
 
-land.lhs.true.if.else83_crit_edge.i:              ; preds = %land.lhs.true.i145
+land.lhs.true.if.else83_crit_edge.i:              ; preds = %land.lhs.true.i
   %.phi.trans.insert.i = getelementptr i8, ptr %parameters.val78.pre.i, i64 168
   %call84.val.pre.i = load i64, ptr %.phi.trans.insert.i, align 8
   br label %if.else83.i
 
-if.then.i146:                                     ; preds = %land.lhs.true.i145, %if.end99
-  %parameters.val78.i = phi ptr [ %parameters.val78.pre.i, %land.lhs.true.i145 ], [ %parameters.val76.i, %if.end99 ]
+if.then.i143:                                     ; preds = %land.lhs.true.i, %if.end99
+  %parameters.val78.i = phi ptr [ %parameters.val78.pre.i, %land.lhs.true.i ], [ %parameters.val76.i, %if.end99 ]
   %cmp.i90.not.i = icmp eq ptr %parameters.val78.i, @PyTuple_Type
   %cmp.i92.not.i = icmp eq ptr %parameters.val78.i, @PyList_Type
   %or.cond155.i = or i1 %cmp.i90.not.i, %cmp.i92.not.i
   br i1 %or.cond155.i, label %if.end23.sink.split.i, label %if.else19.i
 
-if.else19.i:                                      ; preds = %if.then.i146
-  %call20.i = call i64 @PySequence_Size(ptr noundef nonnull %call96306) #7
-  %cmp.i147 = icmp eq i64 %call20.i, -1
-  br i1 %cmp.i147, label %bind_parameters.exit, label %if.end23.i
+if.else19.i:                                      ; preds = %if.then.i143
+  %call20.i = call i64 @PySequence_Size(ptr noundef nonnull %call96293) #7
+  %cmp.i144 = icmp eq i64 %call20.i, -1
+  br i1 %cmp.i144, label %bind_parameters.exit, label %if.end23.i
 
-if.end23.sink.split.i:                            ; preds = %if.then.i146
-  %52 = getelementptr i8, ptr %call96306, i64 16
-  %parameters.val83.i = load i64, ptr %52, align 8
+if.end23.sink.split.i:                            ; preds = %if.then.i143
+  %44 = getelementptr i8, ptr %call96293, i64 16
+  %parameters.val83.i = load i64, ptr %44, align 8
   br label %if.end23.i
 
 if.end23.i:                                       ; preds = %if.end23.sink.split.i, %if.else19.i
@@ -515,48 +465,48 @@ if.end23.i:                                       ; preds = %if.end23.sink.split
   br i1 %cmp24.not.i, label %for.cond.preheader.i, label %if.then26.i
 
 for.cond.preheader.i:                             ; preds = %if.end23.i
-  %ob_item.i = getelementptr inbounds i8, ptr %call96306, i64 24
+  %ob_item.i = getelementptr inbounds i8, ptr %call96293, i64 24
   br label %for.cond.i
 
 if.then26.i:                                      ; preds = %if.end23.i
-  %53 = load ptr, ptr %ProgrammingError111.i, align 8
-  %call27.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %53, ptr noundef nonnull @.str.5, i32 noundef %call1.i, i64 noundef %num_params.0.i) #7
+  %45 = load ptr, ptr %ProgrammingError111.i, align 8
+  %call27.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %45, ptr noundef nonnull @.str.5, i32 noundef %call1.i, i64 noundef %num_params.0.i) #7
   br label %bind_parameters.exit
 
 for.cond.i:                                       ; preds = %Py_DECREF.exit161.i, %for.cond.preheader.i
-  %i.0.i = phi i32 [ %add.i149, %Py_DECREF.exit161.i ], [ 0, %for.cond.preheader.i ]
+  %i.0.i = phi i32 [ %add.i145, %Py_DECREF.exit161.i ], [ 0, %for.cond.preheader.i ]
   %conv29.i = sext i32 %i.0.i to i64
   %cmp30.i = icmp sgt i64 %num_params.0.i, %conv29.i
   br i1 %cmp30.i, label %for.body.i, label %bind_parameters.exit
 
 for.body.i:                                       ; preds = %for.cond.i
-  %54 = load ptr, ptr %st.i140, align 8
-  %add.i149 = add i32 %i.0.i, 1
-  %call33.i = call ptr @sqlite3_bind_parameter_name(ptr noundef %54, i32 noundef %add.i149) #7
+  %46 = load ptr, ptr %st.i138, align 8
+  %add.i145 = add i32 %i.0.i, 1
+  %call33.i = call ptr @sqlite3_bind_parameter_name(ptr noundef %46, i32 noundef %add.i145) #7
   %cmp34.not.i = icmp eq ptr %call33.i, null
   br i1 %cmp34.not.i, label %if.end43.i, label %if.then36.i
 
 if.then36.i:                                      ; preds = %for.body.i
-  %55 = load ptr, ptr @PyExc_DeprecationWarning, align 8
-  %call38.i = call i32 (ptr, i64, ptr, ...) @PyErr_WarnFormat(ptr noundef %55, i64 noundef 1, ptr noundef nonnull @.str.6, i32 noundef %add.i149, ptr noundef nonnull %call33.i) #7
+  %47 = load ptr, ptr @PyExc_DeprecationWarning, align 8
+  %call38.i = call i32 (ptr, i64, ptr, ...) @PyErr_WarnFormat(ptr noundef %47, i64 noundef 1, ptr noundef nonnull @.str.6, i32 noundef %add.i145, ptr noundef nonnull %call33.i) #7
   %cmp39.i = icmp slt i32 %call38.i, 0
   br i1 %cmp39.i, label %bind_parameters.exit, label %if.end43.i
 
 if.end43.i:                                       ; preds = %if.then36.i, %for.body.i
-  %parameters.val80.i = load ptr, ptr %49, align 8
+  %parameters.val80.i = load ptr, ptr %41, align 8
   %cmp.i94.not.i = icmp eq ptr %parameters.val80.i, @PyTuple_Type
   br i1 %cmp.i94.not.i, label %if.then46.i, label %if.else48.i
 
 if.then46.i:                                      ; preds = %if.end43.i
   %arrayidx.i = getelementptr [1 x ptr], ptr %ob_item.i, i64 0, i64 %conv29.i
-  %56 = load ptr, ptr %arrayidx.i, align 8
-  %57 = load i32, ptr %56, align 8
-  %add.i.i.i = add i32 %57, 1
+  %48 = load ptr, ptr %arrayidx.i, align 8
+  %49 = load i32, ptr %48, align 8
+  %add.i.i.i = add i32 %49, 1
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.end63.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then46.i
-  store i32 %add.i.i.i, ptr %56, align 8
+  store i32 %add.i.i.i, ptr %48, align 8
   br label %if.end63.i
 
 if.else48.i:                                      ; preds = %if.end43.i
@@ -564,13 +514,13 @@ if.else48.i:                                      ; preds = %if.end43.i
   br i1 %cmp.i96.not.i, label %if.then51.i, label %if.end60.i
 
 if.then51.i:                                      ; preds = %if.else48.i
-  %call54.i = call ptr @PyList_GetItem(ptr noundef nonnull %call96306, i64 noundef %conv29.i) #7
+  %call54.i = call ptr @PyList_GetItem(ptr noundef nonnull %call96293, i64 noundef %conv29.i) #7
   %cmp.not.i.i.i = icmp eq ptr %call54.i, null
   br i1 %cmp.not.i.i.i, label %bind_parameters.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then51.i
-  %58 = load i32, ptr %call54.i, align 8
-  %add.i.i.i.i = add i32 %58, 1
+  %50 = load i32, ptr %call54.i, align 8
+  %add.i.i.i.i = add i32 %50, 1
   %cmp.i.i.i.i = icmp eq i32 %add.i.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %if.end63.i, label %if.end.i.i.i.i
 
@@ -579,19 +529,19 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
   br label %if.end63.i
 
 if.end60.i:                                       ; preds = %if.else48.i
-  %call58.i = call ptr @PySequence_GetItem(ptr noundef nonnull %call96306, i64 noundef %conv29.i) #7
+  %call58.i = call ptr @PySequence_GetItem(ptr noundef nonnull %call96293, i64 noundef %conv29.i) #7
   %tobool61.not.i = icmp eq ptr %call58.i, null
   br i1 %tobool61.not.i, label %bind_parameters.exit, label %if.end63.i
 
 if.end63.i:                                       ; preds = %if.end60.i, %if.end.i.i.i.i, %if.then.i.i.i, %if.end.i.i.i, %if.then46.i
-  %current_param.0117.i = phi ptr [ %call58.i, %if.end60.i ], [ %call54.i, %if.end.i.i.i.i ], [ %call54.i, %if.then.i.i.i ], [ %56, %if.end.i.i.i ], [ %56, %if.then46.i ]
-  %state.val.i = load i32, ptr %46, align 8
-  %tobool.not.i.i150 = icmp eq i32 %state.val.i, 0
-  br i1 %tobool.not.i.i150, label %if.end.i98.i, label %if.else67.i
+  %current_param.0117.i = phi ptr [ %call58.i, %if.end60.i ], [ %call54.i, %if.end.i.i.i.i ], [ %call54.i, %if.then.i.i.i ], [ %48, %if.end.i.i.i ], [ %48, %if.then46.i ]
+  %state.val.i = load i32, ptr %38, align 8
+  %tobool.not.i.i = icmp eq i32 %state.val.i, 0
+  br i1 %tobool.not.i.i, label %if.end.i98.i, label %if.else67.i
 
 if.end.i98.i:                                     ; preds = %if.end63.i
-  %59 = getelementptr i8, ptr %current_param.0117.i, i64 8
-  %obj.val6.i.i = load ptr, ptr %59, align 8
+  %51 = getelementptr i8, ptr %current_param.0117.i, i64 8
+  %obj.val6.i.i = load ptr, ptr %51, align 8
   %cmp.i.not.i.i = icmp eq ptr %obj.val6.i.i, @PyLong_Type
   %cmp.i7.not.i.i = icmp eq ptr %obj.val6.i.i, @PyFloat_Type
   %or.cond.i.i = or i1 %cmp.i.not.i.i, %cmp.i7.not.i.i
@@ -602,15 +552,15 @@ if.end.i98.i:                                     ; preds = %if.end63.i
   br i1 %or.cond131.i, label %if.end72.i, label %if.else67.i
 
 if.else67.i:                                      ; preds = %if.end.i98.i, %if.end63.i
-  %60 = load ptr, ptr %PrepareProtocolType120.i, align 8
-  %call68.i = call ptr @pysqlite_microprotocols_adapt(ptr noundef nonnull %26, ptr noundef nonnull %current_param.0117.i, ptr noundef %60, ptr noundef nonnull %current_param.0117.i) #7
-  %61 = load i64, ptr %current_param.0117.i, align 8
-  %62 = and i64 %61, 2147483648
-  %cmp.i172.not.i = icmp eq i64 %62, 0
+  %52 = load ptr, ptr %PrepareProtocolType120.i, align 8
+  %call68.i = call ptr @pysqlite_microprotocols_adapt(ptr noundef nonnull %18, ptr noundef nonnull %current_param.0117.i, ptr noundef %52, ptr noundef nonnull %current_param.0117.i) #7
+  %53 = load i64, ptr %current_param.0117.i, align 8
+  %54 = and i64 %53, 2147483648
+  %cmp.i172.not.i = icmp eq i64 %54, 0
   br i1 %cmp.i172.not.i, label %if.end.i165.i, label %Py_DECREF.exit170.i
 
 if.end.i165.i:                                    ; preds = %if.else67.i
-  %dec.i166.i = add i64 %61, -1
+  %dec.i166.i = add i64 %53, -1
   store i64 %dec.i166.i, ptr %current_param.0117.i, align 8
   %cmp.i167.i = icmp eq i64 %dec.i166.i, 0
   br i1 %cmp.i167.i, label %if.then1.i168.i, label %Py_DECREF.exit170.i
@@ -625,14 +575,14 @@ Py_DECREF.exit170.i:                              ; preds = %if.then1.i168.i, %i
 
 if.end72.i:                                       ; preds = %Py_DECREF.exit170.i, %if.end.i98.i
   %adapted.0.i = phi ptr [ %call68.i, %Py_DECREF.exit170.i ], [ %current_param.0117.i, %if.end.i98.i ]
-  %call74.i = call fastcc i32 @bind_param(ptr noundef nonnull %26, ptr noundef nonnull readonly %47, i32 noundef %add.i149, ptr noundef nonnull %adapted.0.i)
-  %63 = load i64, ptr %adapted.0.i, align 8
-  %64 = and i64 %63, 2147483648
-  %cmp.i175.not.i = icmp eq i64 %64, 0
+  %call74.i = call fastcc i32 @bind_param(ptr noundef nonnull %18, ptr noundef nonnull readonly %39, i32 noundef %add.i145, ptr noundef nonnull %adapted.0.i)
+  %55 = load i64, ptr %adapted.0.i, align 8
+  %56 = and i64 %55, 2147483648
+  %cmp.i175.not.i = icmp eq i64 %56, 0
   br i1 %cmp.i175.not.i, label %if.end.i156.i, label %Py_DECREF.exit161.i
 
 if.end.i156.i:                                    ; preds = %if.end72.i
-  %dec.i157.i = add i64 %63, -1
+  %dec.i157.i = add i64 %55, -1
   store i64 %dec.i157.i, ptr %adapted.0.i, align 8
   %cmp.i158.i = icmp eq i64 %dec.i157.i, 0
   br i1 %cmp.i158.i, label %if.then1.i159.i, label %Py_DECREF.exit161.i
@@ -647,16 +597,16 @@ Py_DECREF.exit161.i:                              ; preds = %if.then1.i159.i, %i
 
 if.then77.i:                                      ; preds = %Py_DECREF.exit161.i
   %call78.i = call ptr @PyErr_GetRaisedException() #7
-  %65 = load ptr, ptr %st.i140, align 8
-  %call80.i = call ptr @sqlite3_db_handle(ptr noundef %65) #7
-  %call81.i = call i32 @_pysqlite_seterror(ptr noundef nonnull %26, ptr noundef %call80.i) #7
+  %57 = load ptr, ptr %st.i138, align 8
+  %call80.i = call ptr @sqlite3_db_handle(ptr noundef %57) #7
+  %call81.i = call i32 @_pysqlite_seterror(ptr noundef nonnull %18, ptr noundef %call80.i) #7
   call void @_PyErr_ChainExceptions1(ptr noundef %call78.i) #7
   br label %bind_parameters.exit
 
 if.else83.i:                                      ; preds = %land.lhs.true.if.else83_crit_edge.i, %lor.lhs.false5.i
   %call84.val.i = phi i64 [ %call84.val.pre.i, %land.lhs.true.if.else83_crit_edge.i ], [ %call6.val.i, %lor.lhs.false5.i ]
-  %66 = and i64 %call84.val.i, 536870912
-  %tobool86.not.i = icmp eq i64 %66, 0
+  %58 = and i64 %call84.val.i, 536870912
+  %tobool86.not.i = icmp eq i64 %58, 0
   br i1 %tobool86.not.i, label %if.else140.i, label %for.cond88.preheader.i
 
 for.cond88.preheader.i:                           ; preds = %if.else83.i
@@ -666,22 +616,22 @@ for.cond88.preheader.i:                           ; preds = %if.else83.i
 for.body91.i:                                     ; preds = %for.cond88.preheader.i, %for.inc137.i
   %i.1139.i = phi i32 [ %inc138.i, %for.inc137.i ], [ 1, %for.cond88.preheader.i ]
   %call93.i = call ptr @PyEval_SaveThread() #7
-  %67 = load ptr, ptr %st.i140, align 8
-  %call95.i = call ptr @sqlite3_bind_parameter_name(ptr noundef %67, i32 noundef %i.1139.i) #7
+  %59 = load ptr, ptr %st.i138, align 8
+  %call95.i = call ptr @sqlite3_bind_parameter_name(ptr noundef %59, i32 noundef %i.1139.i) #7
   call void @PyEval_RestoreThread(ptr noundef %call93.i) #7
   %tobool96.not.i = icmp eq ptr %call95.i, null
   br i1 %tobool96.not.i, label %if.then97.i, label %if.end100.i
 
 if.then97.i:                                      ; preds = %for.body91.i
-  %68 = load ptr, ptr %ProgrammingError111.i, align 8
-  %call99.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %68, ptr noundef nonnull @.str.7, i32 noundef %i.1139.i) #7
+  %60 = load ptr, ptr %ProgrammingError111.i, align 8
+  %call99.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %60, ptr noundef nonnull @.str.7, i32 noundef %i.1139.i) #7
   br label %bind_parameters.exit
 
 if.end100.i:                                      ; preds = %for.body91.i
   %incdec.ptr.i = getelementptr i8, ptr %call95.i, i64 1
-  %call102.i = call i32 @PyMapping_GetOptionalItemString(ptr noundef nonnull %call96306, ptr noundef %incdec.ptr.i, ptr noundef nonnull %current_param101.i) #7
-  %69 = load ptr, ptr %current_param101.i, align 8
-  %tobool103.not.i = icmp eq ptr %69, null
+  %call102.i = call i32 @PyMapping_GetOptionalItemString(ptr noundef nonnull %call96293, ptr noundef %incdec.ptr.i, ptr noundef nonnull %current_param101.i) #7
+  %61 = load ptr, ptr %current_param101.i, align 8
+  %tobool103.not.i = icmp eq ptr %61, null
   br i1 %tobool103.not.i, label %if.then104.i, label %if.end114.i
 
 if.then104.i:                                     ; preds = %if.end100.i
@@ -690,24 +640,24 @@ if.then104.i:                                     ; preds = %if.end100.i
   br i1 %tobool106.not.i, label %if.then110.i, label %lor.lhs.false107.i
 
 lor.lhs.false107.i:                               ; preds = %if.then104.i
-  %70 = load ptr, ptr @PyExc_LookupError, align 8
-  %call108.i = call i32 @PyErr_ExceptionMatches(ptr noundef %70) #7
+  %62 = load ptr, ptr @PyExc_LookupError, align 8
+  %call108.i = call i32 @PyErr_ExceptionMatches(ptr noundef %62) #7
   %tobool109.not.i = icmp eq i32 %call108.i, 0
   br i1 %tobool109.not.i, label %bind_parameters.exit, label %if.then110.i
 
 if.then110.i:                                     ; preds = %lor.lhs.false107.i, %if.then104.i
-  %71 = load ptr, ptr %ProgrammingError111.i, align 8
-  %call112.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %71, ptr noundef nonnull @.str.8, ptr noundef %incdec.ptr.i) #7
+  %63 = load ptr, ptr %ProgrammingError111.i, align 8
+  %call112.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %63, ptr noundef nonnull @.str.8, ptr noundef %incdec.ptr.i) #7
   br label %bind_parameters.exit
 
 if.end114.i:                                      ; preds = %if.end100.i
-  %state.val84.i = load i32, ptr %46, align 8
+  %state.val84.i = load i32, ptr %38, align 8
   %tobool.not.i102.i = icmp eq i32 %state.val84.i, 0
   br i1 %tobool.not.i102.i, label %if.end.i104.i, label %if.else118.i
 
 if.end.i104.i:                                    ; preds = %if.end114.i
-  %72 = getelementptr i8, ptr %69, i64 8
-  %obj.val6.i105.i = load ptr, ptr %72, align 8
+  %64 = getelementptr i8, ptr %61, i64 8
+  %obj.val6.i105.i = load ptr, ptr %64, align 8
   %cmp.i.not.i106.i = icmp eq ptr %obj.val6.i105.i, @PyLong_Type
   %cmp.i7.not.i107.i = icmp eq ptr %obj.val6.i105.i, @PyFloat_Type
   %or.cond.i108.i = or i1 %cmp.i.not.i106.i, %cmp.i7.not.i107.i
@@ -718,22 +668,22 @@ if.end.i104.i:                                    ; preds = %if.end114.i
   br i1 %or.cond132.i, label %if.end125.i, label %if.else118.i
 
 if.else118.i:                                     ; preds = %if.end.i104.i, %if.end114.i
-  %73 = load ptr, ptr %PrepareProtocolType120.i, align 8
-  %call121.i = call ptr @pysqlite_microprotocols_adapt(ptr noundef nonnull %26, ptr noundef nonnull %69, ptr noundef %73, ptr noundef nonnull %69) #7
-  %74 = load ptr, ptr %current_param101.i, align 8
-  %75 = load i64, ptr %74, align 8
-  %76 = and i64 %75, 2147483648
-  %cmp.i179.not.i = icmp eq i64 %76, 0
+  %65 = load ptr, ptr %PrepareProtocolType120.i, align 8
+  %call121.i = call ptr @pysqlite_microprotocols_adapt(ptr noundef nonnull %18, ptr noundef nonnull %61, ptr noundef %65, ptr noundef nonnull %61) #7
+  %66 = load ptr, ptr %current_param101.i, align 8
+  %67 = load i64, ptr %66, align 8
+  %68 = and i64 %67, 2147483648
+  %cmp.i179.not.i = icmp eq i64 %68, 0
   br i1 %cmp.i179.not.i, label %if.end.i147.i, label %Py_DECREF.exit152.i
 
 if.end.i147.i:                                    ; preds = %if.else118.i
-  %dec.i148.i = add i64 %75, -1
-  store i64 %dec.i148.i, ptr %74, align 8
+  %dec.i148.i = add i64 %67, -1
+  store i64 %dec.i148.i, ptr %66, align 8
   %cmp.i149.i = icmp eq i64 %dec.i148.i, 0
   br i1 %cmp.i149.i, label %if.then1.i150.i, label %Py_DECREF.exit152.i
 
 if.then1.i150.i:                                  ; preds = %if.end.i147.i
-  call void @_Py_Dealloc(ptr noundef nonnull %74) #7
+  call void @_Py_Dealloc(ptr noundef nonnull %66) #7
   br label %Py_DECREF.exit152.i
 
 Py_DECREF.exit152.i:                              ; preds = %if.then1.i150.i, %if.end.i147.i, %if.else118.i
@@ -741,32 +691,32 @@ Py_DECREF.exit152.i:                              ; preds = %if.then1.i150.i, %i
   br i1 %tobool122.not.i, label %bind_parameters.exit, label %if.end125.i
 
 if.end125.i:                                      ; preds = %Py_DECREF.exit152.i, %if.end.i104.i
-  %adapted.1.i = phi ptr [ %call121.i, %Py_DECREF.exit152.i ], [ %69, %if.end.i104.i ]
-  %call126.i = call fastcc i32 @bind_param(ptr noundef nonnull %26, ptr noundef nonnull readonly %47, i32 noundef %i.1139.i, ptr noundef nonnull %adapted.1.i)
-  %77 = load i64, ptr %adapted.1.i, align 8
-  %78 = and i64 %77, 2147483648
-  %cmp.i183.not.i = icmp eq i64 %78, 0
-  br i1 %cmp.i183.not.i, label %if.end.i.i141, label %Py_DECREF.exit.i
+  %adapted.1.i = phi ptr [ %call121.i, %Py_DECREF.exit152.i ], [ %61, %if.end.i104.i ]
+  %call126.i = call fastcc i32 @bind_param(ptr noundef nonnull %18, ptr noundef nonnull readonly %39, i32 noundef %i.1139.i, ptr noundef nonnull %adapted.1.i)
+  %69 = load i64, ptr %adapted.1.i, align 8
+  %70 = and i64 %69, 2147483648
+  %cmp.i183.not.i = icmp eq i64 %70, 0
+  br i1 %cmp.i183.not.i, label %if.end.i.i139, label %Py_DECREF.exit.i
 
-if.end.i.i141:                                    ; preds = %if.end125.i
-  %dec.i.i142 = add i64 %77, -1
-  store i64 %dec.i.i142, ptr %adapted.1.i, align 8
-  %cmp.i.i143 = icmp eq i64 %dec.i.i142, 0
-  br i1 %cmp.i.i143, label %if.then1.i.i144, label %Py_DECREF.exit.i
+if.end.i.i139:                                    ; preds = %if.end125.i
+  %dec.i.i140 = add i64 %69, -1
+  store i64 %dec.i.i140, ptr %adapted.1.i, align 8
+  %cmp.i.i141 = icmp eq i64 %dec.i.i140, 0
+  br i1 %cmp.i.i141, label %if.then1.i.i142, label %Py_DECREF.exit.i
 
-if.then1.i.i144:                                  ; preds = %if.end.i.i141
+if.then1.i.i142:                                  ; preds = %if.end.i.i139
   call void @_Py_Dealloc(ptr noundef nonnull %adapted.1.i) #7
   br label %Py_DECREF.exit.i
 
-Py_DECREF.exit.i:                                 ; preds = %if.then1.i.i144, %if.end.i.i141, %if.end125.i
+Py_DECREF.exit.i:                                 ; preds = %if.then1.i.i142, %if.end.i.i139, %if.end125.i
   %cmp127.not.i = icmp eq i32 %call126.i, 0
   br i1 %cmp127.not.i, label %for.inc137.i, label %if.then129.i
 
 if.then129.i:                                     ; preds = %Py_DECREF.exit.i
   %call131.i = call ptr @PyErr_GetRaisedException() #7
-  %79 = load ptr, ptr %st.i140, align 8
-  %call134.i = call ptr @sqlite3_db_handle(ptr noundef %79) #7
-  %call135.i = call i32 @_pysqlite_seterror(ptr noundef nonnull %26, ptr noundef %call134.i) #7
+  %71 = load ptr, ptr %st.i138, align 8
+  %call134.i = call ptr @sqlite3_db_handle(ptr noundef %71) #7
+  %call135.i = call i32 @_pysqlite_seterror(ptr noundef nonnull %18, ptr noundef %call134.i) #7
   call void @_PyErr_ChainExceptions1(ptr noundef %call131.i) #7
   br label %bind_parameters.exit
 
@@ -776,25 +726,25 @@ for.inc137.i:                                     ; preds = %Py_DECREF.exit.i
   br i1 %cmp89.not.i, label %bind_parameters.exit, label %for.body91.i, !llvm.loop !6
 
 if.else140.i:                                     ; preds = %if.else83.i
-  %80 = load ptr, ptr %ProgrammingError111.i, align 8
-  call void @PyErr_SetString(ptr noundef %80, ptr noundef nonnull @.str.9) #7
+  %72 = load ptr, ptr %ProgrammingError111.i, align 8
+  call void @PyErr_SetString(ptr noundef %72, ptr noundef nonnull @.str.9) #7
   br label %bind_parameters.exit
 
 bind_parameters.exit:                             ; preds = %Py_DECREF.exit152.i, %for.inc137.i, %for.cond.i, %if.then36.i, %if.then51.i, %if.end60.i, %Py_DECREF.exit170.i, %if.else19.i, %if.then26.i, %if.then77.i, %for.cond88.preheader.i, %if.then97.i, %lor.lhs.false107.i, %if.then110.i, %if.then129.i, %if.else140.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %current_param101.i)
   %call101 = call ptr @PyErr_Occurred() #7
   %tobool102.not = icmp eq ptr %call101, null
-  br i1 %tobool102.not, label %if.end104, label %if.then.i208
+  br i1 %tobool102.not, label %if.end104, label %if.then.i197
 
 if.end104:                                        ; preds = %bind_parameters.exit
-  %81 = load ptr, ptr %statement, align 8
-  %st106 = getelementptr inbounds i8, ptr %81, i64 16
-  %82 = load ptr, ptr %st106, align 8
-  %call.i151 = call ptr @PyEval_SaveThread() #7
-  %call1.i152 = call i32 @sqlite3_step(ptr noundef %82) #7
-  call void @PyEval_RestoreThread(ptr noundef %call.i151) #7
-  %83 = add i32 %call1.i152, -102
-  %or.cond = icmp ult i32 %83, -2
+  %73 = load ptr, ptr %statement, align 8
+  %st106 = getelementptr inbounds i8, ptr %73, i64 16
+  %74 = load ptr, ptr %st106, align 8
+  %call.i146 = call ptr @PyEval_SaveThread() #7
+  %call1.i147 = call i32 @sqlite3_step(ptr noundef %74) #7
+  call void @PyEval_RestoreThread(ptr noundef %call.i146) #7
+  %75 = add i32 %call1.i147, -102
+  %or.cond = icmp ult i32 %75, -2
   br i1 %or.cond, label %if.then111, label %if.end123
 
 if.then111:                                       ; preds = %if.end104
@@ -803,9 +753,9 @@ if.then111:                                       ; preds = %if.end104
   br i1 %tobool113.not, label %if.end119, label %if.then114
 
 if.then114:                                       ; preds = %if.then111
-  %enable_callback_tracebacks = getelementptr inbounds i8, ptr %26, i64 108
-  %84 = load i32, ptr %enable_callback_tracebacks, align 4
-  %tobool115.not = icmp eq i32 %84, 0
+  %enable_callback_tracebacks = getelementptr inbounds i8, ptr %18, i64 108
+  %76 = load i32, ptr %enable_callback_tracebacks, align 4
+  %tobool115.not = icmp eq i32 %76, 0
   br i1 %tobool115.not, label %if.else117, label %if.then116
 
 if.then116:                                       ; preds = %if.then114
@@ -817,109 +767,109 @@ if.else117:                                       ; preds = %if.then114
   br label %if.end119
 
 if.end119:                                        ; preds = %if.then116, %if.else117, %if.then111
-  %85 = load ptr, ptr %connection7.i, align 8
-  %db121 = getelementptr inbounds i8, ptr %85, i64 16
-  %86 = load ptr, ptr %db121, align 8
-  %call122 = call i32 @_pysqlite_seterror(ptr noundef %26, ptr noundef %86) #7
-  br label %if.then.i208
+  %77 = load ptr, ptr %11, align 8
+  %db121 = getelementptr inbounds i8, ptr %77, i64 16
+  %78 = load ptr, ptr %db121, align 8
+  %call122 = call i32 @_pysqlite_seterror(ptr noundef %18, ptr noundef %78) #7
+  br label %if.then.i197
 
 if.end123:                                        ; preds = %if.end104
-  %87 = load ptr, ptr %connection7.i, align 8
-  %detect_types.i = getelementptr inbounds i8, ptr %87, i64 32
-  %88 = load i32, ptr %detect_types.i, align 8
-  %tobool.not.i153 = icmp eq i32 %88, 0
-  br i1 %tobool.not.i153, label %if.end128, label %do.body.i
+  %79 = load ptr, ptr %11, align 8
+  %detect_types.i = getelementptr inbounds i8, ptr %79, i64 32
+  %80 = load i32, ptr %detect_types.i, align 8
+  %tobool.not.i = icmp eq i32 %80, 0
+  br i1 %tobool.not.i, label %if.end128, label %do.body.i
 
 do.body.i:                                        ; preds = %if.end123
-  %89 = load ptr, ptr %row_cast_map.i, align 8
-  %call.i154 = call ptr @PyList_New(i64 noundef 0) #7
-  store ptr %call.i154, ptr %row_cast_map.i, align 8
-  %cmp.not.i.i = icmp eq ptr %89, null
-  br i1 %cmp.not.i.i, label %Py_XDECREF.exit.i, label %if.then.i.i155
+  %81 = load ptr, ptr %row_cast_map.i, align 8
+  %call.i148 = call ptr @PyList_New(i64 noundef 0) #7
+  store ptr %call.i148, ptr %row_cast_map.i, align 8
+  %cmp.not.i.i = icmp eq ptr %81, null
+  br i1 %cmp.not.i.i, label %Py_XDECREF.exit.i, label %if.then.i.i
 
-if.then.i.i155:                                   ; preds = %do.body.i
-  %90 = load i64, ptr %89, align 8
-  %91 = and i64 %90, 2147483648
-  %cmp.i2.not.i.i = icmp eq i64 %91, 0
-  br i1 %cmp.i2.not.i.i, label %if.end.i.i.i172, label %Py_XDECREF.exitthread-pre-split.i
+if.then.i.i:                                      ; preds = %do.body.i
+  %82 = load i64, ptr %81, align 8
+  %83 = and i64 %82, 2147483648
+  %cmp.i2.not.i.i = icmp eq i64 %83, 0
+  br i1 %cmp.i2.not.i.i, label %if.end.i.i.i162, label %Py_XDECREF.exitthread-pre-split.i
 
-if.end.i.i.i172:                                  ; preds = %if.then.i.i155
-  %dec.i.i.i = add i64 %90, -1
-  store i64 %dec.i.i.i, ptr %89, align 8
-  %cmp.i.i.i173 = icmp eq i64 %dec.i.i.i, 0
-  br i1 %cmp.i.i.i173, label %if.then1.i.i.i, label %Py_XDECREF.exitthread-pre-split.i
+if.end.i.i.i162:                                  ; preds = %if.then.i.i
+  %dec.i.i.i = add i64 %82, -1
+  store i64 %dec.i.i.i, ptr %81, align 8
+  %cmp.i.i.i163 = icmp eq i64 %dec.i.i.i, 0
+  br i1 %cmp.i.i.i163, label %if.then1.i.i.i, label %Py_XDECREF.exitthread-pre-split.i
 
-if.then1.i.i.i:                                   ; preds = %if.end.i.i.i172
-  call void @_Py_Dealloc(ptr noundef nonnull %89) #7
+if.then1.i.i.i:                                   ; preds = %if.end.i.i.i162
+  call void @_Py_Dealloc(ptr noundef nonnull %81) #7
   br label %Py_XDECREF.exitthread-pre-split.i
 
-Py_XDECREF.exitthread-pre-split.i:                ; preds = %if.then1.i.i.i, %if.end.i.i.i172, %if.then.i.i155
+Py_XDECREF.exitthread-pre-split.i:                ; preds = %if.then1.i.i.i, %if.end.i.i.i162, %if.then.i.i
   %.pr.i = load ptr, ptr %row_cast_map.i, align 8
   br label %Py_XDECREF.exit.i
 
 Py_XDECREF.exit.i:                                ; preds = %Py_XDECREF.exitthread-pre-split.i, %do.body.i
-  %92 = phi ptr [ %.pr.i, %Py_XDECREF.exitthread-pre-split.i ], [ %call.i154, %do.body.i ]
-  %tobool2.not.i156 = icmp eq ptr %92, null
-  br i1 %tobool2.not.i156, label %if.then126, label %for.cond.preheader.i157
+  %84 = phi ptr [ %.pr.i, %Py_XDECREF.exitthread-pre-split.i ], [ %call.i148, %do.body.i ]
+  %tobool2.not.i = icmp eq ptr %84, null
+  br i1 %tobool2.not.i, label %if.then126, label %for.cond.preheader.i149
 
-for.cond.preheader.i157:                          ; preds = %Py_XDECREF.exit.i
-  %93 = load ptr, ptr %statement, align 8
-  %st63.i = getelementptr inbounds i8, ptr %93, i64 16
-  %94 = load ptr, ptr %st63.i, align 8
-  %call564.i = call i32 @sqlite3_column_count(ptr noundef %94) #7
+for.cond.preheader.i149:                          ; preds = %Py_XDECREF.exit.i
+  %85 = load ptr, ptr %statement, align 8
+  %st63.i = getelementptr inbounds i8, ptr %85, i64 16
+  %86 = load ptr, ptr %st63.i, align 8
+  %call564.i = call i32 @sqlite3_column_count(ptr noundef %86) #7
   %cmp65.i = icmp sgt i32 %call564.i, 0
-  br i1 %cmp65.i, label %for.body.i159, label %if.end128
+  br i1 %cmp65.i, label %for.body.i150, label %if.end128
 
-for.cond.i166:                                    ; preds = %if.end109.i
+for.cond.i156:                                    ; preds = %if.end109.i
   %inc.i = add nuw nsw i32 %i.066.i, 1
-  %95 = load ptr, ptr %statement, align 8
-  %st.i167 = getelementptr inbounds i8, ptr %95, i64 16
-  %96 = load ptr, ptr %st.i167, align 8
-  %call5.i = call i32 @sqlite3_column_count(ptr noundef %96) #7
-  %cmp.i168 = icmp slt i32 %inc.i, %call5.i
-  br i1 %cmp.i168, label %for.body.i159, label %if.end128, !llvm.loop !7
+  %87 = load ptr, ptr %statement, align 8
+  %st.i157 = getelementptr inbounds i8, ptr %87, i64 16
+  %88 = load ptr, ptr %st.i157, align 8
+  %call5.i = call i32 @sqlite3_column_count(ptr noundef %88) #7
+  %cmp.i158 = icmp slt i32 %inc.i, %call5.i
+  br i1 %cmp.i158, label %for.body.i150, label %if.end128, !llvm.loop !7
 
-for.body.i159:                                    ; preds = %for.cond.preheader.i157, %for.cond.i166
-  %i.066.i = phi i32 [ %inc.i, %for.cond.i166 ], [ 0, %for.cond.preheader.i157 ]
-  %97 = load ptr, ptr %connection7.i, align 8
-  %detect_types7.i = getelementptr inbounds i8, ptr %97, i64 32
-  %98 = load i32, ptr %detect_types7.i, align 8
-  %and.i = and i32 %98, 2
-  %tobool8.not.i160 = icmp eq i32 %and.i, 0
-  br i1 %tobool8.not.i160, label %land.lhs.true59.i, label %if.then9.i
+for.body.i150:                                    ; preds = %for.cond.preheader.i149, %for.cond.i156
+  %i.066.i = phi i32 [ %inc.i, %for.cond.i156 ], [ 0, %for.cond.preheader.i149 ]
+  %89 = load ptr, ptr %11, align 8
+  %detect_types7.i = getelementptr inbounds i8, ptr %89, i64 32
+  %90 = load i32, ptr %detect_types7.i, align 8
+  %and.i = and i32 %90, 2
+  %tobool8.not.i151 = icmp eq i32 %and.i, 0
+  br i1 %tobool8.not.i151, label %land.lhs.true59.i, label %if.then9.i
 
-if.then9.i:                                       ; preds = %for.body.i159
-  %99 = load ptr, ptr %statement, align 8
-  %st11.i = getelementptr inbounds i8, ptr %99, i64 16
-  %100 = load ptr, ptr %st11.i, align 8
-  %call12.i = call ptr @sqlite3_column_name(ptr noundef %100, i32 noundef %i.066.i) #7
+if.then9.i:                                       ; preds = %for.body.i150
+  %91 = load ptr, ptr %statement, align 8
+  %st11.i = getelementptr inbounds i8, ptr %91, i64 16
+  %92 = load ptr, ptr %st11.i, align 8
+  %call12.i = call ptr @sqlite3_column_name(ptr noundef %92, i32 noundef %i.066.i) #7
   %cmp13.i = icmp eq ptr %call12.i, null
   br i1 %cmp13.i, label %if.then14.i, label %for.cond23.i
 
 if.then14.i:                                      ; preds = %if.then9.i
   %call15.i = call ptr @PyErr_NoMemory() #7
-  %101 = load ptr, ptr %row_cast_map.i, align 8
-  %cmp18.not.i = icmp eq ptr %101, null
+  %93 = load ptr, ptr %row_cast_map.i, align 8
+  %cmp18.not.i = icmp eq ptr %93, null
   br i1 %cmp18.not.i, label %if.then126, label %if.then19.i
 
 if.then19.i:                                      ; preds = %if.then14.i
   store ptr null, ptr %row_cast_map.i, align 8
-  %102 = load i64, ptr %101, align 8
-  %103 = and i64 %102, 2147483648
-  %cmp.i158.not.i = icmp eq i64 %103, 0
+  %94 = load i64, ptr %93, align 8
+  %95 = and i64 %94, 2147483648
+  %cmp.i158.not.i = icmp eq i64 %95, 0
   br i1 %cmp.i158.not.i, label %if.end.i151.i, label %if.then126
 
 if.end.i151.i:                                    ; preds = %if.then19.i
-  %dec.i152.i = add i64 %102, -1
-  store i64 %dec.i152.i, ptr %101, align 8
+  %dec.i152.i = add i64 %94, -1
+  store i64 %dec.i152.i, ptr %93, align 8
   %cmp.i153.i = icmp eq i64 %dec.i152.i, 0
-  br i1 %cmp.i153.i, label %return.sink.split.i165, label %if.then126
+  br i1 %cmp.i153.i, label %return.sink.split.i, label %if.then126
 
 for.cond23.i:                                     ; preds = %if.then9.i, %for.inc.i
   %type_start.0.i = phi ptr [ %type_start.1.i, %for.inc.i ], [ null, %if.then9.i ]
-  %pos.0.i = phi ptr [ %incdec.ptr.i161, %for.inc.i ], [ %call12.i, %if.then9.i ]
-  %104 = load i8, ptr %pos.0.i, align 1
-  switch i8 %104, label %if.else.i [
+  %pos.0.i = phi ptr [ %incdec.ptr.i152, %for.inc.i ], [ %call12.i, %if.then9.i ]
+  %96 = load i8, ptr %pos.0.i, align 1
+  switch i8 %96, label %if.else.i [
     i8 0, label %land.lhs.true59.i
     i8 91, label %if.then30.i
   ]
@@ -929,83 +879,83 @@ if.then30.i:                                      ; preds = %for.cond23.i
   br label %for.inc.i
 
 if.else.i:                                        ; preds = %for.cond23.i
-  %cmp32.i = icmp eq i8 %104, 93
+  %cmp32.i = icmp eq i8 %96, 93
   %cmp34.i = icmp ne ptr %type_start.0.i, null
-  %or.cond.i169 = select i1 %cmp32.i, i1 %cmp34.i, i1 false
-  br i1 %or.cond.i169, label %if.then36.i170, label %for.inc.i
+  %or.cond.i159 = select i1 %cmp32.i, i1 %cmp34.i, i1 false
+  br i1 %or.cond.i159, label %if.then36.i160, label %for.inc.i
 
-if.then36.i170:                                   ; preds = %if.else.i
-  %105 = load ptr, ptr %connection7.i, align 8
-  %state38.i = getelementptr inbounds i8, ptr %105, i64 24
-  %106 = load ptr, ptr %state38.i, align 8
+if.then36.i160:                                   ; preds = %if.else.i
+  %97 = load ptr, ptr %11, align 8
+  %state38.i = getelementptr inbounds i8, ptr %97, i64 24
+  %98 = load ptr, ptr %state38.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %pos.0.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %type_start.0.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %call39.i = call fastcc ptr @_pysqlite_get_converter(ptr noundef %106, ptr noundef %type_start.0.i, i64 noundef %sub.ptr.sub.i)
+  %call39.i = call fastcc ptr @_pysqlite_get_converter(ptr noundef %98, ptr noundef %type_start.0.i, i64 noundef %sub.ptr.sub.i)
   %tobool40.not.i = icmp eq ptr %call39.i, null
   br i1 %tobool40.not.i, label %land.lhs.true41.i, label %if.end109.i
 
-land.lhs.true41.i:                                ; preds = %if.then36.i170
+land.lhs.true41.i:                                ; preds = %if.then36.i160
   %call42.i = call ptr @PyErr_Occurred() #7
   %tobool43.not.i = icmp eq ptr %call42.i, null
   br i1 %tobool43.not.i, label %land.lhs.true59.i, label %do.body45.i
 
 do.body45.i:                                      ; preds = %land.lhs.true41.i
-  %107 = load ptr, ptr %row_cast_map.i, align 8
-  %cmp49.not.i = icmp eq ptr %107, null
-  br i1 %cmp49.not.i, label %if.then126, label %if.then51.i171
+  %99 = load ptr, ptr %row_cast_map.i, align 8
+  %cmp49.not.i = icmp eq ptr %99, null
+  br i1 %cmp49.not.i, label %if.then126, label %if.then51.i161
 
-if.then51.i171:                                   ; preds = %do.body45.i
+if.then51.i161:                                   ; preds = %do.body45.i
   store ptr null, ptr %row_cast_map.i, align 8
-  %108 = load i64, ptr %107, align 8
-  %109 = and i64 %108, 2147483648
-  %cmp.i161.not.i = icmp eq i64 %109, 0
+  %100 = load i64, ptr %99, align 8
+  %101 = and i64 %100, 2147483648
+  %cmp.i161.not.i = icmp eq i64 %101, 0
   br i1 %cmp.i161.not.i, label %if.end.i142.i, label %if.then126
 
-if.end.i142.i:                                    ; preds = %if.then51.i171
-  %dec.i143.i = add i64 %108, -1
-  store i64 %dec.i143.i, ptr %107, align 8
+if.end.i142.i:                                    ; preds = %if.then51.i161
+  %dec.i143.i = add i64 %100, -1
+  store i64 %dec.i143.i, ptr %99, align 8
   %cmp.i144.i = icmp eq i64 %dec.i143.i, 0
-  br i1 %cmp.i144.i, label %return.sink.split.i165, label %if.then126
+  br i1 %cmp.i144.i, label %return.sink.split.i, label %if.then126
 
 for.inc.i:                                        ; preds = %if.else.i, %if.then30.i
   %type_start.1.i = phi ptr [ %add.ptr.i, %if.then30.i ], [ %type_start.0.i, %if.else.i ]
-  %incdec.ptr.i161 = getelementptr i8, ptr %pos.0.i, i64 1
+  %incdec.ptr.i152 = getelementptr i8, ptr %pos.0.i, i64 1
   br label %for.cond23.i, !llvm.loop !8
 
-land.lhs.true59.i:                                ; preds = %for.cond23.i, %land.lhs.true41.i, %for.body.i159
-  %110 = load ptr, ptr %connection7.i, align 8
-  %detect_types61.i = getelementptr inbounds i8, ptr %110, i64 32
-  %111 = load i32, ptr %detect_types61.i, align 8
-  %and62.i = and i32 %111, 1
+land.lhs.true59.i:                                ; preds = %for.cond23.i, %land.lhs.true41.i, %for.body.i150
+  %102 = load ptr, ptr %11, align 8
+  %detect_types61.i = getelementptr inbounds i8, ptr %102, i64 32
+  %103 = load i32, ptr %detect_types61.i, align 8
+  %and62.i = and i32 %103, 1
   %tobool63.not.i = icmp eq i32 %and62.i, 0
   br i1 %tobool63.not.i, label %if.end109.i, label %if.then64.i
 
 if.then64.i:                                      ; preds = %land.lhs.true59.i
-  %112 = load ptr, ptr %statement, align 8
-  %st66.i = getelementptr inbounds i8, ptr %112, i64 16
-  %113 = load ptr, ptr %st66.i, align 8
-  %call67.i = call ptr @sqlite3_column_decltype(ptr noundef %113, i32 noundef %i.066.i) #7
+  %104 = load ptr, ptr %statement, align 8
+  %st66.i = getelementptr inbounds i8, ptr %104, i64 16
+  %105 = load ptr, ptr %st66.i, align 8
+  %call67.i = call ptr @sqlite3_column_decltype(ptr noundef %105, i32 noundef %i.066.i) #7
   %tobool68.not.i = icmp eq ptr %call67.i, null
   br i1 %tobool68.not.i, label %if.end109.i, label %for.cond70.i
 
 for.cond70.i:                                     ; preds = %if.then64.i, %for.inc105.i
   %pos.1.i = phi ptr [ %incdec.ptr106.i, %for.inc105.i ], [ %call67.i, %if.then64.i ]
-  %114 = load i8, ptr %pos.1.i, align 1
-  switch i8 %114, label %for.inc105.i [
+  %106 = load i8, ptr %pos.1.i, align 1
+  switch i8 %106, label %for.inc105.i [
     i8 32, label %if.then81.i
     i8 40, label %if.then81.i
     i8 0, label %if.then81.i
   ]
 
 if.then81.i:                                      ; preds = %for.cond70.i, %for.cond70.i, %for.cond70.i
-  %115 = load ptr, ptr %connection7.i, align 8
-  %state84.i = getelementptr inbounds i8, ptr %115, i64 24
-  %116 = load ptr, ptr %state84.i, align 8
+  %107 = load ptr, ptr %11, align 8
+  %state84.i = getelementptr inbounds i8, ptr %107, i64 24
+  %108 = load ptr, ptr %state84.i, align 8
   %sub.ptr.lhs.cast85.i = ptrtoint ptr %pos.1.i to i64
   %sub.ptr.rhs.cast86.i = ptrtoint ptr %call67.i to i64
   %sub.ptr.sub87.i = sub i64 %sub.ptr.lhs.cast85.i, %sub.ptr.rhs.cast86.i
-  %call88.i = call fastcc ptr @_pysqlite_get_converter(ptr noundef %116, ptr noundef %call67.i, i64 noundef %sub.ptr.sub87.i)
+  %call88.i = call fastcc ptr @_pysqlite_get_converter(ptr noundef %108, ptr noundef %call67.i, i64 noundef %sub.ptr.sub87.i)
   %tobool89.not.i = icmp eq ptr %call88.i, null
   br i1 %tobool89.not.i, label %land.lhs.true90.i, label %if.end109.i
 
@@ -1015,74 +965,74 @@ land.lhs.true90.i:                                ; preds = %if.then81.i
   br i1 %tobool92.not.i, label %if.end109.i, label %do.body94.i
 
 do.body94.i:                                      ; preds = %land.lhs.true90.i
-  %117 = load ptr, ptr %row_cast_map.i, align 8
-  %cmp98.not.i = icmp eq ptr %117, null
+  %109 = load ptr, ptr %row_cast_map.i, align 8
+  %cmp98.not.i = icmp eq ptr %109, null
   br i1 %cmp98.not.i, label %if.then126, label %if.then100.i
 
 if.then100.i:                                     ; preds = %do.body94.i
   store ptr null, ptr %row_cast_map.i, align 8
-  %118 = load i64, ptr %117, align 8
-  %119 = and i64 %118, 2147483648
-  %cmp.i165.not.i = icmp eq i64 %119, 0
+  %110 = load i64, ptr %109, align 8
+  %111 = and i64 %110, 2147483648
+  %cmp.i165.not.i = icmp eq i64 %111, 0
   br i1 %cmp.i165.not.i, label %if.end.i133.i, label %if.then126
 
 if.end.i133.i:                                    ; preds = %if.then100.i
-  %dec.i134.i = add i64 %118, -1
-  store i64 %dec.i134.i, ptr %117, align 8
+  %dec.i134.i = add i64 %110, -1
+  store i64 %dec.i134.i, ptr %109, align 8
   %cmp.i135.i = icmp eq i64 %dec.i134.i, 0
-  br i1 %cmp.i135.i, label %return.sink.split.i165, label %if.then126
+  br i1 %cmp.i135.i, label %return.sink.split.i, label %if.then126
 
 for.inc105.i:                                     ; preds = %for.cond70.i
   %incdec.ptr106.i = getelementptr i8, ptr %pos.1.i, i64 1
   br label %for.cond70.i
 
-if.end109.i:                                      ; preds = %land.lhs.true90.i, %if.then81.i, %if.then64.i, %land.lhs.true59.i, %if.then36.i170
-  %converter.1.i = phi ptr [ %call88.i, %if.then81.i ], [ null, %land.lhs.true90.i ], [ null, %if.then64.i ], [ null, %land.lhs.true59.i ], [ %call39.i, %if.then36.i170 ]
+if.end109.i:                                      ; preds = %land.lhs.true90.i, %if.then81.i, %if.then64.i, %land.lhs.true59.i, %if.then36.i160
+  %converter.1.i = phi ptr [ %call88.i, %if.then81.i ], [ null, %land.lhs.true90.i ], [ null, %if.then64.i ], [ null, %land.lhs.true59.i ], [ %call39.i, %if.then36.i160 ]
   %tobool110.not.i = icmp eq ptr %converter.1.i, null
   %spec.store.select.i = select i1 %tobool110.not.i, ptr @_Py_NoneStruct, ptr %converter.1.i
-  %120 = load ptr, ptr %row_cast_map.i, align 8
-  %call114.i = call i32 @PyList_Append(ptr noundef %120, ptr noundef nonnull %spec.store.select.i) #7
+  %112 = load ptr, ptr %row_cast_map.i, align 8
+  %call114.i = call i32 @PyList_Append(ptr noundef %112, ptr noundef nonnull %spec.store.select.i) #7
   %cmp115.not.i = icmp eq i32 %call114.i, 0
-  br i1 %cmp115.not.i, label %for.cond.i166, label %do.body118.i
+  br i1 %cmp115.not.i, label %for.cond.i156, label %do.body118.i
 
 do.body118.i:                                     ; preds = %if.end109.i
-  %121 = load ptr, ptr %row_cast_map.i, align 8
-  %cmp122.not.i = icmp eq ptr %121, null
+  %113 = load ptr, ptr %row_cast_map.i, align 8
+  %cmp122.not.i = icmp eq ptr %113, null
   br i1 %cmp122.not.i, label %if.then126, label %if.then124.i
 
 if.then124.i:                                     ; preds = %do.body118.i
   store ptr null, ptr %row_cast_map.i, align 8
-  %122 = load i64, ptr %121, align 8
-  %123 = and i64 %122, 2147483648
-  %cmp.i169.not.i = icmp eq i64 %123, 0
-  br i1 %cmp.i169.not.i, label %if.end.i.i162, label %if.then126
+  %114 = load i64, ptr %113, align 8
+  %115 = and i64 %114, 2147483648
+  %cmp.i169.not.i = icmp eq i64 %115, 0
+  br i1 %cmp.i169.not.i, label %if.end.i.i153, label %if.then126
 
-if.end.i.i162:                                    ; preds = %if.then124.i
-  %dec.i.i163 = add i64 %122, -1
-  store i64 %dec.i.i163, ptr %121, align 8
-  %cmp.i.i164 = icmp eq i64 %dec.i.i163, 0
-  br i1 %cmp.i.i164, label %return.sink.split.i165, label %if.then126
+if.end.i.i153:                                    ; preds = %if.then124.i
+  %dec.i.i154 = add i64 %114, -1
+  store i64 %dec.i.i154, ptr %113, align 8
+  %cmp.i.i155 = icmp eq i64 %dec.i.i154, 0
+  br i1 %cmp.i.i155, label %return.sink.split.i, label %if.then126
 
-return.sink.split.i165:                           ; preds = %if.end.i.i162, %if.end.i133.i, %if.end.i142.i, %if.end.i151.i
-  %.sink.i = phi ptr [ %101, %if.end.i151.i ], [ %107, %if.end.i142.i ], [ %117, %if.end.i133.i ], [ %121, %if.end.i.i162 ]
+return.sink.split.i:                              ; preds = %if.end.i.i153, %if.end.i133.i, %if.end.i142.i, %if.end.i151.i
+  %.sink.i = phi ptr [ %93, %if.end.i151.i ], [ %99, %if.end.i142.i ], [ %109, %if.end.i133.i ], [ %113, %if.end.i.i153 ]
   call void @_Py_Dealloc(ptr noundef nonnull %.sink.i) #7
   br label %if.then126
 
-if.then126:                                       ; preds = %Py_XDECREF.exit.i, %if.then14.i, %if.then19.i, %if.end.i151.i, %do.body45.i, %if.then51.i171, %if.end.i142.i, %do.body94.i, %if.then100.i, %if.end.i133.i, %do.body118.i, %if.then124.i, %if.end.i.i162, %return.sink.split.i165
-  %OperationalError = getelementptr inbounds i8, ptr %26, i64 56
-  %124 = load ptr, ptr %OperationalError, align 8
-  %call127 = call ptr (ptr, ptr, ...) @_PyErr_FormatFromCause(ptr noundef %124, ptr noundef nonnull @.str.1) #7
-  br label %if.then.i208
+if.then126:                                       ; preds = %Py_XDECREF.exit.i, %if.then14.i, %if.then19.i, %if.end.i151.i, %do.body45.i, %if.then51.i161, %if.end.i142.i, %do.body94.i, %if.then100.i, %if.end.i133.i, %do.body118.i, %if.then124.i, %if.end.i.i153, %return.sink.split.i
+  %OperationalError = getelementptr inbounds i8, ptr %18, i64 56
+  %116 = load ptr, ptr %OperationalError, align 8
+  %call127 = call ptr (ptr, ptr, ...) @_PyErr_FormatFromCause(ptr noundef %116, ptr noundef nonnull @.str.1) #7
+  br label %if.then.i197
 
-if.end128:                                        ; preds = %for.cond.i166, %for.cond.preheader.i157, %if.end123
+if.end128:                                        ; preds = %for.cond.i156, %for.cond.preheader.i149, %if.end123
   %call129 = call ptr @PyEval_SaveThread() #7
-  %125 = load ptr, ptr %statement, align 8
-  %st131 = getelementptr inbounds i8, ptr %125, i64 16
-  %126 = load ptr, ptr %st131, align 8
-  %call132 = call i32 @sqlite3_column_count(ptr noundef %126) #7
+  %117 = load ptr, ptr %statement, align 8
+  %st131 = getelementptr inbounds i8, ptr %117, i64 16
+  %118 = load ptr, ptr %st131, align 8
+  %call132 = call i32 @sqlite3_column_count(ptr noundef %118) #7
   call void @PyEval_RestoreThread(ptr noundef %call129) #7
-  %127 = load ptr, ptr %description, align 8
-  %cmp134 = icmp eq ptr %127, @_Py_NoneStruct
+  %119 = load ptr, ptr %description, align 8
+  %cmp134 = icmp eq ptr %119, @_Py_NoneStruct
   %cmp136 = icmp sgt i32 %call132, 0
   %or.cond1 = select i1 %cmp134, i1 %cmp136, i1 false
   br i1 %or.cond1, label %do.body138, label %if.end170
@@ -1091,26 +1041,26 @@ do.body138:                                       ; preds = %if.end128
   %conv = zext nneg i32 %call132 to i64
   %call142 = call ptr @PyTuple_New(i64 noundef %conv) #7
   store ptr %call142, ptr %description, align 8
-  %128 = load i64, ptr @_Py_NoneStruct, align 8
-  %129 = and i64 %128, 2147483648
-  %cmp.i339.not = icmp eq i64 %129, 0
+  %120 = load i64, ptr @_Py_NoneStruct, align 8
+  %121 = and i64 %120, 2147483648
+  %cmp.i339.not = icmp eq i64 %121, 0
   br i1 %cmp.i339.not, label %if.end.i281, label %do.end143
 
 if.end.i281:                                      ; preds = %do.body138
-  %dec.i282 = add i64 %128, -1
+  %dec.i282 = add i64 %120, -1
   store i64 %dec.i282, ptr @_Py_NoneStruct, align 8
   %cmp.i283 = icmp eq i64 %dec.i282, 0
   br i1 %cmp.i283, label %if.then1.i284, label %do.end143
 
 if.then1.i284:                                    ; preds = %if.end.i281
   call void @_Py_Dealloc(ptr noundef nonnull @_Py_NoneStruct) #7
-  %.pr251.pre = load ptr, ptr %description, align 8
+  %.pr238.pre = load ptr, ptr %description, align 8
   br label %do.end143
 
 do.end143:                                        ; preds = %if.end.i281, %if.then1.i284, %do.body138
-  %130 = phi ptr [ %call142, %do.body138 ], [ %.pr251.pre, %if.then1.i284 ], [ %call142, %if.end.i281 ]
-  %tobool145.not = icmp eq ptr %130, null
-  br i1 %tobool145.not, label %if.then.i208, label %for.body.preheader
+  %122 = phi ptr [ %call142, %do.body138 ], [ %.pr238.pre, %if.then1.i284 ], [ %call142, %if.end.i281 ]
+  %tobool145.not = icmp eq ptr %122, null
+  br i1 %tobool145.not, label %if.then.i197, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %do.end143
   %wide.trip.count = zext nneg i32 %call132 to i64
@@ -1118,75 +1068,75 @@ for.body.preheader:                               ; preds = %do.end143
 
 for.body:                                         ; preds = %for.body.preheader, %if.end167
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %if.end167 ]
-  %131 = load ptr, ptr %statement, align 8
-  %st151 = getelementptr inbounds i8, ptr %131, i64 16
-  %132 = load ptr, ptr %st151, align 8
-  %133 = trunc nuw nsw i64 %indvars.iv to i32
-  %call152 = call ptr @sqlite3_column_name(ptr noundef %132, i32 noundef %133) #7
+  %123 = load ptr, ptr %statement, align 8
+  %st151 = getelementptr inbounds i8, ptr %123, i64 16
+  %124 = load ptr, ptr %st151, align 8
+  %125 = trunc nuw nsw i64 %indvars.iv to i32
+  %call152 = call ptr @sqlite3_column_name(ptr noundef %124, i32 noundef %125) #7
   %cmp153 = icmp eq ptr %call152, null
   br i1 %cmp153, label %if.then155, label %if.end157
 
 if.then155:                                       ; preds = %for.body
   %call156 = call ptr @PyErr_NoMemory() #7
-  br label %if.then.i208
+  br label %if.then.i197
 
 if.end157:                                        ; preds = %for.body
-  %self.val121 = load ptr, ptr %connection7.i, align 8
-  %134 = getelementptr i8, ptr %self.val121, i64 32
-  %self.val121.val = load i32, ptr %134, align 8
-  %and.i174 = and i32 %self.val121.val, 2
-  %tobool.not.i175 = icmp eq i32 %and.i174, 0
-  br i1 %tobool.not.i175, label %if.else.i186, label %for.cond.i176
+  %self.val121 = load ptr, ptr %11, align 8
+  %126 = getelementptr i8, ptr %self.val121, i64 32
+  %self.val121.val = load i32, ptr %126, align 8
+  %and.i164 = and i32 %self.val121.val, 2
+  %tobool.not.i165 = icmp eq i32 %and.i164, 0
+  br i1 %tobool.not.i165, label %if.else.i175, label %for.cond.i166
 
-for.cond.i176:                                    ; preds = %if.end157, %for.inc.i185
-  %pos.0.i177 = phi ptr [ %incdec.ptr11.i, %for.inc.i185 ], [ %call152, %if.end157 ]
-  %135 = load i8, ptr %pos.0.i177, align 1
-  switch i8 %135, label %for.inc.i185 [
+for.cond.i166:                                    ; preds = %if.end157, %for.inc.i174
+  %pos.0.i167 = phi ptr [ %incdec.ptr11.i, %for.inc.i174 ], [ %call152, %if.end157 ]
+  %127 = load i8, ptr %pos.0.i167, align 1
+  switch i8 %127, label %for.inc.i174 [
     i8 0, label %for.end.i
-    i8 91, label %if.then3.i178
+    i8 91, label %if.then3.i
   ]
 
-if.then3.i178:                                    ; preds = %for.cond.i176
-  %cmp4.not.i = icmp eq ptr %pos.0.i177, %call152
-  br i1 %cmp4.not.i, label %for.end.i, label %land.lhs.true.i179
+if.then3.i:                                       ; preds = %for.cond.i166
+  %cmp4.not.i = icmp eq ptr %pos.0.i167, %call152
+  br i1 %cmp4.not.i, label %for.end.i, label %land.lhs.true.i168
 
-land.lhs.true.i179:                               ; preds = %if.then3.i178
-  %add.ptr.i180 = getelementptr i8, ptr %pos.0.i177, i64 -1
-  %136 = load i8, ptr %add.ptr.i180, align 1
-  %cmp7.i = icmp eq i8 %136, 32
-  %spec.select.i = select i1 %cmp7.i, ptr %add.ptr.i180, ptr %pos.0.i177
+land.lhs.true.i168:                               ; preds = %if.then3.i
+  %add.ptr.i169 = getelementptr i8, ptr %pos.0.i167, i64 -1
+  %128 = load i8, ptr %add.ptr.i169, align 1
+  %cmp7.i = icmp eq i8 %128, 32
+  %spec.select.i = select i1 %cmp7.i, ptr %add.ptr.i169, ptr %pos.0.i167
   br label %for.end.i
 
-for.inc.i185:                                     ; preds = %for.cond.i176
-  %incdec.ptr11.i = getelementptr i8, ptr %pos.0.i177, i64 1
-  br label %for.cond.i176, !llvm.loop !9
+for.inc.i174:                                     ; preds = %for.cond.i166
+  %incdec.ptr11.i = getelementptr i8, ptr %pos.0.i167, i64 1
+  br label %for.cond.i166, !llvm.loop !9
 
-for.end.i:                                        ; preds = %for.cond.i176, %land.lhs.true.i179, %if.then3.i178
-  %pos.1.i181 = phi ptr [ %call152, %if.then3.i178 ], [ %spec.select.i, %land.lhs.true.i179 ], [ %pos.0.i177, %for.cond.i176 ]
-  %sub.ptr.lhs.cast.i182 = ptrtoint ptr %pos.1.i181 to i64
-  %sub.ptr.rhs.cast.i183 = ptrtoint ptr %call152 to i64
-  %sub.ptr.sub.i184 = sub i64 %sub.ptr.lhs.cast.i182, %sub.ptr.rhs.cast.i183
+for.end.i:                                        ; preds = %for.cond.i166, %land.lhs.true.i168, %if.then3.i
+  %pos.1.i170 = phi ptr [ %call152, %if.then3.i ], [ %spec.select.i, %land.lhs.true.i168 ], [ %pos.0.i167, %for.cond.i166 ]
+  %sub.ptr.lhs.cast.i171 = ptrtoint ptr %pos.1.i170 to i64
+  %sub.ptr.rhs.cast.i172 = ptrtoint ptr %call152 to i64
+  %sub.ptr.sub.i173 = sub i64 %sub.ptr.lhs.cast.i171, %sub.ptr.rhs.cast.i172
   br label %_pysqlite_build_column_name.exit
 
-if.else.i186:                                     ; preds = %if.end157
-  %call.i187 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call152) #8
+if.else.i175:                                     ; preds = %if.end157
+  %call.i176 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call152) #8
   br label %_pysqlite_build_column_name.exit
 
-_pysqlite_build_column_name.exit:                 ; preds = %for.end.i, %if.else.i186
-  %len.0.i = phi i64 [ %sub.ptr.sub.i184, %for.end.i ], [ %call.i187, %if.else.i186 ]
+_pysqlite_build_column_name.exit:                 ; preds = %for.end.i, %if.else.i175
+  %len.0.i = phi i64 [ %sub.ptr.sub.i173, %for.end.i ], [ %call.i176, %if.else.i175 ]
   %call13.i = call ptr @PyUnicode_FromStringAndSize(ptr noundef nonnull %call152, i64 noundef %len.0.i) #7
   %cmp159 = icmp eq ptr %call13.i, null
-  br i1 %cmp159, label %if.then.i208, label %if.end162
+  br i1 %cmp159, label %if.then.i197, label %if.end162
 
 if.end162:                                        ; preds = %_pysqlite_build_column_name.exit
   %call163 = call ptr (i64, ...) @PyTuple_Pack(i64 noundef 7, ptr noundef nonnull %call13.i, ptr noundef nonnull @_Py_NoneStruct, ptr noundef nonnull @_Py_NoneStruct, ptr noundef nonnull @_Py_NoneStruct, ptr noundef nonnull @_Py_NoneStruct, ptr noundef nonnull @_Py_NoneStruct, ptr noundef nonnull @_Py_NoneStruct) #7
-  %137 = load i64, ptr %call13.i, align 8
-  %138 = and i64 %137, 2147483648
-  %cmp.i343.not = icmp eq i64 %138, 0
+  %129 = load i64, ptr %call13.i, align 8
+  %130 = and i64 %129, 2147483648
+  %cmp.i343.not = icmp eq i64 %130, 0
   br i1 %cmp.i343.not, label %if.end.i272, label %Py_DECREF.exit277
 
 if.end.i272:                                      ; preds = %if.end162
-  %dec.i273 = add i64 %137, -1
+  %dec.i273 = add i64 %129, -1
   store i64 %dec.i273, ptr %call13.i, align 8
   %cmp.i274 = icmp eq i64 %dec.i273, 0
   br i1 %cmp.i274, label %if.then1.i275, label %Py_DECREF.exit277
@@ -1197,253 +1147,316 @@ if.then1.i275:                                    ; preds = %if.end.i272
 
 Py_DECREF.exit277:                                ; preds = %if.end162, %if.then1.i275, %if.end.i272
   %cmp164 = icmp eq ptr %call163, null
-  br i1 %cmp164, label %if.then.i208, label %if.end167
+  br i1 %cmp164, label %if.then.i197, label %if.end167
 
 if.end167:                                        ; preds = %Py_DECREF.exit277
-  %139 = load ptr, ptr %description, align 8
-  %ob_item.i188 = getelementptr inbounds i8, ptr %139, i64 24
-  %arrayidx.i189 = getelementptr [1 x ptr], ptr %ob_item.i188, i64 0, i64 %indvars.iv
-  store ptr %call163, ptr %arrayidx.i189, align 8
+  %131 = load ptr, ptr %description, align 8
+  %ob_item.i177 = getelementptr inbounds i8, ptr %131, i64 24
+  %arrayidx.i178 = getelementptr [1 x ptr], ptr %ob_item.i177, i64 0, i64 %indvars.iv
+  store ptr %call163, ptr %arrayidx.i178, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %if.end170, label %for.body, !llvm.loop !10
 
 if.end170:                                        ; preds = %if.end167, %if.end128
-  %cmp171 = icmp eq i32 %call1.i152, 101
-  br i1 %cmp171, label %if.then173, label %if.then.i199
+  %cmp171 = icmp eq i32 %call1.i147, 101
+  br i1 %cmp171, label %if.then173, label %if.then.i188
 
 if.then173:                                       ; preds = %if.end170
-  %140 = load ptr, ptr %statement, align 8
-  %is_dml175 = getelementptr inbounds i8, ptr %140, i64 24
-  %141 = load i32, ptr %is_dml175, align 8
-  %tobool176.not = icmp eq i32 %141, 0
+  %132 = load ptr, ptr %statement, align 8
+  %is_dml175 = getelementptr inbounds i8, ptr %132, i64 24
+  %133 = load i32, ptr %is_dml175, align 8
+  %tobool176.not = icmp eq i32 %133, 0
   br i1 %tobool176.not, label %if.end183, label %if.then177
 
 if.then177:                                       ; preds = %if.then173
-  %142 = load ptr, ptr %connection7.i, align 8
-  %db179 = getelementptr inbounds i8, ptr %142, i64 16
-  %143 = load ptr, ptr %db179, align 8
-  %call180 = call i32 @sqlite3_changes(ptr noundef %143) #7
+  %134 = load ptr, ptr %11, align 8
+  %db179 = getelementptr inbounds i8, ptr %134, i64 16
+  %135 = load ptr, ptr %db179, align 8
+  %call180 = call i32 @sqlite3_changes(ptr noundef %135) #7
   %conv181 = sext i32 %call180 to i64
-  %144 = load i64, ptr %rowcount, align 8
-  %add = add i64 %144, %conv181
+  %136 = load i64, ptr %rowcount, align 8
+  %add = add i64 %136, %conv181
   store i64 %add, ptr %rowcount, align 8
-  %.pre334 = load ptr, ptr %statement, align 8
+  %.pre321 = load ptr, ptr %statement, align 8
   br label %if.end183
 
 if.end183:                                        ; preds = %if.then177, %if.then173
-  %145 = phi ptr [ %.pre334, %if.then177 ], [ %140, %if.then173 ]
-  %st.i190 = getelementptr inbounds i8, ptr %145, i64 16
-  %146 = load ptr, ptr %st.i190, align 8
-  %cmp.not.i191 = icmp eq ptr %146, null
-  br i1 %cmp.not.i191, label %if.then.i199, label %if.then.i192
+  %137 = phi ptr [ %.pre321, %if.then177 ], [ %132, %if.then173 ]
+  %st.i179 = getelementptr inbounds i8, ptr %137, i64 16
+  %138 = load ptr, ptr %st.i179, align 8
+  %cmp.not.i180 = icmp eq ptr %138, null
+  br i1 %cmp.not.i180, label %if.then.i188, label %if.then.i181
 
-if.then.i192:                                     ; preds = %if.end183
-  %call.i193 = call ptr @PyEval_SaveThread() #7
-  %147 = load ptr, ptr %st.i190, align 8
-  %call2.i194 = call i32 @sqlite3_reset(ptr noundef %147) #7
-  call void @PyEval_RestoreThread(ptr noundef %call.i193) #7
-  br label %if.then.i199
+if.then.i181:                                     ; preds = %if.end183
+  %call.i182 = call ptr @PyEval_SaveThread() #7
+  %139 = load ptr, ptr %st.i179, align 8
+  %call2.i183 = call i32 @sqlite3_reset(ptr noundef %139) #7
+  call void @PyEval_RestoreThread(ptr noundef %call.i182) #7
+  br label %if.then.i188
 
-if.then.i199:                                     ; preds = %if.end170, %if.end183, %if.then.i192
-  %148 = load i64, ptr %call96306, align 8
-  %149 = and i64 %148, 2147483648
-  %cmp.i2.not.i200 = icmp eq i64 %149, 0
-  br i1 %cmp.i2.not.i200, label %if.end.i.i202, label %Py_XDECREF.exit206
+if.then.i188:                                     ; preds = %if.end170, %if.end183, %if.then.i181
+  %140 = load i64, ptr %call96293, align 8
+  %141 = and i64 %140, 2147483648
+  %cmp.i2.not.i189 = icmp eq i64 %141, 0
+  br i1 %cmp.i2.not.i189, label %if.end.i.i191, label %Py_XDECREF.exit195
 
-if.end.i.i202:                                    ; preds = %if.then.i199
-  %dec.i.i203 = add i64 %148, -1
-  store i64 %dec.i.i203, ptr %call96306, align 8
-  %cmp.i.i204 = icmp eq i64 %dec.i.i203, 0
-  br i1 %cmp.i.i204, label %if.then1.i.i205, label %Py_XDECREF.exit206
+if.end.i.i191:                                    ; preds = %if.then.i188
+  %dec.i.i192 = add i64 %140, -1
+  store i64 %dec.i.i192, ptr %call96293, align 8
+  %cmp.i.i193 = icmp eq i64 %dec.i.i192, 0
+  br i1 %cmp.i.i193, label %if.then1.i.i194, label %Py_XDECREF.exit195
 
-if.then1.i.i205:                                  ; preds = %if.end.i.i202
-  call void @_Py_Dealloc(ptr noundef nonnull %call96306) #7
-  br label %Py_XDECREF.exit206
+if.then1.i.i194:                                  ; preds = %if.end.i.i191
+  call void @_Py_Dealloc(ptr noundef nonnull %call96293) #7
+  br label %Py_XDECREF.exit195
 
-Py_XDECREF.exit206:                               ; preds = %if.then.i199, %if.end.i.i202, %if.then1.i.i205
+Py_XDECREF.exit195:                               ; preds = %if.then.i188, %if.end.i.i191, %if.then1.i.i194
   %call96 = call ptr @PyIter_Next(ptr noundef nonnull %parameters_iter.1) #7
   %tobool97.not = icmp eq ptr %call96, null
   br i1 %tobool97.not, label %while.end, label %if.end99
 
-while.end:                                        ; preds = %Py_XDECREF.exit206, %if.end95
-  br i1 %tobool1.not, label %if.then188, label %if.then.i217
+while.end:                                        ; preds = %Py_XDECREF.exit195, %if.end95
+  br i1 %tobool1.not, label %if.then188, label %if.then.i206
 
 if.then188:                                       ; preds = %while.end
   %call190 = call ptr @PyEval_SaveThread() #7
-  %150 = load ptr, ptr %connection7.i, align 8
-  %db192 = getelementptr inbounds i8, ptr %150, i64 16
-  %151 = load ptr, ptr %db192, align 8
-  %call193 = call i64 @sqlite3_last_insert_rowid(ptr noundef %151) #7
+  %142 = load ptr, ptr %11, align 8
+  %db192 = getelementptr inbounds i8, ptr %142, i64 16
+  %143 = load ptr, ptr %db192, align 8
+  %call193 = call i64 @sqlite3_last_insert_rowid(ptr noundef %143) #7
   call void @PyEval_RestoreThread(ptr noundef %call190) #7
   %lastrowid196 = getelementptr inbounds i8, ptr %self, i64 48
-  %152 = load ptr, ptr %lastrowid196, align 8
+  %144 = load ptr, ptr %lastrowid196, align 8
   %call198 = call ptr @PyLong_FromLongLong(i64 noundef %call193) #7
   store ptr %call198, ptr %lastrowid196, align 8
-  %153 = load i64, ptr %152, align 8
-  %154 = and i64 %153, 2147483648
-  %cmp.i347.not = icmp eq i64 %154, 0
-  br i1 %cmp.i347.not, label %if.end.i263, label %if.then.i217
+  %145 = load i64, ptr %144, align 8
+  %146 = and i64 %145, 2147483648
+  %cmp.i347.not = icmp eq i64 %146, 0
+  br i1 %cmp.i347.not, label %if.end.i263, label %if.then.i206
 
 if.end.i263:                                      ; preds = %if.then188
-  %dec.i264 = add i64 %153, -1
-  store i64 %dec.i264, ptr %152, align 8
+  %dec.i264 = add i64 %145, -1
+  store i64 %dec.i264, ptr %144, align 8
   %cmp.i265 = icmp eq i64 %dec.i264, 0
-  br i1 %cmp.i265, label %if.then1.i266, label %if.then.i217
+  br i1 %cmp.i265, label %if.then1.i266, label %if.then.i206
 
 if.then1.i266:                                    ; preds = %if.end.i263
-  call void @_Py_Dealloc(ptr noundef nonnull %152) #7
-  br label %if.then.i217
+  call void @_Py_Dealloc(ptr noundef nonnull %144) #7
+  br label %if.then.i206
 
-if.then.i208:                                     ; preds = %bind_parameters.exit, %do.end143, %_pysqlite_build_column_name.exit, %Py_DECREF.exit277, %if.end119, %if.then126, %if.then155
-  %155 = load i64, ptr %call96306, align 8
-  %156 = and i64 %155, 2147483648
-  %cmp.i2.not.i209 = icmp eq i64 %156, 0
-  br i1 %cmp.i2.not.i209, label %if.end.i.i211, label %if.then.i217
+if.then.i197:                                     ; preds = %bind_parameters.exit, %do.end143, %_pysqlite_build_column_name.exit, %Py_DECREF.exit277, %if.end119, %if.then126, %if.then155
+  %147 = load i64, ptr %call96293, align 8
+  %148 = and i64 %147, 2147483648
+  %cmp.i2.not.i198 = icmp eq i64 %148, 0
+  br i1 %cmp.i2.not.i198, label %if.end.i.i200, label %if.then.i206
 
-if.end.i.i211:                                    ; preds = %if.then.i208
-  %dec.i.i212 = add i64 %155, -1
-  store i64 %dec.i.i212, ptr %call96306, align 8
-  %cmp.i.i213 = icmp eq i64 %dec.i.i212, 0
-  br i1 %cmp.i.i213, label %if.then1.i.i214, label %if.then.i217
+if.end.i.i200:                                    ; preds = %if.then.i197
+  %dec.i.i201 = add i64 %147, -1
+  store i64 %dec.i.i201, ptr %call96293, align 8
+  %cmp.i.i202 = icmp eq i64 %dec.i.i201, 0
+  br i1 %cmp.i.i202, label %if.then1.i.i203, label %if.then.i206
 
-if.then1.i.i214:                                  ; preds = %if.end.i.i211
-  call void @_Py_Dealloc(ptr noundef nonnull %call96306) #7
-  br label %if.then.i217
+if.then1.i.i203:                                  ; preds = %if.end.i.i200
+  call void @_Py_Dealloc(ptr noundef nonnull %call96293) #7
+  br label %if.then.i206
 
-if.then.i217:                                     ; preds = %if.then1.i.i214, %if.end.i.i211, %if.then.i208, %while.end, %if.then188, %if.then1.i266, %if.end.i263, %if.then53, %do.end66, %if.then89, %Py_XDECREF.exit
-  %157 = load i64, ptr %parameters_iter.1, align 8
-  %158 = and i64 %157, 2147483648
-  %cmp.i2.not.i218 = icmp eq i64 %158, 0
-  br i1 %cmp.i2.not.i218, label %if.end.i.i220, label %Py_XDECREF.exit224
+if.then.i206:                                     ; preds = %if.then1.i.i203, %if.end.i.i200, %if.then.i197, %while.end, %if.then188, %if.then1.i266, %if.end.i263, %if.then53, %do.end66, %if.then89, %Py_XDECREF.exit
+  %149 = load i64, ptr %parameters_iter.1, align 8
+  %150 = and i64 %149, 2147483648
+  %cmp.i2.not.i207 = icmp eq i64 %150, 0
+  br i1 %cmp.i2.not.i207, label %if.end.i.i209, label %Py_XDECREF.exit213
 
-if.end.i.i220:                                    ; preds = %if.then.i217
-  %dec.i.i221 = add i64 %157, -1
-  store i64 %dec.i.i221, ptr %parameters_iter.1, align 8
-  %cmp.i.i222 = icmp eq i64 %dec.i.i221, 0
-  br i1 %cmp.i.i222, label %if.then1.i.i223, label %Py_XDECREF.exit224
+if.end.i.i209:                                    ; preds = %if.then.i206
+  %dec.i.i210 = add i64 %149, -1
+  store i64 %dec.i.i210, ptr %parameters_iter.1, align 8
+  %cmp.i.i211 = icmp eq i64 %dec.i.i210, 0
+  br i1 %cmp.i.i211, label %if.then1.i.i212, label %Py_XDECREF.exit213
 
-if.then1.i.i223:                                  ; preds = %if.end.i.i220
+if.then1.i.i212:                                  ; preds = %if.end.i.i209
   call void @_Py_Dealloc(ptr noundef nonnull %parameters_iter.1) #7
-  br label %Py_XDECREF.exit224
+  br label %Py_XDECREF.exit213
 
-Py_XDECREF.exit224:                               ; preds = %if.then.i217, %if.end.i.i220, %if.then1.i.i223
-  %cmp.not.i225 = icmp eq ptr %parameters_list.1, null
-  br i1 %cmp.not.i225, label %Py_XDECREF.exit233, label %if.then.i226
+Py_XDECREF.exit213:                               ; preds = %if.then.i206, %if.end.i.i209, %if.then1.i.i212
+  %cmp.not.i214 = icmp eq ptr %parameters_list.1, null
+  br i1 %cmp.not.i214, label %Py_XDECREF.exit222, label %if.then.i215
 
-if.then.i226:                                     ; preds = %if.then17, %Py_DECREF.exit313, %if.end.i317, %if.then1.i320, %if.then26, %Py_XDECREF.exit224
-  %parameters_list.0257261275 = phi ptr [ %parameters_list.1, %Py_XDECREF.exit224 ], [ %call13, %if.then26 ], [ %call13, %if.then1.i320 ], [ %call13, %if.end.i317 ], [ %call13, %Py_DECREF.exit313 ], [ %call13, %if.then17 ]
-  %159 = load i64, ptr %parameters_list.0257261275, align 8
-  %160 = and i64 %159, 2147483648
-  %cmp.i2.not.i227 = icmp eq i64 %160, 0
-  br i1 %cmp.i2.not.i227, label %if.end.i.i229, label %Py_XDECREF.exit233
+if.then.i215:                                     ; preds = %if.then17, %Py_DECREF.exit313, %if.end.i317, %if.then1.i320, %if.then26, %Py_XDECREF.exit213
+  %parameters_list.0244248258 = phi ptr [ %parameters_list.1, %Py_XDECREF.exit213 ], [ %call13, %if.then26 ], [ %call13, %if.then1.i320 ], [ %call13, %if.end.i317 ], [ %call13, %Py_DECREF.exit313 ], [ %call13, %if.then17 ]
+  %151 = load i64, ptr %parameters_list.0244248258, align 8
+  %152 = and i64 %151, 2147483648
+  %cmp.i2.not.i216 = icmp eq i64 %152, 0
+  br i1 %cmp.i2.not.i216, label %if.end.i.i218, label %Py_XDECREF.exit222
 
-if.end.i.i229:                                    ; preds = %if.then.i226
-  %dec.i.i230 = add i64 %159, -1
-  store i64 %dec.i.i230, ptr %parameters_list.0257261275, align 8
-  %cmp.i.i231 = icmp eq i64 %dec.i.i230, 0
-  br i1 %cmp.i.i231, label %if.then1.i.i232, label %Py_XDECREF.exit233
+if.end.i.i218:                                    ; preds = %if.then.i215
+  %dec.i.i219 = add i64 %151, -1
+  store i64 %dec.i.i219, ptr %parameters_list.0244248258, align 8
+  %cmp.i.i220 = icmp eq i64 %dec.i.i219, 0
+  br i1 %cmp.i.i220, label %if.then1.i.i221, label %Py_XDECREF.exit222
 
-if.then1.i.i232:                                  ; preds = %if.end.i.i229
-  call void @_Py_Dealloc(ptr noundef nonnull %parameters_list.0257261275) #7
-  br label %Py_XDECREF.exit233
+if.then1.i.i221:                                  ; preds = %if.end.i.i218
+  call void @_Py_Dealloc(ptr noundef nonnull %parameters_list.0244248258) #7
+  br label %Py_XDECREF.exit222
 
-Py_XDECREF.exit233:                               ; preds = %if.else12, %if.else, %land.lhs.true.i, %if.end6.i, %return.sink.split.i, %Py_XDECREF.exit224, %if.then.i226, %if.end.i.i229, %if.then1.i.i232
+Py_XDECREF.exit222:                               ; preds = %entry, %if.else12, %if.else, %Py_XDECREF.exit213, %if.then.i215, %if.end.i.i218, %if.then1.i.i221
   %locked201 = getelementptr inbounds i8, ptr %self, i64 84
   store i32 0, ptr %locked201, align 4
   %call202 = call ptr @PyErr_Occurred() #7
   %tobool203.not = icmp eq ptr %call202, null
   %statement220 = getelementptr inbounds i8, ptr %self, i64 72
-  %161 = load ptr, ptr %statement220, align 8
-  %tobool221.not = icmp eq ptr %161, null
+  %153 = load ptr, ptr %statement220, align 8
+  %tobool221.not = icmp eq ptr %153, null
   br i1 %tobool203.not, label %if.end219, label %if.then204
 
-if.then204:                                       ; preds = %Py_XDECREF.exit233
+if.then204:                                       ; preds = %Py_XDECREF.exit222
   br i1 %tobool221.not, label %if.end217, label %if.then207
 
 if.then207:                                       ; preds = %if.then204
-  %st.i234 = getelementptr inbounds i8, ptr %161, i64 16
-  %162 = load ptr, ptr %st.i234, align 8
-  %cmp.not.i235 = icmp eq ptr %162, null
-  br i1 %cmp.not.i235, label %if.then214, label %stmt_reset.exit241
+  %st.i223 = getelementptr inbounds i8, ptr %153, i64 16
+  %154 = load ptr, ptr %st.i223, align 8
+  %cmp.not.i224 = icmp eq ptr %154, null
+  br i1 %cmp.not.i224, label %if.then214, label %stmt_reset.exit230
 
-stmt_reset.exit241:                               ; preds = %if.then207
-  %call.i237 = call ptr @PyEval_SaveThread() #7
-  %163 = load ptr, ptr %st.i234, align 8
-  %call2.i238 = call i32 @sqlite3_reset(ptr noundef %163) #7
-  call void @PyEval_RestoreThread(ptr noundef %call.i237) #7
-  %.pre335 = load ptr, ptr %statement220, align 8
-  %cmp212.not = icmp eq ptr %.pre335, null
+stmt_reset.exit230:                               ; preds = %if.then207
+  %call.i226 = call ptr @PyEval_SaveThread() #7
+  %155 = load ptr, ptr %st.i223, align 8
+  %call2.i227 = call i32 @sqlite3_reset(ptr noundef %155) #7
+  call void @PyEval_RestoreThread(ptr noundef %call.i226) #7
+  %.pre322 = load ptr, ptr %statement220, align 8
+  %cmp212.not = icmp eq ptr %.pre322, null
   br i1 %cmp212.not, label %if.end217, label %if.then214
 
-if.then214:                                       ; preds = %if.then207, %stmt_reset.exit241
-  %164 = phi ptr [ %.pre335, %stmt_reset.exit241 ], [ %161, %if.then207 ]
+if.then214:                                       ; preds = %if.then207, %stmt_reset.exit230
+  %156 = phi ptr [ %.pre322, %stmt_reset.exit230 ], [ %153, %if.then207 ]
   store ptr null, ptr %statement220, align 8
-  %165 = load i64, ptr %164, align 8
-  %166 = and i64 %165, 2147483648
-  %cmp.i351.not = icmp eq i64 %166, 0
+  %157 = load i64, ptr %156, align 8
+  %158 = and i64 %157, 2147483648
+  %cmp.i351.not = icmp eq i64 %158, 0
   br i1 %cmp.i351.not, label %if.end.i254, label %if.end217
 
 if.end.i254:                                      ; preds = %if.then214
-  %dec.i255 = add i64 %165, -1
-  store i64 %dec.i255, ptr %164, align 8
+  %dec.i255 = add i64 %157, -1
+  store i64 %dec.i255, ptr %156, align 8
   %cmp.i256 = icmp eq i64 %dec.i255, 0
   br i1 %cmp.i256, label %if.then1.i257, label %if.end217
 
 if.then1.i257:                                    ; preds = %if.end.i254
-  call void @_Py_Dealloc(ptr noundef nonnull %164) #7
+  call void @_Py_Dealloc(ptr noundef nonnull %156) #7
   br label %if.end217
 
-if.end217:                                        ; preds = %if.end.i254, %if.then1.i257, %if.then214, %stmt_reset.exit241, %if.then204
+if.end217:                                        ; preds = %if.end.i254, %if.then1.i257, %if.then214, %stmt_reset.exit230, %if.then204
   %rowcount218 = getelementptr inbounds i8, ptr %self, i64 56
   store i64 -1, ptr %rowcount218, align 8
   br label %return
 
-if.end219:                                        ; preds = %Py_XDECREF.exit233
+if.end219:                                        ; preds = %Py_XDECREF.exit222
   br i1 %tobool221.not, label %if.end237, label %land.lhs.true222
 
 land.lhs.true222:                                 ; preds = %if.end219
-  %st224 = getelementptr inbounds i8, ptr %161, i64 16
-  %167 = load ptr, ptr %st224, align 8
-  %call225 = call i32 @sqlite3_stmt_busy(ptr noundef %167) #7
+  %st224 = getelementptr inbounds i8, ptr %153, i64 16
+  %159 = load ptr, ptr %st224, align 8
+  %call225 = call i32 @sqlite3_stmt_busy(ptr noundef %159) #7
   %tobool226.not = icmp eq i32 %call225, 0
   br i1 %tobool226.not, label %do.body228, label %if.end237
 
 do.body228:                                       ; preds = %land.lhs.true222
-  %168 = load ptr, ptr %statement220, align 8
-  %cmp232.not = icmp eq ptr %168, null
+  %160 = load ptr, ptr %statement220, align 8
+  %cmp232.not = icmp eq ptr %160, null
   br i1 %cmp232.not, label %if.end237, label %if.then234
 
 if.then234:                                       ; preds = %do.body228
   store ptr null, ptr %statement220, align 8
-  %169 = load i64, ptr %168, align 8
-  %170 = and i64 %169, 2147483648
-  %cmp.i355.not = icmp eq i64 %170, 0
+  %161 = load i64, ptr %160, align 8
+  %162 = and i64 %161, 2147483648
+  %cmp.i355.not = icmp eq i64 %162, 0
   br i1 %cmp.i355.not, label %if.end.i248, label %if.end237
 
 if.end.i248:                                      ; preds = %if.then234
-  %dec.i = add i64 %169, -1
-  store i64 %dec.i, ptr %168, align 8
+  %dec.i = add i64 %161, -1
+  store i64 %dec.i, ptr %160, align 8
   %cmp.i249 = icmp eq i64 %dec.i, 0
   br i1 %cmp.i249, label %if.then1.i, label %if.end237
 
 if.then1.i:                                       ; preds = %if.end.i248
-  call void @_Py_Dealloc(ptr noundef nonnull %168) #7
+  call void @_Py_Dealloc(ptr noundef nonnull %160) #7
   br label %if.end237
 
 if.end237:                                        ; preds = %if.end.i248, %if.then1.i, %if.then234, %do.body228, %land.lhs.true222, %if.end219
-  %171 = load i32, ptr %self, align 8
-  %add.i.i242 = add i32 %171, 1
-  %cmp.i.i243 = icmp eq i32 %add.i.i242, 0
-  br i1 %cmp.i.i243, label %return, label %if.end.i.i244
+  %163 = load i32, ptr %self, align 8
+  %add.i.i231 = add i32 %163, 1
+  %cmp.i.i232 = icmp eq i32 %add.i.i231, 0
+  br i1 %cmp.i.i232, label %return, label %if.end.i.i233
 
-if.end.i.i244:                                    ; preds = %if.end237
-  store i32 %add.i.i242, ptr %self, align 8
+if.end.i.i233:                                    ; preds = %if.end237
+  store i32 %add.i.i231, ptr %self, align 8
   br label %return
 
-return:                                           ; preds = %if.end.i.i244, %if.end237, %if.end217
-  %retval.0 = phi ptr [ null, %if.end217 ], [ %self, %if.end237 ], [ %self, %if.end.i.i244 ]
+return:                                           ; preds = %if.end.i.i233, %if.end237, %if.end217
+  %retval.0 = phi ptr [ null, %if.end217 ], [ %self, %if.end237 ], [ %self, %if.end.i.i233 ]
   ret ptr %retval.0
+}
+
+; Function Attrs: nounwind uwtable
+define internal fastcc range(i32 0, 2) i32 @check_cursor(ptr nocapture noundef readonly %cur) unnamed_addr #0 {
+entry:
+  %initialized = getelementptr inbounds i8, ptr %cur, i64 88
+  %0 = load i32, ptr %initialized, align 8
+  %tobool.not = icmp eq i32 %0, 0
+  br i1 %tobool.not, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %1 = getelementptr i8, ptr %cur, i64 8
+  %cur.val = load ptr, ptr %1, align 8
+  %call.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %cur.val, ptr noundef nonnull @_sqlite3module) #7
+  %call.i.i = tail call ptr @PyModule_GetState(ptr noundef %call.i) #7
+  %ProgrammingError = getelementptr inbounds i8, ptr %call.i.i, i64 64
+  %2 = load ptr, ptr %ProgrammingError, align 8
+  tail call void @PyErr_SetString(ptr noundef %2, ptr noundef nonnull @.str.2) #7
+  br label %return
+
+if.end:                                           ; preds = %entry
+  %closed = getelementptr inbounds i8, ptr %cur, i64 80
+  %3 = load i32, ptr %closed, align 8
+  %tobool2.not = icmp eq i32 %3, 0
+  %connection7 = getelementptr inbounds i8, ptr %cur, i64 16
+  %4 = load ptr, ptr %connection7, align 8
+  br i1 %tobool2.not, label %if.end6, label %if.then3
+
+if.then3:                                         ; preds = %if.end
+  %state4 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = load ptr, ptr %state4, align 8
+  %ProgrammingError5 = getelementptr inbounds i8, ptr %5, i64 64
+  %6 = load ptr, ptr %ProgrammingError5, align 8
+  tail call void @PyErr_SetString(ptr noundef %6, ptr noundef nonnull @.str.3) #7
+  br label %return
+
+if.end6:                                          ; preds = %if.end
+  %call8 = tail call i32 @pysqlite_check_thread(ptr noundef %4) #7
+  %tobool9.not = icmp eq i32 %call8, 0
+  br i1 %tobool9.not, label %return, label %land.lhs.true
+
+land.lhs.true:                                    ; preds = %if.end6
+  %7 = load ptr, ptr %connection7, align 8
+  %call11 = tail call i32 @pysqlite_check_connection(ptr noundef %7) #7
+  %tobool12.not = icmp eq i32 %call11, 0
+  br i1 %tobool12.not, label %return, label %land.rhs
+
+land.rhs:                                         ; preds = %land.lhs.true
+  %locked.i = getelementptr inbounds i8, ptr %cur, i64 84
+  %8 = load i32, ptr %locked.i, align 4
+  %tobool.not.i = icmp eq i32 %8, 0
+  br i1 %tobool.not.i, label %return, label %if.then.i
+
+if.then.i:                                        ; preds = %land.rhs
+  %9 = load ptr, ptr %connection7, align 8
+  %ProgrammingError.i = getelementptr inbounds i8, ptr %9, i64 208
+  %10 = load ptr, ptr %ProgrammingError.i, align 8
+  tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.4) #7
+  br label %return
+
+return:                                           ; preds = %if.then.i, %land.rhs, %if.end6, %land.lhs.true, %if.then3, %if.then
+  %retval.0 = phi i32 [ 0, %if.then3 ], [ 0, %if.then ], [ 0, %land.lhs.true ], [ 0, %if.end6 ], [ 0, %if.then.i ], [ 1, %land.rhs ]
+  ret i32 %retval.0
 }
 
 declare i32 @PyIter_Check(ptr noundef) local_unnamed_addr #1
@@ -1897,92 +1910,42 @@ define internal ptr @pysqlite_cursor_iternext(ptr noundef %self) #0 {
 entry:
   %buf.i = alloca [200 x i8], align 16
   %args = alloca [2 x ptr], align 16
-  %initialized.i = getelementptr inbounds i8, ptr %self, i64 88
-  %0 = load i32, ptr %initialized.i, align 8
-  %tobool.not.i = icmp eq i32 %0, 0
-  br i1 %tobool.not.i, label %if.then.i, label %if.end.i39
+  %call = tail call fastcc i32 @check_cursor(ptr noundef %self)
+  %tobool.not = icmp eq i32 %call, 0
+  br i1 %tobool.not, label %return, label %if.end
 
-if.then.i:                                        ; preds = %entry
-  %1 = getelementptr i8, ptr %self, i64 8
-  %cur.val.i = load ptr, ptr %1, align 8
-  %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %cur.val.i, ptr noundef nonnull @_sqlite3module) #7
-  %call.i.i.i = tail call ptr @PyModule_GetState(ptr noundef %call.i.i) #7
-  %ProgrammingError.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
-  br label %return.sink.split.i
-
-if.end.i39:                                       ; preds = %entry
-  %closed.i = getelementptr inbounds i8, ptr %self, i64 80
-  %2 = load i32, ptr %closed.i, align 8
-  %tobool2.not.i = icmp eq i32 %2, 0
-  %connection7.i = getelementptr inbounds i8, ptr %self, i64 16
-  %3 = load ptr, ptr %connection7.i, align 8
-  br i1 %tobool2.not.i, label %if.end6.i, label %if.then3.i
-
-if.then3.i:                                       ; preds = %if.end.i39
-  %state4.i = getelementptr inbounds i8, ptr %3, i64 24
-  %4 = load ptr, ptr %state4.i, align 8
-  %ProgrammingError5.i = getelementptr inbounds i8, ptr %4, i64 64
-  br label %return.sink.split.i
-
-if.end6.i:                                        ; preds = %if.end.i39
-  %call8.i = tail call i32 @pysqlite_check_thread(ptr noundef %3) #7
-  %tobool9.not.i = icmp eq i32 %call8.i, 0
-  br i1 %tobool9.not.i, label %return, label %land.lhs.true.i
-
-land.lhs.true.i:                                  ; preds = %if.end6.i
-  %5 = load ptr, ptr %connection7.i, align 8
-  %call11.i = tail call i32 @pysqlite_check_connection(ptr noundef %5) #7
-  %tobool12.not.i = icmp eq i32 %call11.i, 0
-  br i1 %tobool12.not.i, label %return, label %land.rhs.i
-
-land.rhs.i:                                       ; preds = %land.lhs.true.i
-  %locked.i.i = getelementptr inbounds i8, ptr %self, i64 84
-  %6 = load i32, ptr %locked.i.i, align 4
-  %tobool.not.i.i = icmp eq i32 %6, 0
-  br i1 %tobool.not.i.i, label %if.end, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %land.rhs.i
-  %7 = load ptr, ptr %connection7.i, align 8
-  %ProgrammingError.i.i = getelementptr inbounds i8, ptr %7, i64 208
-  br label %return.sink.split.i
-
-return.sink.split.i:                              ; preds = %if.then.i.i, %if.then3.i, %if.then.i
-  %ProgrammingError.i.sink.i = phi ptr [ %ProgrammingError.i.i, %if.then.i.i ], [ %ProgrammingError5.i, %if.then3.i ], [ %ProgrammingError.i, %if.then.i ]
-  %.str.4.sink.i = phi ptr [ @.str.4, %if.then.i.i ], [ @.str.3, %if.then3.i ], [ @.str.2, %if.then.i ]
-  %8 = load ptr, ptr %ProgrammingError.i.sink.i, align 8
-  tail call void @PyErr_SetString(ptr noundef %8, ptr noundef nonnull %.str.4.sink.i) #7
-  br label %return
-
-if.end:                                           ; preds = %land.rhs.i
+if.end:                                           ; preds = %entry
   %statement = getelementptr inbounds i8, ptr %self, i64 72
-  %9 = load ptr, ptr %statement, align 8
-  %cmp = icmp eq ptr %9, null
+  %0 = load ptr, ptr %statement, align 8
+  %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end2
 
 if.end2:                                          ; preds = %if.end
-  %st = getelementptr inbounds i8, ptr %9, i64 16
-  %10 = load ptr, ptr %st, align 8
-  store i32 1, ptr %locked.i.i, align 4
+  %st = getelementptr inbounds i8, ptr %0, i64 16
+  %1 = load ptr, ptr %st, align 8
+  %locked = getelementptr inbounds i8, ptr %self, i64 84
+  store i32 1, ptr %locked, align 4
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %buf.i)
   %call.i = tail call ptr @PyEval_SaveThread() #7
-  %11 = load ptr, ptr %statement, align 8
-  %st.i = getelementptr inbounds i8, ptr %11, i64 16
-  %12 = load ptr, ptr %st.i, align 8
-  %call1.i = tail call i32 @sqlite3_data_count(ptr noundef %12) #7
+  %2 = load ptr, ptr %statement, align 8
+  %st.i = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = load ptr, ptr %st.i, align 8
+  %call1.i = tail call i32 @sqlite3_data_count(ptr noundef %3) #7
   tail call void @PyEval_RestoreThread(ptr noundef %call.i) #7
   %conv.i = sext i32 %call1.i to i64
   %call2.i = tail call ptr @PyTuple_New(i64 noundef %conv.i) #7
-  %tobool.not.i40 = icmp eq ptr %call2.i, null
-  br i1 %tobool.not.i40, label %_pysqlite_fetch_one_row.exit.thread, label %if.end.i41
+  %tobool.not.i = icmp eq ptr %call2.i, null
+  br i1 %tobool.not.i, label %_pysqlite_fetch_one_row.exit.thread, label %if.end.i39
 
-if.end.i41:                                       ; preds = %if.end2
-  %13 = load ptr, ptr %connection7.i, align 8
-  %db3.i = getelementptr inbounds i8, ptr %13, i64 16
-  %14 = load ptr, ptr %db3.i, align 8
+if.end.i39:                                       ; preds = %if.end2
+  %connection.i = getelementptr inbounds i8, ptr %self, i64 16
+  %4 = load ptr, ptr %connection.i, align 8
+  %db3.i = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = load ptr, ptr %db3.i, align 8
   %cmp91.i = icmp sgt i32 %call1.i, 0
   br i1 %cmp91.i, label %for.body.lr.ph.i, label %for.end.i
 
-for.body.lr.ph.i:                                 ; preds = %if.end.i41
+for.body.lr.ph.i:                                 ; preds = %if.end.i39
   %row_cast_map.i = getelementptr inbounds i8, ptr %self, i64 32
   %ob_item.i.i = getelementptr inbounds i8, ptr %call2.i, i64 24
   %wide.trip.count.i = zext nneg i32 %call1.i to i64
@@ -1990,42 +1953,42 @@ for.body.lr.ph.i:                                 ; preds = %if.end.i41
 
 for.body.i:                                       ; preds = %if.end168.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %if.end168.i ]
-  %15 = load ptr, ptr %connection7.i, align 8
-  %detect_types.i = getelementptr inbounds i8, ptr %15, i64 32
-  %16 = load i32, ptr %detect_types.i, align 8
-  %tobool6.not.i = icmp eq i32 %16, 0
-  br i1 %tobool6.not.i, label %if.else46.i, label %land.lhs.true.i43
+  %6 = load ptr, ptr %connection.i, align 8
+  %detect_types.i = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = load i32, ptr %detect_types.i, align 8
+  %tobool6.not.i = icmp eq i32 %7, 0
+  br i1 %tobool6.not.i, label %if.else46.i, label %land.lhs.true.i
 
-land.lhs.true.i43:                                ; preds = %for.body.i
-  %17 = load ptr, ptr %row_cast_map.i, align 8
-  %cmp7.not.i = icmp eq ptr %17, null
+land.lhs.true.i:                                  ; preds = %for.body.i
+  %8 = load ptr, ptr %row_cast_map.i, align 8
+  %cmp7.not.i = icmp eq ptr %8, null
   br i1 %cmp7.not.i, label %if.else46.i, label %land.lhs.true9.i
 
-land.lhs.true9.i:                                 ; preds = %land.lhs.true.i43
-  %18 = getelementptr i8, ptr %17, i64 16
-  %.val.i = load i64, ptr %18, align 8
+land.lhs.true9.i:                                 ; preds = %land.lhs.true.i
+  %9 = getelementptr i8, ptr %8, i64 16
+  %.val.i = load i64, ptr %9, align 8
   %cmp13.i = icmp sgt i64 %.val.i, %indvars.iv.i
   br i1 %cmp13.i, label %if.end17.i, label %if.else46.i
 
 if.end17.i:                                       ; preds = %land.lhs.true9.i
-  %ob_item.i = getelementptr inbounds i8, ptr %17, i64 24
-  %19 = load ptr, ptr %ob_item.i, align 8
-  %arrayidx.i = getelementptr ptr, ptr %19, i64 %indvars.iv.i
-  %20 = load ptr, ptr %arrayidx.i, align 8
-  %cmp18.not.i = icmp eq ptr %20, @_Py_NoneStruct
+  %ob_item.i = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = load ptr, ptr %ob_item.i, align 8
+  %arrayidx.i = getelementptr ptr, ptr %10, i64 %indvars.iv.i
+  %11 = load ptr, ptr %arrayidx.i, align 8
+  %cmp18.not.i = icmp eq ptr %11, @_Py_NoneStruct
   br i1 %cmp18.not.i, label %if.else46.i, label %if.then20.i
 
 if.then20.i:                                      ; preds = %if.end17.i
-  %21 = load ptr, ptr %statement, align 8
-  %st22.i = getelementptr inbounds i8, ptr %21, i64 16
-  %22 = load ptr, ptr %st22.i, align 8
-  %23 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %call23.i = tail call ptr @sqlite3_column_blob(ptr noundef %22, i32 noundef %23) #7
+  %12 = load ptr, ptr %statement, align 8
+  %st22.i = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = load ptr, ptr %st22.i, align 8
+  %14 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %call23.i = tail call ptr @sqlite3_column_blob(ptr noundef %13, i32 noundef %14) #7
   %cmp24.i = icmp eq ptr %call23.i, null
   br i1 %cmp24.i, label %if.then26.i, label %if.else34.i
 
 if.then26.i:                                      ; preds = %if.then20.i
-  %call27.i = tail call i32 @sqlite3_errcode(ptr noundef %14) #7
+  %call27.i = tail call i32 @sqlite3_errcode(ptr noundef %5) #7
   %cmp28.i = icmp eq i32 %call27.i, 7
   br i1 %cmp28.i, label %if.then30.i, label %if.end32.i
 
@@ -2034,30 +1997,30 @@ if.then30.i:                                      ; preds = %if.then26.i
   br label %error.i
 
 if.end32.i:                                       ; preds = %if.then26.i
-  %24 = load i32, ptr @_Py_NoneStruct, align 8
-  %add.i.i.i = add i32 %24, 1
+  %15 = load i32, ptr @_Py_NoneStruct, align 8
+  %add.i.i.i = add i32 %15, 1
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.end168.i, label %if.end168.sink.split.i
 
 if.else34.i:                                      ; preds = %if.then20.i
-  %25 = load ptr, ptr %statement, align 8
-  %st36.i = getelementptr inbounds i8, ptr %25, i64 16
-  %26 = load ptr, ptr %st36.i, align 8
-  %call37.i = tail call i32 @sqlite3_column_bytes(ptr noundef %26, i32 noundef %23) #7
+  %16 = load ptr, ptr %statement, align 8
+  %st36.i = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = load ptr, ptr %st36.i, align 8
+  %call37.i = tail call i32 @sqlite3_column_bytes(ptr noundef %17, i32 noundef %14) #7
   %conv38.i = sext i32 %call37.i to i64
   %call39.i = tail call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %call23.i, i64 noundef %conv38.i) #7
   %cmp40.i = icmp eq ptr %call39.i, null
   br i1 %cmp40.i, label %error.i, label %if.end43.i
 
 if.end43.i:                                       ; preds = %if.else34.i
-  %call44.i = tail call ptr @PyObject_CallOneArg(ptr noundef %20, ptr noundef nonnull %call39.i) #7
-  %27 = load i64, ptr %call39.i, align 8
-  %28 = and i64 %27, 2147483648
-  %cmp.i193.not.i = icmp eq i64 %28, 0
+  %call44.i = tail call ptr @PyObject_CallOneArg(ptr noundef %11, ptr noundef nonnull %call39.i) #7
+  %18 = load i64, ptr %call39.i, align 8
+  %19 = and i64 %18, 2147483648
+  %cmp.i193.not.i = icmp eq i64 %19, 0
   br i1 %cmp.i193.not.i, label %if.end.i186.i, label %if.end165.i
 
 if.end.i186.i:                                    ; preds = %if.end43.i
-  %dec.i187.i = add i64 %27, -1
+  %dec.i187.i = add i64 %18, -1
   store i64 %dec.i187.i, ptr %call39.i, align 8
   %cmp.i188.i = icmp eq i64 %dec.i187.i, 0
   br i1 %cmp.i188.i, label %if.then1.i189.i, label %if.end165.i
@@ -2066,13 +2029,13 @@ if.then1.i189.i:                                  ; preds = %if.end.i186.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call39.i) #7
   br label %if.end165.i
 
-if.else46.i:                                      ; preds = %if.end17.i, %land.lhs.true9.i, %land.lhs.true.i43, %for.body.i
+if.else46.i:                                      ; preds = %if.end17.i, %land.lhs.true9.i, %land.lhs.true.i, %for.body.i
   %call48.i = tail call ptr @PyEval_SaveThread() #7
-  %29 = load ptr, ptr %statement, align 8
-  %st50.i = getelementptr inbounds i8, ptr %29, i64 16
-  %30 = load ptr, ptr %st50.i, align 8
-  %31 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %call51.i = tail call i32 @sqlite3_column_type(ptr noundef %30, i32 noundef %31) #7
+  %20 = load ptr, ptr %statement, align 8
+  %st50.i = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = load ptr, ptr %st50.i, align 8
+  %22 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %call51.i = tail call i32 @sqlite3_column_type(ptr noundef %21, i32 noundef %22) #7
   tail call void @PyEval_RestoreThread(ptr noundef %call48.i) #7
   switch i32 %call51.i, label %if.else142.i [
     i32 5, label %if.then54.i
@@ -2082,37 +2045,37 @@ if.else46.i:                                      ; preds = %if.end17.i, %land.l
   ]
 
 if.then54.i:                                      ; preds = %if.else46.i
-  %32 = load i32, ptr @_Py_NoneStruct, align 8
-  %add.i.i72.i = add i32 %32, 1
+  %23 = load i32, ptr @_Py_NoneStruct, align 8
+  %add.i.i72.i = add i32 %23, 1
   %cmp.i.i73.i = icmp eq i32 %add.i.i72.i, 0
   br i1 %cmp.i.i73.i, label %if.end168.i, label %if.end168.sink.split.i
 
 if.then59.i:                                      ; preds = %if.else46.i
-  %33 = load ptr, ptr %statement, align 8
-  %st61.i = getelementptr inbounds i8, ptr %33, i64 16
-  %34 = load ptr, ptr %st61.i, align 8
-  %call62.i = tail call i64 @sqlite3_column_int64(ptr noundef %34, i32 noundef %31) #7
+  %24 = load ptr, ptr %statement, align 8
+  %st61.i = getelementptr inbounds i8, ptr %24, i64 16
+  %25 = load ptr, ptr %st61.i, align 8
+  %call62.i = tail call i64 @sqlite3_column_int64(ptr noundef %25, i32 noundef %22) #7
   %call63.i = tail call ptr @PyLong_FromLongLong(i64 noundef %call62.i) #7
   br label %if.end165.i
 
 if.then67.i:                                      ; preds = %if.else46.i
-  %35 = load ptr, ptr %statement, align 8
-  %st69.i = getelementptr inbounds i8, ptr %35, i64 16
-  %36 = load ptr, ptr %st69.i, align 8
-  %call70.i = tail call double @sqlite3_column_double(ptr noundef %36, i32 noundef %31) #7
+  %26 = load ptr, ptr %statement, align 8
+  %st69.i = getelementptr inbounds i8, ptr %26, i64 16
+  %27 = load ptr, ptr %st69.i, align 8
+  %call70.i = tail call double @sqlite3_column_double(ptr noundef %27, i32 noundef %22) #7
   %call71.i = tail call ptr @PyFloat_FromDouble(double noundef %call70.i) #7
   br label %if.end165.i
 
 if.then75.i:                                      ; preds = %if.else46.i
-  %37 = load ptr, ptr %statement, align 8
-  %st77.i = getelementptr inbounds i8, ptr %37, i64 16
-  %38 = load ptr, ptr %st77.i, align 8
-  %call78.i = tail call ptr @sqlite3_column_text(ptr noundef %38, i32 noundef %31) #7
+  %28 = load ptr, ptr %statement, align 8
+  %st77.i = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = load ptr, ptr %st77.i, align 8
+  %call78.i = tail call ptr @sqlite3_column_text(ptr noundef %29, i32 noundef %22) #7
   %cmp79.i = icmp eq ptr %call78.i, null
   br i1 %cmp79.i, label %land.lhs.true81.i, label %if.end87.i
 
 land.lhs.true81.i:                                ; preds = %if.then75.i
-  %call82.i = tail call i32 @sqlite3_errcode(ptr noundef %14) #7
+  %call82.i = tail call i32 @sqlite3_errcode(ptr noundef %5) #7
   %cmp83.i = icmp eq i32 %call82.i, 7
   br i1 %cmp83.i, label %if.then85.i, label %if.end87.i
 
@@ -2121,15 +2084,15 @@ if.then85.i:                                      ; preds = %land.lhs.true81.i
   br label %error.i
 
 if.end87.i:                                       ; preds = %land.lhs.true81.i, %if.then75.i
-  %39 = load ptr, ptr %statement, align 8
-  %st89.i = getelementptr inbounds i8, ptr %39, i64 16
-  %40 = load ptr, ptr %st89.i, align 8
-  %call90.i = tail call i32 @sqlite3_column_bytes(ptr noundef %40, i32 noundef %31) #7
+  %30 = load ptr, ptr %statement, align 8
+  %st89.i = getelementptr inbounds i8, ptr %30, i64 16
+  %31 = load ptr, ptr %st89.i, align 8
+  %call90.i = tail call i32 @sqlite3_column_bytes(ptr noundef %31, i32 noundef %22) #7
   %conv91.i = sext i32 %call90.i to i64
-  %41 = load ptr, ptr %connection7.i, align 8
-  %text_factory.i = getelementptr inbounds i8, ptr %41, i64 112
-  %42 = load ptr, ptr %text_factory.i, align 8
-  %cmp93.i = icmp eq ptr %42, @PyUnicode_Type
+  %32 = load ptr, ptr %connection.i, align 8
+  %text_factory.i = getelementptr inbounds i8, ptr %32, i64 112
+  %33 = load ptr, ptr %text_factory.i, align 8
+  %cmp93.i = icmp eq ptr %33, @PyUnicode_Type
   br i1 %cmp93.i, label %if.then95.i, label %if.else121.i
 
 if.then95.i:                                      ; preds = %if.end87.i
@@ -2138,17 +2101,17 @@ if.then95.i:                                      ; preds = %if.end87.i
   br i1 %tobool97.not.i, label %land.lhs.true98.i, label %if.end168.i
 
 land.lhs.true98.i:                                ; preds = %if.then95.i
-  %43 = load ptr, ptr @PyExc_UnicodeDecodeError, align 8
-  %call99.i = tail call i32 @PyErr_ExceptionMatches(ptr noundef %43) #7
+  %34 = load ptr, ptr @PyExc_UnicodeDecodeError, align 8
+  %call99.i = tail call i32 @PyErr_ExceptionMatches(ptr noundef %34) #7
   %tobool100.not.i = icmp eq i32 %call99.i, 0
   br i1 %tobool100.not.i, label %error.i, label %if.then101.i
 
 if.then101.i:                                     ; preds = %land.lhs.true98.i
   tail call void @PyErr_Clear() #7
-  %44 = load ptr, ptr %statement, align 8
-  %st103.i = getelementptr inbounds i8, ptr %44, i64 16
-  %45 = load ptr, ptr %st103.i, align 8
-  %call104.i = tail call ptr @sqlite3_column_name(ptr noundef %45, i32 noundef %31) #7
+  %35 = load ptr, ptr %statement, align 8
+  %st103.i = getelementptr inbounds i8, ptr %35, i64 16
+  %36 = load ptr, ptr %st103.i, align 8
+  %call104.i = tail call ptr @sqlite3_column_name(ptr noundef %36, i32 noundef %22) #7
   %cmp105.i = icmp eq ptr %call104.i, null
   br i1 %cmp105.i, label %if.then107.i, label %if.end109.i
 
@@ -2160,25 +2123,25 @@ if.end109.i:                                      ; preds = %if.then101.i
   %call110.i = call i32 (ptr, i64, ptr, ...) @PyOS_snprintf(ptr noundef nonnull %buf.i, i64 noundef 199, ptr noundef nonnull @.str.14, ptr noundef nonnull %call104.i, ptr noundef %call78.i) #7
   %call113.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf.i) #8
   %call114.i = call ptr @PyUnicode_Decode(ptr noundef nonnull %buf.i, i64 noundef %call113.i, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16) #7
-  %46 = load ptr, ptr %connection7.i, align 8
-  %OperationalError.i = getelementptr inbounds i8, ptr %46, i64 184
-  %47 = load ptr, ptr %OperationalError.i, align 8
+  %37 = load ptr, ptr %connection.i, align 8
+  %OperationalError.i = getelementptr inbounds i8, ptr %37, i64 184
+  %38 = load ptr, ptr %OperationalError.i, align 8
   %tobool116.not.i = icmp eq ptr %call114.i, null
   br i1 %tobool116.not.i, label %if.then117.i, label %if.else118.i
 
 if.then117.i:                                     ; preds = %if.end109.i
-  call void @PyErr_SetString(ptr noundef %47, ptr noundef nonnull @.str.17) #7
+  call void @PyErr_SetString(ptr noundef %38, ptr noundef nonnull @.str.17) #7
   br label %error.i
 
 if.else118.i:                                     ; preds = %if.end109.i
-  call void @PyErr_SetObject(ptr noundef %47, ptr noundef nonnull %call114.i) #7
-  %48 = load i64, ptr %call114.i, align 8
-  %49 = and i64 %48, 2147483648
-  %cmp.i196.not.i = icmp eq i64 %49, 0
+  call void @PyErr_SetObject(ptr noundef %38, ptr noundef nonnull %call114.i) #7
+  %39 = load i64, ptr %call114.i, align 8
+  %40 = and i64 %39, 2147483648
+  %cmp.i196.not.i = icmp eq i64 %40, 0
   br i1 %cmp.i196.not.i, label %if.end.i177.i, label %error.i
 
 if.end.i177.i:                                    ; preds = %if.else118.i
-  %dec.i178.i = add i64 %48, -1
+  %dec.i178.i = add i64 %39, -1
   store i64 %dec.i178.i, ptr %call114.i, align 8
   %cmp.i179.i = icmp eq i64 %dec.i178.i, 0
   br i1 %cmp.i179.i, label %if.then1.i180.i, label %error.i
@@ -2188,7 +2151,7 @@ if.then1.i180.i:                                  ; preds = %if.end.i177.i
   br label %error.i
 
 if.else121.i:                                     ; preds = %if.end87.i
-  %cmp124.i = icmp eq ptr %42, @PyBytes_Type
+  %cmp124.i = icmp eq ptr %33, @PyBytes_Type
   br i1 %cmp124.i, label %if.then126.i, label %if.else128.i
 
 if.then126.i:                                     ; preds = %if.else121.i
@@ -2196,7 +2159,7 @@ if.then126.i:                                     ; preds = %if.else121.i
   br label %if.end165.i
 
 if.else128.i:                                     ; preds = %if.else121.i
-  %cmp131.i = icmp eq ptr %42, @PyByteArray_Type
+  %cmp131.i = icmp eq ptr %33, @PyByteArray_Type
   br i1 %cmp131.i, label %if.then133.i, label %if.else135.i
 
 if.then133.i:                                     ; preds = %if.else128.i
@@ -2204,19 +2167,19 @@ if.then133.i:                                     ; preds = %if.else128.i
   br label %if.end165.i
 
 if.else135.i:                                     ; preds = %if.else128.i
-  %call138.i = tail call ptr (ptr, ptr, ...) @PyObject_CallFunction(ptr noundef %42, ptr noundef nonnull @.str.18, ptr noundef %call78.i, i64 noundef %conv91.i) #7
+  %call138.i = tail call ptr (ptr, ptr, ...) @PyObject_CallFunction(ptr noundef %33, ptr noundef nonnull @.str.18, ptr noundef %call78.i, i64 noundef %conv91.i) #7
   br label %if.end165.i
 
 if.else142.i:                                     ; preds = %if.else46.i
-  %50 = load ptr, ptr %statement, align 8
-  %st145.i = getelementptr inbounds i8, ptr %50, i64 16
-  %51 = load ptr, ptr %st145.i, align 8
-  %call146.i = tail call ptr @sqlite3_column_blob(ptr noundef %51, i32 noundef %31) #7
+  %41 = load ptr, ptr %statement, align 8
+  %st145.i = getelementptr inbounds i8, ptr %41, i64 16
+  %42 = load ptr, ptr %st145.i, align 8
+  %call146.i = tail call ptr @sqlite3_column_blob(ptr noundef %42, i32 noundef %22) #7
   %cmp147.i = icmp eq ptr %call146.i, null
   br i1 %cmp147.i, label %land.lhs.true149.i, label %if.end155.i
 
 land.lhs.true149.i:                               ; preds = %if.else142.i
-  %call150.i = tail call i32 @sqlite3_errcode(ptr noundef %14) #7
+  %call150.i = tail call i32 @sqlite3_errcode(ptr noundef %5) #7
   %cmp151.i = icmp eq i32 %call150.i, 7
   br i1 %cmp151.i, label %if.then153.i, label %if.end155.i
 
@@ -2225,10 +2188,10 @@ if.then153.i:                                     ; preds = %land.lhs.true149.i
   br label %error.i
 
 if.end155.i:                                      ; preds = %land.lhs.true149.i, %if.else142.i
-  %52 = load ptr, ptr %statement, align 8
-  %st157.i = getelementptr inbounds i8, ptr %52, i64 16
-  %53 = load ptr, ptr %st157.i, align 8
-  %call158.i = tail call i32 @sqlite3_column_bytes(ptr noundef %53, i32 noundef %31) #7
+  %43 = load ptr, ptr %statement, align 8
+  %st157.i = getelementptr inbounds i8, ptr %43, i64 16
+  %44 = load ptr, ptr %st157.i, align 8
+  %call158.i = tail call i32 @sqlite3_column_bytes(ptr noundef %44, i32 noundef %22) #7
   %conv159.i = sext i32 %call158.i to i64
   %call160.i = tail call ptr @PyBytes_FromStringAndSize(ptr noundef %call146.i, i64 noundef %conv159.i) #7
   br label %if.end165.i
@@ -2251,19 +2214,19 @@ if.end168.i:                                      ; preds = %if.end168.sink.spli
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !11
 
-for.end.i:                                        ; preds = %if.end168.i, %if.end.i41
+for.end.i:                                        ; preds = %if.end168.i, %if.end.i39
   %call170.i = tail call ptr @PyErr_Occurred() #7
   %tobool171.not.i = icmp eq ptr %call170.i, null
   br i1 %tobool171.not.i, label %if.end8, label %error.i
 
 error.i:                                          ; preds = %if.end165.i, %if.else34.i, %for.end.i, %if.then153.i, %if.then1.i180.i, %if.end.i177.i, %if.else118.i, %if.then117.i, %if.then107.i, %land.lhs.true98.i, %if.then85.i, %if.then30.i
-  %54 = load i64, ptr %call2.i, align 8
-  %55 = and i64 %54, 2147483648
-  %cmp.i200.not.i = icmp eq i64 %55, 0
+  %45 = load i64, ptr %call2.i, align 8
+  %46 = and i64 %45, 2147483648
+  %cmp.i200.not.i = icmp eq i64 %46, 0
   br i1 %cmp.i200.not.i, label %if.end.i.i, label %_pysqlite_fetch_one_row.exit.thread
 
 if.end.i.i:                                       ; preds = %error.i
-  %dec.i.i = add i64 %54, -1
+  %dec.i.i = add i64 %45, -1
   store i64 %dec.i.i, ptr %call2.i, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %if.then1.i.i, label %_pysqlite_fetch_one_row.exit.thread
@@ -2274,32 +2237,32 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 
 _pysqlite_fetch_one_row.exit.thread:              ; preds = %if.end2, %error.i, %if.then1.i.i, %if.end.i.i
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %buf.i)
-  store i32 0, ptr %locked.i.i, align 4
+  store i32 0, ptr %locked, align 4
   br label %return
 
 if.end8:                                          ; preds = %for.end.i
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %buf.i)
-  store i32 0, ptr %locked.i.i, align 4
-  %call.i44 = tail call ptr @PyEval_SaveThread() #7
-  %call1.i45 = tail call i32 @sqlite3_step(ptr noundef %10) #7
-  tail call void @PyEval_RestoreThread(ptr noundef %call.i44) #7
-  switch i32 %call1.i45, label %if.then26 [
+  store i32 0, ptr %locked, align 4
+  %call.i40 = tail call ptr @PyEval_SaveThread() #7
+  %call1.i41 = tail call i32 @sqlite3_step(ptr noundef %1) #7
+  tail call void @PyEval_RestoreThread(ptr noundef %call.i40) #7
+  switch i32 %call1.i41, label %if.then26 [
     i32 101, label %if.then11
     i32 100, label %if.end43
   ]
 
 if.then11:                                        ; preds = %if.end8
-  %56 = load ptr, ptr %statement, align 8
-  %is_dml = getelementptr inbounds i8, ptr %56, i64 24
-  %57 = load i32, ptr %is_dml, align 8
-  %tobool13.not = icmp eq i32 %57, 0
+  %47 = load ptr, ptr %statement, align 8
+  %is_dml = getelementptr inbounds i8, ptr %47, i64 24
+  %48 = load i32, ptr %is_dml, align 8
+  %tobool13.not = icmp eq i32 %48, 0
   br i1 %tobool13.not, label %if.end16, label %if.then14
 
 if.then14:                                        ; preds = %if.then11
-  %58 = load ptr, ptr %connection7.i, align 8
-  %db = getelementptr inbounds i8, ptr %58, i64 16
-  %59 = load ptr, ptr %db, align 8
-  %call15 = tail call i32 @sqlite3_changes(ptr noundef %59) #7
+  %49 = load ptr, ptr %connection.i, align 8
+  %db = getelementptr inbounds i8, ptr %49, i64 16
+  %50 = load ptr, ptr %db, align 8
+  %call15 = tail call i32 @sqlite3_changes(ptr noundef %50) #7
   %conv = sext i32 %call15 to i64
   %rowcount = getelementptr inbounds i8, ptr %self, i64 56
   store i64 %conv, ptr %rowcount, align 8
@@ -2307,87 +2270,87 @@ if.then14:                                        ; preds = %if.then11
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then14, %if.then11
-  %60 = phi ptr [ %.pre, %if.then14 ], [ %56, %if.then11 ]
-  %st.i46 = getelementptr inbounds i8, ptr %60, i64 16
-  %61 = load ptr, ptr %st.i46, align 8
-  %cmp.not.i = icmp eq ptr %61, null
+  %51 = phi ptr [ %.pre, %if.then14 ], [ %47, %if.then11 ]
+  %st.i42 = getelementptr inbounds i8, ptr %51, i64 16
+  %52 = load ptr, ptr %st.i42, align 8
+  %cmp.not.i = icmp eq ptr %52, null
   br i1 %cmp.not.i, label %if.then22, label %stmt_reset.exit
 
 stmt_reset.exit:                                  ; preds = %if.end16
-  %call.i48 = tail call ptr @PyEval_SaveThread() #7
-  %62 = load ptr, ptr %st.i46, align 8
-  %call2.i49 = tail call i32 @sqlite3_reset(ptr noundef %62) #7
-  tail call void @PyEval_RestoreThread(ptr noundef %call.i48) #7
+  %call.i43 = tail call ptr @PyEval_SaveThread() #7
+  %53 = load ptr, ptr %st.i42, align 8
+  %call2.i44 = tail call i32 @sqlite3_reset(ptr noundef %53) #7
+  tail call void @PyEval_RestoreThread(ptr noundef %call.i43) #7
   %.pr = load ptr, ptr %statement, align 8
   %cmp20.not = icmp eq ptr %.pr, null
   br i1 %cmp20.not, label %if.end43, label %if.then22
 
 if.then22:                                        ; preds = %if.end16, %stmt_reset.exit
-  %63 = phi ptr [ %.pr, %stmt_reset.exit ], [ %60, %if.end16 ]
+  %54 = phi ptr [ %.pr, %stmt_reset.exit ], [ %51, %if.end16 ]
   store ptr null, ptr %statement, align 8
-  %64 = load i64, ptr %63, align 8
-  %65 = and i64 %64, 2147483648
-  %cmp.i80.not = icmp eq i64 %65, 0
+  %55 = load i64, ptr %54, align 8
+  %56 = and i64 %55, 2147483648
+  %cmp.i80.not = icmp eq i64 %56, 0
   br i1 %cmp.i80.not, label %if.end.i73, label %if.end43
 
 if.end.i73:                                       ; preds = %if.then22
-  %dec.i74 = add i64 %64, -1
-  store i64 %dec.i74, ptr %63, align 8
+  %dec.i74 = add i64 %55, -1
+  store i64 %dec.i74, ptr %54, align 8
   %cmp.i75 = icmp eq i64 %dec.i74, 0
   br i1 %cmp.i75, label %if.then1.i76, label %if.end43
 
 if.then1.i76:                                     ; preds = %if.end.i73
-  tail call void @_Py_Dealloc(ptr noundef nonnull %63) #7
+  tail call void @_Py_Dealloc(ptr noundef nonnull %54) #7
   br label %if.end43
 
 if.then26:                                        ; preds = %if.end8
-  %66 = load ptr, ptr %connection7.i, align 8
-  %state = getelementptr inbounds i8, ptr %66, i64 24
-  %67 = load ptr, ptr %state, align 8
-  %db29 = getelementptr inbounds i8, ptr %66, i64 16
-  %68 = load ptr, ptr %db29, align 8
-  %call30 = tail call i32 @_pysqlite_seterror(ptr noundef %67, ptr noundef %68) #7
-  %69 = load ptr, ptr %statement, align 8
-  %st.i51 = getelementptr inbounds i8, ptr %69, i64 16
-  %70 = load ptr, ptr %st.i51, align 8
-  %cmp.not.i52 = icmp eq ptr %70, null
-  br i1 %cmp.not.i52, label %if.then39, label %stmt_reset.exit58
+  %57 = load ptr, ptr %connection.i, align 8
+  %state = getelementptr inbounds i8, ptr %57, i64 24
+  %58 = load ptr, ptr %state, align 8
+  %db29 = getelementptr inbounds i8, ptr %57, i64 16
+  %59 = load ptr, ptr %db29, align 8
+  %call30 = tail call i32 @_pysqlite_seterror(ptr noundef %58, ptr noundef %59) #7
+  %60 = load ptr, ptr %statement, align 8
+  %st.i46 = getelementptr inbounds i8, ptr %60, i64 16
+  %61 = load ptr, ptr %st.i46, align 8
+  %cmp.not.i47 = icmp eq ptr %61, null
+  br i1 %cmp.not.i47, label %if.then39, label %stmt_reset.exit53
 
-stmt_reset.exit58:                                ; preds = %if.then26
-  %call.i54 = tail call ptr @PyEval_SaveThread() #7
-  %71 = load ptr, ptr %st.i51, align 8
-  %call2.i55 = tail call i32 @sqlite3_reset(ptr noundef %71) #7
-  tail call void @PyEval_RestoreThread(ptr noundef %call.i54) #7
-  %.pr63 = load ptr, ptr %statement, align 8
-  %cmp37.not = icmp eq ptr %.pr63, null
+stmt_reset.exit53:                                ; preds = %if.then26
+  %call.i49 = tail call ptr @PyEval_SaveThread() #7
+  %62 = load ptr, ptr %st.i46, align 8
+  %call2.i50 = tail call i32 @sqlite3_reset(ptr noundef %62) #7
+  tail call void @PyEval_RestoreThread(ptr noundef %call.i49) #7
+  %.pr56 = load ptr, ptr %statement, align 8
+  %cmp37.not = icmp eq ptr %.pr56, null
   br i1 %cmp37.not, label %do.end41, label %if.then39
 
-if.then39:                                        ; preds = %if.then26, %stmt_reset.exit58
-  %72 = phi ptr [ %.pr63, %stmt_reset.exit58 ], [ %69, %if.then26 ]
+if.then39:                                        ; preds = %if.then26, %stmt_reset.exit53
+  %63 = phi ptr [ %.pr56, %stmt_reset.exit53 ], [ %60, %if.then26 ]
   store ptr null, ptr %statement, align 8
-  %73 = load i64, ptr %72, align 8
-  %74 = and i64 %73, 2147483648
-  %cmp.i83.not = icmp eq i64 %74, 0
+  %64 = load i64, ptr %63, align 8
+  %65 = and i64 %64, 2147483648
+  %cmp.i83.not = icmp eq i64 %65, 0
   br i1 %cmp.i83.not, label %if.end.i64, label %do.end41
 
 if.end.i64:                                       ; preds = %if.then39
-  %dec.i65 = add i64 %73, -1
-  store i64 %dec.i65, ptr %72, align 8
+  %dec.i65 = add i64 %64, -1
+  store i64 %dec.i65, ptr %63, align 8
   %cmp.i66 = icmp eq i64 %dec.i65, 0
   br i1 %cmp.i66, label %if.then1.i67, label %do.end41
 
 if.then1.i67:                                     ; preds = %if.end.i64
-  tail call void @_Py_Dealloc(ptr noundef nonnull %72) #7
+  tail call void @_Py_Dealloc(ptr noundef nonnull %63) #7
   br label %do.end41
 
-do.end41:                                         ; preds = %stmt_reset.exit58, %if.then39, %if.then1.i67, %if.end.i64
-  %75 = load i64, ptr %call2.i, align 8
-  %76 = and i64 %75, 2147483648
-  %cmp.i87.not = icmp eq i64 %76, 0
+do.end41:                                         ; preds = %stmt_reset.exit53, %if.then39, %if.then1.i67, %if.end.i64
+  %66 = load i64, ptr %call2.i, align 8
+  %67 = and i64 %66, 2147483648
+  %cmp.i87.not = icmp eq i64 %67, 0
   br i1 %cmp.i87.not, label %if.end.i55, label %return
 
 if.end.i55:                                       ; preds = %do.end41
-  %dec.i56 = add i64 %75, -1
+  %dec.i56 = add i64 %66, -1
   store i64 %dec.i56, ptr %call2.i, align 8
   %cmp.i57 = icmp eq i64 %dec.i56, 0
   br i1 %cmp.i57, label %if.then1.i58, label %return
@@ -2398,22 +2361,22 @@ if.then1.i58:                                     ; preds = %if.end.i55
 
 if.end43:                                         ; preds = %if.end8, %if.end.i73, %if.then1.i76, %if.then22, %stmt_reset.exit
   %row_factory = getelementptr inbounds i8, ptr %self, i64 64
-  %77 = load ptr, ptr %row_factory, align 8
-  %cmp44 = icmp eq ptr %77, @_Py_NoneStruct
+  %68 = load ptr, ptr %row_factory, align 8
+  %cmp44 = icmp eq ptr %68, @_Py_NoneStruct
   br i1 %cmp44, label %return, label %if.then46
 
 if.then46:                                        ; preds = %if.end43
   store ptr %self, ptr %args, align 16
   %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %call2.i, ptr %arrayinit.element, align 8
-  %call48 = call ptr @PyObject_Vectorcall(ptr noundef %77, ptr noundef nonnull %args, i64 noundef 2, ptr noundef null) #7
-  %78 = load i64, ptr %call2.i, align 8
-  %79 = and i64 %78, 2147483648
-  %cmp.i91.not = icmp eq i64 %79, 0
+  %call48 = call ptr @PyObject_Vectorcall(ptr noundef %68, ptr noundef nonnull %args, i64 noundef 2, ptr noundef null) #7
+  %69 = load i64, ptr %call2.i, align 8
+  %70 = and i64 %69, 2147483648
+  %cmp.i91.not = icmp eq i64 %70, 0
   br i1 %cmp.i91.not, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.then46
-  %dec.i = add i64 %78, -1
+  %dec.i = add i64 %69, -1
   store i64 %dec.i, ptr %call2.i, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %return
@@ -2422,8 +2385,8 @@ if.then1.i:                                       ; preds = %if.end.i
   call void @_Py_Dealloc(ptr noundef nonnull %call2.i) #7
   br label %return
 
-return:                                           ; preds = %return.sink.split.i, %if.end6.i, %land.lhs.true.i, %_pysqlite_fetch_one_row.exit.thread, %if.end43, %if.end.i, %if.then1.i, %if.then46, %if.end.i55, %if.then1.i58, %do.end41, %if.end
-  %retval.0 = phi ptr [ null, %if.end ], [ null, %do.end41 ], [ null, %if.then1.i58 ], [ null, %if.end.i55 ], [ %call2.i, %if.end43 ], [ %call48, %if.then46 ], [ %call48, %if.then1.i ], [ %call48, %if.end.i ], [ null, %_pysqlite_fetch_one_row.exit.thread ], [ null, %land.lhs.true.i ], [ null, %if.end6.i ], [ null, %return.sink.split.i ]
+return:                                           ; preds = %_pysqlite_fetch_one_row.exit.thread, %if.end43, %if.end.i, %if.then1.i, %if.then46, %if.end.i55, %if.then1.i58, %do.end41, %if.end, %entry
+  %retval.0 = phi ptr [ null, %entry ], [ null, %if.end ], [ null, %do.end41 ], [ null, %if.then1.i58 ], [ null, %if.end.i55 ], [ %call2.i, %if.end43 ], [ %call48, %if.then46 ], [ %call48, %if.then1.i ], [ %call48, %if.end.i ], [ null, %_pysqlite_fetch_one_row.exit.thread ]
   ret ptr %retval.0
 }
 
@@ -3202,147 +3165,96 @@ if.then7:                                         ; preds = %if.end4
 if.end8:                                          ; preds = %if.end4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tail.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %stmt.i)
-  %initialized.i.i = getelementptr inbounds i8, ptr %self, i64 88
-  %5 = load i32, ptr %initialized.i.i, align 8
-  %tobool.not.i.i = icmp eq i32 %5, 0
-  br i1 %tobool.not.i.i, label %if.then.i.i, label %if.end.i.i
+  %call.i = call fastcc i32 @check_cursor(ptr noundef %self)
+  %tobool.not.i = icmp eq i32 %call.i, 0
+  br i1 %tobool.not.i, label %pysqlite_cursor_executescript_impl.exit, label %if.end.i
 
-if.then.i.i:                                      ; preds = %if.end8
-  %6 = getelementptr i8, ptr %self, i64 8
-  %cur.val.i.i = load ptr, ptr %6, align 8
-  %call.i.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %cur.val.i.i, ptr noundef nonnull @_sqlite3module) #7
-  %call.i.i.i.i = call ptr @PyModule_GetState(ptr noundef %call.i.i.i) #7
-  %ProgrammingError.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 64
-  br label %return.sink.split.i.i
-
-if.end.i.i:                                       ; preds = %if.end8
-  %closed.i.i = getelementptr inbounds i8, ptr %self, i64 80
-  %7 = load i32, ptr %closed.i.i, align 8
-  %tobool2.not.i.i = icmp eq i32 %7, 0
-  %connection7.i.i = getelementptr inbounds i8, ptr %self, i64 16
-  %8 = load ptr, ptr %connection7.i.i, align 8
-  br i1 %tobool2.not.i.i, label %if.end6.i.i, label %if.then3.i.i
-
-if.then3.i.i:                                     ; preds = %if.end.i.i
-  %state4.i.i = getelementptr inbounds i8, ptr %8, i64 24
-  %9 = load ptr, ptr %state4.i.i, align 8
-  %ProgrammingError5.i.i = getelementptr inbounds i8, ptr %9, i64 64
-  br label %return.sink.split.i.i
-
-if.end6.i.i:                                      ; preds = %if.end.i.i
-  %call8.i.i = call i32 @pysqlite_check_thread(ptr noundef %8) #7
-  %tobool9.not.i.i = icmp eq i32 %call8.i.i, 0
-  br i1 %tobool9.not.i.i, label %pysqlite_cursor_executescript_impl.exit, label %land.lhs.true.i.i
-
-land.lhs.true.i.i:                                ; preds = %if.end6.i.i
-  %10 = load ptr, ptr %connection7.i.i, align 8
-  %call11.i.i = call i32 @pysqlite_check_connection(ptr noundef %10) #7
-  %tobool12.not.i.i = icmp eq i32 %call11.i.i, 0
-  br i1 %tobool12.not.i.i, label %pysqlite_cursor_executescript_impl.exit, label %land.rhs.i.i
-
-land.rhs.i.i:                                     ; preds = %land.lhs.true.i.i
-  %locked.i.i.i = getelementptr inbounds i8, ptr %self, i64 84
-  %11 = load i32, ptr %locked.i.i.i, align 4
-  %tobool.not.i.i.i = icmp eq i32 %11, 0
-  br i1 %tobool.not.i.i.i, label %if.end.i, label %if.then.i.i.i
-
-if.then.i.i.i:                                    ; preds = %land.rhs.i.i
-  %12 = load ptr, ptr %connection7.i.i, align 8
-  %ProgrammingError.i.i.i = getelementptr inbounds i8, ptr %12, i64 208
-  br label %return.sink.split.i.i
-
-return.sink.split.i.i:                            ; preds = %if.then.i.i.i, %if.then3.i.i, %if.then.i.i
-  %ProgrammingError.i.sink.i.i = phi ptr [ %ProgrammingError.i.i.i, %if.then.i.i.i ], [ %ProgrammingError5.i.i, %if.then3.i.i ], [ %ProgrammingError.i.i, %if.then.i.i ]
-  %.str.4.sink.i.i = phi ptr [ @.str.4, %if.then.i.i.i ], [ @.str.3, %if.then3.i.i ], [ @.str.2, %if.then.i.i ]
-  %13 = load ptr, ptr %ProgrammingError.i.sink.i.i, align 8
-  call void @PyErr_SetString(ptr noundef %13, ptr noundef nonnull %.str.4.sink.i.i) #7
-  br label %pysqlite_cursor_executescript_impl.exit
-
-if.end.i:                                         ; preds = %land.rhs.i.i
+if.end.i:                                         ; preds = %if.end8
   %call1.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call2) #8
-  %14 = load ptr, ptr %connection7.i.i, align 8
-  %db.i = getelementptr inbounds i8, ptr %14, i64 16
-  %15 = load ptr, ptr %db.i, align 8
-  %call2.i = call i32 @sqlite3_limit(ptr noundef %15, i32 noundef 1, i32 noundef -1) #7
+  %connection.i = getelementptr inbounds i8, ptr %self, i64 16
+  %5 = load ptr, ptr %connection.i, align 8
+  %db.i = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = load ptr, ptr %db.i, align 8
+  %call2.i = call i32 @sqlite3_limit(ptr noundef %6, i32 noundef 1, i32 noundef -1) #7
   %conv.i5 = zext i32 %call2.i to i64
   %cmp.i6 = icmp ugt i64 %call1.i, %conv.i5
-  %16 = load ptr, ptr %connection7.i.i, align 8
+  %7 = load ptr, ptr %connection.i, align 8
   br i1 %cmp.i6, label %if.then4.i, label %if.end6.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %DataError.i = getelementptr inbounds i8, ptr %16, i64 176
-  %17 = load ptr, ptr %DataError.i, align 8
-  call void @PyErr_SetString(ptr noundef %17, ptr noundef nonnull @.str.32) #7
+  %DataError.i = getelementptr inbounds i8, ptr %7, i64 176
+  %8 = load ptr, ptr %DataError.i, align 8
+  call void @PyErr_SetString(ptr noundef %8, ptr noundef nonnull @.str.32) #7
   br label %pysqlite_cursor_executescript_impl.exit
 
 if.end6.i:                                        ; preds = %if.end.i
-  %db9.i = getelementptr inbounds i8, ptr %16, i64 16
-  %18 = load ptr, ptr %db9.i, align 8
-  %autocommit.i = getelementptr inbounds i8, ptr %16, i64 48
-  %19 = load i32, ptr %autocommit.i, align 8
-  %cmp11.i = icmp eq i32 %19, -1
+  %db9.i = getelementptr inbounds i8, ptr %7, i64 16
+  %9 = load ptr, ptr %db9.i, align 8
+  %autocommit.i = getelementptr inbounds i8, ptr %7, i64 48
+  %10 = load i32, ptr %autocommit.i, align 8
+  %cmp11.i = icmp eq i32 %10, -1
   br i1 %cmp11.i, label %land.lhs.true.i, label %if.end22.i
 
 land.lhs.true.i:                                  ; preds = %if.end6.i
-  %call13.i = call i32 @sqlite3_get_autocommit(ptr noundef %18) #7
+  %call13.i = call i32 @sqlite3_get_autocommit(ptr noundef %9) #7
   %tobool14.not.i = icmp eq i32 %call13.i, 0
   br i1 %tobool14.not.i, label %if.then15.i, label %if.end22.i
 
 if.then15.i:                                      ; preds = %land.lhs.true.i
   %call16.i = call ptr @PyEval_SaveThread() #7
-  %call17.i = call i32 @sqlite3_exec(ptr noundef %18, ptr noundef nonnull @.str.33, ptr noundef null, ptr noundef null, ptr noundef null) #7
+  %call17.i = call i32 @sqlite3_exec(ptr noundef %9, ptr noundef nonnull @.str.33, ptr noundef null, ptr noundef null, ptr noundef null) #7
   call void @PyEval_RestoreThread(ptr noundef %call16.i) #7
   %cmp18.not.i = icmp eq i32 %call17.i, 0
   br i1 %cmp18.not.i, label %if.end22.i, label %error.i
 
 if.end22.i:                                       ; preds = %if.then15.i, %land.lhs.true.i, %if.end6.i
-  %call2520.i = call ptr @PyEval_SaveThread() #7
-  %conv2621.i = trunc i64 %call1.i to i32
-  %add22.i = add i32 %conv2621.i, 1
-  %call2723.i = call i32 @sqlite3_prepare_v2(ptr noundef %18, ptr noundef nonnull %call2, i32 noundef %add22.i, ptr noundef nonnull %stmt.i, ptr noundef nonnull %tail.i) #7
-  %cmp2824.i = icmp eq i32 %call2723.i, 0
-  br i1 %cmp2824.i, label %do.body.preheader.i, label %error.critedge.i
+  %call2518.i = call ptr @PyEval_SaveThread() #7
+  %conv2619.i = trunc i64 %call1.i to i32
+  %add20.i = add i32 %conv2619.i, 1
+  %call2721.i = call i32 @sqlite3_prepare_v2(ptr noundef %9, ptr noundef nonnull %call2, i32 noundef %add20.i, ptr noundef nonnull %stmt.i, ptr noundef nonnull %tail.i) #7
+  %cmp2822.i = icmp eq i32 %call2721.i, 0
+  br i1 %cmp2822.i, label %do.body.preheader.i, label %error.critedge.i
 
 do.body.preheader.i:                              ; preds = %if.end22.i, %if.end44.i
-  %call2527.i = phi ptr [ %call25.i, %if.end44.i ], [ %call2520.i, %if.end22.i ]
-  %sql_script.addr.026.i = phi ptr [ %23, %if.end44.i ], [ %call2, %if.end22.i ]
-  %sql_len.025.i = phi i64 [ %sub.i, %if.end44.i ], [ %call1.i, %if.end22.i ]
+  %call2525.i = phi ptr [ %call25.i, %if.end44.i ], [ %call2518.i, %if.end22.i ]
+  %sql_script.addr.024.i = phi ptr [ %14, %if.end44.i ], [ %call2, %if.end22.i ]
+  %sql_len.023.i = phi i64 [ %sub.i, %if.end44.i ], [ %call1.i, %if.end22.i ]
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %do.body.preheader.i
-  %20 = load ptr, ptr %stmt.i, align 8
-  %call31.i = call i32 @sqlite3_step(ptr noundef %20) #7
+  %11 = load ptr, ptr %stmt.i, align 8
+  %call31.i = call i32 @sqlite3_step(ptr noundef %11) #7
   %cmp32.i = icmp eq i32 %call31.i, 100
   br i1 %cmp32.i, label %do.body.i, label %do.end.i, !llvm.loop !12
 
 do.end.i:                                         ; preds = %do.body.i
-  %21 = load ptr, ptr %stmt.i, align 8
-  %call34.i = call i32 @sqlite3_finalize(ptr noundef %21) #7
-  %22 = icmp eq i32 %call34.i, 0
-  call void @PyEval_RestoreThread(ptr noundef %call2527.i) #7
-  br i1 %22, label %if.end39.i, label %error.i
+  %12 = load ptr, ptr %stmt.i, align 8
+  %call34.i = call i32 @sqlite3_finalize(ptr noundef %12) #7
+  %13 = icmp eq i32 %call34.i, 0
+  call void @PyEval_RestoreThread(ptr noundef %call2525.i) #7
+  br i1 %13, label %if.end39.i, label %error.i
 
 if.end39.i:                                       ; preds = %do.end.i
-  %23 = load ptr, ptr %tail.i, align 8
-  %24 = load i8, ptr %23, align 1
-  %cmp41.i = icmp eq i8 %24, 0
+  %14 = load ptr, ptr %tail.i, align 8
+  %15 = load i8, ptr %14, align 1
+  %cmp41.i = icmp eq i8 %15, 0
   br i1 %cmp41.i, label %while.end.i, label %if.end44.i
 
 if.end44.i:                                       ; preds = %if.end39.i
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %23 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %sql_script.addr.026.i to i64
-  %sub.ptr.sub.neg.i = add i64 %sql_len.025.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %14 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %sql_script.addr.024.i to i64
+  %sub.ptr.sub.neg.i = add i64 %sql_len.023.i, %sub.ptr.rhs.cast.i
   %sub.i = sub i64 %sub.ptr.sub.neg.i, %sub.ptr.lhs.cast.i
   %call25.i = call ptr @PyEval_SaveThread() #7
   %conv26.i = trunc i64 %sub.i to i32
   %add.i = add i32 %conv26.i, 1
-  %call27.i = call i32 @sqlite3_prepare_v2(ptr noundef %18, ptr noundef nonnull %23, i32 noundef %add.i, ptr noundef nonnull %stmt.i, ptr noundef nonnull %tail.i) #7
+  %call27.i = call i32 @sqlite3_prepare_v2(ptr noundef %9, ptr noundef nonnull %14, i32 noundef %add.i, ptr noundef nonnull %stmt.i, ptr noundef nonnull %tail.i) #7
   %cmp28.i = icmp eq i32 %call27.i, 0
   br i1 %cmp28.i, label %do.body.preheader.i, label %error.critedge.i
 
 while.end.i:                                      ; preds = %if.end39.i
-  %25 = load i32, ptr %self, align 8
-  %add.i.i.i = add i32 %25, 1
+  %16 = load i32, ptr %self, align 8
+  %add.i.i.i = add i32 %16, 1
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0
   br i1 %cmp.i.i.i, label %pysqlite_cursor_executescript_impl.exit, label %if.end.i.i.i
 
@@ -3351,19 +3263,19 @@ if.end.i.i.i:                                     ; preds = %while.end.i
   br label %pysqlite_cursor_executescript_impl.exit
 
 error.critedge.i:                                 ; preds = %if.end44.i, %if.end22.i
-  %call25.lcssa.i = phi ptr [ %call2520.i, %if.end22.i ], [ %call25.i, %if.end44.i ]
+  %call25.lcssa.i = phi ptr [ %call2518.i, %if.end22.i ], [ %call25.i, %if.end44.i ]
   call void @PyEval_RestoreThread(ptr noundef %call25.lcssa.i) #7
   br label %error.i
 
 error.i:                                          ; preds = %do.end.i, %error.critedge.i, %if.then15.i
-  %26 = load ptr, ptr %connection7.i.i, align 8
-  %state.i = getelementptr inbounds i8, ptr %26, i64 24
-  %27 = load ptr, ptr %state.i, align 8
-  %call47.i = call i32 @_pysqlite_seterror(ptr noundef %27, ptr noundef %18) #7
+  %17 = load ptr, ptr %connection.i, align 8
+  %state.i = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = load ptr, ptr %state.i, align 8
+  %call47.i = call i32 @_pysqlite_seterror(ptr noundef %18, ptr noundef %9) #7
   br label %pysqlite_cursor_executescript_impl.exit
 
-pysqlite_cursor_executescript_impl.exit:          ; preds = %if.end6.i.i, %land.lhs.true.i.i, %return.sink.split.i.i, %if.then4.i, %while.end.i, %if.end.i.i.i, %error.i
-  %retval.0.i = phi ptr [ null, %if.then4.i ], [ null, %error.i ], [ %self, %while.end.i ], [ %self, %if.end.i.i.i ], [ null, %land.lhs.true.i.i ], [ null, %if.end6.i.i ], [ null, %return.sink.split.i.i ]
+pysqlite_cursor_executescript_impl.exit:          ; preds = %if.end8, %if.then4.i, %while.end.i, %if.end.i.i.i, %error.i
+  %retval.0.i = phi ptr [ null, %if.then4.i ], [ null, %error.i ], [ null, %if.end8 ], [ %self, %while.end.i ], [ %self, %if.end.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tail.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %stmt.i)
   br label %exit

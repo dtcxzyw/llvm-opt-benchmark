@@ -26307,16 +26307,16 @@ lor.lhs.false7:                                   ; preds = %while.body
 if.then12:                                        ; preds = %lor.lhs.false7, %lor.lhs.false7, %while.body
   %call13 = tail call fastcc i32 @cliConnect(i32 noundef 1)
   %cmp14.not = icmp eq i32 %call13, 0
-  %.pre88.pre = load ptr, ptr @context, align 8
+  %.pre80.pre = load ptr, ptr @context, align 8
   br i1 %cmp14.not, label %if.end17, label %if.then15
 
 if.then15:                                        ; preds = %if.then12
-  %cmp.i8 = icmp eq ptr %.pre88.pre, null
+  %cmp.i8 = icmp eq ptr %.pre80.pre, null
   br i1 %cmp.i8, label %cliPrintContextError.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then15
   %36 = load ptr, ptr @stderr, align 8
-  %errstr.i = getelementptr inbounds i8, ptr %.pre88.pre, i64 12
+  %errstr.i = getelementptr inbounds i8, ptr %.pre80.pre, i64 12
   %call.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.418, ptr noundef nonnull %errstr.i) #38
   br label %cliPrintContextError.exit
 
@@ -26325,7 +26325,7 @@ cliPrintContextError.exit:                        ; preds = %if.then15, %if.end.
   br label %return
 
 if.end17:                                         ; preds = %lor.lhs.false7, %if.then12
-  %.pre88 = phi ptr [ %34, %lor.lhs.false7 ], [ %.pre88.pre, %if.then12 ]
+  %.pre80 = phi ptr [ %34, %lor.lhs.false7 ], [ %.pre80.pre, %if.then12 ]
   store i32 0, ptr getelementptr inbounds (i8, ptr @config, i64 180), align 4
   %37 = load i32, ptr getelementptr inbounds (i8, ptr @config, i64 184), align 8
   %tobool18.not = icmp eq i32 %37, 0
@@ -26333,11 +26333,11 @@ if.end17:                                         ; preds = %lor.lhs.false7, %if
 
 if.then19:                                        ; preds = %if.end17
   store i32 0, ptr getelementptr inbounds (i8, ptr @config, i64 184), align 8
-  %cmp.i9 = icmp eq ptr %.pre88, null
+  %cmp.i9 = icmp eq ptr %.pre80, null
   br i1 %cmp.i9, label %return, label %if.end.i10
 
 if.end.i10:                                       ; preds = %if.then19
-  %call.i11 = tail call ptr (ptr, ptr, ...) @redisCommand(ptr noundef nonnull %.pre88, ptr noundef nonnull @.str.766) #34
+  %call.i11 = tail call ptr (ptr, ptr, ...) @redisCommand(ptr noundef nonnull %.pre80, ptr noundef nonnull @.str.766) #34
   %cmp1.i = icmp eq ptr %call.i11, null
   br i1 %cmp1.i, label %if.then2.i, label %if.end4.i
 
@@ -26353,7 +26353,7 @@ if.end4.i:                                        ; preds = %if.end.i10
 
 cliSendAsking.exit.thread39:                      ; preds = %if.end4.i
   tail call void @freeReplyObject(ptr noundef nonnull %call.i11) #34
-  %.pre87 = load ptr, ptr @context, align 8
+  %.pre79 = load ptr, ptr @context, align 8
   br label %if.end24
 
 cliSendAsking.exit:                               ; preds = %if.end4.i
@@ -26365,18 +26365,18 @@ cliSendAsking.exit:                               ; preds = %if.end4.i
   br label %if.then22
 
 if.then22:                                        ; preds = %if.then2.i, %cliSendAsking.exit
-  %.pr56 = load ptr, ptr @context, align 8
-  %cmp.i13 = icmp eq ptr %.pr56, null
+  %.pr48 = load ptr, ptr @context, align 8
+  %cmp.i13 = icmp eq ptr %.pr48, null
   br i1 %cmp.i13, label %return, label %if.end.i14
 
 if.end.i14:                                       ; preds = %if.then22
   %43 = load ptr, ptr @stderr, align 8
-  %errstr.i15 = getelementptr inbounds i8, ptr %.pr56, i64 12
+  %errstr.i15 = getelementptr inbounds i8, ptr %.pr48, i64 12
   %call.i16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef nonnull @.str.418, ptr noundef nonnull %errstr.i15) #38
   br label %return
 
 if.end24:                                         ; preds = %cliSendAsking.exit.thread39, %if.end17
-  %44 = phi ptr [ %.pre87, %cliSendAsking.exit.thread39 ], [ %.pre88, %if.end17 ]
+  %44 = phi ptr [ %.pre79, %cliSendAsking.exit.thread39 ], [ %.pre80, %if.end17 ]
   %45 = load ptr, ptr %argv, align 8
   %cmp.i18 = icmp eq ptr %44, null
   br i1 %cmp.i18, label %cliPrintContextError.exit36, label %if.end.i19
@@ -26711,9 +26711,9 @@ if.end177.i:                                      ; preds = %do.body.i
   %call178.i = tail call i32 @fflush(ptr noundef %67)
   %68 = load i32, ptr getelementptr inbounds (i8, ptr @config, i64 464), align 8
   %cmp179.i = icmp eq i32 %68, 6
-  br i1 %cmp179.i, label %cliSendCommand.exit.thread51, label %do.cond.i
+  br i1 %cmp179.i, label %do.cond.thread.i, label %do.cond.i
 
-cliSendCommand.exit.thread51:                     ; preds = %if.end177.i
+do.cond.thread.i:                                 ; preds = %if.end177.i
   store i32 0, ptr getelementptr inbounds (i8, ptr @config, i64 140), align 4
   br label %if.end28
 
@@ -26734,7 +26734,13 @@ if.end192.i:                                      ; preds = %if.then188.i, %if.e
   %num_expected_pubsub_push.0.i = phi i32 [ %cond.i, %if.then188.i ], [ 0, %if.end184.i ]
   %70 = load i32, ptr getelementptr inbounds (i8, ptr @config, i64 188), align 4
   %tobool193.not.i = icmp eq i32 %70, 0
-  br i1 %tobool193.not.i, label %while.body198.outer.i, label %cliSendCommand.exit
+  br i1 %tobool193.not.i, label %while.body198.outer.i, label %if.then194.i
+
+if.then194.i:                                     ; preds = %if.end192.i
+  %puts.i23 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.38)
+  tail call fastcc void @slaveMode(i32 noundef 0)
+  store i32 0, ptr getelementptr inbounds (i8, ptr @config, i64 188), align 4
+  br label %if.then27
 
 if.end203.i:                                      ; preds = %if.end203.lr.ph.i, %while.body198.backedge.i
   %71 = load ptr, ptr @stdout, align 8
@@ -26790,8 +26796,8 @@ isPubsubPush.exit.i:                              ; preds = %lor.rhs.i.i
   %call19.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr18.i.i, ptr noundef nonnull dereferenceable(10) @.str.2) #33
   %tobool20.not.i.not.i = icmp eq i32 %call19.i.i, 0
   %cmp233.i = icmp eq i32 %.pr136.pre.i, 12
-  %or.cond71 = or i1 %tobool20.not.i.not.i, %cmp233.i
-  br i1 %or.cond71, label %while.body198.backedge.i, label %if.end238.i
+  %or.cond63 = or i1 %tobool20.not.i.not.i, %cmp233.i
+  br i1 %or.cond63, label %while.body198.backedge.i, label %if.end238.i
 
 if.then223.i:                                     ; preds = %if.then219.i.split.us
   store i32 1, ptr getelementptr inbounds (i8, ptr @config, i64 144), align 8
@@ -27055,13 +27061,7 @@ if.end352.i:                                      ; preds = %if.then349.i, %if.e
   %call353.i = tail call i32 @fflush(ptr noundef %106)
   br label %while.cond.i, !llvm.loop !249
 
-cliSendCommand.exit:                              ; preds = %if.end192.i
-  %puts.i23 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.38)
-  tail call fastcc void @slaveMode(i32 noundef 0)
-  store i32 0, ptr getelementptr inbounds (i8, ptr @config, i64 188), align 4
-  br label %if.then27
-
-if.then27:                                        ; preds = %while.body198.outer.i, %while.body198.backedge.i, %while.body198.backedge.i.us, %cliSendCommand.exit
+if.then27:                                        ; preds = %while.body198.outer.i, %while.body198.backedge.i, %while.body198.backedge.i.us, %if.then194.i
   tail call void @zfree(ptr noundef %call156.i) #34
   %.pr = load ptr, ptr @context, align 8
   %cmp.i32 = icmp eq ptr %.pr, null
@@ -27071,16 +27071,16 @@ if.end.i33:                                       ; preds = %if.then27
   %107 = load ptr, ptr @stderr, align 8
   %errstr.i34 = getelementptr inbounds i8, ptr %.pr, i64 12
   %call.i35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %107, ptr noundef nonnull @.str.418, ptr noundef nonnull %errstr.i34) #38
-  %.pre89 = load ptr, ptr @context, align 8
+  %.pre81 = load ptr, ptr @context, align 8
   br label %cliPrintContextError.exit36
 
 cliPrintContextError.exit36:                      ; preds = %if.end24, %if.then27, %if.end.i33
-  %108 = phi ptr [ null, %if.then27 ], [ %.pre89, %if.end.i33 ], [ null, %if.end24 ]
+  %108 = phi ptr [ null, %if.then27 ], [ %.pre81, %if.end.i33 ], [ null, %if.end24 ]
   tail call void @redisFree(ptr noundef %108) #34
   store ptr null, ptr @context, align 8
   br label %return
 
-if.end28:                                         ; preds = %lor.rhs165.i, %while.end.i, %do.cond.i, %cliSendCommand.exit.thread51
+if.end28:                                         ; preds = %while.end.i, %lor.rhs165.i, %do.cond.i, %do.cond.thread.i
   tail call void @zfree(ptr noundef %call156.i) #34
   %109 = load i32, ptr getelementptr inbounds (i8, ptr @config, i64 176), align 8
   %tobool29 = icmp ne i32 %109, 0

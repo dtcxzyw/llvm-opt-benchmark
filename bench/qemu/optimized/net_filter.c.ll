@@ -278,26 +278,35 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %cmp, label %if.end30, label %land.lhs.true5
 
 land.lhs.true5:                                   ; preds = %land.lhs.true
+  %next = getelementptr inbounds i8, ptr %call.i, i64 80
   %tql_prev = getelementptr inbounds i8, ptr %call.i, i64 88
   %3 = load ptr, ptr %tql_prev, align 8
   %cmp6.not = icmp eq ptr %3, null
   br i1 %cmp6.not, label %if.end30, label %do.body
 
 do.body:                                          ; preds = %land.lhs.true5
-  %next = getelementptr inbounds i8, ptr %call.i, i64 80
   %4 = load ptr, ptr %next, align 8
   %cmp9.not = icmp eq ptr %4, null
-  %tql_prev20 = getelementptr inbounds i8, ptr %1, i64 368
+  br i1 %cmp9.not, label %if.else, label %if.then10
+
+if.then10:                                        ; preds = %do.body
   %tql_prev15 = getelementptr inbounds i8, ptr %4, i64 88
-  %tql_prev20.sink = select i1 %cmp9.not, ptr %tql_prev20, ptr %tql_prev15
-  store ptr %3, ptr %tql_prev20.sink, align 8
+  store ptr %3, ptr %tql_prev15, align 8
+  br label %if.end21
+
+if.else:                                          ; preds = %do.body
+  %tql_prev20 = getelementptr inbounds i8, ptr %1, i64 368
+  store ptr %3, ptr %tql_prev20, align 8
+  br label %if.end21
+
+if.end21:                                         ; preds = %if.else, %if.then10
   %5 = load ptr, ptr %next, align 8
   %6 = load ptr, ptr %tql_prev, align 8
   store ptr %5, ptr %6, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next, i8 0, i64 16, i1 false)
   br label %if.end30
 
-if.end30:                                         ; preds = %do.body, %land.lhs.true5, %land.lhs.true, %if.end
+if.end30:                                         ; preds = %if.end21, %land.lhs.true5, %land.lhs.true, %if.end
   %netdev_id = getelementptr inbounds i8, ptr %call.i, i64 40
   %7 = load ptr, ptr %netdev_id, align 8
   tail call void @g_free(ptr noundef %7) #4
@@ -664,16 +673,16 @@ do.body62:                                        ; preds = %if.then50
 
 if.then66:                                        ; preds = %do.body62
   %tql_prev70 = getelementptr inbounds i8, ptr %12, i64 88
+  store ptr %next53, ptr %tql_prev70, align 8
   br label %if.end75
 
 if.else71:                                        ; preds = %do.body62
   %13 = load ptr, ptr %netdev41, align 8
   %tql_prev74 = getelementptr inbounds i8, ptr %13, i64 368
+  store ptr %next53, ptr %tql_prev74, align 8
   br label %if.end75
 
 if.end75:                                         ; preds = %if.else71, %if.then66
-  %tql_prev74.sink = phi ptr [ %tql_prev74, %if.else71 ], [ %tql_prev70, %if.then66 ]
-  store ptr %next53, ptr %tql_prev74.sink, align 8
   store ptr %call.i, ptr %next63, align 8
   %tql_prev79 = getelementptr inbounds i8, ptr %call.i, i64 88
   store ptr %next63, ptr %tql_prev79, align 8
@@ -692,10 +701,19 @@ do.body87:                                        ; preds = %if.else82
   %next90 = getelementptr inbounds i8, ptr %call.i, i64 80
   store ptr %16, ptr %next90, align 8
   %cmp91.not = icmp eq ptr %16, null
-  %tql_prev102 = getelementptr inbounds i8, ptr %15, i64 368
+  br i1 %cmp91.not, label %if.else98, label %if.then92
+
+if.then92:                                        ; preds = %do.body87
   %tql_prev97 = getelementptr inbounds i8, ptr %16, i64 88
-  %tql_prev102.sink = select i1 %cmp91.not, ptr %tql_prev102, ptr %tql_prev97
-  store ptr %next90, ptr %tql_prev102.sink, align 8
+  store ptr %next90, ptr %tql_prev97, align 8
+  br label %if.end103
+
+if.else98:                                        ; preds = %do.body87
+  %tql_prev102 = getelementptr inbounds i8, ptr %15, i64 368
+  store ptr %next90, ptr %tql_prev102, align 8
+  br label %if.end103
+
+if.end103:                                        ; preds = %if.else98, %if.then92
   %17 = load ptr, ptr %netdev41, align 8
   %filters105 = getelementptr inbounds i8, ptr %17, i64 360
   store ptr %call.i, ptr %filters105, align 8
@@ -724,7 +742,7 @@ do.body116:                                       ; preds = %if.else111
   store ptr %next117, ptr %tql_prev130, align 8
   br label %if.end134
 
-if.end134:                                        ; preds = %do.body87, %do.body116, %if.else111, %do.body, %if.end75, %if.then46, %if.then37, %if.then32, %if.then23, %if.then11, %if.then6, %if.then4, %if.then
+if.end134:                                        ; preds = %if.end103, %do.body116, %if.else111, %do.body, %if.end75, %if.then46, %if.then37, %if.then32, %if.then23, %if.then11, %if.then6, %if.then4, %if.then
   ret void
 }
 

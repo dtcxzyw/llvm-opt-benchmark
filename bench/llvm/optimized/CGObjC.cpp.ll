@@ -10157,8 +10157,8 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction26GenerateObjCCtorDtorM
   %31 = load i32, ptr %30, align 8
   %32 = zext i32 %31 to i64
   %33 = getelementptr inbounds ptr, ptr %29, i64 %32
-  %.not27 = icmp eq ptr %28, %33
-  br i1 %.not27, label %._crit_edge, label %.lr.ph
+  %.not29 = icmp eq ptr %28, %33
+  br i1 %.not29, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %26
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 1800
@@ -10172,8 +10172,8 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction26GenerateObjCCtorDtorM
   br label %40
 
 40:                                               ; preds = %.lr.ph, %_ZNK5clang18CXXCtorInitializer12getAnyMemberEv.exit
-  %.028 = phi ptr [ %28, %.lr.ph ], [ %82, %_ZNK5clang18CXXCtorInitializer12getAnyMemberEv.exit ]
-  %41 = load ptr, ptr %.028, align 8
+  %.030 = phi ptr [ %28, %.lr.ph ], [ %82, %_ZNK5clang18CXXCtorInitializer12getAnyMemberEv.exit ]
+  %41 = load ptr, ptr %.030, align 8
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %41, align 8
   %42 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 6
   switch i64 %42, label %_ZNK5clang18CXXCtorInitializer12getAnyMemberEv.exit [
@@ -10247,7 +10247,7 @@ _ZNK5clang18CXXCtorInitializer12getAnyMemberEv.exit: ; preds = %40, %43, %46
   %81 = or disjoint i8 %80, 1
   store i8 %81, ptr %39, align 8, !alias.scope !238
   call void @_ZN5clang7CodeGen15CodeGenFunction11EmitAggExprEPKNS_4ExprENS0_12AggValueSlotE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %76, ptr noundef nonnull byval(%"class.clang::CodeGen::AggValueSlot") align 8 %16) #20
-  %82 = getelementptr inbounds i8, ptr %.028, i64 8
+  %82 = getelementptr inbounds i8, ptr %.030, i64 8
   %.not = icmp eq ptr %82, %33
   br i1 %.not, label %._crit_edge, label %40
 
@@ -10307,7 +10307,7 @@ _ZNK5clang10ASTContext13getObjCIdTypeEv.exit:     ; preds = %91, %94
   store ptr %111, ptr %18, align 8, !alias.scope !241
   store i8 0, ptr %112, align 8, !alias.scope !241
   call void @_ZN5clang7CodeGen15CodeGenFunction18EmitReturnOfRValueENS0_6RValueENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull byval(%"class.clang::CodeGen::RValue") align 8 %18, i64 %.sroa.0.0.i.i) #20
-  br label %183
+  br label %184
 
 114:                                              ; preds = %4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
@@ -10370,20 +10370,20 @@ _ZNK5clang10ASTContext13getObjCIdTypeEv.exit:     ; preds = %91, %94
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %7)
   %151 = load ptr, ptr %23, align 8
   %152 = call noundef ptr @_ZN5clang17ObjCInterfaceDecl23all_declared_ivar_beginEv(ptr noundef nonnull align 8 dereferenceable(128) %151) #20
-  %.not29.i = icmp eq ptr %152, null
-  br i1 %.not29.i, label %_ZL21emitCXXDestructMethodRN5clang7CodeGen15CodeGenFunctionEPNS_22ObjCImplementationDeclE.exit, label %.lr.ph.i
+  %.not30.i = icmp eq ptr %152, null
+  br i1 %.not30.i, label %_ZL21emitCXXDestructMethodRN5clang7CodeGen15CodeGenFunctionEPNS_22ObjCImplementationDeclE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %114
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 2216
   br label %154
 
-154:                                              ; preds = %180, %.lr.ph.i
-  %.030.i = phi ptr [ %152, %.lr.ph.i ], [ %182, %180 ]
-  %155 = getelementptr inbounds nuw i8, ptr %.030.i, i64 48
+154:                                              ; preds = %181, %.lr.ph.i
+  %.031.i = phi ptr [ %152, %.lr.ph.i ], [ %183, %181 ]
+  %155 = getelementptr inbounds nuw i8, ptr %.031.i, i64 48
   %.sroa.0.0.copyload.i.i25 = load i64, ptr %155, align 8
   %156 = call noundef i32 @_ZN5clang8QualType20isDestructedTypeImplES0_(i64 %.sroa.0.0.copyload.i.i25) #20
   switch i32 %156, label %.split20.i [
-    i32 0, label %180
+    i32 0, label %181
     i32 2, label %.split.i
   ]
 
@@ -10395,61 +10395,60 @@ _ZNK5clang10ASTContext13getObjCIdTypeEv.exit:     ; preds = %91, %94
   %161 = load i64, ptr %160, align 8
   %162 = and i64 %161, 8796093022208
   %.not.i.i.i = icmp eq i64 %162, 0
-  br i1 %.not.i.i.i, label %_ZN5clang7CodeGen15CodeGenFunction14getCleanupKindENS_8QualType15DestructionKindE.exit.i, label %163
+  br i1 %.not.i.i.i, label %_ZN5clang7CodeGen15CodeGenFunction14getCleanupKindENS_8QualType15DestructionKindE.exit.i, label %_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit.i.i
 
-163:                                              ; preds = %.split.i
-  %164 = getelementptr inbounds nuw i8, ptr %157, i64 184
-  %165 = load ptr, ptr %164, align 8
-  br label %_ZN5clang7CodeGen15CodeGenFunction14getCleanupKindENS_8QualType15DestructionKindE.exit.sink.split.i
-
-.split20.i:                                       ; preds = %154
-  %166 = call noundef ptr @_ZN5clang7CodeGen15CodeGenFunction12getDestroyerENS_8QualType15DestructionKindE(ptr noundef nonnull align 8 dereferenceable(6488) %0, i32 noundef %156) #20
-  %167 = load ptr, ptr %19, align 8
-  %168 = getelementptr inbounds nuw i8, ptr %167, i64 152
-  %169 = load ptr, ptr %168, align 8
-  %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
-  br label %_ZN5clang7CodeGen15CodeGenFunction14getCleanupKindENS_8QualType15DestructionKindE.exit.sink.split.i
-
-_ZN5clang7CodeGen15CodeGenFunction14getCleanupKindENS_8QualType15DestructionKindE.exit.sink.split.i: ; preds = %.split20.i, %163
-  %.sink32.i = phi ptr [ %170, %.split20.i ], [ %165, %163 ]
-  %.sink31.i = phi i64 [ 8796093022208, %.split20.i ], [ 512, %163 ]
-  %.018.ph.i = phi ptr [ %166, %.split20.i ], [ @_ZL25destroyARCStrongWithStoreRN5clang7CodeGen15CodeGenFunctionENS0_7AddressENS_8QualTypeE, %163 ]
-  %171 = load i64, ptr %.sink32.i, align 8
-  %.fr3.i25.i = freeze i64 %171
-  %172 = and i64 %.fr3.i25.i, %.sink31.i
-  %.not.i26.i = icmp eq i64 %172, 0
-  %spec.select.i27.i = select i1 %.not.i26.i, i32 2, i32 3
+_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit.i.i: ; preds = %.split.i
+  %163 = getelementptr inbounds nuw i8, ptr %157, i64 184
+  %164 = load ptr, ptr %163, align 8
+  %165 = load i64, ptr %164, align 8
+  %.fr4.i.i = freeze i64 %165
+  %166 = and i64 %.fr4.i.i, 512
+  %.not.i.i26 = icmp eq i64 %166, 0
+  %spec.select.i27 = select i1 %.not.i.i26, i32 2, i32 3
   br label %_ZN5clang7CodeGen15CodeGenFunction14getCleanupKindENS_8QualType15DestructionKindE.exit.i
 
-_ZN5clang7CodeGen15CodeGenFunction14getCleanupKindENS_8QualType15DestructionKindE.exit.i: ; preds = %_ZN5clang7CodeGen15CodeGenFunction14getCleanupKindENS_8QualType15DestructionKindE.exit.sink.split.i, %.split.i
-  %phi.call.i = phi i32 [ 2, %.split.i ], [ %spec.select.i27.i, %_ZN5clang7CodeGen15CodeGenFunction14getCleanupKindENS_8QualType15DestructionKindE.exit.sink.split.i ]
-  %.018.i = phi ptr [ @_ZL25destroyARCStrongWithStoreRN5clang7CodeGen15CodeGenFunctionENS0_7AddressENS_8QualTypeE, %.split.i ], [ %.018.ph.i, %_ZN5clang7CodeGen15CodeGenFunction14getCleanupKindENS_8QualType15DestructionKindE.exit.sink.split.i ]
-  %173 = call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %153, i32 noundef %phi.call.i, i64 noundef 40) #20
-  %174 = trunc nuw nsw i32 %phi.call.i to i8
-  %175 = and i8 %174, 1
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_111DestroyIvarE, i64 16), ptr %173, align 8
-  %176 = getelementptr inbounds nuw i8, ptr %173, i64 8
-  store ptr %150, ptr %176, align 8
-  %177 = getelementptr inbounds nuw i8, ptr %173, i64 16
-  store ptr %.030.i, ptr %177, align 8
-  %178 = getelementptr inbounds nuw i8, ptr %173, i64 24
-  store ptr %.018.i, ptr %178, align 8
-  %179 = getelementptr inbounds nuw i8, ptr %173, i64 32
-  store i8 %175, ptr %179, align 8
-  br label %180
+.split20.i:                                       ; preds = %154
+  %167 = call noundef ptr @_ZN5clang7CodeGen15CodeGenFunction12getDestroyerENS_8QualType15DestructionKindE(ptr noundef nonnull align 8 dereferenceable(6488) %0, i32 noundef %156) #20
+  %168 = load ptr, ptr %19, align 8
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 152
+  %170 = load ptr, ptr %169, align 8
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 8
+  %172 = load i64, ptr %171, align 8
+  %.fr5.i.i = freeze i64 %172
+  %173 = and i64 %.fr5.i.i, 8796093022208
+  %.not6.i.i = icmp eq i64 %173, 0
+  %spec.select29.i = select i1 %.not6.i.i, i32 2, i32 3
+  br label %_ZN5clang7CodeGen15CodeGenFunction14getCleanupKindENS_8QualType15DestructionKindE.exit.i
 
-180:                                              ; preds = %_ZN5clang7CodeGen15CodeGenFunction14getCleanupKindENS_8QualType15DestructionKindE.exit.i, %154
-  %181 = getelementptr inbounds nuw i8, ptr %.030.i, i64 80
-  %182 = load ptr, ptr %181, align 8
-  %.not.i = icmp eq ptr %182, null
+_ZN5clang7CodeGen15CodeGenFunction14getCleanupKindENS_8QualType15DestructionKindE.exit.i: ; preds = %.split20.i, %_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit.i.i, %.split.i
+  %phi.call.i = phi i32 [ 2, %.split.i ], [ %spec.select.i27, %_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit.i.i ], [ %spec.select29.i, %.split20.i ]
+  %.018.i = phi ptr [ @_ZL25destroyARCStrongWithStoreRN5clang7CodeGen15CodeGenFunctionENS0_7AddressENS_8QualTypeE, %.split.i ], [ @_ZL25destroyARCStrongWithStoreRN5clang7CodeGen15CodeGenFunctionENS0_7AddressENS_8QualTypeE, %_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit.i.i ], [ %167, %.split20.i ]
+  %174 = call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %153, i32 noundef %phi.call.i, i64 noundef 40) #20
+  %175 = trunc nuw nsw i32 %phi.call.i to i8
+  %176 = and i8 %175, 1
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_111DestroyIvarE, i64 16), ptr %174, align 8
+  %177 = getelementptr inbounds nuw i8, ptr %174, i64 8
+  store ptr %150, ptr %177, align 8
+  %178 = getelementptr inbounds nuw i8, ptr %174, i64 16
+  store ptr %.031.i, ptr %178, align 8
+  %179 = getelementptr inbounds nuw i8, ptr %174, i64 24
+  store ptr %.018.i, ptr %179, align 8
+  %180 = getelementptr inbounds nuw i8, ptr %174, i64 32
+  store i8 %176, ptr %180, align 8
+  br label %181
+
+181:                                              ; preds = %_ZN5clang7CodeGen15CodeGenFunction14getCleanupKindENS_8QualType15DestructionKindE.exit.i, %154
+  %182 = getelementptr inbounds nuw i8, ptr %.031.i, i64 80
+  %183 = load ptr, ptr %182, align 8
+  %.not.i = icmp eq ptr %183, null
   br i1 %.not.i, label %_ZL21emitCXXDestructMethodRN5clang7CodeGen15CodeGenFunctionEPNS_22ObjCImplementationDeclE.exit, label %154, !llvm.loop !244
 
-_ZL21emitCXXDestructMethodRN5clang7CodeGen15CodeGenFunctionEPNS_22ObjCImplementationDeclE.exit: ; preds = %180, %114
+_ZL21emitCXXDestructMethodRN5clang7CodeGen15CodeGenFunctionEPNS_22ObjCImplementationDeclE.exit: ; preds = %181, %114
   call void @_ZN5clang7CodeGen15CodeGenFunction16RunCleanupsScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #20
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
-  br label %183
+  br label %184
 
-183:                                              ; preds = %_ZL21emitCXXDestructMethodRN5clang7CodeGen15CodeGenFunctionEPNS_22ObjCImplementationDeclE.exit, %_ZNK5clang10ASTContext13getObjCIdTypeEv.exit
+184:                                              ; preds = %_ZL21emitCXXDestructMethodRN5clang7CodeGen15CodeGenFunctionEPNS_22ObjCImplementationDeclE.exit, %_ZNK5clang10ASTContext13getObjCIdTypeEv.exit
   call void @_ZN5clang7CodeGen15CodeGenFunction14FinishFunctionENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(6488) %0, i32 0) #20
   ret void
 }

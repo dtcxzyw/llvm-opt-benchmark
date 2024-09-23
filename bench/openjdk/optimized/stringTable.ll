@@ -9262,6 +9262,7 @@ _ZN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE6Bucket4lockEv.exit: ;
 
 75:                                               ; preds = %71
   %76 = getelementptr inbounds ptr, ptr %8, i64 %.022.i
+  store ptr %.063, ptr %76, align 8
   br label %108
 
 77:                                               ; preds = %71
@@ -9336,14 +9337,13 @@ _ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI17StringTableConfigL8MEM
   %.sroa.13.7 = phi ptr [ %91, %.preheader.i.i.i ], [ %91, %105 ], [ %.sroa.13.2, %81 ]
   %106 = sext i32 %.sroa.0.2 to i64
   %107 = getelementptr inbounds ptr, ptr %.sroa.13.7, i64 %106
+  store ptr %.063, ptr %107, align 8
   br label %108
 
 108:                                              ; preds = %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE4NodeE18GrowableArrayCHeapIS5_LS2_11EEE6appendERKS5_.exit, %75
-  %.sink = phi ptr [ %107, %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE4NodeE18GrowableArrayCHeapIS5_LS2_11EEE6appendERKS5_.exit ], [ %76, %75 ]
-  %.sroa.0.4 = phi i32 [ %83, %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE4NodeE18GrowableArrayCHeapIS5_LS2_11EEE6appendERKS5_.exit ], [ %.sroa.0.2, %75 ]
-  %.sroa.7.4 = phi i32 [ %.sroa.7.7, %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE4NodeE18GrowableArrayCHeapIS5_LS2_11EEE6appendERKS5_.exit ], [ %.sroa.7.2, %75 ]
-  %.sroa.13.4 = phi ptr [ %.sroa.13.7, %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE4NodeE18GrowableArrayCHeapIS5_LS2_11EEE6appendERKS5_.exit ], [ %.sroa.13.2, %75 ]
-  store ptr %.063, ptr %.sink, align 8
+  %.sroa.0.4 = phi i32 [ %.sroa.0.2, %75 ], [ %83, %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE4NodeE18GrowableArrayCHeapIS5_LS2_11EEE6appendERKS5_.exit ]
+  %.sroa.7.4 = phi i32 [ %.sroa.7.2, %75 ], [ %.sroa.7.7, %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE4NodeE18GrowableArrayCHeapIS5_LS2_11EEE6appendERKS5_.exit ]
+  %.sroa.13.4 = phi ptr [ %.sroa.13.2, %75 ], [ %.sroa.13.7, %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE4NodeE18GrowableArrayCHeapIS5_LS2_11EEE6appendERKS5_.exit ]
   %109 = add nuw i64 %.022.i, 1
   %110 = load volatile ptr, ptr %.063, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !9

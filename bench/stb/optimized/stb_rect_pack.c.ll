@@ -544,17 +544,20 @@ if.end:                                           ; preds = %lor.lhs.false3
   %5 = load ptr, ptr %1, align 8
   %6 = load i32, ptr %5, align 8
   %cmp15 = icmp slt i32 %6, %retval.sroa.0.0.extract.trunc
-  br i1 %cmp15, label %if.then16, label %if.end21
+  br i1 %cmp15, label %if.then16, label %if.else
 
 if.then16:                                        ; preds = %if.end
   %next18 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %next18, align 8
+  store ptr %3, ptr %next18, align 8
   br label %if.end21
 
-if.end21:                                         ; preds = %if.end, %if.then16
-  %.sink = phi ptr [ %next18, %if.then16 ], [ %1, %if.end ]
-  %cur.0 = phi ptr [ %7, %if.then16 ], [ %5, %if.end ]
-  store ptr %3, ptr %.sink, align 8
+if.else:                                          ; preds = %if.end
+  store ptr %3, ptr %1, align 8
+  br label %if.end21
+
+if.end21:                                         ; preds = %if.else, %if.then16
+  %cur.0 = phi ptr [ %7, %if.then16 ], [ %5, %if.else ]
   %next2236 = getelementptr inbounds i8, ptr %cur.0, i64 8
   %8 = load ptr, ptr %next2236, align 8
   %tobool.not37 = icmp eq ptr %8, null
@@ -711,17 +714,20 @@ if.end.i:                                         ; preds = %lor.lhs.false3.i
   %8 = load ptr, ptr %4, align 8
   %9 = load i32, ptr %8, align 8
   %cmp15.i = icmp slt i32 %9, %retval.sroa.0.0.extract.trunc.i
-  br i1 %cmp15.i, label %if.then16.i, label %if.end21.i
+  br i1 %cmp15.i, label %if.then16.i, label %if.else.i
 
 if.then16.i:                                      ; preds = %if.end.i
   %next18.i = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load ptr, ptr %next18.i, align 8
+  store ptr %6, ptr %next18.i, align 8
   br label %if.end21.i
 
-if.end21.i:                                       ; preds = %if.then16.i, %if.end.i
-  %.sink.i = phi ptr [ %next18.i, %if.then16.i ], [ %4, %if.end.i ]
-  %cur.0.i = phi ptr [ %10, %if.then16.i ], [ %8, %if.end.i ]
-  store ptr %6, ptr %.sink.i, align 8
+if.else.i:                                        ; preds = %if.end.i
+  store ptr %6, ptr %4, align 8
+  br label %if.end21.i
+
+if.end21.i:                                       ; preds = %if.else.i, %if.then16.i
+  %cur.0.i = phi ptr [ %10, %if.then16.i ], [ %8, %if.else.i ]
   %next2236.i = getelementptr inbounds i8, ptr %cur.0.i, i64 8
   %11 = load ptr, ptr %next2236.i, align 8
   %tobool.not37.i = icmp eq ptr %11, null

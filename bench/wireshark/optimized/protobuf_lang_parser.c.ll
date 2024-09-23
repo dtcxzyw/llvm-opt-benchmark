@@ -480,7 +480,7 @@ define internal fastcc void @ProtobufLangParser(ptr noundef %0, i32 noundef %1, 
   br label %11
 
 11:                                               ; preds = %yy_reduce.exit, %4
-  %.0 = phi i16 [ %8, %4 ], [ %655, %yy_reduce.exit ]
+  %.0 = phi i16 [ %8, %4 ], [ %656, %yy_reduce.exit ]
   %12 = icmp ugt i16 %.0, 151
   br i1 %12, label %yy_find_shift_action.exit, label %.preheader.i
 
@@ -498,7 +498,7 @@ define internal fastcc void @ProtobufLangParser(ptr noundef %0, i32 noundef %1, 
   %20 = getelementptr [540 x i8], ptr @yy_lookahead, i64 0, i64 %19
   %21 = load i8, ptr %20, align 1
   %.not.i = icmp eq i8 %21, %.013.i
-  br i1 %.not.i, label %27, label %22
+  br i1 %.not.i, label %28, label %22
 
 22:                                               ; preds = %17
   %23 = getelementptr [63 x i8], ptr @yyFallback, i64 0, i64 %18
@@ -508,1059 +508,1056 @@ define internal fastcc void @ProtobufLangParser(ptr noundef %0, i32 noundef %1, 
 
 25:                                               ; preds = %22
   %26 = getelementptr [152 x i16], ptr @yy_default, i64 0, i64 %13
-  br label %.sink.split.i
-
-27:                                               ; preds = %17
-  %28 = getelementptr [477 x i16], ptr @yy_action, i64 0, i64 %19
-  br label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %27, %25
-  %.sink.i = phi ptr [ %28, %27 ], [ %26, %25 ]
-  %29 = load i16, ptr %.sink.i, align 2
+  %27 = load i16, ptr %26, align 2
   br label %yy_find_shift_action.exit
 
-yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
-  %.0.i = phi i16 [ %.0, %11 ], [ %29, %.sink.split.i ]
-  %30 = icmp ugt i16 %.0.i, 499
-  br i1 %30, label %31, label %658
+28:                                               ; preds = %17
+  %29 = getelementptr [477 x i16], ptr @yy_action, i64 0, i64 %19
+  %30 = load i16, ptr %29, align 2
+  br label %yy_find_shift_action.exit
 
-31:                                               ; preds = %yy_find_shift_action.exit
-  %32 = zext i16 %.0.i to i64
-  %33 = add nuw nsw i64 %32, 4294966796
-  %34 = and i64 %33, 4294967295
-  %35 = getelementptr [181 x i8], ptr @yyRuleInfoNRhs, i64 0, i64 %34
-  %36 = load i8, ptr %35, align 1
-  %37 = icmp eq i8 %36, 0
+yy_find_shift_action.exit:                        ; preds = %11, %25, %28
+  %.0.i = phi i16 [ %27, %25 ], [ %30, %28 ], [ %.0, %11 ]
+  %31 = icmp ugt i16 %.0.i, 499
+  br i1 %31, label %32, label %659
+
+32:                                               ; preds = %yy_find_shift_action.exit
+  %33 = zext i16 %.0.i to i64
+  %34 = add nuw nsw i64 %33, 4294966796
+  %35 = and i64 %34, 4294967295
+  %36 = getelementptr [181 x i8], ptr @yyRuleInfoNRhs, i64 0, i64 %35
+  %37 = load i8, ptr %36, align 1
+  %38 = icmp eq i8 %37, 0
   %.pre = load ptr, ptr %0, align 8
-  br i1 %37, label %38, label %45
+  br i1 %38, label %39, label %46
 
-38:                                               ; preds = %31
-  %39 = load ptr, ptr %10, align 8
-  %.not = icmp ult ptr %.pre, %39
-  br i1 %.not, label %45, label %40
+39:                                               ; preds = %32
+  %40 = load ptr, ptr %10, align 8
+  %.not = icmp ult ptr %.pre, %40
+  br i1 %.not, label %46, label %41
 
-40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %0, i64 24
-  %42 = icmp ugt ptr %.pre, %41
-  br i1 %42, label %.lr.ph.preheader.i, label %yyStackOverflow.exit
+41:                                               ; preds = %39
+  %42 = getelementptr inbounds i8, ptr %0, i64 24
+  %43 = icmp ugt ptr %.pre, %42
+  br i1 %43, label %.lr.ph.preheader.i, label %yyStackOverflow.exit
 
-.lr.ph.preheader.i:                               ; preds = %40
+.lr.ph.preheader.i:                               ; preds = %41
   %.promoted6.i = ptrtoint ptr %.pre to i64
-  %43 = ptrtoint ptr %0 to i64
-  %reass.sub.i = add i64 %43, 24
+  %44 = ptrtoint ptr %0 to i64
+  %reass.sub.i = add i64 %44, 24
   %.not.i37 = sub i64 %reass.sub.i, %.promoted6.i
-  %44 = and i64 %.not.i37, -16
-  %scevgep.i = getelementptr i8, ptr %.pre, i64 %44
+  %45 = and i64 %.not.i37, -16
+  %scevgep.i = getelementptr i8, ptr %.pre, i64 %45
   store ptr %scevgep.i, ptr %0, align 8
   br label %yyStackOverflow.exit
 
-45:                                               ; preds = %38, %31
-  %46 = load ptr, ptr %5, align 8
+46:                                               ; preds = %39, %32
+  %47 = load ptr, ptr %5, align 8
   switch i16 %.0.i, label %yy_reduce.exit [
-    i16 500, label %47
-    i16 501, label %82
-    i16 502, label %98
-    i16 503, label %106
-    i16 514, label %106
-    i16 515, label %106
-    i16 516, label %106
-    i16 517, label %106
-    i16 519, label %106
-    i16 522, label %106
-    i16 530, label %106
-    i16 531, label %106
-    i16 555, label %106
-    i16 563, label %106
-    i16 564, label %106
-    i16 504, label %112
-    i16 505, label %117
-    i16 506, label %122
-    i16 507, label %127
-    i16 508, label %139
-    i16 509, label %149
-    i16 510, label %160
-    i16 511, label %171
-    i16 512, label %182
-    i16 513, label %192
-    i16 562, label %192
-    i16 518, label %200
-    i16 520, label %207
-    i16 521, label %217
-    i16 523, label %225
-    i16 524, label %236
-    i16 525, label %247
-    i16 545, label %247
-    i16 526, label %251
-    i16 546, label %251
-    i16 527, label %256
-    i16 528, label %262
-    i16 529, label %272
-    i16 532, label %280
-    i16 533, label %294
-    i16 534, label %308
-    i16 535, label %322
-    i16 536, label %336
-    i16 537, label %350
-    i16 557, label %350
-    i16 538, label %363
-    i16 556, label %363
-    i16 539, label %378
-    i16 540, label %393
-    i16 541, label %410
-    i16 542, label %410
-    i16 543, label %410
-    i16 544, label %414
-    i16 560, label %414
-    i16 565, label %414
-    i16 569, label %414
-    i16 547, label %418
-    i16 548, label %428
-    i16 549, label %434
-    i16 550, label %445
-    i16 551, label %458
-    i16 552, label %468
-    i16 553, label %478
-    i16 554, label %488
-    i16 558, label %496
-    i16 559, label %527
-    i16 561, label %556
-    i16 566, label %560
-    i16 567, label %565
-    i16 568, label %571
-    i16 570, label %577
-    i16 571, label %584
-    i16 572, label %592
-    i16 573, label %600
-    i16 574, label %609
-    i16 575, label %618
-    i16 576, label %629
+    i16 500, label %48
+    i16 501, label %83
+    i16 502, label %99
+    i16 503, label %107
+    i16 514, label %107
+    i16 515, label %107
+    i16 516, label %107
+    i16 517, label %107
+    i16 519, label %107
+    i16 522, label %107
+    i16 530, label %107
+    i16 531, label %107
+    i16 555, label %107
+    i16 563, label %107
+    i16 564, label %107
+    i16 504, label %113
+    i16 505, label %118
+    i16 506, label %123
+    i16 507, label %128
+    i16 508, label %140
+    i16 509, label %150
+    i16 510, label %161
+    i16 511, label %172
+    i16 512, label %183
+    i16 513, label %193
+    i16 562, label %193
+    i16 518, label %201
+    i16 520, label %208
+    i16 521, label %218
+    i16 523, label %226
+    i16 524, label %237
+    i16 525, label %248
+    i16 545, label %248
+    i16 526, label %252
+    i16 546, label %252
+    i16 527, label %257
+    i16 528, label %263
+    i16 529, label %273
+    i16 532, label %281
+    i16 533, label %295
+    i16 534, label %309
+    i16 535, label %323
+    i16 536, label %337
+    i16 537, label %351
+    i16 557, label %351
+    i16 538, label %364
+    i16 556, label %364
+    i16 539, label %379
+    i16 540, label %394
+    i16 541, label %411
+    i16 542, label %411
+    i16 543, label %411
+    i16 544, label %415
+    i16 560, label %415
+    i16 565, label %415
+    i16 569, label %415
+    i16 547, label %419
+    i16 548, label %429
+    i16 549, label %435
+    i16 550, label %446
+    i16 551, label %459
+    i16 552, label %469
+    i16 553, label %479
+    i16 554, label %489
+    i16 558, label %497
+    i16 559, label %528
+    i16 561, label %557
+    i16 566, label %561
+    i16 567, label %566
+    i16 568, label %572
+    i16 570, label %578
+    i16 571, label %585
+    i16 572, label %593
+    i16 573, label %601
+    i16 574, label %610
+    i16 575, label %619
+    i16 576, label %630
   ]
 
-47:                                               ; preds = %45
-  %48 = getelementptr inbounds i8, ptr %.pre, i64 8
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %46, i64 8
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 24
-  %53 = load i32, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %51, i64 16
-  %55 = load ptr, ptr %54, align 8
-  %56 = tail call ptr @pbl_set_node_name(ptr noundef %49, i32 noundef %53, ptr noundef %55) #11
-  %57 = load ptr, ptr %48, align 8
-  %58 = getelementptr i8, ptr %57, i64 8
-  %.val.i = load ptr, ptr %58, align 8
-  %59 = load ptr, ptr %50, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 16
-  store ptr %.val.i, ptr %60, align 8
-  %61 = load ptr, ptr %46, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 16
-  %63 = load ptr, ptr %62, align 8
-  %64 = load ptr, ptr %50, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 16
-  %66 = load ptr, ptr %65, align 8
-  %67 = tail call ptr @g_hash_table_lookup(ptr noundef %63, ptr noundef %66) #11
-  %.not627.i = icmp eq ptr %67, null
-  br i1 %.not627.i, label %72, label %68
+48:                                               ; preds = %46
+  %49 = getelementptr inbounds i8, ptr %.pre, i64 8
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds i8, ptr %47, i64 8
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 24
+  %54 = load i32, ptr %53, align 8
+  %55 = getelementptr inbounds i8, ptr %52, i64 16
+  %56 = load ptr, ptr %55, align 8
+  %57 = tail call ptr @pbl_set_node_name(ptr noundef %50, i32 noundef %54, ptr noundef %56) #11
+  %58 = load ptr, ptr %49, align 8
+  %59 = getelementptr i8, ptr %58, i64 8
+  %.val.i = load ptr, ptr %59, align 8
+  %60 = load ptr, ptr %51, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 16
+  store ptr %.val.i, ptr %61, align 8
+  %62 = load ptr, ptr %47, align 8
+  %63 = getelementptr inbounds i8, ptr %62, i64 16
+  %64 = load ptr, ptr %63, align 8
+  %65 = load ptr, ptr %51, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 16
+  %67 = load ptr, ptr %66, align 8
+  %68 = tail call ptr @g_hash_table_lookup(ptr noundef %64, ptr noundef %67) #11
+  %.not627.i = icmp eq ptr %68, null
+  br i1 %.not627.i, label %73, label %69
 
-68:                                               ; preds = %47
-  %69 = load ptr, ptr %48, align 8
-  %70 = tail call ptr @pbl_merge_children(ptr noundef nonnull %67, ptr noundef %69) #11
-  %71 = load ptr, ptr %48, align 8
-  tail call void @pbl_free_node(ptr noundef %71) #11
+69:                                               ; preds = %48
+  %70 = load ptr, ptr %49, align 8
+  %71 = tail call ptr @pbl_merge_children(ptr noundef nonnull %68, ptr noundef %70) #11
+  %72 = load ptr, ptr %49, align 8
+  tail call void @pbl_free_node(ptr noundef %72) #11
   br label %yy_reduce.exit
 
-72:                                               ; preds = %47
-  %73 = load ptr, ptr %46, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 16
-  %75 = load ptr, ptr %74, align 8
-  %76 = load ptr, ptr %50, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 16
-  %78 = load ptr, ptr %77, align 8
-  %79 = tail call noalias ptr @g_strdup(ptr noundef %78) #11
-  %80 = load ptr, ptr %48, align 8
-  %81 = tail call i32 @g_hash_table_insert(ptr noundef %75, ptr noundef %79, ptr noundef %80) #11
+73:                                               ; preds = %48
+  %74 = load ptr, ptr %47, align 8
+  %75 = getelementptr inbounds i8, ptr %74, i64 16
+  %76 = load ptr, ptr %75, align 8
+  %77 = load ptr, ptr %51, align 8
+  %78 = getelementptr inbounds i8, ptr %77, i64 16
+  %79 = load ptr, ptr %78, align 8
+  %80 = tail call noalias ptr @g_strdup(ptr noundef %79) #11
+  %81 = load ptr, ptr %49, align 8
+  %82 = tail call i32 @g_hash_table_insert(ptr noundef %76, ptr noundef %80, ptr noundef %81) #11
   br label %yy_reduce.exit
 
-82:                                               ; preds = %45
-  %83 = getelementptr i8, ptr %.pre, i64 -8
-  %84 = load ptr, ptr %83, align 8
-  %85 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %84, ptr noundef nonnull dereferenceable(7) @.str.7) #12
-  %.not.i38 = icmp eq i32 %85, 0
-  br i1 %.not.i38, label %86, label %90
+83:                                               ; preds = %46
+  %84 = getelementptr i8, ptr %.pre, i64 -8
+  %85 = load ptr, ptr %84, align 8
+  %86 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %85, ptr noundef nonnull dereferenceable(7) @.str.7) #12
+  %.not.i38 = icmp eq i32 %86, 0
+  br i1 %.not.i38, label %87, label %91
 
-86:                                               ; preds = %82
-  %87 = getelementptr inbounds i8, ptr %46, i64 8
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 8
-  store i32 3, ptr %89, align 8
+87:                                               ; preds = %83
+  %88 = getelementptr inbounds i8, ptr %47, i64 8
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr inbounds i8, ptr %89, i64 8
+  store i32 3, ptr %90, align 8
   br label %yy_reduce.exit
 
-90:                                               ; preds = %82
-  %91 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %84, ptr noundef nonnull dereferenceable(7) @.str.8) #12
-  %.not626.i = icmp eq i32 %91, 0
-  br i1 %.not626.i, label %92, label %96
+91:                                               ; preds = %83
+  %92 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %85, ptr noundef nonnull dereferenceable(7) @.str.8) #12
+  %.not626.i = icmp eq i32 %92, 0
+  br i1 %.not626.i, label %93, label %97
 
-92:                                               ; preds = %90
-  %93 = getelementptr inbounds i8, ptr %46, i64 8
-  %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 8
-  store i32 2, ptr %95, align 8
+93:                                               ; preds = %91
+  %94 = getelementptr inbounds i8, ptr %47, i64 8
+  %95 = load ptr, ptr %94, align 8
+  %96 = getelementptr inbounds i8, ptr %95, i64 8
+  store i32 2, ptr %96, align 8
   br label %yy_reduce.exit
 
-96:                                               ; preds = %90
-  tail call void (ptr, ptr, ...) @pbl_parser_error(ptr noundef %46, ptr noundef nonnull @.str.9, ptr noundef %84)
-  %97 = getelementptr inbounds i8, ptr %46, i64 48
-  store i32 1, ptr %97, align 8
+97:                                               ; preds = %91
+  tail call void (ptr, ptr, ...) @pbl_parser_error(ptr noundef %47, ptr noundef nonnull @.str.9, ptr noundef %85)
+  %98 = getelementptr inbounds i8, ptr %47, i64 48
+  store i32 1, ptr %98, align 8
   br label %yy_reduce.exit
 
-98:                                               ; preds = %45
-  %99 = getelementptr inbounds i8, ptr %46, i64 8
-  %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %46, i64 32
-  %102 = load ptr, ptr %101, align 8
-  %103 = tail call i32 @protobuf_lang_get_lineno(ptr noundef %102) #11
-  %104 = tail call ptr @pbl_create_node(ptr noundef %100, i32 noundef %103, i32 noundef 1, ptr noundef nonnull @.str.10) #11
-  %105 = getelementptr i8, ptr %.pre, i64 24
-  store ptr %104, ptr %105, align 8
+99:                                               ; preds = %46
+  %100 = getelementptr inbounds i8, ptr %47, i64 8
+  %101 = load ptr, ptr %100, align 8
+  %102 = getelementptr inbounds i8, ptr %47, i64 32
+  %103 = load ptr, ptr %102, align 8
+  %104 = tail call i32 @protobuf_lang_get_lineno(ptr noundef %103) #11
+  %105 = tail call ptr @pbl_create_node(ptr noundef %101, i32 noundef %104, i32 noundef 1, ptr noundef nonnull @.str.10) #11
+  %106 = getelementptr i8, ptr %.pre, i64 24
+  store ptr %105, ptr %106, align 8
   br label %yy_reduce.exit
 
-106:                                              ; preds = %45, %45, %45, %45, %45, %45, %45, %45, %45, %45, %45, %45
-  %107 = getelementptr i8, ptr %.pre, i64 -8
-  %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %.pre, i64 8
-  %110 = load ptr, ptr %109, align 8
-  %111 = tail call ptr @pbl_add_child(ptr noundef %108, ptr noundef %110) #11
-  store ptr %108, ptr %107, align 8
+107:                                              ; preds = %46, %46, %46, %46, %46, %46, %46, %46, %46, %46, %46, %46
+  %108 = getelementptr i8, ptr %.pre, i64 -8
+  %109 = load ptr, ptr %108, align 8
+  %110 = getelementptr inbounds i8, ptr %.pre, i64 8
+  %111 = load ptr, ptr %110, align 8
+  %112 = tail call ptr @pbl_add_child(ptr noundef %109, ptr noundef %111) #11
+  store ptr %109, ptr %108, align 8
   br label %yy_reduce.exit
 
-112:                                              ; preds = %45
-  %113 = load ptr, ptr %46, align 8
-  %114 = getelementptr i8, ptr %.pre, i64 -8
-  %115 = load ptr, ptr %114, align 8
-  %116 = tail call i32 @pbl_add_proto_file_to_be_parsed(ptr noundef %113, ptr noundef %115) #11
+113:                                              ; preds = %46
+  %114 = load ptr, ptr %47, align 8
+  %115 = getelementptr i8, ptr %.pre, i64 -8
+  %116 = load ptr, ptr %115, align 8
+  %117 = tail call i32 @pbl_add_proto_file_to_be_parsed(ptr noundef %114, ptr noundef %116) #11
   br label %yy_reduce.exit
 
-117:                                              ; preds = %45
-  %118 = load ptr, ptr %46, align 8
-  %119 = getelementptr i8, ptr %.pre, i64 -8
-  %120 = load ptr, ptr %119, align 8
-  %121 = tail call i32 @pbl_add_proto_file_to_be_parsed(ptr noundef %118, ptr noundef %120) #11
+118:                                              ; preds = %46
+  %119 = load ptr, ptr %47, align 8
+  %120 = getelementptr i8, ptr %.pre, i64 -8
+  %121 = load ptr, ptr %120, align 8
+  %122 = tail call i32 @pbl_add_proto_file_to_be_parsed(ptr noundef %119, ptr noundef %121) #11
   br label %yy_reduce.exit
 
-122:                                              ; preds = %45
-  %123 = load ptr, ptr %46, align 8
-  %124 = getelementptr i8, ptr %.pre, i64 -8
-  %125 = load ptr, ptr %124, align 8
-  %126 = tail call i32 @pbl_add_proto_file_to_be_parsed(ptr noundef %123, ptr noundef %125) #11
+123:                                              ; preds = %46
+  %124 = load ptr, ptr %47, align 8
+  %125 = getelementptr i8, ptr %.pre, i64 -8
+  %126 = load ptr, ptr %125, align 8
+  %127 = tail call i32 @pbl_add_proto_file_to_be_parsed(ptr noundef %124, ptr noundef %126) #11
   br label %yy_reduce.exit
 
-127:                                              ; preds = %45
-  %128 = getelementptr i8, ptr %.pre, i64 -8
-  %129 = load ptr, ptr %128, align 8
+128:                                              ; preds = %46
+  %129 = getelementptr i8, ptr %.pre, i64 -8
   %130 = load ptr, ptr %129, align 8
-  %131 = getelementptr inbounds i8, ptr %46, i64 8
-  %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 16
-  store ptr %130, ptr %133, align 8
-  %134 = load ptr, ptr %128, align 8
-  %135 = getelementptr inbounds i8, ptr %134, i64 8
-  %136 = load i32, ptr %135, align 8
-  %137 = load ptr, ptr %131, align 8
-  %138 = getelementptr inbounds i8, ptr %137, i64 24
-  store i32 %136, ptr %138, align 8
+  %131 = load ptr, ptr %130, align 8
+  %132 = getelementptr inbounds i8, ptr %47, i64 8
+  %133 = load ptr, ptr %132, align 8
+  %134 = getelementptr inbounds i8, ptr %133, i64 16
+  store ptr %131, ptr %134, align 8
+  %135 = load ptr, ptr %129, align 8
+  %136 = getelementptr inbounds i8, ptr %135, i64 8
+  %137 = load i32, ptr %136, align 8
+  %138 = load ptr, ptr %132, align 8
+  %139 = getelementptr inbounds i8, ptr %138, i64 24
+  store i32 %137, ptr %139, align 8
   br label %yy_reduce.exit
 
-139:                                              ; preds = %45
-  %140 = getelementptr i8, ptr %.pre, i64 -24
-  %141 = getelementptr i8, ptr %.pre, i64 -8
-  %142 = load ptr, ptr %141, align 8
-  store ptr %142, ptr %140, align 8
+140:                                              ; preds = %46
+  %141 = getelementptr i8, ptr %.pre, i64 -24
+  %142 = getelementptr i8, ptr %.pre, i64 -8
   %143 = load ptr, ptr %142, align 8
-  %144 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef nonnull @.str.11, ptr noundef %143, ptr noundef nonnull @.str.12, ptr noundef null) #11
-  %145 = getelementptr inbounds i8, ptr %46, i64 16
-  %146 = load ptr, ptr %145, align 8
-  %147 = tail call ptr @g_slist_prepend(ptr noundef %146, ptr noundef %144) #11
-  store ptr %147, ptr %145, align 8
-  %148 = load ptr, ptr %140, align 8
-  store ptr %144, ptr %148, align 8
+  store ptr %143, ptr %141, align 8
+  %144 = load ptr, ptr %143, align 8
+  %145 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef nonnull @.str.11, ptr noundef %144, ptr noundef nonnull @.str.12, ptr noundef null) #11
+  %146 = getelementptr inbounds i8, ptr %47, i64 16
+  %147 = load ptr, ptr %146, align 8
+  %148 = tail call ptr @g_slist_prepend(ptr noundef %147, ptr noundef %145) #11
+  store ptr %148, ptr %146, align 8
+  %149 = load ptr, ptr %141, align 8
+  store ptr %145, ptr %149, align 8
   br label %yy_reduce.exit
 
-149:                                              ; preds = %45
-  %150 = getelementptr i8, ptr %.pre, i64 -8
-  %151 = load ptr, ptr %150, align 8
+150:                                              ; preds = %46
+  %151 = getelementptr i8, ptr %.pre, i64 -8
   %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds i8, ptr %.pre, i64 8
-  %154 = load ptr, ptr %153, align 8
+  %153 = load ptr, ptr %152, align 8
+  %154 = getelementptr inbounds i8, ptr %.pre, i64 8
   %155 = load ptr, ptr %154, align 8
-  %156 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef %152, ptr noundef %155, ptr noundef null) #11
-  %157 = getelementptr inbounds i8, ptr %46, i64 16
-  %158 = load ptr, ptr %157, align 8
-  %159 = tail call ptr @g_slist_prepend(ptr noundef %158, ptr noundef %156) #11
-  store ptr %159, ptr %157, align 8
-  store ptr %156, ptr %151, align 8
-  store ptr %151, ptr %150, align 8
+  %156 = load ptr, ptr %155, align 8
+  %157 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef %153, ptr noundef %156, ptr noundef null) #11
+  %158 = getelementptr inbounds i8, ptr %47, i64 16
+  %159 = load ptr, ptr %158, align 8
+  %160 = tail call ptr @g_slist_prepend(ptr noundef %159, ptr noundef %157) #11
+  store ptr %160, ptr %158, align 8
+  store ptr %157, ptr %152, align 8
+  store ptr %152, ptr %151, align 8
   br label %yy_reduce.exit
 
-160:                                              ; preds = %45
-  %161 = getelementptr i8, ptr %.pre, i64 -24
-  %162 = load ptr, ptr %161, align 8
+161:                                              ; preds = %46
+  %162 = getelementptr i8, ptr %.pre, i64 -24
   %163 = load ptr, ptr %162, align 8
-  %164 = getelementptr inbounds i8, ptr %.pre, i64 8
-  %165 = load ptr, ptr %164, align 8
+  %164 = load ptr, ptr %163, align 8
+  %165 = getelementptr inbounds i8, ptr %.pre, i64 8
   %166 = load ptr, ptr %165, align 8
-  %167 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef %163, ptr noundef nonnull @.str.13, ptr noundef %166, ptr noundef null) #11
-  %168 = getelementptr inbounds i8, ptr %46, i64 16
-  %169 = load ptr, ptr %168, align 8
-  %170 = tail call ptr @g_slist_prepend(ptr noundef %169, ptr noundef %167) #11
-  store ptr %170, ptr %168, align 8
-  store ptr %167, ptr %162, align 8
-  store ptr %162, ptr %161, align 8
+  %167 = load ptr, ptr %166, align 8
+  %168 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef %164, ptr noundef nonnull @.str.13, ptr noundef %167, ptr noundef null) #11
+  %169 = getelementptr inbounds i8, ptr %47, i64 16
+  %170 = load ptr, ptr %169, align 8
+  %171 = tail call ptr @g_slist_prepend(ptr noundef %170, ptr noundef %168) #11
+  store ptr %171, ptr %169, align 8
+  store ptr %168, ptr %163, align 8
+  store ptr %163, ptr %162, align 8
   br label %yy_reduce.exit
 
-171:                                              ; preds = %45
-  %172 = getelementptr i8, ptr %.pre, i64 -8
-  %173 = load ptr, ptr %172, align 8
+172:                                              ; preds = %46
+  %173 = getelementptr i8, ptr %.pre, i64 -8
   %174 = load ptr, ptr %173, align 8
-  %175 = getelementptr inbounds i8, ptr %.pre, i64 8
-  %176 = load ptr, ptr %175, align 8
+  %175 = load ptr, ptr %174, align 8
+  %176 = getelementptr inbounds i8, ptr %.pre, i64 8
   %177 = load ptr, ptr %176, align 8
-  %178 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef %174, ptr noundef nonnull @.str.13, ptr noundef %177, ptr noundef null) #11
-  %179 = getelementptr inbounds i8, ptr %46, i64 16
-  %180 = load ptr, ptr %179, align 8
-  %181 = tail call ptr @g_slist_prepend(ptr noundef %180, ptr noundef %178) #11
-  store ptr %181, ptr %179, align 8
-  store ptr %178, ptr %173, align 8
-  store ptr %173, ptr %172, align 8
+  %178 = load ptr, ptr %177, align 8
+  %179 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef %175, ptr noundef nonnull @.str.13, ptr noundef %178, ptr noundef null) #11
+  %180 = getelementptr inbounds i8, ptr %47, i64 16
+  %181 = load ptr, ptr %180, align 8
+  %182 = tail call ptr @g_slist_prepend(ptr noundef %181, ptr noundef %179) #11
+  store ptr %182, ptr %180, align 8
+  store ptr %179, ptr %174, align 8
+  store ptr %174, ptr %173, align 8
   br label %yy_reduce.exit
 
-182:                                              ; preds = %45
-  %183 = getelementptr i8, ptr %.pre, i64 -56
-  %184 = getelementptr i8, ptr %.pre, i64 -8
-  %185 = load ptr, ptr %184, align 8
-  store ptr %185, ptr %183, align 8
-  %186 = getelementptr i8, ptr %.pre, i64 -40
-  %187 = load ptr, ptr %186, align 8
-  %188 = getelementptr inbounds i8, ptr %187, i64 8
-  %189 = load i32, ptr %188, align 8
-  %190 = load ptr, ptr %187, align 8
-  %191 = tail call ptr @pbl_set_node_name(ptr noundef %185, i32 noundef %189, ptr noundef %190) #11
+183:                                              ; preds = %46
+  %184 = getelementptr i8, ptr %.pre, i64 -56
+  %185 = getelementptr i8, ptr %.pre, i64 -8
+  %186 = load ptr, ptr %185, align 8
+  store ptr %186, ptr %184, align 8
+  %187 = getelementptr i8, ptr %.pre, i64 -40
+  %188 = load ptr, ptr %187, align 8
+  %189 = getelementptr inbounds i8, ptr %188, i64 8
+  %190 = load i32, ptr %189, align 8
+  %191 = load ptr, ptr %188, align 8
+  %192 = tail call ptr @pbl_set_node_name(ptr noundef %186, i32 noundef %190, ptr noundef %191) #11
   br label %yy_reduce.exit
 
-192:                                              ; preds = %45, %45
-  %193 = getelementptr inbounds i8, ptr %46, i64 8
-  %194 = load ptr, ptr %193, align 8
-  %195 = getelementptr inbounds i8, ptr %46, i64 32
-  %196 = load ptr, ptr %195, align 8
-  %197 = tail call i32 @protobuf_lang_get_lineno(ptr noundef %196) #11
-  %198 = tail call ptr @pbl_create_node(ptr noundef %194, i32 noundef %197, i32 noundef 2, ptr noundef nonnull @.str.10) #11
-  %199 = getelementptr i8, ptr %.pre, i64 24
-  store ptr %198, ptr %199, align 8
+193:                                              ; preds = %46, %46
+  %194 = getelementptr inbounds i8, ptr %47, i64 8
+  %195 = load ptr, ptr %194, align 8
+  %196 = getelementptr inbounds i8, ptr %47, i64 32
+  %197 = load ptr, ptr %196, align 8
+  %198 = tail call i32 @protobuf_lang_get_lineno(ptr noundef %197) #11
+  %199 = tail call ptr @pbl_create_node(ptr noundef %195, i32 noundef %198, i32 noundef 2, ptr noundef nonnull @.str.10) #11
+  %200 = getelementptr i8, ptr %.pre, i64 24
+  store ptr %199, ptr %200, align 8
   br label %yy_reduce.exit
 
-200:                                              ; preds = %45
-  %201 = getelementptr i8, ptr %.pre, i64 -8
-  %202 = load ptr, ptr %201, align 8
-  %203 = getelementptr inbounds i8, ptr %.pre, i64 8
-  %204 = load ptr, ptr %203, align 8
-  %205 = tail call ptr @pbl_merge_children(ptr noundef %202, ptr noundef %204) #11
-  %206 = load ptr, ptr %203, align 8
-  tail call void @pbl_free_node(ptr noundef %206) #11
-  store ptr %202, ptr %201, align 8
+201:                                              ; preds = %46
+  %202 = getelementptr i8, ptr %.pre, i64 -8
+  %203 = load ptr, ptr %202, align 8
+  %204 = getelementptr inbounds i8, ptr %.pre, i64 8
+  %205 = load ptr, ptr %204, align 8
+  %206 = tail call ptr @pbl_merge_children(ptr noundef %203, ptr noundef %205) #11
+  %207 = load ptr, ptr %204, align 8
+  tail call void @pbl_free_node(ptr noundef %207) #11
+  store ptr %203, ptr %202, align 8
   br label %yy_reduce.exit
 
-207:                                              ; preds = %45
-  %208 = getelementptr i8, ptr %.pre, i64 -56
-  %209 = getelementptr i8, ptr %.pre, i64 -8
-  %210 = load ptr, ptr %209, align 8
-  store ptr %210, ptr %208, align 8
-  %211 = getelementptr i8, ptr %.pre, i64 -40
-  %212 = load ptr, ptr %211, align 8
-  %213 = getelementptr inbounds i8, ptr %212, i64 8
-  %214 = load i32, ptr %213, align 8
-  %215 = load ptr, ptr %212, align 8
-  %216 = tail call ptr @pbl_set_node_name(ptr noundef %210, i32 noundef %214, ptr noundef %215) #11
+208:                                              ; preds = %46
+  %209 = getelementptr i8, ptr %.pre, i64 -56
+  %210 = getelementptr i8, ptr %.pre, i64 -8
+  %211 = load ptr, ptr %210, align 8
+  store ptr %211, ptr %209, align 8
+  %212 = getelementptr i8, ptr %.pre, i64 -40
+  %213 = load ptr, ptr %212, align 8
+  %214 = getelementptr inbounds i8, ptr %213, i64 8
+  %215 = load i32, ptr %214, align 8
+  %216 = load ptr, ptr %213, align 8
+  %217 = tail call ptr @pbl_set_node_name(ptr noundef %211, i32 noundef %215, ptr noundef %216) #11
   br label %yy_reduce.exit
 
-217:                                              ; preds = %45
-  %218 = getelementptr inbounds i8, ptr %46, i64 8
-  %219 = load ptr, ptr %218, align 8
-  %220 = getelementptr inbounds i8, ptr %46, i64 32
-  %221 = load ptr, ptr %220, align 8
-  %222 = tail call i32 @protobuf_lang_get_lineno(ptr noundef %221) #11
-  %223 = tail call ptr @pbl_create_node(ptr noundef %219, i32 noundef %222, i32 noundef 6, ptr noundef nonnull @.str.10) #11
-  %224 = getelementptr i8, ptr %.pre, i64 24
-  store ptr %223, ptr %224, align 8
+218:                                              ; preds = %46
+  %219 = getelementptr inbounds i8, ptr %47, i64 8
+  %220 = load ptr, ptr %219, align 8
+  %221 = getelementptr inbounds i8, ptr %47, i64 32
+  %222 = load ptr, ptr %221, align 8
+  %223 = tail call i32 @protobuf_lang_get_lineno(ptr noundef %222) #11
+  %224 = tail call ptr @pbl_create_node(ptr noundef %220, i32 noundef %223, i32 noundef 6, ptr noundef nonnull @.str.10) #11
+  %225 = getelementptr i8, ptr %.pre, i64 24
+  store ptr %224, ptr %225, align 8
   br label %yy_reduce.exit
 
-225:                                              ; preds = %45
-  %226 = getelementptr inbounds i8, ptr %46, i64 8
-  %227 = load ptr, ptr %226, align 8
-  %228 = getelementptr i8, ptr %.pre, i64 -88
-  %229 = load ptr, ptr %228, align 8
-  %230 = getelementptr inbounds i8, ptr %229, i64 8
-  %231 = load i32, ptr %230, align 8
-  %232 = load ptr, ptr %229, align 8
-  %233 = getelementptr i8, ptr %.pre, i64 -56
-  %234 = load i32, ptr %233, align 8
-  %235 = tail call ptr @pbl_create_enum_value_node(ptr noundef %227, i32 noundef %231, ptr noundef %232, i32 noundef %234) #11
-  store ptr %235, ptr %228, align 8
+226:                                              ; preds = %46
+  %227 = getelementptr inbounds i8, ptr %47, i64 8
+  %228 = load ptr, ptr %227, align 8
+  %229 = getelementptr i8, ptr %.pre, i64 -88
+  %230 = load ptr, ptr %229, align 8
+  %231 = getelementptr inbounds i8, ptr %230, i64 8
+  %232 = load i32, ptr %231, align 8
+  %233 = load ptr, ptr %230, align 8
+  %234 = getelementptr i8, ptr %.pre, i64 -56
+  %235 = load i32, ptr %234, align 8
+  %236 = tail call ptr @pbl_create_enum_value_node(ptr noundef %228, i32 noundef %232, ptr noundef %233, i32 noundef %235) #11
+  store ptr %236, ptr %229, align 8
   br label %yy_reduce.exit
 
-236:                                              ; preds = %45
-  %237 = getelementptr inbounds i8, ptr %46, i64 8
-  %238 = load ptr, ptr %237, align 8
-  %239 = getelementptr i8, ptr %.pre, i64 -24
-  %240 = load ptr, ptr %239, align 8
-  %241 = getelementptr inbounds i8, ptr %240, i64 8
-  %242 = load i32, ptr %241, align 8
-  %243 = load ptr, ptr %240, align 8
-  %244 = getelementptr inbounds i8, ptr %.pre, i64 8
-  %245 = load i32, ptr %244, align 8
-  %246 = tail call ptr @pbl_create_enum_value_node(ptr noundef %238, i32 noundef %242, ptr noundef %243, i32 noundef %245) #11
-  store ptr %246, ptr %239, align 8
+237:                                              ; preds = %46
+  %238 = getelementptr inbounds i8, ptr %47, i64 8
+  %239 = load ptr, ptr %238, align 8
+  %240 = getelementptr i8, ptr %.pre, i64 -24
+  %241 = load ptr, ptr %240, align 8
+  %242 = getelementptr inbounds i8, ptr %241, i64 8
+  %243 = load i32, ptr %242, align 8
+  %244 = load ptr, ptr %241, align 8
+  %245 = getelementptr inbounds i8, ptr %.pre, i64 8
+  %246 = load i32, ptr %245, align 8
+  %247 = tail call ptr @pbl_create_enum_value_node(ptr noundef %239, i32 noundef %243, ptr noundef %244, i32 noundef %246) #11
+  store ptr %247, ptr %240, align 8
   br label %yy_reduce.exit
 
-247:                                              ; preds = %45, %45
-  %248 = getelementptr inbounds i8, ptr %.pre, i64 8
-  %249 = load i64, ptr %248, align 8
-  %250 = trunc i64 %249 to i32
-  store i32 %250, ptr %248, align 8
+248:                                              ; preds = %46, %46
+  %249 = getelementptr inbounds i8, ptr %.pre, i64 8
+  %250 = load i64, ptr %249, align 8
+  %251 = trunc i64 %250 to i32
+  store i32 %251, ptr %249, align 8
   br label %yy_reduce.exit
 
-251:                                              ; preds = %45, %45
-  %252 = getelementptr i8, ptr %.pre, i64 -8
-  %253 = getelementptr inbounds i8, ptr %.pre, i64 8
-  %254 = load i64, ptr %253, align 8
-  %255 = trunc i64 %254 to i32
-  store i32 %255, ptr %252, align 8
+252:                                              ; preds = %46, %46
+  %253 = getelementptr i8, ptr %.pre, i64 -8
+  %254 = getelementptr inbounds i8, ptr %.pre, i64 8
+  %255 = load i64, ptr %254, align 8
+  %256 = trunc i64 %255 to i32
+  store i32 %256, ptr %253, align 8
   br label %yy_reduce.exit
 
-256:                                              ; preds = %45
-  %257 = getelementptr i8, ptr %.pre, i64 -8
-  %258 = getelementptr inbounds i8, ptr %.pre, i64 8
-  %259 = load i64, ptr %258, align 8
-  %260 = trunc i64 %259 to i32
-  %261 = sub i32 0, %260
-  store i32 %261, ptr %257, align 8
+257:                                              ; preds = %46
+  %258 = getelementptr i8, ptr %.pre, i64 -8
+  %259 = getelementptr inbounds i8, ptr %.pre, i64 8
+  %260 = load i64, ptr %259, align 8
+  %261 = trunc i64 %260 to i32
+  %262 = sub i32 0, %261
+  store i32 %262, ptr %258, align 8
   br label %yy_reduce.exit
 
-262:                                              ; preds = %45
-  %263 = getelementptr i8, ptr %.pre, i64 -56
-  %264 = getelementptr i8, ptr %.pre, i64 -8
-  %265 = load ptr, ptr %264, align 8
-  store ptr %265, ptr %263, align 8
-  %266 = getelementptr i8, ptr %.pre, i64 -40
-  %267 = load ptr, ptr %266, align 8
-  %268 = getelementptr inbounds i8, ptr %267, i64 8
-  %269 = load i32, ptr %268, align 8
-  %270 = load ptr, ptr %267, align 8
-  %271 = tail call ptr @pbl_set_node_name(ptr noundef %265, i32 noundef %269, ptr noundef %270) #11
+263:                                              ; preds = %46
+  %264 = getelementptr i8, ptr %.pre, i64 -56
+  %265 = getelementptr i8, ptr %.pre, i64 -8
+  %266 = load ptr, ptr %265, align 8
+  store ptr %266, ptr %264, align 8
+  %267 = getelementptr i8, ptr %.pre, i64 -40
+  %268 = load ptr, ptr %267, align 8
+  %269 = getelementptr inbounds i8, ptr %268, i64 8
+  %270 = load i32, ptr %269, align 8
+  %271 = load ptr, ptr %268, align 8
+  %272 = tail call ptr @pbl_set_node_name(ptr noundef %266, i32 noundef %270, ptr noundef %271) #11
   br label %yy_reduce.exit
 
-272:                                              ; preds = %45
-  %273 = getelementptr inbounds i8, ptr %46, i64 8
-  %274 = load ptr, ptr %273, align 8
-  %275 = getelementptr inbounds i8, ptr %46, i64 32
-  %276 = load ptr, ptr %275, align 8
-  %277 = tail call i32 @protobuf_lang_get_lineno(ptr noundef %276) #11
-  %278 = tail call ptr @pbl_create_node(ptr noundef %274, i32 noundef %277, i32 noundef 8, ptr noundef nonnull @.str.10) #11
-  %279 = getelementptr i8, ptr %.pre, i64 24
-  store ptr %278, ptr %279, align 8
+273:                                              ; preds = %46
+  %274 = getelementptr inbounds i8, ptr %47, i64 8
+  %275 = load ptr, ptr %274, align 8
+  %276 = getelementptr inbounds i8, ptr %47, i64 32
+  %277 = load ptr, ptr %276, align 8
+  %278 = tail call i32 @protobuf_lang_get_lineno(ptr noundef %277) #11
+  %279 = tail call ptr @pbl_create_node(ptr noundef %275, i32 noundef %278, i32 noundef 8, ptr noundef nonnull @.str.10) #11
+  %280 = getelementptr i8, ptr %.pre, i64 24
+  store ptr %279, ptr %280, align 8
   br label %yy_reduce.exit
 
-280:                                              ; preds = %45
-  %281 = getelementptr i8, ptr %.pre, i64 -120
-  %282 = getelementptr inbounds i8, ptr %46, i64 8
-  %283 = load ptr, ptr %282, align 8
-  %284 = getelementptr i8, ptr %.pre, i64 -104
-  %285 = load ptr, ptr %284, align 8
-  %286 = getelementptr inbounds i8, ptr %285, i64 8
-  %287 = load i32, ptr %286, align 8
-  %288 = load ptr, ptr %285, align 8
-  %289 = getelementptr i8, ptr %.pre, i64 -72
-  %290 = load ptr, ptr %289, align 8
-  %291 = getelementptr i8, ptr %.pre, i64 -8
-  %292 = load ptr, ptr %291, align 8
-  %293 = tail call ptr @pbl_create_method_node(ptr noundef %283, i32 noundef %287, ptr noundef %288, ptr noundef %290, i32 noundef 0, ptr noundef %292, i32 noundef 0) #11
-  store ptr %293, ptr %281, align 8
+281:                                              ; preds = %46
+  %282 = getelementptr i8, ptr %.pre, i64 -120
+  %283 = getelementptr inbounds i8, ptr %47, i64 8
+  %284 = load ptr, ptr %283, align 8
+  %285 = getelementptr i8, ptr %.pre, i64 -104
+  %286 = load ptr, ptr %285, align 8
+  %287 = getelementptr inbounds i8, ptr %286, i64 8
+  %288 = load i32, ptr %287, align 8
+  %289 = load ptr, ptr %286, align 8
+  %290 = getelementptr i8, ptr %.pre, i64 -72
+  %291 = load ptr, ptr %290, align 8
+  %292 = getelementptr i8, ptr %.pre, i64 -8
+  %293 = load ptr, ptr %292, align 8
+  %294 = tail call ptr @pbl_create_method_node(ptr noundef %284, i32 noundef %288, ptr noundef %289, ptr noundef %291, i32 noundef 0, ptr noundef %293, i32 noundef 0) #11
+  store ptr %294, ptr %282, align 8
   br label %yy_reduce.exit
 
-294:                                              ; preds = %45
-  %295 = getelementptr i8, ptr %.pre, i64 -136
-  %296 = getelementptr inbounds i8, ptr %46, i64 8
-  %297 = load ptr, ptr %296, align 8
-  %298 = getelementptr i8, ptr %.pre, i64 -120
-  %299 = load ptr, ptr %298, align 8
-  %300 = getelementptr inbounds i8, ptr %299, i64 8
-  %301 = load i32, ptr %300, align 8
-  %302 = load ptr, ptr %299, align 8
-  %303 = getelementptr i8, ptr %.pre, i64 -72
-  %304 = load ptr, ptr %303, align 8
-  %305 = getelementptr i8, ptr %.pre, i64 -8
-  %306 = load ptr, ptr %305, align 8
-  %307 = tail call ptr @pbl_create_method_node(ptr noundef %297, i32 noundef %301, ptr noundef %302, ptr noundef %304, i32 noundef 1, ptr noundef %306, i32 noundef 0) #11
-  store ptr %307, ptr %295, align 8
+295:                                              ; preds = %46
+  %296 = getelementptr i8, ptr %.pre, i64 -136
+  %297 = getelementptr inbounds i8, ptr %47, i64 8
+  %298 = load ptr, ptr %297, align 8
+  %299 = getelementptr i8, ptr %.pre, i64 -120
+  %300 = load ptr, ptr %299, align 8
+  %301 = getelementptr inbounds i8, ptr %300, i64 8
+  %302 = load i32, ptr %301, align 8
+  %303 = load ptr, ptr %300, align 8
+  %304 = getelementptr i8, ptr %.pre, i64 -72
+  %305 = load ptr, ptr %304, align 8
+  %306 = getelementptr i8, ptr %.pre, i64 -8
+  %307 = load ptr, ptr %306, align 8
+  %308 = tail call ptr @pbl_create_method_node(ptr noundef %298, i32 noundef %302, ptr noundef %303, ptr noundef %305, i32 noundef 1, ptr noundef %307, i32 noundef 0) #11
+  store ptr %308, ptr %296, align 8
   br label %yy_reduce.exit
 
-308:                                              ; preds = %45
-  %309 = getelementptr i8, ptr %.pre, i64 -136
-  %310 = getelementptr inbounds i8, ptr %46, i64 8
-  %311 = load ptr, ptr %310, align 8
-  %312 = getelementptr i8, ptr %.pre, i64 -120
-  %313 = load ptr, ptr %312, align 8
-  %314 = getelementptr inbounds i8, ptr %313, i64 8
-  %315 = load i32, ptr %314, align 8
-  %316 = load ptr, ptr %313, align 8
-  %317 = getelementptr i8, ptr %.pre, i64 -88
-  %318 = load ptr, ptr %317, align 8
-  %319 = getelementptr i8, ptr %.pre, i64 -8
-  %320 = load ptr, ptr %319, align 8
-  %321 = tail call ptr @pbl_create_method_node(ptr noundef %311, i32 noundef %315, ptr noundef %316, ptr noundef %318, i32 noundef 0, ptr noundef %320, i32 noundef 1) #11
-  store ptr %321, ptr %309, align 8
+309:                                              ; preds = %46
+  %310 = getelementptr i8, ptr %.pre, i64 -136
+  %311 = getelementptr inbounds i8, ptr %47, i64 8
+  %312 = load ptr, ptr %311, align 8
+  %313 = getelementptr i8, ptr %.pre, i64 -120
+  %314 = load ptr, ptr %313, align 8
+  %315 = getelementptr inbounds i8, ptr %314, i64 8
+  %316 = load i32, ptr %315, align 8
+  %317 = load ptr, ptr %314, align 8
+  %318 = getelementptr i8, ptr %.pre, i64 -88
+  %319 = load ptr, ptr %318, align 8
+  %320 = getelementptr i8, ptr %.pre, i64 -8
+  %321 = load ptr, ptr %320, align 8
+  %322 = tail call ptr @pbl_create_method_node(ptr noundef %312, i32 noundef %316, ptr noundef %317, ptr noundef %319, i32 noundef 0, ptr noundef %321, i32 noundef 1) #11
+  store ptr %322, ptr %310, align 8
   br label %yy_reduce.exit
 
-322:                                              ; preds = %45
-  %323 = getelementptr i8, ptr %.pre, i64 -152
-  %324 = getelementptr inbounds i8, ptr %46, i64 8
-  %325 = load ptr, ptr %324, align 8
-  %326 = getelementptr i8, ptr %.pre, i64 -136
-  %327 = load ptr, ptr %326, align 8
-  %328 = getelementptr inbounds i8, ptr %327, i64 8
-  %329 = load i32, ptr %328, align 8
-  %330 = load ptr, ptr %327, align 8
-  %331 = getelementptr i8, ptr %.pre, i64 -88
-  %332 = load ptr, ptr %331, align 8
-  %333 = getelementptr i8, ptr %.pre, i64 -8
-  %334 = load ptr, ptr %333, align 8
-  %335 = tail call ptr @pbl_create_method_node(ptr noundef %325, i32 noundef %329, ptr noundef %330, ptr noundef %332, i32 noundef 1, ptr noundef %334, i32 noundef 1) #11
-  store ptr %335, ptr %323, align 8
+323:                                              ; preds = %46
+  %324 = getelementptr i8, ptr %.pre, i64 -152
+  %325 = getelementptr inbounds i8, ptr %47, i64 8
+  %326 = load ptr, ptr %325, align 8
+  %327 = getelementptr i8, ptr %.pre, i64 -136
+  %328 = load ptr, ptr %327, align 8
+  %329 = getelementptr inbounds i8, ptr %328, i64 8
+  %330 = load i32, ptr %329, align 8
+  %331 = load ptr, ptr %328, align 8
+  %332 = getelementptr i8, ptr %.pre, i64 -88
+  %333 = load ptr, ptr %332, align 8
+  %334 = getelementptr i8, ptr %.pre, i64 -8
+  %335 = load ptr, ptr %334, align 8
+  %336 = tail call ptr @pbl_create_method_node(ptr noundef %326, i32 noundef %330, ptr noundef %331, ptr noundef %333, i32 noundef 1, ptr noundef %335, i32 noundef 1) #11
+  store ptr %336, ptr %324, align 8
   br label %yy_reduce.exit
 
-336:                                              ; preds = %45
-  %337 = getelementptr i8, ptr %.pre, i64 -88
-  %338 = getelementptr inbounds i8, ptr %46, i64 8
-  %339 = load ptr, ptr %338, align 8
-  %340 = getelementptr i8, ptr %.pre, i64 -72
-  %341 = load ptr, ptr %340, align 8
-  %342 = getelementptr inbounds i8, ptr %341, i64 8
-  %343 = load i32, ptr %342, align 8
-  %344 = load ptr, ptr %341, align 8
-  %345 = getelementptr i8, ptr %.pre, i64 -40
-  %346 = load ptr, ptr %345, align 8
-  %347 = getelementptr i8, ptr %.pre, i64 -8
-  %348 = load ptr, ptr %347, align 8
-  %349 = tail call ptr @pbl_create_method_node(ptr noundef %339, i32 noundef %343, ptr noundef %344, ptr noundef %346, i32 noundef 1, ptr noundef %348, i32 noundef 1) #11
-  store ptr %349, ptr %337, align 8
+337:                                              ; preds = %46
+  %338 = getelementptr i8, ptr %.pre, i64 -88
+  %339 = getelementptr inbounds i8, ptr %47, i64 8
+  %340 = load ptr, ptr %339, align 8
+  %341 = getelementptr i8, ptr %.pre, i64 -72
+  %342 = load ptr, ptr %341, align 8
+  %343 = getelementptr inbounds i8, ptr %342, i64 8
+  %344 = load i32, ptr %343, align 8
+  %345 = load ptr, ptr %342, align 8
+  %346 = getelementptr i8, ptr %.pre, i64 -40
+  %347 = load ptr, ptr %346, align 8
+  %348 = getelementptr i8, ptr %.pre, i64 -8
+  %349 = load ptr, ptr %348, align 8
+  %350 = tail call ptr @pbl_create_method_node(ptr noundef %340, i32 noundef %344, ptr noundef %345, ptr noundef %347, i32 noundef 1, ptr noundef %349, i32 noundef 1) #11
+  store ptr %350, ptr %338, align 8
   br label %yy_reduce.exit
 
-350:                                              ; preds = %45, %45
-  %351 = getelementptr inbounds i8, ptr %46, i64 8
-  %352 = load ptr, ptr %351, align 8
-  %353 = getelementptr i8, ptr %.pre, i64 -40
-  %354 = load ptr, ptr %353, align 8
-  %355 = getelementptr inbounds i8, ptr %354, i64 8
-  %356 = load i32, ptr %355, align 8
-  %357 = getelementptr i8, ptr %.pre, i64 -56
-  %358 = load ptr, ptr %357, align 8
-  %359 = load ptr, ptr %354, align 8
-  %360 = getelementptr i8, ptr %.pre, i64 -8
-  %361 = load i32, ptr %360, align 8
-  %362 = tail call ptr @pbl_create_field_node(ptr noundef %352, i32 noundef %356, ptr noundef null, ptr noundef %358, ptr noundef %359, i32 noundef %361, ptr noundef null) #11
-  store ptr %362, ptr %357, align 8
+351:                                              ; preds = %46, %46
+  %352 = getelementptr inbounds i8, ptr %47, i64 8
+  %353 = load ptr, ptr %352, align 8
+  %354 = getelementptr i8, ptr %.pre, i64 -40
+  %355 = load ptr, ptr %354, align 8
+  %356 = getelementptr inbounds i8, ptr %355, i64 8
+  %357 = load i32, ptr %356, align 8
+  %358 = getelementptr i8, ptr %.pre, i64 -56
+  %359 = load ptr, ptr %358, align 8
+  %360 = load ptr, ptr %355, align 8
+  %361 = getelementptr i8, ptr %.pre, i64 -8
+  %362 = load i32, ptr %361, align 8
+  %363 = tail call ptr @pbl_create_field_node(ptr noundef %353, i32 noundef %357, ptr noundef null, ptr noundef %359, ptr noundef %360, i32 noundef %362, ptr noundef null) #11
+  store ptr %363, ptr %358, align 8
   br label %yy_reduce.exit
 
-363:                                              ; preds = %45, %45
-  %364 = getelementptr inbounds i8, ptr %46, i64 8
-  %365 = load ptr, ptr %364, align 8
-  %366 = getelementptr i8, ptr %.pre, i64 -88
-  %367 = load ptr, ptr %366, align 8
-  %368 = getelementptr inbounds i8, ptr %367, i64 8
-  %369 = load i32, ptr %368, align 8
-  %370 = getelementptr i8, ptr %.pre, i64 -104
-  %371 = load ptr, ptr %370, align 8
-  %372 = load ptr, ptr %367, align 8
-  %373 = getelementptr i8, ptr %.pre, i64 -56
-  %374 = load i32, ptr %373, align 8
-  %375 = getelementptr i8, ptr %.pre, i64 -24
-  %376 = load ptr, ptr %375, align 8
-  %377 = tail call ptr @pbl_create_field_node(ptr noundef %365, i32 noundef %369, ptr noundef null, ptr noundef %371, ptr noundef %372, i32 noundef %374, ptr noundef %376) #11
-  store ptr %377, ptr %370, align 8
+364:                                              ; preds = %46, %46
+  %365 = getelementptr inbounds i8, ptr %47, i64 8
+  %366 = load ptr, ptr %365, align 8
+  %367 = getelementptr i8, ptr %.pre, i64 -88
+  %368 = load ptr, ptr %367, align 8
+  %369 = getelementptr inbounds i8, ptr %368, i64 8
+  %370 = load i32, ptr %369, align 8
+  %371 = getelementptr i8, ptr %.pre, i64 -104
+  %372 = load ptr, ptr %371, align 8
+  %373 = load ptr, ptr %368, align 8
+  %374 = getelementptr i8, ptr %.pre, i64 -56
+  %375 = load i32, ptr %374, align 8
+  %376 = getelementptr i8, ptr %.pre, i64 -24
+  %377 = load ptr, ptr %376, align 8
+  %378 = tail call ptr @pbl_create_field_node(ptr noundef %366, i32 noundef %370, ptr noundef null, ptr noundef %372, ptr noundef %373, i32 noundef %375, ptr noundef %377) #11
+  store ptr %378, ptr %371, align 8
   br label %yy_reduce.exit
 
-378:                                              ; preds = %45
-  %379 = getelementptr inbounds i8, ptr %46, i64 8
-  %380 = load ptr, ptr %379, align 8
-  %381 = getelementptr i8, ptr %.pre, i64 -40
-  %382 = load ptr, ptr %381, align 8
-  %383 = getelementptr inbounds i8, ptr %382, i64 8
-  %384 = load i32, ptr %383, align 8
-  %385 = getelementptr i8, ptr %.pre, i64 -72
-  %386 = load ptr, ptr %385, align 8
-  %387 = getelementptr i8, ptr %.pre, i64 -56
-  %388 = load ptr, ptr %387, align 8
-  %389 = load ptr, ptr %382, align 8
-  %390 = getelementptr i8, ptr %.pre, i64 -8
-  %391 = load i32, ptr %390, align 8
-  %392 = tail call ptr @pbl_create_field_node(ptr noundef %380, i32 noundef %384, ptr noundef %386, ptr noundef %388, ptr noundef %389, i32 noundef %391, ptr noundef null) #11
-  store ptr %392, ptr %385, align 8
+379:                                              ; preds = %46
+  %380 = getelementptr inbounds i8, ptr %47, i64 8
+  %381 = load ptr, ptr %380, align 8
+  %382 = getelementptr i8, ptr %.pre, i64 -40
+  %383 = load ptr, ptr %382, align 8
+  %384 = getelementptr inbounds i8, ptr %383, i64 8
+  %385 = load i32, ptr %384, align 8
+  %386 = getelementptr i8, ptr %.pre, i64 -72
+  %387 = load ptr, ptr %386, align 8
+  %388 = getelementptr i8, ptr %.pre, i64 -56
+  %389 = load ptr, ptr %388, align 8
+  %390 = load ptr, ptr %383, align 8
+  %391 = getelementptr i8, ptr %.pre, i64 -8
+  %392 = load i32, ptr %391, align 8
+  %393 = tail call ptr @pbl_create_field_node(ptr noundef %381, i32 noundef %385, ptr noundef %387, ptr noundef %389, ptr noundef %390, i32 noundef %392, ptr noundef null) #11
+  store ptr %393, ptr %386, align 8
   br label %yy_reduce.exit
 
-393:                                              ; preds = %45
-  %394 = getelementptr inbounds i8, ptr %46, i64 8
-  %395 = load ptr, ptr %394, align 8
-  %396 = getelementptr i8, ptr %.pre, i64 -88
-  %397 = load ptr, ptr %396, align 8
-  %398 = getelementptr inbounds i8, ptr %397, i64 8
-  %399 = load i32, ptr %398, align 8
-  %400 = getelementptr i8, ptr %.pre, i64 -120
-  %401 = load ptr, ptr %400, align 8
-  %402 = getelementptr i8, ptr %.pre, i64 -104
-  %403 = load ptr, ptr %402, align 8
-  %404 = load ptr, ptr %397, align 8
-  %405 = getelementptr i8, ptr %.pre, i64 -56
-  %406 = load i32, ptr %405, align 8
-  %407 = getelementptr i8, ptr %.pre, i64 -24
-  %408 = load ptr, ptr %407, align 8
-  %409 = tail call ptr @pbl_create_field_node(ptr noundef %395, i32 noundef %399, ptr noundef %401, ptr noundef %403, ptr noundef %404, i32 noundef %406, ptr noundef %408) #11
-  store ptr %409, ptr %400, align 8
+394:                                              ; preds = %46
+  %395 = getelementptr inbounds i8, ptr %47, i64 8
+  %396 = load ptr, ptr %395, align 8
+  %397 = getelementptr i8, ptr %.pre, i64 -88
+  %398 = load ptr, ptr %397, align 8
+  %399 = getelementptr inbounds i8, ptr %398, i64 8
+  %400 = load i32, ptr %399, align 8
+  %401 = getelementptr i8, ptr %.pre, i64 -120
+  %402 = load ptr, ptr %401, align 8
+  %403 = getelementptr i8, ptr %.pre, i64 -104
+  %404 = load ptr, ptr %403, align 8
+  %405 = load ptr, ptr %398, align 8
+  %406 = getelementptr i8, ptr %.pre, i64 -56
+  %407 = load i32, ptr %406, align 8
+  %408 = getelementptr i8, ptr %.pre, i64 -24
+  %409 = load ptr, ptr %408, align 8
+  %410 = tail call ptr @pbl_create_field_node(ptr noundef %396, i32 noundef %400, ptr noundef %402, ptr noundef %404, ptr noundef %405, i32 noundef %407, ptr noundef %409) #11
+  store ptr %410, ptr %401, align 8
   br label %yy_reduce.exit
 
-410:                                              ; preds = %45, %45, %45
-  %411 = getelementptr inbounds i8, ptr %.pre, i64 8
-  %412 = load ptr, ptr %411, align 8
+411:                                              ; preds = %46, %46, %46
+  %412 = getelementptr inbounds i8, ptr %.pre, i64 8
   %413 = load ptr, ptr %412, align 8
-  store ptr %413, ptr %411, align 8
+  %414 = load ptr, ptr %413, align 8
+  store ptr %414, ptr %412, align 8
   br label %yy_reduce.exit
 
-414:                                              ; preds = %45, %45, %45, %45
-  %415 = getelementptr inbounds i8, ptr %.pre, i64 8
-  %416 = load ptr, ptr %415, align 8
+415:                                              ; preds = %46, %46, %46, %46
+  %416 = getelementptr inbounds i8, ptr %.pre, i64 8
   %417 = load ptr, ptr %416, align 8
-  store ptr %417, ptr %415, align 8
+  %418 = load ptr, ptr %417, align 8
+  store ptr %418, ptr %416, align 8
   br label %yy_reduce.exit
 
-418:                                              ; preds = %45
-  %419 = getelementptr inbounds i8, ptr %46, i64 8
-  %420 = load ptr, ptr %419, align 8
-  %421 = getelementptr inbounds i8, ptr %46, i64 32
-  %422 = load ptr, ptr %421, align 8
-  %423 = tail call i32 @protobuf_lang_get_lineno(ptr noundef %422) #11
-  %424 = tail call ptr @pbl_create_node(ptr noundef %420, i32 noundef %423, i32 noundef 10, ptr noundef nonnull @.str.14) #11
-  %425 = getelementptr inbounds i8, ptr %.pre, i64 8
-  %426 = load ptr, ptr %425, align 8
-  %427 = tail call ptr @pbl_add_child(ptr noundef %424, ptr noundef %426) #11
-  store ptr %424, ptr %425, align 8
+419:                                              ; preds = %46
+  %420 = getelementptr inbounds i8, ptr %47, i64 8
+  %421 = load ptr, ptr %420, align 8
+  %422 = getelementptr inbounds i8, ptr %47, i64 32
+  %423 = load ptr, ptr %422, align 8
+  %424 = tail call i32 @protobuf_lang_get_lineno(ptr noundef %423) #11
+  %425 = tail call ptr @pbl_create_node(ptr noundef %421, i32 noundef %424, i32 noundef 10, ptr noundef nonnull @.str.14) #11
+  %426 = getelementptr inbounds i8, ptr %.pre, i64 8
+  %427 = load ptr, ptr %426, align 8
+  %428 = tail call ptr @pbl_add_child(ptr noundef %425, ptr noundef %427) #11
+  store ptr %425, ptr %426, align 8
   br label %yy_reduce.exit
 
-428:                                              ; preds = %45
-  %429 = getelementptr i8, ptr %.pre, i64 -24
-  %430 = load ptr, ptr %429, align 8
-  %431 = getelementptr inbounds i8, ptr %.pre, i64 8
-  %432 = load ptr, ptr %431, align 8
-  %433 = tail call ptr @pbl_add_child(ptr noundef %430, ptr noundef %432) #11
-  store ptr %430, ptr %429, align 8
+429:                                              ; preds = %46
+  %430 = getelementptr i8, ptr %.pre, i64 -24
+  %431 = load ptr, ptr %430, align 8
+  %432 = getelementptr inbounds i8, ptr %.pre, i64 8
+  %433 = load ptr, ptr %432, align 8
+  %434 = tail call ptr @pbl_add_child(ptr noundef %431, ptr noundef %433) #11
+  store ptr %431, ptr %430, align 8
   br label %yy_reduce.exit
 
-434:                                              ; preds = %45
-  %435 = getelementptr inbounds i8, ptr %46, i64 8
-  %436 = load ptr, ptr %435, align 8
-  %437 = getelementptr i8, ptr %.pre, i64 -24
-  %438 = load ptr, ptr %437, align 8
-  %439 = getelementptr inbounds i8, ptr %438, i64 8
-  %440 = load i32, ptr %439, align 8
-  %441 = load ptr, ptr %438, align 8
-  %442 = getelementptr inbounds i8, ptr %.pre, i64 8
-  %443 = load ptr, ptr %442, align 8
-  %444 = tail call ptr @pbl_create_option_node(ptr noundef %436, i32 noundef %440, ptr noundef %441, ptr noundef %443) #11
-  store ptr %444, ptr %437, align 8
+435:                                              ; preds = %46
+  %436 = getelementptr inbounds i8, ptr %47, i64 8
+  %437 = load ptr, ptr %436, align 8
+  %438 = getelementptr i8, ptr %.pre, i64 -24
+  %439 = load ptr, ptr %438, align 8
+  %440 = getelementptr inbounds i8, ptr %439, i64 8
+  %441 = load i32, ptr %440, align 8
+  %442 = load ptr, ptr %439, align 8
+  %443 = getelementptr inbounds i8, ptr %.pre, i64 8
+  %444 = load ptr, ptr %443, align 8
+  %445 = tail call ptr @pbl_create_option_node(ptr noundef %437, i32 noundef %441, ptr noundef %442, ptr noundef %444) #11
+  store ptr %445, ptr %438, align 8
   br label %yy_reduce.exit
 
-445:                                              ; preds = %45
-  %446 = getelementptr inbounds i8, ptr %46, i64 8
-  %447 = load ptr, ptr %446, align 8
-  %448 = getelementptr i8, ptr %.pre, i64 -24
-  %449 = load ptr, ptr %448, align 8
-  %450 = getelementptr inbounds i8, ptr %449, i64 8
-  %451 = load i32, ptr %450, align 8
-  %452 = load ptr, ptr %449, align 8
-  %453 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.15) #11
-  %454 = getelementptr inbounds i8, ptr %46, i64 16
-  %455 = load ptr, ptr %454, align 8
-  %456 = tail call ptr @g_slist_prepend(ptr noundef %455, ptr noundef %453) #11
-  store ptr %456, ptr %454, align 8
-  %457 = tail call ptr @pbl_create_option_node(ptr noundef %447, i32 noundef %451, ptr noundef %452, ptr noundef %453) #11
-  store ptr %457, ptr %448, align 8
+446:                                              ; preds = %46
+  %447 = getelementptr inbounds i8, ptr %47, i64 8
+  %448 = load ptr, ptr %447, align 8
+  %449 = getelementptr i8, ptr %.pre, i64 -24
+  %450 = load ptr, ptr %449, align 8
+  %451 = getelementptr inbounds i8, ptr %450, i64 8
+  %452 = load i32, ptr %451, align 8
+  %453 = load ptr, ptr %450, align 8
+  %454 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.15) #11
+  %455 = getelementptr inbounds i8, ptr %47, i64 16
+  %456 = load ptr, ptr %455, align 8
+  %457 = tail call ptr @g_slist_prepend(ptr noundef %456, ptr noundef %454) #11
+  store ptr %457, ptr %455, align 8
+  %458 = tail call ptr @pbl_create_option_node(ptr noundef %448, i32 noundef %452, ptr noundef %453, ptr noundef %454) #11
+  store ptr %458, ptr %449, align 8
   br label %yy_reduce.exit
 
-458:                                              ; preds = %45
-  %459 = getelementptr i8, ptr %.pre, i64 -88
-  %460 = getelementptr i8, ptr %.pre, i64 -8
-  %461 = load ptr, ptr %460, align 8
-  store ptr %461, ptr %459, align 8
-  %462 = getelementptr i8, ptr %.pre, i64 -72
-  %463 = load ptr, ptr %462, align 8
-  %464 = getelementptr inbounds i8, ptr %463, i64 8
-  %465 = load i32, ptr %464, align 8
-  %466 = load ptr, ptr %463, align 8
-  %467 = tail call ptr @pbl_set_node_name(ptr noundef %461, i32 noundef %465, ptr noundef %466) #11
+459:                                              ; preds = %46
+  %460 = getelementptr i8, ptr %.pre, i64 -88
+  %461 = getelementptr i8, ptr %.pre, i64 -8
+  %462 = load ptr, ptr %461, align 8
+  store ptr %462, ptr %460, align 8
+  %463 = getelementptr i8, ptr %.pre, i64 -72
+  %464 = load ptr, ptr %463, align 8
+  %465 = getelementptr inbounds i8, ptr %464, i64 8
+  %466 = load i32, ptr %465, align 8
+  %467 = load ptr, ptr %464, align 8
+  %468 = tail call ptr @pbl_set_node_name(ptr noundef %462, i32 noundef %466, ptr noundef %467) #11
   br label %yy_reduce.exit
 
-468:                                              ; preds = %45
-  %469 = getelementptr i8, ptr %.pre, i64 -8
-  %470 = load ptr, ptr %469, align 8
-  %471 = getelementptr i8, ptr %.pre, i64 -104
-  store ptr %470, ptr %471, align 8
-  %472 = getelementptr i8, ptr %.pre, i64 -72
-  %473 = load ptr, ptr %472, align 8
-  %474 = getelementptr inbounds i8, ptr %473, i64 8
-  %475 = load i32, ptr %474, align 8
-  %476 = load ptr, ptr %473, align 8
-  %477 = tail call ptr @pbl_set_node_name(ptr noundef %470, i32 noundef %475, ptr noundef %476) #11
+469:                                              ; preds = %46
+  %470 = getelementptr i8, ptr %.pre, i64 -8
+  %471 = load ptr, ptr %470, align 8
+  %472 = getelementptr i8, ptr %.pre, i64 -104
+  store ptr %471, ptr %472, align 8
+  %473 = getelementptr i8, ptr %.pre, i64 -72
+  %474 = load ptr, ptr %473, align 8
+  %475 = getelementptr inbounds i8, ptr %474, i64 8
+  %476 = load i32, ptr %475, align 8
+  %477 = load ptr, ptr %474, align 8
+  %478 = tail call ptr @pbl_set_node_name(ptr noundef %471, i32 noundef %476, ptr noundef %477) #11
   br label %yy_reduce.exit
 
-478:                                              ; preds = %45
-  %479 = getelementptr i8, ptr %.pre, i64 -56
-  %480 = getelementptr i8, ptr %.pre, i64 -8
-  %481 = load ptr, ptr %480, align 8
-  store ptr %481, ptr %479, align 8
-  %482 = getelementptr i8, ptr %.pre, i64 -40
-  %483 = load ptr, ptr %482, align 8
-  %484 = getelementptr inbounds i8, ptr %483, i64 8
-  %485 = load i32, ptr %484, align 8
-  %486 = load ptr, ptr %483, align 8
-  %487 = tail call ptr @pbl_set_node_name(ptr noundef %481, i32 noundef %485, ptr noundef %486) #11
+479:                                              ; preds = %46
+  %480 = getelementptr i8, ptr %.pre, i64 -56
+  %481 = getelementptr i8, ptr %.pre, i64 -8
+  %482 = load ptr, ptr %481, align 8
+  store ptr %482, ptr %480, align 8
+  %483 = getelementptr i8, ptr %.pre, i64 -40
+  %484 = load ptr, ptr %483, align 8
+  %485 = getelementptr inbounds i8, ptr %484, i64 8
+  %486 = load i32, ptr %485, align 8
+  %487 = load ptr, ptr %484, align 8
+  %488 = tail call ptr @pbl_set_node_name(ptr noundef %482, i32 noundef %486, ptr noundef %487) #11
   br label %yy_reduce.exit
 
-488:                                              ; preds = %45
-  %489 = getelementptr inbounds i8, ptr %46, i64 8
-  %490 = load ptr, ptr %489, align 8
-  %491 = getelementptr inbounds i8, ptr %46, i64 32
-  %492 = load ptr, ptr %491, align 8
-  %493 = tail call i32 @protobuf_lang_get_lineno(ptr noundef %492) #11
-  %494 = tail call ptr @pbl_create_node(ptr noundef %490, i32 noundef %493, i32 noundef 4, ptr noundef nonnull @.str.10) #11
-  %495 = getelementptr i8, ptr %.pre, i64 24
-  store ptr %494, ptr %495, align 8
+489:                                              ; preds = %46
+  %490 = getelementptr inbounds i8, ptr %47, i64 8
+  %491 = load ptr, ptr %490, align 8
+  %492 = getelementptr inbounds i8, ptr %47, i64 32
+  %493 = load ptr, ptr %492, align 8
+  %494 = tail call i32 @protobuf_lang_get_lineno(ptr noundef %493) #11
+  %495 = tail call ptr @pbl_create_node(ptr noundef %491, i32 noundef %494, i32 noundef 4, ptr noundef nonnull @.str.10) #11
+  %496 = getelementptr i8, ptr %.pre, i64 24
+  store ptr %495, ptr %496, align 8
   br label %yy_reduce.exit
 
-496:                                              ; preds = %45
-  %497 = getelementptr i8, ptr %.pre, i64 -184
-  %498 = getelementptr inbounds i8, ptr %46, i64 8
-  %499 = load ptr, ptr %498, align 8
-  %500 = getelementptr i8, ptr %.pre, i64 -88
-  %501 = load ptr, ptr %500, align 8
-  %502 = getelementptr inbounds i8, ptr %501, i64 8
-  %503 = load i32, ptr %502, align 8
-  %504 = load ptr, ptr %501, align 8
-  %505 = getelementptr i8, ptr %.pre, i64 -56
-  %506 = load i32, ptr %505, align 8
-  %507 = getelementptr i8, ptr %.pre, i64 -24
-  %508 = load ptr, ptr %507, align 8
-  %509 = tail call ptr @pbl_create_map_field_node(ptr noundef %499, i32 noundef %503, ptr noundef %504, i32 noundef %506, ptr noundef %508) #11
-  store ptr %509, ptr %497, align 8
-  %510 = load ptr, ptr %498, align 8
-  %511 = load ptr, ptr %500, align 8
-  %512 = getelementptr inbounds i8, ptr %511, i64 8
-  %513 = load i32, ptr %512, align 8
-  %514 = getelementptr i8, ptr %.pre, i64 -152
-  %515 = load ptr, ptr %514, align 8
-  %516 = tail call ptr @pbl_create_field_node(ptr noundef %510, i32 noundef %513, ptr noundef null, ptr noundef %515, ptr noundef nonnull @.str.16, i32 noundef 1, ptr noundef null) #11
-  %517 = tail call ptr @pbl_add_child(ptr noundef %509, ptr noundef %516) #11
-  %518 = load ptr, ptr %497, align 8
+497:                                              ; preds = %46
+  %498 = getelementptr i8, ptr %.pre, i64 -184
+  %499 = getelementptr inbounds i8, ptr %47, i64 8
+  %500 = load ptr, ptr %499, align 8
+  %501 = getelementptr i8, ptr %.pre, i64 -88
+  %502 = load ptr, ptr %501, align 8
+  %503 = getelementptr inbounds i8, ptr %502, i64 8
+  %504 = load i32, ptr %503, align 8
+  %505 = load ptr, ptr %502, align 8
+  %506 = getelementptr i8, ptr %.pre, i64 -56
+  %507 = load i32, ptr %506, align 8
+  %508 = getelementptr i8, ptr %.pre, i64 -24
+  %509 = load ptr, ptr %508, align 8
+  %510 = tail call ptr @pbl_create_map_field_node(ptr noundef %500, i32 noundef %504, ptr noundef %505, i32 noundef %507, ptr noundef %509) #11
+  store ptr %510, ptr %498, align 8
+  %511 = load ptr, ptr %499, align 8
+  %512 = load ptr, ptr %501, align 8
+  %513 = getelementptr inbounds i8, ptr %512, i64 8
+  %514 = load i32, ptr %513, align 8
+  %515 = getelementptr i8, ptr %.pre, i64 -152
+  %516 = load ptr, ptr %515, align 8
+  %517 = tail call ptr @pbl_create_field_node(ptr noundef %511, i32 noundef %514, ptr noundef null, ptr noundef %516, ptr noundef nonnull @.str.16, i32 noundef 1, ptr noundef null) #11
+  %518 = tail call ptr @pbl_add_child(ptr noundef %510, ptr noundef %517) #11
   %519 = load ptr, ptr %498, align 8
-  %520 = load ptr, ptr %500, align 8
-  %521 = getelementptr inbounds i8, ptr %520, i64 8
-  %522 = load i32, ptr %521, align 8
-  %523 = getelementptr i8, ptr %.pre, i64 -120
-  %524 = load ptr, ptr %523, align 8
-  %525 = tail call ptr @pbl_create_field_node(ptr noundef %519, i32 noundef %522, ptr noundef null, ptr noundef %524, ptr noundef nonnull @.str.17, i32 noundef 2, ptr noundef null) #11
-  %526 = tail call ptr @pbl_add_child(ptr noundef %518, ptr noundef %525) #11
+  %520 = load ptr, ptr %499, align 8
+  %521 = load ptr, ptr %501, align 8
+  %522 = getelementptr inbounds i8, ptr %521, i64 8
+  %523 = load i32, ptr %522, align 8
+  %524 = getelementptr i8, ptr %.pre, i64 -120
+  %525 = load ptr, ptr %524, align 8
+  %526 = tail call ptr @pbl_create_field_node(ptr noundef %520, i32 noundef %523, ptr noundef null, ptr noundef %525, ptr noundef nonnull @.str.17, i32 noundef 2, ptr noundef null) #11
+  %527 = tail call ptr @pbl_add_child(ptr noundef %519, ptr noundef %526) #11
   br label %yy_reduce.exit
 
-527:                                              ; preds = %45
-  %528 = getelementptr i8, ptr %.pre, i64 -136
-  %529 = getelementptr inbounds i8, ptr %46, i64 8
-  %530 = load ptr, ptr %529, align 8
-  %531 = getelementptr i8, ptr %.pre, i64 -40
-  %532 = load ptr, ptr %531, align 8
-  %533 = getelementptr inbounds i8, ptr %532, i64 8
-  %534 = load i32, ptr %533, align 8
-  %535 = load ptr, ptr %532, align 8
-  %536 = getelementptr i8, ptr %.pre, i64 -8
-  %537 = load i32, ptr %536, align 8
-  %538 = tail call ptr @pbl_create_map_field_node(ptr noundef %530, i32 noundef %534, ptr noundef %535, i32 noundef %537, ptr noundef null) #11
-  store ptr %538, ptr %528, align 8
-  %539 = load ptr, ptr %529, align 8
-  %540 = load ptr, ptr %531, align 8
-  %541 = getelementptr inbounds i8, ptr %540, i64 8
-  %542 = load i32, ptr %541, align 8
-  %543 = getelementptr i8, ptr %.pre, i64 -104
-  %544 = load ptr, ptr %543, align 8
-  %545 = tail call ptr @pbl_create_field_node(ptr noundef %539, i32 noundef %542, ptr noundef null, ptr noundef %544, ptr noundef nonnull @.str.16, i32 noundef 1, ptr noundef null) #11
-  %546 = tail call ptr @pbl_add_child(ptr noundef %538, ptr noundef %545) #11
-  %547 = load ptr, ptr %528, align 8
+528:                                              ; preds = %46
+  %529 = getelementptr i8, ptr %.pre, i64 -136
+  %530 = getelementptr inbounds i8, ptr %47, i64 8
+  %531 = load ptr, ptr %530, align 8
+  %532 = getelementptr i8, ptr %.pre, i64 -40
+  %533 = load ptr, ptr %532, align 8
+  %534 = getelementptr inbounds i8, ptr %533, i64 8
+  %535 = load i32, ptr %534, align 8
+  %536 = load ptr, ptr %533, align 8
+  %537 = getelementptr i8, ptr %.pre, i64 -8
+  %538 = load i32, ptr %537, align 8
+  %539 = tail call ptr @pbl_create_map_field_node(ptr noundef %531, i32 noundef %535, ptr noundef %536, i32 noundef %538, ptr noundef null) #11
+  store ptr %539, ptr %529, align 8
+  %540 = load ptr, ptr %530, align 8
+  %541 = load ptr, ptr %532, align 8
+  %542 = getelementptr inbounds i8, ptr %541, i64 8
+  %543 = load i32, ptr %542, align 8
+  %544 = getelementptr i8, ptr %.pre, i64 -104
+  %545 = load ptr, ptr %544, align 8
+  %546 = tail call ptr @pbl_create_field_node(ptr noundef %540, i32 noundef %543, ptr noundef null, ptr noundef %545, ptr noundef nonnull @.str.16, i32 noundef 1, ptr noundef null) #11
+  %547 = tail call ptr @pbl_add_child(ptr noundef %539, ptr noundef %546) #11
   %548 = load ptr, ptr %529, align 8
-  %549 = load ptr, ptr %531, align 8
-  %550 = getelementptr inbounds i8, ptr %549, i64 8
-  %551 = load i32, ptr %550, align 8
-  %552 = getelementptr i8, ptr %.pre, i64 -72
-  %553 = load ptr, ptr %552, align 8
-  %554 = tail call ptr @pbl_create_field_node(ptr noundef %548, i32 noundef %551, ptr noundef null, ptr noundef %553, ptr noundef nonnull @.str.17, i32 noundef 2, ptr noundef null) #11
-  %555 = tail call ptr @pbl_add_child(ptr noundef %547, ptr noundef %554) #11
+  %549 = load ptr, ptr %530, align 8
+  %550 = load ptr, ptr %532, align 8
+  %551 = getelementptr inbounds i8, ptr %550, i64 8
+  %552 = load i32, ptr %551, align 8
+  %553 = getelementptr i8, ptr %.pre, i64 -72
+  %554 = load ptr, ptr %553, align 8
+  %555 = tail call ptr @pbl_create_field_node(ptr noundef %549, i32 noundef %552, ptr noundef null, ptr noundef %554, ptr noundef nonnull @.str.17, i32 noundef 2, ptr noundef null) #11
+  %556 = tail call ptr @pbl_add_child(ptr noundef %548, ptr noundef %555) #11
   br label %yy_reduce.exit
 
-556:                                              ; preds = %45
-  %557 = getelementptr i8, ptr %.pre, i64 -56
-  store ptr null, ptr %557, align 8
-  %558 = getelementptr i8, ptr %.pre, i64 -8
-  %559 = load ptr, ptr %558, align 8
-  tail call void @pbl_free_node(ptr noundef %559) #11
+557:                                              ; preds = %46
+  %558 = getelementptr i8, ptr %.pre, i64 -56
+  store ptr null, ptr %558, align 8
+  %559 = getelementptr i8, ptr %.pre, i64 -8
+  %560 = load ptr, ptr %559, align 8
+  tail call void @pbl_free_node(ptr noundef %560) #11
   br label %yy_reduce.exit
 
-560:                                              ; preds = %45
-  %561 = getelementptr inbounds i8, ptr %.pre, i64 8
-  %562 = load ptr, ptr %561, align 8
+561:                                              ; preds = %46
+  %562 = getelementptr inbounds i8, ptr %.pre, i64 8
   %563 = load ptr, ptr %562, align 8
-  %564 = tail call i64 @g_ascii_strtoull(ptr noundef %563, ptr noundef null, i32 noundef 10) #11
-  store i64 %564, ptr %561, align 8
+  %564 = load ptr, ptr %563, align 8
+  %565 = tail call i64 @g_ascii_strtoull(ptr noundef %564, ptr noundef null, i32 noundef 10) #11
+  store i64 %565, ptr %562, align 8
   br label %yy_reduce.exit
 
-565:                                              ; preds = %45
-  %566 = getelementptr inbounds i8, ptr %.pre, i64 8
-  %567 = load ptr, ptr %566, align 8
+566:                                              ; preds = %46
+  %567 = getelementptr inbounds i8, ptr %.pre, i64 8
   %568 = load ptr, ptr %567, align 8
-  %569 = getelementptr i8, ptr %568, i64 1
-  %570 = tail call i64 @g_ascii_strtoull(ptr noundef %569, ptr noundef null, i32 noundef 8) #11
-  store i64 %570, ptr %566, align 8
+  %569 = load ptr, ptr %568, align 8
+  %570 = getelementptr i8, ptr %569, i64 1
+  %571 = tail call i64 @g_ascii_strtoull(ptr noundef %570, ptr noundef null, i32 noundef 8) #11
+  store i64 %571, ptr %567, align 8
   br label %yy_reduce.exit
 
-571:                                              ; preds = %45
-  %572 = getelementptr inbounds i8, ptr %.pre, i64 8
-  %573 = load ptr, ptr %572, align 8
+572:                                              ; preds = %46
+  %573 = getelementptr inbounds i8, ptr %.pre, i64 8
   %574 = load ptr, ptr %573, align 8
-  %575 = getelementptr i8, ptr %574, i64 2
-  %576 = tail call i64 @g_ascii_strtoull(ptr noundef %575, ptr noundef null, i32 noundef 16) #11
-  store i64 %576, ptr %572, align 8
+  %575 = load ptr, ptr %574, align 8
+  %576 = getelementptr i8, ptr %575, i64 2
+  %577 = tail call i64 @g_ascii_strtoull(ptr noundef %576, ptr noundef null, i32 noundef 16) #11
+  store i64 %577, ptr %573, align 8
   br label %yy_reduce.exit
 
-577:                                              ; preds = %45
-  %578 = getelementptr inbounds i8, ptr %.pre, i64 8
-  %579 = load i64, ptr %578, align 8
-  %580 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.18, i64 noundef %579) #11
-  %581 = getelementptr inbounds i8, ptr %46, i64 16
-  %582 = load ptr, ptr %581, align 8
-  %583 = tail call ptr @g_slist_prepend(ptr noundef %582, ptr noundef %580) #11
-  store ptr %583, ptr %581, align 8
-  store ptr %580, ptr %578, align 8
+578:                                              ; preds = %46
+  %579 = getelementptr inbounds i8, ptr %.pre, i64 8
+  %580 = load i64, ptr %579, align 8
+  %581 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.18, i64 noundef %580) #11
+  %582 = getelementptr inbounds i8, ptr %47, i64 16
+  %583 = load ptr, ptr %582, align 8
+  %584 = tail call ptr @g_slist_prepend(ptr noundef %583, ptr noundef %581) #11
+  store ptr %584, ptr %582, align 8
+  store ptr %581, ptr %579, align 8
   br label %yy_reduce.exit
 
-584:                                              ; preds = %45
-  %585 = getelementptr i8, ptr %.pre, i64 -8
-  %586 = getelementptr inbounds i8, ptr %.pre, i64 8
-  %587 = load i64, ptr %586, align 8
-  %588 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.18, i64 noundef %587) #11
-  %589 = getelementptr inbounds i8, ptr %46, i64 16
-  %590 = load ptr, ptr %589, align 8
-  %591 = tail call ptr @g_slist_prepend(ptr noundef %590, ptr noundef %588) #11
-  store ptr %591, ptr %589, align 8
-  store ptr %588, ptr %585, align 8
+585:                                              ; preds = %46
+  %586 = getelementptr i8, ptr %.pre, i64 -8
+  %587 = getelementptr inbounds i8, ptr %.pre, i64 8
+  %588 = load i64, ptr %587, align 8
+  %589 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.18, i64 noundef %588) #11
+  %590 = getelementptr inbounds i8, ptr %47, i64 16
+  %591 = load ptr, ptr %590, align 8
+  %592 = tail call ptr @g_slist_prepend(ptr noundef %591, ptr noundef %589) #11
+  store ptr %592, ptr %590, align 8
+  store ptr %589, ptr %586, align 8
   br label %yy_reduce.exit
 
-592:                                              ; preds = %45
-  %593 = getelementptr i8, ptr %.pre, i64 -8
-  %594 = getelementptr inbounds i8, ptr %.pre, i64 8
-  %595 = load i64, ptr %594, align 8
-  %596 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.19, i64 noundef %595) #11
-  %597 = getelementptr inbounds i8, ptr %46, i64 16
-  %598 = load ptr, ptr %597, align 8
-  %599 = tail call ptr @g_slist_prepend(ptr noundef %598, ptr noundef %596) #11
-  store ptr %599, ptr %597, align 8
-  store ptr %596, ptr %593, align 8
+593:                                              ; preds = %46
+  %594 = getelementptr i8, ptr %.pre, i64 -8
+  %595 = getelementptr inbounds i8, ptr %.pre, i64 8
+  %596 = load i64, ptr %595, align 8
+  %597 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.19, i64 noundef %596) #11
+  %598 = getelementptr inbounds i8, ptr %47, i64 16
+  %599 = load ptr, ptr %598, align 8
+  %600 = tail call ptr @g_slist_prepend(ptr noundef %599, ptr noundef %597) #11
+  store ptr %600, ptr %598, align 8
+  store ptr %597, ptr %594, align 8
   br label %yy_reduce.exit
 
-600:                                              ; preds = %45
-  %601 = getelementptr i8, ptr %.pre, i64 -8
-  %602 = getelementptr inbounds i8, ptr %.pre, i64 8
-  %603 = load ptr, ptr %602, align 8
+601:                                              ; preds = %46
+  %602 = getelementptr i8, ptr %.pre, i64 -8
+  %603 = getelementptr inbounds i8, ptr %.pre, i64 8
   %604 = load ptr, ptr %603, align 8
-  %605 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef nonnull @.str.20, ptr noundef %604, ptr noundef null) #11
-  %606 = getelementptr inbounds i8, ptr %46, i64 16
-  %607 = load ptr, ptr %606, align 8
-  %608 = tail call ptr @g_slist_prepend(ptr noundef %607, ptr noundef %605) #11
-  store ptr %608, ptr %606, align 8
-  store ptr %605, ptr %601, align 8
+  %605 = load ptr, ptr %604, align 8
+  %606 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef nonnull @.str.20, ptr noundef %605, ptr noundef null) #11
+  %607 = getelementptr inbounds i8, ptr %47, i64 16
+  %608 = load ptr, ptr %607, align 8
+  %609 = tail call ptr @g_slist_prepend(ptr noundef %608, ptr noundef %606) #11
+  store ptr %609, ptr %607, align 8
+  store ptr %606, ptr %602, align 8
   br label %yy_reduce.exit
 
-609:                                              ; preds = %45
-  %610 = getelementptr i8, ptr %.pre, i64 -8
-  %611 = getelementptr inbounds i8, ptr %.pre, i64 8
-  %612 = load ptr, ptr %611, align 8
+610:                                              ; preds = %46
+  %611 = getelementptr i8, ptr %.pre, i64 -8
+  %612 = getelementptr inbounds i8, ptr %.pre, i64 8
   %613 = load ptr, ptr %612, align 8
-  %614 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef nonnull @.str.21, ptr noundef %613, ptr noundef null) #11
-  %615 = getelementptr inbounds i8, ptr %46, i64 16
-  %616 = load ptr, ptr %615, align 8
-  %617 = tail call ptr @g_slist_prepend(ptr noundef %616, ptr noundef %614) #11
-  store ptr %617, ptr %615, align 8
-  store ptr %614, ptr %610, align 8
+  %614 = load ptr, ptr %613, align 8
+  %615 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef nonnull @.str.21, ptr noundef %614, ptr noundef null) #11
+  %616 = getelementptr inbounds i8, ptr %47, i64 16
+  %617 = load ptr, ptr %616, align 8
+  %618 = tail call ptr @g_slist_prepend(ptr noundef %617, ptr noundef %615) #11
+  store ptr %618, ptr %616, align 8
+  store ptr %615, ptr %611, align 8
   br label %yy_reduce.exit
 
-618:                                              ; preds = %45
-  %619 = getelementptr inbounds i8, ptr %.pre, i64 8
-  %620 = load ptr, ptr %619, align 8
+619:                                              ; preds = %46
+  %620 = getelementptr inbounds i8, ptr %.pre, i64 8
   %621 = load ptr, ptr %620, align 8
-  %622 = getelementptr i8, ptr %621, i64 1
-  %623 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %621) #12
-  %624 = add i64 %623, -2
-  %625 = tail call noalias ptr @g_strndup(ptr noundef %622, i64 noundef %624) #11
-  %626 = getelementptr inbounds i8, ptr %46, i64 16
-  %627 = load ptr, ptr %626, align 8
-  %628 = tail call ptr @g_slist_prepend(ptr noundef %627, ptr noundef %625) #11
-  store ptr %628, ptr %626, align 8
-  store ptr %625, ptr %619, align 8
+  %622 = load ptr, ptr %621, align 8
+  %623 = getelementptr i8, ptr %622, i64 1
+  %624 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %622) #12
+  %625 = add i64 %624, -2
+  %626 = tail call noalias ptr @g_strndup(ptr noundef %623, i64 noundef %625) #11
+  %627 = getelementptr inbounds i8, ptr %47, i64 16
+  %628 = load ptr, ptr %627, align 8
+  %629 = tail call ptr @g_slist_prepend(ptr noundef %628, ptr noundef %626) #11
+  store ptr %629, ptr %627, align 8
+  store ptr %626, ptr %620, align 8
   br label %yy_reduce.exit
 
-629:                                              ; preds = %45
-  %630 = getelementptr inbounds i8, ptr %.pre, i64 8
-  %631 = load ptr, ptr %630, align 8
+630:                                              ; preds = %46
+  %631 = getelementptr inbounds i8, ptr %.pre, i64 8
   %632 = load ptr, ptr %631, align 8
-  %633 = getelementptr i8, ptr %632, i64 1
-  %634 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %632) #12
-  %635 = add i64 %634, -2
-  %636 = tail call noalias ptr @g_strndup(ptr noundef %633, i64 noundef %635) #11
-  %637 = getelementptr i8, ptr %.pre, i64 -8
-  %638 = load ptr, ptr %637, align 8
-  %639 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef %638, ptr noundef %636, ptr noundef null) #11
-  %640 = getelementptr inbounds i8, ptr %46, i64 16
-  %641 = load ptr, ptr %640, align 8
-  %642 = tail call ptr @g_slist_prepend(ptr noundef %641, ptr noundef %639) #11
-  store ptr %642, ptr %640, align 8
-  tail call void @g_free(ptr noundef %636) #11
-  store ptr %639, ptr %637, align 8
+  %633 = load ptr, ptr %632, align 8
+  %634 = getelementptr i8, ptr %633, i64 1
+  %635 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %633) #12
+  %636 = add i64 %635, -2
+  %637 = tail call noalias ptr @g_strndup(ptr noundef %634, i64 noundef %636) #11
+  %638 = getelementptr i8, ptr %.pre, i64 -8
+  %639 = load ptr, ptr %638, align 8
+  %640 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef %639, ptr noundef %637, ptr noundef null) #11
+  %641 = getelementptr inbounds i8, ptr %47, i64 16
+  %642 = load ptr, ptr %641, align 8
+  %643 = tail call ptr @g_slist_prepend(ptr noundef %642, ptr noundef %640) #11
+  store ptr %643, ptr %641, align 8
+  tail call void @g_free(ptr noundef %637) #11
+  store ptr %640, ptr %638, align 8
   br label %yy_reduce.exit
 
-yy_reduce.exit:                                   ; preds = %45, %68, %72, %86, %92, %96, %98, %106, %112, %117, %122, %127, %139, %149, %160, %171, %182, %192, %200, %207, %217, %225, %236, %247, %251, %256, %262, %272, %280, %294, %308, %322, %336, %350, %363, %378, %393, %410, %414, %418, %428, %434, %445, %458, %468, %478, %488, %496, %527, %556, %560, %565, %571, %577, %584, %592, %600, %609, %618, %629
-  %643 = getelementptr [181 x i8], ptr @yyRuleInfoLhs, i64 0, i64 %34
-  %644 = load i8, ptr %643, align 1
-  %645 = sext i8 %36 to i64
-  %646 = getelementptr %struct.yyStackEntry, ptr %.pre, i64 %645
-  %647 = load i16, ptr %646, align 8
-  %648 = zext i16 %647 to i64
-  %649 = getelementptr [85 x i16], ptr @yy_reduce_ofst, i64 0, i64 %648
-  %650 = load i16, ptr %649, align 2
-  %651 = sext i16 %650 to i64
-  %652 = zext i8 %644 to i64
-  %653 = add nsw i64 %651, %652
-  %654 = getelementptr [477 x i16], ptr @yy_action, i64 0, i64 %653
-  %655 = load i16, ptr %654, align 2
-  %656 = getelementptr i8, ptr %646, i64 16
-  store ptr %656, ptr %0, align 8
-  store i16 %655, ptr %656, align 8
-  %657 = getelementptr i8, ptr %646, i64 18
-  store i8 %644, ptr %657, align 2
+yy_reduce.exit:                                   ; preds = %46, %69, %73, %87, %93, %97, %99, %107, %113, %118, %123, %128, %140, %150, %161, %172, %183, %193, %201, %208, %218, %226, %237, %248, %252, %257, %263, %273, %281, %295, %309, %323, %337, %351, %364, %379, %394, %411, %415, %419, %429, %435, %446, %459, %469, %479, %489, %497, %528, %557, %561, %566, %572, %578, %585, %593, %601, %610, %619, %630
+  %644 = getelementptr [181 x i8], ptr @yyRuleInfoLhs, i64 0, i64 %35
+  %645 = load i8, ptr %644, align 1
+  %646 = sext i8 %37 to i64
+  %647 = getelementptr %struct.yyStackEntry, ptr %.pre, i64 %646
+  %648 = load i16, ptr %647, align 8
+  %649 = zext i16 %648 to i64
+  %650 = getelementptr [85 x i16], ptr @yy_reduce_ofst, i64 0, i64 %649
+  %651 = load i16, ptr %650, align 2
+  %652 = sext i16 %651 to i64
+  %653 = zext i8 %645 to i64
+  %654 = add nsw i64 %652, %653
+  %655 = getelementptr [477 x i16], ptr @yy_action, i64 0, i64 %654
+  %656 = load i16, ptr %655, align 2
+  %657 = getelementptr i8, ptr %647, i64 16
+  store ptr %657, ptr %0, align 8
+  store i16 %656, ptr %657, align 8
+  %658 = getelementptr i8, ptr %647, i64 18
+  store i8 %645, ptr %658, align 2
   br label %11
 
-658:                                              ; preds = %yy_find_shift_action.exit
-  %659 = icmp ult i16 %.0.i, 497
-  br i1 %659, label %660, label %678
+659:                                              ; preds = %yy_find_shift_action.exit
+  %660 = icmp ult i16 %.0.i, 497
+  br i1 %660, label %661, label %679
 
-660:                                              ; preds = %658
-  %661 = load ptr, ptr %0, align 8
-  %662 = getelementptr i8, ptr %661, i64 16
+661:                                              ; preds = %659
+  %662 = load ptr, ptr %0, align 8
+  %663 = getelementptr i8, ptr %662, i64 16
+  store ptr %663, ptr %0, align 8
+  %664 = load ptr, ptr %10, align 8
+  %665 = icmp ugt ptr %663, %664
+  br i1 %665, label %666, label %671
+
+666:                                              ; preds = %661
   store ptr %662, ptr %0, align 8
-  %663 = load ptr, ptr %10, align 8
-  %664 = icmp ugt ptr %662, %663
-  br i1 %664, label %665, label %670
+  %667 = getelementptr inbounds i8, ptr %0, i64 24
+  %668 = icmp ugt ptr %662, %667
+  br i1 %668, label %.lr.ph.preheader.i.i, label %yy_shift.exit
 
-665:                                              ; preds = %660
-  store ptr %661, ptr %0, align 8
-  %666 = getelementptr inbounds i8, ptr %0, i64 24
-  %667 = icmp ugt ptr %661, %666
-  br i1 %667, label %.lr.ph.preheader.i.i, label %yy_shift.exit
-
-.lr.ph.preheader.i.i:                             ; preds = %665
-  %.promoted6.i.i = ptrtoint ptr %661 to i64
-  %668 = ptrtoint ptr %0 to i64
-  %reass.sub.i.i = add i64 %668, 24
+.lr.ph.preheader.i.i:                             ; preds = %666
+  %.promoted6.i.i = ptrtoint ptr %662 to i64
+  %669 = ptrtoint ptr %0 to i64
+  %reass.sub.i.i = add i64 %669, 24
   %.not.i.i = sub i64 %reass.sub.i.i, %.promoted6.i.i
-  %669 = and i64 %.not.i.i, -16
-  %scevgep.i.i = getelementptr i8, ptr %661, i64 %669
+  %670 = and i64 %.not.i.i, -16
+  %scevgep.i.i = getelementptr i8, ptr %662, i64 %670
   store ptr %scevgep.i.i, ptr %0, align 8
   br label %yy_shift.exit
 
-670:                                              ; preds = %660
-  %671 = icmp ugt i16 %.0.i, 151
-  %672 = add nuw nsw i16 %.0.i, 184
-  %spec.select.i = select i1 %671, i16 %672, i16 %.0.i
-  store i16 %spec.select.i, ptr %662, align 8
-  %673 = getelementptr i8, ptr %661, i64 18
-  store i8 %9, ptr %673, align 2
-  %674 = getelementptr i8, ptr %661, i64 24
-  store ptr %2, ptr %674, align 8
+671:                                              ; preds = %661
+  %672 = icmp ugt i16 %.0.i, 151
+  %673 = add nuw nsw i16 %.0.i, 184
+  %spec.select.i = select i1 %672, i16 %673, i16 %.0.i
+  store i16 %spec.select.i, ptr %663, align 8
+  %674 = getelementptr i8, ptr %662, i64 18
+  store i8 %9, ptr %674, align 2
+  %675 = getelementptr i8, ptr %662, i64 24
+  store ptr %2, ptr %675, align 8
   br label %yy_shift.exit
 
-yy_shift.exit:                                    ; preds = %665, %.lr.ph.preheader.i.i, %670
-  %675 = getelementptr inbounds i8, ptr %0, i64 8
-  %676 = load i32, ptr %675, align 8
-  %677 = add i32 %676, -1
-  store i32 %677, ptr %675, align 8
+yy_shift.exit:                                    ; preds = %666, %.lr.ph.preheader.i.i, %671
+  %676 = getelementptr inbounds i8, ptr %0, i64 8
+  %677 = load i32, ptr %676, align 8
+  %678 = add i32 %677, -1
+  store i32 %678, ptr %676, align 8
   br label %yyStackOverflow.exit
 
-678:                                              ; preds = %658
-  %679 = icmp eq i16 %.0.i, 498
-  br i1 %679, label %680, label %684
+679:                                              ; preds = %659
+  %680 = icmp eq i16 %.0.i, 498
+  br i1 %680, label %681, label %685
 
-680:                                              ; preds = %678
-  %681 = load ptr, ptr %0, align 8
-  %682 = getelementptr i8, ptr %681, i64 -16
-  store ptr %682, ptr %0, align 8
-  %683 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 -1, ptr %683, align 8
+681:                                              ; preds = %679
+  %682 = load ptr, ptr %0, align 8
+  %683 = getelementptr i8, ptr %682, i64 -16
+  store ptr %683, ptr %0, align 8
+  %684 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 -1, ptr %684, align 8
   br label %yyStackOverflow.exit
 
-684:                                              ; preds = %678
-  %685 = getelementptr inbounds i8, ptr %0, i64 8
-  %686 = load i32, ptr %685, align 8
-  %687 = icmp slt i32 %686, 1
-  br i1 %687, label %688, label %691
+685:                                              ; preds = %679
+  %686 = getelementptr inbounds i8, ptr %0, i64 8
+  %687 = load i32, ptr %686, align 8
+  %688 = icmp slt i32 %687, 1
+  br i1 %688, label %689, label %692
 
-688:                                              ; preds = %684
+689:                                              ; preds = %685
   %.val = load ptr, ptr %2, align 8
-  %689 = load ptr, ptr %5, align 8
-  tail call void (ptr, ptr, ...) @pbl_parser_error(ptr noundef %689, ptr noundef nonnull @.str.22, ptr noundef %.val)
-  %690 = getelementptr inbounds i8, ptr %689, i64 48
-  store i32 1, ptr %690, align 8
-  store ptr %689, ptr %5, align 8
-  br label %691
+  %690 = load ptr, ptr %5, align 8
+  tail call void (ptr, ptr, ...) @pbl_parser_error(ptr noundef %690, ptr noundef nonnull @.str.22, ptr noundef %.val)
+  %691 = getelementptr inbounds i8, ptr %690, i64 48
+  store i32 1, ptr %691, align 8
+  store ptr %690, ptr %5, align 8
+  br label %692
 
-691:                                              ; preds = %688, %684
-  store i32 3, ptr %685, align 8
-  br i1 %6, label %692, label %yyStackOverflow.exit
+692:                                              ; preds = %689, %685
+  store i32 3, ptr %686, align 8
+  br i1 %6, label %693, label %yyStackOverflow.exit
 
-692:                                              ; preds = %691
-  %693 = load ptr, ptr %5, align 8
-  %694 = getelementptr inbounds i8, ptr %0, i64 24
+693:                                              ; preds = %692
+  %694 = load ptr, ptr %5, align 8
+  %695 = getelementptr inbounds i8, ptr %0, i64 24
   %.promoted.i39 = load ptr, ptr %0, align 8
-  %695 = icmp ugt ptr %.promoted.i39, %694
-  br i1 %695, label %.lr.ph.preheader.i40, label %yy_parse_failed.exit
+  %696 = icmp ugt ptr %.promoted.i39, %695
+  br i1 %696, label %.lr.ph.preheader.i40, label %yy_parse_failed.exit
 
-.lr.ph.preheader.i40:                             ; preds = %692
+.lr.ph.preheader.i40:                             ; preds = %693
   %.promoted8.i = ptrtoint ptr %.promoted.i39 to i64
-  %696 = ptrtoint ptr %0 to i64
-  %reass.sub.i41 = add i64 %696, 24
+  %697 = ptrtoint ptr %0 to i64
+  %reass.sub.i41 = add i64 %697, 24
   %.not.i42 = sub i64 %reass.sub.i41, %.promoted8.i
-  %697 = and i64 %.not.i42, -16
-  %scevgep.i43 = getelementptr i8, ptr %.promoted.i39, i64 %697
+  %698 = and i64 %.not.i42, -16
+  %scevgep.i43 = getelementptr i8, ptr %.promoted.i39, i64 %698
   store ptr %scevgep.i43, ptr %0, align 8
   br label %yy_parse_failed.exit
 
-yy_parse_failed.exit:                             ; preds = %692, %.lr.ph.preheader.i40
-  tail call void (ptr, ptr, ...) @pbl_parser_error(ptr noundef %693, ptr noundef nonnull @.str.23)
-  %698 = getelementptr inbounds i8, ptr %693, i64 48
-  store i32 1, ptr %698, align 8
-  store ptr %693, ptr %5, align 8
-  store i32 -1, ptr %685, align 8
+yy_parse_failed.exit:                             ; preds = %693, %.lr.ph.preheader.i40
+  tail call void (ptr, ptr, ...) @pbl_parser_error(ptr noundef %694, ptr noundef nonnull @.str.23)
+  %699 = getelementptr inbounds i8, ptr %694, i64 48
+  store i32 1, ptr %699, align 8
+  store ptr %694, ptr %5, align 8
+  store i32 -1, ptr %686, align 8
   br label %yyStackOverflow.exit
 
-yyStackOverflow.exit:                             ; preds = %.lr.ph.preheader.i, %40, %yy_shift.exit, %yy_parse_failed.exit, %691, %680
+yyStackOverflow.exit:                             ; preds = %.lr.ph.preheader.i, %41, %yy_shift.exit, %yy_parse_failed.exit, %692, %681
   ret void
 }
 

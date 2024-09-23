@@ -4297,7 +4297,11 @@ while.end.i.i33.us.us.us.i:                       ; preds = %if.end.i.i.us.us.us
   %waiting.i.i.us.us.us.i = getelementptr inbounds i8, ptr %call.i.i30.us.us.us.i, i64 8
   %12 = load atomic i8, ptr %waiting.i.i.us.us.us.i monotonic, align 8
   %tobool.i.i.us.us.us.i = trunc i8 %12 to i1
-  br i1 %tobool.i.i.us.us.us.i, label %return.sink.split.i, label %cpu_physical_memory_set_dirty_range.exit
+  br i1 %tobool.i.i.us.us.us.i, label %while.end21.i.i.us.us.us.i, label %cpu_physical_memory_set_dirty_range.exit
+
+while.end21.i.i.us.us.us.i:                       ; preds = %while.end.i.i33.us.us.us.i
+  store atomic i8 0, ptr %waiting.i.i.us.us.us.i monotonic, align 8
+  br label %return.sink.split.i
 
 while.end.us.us.us.i:                             ; preds = %rcu_read_auto_lock.exit.split.us.split.us.i, %while.end.us.us.us.i
   %indvars.iv76.i = phi i64 [ %indvars.iv.next77.i, %while.end.us.us.us.i ], [ 0, %rcu_read_auto_lock.exit.split.us.split.us.i ]
@@ -4335,7 +4339,11 @@ while.end.i.i33.us.us.i:                          ; preds = %if.end.i.i.us.us.i
   %waiting.i.i.us.us.i = getelementptr inbounds i8, ptr %call.i.i30.us.us.i, i64 8
   %16 = load atomic i8, ptr %waiting.i.i.us.us.i monotonic, align 8
   %tobool.i.i.us.us.i = trunc i8 %16 to i1
-  br i1 %tobool.i.i.us.us.i, label %return.sink.split.i, label %cpu_physical_memory_set_dirty_range.exit
+  br i1 %tobool.i.i.us.us.i, label %while.end21.i.i.us.us.i, label %cpu_physical_memory_set_dirty_range.exit
+
+while.end21.i.i.us.us.i:                          ; preds = %while.end.i.i33.us.us.i
+  store atomic i8 0, ptr %waiting.i.i.us.us.i monotonic, align 8
+  br label %return.sink.split.i
 
 while.end.us.us.i:                                ; preds = %rcu_read_auto_lock.exit.split.us.split.us.i, %while.end.us.us.i
   %indvars.iv72.i = phi i64 [ %indvars.iv.next73.i, %while.end.us.us.i ], [ 0, %rcu_read_auto_lock.exit.split.us.split.us.i ]
@@ -4396,7 +4404,11 @@ while.end.i.i33.us.i:                             ; preds = %if.end.i.i.us.i
   %waiting.i.i.us.i = getelementptr inbounds i8, ptr %call.i.i30.us.i, i64 8
   %22 = load atomic i8, ptr %waiting.i.i.us.i monotonic, align 8
   %tobool.i.i.us.i = trunc i8 %22 to i1
-  br i1 %tobool.i.i.us.i, label %return.sink.split.i, label %cpu_physical_memory_set_dirty_range.exit
+  br i1 %tobool.i.i.us.i, label %while.end21.i.i.us.i, label %cpu_physical_memory_set_dirty_range.exit
+
+while.end21.i.i.us.i:                             ; preds = %while.end.i.i33.us.i
+  store atomic i8 0, ptr %waiting.i.i.us.i monotonic, align 8
+  br label %return.sink.split.i
 
 while.end.us.i:                                   ; preds = %rcu_read_auto_lock.exit.split.us.i, %while.end.us.i
   %indvars.iv68.i = phi i64 [ %indvars.iv.next69.i, %while.end.us.i ], [ 0, %rcu_read_auto_lock.exit.split.us.i ]
@@ -4529,11 +4541,13 @@ while.end.i.i33.i:                                ; preds = %if.end.i.i.i
   %waiting.i.i.i = getelementptr inbounds i8, ptr %call.i.i30.i, i64 8
   %38 = load atomic i8, ptr %waiting.i.i.i monotonic, align 8
   %tobool.i.i.i = trunc i8 %38 to i1
-  br i1 %tobool.i.i.i, label %return.sink.split.i, label %cpu_physical_memory_set_dirty_range.exit
+  br i1 %tobool.i.i.i, label %while.end21.i.i.i, label %cpu_physical_memory_set_dirty_range.exit
 
-return.sink.split.i:                              ; preds = %while.end.i.i33.i, %while.end.i.i33.us.i, %while.end.i.i33.us.us.i, %while.end.i.i33.us.us.us.i
-  %waiting.i.i.us.sink.i = phi ptr [ %waiting.i.i.us.us.us.i, %while.end.i.i33.us.us.us.i ], [ %waiting.i.i.us.us.i, %while.end.i.i33.us.us.i ], [ %waiting.i.i.us.i, %while.end.i.i33.us.i ], [ %waiting.i.i.i, %while.end.i.i33.i ]
-  store atomic i8 0, ptr %waiting.i.i.us.sink.i monotonic, align 8
+while.end21.i.i.i:                                ; preds = %while.end.i.i33.i
+  store atomic i8 0, ptr %waiting.i.i.i monotonic, align 8
+  br label %return.sink.split.i
+
+return.sink.split.i:                              ; preds = %while.end21.i.i.i, %while.end21.i.i.us.i, %while.end21.i.i.us.us.i, %while.end21.i.i.us.us.us.i
   tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #19
   br label %cpu_physical_memory_set_dirty_range.exit
 
@@ -5348,9 +5362,18 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %cmp4.not = icmp eq ptr %3, null
   %tql_prev11 = getelementptr inbounds i8, ptr %2, i64 40
   %4 = load ptr, ptr %tql_prev11, align 8
+  br i1 %cmp4.not, label %if.else, label %if.then5
+
+if.then5:                                         ; preds = %while.body
   %tql_prev9 = getelementptr inbounds i8, ptr %3, i64 40
-  %tql_prev13.sink = select i1 %cmp4.not, ptr %tql_prev13, ptr %tql_prev9
-  store ptr %4, ptr %tql_prev13.sink, align 8
+  store ptr %4, ptr %tql_prev9, align 8
+  br label %if.end14
+
+if.else:                                          ; preds = %while.body
+  store ptr %4, ptr %tql_prev13, align 8
+  br label %if.end14
+
+if.end14:                                         ; preds = %if.else, %if.then5
   %5 = load ptr, ptr %link, align 16
   store ptr %5, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %link, i8 0, i64 16, i1 false)
@@ -5358,8 +5381,8 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %tobool.not15.i = icmp eq ptr %as.014.i, null
   br i1 %tobool.not15.i, label %memory_region_update_coalesced_range.exit, label %for.body.i
 
-for.body.i:                                       ; preds = %while.body, %flatview_unref.exit
-  %as.016.i = phi ptr [ %as.0.i, %flatview_unref.exit ], [ %as.014.i, %while.body ]
+for.body.i:                                       ; preds = %if.end14, %flatview_unref.exit
+  %as.016.i = phi ptr [ %as.0.i, %flatview_unref.exit ], [ %as.014.i, %if.end14 ]
   %call.i.i.i = tail call ptr @get_ptr_rcu_reader() #19
   %depth.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 12
   %6 = load i32, ptr %depth.i.i.i, align 4
@@ -5527,7 +5550,7 @@ flatview_unref.exit:                              ; preds = %for.end.i, %if.end.
   %tobool.not.i = icmp eq ptr %as.0.i, null
   br i1 %tobool.not.i, label %memory_region_update_coalesced_range.exit, label %for.body.i, !llvm.loop !52
 
-memory_region_update_coalesced_range.exit:        ; preds = %flatview_unref.exit, %while.body
+memory_region_update_coalesced_range.exit:        ; preds = %flatview_unref.exit, %if.end14
   tail call void @g_free(ptr noundef nonnull %2) #19
   %31 = load ptr, ptr %coalesced, align 8
   %cmp2.not = icmp eq ptr %31, null
@@ -6276,10 +6299,19 @@ do.body:                                          ; preds = %for.cond
   %cmp9.not = icmp eq ptr %3, null
   %tql_prev17 = getelementptr inbounds i8, ptr %subregion, i64 208
   %4 = load ptr, ptr %tql_prev17, align 8
+  br i1 %cmp9.not, label %if.else15, label %if.then10
+
+if.then10:                                        ; preds = %do.body
   %tql_prev14 = getelementptr inbounds i8, ptr %3, i64 208
+  store ptr %4, ptr %tql_prev14, align 8
+  br label %land.lhs.true.i
+
+if.else15:                                        ; preds = %do.body
   %tql_prev18 = getelementptr inbounds i8, ptr %mr, i64 192
-  %tql_prev14.sink = select i1 %cmp9.not, ptr %tql_prev18, ptr %tql_prev14
-  store ptr %4, ptr %tql_prev14.sink, align 8
+  store ptr %4, ptr %tql_prev18, align 8
+  br label %land.lhs.true.i
+
+land.lhs.true.i:                                  ; preds = %if.then10, %if.else15
   %5 = load ptr, ptr %subregions_link, align 8
   store ptr %5, ptr %4, align 8
   %owner.i = getelementptr inbounds i8, ptr %subregion, i64 64
@@ -6288,11 +6320,11 @@ do.body:                                          ; preds = %for.cond
   %tobool1.not.i = icmp eq ptr %6, null
   br i1 %tobool1.not.i, label %memory_region_unref.exit, label %if.then.i
 
-if.then.i:                                        ; preds = %do.body
+if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @object_unref(ptr noundef nonnull %6) #19
   br label %memory_region_unref.exit
 
-memory_region_unref.exit:                         ; preds = %do.body, %if.then.i
+memory_region_unref.exit:                         ; preds = %land.lhs.true.i, %if.then.i
   %enabled = getelementptr inbounds i8, ptr %mr, i64 154
   %7 = load i8, ptr %enabled, align 2
   %tobool28 = trunc i8 %7 to i1
@@ -7688,16 +7720,16 @@ if.end14:                                         ; preds = %if.else, %if.then7
 
 if.then25:                                        ; preds = %if.end14
   %tql_prev30 = getelementptr inbounds i8, ptr %24, i64 184
+  store ptr %25, ptr %tql_prev30, align 8
   br label %if.end36
 
 if.else31:                                        ; preds = %if.end14
   %26 = load ptr, ptr %address_space, align 8
   %tql_prev35 = getelementptr inbounds i8, ptr %26, i64 64
+  store ptr %25, ptr %tql_prev35, align 8
   br label %if.end36
 
 if.end36:                                         ; preds = %if.else31, %if.then25
-  %tql_prev35.sink = phi ptr [ %tql_prev35, %if.else31 ], [ %tql_prev30, %if.then25 ]
-  store ptr %25, ptr %tql_prev35.sink, align 8
   %27 = load ptr, ptr %link_as, align 8
   store ptr %27, ptr %25, align 8
   store ptr null, ptr %address_space, align 8

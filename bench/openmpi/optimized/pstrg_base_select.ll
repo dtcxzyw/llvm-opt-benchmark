@@ -145,6 +145,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %32, %3
   store ptr %54, ptr %55, align 8
   %56 = getelementptr inbounds i8, ptr %54, i64 120
   store volatile ptr %28, ptr %56, align 8
+  store ptr %28, ptr %53, align 8
   br label %.sink.split
 
 57:                                               ; preds = %.lr.ph
@@ -161,11 +162,10 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %32, %3
   store volatile ptr %28, ptr %61, align 8
   %62 = getelementptr inbounds i8, ptr %28, i64 120
   store ptr getelementptr inbounds (i8, ptr @pmix_pstrg_base, i64 120), ptr %62, align 8
+  store ptr %28, ptr getelementptr inbounds (i8, ptr @pmix_pstrg_base, i64 248), align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.critedge, %51
-  %.sink = phi ptr [ %53, %51 ], [ getelementptr inbounds (i8, ptr @pmix_pstrg_base, i64 248), %.critedge ]
-  store ptr %28, ptr %.sink, align 8
   %63 = load volatile i64, ptr getelementptr inbounds (i8, ptr @pmix_pstrg_base, i64 264), align 8
   %64 = add i64 %63, 1
   store volatile i64 %64, ptr getelementptr inbounds (i8, ptr @pmix_pstrg_base, i64 264), align 8

@@ -4595,24 +4595,24 @@ define internal fastcc range(i32 0, 2) i32 @lzh_br_fillup(ptr nocapture noundef 
   br label %7
 
 .loopexit.sink.split:                             ; preds = %11, %47, %81
-  %.sink60 = phi ptr [ %109, %81 ], [ %80, %47 ], [ %46, %11 ]
+  %.sink.in = phi ptr [ %109, %81 ], [ %80, %47 ], [ %46, %11 ]
   %.sink58 = phi i64 [ %108, %81 ], [ %79, %47 ], [ %45, %11 ]
   %.sink57 = phi i64 [ 6, %81 ], [ 7, %47 ], [ 8, %11 ]
   %.sink55 = phi i32 [ -6, %81 ], [ -7, %47 ], [ -8, %11 ]
   %.sink53 = phi i32 [ 48, %81 ], [ 56, %47 ], [ 64, %11 ]
-  %125 = load i8, ptr %.sink60, align 1
-  %126 = zext i8 %125 to i64
-  %127 = or i64 %.sink58, %126
-  store i64 %127, ptr %1, align 8
-  %128 = load ptr, ptr %0, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 %.sink57
-  store ptr %129, ptr %0, align 8
-  %130 = load i32, ptr %6, align 8
-  %131 = add nsw i32 %130, %.sink55
-  store i32 %131, ptr %6, align 8
-  %132 = load i32, ptr %3, align 8
-  %133 = add nsw i32 %132, %.sink53
-  store i32 %133, ptr %3, align 8
+  %.sink = load i8, ptr %.sink.in, align 1
+  %125 = zext i8 %.sink to i64
+  %126 = or i64 %.sink58, %125
+  store i64 %126, ptr %1, align 8
+  %127 = load ptr, ptr %0, align 8
+  %128 = getelementptr inbounds i8, ptr %127, i64 %.sink57
+  store ptr %128, ptr %0, align 8
+  %129 = load i32, ptr %6, align 8
+  %130 = add nsw i32 %129, %.sink55
+  store i32 %130, ptr %6, align 8
+  %131 = load i32, ptr %3, align 8
+  %132 = add nsw i32 %131, %.sink53
+  store i32 %132, ptr %3, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %110, %10, %.loopexit.sink.split

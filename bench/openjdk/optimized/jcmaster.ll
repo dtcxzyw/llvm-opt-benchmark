@@ -782,7 +782,8 @@ initial_setup.exit:                               ; preds = %85, %._crit_edge.i,
 .thread:                                          ; preds = %initial_setup.exit
   %399 = getelementptr inbounds i8, ptr %0, i64 308
   store i32 0, ptr %399, align 4
-  br label %.sink.split
+  store i32 1, ptr %180, align 8
+  br label %403
 
 .loopexit:                                        ; preds = %383, %395, %.preheader.i, %.preheader206.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
@@ -794,14 +795,10 @@ initial_setup.exit:                               ; preds = %85, %._crit_edge.i,
 
 401:                                              ; preds = %.loopexit
   %402 = getelementptr inbounds i8, ptr %0, i64 264
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %401, %.thread
-  %.sink52 = phi ptr [ %180, %.thread ], [ %402, %401 ]
-  store i32 1, ptr %.sink52, align 8
+  store i32 1, ptr %402, align 8
   br label %403
 
-403:                                              ; preds = %.sink.split, %.loopexit
+403:                                              ; preds = %.thread, %401, %.loopexit
   %.not27 = icmp eq i32 %1, 0
   br i1 %.not27, label %410, label %404
 

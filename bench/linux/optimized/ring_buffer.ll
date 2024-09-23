@@ -2144,7 +2144,7 @@ define dso_local ptr @perf_mmap_to_page(ptr nocapture noundef readonly %0, i64 n
   %3 = getelementptr inbounds i8, ptr %0, i64 176
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %24, label %6
+  br i1 %5, label %36, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 168
@@ -2152,66 +2152,84 @@ define dso_local ptr @perf_mmap_to_page(ptr nocapture noundef readonly %0, i64 n
   %9 = sext i32 %4 to i64
   %10 = add i64 %8, %9
   %11 = icmp ult i64 %10, %1
-  br i1 %11, label %49, label %12
+  br i1 %11, label %73, label %12
 
 12:                                               ; preds = %6
   %13 = icmp ugt i64 %8, %1
-  br i1 %13, label %24, label %14
+  br i1 %13, label %36, label %14
 
 14:                                               ; preds = %12
   %15 = sub nuw i64 %1, %8
   %16 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %9, i64 %15) #13, !srcloc !58
   %17 = and i64 %16, %15
   %18 = load i64, ptr @vmemmap_base, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 216
-  %20 = load ptr, ptr %19, align 8
-  %21 = shl i64 %17, 32
-  %22 = ashr exact i64 %21, 29
-  %23 = getelementptr i8, ptr %20, i64 %22
-  br label %.sink.split
+  %19 = inttoptr i64 %18 to ptr
+  %20 = getelementptr inbounds i8, ptr %0, i64 216
+  %21 = load ptr, ptr %20, align 8
+  %22 = shl i64 %17, 32
+  %23 = ashr exact i64 %22, 29
+  %24 = getelementptr i8, ptr %21, i64 %23
+  %25 = load ptr, ptr %24, align 8
+  %26 = ptrtoint ptr %25 to i64
+  %27 = add i64 %26, 2147483648
+  %28 = icmp ugt ptr %25, inttoptr (i64 -2147483649 to ptr)
+  %29 = load i64, ptr @phys_base, align 8
+  %30 = load i64, ptr @page_offset_base, align 8
+  %31 = sub i64 -2147483648, %30
+  %32 = select i1 %28, i64 %29, i64 %31
+  %33 = add i64 %27, %32
+  %34 = lshr i64 %33, 12
+  %35 = getelementptr %struct.page, ptr %19, i64 %34
+  br label %73
 
-24:                                               ; preds = %12, %2
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
-  %26 = load i32, ptr %25, align 8
-  %27 = sext i32 %26 to i64
-  %28 = icmp ugt i64 %1, %27
-  br i1 %28, label %49, label %29
+36:                                               ; preds = %12, %2
+  %37 = getelementptr inbounds i8, ptr %0, i64 24
+  %38 = load i32, ptr %37, align 8
+  %39 = sext i32 %38 to i64
+  %40 = icmp ugt i64 %1, %39
+  br i1 %40, label %73, label %41
 
-29:                                               ; preds = %24
-  %30 = icmp eq i64 %1, 0
-  %31 = load i64, ptr @vmemmap_base, align 8
-  br i1 %30, label %32, label %34
+41:                                               ; preds = %36
+  %42 = icmp eq i64 %1, 0
+  %43 = load i64, ptr @vmemmap_base, align 8
+  %44 = inttoptr i64 %43 to ptr
+  br i1 %42, label %45, label %58
 
-32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %0, i64 232
-  br label %.sink.split
+45:                                               ; preds = %41
+  %46 = getelementptr inbounds i8, ptr %0, i64 232
+  %47 = load ptr, ptr %46, align 8
+  %48 = ptrtoint ptr %47 to i64
+  %49 = add i64 %48, 2147483648
+  %50 = icmp ugt ptr %47, inttoptr (i64 -2147483649 to ptr)
+  %51 = load i64, ptr @phys_base, align 8
+  %52 = load i64, ptr @page_offset_base, align 8
+  %53 = sub i64 -2147483648, %52
+  %54 = select i1 %50, i64 %51, i64 %53
+  %55 = add i64 %49, %54
+  %56 = lshr i64 %55, 12
+  %57 = getelementptr %struct.page, ptr %44, i64 %56
+  br label %73
 
-34:                                               ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %0, i64 240
-  %36 = add i64 %1, -1
-  %37 = getelementptr [0 x ptr], ptr %35, i64 0, i64 %36
-  br label %.sink.split
+58:                                               ; preds = %41
+  %59 = getelementptr inbounds i8, ptr %0, i64 240
+  %60 = add i64 %1, -1
+  %61 = getelementptr [0 x ptr], ptr %59, i64 0, i64 %60
+  %62 = load ptr, ptr %61, align 8
+  %63 = ptrtoint ptr %62 to i64
+  %64 = add i64 %63, 2147483648
+  %65 = icmp ugt ptr %62, inttoptr (i64 -2147483649 to ptr)
+  %66 = load i64, ptr @phys_base, align 8
+  %67 = load i64, ptr @page_offset_base, align 8
+  %68 = sub i64 -2147483648, %67
+  %69 = select i1 %65, i64 %66, i64 %68
+  %70 = add i64 %64, %69
+  %71 = lshr i64 %70, 12
+  %72 = getelementptr %struct.page, ptr %44, i64 %71
+  br label %73
 
-.sink.split:                                      ; preds = %14, %32, %34
-  %.sink14 = phi ptr [ %37, %34 ], [ %33, %32 ], [ %23, %14 ]
-  %.sink.in = phi i64 [ %31, %34 ], [ %31, %32 ], [ %18, %14 ]
-  %.sink = inttoptr i64 %.sink.in to ptr
-  %38 = load ptr, ptr %.sink14, align 8
-  %39 = ptrtoint ptr %38 to i64
-  %40 = add i64 %39, 2147483648
-  %41 = icmp ugt ptr %38, inttoptr (i64 -2147483649 to ptr)
-  %42 = load i64, ptr @phys_base, align 8
-  %43 = load i64, ptr @page_offset_base, align 8
-  %44 = sub i64 -2147483648, %43
-  %45 = select i1 %41, i64 %42, i64 %44
-  %46 = add i64 %40, %45
-  %47 = lshr i64 %46, 12
-  %48 = getelementptr %struct.page, ptr %.sink, i64 %47
-  br label %49
-
-49:                                               ; preds = %.sink.split, %24, %6
-  %50 = phi ptr [ null, %6 ], [ null, %24 ], [ %48, %.sink.split ]
-  ret ptr %50
+73:                                               ; preds = %58, %45, %36, %14, %6
+  %74 = phi ptr [ %35, %14 ], [ null, %6 ], [ %57, %45 ], [ %72, %58 ], [ null, %36 ]
+  ret ptr %74
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

@@ -1024,10 +1024,10 @@ select.unfold:                                    ; preds = %39, %36
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %91, %85, %75
-  %.sink234 = phi i64 [ %83, %75 ], [ %89, %85 ], [ %93, %91 ]
-  %.sink233 = phi i64 [ %84, %75 ], [ %90, %85 ], [ %94, %91 ]
-  %95 = getelementptr i8, ptr %22, i64 %.sink234
-  %96 = getelementptr i8, ptr %95, i64 %.sink233
+  %.sink233 = phi i64 [ %83, %75 ], [ %89, %85 ], [ %93, %91 ]
+  %.sink232 = phi i64 [ %84, %75 ], [ %90, %85 ], [ %94, %91 ]
+  %95 = getelementptr i8, ptr %22, i64 %.sink233
+  %96 = getelementptr i8, ptr %95, i64 %.sink232
   %97 = load i8, ptr %96, align 1
   br label %.sink.split
 
@@ -1071,7 +1071,7 @@ select.unfold:                                    ; preds = %39, %36
 
 110:                                              ; preds = %.preheader173.us, %.loopexit.us
   %indvars.iv200 = phi i64 [ 0, %.preheader173.us ], [ %indvars.iv.next201, %.loopexit.us ]
-  %.0150178.us = phi ptr [ %104, %.preheader173.us ], [ %184, %.loopexit.us ]
+  %.0150178.us = phi ptr [ %104, %.preheader173.us ], [ %183, %.loopexit.us ]
   %111 = shl nuw nsw i64 %indvars.iv200, 1
   %112 = getelementptr inbounds i16, ptr %109, i64 %111
   %113 = load i16, ptr %112, align 2
@@ -1190,16 +1190,16 @@ select.unfold:                                    ; preds = %39, %36
   br i1 %exitcond199.not, label %.loopexit.us, label %178, !llvm.loop !21
 
 .loopexit.us.sink.split:                          ; preds = %153, %165
-  %.sink230 = phi ptr [ %173, %165 ], [ %164, %153 ]
   %.sink229 = phi i64 [ 2, %165 ], [ 3, %153 ]
-  %182 = load i8, ptr %.sink230, align 1
-  %183 = getelementptr inbounds i8, ptr %.0150178.us, i64 %.sink229
-  store i8 %182, ptr %183, align 1
+  %.sink227.in = phi ptr [ %173, %165 ], [ %164, %153 ]
+  %.sink227 = load i8, ptr %.sink227.in, align 1
+  %182 = getelementptr inbounds i8, ptr %.0150178.us, i64 %.sink229
+  store i8 %.sink227, ptr %182, align 1
   br label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %145, %178, %.loopexit.us.sink.split, %121
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
-  %184 = getelementptr i8, ptr %.0150178.us, i64 %wide.trip.count
+  %183 = getelementptr i8, ptr %.0150178.us, i64 %wide.trip.count
   %exitcond204.not = icmp eq i64 %indvars.iv.next201, %wide.trip.count203
   br i1 %exitcond204.not, label %..loopexit174_crit_edge.us, label %110, !llvm.loop !22
 
@@ -1358,10 +1358,10 @@ select.unfold:                                    ; preds = %39, %36
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %91, %85, %75
-  %.sink234 = phi i64 [ %83, %75 ], [ %89, %85 ], [ %93, %91 ]
-  %.sink233 = phi i64 [ %84, %75 ], [ %90, %85 ], [ %94, %91 ]
-  %95 = getelementptr i8, ptr %22, i64 %.sink234
-  %96 = getelementptr i8, ptr %95, i64 %.sink233
+  %.sink233 = phi i64 [ %83, %75 ], [ %89, %85 ], [ %93, %91 ]
+  %.sink232 = phi i64 [ %84, %75 ], [ %90, %85 ], [ %94, %91 ]
+  %95 = getelementptr i8, ptr %22, i64 %.sink233
+  %96 = getelementptr i8, ptr %95, i64 %.sink232
   %97 = load i8, ptr %96, align 1
   br label %.sink.split
 
@@ -1405,7 +1405,7 @@ select.unfold:                                    ; preds = %39, %36
 
 110:                                              ; preds = %.preheader173.us, %.loopexit.us
   %indvars.iv200 = phi i64 [ 0, %.preheader173.us ], [ %indvars.iv.next201, %.loopexit.us ]
-  %.0150178.us = phi ptr [ %104, %.preheader173.us ], [ %184, %.loopexit.us ]
+  %.0150178.us = phi ptr [ %104, %.preheader173.us ], [ %183, %.loopexit.us ]
   %111 = shl nuw nsw i64 %indvars.iv200, 1
   %112 = getelementptr inbounds i16, ptr %109, i64 %111
   %113 = load i16, ptr %112, align 2
@@ -1524,16 +1524,16 @@ select.unfold:                                    ; preds = %39, %36
   br i1 %exitcond199.not, label %.loopexit.us, label %178, !llvm.loop !27
 
 .loopexit.us.sink.split:                          ; preds = %153, %165
-  %.sink230 = phi ptr [ %173, %165 ], [ %164, %153 ]
   %.sink229 = phi i64 [ 2, %165 ], [ 3, %153 ]
-  %182 = load i8, ptr %.sink230, align 1
-  %183 = getelementptr inbounds i8, ptr %.0150178.us, i64 %.sink229
-  store i8 %182, ptr %183, align 1
+  %.sink227.in = phi ptr [ %173, %165 ], [ %164, %153 ]
+  %.sink227 = load i8, ptr %.sink227.in, align 1
+  %182 = getelementptr inbounds i8, ptr %.0150178.us, i64 %.sink229
+  store i8 %.sink227, ptr %182, align 1
   br label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %145, %178, %.loopexit.us.sink.split, %121
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
-  %184 = getelementptr i8, ptr %.0150178.us, i64 %wide.trip.count
+  %183 = getelementptr i8, ptr %.0150178.us, i64 %wide.trip.count
   %exitcond204.not = icmp eq i64 %indvars.iv.next201, %wide.trip.count203
   br i1 %exitcond204.not, label %..loopexit174_crit_edge.us, label %110, !llvm.loop !28
 
@@ -1693,10 +1693,10 @@ select.unfold:                                    ; preds = %40, %36
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %92, %86, %76
-  %.sink234 = phi i64 [ %84, %76 ], [ %90, %86 ], [ %94, %92 ]
-  %.sink233 = phi i64 [ %85, %76 ], [ %91, %86 ], [ %95, %92 ]
-  %96 = getelementptr i16, ptr %22, i64 %.sink234
-  %97 = getelementptr i16, ptr %96, i64 %.sink233
+  %.sink233 = phi i64 [ %84, %76 ], [ %90, %86 ], [ %94, %92 ]
+  %.sink232 = phi i64 [ %85, %76 ], [ %91, %86 ], [ %95, %92 ]
+  %96 = getelementptr i16, ptr %22, i64 %.sink233
+  %97 = getelementptr i16, ptr %96, i64 %.sink232
   %98 = load i16, ptr %97, align 2
   br label %.sink.split
 
@@ -1740,7 +1740,7 @@ select.unfold:                                    ; preds = %40, %36
 
 111:                                              ; preds = %.preheader173.us, %.loopexit.us
   %indvars.iv200 = phi i64 [ 0, %.preheader173.us ], [ %indvars.iv.next201, %.loopexit.us ]
-  %.0150178.us = phi ptr [ %105, %.preheader173.us ], [ %185, %.loopexit.us ]
+  %.0150178.us = phi ptr [ %105, %.preheader173.us ], [ %184, %.loopexit.us ]
   %112 = shl nuw nsw i64 %indvars.iv200, 1
   %113 = getelementptr inbounds i16, ptr %110, i64 %112
   %114 = load i16, ptr %113, align 2
@@ -1859,16 +1859,16 @@ select.unfold:                                    ; preds = %40, %36
   br i1 %exitcond199.not, label %.loopexit.us, label %179, !llvm.loop !33
 
 .loopexit.us.sink.split:                          ; preds = %154, %166
-  %.sink230 = phi ptr [ %174, %166 ], [ %165, %154 ]
   %.sink229 = phi i64 [ 4, %166 ], [ 6, %154 ]
-  %183 = load i16, ptr %.sink230, align 2
-  %184 = getelementptr inbounds i8, ptr %.0150178.us, i64 %.sink229
-  store i16 %183, ptr %184, align 2
+  %.sink227.in = phi ptr [ %174, %166 ], [ %165, %154 ]
+  %.sink227 = load i16, ptr %.sink227.in, align 2
+  %183 = getelementptr inbounds i8, ptr %.0150178.us, i64 %.sink229
+  store i16 %.sink227, ptr %183, align 2
   br label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %146, %179, %.loopexit.us.sink.split, %122
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
-  %185 = getelementptr i16, ptr %.0150178.us, i64 %wide.trip.count
+  %184 = getelementptr i16, ptr %.0150178.us, i64 %wide.trip.count
   %exitcond204.not = icmp eq i64 %indvars.iv.next201, %wide.trip.count203
   br i1 %exitcond204.not, label %..loopexit174_crit_edge.us, label %111, !llvm.loop !34
 
@@ -2028,10 +2028,10 @@ select.unfold:                                    ; preds = %40, %36
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %92, %86, %76
-  %.sink234 = phi i64 [ %84, %76 ], [ %90, %86 ], [ %94, %92 ]
-  %.sink233 = phi i64 [ %85, %76 ], [ %91, %86 ], [ %95, %92 ]
-  %96 = getelementptr i16, ptr %22, i64 %.sink234
-  %97 = getelementptr i16, ptr %96, i64 %.sink233
+  %.sink233 = phi i64 [ %84, %76 ], [ %90, %86 ], [ %94, %92 ]
+  %.sink232 = phi i64 [ %85, %76 ], [ %91, %86 ], [ %95, %92 ]
+  %96 = getelementptr i16, ptr %22, i64 %.sink233
+  %97 = getelementptr i16, ptr %96, i64 %.sink232
   %98 = load i16, ptr %97, align 2
   br label %.sink.split
 
@@ -2075,7 +2075,7 @@ select.unfold:                                    ; preds = %40, %36
 
 111:                                              ; preds = %.preheader173.us, %.loopexit.us
   %indvars.iv200 = phi i64 [ 0, %.preheader173.us ], [ %indvars.iv.next201, %.loopexit.us ]
-  %.0150178.us = phi ptr [ %105, %.preheader173.us ], [ %185, %.loopexit.us ]
+  %.0150178.us = phi ptr [ %105, %.preheader173.us ], [ %184, %.loopexit.us ]
   %112 = shl nuw nsw i64 %indvars.iv200, 1
   %113 = getelementptr inbounds i16, ptr %110, i64 %112
   %114 = load i16, ptr %113, align 2
@@ -2194,16 +2194,16 @@ select.unfold:                                    ; preds = %40, %36
   br i1 %exitcond199.not, label %.loopexit.us, label %179, !llvm.loop !39
 
 .loopexit.us.sink.split:                          ; preds = %154, %166
-  %.sink230 = phi ptr [ %174, %166 ], [ %165, %154 ]
   %.sink229 = phi i64 [ 4, %166 ], [ 6, %154 ]
-  %183 = load i16, ptr %.sink230, align 2
-  %184 = getelementptr inbounds i8, ptr %.0150178.us, i64 %.sink229
-  store i16 %183, ptr %184, align 2
+  %.sink227.in = phi ptr [ %174, %166 ], [ %165, %154 ]
+  %.sink227 = load i16, ptr %.sink227.in, align 2
+  %183 = getelementptr inbounds i8, ptr %.0150178.us, i64 %.sink229
+  store i16 %.sink227, ptr %183, align 2
   br label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %146, %179, %.loopexit.us.sink.split, %122
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
-  %185 = getelementptr i16, ptr %.0150178.us, i64 %wide.trip.count
+  %184 = getelementptr i16, ptr %.0150178.us, i64 %wide.trip.count
   %exitcond204.not = icmp eq i64 %indvars.iv.next201, %wide.trip.count203
   br i1 %exitcond204.not, label %..loopexit174_crit_edge.us, label %111, !llvm.loop !40
 
@@ -2360,10 +2360,10 @@ select.unfold:                                    ; preds = %37, %33
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %89, %83, %73
-  %.sink234 = phi i64 [ %81, %73 ], [ %87, %83 ], [ %91, %89 ]
-  %.sink233 = phi i64 [ %82, %73 ], [ %88, %83 ], [ %92, %89 ]
-  %93 = getelementptr i32, ptr %22, i64 %.sink234
-  %94 = getelementptr i32, ptr %93, i64 %.sink233
+  %.sink233 = phi i64 [ %81, %73 ], [ %87, %83 ], [ %91, %89 ]
+  %.sink232 = phi i64 [ %82, %73 ], [ %88, %83 ], [ %92, %89 ]
+  %93 = getelementptr i32, ptr %22, i64 %.sink233
+  %94 = getelementptr i32, ptr %93, i64 %.sink232
   %95 = load i32, ptr %94, align 4
   br label %.sink.split
 
@@ -2407,7 +2407,7 @@ select.unfold:                                    ; preds = %37, %33
 
 108:                                              ; preds = %.preheader173.us, %.loopexit.us
   %indvars.iv200 = phi i64 [ 0, %.preheader173.us ], [ %indvars.iv.next201, %.loopexit.us ]
-  %.0150178.us = phi ptr [ %102, %.preheader173.us ], [ %182, %.loopexit.us ]
+  %.0150178.us = phi ptr [ %102, %.preheader173.us ], [ %181, %.loopexit.us ]
   %109 = shl nuw nsw i64 %indvars.iv200, 1
   %110 = getelementptr inbounds i16, ptr %107, i64 %109
   %111 = load i16, ptr %110, align 2
@@ -2526,16 +2526,16 @@ select.unfold:                                    ; preds = %37, %33
   br i1 %exitcond199.not, label %.loopexit.us, label %176, !llvm.loop !45
 
 .loopexit.us.sink.split:                          ; preds = %151, %163
-  %.sink230 = phi ptr [ %171, %163 ], [ %162, %151 ]
   %.sink229 = phi i64 [ 8, %163 ], [ 12, %151 ]
-  %180 = load i32, ptr %.sink230, align 4
-  %181 = getelementptr inbounds i8, ptr %.0150178.us, i64 %.sink229
-  store i32 %180, ptr %181, align 4
+  %.sink227.in = phi ptr [ %171, %163 ], [ %162, %151 ]
+  %.sink227 = load i32, ptr %.sink227.in, align 4
+  %180 = getelementptr inbounds i8, ptr %.0150178.us, i64 %.sink229
+  store i32 %.sink227, ptr %180, align 4
   br label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %143, %176, %.loopexit.us.sink.split, %119
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
-  %182 = getelementptr i32, ptr %.0150178.us, i64 %wide.trip.count
+  %181 = getelementptr i32, ptr %.0150178.us, i64 %wide.trip.count
   %exitcond204.not = icmp eq i64 %indvars.iv.next201, %wide.trip.count203
   br i1 %exitcond204.not, label %..loopexit174_crit_edge.us, label %108, !llvm.loop !46
 
@@ -2691,10 +2691,10 @@ select.unfold:                                    ; preds = %36, %32
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %88, %82, %72
-  %.sink234 = phi i64 [ %80, %72 ], [ %86, %82 ], [ %90, %88 ]
-  %.sink233 = phi i64 [ %81, %72 ], [ %87, %82 ], [ %91, %88 ]
-  %92 = getelementptr float, ptr %22, i64 %.sink234
-  %93 = getelementptr float, ptr %92, i64 %.sink233
+  %.sink233 = phi i64 [ %80, %72 ], [ %86, %82 ], [ %90, %88 ]
+  %.sink232 = phi i64 [ %81, %72 ], [ %87, %82 ], [ %91, %88 ]
+  %92 = getelementptr float, ptr %22, i64 %.sink233
+  %93 = getelementptr float, ptr %92, i64 %.sink232
   %94 = load float, ptr %93, align 4
   br label %.sink.split
 
@@ -2738,7 +2738,7 @@ select.unfold:                                    ; preds = %36, %32
 
 107:                                              ; preds = %.preheader173.us, %.loopexit.us
   %indvars.iv200 = phi i64 [ 0, %.preheader173.us ], [ %indvars.iv.next201, %.loopexit.us ]
-  %.0150178.us = phi ptr [ %101, %.preheader173.us ], [ %181, %.loopexit.us ]
+  %.0150178.us = phi ptr [ %101, %.preheader173.us ], [ %180, %.loopexit.us ]
   %108 = shl nuw nsw i64 %indvars.iv200, 1
   %109 = getelementptr inbounds i16, ptr %106, i64 %108
   %110 = load i16, ptr %109, align 2
@@ -2857,16 +2857,16 @@ select.unfold:                                    ; preds = %36, %32
   br i1 %exitcond199.not, label %.loopexit.us, label %175, !llvm.loop !51
 
 .loopexit.us.sink.split:                          ; preds = %150, %162
-  %.sink230 = phi ptr [ %170, %162 ], [ %161, %150 ]
   %.sink229 = phi i64 [ 8, %162 ], [ 12, %150 ]
-  %179 = load float, ptr %.sink230, align 4
-  %180 = getelementptr inbounds i8, ptr %.0150178.us, i64 %.sink229
-  store float %179, ptr %180, align 4
+  %.sink227.in = phi ptr [ %170, %162 ], [ %161, %150 ]
+  %.sink227 = load float, ptr %.sink227.in, align 4
+  %179 = getelementptr inbounds i8, ptr %.0150178.us, i64 %.sink229
+  store float %.sink227, ptr %179, align 4
   br label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %142, %175, %.loopexit.us.sink.split, %118
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
-  %181 = getelementptr float, ptr %.0150178.us, i64 %wide.trip.count
+  %180 = getelementptr float, ptr %.0150178.us, i64 %wide.trip.count
   %exitcond204.not = icmp eq i64 %indvars.iv.next201, %wide.trip.count203
   br i1 %exitcond204.not, label %..loopexit174_crit_edge.us, label %107, !llvm.loop !52
 
@@ -3021,10 +3021,10 @@ select.unfold:                                    ; preds = %35, %31
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %87, %81, %71
-  %.sink234 = phi i64 [ %79, %71 ], [ %85, %81 ], [ %89, %87 ]
-  %.sink233 = phi i64 [ %80, %71 ], [ %86, %81 ], [ %90, %87 ]
-  %91 = getelementptr double, ptr %22, i64 %.sink234
-  %92 = getelementptr double, ptr %91, i64 %.sink233
+  %.sink233 = phi i64 [ %79, %71 ], [ %85, %81 ], [ %89, %87 ]
+  %.sink232 = phi i64 [ %80, %71 ], [ %86, %81 ], [ %90, %87 ]
+  %91 = getelementptr double, ptr %22, i64 %.sink233
+  %92 = getelementptr double, ptr %91, i64 %.sink232
   %93 = load double, ptr %92, align 8
   br label %.sink.split
 
@@ -3068,7 +3068,7 @@ select.unfold:                                    ; preds = %35, %31
 
 106:                                              ; preds = %.preheader173.us, %.loopexit.us
   %indvars.iv200 = phi i64 [ 0, %.preheader173.us ], [ %indvars.iv.next201, %.loopexit.us ]
-  %.0150178.us = phi ptr [ %100, %.preheader173.us ], [ %180, %.loopexit.us ]
+  %.0150178.us = phi ptr [ %100, %.preheader173.us ], [ %179, %.loopexit.us ]
   %107 = shl nuw nsw i64 %indvars.iv200, 1
   %108 = getelementptr inbounds i16, ptr %105, i64 %107
   %109 = load i16, ptr %108, align 2
@@ -3187,16 +3187,16 @@ select.unfold:                                    ; preds = %35, %31
   br i1 %exitcond199.not, label %.loopexit.us, label %174, !llvm.loop !57
 
 .loopexit.us.sink.split:                          ; preds = %149, %161
-  %.sink230 = phi ptr [ %169, %161 ], [ %160, %149 ]
   %.sink229 = phi i64 [ 16, %161 ], [ 24, %149 ]
-  %178 = load double, ptr %.sink230, align 8
-  %179 = getelementptr inbounds i8, ptr %.0150178.us, i64 %.sink229
-  store double %178, ptr %179, align 8
+  %.sink227.in = phi ptr [ %169, %161 ], [ %160, %149 ]
+  %.sink227 = load double, ptr %.sink227.in, align 8
+  %178 = getelementptr inbounds i8, ptr %.0150178.us, i64 %.sink229
+  store double %.sink227, ptr %178, align 8
   br label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %141, %174, %.loopexit.us.sink.split, %117
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
-  %180 = getelementptr double, ptr %.0150178.us, i64 %wide.trip.count
+  %179 = getelementptr double, ptr %.0150178.us, i64 %wide.trip.count
   %exitcond204.not = icmp eq i64 %indvars.iv.next201, %wide.trip.count203
   br i1 %exitcond204.not, label %..loopexit174_crit_edge.us, label %106, !llvm.loop !58
 
@@ -3335,11 +3335,11 @@ define internal void @_ZN2cvL12remapNearestIhLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scal
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %61, %85, %78
-  %.sink239 = phi i32 [ %84, %78 ], [ %87, %85 ], [ %74, %61 ]
-  %.sink237 = phi i32 [ %81, %78 ], [ %86, %85 ], [ %69, %61 ]
-  %88 = sext i32 %.sink239 to i64
+  %.sink238 = phi i32 [ %84, %78 ], [ %87, %85 ], [ %74, %61 ]
+  %.sink236 = phi i32 [ %81, %78 ], [ %86, %85 ], [ %69, %61 ]
+  %88 = sext i32 %.sink238 to i64
   %89 = mul i64 %24, %88
-  %90 = sext i32 %.sink237 to i64
+  %90 = sext i32 %.sink236 to i64
   %91 = getelementptr i8, ptr %22, i64 %89
   %92 = getelementptr i8, ptr %91, i64 %90
   %93 = load i8, ptr %92, align 1
@@ -3388,7 +3388,7 @@ define internal void @_ZN2cvL12remapNearestIhLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scal
 
 109:                                              ; preds = %.preheader179.us, %.loopexit.us
   %indvars.iv206 = phi i64 [ 0, %.preheader179.us ], [ %indvars.iv.next207, %.loopexit.us ]
-  %.0158184.us = phi ptr [ %100, %.preheader179.us ], [ %188, %.loopexit.us ]
+  %.0158184.us = phi ptr [ %100, %.preheader179.us ], [ %187, %.loopexit.us ]
   %110 = load i32, ptr %5, align 4
   %111 = trunc nuw nsw i64 %indvars.iv206 to i32
   %112 = add nsw i32 %110, %111
@@ -3512,16 +3512,16 @@ define internal void @_ZN2cvL12remapNearestIhLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scal
   br i1 %exitcond205.not, label %.loopexit.us, label %182, !llvm.loop !63
 
 .loopexit.us.sink.split:                          ; preds = %157, %169
-  %.sink232 = phi ptr [ %177, %169 ], [ %168, %157 ]
   %.sink231 = phi i64 [ 2, %169 ], [ 3, %157 ]
-  %186 = load i8, ptr %.sink232, align 1
-  %187 = getelementptr inbounds i8, ptr %.0158184.us, i64 %.sink231
-  store i8 %186, ptr %187, align 1
+  %.sink229.in = phi ptr [ %177, %169 ], [ %168, %157 ]
+  %.sink229 = load i8, ptr %.sink229.in, align 1
+  %186 = getelementptr inbounds i8, ptr %.0158184.us, i64 %.sink231
+  store i8 %.sink229, ptr %186, align 1
   br label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %149, %182, %.loopexit.us.sink.split, %125
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
-  %188 = getelementptr i8, ptr %.0158184.us, i64 %wide.trip.count
+  %187 = getelementptr i8, ptr %.0158184.us, i64 %wide.trip.count
   %exitcond210.not = icmp eq i64 %indvars.iv.next207, %wide.trip.count209
   br i1 %exitcond210.not, label %..loopexit180_crit_edge.us, label %109, !llvm.loop !64
 
@@ -3660,11 +3660,11 @@ define internal void @_ZN2cvL12remapNearestIaLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scal
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %61, %85, %78
-  %.sink239 = phi i32 [ %84, %78 ], [ %87, %85 ], [ %74, %61 ]
-  %.sink237 = phi i32 [ %81, %78 ], [ %86, %85 ], [ %69, %61 ]
-  %88 = sext i32 %.sink239 to i64
+  %.sink238 = phi i32 [ %84, %78 ], [ %87, %85 ], [ %74, %61 ]
+  %.sink236 = phi i32 [ %81, %78 ], [ %86, %85 ], [ %69, %61 ]
+  %88 = sext i32 %.sink238 to i64
   %89 = mul i64 %24, %88
-  %90 = sext i32 %.sink237 to i64
+  %90 = sext i32 %.sink236 to i64
   %91 = getelementptr i8, ptr %22, i64 %89
   %92 = getelementptr i8, ptr %91, i64 %90
   %93 = load i8, ptr %92, align 1
@@ -3713,7 +3713,7 @@ define internal void @_ZN2cvL12remapNearestIaLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scal
 
 109:                                              ; preds = %.preheader179.us, %.loopexit.us
   %indvars.iv206 = phi i64 [ 0, %.preheader179.us ], [ %indvars.iv.next207, %.loopexit.us ]
-  %.0158184.us = phi ptr [ %100, %.preheader179.us ], [ %188, %.loopexit.us ]
+  %.0158184.us = phi ptr [ %100, %.preheader179.us ], [ %187, %.loopexit.us ]
   %110 = load i32, ptr %5, align 4
   %111 = trunc nuw nsw i64 %indvars.iv206 to i32
   %112 = add nsw i32 %110, %111
@@ -3837,16 +3837,16 @@ define internal void @_ZN2cvL12remapNearestIaLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scal
   br i1 %exitcond205.not, label %.loopexit.us, label %182, !llvm.loop !69
 
 .loopexit.us.sink.split:                          ; preds = %157, %169
-  %.sink232 = phi ptr [ %177, %169 ], [ %168, %157 ]
   %.sink231 = phi i64 [ 2, %169 ], [ 3, %157 ]
-  %186 = load i8, ptr %.sink232, align 1
-  %187 = getelementptr inbounds i8, ptr %.0158184.us, i64 %.sink231
-  store i8 %186, ptr %187, align 1
+  %.sink229.in = phi ptr [ %177, %169 ], [ %168, %157 ]
+  %.sink229 = load i8, ptr %.sink229.in, align 1
+  %186 = getelementptr inbounds i8, ptr %.0158184.us, i64 %.sink231
+  store i8 %.sink229, ptr %186, align 1
   br label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %149, %182, %.loopexit.us.sink.split, %125
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
-  %188 = getelementptr i8, ptr %.0158184.us, i64 %wide.trip.count
+  %187 = getelementptr i8, ptr %.0158184.us, i64 %wide.trip.count
   %exitcond210.not = icmp eq i64 %indvars.iv.next207, %wide.trip.count209
   br i1 %exitcond210.not, label %..loopexit180_crit_edge.us, label %109, !llvm.loop !70
 
@@ -3986,11 +3986,11 @@ define internal void @_ZN2cvL12remapNearestItLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scal
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %62, %86, %79
-  %.sink239 = phi i32 [ %85, %79 ], [ %88, %86 ], [ %75, %62 ]
-  %.sink237 = phi i32 [ %82, %79 ], [ %87, %86 ], [ %70, %62 ]
-  %89 = sext i32 %.sink239 to i64
+  %.sink238 = phi i32 [ %85, %79 ], [ %88, %86 ], [ %75, %62 ]
+  %.sink236 = phi i32 [ %82, %79 ], [ %87, %86 ], [ %70, %62 ]
+  %89 = sext i32 %.sink238 to i64
   %90 = mul i64 %37, %89
-  %91 = sext i32 %.sink237 to i64
+  %91 = sext i32 %.sink236 to i64
   %92 = getelementptr i16, ptr %22, i64 %90
   %93 = getelementptr i16, ptr %92, i64 %91
   %94 = load i16, ptr %93, align 2
@@ -4039,7 +4039,7 @@ define internal void @_ZN2cvL12remapNearestItLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scal
 
 110:                                              ; preds = %.preheader179.us, %.loopexit.us
   %indvars.iv206 = phi i64 [ 0, %.preheader179.us ], [ %indvars.iv.next207, %.loopexit.us ]
-  %.0158184.us = phi ptr [ %101, %.preheader179.us ], [ %189, %.loopexit.us ]
+  %.0158184.us = phi ptr [ %101, %.preheader179.us ], [ %188, %.loopexit.us ]
   %111 = load i32, ptr %5, align 4
   %112 = trunc nuw nsw i64 %indvars.iv206 to i32
   %113 = add nsw i32 %111, %112
@@ -4163,16 +4163,16 @@ define internal void @_ZN2cvL12remapNearestItLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scal
   br i1 %exitcond205.not, label %.loopexit.us, label %183, !llvm.loop !75
 
 .loopexit.us.sink.split:                          ; preds = %158, %170
-  %.sink232 = phi ptr [ %178, %170 ], [ %169, %158 ]
   %.sink231 = phi i64 [ 4, %170 ], [ 6, %158 ]
-  %187 = load i16, ptr %.sink232, align 2
-  %188 = getelementptr inbounds i8, ptr %.0158184.us, i64 %.sink231
-  store i16 %187, ptr %188, align 2
+  %.sink229.in = phi ptr [ %178, %170 ], [ %169, %158 ]
+  %.sink229 = load i16, ptr %.sink229.in, align 2
+  %187 = getelementptr inbounds i8, ptr %.0158184.us, i64 %.sink231
+  store i16 %.sink229, ptr %187, align 2
   br label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %150, %183, %.loopexit.us.sink.split, %126
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
-  %189 = getelementptr i16, ptr %.0158184.us, i64 %wide.trip.count
+  %188 = getelementptr i16, ptr %.0158184.us, i64 %wide.trip.count
   %exitcond210.not = icmp eq i64 %indvars.iv.next207, %wide.trip.count209
   br i1 %exitcond210.not, label %..loopexit180_crit_edge.us, label %110, !llvm.loop !76
 
@@ -4312,11 +4312,11 @@ define internal void @_ZN2cvL12remapNearestIsLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scal
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %62, %86, %79
-  %.sink239 = phi i32 [ %85, %79 ], [ %88, %86 ], [ %75, %62 ]
-  %.sink237 = phi i32 [ %82, %79 ], [ %87, %86 ], [ %70, %62 ]
-  %89 = sext i32 %.sink239 to i64
+  %.sink238 = phi i32 [ %85, %79 ], [ %88, %86 ], [ %75, %62 ]
+  %.sink236 = phi i32 [ %82, %79 ], [ %87, %86 ], [ %70, %62 ]
+  %89 = sext i32 %.sink238 to i64
   %90 = mul i64 %37, %89
-  %91 = sext i32 %.sink237 to i64
+  %91 = sext i32 %.sink236 to i64
   %92 = getelementptr i16, ptr %22, i64 %90
   %93 = getelementptr i16, ptr %92, i64 %91
   %94 = load i16, ptr %93, align 2
@@ -4365,7 +4365,7 @@ define internal void @_ZN2cvL12remapNearestIsLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scal
 
 110:                                              ; preds = %.preheader179.us, %.loopexit.us
   %indvars.iv206 = phi i64 [ 0, %.preheader179.us ], [ %indvars.iv.next207, %.loopexit.us ]
-  %.0158184.us = phi ptr [ %101, %.preheader179.us ], [ %189, %.loopexit.us ]
+  %.0158184.us = phi ptr [ %101, %.preheader179.us ], [ %188, %.loopexit.us ]
   %111 = load i32, ptr %5, align 4
   %112 = trunc nuw nsw i64 %indvars.iv206 to i32
   %113 = add nsw i32 %111, %112
@@ -4489,16 +4489,16 @@ define internal void @_ZN2cvL12remapNearestIsLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scal
   br i1 %exitcond205.not, label %.loopexit.us, label %183, !llvm.loop !81
 
 .loopexit.us.sink.split:                          ; preds = %158, %170
-  %.sink232 = phi ptr [ %178, %170 ], [ %169, %158 ]
   %.sink231 = phi i64 [ 4, %170 ], [ 6, %158 ]
-  %187 = load i16, ptr %.sink232, align 2
-  %188 = getelementptr inbounds i8, ptr %.0158184.us, i64 %.sink231
-  store i16 %187, ptr %188, align 2
+  %.sink229.in = phi ptr [ %178, %170 ], [ %169, %158 ]
+  %.sink229 = load i16, ptr %.sink229.in, align 2
+  %187 = getelementptr inbounds i8, ptr %.0158184.us, i64 %.sink231
+  store i16 %.sink229, ptr %187, align 2
   br label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %150, %183, %.loopexit.us.sink.split, %126
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
-  %189 = getelementptr i16, ptr %.0158184.us, i64 %wide.trip.count
+  %188 = getelementptr i16, ptr %.0158184.us, i64 %wide.trip.count
   %exitcond210.not = icmp eq i64 %indvars.iv.next207, %wide.trip.count209
   br i1 %exitcond210.not, label %..loopexit180_crit_edge.us, label %110, !llvm.loop !82
 
@@ -4635,11 +4635,11 @@ define internal void @_ZN2cvL12remapNearestIiLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scal
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %59, %83, %76
-  %.sink239 = phi i32 [ %82, %76 ], [ %85, %83 ], [ %72, %59 ]
-  %.sink237 = phi i32 [ %79, %76 ], [ %84, %83 ], [ %67, %59 ]
-  %86 = sext i32 %.sink239 to i64
+  %.sink238 = phi i32 [ %82, %76 ], [ %85, %83 ], [ %72, %59 ]
+  %.sink236 = phi i32 [ %79, %76 ], [ %84, %83 ], [ %67, %59 ]
+  %86 = sext i32 %.sink238 to i64
   %87 = mul i64 %34, %86
-  %88 = sext i32 %.sink237 to i64
+  %88 = sext i32 %.sink236 to i64
   %89 = getelementptr i32, ptr %22, i64 %87
   %90 = getelementptr i32, ptr %89, i64 %88
   %91 = load i32, ptr %90, align 4
@@ -4688,7 +4688,7 @@ define internal void @_ZN2cvL12remapNearestIiLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scal
 
 107:                                              ; preds = %.preheader179.us, %.loopexit.us
   %indvars.iv206 = phi i64 [ 0, %.preheader179.us ], [ %indvars.iv.next207, %.loopexit.us ]
-  %.0158184.us = phi ptr [ %98, %.preheader179.us ], [ %186, %.loopexit.us ]
+  %.0158184.us = phi ptr [ %98, %.preheader179.us ], [ %185, %.loopexit.us ]
   %108 = load i32, ptr %5, align 4
   %109 = trunc nuw nsw i64 %indvars.iv206 to i32
   %110 = add nsw i32 %108, %109
@@ -4812,16 +4812,16 @@ define internal void @_ZN2cvL12remapNearestIiLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scal
   br i1 %exitcond205.not, label %.loopexit.us, label %180, !llvm.loop !87
 
 .loopexit.us.sink.split:                          ; preds = %155, %167
-  %.sink232 = phi ptr [ %175, %167 ], [ %166, %155 ]
   %.sink231 = phi i64 [ 8, %167 ], [ 12, %155 ]
-  %184 = load i32, ptr %.sink232, align 4
-  %185 = getelementptr inbounds i8, ptr %.0158184.us, i64 %.sink231
-  store i32 %184, ptr %185, align 4
+  %.sink229.in = phi ptr [ %175, %167 ], [ %166, %155 ]
+  %.sink229 = load i32, ptr %.sink229.in, align 4
+  %184 = getelementptr inbounds i8, ptr %.0158184.us, i64 %.sink231
+  store i32 %.sink229, ptr %184, align 4
   br label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %147, %180, %.loopexit.us.sink.split, %123
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
-  %186 = getelementptr i32, ptr %.0158184.us, i64 %wide.trip.count
+  %185 = getelementptr i32, ptr %.0158184.us, i64 %wide.trip.count
   %exitcond210.not = icmp eq i64 %indvars.iv.next207, %wide.trip.count209
   br i1 %exitcond210.not, label %..loopexit180_crit_edge.us, label %107, !llvm.loop !88
 
@@ -4957,11 +4957,11 @@ define internal void @_ZN2cvL12remapNearestIfLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scal
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %58, %82, %75
-  %.sink239 = phi i32 [ %81, %75 ], [ %84, %82 ], [ %71, %58 ]
-  %.sink237 = phi i32 [ %78, %75 ], [ %83, %82 ], [ %66, %58 ]
-  %85 = sext i32 %.sink239 to i64
+  %.sink238 = phi i32 [ %81, %75 ], [ %84, %82 ], [ %71, %58 ]
+  %.sink236 = phi i32 [ %78, %75 ], [ %83, %82 ], [ %66, %58 ]
+  %85 = sext i32 %.sink238 to i64
   %86 = mul i64 %33, %85
-  %87 = sext i32 %.sink237 to i64
+  %87 = sext i32 %.sink236 to i64
   %88 = getelementptr float, ptr %22, i64 %86
   %89 = getelementptr float, ptr %88, i64 %87
   %90 = load float, ptr %89, align 4
@@ -5010,7 +5010,7 @@ define internal void @_ZN2cvL12remapNearestIfLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scal
 
 106:                                              ; preds = %.preheader179.us, %.loopexit.us
   %indvars.iv206 = phi i64 [ 0, %.preheader179.us ], [ %indvars.iv.next207, %.loopexit.us ]
-  %.0158184.us = phi ptr [ %97, %.preheader179.us ], [ %185, %.loopexit.us ]
+  %.0158184.us = phi ptr [ %97, %.preheader179.us ], [ %184, %.loopexit.us ]
   %107 = load i32, ptr %5, align 4
   %108 = trunc nuw nsw i64 %indvars.iv206 to i32
   %109 = add nsw i32 %107, %108
@@ -5134,16 +5134,16 @@ define internal void @_ZN2cvL12remapNearestIfLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scal
   br i1 %exitcond205.not, label %.loopexit.us, label %179, !llvm.loop !93
 
 .loopexit.us.sink.split:                          ; preds = %154, %166
-  %.sink232 = phi ptr [ %174, %166 ], [ %165, %154 ]
   %.sink231 = phi i64 [ 8, %166 ], [ 12, %154 ]
-  %183 = load float, ptr %.sink232, align 4
-  %184 = getelementptr inbounds i8, ptr %.0158184.us, i64 %.sink231
-  store float %183, ptr %184, align 4
+  %.sink229.in = phi ptr [ %174, %166 ], [ %165, %154 ]
+  %.sink229 = load float, ptr %.sink229.in, align 4
+  %183 = getelementptr inbounds i8, ptr %.0158184.us, i64 %.sink231
+  store float %.sink229, ptr %183, align 4
   br label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %146, %179, %.loopexit.us.sink.split, %122
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
-  %185 = getelementptr float, ptr %.0158184.us, i64 %wide.trip.count
+  %184 = getelementptr float, ptr %.0158184.us, i64 %wide.trip.count
   %exitcond210.not = icmp eq i64 %indvars.iv.next207, %wide.trip.count209
   br i1 %exitcond210.not, label %..loopexit180_crit_edge.us, label %106, !llvm.loop !94
 
@@ -5278,11 +5278,11 @@ define internal void @_ZN2cvL12remapNearestIdLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scal
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %57, %81, %74
-  %.sink239 = phi i32 [ %80, %74 ], [ %83, %81 ], [ %70, %57 ]
-  %.sink237 = phi i32 [ %77, %74 ], [ %82, %81 ], [ %65, %57 ]
-  %84 = sext i32 %.sink239 to i64
+  %.sink238 = phi i32 [ %80, %74 ], [ %83, %81 ], [ %70, %57 ]
+  %.sink236 = phi i32 [ %77, %74 ], [ %82, %81 ], [ %65, %57 ]
+  %84 = sext i32 %.sink238 to i64
   %85 = mul i64 %32, %84
-  %86 = sext i32 %.sink237 to i64
+  %86 = sext i32 %.sink236 to i64
   %87 = getelementptr double, ptr %22, i64 %85
   %88 = getelementptr double, ptr %87, i64 %86
   %89 = load double, ptr %88, align 8
@@ -5331,7 +5331,7 @@ define internal void @_ZN2cvL12remapNearestIdLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scal
 
 105:                                              ; preds = %.preheader179.us, %.loopexit.us
   %indvars.iv206 = phi i64 [ 0, %.preheader179.us ], [ %indvars.iv.next207, %.loopexit.us ]
-  %.0158184.us = phi ptr [ %96, %.preheader179.us ], [ %184, %.loopexit.us ]
+  %.0158184.us = phi ptr [ %96, %.preheader179.us ], [ %183, %.loopexit.us ]
   %106 = load i32, ptr %5, align 4
   %107 = trunc nuw nsw i64 %indvars.iv206 to i32
   %108 = add nsw i32 %106, %107
@@ -5455,16 +5455,16 @@ define internal void @_ZN2cvL12remapNearestIdLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scal
   br i1 %exitcond205.not, label %.loopexit.us, label %178, !llvm.loop !99
 
 .loopexit.us.sink.split:                          ; preds = %153, %165
-  %.sink232 = phi ptr [ %173, %165 ], [ %164, %153 ]
   %.sink231 = phi i64 [ 16, %165 ], [ 24, %153 ]
-  %182 = load double, ptr %.sink232, align 8
-  %183 = getelementptr inbounds i8, ptr %.0158184.us, i64 %.sink231
-  store double %182, ptr %183, align 8
+  %.sink229.in = phi ptr [ %173, %165 ], [ %164, %153 ]
+  %.sink229 = load double, ptr %.sink229.in, align 8
+  %182 = getelementptr inbounds i8, ptr %.0158184.us, i64 %.sink231
+  store double %.sink229, ptr %182, align 8
   br label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %145, %178, %.loopexit.us.sink.split, %121
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
-  %184 = getelementptr double, ptr %.0158184.us, i64 %wide.trip.count
+  %183 = getelementptr double, ptr %.0158184.us, i64 %wide.trip.count
   %exitcond210.not = icmp eq i64 %indvars.iv.next207, %wide.trip.count209
   br i1 %exitcond210.not, label %..loopexit180_crit_edge.us, label %105, !llvm.loop !100
 

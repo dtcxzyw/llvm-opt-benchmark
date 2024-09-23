@@ -1002,7 +1002,7 @@ declare ptr @PQerrorMessage(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ecpg_finish(ptr noundef %0) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %39, label %2
+  br i1 %.not, label %43, label %2
 
 2:                                                ; preds = %1
   %3 = tail call zeroext i1 @ecpg_deallocate_all_conn(i32 noundef 0, i32 noundef 0, ptr noundef nonnull %0) #8
@@ -1011,93 +1011,98 @@ define internal fastcc void @ecpg_finish(ptr noundef %0) unnamed_addr #0 {
   tail call void @PQfinish(ptr noundef %5) #8
   %6 = load ptr, ptr @all_connections, align 8
   %7 = icmp eq ptr %0, %6
-  br i1 %7, label %.sink.split, label %.preheader36
+  br i1 %7, label %8, label %.preheader36
+
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = load ptr, ptr %9, align 8
+  store ptr %10, ptr @all_connections, align 8
+  br label %17
 
 .preheader36:                                     ; preds = %2, %.preheader36
-  %.025 = phi ptr [ %9, %.preheader36 ], [ %6, %2 ]
-  %8 = getelementptr inbounds i8, ptr %.025, i64 40
-  %9 = load ptr, ptr %8, align 8
-  %.not30 = icmp eq ptr %9, null
-  %.not31 = icmp eq ptr %9, %0
+  %.025 = phi ptr [ %12, %.preheader36 ], [ %6, %2 ]
+  %11 = getelementptr inbounds i8, ptr %.025, i64 40
+  %12 = load ptr, ptr %11, align 8
+  %.not30 = icmp eq ptr %12, null
+  %.not31 = icmp eq ptr %12, %0
   %or.cond35 = or i1 %.not30, %.not31
   br i1 %or.cond35, label %.critedge, label %.preheader36, !llvm.loop !12
 
 .critedge:                                        ; preds = %.preheader36
-  %10 = getelementptr inbounds i8, ptr %.025, i64 40
-  br i1 %.not30, label %13, label %.sink.split
+  br i1 %.not30, label %17, label %13
 
-.sink.split:                                      ; preds = %.critedge, %2
-  %.sink39 = phi ptr [ @all_connections, %2 ], [ %10, %.critedge ]
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
-  %12 = load ptr, ptr %11, align 8
-  store ptr %12, ptr %.sink39, align 8
-  br label %13
+13:                                               ; preds = %.critedge
+  %14 = getelementptr inbounds i8, ptr %.025, i64 40
+  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = load ptr, ptr %15, align 8
+  store ptr %16, ptr %14, align 8
+  br label %17
 
-13:                                               ; preds = %.sink.split, %.critedge
-  %14 = load i32, ptr @actual_connection_key, align 4
-  %15 = tail call ptr @pthread_getspecific(i32 noundef %14) #8
-  %16 = icmp eq ptr %15, %0
-  br i1 %16, label %17, label %21
-
-17:                                               ; preds = %13
+17:                                               ; preds = %.critedge, %13, %8
   %18 = load i32, ptr @actual_connection_key, align 4
-  %19 = load ptr, ptr @all_connections, align 8
-  %20 = tail call i32 @pthread_setspecific(i32 noundef %18, ptr noundef %19) #8
-  br label %21
+  %19 = tail call ptr @pthread_getspecific(i32 noundef %18) #8
+  %20 = icmp eq ptr %19, %0
+  br i1 %20, label %21, label %25
 
-21:                                               ; preds = %17, %13
-  %22 = load ptr, ptr @actual_connection, align 8
-  %23 = icmp eq ptr %22, %0
-  br i1 %23, label %24, label %26
+21:                                               ; preds = %17
+  %22 = load i32, ptr @actual_connection_key, align 4
+  %23 = load ptr, ptr @all_connections, align 8
+  %24 = tail call i32 @pthread_setspecific(i32 noundef %22, ptr noundef %23) #8
+  br label %25
 
-24:                                               ; preds = %21
-  %25 = load ptr, ptr @all_connections, align 8
-  store ptr %25, ptr @actual_connection, align 8
-  br label %26
+25:                                               ; preds = %21, %17
+  %26 = load ptr, ptr @actual_connection, align 8
+  %27 = icmp eq ptr %26, %0
+  br i1 %27, label %28, label %30
 
-26:                                               ; preds = %24, %21
-  %27 = load ptr, ptr %0, align 8
-  %.not33 = icmp eq ptr %27, null
-  %spec.select = select i1 %.not33, ptr @.str.32, ptr %27
+28:                                               ; preds = %25
+  %29 = load ptr, ptr @all_connections, align 8
+  store ptr %29, ptr @actual_connection, align 8
+  br label %30
+
+30:                                               ; preds = %28, %25
+  %31 = load ptr, ptr %0, align 8
+  %.not33 = icmp eq ptr %31, null
+  %spec.select = select i1 %.not33, ptr @.str.32, ptr %31
   tail call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str.31, ptr noundef nonnull %spec.select) #8
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
-  %29 = load ptr, ptr %28, align 8
-  %.not3437 = icmp eq ptr %29, null
+  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %33 = load ptr, ptr %32, align 8
+  %.not3437 = icmp eq ptr %33, null
   br i1 %.not3437, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %26, %.lr.ph
-  %.038 = phi ptr [ %30, %.lr.ph ], [ %29, %26 ]
-  %30 = load ptr, ptr %.038, align 8
+.lr.ph:                                           ; preds = %30, %.lr.ph
+  %.038 = phi ptr [ %34, %.lr.ph ], [ %33, %30 ]
+  %34 = load ptr, ptr %.038, align 8
   tail call void @ecpg_free(ptr noundef nonnull %.038) #8
-  %.not34 = icmp eq ptr %30, null
+  %.not34 = icmp eq ptr %34, null
   br i1 %.not34, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %.lr.ph, %26
-  %31 = load ptr, ptr %0, align 8
-  tail call void @ecpg_free(ptr noundef %31) #8
+._crit_edge:                                      ; preds = %.lr.ph, %30
+  %35 = load ptr, ptr %0, align 8
+  tail call void @ecpg_free(ptr noundef %35) #8
   tail call void @ecpg_free(ptr noundef nonnull %0) #8
-  %32 = load ptr, ptr @all_connections, align 8
-  %33 = icmp eq ptr %32, null
-  %34 = load ptr, ptr @ivlist, align 8
-  %35 = icmp ne ptr %34, null
-  %or.cond = select i1 %33, i1 %35, i1 false
+  %36 = load ptr, ptr @all_connections, align 8
+  %37 = icmp eq ptr %36, null
+  %38 = load ptr, ptr @ivlist, align 8
+  %39 = icmp ne ptr %38, null
+  %or.cond = select i1 %37, i1 %39, i1 false
   br i1 %or.cond, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %._crit_edge, %.preheader
-  %36 = phi ptr [ %.old, %.preheader ], [ %34, %._crit_edge ]
-  %37 = getelementptr inbounds i8, ptr %36, i64 16
-  %38 = load ptr, ptr %37, align 8
-  store ptr %38, ptr @ivlist, align 8
-  tail call void @ecpg_free(ptr noundef nonnull %36) #8
+  %40 = phi ptr [ %.old, %.preheader ], [ %38, %._crit_edge ]
+  %41 = getelementptr inbounds i8, ptr %40, i64 16
+  %42 = load ptr, ptr %41, align 8
+  store ptr %42, ptr @ivlist, align 8
+  tail call void @ecpg_free(ptr noundef nonnull %40) #8
   %.old = load ptr, ptr @ivlist, align 8
   %.old1.not = icmp eq ptr %.old, null
   br i1 %.old1.not, label %.loopexit, label %.preheader
 
-39:                                               ; preds = %1
+43:                                               ; preds = %1
   tail call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str.33) #8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader, %._crit_edge, %39
+.loopexit:                                        ; preds = %.preheader, %._crit_edge, %43
   ret void
 }
 

@@ -2390,6 +2390,8 @@ invoke.cont.thread:                               ; preds = %if.then6
   %10 = getelementptr i8, ptr %atomic-temp.i.0.i14, i64 %mul.i.i.i.i24
   %add.ptr.i.i12.i25 = getelementptr i8, ptr %10, i64 16
   %arrayidx.i14.i26 = getelementptr inbounds %"struct.std::atomic.25", ptr %add.ptr.i.i12.i25, i64 %idxprom.i.i21
+  %11 = ptrtoint ptr %serial to i64
+  store atomic i64 %11, ptr %arrayidx.i14.i26 release, align 8
   br label %cleanup
 
 invoke.cont:                                      ; preds = %if.then6
@@ -2397,69 +2399,67 @@ invoke.cont:                                      ; preds = %if.then6
   br label %invoke.cont11
 
 lpad:                                             ; preds = %invoke.cont11
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %mutex_)
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #30
+  %14 = extractvalue { ptr, i32 } %13, 0
+  tail call void @__clang_call_terminate(ptr %14) #30
   unreachable
 
 _ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %lpad
-  resume { ptr, i32 } %11
+  resume { ptr, i32 } %12
 
 invoke.cont11:                                    ; preds = %if.end.invoke.cont11_crit_edge, %invoke.cont
-  %14 = phi i32 [ %.pre, %if.end.invoke.cont11_crit_edge ], [ %8, %invoke.cont ]
+  %15 = phi i32 [ %.pre, %if.end.invoke.cont11_crit_edge ], [ %8, %invoke.cont ]
   %head.0 = phi ptr [ %atomic-temp.i.0.i, %if.end.invoke.cont11_crit_edge ], [ %atomic-temp.i.0.i14, %invoke.cont ]
-  %conv.i = zext i32 %14 to i64
-  %15 = shl nuw nsw i64 %conv.i, 6
-  %16 = tail call i64 @llvm.umin.i64(i64 %15, i64 4032)
-  %add.i.i5.i = add nuw nsw i64 %16, 64
+  %conv.i = zext i32 %15 to i64
+  %16 = shl nuw nsw i64 %conv.i, 6
+  %17 = tail call i64 @llvm.umin.i64(i64 %16, i64 4032)
+  %add.i.i5.i = add nuw nsw i64 %17, 64
   %call.i.i28 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %add.i.i5.i) #31
           to label %invoke.cont15 unwind label %lpad
 
 invoke.cont15:                                    ; preds = %invoke.cont11
-  %17 = trunc nuw nsw i64 %add.i.i5.i to i32
-  %18 = add nsw i32 %17, -16
-  %19 = lshr exact i32 %18, 4
+  %18 = trunc nuw nsw i64 %add.i.i5.i to i32
+  %19 = add nsw i32 %18, -16
+  %20 = lshr exact i32 %19, 4
   %capacity2.i.i.i = getelementptr inbounds i8, ptr %call.i.i28, i64 8
-  store i32 %19, ptr %capacity2.i.i.i, align 8
+  store i32 %20, ptr %capacity2.i.i.i, align 8
   %size3.i.i.i = getelementptr inbounds i8, ptr %call.i.i28, i64 12
   store i32 1, ptr %size3.i.i.i, align 4
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i28, i64 16
   store ptr %id, ptr %add.ptr.i.i.i.i, align 8
   %scevgep.i.i = getelementptr i8, ptr %call.i.i28, i64 24
-  %20 = add nsw i32 %19, -1
-  %21 = zext nneg i32 %20 to i64
-  %22 = shl nuw nsw i64 %21, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i, i8 0, i64 %22, i1 false)
-  %23 = lshr exact i32 %18, 1
-  %mul.i.i.i24.i.i = zext nneg i32 %23 to i64
-  %24 = getelementptr i8, ptr %call.i.i28, i64 %mul.i.i.i24.i.i
-  %add.ptr.i.i825.i.i = getelementptr i8, ptr %24, i64 16
+  %21 = add nsw i32 %20, -1
+  %22 = zext nneg i32 %21 to i64
+  %23 = shl nuw nsw i64 %22, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i, i8 0, i64 %23, i1 false)
+  %24 = lshr exact i32 %19, 1
+  %mul.i.i.i24.i.i = zext nneg i32 %24 to i64
+  %25 = getelementptr i8, ptr %call.i.i28, i64 %mul.i.i.i24.i.i
+  %add.ptr.i.i825.i.i = getelementptr i8, ptr %25, i64 16
   store ptr %serial, ptr %add.ptr.i.i825.i.i, align 8
-  %scevgep21.i.i = getelementptr i8, ptr %24, i64 24
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep21.i.i, i8 0, i64 %22, i1 false)
+  %scevgep21.i.i = getelementptr i8, ptr %25, i64 24
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep21.i.i, i8 0, i64 %23, i1 false)
   store ptr %head.0, ptr %call.i.i28, align 8
+  %26 = ptrtoint ptr %call.i.i28 to i64
+  store atomic i64 %26, ptr %head_ release, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont.thread, %invoke.cont15
-  %serial.sink = phi ptr [ %serial, %invoke.cont.thread ], [ %call.i.i28, %invoke.cont15 ]
-  %arrayidx.i14.i26.sink = phi ptr [ %arrayidx.i14.i26, %invoke.cont.thread ], [ %head_, %invoke.cont15 ]
-  %25 = ptrtoint ptr %serial.sink to i64
-  store atomic i64 %25, ptr %arrayidx.i14.i26.sink release, align 8
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %mutex_)
           to label %cleanup.cont unwind label %terminate.lpad.i29
 
 terminate.lpad.i29:                               ; preds = %cleanup
-  %26 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           catch ptr null
-  %27 = extractvalue { ptr, i32 } %26, 0
-  tail call void @__clang_call_terminate(ptr %27) #30
+  %28 = extractvalue { ptr, i32 } %27, 0
+  tail call void @__clang_call_terminate(ptr %28) #30
   unreachable
 
 cleanup.cont:                                     ; preds = %cleanup, %_ZN6google8protobuf8internal15ThreadSafeArena16SerialArenaChunk6insertEPvPNS1_11SerialArenaE.exit.thread

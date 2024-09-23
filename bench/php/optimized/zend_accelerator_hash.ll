@@ -490,12 +490,14 @@ define hidden range(i32 -1, 1) i32 @zend_accel_hash_unlink(ptr nocapture noundef
 
 42:                                               ; preds = %39
   %43 = getelementptr inbounds i8, ptr %.045, i64 16
-  br label %.loopexit.sink.split
+  store ptr %41, ptr %43, align 8
+  br label %.loopexit
 
 44:                                               ; preds = %39
   %45 = load ptr, ptr %0, align 8
   %46 = getelementptr inbounds ptr, ptr %45, i64 %14
-  br label %.loopexit.sink.split
+  store ptr %41, ptr %46, align 8
+  br label %.loopexit
 
 .critedge2:                                       ; preds = %25, %30, %18
   %47 = getelementptr inbounds i8, ptr %.03446, i64 16
@@ -503,13 +505,8 @@ define hidden range(i32 -1, 1) i32 @zend_accel_hash_unlink(ptr nocapture noundef
   %.not39 = icmp eq ptr %.034, null
   br i1 %.not39, label %.loopexit, label %18
 
-.loopexit.sink.split:                             ; preds = %44, %42
-  %.sink = phi ptr [ %43, %42 ], [ %46, %44 ]
-  store ptr %41, ptr %.sink, align 8
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %.critedge2, %.loopexit.sink.split, %7
-  %.035 = phi i32 [ -1, %7 ], [ 0, %.loopexit.sink.split ], [ -1, %.critedge2 ]
+.loopexit:                                        ; preds = %.critedge2, %7, %42, %44
+  %.035 = phi i32 [ 0, %44 ], [ 0, %42 ], [ -1, %7 ], [ -1, %.critedge2 ]
   ret i32 %.035
 }
 

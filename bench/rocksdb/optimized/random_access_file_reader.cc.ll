@@ -4388,14 +4388,13 @@ if.then4.i:                                       ; preds = %if.then.i
           to label %_ZN7rocksdb8IOStatus8TimedOutERKNS_5SliceES3_.exit.i unwind label %_ZN7rocksdb6StatusD2Ev.exit.i.i.i.i, !noalias !31
 
 common.resume:                                    ; preds = %_ZN7rocksdb6StatusD2Ev.exit.i.i.i.i15, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i.i
-  %state_.i.i.i.i.i13.sink = phi ptr [ %state_.i.i.i.i.i13, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i.i15 ], [ %state_.i.i.i.i.i, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i.i ]
-  %common.resume.op = phi { ptr, i32 } [ %13, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i.i15 ], [ %4, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i.i ]
-  store ptr null, ptr %state_.i.i.i.i.i13.sink, align 8
+  %common.resume.op = phi { ptr, i32 } [ %4, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i.i ], [ %13, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i.i15 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7rocksdb6StatusD2Ev.exit.i.i.i.i:              ; preds = %if.then4.i
   %4 = landingpad { ptr, i32 }
           cleanup
+  store ptr null, ptr %state_.i.i.i.i.i, align 8, !alias.scope !31
   br label %common.resume
 
 _ZN7rocksdb8IOStatus8TimedOutERKNS_5SliceES3_.exit.i: ; preds = %if.then4.i
@@ -4478,6 +4477,7 @@ if.then4.i10:                                     ; preds = %if.then.i5
 _ZN7rocksdb6StatusD2Ev.exit.i.i.i.i15:            ; preds = %if.then4.i10
   %13 = landingpad { ptr, i32 }
           cleanup
+  store ptr null, ptr %state_.i.i.i.i.i13, align 8, !alias.scope !41
   br label %common.resume
 
 _ZN7rocksdb8IOStatus8TimedOutERKNS_5SliceES3_.exit.i16: ; preds = %if.then4.i10

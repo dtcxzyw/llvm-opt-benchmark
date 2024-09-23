@@ -1218,32 +1218,42 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %_ZNK7oopDesc4is_aEP
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr inbounds i8, ptr %93, i64 8
   %101 = load i64, ptr %100, align 8
-  %. = select i1 %1, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1336), ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1080)
-  %.36 = select i1 %1, i32 311, i32 313
-  %102 = load ptr, ptr %., align 8
-  %103 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %0) #14
-  tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %2, ptr noundef nonnull @.str, i32 noundef %.36, ptr noundef %102, ptr noundef %103) #14
-  %104 = load ptr, ptr %95, align 8
-  %.not.i.i.i.i15 = icmp eq ptr %104, null
-  br i1 %.not.i.i.i.i15, label %106, label %105
+  br i1 %1, label %102, label %105
+
+102:                                              ; preds = %91
+  %103 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1336), align 8
+  %104 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %0) #14
+  tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %2, ptr noundef nonnull @.str, i32 noundef 311, ptr noundef %103, ptr noundef %104) #14
+  br label %108
 
 105:                                              ; preds = %91
+  %106 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1080), align 8
+  %107 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %0) #14
+  tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %2, ptr noundef nonnull @.str, i32 noundef 313, ptr noundef %106, ptr noundef %107) #14
+  br label %108
+
+108:                                              ; preds = %105, %102
+  %109 = load ptr, ptr %95, align 8
+  %.not.i.i.i.i15 = icmp eq ptr %109, null
+  br i1 %.not.i.i.i.i15, label %111, label %110
+
+110:                                              ; preds = %108
   tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %93, i64 noundef %101) #14
   tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %95) #14
-  br label %106
+  br label %111
 
-106:                                              ; preds = %105, %91
-  %107 = load ptr, ptr %96, align 8
-  %.not8.i.i.i.i16 = icmp eq ptr %107, %97
-  br i1 %.not8.i.i.i.i16, label %_ZN12ResourceMarkD2Ev.exit, label %108
+111:                                              ; preds = %110, %108
+  %112 = load ptr, ptr %96, align 8
+  %.not8.i.i.i.i16 = icmp eq ptr %112, %97
+  br i1 %.not8.i.i.i.i16, label %_ZN12ResourceMarkD2Ev.exit, label %113
 
-108:                                              ; preds = %106
+113:                                              ; preds = %111
   store ptr %95, ptr %94, align 8
   store ptr %97, ptr %96, align 8
   store ptr %99, ptr %98, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %40, %108, %106, %90, %88, %6, %_ZNK7oopDesc4is_aEP5Klass.exit
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %40, %113, %111, %90, %88, %6, %_ZNK7oopDesc4is_aEP5Klass.exit
   ret void
 }
 

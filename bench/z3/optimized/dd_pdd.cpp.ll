@@ -4559,7 +4559,15 @@ lpad:                                             ; preds = %_ZN2dd11pdd_manager
   %bf.load.i.i28 = load i32, ptr %arrayidx.i.i.i27, align 4
   %bf.clear.i.i29 = and i32 %bf.load.i.i28, 1023
   %cmp.not.i.i30 = icmp eq i32 %bf.clear.i.i29, 1023
-  br i1 %cmp.not.i.i30, label %eh.resume, label %eh.resume.sink.split
+  br i1 %cmp.not.i.i30, label %eh.resume, label %if.then.i.i31
+
+if.then.i.i31:                                    ; preds = %lpad
+  %dec.i.i32 = add i32 %bf.load.i.i28, 1023
+  %bf.value.i.i33 = and i32 %dec.i.i32, 1023
+  %bf.clear7.i.i34 = and i32 %bf.load.i.i28, -1024
+  %bf.set.i.i35 = or disjoint i32 %bf.value.i.i33, %bf.clear7.i.i34
+  store i32 %bf.set.i.i35, ptr %arrayidx.i.i.i27, align 4
+  br label %eh.resume
 
 lpad3:                                            ; preds = %_ZN2dd3pddD2Ev.exit
   %11 = landingpad { ptr, i32 }
@@ -4572,21 +4580,18 @@ lpad3:                                            ; preds = %_ZN2dd3pddD2Ev.exit
   %bf.load.i.i40 = load i32, ptr %arrayidx.i.i.i39, align 4
   %bf.clear.i.i41 = and i32 %bf.load.i.i40, 1023
   %cmp.not.i.i42 = icmp eq i32 %bf.clear.i.i41, 1023
-  br i1 %cmp.not.i.i42, label %eh.resume, label %eh.resume.sink.split
+  br i1 %cmp.not.i.i42, label %eh.resume, label %if.then.i.i43
 
-eh.resume.sink.split:                             ; preds = %lpad3, %lpad
-  %bf.load.i.i40.sink49 = phi i32 [ %bf.load.i.i28, %lpad ], [ %bf.load.i.i40, %lpad3 ]
-  %arrayidx.i.i.i39.sink = phi ptr [ %arrayidx.i.i.i27, %lpad ], [ %arrayidx.i.i.i39, %lpad3 ]
-  %.pn.ph = phi { ptr, i32 } [ %9, %lpad ], [ %11, %lpad3 ]
-  %dec.i.i44 = add i32 %bf.load.i.i40.sink49, 1023
+if.then.i.i43:                                    ; preds = %lpad3
+  %dec.i.i44 = add i32 %bf.load.i.i40, 1023
   %bf.value.i.i45 = and i32 %dec.i.i44, 1023
-  %bf.clear7.i.i46 = and i32 %bf.load.i.i40.sink49, -1024
+  %bf.clear7.i.i46 = and i32 %bf.load.i.i40, -1024
   %bf.set.i.i47 = or disjoint i32 %bf.value.i.i45, %bf.clear7.i.i46
-  store i32 %bf.set.i.i47, ptr %arrayidx.i.i.i39.sink, align 4
+  store i32 %bf.set.i.i47, ptr %arrayidx.i.i.i39, align 4
   br label %eh.resume
 
-eh.resume:                                        ; preds = %eh.resume.sink.split, %lpad3, %lpad
-  %.pn = phi { ptr, i32 } [ %9, %lpad ], [ %11, %lpad3 ], [ %.pn.ph, %eh.resume.sink.split ]
+eh.resume:                                        ; preds = %if.then.i.i43, %lpad3, %if.then.i.i31, %lpad
+  %.pn = phi { ptr, i32 } [ %9, %lpad ], [ %9, %if.then.i.i31 ], [ %11, %lpad3 ], [ %11, %if.then.i.i43 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -6629,7 +6634,15 @@ lpad:                                             ; preds = %_ZN2dd11pdd_manager
   %bf.load.i.i28 = load i32, ptr %arrayidx.i.i.i27, align 4
   %bf.clear.i.i29 = and i32 %bf.load.i.i28, 1023
   %cmp.not.i.i30 = icmp eq i32 %bf.clear.i.i29, 1023
-  br i1 %cmp.not.i.i30, label %eh.resume, label %eh.resume.sink.split
+  br i1 %cmp.not.i.i30, label %eh.resume, label %if.then.i.i31
+
+if.then.i.i31:                                    ; preds = %lpad
+  %dec.i.i32 = add i32 %bf.load.i.i28, 1023
+  %bf.value.i.i33 = and i32 %dec.i.i32, 1023
+  %bf.clear7.i.i34 = and i32 %bf.load.i.i28, -1024
+  %bf.set.i.i35 = or disjoint i32 %bf.value.i.i33, %bf.clear7.i.i34
+  store i32 %bf.set.i.i35, ptr %arrayidx.i.i.i27, align 4
+  br label %eh.resume
 
 lpad3:                                            ; preds = %_ZN2dd3pddD2Ev.exit
   %11 = landingpad { ptr, i32 }
@@ -6642,21 +6655,18 @@ lpad3:                                            ; preds = %_ZN2dd3pddD2Ev.exit
   %bf.load.i.i40 = load i32, ptr %arrayidx.i.i.i39, align 4
   %bf.clear.i.i41 = and i32 %bf.load.i.i40, 1023
   %cmp.not.i.i42 = icmp eq i32 %bf.clear.i.i41, 1023
-  br i1 %cmp.not.i.i42, label %eh.resume, label %eh.resume.sink.split
+  br i1 %cmp.not.i.i42, label %eh.resume, label %if.then.i.i43
 
-eh.resume.sink.split:                             ; preds = %lpad3, %lpad
-  %bf.load.i.i40.sink49 = phi i32 [ %bf.load.i.i28, %lpad ], [ %bf.load.i.i40, %lpad3 ]
-  %arrayidx.i.i.i39.sink = phi ptr [ %arrayidx.i.i.i27, %lpad ], [ %arrayidx.i.i.i39, %lpad3 ]
-  %.pn.ph = phi { ptr, i32 } [ %9, %lpad ], [ %11, %lpad3 ]
-  %dec.i.i44 = add i32 %bf.load.i.i40.sink49, 1023
+if.then.i.i43:                                    ; preds = %lpad3
+  %dec.i.i44 = add i32 %bf.load.i.i40, 1023
   %bf.value.i.i45 = and i32 %dec.i.i44, 1023
-  %bf.clear7.i.i46 = and i32 %bf.load.i.i40.sink49, -1024
+  %bf.clear7.i.i46 = and i32 %bf.load.i.i40, -1024
   %bf.set.i.i47 = or disjoint i32 %bf.value.i.i45, %bf.clear7.i.i46
-  store i32 %bf.set.i.i47, ptr %arrayidx.i.i.i39.sink, align 4
+  store i32 %bf.set.i.i47, ptr %arrayidx.i.i.i39, align 4
   br label %eh.resume
 
-eh.resume:                                        ; preds = %eh.resume.sink.split, %lpad3, %lpad
-  %.pn = phi { ptr, i32 } [ %9, %lpad ], [ %11, %lpad3 ], [ %.pn.ph, %eh.resume.sink.split ]
+eh.resume:                                        ; preds = %if.then.i.i43, %lpad3, %if.then.i.i31, %lpad
+  %.pn = phi { ptr, i32 } [ %9, %lpad ], [ %9, %if.then.i.i31 ], [ %11, %lpad3 ], [ %11, %if.then.i.i43 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -6983,7 +6993,7 @@ if.else:                                          ; preds = %if.end17, %_ZNK2dd1
   %m_hi.i.i135 = getelementptr inbounds i8, ptr %arrayidx.i.i134, i64 8
   %24 = load i32, ptr %m_hi.i.i135, align 4
   %cmp.i.i136 = icmp eq i32 %24, 0
-  br i1 %cmp.i.i136, label %land.rhs.i.i137, label %sw.epilog.sink.split
+  br i1 %cmp.i.i136, label %land.rhs.i.i137, label %land.lhs.true32
 
 land.rhs.i.i137:                                  ; preds = %if.else
   %m_lo.i.i138 = getelementptr inbounds i8, ptr %arrayidx.i.i134, i64 4
@@ -6995,7 +7005,17 @@ _ZNK2dd11pdd_manager6is_valEj.exit143:            ; preds = %land.rhs.i.i137
   %m_index.i.i141 = getelementptr inbounds i8, ptr %arrayidx.i.i134, i64 12
   %26 = load i32, ptr %m_index.i.i141, align 4
   %cmp3.i.i142 = icmp eq i32 %26, 0
-  br i1 %cmp3.i.i142, label %sw.epilog, label %sw.epilog.sink.split
+  br i1 %cmp3.i.i142, label %sw.epilog, label %land.lhs.true32
+
+land.lhs.true32:                                  ; preds = %if.else, %_ZNK2dd11pdd_manager6is_valEj.exit143
+  %bf.load.i = load i32, ptr %arrayidx.i.i91, align 4
+  %bf.lshr.i = lshr i32 %bf.load.i, 10
+  %bf.load.i148 = load i32, ptr %arrayidx.i.i134, align 4
+  %bf.lshr.i149 = lshr i32 %bf.load.i148, 10
+  %cmp35 = icmp ult i32 %bf.lshr.i, %bf.lshr.i149
+  %spec.select = select i1 %cmp35, i32 %q, i32 %p
+  %spec.select1153 = select i1 %cmp35, i32 %p, i32 %q
+  br label %sw.epilog
 
 sw.bb39:                                          ; preds = %entry
   %cmp.i150 = icmp eq i32 %p, 0
@@ -7087,7 +7107,7 @@ if.else63:                                        ; preds = %if.end49, %_ZNK2dd1
   %m_hi.i.i199 = getelementptr inbounds i8, ptr %arrayidx.i.i198, i64 8
   %37 = load i32, ptr %m_hi.i.i199, align 4
   %cmp.i.i200 = icmp eq i32 %37, 0
-  br i1 %cmp.i.i200, label %land.rhs.i.i201, label %sw.epilog.sink.split
+  br i1 %cmp.i.i200, label %land.rhs.i.i201, label %land.lhs.true65
 
 land.rhs.i.i201:                                  ; preds = %if.else63
   %m_lo.i.i202 = getelementptr inbounds i8, ptr %arrayidx.i.i198, i64 4
@@ -7099,7 +7119,17 @@ _ZNK2dd11pdd_manager6is_valEj.exit207:            ; preds = %land.rhs.i.i201
   %m_index.i.i205 = getelementptr inbounds i8, ptr %arrayidx.i.i198, i64 12
   %39 = load i32, ptr %m_index.i.i205, align 4
   %cmp3.i.i206 = icmp eq i32 %39, 0
-  br i1 %cmp3.i.i206, label %sw.epilog, label %sw.epilog.sink.split
+  br i1 %cmp3.i.i206, label %sw.epilog, label %land.lhs.true65
+
+land.lhs.true65:                                  ; preds = %if.else63, %_ZNK2dd11pdd_manager6is_valEj.exit207
+  %bf.load.i210 = load i32, ptr %arrayidx.i.i155, align 4
+  %bf.lshr.i211 = lshr i32 %bf.load.i210, 10
+  %bf.load.i214 = load i32, ptr %arrayidx.i.i198, align 4
+  %bf.lshr.i215 = lshr i32 %bf.load.i214, 10
+  %cmp68 = icmp ult i32 %bf.lshr.i211, %bf.lshr.i215
+  %spec.select1155 = select i1 %cmp68, i32 %q, i32 %p
+  %spec.select1156 = select i1 %cmp68, i32 %p, i32 %q
+  br label %sw.epilog
 
 sw.bb72:                                          ; preds = %entry
   %cmp.i216 = icmp eq i32 %q, 0
@@ -7269,23 +7299,10 @@ sw.default:                                       ; preds = %entry
   tail call void @exit(i32 noundef 114) #27
   unreachable
 
-sw.epilog.sink.split:                             ; preds = %_ZNK2dd11pdd_manager6is_valEj.exit207, %if.else63, %_ZNK2dd11pdd_manager6is_valEj.exit143, %if.else
-  %arrayidx.i.i155.sink = phi ptr [ %arrayidx.i.i91, %if.else ], [ %arrayidx.i.i91, %_ZNK2dd11pdd_manager6is_valEj.exit143 ], [ %arrayidx.i.i155, %if.else63 ], [ %arrayidx.i.i155, %_ZNK2dd11pdd_manager6is_valEj.exit207 ]
-  %arrayidx.i.i198.sink = phi ptr [ %arrayidx.i.i134, %if.else ], [ %arrayidx.i.i134, %_ZNK2dd11pdd_manager6is_valEj.exit143 ], [ %arrayidx.i.i198, %if.else63 ], [ %arrayidx.i.i198, %_ZNK2dd11pdd_manager6is_valEj.exit207 ]
-  %op.addr.1.ph = phi i32 [ 2, %if.else ], [ 2, %_ZNK2dd11pdd_manager6is_valEj.exit143 ], [ 5, %if.else63 ], [ 5, %_ZNK2dd11pdd_manager6is_valEj.exit207 ]
-  %bf.load.i210 = load i32, ptr %arrayidx.i.i155.sink, align 4
-  %bf.lshr.i211 = lshr i32 %bf.load.i210, 10
-  %bf.load.i214 = load i32, ptr %arrayidx.i.i198.sink, align 4
-  %bf.lshr.i215 = lshr i32 %bf.load.i214, 10
-  %cmp68 = icmp ult i32 %bf.lshr.i211, %bf.lshr.i215
-  %spec.select1155 = select i1 %cmp68, i32 %q, i32 %p
-  %spec.select1156 = select i1 %cmp68, i32 %p, i32 %q
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %sw.epilog.sink.split, %lor.lhs.false101, %land.rhs.i.i201, %land.rhs.i.i190, %land.rhs.i.i137, %land.rhs.i.i126, %_ZNK2dd11pdd_manager6is_valEj.exit196, %_ZNK2dd11pdd_manager6is_valEj.exit132, %sw.bb105, %_ZNK2dd11pdd_manager6is_valEj.exit291, %_ZNK2dd11pdd_manager13first_leadingEj.exit, %_ZNK2dd11pdd_manager6is_valEj.exit207, %_ZNK2dd11pdd_manager6is_valEj.exit143, %if.end8
-  %p.addr.0 = phi i32 [ %p, %sw.bb105 ], [ %p, %_ZNK2dd11pdd_manager6is_valEj.exit291 ], [ %p, %_ZNK2dd11pdd_manager13first_leadingEj.exit ], [ %p, %_ZNK2dd11pdd_manager6is_valEj.exit207 ], [ %p, %_ZNK2dd11pdd_manager6is_valEj.exit143 ], [ %p, %if.end8 ], [ %q, %_ZNK2dd11pdd_manager6is_valEj.exit132 ], [ %q, %_ZNK2dd11pdd_manager6is_valEj.exit196 ], [ %q, %land.rhs.i.i126 ], [ %p, %land.rhs.i.i137 ], [ %q, %land.rhs.i.i190 ], [ %p, %land.rhs.i.i201 ], [ %p, %lor.lhs.false101 ], [ %spec.select1155, %sw.epilog.sink.split ]
-  %q.addr.0 = phi i32 [ %q, %sw.bb105 ], [ %q.addr.1, %_ZNK2dd11pdd_manager6is_valEj.exit291 ], [ %q, %_ZNK2dd11pdd_manager13first_leadingEj.exit ], [ %q, %_ZNK2dd11pdd_manager6is_valEj.exit207 ], [ %q, %_ZNK2dd11pdd_manager6is_valEj.exit143 ], [ %q, %if.end8 ], [ %p, %_ZNK2dd11pdd_manager6is_valEj.exit132 ], [ %p, %_ZNK2dd11pdd_manager6is_valEj.exit196 ], [ %p, %land.rhs.i.i126 ], [ %q, %land.rhs.i.i137 ], [ %p, %land.rhs.i.i190 ], [ %q, %land.rhs.i.i201 ], [ %q.addr.1, %lor.lhs.false101 ], [ %spec.select1156, %sw.epilog.sink.split ]
-  %op.addr.1 = phi i32 [ 8, %sw.bb105 ], [ 7, %_ZNK2dd11pdd_manager6is_valEj.exit291 ], [ 6, %_ZNK2dd11pdd_manager13first_leadingEj.exit ], [ 5, %_ZNK2dd11pdd_manager6is_valEj.exit207 ], [ 2, %_ZNK2dd11pdd_manager6is_valEj.exit143 ], [ 3, %if.end8 ], [ 2, %_ZNK2dd11pdd_manager6is_valEj.exit132 ], [ 5, %_ZNK2dd11pdd_manager6is_valEj.exit196 ], [ 2, %land.rhs.i.i126 ], [ 2, %land.rhs.i.i137 ], [ 5, %land.rhs.i.i190 ], [ 5, %land.rhs.i.i201 ], [ 7, %lor.lhs.false101 ], [ %op.addr.1.ph, %sw.epilog.sink.split ]
+sw.epilog:                                        ; preds = %land.lhs.true65, %land.lhs.true32, %lor.lhs.false101, %land.rhs.i.i201, %land.rhs.i.i190, %land.rhs.i.i137, %land.rhs.i.i126, %_ZNK2dd11pdd_manager6is_valEj.exit196, %_ZNK2dd11pdd_manager6is_valEj.exit132, %sw.bb105, %_ZNK2dd11pdd_manager6is_valEj.exit291, %_ZNK2dd11pdd_manager13first_leadingEj.exit, %_ZNK2dd11pdd_manager6is_valEj.exit207, %_ZNK2dd11pdd_manager6is_valEj.exit143, %if.end8
+  %p.addr.0 = phi i32 [ %p, %sw.bb105 ], [ %p, %_ZNK2dd11pdd_manager6is_valEj.exit291 ], [ %p, %_ZNK2dd11pdd_manager13first_leadingEj.exit ], [ %p, %_ZNK2dd11pdd_manager6is_valEj.exit207 ], [ %p, %_ZNK2dd11pdd_manager6is_valEj.exit143 ], [ %p, %if.end8 ], [ %q, %_ZNK2dd11pdd_manager6is_valEj.exit132 ], [ %q, %_ZNK2dd11pdd_manager6is_valEj.exit196 ], [ %q, %land.rhs.i.i126 ], [ %p, %land.rhs.i.i137 ], [ %q, %land.rhs.i.i190 ], [ %p, %land.rhs.i.i201 ], [ %p, %lor.lhs.false101 ], [ %spec.select, %land.lhs.true32 ], [ %spec.select1155, %land.lhs.true65 ]
+  %q.addr.0 = phi i32 [ %q, %sw.bb105 ], [ %q.addr.1, %_ZNK2dd11pdd_manager6is_valEj.exit291 ], [ %q, %_ZNK2dd11pdd_manager13first_leadingEj.exit ], [ %q, %_ZNK2dd11pdd_manager6is_valEj.exit207 ], [ %q, %_ZNK2dd11pdd_manager6is_valEj.exit143 ], [ %q, %if.end8 ], [ %p, %_ZNK2dd11pdd_manager6is_valEj.exit132 ], [ %p, %_ZNK2dd11pdd_manager6is_valEj.exit196 ], [ %p, %land.rhs.i.i126 ], [ %q, %land.rhs.i.i137 ], [ %p, %land.rhs.i.i190 ], [ %q, %land.rhs.i.i201 ], [ %q.addr.1, %lor.lhs.false101 ], [ %spec.select1153, %land.lhs.true32 ], [ %spec.select1156, %land.lhs.true65 ]
+  %op.addr.1 = phi i32 [ 8, %sw.bb105 ], [ 7, %_ZNK2dd11pdd_manager6is_valEj.exit291 ], [ 6, %_ZNK2dd11pdd_manager13first_leadingEj.exit ], [ 5, %_ZNK2dd11pdd_manager6is_valEj.exit207 ], [ 2, %_ZNK2dd11pdd_manager6is_valEj.exit143 ], [ 3, %if.end8 ], [ 2, %_ZNK2dd11pdd_manager6is_valEj.exit132 ], [ 5, %_ZNK2dd11pdd_manager6is_valEj.exit196 ], [ 2, %land.rhs.i.i126 ], [ 2, %land.rhs.i.i137 ], [ 5, %land.rhs.i.i190 ], [ 5, %land.rhs.i.i201 ], [ 7, %lor.lhs.false101 ], [ 2, %land.lhs.true32 ], [ 5, %land.lhs.true65 ]
   %m_spare_entry.i = getelementptr inbounds i8, ptr %this, i64 120
   %61 = load ptr, ptr %m_spare_entry.i, align 8
   %tobool.not.i = icmp eq ptr %61, null
@@ -15360,7 +15377,15 @@ lpad:                                             ; preds = %_ZN2dd11pdd_manager
   %bf.load.i.i65 = load i32, ptr %5, align 4
   %bf.clear.i.i66 = and i32 %bf.load.i.i65, 1023
   %cmp.not.i.i67 = icmp eq i32 %bf.clear.i.i66, 1023
-  br i1 %cmp.not.i.i67, label %eh.resume, label %eh.resume.sink.split
+  br i1 %cmp.not.i.i67, label %eh.resume, label %if.then.i.i68
+
+if.then.i.i68:                                    ; preds = %lpad
+  %dec.i.i69 = add i32 %bf.load.i.i65, 1023
+  %bf.value.i.i70 = and i32 %dec.i.i69, 1023
+  %bf.clear7.i.i71 = and i32 %bf.load.i.i65, -1024
+  %bf.set.i.i72 = or disjoint i32 %bf.value.i.i70, %bf.clear7.i.i71
+  store i32 %bf.set.i.i72, ptr %5, align 4
+  br label %eh.resume
 
 if.end:                                           ; preds = %entry
   %6 = load i32, ptr %p, align 8
@@ -15420,7 +15445,15 @@ lpad8:                                            ; preds = %_ZN2dd11pdd_manager
   %bf.load.i.i99 = load i32, ptr %10, align 4
   %bf.clear.i.i100 = and i32 %bf.load.i.i99, 1023
   %cmp.not.i.i101 = icmp eq i32 %bf.clear.i.i100, 1023
-  br i1 %cmp.not.i.i101, label %eh.resume, label %eh.resume.sink.split
+  br i1 %cmp.not.i.i101, label %eh.resume, label %if.then.i.i102
+
+if.then.i.i102:                                   ; preds = %lpad8
+  %dec.i.i103 = add i32 %bf.load.i.i99, 1023
+  %bf.value.i.i104 = and i32 %dec.i.i103, 1023
+  %bf.clear7.i.i105 = and i32 %bf.load.i.i99, -1024
+  %bf.set.i.i106 = or disjoint i32 %bf.value.i.i104, %bf.clear7.i.i105
+  store i32 %bf.set.i.i106, ptr %10, align 4
+  br label %eh.resume
 
 if.end12:                                         ; preds = %if.end
   %m_factor_cache = getelementptr inbounds i8, ptr %this, i64 40
@@ -15535,7 +15568,15 @@ lpad20:                                           ; preds = %_ZN2dd3pddC2EjPNS_1
   %bf.load.i.i158 = load i32, ptr %arrayidx.i.i.i157, align 4
   %bf.clear.i.i159 = and i32 %bf.load.i.i158, 1023
   %cmp.not.i.i160 = icmp eq i32 %bf.clear.i.i159, 1023
-  br i1 %cmp.not.i.i160, label %eh.resume, label %eh.resume.sink.split
+  br i1 %cmp.not.i.i160, label %eh.resume, label %if.then.i.i161
+
+if.then.i.i161:                                   ; preds = %lpad20
+  %dec.i.i162 = add i32 %bf.load.i.i158, 1023
+  %bf.value.i.i163 = and i32 %dec.i.i162, 1023
+  %bf.clear7.i.i164 = and i32 %bf.load.i.i158, -1024
+  %bf.set.i.i165 = or disjoint i32 %bf.value.i.i163, %bf.clear7.i.i164
+  store i32 %bf.set.i.i165, ptr %arrayidx.i.i.i157, align 4
+  br label %eh.resume
 
 lpad24:                                           ; preds = %_ZN2dd3pddC2EjPNS_11pdd_managerE.exit142
   %20 = landingpad { ptr, i32 }
@@ -15545,7 +15586,15 @@ lpad24:                                           ; preds = %_ZN2dd3pddC2EjPNS_1
   %bf.load.i.i170 = load i32, ptr %arrayidx.i.i.i169, align 4
   %bf.clear.i.i171 = and i32 %bf.load.i.i170, 1023
   %cmp.not.i.i172 = icmp eq i32 %bf.clear.i.i171, 1023
-  br i1 %cmp.not.i.i172, label %eh.resume, label %eh.resume.sink.split
+  br i1 %cmp.not.i.i172, label %eh.resume, label %if.then.i.i173
+
+if.then.i.i173:                                   ; preds = %lpad24
+  %dec.i.i174 = add i32 %bf.load.i.i170, 1023
+  %bf.value.i.i175 = and i32 %dec.i.i174, 1023
+  %bf.clear7.i.i176 = and i32 %bf.load.i.i170, -1024
+  %bf.set.i.i177 = or disjoint i32 %bf.value.i.i175, %bf.clear7.i.i176
+  store i32 %bf.set.i.i177, ptr %arrayidx.i.i.i169, align 4
+  br label %eh.resume
 
 if.end27:                                         ; preds = %if.end12
   %22 = load i32, ptr %p, align 8
@@ -15988,7 +16037,15 @@ _ZN2dd3pddD2Ev.exit398:                           ; preds = %_ZN2dd3pddD2Ev.exit
   %bf.load.i.i402 = load i32, ptr %arrayidx.i.i.i401, align 4
   %bf.clear.i.i403 = and i32 %bf.load.i.i402, 1023
   %cmp.not.i.i404 = icmp eq i32 %bf.clear.i.i403, 1023
-  br i1 %cmp.not.i.i404, label %if.end121, label %if.end121.sink.split
+  br i1 %cmp.not.i.i404, label %if.end121, label %if.then.i.i405
+
+if.then.i.i405:                                   ; preds = %_ZN2dd3pddD2Ev.exit398
+  %dec.i.i406 = add i32 %bf.load.i.i402, 1023
+  %bf.value.i.i407 = and i32 %dec.i.i406, 1023
+  %bf.clear7.i.i408 = and i32 %bf.load.i.i402, -1024
+  %bf.set.i.i409 = or disjoint i32 %bf.value.i.i407, %bf.clear7.i.i408
+  store i32 %bf.set.i.i409, ptr %arrayidx.i.i.i401, align 4
+  br label %if.end121
 
 lpad34:                                           ; preds = %invoke.cont35
   %80 = landingpad { ptr, i32 }
@@ -16085,7 +16142,15 @@ ehcleanup56:                                      ; preds = %if.then.i.i457, %eh
   %bf.load.i.i467 = load i32, ptr %arrayidx.i.i.i466, align 4
   %bf.clear.i.i468 = and i32 %bf.load.i.i467, 1023
   %cmp.not.i.i469 = icmp eq i32 %bf.clear.i.i468, 1023
-  br i1 %cmp.not.i.i469, label %eh.resume, label %eh.resume.sink.split
+  br i1 %cmp.not.i.i469, label %eh.resume, label %if.then.i.i470
+
+if.then.i.i470:                                   ; preds = %ehcleanup56
+  %dec.i.i471 = add i32 %bf.load.i.i467, 1023
+  %bf.value.i.i472 = and i32 %dec.i.i471, 1023
+  %bf.clear7.i.i473 = and i32 %bf.load.i.i467, -1024
+  %bf.set.i.i474 = or disjoint i32 %bf.value.i.i472, %bf.clear7.i.i473
+  store i32 %bf.set.i.i474, ptr %arrayidx.i.i.i466, align 4
+  br label %eh.resume
 
 if.else:                                          ; preds = %if.end27
   %m.i477 = getelementptr inbounds i8, ptr %p, i64 8
@@ -16630,7 +16695,15 @@ ehcleanup95:                                      ; preds = %if.then.i.i759, %lp
   %bf.load.i.i769 = load i32, ptr %arrayidx.i.i.i768, align 4
   %bf.clear.i.i770 = and i32 %bf.load.i.i769, 1023
   %cmp.not.i.i771 = icmp eq i32 %bf.clear.i.i770, 1023
-  br i1 %cmp.not.i.i771, label %ehcleanup109, label %ehcleanup109.sink.split
+  br i1 %cmp.not.i.i771, label %ehcleanup109, label %if.then.i.i772
+
+if.then.i.i772:                                   ; preds = %ehcleanup95
+  %dec.i.i773 = add i32 %bf.load.i.i769, 1023
+  %bf.value.i.i774 = and i32 %dec.i.i773, 1023
+  %bf.clear7.i.i775 = and i32 %bf.load.i.i769, -1024
+  %bf.set.i.i776 = or disjoint i32 %bf.value.i.i774, %bf.clear7.i.i775
+  store i32 %bf.set.i.i776, ptr %arrayidx.i.i.i768, align 4
+  br label %ehcleanup109
 
 lpad98:                                           ; preds = %invoke.cont99, %invoke.cont97
   %157 = landingpad { ptr, i32 }
@@ -16669,7 +16742,15 @@ ehcleanup108:                                     ; preds = %if.then.i.i785, %lp
   %bf.load.i.i795 = load i32, ptr %arrayidx.i.i.i794, align 4
   %bf.clear.i.i796 = and i32 %bf.load.i.i795, 1023
   %cmp.not.i.i797 = icmp eq i32 %bf.clear.i.i796, 1023
-  br i1 %cmp.not.i.i797, label %ehcleanup109, label %ehcleanup109.sink.split
+  br i1 %cmp.not.i.i797, label %ehcleanup109, label %if.then.i.i798
+
+if.then.i.i798:                                   ; preds = %ehcleanup108
+  %dec.i.i799 = add i32 %bf.load.i.i795, 1023
+  %bf.value.i.i800 = and i32 %dec.i.i799, 1023
+  %bf.clear7.i.i801 = and i32 %bf.load.i.i795, -1024
+  %bf.set.i.i802 = or disjoint i32 %bf.value.i.i800, %bf.clear7.i.i801
+  store i32 %bf.set.i.i802, ptr %arrayidx.i.i.i794, align 4
+  br label %ehcleanup109
 
 for.end:                                          ; preds = %_ZN2dd3pddD2Ev.exit739
   %163 = load ptr, ptr %m.i.i568, align 8
@@ -16690,19 +16771,8 @@ if.then.i.i811:                                   ; preds = %for.end
   store i32 %bf.set.i.i815, ptr %arrayidx.i.i.i807, align 4
   br label %if.end119
 
-ehcleanup109.sink.split:                          ; preds = %ehcleanup108, %ehcleanup95
-  %bf.load.i.i795.sink954 = phi i32 [ %bf.load.i.i769, %ehcleanup95 ], [ %bf.load.i.i795, %ehcleanup108 ]
-  %arrayidx.i.i.i794.sink = phi ptr [ %arrayidx.i.i.i768, %ehcleanup95 ], [ %arrayidx.i.i.i794, %ehcleanup108 ]
-  %.pn52.pn.ph = phi { ptr, i32 } [ %.pn, %ehcleanup95 ], [ %.pn52, %ehcleanup108 ]
-  %dec.i.i799 = add i32 %bf.load.i.i795.sink954, 1023
-  %bf.value.i.i800 = and i32 %dec.i.i799, 1023
-  %bf.clear7.i.i801 = and i32 %bf.load.i.i795.sink954, -1024
-  %bf.set.i.i802 = or disjoint i32 %bf.value.i.i800, %bf.clear7.i.i801
-  store i32 %bf.set.i.i802, ptr %arrayidx.i.i.i794.sink, align 4
-  br label %ehcleanup109
-
-ehcleanup109:                                     ; preds = %ehcleanup109.sink.split, %ehcleanup108, %ehcleanup95
-  %.pn52.pn = phi { ptr, i32 } [ %.pn, %ehcleanup95 ], [ %.pn52, %ehcleanup108 ], [ %.pn52.pn.ph, %ehcleanup109.sink.split ]
+ehcleanup109:                                     ; preds = %if.then.i.i798, %ehcleanup108, %if.then.i.i772, %ehcleanup95
+  %.pn52.pn = phi { ptr, i32 } [ %.pn, %ehcleanup95 ], [ %.pn, %if.then.i.i772 ], [ %.pn52, %ehcleanup108 ], [ %.pn52, %if.then.i.i798 ]
   %166 = load ptr, ptr %m.i.i568, align 8
   %167 = load i32, ptr %pow, align 8
   %168 = load ptr, ptr %166, align 8
@@ -16789,7 +16859,15 @@ if.end119:                                        ; preds = %if.then.i.i811, %fo
   %bf.load.i.i871 = load i32, ptr %arrayidx.i.i.i870, align 4
   %bf.clear.i.i872 = and i32 %bf.load.i.i871, 1023
   %cmp.not.i.i873 = icmp eq i32 %bf.clear.i.i872, 1023
-  br i1 %cmp.not.i.i873, label %if.end121, label %if.end121.sink.split
+  br i1 %cmp.not.i.i873, label %if.end121, label %if.then.i.i874
+
+if.then.i.i874:                                   ; preds = %if.end119
+  %dec.i.i875 = add i32 %bf.load.i.i871, 1023
+  %bf.value.i.i876 = and i32 %dec.i.i875, 1023
+  %bf.clear7.i.i877 = and i32 %bf.load.i.i871, -1024
+  %bf.set.i.i878 = or disjoint i32 %bf.value.i.i876, %bf.clear7.i.i877
+  store i32 %bf.set.i.i878, ptr %arrayidx.i.i.i870, align 4
+  br label %if.end121
 
 ehcleanup120:                                     ; preds = %if.then.i.i861, %lpad113, %if.then.i.i824, %ehcleanup109, %if.then.i.i746, %lpad79, %if.then.i.i537, %lpad67, %lpad58
   %.pn52.pn.pn = phi { ptr, i32 } [ %106, %lpad58 ], [ %107, %lpad67 ], [ %107, %if.then.i.i537 ], [ %147, %lpad79 ], [ %147, %if.then.i.i746 ], [ %.pn52.pn, %ehcleanup109 ], [ %.pn52.pn, %if.then.i.i824 ], [ %171, %lpad113 ], [ %171, %if.then.i.i861 ]
@@ -16801,19 +16879,17 @@ ehcleanup120:                                     ; preds = %if.then.i.i861, %lp
   %bf.load.i.i884 = load i32, ptr %arrayidx.i.i.i883, align 4
   %bf.clear.i.i885 = and i32 %bf.load.i.i884, 1023
   %cmp.not.i.i886 = icmp eq i32 %bf.clear.i.i885, 1023
-  br i1 %cmp.not.i.i886, label %eh.resume, label %eh.resume.sink.split
+  br i1 %cmp.not.i.i886, label %eh.resume, label %if.then.i.i887
 
-if.end121.sink.split:                             ; preds = %if.end119, %_ZN2dd3pddD2Ev.exit398
-  %bf.load.i.i871.sink955 = phi i32 [ %bf.load.i.i402, %_ZN2dd3pddD2Ev.exit398 ], [ %bf.load.i.i871, %if.end119 ]
-  %arrayidx.i.i.i870.sink = phi ptr [ %arrayidx.i.i.i401, %_ZN2dd3pddD2Ev.exit398 ], [ %arrayidx.i.i.i870, %if.end119 ]
-  %dec.i.i875 = add i32 %bf.load.i.i871.sink955, 1023
-  %bf.value.i.i876 = and i32 %dec.i.i875, 1023
-  %bf.clear7.i.i877 = and i32 %bf.load.i.i871.sink955, -1024
-  %bf.set.i.i878 = or disjoint i32 %bf.value.i.i876, %bf.clear7.i.i877
-  store i32 %bf.set.i.i878, ptr %arrayidx.i.i.i870.sink, align 4
-  br label %if.end121
+if.then.i.i887:                                   ; preds = %ehcleanup120
+  %dec.i.i888 = add i32 %bf.load.i.i884, 1023
+  %bf.value.i.i889 = and i32 %dec.i.i888, 1023
+  %bf.clear7.i.i890 = and i32 %bf.load.i.i884, -1024
+  %bf.set.i.i891 = or disjoint i32 %bf.value.i.i889, %bf.clear7.i.i890
+  store i32 %bf.set.i.i891, ptr %arrayidx.i.i.i883, align 4
+  br label %eh.resume
 
-if.end121:                                        ; preds = %if.end121.sink.split, %if.end119, %_ZN2dd3pddD2Ev.exit398
+if.end121:                                        ; preds = %if.then.i.i874, %if.end119, %if.then.i.i405, %_ZN2dd3pddD2Ev.exit398
   %179 = load i32, ptr %p, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %et.i899)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %temp.i.i898)
@@ -16841,19 +16917,8 @@ if.end121:                                        ; preds = %if.end121.sink.spli
 return:                                           ; preds = %if.then.i.i149, %invoke.cont25, %if.end121, %_ZN2dd3pddD2Ev.exit95, %_ZN2dd3pddD2Ev.exit
   ret void
 
-eh.resume.sink.split:                             ; preds = %ehcleanup120, %ehcleanup56, %lpad24, %lpad20, %lpad8, %lpad
-  %bf.load.i.i884.sink956 = phi i32 [ %bf.load.i.i65, %lpad ], [ %bf.load.i.i99, %lpad8 ], [ %bf.load.i.i158, %lpad20 ], [ %bf.load.i.i170, %lpad24 ], [ %bf.load.i.i467, %ehcleanup56 ], [ %bf.load.i.i884, %ehcleanup120 ]
-  %arrayidx.i.i.i883.sink = phi ptr [ %5, %lpad ], [ %10, %lpad8 ], [ %arrayidx.i.i.i157, %lpad20 ], [ %arrayidx.i.i.i169, %lpad24 ], [ %arrayidx.i.i.i466, %ehcleanup56 ], [ %arrayidx.i.i.i883, %ehcleanup120 ]
-  %.pn60.ph = phi { ptr, i32 } [ %4, %lpad ], [ %9, %lpad8 ], [ %18, %lpad20 ], [ %20, %lpad24 ], [ %.pn56.pn, %ehcleanup56 ], [ %.pn52.pn.pn, %ehcleanup120 ]
-  %dec.i.i888 = add i32 %bf.load.i.i884.sink956, 1023
-  %bf.value.i.i889 = and i32 %dec.i.i888, 1023
-  %bf.clear7.i.i890 = and i32 %bf.load.i.i884.sink956, -1024
-  %bf.set.i.i891 = or disjoint i32 %bf.value.i.i889, %bf.clear7.i.i890
-  store i32 %bf.set.i.i891, ptr %arrayidx.i.i.i883.sink, align 4
-  br label %eh.resume
-
-eh.resume:                                        ; preds = %eh.resume.sink.split, %ehcleanup120, %ehcleanup56, %lpad24, %lpad20, %lpad8, %lpad
-  %.pn60 = phi { ptr, i32 } [ %4, %lpad ], [ %9, %lpad8 ], [ %18, %lpad20 ], [ %20, %lpad24 ], [ %.pn56.pn, %ehcleanup56 ], [ %.pn52.pn.pn, %ehcleanup120 ], [ %.pn60.ph, %eh.resume.sink.split ]
+eh.resume:                                        ; preds = %if.then.i.i887, %ehcleanup120, %if.then.i.i470, %ehcleanup56, %if.then.i.i173, %lpad24, %if.then.i.i161, %lpad20, %if.then.i.i102, %lpad8, %if.then.i.i68, %lpad
+  %.pn60 = phi { ptr, i32 } [ %4, %lpad ], [ %4, %if.then.i.i68 ], [ %9, %lpad8 ], [ %9, %if.then.i.i102 ], [ %18, %lpad20 ], [ %18, %if.then.i.i161 ], [ %20, %lpad24 ], [ %20, %if.then.i.i173 ], [ %.pn56.pn, %ehcleanup56 ], [ %.pn56.pn, %if.then.i.i470 ], [ %.pn52.pn.pn, %ehcleanup120 ], [ %.pn52.pn.pn, %if.then.i.i887 ]
   resume { ptr, i32 } %.pn60
 }
 
@@ -17128,7 +17193,15 @@ lpad.i:                                           ; preds = %if.then.i, %_ZN2dd3
   %bf.load.i.i2.i = load i32, ptr %arrayidx.i.i.i.i, align 4
   %bf.clear.i.i3.i = and i32 %bf.load.i.i2.i, 1023
   %cmp.not.i.i4.i = icmp eq i32 %bf.clear.i.i3.i, 1023
-  br i1 %cmp.not.i.i4.i, label %ehcleanup48, label %ehcleanup48.sink.split
+  br i1 %cmp.not.i.i4.i, label %ehcleanup48, label %if.then.i.i5.i
+
+if.then.i.i5.i:                                   ; preds = %lpad.i
+  %dec.i.i.i = add i32 %bf.load.i.i2.i, 1023
+  %bf.value.i.i6.i = and i32 %dec.i.i.i, 1023
+  %bf.clear7.i.i7.i = and i32 %bf.load.i.i2.i, -1024
+  %bf.set.i.i8.i = or disjoint i32 %bf.value.i.i6.i, %bf.clear7.i.i7.i
+  store i32 %bf.set.i.i8.i, ptr %arrayidx.i.i.i.i, align 4
+  br label %ehcleanup48
 
 invoke.cont20:                                    ; preds = %invoke.cont.i
   call void @llvm.experimental.noalias.scope.decl(metadata !207)
@@ -17175,7 +17248,15 @@ lpad.i81:                                         ; preds = %if.then.i94, %_ZN2d
   %bf.load.i.i2.i84 = load i32, ptr %arrayidx.i.i.i.i83, align 4
   %bf.clear.i.i3.i85 = and i32 %bf.load.i.i2.i84, 1023
   %cmp.not.i.i4.i86 = icmp eq i32 %bf.clear.i.i3.i85, 1023
-  br i1 %cmp.not.i.i4.i86, label %ehcleanup47, label %ehcleanup47.sink.split
+  br i1 %cmp.not.i.i4.i86, label %ehcleanup47, label %if.then.i.i5.i87
+
+if.then.i.i5.i87:                                 ; preds = %lpad.i81
+  %dec.i.i.i88 = add i32 %bf.load.i.i2.i84, 1023
+  %bf.value.i.i6.i89 = and i32 %dec.i.i.i88, 1023
+  %bf.clear7.i.i7.i90 = and i32 %bf.load.i.i2.i84, -1024
+  %bf.set.i.i8.i91 = or disjoint i32 %bf.value.i.i6.i89, %bf.clear7.i.i7.i90
+  store i32 %bf.set.i.i8.i91, ptr %arrayidx.i.i.i.i83, align 4
+  br label %ehcleanup47
 
 invoke.cont22:                                    ; preds = %invoke.cont.i93
   invoke void @_ZN2dd11pdd_manager11reserve_varEj(ptr noundef nonnull align 8 dereferenceable(952) %this, i32 noundef %v)
@@ -17659,21 +17740,18 @@ ehcleanup46:                                      ; preds = %if.then.i.i341, %eh
   %bf.load.i.i351 = load i32, ptr %arrayidx.i.i.i350, align 4
   %bf.clear.i.i352 = and i32 %bf.load.i.i351, 1023
   %cmp.not.i.i353 = icmp eq i32 %bf.clear.i.i352, 1023
-  br i1 %cmp.not.i.i353, label %ehcleanup47, label %ehcleanup47.sink.split
+  br i1 %cmp.not.i.i353, label %ehcleanup47, label %if.then.i.i354
 
-ehcleanup47.sink.split:                           ; preds = %ehcleanup46, %lpad.i81
-  %bf.load.i.i351.sink460 = phi i32 [ %bf.load.i.i2.i84, %lpad.i81 ], [ %bf.load.i.i351, %ehcleanup46 ]
-  %arrayidx.i.i.i350.sink = phi ptr [ %arrayidx.i.i.i.i83, %lpad.i81 ], [ %arrayidx.i.i.i350, %ehcleanup46 ]
-  %.pn.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %17, %lpad.i81 ], [ %.pn.pn.pn.pn.pn, %ehcleanup46 ]
-  %dec.i.i355 = add i32 %bf.load.i.i351.sink460, 1023
+if.then.i.i354:                                   ; preds = %ehcleanup46
+  %dec.i.i355 = add i32 %bf.load.i.i351, 1023
   %bf.value.i.i356 = and i32 %dec.i.i355, 1023
-  %bf.clear7.i.i357 = and i32 %bf.load.i.i351.sink460, -1024
+  %bf.clear7.i.i357 = and i32 %bf.load.i.i351, -1024
   %bf.set.i.i358 = or disjoint i32 %bf.value.i.i356, %bf.clear7.i.i357
-  store i32 %bf.set.i.i358, ptr %arrayidx.i.i.i350.sink, align 4
+  store i32 %bf.set.i.i358, ptr %arrayidx.i.i.i350, align 4
   br label %ehcleanup47
 
-ehcleanup47:                                      ; preds = %ehcleanup47.sink.split, %ehcleanup46, %lpad.i81
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %17, %lpad.i81 ], [ %.pn.pn.pn.pn.pn, %ehcleanup46 ], [ %.pn.pn.pn.pn.pn.pn.ph, %ehcleanup47.sink.split ]
+ehcleanup47:                                      ; preds = %if.then.i.i354, %ehcleanup46, %if.then.i.i5.i87, %lpad.i81
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %17, %if.then.i.i5.i87 ], [ %17, %lpad.i81 ], [ %.pn.pn.pn.pn.pn, %ehcleanup46 ], [ %.pn.pn.pn.pn.pn, %if.then.i.i354 ]
   %89 = load ptr, ptr %m.i.i60, align 8
   %90 = load i32, ptr %aa, align 8
   %91 = load ptr, ptr %89, align 8
@@ -17682,21 +17760,18 @@ ehcleanup47:                                      ; preds = %ehcleanup47.sink.sp
   %bf.load.i.i364 = load i32, ptr %arrayidx.i.i.i363, align 4
   %bf.clear.i.i365 = and i32 %bf.load.i.i364, 1023
   %cmp.not.i.i366 = icmp eq i32 %bf.clear.i.i365, 1023
-  br i1 %cmp.not.i.i366, label %ehcleanup48, label %ehcleanup48.sink.split
+  br i1 %cmp.not.i.i366, label %ehcleanup48, label %if.then.i.i367
 
-ehcleanup48.sink.split:                           ; preds = %ehcleanup47, %lpad.i
-  %bf.load.i.i364.sink461 = phi i32 [ %bf.load.i.i2.i, %lpad.i ], [ %bf.load.i.i364, %ehcleanup47 ]
-  %arrayidx.i.i.i363.sink = phi ptr [ %arrayidx.i.i.i.i, %lpad.i ], [ %arrayidx.i.i.i363, %ehcleanup47 ]
-  %.pn.pn.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %12, %lpad.i ], [ %.pn.pn.pn.pn.pn.pn, %ehcleanup47 ]
-  %dec.i.i368 = add i32 %bf.load.i.i364.sink461, 1023
+if.then.i.i367:                                   ; preds = %ehcleanup47
+  %dec.i.i368 = add i32 %bf.load.i.i364, 1023
   %bf.value.i.i369 = and i32 %dec.i.i368, 1023
-  %bf.clear7.i.i370 = and i32 %bf.load.i.i364.sink461, -1024
+  %bf.clear7.i.i370 = and i32 %bf.load.i.i364, -1024
   %bf.set.i.i371 = or disjoint i32 %bf.value.i.i369, %bf.clear7.i.i370
-  store i32 %bf.set.i.i371, ptr %arrayidx.i.i.i363.sink, align 4
+  store i32 %bf.set.i.i371, ptr %arrayidx.i.i.i363, align 4
   br label %ehcleanup48
 
-ehcleanup48:                                      ; preds = %ehcleanup48.sink.split, %ehcleanup47, %lpad.i
-  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %12, %lpad.i ], [ %.pn.pn.pn.pn.pn.pn, %ehcleanup47 ], [ %.pn.pn.pn.pn.pn.pn.pn.ph, %ehcleanup48.sink.split ]
+ehcleanup48:                                      ; preds = %if.then.i.i367, %ehcleanup47, %if.then.i.i5.i, %lpad.i
+  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %12, %if.then.i.i5.i ], [ %12, %lpad.i ], [ %.pn.pn.pn.pn.pn.pn, %ehcleanup47 ], [ %.pn.pn.pn.pn.pn.pn, %if.then.i.i367 ]
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %pow2j) #26
   br label %ehcleanup49
 
@@ -17882,7 +17957,11 @@ _ZN2dd3pddC2EjPNS_11pdd_managerE.exit.i:          ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %_ZN2dd3pddC2EjPNS_11pdd_managerE.exit.i
   %inc.i.i = add i32 %bf.load.i.pre.i, 1
-  br label %return.sink.split
+  %bf.value.i.i = and i32 %inc.i.i, 1023
+  %bf.clear7.i.i = and i32 %bf.load.i.pre.i, -1024
+  %bf.set.i.i = or disjoint i32 %bf.value.i.i, %bf.clear7.i.i
+  store i32 %bf.set.i.i, ptr %arrayidx.i.i.phi.trans.insert.i, align 4
+  br label %return
 
 if.end:                                           ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !216)
@@ -18220,7 +18299,11 @@ _ZN2dd3pddD2Ev.exit:                              ; preds = %invoke.cont30, %if.
 
 if.then.i.i99:                                    ; preds = %_ZN2dd3pddD2Ev.exit
   %dec.i.i100 = add i32 %bf.load.i.i96, 1023
-  br label %return.sink.split
+  %bf.value.i.i101 = and i32 %dec.i.i100, 1023
+  %bf.clear7.i.i102 = and i32 %bf.load.i.i96, -1024
+  %bf.set.i.i103 = or disjoint i32 %bf.value.i.i101, %bf.clear7.i.i102
+  store i32 %bf.set.i.i103, ptr %arrayidx.i.i.i95, align 4
+  br label %return
 
 ehcleanup:                                        ; preds = %lpad17.body, %lpad2
   %.pn = phi { ptr, i32 } [ %23, %lpad2 ], [ %eh.lpad-body, %lpad17.body ]
@@ -18264,17 +18347,7 @@ if.then.i.i125:                                   ; preds = %ehcleanup31
 _ZN2dd3pddD2Ev.exit131:                           ; preds = %ehcleanup31, %if.then.i.i125
   resume { ptr, i32 } %.pn
 
-return.sink.split:                                ; preds = %if.then.i.i, %if.then.i.i99
-  %dec.i.i100.sink = phi i32 [ %dec.i.i100, %if.then.i.i99 ], [ %inc.i.i, %if.then.i.i ]
-  %bf.load.i.i96.sink = phi i32 [ %bf.load.i.i96, %if.then.i.i99 ], [ %bf.load.i.pre.i, %if.then.i.i ]
-  %arrayidx.i.i.i95.sink = phi ptr [ %arrayidx.i.i.i95, %if.then.i.i99 ], [ %arrayidx.i.i.phi.trans.insert.i, %if.then.i.i ]
-  %bf.value.i.i101 = and i32 %dec.i.i100.sink, 1023
-  %bf.clear7.i.i102 = and i32 %bf.load.i.i96.sink, -1024
-  %bf.set.i.i103 = or disjoint i32 %bf.value.i.i101, %bf.clear7.i.i102
-  store i32 %bf.set.i.i103, ptr %arrayidx.i.i.i95.sink, align 4
-  br label %return
-
-return:                                           ; preds = %return.sink.split, %_ZN2dd3pddD2Ev.exit, %_ZN2dd3pddC2EjPNS_11pdd_managerE.exit.i, %if.then
+return:                                           ; preds = %if.then.i.i99, %_ZN2dd3pddD2Ev.exit, %if.then.i.i, %_ZN2dd3pddC2EjPNS_11pdd_managerE.exit.i, %if.then
   ret void
 }
 
@@ -18402,7 +18475,11 @@ _ZN2dd3pddC2EjPNS_11pdd_managerE.exit.i:          ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %_ZN2dd3pddC2EjPNS_11pdd_managerE.exit.i
   %inc.i.i = add i32 %bf.load.i.pre.i, 1
-  br label %return.sink.split
+  %bf.value.i.i = and i32 %inc.i.i, 1023
+  %bf.clear7.i.i = and i32 %bf.load.i.pre.i, -1024
+  %bf.set.i.i = or disjoint i32 %bf.value.i.i, %bf.clear7.i.i
+  store i32 %bf.set.i.i, ptr %arrayidx.i.i.phi.trans.insert.i, align 4
+  br label %return
 
 if.end:                                           ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !227)
@@ -18688,7 +18765,15 @@ _ZN2dd3pddD2Ev.exit156:                           ; preds = %_ZN2dd3pddD2Ev.exit
   %bf.load.i.i160 = load i32, ptr %arrayidx.i.i.i159, align 4
   %bf.clear.i.i161 = and i32 %bf.load.i.i160, 1023
   %cmp.not.i.i162 = icmp eq i32 %bf.clear.i.i161, 1023
-  br i1 %cmp.not.i.i162, label %if.end54, label %if.end54.sink.split
+  br i1 %cmp.not.i.i162, label %if.end54, label %if.then.i.i163
+
+if.then.i.i163:                                   ; preds = %_ZN2dd3pddD2Ev.exit156
+  %dec.i.i164 = add i32 %bf.load.i.i160, 1023
+  %bf.value.i.i165 = and i32 %dec.i.i164, 1023
+  %bf.clear7.i.i166 = and i32 %bf.load.i.i160, -1024
+  %bf.set.i.i167 = or disjoint i32 %bf.value.i.i165, %bf.clear7.i.i166
+  store i32 %bf.set.i.i167, ptr %arrayidx.i.i.i159, align 4
+  br label %if.end54
 
 lpad6:                                            ; preds = %if.else, %if.then20, %if.then11, %_ZN2dd3pddD2Ev.exit356, %if.end54, %invoke.cont7, %invoke.cont5
   %32 = landingpad { ptr, i32 }
@@ -18942,7 +19027,15 @@ _ZN2dd3pddD2Ev.exit296:                           ; preds = %_ZN2dd3pddD2Ev.exit
   %bf.load.i.i300 = load i32, ptr %arrayidx.i.i.i299, align 4
   %bf.clear.i.i301 = and i32 %bf.load.i.i300, 1023
   %cmp.not.i.i302 = icmp eq i32 %bf.clear.i.i301, 1023
-  br i1 %cmp.not.i.i302, label %if.end54, label %if.end54.sink.split
+  br i1 %cmp.not.i.i302, label %if.end54, label %if.then.i.i303
+
+if.then.i.i303:                                   ; preds = %_ZN2dd3pddD2Ev.exit296
+  %dec.i.i304 = add i32 %bf.load.i.i300, 1023
+  %bf.value.i.i305 = and i32 %dec.i.i304, 1023
+  %bf.clear7.i.i306 = and i32 %bf.load.i.i300, -1024
+  %bf.set.i.i307 = or disjoint i32 %bf.value.i.i305, %bf.clear7.i.i306
+  store i32 %bf.set.i.i307, ptr %arrayidx.i.i.i299, align 4
+  br label %if.end54
 
 lpad44:                                           ; preds = %invoke.cont43
   %66 = landingpad { ptr, i32 }
@@ -19013,17 +19106,7 @@ if.then.i.i339:                                   ; preds = %ehcleanup53
   store i32 %bf.set.i.i343, ptr %arrayidx.i.i.i335, align 4
   br label %ehcleanup62
 
-if.end54.sink.split:                              ; preds = %_ZN2dd3pddD2Ev.exit296, %_ZN2dd3pddD2Ev.exit156
-  %bf.load.i.i300.sink493 = phi i32 [ %bf.load.i.i160, %_ZN2dd3pddD2Ev.exit156 ], [ %bf.load.i.i300, %_ZN2dd3pddD2Ev.exit296 ]
-  %arrayidx.i.i.i299.sink = phi ptr [ %arrayidx.i.i.i159, %_ZN2dd3pddD2Ev.exit156 ], [ %arrayidx.i.i.i299, %_ZN2dd3pddD2Ev.exit296 ]
-  %dec.i.i304 = add i32 %bf.load.i.i300.sink493, 1023
-  %bf.value.i.i305 = and i32 %dec.i.i304, 1023
-  %bf.clear7.i.i306 = and i32 %bf.load.i.i300.sink493, -1024
-  %bf.set.i.i307 = or disjoint i32 %bf.value.i.i305, %bf.clear7.i.i306
-  store i32 %bf.set.i.i307, ptr %arrayidx.i.i.i299.sink, align 4
-  br label %if.end54
-
-if.end54:                                         ; preds = %if.end54.sink.split, %_ZN2dd3pddD2Ev.exit296, %_ZN2dd3pddD2Ev.exit156, %_ZN2dd3pddD2Ev.exit94
+if.end54:                                         ; preds = %if.then.i.i303, %_ZN2dd3pddD2Ev.exit296, %if.then.i.i163, %_ZN2dd3pddD2Ev.exit156, %_ZN2dd3pddD2Ev.exit94
   invoke void @_ZN2dd11pdd_manager6reduceEjRKNS_3pddEjS3_S3_(ptr nonnull sret(%"class.dd::pdd") align 8 %ref.tmp55, ptr noundef nonnull align 8 dereferenceable(952) %this, i32 noundef %v, ptr noundef nonnull align 8 dereferenceable(16) %a2, i32 noundef %m, ptr noundef nonnull align 8 dereferenceable(16) %b1, ptr noundef nonnull align 8 dereferenceable(16) %b2)
           to label %invoke.cont56 unwind label %lpad6
 
@@ -19125,7 +19208,11 @@ _ZN2dd3pddD2Ev.exit392:                           ; preds = %_ZN2dd3pddD2Ev.exit
 
 if.then.i.i399:                                   ; preds = %_ZN2dd3pddD2Ev.exit392
   %dec.i.i400 = add i32 %bf.load.i.i396, 1023
-  br label %return.sink.split
+  %bf.value.i.i401 = and i32 %dec.i.i400, 1023
+  %bf.clear7.i.i402 = and i32 %bf.load.i.i396, -1024
+  %bf.set.i.i403 = or disjoint i32 %bf.value.i.i401, %bf.clear7.i.i402
+  store i32 %bf.set.i.i403, ptr %arrayidx.i.i.i395, align 4
+  br label %return
 
 lpad57:                                           ; preds = %invoke.cont56
   %91 = landingpad { ptr, i32 }
@@ -19229,17 +19316,7 @@ if.then.i.i459:                                   ; preds = %ehcleanup65
 _ZN2dd3pddD2Ev.exit464:                           ; preds = %ehcleanup65, %if.then.i.i459
   resume { ptr, i32 } %.pn28
 
-return.sink.split:                                ; preds = %if.then.i.i, %if.then.i.i399
-  %dec.i.i400.sink = phi i32 [ %dec.i.i400, %if.then.i.i399 ], [ %inc.i.i, %if.then.i.i ]
-  %bf.load.i.i396.sink = phi i32 [ %bf.load.i.i396, %if.then.i.i399 ], [ %bf.load.i.pre.i, %if.then.i.i ]
-  %arrayidx.i.i.i395.sink = phi ptr [ %arrayidx.i.i.i395, %if.then.i.i399 ], [ %arrayidx.i.i.phi.trans.insert.i, %if.then.i.i ]
-  %bf.value.i.i401 = and i32 %dec.i.i400.sink, 1023
-  %bf.clear7.i.i402 = and i32 %bf.load.i.i396.sink, -1024
-  %bf.set.i.i403 = or disjoint i32 %bf.value.i.i401, %bf.clear7.i.i402
-  store i32 %bf.set.i.i403, ptr %arrayidx.i.i.i395.sink, align 4
-  br label %return
-
-return:                                           ; preds = %return.sink.split, %_ZN2dd3pddD2Ev.exit392, %_ZN2dd3pddC2EjPNS_11pdd_managerE.exit.i, %if.then
+return:                                           ; preds = %if.then.i.i399, %_ZN2dd3pddD2Ev.exit392, %if.then.i.i, %_ZN2dd3pddC2EjPNS_11pdd_managerE.exit.i, %if.then
   ret void
 }
 
@@ -28534,7 +28611,11 @@ _ZN2dd3pddC2EjPNS_11pdd_managerE.exit.i:          ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %_ZN2dd3pddC2EjPNS_11pdd_managerE.exit.i
   %inc.i.i = add i32 %bf.load.i.pre.i, 1
-  br label %return.sink.split
+  %bf.value.i.i = and i32 %inc.i.i, 1023
+  %bf.clear7.i.i = and i32 %bf.load.i.pre.i, -1024
+  %bf.set.i.i = or disjoint i32 %bf.value.i.i, %bf.clear7.i.i
+  store i32 %bf.set.i.i, ptr %arrayidx.i.i.phi.trans.insert.i, align 4
+  br label %return
 
 if.end:                                           ; preds = %entry, %_ZNK2dd3pdd6is_valEv.exit
   %m_var2level = getelementptr inbounds i8, ptr %0, i64 136
@@ -28578,7 +28659,11 @@ _ZN2dd3pddC2EjPNS_11pdd_managerE.exit.i28:        ; preds = %if.then7
 
 if.then.i.i40:                                    ; preds = %_ZN2dd3pddC2EjPNS_11pdd_managerE.exit.i28
   %inc.i.i42 = add i32 %bf.load.i.pre.i38, 1
-  br label %return.sink.split
+  %bf.value.i.i43 = and i32 %inc.i.i42, 1023
+  %bf.clear7.i.i44 = and i32 %bf.load.i.pre.i38, -1024
+  %bf.set.i.i45 = or disjoint i32 %bf.value.i.i43, %bf.clear7.i.i44
+  store i32 %bf.set.i.i45, ptr %arrayidx.i.i.phi.trans.insert.i37, align 4
+  br label %return
 
 if.end8:                                          ; preds = %if.end
   tail call void @llvm.experimental.noalias.scope.decl(metadata !349)
@@ -28706,7 +28791,11 @@ invoke.cont22:                                    ; preds = %invoke.cont20
 
 if.then.i.i107:                                   ; preds = %invoke.cont22
   %dec.i.i108 = add i32 %bf.load.i.i104, 1023
-  br label %cleanup.sink.split
+  %bf.value.i.i109 = and i32 %dec.i.i108, 1023
+  %bf.clear7.i.i110 = and i32 %bf.load.i.i104, -1024
+  %bf.set.i.i111 = or disjoint i32 %bf.value.i.i109, %bf.clear7.i.i110
+  store i32 %bf.set.i.i111, ptr %arrayidx.i.i.i103, align 4
+  br label %cleanup
 
 lpad:                                             ; preds = %_ZNK2dd3pdd2loEv.exit
   %28 = landingpad { ptr, i32 }
@@ -28716,7 +28805,15 @@ lpad:                                             ; preds = %_ZNK2dd3pdd2loEv.ex
   %bf.load.i.i116 = load i32, ptr %arrayidx.i.i.i115, align 4
   %bf.clear.i.i117 = and i32 %bf.load.i.i116, 1023
   %cmp.not.i.i118 = icmp eq i32 %bf.clear.i.i117, 1023
-  br i1 %cmp.not.i.i118, label %eh.resume, label %eh.resume.sink.split
+  br i1 %cmp.not.i.i118, label %eh.resume, label %if.then.i.i119
+
+if.then.i.i119:                                   ; preds = %lpad
+  %dec.i.i120 = add i32 %bf.load.i.i116, 1023
+  %bf.value.i.i121 = and i32 %dec.i.i120, 1023
+  %bf.clear7.i.i122 = and i32 %bf.load.i.i116, -1024
+  %bf.set.i.i123 = or disjoint i32 %bf.value.i.i121, %bf.clear7.i.i122
+  store i32 %bf.set.i.i123, ptr %arrayidx.i.i.i115, align 4
+  br label %eh.resume
 
 lpad12:                                           ; preds = %invoke.cont11
   %30 = landingpad { ptr, i32 }
@@ -28726,7 +28823,15 @@ lpad12:                                           ; preds = %invoke.cont11
   %bf.load.i.i128 = load i32, ptr %arrayidx.i.i.i127, align 4
   %bf.clear.i.i129 = and i32 %bf.load.i.i128, 1023
   %cmp.not.i.i130 = icmp eq i32 %bf.clear.i.i129, 1023
-  br i1 %cmp.not.i.i130, label %ehcleanup53, label %ehcleanup53.sink.split
+  br i1 %cmp.not.i.i130, label %ehcleanup53, label %if.then.i.i131
+
+if.then.i.i131:                                   ; preds = %lpad12
+  %dec.i.i132 = add i32 %bf.load.i.i128, 1023
+  %bf.value.i.i133 = and i32 %dec.i.i132, 1023
+  %bf.clear7.i.i134 = and i32 %bf.load.i.i128, -1024
+  %bf.set.i.i135 = or disjoint i32 %bf.value.i.i133, %bf.clear7.i.i134
+  store i32 %bf.set.i.i135, ptr %arrayidx.i.i.i127, align 4
+  br label %ehcleanup53
 
 lpad14:                                           ; preds = %invoke.cont42, %if.then18
   %32 = landingpad { ptr, i32 }
@@ -28885,7 +28990,11 @@ _ZN2dd3pddC2EjPNS_11pdd_managerE.exit.i217:       ; preds = %if.then36
 
 if.then.i.i229:                                   ; preds = %_ZN2dd3pddC2EjPNS_11pdd_managerE.exit.i217
   %inc.i.i231 = add i32 %bf.load.i.pre.i227, 1
-  br label %cleanup.sink.split
+  %bf.value.i.i232 = and i32 %inc.i.i231, 1023
+  %bf.clear7.i.i233 = and i32 %bf.load.i.pre.i227, -1024
+  %bf.set.i.i234 = or disjoint i32 %bf.value.i.i232, %bf.clear7.i.i233
+  store i32 %bf.set.i.i234, ptr %arrayidx.i.i.phi.trans.insert.i226, align 4
+  br label %cleanup
 
 invoke.cont42:                                    ; preds = %_ZN2dd3pddD2Ev.exit209
   %58 = load ptr, ptr %m.i, align 8
@@ -28970,7 +29079,11 @@ _ZN2dd3pddD2Ev.exit279:                           ; preds = %invoke.cont48, %if.
 
 if.then.i.i286:                                   ; preds = %_ZN2dd3pddD2Ev.exit279
   %dec.i.i287 = add i32 %bf.load.i.i283, 1023
-  br label %cleanup.sink.split
+  %bf.value.i.i288 = and i32 %dec.i.i287, 1023
+  %bf.clear7.i.i289 = and i32 %bf.load.i.i283, -1024
+  %bf.set.i.i290 = or disjoint i32 %bf.value.i.i288, %bf.clear7.i.i289
+  store i32 %bf.set.i.i290, ptr %arrayidx.i.i.i282, align 4
+  br label %cleanup
 
 lpad45:                                           ; preds = %invoke.cont44
   %72 = landingpad { ptr, i32 }
@@ -29019,17 +29132,7 @@ if.then.i.i310:                                   ; preds = %ehcleanup50
   store i32 %bf.set.i.i314, ptr %arrayidx.i.i.i306, align 4
   br label %ehcleanup51
 
-cleanup.sink.split:                               ; preds = %if.then.i.i107, %if.then.i.i229, %if.then.i.i286
-  %dec.i.i287.sink = phi i32 [ %dec.i.i287, %if.then.i.i286 ], [ %inc.i.i231, %if.then.i.i229 ], [ %dec.i.i108, %if.then.i.i107 ]
-  %bf.load.i.i283.sink = phi i32 [ %bf.load.i.i283, %if.then.i.i286 ], [ %bf.load.i.pre.i227, %if.then.i.i229 ], [ %bf.load.i.i104, %if.then.i.i107 ]
-  %arrayidx.i.i.i282.sink = phi ptr [ %arrayidx.i.i.i282, %if.then.i.i286 ], [ %arrayidx.i.i.phi.trans.insert.i226, %if.then.i.i229 ], [ %arrayidx.i.i.i103, %if.then.i.i107 ]
-  %bf.value.i.i288 = and i32 %dec.i.i287.sink, 1023
-  %bf.clear7.i.i289 = and i32 %bf.load.i.i283.sink, -1024
-  %bf.set.i.i290 = or disjoint i32 %bf.value.i.i288, %bf.clear7.i.i289
-  store i32 %bf.set.i.i290, ptr %arrayidx.i.i.i282.sink, align 4
-  br label %cleanup
-
-cleanup:                                          ; preds = %cleanup.sink.split, %_ZN2dd3pddD2Ev.exit279, %_ZN2dd3pddC2EjPNS_11pdd_managerE.exit.i217, %if.then36, %invoke.cont22
+cleanup:                                          ; preds = %if.then.i.i286, %_ZN2dd3pddD2Ev.exit279, %if.then.i.i229, %_ZN2dd3pddC2EjPNS_11pdd_managerE.exit.i217, %if.then36, %if.then.i.i107, %invoke.cont22
   %m.i316 = getelementptr inbounds i8, ptr %h, i64 8
   %80 = load ptr, ptr %m.i316, align 8
   %81 = load i32, ptr %h, align 8
@@ -29063,7 +29166,11 @@ _ZN2dd3pddD2Ev.exit327:                           ; preds = %cleanup, %if.then.i
 
 if.then.i.i334:                                   ; preds = %_ZN2dd3pddD2Ev.exit327
   %dec.i.i335 = add i32 %bf.load.i.i331, 1023
-  br label %return.sink.split
+  %bf.value.i.i336 = and i32 %dec.i.i335, 1023
+  %bf.clear7.i.i337 = and i32 %bf.load.i.i331, -1024
+  %bf.set.i.i338 = or disjoint i32 %bf.value.i.i336, %bf.clear7.i.i337
+  store i32 %bf.set.i.i338, ptr %arrayidx.i.i.i330, align 4
+  br label %return
 
 ehcleanup51:                                      ; preds = %if.then.i.i310, %ehcleanup50, %if.then.i.i143, %lpad21, %lpad14
   %.pn7 = phi { ptr, i32 } [ %32, %lpad14 ], [ %33, %lpad21 ], [ %33, %if.then.i.i143 ], [ %.pn, %ehcleanup50 ], [ %.pn, %if.then.i.i310 ]
@@ -29076,21 +29183,18 @@ ehcleanup51:                                      ; preds = %if.then.i.i310, %eh
   %bf.load.i.i343 = load i32, ptr %arrayidx.i.i.i342, align 4
   %bf.clear.i.i344 = and i32 %bf.load.i.i343, 1023
   %cmp.not.i.i345 = icmp eq i32 %bf.clear.i.i344, 1023
-  br i1 %cmp.not.i.i345, label %ehcleanup53, label %ehcleanup53.sink.split
+  br i1 %cmp.not.i.i345, label %ehcleanup53, label %if.then.i.i346
 
-ehcleanup53.sink.split:                           ; preds = %ehcleanup51, %lpad12
-  %bf.load.i.i343.sink382 = phi i32 [ %bf.load.i.i128, %lpad12 ], [ %bf.load.i.i343, %ehcleanup51 ]
-  %arrayidx.i.i.i342.sink = phi ptr [ %arrayidx.i.i.i127, %lpad12 ], [ %arrayidx.i.i.i342, %ehcleanup51 ]
-  %.pn7.pn.ph = phi { ptr, i32 } [ %30, %lpad12 ], [ %.pn7, %ehcleanup51 ]
-  %dec.i.i347 = add i32 %bf.load.i.i343.sink382, 1023
+if.then.i.i346:                                   ; preds = %ehcleanup51
+  %dec.i.i347 = add i32 %bf.load.i.i343, 1023
   %bf.value.i.i348 = and i32 %dec.i.i347, 1023
-  %bf.clear7.i.i349 = and i32 %bf.load.i.i343.sink382, -1024
+  %bf.clear7.i.i349 = and i32 %bf.load.i.i343, -1024
   %bf.set.i.i350 = or disjoint i32 %bf.value.i.i348, %bf.clear7.i.i349
-  store i32 %bf.set.i.i350, ptr %arrayidx.i.i.i342.sink, align 4
+  store i32 %bf.set.i.i350, ptr %arrayidx.i.i.i342, align 4
   br label %ehcleanup53
 
-ehcleanup53:                                      ; preds = %ehcleanup53.sink.split, %ehcleanup51, %lpad12
-  %.pn7.pn = phi { ptr, i32 } [ %30, %lpad12 ], [ %.pn7, %ehcleanup51 ], [ %.pn7.pn.ph, %ehcleanup53.sink.split ]
+ehcleanup53:                                      ; preds = %if.then.i.i346, %ehcleanup51, %if.then.i.i131, %lpad12
+  %.pn7.pn = phi { ptr, i32 } [ %30, %lpad12 ], [ %30, %if.then.i.i131 ], [ %.pn7, %ehcleanup51 ], [ %.pn7, %if.then.i.i346 ]
   %m.i352 = getelementptr inbounds i8, ptr %l, i64 8
   %89 = load ptr, ptr %m.i352, align 8
   %90 = load i32, ptr %l, align 8
@@ -29100,34 +29204,21 @@ ehcleanup53:                                      ; preds = %ehcleanup53.sink.sp
   %bf.load.i.i355 = load i32, ptr %arrayidx.i.i.i354, align 4
   %bf.clear.i.i356 = and i32 %bf.load.i.i355, 1023
   %cmp.not.i.i357 = icmp eq i32 %bf.clear.i.i356, 1023
-  br i1 %cmp.not.i.i357, label %eh.resume, label %eh.resume.sink.split
+  br i1 %cmp.not.i.i357, label %eh.resume, label %if.then.i.i358
 
-return.sink.split:                                ; preds = %if.then.i.i, %if.then.i.i40, %if.then.i.i334
-  %dec.i.i335.sink = phi i32 [ %dec.i.i335, %if.then.i.i334 ], [ %inc.i.i42, %if.then.i.i40 ], [ %inc.i.i, %if.then.i.i ]
-  %bf.load.i.i331.sink = phi i32 [ %bf.load.i.i331, %if.then.i.i334 ], [ %bf.load.i.pre.i38, %if.then.i.i40 ], [ %bf.load.i.pre.i, %if.then.i.i ]
-  %arrayidx.i.i.i330.sink = phi ptr [ %arrayidx.i.i.i330, %if.then.i.i334 ], [ %arrayidx.i.i.phi.trans.insert.i37, %if.then.i.i40 ], [ %arrayidx.i.i.phi.trans.insert.i, %if.then.i.i ]
-  %bf.value.i.i336 = and i32 %dec.i.i335.sink, 1023
-  %bf.clear7.i.i337 = and i32 %bf.load.i.i331.sink, -1024
-  %bf.set.i.i338 = or disjoint i32 %bf.value.i.i336, %bf.clear7.i.i337
-  store i32 %bf.set.i.i338, ptr %arrayidx.i.i.i330.sink, align 4
-  br label %return
-
-return:                                           ; preds = %return.sink.split, %_ZN2dd3pddD2Ev.exit327, %_ZN2dd3pddC2EjPNS_11pdd_managerE.exit.i28, %if.then7, %_ZN2dd3pddC2EjPNS_11pdd_managerE.exit.i, %if.then
-  ret void
-
-eh.resume.sink.split:                             ; preds = %ehcleanup53, %lpad
-  %bf.load.i.i355.sink383 = phi i32 [ %bf.load.i.i116, %lpad ], [ %bf.load.i.i355, %ehcleanup53 ]
-  %arrayidx.i.i.i354.sink = phi ptr [ %arrayidx.i.i.i115, %lpad ], [ %arrayidx.i.i.i354, %ehcleanup53 ]
-  %.pn7.pn.pn.ph = phi { ptr, i32 } [ %28, %lpad ], [ %.pn7.pn, %ehcleanup53 ]
-  %dec.i.i359 = add i32 %bf.load.i.i355.sink383, 1023
+if.then.i.i358:                                   ; preds = %ehcleanup53
+  %dec.i.i359 = add i32 %bf.load.i.i355, 1023
   %bf.value.i.i360 = and i32 %dec.i.i359, 1023
-  %bf.clear7.i.i361 = and i32 %bf.load.i.i355.sink383, -1024
+  %bf.clear7.i.i361 = and i32 %bf.load.i.i355, -1024
   %bf.set.i.i362 = or disjoint i32 %bf.value.i.i360, %bf.clear7.i.i361
-  store i32 %bf.set.i.i362, ptr %arrayidx.i.i.i354.sink, align 4
+  store i32 %bf.set.i.i362, ptr %arrayidx.i.i.i354, align 4
   br label %eh.resume
 
-eh.resume:                                        ; preds = %eh.resume.sink.split, %ehcleanup53, %lpad
-  %.pn7.pn.pn = phi { ptr, i32 } [ %28, %lpad ], [ %.pn7.pn, %ehcleanup53 ], [ %.pn7.pn.pn.ph, %eh.resume.sink.split ]
+return:                                           ; preds = %if.then.i.i334, %_ZN2dd3pddD2Ev.exit327, %if.then.i.i40, %_ZN2dd3pddC2EjPNS_11pdd_managerE.exit.i28, %if.then7, %if.then.i.i, %_ZN2dd3pddC2EjPNS_11pdd_managerE.exit.i, %if.then
+  ret void
+
+eh.resume:                                        ; preds = %if.then.i.i358, %ehcleanup53, %if.then.i.i119, %lpad
+  %.pn7.pn.pn = phi { ptr, i32 } [ %28, %lpad ], [ %28, %if.then.i.i119 ], [ %.pn7.pn, %ehcleanup53 ], [ %.pn7.pn, %if.then.i.i358 ]
   resume { ptr, i32 } %.pn7.pn.pn
 }
 
@@ -29204,7 +29295,15 @@ _ZN2dd3pddC2EjPNS_11pdd_managerE.exit.i.i:        ; preds = %if.then
   %bf.load.i.pre.i.i = load i32, ptr %arrayidx.i.i.phi.trans.insert.i.i, align 4
   %.pre15.i.i = and i32 %bf.load.i.pre.i.i, 1023
   %10 = icmp eq i32 %.pre15.i.i, 1023
-  br i1 %10, label %return, label %return.sink.split
+  br i1 %10, label %return, label %if.then.i.i.i
+
+if.then.i.i.i:                                    ; preds = %_ZN2dd3pddC2EjPNS_11pdd_managerE.exit.i.i
+  %inc.i.i.i = add i32 %bf.load.i.pre.i.i, 1
+  %bf.value.i.i.i = and i32 %inc.i.i.i, 1023
+  %bf.clear7.i.i.i = and i32 %bf.load.i.pre.i.i, -1024
+  %bf.set.i.i.i = or disjoint i32 %bf.value.i.i.i, %bf.clear7.i.i.i
+  store i32 %bf.set.i.i.i, ptr %arrayidx.i.i.phi.trans.insert.i.i, align 4
+  br label %return
 
 if.end:                                           ; preds = %entry.if.end_crit_edge, %_ZNK2dd3pdd6is_valEv.exit
   %idxprom.i.i.i.i42 = phi i64 [ %7, %entry.if.end_crit_edge ], [ 0, %_ZNK2dd3pdd6is_valEv.exit ]
@@ -29342,7 +29441,15 @@ _ZN2dd3pddC2EjPNS_11pdd_managerE.exit.i.i100:     ; preds = %if.then12
   %bf.load.i.pre.i.i110 = load i32, ptr %arrayidx.i.i.phi.trans.insert.i.i109, align 4
   %.pre15.i.i111 = and i32 %bf.load.i.pre.i.i110, 1023
   %26 = icmp eq i32 %.pre15.i.i111, 1023
-  br i1 %26, label %return, label %return.sink.split
+  br i1 %26, label %return, label %if.then.i.i.i112
+
+if.then.i.i.i112:                                 ; preds = %_ZN2dd3pddC2EjPNS_11pdd_managerE.exit.i.i100
+  %inc.i.i.i113 = add i32 %bf.load.i.pre.i.i110, 1
+  %bf.value.i.i.i114 = and i32 %inc.i.i.i113, 1023
+  %bf.clear7.i.i.i115 = and i32 %bf.load.i.pre.i.i110, -1024
+  %bf.set.i.i.i116 = or disjoint i32 %bf.value.i.i.i114, %bf.clear7.i.i.i115
+  store i32 %bf.set.i.i.i116, ptr %arrayidx.i.i.phi.trans.insert.i.i109, align 4
+  br label %return
 
 if.end16:                                         ; preds = %if.then.i.i86, %_ZNK2dd3pdd2loEv.exit79.thread, %_ZN2dd3pddD2Ev.exit91
   tail call void @llvm.experimental.noalias.scope.decl(metadata !370)
@@ -30671,17 +30778,7 @@ terminate.lpad.i.i.i747:                          ; preds = %if.then.i.i.i.i745
   call void @__clang_call_terminate(ptr %223) #25
   unreachable
 
-return.sink.split:                                ; preds = %_ZN2dd3pddC2EjPNS_11pdd_managerE.exit.i.i100, %_ZN2dd3pddC2EjPNS_11pdd_managerE.exit.i.i
-  %bf.load.i.pre.i.i110.sink767 = phi i32 [ %bf.load.i.pre.i.i, %_ZN2dd3pddC2EjPNS_11pdd_managerE.exit.i.i ], [ %bf.load.i.pre.i.i110, %_ZN2dd3pddC2EjPNS_11pdd_managerE.exit.i.i100 ]
-  %arrayidx.i.i.phi.trans.insert.i.i109.sink = phi ptr [ %arrayidx.i.i.phi.trans.insert.i.i, %_ZN2dd3pddC2EjPNS_11pdd_managerE.exit.i.i ], [ %arrayidx.i.i.phi.trans.insert.i.i109, %_ZN2dd3pddC2EjPNS_11pdd_managerE.exit.i.i100 ]
-  %inc.i.i.i113 = add i32 %bf.load.i.pre.i.i110.sink767, 1
-  %bf.value.i.i.i114 = and i32 %inc.i.i.i113, 1023
-  %bf.clear7.i.i.i115 = and i32 %bf.load.i.pre.i.i110.sink767, -1024
-  %bf.set.i.i.i116 = or disjoint i32 %bf.value.i.i.i114, %bf.clear7.i.i.i115
-  store i32 %bf.set.i.i.i116, ptr %arrayidx.i.i.phi.trans.insert.i.i109.sink, align 4
-  br label %return
-
-return:                                           ; preds = %return.sink.split, %if.then12, %_ZN2dd3pddC2EjPNS_11pdd_managerE.exit.i.i100, %if.then, %_ZN2dd3pddC2EjPNS_11pdd_managerE.exit.i.i, %if.then.i.i.i.i745, %_ZN2dd3pddD2Ev.exit.i743, %if.then.i.i.i.i, %_ZN2dd3pddD2Ev.exit.i
+return:                                           ; preds = %if.then12, %_ZN2dd3pddC2EjPNS_11pdd_managerE.exit.i.i100, %if.then.i.i.i112, %if.then, %_ZN2dd3pddC2EjPNS_11pdd_managerE.exit.i.i, %if.then.i.i.i, %if.then.i.i.i.i745, %_ZN2dd3pddD2Ev.exit.i743, %if.then.i.i.i.i, %_ZN2dd3pddD2Ev.exit.i
   ret void
 
 eh.resume:                                        ; preds = %if.then.i.i277, %lpad28, %if.then.i.i204, %lpad18, %ehcleanup120, %lpad22
@@ -35641,11 +35738,40 @@ if.then2:                                         ; preds = %_ZN9__gnu_cxx5__ops
   %7 = load i32, ptr %second3.i.i.i, align 4
   store i32 %7, ptr %second.i.i.i, align 4
   store i32 %6, ptr %second3.i.i.i, align 4
+  %m_ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result, i64 16
+  %m_ptr3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__b, i64 16
+  %8 = load ptr, ptr %m_ptr.i.i.i.i.i.i.i.i, align 8
+  %9 = load ptr, ptr %m_ptr3.i.i.i.i.i.i.i.i, align 8
+  store ptr %9, ptr %m_ptr.i.i.i.i.i.i.i.i, align 8
+  store ptr %8, ptr %m_ptr3.i.i.i.i.i.i.i.i, align 8
+  %m_owner.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result, i64 12
+  %bf.load.i.i.i.i.i.i.i.i = load i8, ptr %m_owner.i.i.i.i.i.i.i.i, align 4
+  %bf.clear.i.i.i.i.i.i.i.i = and i8 %bf.load.i.i.i.i.i.i.i.i, 2
+  %m_owner4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__b, i64 12
+  %bf.load5.i.i.i.i.i.i.i.i = load i8, ptr %m_owner4.i.i.i.i.i.i.i.i, align 4
+  %bf.clear7.i.i.i.i.i.i.i.i = and i8 %bf.load5.i.i.i.i.i.i.i.i, 2
+  %bf.clear11.i.i.i.i.i.i.i.i = and i8 %bf.load.i.i.i.i.i.i.i.i, -3
+  %bf.set.i.i.i.i.i.i.i.i = or disjoint i8 %bf.clear7.i.i.i.i.i.i.i.i, %bf.clear11.i.i.i.i.i.i.i.i
+  store i8 %bf.set.i.i.i.i.i.i.i.i, ptr %m_owner.i.i.i.i.i.i.i.i, align 4
+  %bf.load13.i.i.i.i.i.i.i.i = load i8, ptr %m_owner4.i.i.i.i.i.i.i.i, align 4
+  %bf.clear16.i.i.i.i.i.i.i.i = and i8 %bf.load13.i.i.i.i.i.i.i.i, -3
+  %bf.set17.i.i.i.i.i.i.i.i = or disjoint i8 %bf.clear16.i.i.i.i.i.i.i.i, %bf.clear.i.i.i.i.i.i.i.i
+  store i8 %bf.set17.i.i.i.i.i.i.i.i, ptr %m_owner4.i.i.i.i.i.i.i.i, align 4
+  %bf.load18.i.i.i.i.i.i.i.i = load i8, ptr %m_owner.i.i.i.i.i.i.i.i, align 4
+  %bf.clear19.i.i.i.i.i.i.i.i = and i8 %bf.load18.i.i.i.i.i.i.i.i, 1
+  %bf.clear23.i.i.i.i.i.i.i.i = and i8 %bf.load13.i.i.i.i.i.i.i.i, 1
+  %bf.clear28.i.i.i.i.i.i.i.i = and i8 %bf.load18.i.i.i.i.i.i.i.i, -2
+  %bf.set29.i.i.i.i.i.i.i.i = or disjoint i8 %bf.clear28.i.i.i.i.i.i.i.i, %bf.clear23.i.i.i.i.i.i.i.i
+  store i8 %bf.set29.i.i.i.i.i.i.i.i, ptr %m_owner.i.i.i.i.i.i.i.i, align 4
+  %bf.load31.i.i.i.i.i.i.i.i = load i8, ptr %m_owner4.i.i.i.i.i.i.i.i, align 4
+  %bf.clear33.i.i.i.i.i.i.i.i = and i8 %bf.load31.i.i.i.i.i.i.i.i, -2
+  %bf.set34.i.i.i.i.i.i.i.i = or disjoint i8 %bf.clear33.i.i.i.i.i.i.i.i, %bf.clear19.i.i.i.i.i.i.i.i
+  store i8 %bf.set34.i.i.i.i.i.i.i.i, ptr %m_owner4.i.i.i.i.i.i.i.i, align 4
   br label %if.end16
 
 if.else:                                          ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIj8rationalES7_EEEclIPS5_SC_EEbT_T0_.exit24
-  %8 = load ptr, ptr %_M_manager.i.i.i, align 8
-  %tobool.not.i.i.i26 = icmp eq ptr %8, null
+  %10 = load ptr, ptr %_M_manager.i.i.i, align 8
+  %tobool.not.i.i.i26 = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i26, label %if.then.i.i29, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIj8rationalES7_EEEclIPS5_SC_EEbT_T0_.exit30
 
 if.then.i.i29:                                    ; preds = %if.else
@@ -35653,32 +35779,88 @@ if.then.i.i29:                                    ; preds = %if.else
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIj8rationalES7_EEEclIPS5_SC_EEbT_T0_.exit30: ; preds = %if.else
-  %9 = load ptr, ptr %_M_invoker.i.i, align 8
-  %call4.i.i28 = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %__comp, ptr noundef nonnull align 8 dereferenceable(40) %__a, ptr noundef nonnull align 8 dereferenceable(40) %__c)
-  %10 = load i32, ptr %__result, align 4
+  %11 = load ptr, ptr %_M_invoker.i.i, align 8
+  %call4.i.i28 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %__comp, ptr noundef nonnull align 8 dereferenceable(40) %__a, ptr noundef nonnull align 8 dereferenceable(40) %__c)
+  %12 = load i32, ptr %__result, align 4
   %second.i.i.i31 = getelementptr inbounds i8, ptr %__result, i64 8
+  %m_ptr.i.i.i.i.i.i.i.i33 = getelementptr inbounds i8, ptr %__result, i64 16
+  %m_owner.i.i.i.i.i.i.i.i35 = getelementptr inbounds i8, ptr %__result, i64 12
   br i1 %call4.i.i28, label %if.then4, label %if.else5
 
 if.then4:                                         ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIj8rationalES7_EEEclIPS5_SC_EEbT_T0_.exit30
-  %11 = load i32, ptr %__c, align 4
-  store i32 %11, ptr %__result, align 4
-  store i32 %10, ptr %__c, align 4
+  %13 = load i32, ptr %__c, align 4
+  store i32 %13, ptr %__result, align 4
+  store i32 %12, ptr %__c, align 4
   %second3.i.i.i32 = getelementptr inbounds i8, ptr %__c, i64 8
-  %12 = load i32, ptr %second.i.i.i31, align 4
-  %13 = load i32, ptr %second3.i.i.i32, align 4
-  store i32 %13, ptr %second.i.i.i31, align 4
-  store i32 %12, ptr %second3.i.i.i32, align 4
+  %14 = load i32, ptr %second.i.i.i31, align 4
+  %15 = load i32, ptr %second3.i.i.i32, align 4
+  store i32 %15, ptr %second.i.i.i31, align 4
+  store i32 %14, ptr %second3.i.i.i32, align 4
+  %m_ptr3.i.i.i.i.i.i.i.i34 = getelementptr inbounds i8, ptr %__c, i64 16
+  %16 = load ptr, ptr %m_ptr.i.i.i.i.i.i.i.i33, align 8
+  %17 = load ptr, ptr %m_ptr3.i.i.i.i.i.i.i.i34, align 8
+  store ptr %17, ptr %m_ptr.i.i.i.i.i.i.i.i33, align 8
+  store ptr %16, ptr %m_ptr3.i.i.i.i.i.i.i.i34, align 8
+  %bf.load.i.i.i.i.i.i.i.i36 = load i8, ptr %m_owner.i.i.i.i.i.i.i.i35, align 4
+  %bf.clear.i.i.i.i.i.i.i.i37 = and i8 %bf.load.i.i.i.i.i.i.i.i36, 2
+  %m_owner4.i.i.i.i.i.i.i.i38 = getelementptr inbounds i8, ptr %__c, i64 12
+  %bf.load5.i.i.i.i.i.i.i.i39 = load i8, ptr %m_owner4.i.i.i.i.i.i.i.i38, align 4
+  %bf.clear7.i.i.i.i.i.i.i.i40 = and i8 %bf.load5.i.i.i.i.i.i.i.i39, 2
+  %bf.clear11.i.i.i.i.i.i.i.i41 = and i8 %bf.load.i.i.i.i.i.i.i.i36, -3
+  %bf.set.i.i.i.i.i.i.i.i42 = or disjoint i8 %bf.clear7.i.i.i.i.i.i.i.i40, %bf.clear11.i.i.i.i.i.i.i.i41
+  store i8 %bf.set.i.i.i.i.i.i.i.i42, ptr %m_owner.i.i.i.i.i.i.i.i35, align 4
+  %bf.load13.i.i.i.i.i.i.i.i43 = load i8, ptr %m_owner4.i.i.i.i.i.i.i.i38, align 4
+  %bf.clear16.i.i.i.i.i.i.i.i44 = and i8 %bf.load13.i.i.i.i.i.i.i.i43, -3
+  %bf.set17.i.i.i.i.i.i.i.i45 = or disjoint i8 %bf.clear16.i.i.i.i.i.i.i.i44, %bf.clear.i.i.i.i.i.i.i.i37
+  store i8 %bf.set17.i.i.i.i.i.i.i.i45, ptr %m_owner4.i.i.i.i.i.i.i.i38, align 4
+  %bf.load18.i.i.i.i.i.i.i.i46 = load i8, ptr %m_owner.i.i.i.i.i.i.i.i35, align 4
+  %bf.clear19.i.i.i.i.i.i.i.i47 = and i8 %bf.load18.i.i.i.i.i.i.i.i46, 1
+  %bf.clear23.i.i.i.i.i.i.i.i48 = and i8 %bf.load13.i.i.i.i.i.i.i.i43, 1
+  %bf.clear28.i.i.i.i.i.i.i.i49 = and i8 %bf.load18.i.i.i.i.i.i.i.i46, -2
+  %bf.set29.i.i.i.i.i.i.i.i50 = or disjoint i8 %bf.clear28.i.i.i.i.i.i.i.i49, %bf.clear23.i.i.i.i.i.i.i.i48
+  store i8 %bf.set29.i.i.i.i.i.i.i.i50, ptr %m_owner.i.i.i.i.i.i.i.i35, align 4
+  %bf.load31.i.i.i.i.i.i.i.i51 = load i8, ptr %m_owner4.i.i.i.i.i.i.i.i38, align 4
+  %bf.clear33.i.i.i.i.i.i.i.i52 = and i8 %bf.load31.i.i.i.i.i.i.i.i51, -2
+  %bf.set34.i.i.i.i.i.i.i.i53 = or disjoint i8 %bf.clear33.i.i.i.i.i.i.i.i52, %bf.clear19.i.i.i.i.i.i.i.i47
+  store i8 %bf.set34.i.i.i.i.i.i.i.i53, ptr %m_owner4.i.i.i.i.i.i.i.i38, align 4
   br label %if.end16
 
 if.else5:                                         ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIj8rationalES7_EEEclIPS5_SC_EEbT_T0_.exit30
-  %14 = load i32, ptr %__a, align 4
-  store i32 %14, ptr %__result, align 4
-  store i32 %10, ptr %__a, align 4
+  %18 = load i32, ptr %__a, align 4
+  store i32 %18, ptr %__result, align 4
+  store i32 %12, ptr %__a, align 4
   %second3.i.i.i78 = getelementptr inbounds i8, ptr %__a, i64 8
-  %15 = load i32, ptr %second.i.i.i31, align 4
-  %16 = load i32, ptr %second3.i.i.i78, align 4
-  store i32 %16, ptr %second.i.i.i31, align 4
-  store i32 %15, ptr %second3.i.i.i78, align 4
+  %19 = load i32, ptr %second.i.i.i31, align 4
+  %20 = load i32, ptr %second3.i.i.i78, align 4
+  store i32 %20, ptr %second.i.i.i31, align 4
+  store i32 %19, ptr %second3.i.i.i78, align 4
+  %m_ptr3.i.i.i.i.i.i.i.i80 = getelementptr inbounds i8, ptr %__a, i64 16
+  %21 = load ptr, ptr %m_ptr.i.i.i.i.i.i.i.i33, align 8
+  %22 = load ptr, ptr %m_ptr3.i.i.i.i.i.i.i.i80, align 8
+  store ptr %22, ptr %m_ptr.i.i.i.i.i.i.i.i33, align 8
+  store ptr %21, ptr %m_ptr3.i.i.i.i.i.i.i.i80, align 8
+  %bf.load.i.i.i.i.i.i.i.i82 = load i8, ptr %m_owner.i.i.i.i.i.i.i.i35, align 4
+  %bf.clear.i.i.i.i.i.i.i.i83 = and i8 %bf.load.i.i.i.i.i.i.i.i82, 2
+  %m_owner4.i.i.i.i.i.i.i.i84 = getelementptr inbounds i8, ptr %__a, i64 12
+  %bf.load5.i.i.i.i.i.i.i.i85 = load i8, ptr %m_owner4.i.i.i.i.i.i.i.i84, align 4
+  %bf.clear7.i.i.i.i.i.i.i.i86 = and i8 %bf.load5.i.i.i.i.i.i.i.i85, 2
+  %bf.clear11.i.i.i.i.i.i.i.i87 = and i8 %bf.load.i.i.i.i.i.i.i.i82, -3
+  %bf.set.i.i.i.i.i.i.i.i88 = or disjoint i8 %bf.clear7.i.i.i.i.i.i.i.i86, %bf.clear11.i.i.i.i.i.i.i.i87
+  store i8 %bf.set.i.i.i.i.i.i.i.i88, ptr %m_owner.i.i.i.i.i.i.i.i35, align 4
+  %bf.load13.i.i.i.i.i.i.i.i89 = load i8, ptr %m_owner4.i.i.i.i.i.i.i.i84, align 4
+  %bf.clear16.i.i.i.i.i.i.i.i90 = and i8 %bf.load13.i.i.i.i.i.i.i.i89, -3
+  %bf.set17.i.i.i.i.i.i.i.i91 = or disjoint i8 %bf.clear16.i.i.i.i.i.i.i.i90, %bf.clear.i.i.i.i.i.i.i.i83
+  store i8 %bf.set17.i.i.i.i.i.i.i.i91, ptr %m_owner4.i.i.i.i.i.i.i.i84, align 4
+  %bf.load18.i.i.i.i.i.i.i.i92 = load i8, ptr %m_owner.i.i.i.i.i.i.i.i35, align 4
+  %bf.clear19.i.i.i.i.i.i.i.i93 = and i8 %bf.load18.i.i.i.i.i.i.i.i92, 1
+  %bf.clear23.i.i.i.i.i.i.i.i94 = and i8 %bf.load13.i.i.i.i.i.i.i.i89, 1
+  %bf.clear28.i.i.i.i.i.i.i.i95 = and i8 %bf.load18.i.i.i.i.i.i.i.i92, -2
+  %bf.set29.i.i.i.i.i.i.i.i96 = or disjoint i8 %bf.clear28.i.i.i.i.i.i.i.i95, %bf.clear23.i.i.i.i.i.i.i.i94
+  store i8 %bf.set29.i.i.i.i.i.i.i.i96, ptr %m_owner.i.i.i.i.i.i.i.i35, align 4
+  %bf.load31.i.i.i.i.i.i.i.i97 = load i8, ptr %m_owner4.i.i.i.i.i.i.i.i84, align 4
+  %bf.clear33.i.i.i.i.i.i.i.i98 = and i8 %bf.load31.i.i.i.i.i.i.i.i97, -2
+  %bf.set34.i.i.i.i.i.i.i.i99 = or disjoint i8 %bf.clear33.i.i.i.i.i.i.i.i98, %bf.clear19.i.i.i.i.i.i.i.i93
+  store i8 %bf.set34.i.i.i.i.i.i.i.i99, ptr %m_owner4.i.i.i.i.i.i.i.i84, align 4
   br label %if.end16
 
 if.else7:                                         ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIj8rationalES7_EEEclIPS5_SC_EEbT_T0_.exit
@@ -35689,26 +35871,55 @@ if.then.i.i127:                                   ; preds = %if.else7
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIj8rationalES7_EEEclIPS5_SC_EEbT_T0_.exit128: ; preds = %if.else7
-  %17 = load ptr, ptr %_M_invoker.i.i, align 8
-  %call4.i.i126 = tail call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %__comp, ptr noundef nonnull align 8 dereferenceable(40) %__a, ptr noundef nonnull align 8 dereferenceable(40) %__c)
+  %23 = load ptr, ptr %_M_invoker.i.i, align 8
+  %call4.i.i126 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(16) %__comp, ptr noundef nonnull align 8 dereferenceable(40) %__a, ptr noundef nonnull align 8 dereferenceable(40) %__c)
   br i1 %call4.i.i126, label %if.then9, label %if.else10
 
 if.then9:                                         ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIj8rationalES7_EEEclIPS5_SC_EEbT_T0_.exit128
-  %18 = load i32, ptr %__result, align 4
-  %19 = load i32, ptr %__a, align 4
-  store i32 %19, ptr %__result, align 4
-  store i32 %18, ptr %__a, align 4
+  %24 = load i32, ptr %__result, align 4
+  %25 = load i32, ptr %__a, align 4
+  store i32 %25, ptr %__result, align 4
+  store i32 %24, ptr %__a, align 4
   %second.i.i.i129 = getelementptr inbounds i8, ptr %__result, i64 8
   %second3.i.i.i130 = getelementptr inbounds i8, ptr %__a, i64 8
-  %20 = load i32, ptr %second.i.i.i129, align 4
-  %21 = load i32, ptr %second3.i.i.i130, align 4
-  store i32 %21, ptr %second.i.i.i129, align 4
-  store i32 %20, ptr %second3.i.i.i130, align 4
+  %26 = load i32, ptr %second.i.i.i129, align 4
+  %27 = load i32, ptr %second3.i.i.i130, align 4
+  store i32 %27, ptr %second.i.i.i129, align 4
+  store i32 %26, ptr %second3.i.i.i130, align 4
+  %m_ptr.i.i.i.i.i.i.i.i131 = getelementptr inbounds i8, ptr %__result, i64 16
+  %m_ptr3.i.i.i.i.i.i.i.i132 = getelementptr inbounds i8, ptr %__a, i64 16
+  %28 = load ptr, ptr %m_ptr.i.i.i.i.i.i.i.i131, align 8
+  %29 = load ptr, ptr %m_ptr3.i.i.i.i.i.i.i.i132, align 8
+  store ptr %29, ptr %m_ptr.i.i.i.i.i.i.i.i131, align 8
+  store ptr %28, ptr %m_ptr3.i.i.i.i.i.i.i.i132, align 8
+  %m_owner.i.i.i.i.i.i.i.i133 = getelementptr inbounds i8, ptr %__result, i64 12
+  %bf.load.i.i.i.i.i.i.i.i134 = load i8, ptr %m_owner.i.i.i.i.i.i.i.i133, align 4
+  %bf.clear.i.i.i.i.i.i.i.i135 = and i8 %bf.load.i.i.i.i.i.i.i.i134, 2
+  %m_owner4.i.i.i.i.i.i.i.i136 = getelementptr inbounds i8, ptr %__a, i64 12
+  %bf.load5.i.i.i.i.i.i.i.i137 = load i8, ptr %m_owner4.i.i.i.i.i.i.i.i136, align 4
+  %bf.clear7.i.i.i.i.i.i.i.i138 = and i8 %bf.load5.i.i.i.i.i.i.i.i137, 2
+  %bf.clear11.i.i.i.i.i.i.i.i139 = and i8 %bf.load.i.i.i.i.i.i.i.i134, -3
+  %bf.set.i.i.i.i.i.i.i.i140 = or disjoint i8 %bf.clear7.i.i.i.i.i.i.i.i138, %bf.clear11.i.i.i.i.i.i.i.i139
+  store i8 %bf.set.i.i.i.i.i.i.i.i140, ptr %m_owner.i.i.i.i.i.i.i.i133, align 4
+  %bf.load13.i.i.i.i.i.i.i.i141 = load i8, ptr %m_owner4.i.i.i.i.i.i.i.i136, align 4
+  %bf.clear16.i.i.i.i.i.i.i.i142 = and i8 %bf.load13.i.i.i.i.i.i.i.i141, -3
+  %bf.set17.i.i.i.i.i.i.i.i143 = or disjoint i8 %bf.clear16.i.i.i.i.i.i.i.i142, %bf.clear.i.i.i.i.i.i.i.i135
+  store i8 %bf.set17.i.i.i.i.i.i.i.i143, ptr %m_owner4.i.i.i.i.i.i.i.i136, align 4
+  %bf.load18.i.i.i.i.i.i.i.i144 = load i8, ptr %m_owner.i.i.i.i.i.i.i.i133, align 4
+  %bf.clear19.i.i.i.i.i.i.i.i145 = and i8 %bf.load18.i.i.i.i.i.i.i.i144, 1
+  %bf.clear23.i.i.i.i.i.i.i.i146 = and i8 %bf.load13.i.i.i.i.i.i.i.i141, 1
+  %bf.clear28.i.i.i.i.i.i.i.i147 = and i8 %bf.load18.i.i.i.i.i.i.i.i144, -2
+  %bf.set29.i.i.i.i.i.i.i.i148 = or disjoint i8 %bf.clear28.i.i.i.i.i.i.i.i147, %bf.clear23.i.i.i.i.i.i.i.i146
+  store i8 %bf.set29.i.i.i.i.i.i.i.i148, ptr %m_owner.i.i.i.i.i.i.i.i133, align 4
+  %bf.load31.i.i.i.i.i.i.i.i149 = load i8, ptr %m_owner4.i.i.i.i.i.i.i.i136, align 4
+  %bf.clear33.i.i.i.i.i.i.i.i150 = and i8 %bf.load31.i.i.i.i.i.i.i.i149, -2
+  %bf.set34.i.i.i.i.i.i.i.i151 = or disjoint i8 %bf.clear33.i.i.i.i.i.i.i.i150, %bf.clear19.i.i.i.i.i.i.i.i145
+  store i8 %bf.set34.i.i.i.i.i.i.i.i151, ptr %m_owner4.i.i.i.i.i.i.i.i136, align 4
   br label %if.end16
 
 if.else10:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIj8rationalES7_EEEclIPS5_SC_EEbT_T0_.exit128
-  %22 = load ptr, ptr %_M_manager.i.i.i, align 8
-  %tobool.not.i.i.i176 = icmp eq ptr %22, null
+  %30 = load ptr, ptr %_M_manager.i.i.i, align 8
+  %tobool.not.i.i.i176 = icmp eq ptr %30, null
   br i1 %tobool.not.i.i.i176, label %if.then.i.i179, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIj8rationalES7_EEEclIPS5_SC_EEbT_T0_.exit180
 
 if.then.i.i179:                                   ; preds = %if.else10
@@ -35716,81 +35927,108 @@ if.then.i.i179:                                   ; preds = %if.else10
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIj8rationalES7_EEEclIPS5_SC_EEbT_T0_.exit180: ; preds = %if.else10
-  %23 = load ptr, ptr %_M_invoker.i.i, align 8
-  %call4.i.i178 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(16) %__comp, ptr noundef nonnull align 8 dereferenceable(40) %__b, ptr noundef nonnull align 8 dereferenceable(40) %__c)
-  %24 = load i32, ptr %__result, align 4
+  %31 = load ptr, ptr %_M_invoker.i.i, align 8
+  %call4.i.i178 = tail call noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(16) %__comp, ptr noundef nonnull align 8 dereferenceable(40) %__b, ptr noundef nonnull align 8 dereferenceable(40) %__c)
+  %32 = load i32, ptr %__result, align 4
   %second.i.i.i181 = getelementptr inbounds i8, ptr %__result, i64 8
+  %m_ptr.i.i.i.i.i.i.i.i183 = getelementptr inbounds i8, ptr %__result, i64 16
+  %m_owner.i.i.i.i.i.i.i.i185 = getelementptr inbounds i8, ptr %__result, i64 12
   br i1 %call4.i.i178, label %if.then12, label %if.else13
 
 if.then12:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIj8rationalES7_EEEclIPS5_SC_EEbT_T0_.exit180
-  %25 = load i32, ptr %__c, align 4
-  store i32 %25, ptr %__result, align 4
-  store i32 %24, ptr %__c, align 4
+  %33 = load i32, ptr %__c, align 4
+  store i32 %33, ptr %__result, align 4
+  store i32 %32, ptr %__c, align 4
   %second3.i.i.i182 = getelementptr inbounds i8, ptr %__c, i64 8
-  %26 = load i32, ptr %second.i.i.i181, align 4
-  %27 = load i32, ptr %second3.i.i.i182, align 4
-  store i32 %27, ptr %second.i.i.i181, align 4
-  store i32 %26, ptr %second3.i.i.i182, align 4
+  %34 = load i32, ptr %second.i.i.i181, align 4
+  %35 = load i32, ptr %second3.i.i.i182, align 4
+  store i32 %35, ptr %second.i.i.i181, align 4
+  store i32 %34, ptr %second3.i.i.i182, align 4
+  %m_ptr3.i.i.i.i.i.i.i.i184 = getelementptr inbounds i8, ptr %__c, i64 16
+  %36 = load ptr, ptr %m_ptr.i.i.i.i.i.i.i.i183, align 8
+  %37 = load ptr, ptr %m_ptr3.i.i.i.i.i.i.i.i184, align 8
+  store ptr %37, ptr %m_ptr.i.i.i.i.i.i.i.i183, align 8
+  store ptr %36, ptr %m_ptr3.i.i.i.i.i.i.i.i184, align 8
+  %bf.load.i.i.i.i.i.i.i.i186 = load i8, ptr %m_owner.i.i.i.i.i.i.i.i185, align 4
+  %bf.clear.i.i.i.i.i.i.i.i187 = and i8 %bf.load.i.i.i.i.i.i.i.i186, 2
+  %m_owner4.i.i.i.i.i.i.i.i188 = getelementptr inbounds i8, ptr %__c, i64 12
+  %bf.load5.i.i.i.i.i.i.i.i189 = load i8, ptr %m_owner4.i.i.i.i.i.i.i.i188, align 4
+  %bf.clear7.i.i.i.i.i.i.i.i190 = and i8 %bf.load5.i.i.i.i.i.i.i.i189, 2
+  %bf.clear11.i.i.i.i.i.i.i.i191 = and i8 %bf.load.i.i.i.i.i.i.i.i186, -3
+  %bf.set.i.i.i.i.i.i.i.i192 = or disjoint i8 %bf.clear7.i.i.i.i.i.i.i.i190, %bf.clear11.i.i.i.i.i.i.i.i191
+  store i8 %bf.set.i.i.i.i.i.i.i.i192, ptr %m_owner.i.i.i.i.i.i.i.i185, align 4
+  %bf.load13.i.i.i.i.i.i.i.i193 = load i8, ptr %m_owner4.i.i.i.i.i.i.i.i188, align 4
+  %bf.clear16.i.i.i.i.i.i.i.i194 = and i8 %bf.load13.i.i.i.i.i.i.i.i193, -3
+  %bf.set17.i.i.i.i.i.i.i.i195 = or disjoint i8 %bf.clear16.i.i.i.i.i.i.i.i194, %bf.clear.i.i.i.i.i.i.i.i187
+  store i8 %bf.set17.i.i.i.i.i.i.i.i195, ptr %m_owner4.i.i.i.i.i.i.i.i188, align 4
+  %bf.load18.i.i.i.i.i.i.i.i196 = load i8, ptr %m_owner.i.i.i.i.i.i.i.i185, align 4
+  %bf.clear19.i.i.i.i.i.i.i.i197 = and i8 %bf.load18.i.i.i.i.i.i.i.i196, 1
+  %bf.clear23.i.i.i.i.i.i.i.i198 = and i8 %bf.load13.i.i.i.i.i.i.i.i193, 1
+  %bf.clear28.i.i.i.i.i.i.i.i199 = and i8 %bf.load18.i.i.i.i.i.i.i.i196, -2
+  %bf.set29.i.i.i.i.i.i.i.i200 = or disjoint i8 %bf.clear28.i.i.i.i.i.i.i.i199, %bf.clear23.i.i.i.i.i.i.i.i198
+  store i8 %bf.set29.i.i.i.i.i.i.i.i200, ptr %m_owner.i.i.i.i.i.i.i.i185, align 4
+  %bf.load31.i.i.i.i.i.i.i.i201 = load i8, ptr %m_owner4.i.i.i.i.i.i.i.i188, align 4
+  %bf.clear33.i.i.i.i.i.i.i.i202 = and i8 %bf.load31.i.i.i.i.i.i.i.i201, -2
+  %bf.set34.i.i.i.i.i.i.i.i203 = or disjoint i8 %bf.clear33.i.i.i.i.i.i.i.i202, %bf.clear19.i.i.i.i.i.i.i.i197
+  store i8 %bf.set34.i.i.i.i.i.i.i.i203, ptr %m_owner4.i.i.i.i.i.i.i.i188, align 4
   br label %if.end16
 
 if.else13:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIj8rationalES7_EEEclIPS5_SC_EEbT_T0_.exit180
-  %28 = load i32, ptr %__b, align 4
-  store i32 %28, ptr %__result, align 4
-  store i32 %24, ptr %__b, align 4
+  %38 = load i32, ptr %__b, align 4
+  store i32 %38, ptr %__result, align 4
+  store i32 %32, ptr %__b, align 4
   %second3.i.i.i228 = getelementptr inbounds i8, ptr %__b, i64 8
-  %29 = load i32, ptr %second.i.i.i181, align 4
-  %30 = load i32, ptr %second3.i.i.i228, align 4
-  store i32 %30, ptr %second.i.i.i181, align 4
-  store i32 %29, ptr %second3.i.i.i228, align 4
+  %39 = load i32, ptr %second.i.i.i181, align 4
+  %40 = load i32, ptr %second3.i.i.i228, align 4
+  store i32 %40, ptr %second.i.i.i181, align 4
+  store i32 %39, ptr %second3.i.i.i228, align 4
+  %m_ptr3.i.i.i.i.i.i.i.i230 = getelementptr inbounds i8, ptr %__b, i64 16
+  %41 = load ptr, ptr %m_ptr.i.i.i.i.i.i.i.i183, align 8
+  %42 = load ptr, ptr %m_ptr3.i.i.i.i.i.i.i.i230, align 8
+  store ptr %42, ptr %m_ptr.i.i.i.i.i.i.i.i183, align 8
+  store ptr %41, ptr %m_ptr3.i.i.i.i.i.i.i.i230, align 8
+  %bf.load.i.i.i.i.i.i.i.i232 = load i8, ptr %m_owner.i.i.i.i.i.i.i.i185, align 4
+  %bf.clear.i.i.i.i.i.i.i.i233 = and i8 %bf.load.i.i.i.i.i.i.i.i232, 2
+  %m_owner4.i.i.i.i.i.i.i.i234 = getelementptr inbounds i8, ptr %__b, i64 12
+  %bf.load5.i.i.i.i.i.i.i.i235 = load i8, ptr %m_owner4.i.i.i.i.i.i.i.i234, align 4
+  %bf.clear7.i.i.i.i.i.i.i.i236 = and i8 %bf.load5.i.i.i.i.i.i.i.i235, 2
+  %bf.clear11.i.i.i.i.i.i.i.i237 = and i8 %bf.load.i.i.i.i.i.i.i.i232, -3
+  %bf.set.i.i.i.i.i.i.i.i238 = or disjoint i8 %bf.clear7.i.i.i.i.i.i.i.i236, %bf.clear11.i.i.i.i.i.i.i.i237
+  store i8 %bf.set.i.i.i.i.i.i.i.i238, ptr %m_owner.i.i.i.i.i.i.i.i185, align 4
+  %bf.load13.i.i.i.i.i.i.i.i239 = load i8, ptr %m_owner4.i.i.i.i.i.i.i.i234, align 4
+  %bf.clear16.i.i.i.i.i.i.i.i240 = and i8 %bf.load13.i.i.i.i.i.i.i.i239, -3
+  %bf.set17.i.i.i.i.i.i.i.i241 = or disjoint i8 %bf.clear16.i.i.i.i.i.i.i.i240, %bf.clear.i.i.i.i.i.i.i.i233
+  store i8 %bf.set17.i.i.i.i.i.i.i.i241, ptr %m_owner4.i.i.i.i.i.i.i.i234, align 4
+  %bf.load18.i.i.i.i.i.i.i.i242 = load i8, ptr %m_owner.i.i.i.i.i.i.i.i185, align 4
+  %bf.clear19.i.i.i.i.i.i.i.i243 = and i8 %bf.load18.i.i.i.i.i.i.i.i242, 1
+  %bf.clear23.i.i.i.i.i.i.i.i244 = and i8 %bf.load13.i.i.i.i.i.i.i.i239, 1
+  %bf.clear28.i.i.i.i.i.i.i.i245 = and i8 %bf.load18.i.i.i.i.i.i.i.i242, -2
+  %bf.set29.i.i.i.i.i.i.i.i246 = or disjoint i8 %bf.clear28.i.i.i.i.i.i.i.i245, %bf.clear23.i.i.i.i.i.i.i.i244
+  store i8 %bf.set29.i.i.i.i.i.i.i.i246, ptr %m_owner.i.i.i.i.i.i.i.i185, align 4
+  %bf.load31.i.i.i.i.i.i.i.i247 = load i8, ptr %m_owner4.i.i.i.i.i.i.i.i234, align 4
+  %bf.clear33.i.i.i.i.i.i.i.i248 = and i8 %bf.load31.i.i.i.i.i.i.i.i247, -2
+  %bf.set34.i.i.i.i.i.i.i.i249 = or disjoint i8 %bf.clear33.i.i.i.i.i.i.i.i248, %bf.clear19.i.i.i.i.i.i.i.i243
+  store i8 %bf.set34.i.i.i.i.i.i.i.i249, ptr %m_owner4.i.i.i.i.i.i.i.i234, align 4
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then9, %if.else13, %if.then12, %if.then2, %if.else5, %if.then4
-  %__a.sink = phi ptr [ %__a, %if.then9 ], [ %__b, %if.else13 ], [ %__c, %if.then12 ], [ %__b, %if.then2 ], [ %__a, %if.else5 ], [ %__c, %if.then4 ]
-  %m_ptr.i.i.i.i.i.i.i.i131.sink304 = getelementptr inbounds i8, ptr %__result, i64 16
-  %m_ptr3.i.i.i.i.i.i.i.i132 = getelementptr inbounds i8, ptr %__a.sink, i64 16
-  %31 = load ptr, ptr %m_ptr.i.i.i.i.i.i.i.i131.sink304, align 8
-  %32 = load ptr, ptr %m_ptr3.i.i.i.i.i.i.i.i132, align 8
-  store ptr %32, ptr %m_ptr.i.i.i.i.i.i.i.i131.sink304, align 8
-  store ptr %31, ptr %m_ptr3.i.i.i.i.i.i.i.i132, align 8
-  %m_owner.i.i.i.i.i.i.i.i133.sink301 = getelementptr inbounds i8, ptr %__result, i64 12
-  %bf.load.i.i.i.i.i.i.i.i134 = load i8, ptr %m_owner.i.i.i.i.i.i.i.i133.sink301, align 4
-  %bf.clear.i.i.i.i.i.i.i.i135 = and i8 %bf.load.i.i.i.i.i.i.i.i134, 2
-  %m_owner4.i.i.i.i.i.i.i.i136 = getelementptr inbounds i8, ptr %__a.sink, i64 12
-  %bf.load5.i.i.i.i.i.i.i.i137 = load i8, ptr %m_owner4.i.i.i.i.i.i.i.i136, align 4
-  %bf.clear7.i.i.i.i.i.i.i.i138 = and i8 %bf.load5.i.i.i.i.i.i.i.i137, 2
-  %bf.clear11.i.i.i.i.i.i.i.i139 = and i8 %bf.load.i.i.i.i.i.i.i.i134, -3
-  %bf.set.i.i.i.i.i.i.i.i140 = or disjoint i8 %bf.clear7.i.i.i.i.i.i.i.i138, %bf.clear11.i.i.i.i.i.i.i.i139
-  store i8 %bf.set.i.i.i.i.i.i.i.i140, ptr %m_owner.i.i.i.i.i.i.i.i133.sink301, align 4
-  %bf.load13.i.i.i.i.i.i.i.i141 = load i8, ptr %m_owner4.i.i.i.i.i.i.i.i136, align 4
-  %bf.clear16.i.i.i.i.i.i.i.i142 = and i8 %bf.load13.i.i.i.i.i.i.i.i141, -3
-  %bf.set17.i.i.i.i.i.i.i.i143 = or disjoint i8 %bf.clear16.i.i.i.i.i.i.i.i142, %bf.clear.i.i.i.i.i.i.i.i135
-  store i8 %bf.set17.i.i.i.i.i.i.i.i143, ptr %m_owner4.i.i.i.i.i.i.i.i136, align 4
-  %bf.load18.i.i.i.i.i.i.i.i144 = load i8, ptr %m_owner.i.i.i.i.i.i.i.i133.sink301, align 4
-  %bf.clear19.i.i.i.i.i.i.i.i145 = and i8 %bf.load18.i.i.i.i.i.i.i.i144, 1
-  %bf.clear23.i.i.i.i.i.i.i.i146 = and i8 %bf.load13.i.i.i.i.i.i.i.i141, 1
-  %bf.clear28.i.i.i.i.i.i.i.i147 = and i8 %bf.load18.i.i.i.i.i.i.i.i144, -2
-  %bf.set29.i.i.i.i.i.i.i.i148 = or disjoint i8 %bf.clear28.i.i.i.i.i.i.i.i147, %bf.clear23.i.i.i.i.i.i.i.i146
-  store i8 %bf.set29.i.i.i.i.i.i.i.i148, ptr %m_owner.i.i.i.i.i.i.i.i133.sink301, align 4
-  %bf.load31.i.i.i.i.i.i.i.i149 = load i8, ptr %m_owner4.i.i.i.i.i.i.i.i136, align 4
-  %bf.clear33.i.i.i.i.i.i.i.i150 = and i8 %bf.load31.i.i.i.i.i.i.i.i149, -2
-  %bf.set34.i.i.i.i.i.i.i.i151 = or disjoint i8 %bf.clear33.i.i.i.i.i.i.i.i150, %bf.clear19.i.i.i.i.i.i.i.i145
-  store i8 %bf.set34.i.i.i.i.i.i.i.i151, ptr %m_owner4.i.i.i.i.i.i.i.i136, align 4
+  %__a.sink290 = phi ptr [ %__a, %if.then9 ], [ %__b, %if.else13 ], [ %__c, %if.then12 ], [ %__b, %if.then2 ], [ %__a, %if.else5 ], [ %__c, %if.then4 ]
   %m_den.i.i.i.i.i.i152 = getelementptr inbounds i8, ptr %__result, i64 24
-  %m_den3.i.i.i.i.i.i153 = getelementptr inbounds i8, ptr %__a.sink, i64 24
-  %33 = load i32, ptr %m_den.i.i.i.i.i.i152, align 4
-  %34 = load i32, ptr %m_den3.i.i.i.i.i.i153, align 4
-  store i32 %34, ptr %m_den.i.i.i.i.i.i152, align 4
-  store i32 %33, ptr %m_den3.i.i.i.i.i.i153, align 4
+  %m_den3.i.i.i.i.i.i153 = getelementptr inbounds i8, ptr %__a.sink290, i64 24
+  %43 = load i32, ptr %m_den.i.i.i.i.i.i152, align 4
+  %44 = load i32, ptr %m_den3.i.i.i.i.i.i153, align 4
+  store i32 %44, ptr %m_den.i.i.i.i.i.i152, align 4
+  store i32 %43, ptr %m_den3.i.i.i.i.i.i153, align 4
   %m_ptr.i.i3.i.i.i.i.i.i154 = getelementptr inbounds i8, ptr %__result, i64 32
-  %m_ptr3.i.i4.i.i.i.i.i.i155 = getelementptr inbounds i8, ptr %__a.sink, i64 32
-  %35 = load ptr, ptr %m_ptr.i.i3.i.i.i.i.i.i154, align 8
-  %36 = load ptr, ptr %m_ptr3.i.i4.i.i.i.i.i.i155, align 8
-  store ptr %36, ptr %m_ptr.i.i3.i.i.i.i.i.i154, align 8
-  store ptr %35, ptr %m_ptr3.i.i4.i.i.i.i.i.i155, align 8
+  %m_ptr3.i.i4.i.i.i.i.i.i155 = getelementptr inbounds i8, ptr %__a.sink290, i64 32
+  %45 = load ptr, ptr %m_ptr.i.i3.i.i.i.i.i.i154, align 8
+  %46 = load ptr, ptr %m_ptr3.i.i4.i.i.i.i.i.i155, align 8
+  store ptr %46, ptr %m_ptr.i.i3.i.i.i.i.i.i154, align 8
+  store ptr %45, ptr %m_ptr3.i.i4.i.i.i.i.i.i155, align 8
   %m_owner.i.i5.i.i.i.i.i.i156 = getelementptr inbounds i8, ptr %__result, i64 28
   %bf.load.i.i6.i.i.i.i.i.i157 = load i8, ptr %m_owner.i.i5.i.i.i.i.i.i156, align 4
   %bf.clear.i.i7.i.i.i.i.i.i158 = and i8 %bf.load.i.i6.i.i.i.i.i.i157, 2
-  %m_owner4.i.i8.i.i.i.i.i.i159 = getelementptr inbounds i8, ptr %__a.sink, i64 28
+  %m_owner4.i.i8.i.i.i.i.i.i159 = getelementptr inbounds i8, ptr %__a.sink290, i64 28
   %bf.load5.i.i9.i.i.i.i.i.i160 = load i8, ptr %m_owner4.i.i8.i.i.i.i.i.i159, align 4
   %bf.clear7.i.i10.i.i.i.i.i.i161 = and i8 %bf.load5.i.i9.i.i.i.i.i.i160, 2
   %bf.clear11.i.i11.i.i.i.i.i.i162 = and i8 %bf.load.i.i6.i.i.i.i.i.i157, -3

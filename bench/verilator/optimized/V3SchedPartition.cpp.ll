@@ -6579,22 +6579,18 @@ _ZNSt10_HashtableI5VNRefI10AstSenItemESt4pairIKS2_PN7V3Sched12_GLOBAL__N_114Sche
 
 88:                                               ; preds = %85
   %89 = getelementptr inbounds ptr, ptr %.0.i.i.i.i.i.i.i.i.i, i64 %.02531.i.i.i.i.i.i.i.i
-  br label %.sink.split.i.i.i.i.i.i.i.i
+  store ptr %.032.i.i.i.i.i.i.i.i, ptr %89, align 8
+  br label %93
 
 90:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i.i
   %91 = load ptr, ptr %84, align 8
   store ptr %91, ptr %.032.i.i.i.i.i.i.i.i, align 8
   %92 = load ptr, ptr %83, align 8
-  br label %.sink.split.i.i.i.i.i.i.i.i
-
-.sink.split.i.i.i.i.i.i.i.i:                      ; preds = %90, %88
-  %.sink.i.i.i.i.i.i.i.i = phi ptr [ %89, %88 ], [ %92, %90 ]
-  %.1.ph.i.i.i.i.i.i.i.i = phi i64 [ %82, %88 ], [ %.02531.i.i.i.i.i.i.i.i, %90 ]
-  store ptr %.032.i.i.i.i.i.i.i.i, ptr %.sink.i.i.i.i.i.i.i.i, align 8
+  store ptr %.032.i.i.i.i.i.i.i.i, ptr %92, align 8
   br label %93
 
-93:                                               ; preds = %.sink.split.i.i.i.i.i.i.i.i, %85
-  %.1.i.i.i.i.i.i.i.i = phi i64 [ %82, %85 ], [ %.1.ph.i.i.i.i.i.i.i.i, %.sink.split.i.i.i.i.i.i.i.i ]
+93:                                               ; preds = %90, %88, %85
+  %.1.i.i.i.i.i.i.i.i = phi i64 [ %.02531.i.i.i.i.i.i.i.i, %90 ], [ %82, %88 ], [ %82, %85 ]
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %.0.val.i.i.i.i.i.i.i.i, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !31
 

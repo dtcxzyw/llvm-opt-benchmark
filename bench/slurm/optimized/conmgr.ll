@@ -1019,16 +1019,16 @@ define internal fastcc ptr @_add_connection(i32 noundef %0, ptr noundef readonly
   %20 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %21 = and i64 %20, 1024
   %.not100 = icmp eq i64 %21, 0
-  br i1 %.not100, label %121, label %22
+  br i1 %.not100, label %122, label %22
 
 22:                                               ; preds = %19
   %23 = tail call i32 @get_log_level() #17
   %24 = icmp sgt i32 %23, 3
-  br i1 %24, label %25, label %121
+  br i1 %24, label %25, label %122
 
 25:                                               ; preds = %22
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.38, ptr noundef nonnull @__func__._add_connection) #17
-  br label %121
+  br label %122
 
 26:                                               ; preds = %10
   %.not = icmp eq ptr %8, null
@@ -1284,21 +1284,21 @@ thread-pre-split:                                 ; preds = %92, %79, %86
   unreachable
 
 116:                                              ; preds = %112
-  %.val = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 16), align 8
-  %.val110 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 8), align 8
-  %117 = select i1 %7, ptr %.val, ptr %.val110
-  call void @list_append(ptr noundef %117, ptr noundef nonnull %39) #17
-  %118 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
-  %.not99 = icmp eq i32 %118, 0
-  br i1 %.not99, label %121, label %119
+  %117 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 16), align 8
+  %118 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 8), align 8
+  %.sink = select i1 %7, ptr %117, ptr %118
+  call void @list_append(ptr noundef %.sink, ptr noundef nonnull %39) #17
+  %119 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %.not99 = icmp eq i32 %119, 0
+  br i1 %.not99, label %122, label %120
 
-119:                                              ; preds = %116
-  %120 = tail call ptr @__errno_location() #18
-  store i32 %118, ptr %120, align 4
+120:                                              ; preds = %116
+  %121 = tail call ptr @__errno_location() #18
+  store i32 %119, ptr %121, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.12, i32 noundef 942, ptr noundef nonnull @__func__._add_connection) #16
   unreachable
 
-121:                                              ; preds = %116, %25, %22, %19
+122:                                              ; preds = %116, %25, %22, %19
   %.0 = phi ptr [ null, %19 ], [ null, %22 ], [ null, %25 ], [ %39, %116 ]
   ret ptr %.0
 }

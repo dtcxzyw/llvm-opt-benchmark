@@ -891,7 +891,8 @@ define hidden void @timelib_update_ts(ptr noundef %0, ptr noundef %1) local_unna
   %22 = load i64, ptr %21, align 8
   %23 = add nsw i64 %22, %20
   store i64 %23, ptr %21, align 8
-  br label %.sink.split.i
+  store i64 0, ptr %19, align 8
+  br label %32
 
 24:                                               ; preds = %14
   %25 = getelementptr inbounds i8, ptr %0, i64 16
@@ -903,14 +904,10 @@ define hidden void @timelib_update_ts(ptr noundef %0, ptr noundef %1) local_unna
   %30 = load i64, ptr %29, align 8
   %31 = add nsw i64 %28, %30
   store i64 %31, ptr %29, align 8
-  br label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %24, %17
-  %.sink.i = phi ptr [ %19, %17 ], [ %26, %24 ]
-  store i64 0, ptr %.sink.i, align 8
+  store i64 0, ptr %26, align 8
   br label %32
 
-32:                                               ; preds = %.sink.split.i, %14, %2
+32:                                               ; preds = %24, %17, %14, %2
   %33 = getelementptr inbounds i8, ptr %0, i64 152
   %34 = load i32, ptr %33, align 8
   switch i32 %34, label %do_adjust_special_early.exit [

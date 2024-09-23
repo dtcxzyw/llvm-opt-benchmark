@@ -2451,22 +2451,22 @@ index2value.exit:                                 ; preds = %if.then.i, %if.then
   %tt_ = getelementptr inbounds i8, ptr %retval.0.i, i64 8
   %12 = load i8, ptr %tt_, align 8
   switch i8 %12, label %return [
-    i8 22, label %return.sink.split
+    i8 22, label %if.then
     i8 102, label %if.then6
   ]
 
-if.then6:                                         ; preds = %index2value.exit
+if.then:                                          ; preds = %index2value.exit
   %13 = load ptr, ptr %retval.0.i, align 8
-  %f = getelementptr inbounds i8, ptr %13, i64 24
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %index2value.exit, %if.then6
-  %f.sink = phi ptr [ %f, %if.then6 ], [ %retval.0.i, %index2value.exit ]
-  %14 = load ptr, ptr %f.sink, align 8
   br label %return
 
-return:                                           ; preds = %return.sink.split, %index2value.exit
-  %retval.0 = phi ptr [ null, %index2value.exit ], [ %14, %return.sink.split ]
+if.then6:                                         ; preds = %index2value.exit
+  %14 = load ptr, ptr %retval.0.i, align 8
+  %f = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = load ptr, ptr %f, align 8
+  br label %return
+
+return:                                           ; preds = %index2value.exit, %if.then6, %if.then
+  %retval.0 = phi ptr [ %13, %if.then ], [ %15, %if.then6 ], [ null, %index2value.exit ]
   ret ptr %retval.0
 }
 

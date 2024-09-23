@@ -179,20 +179,17 @@ define dso_local noundef range(i32 1, 12) i32 @_ZN11SafeOpFlags13flags_to_typeEb
 switch.lookup:                                    ; preds = %3
   %7 = zext nneg i32 %1 to i64
   %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZN11SafeOpFlags12get_rhs_typeEv, i64 0, i64 %7
-  br label %.sink.split
+  %switch.load = load i32, ptr %switch.gep, align 4
+  br label %9
 
 switch.lookup4:                                   ; preds = %5
   %8 = zext nneg i32 %1 to i64
   %switch.gep5 = getelementptr inbounds [4 x i32], ptr @switch.table._ZN11SafeOpFlags12get_rhs_typeEv.3, i64 0, i64 %8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %switch.lookup, %switch.lookup4
-  %switch.gep5.sink = phi ptr [ %switch.gep5, %switch.lookup4 ], [ %switch.gep, %switch.lookup ]
-  %switch.load6 = load i32, ptr %switch.gep5.sink, align 4
+  %switch.load6 = load i32, ptr %switch.gep5, align 4
   br label %9
 
-9:                                                ; preds = %.sink.split, %3, %5
-  %.0 = phi i32 [ 2, %5 ], [ 2, %3 ], [ %switch.load6, %.sink.split ]
+9:                                                ; preds = %3, %5, %switch.lookup4, %switch.lookup
+  %.0 = phi i32 [ %switch.load, %switch.lookup ], [ %switch.load6, %switch.lookup4 ], [ 2, %5 ], [ 2, %3 ]
   ret i32 %.0
 }
 
@@ -215,20 +212,17 @@ define dso_local noundef nonnull ptr @_ZN11SafeOpFlags12get_lhs_typeEv(ptr nocap
 switch.lookup:                                    ; preds = %6
   %10 = zext nneg i32 %5 to i64
   %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZN11SafeOpFlags12get_rhs_typeEv, i64 0, i64 %10
-  br label %_ZN11SafeOpFlags13flags_to_typeEb10SafeOpSize.exit.sink.split
+  %switch.load = load i32, ptr %switch.gep, align 4
+  br label %_ZN11SafeOpFlags13flags_to_typeEb10SafeOpSize.exit
 
 switch.lookup2:                                   ; preds = %8
   %11 = zext nneg i32 %5 to i64
   %switch.gep3 = getelementptr inbounds [4 x i32], ptr @switch.table._ZN11SafeOpFlags12get_rhs_typeEv.3, i64 0, i64 %11
-  br label %_ZN11SafeOpFlags13flags_to_typeEb10SafeOpSize.exit.sink.split
-
-_ZN11SafeOpFlags13flags_to_typeEb10SafeOpSize.exit.sink.split: ; preds = %switch.lookup, %switch.lookup2
-  %switch.gep3.sink = phi ptr [ %switch.gep3, %switch.lookup2 ], [ %switch.gep, %switch.lookup ]
-  %switch.load4 = load i32, ptr %switch.gep3.sink, align 4
+  %switch.load4 = load i32, ptr %switch.gep3, align 4
   br label %_ZN11SafeOpFlags13flags_to_typeEb10SafeOpSize.exit
 
-_ZN11SafeOpFlags13flags_to_typeEb10SafeOpSize.exit: ; preds = %_ZN11SafeOpFlags13flags_to_typeEb10SafeOpSize.exit.sink.split, %6, %8
-  %.0.i = phi i32 [ 2, %8 ], [ 2, %6 ], [ %switch.load4, %_ZN11SafeOpFlags13flags_to_typeEb10SafeOpSize.exit.sink.split ]
+_ZN11SafeOpFlags13flags_to_typeEb10SafeOpSize.exit: ; preds = %6, %8, %switch.lookup2, %switch.lookup
+  %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ %switch.load4, %switch.lookup2 ], [ 2, %8 ], [ 2, %6 ]
   %12 = tail call noundef nonnull align 8 dereferenceable(136) ptr @_ZN4Type15get_simple_typeE11eSimpleType(i32 noundef %.0.i)
   ret ptr %12
 }
@@ -255,20 +249,17 @@ define dso_local noundef nonnull ptr @_ZN11SafeOpFlags12get_rhs_typeEv(ptr nocap
 switch.lookup:                                    ; preds = %7
   %11 = zext nneg i32 %6 to i64
   %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZN11SafeOpFlags12get_rhs_typeEv, i64 0, i64 %11
-  br label %_ZN11SafeOpFlags13flags_to_typeEb10SafeOpSize.exit.sink.split
+  %switch.load = load i32, ptr %switch.gep, align 4
+  br label %_ZN11SafeOpFlags13flags_to_typeEb10SafeOpSize.exit
 
 switch.lookup2:                                   ; preds = %9
   %12 = zext nneg i32 %6 to i64
   %switch.gep3 = getelementptr inbounds [4 x i32], ptr @switch.table._ZN11SafeOpFlags12get_rhs_typeEv.3, i64 0, i64 %12
-  br label %_ZN11SafeOpFlags13flags_to_typeEb10SafeOpSize.exit.sink.split
-
-_ZN11SafeOpFlags13flags_to_typeEb10SafeOpSize.exit.sink.split: ; preds = %switch.lookup, %switch.lookup2
-  %switch.gep3.sink = phi ptr [ %switch.gep3, %switch.lookup2 ], [ %switch.gep, %switch.lookup ]
-  %switch.load4 = load i32, ptr %switch.gep3.sink, align 4
+  %switch.load4 = load i32, ptr %switch.gep3, align 4
   br label %_ZN11SafeOpFlags13flags_to_typeEb10SafeOpSize.exit
 
-_ZN11SafeOpFlags13flags_to_typeEb10SafeOpSize.exit: ; preds = %_ZN11SafeOpFlags13flags_to_typeEb10SafeOpSize.exit.sink.split, %7, %9
-  %.0.i = phi i32 [ 2, %9 ], [ 2, %7 ], [ %switch.load4, %_ZN11SafeOpFlags13flags_to_typeEb10SafeOpSize.exit.sink.split ]
+_ZN11SafeOpFlags13flags_to_typeEb10SafeOpSize.exit: ; preds = %7, %9, %switch.lookup2, %switch.lookup
+  %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ %switch.load4, %switch.lookup2 ], [ 2, %9 ], [ 2, %7 ]
   %13 = tail call noundef nonnull align 8 dereferenceable(136) ptr @_ZN4Type15get_simple_typeE11eSimpleType(i32 noundef %.0.i)
   ret ptr %13
 }

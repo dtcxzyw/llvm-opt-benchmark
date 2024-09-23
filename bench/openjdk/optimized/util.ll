@@ -1639,7 +1639,7 @@ define hidden void @sharedGetFieldValues(ptr noundef %0, ptr noundef %1, i8 noun
   %16 = tail call i32 @inStream_readInt(ptr noundef %0) #14
   %17 = tail call zeroext i16 @inStream_error(ptr noundef %0) #14
   %.not28 = icmp eq i16 %17, 0
-  br i1 %.not28, label %18, label %346
+  br i1 %.not28, label %18, label %348
 
 18:                                               ; preds = %15
   %19 = add nsw i32 %16, 1
@@ -1652,7 +1652,7 @@ define hidden void @sharedGetFieldValues(ptr noundef %0, ptr noundef %1, i8 noun
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %writeStaticFieldValue.exit.us
-  %.02650.us = phi i32 [ %183, %writeStaticFieldValue.exit.us ], [ 0, %.lr.ph ]
+  %.02650.us = phi i32 [ %184, %writeStaticFieldValue.exit.us ], [ 0, %.lr.ph ]
   %22 = call zeroext i16 @outStream_error(ptr noundef %1) #14
   %.not29.us = icmp eq i16 %22, 0
   br i1 %.not29.us, label %23, label %.critedge
@@ -1765,620 +1765,620 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %jdwpTag.exit.i39.us
 
 jdwpTag.exit.i39.us:                              ; preds = %55, %57, %63, %switch.lookup
-  %switch.gep.sink = phi ptr [ %switch.gep, %switch.lookup ], [ %50, %63 ], [ %50, %57 ], [ %50, %55 ]
-  %switch.load = load i8, ptr %switch.gep.sink, align 1
+  %.in65 = phi ptr [ %switch.gep, %switch.lookup ], [ %50, %63 ], [ %50, %57 ], [ %50, %55 ]
+  %65 = load i8, ptr %.in65, align 1
   call void @jvmtiDeallocate(ptr noundef nonnull %50)
-  %65 = load ptr, ptr @gdata, align 8
-  %.not.i73.i.us = icmp eq ptr %65, null
-  br i1 %.not.i73.i.us, label %isReferenceTag.exit.i47.us, label %66
+  %66 = load ptr, ptr @gdata, align 8
+  %.not.i73.i.us = icmp eq ptr %66, null
+  br i1 %.not.i73.i.us, label %isReferenceTag.exit.i47.us, label %67
 
-66:                                               ; preds = %jdwpTag.exit.i39.us
-  %67 = getelementptr inbounds i8, ptr %65, i64 17
-  %68 = load i8, ptr %67, align 1
-  %.fr.i.i40.us = freeze i8 %68
-  %69 = icmp eq i8 %.fr.i.i40.us, 0
-  br i1 %69, label %isReferenceTag.exit.i47.us, label %switch.early.test.i.i41.us
+67:                                               ; preds = %jdwpTag.exit.i39.us
+  %68 = getelementptr inbounds i8, ptr %66, i64 17
+  %69 = load i8, ptr %68, align 1
+  %.fr.i.i40.us = freeze i8 %69
+  %70 = icmp eq i8 %.fr.i.i40.us, 0
+  br i1 %70, label %isReferenceTag.exit.i47.us, label %switch.early.test.i.i41.us
 
-switch.early.test.i.i41.us:                       ; preds = %66
-  switch i8 %switch.load, label %70 [
-    i8 91, label %71
-    i8 76, label %71
-    i8 66, label %85
-    i8 67, label %85
-    i8 68, label %85
-    i8 70, label %85
-    i8 73, label %85
-    i8 74, label %85
-    i8 83, label %85
-    i8 86, label %85
-    i8 90, label %85
+switch.early.test.i.i41.us:                       ; preds = %67
+  switch i8 %65, label %71 [
+    i8 91, label %72
+    i8 76, label %72
+    i8 66, label %86
+    i8 67, label %86
+    i8 68, label %86
+    i8 70, label %86
+    i8 73, label %86
+    i8 74, label %86
+    i8 83, label %86
+    i8 86, label %86
+    i8 90, label %86
   ]
 
-70:                                               ; preds = %switch.early.test.i.i41.us
+71:                                               ; preds = %switch.early.test.i.i41.us
   call void @jdiAssertionFailed(ptr noundef nonnull @.str.148, i32 noundef 49, ptr noundef nonnull @.str.149) #14
   br label %isReferenceTag.exit.i47.us
 
-isReferenceTag.exit.i47.us:                       ; preds = %70, %66, %jdwpTag.exit.i39.us
-  switch i8 %switch.load, label %85 [
-    i8 91, label %71
-    i8 76, label %71
+isReferenceTag.exit.i47.us:                       ; preds = %71, %67, %jdwpTag.exit.i39.us
+  switch i8 %65, label %86 [
+    i8 91, label %72
+    i8 76, label %72
   ]
 
-71:                                               ; preds = %isReferenceTag.exit.i47.us, %isReferenceTag.exit.i47.us, %switch.early.test.i.i41.us, %switch.early.test.i.i41.us
-  %72 = load ptr, ptr @gdata, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 528
-  %74 = load i32, ptr %73, align 8
-  %75 = and i32 %74, 2
-  %.not71.i.us = icmp eq i32 %75, 0
-  br i1 %.not71.i.us, label %77, label %76
+72:                                               ; preds = %isReferenceTag.exit.i47.us, %isReferenceTag.exit.i47.us, %switch.early.test.i.i41.us, %switch.early.test.i.i41.us
+  %73 = load ptr, ptr @gdata, align 8
+  %74 = getelementptr inbounds i8, ptr %73, i64 528
+  %75 = load i32, ptr %74, align 8
+  %76 = and i32 %75, 2
+  %.not71.i.us = icmp eq i32 %76, 0
+  br i1 %.not71.i.us, label %78, label %77
 
-76:                                               ; preds = %71
+77:                                               ; preds = %72
   call void @log_message_begin(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.4, i32 noundef 355) #14
   call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.150) #14
-  br label %77
+  br label %78
 
-77:                                               ; preds = %76, %71
-  %78 = load ptr, ptr %10, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 760
-  %80 = load ptr, ptr %79, align 8
-  %81 = call ptr %80(ptr noundef nonnull %10, ptr noundef %.0, ptr noundef %24) #14
-  %82 = call signext i8 @specificTypeKey(ptr noundef nonnull %10, ptr noundef %81)
-  %83 = call zeroext i16 @outStream_writeByte(ptr noundef %1, i8 noundef signext %82) #14
-  %84 = call zeroext i16 @outStream_writeObjectRef(ptr noundef nonnull %10, ptr noundef %1, ptr noundef %81) #14
+78:                                               ; preds = %77, %72
+  %79 = load ptr, ptr %10, align 8
+  %80 = getelementptr inbounds i8, ptr %79, i64 760
+  %81 = load ptr, ptr %80, align 8
+  %82 = call ptr %81(ptr noundef nonnull %10, ptr noundef %.0, ptr noundef %24) #14
+  %83 = call signext i8 @specificTypeKey(ptr noundef nonnull %10, ptr noundef %82)
+  %84 = call zeroext i16 @outStream_writeByte(ptr noundef %1, i8 noundef signext %83) #14
+  %85 = call zeroext i16 @outStream_writeObjectRef(ptr noundef nonnull %10, ptr noundef %1, ptr noundef %82) #14
   br label %writeStaticFieldValue.exit.us
 
-85:                                               ; preds = %isReferenceTag.exit.i47.us, %switch.early.test.i.i41.us, %switch.early.test.i.i41.us, %switch.early.test.i.i41.us, %switch.early.test.i.i41.us, %switch.early.test.i.i41.us, %switch.early.test.i.i41.us, %switch.early.test.i.i41.us, %switch.early.test.i.i41.us, %switch.early.test.i.i41.us
-  %86 = call zeroext i16 @outStream_writeByte(ptr noundef %1, i8 noundef signext %switch.load) #14
-  switch i8 %switch.load, label %writeStaticFieldValue.exit.us [
-    i8 66, label %171
-    i8 67, label %159
-    i8 70, label %147
-    i8 68, label %135
-    i8 73, label %123
-    i8 74, label %111
-    i8 83, label %99
-    i8 90, label %87
+86:                                               ; preds = %isReferenceTag.exit.i47.us, %switch.early.test.i.i41.us, %switch.early.test.i.i41.us, %switch.early.test.i.i41.us, %switch.early.test.i.i41.us, %switch.early.test.i.i41.us, %switch.early.test.i.i41.us, %switch.early.test.i.i41.us, %switch.early.test.i.i41.us, %switch.early.test.i.i41.us
+  %87 = call zeroext i16 @outStream_writeByte(ptr noundef %1, i8 noundef signext %65) #14
+  switch i8 %65, label %writeStaticFieldValue.exit.us [
+    i8 66, label %172
+    i8 67, label %160
+    i8 70, label %148
+    i8 68, label %136
+    i8 73, label %124
+    i8 74, label %112
+    i8 83, label %100
+    i8 90, label %88
   ]
 
-87:                                               ; preds = %85
-  %88 = load ptr, ptr @gdata, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 528
-  %90 = load i32, ptr %89, align 8
-  %91 = and i32 %90, 2
-  %.not63.i42.us = icmp eq i32 %91, 0
-  br i1 %.not63.i42.us, label %93, label %92
+88:                                               ; preds = %86
+  %89 = load ptr, ptr @gdata, align 8
+  %90 = getelementptr inbounds i8, ptr %89, i64 528
+  %91 = load i32, ptr %90, align 8
+  %92 = and i32 %91, 2
+  %.not63.i42.us = icmp eq i32 %92, 0
+  br i1 %.not63.i42.us, label %94, label %93
 
-92:                                               ; preds = %87
+93:                                               ; preds = %88
   call void @log_message_begin(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.4, i32 noundef 406) #14
   call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.158) #14
-  br label %93
+  br label %94
 
-93:                                               ; preds = %92, %87
-  %94 = load ptr, ptr %10, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 768
-  %96 = load ptr, ptr %95, align 8
-  %97 = call zeroext i8 %96(ptr noundef nonnull %10, ptr noundef %.0, ptr noundef %24) #14
-  %98 = call zeroext i16 @outStream_writeBoolean(ptr noundef %1, i8 noundef zeroext %97) #14
+94:                                               ; preds = %93, %88
+  %95 = load ptr, ptr %10, align 8
+  %96 = getelementptr inbounds i8, ptr %95, i64 768
+  %97 = load ptr, ptr %96, align 8
+  %98 = call zeroext i8 %97(ptr noundef nonnull %10, ptr noundef %.0, ptr noundef %24) #14
+  %99 = call zeroext i16 @outStream_writeBoolean(ptr noundef %1, i8 noundef zeroext %98) #14
   br label %writeStaticFieldValue.exit.us
 
-99:                                               ; preds = %85
-  %100 = load ptr, ptr @gdata, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 528
-  %102 = load i32, ptr %101, align 8
-  %103 = and i32 %102, 2
-  %.not64.i43.us = icmp eq i32 %103, 0
-  br i1 %.not64.i43.us, label %105, label %104
+100:                                              ; preds = %86
+  %101 = load ptr, ptr @gdata, align 8
+  %102 = getelementptr inbounds i8, ptr %101, i64 528
+  %103 = load i32, ptr %102, align 8
+  %104 = and i32 %103, 2
+  %.not64.i43.us = icmp eq i32 %104, 0
+  br i1 %.not64.i43.us, label %106, label %105
 
-104:                                              ; preds = %99
+105:                                              ; preds = %100
   call void @log_message_begin(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.4, i32 noundef 401) #14
   call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.157) #14
-  br label %105
+  br label %106
 
-105:                                              ; preds = %104, %99
-  %106 = load ptr, ptr %10, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 792
-  %108 = load ptr, ptr %107, align 8
-  %109 = call signext i16 %108(ptr noundef nonnull %10, ptr noundef %.0, ptr noundef %24) #14
-  %110 = call zeroext i16 @outStream_writeShort(ptr noundef %1, i16 noundef signext %109) #14
+106:                                              ; preds = %105, %100
+  %107 = load ptr, ptr %10, align 8
+  %108 = getelementptr inbounds i8, ptr %107, i64 792
+  %109 = load ptr, ptr %108, align 8
+  %110 = call signext i16 %109(ptr noundef nonnull %10, ptr noundef %.0, ptr noundef %24) #14
+  %111 = call zeroext i16 @outStream_writeShort(ptr noundef %1, i16 noundef signext %110) #14
   br label %writeStaticFieldValue.exit.us
 
-111:                                              ; preds = %85
-  %112 = load ptr, ptr @gdata, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 528
-  %114 = load i32, ptr %113, align 8
-  %115 = and i32 %114, 2
-  %.not65.i44.us = icmp eq i32 %115, 0
-  br i1 %.not65.i44.us, label %117, label %116
+112:                                              ; preds = %86
+  %113 = load ptr, ptr @gdata, align 8
+  %114 = getelementptr inbounds i8, ptr %113, i64 528
+  %115 = load i32, ptr %114, align 8
+  %116 = and i32 %115, 2
+  %.not65.i44.us = icmp eq i32 %116, 0
+  br i1 %.not65.i44.us, label %118, label %117
 
-116:                                              ; preds = %111
+117:                                              ; preds = %112
   call void @log_message_begin(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.4, i32 noundef 396) #14
   call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.156) #14
-  br label %117
+  br label %118
 
-117:                                              ; preds = %116, %111
-  %118 = load ptr, ptr %10, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 808
-  %120 = load ptr, ptr %119, align 8
-  %121 = call i64 %120(ptr noundef nonnull %10, ptr noundef %.0, ptr noundef %24) #14
-  %122 = call zeroext i16 @outStream_writeLong(ptr noundef %1, i64 noundef %121) #14
+118:                                              ; preds = %117, %112
+  %119 = load ptr, ptr %10, align 8
+  %120 = getelementptr inbounds i8, ptr %119, i64 808
+  %121 = load ptr, ptr %120, align 8
+  %122 = call i64 %121(ptr noundef nonnull %10, ptr noundef %.0, ptr noundef %24) #14
+  %123 = call zeroext i16 @outStream_writeLong(ptr noundef %1, i64 noundef %122) #14
   br label %writeStaticFieldValue.exit.us
 
-123:                                              ; preds = %85
-  %124 = load ptr, ptr @gdata, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 528
-  %126 = load i32, ptr %125, align 8
-  %127 = and i32 %126, 2
-  %.not66.i45.us = icmp eq i32 %127, 0
-  br i1 %.not66.i45.us, label %129, label %128
+124:                                              ; preds = %86
+  %125 = load ptr, ptr @gdata, align 8
+  %126 = getelementptr inbounds i8, ptr %125, i64 528
+  %127 = load i32, ptr %126, align 8
+  %128 = and i32 %127, 2
+  %.not66.i45.us = icmp eq i32 %128, 0
+  br i1 %.not66.i45.us, label %130, label %129
 
-128:                                              ; preds = %123
+129:                                              ; preds = %124
   call void @log_message_begin(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.4, i32 noundef 391) #14
   call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.155) #14
-  br label %129
+  br label %130
 
-129:                                              ; preds = %128, %123
-  %130 = load ptr, ptr %10, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 800
-  %132 = load ptr, ptr %131, align 8
-  %133 = call i32 %132(ptr noundef nonnull %10, ptr noundef %.0, ptr noundef %24) #14
-  %134 = call zeroext i16 @outStream_writeInt(ptr noundef %1, i32 noundef %133) #14
+130:                                              ; preds = %129, %124
+  %131 = load ptr, ptr %10, align 8
+  %132 = getelementptr inbounds i8, ptr %131, i64 800
+  %133 = load ptr, ptr %132, align 8
+  %134 = call i32 %133(ptr noundef nonnull %10, ptr noundef %.0, ptr noundef %24) #14
+  %135 = call zeroext i16 @outStream_writeInt(ptr noundef %1, i32 noundef %134) #14
   br label %writeStaticFieldValue.exit.us
 
-135:                                              ; preds = %85
-  %136 = load ptr, ptr @gdata, align 8
-  %137 = getelementptr inbounds i8, ptr %136, i64 528
-  %138 = load i32, ptr %137, align 8
-  %139 = and i32 %138, 2
-  %.not67.i46.us = icmp eq i32 %139, 0
-  br i1 %.not67.i46.us, label %141, label %140
+136:                                              ; preds = %86
+  %137 = load ptr, ptr @gdata, align 8
+  %138 = getelementptr inbounds i8, ptr %137, i64 528
+  %139 = load i32, ptr %138, align 8
+  %140 = and i32 %139, 2
+  %.not67.i46.us = icmp eq i32 %140, 0
+  br i1 %.not67.i46.us, label %142, label %141
 
-140:                                              ; preds = %135
+141:                                              ; preds = %136
   call void @log_message_begin(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.4, i32 noundef 386) #14
   call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.154) #14
-  br label %141
+  br label %142
 
-141:                                              ; preds = %140, %135
-  %142 = load ptr, ptr %10, align 8
-  %143 = getelementptr inbounds i8, ptr %142, i64 824
-  %144 = load ptr, ptr %143, align 8
-  %145 = call double %144(ptr noundef nonnull %10, ptr noundef %.0, ptr noundef %24) #14
-  %146 = call zeroext i16 @outStream_writeDouble(ptr noundef %1, double noundef %145) #14
+142:                                              ; preds = %141, %136
+  %143 = load ptr, ptr %10, align 8
+  %144 = getelementptr inbounds i8, ptr %143, i64 824
+  %145 = load ptr, ptr %144, align 8
+  %146 = call double %145(ptr noundef nonnull %10, ptr noundef %.0, ptr noundef %24) #14
+  %147 = call zeroext i16 @outStream_writeDouble(ptr noundef %1, double noundef %146) #14
   br label %writeStaticFieldValue.exit.us
 
-147:                                              ; preds = %85
-  %148 = load ptr, ptr @gdata, align 8
-  %149 = getelementptr inbounds i8, ptr %148, i64 528
-  %150 = load i32, ptr %149, align 8
-  %151 = and i32 %150, 2
-  %.not68.i.us = icmp eq i32 %151, 0
-  br i1 %.not68.i.us, label %153, label %152
+148:                                              ; preds = %86
+  %149 = load ptr, ptr @gdata, align 8
+  %150 = getelementptr inbounds i8, ptr %149, i64 528
+  %151 = load i32, ptr %150, align 8
+  %152 = and i32 %151, 2
+  %.not68.i.us = icmp eq i32 %152, 0
+  br i1 %.not68.i.us, label %154, label %153
 
-152:                                              ; preds = %147
+153:                                              ; preds = %148
   call void @log_message_begin(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.4, i32 noundef 381) #14
   call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.153) #14
-  br label %153
+  br label %154
 
-153:                                              ; preds = %152, %147
-  %154 = load ptr, ptr %10, align 8
-  %155 = getelementptr inbounds i8, ptr %154, i64 816
-  %156 = load ptr, ptr %155, align 8
-  %157 = call float %156(ptr noundef nonnull %10, ptr noundef %.0, ptr noundef %24) #14
-  %158 = call zeroext i16 @outStream_writeFloat(ptr noundef %1, float noundef %157) #14
+154:                                              ; preds = %153, %148
+  %155 = load ptr, ptr %10, align 8
+  %156 = getelementptr inbounds i8, ptr %155, i64 816
+  %157 = load ptr, ptr %156, align 8
+  %158 = call float %157(ptr noundef nonnull %10, ptr noundef %.0, ptr noundef %24) #14
+  %159 = call zeroext i16 @outStream_writeFloat(ptr noundef %1, float noundef %158) #14
   br label %writeStaticFieldValue.exit.us
 
-159:                                              ; preds = %85
-  %160 = load ptr, ptr @gdata, align 8
-  %161 = getelementptr inbounds i8, ptr %160, i64 528
-  %162 = load i32, ptr %161, align 8
-  %163 = and i32 %162, 2
-  %.not69.i.us = icmp eq i32 %163, 0
-  br i1 %.not69.i.us, label %165, label %164
+160:                                              ; preds = %86
+  %161 = load ptr, ptr @gdata, align 8
+  %162 = getelementptr inbounds i8, ptr %161, i64 528
+  %163 = load i32, ptr %162, align 8
+  %164 = and i32 %163, 2
+  %.not69.i.us = icmp eq i32 %164, 0
+  br i1 %.not69.i.us, label %166, label %165
 
-164:                                              ; preds = %159
+165:                                              ; preds = %160
   call void @log_message_begin(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.4, i32 noundef 376) #14
   call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.152) #14
-  br label %165
+  br label %166
 
-165:                                              ; preds = %164, %159
-  %166 = load ptr, ptr %10, align 8
-  %167 = getelementptr inbounds i8, ptr %166, i64 784
-  %168 = load ptr, ptr %167, align 8
-  %169 = call zeroext i16 %168(ptr noundef nonnull %10, ptr noundef %.0, ptr noundef %24) #14
-  %170 = call zeroext i16 @outStream_writeChar(ptr noundef %1, i16 noundef zeroext %169) #14
+166:                                              ; preds = %165, %160
+  %167 = load ptr, ptr %10, align 8
+  %168 = getelementptr inbounds i8, ptr %167, i64 784
+  %169 = load ptr, ptr %168, align 8
+  %170 = call zeroext i16 %169(ptr noundef nonnull %10, ptr noundef %.0, ptr noundef %24) #14
+  %171 = call zeroext i16 @outStream_writeChar(ptr noundef %1, i16 noundef zeroext %170) #14
   br label %writeStaticFieldValue.exit.us
 
-171:                                              ; preds = %85
-  %172 = load ptr, ptr @gdata, align 8
-  %173 = getelementptr inbounds i8, ptr %172, i64 528
-  %174 = load i32, ptr %173, align 8
-  %175 = and i32 %174, 2
-  %.not70.i.us = icmp eq i32 %175, 0
-  br i1 %.not70.i.us, label %177, label %176
+172:                                              ; preds = %86
+  %173 = load ptr, ptr @gdata, align 8
+  %174 = getelementptr inbounds i8, ptr %173, i64 528
+  %175 = load i32, ptr %174, align 8
+  %176 = and i32 %175, 2
+  %.not70.i.us = icmp eq i32 %176, 0
+  br i1 %.not70.i.us, label %178, label %177
 
-176:                                              ; preds = %171
+177:                                              ; preds = %172
   call void @log_message_begin(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.4, i32 noundef 371) #14
   call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.151) #14
-  br label %177
+  br label %178
 
-177:                                              ; preds = %176, %171
-  %178 = load ptr, ptr %10, align 8
-  %179 = getelementptr inbounds i8, ptr %178, i64 776
-  %180 = load ptr, ptr %179, align 8
-  %181 = call signext i8 %180(ptr noundef nonnull %10, ptr noundef %.0, ptr noundef %24) #14
-  %182 = call zeroext i16 @outStream_writeByte(ptr noundef %1, i8 noundef signext %181) #14
+178:                                              ; preds = %177, %172
+  %179 = load ptr, ptr %10, align 8
+  %180 = getelementptr inbounds i8, ptr %179, i64 776
+  %181 = load ptr, ptr %180, align 8
+  %182 = call signext i8 %181(ptr noundef nonnull %10, ptr noundef %.0, ptr noundef %24) #14
+  %183 = call zeroext i16 @outStream_writeByte(ptr noundef %1, i8 noundef signext %182) #14
   br label %writeStaticFieldValue.exit.us
 
-writeStaticFieldValue.exit.us:                    ; preds = %177, %165, %153, %141, %129, %117, %105, %93, %85, %77, %53
-  %183 = add nuw nsw i32 %.02650.us, 1
-  %exitcond53.not = icmp eq i32 %183, %16
+writeStaticFieldValue.exit.us:                    ; preds = %178, %166, %154, %142, %130, %118, %106, %94, %86, %78, %53
+  %184 = add nuw nsw i32 %.02650.us, 1
+  %exitcond53.not = icmp eq i32 %184, %16
   br i1 %exitcond53.not, label %.critedge, label %.lr.ph.split.us, !llvm.loop !6
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %writeStaticFieldValue.exit
-  %.02650 = phi i32 [ %335, %writeStaticFieldValue.exit ], [ 0, %.lr.ph ]
-  %184 = call zeroext i16 @outStream_error(ptr noundef %1) #14
-  %.not29 = icmp eq i16 %184, 0
-  br i1 %.not29, label %185, label %.critedge
+  %.02650 = phi i32 [ %337, %writeStaticFieldValue.exit ], [ 0, %.lr.ph ]
+  %185 = call zeroext i16 @outStream_error(ptr noundef %1) #14
+  %.not29 = icmp eq i16 %185, 0
+  br i1 %.not29, label %186, label %.critedge
 
-185:                                              ; preds = %.lr.ph.split
-  %186 = call ptr @inStream_readFieldID(ptr noundef %0) #14
+186:                                              ; preds = %.lr.ph.split
+  %187 = call ptr @inStream_readFieldID(ptr noundef %0) #14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr null, ptr %7, align 8
   store ptr null, ptr %8, align 8
   store ptr null, ptr %9, align 8
-  %187 = load ptr, ptr @gdata, align 8
-  %188 = getelementptr inbounds i8, ptr %187, i64 528
-  %189 = load i32, ptr %188, align 8
-  %190 = and i32 %189, 4
-  %.not.i.i = icmp eq i32 %190, 0
-  br i1 %.not.i.i, label %192, label %191
+  %188 = load ptr, ptr @gdata, align 8
+  %189 = getelementptr inbounds i8, ptr %188, i64 528
+  %190 = load i32, ptr %189, align 8
+  %191 = and i32 %190, 4
+  %.not.i.i = icmp eq i32 %191, 0
+  br i1 %.not.i.i, label %193, label %192
 
-191:                                              ; preds = %185
+192:                                              ; preds = %186
   call void @log_message_begin(ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.4, i32 noundef 807) #14
   call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.70) #14
   %.pre.i.i = load ptr, ptr @gdata, align 8
-  br label %192
+  br label %193
 
-192:                                              ; preds = %191, %185
-  %193 = phi ptr [ %187, %185 ], [ %.pre.i.i, %191 ]
-  %194 = load ptr, ptr %193, align 8
+193:                                              ; preds = %192, %186
+  %194 = phi ptr [ %188, %186 ], [ %.pre.i.i, %192 ]
   %195 = load ptr, ptr %194, align 8
-  %196 = getelementptr inbounds i8, ptr %195, i64 472
-  %197 = load ptr, ptr %196, align 8
-  %198 = call i32 %197(ptr noundef nonnull %194, ptr noundef %.027, ptr noundef %186, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #14
-  %199 = load ptr, ptr %7, align 8
-  %.not14.i.i = icmp eq ptr %199, null
-  br i1 %.not14.i.i, label %201, label %200
+  %196 = load ptr, ptr %195, align 8
+  %197 = getelementptr inbounds i8, ptr %196, i64 472
+  %198 = load ptr, ptr %197, align 8
+  %199 = call i32 %198(ptr noundef nonnull %195, ptr noundef %.027, ptr noundef %187, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #14
+  %200 = load ptr, ptr %7, align 8
+  %.not14.i.i = icmp eq ptr %200, null
+  br i1 %.not14.i.i, label %202, label %201
 
-200:                                              ; preds = %192
-  call void @jvmtiDeallocate(ptr noundef nonnull %199)
-  br label %201
+201:                                              ; preds = %193
+  call void @jvmtiDeallocate(ptr noundef nonnull %200)
+  br label %202
 
-201:                                              ; preds = %200, %192
-  %202 = load ptr, ptr %8, align 8
-  %203 = load ptr, ptr %9, align 8
-  %.not18.i.i = icmp eq ptr %203, null
-  br i1 %.not18.i.i, label %fieldSignature.exit.i, label %204
+202:                                              ; preds = %201, %193
+  %203 = load ptr, ptr %8, align 8
+  %204 = load ptr, ptr %9, align 8
+  %.not18.i.i = icmp eq ptr %204, null
+  br i1 %.not18.i.i, label %fieldSignature.exit.i, label %205
 
-204:                                              ; preds = %201
-  call void @jvmtiDeallocate(ptr noundef nonnull %203)
+205:                                              ; preds = %202
+  call void @jvmtiDeallocate(ptr noundef nonnull %204)
   br label %fieldSignature.exit.i
 
-fieldSignature.exit.i:                            ; preds = %204, %201
+fieldSignature.exit.i:                            ; preds = %205, %202
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  %.not.i = icmp eq i32 %198, 0
-  br i1 %.not.i, label %207, label %205
+  %.not.i = icmp eq i32 %199, 0
+  br i1 %.not.i, label %208, label %206
 
-205:                                              ; preds = %fieldSignature.exit.i
-  %206 = call zeroext i16 @map2jdwpError(i32 noundef %198)
-  call void @outStream_setError(ptr noundef %1, i16 noundef zeroext %206) #14
+206:                                              ; preds = %fieldSignature.exit.i
+  %207 = call zeroext i16 @map2jdwpError(i32 noundef %199)
+  call void @outStream_setError(ptr noundef %1, i16 noundef zeroext %207) #14
   br label %writeStaticFieldValue.exit
 
-207:                                              ; preds = %fieldSignature.exit.i
-  %208 = load ptr, ptr @gdata, align 8
-  %.not.i68.i = icmp eq ptr %208, null
-  br i1 %.not.i68.i, label %jdwpTag.exit.i, label %209
+208:                                              ; preds = %fieldSignature.exit.i
+  %209 = load ptr, ptr @gdata, align 8
+  %.not.i68.i = icmp eq ptr %209, null
+  br i1 %.not.i68.i, label %jdwpTag.exit.i, label %210
 
-209:                                              ; preds = %207
-  %210 = getelementptr inbounds i8, ptr %208, i64 17
-  %211 = load i8, ptr %210, align 1
-  %.not13.i.i = icmp eq i8 %211, 0
-  br i1 %.not13.i.i, label %jdwpTag.exit.i, label %212
+210:                                              ; preds = %208
+  %211 = getelementptr inbounds i8, ptr %209, i64 17
+  %212 = load i8, ptr %211, align 1
+  %.not13.i.i = icmp eq i8 %212, 0
+  br i1 %.not13.i.i, label %jdwpTag.exit.i, label %213
 
-212:                                              ; preds = %209
-  %213 = load i8, ptr %202, align 1
-  %switch.tableidx57 = add i8 %213, -66
-  %214 = icmp ult i8 %switch.tableidx57, 26
-  br i1 %214, label %switch.hole_check58, label %215
+213:                                              ; preds = %210
+  %214 = load i8, ptr %203, align 1
+  %switch.tableidx57 = add i8 %214, -66
+  %215 = icmp ult i8 %switch.tableidx57, 26
+  br i1 %215, label %switch.hole_check58, label %216
 
-215:                                              ; preds = %switch.hole_check58, %212
+216:                                              ; preds = %switch.hole_check58, %213
   call void @jdiAssertionFailed(ptr noundef nonnull @.str.148, i32 noundef 44, ptr noundef nonnull @.str.149) #14
   br label %jdwpTag.exit.i
 
-switch.hole_check58:                              ; preds = %212
+switch.hole_check58:                              ; preds = %213
   %switch.maskindex60 = zext nneg i8 %switch.tableidx57 to i32
   %switch.shifted61 = lshr i32 51512727, %switch.maskindex60
   %switch.lobit62 = trunc i32 %switch.shifted61 to i1
-  br i1 %switch.lobit62, label %switch.lookup59, label %215
+  br i1 %switch.lobit62, label %switch.lookup59, label %216
 
 switch.lookup59:                                  ; preds = %switch.hole_check58
-  %216 = zext nneg i8 %switch.tableidx57 to i64
-  %switch.gep63 = getelementptr inbounds [26 x i8], ptr @switch.table.sharedGetFieldValues.1, i64 0, i64 %216
+  %217 = zext nneg i8 %switch.tableidx57 to i64
+  %switch.gep63 = getelementptr inbounds [26 x i8], ptr @switch.table.sharedGetFieldValues.1, i64 0, i64 %217
   br label %jdwpTag.exit.i
 
-jdwpTag.exit.i:                                   ; preds = %207, %209, %215, %switch.lookup59
-  %switch.gep63.sink = phi ptr [ %switch.gep63, %switch.lookup59 ], [ %202, %215 ], [ %202, %209 ], [ %202, %207 ]
-  %switch.load64 = load i8, ptr %switch.gep63.sink, align 1
-  call void @jvmtiDeallocate(ptr noundef nonnull %202)
-  %217 = load ptr, ptr @gdata, align 8
-  %.not.i69.i = icmp eq ptr %217, null
-  br i1 %.not.i69.i, label %isReferenceTag.exit.i, label %218
+jdwpTag.exit.i:                                   ; preds = %208, %210, %216, %switch.lookup59
+  %.in = phi ptr [ %switch.gep63, %switch.lookup59 ], [ %203, %216 ], [ %203, %210 ], [ %203, %208 ]
+  %218 = load i8, ptr %.in, align 1
+  call void @jvmtiDeallocate(ptr noundef nonnull %203)
+  %219 = load ptr, ptr @gdata, align 8
+  %.not.i69.i = icmp eq ptr %219, null
+  br i1 %.not.i69.i, label %isReferenceTag.exit.i, label %220
 
-218:                                              ; preds = %jdwpTag.exit.i
-  %219 = getelementptr inbounds i8, ptr %217, i64 17
-  %220 = load i8, ptr %219, align 1
-  %.fr.i.i = freeze i8 %220
-  %221 = icmp eq i8 %.fr.i.i, 0
-  br i1 %221, label %isReferenceTag.exit.i, label %switch.early.test.i.i
+220:                                              ; preds = %jdwpTag.exit.i
+  %221 = getelementptr inbounds i8, ptr %219, i64 17
+  %222 = load i8, ptr %221, align 1
+  %.fr.i.i = freeze i8 %222
+  %223 = icmp eq i8 %.fr.i.i, 0
+  br i1 %223, label %isReferenceTag.exit.i, label %switch.early.test.i.i
 
-switch.early.test.i.i:                            ; preds = %218
-  switch i8 %switch.load64, label %222 [
-    i8 91, label %223
-    i8 76, label %223
-    i8 66, label %237
-    i8 67, label %237
-    i8 68, label %237
-    i8 70, label %237
-    i8 73, label %237
-    i8 74, label %237
-    i8 83, label %237
-    i8 86, label %237
-    i8 90, label %237
+switch.early.test.i.i:                            ; preds = %220
+  switch i8 %218, label %224 [
+    i8 91, label %225
+    i8 76, label %225
+    i8 66, label %239
+    i8 67, label %239
+    i8 68, label %239
+    i8 70, label %239
+    i8 73, label %239
+    i8 74, label %239
+    i8 83, label %239
+    i8 86, label %239
+    i8 90, label %239
   ]
 
-222:                                              ; preds = %switch.early.test.i.i
+224:                                              ; preds = %switch.early.test.i.i
   call void @jdiAssertionFailed(ptr noundef nonnull @.str.148, i32 noundef 49, ptr noundef nonnull @.str.149) #14
   br label %isReferenceTag.exit.i
 
-isReferenceTag.exit.i:                            ; preds = %222, %218, %jdwpTag.exit.i
-  switch i8 %switch.load64, label %237 [
-    i8 91, label %223
-    i8 76, label %223
+isReferenceTag.exit.i:                            ; preds = %224, %220, %jdwpTag.exit.i
+  switch i8 %218, label %239 [
+    i8 91, label %225
+    i8 76, label %225
   ]
 
-223:                                              ; preds = %isReferenceTag.exit.i, %isReferenceTag.exit.i, %switch.early.test.i.i, %switch.early.test.i.i
-  %224 = load ptr, ptr @gdata, align 8
-  %225 = getelementptr inbounds i8, ptr %224, i64 528
-  %226 = load i32, ptr %225, align 8
-  %227 = and i32 %226, 2
-  %.not67.i = icmp eq i32 %227, 0
-  br i1 %.not67.i, label %229, label %228
+225:                                              ; preds = %isReferenceTag.exit.i, %isReferenceTag.exit.i, %switch.early.test.i.i, %switch.early.test.i.i
+  %226 = load ptr, ptr @gdata, align 8
+  %227 = getelementptr inbounds i8, ptr %226, i64 528
+  %228 = load i32, ptr %227, align 8
+  %229 = and i32 %228, 2
+  %.not67.i = icmp eq i32 %229, 0
+  br i1 %.not67.i, label %231, label %230
 
-228:                                              ; preds = %223
+230:                                              ; preds = %225
   call void @log_message_begin(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.4, i32 noundef 430) #14
   call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.139) #14
-  br label %229
+  br label %231
 
-229:                                              ; preds = %228, %223
-  %230 = load ptr, ptr %10, align 8
-  %231 = getelementptr inbounds i8, ptr %230, i64 1160
-  %232 = load ptr, ptr %231, align 8
-  %233 = call ptr %232(ptr noundef nonnull %10, ptr noundef %.027, ptr noundef %186) #14
-  %234 = call signext i8 @specificTypeKey(ptr noundef nonnull %10, ptr noundef %233)
-  %235 = call zeroext i16 @outStream_writeByte(ptr noundef %1, i8 noundef signext %234) #14
-  %236 = call zeroext i16 @outStream_writeObjectRef(ptr noundef nonnull %10, ptr noundef %1, ptr noundef %233) #14
+231:                                              ; preds = %230, %225
+  %232 = load ptr, ptr %10, align 8
+  %233 = getelementptr inbounds i8, ptr %232, i64 1160
+  %234 = load ptr, ptr %233, align 8
+  %235 = call ptr %234(ptr noundef nonnull %10, ptr noundef %.027, ptr noundef %187) #14
+  %236 = call signext i8 @specificTypeKey(ptr noundef nonnull %10, ptr noundef %235)
+  %237 = call zeroext i16 @outStream_writeByte(ptr noundef %1, i8 noundef signext %236) #14
+  %238 = call zeroext i16 @outStream_writeObjectRef(ptr noundef nonnull %10, ptr noundef %1, ptr noundef %235) #14
   br label %writeStaticFieldValue.exit
 
-237:                                              ; preds = %isReferenceTag.exit.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i
-  %238 = call zeroext i16 @outStream_writeByte(ptr noundef %1, i8 noundef signext %switch.load64) #14
-  switch i8 %switch.load64, label %writeStaticFieldValue.exit [
-    i8 66, label %239
-    i8 67, label %251
-    i8 70, label %263
-    i8 68, label %275
-    i8 73, label %287
-    i8 74, label %299
-    i8 83, label %311
-    i8 90, label %323
+239:                                              ; preds = %isReferenceTag.exit.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i
+  %240 = call zeroext i16 @outStream_writeByte(ptr noundef %1, i8 noundef signext %218) #14
+  switch i8 %218, label %writeStaticFieldValue.exit [
+    i8 66, label %241
+    i8 67, label %253
+    i8 70, label %265
+    i8 68, label %277
+    i8 73, label %289
+    i8 74, label %301
+    i8 83, label %313
+    i8 90, label %325
   ]
 
-239:                                              ; preds = %237
-  %240 = load ptr, ptr @gdata, align 8
-  %241 = getelementptr inbounds i8, ptr %240, i64 528
-  %242 = load i32, ptr %241, align 8
-  %243 = and i32 %242, 2
-  %.not66.i = icmp eq i32 %243, 0
-  br i1 %.not66.i, label %245, label %244
+241:                                              ; preds = %239
+  %242 = load ptr, ptr @gdata, align 8
+  %243 = getelementptr inbounds i8, ptr %242, i64 528
+  %244 = load i32, ptr %243, align 8
+  %245 = and i32 %244, 2
+  %.not66.i = icmp eq i32 %245, 0
+  br i1 %.not66.i, label %247, label %246
 
-244:                                              ; preds = %239
+246:                                              ; preds = %241
   call void @log_message_begin(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.4, i32 noundef 444) #14
   call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.140) #14
-  br label %245
+  br label %247
 
-245:                                              ; preds = %244, %239
-  %246 = load ptr, ptr %10, align 8
-  %247 = getelementptr inbounds i8, ptr %246, i64 1176
-  %248 = load ptr, ptr %247, align 8
-  %249 = call signext i8 %248(ptr noundef nonnull %10, ptr noundef %.027, ptr noundef %186) #14
-  %250 = call zeroext i16 @outStream_writeByte(ptr noundef %1, i8 noundef signext %249) #14
+247:                                              ; preds = %246, %241
+  %248 = load ptr, ptr %10, align 8
+  %249 = getelementptr inbounds i8, ptr %248, i64 1176
+  %250 = load ptr, ptr %249, align 8
+  %251 = call signext i8 %250(ptr noundef nonnull %10, ptr noundef %.027, ptr noundef %187) #14
+  %252 = call zeroext i16 @outStream_writeByte(ptr noundef %1, i8 noundef signext %251) #14
   br label %writeStaticFieldValue.exit
 
-251:                                              ; preds = %237
-  %252 = load ptr, ptr @gdata, align 8
-  %253 = getelementptr inbounds i8, ptr %252, i64 528
-  %254 = load i32, ptr %253, align 8
-  %255 = and i32 %254, 2
-  %.not65.i = icmp eq i32 %255, 0
-  br i1 %.not65.i, label %257, label %256
+253:                                              ; preds = %239
+  %254 = load ptr, ptr @gdata, align 8
+  %255 = getelementptr inbounds i8, ptr %254, i64 528
+  %256 = load i32, ptr %255, align 8
+  %257 = and i32 %256, 2
+  %.not65.i = icmp eq i32 %257, 0
+  br i1 %.not65.i, label %259, label %258
 
-256:                                              ; preds = %251
+258:                                              ; preds = %253
   call void @log_message_begin(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.4, i32 noundef 449) #14
   call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.141) #14
-  br label %257
+  br label %259
 
-257:                                              ; preds = %256, %251
-  %258 = load ptr, ptr %10, align 8
-  %259 = getelementptr inbounds i8, ptr %258, i64 1184
-  %260 = load ptr, ptr %259, align 8
-  %261 = call zeroext i16 %260(ptr noundef nonnull %10, ptr noundef %.027, ptr noundef %186) #14
-  %262 = call zeroext i16 @outStream_writeChar(ptr noundef %1, i16 noundef zeroext %261) #14
+259:                                              ; preds = %258, %253
+  %260 = load ptr, ptr %10, align 8
+  %261 = getelementptr inbounds i8, ptr %260, i64 1184
+  %262 = load ptr, ptr %261, align 8
+  %263 = call zeroext i16 %262(ptr noundef nonnull %10, ptr noundef %.027, ptr noundef %187) #14
+  %264 = call zeroext i16 @outStream_writeChar(ptr noundef %1, i16 noundef zeroext %263) #14
   br label %writeStaticFieldValue.exit
 
-263:                                              ; preds = %237
-  %264 = load ptr, ptr @gdata, align 8
-  %265 = getelementptr inbounds i8, ptr %264, i64 528
-  %266 = load i32, ptr %265, align 8
-  %267 = and i32 %266, 2
-  %.not64.i = icmp eq i32 %267, 0
-  br i1 %.not64.i, label %269, label %268
+265:                                              ; preds = %239
+  %266 = load ptr, ptr @gdata, align 8
+  %267 = getelementptr inbounds i8, ptr %266, i64 528
+  %268 = load i32, ptr %267, align 8
+  %269 = and i32 %268, 2
+  %.not64.i = icmp eq i32 %269, 0
+  br i1 %.not64.i, label %271, label %270
 
-268:                                              ; preds = %263
+270:                                              ; preds = %265
   call void @log_message_begin(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.4, i32 noundef 454) #14
   call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.142) #14
-  br label %269
+  br label %271
 
-269:                                              ; preds = %268, %263
-  %270 = load ptr, ptr %10, align 8
-  %271 = getelementptr inbounds i8, ptr %270, i64 1216
-  %272 = load ptr, ptr %271, align 8
-  %273 = call float %272(ptr noundef nonnull %10, ptr noundef %.027, ptr noundef %186) #14
-  %274 = call zeroext i16 @outStream_writeFloat(ptr noundef %1, float noundef %273) #14
+271:                                              ; preds = %270, %265
+  %272 = load ptr, ptr %10, align 8
+  %273 = getelementptr inbounds i8, ptr %272, i64 1216
+  %274 = load ptr, ptr %273, align 8
+  %275 = call float %274(ptr noundef nonnull %10, ptr noundef %.027, ptr noundef %187) #14
+  %276 = call zeroext i16 @outStream_writeFloat(ptr noundef %1, float noundef %275) #14
   br label %writeStaticFieldValue.exit
 
-275:                                              ; preds = %237
-  %276 = load ptr, ptr @gdata, align 8
-  %277 = getelementptr inbounds i8, ptr %276, i64 528
-  %278 = load i32, ptr %277, align 8
-  %279 = and i32 %278, 2
-  %.not63.i = icmp eq i32 %279, 0
-  br i1 %.not63.i, label %281, label %280
+277:                                              ; preds = %239
+  %278 = load ptr, ptr @gdata, align 8
+  %279 = getelementptr inbounds i8, ptr %278, i64 528
+  %280 = load i32, ptr %279, align 8
+  %281 = and i32 %280, 2
+  %.not63.i = icmp eq i32 %281, 0
+  br i1 %.not63.i, label %283, label %282
 
-280:                                              ; preds = %275
+282:                                              ; preds = %277
   call void @log_message_begin(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.4, i32 noundef 459) #14
   call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.143) #14
-  br label %281
+  br label %283
 
-281:                                              ; preds = %280, %275
-  %282 = load ptr, ptr %10, align 8
-  %283 = getelementptr inbounds i8, ptr %282, i64 1224
-  %284 = load ptr, ptr %283, align 8
-  %285 = call double %284(ptr noundef nonnull %10, ptr noundef %.027, ptr noundef %186) #14
-  %286 = call zeroext i16 @outStream_writeDouble(ptr noundef %1, double noundef %285) #14
+283:                                              ; preds = %282, %277
+  %284 = load ptr, ptr %10, align 8
+  %285 = getelementptr inbounds i8, ptr %284, i64 1224
+  %286 = load ptr, ptr %285, align 8
+  %287 = call double %286(ptr noundef nonnull %10, ptr noundef %.027, ptr noundef %187) #14
+  %288 = call zeroext i16 @outStream_writeDouble(ptr noundef %1, double noundef %287) #14
   br label %writeStaticFieldValue.exit
 
-287:                                              ; preds = %237
-  %288 = load ptr, ptr @gdata, align 8
-  %289 = getelementptr inbounds i8, ptr %288, i64 528
-  %290 = load i32, ptr %289, align 8
-  %291 = and i32 %290, 2
-  %.not62.i = icmp eq i32 %291, 0
-  br i1 %.not62.i, label %293, label %292
+289:                                              ; preds = %239
+  %290 = load ptr, ptr @gdata, align 8
+  %291 = getelementptr inbounds i8, ptr %290, i64 528
+  %292 = load i32, ptr %291, align 8
+  %293 = and i32 %292, 2
+  %.not62.i = icmp eq i32 %293, 0
+  br i1 %.not62.i, label %295, label %294
 
-292:                                              ; preds = %287
+294:                                              ; preds = %289
   call void @log_message_begin(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.4, i32 noundef 464) #14
   call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.144) #14
-  br label %293
+  br label %295
 
-293:                                              ; preds = %292, %287
-  %294 = load ptr, ptr %10, align 8
-  %295 = getelementptr inbounds i8, ptr %294, i64 1200
-  %296 = load ptr, ptr %295, align 8
-  %297 = call i32 %296(ptr noundef nonnull %10, ptr noundef %.027, ptr noundef %186) #14
-  %298 = call zeroext i16 @outStream_writeInt(ptr noundef %1, i32 noundef %297) #14
+295:                                              ; preds = %294, %289
+  %296 = load ptr, ptr %10, align 8
+  %297 = getelementptr inbounds i8, ptr %296, i64 1200
+  %298 = load ptr, ptr %297, align 8
+  %299 = call i32 %298(ptr noundef nonnull %10, ptr noundef %.027, ptr noundef %187) #14
+  %300 = call zeroext i16 @outStream_writeInt(ptr noundef %1, i32 noundef %299) #14
   br label %writeStaticFieldValue.exit
 
-299:                                              ; preds = %237
-  %300 = load ptr, ptr @gdata, align 8
-  %301 = getelementptr inbounds i8, ptr %300, i64 528
-  %302 = load i32, ptr %301, align 8
-  %303 = and i32 %302, 2
-  %.not61.i = icmp eq i32 %303, 0
-  br i1 %.not61.i, label %305, label %304
+301:                                              ; preds = %239
+  %302 = load ptr, ptr @gdata, align 8
+  %303 = getelementptr inbounds i8, ptr %302, i64 528
+  %304 = load i32, ptr %303, align 8
+  %305 = and i32 %304, 2
+  %.not61.i = icmp eq i32 %305, 0
+  br i1 %.not61.i, label %307, label %306
 
-304:                                              ; preds = %299
+306:                                              ; preds = %301
   call void @log_message_begin(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.4, i32 noundef 469) #14
   call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.145) #14
-  br label %305
+  br label %307
 
-305:                                              ; preds = %304, %299
-  %306 = load ptr, ptr %10, align 8
-  %307 = getelementptr inbounds i8, ptr %306, i64 1208
-  %308 = load ptr, ptr %307, align 8
-  %309 = call i64 %308(ptr noundef nonnull %10, ptr noundef %.027, ptr noundef %186) #14
-  %310 = call zeroext i16 @outStream_writeLong(ptr noundef %1, i64 noundef %309) #14
+307:                                              ; preds = %306, %301
+  %308 = load ptr, ptr %10, align 8
+  %309 = getelementptr inbounds i8, ptr %308, i64 1208
+  %310 = load ptr, ptr %309, align 8
+  %311 = call i64 %310(ptr noundef nonnull %10, ptr noundef %.027, ptr noundef %187) #14
+  %312 = call zeroext i16 @outStream_writeLong(ptr noundef %1, i64 noundef %311) #14
   br label %writeStaticFieldValue.exit
 
-311:                                              ; preds = %237
-  %312 = load ptr, ptr @gdata, align 8
-  %313 = getelementptr inbounds i8, ptr %312, i64 528
-  %314 = load i32, ptr %313, align 8
-  %315 = and i32 %314, 2
-  %.not60.i = icmp eq i32 %315, 0
-  br i1 %.not60.i, label %317, label %316
+313:                                              ; preds = %239
+  %314 = load ptr, ptr @gdata, align 8
+  %315 = getelementptr inbounds i8, ptr %314, i64 528
+  %316 = load i32, ptr %315, align 8
+  %317 = and i32 %316, 2
+  %.not60.i = icmp eq i32 %317, 0
+  br i1 %.not60.i, label %319, label %318
 
-316:                                              ; preds = %311
+318:                                              ; preds = %313
   call void @log_message_begin(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.4, i32 noundef 474) #14
   call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.146) #14
-  br label %317
+  br label %319
 
-317:                                              ; preds = %316, %311
-  %318 = load ptr, ptr %10, align 8
-  %319 = getelementptr inbounds i8, ptr %318, i64 1192
-  %320 = load ptr, ptr %319, align 8
-  %321 = call signext i16 %320(ptr noundef nonnull %10, ptr noundef %.027, ptr noundef %186) #14
-  %322 = call zeroext i16 @outStream_writeShort(ptr noundef %1, i16 noundef signext %321) #14
+319:                                              ; preds = %318, %313
+  %320 = load ptr, ptr %10, align 8
+  %321 = getelementptr inbounds i8, ptr %320, i64 1192
+  %322 = load ptr, ptr %321, align 8
+  %323 = call signext i16 %322(ptr noundef nonnull %10, ptr noundef %.027, ptr noundef %187) #14
+  %324 = call zeroext i16 @outStream_writeShort(ptr noundef %1, i16 noundef signext %323) #14
   br label %writeStaticFieldValue.exit
 
-323:                                              ; preds = %237
-  %324 = load ptr, ptr @gdata, align 8
-  %325 = getelementptr inbounds i8, ptr %324, i64 528
-  %326 = load i32, ptr %325, align 8
-  %327 = and i32 %326, 2
-  %.not59.i = icmp eq i32 %327, 0
-  br i1 %.not59.i, label %329, label %328
+325:                                              ; preds = %239
+  %326 = load ptr, ptr @gdata, align 8
+  %327 = getelementptr inbounds i8, ptr %326, i64 528
+  %328 = load i32, ptr %327, align 8
+  %329 = and i32 %328, 2
+  %.not59.i = icmp eq i32 %329, 0
+  br i1 %.not59.i, label %331, label %330
 
-328:                                              ; preds = %323
+330:                                              ; preds = %325
   call void @log_message_begin(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.4, i32 noundef 479) #14
   call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.147) #14
-  br label %329
+  br label %331
 
-329:                                              ; preds = %328, %323
-  %330 = load ptr, ptr %10, align 8
-  %331 = getelementptr inbounds i8, ptr %330, i64 1168
-  %332 = load ptr, ptr %331, align 8
-  %333 = call zeroext i8 %332(ptr noundef nonnull %10, ptr noundef %.027, ptr noundef %186) #14
-  %334 = call zeroext i16 @outStream_writeBoolean(ptr noundef %1, i8 noundef zeroext %333) #14
+331:                                              ; preds = %330, %325
+  %332 = load ptr, ptr %10, align 8
+  %333 = getelementptr inbounds i8, ptr %332, i64 1168
+  %334 = load ptr, ptr %333, align 8
+  %335 = call zeroext i8 %334(ptr noundef nonnull %10, ptr noundef %.027, ptr noundef %187) #14
+  %336 = call zeroext i16 @outStream_writeBoolean(ptr noundef %1, i8 noundef zeroext %335) #14
   br label %writeStaticFieldValue.exit
 
-writeStaticFieldValue.exit:                       ; preds = %329, %317, %305, %293, %281, %269, %257, %245, %237, %229, %205
-  %335 = add nuw nsw i32 %.02650, 1
-  %exitcond.not = icmp eq i32 %335, %16
+writeStaticFieldValue.exit:                       ; preds = %331, %319, %307, %295, %283, %271, %259, %247, %239, %231, %206
+  %337 = add nuw nsw i32 %.02650, 1
+  %exitcond.not = icmp eq i32 %337, %16
   br i1 %exitcond.not, label %.critedge, label %.lr.ph.split, !llvm.loop !6
 
 .critedge:                                        ; preds = %.lr.ph.split, %writeStaticFieldValue.exit, %.lr.ph.split.us, %writeStaticFieldValue.exit.us, %18
-  %336 = load ptr, ptr @gdata, align 8
-  %337 = getelementptr inbounds i8, ptr %336, i64 528
-  %338 = load i32, ptr %337, align 8
-  %339 = and i32 %338, 2
-  %.not30 = icmp eq i32 %339, 0
-  br i1 %.not30, label %341, label %340
+  %338 = load ptr, ptr @gdata, align 8
+  %339 = getelementptr inbounds i8, ptr %338, i64 528
+  %340 = load i32, ptr %339, align 8
+  %341 = and i32 %340, 2
+  %.not30 = icmp eq i32 %341, 0
+  br i1 %.not30, label %343, label %342
 
-340:                                              ; preds = %.critedge
+342:                                              ; preds = %.critedge
   call void @log_message_begin(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.4, i32 noundef 522) #14
   call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.61) #14
-  br label %341
+  br label %343
 
-341:                                              ; preds = %.critedge, %340
-  %342 = load ptr, ptr %10, align 8
-  %343 = getelementptr inbounds i8, ptr %342, i64 160
-  %344 = load ptr, ptr %343, align 8
-  %345 = call ptr %344(ptr noundef nonnull %10, ptr noundef null) #14
-  br label %346
+343:                                              ; preds = %.critedge, %342
+  %344 = load ptr, ptr %10, align 8
+  %345 = getelementptr inbounds i8, ptr %344, i64 160
+  %346 = load ptr, ptr %345, align 8
+  %347 = call ptr %346(ptr noundef nonnull %10, ptr noundef null) #14
+  br label %348
 
-346:                                              ; preds = %15, %341
+348:                                              ; preds = %15, %343
   ret void
 }
 

@@ -12609,7 +12609,8 @@ _ZNK3vcg4Box3IfE6IsNullEv.exit.thread.i146:       ; preds = %_ZNK3vcg4Box3IfE6Is
   store float %.sroa.7.0.i138, ptr %.sroa.7.0..sroa_idx, align 4
   store <2 x float> %.sroa.0.0.i139, ptr %0, align 4
   %.sroa.7.0..sroa_idx154 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit147.sink.split
+  store float %.sroa.7.0.i138, ptr %.sroa.7.0..sroa_idx154, align 4
+  br label %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit147
 
 639:                                              ; preds = %_ZNK3vcg4Box3IfE6IsNullEv.exit.i145
   %.sroa.0148.0.vec.extract = extractelement <2 x float> %.sroa.0.0.i139, i64 0
@@ -12655,14 +12656,13 @@ _ZNK3vcg4Box3IfE6IsNullEv.exit.thread.i146:       ; preds = %_ZNK3vcg4Box3IfE6Is
 
 654:                                              ; preds = %653, %651
   %655 = fcmp olt float %585, %.sroa.7.0.i138
-  br i1 %655, label %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit147.sink.split, label %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit147
+  br i1 %655, label %656, label %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit147
 
-_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit147.sink.split: ; preds = %654, %_ZNK3vcg4Box3IfE6IsNullEv.exit.thread.i146
-  %.sink = phi ptr [ %.sroa.7.0..sroa_idx154, %_ZNK3vcg4Box3IfE6IsNullEv.exit.thread.i146 ], [ %637, %654 ]
-  store float %.sroa.7.0.i138, ptr %.sink, align 4
+656:                                              ; preds = %654
+  store float %.sroa.7.0.i138, ptr %637, align 4
   br label %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit147
 
-_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit147:     ; preds = %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit147.sink.split, %3, %8, %654, %_ZNK3vcg4Box3IfE6IsNullEv.exit
+_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit147:     ; preds = %3, %8, %656, %654, %_ZNK3vcg4Box3IfE6IsNullEv.exit.thread.i146, %_ZNK3vcg4Box3IfE6IsNullEv.exit
   ret void
 }
 

@@ -6073,7 +6073,8 @@ define noundef i32 @pref_clean_stash(ptr nocapture noundef %0, ptr nocapture nou
 
 8:                                                ; preds = %5
   tail call void @g_free(ptr noundef nonnull %7) #24
-  br label %.sink.split
+  store ptr null, ptr %6, align 8
+  br label %20
 
 9:                                                ; preds = %2, %2
   %10 = getelementptr inbounds i8, ptr %0, i64 48
@@ -6085,7 +6086,8 @@ define noundef i32 @pref_clean_stash(ptr nocapture noundef %0, ptr nocapture nou
   %13 = tail call ptr @wmem_epan_scope() #24
   %14 = load ptr, ptr %10, align 8
   tail call void @wmem_free(ptr noundef %13, ptr noundef %14) #24
-  br label %.sink.split
+  store ptr null, ptr %10, align 8
+  br label %20
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds i8, ptr %0, i64 48
@@ -6095,18 +6097,14 @@ define noundef i32 @pref_clean_stash(ptr nocapture noundef %0, ptr nocapture nou
 
 18:                                               ; preds = %15
   tail call void @g_list_free(ptr noundef nonnull %17) #24
-  br label %.sink.split
+  store ptr null, ptr %16, align 8
+  br label %20
 
 19:                                               ; preds = %2
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 2379, ptr noundef nonnull @__func__.pref_clean_stash, ptr noundef nonnull @.str.8) #25
   unreachable
 
-.sink.split:                                      ; preds = %8, %12, %18
-  %.sink = phi ptr [ %16, %18 ], [ %10, %12 ], [ %6, %8 ]
-  store ptr null, ptr %.sink, align 8
-  br label %20
-
-20:                                               ; preds = %.sink.split, %15, %9, %5, %2
+20:                                               ; preds = %15, %18, %9, %12, %5, %8, %2
   ret i32 0
 }
 
@@ -7135,42 +7133,50 @@ define internal i32 @set_pref(ptr noundef %0, ptr noundef %1, ptr noundef readno
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) @gbl_resolv_flags, i8 0, i64 32, i1 false)
   br label %51
 
-51:                                               ; preds = %60, %50
-  %.011.i = phi ptr [ %1, %50 ], [ %52, %60 ]
+51:                                               ; preds = %.backedge, %50
+  %.011.i = phi ptr [ %1, %50 ], [ %52, %.backedge ]
   %52 = getelementptr i8, ptr %.011.i, i64 1
   %53 = load i8, ptr %.011.i, align 1
   switch i8 %53, label %.loopexit [
-    i8 118, label %59
-    i8 103, label %60
-    i8 109, label %54
-    i8 110, label %55
-    i8 78, label %56
-    i8 116, label %57
-    i8 100, label %58
+    i8 118, label %60
+    i8 103, label %54
+    i8 109, label %55
+    i8 110, label %56
+    i8 78, label %57
+    i8 116, label %58
+    i8 100, label %59
     i8 0, label %deprecated_heur_dissector_pref.exit
   ]
 
 54:                                               ; preds = %51
-  br label %60
+  store i32 1, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 28), align 4
+  br label %.backedge
 
 55:                                               ; preds = %51
-  br label %60
+  store i32 1, ptr @gbl_resolv_flags, align 4
+  br label %.backedge
 
 56:                                               ; preds = %51
-  br label %60
+  store i32 1, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 4), align 4
+  br label %.backedge
 
 57:                                               ; preds = %51
-  br label %60
+  store i32 1, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 16), align 4
+  br label %.backedge
 
 58:                                               ; preds = %51
-  br label %60
+  store i32 1, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 8), align 4
+  br label %.backedge
 
 59:                                               ; preds = %51
-  br label %60
+  store i32 1, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 12), align 4
+  br label %.backedge
 
-60:                                               ; preds = %51, %59, %58, %57, %56, %55, %54
-  %.sink.i = phi ptr [ getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 20), %59 ], [ getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 12), %58 ], [ getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 8), %57 ], [ getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 16), %56 ], [ getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 4), %55 ], [ @gbl_resolv_flags, %54 ], [ getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 28), %51 ]
-  store i32 1, ptr %.sink.i, align 4
+60:                                               ; preds = %51
+  store i32 1, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 20), align 4
+  br label %.backedge
+
+.backedge:                                        ; preds = %60, %59, %58, %57, %56, %55, %54
   br label %51, !llvm.loop !25
 
 .preheader437:                                    ; preds = %40, %77
@@ -9229,41 +9235,49 @@ define signext range(i8 111, 109) i8 @string_to_name_resolve(ptr nocapture nound
   %8 = getelementptr inbounds i8, ptr %1, i64 20
   br label %9
 
-9:                                                ; preds = %18, %2
-  %.011 = phi ptr [ %0, %2 ], [ %10, %18 ]
+9:                                                ; preds = %.backedge, %2
+  %.011 = phi ptr [ %0, %2 ], [ %10, %.backedge ]
   %10 = getelementptr i8, ptr %.011, i64 1
   %11 = load i8, ptr %.011, align 1
   switch i8 %11, label %19 [
-    i8 118, label %17
-    i8 103, label %18
-    i8 109, label %12
-    i8 110, label %13
-    i8 78, label %14
-    i8 116, label %15
-    i8 100, label %16
+    i8 118, label %18
+    i8 103, label %12
+    i8 109, label %13
+    i8 110, label %14
+    i8 78, label %15
+    i8 116, label %16
+    i8 100, label %17
   ]
 
 12:                                               ; preds = %9
-  br label %18
+  store i32 1, ptr %7, align 4
+  br label %.backedge
 
 13:                                               ; preds = %9
-  br label %18
+  store i32 1, ptr %1, align 4
+  br label %.backedge
 
 14:                                               ; preds = %9
-  br label %18
+  store i32 1, ptr %6, align 4
+  br label %.backedge
 
 15:                                               ; preds = %9
-  br label %18
+  store i32 1, ptr %5, align 4
+  br label %.backedge
 
 16:                                               ; preds = %9
-  br label %18
+  store i32 1, ptr %4, align 4
+  br label %.backedge
 
 17:                                               ; preds = %9
-  br label %18
+  store i32 1, ptr %3, align 4
+  br label %.backedge
 
-18:                                               ; preds = %9, %17, %16, %15, %14, %13, %12
-  %.sink = phi ptr [ %8, %17 ], [ %3, %16 ], [ %4, %15 ], [ %5, %14 ], [ %6, %13 ], [ %1, %12 ], [ %7, %9 ]
-  store i32 1, ptr %.sink, align 4
+18:                                               ; preds = %9
+  store i32 1, ptr %8, align 4
+  br label %.backedge
+
+.backedge:                                        ; preds = %18, %17, %16, %15, %14, %13, %12
   br label %9, !llvm.loop !25
 
 19:                                               ; preds = %9

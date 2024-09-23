@@ -1243,7 +1243,15 @@ _ZN7rocksdb6StatusaSEOS0_.exit104:                ; preds = %invoke.cont67, %if.
   %state_.i105 = getelementptr inbounds i8, ptr %ref.tmp62, i64 8
   %72 = load ptr, ptr %state_.i105, align 8
   %cmp.not.i.i106 = icmp eq ptr %72, null
-  br i1 %cmp.not.i.i106, label %if.then.i.i.i218.sink.split, label %if.then.i.i.i218.sink.split.sink.split
+  br i1 %cmp.not.i.i106, label %_ZN7rocksdb6StatusD2Ev.exit108, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i107
+
+_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i107: ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit104
+  call void @_ZdaPv(ptr noundef nonnull %72) #19
+  br label %_ZN7rocksdb6StatusD2Ev.exit108
+
+_ZN7rocksdb6StatusD2Ev.exit108:                   ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit104, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i107
+  store ptr null, ptr %state_.i105, align 8
+  br label %if.then.i.i.i218
 
 lpad48.loopexit:                                  ; preds = %invoke.cont137, %for.body131
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1393,7 +1401,15 @@ _ZN7rocksdb6StatusaSEOS0_.exit137:                ; preds = %invoke.cont95, %if.
   %state_.i138 = getelementptr inbounds i8, ptr %ref.tmp90, i64 8
   %84 = load ptr, ptr %state_.i138, align 8
   %cmp.not.i.i139 = icmp eq ptr %84, null
-  br i1 %cmp.not.i.i139, label %if.then.i.i.i218.sink.split, label %if.then.i.i.i218.sink.split.sink.split
+  br i1 %cmp.not.i.i139, label %_ZN7rocksdb6StatusD2Ev.exit141, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i140
+
+_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i140: ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit137
+  call void @_ZdaPv(ptr noundef nonnull %84) #19
+  br label %_ZN7rocksdb6StatusD2Ev.exit141
+
+_ZN7rocksdb6StatusD2Ev.exit141:                   ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit137, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i140
+  store ptr null, ptr %state_.i138, align 8
+  br label %if.then.i.i.i218
 
 for.inc:                                          ; preds = %invoke.cont74, %if.end69
   %inc = add nuw i64 %i.0301, 1
@@ -1689,20 +1705,9 @@ cleanup:                                          ; preds = %invoke.cont168, %if
   %tobool.not.i.i.i = icmp eq ptr %cond.i.i.i.i, null
   br i1 %tobool.not.i.i.i, label %cleanup176, label %if.then.i.i.i218
 
-if.then.i.i.i218.sink.split.sink.split:           ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit137, %_ZN7rocksdb6StatusaSEOS0_.exit104
-  %.sink = phi ptr [ %72, %_ZN7rocksdb6StatusaSEOS0_.exit104 ], [ %84, %_ZN7rocksdb6StatusaSEOS0_.exit137 ]
-  %state_.i105.sink.ph = phi ptr [ %state_.i105, %_ZN7rocksdb6StatusaSEOS0_.exit104 ], [ %state_.i138, %_ZN7rocksdb6StatusaSEOS0_.exit137 ]
-  call void @_ZdaPv(ptr noundef nonnull %.sink) #19
-  br label %if.then.i.i.i218.sink.split
-
-if.then.i.i.i218.sink.split:                      ; preds = %if.then.i.i.i218.sink.split.sink.split, %_ZN7rocksdb6StatusaSEOS0_.exit137, %_ZN7rocksdb6StatusaSEOS0_.exit104
-  %state_.i105.sink = phi ptr [ %state_.i105, %_ZN7rocksdb6StatusaSEOS0_.exit104 ], [ %state_.i138, %_ZN7rocksdb6StatusaSEOS0_.exit137 ], [ %state_.i105.sink.ph, %if.then.i.i.i218.sink.split.sink.split ]
-  store ptr null, ptr %state_.i105.sink, align 8
-  br label %if.then.i.i.i218
-
-if.then.i.i.i218:                                 ; preds = %if.then.i.i.i218.sink.split, %cleanup
-  %nrvo.1257 = phi i1 [ %nrvo.1, %cleanup ], [ true, %if.then.i.i.i218.sink.split ]
-  %132 = phi i1 [ %cmp103, %cleanup ], [ false, %if.then.i.i.i218.sink.split ]
+if.then.i.i.i218:                                 ; preds = %_ZN7rocksdb6StatusD2Ev.exit108, %_ZN7rocksdb6StatusD2Ev.exit141, %cleanup
+  %nrvo.1257 = phi i1 [ %nrvo.1, %cleanup ], [ true, %_ZN7rocksdb6StatusD2Ev.exit141 ], [ true, %_ZN7rocksdb6StatusD2Ev.exit108 ]
+  %132 = phi i1 [ %cmp103, %cleanup ], [ false, %_ZN7rocksdb6StatusD2Ev.exit141 ], [ false, %_ZN7rocksdb6StatusD2Ev.exit108 ]
   call void @_ZdlPv(ptr noundef nonnull %cond.i.i.i.i) #19
   br label %cleanup176
 

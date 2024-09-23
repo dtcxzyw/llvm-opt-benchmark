@@ -1145,6 +1145,7 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   store ptr %this, ptr %mpPrev.i.i, align 8
+  store ptr %this, ptr %this, align 8
   br label %if.end.i.i.i
 
 if.else.i.i.i:                                    ; preds = %entry
@@ -1152,11 +1153,10 @@ if.else.i.i.i:                                    ; preds = %entry
   store ptr %this, ptr %2, align 8
   %3 = load ptr, ptr %this, align 8
   %mpPrev5.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %this, ptr %mpPrev5.i.i.i, align 8
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.then.i.i.i
-  %mpPrev5.sink.i.i.i = phi ptr [ %mpPrev5.i.i.i, %if.else.i.i.i ], [ %this, %if.then.i.i.i ]
-  store ptr %this, ptr %mpPrev5.sink.i.i.i, align 8
   %4 = load ptr, ptr %x, align 8
   %cmp7.i.i.i = icmp eq ptr %4, %this
   %mpPrev9.i.i.i = getelementptr inbounds i8, ptr %x, i64 8
@@ -1164,6 +1164,7 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
 
 if.then8.i.i.i:                                   ; preds = %if.end.i.i.i
   store ptr %x, ptr %mpPrev9.i.i.i, align 8
+  store ptr %x, ptr %x, align 8
   br label %invoke.cont
 
 if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
@@ -1171,11 +1172,10 @@ if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
   store ptr %x, ptr %5, align 8
   %6 = load ptr, ptr %x, align 8
   %mpPrev15.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %x, ptr %mpPrev15.i.i.i, align 8
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.else11.i.i.i, %if.then8.i.i.i
-  %mpPrev15.sink.i.i.i = phi ptr [ %mpPrev15.i.i.i, %if.else11.i.i.i ], [ %x, %if.then8.i.i.i ]
-  store ptr %x, ptr %mpPrev15.sink.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i.i)
   %mSize5.i.i = getelementptr inbounds i8, ptr %x, i64 16
   %7 = load i64, ptr %0, align 8
@@ -1200,6 +1200,7 @@ if.then:
 
 if.then.i.i:                                      ; preds = %if.then
   store ptr %this, ptr %mpPrev.i.i, align 8
+  store ptr %this, ptr %this, align 8
   br label %if.end.i.i
 
 if.else.i.i:                                      ; preds = %if.then
@@ -1207,11 +1208,10 @@ if.else.i.i:                                      ; preds = %if.then
   store ptr %this, ptr %1, align 8
   %2 = load ptr, ptr %this, align 8
   %mpPrev5.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %this, ptr %mpPrev5.i.i, align 8
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else.i.i, %if.then.i.i
-  %mpPrev5.sink.i.i = phi ptr [ %mpPrev5.i.i, %if.else.i.i ], [ %this, %if.then.i.i ]
-  store ptr %this, ptr %mpPrev5.sink.i.i, align 8
   %3 = load ptr, ptr %x, align 8
   %cmp7.i.i = icmp eq ptr %3, %this
   %mpPrev9.i.i = getelementptr inbounds i8, ptr %x, i64 8
@@ -1219,6 +1219,7 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
 
 if.then8.i.i:                                     ; preds = %if.end.i.i
   store ptr %x, ptr %mpPrev9.i.i, align 8
+  store ptr %x, ptr %x, align 8
   br label %if.end
 
 if.else11.i.i:                                    ; preds = %if.end.i.i
@@ -1226,11 +1227,10 @@ if.else11.i.i:                                    ; preds = %if.end.i.i
   store ptr %x, ptr %4, align 8
   %5 = load ptr, ptr %x, align 8
   %mpPrev15.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %x, ptr %mpPrev15.i.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else11.i.i, %if.then8.i.i
-  %mpPrev15.sink.i.i = phi ptr [ %mpPrev15.i.i, %if.else11.i.i ], [ %x, %if.then8.i.i ]
-  store ptr %x, ptr %mpPrev15.sink.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i)
   %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   %mSize5.i = getelementptr inbounds i8, ptr %x, i64 16
@@ -1260,6 +1260,7 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   store ptr %this, ptr %mpPrev.i.i, align 8
+  store ptr %this, ptr %this, align 8
   br label %if.end.i.i.i
 
 if.else.i.i.i:                                    ; preds = %entry
@@ -1267,11 +1268,10 @@ if.else.i.i.i:                                    ; preds = %entry
   store ptr %this, ptr %2, align 8
   %3 = load ptr, ptr %this, align 8
   %mpPrev5.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %this, ptr %mpPrev5.i.i.i, align 8
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.then.i.i.i
-  %mpPrev5.sink.i.i.i = phi ptr [ %mpPrev5.i.i.i, %if.else.i.i.i ], [ %this, %if.then.i.i.i ]
-  store ptr %this, ptr %mpPrev5.sink.i.i.i, align 8
   %4 = load ptr, ptr %x, align 8
   %cmp7.i.i.i = icmp eq ptr %4, %this
   %mpPrev9.i.i.i = getelementptr inbounds i8, ptr %x, i64 8
@@ -1279,6 +1279,7 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
 
 if.then8.i.i.i:                                   ; preds = %if.end.i.i.i
   store ptr %x, ptr %mpPrev9.i.i.i, align 8
+  store ptr %x, ptr %x, align 8
   br label %invoke.cont
 
 if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
@@ -1286,11 +1287,10 @@ if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
   store ptr %x, ptr %5, align 8
   %6 = load ptr, ptr %x, align 8
   %mpPrev15.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %x, ptr %mpPrev15.i.i.i, align 8
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.else11.i.i.i, %if.then8.i.i.i
-  %mpPrev15.sink.i.i.i = phi ptr [ %mpPrev15.i.i.i, %if.else11.i.i.i ], [ %x, %if.then8.i.i.i ]
-  store ptr %x, ptr %mpPrev15.sink.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i.i)
   %mSize5.i.i = getelementptr inbounds i8, ptr %x, i64 16
   %7 = load i64, ptr %0, align 8
@@ -1617,6 +1617,7 @@ _ZN5eastl4listIbNS_9allocatorEE5clearEv.exit:     ; preds = %_ZN5eastl9allocator
 
 if.then.i.i.i:                                    ; preds = %_ZN5eastl4listIbNS_9allocatorEE5clearEv.exit
   store ptr %this, ptr %mpPrev.i.i, align 8
+  store ptr %this, ptr %this, align 8
   br label %if.end.i.i.i
 
 if.else.i.i.i:                                    ; preds = %_ZN5eastl4listIbNS_9allocatorEE5clearEv.exit
@@ -1624,11 +1625,10 @@ if.else.i.i.i:                                    ; preds = %_ZN5eastl4listIbNS_
   store ptr %this, ptr %3, align 8
   %4 = load ptr, ptr %this, align 8
   %mpPrev5.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %this, ptr %mpPrev5.i.i.i, align 8
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.then.i.i.i
-  %mpPrev5.sink.i.i.i = phi ptr [ %mpPrev5.i.i.i, %if.else.i.i.i ], [ %this, %if.then.i.i.i ]
-  store ptr %this, ptr %mpPrev5.sink.i.i.i, align 8
   %5 = load ptr, ptr %x, align 8
   %cmp7.i.i.i = icmp eq ptr %5, %this
   %mpPrev9.i.i.i = getelementptr inbounds i8, ptr %x, i64 8
@@ -1636,6 +1636,7 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
 
 if.then8.i.i.i:                                   ; preds = %if.end.i.i.i
   store ptr %x, ptr %mpPrev9.i.i.i, align 8
+  store ptr %x, ptr %x, align 8
   br label %_ZN5eastl4listIbNS_9allocatorEE4swapERS2_.exit
 
 if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
@@ -1643,11 +1644,10 @@ if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
   store ptr %x, ptr %6, align 8
   %7 = load ptr, ptr %x, align 8
   %mpPrev15.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr %x, ptr %mpPrev15.i.i.i, align 8
   br label %_ZN5eastl4listIbNS_9allocatorEE4swapERS2_.exit
 
 _ZN5eastl4listIbNS_9allocatorEE4swapERS2_.exit:   ; preds = %if.then8.i.i.i, %if.else11.i.i.i
-  %mpPrev15.sink.i.i.i = phi ptr [ %mpPrev15.i.i.i, %if.else11.i.i.i ], [ %x, %if.then8.i.i.i ]
-  store ptr %x, ptr %mpPrev15.sink.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i.i)
   %mSize5.i.i = getelementptr inbounds i8, ptr %x, i64 16
   %8 = load i64, ptr %mSize.i, align 8
@@ -1675,6 +1675,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store ptr %this, ptr %mpPrev.i, align 8
+  store ptr %this, ptr %this, align 8
   br label %if.end.i
 
 if.else.i:                                        ; preds = %entry
@@ -1682,11 +1683,10 @@ if.else.i:                                        ; preds = %entry
   store ptr %this, ptr %1, align 8
   %2 = load ptr, ptr %this, align 8
   %mpPrev5.i = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %this, ptr %mpPrev5.i, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %if.then.i
-  %mpPrev5.sink.i = phi ptr [ %mpPrev5.i, %if.else.i ], [ %this, %if.then.i ]
-  store ptr %this, ptr %mpPrev5.sink.i, align 8
   %3 = load ptr, ptr %x, align 8
   %cmp7.i = icmp eq ptr %3, %this
   %mpPrev9.i = getelementptr inbounds i8, ptr %x, i64 8
@@ -1694,6 +1694,7 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
 
 if.then8.i:                                       ; preds = %if.end.i
   store ptr %x, ptr %mpPrev9.i, align 8
+  store ptr %x, ptr %x, align 8
   br label %_ZN5eastl12ListNodeBase4swapERS0_S1_.exit
 
 if.else11.i:                                      ; preds = %if.end.i
@@ -1701,11 +1702,10 @@ if.else11.i:                                      ; preds = %if.end.i
   store ptr %x, ptr %4, align 8
   %5 = load ptr, ptr %x, align 8
   %mpPrev15.i = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %x, ptr %mpPrev15.i, align 8
   br label %_ZN5eastl12ListNodeBase4swapERS0_S1_.exit
 
 _ZN5eastl12ListNodeBase4swapERS0_S1_.exit:        ; preds = %if.then8.i, %if.else11.i
-  %mpPrev15.sink.i = phi ptr [ %mpPrev15.i, %if.else11.i ], [ %x, %if.then8.i ]
-  store ptr %x, ptr %mpPrev15.sink.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i)
   %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %mSize5 = getelementptr inbounds i8, ptr %x, i64 16
@@ -3786,6 +3786,7 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   store ptr %this, ptr %mpPrev.i.i, align 8
+  store ptr %this, ptr %this, align 8
   br label %if.end.i.i.i
 
 if.else.i.i.i:                                    ; preds = %entry
@@ -3793,11 +3794,10 @@ if.else.i.i.i:                                    ; preds = %entry
   store ptr %this, ptr %2, align 8
   %3 = load ptr, ptr %this, align 8
   %mpPrev5.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %this, ptr %mpPrev5.i.i.i, align 8
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.then.i.i.i
-  %mpPrev5.sink.i.i.i = phi ptr [ %mpPrev5.i.i.i, %if.else.i.i.i ], [ %this, %if.then.i.i.i ]
-  store ptr %this, ptr %mpPrev5.sink.i.i.i, align 8
   %4 = load ptr, ptr %x, align 8
   %cmp7.i.i.i = icmp eq ptr %4, %this
   %mpPrev9.i.i.i = getelementptr inbounds i8, ptr %x, i64 8
@@ -3805,6 +3805,7 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
 
 if.then8.i.i.i:                                   ; preds = %if.end.i.i.i
   store ptr %x, ptr %mpPrev9.i.i.i, align 8
+  store ptr %x, ptr %x, align 8
   br label %invoke.cont
 
 if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
@@ -3812,11 +3813,10 @@ if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
   store ptr %x, ptr %5, align 8
   %6 = load ptr, ptr %x, align 8
   %mpPrev15.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %x, ptr %mpPrev15.i.i.i, align 8
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.else11.i.i.i, %if.then8.i.i.i
-  %mpPrev15.sink.i.i.i = phi ptr [ %mpPrev15.i.i.i, %if.else11.i.i.i ], [ %x, %if.then8.i.i.i ]
-  store ptr %x, ptr %mpPrev15.sink.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i.i)
   %mSize5.i.i = getelementptr inbounds i8, ptr %x, i64 16
   %7 = load i64, ptr %0, align 8
@@ -3841,6 +3841,7 @@ if.then:
 
 if.then.i.i:                                      ; preds = %if.then
   store ptr %this, ptr %mpPrev.i.i, align 8
+  store ptr %this, ptr %this, align 8
   br label %if.end.i.i
 
 if.else.i.i:                                      ; preds = %if.then
@@ -3848,11 +3849,10 @@ if.else.i.i:                                      ; preds = %if.then
   store ptr %this, ptr %1, align 8
   %2 = load ptr, ptr %this, align 8
   %mpPrev5.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %this, ptr %mpPrev5.i.i, align 8
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else.i.i, %if.then.i.i
-  %mpPrev5.sink.i.i = phi ptr [ %mpPrev5.i.i, %if.else.i.i ], [ %this, %if.then.i.i ]
-  store ptr %this, ptr %mpPrev5.sink.i.i, align 8
   %3 = load ptr, ptr %x, align 8
   %cmp7.i.i = icmp eq ptr %3, %this
   %mpPrev9.i.i = getelementptr inbounds i8, ptr %x, i64 8
@@ -3860,6 +3860,7 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
 
 if.then8.i.i:                                     ; preds = %if.end.i.i
   store ptr %x, ptr %mpPrev9.i.i, align 8
+  store ptr %x, ptr %x, align 8
   br label %if.end
 
 if.else11.i.i:                                    ; preds = %if.end.i.i
@@ -3867,11 +3868,10 @@ if.else11.i.i:                                    ; preds = %if.end.i.i
   store ptr %x, ptr %4, align 8
   %5 = load ptr, ptr %x, align 8
   %mpPrev15.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %x, ptr %mpPrev15.i.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else11.i.i, %if.then8.i.i
-  %mpPrev15.sink.i.i = phi ptr [ %mpPrev15.i.i, %if.else11.i.i ], [ %x, %if.then8.i.i ]
-  store ptr %x, ptr %mpPrev15.sink.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i)
   %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   %mSize5.i = getelementptr inbounds i8, ptr %x, i64 16
@@ -3901,6 +3901,7 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   store ptr %this, ptr %mpPrev.i.i, align 8
+  store ptr %this, ptr %this, align 8
   br label %if.end.i.i.i
 
 if.else.i.i.i:                                    ; preds = %entry
@@ -3908,11 +3909,10 @@ if.else.i.i.i:                                    ; preds = %entry
   store ptr %this, ptr %2, align 8
   %3 = load ptr, ptr %this, align 8
   %mpPrev5.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %this, ptr %mpPrev5.i.i.i, align 8
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.then.i.i.i
-  %mpPrev5.sink.i.i.i = phi ptr [ %mpPrev5.i.i.i, %if.else.i.i.i ], [ %this, %if.then.i.i.i ]
-  store ptr %this, ptr %mpPrev5.sink.i.i.i, align 8
   %4 = load ptr, ptr %x, align 8
   %cmp7.i.i.i = icmp eq ptr %4, %this
   %mpPrev9.i.i.i = getelementptr inbounds i8, ptr %x, i64 8
@@ -3920,6 +3920,7 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
 
 if.then8.i.i.i:                                   ; preds = %if.end.i.i.i
   store ptr %x, ptr %mpPrev9.i.i.i, align 8
+  store ptr %x, ptr %x, align 8
   br label %invoke.cont
 
 if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
@@ -3927,11 +3928,10 @@ if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
   store ptr %x, ptr %5, align 8
   %6 = load ptr, ptr %x, align 8
   %mpPrev15.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %x, ptr %mpPrev15.i.i.i, align 8
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.else11.i.i.i, %if.then8.i.i.i
-  %mpPrev15.sink.i.i.i = phi ptr [ %mpPrev15.i.i.i, %if.else11.i.i.i ], [ %x, %if.then8.i.i.i ]
-  store ptr %x, ptr %mpPrev15.sink.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i.i)
   %mSize5.i.i = getelementptr inbounds i8, ptr %x, i64 16
   %7 = load i64, ptr %0, align 8
@@ -4243,6 +4243,7 @@ _ZN5eastl4listIiNS_9allocatorEE5clearEv.exit:     ; preds = %_ZN5eastl9allocator
 
 if.then.i.i.i:                                    ; preds = %_ZN5eastl4listIiNS_9allocatorEE5clearEv.exit
   store ptr %this, ptr %mpPrev.i.i, align 8
+  store ptr %this, ptr %this, align 8
   br label %if.end.i.i.i
 
 if.else.i.i.i:                                    ; preds = %_ZN5eastl4listIiNS_9allocatorEE5clearEv.exit
@@ -4250,11 +4251,10 @@ if.else.i.i.i:                                    ; preds = %_ZN5eastl4listIiNS_
   store ptr %this, ptr %3, align 8
   %4 = load ptr, ptr %this, align 8
   %mpPrev5.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %this, ptr %mpPrev5.i.i.i, align 8
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.then.i.i.i
-  %mpPrev5.sink.i.i.i = phi ptr [ %mpPrev5.i.i.i, %if.else.i.i.i ], [ %this, %if.then.i.i.i ]
-  store ptr %this, ptr %mpPrev5.sink.i.i.i, align 8
   %5 = load ptr, ptr %x, align 8
   %cmp7.i.i.i = icmp eq ptr %5, %this
   %mpPrev9.i.i.i = getelementptr inbounds i8, ptr %x, i64 8
@@ -4262,6 +4262,7 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
 
 if.then8.i.i.i:                                   ; preds = %if.end.i.i.i
   store ptr %x, ptr %mpPrev9.i.i.i, align 8
+  store ptr %x, ptr %x, align 8
   br label %_ZN5eastl4listIiNS_9allocatorEE4swapERS2_.exit
 
 if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
@@ -4269,11 +4270,10 @@ if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
   store ptr %x, ptr %6, align 8
   %7 = load ptr, ptr %x, align 8
   %mpPrev15.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr %x, ptr %mpPrev15.i.i.i, align 8
   br label %_ZN5eastl4listIiNS_9allocatorEE4swapERS2_.exit
 
 _ZN5eastl4listIiNS_9allocatorEE4swapERS2_.exit:   ; preds = %if.then8.i.i.i, %if.else11.i.i.i
-  %mpPrev15.sink.i.i.i = phi ptr [ %mpPrev15.i.i.i, %if.else11.i.i.i ], [ %x, %if.then8.i.i.i ]
-  store ptr %x, ptr %mpPrev15.sink.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i.i)
   %mSize5.i.i = getelementptr inbounds i8, ptr %x, i64 16
   %8 = load i64, ptr %mSize.i, align 8
@@ -4301,6 +4301,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store ptr %this, ptr %mpPrev.i, align 8
+  store ptr %this, ptr %this, align 8
   br label %if.end.i
 
 if.else.i:                                        ; preds = %entry
@@ -4308,11 +4309,10 @@ if.else.i:                                        ; preds = %entry
   store ptr %this, ptr %1, align 8
   %2 = load ptr, ptr %this, align 8
   %mpPrev5.i = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %this, ptr %mpPrev5.i, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %if.then.i
-  %mpPrev5.sink.i = phi ptr [ %mpPrev5.i, %if.else.i ], [ %this, %if.then.i ]
-  store ptr %this, ptr %mpPrev5.sink.i, align 8
   %3 = load ptr, ptr %x, align 8
   %cmp7.i = icmp eq ptr %3, %this
   %mpPrev9.i = getelementptr inbounds i8, ptr %x, i64 8
@@ -4320,6 +4320,7 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
 
 if.then8.i:                                       ; preds = %if.end.i
   store ptr %x, ptr %mpPrev9.i, align 8
+  store ptr %x, ptr %x, align 8
   br label %_ZN5eastl12ListNodeBase4swapERS0_S1_.exit
 
 if.else11.i:                                      ; preds = %if.end.i
@@ -4327,11 +4328,10 @@ if.else11.i:                                      ; preds = %if.end.i
   store ptr %x, ptr %4, align 8
   %5 = load ptr, ptr %x, align 8
   %mpPrev15.i = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %x, ptr %mpPrev15.i, align 8
   br label %_ZN5eastl12ListNodeBase4swapERS0_S1_.exit
 
 _ZN5eastl12ListNodeBase4swapERS0_S1_.exit:        ; preds = %if.then8.i, %if.else11.i
-  %mpPrev15.sink.i = phi ptr [ %mpPrev15.i, %if.else11.i ], [ %x, %if.then8.i ]
-  store ptr %x, ptr %mpPrev15.sink.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i)
   %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %mSize5 = getelementptr inbounds i8, ptr %x, i64 16
@@ -6367,6 +6367,7 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   store ptr %this, ptr %mpPrev.i.i, align 8
+  store ptr %this, ptr %this, align 8
   br label %if.end.i.i.i
 
 if.else.i.i.i:                                    ; preds = %entry
@@ -6374,11 +6375,10 @@ if.else.i.i.i:                                    ; preds = %entry
   store ptr %this, ptr %2, align 8
   %3 = load ptr, ptr %this, align 8
   %mpPrev5.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %this, ptr %mpPrev5.i.i.i, align 8
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.then.i.i.i
-  %mpPrev5.sink.i.i.i = phi ptr [ %mpPrev5.i.i.i, %if.else.i.i.i ], [ %this, %if.then.i.i.i ]
-  store ptr %this, ptr %mpPrev5.sink.i.i.i, align 8
   %4 = load ptr, ptr %x, align 8
   %cmp7.i.i.i = icmp eq ptr %4, %this
   %mpPrev9.i.i.i = getelementptr inbounds i8, ptr %x, i64 8
@@ -6386,6 +6386,7 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
 
 if.then8.i.i.i:                                   ; preds = %if.end.i.i.i
   store ptr %x, ptr %mpPrev9.i.i.i, align 8
+  store ptr %x, ptr %x, align 8
   br label %invoke.cont
 
 if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
@@ -6393,11 +6394,10 @@ if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
   store ptr %x, ptr %5, align 8
   %6 = load ptr, ptr %x, align 8
   %mpPrev15.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %x, ptr %mpPrev15.i.i.i, align 8
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.else11.i.i.i, %if.then8.i.i.i
-  %mpPrev15.sink.i.i.i = phi ptr [ %mpPrev15.i.i.i, %if.else11.i.i.i ], [ %x, %if.then8.i.i.i ]
-  store ptr %x, ptr %mpPrev15.sink.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i.i)
   %mSize5.i.i = getelementptr inbounds i8, ptr %x, i64 16
   %7 = load i64, ptr %0, align 8
@@ -6422,6 +6422,7 @@ if.then:
 
 if.then.i.i:                                      ; preds = %if.then
   store ptr %this, ptr %mpPrev.i.i, align 8
+  store ptr %this, ptr %this, align 8
   br label %if.end.i.i
 
 if.else.i.i:                                      ; preds = %if.then
@@ -6429,11 +6430,10 @@ if.else.i.i:                                      ; preds = %if.then
   store ptr %this, ptr %1, align 8
   %2 = load ptr, ptr %this, align 8
   %mpPrev5.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %this, ptr %mpPrev5.i.i, align 8
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else.i.i, %if.then.i.i
-  %mpPrev5.sink.i.i = phi ptr [ %mpPrev5.i.i, %if.else.i.i ], [ %this, %if.then.i.i ]
-  store ptr %this, ptr %mpPrev5.sink.i.i, align 8
   %3 = load ptr, ptr %x, align 8
   %cmp7.i.i = icmp eq ptr %3, %this
   %mpPrev9.i.i = getelementptr inbounds i8, ptr %x, i64 8
@@ -6441,6 +6441,7 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
 
 if.then8.i.i:                                     ; preds = %if.end.i.i
   store ptr %x, ptr %mpPrev9.i.i, align 8
+  store ptr %x, ptr %x, align 8
   br label %if.end
 
 if.else11.i.i:                                    ; preds = %if.end.i.i
@@ -6448,11 +6449,10 @@ if.else11.i.i:                                    ; preds = %if.end.i.i
   store ptr %x, ptr %4, align 8
   %5 = load ptr, ptr %x, align 8
   %mpPrev15.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %x, ptr %mpPrev15.i.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else11.i.i, %if.then8.i.i
-  %mpPrev15.sink.i.i = phi ptr [ %mpPrev15.i.i, %if.else11.i.i ], [ %x, %if.then8.i.i ]
-  store ptr %x, ptr %mpPrev15.sink.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i)
   %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   %mSize5.i = getelementptr inbounds i8, ptr %x, i64 16
@@ -6482,6 +6482,7 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   store ptr %this, ptr %mpPrev.i.i, align 8
+  store ptr %this, ptr %this, align 8
   br label %if.end.i.i.i
 
 if.else.i.i.i:                                    ; preds = %entry
@@ -6489,11 +6490,10 @@ if.else.i.i.i:                                    ; preds = %entry
   store ptr %this, ptr %2, align 8
   %3 = load ptr, ptr %this, align 8
   %mpPrev5.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %this, ptr %mpPrev5.i.i.i, align 8
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.then.i.i.i
-  %mpPrev5.sink.i.i.i = phi ptr [ %mpPrev5.i.i.i, %if.else.i.i.i ], [ %this, %if.then.i.i.i ]
-  store ptr %this, ptr %mpPrev5.sink.i.i.i, align 8
   %4 = load ptr, ptr %x, align 8
   %cmp7.i.i.i = icmp eq ptr %4, %this
   %mpPrev9.i.i.i = getelementptr inbounds i8, ptr %x, i64 8
@@ -6501,6 +6501,7 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
 
 if.then8.i.i.i:                                   ; preds = %if.end.i.i.i
   store ptr %x, ptr %mpPrev9.i.i.i, align 8
+  store ptr %x, ptr %x, align 8
   br label %invoke.cont
 
 if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
@@ -6508,11 +6509,10 @@ if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
   store ptr %x, ptr %5, align 8
   %6 = load ptr, ptr %x, align 8
   %mpPrev15.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %x, ptr %mpPrev15.i.i.i, align 8
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.else11.i.i.i, %if.then8.i.i.i
-  %mpPrev15.sink.i.i.i = phi ptr [ %mpPrev15.i.i.i, %if.else11.i.i.i ], [ %x, %if.then8.i.i.i ]
-  store ptr %x, ptr %mpPrev15.sink.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i.i)
   %mSize5.i.i = getelementptr inbounds i8, ptr %x, i64 16
   %7 = load i64, ptr %0, align 8
@@ -6821,6 +6821,7 @@ _ZN5eastl4listI7Align64NS_9allocatorEE5clearEv.exit: ; preds = %_ZN5eastl9alloca
 
 if.then.i.i.i:                                    ; preds = %_ZN5eastl4listI7Align64NS_9allocatorEE5clearEv.exit
   store ptr %this, ptr %mpPrev.i.i, align 8
+  store ptr %this, ptr %this, align 8
   br label %if.end.i.i.i
 
 if.else.i.i.i:                                    ; preds = %_ZN5eastl4listI7Align64NS_9allocatorEE5clearEv.exit
@@ -6828,11 +6829,10 @@ if.else.i.i.i:                                    ; preds = %_ZN5eastl4listI7Ali
   store ptr %this, ptr %3, align 8
   %4 = load ptr, ptr %this, align 8
   %mpPrev5.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %this, ptr %mpPrev5.i.i.i, align 8
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.then.i.i.i
-  %mpPrev5.sink.i.i.i = phi ptr [ %mpPrev5.i.i.i, %if.else.i.i.i ], [ %this, %if.then.i.i.i ]
-  store ptr %this, ptr %mpPrev5.sink.i.i.i, align 8
   %5 = load ptr, ptr %x, align 8
   %cmp7.i.i.i = icmp eq ptr %5, %this
   %mpPrev9.i.i.i = getelementptr inbounds i8, ptr %x, i64 8
@@ -6840,6 +6840,7 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
 
 if.then8.i.i.i:                                   ; preds = %if.end.i.i.i
   store ptr %x, ptr %mpPrev9.i.i.i, align 8
+  store ptr %x, ptr %x, align 8
   br label %_ZN5eastl4listI7Align64NS_9allocatorEE4swapERS3_.exit
 
 if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
@@ -6847,11 +6848,10 @@ if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
   store ptr %x, ptr %6, align 8
   %7 = load ptr, ptr %x, align 8
   %mpPrev15.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr %x, ptr %mpPrev15.i.i.i, align 8
   br label %_ZN5eastl4listI7Align64NS_9allocatorEE4swapERS3_.exit
 
 _ZN5eastl4listI7Align64NS_9allocatorEE4swapERS3_.exit: ; preds = %if.then8.i.i.i, %if.else11.i.i.i
-  %mpPrev15.sink.i.i.i = phi ptr [ %mpPrev15.i.i.i, %if.else11.i.i.i ], [ %x, %if.then8.i.i.i ]
-  store ptr %x, ptr %mpPrev15.sink.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i.i)
   %mSize5.i.i = getelementptr inbounds i8, ptr %x, i64 16
   %8 = load i64, ptr %mSize.i, align 8
@@ -6879,6 +6879,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store ptr %this, ptr %mpPrev.i, align 8
+  store ptr %this, ptr %this, align 8
   br label %if.end.i
 
 if.else.i:                                        ; preds = %entry
@@ -6886,11 +6887,10 @@ if.else.i:                                        ; preds = %entry
   store ptr %this, ptr %1, align 8
   %2 = load ptr, ptr %this, align 8
   %mpPrev5.i = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %this, ptr %mpPrev5.i, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %if.then.i
-  %mpPrev5.sink.i = phi ptr [ %mpPrev5.i, %if.else.i ], [ %this, %if.then.i ]
-  store ptr %this, ptr %mpPrev5.sink.i, align 8
   %3 = load ptr, ptr %x, align 8
   %cmp7.i = icmp eq ptr %3, %this
   %mpPrev9.i = getelementptr inbounds i8, ptr %x, i64 8
@@ -6898,6 +6898,7 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
 
 if.then8.i:                                       ; preds = %if.end.i
   store ptr %x, ptr %mpPrev9.i, align 8
+  store ptr %x, ptr %x, align 8
   br label %_ZN5eastl12ListNodeBase4swapERS0_S1_.exit
 
 if.else11.i:                                      ; preds = %if.end.i
@@ -6905,11 +6906,10 @@ if.else11.i:                                      ; preds = %if.end.i
   store ptr %x, ptr %4, align 8
   %5 = load ptr, ptr %x, align 8
   %mpPrev15.i = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %x, ptr %mpPrev15.i, align 8
   br label %_ZN5eastl12ListNodeBase4swapERS0_S1_.exit
 
 _ZN5eastl12ListNodeBase4swapERS0_S1_.exit:        ; preds = %if.then8.i, %if.else11.i
-  %mpPrev15.sink.i = phi ptr [ %mpPrev15.i, %if.else11.i ], [ %x, %if.then8.i ]
-  store ptr %x, ptr %mpPrev15.sink.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i)
   %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %mSize5 = getelementptr inbounds i8, ptr %x, i64 16
@@ -9060,6 +9060,7 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   store ptr %this, ptr %mpPrev.i.i, align 8
+  store ptr %this, ptr %this, align 8
   br label %if.end.i.i.i
 
 if.else.i.i.i:                                    ; preds = %entry
@@ -9067,11 +9068,10 @@ if.else.i.i.i:                                    ; preds = %entry
   store ptr %this, ptr %2, align 8
   %3 = load ptr, ptr %this, align 8
   %mpPrev5.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %this, ptr %mpPrev5.i.i.i, align 8
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.then.i.i.i
-  %mpPrev5.sink.i.i.i = phi ptr [ %mpPrev5.i.i.i, %if.else.i.i.i ], [ %this, %if.then.i.i.i ]
-  store ptr %this, ptr %mpPrev5.sink.i.i.i, align 8
   %4 = load ptr, ptr %x, align 8
   %cmp7.i.i.i = icmp eq ptr %4, %this
   %mpPrev9.i.i.i = getelementptr inbounds i8, ptr %x, i64 8
@@ -9079,6 +9079,7 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
 
 if.then8.i.i.i:                                   ; preds = %if.end.i.i.i
   store ptr %x, ptr %mpPrev9.i.i.i, align 8
+  store ptr %x, ptr %x, align 8
   br label %invoke.cont
 
 if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
@@ -9086,11 +9087,10 @@ if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
   store ptr %x, ptr %5, align 8
   %6 = load ptr, ptr %x, align 8
   %mpPrev15.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %x, ptr %mpPrev15.i.i.i, align 8
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.else11.i.i.i, %if.then8.i.i.i
-  %mpPrev15.sink.i.i.i = phi ptr [ %mpPrev15.i.i.i, %if.else11.i.i.i ], [ %x, %if.then8.i.i.i ]
-  store ptr %x, ptr %mpPrev15.sink.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i.i)
   %mSize5.i.i = getelementptr inbounds i8, ptr %x, i64 16
   %7 = load i64, ptr %0, align 8
@@ -9115,6 +9115,7 @@ if.then:
 
 if.then.i.i:                                      ; preds = %if.then
   store ptr %this, ptr %mpPrev.i.i, align 8
+  store ptr %this, ptr %this, align 8
   br label %if.end.i.i
 
 if.else.i.i:                                      ; preds = %if.then
@@ -9122,11 +9123,10 @@ if.else.i.i:                                      ; preds = %if.then
   store ptr %this, ptr %1, align 8
   %2 = load ptr, ptr %this, align 8
   %mpPrev5.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %this, ptr %mpPrev5.i.i, align 8
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else.i.i, %if.then.i.i
-  %mpPrev5.sink.i.i = phi ptr [ %mpPrev5.i.i, %if.else.i.i ], [ %this, %if.then.i.i ]
-  store ptr %this, ptr %mpPrev5.sink.i.i, align 8
   %3 = load ptr, ptr %x, align 8
   %cmp7.i.i = icmp eq ptr %3, %this
   %mpPrev9.i.i = getelementptr inbounds i8, ptr %x, i64 8
@@ -9134,6 +9134,7 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
 
 if.then8.i.i:                                     ; preds = %if.end.i.i
   store ptr %x, ptr %mpPrev9.i.i, align 8
+  store ptr %x, ptr %x, align 8
   br label %_ZN5eastl4listI10TestObjectNS_9allocatorEE6DoSwapERS3_.exit
 
 if.else11.i.i:                                    ; preds = %if.end.i.i
@@ -9141,11 +9142,10 @@ if.else11.i.i:                                    ; preds = %if.end.i.i
   store ptr %x, ptr %4, align 8
   %5 = load ptr, ptr %x, align 8
   %mpPrev15.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %x, ptr %mpPrev15.i.i, align 8
   br label %_ZN5eastl4listI10TestObjectNS_9allocatorEE6DoSwapERS3_.exit
 
 _ZN5eastl4listI10TestObjectNS_9allocatorEE6DoSwapERS3_.exit: ; preds = %if.then8.i.i, %if.else11.i.i
-  %mpPrev15.sink.i.i = phi ptr [ %mpPrev15.i.i, %if.else11.i.i ], [ %x, %if.then8.i.i ]
-  store ptr %x, ptr %mpPrev15.sink.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i)
   %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   %mSize5.i = getelementptr inbounds i8, ptr %x, i64 16
@@ -9175,6 +9175,7 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   store ptr %this, ptr %mpPrev.i.i, align 8
+  store ptr %this, ptr %this, align 8
   br label %if.end.i.i.i
 
 if.else.i.i.i:                                    ; preds = %entry
@@ -9182,11 +9183,10 @@ if.else.i.i.i:                                    ; preds = %entry
   store ptr %this, ptr %2, align 8
   %3 = load ptr, ptr %this, align 8
   %mpPrev5.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %this, ptr %mpPrev5.i.i.i, align 8
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.then.i.i.i
-  %mpPrev5.sink.i.i.i = phi ptr [ %mpPrev5.i.i.i, %if.else.i.i.i ], [ %this, %if.then.i.i.i ]
-  store ptr %this, ptr %mpPrev5.sink.i.i.i, align 8
   %4 = load ptr, ptr %x, align 8
   %cmp7.i.i.i = icmp eq ptr %4, %this
   %mpPrev9.i.i.i = getelementptr inbounds i8, ptr %x, i64 8
@@ -9194,6 +9194,7 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
 
 if.then8.i.i.i:                                   ; preds = %if.end.i.i.i
   store ptr %x, ptr %mpPrev9.i.i.i, align 8
+  store ptr %x, ptr %x, align 8
   br label %invoke.cont
 
 if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
@@ -9201,11 +9202,10 @@ if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
   store ptr %x, ptr %5, align 8
   %6 = load ptr, ptr %x, align 8
   %mpPrev15.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %x, ptr %mpPrev15.i.i.i, align 8
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.else11.i.i.i, %if.then8.i.i.i
-  %mpPrev15.sink.i.i.i = phi ptr [ %mpPrev15.i.i.i, %if.else11.i.i.i ], [ %x, %if.then8.i.i.i ]
-  store ptr %x, ptr %mpPrev15.sink.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i.i)
   %mSize5.i.i = getelementptr inbounds i8, ptr %x, i64 16
   %7 = load i64, ptr %0, align 8
@@ -9698,6 +9698,7 @@ _ZN5eastl4listI10TestObjectNS_9allocatorEE5clearEv.exit: ; preds = %_ZN5eastl9al
 
 if.then.i.i.i:                                    ; preds = %_ZN5eastl4listI10TestObjectNS_9allocatorEE5clearEv.exit
   store ptr %this, ptr %mpPrev.i.i, align 8
+  store ptr %this, ptr %this, align 8
   br label %if.end.i.i.i
 
 if.else.i.i.i:                                    ; preds = %_ZN5eastl4listI10TestObjectNS_9allocatorEE5clearEv.exit
@@ -9705,11 +9706,10 @@ if.else.i.i.i:                                    ; preds = %_ZN5eastl4listI10Te
   store ptr %this, ptr %7, align 8
   %8 = load ptr, ptr %this, align 8
   %mpPrev5.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %this, ptr %mpPrev5.i.i.i, align 8
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.then.i.i.i
-  %mpPrev5.sink.i.i.i = phi ptr [ %mpPrev5.i.i.i, %if.else.i.i.i ], [ %this, %if.then.i.i.i ]
-  store ptr %this, ptr %mpPrev5.sink.i.i.i, align 8
   %9 = load ptr, ptr %x, align 8
   %cmp7.i.i.i = icmp eq ptr %9, %this
   %mpPrev9.i.i.i = getelementptr inbounds i8, ptr %x, i64 8
@@ -9717,6 +9717,7 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
 
 if.then8.i.i.i:                                   ; preds = %if.end.i.i.i
   store ptr %x, ptr %mpPrev9.i.i.i, align 8
+  store ptr %x, ptr %x, align 8
   br label %_ZN5eastl4listI10TestObjectNS_9allocatorEE4swapERS3_.exit
 
 if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
@@ -9724,11 +9725,10 @@ if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
   store ptr %x, ptr %10, align 8
   %11 = load ptr, ptr %x, align 8
   %mpPrev15.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
+  store ptr %x, ptr %mpPrev15.i.i.i, align 8
   br label %_ZN5eastl4listI10TestObjectNS_9allocatorEE4swapERS3_.exit
 
 _ZN5eastl4listI10TestObjectNS_9allocatorEE4swapERS3_.exit: ; preds = %if.then8.i.i.i, %if.else11.i.i.i
-  %mpPrev15.sink.i.i.i = phi ptr [ %mpPrev15.i.i.i, %if.else11.i.i.i ], [ %x, %if.then8.i.i.i ]
-  store ptr %x, ptr %mpPrev15.sink.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i.i)
   %mSize5.i.i = getelementptr inbounds i8, ptr %x, i64 16
   %12 = load i64, ptr %mSize.i, align 8
@@ -9756,6 +9756,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store ptr %this, ptr %mpPrev.i, align 8
+  store ptr %this, ptr %this, align 8
   br label %if.end.i
 
 if.else.i:                                        ; preds = %entry
@@ -9763,11 +9764,10 @@ if.else.i:                                        ; preds = %entry
   store ptr %this, ptr %1, align 8
   %2 = load ptr, ptr %this, align 8
   %mpPrev5.i = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %this, ptr %mpPrev5.i, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %if.then.i
-  %mpPrev5.sink.i = phi ptr [ %mpPrev5.i, %if.else.i ], [ %this, %if.then.i ]
-  store ptr %this, ptr %mpPrev5.sink.i, align 8
   %3 = load ptr, ptr %x, align 8
   %cmp7.i = icmp eq ptr %3, %this
   %mpPrev9.i = getelementptr inbounds i8, ptr %x, i64 8
@@ -9775,6 +9775,7 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
 
 if.then8.i:                                       ; preds = %if.end.i
   store ptr %x, ptr %mpPrev9.i, align 8
+  store ptr %x, ptr %x, align 8
   br label %_ZN5eastl12ListNodeBase4swapERS0_S1_.exit
 
 if.else11.i:                                      ; preds = %if.end.i
@@ -9782,11 +9783,10 @@ if.else11.i:                                      ; preds = %if.end.i
   store ptr %x, ptr %4, align 8
   %5 = load ptr, ptr %x, align 8
   %mpPrev15.i = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %x, ptr %mpPrev15.i, align 8
   br label %_ZN5eastl12ListNodeBase4swapERS0_S1_.exit
 
 _ZN5eastl12ListNodeBase4swapERS0_S1_.exit:        ; preds = %if.then8.i, %if.else11.i
-  %mpPrev15.sink.i = phi ptr [ %mpPrev15.i, %if.else11.i ], [ %x, %if.then8.i ]
-  store ptr %x, ptr %mpPrev15.sink.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i)
   %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %mSize5 = getelementptr inbounds i8, ptr %x, i64 16
@@ -13596,6 +13596,7 @@ invoke.cont333:                                   ; preds = %invoke.cont330
 
 if.then.i.i.i:                                    ; preds = %invoke.cont333
   store ptr %b318, ptr %mpPrev.i.i.i561, align 8
+  store ptr %b318, ptr %b318, align 8
   br label %if.end.i.i.i
 
 if.else.i.i.i:                                    ; preds = %invoke.cont333
@@ -13603,11 +13604,10 @@ if.else.i.i.i:                                    ; preds = %invoke.cont333
   store ptr %b318, ptr %162, align 8
   %163 = load ptr, ptr %b318, align 8
   %mpPrev5.i.i.i = getelementptr inbounds i8, ptr %163, i64 8
+  store ptr %b318, ptr %mpPrev5.i.i.i, align 8
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.then.i.i.i
-  %mpPrev5.sink.i.i.i = phi ptr [ %mpPrev5.i.i.i, %if.else.i.i.i ], [ %b318, %if.then.i.i.i ]
-  store ptr %b318, ptr %mpPrev5.sink.i.i.i, align 8
   %164 = load ptr, ptr %a310, align 8
   %cmp7.i.i.i = icmp eq ptr %164, %b318
   %mpPrev9.i.i.i = getelementptr inbounds i8, ptr %a310, i64 8
@@ -13615,6 +13615,7 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
 
 if.then8.i.i.i:                                   ; preds = %if.end.i.i.i
   store ptr %a310, ptr %mpPrev9.i.i.i, align 8
+  store ptr %a310, ptr %a310, align 8
   br label %invoke.cont335
 
 if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
@@ -13622,11 +13623,10 @@ if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
   store ptr %a310, ptr %165, align 8
   %166 = load ptr, ptr %a310, align 8
   %mpPrev15.i.i.i = getelementptr inbounds i8, ptr %166, i64 8
+  store ptr %a310, ptr %mpPrev15.i.i.i, align 8
   br label %invoke.cont335
 
 invoke.cont335:                                   ; preds = %if.else11.i.i.i, %if.then8.i.i.i
-  %mpPrev15.sink.i.i.i = phi ptr [ %mpPrev15.i.i.i, %if.else11.i.i.i ], [ %a310, %if.then8.i.i.i ]
-  store ptr %a310, ptr %mpPrev15.sink.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i.i)
   %167 = load i64, ptr %mSize.i554, align 8
   %168 = load i64, ptr %mSize.i545, align 8

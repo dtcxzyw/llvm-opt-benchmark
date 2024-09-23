@@ -5024,6 +5024,7 @@ default.unreachable82:                            ; preds = %566, %216, %166, %1
   %702 = getelementptr inbounds i8, ptr %0, i64 893
   store i8 0, ptr %702, align 1, !noalias !638
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %42), !noalias !638
+  store i8 0, ptr %656, align 2, !noalias !638
   br label %703
 
 703:                                              ; preds = %773, %"_ZN4core3ptr153drop_in_place$LT$tokio..sync..mpsc..bounded..Receiver$LT$core..result..Result$LT$ockam_node..messages..RouterReply$C$ockam_core..error..Error$GT$$GT$$GT$17h63972e596a8bebd8E.exit232.i.i.i"
@@ -5033,9 +5034,7 @@ default.unreachable82:                            ; preds = %566, %216, %166, %1
   %707 = phi ptr [ %538, %773 ], [ %584, %"_ZN4core3ptr153drop_in_place$LT$tokio..sync..mpsc..bounded..Receiver$LT$core..result..Result$LT$ockam_node..messages..RouterReply$C$ockam_core..error..Error$GT$$GT$$GT$17h63972e596a8bebd8E.exit232.i.i.i" ]
   %708 = phi ptr [ %539, %773 ], [ %585, %"_ZN4core3ptr153drop_in_place$LT$tokio..sync..mpsc..bounded..Receiver$LT$core..result..Result$LT$ockam_node..messages..RouterReply$C$ockam_core..error..Error$GT$$GT$$GT$17h63972e596a8bebd8E.exit232.i.i.i" ]
   %709 = phi ptr [ %540, %773 ], [ %586, %"_ZN4core3ptr153drop_in_place$LT$tokio..sync..mpsc..bounded..Receiver$LT$core..result..Result$LT$ockam_node..messages..RouterReply$C$ockam_core..error..Error$GT$$GT$$GT$17h63972e596a8bebd8E.exit232.i.i.i" ]
-  %.sink.i.i.i = phi ptr [ %774, %773 ], [ %656, %"_ZN4core3ptr153drop_in_place$LT$tokio..sync..mpsc..bounded..Receiver$LT$core..result..Result$LT$ockam_node..messages..RouterReply$C$ockam_core..error..Error$GT$$GT$$GT$17h63972e596a8bebd8E.exit232.i.i.i" ]
   %.1124.i.i.i = phi ptr [ %.0123.i.i.i, %773 ], [ null, %"_ZN4core3ptr153drop_in_place$LT$tokio..sync..mpsc..bounded..Receiver$LT$core..result..Result$LT$ockam_node..messages..RouterReply$C$ockam_core..error..Error$GT$$GT$$GT$17h63972e596a8bebd8E.exit232.i.i.i" ]
-  store i8 0, ptr %.sink.i.i.i, align 2, !noalias !638
   %710 = getelementptr inbounds i8, ptr %0, i64 895
   store i8 0, ptr %710, align 1, !noalias !638
   store i8 1, ptr %708, align 8, !noalias !638
@@ -5186,6 +5185,7 @@ default.unreachable82:                            ; preds = %566, %216, %166, %1
 
 773:                                              ; preds = %756
   %774 = getelementptr inbounds i8, ptr %0, i64 894
+  store i8 0, ptr %774, align 2, !noalias !638
   br label %703
 
 .body216.i.i.i:                                   ; preds = %594, %589

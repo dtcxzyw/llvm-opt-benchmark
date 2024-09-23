@@ -96,7 +96,7 @@ define ptr @Mvc_CoverAlgebraicMultiply(ptr noundef %0, ptr noundef %1) local_unn
   %51 = icmp eq ptr %50, null
   br i1 %51, label %._crit_edge, label %.lr.ph84.split
 
-.loopexit74:                                      ; preds = %91, %.lr.ph84.split
+.loopexit74:                                      ; preds = %92, %.lr.ph84.split
   %.0 = load ptr, ptr %.083, align 8
   %.not67 = icmp eq ptr %.0, null
   br i1 %.not67, label %._crit_edge, label %.lr.ph84.splitthread-pre-split, !llvm.loop !6
@@ -117,8 +117,8 @@ define ptr @Mvc_CoverAlgebraicMultiply(ptr noundef %0, ptr noundef %1) local_unn
   %54 = getelementptr inbounds i8, ptr %.083, i64 20
   br label %55
 
-55:                                               ; preds = %.lr.ph, %91
-  %.06380 = phi ptr [ %.06378, %.lr.ph ], [ %.063, %91 ]
+55:                                               ; preds = %.lr.ph, %92
+  %.06380 = phi ptr [ %.06378, %.lr.ph ], [ %.063, %92 ]
   %56 = tail call ptr @Mvc_CubeAlloc(ptr noundef %44) #4
   %57 = load i32, ptr %52, align 8
   %58 = and i32 %57, 16777215
@@ -174,20 +174,23 @@ define ptr @Mvc_CoverAlgebraicMultiply(ptr noundef %0, ptr noundef %1) local_unn
 .loopexit:                                        ; preds = %80, %69, %63
   %87 = load ptr, ptr %47, align 8
   %88 = icmp eq ptr %87, null
-  br i1 %88, label %91, label %89
+  br i1 %88, label %89, label %90
 
 89:                                               ; preds = %.loopexit
-  %90 = load ptr, ptr %48, align 8
-  br label %91
+  store ptr %56, ptr %47, align 8
+  br label %92
 
-91:                                               ; preds = %.loopexit, %89
-  %.sink = phi ptr [ %90, %89 ], [ %47, %.loopexit ]
-  store ptr %56, ptr %.sink, align 8
+90:                                               ; preds = %.loopexit
+  %91 = load ptr, ptr %48, align 8
+  store ptr %56, ptr %91, align 8
+  br label %92
+
+92:                                               ; preds = %90, %89
   store ptr %56, ptr %48, align 8
   store ptr null, ptr %56, align 8
-  %92 = load i32, ptr %49, align 8
-  %93 = add nsw i32 %92, 1
-  store i32 %93, ptr %49, align 8
+  %93 = load i32, ptr %49, align 8
+  %94 = add nsw i32 %93, 1
+  store i32 %94, ptr %49, align 8
   %.063 = load ptr, ptr %.06380, align 8
   %.not68 = icmp eq ptr %.063, null
   br i1 %.not68, label %.loopexit74, label %55, !llvm.loop !9
@@ -304,23 +307,26 @@ define ptr @Mvc_CoverAlgebraicSubtract(ptr noundef %0, ptr nocapture noundef rea
   %40 = tail call ptr @Mvc_CubeDup(ptr noundef %3, ptr noundef nonnull %.063) #4
   %41 = load ptr, ptr %6, align 8
   %42 = icmp eq ptr %41, null
-  br i1 %42, label %45, label %43
+  br i1 %42, label %43, label %44
 
 43:                                               ; preds = %.critedge
-  %44 = load ptr, ptr %7, align 8
-  br label %45
+  store ptr %40, ptr %6, align 8
+  br label %46
 
-45:                                               ; preds = %.critedge, %43
-  %.sink = phi ptr [ %44, %43 ], [ %6, %.critedge ]
-  store ptr %40, ptr %.sink, align 8
+44:                                               ; preds = %.critedge
+  %45 = load ptr, ptr %7, align 8
+  store ptr %40, ptr %45, align 8
+  br label %46
+
+46:                                               ; preds = %44, %43
   store ptr %40, ptr %7, align 8
   store ptr null, ptr %40, align 8
-  %46 = load i32, ptr %8, align 8
-  %47 = add nsw i32 %46, 1
-  store i32 %47, ptr %8, align 8
+  %47 = load i32, ptr %8, align 8
+  %48 = add nsw i32 %47, 1
+  store i32 %48, ptr %8, align 8
   br label %.thread
 
-.thread:                                          ; preds = %25, %16, %31, %45
+.thread:                                          ; preds = %25, %16, %31, %46
   %.0 = load ptr, ptr %.063, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !12

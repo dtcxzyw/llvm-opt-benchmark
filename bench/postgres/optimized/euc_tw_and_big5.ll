@@ -222,7 +222,7 @@ define range(i64 -2147483648, 2147483648) i64 @big5_to_euc_tw(ptr nocapture noun
   %.04963.i = phi i32 [ %.049.be.i, %.backedge.i ], [ %12, %1 ]
   %21 = load i8, ptr %.065.i, align 1
   %.not.i = icmp sgt i8 %21, -1
-  br i1 %.not.i, label %57, label %22
+  br i1 %.not.i, label %68, label %22
 
 22:                                               ; preds = %.lr.ph.i
   %23 = call i32 @pg_encoding_verifymbchar(i32 noundef 36, ptr noundef nonnull %.065.i, i32 noundef %.04963.i) #5
@@ -245,90 +245,105 @@ define range(i64 -2147483648, 2147483648) i64 @big5_to_euc_tw(ptr nocapture noun
   %33 = or disjoint i16 %29, %32
   %34 = call zeroext i16 @BIG5toCNS(i16 noundef zeroext %33, ptr noundef nonnull %2) #5
   %35 = load i8, ptr %2, align 1
-  switch i8 %35, label %39 [
-    i8 -107, label %48
-    i8 -106, label %36
+  switch i8 %35, label %50 [
+    i8 -107, label %36
+    i8 -106, label %42
   ]
 
 36:                                               ; preds = %27
-  %37 = getelementptr i8, ptr %.04864.i, i64 1
+  %37 = lshr i16 %34, 8
+  %38 = trunc nuw i16 %37 to i8
+  %39 = getelementptr i8, ptr %.04864.i, i64 1
+  store i8 %38, ptr %.04864.i, align 1
+  %40 = trunc i16 %34 to i8
+  %41 = getelementptr i8, ptr %.04864.i, i64 2
+  store i8 %40, ptr %39, align 1
+  br label %64
+
+42:                                               ; preds = %27
+  %43 = getelementptr i8, ptr %.04864.i, i64 1
   store i8 -114, ptr %.04864.i, align 1
-  %38 = getelementptr i8, ptr %.04864.i, i64 2
-  store i8 -94, ptr %37, align 1
-  br label %48
+  %44 = getelementptr i8, ptr %.04864.i, i64 2
+  store i8 -94, ptr %43, align 1
+  %45 = lshr i16 %34, 8
+  %46 = trunc nuw i16 %45 to i8
+  %47 = getelementptr i8, ptr %.04864.i, i64 3
+  store i8 %46, ptr %44, align 1
+  %48 = trunc i16 %34 to i8
+  %49 = getelementptr i8, ptr %.04864.i, i64 4
+  store i8 %48, ptr %47, align 1
+  br label %64
 
-39:                                               ; preds = %27
-  %40 = add i8 %35, 10
-  %or.cond.i = icmp ult i8 %40, 5
-  br i1 %or.cond.i, label %41, label %46
+50:                                               ; preds = %27
+  %51 = add i8 %35, 10
+  %or.cond.i = icmp ult i8 %51, 5
+  br i1 %or.cond.i, label %52, label %62
 
-41:                                               ; preds = %39
-  %42 = getelementptr i8, ptr %.04864.i, i64 1
+52:                                               ; preds = %50
+  %53 = getelementptr i8, ptr %.04864.i, i64 1
   store i8 -114, ptr %.04864.i, align 1
-  %43 = load i8, ptr %2, align 1
-  %44 = add i8 %43, -83
-  %45 = getelementptr i8, ptr %.04864.i, i64 2
-  store i8 %44, ptr %42, align 1
-  br label %48
+  %54 = load i8, ptr %2, align 1
+  %55 = add i8 %54, -83
+  %56 = getelementptr i8, ptr %.04864.i, i64 2
+  store i8 %55, ptr %53, align 1
+  %57 = lshr i16 %34, 8
+  %58 = trunc nuw i16 %57 to i8
+  %59 = getelementptr i8, ptr %.04864.i, i64 3
+  store i8 %58, ptr %56, align 1
+  %60 = trunc i16 %34 to i8
+  %61 = getelementptr i8, ptr %.04864.i, i64 4
+  store i8 %60, ptr %59, align 1
+  br label %64
 
-46:                                               ; preds = %39
-  br i1 %.not, label %47, label %big52euc_tw.exit
+62:                                               ; preds = %50
+  br i1 %.not, label %63, label %big52euc_tw.exit
 
-47:                                               ; preds = %46
+63:                                               ; preds = %62
   call void @report_untranslatable_char(i32 noundef 36, i32 noundef 4, ptr noundef nonnull %.065.i, i32 noundef %.04963.i) #6
   unreachable
 
-48:                                               ; preds = %41, %36, %27
-  %.sink88.i = phi i64 [ 3, %36 ], [ 3, %41 ], [ 1, %27 ]
-  %.sink87.i = phi ptr [ %38, %36 ], [ %45, %41 ], [ %.04864.i, %27 ]
-  %.sink86.i = phi i64 [ 4, %36 ], [ 4, %41 ], [ 2, %27 ]
-  %49 = lshr i16 %34, 8
-  %50 = trunc nuw i16 %49 to i8
-  %51 = getelementptr i8, ptr %.04864.i, i64 %.sink88.i
-  store i8 %50, ptr %.sink87.i, align 1
-  %52 = trunc i16 %34 to i8
-  %53 = getelementptr i8, ptr %.04864.i, i64 %.sink86.i
-  store i8 %52, ptr %51, align 1
-  %54 = zext nneg i32 %23 to i64
-  %55 = getelementptr i8, ptr %.065.i, i64 %54
-  %56 = sub nsw i32 %.04963.i, %23
+64:                                               ; preds = %52, %42, %36
+  %.1.i = phi ptr [ %41, %36 ], [ %49, %42 ], [ %61, %52 ]
+  %65 = zext nneg i32 %23 to i64
+  %66 = getelementptr i8, ptr %.065.i, i64 %65
+  %67 = sub nsw i32 %.04963.i, %23
   br label %.backedge.i
 
-57:                                               ; preds = %.lr.ph.i
-  %58 = icmp eq i8 %21, 0
-  br i1 %58, label %59, label %61
+68:                                               ; preds = %.lr.ph.i
+  %69 = icmp eq i8 %21, 0
+  br i1 %69, label %70, label %72
 
-59:                                               ; preds = %57
-  br i1 %.not, label %60, label %big52euc_tw.exit
+70:                                               ; preds = %68
+  br i1 %.not, label %71, label %big52euc_tw.exit
 
-60:                                               ; preds = %59
+71:                                               ; preds = %70
   call void @report_invalid_encoding(i32 noundef 36, ptr noundef nonnull %.065.i, i32 noundef %.04963.i) #6
   unreachable
 
-61:                                               ; preds = %57
-  %62 = getelementptr i8, ptr %.04864.i, i64 1
+72:                                               ; preds = %68
+  %73 = getelementptr i8, ptr %.04864.i, i64 1
   store i8 %21, ptr %.04864.i, align 1
-  %63 = getelementptr i8, ptr %.065.i, i64 1
-  %64 = add nsw i32 %.04963.i, -1
+  %74 = getelementptr i8, ptr %.065.i, i64 1
+  %75 = add nsw i32 %.04963.i, -1
   br label %.backedge.i
 
-.backedge.i:                                      ; preds = %61, %48
-  %.049.be.i = phi i32 [ %56, %48 ], [ %64, %61 ]
-  %.048.be.i = phi ptr [ %53, %48 ], [ %62, %61 ]
-  %.0.be.i = phi ptr [ %55, %48 ], [ %63, %61 ]
-  %65 = icmp sgt i32 %.049.be.i, 0
-  br i1 %65, label %.lr.ph.i, label %big52euc_tw.exit, !llvm.loop !6
+.backedge.i:                                      ; preds = %72, %64
+  %.049.be.i = phi i32 [ %67, %64 ], [ %75, %72 ]
+  %.048.be.i = phi ptr [ %.1.i, %64 ], [ %73, %72 ]
+  %.0.be.i = phi ptr [ %66, %64 ], [ %74, %72 ]
+  %76 = icmp sgt i32 %.049.be.i, 0
+  br i1 %76, label %.lr.ph.i, label %big52euc_tw.exit, !llvm.loop !6
 
-big52euc_tw.exit:                                 ; preds = %.backedge.i, %1, %25, %46, %59
-  %.04859.i = phi ptr [ %.04864.i, %59 ], [ %.04864.i, %46 ], [ %.04864.i, %25 ], [ %9, %1 ], [ %.048.be.i, %.backedge.i ]
-  %.055.i = phi ptr [ %.065.i, %59 ], [ %.065.i, %46 ], [ %.065.i, %25 ], [ %6, %1 ], [ %.0.be.i, %.backedge.i ]
+big52euc_tw.exit:                                 ; preds = %.backedge.i, %1, %25, %62, %70
+  %.04859.i = phi ptr [ %.04864.i, %70 ], [ %.04864.i, %62 ], [ %.04864.i, %25 ], [ %9, %1 ], [ %.048.be.i, %.backedge.i ]
+  %.055.i = phi ptr [ %.065.i, %70 ], [ %.065.i, %62 ], [ %.065.i, %25 ], [ %6, %1 ], [ %.0.be.i, %.backedge.i ]
   store i8 0, ptr %.04859.i, align 1
-  %66 = ptrtoint ptr %.055.i to i64
-  %67 = sub i64 %66, %5
+  %77 = ptrtoint ptr %.055.i to i64
+  %78 = sub i64 %77, %5
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
-  %sext = shl i64 %67, 32
-  %68 = ashr exact i64 %sext, 32
-  ret i64 %68
+  %sext = shl i64 %78, 32
+  %79 = ashr exact i64 %sext, 32
+  ret i64 %79
 }
 
 ; Function Attrs: nounwind uwtable
@@ -519,10 +534,10 @@ define range(i64 -2147483648, 2147483648) i64 @mic_to_euc_tw(ptr nocapture nound
   %28 = add nsw i32 %.05065.i, -1
   br label %.backedge.i
 
-.backedge.i:                                      ; preds = %50, %25
-  %.050.be.i = phi i32 [ %59, %50 ], [ %28, %25 ]
-  %.049.be.i = phi ptr [ %56, %50 ], [ %26, %25 ]
-  %.0.be.i = phi ptr [ %58, %50 ], [ %27, %25 ]
+.backedge.i:                                      ; preds = %69, %25
+  %.050.be.i = phi i32 [ %72, %69 ], [ %28, %25 ]
+  %.049.be.i = phi ptr [ %.1.i, %69 ], [ %26, %25 ]
+  %.0.be.i = phi ptr [ %71, %69 ], [ %27, %25 ]
   %29 = icmp sgt i32 %.050.be.i, 0
   br i1 %29, label %.lr.ph.i, label %mic2euc_tw.exit, !llvm.loop !8
 
@@ -539,70 +554,85 @@ define range(i64 -2147483648, 2147483648) i64 @mic_to_euc_tw(ptr nocapture nound
   unreachable
 
 35:                                               ; preds = %30
-  switch i8 %20, label %48 [
-    i8 -107, label %50
-    i8 -106, label %36
-    i8 -99, label %39
+  switch i8 %20, label %67 [
+    i8 -107, label %36
+    i8 -106, label %43
+    i8 -99, label %52
   ]
 
 36:                                               ; preds = %35
-  %37 = getelementptr i8, ptr %.04966.i, i64 1
-  store i8 -114, ptr %.04966.i, align 1
-  %38 = getelementptr i8, ptr %.04966.i, i64 2
-  store i8 -94, ptr %37, align 1
-  br label %50
-
-39:                                               ; preds = %35
-  %40 = getelementptr i8, ptr %.067.i, i64 1
+  %37 = getelementptr i8, ptr %.067.i, i64 1
+  %38 = load i8, ptr %37, align 1
+  %39 = getelementptr i8, ptr %.04966.i, i64 1
+  store i8 %38, ptr %.04966.i, align 1
+  %40 = getelementptr i8, ptr %.067.i, i64 2
   %41 = load i8, ptr %40, align 1
-  %42 = add i8 %41, 10
-  %or.cond.i = icmp ult i8 %42, 5
-  br i1 %or.cond.i, label %43, label %48
+  %42 = getelementptr i8, ptr %.04966.i, i64 2
+  store i8 %41, ptr %39, align 1
+  br label %69
 
-43:                                               ; preds = %39
+43:                                               ; preds = %35
   %44 = getelementptr i8, ptr %.04966.i, i64 1
   store i8 -114, ptr %.04966.i, align 1
-  %45 = load i8, ptr %40, align 1
-  %46 = add i8 %45, -83
-  %47 = getelementptr i8, ptr %.04966.i, i64 2
-  store i8 %46, ptr %44, align 1
-  br label %50
+  %45 = getelementptr i8, ptr %.04966.i, i64 2
+  store i8 -94, ptr %44, align 1
+  %46 = getelementptr i8, ptr %.067.i, i64 1
+  %47 = load i8, ptr %46, align 1
+  %48 = getelementptr i8, ptr %.04966.i, i64 3
+  store i8 %47, ptr %45, align 1
+  %49 = getelementptr i8, ptr %.067.i, i64 2
+  %50 = load i8, ptr %49, align 1
+  %51 = getelementptr i8, ptr %.04966.i, i64 4
+  store i8 %50, ptr %48, align 1
+  br label %69
 
-48:                                               ; preds = %39, %35
-  br i1 %.not, label %49, label %mic2euc_tw.exit
+52:                                               ; preds = %35
+  %53 = getelementptr i8, ptr %.067.i, i64 1
+  %54 = load i8, ptr %53, align 1
+  %55 = add i8 %54, 10
+  %or.cond.i = icmp ult i8 %55, 5
+  br i1 %or.cond.i, label %56, label %67
 
-49:                                               ; preds = %48
+56:                                               ; preds = %52
+  %57 = getelementptr i8, ptr %.04966.i, i64 1
+  store i8 -114, ptr %.04966.i, align 1
+  %58 = load i8, ptr %53, align 1
+  %59 = add i8 %58, -83
+  %60 = getelementptr i8, ptr %.04966.i, i64 2
+  store i8 %59, ptr %57, align 1
+  %61 = getelementptr i8, ptr %.067.i, i64 2
+  %62 = load i8, ptr %61, align 1
+  %63 = getelementptr i8, ptr %.04966.i, i64 3
+  store i8 %62, ptr %60, align 1
+  %64 = getelementptr i8, ptr %.067.i, i64 3
+  %65 = load i8, ptr %64, align 1
+  %66 = getelementptr i8, ptr %.04966.i, i64 4
+  store i8 %65, ptr %63, align 1
+  br label %69
+
+67:                                               ; preds = %52, %35
+  br i1 %.not, label %68, label %mic2euc_tw.exit
+
+68:                                               ; preds = %67
   tail call void @report_untranslatable_char(i32 noundef 7, i32 noundef 4, ptr noundef nonnull %.067.i, i32 noundef %.05065.i) #6
   unreachable
 
-50:                                               ; preds = %43, %36, %35
-  %.sink94.i = phi i64 [ 1, %36 ], [ 2, %43 ], [ 1, %35 ]
-  %.sink92.i = phi i64 [ 3, %36 ], [ 3, %43 ], [ 1, %35 ]
-  %.sink91.i = phi ptr [ %38, %36 ], [ %47, %43 ], [ %.04966.i, %35 ]
-  %.sink.i = phi i64 [ 2, %36 ], [ 3, %43 ], [ 2, %35 ]
-  %.sink88.i = phi i64 [ 4, %36 ], [ 4, %43 ], [ 2, %35 ]
-  %51 = getelementptr i8, ptr %.067.i, i64 %.sink94.i
-  %52 = load i8, ptr %51, align 1
-  %53 = getelementptr i8, ptr %.04966.i, i64 %.sink92.i
-  store i8 %52, ptr %.sink91.i, align 1
-  %54 = getelementptr i8, ptr %.067.i, i64 %.sink.i
-  %55 = load i8, ptr %54, align 1
-  %56 = getelementptr i8, ptr %.04966.i, i64 %.sink88.i
-  store i8 %55, ptr %53, align 1
-  %57 = zext nneg i32 %31 to i64
-  %58 = getelementptr i8, ptr %.067.i, i64 %57
-  %59 = sub nsw i32 %.05065.i, %31
+69:                                               ; preds = %56, %43, %36
+  %.1.i = phi ptr [ %42, %36 ], [ %51, %43 ], [ %66, %56 ]
+  %70 = zext nneg i32 %31 to i64
+  %71 = getelementptr i8, ptr %.067.i, i64 %70
+  %72 = sub nsw i32 %.05065.i, %31
   br label %.backedge.i
 
-mic2euc_tw.exit:                                  ; preds = %.backedge.i, %1, %23, %33, %48
-  %.04961.i = phi ptr [ %.04966.i, %48 ], [ %.04966.i, %33 ], [ %.04966.i, %23 ], [ %8, %1 ], [ %.049.be.i, %.backedge.i ]
-  %.057.i = phi ptr [ %.067.i, %48 ], [ %.067.i, %33 ], [ %.067.i, %23 ], [ %5, %1 ], [ %.0.be.i, %.backedge.i ]
+mic2euc_tw.exit:                                  ; preds = %.backedge.i, %1, %23, %33, %67
+  %.04961.i = phi ptr [ %.04966.i, %67 ], [ %.04966.i, %33 ], [ %.04966.i, %23 ], [ %8, %1 ], [ %.049.be.i, %.backedge.i ]
+  %.057.i = phi ptr [ %.067.i, %67 ], [ %.067.i, %33 ], [ %.067.i, %23 ], [ %5, %1 ], [ %.0.be.i, %.backedge.i ]
   store i8 0, ptr %.04961.i, align 1
-  %60 = ptrtoint ptr %.057.i to i64
-  %61 = sub i64 %60, %4
-  %sext = shl i64 %61, 32
-  %62 = ashr exact i64 %sext, 32
-  ret i64 %62
+  %73 = ptrtoint ptr %.057.i to i64
+  %74 = sub i64 %73, %4
+  %sext = shl i64 %74, 32
+  %75 = ashr exact i64 %sext, 32
+  ret i64 %75
 }
 
 ; Function Attrs: nounwind uwtable

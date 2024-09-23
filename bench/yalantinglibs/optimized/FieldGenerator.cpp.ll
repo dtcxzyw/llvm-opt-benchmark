@@ -11167,6 +11167,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %if
   %_M_string_length.i13.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %12, ptr %_M_string_length.i13.i, align 8
   store ptr %9, ptr %call3.i.i, align 8
+  store i64 0, ptr %_M_string_length.i12.i, align 8
+  store i8 0, ptr %9, align 8
   br label %return
 
 if.end7:                                          ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit14
@@ -11243,13 +11245,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit29: ; preds = %
   %_M_string_length.i13.i24 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %19, ptr %_M_string_length.i13.i24, align 8
   store ptr %3, ptr %__lhs, align 8
+  store i64 0, ptr %_M_string_length.i, align 8
+  store i8 0, ptr %3, align 8
   br label %return
 
 return:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit29, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
-  %_M_string_length.i.sink = phi ptr [ %_M_string_length.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit29 ], [ %_M_string_length.i12.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit ]
-  %.sink = phi ptr [ %3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit29 ], [ %9, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit ]
-  store i64 0, ptr %_M_string_length.i.sink, align 8
-  store i8 0, ptr %.sink, align 1
   ret void
 }
 
@@ -11851,19 +11851,19 @@ if.else9.i:                                       ; preds = %if.else.i
   br label %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor5indexEv.exit: ; preds = %if.then.i, %if.then2.i, %if.else9.i
-  %extensions_10.sink.i = phi ptr [ %extensions_10.i, %if.else9.i ], [ %extensions_.i, %if.then2.i ], [ %fields_.i, %if.then.i ]
+  %.sink.in.i = phi ptr [ %extensions_10.i, %if.else9.i ], [ %extensions_.i, %if.then2.i ], [ %fields_.i, %if.then.i ]
   %field_generators_ = getelementptr inbounds i8, ptr %this, i64 8
-  %4 = load ptr, ptr %extensions_10.sink.i, align 8
+  %.sink.i = load ptr, ptr %.sink.in.i, align 8
   %sub.ptr.lhs.cast11.i = ptrtoint ptr %field to i64
-  %sub.ptr.rhs.cast12.i = ptrtoint ptr %4 to i64
+  %sub.ptr.rhs.cast12.i = ptrtoint ptr %.sink.i to i64
   %sub.ptr.sub13.i = sub i64 %sub.ptr.lhs.cast11.i, %sub.ptr.rhs.cast12.i
   %retval.0.in.i = sdiv exact i64 %sub.ptr.sub13.i, 152
   %sext = shl i64 %retval.0.in.i, 32
-  %5 = load ptr, ptr %field_generators_, align 8
-  %6 = ashr exact i64 %sext, 29
-  %add.ptr.i = getelementptr inbounds i8, ptr %5, i64 %6
-  %7 = load ptr, ptr %add.ptr.i, align 8
-  ret ptr %7
+  %4 = load ptr, ptr %field_generators_, align 8
+  %5 = ashr exact i64 %sext, 29
+  %add.ptr.i = getelementptr inbounds i8, ptr %4, i64 %5
+  %6 = load ptr, ptr %add.ptr.i, align 8
+  ret ptr %6
 }
 
 declare void @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_(ptr noundef) #0

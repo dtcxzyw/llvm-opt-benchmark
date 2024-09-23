@@ -1398,14 +1398,14 @@ define internal fastcc void @http_perhapsrewind(ptr noundef %0, ptr noundef %1) 
   %4 = getelementptr inbounds i8, ptr %0, i64 384
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %72, label %6
+  br i1 %.not, label %74, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 4938
   %8 = load i8, ptr %7, align 2
   switch i8 %8, label %9 [
-    i8 0, label %72
-    i8 5, label %72
+    i8 0, label %74
+    i8 5, label %74
   ]
 
 9:                                                ; preds = %6
@@ -1415,14 +1415,14 @@ define internal fastcc void @http_perhapsrewind(ptr noundef %0, ptr noundef %1) 
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 81920
   %or.cond65.not = icmp eq i32 %14, 16384
-  br i1 %or.cond65.not, label %15, label %22
+  br i1 %or.cond65.not, label %15, label %24
 
 15:                                               ; preds = %9
   switch i8 %8, label %.thread [
     i8 1, label %19
     i8 4, label %19
-    i8 2, label %.sink.split
-    i8 3, label %.sink.split
+    i8 2, label %22
+    i8 3, label %22
   ]
 
 .thread:                                          ; preds = %15
@@ -1430,129 +1430,129 @@ define internal fastcc void @http_perhapsrewind(ptr noundef %0, ptr noundef %1) 
   %17 = load i32, ptr %16, align 4
   %18 = and i32 %17, -524289
   store i32 %18, ptr %16, align 4
-  br label %28
+  br label %30
 
 19:                                               ; preds = %15, %15
   %20 = getelementptr inbounds i8, ptr %0, i64 4472
-  br label %.sink.split
+  %21 = load i64, ptr %20, align 8
+  br label %24
 
-.sink.split:                                      ; preds = %15, %15, %19
-  %.sink = phi ptr [ %20, %19 ], [ %5, %15 ], [ %5, %15 ]
-  %21 = load i64, ptr %.sink, align 8
-  br label %22
+22:                                               ; preds = %15, %15
+  %23 = load i64, ptr %5, align 8
+  br label %24
 
-22:                                               ; preds = %.sink.split, %9
-  %.0 = phi i64 [ 0, %9 ], [ %21, %.sink.split ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 4940
-  %24 = load i32, ptr %23, align 4
-  %25 = and i32 %24, -524289
-  store i32 %25, ptr %23, align 4
-  %26 = icmp eq i64 %.0, -1
-  %27 = icmp sgt i64 %.0, %11
-  %or.cond = select i1 %26, i1 true, i1 %27
-  br i1 %or.cond, label %28, label %64
+24:                                               ; preds = %19, %9, %22
+  %.0 = phi i64 [ %23, %22 ], [ 0, %9 ], [ %21, %19 ]
+  %25 = getelementptr inbounds i8, ptr %0, i64 4940
+  %26 = load i32, ptr %25, align 4
+  %27 = and i32 %26, -524289
+  store i32 %27, ptr %25, align 4
+  %28 = icmp eq i64 %.0, -1
+  %29 = icmp sgt i64 %.0, %11
+  %or.cond = select i1 %28, i1 true, i1 %29
+  br i1 %or.cond, label %30, label %66
 
-28:                                               ; preds = %.thread, %22
-  %29 = phi i32 [ %18, %.thread ], [ %25, %22 ]
-  %30 = phi ptr [ %16, %.thread ], [ %23, %22 ]
-  %.068 = phi i64 [ -1, %.thread ], [ %.0, %22 ]
-  %31 = getelementptr inbounds i8, ptr %0, i64 3528
-  %32 = load i64, ptr %31, align 8
-  %.fr = freeze i64 %32
-  switch i64 %.fr, label %switch.early.test [
-    i64 8, label %35
-    i64 32, label %35
-  ]
-
-switch.early.test:                                ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %0, i64 3496
+30:                                               ; preds = %.thread, %24
+  %31 = phi i32 [ %18, %.thread ], [ %27, %24 ]
+  %32 = phi ptr [ %16, %.thread ], [ %25, %24 ]
+  %.068 = phi i64 [ -1, %.thread ], [ %.0, %24 ]
+  %33 = getelementptr inbounds i8, ptr %0, i64 3528
   %34 = load i64, ptr %33, align 8
-  switch i64 %34, label %63 [
-    i64 32, label %35
-    i64 8, label %35
+  %.fr = freeze i64 %34
+  switch i64 %.fr, label %switch.early.test [
+    i64 8, label %37
+    i64 32, label %37
   ]
 
-35:                                               ; preds = %28, %28, %switch.early.test, %switch.early.test
-  %36 = sub nsw i64 %.068, %11
-  %37 = icmp slt i64 %36, 2000
-  br i1 %37, label %44, label %38
+switch.early.test:                                ; preds = %30
+  %35 = getelementptr inbounds i8, ptr %0, i64 3496
+  %36 = load i64, ptr %35, align 8
+  switch i64 %36, label %65 [
+    i64 32, label %37
+    i64 8, label %37
+  ]
 
-38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %1, i64 768
-  %40 = load i32, ptr %39, align 8
-  %.not51 = icmp eq i32 %40, 0
-  br i1 %.not51, label %41, label %44
+37:                                               ; preds = %30, %30, %switch.early.test, %switch.early.test
+  %38 = sub nsw i64 %.068, %11
+  %39 = icmp slt i64 %38, 2000
+  br i1 %39, label %46, label %40
 
-41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %1, i64 772
-  %43 = load i32, ptr %42, align 4
-  %.not52 = icmp eq i32 %43, 0
-  br i1 %.not52, label %55, label %44
+40:                                               ; preds = %37
+  %41 = getelementptr inbounds i8, ptr %1, i64 768
+  %42 = load i32, ptr %41, align 8
+  %.not51 = icmp eq i32 %42, 0
+  br i1 %.not51, label %43, label %46
 
-44:                                               ; preds = %41, %38, %35
-  %45 = load i32, ptr %12, align 8
-  %46 = and i32 %45, 65536
-  %.not59 = icmp eq i32 %46, 0
-  br i1 %.not59, label %47, label %72
+43:                                               ; preds = %40
+  %44 = getelementptr inbounds i8, ptr %1, i64 772
+  %45 = load i32, ptr %44, align 4
+  %.not52 = icmp eq i32 %45, 0
+  br i1 %.not52, label %57, label %46
 
-47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %1, i64 716
-  %49 = load i32, ptr %48, align 4
-  %.not60 = icmp eq i32 %49, -1
-  br i1 %.not60, label %72, label %50
+46:                                               ; preds = %43, %40, %37
+  %47 = load i32, ptr %12, align 8
+  %48 = and i32 %47, 65536
+  %.not59 = icmp eq i32 %48, 0
+  br i1 %.not59, label %49, label %74
 
-50:                                               ; preds = %47
-  %51 = or disjoint i32 %29, 524288
-  store i32 %51, ptr %30, align 4
-  %52 = getelementptr inbounds i8, ptr %0, i64 2642
-  %53 = load i64, ptr %52, align 2
-  %54 = and i64 %53, 268435456
-  %.not62 = icmp eq i64 %54, 0
-  br i1 %.not62, label %72, label %.sink.split69
+49:                                               ; preds = %46
+  %50 = getelementptr inbounds i8, ptr %1, i64 716
+  %51 = load i32, ptr %50, align 4
+  %.not60 = icmp eq i32 %51, -1
+  br i1 %.not60, label %74, label %52
 
-55:                                               ; preds = %41
-  %56 = load i32, ptr %12, align 8
-  %57 = and i32 %56, 64
-  %.not53 = icmp eq i32 %57, 0
-  br i1 %.not53, label %58, label %72
+52:                                               ; preds = %49
+  %53 = or disjoint i32 %31, 524288
+  store i32 %53, ptr %32, align 4
+  %54 = getelementptr inbounds i8, ptr %0, i64 2642
+  %55 = load i64, ptr %54, align 2
+  %56 = and i64 %55, 268435456
+  %.not62 = icmp eq i64 %56, 0
+  br i1 %.not62, label %74, label %.sink.split
 
-58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %0, i64 2642
-  %60 = load i64, ptr %59, align 2
-  %61 = and i64 %60, 268435456
-  %.not55 = icmp eq i64 %61, 0
-  br i1 %.not55, label %63, label %62
+57:                                               ; preds = %43
+  %58 = load i32, ptr %12, align 8
+  %59 = and i32 %58, 64
+  %.not53 = icmp eq i32 %59, 0
+  br i1 %.not53, label %60, label %74
 
-62:                                               ; preds = %58
-  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.128, i64 noundef %36) #12
-  br label %63
+60:                                               ; preds = %57
+  %61 = getelementptr inbounds i8, ptr %0, i64 2642
+  %62 = load i64, ptr %61, align 2
+  %63 = and i64 %62, 268435456
+  %.not55 = icmp eq i64 %63, 0
+  br i1 %.not55, label %65, label %64
 
-63:                                               ; preds = %switch.early.test, %62, %58
+64:                                               ; preds = %60
+  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.128, i64 noundef %38) #12
+  br label %65
+
+65:                                               ; preds = %switch.early.test, %64, %60
   tail call void @Curl_conncontrol(ptr noundef nonnull %1, i32 noundef 2) #12
   store i64 0, ptr %3, align 8
-  br label %64
+  br label %66
 
-64:                                               ; preds = %22, %63
-  %65 = phi ptr [ %23, %22 ], [ %30, %63 ]
+66:                                               ; preds = %24, %65
+  %67 = phi ptr [ %25, %24 ], [ %32, %65 ]
   %.not56 = icmp eq i64 %11, 0
-  br i1 %.not56, label %72, label %66
+  br i1 %.not56, label %74, label %68
 
-66:                                               ; preds = %64
-  %67 = load i32, ptr %65, align 4
-  %68 = or i32 %67, 524288
-  store i32 %68, ptr %65, align 4
-  %69 = getelementptr inbounds i8, ptr %0, i64 2642
-  %70 = load i64, ptr %69, align 2
-  %71 = and i64 %70, 268435456
-  %.not58 = icmp eq i64 %71, 0
-  br i1 %.not58, label %72, label %.sink.split69
+68:                                               ; preds = %66
+  %69 = load i32, ptr %67, align 4
+  %70 = or i32 %69, 524288
+  store i32 %70, ptr %67, align 4
+  %71 = getelementptr inbounds i8, ptr %0, i64 2642
+  %72 = load i64, ptr %71, align 2
+  %73 = and i64 %72, 268435456
+  %.not58 = icmp eq i64 %73, 0
+  br i1 %.not58, label %74, label %.sink.split
 
-.sink.split69:                                    ; preds = %66, %50
-  %.str.129.sink = phi ptr [ @.str.127, %50 ], [ @.str.129, %66 ]
+.sink.split:                                      ; preds = %68, %52
+  %.str.129.sink = phi ptr [ @.str.127, %52 ], [ @.str.129, %68 ]
   tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull %.str.129.sink) #12
-  br label %72
+  br label %74
 
-72:                                               ; preds = %.sink.split69, %64, %66, %55, %44, %47, %50, %6, %6, %2
+74:                                               ; preds = %.sink.split, %66, %68, %57, %46, %49, %52, %6, %6, %2
   ret void
 }
 
@@ -7476,8 +7476,8 @@ define dso_local i32 @Curl_http_req_make2(ptr nocapture noundef writeonly %0, pt
 16:                                               ; preds = %5
   %17 = load ptr, ptr @Curl_ccalloc, align 8
   %18 = tail call ptr %17(i64 noundef 1, i64 noundef 160) #12
-  %.not49 = icmp eq ptr %18, null
-  br i1 %.not49, label %.thread, label %19
+  %.not47 = icmp eq ptr %18, null
+  br i1 %.not47, label %.thread, label %19
 
 19:                                               ; preds = %16
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %18, ptr align 1 %1, i64 %2, i1 false)
@@ -7653,7 +7653,8 @@ req_assign_url_authority.exit:                    ; preds = %29, %33, %35, %39, 
 
 79:                                               ; preds = %74
   %80 = getelementptr inbounds i8, ptr %18, i64 40
-  br label %.sink.split.i43
+  store ptr null, ptr %80, align 8
+  br label %97
 
 81:                                               ; preds = %74
   %82 = icmp eq ptr %75, null
@@ -7663,7 +7664,8 @@ req_assign_url_authority.exit:                    ; preds = %29, %33, %35, %39, 
 83:                                               ; preds = %81
   %84 = getelementptr inbounds i8, ptr %18, i64 40
   store ptr %75, ptr %84, align 8
-  br label %.sink.split.i43
+  store ptr null, ptr %6, align 8
+  br label %97
 
 85:                                               ; preds = %81
   br i1 %76, label %86, label %88
@@ -7698,12 +7700,7 @@ req_assign_url_authority.exit:                    ; preds = %29, %33, %35, %39, 
   %.not26.i = icmp eq ptr %95, null
   br i1 %.not26.i, label %req_assign_url_path.exit, label %97
 
-.sink.split.i43:                                  ; preds = %83, %79
-  %.sink.i44 = phi ptr [ %6, %83 ], [ %80, %79 ]
-  store ptr null, ptr %.sink.i44, align 8
-  br label %97
-
-97:                                               ; preds = %.sink.split.i43, %92
+97:                                               ; preds = %92, %83, %79
   br label %req_assign_url_path.exit
 
 req_assign_url_path.exit:                         ; preds = %69, %71, %86, %90, %92, %97
@@ -7751,12 +7748,12 @@ Curl_http_req_free.exit:                          ; preds = %26, %req_assign_url
 
 .thread:                                          ; preds = %16, %102, %Curl_http_req_free.exit
   %116 = phi ptr [ null, %Curl_http_req_free.exit ], [ %18, %102 ], [ null, %16 ]
-  %.03448 = phi i32 [ %.034, %Curl_http_req_free.exit ], [ 0, %102 ], [ 27, %16 ]
+  %.03446 = phi i32 [ %.034, %Curl_http_req_free.exit ], [ 0, %102 ], [ 27, %16 ]
   store ptr %116, ptr %0, align 8
   br label %117
 
 117:                                              ; preds = %5, %.thread
-  %.0 = phi i32 [ %.03448, %.thread ], [ 43, %5 ]
+  %.0 = phi i32 [ %.03446, %.thread ], [ 43, %5 ]
   ret i32 %.0
 }
 

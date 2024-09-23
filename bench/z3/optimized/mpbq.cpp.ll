@@ -904,28 +904,28 @@ _ZN11mpz_managerILb0EE5mul2kERK3mpzjRS1_.exit32:  ; preds = %if.then.i.i28, %if.
   br label %if.end34
 
 if.end34:                                         ; preds = %_ZN11mpz_managerILb0EE5mul2kERK3mpzjRS1_.exit, %_ZN11mpz_managerILb0EE5mul2kERK3mpzjRS1_.exit32, %if.then
-  %m_k2.sink = phi ptr [ %m_k2, %_ZN11mpz_managerILb0EE5mul2kERK3mpzjRS1_.exit ], [ %m_k, %_ZN11mpz_managerILb0EE5mul2kERK3mpzjRS1_.exit32 ], [ %m_k, %if.then ]
-  %8 = load i32, ptr %m_k2.sink, align 8
+  %.sink.in = phi ptr [ %m_k2, %_ZN11mpz_managerILb0EE5mul2kERK3mpzjRS1_.exit ], [ %m_k, %_ZN11mpz_managerILb0EE5mul2kERK3mpzjRS1_.exit32 ], [ %m_k, %if.then ]
+  %.sink = load i32, ptr %.sink.in, align 8
   %m_k20 = getelementptr inbounds i8, ptr %r, i64 16
-  store i32 %8, ptr %m_k20, align 8
+  store i32 %.sink, ptr %m_k20, align 8
   %m_k.i = getelementptr inbounds i8, ptr %r, i64 16
-  %cmp.i = icmp eq i32 %8, 0
+  %cmp.i = icmp eq i32 %.sink, 0
   br i1 %cmp.i, label %_ZN12mpbq_manager9normalizeER4mpbq.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end34
-  %9 = load i32, ptr %r, align 8
-  %cmp.i.i = icmp eq i32 %9, 0
+  %8 = load i32, ptr %r, align 8
+  %cmp.i.i = icmp eq i32 %8, 0
   br i1 %cmp.i.i, label %return.sink.split.i, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i
-  %10 = load ptr, ptr %this, align 8
-  %call7.i = tail call noundef i32 @_ZN11mpz_managerILb0EE21power_of_two_multipleERK3mpz(ptr noundef nonnull align 8 dereferenceable(600) %10, ptr noundef nonnull align 8 dereferenceable(16) %r)
-  %11 = load i32, ptr %m_k.i, align 8
-  %spec.select.i = tail call i32 @llvm.umin.i32(i32 %call7.i, i32 %11)
-  %12 = load ptr, ptr %this, align 8
-  tail call void @_ZN11mpz_managerILb0EE13machine_div2kER3mpzj(ptr noundef nonnull align 8 dereferenceable(600) %12, ptr noundef nonnull align 8 dereferenceable(16) %r, i32 noundef %spec.select.i)
-  %13 = load i32, ptr %m_k.i, align 8
-  %sub.i = sub i32 %13, %spec.select.i
+  %9 = load ptr, ptr %this, align 8
+  %call7.i = tail call noundef i32 @_ZN11mpz_managerILb0EE21power_of_two_multipleERK3mpz(ptr noundef nonnull align 8 dereferenceable(600) %9, ptr noundef nonnull align 8 dereferenceable(16) %r)
+  %10 = load i32, ptr %m_k.i, align 8
+  %spec.select.i = tail call i32 @llvm.umin.i32(i32 %call7.i, i32 %10)
+  %11 = load ptr, ptr %this, align 8
+  tail call void @_ZN11mpz_managerILb0EE13machine_div2kER3mpzj(ptr noundef nonnull align 8 dereferenceable(600) %11, ptr noundef nonnull align 8 dereferenceable(16) %r, i32 noundef %spec.select.i)
+  %12 = load i32, ptr %m_k.i, align 8
+  %sub.i = sub i32 %12, %spec.select.i
   br label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %if.end4.i, %if.end.i
@@ -1088,28 +1088,28 @@ _ZN11mpz_managerILb0EE5mul2kERK3mpzjRS1_.exit32:  ; preds = %if.then.i.i28, %if.
   br label %if.end34
 
 if.end34:                                         ; preds = %_ZN11mpz_managerILb0EE5mul2kERK3mpzjRS1_.exit, %_ZN11mpz_managerILb0EE5mul2kERK3mpzjRS1_.exit32, %if.then
-  %m_k2.sink = phi ptr [ %m_k2, %_ZN11mpz_managerILb0EE5mul2kERK3mpzjRS1_.exit ], [ %m_k, %_ZN11mpz_managerILb0EE5mul2kERK3mpzjRS1_.exit32 ], [ %m_k, %if.then ]
-  %8 = load i32, ptr %m_k2.sink, align 8
+  %.sink.in = phi ptr [ %m_k2, %_ZN11mpz_managerILb0EE5mul2kERK3mpzjRS1_.exit ], [ %m_k, %_ZN11mpz_managerILb0EE5mul2kERK3mpzjRS1_.exit32 ], [ %m_k, %if.then ]
+  %.sink = load i32, ptr %.sink.in, align 8
   %m_k20 = getelementptr inbounds i8, ptr %r, i64 16
-  store i32 %8, ptr %m_k20, align 8
+  store i32 %.sink, ptr %m_k20, align 8
   %m_k.i = getelementptr inbounds i8, ptr %r, i64 16
-  %cmp.i = icmp eq i32 %8, 0
+  %cmp.i = icmp eq i32 %.sink, 0
   br i1 %cmp.i, label %_ZN12mpbq_manager9normalizeER4mpbq.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end34
-  %9 = load i32, ptr %r, align 8
-  %cmp.i.i = icmp eq i32 %9, 0
+  %8 = load i32, ptr %r, align 8
+  %cmp.i.i = icmp eq i32 %8, 0
   br i1 %cmp.i.i, label %return.sink.split.i, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i
-  %10 = load ptr, ptr %this, align 8
-  %call7.i = tail call noundef i32 @_ZN11mpz_managerILb0EE21power_of_two_multipleERK3mpz(ptr noundef nonnull align 8 dereferenceable(600) %10, ptr noundef nonnull align 8 dereferenceable(16) %r)
-  %11 = load i32, ptr %m_k.i, align 8
-  %spec.select.i = tail call i32 @llvm.umin.i32(i32 %call7.i, i32 %11)
-  %12 = load ptr, ptr %this, align 8
-  tail call void @_ZN11mpz_managerILb0EE13machine_div2kER3mpzj(ptr noundef nonnull align 8 dereferenceable(600) %12, ptr noundef nonnull align 8 dereferenceable(16) %r, i32 noundef %spec.select.i)
-  %13 = load i32, ptr %m_k.i, align 8
-  %sub.i = sub i32 %13, %spec.select.i
+  %9 = load ptr, ptr %this, align 8
+  %call7.i = tail call noundef i32 @_ZN11mpz_managerILb0EE21power_of_two_multipleERK3mpz(ptr noundef nonnull align 8 dereferenceable(600) %9, ptr noundef nonnull align 8 dereferenceable(16) %r)
+  %10 = load i32, ptr %m_k.i, align 8
+  %spec.select.i = tail call i32 @llvm.umin.i32(i32 %call7.i, i32 %10)
+  %11 = load ptr, ptr %this, align 8
+  tail call void @_ZN11mpz_managerILb0EE13machine_div2kER3mpzj(ptr noundef nonnull align 8 dereferenceable(600) %11, ptr noundef nonnull align 8 dereferenceable(16) %r, i32 noundef %spec.select.i)
+  %12 = load i32, ptr %m_k.i, align 8
+  %sub.i = sub i32 %12, %spec.select.i
   br label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %if.end4.i, %if.end.i

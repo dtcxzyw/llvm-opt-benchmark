@@ -817,82 +817,85 @@ define internal noundef i32 @dt_iop_colorcorrection_motion_notify(ptr noundef %0
   %62 = and i32 %61, 256
   %63 = icmp eq i32 %62, 0
   %64 = getelementptr inbounds i8, ptr %6, i64 16
-  br i1 %63, label %69, label %65
+  br i1 %63, label %70, label %65
 
 65:                                               ; preds = %45
   %66 = load i32, ptr %64, align 8, !tbaa !59
-  switch i32 %66, label %99 [
+  switch i32 %66, label %100 [
     i32 1, label %67
-    i32 2, label %thread-pre-split.sink.split
+    i32 2, label %69
   ]
 
 67:                                               ; preds = %65
   %68 = getelementptr inbounds i8, ptr %8, i64 8
+  store <2 x float> %59, ptr %68, align 4, !tbaa !6
   br label %thread-pre-split.sink.split
 
-69:                                               ; preds = %45
+69:                                               ; preds = %65
+  store <2 x float> %59, ptr %8, align 4, !tbaa !6
+  br label %thread-pre-split.sink.split
+
+70:                                               ; preds = %45
   store i32 0, ptr %64, align 8, !tbaa !59
-  %70 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !61
-  %71 = getelementptr inbounds i8, ptr %70, i64 1448
-  %72 = load double, ptr %71, align 8, !tbaa !76
-  %73 = fmul reassoc nsz arcp contract afn double %72, 5.000000e+00
-  %74 = fptrunc double %73 to float
-  %75 = getelementptr inbounds i8, ptr %8, i64 8
-  %76 = load <2 x float>, ptr %75, align 4, !tbaa !6
-  %77 = fsub reassoc nsz arcp contract afn <2 x float> %76, %59
-  %78 = fmul reassoc nsz arcp contract afn <2 x float> %77, %77
-  %79 = shufflevector <2 x float> %78, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %80 = fadd reassoc nsz arcp contract afn <2 x float> %79, %78
-  %81 = extractelement <2 x float> %80, i64 0
-  %82 = load <2 x float>, ptr %8, align 4, !tbaa !6
-  %83 = fsub reassoc nsz arcp contract afn <2 x float> %82, %59
-  %84 = fmul reassoc nsz arcp contract afn <2 x float> %83, %83
-  %85 = shufflevector <2 x float> %84, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %86 = fadd reassoc nsz arcp contract afn <2 x float> %85, %84
-  %87 = fmul reassoc nsz arcp contract afn float %74, %74
-  %88 = fcmp reassoc nsz arcp contract afn olt float %81, %87
-  %89 = fcmp olt <2 x float> %80, %86
-  %90 = extractelement <2 x i1> %89, i64 0
-  %91 = select i1 %88, i1 %90, i1 false
-  br i1 %91, label %.thread.sink.split, label %92
+  %71 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !61
+  %72 = getelementptr inbounds i8, ptr %71, i64 1448
+  %73 = load double, ptr %72, align 8, !tbaa !76
+  %74 = fmul reassoc nsz arcp contract afn double %73, 5.000000e+00
+  %75 = fptrunc double %74 to float
+  %76 = getelementptr inbounds i8, ptr %8, i64 8
+  %77 = load <2 x float>, ptr %76, align 4, !tbaa !6
+  %78 = fsub reassoc nsz arcp contract afn <2 x float> %77, %59
+  %79 = fmul reassoc nsz arcp contract afn <2 x float> %78, %78
+  %80 = shufflevector <2 x float> %79, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %81 = fadd reassoc nsz arcp contract afn <2 x float> %80, %79
+  %82 = extractelement <2 x float> %81, i64 0
+  %83 = load <2 x float>, ptr %8, align 4, !tbaa !6
+  %84 = fsub reassoc nsz arcp contract afn <2 x float> %83, %59
+  %85 = fmul reassoc nsz arcp contract afn <2 x float> %84, %84
+  %86 = shufflevector <2 x float> %85, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %87 = fadd reassoc nsz arcp contract afn <2 x float> %86, %85
+  %88 = fmul reassoc nsz arcp contract afn float %75, %75
+  %89 = fcmp reassoc nsz arcp contract afn olt float %82, %88
+  %90 = fcmp olt <2 x float> %81, %87
+  %91 = extractelement <2 x i1> %90, i64 0
+  %92 = select i1 %89, i1 %91, i1 false
+  br i1 %92, label %.thread.sink.split, label %93
 
-92:                                               ; preds = %69
-  %93 = extractelement <2 x float> %86, i64 0
-  %94 = fcmp reassoc nsz arcp contract afn uge float %93, %87
-  %95 = fcmp ugt <2 x float> %86, %80
-  %96 = extractelement <2 x i1> %95, i64 0
-  %97 = or i1 %94, %96
-  br i1 %97, label %thread-pre-split, label %.thread.sink.split
+93:                                               ; preds = %70
+  %94 = extractelement <2 x float> %87, i64 0
+  %95 = fcmp reassoc nsz arcp contract afn uge float %94, %88
+  %96 = fcmp ugt <2 x float> %87, %81
+  %97 = extractelement <2 x i1> %96, i64 0
+  %98 = or i1 %95, %97
+  br i1 %98, label %thread-pre-split, label %.thread.sink.split
 
-thread-pre-split.sink.split:                      ; preds = %65, %67
-  %.sink = phi ptr [ %68, %67 ], [ %8, %65 ]
-  store <2 x float> %59, ptr %.sink, align 4, !tbaa !6
-  %98 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !91
-  call void @dt_dev_add_history_item(ptr noundef %98, ptr noundef nonnull %2, i32 noundef 1) #19
+thread-pre-split.sink.split:                      ; preds = %69, %67
+  %99 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !91
+  call void @dt_dev_add_history_item(ptr noundef %99, ptr noundef nonnull %2, i32 noundef 1) #19
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %thread-pre-split.sink.split, %92
+thread-pre-split:                                 ; preds = %thread-pre-split.sink.split, %93
   %.pr = load i32, ptr %64, align 8, !tbaa !59
-  br label %99
+  br label %100
 
-99:                                               ; preds = %thread-pre-split, %65
-  %100 = phi i32 [ %.pr, %thread-pre-split ], [ %66, %65 ]
-  %101 = icmp sgt i32 %100, 0
-  br i1 %101, label %.thread, label %102
+100:                                              ; preds = %thread-pre-split, %65
+  %101 = phi i32 [ %.pr, %thread-pre-split ], [ %66, %65 ]
+  %102 = icmp sgt i32 %101, 0
+  br i1 %102, label %.thread, label %103
 
-.thread.sink.split:                               ; preds = %92, %69
-  %.sink4 = phi i32 [ 1, %69 ], [ 2, %92 ]
-  store i32 %.sink4, ptr %64, align 8, !tbaa !59
+.thread.sink.split:                               ; preds = %93, %70
+  %.sink = phi i32 [ 1, %70 ], [ 2, %93 ]
+  store i32 %.sink, ptr %64, align 8, !tbaa !59
   br label %.thread
 
-.thread:                                          ; preds = %.thread.sink.split, %99
+.thread:                                          ; preds = %.thread.sink.split, %100
   call void @gtk_widget_grab_focus(ptr noundef %0) #19
-  br label %102
+  br label %103
 
-102:                                              ; preds = %.thread, %99
-  %103 = getelementptr inbounds i8, ptr %2, i64 816
-  %104 = load ptr, ptr %103, align 16, !tbaa !58
-  call void @gtk_widget_queue_draw(ptr noundef %104) #19
+103:                                              ; preds = %.thread, %100
+  %104 = getelementptr inbounds i8, ptr %2, i64 816
+  %105 = load ptr, ptr %104, align 16, !tbaa !58
+  call void @gtk_widget_queue_draw(ptr noundef %105) #19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #19
   ret i32 1
 }

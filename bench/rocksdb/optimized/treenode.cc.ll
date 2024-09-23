@@ -856,21 +856,21 @@ common.ret21:                                     ; preds = %cond.false, %cond.t
 
 if.then:                                          ; preds = %cond.false, %cond.true
   %.sink20 = phi ptr [ %0, %cond.true ], [ %1, %cond.false ]
-  %m_right_child.sink = phi ptr [ %m_right_child, %cond.true ], [ %m_left_child, %cond.false ]
+  %.sink19.in = phi ptr [ %m_right_child, %cond.true ], [ %m_left_child, %cond.false ]
   %.sink = phi i64 [ 184, %cond.true ], [ 168, %cond.false ]
   %call.i.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %.sink20) #17
-  %2 = load ptr, ptr %m_right_child.sink, align 8
-  %depth_est.i.i = getelementptr inbounds i8, ptr %2, i64 168
-  %3 = load i32, ptr %depth_est.i.i, align 8
-  %depth_est2.i.i = getelementptr inbounds i8, ptr %2, i64 184
-  %4 = load i32, ptr %depth_est2.i.i, align 8
-  %cond.i.i = tail call i32 @llvm.umax.i32(i32 %3, i32 %4)
+  %.sink19 = load ptr, ptr %.sink19.in, align 8
+  %depth_est.i.i = getelementptr inbounds i8, ptr %.sink19, i64 168
+  %2 = load i32, ptr %depth_est.i.i, align 8
+  %depth_est2.i.i = getelementptr inbounds i8, ptr %.sink19, i64 184
+  %3 = load i32, ptr %depth_est2.i.i, align 8
+  %cond.i.i = tail call i32 @llvm.umax.i32(i32 %2, i32 %3)
   %add.i.i = add i32 %cond.i.i, 1
   %depth_est.i = getelementptr inbounds i8, ptr %this, i64 %.sink
   store i32 %add.i.i, ptr %depth_est.i, align 8
   store ptr %this, ptr %parent, align 8
-  %call3 = tail call noundef ptr @_ZN4toku8treenode21find_child_at_extremeEiPPS0_(ptr noundef nonnull align 8 dereferenceable(202) %2, i32 noundef %direction, ptr noundef nonnull %parent)
-  %call.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #17
+  %call3 = tail call noundef ptr @_ZN4toku8treenode21find_child_at_extremeEiPPS0_(ptr noundef nonnull align 8 dereferenceable(202) %.sink19, i32 noundef %direction, ptr noundef nonnull %parent)
+  %call.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %.sink19) #17
   br label %common.ret21
 }
 
@@ -1461,89 +1461,93 @@ _ZN4toku8treenode9child_ptr3setEPS0_.exit:        ; preds = %_ZN4toku8treenode9c
   store i32 %add.i.i46, ptr %depth_est.i.i36, align 8
   %m_right_child9 = getelementptr inbounds i8, ptr %11, i64 176
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_left_child.i, ptr noundef nonnull align 8 dereferenceable(16) %m_right_child9, i64 16, i1 false)
+  store ptr %this, ptr %m_right_child9, align 8
+  %16 = load i32, ptr %depth_est.i, align 8
+  %17 = load i32, ptr %depth_est2.i, align 8
+  %cond.i.i52 = tail call i32 @llvm.umax.i32(i32 %16, i32 %17)
+  %add.i.i53 = add i32 %cond.i.i52, 1
+  store i32 %add.i.i53, ptr %depth_est2.i.i37, align 8
   br label %if.end37
 
 if.else:                                          ; preds = %_ZN4toku8treenode9child_ptr10get_lockedEv.exit
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_left_child.i, ptr noundef nonnull align 8 dereferenceable(16) %m_right_child.i, i64 16, i1 false)
   store ptr %this, ptr %m_right_child.i, align 8
-  %16 = load i32, ptr %depth_est.i, align 8
-  %17 = load i32, ptr %depth_est2.i, align 8
-  %cond.i.i60 = tail call i32 @llvm.umax.i32(i32 %16, i32 %17)
+  %18 = load i32, ptr %depth_est.i, align 8
+  %19 = load i32, ptr %depth_est2.i, align 8
+  %cond.i.i60 = tail call i32 @llvm.umax.i32(i32 %18, i32 %19)
   %add.i.i61 = add i32 %cond.i.i60, 1
   store i32 %add.i.i61, ptr %depth_est2.i.i, align 8
   br label %if.end39
 
 if.else15:                                        ; preds = %entry
   %m_right_child.i64 = getelementptr inbounds i8, ptr %this, i64 176
-  %18 = load ptr, ptr %m_right_child.i64, align 8
-  %cmp.not.i65 = icmp ne ptr %18, null
+  %20 = load ptr, ptr %m_right_child.i64, align 8
+  %cmp.not.i65 = icmp ne ptr %20, null
   %add.i68 = add i32 %2, 2
   %cmp4.i69 = icmp ugt i32 %1, %add.i68
-  %19 = select i1 %cmp.not.i65, i1 %cmp4.i69, i1 false
-  br i1 %19, label %_ZN4toku8treenode9child_ptr10get_lockedEv.exit78, label %if.end42
+  %21 = select i1 %cmp.not.i65, i1 %cmp4.i69, i1 false
+  br i1 %21, label %_ZN4toku8treenode9child_ptr10get_lockedEv.exit78, label %if.end42
 
 _ZN4toku8treenode9child_ptr10get_lockedEv.exit78: ; preds = %if.else15
-  %call.i.i.i72 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %18) #17
-  %20 = load ptr, ptr %m_right_child.i64, align 8
-  %depth_est.i.i73 = getelementptr inbounds i8, ptr %20, i64 168
-  %21 = load i32, ptr %depth_est.i.i73, align 8
-  %depth_est2.i.i74 = getelementptr inbounds i8, ptr %20, i64 184
-  %22 = load i32, ptr %depth_est2.i.i74, align 8
-  %cond.i.i75 = tail call i32 @llvm.umax.i32(i32 %21, i32 %22)
+  %call.i.i.i72 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %20) #17
+  %22 = load ptr, ptr %m_right_child.i64, align 8
+  %depth_est.i.i73 = getelementptr inbounds i8, ptr %22, i64 168
+  %23 = load i32, ptr %depth_est.i.i73, align 8
+  %depth_est2.i.i74 = getelementptr inbounds i8, ptr %22, i64 184
+  %24 = load i32, ptr %depth_est2.i.i74, align 8
+  %cond.i.i75 = tail call i32 @llvm.umax.i32(i32 %23, i32 %24)
   %add.i.i76 = add i32 %cond.i.i75, 1
   store i32 %add.i.i76, ptr %depth_est2.i, align 8
-  %m_left_child.i79 = getelementptr inbounds i8, ptr %20, i64 160
-  %23 = load ptr, ptr %m_left_child.i79, align 8
-  %cmp.not.i80 = icmp ne ptr %23, null
-  %24 = load i32, ptr %depth_est2.i.i74, align 8
-  %25 = load i32, ptr %depth_est.i.i73, align 8
-  %cmp4.i84 = icmp ugt i32 %25, %24
-  %26 = select i1 %cmp.not.i80, i1 %cmp4.i84, i1 false
-  br i1 %26, label %_ZN4toku8treenode9child_ptr3setEPS0_.exit102, label %if.else31
+  %m_left_child.i79 = getelementptr inbounds i8, ptr %22, i64 160
+  %25 = load ptr, ptr %m_left_child.i79, align 8
+  %cmp.not.i80 = icmp ne ptr %25, null
+  %26 = load i32, ptr %depth_est2.i.i74, align 8
+  %27 = load i32, ptr %depth_est.i.i73, align 8
+  %cmp4.i84 = icmp ugt i32 %27, %26
+  %28 = select i1 %cmp.not.i80, i1 %cmp4.i84, i1 false
+  br i1 %28, label %_ZN4toku8treenode9child_ptr3setEPS0_.exit102, label %if.else31
 
 _ZN4toku8treenode9child_ptr3setEPS0_.exit102:     ; preds = %_ZN4toku8treenode9child_ptr10get_lockedEv.exit78
-  %call.i.i.i87 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %23) #17
-  %27 = load ptr, ptr %m_left_child.i79, align 8
-  %depth_est.i.i88 = getelementptr inbounds i8, ptr %27, i64 168
-  %28 = load i32, ptr %depth_est.i.i88, align 8
-  %depth_est2.i.i89 = getelementptr inbounds i8, ptr %27, i64 184
-  %29 = load i32, ptr %depth_est2.i.i89, align 8
-  %cond.i.i90 = tail call i32 @llvm.umax.i32(i32 %28, i32 %29)
+  %call.i.i.i87 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %25) #17
+  %29 = load ptr, ptr %m_left_child.i79, align 8
+  %depth_est.i.i88 = getelementptr inbounds i8, ptr %29, i64 168
+  %30 = load i32, ptr %depth_est.i.i88, align 8
+  %depth_est2.i.i89 = getelementptr inbounds i8, ptr %29, i64 184
+  %31 = load i32, ptr %depth_est2.i.i89, align 8
+  %cond.i.i90 = tail call i32 @llvm.umax.i32(i32 %30, i32 %31)
   %add.i.i91 = add i32 %cond.i.i90, 1
   store i32 %add.i.i91, ptr %depth_est.i.i73, align 8
-  %m_right_child25 = getelementptr inbounds i8, ptr %27, i64 176
+  %m_right_child25 = getelementptr inbounds i8, ptr %29, i64 176
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_left_child.i79, ptr noundef nonnull align 8 dereferenceable(16) %m_right_child25, i64 16, i1 false)
-  store ptr %20, ptr %m_right_child25, align 8
-  %30 = load i32, ptr %depth_est.i.i73, align 8
-  %31 = load i32, ptr %depth_est2.i.i74, align 8
-  %cond.i.i98 = tail call i32 @llvm.umax.i32(i32 %30, i32 %31)
+  store ptr %22, ptr %m_right_child25, align 8
+  %32 = load i32, ptr %depth_est.i.i73, align 8
+  %33 = load i32, ptr %depth_est2.i.i74, align 8
+  %cond.i.i98 = tail call i32 @llvm.umax.i32(i32 %32, i32 %33)
   %add.i.i99 = add i32 %cond.i.i98, 1
   store i32 %add.i.i99, ptr %depth_est2.i.i89, align 8
-  %m_left_child28 = getelementptr inbounds i8, ptr %27, i64 160
+  %m_left_child28 = getelementptr inbounds i8, ptr %29, i64 160
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_right_child.i64, ptr noundef nonnull align 8 dereferenceable(16) %m_left_child28, i64 16, i1 false)
+  store ptr %this, ptr %m_left_child28, align 8
+  %34 = load i32, ptr %depth_est.i, align 8
+  %35 = load i32, ptr %depth_est2.i, align 8
+  %cond.i.i107 = tail call i32 @llvm.umax.i32(i32 %34, i32 %35)
+  %add.i.i108 = add i32 %cond.i.i107, 1
+  store i32 %add.i.i108, ptr %depth_est.i.i88, align 8
   br label %if.end37
 
 if.else31:                                        ; preds = %_ZN4toku8treenode9child_ptr10get_lockedEv.exit78
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_right_child.i64, ptr noundef nonnull align 8 dereferenceable(16) %m_left_child.i79, i64 16, i1 false)
   store ptr %this, ptr %m_left_child.i79, align 8
-  %32 = load i32, ptr %depth_est.i, align 8
-  %33 = load i32, ptr %depth_est2.i, align 8
-  %cond.i.i115 = tail call i32 @llvm.umax.i32(i32 %32, i32 %33)
+  %36 = load i32, ptr %depth_est.i, align 8
+  %37 = load i32, ptr %depth_est2.i, align 8
+  %cond.i.i115 = tail call i32 @llvm.umax.i32(i32 %36, i32 %37)
   %add.i.i116 = add i32 %cond.i.i115, 1
   store i32 %add.i.i116, ptr %depth_est.i.i73, align 8
   br label %if.end39
 
 if.end37:                                         ; preds = %_ZN4toku8treenode9child_ptr3setEPS0_.exit102, %_ZN4toku8treenode9child_ptr3setEPS0_.exit
-  %m_left_child28.sink = phi ptr [ %m_left_child28, %_ZN4toku8treenode9child_ptr3setEPS0_.exit102 ], [ %m_right_child9, %_ZN4toku8treenode9child_ptr3setEPS0_.exit ]
-  %depth_est.i.i88.sink = phi ptr [ %depth_est.i.i88, %_ZN4toku8treenode9child_ptr3setEPS0_.exit102 ], [ %depth_est2.i.i37, %_ZN4toku8treenode9child_ptr3setEPS0_.exit ]
-  %child.0 = phi ptr [ %20, %_ZN4toku8treenode9child_ptr3setEPS0_.exit102 ], [ %4, %_ZN4toku8treenode9child_ptr3setEPS0_.exit ]
-  %new_root.0 = phi ptr [ %27, %_ZN4toku8treenode9child_ptr3setEPS0_.exit102 ], [ %11, %_ZN4toku8treenode9child_ptr3setEPS0_.exit ]
-  store ptr %this, ptr %m_left_child28.sink, align 8
-  %34 = load i32, ptr %depth_est.i, align 8
-  %35 = load i32, ptr %depth_est2.i, align 8
-  %cond.i.i107 = tail call i32 @llvm.umax.i32(i32 %34, i32 %35)
-  %add.i.i108 = add i32 %cond.i.i107, 1
-  store i32 %add.i.i108, ptr %depth_est.i.i88.sink, align 8
+  %child.0 = phi ptr [ %4, %_ZN4toku8treenode9child_ptr3setEPS0_.exit ], [ %22, %_ZN4toku8treenode9child_ptr3setEPS0_.exit102 ]
+  %new_root.0 = phi ptr [ %11, %_ZN4toku8treenode9child_ptr3setEPS0_.exit ], [ %29, %_ZN4toku8treenode9child_ptr3setEPS0_.exit102 ]
   %cmp.not = icmp eq ptr %child.0, %new_root.0
   br i1 %cmp.not, label %if.end39, label %if.then38
 
@@ -1552,7 +1556,7 @@ if.then38:                                        ; preds = %if.end37
   br label %if.end39
 
 if.end39:                                         ; preds = %if.else31, %if.else, %if.then38, %if.end37
-  %new_root.0125 = phi ptr [ %new_root.0, %if.then38 ], [ %new_root.0, %if.end37 ], [ %20, %if.else31 ], [ %4, %if.else ]
+  %new_root.0125 = phi ptr [ %new_root.0, %if.then38 ], [ %new_root.0, %if.end37 ], [ %22, %if.else31 ], [ %4, %if.else ]
   %cmp40.not = icmp eq ptr %this, %new_root.0125
   br i1 %cmp40.not, label %if.end42, label %if.then41
 

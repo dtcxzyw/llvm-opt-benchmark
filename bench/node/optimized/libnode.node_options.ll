@@ -18395,22 +18395,18 @@ if.then:                                          ; preds = %while.body
 
 if.then15:                                        ; preds = %if.then
   %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
-  br label %if.end22.sink.split
+  store ptr %__p.022, ptr %arrayidx16, align 8
+  br label %if.end22
 
 if.else:                                          ; preds = %while.body
   %6 = load ptr, ptr %3, align 8
   store ptr %6, ptr %__p.022, align 8
   %7 = load ptr, ptr %arrayidx, align 8
-  br label %if.end22.sink.split
-
-if.end22.sink.split:                              ; preds = %if.else, %if.then15
-  %arrayidx16.sink = phi ptr [ %arrayidx16, %if.then15 ], [ %7, %if.else ]
-  %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then15 ], [ %__bbegin_bkt.021, %if.else ]
-  store ptr %__p.022, ptr %arrayidx16.sink, align 8
+  store ptr %__p.022, ptr %7, align 8
   br label %if.end22
 
-if.end22:                                         ; preds = %if.end22.sink.split, %if.then
-  %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then ], [ %__bbegin_bkt.1.ph, %if.end22.sink.split ]
+if.end22:                                         ; preds = %if.then, %if.then15, %if.else
+  %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.021, %if.else ], [ %rem.i.i, %if.then15 ], [ %rem.i.i, %if.then ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !137
 
@@ -18720,22 +18716,18 @@ if.then:                                          ; preds = %while.body
 
 if.then15:                                        ; preds = %if.then
   %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
-  br label %if.end22.sink.split
+  store ptr %__p.022, ptr %arrayidx16, align 8
+  br label %if.end22
 
 if.else:                                          ; preds = %while.body
   %6 = load ptr, ptr %3, align 8
   store ptr %6, ptr %__p.022, align 8
   %7 = load ptr, ptr %arrayidx, align 8
-  br label %if.end22.sink.split
-
-if.end22.sink.split:                              ; preds = %if.else, %if.then15
-  %arrayidx16.sink = phi ptr [ %arrayidx16, %if.then15 ], [ %7, %if.else ]
-  %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then15 ], [ %__bbegin_bkt.021, %if.else ]
-  store ptr %__p.022, ptr %arrayidx16.sink, align 8
+  store ptr %__p.022, ptr %7, align 8
   br label %if.end22
 
-if.end22:                                         ; preds = %if.end22.sink.split, %if.then
-  %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then ], [ %__bbegin_bkt.1.ph, %if.end22.sink.split ]
+if.end22:                                         ; preds = %if.then, %if.then15, %if.else
+  %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.021, %if.else ], [ %rem.i.i, %if.then15 ], [ %rem.i.i, %if.then ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !140
 
@@ -19602,7 +19594,8 @@ while.body:                                       ; preds = %_ZNSt10_HashtableIN
 if.then:                                          ; preds = %while.body
   %3 = load ptr, ptr %__prev_p.048, align 8
   store ptr %3, ptr %__p.051, align 8
-  br label %if.end43.sink.split
+  store ptr %__p.051, ptr %__prev_p.048, align 8
+  br label %if.end43
 
 if.else:                                          ; preds = %while.body
   %tobool9 = trunc nuw i8 %__check_bucket.047 to i1
@@ -19643,24 +19636,19 @@ if.then23:                                        ; preds = %if.end20
 
 if.then33:                                        ; preds = %if.then23
   %arrayidx34 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.050
-  br label %if.end43.sink.split
+  store ptr %__p.051, ptr %arrayidx34, align 8
+  br label %if.end43
 
 if.else36:                                        ; preds = %if.end20
   %9 = load ptr, ptr %6, align 8
   store ptr %9, ptr %__p.051, align 8
   %10 = load ptr, ptr %arrayidx21, align 8
-  br label %if.end43.sink.split
-
-if.end43.sink.split:                              ; preds = %if.then, %if.else36, %if.then33
-  %arrayidx34.sink = phi ptr [ %arrayidx34, %if.then33 ], [ %10, %if.else36 ], [ %__prev_p.048, %if.then ]
-  %__check_bucket.1.ph = phi i8 [ %__check_bucket.2, %if.then33 ], [ %__check_bucket.2, %if.else36 ], [ 1, %if.then ]
-  %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then33 ], [ %__bbegin_bkt.050, %if.else36 ], [ %__bbegin_bkt.050, %if.then ]
-  store ptr %__p.051, ptr %arrayidx34.sink, align 8
+  store ptr %__p.051, ptr %10, align 8
   br label %if.end43
 
-if.end43:                                         ; preds = %if.end43.sink.split, %if.then23
-  %__check_bucket.1 = phi i8 [ %__check_bucket.2, %if.then23 ], [ %__check_bucket.1.ph, %if.end43.sink.split ]
-  %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then23 ], [ %__bbegin_bkt.1.ph, %if.end43.sink.split ]
+if.end43:                                         ; preds = %if.then23, %if.then33, %if.else36, %if.then
+  %__check_bucket.1 = phi i8 [ 1, %if.then ], [ %__check_bucket.2, %if.else36 ], [ %__check_bucket.2, %if.then33 ], [ %__check_bucket.2, %if.then23 ]
+  %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.050, %if.then ], [ %__bbegin_bkt.050, %if.else36 ], [ %rem.i.i, %if.then33 ], [ %rem.i.i, %if.then23 ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !145
 
@@ -20583,7 +20571,7 @@ if.end:                                           ; preds = %if.else.i, %if.then
   %_M_finish.i.i.i3 = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load ptr, ptr %_M_finish.i.i.i3, align 8
   %cmp.i.not.i.i = icmp eq ptr %add.ptr.i.i.i2, %14
-  br i1 %cmp.i.not.i.i, label %nrvo.skipdtor, label %if.then.i.i
+  br i1 %cmp.i.not.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %14 to i64
@@ -20591,7 +20579,7 @@ if.then.i.i:                                      ; preds = %if.end
   %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i, 5
   %cmp6.i.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i.i.i, 0
-  br i1 %cmp6.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i, label %nrvo.skipdtor
+  br i1 %cmp6.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i, %for.body.i.i.i.i.i.i.i
   %__n.09.i.i.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ], [ %sub.ptr.div.i.i.i.i.i.i.i, %if.then.i.i ]
@@ -20606,12 +20594,18 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i, %for.b
 
 if.end.loopexit.i.i:                              ; preds = %for.body.i.i.i.i.i.i.i
   %.pre.i.i = load ptr, ptr %_M_finish.i.i.i3, align 8
+  br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit
+
+_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit: ; preds = %if.end, %if.then.i.i, %if.end.loopexit.i.i
+  %15 = phi ptr [ %.pre.i.i, %if.end.loopexit.i.i ], [ %14, %if.then.i.i ], [ %14, %if.end ]
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %15, i64 -32
+  store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i.i3, align 8
   br label %nrvo.skipdtor
 
 if.else:                                          ; preds = %_ZN4node14options_parser8ArgsInfo5firstB5cxx11Ev.exit
   %add.ptr.i.i.i8 = getelementptr inbounds i8, ptr %5, i64 32
   %cmp.i.not.i.i10 = icmp eq ptr %add.ptr.i.i.i8, %6
-  br i1 %cmp.i.not.i.i10, label %nrvo.skipdtor, label %if.then.i.i11
+  br i1 %cmp.i.not.i.i10, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit29, label %if.then.i.i11
 
 if.then.i.i11:                                    ; preds = %if.else
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i12 = ptrtoint ptr %6 to i64
@@ -20619,7 +20613,7 @@ if.then.i.i11:                                    ; preds = %if.else
   %sub.ptr.sub.i.i.i.i.i.i.i14 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i12, %sub.ptr.rhs.cast.i.i.i.i.i.i.i13
   %sub.ptr.div.i.i.i.i.i.i.i15 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i14, 5
   %cmp6.i.i.i.i.i.i.i16 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i.i.i15, 0
-  br i1 %cmp6.i.i.i.i.i.i.i16, label %for.body.i.i.i.i.i.i.i18, label %nrvo.skipdtor
+  br i1 %cmp6.i.i.i.i.i.i.i16, label %for.body.i.i.i.i.i.i.i18, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit29
 
 for.body.i.i.i.i.i.i.i18:                         ; preds = %if.then.i.i11, %for.body.i.i.i.i.i.i.i18
   %__n.09.i.i.i.i.i.i.i19 = phi i64 [ %dec.i.i.i.i.i.i.i25, %for.body.i.i.i.i.i.i.i18 ], [ %sub.ptr.div.i.i.i.i.i.i.i15, %if.then.i.i11 ]
@@ -20634,14 +20628,17 @@ for.body.i.i.i.i.i.i.i18:                         ; preds = %if.then.i.i11, %for
 
 if.end.loopexit.i.i27:                            ; preds = %for.body.i.i.i.i.i.i.i18
   %.pre.i.i28 = load ptr, ptr %_M_finish.i.i.i, align 8
+  br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit29
+
+_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit29: ; preds = %if.else, %if.then.i.i11, %if.end.loopexit.i.i27
+  %16 = phi ptr [ %.pre.i.i28, %if.end.loopexit.i.i27 ], [ %6, %if.then.i.i11 ], [ %6, %if.else ]
+  %incdec.ptr.i.i17 = getelementptr inbounds i8, ptr %16, i64 -32
+  store ptr %incdec.ptr.i.i17, ptr %_M_finish.i.i.i, align 8
   br label %nrvo.skipdtor
 
-nrvo.skipdtor:                                    ; preds = %if.end.loopexit.i.i27, %if.then.i.i11, %if.else, %if.end.loopexit.i.i, %if.then.i.i, %if.end
-  %.sink = phi ptr [ %.pre.i.i, %if.end.loopexit.i.i ], [ %14, %if.then.i.i ], [ %14, %if.end ], [ %.pre.i.i28, %if.end.loopexit.i.i27 ], [ %6, %if.then.i.i11 ], [ %6, %if.else ]
-  %_M_finish.i.i.i3.sink = phi ptr [ %_M_finish.i.i.i3, %if.end.loopexit.i.i ], [ %_M_finish.i.i.i3, %if.then.i.i ], [ %_M_finish.i.i.i3, %if.end ], [ %_M_finish.i.i.i, %if.end.loopexit.i.i27 ], [ %_M_finish.i.i.i, %if.then.i.i11 ], [ %_M_finish.i.i.i, %if.else ]
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %.sink, i64 -32
-  store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i.i3.sink, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i.i) #22
+nrvo.skipdtor:                                    ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit29
+  %incdec.ptr.i.i.sink = phi ptr [ %incdec.ptr.i.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit ], [ %incdec.ptr.i.i17, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit29 ]
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i.i.sink) #22
   ret void
 }
 
@@ -22340,22 +22337,18 @@ if.then:                                          ; preds = %while.body
 
 if.then15:                                        ; preds = %if.then
   %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
-  br label %if.end22.sink.split
+  store ptr %__p.022, ptr %arrayidx16, align 8
+  br label %if.end22
 
 if.else:                                          ; preds = %while.body
   %6 = load ptr, ptr %3, align 8
   store ptr %6, ptr %__p.022, align 8
   %7 = load ptr, ptr %arrayidx, align 8
-  br label %if.end22.sink.split
-
-if.end22.sink.split:                              ; preds = %if.else, %if.then15
-  %arrayidx16.sink = phi ptr [ %arrayidx16, %if.then15 ], [ %7, %if.else ]
-  %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then15 ], [ %__bbegin_bkt.021, %if.else ]
-  store ptr %__p.022, ptr %arrayidx16.sink, align 8
+  store ptr %__p.022, ptr %7, align 8
   br label %if.end22
 
-if.end22:                                         ; preds = %if.end22.sink.split, %if.then
-  %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then ], [ %__bbegin_bkt.1.ph, %if.end22.sink.split ]
+if.end22:                                         ; preds = %if.then, %if.then15, %if.else
+  %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.021, %if.else ], [ %rem.i.i, %if.then15 ], [ %rem.i.i, %if.then ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !175
 
@@ -23404,7 +23397,8 @@ while.body:                                       ; preds = %_ZNSt10_HashtableIN
 if.then:                                          ; preds = %while.body
   %3 = load ptr, ptr %__prev_p.048, align 8
   store ptr %3, ptr %__p.051, align 8
-  br label %if.end43.sink.split
+  store ptr %__p.051, ptr %__prev_p.048, align 8
+  br label %if.end43
 
 if.else:                                          ; preds = %while.body
   %tobool9 = trunc nuw i8 %__check_bucket.047 to i1
@@ -23445,24 +23439,19 @@ if.then23:                                        ; preds = %if.end20
 
 if.then33:                                        ; preds = %if.then23
   %arrayidx34 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.050
-  br label %if.end43.sink.split
+  store ptr %__p.051, ptr %arrayidx34, align 8
+  br label %if.end43
 
 if.else36:                                        ; preds = %if.end20
   %9 = load ptr, ptr %6, align 8
   store ptr %9, ptr %__p.051, align 8
   %10 = load ptr, ptr %arrayidx21, align 8
-  br label %if.end43.sink.split
-
-if.end43.sink.split:                              ; preds = %if.then, %if.else36, %if.then33
-  %arrayidx34.sink = phi ptr [ %arrayidx34, %if.then33 ], [ %10, %if.else36 ], [ %__prev_p.048, %if.then ]
-  %__check_bucket.1.ph = phi i8 [ %__check_bucket.2, %if.then33 ], [ %__check_bucket.2, %if.else36 ], [ 1, %if.then ]
-  %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then33 ], [ %__bbegin_bkt.050, %if.else36 ], [ %__bbegin_bkt.050, %if.then ]
-  store ptr %__p.051, ptr %arrayidx34.sink, align 8
+  store ptr %__p.051, ptr %10, align 8
   br label %if.end43
 
-if.end43:                                         ; preds = %if.end43.sink.split, %if.then23
-  %__check_bucket.1 = phi i8 [ %__check_bucket.2, %if.then23 ], [ %__check_bucket.1.ph, %if.end43.sink.split ]
-  %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then23 ], [ %__bbegin_bkt.1.ph, %if.end43.sink.split ]
+if.end43:                                         ; preds = %if.then23, %if.then33, %if.else36, %if.then
+  %__check_bucket.1 = phi i8 [ 1, %if.then ], [ %__check_bucket.2, %if.else36 ], [ %__check_bucket.2, %if.then33 ], [ %__check_bucket.2, %if.then23 ]
+  %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.050, %if.then ], [ %__bbegin_bkt.050, %if.else36 ], [ %rem.i.i, %if.then33 ], [ %rem.i.i, %if.then23 ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !182
 
@@ -24485,22 +24474,18 @@ if.then:                                          ; preds = %while.body
 
 if.then15:                                        ; preds = %if.then
   %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
-  br label %if.end22.sink.split
+  store ptr %__p.022, ptr %arrayidx16, align 8
+  br label %if.end22
 
 if.else:                                          ; preds = %while.body
   %6 = load ptr, ptr %3, align 8
   store ptr %6, ptr %__p.022, align 8
   %7 = load ptr, ptr %arrayidx, align 8
-  br label %if.end22.sink.split
-
-if.end22.sink.split:                              ; preds = %if.else, %if.then15
-  %arrayidx16.sink = phi ptr [ %arrayidx16, %if.then15 ], [ %7, %if.else ]
-  %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then15 ], [ %__bbegin_bkt.021, %if.else ]
-  store ptr %__p.022, ptr %arrayidx16.sink, align 8
+  store ptr %__p.022, ptr %7, align 8
   br label %if.end22
 
-if.end22:                                         ; preds = %if.end22.sink.split, %if.then
-  %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then ], [ %__bbegin_bkt.1.ph, %if.end22.sink.split ]
+if.end22:                                         ; preds = %if.then, %if.then15, %if.else
+  %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.021, %if.else ], [ %rem.i.i, %if.then15 ], [ %rem.i.i, %if.then ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !186
 
@@ -25077,7 +25062,8 @@ while.body:                                       ; preds = %_ZNSt10_HashtableIN
 if.then:                                          ; preds = %while.body
   %3 = load ptr, ptr %__prev_p.048, align 8
   store ptr %3, ptr %__p.051, align 8
-  br label %if.end43.sink.split
+  store ptr %__p.051, ptr %__prev_p.048, align 8
+  br label %if.end43
 
 if.else:                                          ; preds = %while.body
   %tobool9 = trunc nuw i8 %__check_bucket.047 to i1
@@ -25118,24 +25104,19 @@ if.then23:                                        ; preds = %if.end20
 
 if.then33:                                        ; preds = %if.then23
   %arrayidx34 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.050
-  br label %if.end43.sink.split
+  store ptr %__p.051, ptr %arrayidx34, align 8
+  br label %if.end43
 
 if.else36:                                        ; preds = %if.end20
   %9 = load ptr, ptr %6, align 8
   store ptr %9, ptr %__p.051, align 8
   %10 = load ptr, ptr %arrayidx21, align 8
-  br label %if.end43.sink.split
-
-if.end43.sink.split:                              ; preds = %if.then, %if.else36, %if.then33
-  %arrayidx34.sink = phi ptr [ %arrayidx34, %if.then33 ], [ %10, %if.else36 ], [ %__prev_p.048, %if.then ]
-  %__check_bucket.1.ph = phi i8 [ %__check_bucket.2, %if.then33 ], [ %__check_bucket.2, %if.else36 ], [ 1, %if.then ]
-  %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then33 ], [ %__bbegin_bkt.050, %if.else36 ], [ %__bbegin_bkt.050, %if.then ]
-  store ptr %__p.051, ptr %arrayidx34.sink, align 8
+  store ptr %__p.051, ptr %10, align 8
   br label %if.end43
 
-if.end43:                                         ; preds = %if.end43.sink.split, %if.then23
-  %__check_bucket.1 = phi i8 [ %__check_bucket.2, %if.then23 ], [ %__check_bucket.1.ph, %if.end43.sink.split ]
-  %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then23 ], [ %__bbegin_bkt.1.ph, %if.end43.sink.split ]
+if.end43:                                         ; preds = %if.then23, %if.then33, %if.else36, %if.then
+  %__check_bucket.1 = phi i8 [ 1, %if.then ], [ %__check_bucket.2, %if.else36 ], [ %__check_bucket.2, %if.then33 ], [ %__check_bucket.2, %if.then23 ]
+  %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.050, %if.then ], [ %__bbegin_bkt.050, %if.else36 ], [ %rem.i.i, %if.then33 ], [ %rem.i.i, %if.then23 ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !190
 
@@ -26218,22 +26199,18 @@ if.then:                                          ; preds = %while.body
 
 if.then15:                                        ; preds = %if.then
   %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
-  br label %if.end22.sink.split
+  store ptr %__p.022, ptr %arrayidx16, align 8
+  br label %if.end22
 
 if.else:                                          ; preds = %while.body
   %6 = load ptr, ptr %3, align 8
   store ptr %6, ptr %__p.022, align 8
   %7 = load ptr, ptr %arrayidx, align 8
-  br label %if.end22.sink.split
-
-if.end22.sink.split:                              ; preds = %if.else, %if.then15
-  %arrayidx16.sink = phi ptr [ %arrayidx16, %if.then15 ], [ %7, %if.else ]
-  %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then15 ], [ %__bbegin_bkt.021, %if.else ]
-  store ptr %__p.022, ptr %arrayidx16.sink, align 8
+  store ptr %__p.022, ptr %7, align 8
   br label %if.end22
 
-if.end22:                                         ; preds = %if.end22.sink.split, %if.then
-  %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then ], [ %__bbegin_bkt.1.ph, %if.end22.sink.split ]
+if.end22:                                         ; preds = %if.then, %if.then15, %if.else
+  %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.021, %if.else ], [ %rem.i.i, %if.then15 ], [ %rem.i.i, %if.then ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !193
 
@@ -26975,7 +26952,8 @@ while.body:                                       ; preds = %_ZNSt10_HashtableIN
 if.then:                                          ; preds = %while.body
   %3 = load ptr, ptr %__prev_p.048, align 8
   store ptr %3, ptr %__p.051, align 8
-  br label %if.end43.sink.split
+  store ptr %__p.051, ptr %__prev_p.048, align 8
+  br label %if.end43
 
 if.else:                                          ; preds = %while.body
   %tobool9 = trunc nuw i8 %__check_bucket.047 to i1
@@ -27016,24 +26994,19 @@ if.then23:                                        ; preds = %if.end20
 
 if.then33:                                        ; preds = %if.then23
   %arrayidx34 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.050
-  br label %if.end43.sink.split
+  store ptr %__p.051, ptr %arrayidx34, align 8
+  br label %if.end43
 
 if.else36:                                        ; preds = %if.end20
   %9 = load ptr, ptr %6, align 8
   store ptr %9, ptr %__p.051, align 8
   %10 = load ptr, ptr %arrayidx21, align 8
-  br label %if.end43.sink.split
-
-if.end43.sink.split:                              ; preds = %if.then, %if.else36, %if.then33
-  %arrayidx34.sink = phi ptr [ %arrayidx34, %if.then33 ], [ %10, %if.else36 ], [ %__prev_p.048, %if.then ]
-  %__check_bucket.1.ph = phi i8 [ %__check_bucket.2, %if.then33 ], [ %__check_bucket.2, %if.else36 ], [ 1, %if.then ]
-  %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then33 ], [ %__bbegin_bkt.050, %if.else36 ], [ %__bbegin_bkt.050, %if.then ]
-  store ptr %__p.051, ptr %arrayidx34.sink, align 8
+  store ptr %__p.051, ptr %10, align 8
   br label %if.end43
 
-if.end43:                                         ; preds = %if.end43.sink.split, %if.then23
-  %__check_bucket.1 = phi i8 [ %__check_bucket.2, %if.then23 ], [ %__check_bucket.1.ph, %if.end43.sink.split ]
-  %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then23 ], [ %__bbegin_bkt.1.ph, %if.end43.sink.split ]
+if.end43:                                         ; preds = %if.then23, %if.then33, %if.else36, %if.then
+  %__check_bucket.1 = phi i8 [ 1, %if.then ], [ %__check_bucket.2, %if.else36 ], [ %__check_bucket.2, %if.then33 ], [ %__check_bucket.2, %if.then23 ]
+  %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.050, %if.then ], [ %__bbegin_bkt.050, %if.else36 ], [ %rem.i.i, %if.then33 ], [ %rem.i.i, %if.then23 ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !197
 

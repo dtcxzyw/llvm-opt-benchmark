@@ -2932,17 +2932,17 @@ _ZN21Bytecode_lookupswitchC2EP6MethodPh.exit:     ; preds = %72, %74
   br label %124
 
 124:                                              ; preds = %._crit_edge, %._crit_edge57
-  %.sink = phi ptr [ %123, %._crit_edge ], [ %71, %._crit_edge57 ]
-  %.sink68.in = phi ptr [ %118, %._crit_edge ], [ %66, %._crit_edge57 ]
-  %.sink66 = phi ptr [ %117, %._crit_edge ], [ %65, %._crit_edge57 ]
-  %.sink68 = ptrtoint ptr %.sink68.in to i64
-  %125 = ptrtoint ptr %.sink to i64
-  %126 = sub i64 %125, %.sink68
-  %sext = shl i64 %126, 32
-  %127 = ashr exact i64 %sext, 32
-  %128 = load ptr, ptr %.sink66, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 24
-  store i64 %127, ptr %129, align 8
+  %.sink68 = phi ptr [ %123, %._crit_edge ], [ %71, %._crit_edge57 ]
+  %.sink67.in = phi ptr [ %118, %._crit_edge ], [ %66, %._crit_edge57 ]
+  %.sink65.in = phi ptr [ %117, %._crit_edge ], [ %65, %._crit_edge57 ]
+  %.sink67 = ptrtoint ptr %.sink67.in to i64
+  %125 = ptrtoint ptr %.sink68 to i64
+  %126 = sub i64 %125, %.sink67
+  %.sink.in = shl i64 %126, 32
+  %.sink = ashr exact i64 %.sink.in, 32
+  %.sink65 = load ptr, ptr %.sink65.in, align 8
+  %127 = getelementptr inbounds i8, ptr %.sink65, i64 24
+  store i64 %.sink, ptr %127, align 8
   ret void
 }
 

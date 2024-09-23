@@ -910,15 +910,15 @@ define internal fastcc i32 @epoll_teardown(ptr noundef nonnull %0, ptr nocapture
   %10 = getelementptr inbounds i8, ptr %0, i64 112
   br label %11
 
-11:                                               ; preds = %.lr.ph, %40
-  %.05866 = phi ptr [ %8, %.lr.ph ], [ %.068, %40 ]
-  %.05965 = phi i32 [ 0, %.lr.ph ], [ %.1, %40 ]
+11:                                               ; preds = %.lr.ph, %49
+  %.05866 = phi ptr [ %8, %.lr.ph ], [ %.068, %49 ]
+  %.05965 = phi i32 [ 0, %.lr.ph ], [ %.1, %49 ]
   %.0.in67 = getelementptr inbounds i8, ptr %.05866, i64 8
   %.068 = load ptr, ptr %.0.in67, align 8
   %12 = getelementptr inbounds i8, ptr %.05866, i64 24
   %13 = load i8, ptr %12, align 8
   %14 = trunc i8 %13 to i1
-  br i1 %14, label %15, label %40
+  br i1 %14, label %15, label %49
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds i8, ptr %.05866, i64 32
@@ -936,7 +936,7 @@ define internal fastcc i32 @epoll_teardown(ptr noundef nonnull %0, ptr nocapture
   %.not60 = icmp ne i32 %24, 0
   %25 = icmp slt i32 %.05965, %2
   %or.cond = select i1 %.not60, i1 %25, i1 false
-  br i1 %or.cond, label %26, label %.sink.split
+  br i1 %or.cond, label %26, label %45
 
 26:                                               ; preds = %15
   %27 = sext i32 %.05965 to i64
@@ -952,29 +952,46 @@ define internal fastcc i32 @epoll_teardown(ptr noundef nonnull %0, ptr nocapture
   %35 = load i32, ptr %34, align 4
   %36 = and i32 %35, 1073741824
   %.not61 = icmp eq i32 %36, 0
-  %. = select i1 %.not61, ptr %9, ptr %10
-  br label %.sink.split
+  br i1 %.not61, label %41, label %37
 
-.sink.split:                                      ; preds = %15, %26
-  %.sink74 = phi ptr [ %., %26 ], [ %9, %15 ]
-  %.1.ph = phi i32 [ %33, %26 ], [ %.05965, %15 ]
-  %37 = load ptr, ptr %.sink74, align 8
-  store ptr %37, ptr %.05866, align 8
-  store ptr %.sink74, ptr %.0.in67, align 8
-  %38 = load ptr, ptr %.sink74, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
-  store ptr %.05866, ptr %39, align 8
-  store ptr %.05866, ptr %.sink74, align 8
-  br label %40
+37:                                               ; preds = %26
+  %38 = load ptr, ptr %10, align 8
+  store ptr %38, ptr %.05866, align 8
+  store ptr %10, ptr %.0.in67, align 8
+  %39 = load ptr, ptr %10, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  store ptr %.05866, ptr %40, align 8
+  store ptr %.05866, ptr %10, align 8
+  br label %49
 
-40:                                               ; preds = %.sink.split, %11
-  %.1 = phi i32 [ %.05965, %11 ], [ %.1.ph, %.sink.split ]
+41:                                               ; preds = %26
+  %42 = load ptr, ptr %9, align 8
+  store ptr %42, ptr %.05866, align 8
+  store ptr %9, ptr %.0.in67, align 8
+  %43 = load ptr, ptr %9, align 8
+  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  store ptr %.05866, ptr %44, align 8
+  store ptr %.05866, ptr %9, align 8
+  br label %49
+
+45:                                               ; preds = %15
+  %46 = load ptr, ptr %9, align 8
+  store ptr %46, ptr %.05866, align 8
+  store ptr %9, ptr %.0.in67, align 8
+  %47 = load ptr, ptr %9, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i64 8
+  store ptr %.05866, ptr %48, align 8
+  store ptr %.05866, ptr %9, align 8
+  br label %49
+
+49:                                               ; preds = %45, %41, %37, %11
+  %.1 = phi i32 [ %33, %37 ], [ %33, %41 ], [ %.05965, %45 ], [ %.05965, %11 ]
   %.not = icmp eq ptr %.068, %6
   br i1 %.not, label %._crit_edge, label %11, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %40, %3
-  %.059.lcssa = phi i32 [ 0, %3 ], [ %.1, %40 ]
-  %41 = tail call i32 @nxmutex_unlock(ptr noundef nonnull %4) #9
+._crit_edge:                                      ; preds = %49, %3
+  %.059.lcssa = phi i32 [ 0, %3 ], [ %.1, %49 ]
+  %50 = tail call i32 @nxmutex_unlock(ptr noundef nonnull %4) #9
   ret i32 %.059.lcssa
 }
 

@@ -1135,12 +1135,14 @@ _ZN6Assimp24TAcCheckedLoadFloatArrayI10aiVector2tIfEEEPKcS4_S4_mmPT_.exit: ; pre
   store ptr %call10.i, ptr %buffer, align 8
   %50 = load float, ptr %texRepeat, align 8
   %tobool92 = fcmp une float %50, 0.000000e+00
+  br i1 %tobool92, label %lor.lhs.false, label %if.then95
+
+lor.lhs.false:                                    ; preds = %_ZN6Assimp24TAcCheckedLoadFloatArrayI10aiVector2tIfEEEPKcS4_S4_mmPT_.exit
   %51 = load float, ptr %y, align 4
   %tobool94 = fcmp une float %51, 0.000000e+00
-  %or.cond = select i1 %tobool92, i1 %tobool94, i1 false
-  br i1 %or.cond, label %if.end293, label %if.then95
+  br i1 %tobool94, label %if.end293, label %if.then95
 
-if.then95:                                        ; preds = %_ZN6Assimp24TAcCheckedLoadFloatArrayI10aiVector2tIfEEEPKcS4_S4_mmPT_.exit
+if.then95:                                        ; preds = %lor.lhs.false, %_ZN6Assimp24TAcCheckedLoadFloatArrayI10aiVector2tIfEEEPKcS4_S4_mmPT_.exit
   store i32 1065353216, ptr %texRepeat, align 8
   store i32 1065353216, ptr %y, align 4
   br label %if.end293
@@ -2693,7 +2695,7 @@ for.inc280:                                       ; preds = %if.then242, %if.els
   %exitcond858.not = icmp eq i32 %inc281, %add.i457
   br i1 %exitcond858.not, label %if.end293, label %for.body199, !llvm.loop !28
 
-if.end293:                                        ; preds = %_ZN6Assimp24TAcCheckedLoadFloatArrayIfEEPKcS2_S2_mmPT_.exit, %for.inc280, %_ZN6Assimp9strtoul10EPKcPS1_.exit463.thread, %if.end157.thread, %if.end157, %_ZN6Assimp9strtoul10EPKcPS1_.exit463, %if.end.i132, %if.then66, %_ZN6Assimp24TAcCheckedLoadFloatArrayI10aiVector2tIfEEEPKcS4_S4_mmPT_.exit, %while.end.i.i127, %if.then95, %_ZN6Assimp24TAcCheckedLoadFloatArrayI12aiMatrix3x3tIfEEEPKcS4_S4_mmPT_.exit, %_ZN6Assimp9strtoul10EPKcPS1_.exit342, %if.then169, %if.then164, %if.else185, %while.end.i.i357, %_ZN6Assimp24TAcCheckedLoadFloatArrayI10aiVector3tIfEEEPKcS4_S4_mmPT_.exit, %_ZN6Assimp24TAcCheckedLoadFloatArrayI10aiVector2tIfEEEPKcS4_S4_mmPT_.exit224, %invoke.cont81
+if.end293:                                        ; preds = %_ZN6Assimp24TAcCheckedLoadFloatArrayIfEEPKcS2_S2_mmPT_.exit, %for.inc280, %_ZN6Assimp9strtoul10EPKcPS1_.exit463.thread, %if.end157.thread, %if.end157, %_ZN6Assimp9strtoul10EPKcPS1_.exit463, %if.end.i132, %if.then66, %while.end.i.i127, %if.then95, %lor.lhs.false, %_ZN6Assimp24TAcCheckedLoadFloatArrayI12aiMatrix3x3tIfEEEPKcS4_S4_mmPT_.exit, %_ZN6Assimp9strtoul10EPKcPS1_.exit342, %if.then169, %if.then164, %if.else185, %while.end.i.i357, %_ZN6Assimp24TAcCheckedLoadFloatArrayI10aiVector3tIfEEEPKcS4_S4_mmPT_.exit, %_ZN6Assimp24TAcCheckedLoadFloatArrayI10aiVector2tIfEEEPKcS4_S4_mmPT_.exit224, %invoke.cont81
   br label %while.cond, !llvm.loop !29
 
 while.end294:                                     ; preds = %while.end.i.i5.i, %while.end.i.i5.i, %while.end.i.i5.i, %while.end.i.i5.i

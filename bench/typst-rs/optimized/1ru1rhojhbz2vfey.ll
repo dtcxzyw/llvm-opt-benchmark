@@ -88197,9 +88197,9 @@ define hidden void @"_ZN59_$LT$T$u20$as$u20$typst..foundations..styles..Blockabl
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h0c3b0dba91baabdaE.exit.sink.split"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h0c3b0dba91baabdaE.exit.sink.split": ; preds = %11, %13
-  %.sink4 = phi ptr [ %17, %13 ], [ %12, %11 ]
-  %18 = load i64, ptr %.sink4, align 8, !alias.scope !17089, !noundef !5
-  tail call void %5(ptr noundef nonnull align 1 %1, i64 noundef %18), !noalias !17089
+  %.sink.in = phi ptr [ %17, %13 ], [ %12, %11 ]
+  %.sink = load i64, ptr %.sink.in, align 8, !alias.scope !17089, !noundef !5
+  tail call void %5(ptr noundef nonnull align 1 %1, i64 noundef %.sink), !noalias !17089
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h0c3b0dba91baabdaE.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h0c3b0dba91baabdaE.exit": ; preds = %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h0c3b0dba91baabdaE.exit.sink.split", %3
@@ -88972,9 +88972,9 @@ define hidden void @"_ZN59_$LT$T$u20$as$u20$typst..foundations..styles..Blockabl
   br label %"_ZN77_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h957e312d3041207bE.exit.sink.split"
 
 "_ZN77_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h957e312d3041207bE.exit.sink.split": ; preds = %11, %13
-  %.sink4 = phi ptr [ %17, %13 ], [ %12, %11 ]
-  %18 = load i64, ptr %.sink4, align 8, !alias.scope !17487, !noundef !5
-  tail call void %5(ptr noundef nonnull align 1 %1, i64 noundef %18), !noalias !17487
+  %.sink.in = phi ptr [ %17, %13 ], [ %12, %11 ]
+  %.sink = load i64, ptr %.sink.in, align 8, !alias.scope !17487, !noundef !5
+  tail call void %5(ptr noundef nonnull align 1 %1, i64 noundef %.sink), !noalias !17487
   br label %"_ZN77_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h957e312d3041207bE.exit"
 
 "_ZN77_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h957e312d3041207bE.exit": ; preds = %"_ZN77_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h957e312d3041207bE.exit.sink.split", %3

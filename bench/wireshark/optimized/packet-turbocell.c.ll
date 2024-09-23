@@ -124,9 +124,9 @@ define internal i32 @dissect_turbocell(ptr noundef %0, ptr noundef %1, ptr nound
   %9 = load ptr, ptr %8, align 8
   %switch.selectcmp = icmp eq i8 %6, 1
   %switch.select = select i1 %switch.selectcmp, ptr @.str.53, ptr @.str.54
-  %switch.selectcmp133 = icmp eq i8 %6, 17
-  %switch.select134 = select i1 %switch.selectcmp133, ptr @.str.52, ptr %switch.select
-  %.str.52.sink = select i1 %.not, ptr @.str.51, ptr %switch.select134
+  %switch.selectcmp132 = icmp eq i8 %6, 17
+  %switch.select133 = select i1 %switch.selectcmp132, ptr @.str.52, ptr %switch.select
+  %.str.52.sink = select i1 %.not, ptr @.str.51, ptr %switch.select133
   tail call void @col_set_str(ptr noundef %9, i32 noundef 25, ptr noundef nonnull %.str.52.sink) #3
   %10 = load ptr, ptr %8, align 8
   tail call void @col_set_str(ptr noundef %10, i32 noundef 34, ptr noundef nonnull @.str.38) #3

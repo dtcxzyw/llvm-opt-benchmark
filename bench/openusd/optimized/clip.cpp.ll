@@ -20141,18 +20141,18 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip20_TranslatePathToClipERKNS_7SdfP
           to label %25 unwind label %28
 
 25:                                               ; preds = %23
-  br i1 %24, label %30, label %159
+  br i1 %24, label %30, label %163
 
 26:                                               ; preds = %5
   %27 = landingpad { ptr, i32 }
           cleanup
-  br label %202
+  br label %206
 
-28:                                               ; preds = %112, %68, %18, %30, %23, %_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip20_TranslatePathToClipERKNS_7SdfPathE.exit
+28:                                               ; preds = %114, %69, %18, %30, %23, %_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip20_TranslatePathToClipERKNS_7SdfPathE.exit
   %29 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %8) #18
-  br label %202
+  br label %206
 
 30:                                               ; preds = %25
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -20167,7 +20167,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip20_TranslatePathToClipERKNS_7SdfP
   %36 = load double, ptr %9, align 8
   store double %36, ptr %3, align 8
   %37 = load double, ptr %10, align 8
-  br label %.sink.split148
+  br label %.sink.split
 
 38:                                               ; preds = %34
   %39 = load i64, ptr %11, align 8
@@ -20177,314 +20177,318 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip20_TranslatePathToClipERKNS_7SdfP
   %43 = and i64 %40, 2147483648
   %44 = icmp eq i64 %43, 0
   %45 = select i1 %42, i1 %44, i1 false
-  %.pre133 = load ptr, ptr %31, align 8
-  br i1 %45, label %.lr.ph, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread"
+  %.pre131 = load ptr, ptr %31, align 8
+  br i1 %45, label %.lr.ph, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread78"
 
 .lr.ph:                                           ; preds = %38
-  %.val = load ptr, ptr %.pre133, align 8
+  %.val = load ptr, ptr %.pre131, align 8
   %46 = load double, ptr %9, align 8
   %47 = and i64 %40, 2147483647
   %48 = and i64 %39, 2147483647
   br label %49
 
-49:                                               ; preds = %.lr.ph, %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread79"
-  %indvars.iv127 = phi i64 [ %48, %.lr.ph ], [ %indvars.iv.next128, %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread79" ]
-  %indvars.iv = phi i64 [ %47, %.lr.ph ], [ %indvars.iv.next, %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread79" ]
-  %50 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Usd_Clip::TimeMapping", ptr %.val, i64 %indvars.iv127
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %52 = load i8, ptr %51, align 8
-  %53 = trunc i8 %52 to i1
-  br i1 %53, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread79", label %54
+49:                                               ; preds = %.lr.ph, %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread"
+  %indvars.iv125 = phi i64 [ %48, %.lr.ph ], [ %indvars.iv.next126, %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread" ]
+  %indvars.iv = phi i64 [ %47, %.lr.ph ], [ %indvars.iv.next, %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread" ]
+  %50 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Usd_Clip::TimeMapping", ptr %.val, i64 %indvars.iv125
+  %51 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Usd_Clip::TimeMapping", ptr %.val, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %53 = load i8, ptr %52, align 8
+  %54 = trunc i8 %53 to i1
+  br i1 %54, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread", label %55
 
-54:                                               ; preds = %49
-  %55 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Usd_Clip::TimeMapping", ptr %.val, i64 %indvars.iv
+55:                                               ; preds = %49
   %56 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %58 = load double, ptr %57, align 8
   %59 = load double, ptr %56, align 8
   %60 = fcmp olt double %58, %59
   %61 = select i1 %60, double %58, double %59
-  %62 = fcmp olt double %59, %58
-  %63 = fcmp ugt double %61, %46
-  %64 = select i1 %62, double %58, double %59
-  %65 = fcmp ugt double %46, %64
-  %or.cond.i = or i1 %63, %65
-  br i1 %or.cond.i, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread79", label %66
+  %62 = fcmp ugt double %61, %46
+  br i1 %62, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread", label %63
 
-66:                                               ; preds = %54
-  %67 = fcmp une double %59, %58
-  br i1 %67, label %68, label %70
+63:                                               ; preds = %55
+  %64 = fcmp olt double %59, %58
+  %65 = select i1 %64, double %58, double %59
+  %66 = fcmp ugt double %46, %65
+  br i1 %66, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread", label %67
 
-68:                                               ; preds = %66
-  %69 = invoke noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip24_TranslateTimeToExternalEdmm(ptr noundef nonnull align 8 dereferenceable(208) %0, double noundef %46, i64 noundef %indvars.iv127, i64 noundef %indvars.iv)
-          to label %"._ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread_crit_edge" unwind label %28
+67:                                               ; preds = %63
+  %68 = fcmp une double %59, %58
+  br i1 %68, label %69, label %71
 
-"._ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread_crit_edge": ; preds = %68
-  %.pre132 = load ptr, ptr %31, align 8
-  br label %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread"
+69:                                               ; preds = %67
+  %70 = invoke noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip24_TranslateTimeToExternalEdmm(ptr noundef nonnull align 8 dereferenceable(208) %0, double noundef %46, i64 noundef %indvars.iv125, i64 noundef %indvars.iv)
+          to label %"._ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread78_crit_edge" unwind label %28
 
-70:                                               ; preds = %66
-  %71 = load double, ptr %10, align 8
-  %72 = fcmp oeq double %46, %71
+"._ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread78_crit_edge": ; preds = %69
+  %.pre130 = load ptr, ptr %31, align 8
+  br label %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread78"
+
+71:                                               ; preds = %67
+  %72 = load double, ptr %10, align 8
+  %73 = fcmp oeq double %46, %72
   %.pre = load double, ptr %50, align 8
-  br i1 %72, label %73, label %.critedge.i
+  br i1 %73, label %74, label %.critedge.i
 
-73:                                               ; preds = %70
-  %74 = fcmp oeq double %2, %.pre
-  br i1 %74, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread", label %75
+74:                                               ; preds = %71
+  %75 = fcmp oeq double %2, %.pre
+  br i1 %75, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread78", label %76
 
-75:                                               ; preds = %73
-  %76 = load double, ptr %55, align 8
-  %77 = fcmp oeq double %2, %76
-  br i1 %77, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread", label %.critedge.i
+76:                                               ; preds = %74
+  %77 = load double, ptr %51, align 8
+  %78 = fcmp oeq double %2, %77
+  br i1 %78, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread78", label %.critedge.i
 
-.critedge.i:                                      ; preds = %75, %70
-  br label %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread"
+.critedge.i:                                      ; preds = %76, %71
+  br label %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread78"
 
-"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread79": ; preds = %54, %49
-  %indvars.iv.next128 = add nsw i64 %indvars.iv127, -1
+"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread": ; preds = %63, %55, %49
+  %indvars.iv.next126 = add nsw i64 %indvars.iv125, -1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %78 = icmp sgt i64 %indvars.iv127, 0
-  %79 = icmp sgt i64 %indvars.iv, 0
-  %80 = select i1 %78, i1 %79, i1 false
-  br i1 %80, label %49, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread", !llvm.loop !32
+  %79 = icmp sgt i64 %indvars.iv125, 0
+  %80 = icmp sgt i64 %indvars.iv, 0
+  %81 = select i1 %79, i1 %80, i1 false
+  br i1 %81, label %49, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread78", !llvm.loop !32
 
-"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread": ; preds = %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread79", %"._ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread_crit_edge", %38, %75, %73, %.critedge.i
-  %81 = phi ptr [ %.pre133, %.critedge.i ], [ %.pre132, %"._ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread_crit_edge" ], [ %.pre133, %73 ], [ %.pre133, %75 ], [ %.pre133, %38 ], [ %.pre133, %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread79" ]
-  %.sroa.968.1 = phi i1 [ true, %.critedge.i ], [ true, %"._ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread_crit_edge" ], [ true, %73 ], [ true, %75 ], [ false, %38 ], [ false, %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread79" ]
-  %.sroa.067.1 = phi double [ %.pre, %.critedge.i ], [ %69, %"._ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread_crit_edge" ], [ %.pre, %73 ], [ %76, %75 ], [ undef, %38 ], [ undef, %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread79" ]
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  %83 = load ptr, ptr %82, align 8
-  %84 = load ptr, ptr %81, align 8
-  %85 = ptrtoint ptr %83 to i64
+"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread78": ; preds = %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread", %"._ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread78_crit_edge", %38, %76, %74, %.critedge.i
+  %82 = phi ptr [ %.pre131, %.critedge.i ], [ %.pre130, %"._ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread78_crit_edge" ], [ %.pre131, %74 ], [ %.pre131, %76 ], [ %.pre131, %38 ], [ %.pre131, %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread" ]
+  %.sroa.965.1 = phi i1 [ true, %.critedge.i ], [ true, %"._ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread78_crit_edge" ], [ true, %74 ], [ true, %76 ], [ false, %38 ], [ false, %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread" ]
+  %.sroa.064.1 = phi double [ %.pre, %.critedge.i ], [ %70, %"._ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread78_crit_edge" ], [ %.pre, %74 ], [ %77, %76 ], [ undef, %38 ], [ undef, %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread" ]
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
+  %84 = load ptr, ptr %83, align 8
+  %85 = load ptr, ptr %82, align 8
   %86 = ptrtoint ptr %84 to i64
-  %87 = sub i64 %85, %86
-  %88 = sdiv exact i64 %87, 24
-  %89 = icmp ult i64 %39, %88
-  %90 = icmp ult i64 %40, %88
-  %91 = select i1 %89, i1 %90, i1 false
-  br i1 %91, label %.lr.ph112, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit47.thread"
+  %87 = ptrtoint ptr %85 to i64
+  %88 = sub i64 %86, %87
+  %89 = sdiv exact i64 %88, 24
+  %90 = icmp ult i64 %39, %89
+  %91 = icmp ult i64 %40, %89
+  %92 = select i1 %90, i1 %91, i1 false
+  br i1 %92, label %.lr.ph107, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit43.thread86"
 
-.lr.ph112:                                        ; preds = %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread"
-  %92 = load double, ptr %10, align 8
-  br label %93
+.lr.ph107:                                        ; preds = %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread78"
+  %93 = load double, ptr %10, align 8
+  br label %94
 
-93:                                               ; preds = %.lr.ph112, %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit47.thread88"
-  %.024111 = phi i64 [ %40, %.lr.ph112 ], [ %121, %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit47.thread88" ]
-  %.025110 = phi i64 [ %39, %.lr.ph112 ], [ %120, %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit47.thread88" ]
-  %94 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Usd_Clip::TimeMapping", ptr %84, i64 %.025110
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 16
-  %96 = load i8, ptr %95, align 8
-  %97 = trunc i8 %96 to i1
-  br i1 %97, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit47.thread88", label %98
+94:                                               ; preds = %.lr.ph107, %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit43.thread"
+  %.024106 = phi i64 [ %40, %.lr.ph107 ], [ %123, %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit43.thread" ]
+  %.025105 = phi i64 [ %39, %.lr.ph107 ], [ %122, %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit43.thread" ]
+  %95 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Usd_Clip::TimeMapping", ptr %85, i64 %.025105
+  %96 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Usd_Clip::TimeMapping", ptr %85, i64 %.024106
+  %97 = getelementptr inbounds nuw i8, ptr %95, i64 16
+  %98 = load i8, ptr %97, align 8
+  %99 = trunc i8 %98 to i1
+  br i1 %99, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit43.thread", label %100
 
-98:                                               ; preds = %93
-  %99 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Usd_Clip::TimeMapping", ptr %84, i64 %.024111
-  %100 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  %101 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  %102 = load double, ptr %101, align 8
-  %103 = load double, ptr %100, align 8
-  %104 = fcmp olt double %102, %103
-  %105 = select i1 %104, double %102, double %103
-  %106 = fcmp olt double %103, %102
-  %107 = fcmp ugt double %105, %92
-  %108 = select i1 %106, double %102, double %103
-  %109 = fcmp ugt double %92, %108
-  %or.cond.i36 = or i1 %107, %109
-  br i1 %or.cond.i36, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit47.thread88", label %110
+100:                                              ; preds = %94
+  %101 = getelementptr inbounds nuw i8, ptr %95, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %96, i64 8
+  %103 = load double, ptr %102, align 8
+  %104 = load double, ptr %101, align 8
+  %105 = fcmp olt double %103, %104
+  %106 = select i1 %105, double %103, double %104
+  %107 = fcmp ugt double %106, %93
+  br i1 %107, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit43.thread", label %108
 
-110:                                              ; preds = %98
-  %111 = fcmp une double %103, %102
-  br i1 %111, label %112, label %114
+108:                                              ; preds = %100
+  %109 = fcmp olt double %104, %103
+  %110 = select i1 %109, double %103, double %104
+  %111 = fcmp ugt double %93, %110
+  br i1 %111, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit43.thread", label %112
 
-112:                                              ; preds = %110
-  %113 = invoke noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip24_TranslateTimeToExternalEdmm(ptr noundef nonnull align 8 dereferenceable(208) %0, double noundef %92, i64 noundef %.025110, i64 noundef %.024111)
-          to label %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit47.thread" unwind label %28
+112:                                              ; preds = %108
+  %113 = fcmp une double %104, %103
+  br i1 %113, label %114, label %116
 
-114:                                              ; preds = %110
-  %115 = load double, ptr %9, align 8
-  %116 = fcmp oeq double %115, %92
-  br i1 %116, label %117, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit47.thread.sink.split"
+114:                                              ; preds = %112
+  %115 = invoke noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip24_TranslateTimeToExternalEdmm(ptr noundef nonnull align 8 dereferenceable(208) %0, double noundef %93, i64 noundef %.025105, i64 noundef %.024106)
+          to label %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit43.thread86" unwind label %28
 
-117:                                              ; preds = %114
-  %118 = load double, ptr %94, align 8
-  %119 = fcmp oeq double %2, %118
-  br i1 %119, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit47.thread", label %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit47.thread.sink.split"
+116:                                              ; preds = %112
+  %117 = load double, ptr %9, align 8
+  %118 = fcmp oeq double %117, %93
+  br i1 %118, label %119, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit43.thread86.sink.split"
 
-"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit47.thread88": ; preds = %98, %93
-  %120 = add nuw i64 %.025110, 1
-  %121 = add nuw i64 %.024111, 1
-  %122 = icmp ult i64 %120, %88
-  %123 = icmp ult i64 %121, %88
-  %124 = select i1 %122, i1 %123, i1 false
-  br i1 %124, label %93, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit47.thread", !llvm.loop !33
+119:                                              ; preds = %116
+  %120 = load double, ptr %95, align 8
+  %121 = fcmp oeq double %2, %120
+  br i1 %121, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit43.thread86", label %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit43.thread86.sink.split"
 
-"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit47.thread.sink.split": ; preds = %117, %114
-  %125 = load double, ptr %99, align 8
-  br label %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit47.thread"
+"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit43.thread": ; preds = %108, %100, %94
+  %122 = add nuw i64 %.025105, 1
+  %123 = add nuw i64 %.024106, 1
+  %124 = icmp ult i64 %122, %89
+  %125 = icmp ult i64 %123, %89
+  %126 = select i1 %124, i1 %125, i1 false
+  br i1 %126, label %94, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit43.thread86", !llvm.loop !33
 
-"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit47.thread": ; preds = %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit47.thread88", %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit47.thread.sink.split", %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread", %117, %112
-  %.sroa.9.1 = phi i1 [ true, %112 ], [ true, %117 ], [ false, %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread" ], [ true, %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit47.thread.sink.split" ], [ false, %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit47.thread88" ]
-  %.sroa.0.1 = phi double [ %113, %112 ], [ %118, %117 ], [ undef, %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread" ], [ %125, %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit47.thread.sink.split" ], [ undef, %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit47.thread88" ]
-  br i1 %.sroa.968.1, label %126, label %128
+"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit43.thread86.sink.split": ; preds = %119, %116
+  %127 = load double, ptr %96, align 8
+  br label %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit43.thread86"
 
-126:                                              ; preds = %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit47.thread"
-  br i1 %.sroa.9.1, label %.thread94, label %127
+"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit43.thread86": ; preds = %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit43.thread", %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit43.thread86.sink.split", %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread78", %119, %114
+  %.sroa.9.1 = phi i1 [ true, %114 ], [ true, %119 ], [ false, %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread78" ], [ true, %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit43.thread86.sink.split" ], [ false, %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit43.thread" ]
+  %.sroa.0.1 = phi double [ %115, %114 ], [ %120, %119 ], [ undef, %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit.thread78" ], [ %127, %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit43.thread86.sink.split" ], [ undef, %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit43.thread" ]
+  br i1 %.sroa.965.1, label %128, label %130
 
-127:                                              ; preds = %126
-  br label %.thread94
-
-128:                                              ; preds = %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit47.thread"
-  br i1 %.sroa.9.1, label %.thread94, label %129
+128:                                              ; preds = %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit43.thread86"
+  br i1 %.sroa.9.1, label %.thread89, label %129
 
 129:                                              ; preds = %128
-  %130 = load double, ptr %9, align 8
-  %131 = load ptr, ptr %31, align 8
-  %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
-  %134 = load double, ptr %133, align 8
-  %135 = fcmp olt double %130, %134
-  br i1 %135, label %.sink.split, label %136
+  br label %.thread89
 
-136:                                              ; preds = %129
-  %137 = getelementptr inbounds nuw i8, ptr %131, i64 8
-  %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 -16
-  %140 = load double, ptr %139, align 8
-  %141 = fcmp ogt double %130, %140
-  br i1 %141, label %142, label %145
+130:                                              ; preds = %"_ZZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip45_GetBracketingTimeSamplesForPathFromClipLayerERKNS_7SdfPathEdPdS4_ENK3$_0clERKSt6vectorINS0_11TimeMappingESaIS7_EEmmb.exit43.thread86"
+  br i1 %.sroa.9.1, label %.thread89, label %131
 
-142:                                              ; preds = %136
-  %143 = getelementptr inbounds i8, ptr %138, i64 -24
+131:                                              ; preds = %130
+  %132 = load double, ptr %9, align 8
+  %133 = load ptr, ptr %31, align 8
+  %134 = load ptr, ptr %133, align 8
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 8
+  %136 = load double, ptr %135, align 8
+  %137 = fcmp olt double %132, %136
+  br i1 %137, label %138, label %140
+
+138:                                              ; preds = %131
+  %139 = load double, ptr %134, align 8
+  br label %149
+
+140:                                              ; preds = %131
+  %141 = getelementptr inbounds nuw i8, ptr %133, i64 8
+  %142 = load ptr, ptr %141, align 8
+  %143 = getelementptr inbounds i8, ptr %142, i64 -16
+  %144 = load double, ptr %143, align 8
+  %145 = fcmp ogt double %132, %144
+  br i1 %145, label %146, label %149
+
+146:                                              ; preds = %140
+  %147 = getelementptr inbounds i8, ptr %142, i64 -24
+  %148 = load double, ptr %147, align 8
+  br label %149
+
+149:                                              ; preds = %140, %146, %138
+  %.sroa.064.3 = phi double [ %139, %138 ], [ %148, %146 ], [ %.sroa.064.1, %140 ]
+  %150 = load double, ptr %10, align 8
+  %151 = fcmp olt double %150, %136
+  br i1 %151, label %152, label %154
+
+152:                                              ; preds = %149
+  %153 = load double, ptr %134, align 8
+  br label %.thread89
+
+154:                                              ; preds = %149
+  %155 = getelementptr inbounds nuw i8, ptr %133, i64 8
+  %156 = load ptr, ptr %155, align 8
+  %157 = getelementptr inbounds i8, ptr %156, i64 -16
+  %158 = load double, ptr %157, align 8
+  %159 = fcmp ogt double %150, %158
+  br i1 %159, label %160, label %.thread89
+
+160:                                              ; preds = %154
+  %161 = getelementptr inbounds i8, ptr %156, i64 -24
+  %162 = load double, ptr %161, align 8
+  br label %.thread89
+
+.thread89:                                        ; preds = %130, %128, %152, %160, %154, %129
+  %.sroa.064.2 = phi double [ %.sroa.064.3, %152 ], [ %.sroa.064.3, %160 ], [ %.sroa.064.3, %154 ], [ %.sroa.064.1, %129 ], [ %.sroa.064.1, %128 ], [ %.sroa.0.1, %130 ]
+  %.sroa.0.2 = phi double [ %153, %152 ], [ %162, %160 ], [ %.sroa.0.1, %154 ], [ %.sroa.064.1, %129 ], [ %.sroa.0.1, %128 ], [ %.sroa.0.1, %130 ]
+  store double %.sroa.064.2, ptr %3, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %129, %142
-  %.sink = phi ptr [ %143, %142 ], [ %132, %129 ]
-  %144 = load double, ptr %.sink, align 8
-  br label %145
-
-145:                                              ; preds = %.sink.split, %136
-  %.sroa.067.3 = phi double [ %.sroa.067.1, %136 ], [ %144, %.sink.split ]
-  %146 = load double, ptr %10, align 8
-  %147 = fcmp olt double %146, %134
-  br i1 %147, label %148, label %150
-
-148:                                              ; preds = %145
-  %149 = load double, ptr %132, align 8
-  br label %.thread94
-
-150:                                              ; preds = %145
-  %151 = getelementptr inbounds nuw i8, ptr %131, i64 8
-  %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds i8, ptr %152, i64 -16
-  %154 = load double, ptr %153, align 8
-  %155 = fcmp ogt double %146, %154
-  br i1 %155, label %156, label %.thread94
-
-156:                                              ; preds = %150
-  %157 = getelementptr inbounds i8, ptr %152, i64 -24
-  %158 = load double, ptr %157, align 8
-  br label %.thread94
-
-.thread94:                                        ; preds = %128, %126, %148, %156, %150, %127
-  %.sroa.067.2 = phi double [ %.sroa.067.3, %148 ], [ %.sroa.067.3, %156 ], [ %.sroa.067.3, %150 ], [ %.sroa.067.1, %127 ], [ %.sroa.067.1, %126 ], [ %.sroa.0.1, %128 ]
-  %.sroa.0.2 = phi double [ %149, %148 ], [ %158, %156 ], [ %.sroa.0.1, %150 ], [ %.sroa.067.1, %127 ], [ %.sroa.0.1, %126 ], [ %.sroa.0.1, %128 ]
-  store double %.sroa.067.2, ptr %3, align 8
-  br label %.sink.split148
-
-.sink.split148:                                   ; preds = %35, %.thread94
-  %.sroa.0.2.sink = phi double [ %.sroa.0.2, %.thread94 ], [ %37, %35 ]
+.sink.split:                                      ; preds = %35, %.thread89
+  %.sroa.0.2.sink = phi double [ %.sroa.0.2, %.thread89 ], [ %37, %35 ]
   store double %.sroa.0.2.sink, ptr %4, align 8
-  br label %159
+  br label %163
 
-159:                                              ; preds = %.sink.split148, %25
-  %160 = load i32, ptr %8, align 4
-  %.not.i.i = icmp eq i32 %160, 0
-  br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit, label %161
+163:                                              ; preds = %.sink.split, %25
+  %164 = load i32, ptr %8, align 4
+  %.not.i.i = icmp eq i32 %164, 0
+  br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit, label %165
 
-161:                                              ; preds = %159
-  %162 = and i32 %160, 255
-  %163 = lshr i32 %160, 8
-  %164 = zext nneg i32 %162 to i64
-  %165 = getelementptr inbounds [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %164
-  %166 = load ptr, ptr %165, align 8
-  %167 = mul nuw nsw i32 %163, 24
-  %168 = zext nneg i32 %167 to i64
-  %169 = getelementptr inbounds i8, ptr %166, i64 %168
-  %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
-  %171 = atomicrmw sub ptr %170, i32 1 seq_cst, align 4
-  %172 = and i32 %171, 2147483647
-  %173 = icmp eq i32 %172, 1
-  br i1 %173, label %174, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit
+165:                                              ; preds = %163
+  %166 = and i32 %164, 255
+  %167 = lshr i32 %164, 8
+  %168 = zext nneg i32 %166 to i64
+  %169 = getelementptr inbounds [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %168
+  %170 = load ptr, ptr %169, align 8
+  %171 = mul nuw nsw i32 %167, 24
+  %172 = zext nneg i32 %171 to i64
+  %173 = getelementptr inbounds i8, ptr %170, i64 %172
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
+  %175 = atomicrmw sub ptr %174, i32 1 seq_cst, align 4
+  %176 = and i32 %175, 2147483647
+  %177 = icmp eq i32 %176, 1
+  br i1 %177, label %178, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit
 
-174:                                              ; preds = %161
-  invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_PathNode8_DestroyEv(ptr noundef nonnull align 8 dereferenceable(16) %169)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit unwind label %175
+178:                                              ; preds = %165
+  invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_PathNode8_DestroyEv(ptr noundef nonnull align 8 dereferenceable(16) %173)
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit unwind label %179
 
-175:                                              ; preds = %174
-  %176 = landingpad { ptr, i32 }
+179:                                              ; preds = %178
+  %180 = landingpad { ptr, i32 }
           catch ptr null
-  %177 = extractvalue { ptr, i32 } %176, 0
-  call void @__clang_call_terminate(ptr %177) #19
+  %181 = extractvalue { ptr, i32 } %180, 0
+  call void @__clang_call_terminate(ptr %181) #19
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %159, %161, %174
-  %178 = load ptr, ptr %7, align 8
-  %.not.i.i.i = icmp eq ptr %178, null
-  br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit, label %179
+_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %163, %165, %178
+  %182 = load ptr, ptr %7, align 8
+  %.not.i.i.i = icmp eq ptr %182, null
+  br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit, label %183
 
-179:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit
-  %180 = getelementptr inbounds nuw i8, ptr %178, i64 8
-  %181 = load atomic i32, ptr %180 monotonic, align 4
-  %182 = icmp slt i32 %181, 0
-  br i1 %182, label %183, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i
+183:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit
+  %184 = getelementptr inbounds nuw i8, ptr %182, i64 8
+  %185 = load atomic i32, ptr %184 monotonic, align 4
+  %186 = icmp slt i32 %185, 0
+  br i1 %186, label %187, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i
 
-183:                                              ; preds = %179
-  %.not68.i.i.i = icmp eq i32 %181, -2
-  br i1 %.not68.i.i.i, label %191, label %184
+187:                                              ; preds = %183
+  %.not68.i.i.i = icmp eq i32 %185, -2
+  br i1 %.not68.i.i.i, label %195, label %188
 
-184:                                              ; preds = %183
-  %185 = add nsw i32 %181, 1
-  %186 = cmpxchg weak ptr %180, i32 %181, i32 %185 release monotonic, align 4
-  %187 = extractvalue { i32, i1 } %186, 1
-  %188 = extractvalue { i32, i1 } %186, 0
-  br i1 %187, label %189, label %191
+188:                                              ; preds = %187
+  %189 = add nsw i32 %185, 1
+  %190 = cmpxchg weak ptr %184, i32 %185, i32 %189 release monotonic, align 4
+  %191 = extractvalue { i32, i1 } %190, 1
+  %192 = extractvalue { i32, i1 } %190, 0
+  br i1 %191, label %193, label %195
 
-189:                                              ; preds = %184
-  %190 = icmp eq i32 %181, -1
-  br i1 %190, label %195, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit
+193:                                              ; preds = %188
+  %194 = icmp eq i32 %185, -1
+  br i1 %194, label %199, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit
 
-191:                                              ; preds = %184, %183
-  %.067.i.i.i = phi i32 [ %188, %184 ], [ -2, %183 ]
-  %192 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %178, i32 noundef %.067.i.i.i)
-          to label %.noexc.i unwind label %199
+195:                                              ; preds = %188, %187
+  %.067.i.i.i = phi i32 [ %192, %188 ], [ -2, %187 ]
+  %196 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %182, i32 noundef %.067.i.i.i)
+          to label %.noexc.i unwind label %203
 
-.noexc.i:                                         ; preds = %191
-  br i1 %192, label %195, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit
+.noexc.i:                                         ; preds = %195
+  br i1 %196, label %199, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i: ; preds = %179
-  %193 = atomicrmw sub ptr %180, i32 1 release, align 4
-  %194 = icmp eq i32 %193, 1
-  br i1 %194, label %195, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i: ; preds = %183
+  %197 = atomicrmw sub ptr %184, i32 1 release, align 4
+  %198 = icmp eq i32 %197, 1
+  br i1 %198, label %199, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit
 
-195:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %.noexc.i, %189
-  %196 = load ptr, ptr %178, align 8
-  %197 = getelementptr inbounds i8, ptr %196, i64 8
-  %198 = load ptr, ptr %197, align 8
-  call void %198(ptr noundef nonnull align 8 dereferenceable(12) %178) #18
+199:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %.noexc.i, %193
+  %200 = load ptr, ptr %182, align 8
+  %201 = getelementptr inbounds i8, ptr %200, i64 8
+  %202 = load ptr, ptr %201, align 8
+  call void %202(ptr noundef nonnull align 8 dereferenceable(12) %182) #18
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit
 
-199:                                              ; preds = %191
-  %200 = landingpad { ptr, i32 }
+203:                                              ; preds = %195
+  %204 = landingpad { ptr, i32 }
           catch ptr null
-  %201 = extractvalue { ptr, i32 } %200, 0
-  call void @__clang_call_terminate(ptr %201) #19
+  %205 = extractvalue { ptr, i32 } %204, 0
+  call void @__clang_call_terminate(ptr %205) #19
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit, %189, %.noexc.i, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %195
+_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit, %193, %.noexc.i, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %199
   ret i1 %24
 
-202:                                              ; preds = %28, %26
+206:                                              ; preds = %28, %26
   %.pn = phi { ptr, i32 } [ %29, %28 ], [ %27, %26 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #18
   resume { ptr, i32 } %.pn

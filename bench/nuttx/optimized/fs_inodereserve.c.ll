@@ -36,7 +36,7 @@ define range(i32 -22, 1) i32 @inode_reserve(ptr noundef %0, i32 noundef %1, ptr 
   store ptr null, ptr %2, align 8
   %5 = load i8, ptr %0, align 1
   %6 = icmp eq i8 %5, 0
-  br i1 %6, label %73, label %7
+  br i1 %6, label %79, label %7
 
 7:                                                ; preds = %3
   store ptr %0, ptr %4, align 8
@@ -58,18 +58,18 @@ define range(i32 -22, 1) i32 @inode_reserve(ptr noundef %0, i32 noundef %1, ptr 
   %.not47 = icmp eq i8 %19, 0
   br i1 %.not47, label %.preheader, label %.preheader43
 
-.preheader43:                                     ; preds = %12, %inode_alloc.exit
-  %20 = phi ptr [ %45, %inode_alloc.exit ], [ %18, %12 ]
-  %.02350 = phi ptr [ %20, %inode_alloc.exit ], [ %15, %12 ]
-  %.02449 = phi ptr [ %30, %inode_alloc.exit ], [ %17, %12 ]
-  %.02548 = phi ptr [ null, %inode_alloc.exit ], [ %16, %12 ]
+.preheader43:                                     ; preds = %12, %inode_insert.exit
+  %20 = phi ptr [ %48, %inode_insert.exit ], [ %18, %12 ]
+  %.02350 = phi ptr [ %20, %inode_insert.exit ], [ %15, %12 ]
+  %.02449 = phi ptr [ %30, %inode_insert.exit ], [ %17, %12 ]
+  %.02548 = phi ptr [ null, %inode_insert.exit ], [ %16, %12 ]
   br label %21
 
-.preheader:                                       ; preds = %inode_alloc.exit, %12
-  %.025.lcssa = phi ptr [ %16, %12 ], [ null, %inode_alloc.exit ]
-  %.024.lcssa = phi ptr [ %17, %12 ], [ %30, %inode_alloc.exit ]
-  %.023.lcssa = phi ptr [ %15, %12 ], [ %20, %inode_alloc.exit ]
-  br label %47
+.preheader:                                       ; preds = %inode_insert.exit, %12
+  %.025.lcssa = phi ptr [ %16, %12 ], [ null, %inode_insert.exit ]
+  %.024.lcssa = phi ptr [ %17, %12 ], [ %30, %inode_insert.exit ]
+  %.023.lcssa = phi ptr [ %15, %12 ], [ %20, %inode_insert.exit ]
+  br label %50
 
 21:                                               ; preds = %.preheader43, %23
   %.0.i.i = phi ptr [ %24, %23 ], [ %.02350, %.preheader43 ]
@@ -122,91 +122,115 @@ inode_alloc.exit:                                 ; preds = %36, %36
   store i8 0, ptr %.05.i.i, align 1
   %.not.i32 = icmp eq ptr %.02548, null
   %41 = getelementptr inbounds i8, ptr %30, i64 8
-  %42 = getelementptr inbounds i8, ptr %.02449, i64 16
+  br i1 %.not.i32, label %45, label %42
+
+42:                                               ; preds = %inode_alloc.exit
   %43 = getelementptr inbounds i8, ptr %.02548, i64 8
-  %.sink14.i = select i1 %.not.i32, ptr %42, ptr %43
-  %44 = load ptr, ptr %.sink14.i, align 8
+  %44 = load ptr, ptr %43, align 8
   store ptr %44, ptr %41, align 8
   store ptr %.02449, ptr %30, align 8
-  store ptr %30, ptr %.sink14.i, align 8
-  %45 = call ptr @inode_nextname(ptr noundef nonnull %20) #6
-  %46 = load i8, ptr %45, align 1
-  %.not = icmp eq i8 %46, 0
+  store ptr %30, ptr %43, align 8
+  br label %inode_insert.exit
+
+45:                                               ; preds = %inode_alloc.exit
+  %46 = getelementptr inbounds i8, ptr %.02449, i64 16
+  %47 = load ptr, ptr %46, align 8
+  store ptr %47, ptr %41, align 8
+  store ptr %.02449, ptr %30, align 8
+  store ptr %30, ptr %46, align 8
+  br label %inode_insert.exit
+
+inode_insert.exit:                                ; preds = %42, %45
+  %48 = call ptr @inode_nextname(ptr noundef nonnull %20) #6
+  %49 = load i8, ptr %48, align 1
+  %.not = icmp eq i8 %49, 0
   br i1 %.not, label %.preheader, label %.preheader43
 
-47:                                               ; preds = %.preheader, %49
-  %.0.i.i33 = phi ptr [ %50, %49 ], [ %.023.lcssa, %.preheader ]
-  %48 = load i8, ptr %.0.i.i33, align 1
-  switch i8 %48, label %49 [
+50:                                               ; preds = %.preheader, %52
+  %.0.i.i33 = phi ptr [ %53, %52 ], [ %.023.lcssa, %.preheader ]
+  %51 = load i8, ptr %.0.i.i33, align 1
+  switch i8 %51, label %52 [
     i8 0, label %inode_namelen.exit.i34
     i8 47, label %inode_namelen.exit.i34
   ]
 
-49:                                               ; preds = %47
-  %50 = getelementptr inbounds i8, ptr %.0.i.i33, i64 1
-  br label %47, !llvm.loop !6
+52:                                               ; preds = %50
+  %53 = getelementptr inbounds i8, ptr %.0.i.i33, i64 1
+  br label %50, !llvm.loop !6
 
-inode_namelen.exit.i34:                           ; preds = %47, %47
-  %51 = ptrtoint ptr %.0.i.i33 to i64
-  %52 = ptrtoint ptr %.023.lcssa to i64
-  %53 = sub i64 %51, %52
-  %sext.i35 = shl i64 %53, 32
-  %54 = ashr exact i64 %sext.i35, 32
-  %55 = add nsw i64 %54, 64
-  %56 = call noalias ptr @zalloc(i64 noundef %55) #5
-  %.not.i36 = icmp eq ptr %56, null
-  br i1 %.not.i36, label %inode_alloc.exit.thread, label %57
+inode_namelen.exit.i34:                           ; preds = %50, %50
+  %54 = ptrtoint ptr %.0.i.i33 to i64
+  %55 = ptrtoint ptr %.023.lcssa to i64
+  %56 = sub i64 %54, %55
+  %sext.i35 = shl i64 %56, 32
+  %57 = ashr exact i64 %sext.i35, 32
+  %58 = add nsw i64 %57, 64
+  %59 = call noalias ptr @zalloc(i64 noundef %58) #5
+  %.not.i36 = icmp eq ptr %59, null
+  br i1 %.not.i36, label %inode_alloc.exit.thread, label %60
 
-57:                                               ; preds = %inode_namelen.exit.i34
-  %58 = load i16, ptr @g_ino, align 2
-  %59 = add i16 %58, 1
-  store i16 %59, ptr @g_ino, align 2
-  %60 = getelementptr inbounds i8, ptr %56, i64 40
-  store i16 %58, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %56, i64 56
-  br label %62
+60:                                               ; preds = %inode_namelen.exit.i34
+  %61 = load i16, ptr @g_ino, align 2
+  %62 = add i16 %61, 1
+  store i16 %62, ptr @g_ino, align 2
+  %63 = getelementptr inbounds i8, ptr %59, i64 40
+  store i16 %61, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %59, i64 56
+  br label %65
 
-62:                                               ; preds = %64, %57
-  %.05.i.i37 = phi ptr [ %61, %57 ], [ %66, %64 ]
-  %.0.i6.i38 = phi ptr [ %.023.lcssa, %57 ], [ %65, %64 ]
-  %63 = load i8, ptr %.0.i6.i38, align 1
-  switch i8 %63, label %64 [
+65:                                               ; preds = %67, %60
+  %.05.i.i37 = phi ptr [ %64, %60 ], [ %69, %67 ]
+  %.0.i6.i38 = phi ptr [ %.023.lcssa, %60 ], [ %68, %67 ]
+  %66 = load i8, ptr %.0.i6.i38, align 1
+  switch i8 %66, label %67 [
     i8 0, label %inode_alloc.exit40
     i8 47, label %inode_alloc.exit40
   ]
 
-64:                                               ; preds = %62
-  %65 = getelementptr inbounds i8, ptr %.0.i6.i38, i64 1
-  %66 = getelementptr inbounds i8, ptr %.05.i.i37, i64 1
-  store i8 %63, ptr %.05.i.i37, align 1
-  br label %62, !llvm.loop !8
+67:                                               ; preds = %65
+  %68 = getelementptr inbounds i8, ptr %.0.i6.i38, i64 1
+  %69 = getelementptr inbounds i8, ptr %.05.i.i37, i64 1
+  store i8 %66, ptr %.05.i.i37, align 1
+  br label %65, !llvm.loop !8
 
-inode_alloc.exit40:                               ; preds = %62, %62
+inode_alloc.exit40:                               ; preds = %65, %65
   store i8 0, ptr %.05.i.i37, align 1
   %.not.i41 = icmp eq ptr %.025.lcssa, null
-  %67 = getelementptr inbounds i8, ptr %56, i64 8
-  %68 = getelementptr inbounds i8, ptr %.024.lcssa, i64 16
-  %69 = getelementptr inbounds i8, ptr %.025.lcssa, i64 8
-  %.sink14.i42 = select i1 %.not.i41, ptr %68, ptr %69
-  %70 = load ptr, ptr %.sink14.i42, align 8
-  store ptr %70, ptr %67, align 8
-  store ptr %.024.lcssa, ptr %56, align 8
-  store ptr %56, ptr %.sink14.i42, align 8
-  store ptr %56, ptr %2, align 8
+  %70 = getelementptr inbounds i8, ptr %59, i64 8
+  br i1 %.not.i41, label %74, label %71
+
+71:                                               ; preds = %inode_alloc.exit40
+  %72 = getelementptr inbounds i8, ptr %.025.lcssa, i64 8
+  %73 = load ptr, ptr %72, align 8
+  store ptr %73, ptr %70, align 8
+  store ptr %.024.lcssa, ptr %59, align 8
+  store ptr %59, ptr %72, align 8
+  br label %inode_insert.exit42
+
+74:                                               ; preds = %inode_alloc.exit40
+  %75 = getelementptr inbounds i8, ptr %.024.lcssa, i64 16
+  %76 = load ptr, ptr %75, align 8
+  store ptr %76, ptr %70, align 8
+  store ptr %.024.lcssa, ptr %59, align 8
+  store ptr %59, ptr %75, align 8
+  br label %inode_insert.exit42
+
+inode_insert.exit42:                              ; preds = %71, %74
+  store ptr %59, ptr %2, align 8
   br label %inode_alloc.exit.thread
 
-inode_alloc.exit.thread:                          ; preds = %inode_namelen.exit.i, %inode_namelen.exit.i34, %7, %inode_alloc.exit40
-  %.022 = phi i32 [ 0, %inode_alloc.exit40 ], [ -17, %7 ], [ -12, %inode_namelen.exit.i34 ], [ -12, %inode_namelen.exit.i ]
-  %71 = load ptr, ptr %9, align 8
-  %.not31 = icmp eq ptr %71, null
-  br i1 %.not31, label %73, label %72
+inode_alloc.exit.thread:                          ; preds = %inode_namelen.exit.i, %inode_namelen.exit.i34, %7, %inode_insert.exit42
+  %.022 = phi i32 [ 0, %inode_insert.exit42 ], [ -17, %7 ], [ -12, %inode_namelen.exit.i34 ], [ -12, %inode_namelen.exit.i ]
+  %77 = load ptr, ptr %9, align 8
+  %.not31 = icmp eq ptr %77, null
+  br i1 %.not31, label %79, label %78
 
-72:                                               ; preds = %inode_alloc.exit.thread
-  call void @free(ptr noundef nonnull %71)
-  br label %73
+78:                                               ; preds = %inode_alloc.exit.thread
+  call void @free(ptr noundef nonnull %77)
+  br label %79
 
-73:                                               ; preds = %72, %inode_alloc.exit.thread, %3
-  %.0 = phi i32 [ -22, %3 ], [ %.022, %inode_alloc.exit.thread ], [ %.022, %72 ]
+79:                                               ; preds = %78, %inode_alloc.exit.thread, %3
+  %.0 = phi i32 [ -22, %3 ], [ %.022, %inode_alloc.exit.thread ], [ %.022, %78 ]
   ret i32 %.0
 }
 

@@ -674,22 +674,18 @@ _ZNSt10_HashtableISt4pairIPKN6google8protobuf11MessageLiteEiES0_IKS6_NS2_8intern
 
 91:                                               ; preds = %88
   %92 = getelementptr inbounds ptr, ptr %.0.i.i.i.i.i.i.i.i.i.i, i64 %.02531.i.i.i.i.i.i.i.i.i
-  br label %.sink.split.i.i.i.i.i.i.i.i.i
+  store ptr %.032.i.i.i.i.i.i.i.i.i, ptr %92, align 8
+  br label %96
 
 93:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
   %94 = load ptr, ptr %87, align 8
   store ptr %94, ptr %.032.i.i.i.i.i.i.i.i.i, align 8
   %95 = load ptr, ptr %86, align 8
-  br label %.sink.split.i.i.i.i.i.i.i.i.i
-
-.sink.split.i.i.i.i.i.i.i.i.i:                    ; preds = %93, %91
-  %.sink.i.i.i.i.i.i.i.i.i = phi ptr [ %92, %91 ], [ %95, %93 ]
-  %.1.ph.i.i.i.i.i.i.i.i.i = phi i64 [ %85, %91 ], [ %.02531.i.i.i.i.i.i.i.i.i, %93 ]
-  store ptr %.032.i.i.i.i.i.i.i.i.i, ptr %.sink.i.i.i.i.i.i.i.i.i, align 8
+  store ptr %.032.i.i.i.i.i.i.i.i.i, ptr %95, align 8
   br label %96
 
-96:                                               ; preds = %.sink.split.i.i.i.i.i.i.i.i.i, %88
-  %.1.i.i.i.i.i.i.i.i.i = phi i64 [ %85, %88 ], [ %.1.ph.i.i.i.i.i.i.i.i.i, %.sink.split.i.i.i.i.i.i.i.i.i ]
+96:                                               ; preds = %93, %91, %88
+  %.1.i.i.i.i.i.i.i.i.i = phi i64 [ %.02531.i.i.i.i.i.i.i.i.i, %93 ], [ %85, %91 ], [ %85, %88 ]
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %83, null
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !10
 

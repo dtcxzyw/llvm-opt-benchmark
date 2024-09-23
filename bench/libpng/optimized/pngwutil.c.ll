@@ -2019,7 +2019,7 @@ png_write_chunk_data.exit34.thread:               ; preds = %39, %png_write_chun
 
 ._crit_edge.thread:                               ; preds = %png_write_chunk_data.exit34.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  br label %158
+  br label %164
 
 .lr.ph.split.preheader:                           ; preds = %png_write_chunk_data.exit34.thread
   %46 = load ptr, ptr %43, align 8
@@ -2121,11 +2121,11 @@ png_write_chunk_data.exit36.us:                   ; preds = %.lr.ph.split.us, %p
   br i1 %114, label %png_write_chunk_data.exit36.us, label %._crit_edge, !llvm.loop !54
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %png_write_chunk_data.exit36
-  %.039 = phi ptr [ %152, %png_write_chunk_data.exit36 ], [ %46, %.lr.ph.split.preheader ]
+  %.039 = phi ptr [ %158, %png_write_chunk_data.exit36 ], [ %46, %.lr.ph.split.preheader ]
   %115 = load i8, ptr %7, align 8
   %116 = icmp eq i8 %115, 8
   %117 = load i16, ptr %.039, align 2
-  br i1 %116, label %118, label %128
+  br i1 %116, label %118, label %134
 
 118:                                              ; preds = %.lr.ph.split
   %119 = trunc i16 %117 to i8
@@ -2140,87 +2140,92 @@ png_write_chunk_data.exit36.us:                   ; preds = %.lr.ph.split.us, %p
   store i8 %125, ptr %48, align 1
   %126 = getelementptr inbounds i8, ptr %.039, i64 6
   %127 = load i16, ptr %126, align 2
+  %128 = trunc i16 %127 to i8
+  store i8 %128, ptr %49, align 1
+  %129 = getelementptr inbounds i8, ptr %.039, i64 8
+  %130 = load i16, ptr %129, align 2
+  %131 = lshr i16 %130, 8
+  %132 = trunc nuw i16 %131 to i8
+  store i8 %132, ptr %50, align 1
+  %133 = trunc i16 %130 to i8
+  store i8 %133, ptr %51, align 1
   br label %png_write_chunk_data.exit36
 
-128:                                              ; preds = %.lr.ph.split
-  %129 = lshr i16 %117, 8
-  %130 = trunc nuw i16 %129 to i8
-  store i8 %130, ptr %6, align 1
-  %131 = trunc i16 %117 to i8
-  store i8 %131, ptr %47, align 1
-  %132 = getelementptr inbounds i8, ptr %.039, i64 2
-  %133 = load i16, ptr %132, align 2
-  %134 = lshr i16 %133, 8
-  %135 = trunc nuw i16 %134 to i8
-  store i8 %135, ptr %48, align 1
-  %136 = trunc i16 %133 to i8
-  store i8 %136, ptr %49, align 1
-  %137 = getelementptr inbounds i8, ptr %.039, i64 4
-  %138 = load i16, ptr %137, align 2
-  %139 = lshr i16 %138, 8
-  %140 = trunc nuw i16 %139 to i8
-  store i8 %140, ptr %50, align 1
-  %141 = trunc i16 %138 to i8
-  store i8 %141, ptr %51, align 1
-  %142 = getelementptr inbounds i8, ptr %.039, i64 6
-  %143 = load i16, ptr %142, align 2
-  %144 = lshr i16 %143, 8
-  %145 = trunc nuw i16 %144 to i8
-  store i8 %145, ptr %52, align 1
+134:                                              ; preds = %.lr.ph.split
+  %135 = lshr i16 %117, 8
+  %136 = trunc nuw i16 %135 to i8
+  store i8 %136, ptr %6, align 1
+  %137 = trunc i16 %117 to i8
+  store i8 %137, ptr %47, align 1
+  %138 = getelementptr inbounds i8, ptr %.039, i64 2
+  %139 = load i16, ptr %138, align 2
+  %140 = lshr i16 %139, 8
+  %141 = trunc nuw i16 %140 to i8
+  store i8 %141, ptr %48, align 1
+  %142 = trunc i16 %139 to i8
+  store i8 %142, ptr %49, align 1
+  %143 = getelementptr inbounds i8, ptr %.039, i64 4
+  %144 = load i16, ptr %143, align 2
+  %145 = lshr i16 %144, 8
+  %146 = trunc nuw i16 %145 to i8
+  store i8 %146, ptr %50, align 1
+  %147 = trunc i16 %144 to i8
+  store i8 %147, ptr %51, align 1
+  %148 = getelementptr inbounds i8, ptr %.039, i64 6
+  %149 = load i16, ptr %148, align 2
+  %150 = lshr i16 %149, 8
+  %151 = trunc nuw i16 %150 to i8
+  store i8 %151, ptr %52, align 1
+  %152 = trunc i16 %149 to i8
+  store i8 %152, ptr %53, align 1
+  %153 = getelementptr inbounds i8, ptr %.039, i64 8
+  %154 = load i16, ptr %153, align 2
+  %155 = lshr i16 %154, 8
+  %156 = trunc nuw i16 %155 to i8
+  store i8 %156, ptr %54, align 1
+  %157 = trunc i16 %154 to i8
+  store i8 %157, ptr %55, align 1
   br label %png_write_chunk_data.exit36
 
-png_write_chunk_data.exit36:                      ; preds = %128, %118
-  %.sink50 = phi i16 [ %143, %128 ], [ %127, %118 ]
-  %.sink49 = phi ptr [ %53, %128 ], [ %49, %118 ]
-  %.sink46 = phi ptr [ %54, %128 ], [ %50, %118 ]
-  %.sink44 = phi ptr [ %55, %128 ], [ %51, %118 ]
-  %146 = trunc i16 %.sink50 to i8
-  store i8 %146, ptr %.sink49, align 1
-  %147 = getelementptr inbounds i8, ptr %.039, i64 8
-  %148 = load i16, ptr %147, align 2
-  %149 = lshr i16 %148, 8
-  %150 = trunc nuw i16 %149 to i8
-  store i8 %150, ptr %.sink46, align 1
-  %151 = trunc i16 %148 to i8
-  store i8 %151, ptr %.sink44, align 1
+png_write_chunk_data.exit36:                      ; preds = %134, %118
   call void @png_write_data(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef %10) #12
   call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef %10) #12
-  %152 = getelementptr inbounds i8, ptr %.039, i64 10
-  %153 = load ptr, ptr %43, align 8
-  %154 = load i32, ptr %11, align 8
-  %155 = sext i32 %154 to i64
-  %156 = getelementptr inbounds %struct.png_sPLT_entry_struct, ptr %153, i64 %155
-  %157 = icmp ult ptr %152, %156
-  br i1 %157, label %.lr.ph.split, label %._crit_edge, !llvm.loop !54
+  %158 = getelementptr inbounds i8, ptr %.039, i64 10
+  %159 = load ptr, ptr %43, align 8
+  %160 = load i32, ptr %11, align 8
+  %161 = sext i32 %160 to i64
+  %162 = getelementptr inbounds %struct.png_sPLT_entry_struct, ptr %159, i64 %161
+  %163 = icmp ult ptr %158, %162
+  br i1 %163, label %.lr.ph.split, label %._crit_edge, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %png_write_chunk_data.exit36, %png_write_chunk_data.exit36.us, %png_write_chunk_data.exit36.us.us, %png_write_chunk_data.exit34
   call void @llvm.experimental.noalias.scope.decl(metadata !55)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  br i1 %.not38, label %png_write_chunk_end.exit, label %158
+  br i1 %.not38, label %png_write_chunk_end.exit, label %164
 
-158:                                              ; preds = %._crit_edge.thread, %._crit_edge
-  %159 = getelementptr inbounds i8, ptr %0, i64 1140
-  store i32 130, ptr %159, align 4, !alias.scope !55
-  %160 = getelementptr inbounds i8, ptr %0, i64 588
-  %161 = load i32, ptr %160, align 4, !alias.scope !55
-  %162 = lshr i32 %161, 24
-  %163 = trunc nuw i32 %162 to i8
-  store i8 %163, ptr %3, align 1, !noalias !55
-  %164 = lshr i32 %161, 16
-  %165 = trunc i32 %164 to i8
-  %166 = getelementptr inbounds i8, ptr %3, i64 1
-  store i8 %165, ptr %166, align 1, !noalias !55
-  %167 = lshr i32 %161, 8
-  %168 = trunc i32 %167 to i8
-  %169 = getelementptr inbounds i8, ptr %3, i64 2
-  store i8 %168, ptr %169, align 1, !noalias !55
-  %170 = trunc i32 %161 to i8
-  %171 = getelementptr inbounds i8, ptr %3, i64 3
-  store i8 %170, ptr %171, align 1, !noalias !55
+164:                                              ; preds = %._crit_edge.thread, %._crit_edge
+  %165 = getelementptr inbounds i8, ptr %0, i64 1140
+  store i32 130, ptr %165, align 4, !alias.scope !55
+  %166 = getelementptr inbounds i8, ptr %0, i64 588
+  %167 = load i32, ptr %166, align 4, !alias.scope !55
+  %168 = lshr i32 %167, 24
+  %169 = trunc nuw i32 %168 to i8
+  store i8 %169, ptr %3, align 1, !noalias !55
+  %170 = lshr i32 %167, 16
+  %171 = trunc i32 %170 to i8
+  %172 = getelementptr inbounds i8, ptr %3, i64 1
+  store i8 %171, ptr %172, align 1, !noalias !55
+  %173 = lshr i32 %167, 8
+  %174 = trunc i32 %173 to i8
+  %175 = getelementptr inbounds i8, ptr %3, i64 2
+  store i8 %174, ptr %175, align 1, !noalias !55
+  %176 = trunc i32 %167 to i8
+  %177 = getelementptr inbounds i8, ptr %3, i64 3
+  store i8 %176, ptr %177, align 1, !noalias !55
   call void @png_write_data(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef 4) #12
   br label %png_write_chunk_end.exit
 
-png_write_chunk_end.exit:                         ; preds = %._crit_edge, %158
+png_write_chunk_end.exit:                         ; preds = %._crit_edge, %164
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   ret void
 }

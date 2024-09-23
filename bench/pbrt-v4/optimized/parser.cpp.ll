@@ -7544,14 +7544,14 @@ invoke.cont1040:                                  ; preds = %for.end1035
   br label %invoke.cont1040.invoke
 
 invoke.cont1040.invoke:                           ; preds = %invoke.cont1205, %invoke.cont1040
-  %vfn1209.sink = phi ptr [ %vfn1209, %invoke.cont1205 ], [ %vtable1043, %invoke.cont1040 ]
-  %315 = phi ptr [ %355, %invoke.cont1205 ], [ %314, %invoke.cont1040 ]
-  %.in = phi ptr [ %v1182, %invoke.cont1205 ], [ %v1017, %invoke.cont1040 ]
-  %316 = phi float [ %354, %invoke.cont1205 ], [ %313, %invoke.cont1040 ]
-  %317 = phi float [ %353, %invoke.cont1205 ], [ %312, %invoke.cont1040 ]
-  %318 = load float, ptr %.in, align 4
-  %319 = load ptr, ptr %vfn1209.sink, align 8
-  invoke void %319(ptr noundef nonnull align 8 dereferenceable(9) %315, float noundef %318, float noundef %316, float noundef %317, ptr noundef nonnull byval(%"struct.pbrt::FileLoc") align 8 %loc1339)
+  %315 = phi ptr [ %314, %invoke.cont1040 ], [ %355, %invoke.cont1205 ]
+  %.in = phi ptr [ %v1017, %invoke.cont1040 ], [ %v1182, %invoke.cont1205 ]
+  %316 = phi float [ %313, %invoke.cont1040 ], [ %354, %invoke.cont1205 ]
+  %317 = phi float [ %312, %invoke.cont1040 ], [ %353, %invoke.cont1205 ]
+  %.in6318 = phi ptr [ %vtable1043, %invoke.cont1040 ], [ %vfn1209, %invoke.cont1205 ]
+  %318 = load ptr, ptr %.in6318, align 8
+  %319 = load float, ptr %.in, align 4
+  invoke void %318(ptr noundef nonnull align 8 dereferenceable(9) %315, float noundef %319, float noundef %316, float noundef %317, ptr noundef nonnull byval(%"struct.pbrt::FileLoc") align 8 %loc1339)
           to label %sw.epilog unwind label %lpad26.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont1047:                                  ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1942, %invoke.cont983, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1964

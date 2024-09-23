@@ -1809,12 +1809,15 @@ while.body.i:                                     ; preds = %land.rhs.i
 if.then:                                          ; preds = %land.rhs.i
   %7 = load i32, ptr %value, align 4
   %m_data.i = getelementptr inbounds i8, ptr %this, i64 80
+  %8 = load ptr, ptr %m_data.i, align 8
+  %arrayidx.i = getelementptr inbounds i32, ptr %8, i64 %idxprom.i7.i
+  store i32 %7, ptr %arrayidx.i, align 4
   br label %return
 
 if.end:                                           ; preds = %while.body.i, %entry, %if.end.i
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 68
-  %8 = load i32, ptr %m_size.i, align 4
-  %cmp.i = icmp eq i32 %8, %1
+  %9 = load i32, ptr %m_size.i, align 4
+  %cmp.i = icmp eq i32 %9, %1
   br i1 %cmp.i, label %if.then.i, label %_ZN20b3AlignedObjectArrayIiE9push_backERKi.exit
 
 if.then.i:                                        ; preds = %if.end
@@ -1826,53 +1829,53 @@ if.then.i:                                        ; preds = %if.end
   br label %_ZN20b3AlignedObjectArrayIiE9push_backERKi.exit
 
 _ZN20b3AlignedObjectArrayIiE9push_backERKi.exit:  ; preds = %if.end, %if.then.i
-  %9 = phi i32 [ %.pre.i, %if.then.i ], [ %8, %if.end ]
+  %10 = phi i32 [ %.pre.i, %if.then.i ], [ %9, %if.end ]
   %m_data.i13 = getelementptr inbounds i8, ptr %this, i64 80
-  %10 = load ptr, ptr %m_data.i13, align 8
-  %idxprom.i14 = sext i32 %9 to i64
-  %arrayidx.i15 = getelementptr inbounds i32, ptr %10, i64 %idxprom.i14
-  %11 = load i32, ptr %value, align 4
-  store i32 %11, ptr %arrayidx.i15, align 4
-  %12 = load i32, ptr %m_size.i, align 4
-  %inc.i = add nsw i32 %12, 1
+  %11 = load ptr, ptr %m_data.i13, align 8
+  %idxprom.i14 = sext i32 %10 to i64
+  %arrayidx.i15 = getelementptr inbounds i32, ptr %11, i64 %idxprom.i14
+  %12 = load i32, ptr %value, align 4
+  store i32 %12, ptr %arrayidx.i15, align 4
+  %13 = load i32, ptr %m_size.i, align 4
+  %inc.i = add nsw i32 %13, 1
   store i32 %inc.i, ptr %m_size.i, align 4
   %m_size.i.i16 = getelementptr inbounds i8, ptr %this, i64 100
-  %13 = load i32, ptr %m_size.i.i16, align 4
+  %14 = load i32, ptr %m_size.i.i16, align 4
   %m_capacity.i.i17 = getelementptr inbounds i8, ptr %this, i64 104
-  %14 = load i32, ptr %m_capacity.i.i17, align 8
-  %cmp.i18 = icmp eq i32 %13, %14
+  %15 = load i32, ptr %m_capacity.i.i17, align 8
+  %cmp.i18 = icmp eq i32 %14, %15
   br i1 %cmp.i18, label %if.then.i24, label %_ZN20b3AlignedObjectArrayI9b3HashIntE9push_backERKS0_.exit
 
 if.then.i24:                                      ; preds = %_ZN20b3AlignedObjectArrayIiE9push_backERKi.exit
   %m_keyArray = getelementptr inbounds i8, ptr %this, i64 96
-  %tobool.not.i.i25 = icmp eq i32 %13, 0
-  %mul.i.i26 = shl nsw i32 %13, 1
+  %tobool.not.i.i25 = icmp eq i32 %14, 0
+  %mul.i.i26 = shl nsw i32 %14, 1
   %cond.i.i27 = select i1 %tobool.not.i.i25, i32 1, i32 %mul.i.i26
   tail call void @_ZN20b3AlignedObjectArrayI9b3HashIntE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %m_keyArray, i32 noundef %cond.i.i27)
   %.pre.i28 = load i32, ptr %m_size.i.i16, align 4
   br label %_ZN20b3AlignedObjectArrayI9b3HashIntE9push_backERKS0_.exit
 
 _ZN20b3AlignedObjectArrayI9b3HashIntE9push_backERKS0_.exit: ; preds = %_ZN20b3AlignedObjectArrayIiE9push_backERKi.exit, %if.then.i24
-  %15 = phi i32 [ %.pre.i28, %if.then.i24 ], [ %13, %_ZN20b3AlignedObjectArrayIiE9push_backERKi.exit ]
+  %16 = phi i32 [ %.pre.i28, %if.then.i24 ], [ %14, %_ZN20b3AlignedObjectArrayIiE9push_backERKi.exit ]
   %m_data.i20 = getelementptr inbounds i8, ptr %this, i64 112
-  %16 = load ptr, ptr %m_data.i20, align 8
-  %idxprom.i21 = sext i32 %15 to i64
-  %arrayidx.i22 = getelementptr inbounds %class.b3HashInt, ptr %16, i64 %idxprom.i21
-  %17 = load i32, ptr %key, align 4
-  store i32 %17, ptr %arrayidx.i22, align 4
-  %18 = load i32, ptr %m_size.i.i16, align 4
-  %inc.i23 = add nsw i32 %18, 1
+  %17 = load ptr, ptr %m_data.i20, align 8
+  %idxprom.i21 = sext i32 %16 to i64
+  %arrayidx.i22 = getelementptr inbounds %class.b3HashInt, ptr %17, i64 %idxprom.i21
+  %18 = load i32, ptr %key, align 4
+  store i32 %18, ptr %arrayidx.i22, align 4
+  %19 = load i32, ptr %m_size.i.i16, align 4
+  %inc.i23 = add nsw i32 %19, 1
   store i32 %inc.i23, ptr %m_size.i.i16, align 4
-  %19 = load i32, ptr %m_capacity.i, align 8
-  %cmp13 = icmp slt i32 %1, %19
+  %20 = load i32, ptr %m_capacity.i, align 8
+  %cmp13 = icmp slt i32 %1, %20
   br i1 %cmp13, label %if.then14, label %if.end20
 
 if.then14:                                        ; preds = %_ZN20b3AlignedObjectArrayI9b3HashIntE9push_backERKS0_.exit
   tail call void @_ZN9b3HashMapI9b3HashIntiE10growTablesERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 4 dereferenceable(4) %key)
-  %20 = load i32, ptr %key, align 4
-  %shl.i30 = shl i32 %20, 15
+  %21 = load i32, ptr %key, align 4
+  %shl.i30 = shl i32 %21, 15
   %not.i31 = xor i32 %shl.i30, -1
-  %add.i32 = add nsw i32 %20, %not.i31
+  %add.i32 = add nsw i32 %21, %not.i31
   %shr.i33 = ashr i32 %add.i32, 10
   %xor.i34 = xor i32 %shr.i33, %add.i32
   %add3.i35 = mul i32 %xor.i34, 9
@@ -1883,32 +1886,29 @@ if.then14:                                        ; preds = %_ZN20b3AlignedObjec
   %add8.i40 = add nsw i32 %xor5.i37, %not7.i39
   %shr9.i41 = ashr i32 %add8.i40, 16
   %xor10.i42 = xor i32 %shr9.i41, %add8.i40
-  %21 = load i32, ptr %m_capacity.i, align 8
-  %sub18 = add nsw i32 %21, -1
+  %22 = load i32, ptr %m_capacity.i, align 8
+  %sub18 = add nsw i32 %22, -1
   %and19 = and i32 %xor10.i42, %sub18
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then14, %_ZN20b3AlignedObjectArrayI9b3HashIntE9push_backERKS0_.exit
   %hash.0 = phi i32 [ %and19, %if.then14 ], [ %and.i, %_ZN20b3AlignedObjectArrayI9b3HashIntE9push_backERKS0_.exit ]
   %m_data.i44 = getelementptr inbounds i8, ptr %this, i64 16
-  %22 = load ptr, ptr %m_data.i44, align 8
+  %23 = load ptr, ptr %m_data.i44, align 8
   %idxprom.i45 = sext i32 %hash.0 to i64
-  %arrayidx.i46 = getelementptr inbounds i32, ptr %22, i64 %idxprom.i45
-  %23 = load i32, ptr %arrayidx.i46, align 4
+  %arrayidx.i46 = getelementptr inbounds i32, ptr %23, i64 %idxprom.i45
+  %24 = load i32, ptr %arrayidx.i46, align 4
   %m_data.i47 = getelementptr inbounds i8, ptr %this, i64 48
-  %24 = load ptr, ptr %m_data.i47, align 8
-  %idxprom.i48 = sext i32 %8 to i64
-  %arrayidx.i49 = getelementptr inbounds i32, ptr %24, i64 %idxprom.i48
-  store i32 %23, ptr %arrayidx.i49, align 4
+  %25 = load ptr, ptr %m_data.i47, align 8
+  %idxprom.i48 = sext i32 %9 to i64
+  %arrayidx.i49 = getelementptr inbounds i32, ptr %25, i64 %idxprom.i48
+  store i32 %24, ptr %arrayidx.i49, align 4
+  %26 = load ptr, ptr %m_data.i44, align 8
+  %arrayidx.i52 = getelementptr inbounds i32, ptr %26, i64 %idxprom.i45
+  store i32 %9, ptr %arrayidx.i52, align 4
   br label %return
 
 return:                                           ; preds = %if.end20, %if.then
-  %m_data.i44.sink = phi ptr [ %m_data.i44, %if.end20 ], [ %m_data.i, %if.then ]
-  %idxprom.i45.sink = phi i64 [ %idxprom.i45, %if.end20 ], [ %idxprom.i7.i, %if.then ]
-  %.sink = phi i32 [ %8, %if.end20 ], [ %7, %if.then ]
-  %25 = load ptr, ptr %m_data.i44.sink, align 8
-  %arrayidx.i52 = getelementptr inbounds i32, ptr %25, i64 %idxprom.i45.sink
-  store i32 %.sink, ptr %arrayidx.i52, align 4
   ret void
 }
 

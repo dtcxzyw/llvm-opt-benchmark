@@ -288,6 +288,8 @@ do.body5.i.i.i:                                   ; preds = %for.body.i.i.i
   store ptr %16, ptr %tql_prev7.i.i.i, align 8
   store ptr %node.0.i.i.i, ptr %usednode.0.i.i, align 8
   %17 = load ptr, ptr %tql_prev.i.i.i, align 8
+  store ptr %usednode.0.i.i, ptr %17, align 8
+  store ptr %usednode.0.i.i, ptr %tql_prev.i.i.i, align 8
   br label %mlist_alloc.exit
 
 do.body17.i.i.i:                                  ; preds = %for.cond.i.i.i
@@ -296,13 +298,11 @@ do.body17.i.i.i:                                  ; preds = %for.cond.i.i.i
   %18 = load ptr, ptr %tql_prev19.i.i.i, align 8
   %tql_prev21.i.i.i = getelementptr inbounds i8, ptr %usednode.0.i.i, i64 8
   store ptr %18, ptr %tql_prev21.i.i.i, align 8
+  store ptr %usednode.0.i.i, ptr %18, align 8
+  store ptr %usednode.0.i.i, ptr %tql_prev19.i.i.i, align 8
   br label %mlist_alloc.exit
 
 mlist_alloc.exit:                                 ; preds = %do.body5.i.i.i, %do.body17.i.i.i
-  %.sink.i.i.i = phi ptr [ %18, %do.body17.i.i.i ], [ %17, %do.body5.i.i.i ]
-  %tql_prev19.sink.i.i.i = phi ptr [ %tql_prev19.i.i.i, %do.body17.i.i.i ], [ %tql_prev.i.i.i, %do.body5.i.i.i ]
-  store ptr %usednode.0.i.i, ptr %.sink.i.i.i, align 8
-  store ptr %usednode.0.i.i, ptr %tql_prev19.sink.i.i.i, align 8
   %19 = load i32, ptr %allocator, align 8
   %and21 = and i32 %19, 4
   %tobool22.not = icmp eq i32 %and21, 0
@@ -492,6 +492,8 @@ do.body5.i.i:                                     ; preds = %for.body.i20.i
   store ptr %9, ptr %tql_prev12.i, align 8
   store ptr %node.0.i19.i, ptr %node.0.i.i, align 8
   %10 = load ptr, ptr %tql_prev.i.i, align 8
+  store ptr %node.0.i.i, ptr %10, align 8
+  store ptr %node.0.i.i, ptr %tql_prev.i.i, align 8
   br label %mlist_sort_insert.exit.i
 
 do.body17.i.i:                                    ; preds = %for.cond.i17.i
@@ -499,13 +501,11 @@ do.body17.i.i:                                    ; preds = %for.cond.i17.i
   %tql_prev19.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %11 = load ptr, ptr %tql_prev19.i.i, align 8
   store ptr %11, ptr %tql_prev12.i, align 8
+  store ptr %node.0.i.i, ptr %11, align 8
+  store ptr %node.0.i.i, ptr %tql_prev19.i.i, align 8
   br label %mlist_sort_insert.exit.i
 
 mlist_sort_insert.exit.i:                         ; preds = %do.body17.i.i, %do.body5.i.i
-  %.sink.i.i = phi ptr [ %11, %do.body17.i.i ], [ %10, %do.body5.i.i ]
-  %tql_prev19.sink.i.i = phi ptr [ %tql_prev19.i.i, %do.body17.i.i ], [ %tql_prev.i.i, %do.body5.i.i ]
-  store ptr %node.0.i.i, ptr %.sink.i.i, align 8
-  store ptr %node.0.i.i, ptr %tql_prev19.sink.i.i, align 8
   %12 = load ptr, ptr %free.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %12, null
   br i1 %tobool.not.i.i.i, label %entry.split.us.i.i, label %do.body1.i.i

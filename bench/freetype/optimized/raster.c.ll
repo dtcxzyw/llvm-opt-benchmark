@@ -517,13 +517,13 @@ define internal void @Vertical_Sweep_Span(ptr nocapture noundef readonly %0, i32
   %18 = ashr i64 %17, %14
   %19 = trunc i64 %18 to i32
   %20 = icmp sgt i32 %19, -1
-  br i1 %20, label %21, label %54
+  br i1 %20, label %21, label %57
 
 21:                                               ; preds = %4
   %22 = getelementptr inbounds i8, ptr %0, i64 180
   %23 = load i32, ptr %22, align 4
   %.not = icmp slt i32 %23, %16
-  br i1 %.not, label %54, label %24
+  br i1 %.not, label %57, label %24
 
 24:                                               ; preds = %21
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %16, i32 0)
@@ -540,7 +540,7 @@ define internal void @Vertical_Sweep_Span(ptr nocapture noundef readonly %0, i32
   %34 = getelementptr inbounds i8, ptr %32, i64 %33
   %35 = sub nsw i32 %26, %25
   %36 = icmp sgt i32 %35, 0
-  br i1 %36, label %37, label %49
+  br i1 %36, label %37, label %52
 
 37:                                               ; preds = %24
   %38 = load i8, ptr %34, align 1
@@ -566,22 +566,21 @@ define internal void @Vertical_Sweep_Span(ptr nocapture noundef readonly %0, i32
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %37
   %.033.lcssa = phi ptr [ %34, %37 ], [ %scevgep43, %.lr.ph.preheader ]
   %48 = getelementptr inbounds i8, ptr %.033.lcssa, i64 1
-  br label %.sink.split
+  %49 = load i8, ptr %48, align 1
+  %50 = trunc nsw i32 %30 to i8
+  %51 = or i8 %49, %50
+  store i8 %51, ptr %48, align 1
+  br label %57
 
-49:                                               ; preds = %24
-  %50 = and i32 %30, %28
-  br label %.sink.split
+52:                                               ; preds = %24
+  %53 = and i32 %30, %28
+  %54 = load i8, ptr %34, align 1
+  %55 = trunc nuw i32 %53 to i8
+  %56 = or i8 %54, %55
+  store i8 %56, ptr %34, align 1
+  br label %57
 
-.sink.split:                                      ; preds = %49, %._crit_edge
-  %.sink47 = phi ptr [ %48, %._crit_edge ], [ %34, %49 ]
-  %.sink = phi i32 [ %30, %._crit_edge ], [ %50, %49 ]
-  %51 = load i8, ptr %.sink47, align 1
-  %52 = trunc i32 %.sink to i8
-  %53 = or i8 %51, %52
-  store i8 %53, ptr %.sink47, align 1
-  br label %54
-
-54:                                               ; preds = %.sink.split, %21, %4
+57:                                               ; preds = %._crit_edge, %52, %21, %4
   ret void
 }
 
@@ -1826,11 +1825,11 @@ define internal fastcc signext range(i8 0, 2) i8 @End_Profile(ptr nocapture noun
 13:                                               ; preds = %1
   %14 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 99, ptr %14, align 8
-  br label %115
+  br label %114
 
 15:                                               ; preds = %1
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %115, label %16
+  br i1 %.not, label %114, label %16
 
 16:                                               ; preds = %15
   %17 = getelementptr inbounds i8, ptr %3, i64 20
@@ -1901,125 +1900,125 @@ define internal fastcc signext range(i8 0, 2) i8 @End_Profile(ptr nocapture noun
   br label %60
 
 60:                                               ; preds = %51, %33
-  %.sink62 = phi ptr [ %59, %51 ], [ %6, %33 ]
+  %.sink.in = phi ptr [ %59, %51 ], [ %6, %33 ]
   %.047 = phi i32 [ %55, %51 ], [ %35, %33 ]
   %.0 = phi i32 [ %54, %51 ], [ %36, %33 ]
-  %61 = load i64, ptr %.sink62, align 8
-  %62 = getelementptr inbounds i8, ptr %3, i64 32
-  store i64 %61, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 100
-  %64 = load i32, ptr %63, align 4
-  %65 = getelementptr inbounds i8, ptr %0, i64 40
-  %66 = load ptr, ptr %65, align 8
-  %67 = icmp eq i32 %64, 0
+  %.sink = load i64, ptr %.sink.in, align 8
+  %61 = getelementptr inbounds i8, ptr %3, i64 32
+  store i64 %.sink, ptr %61, align 8
+  %62 = getelementptr inbounds i8, ptr %0, i64 100
+  %63 = load i32, ptr %62, align 4
+  %64 = getelementptr inbounds i8, ptr %0, i64 40
+  %65 = load ptr, ptr %64, align 8
+  %66 = icmp eq i32 %63, 0
   %.pre.i = sext i32 %.0 to i64
-  br i1 %67, label %._crit_edge.i, label %68
+  br i1 %66, label %._crit_edge.i, label %67
 
-68:                                               ; preds = %60
-  %69 = sext i32 %64 to i64
-  %70 = getelementptr inbounds i64, ptr %66, i64 %69
-  %71 = load i64, ptr %70, align 8
-  %72 = icmp slt i64 %71, %.pre.i
-  br i1 %72, label %._crit_edge.i, label %74
+67:                                               ; preds = %60
+  %68 = sext i32 %63 to i64
+  %69 = getelementptr inbounds i64, ptr %65, i64 %68
+  %70 = load i64, ptr %69, align 8
+  %71 = icmp slt i64 %70, %.pre.i
+  br i1 %71, label %._crit_edge.i, label %73
 
-._crit_edge.i:                                    ; preds = %68, %60
-  %.pre-phi44.i = phi i64 [ %69, %68 ], [ 0, %60 ]
-  %73 = getelementptr inbounds i64, ptr %66, i64 %.pre-phi44.i
-  store i64 %.pre.i, ptr %73, align 8
-  br label %74
+._crit_edge.i:                                    ; preds = %67, %60
+  %.pre-phi44.i = phi i64 [ %68, %67 ], [ 0, %60 ]
+  %72 = getelementptr inbounds i64, ptr %65, i64 %.pre-phi44.i
+  store i64 %.pre.i, ptr %72, align 8
+  br label %73
 
-74:                                               ; preds = %._crit_edge.i, %68
-  %.pre-phi.i = phi i64 [ %.pre-phi44.i, %._crit_edge.i ], [ %69, %68 ]
-  %75 = sext i32 %.047 to i64
-  %76 = zext i32 %64 to i64
-  %77 = xor i64 %76, -1
-  %78 = add nsw i64 %.pre-phi.i, %77
-  br label %79
+73:                                               ; preds = %._crit_edge.i, %67
+  %.pre-phi.i = phi i64 [ %.pre-phi44.i, %._crit_edge.i ], [ %68, %67 ]
+  %74 = sext i32 %.047 to i64
+  %75 = zext i32 %63 to i64
+  %76 = xor i64 %75, -1
+  %77 = add nsw i64 %.pre-phi.i, %76
+  br label %78
 
-79:                                               ; preds = %81, %74
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %81 ], [ %.pre-phi.i, %74 ]
-  %80 = icmp eq i64 %indvars.iv.i, 0
-  br i1 %80, label %.critedge.thread.i, label %81
+78:                                               ; preds = %80, %73
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %80 ], [ %.pre-phi.i, %73 ]
+  %79 = icmp eq i64 %indvars.iv.i, 0
+  br i1 %79, label %.critedge.thread.i, label %80
 
-81:                                               ; preds = %79
+80:                                               ; preds = %78
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %82 = getelementptr inbounds i64, ptr %66, i64 %indvars.iv.next.i
-  %83 = load i64, ptr %82, align 8
-  %84 = icmp sgt i64 %83, %75
-  br i1 %84, label %79, label %.critedge.i, !llvm.loop !16
+  %81 = getelementptr inbounds i64, ptr %65, i64 %indvars.iv.next.i
+  %82 = load i64, ptr %81, align 8
+  %83 = icmp sgt i64 %82, %74
+  br i1 %83, label %78, label %.critedge.i, !llvm.loop !16
 
-.critedge.i:                                      ; preds = %81
-  %85 = icmp slt i64 %indvars.iv.i, 1
-  br i1 %85, label %.critedge.thread.i, label %86
+.critedge.i:                                      ; preds = %80
+  %84 = icmp slt i64 %indvars.iv.i, 1
+  br i1 %84, label %.critedge.thread.i, label %85
 
-86:                                               ; preds = %.critedge.i
-  %87 = and i64 %indvars.iv.next.i, 4294967295
-  %88 = getelementptr inbounds i64, ptr %66, i64 %87
-  %89 = load i64, ptr %88, align 8
-  %90 = icmp slt i64 %89, %75
-  br i1 %90, label %.critedge.thread.i, label %104
+85:                                               ; preds = %.critedge.i
+  %86 = and i64 %indvars.iv.next.i, 4294967295
+  %87 = getelementptr inbounds i64, ptr %65, i64 %86
+  %88 = load i64, ptr %87, align 8
+  %89 = icmp slt i64 %88, %74
+  br i1 %89, label %.critedge.thread.i, label %103
 
-.critedge.thread.i:                               ; preds = %79, %86, %.critedge.i
-  %.in.i = phi i64 [ %indvars.iv.next.i, %86 ], [ %indvars.iv.next.i, %.critedge.i ], [ %78, %79 ]
-  %91 = load ptr, ptr %65, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 -8
-  store ptr %92, ptr %65, align 8
-  %93 = load ptr, ptr %4, align 8
-  %.not33.i = icmp ugt ptr %92, %93
+.critedge.thread.i:                               ; preds = %78, %85, %.critedge.i
+  %.in.i = phi i64 [ %indvars.iv.next.i, %85 ], [ %indvars.iv.next.i, %.critedge.i ], [ %77, %78 ]
+  %90 = load ptr, ptr %64, align 8
+  %91 = getelementptr inbounds i8, ptr %90, i64 -8
+  store ptr %91, ptr %64, align 8
+  %92 = load ptr, ptr %4, align 8
+  %.not33.i = icmp ugt ptr %91, %92
   br i1 %.not33.i, label %.preheader.preheader.i, label %Insert_Y_Turns.exit
 
 .preheader.preheader.i:                           ; preds = %.critedge.thread.i
   %sext.i = shl i64 %.in.i, 32
-  %94 = ashr exact i64 %sext.i, 32
+  %93 = ashr exact i64 %sext.i, 32
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
-  %indvars.iv39.i = phi i64 [ %94, %.preheader.preheader.i ], [ %indvars.iv.next40.i, %.preheader.i ]
-  %.029.i = phi i32 [ %.047, %.preheader.preheader.i ], [ %97, %.preheader.i ]
-  %95 = getelementptr inbounds i64, ptr %66, i64 %indvars.iv39.i
-  %96 = load i64, ptr %95, align 8
-  %97 = trunc i64 %96 to i32
-  %98 = sext i32 %.029.i to i64
-  store i64 %98, ptr %95, align 8
+  %indvars.iv39.i = phi i64 [ %93, %.preheader.preheader.i ], [ %indvars.iv.next40.i, %.preheader.i ]
+  %.029.i = phi i32 [ %.047, %.preheader.preheader.i ], [ %96, %.preheader.i ]
+  %94 = getelementptr inbounds i64, ptr %65, i64 %indvars.iv39.i
+  %95 = load i64, ptr %94, align 8
+  %96 = trunc i64 %95 to i32
+  %97 = sext i32 %.029.i to i64
+  store i64 %97, ptr %94, align 8
   %indvars.iv.next40.i = add nsw i64 %indvars.iv39.i, -1
-  %99 = icmp sgt i64 %indvars.iv39.i, -1
-  br i1 %99, label %.preheader.i, label %100, !llvm.loop !17
+  %98 = icmp sgt i64 %indvars.iv39.i, -1
+  br i1 %98, label %.preheader.i, label %99, !llvm.loop !17
 
-100:                                              ; preds = %.preheader.i
-  %101 = load i32, ptr %63, align 4
-  %102 = add nsw i32 %101, 1
-  store i32 %102, ptr %63, align 4
-  br label %104
+99:                                               ; preds = %.preheader.i
+  %100 = load i32, ptr %62, align 4
+  %101 = add nsw i32 %100, 1
+  store i32 %101, ptr %62, align 4
+  br label %103
 
 Insert_Y_Turns.exit:                              ; preds = %.critedge.thread.i
-  %103 = getelementptr inbounds i8, ptr %0, i64 56
-  store i32 98, ptr %103, align 8
-  br label %115
+  %102 = getelementptr inbounds i8, ptr %0, i64 56
+  store i32 98, ptr %102, align 8
+  br label %114
 
-104:                                              ; preds = %100, %86
-  %105 = getelementptr inbounds i8, ptr %0, i64 120
-  %106 = load ptr, ptr %105, align 8
-  %.not55 = icmp eq ptr %106, null
-  br i1 %.not55, label %107, label %108
+103:                                              ; preds = %99, %85
+  %104 = getelementptr inbounds i8, ptr %0, i64 120
+  %105 = load ptr, ptr %104, align 8
+  %.not55 = icmp eq ptr %105, null
+  br i1 %.not55, label %106, label %107
 
-107:                                              ; preds = %104
-  store ptr %3, ptr %105, align 8
-  br label %108
+106:                                              ; preds = %103
+  store ptr %3, ptr %104, align 8
+  br label %107
 
-108:                                              ; preds = %107, %104
-  %109 = phi ptr [ %3, %107 ], [ %106, %104 ]
-  %110 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %109, ptr %110, align 8
-  %111 = load ptr, ptr %4, align 8
-  store ptr %111, ptr %3, align 8
-  %112 = getelementptr inbounds i8, ptr %0, i64 96
-  %113 = load i16, ptr %112, align 8
-  %114 = add i16 %113, 1
-  store i16 %114, ptr %112, align 8
-  br label %115
+107:                                              ; preds = %106, %103
+  %108 = phi ptr [ %3, %106 ], [ %105, %103 ]
+  %109 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %108, ptr %109, align 8
+  %110 = load ptr, ptr %4, align 8
+  store ptr %110, ptr %3, align 8
+  %111 = getelementptr inbounds i8, ptr %0, i64 96
+  %112 = load i16, ptr %111, align 8
+  %113 = add i16 %112, 1
+  store i16 %113, ptr %111, align 8
+  br label %114
 
-115:                                              ; preds = %Insert_Y_Turns.exit, %15, %108, %13
-  %.048 = phi i8 [ 1, %13 ], [ 1, %Insert_Y_Turns.exit ], [ 0, %108 ], [ 0, %15 ]
+114:                                              ; preds = %Insert_Y_Turns.exit, %15, %107, %13
+  %.048 = phi i8 [ 1, %13 ], [ 1, %Insert_Y_Turns.exit ], [ 0, %107 ], [ 0, %15 ]
   ret i8 %.048
 }
 

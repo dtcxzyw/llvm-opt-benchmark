@@ -743,6 +743,7 @@ Extra_BuildTreeNode.exit:                         ; preds = %329, %301
   %348 = load ptr, ptr %347, align 8
   %349 = tail call fastcc ptr @Extra_CombineTwoNodes(ptr noundef %0, ptr noundef %342, ptr noundef %345, ptr noundef %348)
   store ptr %349, ptr %344, align 8
+  store ptr null, ptr %347, align 8
   br label %Extra_MergeTopNodes.exit.us
 
 350:                                              ; preds = %338, %.lr.ph.i94.us
@@ -760,12 +761,11 @@ Extra_BuildTreeNode.exit:                         ; preds = %329, %301
   %351 = sext i32 %.1.i.us to i64
   %352 = getelementptr inbounds ptr, ptr %126, i64 %351
   %353 = load ptr, ptr %352, align 8
+  store ptr null, ptr %352, align 8
   br label %Extra_MergeTopNodes.exit.us
 
 Extra_MergeTopNodes.exit.us:                      ; preds = %._crit_edge.loopexit.i.us, %341
-  %.sink.i.us = phi ptr [ %347, %341 ], [ %352, %._crit_edge.loopexit.i.us ]
-  %.028.i.us = phi ptr [ null, %341 ], [ %353, %._crit_edge.loopexit.i.us ]
-  store ptr null, ptr %.sink.i.us, align 8
+  %.028.i.us = phi ptr [ %353, %._crit_edge.loopexit.i.us ], [ null, %341 ]
   store ptr %.028.i.us, ptr %calloc, align 8
   %354 = icmp eq ptr %.028.i.us, null
   br i1 %354, label %.lr.ph.i94.us.backedge, label %.loopexit

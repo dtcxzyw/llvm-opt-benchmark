@@ -683,6 +683,7 @@ Ivy_ObjCreateGhost.exit.us.i:                     ; preds = %80, %Ivy_ObjFaninId
   %.us-phi62.i = phi ptr [ %.val44.us.i, %.lr.ph.split.us.i ], [ %.val44.i, %.lr.ph.split.i ]
   %.us-phi63.i = phi ptr [ %68, %.lr.ph.split.us.i ], [ %84, %.lr.ph.split.i ]
   %90 = getelementptr inbounds ptr, ptr %.us-phi62.i, i64 %.us-phi.i
+  store ptr %55, ptr %90, align 8
   br label %.loopexit.sink.split.i
 
 91:                                               ; preds = %.lr.ph.split.i
@@ -720,12 +721,11 @@ Ivy_ObjCreateGhost.exit.i:                        ; preds = %96, %Ivy_ObjFaninId
 99:                                               ; preds = %.split65.us.i
   %.val49.i = load ptr, ptr %12, align 8
   %100 = getelementptr inbounds ptr, ptr %.val49.i, i64 %.us-phi66.i
+  store ptr %55, ptr %100, align 8
   br label %.loopexit.sink.split.i
 
 .loopexit.sink.split.i:                           ; preds = %99, %.split.us.i
-  %.sink.i = phi ptr [ %100, %99 ], [ %90, %.split.us.i ]
   %.us-phi67.sink.i = phi ptr [ %.us-phi67.i, %99 ], [ %.us-phi63.i, %.split.us.i ]
-  store ptr %55, ptr %.sink.i, align 8
   %.val50.i = load ptr, ptr %12, align 8
   %101 = getelementptr inbounds ptr, ptr %.val50.i, i64 %53
   store ptr %.us-phi67.sink.i, ptr %101, align 8

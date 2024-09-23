@@ -7390,9 +7390,9 @@ define dso_local noundef zeroext i1 @_ZNK4llvm15X86RegisterInfo21getRegAllocatio
   br label %.sink.split
 
 .sink.split:                                      ; preds = %96, %106, %93
-  %.sink = phi ptr [ %95, %93 ], [ %107, %106 ], [ %97, %96 ]
-  %.val75 = load i32, ptr %.sink, align 4
-  call fastcc void @"_ZZNK4llvm15X86RegisterInfo21getRegAllocationHintsENS_8RegisterENS_8ArrayRefItEERNS_15SmallVectorImplItEERKNS_15MachineFunctionEPKNS_10VirtRegMapEPKNS_13LiveRegMatrixEENK3$_0clERKNS_14MachineOperandE"(ptr noundef nonnull align 8 dereferenceable(32) %14, i32 %.val75)
+  %.val75.sink.in = phi ptr [ %95, %93 ], [ %107, %106 ], [ %97, %96 ]
+  %.val75.sink = load i32, ptr %.val75.sink.in, align 4
+  call fastcc void @"_ZZNK4llvm15X86RegisterInfo21getRegAllocationHintsENS_8RegisterENS_8ArrayRefItEERNS_15SmallVectorImplItEERKNS_15MachineFunctionEPKNS_10VirtRegMapEPKNS_13LiveRegMatrixEENK3$_0clERKNS_14MachineOperandE"(ptr noundef nonnull align 8 dereferenceable(32) %14, i32 %.val75.sink)
   br label %.preheader
 
 .preheader:                                       ; preds = %.sink.split, %86, %98, %.lr.ph
@@ -7456,8 +7456,8 @@ _ZNK4llvm8SmallSetIjLj4ESt4lessIjEE5vfindERKj.exit.i: ; preds = %.lr.ph.i.i, %._
   %130 = load ptr, ptr %13, align 8
   %131 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #22
   %132 = getelementptr inbounds i32, ptr %130, i64 %131
-  %.not187 = icmp eq ptr %.0.i.i, %132
-  br i1 %.not187, label %_ZNK4llvm8SmallSetIjLj4ESt4lessIjEE5countERKj.exit.thread, label %141
+  %.not186 = icmp eq ptr %.0.i.i, %132
+  br i1 %.not186, label %_ZNK4llvm8SmallSetIjLj4ESt4lessIjEE5countERKj.exit.thread, label %141
 
 133:                                              ; preds = %114
   %134 = load ptr, ptr %50, align 8
@@ -7762,8 +7762,8 @@ _ZNK4llvm8SmallSetItLj4ESt4lessItEE5vfindERKt.exit.i: ; preds = %.lr.ph.i.i100, 
   %269 = load ptr, ptr %17, align 8
   %270 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #22
   %271 = getelementptr inbounds i16, ptr %269, i64 %270
-  %.not189 = icmp eq ptr %.0.i.i104, %271
-  br i1 %.not189, label %_ZNK4llvm8SmallSetItLj4ESt4lessItEE5countERKt.exit.thread, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit107.thread
+  %.not188 = icmp eq ptr %.0.i.i104, %271
+  br i1 %.not188, label %_ZNK4llvm8SmallSetItLj4ESt4lessItEE5countERKt.exit.thread, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit107.thread
 
 272:                                              ; preds = %.lr.ph165
   %273 = load ptr, ptr %164, align 8
@@ -7856,9 +7856,9 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit107.thread: ; preds = 
   br i1 %316, label %_ZN4llvm8SmallSetIjLj4ESt4lessIjEED2Ev.exit, label %_ZN4llvm8SmallSetIjLj4ESt4lessIjEED2Ev.exit.sink.split
 
 _ZN4llvm8SmallSetIjLj4ESt4lessIjEED2Ev.exit.sink.split: ; preds = %._crit_edge166, %._crit_edge157
-  %.sink185 = phi ptr [ %155, %._crit_edge157 ], [ %315, %._crit_edge166 ]
+  %.sink = phi ptr [ %155, %._crit_edge157 ], [ %315, %._crit_edge166 ]
   %.0.ph = phi i1 [ %27, %._crit_edge157 ], [ true, %._crit_edge166 ]
-  call void @free(ptr noundef %.sink185) #22
+  call void @free(ptr noundef %.sink) #22
   br label %_ZN4llvm8SmallSetIjLj4ESt4lessIjEED2Ev.exit
 
 _ZN4llvm8SmallSetIjLj4ESt4lessIjEED2Ev.exit:      ; preds = %_ZN4llvm8SmallSetIjLj4ESt4lessIjEED2Ev.exit.sink.split, %._crit_edge166, %._crit_edge157, %35, %38, %42, %8

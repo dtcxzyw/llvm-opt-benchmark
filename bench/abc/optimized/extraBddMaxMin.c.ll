@@ -890,7 +890,7 @@ tailrecurse:                                      ; preds = %25, %14
   br i1 %.not, label %32, label %.loopexit
 
 32:                                               ; preds = %30
-  br i1 %26, label %33, label %101
+  br i1 %26, label %33, label %103
 
 33:                                               ; preds = %32
   %34 = getelementptr inbounds i8, ptr %.tr133138, i64 16
@@ -998,73 +998,75 @@ tailrecurse:                                      ; preds = %25, %14
   %99 = load i32, ptr %79, align 4
   %100 = add i32 %99, -1
   store i32 %100, ptr %79, align 4
-  br label %135
+  %101 = load i32, ptr %91, align 4
+  %102 = add i32 %101, -1
+  store i32 %102, ptr %91, align 4
+  br label %139
 
-101:                                              ; preds = %32
-  %102 = getelementptr inbounds i8, ptr %.tr132137, i64 24
-  %103 = load ptr, ptr %102, align 8
-  %104 = tail call ptr @extraZddCrossProduct(ptr noundef nonnull %0, ptr noundef %103, ptr noundef nonnull %.tr133138)
-  %105 = icmp eq ptr %104, null
-  br i1 %105, label %.loopexit, label %106
+103:                                              ; preds = %32
+  %104 = getelementptr inbounds i8, ptr %.tr132137, i64 24
+  %105 = load ptr, ptr %104, align 8
+  %106 = tail call ptr @extraZddCrossProduct(ptr noundef nonnull %0, ptr noundef %105, ptr noundef nonnull %.tr133138)
+  %107 = icmp eq ptr %106, null
+  br i1 %107, label %.loopexit, label %108
 
-106:                                              ; preds = %101
-  %107 = getelementptr inbounds i8, ptr %.tr132137, i64 16
-  %108 = ptrtoint ptr %104 to i64
-  %109 = and i64 %108, -2
-  %110 = inttoptr i64 %109 to ptr
-  %111 = getelementptr inbounds i8, ptr %110, i64 4
-  %112 = load i32, ptr %111, align 4
-  %113 = add i32 %112, 1
-  store i32 %113, ptr %111, align 4
-  %114 = load ptr, ptr %107, align 8
-  %115 = tail call ptr @extraZddCrossProduct(ptr noundef nonnull %0, ptr noundef %114, ptr noundef nonnull %.tr133138)
-  %116 = icmp eq ptr %115, null
-  br i1 %116, label %117, label %118
+108:                                              ; preds = %103
+  %109 = getelementptr inbounds i8, ptr %.tr132137, i64 16
+  %110 = ptrtoint ptr %106 to i64
+  %111 = and i64 %110, -2
+  %112 = inttoptr i64 %111 to ptr
+  %113 = getelementptr inbounds i8, ptr %112, i64 4
+  %114 = load i32, ptr %113, align 4
+  %115 = add i32 %114, 1
+  store i32 %115, ptr %113, align 4
+  %116 = load ptr, ptr %109, align 8
+  %117 = tail call ptr @extraZddCrossProduct(ptr noundef nonnull %0, ptr noundef %116, ptr noundef nonnull %.tr133138)
+  %118 = icmp eq ptr %117, null
+  br i1 %118, label %119, label %120
 
-117:                                              ; preds = %106
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %104) #2
+119:                                              ; preds = %108
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %106) #2
   br label %.loopexit
 
-118:                                              ; preds = %106
-  %119 = ptrtoint ptr %115 to i64
-  %120 = and i64 %119, -2
-  %121 = inttoptr i64 %120 to ptr
-  %122 = getelementptr inbounds i8, ptr %121, i64 4
-  %123 = load i32, ptr %122, align 4
-  %124 = add i32 %123, 1
-  store i32 %124, ptr %122, align 4
-  %125 = tail call ptr @cuddZddUnion(ptr noundef nonnull %0, ptr noundef nonnull %104, ptr noundef nonnull %115) #2
-  %126 = icmp eq ptr %125, null
-  br i1 %126, label %127, label %128
+120:                                              ; preds = %108
+  %121 = ptrtoint ptr %117 to i64
+  %122 = and i64 %121, -2
+  %123 = inttoptr i64 %122 to ptr
+  %124 = getelementptr inbounds i8, ptr %123, i64 4
+  %125 = load i32, ptr %124, align 4
+  %126 = add i32 %125, 1
+  store i32 %126, ptr %124, align 4
+  %127 = tail call ptr @cuddZddUnion(ptr noundef nonnull %0, ptr noundef nonnull %106, ptr noundef nonnull %117) #2
+  %128 = icmp eq ptr %127, null
+  br i1 %128, label %129, label %130
 
-127:                                              ; preds = %118
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %104) #2
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %115) #2
+129:                                              ; preds = %120
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %106) #2
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %117) #2
   br label %.loopexit
 
-128:                                              ; preds = %118
-  %129 = ptrtoint ptr %125 to i64
-  %130 = and i64 %129, -2
-  %131 = inttoptr i64 %130 to ptr
-  %132 = getelementptr inbounds i8, ptr %131, i64 4
-  %133 = load i32, ptr %132, align 4
-  %134 = add i32 %133, 1
-  store i32 %134, ptr %132, align 4
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %104) #2
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %115) #2
-  br label %135
+130:                                              ; preds = %120
+  %131 = ptrtoint ptr %127 to i64
+  %132 = and i64 %131, -2
+  %133 = inttoptr i64 %132 to ptr
+  %134 = getelementptr inbounds i8, ptr %133, i64 4
+  %135 = load i32, ptr %134, align 4
+  %136 = add i32 %135, 1
+  store i32 %136, ptr %134, align 4
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %106) #2
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %117) #2
+  %137 = load i32, ptr %134, align 4
+  %138 = add i32 %137, -1
+  store i32 %138, ptr %134, align 4
+  br label %139
 
-135:                                              ; preds = %128, %98
-  %.sink = phi ptr [ %132, %128 ], [ %91, %98 ]
-  %.0113 = phi ptr [ %125, %128 ], [ %95, %98 ]
-  %136 = load i32, ptr %.sink, align 4
-  %137 = add i32 %136, -1
-  store i32 %137, ptr %.sink, align 4
+139:                                              ; preds = %130, %98
+  %.0113 = phi ptr [ %95, %98 ], [ %127, %130 ]
   tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @extraZddCrossProduct, ptr noundef nonnull %.tr132137, ptr noundef nonnull %.tr133138, ptr noundef nonnull %.0113) #2
   br label %.loopexit
 
-.loopexit:                                        ; preds = %tailrecurse, %11, %3, %101, %33, %30, %135, %127, %117, %97, %86, %74, %64, %52
-  %.0 = phi ptr [ null, %52 ], [ null, %64 ], [ null, %74 ], [ null, %86 ], [ null, %97 ], [ %.0113, %135 ], [ null, %117 ], [ null, %127 ], [ %31, %30 ], [ null, %33 ], [ null, %101 ], [ %5, %3 ], [ %5, %tailrecurse ], [ %9, %11 ]
+.loopexit:                                        ; preds = %tailrecurse, %11, %3, %103, %33, %30, %139, %129, %119, %97, %86, %74, %64, %52
+  %.0 = phi ptr [ null, %52 ], [ null, %64 ], [ null, %74 ], [ null, %86 ], [ null, %97 ], [ %.0113, %139 ], [ null, %119 ], [ null, %129 ], [ %31, %30 ], [ null, %33 ], [ null, %103 ], [ %5, %3 ], [ %5, %tailrecurse ], [ %9, %11 ]
   ret ptr %.0
 }
 

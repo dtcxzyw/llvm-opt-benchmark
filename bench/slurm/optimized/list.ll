@@ -555,7 +555,7 @@ define i32 @list_transfer_max(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0
   unreachable
 
 21:                                               ; preds = %.lr.ph, %_list_node_create.exit
-  %.037 = phi i32 [ 0, %.lr.ph ], [ %64, %_list_node_create.exit ]
+  %.037 = phi i32 [ 0, %.lr.ph ], [ %65, %_list_node_create.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %22 = load ptr, ptr %12, align 8
   store ptr %22, ptr %4, align 8
@@ -586,8 +586,8 @@ _list_pop_locked.exit.thread:                     ; preds = %21
   %.not2123.i.i = icmp eq ptr %.022.i.i, null
   br i1 %.not2123.i.i, label %_list_pop_locked.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %28, %41
-  %.024.i.i = phi ptr [ %.0.i.i, %41 ], [ %.022.i.i, %28 ]
+.lr.ph.i.i:                                       ; preds = %28, %42
+  %.024.i.i = phi ptr [ %.0.i.i, %42 ], [ %.022.i.i, %28 ]
   %31 = getelementptr inbounds i8, ptr %.024.i.i, i64 16
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, %22
@@ -597,112 +597,112 @@ _list_pop_locked.exit.thread:                     ; preds = %21
   %35 = load ptr, ptr %25, align 8
   store ptr %35, ptr %31, align 8
   %36 = getelementptr inbounds i8, ptr %.024.i.i, i64 24
-  br label %.sink.split.i.i
+  store ptr %12, ptr %36, align 8
+  br label %42
 
 37:                                               ; preds = %.lr.ph.i.i
   %38 = getelementptr inbounds i8, ptr %.024.i.i, i64 24
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, %25
-  br i1 %40, label %.sink.split.i.i, label %41
+  br i1 %40, label %41, label %42
 
-.sink.split.i.i:                                  ; preds = %37, %34
-  %.sink.i.i = phi ptr [ %36, %34 ], [ %38, %37 ]
-  store ptr %12, ptr %.sink.i.i, align 8
-  br label %41
+41:                                               ; preds = %37
+  store ptr %12, ptr %38, align 8
+  br label %42
 
-41:                                               ; preds = %.sink.split.i.i, %37
-  %42 = getelementptr inbounds i8, ptr %.024.i.i, i64 32
-  %.0.i.i = load ptr, ptr %42, align 8
+42:                                               ; preds = %41, %37, %34
+  %43 = getelementptr inbounds i8, ptr %.024.i.i, i64 32
+  %.0.i.i = load ptr, ptr %43, align 8
   %.not21.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not21.i.i, label %_list_pop_locked.exit, label %.lr.ph.i.i, !llvm.loop !11
 
-_list_pop_locked.exit:                            ; preds = %41, %28
+_list_pop_locked.exit:                            ; preds = %42, %28
   call void @slurm_xfree(ptr noundef nonnull %4) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %.not29 = icmp eq ptr %24, null
-  br i1 %.not29, label %.critedge, label %43
+  br i1 %.not29, label %.critedge, label %44
 
-43:                                               ; preds = %_list_pop_locked.exit
-  %44 = load ptr, ptr %16, align 8
-  %45 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 1010, ptr noundef nonnull @__func__._list_node_create) #9
-  store ptr %24, ptr %45, align 8
-  %46 = load ptr, ptr %44, align 8
-  %47 = getelementptr inbounds i8, ptr %45, i64 8
-  store ptr %46, ptr %47, align 8
-  %.not.i = icmp eq ptr %46, null
-  br i1 %.not.i, label %48, label %49
+44:                                               ; preds = %_list_pop_locked.exit
+  %45 = load ptr, ptr %16, align 8
+  %46 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 1010, ptr noundef nonnull @__func__._list_node_create) #9
+  store ptr %24, ptr %46, align 8
+  %47 = load ptr, ptr %45, align 8
+  %48 = getelementptr inbounds i8, ptr %46, i64 8
+  store ptr %47, ptr %48, align 8
+  %.not.i = icmp eq ptr %47, null
+  br i1 %.not.i, label %49, label %50
 
-48:                                               ; preds = %43
-  store ptr %47, ptr %16, align 8
-  br label %49
+49:                                               ; preds = %44
+  store ptr %48, ptr %16, align 8
+  br label %50
 
-49:                                               ; preds = %48, %43
-  store ptr %45, ptr %44, align 8
-  %50 = load i32, ptr %17, align 8
-  %51 = add nsw i32 %50, 1
-  store i32 %51, ptr %17, align 8
+50:                                               ; preds = %49, %44
+  store ptr %46, ptr %45, align 8
+  %51 = load i32, ptr %17, align 8
+  %52 = add nsw i32 %51, 1
+  store i32 %52, ptr %17, align 8
   %.021.i = load ptr, ptr %18, align 8
   %.not2022.i = icmp eq ptr %.021.i, null
   br i1 %.not2022.i, label %_list_node_create.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %49, %62
-  %.023.i = phi ptr [ %.0.i, %62 ], [ %.021.i, %49 ]
-  %52 = getelementptr inbounds i8, ptr %.023.i, i64 24
-  %53 = load ptr, ptr %52, align 8
-  %54 = icmp eq ptr %53, %44
-  br i1 %54, label %55, label %56
-
-55:                                               ; preds = %.lr.ph.i
-  store ptr %47, ptr %52, align 8
-  br label %62
+.lr.ph.i:                                         ; preds = %50, %63
+  %.023.i = phi ptr [ %.0.i, %63 ], [ %.021.i, %50 ]
+  %53 = getelementptr inbounds i8, ptr %.023.i, i64 24
+  %54 = load ptr, ptr %53, align 8
+  %55 = icmp eq ptr %54, %45
+  br i1 %55, label %56, label %57
 
 56:                                               ; preds = %.lr.ph.i
-  %57 = getelementptr inbounds i8, ptr %.023.i, i64 16
-  %58 = load ptr, ptr %57, align 8
-  %59 = load ptr, ptr %47, align 8
-  %60 = icmp eq ptr %58, %59
-  br i1 %60, label %61, label %62
+  store ptr %48, ptr %53, align 8
+  br label %63
 
-61:                                               ; preds = %56
-  store ptr %45, ptr %57, align 8
-  br label %62
+57:                                               ; preds = %.lr.ph.i
+  %58 = getelementptr inbounds i8, ptr %.023.i, i64 16
+  %59 = load ptr, ptr %58, align 8
+  %60 = load ptr, ptr %48, align 8
+  %61 = icmp eq ptr %59, %60
+  br i1 %61, label %62, label %63
 
-62:                                               ; preds = %61, %56, %55
-  %63 = getelementptr inbounds i8, ptr %.023.i, i64 32
-  %.0.i = load ptr, ptr %63, align 8
+62:                                               ; preds = %57
+  store ptr %46, ptr %58, align 8
+  br label %63
+
+63:                                               ; preds = %62, %57, %56
+  %64 = getelementptr inbounds i8, ptr %.023.i, i64 32
+  %.0.i = load ptr, ptr %64, align 8
   %.not20.i = icmp eq ptr %.0.i, null
   br i1 %.not20.i, label %_list_node_create.exit, label %.lr.ph.i, !llvm.loop !9
 
-_list_node_create.exit:                           ; preds = %62, %49
-  %64 = add nuw nsw i32 %.037, 1
+_list_node_create.exit:                           ; preds = %63, %50
+  %65 = add nuw nsw i32 %.037, 1
   %.not28 = icmp sge i32 %.037, %2
   %or.cond = select i1 %.not27, i1 %.not28, i1 false
   br i1 %or.cond, label %.critedge, label %21, !llvm.loop !12
 
 .critedge:                                        ; preds = %_list_pop_locked.exit, %_list_node_create.exit, %.preheader, %_list_pop_locked.exit.thread
-  %.035 = phi i32 [ %.037, %_list_pop_locked.exit.thread ], [ 0, %.preheader ], [ %.037, %_list_pop_locked.exit ], [ %64, %_list_node_create.exit ]
-  %65 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #9
-  %.not30 = icmp eq i32 %65, 0
-  br i1 %.not30, label %68, label %66
+  %.035 = phi i32 [ %.037, %_list_pop_locked.exit.thread ], [ 0, %.preheader ], [ %.037, %_list_pop_locked.exit ], [ %65, %_list_node_create.exit ]
+  %66 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #9
+  %.not30 = icmp eq i32 %66, 0
+  br i1 %.not30, label %69, label %67
 
-66:                                               ; preds = %.critedge
-  %67 = tail call ptr @__errno_location() #10
-  store i32 %65, ptr %67, align 4
+67:                                               ; preds = %.critedge
+  %68 = tail call ptr @__errno_location() #10
+  store i32 %66, ptr %68, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 303, ptr noundef nonnull @__func__.list_transfer_max) #11
   unreachable
 
-68:                                               ; preds = %.critedge
-  %69 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull %5) #9
-  %.not31 = icmp eq i32 %69, 0
-  br i1 %.not31, label %72, label %70
+69:                                               ; preds = %.critedge
+  %70 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull %5) #9
+  %.not31 = icmp eq i32 %70, 0
+  br i1 %.not31, label %73, label %71
 
-70:                                               ; preds = %68
-  %71 = tail call ptr @__errno_location() #10
-  store i32 %69, ptr %71, align 4
+71:                                               ; preds = %69
+  %72 = tail call ptr @__errno_location() #10
+  store i32 %70, ptr %72, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 304, ptr noundef nonnull @__func__.list_transfer_max) #11
   unreachable
 
-72:                                               ; preds = %68
+73:                                               ; preds = %69
   ret i32 %.035
 }
 
@@ -747,10 +747,10 @@ define i32 @list_transfer_unique(ptr noundef %0, ptr nocapture noundef readonly 
   %22 = getelementptr inbounds i8, ptr %2, i64 24
   br label %23
 
-23:                                               ; preds = %.lr.ph, %75
-  %24 = phi ptr [ %16, %.lr.ph ], [ %76, %75 ]
-  %.048 = phi ptr [ %15, %.lr.ph ], [ %.1, %75 ]
-  %.02547 = phi i32 [ 0, %.lr.ph ], [ %.126, %75 ]
+23:                                               ; preds = %.lr.ph, %76
+  %24 = phi ptr [ %16, %.lr.ph ], [ %77, %76 ]
+  %.048 = phi ptr [ %15, %.lr.ph ], [ %.1, %76 ]
+  %.02547 = phi i32 [ 0, %.lr.ph ], [ %.126, %76 ]
   %25 = load ptr, ptr %24, align 8
   br label %26
 
@@ -770,7 +770,7 @@ define i32 @list_transfer_unique(ptr noundef %0, ptr nocapture noundef readonly 
 _list_find_first_locked.exit:                     ; preds = %27
   %30 = load ptr, ptr %.0.i, align 8
   %.not36 = icmp eq ptr %30, null
-  br i1 %.not36, label %_list_find_first_locked.exit.thread, label %72
+  br i1 %.not36, label %_list_find_first_locked.exit.thread, label %73
 
 _list_find_first_locked.exit.thread:              ; preds = %26, %_list_find_first_locked.exit
   %31 = load ptr, ptr %17, align 8
@@ -849,8 +849,8 @@ _list_node_create.exit:                           ; preds = %49, %36
   %.not2123.i = icmp eq ptr %.022.i, null
   br i1 %.not2123.i, label %._crit_edge.i, label %.lr.ph.i41
 
-.lr.ph.i41:                                       ; preds = %56, %69
-  %.024.i = phi ptr [ %.0.i42, %69 ], [ %.022.i, %56 ]
+.lr.ph.i41:                                       ; preds = %56, %70
+  %.024.i = phi ptr [ %.0.i42, %70 ], [ %.022.i, %56 ]
   %59 = getelementptr inbounds i8, ptr %.024.i, i64 16
   %60 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, %51
@@ -860,70 +860,70 @@ _list_node_create.exit:                           ; preds = %49, %36
   %63 = load ptr, ptr %53, align 8
   store ptr %63, ptr %59, align 8
   %64 = getelementptr inbounds i8, ptr %.024.i, i64 24
-  br label %.sink.split.i
+  store ptr %.048, ptr %64, align 8
+  br label %70
 
 65:                                               ; preds = %.lr.ph.i41
   %66 = getelementptr inbounds i8, ptr %.024.i, i64 24
   %67 = load ptr, ptr %66, align 8
   %68 = icmp eq ptr %67, %53
-  br i1 %68, label %.sink.split.i, label %69
+  br i1 %68, label %69, label %70
 
-.sink.split.i:                                    ; preds = %65, %62
-  %.sink.i = phi ptr [ %64, %62 ], [ %66, %65 ]
-  store ptr %.048, ptr %.sink.i, align 8
-  br label %69
+69:                                               ; preds = %65
+  store ptr %.048, ptr %66, align 8
+  br label %70
 
-69:                                               ; preds = %.sink.split.i, %65
-  %70 = getelementptr inbounds i8, ptr %.024.i, i64 32
-  %.0.i42 = load ptr, ptr %70, align 8
+70:                                               ; preds = %69, %65, %62
+  %71 = getelementptr inbounds i8, ptr %.024.i, i64 32
+  %.0.i42 = load ptr, ptr %71, align 8
   %.not21.i = icmp eq ptr %.0.i42, null
   br i1 %.not21.i, label %._crit_edge.i, label %.lr.ph.i41, !llvm.loop !11
 
-._crit_edge.i:                                    ; preds = %69, %56
+._crit_edge.i:                                    ; preds = %70, %56
   call void @slurm_xfree(ptr noundef nonnull %4) #9
   br label %_list_node_destroy.exit
 
 _list_node_destroy.exit:                          ; preds = %_list_node_create.exit, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %71 = add nsw i32 %.02547, 1
-  br label %75
+  %72 = add nsw i32 %.02547, 1
+  br label %76
 
-72:                                               ; preds = %_list_find_first_locked.exit
-  %73 = load ptr, ptr %.048, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 8
-  br label %75
+73:                                               ; preds = %_list_find_first_locked.exit
+  %74 = load ptr, ptr %.048, align 8
+  %75 = getelementptr inbounds i8, ptr %74, i64 8
+  br label %76
 
-75:                                               ; preds = %72, %_list_node_destroy.exit
-  %.126 = phi i32 [ %.02547, %72 ], [ %71, %_list_node_destroy.exit ]
-  %.1 = phi ptr [ %74, %72 ], [ %.048, %_list_node_destroy.exit ]
-  %76 = load ptr, ptr %.1, align 8
-  %.not33 = icmp eq ptr %76, null
+76:                                               ; preds = %73, %_list_node_destroy.exit
+  %.126 = phi i32 [ %.02547, %73 ], [ %72, %_list_node_destroy.exit ]
+  %.1 = phi ptr [ %75, %73 ], [ %.048, %_list_node_destroy.exit ]
+  %77 = load ptr, ptr %.1, align 8
+  %.not33 = icmp eq ptr %77, null
   br i1 %.not33, label %._crit_edge, label %23, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %75, %14
-  %.025.lcssa = phi i32 [ 0, %14 ], [ %.126, %75 ]
-  %77 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #9
-  %.not34 = icmp eq i32 %77, 0
-  br i1 %.not34, label %80, label %78
+._crit_edge:                                      ; preds = %76, %14
+  %.025.lcssa = phi i32 [ 0, %14 ], [ %.126, %76 ]
+  %78 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #9
+  %.not34 = icmp eq i32 %78, 0
+  br i1 %.not34, label %81, label %79
 
-78:                                               ; preds = %._crit_edge
-  %79 = tail call ptr @__errno_location() #10
-  store i32 %77, ptr %79, align 4
+79:                                               ; preds = %._crit_edge
+  %80 = tail call ptr @__errno_location() #10
+  store i32 %78, ptr %80, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 395, ptr noundef nonnull @__func__.list_transfer_unique) #11
   unreachable
 
-80:                                               ; preds = %._crit_edge
-  %81 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull %5) #9
-  %.not35 = icmp eq i32 %81, 0
-  br i1 %.not35, label %84, label %82
+81:                                               ; preds = %._crit_edge
+  %82 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull %5) #9
+  %.not35 = icmp eq i32 %82, 0
+  br i1 %.not35, label %85, label %83
 
-82:                                               ; preds = %80
-  %83 = tail call ptr @__errno_location() #10
-  store i32 %81, ptr %83, align 4
+83:                                               ; preds = %81
+  %84 = tail call ptr @__errno_location() #10
+  store i32 %82, ptr %84, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 396, ptr noundef nonnull @__func__.list_transfer_unique) #11
   unreachable
 
-84:                                               ; preds = %80
+85:                                               ; preds = %81
   ret i32 %.025.lcssa
 }
 
@@ -1048,14 +1048,14 @@ define i32 @list_delete_all(ptr noundef %0, ptr nocapture noundef readonly %1, p
   %15 = getelementptr inbounds i8, ptr %0, i64 32
   br label %16
 
-16:                                               ; preds = %.lr.ph, %50
-  %17 = phi ptr [ %11, %.lr.ph ], [ %51, %50 ]
-  %.034 = phi ptr [ %10, %.lr.ph ], [ %.1, %50 ]
-  %.01833 = phi i32 [ 0, %.lr.ph ], [ %.119, %50 ]
+16:                                               ; preds = %.lr.ph, %51
+  %17 = phi ptr [ %11, %.lr.ph ], [ %52, %51 ]
+  %.034 = phi ptr [ %10, %.lr.ph ], [ %.1, %51 ]
+  %.01833 = phi i32 [ 0, %.lr.ph ], [ %.119, %51 ]
   %18 = load ptr, ptr %17, align 8
   %19 = call i32 %1(ptr noundef %18, ptr noundef %2) #9
   %.not27 = icmp eq i32 %19, 0
-  br i1 %.not27, label %47, label %20
+  br i1 %.not27, label %48, label %20
 
 20:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -1066,7 +1066,7 @@ define i32 @list_delete_all(ptr noundef %0, ptr nocapture noundef readonly %1, p
 
 _list_node_destroy.exit.thread:                   ; preds = %20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %50
+  br label %51
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %21, align 8
@@ -1088,8 +1088,8 @@ _list_node_destroy.exit.thread:                   ; preds = %20
   %.not2123.i = icmp eq ptr %.022.i, null
   br i1 %.not2123.i, label %_list_node_destroy.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %27, %40
-  %.024.i = phi ptr [ %.0.i, %40 ], [ %.022.i, %27 ]
+.lr.ph.i:                                         ; preds = %27, %41
+  %.024.i = phi ptr [ %.0.i, %41 ], [ %.022.i, %27 ]
   %30 = getelementptr inbounds i8, ptr %.024.i, i64 16
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, %21
@@ -1099,69 +1099,69 @@ _list_node_destroy.exit.thread:                   ; preds = %20
   %34 = load ptr, ptr %24, align 8
   store ptr %34, ptr %30, align 8
   %35 = getelementptr inbounds i8, ptr %.024.i, i64 24
-  br label %.sink.split.i
+  store ptr %.034, ptr %35, align 8
+  br label %41
 
 36:                                               ; preds = %.lr.ph.i
   %37 = getelementptr inbounds i8, ptr %.024.i, i64 24
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, %24
-  br i1 %39, label %.sink.split.i, label %40
+  br i1 %39, label %40, label %41
 
-.sink.split.i:                                    ; preds = %36, %33
-  %.sink.i = phi ptr [ %35, %33 ], [ %37, %36 ]
-  store ptr %.034, ptr %.sink.i, align 8
-  br label %40
+40:                                               ; preds = %36
+  store ptr %.034, ptr %37, align 8
+  br label %41
 
-40:                                               ; preds = %.sink.split.i, %36
-  %41 = getelementptr inbounds i8, ptr %.024.i, i64 32
-  %.0.i = load ptr, ptr %41, align 8
+41:                                               ; preds = %40, %36, %33
+  %42 = getelementptr inbounds i8, ptr %.024.i, i64 32
+  %.0.i = load ptr, ptr %42, align 8
   %.not21.i = icmp eq ptr %.0.i, null
   br i1 %.not21.i, label %_list_node_destroy.exit, label %.lr.ph.i, !llvm.loop !11
 
-_list_node_destroy.exit:                          ; preds = %40, %27
+_list_node_destroy.exit:                          ; preds = %41, %27
   call void @slurm_xfree(ptr noundef nonnull %4) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %.not28 = icmp eq ptr %23, null
-  br i1 %.not28, label %50, label %42
+  br i1 %.not28, label %51, label %43
 
-42:                                               ; preds = %_list_node_destroy.exit
-  %43 = load ptr, ptr %15, align 8
-  %.not29 = icmp eq ptr %43, null
-  br i1 %.not29, label %45, label %44
+43:                                               ; preds = %_list_node_destroy.exit
+  %44 = load ptr, ptr %15, align 8
+  %.not29 = icmp eq ptr %44, null
+  br i1 %.not29, label %46, label %45
 
-44:                                               ; preds = %42
-  call void %43(ptr noundef nonnull %23) #9
-  br label %45
+45:                                               ; preds = %43
+  call void %44(ptr noundef nonnull %23) #9
+  br label %46
 
-45:                                               ; preds = %44, %42
-  %46 = add nsw i32 %.01833, 1
-  br label %50
+46:                                               ; preds = %45, %43
+  %47 = add nsw i32 %.01833, 1
+  br label %51
 
-47:                                               ; preds = %16
-  %48 = load ptr, ptr %.034, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 8
-  br label %50
+48:                                               ; preds = %16
+  %49 = load ptr, ptr %.034, align 8
+  %50 = getelementptr inbounds i8, ptr %49, i64 8
+  br label %51
 
-50:                                               ; preds = %_list_node_destroy.exit.thread, %_list_node_destroy.exit, %45, %47
-  %.119 = phi i32 [ %46, %45 ], [ %.01833, %_list_node_destroy.exit ], [ %.01833, %47 ], [ %.01833, %_list_node_destroy.exit.thread ]
-  %.1 = phi ptr [ %.034, %45 ], [ %.034, %_list_node_destroy.exit ], [ %49, %47 ], [ %.034, %_list_node_destroy.exit.thread ]
-  %51 = load ptr, ptr %.1, align 8
-  %.not25 = icmp eq ptr %51, null
+51:                                               ; preds = %_list_node_destroy.exit.thread, %_list_node_destroy.exit, %46, %48
+  %.119 = phi i32 [ %47, %46 ], [ %.01833, %_list_node_destroy.exit ], [ %.01833, %48 ], [ %.01833, %_list_node_destroy.exit.thread ]
+  %.1 = phi ptr [ %.034, %46 ], [ %.034, %_list_node_destroy.exit ], [ %50, %48 ], [ %.034, %_list_node_destroy.exit.thread ]
+  %52 = load ptr, ptr %.1, align 8
+  %.not25 = icmp eq ptr %52, null
   br i1 %.not25, label %._crit_edge, label %16, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %50, %9
-  %.018.lcssa = phi i32 [ 0, %9 ], [ %.119, %50 ]
-  %52 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull %5) #9
-  %.not26 = icmp eq i32 %52, 0
-  br i1 %.not26, label %55, label %53
+._crit_edge:                                      ; preds = %51, %9
+  %.018.lcssa = phi i32 [ 0, %9 ], [ %.119, %51 ]
+  %53 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull %5) #9
+  %.not26 = icmp eq i32 %53, 0
+  br i1 %.not26, label %56, label %54
 
-53:                                               ; preds = %._crit_edge
-  %54 = tail call ptr @__errno_location() #10
-  store i32 %52, ptr %54, align 4
+54:                                               ; preds = %._crit_edge
+  %55 = tail call ptr @__errno_location() #10
+  store i32 %53, ptr %55, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 501, ptr noundef nonnull @__func__.list_delete_all) #11
   unreachable
 
-55:                                               ; preds = %._crit_edge
+56:                                               ; preds = %._crit_edge
   ret i32 %.018.lcssa
 }
 
@@ -1185,13 +1185,13 @@ define range(i32 -1, 2) i32 @list_delete_first(ptr noundef %0, ptr nocapture nou
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 515, ptr noundef nonnull @__func__.list_delete_first) #11
   unreachable
 
-.lr.ph:                                           ; preds = %.preheader, %45
-  %10 = phi ptr [ %47, %45 ], [ %7, %.preheader ]
-  %.035 = phi ptr [ %.0, %45 ], [ %.033, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %46
+  %10 = phi ptr [ %48, %46 ], [ %7, %.preheader ]
+  %.035 = phi ptr [ %.0, %46 ], [ %.033, %.preheader ]
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 %1(ptr noundef %11, ptr noundef %2) #9
   %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %14, label %43
+  br i1 %13, label %14, label %44
 
 14:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -1227,8 +1227,8 @@ _list_node_destroy.exit.thread:                   ; preds = %14
   %.not2123.i = icmp eq ptr %.022.i, null
   br i1 %.not2123.i, label %_list_node_destroy.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %22, %37
-  %.024.i = phi ptr [ %.0.i, %37 ], [ %.022.i, %22 ]
+.lr.ph.i:                                         ; preds = %22, %38
+  %.024.i = phi ptr [ %.0.i, %38 ], [ %.022.i, %22 ]
   %27 = getelementptr inbounds i8, ptr %.024.i, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, %15
@@ -1238,65 +1238,65 @@ _list_node_destroy.exit.thread:                   ; preds = %14
   %31 = load ptr, ptr %18, align 8
   store ptr %31, ptr %27, align 8
   %32 = getelementptr inbounds i8, ptr %.024.i, i64 24
-  br label %.sink.split.i
+  store ptr %.035, ptr %32, align 8
+  br label %38
 
 33:                                               ; preds = %.lr.ph.i
   %34 = getelementptr inbounds i8, ptr %.024.i, i64 24
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, %18
-  br i1 %36, label %.sink.split.i, label %37
+  br i1 %36, label %37, label %38
 
-.sink.split.i:                                    ; preds = %33, %30
-  %.sink.i = phi ptr [ %32, %30 ], [ %34, %33 ]
-  store ptr %.035, ptr %.sink.i, align 8
-  br label %37
+37:                                               ; preds = %33
+  store ptr %.035, ptr %34, align 8
+  br label %38
 
-37:                                               ; preds = %.sink.split.i, %33
-  %38 = getelementptr inbounds i8, ptr %.024.i, i64 32
-  %.0.i = load ptr, ptr %38, align 8
+38:                                               ; preds = %37, %33, %30
+  %39 = getelementptr inbounds i8, ptr %.024.i, i64 32
+  %.0.i = load ptr, ptr %39, align 8
   %.not21.i = icmp eq ptr %.0.i, null
   br i1 %.not21.i, label %_list_node_destroy.exit, label %.lr.ph.i, !llvm.loop !11
 
-_list_node_destroy.exit:                          ; preds = %37, %22
+_list_node_destroy.exit:                          ; preds = %38, %22
   call void @slurm_xfree(ptr noundef nonnull %4) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %.not27 = icmp eq ptr %17, null
-  br i1 %.not27, label %.loopexit, label %39
+  br i1 %.not27, label %.loopexit, label %40
 
-39:                                               ; preds = %_list_node_destroy.exit
-  %40 = getelementptr inbounds i8, ptr %0, i64 32
-  %41 = load ptr, ptr %40, align 8
-  %.not28 = icmp eq ptr %41, null
-  br i1 %.not28, label %.loopexit, label %42
+40:                                               ; preds = %_list_node_destroy.exit
+  %41 = getelementptr inbounds i8, ptr %0, i64 32
+  %42 = load ptr, ptr %41, align 8
+  %.not28 = icmp eq ptr %42, null
+  br i1 %.not28, label %.loopexit, label %43
 
-42:                                               ; preds = %39
-  call void %41(ptr noundef nonnull %17) #9
+43:                                               ; preds = %40
+  call void %42(ptr noundef nonnull %17) #9
   br label %.loopexit
 
-43:                                               ; preds = %.lr.ph
-  %44 = icmp slt i32 %12, 0
-  br i1 %44, label %.loopexit, label %45
+44:                                               ; preds = %.lr.ph
+  %45 = icmp slt i32 %12, 0
+  br i1 %45, label %.loopexit, label %46
 
-45:                                               ; preds = %43
-  %46 = load ptr, ptr %.035, align 8
-  %.0 = getelementptr inbounds i8, ptr %46, i64 8
-  %47 = load ptr, ptr %.0, align 8
-  %.not26 = icmp eq ptr %47, null
+46:                                               ; preds = %44
+  %47 = load ptr, ptr %.035, align 8
+  %.0 = getelementptr inbounds i8, ptr %47, i64 8
+  %48 = load ptr, ptr %.0, align 8
+  %.not26 = icmp eq ptr %48, null
   br i1 %.not26, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
-.loopexit:                                        ; preds = %45, %43, %.preheader, %_list_node_destroy.exit.thread, %_list_node_destroy.exit, %42, %39
-  %.019 = phi i32 [ 1, %39 ], [ 1, %42 ], [ 1, %_list_node_destroy.exit ], [ 1, %_list_node_destroy.exit.thread ], [ 0, %.preheader ], [ 0, %45 ], [ -1, %43 ]
-  %48 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull %5) #9
-  %.not29 = icmp eq i32 %48, 0
-  br i1 %.not29, label %51, label %49
+.loopexit:                                        ; preds = %46, %44, %.preheader, %_list_node_destroy.exit.thread, %_list_node_destroy.exit, %43, %40
+  %.019 = phi i32 [ 1, %40 ], [ 1, %43 ], [ 1, %_list_node_destroy.exit ], [ 1, %_list_node_destroy.exit.thread ], [ 0, %.preheader ], [ 0, %46 ], [ -1, %44 ]
+  %49 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull %5) #9
+  %.not29 = icmp eq i32 %49, 0
+  br i1 %.not29, label %52, label %50
 
-49:                                               ; preds = %.loopexit
-  %50 = tail call ptr @__errno_location() #10
-  store i32 %48, ptr %50, align 4
+50:                                               ; preds = %.loopexit
+  %51 = tail call ptr @__errno_location() #10
+  store i32 %49, ptr %51, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 535, ptr noundef nonnull @__func__.list_delete_first) #11
   unreachable
 
-51:                                               ; preds = %.loopexit
+52:                                               ; preds = %.loopexit
   ret i32 %.019
 }
 
@@ -1326,12 +1326,12 @@ define range(i32 0, 2) i32 @list_delete_ptr(ptr noundef %0, ptr noundef readnone
   %13 = getelementptr inbounds i8, ptr %0, i64 24
   br label %14
 
-14:                                               ; preds = %.lr.ph, %44
-  %15 = phi ptr [ %10, %.lr.ph ], [ %45, %44 ]
-  %.029 = phi ptr [ %9, %.lr.ph ], [ %.1, %44 ]
+14:                                               ; preds = %.lr.ph, %45
+  %15 = phi ptr [ %10, %.lr.ph ], [ %46, %45 ]
+  %.029 = phi ptr [ %9, %.lr.ph ], [ %.1, %45 ]
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, %1
-  br i1 %17, label %18, label %42
+  br i1 %17, label %18, label %43
 
 18:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -1355,8 +1355,8 @@ define range(i32 0, 2) i32 @list_delete_ptr(ptr noundef %0, ptr noundef readnone
   %.not2123.i = icmp eq ptr %.022.i, null
   br i1 %.not2123.i, label %_list_node_destroy.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %23, %36
-  %.024.i = phi ptr [ %.0.i, %36 ], [ %.022.i, %23 ]
+.lr.ph.i:                                         ; preds = %23, %37
+  %.024.i = phi ptr [ %.0.i, %37 ], [ %.022.i, %23 ]
   %26 = getelementptr inbounds i8, ptr %.024.i, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, %15
@@ -1366,64 +1366,64 @@ define range(i32 0, 2) i32 @list_delete_ptr(ptr noundef %0, ptr noundef readnone
   %30 = load ptr, ptr %20, align 8
   store ptr %30, ptr %26, align 8
   %31 = getelementptr inbounds i8, ptr %.024.i, i64 24
-  br label %.sink.split.i
+  store ptr %.029, ptr %31, align 8
+  br label %37
 
 32:                                               ; preds = %.lr.ph.i
   %33 = getelementptr inbounds i8, ptr %.024.i, i64 24
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, %20
-  br i1 %35, label %.sink.split.i, label %36
+  br i1 %35, label %36, label %37
 
-.sink.split.i:                                    ; preds = %32, %29
-  %.sink.i = phi ptr [ %31, %29 ], [ %33, %32 ]
-  store ptr %.029, ptr %.sink.i, align 8
-  br label %36
+36:                                               ; preds = %32
+  store ptr %.029, ptr %33, align 8
+  br label %37
 
-36:                                               ; preds = %.sink.split.i, %32
-  %37 = getelementptr inbounds i8, ptr %.024.i, i64 32
-  %.0.i = load ptr, ptr %37, align 8
+37:                                               ; preds = %36, %32, %29
+  %38 = getelementptr inbounds i8, ptr %.024.i, i64 32
+  %.0.i = load ptr, ptr %38, align 8
   %.not21.i = icmp eq ptr %.0.i, null
   br i1 %.not21.i, label %_list_node_destroy.exit, label %.lr.ph.i, !llvm.loop !11
 
-_list_node_destroy.exit:                          ; preds = %36, %23
+_list_node_destroy.exit:                          ; preds = %37, %23
   call void @slurm_xfree(ptr noundef nonnull %3) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %.not23 = icmp eq ptr %19, null
-  br i1 %.not23, label %44, label %38
+  br i1 %.not23, label %45, label %39
 
-38:                                               ; preds = %_list_node_destroy.exit
-  %39 = getelementptr inbounds i8, ptr %0, i64 32
-  %40 = load ptr, ptr %39, align 8
-  %.not24 = icmp eq ptr %40, null
-  br i1 %.not24, label %.loopexit, label %41
+39:                                               ; preds = %_list_node_destroy.exit
+  %40 = getelementptr inbounds i8, ptr %0, i64 32
+  %41 = load ptr, ptr %40, align 8
+  %.not24 = icmp eq ptr %41, null
+  br i1 %.not24, label %.loopexit, label %42
 
-41:                                               ; preds = %38
-  call void %40(ptr noundef nonnull %19) #9
+42:                                               ; preds = %39
+  call void %41(ptr noundef nonnull %19) #9
   br label %.loopexit
 
-42:                                               ; preds = %14
-  %43 = getelementptr inbounds i8, ptr %15, i64 8
-  br label %44
+43:                                               ; preds = %14
+  %44 = getelementptr inbounds i8, ptr %15, i64 8
+  br label %45
 
-44:                                               ; preds = %_list_node_destroy.exit, %42
-  %.1 = phi ptr [ %.029, %_list_node_destroy.exit ], [ %43, %42 ]
-  %45 = load ptr, ptr %.1, align 8
-  %.not22 = icmp eq ptr %45, null
+45:                                               ; preds = %_list_node_destroy.exit, %43
+  %.1 = phi ptr [ %.029, %_list_node_destroy.exit ], [ %44, %43 ]
+  %46 = load ptr, ptr %.1, align 8
+  %.not22 = icmp eq ptr %46, null
   br i1 %.not22, label %.loopexit, label %14, !llvm.loop !17
 
-.loopexit:                                        ; preds = %44, %8, %38, %41
-  %.016 = phi i32 [ 1, %41 ], [ 1, %38 ], [ 0, %8 ], [ 0, %44 ]
-  %46 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #9
-  %.not25 = icmp eq i32 %46, 0
-  br i1 %.not25, label %49, label %47
+.loopexit:                                        ; preds = %45, %8, %39, %42
+  %.016 = phi i32 [ 1, %42 ], [ 1, %39 ], [ 0, %8 ], [ 0, %45 ]
+  %47 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #9
+  %.not25 = icmp eq i32 %47, 0
+  br i1 %.not25, label %50, label %48
 
-47:                                               ; preds = %.loopexit
-  %48 = tail call ptr @__errno_location() #10
-  store i32 %46, ptr %48, align 4
+48:                                               ; preds = %.loopexit
+  %49 = tail call ptr @__errno_location() #10
+  store i32 %47, ptr %49, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 565, ptr noundef nonnull @__func__.list_delete_ptr) #11
   unreachable
 
-49:                                               ; preds = %.loopexit
+50:                                               ; preds = %.loopexit
   ret i32 %.016
 }
 
@@ -1575,198 +1575,115 @@ define i32 @list_flush_max(ptr noundef %0, i32 noundef %1) #0 {
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = icmp slt i32 %1, 0
   %or.cond28.not = icmp eq i32 %1, 0
   br i1 %or.cond28.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8
-  %10 = icmp slt i32 %1, 0
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   %12 = getelementptr inbounds i8, ptr %0, i64 40
   %13 = getelementptr inbounds i8, ptr %0, i64 24
   %14 = getelementptr inbounds i8, ptr %0, i64 32
-  br i1 %10, label %.lr.ph.split.us, label %.lr.ph.split
+  br label %15
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph
-  %15 = load ptr, ptr %9, align 8
-  %.not24.us33 = icmp eq ptr %15, null
-  br i1 %.not24.us33, label %.critedge, label %.lr.ph36
+15:                                               ; preds = %.lr.ph, %43
+  %.030 = phi i32 [ 0, %.lr.ph ], [ %.1, %43 ]
+  %.01829 = phi i32 [ 0, %.lr.ph ], [ %44, %43 ]
+  %16 = load ptr, ptr %9, align 8
+  %.not24 = icmp eq ptr %16, null
+  br i1 %.not24, label %.critedge, label %17
 
-.lr.ph36:                                         ; preds = %.lr.ph.split.us, %41
-  %16 = phi ptr [ %42, %41 ], [ %15, %.lr.ph.split.us ]
-  %.030.us34 = phi i32 [ %.1.us, %41 ], [ 0, %.lr.ph.split.us ]
+17:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %16, ptr %3, align 8
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %16, i64 8
-  %19 = load ptr, ptr %18, align 8
-  store ptr %19, ptr %9, align 8
-  %.not20.i.us = icmp eq ptr %19, null
-  br i1 %.not20.i.us, label %20, label %21
+  %18 = load ptr, ptr %16, align 8
+  %19 = getelementptr inbounds i8, ptr %16, i64 8
+  %20 = load ptr, ptr %19, align 8
+  store ptr %20, ptr %9, align 8
+  %.not20.i = icmp eq ptr %20, null
+  br i1 %.not20.i, label %21, label %22
 
-20:                                               ; preds = %.lr.ph36
+21:                                               ; preds = %17
   store ptr %9, ptr %11, align 8
-  br label %21
+  br label %22
 
-21:                                               ; preds = %20, %.lr.ph36
-  %22 = load i32, ptr %12, align 8
-  %23 = add nsw i32 %22, -1
-  store i32 %23, ptr %12, align 8
-  %.022.i.us = load ptr, ptr %13, align 8
-  %.not2123.i.us = icmp eq ptr %.022.i.us, null
-  br i1 %.not2123.i.us, label %_list_node_destroy.exit.us, label %.lr.ph.i.us
-
-.lr.ph.i.us:                                      ; preds = %21, %34
-  %.024.i.us = phi ptr [ %.0.i.us, %34 ], [ %.022.i.us, %21 ]
-  %24 = getelementptr inbounds i8, ptr %.024.i.us, i64 16
-  %25 = load ptr, ptr %24, align 8
-  %26 = icmp eq ptr %25, %16
-  br i1 %26, label %31, label %27
-
-27:                                               ; preds = %.lr.ph.i.us
-  %28 = getelementptr inbounds i8, ptr %.024.i.us, i64 24
-  %29 = load ptr, ptr %28, align 8
-  %30 = icmp eq ptr %29, %18
-  br i1 %30, label %.sink.split.i.us, label %34
-
-31:                                               ; preds = %.lr.ph.i.us
-  %32 = load ptr, ptr %18, align 8
-  store ptr %32, ptr %24, align 8
-  %33 = getelementptr inbounds i8, ptr %.024.i.us, i64 24
-  br label %.sink.split.i.us
-
-.sink.split.i.us:                                 ; preds = %31, %27
-  %.sink.i.us = phi ptr [ %33, %31 ], [ %28, %27 ]
-  store ptr %9, ptr %.sink.i.us, align 8
-  br label %34
-
-34:                                               ; preds = %.sink.split.i.us, %27
-  %35 = getelementptr inbounds i8, ptr %.024.i.us, i64 32
-  %.0.i.us = load ptr, ptr %35, align 8
-  %.not21.i.us = icmp eq ptr %.0.i.us, null
-  br i1 %.not21.i.us, label %_list_node_destroy.exit.us, label %.lr.ph.i.us, !llvm.loop !11
-
-_list_node_destroy.exit.us:                       ; preds = %34, %21
-  call void @slurm_xfree(ptr noundef nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %.not26.us = icmp eq ptr %17, null
-  br i1 %.not26.us, label %41, label %36
-
-36:                                               ; preds = %_list_node_destroy.exit.us
-  %37 = load ptr, ptr %14, align 8
-  %.not27.us = icmp eq ptr %37, null
-  br i1 %.not27.us, label %39, label %38
-
-38:                                               ; preds = %36
-  call void %37(ptr noundef nonnull %17) #9
-  br label %39
-
-39:                                               ; preds = %38, %36
-  %40 = add nsw i32 %.030.us34, 1
-  br label %41
-
-41:                                               ; preds = %39, %_list_node_destroy.exit.us
-  %.1.us = phi i32 [ %40, %39 ], [ %.030.us34, %_list_node_destroy.exit.us ]
-  %42 = load ptr, ptr %9, align 8
-  %.not24.us = icmp eq ptr %42, null
-  br i1 %.not24.us, label %.critedge, label %.lr.ph36
-
-.lr.ph.split:                                     ; preds = %.lr.ph, %69
-  %.030 = phi i32 [ %.1, %69 ], [ 0, %.lr.ph ]
-  %.01829 = phi i32 [ %70, %69 ], [ 0, %.lr.ph ]
-  %43 = load ptr, ptr %9, align 8
-  %.not24 = icmp eq ptr %43, null
-  br i1 %.not24, label %.critedge, label %44
-
-44:                                               ; preds = %.lr.ph.split
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store ptr %43, ptr %3, align 8
-  %45 = load ptr, ptr %43, align 8
-  %46 = getelementptr inbounds i8, ptr %43, i64 8
-  %47 = load ptr, ptr %46, align 8
-  store ptr %47, ptr %9, align 8
-  %.not20.i = icmp eq ptr %47, null
-  br i1 %.not20.i, label %48, label %49
-
-48:                                               ; preds = %44
-  store ptr %9, ptr %11, align 8
-  br label %49
-
-49:                                               ; preds = %48, %44
-  %50 = load i32, ptr %12, align 8
-  %51 = add nsw i32 %50, -1
-  store i32 %51, ptr %12, align 8
+22:                                               ; preds = %21, %17
+  %23 = load i32, ptr %12, align 8
+  %24 = add nsw i32 %23, -1
+  store i32 %24, ptr %12, align 8
   %.022.i = load ptr, ptr %13, align 8
   %.not2123.i = icmp eq ptr %.022.i, null
   br i1 %.not2123.i, label %_list_node_destroy.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %49, %62
-  %.024.i = phi ptr [ %.0.i, %62 ], [ %.022.i, %49 ]
-  %52 = getelementptr inbounds i8, ptr %.024.i, i64 16
-  %53 = load ptr, ptr %52, align 8
-  %54 = icmp eq ptr %53, %43
-  br i1 %54, label %55, label %58
+.lr.ph.i:                                         ; preds = %22, %36
+  %.024.i = phi ptr [ %.0.i, %36 ], [ %.022.i, %22 ]
+  %25 = getelementptr inbounds i8, ptr %.024.i, i64 16
+  %26 = load ptr, ptr %25, align 8
+  %27 = icmp eq ptr %26, %16
+  br i1 %27, label %28, label %31
 
-55:                                               ; preds = %.lr.ph.i
-  %56 = load ptr, ptr %46, align 8
-  store ptr %56, ptr %52, align 8
-  %57 = getelementptr inbounds i8, ptr %.024.i, i64 24
-  br label %.sink.split.i
+28:                                               ; preds = %.lr.ph.i
+  %29 = load ptr, ptr %19, align 8
+  store ptr %29, ptr %25, align 8
+  %30 = getelementptr inbounds i8, ptr %.024.i, i64 24
+  store ptr %9, ptr %30, align 8
+  br label %36
 
-58:                                               ; preds = %.lr.ph.i
-  %59 = getelementptr inbounds i8, ptr %.024.i, i64 24
-  %60 = load ptr, ptr %59, align 8
-  %61 = icmp eq ptr %60, %46
-  br i1 %61, label %.sink.split.i, label %62
+31:                                               ; preds = %.lr.ph.i
+  %32 = getelementptr inbounds i8, ptr %.024.i, i64 24
+  %33 = load ptr, ptr %32, align 8
+  %34 = icmp eq ptr %33, %19
+  br i1 %34, label %35, label %36
 
-.sink.split.i:                                    ; preds = %58, %55
-  %.sink.i = phi ptr [ %57, %55 ], [ %59, %58 ]
-  store ptr %9, ptr %.sink.i, align 8
-  br label %62
+35:                                               ; preds = %31
+  store ptr %9, ptr %32, align 8
+  br label %36
 
-62:                                               ; preds = %.sink.split.i, %58
-  %63 = getelementptr inbounds i8, ptr %.024.i, i64 32
-  %.0.i = load ptr, ptr %63, align 8
+36:                                               ; preds = %35, %31, %28
+  %37 = getelementptr inbounds i8, ptr %.024.i, i64 32
+  %.0.i = load ptr, ptr %37, align 8
   %.not21.i = icmp eq ptr %.0.i, null
   br i1 %.not21.i, label %_list_node_destroy.exit, label %.lr.ph.i, !llvm.loop !11
 
-_list_node_destroy.exit:                          ; preds = %62, %49
+_list_node_destroy.exit:                          ; preds = %36, %22
   call void @slurm_xfree(ptr noundef nonnull %3) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %.not26 = icmp eq ptr %45, null
-  br i1 %.not26, label %69, label %64
+  %.not26 = icmp eq ptr %18, null
+  br i1 %.not26, label %43, label %38
 
-64:                                               ; preds = %_list_node_destroy.exit
-  %65 = load ptr, ptr %14, align 8
-  %.not27 = icmp eq ptr %65, null
-  br i1 %.not27, label %67, label %66
+38:                                               ; preds = %_list_node_destroy.exit
+  %39 = load ptr, ptr %14, align 8
+  %.not27 = icmp eq ptr %39, null
+  br i1 %.not27, label %41, label %40
 
-66:                                               ; preds = %64
-  call void %65(ptr noundef nonnull %45) #9
-  br label %67
+40:                                               ; preds = %38
+  call void %39(ptr noundef nonnull %18) #9
+  br label %41
 
-67:                                               ; preds = %66, %64
-  %68 = add nsw i32 %.030, 1
-  br label %69
+41:                                               ; preds = %40, %38
+  %42 = add nsw i32 %.030, 1
+  br label %43
 
-69:                                               ; preds = %_list_node_destroy.exit, %67
-  %.1 = phi i32 [ %68, %67 ], [ %.030, %_list_node_destroy.exit ]
-  %70 = add nuw nsw i32 %.01829, 1
-  %exitcond.not = icmp eq i32 %70, %1
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph.split, !llvm.loop !19
+43:                                               ; preds = %_list_node_destroy.exit, %41
+  %.1 = phi i32 [ %42, %41 ], [ %.030, %_list_node_destroy.exit ]
+  %44 = add nuw nsw i32 %.01829, 1
+  %45 = icmp slt i32 %44, %1
+  %or.cond = select i1 %10, i1 true, i1 %45
+  br i1 %or.cond, label %15, label %.critedge, !llvm.loop !19
 
-.critedge:                                        ; preds = %.lr.ph.split, %69, %41, %.lr.ph.split.us, %8
-  %.0.lcssa = phi i32 [ 0, %8 ], [ 0, %.lr.ph.split.us ], [ %.1.us, %41 ], [ %.1, %69 ], [ %.030, %.lr.ph.split ]
-  %71 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #9
-  %.not25 = icmp eq i32 %71, 0
-  br i1 %.not25, label %74, label %72
+.critedge:                                        ; preds = %15, %43, %8
+  %.0.lcssa = phi i32 [ 0, %8 ], [ %.1, %43 ], [ %.030, %15 ]
+  %46 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #9
+  %.not25 = icmp eq i32 %46, 0
+  br i1 %.not25, label %49, label %47
 
-72:                                               ; preds = %.critedge
-  %73 = tail call ptr @__errno_location() #10
-  store i32 %71, ptr %73, align 4
+47:                                               ; preds = %.critedge
+  %48 = tail call ptr @__errno_location() #10
+  store i32 %46, ptr %48, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 646, ptr noundef nonnull @__func__.list_flush_max) #11
   unreachable
 
-74:                                               ; preds = %.critedge
+49:                                               ; preds = %.critedge
   ret i32 %.0.lcssa
 }
 
@@ -1794,7 +1711,7 @@ define void @list_sort(ptr noundef %0, ptr nocapture noundef %1) #0 {
 13:                                               ; preds = %9
   %14 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %5) #9
   %.not39 = icmp eq i32 %14, 0
-  br i1 %.not39, label %86, label %15
+  br i1 %.not39, label %87, label %15
 
 15:                                               ; preds = %13
   %16 = tail call ptr @__errno_location() #10
@@ -1819,14 +1736,14 @@ define void @list_sort(ptr noundef %0, ptr nocapture noundef %1) #0 {
   %24 = getelementptr inbounds i8, ptr %0, i64 24
   br label %25
 
-_list_pop_locked.exit.thread:                     ; preds = %46, %17
-  %.0.lcssa = phi i64 [ 0, %17 ], [ %indvars.iv.next, %46 ]
+_list_pop_locked.exit.thread:                     ; preds = %47, %17
+  %.0.lcssa = phi i64 [ 0, %17 ], [ %indvars.iv.next, %47 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %.lr.ph47
 
-25:                                               ; preds = %.lr.ph, %46
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %46 ]
-  %26 = phi ptr [ %22, %.lr.ph ], [ %48, %46 ]
+25:                                               ; preds = %.lr.ph, %47
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %47 ]
+  %26 = phi ptr [ %22, %.lr.ph ], [ %49, %47 ]
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %26, i64 8
   %29 = load ptr, ptr %28, align 8
@@ -1846,8 +1763,8 @@ _list_pop_locked.exit.thread:                     ; preds = %46, %17
   %.not2123.i.i = icmp eq ptr %.022.i.i, null
   br i1 %.not2123.i.i, label %_list_pop_locked.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %31, %44
-  %.024.i.i = phi ptr [ %.0.i.i, %44 ], [ %.022.i.i, %31 ]
+.lr.ph.i.i:                                       ; preds = %31, %45
+  %.024.i.i = phi ptr [ %.0.i.i, %45 ], [ %.022.i.i, %31 ]
   %34 = getelementptr inbounds i8, ptr %.024.i.i, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, %26
@@ -1857,144 +1774,144 @@ _list_pop_locked.exit.thread:                     ; preds = %46, %17
   %38 = load ptr, ptr %28, align 8
   store ptr %38, ptr %34, align 8
   %39 = getelementptr inbounds i8, ptr %.024.i.i, i64 24
-  br label %.sink.split.i.i
+  store ptr %21, ptr %39, align 8
+  br label %45
 
 40:                                               ; preds = %.lr.ph.i.i
   %41 = getelementptr inbounds i8, ptr %.024.i.i, i64 24
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, %28
-  br i1 %43, label %.sink.split.i.i, label %44
+  br i1 %43, label %44, label %45
 
-.sink.split.i.i:                                  ; preds = %40, %37
-  %.sink.i.i = phi ptr [ %39, %37 ], [ %41, %40 ]
-  store ptr %21, ptr %.sink.i.i, align 8
-  br label %44
+44:                                               ; preds = %40
+  store ptr %21, ptr %41, align 8
+  br label %45
 
-44:                                               ; preds = %.sink.split.i.i, %40
-  %45 = getelementptr inbounds i8, ptr %.024.i.i, i64 32
-  %.0.i.i = load ptr, ptr %45, align 8
+45:                                               ; preds = %44, %40, %37
+  %46 = getelementptr inbounds i8, ptr %.024.i.i, i64 32
+  %.0.i.i = load ptr, ptr %46, align 8
   %.not21.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not21.i.i, label %_list_pop_locked.exit, label %.lr.ph.i.i, !llvm.loop !11
 
-_list_pop_locked.exit:                            ; preds = %44, %31
+_list_pop_locked.exit:                            ; preds = %45, %31
   call void @slurm_xfree(ptr noundef nonnull %3) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %.not36 = icmp eq ptr %27, null
-  br i1 %.not36, label %.lr.ph47, label %46
+  br i1 %.not36, label %.lr.ph47, label %47
 
-46:                                               ; preds = %_list_pop_locked.exit
-  %47 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv
-  store ptr %27, ptr %47, align 8
+47:                                               ; preds = %_list_pop_locked.exit
+  %48 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv
+  store ptr %27, ptr %48, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %48 = load ptr, ptr %21, align 8
-  store ptr %48, ptr %3, align 8
-  %.not.i.i = icmp eq ptr %48, null
+  %49 = load ptr, ptr %21, align 8
+  store ptr %49, ptr %3, align 8
+  %.not.i.i = icmp eq ptr %49, null
   br i1 %.not.i.i, label %_list_pop_locked.exit.thread, label %25, !llvm.loop !20
 
 .lr.ph47:                                         ; preds = %_list_pop_locked.exit, %_list_pop_locked.exit.thread
   %.043 = phi i64 [ %.0.lcssa, %_list_pop_locked.exit.thread ], [ %indvars.iv, %_list_pop_locked.exit ]
-  %49 = and i64 %.043, 4294967295
-  call void @qsort(ptr noundef %20, i64 noundef %49, i64 noundef 8, ptr noundef %1) #9
-  %50 = getelementptr inbounds i8, ptr %0, i64 16
-  %51 = getelementptr inbounds i8, ptr %0, i64 24
+  %50 = and i64 %.043, 4294967295
+  call void @qsort(ptr noundef %20, i64 noundef %50, i64 noundef 8, ptr noundef %1) #9
+  %51 = getelementptr inbounds i8, ptr %0, i64 16
+  %52 = getelementptr inbounds i8, ptr %0, i64 24
   %smax = call i32 @llvm.smax.i32(i32 %11, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
-  br label %52
+  br label %53
 
-52:                                               ; preds = %.lr.ph47, %_list_node_create.exit
+53:                                               ; preds = %.lr.ph47, %_list_node_create.exit
   %indvars.iv56 = phi i64 [ 0, %.lr.ph47 ], [ %indvars.iv.next57, %_list_node_create.exit ]
-  %53 = load ptr, ptr %50, align 8
-  %54 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv56
-  %55 = load ptr, ptr %54, align 8
-  %56 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 1010, ptr noundef nonnull @__func__._list_node_create) #9
-  store ptr %55, ptr %56, align 8
-  %57 = load ptr, ptr %53, align 8
-  %58 = getelementptr inbounds i8, ptr %56, i64 8
-  store ptr %57, ptr %58, align 8
-  %.not.i = icmp eq ptr %57, null
-  br i1 %.not.i, label %59, label %60
+  %54 = load ptr, ptr %51, align 8
+  %55 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv56
+  %56 = load ptr, ptr %55, align 8
+  %57 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 1010, ptr noundef nonnull @__func__._list_node_create) #9
+  store ptr %56, ptr %57, align 8
+  %58 = load ptr, ptr %54, align 8
+  %59 = getelementptr inbounds i8, ptr %57, i64 8
+  store ptr %58, ptr %59, align 8
+  %.not.i = icmp eq ptr %58, null
+  br i1 %.not.i, label %60, label %61
 
-59:                                               ; preds = %52
-  store ptr %58, ptr %50, align 8
-  br label %60
+60:                                               ; preds = %53
+  store ptr %59, ptr %51, align 8
+  br label %61
 
-60:                                               ; preds = %59, %52
-  store ptr %56, ptr %53, align 8
-  %61 = load i32, ptr %10, align 8
-  %62 = add nsw i32 %61, 1
-  store i32 %62, ptr %10, align 8
-  %.021.i = load ptr, ptr %51, align 8
+61:                                               ; preds = %60, %53
+  store ptr %57, ptr %54, align 8
+  %62 = load i32, ptr %10, align 8
+  %63 = add nsw i32 %62, 1
+  store i32 %63, ptr %10, align 8
+  %.021.i = load ptr, ptr %52, align 8
   %.not2022.i = icmp eq ptr %.021.i, null
   br i1 %.not2022.i, label %_list_node_create.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %60, %73
-  %.023.i = phi ptr [ %.0.i, %73 ], [ %.021.i, %60 ]
-  %63 = getelementptr inbounds i8, ptr %.023.i, i64 24
-  %64 = load ptr, ptr %63, align 8
-  %65 = icmp eq ptr %64, %53
-  br i1 %65, label %66, label %67
-
-66:                                               ; preds = %.lr.ph.i
-  store ptr %58, ptr %63, align 8
-  br label %73
+.lr.ph.i:                                         ; preds = %61, %74
+  %.023.i = phi ptr [ %.0.i, %74 ], [ %.021.i, %61 ]
+  %64 = getelementptr inbounds i8, ptr %.023.i, i64 24
+  %65 = load ptr, ptr %64, align 8
+  %66 = icmp eq ptr %65, %54
+  br i1 %66, label %67, label %68
 
 67:                                               ; preds = %.lr.ph.i
-  %68 = getelementptr inbounds i8, ptr %.023.i, i64 16
-  %69 = load ptr, ptr %68, align 8
-  %70 = load ptr, ptr %58, align 8
-  %71 = icmp eq ptr %69, %70
-  br i1 %71, label %72, label %73
+  store ptr %59, ptr %64, align 8
+  br label %74
 
-72:                                               ; preds = %67
-  store ptr %56, ptr %68, align 8
-  br label %73
+68:                                               ; preds = %.lr.ph.i
+  %69 = getelementptr inbounds i8, ptr %.023.i, i64 16
+  %70 = load ptr, ptr %69, align 8
+  %71 = load ptr, ptr %59, align 8
+  %72 = icmp eq ptr %70, %71
+  br i1 %72, label %73, label %74
 
-73:                                               ; preds = %72, %67, %66
-  %74 = getelementptr inbounds i8, ptr %.023.i, i64 32
-  %.0.i = load ptr, ptr %74, align 8
+73:                                               ; preds = %68
+  store ptr %57, ptr %69, align 8
+  br label %74
+
+74:                                               ; preds = %73, %68, %67
+  %75 = getelementptr inbounds i8, ptr %.023.i, i64 32
+  %.0.i = load ptr, ptr %75, align 8
   %.not20.i = icmp eq ptr %.0.i, null
   br i1 %.not20.i, label %_list_node_create.exit, label %.lr.ph.i, !llvm.loop !9
 
-_list_node_create.exit:                           ; preds = %73, %60
+_list_node_create.exit:                           ; preds = %74, %61
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %52, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %53, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %_list_node_create.exit
   call void @slurm_xfree(ptr noundef nonnull %4) #9
-  %75 = getelementptr inbounds i8, ptr %0, i64 24
-  %.03048 = load ptr, ptr %75, align 8
+  %76 = getelementptr inbounds i8, ptr %0, i64 24
+  %.03048 = load ptr, ptr %76, align 8
   %.not3749 = icmp eq ptr %.03048, null
   br i1 %.not3749, label %._crit_edge53, label %.lr.ph52
 
 .lr.ph52:                                         ; preds = %._crit_edge, %.lr.ph52
   %.03050 = phi ptr [ %.030, %.lr.ph52 ], [ %.03048, %._crit_edge ]
-  %76 = getelementptr inbounds i8, ptr %.03050, i64 8
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 8
-  %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %.03050, i64 16
-  store ptr %79, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %.03050, i64 24
-  store ptr %78, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %.03050, i64 32
-  %.030 = load ptr, ptr %82, align 8
+  %77 = getelementptr inbounds i8, ptr %.03050, i64 8
+  %78 = load ptr, ptr %77, align 8
+  %79 = getelementptr inbounds i8, ptr %78, i64 8
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr inbounds i8, ptr %.03050, i64 16
+  store ptr %80, ptr %81, align 8
+  %82 = getelementptr inbounds i8, ptr %.03050, i64 24
+  store ptr %79, ptr %82, align 8
+  %83 = getelementptr inbounds i8, ptr %.03050, i64 32
+  %.030 = load ptr, ptr %83, align 8
   %.not37 = icmp eq ptr %.030, null
   br i1 %.not37, label %._crit_edge53, label %.lr.ph52, !llvm.loop !22
 
 ._crit_edge53:                                    ; preds = %.lr.ph52, %._crit_edge
-  %83 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull %5) #9
-  %.not38 = icmp eq i32 %83, 0
-  br i1 %.not38, label %86, label %84
+  %84 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull %5) #9
+  %.not38 = icmp eq i32 %84, 0
+  br i1 %.not38, label %87, label %85
 
-84:                                               ; preds = %._crit_edge53
-  %85 = tail call ptr @__errno_location() #10
-  store i32 %83, ptr %85, align 4
+85:                                               ; preds = %._crit_edge53
+  %86 = tail call ptr @__errno_location() #10
+  store i32 %84, ptr %86, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 719, ptr noundef nonnull @__func__.list_sort) #11
   unreachable
 
-86:                                               ; preds = %._crit_edge53, %13
+87:                                               ; preds = %._crit_edge53, %13
   ret void
 }
 
@@ -2129,8 +2046,8 @@ define ptr @list_pop(ptr noundef %0) #0 {
   %.not2123.i.i = icmp eq ptr %.022.i.i, null
   br i1 %.not2123.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %16, %31
-  %.024.i.i = phi ptr [ %.0.i.i, %31 ], [ %.022.i.i, %16 ]
+.lr.ph.i.i:                                       ; preds = %16, %32
+  %.024.i.i = phi ptr [ %.0.i.i, %32 ], [ %.022.i.i, %16 ]
   %21 = getelementptr inbounds i8, ptr %.024.i.i, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, %9
@@ -2140,43 +2057,43 @@ define ptr @list_pop(ptr noundef %0) #0 {
   %25 = load ptr, ptr %12, align 8
   store ptr %25, ptr %21, align 8
   %26 = getelementptr inbounds i8, ptr %.024.i.i, i64 24
-  br label %.sink.split.i.i
+  store ptr %8, ptr %26, align 8
+  br label %32
 
 27:                                               ; preds = %.lr.ph.i.i
   %28 = getelementptr inbounds i8, ptr %.024.i.i, i64 24
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, %12
-  br i1 %30, label %.sink.split.i.i, label %31
+  br i1 %30, label %31, label %32
 
-.sink.split.i.i:                                  ; preds = %27, %24
-  %.sink.i.i = phi ptr [ %26, %24 ], [ %28, %27 ]
-  store ptr %8, ptr %.sink.i.i, align 8
-  br label %31
+31:                                               ; preds = %27
+  store ptr %8, ptr %28, align 8
+  br label %32
 
-31:                                               ; preds = %.sink.split.i.i, %27
-  %32 = getelementptr inbounds i8, ptr %.024.i.i, i64 32
-  %.0.i.i = load ptr, ptr %32, align 8
+32:                                               ; preds = %31, %27, %24
+  %33 = getelementptr inbounds i8, ptr %.024.i.i, i64 32
+  %.0.i.i = load ptr, ptr %33, align 8
   %.not21.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not21.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !11
 
-._crit_edge.i.i:                                  ; preds = %31, %16
+._crit_edge.i.i:                                  ; preds = %32, %16
   call void @slurm_xfree(ptr noundef nonnull %2) #9
   br label %_list_pop_locked.exit
 
 _list_pop_locked.exit:                            ; preds = %7, %._crit_edge.i.i
   %.017.i.i = phi ptr [ %11, %._crit_edge.i.i ], [ null, %7 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %33 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull %3) #9
-  %.not8 = icmp eq i32 %33, 0
-  br i1 %.not8, label %36, label %34
+  %34 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull %3) #9
+  %.not8 = icmp eq i32 %34, 0
+  br i1 %.not8, label %37, label %35
 
-34:                                               ; preds = %_list_pop_locked.exit
-  %35 = tail call ptr @__errno_location() #10
-  store i32 %33, ptr %35, align 4
+35:                                               ; preds = %_list_pop_locked.exit
+  %36 = tail call ptr @__errno_location() #10
+  store i32 %34, ptr %36, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 773, ptr noundef nonnull @__func__.list_pop) #11
   unreachable
 
-36:                                               ; preds = %_list_pop_locked.exit
+37:                                               ; preds = %_list_pop_locked.exit
   ret ptr %.017.i.i
 }
 
@@ -2264,8 +2181,8 @@ define ptr @list_dequeue(ptr noundef %0) #0 {
   %.not2123.i = icmp eq ptr %.022.i, null
   br i1 %.not2123.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %16, %31
-  %.024.i = phi ptr [ %.0.i, %31 ], [ %.022.i, %16 ]
+.lr.ph.i:                                         ; preds = %16, %32
+  %.024.i = phi ptr [ %.0.i, %32 ], [ %.022.i, %16 ]
   %21 = getelementptr inbounds i8, ptr %.024.i, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, %9
@@ -2275,43 +2192,43 @@ define ptr @list_dequeue(ptr noundef %0) #0 {
   %25 = load ptr, ptr %12, align 8
   store ptr %25, ptr %21, align 8
   %26 = getelementptr inbounds i8, ptr %.024.i, i64 24
-  br label %.sink.split.i
+  store ptr %8, ptr %26, align 8
+  br label %32
 
 27:                                               ; preds = %.lr.ph.i
   %28 = getelementptr inbounds i8, ptr %.024.i, i64 24
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, %12
-  br i1 %30, label %.sink.split.i, label %31
+  br i1 %30, label %31, label %32
 
-.sink.split.i:                                    ; preds = %27, %24
-  %.sink.i = phi ptr [ %26, %24 ], [ %28, %27 ]
-  store ptr %8, ptr %.sink.i, align 8
-  br label %31
+31:                                               ; preds = %27
+  store ptr %8, ptr %28, align 8
+  br label %32
 
-31:                                               ; preds = %.sink.split.i, %27
-  %32 = getelementptr inbounds i8, ptr %.024.i, i64 32
-  %.0.i = load ptr, ptr %32, align 8
+32:                                               ; preds = %31, %27, %24
+  %33 = getelementptr inbounds i8, ptr %.024.i, i64 32
+  %.0.i = load ptr, ptr %33, align 8
   %.not21.i = icmp eq ptr %.0.i, null
   br i1 %.not21.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !11
 
-._crit_edge.i:                                    ; preds = %31, %16
+._crit_edge.i:                                    ; preds = %32, %16
   call void @slurm_xfree(ptr noundef nonnull %2) #9
   br label %_list_node_destroy.exit
 
 _list_node_destroy.exit:                          ; preds = %7, %._crit_edge.i
   %.017.i = phi ptr [ %11, %._crit_edge.i ], [ null, %7 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %33 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull %3) #9
-  %.not9 = icmp eq i32 %33, 0
-  br i1 %.not9, label %36, label %34
+  %34 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull %3) #9
+  %.not9 = icmp eq i32 %34, 0
+  br i1 %.not9, label %37, label %35
 
-34:                                               ; preds = %_list_node_destroy.exit
-  %35 = tail call ptr @__errno_location() #10
-  store i32 %33, ptr %35, align 4
+35:                                               ; preds = %_list_node_destroy.exit
+  %36 = tail call ptr @__errno_location() #10
+  store i32 %34, ptr %36, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 807, ptr noundef nonnull @__func__.list_dequeue) #11
   unreachable
 
-36:                                               ; preds = %_list_node_destroy.exit
+37:                                               ; preds = %_list_node_destroy.exit
   ret ptr %.017.i
 }
 
@@ -2716,7 +2633,7 @@ define ptr @list_remove(ptr nocapture noundef readonly %0) #0 {
   %14 = load ptr, ptr %13, align 8
   %.not12 = icmp eq ptr %12, %14
   %.pre14 = load ptr, ptr %3, align 8
-  br i1 %.not12, label %39, label %15
+  br i1 %.not12, label %40, label %15
 
 15:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
@@ -2747,8 +2664,8 @@ define ptr @list_remove(ptr nocapture noundef readonly %0) #0 {
   %.not2123.i = icmp eq ptr %.022.i, null
   br i1 %.not2123.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %22, %37
-  %.024.i = phi ptr [ %.0.i, %37 ], [ %.022.i, %22 ]
+.lr.ph.i:                                         ; preds = %22, %38
+  %.024.i = phi ptr [ %.0.i, %38 ], [ %.022.i, %22 ]
   %27 = getelementptr inbounds i8, ptr %.024.i, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, %12
@@ -2758,26 +2675,26 @@ define ptr @list_remove(ptr nocapture noundef readonly %0) #0 {
   %31 = load ptr, ptr %18, align 8
   store ptr %31, ptr %27, align 8
   %32 = getelementptr inbounds i8, ptr %.024.i, i64 24
-  br label %.sink.split.i
+  store ptr %11, ptr %32, align 8
+  br label %38
 
 33:                                               ; preds = %.lr.ph.i
   %34 = getelementptr inbounds i8, ptr %.024.i, i64 24
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, %18
-  br i1 %36, label %.sink.split.i, label %37
+  br i1 %36, label %37, label %38
 
-.sink.split.i:                                    ; preds = %33, %30
-  %.sink.i = phi ptr [ %32, %30 ], [ %34, %33 ]
-  store ptr %11, ptr %.sink.i, align 8
-  br label %37
+37:                                               ; preds = %33
+  store ptr %11, ptr %34, align 8
+  br label %38
 
-37:                                               ; preds = %.sink.split.i, %33
-  %38 = getelementptr inbounds i8, ptr %.024.i, i64 32
-  %.0.i = load ptr, ptr %38, align 8
+38:                                               ; preds = %37, %33, %30
+  %39 = getelementptr inbounds i8, ptr %.024.i, i64 32
+  %.0.i = load ptr, ptr %39, align 8
   %.not21.i = icmp eq ptr %.0.i, null
   br i1 %.not21.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !11
 
-._crit_edge.i:                                    ; preds = %37, %22
+._crit_edge.i:                                    ; preds = %38, %22
   call void @slurm_xfree(ptr noundef nonnull %2) #9
   %.pre.pre = load ptr, ptr %3, align 8
   br label %_list_node_destroy.exit
@@ -2786,23 +2703,23 @@ _list_node_destroy.exit:                          ; preds = %15, %._crit_edge.i
   %.pre = phi ptr [ %.pre.pre, %._crit_edge.i ], [ %.pre14, %15 ]
   %.017.i = phi ptr [ %17, %._crit_edge.i ], [ null, %15 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  br label %39
+  br label %40
 
-39:                                               ; preds = %9, %_list_node_destroy.exit
-  %40 = phi ptr [ %.pre, %_list_node_destroy.exit ], [ %.pre14, %9 ]
+40:                                               ; preds = %9, %_list_node_destroy.exit
+  %41 = phi ptr [ %.pre, %_list_node_destroy.exit ], [ %.pre14, %9 ]
   %.0 = phi ptr [ %.017.i, %_list_node_destroy.exit ], [ null, %9 ]
-  %41 = getelementptr inbounds i8, ptr %40, i64 48
-  %42 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull %41) #9
-  %.not13 = icmp eq i32 %42, 0
-  br i1 %.not13, label %45, label %43
+  %42 = getelementptr inbounds i8, ptr %41, i64 48
+  %43 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull %42) #9
+  %.not13 = icmp eq i32 %43, 0
+  br i1 %.not13, label %46, label %44
 
-43:                                               ; preds = %39
-  %44 = tail call ptr @__errno_location() #10
-  store i32 %42, ptr %44, align 4
+44:                                               ; preds = %40
+  %45 = tail call ptr @__errno_location() #10
+  store i32 %43, ptr %45, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 970, ptr noundef nonnull @__func__.list_remove) #11
   unreachable
 
-45:                                               ; preds = %39
+46:                                               ; preds = %40
   ret ptr %.0
 }
 
@@ -2826,13 +2743,13 @@ define ptr @list_remove_first(ptr noundef %0, ptr nocapture noundef readonly %1,
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 459, ptr noundef nonnull @__func__.list_remove_first) #11
   unreachable
 
-.lr.ph:                                           ; preds = %.preheader, %38
-  %10 = phi ptr [ %40, %38 ], [ %7, %.preheader ]
-  %.024 = phi ptr [ %.0, %38 ], [ %.022, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %39
+  %10 = phi ptr [ %41, %39 ], [ %7, %.preheader ]
+  %.024 = phi ptr [ %.0, %39 ], [ %.022, %.preheader ]
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 %1(ptr noundef %11, ptr noundef %2) #9
   %.not19 = icmp eq i32 %12, 0
-  br i1 %.not19, label %38, label %13
+  br i1 %.not19, label %39, label %13
 
 13:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -2864,8 +2781,8 @@ define ptr @list_remove_first(ptr noundef %0, ptr nocapture noundef readonly %1,
   %.not2123.i = icmp eq ptr %.022.i, null
   br i1 %.not2123.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %21, %36
-  %.024.i = phi ptr [ %.0.i, %36 ], [ %.022.i, %21 ]
+.lr.ph.i:                                         ; preds = %21, %37
+  %.024.i = phi ptr [ %.0.i, %37 ], [ %.022.i, %21 ]
   %26 = getelementptr inbounds i8, ptr %.024.i, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, %14
@@ -2875,26 +2792,26 @@ define ptr @list_remove_first(ptr noundef %0, ptr nocapture noundef readonly %1,
   %30 = load ptr, ptr %17, align 8
   store ptr %30, ptr %26, align 8
   %31 = getelementptr inbounds i8, ptr %.024.i, i64 24
-  br label %.sink.split.i
+  store ptr %.024, ptr %31, align 8
+  br label %37
 
 32:                                               ; preds = %.lr.ph.i
   %33 = getelementptr inbounds i8, ptr %.024.i, i64 24
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, %17
-  br i1 %35, label %.sink.split.i, label %36
+  br i1 %35, label %36, label %37
 
-.sink.split.i:                                    ; preds = %32, %29
-  %.sink.i = phi ptr [ %31, %29 ], [ %33, %32 ]
-  store ptr %.024, ptr %.sink.i, align 8
-  br label %36
+36:                                               ; preds = %32
+  store ptr %.024, ptr %33, align 8
+  br label %37
 
-36:                                               ; preds = %.sink.split.i, %32
-  %37 = getelementptr inbounds i8, ptr %.024.i, i64 32
-  %.0.i = load ptr, ptr %37, align 8
+37:                                               ; preds = %36, %32, %29
+  %38 = getelementptr inbounds i8, ptr %.024.i, i64 32
+  %.0.i = load ptr, ptr %38, align 8
   %.not21.i = icmp eq ptr %.0.i, null
   br i1 %.not21.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !11
 
-._crit_edge.i:                                    ; preds = %36, %21
+._crit_edge.i:                                    ; preds = %37, %21
   call void @slurm_xfree(ptr noundef nonnull %4) #9
   br label %_list_node_destroy.exit
 
@@ -2903,26 +2820,26 @@ _list_node_destroy.exit:                          ; preds = %13, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %.loopexit
 
-38:                                               ; preds = %.lr.ph
-  %39 = load ptr, ptr %.024, align 8
-  %.0 = getelementptr inbounds i8, ptr %39, i64 8
-  %40 = load ptr, ptr %.0, align 8
-  %.not18 = icmp eq ptr %40, null
+39:                                               ; preds = %.lr.ph
+  %40 = load ptr, ptr %.024, align 8
+  %.0 = getelementptr inbounds i8, ptr %40, i64 8
+  %41 = load ptr, ptr %.0, align 8
+  %.not18 = icmp eq ptr %41, null
   br i1 %.not18, label %.loopexit, label %.lr.ph, !llvm.loop !27
 
-.loopexit:                                        ; preds = %38, %.preheader, %_list_node_destroy.exit
-  %.014 = phi ptr [ %.017.i, %_list_node_destroy.exit ], [ null, %.preheader ], [ null, %38 ]
-  %41 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull %5) #9
-  %.not20 = icmp eq i32 %41, 0
-  br i1 %.not20, label %44, label %42
+.loopexit:                                        ; preds = %39, %.preheader, %_list_node_destroy.exit
+  %.014 = phi ptr [ %.017.i, %_list_node_destroy.exit ], [ null, %.preheader ], [ null, %39 ]
+  %42 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull %5) #9
+  %.not20 = icmp eq i32 %42, 0
+  br i1 %.not20, label %45, label %43
 
-42:                                               ; preds = %.loopexit
-  %43 = tail call ptr @__errno_location() #10
-  store i32 %41, ptr %43, align 4
+43:                                               ; preds = %.loopexit
+  %44 = tail call ptr @__errno_location() #10
+  store i32 %42, ptr %44, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 470, ptr noundef nonnull @__func__.list_remove_first) #11
   unreachable
 
-44:                                               ; preds = %.loopexit
+45:                                               ; preds = %.loopexit
   ret ptr %.014
 }
 
@@ -3016,13 +2933,13 @@ define i32 @list_transfer_match(ptr noundef %0, ptr noundef %1, ptr nocapture no
   br label %24
 
 24:                                               ; preds = %.lr.ph, %_list_node_create.exit
-  %25 = phi ptr [ %17, %.lr.ph ], [ %94, %_list_node_create.exit ]
+  %25 = phi ptr [ %17, %.lr.ph ], [ %95, %_list_node_create.exit ]
   %.059 = phi ptr [ %16, %.lr.ph ], [ %.1, %_list_node_create.exit ]
   %.02458 = phi i32 [ 0, %.lr.ph ], [ %.2, %_list_node_create.exit ]
   %26 = load ptr, ptr %25, align 8
   %27 = call i32 %2(ptr noundef %26, ptr noundef %3) #9
   %.not38 = icmp eq i32 %27, 0
-  br i1 %.not38, label %91, label %28
+  br i1 %.not38, label %92, label %28
 
 28:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -3055,8 +2972,8 @@ _list_node_destroy.exit.thread:                   ; preds = %28
   %.not2123.i = icmp eq ptr %.022.i, null
   br i1 %.not2123.i, label %_list_node_destroy.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %35, %48
-  %.024.i = phi ptr [ %.0.i, %48 ], [ %.022.i, %35 ]
+.lr.ph.i:                                         ; preds = %35, %49
+  %.024.i = phi ptr [ %.0.i, %49 ], [ %.022.i, %35 ]
   %38 = getelementptr inbounds i8, ptr %.024.i, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, %29
@@ -3066,170 +2983,170 @@ _list_node_destroy.exit.thread:                   ; preds = %28
   %42 = load ptr, ptr %32, align 8
   store ptr %42, ptr %38, align 8
   %43 = getelementptr inbounds i8, ptr %.024.i, i64 24
-  br label %.sink.split.i
+  store ptr %.059, ptr %43, align 8
+  br label %49
 
 44:                                               ; preds = %.lr.ph.i
   %45 = getelementptr inbounds i8, ptr %.024.i, i64 24
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, %32
-  br i1 %47, label %.sink.split.i, label %48
+  br i1 %47, label %48, label %49
 
-.sink.split.i:                                    ; preds = %44, %41
-  %.sink.i = phi ptr [ %43, %41 ], [ %45, %44 ]
-  store ptr %.059, ptr %.sink.i, align 8
-  br label %48
+48:                                               ; preds = %44
+  store ptr %.059, ptr %45, align 8
+  br label %49
 
-48:                                               ; preds = %.sink.split.i, %44
-  %49 = getelementptr inbounds i8, ptr %.024.i, i64 32
-  %.0.i = load ptr, ptr %49, align 8
+49:                                               ; preds = %48, %44, %41
+  %50 = getelementptr inbounds i8, ptr %.024.i, i64 32
+  %.0.i = load ptr, ptr %50, align 8
   %.not21.i = icmp eq ptr %.0.i, null
   br i1 %.not21.i, label %_list_node_destroy.exit, label %.lr.ph.i, !llvm.loop !11
 
-_list_node_destroy.exit:                          ; preds = %48, %35
+_list_node_destroy.exit:                          ; preds = %49, %35
   call void @slurm_xfree(ptr noundef nonnull %5) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %.not39 = icmp eq ptr %31, null
   br i1 %.not39, label %.split, label %.split27
 
 .split:                                           ; preds = %_list_node_destroy.exit.thread, %_list_node_destroy.exit
-  %50 = load ptr, ptr %21, align 8
-  %51 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 1010, ptr noundef nonnull @__func__._list_node_create) #9
-  store ptr null, ptr %51, align 8
-  %52 = load ptr, ptr %50, align 8
-  %53 = getelementptr inbounds i8, ptr %51, i64 8
-  store ptr %52, ptr %53, align 8
-  %.not.i40 = icmp eq ptr %52, null
-  br i1 %.not.i40, label %54, label %55
+  %51 = load ptr, ptr %21, align 8
+  %52 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 1010, ptr noundef nonnull @__func__._list_node_create) #9
+  store ptr null, ptr %52, align 8
+  %53 = load ptr, ptr %51, align 8
+  %54 = getelementptr inbounds i8, ptr %52, i64 8
+  store ptr %53, ptr %54, align 8
+  %.not.i40 = icmp eq ptr %53, null
+  br i1 %.not.i40, label %55, label %56
 
-54:                                               ; preds = %.split
-  store ptr %53, ptr %21, align 8
-  br label %55
+55:                                               ; preds = %.split
+  store ptr %54, ptr %21, align 8
+  br label %56
 
-55:                                               ; preds = %54, %.split
-  store ptr %51, ptr %50, align 8
-  %56 = load i32, ptr %22, align 8
-  %57 = add nsw i32 %56, 1
-  store i32 %57, ptr %22, align 8
+56:                                               ; preds = %55, %.split
+  store ptr %52, ptr %51, align 8
+  %57 = load i32, ptr %22, align 8
+  %58 = add nsw i32 %57, 1
+  store i32 %58, ptr %22, align 8
   %.021.i = load ptr, ptr %23, align 8
   %.not2022.i = icmp eq ptr %.021.i, null
   br i1 %.not2022.i, label %_list_node_create.exit, label %.lr.ph.i41
 
-.lr.ph.i41:                                       ; preds = %55, %68
-  %.023.i = phi ptr [ %.0.i42, %68 ], [ %.021.i, %55 ]
-  %58 = getelementptr inbounds i8, ptr %.023.i, i64 24
-  %59 = load ptr, ptr %58, align 8
-  %60 = icmp eq ptr %59, %50
-  br i1 %60, label %61, label %62
-
-61:                                               ; preds = %.lr.ph.i41
-  store ptr %53, ptr %58, align 8
-  br label %68
+.lr.ph.i41:                                       ; preds = %56, %69
+  %.023.i = phi ptr [ %.0.i42, %69 ], [ %.021.i, %56 ]
+  %59 = getelementptr inbounds i8, ptr %.023.i, i64 24
+  %60 = load ptr, ptr %59, align 8
+  %61 = icmp eq ptr %60, %51
+  br i1 %61, label %62, label %63
 
 62:                                               ; preds = %.lr.ph.i41
-  %63 = getelementptr inbounds i8, ptr %.023.i, i64 16
-  %64 = load ptr, ptr %63, align 8
-  %65 = load ptr, ptr %53, align 8
-  %66 = icmp eq ptr %64, %65
-  br i1 %66, label %67, label %68
+  store ptr %54, ptr %59, align 8
+  br label %69
 
-67:                                               ; preds = %62
-  store ptr %51, ptr %63, align 8
-  br label %68
+63:                                               ; preds = %.lr.ph.i41
+  %64 = getelementptr inbounds i8, ptr %.023.i, i64 16
+  %65 = load ptr, ptr %64, align 8
+  %66 = load ptr, ptr %54, align 8
+  %67 = icmp eq ptr %65, %66
+  br i1 %67, label %68, label %69
 
-68:                                               ; preds = %67, %62, %61
-  %69 = getelementptr inbounds i8, ptr %.023.i, i64 32
-  %.0.i42 = load ptr, ptr %69, align 8
+68:                                               ; preds = %63
+  store ptr %52, ptr %64, align 8
+  br label %69
+
+69:                                               ; preds = %68, %63, %62
+  %70 = getelementptr inbounds i8, ptr %.023.i, i64 32
+  %.0.i42 = load ptr, ptr %70, align 8
   %.not20.i43 = icmp eq ptr %.0.i42, null
   br i1 %.not20.i43, label %_list_node_create.exit, label %.lr.ph.i41, !llvm.loop !9
 
 .split27:                                         ; preds = %_list_node_destroy.exit
-  %70 = add nsw i32 %.02458, 1
-  %71 = load ptr, ptr %21, align 8
-  %72 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 1010, ptr noundef nonnull @__func__._list_node_create) #9
-  store ptr %31, ptr %72, align 8
-  %73 = load ptr, ptr %71, align 8
-  %74 = getelementptr inbounds i8, ptr %72, i64 8
-  store ptr %73, ptr %74, align 8
-  %.not.i45 = icmp eq ptr %73, null
-  br i1 %.not.i45, label %75, label %76
+  %71 = add nsw i32 %.02458, 1
+  %72 = load ptr, ptr %21, align 8
+  %73 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 1010, ptr noundef nonnull @__func__._list_node_create) #9
+  store ptr %31, ptr %73, align 8
+  %74 = load ptr, ptr %72, align 8
+  %75 = getelementptr inbounds i8, ptr %73, i64 8
+  store ptr %74, ptr %75, align 8
+  %.not.i45 = icmp eq ptr %74, null
+  br i1 %.not.i45, label %76, label %77
 
-75:                                               ; preds = %.split27
-  store ptr %74, ptr %21, align 8
-  br label %76
+76:                                               ; preds = %.split27
+  store ptr %75, ptr %21, align 8
+  br label %77
 
-76:                                               ; preds = %75, %.split27
-  store ptr %72, ptr %71, align 8
-  %77 = load i32, ptr %22, align 8
-  %78 = add nsw i32 %77, 1
-  store i32 %78, ptr %22, align 8
+77:                                               ; preds = %76, %.split27
+  store ptr %73, ptr %72, align 8
+  %78 = load i32, ptr %22, align 8
+  %79 = add nsw i32 %78, 1
+  store i32 %79, ptr %22, align 8
   %.021.i46 = load ptr, ptr %23, align 8
   %.not2022.i47 = icmp eq ptr %.021.i46, null
   br i1 %.not2022.i47, label %_list_node_create.exit, label %.lr.ph.i48
 
-.lr.ph.i48:                                       ; preds = %76, %89
-  %.023.i49 = phi ptr [ %.0.i50, %89 ], [ %.021.i46, %76 ]
-  %79 = getelementptr inbounds i8, ptr %.023.i49, i64 24
-  %80 = load ptr, ptr %79, align 8
-  %81 = icmp eq ptr %80, %71
-  br i1 %81, label %82, label %83
-
-82:                                               ; preds = %.lr.ph.i48
-  store ptr %74, ptr %79, align 8
-  br label %89
+.lr.ph.i48:                                       ; preds = %77, %90
+  %.023.i49 = phi ptr [ %.0.i50, %90 ], [ %.021.i46, %77 ]
+  %80 = getelementptr inbounds i8, ptr %.023.i49, i64 24
+  %81 = load ptr, ptr %80, align 8
+  %82 = icmp eq ptr %81, %72
+  br i1 %82, label %83, label %84
 
 83:                                               ; preds = %.lr.ph.i48
-  %84 = getelementptr inbounds i8, ptr %.023.i49, i64 16
-  %85 = load ptr, ptr %84, align 8
-  %86 = load ptr, ptr %74, align 8
-  %87 = icmp eq ptr %85, %86
-  br i1 %87, label %88, label %89
+  store ptr %75, ptr %80, align 8
+  br label %90
 
-88:                                               ; preds = %83
-  store ptr %72, ptr %84, align 8
-  br label %89
+84:                                               ; preds = %.lr.ph.i48
+  %85 = getelementptr inbounds i8, ptr %.023.i49, i64 16
+  %86 = load ptr, ptr %85, align 8
+  %87 = load ptr, ptr %75, align 8
+  %88 = icmp eq ptr %86, %87
+  br i1 %88, label %89, label %90
 
-89:                                               ; preds = %88, %83, %82
-  %90 = getelementptr inbounds i8, ptr %.023.i49, i64 32
-  %.0.i50 = load ptr, ptr %90, align 8
+89:                                               ; preds = %84
+  store ptr %73, ptr %85, align 8
+  br label %90
+
+90:                                               ; preds = %89, %84, %83
+  %91 = getelementptr inbounds i8, ptr %.023.i49, i64 32
+  %.0.i50 = load ptr, ptr %91, align 8
   %.not20.i51 = icmp eq ptr %.0.i50, null
   br i1 %.not20.i51, label %_list_node_create.exit, label %.lr.ph.i48, !llvm.loop !9
 
-91:                                               ; preds = %24
-  %92 = load ptr, ptr %.059, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 8
+92:                                               ; preds = %24
+  %93 = load ptr, ptr %.059, align 8
+  %94 = getelementptr inbounds i8, ptr %93, i64 8
   br label %_list_node_create.exit
 
-_list_node_create.exit:                           ; preds = %89, %68, %76, %55, %91
-  %.2 = phi i32 [ %.02458, %91 ], [ %.02458, %55 ], [ %70, %76 ], [ %.02458, %68 ], [ %70, %89 ]
-  %.1 = phi ptr [ %93, %91 ], [ %.059, %55 ], [ %.059, %76 ], [ %.059, %68 ], [ %.059, %89 ]
-  %94 = load ptr, ptr %.1, align 8
-  %.not35 = icmp eq ptr %94, null
+_list_node_create.exit:                           ; preds = %90, %69, %77, %56, %92
+  %.2 = phi i32 [ %.02458, %92 ], [ %.02458, %56 ], [ %71, %77 ], [ %.02458, %69 ], [ %71, %90 ]
+  %.1 = phi ptr [ %94, %92 ], [ %.059, %56 ], [ %.059, %77 ], [ %.059, %69 ], [ %.059, %90 ]
+  %95 = load ptr, ptr %.1, align 8
+  %.not35 = icmp eq ptr %95, null
   br i1 %.not35, label %._crit_edge, label %24, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %_list_node_create.exit, %15
   %.024.lcssa = phi i32 [ 0, %15 ], [ %.2, %_list_node_create.exit ]
-  %95 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #9
-  %.not36 = icmp eq i32 %95, 0
-  br i1 %.not36, label %98, label %96
+  %96 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #9
+  %.not36 = icmp eq i32 %96, 0
+  br i1 %.not36, label %99, label %97
 
-96:                                               ; preds = %._crit_edge
-  %97 = tail call ptr @__errno_location() #10
-  store i32 %95, ptr %97, align 4
+97:                                               ; preds = %._crit_edge
+  %98 = tail call ptr @__errno_location() #10
+  store i32 %96, ptr %98, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 337, ptr noundef nonnull @__func__.list_transfer_match) #11
   unreachable
 
-98:                                               ; preds = %._crit_edge
-  %99 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull %6) #9
-  %.not37 = icmp eq i32 %99, 0
-  br i1 %.not37, label %102, label %100
+99:                                               ; preds = %._crit_edge
+  %100 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull %6) #9
+  %.not37 = icmp eq i32 %100, 0
+  br i1 %.not37, label %103, label %101
 
-100:                                              ; preds = %98
-  %101 = tail call ptr @__errno_location() #10
-  store i32 %99, ptr %101, align 4
+101:                                              ; preds = %99
+  %102 = tail call ptr @__errno_location() #10
+  store i32 %100, ptr %102, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 338, ptr noundef nonnull @__func__.list_transfer_match) #11
   unreachable
 
-102:                                              ; preds = %98
+103:                                              ; preds = %99
   ret i32 %.024.lcssa
 }
 

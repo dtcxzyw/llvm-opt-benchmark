@@ -3195,83 +3195,82 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_utf_16be(ptr nocapture n
 .lr.ph.i:                                         ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %9
+  br label %.lr.ph.split.us.i
 
-9:                                                ; preds = %lxb_encoding_encode_utf_16_write.exit.i, %.lr.ph.i
-  %10 = phi ptr [ %5, %.lr.ph.i ], [ %55, %lxb_encoding_encode_utf_16_write.exit.i ]
-  %11 = load i32, ptr %10, align 4
-  %12 = icmp ult i32 %11, 65536
-  %13 = load i64, ptr %4, align 8
-  %14 = load i64, ptr %7, align 8
-  br i1 %12, label %15, label %24
+.lr.ph.split.us.i:                                ; preds = %lxb_encoding_encode_utf_16_write.exit.us.i, %.lr.ph.i
+  %9 = phi ptr [ %54, %lxb_encoding_encode_utf_16_write.exit.us.i ], [ %5, %.lr.ph.i ]
+  %10 = load i32, ptr %9, align 4
+  %11 = icmp ult i32 %10, 65536
+  %12 = load i64, ptr %4, align 8
+  %13 = load i64, ptr %7, align 8
+  br i1 %11, label %39, label %14
 
-15:                                               ; preds = %9
-  %16 = add i64 %13, 2
-  %17 = icmp ugt i64 %16, %14
-  br i1 %17, label %lxb_encoding_encode_utf_16.exit, label %18
+14:                                               ; preds = %.lr.ph.split.us.i
+  %15 = add i64 %12, 4
+  %16 = icmp ugt i64 %15, %13
+  br i1 %16, label %lxb_encoding_encode_utf_16.exit, label %17
 
-18:                                               ; preds = %15
-  %19 = lshr i32 %11, 8
-  %20 = trunc nuw i32 %19 to i8
-  %21 = load ptr, ptr %8, align 8
-  %22 = add i64 %13, 1
-  store i64 %22, ptr %4, align 8
-  %23 = getelementptr inbounds i8, ptr %21, i64 %13
-  store i8 %20, ptr %23, align 1
-  br label %lxb_encoding_encode_utf_16_write.exit.i
+17:                                               ; preds = %14
+  %18 = add i32 %10, -65536
+  %19 = lshr i32 %18, 10
+  %20 = lshr i32 %18, 18
+  %21 = trunc i32 %20 to i8
+  %22 = or i8 %21, -40
+  %23 = load ptr, ptr %8, align 8
+  %24 = add i64 %12, 1
+  store i64 %24, ptr %4, align 8
+  %25 = getelementptr inbounds i8, ptr %23, i64 %12
+  store i8 %22, ptr %25, align 1
+  %26 = trunc i32 %19 to i8
+  %27 = load ptr, ptr %8, align 8
+  %28 = load i64, ptr %4, align 8
+  %29 = add i64 %28, 1
+  store i64 %29, ptr %4, align 8
+  %30 = getelementptr inbounds i8, ptr %27, i64 %28
+  store i8 %26, ptr %30, align 1
+  %31 = lshr i32 %10, 8
+  %32 = trunc i32 %31 to i8
+  %33 = and i8 %32, 3
+  %34 = or disjoint i8 %33, -36
+  %35 = load ptr, ptr %8, align 8
+  %36 = load i64, ptr %4, align 8
+  %37 = add i64 %36, 1
+  store i64 %37, ptr %4, align 8
+  %38 = getelementptr inbounds i8, ptr %35, i64 %36
+  store i8 %34, ptr %38, align 1
+  br label %lxb_encoding_encode_utf_16_write.exit.us.i
 
-24:                                               ; preds = %9
-  %25 = add i64 %13, 4
-  %26 = icmp ugt i64 %25, %14
-  br i1 %26, label %lxb_encoding_encode_utf_16.exit, label %27
+39:                                               ; preds = %.lr.ph.split.us.i
+  %40 = add i64 %12, 2
+  %41 = icmp ugt i64 %40, %13
+  br i1 %41, label %lxb_encoding_encode_utf_16.exit, label %42
 
-27:                                               ; preds = %24
-  %28 = add i32 %11, -65536
-  %29 = lshr i32 %28, 10
-  %30 = lshr i32 %28, 18
-  %31 = trunc i32 %30 to i8
-  %32 = or i8 %31, -40
-  %33 = load ptr, ptr %8, align 8
-  %34 = add i64 %13, 1
-  store i64 %34, ptr %4, align 8
-  %35 = getelementptr inbounds i8, ptr %33, i64 %13
-  store i8 %32, ptr %35, align 1
-  %36 = trunc i32 %29 to i8
-  %37 = load ptr, ptr %8, align 8
-  %38 = load i64, ptr %4, align 8
-  %39 = add i64 %38, 1
-  store i64 %39, ptr %4, align 8
-  %40 = getelementptr inbounds i8, ptr %37, i64 %38
-  store i8 %36, ptr %40, align 1
-  %41 = and i32 %11, 1023
-  %42 = or disjoint i32 %41, 56320
-  %43 = lshr i32 %42, 8
+42:                                               ; preds = %39
+  %43 = lshr i32 %10, 8
   %44 = trunc nuw i32 %43 to i8
   %45 = load ptr, ptr %8, align 8
-  %46 = load i64, ptr %4, align 8
-  %47 = add i64 %46, 1
-  store i64 %47, ptr %4, align 8
-  %48 = getelementptr inbounds i8, ptr %45, i64 %46
-  store i8 %44, ptr %48, align 1
-  br label %lxb_encoding_encode_utf_16_write.exit.i
+  %46 = add i64 %12, 1
+  store i64 %46, ptr %4, align 8
+  %47 = getelementptr inbounds i8, ptr %45, i64 %12
+  store i8 %44, ptr %47, align 1
+  br label %lxb_encoding_encode_utf_16_write.exit.us.i
 
-lxb_encoding_encode_utf_16_write.exit.i:          ; preds = %27, %18
-  %.sink20.i25.sink.i = phi i32 [ %11, %18 ], [ %42, %27 ]
-  %49 = trunc i32 %.sink20.i25.sink.i to i8
-  %50 = load ptr, ptr %8, align 8
-  %51 = load i64, ptr %4, align 8
-  %52 = add i64 %51, 1
-  store i64 %52, ptr %4, align 8
-  %53 = getelementptr inbounds i8, ptr %50, i64 %51
-  store i8 %49, ptr %53, align 1
-  %54 = load ptr, ptr %1, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 4
-  store ptr %55, ptr %1, align 8
-  %56 = icmp ult ptr %55, %2
-  br i1 %56, label %9, label %lxb_encoding_encode_utf_16.exit
+lxb_encoding_encode_utf_16_write.exit.us.i:       ; preds = %42, %17
+  %48 = trunc i32 %10 to i8
+  %49 = load ptr, ptr %8, align 8
+  %50 = load i64, ptr %4, align 8
+  %51 = add i64 %50, 1
+  store i64 %51, ptr %4, align 8
+  %52 = getelementptr inbounds i8, ptr %49, i64 %50
+  store i8 %48, ptr %52, align 1
+  %53 = load ptr, ptr %1, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 4
+  store ptr %54, ptr %1, align 8
+  %55 = icmp ult ptr %54, %2
+  br i1 %55, label %.lr.ph.split.us.i, label %lxb_encoding_encode_utf_16.exit
 
-lxb_encoding_encode_utf_16.exit:                  ; preds = %15, %24, %lxb_encoding_encode_utf_16_write.exit.i, %3
-  %.0.i = phi i32 [ 0, %3 ], [ 15, %15 ], [ 15, %24 ], [ 0, %lxb_encoding_encode_utf_16_write.exit.i ]
+lxb_encoding_encode_utf_16.exit:                  ; preds = %14, %39, %lxb_encoding_encode_utf_16_write.exit.us.i, %3
+  %.0.i = phi i32 [ 0, %3 ], [ 15, %39 ], [ 15, %14 ], [ 0, %lxb_encoding_encode_utf_16_write.exit.us.i ]
   ret i32 %.0.i
 }
 
@@ -3285,44 +3284,45 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_utf_16le(ptr nocapture n
 .lr.ph.i:                                         ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %9
+  br label %.lr.ph.split.i
 
-9:                                                ; preds = %lxb_encoding_encode_utf_16_write.exit.i, %.lr.ph.i
-  %10 = phi ptr [ %5, %.lr.ph.i ], [ %55, %lxb_encoding_encode_utf_16_write.exit.i ]
-  %11 = load i32, ptr %10, align 4
-  %12 = icmp ult i32 %11, 65536
-  %13 = load i64, ptr %4, align 8
-  %14 = load i64, ptr %7, align 8
-  br i1 %12, label %15, label %24
+.lr.ph.split.i:                                   ; preds = %lxb_encoding_encode_utf_16_write.exit.i, %.lr.ph.i
+  %9 = phi ptr [ %55, %lxb_encoding_encode_utf_16_write.exit.i ], [ %5, %.lr.ph.i ]
+  %10 = load i32, ptr %9, align 4
+  %11 = icmp ult i32 %10, 65536
+  %12 = load i64, ptr %4, align 8
+  %13 = load i64, ptr %7, align 8
+  br i1 %11, label %14, label %24
 
-15:                                               ; preds = %9
-  %16 = add i64 %13, 2
-  %17 = icmp ugt i64 %16, %14
-  br i1 %17, label %lxb_encoding_encode_utf_16.exit, label %18
+14:                                               ; preds = %.lr.ph.split.i
+  %15 = add i64 %12, 2
+  %16 = icmp ugt i64 %15, %13
+  br i1 %16, label %lxb_encoding_encode_utf_16.exit, label %17
 
-18:                                               ; preds = %15
-  %19 = trunc i32 %11 to i8
-  %20 = load ptr, ptr %8, align 8
-  %21 = add i64 %13, 1
-  store i64 %21, ptr %4, align 8
-  %22 = getelementptr inbounds i8, ptr %20, i64 %13
-  store i8 %19, ptr %22, align 1
-  %23 = lshr i32 %11, 8
+17:                                               ; preds = %14
+  %18 = trunc i32 %10 to i8
+  %19 = load ptr, ptr %8, align 8
+  %20 = add i64 %12, 1
+  store i64 %20, ptr %4, align 8
+  %21 = getelementptr inbounds i8, ptr %19, i64 %12
+  store i8 %18, ptr %21, align 1
+  %22 = lshr i32 %10, 8
+  %23 = trunc nuw i32 %22 to i8
   br label %lxb_encoding_encode_utf_16_write.exit.i
 
-24:                                               ; preds = %9
-  %25 = add i64 %13, 4
-  %26 = icmp ugt i64 %25, %14
+24:                                               ; preds = %.lr.ph.split.i
+  %25 = add i64 %12, 4
+  %26 = icmp ugt i64 %25, %13
   br i1 %26, label %lxb_encoding_encode_utf_16.exit, label %27
 
 27:                                               ; preds = %24
-  %28 = add i32 %11, -65536
+  %28 = add i32 %10, -65536
   %29 = lshr i32 %28, 10
   %30 = trunc i32 %29 to i8
   %31 = load ptr, ptr %8, align 8
-  %32 = add i64 %13, 1
+  %32 = add i64 %12, 1
   store i64 %32, ptr %4, align 8
-  %33 = getelementptr inbounds i8, ptr %31, i64 %13
+  %33 = getelementptr inbounds i8, ptr %31, i64 %12
   store i8 %30, ptr %33, align 1
   %34 = lshr i32 %28, 18
   %35 = trunc i32 %34 to i8
@@ -3333,35 +3333,35 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_utf_16le(ptr nocapture n
   store i64 %39, ptr %4, align 8
   %40 = getelementptr inbounds i8, ptr %37, i64 %38
   store i8 %36, ptr %40, align 1
-  %41 = trunc i32 %11 to i8
+  %41 = trunc i32 %10 to i8
   %42 = load ptr, ptr %8, align 8
   %43 = load i64, ptr %4, align 8
   %44 = add i64 %43, 1
   store i64 %44, ptr %4, align 8
   %45 = getelementptr inbounds i8, ptr %42, i64 %43
   store i8 %41, ptr %45, align 1
-  %46 = lshr i32 %11, 8
-  %47 = and i32 %46, 3
-  %48 = or disjoint i32 %47, 220
+  %46 = lshr i32 %10, 8
+  %47 = trunc i32 %46 to i8
+  %48 = and i8 %47, 3
+  %49 = or disjoint i8 %48, -36
   br label %lxb_encoding_encode_utf_16_write.exit.i
 
-lxb_encoding_encode_utf_16_write.exit.i:          ; preds = %27, %18
-  %.sink20.i25.sink.i = phi i32 [ %23, %18 ], [ %48, %27 ]
-  %49 = trunc i32 %.sink20.i25.sink.i to i8
+lxb_encoding_encode_utf_16_write.exit.i:          ; preds = %27, %17
+  %.sink.i = phi i8 [ %49, %27 ], [ %23, %17 ]
   %50 = load ptr, ptr %8, align 8
   %51 = load i64, ptr %4, align 8
   %52 = add i64 %51, 1
   store i64 %52, ptr %4, align 8
   %53 = getelementptr inbounds i8, ptr %50, i64 %51
-  store i8 %49, ptr %53, align 1
+  store i8 %.sink.i, ptr %53, align 1
   %54 = load ptr, ptr %1, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 4
   store ptr %55, ptr %1, align 8
   %56 = icmp ult ptr %55, %2
-  br i1 %56, label %9, label %lxb_encoding_encode_utf_16.exit
+  br i1 %56, label %.lr.ph.split.i, label %lxb_encoding_encode_utf_16.exit
 
-lxb_encoding_encode_utf_16.exit:                  ; preds = %15, %24, %lxb_encoding_encode_utf_16_write.exit.i, %3
-  %.0.i = phi i32 [ 0, %3 ], [ 15, %15 ], [ 15, %24 ], [ 0, %lxb_encoding_encode_utf_16_write.exit.i ]
+lxb_encoding_encode_utf_16.exit:                  ; preds = %14, %24, %lxb_encoding_encode_utf_16_write.exit.i, %3
+  %.0.i = phi i32 [ 0, %3 ], [ 15, %14 ], [ 15, %24 ], [ 0, %lxb_encoding_encode_utf_16_write.exit.i ]
   ret i32 %.0.i
 }
 

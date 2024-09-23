@@ -1419,7 +1419,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add.ptr = getelementptr inbounds %struct.object_id, ptr %6, i64 %indvars.iv
   %call11 = tail call i32 @repo_has_object_file(ptr noundef %5, ptr noundef %add.ptr) #12
   %tobool12.not = icmp eq i32 %call11, 0
-  br i1 %tobool12.not, label %for.inc.sink.split, label %if.then13
+  br i1 %tobool12.not, label %if.else, label %if.then13
 
 if.then13:                                        ; preds = %for.body
   %7 = load ptr, ptr @the_repository, align 8
@@ -1427,31 +1427,41 @@ if.then13:                                        ; preds = %for.body
   %arrayidx = getelementptr inbounds %struct.object_id, ptr %8, i64 %indvars.iv
   %call15 = tail call ptr @lookup_commit_graft(ptr noundef %7, ptr noundef %arrayidx) #12
   %tobool16.not = icmp eq ptr %call15, null
-  br i1 %tobool16.not, label %for.inc.sink.split, label %land.lhs.true
+  br i1 %tobool16.not, label %if.end20, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then13
   %nr_parent = getelementptr inbounds i8, ptr %call15, i64 36
   %9 = load i32, ptr %nr_parent, align 4
   %cmp17 = icmp slt i32 %9, 0
-  br i1 %cmp17, label %for.inc, label %for.inc.sink.split
+  br i1 %cmp17, label %for.inc, label %if.end20
 
-for.inc.sink.split:                               ; preds = %for.body, %if.then13, %land.lhs.true
-  %ours.sink = phi ptr [ %ours, %land.lhs.true ], [ %ours, %if.then13 ], [ %theirs, %for.body ]
-  %nr_ours.sink32 = phi ptr [ %nr_ours, %land.lhs.true ], [ %nr_ours, %if.then13 ], [ %nr_theirs, %for.body ]
-  %10 = load ptr, ptr %ours.sink, align 8
-  %11 = load i32, ptr %nr_ours.sink32, align 8
+if.end20:                                         ; preds = %land.lhs.true, %if.then13
+  %10 = load ptr, ptr %ours, align 8
+  %11 = load i32, ptr %nr_ours, align 8
   %inc = add nsw i32 %11, 1
-  store i32 %inc, ptr %nr_ours.sink32, align 8
-  %idxprom22 = sext i32 %11 to i64
-  %arrayidx23 = getelementptr inbounds i32, ptr %10, i64 %idxprom22
-  %12 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %12, ptr %arrayidx23, align 4
+  store i32 %inc, ptr %nr_ours, align 8
+  br label %for.inc.sink.split
+
+if.else:                                          ; preds = %for.body
+  %12 = load ptr, ptr %theirs, align 8
+  %13 = load i32, ptr %nr_theirs, align 8
+  %inc25 = add nsw i32 %13, 1
+  store i32 %inc25, ptr %nr_theirs, align 8
+  br label %for.inc.sink.split
+
+for.inc.sink.split:                               ; preds = %if.else, %if.end20
+  %.sink30 = phi i32 [ %11, %if.end20 ], [ %13, %if.else ]
+  %.sink = phi ptr [ %10, %if.end20 ], [ %12, %if.else ]
+  %idxprom22 = sext i32 %.sink30 to i64
+  %arrayidx23 = getelementptr inbounds i32, ptr %.sink, i64 %idxprom22
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
+  store i32 %14, ptr %arrayidx23, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %land.lhs.true
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %13 = load i64, ptr %nr, align 8
-  %cmp = icmp ugt i64 %13, %indvars.iv.next
+  %15 = load i64, ptr %nr, align 8
+  %cmp = icmp ugt i64 %15, %indvars.iv.next
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !17
 
 for.end:                                          ; preds = %for.inc, %st_mult.exit24, %do.end

@@ -206,12 +206,21 @@ if.then38:                                        ; preds = %for.cond, %if.then1
   store ptr %4, ptr %reserved40, align 8
   %cmp41 = icmp eq ptr %4, null
   %10 = load ptr, ptr %next, align 8
+  br i1 %cmp41, label %if.then43, label %if.else
+
+if.then43:                                        ; preds = %if.then38
+  store ptr %10, ptr %pathHead, align 8
+  br label %if.end48
+
+if.else:                                          ; preds = %if.then38
   %next47 = getelementptr inbounds i8, ptr %4, i64 16
-  %next47.sink = select i1 %cmp41, ptr %pathHead, ptr %next47
-  store ptr %10, ptr %next47.sink, align 8
+  store ptr %10, ptr %next47, align 8
+  br label %if.end48
+
+if.end48:                                         ; preds = %if.else, %if.then43
   br i1 %tobool211.not, label %if.end60, label %land.lhs.true50
 
-land.lhs.true50:                                  ; preds = %if.then38
+land.lhs.true50:                                  ; preds = %if.end48
   %11 = load ptr, ptr %walker.0, align 8
   %12 = load ptr, ptr %afterLast, align 8
   %cmp55.not = icmp eq ptr %11, %12
@@ -222,7 +231,7 @@ if.then57:                                        ; preds = %land.lhs.true50
   tail call void %13(ptr noundef %memory, ptr noundef %11) #11
   br label %if.end60
 
-if.end60:                                         ; preds = %if.then57, %land.lhs.true50, %if.then38
+if.end60:                                         ; preds = %if.then57, %land.lhs.true50, %if.end48
   %14 = load ptr, ptr %free220, align 8
   tail call void %14(ptr noundef %memory, ptr noundef nonnull %walker.0) #11
   br label %do.cond
@@ -503,12 +512,21 @@ if.else299:                                       ; preds = %if.then154
   store ptr %24, ptr %pathHead, align 8
   %60 = load ptr, ptr %next116, align 8
   %cmp304.not = icmp eq ptr %60, null
+  br i1 %cmp304.not, label %if.else309, label %if.then306
+
+if.then306:                                       ; preds = %if.else299
   %reserved308 = getelementptr inbounds i8, ptr %60, i64 24
-  %pathTail209.sink = select i1 %cmp304.not, ptr %pathTail209, ptr %reserved308
-  store ptr null, ptr %pathTail209.sink, align 8
+  store ptr null, ptr %reserved308, align 8
+  br label %if.end311
+
+if.else309:                                       ; preds = %if.else299
+  store ptr null, ptr %pathTail209, align 8
+  br label %if.end311
+
+if.end311:                                        ; preds = %if.else309, %if.then306
   br i1 %tobool211.not, label %if.end324, label %land.lhs.true313
 
-land.lhs.true313:                                 ; preds = %if.else299
+land.lhs.true313:                                 ; preds = %if.end311
   %61 = load ptr, ptr %walker.0, align 8
   %62 = load ptr, ptr %afterLast, align 8
   %cmp318.not = icmp eq ptr %61, %62
@@ -519,7 +537,7 @@ if.then320:                                       ; preds = %land.lhs.true313
   tail call void %63(ptr noundef %memory, ptr noundef %61) #11
   br label %if.end324
 
-if.end324:                                        ; preds = %if.then320, %land.lhs.true313, %if.else299
+if.end324:                                        ; preds = %if.then320, %land.lhs.true313, %if.end311
   %64 = load ptr, ptr %free220, align 8
   tail call void %64(ptr noundef %memory, ptr noundef nonnull %walker.0) #11
   br label %do.cond
@@ -528,14 +546,23 @@ if.then330:                                       ; preds = %for.body, %do.body,
   %next331 = getelementptr inbounds i8, ptr %walker.0, i64 16
   %65 = load ptr, ptr %next331, align 8
   %cmp332.not = icmp eq ptr %65, null
+  br i1 %cmp332.not, label %if.else337, label %if.then334
+
+if.then334:                                       ; preds = %if.then330
   %reserved336 = getelementptr inbounds i8, ptr %65, i64 24
-  %pathTail209.sink237 = select i1 %cmp332.not, ptr %pathTail209, ptr %reserved336
-  store ptr %walker.0, ptr %pathTail209.sink237, align 8
+  store ptr %walker.0, ptr %reserved336, align 8
+  br label %if.end339
+
+if.else337:                                       ; preds = %if.then330
+  store ptr %walker.0, ptr %pathTail209, align 8
+  br label %if.end339
+
+if.end339:                                        ; preds = %if.else337, %if.then334
   %66 = load ptr, ptr %next331, align 8
   br label %do.cond
 
-do.cond:                                          ; preds = %if.end237, %if.end296, %if.end324, %if.end60, %if.then330
-  %walker.2 = phi ptr [ %66, %if.then330 ], [ %24, %if.end237 ], [ %24, %if.end296 ], [ %24, %if.end324 ], [ %5, %if.end60 ]
+do.cond:                                          ; preds = %if.end237, %if.end296, %if.end324, %if.end60, %if.end339
+  %walker.2 = phi ptr [ %66, %if.end339 ], [ %24, %if.end237 ], [ %24, %if.end296 ], [ %24, %if.end324 ], [ %5, %if.end60 ]
   %cmp342.not = icmp eq ptr %walker.2, null
   br i1 %cmp342.not, label %return, label %do.body, !llvm.loop !6
 
@@ -728,9 +755,9 @@ if.then:                                          ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pathHead1, i8 0, i64 16, i1 false)
   br label %if.end20
 
-do.body:                                          ; preds = %entry, %if.end7
-  %sourceWalker.0 = phi ptr [ %2, %if.end7 ], [ %0, %entry ]
-  %destPrev.0 = phi ptr [ %call, %if.end7 ], [ null, %entry ]
+do.body:                                          ; preds = %entry, %if.end14
+  %sourceWalker.0 = phi ptr [ %2, %if.end14 ], [ %0, %entry ]
+  %destPrev.0 = phi ptr [ %call, %if.end14 ], [ null, %entry ]
   %1 = load ptr, ptr %memory, align 8
   %call = tail call ptr %1(ptr noundef nonnull %memory, i64 noundef 32) #11
   %cmp3 = icmp eq ptr %call, null
@@ -748,15 +775,24 @@ if.then6:                                         ; preds = %if.then4
 if.end7:                                          ; preds = %do.body
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, ptr noundef nonnull align 8 dereferenceable(16) %sourceWalker.0, i64 16, i1 false)
   %cmp9 = icmp eq ptr %destPrev.0, null
+  br i1 %cmp9, label %if.then10, label %if.else12
+
+if.then10:                                        ; preds = %if.end7
+  store ptr %call, ptr %pathHead1, align 8
+  br label %if.end14
+
+if.else12:                                        ; preds = %if.end7
   %next13 = getelementptr inbounds i8, ptr %destPrev.0, i64 16
-  %next13.sink = select i1 %cmp9, ptr %pathHead1, ptr %next13
-  store ptr %call, ptr %next13.sink, align 8
+  store ptr %call, ptr %next13, align 8
+  br label %if.end14
+
+if.end14:                                         ; preds = %if.else12, %if.then10
   %next15 = getelementptr inbounds i8, ptr %sourceWalker.0, i64 16
   %2 = load ptr, ptr %next15, align 8
   %cmp16.not = icmp eq ptr %2, null
   br i1 %cmp16.not, label %do.end, label %do.body, !llvm.loop !7
 
-do.end:                                           ; preds = %if.end7
+do.end:                                           ; preds = %if.end14
   %pathTail17 = getelementptr inbounds i8, ptr %dest, i64 104
   store ptr %call, ptr %pathTail17, align 8
   %next19 = getelementptr inbounds i8, ptr %call, i64 16
@@ -1164,12 +1200,21 @@ if.then36:                                        ; preds = %for.cond, %if.then1
   store ptr %4, ptr %reserved38, align 8
   %cmp39 = icmp eq ptr %4, null
   %10 = load ptr, ptr %next, align 8
+  br i1 %cmp39, label %if.then41, label %if.else
+
+if.then41:                                        ; preds = %if.then36
+  store ptr %10, ptr %pathHead, align 8
+  br label %if.end46
+
+if.else:                                          ; preds = %if.then36
   %next45 = getelementptr inbounds i8, ptr %4, i64 16
-  %next45.sink = select i1 %cmp39, ptr %pathHead, ptr %next45
-  store ptr %10, ptr %next45.sink, align 8
+  store ptr %10, ptr %next45, align 8
+  br label %if.end46
+
+if.end46:                                         ; preds = %if.else, %if.then41
   br i1 %tobool206.not, label %if.end58, label %land.lhs.true48
 
-land.lhs.true48:                                  ; preds = %if.then36
+land.lhs.true48:                                  ; preds = %if.end46
   %11 = load ptr, ptr %walker.0, align 8
   %12 = load ptr, ptr %afterLast, align 8
   %cmp53.not = icmp eq ptr %11, %12
@@ -1180,7 +1225,7 @@ if.then55:                                        ; preds = %land.lhs.true48
   tail call void %13(ptr noundef %memory, ptr noundef %11) #11
   br label %if.end58
 
-if.end58:                                         ; preds = %if.then55, %land.lhs.true48, %if.then36
+if.end58:                                         ; preds = %if.then55, %land.lhs.true48, %if.end46
   %14 = load ptr, ptr %free215, align 8
   tail call void %14(ptr noundef %memory, ptr noundef nonnull %walker.0) #11
   br label %do.cond
@@ -1461,12 +1506,21 @@ if.else294:                                       ; preds = %if.then149
   store ptr %24, ptr %pathHead, align 8
   %60 = load ptr, ptr %next112, align 8
   %cmp299.not = icmp eq ptr %60, null
+  br i1 %cmp299.not, label %if.else304, label %if.then301
+
+if.then301:                                       ; preds = %if.else294
   %reserved303 = getelementptr inbounds i8, ptr %60, i64 24
-  %pathTail204.sink = select i1 %cmp299.not, ptr %pathTail204, ptr %reserved303
-  store ptr null, ptr %pathTail204.sink, align 8
+  store ptr null, ptr %reserved303, align 8
+  br label %if.end306
+
+if.else304:                                       ; preds = %if.else294
+  store ptr null, ptr %pathTail204, align 8
+  br label %if.end306
+
+if.end306:                                        ; preds = %if.else304, %if.then301
   br i1 %tobool206.not, label %if.end319, label %land.lhs.true308
 
-land.lhs.true308:                                 ; preds = %if.else294
+land.lhs.true308:                                 ; preds = %if.end306
   %61 = load ptr, ptr %walker.0, align 8
   %62 = load ptr, ptr %afterLast, align 8
   %cmp313.not = icmp eq ptr %61, %62
@@ -1477,7 +1531,7 @@ if.then315:                                       ; preds = %land.lhs.true308
   tail call void %63(ptr noundef %memory, ptr noundef %61) #11
   br label %if.end319
 
-if.end319:                                        ; preds = %if.then315, %land.lhs.true308, %if.else294
+if.end319:                                        ; preds = %if.then315, %land.lhs.true308, %if.end306
   %64 = load ptr, ptr %free215, align 8
   tail call void %64(ptr noundef %memory, ptr noundef nonnull %walker.0) #11
   br label %do.cond
@@ -1486,14 +1540,23 @@ if.then325:                                       ; preds = %for.body, %do.body,
   %next326 = getelementptr inbounds i8, ptr %walker.0, i64 16
   %65 = load ptr, ptr %next326, align 8
   %cmp327.not = icmp eq ptr %65, null
+  br i1 %cmp327.not, label %if.else332, label %if.then329
+
+if.then329:                                       ; preds = %if.then325
   %reserved331 = getelementptr inbounds i8, ptr %65, i64 24
-  %pathTail204.sink237 = select i1 %cmp327.not, ptr %pathTail204, ptr %reserved331
-  store ptr %walker.0, ptr %pathTail204.sink237, align 8
+  store ptr %walker.0, ptr %reserved331, align 8
+  br label %if.end334
+
+if.else332:                                       ; preds = %if.then325
+  store ptr %walker.0, ptr %pathTail204, align 8
+  br label %if.end334
+
+if.end334:                                        ; preds = %if.else332, %if.then329
   %66 = load ptr, ptr %next326, align 8
   br label %do.cond
 
-do.cond:                                          ; preds = %if.end232, %if.end291, %if.end319, %if.end58, %if.then325
-  %walker.2 = phi ptr [ %66, %if.then325 ], [ %24, %if.end232 ], [ %24, %if.end291 ], [ %24, %if.end319 ], [ %5, %if.end58 ]
+do.cond:                                          ; preds = %if.end232, %if.end291, %if.end319, %if.end58, %if.end334
+  %walker.2 = phi ptr [ %66, %if.end334 ], [ %24, %if.end232 ], [ %24, %if.end291 ], [ %24, %if.end319 ], [ %5, %if.end58 ]
   %cmp337.not = icmp eq ptr %walker.2, null
   br i1 %cmp337.not, label %return, label %do.body, !llvm.loop !9
 
@@ -1686,9 +1749,9 @@ if.then:                                          ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pathHead1, i8 0, i64 16, i1 false)
   br label %if.end20
 
-do.body:                                          ; preds = %entry, %if.end7
-  %sourceWalker.0 = phi ptr [ %2, %if.end7 ], [ %0, %entry ]
-  %destPrev.0 = phi ptr [ %call, %if.end7 ], [ null, %entry ]
+do.body:                                          ; preds = %entry, %if.end14
+  %sourceWalker.0 = phi ptr [ %2, %if.end14 ], [ %0, %entry ]
+  %destPrev.0 = phi ptr [ %call, %if.end14 ], [ null, %entry ]
   %1 = load ptr, ptr %memory, align 8
   %call = tail call ptr %1(ptr noundef nonnull %memory, i64 noundef 32) #11
   %cmp3 = icmp eq ptr %call, null
@@ -1706,15 +1769,24 @@ if.then6:                                         ; preds = %if.then4
 if.end7:                                          ; preds = %do.body
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, ptr noundef nonnull align 8 dereferenceable(16) %sourceWalker.0, i64 16, i1 false)
   %cmp9 = icmp eq ptr %destPrev.0, null
+  br i1 %cmp9, label %if.then10, label %if.else12
+
+if.then10:                                        ; preds = %if.end7
+  store ptr %call, ptr %pathHead1, align 8
+  br label %if.end14
+
+if.else12:                                        ; preds = %if.end7
   %next13 = getelementptr inbounds i8, ptr %destPrev.0, i64 16
-  %next13.sink = select i1 %cmp9, ptr %pathHead1, ptr %next13
-  store ptr %call, ptr %next13.sink, align 8
+  store ptr %call, ptr %next13, align 8
+  br label %if.end14
+
+if.end14:                                         ; preds = %if.else12, %if.then10
   %next15 = getelementptr inbounds i8, ptr %sourceWalker.0, i64 16
   %2 = load ptr, ptr %next15, align 8
   %cmp16.not = icmp eq ptr %2, null
   br i1 %cmp16.not, label %do.end, label %do.body, !llvm.loop !10
 
-do.end:                                           ; preds = %if.end7
+do.end:                                           ; preds = %if.end14
   %pathTail17 = getelementptr inbounds i8, ptr %dest, i64 104
   store ptr %call, ptr %pathTail17, align 8
   %next19 = getelementptr inbounds i8, ptr %call, i64 16

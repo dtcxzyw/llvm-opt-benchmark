@@ -1072,7 +1072,8 @@ seg_alloc.exit.i:                                 ; preds = %79
   %104 = getelementptr inbounds i8, ptr %0, i64 8
   %105 = load ptr, ptr %104, align 8
   %106 = getelementptr ptr, ptr %105, i64 %35
-  br label %dir_realloc.exit.thread.sink.split.i
+  store ptr null, ptr %106, align 8
+  br label %has_seq_scans.exit
 
 107:                                              ; preds = %103, %.lr.ph.preheader.i65.i, %94
   %108 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1155,14 +1156,10 @@ calc_bucket.exit.i:                               ; preds = %146, %.lr.ph.i91
   %.054.lcssa.i = phi ptr [ %136, %123 ], [ %.05272..05470.i, %calc_bucket.exit.i ]
   %.053.lcssa.i = phi ptr [ %137, %123 ], [ %.05371..05272.i, %calc_bucket.exit.i ]
   store ptr null, ptr %.054.lcssa.i, align 8
-  br label %dir_realloc.exit.thread.sink.split.i
-
-dir_realloc.exit.thread.sink.split.i:             ; preds = %._crit_edge.i, %seg_alloc.exit.i
-  %.sink.i = phi ptr [ %106, %seg_alloc.exit.i ], [ %.053.lcssa.i, %._crit_edge.i ]
-  store ptr null, ptr %.sink.i, align 8
+  store ptr null, ptr %.053.lcssa.i, align 8
   br label %has_seq_scans.exit
 
-has_seq_scans.exit:                               ; preds = %.lr.ph.i, %dir_realloc.exit.thread.sink.split.i, %48, %45, %12, %5, %19
+has_seq_scans.exit:                               ; preds = %.lr.ph.i, %._crit_edge.i, %seg_alloc.exit.i, %48, %45, %12, %5, %19
   %150 = getelementptr inbounds i8, ptr %6, i64 788
   %151 = load i32, ptr %150, align 4
   %152 = and i32 %151, %2

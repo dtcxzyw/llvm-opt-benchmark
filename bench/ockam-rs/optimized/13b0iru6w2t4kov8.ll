@@ -9419,6 +9419,7 @@ _ZN5tokio7runtime6handle6Handle11spawn_named17hf11f06d570c1028fE.llvm.6972814350
   %438 = getelementptr inbounds i8, ptr %1, i64 553
   store i8 0, ptr %438, align 1, !noalias !1260
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20), !noalias !1260
+  store i8 0, ptr %429, align 2, !noalias !1260
   br label %469
 
 439:                                              ; preds = %426, %422
@@ -9449,6 +9450,7 @@ _ZN5tokio7runtime6handle6Handle11spawn_named17hf11f06d570c1028fE.llvm.6972814350
 
 446:                                              ; preds = %"_ZN4core3ptr153drop_in_place$LT$tokio..sync..mpsc..bounded..Receiver$LT$core..result..Result$LT$ockam_node..messages..RouterReply$C$ockam_core..error..Error$GT$$GT$$GT$17h9c2be9a6a07c2535E.exit.i.i"
   %447 = getelementptr inbounds i8, ptr %1, i64 554
+  store i8 0, ptr %447, align 2, !noalias !1260
   br label %469
 
 448:                                              ; preds = %449, %431
@@ -9526,10 +9528,8 @@ _ZN5tokio7runtime6handle6Handle11spawn_named17hf11f06d570c1028fE.llvm.6972814350
   br label %490
 
 469:                                              ; preds = %446, %"_ZN4core3ptr153drop_in_place$LT$tokio..sync..mpsc..bounded..Receiver$LT$core..result..Result$LT$ockam_node..messages..RouterReply$C$ockam_core..error..Error$GT$$GT$$GT$17h9c2be9a6a07c2535E.exit141.i.i"
-  %.sink248.i.i = phi ptr [ %447, %446 ], [ %429, %"_ZN4core3ptr153drop_in_place$LT$tokio..sync..mpsc..bounded..Receiver$LT$core..result..Result$LT$ockam_node..messages..RouterReply$C$ockam_core..error..Error$GT$$GT$$GT$17h9c2be9a6a07c2535E.exit141.i.i" ]
   %.sroa.034.0.copyload.i = phi i64 [ 2, %446 ], [ %.sroa.0203.0.copyload.i.i, %"_ZN4core3ptr153drop_in_place$LT$tokio..sync..mpsc..bounded..Receiver$LT$core..result..Result$LT$ockam_node..messages..RouterReply$C$ockam_core..error..Error$GT$$GT$$GT$17h9c2be9a6a07c2535E.exit141.i.i" ]
   %.sroa.435.0.copyload.i = phi ptr [ %.sroa.5198.0.i.i, %446 ], [ %.sroa.4204.0.copyload.i.i, %"_ZN4core3ptr153drop_in_place$LT$tokio..sync..mpsc..bounded..Receiver$LT$core..result..Result$LT$ockam_node..messages..RouterReply$C$ockam_core..error..Error$GT$$GT$$GT$17h9c2be9a6a07c2535E.exit141.i.i" ]
-  store i8 0, ptr %.sink248.i.i, align 2, !noalias !1260
   %470 = getelementptr inbounds i8, ptr %1, i64 555
   store i8 0, ptr %470, align 1, !noalias !1260
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21), !noalias !1260

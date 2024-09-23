@@ -14,69 +14,78 @@ define range(i32 -16, 1) i32 @inode_remove(ptr noundef %0) local_unnamed_addr #0
 
 inode_unlink.exit.thread:                         ; preds = %1
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
-  br label %31
+  br label %34
 
 4:                                                ; preds = %1
   store ptr %0, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 40
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %6 = getelementptr inbounds i8, ptr %2, i64 24
+  %7 = getelementptr inbounds i8, ptr %2, i64 40
+  %8 = getelementptr inbounds i8, ptr %2, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
-  store i8 1, ptr %7, align 8
-  %8 = call i32 @inode_search(ptr noundef nonnull %2) #5
-  %9 = icmp sgt i32 %8, -1
-  br i1 %9, label %10, label %20
+  store i8 1, ptr %8, align 8
+  %9 = call i32 @inode_search(ptr noundef nonnull %2) #5
+  %10 = icmp sgt i32 %9, -1
+  br i1 %10, label %11, label %23
 
-10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+11:                                               ; preds = %4
   %12 = getelementptr inbounds i8, ptr %2, i64 16
   %13 = load ptr, ptr %5, align 8
   %14 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %14, null
   %15 = getelementptr inbounds i8, ptr %13, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = load ptr, ptr %11, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
-  %19 = getelementptr inbounds i8, ptr %14, i64 8
-  %.sink.i = select i1 %.not.i, ptr %18, ptr %19
-  store ptr %16, ptr %.sink.i, align 8
+  br i1 %.not.i, label %19, label %17
+
+17:                                               ; preds = %11
+  %18 = getelementptr inbounds i8, ptr %14, i64 8
+  store ptr %16, ptr %18, align 8
+  br label %22
+
+19:                                               ; preds = %11
+  %20 = load ptr, ptr %6, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  store ptr %16, ptr %21, align 8
+  br label %22
+
+22:                                               ; preds = %19, %17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
-  br label %20
+  br label %23
 
-20:                                               ; preds = %10, %4
-  %.08.i = phi ptr [ %13, %10 ], [ null, %4 ]
-  %21 = load ptr, ptr %6, align 8
-  %.not12.i = icmp eq ptr %21, null
-  br i1 %.not12.i, label %inode_unlink.exit, label %22
+23:                                               ; preds = %22, %4
+  %.08.i = phi ptr [ %13, %22 ], [ null, %4 ]
+  %24 = load ptr, ptr %7, align 8
+  %.not12.i = icmp eq ptr %24, null
+  br i1 %.not12.i, label %inode_unlink.exit, label %25
 
-22:                                               ; preds = %20
-  call void @free(ptr noundef nonnull %21)
+25:                                               ; preds = %23
+  call void @free(ptr noundef nonnull %24)
   br label %inode_unlink.exit
 
-inode_unlink.exit:                                ; preds = %20, %22
+inode_unlink.exit:                                ; preds = %23, %25
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
   %.not = icmp eq ptr %.08.i, null
-  br i1 %.not, label %31, label %23
+  br i1 %.not, label %34, label %26
 
-23:                                               ; preds = %inode_unlink.exit
-  %24 = getelementptr inbounds i8, ptr %.08.i, i64 24
-  %25 = load i16, ptr %24, align 8
-  %.not6 = icmp eq i16 %25, 0
-  br i1 %.not6, label %30, label %26
+26:                                               ; preds = %inode_unlink.exit
+  %27 = getelementptr inbounds i8, ptr %.08.i, i64 24
+  %28 = load i16, ptr %27, align 8
+  %.not6 = icmp eq i16 %28, 0
+  br i1 %.not6, label %33, label %29
 
-26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %.08.i, i64 26
-  %28 = load i16, ptr %27, align 2
-  %29 = or i16 %28, 16
-  store i16 %29, ptr %27, align 2
-  br label %31
+29:                                               ; preds = %26
+  %30 = getelementptr inbounds i8, ptr %.08.i, i64 26
+  %31 = load i16, ptr %30, align 2
+  %32 = or i16 %31, 16
+  store i16 %32, ptr %30, align 2
+  br label %34
 
-30:                                               ; preds = %23
+33:                                               ; preds = %26
   call void @inode_free(ptr noundef nonnull %.08.i) #5
-  br label %31
+  br label %34
 
-31:                                               ; preds = %inode_unlink.exit.thread, %inode_unlink.exit, %30, %26
-  %.0 = phi i32 [ -16, %26 ], [ 0, %30 ], [ -2, %inode_unlink.exit ], [ -2, %inode_unlink.exit.thread ]
+34:                                               ; preds = %inode_unlink.exit.thread, %inode_unlink.exit, %33, %29
+  %.0 = phi i32 [ -16, %29 ], [ 0, %33 ], [ -2, %inode_unlink.exit ], [ -2, %inode_unlink.exit.thread ]
   ret i32 %.0
 }
 

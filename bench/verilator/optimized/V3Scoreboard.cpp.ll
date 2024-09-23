@@ -125,8 +125,8 @@ _ZN11PairingHeapI3KeyE6insertEPNS1_4NodeE.exit.i: ; preds = %34, %.lr.ph.i
 
 _ZN12V3ScoreboardI18ScoreboardTestElem3KeyE7rescoreEv.exit: ; preds = %_ZN11PairingHeapI3KeyE6insertEPNS1_4NodeE.exit.i
   %.pr = load ptr, ptr %4, align 8
-  %.not62 = icmp eq ptr %.pr, null
-  br i1 %.not62, label %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE7rescoreEv.exit.thread, label %36
+  %.not60 = icmp eq ptr %.pr, null
+  br i1 %.not60, label %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE7rescoreEv.exit.thread, label %36
 
 36:                                               ; preds = %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE7rescoreEv.exit
   %37 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str, i32 noundef 75, i1 noundef zeroext true)
@@ -175,7 +175,7 @@ _ZNK12V3ScoreboardI18ScoreboardTestElem3KeyE4bestEv.exit14.thread: ; preds = %_Z
 53:                                               ; preds = %_ZNK12V3ScoreboardI18ScoreboardTestElem3KeyE4bestEv.exit14
   %54 = load ptr, ptr %24, align 8
   %55 = icmp eq ptr %54, %2
-  br i1 %55, label %72, label %56
+  br i1 %55, label %71, label %56
 
 56:                                               ; preds = %53
   %57 = load ptr, ptr %2, align 8
@@ -183,221 +183,213 @@ _ZNK12V3ScoreboardI18ScoreboardTestElem3KeyE4bestEv.exit14.thread: ; preds = %_Z
   br i1 %.not.i.i15, label %58, label %60
 
 58:                                               ; preds = %56
+  store ptr null, ptr %24, align 8
   %59 = load ptr, ptr %23, align 8
   store ptr %54, ptr %59, align 8
   %.not35.i.i = icmp eq ptr %54, null
-  br i1 %.not35.i.i, label %_ZN11PairingHeapI3KeyE6removeEPNS1_4NodeE.exit.i, label %.sink.split.i.i
+  br i1 %.not35.i.i, label %_ZN11PairingHeapI3KeyE6removeEPNS1_4NodeE.exit.i, label %_ZN11PairingHeapI3KeyE6removeEPNS1_4NodeE.exit.i.sink.split
 
 60:                                               ; preds = %56
   %.not34.i.i = icmp eq ptr %54, null
-  br i1 %.not34.i.i, label %61, label %62
+  br i1 %.not34.i.i, label %_ZN11PairingHeapI3KeyE6removeEPNS1_4NodeE.exit.i.sink.split.sink.split, label %61
 
 61:                                               ; preds = %60
-  store ptr null, ptr %2, align 8
-  br label %.sink.split.sink.split.i.i
-
-62:                                               ; preds = %60
   store ptr null, ptr %24, align 8
-  %63 = call noundef ptr @_ZN11PairingHeapI3KeyE6reduceEPNS1_4NodeE(ptr noundef nonnull %54)
-  %64 = load ptr, ptr %2, align 8
-  store ptr null, ptr %2, align 8
-  store ptr %64, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 16
-  store ptr %63, ptr %65, align 8
-  br label %.sink.split.sink.split.i.i
+  %62 = call noundef ptr @_ZN11PairingHeapI3KeyE6reduceEPNS1_4NodeE(ptr noundef nonnull %54)
+  %63 = load ptr, ptr %2, align 8
+  store ptr %63, ptr %62, align 8
+  %64 = getelementptr inbounds i8, ptr %63, i64 16
+  store ptr %62, ptr %64, align 8
+  br label %_ZN11PairingHeapI3KeyE6removeEPNS1_4NodeE.exit.i.sink.split.sink.split
 
-.sink.split.sink.split.i.i:                       ; preds = %62, %61
-  %.sink40.i.i = phi ptr [ %63, %62 ], [ %57, %61 ]
+_ZN11PairingHeapI3KeyE6removeEPNS1_4NodeE.exit.i.sink.split.sink.split: ; preds = %60, %61
+  %.sink = phi ptr [ %62, %61 ], [ %57, %60 ]
+  %65 = load ptr, ptr %23, align 8
+  store ptr %.sink, ptr %65, align 8
+  br label %_ZN11PairingHeapI3KeyE6removeEPNS1_4NodeE.exit.i.sink.split
+
+_ZN11PairingHeapI3KeyE6removeEPNS1_4NodeE.exit.i.sink.split: ; preds = %_ZN11PairingHeapI3KeyE6removeEPNS1_4NodeE.exit.i.sink.split.sink.split, %58
+  %.sink64 = phi ptr [ %54, %58 ], [ %.sink, %_ZN11PairingHeapI3KeyE6removeEPNS1_4NodeE.exit.i.sink.split.sink.split ]
   %66 = load ptr, ptr %23, align 8
-  store ptr %.sink40.i.i, ptr %66, align 8
-  br label %.sink.split.i.i
-
-.sink.split.i.i:                                  ; preds = %.sink.split.sink.split.i.i, %58
-  %.sink38.i.i = phi ptr [ %54, %58 ], [ %.sink40.i.i, %.sink.split.sink.split.i.i ]
-  %67 = load ptr, ptr %23, align 8
-  %68 = getelementptr inbounds i8, ptr %.sink38.i.i, i64 16
-  store ptr %67, ptr %68, align 8
+  %67 = getelementptr inbounds i8, ptr %.sink64, i64 16
+  store ptr %66, ptr %67, align 8
   br label %_ZN11PairingHeapI3KeyE6removeEPNS1_4NodeE.exit.i
 
-_ZN11PairingHeapI3KeyE6removeEPNS1_4NodeE.exit.i: ; preds = %.sink.split.i.i, %58
-  %69 = load ptr, ptr %4, align 8
-  store ptr %69, ptr %2, align 8
-  %.not.i5.i = icmp eq ptr %69, null
-  br i1 %.not.i5.i, label %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE10addUnknownEPS0_.exit.i, label %70
+_ZN11PairingHeapI3KeyE6removeEPNS1_4NodeE.exit.i: ; preds = %_ZN11PairingHeapI3KeyE6removeEPNS1_4NodeE.exit.i.sink.split, %58
+  %68 = load ptr, ptr %4, align 8
+  store ptr %68, ptr %2, align 8
+  %.not.i5.i = icmp eq ptr %68, null
+  br i1 %.not.i5.i, label %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE10addUnknownEPS0_.exit.i, label %69
 
-70:                                               ; preds = %_ZN11PairingHeapI3KeyE6removeEPNS1_4NodeE.exit.i
-  %71 = getelementptr inbounds i8, ptr %69, i64 16
-  store ptr %2, ptr %71, align 8
+69:                                               ; preds = %_ZN11PairingHeapI3KeyE6removeEPNS1_4NodeE.exit.i
+  %70 = getelementptr inbounds i8, ptr %68, i64 16
+  store ptr %2, ptr %70, align 8
   br label %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE10addUnknownEPS0_.exit.i
 
-_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE10addUnknownEPS0_.exit.i: ; preds = %70, %_ZN11PairingHeapI3KeyE6removeEPNS1_4NodeE.exit.i
+_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE10addUnknownEPS0_.exit.i: ; preds = %69, %_ZN11PairingHeapI3KeyE6removeEPNS1_4NodeE.exit.i
   store ptr %2, ptr %4, align 8
   store ptr %4, ptr %23, align 8
   store ptr %2, ptr %24, align 8
-  br label %72
+  br label %71
 
-72:                                               ; preds = %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE10addUnknownEPS0_.exit.i, %53
+71:                                               ; preds = %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE10addUnknownEPS0_.exit.i, %53
   store i32 21, ptr %11, align 8
-  %73 = load ptr, ptr %21, align 8
-  %.not63 = icmp eq ptr %73, null
-  br i1 %.not63, label %74, label %78
+  %72 = load ptr, ptr %21, align 8
+  %.not61 = icmp eq ptr %72, null
+  br i1 %.not61, label %73, label %77
 
-74:                                               ; preds = %72
-  %75 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str, i32 noundef 86, i1 noundef zeroext true)
-  %76 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %77 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull @.str.9)
-  call void @_Z15v3errorEndFatalRNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %77) #6
+73:                                               ; preds = %71
+  %74 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str, i32 noundef 86, i1 noundef zeroext true)
+  %75 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %76 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef nonnull @.str.9)
+  call void @_Z15v3errorEndFatalRNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %76) #6
   unreachable
 
-78:                                               ; preds = %72
-  %79 = load ptr, ptr %22, align 8
-  %80 = icmp eq ptr %79, %1
-  %81 = load ptr, ptr %1, align 8
-  br i1 %80, label %82, label %83
+77:                                               ; preds = %71
+  %78 = load ptr, ptr %22, align 8
+  %79 = icmp eq ptr %78, %1
+  %80 = load ptr, ptr %1, align 8
+  br i1 %79, label %81, label %82
 
-82:                                               ; preds = %78
+81:                                               ; preds = %77
   store ptr null, ptr %1, align 8
-  store ptr %81, ptr %73, align 8
-  %.not.i22 = icmp eq ptr %81, null
-  br i1 %.not.i22, label %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE6removeEPS0_.exit, label %_ZN11PairingHeapI3KeyE6removeEPNS1_4NodeE.exit.sink.split.i
+  store ptr %80, ptr %72, align 8
+  %.not.i20 = icmp eq ptr %80, null
+  br i1 %.not.i20, label %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE6removeEPS0_.exit, label %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE6removeEPS0_.exit.sink.split
 
-83:                                               ; preds = %78
-  %.not.i.i16 = icmp eq ptr %81, null
-  br i1 %.not.i.i16, label %84, label %85
+82:                                               ; preds = %77
+  %.not.i.i16 = icmp eq ptr %80, null
+  br i1 %.not.i.i16, label %83, label %84
 
-84:                                               ; preds = %83
+83:                                               ; preds = %82
   store ptr null, ptr %22, align 8
-  store ptr %79, ptr %73, align 8
-  %.not35.i.i21 = icmp eq ptr %79, null
-  br i1 %.not35.i.i21, label %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE6removeEPS0_.exit, label %_ZN11PairingHeapI3KeyE6removeEPNS1_4NodeE.exit.sink.split.i
+  store ptr %78, ptr %72, align 8
+  %.not35.i.i19 = icmp eq ptr %78, null
+  br i1 %.not35.i.i19, label %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE6removeEPS0_.exit, label %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE6removeEPS0_.exit.sink.split
 
-85:                                               ; preds = %83
-  %.not34.i.i17 = icmp eq ptr %79, null
-  br i1 %.not34.i.i17, label %86, label %87
+84:                                               ; preds = %82
+  %.not34.i.i17 = icmp eq ptr %78, null
+  br i1 %.not34.i.i17, label %85, label %86
 
-86:                                               ; preds = %85
+85:                                               ; preds = %84
   store ptr null, ptr %1, align 8
-  br label %.sink.split.sink.split.i.i18
+  store ptr %80, ptr %72, align 8
+  br label %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE6removeEPS0_.exit.sink.split
 
-87:                                               ; preds = %85
+86:                                               ; preds = %84
   store ptr null, ptr %22, align 8
-  %88 = call noundef ptr @_ZN11PairingHeapI3KeyE6reduceEPNS1_4NodeE(ptr noundef nonnull %79)
-  %89 = load ptr, ptr %1, align 8
+  %87 = call noundef ptr @_ZN11PairingHeapI3KeyE6reduceEPNS1_4NodeE(ptr noundef nonnull %78)
+  %88 = load ptr, ptr %1, align 8
   store ptr null, ptr %1, align 8
-  store ptr %89, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 16
-  store ptr %88, ptr %90, align 8
-  %.pre65 = load ptr, ptr %21, align 8
-  br label %.sink.split.sink.split.i.i18
+  store ptr %88, ptr %87, align 8
+  %89 = getelementptr inbounds i8, ptr %88, i64 16
+  store ptr %87, ptr %89, align 8
+  %90 = load ptr, ptr %21, align 8
+  store ptr %87, ptr %90, align 8
+  br label %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE6removeEPS0_.exit.sink.split
 
-.sink.split.sink.split.i.i18:                     ; preds = %87, %86
-  %91 = phi ptr [ %.pre65, %87 ], [ %73, %86 ]
-  %.sink40.i.i19 = phi ptr [ %88, %87 ], [ %81, %86 ]
-  store ptr %.sink40.i.i19, ptr %91, align 8
-  br label %_ZN11PairingHeapI3KeyE6removeEPNS1_4NodeE.exit.sink.split.i
-
-_ZN11PairingHeapI3KeyE6removeEPNS1_4NodeE.exit.sink.split.i: ; preds = %.sink.split.sink.split.i.i18, %84, %82
-  %.sink38.i.sink.i = phi ptr [ %81, %82 ], [ %79, %84 ], [ %.sink40.i.i19, %.sink.split.sink.split.i.i18 ]
-  %92 = load ptr, ptr %21, align 8
-  %93 = getelementptr inbounds i8, ptr %.sink38.i.sink.i, i64 16
-  store ptr %92, ptr %93, align 8
+_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE6removeEPS0_.exit.sink.split: ; preds = %83, %81, %85, %86
+  %.sink68 = phi ptr [ %87, %86 ], [ %80, %85 ], [ %80, %81 ], [ %78, %83 ]
+  %91 = load ptr, ptr %21, align 8
+  %92 = getelementptr inbounds i8, ptr %.sink68, i64 16
+  store ptr %91, ptr %92, align 8
   br label %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE6removeEPS0_.exit
 
-_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE6removeEPS0_.exit: ; preds = %82, %84, %_ZN11PairingHeapI3KeyE6removeEPNS1_4NodeE.exit.sink.split.i
+_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE6removeEPS0_.exit: ; preds = %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE6removeEPS0_.exit.sink.split, %83, %81
   store ptr null, ptr %21, align 8
-  %94 = load ptr, ptr %23, align 8
-  %.not64 = icmp eq ptr %94, null
-  br i1 %.not64, label %95, label %99
+  %93 = load ptr, ptr %23, align 8
+  %.not62 = icmp eq ptr %93, null
+  br i1 %.not62, label %94, label %98
 
-95:                                               ; preds = %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE6removeEPS0_.exit
-  %96 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str, i32 noundef 89, i1 noundef zeroext true)
-  %97 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %98 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %97, ptr noundef nonnull @.str.11)
-  call void @_Z15v3errorEndFatalRNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %98) #6
+94:                                               ; preds = %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE6removeEPS0_.exit
+  %95 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str, i32 noundef 89, i1 noundef zeroext true)
+  %96 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %97 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %96, ptr noundef nonnull @.str.11)
+  call void @_Z15v3errorEndFatalRNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %97) #6
   unreachable
 
-99:                                               ; preds = %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE6removeEPS0_.exit
-  %100 = load ptr, ptr %0, align 8
-  %.not.i.i23 = icmp eq ptr %100, null
-  br i1 %.not.i.i23, label %_ZNK12V3ScoreboardI18ScoreboardTestElem3KeyE4bestEv.exit27.thread, label %101
+98:                                               ; preds = %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE6removeEPS0_.exit
+  %99 = load ptr, ptr %0, align 8
+  %.not.i.i21 = icmp eq ptr %99, null
+  br i1 %.not.i.i21, label %_ZNK12V3ScoreboardI18ScoreboardTestElem3KeyE4bestEv.exit25.thread, label %100
 
-101:                                              ; preds = %99
-  %102 = load ptr, ptr %100, align 8
-  %.not11.i.i24 = icmp eq ptr %102, null
-  br i1 %.not11.i.i24, label %_ZNK12V3ScoreboardI18ScoreboardTestElem3KeyE4bestEv.exit27, label %103
+100:                                              ; preds = %98
+  %101 = load ptr, ptr %99, align 8
+  %.not11.i.i22 = icmp eq ptr %101, null
+  br i1 %.not11.i.i22, label %_ZNK12V3ScoreboardI18ScoreboardTestElem3KeyE4bestEv.exit25, label %102
 
-103:                                              ; preds = %101
+102:                                              ; preds = %100
   store ptr null, ptr %0, align 8
-  %104 = call noundef ptr @_ZN11PairingHeapI3KeyE6reduceEPNS1_4NodeE(ptr noundef nonnull %100)
-  store ptr %104, ptr %0, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 16
-  store ptr %0, ptr %105, align 8
-  br label %_ZNK12V3ScoreboardI18ScoreboardTestElem3KeyE4bestEv.exit27
+  %103 = call noundef ptr @_ZN11PairingHeapI3KeyE6reduceEPNS1_4NodeE(ptr noundef nonnull %99)
+  store ptr %103, ptr %0, align 8
+  %104 = getelementptr inbounds i8, ptr %103, i64 16
+  store ptr %0, ptr %104, align 8
+  br label %_ZNK12V3ScoreboardI18ScoreboardTestElem3KeyE4bestEv.exit25
 
-_ZNK12V3ScoreboardI18ScoreboardTestElem3KeyE4bestEv.exit27: ; preds = %101, %103
-  %.pr58 = phi ptr [ %104, %103 ], [ %100, %101 ]
-  %.not2 = icmp eq ptr %3, %.pr58
-  br i1 %.not2, label %109, label %_ZNK12V3ScoreboardI18ScoreboardTestElem3KeyE4bestEv.exit27.thread
+_ZNK12V3ScoreboardI18ScoreboardTestElem3KeyE4bestEv.exit25: ; preds = %100, %102
+  %.pr56 = phi ptr [ %103, %102 ], [ %99, %100 ]
+  %.not2 = icmp eq ptr %3, %.pr56
+  br i1 %.not2, label %108, label %_ZNK12V3ScoreboardI18ScoreboardTestElem3KeyE4bestEv.exit25.thread
 
-_ZNK12V3ScoreboardI18ScoreboardTestElem3KeyE4bestEv.exit27.thread: ; preds = %99, %_ZNK12V3ScoreboardI18ScoreboardTestElem3KeyE4bestEv.exit27
-  %106 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str, i32 noundef 93, i1 noundef zeroext true)
-  %107 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %108 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %107, ptr noundef nonnull @.str.12)
-  call void @_Z15v3errorEndFatalRNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %108) #6
+_ZNK12V3ScoreboardI18ScoreboardTestElem3KeyE4bestEv.exit25.thread: ; preds = %98, %_ZNK12V3ScoreboardI18ScoreboardTestElem3KeyE4bestEv.exit25
+  %105 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str, i32 noundef 93, i1 noundef zeroext true)
+  %106 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %107 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %106, ptr noundef nonnull @.str.12)
+  call void @_Z15v3errorEndFatalRNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %107) #6
   unreachable
 
-109:                                              ; preds = %_ZNK12V3ScoreboardI18ScoreboardTestElem3KeyE4bestEv.exit27
-  %110 = load ptr, ptr %4, align 8
+108:                                              ; preds = %_ZNK12V3ScoreboardI18ScoreboardTestElem3KeyE4bestEv.exit25
+  %109 = load ptr, ptr %4, align 8
   store ptr null, ptr %4, align 8
-  %.not12.i28 = icmp eq ptr %110, null
-  br i1 %.not12.i28, label %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE7rescoreEv.exit34.thread, label %_ZN11PairingHeapI3KeyE6insertEPNS1_4NodeE.exit.i32
+  %.not12.i26 = icmp eq ptr %109, null
+  br i1 %.not12.i26, label %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE7rescoreEv.exit32.thread, label %_ZN11PairingHeapI3KeyE6insertEPNS1_4NodeE.exit.i30
 
-_ZN11PairingHeapI3KeyE6insertEPNS1_4NodeE.exit.i32: ; preds = %109, %_ZN11PairingHeapI3KeyE6insertEPNS1_4NodeE.exit.i32
-  %111 = phi ptr [ %.013.i30, %_ZN11PairingHeapI3KeyE6insertEPNS1_4NodeE.exit.i32 ], [ %.pr58, %109 ]
-  %.013.i30 = phi ptr [ %112, %_ZN11PairingHeapI3KeyE6insertEPNS1_4NodeE.exit.i32 ], [ %110, %109 ]
-  %112 = load ptr, ptr %.013.i30, align 8
-  %113 = getelementptr inbounds i8, ptr %.013.i30, i64 16
-  %114 = getelementptr inbounds i8, ptr %.013.i30, i64 40
-  %115 = getelementptr inbounds i8, ptr %.013.i30, i64 8
-  store i64 0, ptr %115, align 8
-  %116 = load i32, ptr %114, align 8
-  %117 = getelementptr inbounds i8, ptr %.013.i30, i64 32
-  store i32 %116, ptr %117, align 8
-  store ptr %111, ptr %.013.i30, align 8
-  %118 = getelementptr inbounds i8, ptr %111, i64 16
-  store ptr %.013.i30, ptr %118, align 8
-  store ptr %.013.i30, ptr %0, align 8
-  store ptr %0, ptr %113, align 8
-  %.not.i33 = icmp eq ptr %112, null
-  br i1 %.not.i33, label %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE7rescoreEv.exit34.thread, label %_ZN11PairingHeapI3KeyE6insertEPNS1_4NodeE.exit.i32, !llvm.loop !5
+_ZN11PairingHeapI3KeyE6insertEPNS1_4NodeE.exit.i30: ; preds = %108, %_ZN11PairingHeapI3KeyE6insertEPNS1_4NodeE.exit.i30
+  %110 = phi ptr [ %.013.i28, %_ZN11PairingHeapI3KeyE6insertEPNS1_4NodeE.exit.i30 ], [ %.pr56, %108 ]
+  %.013.i28 = phi ptr [ %111, %_ZN11PairingHeapI3KeyE6insertEPNS1_4NodeE.exit.i30 ], [ %109, %108 ]
+  %111 = load ptr, ptr %.013.i28, align 8
+  %112 = getelementptr inbounds i8, ptr %.013.i28, i64 16
+  %113 = getelementptr inbounds i8, ptr %.013.i28, i64 40
+  %114 = getelementptr inbounds i8, ptr %.013.i28, i64 8
+  store i64 0, ptr %114, align 8
+  %115 = load i32, ptr %113, align 8
+  %116 = getelementptr inbounds i8, ptr %.013.i28, i64 32
+  store i32 %115, ptr %116, align 8
+  store ptr %110, ptr %.013.i28, align 8
+  %117 = getelementptr inbounds i8, ptr %110, i64 16
+  store ptr %.013.i28, ptr %117, align 8
+  store ptr %.013.i28, ptr %0, align 8
+  store ptr %0, ptr %112, align 8
+  %.not.i31 = icmp eq ptr %111, null
+  br i1 %.not.i31, label %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE7rescoreEv.exit32.thread, label %_ZN11PairingHeapI3KeyE6insertEPNS1_4NodeE.exit.i30, !llvm.loop !5
 
-_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE7rescoreEv.exit34.thread: ; preds = %_ZN11PairingHeapI3KeyE6insertEPNS1_4NodeE.exit.i32, %109
-  %119 = phi ptr [ %.pr58, %109 ], [ %.013.i30, %_ZN11PairingHeapI3KeyE6insertEPNS1_4NodeE.exit.i32 ]
-  %120 = load ptr, ptr %119, align 8
-  %.not11.i.i36 = icmp eq ptr %120, null
-  br i1 %.not11.i.i36, label %_ZNK12V3ScoreboardI18ScoreboardTestElem3KeyE4bestEv.exit39, label %121
+_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE7rescoreEv.exit32.thread: ; preds = %_ZN11PairingHeapI3KeyE6insertEPNS1_4NodeE.exit.i30, %108
+  %118 = phi ptr [ %.pr56, %108 ], [ %.013.i28, %_ZN11PairingHeapI3KeyE6insertEPNS1_4NodeE.exit.i30 ]
+  %119 = load ptr, ptr %118, align 8
+  %.not11.i.i34 = icmp eq ptr %119, null
+  br i1 %.not11.i.i34, label %_ZNK12V3ScoreboardI18ScoreboardTestElem3KeyE4bestEv.exit37, label %120
 
-121:                                              ; preds = %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE7rescoreEv.exit34.thread
+120:                                              ; preds = %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE7rescoreEv.exit32.thread
   store ptr null, ptr %0, align 8
-  %122 = call noundef ptr @_ZN11PairingHeapI3KeyE6reduceEPNS1_4NodeE(ptr noundef nonnull %119)
-  store ptr %122, ptr %0, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 16
-  store ptr %0, ptr %123, align 8
-  br label %_ZNK12V3ScoreboardI18ScoreboardTestElem3KeyE4bestEv.exit39
+  %121 = call noundef ptr @_ZN11PairingHeapI3KeyE6reduceEPNS1_4NodeE(ptr noundef nonnull %118)
+  store ptr %121, ptr %0, align 8
+  %122 = getelementptr inbounds i8, ptr %121, i64 16
+  store ptr %0, ptr %122, align 8
+  br label %_ZNK12V3ScoreboardI18ScoreboardTestElem3KeyE4bestEv.exit37
 
-_ZNK12V3ScoreboardI18ScoreboardTestElem3KeyE4bestEv.exit39: ; preds = %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE7rescoreEv.exit34.thread, %121
-  %.0.i.i38 = phi ptr [ %122, %121 ], [ %119, %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE7rescoreEv.exit34.thread ]
-  %.not3 = icmp eq ptr %2, %.0.i.i38
-  br i1 %.not3, label %127, label %_ZNK12V3ScoreboardI18ScoreboardTestElem3KeyE4bestEv.exit39.thread
+_ZNK12V3ScoreboardI18ScoreboardTestElem3KeyE4bestEv.exit37: ; preds = %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE7rescoreEv.exit32.thread, %120
+  %.0.i.i36 = phi ptr [ %121, %120 ], [ %118, %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE7rescoreEv.exit32.thread ]
+  %.not3 = icmp eq ptr %2, %.0.i.i36
+  br i1 %.not3, label %126, label %_ZNK12V3ScoreboardI18ScoreboardTestElem3KeyE4bestEv.exit37.thread
 
-_ZNK12V3ScoreboardI18ScoreboardTestElem3KeyE4bestEv.exit39.thread: ; preds = %_ZNK12V3ScoreboardI18ScoreboardTestElem3KeyE4bestEv.exit39
-  %124 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str, i32 noundef 95, i1 noundef zeroext true)
-  %125 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %126 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %125, ptr noundef nonnull @.str.13)
-  call void @_Z15v3errorEndFatalRNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %126) #6
+_ZNK12V3ScoreboardI18ScoreboardTestElem3KeyE4bestEv.exit37.thread: ; preds = %_ZNK12V3ScoreboardI18ScoreboardTestElem3KeyE4bestEv.exit37
+  %123 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str, i32 noundef 95, i1 noundef zeroext true)
+  %124 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %125 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %124, ptr noundef nonnull @.str.13)
+  call void @_Z15v3errorEndFatalRNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %125) #6
   unreachable
 
-127:                                              ; preds = %_ZNK12V3ScoreboardI18ScoreboardTestElem3KeyE4bestEv.exit39
+126:                                              ; preds = %_ZNK12V3ScoreboardI18ScoreboardTestElem3KeyE4bestEv.exit37
   ret void
 }
 

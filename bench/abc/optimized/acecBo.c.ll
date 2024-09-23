@@ -323,14 +323,14 @@ define range(i32 0, 2) i32 @Acec_DetectBoothXorFanin(ptr nocapture noundef reado
   br label %.sink.split
 
 .sink.split:                                      ; preds = %29, %58, %74, %98
-  %.sink79 = phi i64 [ %110, %98 ], [ %86, %74 ], [ %66, %58 ], [ %42, %29 ]
-  %.sink77 = phi ptr [ %103, %98 ], [ %78, %74 ], [ %59, %58 ], [ %34, %29 ]
-  %111 = and i64 %.sink79, 536870911
+  %.sink78 = phi i64 [ %42, %29 ], [ %66, %58 ], [ %86, %74 ], [ %110, %98 ]
+  %.val.sink.in = phi ptr [ %34, %29 ], [ %59, %58 ], [ %78, %74 ], [ %103, %98 ]
+  %111 = and i64 %.sink78, 536870911
   %112 = sub nsw i64 0, %111
   %113 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %14, i64 %112
-  %.val = load ptr, ptr %.sink77, align 8
+  %.val.sink = load ptr, ptr %.val.sink.in, align 8
   %114 = ptrtoint ptr %113 to i64
-  %115 = ptrtoint ptr %.val to i64
+  %115 = ptrtoint ptr %.val.sink to i64
   %116 = sub i64 %114, %115
   %117 = sdiv exact i64 %116, 12
   %118 = trunc i64 %117 to i32
@@ -417,7 +417,7 @@ define range(i32 0, 2) i32 @Acec_DetectBoothTwoXor(ptr nocapture noundef readonl
   %7 = and i64 %.val28, 536870911
   %8 = icmp eq i64 %7, 536870911
   %narrow.i.not = or i1 %.not.i, %8
-  br i1 %narrow.i.not, label %70, label %9
+  br i1 %narrow.i.not, label %67, label %9
 
 9:                                                ; preds = %3
   %10 = sub nsw i64 0, %7
@@ -463,7 +463,7 @@ define range(i32 0, 2) i32 @Acec_DetectBoothTwoXor(ptr nocapture noundef readonl
   %39 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %1, i64 %38
   %40 = call i32 @Gia_ObjRecognizeExor(ptr noundef nonnull %39, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
   %.not22 = icmp eq i32 %40, 0
-  br i1 %.not22, label %70, label %41
+  br i1 %.not22, label %67, label %41
 
 41:                                               ; preds = %34
   %42 = load ptr, ptr %4, align 8
@@ -494,22 +494,22 @@ define range(i32 0, 2) i32 @Acec_DetectBoothTwoXor(ptr nocapture noundef readonl
   br label %.sink.split
 
 .sink.split:                                      ; preds = %13, %41
-  %.sink36 = phi i64 [ %60, %41 ], [ %33, %13 ]
-  %.sink34 = phi ptr [ %45, %41 ], [ %17, %13 ]
-  %61 = and i64 %.sink36, 536870911
-  %62 = sub nsw i64 0, %61
-  %63 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %1, i64 %62
-  %.val = load ptr, ptr %.sink34, align 8
-  %64 = ptrtoint ptr %63 to i64
-  %65 = ptrtoint ptr %.val to i64
-  %66 = sub i64 %64, %65
-  %67 = sdiv exact i64 %66, 12
-  %68 = trunc i64 %67 to i32
-  %69 = getelementptr inbounds i8, ptr %2, i64 16
-  store i32 %68, ptr %69, align 4
-  br label %70
+  %.pn34.in = phi i64 [ %60, %41 ], [ %33, %13 ]
+  %.val.sink.in = phi ptr [ %45, %41 ], [ %17, %13 ]
+  %.val.sink = load ptr, ptr %.val.sink.in, align 8
+  %.pn34 = and i64 %.pn34.in, 536870911
+  %.pn = sub nsw i64 0, %.pn34
+  %.sink = getelementptr inbounds %struct.Gia_Obj_t_, ptr %1, i64 %.pn
+  %61 = ptrtoint ptr %.sink to i64
+  %62 = ptrtoint ptr %.val.sink to i64
+  %63 = sub i64 %61, %62
+  %64 = sdiv exact i64 %63, 12
+  %65 = trunc i64 %64 to i32
+  %66 = getelementptr inbounds i8, ptr %2, i64 16
+  store i32 %65, ptr %66, align 4
+  br label %67
 
-70:                                               ; preds = %.sink.split, %34, %3
+67:                                               ; preds = %.sink.split, %34, %3
   %.0 = phi i32 [ 0, %3 ], [ 0, %34 ], [ 1, %.sink.split ]
   ret i32 %.0
 }

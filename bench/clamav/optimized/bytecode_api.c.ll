@@ -595,7 +595,7 @@ define noundef i32 @cli_bcapi_trace_scope(ptr nocapture noundef %0, ptr noundef 
   %4 = getelementptr inbounds i8, ptr %0, i64 1176
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %18, label %6
+  br i1 %.not, label %19, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 1168
@@ -608,27 +608,30 @@ define noundef i32 @cli_bcapi_trace_scope(ptr nocapture noundef %0, ptr noundef 
   %10 = select i1 %.not18, ptr @.str.23, ptr %1
   store ptr %10, ptr %7, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 1180
+  store i32 %2, ptr %11, align 4
   br label %.sink.split
 
 12:                                               ; preds = %6
   %13 = icmp ugt i32 %5, 2
-  br i1 %13, label %14, label %18
+  br i1 %13, label %14, label %19
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds i8, ptr %0, i64 1180
   %16 = load i32, ptr %15, align 4
   %.not17 = icmp eq i32 %16, %2
-  br i1 %.not17, label %18, label %.sink.split
+  br i1 %.not17, label %19, label %17
 
-.sink.split:                                      ; preds = %14, %9
-  %.sink = phi ptr [ %11, %9 ], [ %15, %14 ]
-  %.sink19 = phi i32 [ 128, %9 ], [ 64, %14 ]
-  store i32 %2, ptr %.sink, align 4
-  %17 = or i32 %5, %.sink19
-  store i32 %17, ptr %4, align 8
-  br label %18
+17:                                               ; preds = %14
+  store i32 %2, ptr %15, align 4
+  br label %.sink.split
 
-18:                                               ; preds = %.sink.split, %14, %12, %3
+.sink.split:                                      ; preds = %17, %9
+  %.sink19 = phi i32 [ 128, %9 ], [ 64, %17 ]
+  %18 = or i32 %5, %.sink19
+  store i32 %18, ptr %4, align 8
+  br label %19
+
+19:                                               ; preds = %.sink.split, %14, %12, %3
   ret i32 0
 }
 

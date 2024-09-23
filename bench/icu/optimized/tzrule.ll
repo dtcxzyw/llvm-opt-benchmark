@@ -1448,7 +1448,8 @@ if.then6:                                         ; preds = %if.end
 if.then10:                                        ; preds = %if.then6
   store i32 7, ptr %status, align 4
   %fNumStartTimes = getelementptr inbounds i8, ptr %this, i64 84
-  br label %return.sink.split
+  store i32 0, ptr %fNumStartTimes, align 4
+  br label %return
 
 if.else:                                          ; preds = %if.end
   store ptr %fLocalStartTimes, ptr %fStartTimes, align 8
@@ -1471,19 +1472,18 @@ if.then23:                                        ; preds = %do.body
   %cmp25.not = icmp eq ptr %3, null
   %cmp30.not = icmp eq ptr %3, %fLocalStartTimes
   %or.cond7 = select i1 %cmp25.not, i1 true, i1 %cmp30.not
-  br i1 %or.cond7, label %return.sink.split, label %if.then31
+  br i1 %or.cond7, label %if.end33, label %if.then31
 
 if.then31:                                        ; preds = %if.then23
   tail call void @uprv_free_75(ptr noundef nonnull %3)
-  br label %return.sink.split
+  br label %if.end33
 
-return.sink.split:                                ; preds = %if.then23, %if.then31, %if.then10
-  %fNumStartTimes19.sink = phi ptr [ %fNumStartTimes, %if.then10 ], [ %fNumStartTimes19, %if.then31 ], [ %fNumStartTimes19, %if.then23 ]
-  store i32 0, ptr %fNumStartTimes19.sink, align 4
+if.end33:                                         ; preds = %if.then31, %if.then23
+  store i32 0, ptr %fNumStartTimes19, align 4
   br label %return
 
-return:                                           ; preds = %return.sink.split, %do.body
-  %retval.0 = phi i8 [ 1, %do.body ], [ 0, %return.sink.split ]
+return:                                           ; preds = %do.body, %if.end33, %if.then10
+  %retval.0 = phi i8 [ 0, %if.then10 ], [ 0, %if.end33 ], [ 1, %do.body ]
   ret i8 %retval.0
 }
 

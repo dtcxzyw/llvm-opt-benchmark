@@ -2224,10 +2224,10 @@ if.else:                                          ; preds = %if.end9, %if.end37
   br label %if.end47
 
 if.end47:                                         ; preds = %if.else, %if.end43
-  %path46.sink = phi ptr [ %path46, %if.else ], [ %tag45, %if.end43 ]
-  %13 = load ptr, ptr %path46.sink, align 8
-  %call.i23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #18
-  tail call void @strbuf_add(ptr noundef %dst, ptr noundef %13, i64 noundef %call.i23) #15
+  %.sink39.in = phi ptr [ %path46, %if.else ], [ %tag45, %if.end43 ]
+  %.sink39 = load ptr, ptr %.sink39.in, align 8
+  %call.i23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink39) #18
+  tail call void @strbuf_add(ptr noundef %dst, ptr noundef %.sink39, i64 noundef %call.i23) #15
   ret void
 }
 

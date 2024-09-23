@@ -6825,13 +6825,23 @@ if.then:                                          ; preds = %entry
   %mapX_ = getelementptr inbounds nuw i8, ptr %this, i64 176
   %0 = load ptr, ptr %mapX_, align 8, !tbaa !145
   %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %return.sink.split, label %return, !prof !34
+  br i1 %cmp.not.i, label %cond.false.i, label %return, !prof !34
+
+cond.false.i:                                     ; preds = %if.then
+  tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.14, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib18TripleBandLinearOpEEptEv, ptr noundef nonnull @.str.15, i64 noundef 784)
+  %.pre.i = load ptr, ptr %mapX_, align 8, !tbaa !145
+  br label %return
 
 if.then3:                                         ; preds = %entry
   %mapY_ = getelementptr inbounds nuw i8, ptr %this, i64 192
   %1 = load ptr, ptr %mapY_, align 8, !tbaa !109
   %cmp.not.i7 = icmp eq ptr %1, null
-  br i1 %cmp.not.i7, label %return.sink.split, label %return, !prof !34
+  br i1 %cmp.not.i7, label %cond.false.i8, label %return, !prof !34
+
+cond.false.i8:                                    ; preds = %if.then3
+  tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.14, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib18FdmSquareRootFwdOpEEptEv, ptr noundef nonnull @.str.15, i64 noundef 784)
+  %.pre.i9 = load ptr, ptr %mapY_, align 8, !tbaa !109
+  br label %return
 
 do.body:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream) #24
@@ -6989,15 +6999,8 @@ ehcleanup30:                                      ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %_ql_msg_stream) #24
   resume { ptr, i32 } %.pn.pn.pn.pn
 
-return.sink.split:                                ; preds = %if.then3, %if.then
-  %__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib18FdmSquareRootFwdOpEEptEv.sink = phi ptr [ @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib18TripleBandLinearOpEEptEv, %if.then ], [ @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib18FdmSquareRootFwdOpEEptEv, %if.then3 ]
-  %mapY_.sink = phi ptr [ %mapX_, %if.then ], [ %mapY_, %if.then3 ]
-  tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.14, ptr noundef nonnull %__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib18FdmSquareRootFwdOpEEptEv.sink, ptr noundef nonnull @.str.15, i64 noundef 784)
-  %.pre.i9 = load ptr, ptr %mapY_.sink, align 8, !tbaa !75
-  br label %return
-
-return:                                           ; preds = %return.sink.split, %if.then3, %if.then
-  %.sink44 = phi ptr [ %0, %if.then ], [ %1, %if.then3 ], [ %.pre.i9, %return.sink.split ]
+return:                                           ; preds = %cond.false.i8, %if.then3, %cond.false.i, %if.then
+  %.sink44 = phi ptr [ %0, %if.then ], [ %.pre.i, %cond.false.i ], [ %1, %if.then3 ], [ %.pre.i9, %cond.false.i8 ]
   %vtable5 = load ptr, ptr %.sink44, align 8, !tbaa !7
   %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 16
   %23 = load ptr, ptr %vfn6, align 8

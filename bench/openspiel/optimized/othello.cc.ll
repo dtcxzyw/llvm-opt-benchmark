@@ -3065,30 +3065,34 @@ define void @_ZNK10open_spiel7othello12OthelloState7ReturnsEv(ptr dead_on_unwind
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %6, ptr %7, align 8
-  switch i32 %4, label %10 [
+  switch i32 %4, label %12 [
     i32 0, label %8
-    i32 1, label %9
+    i32 1, label %10
   ]
 
 8:                                                ; preds = %2
   store double 1.000000e+00, ptr %5, align 8
   %.sroa.222.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
   store double -1.000000e+00, ptr %.sroa.222.0..sroa_idx, align 8
-  br label %11
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %6, ptr %9, align 8
+  br label %14
 
-9:                                                ; preds = %2
+10:                                               ; preds = %2
   store double -1.000000e+00, ptr %5, align 8
   %.sroa.220.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
   store double 1.000000e+00, ptr %.sroa.220.0..sroa_idx, align 8
-  br label %11
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %6, ptr %11, align 8
+  br label %14
 
-10:                                               ; preds = %2
+12:                                               ; preds = %2
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  br label %11
+  store ptr %6, ptr %13, align 8
+  br label %14
 
-11:                                               ; preds = %10, %9, %8
-  %.sink = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %6, ptr %.sink, align 8
+14:                                               ; preds = %12, %10, %8
   ret void
 }
 

@@ -1169,7 +1169,7 @@ lor.lhs.false:                                    ; preds = %for.body26
   %second30 = getelementptr i8, ptr %33, i64 -4
   %34 = load i32, ptr %second30, align 4
   %cmp32.not = icmp eq i32 %34, %resolved_loc27.sroa.0.0.extract.trunc
-  br i1 %cmp32.not, label %for.inc43, label %if.then33
+  br i1 %cmp32.not, label %if.end37, label %if.then33
 
 if.then33:                                        ; preds = %for.body26, %lor.lhs.false
   %conv34.pre-phi = phi i64 [ %32, %lor.lhs.false ], [ 0, %for.body26 ]
@@ -1177,12 +1177,15 @@ if.then33:                                        ; preds = %for.body26, %lor.lh
   %arrayidx.i103 = getelementptr inbounds %"struct.std::pair.138", ptr %.pre100, i64 %conv34.pre-phi
   store i32 %resolved_loc27.sroa.0.0.extract.trunc, ptr %arrayidx.i103, align 4
   %second3.i = getelementptr inbounds i8, ptr %arrayidx.i103, i64 4
+  store i32 %resolved_loc27.sroa.3.0.extract.trunc, ptr %second3.i, align 4
   br label %for.inc43
 
-for.inc43:                                        ; preds = %lor.lhs.false, %if.then33
-  %second30.sink = phi ptr [ %second3.i, %if.then33 ], [ %second30, %lor.lhs.false ]
-  %nextIndex.1 = phi i32 [ %inc, %if.then33 ], [ %nextIndex.091, %lor.lhs.false ]
-  store i32 %resolved_loc27.sroa.3.0.extract.trunc, ptr %second30.sink, align 4
+if.end37:                                         ; preds = %lor.lhs.false
+  store i32 %resolved_loc27.sroa.3.0.extract.trunc, ptr %second30, align 4
+  br label %for.inc43
+
+for.inc43:                                        ; preds = %if.end37, %if.then33
+  %nextIndex.1 = phi i32 [ %inc, %if.then33 ], [ %nextIndex.091, %if.end37 ]
   %incdec.ptr44 = getelementptr inbounds i8, ptr %__begin220.090, i64 8
   %cmp25.not = icmp eq ptr %incdec.ptr44, %add.ptr.i87
   br i1 %cmp25.not, label %for.end45.loopexit, label %for.body26
@@ -1804,7 +1807,8 @@ if.end8:                                          ; preds = %if.then6, %if.then2
   store i32 %4, ptr %Capacity11, align 4
   store ptr %add.ptr.i.i, ptr %RHS, align 8
   store i32 0, ptr %Capacity, align 4
-  br label %return.sink.split
+  store i32 0, ptr %Size, align 8
+  br label %return
 
 if.end12:                                         ; preds = %if.end
   %Size.i29 = getelementptr inbounds i8, ptr %RHS, i64 8
@@ -1828,7 +1832,8 @@ if.then.i.i.i.i.i:                                ; preds = %if.then16
 
 if.end22:                                         ; preds = %if.then.i.i.i.i.i, %if.then16
   store i32 %5, ptr %Size.i31, align 8
-  br label %return.sink.split
+  store i32 0, ptr %Size.i29, align 8
+  br label %return
 
 if.end24:                                         ; preds = %if.end12
   %Capacity.i38 = getelementptr inbounds i8, ptr %this, i64 12
@@ -1872,14 +1877,10 @@ if.then.i.i:                                      ; preds = %if.end37
 
 _ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit: ; preds = %if.end37, %if.then.i.i
   store i32 %5, ptr %Size.i31, align 8
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.end8, %if.end22, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit
-  %Size.i29.sink = phi ptr [ %Size.i29, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit ], [ %Size.i29, %if.end22 ], [ %Size, %if.end8 ]
-  store i32 0, ptr %Size.i29.sink, align 8
+  store i32 0, ptr %Size.i29, align 8
   br label %return
 
-return:                                           ; preds = %return.sink.split, %entry
+return:                                           ; preds = %entry, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit, %if.end22, %if.end8
   ret ptr %this
 }
 

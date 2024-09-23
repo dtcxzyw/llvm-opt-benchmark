@@ -837,17 +837,17 @@ define range(i32 -102, 1) i32 @IDADlsSetDenseJacFnB(ptr noundef %0, i32 noundef 
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %17
-  %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
-  %.024 = load ptr, ptr %.sink, align 8, !nonnull !10, !noundef !10
-  %19 = load i32, ptr %.024, align 8
+  %.024.sink.in = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
+  %.024.sink = load ptr, ptr %.024.sink.in, align 8, !nonnull !10, !noundef !10
+  %19 = load i32, ptr %.024.sink, align 8
   %20 = icmp eq i32 %1, %19
-  %21 = getelementptr inbounds i8, ptr %.024, i64 128
+  %21 = getelementptr inbounds i8, ptr %.024.sink, i64 128
   br i1 %20, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %22 = getelementptr inbounds i8, ptr %.024, i64 16
+  %22 = getelementptr inbounds i8, ptr %.024.sink, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %.024, i64 72
+  %24 = getelementptr inbounds i8, ptr %.024.sink, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %28
@@ -997,17 +997,17 @@ define range(i32 -102, 1) i32 @IDADlsSetDenseJacFnBS(ptr noundef %0, i32 noundef
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %17
-  %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
-  %.024 = load ptr, ptr %.sink, align 8, !nonnull !10, !noundef !10
-  %19 = load i32, ptr %.024, align 8
+  %.024.sink.in = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
+  %.024.sink = load ptr, ptr %.024.sink.in, align 8, !nonnull !10, !noundef !10
+  %19 = load i32, ptr %.024.sink, align 8
   %20 = icmp eq i32 %1, %19
-  %21 = getelementptr inbounds i8, ptr %.024, i64 128
+  %21 = getelementptr inbounds i8, ptr %.024.sink, i64 128
   br i1 %20, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %22 = getelementptr inbounds i8, ptr %.024, i64 16
+  %22 = getelementptr inbounds i8, ptr %.024.sink, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %.024, i64 72
+  %24 = getelementptr inbounds i8, ptr %.024.sink, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %28
@@ -1179,17 +1179,17 @@ define range(i32 -102, 1) i32 @IDADlsSetBandJacFnB(ptr noundef %0, i32 noundef %
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %17
-  %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
-  %.024 = load ptr, ptr %.sink, align 8, !nonnull !10, !noundef !10
-  %19 = load i32, ptr %.024, align 8
+  %.024.sink.in = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
+  %.024.sink = load ptr, ptr %.024.sink.in, align 8, !nonnull !10, !noundef !10
+  %19 = load i32, ptr %.024.sink, align 8
   %20 = icmp eq i32 %1, %19
-  %21 = getelementptr inbounds i8, ptr %.024, i64 128
+  %21 = getelementptr inbounds i8, ptr %.024.sink, i64 128
   br i1 %20, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %22 = getelementptr inbounds i8, ptr %.024, i64 16
+  %22 = getelementptr inbounds i8, ptr %.024.sink, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %.024, i64 72
+  %24 = getelementptr inbounds i8, ptr %.024.sink, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %28
@@ -1339,17 +1339,17 @@ define range(i32 -102, 1) i32 @IDADlsSetBandJacFnBS(ptr noundef %0, i32 noundef 
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %17
-  %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
-  %.024 = load ptr, ptr %.sink, align 8, !nonnull !10, !noundef !10
-  %19 = load i32, ptr %.024, align 8
+  %.024.sink.in = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
+  %.024.sink = load ptr, ptr %.024.sink.in, align 8, !nonnull !10, !noundef !10
+  %19 = load i32, ptr %.024.sink, align 8
   %20 = icmp eq i32 %1, %19
-  %21 = getelementptr inbounds i8, ptr %.024, i64 128
+  %21 = getelementptr inbounds i8, ptr %.024.sink, i64 128
   br i1 %20, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %22 = getelementptr inbounds i8, ptr %.024, i64 16
+  %22 = getelementptr inbounds i8, ptr %.024.sink, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %.024, i64 72
+  %24 = getelementptr inbounds i8, ptr %.024.sink, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %28

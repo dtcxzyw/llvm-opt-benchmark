@@ -359,13 +359,13 @@ entry:
 
 for.cond.preheader:                               ; preds = %entry
   %0 = load ptr, ptr %params, align 8
-  %cmp1.not49 = icmp eq ptr %0, null
-  br i1 %cmp1.not49, label %return, label %for.body.lr.ph
+  %cmp1.not50 = icmp eq ptr %0, null
+  br i1 %cmp1.not50, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %iv_gen.i35 = getelementptr inbounds i8, ptr %vctx, i64 84
+  %iv_gen.i36 = getelementptr inbounds i8, ptr %vctx, i64 84
   %iv.i = getelementptr inbounds i8, ptr %vctx, i64 85
-  %ivlen.i39 = getelementptr inbounds i8, ptr %vctx, i64 16
+  %ivlen.i40 = getelementptr inbounds i8, ptr %vctx, i64 16
   %hw.i = getelementptr inbounds i8, ptr %vctx, i64 240
   %iv_state.i = getelementptr inbounds i8, ptr %vctx, i64 80
   %libctx.i = getelementptr inbounds i8, ptr %vctx, i64 232
@@ -379,7 +379,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %1 = phi ptr [ %0, %for.body.lr.ph ], [ %26, %for.inc ]
-  %p.050 = phi ptr [ %params, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
+  %p.051 = phi ptr [ %params, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
   %call = call i32 @ossl_param_find_pidx(ptr noundef nonnull %1) #4
   switch i32 %call, label %for.inc [
     i32 33, label %sw.bb
@@ -391,7 +391,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 sw.bb:                                            ; preds = %for.body
   store ptr %buf1.i, ptr %vp, align 8
-  %call3 = call i32 @OSSL_PARAM_get_octet_string(ptr noundef nonnull %p.050, ptr noundef nonnull %vp, i64 noundef 16, ptr noundef nonnull %sz) #4
+  %call3 = call i32 @OSSL_PARAM_get_octet_string(ptr noundef nonnull %p.051, ptr noundef nonnull %vp, i64 noundef 16, ptr noundef nonnull %sz) #4
   %tobool.not = icmp eq i32 %call3, 0
   br i1 %tobool.not, label %return.sink.split, label %if.end5
 
@@ -401,7 +401,7 @@ if.end5:                                          ; preds = %sw.bb
   br i1 %cmp6, label %return.sink.split, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end5
-  %bf.load = load i8, ptr %iv_gen.i35, align 4
+  %bf.load = load i8, ptr %iv_gen.i36, align 4
   %bf.clear = and i8 %bf.load, 1
   %tobool7.not = icmp eq i8 %bf.clear, 0
   br i1 %tobool7.not, label %if.end9, label %return.sink.split
@@ -411,7 +411,7 @@ if.end9:                                          ; preds = %lor.lhs.false
   br label %for.inc
 
 sw.bb10:                                          ; preds = %for.body
-  %call11 = call i32 @OSSL_PARAM_get_size_t(ptr noundef nonnull %p.050, ptr noundef nonnull %sz) #4
+  %call11 = call i32 @OSSL_PARAM_get_size_t(ptr noundef nonnull %p.051, ptr noundef nonnull %sz) #4
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %return.sink.split, label %if.end14
 
@@ -422,7 +422,7 @@ if.end14:                                         ; preds = %sw.bb10
   br i1 %or.cond, label %return.sink.split, label %if.end19
 
 if.end19:                                         ; preds = %if.end14
-  %5 = load i64, ptr %ivlen.i39, align 8
+  %5 = load i64, ptr %ivlen.i40, align 8
   %cmp20.not = icmp eq i64 %5, %3
   br i1 %cmp20.not, label %for.inc, label %if.then21
 
@@ -436,19 +436,19 @@ if.then23:                                        ; preds = %if.then21
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then23, %if.then21
-  store i64 %3, ptr %ivlen.i39, align 8
+  store i64 %3, ptr %ivlen.i40, align 8
   br label %for.inc
 
 sw.bb28:                                          ; preds = %for.body
-  %data_type = getelementptr inbounds i8, ptr %p.050, i64 8
+  %data_type = getelementptr inbounds i8, ptr %p.051, i64 8
   %7 = load i32, ptr %data_type, align 8
   %cmp29.not = icmp eq i32 %7, 5
   br i1 %cmp29.not, label %if.end31, label %return.sink.split
 
 if.end31:                                         ; preds = %sw.bb28
-  %data = getelementptr inbounds i8, ptr %p.050, i64 16
+  %data = getelementptr inbounds i8, ptr %p.051, i64 16
   %8 = load ptr, ptr %data, align 8
-  %data_size = getelementptr inbounds i8, ptr %p.050, i64 24
+  %data_size = getelementptr inbounds i8, ptr %p.051, i64 24
   %9 = load i64, ptr %data_size, align 8
   %call.i = call i32 @ossl_prov_is_running() #4
   %tobool.i = icmp eq i32 %call.i, 0
@@ -470,7 +470,7 @@ if.end.i:                                         ; preds = %if.end31
 
 if.end9.i:                                        ; preds = %if.end.i
   %sub10.i = add nsw i64 %or.i, -8
-  %bf.load.i = load i8, ptr %iv_gen.i35, align 4
+  %bf.load.i = load i8, ptr %iv_gen.i36, align 4
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool11.not.i = icmp eq i8 %bf.clear.i, 0
   br i1 %tobool11.not.i, label %if.then12.i, label %if.end36
@@ -499,30 +499,30 @@ if.end36:                                         ; preds = %if.end16.i, %if.end
   br label %for.inc
 
 sw.bb37:                                          ; preds = %for.body
-  %data_type38 = getelementptr inbounds i8, ptr %p.050, i64 8
+  %data_type38 = getelementptr inbounds i8, ptr %p.051, i64 8
   %12 = load i32, ptr %data_type38, align 8
   %cmp39.not = icmp eq i32 %12, 5
   br i1 %cmp39.not, label %if.end42, label %return.sink.split
 
 if.end42:                                         ; preds = %sw.bb37
-  %data43 = getelementptr inbounds i8, ptr %p.050, i64 16
+  %data43 = getelementptr inbounds i8, ptr %p.051, i64 16
   %13 = load ptr, ptr %data43, align 8
-  %data_size44 = getelementptr inbounds i8, ptr %p.050, i64 24
+  %data_size44 = getelementptr inbounds i8, ptr %p.051, i64 24
   %14 = load i64, ptr %data_size44, align 8
   %cmp.i29 = icmp eq i64 %14, -1
   br i1 %cmp.i29, label %if.then.i, label %if.end.i30
 
 if.then.i:                                        ; preds = %if.end42
-  %15 = load i64, ptr %ivlen.i39, align 8
+  %15 = load i64, ptr %ivlen.i40, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %iv.i, ptr readonly align 1 %13, i64 %15, i1 false)
-  br label %return.sink.split.sink.split.i
+  br label %gcm_tls_iv_set_fixed.exit.sink.split
 
 if.end.i30:                                       ; preds = %if.end42
   %cmp2.i = icmp ult i64 %14, 4
   br i1 %cmp2.i, label %return.sink.split, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i30
-  %16 = load i64, ptr %ivlen.i39, align 8
+  %16 = load i64, ptr %ivlen.i40, align 8
   %sext.i = shl i64 %14, 32
   %conv4.i31 = ashr exact i64 %sext.i, 32
   %sub.i = sub i64 %16, %conv4.i31
@@ -531,7 +531,7 @@ lor.lhs.false.i:                                  ; preds = %if.end.i30
 
 if.then11.i:                                      ; preds = %lor.lhs.false.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %iv.i, ptr readonly align 1 %13, i64 %14, i1 false)
-  %bf.load15.i = load i8, ptr %iv_gen.i35, align 4
+  %bf.load15.i = load i8, ptr %iv_gen.i36, align 4
   %bf.clear16.i = and i8 %bf.load15.i, 1
   %tobool.not.i = icmp eq i8 %bf.clear16.i, 0
   br i1 %tobool.not.i, label %gcm_tls_iv_set_fixed.exit, label %land.lhs.true.i
@@ -542,73 +542,73 @@ land.lhs.true.i:                                  ; preds = %if.then11.i
   %sub20.i = sub i64 %16, %14
   %call.i33 = call i32 @RAND_bytes_ex(ptr noundef %17, ptr noundef nonnull %add.ptr.i, i64 noundef %sub20.i, i32 noundef 0) #4
   %cmp21.i = icmp slt i32 %call.i33, 1
-  br i1 %cmp21.i, label %return.sink.split, label %return.sink.split.sink.split.i
+  br i1 %cmp21.i, label %return.sink.split, label %gcm_tls_iv_set_fixed.exit.sink.split
 
-return.sink.split.sink.split.i:                   ; preds = %land.lhs.true.i, %if.then.i
-  %bf.load26.pre.i = load i8, ptr %iv_gen.i35, align 4
+gcm_tls_iv_set_fixed.exit.sink.split:             ; preds = %land.lhs.true.i, %if.then.i
+  %bf.load26.pre.i = load i8, ptr %iv_gen.i36, align 4
   br label %gcm_tls_iv_set_fixed.exit
 
-gcm_tls_iv_set_fixed.exit:                        ; preds = %if.then11.i, %return.sink.split.sink.split.i
-  %bf.load26.sink.i = phi i8 [ %bf.load15.i, %if.then11.i ], [ %bf.load26.pre.i, %return.sink.split.sink.split.i ]
-  %bf.set28.i = or i8 %bf.load26.sink.i, 16
-  store i8 %bf.set28.i, ptr %iv_gen.i35, align 4
+gcm_tls_iv_set_fixed.exit:                        ; preds = %gcm_tls_iv_set_fixed.exit.sink.split, %if.then11.i
+  %storemerge.in = phi i8 [ %bf.load15.i, %if.then11.i ], [ %bf.load26.pre.i, %gcm_tls_iv_set_fixed.exit.sink.split ]
+  %storemerge = or i8 %storemerge.in, 16
+  store i8 %storemerge, ptr %iv_gen.i36, align 4
   store i32 1, ptr %iv_state.i, align 8
   br label %for.inc
 
 sw.bb50:                                          ; preds = %for.body
-  %data51 = getelementptr inbounds i8, ptr %p.050, i64 16
+  %data51 = getelementptr inbounds i8, ptr %p.051, i64 16
   %18 = load ptr, ptr %data51, align 8
   %cmp52 = icmp eq ptr %18, null
   br i1 %cmp52, label %return, label %lor.lhs.false54
 
 lor.lhs.false54:                                  ; preds = %sw.bb50
-  %data_type55 = getelementptr inbounds i8, ptr %p.050, i64 8
+  %data_type55 = getelementptr inbounds i8, ptr %p.051, i64 8
   %19 = load i32, ptr %data_type55, align 8
   %cmp56.not = icmp eq i32 %19, 5
   br i1 %cmp56.not, label %lor.lhs.false58, label %return
 
 lor.lhs.false58:                                  ; preds = %lor.lhs.false54
-  %bf.load.i36 = load i8, ptr %iv_gen.i35, align 4
-  %20 = and i8 %bf.load.i36, 21
+  %bf.load.i37 = load i8, ptr %iv_gen.i36, align 4
+  %20 = and i8 %bf.load.i37, 21
   %or.cond11.i = icmp eq i8 %20, 20
-  br i1 %or.cond11.i, label %if.end.i38, label %return
+  br i1 %or.cond11.i, label %if.end.i39, label %return
 
-if.end.i38:                                       ; preds = %lor.lhs.false58
-  %data_size60 = getelementptr inbounds i8, ptr %p.050, i64 24
+if.end.i39:                                       ; preds = %lor.lhs.false58
+  %data_size60 = getelementptr inbounds i8, ptr %p.051, i64 24
   %21 = load i64, ptr %data_size60, align 8
-  %22 = load i64, ptr %ivlen.i39, align 8
-  %add.ptr.i40 = getelementptr inbounds i8, ptr %iv.i, i64 %22
+  %22 = load i64, ptr %ivlen.i40, align 8
+  %add.ptr.i41 = getelementptr inbounds i8, ptr %iv.i, i64 %22
   %idx.neg.i = sub i64 0, %21
-  %add.ptr11.i = getelementptr inbounds i8, ptr %add.ptr.i40, i64 %idx.neg.i
+  %add.ptr11.i = getelementptr inbounds i8, ptr %add.ptr.i41, i64 %idx.neg.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr11.i, ptr nonnull readonly align 1 %18, i64 %21, i1 false)
   %23 = load ptr, ptr %hw.i, align 8
   %setiv.i = getelementptr inbounds i8, ptr %23, i64 8
   %24 = load ptr, ptr %setiv.i, align 8
-  %25 = load i64, ptr %ivlen.i39, align 8
-  %call.i41 = call i32 %24(ptr noundef nonnull %vctx, ptr noundef nonnull %iv.i, i64 noundef %25) #4
-  %tobool15.not.i = icmp eq i32 %call.i41, 0
+  %25 = load i64, ptr %ivlen.i40, align 8
+  %call.i42 = call i32 %24(ptr noundef nonnull %vctx, ptr noundef nonnull %iv.i, i64 noundef %25) #4
+  %tobool15.not.i = icmp eq i32 %call.i42, 0
   br i1 %tobool15.not.i, label %return, label %setivinv.exit
 
-setivinv.exit:                                    ; preds = %if.end.i38
+setivinv.exit:                                    ; preds = %if.end.i39
   store i32 2, ptr %iv_state.i, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %setivinv.exit, %gcm_tls_iv_set_fixed.exit, %if.end9, %if.end36, %for.body, %if.end25, %if.end19
-  %incdec.ptr = getelementptr inbounds i8, ptr %p.050, i64 40
+  %incdec.ptr = getelementptr inbounds i8, ptr %p.051, i64 40
   %26 = load ptr, ptr %incdec.ptr, align 8
   %cmp1.not = icmp eq ptr %26, null
   br i1 %cmp1.not, label %return, label %for.body, !llvm.loop !7
 
 return.sink.split:                                ; preds = %land.lhs.true.i, %if.end.i30, %lor.lhs.false.i, %sw.bb37, %sw.bb28, %if.end14, %sw.bb10, %if.end5, %lor.lhs.false, %sw.bb, %if.then35
-  %.sink55 = phi i32 [ 298, %if.then35 ], [ 264, %sw.bb ], [ 268, %lor.lhs.false ], [ 268, %if.end5 ], [ 276, %sw.bb10 ], [ 280, %if.end14 ], [ 293, %sw.bb28 ], [ 306, %sw.bb37 ], [ 310, %lor.lhs.false.i ], [ 310, %if.end.i30 ], [ 310, %land.lhs.true.i ]
+  %.sink56 = phi i32 [ 298, %if.then35 ], [ 264, %sw.bb ], [ 268, %lor.lhs.false ], [ 268, %if.end5 ], [ 276, %sw.bb10 ], [ 280, %if.end14 ], [ 293, %sw.bb28 ], [ 306, %sw.bb37 ], [ 310, %lor.lhs.false.i ], [ 310, %if.end.i30 ], [ 310, %land.lhs.true.i ]
   %.sink = phi i32 [ 108, %if.then35 ], [ 103, %sw.bb ], [ 110, %lor.lhs.false ], [ 110, %if.end5 ], [ 103, %sw.bb10 ], [ 109, %if.end14 ], [ 103, %sw.bb28 ], [ 103, %sw.bb37 ], [ 103, %lor.lhs.false.i ], [ 103, %if.end.i30 ], [ 103, %land.lhs.true.i ]
   call void @ERR_new() #4
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink55, ptr noundef nonnull @__func__.ossl_gcm_set_ctx_params) #4
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink56, ptr noundef nonnull @__func__.ossl_gcm_set_ctx_params) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef %.sink, ptr noundef null) #4
   br label %return
 
-return:                                           ; preds = %lor.lhs.false54, %sw.bb50, %for.inc, %lor.lhs.false58, %if.end.i38, %return.sink.split, %for.cond.preheader, %entry
-  %retval.0 = phi i32 [ 1, %entry ], [ 1, %for.cond.preheader ], [ 0, %return.sink.split ], [ 0, %lor.lhs.false54 ], [ 0, %sw.bb50 ], [ 1, %for.inc ], [ 0, %lor.lhs.false58 ], [ 0, %if.end.i38 ]
+return:                                           ; preds = %lor.lhs.false54, %sw.bb50, %for.inc, %lor.lhs.false58, %if.end.i39, %return.sink.split, %for.cond.preheader, %entry
+  %retval.0 = phi i32 [ 1, %entry ], [ 1, %for.cond.preheader ], [ 0, %return.sink.split ], [ 0, %lor.lhs.false54 ], [ 0, %sw.bb50 ], [ 1, %for.inc ], [ 0, %lor.lhs.false58 ], [ 0, %if.end.i39 ]
   ret i32 %retval.0
 }
 

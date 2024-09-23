@@ -193,10 +193,10 @@ tear_down.exit:                                   ; preds = %lor.lhs.false14.i
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %tear_down.exit, %if.then.i.i
-  %ctx2.i.i.sink = phi ptr [ %ctx2.i.i, %if.then.i.i ], [ %ctx2.i, %tear_down.exit ]
+  %.sink.in = phi ptr [ %ctx2.i.i, %if.then.i.i ], [ %ctx2.i, %tear_down.exit ]
   %retval.0.ph = phi i32 [ 0, %if.then.i.i ], [ %call3, %tear_down.exit ]
-  %8 = load ptr, ptr %ctx2.i.i.sink, align 8
-  tail call void @OSSL_LIB_CTX_free(ptr noundef %8) #3
+  %.sink = load ptr, ptr %.sink.in, align 8
+  tail call void @OSSL_LIB_CTX_free(ptr noundef %.sink) #3
   tail call void @CRYPTO_free(ptr noundef nonnull %call.i, ptr noundef nonnull @.str, i32 noundef 47) #3
   br label %return
 

@@ -3954,12 +3954,12 @@ define linkonce_odr hidden void @_ZNK2cv5kinfu13RenderInvokerclERKNS_5RangeE(ptr
 
 .lr.ph120.split.preheader:                        ; preds = %.lr.ph120
   %39 = sext i32 %12 to i64
-  %.sroa.0.3..sroa_idx140 = getelementptr inbounds i8, ptr %.sroa.0, i64 3
-  %.sroa.086.3..sroa_idx143 = getelementptr inbounds i8, ptr %.sroa.086, i64 3
   %.sroa.0.1..sroa_idx138 = getelementptr inbounds i8, ptr %.sroa.0, i64 1
   %.sroa.0.2..sroa_idx139 = getelementptr inbounds i8, ptr %.sroa.0, i64 2
+  %.sroa.0.3..sroa_idx140 = getelementptr inbounds i8, ptr %.sroa.0, i64 3
   %.sroa.086.1..sroa_idx141 = getelementptr inbounds i8, ptr %.sroa.086, i64 1
   %.sroa.086.2..sroa_idx142 = getelementptr inbounds i8, ptr %.sroa.086, i64 2
+  %.sroa.086.3..sroa_idx143 = getelementptr inbounds i8, ptr %.sroa.086, i64 3
   br label %.lr.ph120.split
 
 .lr.ph120.split:                                  ; preds = %.lr.ph120.split.preheader, %._crit_edge
@@ -4020,6 +4020,7 @@ _ZN2cv5kinfu5isNaNENS_7Point3_IfEE.exit.thread:   ; preds = %.lr.ph, %_ZN2cv5kin
   store i8 0, ptr %.sroa.086, align 4
   store i8 32, ptr %.sroa.086.1..sroa_idx141, align 1
   store i8 0, ptr %.sroa.086.2..sroa_idx142, align 2
+  store i8 0, ptr %.sroa.086.3..sroa_idx143, align 1
   br label %181
 
 82:                                               ; preds = %_ZN2cv5kinfu5isNaNENS_7Point3_IfEE.exit
@@ -4220,12 +4221,11 @@ _ZN2cv9normalizeIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit59: ; preds = %157
   store i8 %180, ptr %.sroa.0, align 4
   store i8 %180, ptr %.sroa.0.1..sroa_idx138, align 1
   store i8 %180, ptr %.sroa.0.2..sroa_idx139, align 2
+  store i8 0, ptr %.sroa.0.3..sroa_idx140, align 1
   br label %181
 
 181:                                              ; preds = %_ZN2cv9normalizeIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit59, %_ZN2cv5kinfu5isNaNENS_7Point3_IfEE.exit.thread
-  %.sroa.0.3..sroa_idx.sink = phi ptr [ %.sroa.0.3..sroa_idx140, %_ZN2cv9normalizeIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit59 ], [ %.sroa.086.3..sroa_idx143, %_ZN2cv5kinfu5isNaNENS_7Point3_IfEE.exit.thread ]
-  %storemerge.in = phi ptr [ %.sroa.0, %_ZN2cv9normalizeIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit59 ], [ %.sroa.086, %_ZN2cv5kinfu5isNaNENS_7Point3_IfEE.exit.thread ]
-  store i8 0, ptr %.sroa.0.3..sroa_idx.sink, align 1
+  %storemerge.in = phi ptr [ %.sroa.086, %_ZN2cv5kinfu5isNaNENS_7Point3_IfEE.exit.thread ], [ %.sroa.0, %_ZN2cv9normalizeIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit59 ]
   %storemerge = load i32, ptr %storemerge.in, align 4
   %182 = getelementptr inbounds %"class.cv::Vec.5", ptr %49, i64 %indvars.iv
   store i32 %storemerge, ptr %182, align 1
@@ -4282,12 +4282,12 @@ define linkonce_odr hidden void @_ZNK2cv5kinfu18RenderColorInvokerclERKNS_5Range
 
 .lr.ph49.split.preheader:                         ; preds = %.lr.ph49
   %13 = sext i32 %3 to i64
-  %.sroa.0.3..sroa_idx58 = getelementptr inbounds i8, ptr %.sroa.0, i64 3
-  %.sroa.029.3..sroa_idx61 = getelementptr inbounds i8, ptr %.sroa.029, i64 3
   %.sroa.0.1..sroa_idx56 = getelementptr inbounds i8, ptr %.sroa.0, i64 1
   %.sroa.0.2..sroa_idx57 = getelementptr inbounds i8, ptr %.sroa.0, i64 2
+  %.sroa.0.3..sroa_idx58 = getelementptr inbounds i8, ptr %.sroa.0, i64 3
   %.sroa.029.1..sroa_idx59 = getelementptr inbounds i8, ptr %.sroa.029, i64 1
   %.sroa.029.2..sroa_idx60 = getelementptr inbounds i8, ptr %.sroa.029, i64 2
+  %.sroa.029.3..sroa_idx61 = getelementptr inbounds i8, ptr %.sroa.029, i64 3
   br label %.lr.ph49.split
 
 .lr.ph49.split:                                   ; preds = %.lr.ph49.split.preheader, %._crit_edge
@@ -4356,6 +4356,7 @@ _ZN2cv5kinfu5isNaNENS_7Point3_IfEE.exit.thread:   ; preds = %.lr.ph, %_ZN2cv5kin
   store i8 0, ptr %.sroa.029, align 4
   store i8 32, ptr %.sroa.029.1..sroa_idx59, align 1
   store i8 0, ptr %.sroa.029.2..sroa_idx60, align 2
+  store i8 0, ptr %.sroa.029.3..sroa_idx61, align 1
   br label %63
 
 59:                                               ; preds = %_ZN2cv5kinfu5isNaNENS_7Point3_IfEE.exit25
@@ -4365,12 +4366,11 @@ _ZN2cv5kinfu5isNaNENS_7Point3_IfEE.exit.thread:   ; preds = %.lr.ph, %_ZN2cv5kin
   store i8 %60, ptr %.sroa.0, align 4
   store i8 %61, ptr %.sroa.0.1..sroa_idx56, align 1
   store i8 %62, ptr %.sroa.0.2..sroa_idx57, align 2
+  store i8 0, ptr %.sroa.0.3..sroa_idx58, align 1
   br label %63
 
 63:                                               ; preds = %59, %_ZN2cv5kinfu5isNaNENS_7Point3_IfEE.exit.thread
-  %.sroa.0.3..sroa_idx.sink = phi ptr [ %.sroa.0.3..sroa_idx58, %59 ], [ %.sroa.029.3..sroa_idx61, %_ZN2cv5kinfu5isNaNENS_7Point3_IfEE.exit.thread ]
-  %storemerge.in = phi ptr [ %.sroa.0, %59 ], [ %.sroa.029, %_ZN2cv5kinfu5isNaNENS_7Point3_IfEE.exit.thread ]
-  store i8 0, ptr %.sroa.0.3..sroa_idx.sink, align 1
+  %storemerge.in = phi ptr [ %.sroa.029, %_ZN2cv5kinfu5isNaNENS_7Point3_IfEE.exit.thread ], [ %.sroa.0, %59 ]
   %storemerge = load i32, ptr %storemerge.in, align 4
   %64 = getelementptr inbounds %"class.cv::Vec.5", ptr %23, i64 %indvars.iv
   store i32 %storemerge, ptr %64, align 1

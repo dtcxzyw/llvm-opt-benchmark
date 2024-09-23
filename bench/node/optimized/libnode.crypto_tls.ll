@@ -10268,14 +10268,21 @@ do.end:                                           ; preds = %_ZN4node10BaseObjec
 if.then14:                                        ; preds = %do.end
   %22 = load ptr, ptr %args, align 8
   %arrayidx.i88 = getelementptr inbounds i8, ptr %22, i64 24
-  br label %if.end79.sink.split.sink.split
+  %arrayidx.i143 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = load ptr, ptr %arrayidx.i143, align 8
+  %24 = ptrtoint ptr %23 to i64
+  %add1.i.i137 = add i64 %24, 624
+  %25 = inttoptr i64 %add1.i.i137 to ptr
+  %26 = load i64, ptr %25, align 8
+  store i64 %26, ptr %arrayidx.i88, align 8
+  br label %if.end79
 
 if.end17:                                         ; preds = %do.end
   %call18 = tail call ptr @X509_verify_cert_error_string(i64 noundef %call12) #23
   %call19 = tail call noundef ptr @_ZN4node6crypto13X509ErrorCodeEl(i64 noundef %call12) #23
   %isolate_.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 88
-  %23 = load ptr, ptr %isolate_.i, align 8
-  %call.i = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %23, ptr noundef %call18, i32 noundef 0, i32 noundef -1) #23
+  %27 = load ptr, ptr %isolate_.i, align 8
+  %call.i = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %27, ptr noundef %call18, i32 noundef 0, i32 noundef -1) #23
   %cmp.i.i.i16 = icmp eq ptr %call.i, null
   br i1 %cmp.i.i.i16, label %if.then.i.i17, label %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit
 
@@ -10285,26 +10292,26 @@ if.then.i.i17:                                    ; preds = %if.end17
 
 _ZN4node13OneByteStringEPN2v87IsolateEPKci.exit:  ; preds = %if.end17, %if.then.i.i17
   %call31 = tail call ptr @_ZN2v89Exception5ErrorENS_5LocalINS_6StringEEE(ptr %call.i) #23
-  %24 = load ptr, ptr %isolate_.i, align 8
-  %call38 = tail call ptr @_ZN2v87Isolate17GetCurrentContextEv(ptr noundef nonnull align 1 dereferenceable(1) %24) #23
+  %28 = load ptr, ptr %isolate_.i, align 8
+  %call38 = tail call ptr @_ZN2v87Isolate17GetCurrentContextEv(ptr noundef nonnull align 1 dereferenceable(1) %28) #23
   %call45 = tail call ptr @_ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %call31, ptr %call38) #23
   %cmp.i.i110 = icmp eq ptr %call45, null
   %isolate_data_.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 96
-  %25 = load ptr, ptr %isolate_data_.i.i, align 8
-  %code_string_.i.i = getelementptr inbounds i8, ptr %25, i64 488
-  %26 = load ptr, ptr %code_string_.i.i, align 8
+  %29 = load ptr, ptr %isolate_data_.i.i, align 8
+  %code_string_.i.i = getelementptr inbounds i8, ptr %29, i64 488
+  %30 = load ptr, ptr %code_string_.i.i, align 8
   %cmp.i = icmp eq ptr %call19, null
   br i1 %cmp.i, label %if.then71, label %if.end.i
 
 if.end.i:                                         ; preds = %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit
   %principal_realm_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 2728
-  %27 = load ptr, ptr %principal_realm_.i.i.i, align 8
-  %vtable.i.i = load ptr, ptr %27, align 8
+  %31 = load ptr, ptr %principal_realm_.i.i.i, align 8
+  %vtable.i.i = load ptr, ptr %31, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 64
-  %28 = load ptr, ptr %vfn.i.i, align 8
-  %call2.i.i = tail call ptr %28(ptr noundef nonnull align 8 dereferenceable(872) %27) #23
-  %29 = load ptr, ptr %isolate_.i, align 8
-  %call.i.i = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %29, ptr noundef nonnull %call19, i32 noundef 0, i32 noundef -1) #23
+  %32 = load ptr, ptr %vfn.i.i, align 8
+  %call2.i.i = tail call ptr %32(ptr noundef nonnull align 8 dereferenceable(872) %31) #23
+  %33 = load ptr, ptr %isolate_.i, align 8
+  %call.i.i = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %33, ptr noundef nonnull %call19, i32 noundef 0, i32 noundef -1) #23
   %cmp.i.i.i.i19 = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.i.i.i19, label %if.then.i.i.i, label %_ZN4node6crypto12_GLOBAL__N_13SetEPNS_11EnvironmentEN2v85LocalINS4_6ObjectEEENS5_INS4_6StringEEEPKcb.exit
 
@@ -10313,34 +10320,31 @@ if.then.i.i.i:                                    ; preds = %if.end.i
   br label %_ZN4node6crypto12_GLOBAL__N_13SetEPNS_11EnvironmentEN2v85LocalINS4_6ObjectEEENS5_INS4_6StringEEEPKcb.exit
 
 _ZN4node6crypto12_GLOBAL__N_13SetEPNS_11EnvironmentEN2v85LocalINS4_6ObjectEEENS5_INS4_6StringEEEPKcb.exit: ; preds = %if.end.i, %if.then.i.i.i
-  %call34.i = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call45, ptr %call2.i.i, ptr %26, ptr %call.i.i) #23
+  %call34.i = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call45, ptr %call2.i.i, ptr %30, ptr %call.i.i) #23
   %tobool.i.i = trunc i16 %call34.i to i1
   br i1 %tobool.i.i, label %if.then71, label %if.end79
 
 if.then71:                                        ; preds = %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit, %_ZN4node6crypto12_GLOBAL__N_13SetEPNS_11EnvironmentEN2v85LocalINS4_6ObjectEEENS5_INS4_6StringEEEPKcb.exit
-  %30 = load ptr, ptr %args, align 8
-  %arrayidx.i = getelementptr inbounds i8, ptr %30, i64 24
-  br i1 %cmp.i.i110, label %if.end79.sink.split.sink.split, label %if.end79.sink.split
+  %34 = load ptr, ptr %args, align 8
+  %arrayidx.i = getelementptr inbounds i8, ptr %34, i64 24
+  br i1 %cmp.i.i110, label %if.then.i, label %if.else.i
 
-if.end79.sink.split.sink.split:                   ; preds = %if.then71, %if.then14
-  %.sink = phi ptr [ %22, %if.then14 ], [ %30, %if.then71 ]
-  %.sink22 = phi i64 [ 624, %if.then14 ], [ 616, %if.then71 ]
-  %arrayidx.i.sink.ph = phi ptr [ %arrayidx.i88, %if.then14 ], [ %arrayidx.i, %if.then71 ]
-  %arrayidx.i143 = getelementptr inbounds i8, ptr %.sink, i64 8
-  %31 = load ptr, ptr %arrayidx.i143, align 8
-  %32 = ptrtoint ptr %31 to i64
-  %add1.i.i137 = add i64 %.sink22, %32
-  %33 = inttoptr i64 %add1.i.i137 to ptr
-  br label %if.end79.sink.split
-
-if.end79.sink.split:                              ; preds = %if.end79.sink.split.sink.split, %if.then71
-  %.sink21 = phi ptr [ %call45, %if.then71 ], [ %33, %if.end79.sink.split.sink.split ]
-  %arrayidx.i.sink = phi ptr [ %arrayidx.i, %if.then71 ], [ %arrayidx.i.sink.ph, %if.end79.sink.split.sink.split ]
-  %34 = load i64, ptr %.sink21, align 8
-  store i64 %34, ptr %arrayidx.i.sink, align 8
+if.then.i:                                        ; preds = %if.then71
+  %arrayidx.i140 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = load ptr, ptr %arrayidx.i140, align 8
+  %36 = ptrtoint ptr %35 to i64
+  %add1.i.i = add i64 %36, 616
+  %37 = inttoptr i64 %add1.i.i to ptr
+  %38 = load i64, ptr %37, align 8
+  store i64 %38, ptr %arrayidx.i, align 8
   br label %if.end79
 
-if.end79:                                         ; preds = %if.end79.sink.split, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %_ZN4node6crypto12_GLOBAL__N_13SetEPNS_11EnvironmentEN2v85LocalINS4_6ObjectEEENS5_INS4_6StringEEEPKcb.exit
+if.else.i:                                        ; preds = %if.then71
+  %39 = load i64, ptr %call45, align 8
+  store i64 %39, ptr %arrayidx.i, align 8
+  br label %if.end79
+
+if.end79:                                         ; preds = %if.then.i, %if.else.i, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %_ZN4node6crypto12_GLOBAL__N_13SetEPNS_11EnvironmentEN2v85LocalINS4_6ObjectEEENS5_INS4_6StringEEEPKcb.exit, %if.then14
   ret void
 }
 
@@ -16719,22 +16723,18 @@ if.then:                                          ; preds = %while.body
 
 if.then15:                                        ; preds = %if.then
   %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
-  br label %if.end22.sink.split
+  store ptr %__p.022, ptr %arrayidx16, align 8
+  br label %if.end22
 
 if.else:                                          ; preds = %while.body
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %__p.022, align 8
   %8 = load ptr, ptr %arrayidx, align 8
-  br label %if.end22.sink.split
-
-if.end22.sink.split:                              ; preds = %if.else, %if.then15
-  %arrayidx16.sink = phi ptr [ %arrayidx16, %if.then15 ], [ %8, %if.else ]
-  %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then15 ], [ %__bbegin_bkt.021, %if.else ]
-  store ptr %__p.022, ptr %arrayidx16.sink, align 8
+  store ptr %__p.022, ptr %8, align 8
   br label %if.end22
 
-if.end22:                                         ; preds = %if.end22.sink.split, %if.then
-  %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then ], [ %__bbegin_bkt.1.ph, %if.end22.sink.split ]
+if.end22:                                         ; preds = %if.then, %if.then15, %if.else
+  %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.021, %if.else ], [ %rem.i.i, %if.then15 ], [ %rem.i.i, %if.then ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !70
 

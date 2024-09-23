@@ -3043,27 +3043,27 @@ cond.end17:                                       ; preds = %if.end12
   %max_queue_pairs15 = getelementptr inbounds i8, ptr %call.i29, i64 8948
   %12 = load i16, ptr %max_queue_pairs15, align 4
   %conv = zext i16 %12 to i32
-  %cmp1930.not = icmp eq i16 %12, 0
-  br i1 %cmp1930.not, label %for.end, label %for.body.preheader
+  %cmp1931.not = icmp eq i16 %12, 0
+  br i1 %cmp1931.not, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.end12, %cond.end17
-  %cond1834 = phi i32 [ %conv, %cond.end17 ], [ 1, %if.end12 ]
+  %cond1835 = phi i32 [ %conv, %cond.end17 ], [ 1, %if.end12 ]
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
-  %i.031 = phi i32 [ %inc, %for.body ], [ 0, %for.body.preheader ]
-  tail call fastcc void @virtio_net_del_queue(ptr noundef %call.i29, i32 noundef %i.031)
-  %inc = add nuw nsw i32 %i.031, 1
-  %exitcond.not = icmp eq i32 %inc, %cond1834
+  %i.032 = phi i32 [ %inc, %for.body ], [ 0, %for.body.preheader ]
+  tail call fastcc void @virtio_net_del_queue(ptr noundef %call.i29, i32 noundef %i.032)
+  %inc = add nuw nsw i32 %i.032, 1
+  %exitcond.not = icmp eq i32 %inc, %cond1835
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !15
 
 for.end.loopexit:                                 ; preds = %for.body
-  %13 = shl nuw nsw i32 %cond1834, 1
+  %13 = shl nuw nsw i32 %cond1835, 1
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %cond.end17
-  %cond1835 = phi i32 [ 0, %cond.end17 ], [ %13, %for.end.loopexit ]
-  tail call void @virtio_del_queue(ptr noundef %call.i, i32 noundef %cond1835) #19
+  %cond1836 = phi i32 [ 0, %cond.end17 ], [ %13, %for.end.loopexit ]
+  tail call void @virtio_del_queue(ptr noundef %call.i, i32 noundef %cond1836) #19
   %announce_timer = getelementptr inbounds i8, ptr %call.i29, i64 9000
   tail call void @qemu_announce_timer_del(ptr noundef nonnull %announce_timer, i1 noundef zeroext false) #19
   %vqs = getelementptr inbounds i8, ptr %call.i29, i64 528
@@ -3081,8 +3081,8 @@ land.rhs.lr.ph.i:                                 ; preds = %for.end
   %tql_prev37.i = getelementptr inbounds i8, ptr %call.i29, i64 560
   br label %land.rhs.i
 
-land.rhs.i:                                       ; preds = %timer_free.exit.i, %land.rhs.lr.ph.i
-  %chain.032.i = phi ptr [ %16, %land.rhs.lr.ph.i ], [ %17, %timer_free.exit.i ]
+land.rhs.i:                                       ; preds = %if.end38.i, %land.rhs.lr.ph.i
+  %chain.032.i = phi ptr [ %16, %land.rhs.lr.ph.i ], [ %17, %if.end38.i ]
   %17 = load ptr, ptr %chain.032.i, align 8
   %buffers.i = getelementptr inbounds i8, ptr %chain.032.i, i64 40
   %18 = load ptr, ptr %buffers.i, align 8
@@ -3093,15 +3093,24 @@ land.rhs3.lr.ph.i:                                ; preds = %land.rhs.i
   %tql_prev15.i = getelementptr inbounds i8, ptr %chain.032.i, i64 48
   br label %land.rhs3.i
 
-land.rhs3.i:                                      ; preds = %land.rhs3.i, %land.rhs3.lr.ph.i
-  %seg.030.i = phi ptr [ %18, %land.rhs3.lr.ph.i ], [ %19, %land.rhs3.i ]
+land.rhs3.i:                                      ; preds = %if.end.i, %land.rhs3.lr.ph.i
+  %seg.030.i = phi ptr [ %18, %land.rhs3.lr.ph.i ], [ %19, %if.end.i ]
   %19 = load ptr, ptr %seg.030.i, align 8
   %cmp.not.i = icmp eq ptr %19, null
   %tql_prev13.i = getelementptr inbounds i8, ptr %seg.030.i, i64 8
   %20 = load ptr, ptr %tql_prev13.i, align 8
+  br i1 %cmp.not.i, label %if.else.i30, label %if.then.i
+
+if.then.i:                                        ; preds = %land.rhs3.i
   %tql_prev11.i = getelementptr inbounds i8, ptr %19, i64 8
-  %tql_prev15.sink.i = select i1 %cmp.not.i, ptr %tql_prev15.i, ptr %tql_prev11.i
-  store ptr %20, ptr %tql_prev15.sink.i, align 8
+  store ptr %20, ptr %tql_prev11.i, align 8
+  br label %if.end.i
+
+if.else.i30:                                      ; preds = %land.rhs3.i
+  store ptr %20, ptr %tql_prev15.i, align 8
+  br label %if.end.i
+
+if.end.i:                                         ; preds = %if.else.i30, %if.then.i
   %21 = load ptr, ptr %seg.030.i, align 8
   store ptr %21, ptr %20, align 8
   %buf.i = getelementptr inbounds i8, ptr %seg.030.i, i64 16
@@ -3111,7 +3120,7 @@ land.rhs3.i:                                      ; preds = %land.rhs3.i, %land.
   tail call void @g_free(ptr noundef nonnull %seg.030.i) #19
   br i1 %cmp.not.i, label %for.end.i, label %land.rhs3.i, !llvm.loop !16
 
-for.end.i:                                        ; preds = %land.rhs3.i, %land.rhs.i
+for.end.i:                                        ; preds = %if.end.i, %land.rhs.i
   %drain_timer.i = getelementptr inbounds i8, ptr %chain.032.i, i64 32
   %23 = load ptr, ptr %drain_timer.i, align 8
   %tobool.not.i.i = icmp eq ptr %23, null
@@ -3127,9 +3136,18 @@ timer_free.exit.i:                                ; preds = %if.then.i.i, %for.e
   %cmp26.not.i = icmp eq ptr %24, null
   %tql_prev35.i = getelementptr inbounds i8, ptr %chain.032.i, i64 8
   %25 = load ptr, ptr %tql_prev35.i, align 8
+  br i1 %cmp26.not.i, label %if.else33.i, label %if.then27.i
+
+if.then27.i:                                      ; preds = %timer_free.exit.i
   %tql_prev32.i = getelementptr inbounds i8, ptr %24, i64 8
-  %tql_prev37.sink.i = select i1 %cmp26.not.i, ptr %tql_prev37.i, ptr %tql_prev32.i
-  store ptr %25, ptr %tql_prev37.sink.i, align 8
+  store ptr %25, ptr %tql_prev32.i, align 8
+  br label %if.end38.i
+
+if.else33.i:                                      ; preds = %timer_free.exit.i
+  store ptr %25, ptr %tql_prev37.i, align 8
+  br label %if.end38.i
+
+if.end38.i:                                       ; preds = %if.else33.i, %if.then27.i
   %26 = load ptr, ptr %chain.032.i, align 8
   store ptr %26, ptr %25, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %chain.032.i, i8 0, i64 16, i1 false)
@@ -3137,7 +3155,7 @@ timer_free.exit.i:                                ; preds = %if.then.i.i, %for.e
   %tobool.not.i = icmp eq ptr %17, null
   br i1 %tobool.not.i, label %virtio_net_rsc_cleanup.exit, label %land.rhs.i, !llvm.loop !17
 
-virtio_net_rsc_cleanup.exit:                      ; preds = %timer_free.exit.i, %for.end
+virtio_net_rsc_cleanup.exit:                      ; preds = %if.end38.i, %for.end
   %indirections_table = getelementptr inbounds i8, ptr %call.i29, i64 9216
   %27 = load ptr, ptr %indirections_table, align 8
   tail call void @g_free(ptr noundef %27) #19
@@ -6264,7 +6282,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %fo
   %is_coalesced.i = getelementptr inbounds i8, ptr %seg.010, i64 36
   %4 = load i8, ptr %is_coalesced.i, align 4
   %tobool.i = trunc i8 %4 to i1
-  br i1 %tobool.i, label %if.then.i, label %virtio_net_rsc_drain_seg.exit
+  br i1 %tobool.i, label %if.then.i, label %if.end6.i
 
 if.then.i:                                        ; preds = %land.rhs
   %packets.i = getelementptr inbounds i8, ptr %seg.010, i64 32
@@ -6280,9 +6298,9 @@ if.then.i:                                        ; preds = %land.rhs
   %cmp.i = icmp eq i16 %8, 2048
   %..i = select i1 %cmp.i, i8 1, i8 4
   store i8 %..i, ptr %gso_type.i, align 1
-  br label %virtio_net_rsc_drain_seg.exit
+  br label %if.end6.i
 
-virtio_net_rsc_drain_seg.exit:                    ; preds = %land.rhs, %if.then.i
+if.end6.i:                                        ; preds = %if.then.i, %land.rhs
   %nc.i = getelementptr inbounds i8, ptr %seg.010, i64 72
   %9 = load ptr, ptr %nc.i, align 8
   %10 = load ptr, ptr %buf.i, align 8
@@ -6293,9 +6311,18 @@ virtio_net_rsc_drain_seg.exit:                    ; preds = %land.rhs, %if.then.
   %cmp9.not.i = icmp eq ptr %12, null
   %tql_prev18.i = getelementptr inbounds i8, ptr %seg.010, i64 8
   %13 = load ptr, ptr %tql_prev18.i, align 8
+  br i1 %cmp9.not.i, label %if.else16.i, label %if.then11.i
+
+if.then11.i:                                      ; preds = %if.end6.i
   %tql_prev15.i = getelementptr inbounds i8, ptr %12, i64 8
-  %tql_prev19.sink.i = select i1 %cmp9.not.i, ptr %tql_prev19.i, ptr %tql_prev15.i
-  store ptr %13, ptr %tql_prev19.sink.i, align 8
+  store ptr %13, ptr %tql_prev15.i, align 8
+  br label %virtio_net_rsc_drain_seg.exit
+
+if.else16.i:                                      ; preds = %if.end6.i
+  store ptr %13, ptr %tql_prev19.i, align 8
+  br label %virtio_net_rsc_drain_seg.exit
+
+virtio_net_rsc_drain_seg.exit:                    ; preds = %if.then11.i, %if.else16.i
   %14 = load ptr, ptr %seg.010, align 8
   store ptr %14, ptr %13, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %seg.010, i8 0, i64 16, i1 false)
@@ -6383,7 +6410,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %is_coalesced.i = getelementptr inbounds i8, ptr %seg.013, i64 36
   %5 = load i8, ptr %is_coalesced.i, align 4
   %tobool.i = trunc i8 %5 to i1
-  br i1 %tobool.i, label %if.then.i, label %virtio_net_rsc_drain_seg.exit
+  br i1 %tobool.i, label %if.then.i, label %if.end6.i
 
 if.then.i:                                        ; preds = %if.end
   %packets.i = getelementptr inbounds i8, ptr %seg.013, i64 32
@@ -6400,9 +6427,9 @@ if.then.i:                                        ; preds = %if.end
   %cmp.i = icmp eq i16 %9, 2048
   %..i = select i1 %cmp.i, i8 1, i8 4
   store i8 %..i, ptr %gso_type.i, align 1
-  br label %virtio_net_rsc_drain_seg.exit
+  br label %if.end6.i
 
-virtio_net_rsc_drain_seg.exit:                    ; preds = %if.end, %if.then.i
+if.end6.i:                                        ; preds = %if.then.i, %if.end
   %nc.i = getelementptr inbounds i8, ptr %seg.013, i64 72
   %10 = load ptr, ptr %nc.i, align 8
   %11 = load ptr, ptr %buf1.le, align 8
@@ -6413,10 +6440,19 @@ virtio_net_rsc_drain_seg.exit:                    ; preds = %if.end, %if.then.i
   %cmp9.not.i = icmp eq ptr %13, null
   %tql_prev18.i = getelementptr inbounds i8, ptr %seg.013, i64 8
   %14 = load ptr, ptr %tql_prev18.i, align 8
-  %tql_prev19.i = getelementptr inbounds i8, ptr %chain, i64 48
+  br i1 %cmp9.not.i, label %if.else16.i, label %if.then11.i
+
+if.then11.i:                                      ; preds = %if.end6.i
   %tql_prev15.i = getelementptr inbounds i8, ptr %13, i64 8
-  %tql_prev19.sink.i = select i1 %cmp9.not.i, ptr %tql_prev19.i, ptr %tql_prev15.i
-  store ptr %14, ptr %tql_prev19.sink.i, align 8
+  store ptr %14, ptr %tql_prev15.i, align 8
+  br label %virtio_net_rsc_drain_seg.exit
+
+if.else16.i:                                      ; preds = %if.end6.i
+  %tql_prev19.i = getelementptr inbounds i8, ptr %chain, i64 48
+  store ptr %14, ptr %tql_prev19.i, align 8
+  br label %virtio_net_rsc_drain_seg.exit
+
+virtio_net_rsc_drain_seg.exit:                    ; preds = %if.then11.i, %if.else16.i
   %15 = load ptr, ptr %seg.013, align 8
   store ptr %15, ptr %14, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %seg.013, i8 0, i64 16, i1 false)
@@ -6589,7 +6625,7 @@ if.then11:                                        ; preds = %if.end8
   %is_coalesced.i = getelementptr inbounds i8, ptr %seg.0, i64 36
   %28 = load i8, ptr %is_coalesced.i, align 4
   %tobool.i = trunc i8 %28 to i1
-  br i1 %tobool.i, label %if.then.i47, label %virtio_net_rsc_drain_seg.exit
+  br i1 %tobool.i, label %if.then.i47, label %if.end6.i
 
 if.then.i47:                                      ; preds = %if.then11
   %packets.i = getelementptr inbounds i8, ptr %seg.0, i64 32
@@ -6605,9 +6641,9 @@ if.then.i47:                                      ; preds = %if.then11
   %cmp.i = icmp eq i16 %32, 2048
   %..i = select i1 %cmp.i, i8 1, i8 4
   store i8 %..i, ptr %gso_type.i, align 1
-  br label %virtio_net_rsc_drain_seg.exit
+  br label %if.end6.i
 
-virtio_net_rsc_drain_seg.exit:                    ; preds = %if.then11, %if.then.i47
+if.end6.i:                                        ; preds = %if.then.i47, %if.then11
   %nc.i = getelementptr inbounds i8, ptr %seg.0, i64 72
   %33 = load ptr, ptr %nc.i, align 8
   %34 = load ptr, ptr %buf.i, align 8
@@ -6618,10 +6654,19 @@ virtio_net_rsc_drain_seg.exit:                    ; preds = %if.then11, %if.then
   %cmp9.not.i = icmp eq ptr %36, null
   %tql_prev18.i = getelementptr inbounds i8, ptr %seg.0, i64 8
   %37 = load ptr, ptr %tql_prev18.i, align 8
-  %tql_prev19.i = getelementptr inbounds i8, ptr %chain, i64 48
+  br i1 %cmp9.not.i, label %if.else16.i, label %if.then11.i
+
+if.then11.i:                                      ; preds = %if.end6.i
   %tql_prev15.i = getelementptr inbounds i8, ptr %36, i64 8
-  %tql_prev19.sink.i = select i1 %cmp9.not.i, ptr %tql_prev19.i, ptr %tql_prev15.i
-  store ptr %37, ptr %tql_prev19.sink.i, align 8
+  store ptr %37, ptr %tql_prev15.i, align 8
+  br label %virtio_net_rsc_drain_seg.exit
+
+if.else16.i:                                      ; preds = %if.end6.i
+  %tql_prev19.i = getelementptr inbounds i8, ptr %chain, i64 48
+  store ptr %37, ptr %tql_prev19.i, align 8
+  br label %virtio_net_rsc_drain_seg.exit
+
+virtio_net_rsc_drain_seg.exit:                    ; preds = %if.then11.i, %if.else16.i
   %38 = load ptr, ptr %seg.0, align 8
   store ptr %38, ptr %37, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %seg.0, i8 0, i64 16, i1 false)
@@ -7790,17 +7835,17 @@ entry:
 timer_free.exit:                                  ; preds = %entry
   tail call void @timer_del(ptr noundef nonnull %2) #19
   tail call void @g_free(ptr noundef nonnull %2) #19
+  store ptr null, ptr %tx_timer, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %tx_bh = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %3 = load ptr, ptr %tx_bh, align 8
   tail call void @qemu_bh_delete(ptr noundef %3) #19
+  store ptr null, ptr %tx_bh, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %timer_free.exit
-  %tx_bh.sink = phi ptr [ %tx_bh, %if.else ], [ %tx_timer, %timer_free.exit ]
-  store ptr null, ptr %tx_bh.sink, align 8
   %tx_waiting = getelementptr inbounds i8, ptr %arrayidx, i64 32
   store i32 0, ptr %tx_waiting, align 8
   %add = or disjoint i32 %mul, 1

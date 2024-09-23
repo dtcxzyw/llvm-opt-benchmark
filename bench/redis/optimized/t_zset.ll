@@ -413,10 +413,19 @@ for.end140:                                       ; preds = %for.body130, %for.c
   store ptr %cond149, ptr %backward, align 8
   %38 = load ptr, ptr %level87, align 8
   %tobool153.not = icmp eq ptr %38, null
-  %tail = getelementptr inbounds i8, ptr %zsl, i64 8
+  br i1 %tobool153.not, label %if.else, label %if.then154
+
+if.then154:                                       ; preds = %for.end140
   %backward158 = getelementptr inbounds i8, ptr %38, i64 16
-  %tail.sink = select i1 %tobool153.not, ptr %tail, ptr %backward158
-  store ptr %call.i76, ptr %tail.sink, align 8
+  store ptr %call.i76, ptr %backward158, align 8
+  br label %if.end159
+
+if.else:                                          ; preds = %for.end140
+  %tail = getelementptr inbounds i8, ptr %zsl, i64 8
+  store ptr %call.i76, ptr %tail, align 8
+  br label %if.end159
+
+if.end159:                                        ; preds = %if.else, %if.then154
   %length160 = getelementptr inbounds i8, ptr %zsl, i64 16
   %39 = load i64, ptr %length160, align 8
   %inc161 = add i64 %39, 1

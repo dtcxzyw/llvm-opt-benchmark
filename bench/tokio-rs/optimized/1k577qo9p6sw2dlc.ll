@@ -2750,21 +2750,30 @@ define hidden noundef ptr @"_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !12
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %9, label %5
+  br i1 %4, label %12, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %3, align 8, !noundef !12
   store ptr %6, ptr %2, align 8
   %.not = icmp eq ptr %6, null
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
-  %.sink = select i1 %.not, ptr %0, ptr %7
-  store ptr null, ptr %.sink, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 -128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  br label %9
+  br i1 %.not, label %9, label %7
 
-9:                                                ; preds = %1, %5
-  %.0 = phi ptr [ %8, %5 ], [ null, %1 ]
+7:                                                ; preds = %5
+  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr null, ptr %8, align 8
+  br label %10
+
+9:                                                ; preds = %5
+  store ptr null, ptr %0, align 8
+  br label %10
+
+10:                                               ; preds = %9, %7
+  %11 = getelementptr inbounds i8, ptr %3, i64 -128
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  br label %12
+
+12:                                               ; preds = %1, %10
+  %.0 = phi ptr [ %11, %10 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -2824,19 +2833,28 @@ define hidden noundef ptr @"_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !12
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %8, label %5
+  br i1 %4, label %11, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %3, align 8, !noundef !12
   store ptr %6, ptr %2, align 8
   %.not = icmp eq ptr %6, null
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
-  %.sink = select i1 %.not, ptr %0, ptr %7
-  store ptr null, ptr %.sink, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  br label %8
+  br i1 %.not, label %9, label %7
 
-8:                                                ; preds = %1, %5
+7:                                                ; preds = %5
+  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr null, ptr %8, align 8
+  br label %10
+
+9:                                                ; preds = %5
+  store ptr null, ptr %0, align 8
+  br label %10
+
+10:                                               ; preds = %9, %7
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  br label %11
+
+11:                                               ; preds = %1, %10
   ret ptr %3
 }
 
@@ -2896,20 +2914,29 @@ define hidden noundef ptr @"_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !12
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %9, label %5
+  br i1 %4, label %12, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   %7 = load ptr, ptr %6, align 8, !noundef !12
   store ptr %7, ptr %2, align 8
   %.not = icmp eq ptr %7, null
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
-  %.sink = select i1 %.not, ptr %0, ptr %8
-  store ptr null, ptr %.sink, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  br label %9
+  br i1 %.not, label %10, label %8
 
-9:                                                ; preds = %1, %5
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds i8, ptr %7, i64 24
+  store ptr null, ptr %9, align 8
+  br label %11
+
+10:                                               ; preds = %5
+  store ptr null, ptr %0, align 8
+  br label %11
+
+11:                                               ; preds = %10, %8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
+  br label %12
+
+12:                                               ; preds = %1, %11
   ret ptr %3
 }
 
@@ -2918,19 +2945,28 @@ define hidden noundef ptr @"_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !12
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %8, label %5
+  br i1 %4, label %11, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %3, align 8, !noundef !12
   store ptr %6, ptr %2, align 8
   %.not = icmp eq ptr %6, null
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
-  %.sink = select i1 %.not, ptr %0, ptr %7
-  store ptr null, ptr %.sink, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  br label %8
+  br i1 %.not, label %9, label %7
 
-8:                                                ; preds = %1, %5
+7:                                                ; preds = %5
+  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr null, ptr %8, align 8
+  br label %10
+
+9:                                                ; preds = %5
+  store ptr null, ptr %0, align 8
+  br label %10
+
+10:                                               ; preds = %9, %7
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  br label %11
+
+11:                                               ; preds = %1, %10
   ret ptr %3
 }
 
@@ -3092,12 +3128,12 @@ define hidden noundef ptr @"_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8, !alias.scope !776, !noalias !779, !noundef !12
   %10 = icmp eq ptr %9, %1
-  br i1 %10, label %13, label %23
+  br i1 %10, label %13, label %26
 
 11:                                               ; preds = %13, %4
   %12 = phi ptr [ %15, %13 ], [ %6, %4 ]
   %.not17 = icmp eq ptr %12, null
-  br i1 %.not17, label %16, label %20
+  br i1 %.not17, label %18, label %16
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds i8, ptr %1, i64 8
@@ -3106,21 +3142,28 @@ define hidden noundef ptr @"_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L
   br label %11
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
-  %18 = load ptr, ptr %17, align 8, !alias.scope !781, !noalias !784, !noundef !12
-  %19 = icmp eq ptr %18, %1
-  br i1 %19, label %20, label %23
+  %17 = load ptr, ptr %1, align 8, !noundef !12
+  store ptr %17, ptr %12, align 8
+  br label %22
 
-20:                                               ; preds = %11, %16
-  %.sink19 = phi ptr [ %17, %16 ], [ %12, %11 ]
-  %21 = load ptr, ptr %1, align 8, !noundef !12
-  store ptr %21, ptr %.sink19, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 -128
+18:                                               ; preds = %11
+  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = load ptr, ptr %19, align 8, !alias.scope !781, !noalias !784, !noundef !12
+  %21 = icmp eq ptr %20, %1
+  br i1 %21, label %24, label %26
+
+22:                                               ; preds = %24, %16
+  %23 = getelementptr inbounds i8, ptr %1, i64 -128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
-  br label %23
+  br label %26
 
-23:                                               ; preds = %16, %8, %20
-  %.0 = phi ptr [ %22, %20 ], [ null, %8 ], [ null, %16 ]
+24:                                               ; preds = %18
+  %25 = load ptr, ptr %1, align 8, !noundef !12
+  store ptr %25, ptr %19, align 8
+  br label %22
+
+26:                                               ; preds = %18, %8, %22
+  %.0 = phi ptr [ %23, %22 ], [ null, %8 ], [ null, %18 ]
   ret ptr %.0
 }
 
@@ -3140,12 +3183,12 @@ define hidden noundef ptr @"_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8, !alias.scope !786, !noalias !789, !noundef !12
   %10 = icmp eq ptr %9, %1
-  br i1 %10, label %13, label %22
+  br i1 %10, label %13, label %25
 
 11:                                               ; preds = %13, %4
   %12 = phi ptr [ %15, %13 ], [ %6, %4 ]
   %.not17 = icmp eq ptr %12, null
-  br i1 %.not17, label %16, label %20
+  br i1 %.not17, label %18, label %16
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds i8, ptr %1, i64 8
@@ -3154,20 +3197,27 @@ define hidden noundef ptr @"_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L
   br label %11
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
-  %18 = load ptr, ptr %17, align 8, !alias.scope !791, !noalias !794, !noundef !12
-  %19 = icmp eq ptr %18, %1
-  br i1 %19, label %20, label %22
-
-20:                                               ; preds = %11, %16
-  %.sink19 = phi ptr [ %17, %16 ], [ %12, %11 ]
-  %21 = load ptr, ptr %1, align 8, !noundef !12
-  store ptr %21, ptr %.sink19, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
+  %17 = load ptr, ptr %1, align 8, !noundef !12
+  store ptr %17, ptr %12, align 8
   br label %22
 
-22:                                               ; preds = %16, %8, %20
-  %.0 = phi ptr [ %1, %20 ], [ null, %8 ], [ null, %16 ]
+18:                                               ; preds = %11
+  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = load ptr, ptr %19, align 8, !alias.scope !791, !noalias !794, !noundef !12
+  %21 = icmp eq ptr %20, %1
+  br i1 %21, label %23, label %25
+
+22:                                               ; preds = %23, %16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
+  br label %25
+
+23:                                               ; preds = %18
+  %24 = load ptr, ptr %1, align 8, !noundef !12
+  store ptr %24, ptr %19, align 8
+  br label %22
+
+25:                                               ; preds = %18, %8, %22
+  %.0 = phi ptr [ %1, %22 ], [ null, %8 ], [ null, %18 ]
   ret ptr %.0
 }
 
@@ -3187,12 +3237,12 @@ define hidden noundef ptr @"_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8, !alias.scope !796, !noalias !799, !noundef !12
   %10 = icmp eq ptr %9, %1
-  br i1 %10, label %13, label %22
+  br i1 %10, label %13, label %25
 
 11:                                               ; preds = %13, %4
   %12 = phi ptr [ %15, %13 ], [ %6, %4 ]
   %.not17 = icmp eq ptr %12, null
-  br i1 %.not17, label %16, label %20
+  br i1 %.not17, label %18, label %16
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds i8, ptr %1, i64 8
@@ -3201,20 +3251,27 @@ define hidden noundef ptr @"_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L
   br label %11
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
-  %18 = load ptr, ptr %17, align 8, !alias.scope !801, !noalias !804, !noundef !12
-  %19 = icmp eq ptr %18, %1
-  br i1 %19, label %20, label %22
-
-20:                                               ; preds = %11, %16
-  %.sink19 = phi ptr [ %17, %16 ], [ %12, %11 ]
-  %21 = load ptr, ptr %1, align 8, !noundef !12
-  store ptr %21, ptr %.sink19, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
+  %17 = load ptr, ptr %1, align 8, !noundef !12
+  store ptr %17, ptr %12, align 8
   br label %22
 
-22:                                               ; preds = %16, %8, %20
-  %.0 = phi ptr [ %1, %20 ], [ null, %8 ], [ null, %16 ]
+18:                                               ; preds = %11
+  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = load ptr, ptr %19, align 8, !alias.scope !801, !noalias !804, !noundef !12
+  %21 = icmp eq ptr %20, %1
+  br i1 %21, label %23, label %25
+
+22:                                               ; preds = %23, %16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
+  br label %25
+
+23:                                               ; preds = %18
+  %24 = load ptr, ptr %1, align 8, !noundef !12
+  store ptr %24, ptr %19, align 8
+  br label %22
+
+25:                                               ; preds = %18, %8, %22
+  %.0 = phi ptr [ %1, %22 ], [ null, %8 ], [ null, %18 ]
   ret ptr %.0
 }
 
@@ -3234,12 +3291,12 @@ define hidden noundef ptr @"_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8, !alias.scope !806, !noalias !809, !noundef !12
   %10 = icmp eq ptr %9, %1
-  br i1 %10, label %13, label %22
+  br i1 %10, label %13, label %25
 
 11:                                               ; preds = %13, %4
   %12 = phi ptr [ %15, %13 ], [ %6, %4 ]
   %.not17 = icmp eq ptr %12, null
-  br i1 %.not17, label %16, label %20
+  br i1 %.not17, label %18, label %16
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds i8, ptr %1, i64 8
@@ -3248,20 +3305,27 @@ define hidden noundef ptr @"_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L
   br label %11
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
-  %18 = load ptr, ptr %17, align 8, !alias.scope !811, !noalias !814, !noundef !12
-  %19 = icmp eq ptr %18, %1
-  br i1 %19, label %20, label %22
-
-20:                                               ; preds = %11, %16
-  %.sink19 = phi ptr [ %17, %16 ], [ %12, %11 ]
-  %21 = load ptr, ptr %1, align 8, !noundef !12
-  store ptr %21, ptr %.sink19, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
+  %17 = load ptr, ptr %1, align 8, !noundef !12
+  store ptr %17, ptr %12, align 8
   br label %22
 
-22:                                               ; preds = %16, %8, %20
-  %.0 = phi ptr [ %1, %20 ], [ null, %8 ], [ null, %16 ]
+18:                                               ; preds = %11
+  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = load ptr, ptr %19, align 8, !alias.scope !811, !noalias !814, !noundef !12
+  %21 = icmp eq ptr %20, %1
+  br i1 %21, label %23, label %25
+
+22:                                               ; preds = %23, %16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
+  br label %25
+
+23:                                               ; preds = %18
+  %24 = load ptr, ptr %1, align 8, !noundef !12
+  store ptr %24, ptr %19, align 8
+  br label %22
+
+25:                                               ; preds = %18, %8, %22
+  %.0 = phi ptr [ %1, %22 ], [ null, %8 ], [ null, %18 ]
   ret ptr %.0
 }
 
@@ -3282,12 +3346,12 @@ define hidden noundef ptr @"_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L
 9:                                                ; preds = %2
   %10 = load ptr, ptr %0, align 8, !alias.scope !816, !noalias !819, !noundef !12
   %11 = icmp eq ptr %10, %1
-  br i1 %11, label %14, label %25
+  br i1 %11, label %14, label %27
 
 12:                                               ; preds = %14, %5
   %13 = phi ptr [ %16, %14 ], [ %7, %5 ]
   %.not17 = icmp eq ptr %13, null
-  br i1 %.not17, label %19, label %17
+  br i1 %.not17, label %20, label %17
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds i8, ptr %1, i64 24
@@ -3297,23 +3361,27 @@ define hidden noundef ptr @"_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L
 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds i8, ptr %13, i64 16
-  br label %23
+  %19 = load ptr, ptr %3, align 8, !noundef !12
+  store ptr %19, ptr %18, align 8
+  br label %24
 
-19:                                               ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  %21 = load ptr, ptr %20, align 8, !alias.scope !821, !noalias !824, !noundef !12
-  %22 = icmp eq ptr %21, %1
-  br i1 %22, label %23, label %25
+20:                                               ; preds = %12
+  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = load ptr, ptr %21, align 8, !alias.scope !821, !noalias !824, !noundef !12
+  %23 = icmp eq ptr %22, %1
+  br i1 %23, label %25, label %27
 
-23:                                               ; preds = %19, %17
-  %.sink19 = phi ptr [ %18, %17 ], [ %20, %19 ]
-  %24 = load ptr, ptr %3, align 8, !noundef !12
-  store ptr %24, ptr %.sink19, align 8
+24:                                               ; preds = %25, %17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  br label %25
+  br label %27
 
-25:                                               ; preds = %19, %9, %23
-  %.0 = phi ptr [ %1, %23 ], [ null, %9 ], [ null, %19 ]
+25:                                               ; preds = %20
+  %26 = load ptr, ptr %3, align 8, !noundef !12
+  store ptr %26, ptr %21, align 8
+  br label %24
+
+27:                                               ; preds = %20, %9, %24
+  %.0 = phi ptr [ %1, %24 ], [ null, %9 ], [ null, %20 ]
   ret ptr %.0
 }
 
@@ -9621,34 +9689,44 @@ define hidden noundef ptr @"_ZN109_$LT$tokio..util..linked_list..DrainFilter$LT$
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds i8, ptr %22, i64 8
+  store ptr %9, ptr %24, align 8, !noalias !1828
   br label %28
 
 25:                                               ; preds = %20
   %26 = load ptr, ptr %21, align 8, !alias.scope !1831, !noalias !1834, !noundef !12
   %27 = icmp eq ptr %26, %6
-  br i1 %27, label %28, label %"_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L$u20$as$u20$tokio..util..linked_list..Link$GT$..Target$GT$6remove17h7a8b6a963c7edb81E.exit"
+  br i1 %27, label %29, label %"_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L$u20$as$u20$tokio..util..linked_list..Link$GT$..Target$GT$6remove17h7a8b6a963c7edb81E.exit"
 
-28:                                               ; preds = %25, %23
-  %.sink = phi ptr [ %24, %23 ], [ %21, %25 ]
-  store ptr %9, ptr %.sink, align 8
+28:                                               ; preds = %29, %23
   %.not17.i = icmp eq ptr %9, null
-  br i1 %.not17.i, label %29, label %33
+  br i1 %.not17.i, label %32, label %30
 
-29:                                               ; preds = %28
-  %30 = getelementptr inbounds i8, ptr %21, i64 8
-  %31 = load ptr, ptr %30, align 8, !alias.scope !1836, !noalias !1839, !noundef !12
-  %32 = icmp eq ptr %31, %6
-  br i1 %32, label %33, label %"_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L$u20$as$u20$tokio..util..linked_list..Link$GT$..Target$GT$6remove17h7a8b6a963c7edb81E.exit"
+29:                                               ; preds = %25
+  store ptr %9, ptr %21, align 8, !alias.scope !1828
+  br label %28
 
-33:                                               ; preds = %29, %28
-  %.sink19.i = phi ptr [ %30, %29 ], [ %9, %28 ]
-  %34 = load ptr, ptr %6, align 8, !noalias !1828, !noundef !12
-  store ptr %34, ptr %.sink19.i, align 8
+30:                                               ; preds = %28
+  %31 = load ptr, ptr %6, align 8, !noalias !1828, !noundef !12
+  store ptr %31, ptr %9, align 8, !noalias !1828
+  br label %36
+
+32:                                               ; preds = %28
+  %33 = getelementptr inbounds i8, ptr %21, i64 8
+  %34 = load ptr, ptr %33, align 8, !alias.scope !1836, !noalias !1839, !noundef !12
+  %35 = icmp eq ptr %34, %6
+  br i1 %35, label %37, label %"_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L$u20$as$u20$tokio..util..linked_list..Link$GT$..Target$GT$6remove17h7a8b6a963c7edb81E.exit"
+
+36:                                               ; preds = %37, %30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !noalias !1828
   br label %"_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L$u20$as$u20$tokio..util..linked_list..Link$GT$..Target$GT$6remove17h7a8b6a963c7edb81E.exit"
 
-"_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L$u20$as$u20$tokio..util..linked_list..Link$GT$..Target$GT$6remove17h7a8b6a963c7edb81E.exit": ; preds = %5, %33, %29, %25
-  %.0 = phi ptr [ %6, %33 ], [ null, %25 ], [ null, %29 ], [ null, %5 ]
+37:                                               ; preds = %32
+  %38 = load ptr, ptr %6, align 8, !noalias !1828, !noundef !12
+  store ptr %38, ptr %33, align 8, !alias.scope !1828
+  br label %36
+
+"_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L$u20$as$u20$tokio..util..linked_list..Link$GT$..Target$GT$6remove17h7a8b6a963c7edb81E.exit": ; preds = %5, %36, %32, %25
+  %.0 = phi ptr [ %6, %36 ], [ null, %25 ], [ null, %32 ], [ null, %5 ]
   ret ptr %.0
 }
 

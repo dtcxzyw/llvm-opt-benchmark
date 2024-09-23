@@ -4005,37 +4005,40 @@ define void @response_init(ptr noundef %0, ptr nocapture noundef readonly %1, i1
   %32 = getelementptr inbounds i8, ptr %1, i64 148
   %33 = load i8, ptr %32, align 4
   %34 = trunc i8 %33 to i1
-  br i1 %34, label %37, label %35
+  br i1 %34, label %38, label %35
 
 35:                                               ; preds = %4
   %36 = getelementptr inbounds i8, ptr %0, i64 152
   store i32 99, ptr %36, align 8
-  br label %45
+  %37 = getelementptr inbounds i8, ptr %0, i64 156
+  store i8 1, ptr %37, align 4
+  br label %47
 
-37:                                               ; preds = %4
-  %38 = getelementptr inbounds i8, ptr %1, i64 140
-  %39 = load i32, ptr %38, align 4
-  %40 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
-  %.not = icmp eq i32 %39, %40
-  %41 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1168), align 8
-  %.not32 = icmp eq i32 %39, %41
+38:                                               ; preds = %4
+  %39 = getelementptr inbounds i8, ptr %1, i64 140
+  %40 = load i32, ptr %39, align 4
+  %41 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
+  %.not = icmp eq i32 %40, %41
+  %42 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1168), align 8
+  %.not32 = icmp eq i32 %40, %42
   %or.cond = select i1 %.not, i1 true, i1 %.not32
-  %42 = getelementptr inbounds i8, ptr %0, i64 152
-  br i1 %or.cond, label %44, label %43
+  %43 = getelementptr inbounds i8, ptr %0, i64 152
+  %44 = getelementptr inbounds i8, ptr %0, i64 156
+  br i1 %or.cond, label %46, label %45
 
-43:                                               ; preds = %37
-  store i32 %39, ptr %42, align 8
-  br label %45
+45:                                               ; preds = %38
+  store i32 %40, ptr %43, align 8
+  store i8 1, ptr %44, align 4
+  br label %47
 
-44:                                               ; preds = %37
-  store i32 -1, ptr %42, align 8
-  br label %45
+46:                                               ; preds = %38
+  store i32 -1, ptr %43, align 8
+  store i8 1, ptr %44, align 4
+  br label %47
 
-45:                                               ; preds = %43, %44, %35
-  %.sink = getelementptr inbounds i8, ptr %0, i64 156
-  store i8 1, ptr %.sink, align 4
-  %46 = or i16 %13, 64
-  store i16 %46, ptr %14, align 8
+47:                                               ; preds = %45, %46, %35
+  %48 = or i16 %13, 64
+  store i16 %48, ptr %14, align 8
   ret void
 }
 
@@ -4059,7 +4062,7 @@ define i32 @slurm_send_rc_msg(ptr nocapture noundef readonly %0, i32 noundef %1)
 
 8:                                                ; preds = %2
   tail call void @slurm_seterrno(i32 noundef 107) #21
-  br label %53
+  br label %55
 
 9:                                                ; preds = %2
   store i32 %1, ptr %4, align 4
@@ -4105,43 +4108,46 @@ define i32 @slurm_send_rc_msg(ptr nocapture noundef readonly %0, i32 noundef %1)
   %37 = getelementptr inbounds i8, ptr %0, i64 148
   %38 = load i8, ptr %37, align 4
   %39 = trunc i8 %38 to i1
-  br i1 %39, label %42, label %40
+  br i1 %39, label %43, label %40
 
 40:                                               ; preds = %9
   %41 = getelementptr inbounds i8, ptr %3, i64 152
   store i32 99, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %3, i64 156
+  store i8 1, ptr %42, align 4
   br label %response_init.exit
 
-42:                                               ; preds = %9
-  %43 = getelementptr inbounds i8, ptr %0, i64 140
-  %44 = load i32, ptr %43, align 4
-  %45 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
-  %.not.i = icmp eq i32 %44, %45
-  %46 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1168), align 8
-  %.not32.i = icmp eq i32 %44, %46
+43:                                               ; preds = %9
+  %44 = getelementptr inbounds i8, ptr %0, i64 140
+  %45 = load i32, ptr %44, align 4
+  %46 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
+  %.not.i = icmp eq i32 %45, %46
+  %47 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1168), align 8
+  %.not32.i = icmp eq i32 %45, %47
   %or.cond.i = select i1 %.not.i, i1 true, i1 %.not32.i
-  %47 = getelementptr inbounds i8, ptr %3, i64 152
-  br i1 %or.cond.i, label %49, label %48
+  %48 = getelementptr inbounds i8, ptr %3, i64 152
+  %49 = getelementptr inbounds i8, ptr %3, i64 156
+  br i1 %or.cond.i, label %51, label %50
 
-48:                                               ; preds = %42
-  store i32 %44, ptr %47, align 8
+50:                                               ; preds = %43
+  store i32 %45, ptr %48, align 8
+  store i8 1, ptr %49, align 4
   br label %response_init.exit
 
-49:                                               ; preds = %42
-  store i32 -1, ptr %47, align 8
+51:                                               ; preds = %43
+  store i32 -1, ptr %48, align 8
+  store i8 1, ptr %49, align 4
   br label %response_init.exit
 
-response_init.exit:                               ; preds = %40, %48, %49
-  %.sink.i = getelementptr inbounds i8, ptr %3, i64 156
-  store i8 1, ptr %.sink.i, align 4
-  %50 = or i16 %18, 64
-  store i16 %50, ptr %19, align 8
-  %51 = load i32, ptr %5, align 8
-  %52 = call i32 @slurm_send_node_msg(i32 noundef %51, ptr noundef nonnull %3)
-  br label %53
+response_init.exit:                               ; preds = %40, %50, %51
+  %52 = or i16 %18, 64
+  store i16 %52, ptr %19, align 8
+  %53 = load i32, ptr %5, align 8
+  %54 = call i32 @slurm_send_node_msg(i32 noundef %53, ptr noundef nonnull %3)
+  br label %55
 
-53:                                               ; preds = %response_init.exit, %8
-  %.0 = phi i32 [ -1, %8 ], [ %52, %response_init.exit ]
+55:                                               ; preds = %response_init.exit, %8
+  %.0 = phi i32 [ -1, %8 ], [ %54, %response_init.exit ]
   ret i32 %.0
 }
 
@@ -4156,7 +4162,7 @@ define i32 @slurm_send_rc_err_msg(ptr nocapture noundef readonly %0, i32 noundef
 
 9:                                                ; preds = %3
   tail call void @slurm_seterrno(i32 noundef 107) #21
-  br label %55
+  br label %57
 
 10:                                               ; preds = %3
   store i32 %1, ptr %5, align 8
@@ -4204,43 +4210,46 @@ define i32 @slurm_send_rc_err_msg(ptr nocapture noundef readonly %0, i32 noundef
   %39 = getelementptr inbounds i8, ptr %0, i64 148
   %40 = load i8, ptr %39, align 4
   %41 = trunc i8 %40 to i1
-  br i1 %41, label %44, label %42
+  br i1 %41, label %45, label %42
 
 42:                                               ; preds = %10
   %43 = getelementptr inbounds i8, ptr %4, i64 152
   store i32 99, ptr %43, align 8
+  %44 = getelementptr inbounds i8, ptr %4, i64 156
+  store i8 1, ptr %44, align 4
   br label %response_init.exit
 
-44:                                               ; preds = %10
-  %45 = getelementptr inbounds i8, ptr %0, i64 140
-  %46 = load i32, ptr %45, align 4
-  %47 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
-  %.not.i = icmp eq i32 %46, %47
-  %48 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1168), align 8
-  %.not32.i = icmp eq i32 %46, %48
+45:                                               ; preds = %10
+  %46 = getelementptr inbounds i8, ptr %0, i64 140
+  %47 = load i32, ptr %46, align 4
+  %48 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
+  %.not.i = icmp eq i32 %47, %48
+  %49 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1168), align 8
+  %.not32.i = icmp eq i32 %47, %49
   %or.cond.i = select i1 %.not.i, i1 true, i1 %.not32.i
-  %49 = getelementptr inbounds i8, ptr %4, i64 152
-  br i1 %or.cond.i, label %51, label %50
+  %50 = getelementptr inbounds i8, ptr %4, i64 152
+  %51 = getelementptr inbounds i8, ptr %4, i64 156
+  br i1 %or.cond.i, label %53, label %52
 
-50:                                               ; preds = %44
-  store i32 %46, ptr %49, align 8
+52:                                               ; preds = %45
+  store i32 %47, ptr %50, align 8
+  store i8 1, ptr %51, align 4
   br label %response_init.exit
 
-51:                                               ; preds = %44
-  store i32 -1, ptr %49, align 8
+53:                                               ; preds = %45
+  store i32 -1, ptr %50, align 8
+  store i8 1, ptr %51, align 4
   br label %response_init.exit
 
-response_init.exit:                               ; preds = %42, %50, %51
-  %.sink.i = getelementptr inbounds i8, ptr %4, i64 156
-  store i8 1, ptr %.sink.i, align 4
-  %52 = or i16 %20, 64
-  store i16 %52, ptr %21, align 8
-  %53 = load i32, ptr %6, align 8
-  %54 = call i32 @slurm_send_node_msg(i32 noundef %53, ptr noundef nonnull %4)
-  br label %55
+response_init.exit:                               ; preds = %42, %52, %53
+  %54 = or i16 %20, 64
+  store i16 %54, ptr %21, align 8
+  %55 = load i32, ptr %6, align 8
+  %56 = call i32 @slurm_send_node_msg(i32 noundef %55, ptr noundef nonnull %4)
+  br label %57
 
-55:                                               ; preds = %response_init.exit, %9
-  %.0 = phi i32 [ -1, %9 ], [ %54, %response_init.exit ]
+57:                                               ; preds = %response_init.exit, %9
+  %.0 = phi i32 [ -1, %9 ], [ %56, %response_init.exit ]
   ret i32 %.0
 }
 
@@ -4255,7 +4264,7 @@ define i32 @slurm_send_reroute_msg(ptr nocapture noundef readonly %0, ptr nounde
 
 8:                                                ; preds = %2
   tail call void @slurm_seterrno(i32 noundef 107) #21
-  br label %53
+  br label %55
 
 9:                                                ; preds = %2
   store ptr %1, ptr %4, align 8
@@ -4301,43 +4310,46 @@ define i32 @slurm_send_reroute_msg(ptr nocapture noundef readonly %0, ptr nounde
   %37 = getelementptr inbounds i8, ptr %0, i64 148
   %38 = load i8, ptr %37, align 4
   %39 = trunc i8 %38 to i1
-  br i1 %39, label %42, label %40
+  br i1 %39, label %43, label %40
 
 40:                                               ; preds = %9
   %41 = getelementptr inbounds i8, ptr %3, i64 152
   store i32 99, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %3, i64 156
+  store i8 1, ptr %42, align 4
   br label %response_init.exit
 
-42:                                               ; preds = %9
-  %43 = getelementptr inbounds i8, ptr %0, i64 140
-  %44 = load i32, ptr %43, align 4
-  %45 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
-  %.not.i = icmp eq i32 %44, %45
-  %46 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1168), align 8
-  %.not32.i = icmp eq i32 %44, %46
+43:                                               ; preds = %9
+  %44 = getelementptr inbounds i8, ptr %0, i64 140
+  %45 = load i32, ptr %44, align 4
+  %46 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
+  %.not.i = icmp eq i32 %45, %46
+  %47 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1168), align 8
+  %.not32.i = icmp eq i32 %45, %47
   %or.cond.i = select i1 %.not.i, i1 true, i1 %.not32.i
-  %47 = getelementptr inbounds i8, ptr %3, i64 152
-  br i1 %or.cond.i, label %49, label %48
+  %48 = getelementptr inbounds i8, ptr %3, i64 152
+  %49 = getelementptr inbounds i8, ptr %3, i64 156
+  br i1 %or.cond.i, label %51, label %50
 
-48:                                               ; preds = %42
-  store i32 %44, ptr %47, align 8
+50:                                               ; preds = %43
+  store i32 %45, ptr %48, align 8
+  store i8 1, ptr %49, align 4
   br label %response_init.exit
 
-49:                                               ; preds = %42
-  store i32 -1, ptr %47, align 8
+51:                                               ; preds = %43
+  store i32 -1, ptr %48, align 8
+  store i8 1, ptr %49, align 4
   br label %response_init.exit
 
-response_init.exit:                               ; preds = %40, %48, %49
-  %.sink.i = getelementptr inbounds i8, ptr %3, i64 156
-  store i8 1, ptr %.sink.i, align 4
-  %50 = or i16 %18, 64
-  store i16 %50, ptr %19, align 8
-  %51 = load i32, ptr %5, align 8
-  %52 = call i32 @slurm_send_node_msg(i32 noundef %51, ptr noundef nonnull %3)
-  br label %53
+response_init.exit:                               ; preds = %40, %50, %51
+  %52 = or i16 %18, 64
+  store i16 %52, ptr %19, align 8
+  %53 = load i32, ptr %5, align 8
+  %54 = call i32 @slurm_send_node_msg(i32 noundef %53, ptr noundef nonnull %3)
+  br label %55
 
-53:                                               ; preds = %response_init.exit, %8
-  %.0 = phi i32 [ -1, %8 ], [ %52, %response_init.exit ]
+55:                                               ; preds = %response_init.exit, %8
+  %.0 = phi i32 [ -1, %8 ], [ %54, %response_init.exit ]
   ret i32 %.0
 }
 

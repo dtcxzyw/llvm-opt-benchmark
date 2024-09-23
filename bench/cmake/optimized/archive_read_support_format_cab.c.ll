@@ -1516,7 +1516,8 @@ define internal range(i32 -2147483648, 2) i32 @archive_read_format_cab_read_data
   %16 = getelementptr inbounds i8, ptr %4, i64 146
   store i8 1, ptr %16, align 2
   %17 = getelementptr inbounds i8, ptr %4, i64 147
-  br label %.sink.split
+  store i8 1, ptr %17, align 1
+  br label %53
 
 18:                                               ; preds = %7
   %19 = getelementptr inbounds i8, ptr %4, i64 16
@@ -1577,15 +1578,11 @@ define internal range(i32 -2147483648, 2) i32 @archive_read_format_cab_read_data
 51:                                               ; preds = %49, %46, %40
   %52 = getelementptr inbounds i8, ptr %4, i64 146
   store i8 1, ptr %52, align 2
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %10, %51
-  %.sink = phi ptr [ %33, %51 ], [ %17, %10 ]
-  store i8 1, ptr %.sink, align 1
+  store i8 1, ptr %33, align 1
   br label %53
 
-53:                                               ; preds = %.sink.split, %35, %32, %29, %21, %1
-  %.0 = phi i32 [ 1, %1 ], [ %23, %21 ], [ %30, %29 ], [ 0, %32 ], [ -30, %35 ], [ 0, %.sink.split ]
+53:                                               ; preds = %35, %32, %29, %21, %1, %51, %10
+  %.0 = phi i32 [ 0, %51 ], [ 0, %10 ], [ 1, %1 ], [ %23, %21 ], [ %30, %29 ], [ 0, %32 ], [ -30, %35 ]
   ret i32 %.0
 }
 

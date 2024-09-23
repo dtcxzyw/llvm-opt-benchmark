@@ -50,13 +50,13 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, double noundef %1, ptr nocapture noundef %2) local_unnamed_addr #2 align 2 {
   %4 = tail call double @llvm.fabs.f64(double %1)
   %5 = fcmp oeq double %4, 0x7FF0000000000000
-  br i1 %5, label %6, label %28
+  br i1 %5, label %6, label %31
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %44, label %10
+  br i1 %9, label %48, label %10
 
 10:                                               ; preds = %6
   %11 = fcmp olt double %1, 0.000000e+00
@@ -77,49 +77,48 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_co
 19:                                               ; preds = %12, %10
   %20 = phi ptr [ %.pre, %12 ], [ %8, %10 ]
   %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #13
-  %22 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %23 = load i32, ptr %22, align 8
-  %24 = load ptr, ptr %2, align 8
-  %25 = sext i32 %23 to i64
-  %26 = getelementptr inbounds i8, ptr %24, i64 %25
+  %22 = trunc i64 %21 to i32
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %24 = load i32, ptr %23, align 8
+  %25 = load ptr, ptr %2, align 8
+  %26 = sext i32 %24 to i64
+  %27 = getelementptr inbounds i8, ptr %25, i64 %26
   %sext.i = shl i64 %21, 32
-  %27 = ashr exact i64 %sext.i, 32
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %26, ptr align 1 %20, i64 %27, i1 false)
-  br label %.sink.split
+  %28 = ashr exact i64 %sext.i, 32
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %27, ptr align 1 %20, i64 %28, i1 false)
+  %29 = load i32, ptr %23, align 8
+  %30 = add nsw i32 %29, %22
+  store i32 %30, ptr %23, align 8
+  br label %48
 
-28:                                               ; preds = %3
-  %29 = fcmp uno double %1, 0.000000e+00
-  br i1 %29, label %30, label %44
+31:                                               ; preds = %3
+  %32 = fcmp uno double %1, 0.000000e+00
+  br i1 %32, label %33, label %48
 
-30:                                               ; preds = %28
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %32 = load ptr, ptr %31, align 8
-  %33 = icmp eq ptr %32, null
-  br i1 %33, label %44, label %34
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %35 = load ptr, ptr %34, align 8
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %48, label %37
 
-34:                                               ; preds = %30
-  %35 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #13
-  %36 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %37 = load i32, ptr %36, align 8
-  %38 = load ptr, ptr %2, align 8
-  %39 = sext i32 %37 to i64
-  %40 = getelementptr inbounds i8, ptr %38, i64 %39
-  %sext.i8 = shl i64 %35, 32
-  %41 = ashr exact i64 %sext.i8, 32
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %40, ptr nonnull align 1 %32, i64 %41, i1 false)
-  br label %.sink.split
+37:                                               ; preds = %33
+  %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #13
+  %39 = trunc i64 %38 to i32
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %41 = load i32, ptr %40, align 8
+  %42 = load ptr, ptr %2, align 8
+  %43 = sext i32 %41 to i64
+  %44 = getelementptr inbounds i8, ptr %42, i64 %43
+  %sext.i8 = shl i64 %38, 32
+  %45 = ashr exact i64 %sext.i8, 32
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %44, ptr nonnull align 1 %35, i64 %45, i1 false)
+  %46 = load i32, ptr %40, align 8
+  %47 = add nsw i32 %46, %39
+  store i32 %47, ptr %40, align 8
+  br label %48
 
-.sink.split:                                      ; preds = %19, %34
-  %.sink = phi ptr [ %36, %34 ], [ %22, %19 ]
-  %.sink12.in = phi i64 [ %35, %34 ], [ %21, %19 ]
-  %.sink12 = trunc i64 %.sink12.in to i32
-  %42 = load i32, ptr %.sink, align 8
-  %43 = add nsw i32 %42, %.sink12
-  store i32 %43, ptr %.sink, align 8
-  br label %44
-
-44:                                               ; preds = %.sink.split, %28, %30, %6
-  %.0 = phi i1 [ false, %6 ], [ false, %30 ], [ false, %28 ], [ true, %.sink.split ]
+48:                                               ; preds = %31, %33, %6, %37, %19
+  %.0 = phi i1 [ true, %19 ], [ true, %37 ], [ false, %6 ], [ false, %33 ], [ false, %31 ]
   ret i1 %.0
 }
 
@@ -534,11 +533,11 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_co
   %8 = alloca i32, align 4
   %9 = tail call double @llvm.fabs.f64(double %1)
   %10 = fcmp ueq double %9, 0x7FF0000000000000
-  br i1 %10, label %11, label %49
+  br i1 %10, label %11, label %53
 
 11:                                               ; preds = %4
   %12 = fcmp oeq double %9, 0x7FF0000000000000
-  br i1 %12, label %13, label %35
+  br i1 %12, label %13, label %38
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -565,92 +564,91 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_co
 26:                                               ; preds = %19, %17
   %27 = phi ptr [ %.pre.i, %19 ], [ %15, %17 ]
   %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #13
-  %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %30 = load i32, ptr %29, align 8
-  %31 = load ptr, ptr %2, align 8
-  %32 = sext i32 %30 to i64
-  %33 = getelementptr inbounds i8, ptr %31, i64 %32
+  %29 = trunc i64 %28 to i32
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %31 = load i32, ptr %30, align 8
+  %32 = load ptr, ptr %2, align 8
+  %33 = sext i32 %31 to i64
+  %34 = getelementptr inbounds i8, ptr %32, i64 %33
   %sext.i.i = shl i64 %28, 32
-  %34 = ashr exact i64 %sext.i.i, 32
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %33, ptr align 1 %27, i64 %34, i1 false)
-  br label %.sink.split.i
-
-35:                                               ; preds = %11
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %37 = load ptr, ptr %36, align 8
-  %38 = icmp eq ptr %37, null
-  br i1 %38, label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit, label %39
-
-39:                                               ; preds = %35
-  %40 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #13
-  %41 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %42 = load i32, ptr %41, align 8
-  %43 = load ptr, ptr %2, align 8
-  %44 = sext i32 %42 to i64
-  %45 = getelementptr inbounds i8, ptr %43, i64 %44
-  %sext.i8.i = shl i64 %40, 32
-  %46 = ashr exact i64 %sext.i8.i, 32
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %45, ptr nonnull align 1 %37, i64 %46, i1 false)
-  br label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %39, %26
-  %.sink.i = phi ptr [ %41, %39 ], [ %29, %26 ]
-  %.sink12.in.i = phi i64 [ %40, %39 ], [ %28, %26 ]
-  %.sink12.i = trunc i64 %.sink12.in.i to i32
-  %47 = load i32, ptr %.sink.i, align 8
-  %48 = add nsw i32 %47, %.sink12.i
-  store i32 %48, ptr %.sink.i, align 8
+  %35 = ashr exact i64 %sext.i.i, 32
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %34, ptr align 1 %27, i64 %35, i1 false)
+  %36 = load i32, ptr %30, align 8
+  %37 = add nsw i32 %36, %29
+  store i32 %37, ptr %30, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit
 
-49:                                               ; preds = %4
+38:                                               ; preds = %11
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %40 = load ptr, ptr %39, align 8
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit, label %42
+
+42:                                               ; preds = %38
+  %43 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #13
+  %44 = trunc i64 %43 to i32
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %46 = load i32, ptr %45, align 8
+  %47 = load ptr, ptr %2, align 8
+  %48 = sext i32 %46 to i64
+  %49 = getelementptr inbounds i8, ptr %47, i64 %48
+  %sext.i8.i = shl i64 %43, 32
+  %50 = ashr exact i64 %sext.i8.i, 32
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %49, ptr nonnull align 1 %40, i64 %50, i1 false)
+  %51 = load i32, ptr %45, align 8
+  %52 = add nsw i32 %51, %44
+  store i32 %52, ptr %45, align 8
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit
+
+53:                                               ; preds = %4
   call void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_(double noundef %1, i32 noundef %3, i32 noundef 0, ptr noundef nonnull %7, i32 noundef 18, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull %5)
-  %50 = load i32, ptr %0, align 8
-  %51 = and i32 %50, 8
-  %.not = icmp eq i32 %51, 0
-  %52 = load i8, ptr %6, align 1
-  %53 = trunc i8 %52 to i1
-  %54 = fcmp une double %1, 0.000000e+00
-  %brmerge = select i1 %54, i1 true, i1 %.not
-  %or.cond18 = select i1 %53, i1 %brmerge, i1 false
-  br i1 %or.cond18, label %55, label %62
+  %54 = load i32, ptr %0, align 8
+  %55 = and i32 %54, 8
+  %.not = icmp eq i32 %55, 0
+  %56 = load i8, ptr %6, align 1
+  %57 = trunc i8 %56 to i1
+  %58 = fcmp une double %1, 0.000000e+00
+  %brmerge = select i1 %58, i1 true, i1 %.not
+  %or.cond18 = select i1 %57, i1 %brmerge, i1 false
+  br i1 %or.cond18, label %59, label %66
 
-55:                                               ; preds = %49
-  %56 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %57 = load i32, ptr %56, align 8
-  %58 = add nsw i32 %57, 1
-  store i32 %58, ptr %56, align 8
-  %59 = load ptr, ptr %2, align 8
-  %60 = sext i32 %57 to i64
-  %61 = getelementptr inbounds i8, ptr %59, i64 %60
-  store i8 45, ptr %61, align 1
-  br label %62
+59:                                               ; preds = %53
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %61 = load i32, ptr %60, align 8
+  %62 = add nsw i32 %61, 1
+  store i32 %62, ptr %60, align 8
+  %63 = load ptr, ptr %2, align 8
+  %64 = sext i32 %61 to i64
+  %65 = getelementptr inbounds i8, ptr %63, i64 %64
+  store i8 45, ptr %65, align 1
+  br label %66
 
-62:                                               ; preds = %55, %49
-  %63 = load i32, ptr %5, align 4
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %65 = load i32, ptr %64, align 4
-  %.not15.not = icmp sge i32 %65, %63
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %67 = load i32, ptr %66, align 8
-  %.not16 = icmp sgt i32 %63, %67
+66:                                               ; preds = %59, %53
+  %67 = load i32, ptr %5, align 4
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %69 = load i32, ptr %68, align 4
+  %.not15.not = icmp sge i32 %69, %67
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %71 = load i32, ptr %70, align 8
+  %.not16 = icmp sgt i32 %67, %71
   %or.cond = select i1 %.not15.not, i1 true, i1 %.not16
-  br i1 %or.cond, label %71, label %68
+  br i1 %or.cond, label %75, label %72
 
-68:                                               ; preds = %62
-  %69 = load i32, ptr %8, align 4
-  %70 = sub nsw i32 %69, %63
-  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %70, i32 0)
-  call void @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter27CreateDecimalRepresentationEPKciiiPNS0_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %7, i32 noundef %69, i32 noundef %63, i32 noundef %.sroa.speculated, ptr noundef %2)
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit
-
-71:                                               ; preds = %62
-  %72 = add nsw i32 %63, -1
+72:                                               ; preds = %66
   %73 = load i32, ptr %8, align 4
-  call void @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter31CreateExponentialRepresentationEPKciiPNS0_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %7, i32 noundef %73, i32 noundef %72, ptr noundef %2)
+  %74 = sub nsw i32 %73, %67
+  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %74, i32 0)
+  call void @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter27CreateDecimalRepresentationEPKciiiPNS0_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %7, i32 noundef %73, i32 noundef %67, i32 noundef %.sroa.speculated, ptr noundef %2)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit: ; preds = %.sink.split.i, %35, %13, %68, %71
-  %.0 = phi i1 [ true, %71 ], [ true, %68 ], [ false, %13 ], [ false, %35 ], [ true, %.sink.split.i ]
+75:                                               ; preds = %66
+  %76 = add nsw i32 %67, -1
+  %77 = load i32, ptr %8, align 4
+  call void @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter31CreateExponentialRepresentationEPKciiPNS0_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %7, i32 noundef %77, i32 noundef %76, ptr noundef %2)
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit
+
+_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit: ; preds = %42, %38, %26, %13, %72, %75
+  %.0 = phi i1 [ true, %75 ], [ true, %72 ], [ true, %26 ], [ true, %42 ], [ false, %13 ], [ false, %38 ]
   ret i1 %.0
 }
 
@@ -731,12 +729,12 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_co
   %8 = bitcast double %1 to i64
   %9 = and i64 %8, 9218868437227405312
   %10 = icmp eq i64 %9, 9218868437227405312
-  br i1 %10, label %11, label %52
+  br i1 %10, label %11, label %56
 
 11:                                               ; preds = %4
   %12 = tail call double @llvm.fabs.f64(double %1)
   %13 = fcmp oeq double %12, 0x7FF0000000000000
-  br i1 %13, label %14, label %36
+  br i1 %13, label %14, label %39
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -763,107 +761,106 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_co
 27:                                               ; preds = %20, %18
   %28 = phi ptr [ %.pre.i, %20 ], [ %16, %18 ]
   %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #13
-  %30 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %31 = load i32, ptr %30, align 8
-  %32 = load ptr, ptr %3, align 8
-  %33 = sext i32 %31 to i64
-  %34 = getelementptr inbounds i8, ptr %32, i64 %33
+  %30 = trunc i64 %29 to i32
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %32 = load i32, ptr %31, align 8
+  %33 = load ptr, ptr %3, align 8
+  %34 = sext i32 %32 to i64
+  %35 = getelementptr inbounds i8, ptr %33, i64 %34
   %sext.i.i = shl i64 %29, 32
-  %35 = ashr exact i64 %sext.i.i, 32
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %34, ptr align 1 %28, i64 %35, i1 false)
-  br label %.sink.split.i
-
-36:                                               ; preds = %11
-  %37 = fcmp uno double %1, 0.000000e+00
-  br i1 %37, label %38, label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit
-
-38:                                               ; preds = %36
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %40 = load ptr, ptr %39, align 8
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit, label %42
-
-42:                                               ; preds = %38
-  %43 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #13
-  %44 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %45 = load i32, ptr %44, align 8
-  %46 = load ptr, ptr %3, align 8
-  %47 = sext i32 %45 to i64
-  %48 = getelementptr inbounds i8, ptr %46, i64 %47
-  %sext.i8.i = shl i64 %43, 32
-  %49 = ashr exact i64 %sext.i8.i, 32
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %48, ptr nonnull align 1 %40, i64 %49, i1 false)
-  br label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %42, %27
-  %.sink.i = phi ptr [ %44, %42 ], [ %30, %27 ]
-  %.sink12.in.i = phi i64 [ %43, %42 ], [ %29, %27 ]
-  %.sink12.i = trunc i64 %.sink12.in.i to i32
-  %50 = load i32, ptr %.sink.i, align 8
-  %51 = add nsw i32 %50, %.sink12.i
-  store i32 %51, ptr %.sink.i, align 8
+  %36 = ashr exact i64 %sext.i.i, 32
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %35, ptr align 1 %28, i64 %36, i1 false)
+  %37 = load i32, ptr %31, align 8
+  %38 = add nsw i32 %37, %30
+  store i32 %38, ptr %31, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit
 
-52:                                               ; preds = %4
-  %53 = icmp slt i32 %2, 101
-  %54 = tail call double @llvm.fabs.f64(double %1)
-  %or.cond = fcmp ult double %54, 0x4C63E9E4E4C2F344
-  %or.cond17 = and i1 %53, %or.cond
-  br i1 %or.cond17, label %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit
+39:                                               ; preds = %11
+  %40 = fcmp uno double %1, 0.000000e+00
+  br i1 %40, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit
 
-55:                                               ; preds = %52
-  %56 = fcmp oeq double %1, 0.000000e+00
-  br i1 %56, label %57, label %59
+41:                                               ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %43 = load ptr, ptr %42, align 8
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit, label %45
 
-57:                                               ; preds = %55
+45:                                               ; preds = %41
+  %46 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #13
+  %47 = trunc i64 %46 to i32
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %49 = load i32, ptr %48, align 8
+  %50 = load ptr, ptr %3, align 8
+  %51 = sext i32 %49 to i64
+  %52 = getelementptr inbounds i8, ptr %50, i64 %51
+  %sext.i8.i = shl i64 %46, 32
+  %53 = ashr exact i64 %sext.i8.i, 32
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %52, ptr nonnull align 1 %43, i64 %53, i1 false)
+  %54 = load i32, ptr %48, align 8
+  %55 = add nsw i32 %54, %47
+  store i32 %55, ptr %48, align 8
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit
+
+56:                                               ; preds = %4
+  %57 = icmp slt i32 %2, 101
+  %58 = tail call double @llvm.fabs.f64(double %1)
+  %or.cond = fcmp ult double %58, 0x4C63E9E4E4C2F344
+  %or.cond17 = and i1 %57, %or.cond
+  br i1 %or.cond17, label %59, label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit
+
+59:                                               ; preds = %56
+  %60 = fcmp oeq double %1, 0.000000e+00
+  br i1 %60, label %61, label %63
+
+61:                                               ; preds = %59
   store i8 48, ptr %6, align 16
-  %58 = getelementptr inbounds i8, ptr %6, i64 1
-  store i8 0, ptr %58, align 1
+  %62 = getelementptr inbounds i8, ptr %6, i64 1
+  store i8 0, ptr %62, align 1
   store i32 1, ptr %7, align 4
   store i32 1, ptr %5, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
 
-59:                                               ; preds = %55
-  %60 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13FastFixedDtoaEdiNS0_6VectorIcEEPiS3_(double noundef %54, i32 noundef %2, ptr nonnull %6, i32 161, ptr noundef nonnull %7, ptr noundef nonnull %5)
-  br i1 %60, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i
+63:                                               ; preds = %59
+  %64 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13FastFixedDtoaEdiNS0_6VectorIcEEPiS3_(double noundef %58, i32 noundef %2, ptr nonnull %6, i32 161, ptr noundef nonnull %7, ptr noundef nonnull %5)
+  br i1 %64, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i: ; preds = %59
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion10BignumDtoaEdNS0_14BignumDtoaModeEiNS0_6VectorIcEEPiS4_(double noundef %54, i32 noundef 2, i32 noundef %2, ptr nonnull %6, i32 161, ptr noundef nonnull %7, ptr noundef nonnull %5)
-  %61 = load i32, ptr %7, align 4
-  %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds i8, ptr %6, i64 %62
-  store i8 0, ptr %63, align 1
+_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i: ; preds = %63
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion10BignumDtoaEdNS0_14BignumDtoaModeEiNS0_6VectorIcEEPiS4_(double noundef %58, i32 noundef 2, i32 noundef %2, ptr nonnull %6, i32 161, ptr noundef nonnull %7, ptr noundef nonnull %5)
+  %65 = load i32, ptr %7, align 4
+  %66 = sext i32 %65 to i64
+  %67 = getelementptr inbounds i8, ptr %6, i64 %66
+  store i8 0, ptr %67, align 1
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit: ; preds = %57, %59, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i
-  %64 = load i32, ptr %0, align 8
-  %65 = and i32 %64, 8
-  %.not = icmp eq i32 %65, 0
-  %66 = icmp slt i64 %8, 0
-  %67 = fcmp une double %1, 0.000000e+00
-  %brmerge = select i1 %67, i1 true, i1 %.not
-  %or.cond18 = select i1 %66, i1 %brmerge, i1 false
-  br i1 %or.cond18, label %68, label %75
+_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit: ; preds = %61, %63, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i
+  %68 = load i32, ptr %0, align 8
+  %69 = and i32 %68, 8
+  %.not = icmp eq i32 %69, 0
+  %70 = icmp slt i64 %8, 0
+  %71 = fcmp une double %1, 0.000000e+00
+  %brmerge = select i1 %71, i1 true, i1 %.not
+  %or.cond18 = select i1 %70, i1 %brmerge, i1 false
+  br i1 %or.cond18, label %72, label %79
 
-68:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
-  %69 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %70 = load i32, ptr %69, align 8
-  %71 = add nsw i32 %70, 1
-  store i32 %71, ptr %69, align 8
-  %72 = load ptr, ptr %3, align 8
-  %73 = sext i32 %70 to i64
-  %74 = getelementptr inbounds i8, ptr %72, i64 %73
-  store i8 45, ptr %74, align 1
-  br label %75
+72:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
+  %73 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %74 = load i32, ptr %73, align 8
+  %75 = add nsw i32 %74, 1
+  store i32 %75, ptr %73, align 8
+  %76 = load ptr, ptr %3, align 8
+  %77 = sext i32 %74 to i64
+  %78 = getelementptr inbounds i8, ptr %76, i64 %77
+  store i8 45, ptr %78, align 1
+  br label %79
 
-75:                                               ; preds = %68, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
-  %76 = load i32, ptr %7, align 4
-  %77 = load i32, ptr %5, align 4
-  call void @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter27CreateDecimalRepresentationEPKciiiPNS0_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %6, i32 noundef %76, i32 noundef %77, i32 noundef %2, ptr noundef %3)
+79:                                               ; preds = %72, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
+  %80 = load i32, ptr %7, align 4
+  %81 = load i32, ptr %5, align 4
+  call void @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter27CreateDecimalRepresentationEPKciiiPNS0_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %6, i32 noundef %80, i32 noundef %81, i32 noundef %2, ptr noundef %3)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit: ; preds = %.sink.split.i, %38, %36, %14, %52, %75
-  %.0 = phi i1 [ true, %75 ], [ false, %52 ], [ false, %14 ], [ false, %38 ], [ false, %36 ], [ true, %.sink.split.i ]
+_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit: ; preds = %45, %41, %39, %27, %14, %56, %79
+  %.0 = phi i1 [ true, %79 ], [ false, %56 ], [ true, %27 ], [ true, %45 ], [ false, %14 ], [ false, %41 ], [ false, %39 ]
   ret i1 %.0
 }
 
@@ -875,12 +872,12 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_co
   %8 = bitcast double %1 to i64
   %9 = and i64 %8, 9218868437227405312
   %10 = icmp eq i64 %9, 9218868437227405312
-  br i1 %10, label %11, label %52
+  br i1 %10, label %11, label %56
 
 11:                                               ; preds = %4
   %12 = tail call double @llvm.fabs.f64(double %1)
   %13 = fcmp oeq double %12, 0x7FF0000000000000
-  br i1 %13, label %14, label %36
+  br i1 %13, label %14, label %39
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -907,158 +904,157 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_co
 27:                                               ; preds = %20, %18
   %28 = phi ptr [ %.pre.i, %20 ], [ %16, %18 ]
   %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #13
-  %30 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %31 = load i32, ptr %30, align 8
-  %32 = load ptr, ptr %3, align 8
-  %33 = sext i32 %31 to i64
-  %34 = getelementptr inbounds i8, ptr %32, i64 %33
+  %30 = trunc i64 %29 to i32
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %32 = load i32, ptr %31, align 8
+  %33 = load ptr, ptr %3, align 8
+  %34 = sext i32 %32 to i64
+  %35 = getelementptr inbounds i8, ptr %33, i64 %34
   %sext.i.i = shl i64 %29, 32
-  %35 = ashr exact i64 %sext.i.i, 32
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %34, ptr align 1 %28, i64 %35, i1 false)
-  br label %.sink.split.i
-
-36:                                               ; preds = %11
-  %37 = fcmp uno double %1, 0.000000e+00
-  br i1 %37, label %38, label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit
-
-38:                                               ; preds = %36
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %40 = load ptr, ptr %39, align 8
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit, label %42
-
-42:                                               ; preds = %38
-  %43 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #13
-  %44 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %45 = load i32, ptr %44, align 8
-  %46 = load ptr, ptr %3, align 8
-  %47 = sext i32 %45 to i64
-  %48 = getelementptr inbounds i8, ptr %46, i64 %47
-  %sext.i8.i = shl i64 %43, 32
-  %49 = ashr exact i64 %sext.i8.i, 32
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %48, ptr nonnull align 1 %40, i64 %49, i1 false)
-  br label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %42, %27
-  %.sink.i = phi ptr [ %44, %42 ], [ %30, %27 ]
-  %.sink12.in.i = phi i64 [ %43, %42 ], [ %29, %27 ]
-  %.sink12.i = trunc i64 %.sink12.in.i to i32
-  %50 = load i32, ptr %.sink.i, align 8
-  %51 = add nsw i32 %50, %.sink12.i
-  store i32 %51, ptr %.sink.i, align 8
+  %36 = ashr exact i64 %sext.i.i, 32
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %35, ptr align 1 %28, i64 %36, i1 false)
+  %37 = load i32, ptr %31, align 8
+  %38 = add nsw i32 %37, %30
+  store i32 %38, ptr %31, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit
 
-52:                                               ; preds = %4
-  %53 = add i32 %2, -121
-  %or.cond = icmp ult i32 %53, -122
-  br i1 %or.cond, label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit, label %54
+39:                                               ; preds = %11
+  %40 = fcmp uno double %1, 0.000000e+00
+  br i1 %40, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit
 
-54:                                               ; preds = %52
-  %55 = icmp eq i32 %2, -1
-  br i1 %55, label %56, label %65
+41:                                               ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %43 = load ptr, ptr %42, align 8
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit, label %45
 
-56:                                               ; preds = %54
-  %.0.i26 = tail call double @llvm.fabs.f64(double %1)
-  %57 = fcmp oeq double %1, 0.000000e+00
-  br i1 %57, label %58, label %60
+45:                                               ; preds = %41
+  %46 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #13
+  %47 = trunc i64 %46 to i32
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %49 = load i32, ptr %48, align 8
+  %50 = load ptr, ptr %3, align 8
+  %51 = sext i32 %49 to i64
+  %52 = getelementptr inbounds i8, ptr %50, i64 %51
+  %sext.i8.i = shl i64 %46, 32
+  %53 = ashr exact i64 %sext.i8.i, 32
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %52, ptr nonnull align 1 %43, i64 %53, i1 false)
+  %54 = load i32, ptr %48, align 8
+  %55 = add nsw i32 %54, %47
+  store i32 %55, ptr %48, align 8
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit
+
+56:                                               ; preds = %4
+  %57 = add i32 %2, -121
+  %or.cond = icmp ult i32 %57, -122
+  br i1 %or.cond, label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit, label %58
 
 58:                                               ; preds = %56
+  %59 = icmp eq i32 %2, -1
+  br i1 %59, label %60, label %69
+
+60:                                               ; preds = %58
+  %.0.i25 = tail call double @llvm.fabs.f64(double %1)
+  %61 = fcmp oeq double %1, 0.000000e+00
+  br i1 %61, label %62, label %64
+
+62:                                               ; preds = %60
   store i8 48, ptr %6, align 16
-  %59 = getelementptr inbounds i8, ptr %6, i64 1
-  store i8 0, ptr %59, align 1
+  %63 = getelementptr inbounds i8, ptr %6, i64 1
+  store i8 0, ptr %63, align 1
   store i32 1, ptr %7, align 4
   store i32 1, ptr %5, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
 
-60:                                               ; preds = %56
-  %61 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion8FastDtoaEdNS0_12FastDtoaModeEiNS0_6VectorIcEEPiS4_(double noundef %.0.i26, i32 noundef 0, i32 noundef 0, ptr nonnull %6, i32 122, ptr noundef nonnull %7, ptr noundef nonnull %5)
-  br i1 %61, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i
+64:                                               ; preds = %60
+  %65 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion8FastDtoaEdNS0_12FastDtoaModeEiNS0_6VectorIcEEPiS4_(double noundef %.0.i25, i32 noundef 0, i32 noundef 0, ptr nonnull %6, i32 122, ptr noundef nonnull %7, ptr noundef nonnull %5)
+  br i1 %65, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i: ; preds = %60
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion10BignumDtoaEdNS0_14BignumDtoaModeEiNS0_6VectorIcEEPiS4_(double noundef %.0.i26, i32 noundef 0, i32 noundef 0, ptr nonnull %6, i32 122, ptr noundef nonnull %7, ptr noundef nonnull %5)
-  %62 = load i32, ptr %7, align 4
-  %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds i8, ptr %6, i64 %63
-  store i8 0, ptr %64, align 1
+_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i: ; preds = %64
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion10BignumDtoaEdNS0_14BignumDtoaModeEiNS0_6VectorIcEEPiS4_(double noundef %.0.i25, i32 noundef 0, i32 noundef 0, ptr nonnull %6, i32 122, ptr noundef nonnull %7, ptr noundef nonnull %5)
+  %66 = load i32, ptr %7, align 4
+  %67 = sext i32 %66 to i64
+  %68 = getelementptr inbounds i8, ptr %6, i64 %67
+  store i8 0, ptr %68, align 1
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
 
-65:                                               ; preds = %54
-  %66 = add nuw nsw i32 %2, 1
-  %.0.i29 = tail call double @llvm.fabs.f64(double %1)
-  %67 = fcmp oeq double %1, 0.000000e+00
-  br i1 %67, label %68, label %70
+69:                                               ; preds = %58
+  %70 = add nuw nsw i32 %2, 1
+  %.0.i28 = tail call double @llvm.fabs.f64(double %1)
+  %71 = fcmp oeq double %1, 0.000000e+00
+  br i1 %71, label %72, label %74
 
-68:                                               ; preds = %65
+72:                                               ; preds = %69
   store i8 48, ptr %6, align 16
-  %69 = getelementptr inbounds i8, ptr %6, i64 1
-  store i8 0, ptr %69, align 1
+  %73 = getelementptr inbounds i8, ptr %6, i64 1
+  store i8 0, ptr %73, align 1
   store i32 1, ptr %5, align 4
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit31
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit30
 
-70:                                               ; preds = %65
-  %71 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion8FastDtoaEdNS0_12FastDtoaModeEiNS0_6VectorIcEEPiS4_(double noundef %.0.i29, i32 noundef 2, i32 noundef %66, ptr nonnull %6, i32 122, ptr noundef nonnull %7, ptr noundef nonnull %5)
-  br i1 %71, label %._ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit31_crit_edge, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i30
+74:                                               ; preds = %69
+  %75 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion8FastDtoaEdNS0_12FastDtoaModeEiNS0_6VectorIcEEPiS4_(double noundef %.0.i28, i32 noundef 2, i32 noundef %70, ptr nonnull %6, i32 122, ptr noundef nonnull %7, ptr noundef nonnull %5)
+  br i1 %75, label %._ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit30_crit_edge, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i29
 
-._ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit31_crit_edge: ; preds = %70
+._ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit30_crit_edge: ; preds = %74
   %.pre = load i32, ptr %7, align 4
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit31
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit30
 
-_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i30: ; preds = %70
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion10BignumDtoaEdNS0_14BignumDtoaModeEiNS0_6VectorIcEEPiS4_(double noundef %.0.i29, i32 noundef 3, i32 noundef %66, ptr nonnull %6, i32 122, ptr noundef nonnull %7, ptr noundef nonnull %5)
-  %72 = load i32, ptr %7, align 4
-  %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds i8, ptr %6, i64 %73
-  store i8 0, ptr %74, align 1
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit31
+_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i29: ; preds = %74
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion10BignumDtoaEdNS0_14BignumDtoaModeEiNS0_6VectorIcEEPiS4_(double noundef %.0.i28, i32 noundef 3, i32 noundef %70, ptr nonnull %6, i32 122, ptr noundef nonnull %7, ptr noundef nonnull %5)
+  %76 = load i32, ptr %7, align 4
+  %77 = sext i32 %76 to i64
+  %78 = getelementptr inbounds i8, ptr %6, i64 %77
+  store i8 0, ptr %78, align 1
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit30
 
-_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit31: ; preds = %._ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit31_crit_edge, %68, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i30
-  %75 = phi i32 [ %.pre, %._ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit31_crit_edge ], [ 1, %68 ], [ %72, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i30 ]
-  %.not33 = icmp sgt i32 %75, %2
-  br i1 %.not33, label %._crit_edge, label %.lr.ph.preheader
+_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit30: ; preds = %._ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit30_crit_edge, %72, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i29
+  %79 = phi i32 [ %.pre, %._ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit30_crit_edge ], [ 1, %72 ], [ %76, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i29 ]
+  %.not32 = icmp sgt i32 %79, %2
+  br i1 %.not32, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit31
-  %76 = sext i32 %75 to i64
-  %scevgep = getelementptr i8, ptr %6, i64 %76
-  %77 = sub i32 %2, %75
-  %78 = zext i32 %77 to i64
-  %79 = add nuw nsw i64 %78, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 48, i64 %79, i1 false)
+.lr.ph.preheader:                                 ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit30
+  %80 = sext i32 %79 to i64
+  %scevgep = getelementptr i8, ptr %6, i64 %80
+  %81 = sub i32 %2, %79
+  %82 = zext i32 %81 to i64
+  %83 = add nuw nsw i64 %82, 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 48, i64 %83, i1 false)
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit31
-  store i32 %66, ptr %7, align 4
+._crit_edge:                                      ; preds = %.lr.ph.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit30
+  store i32 %70, ptr %7, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i, %60, %58, %._crit_edge
-  %80 = load i32, ptr %0, align 8
-  %81 = and i32 %80, 8
-  %.not23 = icmp eq i32 %81, 0
-  %82 = icmp slt i64 %8, 0
-  %83 = fcmp une double %1, 0.000000e+00
-  %brmerge = select i1 %83, i1 true, i1 %.not23
-  %or.cond24 = select i1 %82, i1 %brmerge, i1 false
-  br i1 %or.cond24, label %84, label %91
+_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i, %64, %62, %._crit_edge
+  %84 = load i32, ptr %0, align 8
+  %85 = and i32 %84, 8
+  %.not23 = icmp eq i32 %85, 0
+  %86 = icmp slt i64 %8, 0
+  %87 = fcmp une double %1, 0.000000e+00
+  %brmerge = select i1 %87, i1 true, i1 %.not23
+  %or.cond24 = select i1 %86, i1 %brmerge, i1 false
+  br i1 %or.cond24, label %88, label %95
 
-84:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
-  %85 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %86 = load i32, ptr %85, align 8
-  %87 = add nsw i32 %86, 1
-  store i32 %87, ptr %85, align 8
-  %88 = load ptr, ptr %3, align 8
-  %89 = sext i32 %86 to i64
-  %90 = getelementptr inbounds i8, ptr %88, i64 %89
-  store i8 45, ptr %90, align 1
-  br label %91
+88:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
+  %89 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %90 = load i32, ptr %89, align 8
+  %91 = add nsw i32 %90, 1
+  store i32 %91, ptr %89, align 8
+  %92 = load ptr, ptr %3, align 8
+  %93 = sext i32 %90 to i64
+  %94 = getelementptr inbounds i8, ptr %92, i64 %93
+  store i8 45, ptr %94, align 1
+  br label %95
 
-91:                                               ; preds = %84, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
-  %92 = load i32, ptr %5, align 4
-  %93 = add nsw i32 %92, -1
-  %94 = load i32, ptr %7, align 4
-  call void @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter31CreateExponentialRepresentationEPKciiPNS0_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %6, i32 noundef %94, i32 noundef %93, ptr noundef %3)
+95:                                               ; preds = %88, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
+  %96 = load i32, ptr %5, align 4
+  %97 = add nsw i32 %96, -1
+  %98 = load i32, ptr %7, align 4
+  call void @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter31CreateExponentialRepresentationEPKciiPNS0_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %6, i32 noundef %98, i32 noundef %97, ptr noundef %3)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit: ; preds = %.sink.split.i, %38, %36, %14, %52, %91
-  %.0 = phi i1 [ true, %91 ], [ false, %52 ], [ false, %14 ], [ false, %38 ], [ false, %36 ], [ true, %.sink.split.i ]
+_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit: ; preds = %45, %41, %39, %27, %14, %56, %95
+  %.0 = phi i1 [ true, %95 ], [ false, %56 ], [ true, %27 ], [ true, %45 ], [ false, %14 ], [ false, %41 ], [ false, %39 ]
   ret i1 %.0
 }
 
@@ -1070,12 +1066,12 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_co
   %8 = bitcast double %1 to i64
   %9 = and i64 %8, 9218868437227405312
   %10 = icmp eq i64 %9, 9218868437227405312
-  br i1 %10, label %11, label %52
+  br i1 %10, label %11, label %56
 
 11:                                               ; preds = %4
   %12 = tail call double @llvm.fabs.f64(double %1)
   %13 = fcmp oeq double %12, 0x7FF0000000000000
-  br i1 %13, label %14, label %36
+  br i1 %13, label %14, label %39
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1102,214 +1098,213 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_co
 27:                                               ; preds = %20, %18
   %28 = phi ptr [ %.pre.i, %20 ], [ %16, %18 ]
   %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #13
-  %30 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %31 = load i32, ptr %30, align 8
-  %32 = load ptr, ptr %3, align 8
-  %33 = sext i32 %31 to i64
-  %34 = getelementptr inbounds i8, ptr %32, i64 %33
+  %30 = trunc i64 %29 to i32
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %32 = load i32, ptr %31, align 8
+  %33 = load ptr, ptr %3, align 8
+  %34 = sext i32 %32 to i64
+  %35 = getelementptr inbounds i8, ptr %33, i64 %34
   %sext.i.i = shl i64 %29, 32
-  %35 = ashr exact i64 %sext.i.i, 32
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %34, ptr align 1 %28, i64 %35, i1 false)
-  br label %.sink.split.i
-
-36:                                               ; preds = %11
-  %37 = fcmp uno double %1, 0.000000e+00
-  br i1 %37, label %38, label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit
-
-38:                                               ; preds = %36
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %40 = load ptr, ptr %39, align 8
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit, label %42
-
-42:                                               ; preds = %38
-  %43 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #13
-  %44 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %45 = load i32, ptr %44, align 8
-  %46 = load ptr, ptr %3, align 8
-  %47 = sext i32 %45 to i64
-  %48 = getelementptr inbounds i8, ptr %46, i64 %47
-  %sext.i8.i = shl i64 %43, 32
-  %49 = ashr exact i64 %sext.i8.i, 32
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %48, ptr nonnull align 1 %40, i64 %49, i1 false)
-  br label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %42, %27
-  %.sink.i = phi ptr [ %44, %42 ], [ %30, %27 ]
-  %.sink12.in.i = phi i64 [ %43, %42 ], [ %29, %27 ]
-  %.sink12.i = trunc i64 %.sink12.in.i to i32
-  %50 = load i32, ptr %.sink.i, align 8
-  %51 = add nsw i32 %50, %.sink12.i
-  store i32 %51, ptr %.sink.i, align 8
+  %36 = ashr exact i64 %sext.i.i, 32
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %35, ptr align 1 %28, i64 %36, i1 false)
+  %37 = load i32, ptr %31, align 8
+  %38 = add nsw i32 %37, %30
+  store i32 %38, ptr %31, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit
 
-52:                                               ; preds = %4
-  %53 = add i32 %2, -121
-  %or.cond = icmp ult i32 %53, -120
-  br i1 %or.cond, label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit, label %54
+39:                                               ; preds = %11
+  %40 = fcmp uno double %1, 0.000000e+00
+  br i1 %40, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit
 
-54:                                               ; preds = %52
-  %.0.i27 = tail call double @llvm.fabs.f64(double %1)
-  %55 = fcmp oeq double %1, 0.000000e+00
-  br i1 %55, label %56, label %58
+41:                                               ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %43 = load ptr, ptr %42, align 8
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit, label %45
 
-56:                                               ; preds = %54
+45:                                               ; preds = %41
+  %46 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #13
+  %47 = trunc i64 %46 to i32
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %49 = load i32, ptr %48, align 8
+  %50 = load ptr, ptr %3, align 8
+  %51 = sext i32 %49 to i64
+  %52 = getelementptr inbounds i8, ptr %50, i64 %51
+  %sext.i8.i = shl i64 %46, 32
+  %53 = ashr exact i64 %sext.i8.i, 32
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %52, ptr nonnull align 1 %43, i64 %53, i1 false)
+  %54 = load i32, ptr %48, align 8
+  %55 = add nsw i32 %54, %47
+  store i32 %55, ptr %48, align 8
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit
+
+56:                                               ; preds = %4
+  %57 = add i32 %2, -121
+  %or.cond = icmp ult i32 %57, -120
+  br i1 %or.cond, label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit, label %58
+
+58:                                               ; preds = %56
+  %.0.i26 = tail call double @llvm.fabs.f64(double %1)
+  %59 = fcmp oeq double %1, 0.000000e+00
+  br i1 %59, label %60, label %62
+
+60:                                               ; preds = %58
   store i8 48, ptr %6, align 16
-  %57 = getelementptr inbounds i8, ptr %6, i64 1
-  store i8 0, ptr %57, align 1
+  %61 = getelementptr inbounds i8, ptr %6, i64 1
+  store i8 0, ptr %61, align 1
   store i32 1, ptr %7, align 4
   store i32 1, ptr %5, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
 
-58:                                               ; preds = %54
-  %59 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion8FastDtoaEdNS0_12FastDtoaModeEiNS0_6VectorIcEEPiS4_(double noundef %.0.i27, i32 noundef 2, i32 noundef %2, ptr nonnull %6, i32 121, ptr noundef nonnull %7, ptr noundef nonnull %5)
-  br i1 %59, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i
+62:                                               ; preds = %58
+  %63 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion8FastDtoaEdNS0_12FastDtoaModeEiNS0_6VectorIcEEPiS4_(double noundef %.0.i26, i32 noundef 2, i32 noundef %2, ptr nonnull %6, i32 121, ptr noundef nonnull %7, ptr noundef nonnull %5)
+  br i1 %63, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i: ; preds = %58
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion10BignumDtoaEdNS0_14BignumDtoaModeEiNS0_6VectorIcEEPiS4_(double noundef %.0.i27, i32 noundef 3, i32 noundef %2, ptr nonnull %6, i32 121, ptr noundef nonnull %7, ptr noundef nonnull %5)
-  %60 = load i32, ptr %7, align 4
-  %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds i8, ptr %6, i64 %61
-  store i8 0, ptr %62, align 1
+_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i: ; preds = %62
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion10BignumDtoaEdNS0_14BignumDtoaModeEiNS0_6VectorIcEEPiS4_(double noundef %.0.i26, i32 noundef 3, i32 noundef %2, ptr nonnull %6, i32 121, ptr noundef nonnull %7, ptr noundef nonnull %5)
+  %64 = load i32, ptr %7, align 4
+  %65 = sext i32 %64 to i64
+  %66 = getelementptr inbounds i8, ptr %6, i64 %65
+  store i8 0, ptr %66, align 1
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit: ; preds = %56, %58, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i
-  %63 = load i32, ptr %0, align 8
-  %64 = and i32 %63, 8
-  %.not = icmp eq i32 %64, 0
-  %65 = icmp slt i64 %8, 0
-  %66 = fcmp une double %1, 0.000000e+00
-  %brmerge = select i1 %66, i1 true, i1 %.not
-  %or.cond25 = select i1 %65, i1 %brmerge, i1 false
-  br i1 %or.cond25, label %67, label %74
+_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit: ; preds = %60, %62, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i
+  %67 = load i32, ptr %0, align 8
+  %68 = and i32 %67, 8
+  %.not = icmp eq i32 %68, 0
+  %69 = icmp slt i64 %8, 0
+  %70 = fcmp une double %1, 0.000000e+00
+  %brmerge = select i1 %70, i1 true, i1 %.not
+  %or.cond25 = select i1 %69, i1 %brmerge, i1 false
+  br i1 %or.cond25, label %71, label %78
 
-67:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
-  %68 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %69 = load i32, ptr %68, align 8
-  %70 = add nsw i32 %69, 1
-  store i32 %70, ptr %68, align 8
-  %71 = load ptr, ptr %3, align 8
-  %72 = sext i32 %69 to i64
-  %73 = getelementptr inbounds i8, ptr %71, i64 %72
-  store i8 45, ptr %73, align 1
-  br label %74
+71:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
+  %72 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %73 = load i32, ptr %72, align 8
+  %74 = add nsw i32 %73, 1
+  store i32 %74, ptr %72, align 8
+  %75 = load ptr, ptr %3, align 8
+  %76 = sext i32 %73 to i64
+  %77 = getelementptr inbounds i8, ptr %75, i64 %76
+  store i8 45, ptr %77, align 1
+  br label %78
 
-74:                                               ; preds = %67, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
-  %75 = load i32, ptr %5, align 4
-  %76 = add nsw i32 %75, -1
-  %77 = sub i32 1, %75
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %79 = load i32, ptr %78, align 4
-  %80 = icmp sgt i32 %77, %79
-  %81 = load i32, ptr %0, align 8
-  br i1 %80, label %.thread, label %82
+78:                                               ; preds = %71, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
+  %79 = load i32, ptr %5, align 4
+  %80 = add nsw i32 %79, -1
+  %81 = sub i32 1, %79
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %83 = load i32, ptr %82, align 4
+  %84 = icmp sgt i32 %81, %83
+  %85 = load i32, ptr %0, align 8
+  br i1 %84, label %.thread, label %86
 
-82:                                               ; preds = %74
-  %83 = lshr i32 %81, 2
-  %.lobit = and i32 %83, 1
-  %84 = sub i32 %75, %2
-  %85 = add nsw i32 %84, %.lobit
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %87 = load i32, ptr %86, align 8
-  %88 = icmp sgt i32 %85, %87
-  %89 = and i32 %81, 16
-  %.not24 = icmp eq i32 %89, 0
-  br i1 %.not24, label %108, label %91
+86:                                               ; preds = %78
+  %87 = lshr i32 %85, 2
+  %.lobit = and i32 %87, 1
+  %88 = sub i32 %79, %2
+  %89 = add nsw i32 %88, %.lobit
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %91 = load i32, ptr %90, align 8
+  %92 = icmp sgt i32 %89, %91
+  %93 = and i32 %85, 16
+  %.not24 = icmp eq i32 %93, 0
+  br i1 %.not24, label %112, label %95
 
-.thread:                                          ; preds = %74
-  %90 = and i32 %81, 16
-  %.not2450 = icmp eq i32 %90, 0
-  br i1 %.not2450, label %.thread..thread52_crit_edge, label %.thread51
+.thread:                                          ; preds = %78
+  %94 = and i32 %85, 16
+  %.not2449 = icmp eq i32 %94, 0
+  br i1 %.not2449, label %.thread..thread51_crit_edge, label %.thread50
 
-.thread..thread52_crit_edge:                      ; preds = %.thread
-  %.pre65 = load i32, ptr %7, align 4
-  br label %.thread52
-
-91:                                               ; preds = %82
-  br i1 %88, label %.thread51, label %92
-
-92:                                               ; preds = %91
-  %.sroa.speculated33 = call i32 @llvm.smax.i32(i32 %75, i32 1)
+.thread..thread51_crit_edge:                      ; preds = %.thread
+  %.pre64 = load i32, ptr %7, align 4
   br label %.thread51
 
-.thread51:                                        ; preds = %.thread, %91, %92
-  %93 = phi i1 [ false, %92 ], [ true, %91 ], [ true, %.thread ]
-  %94 = phi i32 [ %.sroa.speculated33, %92 ], [ 1, %91 ], [ 1, %.thread ]
+95:                                               ; preds = %86
+  br i1 %92, label %.thread50, label %96
+
+96:                                               ; preds = %95
+  %.sroa.speculated32 = call i32 @llvm.smax.i32(i32 %79, i32 1)
+  br label %.thread50
+
+.thread50:                                        ; preds = %.thread, %95, %96
+  %97 = phi i1 [ false, %96 ], [ true, %95 ], [ true, %.thread ]
+  %98 = phi i32 [ %.sroa.speculated32, %96 ], [ 1, %95 ], [ 1, %.thread ]
   %.promoted = load i32, ptr %7, align 4
-  %95 = icmp sgt i32 %.promoted, %94
-  br i1 %95, label %.lr.ph.preheader, label %.critedge
+  %99 = icmp sgt i32 %.promoted, %98
+  br i1 %99, label %.lr.ph.preheader, label %.critedge
 
-.lr.ph.preheader:                                 ; preds = %.thread51
-  %96 = zext nneg i32 %.promoted to i64
-  %97 = zext nneg i32 %94 to i64
-  %indvars.iv.next74 = add nsw i64 %96, -1
-  %98 = getelementptr inbounds [121 x i8], ptr %6, i64 0, i64 %indvars.iv.next74
-  %99 = load i8, ptr %98, align 1
-  %100 = icmp eq i8 %99, 48
-  br i1 %100, label %.lr.ph76, label %.critedge
+.lr.ph.preheader:                                 ; preds = %.thread50
+  %100 = zext nneg i32 %.promoted to i64
+  %101 = zext nneg i32 %98 to i64
+  %indvars.iv.next73 = add nsw i64 %100, -1
+  %102 = getelementptr inbounds [121 x i8], ptr %6, i64 0, i64 %indvars.iv.next73
+  %103 = load i8, ptr %102, align 1
+  %104 = icmp eq i8 %103, 48
+  br i1 %104, label %.lr.ph75, label %.critedge
 
-.lr.ph:                                           ; preds = %.lr.ph76
-  %indvars.iv.next = add nsw i64 %indvars.iv.next75, -1
-  %101 = getelementptr inbounds [121 x i8], ptr %6, i64 0, i64 %indvars.iv.next
-  %102 = load i8, ptr %101, align 1
-  %103 = icmp eq i8 %102, 48
-  br i1 %103, label %.lr.ph76, label %.lr.ph..critedge.loopexit.split.loop.exit67_crit_edge, !llvm.loop !9
+.lr.ph:                                           ; preds = %.lr.ph75
+  %indvars.iv.next = add nsw i64 %indvars.iv.next74, -1
+  %105 = getelementptr inbounds [121 x i8], ptr %6, i64 0, i64 %indvars.iv.next
+  %106 = load i8, ptr %105, align 1
+  %107 = icmp eq i8 %106, 48
+  br i1 %107, label %.lr.ph75, label %.lr.ph..critedge.loopexit.split.loop.exit66_crit_edge, !llvm.loop !9
 
-.lr.ph76:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv.next75 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %indvars.iv.next74, %.lr.ph.preheader ]
-  %104 = trunc nsw i64 %indvars.iv.next75 to i32
-  %105 = icmp sgt i64 %indvars.iv.next75, %97
-  br i1 %105, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !9
+.lr.ph75:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv.next74 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %indvars.iv.next73, %.lr.ph.preheader ]
+  %108 = trunc nsw i64 %indvars.iv.next74 to i32
+  %109 = icmp sgt i64 %indvars.iv.next74, %101
+  br i1 %109, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !9
 
-.lr.ph..critedge.loopexit.split.loop.exit67_crit_edge: ; preds = %.lr.ph
-  store i32 %104, ptr %7, align 4
-  %106 = trunc nuw nsw i64 %indvars.iv.next75 to i32
+.lr.ph..critedge.loopexit.split.loop.exit66_crit_edge: ; preds = %.lr.ph
+  store i32 %108, ptr %7, align 4
+  %110 = trunc nuw nsw i64 %indvars.iv.next74 to i32
   br label %.critedge
 
-.critedge.loopexit:                               ; preds = %.lr.ph76
-  store i32 %104, ptr %7, align 4
+.critedge.loopexit:                               ; preds = %.lr.ph75
+  store i32 %108, ptr %7, align 4
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph.preheader, %.lr.ph..critedge.loopexit.split.loop.exit67_crit_edge, %.thread51
-  %107 = phi i32 [ %.promoted, %.thread51 ], [ %104, %.lr.ph..critedge.loopexit.split.loop.exit67_crit_edge ], [ %.promoted, %.lr.ph.preheader ], [ %104, %.critedge.loopexit ]
-  %.lcssa = phi i32 [ %.promoted, %.thread51 ], [ %106, %.lr.ph..critedge.loopexit.split.loop.exit67_crit_edge ], [ %.promoted, %.lr.ph.preheader ], [ %94, %.critedge.loopexit ]
-  %.sroa.speculated42 = call i32 @llvm.smin.i32(i32 %.lcssa, i32 %2)
-  br i1 %93, label %.thread52, label %._crit_edge64
+.critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph.preheader, %.lr.ph..critedge.loopexit.split.loop.exit66_crit_edge, %.thread50
+  %111 = phi i32 [ %.promoted, %.thread50 ], [ %108, %.lr.ph..critedge.loopexit.split.loop.exit66_crit_edge ], [ %.promoted, %.lr.ph.preheader ], [ %108, %.critedge.loopexit ]
+  %.lcssa = phi i32 [ %.promoted, %.thread50 ], [ %110, %.lr.ph..critedge.loopexit.split.loop.exit66_crit_edge ], [ %.promoted, %.lr.ph.preheader ], [ %98, %.critedge.loopexit ]
+  %.sroa.speculated41 = call i32 @llvm.smin.i32(i32 %.lcssa, i32 %2)
+  br i1 %97, label %.thread51, label %._crit_edge63
 
-108:                                              ; preds = %82
-  %.pre66 = load i32, ptr %7, align 4
-  br i1 %88, label %.thread52, label %._crit_edge64
+112:                                              ; preds = %86
+  %.pre65 = load i32, ptr %7, align 4
+  br i1 %92, label %.thread51, label %._crit_edge63
 
-.thread52:                                        ; preds = %.thread..thread52_crit_edge, %.critedge, %108
-  %109 = phi i32 [ %.pre66, %108 ], [ %107, %.critedge ], [ %.pre65, %.thread..thread52_crit_edge ]
-  %.04954 = phi i32 [ %2, %108 ], [ %.sroa.speculated42, %.critedge ], [ %2, %.thread..thread52_crit_edge ]
-  %110 = icmp slt i32 %109, %.04954
-  br i1 %110, label %.lr.ph59.preheader, label %._crit_edge
+.thread51:                                        ; preds = %.thread..thread51_crit_edge, %.critedge, %112
+  %113 = phi i32 [ %.pre65, %112 ], [ %111, %.critedge ], [ %.pre64, %.thread..thread51_crit_edge ]
+  %.04853 = phi i32 [ %2, %112 ], [ %.sroa.speculated41, %.critedge ], [ %2, %.thread..thread51_crit_edge ]
+  %114 = icmp slt i32 %113, %.04853
+  br i1 %114, label %.lr.ph58.preheader, label %._crit_edge
 
-.lr.ph59.preheader:                               ; preds = %.thread52
-  %111 = sext i32 %109 to i64
-  %scevgep = getelementptr i8, ptr %6, i64 %111
-  %112 = xor i32 %109, -1
-  %113 = add i32 %.04954, %112
-  %114 = zext i32 %113 to i64
-  %115 = add nuw nsw i64 %114, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 48, i64 %115, i1 false)
+.lr.ph58.preheader:                               ; preds = %.thread51
+  %115 = sext i32 %113 to i64
+  %scevgep = getelementptr i8, ptr %6, i64 %115
+  %116 = xor i32 %113, -1
+  %117 = add i32 %.04853, %116
+  %118 = zext i32 %117 to i64
+  %119 = add nuw nsw i64 %118, 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 48, i64 %119, i1 false)
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph59.preheader, %.thread52
-  call void @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter31CreateExponentialRepresentationEPKciiPNS0_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %6, i32 noundef %.04954, i32 noundef %76, ptr noundef %3)
+._crit_edge:                                      ; preds = %.lr.ph58.preheader, %.thread51
+  call void @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter31CreateExponentialRepresentationEPKciiPNS0_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %6, i32 noundef %.04853, i32 noundef %80, ptr noundef %3)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit
 
-._crit_edge64:                                    ; preds = %108, %.critedge
-  %116 = phi i32 [ %107, %.critedge ], [ %.pre66, %108 ]
-  %.04955 = phi i32 [ %.sroa.speculated42, %.critedge ], [ %2, %108 ]
-  %117 = sub nsw i32 %.04955, %75
-  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %117, i32 0)
-  call void @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter27CreateDecimalRepresentationEPKciiiPNS0_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %6, i32 noundef %116, i32 noundef %75, i32 noundef %.sroa.speculated, ptr noundef %3)
+._crit_edge63:                                    ; preds = %112, %.critedge
+  %120 = phi i32 [ %111, %.critedge ], [ %.pre65, %112 ]
+  %.04854 = phi i32 [ %.sroa.speculated41, %.critedge ], [ %2, %112 ]
+  %121 = sub nsw i32 %.04854, %79
+  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %121, i32 0)
+  call void @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter27CreateDecimalRepresentationEPKciiiPNS0_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %6, i32 noundef %120, i32 noundef %79, i32 noundef %.sroa.speculated, ptr noundef %3)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit: ; preds = %.sink.split.i, %38, %36, %14, %._crit_edge, %._crit_edge64, %52
-  %.019 = phi i1 [ false, %52 ], [ true, %._crit_edge64 ], [ true, %._crit_edge ], [ false, %14 ], [ false, %38 ], [ false, %36 ], [ true, %.sink.split.i ]
+_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit: ; preds = %45, %41, %39, %27, %14, %._crit_edge, %._crit_edge63, %56
+  %.019 = phi i1 [ false, %56 ], [ true, %._crit_edge63 ], [ true, %._crit_edge ], [ true, %27 ], [ true, %45 ], [ false, %14 ], [ false, %41 ], [ false, %39 ]
   ret i1 %.019
 }
 

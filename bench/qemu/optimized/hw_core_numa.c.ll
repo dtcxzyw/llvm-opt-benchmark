@@ -309,12 +309,19 @@ if.else:                                          ; preds = %while.end
   %cond103 = tail call i64 @llvm.umin.i64(i64 %spec.select, i64 %temp_base.0.lcssa)
   store i64 %cond103, ptr %base, align 8
   store i64 %cond113, ptr %range_bitmap, align 8
-  br label %if.end233.sink.split
+  %29 = load i16, ptr %target, align 2
+  %idxprom126 = zext i16 %29 to i64
+  %lb_info_provided = getelementptr %struct.NodeInfo, ptr %nodes, i64 %idxprom126, i32 4
+  %30 = load i8, ptr %lb_info_provided, align 2
+  %31 = or i8 %30, 1
+  store i8 %31, ptr %lb_info_provided, align 2
+  %.pre137 = load i64, ptr %latency, align 8
+  br label %if.end233
 
 if.then137:                                       ; preds = %if.end42
   %has_bandwidth138 = getelementptr inbounds i8, ptr %node, i64 24
-  %29 = load i8, ptr %has_bandwidth138, align 8
-  %tobool139 = trunc i8 %29 to i1
+  %32 = load i8, ptr %has_bandwidth138, align 8
+  %tobool139 = trunc i8 %32 to i1
   br i1 %tobool139, label %if.end141, label %if.then140
 
 if.then140:                                       ; preds = %if.then137
@@ -323,8 +330,8 @@ if.then140:                                       ; preds = %if.then137
 
 if.end141:                                        ; preds = %if.then137
   %has_latency142 = getelementptr inbounds i8, ptr %node, i64 12
-  %30 = load i8, ptr %has_latency142, align 4
-  %tobool143 = trunc i8 %30 to i1
+  %33 = load i8, ptr %has_latency142, align 4
+  %tobool143 = trunc i8 %33 to i1
   br i1 %tobool143, label %if.then144, label %if.end145
 
 if.then144:                                       ; preds = %if.end141
@@ -333,43 +340,43 @@ if.then144:                                       ; preds = %if.end141
 
 if.end145:                                        ; preds = %if.end141
   %bandwidth = getelementptr inbounds i8, ptr %node, i64 32
-  %31 = load i64, ptr %bandwidth, align 8
-  %rem146 = and i64 %31, 1048575
+  %34 = load i64, ptr %bandwidth, align 8
+  %rem146 = and i64 %34, 1048575
   %cmp147 = icmp eq i64 %rem146, 0
   br i1 %cmp147, label %for.cond156.preheader, label %if.then149
 
 for.cond156.preheader:                            ; preds = %if.end145
   %list157 = getelementptr inbounds i8, ptr %hmat_lb.0, i64 24
-  %32 = load ptr, ptr %list157, align 8
-  %len158 = getelementptr inbounds i8, ptr %32, i64 8
-  %33 = load i32, ptr %len158, align 8
-  %cmp159127.not = icmp eq i32 %33, 0
+  %35 = load ptr, ptr %list157, align 8
+  %len158 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = load i32, ptr %len158, align 8
+  %cmp159127.not = icmp eq i32 %36, 0
   br i1 %cmp159127.not, label %for.end187, label %for.body161.lr.ph
 
 for.body161.lr.ph:                                ; preds = %for.cond156.preheader
-  %34 = load ptr, ptr %32, align 8
+  %37 = load ptr, ptr %35, align 8
   br label %for.body161
 
 if.then149:                                       ; preds = %if.end145
   %conv152 = zext i16 %12 to i32
   %conv154 = zext i16 %13 to i32
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 331, ptr noundef nonnull @__func__.parse_numa_hmat_lb, ptr noundef nonnull @.str.14, i64 noundef %31, i32 noundef %conv152, i32 noundef %conv154) #13
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 331, ptr noundef nonnull @__func__.parse_numa_hmat_lb, ptr noundef nonnull @.str.14, i64 noundef %34, i32 noundef %conv152, i32 noundef %conv154) #13
   br label %return
 
 for.body161:                                      ; preds = %for.body161.lr.ph, %for.inc185
   %i.1128 = phi i32 [ 0, %for.body161.lr.ph ], [ %inc186, %for.inc185 ]
   %idxprom164 = sext i32 %i.1128 to i64
-  %arrayidx165 = getelementptr %struct.HMAT_LB_Data, ptr %34, i64 %idxprom164
-  %35 = load i8, ptr %arrayidx165, align 8
-  %36 = zext i8 %35 to i16
-  %cmp170 = icmp eq i16 %12, %36
+  %arrayidx165 = getelementptr %struct.HMAT_LB_Data, ptr %37, i64 %idxprom164
+  %38 = load i8, ptr %arrayidx165, align 8
+  %39 = zext i8 %38 to i16
+  %cmp170 = icmp eq i16 %12, %39
   br i1 %cmp170, label %land.lhs.true172, label %for.inc185
 
 land.lhs.true172:                                 ; preds = %for.body161
   %target175 = getelementptr inbounds i8, ptr %arrayidx165, i64 1
-  %37 = load i8, ptr %target175, align 1
-  %38 = zext i8 %37 to i16
-  %cmp177 = icmp eq i16 %13, %38
+  %40 = load i8, ptr %target175, align 1
+  %41 = zext i8 %40 to i16
+  %cmp177 = icmp eq i16 %13, %41
   br i1 %cmp177, label %if.then179, label %for.inc185
 
 if.then179:                                       ; preds = %land.lhs.true172
@@ -380,66 +387,61 @@ if.then179:                                       ; preds = %land.lhs.true172
 
 for.inc185:                                       ; preds = %for.body161, %land.lhs.true172
   %inc186 = add nuw i32 %i.1128, 1
-  %exitcond.not = icmp eq i32 %inc186, %33
+  %exitcond.not = icmp eq i32 %inc186, %36
   br i1 %exitcond.not, label %for.end187, label %for.body161, !llvm.loop !8
 
 for.end187:                                       ; preds = %for.inc185, %for.cond156.preheader
   %base188 = getelementptr inbounds i8, ptr %hmat_lb.0, i64 16
-  %39 = load i64, ptr %base188, align 8
-  %spec.select125 = tail call i64 @llvm.umax.i64(i64 %39, i64 1)
+  %42 = load i64, ptr %base188, align 8
+  %spec.select125 = tail call i64 @llvm.umax.i64(i64 %42, i64 1)
   store i64 %spec.select125, ptr %base188, align 8
-  %40 = load i64, ptr %bandwidth, align 8
-  %tobool197.not = icmp eq i64 %40, 0
+  %43 = load i64, ptr %bandwidth, align 8
+  %tobool197.not = icmp eq i64 %43, 0
   br i1 %tobool197.not, label %if.end233, label %if.then198
 
 if.then198:                                       ; preds = %for.end187
   %range_bitmap199 = getelementptr inbounds i8, ptr %hmat_lb.0, i64 8
-  %41 = load i64, ptr %range_bitmap199, align 8
-  %or201 = or i64 %41, %40
-  %42 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %or201, i1 true)
-  %cast.i = trunc nuw nsw i64 %42 to i32
-  %div204124 = lshr i64 %40, %42
-  %43 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or201, i1 true)
-  %cast.i126 = trunc nuw nsw i64 %43 to i32
-  %44 = add nuw nsw i32 %cast.i126, %cast.i
-  %cmp207 = icmp ult i32 %44, 48
+  %44 = load i64, ptr %range_bitmap199, align 8
+  %or201 = or i64 %44, %43
+  %45 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %or201, i1 true)
+  %cast.i = trunc nuw nsw i64 %45 to i32
+  %div204124 = lshr i64 %43, %45
+  %46 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or201, i1 true)
+  %cast.i126 = trunc nuw nsw i64 %46 to i32
+  %47 = add nuw nsw i32 %cast.i126, %cast.i
+  %cmp207 = icmp ult i32 %47, 48
   %cmp209 = icmp ugt i64 %div204124, 65534
   %or.cond = select i1 %cmp207, i1 true, i1 %cmp209
   br i1 %or.cond, label %if.then211, label %if.else217
 
 if.then211:                                       ; preds = %if.then198
-  %45 = load i16, ptr %node, align 8
-  %conv214 = zext i16 %45 to i32
-  %46 = load i16, ptr %target, align 2
-  %conv216 = zext i16 %46 to i32
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 369, ptr noundef nonnull @__func__.parse_numa_hmat_lb, ptr noundef nonnull @.str.16, i64 noundef %40, i32 noundef %conv214, i32 noundef %conv216, i32 noundef 65534) #13
+  %48 = load i16, ptr %node, align 8
+  %conv214 = zext i16 %48 to i32
+  %49 = load i16, ptr %target, align 2
+  %conv216 = zext i16 %49 to i32
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 369, ptr noundef nonnull @__func__.parse_numa_hmat_lb, ptr noundef nonnull @.str.16, i64 noundef %43, i32 noundef %conv214, i32 noundef %conv216, i32 noundef 65534) #13
   br label %return
 
 if.else217:                                       ; preds = %if.then198
-  %shl = shl nuw i64 1, %42
+  %shl = shl nuw i64 1, %45
   store i64 %shl, ptr %base188, align 8
   store i64 %or201, ptr %range_bitmap199, align 8
-  br label %if.end233.sink.split
-
-if.end233.sink.split:                             ; preds = %if.else, %if.else217
-  %.sink140 = phi i8 [ 2, %if.else217 ], [ 1, %if.else ]
-  %bandwidth.sink = phi ptr [ %bandwidth, %if.else217 ], [ %latency, %if.else ]
-  %47 = load i16, ptr %target, align 2
-  %idxprom222 = zext i16 %47 to i64
+  %50 = load i16, ptr %target, align 2
+  %idxprom222 = zext i16 %50 to i64
   %lb_info_provided224 = getelementptr %struct.NodeInfo, ptr %nodes, i64 %idxprom222, i32 4
-  %48 = load i8, ptr %lb_info_provided224, align 2
-  %49 = or i8 %48, %.sink140
-  store i8 %49, ptr %lb_info_provided224, align 2
-  %.pre136 = load i64, ptr %bandwidth.sink, align 8
+  %51 = load i8, ptr %lb_info_provided224, align 2
+  %52 = or i8 %51, 2
+  store i8 %52, ptr %lb_info_provided224, align 2
+  %.pre136 = load i64, ptr %bandwidth, align 8
   br label %if.end233
 
-if.end233:                                        ; preds = %if.end233.sink.split, %for.end187, %for.end
-  %.sink = phi i64 [ 0, %for.end ], [ 0, %for.end187 ], [ %.pre136, %if.end233.sink.split ]
+if.end233:                                        ; preds = %for.end187, %if.else217, %for.end, %if.else
+  %.sink = phi i64 [ %.pre137, %if.else ], [ 0, %for.end ], [ %.pre136, %if.else217 ], [ 0, %for.end187 ]
   %data230 = getelementptr inbounds i8, ptr %lb_data, i64 8
   store i64 %.sink, ptr %data230, align 8
   %list234 = getelementptr inbounds i8, ptr %hmat_lb.0, i64 24
-  %50 = load ptr, ptr %list234, align 8
-  %call235 = call ptr @g_array_append_vals(ptr noundef %50, ptr noundef nonnull %lb_data, i32 noundef 1) #13
+  %53 = load ptr, ptr %list234, align 8
+  %call235 = call ptr @g_array_append_vals(ptr noundef %53, ptr noundef nonnull %lb_data, i32 noundef 1) #13
   br label %return
 
 return:                                           ; preds = %if.end233, %if.then211, %if.then179, %if.then149, %if.then144, %if.then140, %if.then116, %if.then83, %if.then63, %if.then60, %if.then28, %if.then20, %if.then12, %if.then

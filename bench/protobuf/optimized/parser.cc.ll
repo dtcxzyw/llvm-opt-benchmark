@@ -1101,7 +1101,15 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i63
 _ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i.i: ; preds = %invoke.cont.i.i.i.i.i.i, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i.i
   %34 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !11
   %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %34, 0
-  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %do.body71.sink.split.sink.split.i, label %do.body71.sink.split.i
+  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i.i
+
+sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i.i
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #23
+  br label %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i.i
+
+_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i.i: ; preds = %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i.i
+  store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !11
+  br label %do.body71.i
 
 if.else.i.i62.i:                                  ; preds = %invoke.cont54.i143
   %and.i.i.i1.i.i.i144 = and i64 %30, 1
@@ -1185,7 +1193,15 @@ terminate.lpad.i.i.i.i.i80.i:                     ; preds = %if.then.i.i.i.i.i79
 _ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i82.i: ; preds = %invoke.cont.i.i.i.i.i81.i, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i76.i
   %44 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i83.i, align 8, !noalias !11
   %switch.i.i.i.i.i.i.i.i.i.i.i.i.i84.i = icmp eq i8 %44, 0
-  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i84.i, label %do.body71.sink.split.sink.split.i, label %do.body71.sink.split.i
+  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i84.i, label %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i86.i, label %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i85.i
+
+sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i86.i:              ; preds = %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i82.i
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #23
+  br label %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i85.i
+
+_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i85.i: ; preds = %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i86.i, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i82.i
+  store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i83.i, align 8, !noalias !11
+  br label %do.body71.i
 
 if.else.i.i71.i:                                  ; preds = %invoke.cont61.i129
   %and.i.i.i1.i.i72.i = and i64 %40, 1
@@ -1213,18 +1229,7 @@ if.else63.i119:                                   ; preds = %if.else.i117
   invoke void @_ZNK6google8protobuf13json_internal12JsonLocation7InvalidESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %json_loc_.i165, i64 12, ptr nonnull @.str.27)
           to label %cleanup135.i unwind label %lpad43.loopexit.i
 
-do.body71.sink.split.sink.split.i:                ; preds = %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i82.i, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i.i
-  %.sink.i = phi ptr [ %11, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i.i ], [ %10, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i82.i ]
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i83.sink.ph.i = phi ptr [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i.i ], [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i83.i, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i82.i ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink.i) #23
-  br label %do.body71.sink.split.i
-
-do.body71.sink.split.i:                           ; preds = %do.body71.sink.split.sink.split.i, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i82.i, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i.i
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i83.sink.i = phi ptr [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i.i ], [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i83.i, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i82.i ], [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i83.sink.ph.i, %do.body71.sink.split.sink.split.i ]
-  store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i83.sink.i, align 8, !noalias !11
-  br label %do.body71.i
-
-do.body71.i:                                      ; preds = %do.body71.sink.split.i, %if.then.i.i3.i.i74.i, %if.else.i.i71.i, %if.then.i.i3.i.i.i146, %if.else.i.i62.i
+do.body71.i:                                      ; preds = %if.then.i.i3.i.i74.i, %if.else.i.i71.i, %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i85.i, %if.then.i.i3.i.i.i146, %if.else.i.i62.i, %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i.i
   %48 = load i64, ptr %key.i94, align 8, !noalias !11
   store i64 %48, ptr %agg.result, align 8, !alias.scope !11
   %and.i.i.i92.i = and i64 %48, 1
@@ -2723,7 +2728,15 @@ terminate.lpad.i.i.i.i.i446:                      ; preds = %if.then.i.i.i.i.i44
 _ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i448: ; preds = %invoke.cont.i.i.i.i.i447, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i442
   %262 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i449, align 8
   %switch.i.i.i.i.i.i.i.i.i.i.i.i.i450 = icmp eq i8 %262, 0
-  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i450, label %do.body70.i.sink.split.sink.split, label %do.body70.i.sink.split
+  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i450, label %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i452, label %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i451
+
+sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i452:               ; preds = %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i448
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %238) #23
+  br label %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i451
+
+_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i451: ; preds = %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i452, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i448
+  store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i449, align 8
+  br label %do.body70.i
 
 if.else.i.i437:                                   ; preds = %invoke.cont54.i69
   %and.i.i.i1.i.i438 = and i64 %258, 1
@@ -2812,7 +2825,15 @@ terminate.lpad.i.i.i.i.i423:                      ; preds = %if.then.i.i.i.i.i42
 _ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i425: ; preds = %invoke.cont.i.i.i.i.i424, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i419
   %272 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i426, align 8
   %switch.i.i.i.i.i.i.i.i.i.i.i.i.i427 = icmp eq i8 %272, 0
-  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i427, label %do.body70.i.sink.split.sink.split, label %do.body70.i.sink.split
+  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i427, label %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i429, label %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i428
+
+sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i429:               ; preds = %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i425
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %237) #23
+  br label %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i428
+
+_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i428: ; preds = %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i429, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i425
+  store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i426, align 8
+  br label %do.body70.i
 
 if.else.i.i414:                                   ; preds = %invoke.cont61.i64
   %and.i.i.i1.i.i415 = and i64 %268, 1
@@ -2840,18 +2861,7 @@ if.else63.i:                                      ; preds = %if.else.i
   invoke void @_ZNK6google8protobuf13json_internal12JsonLocation7InvalidESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %json_loc_.i409, i64 12, ptr nonnull @.str.27)
           to label %cleanup132.i unwind label %lpad43.i.loopexit.loopexit
 
-do.body70.i.sink.split.sink.split:                ; preds = %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i425, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i448
-  %.sink = phi ptr [ %238, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i448 ], [ %237, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i425 ]
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i426.sink.ph = phi ptr [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i449, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i448 ], [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i426, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i425 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #23
-  br label %do.body70.i.sink.split
-
-do.body70.i.sink.split:                           ; preds = %do.body70.i.sink.split.sink.split, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i425, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i448
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i426.sink = phi ptr [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i449, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i448 ], [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i426, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i425 ], [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i426.sink.ph, %do.body70.i.sink.split.sink.split ]
-  store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i426.sink, align 8
-  br label %do.body70.i
-
-do.body70.i:                                      ; preds = %do.body70.i.sink.split, %if.then.i.i3.i.i417, %if.else.i.i414, %if.then.i.i3.i.i440, %if.else.i.i437
+do.body70.i:                                      ; preds = %if.then.i.i3.i.i417, %if.else.i.i414, %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i428, %if.then.i.i3.i.i440, %if.else.i.i437, %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i451
   %276 = load i64, ptr %key.i, align 8
   store i64 %276, ptr %agg.result, align 8
   %and.i.i.i404 = and i64 %276, 1
@@ -4406,7 +4416,15 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i63
 _ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i.i: ; preds = %invoke.cont.i.i.i.i.i.i, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i.i
   %36 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !88
   %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %36, 0
-  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %do.body70.sink.split.sink.split.i, label %do.body70.sink.split.i
+  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i.i
+
+sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i.i
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #23
+  br label %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i.i
+
+_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i.i: ; preds = %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i.i
+  store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !88
+  br label %do.body70.i134
 
 if.else.i.i62.i:                                  ; preds = %invoke.cont54.i154
   %and.i.i.i1.i.i.i155 = and i64 %32, 1
@@ -4490,7 +4508,15 @@ terminate.lpad.i.i.i.i.i80.i:                     ; preds = %if.then.i.i.i.i.i79
 _ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i82.i: ; preds = %invoke.cont.i.i.i.i.i81.i, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i76.i
   %46 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i83.i, align 8, !noalias !88
   %switch.i.i.i.i.i.i.i.i.i.i.i.i.i84.i = icmp eq i8 %46, 0
-  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i84.i, label %do.body70.sink.split.sink.split.i, label %do.body70.sink.split.i
+  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i84.i, label %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i86.i, label %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i85.i
+
+sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i86.i:              ; preds = %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i82.i
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #23
+  br label %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i85.i
+
+_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i85.i: ; preds = %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i86.i, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i82.i
+  store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i83.i, align 8, !noalias !88
+  br label %do.body70.i134
 
 if.else.i.i71.i:                                  ; preds = %invoke.cont61.i133
   %and.i.i.i1.i.i72.i = and i64 %42, 1
@@ -4518,18 +4544,7 @@ if.else63.i116:                                   ; preds = %if.else.i114
   invoke void @_ZNK6google8protobuf13json_internal12JsonLocation7InvalidESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %json_loc_.i176, i64 12, ptr nonnull @.str.27)
           to label %cleanup132.i119 unwind label %lpad43.loopexit.i
 
-do.body70.sink.split.sink.split.i:                ; preds = %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i82.i, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i.i
-  %.sink.i = phi ptr [ %13, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i.i ], [ %12, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i82.i ]
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i83.sink.ph.i = phi ptr [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i.i ], [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i83.i, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i82.i ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink.i) #23
-  br label %do.body70.sink.split.i
-
-do.body70.sink.split.i:                           ; preds = %do.body70.sink.split.sink.split.i, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i82.i, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i.i
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i83.sink.i = phi ptr [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i.i ], [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i83.i, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i82.i ], [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i83.sink.ph.i, %do.body70.sink.split.sink.split.i ]
-  store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i83.sink.i, align 8, !noalias !88
-  br label %do.body70.i134
-
-do.body70.i134:                                   ; preds = %do.body70.sink.split.i, %if.then.i.i3.i.i74.i, %if.else.i.i71.i, %if.then.i.i3.i.i.i157, %if.else.i.i62.i
+do.body70.i134:                                   ; preds = %if.then.i.i3.i.i74.i, %if.else.i.i71.i, %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i85.i, %if.then.i.i3.i.i.i157, %if.else.i.i62.i, %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i.i
   %50 = load i64, ptr %key.i91, align 8, !noalias !88
   store i64 %50, ptr %agg.result, align 8, !alias.scope !88
   %and.i.i.i92.i = and i64 %50, 1
@@ -6046,7 +6061,15 @@ terminate.lpad.i.i.i.i.i487:                      ; preds = %if.then.i.i.i.i.i48
 _ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i489: ; preds = %invoke.cont.i.i.i.i.i488, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i483
   %292 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i490, align 8
   %switch.i.i.i.i.i.i.i.i.i.i.i.i.i491 = icmp eq i8 %292, 0
-  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i491, label %do.body70.i.sink.split.sink.split, label %do.body70.i.sink.split
+  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i491, label %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i493, label %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i492
+
+sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i493:               ; preds = %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i489
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %270) #23
+  br label %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i492
+
+_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i492: ; preds = %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i493, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i489
+  store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i490, align 8
+  br label %do.body70.i
 
 if.else.i.i478:                                   ; preds = %invoke.cont54.i
   %and.i.i.i1.i.i479 = and i64 %288, 1
@@ -6135,7 +6158,15 @@ terminate.lpad.i.i.i.i.i464:                      ; preds = %if.then.i.i.i.i.i46
 _ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i466: ; preds = %invoke.cont.i.i.i.i.i465, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i460
   %302 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i467, align 8
   %switch.i.i.i.i.i.i.i.i.i.i.i.i.i468 = icmp eq i8 %302, 0
-  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i468, label %do.body70.i.sink.split.sink.split, label %do.body70.i.sink.split
+  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i468, label %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i470, label %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i469
+
+sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i470:               ; preds = %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i466
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %269) #23
+  br label %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i469
+
+_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i469: ; preds = %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i470, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i466
+  store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i467, align 8
+  br label %do.body70.i
 
 if.else.i.i455:                                   ; preds = %invoke.cont61.i
   %and.i.i.i1.i.i456 = and i64 %298, 1
@@ -6163,18 +6194,7 @@ if.else63.i:                                      ; preds = %if.else.i
   invoke void @_ZNK6google8protobuf13json_internal12JsonLocation7InvalidESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %json_loc_.i450, i64 12, ptr nonnull @.str.27)
           to label %cleanup132.i unwind label %lpad43.i.loopexit.loopexit
 
-do.body70.i.sink.split.sink.split:                ; preds = %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i466, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i489
-  %.sink = phi ptr [ %270, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i489 ], [ %269, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i466 ]
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i467.sink.ph = phi ptr [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i490, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i489 ], [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i467, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i466 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #23
-  br label %do.body70.i.sink.split
-
-do.body70.i.sink.split:                           ; preds = %do.body70.i.sink.split.sink.split, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i466, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i489
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i467.sink = phi ptr [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i490, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i489 ], [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i467, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i466 ], [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i467.sink.ph, %do.body70.i.sink.split.sink.split ]
-  store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i467.sink, align 8
-  br label %do.body70.i
-
-do.body70.i:                                      ; preds = %do.body70.i.sink.split, %if.then.i.i3.i.i458, %if.else.i.i455, %if.then.i.i3.i.i481, %if.else.i.i478
+do.body70.i:                                      ; preds = %if.then.i.i3.i.i458, %if.else.i.i455, %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i469, %if.then.i.i3.i.i481, %if.else.i.i478, %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i492
   %306 = load i64, ptr %key.i, align 8
   store i64 %306, ptr %agg.result, align 8
   %and.i.i.i445 = and i64 %306, 1
@@ -11716,7 +11736,15 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i63
 _ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i: ; preds = %invoke.cont.i.i.i.i.i, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i
   %24 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %switch.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %24, 0
-  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i, label %do.body71.sink.split.sink.split, label %do.body71.sink.split
+  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i, label %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i
+
+sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
+  br label %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i
+
+_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i: ; preds = %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i
+  store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  br label %do.body71
 
 if.else.i.i62:                                    ; preds = %invoke.cont54
   %and.i.i.i1.i.i = and i64 %20, 1
@@ -11800,7 +11828,15 @@ terminate.lpad.i.i.i.i.i80:                       ; preds = %if.then.i.i.i.i.i79
 _ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i82: ; preds = %invoke.cont.i.i.i.i.i81, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i76
   %34 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i83, align 8
   %switch.i.i.i.i.i.i.i.i.i.i.i.i.i84 = icmp eq i8 %34, 0
-  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i84, label %do.body71.sink.split.sink.split, label %do.body71.sink.split
+  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i84, label %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i86, label %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i85
+
+sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i86:                ; preds = %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i82
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
+  br label %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i85
+
+_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i85: ; preds = %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i86, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i82
+  store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i83, align 8
+  br label %do.body71
 
 if.else.i.i71:                                    ; preds = %invoke.cont61
   %and.i.i.i1.i.i72 = and i64 %30, 1
@@ -11828,18 +11864,7 @@ if.else63:                                        ; preds = %if.else
   invoke void @_ZNK6google8protobuf13json_internal12JsonLocation7InvalidESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %json_loc_.i90, i64 12, ptr nonnull @.str.27)
           to label %cleanup134 unwind label %lpad43.loopexit
 
-do.body71.sink.split.sink.split:                  ; preds = %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i82, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i
-  %.sink = phi ptr [ %3, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i ], [ %2, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i82 ]
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i83.sink.ph = phi ptr [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i ], [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i83, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i82 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #23
-  br label %do.body71.sink.split
-
-do.body71.sink.split:                             ; preds = %do.body71.sink.split.sink.split, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i82, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i83.sink = phi ptr [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i ], [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i83, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i82 ], [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i83.sink.ph, %do.body71.sink.split.sink.split ]
-  store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i83.sink, align 8
-  br label %do.body71
-
-do.body71:                                        ; preds = %do.body71.sink.split, %if.then.i.i3.i.i74, %if.else.i.i71, %if.then.i.i3.i.i, %if.else.i.i62
+do.body71:                                        ; preds = %if.then.i.i3.i.i74, %if.else.i.i71, %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i85, %if.then.i.i3.i.i, %if.else.i.i62, %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i
   %38 = load i64, ptr %key, align 8
   store i64 %38, ptr %agg.result, align 8
   %and.i.i.i92 = and i64 %38, 1
@@ -14428,7 +14453,15 @@ terminate.lpad.i.i.i.i.i103:                      ; preds = %if.then.i.i.i.i.i10
 _ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i105: ; preds = %invoke.cont.i.i.i.i.i104, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i99
   %33 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i106, align 8
   %switch.i.i.i.i.i.i.i.i.i.i.i.i.i107 = icmp eq i8 %33, 0
-  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i107, label %do.body71.i.sink.split.sink.split, label %do.body71.i.sink.split
+  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i107, label %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i109, label %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i108
+
+sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i109:               ; preds = %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i105
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #23
+  br label %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i108
+
+_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i108: ; preds = %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i109, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i105
+  store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i106, align 8
+  br label %do.body71.i
 
 if.else.i.i94:                                    ; preds = %invoke.cont54.i
   %and.i.i.i1.i.i95 = and i64 %29, 1
@@ -14512,7 +14545,15 @@ terminate.lpad.i.i.i.i.i80:                       ; preds = %if.then.i.i.i.i.i79
 _ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i82: ; preds = %invoke.cont.i.i.i.i.i81, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i76
   %43 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i83, align 8
   %switch.i.i.i.i.i.i.i.i.i.i.i.i.i84 = icmp eq i8 %43, 0
-  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i84, label %do.body71.i.sink.split.sink.split, label %do.body71.i.sink.split
+  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i84, label %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i86, label %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i85
+
+sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i86:                ; preds = %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i82
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #23
+  br label %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i85
+
+_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i85: ; preds = %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i86, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i82
+  store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i83, align 8
+  br label %do.body71.i
 
 if.else.i.i71:                                    ; preds = %invoke.cont61.i
   %and.i.i.i1.i.i72 = and i64 %39, 1
@@ -14540,18 +14581,7 @@ if.else63.i:                                      ; preds = %if.else.i
   invoke void @_ZNK6google8protobuf13json_internal12JsonLocation7InvalidESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %json_loc_.i65, i64 12, ptr nonnull @.str.27)
           to label %cleanup134.i unwind label %lpad43.i.loopexit
 
-do.body71.i.sink.split.sink.split:                ; preds = %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i82, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i105
-  %.sink = phi ptr [ %8, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i105 ], [ %7, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i82 ]
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i83.sink.ph = phi ptr [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i106, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i105 ], [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i83, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i82 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #23
-  br label %do.body71.i.sink.split
-
-do.body71.i.sink.split:                           ; preds = %do.body71.i.sink.split.sink.split, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i82, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i105
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i83.sink = phi ptr [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i106, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i105 ], [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i83, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i82 ], [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i83.sink.ph, %do.body71.i.sink.split.sink.split ]
-  store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i83.sink, align 8
-  br label %do.body71.i
-
-do.body71.i:                                      ; preds = %do.body71.i.sink.split, %if.then.i.i3.i.i74, %if.else.i.i71, %if.then.i.i3.i.i97, %if.else.i.i94
+do.body71.i:                                      ; preds = %if.then.i.i3.i.i74, %if.else.i.i71, %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i85, %if.then.i.i3.i.i97, %if.else.i.i94, %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i108
   %47 = load i64, ptr %key.i, align 8
   store i64 %47, ptr %agg.result, align 8
   %and.i.i.i62 = and i64 %47, 1
@@ -18747,7 +18777,15 @@ _ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i: ; preds = %
   %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %x, i64 40
   %49 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %switch.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %49, 0
-  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i, label %sw.epilog.sink.split.sink.split, label %sw.epilog.sink.split
+  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i, label %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i
+
+sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #23
+  br label %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i
+
+_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i: ; preds = %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i
+  store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  br label %sw.epilog
 
 if.else.i.i:                                      ; preds = %cleanup97
   %and.i.i.i1.i.i = and i64 %45, 1
@@ -19003,7 +19041,15 @@ _ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i188: ; preds 
   %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i189 = getelementptr inbounds i8, ptr %str, i64 40
   %84 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i189, align 8
   %switch.i.i.i.i.i.i.i.i.i.i.i.i.i190 = icmp eq i8 %84, 0
-  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i190, label %sw.epilog.sink.split.sink.split, label %sw.epilog.sink.split
+  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i190, label %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i192, label %_ZN4absl12lts_202308028StatusOrIN6google8protobuf13json_internal12LocationWithINS4_16MaybeOwnedStringEEEED2Ev.exit193
+
+sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i192:               ; preds = %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i188
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %62) #23
+  br label %_ZN4absl12lts_202308028StatusOrIN6google8protobuf13json_internal12LocationWithINS4_16MaybeOwnedStringEEEED2Ev.exit193
+
+_ZN4absl12lts_202308028StatusOrIN6google8protobuf13json_internal12LocationWithINS4_16MaybeOwnedStringEEEED2Ev.exit193: ; preds = %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i188, %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i192
+  store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i189, align 8
+  br label %sw.epilog
 
 ehcleanup172:                                     ; preds = %lpad.i.i164, %lpad.i.i140, %lpad.i.i113, %lpad105
   %.pn = phi { ptr, i32 } [ %69, %lpad.i.i140 ], [ %58, %lpad105 ], [ %78, %lpad.i.i164 ], [ %57, %lpad.i.i113 ]
@@ -19050,21 +19096,8 @@ terminate.lpad.i207:                              ; preds = %if.then.i.i206
   call void @__clang_call_terminate(ptr %88) #25
   unreachable
 
-sw.epilog.sink.split.sink.split:                  ; preds = %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i188, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i
-  %.sink = phi ptr [ %22, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i ], [ %62, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i188 ]
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sink.ph = phi ptr [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i ], [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i189, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i188 ]
-  %n.sroa.0.1.ph.ph = phi i64 [ %n.sroa.0.0, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i ], [ %75, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i188 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #23
-  br label %sw.epilog.sink.split
-
-sw.epilog.sink.split:                             ; preds = %sw.epilog.sink.split.sink.split, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i188, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sink = phi ptr [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i ], [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i189, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i188 ], [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sink.ph, %sw.epilog.sink.split.sink.split ]
-  %n.sroa.0.1.ph = phi i64 [ %n.sroa.0.0, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i ], [ %75, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i188 ], [ %n.sroa.0.1.ph.ph, %sw.epilog.sink.split.sink.split ]
-  store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sink, align 8
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %sw.epilog.sink.split, %if.then.i.i3.i.i, %if.else.i.i
-  %n.sroa.0.1 = phi i64 [ %n.sroa.0.0, %if.else.i.i ], [ %n.sroa.0.0, %if.then.i.i3.i.i ], [ %n.sroa.0.1.ph, %sw.epilog.sink.split ]
+sw.epilog:                                        ; preds = %if.then.i.i3.i.i, %if.else.i.i, %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i, %_ZN4absl12lts_202308028StatusOrIN6google8protobuf13json_internal12LocationWithINS4_16MaybeOwnedStringEEEED2Ev.exit193
+  %n.sroa.0.1 = phi i64 [ %75, %_ZN4absl12lts_202308028StatusOrIN6google8protobuf13json_internal12LocationWithINS4_16MaybeOwnedStringEEEED2Ev.exit193 ], [ %n.sroa.0.0, %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i ], [ %n.sroa.0.0, %if.else.i.i ], [ %n.sroa.0.0, %if.then.i.i3.i.i ]
   %89 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %n.sroa.0.1, ptr %89, align 8
   %n.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
@@ -19631,7 +19664,15 @@ _ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i: ; preds = %
   %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %x, i64 40
   %49 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %switch.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %49, 0
-  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i, label %sw.epilog.sink.split.sink.split, label %sw.epilog.sink.split
+  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i, label %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i
+
+sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #23
+  br label %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i
+
+_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i: ; preds = %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i
+  store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  br label %sw.epilog
 
 if.else.i.i:                                      ; preds = %cleanup97
   %and.i.i.i1.i.i = and i64 %45, 1
@@ -19887,7 +19928,15 @@ _ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i188: ; preds 
   %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i189 = getelementptr inbounds i8, ptr %str, i64 40
   %84 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i189, align 8
   %switch.i.i.i.i.i.i.i.i.i.i.i.i.i190 = icmp eq i8 %84, 0
-  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i190, label %sw.epilog.sink.split.sink.split, label %sw.epilog.sink.split
+  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i190, label %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i192, label %_ZN4absl12lts_202308028StatusOrIN6google8protobuf13json_internal12LocationWithINS4_16MaybeOwnedStringEEEED2Ev.exit193
+
+sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i192:               ; preds = %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i188
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %62) #23
+  br label %_ZN4absl12lts_202308028StatusOrIN6google8protobuf13json_internal12LocationWithINS4_16MaybeOwnedStringEEEED2Ev.exit193
+
+_ZN4absl12lts_202308028StatusOrIN6google8protobuf13json_internal12LocationWithINS4_16MaybeOwnedStringEEEED2Ev.exit193: ; preds = %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i188, %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i192
+  store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i189, align 8
+  br label %sw.epilog
 
 ehcleanup171:                                     ; preds = %lpad.i.i164, %lpad.i.i140, %lpad.i.i113, %lpad105
   %.pn = phi { ptr, i32 } [ %69, %lpad.i.i140 ], [ %58, %lpad105 ], [ %78, %lpad.i.i164 ], [ %57, %lpad.i.i113 ]
@@ -19934,21 +19983,8 @@ terminate.lpad.i207:                              ; preds = %if.then.i.i206
   call void @__clang_call_terminate(ptr %88) #25
   unreachable
 
-sw.epilog.sink.split.sink.split:                  ; preds = %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i188, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i
-  %.sink = phi ptr [ %22, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i ], [ %62, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i188 ]
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sink.ph = phi ptr [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i ], [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i189, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i188 ]
-  %n.sroa.0.1.ph.ph = phi i64 [ %n.sroa.0.0, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i ], [ %75, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i188 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #23
-  br label %sw.epilog.sink.split
-
-sw.epilog.sink.split:                             ; preds = %sw.epilog.sink.split.sink.split, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i188, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sink = phi ptr [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i ], [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i189, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i188 ], [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sink.ph, %sw.epilog.sink.split.sink.split ]
-  %n.sroa.0.1.ph = phi i64 [ %n.sroa.0.0, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i ], [ %75, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i188 ], [ %n.sroa.0.1.ph.ph, %sw.epilog.sink.split.sink.split ]
-  store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sink, align 8
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %sw.epilog.sink.split, %if.then.i.i3.i.i, %if.else.i.i
-  %n.sroa.0.1 = phi i64 [ %n.sroa.0.0, %if.else.i.i ], [ %n.sroa.0.0, %if.then.i.i3.i.i ], [ %n.sroa.0.1.ph, %sw.epilog.sink.split ]
+sw.epilog:                                        ; preds = %if.then.i.i3.i.i, %if.else.i.i, %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i, %_ZN4absl12lts_202308028StatusOrIN6google8protobuf13json_internal12LocationWithINS4_16MaybeOwnedStringEEEED2Ev.exit193
+  %n.sroa.0.1 = phi i64 [ %75, %_ZN4absl12lts_202308028StatusOrIN6google8protobuf13json_internal12LocationWithINS4_16MaybeOwnedStringEEEED2Ev.exit193 ], [ %n.sroa.0.0, %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i ], [ %n.sroa.0.0, %if.else.i.i ], [ %n.sroa.0.0, %if.then.i.i3.i.i ]
   %89 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %n.sroa.0.1, ptr %89, align 8
   %n.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
@@ -25543,7 +25579,15 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i63
 _ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i: ; preds = %invoke.cont.i.i.i.i.i, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i
   %24 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %switch.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %24, 0
-  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i, label %do.body70.sink.split.sink.split, label %do.body70.sink.split
+  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i, label %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i
+
+sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
+  br label %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i
+
+_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i: ; preds = %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i
+  store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  br label %do.body70
 
 if.else.i.i62:                                    ; preds = %invoke.cont54
   %and.i.i.i1.i.i = and i64 %20, 1
@@ -25627,7 +25671,15 @@ terminate.lpad.i.i.i.i.i80:                       ; preds = %if.then.i.i.i.i.i79
 _ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i82: ; preds = %invoke.cont.i.i.i.i.i81, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i76
   %34 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i83, align 8
   %switch.i.i.i.i.i.i.i.i.i.i.i.i.i84 = icmp eq i8 %34, 0
-  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i84, label %do.body70.sink.split.sink.split, label %do.body70.sink.split
+  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i84, label %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i86, label %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i85
+
+sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i86:                ; preds = %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i82
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
+  br label %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i85
+
+_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i85: ; preds = %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i86, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i82
+  store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i83, align 8
+  br label %do.body70
 
 if.else.i.i71:                                    ; preds = %invoke.cont61
   %and.i.i.i1.i.i72 = and i64 %30, 1
@@ -25655,18 +25707,7 @@ if.else63:                                        ; preds = %if.else
   invoke void @_ZNK6google8protobuf13json_internal12JsonLocation7InvalidESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %json_loc_.i90, i64 12, ptr nonnull @.str.27)
           to label %cleanup132 unwind label %lpad43.loopexit
 
-do.body70.sink.split.sink.split:                  ; preds = %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i82, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i
-  %.sink = phi ptr [ %3, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i ], [ %2, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i82 ]
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i83.sink.ph = phi ptr [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i ], [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i83, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i82 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #23
-  br label %do.body70.sink.split
-
-do.body70.sink.split:                             ; preds = %do.body70.sink.split.sink.split, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i82, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i83.sink = phi ptr [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i ], [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i83, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i82 ], [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i83.sink.ph, %do.body70.sink.split.sink.split ]
-  store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i83.sink, align 8
-  br label %do.body70
-
-do.body70:                                        ; preds = %do.body70.sink.split, %if.then.i.i3.i.i74, %if.else.i.i71, %if.then.i.i3.i.i, %if.else.i.i62
+do.body70:                                        ; preds = %if.then.i.i3.i.i74, %if.else.i.i71, %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i85, %if.then.i.i3.i.i, %if.else.i.i62, %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i
   %38 = load i64, ptr %key, align 8
   store i64 %38, ptr %agg.result, align 8
   %and.i.i.i92 = and i64 %38, 1
@@ -27325,7 +27366,15 @@ terminate.lpad.i.i.i.i.i97:                       ; preds = %if.then.i.i.i.i.i96
 _ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i99: ; preds = %invoke.cont.i.i.i.i.i98, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i93
   %32 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i100, align 8
   %switch.i.i.i.i.i.i.i.i.i.i.i.i.i101 = icmp eq i8 %32, 0
-  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i101, label %do.body70.i.sink.split.sink.split, label %do.body70.i.sink.split
+  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i101, label %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i103, label %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i102
+
+sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i103:               ; preds = %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i99
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #23
+  br label %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i102
+
+_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i102: ; preds = %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i103, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i99
+  store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i100, align 8
+  br label %do.body70.i
 
 if.else.i.i88:                                    ; preds = %invoke.cont54.i
   %and.i.i.i1.i.i89 = and i64 %28, 1
@@ -27409,7 +27458,15 @@ terminate.lpad.i.i.i.i.i74:                       ; preds = %if.then.i.i.i.i.i73
 _ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i76: ; preds = %invoke.cont.i.i.i.i.i75, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i70
   %42 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i77, align 8
   %switch.i.i.i.i.i.i.i.i.i.i.i.i.i78 = icmp eq i8 %42, 0
-  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i78, label %do.body70.i.sink.split.sink.split, label %do.body70.i.sink.split
+  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i78, label %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i80, label %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i79
+
+sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i80:                ; preds = %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i76
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #23
+  br label %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i79
+
+_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i79: ; preds = %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i80, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i76
+  store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i77, align 8
+  br label %do.body70.i
 
 if.else.i.i65:                                    ; preds = %invoke.cont61.i
   %and.i.i.i1.i.i66 = and i64 %38, 1
@@ -27437,18 +27494,7 @@ if.else63.i:                                      ; preds = %if.else.i
   invoke void @_ZNK6google8protobuf13json_internal12JsonLocation7InvalidESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %json_loc_.i59, i64 12, ptr nonnull @.str.27)
           to label %cleanup132.i unwind label %lpad43.i.loopexit
 
-do.body70.i.sink.split.sink.split:                ; preds = %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i76, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i99
-  %.sink = phi ptr [ %8, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i99 ], [ %7, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i76 ]
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i77.sink.ph = phi ptr [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i100, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i99 ], [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i77, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i76 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #23
-  br label %do.body70.i.sink.split
-
-do.body70.i.sink.split:                           ; preds = %do.body70.i.sink.split.sink.split, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i76, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i99
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i77.sink = phi ptr [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i100, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i99 ], [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i77, %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i76 ], [ %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i77.sink.ph, %do.body70.i.sink.split.sink.split ]
-  store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i77.sink, align 8
-  br label %do.body70.i
-
-do.body70.i:                                      ; preds = %do.body70.i.sink.split, %if.then.i.i3.i.i68, %if.else.i.i65, %if.then.i.i3.i.i91, %if.else.i.i88
+do.body70.i:                                      ; preds = %if.then.i.i3.i.i68, %if.else.i.i65, %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i79, %if.then.i.i3.i.i91, %if.else.i.i88, %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i102
   %46 = load i64, ptr %key.i, align 8
   store i64 %46, ptr %agg.result, align 8
   %and.i.i.i56 = and i64 %46, 1

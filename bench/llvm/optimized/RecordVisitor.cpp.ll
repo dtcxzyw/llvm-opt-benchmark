@@ -75,37 +75,42 @@ define dso_local void @_ZN4llvm5MachO15SymbolConverter11visitGlobalERKNS0_12Glob
   %brmerge.not.i = and i1 %8, %6
   %9 = icmp ne i8 %.val, 2
   %spec.select.i = select i1 %brmerge.not.i, i1 %9, i1 %8
-  br i1 %spec.select.i, label %25, label %.sink.split
+  br i1 %spec.select.i, label %30, label %10
 
-.sink.split:                                      ; preds = %2
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %13 = load i8, ptr %12, align 8
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %14 = load i8, ptr %13, align 8
   %.sroa.03.0.copyload = load ptr, ptr %3, align 8
   %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
   %.sroa.24.0.copyload = load i64, ptr %.sroa.24.0..sroa_idx, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 17
-  %15 = load i8, ptr %14, align 1
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = call noundef ptr @_ZN4llvm5MachO9SymbolSet9addGlobalENS0_10EncodeKindENS_9StringRefENS0_11SymbolFlagsERKNS0_6TargetE(ptr noundef nonnull align 8 dereferenceable(120) %11, i8 noundef zeroext %13, ptr %.sroa.03.0.copyload, i64 %.sroa.24.0.copyload, i8 noundef zeroext %15, ptr noundef nonnull align 4 dereferenceable(24) %16) #9
-  %18 = getelementptr inbounds nuw i8, ptr %3, i64 17
-  %19 = load i8, ptr %18, align 1
-  %20 = icmp eq i8 %19, 0
-  %21 = load ptr, ptr %10, align 8
-  %22 = load i8, ptr %12, align 8
-  %.sink = select i1 %20, i8 %22, i8 0
-  %.val20 = load ptr, ptr %3, align 8
-  %.val21 = load ptr, ptr %1, align 8
-  %.sroa.0.0.copyload.i13 = select i1 %20, ptr %.val20, ptr %.val21
-  %.sroa.24.0..sroa_idx.val = load i64, ptr %.sroa.24.0..sroa_idx, align 8
-  %.sroa.2.0..sroa_idx.i.val = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %.sroa.2.0.copyload.i15 = select i1 %20, i64 %.sroa.24.0..sroa_idx.val, i64 %.sroa.2.0..sroa_idx.i.val
-  %23 = load i8, ptr %14, align 1
-  %24 = call noundef ptr @_ZN4llvm5MachO9SymbolSet9addGlobalENS0_10EncodeKindENS_9StringRefENS0_11SymbolFlagsERKNS0_6TargetE(ptr noundef nonnull align 8 dereferenceable(120) %21, i8 noundef zeroext %.sink, ptr %.sroa.0.0.copyload.i13, i64 %.sroa.2.0.copyload.i15, i8 noundef zeroext %23, ptr noundef nonnull align 4 dereferenceable(24) %16) #9
-  br label %25
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 17
+  %16 = load i8, ptr %15, align 1
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %18 = call noundef ptr @_ZN4llvm5MachO9SymbolSet9addGlobalENS0_10EncodeKindENS_9StringRefENS0_11SymbolFlagsERKNS0_6TargetE(ptr noundef nonnull align 8 dereferenceable(120) %12, i8 noundef zeroext %14, ptr %.sroa.03.0.copyload, i64 %.sroa.24.0.copyload, i8 noundef zeroext %16, ptr noundef nonnull align 4 dereferenceable(24) %17) #9
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 17
+  %20 = load i8, ptr %19, align 1
+  %21 = icmp eq i8 %20, 0
+  %22 = load ptr, ptr %11, align 8
+  br i1 %21, label %23, label %27
 
-25:                                               ; preds = %.sink.split, %2
+23:                                               ; preds = %10
+  %24 = load i8, ptr %13, align 8
+  %.sroa.01.0.copyload = load ptr, ptr %3, align 8
+  %.sroa.22.0.copyload = load i64, ptr %.sroa.24.0..sroa_idx, align 8
+  %25 = load i8, ptr %15, align 1
+  %26 = call noundef ptr @_ZN4llvm5MachO9SymbolSet9addGlobalENS0_10EncodeKindENS_9StringRefENS0_11SymbolFlagsERKNS0_6TargetE(ptr noundef nonnull align 8 dereferenceable(120) %22, i8 noundef zeroext %24, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload, i8 noundef zeroext %25, ptr noundef nonnull align 4 dereferenceable(24) %17) #9
+  br label %30
+
+27:                                               ; preds = %10
+  %.sroa.0.0.copyload.i13 = load ptr, ptr %1, align 8
+  %.sroa.2.0.copyload.i15 = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
+  %28 = load i8, ptr %15, align 1
+  %29 = call noundef ptr @_ZN4llvm5MachO9SymbolSet9addGlobalENS0_10EncodeKindENS_9StringRefENS0_11SymbolFlagsERKNS0_6TargetE(ptr noundef nonnull align 8 dereferenceable(120) %22, i8 noundef zeroext 0, ptr %.sroa.0.0.copyload.i13, i64 %.sroa.2.0.copyload.i15, i8 noundef zeroext %28, ptr noundef nonnull align 4 dereferenceable(24) %17) #9
+  br label %30
+
+30:                                               ; preds = %2, %27, %23
   ret void
 }
 

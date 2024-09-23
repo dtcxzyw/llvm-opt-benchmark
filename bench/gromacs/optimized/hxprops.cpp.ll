@@ -776,34 +776,34 @@ sub_1:                                            ; preds = %sub_0
 83:                                               ; preds = %81
   %84 = sext i32 %53 to i64
   %85 = getelementptr inbounds %struct.t_bb, ptr %36, i64 %84, i32 13
-  br label %.thread.sink.split
+  store i32 %49, ptr %85, align 4
+  br label %.thread
 
 86:                                               ; preds = %81, %81
   %87 = sext i32 %53 to i64
   %88 = getelementptr inbounds %struct.t_bb, ptr %36, i64 %87, i32 14
-  br label %.thread.sink.split
+  store i32 %49, ptr %88, align 4
+  br label %.thread
 
 89:                                               ; preds = %81
   %90 = sext i32 %53 to i64
   %91 = getelementptr inbounds %struct.t_bb, ptr %36, i64 %90, i32 15
-  br label %.thread.sink.split
+  store i32 %49, ptr %91, align 4
+  br label %.thread
 
 92:                                               ; preds = %81
   %93 = sext i32 %53 to i64
   %94 = getelementptr inbounds %struct.t_bb, ptr %36, i64 %93, i32 16
-  br label %.thread.sink.split
+  store i32 %49, ptr %94, align 4
+  br label %.thread
 
 95:                                               ; preds = %81
   %96 = sext i32 %53 to i64
   %97 = getelementptr inbounds %struct.t_bb, ptr %36, i64 %96, i32 17
-  br label %.thread.sink.split
-
-.thread.sink.split:                               ; preds = %95, %92, %89, %86, %83
-  %.sink = phi ptr [ %85, %83 ], [ %88, %86 ], [ %91, %89 ], [ %94, %92 ], [ %97, %95 ]
-  store i32 %49, ptr %.sink, align 4
+  store i32 %49, ptr %97, align 4
   br label %.thread
 
-.thread:                                          ; preds = %80, %.thread.sink.split, %81
+.thread:                                          ; preds = %80, %83, %86, %89, %92, %95, %81
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %98 = load i32, ptr %11, align 4
   %99 = sext i32 %98 to i64

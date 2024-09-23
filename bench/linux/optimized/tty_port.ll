@@ -1029,6 +1029,7 @@ define dso_local noundef range(i32 0, 2) i32 @tty_port_close_start(ptr noundef %
 
 .thread3:                                         ; preds = %14, %16
   %21 = getelementptr inbounds i8, ptr %0, i64 176
+  store i32 0, ptr %21, align 8
   br label %.sink.split
 
 22:                                               ; preds = %6
@@ -1043,6 +1044,7 @@ define dso_local noundef range(i32 0, 2) i32 @tty_port_close_start(ptr noundef %
   %27 = tail call ptr @tty_name(ptr noundef %1) #6
   %28 = load i32, ptr %24, align 8
   %29 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.9, ptr noundef %26, ptr noundef %27, ptr noundef nonnull @__func__.tty_port_close_start, i32 noundef %28) #8
+  store i32 0, ptr %24, align 8
   br label %.sink.split
 
 30:                                               ; preds = %22
@@ -1051,8 +1053,6 @@ define dso_local noundef range(i32 0, 2) i32 @tty_port_close_start(ptr noundef %
   br i1 %31, label %32, label %67
 
 .sink.split:                                      ; preds = %.thread, %.thread3
-  %.sink = phi ptr [ %21, %.thread3 ], [ %24, %.thread ]
-  store i32 0, ptr %.sink, align 8
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %7, i64 noundef %8) #6
   br label %32
 

@@ -3004,13 +3004,13 @@ for.end:                                          ; preds = %land.rhs, %for.inc,
 define hidden void @_ZN3sat9lookahead12find_heightsEv(ptr nocapture noundef nonnull align 8 dereferenceable(1160) %this) local_unnamed_addr #11 align 2 {
 entry:
   %m_root_child = getelementptr inbounds i8, ptr %this, i64 1144
-  %.b74 = load i1, ptr @_ZN3satL12null_literalE.0, align 4
-  %0 = select i1 %.b74, i32 -2, i32 0
+  %.b76 = load i1, ptr @_ZN3satL12null_literalE.0, align 4
+  %0 = select i1 %.b76, i32 -2, i32 0
   store i32 %0, ptr %m_root_child, align 8
   %m_settled = getelementptr inbounds i8, ptr %this, i64 1132
   %storemerge.in.sroa.speculate.load.entry = load i32, ptr %m_settled, align 4
-  %cmp.i.not66 = icmp eq i32 %storemerge.in.sroa.speculate.load.entry, %0
-  br i1 %cmp.i.not66, label %for.end66, label %for.body.lr.ph
+  %cmp.i.not68 = icmp eq i32 %storemerge.in.sroa.speculate.load.entry, %0
+  br i1 %cmp.i.not68, label %for.end66, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %m_dfs.i = getelementptr inbounds i8, ptr %this, i64 1136
@@ -3024,20 +3024,20 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc65
   %2 = phi i32 [ %0, %for.body.lr.ph ], [ %10, %for.inc65 ]
-  %h.070 = phi i32 [ 0, %for.body.lr.ph ], [ %h.2.lcssa, %for.inc65 ]
-  %storemerge.in.sroa.speculated69 = phi i32 [ %storemerge.in.sroa.speculate.load.entry, %for.body.lr.ph ], [ %retval.sroa.0.0.copyload.i, %for.inc65 ]
-  %pp.sroa.0.068 = phi i32 [ %0, %for.body.lr.ph ], [ %retval.sroa.0.0.copyload.i7, %for.inc65 ]
-  %w.sroa.0.067 = phi i32 [ -2, %for.body.lr.ph ], [ %w.sroa.0.2.lcssa, %for.inc65 ]
+  %h.072 = phi i32 [ 0, %for.body.lr.ph ], [ %h.2.lcssa, %for.inc65 ]
+  %storemerge.in.sroa.speculated71 = phi i32 [ %storemerge.in.sroa.speculate.load.entry, %for.body.lr.ph ], [ %retval.sroa.0.0.copyload.i, %for.inc65 ]
+  %pp.sroa.0.070 = phi i32 [ %0, %for.body.lr.ph ], [ %retval.sroa.0.0.copyload.i7, %for.inc65 ]
+  %w.sroa.0.069 = phi i32 [ -2, %for.body.lr.ph ], [ %w.sroa.0.2.lcssa, %for.inc65 ]
   %3 = load ptr, ptr %m_dfs.i, align 8
-  %idxprom.i.i = zext i32 %storemerge.in.sroa.speculated69 to i64
+  %idxprom.i.i = zext i32 %storemerge.in.sroa.speculated71 to i64
   %m_link.i = getelementptr inbounds %"struct.sat::lookahead::dfs_info", ptr %3, i64 %idxprom.i.i, i32 5
   %retval.sroa.0.0.copyload.i = load i32, ptr %m_link.i, align 4
   %m_parent.i = getelementptr inbounds %"struct.sat::lookahead::dfs_info", ptr %3, i64 %idxprom.i.i, i32 2
   %retval.sroa.0.0.copyload.i7 = load i32, ptr %m_parent.i, align 8
-  %cmp.i8.not = icmp eq i32 %retval.sroa.0.0.copyload.i7, %pp.sroa.0.068
-  %w.sroa.0.1 = select i1 %cmp.i8.not, i32 %w.sroa.0.067, i32 %2
-  %h.1 = select i1 %cmp.i8.not, i32 %h.070, i32 0
-  %xor.i = xor i32 %storemerge.in.sroa.speculated69, 1
+  %cmp.i8.not = icmp eq i32 %retval.sroa.0.0.copyload.i7, %pp.sroa.0.070
+  %w.sroa.0.1 = select i1 %cmp.i8.not, i32 %w.sroa.0.069, i32 %2
+  %h.1 = select i1 %cmp.i8.not, i32 %h.072, i32 0
+  %xor.i = xor i32 %storemerge.in.sroa.speculated71, 1
   %idxprom.i.i10 = zext i32 %xor.i to i64
   %m_next.i = getelementptr inbounds %"struct.sat::lookahead::dfs_info", ptr %3, i64 %idxprom.i.i10, i32 3
   %4 = load ptr, ptr %m_next.i, align 8
@@ -3047,8 +3047,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 _ZNK3sat9lookahead8num_nextENS_7literalE.exit:    ; preds = %for.body
   %arrayidx.i1.i = getelementptr inbounds i8, ptr %4, i64 -4
   %5 = load i32, ptr %arrayidx.i1.i, align 4
-  %cmp61.not = icmp eq i32 %5, 0
-  br i1 %cmp61.not, label %for.end, label %for.body17.preheader
+  %cmp63.not = icmp eq i32 %5, 0
+  br i1 %cmp63.not, label %for.end, label %for.body17.preheader
 
 for.body17.preheader:                             ; preds = %_ZNK3sat9lookahead8num_nextENS_7literalE.exit
   %wide.trip.count = zext i32 %5 to i64
@@ -3056,8 +3056,8 @@ for.body17.preheader:                             ; preds = %_ZNK3sat9lookahead8
 
 for.body17:                                       ; preds = %for.body17.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body17.preheader ], [ %indvars.iv.next, %for.inc ]
-  %h.264 = phi i32 [ %h.1, %for.body17.preheader ], [ %h.3, %for.inc ]
-  %w.sroa.0.262 = phi i32 [ %w.sroa.0.1, %for.body17.preheader ], [ %w.sroa.0.3, %for.inc ]
+  %h.266 = phi i32 [ %h.1, %for.body17.preheader ], [ %h.3, %for.inc ]
+  %w.sroa.0.264 = phi i32 [ %w.sroa.0.1, %for.body17.preheader ], [ %w.sroa.0.3, %for.inc ]
   %arrayidx.i2.i = getelementptr inbounds %"class.sat::literal", ptr %4, i64 %indvars.iv
   %retval.sroa.0.0.copyload.i15 = load i32, ptr %arrayidx.i2.i, align 4
   %xor.i16 = xor i32 %retval.sroa.0.0.copyload.i15, 1
@@ -3071,15 +3071,15 @@ if.end36:                                         ; preds = %for.body17
   %idxprom.i.i23 = zext i32 %retval.sroa.0.0.copyload.i20 to i64
   %m_height.i = getelementptr inbounds %"struct.sat::lookahead::dfs_info", ptr %3, i64 %idxprom.i.i23, i32 1
   %6 = load i32, ptr %m_height.i, align 4
-  %cmp40.not = icmp ult i32 %6, %h.264
+  %cmp40.not = icmp ult i32 %6, %h.266
   %add = add i32 %6, 1
-  %spec.select = select i1 %cmp40.not, i32 %w.sroa.0.262, i32 %retval.sroa.0.0.copyload.i20
-  %spec.select60 = select i1 %cmp40.not, i32 %h.264, i32 %add
+  %spec.select = select i1 %cmp40.not, i32 %w.sroa.0.264, i32 %retval.sroa.0.0.copyload.i20
+  %spec.select62 = select i1 %cmp40.not, i32 %h.266, i32 %add
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end36, %for.body17
-  %w.sroa.0.3 = phi i32 [ %w.sroa.0.262, %for.body17 ], [ %spec.select, %if.end36 ]
-  %h.3 = phi i32 [ %h.264, %for.body17 ], [ %spec.select60, %if.end36 ]
+  %w.sroa.0.3 = phi i32 [ %w.sroa.0.264, %for.body17 ], [ %spec.select, %if.end36 ]
+  %h.3 = phi i32 [ %h.266, %for.body17 ], [ %spec.select62, %if.end36 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body17, !llvm.loop !18
@@ -3087,7 +3087,7 @@ for.inc:                                          ; preds = %if.end36, %for.body
 for.end:                                          ; preds = %for.inc, %for.body, %_ZNK3sat9lookahead8num_nextENS_7literalE.exit
   %w.sroa.0.2.lcssa = phi i32 [ %w.sroa.0.1, %_ZNK3sat9lookahead8num_nextENS_7literalE.exit ], [ %w.sroa.0.1, %for.body ], [ %w.sroa.0.3, %for.inc ]
   %h.2.lcssa = phi i32 [ %h.1, %_ZNK3sat9lookahead8num_nextENS_7literalE.exit ], [ %h.1, %for.body ], [ %h.3, %for.inc ]
-  %cmp.i24 = icmp eq i32 %retval.sroa.0.0.copyload.i7, %storemerge.in.sroa.speculated69
+  %cmp.i24 = icmp eq i32 %retval.sroa.0.0.copyload.i7, %storemerge.in.sroa.speculated71
   br i1 %cmp.i24, label %if.then44, label %for.inc65
 
 if.then44:                                        ; preds = %for.end
@@ -3098,23 +3098,38 @@ if.then44:                                        ; preds = %for.end
   %retval.sroa.0.0.i = load i32, ptr %retval.sroa.0.0.in.i, align 8
   %m_height.i30 = getelementptr inbounds %"struct.sat::lookahead::dfs_info", ptr %3, i64 %idxprom.i.i, i32 1
   store i32 %h.2.lcssa, ptr %m_height.i30, align 4
-  %cmp.i.i31 = icmp eq i32 %storemerge.in.sroa.speculated69, %agg.tmp53.sroa.0.0.copyload
+  %cmp.i.i31 = icmp eq i32 %storemerge.in.sroa.speculated71, %agg.tmp53.sroa.0.0.copyload
+  br i1 %cmp.i.i31, label %if.then.i, label %if.else.i
+
+if.then.i:                                        ; preds = %if.then44
+  store i32 %storemerge.in.sroa.speculated71, ptr %m_root_child, align 8
+  br label %_ZN3sat9lookahead9set_childENS_7literalES1_.exit
+
+if.else.i:                                        ; preds = %if.then44
   %7 = load ptr, ptr %m_dfs.i, align 8
   %m_min.i34 = getelementptr inbounds %"struct.sat::lookahead::dfs_info", ptr %7, i64 %idxprom.i.i, i32 6
-  %m_min.sink.i = select i1 %cmp.i.i31, ptr %m_root_child, ptr %m_min.i34
-  store i32 %agg.tmp53.sroa.0.0.copyload, ptr %m_min.sink.i, align 8
+  store i32 %agg.tmp53.sroa.0.0.copyload, ptr %m_min.i34, align 8
+  br label %_ZN3sat9lookahead9set_childENS_7literalES1_.exit
+
+_ZN3sat9lookahead9set_childENS_7literalES1_.exit: ; preds = %if.then.i, %if.else.i
   %8 = load ptr, ptr %m_dfs.i, align 8
   %m_link.i38 = getelementptr inbounds %"struct.sat::lookahead::dfs_info", ptr %8, i64 %idxprom.i.i, i32 5
   store i32 %retval.sroa.0.0.i, ptr %m_link.i38, align 4
   %cmp.i.i39 = icmp eq i32 %w.sroa.0.2.lcssa, %1
-  %9 = load ptr, ptr %m_dfs.i, align 8
-  %m_min.i42 = getelementptr inbounds %"struct.sat::lookahead::dfs_info", ptr %9, i64 %idxprom.i.i27, i32 6
-  %m_min.sink.i44 = select i1 %cmp.i.i39, ptr %m_root_child, ptr %m_min.i42
-  store i32 %storemerge.in.sroa.speculated69, ptr %m_min.sink.i44, align 8
+  br i1 %cmp.i.i39, label %if.then.i44, label %if.else.i40
+
+if.then.i44:                                      ; preds = %_ZN3sat9lookahead9set_childENS_7literalES1_.exit
+  store i32 %storemerge.in.sroa.speculated71, ptr %m_root_child, align 8
   br label %for.inc65
 
-for.inc65:                                        ; preds = %for.end, %if.then44
-  %10 = phi i32 [ %2, %for.end ], [ %.pre, %if.then44 ]
+if.else.i40:                                      ; preds = %_ZN3sat9lookahead9set_childENS_7literalES1_.exit
+  %9 = load ptr, ptr %m_dfs.i, align 8
+  %m_min.i43 = getelementptr inbounds %"struct.sat::lookahead::dfs_info", ptr %9, i64 %idxprom.i.i27, i32 6
+  store i32 %storemerge.in.sroa.speculated71, ptr %m_min.i43, align 8
+  br label %for.inc65
+
+for.inc65:                                        ; preds = %if.else.i40, %if.then.i44, %for.end
+  %10 = phi i32 [ %.pre, %if.else.i40 ], [ %w.sroa.0.2.lcssa, %if.then.i44 ], [ %2, %for.end ]
   %cmp.i.not = icmp eq i32 %retval.sroa.0.0.copyload.i, %10
   br i1 %cmp.i.not, label %for.end66, label %for.body, !llvm.loop !19
 
@@ -8211,13 +8226,22 @@ entry:
   %.b = load i1, ptr @_ZN3satL12null_literalE.0, align 4
   %0 = select i1 %.b, i32 -2, i32 0
   %cmp.i = icmp eq i32 %v.coerce, %0
+  br i1 %cmp.i, label %if.then, label %if.else
+
+if.then:                                          ; preds = %entry
+  %m_root_child = getelementptr inbounds i8, ptr %this, i64 1144
+  store i32 %u.coerce, ptr %m_root_child, align 8
+  br label %if.end
+
+if.else:                                          ; preds = %entry
   %m_dfs = getelementptr inbounds i8, ptr %this, i64 1136
   %1 = load ptr, ptr %m_dfs, align 8
   %idxprom.i = zext i32 %v.coerce to i64
   %m_min = getelementptr inbounds %"struct.sat::lookahead::dfs_info", ptr %1, i64 %idxprom.i, i32 6
-  %m_root_child = getelementptr inbounds i8, ptr %this, i64 1144
-  %m_min.sink = select i1 %cmp.i, ptr %m_root_child, ptr %m_min
-  store i32 %u.coerce, ptr %m_min.sink, align 8
+  store i32 %u.coerce, ptr %m_min, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then
   ret void
 }
 
@@ -9659,44 +9683,44 @@ cond.false.i:                                     ; preds = %if.end52
   br label %_ZNK3sat6solver15init_trail_sizeEv.exit
 
 _ZNK3sat6solver15init_trail_sizeEv.exit:          ; preds = %if.end.i.i24, %cond.false.i
-  %arrayidx.i.sink.i = phi ptr [ %arrayidx.i.i25, %if.end.i.i24 ], [ %39, %cond.false.i ]
-  %40 = load i32, ptr %arrayidx.i.sink.i, align 4
-  %cmp5749.not = icmp eq i32 %40, 0
+  %cond.i.in = phi ptr [ %39, %cond.false.i ], [ %arrayidx.i.i25, %if.end.i.i24 ]
+  %cond.i = load i32, ptr %cond.i.in, align 4
+  %cmp5749.not = icmp eq i32 %cond.i, 0
   br i1 %cmp5749.not, label %for.end80, label %for.body58.preheader
 
 for.body58.preheader:                             ; preds = %_ZNK3sat6solver15init_trail_sizeEv.exit
-  %wide.trip.count61 = zext i32 %40 to i64
+  %wide.trip.count61 = zext i32 %cond.i to i64
   br label %for.body58
 
 for.body58:                                       ; preds = %for.body58.preheader, %for.inc78
   %indvars.iv58 = phi i64 [ 0, %for.body58.preheader ], [ %indvars.iv.next59, %for.inc78 ]
-  %41 = load ptr, ptr %this, align 8
-  %m_trail = getelementptr inbounds i8, ptr %41, i64 3928
-  %42 = load ptr, ptr %m_trail, align 8
-  %arrayidx.i27 = getelementptr inbounds %"class.sat::literal", ptr %42, i64 %indvars.iv58
-  %43 = load i32, ptr %arrayidx.i27, align 4
-  %shr.i28 = lshr i32 %43, 1
-  %m_eliminated.i29 = getelementptr inbounds i8, ptr %41, i64 3480
-  %44 = load ptr, ptr %m_eliminated.i29, align 8
+  %40 = load ptr, ptr %this, align 8
+  %m_trail = getelementptr inbounds i8, ptr %40, i64 3928
+  %41 = load ptr, ptr %m_trail, align 8
+  %arrayidx.i27 = getelementptr inbounds %"class.sat::literal", ptr %41, i64 %indvars.iv58
+  %42 = load i32, ptr %arrayidx.i27, align 4
+  %shr.i28 = lshr i32 %42, 1
+  %m_eliminated.i29 = getelementptr inbounds i8, ptr %40, i64 3480
+  %43 = load ptr, ptr %m_eliminated.i29, align 8
   %idxprom.i.i30 = zext nneg i32 %shr.i28 to i64
-  %arrayidx.i.i31 = getelementptr inbounds i8, ptr %44, i64 %idxprom.i.i30
-  %45 = load i8, ptr %arrayidx.i.i31, align 1
-  %tobool.i32 = trunc i8 %45 to i1
+  %arrayidx.i.i31 = getelementptr inbounds i8, ptr %43, i64 %idxprom.i.i30
+  %44 = load i8, ptr %arrayidx.i.i31, align 1
+  %tobool.i32 = trunc i8 %44 to i1
   br i1 %tobool.i32, label %for.inc78, label %if.then65
 
 if.then65:                                        ; preds = %for.body58
-  %m_drat = getelementptr inbounds i8, ptr %41, i64 352
-  %46 = load i8, ptr %m_drat, align 8
-  %tobool68 = trunc i8 %46 to i1
+  %m_drat = getelementptr inbounds i8, ptr %40, i64 352
+  %45 = load i8, ptr %m_drat, align 8
+  %tobool68 = trunc i8 %45 to i1
   br i1 %tobool68, label %if.then69, label %if.end74
 
 if.then69:                                        ; preds = %if.then65
-  %m_drat71 = getelementptr inbounds i8, ptr %41, i64 552
-  tail call void @_ZN3sat4drat3addENS_7literalEb(ptr noundef nonnull align 8 dereferenceable(664) %m_drat71, i32 %43, i1 noundef zeroext false)
+  %m_drat71 = getelementptr inbounds i8, ptr %40, i64 552
+  tail call void @_ZN3sat4drat3addENS_7literalEb(ptr noundef nonnull align 8 dereferenceable(664) %m_drat71, i32 %42, i1 noundef zeroext false)
   br label %if.end74
 
 if.end74:                                         ; preds = %if.then69, %if.then65
-  tail call void @_ZN3sat9lookahead6assignENS_7literalE(ptr noundef nonnull align 8 dereferenceable(1160) %this, i32 %43)
+  tail call void @_ZN3sat9lookahead6assignENS_7literalE(ptr noundef nonnull align 8 dereferenceable(1160) %this, i32 %42)
   br label %for.inc78
 
 for.inc78:                                        ; preds = %for.body58, %if.end74
@@ -9707,22 +9731,22 @@ for.inc78:                                        ; preds = %for.body58, %if.end
 for.end80:                                        ; preds = %for.inc78, %cond.true.i, %_ZNK3sat6solver15init_trail_sizeEv.exit
   tail call void @_ZN3sat9lookahead9propagateEv(ptr noundef nonnull align 8 dereferenceable(1160) %this)
   %m_trail81 = getelementptr inbounds i8, ptr %this, i64 200
-  %47 = load ptr, ptr %m_trail81, align 8
-  %cmp.i33 = icmp eq ptr %47, null
+  %46 = load ptr, ptr %m_trail81, align 8
+  %cmp.i33 = icmp eq ptr %46, null
   br i1 %cmp.i33, label %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit, label %if.end.i34
 
 if.end.i34:                                       ; preds = %for.end80
-  %arrayidx.i35 = getelementptr inbounds i8, ptr %47, i64 -4
-  %48 = load i32, ptr %arrayidx.i35, align 4
+  %arrayidx.i35 = getelementptr inbounds i8, ptr %46, i64 -4
+  %47 = load i32, ptr %arrayidx.i35, align 4
   br label %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit
 
 _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit:     ; preds = %for.end80, %if.end.i34
-  %retval.0.i36 = phi i32 [ %48, %if.end.i34 ], [ 0, %for.end80 ]
+  %retval.0.i36 = phi i32 [ %47, %if.end.i34 ], [ 0, %for.end80 ]
   store i32 %retval.0.i36, ptr %m_qhead, align 8
   %m_freevars = getelementptr inbounds i8, ptr %this, i64 960
-  %49 = load i32, ptr %m_freevars, align 8
+  %48 = load i32, ptr %m_freevars, align 8
   %m_init_freevars = getelementptr inbounds i8, ptr %this, i64 984
-  store i32 %49, ptr %m_init_freevars, align 8
+  store i32 %48, ptr %m_init_freevars, align 8
   ret void
 }
 

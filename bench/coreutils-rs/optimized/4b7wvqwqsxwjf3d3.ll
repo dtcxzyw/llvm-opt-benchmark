@@ -285,32 +285,35 @@ define hidden { i32, i32 } @_ZN6memchr4arch3all9rabinkarp9FinderRev3new17hb79928
   %11 = insertvalue { i32, i32 } %10, i32 %.sroa.3.0, 1
   ret { i32, i32 } %11
 
-12:                                               ; preds = %19, %3
-  %.sroa.5.0 = phi ptr [ %8, %3 ], [ %.sroa.5.1, %19 ]
-  %.not.i = phi i1 [ false, %3 ], [ true, %19 ]
-  %.sroa.10.020 = phi i64 [ 1, %3 ], [ 0, %19 ]
-  %.sroa.10.0 = phi i32 [ 1, %3 ], [ %24, %19 ]
-  %.sroa.01.0 = phi i32 [ %7, %3 ], [ %23, %19 ]
+12:                                               ; preds = %20, %3
+  %.sroa.5.0 = phi ptr [ %8, %3 ], [ %.sroa.5.1, %20 ]
+  %.not.i = phi i1 [ false, %3 ], [ true, %20 ]
+  %.sroa.10.020 = phi i64 [ 1, %3 ], [ 0, %20 ]
+  %.sroa.10.0 = phi i32 [ 1, %3 ], [ %24, %20 ]
+  %.sroa.01.0 = phi i32 [ %7, %3 ], [ %23, %20 ]
   br i1 %.not.i, label %13, label %14
 
 13:                                               ; preds = %12
   %.not5.i = icmp eq ptr %0, %.sroa.5.0
-  br i1 %.not5.i, label %.loopexit, label %19
+  br i1 %.not5.i, label %.loopexit, label %20
 
 14:                                               ; preds = %12
   %15 = ptrtoint ptr %.sroa.5.0 to i64
   %16 = sub nuw i64 %15, %9
   %.not.i.i.i.i = icmp ult i64 %.sroa.10.020, %16
-  %17 = sub nsw i64 0, %.sroa.10.020
-  %18 = getelementptr inbounds i8, ptr %.sroa.5.0, i64 %17
-  br i1 %.not.i.i.i.i, label %19, label %.loopexit
+  br i1 %.not.i.i.i.i, label %17, label %.loopexit
 
-19:                                               ; preds = %13, %14
-  %.sroa.5.0.pn = phi ptr [ %18, %14 ], [ %.sroa.5.0, %13 ]
+17:                                               ; preds = %14
+  %18 = sub nsw i64 0, %.sroa.10.020
+  %19 = getelementptr inbounds i8, ptr %.sroa.5.0, i64 %18
+  br label %20
+
+20:                                               ; preds = %13, %17
+  %.sroa.5.0.pn = phi ptr [ %19, %17 ], [ %.sroa.5.0, %13 ]
   %.sroa.5.1 = getelementptr inbounds i8, ptr %.sroa.5.0.pn, i64 -1
-  %20 = load i8, ptr %.sroa.5.1, align 1, !noalias !69, !noundef !4
+  %.sroa.3.0.i2.pn.i = load i8, ptr %.sroa.5.1, align 1, !noalias !69, !noundef !4
   %21 = shl i32 %.sroa.01.0, 1
-  %22 = zext i8 %20 to i32
+  %22 = zext i8 %.sroa.3.0.i2.pn.i to i32
   %23 = add i32 %21, %22
   %24 = shl i32 %.sroa.10.0, 1
   br label %12
@@ -357,32 +360,35 @@ define hidden void @_ZN6memchr6memmem13FinderBuilder13build_reverse17hd639ef99ee
   %23 = ptrtoint ptr %2 to i64
   br label %24
 
-24:                                               ; preds = %31, %17
-  %.sroa.5.0.i.i = phi ptr [ %22, %17 ], [ %.sroa.5.1.i.i, %31 ]
-  %.not.i.i.i = phi i1 [ false, %17 ], [ true, %31 ]
-  %.sroa.10.020.i.i = phi i64 [ 1, %17 ], [ 0, %31 ]
-  %.sroa.10.0.i.i = phi i32 [ 1, %17 ], [ %36, %31 ]
-  %.sroa.01.0.i.i = phi i32 [ %21, %17 ], [ %35, %31 ]
+24:                                               ; preds = %32, %17
+  %.sroa.5.0.i.i = phi ptr [ %22, %17 ], [ %.sroa.5.1.i.i, %32 ]
+  %.not.i.i.i = phi i1 [ false, %17 ], [ true, %32 ]
+  %.sroa.10.020.i.i = phi i64 [ 1, %17 ], [ 0, %32 ]
+  %.sroa.10.0.i.i = phi i32 [ 1, %17 ], [ %36, %32 ]
+  %.sroa.01.0.i.i = phi i32 [ %21, %17 ], [ %35, %32 ]
   br i1 %.not.i.i.i, label %25, label %26
 
 25:                                               ; preds = %24
   %.not5.i.i.i = icmp eq ptr %2, %.sroa.5.0.i.i
-  br i1 %.not5.i.i.i, label %_ZN6memchr6memmem8searcher11SearcherRev3new17h101baef20c6b8385E.llvm.1100051835029668662.exit, label %31
+  br i1 %.not5.i.i.i, label %_ZN6memchr6memmem8searcher11SearcherRev3new17h101baef20c6b8385E.llvm.1100051835029668662.exit, label %32
 
 26:                                               ; preds = %24
   %27 = ptrtoint ptr %.sroa.5.0.i.i to i64
   %28 = sub nuw i64 %27, %23
   %.not.i.i.i.i.i.i = icmp ult i64 %.sroa.10.020.i.i, %28
-  %29 = sub nsw i64 0, %.sroa.10.020.i.i
-  %30 = getelementptr inbounds i8, ptr %.sroa.5.0.i.i, i64 %29
-  br i1 %.not.i.i.i.i.i.i, label %31, label %_ZN6memchr6memmem8searcher11SearcherRev3new17h101baef20c6b8385E.llvm.1100051835029668662.exit
+  br i1 %.not.i.i.i.i.i.i, label %29, label %_ZN6memchr6memmem8searcher11SearcherRev3new17h101baef20c6b8385E.llvm.1100051835029668662.exit
 
-31:                                               ; preds = %26, %25
-  %.sroa.5.0.pn.i.i = phi ptr [ %30, %26 ], [ %.sroa.5.0.i.i, %25 ]
+29:                                               ; preds = %26
+  %30 = sub nsw i64 0, %.sroa.10.020.i.i
+  %31 = getelementptr inbounds i8, ptr %.sroa.5.0.i.i, i64 %30
+  br label %32
+
+32:                                               ; preds = %29, %25
+  %.sroa.5.0.pn.i.i = phi ptr [ %31, %29 ], [ %.sroa.5.0.i.i, %25 ]
   %.sroa.5.1.i.i = getelementptr inbounds i8, ptr %.sroa.5.0.pn.i.i, i64 -1
-  %32 = load i8, ptr %.sroa.5.1.i.i, align 1, !alias.scope !72, !noalias !79, !noundef !4
+  %.sroa.3.0.i2.pn.i.i.i = load i8, ptr %.sroa.5.1.i.i, align 1, !alias.scope !72, !noalias !79, !noundef !4
   %33 = shl i32 %.sroa.01.0.i.i, 1
-  %34 = zext i8 %32 to i32
+  %34 = zext i8 %.sroa.3.0.i2.pn.i.i.i to i32
   %35 = add i32 %33, %34
   %36 = shl i32 %.sroa.10.0.i.i, 1
   br label %24
@@ -462,32 +468,35 @@ define hidden void @_ZN6memchr6memmem8searcher11SearcherRev3new17h101baef20c6b83
   %23 = ptrtoint ptr %1 to i64
   br label %24
 
-24:                                               ; preds = %31, %17
-  %.sroa.5.0.i = phi ptr [ %22, %17 ], [ %.sroa.5.1.i, %31 ]
-  %.not.i.i = phi i1 [ false, %17 ], [ true, %31 ]
-  %.sroa.10.020.i = phi i64 [ 1, %17 ], [ 0, %31 ]
-  %.sroa.10.0.i = phi i32 [ 1, %17 ], [ %36, %31 ]
-  %.sroa.01.0.i = phi i32 [ %21, %17 ], [ %35, %31 ]
+24:                                               ; preds = %32, %17
+  %.sroa.5.0.i = phi ptr [ %22, %17 ], [ %.sroa.5.1.i, %32 ]
+  %.not.i.i = phi i1 [ false, %17 ], [ true, %32 ]
+  %.sroa.10.020.i = phi i64 [ 1, %17 ], [ 0, %32 ]
+  %.sroa.10.0.i = phi i32 [ 1, %17 ], [ %36, %32 ]
+  %.sroa.01.0.i = phi i32 [ %21, %17 ], [ %35, %32 ]
   br i1 %.not.i.i, label %25, label %26
 
 25:                                               ; preds = %24
   %.not5.i.i = icmp eq ptr %1, %.sroa.5.0.i
-  br i1 %.not5.i.i, label %_ZN6memchr4arch3all9rabinkarp9FinderRev3new17hb799283b77cd3e98E.llvm.1100051835029668662.exit, label %31
+  br i1 %.not5.i.i, label %_ZN6memchr4arch3all9rabinkarp9FinderRev3new17hb799283b77cd3e98E.llvm.1100051835029668662.exit, label %32
 
 26:                                               ; preds = %24
   %27 = ptrtoint ptr %.sroa.5.0.i to i64
   %28 = sub nuw i64 %27, %23
   %.not.i.i.i.i.i = icmp ult i64 %.sroa.10.020.i, %28
-  %29 = sub nsw i64 0, %.sroa.10.020.i
-  %30 = getelementptr inbounds i8, ptr %.sroa.5.0.i, i64 %29
-  br i1 %.not.i.i.i.i.i, label %31, label %_ZN6memchr4arch3all9rabinkarp9FinderRev3new17hb799283b77cd3e98E.llvm.1100051835029668662.exit
+  br i1 %.not.i.i.i.i.i, label %29, label %_ZN6memchr4arch3all9rabinkarp9FinderRev3new17hb799283b77cd3e98E.llvm.1100051835029668662.exit
 
-31:                                               ; preds = %26, %25
-  %.sroa.5.0.pn.i = phi ptr [ %30, %26 ], [ %.sroa.5.0.i, %25 ]
+29:                                               ; preds = %26
+  %30 = sub nsw i64 0, %.sroa.10.020.i
+  %31 = getelementptr inbounds i8, ptr %.sroa.5.0.i, i64 %30
+  br label %32
+
+32:                                               ; preds = %29, %25
+  %.sroa.5.0.pn.i = phi ptr [ %31, %29 ], [ %.sroa.5.0.i, %25 ]
   %.sroa.5.1.i = getelementptr inbounds i8, ptr %.sroa.5.0.pn.i, i64 -1
-  %32 = load i8, ptr %.sroa.5.1.i, align 1, !alias.scope !86, !noalias !89, !noundef !4
+  %.sroa.3.0.i2.pn.i.i = load i8, ptr %.sroa.5.1.i, align 1, !alias.scope !86, !noalias !89, !noundef !4
   %33 = shl i32 %.sroa.01.0.i, 1
-  %34 = zext i8 %32 to i32
+  %34 = zext i8 %.sroa.3.0.i2.pn.i.i to i32
   %35 = add i32 %33, %34
   %36 = shl i32 %.sroa.10.0.i, 1
   br label %24

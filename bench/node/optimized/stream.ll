@@ -470,7 +470,7 @@ for.body6.i.i:                                    ; preds = %for.inc19.i.i, %for
   %fd.0.copyload.i.i = load i32, ptr %add.ptr.i.i, align 1
   %59 = load i32, ptr %accepted_fd.i.i, align 4
   %cmp7.not.i.i = icmp eq i32 %59, -1
-  br i1 %cmp7.not.i.i, label %for.inc19.i.i, label %if.then8.i.i
+  br i1 %cmp7.not.i.i, label %if.else.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %for.body6.i.i
   %60 = load ptr, ptr %queued_fds1.i.i.i, align 8
@@ -525,6 +525,7 @@ uv__stream_queue_fd.exit.thread.i.i:              ; preds = %if.end25.sink.split
   store i32 %inc.i.i.i, ptr %offset26.i.i.i, align 4
   %idxprom.i.i.i = zext i32 %63 to i64
   %arrayidx.i.i.i = getelementptr inbounds [1 x i32], ptr %fds.i.i.i, i64 0, i64 %idxprom.i.i.i
+  store i32 %fd.0.copyload.i.i, ptr %arrayidx.i.i.i, align 4
   br label %for.inc19.i.i
 
 uv__stream_queue_fd.exit.i.i:                     ; preds = %if.then10.i.i.i, %if.then.i.i.i
@@ -538,9 +539,11 @@ for.body14.i.i:                                   ; preds = %uv__stream_queue_fd
   %exitcond36.not.i.i = icmp eq i64 %inc.i.i, %div19.i.i
   br i1 %exitcond36.not.i.i, label %if.then99.i, label %for.body14.i.i
 
-for.inc19.i.i:                                    ; preds = %uv__stream_queue_fd.exit.thread.i.i, %for.body6.i.i
-  %arrayidx.i.sink.i.i = phi ptr [ %arrayidx.i.i.i, %uv__stream_queue_fd.exit.thread.i.i ], [ %accepted_fd.i.i, %for.body6.i.i ]
-  store i32 %fd.0.copyload.i.i, ptr %arrayidx.i.sink.i.i, align 4
+if.else.i.i:                                      ; preds = %for.body6.i.i
+  store i32 %fd.0.copyload.i.i, ptr %accepted_fd.i.i, align 4
+  br label %for.inc19.i.i
+
+for.inc19.i.i:                                    ; preds = %if.else.i.i, %uv__stream_queue_fd.exit.thread.i.i
   %inc20.i.i = add nuw nsw i64 %i.025.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc20.i.i, %umax.i.i
   br i1 %exitcond.not.i.i, label %for.inc22.i.i, label %for.body6.i.i

@@ -752,40 +752,42 @@ define dso_local noundef ptr @_ZNK5clang6format18CommaSeparatedList15getColumnFo
   %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #17, !noalias !8
   %6 = getelementptr inbounds %"struct.clang::format::CommaSeparatedList::ColumnFormat", ptr %4, i64 %5
   %7 = load ptr, ptr %3, align 8, !noalias !19
-  %.not1617 = icmp eq ptr %6, %7
-  br i1 %.not1617, label %._crit_edge, label %.lr.ph
+  %.not1516 = icmp eq ptr %6, %7
+  br i1 %.not1516, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2, %20
-  %.019 = phi ptr [ %.1, %20 ], [ null, %2 ]
-  %.sroa.012.018 = phi ptr [ %8, %20 ], [ %6, %2 ]
-  %8 = getelementptr inbounds i8, ptr %.sroa.012.018, i64 -64
-  %9 = getelementptr inbounds i8, ptr %.sroa.012.018, i64 -60
+.lr.ph:                                           ; preds = %2, %21
+  %.018 = phi ptr [ %.1, %21 ], [ null, %2 ]
+  %.sroa.011.017 = phi ptr [ %8, %21 ], [ %6, %2 ]
+  %8 = getelementptr inbounds i8, ptr %.sroa.011.017, i64 -64
+  %9 = getelementptr inbounds i8, ptr %.sroa.011.017, i64 -60
   %10 = load i32, ptr %9, align 4
-  %.not = icmp ule i32 %10, %1
-  %11 = load i32, ptr %8, align 8
-  %12 = icmp eq i32 %11, 1
-  %or.cond = select i1 %.not, i1 true, i1 %12
-  br i1 %or.cond, label %13, label %20
+  %.not = icmp ugt i32 %10, %1
+  br i1 %.not, label %11, label %14
 
-13:                                               ; preds = %.lr.ph
-  %.not10 = icmp eq ptr %.019, null
-  br i1 %.not10, label %20, label %14
+11:                                               ; preds = %.lr.ph
+  %12 = load i32, ptr %8, align 8
+  %13 = icmp eq i32 %12, 1
+  br i1 %13, label %14, label %21
 
-14:                                               ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %.sroa.012.018, i64 -56
-  %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %.019, i64 8
-  %18 = load i32, ptr %17, align 8
-  %19 = icmp ugt i32 %16, %18
-  br i1 %19, label %._crit_edge, label %20
+14:                                               ; preds = %11, %.lr.ph
+  %.not10 = icmp eq ptr %.018, null
+  br i1 %.not10, label %21, label %15
 
-20:                                               ; preds = %13, %14, %.lr.ph
-  %.1 = phi ptr [ %.019, %.lr.ph ], [ %8, %14 ], [ %8, %13 ]
-  %.not16 = icmp eq ptr %8, %7
-  br i1 %.not16, label %._crit_edge, label %.lr.ph
+15:                                               ; preds = %14
+  %16 = getelementptr inbounds i8, ptr %.sroa.011.017, i64 -56
+  %17 = load i32, ptr %16, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %.018, i64 8
+  %19 = load i32, ptr %18, align 8
+  %20 = icmp ugt i32 %17, %19
+  br i1 %20, label %._crit_edge, label %21
 
-._crit_edge:                                      ; preds = %20, %14, %2
-  %.0.lcssa = phi ptr [ null, %2 ], [ %.019, %14 ], [ %.1, %20 ]
+21:                                               ; preds = %14, %15, %11
+  %.1 = phi ptr [ %.018, %11 ], [ %8, %15 ], [ %8, %14 ]
+  %.not15 = icmp eq ptr %8, %7
+  br i1 %.not15, label %._crit_edge, label %.lr.ph
+
+._crit_edge:                                      ; preds = %21, %15, %2
+  %.0.lcssa = phi ptr [ null, %2 ], [ %.018, %15 ], [ %.1, %21 ]
   ret ptr %.0.lcssa
 }
 
@@ -2092,7 +2094,8 @@ _ZN4llvm15SmallVectorImplIjE12assignRemoteEOS1_.exit: ; preds = %8, %13
   store i32 %19, ptr %20, align 4
   store ptr %6, ptr %1, align 8
   store i32 0, ptr %18, align 4
-  br label %.sink.split
+  store i32 0, ptr %15, align 8
+  br label %53
 
 21:                                               ; preds = %4
   %22 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #17
@@ -2121,7 +2124,8 @@ _ZSt4moveIPjS0_ET0_T_S2_S1_.exit:                 ; preds = %29, %26, %24
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %22) #17
   %31 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #17
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
+  store i32 0, ptr %32, align 8
+  br label %53
 
 33:                                               ; preds = %21
   %34 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
@@ -2168,14 +2172,10 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE18uninitialized_moveIPjS3_EEvT_S4_T0_.ex
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %22) #17
   %51 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #17
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %_ZN4llvm15SmallVectorImplIjE12assignRemoteEOS1_.exit, %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE18uninitialized_moveIPjS3_EEvT_S4_T0_.exit
-  %.sink = phi ptr [ %52, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE18uninitialized_moveIPjS3_EEvT_S4_T0_.exit ], [ %32, %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit ], [ %15, %_ZN4llvm15SmallVectorImplIjE12assignRemoteEOS1_.exit ]
-  store i32 0, ptr %.sink, align 8
+  store i32 0, ptr %52, align 8
   br label %53
 
-53:                                               ; preds = %.sink.split, %2
+53:                                               ; preds = %2, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE18uninitialized_moveIPjS3_EEvT_S4_T0_.exit, %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit, %_ZN4llvm15SmallVectorImplIjE12assignRemoteEOS1_.exit
   ret ptr %0
 }
 

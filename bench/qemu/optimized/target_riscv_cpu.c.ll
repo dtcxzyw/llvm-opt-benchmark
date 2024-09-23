@@ -452,7 +452,8 @@ if.then:                                          ; preds = %entry
 
 cond.true:                                        ; preds = %if.then
   %arrayidx = getelementptr [16 x ptr], ptr @riscv_intr_names, i64 0, i64 %cause
-  br label %return.sink.split
+  %0 = load ptr, ptr %arrayidx, align 8
+  br label %return
 
 if.else:                                          ; preds = %entry
   %cmp1 = icmp ult i64 %cause, 24
@@ -460,15 +461,11 @@ if.else:                                          ; preds = %entry
 
 cond.true2:                                       ; preds = %if.else
   %arrayidx3 = getelementptr [24 x ptr], ptr @riscv_excp_names, i64 0, i64 %cause
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %cond.true, %cond.true2
-  %arrayidx3.sink = phi ptr [ %arrayidx3, %cond.true2 ], [ %arrayidx, %cond.true ]
-  %0 = load ptr, ptr %arrayidx3.sink, align 8
+  %1 = load ptr, ptr %arrayidx3, align 8
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.else, %if.then
-  %retval.0 = phi ptr [ @.str.216, %if.then ], [ @.str.216, %if.else ], [ %0, %return.sink.split ]
+return:                                           ; preds = %cond.true2, %if.else, %cond.true, %if.then
+  %retval.0 = phi ptr [ %0, %cond.true ], [ @.str.216, %if.then ], [ %1, %cond.true2 ], [ @.str.216, %if.else ]
   ret ptr %retval.0
 }
 

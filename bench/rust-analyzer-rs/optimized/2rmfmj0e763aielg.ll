@@ -1066,7 +1066,7 @@ define internal fastcc noundef i64 @_ZN10line_index27analyze_source_file_generic
   %25 = getelementptr inbounds i8, ptr %0, i64 %.032104
   %26 = load i8, ptr %25, align 1, !noundef !5
   %27 = icmp eq i8 %26, 10
-  br i1 %27, label %28, label %38
+  br i1 %27, label %28, label %40
 
 28:                                               ; preds = %23
   %29 = trunc i64 %.032104 to i32
@@ -1086,27 +1086,22 @@ define internal fastcc noundef i64 @_ZN10line_index27analyze_source_file_generic
   %36 = load ptr, ptr %13, align 8, !alias.scope !219, !nonnull !5, !noundef !5
   %37 = getelementptr inbounds i32, ptr %36, i64 %35
   store i32 %30, ptr %37, align 4
-  br label %.sink.split
-
-38:                                               ; preds = %23
-  %39 = icmp ugt i8 %26, 126
-  br i1 %39, label %45, label %42
-
-.sink.split:                                      ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf305d59fb8d87cabE.exit", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h68892910732619c2E.exit"
-  %.sink = phi ptr [ %159, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h68892910732619c2E.exit" ], [ %12, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf305d59fb8d87cabE.exit" ]
-  %.0.ph = phi i64 [ %.033, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h68892910732619c2E.exit" ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf305d59fb8d87cabE.exit" ]
-  %40 = load i64, ptr %.sink, align 8, !noundef !5
-  %41 = add i64 %40, 1
-  store i64 %41, ptr %.sink, align 8
+  %38 = load i64, ptr %12, align 8, !alias.scope !219, !noundef !5
+  %39 = add i64 %38, 1
+  store i64 %39, ptr %12, align 8, !alias.scope !219
   br label %42
 
-42:                                               ; preds = %.sink.split, %92, %38
-  %.0 = phi i64 [ 1, %92 ], [ 1, %38 ], [ %.0.ph, %.sink.split ]
+40:                                               ; preds = %23
+  %41 = icmp ugt i8 %26, 126
+  br i1 %41, label %45, label %42
+
+42:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h68892910732619c2E.exit", %92, %40, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf305d59fb8d87cabE.exit"
+  %.0 = phi i64 [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf305d59fb8d87cabE.exit" ], [ %.033, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h68892910732619c2E.exit" ], [ 1, %92 ], [ 1, %40 ]
   %43 = add i64 %.0, %.032104
   %44 = icmp ult i64 %43, %2
   br i1 %44, label %23, label %._crit_edge
 
-45:                                               ; preds = %38
+45:                                               ; preds = %40
   %46 = icmp eq i64 %.032104, 0
   br i1 %46, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i.thread", label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i"
 
@@ -1364,7 +1359,10 @@ define internal fastcc noundef i64 @_ZN10line_index27analyze_source_file_generic
   store i32 %93, ptr %167, align 4
   %168 = getelementptr inbounds i8, ptr %167, i64 4
   store i32 %101, ptr %168, align 4
-  br label %.sink.split
+  %169 = load i64, ptr %159, align 8, !alias.scope !269, !noundef !5
+  %170 = add i64 %169, 1
+  store i64 %170, ptr %159, align 8, !alias.scope !269
+  br label %42
 }
 
 ; Function Attrs: cold noreturn nonlazybind uwtable

@@ -2813,6 +2813,7 @@ for.cond5.outer:                                  ; preds = %for.cond5.outer.bac
 
 if.then60:                                        ; preds = %if.end24
   %call61 = call ptr @xmalloc(i64 noundef 4) #14
+  store i32 -1, ptr %call61, align 4
   br label %if.end99
 
 if.else62:                                        ; preds = %if.else, %if.end35, %print_highlight_menu_stuff.exit
@@ -2894,12 +2895,11 @@ for.end96.loopexit:                               ; preds = %for.inc94
 for.end96:                                        ; preds = %for.end96.loopexit, %st_add.exit
   %j.0.lcssa = phi i64 [ 0, %st_add.exit ], [ %130, %for.end96.loopexit ]
   %arrayidx98 = getelementptr inbounds i32, ptr %call78, i64 %j.0.lcssa
+  store i32 -1, ptr %arrayidx98, align 4
   br label %if.end99
 
 if.end99:                                         ; preds = %for.end96, %if.then60
-  %arrayidx98.sink = phi ptr [ %arrayidx98, %for.end96 ], [ %call61, %if.then60 ]
-  %result.0 = phi ptr [ %call78, %for.end96 ], [ %call61, %if.then60 ]
-  store i32 -1, ptr %arrayidx98.sink, align 4
+  %result.0 = phi ptr [ %call61, %if.then60 ], [ %call78, %for.end96 ]
   call void @free(ptr noundef %call2) #14
   call void @strbuf_release(ptr noundef nonnull %choice) #14
   ret ptr %result.0

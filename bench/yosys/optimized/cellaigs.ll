@@ -9660,11 +9660,11 @@ define linkonce_odr noundef i32 @_ZN5Yosys8AigMaker8and_gateEiib(ptr noundef non
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %4
-  br i1 %3, label %12, label %126
+  br i1 %3, label %12, label %121
 
 12:                                               ; preds = %11
   %13 = tail call noundef i32 @_ZN5Yosys8AigMaker8not_gateEi(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %1)
-  br label %126
+  br label %121
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds i8, ptr %0, i64 40
@@ -9686,14 +9686,14 @@ define linkonce_odr noundef i32 @_ZN5Yosys8AigMaker8and_gateEiib(ptr noundef non
 _ZNK5Yosys7hashlib5idictINS_7AigNodeELi0ENS0_8hash_opsIS2_EEEixEi.exit: ; preds = %14
   %25 = getelementptr inbounds %"struct.Yosys::hashlib::pool<Yosys::AigNode>::entry_t", ptr %19, i64 %16
   %26 = sext i32 %2 to i64
-  %.not.i.i.i55 = icmp ugt i64 %23, %26
-  br i1 %.not.i.i.i55, label %_ZNK5Yosys7hashlib5idictINS_7AigNodeELi0ENS0_8hash_opsIS2_EEEixEi.exit56, label %27
+  %.not.i.i.i50 = icmp ugt i64 %23, %26
+  br i1 %.not.i.i.i50, label %_ZNK5Yosys7hashlib5idictINS_7AigNodeELi0ENS0_8hash_opsIS2_EEEixEi.exit51, label %27
 
 27:                                               ; preds = %_ZNK5Yosys7hashlib5idictINS_7AigNodeELi0ENS0_8hash_opsIS2_EEEixEi.exit
   tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %26, i64 noundef %23) #26
   unreachable
 
-_ZNK5Yosys7hashlib5idictINS_7AigNodeELi0ENS0_8hash_opsIS2_EEEixEi.exit56: ; preds = %_ZNK5Yosys7hashlib5idictINS_7AigNodeELi0ENS0_8hash_opsIS2_EEEixEi.exit
+_ZNK5Yosys7hashlib5idictINS_7AigNodeELi0ENS0_8hash_opsIS2_EEEixEi.exit51: ; preds = %_ZNK5Yosys7hashlib5idictINS_7AigNodeELi0ENS0_8hash_opsIS2_EEEixEi.exit
   %28 = getelementptr inbounds %"struct.Yosys::hashlib::pool<Yosys::AigNode>::entry_t", ptr %19, i64 %26
   call void @_ZN5Yosys7AigNodeC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %28)
   %29 = getelementptr inbounds i8, ptr %7, i64 8
@@ -9709,10 +9709,10 @@ _ZNK5Yosys7hashlib5idictINS_7AigNodeELi0ENS0_8hash_opsIS2_EEEixEi.exit56: ; pred
   %37 = getelementptr inbounds i8, ptr %7, i64 4
   %38 = load i32, ptr %37, align 4
   %.not.i = icmp eq i32 %36, %38
-  %or.cond75 = select i1 %.not10.i, i1 %.not.i, i1 false
-  br i1 %or.cond75, label %39, label %_ZNK5Yosys7AigNodeeqERKS0_.exit.thread
+  %or.cond = select i1 %.not10.i, i1 %.not.i, i1 false
+  br i1 %or.cond, label %39, label %_ZNK5Yosys7AigNodeeqERKS0_.exit.thread
 
-39:                                               ; preds = %_ZNK5Yosys7hashlib5idictINS_7AigNodeELi0ENS0_8hash_opsIS2_EEEixEi.exit56
+39:                                               ; preds = %_ZNK5Yosys7hashlib5idictINS_7AigNodeELi0ENS0_8hash_opsIS2_EEEixEi.exit51
   %40 = getelementptr inbounds i8, ptr %25, i64 8
   %41 = load i8, ptr %40, align 8
   %.masked = and i8 %41, 1
@@ -9755,167 +9755,159 @@ _ZNK5Yosys7AigNodeeqERKS0_.exit:                  ; preds = %42
 _ZN5Yosys8AigMaker9bool_nodeEb.exit:              ; preds = %.noexc
   call void @_ZN5Yosys7AigNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #25
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
-  br label %125
+  br label %120
 
-56:                                               ; preds = %.invoke76, %.invoke, %85, %51, %.thread66
+56:                                               ; preds = %.invoke64, %.invoke, %80, %51, %.thread61
   %57 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-_ZNK5Yosys7AigNodeeqERKS0_.exit.thread:           ; preds = %_ZNK5Yosys7hashlib5idictINS_7AigNodeELi0ENS0_8hash_opsIS2_EEEixEi.exit56, %42, %39, %_ZNK5Yosys7AigNodeeqERKS0_.exit
+_ZNK5Yosys7AigNodeeqERKS0_.exit.thread:           ; preds = %_ZNK5Yosys7hashlib5idictINS_7AigNodeELi0ENS0_8hash_opsIS2_EEEixEi.exit51, %42, %39, %_ZNK5Yosys7AigNodeeqERKS0_.exit
   %58 = icmp slt i32 %36, 0
-  %59 = getelementptr inbounds i8, ptr %25, i64 12
-  %60 = load i32, ptr %59, align 4
-  %61 = icmp slt i32 %60, 0
-  %or.cond = select i1 %58, i1 %61, i1 false
-  br i1 %or.cond, label %62, label %.thread67
+  br i1 %58, label %59, label %67
 
-62:                                               ; preds = %_ZNK5Yosys7AigNodeeqERKS0_.exit.thread
-  %63 = getelementptr inbounds i8, ptr %25, i64 16
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp sgt i32 %64, -1
-  %66 = getelementptr inbounds i8, ptr %28, i64 4
-  %67 = load i32, ptr %66, align 4
-  %68 = icmp slt i32 %67, 0
-  %69 = getelementptr inbounds i8, ptr %28, i64 12
+59:                                               ; preds = %_ZNK5Yosys7AigNodeeqERKS0_.exit.thread
+  %60 = getelementptr inbounds i8, ptr %25, i64 12
+  %61 = load i32, ptr %60, align 4
+  %62 = icmp slt i32 %61, 0
+  br i1 %62, label %63, label %67
+
+63:                                               ; preds = %59
+  %64 = getelementptr inbounds i8, ptr %25, i64 16
+  %65 = load i32, ptr %64, align 8
+  %66 = icmp slt i32 %65, 0
+  br label %67
+
+67:                                               ; preds = %63, %59, %_ZNK5Yosys7AigNodeeqERKS0_.exit.thread
+  %68 = phi i1 [ false, %59 ], [ false, %_ZNK5Yosys7AigNodeeqERKS0_.exit.thread ], [ %66, %63 ]
+  %69 = getelementptr inbounds i8, ptr %28, i64 4
   %70 = load i32, ptr %69, align 4
   %71 = icmp slt i32 %70, 0
-  %or.cond53 = select i1 %68, i1 %71, i1 false
-  br i1 %or.cond53, label %81, label %.thread65
+  br i1 %71, label %72, label %.thread60
 
-.thread67:                                        ; preds = %_ZNK5Yosys7AigNodeeqERKS0_.exit.thread
-  %72 = getelementptr inbounds i8, ptr %28, i64 4
-  %73 = load i32, ptr %72, align 4
-  %74 = icmp slt i32 %73, 0
-  %75 = getelementptr inbounds i8, ptr %28, i64 12
-  %76 = load i32, ptr %75, align 4
-  %77 = icmp slt i32 %76, 0
-  %or.cond5368 = select i1 %74, i1 %77, i1 false
-  br i1 %or.cond5368, label %.thread73, label %.thread66
+72:                                               ; preds = %67
+  %73 = getelementptr inbounds i8, ptr %28, i64 12
+  %74 = load i32, ptr %73, align 4
+  %75 = icmp slt i32 %74, 0
+  br i1 %75, label %76, label %.thread60
 
-.thread73:                                        ; preds = %.thread67
-  %78 = getelementptr inbounds i8, ptr %28, i64 16
-  %79 = load i32, ptr %78, align 8
-  %80 = icmp slt i32 %79, 0
-  br i1 %80, label %107, label %.thread66
+76:                                               ; preds = %72
+  %77 = getelementptr inbounds i8, ptr %28, i64 16
+  %78 = load i32, ptr %77, align 8
+  %79 = icmp slt i32 %78, 0
+  %brmerge.not = select i1 %68, i1 %79, i1 false
+  br i1 %brmerge.not, label %80, label %94
 
-81:                                               ; preds = %62
-  %82 = getelementptr inbounds i8, ptr %28, i64 16
-  %83 = load i32, ptr %82, align 8
-  %84 = icmp sgt i32 %83, -1
-  %brmerge = select i1 %65, i1 true, i1 %84
-  br i1 %brmerge, label %99, label %85
-
-85:                                               ; preds = %81
-  %86 = getelementptr inbounds i8, ptr %25, i64 8
-  %87 = load i8, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %28, i64 8
-  %89 = load i8, ptr %88, align 8
+80:                                               ; preds = %76
+  %81 = getelementptr inbounds i8, ptr %25, i64 8
+  %82 = load i8, ptr %81, align 8
+  %83 = getelementptr inbounds i8, ptr %28, i64 8
+  %84 = load i8, ptr %83, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   invoke void @_ZN5Yosys7AigNodeC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %5)
-          to label %.noexc57 unwind label %56
+          to label %.noexc52 unwind label %56
 
-.noexc57:                                         ; preds = %85
-  %90 = trunc i8 %87 to i1
-  %91 = trunc i8 %89 to i1
-  %92 = select i1 %90, i1 %91, i1 false
-  %93 = xor i1 %3, %92
-  %94 = zext i1 %93 to i8
-  %95 = getelementptr inbounds i8, ptr %5, i64 8
-  store i8 %94, ptr %95, align 8
-  %96 = invoke noundef i32 @_ZN5Yosys8AigMaker10node2indexERKNS_7AigNodeE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(48) %5)
-          to label %_ZN5Yosys8AigMaker9bool_nodeEb.exit60 unwind label %97
+.noexc52:                                         ; preds = %80
+  %85 = trunc i8 %82 to i1
+  %86 = trunc i8 %84 to i1
+  %87 = select i1 %85, i1 %86, i1 false
+  %88 = xor i1 %3, %87
+  %89 = zext i1 %88 to i8
+  %90 = getelementptr inbounds i8, ptr %5, i64 8
+  store i8 %89, ptr %90, align 8
+  %91 = invoke noundef i32 @_ZN5Yosys8AigMaker10node2indexERKNS_7AigNodeE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(48) %5)
+          to label %_ZN5Yosys8AigMaker9bool_nodeEb.exit55 unwind label %92
 
-97:                                               ; preds = %.noexc57
-  %98 = landingpad { ptr, i32 }
+92:                                               ; preds = %.noexc52
+  %93 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys7AigNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #25
   br label %.body
 
-_ZN5Yosys8AigMaker9bool_nodeEb.exit60:            ; preds = %.noexc57
+_ZN5Yosys8AigMaker9bool_nodeEb.exit55:            ; preds = %.noexc52
   call void @_ZN5Yosys7AigNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #25
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
-  br label %125
+  br label %120
 
-99:                                               ; preds = %81
-  br i1 %65, label %106, label %100
+94:                                               ; preds = %76
+  br i1 %68, label %95, label %101
 
-.thread65:                                        ; preds = %62
-  br i1 %65, label %.thread66, label %100
+.thread60:                                        ; preds = %67, %72
+  br i1 %68, label %95, label %.thread61
 
-100:                                              ; preds = %.thread65, %99
-  %101 = getelementptr inbounds i8, ptr %25, i64 8
-  %102 = load i8, ptr %101, align 8
-  %103 = trunc i8 %102 to i1
-  br i1 %3, label %104, label %105
+95:                                               ; preds = %.thread60, %94
+  %96 = getelementptr inbounds i8, ptr %25, i64 8
+  %97 = load i8, ptr %96, align 8
+  %98 = trunc i8 %97 to i1
+  br i1 %3, label %99, label %100
 
-104:                                              ; preds = %100
-  br i1 %103, label %.invoke76, label %.invoke
+99:                                               ; preds = %95
+  br i1 %98, label %.invoke64, label %.invoke
 
-105:                                              ; preds = %100
-  br i1 %103, label %125, label %.invoke
+100:                                              ; preds = %95
+  br i1 %98, label %120, label %.invoke
 
-106:                                              ; preds = %99
-  br i1 %84, label %.thread66, label %107
+101:                                              ; preds = %94
+  br i1 %79, label %102, label %.thread61
 
-107:                                              ; preds = %.thread73, %106
-  %108 = getelementptr inbounds i8, ptr %28, i64 8
-  %109 = load i8, ptr %108, align 8
-  %110 = trunc i8 %109 to i1
-  br i1 %3, label %111, label %114
+102:                                              ; preds = %101
+  %103 = getelementptr inbounds i8, ptr %28, i64 8
+  %104 = load i8, ptr %103, align 8
+  %105 = trunc i8 %104 to i1
+  br i1 %3, label %106, label %109
 
-111:                                              ; preds = %107
-  br i1 %110, label %.invoke76, label %.invoke
+106:                                              ; preds = %102
+  br i1 %105, label %.invoke64, label %.invoke
 
-.invoke76:                                        ; preds = %111, %104
-  %112 = phi i32 [ %2, %104 ], [ %1, %111 ]
-  %113 = invoke noundef i32 @_ZN5Yosys8AigMaker8not_gateEi(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %112)
-          to label %125 unwind label %56
+.invoke64:                                        ; preds = %106, %99
+  %107 = phi i32 [ %2, %99 ], [ %1, %106 ]
+  %108 = invoke noundef i32 @_ZN5Yosys8AigMaker8not_gateEi(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %107)
+          to label %120 unwind label %56
 
-114:                                              ; preds = %107
-  br i1 %110, label %125, label %.invoke
+109:                                              ; preds = %102
+  br i1 %105, label %120, label %.invoke
 
-.invoke:                                          ; preds = %114, %111, %105, %104
-  %115 = phi i1 [ true, %104 ], [ false, %105 ], [ true, %111 ], [ false, %114 ]
-  %116 = invoke noundef i32 @_ZN5Yosys8AigMaker9bool_nodeEb(ptr noundef nonnull align 8 dereferenceable(80) %0, i1 noundef zeroext %115)
-          to label %125 unwind label %56
+.invoke:                                          ; preds = %109, %106, %100, %99
+  %110 = phi i1 [ true, %99 ], [ false, %100 ], [ true, %106 ], [ false, %109 ]
+  %111 = invoke noundef i32 @_ZN5Yosys8AigMaker9bool_nodeEb(ptr noundef nonnull align 8 dereferenceable(80) %0, i1 noundef zeroext %110)
+          to label %120 unwind label %56
 
-.thread66:                                        ; preds = %.thread73, %.thread67, %.thread65, %106
+.thread61:                                        ; preds = %.thread60, %101
   invoke void @_ZN5Yosys7AigNodeC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %8)
-          to label %117 unwind label %56
+          to label %112 unwind label %56
 
-117:                                              ; preds = %.thread66
-  %118 = getelementptr inbounds i8, ptr %8, i64 8
-  store i8 %9, ptr %118, align 8
-  %119 = getelementptr inbounds i8, ptr %8, i64 12
-  store i32 %1, ptr %119, align 4
-  %120 = getelementptr inbounds i8, ptr %8, i64 16
-  store i32 %2, ptr %120, align 8
-  %121 = invoke noundef i32 @_ZN5Yosys8AigMaker10node2indexERKNS_7AigNodeE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(48) %8)
-          to label %122 unwind label %123
+112:                                              ; preds = %.thread61
+  %113 = getelementptr inbounds i8, ptr %8, i64 8
+  store i8 %9, ptr %113, align 8
+  %114 = getelementptr inbounds i8, ptr %8, i64 12
+  store i32 %1, ptr %114, align 4
+  %115 = getelementptr inbounds i8, ptr %8, i64 16
+  store i32 %2, ptr %115, align 8
+  %116 = invoke noundef i32 @_ZN5Yosys8AigMaker10node2indexERKNS_7AigNodeE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(48) %8)
+          to label %117 unwind label %118
 
-122:                                              ; preds = %117
+117:                                              ; preds = %112
   call void @_ZN5Yosys7AigNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #25
-  br label %125
+  br label %120
 
-123:                                              ; preds = %117
-  %124 = landingpad { ptr, i32 }
+118:                                              ; preds = %112
+  %119 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys7AigNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #25
   br label %.body
 
-125:                                              ; preds = %.invoke76, %.invoke, %_ZN5Yosys8AigMaker9bool_nodeEb.exit60, %_ZN5Yosys8AigMaker9bool_nodeEb.exit, %114, %105, %122
-  %.1 = phi i32 [ %121, %122 ], [ %53, %_ZN5Yosys8AigMaker9bool_nodeEb.exit ], [ %96, %_ZN5Yosys8AigMaker9bool_nodeEb.exit60 ], [ %2, %105 ], [ %1, %114 ], [ %116, %.invoke ], [ %113, %.invoke76 ]
+120:                                              ; preds = %.invoke64, %.invoke, %_ZN5Yosys8AigMaker9bool_nodeEb.exit55, %_ZN5Yosys8AigMaker9bool_nodeEb.exit, %109, %100, %117
+  %.1 = phi i32 [ %116, %117 ], [ %53, %_ZN5Yosys8AigMaker9bool_nodeEb.exit ], [ %91, %_ZN5Yosys8AigMaker9bool_nodeEb.exit55 ], [ %2, %100 ], [ %1, %109 ], [ %111, %.invoke ], [ %108, %.invoke64 ]
   call void @_ZN5Yosys7AigNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #25
-  br label %126
+  br label %121
 
-.body:                                            ; preds = %54, %97, %56, %123
-  %.pn = phi { ptr, i32 } [ %124, %123 ], [ %55, %54 ], [ %57, %56 ], [ %98, %97 ]
+.body:                                            ; preds = %54, %92, %56, %118
+  %.pn = phi { ptr, i32 } [ %119, %118 ], [ %55, %54 ], [ %57, %56 ], [ %93, %92 ]
   call void @_ZN5Yosys7AigNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #25
   resume { ptr, i32 } %.pn
 
-126:                                              ; preds = %12, %11, %125
-  %.0 = phi i32 [ %.1, %125 ], [ %13, %12 ], [ %1, %11 ]
+121:                                              ; preds = %12, %11, %120
+  %.0 = phi i32 [ %.1, %120 ], [ %13, %12 ], [ %1, %11 ]
   ret i32 %.0
 }
 

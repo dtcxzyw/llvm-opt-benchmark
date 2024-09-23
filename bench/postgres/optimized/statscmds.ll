@@ -308,7 +308,8 @@ ChooseExtendedStatisticName.exit:                 ; preds = %.lr.ph.i240, %Choos
 
 144:                                              ; preds = %138, %140
   call void @relation_close(ptr noundef %33, i32 noundef 0) #10
-  br label %430
+  %.sroa.3.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), align 4
+  br label %431
 
 145:                                              ; preds = %134
   %146 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -918,13 +919,16 @@ list_length.exit252.thread:                       ; preds = %315, %list_length.e
   call void @CreateComments(i32 noundef %385, i32 noundef 3381, i32 noundef 0, ptr noundef nonnull %428) #10
   br label %430
 
-430:                                              ; preds = %424, %429, %144
-  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), %144 ], [ %411, %429 ], [ %411, %424 ]
-  %.sroa.0176.0.in = phi ptr [ @InvalidObjectAddress, %144 ], [ %10, %429 ], [ %10, %424 ]
-  %.sroa.3.0.copyload178 = load i32, ptr %.sink, align 4
+430:                                              ; preds = %429, %424
+  %.sroa.3.0.copyload178 = load i32, ptr %411, align 4
+  br label %431
+
+431:                                              ; preds = %430, %144
+  %.sroa.0176.0.in = phi ptr [ @InvalidObjectAddress, %144 ], [ %10, %430 ]
+  %.sroa.3.0 = phi i32 [ %.sroa.3.0.copyload, %144 ], [ %.sroa.3.0.copyload178, %430 ]
   %.sroa.0176.0 = load i64, ptr %.sroa.0176.0.in, align 4
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.0176.0, 0
-  %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.3.0.copyload178, 1
+  %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.3.0, 1
   ret { i64, i32 } %.fca.1.insert
 }
 

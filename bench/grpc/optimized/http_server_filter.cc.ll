@@ -3802,6 +3802,7 @@ _ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13Po
 if.then.i.i.i.i:                                  ; preds = %_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE12MakeMapToAddIZNS_21promise_filter_detail30InterceptClientInitialMetadataINS_16HttpServerFilterEEEvMNT_4CallEFS5_RS2_PSB_EPNSB_4CallESE_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_9AppendMapISL_EEvSB_NS_13DebugLocationEEUlvE_EEPNS6_3MapESB_T0_SN_.exit.i.i.i
   store ptr %retval.0.i.i.i.i.i.i, ptr %5, align 8
   %last_map_.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %retval.0.i.i.i.i.i.i, ptr %last_map_.i.i.i.i, align 8
   br label %_ZN9grpc_core21promise_filter_detail30InterceptClientInitialMetadataINS_16HttpServerFilterEEEvMNT_4CallEFSt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEERS6_PS3_EPNS3_4CallESB_PNS_18CallSpineInterfaceE.exit
 
 if.else.i.i.i.i:                                  ; preds = %_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE12MakeMapToAddIZNS_21promise_filter_detail30InterceptClientInitialMetadataINS_16HttpServerFilterEEEvMNT_4CallEFS5_RS2_PSB_EPNSB_4CallESE_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_9AppendMapISL_EEvSB_NS_13DebugLocationEEUlvE_EEPNS6_3MapESB_T0_SN_.exit.i.i.i
@@ -3809,11 +3810,10 @@ if.else.i.i.i.i:                                  ; preds = %_ZN9grpc_core15Inte
   %11 = load ptr, ptr %last_map_3.i.i.i.i, align 8
   %next_.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %retval.0.i.i.i.i.i.i, ptr %next_.i.i.i.i.i, align 8
+  store ptr %retval.0.i.i.i.i.i.i, ptr %last_map_3.i.i.i.i, align 8
   br label %_ZN9grpc_core21promise_filter_detail30InterceptClientInitialMetadataINS_16HttpServerFilterEEEvMNT_4CallEFSt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEERS6_PS3_EPNS3_4CallESB_PNS_18CallSpineInterfaceE.exit
 
 _ZN9grpc_core21promise_filter_detail30InterceptClientInitialMetadataINS_16HttpServerFilterEEEvMNT_4CallEFSt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEERS6_PS3_EPNS3_4CallESB_PNS_18CallSpineInterfaceE.exit: ; preds = %if.then.i.i.i.i, %if.else.i.i.i.i
-  %last_map_3.sink.i.i.i.i = phi ptr [ %last_map_3.i.i.i.i, %if.else.i.i.i.i ], [ %last_map_.i.i.i.i, %if.then.i.i.i.i ]
-  store ptr %retval.0.i.i.i.i.i.i, ptr %last_map_3.sink.i.i.i.i, align 8
   %vtable.i10 = load ptr, ptr %call_spine, align 8
   %vfn.i11 = getelementptr inbounds i8, ptr %vtable.i10, i64 24
   %12 = load ptr, ptr %vfn.i11, align 8

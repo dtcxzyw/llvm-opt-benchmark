@@ -218,9 +218,9 @@ define void @"_ZN99_$LT$rayon..iter..extend..ListStringFolder$u20$as$u20$rayon..
   call void @llvm.assume(i1 %19)
   %20 = getelementptr inbounds i8, ptr %18, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
-  store ptr %18, ptr %5, align 8, !noalias !29
-  store ptr %18, ptr %6, align 8, !alias.scope !30, !noalias !29
-  store i64 1, ptr %7, align 8, !alias.scope !30, !noalias !29
+  store ptr %18, ptr %5, align 8, !alias.scope !29, !noalias !32
+  store ptr %18, ptr %6, align 8, !alias.scope !29, !noalias !32
+  store i64 1, ptr %7, align 8, !alias.scope !29, !noalias !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %21
@@ -355,10 +355,10 @@ attributes #12 = { cold noreturn nounwind }
 !26 = distinct !{!26, !"_ZN5alloc11collections11linked_list23LinkedList$LT$T$C$A$GT$9push_back17h8e173d298c15b64fE"}
 !27 = distinct !{!27, !26, !"_ZN5alloc11collections11linked_list23LinkedList$LT$T$C$A$GT$9push_back17h8e173d298c15b64fE: argument 1"}
 !28 = !{!25}
-!29 = !{!27}
-!30 = !{!31, !25}
-!31 = distinct !{!31, !32, !"_ZN5alloc11collections11linked_list23LinkedList$LT$T$C$A$GT$14push_back_node17h487aa4dfa35109abE.llvm.13482147278992580807: argument 0"}
-!32 = distinct !{!32, !"_ZN5alloc11collections11linked_list23LinkedList$LT$T$C$A$GT$14push_back_node17h487aa4dfa35109abE.llvm.13482147278992580807"}
+!29 = !{!30, !25}
+!30 = distinct !{!30, !31, !"_ZN5alloc11collections11linked_list23LinkedList$LT$T$C$A$GT$14push_back_node17h487aa4dfa35109abE.llvm.13482147278992580807: argument 0"}
+!31 = distinct !{!31, !"_ZN5alloc11collections11linked_list23LinkedList$LT$T$C$A$GT$14push_back_node17h487aa4dfa35109abE.llvm.13482147278992580807"}
+!32 = !{!27}
 !33 = !{!34, !36, !38, !40}
 !34 = distinct !{!34, !35, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd48a053127726560E.llvm.8986182135312275126: argument 0"}
 !35 = distinct !{!35, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd48a053127726560E.llvm.8986182135312275126"}

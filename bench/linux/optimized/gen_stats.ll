@@ -834,6 +834,7 @@ define dso_local noundef range(i32 -1, 1) i32 @gnet_stats_finish_copy(ptr nounde
   tail call void @kfree(ptr noundef %36) #8
   store ptr null, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %0, i64 48
+  store i32 0, ptr %37, align 8
   br label %69
 
 38:                                               ; preds = %22, %18
@@ -872,6 +873,7 @@ define dso_local noundef range(i32 -1, 1) i32 @gnet_stats_finish_copy(ptr nounde
   %60 = load ptr, ptr %43, align 8
   tail call void @kfree(ptr noundef %60) #8
   store ptr null, ptr %43, align 8
+  store i32 0, ptr %47, align 8
   br label %69
 
 61:                                               ; preds = %46, %42, %38
@@ -889,12 +891,11 @@ define dso_local noundef range(i32 -1, 1) i32 @gnet_stats_finish_copy(ptr nounde
   tail call void @kfree(ptr noundef %67) #8
   store ptr null, ptr %66, align 8
   %68 = getelementptr inbounds i8, ptr %0, i64 48
+  store i32 0, ptr %68, align 8
   br label %69
 
 69:                                               ; preds = %59, %34, %65
-  %.sink = phi ptr [ %47, %59 ], [ %37, %34 ], [ %68, %65 ]
-  %70 = phi i32 [ -1, %59 ], [ -1, %34 ], [ 0, %65 ]
-  store i32 0, ptr %.sink, align 8
+  %70 = phi i32 [ 0, %65 ], [ -1, %34 ], [ -1, %59 ]
   ret i32 %70
 }
 

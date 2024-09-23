@@ -255,18 +255,24 @@ if.end18:                                         ; preds = %if.then15, %if.then
 
 if.end23:                                         ; preds = %if.then4, %if.end18
   %msg.1 = phi ptr [ %call20, %if.end18 ], [ %call5, %if.then4 ]
+  %cmp24 = icmp sgt i32 %err, -1
+  br i1 %cmp24, label %if.then26, label %if.else27
+
+if.then26:                                        ; preds = %if.end23
   %10 = load ptr, ptr @gErrMessages, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %10, i64 %idxprom.i
+  store ptr %msg.1, ptr %arrayidx, align 8
+  br label %return
+
+if.else27:                                        ; preds = %if.end23
   %11 = load ptr, ptr @gInfoMessages, align 8
   %12 = getelementptr ptr, ptr %11, i64 %4
   %arrayidx29 = getelementptr i8, ptr %12, i64 1024
-  %cmp2419 = icmp slt i32 %err, 0
-  %arrayidx.sink = select i1 %cmp2419, ptr %arrayidx29, ptr %arrayidx
-  store ptr %msg.1, ptr %arrayidx.sink, align 8
+  store ptr %msg.1, ptr %arrayidx29, align 8
   br label %return
 
-return:                                           ; preds = %if.end23, %fetchErrorName.exit
-  %retval.0 = phi ptr [ %retval.0.i, %fetchErrorName.exit ], [ %msg.1, %if.end23 ]
+return:                                           ; preds = %if.then26, %if.else27, %fetchErrorName.exit
+  %retval.0 = phi ptr [ %retval.0.i, %fetchErrorName.exit ], [ %msg.1, %if.else27 ], [ %msg.1, %if.then26 ]
   ret ptr %retval.0
 }
 

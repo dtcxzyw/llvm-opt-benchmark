@@ -1749,21 +1749,23 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %__begin1.sroa.0.07 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %0, %entry ]
   %2 = load ptr, ptr %__begin1.sroa.0.07, align 8
-  %cmp = icmp ne ptr %2, null
+  %cmp = icmp eq ptr %2, null
+  br i1 %cmp, label %for.inc, label %lor.lhs.false
+
+lor.lhs.false:                                    ; preds = %for.body
   %state = getelementptr inbounds i8, ptr %__begin1.sroa.0.07, i64 8
   %3 = load i32, ptr %state, align 8
   %cmp6.not = icmp eq i32 %3, 0
-  %or.cond = select i1 %cmp, i1 %cmp6.not, i1 false
-  br i1 %or.cond, label %if.end, label %for.inc
+  br i1 %cmp6.not, label %if.end, label %for.inc
 
-if.end:                                           ; preds = %for.body
+if.end:                                           ; preds = %lor.lhs.false
   %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 304
   %4 = load ptr, ptr %vfn, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %for.inc
 
-for.inc:                                          ; preds = %for.body, %if.end
+for.inc:                                          ; preds = %for.body, %lor.lhs.false, %if.end
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.07, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body

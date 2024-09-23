@@ -2639,13 +2639,13 @@ _ZSt7reverseIPcEvT_S1_.exit:                      ; preds = %.lr.ph.i.i, %_ZNK6m
   br label %48, !llvm.loop !19
 
 _ZSt7reverseIPcEvT_S1_.exit42.sink.split:         ; preds = %.lr.ph.i.i38, %46
-  %.sink50 = phi ptr [ %47, %46 ], [ %43, %.lr.ph.i.i38 ]
-  %.pre = load ptr, ptr %.sink50, align 8
+  %.sink.ph.in = phi ptr [ %47, %46 ], [ %43, %.lr.ph.i.i38 ]
+  %.sink.ph = load ptr, ptr %.sink.ph.in, align 8
   %.pre44 = load i64, ptr %17, align 8
   br label %_ZSt7reverseIPcEvT_S1_.exit42
 
 _ZSt7reverseIPcEvT_S1_.exit42:                    ; preds = %_ZSt7reverseIPcEvT_S1_.exit42.sink.split, %128
-  %.sink = phi ptr [ %129, %128 ], [ %.pre, %_ZSt7reverseIPcEvT_S1_.exit42.sink.split ]
+  %.sink = phi ptr [ %129, %128 ], [ %.sink.ph, %_ZSt7reverseIPcEvT_S1_.exit42.sink.split ]
   %.sink48 = phi i64 [ %130, %128 ], [ %.pre44, %_ZSt7reverseIPcEvT_S1_.exit42.sink.split ]
   %145 = getelementptr inbounds i8, ptr %1, i64 24
   store ptr %.sink, ptr %145, align 8

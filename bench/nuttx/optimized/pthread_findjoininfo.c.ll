@@ -8,7 +8,7 @@ define range(i32 0, 23) i32 @pthread_createjoininfo(ptr nocapture noundef %0, pt
   %3 = tail call noalias dereferenceable_or_null(88) ptr @zalloc(i64 noundef 88) #4
   store ptr %3, ptr %1, align 8
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %23, label %5
+  br i1 %4, label %26, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 24
@@ -23,7 +23,7 @@ define range(i32 0, 23) i32 @pthread_createjoininfo(ptr nocapture noundef %0, pt
 12:                                               ; preds = %5
   %13 = load ptr, ptr %1, align 8
   tail call void @free(ptr noundef %13)
-  br label %23
+  br label %26
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds i8, ptr %0, i64 16
@@ -36,14 +36,23 @@ define range(i32 0, 23) i32 @pthread_createjoininfo(ptr nocapture noundef %0, pt
   %20 = load ptr, ptr %19, align 8
   %.not = icmp eq ptr %20, null
   %21 = load ptr, ptr %1, align 8
-  %22 = getelementptr inbounds i8, ptr %16, i64 88
-  %.sink = select i1 %.not, ptr %22, ptr %20
-  store ptr %21, ptr %.sink, align 8
-  store ptr %21, ptr %19, align 8
-  br label %23
+  br i1 %.not, label %22, label %24
 
-23:                                               ; preds = %2, %14, %12
-  %.0 = phi i32 [ 22, %12 ], [ 0, %14 ], [ 22, %2 ]
+22:                                               ; preds = %14
+  %23 = getelementptr inbounds i8, ptr %16, i64 88
+  store ptr %21, ptr %23, align 8
+  br label %25
+
+24:                                               ; preds = %14
+  store ptr %21, ptr %20, align 8
+  br label %25
+
+25:                                               ; preds = %24, %22
+  store ptr %21, ptr %19, align 8
+  br label %26
+
+26:                                               ; preds = %2, %25, %12
+  %.0 = phi i32 [ 22, %12 ], [ 0, %25 ], [ 22, %2 ]
   ret i32 %.0
 }
 
@@ -123,14 +132,23 @@ define range(i32 0, 23) i32 @pthread_findjoininfo(ptr nocapture noundef readonly
   %38 = load ptr, ptr %37, align 8
   %.not.i = icmp eq ptr %38, null
   %39 = load ptr, ptr %2, align 8
-  %40 = getelementptr inbounds i8, ptr %34, i64 88
-  %.sink.i = select i1 %.not.i, ptr %40, ptr %38
-  store ptr %39, ptr %.sink.i, align 8
+  br i1 %.not.i, label %40, label %42
+
+40:                                               ; preds = %32
+  %41 = getelementptr inbounds i8, ptr %34, i64 88
+  store ptr %39, ptr %41, align 8
+  br label %43
+
+42:                                               ; preds = %32
+  store ptr %39, ptr %38, align 8
+  br label %43
+
+43:                                               ; preds = %42, %40
   store ptr %39, ptr %37, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %6, %32, %30, %20, %16, %12, %9
-  %.0 = phi i32 [ 3, %9 ], [ 22, %12 ], [ 3, %16 ], [ 22, %30 ], [ 0, %32 ], [ 22, %20 ], [ 0, %6 ]
+.critedge:                                        ; preds = %6, %43, %30, %20, %16, %12, %9
+  %.0 = phi i32 [ 3, %9 ], [ 22, %12 ], [ 3, %16 ], [ 22, %30 ], [ 0, %43 ], [ 22, %20 ], [ 0, %6 ]
   ret i32 %.0
 }
 

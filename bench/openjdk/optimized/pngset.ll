@@ -1216,8 +1216,8 @@ define hidden range(i32 0, 2) i32 @png_set_text_2(ptr noalias noundef %0, ptr no
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %34
 
-34:                                               ; preds = %.lr.ph, %120
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %120 ]
+34:                                               ; preds = %.lr.ph, %122
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %122 ]
   %35 = load ptr, ptr %33, align 8
   %36 = load i32, ptr %12, align 4
   %37 = sext i32 %36 to i64
@@ -1226,7 +1226,7 @@ define hidden range(i32 0, 2) i32 @png_set_text_2(ptr noalias noundef %0, ptr no
   %40 = getelementptr inbounds i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
-  br i1 %42, label %120, label %43
+  br i1 %42, label %122, label %43
 
 43:                                               ; preds = %34
   %44 = load i32, ptr %39, align 8
@@ -1236,7 +1236,7 @@ define hidden range(i32 0, 2) i32 @png_set_text_2(ptr noalias noundef %0, ptr no
 
 46:                                               ; preds = %43
   tail call void @png_chunk_report(ptr noundef %0, ptr noundef nonnull @.str.34, i32 noundef 1) #12
-  br label %120
+  br label %122
 
 47:                                               ; preds = %43
   %48 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %41) #13
@@ -1312,7 +1312,7 @@ define hidden range(i32 0, 2) i32 @png_set_text_2(ptr noalias noundef %0, ptr no
   store i8 0, ptr %82, align 1
   %83 = load i32, ptr %39, align 8
   %84 = icmp sgt i32 %83, 0
-  br i1 %84, label %85, label %102
+  br i1 %84, label %85, label %104
 
 85:                                               ; preds = %79
   %86 = load ptr, ptr %76, align 8
@@ -1337,54 +1337,55 @@ define hidden range(i32 0, 2) i32 @png_set_text_2(ptr noalias noundef %0, ptr no
   %100 = load ptr, ptr %97, align 8
   %101 = getelementptr inbounds i8, ptr %100, i64 %.0128
   store i8 0, ptr %101, align 1
-  br label %104
+  %102 = load ptr, ptr %97, align 8
+  %103 = getelementptr inbounds i8, ptr %102, i64 %.0128
+  br label %108
 
-102:                                              ; preds = %79
-  %103 = getelementptr inbounds i8, ptr %38, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %103, i8 0, i64 16, i1 false)
-  br label %104
+104:                                              ; preds = %79
+  %105 = getelementptr inbounds i8, ptr %38, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %105, i8 0, i64 16, i1 false)
+  %106 = load ptr, ptr %76, align 8
+  %107 = getelementptr inbounds i8, ptr %106, i64 %48
+  br label %108
 
-104:                                              ; preds = %102, %85
-  %.sink157 = phi ptr [ %76, %102 ], [ %97, %85 ]
-  %.sink156 = phi i64 [ %48, %102 ], [ %.0128, %85 ]
-  %105 = load ptr, ptr %.sink157, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 %.sink156
-  %107 = getelementptr inbounds i8, ptr %106, i64 1
-  %108 = getelementptr inbounds i8, ptr %38, i64 16
-  store ptr %107, ptr %108, align 8
+108:                                              ; preds = %104, %85
+  %.pn = phi ptr [ %103, %85 ], [ %107, %104 ]
+  %109 = getelementptr inbounds i8, ptr %.pn, i64 1
+  %110 = getelementptr inbounds i8, ptr %38, i64 16
+  store ptr %109, ptr %110, align 8
   %.not148 = icmp eq i64 %.0131, 0
-  br i1 %.not148, label %111, label %109
+  br i1 %.not148, label %113, label %111
 
-109:                                              ; preds = %104
-  %110 = load ptr, ptr %61, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %107, ptr align 1 %110, i64 %.0131, i1 false)
-  %.pre = load ptr, ptr %108, align 8
-  br label %111
+111:                                              ; preds = %108
+  %112 = load ptr, ptr %61, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %109, ptr align 1 %112, i64 %.0131, i1 false)
+  %.pre = load ptr, ptr %110, align 8
+  br label %113
 
-111:                                              ; preds = %109, %104
-  %112 = phi ptr [ %.pre, %109 ], [ %107, %104 ]
-  %113 = getelementptr inbounds i8, ptr %112, i64 %.0131
-  store i8 0, ptr %113, align 1
-  %114 = load i32, ptr %38, align 8
-  %115 = icmp sgt i32 %114, 0
-  %spec.select = select i1 %115, i64 0, i64 %.0131
-  %spec.select158 = select i1 %115, i64 %.0131, i64 0
-  %116 = getelementptr inbounds i8, ptr %38, i64 24
-  store i64 %spec.select, ptr %116, align 8
-  %117 = getelementptr inbounds i8, ptr %38, i64 32
-  store i64 %spec.select158, ptr %117, align 8
-  %118 = load i32, ptr %12, align 4
-  %119 = add nsw i32 %118, 1
-  store i32 %119, ptr %12, align 4
-  br label %120
+113:                                              ; preds = %111, %108
+  %114 = phi ptr [ %.pre, %111 ], [ %109, %108 ]
+  %115 = getelementptr inbounds i8, ptr %114, i64 %.0131
+  store i8 0, ptr %115, align 1
+  %116 = load i32, ptr %38, align 8
+  %117 = icmp sgt i32 %116, 0
+  %spec.select = select i1 %117, i64 0, i64 %.0131
+  %spec.select155 = select i1 %117, i64 %.0131, i64 0
+  %118 = getelementptr inbounds i8, ptr %38, i64 24
+  store i64 %spec.select, ptr %118, align 8
+  %119 = getelementptr inbounds i8, ptr %38, i64 32
+  store i64 %spec.select155, ptr %119, align 8
+  %120 = load i32, ptr %12, align 4
+  %121 = add nsw i32 %120, 1
+  store i32 %121, ptr %12, align 4
+  br label %122
 
-120:                                              ; preds = %34, %111, %46
+122:                                              ; preds = %34, %113, %46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %34, !llvm.loop !22
 
-.loopexit:                                        ; preds = %120, %4, %78, %.thread
-  %.0 = phi i32 [ 1, %.thread ], [ 1, %78 ], [ 0, %4 ], [ 0, %120 ]
+.loopexit:                                        ; preds = %122, %4, %78, %.thread
+  %.0 = phi i32 [ 1, %.thread ], [ 1, %78 ], [ 0, %4 ], [ 0, %122 ]
   ret i32 %.0
 }
 

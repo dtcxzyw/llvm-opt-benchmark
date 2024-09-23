@@ -1267,16 +1267,16 @@ _ZNSt3__16vectorIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEE
 
 441:                                              ; preds = %439
   %442 = getelementptr inbounds [3 x i32], ptr %33, i64 0, i64 %.0393683
+  store i32 %.0385, ptr %442, align 4
   br label %445
 
 443:                                              ; preds = %439
   %444 = load i32, ptr %214, align 4
   store i32 %444, ptr %215, align 4
+  store i32 %.0385, ptr %214, align 4
   br label %445
 
 445:                                              ; preds = %443, %441
-  %.sink = phi ptr [ %214, %443 ], [ %442, %441 ]
-  store i32 %.0385, ptr %.sink, align 4
   %446 = add i64 %.0393683, 1
   %447 = icmp ugt i64 %446, 2
   br i1 %447, label %448, label %449

@@ -2199,20 +2199,16 @@ _get_bracketed_list.exit:                         ; preds = %252, %280, %311
 325:                                              ; preds = %324
   %326 = getelementptr i8, ptr %2, i64 %1
   %327 = getelementptr i8, ptr %326, i64 -1
-  br label %.sink.split
+  store i8 0, ptr %327, align 1
+  br label %330
 
 328:                                              ; preds = %322
   %329 = getelementptr inbounds i8, ptr %2, i64 %323
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %328, %325
-  %.sink = phi ptr [ %327, %325 ], [ %329, %328 ]
-  %.ph = phi i64 [ -1, %325 ], [ %323, %328 ]
-  store i8 0, ptr %.sink, align 1
+  store i8 0, ptr %329, align 1
   br label %330
 
-330:                                              ; preds = %.sink.split, %324
-  %331 = phi i64 [ -1, %324 ], [ %.ph, %.sink.split ]
+330:                                              ; preds = %324, %325, %328
+  %331 = phi i64 [ -1, %325 ], [ -1, %324 ], [ %323, %328 ]
   ret i64 %331
 }
 
@@ -5839,21 +5835,17 @@ hostlist_parse_int_to_array.exit.us:              ; preds = %.lr.ph.i.us
   %.068.lcssa = phi i32 [ 0, %19 ], [ %.5.us, %65 ], [ %90, %92 ]
   %95 = zext nneg i32 %.068.lcssa to i64
   %96 = getelementptr inbounds i8, ptr %2, i64 %95
-  br label %.sink.split
+  store i8 0, ptr %96, align 1
+  br label %99
 
 .loopexit:                                        ; preds = %81, %83, %39, %34, %.thread, %14
   %97 = getelementptr i8, ptr %2, i64 %1
   %98 = getelementptr i8, ptr %97, i64 -1
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %._crit_edge14, %.loopexit
-  %.sink = phi ptr [ %98, %.loopexit ], [ %96, %._crit_edge14 ]
-  %.064.ph = phi i64 [ -1, %.loopexit ], [ %95, %._crit_edge14 ]
-  store i8 0, ptr %.sink, align 1
+  store i8 0, ptr %98, align 1
   br label %99
 
-99:                                               ; preds = %.sink.split, %14, %8
-  %.064 = phi i64 [ 0, %8 ], [ %18, %14 ], [ %.064.ph, %.sink.split ]
+99:                                               ; preds = %14, %8, %.loopexit, %._crit_edge14
+  %.064 = phi i64 [ -1, %.loopexit ], [ %95, %._crit_edge14 ], [ 0, %8 ], [ %18, %14 ]
   ret i64 %.064
 }
 

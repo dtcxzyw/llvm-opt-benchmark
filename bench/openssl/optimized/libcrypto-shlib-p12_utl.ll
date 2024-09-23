@@ -430,7 +430,8 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 for.end.i:                                        ; preds = %for.body.i
   %12 = getelementptr i8, ptr %call.i398690, i64 %conv7.i8592
   %arrayidx20.i42 = getelementptr i8, ptr %12, i64 -1
-  br label %return.sink.split
+  store i8 0, ptr %arrayidx20.i42, align 1
+  br label %return
 
 if.end4:                                          ; preds = %bmp_to_utf8.exit
   %cmp5 = icmp eq i32 %call.i.fr, 4
@@ -565,16 +566,11 @@ lor.lhs.false53:                                  ; preds = %lor.lhs.false47
 
 if.then59:                                        ; preds = %lor.lhs.false53, %lor.lhs.false47, %for.end45
   %arrayidx61 = getelementptr inbounds i8, ptr %call22, i64 %asclen.2.lcssa
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.then59, %for.end.i
-  %arrayidx20.i42.sink = phi ptr [ %arrayidx20.i42, %for.end.i ], [ %arrayidx61, %if.then59 ]
-  %retval.0.ph = phi ptr [ %call.i398690, %for.end.i ], [ %call22, %if.then59 ]
-  store i8 0, ptr %arrayidx20.i42.sink, align 1
+  store i8 0, ptr %arrayidx61, align 1
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.end6.i.thread108, %if.end6.i.thread, %lor.lhs.false53, %if.end20, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ null, %if.end20 ], [ %call22, %lor.lhs.false53 ], [ null, %if.end6.i.thread ], [ null, %if.end6.i.thread108 ], [ %retval.0.ph, %return.sink.split ]
+return:                                           ; preds = %if.end6.i.thread108, %for.end.i, %if.end6.i.thread, %lor.lhs.false53, %if.then59, %if.end20, %entry
+  %retval.0 = phi ptr [ null, %entry ], [ null, %if.end20 ], [ %call22, %if.then59 ], [ %call22, %lor.lhs.false53 ], [ %call.i398690, %for.end.i ], [ null, %if.end6.i.thread ], [ null, %if.end6.i.thread108 ]
   ret ptr %retval.0
 }
 

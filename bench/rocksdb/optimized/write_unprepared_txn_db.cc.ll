@@ -7903,7 +7903,15 @@ _ZN7rocksdb6StatusaSEOS0_.exit69:                 ; preds = %invoke.cont35, %if.
   %state_.i70 = getelementptr inbounds i8, ptr %ref.tmp32, i64 8
   %52 = load ptr, ptr %state_.i70, align 8
   %cmp.not.i.i71 = icmp eq ptr %52, null
-  br i1 %cmp.not.i.i71, label %if.end48.sink.split, label %if.end48.sink.split.sink.split
+  br i1 %cmp.not.i.i71, label %_ZN7rocksdb6StatusD2Ev.exit73, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i72
+
+_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i72: ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit69
+  call void @_ZdaPv(ptr noundef nonnull %52) #19
+  br label %_ZN7rocksdb6StatusD2Ev.exit73
+
+_ZN7rocksdb6StatusD2Ev.exit73:                    ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit69, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i72
+  store ptr null, ptr %state_.i70, align 8
+  br label %if.end48
 
 lpad22:                                           ; preds = %if.then39, %if.then31, %invoke.cont23, %invoke.cont21
   %53 = landingpad { ptr, i32 }
@@ -7972,20 +7980,17 @@ _ZN7rocksdb6StatusaSEOS0_.exit94:                 ; preds = %invoke.cont44, %if.
   %state_.i95 = getelementptr inbounds i8, ptr %ref.tmp40, i64 8
   %64 = load ptr, ptr %state_.i95, align 8
   %cmp.not.i.i96 = icmp eq ptr %64, null
-  br i1 %cmp.not.i.i96, label %if.end48.sink.split, label %if.end48.sink.split.sink.split
+  br i1 %cmp.not.i.i96, label %_ZN7rocksdb6StatusD2Ev.exit98, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i97
 
-if.end48.sink.split.sink.split:                   ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit94, %_ZN7rocksdb6StatusaSEOS0_.exit69
-  %.sink = phi ptr [ %52, %_ZN7rocksdb6StatusaSEOS0_.exit69 ], [ %64, %_ZN7rocksdb6StatusaSEOS0_.exit94 ]
-  %state_.i95.sink.ph = phi ptr [ %state_.i70, %_ZN7rocksdb6StatusaSEOS0_.exit69 ], [ %state_.i95, %_ZN7rocksdb6StatusaSEOS0_.exit94 ]
-  call void @_ZdaPv(ptr noundef nonnull %.sink) #19
-  br label %if.end48.sink.split
+_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i97: ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit94
+  call void @_ZdaPv(ptr noundef nonnull %64) #19
+  br label %_ZN7rocksdb6StatusD2Ev.exit98
 
-if.end48.sink.split:                              ; preds = %if.end48.sink.split.sink.split, %_ZN7rocksdb6StatusaSEOS0_.exit94, %_ZN7rocksdb6StatusaSEOS0_.exit69
-  %state_.i95.sink = phi ptr [ %state_.i70, %_ZN7rocksdb6StatusaSEOS0_.exit69 ], [ %state_.i95, %_ZN7rocksdb6StatusaSEOS0_.exit94 ], [ %state_.i95.sink.ph, %if.end48.sink.split.sink.split ]
-  store ptr null, ptr %state_.i95.sink, align 8
+_ZN7rocksdb6StatusD2Ev.exit98:                    ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit94, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i97
+  store ptr null, ptr %state_.i95, align 8
   br label %if.end48
 
-if.end48:                                         ; preds = %if.end48.sink.split, %_ZN7rocksdb6StatusD2Ev.exit
+if.end48:                                         ; preds = %_ZN7rocksdb6StatusD2Ev.exit, %_ZN7rocksdb6StatusD2Ev.exit98, %_ZN7rocksdb6StatusD2Ev.exit73
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i) #21
   call void @_ZN7rocksdb9CleanableD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #21
   br label %nrvo.skipdtor

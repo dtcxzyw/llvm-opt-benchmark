@@ -423,15 +423,15 @@ define hidden noundef zeroext i1 @_ZNK13ConstantTable4emitEP17C2_MacroAssembler(
   br i1 %19, label %_ZN17AbstractAssembler12int_constantEi.exit, label %20
 
 20:                                               ; preds = %16
-  switch i8 %.sroa.0.0.copyload, label %120 [
+  switch i8 %.sroa.0.0.copyload, label %134 [
     i8 10, label %21
-    i8 11, label %28
-    i8 6, label %35
-    i8 7, label %42
-    i8 12, label %49
-    i8 15, label %71
-    i8 14, label %79
-    i8 17, label %103
+    i8 11, label %30
+    i8 6, label %39
+    i8 7, label %48
+    i8 12, label %57
+    i8 15, label %81
+    i8 14, label %91
+    i8 17, label %115
   ]
 
 21:                                               ; preds = %20
@@ -445,207 +445,228 @@ define hidden noundef zeroext i1 @_ZNK13ConstantTable4emitEP17C2_MacroAssembler(
   %26 = getelementptr inbounds i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
   store i32 %.sroa.5.0.copyload60, ptr %27, align 1
+  %28 = load ptr, ptr %26, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 4
+  store ptr %29, ptr %26, align 8
   br label %_ZN17AbstractAssembler12int_constantEi.exit.thread100.sink.split
 
-28:                                               ; preds = %20
-  %29 = load ptr, ptr %12, align 8
-  %30 = call noundef ptr @_ZN17AbstractAssembler13start_a_constEii(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 8, i32 noundef 8) #10
-  %.not.i36 = icmp eq ptr %30, null
-  br i1 %.not.i36, label %_ZN17AbstractAssembler16address_constantEPh.exit43.thread, label %31
+30:                                               ; preds = %20
+  %31 = load ptr, ptr %12, align 8
+  %32 = call noundef ptr @_ZN17AbstractAssembler13start_a_constEii(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 8, i32 noundef 8) #10
+  %.not.i36 = icmp eq ptr %32, null
+  br i1 %.not.i36, label %_ZN17AbstractAssembler16address_constantEPh.exit43.thread, label %33
 
-31:                                               ; preds = %28
-  %32 = load ptr, ptr %12, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
-  %34 = load ptr, ptr %33, align 8
-  store i32 %.sroa.5.0.copyload60, ptr %34, align 1
-  %.sroa_idx = getelementptr inbounds i8, ptr %34, i64 4
+33:                                               ; preds = %30
+  %34 = load ptr, ptr %12, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 16
+  %36 = load ptr, ptr %35, align 8
+  store i32 %.sroa.5.0.copyload60, ptr %36, align 1
+  %.sroa_idx = getelementptr inbounds i8, ptr %36, i64 4
   store i32 %.sroa.5.0.copyload61, ptr %.sroa_idx, align 1
+  %37 = load ptr, ptr %35, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  store ptr %38, ptr %35, align 8
   br label %_ZN17AbstractAssembler12int_constantEi.exit.thread100.sink.split
 
-35:                                               ; preds = %20
-  %36 = load ptr, ptr %12, align 8
-  %37 = call noundef ptr @_ZN17AbstractAssembler13start_a_constEii(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 4, i32 noundef 4) #10
-  %.not.i37 = icmp eq ptr %37, null
-  br i1 %.not.i37, label %_ZN17AbstractAssembler16address_constantEPh.exit43.thread, label %38
+39:                                               ; preds = %20
+  %40 = load ptr, ptr %12, align 8
+  %41 = call noundef ptr @_ZN17AbstractAssembler13start_a_constEii(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 4, i32 noundef 4) #10
+  %.not.i37 = icmp eq ptr %41, null
+  br i1 %.not.i37, label %_ZN17AbstractAssembler16address_constantEPh.exit43.thread, label %42
 
-38:                                               ; preds = %35
-  %39 = load ptr, ptr %12, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 16
-  %41 = load ptr, ptr %40, align 8
-  store i32 %.sroa.5.0.copyload60, ptr %41, align 1
-  br label %_ZN17AbstractAssembler12int_constantEi.exit.thread100.sink.split
-
-42:                                               ; preds = %20
+42:                                               ; preds = %39
   %43 = load ptr, ptr %12, align 8
-  %44 = call noundef ptr @_ZN17AbstractAssembler13start_a_constEii(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 8, i32 noundef 8) #10
-  %.not.i38 = icmp eq ptr %44, null
-  br i1 %.not.i38, label %_ZN17AbstractAssembler16address_constantEPh.exit43.thread, label %45
+  %44 = getelementptr inbounds i8, ptr %43, i64 16
+  %45 = load ptr, ptr %44, align 8
+  store i32 %.sroa.5.0.copyload60, ptr %45, align 1
+  %46 = load ptr, ptr %44, align 8
+  %47 = getelementptr inbounds i8, ptr %46, i64 4
+  store ptr %47, ptr %44, align 8
+  br label %_ZN17AbstractAssembler12int_constantEi.exit.thread100.sink.split
 
-45:                                               ; preds = %42
+48:                                               ; preds = %20
+  %49 = load ptr, ptr %12, align 8
+  %50 = call noundef ptr @_ZN17AbstractAssembler13start_a_constEii(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 8, i32 noundef 8) #10
+  %.not.i38 = icmp eq ptr %50, null
+  br i1 %.not.i38, label %_ZN17AbstractAssembler16address_constantEPh.exit43.thread, label %51
+
+51:                                               ; preds = %48
   %.sroa.5.sroa.10.0.insert.ext78 = zext i32 %.sroa.5.0.copyload61 to i64
   %.sroa.5.sroa.10.0.insert.shift79 = shl nuw i64 %.sroa.5.sroa.10.0.insert.ext78, 32
   %.sroa.5.sroa.0.0.insert.ext63 = zext i32 %.sroa.5.0.copyload60 to i64
   %.sroa.5.sroa.0.0.insert.insert65 = or disjoint i64 %.sroa.5.sroa.10.0.insert.shift79, %.sroa.5.sroa.0.0.insert.ext63
-  %46 = load ptr, ptr %12, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 16
-  %48 = load ptr, ptr %47, align 8
-  store i64 %.sroa.5.sroa.0.0.insert.insert65, ptr %48, align 1
+  %52 = load ptr, ptr %12, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 16
+  %54 = load ptr, ptr %53, align 8
+  store i64 %.sroa.5.sroa.0.0.insert.insert65, ptr %54, align 1
+  %55 = load ptr, ptr %53, align 8
+  %56 = getelementptr inbounds i8, ptr %55, i64 8
+  store ptr %56, ptr %53, align 8
   br label %_ZN17AbstractAssembler12int_constantEi.exit.thread100.sink.split
 
-49:                                               ; preds = %20
+57:                                               ; preds = %20
   %.sroa.5.sroa.10.0.insert.ext82 = zext i32 %.sroa.5.0.copyload61 to i64
   %.sroa.5.sroa.10.0.insert.shift83 = shl nuw i64 %.sroa.5.sroa.10.0.insert.ext82, 32
   %.sroa.5.sroa.0.0.insert.ext66 = zext i32 %.sroa.5.0.copyload60 to i64
   %.sroa.5.sroa.0.0.insert.insert68 = or disjoint i64 %.sroa.5.sroa.10.0.insert.shift83, %.sroa.5.sroa.0.0.insert.ext66
-  %50 = inttoptr i64 %.sroa.5.sroa.0.0.insert.insert68 to ptr
-  %51 = load ptr, ptr %8, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 80
-  %53 = load ptr, ptr %52, align 8
-  %.not.i39 = icmp eq ptr %53, null
-  br i1 %.not.i39, label %56, label %54
+  %58 = inttoptr i64 %.sroa.5.sroa.0.0.insert.insert68 to ptr
+  %59 = load ptr, ptr %8, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 80
+  %61 = load ptr, ptr %60, align 8
+  %.not.i39 = icmp eq ptr %61, null
+  br i1 %.not.i39, label %64, label %62
 
-54:                                               ; preds = %49
-  %55 = call noundef i32 @_ZN12ObjectLookup10find_indexEP8_jobjectP11OopRecorder(ptr noundef nonnull align 8 dereferenceable(28) %53, ptr noundef %50, ptr noundef nonnull %51) #10
+62:                                               ; preds = %57
+  %63 = call noundef i32 @_ZN12ObjectLookup10find_indexEP8_jobjectP11OopRecorder(ptr noundef nonnull align 8 dereferenceable(28) %61, ptr noundef %58, ptr noundef nonnull %59) #10
   br label %_ZN11OopRecorder10find_indexEP8_jobject.exit
 
-56:                                               ; preds = %49
-  %57 = call noundef i32 @_ZN13ValueRecorderIP8_jobjectE16maybe_find_indexES1_(ptr noundef nonnull align 8 dereferenceable(33) %51, ptr noundef %50) #10
-  %58 = icmp slt i32 %57, 0
-  br i1 %58, label %59, label %_ZN11OopRecorder10find_indexEP8_jobject.exit
+64:                                               ; preds = %57
+  %65 = call noundef i32 @_ZN13ValueRecorderIP8_jobjectE16maybe_find_indexES1_(ptr noundef nonnull align 8 dereferenceable(33) %59, ptr noundef %58) #10
+  %66 = icmp slt i32 %65, 0
+  br i1 %66, label %67, label %_ZN11OopRecorder10find_indexEP8_jobject.exit
 
-59:                                               ; preds = %56
-  %60 = call noundef i32 @_ZN13ValueRecorderIP8_jobjectE10add_handleES1_b(ptr noundef nonnull align 8 dereferenceable(33) %51, ptr noundef %50, i1 noundef zeroext true) #10
+67:                                               ; preds = %64
+  %68 = call noundef i32 @_ZN13ValueRecorderIP8_jobjectE10add_handleES1_b(ptr noundef nonnull align 8 dereferenceable(33) %59, ptr noundef %58, i1 noundef zeroext true) #10
   br label %_ZN11OopRecorder10find_indexEP8_jobject.exit
 
-_ZN11OopRecorder10find_indexEP8_jobject.exit:     ; preds = %54, %56, %59
-  %61 = phi i32 [ %55, %54 ], [ %60, %59 ], [ %57, %56 ]
+_ZN11OopRecorder10find_indexEP8_jobject.exit:     ; preds = %62, %64, %67
+  %69 = phi i32 [ %63, %62 ], [ %68, %67 ], [ %65, %64 ]
   store ptr null, ptr %13, align 8, !alias.scope !9
   store i32 1, ptr %14, align 8, !alias.scope !9
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV14oop_Relocation, i64 16), ptr %3, align 8, !alias.scope !9
-  store i32 %61, ptr %15, align 4, !alias.scope !9
-  %62 = load ptr, ptr %12, align 8
-  %63 = call noundef ptr @_ZN17AbstractAssembler13start_a_constEii(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 8, i32 noundef 8) #10
-  %.not.i40 = icmp eq ptr %63, null
-  br i1 %.not.i40, label %_ZN17AbstractAssembler16address_constantEPh.exit43.thread, label %64
+  store i32 %69, ptr %15, align 4, !alias.scope !9
+  %70 = load ptr, ptr %12, align 8
+  %71 = call noundef ptr @_ZN17AbstractAssembler13start_a_constEii(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 8, i32 noundef 8) #10
+  %.not.i40 = icmp eq ptr %71, null
+  br i1 %.not.i40, label %_ZN17AbstractAssembler16address_constantEPh.exit43.thread, label %72
 
-64:                                               ; preds = %_ZN11OopRecorder10find_indexEP8_jobject.exit
-  %65 = load ptr, ptr %12, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 16
-  %67 = load ptr, ptr %66, align 8
-  call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %65, ptr noundef %67, ptr noundef nonnull align 8 dereferenceable(40) %3, i32 noundef 0) #10
-  %68 = load ptr, ptr %12, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 16
-  %70 = load ptr, ptr %69, align 8
-  store ptr %50, ptr %70, align 1
+72:                                               ; preds = %_ZN11OopRecorder10find_indexEP8_jobject.exit
+  %73 = load ptr, ptr %12, align 8
+  %74 = getelementptr inbounds i8, ptr %73, i64 16
+  %75 = load ptr, ptr %74, align 8
+  call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %73, ptr noundef %75, ptr noundef nonnull align 8 dereferenceable(40) %3, i32 noundef 0) #10
+  %76 = load ptr, ptr %12, align 8
+  %77 = getelementptr inbounds i8, ptr %76, i64 16
+  %78 = load ptr, ptr %77, align 8
+  store ptr %58, ptr %78, align 1
+  %79 = load ptr, ptr %77, align 8
+  %80 = getelementptr inbounds i8, ptr %79, i64 8
+  store ptr %80, ptr %77, align 8
   br label %_ZN17AbstractAssembler12int_constantEi.exit.thread100.sink.split
 
-71:                                               ; preds = %20
-  %72 = load ptr, ptr %12, align 8
-  %73 = call noundef ptr @_ZN17AbstractAssembler13start_a_constEii(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 8, i32 noundef 8) #10
-  %.not.i41 = icmp eq ptr %73, null
-  br i1 %.not.i41, label %_ZN17AbstractAssembler16address_constantEPh.exit43.thread, label %74
+81:                                               ; preds = %20
+  %82 = load ptr, ptr %12, align 8
+  %83 = call noundef ptr @_ZN17AbstractAssembler13start_a_constEii(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 8, i32 noundef 8) #10
+  %.not.i41 = icmp eq ptr %83, null
+  br i1 %.not.i41, label %_ZN17AbstractAssembler16address_constantEPh.exit43.thread, label %84
 
-74:                                               ; preds = %71
+84:                                               ; preds = %81
   %.sroa.5.sroa.10.0.insert.ext86 = zext i32 %.sroa.5.0.copyload61 to i64
   %.sroa.5.sroa.10.0.insert.shift87 = shl nuw i64 %.sroa.5.sroa.10.0.insert.ext86, 32
   %.sroa.5.sroa.0.0.insert.ext69 = zext i32 %.sroa.5.0.copyload60 to i64
   %.sroa.5.sroa.0.0.insert.insert71 = or disjoint i64 %.sroa.5.sroa.10.0.insert.shift87, %.sroa.5.sroa.0.0.insert.ext69
-  %75 = inttoptr i64 %.sroa.5.sroa.0.0.insert.insert71 to ptr
-  %76 = load ptr, ptr %12, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 16
-  %78 = load ptr, ptr %77, align 8
-  store ptr %75, ptr %78, align 1
+  %85 = inttoptr i64 %.sroa.5.sroa.0.0.insert.insert71 to ptr
+  %86 = load ptr, ptr %12, align 8
+  %87 = getelementptr inbounds i8, ptr %86, i64 16
+  %88 = load ptr, ptr %87, align 8
+  store ptr %85, ptr %88, align 1
+  %89 = load ptr, ptr %87, align 8
+  %90 = getelementptr inbounds i8, ptr %89, i64 8
+  store ptr %90, ptr %87, align 8
   br label %_ZN17AbstractAssembler12int_constantEi.exit.thread100.sink.split
 
-79:                                               ; preds = %20
+91:                                               ; preds = %20
   %.sroa.5.sroa.10.0.insert.ext90 = zext i32 %.sroa.5.0.copyload61 to i64
   %.sroa.5.sroa.10.0.insert.shift91 = shl nuw i64 %.sroa.5.sroa.10.0.insert.ext90, 32
   %.sroa.5.sroa.0.0.insert.ext72 = zext i32 %.sroa.5.0.copyload60 to i64
   %.sroa.5.sroa.0.0.insert.insert74 = or disjoint i64 %.sroa.5.sroa.10.0.insert.shift91, %.sroa.5.sroa.0.0.insert.ext72
-  %80 = inttoptr i64 %.sroa.5.sroa.0.0.insert.insert74 to ptr
-  %81 = load ptr, ptr %12, align 8
-  %82 = call noundef ptr @_ZN17AbstractAssembler13start_a_constEii(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 8, i32 noundef 8) #10
-  %.not.i42 = icmp eq ptr %82, null
+  %92 = inttoptr i64 %.sroa.5.sroa.0.0.insert.insert74 to ptr
+  %93 = load ptr, ptr %12, align 8
+  %94 = call noundef ptr @_ZN17AbstractAssembler13start_a_constEii(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 8, i32 noundef 8) #10
+  %.not.i42 = icmp eq ptr %94, null
   br i1 %.not.i42, label %_ZN17AbstractAssembler16address_constantEPh.exit43.thread, label %_ZN17AbstractAssembler16address_constantEPh.exit43
 
-_ZN17AbstractAssembler16address_constantEPh.exit43: ; preds = %79
-  %83 = load ptr, ptr %12, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 16
-  %85 = load ptr, ptr %84, align 8
-  store ptr %80, ptr %85, align 1
-  %86 = load ptr, ptr %84, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 8
-  store ptr %87, ptr %84, align 8
-  call void @_ZN17AbstractAssembler11end_a_constEP11CodeSection(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %81) #10
-  %88 = getelementptr inbounds i8, ptr %80, i64 32
-  %89 = load i32, ptr %88, align 8
-  %90 = icmp ugt i32 %89, 1
-  br i1 %90, label %.lr.ph, label %_ZN17AbstractAssembler12int_constantEi.exit.thread100
-
-.lr.ph:                                           ; preds = %_ZN17AbstractAssembler16address_constantEPh.exit43, %93
-  %indvars.iv = phi i64 [ %indvars.iv.next, %93 ], [ 1, %_ZN17AbstractAssembler16address_constantEPh.exit43 ]
-  %91 = load ptr, ptr %12, align 8
-  %92 = call noundef ptr @_ZN17AbstractAssembler13start_a_constEii(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 8, i32 noundef 8) #10
-  %.not.i44 = icmp eq ptr %92, null
-  br i1 %.not.i44, label %_ZN17AbstractAssembler16address_constantEPh.exit43.thread, label %93
-
-93:                                               ; preds = %.lr.ph
-  %94 = getelementptr inbounds i8, ptr %80, i64 %indvars.iv
+_ZN17AbstractAssembler16address_constantEPh.exit43: ; preds = %91
   %95 = load ptr, ptr %12, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 16
   %97 = load ptr, ptr %96, align 8
-  store ptr %94, ptr %97, align 1
+  store ptr %92, ptr %97, align 1
   %98 = load ptr, ptr %96, align 8
   %99 = getelementptr inbounds i8, ptr %98, i64 8
   store ptr %99, ptr %96, align 8
-  call void @_ZN17AbstractAssembler11end_a_constEP11CodeSection(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %91) #10
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %100 = load i32, ptr %88, align 8
-  %101 = zext i32 %100 to i64
-  %102 = icmp ult i64 %indvars.iv.next, %101
-  br i1 %102, label %.lr.ph, label %_ZN17AbstractAssembler12int_constantEi.exit.thread100, !llvm.loop !14
+  call void @_ZN17AbstractAssembler11end_a_constEP11CodeSection(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %93) #10
+  %100 = getelementptr inbounds i8, ptr %92, i64 32
+  %101 = load i32, ptr %100, align 8
+  %102 = icmp ugt i32 %101, 1
+  br i1 %102, label %.lr.ph, label %_ZN17AbstractAssembler12int_constantEi.exit.thread100
 
-103:                                              ; preds = %20
+.lr.ph:                                           ; preds = %_ZN17AbstractAssembler16address_constantEPh.exit43, %105
+  %indvars.iv = phi i64 [ %indvars.iv.next, %105 ], [ 1, %_ZN17AbstractAssembler16address_constantEPh.exit43 ]
+  %103 = load ptr, ptr %12, align 8
+  %104 = call noundef ptr @_ZN17AbstractAssembler13start_a_constEii(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 8, i32 noundef 8) #10
+  %.not.i44 = icmp eq ptr %104, null
+  br i1 %.not.i44, label %_ZN17AbstractAssembler16address_constantEPh.exit43.thread, label %105
+
+105:                                              ; preds = %.lr.ph
+  %106 = getelementptr inbounds i8, ptr %92, i64 %indvars.iv
+  %107 = load ptr, ptr %12, align 8
+  %108 = getelementptr inbounds i8, ptr %107, i64 16
+  %109 = load ptr, ptr %108, align 8
+  store ptr %106, ptr %109, align 1
+  %110 = load ptr, ptr %108, align 8
+  %111 = getelementptr inbounds i8, ptr %110, i64 8
+  store ptr %111, ptr %108, align 8
+  call void @_ZN17AbstractAssembler11end_a_constEP11CodeSection(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %103) #10
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %112 = load i32, ptr %100, align 8
+  %113 = zext i32 %112 to i64
+  %114 = icmp ult i64 %indvars.iv.next, %113
+  br i1 %114, label %.lr.ph, label %_ZN17AbstractAssembler12int_constantEi.exit.thread100, !llvm.loop !14
+
+115:                                              ; preds = %20
   %.sroa.5.sroa.10.0.insert.ext94 = zext i32 %.sroa.5.0.copyload61 to i64
   %.sroa.5.sroa.10.0.insert.shift95 = shl nuw i64 %.sroa.5.sroa.10.0.insert.ext94, 32
   %.sroa.5.sroa.0.0.insert.ext75 = zext i32 %.sroa.5.0.copyload60 to i64
   %.sroa.5.sroa.0.0.insert.insert77 = or disjoint i64 %.sroa.5.sroa.10.0.insert.shift95, %.sroa.5.sroa.0.0.insert.ext75
-  %104 = inttoptr i64 %.sroa.5.sroa.0.0.insert.insert77 to ptr
-  %105 = load ptr, ptr %8, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 40
-  %107 = call noundef i32 @_ZN13ValueRecorderIP8MetadataE16maybe_find_indexES1_(ptr noundef nonnull align 8 dereferenceable(33) %106, ptr noundef %104) #10
-  %108 = icmp slt i32 %107, 0
-  br i1 %108, label %109, label %_ZN11OopRecorder10find_indexEP8Metadata.exit
+  %116 = inttoptr i64 %.sroa.5.sroa.0.0.insert.insert77 to ptr
+  %117 = load ptr, ptr %8, align 8
+  %118 = getelementptr inbounds i8, ptr %117, i64 40
+  %119 = call noundef i32 @_ZN13ValueRecorderIP8MetadataE16maybe_find_indexES1_(ptr noundef nonnull align 8 dereferenceable(33) %118, ptr noundef %116) #10
+  %120 = icmp slt i32 %119, 0
+  br i1 %120, label %121, label %_ZN11OopRecorder10find_indexEP8Metadata.exit
 
-109:                                              ; preds = %103
-  %110 = call noundef i32 @_ZN13ValueRecorderIP8MetadataE10add_handleES1_b(ptr noundef nonnull align 8 dereferenceable(33) %106, ptr noundef %104, i1 noundef zeroext true) #10
+121:                                              ; preds = %115
+  %122 = call noundef i32 @_ZN13ValueRecorderIP8MetadataE10add_handleES1_b(ptr noundef nonnull align 8 dereferenceable(33) %118, ptr noundef %116, i1 noundef zeroext true) #10
   br label %_ZN11OopRecorder10find_indexEP8Metadata.exit
 
-_ZN11OopRecorder10find_indexEP8Metadata.exit:     ; preds = %103, %109
-  %.0.i.i = phi i32 [ %110, %109 ], [ %107, %103 ]
+_ZN11OopRecorder10find_indexEP8Metadata.exit:     ; preds = %115, %121
+  %.0.i.i = phi i32 [ %122, %121 ], [ %119, %115 ]
   store ptr null, ptr %9, align 8, !alias.scope !15
   store i32 12, ptr %10, align 8, !alias.scope !15
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV19metadata_Relocation, i64 16), ptr %4, align 8, !alias.scope !15
   store i32 %.0.i.i, ptr %11, align 4, !alias.scope !15
-  %111 = load ptr, ptr %12, align 8
-  %112 = call noundef ptr @_ZN17AbstractAssembler13start_a_constEii(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 8, i32 noundef 8) #10
-  %.not.i46 = icmp eq ptr %112, null
-  br i1 %.not.i46, label %_ZN17AbstractAssembler16address_constantEPh.exit43.thread, label %113
+  %123 = load ptr, ptr %12, align 8
+  %124 = call noundef ptr @_ZN17AbstractAssembler13start_a_constEii(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 8, i32 noundef 8) #10
+  %.not.i46 = icmp eq ptr %124, null
+  br i1 %.not.i46, label %_ZN17AbstractAssembler16address_constantEPh.exit43.thread, label %125
 
-113:                                              ; preds = %_ZN11OopRecorder10find_indexEP8Metadata.exit
-  %114 = load ptr, ptr %12, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 16
-  %116 = load ptr, ptr %115, align 8
-  call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %114, ptr noundef %116, ptr noundef nonnull align 8 dereferenceable(40) %4, i32 noundef 0) #10
-  %117 = load ptr, ptr %12, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 16
-  %119 = load ptr, ptr %118, align 8
-  store ptr %104, ptr %119, align 1
+125:                                              ; preds = %_ZN11OopRecorder10find_indexEP8Metadata.exit
+  %126 = load ptr, ptr %12, align 8
+  %127 = getelementptr inbounds i8, ptr %126, i64 16
+  %128 = load ptr, ptr %127, align 8
+  call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %126, ptr noundef %128, ptr noundef nonnull align 8 dereferenceable(40) %4, i32 noundef 0) #10
+  %129 = load ptr, ptr %12, align 8
+  %130 = getelementptr inbounds i8, ptr %129, i64 16
+  %131 = load ptr, ptr %130, align 8
+  store ptr %116, ptr %131, align 1
+  %132 = load ptr, ptr %130, align 8
+  %133 = getelementptr inbounds i8, ptr %132, i64 8
+  store ptr %133, ptr %130, align 8
   br label %_ZN17AbstractAssembler12int_constantEi.exit.thread100.sink.split
 
-120:                                              ; preds = %20
-  %121 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %121, align 1
+134:                                              ; preds = %20
+  %135 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %135, align 1
   call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 209) #9
   unreachable
 
@@ -656,31 +677,26 @@ _ZN17AbstractAssembler12int_constantEi.exit:      ; preds = %16
   %.sroa.5.sroa.10.0.insert.shift = shl nuw i64 %.sroa.5.sroa.10.0.insert.ext, 32
   %.sroa.5.sroa.0.0.insert.ext = zext i32 %.sroa.5.0.copyload60 to i64
   %.sroa.5.sroa.0.0.insert.insert = or disjoint i64 %.sroa.5.sroa.10.0.insert.shift, %.sroa.5.sroa.0.0.insert.ext
-  %122 = inttoptr i64 %.sroa.5.sroa.0.0.insert.insert to ptr
-  %123 = call noundef ptr @_ZN17AbstractAssembler14array_constantE9BasicTypeP13GrowableArrayI6jvalueEi(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 noundef zeroext %.sroa.0.0.copyload, ptr noundef %122, i32 noundef %.sroa.449.0.copyload)
-  %124 = icmp eq ptr %123, null
-  br i1 %124, label %_ZN17AbstractAssembler16address_constantEPh.exit43.thread, label %_ZN17AbstractAssembler12int_constantEi.exit.thread100
+  %136 = inttoptr i64 %.sroa.5.sroa.0.0.insert.insert to ptr
+  %137 = call noundef ptr @_ZN17AbstractAssembler14array_constantE9BasicTypeP13GrowableArrayI6jvalueEi(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 noundef zeroext %.sroa.0.0.copyload, ptr noundef %136, i32 noundef %.sroa.449.0.copyload)
+  %138 = icmp eq ptr %137, null
+  br i1 %138, label %_ZN17AbstractAssembler16address_constantEPh.exit43.thread, label %_ZN17AbstractAssembler12int_constantEi.exit.thread100
 
-_ZN17AbstractAssembler12int_constantEi.exit.thread100.sink.split: ; preds = %24, %31, %38, %45, %64, %74, %113
-  %.sink133 = phi ptr [ %118, %113 ], [ %77, %74 ], [ %69, %64 ], [ %47, %45 ], [ %40, %38 ], [ %33, %31 ], [ %26, %24 ]
-  %.sink132 = phi i64 [ 8, %113 ], [ 8, %74 ], [ 8, %64 ], [ 8, %45 ], [ 4, %38 ], [ 8, %31 ], [ 4, %24 ]
-  %.sink = phi ptr [ %111, %113 ], [ %72, %74 ], [ %62, %64 ], [ %43, %45 ], [ %36, %38 ], [ %29, %31 ], [ %22, %24 ]
-  %125 = load ptr, ptr %.sink133, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 %.sink132
-  store ptr %126, ptr %.sink133, align 8
+_ZN17AbstractAssembler12int_constantEi.exit.thread100.sink.split: ; preds = %24, %33, %42, %51, %72, %84, %125
+  %.sink = phi ptr [ %123, %125 ], [ %82, %84 ], [ %70, %72 ], [ %49, %51 ], [ %40, %42 ], [ %31, %33 ], [ %22, %24 ]
   call void @_ZN17AbstractAssembler11end_a_constEP11CodeSection(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %.sink) #10
   br label %_ZN17AbstractAssembler12int_constantEi.exit.thread100
 
-_ZN17AbstractAssembler12int_constantEi.exit.thread100: ; preds = %93, %_ZN17AbstractAssembler12int_constantEi.exit.thread100.sink.split, %_ZN17AbstractAssembler16address_constantEPh.exit43, %_ZN17AbstractAssembler12int_constantEi.exit
+_ZN17AbstractAssembler12int_constantEi.exit.thread100: ; preds = %105, %_ZN17AbstractAssembler12int_constantEi.exit.thread100.sink.split, %_ZN17AbstractAssembler16address_constantEPh.exit43, %_ZN17AbstractAssembler12int_constantEi.exit
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
-  %127 = load i32, ptr %0, align 8
-  %128 = sext i32 %127 to i64
-  %.not = icmp slt i64 %indvars.iv.next126, %128
+  %139 = load i32, ptr %0, align 8
+  %140 = sext i32 %139 to i64
+  %.not = icmp slt i64 %indvars.iv.next126, %140
   br i1 %.not, label %16, label %_ZN17AbstractAssembler16address_constantEPh.exit43.thread, !llvm.loop !20
 
-_ZN17AbstractAssembler16address_constantEPh.exit43.thread: ; preds = %_ZN17AbstractAssembler12int_constantEi.exit, %_ZN17AbstractAssembler12int_constantEi.exit.thread100, %79, %21, %28, %35, %42, %_ZN11OopRecorder10find_indexEP8_jobject.exit, %71, %_ZN11OopRecorder10find_indexEP8Metadata.exit, %.lr.ph, %2
-  %129 = phi i1 [ true, %2 ], [ false, %.lr.ph ], [ false, %_ZN17AbstractAssembler12int_constantEi.exit ], [ true, %_ZN17AbstractAssembler12int_constantEi.exit.thread100 ], [ false, %79 ], [ false, %21 ], [ false, %28 ], [ false, %35 ], [ false, %42 ], [ false, %_ZN11OopRecorder10find_indexEP8_jobject.exit ], [ false, %71 ], [ false, %_ZN11OopRecorder10find_indexEP8Metadata.exit ]
-  ret i1 %129
+_ZN17AbstractAssembler16address_constantEPh.exit43.thread: ; preds = %_ZN17AbstractAssembler12int_constantEi.exit, %_ZN17AbstractAssembler12int_constantEi.exit.thread100, %91, %21, %30, %39, %48, %_ZN11OopRecorder10find_indexEP8_jobject.exit, %81, %_ZN11OopRecorder10find_indexEP8Metadata.exit, %.lr.ph, %2
+  %141 = phi i1 [ true, %2 ], [ false, %.lr.ph ], [ false, %_ZN17AbstractAssembler12int_constantEi.exit ], [ true, %_ZN17AbstractAssembler12int_constantEi.exit.thread100 ], [ false, %91 ], [ false, %21 ], [ false, %30 ], [ false, %39 ], [ false, %48 ], [ false, %_ZN11OopRecorder10find_indexEP8_jobject.exit ], [ false, %81 ], [ false, %_ZN11OopRecorder10find_indexEP8Metadata.exit ]
+  ret i1 %141
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

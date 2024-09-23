@@ -1159,11 +1159,11 @@ define hidden void @_ZN11CodeSection8relocateEPhN9relocInfo9relocTypeEii(ptr nou
   store ptr null, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %6, i64 16
   store i32 0, ptr %12, align 8
-  switch i32 %2, label %24 [
+  switch i32 %2, label %27 [
     i32 0, label %_ZN11CodeSection8relocateEPhRK16RelocationHolderi.exit
     i32 3, label %13
-    i32 4, label %17
-    i32 2, label %21
+    i32 4, label %18
+    i32 2, label %23
   ]
 
 13:                                               ; preds = %5
@@ -1174,117 +1174,121 @@ define hidden void @_ZN11CodeSection8relocateEPhN9relocInfo9relocTypeEii(ptr nou
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV27opt_virtual_call_Relocation, i64 16), ptr %7, align 8, !alias.scope !15
   %16 = getelementptr inbounds i8, ptr %7, i64 20
   store i32 %4, ptr %16, align 4, !alias.scope !15
-  br label %27
+  %17 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV27opt_virtual_call_Relocation, i64 32), align 8
+  call void %17(ptr noundef nonnull align 8 dereferenceable(20) %7, ptr noundef nonnull align 8 dereferenceable(40) %6) #16
+  br label %31
 
-17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %8, i64 8
-  store ptr null, ptr %18, align 8, !alias.scope !20
-  %19 = getelementptr inbounds i8, ptr %8, i64 16
-  store i32 4, ptr %19, align 8, !alias.scope !20
+18:                                               ; preds = %5
+  %19 = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr null, ptr %19, align 8, !alias.scope !20
+  %20 = getelementptr inbounds i8, ptr %8, i64 16
+  store i32 4, ptr %20, align 8, !alias.scope !20
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV22static_call_Relocation, i64 16), ptr %8, align 8, !alias.scope !20
-  %20 = getelementptr inbounds i8, ptr %8, i64 20
-  store i32 %4, ptr %20, align 4, !alias.scope !20
-  br label %27
+  %21 = getelementptr inbounds i8, ptr %8, i64 20
+  store i32 %4, ptr %21, align 4, !alias.scope !20
+  %22 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV22static_call_Relocation, i64 32), align 8
+  call void %22(ptr noundef nonnull align 8 dereferenceable(20) %8, ptr noundef nonnull align 8 dereferenceable(40) %6) #16
+  br label %31
 
-21:                                               ; preds = %5
+23:                                               ; preds = %5
   call void @_ZN10Relocation11spec_simpleEN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.RelocationHolder) align 8 %9, i32 noundef 2) #16
-  %22 = load ptr, ptr %9, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 16
-  br label %27
+  %24 = load ptr, ptr %9, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 16
+  %26 = load ptr, ptr %25, align 8
+  call void %26(ptr noundef nonnull align 8 dereferenceable(20) %9, ptr noundef nonnull align 8 dereferenceable(40) %6) #16
+  br label %31
 
-24:                                               ; preds = %5
+27:                                               ; preds = %5
   call void @_ZN10Relocation11spec_simpleEN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.RelocationHolder) align 8 %10, i32 noundef %2) #16
-  %25 = load ptr, ptr %10, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
-  br label %27
+  %28 = load ptr, ptr %10, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 16
+  %30 = load ptr, ptr %29, align 8
+  call void %30(ptr noundef nonnull align 8 dereferenceable(20) %10, ptr noundef nonnull align 8 dereferenceable(40) %6) #16
+  br label %31
 
-27:                                               ; preds = %24, %21, %17, %13
-  %.sink11 = phi ptr [ %26, %24 ], [ %23, %21 ], [ getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV22static_call_Relocation, i64 32), %17 ], [ getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV27opt_virtual_call_Relocation, i64 32), %13 ]
-  %.sink = phi ptr [ %10, %24 ], [ %9, %21 ], [ %8, %17 ], [ %7, %13 ]
-  %28 = load ptr, ptr %.sink11, align 8
-  call void %28(ptr noundef nonnull align 8 dereferenceable(20) %.sink, ptr noundef nonnull align 8 dereferenceable(40) %6) #16
-  %29 = getelementptr inbounds i8, ptr %0, i64 65
-  %30 = load i8, ptr %29, align 1
-  %31 = trunc i8 %30 to i1
-  br i1 %31, label %_ZN11CodeSection8relocateEPhRK16RelocationHolderi.exit, label %32
-
-32:                                               ; preds = %27
-  %33 = load i32, ptr %12, align 8
-  %34 = icmp eq i32 %33, 0
+31:                                               ; preds = %27, %23, %18, %13
+  %32 = getelementptr inbounds i8, ptr %0, i64 65
+  %33 = load i8, ptr %32, align 1
+  %34 = trunc i8 %33 to i1
   br i1 %34, label %_ZN11CodeSection8relocateEPhRK16RelocationHolderi.exit, label %35
 
-35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %0, i64 40
-  %37 = load ptr, ptr %36, align 8
-  %.not29.i = icmp eq ptr %37, null
-  br i1 %.not29.i, label %_ZN11CodeSection8relocateEPhRK16RelocationHolderi.exit, label %38
+35:                                               ; preds = %31
+  %36 = load i32, ptr %12, align 8
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %_ZN11CodeSection8relocateEPhRK16RelocationHolderi.exit, label %38
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %0, i64 56
+  %39 = getelementptr inbounds i8, ptr %0, i64 40
   %40 = load ptr, ptr %39, align 8
-  %41 = ptrtoint ptr %1 to i64
-  %42 = ptrtoint ptr %40 to i64
-  %43 = sub i64 %41, %42
-  %44 = trunc i64 %43 to i32
-  store ptr %1, ptr %39, align 8
-  %45 = getelementptr inbounds i8, ptr %37, i64 30
-  %46 = getelementptr inbounds i8, ptr %0, i64 48
-  %47 = load ptr, ptr %46, align 8
-  %.not.i = icmp ult ptr %45, %47
-  %.not25.i = icmp slt i32 %44, 256
+  %.not29.i = icmp eq ptr %40, null
+  br i1 %.not29.i, label %_ZN11CodeSection8relocateEPhRK16RelocationHolderi.exit, label %41
+
+41:                                               ; preds = %38
+  %42 = getelementptr inbounds i8, ptr %0, i64 56
+  %43 = load ptr, ptr %42, align 8
+  %44 = ptrtoint ptr %1 to i64
+  %45 = ptrtoint ptr %43 to i64
+  %46 = sub i64 %44, %45
+  %47 = trunc i64 %46 to i32
+  store ptr %1, ptr %42, align 8
+  %48 = getelementptr inbounds i8, ptr %40, i64 30
+  %49 = getelementptr inbounds i8, ptr %0, i64 48
+  %50 = load ptr, ptr %49, align 8
+  %.not.i = icmp ult ptr %48, %50
+  %.not25.i = icmp slt i32 %47, 256
   %or.cond.i = select i1 %.not.i, i1 %.not25.i, i1 false
-  br i1 %or.cond.i, label %._crit_edge.i, label %48
+  br i1 %or.cond.i, label %._crit_edge.i, label %51
 
-48:                                               ; preds = %38
-  %49 = lshr i64 %43, 8
-  %50 = and i64 %49, 16777215
-  %51 = getelementptr inbounds %class.relocInfo, ptr %45, i64 %50
-  %.not26.i = icmp ult ptr %51, %47
-  br i1 %.not26.i, label %66, label %52
+51:                                               ; preds = %41
+  %52 = lshr i64 %46, 8
+  %53 = and i64 %52, 16777215
+  %54 = getelementptr inbounds %class.relocInfo, ptr %48, i64 %53
+  %.not26.i = icmp ult ptr %54, %50
+  br i1 %.not26.i, label %69, label %55
 
-52:                                               ; preds = %48
-  %53 = getelementptr inbounds i8, ptr %0, i64 32
-  %54 = load ptr, ptr %53, align 8
-  %55 = ptrtoint ptr %37 to i64
-  %56 = ptrtoint ptr %54 to i64
-  %57 = sub i64 %55, %56
-  %58 = lshr exact i64 %57, 1
-  %59 = trunc i64 %58 to i32
-  %60 = ptrtoint ptr %51 to i64
-  %61 = sub i64 %60, %55
-  %62 = lshr exact i64 %61, 1
-  %63 = trunc i64 %62 to i32
-  %64 = add i32 %59, %63
-  call void @_ZN11CodeSection11expand_locsEi(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %64)
-  %65 = load ptr, ptr %36, align 8
-  br label %66
+55:                                               ; preds = %51
+  %56 = getelementptr inbounds i8, ptr %0, i64 32
+  %57 = load ptr, ptr %56, align 8
+  %58 = ptrtoint ptr %40 to i64
+  %59 = ptrtoint ptr %57 to i64
+  %60 = sub i64 %58, %59
+  %61 = lshr exact i64 %60, 1
+  %62 = trunc i64 %61 to i32
+  %63 = ptrtoint ptr %54 to i64
+  %64 = sub i64 %63, %58
+  %65 = lshr exact i64 %64, 1
+  %66 = trunc i64 %65 to i32
+  %67 = add i32 %62, %66
+  call void @_ZN11CodeSection11expand_locsEi(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %67)
+  %68 = load ptr, ptr %39, align 8
+  br label %69
 
-66:                                               ; preds = %52, %48
-  %.022.i = phi ptr [ %65, %52 ], [ %37, %48 ]
+69:                                               ; preds = %55, %51
+  %.022.i = phi ptr [ %68, %55 ], [ %40, %51 ]
   br i1 %.not25.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %66, %.lr.ph.i
-  %.032.i = phi i32 [ %68, %.lr.ph.i ], [ %44, %66 ]
-  %.131.i = phi ptr [ %67, %.lr.ph.i ], [ %.022.i, %66 ]
-  %67 = getelementptr inbounds i8, ptr %.131.i, i64 2
+.lr.ph.i:                                         ; preds = %69, %.lr.ph.i
+  %.032.i = phi i32 [ %71, %.lr.ph.i ], [ %47, %69 ]
+  %.131.i = phi ptr [ %70, %.lr.ph.i ], [ %.022.i, %69 ]
+  %70 = getelementptr inbounds i8, ptr %.131.i, i64 2
   store i16 255, ptr %.131.i, align 2
-  %68 = add nsw i32 %.032.i, -255
+  %71 = add nsw i32 %.032.i, -255
   %.not27.i = icmp ult i32 %.032.i, 511
   br i1 %.not27.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !25
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %66, %38
-  %.1.lcssa.i = phi ptr [ %.022.i, %66 ], [ %37, %38 ], [ %67, %.lr.ph.i ]
-  %.0.lcssa.i = phi i32 [ %44, %66 ], [ %44, %38 ], [ %68, %.lr.ph.i ]
-  %69 = shl i32 %3, 8
-  %70 = shl i32 %33, 11
-  %71 = add i32 %70, %69
-  %72 = add i32 %71, %.0.lcssa.i
-  %73 = trunc i32 %72 to i16
-  store i16 %73, ptr %.1.lcssa.i, align 2
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %69, %41
+  %.1.lcssa.i = phi ptr [ %.022.i, %69 ], [ %40, %41 ], [ %70, %.lr.ph.i ]
+  %.0.lcssa.i = phi i32 [ %47, %69 ], [ %47, %41 ], [ %71, %.lr.ph.i ]
+  %72 = shl i32 %3, 8
+  %73 = shl i32 %36, 11
+  %74 = add i32 %73, %72
+  %75 = add i32 %74, %.0.lcssa.i
+  %76 = trunc i32 %75 to i16
+  store i16 %76, ptr %.1.lcssa.i, align 2
   call void @_ZN9relocInfo10initializeEP11CodeSectionP10Relocation(ptr noundef nonnull align 2 dereferenceable(2) %.1.lcssa.i, ptr noundef nonnull %0, ptr noundef nonnull %6) #16
   br label %_ZN11CodeSection8relocateEPhRK16RelocationHolderi.exit
 
-_ZN11CodeSection8relocateEPhRK16RelocationHolderi.exit: ; preds = %._crit_edge.i, %35, %32, %27, %5
+_ZN11CodeSection8relocateEPhRK16RelocationHolderi.exit: ; preds = %._crit_edge.i, %38, %35, %31, %5
   ret void
 }
 
@@ -3376,7 +3380,8 @@ define hidden void @_ZN10CodeBuffer6expandEP11CodeSectioni(ptr noundef nonnull a
 
 34:                                               ; preds = %32
   call void @_ZN10BufferBlob4freeEPS_(ptr noundef nonnull %33) #16
-  br label %_ZN10CodeBuffer9free_blobEv.exit.sink.split
+  store ptr null, ptr %6, align 8
+  br label %_ZN10CodeBuffer9free_blobEv.exit
 
 35:                                               ; preds = %9
   %36 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 448, i32 noundef 0) #16
@@ -3724,14 +3729,10 @@ _ZN10CodeBuffer19take_over_code_fromEPS_.exit33:  ; preds = %_ZN10CodeBuffer8set
   %229 = load ptr, ptr %21, align 8
   store ptr %229, ptr %125, align 8
   store ptr null, ptr %21, align 8
-  br label %_ZN10CodeBuffer9free_blobEv.exit.sink.split
-
-_ZN10CodeBuffer9free_blobEv.exit.sink.split:      ; preds = %_ZN10CodeBuffer19take_over_code_fromEPS_.exit33, %34
-  %.sink39 = phi ptr [ %6, %34 ], [ %29, %_ZN10CodeBuffer19take_over_code_fromEPS_.exit33 ]
-  store ptr null, ptr %.sink39, align 8
+  store ptr null, ptr %29, align 8
   br label %_ZN10CodeBuffer9free_blobEv.exit
 
-_ZN10CodeBuffer9free_blobEv.exit:                 ; preds = %_ZN10CodeBuffer9free_blobEv.exit.sink.split, %32
+_ZN10CodeBuffer9free_blobEv.exit:                 ; preds = %34, %32, %_ZN10CodeBuffer19take_over_code_fromEPS_.exit33
   call void @_ZN10CodeBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(448) %5) #16
   br label %230
 
@@ -4176,7 +4177,7 @@ define linkonce_odr hidden void @_ZN14LinkedListImplIiLN6AnyObj15allocation_type
 5:                                                ; preds = %6, %2
   %.0 = phi ptr [ %4, %2 ], [ %8, %6 ]
   %cond = icmp eq ptr %.0, null
-  br i1 %cond, label %.loopexit, label %6
+  br i1 %cond, label %9, label %6
 
 6:                                                ; preds = %5
   %7 = getelementptr inbounds i8, ptr %.0, i64 8
@@ -4184,17 +4185,22 @@ define linkonce_odr hidden void @_ZN14LinkedListImplIiLN6AnyObj15allocation_type
   %.not9 = icmp eq ptr %8, null
   br i1 %.not9, label %.critedge, label %5, !llvm.loop !52
 
-.critedge:                                        ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %.0, i64 8
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %5, %.critedge
-  %.sink11 = phi ptr [ %9, %.critedge ], [ %3, %5 ]
+9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
-  store ptr %11, ptr %.sink11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
-  store ptr null, ptr %12, align 8
+  store ptr %11, ptr %3, align 8
+  br label %15
+
+.critedge:                                        ; preds = %6
+  %12 = getelementptr inbounds i8, ptr %.0, i64 8
+  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = load ptr, ptr %13, align 8
+  store ptr %14, ptr %12, align 8
+  br label %15
+
+15:                                               ; preds = %.critedge, %9
+  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  store ptr null, ptr %16, align 8
   ret void
 }
 
@@ -4300,7 +4306,8 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplIiLN6AnyObj15allocati
 
 12:                                               ; preds = %6
   store ptr %2, ptr %8, align 8
-  br label %_ZNK14LinkedListImplIiLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKi.exit.thread.sink.split
+  store ptr %4, ptr %9, align 8
+  br label %_ZNK14LinkedListImplIiLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKi.exit.thread
 
 .preheader:                                       ; preds = %6, %13
   %.0 = phi ptr [ %15, %13 ], [ %10, %6 ]
@@ -4316,14 +4323,10 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplIiLN6AnyObj15allocati
 .critedge:                                        ; preds = %.preheader, %13
   store ptr %2, ptr %8, align 8
   %16 = getelementptr inbounds i8, ptr %.0, i64 8
-  br label %_ZNK14LinkedListImplIiLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKi.exit.thread.sink.split
-
-_ZNK14LinkedListImplIiLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKi.exit.thread.sink.split: ; preds = %.critedge, %12
-  %.sink = phi ptr [ %9, %12 ], [ %16, %.critedge ]
-  store ptr %4, ptr %.sink, align 8
+  store ptr %4, ptr %16, align 8
   br label %_ZNK14LinkedListImplIiLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKi.exit.thread
 
-_ZNK14LinkedListImplIiLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKi.exit.thread: ; preds = %_ZNK14LinkedListImplIiLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKi.exit.thread.sink.split, %3
+_ZNK14LinkedListImplIiLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKi.exit.thread: ; preds = %3, %12, %.critedge
   ret ptr %4
 }
 
@@ -4438,50 +4441,67 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplIiLN6AnyObj15a
 9:                                                ; preds = %4
   %10 = icmp ne ptr %.016, null
   %or.cond.not = and i1 %10, %5
-  br i1 %or.cond.not, label %_ZN14LinkedListImplIiLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIiE.exit, label %15
+  br i1 %or.cond.not, label %11, label %18
 
-_ZN14LinkedListImplIiLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIiE.exit: ; preds = %9
-  %11 = icmp eq ptr %.0, null
-  %12 = getelementptr inbounds i8, ptr %.016, i64 8
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %.0, i64 8
-  %.sink = select i1 %11, ptr %3, ptr %14
-  store ptr %13, ptr %.sink, align 8
+11:                                               ; preds = %9
+  %12 = icmp eq ptr %.0, null
+  %13 = getelementptr inbounds i8, ptr %.016, i64 8
+  %14 = load ptr, ptr %13, align 8
+  br i1 %12, label %15, label %16
+
+15:                                               ; preds = %11
+  store ptr %14, ptr %3, align 8
+  br label %_ZN14LinkedListImplIiLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIiE.exit
+
+16:                                               ; preds = %11
+  %17 = getelementptr inbounds i8, ptr %.0, i64 8
+  store ptr %14, ptr %17, align 8
+  br label %_ZN14LinkedListImplIiLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIiE.exit
+
+_ZN14LinkedListImplIiLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIiE.exit: ; preds = %16, %15
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.016) #16
-  br label %15
+  br label %18
 
-15:                                               ; preds = %9, %_ZN14LinkedListImplIiLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIiE.exit
+18:                                               ; preds = %9, %_ZN14LinkedListImplIiLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIiE.exit
   ret i1 %or.cond.not
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplIiLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE12remove_afterEP14LinkedListNodeIiE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = icmp eq ptr %1, null
-  br i1 %3, label %4, label %7
+  br i1 %3, label %4, label %10
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
-  br i1 %.not.i, label %_ZN10LinkedListIiE11unlink_headEv.exit, label %_ZN14LinkedListImplIiLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIiE.exit
+  br i1 %.not.i, label %_ZN10LinkedListIiE11unlink_headEv.exit, label %7
 
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+7:                                                ; preds = %4
+  %8 = getelementptr inbounds i8, ptr %6, i64 8
   %9 = load ptr, ptr %8, align 8
-  %.not = icmp eq ptr %9, null
-  br i1 %.not, label %_ZN10LinkedListIiE11unlink_headEv.exit, label %_ZN14LinkedListImplIiLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIiE.exit
+  store ptr %9, ptr %5, align 8
+  br label %_ZN14LinkedListImplIiLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIiE.exit
 
-_ZN14LinkedListImplIiLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIiE.exit: ; preds = %7, %4
-  %.sink = phi ptr [ %6, %4 ], [ %9, %7 ]
-  %.sink18 = phi ptr [ %5, %4 ], [ %8, %7 ]
-  %10 = getelementptr inbounds i8, ptr %.sink, i64 8
-  %11 = load ptr, ptr %10, align 8
-  store ptr %11, ptr %.sink18, align 8
-  tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.sink) #16
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = load ptr, ptr %11, align 8
+  %.not = icmp eq ptr %12, null
+  br i1 %.not, label %_ZN10LinkedListIiE11unlink_headEv.exit, label %13
+
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %15 = load ptr, ptr %14, align 8
+  store ptr %15, ptr %11, align 8
+  br label %_ZN14LinkedListImplIiLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIiE.exit
+
+_ZN14LinkedListImplIiLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIiE.exit: ; preds = %13, %7
+  %.0.ph = phi ptr [ %6, %7 ], [ %12, %13 ]
+  tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.0.ph) #16
   br label %_ZN10LinkedListIiE11unlink_headEv.exit
 
-_ZN10LinkedListIiE11unlink_headEv.exit:           ; preds = %7, %4, %_ZN14LinkedListImplIiLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIiE.exit
-  %.not1216 = phi i1 [ true, %_ZN14LinkedListImplIiLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIiE.exit ], [ false, %4 ], [ false, %7 ]
+_ZN10LinkedListIiE11unlink_headEv.exit:           ; preds = %10, %4, %_ZN14LinkedListImplIiLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIiE.exit
+  %.not1216 = phi i1 [ true, %_ZN14LinkedListImplIiLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIiE.exit ], [ false, %4 ], [ false, %10 ]
   ret i1 %.not1216
 }
 

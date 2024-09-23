@@ -22015,6 +22015,7 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   %59 = getelementptr inbounds { i32, i32 }, ptr %18, i64 %31
   %60 = getelementptr inbounds i8, ptr %59, i64 -4
   %61 = load i32, ptr %60, align 4, !noundef !25
+  store i32 %2, ptr %60, align 4
   br label %80
 
 62:                                               ; preds = %51, %46
@@ -22042,13 +22043,12 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   %78 = getelementptr inbounds i8, ptr %77, i64 -8
   store i32 %1, ptr %78, align 4, !noalias !7073
   %79 = getelementptr inbounds i8, ptr %77, i64 -4
+  store i32 %2, ptr %79, align 4, !noalias !7073
   br label %80
 
 80:                                               ; preds = %62, %58
-  %.sink = phi ptr [ %79, %62 ], [ %60, %58 ]
   %.sroa.3.0 = phi i32 [ undef, %62 ], [ %61, %58 ]
   %.sroa.0.0 = phi i32 [ 0, %62 ], [ 1, %58 ]
-  store i32 %2, ptr %.sink, align 4
   %81 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %82 = insertvalue { i32, i32 } %81, i32 %.sroa.3.0, 1
   ret { i32, i32 } %82
@@ -22832,6 +22832,7 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
 90:                                               ; preds = %61
   %91 = getelementptr inbounds i8, ptr %49, i64 -4
   %92 = load i32, ptr %91, align 4, !noundef !25
+  store i32 %2, ptr %91, align 4
   br label %110
 
 93:                                               ; preds = %83, %78
@@ -22859,13 +22860,12 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   %109 = getelementptr inbounds i8, ptr %108, i64 -20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %109, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
   %.sroa.46.0..sroa_idx = getelementptr inbounds i8, ptr %108, i64 -4
+  store i32 %2, ptr %.sroa.46.0..sroa_idx, align 4, !noalias !7300
   br label %110
 
 110:                                              ; preds = %93, %90
-  %.sroa.46.0..sroa_idx.sink = phi ptr [ %.sroa.46.0..sroa_idx, %93 ], [ %91, %90 ]
   %.sroa.3.0 = phi i32 [ undef, %93 ], [ %92, %90 ]
   %.sroa.0.0 = phi i32 [ 0, %93 ], [ 1, %90 ]
-  store i32 %2, ptr %.sroa.46.0..sroa_idx.sink, align 4
   %111 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %112 = insertvalue { i32, i32 } %111, i32 %.sroa.3.0, 1
   ret { i32, i32 } %112
@@ -22997,6 +22997,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
 64:                                               ; preds = %36
   %65 = getelementptr inbounds i8, ptr %34, i64 -8
   %66 = load i64, ptr %65, align 8, !noundef !25
+  store i64 %3, ptr %65, align 8
   br label %84
 
 67:                                               ; preds = %57, %52
@@ -23026,13 +23027,12 @@ define hidden { i64, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   %.sroa.412.0..sroa_idx = getelementptr inbounds i8, ptr %82, i64 -16
   store i64 %2, ptr %.sroa.412.0..sroa_idx, align 8, !noalias !7371
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %82, i64 -8
+  store i64 %3, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !7371
   br label %84
 
 84:                                               ; preds = %67, %64
-  %.sroa.5.0..sroa_idx.sink = phi ptr [ %.sroa.5.0..sroa_idx, %67 ], [ %65, %64 ]
   %.sroa.3.0 = phi i64 [ undef, %67 ], [ %66, %64 ]
   %.sroa.0.0 = phi i64 [ 0, %67 ], [ 1, %64 ]
-  store i64 %3, ptr %.sroa.5.0..sroa_idx.sink, align 8
   %85 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %86 = insertvalue { i64, i64 } %85, i64 %.sroa.3.0, 1
   ret { i64, i64 } %86
@@ -23537,6 +23537,7 @@ define hidden noundef i32 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
 80:                                               ; preds = %51
   %81 = getelementptr inbounds i8, ptr %43, i64 -4
   %82 = load i32, ptr %81, align 4, !range !4673, !noundef !25
+  store i32 %2, ptr %81, align 4
   br label %100
 
 83:                                               ; preds = %73, %68
@@ -23564,12 +23565,11 @@ define hidden noundef i32 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   %99 = getelementptr inbounds i8, ptr %98, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %99, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %.sroa.47.0..sroa_idx = getelementptr inbounds i8, ptr %98, i64 -4
+  store i32 %2, ptr %.sroa.47.0..sroa_idx, align 4, !noalias !7509
   br label %100
 
 100:                                              ; preds = %83, %80
-  %.sroa.47.0..sroa_idx.sink = phi ptr [ %.sroa.47.0..sroa_idx, %83 ], [ %81, %80 ]
   %.0 = phi i32 [ 0, %83 ], [ %82, %80 ]
-  store i32 %2, ptr %.sroa.47.0..sroa_idx.sink, align 4
   ret i32 %.0
 }
 
@@ -24052,6 +24052,7 @@ define hidden noundef i32 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
 80:                                               ; preds = %51
   %81 = getelementptr inbounds i8, ptr %43, i64 -4
   %82 = load i32, ptr %81, align 4, !range !4673, !noundef !25
+  store i32 %2, ptr %81, align 4
   br label %100
 
 83:                                               ; preds = %73, %68
@@ -24079,12 +24080,11 @@ define hidden noundef i32 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   %99 = getelementptr inbounds i8, ptr %98, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %99, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %.sroa.47.0..sroa_idx = getelementptr inbounds i8, ptr %98, i64 -4
+  store i32 %2, ptr %.sroa.47.0..sroa_idx, align 4, !noalias !7658
   br label %100
 
 100:                                              ; preds = %83, %80
-  %.sroa.47.0..sroa_idx.sink = phi ptr [ %.sroa.47.0..sroa_idx, %83 ], [ %81, %80 ]
   %.0 = phi i32 [ 0, %83 ], [ %82, %80 ]
-  store i32 %2, ptr %.sroa.47.0..sroa_idx.sink, align 4
   ret i32 %.0
 }
 
@@ -24660,6 +24660,7 @@ define hidden noundef i32 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
 80:                                               ; preds = %51
   %81 = getelementptr inbounds i8, ptr %43, i64 -4
   %82 = load i32, ptr %81, align 4, !range !4673, !noundef !25
+  store i32 %2, ptr %81, align 4
   br label %100
 
 83:                                               ; preds = %73, %68
@@ -24687,12 +24688,11 @@ define hidden noundef i32 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   %99 = getelementptr inbounds i8, ptr %98, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %99, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %.sroa.47.0..sroa_idx = getelementptr inbounds i8, ptr %98, i64 -4
+  store i32 %2, ptr %.sroa.47.0..sroa_idx, align 4, !noalias !7803
   br label %100
 
 100:                                              ; preds = %83, %80
-  %.sroa.47.0..sroa_idx.sink = phi ptr [ %.sroa.47.0..sroa_idx, %83 ], [ %81, %80 ]
   %.0 = phi i32 [ 0, %83 ], [ %82, %80 ]
-  store i32 %2, ptr %.sroa.47.0..sroa_idx.sink, align 4
   ret i32 %.0
 }
 
@@ -24833,6 +24833,7 @@ define hidden noundef i32 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
 80:                                               ; preds = %51
   %81 = getelementptr inbounds i8, ptr %43, i64 -4
   %82 = load i32, ptr %81, align 4, !range !4673, !noundef !25
+  store i32 %2, ptr %81, align 4
   br label %100
 
 83:                                               ; preds = %73, %68
@@ -24860,12 +24861,11 @@ define hidden noundef i32 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   %99 = getelementptr inbounds i8, ptr %98, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %99, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %.sroa.47.0..sroa_idx = getelementptr inbounds i8, ptr %98, i64 -4
+  store i32 %2, ptr %.sroa.47.0..sroa_idx, align 4, !noalias !7849
   br label %100
 
 100:                                              ; preds = %83, %80
-  %.sroa.47.0..sroa_idx.sink = phi ptr [ %.sroa.47.0..sroa_idx, %83 ], [ %81, %80 ]
   %.0 = phi i32 [ 0, %83 ], [ %82, %80 ]
-  store i32 %2, ptr %.sroa.47.0..sroa_idx.sink, align 4
   ret i32 %.0
 }
 
@@ -24998,13 +24998,12 @@ define hidden { i64, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   %66 = getelementptr inbounds { { i32, [1 x i32] }, ptr }, ptr %65, i64 %33
   %67 = getelementptr inbounds i8, ptr %66, i64 -8
   %68 = load ptr, ptr %67, align 8, !noundef !25
+  store ptr %2, ptr %67, align 8
   br label %69
 
 69:                                               ; preds = %72, %64
-  %.sroa.48.0..sroa_idx.sink = phi ptr [ %.sroa.48.0..sroa_idx, %72 ], [ %67, %64 ]
   %.sroa.3.0 = phi ptr [ undef, %72 ], [ %68, %64 ]
   %.sroa.0.0 = phi i64 [ 0, %72 ], [ 1, %64 ]
-  store ptr %2, ptr %.sroa.48.0..sroa_idx.sink, align 8
   %70 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %71 = insertvalue { i64, ptr } %70, ptr %.sroa.3.0, 1
   ret { i64, ptr } %71
@@ -25037,6 +25036,7 @@ define hidden { i64, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   %91 = getelementptr inbounds i8, ptr %90, i64 -16
   store i64 %73, ptr %91, align 8, !noalias !7885
   %.sroa.48.0..sroa_idx = getelementptr inbounds i8, ptr %90, i64 -8
+  store ptr %2, ptr %.sroa.48.0..sroa_idx, align 8, !noalias !7885
   br label %69
 
 .loopexit:                                        ; preds = %27
@@ -25702,6 +25702,7 @@ define hidden noundef i32 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
 80:                                               ; preds = %51
   %81 = getelementptr inbounds i8, ptr %43, i64 -4
   %82 = load i32, ptr %81, align 4, !range !4673, !noundef !25
+  store i32 %2, ptr %81, align 4
   br label %100
 
 83:                                               ; preds = %73, %68
@@ -25729,12 +25730,11 @@ define hidden noundef i32 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   %99 = getelementptr inbounds i8, ptr %98, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %99, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %.sroa.47.0..sroa_idx = getelementptr inbounds i8, ptr %98, i64 -4
+  store i32 %2, ptr %.sroa.47.0..sroa_idx, align 4, !noalias !8074
   br label %100
 
 100:                                              ; preds = %83, %80
-  %.sroa.47.0..sroa_idx.sink = phi ptr [ %.sroa.47.0..sroa_idx, %83 ], [ %81, %80 ]
   %.0 = phi i32 [ 0, %83 ], [ %82, %80 ]
-  store i32 %2, ptr %.sroa.47.0..sroa_idx.sink, align 4
   ret i32 %.0
 }
 
@@ -25875,6 +25875,7 @@ define hidden noundef i32 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
 80:                                               ; preds = %51
   %81 = getelementptr inbounds i8, ptr %43, i64 -4
   %82 = load i32, ptr %81, align 4, !range !4673, !noundef !25
+  store i32 %2, ptr %81, align 4
   br label %100
 
 83:                                               ; preds = %73, %68
@@ -25902,12 +25903,11 @@ define hidden noundef i32 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   %99 = getelementptr inbounds i8, ptr %98, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %99, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %.sroa.47.0..sroa_idx = getelementptr inbounds i8, ptr %98, i64 -4
+  store i32 %2, ptr %.sroa.47.0..sroa_idx, align 4, !noalias !8120
   br label %100
 
 100:                                              ; preds = %83, %80
-  %.sroa.47.0..sroa_idx.sink = phi ptr [ %.sroa.47.0..sroa_idx, %83 ], [ %81, %80 ]
   %.0 = phi i32 [ 0, %83 ], [ %82, %80 ]
-  store i32 %2, ptr %.sroa.47.0..sroa_idx.sink, align 4
   ret i32 %.0
 }
 
@@ -26136,6 +26136,7 @@ define hidden noundef i32 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
 80:                                               ; preds = %51
   %81 = getelementptr inbounds i8, ptr %43, i64 -4
   %82 = load i32, ptr %81, align 4, !range !4673, !noundef !25
+  store i32 %2, ptr %81, align 4
   br label %100
 
 83:                                               ; preds = %73, %68
@@ -26163,12 +26164,11 @@ define hidden noundef i32 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   %99 = getelementptr inbounds i8, ptr %98, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %99, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %.sroa.47.0..sroa_idx = getelementptr inbounds i8, ptr %98, i64 -4
+  store i32 %2, ptr %.sroa.47.0..sroa_idx, align 4, !noalias !8196
   br label %100
 
 100:                                              ; preds = %83, %80
-  %.sroa.47.0..sroa_idx.sink = phi ptr [ %.sroa.47.0..sroa_idx, %83 ], [ %81, %80 ]
   %.0 = phi i32 [ 0, %83 ], [ %82, %80 ]
-  store i32 %2, ptr %.sroa.47.0..sroa_idx.sink, align 4
   ret i32 %.0
 }
 
@@ -26321,6 +26321,7 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
 90:                                               ; preds = %61
   %91 = getelementptr inbounds i8, ptr %49, i64 -4
   %92 = load i32, ptr %91, align 4, !noundef !25
+  store i32 %2, ptr %91, align 4
   br label %110
 
 93:                                               ; preds = %83, %78
@@ -26348,13 +26349,12 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   %109 = getelementptr inbounds i8, ptr %108, i64 -20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %109, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
   %.sroa.46.0..sroa_idx = getelementptr inbounds i8, ptr %108, i64 -4
+  store i32 %2, ptr %.sroa.46.0..sroa_idx, align 4, !noalias !8250
   br label %110
 
 110:                                              ; preds = %93, %90
-  %.sroa.46.0..sroa_idx.sink = phi ptr [ %.sroa.46.0..sroa_idx, %93 ], [ %91, %90 ]
   %.sroa.3.0 = phi i32 [ undef, %93 ], [ %92, %90 ]
   %.sroa.0.0 = phi i32 [ 0, %93 ], [ 1, %90 ]
-  store i32 %2, ptr %.sroa.46.0..sroa_idx.sink, align 4
   %111 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %112 = insertvalue { i32, i32 } %111, i32 %.sroa.3.0, 1
   ret { i32, i32 } %112
@@ -26482,6 +26482,7 @@ define hidden noundef i32 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
 66:                                               ; preds = %38
   %67 = getelementptr inbounds i8, ptr %35, i64 -4
   %68 = load i32, ptr %67, align 4, !range !4673, !noundef !25
+  store i32 %3, ptr %67, align 4
   br label %86
 
 69:                                               ; preds = %59, %54
@@ -26511,12 +26512,11 @@ define hidden noundef i32 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   %.sroa.411.0..sroa_idx = getelementptr inbounds i8, ptr %84, i64 -8
   store i32 %2, ptr %.sroa.411.0..sroa_idx, align 4, !noalias !8290
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %84, i64 -4
+  store i32 %3, ptr %.sroa.5.0..sroa_idx, align 4, !noalias !8290
   br label %86
 
 86:                                               ; preds = %69, %66
-  %.sroa.5.0..sroa_idx.sink = phi ptr [ %.sroa.5.0..sroa_idx, %69 ], [ %67, %66 ]
   %.0 = phi i32 [ 0, %69 ], [ %68, %66 ]
-  store i32 %3, ptr %.sroa.5.0..sroa_idx.sink, align 4
   ret i32 %.0
 }
 
@@ -27191,6 +27191,7 @@ define hidden noundef i32 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
 80:                                               ; preds = %51
   %81 = getelementptr inbounds i8, ptr %43, i64 -4
   %82 = load i32, ptr %81, align 4, !range !4673, !noundef !25
+  store i32 %2, ptr %81, align 4
   br label %100
 
 83:                                               ; preds = %73, %68
@@ -27218,12 +27219,11 @@ define hidden noundef i32 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   %99 = getelementptr inbounds i8, ptr %98, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %99, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %.sroa.47.0..sroa_idx = getelementptr inbounds i8, ptr %98, i64 -4
+  store i32 %2, ptr %.sroa.47.0..sroa_idx, align 4, !noalias !8497
   br label %100
 
 100:                                              ; preds = %83, %80
-  %.sroa.47.0..sroa_idx.sink = phi ptr [ %.sroa.47.0..sroa_idx, %83 ], [ %81, %80 ]
   %.0 = phi i32 [ 0, %83 ], [ %82, %80 ]
-  store i32 %2, ptr %.sroa.47.0..sroa_idx.sink, align 4
   ret i32 %.0
 }
 
@@ -28778,6 +28778,7 @@ define hidden noundef i32 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
 80:                                               ; preds = %51
   %81 = getelementptr inbounds i8, ptr %43, i64 -4
   %82 = load i32, ptr %81, align 4, !range !4673, !noundef !25
+  store i32 %2, ptr %81, align 4
   br label %100
 
 83:                                               ; preds = %73, %68
@@ -28805,12 +28806,11 @@ define hidden noundef i32 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   %99 = getelementptr inbounds i8, ptr %98, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %99, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %.sroa.47.0..sroa_idx = getelementptr inbounds i8, ptr %98, i64 -4
+  store i32 %2, ptr %.sroa.47.0..sroa_idx, align 4, !noalias !8911
   br label %100
 
 100:                                              ; preds = %83, %80
-  %.sroa.47.0..sroa_idx.sink = phi ptr [ %.sroa.47.0..sroa_idx, %83 ], [ %81, %80 ]
   %.0 = phi i32 [ 0, %83 ], [ %82, %80 ]
-  store i32 %2, ptr %.sroa.47.0..sroa_idx.sink, align 4
   ret i32 %.0
 }
 
@@ -28932,13 +28932,12 @@ define hidden { ptr, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   %63 = getelementptr inbounds i8, ptr %60, i64 -8
   %64 = load i64, ptr %63, align 8, !noundef !25
   store ptr %2, ptr %61, align 8
+  store i64 %3, ptr %63, align 8
   br label %65
 
 65:                                               ; preds = %68, %59
-  %.sroa.5.0..sroa_idx.sink = phi ptr [ %.sroa.5.0..sroa_idx, %68 ], [ %63, %59 ]
   %.sroa.3.0 = phi i64 [ undef, %68 ], [ %64, %59 ]
   %.sroa.0.0 = phi ptr [ null, %68 ], [ %62, %59 ]
-  store i64 %3, ptr %.sroa.5.0..sroa_idx.sink, align 8
   %66 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %67 = insertvalue { ptr, i64 } %66, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %67
@@ -28970,6 +28969,7 @@ define hidden { ptr, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   %.sroa.415.0..sroa_idx = getelementptr inbounds i8, ptr %83, i64 -16
   store ptr %2, ptr %.sroa.415.0..sroa_idx, align 8, !noalias !8946
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %83, i64 -8
+  store i64 %3, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !8946
   br label %65
 
 85:                                               ; preds = %10
@@ -29124,6 +29124,7 @@ define hidden noundef i32 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
 80:                                               ; preds = %51
   %81 = getelementptr inbounds i8, ptr %43, i64 -4
   %82 = load i32, ptr %81, align 4, !range !4673, !noundef !25
+  store i32 %2, ptr %81, align 4
   br label %100
 
 83:                                               ; preds = %73, %68
@@ -29151,12 +29152,11 @@ define hidden noundef i32 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   %99 = getelementptr inbounds i8, ptr %98, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %99, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %.sroa.47.0..sroa_idx = getelementptr inbounds i8, ptr %98, i64 -4
+  store i32 %2, ptr %.sroa.47.0..sroa_idx, align 4, !noalias !8992
   br label %100
 
 100:                                              ; preds = %83, %80
-  %.sroa.47.0..sroa_idx.sink = phi ptr [ %.sroa.47.0..sroa_idx, %83 ], [ %81, %80 ]
   %.0 = phi i32 [ 0, %83 ], [ %82, %80 ]
-  store i32 %2, ptr %.sroa.47.0..sroa_idx.sink, align 4
   ret i32 %.0
 }
 
@@ -29645,6 +29645,7 @@ define hidden noundef i32 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
 80:                                               ; preds = %51
   %81 = getelementptr inbounds i8, ptr %43, i64 -4
   %82 = load i32, ptr %81, align 4, !range !4673, !noundef !25
+  store i32 %2, ptr %81, align 4
   br label %100
 
 83:                                               ; preds = %73, %68
@@ -29672,12 +29673,11 @@ define hidden noundef i32 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   %99 = getelementptr inbounds i8, ptr %98, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %99, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %.sroa.47.0..sroa_idx = getelementptr inbounds i8, ptr %98, i64 -4
+  store i32 %2, ptr %.sroa.47.0..sroa_idx, align 4, !noalias !9163
   br label %100
 
 100:                                              ; preds = %83, %80
-  %.sroa.47.0..sroa_idx.sink = phi ptr [ %.sroa.47.0..sroa_idx, %83 ], [ %81, %80 ]
   %.0 = phi i32 [ 0, %83 ], [ %82, %80 ]
-  store i32 %2, ptr %.sroa.47.0..sroa_idx.sink, align 4
   ret i32 %.0
 }
 
@@ -29982,6 +29982,7 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
 90:                                               ; preds = %61
   %91 = getelementptr inbounds i8, ptr %49, i64 -4
   %92 = load i32, ptr %91, align 4, !noundef !25
+  store i32 %2, ptr %91, align 4
   br label %110
 
 93:                                               ; preds = %83, %78
@@ -30009,13 +30010,12 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   %109 = getelementptr inbounds i8, ptr %108, i64 -20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %109, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
   %.sroa.46.0..sroa_idx = getelementptr inbounds i8, ptr %108, i64 -4
+  store i32 %2, ptr %.sroa.46.0..sroa_idx, align 4, !noalias !9253
   br label %110
 
 110:                                              ; preds = %93, %90
-  %.sroa.46.0..sroa_idx.sink = phi ptr [ %.sroa.46.0..sroa_idx, %93 ], [ %91, %90 ]
   %.sroa.3.0 = phi i32 [ undef, %93 ], [ %92, %90 ]
   %.sroa.0.0 = phi i32 [ 0, %93 ], [ 1, %90 ]
-  store i32 %2, ptr %.sroa.46.0..sroa_idx.sink, align 4
   %111 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %112 = insertvalue { i32, i32 } %111, i32 %.sroa.3.0, 1
   ret { i32, i32 } %112
@@ -30311,6 +30311,7 @@ define hidden noundef i32 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
 80:                                               ; preds = %51
   %81 = getelementptr inbounds i8, ptr %43, i64 -4
   %82 = load i32, ptr %81, align 4, !range !4673, !noundef !25
+  store i32 %2, ptr %81, align 4
   br label %100
 
 83:                                               ; preds = %73, %68
@@ -30338,12 +30339,11 @@ define hidden noundef i32 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   %99 = getelementptr inbounds i8, ptr %98, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %99, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %.sroa.47.0..sroa_idx = getelementptr inbounds i8, ptr %98, i64 -4
+  store i32 %2, ptr %.sroa.47.0..sroa_idx, align 4, !noalias !9335
   br label %100
 
 100:                                              ; preds = %83, %80
-  %.sroa.47.0..sroa_idx.sink = phi ptr [ %.sroa.47.0..sroa_idx, %83 ], [ %81, %80 ]
   %.0 = phi i32 [ 0, %83 ], [ %82, %80 ]
-  store i32 %2, ptr %.sroa.47.0..sroa_idx.sink, align 4
   ret i32 %.0
 }
 
@@ -30671,6 +30671,7 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
 90:                                               ; preds = %61
   %91 = getelementptr inbounds i8, ptr %49, i64 -4
   %92 = load i32, ptr %91, align 4, !noundef !25
+  store i32 %2, ptr %91, align 4
   br label %110
 
 93:                                               ; preds = %83, %78
@@ -30698,13 +30699,12 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   %109 = getelementptr inbounds i8, ptr %108, i64 -20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %109, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
   %.sroa.46.0..sroa_idx = getelementptr inbounds i8, ptr %108, i64 -4
+  store i32 %2, ptr %.sroa.46.0..sroa_idx, align 4, !noalias !9424
   br label %110
 
 110:                                              ; preds = %93, %90
-  %.sroa.46.0..sroa_idx.sink = phi ptr [ %.sroa.46.0..sroa_idx, %93 ], [ %91, %90 ]
   %.sroa.3.0 = phi i32 [ undef, %93 ], [ %92, %90 ]
   %.sroa.0.0 = phi i32 [ 0, %93 ], [ 1, %90 ]
-  store i32 %2, ptr %.sroa.46.0..sroa_idx.sink, align 4
   %111 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %112 = insertvalue { i32, i32 } %111, i32 %.sroa.3.0, 1
   ret { i32, i32 } %112
@@ -30847,6 +30847,7 @@ define hidden noundef i32 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
 80:                                               ; preds = %51
   %81 = getelementptr inbounds i8, ptr %43, i64 -4
   %82 = load i32, ptr %81, align 4, !range !4673, !noundef !25
+  store i32 %2, ptr %81, align 4
   br label %100
 
 83:                                               ; preds = %73, %68
@@ -30874,12 +30875,11 @@ define hidden noundef i32 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   %99 = getelementptr inbounds i8, ptr %98, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %99, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %.sroa.47.0..sroa_idx = getelementptr inbounds i8, ptr %98, i64 -4
+  store i32 %2, ptr %.sroa.47.0..sroa_idx, align 4, !noalias !9470
   br label %100
 
 100:                                              ; preds = %83, %80
-  %.sroa.47.0..sroa_idx.sink = phi ptr [ %.sroa.47.0..sroa_idx, %83 ], [ %81, %80 ]
   %.0 = phi i32 [ 0, %83 ], [ %82, %80 ]
-  store i32 %2, ptr %.sroa.47.0..sroa_idx.sink, align 4
   ret i32 %.0
 }
 
@@ -31176,6 +31176,7 @@ define hidden noundef i32 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   %59 = getelementptr inbounds { i32, i32 }, ptr %18, i64 %31
   %60 = getelementptr inbounds i8, ptr %59, i64 -4
   %61 = load i32, ptr %60, align 4, !range !4673, !noundef !25
+  store i32 %2, ptr %60, align 4
   br label %80
 
 62:                                               ; preds = %51, %46
@@ -31203,12 +31204,11 @@ define hidden noundef i32 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   %78 = getelementptr inbounds i8, ptr %77, i64 -8
   store i32 %1, ptr %78, align 4, !noalias !9548
   %79 = getelementptr inbounds i8, ptr %77, i64 -4
+  store i32 %2, ptr %79, align 4, !noalias !9548
   br label %80
 
 80:                                               ; preds = %62, %58
-  %.sink = phi ptr [ %79, %62 ], [ %60, %58 ]
   %.0 = phi i32 [ 0, %62 ], [ %61, %58 ]
-  store i32 %2, ptr %.sink, align 4
   ret i32 %.0
 }
 
@@ -31349,6 +31349,7 @@ define hidden noundef i32 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
 80:                                               ; preds = %51
   %81 = getelementptr inbounds i8, ptr %43, i64 -4
   %82 = load i32, ptr %81, align 4, !range !4673, !noundef !25
+  store i32 %2, ptr %81, align 4
   br label %100
 
 83:                                               ; preds = %73, %68
@@ -31376,12 +31377,11 @@ define hidden noundef i32 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   %99 = getelementptr inbounds i8, ptr %98, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %99, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %.sroa.47.0..sroa_idx = getelementptr inbounds i8, ptr %98, i64 -4
+  store i32 %2, ptr %.sroa.47.0..sroa_idx, align 4, !noalias !9595
   br label %100
 
 100:                                              ; preds = %83, %80
-  %.sroa.47.0..sroa_idx.sink = phi ptr [ %.sroa.47.0..sroa_idx, %83 ], [ %81, %80 ]
   %.0 = phi i32 [ 0, %83 ], [ %82, %80 ]
-  store i32 %2, ptr %.sroa.47.0..sroa_idx.sink, align 4
   ret i32 %.0
 }
 
@@ -31522,6 +31522,7 @@ define hidden noundef i32 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
 80:                                               ; preds = %51
   %81 = getelementptr inbounds i8, ptr %43, i64 -4
   %82 = load i32, ptr %81, align 4, !range !4673, !noundef !25
+  store i32 %2, ptr %81, align 4
   br label %100
 
 83:                                               ; preds = %73, %68
@@ -31549,12 +31550,11 @@ define hidden noundef i32 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   %99 = getelementptr inbounds i8, ptr %98, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %99, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %.sroa.47.0..sroa_idx = getelementptr inbounds i8, ptr %98, i64 -4
+  store i32 %2, ptr %.sroa.47.0..sroa_idx, align 4, !noalias !9641
   br label %100
 
 100:                                              ; preds = %83, %80
-  %.sroa.47.0..sroa_idx.sink = phi ptr [ %.sroa.47.0..sroa_idx, %83 ], [ %81, %80 ]
   %.0 = phi i32 [ 0, %83 ], [ %82, %80 ]
-  store i32 %2, ptr %.sroa.47.0..sroa_idx.sink, align 4
   ret i32 %.0
 }
 
@@ -31652,7 +31652,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$
   %48 = getelementptr inbounds i8, ptr %18, i64 %.sroa.6.1.i.i
   %49 = load i8, ptr %48, align 1, !noalias !25, !noundef !25
   %50 = icmp sgt i8 %49, -1
-  br i1 %50, label %51, label %62
+  br i1 %50, label %51, label %63
 
 51:                                               ; preds = %46
   %52 = load <16 x i8>, ptr %18, align 16, !noalias !9670
@@ -31664,46 +31664,47 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$
   tail call void @llvm.assume(i1 %55)
   %.phi.trans.insert = getelementptr inbounds i8, ptr %18, i64 %57
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !noalias !9673
-  br label %62
+  br label %63
 
 58:                                               ; preds = %24
   %59 = getelementptr inbounds { i32, i8, [3 x i8] }, ptr %18, i64 %31
   %60 = getelementptr inbounds i8, ptr %59, i64 -4
   %61 = load i8, ptr %60, align 4, !range !149, !noundef !25
-  br label %80
+  %62 = zext i1 %2 to i8
+  store i8 %62, ptr %60, align 4
+  br label %82
 
-62:                                               ; preds = %51, %46
-  %63 = phi i8 [ %.pre, %51 ], [ %49, %46 ]
+63:                                               ; preds = %51, %46
+  %64 = phi i8 [ %.pre, %51 ], [ %49, %46 ]
   %.sroa.4.0.ph = phi i64 [ %57, %51 ], [ %.sroa.6.1.i.i, %46 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9673)
-  %64 = getelementptr inbounds i8, ptr %18, i64 %.sroa.4.0.ph
-  %65 = and i8 %63, 1
-  %66 = zext nneg i8 %65 to i64
-  %67 = load i64, ptr %6, align 8, !alias.scope !9673, !noundef !25
-  %68 = sub i64 %67, %66
-  store i64 %68, ptr %6, align 8, !alias.scope !9673
-  %69 = add i64 %.sroa.4.0.ph, -16
-  %70 = and i64 %69, %17
-  store i8 %15, ptr %64, align 1, !noalias !9673
-  %71 = getelementptr i8, ptr %18, i64 %70
-  %72 = getelementptr i8, ptr %71, i64 16
-  store i8 %15, ptr %72, align 1, !noalias !9673
-  %73 = getelementptr inbounds i8, ptr %0, i64 24
-  %74 = load i64, ptr %73, align 8, !alias.scope !9673, !noundef !25
-  %75 = add i64 %74, 1
-  store i64 %75, ptr %73, align 8, !alias.scope !9673
-  %76 = sub nsw i64 0, %.sroa.4.0.ph
-  %77 = getelementptr inbounds { i32, i8, [3 x i8] }, ptr %18, i64 %76
-  %78 = getelementptr inbounds i8, ptr %77, i64 -8
-  store i32 %1, ptr %78, align 4, !noalias !9673
-  %79 = getelementptr inbounds i8, ptr %77, i64 -4
-  br label %80
-
-80:                                               ; preds = %62, %58
-  %.sink14 = phi ptr [ %79, %62 ], [ %60, %58 ]
-  %.0 = phi i8 [ 2, %62 ], [ %61, %58 ]
+  %65 = getelementptr inbounds i8, ptr %18, i64 %.sroa.4.0.ph
+  %66 = and i8 %64, 1
+  %67 = zext nneg i8 %66 to i64
+  %68 = load i64, ptr %6, align 8, !alias.scope !9673, !noundef !25
+  %69 = sub i64 %68, %67
+  store i64 %69, ptr %6, align 8, !alias.scope !9673
+  %70 = add i64 %.sroa.4.0.ph, -16
+  %71 = and i64 %70, %17
+  store i8 %15, ptr %65, align 1, !noalias !9673
+  %72 = getelementptr i8, ptr %18, i64 %71
+  %73 = getelementptr i8, ptr %72, i64 16
+  store i8 %15, ptr %73, align 1, !noalias !9673
+  %74 = getelementptr inbounds i8, ptr %0, i64 24
+  %75 = load i64, ptr %74, align 8, !alias.scope !9673, !noundef !25
+  %76 = add i64 %75, 1
+  store i64 %76, ptr %74, align 8, !alias.scope !9673
+  %77 = sub nsw i64 0, %.sroa.4.0.ph
+  %78 = getelementptr inbounds { i32, i8, [3 x i8] }, ptr %18, i64 %77
+  %79 = getelementptr inbounds i8, ptr %78, i64 -8
+  store i32 %1, ptr %79, align 4, !noalias !9673
+  %80 = getelementptr inbounds i8, ptr %78, i64 -4
   %81 = zext i1 %2 to i8
-  store i8 %81, ptr %.sink14, align 4
+  store i8 %81, ptr %80, align 4, !noalias !9673
+  br label %82
+
+82:                                               ; preds = %63, %58
+  %.0 = phi i8 [ 2, %63 ], [ %61, %58 ]
   ret i8 %.0
 }
 
@@ -31829,6 +31830,7 @@ define hidden noundef i32 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
 66:                                               ; preds = %38
   %67 = getelementptr inbounds i8, ptr %35, i64 -4
   %68 = load i32, ptr %67, align 4, !range !4673, !noundef !25
+  store i32 %3, ptr %67, align 4
   br label %86
 
 69:                                               ; preds = %59, %54
@@ -31858,12 +31860,11 @@ define hidden noundef i32 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   %.sroa.411.0..sroa_idx = getelementptr inbounds i8, ptr %84, i64 -8
   store i32 %2, ptr %.sroa.411.0..sroa_idx, align 4, !noalias !9714
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %84, i64 -4
+  store i32 %3, ptr %.sroa.5.0..sroa_idx, align 4, !noalias !9714
   br label %86
 
 86:                                               ; preds = %69, %66
-  %.sroa.5.0..sroa_idx.sink = phi ptr [ %.sroa.5.0..sroa_idx, %69 ], [ %67, %66 ]
   %.0 = phi i32 [ 0, %69 ], [ %68, %66 ]
-  store i32 %3, ptr %.sroa.5.0..sroa_idx.sink, align 4
   ret i32 %.0
 }
 
@@ -32004,6 +32005,7 @@ define hidden noundef i32 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
 80:                                               ; preds = %51
   %81 = getelementptr inbounds i8, ptr %43, i64 -4
   %82 = load i32, ptr %81, align 4, !range !4673, !noundef !25
+  store i32 %2, ptr %81, align 4
   br label %100
 
 83:                                               ; preds = %73, %68
@@ -32031,12 +32033,11 @@ define hidden noundef i32 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   %99 = getelementptr inbounds i8, ptr %98, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %99, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %.sroa.47.0..sroa_idx = getelementptr inbounds i8, ptr %98, i64 -4
+  store i32 %2, ptr %.sroa.47.0..sroa_idx, align 4, !noalias !9760
   br label %100
 
 100:                                              ; preds = %83, %80
-  %.sroa.47.0..sroa_idx.sink = phi ptr [ %.sroa.47.0..sroa_idx, %83 ], [ %81, %80 ]
   %.0 = phi i32 [ 0, %83 ], [ %82, %80 ]
-  store i32 %2, ptr %.sroa.47.0..sroa_idx.sink, align 4
   ret i32 %.0
 }
 
@@ -32316,6 +32317,7 @@ define hidden noundef i32 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
 80:                                               ; preds = %51
   %81 = getelementptr inbounds i8, ptr %43, i64 -4
   %82 = load i32, ptr %81, align 4, !range !4673, !noundef !25
+  store i32 %2, ptr %81, align 4
   br label %100
 
 83:                                               ; preds = %73, %68
@@ -32343,12 +32345,11 @@ define hidden noundef i32 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   %99 = getelementptr inbounds i8, ptr %98, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %99, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %.sroa.47.0..sroa_idx = getelementptr inbounds i8, ptr %98, i64 -4
+  store i32 %2, ptr %.sroa.47.0..sroa_idx, align 4, !noalias !9864
   br label %100
 
 100:                                              ; preds = %83, %80
-  %.sroa.47.0..sroa_idx.sink = phi ptr [ %.sroa.47.0..sroa_idx, %83 ], [ %81, %80 ]
   %.0 = phi i32 [ 0, %83 ], [ %82, %80 ]
-  store i32 %2, ptr %.sroa.47.0..sroa_idx.sink, align 4
   ret i32 %.0
 }
 
@@ -32489,6 +32490,7 @@ define hidden noundef i32 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
 80:                                               ; preds = %51
   %81 = getelementptr inbounds i8, ptr %43, i64 -4
   %82 = load i32, ptr %81, align 4, !range !4673, !noundef !25
+  store i32 %2, ptr %81, align 4
   br label %100
 
 83:                                               ; preds = %73, %68
@@ -32516,12 +32518,11 @@ define hidden noundef i32 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   %99 = getelementptr inbounds i8, ptr %98, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %99, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %.sroa.47.0..sroa_idx = getelementptr inbounds i8, ptr %98, i64 -4
+  store i32 %2, ptr %.sroa.47.0..sroa_idx, align 4, !noalias !9910
   br label %100
 
 100:                                              ; preds = %83, %80
-  %.sroa.47.0..sroa_idx.sink = phi ptr [ %.sroa.47.0..sroa_idx, %83 ], [ %81, %80 ]
   %.0 = phi i32 [ 0, %83 ], [ %82, %80 ]
-  store i32 %2, ptr %.sroa.47.0..sroa_idx.sink, align 4
   ret i32 %.0
 }
 

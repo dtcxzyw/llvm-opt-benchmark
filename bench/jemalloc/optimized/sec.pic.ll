@@ -438,7 +438,11 @@ if.end6.i:                                        ; preds = %malloc_mutex_lock.e
   %60 = load ptr, ptr %freelist.i62, align 8
   %cmp.i26.i = icmp eq ptr %60, null
   %61 = load ptr, ptr %result.i, align 8
-  br i1 %cmp.i26.i, label %do.end51.sink.split.i.i, label %if.else.i.i
+  br i1 %cmp.i26.i, label %do.body1.i.i, label %if.else.i.i
+
+do.body1.i.i:                                     ; preds = %if.end6.i
+  store ptr %61, ptr %freelist.i62, align 8
+  br label %do.end51.sink.split.i.i
 
 if.else.i.i:                                      ; preds = %if.end6.i
   %cmp12.i.i = icmp eq ptr %61, null
@@ -465,11 +469,10 @@ do.body14.i.i:                                    ; preds = %if.else.i.i
   store ptr %69, ptr %71, align 8
   %72 = load ptr, ptr %qre_prev19.i.i, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 40
+  store ptr %61, ptr %73, align 8
   br label %do.end51.sink.split.i.i
 
-do.end51.sink.split.i.i:                          ; preds = %do.body14.i.i, %if.end6.i
-  %.sink.i = phi ptr [ %73, %do.body14.i.i ], [ %freelist.i62, %if.end6.i ]
-  store ptr %61, ptr %.sink.i, align 8
+do.end51.sink.split.i.i:                          ; preds = %do.body14.i.i, %do.body1.i.i
   store ptr null, ptr %result.i, align 8
   br label %edata_list_active_concat.exit.i
 

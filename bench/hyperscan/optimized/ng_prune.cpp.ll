@@ -1730,12 +1730,12 @@ entry:
   %_M_left.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %0 = load ptr, ptr %_M_left.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %cmp.i.not62 = icmp eq ptr %0, %add.ptr.i.i
-  br i1 %cmp.i.not62, label %cleanup, label %for.body
+  %cmp.i.not61 = icmp eq ptr %0, %add.ptr.i.i
+  br i1 %cmp.i.not61, label %cleanup, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %__begin1.sroa.0.063 = phi ptr [ %call.i, %for.inc ], [ %0, %entry ]
-  %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.063, i64 32
+  %__begin1.sroa.0.062 = phi ptr [ %call.i, %for.inc ], [ %0, %entry ]
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.062, i64 32
   %1 = load i32, ptr %_M_storage.i.i, align 4
   %call5 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZNK3ue213ReportManager9getReportEj(ptr noundef nonnull align 8 dereferenceable(505) %rm, i32 noundef %1)
           to label %invoke.cont unwind label %lpad
@@ -1749,18 +1749,20 @@ invoke.cont:                                      ; preds = %for.body
 lor.lhs.false:                                    ; preds = %invoke.cont
   %minOffset.i = getelementptr inbounds i8, ptr %call5, i64 8
   %3 = load i64, ptr %minOffset.i, align 8
-  %cmp.not.i = icmp ne i64 %3, 0
+  %cmp.not.i = icmp eq i64 %3, 0
   %maxOffset.i = getelementptr inbounds i8, ptr %call5, i64 16
   %4 = load i64, ptr %maxOffset.i, align 8
-  %cmp2.not.i = icmp ne i64 %4, -1
-  %or.cond.i.not50 = select i1 %cmp.not.i, i1 true, i1 %cmp2.not.i
+  %cmp2.not.i = icmp eq i64 %4, -1
+  %or.cond.i = select i1 %cmp.not.i, i1 %cmp2.not.i, i1 false
+  br i1 %or.cond.i, label %_ZNK3ue26Report9hasBoundsEv.exit, label %cleanup
+
+_ZNK3ue26Report9hasBoundsEv.exit:                 ; preds = %lor.lhs.false
   %minLength.i = getelementptr inbounds i8, ptr %call5, i64 24
   %5 = load i64, ptr %minLength.i, align 8
-  %cmp3.i = icmp ne i64 %5, 0
-  %or.cond = select i1 %or.cond.i.not50, i1 true, i1 %cmp3.i
-  br i1 %or.cond, label %cleanup, label %lor.lhs.false8
+  %cmp3.i.not = icmp eq i64 %5, 0
+  br i1 %cmp3.i.not, label %lor.lhs.false8, label %cleanup
 
-lor.lhs.false8:                                   ; preds = %lor.lhs.false
+lor.lhs.false8:                                   ; preds = %_ZNK3ue26Report9hasBoundsEv.exit
   %call5.val = load i32, ptr %call5, align 8
   %switch.tableidx = add i32 %call5.val, -2
   %6 = icmp ult i32 %switch.tableidx, 15
@@ -1773,7 +1775,7 @@ lpad:                                             ; preds = %for.body
   br label %eh.resume
 
 for.inc:                                          ; preds = %switch.hole_check, %lor.lhs.false8
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin1.sroa.0.063) #26
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin1.sroa.0.062) #26
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i.not, label %cleanup, label %for.body
 
@@ -1783,8 +1785,8 @@ switch.hole_check:                                ; preds = %lor.lhs.false8
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %cleanup, label %for.inc
 
-cleanup:                                          ; preds = %for.inc, %invoke.cont, %lor.lhs.false, %switch.hole_check, %entry
-  %cmp.i.not.lcssa = phi i1 [ true, %entry ], [ false, %switch.hole_check ], [ false, %lor.lhs.false ], [ false, %invoke.cont ], [ true, %for.inc ]
+cleanup:                                          ; preds = %for.inc, %invoke.cont, %_ZNK3ue26Report9hasBoundsEv.exit, %lor.lhs.false, %switch.hole_check, %entry
+  %cmp.i.not.lcssa = phi i1 [ true, %entry ], [ false, %switch.hole_check ], [ false, %lor.lhs.false ], [ false, %_ZNK3ue26Report9hasBoundsEv.exit ], [ false, %invoke.cont ], [ true, %for.inc ]
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %8 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE8_M_eraseEPSt13_Rb_tree_nodeIjE(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef %8)

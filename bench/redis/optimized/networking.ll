@@ -11893,7 +11893,8 @@ if.then76:                                        ; preds = %if.then74
   %22 = load i64, ptr %qb_pos, align 8
   %sub = sub i64 %22, %21
   store i64 %sub, ptr %qb_pos, align 8
-  br label %if.end91.sink.split
+  store i64 0, ptr %repl_applied, align 8
+  br label %if.end91
 
 if.else83:                                        ; preds = %while.end
   %23 = load i64, ptr %qb_pos, align 8
@@ -11903,14 +11904,10 @@ if.else83:                                        ; preds = %while.end
 if.then86:                                        ; preds = %if.else83
   %24 = load ptr, ptr %querybuf, align 8
   tail call void @sdsrange(ptr noundef %24, i64 noundef %23, i64 noundef -1) #27
-  br label %if.end91.sink.split
-
-if.end91.sink.split:                              ; preds = %if.then76, %if.then86
-  %qb_pos.sink = phi ptr [ %qb_pos, %if.then86 ], [ %repl_applied, %if.then76 ]
-  store i64 0, ptr %qb_pos.sink, align 8
+  store i64 0, ptr %qb_pos, align 8
   br label %if.end91
 
-if.end91:                                         ; preds = %if.end91.sink.split, %if.else83, %if.then74
+if.end91:                                         ; preds = %if.else83, %if.then86, %if.then74, %if.then76
   %25 = load i32, ptr @io_threads_op, align 4
   %cmp92 = icmp eq i32 %25, 0
   br i1 %cmp92, label %if.then94, label %return

@@ -547,37 +547,48 @@ if.then.i:                                        ; preds = %_ZNSt5dequeISt10uni
   store ptr %incdec.ptr.i, ptr %_M_finish.i.i5, align 8
   %28 = load ptr, ptr %incdec.ptr.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %28, null
-  br i1 %cmp.not.i.i.i.i, label %invoke.cont16, label %if.end.sink.split.i
+  br i1 %cmp.not.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EEEE7destroyIS5_EEvRS6_PT_.exit.i, label %_ZNKSt14default_deleteIN3ue28NGHolderEEclEPS1_.exit.i.i.i.i
+
+_ZNKSt14default_deleteIN3ue28NGHolderEEclEPS1_.exit.i.i.i.i: ; preds = %if.then.i
+  %vtable.i.i.i.i.i = load ptr, ptr %28, align 8
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 8
+  %29 = load ptr, ptr %vfn.i.i.i.i.i, align 8
+  call void %29(ptr noundef nonnull align 8 dereferenceable(136) %28) #22
+  br label %_ZNSt16allocator_traitsISaISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EEEE7destroyIS5_EEvRS6_PT_.exit.i
+
+_ZNSt16allocator_traitsISaISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EEEE7destroyIS5_EEvRS6_PT_.exit.i: ; preds = %_ZNKSt14default_deleteIN3ue28NGHolderEEclEPS1_.exit.i.i.i.i, %if.then.i
+  store ptr null, ptr %incdec.ptr.i, align 8
+  br label %invoke.cont16
 
 if.else.i:                                        ; preds = %_ZNSt5dequeISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EESaIS5_EE4backEv.exit
   call void @_ZdlPv(ptr noundef %27) #23
   %_M_node.i.i = getelementptr inbounds i8, ptr %agg.result, i64 72
-  %29 = load ptr, ptr %_M_node.i.i, align 8
-  %add.ptr.i.i12 = getelementptr inbounds i8, ptr %29, i64 -8
+  %30 = load ptr, ptr %_M_node.i.i, align 8
+  %add.ptr.i.i12 = getelementptr inbounds i8, ptr %30, i64 -8
   store ptr %add.ptr.i.i12, ptr %_M_node.i.i, align 8
-  %30 = load ptr, ptr %add.ptr.i.i12, align 8
-  store ptr %30, ptr %_M_first3.i.i.i, align 8
-  %add.ptr.i.i.i13 = getelementptr inbounds i8, ptr %30, i64 512
+  %31 = load ptr, ptr %add.ptr.i.i12, align 8
+  store ptr %31, ptr %_M_first3.i.i.i, align 8
+  %add.ptr.i.i.i13 = getelementptr inbounds i8, ptr %31, i64 512
   %_M_last.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 64
   store ptr %add.ptr.i.i.i13, ptr %_M_last.i.i.i, align 8
-  %add.ptr8.i.i = getelementptr inbounds i8, ptr %30, i64 504
+  %add.ptr8.i.i = getelementptr inbounds i8, ptr %31, i64 504
   store ptr %add.ptr8.i.i, ptr %_M_finish.i.i5, align 8
-  %31 = load ptr, ptr %add.ptr8.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %31, null
-  br i1 %cmp.not.i.i.i.i.i, label %invoke.cont16, label %if.end.sink.split.i
+  %32 = load ptr, ptr %add.ptr8.i.i, align 8
+  %cmp.not.i.i.i.i.i = icmp eq ptr %32, null
+  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt5dequeISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EESaIS5_EE15_M_pop_back_auxEv.exit.i, label %_ZNKSt14default_deleteIN3ue28NGHolderEEclEPS1_.exit.i.i.i.i.i
 
-if.end.sink.split.i:                              ; preds = %if.else.i, %if.then.i
-  %.sink2.i = phi ptr [ %28, %if.then.i ], [ %31, %if.else.i ]
-  %add.ptr8.i.sink.ph.i = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %add.ptr8.i.i, %if.else.i ]
-  %vtable.i.i.i.i.i.i = load ptr, ptr %.sink2.i, align 8
+_ZNKSt14default_deleteIN3ue28NGHolderEEclEPS1_.exit.i.i.i.i.i: ; preds = %if.else.i
+  %vtable.i.i.i.i.i.i = load ptr, ptr %32, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 8
-  %32 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  call void %32(ptr noundef nonnull align 8 dereferenceable(136) %.sink2.i) #22
+  %33 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
+  call void %33(ptr noundef nonnull align 8 dereferenceable(136) %32) #22
+  br label %_ZNSt5dequeISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EESaIS5_EE15_M_pop_back_auxEv.exit.i
+
+_ZNSt5dequeISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EESaIS5_EE15_M_pop_back_auxEv.exit.i: ; preds = %_ZNKSt14default_deleteIN3ue28NGHolderEEclEPS1_.exit.i.i.i.i.i, %if.else.i
+  store ptr null, ptr %add.ptr8.i.i, align 8
   br label %invoke.cont16
 
-invoke.cont16:                                    ; preds = %if.then.i, %if.else.i, %if.end.sink.split.i
-  %add.ptr8.i.sink.i = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %add.ptr8.i.i, %if.else.i ], [ %add.ptr8.i.sink.ph.i, %if.end.sink.split.i ]
-  store ptr null, ptr %add.ptr8.i.sink.i, align 8
+invoke.cont16:                                    ; preds = %_ZNSt16allocator_traitsISaISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EEEE7destroyIS5_EEvRS6_PT_.exit.i, %_ZNSt5dequeISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EESaIS5_EE15_M_pop_back_auxEv.exit.i
   store i64 %25, ptr %agg.tmp11, align 8
   store i32 0, ptr %ref.tmp12, align 4
   store i32 0, ptr %ref.tmp15, align 4
@@ -585,29 +596,29 @@ invoke.cont16:                                    ; preds = %if.then.i, %if.else
           to label %invoke.cont17 unwind label %lpad13
 
 invoke.cont17:                                    ; preds = %invoke.cont16
-  %33 = load ptr, ptr %agg.tmp11, align 8
-  %cmp.not.i16 = icmp eq ptr %33, null
+  %34 = load ptr, ptr %agg.tmp11, align 8
+  %cmp.not.i16 = icmp eq ptr %34, null
   br i1 %cmp.not.i16, label %nrvo.skipdtor, label %_ZNKSt14default_deleteIN3ue28NGHolderEEclEPS1_.exit.i17
 
 _ZNKSt14default_deleteIN3ue28NGHolderEEclEPS1_.exit.i17: ; preds = %invoke.cont17
-  %vtable.i.i18 = load ptr, ptr %33, align 8
+  %vtable.i.i18 = load ptr, ptr %34, align 8
   %vfn.i.i19 = getelementptr inbounds i8, ptr %vtable.i.i18, i64 8
-  %34 = load ptr, ptr %vfn.i.i19, align 8
-  call void %34(ptr noundef nonnull align 8 dereferenceable(136) %33) #22
+  %35 = load ptr, ptr %vfn.i.i19, align 8
+  call void %35(ptr noundef nonnull align 8 dereferenceable(136) %34) #22
   br label %nrvo.skipdtor
 
 lpad3:                                            ; preds = %invoke.cont6
-  %35 = landingpad { ptr, i32 }
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %36 = load ptr, ptr %agg.tmp, align 8
-  %cmp.not.i28 = icmp eq ptr %36, null
+  %37 = load ptr, ptr %agg.tmp, align 8
+  %cmp.not.i28 = icmp eq ptr %37, null
   br i1 %cmp.not.i28, label %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EED2Ev.exit33, label %_ZNKSt14default_deleteIN3ue28NGHolderEEclEPS1_.exit.i29
 
 _ZNKSt14default_deleteIN3ue28NGHolderEEclEPS1_.exit.i29: ; preds = %lpad3
-  %vtable.i.i30 = load ptr, ptr %36, align 8
+  %vtable.i.i30 = load ptr, ptr %37, align 8
   %vfn.i.i31 = getelementptr inbounds i8, ptr %vtable.i.i30, i64 8
-  %37 = load ptr, ptr %vfn.i.i31, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(136) %36) #22
+  %38 = load ptr, ptr %vfn.i.i31, align 8
+  call void %38(ptr noundef nonnull align 8 dereferenceable(136) %37) #22
   br label %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EED2Ev.exit33
 
 _ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EED2Ev.exit33: ; preds = %lpad3, %_ZNKSt14default_deleteIN3ue28NGHolderEEclEPS1_.exit.i29
@@ -615,17 +626,17 @@ _ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EED2Ev.exit33: ; preds = 
   br label %ehcleanup
 
 lpad13:                                           ; preds = %invoke.cont16
-  %38 = landingpad { ptr, i32 }
+  %39 = landingpad { ptr, i32 }
           cleanup
-  %39 = load ptr, ptr %agg.tmp11, align 8
-  %cmp.not.i34 = icmp eq ptr %39, null
+  %40 = load ptr, ptr %agg.tmp11, align 8
+  %cmp.not.i34 = icmp eq ptr %40, null
   br i1 %cmp.not.i34, label %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EED2Ev.exit45, label %_ZNKSt14default_deleteIN3ue28NGHolderEEclEPS1_.exit.i35
 
 _ZNKSt14default_deleteIN3ue28NGHolderEEclEPS1_.exit.i35: ; preds = %lpad13
-  %vtable.i.i36 = load ptr, ptr %39, align 8
+  %vtable.i.i36 = load ptr, ptr %40, align 8
   %vfn.i.i37 = getelementptr inbounds i8, ptr %vtable.i.i36, i64 8
-  %40 = load ptr, ptr %vfn.i.i37, align 8
-  call void %40(ptr noundef nonnull align 8 dereferenceable(136) %39) #22
+  %41 = load ptr, ptr %vfn.i.i37, align 8
+  call void %41(ptr noundef nonnull align 8 dereferenceable(136) %40) #22
   br label %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EED2Ev.exit45
 
 _ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EED2Ev.exit45: ; preds = %_ZNKSt14default_deleteIN3ue28NGHolderEEclEPS1_.exit.i35, %lpad13
@@ -636,7 +647,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont17, %_ZN
   ret void
 
 ehcleanup:                                        ; preds = %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EED2Ev.exit45, %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EED2Ev.exit33, %lpad
-  %.pn = phi { ptr, i32 } [ %16, %lpad ], [ %38, %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EED2Ev.exit45 ], [ %35, %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EED2Ev.exit33 ]
+  %.pn = phi { ptr, i32 } [ %16, %lpad ], [ %39, %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EED2Ev.exit45 ], [ %36, %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EED2Ev.exit33 ]
   call void @_ZNSt5dequeISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %agg.result) #22
   resume { ptr, i32 } %.pn
 }
@@ -4763,22 +4774,18 @@ if.then:                                          ; preds = %while.body
 
 if.then15:                                        ; preds = %if.then
   %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
-  br label %if.end22.sink.split
+  store ptr %__p.022, ptr %arrayidx16, align 8
+  br label %if.end22
 
 if.else:                                          ; preds = %while.body
   %6 = load ptr, ptr %3, align 8
   store ptr %6, ptr %__p.022, align 8
   %7 = load ptr, ptr %arrayidx, align 8
-  br label %if.end22.sink.split
-
-if.end22.sink.split:                              ; preds = %if.else, %if.then15
-  %arrayidx16.sink = phi ptr [ %arrayidx16, %if.then15 ], [ %7, %if.else ]
-  %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then15 ], [ %__bbegin_bkt.021, %if.else ]
-  store ptr %__p.022, ptr %arrayidx16.sink, align 8
+  store ptr %__p.022, ptr %7, align 8
   br label %if.end22
 
-if.end22:                                         ; preds = %if.end22.sink.split, %if.then
-  %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then ], [ %__bbegin_bkt.1.ph, %if.end22.sink.split ]
+if.end22:                                         ; preds = %if.then, %if.then15, %if.else
+  %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.021, %if.else ], [ %rem.i.i, %if.then15 ], [ %rem.i.i, %if.then ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !310
 

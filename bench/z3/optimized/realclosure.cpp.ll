@@ -9239,25 +9239,29 @@ sw.bb:                                            ; preds = %if.then
   %5 = load ptr, ptr %4, align 8
   tail call void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(16) %m_upper.i.i.i.i)
   %m_allocator.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  br label %if.end.sink.split
+  %6 = load ptr, ptr %m_allocator.i.i, align 8
+  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %6, i64 noundef 104, ptr noundef nonnull %ext)
+  br label %if.end
 
 sw.bb6:                                           ; preds = %if.then
   %m_interval.i12 = getelementptr inbounds i8, ptr %ext, i64 8
   %m_c.i.i.i13 = getelementptr inbounds i8, ptr %this, i64 872
-  %6 = load ptr, ptr %m_c.i.i.i13, align 8
-  %7 = load ptr, ptr %6, align 8
-  tail call void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(16) %m_interval.i12)
-  %8 = load ptr, ptr %m_c.i.i.i13, align 8
+  %7 = load ptr, ptr %m_c.i.i.i13, align 8
+  %8 = load ptr, ptr %7, align 8
+  tail call void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(16) %m_interval.i12)
+  %9 = load ptr, ptr %m_c.i.i.i13, align 8
   %m_upper.i.i.i.i14 = getelementptr inbounds i8, ptr %ext, i64 32
-  %9 = load ptr, ptr %8, align 8
-  tail call void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(16) %m_upper.i.i.i.i14)
+  %10 = load ptr, ptr %9, align 8
+  tail call void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(16) %m_upper.i.i.i.i14)
   %m_allocator.i.i15 = getelementptr inbounds i8, ptr %this, i64 8
-  br label %if.end.sink.split
+  %11 = load ptr, ptr %m_allocator.i.i15, align 8
+  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %11, i64 noundef 88, ptr noundef nonnull %ext)
+  br label %if.end
 
 sw.bb7:                                           ; preds = %if.then
   %m_p.i = getelementptr inbounds i8, ptr %ext, i64 72
-  %10 = load ptr, ptr %m_p.i, align 8
-  %cmp.i.i = icmp eq ptr %10, null
+  %12 = load ptr, ptr %m_p.i, align 8
+  %cmp.i.i = icmp eq ptr %12, null
   br i1 %cmp.i.i, label %_ZN11realclosure7manager3imp7dec_refEjPKPNS_5valueE.exit.i.thread, label %_ZNK5arrayIPN11realclosure5valueELb0EE4sizeEv.exit.i
 
 _ZN11realclosure7manager3imp7dec_refEjPKPNS_5valueE.exit.i.thread: ; preds = %sw.bb7
@@ -9265,10 +9269,10 @@ _ZN11realclosure7manager3imp7dec_refEjPKPNS_5valueE.exit.i.thread: ; preds = %sw
   br label %_ZN11realclosure7manager3imp7reset_pER9ptr_arrayINS_5valueEE.exit
 
 _ZNK5arrayIPN11realclosure5valueELb0EE4sizeEv.exit.i: ; preds = %sw.bb7
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %10, i64 -8
-  %11 = load i64, ptr %arrayidx.i.i, align 8
-  %12 = and i64 %11, 4294967295
-  %cmp.i3.i21.not = icmp eq i64 %12, 0
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %12, i64 -8
+  %13 = load i64, ptr %arrayidx.i.i, align 8
+  %14 = and i64 %13, 4294967295
+  %cmp.i3.i21.not = icmp eq i64 %14, 0
   br i1 %cmp.i3.i21.not, label %_ZN11realclosure7manager3imp7dec_refEjPKPNS_5valueE.exit.i.thread29, label %for.body.i.i.preheader
 
 _ZN11realclosure7manager3imp7dec_refEjPKPNS_5valueE.exit.i.thread29: ; preds = %_ZNK5arrayIPN11realclosure5valueELb0EE4sizeEv.exit.i
@@ -9276,14 +9280,14 @@ _ZN11realclosure7manager3imp7dec_refEjPKPNS_5valueE.exit.i.thread29: ; preds = %
   br label %_ZNK5arrayIPN11realclosure5valueELb0EE4sizeEv.exit.i.i
 
 for.body.i.i.preheader:                           ; preds = %_ZNK5arrayIPN11realclosure5valueELb0EE4sizeEv.exit.i
-  %wide.trip.count = and i64 %11, 4294967295
+  %wide.trip.count = and i64 %13, 4294967295
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i.preheader, %for.body.i.i
   %indvars.iv = phi i64 [ 0, %for.body.i.i.preheader ], [ %indvars.iv.next, %for.body.i.i ]
-  %arrayidx.i4.i = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv
-  %13 = load ptr, ptr %arrayidx.i4.i, align 8
-  tail call void @_ZN11realclosure7manager3imp7dec_refEPNS_5valueE(ptr noundef nonnull align 8 dereferenceable(1497) %this, ptr noundef %13)
+  %arrayidx.i4.i = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv
+  %15 = load ptr, ptr %arrayidx.i4.i, align 8
+  tail call void @_ZN11realclosure7manager3imp7dec_refEPNS_5valueE(ptr noundef nonnull align 8 dereferenceable(1497) %this, ptr noundef %15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %_ZN11realclosure7manager3imp7dec_refEjPKPNS_5valueE.exit.i, label %for.body.i.i, !llvm.loop !23
@@ -9296,14 +9300,14 @@ _ZN11realclosure7manager3imp7dec_refEjPKPNS_5valueE.exit.i: ; preds = %for.body.
 
 _ZNK5arrayIPN11realclosure5valueELb0EE4sizeEv.exit.i.i: ; preds = %_ZN11realclosure7manager3imp7dec_refEjPKPNS_5valueE.exit.i.thread29, %_ZN11realclosure7manager3imp7dec_refEjPKPNS_5valueE.exit.i
   %m_allocator.i.i2032 = phi ptr [ %m_allocator.i.i2030, %_ZN11realclosure7manager3imp7dec_refEjPKPNS_5valueE.exit.i.thread29 ], [ %m_allocator.i.i20, %_ZN11realclosure7manager3imp7dec_refEjPKPNS_5valueE.exit.i ]
-  %14 = phi ptr [ %10, %_ZN11realclosure7manager3imp7dec_refEjPKPNS_5valueE.exit.i.thread29 ], [ %.pre, %_ZN11realclosure7manager3imp7dec_refEjPKPNS_5valueE.exit.i ]
-  %15 = load ptr, ptr %m_allocator.i.i2032, align 8
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %14, i64 -8
-  %16 = load i64, ptr %arrayidx.i.i.i, align 8
-  %conv.i5.i = shl i64 %16, 3
+  %16 = phi ptr [ %12, %_ZN11realclosure7manager3imp7dec_refEjPKPNS_5valueE.exit.i.thread29 ], [ %.pre, %_ZN11realclosure7manager3imp7dec_refEjPKPNS_5valueE.exit.i ]
+  %17 = load ptr, ptr %m_allocator.i.i2032, align 8
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %16, i64 -8
+  %18 = load i64, ptr %arrayidx.i.i.i, align 8
+  %conv.i5.i = shl i64 %18, 3
   %mul.i.i.i = and i64 %conv.i5.i, 34359738360
   %add.i.i.i = add nuw nsw i64 %mul.i.i.i, 8
-  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %15, i64 noundef %add.i.i.i, ptr noundef nonnull %arrayidx.i.i.i)
+  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %17, i64 noundef %add.i.i.i, ptr noundef nonnull %arrayidx.i.i.i)
   store ptr null, ptr %m_p.i, align 8
   br label %_ZN11realclosure7manager3imp7reset_pER9ptr_arrayINS_5valueEE.exit
 
@@ -9311,48 +9315,46 @@ _ZN11realclosure7manager3imp7reset_pER9ptr_arrayINS_5valueEE.exit: ; preds = %_Z
   %m_allocator.i.i2028 = phi ptr [ %m_allocator.i.i2026, %_ZN11realclosure7manager3imp7dec_refEjPKPNS_5valueE.exit.i.thread ], [ %m_allocator.i.i20, %_ZN11realclosure7manager3imp7dec_refEjPKPNS_5valueE.exit.i ], [ %m_allocator.i.i2032, %_ZNK5arrayIPN11realclosure5valueELb0EE4sizeEv.exit.i.i ]
   %m_interval.i16 = getelementptr inbounds i8, ptr %ext, i64 8
   %m_c.i.i17 = getelementptr inbounds i8, ptr %this, i64 872
-  %17 = load ptr, ptr %m_c.i.i17, align 8
-  %18 = load ptr, ptr %17, align 8
-  tail call void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %18, ptr noundef nonnull align 8 dereferenceable(16) %m_interval.i16)
   %19 = load ptr, ptr %m_c.i.i17, align 8
-  %m_upper.i.i.i18 = getelementptr inbounds i8, ptr %ext, i64 32
   %20 = load ptr, ptr %19, align 8
-  tail call void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(16) %m_upper.i.i.i18)
-  %m_iso_interval.i = getelementptr inbounds i8, ptr %ext, i64 80
+  tail call void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(16) %m_interval.i16)
   %21 = load ptr, ptr %m_c.i.i17, align 8
+  %m_upper.i.i.i18 = getelementptr inbounds i8, ptr %ext, i64 32
   %22 = load ptr, ptr %21, align 8
-  tail call void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %22, ptr noundef nonnull align 8 dereferenceable(16) %m_iso_interval.i)
+  tail call void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %22, ptr noundef nonnull align 8 dereferenceable(16) %m_upper.i.i.i18)
+  %m_iso_interval.i = getelementptr inbounds i8, ptr %ext, i64 80
   %23 = load ptr, ptr %m_c.i.i17, align 8
-  %m_upper.i.i.i = getelementptr inbounds i8, ptr %ext, i64 104
   %24 = load ptr, ptr %23, align 8
-  tail call void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %24, ptr noundef nonnull align 8 dereferenceable(16) %m_upper.i.i.i)
+  tail call void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %24, ptr noundef nonnull align 8 dereferenceable(16) %m_iso_interval.i)
+  %25 = load ptr, ptr %m_c.i.i17, align 8
+  %m_upper.i.i.i = getelementptr inbounds i8, ptr %ext, i64 104
+  %26 = load ptr, ptr %25, align 8
+  tail call void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %26, ptr noundef nonnull align 8 dereferenceable(16) %m_upper.i.i.i)
   %m_sign_det.i = getelementptr inbounds i8, ptr %ext, i64 136
-  %25 = load ptr, ptr %m_sign_det.i, align 8
-  %cmp.not.i = icmp eq ptr %25, null
-  br i1 %cmp.not.i, label %if.end.sink.split, label %if.then.i
+  %27 = load ptr, ptr %m_sign_det.i, align 8
+  %cmp.not.i = icmp eq ptr %27, null
+  br i1 %cmp.not.i, label %_ZN11realclosure7manager3imp16dec_ref_sign_detEPNS_8sign_detE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN11realclosure7manager3imp7reset_pER9ptr_arrayINS_5valueEE.exit
-  %26 = load i32, ptr %25, align 8
-  %dec.i = add i32 %26, -1
-  store i32 %dec.i, ptr %25, align 8
+  %28 = load i32, ptr %27, align 8
+  %dec.i = add i32 %28, -1
+  store i32 %dec.i, ptr %27, align 8
   %cmp3.i = icmp eq i32 %dec.i, 0
-  br i1 %cmp3.i, label %if.then4.i, label %if.end.sink.split
+  br i1 %cmp3.i, label %if.then4.i, label %_ZN11realclosure7manager3imp16dec_ref_sign_detEPNS_8sign_detE.exit
 
 if.then4.i:                                       ; preds = %if.then.i
-  tail call void @_ZN11realclosure7manager3imp12del_sign_detEPNS_8sign_detE(ptr noundef nonnull align 8 dereferenceable(1497) %this, ptr noundef nonnull %25)
-  br label %if.end.sink.split
+  tail call void @_ZN11realclosure7manager3imp12del_sign_detEPNS_8sign_detE(ptr noundef nonnull align 8 dereferenceable(1497) %this, ptr noundef nonnull %27)
+  br label %_ZN11realclosure7manager3imp16dec_ref_sign_detEPNS_8sign_detE.exit
+
+_ZN11realclosure7manager3imp16dec_ref_sign_detEPNS_8sign_detE.exit: ; preds = %_ZN11realclosure7manager3imp7reset_pER9ptr_arrayINS_5valueEE.exit, %if.then.i, %if.then4.i
+  %29 = load ptr, ptr %m_allocator.i.i2028, align 8
+  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %29, i64 noundef 152, ptr noundef nonnull %ext)
+  br label %if.end
 
 default.unreachable:                              ; preds = %if.then
   unreachable
 
-if.end.sink.split:                                ; preds = %if.then4.i, %if.then.i, %_ZN11realclosure7manager3imp7reset_pER9ptr_arrayINS_5valueEE.exit, %sw.bb6, %sw.bb
-  %m_allocator.i.i.sink = phi ptr [ %m_allocator.i.i, %sw.bb ], [ %m_allocator.i.i15, %sw.bb6 ], [ %m_allocator.i.i2028, %_ZN11realclosure7manager3imp7reset_pER9ptr_arrayINS_5valueEE.exit ], [ %m_allocator.i.i2028, %if.then.i ], [ %m_allocator.i.i2028, %if.then4.i ]
-  %.sink33 = phi i64 [ 104, %sw.bb ], [ 88, %sw.bb6 ], [ 152, %_ZN11realclosure7manager3imp7reset_pER9ptr_arrayINS_5valueEE.exit ], [ 152, %if.then.i ], [ 152, %if.then4.i ]
-  %27 = load ptr, ptr %m_allocator.i.i.sink, align 8
-  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %27, i64 noundef %.sink33, ptr noundef nonnull %ext)
-  br label %if.end
-
-if.end:                                           ; preds = %if.end.sink.split, %if.then, %entry
+if.end:                                           ; preds = %if.then, %sw.bb, %sw.bb6, %_ZN11realclosure7manager3imp16dec_ref_sign_detEPNS_8sign_detE.exit, %entry
   ret void
 }
 

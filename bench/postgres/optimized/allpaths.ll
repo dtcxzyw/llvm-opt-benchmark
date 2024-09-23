@@ -3997,13 +3997,13 @@ define internal fastcc noundef zeroext i1 @subquery_is_pushdown_safe(ptr noundef
   %4 = getelementptr inbounds i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %6, label %185
+  br i1 %.not, label %6, label %184
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 200
   %8 = load ptr, ptr %7, align 8
   %.not26 = icmp eq ptr %8, null
-  br i1 %.not26, label %9, label %185
+  br i1 %.not26, label %9, label %184
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %0, i64 136
@@ -4015,7 +4015,7 @@ define internal fastcc noundef zeroext i1 @subquery_is_pushdown_safe(ptr noundef
   %13 = getelementptr inbounds i8, ptr %0, i64 152
   %14 = load ptr, ptr %13, align 8
   %.not28 = icmp eq ptr %14, null
-  br i1 %.not28, label %15, label %185
+  br i1 %.not28, label %15, label %184
 
 15:                                               ; preds = %12, %9
   %16 = getelementptr inbounds i8, ptr %0, i64 176
@@ -4111,7 +4111,7 @@ define internal fastcc noundef zeroext i1 @subquery_is_pushdown_safe(ptr noundef
   %74 = getelementptr inbounds i8, ptr %45, i64 8
   %75 = load ptr, ptr %74, align 8
   %76 = tail call zeroext i1 @contain_volatile_functions(ptr noundef %75) #9
-  br i1 %76, label %targetIsInAllPartitionLists.exit.thread.sink.split.sink.split.i, label %77
+  br i1 %76, label %targetIsInAllPartitionLists.exit.thread.sink.split.i.sink.split, label %77
 
 77:                                               ; preds = %73, %64
   %78 = load i8, ptr %38, align 8
@@ -4131,7 +4131,7 @@ define internal fastcc noundef zeroext i1 @subquery_is_pushdown_safe(ptr noundef
 88:                                               ; preds = %80
   %89 = load ptr, ptr %16, align 8
   %90 = tail call zeroext i1 @targetIsInSortList(ptr noundef nonnull %45, i32 noundef 0, ptr noundef %89) #9
-  br i1 %90, label %91, label %targetIsInAllPartitionLists.exit.thread.sink.split.sink.split.i
+  br i1 %90, label %91, label %targetIsInAllPartitionLists.exit.thread.sink.split.i.sink.split
 
 91:                                               ; preds = %88, %80, %77
   %92 = load i8, ptr %39, align 1
@@ -4175,155 +4175,155 @@ define internal fastcc noundef zeroext i1 @subquery_is_pushdown_safe(ptr noundef
   %114 = getelementptr inbounds i8, ptr %113, i64 24
   %115 = load ptr, ptr %114, align 8
   %116 = tail call zeroext i1 @targetIsInSortList(ptr noundef %45, i32 noundef 0, ptr noundef %115) #9
-  br i1 %116, label %107, label %targetIsInAllPartitionLists.exit.thread.sink.split.sink.split.i
+  br i1 %116, label %107, label %targetIsInAllPartitionLists.exit.thread.sink.split.i.sink.split
 
-targetIsInAllPartitionLists.exit.thread.sink.split.sink.split.i: ; preds = %.lr.ph12.i.i, %88, %73
-  %.sink43.ph.i = phi i8 [ 1, %73 ], [ 4, %88 ], [ 8, %.lr.ph12.i.i ]
+targetIsInAllPartitionLists.exit.thread.sink.split.i.sink.split: ; preds = %.lr.ph12.i.i, %88, %73
+  %.sink43.i.ph = phi i8 [ 1, %73 ], [ 4, %88 ], [ 8, %.lr.ph12.i.i ]
   %117 = load ptr, ptr %2, align 8
   br label %targetIsInAllPartitionLists.exit.thread.sink.split.i
 
-targetIsInAllPartitionLists.exit.thread.sink.split.i: ; preds = %targetIsInAllPartitionLists.exit.thread.sink.split.sink.split.i, %60
-  %.sink46.i = phi ptr [ %53, %60 ], [ %66, %targetIsInAllPartitionLists.exit.thread.sink.split.sink.split.i ]
-  %.sink44.i = phi ptr [ %.pre.i, %60 ], [ %117, %targetIsInAllPartitionLists.exit.thread.sink.split.sink.split.i ]
-  %.sink43.i = phi i8 [ 2, %60 ], [ %.sink43.ph.i, %targetIsInAllPartitionLists.exit.thread.sink.split.sink.split.i ]
-  %118 = load i16, ptr %.sink46.i, align 8
-  %119 = sext i16 %118 to i64
-  %120 = getelementptr i8, ptr %.sink44.i, i64 %119
-  %121 = load i8, ptr %120, align 1
-  %122 = or i8 %121, %.sink43.i
-  store i8 %122, ptr %120, align 1
+targetIsInAllPartitionLists.exit.thread.sink.split.i: ; preds = %targetIsInAllPartitionLists.exit.thread.sink.split.i.sink.split, %60
+  %.sink.in.i = phi ptr [ %53, %60 ], [ %66, %targetIsInAllPartitionLists.exit.thread.sink.split.i.sink.split ]
+  %.sink44.i = phi ptr [ %.pre.i, %60 ], [ %117, %targetIsInAllPartitionLists.exit.thread.sink.split.i.sink.split ]
+  %.sink43.i = phi i8 [ 2, %60 ], [ %.sink43.i.ph, %targetIsInAllPartitionLists.exit.thread.sink.split.i.sink.split ]
+  %.sink.i = load i16, ptr %.sink.in.i, align 8
+  %118 = sext i16 %.sink.i to i64
+  %119 = getelementptr i8, ptr %.sink44.i, i64 %118
+  %120 = load i8, ptr %119, align 1
+  %121 = or i8 %120, %.sink43.i
+  store i8 %121, ptr %119, align 1
   br label %targetIsInAllPartitionLists.exit.thread.i
 
 targetIsInAllPartitionLists.exit.thread.i:        ; preds = %107, %targetIsInAllPartitionLists.exit.thread.sink.split.i, %.lr.ph.i.i, %102, %94, %91, %.lr.ph
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i39, 1
-  %123 = load i32, ptr %35, align 4
-  %124 = sext i32 %123 to i64
-  %125 = icmp slt i64 %indvars.iv.next.i, %124
-  br i1 %125, label %.lr.ph, label %check_output_expressions.exit
+  %122 = load i32, ptr %35, align 4
+  %123 = sext i32 %122 to i64
+  %124 = icmp slt i64 %indvars.iv.next.i, %123
+  br i1 %124, label %.lr.ph, label %check_output_expressions.exit
 
 check_output_expressions.exit:                    ; preds = %targetIsInAllPartitionLists.exit.thread.i, %.lr.ph.i, %32, %28
-  %126 = icmp eq ptr %0, %1
-  %127 = load ptr, ptr %29, align 8
-  %.not31 = icmp eq ptr %127, null
-  br i1 %126, label %128, label %131
+  %125 = icmp eq ptr %0, %1
+  %126 = load ptr, ptr %29, align 8
+  %.not31 = icmp eq ptr %126, null
+  br i1 %125, label %127, label %130
 
-128:                                              ; preds = %check_output_expressions.exit
-  br i1 %.not31, label %compare_tlist_datatypes.exit, label %129
+127:                                              ; preds = %check_output_expressions.exit
+  br i1 %.not31, label %compare_tlist_datatypes.exit, label %128
 
-129:                                              ; preds = %128
-  %130 = tail call fastcc zeroext i1 @recurse_pushdown_safe(ptr noundef nonnull %127, ptr noundef %1, ptr noundef %2)
-  br i1 %130, label %compare_tlist_datatypes.exit, label %185
+128:                                              ; preds = %127
+  %129 = tail call fastcc zeroext i1 @recurse_pushdown_safe(ptr noundef nonnull %126, ptr noundef %1, ptr noundef %2)
+  br i1 %129, label %compare_tlist_datatypes.exit, label %184
 
-131:                                              ; preds = %check_output_expressions.exit
-  br i1 %.not31, label %132, label %185
+130:                                              ; preds = %check_output_expressions.exit
+  br i1 %.not31, label %131, label %184
 
-132:                                              ; preds = %131
-  %133 = getelementptr inbounds i8, ptr %1, i64 224
-  %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds i8, ptr %0, i64 104
-  %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr inbounds i8, ptr %134, i64 32
-  %138 = load ptr, ptr %137, align 8
-  %.not.i.i32 = icmp eq ptr %138, null
-  br i1 %.not.i.i32, label %list_head.exit.i, label %139
+131:                                              ; preds = %130
+  %132 = getelementptr inbounds i8, ptr %1, i64 224
+  %133 = load ptr, ptr %132, align 8
+  %134 = getelementptr inbounds i8, ptr %0, i64 104
+  %135 = load ptr, ptr %134, align 8
+  %136 = getelementptr inbounds i8, ptr %133, i64 32
+  %137 = load ptr, ptr %136, align 8
+  %.not.i.i32 = icmp eq ptr %137, null
+  br i1 %.not.i.i32, label %list_head.exit.i, label %138
 
-139:                                              ; preds = %132
-  %140 = getelementptr inbounds i8, ptr %138, i64 16
-  %141 = load ptr, ptr %140, align 8
+138:                                              ; preds = %131
+  %139 = getelementptr inbounds i8, ptr %137, i64 16
+  %140 = load ptr, ptr %139, align 8
   br label %list_head.exit.i
 
-list_head.exit.i:                                 ; preds = %139, %132
-  %142 = phi ptr [ %141, %139 ], [ null, %132 ]
-  %.not.i33 = icmp eq ptr %136, null
+list_head.exit.i:                                 ; preds = %138, %131
+  %141 = phi ptr [ %140, %138 ], [ null, %131 ]
+  %.not.i33 = icmp eq ptr %135, null
   br i1 %.not.i33, label %._crit_edge.i, label %.lr.ph.i34
 
 .lr.ph.i34:                                       ; preds = %list_head.exit.i
-  %143 = getelementptr inbounds i8, ptr %136, i64 4
-  %144 = getelementptr inbounds i8, ptr %136, i64 16
-  %145 = getelementptr i8, ptr %138, i64 4
-  %146 = getelementptr i8, ptr %138, i64 16
-  %147 = load i32, ptr %143, align 4
-  %148 = icmp sgt i32 %147, 0
-  br i1 %148, label %.lr.ph32.i, label %._crit_edge.i
+  %142 = getelementptr inbounds i8, ptr %135, i64 4
+  %143 = getelementptr inbounds i8, ptr %135, i64 16
+  %144 = getelementptr i8, ptr %137, i64 4
+  %145 = getelementptr i8, ptr %137, i64 16
+  %146 = load i32, ptr %142, align 4
+  %147 = icmp sgt i32 %146, 0
+  br i1 %147, label %.lr.ph32.i, label %._crit_edge.i
 
-.lr.ph32.i:                                       ; preds = %.lr.ph.i34, %178
-  %149 = phi i32 [ %179, %178 ], [ %147, %.lr.ph.i34 ]
-  %indvars.iv.i35 = phi i64 [ %indvars.iv.next.i38, %178 ], [ 0, %.lr.ph.i34 ]
-  %.0162630.i = phi ptr [ %.1.i, %178 ], [ %142, %.lr.ph.i34 ]
-  %150 = load ptr, ptr %144, align 8
-  %151 = getelementptr %union.ListCell, ptr %150, i64 %indvars.iv.i35
-  %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds i8, ptr %152, i64 42
-  %154 = load i8, ptr %153, align 2
-  %155 = trunc i8 %154 to i1
-  br i1 %155, label %178, label %156
+.lr.ph32.i:                                       ; preds = %.lr.ph.i34, %177
+  %148 = phi i32 [ %178, %177 ], [ %146, %.lr.ph.i34 ]
+  %indvars.iv.i35 = phi i64 [ %indvars.iv.next.i38, %177 ], [ 0, %.lr.ph.i34 ]
+  %.0162630.i = phi ptr [ %.1.i, %177 ], [ %141, %.lr.ph.i34 ]
+  %149 = load ptr, ptr %143, align 8
+  %150 = getelementptr %union.ListCell, ptr %149, i64 %indvars.iv.i35
+  %151 = load ptr, ptr %150, align 8
+  %152 = getelementptr inbounds i8, ptr %151, i64 42
+  %153 = load i8, ptr %152, align 2
+  %154 = trunc i8 %153 to i1
+  br i1 %154, label %177, label %155
 
-156:                                              ; preds = %.lr.ph32.i
-  %157 = icmp eq ptr %.0162630.i, null
-  br i1 %157, label %.split.i, label %160
+155:                                              ; preds = %.lr.ph32.i
+  %156 = icmp eq ptr %.0162630.i, null
+  br i1 %156, label %.split.i, label %159
 
-.split.i:                                         ; preds = %156
-  %158 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %158)
-  %159 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #9
+.split.i:                                         ; preds = %155
+  %157 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  tail call void @llvm.assume(i1 %157)
+  %158 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3802, ptr noundef nonnull @__func__.compare_tlist_datatypes) #9
   unreachable
 
-160:                                              ; preds = %156
-  %161 = getelementptr inbounds i8, ptr %152, i64 8
-  %162 = load ptr, ptr %161, align 8
-  %163 = tail call i32 @exprType(ptr noundef %162) #9
-  %164 = load i32, ptr %.0162630.i, align 8
-  %.not20.i = icmp eq i32 %163, %164
-  br i1 %.not20.i, label %173, label %165
+159:                                              ; preds = %155
+  %160 = getelementptr inbounds i8, ptr %151, i64 8
+  %161 = load ptr, ptr %160, align 8
+  %162 = tail call i32 @exprType(ptr noundef %161) #9
+  %163 = load i32, ptr %.0162630.i, align 8
+  %.not20.i = icmp eq i32 %162, %163
+  br i1 %.not20.i, label %172, label %164
 
-165:                                              ; preds = %160
-  %166 = load ptr, ptr %2, align 8
-  %167 = getelementptr inbounds i8, ptr %152, i64 16
-  %168 = load i16, ptr %167, align 8
-  %169 = sext i16 %168 to i64
-  %170 = getelementptr i8, ptr %166, i64 %169
-  %171 = load i8, ptr %170, align 1
-  %172 = or i8 %171, 16
-  store i8 %172, ptr %170, align 1
-  br label %173
+164:                                              ; preds = %159
+  %165 = load ptr, ptr %2, align 8
+  %166 = getelementptr inbounds i8, ptr %151, i64 16
+  %167 = load i16, ptr %166, align 8
+  %168 = sext i16 %167 to i64
+  %169 = getelementptr i8, ptr %165, i64 %168
+  %170 = load i8, ptr %169, align 1
+  %171 = or i8 %170, 16
+  store i8 %171, ptr %169, align 1
+  br label %172
 
-173:                                              ; preds = %165, %160
-  %.val.i36 = load i32, ptr %145, align 4
-  %.val21.i = load ptr, ptr %146, align 8
-  %174 = getelementptr i8, ptr %.0162630.i, i64 8
-  %175 = sext i32 %.val.i36 to i64
-  %176 = getelementptr %union.ListCell, ptr %.val21.i, i64 %175
-  %177 = icmp ult ptr %174, %176
-  %..i.i = select i1 %177, ptr %174, ptr null
-  %.pre.i37 = load i32, ptr %143, align 4
-  br label %178
+172:                                              ; preds = %164, %159
+  %.val.i36 = load i32, ptr %144, align 4
+  %.val21.i = load ptr, ptr %145, align 8
+  %173 = getelementptr i8, ptr %.0162630.i, i64 8
+  %174 = sext i32 %.val.i36 to i64
+  %175 = getelementptr %union.ListCell, ptr %.val21.i, i64 %174
+  %176 = icmp ult ptr %173, %175
+  %..i.i = select i1 %176, ptr %173, ptr null
+  %.pre.i37 = load i32, ptr %142, align 4
+  br label %177
 
-178:                                              ; preds = %173, %.lr.ph32.i
-  %179 = phi i32 [ %149, %.lr.ph32.i ], [ %.pre.i37, %173 ]
-  %.1.i = phi ptr [ %.0162630.i, %.lr.ph32.i ], [ %..i.i, %173 ]
+177:                                              ; preds = %172, %.lr.ph32.i
+  %178 = phi i32 [ %148, %.lr.ph32.i ], [ %.pre.i37, %172 ]
+  %.1.i = phi ptr [ %.0162630.i, %.lr.ph32.i ], [ %..i.i, %172 ]
   %indvars.iv.next.i38 = add nuw nsw i64 %indvars.iv.i35, 1
-  %180 = sext i32 %179 to i64
-  %181 = icmp slt i64 %indvars.iv.next.i38, %180
-  br i1 %181, label %.lr.ph32.i, label %._crit_edge.i
+  %179 = sext i32 %178 to i64
+  %180 = icmp slt i64 %indvars.iv.next.i38, %179
+  br i1 %180, label %.lr.ph32.i, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %178, %.lr.ph.i34, %list_head.exit.i
-  %.016.lcssa.i = phi ptr [ %142, %list_head.exit.i ], [ %142, %.lr.ph.i34 ], [ %.1.i, %178 ]
+._crit_edge.i:                                    ; preds = %177, %.lr.ph.i34, %list_head.exit.i
+  %.016.lcssa.i = phi ptr [ %141, %list_head.exit.i ], [ %141, %.lr.ph.i34 ], [ %.1.i, %177 ]
   %.not19.i = icmp eq ptr %.016.lcssa.i, null
-  br i1 %.not19.i, label %compare_tlist_datatypes.exit, label %182
+  br i1 %.not19.i, label %compare_tlist_datatypes.exit, label %181
 
-182:                                              ; preds = %._crit_edge.i
-  %183 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %183)
-  %184 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #9
+181:                                              ; preds = %._crit_edge.i
+  %182 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  tail call void @llvm.assume(i1 %182)
+  %183 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3808, ptr noundef nonnull @__func__.compare_tlist_datatypes) #9
   unreachable
 
-compare_tlist_datatypes.exit:                     ; preds = %._crit_edge.i, %128, %129
-  br label %185
+compare_tlist_datatypes.exit:                     ; preds = %._crit_edge.i, %127, %128
+  br label %184
 
-185:                                              ; preds = %131, %129, %12, %3, %6, %compare_tlist_datatypes.exit
-  %.0 = phi i1 [ true, %compare_tlist_datatypes.exit ], [ false, %6 ], [ false, %3 ], [ false, %12 ], [ false, %129 ], [ false, %131 ]
+184:                                              ; preds = %130, %128, %12, %3, %6, %compare_tlist_datatypes.exit
+  %.0 = phi i1 [ true, %compare_tlist_datatypes.exit ], [ false, %6 ], [ false, %3 ], [ false, %12 ], [ false, %128 ], [ false, %130 ]
   ret i1 %.0
 }
 

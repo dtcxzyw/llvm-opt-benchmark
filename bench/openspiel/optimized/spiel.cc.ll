@@ -18692,7 +18692,7 @@ define linkonce_odr void @_ZSt19__relocate_object_aIN10open_spiel8GameTypeES1_Sa
   %9 = getelementptr inbounds i8, ptr %1, i64 112
   %10 = load ptr, ptr %9, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %10, null
-  br i1 %.not.i.i.i.i.i.i.i, label %25, label %11
+  br i1 %.not.i.i.i.i.i.i.i, label %24, label %11
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds i8, ptr %1, i64 104
@@ -18712,40 +18712,39 @@ define linkonce_odr void @_ZSt19__relocate_object_aIN10open_spiel8GameTypeES1_Sa
   store ptr %8, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %1, i64 136
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 136
-  store i64 %23, ptr %24, align 8
   store ptr null, ptr %9, align 8
   store ptr %12, ptr %15, align 8
   store ptr %12, ptr %18, align 8
+  store i64 0, ptr %22, align 8
   br label %_ZNSt16allocator_traitsISaIN10open_spiel8GameTypeEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit
 
-25:                                               ; preds = %3
+24:                                               ; preds = %3
   store i32 0, ptr %8, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 112
-  store ptr null, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 120
+  %25 = getelementptr inbounds i8, ptr %0, i64 112
+  store ptr null, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 120
+  store ptr %8, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 128
   store ptr %8, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 128
-  store ptr %8, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 136
   br label %_ZNSt16allocator_traitsISaIN10open_spiel8GameTypeEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit
 
-_ZNSt16allocator_traitsISaIN10open_spiel8GameTypeEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit: ; preds = %11, %25
-  %.sink.i.i.i.i.i.i.i = phi ptr [ %29, %25 ], [ %22, %11 ]
-  store i64 0, ptr %.sink.i.i.i.i.i.i.i, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %32 = load i16, ptr %31, align 8
-  store i16 %32, ptr %30, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %33, ptr noundef null)
-          to label %_ZNSt16allocator_traitsISaIN10open_spiel8GameTypeEEE7destroyIS1_EEvRS2_PT_.exit unwind label %34
+_ZNSt16allocator_traitsISaIN10open_spiel8GameTypeEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit: ; preds = %11, %24
+  %.sink = phi i64 [ 0, %24 ], [ %23, %11 ]
+  %28 = getelementptr inbounds i8, ptr %0, i64 136
+  store i64 %.sink, ptr %28, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %31 = load i16, ptr %30, align 8
+  store i16 %31, ptr %29, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %32, ptr noundef null)
+          to label %_ZNSt16allocator_traitsISaIN10open_spiel8GameTypeEEE7destroyIS1_EEvRS2_PT_.exit unwind label %33
 
-34:                                               ; preds = %_ZNSt16allocator_traitsISaIN10open_spiel8GameTypeEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit
-  %35 = landingpad { ptr, i32 }
+33:                                               ; preds = %_ZNSt16allocator_traitsISaIN10open_spiel8GameTypeEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit
+  %34 = landingpad { ptr, i32 }
           catch ptr null
-  %36 = extractvalue { ptr, i32 } %35, 0
-  tail call void @__clang_call_terminate(ptr %36) #31
+  %35 = extractvalue { ptr, i32 } %34, 0
+  tail call void @__clang_call_terminate(ptr %35) #31
   unreachable
 
 _ZNSt16allocator_traitsISaIN10open_spiel8GameTypeEEE7destroyIS1_EEvRS2_PT_.exit: ; preds = %_ZNSt16allocator_traitsISaIN10open_spiel8GameTypeEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit

@@ -44,94 +44,92 @@ $_ZTIN5ZXing5ErrorE = comdat any
 define noundef i32 @_ZN5ZXing6QRCode16CodecModeForBitsEiNS0_4TypeE(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
-  switch i32 %1, label %15 [
+  switch i32 %1, label %17 [
     i32 2, label %5
-    i32 3, label %10
+    i32 3, label %11
   ]
 
 5:                                                ; preds = %2
   %6 = icmp slt i32 %0, 4
-  br i1 %6, label %7, label %18
+  br i1 %6, label %7, label %20
 
 7:                                                ; preds = %5
   %8 = sext i32 %0 to i64
   %9 = getelementptr inbounds [4 x i32], ptr @__const._ZN5ZXing6QRCode16CodecModeForBitsEiNS0_4TypeE.Bits2Mode, i64 0, i64 %8
-  br label %.sink.split30
+  %10 = load i32, ptr %9, align 4
+  br label %31
 
-10:                                               ; preds = %2
-  %11 = icmp slt i32 %0, 8
-  br i1 %11, label %12, label %18
+11:                                               ; preds = %2
+  %12 = icmp slt i32 %0, 8
+  br i1 %12, label %13, label %20
 
-12:                                               ; preds = %10
-  %13 = sext i32 %0 to i64
-  %14 = getelementptr inbounds [8 x i32], ptr @__const._ZN5ZXing6QRCode16CodecModeForBitsEiNS0_4TypeE.Bits2Mode.1, i64 0, i64 %13
-  br label %.sink.split30
+13:                                               ; preds = %11
+  %14 = sext i32 %0 to i64
+  %15 = getelementptr inbounds [8 x i32], ptr @__const._ZN5ZXing6QRCode16CodecModeForBitsEiNS0_4TypeE.Bits2Mode.1, i64 0, i64 %14
+  %16 = load i32, ptr %15, align 4
+  br label %31
 
-15:                                               ; preds = %2
+17:                                               ; preds = %2
   %or.cond = icmp ult i32 %0, 6
-  br i1 %or.cond, label %29, label %16
+  br i1 %or.cond, label %31, label %18
 
-16:                                               ; preds = %15
+18:                                               ; preds = %17
   %switch.tableidx = add i32 %0, -7
-  %17 = icmp ult i32 %switch.tableidx, 7
-  br i1 %17, label %switch.hole_check, label %18
+  %19 = icmp ult i32 %switch.tableidx, 7
+  br i1 %19, label %switch.hole_check, label %20
 
-18:                                               ; preds = %switch.hole_check, %16, %10, %5
-  %19 = tail call ptr @__cxa_allocate_exception(i64 48) #10
+20:                                               ; preds = %switch.hole_check, %18, %11, %5
+  %21 = tail call ptr @__cxa_allocate_exception(i64 48) #10
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #10
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %20 unwind label %26
+          to label %22 unwind label %28
 
-20:                                               ; preds = %18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %3) #10
-  %21 = getelementptr inbounds i8, ptr %19, i64 32
-  store ptr @.str, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %19, i64 40
-  store i16 36, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %19, i64 42
-  store i8 1, ptr %23, align 2
-  invoke void @__cxa_throw(ptr nonnull %19, ptr nonnull @_ZTIN5ZXing5ErrorE, ptr nonnull @_ZN5ZXing5ErrorD2Ev) #11
-          to label %31 unwind label %24
+22:                                               ; preds = %20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %3) #10
+  %23 = getelementptr inbounds i8, ptr %21, i64 32
+  store ptr @.str, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %21, i64 40
+  store i16 36, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %21, i64 42
+  store i8 1, ptr %25, align 2
+  invoke void @__cxa_throw(ptr nonnull %21, ptr nonnull @_ZTIN5ZXing5ErrorE, ptr nonnull @_ZN5ZXing5ErrorD2Ev) #11
+          to label %33 unwind label %26
 
-24:                                               ; preds = %20
-  %25 = landingpad { ptr, i32 }
+26:                                               ; preds = %22
+  %27 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #10
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #10
-  br label %30
+  br label %32
 
-26:                                               ; preds = %18
-  %27 = landingpad { ptr, i32 }
+28:                                               ; preds = %20
+  %29 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #10
-  call void @__cxa_free_exception(ptr %19) #10
-  br label %30
+  call void @__cxa_free_exception(ptr %21) #10
+  br label %32
 
-switch.hole_check:                                ; preds = %16
+switch.hole_check:                                ; preds = %18
   %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 71, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %18
+  br i1 %switch.lobit, label %switch.lookup, label %20
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table._ZN5ZXing6QRCode16CodecModeForBitsEiNS0_4TypeE, i64 0, i64 %28
-  br label %.sink.split30
+  %30 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table._ZN5ZXing6QRCode16CodecModeForBitsEiNS0_4TypeE, i64 0, i64 %30
+  %switch.load = load i32, ptr %switch.gep, align 4
+  br label %31
 
-.sink.split30:                                    ; preds = %12, %7, %switch.lookup
-  %switch.gep.sink = phi ptr [ %switch.gep, %switch.lookup ], [ %14, %12 ], [ %9, %7 ]
-  %switch.load = load i32, ptr %switch.gep.sink, align 4
-  br label %29
-
-29:                                               ; preds = %.sink.split30, %15
-  %.022 = phi i32 [ %0, %15 ], [ %switch.load, %.sink.split30 ]
+31:                                               ; preds = %switch.lookup, %17, %13, %7
+  %.022 = phi i32 [ %10, %7 ], [ %16, %13 ], [ %0, %17 ], [ %switch.load, %switch.lookup ]
   ret i32 %.022
 
-30:                                               ; preds = %24, %26
-  %.pn28 = phi { ptr, i32 } [ %25, %24 ], [ %27, %26 ]
+32:                                               ; preds = %26, %28
+  %.pn28 = phi { ptr, i32 } [ %27, %26 ], [ %29, %28 ]
   resume { ptr, i32 } %.pn28
 
-31:                                               ; preds = %20
+33:                                               ; preds = %22
   unreachable
 }
 

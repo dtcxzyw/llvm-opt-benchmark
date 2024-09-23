@@ -42,39 +42,40 @@ entry:
 
 if.then:                                          ; preds = %entry
   %value = getelementptr inbounds i8, ptr %call10, i64 16
-  br label %return.sink.split
+  %0 = load i64, ptr %value, align 8
+  br label %return
 
 if.end:                                           ; preds = %entry
   %identifierTable_.i = getelementptr inbounds i8, ptr %runtime, i64 9264
   %call17 = tail call i64 @_ZN6hermes2vm15IdentifierTable22createNotUniquedSymbolERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEE(ptr noundef nonnull align 8 dereferenceable(84) %identifierTable_.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %key.coerce) #6
-  %0 = and i64 %call17, 4294967296
-  %cmp.i = icmp eq i64 %0, 0
+  %1 = and i64 %call17, 4294967296
+  %cmp.i = icmp eq i64 %1, 0
   br i1 %cmp.i, label %return, label %if.end22
 
 if.end22:                                         ; preds = %if.end
   %conv.i.i.i.i = and i64 %call17, 4294967295
   %or.i.i.i.i.i = or disjoint i64 %conv.i.i.i.i, -1266637395197952
   %topGCScope_.i.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 8
-  %1 = load ptr, ptr %topGCScope_.i.i.i.i, align 8
-  %next_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 192
-  %2 = load ptr, ptr %next_.i.i.i.i.i.i.i, align 8
-  %curChunkEnd_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 200
-  %3 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i = icmp ult ptr %2, %3
+  %2 = load ptr, ptr %topGCScope_.i.i.i.i, align 8
+  %next_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 192
+  %3 = load ptr, ptr %next_.i.i.i.i.i.i.i, align 8
+  %curChunkEnd_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 200
+  %4 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i = icmp ult ptr %3, %4
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end22
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i, align 8
-  store i64 %or.i.i.i.i.i, ptr %2, align 8
+  store i64 %or.i.i.i.i.i, ptr %3, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_8SymbolIDE.exit
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.end22
-  %call7.i.i.i.i.i.i = tail call noundef ptr @_ZN6hermes2vm7GCScope15_newChunkAndPHVENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(212) %1, i64 %or.i.i.i.i.i) #6
+  %call7.i.i.i.i.i.i = tail call noundef ptr @_ZN6hermes2vm7GCScope15_newChunkAndPHVENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(212) %2, i64 %or.i.i.i.i.i) #6
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_8SymbolIDE.exit
 
 _ZN6hermes2vm15HandleRootOwner10makeHandleENS0_8SymbolIDE.exit: ; preds = %if.then.i.i.i.i.i.i, %if.end.i.i.i.i.i.i
-  %retval.0.i.i.i.i.i.i = phi ptr [ %2, %if.then.i.i.i.i.i.i ], [ %call7.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
+  %retval.0.i.i.i.i.i.i = phi ptr [ %3, %if.then.i.i.i.i.i.i ], [ %call7.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
   %call42 = tail call noundef i32 @_ZN6hermes2vm14OrderedHashMap6insertENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES7_(ptr nonnull %this, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %key.coerce, ptr %retval.0.i.i.i.i.i.i) #6
   %cmp = icmp eq i32 %call42, 0
   br i1 %cmp, label %return, label %if.end44
@@ -84,18 +85,18 @@ if.end44:                                         ; preds = %_ZN6hermes2vm15Hand
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %retval.0.i.i.i.i.i.i, align 8
   %conv.i.i.i = trunc i64 %retval.sroa.0.0.copyload.i.i to i32
   store i32 %conv.i.i.i, ptr %ref.tmp45, align 4
-  %4 = load ptr, ptr %registeredSymbols_, align 8, !noalias !4
+  %5 = load ptr, ptr %registeredSymbols_, align 8, !noalias !4
   %NumBuckets.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %5 = load i32, ptr %NumBuckets.i.i.i.i.i.i, align 8, !noalias !4
-  %cmp.i.i.i.i = icmp eq i32 %5, 0
+  %6 = load i32, ptr %NumBuckets.i.i.i.i.i.i, align 8, !noalias !4
+  %cmp.i.i.i.i = icmp eq i32 %6, 0
   br i1 %cmp.i.i.i.i, label %if.end.i.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end44
   %mul.i.i.i.i.i.i.i = mul i32 %conv.i.i.i, 37
-  %sub.i.i.i.i = add i32 %5, -1
+  %sub.i.i.i.i = add i32 %6, -1
   %BucketNo.019.i.i.i.i = and i32 %sub.i.i.i.i, %mul.i.i.i.i.i.i.i
   %idx.ext20.i.i.i.i = zext i32 %BucketNo.019.i.i.i.i to i64
-  %add.ptr21.i.i.i.i = getelementptr inbounds %"class.llvh::detail::DenseSetPair", ptr %4, i64 %idx.ext20.i.i.i.i
+  %add.ptr21.i.i.i.i = getelementptr inbounds %"class.llvh::detail::DenseSetPair", ptr %5, i64 %idx.ext20.i.i.i.i
   %agg.tmp7.sroa.0.0.copyload22.i.i.i.i = load i32, ptr %add.ptr21.i.i.i.i, align 4, !noalias !4
   %cmp.i.i23.i.i.i.i = icmp eq i32 %agg.tmp7.sroa.0.0.copyload22.i.i.i.i, %conv.i.i.i
   br i1 %cmp.i.i23.i.i.i.i, label %return, label %if.end13.i.i.i.i
@@ -123,7 +124,7 @@ if.end21.i.i.i.i:                                 ; preds = %if.end13.i.i.i.i
   %add.i.i.i.i = add i32 %ProbeAmt.024.i.i.i.i, %BucketNo.026.i.i.i.i
   %BucketNo.0.i.i.i.i = and i32 %add.i.i.i.i, %sub.i.i.i.i
   %idx.ext.i.i.i.i = zext i32 %BucketNo.0.i.i.i.i to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.llvh::detail::DenseSetPair", ptr %4, i64 %idx.ext.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds %"class.llvh::detail::DenseSetPair", ptr %5, i64 %idx.ext.i.i.i.i
   %agg.tmp7.sroa.0.0.copyload.i.i.i.i = load i32, ptr %add.ptr.i.i.i.i, align 4, !noalias !4
   %cmp.i.i.i.i.i.i9 = icmp eq i32 %agg.tmp7.sroa.0.0.copyload.i.i.i.i, %conv.i.i.i
   br i1 %cmp.i.i.i.i.i.i9, label %return, label %if.end13.i.i.i.i, !llvm.loop !9
@@ -131,18 +132,14 @@ if.end21.i.i.i.i:                                 ; preds = %if.end13.i.i.i.i
 if.end.i.i:                                       ; preds = %if.then20.i.i.i.i, %if.end44
   %cond.sink.i.i.i.i = phi ptr [ %cond.i.i.i.i, %if.then20.i.i.i.i ], [ null, %if.end44 ]
   %call.i.i.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes2vm8SymbolIDENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_EENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_(ptr noundef nonnull align 1 dereferenceable(1) %registeredSymbols_, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp45, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp45, ptr noundef %cond.sink.i.i.i.i), !noalias !4
-  %6 = load i32, ptr %ref.tmp45, align 4, !noalias !4
-  store i32 %6, ptr %call.i.i.i, align 4, !noalias !4
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.then, %if.end.i.i
-  %retval.0.i.i.i.i.i.i.sink = phi ptr [ %retval.0.i.i.i.i.i.i, %if.end.i.i ], [ %value, %if.then ]
-  %retval.sroa.0.0.copyload.i.i10.pre = load i64, ptr %retval.0.i.i.i.i.i.i.sink, align 8
+  %7 = load i32, ptr %ref.tmp45, align 4, !noalias !4
+  store i32 %7, ptr %call.i.i.i, align 4, !noalias !4
+  %retval.sroa.0.0.copyload.i.i10.pre = load i64, ptr %retval.0.i.i.i.i.i.i, align 8
   br label %return
 
-return:                                           ; preds = %if.end21.i.i.i.i, %return.sink.split, %if.end.i.i.i.i, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_8SymbolIDE.exit, %if.end
-  %retval.sroa.0.0 = phi i64 [ 0, %if.end ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_8SymbolIDE.exit ], [ %retval.sroa.0.0.copyload.i.i, %if.end.i.i.i.i ], [ %retval.sroa.0.0.copyload.i.i10.pre, %return.sink.split ], [ %retval.sroa.0.0.copyload.i.i, %if.end21.i.i.i.i ]
-  %retval.sroa.3.0 = phi i64 [ 0, %if.end ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_8SymbolIDE.exit ], [ 4294967296, %if.end.i.i.i.i ], [ 4294967296, %return.sink.split ], [ 4294967296, %if.end21.i.i.i.i ]
+return:                                           ; preds = %if.end21.i.i.i.i, %if.end.i.i, %if.end.i.i.i.i, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_8SymbolIDE.exit, %if.end, %if.then
+  %retval.sroa.0.0 = phi i64 [ %0, %if.then ], [ 0, %if.end ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_8SymbolIDE.exit ], [ %retval.sroa.0.0.copyload.i.i, %if.end.i.i.i.i ], [ %retval.sroa.0.0.copyload.i.i10.pre, %if.end.i.i ], [ %retval.sroa.0.0.copyload.i.i, %if.end21.i.i.i.i ]
+  %retval.sroa.3.0 = phi i64 [ 4294967296, %if.then ], [ 0, %if.end ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_8SymbolIDE.exit ], [ 4294967296, %if.end.i.i.i.i ], [ 4294967296, %if.end.i.i ], [ 4294967296, %if.end21.i.i.i.i ]
   %retval.sroa.0.0.insert.ext = and i64 %retval.sroa.0.0, 4294967295
   %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.3.0, %retval.sroa.0.0.insert.ext
   ret i64 %retval.sroa.0.0.insert.insert

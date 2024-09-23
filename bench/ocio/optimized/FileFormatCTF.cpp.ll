@@ -6571,7 +6571,11 @@ if.then.i.i.i466:                                 ; preds = %_ZNSt10shared_ptrIN
   %138 = load atomic i64, ptr %_M_use_count.i.i.i.i467 acquire, align 8
   %cmp.i.i.i.i468 = icmp eq i64 %138, 4294967297
   %139 = trunc i64 %138 to i32
-  br i1 %cmp.i.i.i.i468, label %if.end925.sink.split.sink.split, label %if.end.i.i.i.i469
+  br i1 %cmp.i.i.i.i468, label %if.then.i.i.i.i491, label %if.end.i.i.i.i469
+
+if.then.i.i.i.i491:                               ; preds = %if.then.i.i.i466
+  store i32 0, ptr %_M_use_count.i.i.i.i467, align 8
+  br label %if.end925.sink.split.sink.split
 
 if.end.i.i.i.i469:                                ; preds = %if.then.i.i.i466
   %140 = load i8, ptr @__libc_single_threaded, align 1
@@ -6910,7 +6914,11 @@ if.then.i.i.i575:                                 ; preds = %_ZNSt10shared_ptrIN
   %186 = load atomic i64, ptr %_M_use_count.i.i.i.i576 acquire, align 8
   %cmp.i.i.i.i577 = icmp eq i64 %186, 4294967297
   %187 = trunc i64 %186 to i32
-  br i1 %cmp.i.i.i.i577, label %if.end925.sink.split.sink.split, label %if.end.i.i.i.i578
+  br i1 %cmp.i.i.i.i577, label %if.then.i.i.i.i600, label %if.end.i.i.i.i578
+
+if.then.i.i.i.i600:                               ; preds = %if.then.i.i.i575
+  store i32 0, ptr %_M_use_count.i.i.i.i576, align 8
+  br label %if.end925.sink.split.sink.split
 
 if.end.i.i.i.i578:                                ; preds = %if.then.i.i.i575
   %188 = load i8, ptr @__libc_single_threaded, align 1
@@ -9127,7 +9135,11 @@ if.then.i.i.i853:                                 ; preds = %if.end923
   %450 = load atomic i64, ptr %_M_use_count.i.i.i.i854 acquire, align 8
   %cmp.i.i.i.i855 = icmp eq i64 %450, 4294967297
   %451 = trunc i64 %450 to i32
-  br i1 %cmp.i.i.i.i855, label %if.end925.sink.split.sink.split, label %if.end.i.i.i.i856
+  br i1 %cmp.i.i.i.i855, label %if.then.i.i.i.i878, label %if.end.i.i.i.i856
+
+if.then.i.i.i.i878:                               ; preds = %if.then.i.i.i853
+  store i32 0, ptr %_M_use_count.i.i.i.i854, align 8
+  br label %if.end925.sink.split.sink.split
 
 if.end.i.i.i.i856:                                ; preds = %if.then.i.i.i853
   %452 = load i8, ptr @__libc_single_threaded, align 1
@@ -9178,10 +9190,8 @@ ehcleanup924:                                     ; preds = %ehcleanup905, %lpad
   call void @_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev16XmlReaderElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %pElt142) #22
   br label %common.resume
 
-if.end925.sink.split.sink.split:                  ; preds = %if.then.i.i.i853, %if.then.i.i.i575, %if.then.i.i.i466
-  %_M_use_count.i.i.i.i854.sink = phi ptr [ %_M_use_count.i.i.i.i467, %if.then.i.i.i466 ], [ %_M_use_count.i.i.i.i576, %if.then.i.i.i575 ], [ %_M_use_count.i.i.i.i854, %if.then.i.i.i853 ]
-  %.sink999 = phi ptr [ %137, %if.then.i.i.i466 ], [ %185, %if.then.i.i.i575 ], [ %449, %if.then.i.i.i853 ]
-  store i32 0, ptr %_M_use_count.i.i.i.i854.sink, align 8
+if.end925.sink.split.sink.split:                  ; preds = %if.then.i.i.i.i491, %if.then.i.i.i.i600, %if.then.i.i.i.i878
+  %.sink999 = phi ptr [ %449, %if.then.i.i.i.i878 ], [ %185, %if.then.i.i.i.i600 ], [ %137, %if.then.i.i.i.i491 ]
   %_M_weak_count.i.i.i.i879 = getelementptr inbounds i8, ptr %.sink999, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i879, align 4
   %vtable.i.i.i.i880 = load ptr, ptr %.sink999, align 8
@@ -11841,9 +11851,9 @@ if.then7.i94:                                     ; preds = %call4.i.noexc99
           to label %call8.i.noexc101.invoke unwind label %lpad43
 
 call8.i.noexc101.invoke:                          ; preds = %if.then7.i94, %if.then7.i
-  %m_revision.i.sink = phi ptr [ %m_revision.i, %if.then7.i ], [ %m_revision.i89, %if.then7.i94 ]
   %62 = phi ptr [ %call8.i85, %if.then7.i ], [ %call8.i102, %if.then7.i94 ]
-  %63 = load i32, ptr %m_revision.i.sink, align 4
+  %.in = phi ptr [ %m_revision.i, %if.then7.i ], [ %m_revision.i89, %if.then7.i94 ]
+  %63 = load i32, ptr %.in, align 4
   %64 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %62, i32 noundef %63)
           to label %if.end unwind label %lpad43
 

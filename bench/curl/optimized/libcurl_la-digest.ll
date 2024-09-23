@@ -220,9 +220,13 @@ if.end.i.i:                                       ; preds = %if.end.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 7
   %0 = load i8, ptr %add.ptr.i.i, align 1
   switch i8 %0, label %for.body.i.i [
-    i8 34, label %if.end4.i
-    i8 0, label %if.end4.i
+    i8 34, label %auth_digest_get_key_value.exit.thread75.i
+    i8 0, label %auth_digest_get_key_value.exit.thread75.i
   ]
+
+auth_digest_get_key_value.exit.thread75.i:        ; preds = %if.end.i.i, %if.end.i.i
+  store i8 0, ptr %nonce, align 16
+  br label %if.end4.i
 
 for.body.i.i:                                     ; preds = %if.end.i.i, %switch.early.test.i
   %1 = phi i8 [ %2, %switch.early.test.i ], [ %0, %if.end.i.i ]
@@ -245,22 +249,25 @@ switch.early.test.i:                              ; preds = %for.body.i.i
 auth_digest_get_key_value.exit.i:                 ; preds = %switch.early.test.i, %switch.early.test.i, %for.body.i.i
   %inc.i.lcssa.i = phi i64 [ %inc.i.i, %switch.early.test.i ], [ %inc.i.i, %switch.early.test.i ], [ 63, %for.body.i.i ]
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %nonce, i64 %inc.i.lcssa.i
+  store i8 0, ptr %arrayidx8.i.i, align 1
   br label %if.end4.i
 
-if.end4.i:                                        ; preds = %auth_digest_get_key_value.exit.i, %if.end.i.i, %if.end.i.i
-  %arrayidx8.i.sink.i = phi ptr [ %arrayidx8.i.i, %auth_digest_get_key_value.exit.i ], [ %nonce, %if.end.i.i ], [ %nonce, %if.end.i.i ]
-  store i8 0, ptr %arrayidx8.i.sink.i, align 1
+if.end4.i:                                        ; preds = %auth_digest_get_key_value.exit.i, %auth_digest_get_key_value.exit.thread75.i
   %call.i6.i = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull readonly dereferenceable(1) @.str.22) #11
   %tobool.not.i7.not.i = icmp eq ptr %call.i6.i, null
-  br i1 %tobool.not.i7.not.i, label %if.end8.i, label %if.end.i8.i
+  br i1 %tobool.not.i7.not.i, label %if.then6.i, label %if.end.i8.i
 
 if.end.i8.i:                                      ; preds = %if.end4.i
   %add.ptr.i10.i = getelementptr inbounds i8, ptr %call.i6.i, i64 7
   %3 = load i8, ptr %add.ptr.i10.i, align 1
   switch i8 %3, label %for.body.i17.i [
-    i8 34, label %if.end8.i
-    i8 0, label %if.end8.i
+    i8 34, label %auth_digest_get_key_value.exit28.thread78.i
+    i8 0, label %auth_digest_get_key_value.exit28.thread78.i
   ]
+
+auth_digest_get_key_value.exit28.thread78.i:      ; preds = %if.end.i8.i, %if.end.i8.i
+  store i8 0, ptr %realm, align 16
+  br label %if.end8.i
 
 for.body.i17.i:                                   ; preds = %if.end.i8.i, %switch.early.test84.i
   %4 = phi i8 [ %5, %switch.early.test84.i ], [ %3, %if.end.i8.i ]
@@ -283,11 +290,14 @@ switch.early.test84.i:                            ; preds = %for.body.i17.i
 auth_digest_get_key_value.exit28.i:               ; preds = %switch.early.test84.i, %switch.early.test84.i, %for.body.i17.i
   %inc.i22.lcssa.i = phi i64 [ %inc.i22.i, %switch.early.test84.i ], [ %inc.i22.i, %switch.early.test84.i ], [ 127, %for.body.i17.i ]
   %arrayidx8.i16.i = getelementptr inbounds i8, ptr %realm, i64 %inc.i22.lcssa.i
+  store i8 0, ptr %arrayidx8.i16.i, align 1
   br label %if.end8.i
 
-if.end8.i:                                        ; preds = %auth_digest_get_key_value.exit28.i, %if.end.i8.i, %if.end.i8.i, %if.end4.i
-  %arrayidx8.i16.sink.i = phi ptr [ %arrayidx8.i16.i, %auth_digest_get_key_value.exit28.i ], [ %realm, %if.end.i8.i ], [ %realm, %if.end.i8.i ], [ %realm, %if.end4.i ]
-  store i8 0, ptr %arrayidx8.i16.sink.i, align 1
+if.then6.i:                                       ; preds = %if.end4.i
+  store i8 0, ptr %realm, align 16
+  br label %if.end8.i
+
+if.end8.i:                                        ; preds = %if.then6.i, %auth_digest_get_key_value.exit28.i, %auth_digest_get_key_value.exit28.thread78.i
   %call.i29.i = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull readonly dereferenceable(1) @.str.24) #11
   %tobool.not.i30.not.i = icmp eq ptr %call.i29.i, null
   br i1 %tobool.not.i30.not.i, label %return, label %if.end.i31.i
@@ -296,9 +306,13 @@ if.end.i31.i:                                     ; preds = %if.end8.i
   %add.ptr.i33.i = getelementptr inbounds i8, ptr %call.i29.i, i64 10
   %6 = load i8, ptr %add.ptr.i33.i, align 1
   switch i8 %6, label %for.body.i40.i [
-    i8 44, label %if.end11.i
-    i8 0, label %if.end11.i
+    i8 44, label %auth_digest_get_key_value.exit51.thread81.i
+    i8 0, label %auth_digest_get_key_value.exit51.thread81.i
   ]
+
+auth_digest_get_key_value.exit51.thread81.i:      ; preds = %if.end.i31.i, %if.end.i31.i
+  store i8 0, ptr %algorithm, align 16
+  br label %if.end11.i
 
 for.body.i40.i:                                   ; preds = %if.end.i31.i, %switch.early.test85.i
   %7 = phi i8 [ %8, %switch.early.test85.i ], [ %6, %if.end.i31.i ]
@@ -321,11 +335,10 @@ switch.early.test85.i:                            ; preds = %for.body.i40.i
 auth_digest_get_key_value.exit51.i:               ; preds = %switch.early.test85.i, %switch.early.test85.i, %for.body.i40.i
   %inc.i45.lcssa.i = phi i64 [ %inc.i45.i, %switch.early.test85.i ], [ %inc.i45.i, %switch.early.test85.i ], [ 63, %for.body.i40.i ]
   %arrayidx8.i39.i = getelementptr inbounds i8, ptr %algorithm, i64 %inc.i45.lcssa.i
+  store i8 0, ptr %arrayidx8.i39.i, align 1
   br label %if.end11.i
 
-if.end11.i:                                       ; preds = %auth_digest_get_key_value.exit51.i, %if.end.i31.i, %if.end.i31.i
-  %arrayidx8.i39.sink.i = phi ptr [ %arrayidx8.i39.i, %auth_digest_get_key_value.exit51.i ], [ %algorithm, %if.end.i31.i ], [ %algorithm, %if.end.i31.i ]
-  store i8 0, ptr %arrayidx8.i39.sink.i, align 1
+if.end11.i:                                       ; preds = %auth_digest_get_key_value.exit51.i, %auth_digest_get_key_value.exit51.thread81.i
   %call.i52.i = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull readonly dereferenceable(1) @.str.25) #11
   %tobool.not.i53.not.i = icmp eq ptr %call.i52.i, null
   br i1 %tobool.not.i53.not.i, label %return, label %if.end.i54.i

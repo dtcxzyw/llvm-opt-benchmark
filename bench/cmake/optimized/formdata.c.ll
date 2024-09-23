@@ -892,10 +892,10 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   %.not319.i = icmp eq ptr %432, null
   br i1 %.not319.i, label %.thread408.i, label %.preheader416.i, !llvm.loop !7
 
-.preheader413.i:                                  ; preds = %29, %549
-  %.0264442.i = phi ptr [ %552, %549 ], [ %5, %29 ]
-  %.0267441.i = phi ptr [ %spec.select.i, %549 ], [ null, %29 ]
-  %.0269440.i = phi ptr [ %529, %549 ], [ null, %29 ]
+.preheader413.i:                                  ; preds = %29, %AddHttpPost.exit.i
+  %.0264442.i = phi ptr [ %551, %AddHttpPost.exit.i ], [ %5, %29 ]
+  %.0267441.i = phi ptr [ %spec.select.i, %AddHttpPost.exit.i ], [ null, %29 ]
+  %.0269440.i = phi ptr [ %529, %AddHttpPost.exit.i ], [ null, %29 ]
   %433 = load ptr, ptr %.0264442.i, align 8
   %.not321.i = icmp eq ptr %433, null
   br i1 %.not321.i, label %439, label %434
@@ -1145,111 +1145,111 @@ thread-pre-split.i:                               ; preds = %481, %471
   %545 = load ptr, ptr %544, align 8
   %546 = getelementptr inbounds i8, ptr %529, i64 72
   store ptr %545, ptr %546, align 8
-  br label %549
+  store ptr %529, ptr %544, align 8
+  br label %AddHttpPost.exit.i
 
 547:                                              ; preds = %530
   %548 = load ptr, ptr %1, align 8
   %.not51.i.i = icmp eq ptr %548, null
   %..i.i = select i1 %.not51.i.i, ptr %0, ptr %548
   store ptr %529, ptr %..i.i, align 8
-  br label %549
+  store ptr %529, ptr %1, align 8
+  br label %AddHttpPost.exit.i
 
-549:                                              ; preds = %547, %543
-  %.sink52.i.i = phi ptr [ %544, %543 ], [ %1, %547 ]
-  store ptr %529, ptr %.sink52.i.i, align 8
-  %550 = load ptr, ptr %512, align 8
-  %.not352.i = icmp eq ptr %550, null
-  %spec.select.i = select i1 %.not352.i, ptr %.0267441.i, ptr %550
-  %551 = getelementptr inbounds i8, ptr %.0264442.i, i64 88
-  %552 = load ptr, ptr %551, align 8
-  %.not320.i = icmp eq ptr %552, null
+AddHttpPost.exit.i:                               ; preds = %547, %543
+  %549 = load ptr, ptr %512, align 8
+  %.not352.i = icmp eq ptr %549, null
+  %spec.select.i = select i1 %.not352.i, ptr %.0267441.i, ptr %549
+  %550 = getelementptr inbounds i8, ptr %.0264442.i, i64 88
+  %551 = load ptr, ptr %550, align 8
+  %.not320.i = icmp eq ptr %551, null
   br i1 %.not320.i, label %.thread408.i, label %.preheader413.i, !llvm.loop !9
 
 .thread396.i:                                     ; preds = %527, %524, %499, %thread-pre-split.i, %.thread402.i, %456, %445, %440, %439, %434, %.preheader.i
   %.4.i = phi i32 [ 3, %.preheader.i ], [ 5, %440 ], [ 5, %434 ], [ 5, %439 ], [ 1, %456 ], [ 1, %thread-pre-split.i ], [ 1, %499 ], [ 1, %524 ], [ 1, %527 ], [ 5, %445 ], [ 1, %.thread402.i ]
-  br label %553
+  br label %552
 
-553:                                              ; preds = %584, %.thread396.i
-  %.0257445.i = phi ptr [ %.0264442.i, %.thread396.i ], [ %586, %584 ]
-  %554 = getelementptr inbounds i8, ptr %.0257445.i, i64 96
-  %555 = load i8, ptr %554, align 8
-  %556 = trunc i8 %555 to i1
-  br i1 %556, label %557, label %560
+552:                                              ; preds = %583, %.thread396.i
+  %.0257445.i = phi ptr [ %.0264442.i, %.thread396.i ], [ %585, %583 ]
+  %553 = getelementptr inbounds i8, ptr %.0257445.i, i64 96
+  %554 = load i8, ptr %553, align 8
+  %555 = trunc i8 %554 to i1
+  br i1 %555, label %556, label %559
 
-557:                                              ; preds = %553
-  %558 = load ptr, ptr @Curl_cfree, align 8
-  %559 = load ptr, ptr %.0257445.i, align 8
-  call void %558(ptr noundef %559) #6
+556:                                              ; preds = %552
+  %557 = load ptr, ptr @Curl_cfree, align 8
+  %558 = load ptr, ptr %.0257445.i, align 8
+  call void %557(ptr noundef %558) #6
   store ptr null, ptr %.0257445.i, align 8
-  store i8 0, ptr %554, align 8
-  br label %560
+  store i8 0, ptr %553, align 8
+  br label %559
 
-560:                                              ; preds = %557, %553
-  %561 = getelementptr inbounds i8, ptr %.0257445.i, i64 97
-  %562 = load i8, ptr %561, align 1
-  %563 = trunc i8 %562 to i1
-  br i1 %563, label %564, label %568
+559:                                              ; preds = %556, %552
+  %560 = getelementptr inbounds i8, ptr %.0257445.i, i64 97
+  %561 = load i8, ptr %560, align 1
+  %562 = trunc i8 %561 to i1
+  br i1 %562, label %563, label %567
 
-564:                                              ; preds = %560
-  %565 = load ptr, ptr @Curl_cfree, align 8
-  %566 = getelementptr inbounds i8, ptr %.0257445.i, i64 16
-  %567 = load ptr, ptr %566, align 8
-  call void %565(ptr noundef %567) #6
-  store ptr null, ptr %566, align 8
-  store i8 0, ptr %561, align 1
-  br label %568
+563:                                              ; preds = %559
+  %564 = load ptr, ptr @Curl_cfree, align 8
+  %565 = getelementptr inbounds i8, ptr %.0257445.i, i64 16
+  %566 = load ptr, ptr %565, align 8
+  call void %564(ptr noundef %566) #6
+  store ptr null, ptr %565, align 8
+  store i8 0, ptr %560, align 1
+  br label %567
 
-568:                                              ; preds = %564, %560
-  %569 = getelementptr inbounds i8, ptr %.0257445.i, i64 98
-  %570 = load i8, ptr %569, align 2
-  %571 = trunc i8 %570 to i1
-  br i1 %571, label %572, label %576
+567:                                              ; preds = %563, %559
+  %568 = getelementptr inbounds i8, ptr %.0257445.i, i64 98
+  %569 = load i8, ptr %568, align 2
+  %570 = trunc i8 %569 to i1
+  br i1 %570, label %571, label %575
 
-572:                                              ; preds = %568
-  %573 = load ptr, ptr @Curl_cfree, align 8
-  %574 = getelementptr inbounds i8, ptr %.0257445.i, i64 32
-  %575 = load ptr, ptr %574, align 8
-  call void %573(ptr noundef %575) #6
-  store ptr null, ptr %574, align 8
-  store i8 0, ptr %569, align 2
-  br label %576
+571:                                              ; preds = %567
+  %572 = load ptr, ptr @Curl_cfree, align 8
+  %573 = getelementptr inbounds i8, ptr %.0257445.i, i64 32
+  %574 = load ptr, ptr %573, align 8
+  call void %572(ptr noundef %574) #6
+  store ptr null, ptr %573, align 8
+  store i8 0, ptr %568, align 2
+  br label %575
 
-576:                                              ; preds = %572, %568
-  %577 = getelementptr inbounds i8, ptr %.0257445.i, i64 99
-  %578 = load i8, ptr %577, align 1
-  %579 = trunc i8 %578 to i1
-  br i1 %579, label %580, label %584
+575:                                              ; preds = %571, %567
+  %576 = getelementptr inbounds i8, ptr %.0257445.i, i64 99
+  %577 = load i8, ptr %576, align 1
+  %578 = trunc i8 %577 to i1
+  br i1 %578, label %579, label %583
 
-580:                                              ; preds = %576
-  %581 = load ptr, ptr @Curl_cfree, align 8
-  %582 = getelementptr inbounds i8, ptr %.0257445.i, i64 64
-  %583 = load ptr, ptr %582, align 8
-  call void %581(ptr noundef %583) #6
-  store ptr null, ptr %582, align 8
-  store i8 0, ptr %577, align 1
-  br label %584
+579:                                              ; preds = %575
+  %580 = load ptr, ptr @Curl_cfree, align 8
+  %581 = getelementptr inbounds i8, ptr %.0257445.i, i64 64
+  %582 = load ptr, ptr %581, align 8
+  call void %580(ptr noundef %582) #6
+  store ptr null, ptr %581, align 8
+  store i8 0, ptr %576, align 1
+  br label %583
 
-584:                                              ; preds = %580, %576
-  %585 = getelementptr inbounds i8, ptr %.0257445.i, i64 88
-  %586 = load ptr, ptr %585, align 8
-  %.not354.i = icmp eq ptr %586, null
-  br i1 %.not354.i, label %.thread408.i, label %553, !llvm.loop !10
+583:                                              ; preds = %579, %575
+  %584 = getelementptr inbounds i8, ptr %.0257445.i, i64 88
+  %585 = load ptr, ptr %584, align 8
+  %.not354.i = icmp eq ptr %585, null
+  br i1 %.not354.i, label %.thread408.i, label %552, !llvm.loop !10
 
-.thread408.i:                                     ; preds = %430, %549, %584
-  %.2.i = phi i32 [ %.4.i, %584 ], [ 0, %549 ], [ %.0265.i, %430 ]
-  br label %587
+.thread408.i:                                     ; preds = %430, %AddHttpPost.exit.i, %583
+  %.2.i = phi i32 [ %.4.i, %583 ], [ 0, %AddHttpPost.exit.i ], [ %.0265.i, %430 ]
+  br label %586
 
-587:                                              ; preds = %587, %.thread408.i
-  %.0261446.i = phi ptr [ %5, %.thread408.i ], [ %589, %587 ]
-  %588 = getelementptr inbounds i8, ptr %.0261446.i, i64 88
-  %589 = load ptr, ptr %588, align 8
-  %590 = load ptr, ptr @Curl_cfree, align 8
-  call void %590(ptr noundef nonnull %.0261446.i) #6
-  %.not355.i = icmp eq ptr %589, null
-  br i1 %.not355.i, label %FormAdd.exit, label %587, !llvm.loop !11
+586:                                              ; preds = %586, %.thread408.i
+  %.0261446.i = phi ptr [ %5, %.thread408.i ], [ %588, %586 ]
+  %587 = getelementptr inbounds i8, ptr %.0261446.i, i64 88
+  %588 = load ptr, ptr %587, align 8
+  %589 = load ptr, ptr @Curl_cfree, align 8
+  call void %589(ptr noundef nonnull %.0261446.i) #6
+  %.not355.i = icmp eq ptr %588, null
+  br i1 %.not355.i, label %FormAdd.exit, label %586, !llvm.loop !11
 
-FormAdd.exit:                                     ; preds = %587, %2
-  %.0.i = phi i32 [ 1, %2 ], [ %.2.i, %587 ]
+FormAdd.exit:                                     ; preds = %586, %2
+  %.0.i = phi i32 [ 1, %2 ], [ %.2.i, %586 ]
   call void @llvm.va_end.p0(ptr nonnull %3)
   ret i32 %.0.i
 }

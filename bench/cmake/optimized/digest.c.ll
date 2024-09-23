@@ -221,6 +221,10 @@ define dso_local i32 @Curl_auth_create_digest_md5_message(ptr noundef %0, ptr no
     i8 0, label %auth_digest_get_key_value.exit.thread57.i
   ]
 
+auth_digest_get_key_value.exit.thread57.i:        ; preds = %24, %24
+  store i8 0, ptr %12, align 16
+  br label %33
+
 .lr.ph.i.i:                                       ; preds = %24, %switch.early.test.i
   %27 = phi i8 [ %31, %switch.early.test.i ], [ %26, %24 ]
   %.030.i.i = phi i64 [ %29, %switch.early.test.i ], [ 0, %24 ]
@@ -242,337 +246,346 @@ switch.early.test.i:                              ; preds = %.lr.ph.i.i
 auth_digest_get_key_value.exit.i:                 ; preds = %switch.early.test.i, %switch.early.test.i, %.lr.ph.i.i
   %.lcssa71.i = phi i64 [ %29, %switch.early.test.i ], [ %29, %switch.early.test.i ], [ 63, %.lr.ph.i.i ]
   %32 = getelementptr inbounds i8, ptr %12, i64 %.lcssa71.i
-  br label %auth_digest_get_key_value.exit.thread57.i
+  store i8 0, ptr %32, align 1
+  br label %33
 
-auth_digest_get_key_value.exit.thread57.i:        ; preds = %auth_digest_get_key_value.exit.i, %24, %24
-  %.sink.i = phi ptr [ %32, %auth_digest_get_key_value.exit.i ], [ %12, %24 ], [ %12, %24 ]
-  store i8 0, ptr %.sink.i, align 1
-  %33 = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull readonly dereferenceable(1) @.str.22) #11
-  %.not.i15.not.i = icmp eq ptr %33, null
-  br i1 %.not.i15.not.i, label %auth_digest_get_key_value.exit28.thread59.i, label %34
+33:                                               ; preds = %auth_digest_get_key_value.exit.i, %auth_digest_get_key_value.exit.thread57.i
+  %34 = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull readonly dereferenceable(1) @.str.22) #11
+  %.not.i15.not.i = icmp eq ptr %34, null
+  br i1 %.not.i15.not.i, label %auth_digest_get_key_value.exit28.thread.i, label %35
 
-34:                                               ; preds = %auth_digest_get_key_value.exit.thread57.i
-  %35 = getelementptr inbounds i8, ptr %33, i64 7
-  %36 = load i8, ptr %35, align 1
-  switch i8 %36, label %.lr.ph.i21.i [
+35:                                               ; preds = %33
+  %36 = getelementptr inbounds i8, ptr %34, i64 7
+  %37 = load i8, ptr %36, align 1
+  switch i8 %37, label %.lr.ph.i21.i [
     i8 34, label %auth_digest_get_key_value.exit28.thread59.i
     i8 0, label %auth_digest_get_key_value.exit28.thread59.i
   ]
 
-.lr.ph.i21.i:                                     ; preds = %34, %switch.early.test63.i
-  %37 = phi i8 [ %41, %switch.early.test63.i ], [ %36, %34 ]
-  %.030.i22.i = phi i64 [ %39, %switch.early.test63.i ], [ 0, %34 ]
-  %.01629.i23.i = phi ptr [ %40, %switch.early.test63.i ], [ %35, %34 ]
-  %38 = getelementptr inbounds i8, ptr %13, i64 %.030.i22.i
-  store i8 %37, ptr %38, align 1
+auth_digest_get_key_value.exit28.thread59.i:      ; preds = %35, %35
+  store i8 0, ptr %13, align 16
+  br label %44
+
+.lr.ph.i21.i:                                     ; preds = %35, %switch.early.test63.i
+  %38 = phi i8 [ %42, %switch.early.test63.i ], [ %37, %35 ]
+  %.030.i22.i = phi i64 [ %40, %switch.early.test63.i ], [ 0, %35 ]
+  %.01629.i23.i = phi ptr [ %41, %switch.early.test63.i ], [ %36, %35 ]
+  %39 = getelementptr inbounds i8, ptr %13, i64 %.030.i22.i
+  store i8 %38, ptr %39, align 1
   %exitcond72.not.i = icmp eq i64 %.030.i22.i, 126
   br i1 %exitcond72.not.i, label %auth_digest_get_key_value.exit28.i, label %switch.early.test63.i
 
 switch.early.test63.i:                            ; preds = %.lr.ph.i21.i
-  %39 = add nuw nsw i64 %.030.i22.i, 1
-  %40 = getelementptr inbounds i8, ptr %.01629.i23.i, i64 1
-  %41 = load i8, ptr %40, align 1
-  switch i8 %41, label %.lr.ph.i21.i [
+  %40 = add nuw nsw i64 %.030.i22.i, 1
+  %41 = getelementptr inbounds i8, ptr %.01629.i23.i, i64 1
+  %42 = load i8, ptr %41, align 1
+  switch i8 %42, label %.lr.ph.i21.i [
     i8 34, label %auth_digest_get_key_value.exit28.i
     i8 0, label %auth_digest_get_key_value.exit28.i
   ]
 
 auth_digest_get_key_value.exit28.i:               ; preds = %switch.early.test63.i, %switch.early.test63.i, %.lr.ph.i21.i
-  %.lcssa70.i = phi i64 [ %39, %switch.early.test63.i ], [ %39, %switch.early.test63.i ], [ 127, %.lr.ph.i21.i ]
-  %42 = getelementptr inbounds i8, ptr %13, i64 %.lcssa70.i
-  br label %auth_digest_get_key_value.exit28.thread59.i
+  %.lcssa70.i = phi i64 [ %40, %switch.early.test63.i ], [ %40, %switch.early.test63.i ], [ 127, %.lr.ph.i21.i ]
+  %43 = getelementptr inbounds i8, ptr %13, i64 %.lcssa70.i
+  store i8 0, ptr %43, align 1
+  br label %44
 
-auth_digest_get_key_value.exit28.thread59.i:      ; preds = %auth_digest_get_key_value.exit28.i, %34, %34, %auth_digest_get_key_value.exit.thread57.i
-  %.sink75.i = phi ptr [ %42, %auth_digest_get_key_value.exit28.i ], [ %13, %34 ], [ %13, %34 ], [ %13, %auth_digest_get_key_value.exit.thread57.i ]
-  store i8 0, ptr %.sink75.i, align 1
-  %43 = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull readonly dereferenceable(1) @.str.24) #11
-  %.not.i29.not.i = icmp eq ptr %43, null
-  br i1 %.not.i29.not.i, label %auth_decode_digest_md5_message.exit.thread, label %44
+auth_digest_get_key_value.exit28.thread.i:        ; preds = %33
+  store i8 0, ptr %13, align 16
+  br label %44
 
-44:                                               ; preds = %auth_digest_get_key_value.exit28.thread59.i
-  %45 = getelementptr inbounds i8, ptr %43, i64 10
-  %46 = load i8, ptr %45, align 1
-  switch i8 %46, label %.lr.ph.i35.i [
+44:                                               ; preds = %auth_digest_get_key_value.exit28.thread.i, %auth_digest_get_key_value.exit28.i, %auth_digest_get_key_value.exit28.thread59.i
+  %45 = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull readonly dereferenceable(1) @.str.24) #11
+  %.not.i29.not.i = icmp eq ptr %45, null
+  br i1 %.not.i29.not.i, label %auth_decode_digest_md5_message.exit.thread, label %46
+
+46:                                               ; preds = %44
+  %47 = getelementptr inbounds i8, ptr %45, i64 10
+  %48 = load i8, ptr %47, align 1
+  switch i8 %48, label %.lr.ph.i35.i [
     i8 44, label %auth_digest_get_key_value.exit42.thread61.i
     i8 0, label %auth_digest_get_key_value.exit42.thread61.i
   ]
 
-.lr.ph.i35.i:                                     ; preds = %44, %switch.early.test64.i
-  %47 = phi i8 [ %51, %switch.early.test64.i ], [ %46, %44 ]
-  %.030.i36.i = phi i64 [ %49, %switch.early.test64.i ], [ 0, %44 ]
-  %.01629.i37.i = phi ptr [ %50, %switch.early.test64.i ], [ %45, %44 ]
-  %48 = getelementptr inbounds i8, ptr %14, i64 %.030.i36.i
-  store i8 %47, ptr %48, align 1
+auth_digest_get_key_value.exit42.thread61.i:      ; preds = %46, %46
+  store i8 0, ptr %14, align 16
+  br label %55
+
+.lr.ph.i35.i:                                     ; preds = %46, %switch.early.test64.i
+  %49 = phi i8 [ %53, %switch.early.test64.i ], [ %48, %46 ]
+  %.030.i36.i = phi i64 [ %51, %switch.early.test64.i ], [ 0, %46 ]
+  %.01629.i37.i = phi ptr [ %52, %switch.early.test64.i ], [ %47, %46 ]
+  %50 = getelementptr inbounds i8, ptr %14, i64 %.030.i36.i
+  store i8 %49, ptr %50, align 1
   %exitcond73.not.i = icmp eq i64 %.030.i36.i, 62
   br i1 %exitcond73.not.i, label %auth_digest_get_key_value.exit42.i, label %switch.early.test64.i
 
 switch.early.test64.i:                            ; preds = %.lr.ph.i35.i
-  %49 = add nuw nsw i64 %.030.i36.i, 1
-  %50 = getelementptr inbounds i8, ptr %.01629.i37.i, i64 1
-  %51 = load i8, ptr %50, align 1
-  switch i8 %51, label %.lr.ph.i35.i [
+  %51 = add nuw nsw i64 %.030.i36.i, 1
+  %52 = getelementptr inbounds i8, ptr %.01629.i37.i, i64 1
+  %53 = load i8, ptr %52, align 1
+  switch i8 %53, label %.lr.ph.i35.i [
     i8 44, label %auth_digest_get_key_value.exit42.i
     i8 0, label %auth_digest_get_key_value.exit42.i
   ]
 
 auth_digest_get_key_value.exit42.i:               ; preds = %switch.early.test64.i, %switch.early.test64.i, %.lr.ph.i35.i
-  %.lcssa69.i = phi i64 [ %49, %switch.early.test64.i ], [ %49, %switch.early.test64.i ], [ 63, %.lr.ph.i35.i ]
-  %52 = getelementptr inbounds i8, ptr %14, i64 %.lcssa69.i
-  br label %auth_digest_get_key_value.exit42.thread61.i
+  %.lcssa69.i = phi i64 [ %51, %switch.early.test64.i ], [ %51, %switch.early.test64.i ], [ 63, %.lr.ph.i35.i ]
+  %54 = getelementptr inbounds i8, ptr %14, i64 %.lcssa69.i
+  store i8 0, ptr %54, align 1
+  br label %55
 
-auth_digest_get_key_value.exit42.thread61.i:      ; preds = %auth_digest_get_key_value.exit42.i, %44, %44
-  %.sink76.i = phi ptr [ %52, %auth_digest_get_key_value.exit42.i ], [ %14, %44 ], [ %14, %44 ]
-  store i8 0, ptr %.sink76.i, align 1
-  %53 = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull readonly dereferenceable(1) @.str.25) #11
-  %.not.i43.not.i = icmp eq ptr %53, null
-  br i1 %.not.i43.not.i, label %auth_decode_digest_md5_message.exit.thread, label %54
+55:                                               ; preds = %auth_digest_get_key_value.exit42.i, %auth_digest_get_key_value.exit42.thread61.i
+  %56 = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull readonly dereferenceable(1) @.str.25) #11
+  %.not.i43.not.i = icmp eq ptr %56, null
+  br i1 %.not.i43.not.i, label %auth_decode_digest_md5_message.exit.thread, label %57
 
-54:                                               ; preds = %auth_digest_get_key_value.exit42.thread61.i
-  %55 = getelementptr inbounds i8, ptr %53, i64 5
-  %56 = load i8, ptr %55, align 1
-  switch i8 %56, label %.lr.ph.i49.i [
+57:                                               ; preds = %55
+  %58 = getelementptr inbounds i8, ptr %56, i64 5
+  %59 = load i8, ptr %58, align 1
+  switch i8 %59, label %.lr.ph.i49.i [
     i8 34, label %.loopexit103
     i8 0, label %.loopexit103
   ]
 
-.lr.ph.i49.i:                                     ; preds = %54, %switch.early.test65.i
-  %57 = phi i8 [ %61, %switch.early.test65.i ], [ %56, %54 ]
-  %.030.i50.i = phi i64 [ %59, %switch.early.test65.i ], [ 0, %54 ]
-  %.01629.i51.i = phi ptr [ %60, %switch.early.test65.i ], [ %55, %54 ]
-  %58 = getelementptr inbounds i8, ptr %15, i64 %.030.i50.i
-  store i8 %57, ptr %58, align 1
+.lr.ph.i49.i:                                     ; preds = %57, %switch.early.test65.i
+  %60 = phi i8 [ %64, %switch.early.test65.i ], [ %59, %57 ]
+  %.030.i50.i = phi i64 [ %62, %switch.early.test65.i ], [ 0, %57 ]
+  %.01629.i51.i = phi ptr [ %63, %switch.early.test65.i ], [ %58, %57 ]
+  %61 = getelementptr inbounds i8, ptr %15, i64 %.030.i50.i
+  store i8 %60, ptr %61, align 1
   %exitcond74.not.i = icmp eq i64 %.030.i50.i, 62
   br i1 %exitcond74.not.i, label %.loopexit103, label %switch.early.test65.i
 
 switch.early.test65.i:                            ; preds = %.lr.ph.i49.i
-  %59 = add nuw nsw i64 %.030.i50.i, 1
-  %60 = getelementptr inbounds i8, ptr %.01629.i51.i, i64 1
-  %61 = load i8, ptr %60, align 1
-  switch i8 %61, label %.lr.ph.i49.i [
+  %62 = add nuw nsw i64 %.030.i50.i, 1
+  %63 = getelementptr inbounds i8, ptr %.01629.i51.i, i64 1
+  %64 = load i8, ptr %63, align 1
+  switch i8 %64, label %.lr.ph.i49.i [
     i8 34, label %.loopexit103
     i8 0, label %.loopexit103
   ]
 
-.loopexit103:                                     ; preds = %switch.early.test65.i, %switch.early.test65.i, %.lr.ph.i49.i, %54, %54
-  %.0.lcssa.i48.i = phi i64 [ 0, %54 ], [ 0, %54 ], [ 63, %.lr.ph.i49.i ], [ %59, %switch.early.test65.i ], [ %59, %switch.early.test65.i ]
-  %62 = getelementptr inbounds i8, ptr %15, i64 %.0.lcssa.i48.i
-  store i8 0, ptr %62, align 1
+.loopexit103:                                     ; preds = %switch.early.test65.i, %switch.early.test65.i, %.lr.ph.i49.i, %57, %57
+  %.0.lcssa.i48.i = phi i64 [ 0, %57 ], [ 0, %57 ], [ 63, %.lr.ph.i49.i ], [ %62, %switch.early.test65.i ], [ %62, %switch.early.test65.i ]
+  %65 = getelementptr inbounds i8, ptr %15, i64 %.0.lcssa.i48.i
+  store i8 0, ptr %65, align 1
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %14, ptr noundef nonnull dereferenceable(9) @.str, i64 9)
   %.not82 = icmp eq i32 %bcmp, 0
-  br i1 %.not82, label %63, label %auth_decode_digest_md5_message.exit.thread
+  br i1 %.not82, label %66, label %auth_decode_digest_md5_message.exit.thread
 
-63:                                               ; preds = %.loopexit103
+66:                                               ; preds = %.loopexit103
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  %64 = load ptr, ptr @Curl_cstrdup, align 8
-  %65 = call ptr %64(ptr noundef nonnull %15) #10
-  %.not.i92 = icmp eq ptr %65, null
-  br i1 %.not.i92, label %auth_digest_get_qop_values.exit, label %66
+  %67 = load ptr, ptr @Curl_cstrdup, align 8
+  %68 = call ptr %67(ptr noundef nonnull %15) #10
+  %.not.i92 = icmp eq ptr %68, null
+  br i1 %.not.i92, label %auth_digest_get_qop_values.exit, label %69
 
-66:                                               ; preds = %63
-  %67 = call ptr @strtok_r(ptr noundef nonnull %65, ptr noundef nonnull @.str.10, ptr noundef nonnull %7) #10
-  %.not1418.i = icmp eq ptr %67, null
+69:                                               ; preds = %66
+  %70 = call ptr @strtok_r(ptr noundef nonnull %68, ptr noundef nonnull @.str.10, ptr noundef nonnull %7) #10
+  %.not1418.i = icmp eq ptr %70, null
   br i1 %.not1418.i, label %.loopexit.thread, label %.lr.ph.i
 
-.loopexit.thread:                                 ; preds = %66
-  %68 = load ptr, ptr @Curl_cfree, align 8
-  call void %68(ptr noundef nonnull %65) #10
+.loopexit.thread:                                 ; preds = %69
+  %71 = load ptr, ptr @Curl_cfree, align 8
+  call void %71(ptr noundef nonnull %68) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %auth_decode_digest_md5_message.exit.thread
 
-.lr.ph.i:                                         ; preds = %66, %75
-  %.094 = phi i32 [ %.195, %75 ], [ 0, %66 ]
-  %.019.i = phi ptr [ %76, %75 ], [ %67, %66 ]
-  %69 = call i32 @curl_strequal(ptr noundef nonnull %.019.i, ptr noundef nonnull @.str.11) #10
-  %.not15.i = icmp eq i32 %69, 0
-  br i1 %.not15.i, label %70, label %.sink.split.i
+.lr.ph.i:                                         ; preds = %69, %78
+  %.094 = phi i32 [ %.195, %78 ], [ 0, %69 ]
+  %.019.i = phi ptr [ %79, %78 ], [ %70, %69 ]
+  %72 = call i32 @curl_strequal(ptr noundef nonnull %.019.i, ptr noundef nonnull @.str.11) #10
+  %.not15.i = icmp eq i32 %72, 0
+  br i1 %.not15.i, label %73, label %.sink.split.i
 
-70:                                               ; preds = %.lr.ph.i
-  %71 = call i32 @curl_strequal(ptr noundef nonnull %.019.i, ptr noundef nonnull @.str.12) #10
-  %.not16.i = icmp eq i32 %71, 0
-  br i1 %.not16.i, label %72, label %.sink.split.i
+73:                                               ; preds = %.lr.ph.i
+  %74 = call i32 @curl_strequal(ptr noundef nonnull %.019.i, ptr noundef nonnull @.str.12) #10
+  %.not16.i = icmp eq i32 %74, 0
+  br i1 %.not16.i, label %75, label %.sink.split.i
 
-72:                                               ; preds = %70
-  %73 = call i32 @curl_strequal(ptr noundef nonnull %.019.i, ptr noundef nonnull @.str.26) #10
-  %.not17.i = icmp eq i32 %73, 0
-  br i1 %.not17.i, label %75, label %.sink.split.i
+75:                                               ; preds = %73
+  %76 = call i32 @curl_strequal(ptr noundef nonnull %.019.i, ptr noundef nonnull @.str.26) #10
+  %.not17.i = icmp eq i32 %76, 0
+  br i1 %.not17.i, label %78, label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %72, %70, %.lr.ph.i
-  %.sink21.i = phi i32 [ 1, %.lr.ph.i ], [ 2, %70 ], [ 4, %72 ]
-  %74 = or i32 %.sink21.i, %.094
-  br label %75
+.sink.split.i:                                    ; preds = %75, %73, %.lr.ph.i
+  %.sink21.i = phi i32 [ 1, %.lr.ph.i ], [ 2, %73 ], [ 4, %75 ]
+  %77 = or i32 %.sink21.i, %.094
+  br label %78
 
-75:                                               ; preds = %.sink.split.i, %72
-  %.195 = phi i32 [ %.094, %72 ], [ %74, %.sink.split.i ]
-  %76 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef nonnull %7) #10
-  %.not14.i = icmp eq ptr %76, null
+78:                                               ; preds = %.sink.split.i, %75
+  %.195 = phi i32 [ %.094, %75 ], [ %77, %.sink.split.i ]
+  %79 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef nonnull %7) #10
+  %.not14.i = icmp eq ptr %79, null
   br i1 %.not14.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !8
 
-auth_digest_get_qop_values.exit:                  ; preds = %63
+auth_digest_get_qop_values.exit:                  ; preds = %66
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %auth_decode_digest_md5_message.exit.thread
 
-.loopexit:                                        ; preds = %75
-  %77 = and i32 %.195, 1
-  %78 = icmp eq i32 %77, 0
-  %79 = load ptr, ptr @Curl_cfree, align 8
-  call void %79(ptr noundef nonnull %65) #10
+.loopexit:                                        ; preds = %78
+  %80 = and i32 %.195, 1
+  %81 = icmp eq i32 %80, 0
+  %82 = load ptr, ptr @Curl_cfree, align 8
+  call void %82(ptr noundef nonnull %68) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  br i1 %78, label %auth_decode_digest_md5_message.exit.thread, label %80
+  br i1 %81, label %auth_decode_digest_md5_message.exit.thread, label %83
 
-80:                                               ; preds = %.loopexit
-  %81 = call i32 @Curl_rand_hex(ptr noundef %0, ptr noundef nonnull %16, i64 noundef 33) #10
-  %.not85 = icmp eq i32 %81, 0
-  br i1 %.not85, label %82, label %auth_decode_digest_md5_message.exit.thread
+83:                                               ; preds = %.loopexit
+  %84 = call i32 @Curl_rand_hex(ptr noundef %0, ptr noundef nonnull %16, i64 noundef 33) #10
+  %.not85 = icmp eq i32 %84, 0
+  br i1 %.not85, label %85, label %auth_decode_digest_md5_message.exit.thread
 
-82:                                               ; preds = %80
-  %83 = call ptr @Curl_MD5_init(ptr noundef nonnull @Curl_DIGEST_MD5) #10
-  %.not86 = icmp eq ptr %83, null
-  br i1 %.not86, label %auth_decode_digest_md5_message.exit.thread, label %84
+85:                                               ; preds = %83
+  %86 = call ptr @Curl_MD5_init(ptr noundef nonnull @Curl_DIGEST_MD5) #10
+  %.not86 = icmp eq ptr %86, null
+  br i1 %.not86, label %auth_decode_digest_md5_message.exit.thread, label %87
 
-84:                                               ; preds = %82
-  %85 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #11
-  %86 = call i32 @curlx_uztoui(i64 noundef %85) #10
-  %87 = call i32 @Curl_MD5_update(ptr noundef nonnull %83, ptr noundef %2, i32 noundef %86) #10
-  %88 = call i32 @Curl_MD5_update(ptr noundef nonnull %83, ptr noundef nonnull @.str.1, i32 noundef 1) #10
-  %89 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #11
-  %90 = call i32 @curlx_uztoui(i64 noundef %89) #10
-  %91 = call i32 @Curl_MD5_update(ptr noundef nonnull %83, ptr noundef nonnull %13, i32 noundef %90) #10
-  %92 = call i32 @Curl_MD5_update(ptr noundef nonnull %83, ptr noundef nonnull @.str.1, i32 noundef 1) #10
-  %93 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #11
-  %94 = call i32 @curlx_uztoui(i64 noundef %93) #10
-  %95 = call i32 @Curl_MD5_update(ptr noundef nonnull %83, ptr noundef %3, i32 noundef %94) #10
-  %96 = call i32 @Curl_MD5_final(ptr noundef nonnull %83, ptr noundef nonnull %8) #10
-  %97 = call ptr @Curl_MD5_init(ptr noundef nonnull @Curl_DIGEST_MD5) #10
-  %.not87 = icmp eq ptr %97, null
-  br i1 %.not87, label %auth_decode_digest_md5_message.exit.thread, label %98
+87:                                               ; preds = %85
+  %88 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #11
+  %89 = call i32 @curlx_uztoui(i64 noundef %88) #10
+  %90 = call i32 @Curl_MD5_update(ptr noundef nonnull %86, ptr noundef %2, i32 noundef %89) #10
+  %91 = call i32 @Curl_MD5_update(ptr noundef nonnull %86, ptr noundef nonnull @.str.1, i32 noundef 1) #10
+  %92 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #11
+  %93 = call i32 @curlx_uztoui(i64 noundef %92) #10
+  %94 = call i32 @Curl_MD5_update(ptr noundef nonnull %86, ptr noundef nonnull %13, i32 noundef %93) #10
+  %95 = call i32 @Curl_MD5_update(ptr noundef nonnull %86, ptr noundef nonnull @.str.1, i32 noundef 1) #10
+  %96 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #11
+  %97 = call i32 @curlx_uztoui(i64 noundef %96) #10
+  %98 = call i32 @Curl_MD5_update(ptr noundef nonnull %86, ptr noundef %3, i32 noundef %97) #10
+  %99 = call i32 @Curl_MD5_final(ptr noundef nonnull %86, ptr noundef nonnull %8) #10
+  %100 = call ptr @Curl_MD5_init(ptr noundef nonnull @Curl_DIGEST_MD5) #10
+  %.not87 = icmp eq ptr %100, null
+  br i1 %.not87, label %auth_decode_digest_md5_message.exit.thread, label %101
 
-98:                                               ; preds = %84
-  %99 = call i32 @Curl_MD5_update(ptr noundef nonnull %97, ptr noundef nonnull %8, i32 noundef 16) #10
-  %100 = call i32 @Curl_MD5_update(ptr noundef nonnull %97, ptr noundef nonnull @.str.1, i32 noundef 1) #10
-  %101 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #11
-  %102 = call i32 @curlx_uztoui(i64 noundef %101) #10
-  %103 = call i32 @Curl_MD5_update(ptr noundef nonnull %97, ptr noundef nonnull %12, i32 noundef %102) #10
-  %104 = call i32 @Curl_MD5_update(ptr noundef nonnull %97, ptr noundef nonnull @.str.1, i32 noundef 1) #10
-  %105 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #11
-  %106 = call i32 @curlx_uztoui(i64 noundef %105) #10
-  %107 = call i32 @Curl_MD5_update(ptr noundef nonnull %97, ptr noundef nonnull %16, i32 noundef %106) #10
-  %108 = call i32 @Curl_MD5_final(ptr noundef nonnull %97, ptr noundef nonnull %8) #10
-  br label %109
+101:                                              ; preds = %87
+  %102 = call i32 @Curl_MD5_update(ptr noundef nonnull %100, ptr noundef nonnull %8, i32 noundef 16) #10
+  %103 = call i32 @Curl_MD5_update(ptr noundef nonnull %100, ptr noundef nonnull @.str.1, i32 noundef 1) #10
+  %104 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #11
+  %105 = call i32 @curlx_uztoui(i64 noundef %104) #10
+  %106 = call i32 @Curl_MD5_update(ptr noundef nonnull %100, ptr noundef nonnull %12, i32 noundef %105) #10
+  %107 = call i32 @Curl_MD5_update(ptr noundef nonnull %100, ptr noundef nonnull @.str.1, i32 noundef 1) #10
+  %108 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #11
+  %109 = call i32 @curlx_uztoui(i64 noundef %108) #10
+  %110 = call i32 @Curl_MD5_update(ptr noundef nonnull %100, ptr noundef nonnull %16, i32 noundef %109) #10
+  %111 = call i32 @Curl_MD5_final(ptr noundef nonnull %100, ptr noundef nonnull %8) #10
+  br label %112
 
-109:                                              ; preds = %98, %109
-  %.0104 = phi i64 [ 0, %98 ], [ %116, %109 ]
-  %110 = shl nuw nsw i64 %.0104, 1
-  %111 = getelementptr inbounds [33 x i8], ptr %9, i64 0, i64 %110
-  %112 = getelementptr inbounds [16 x i8], ptr %8, i64 0, i64 %.0104
-  %113 = load i8, ptr %112, align 1
-  %114 = zext i8 %113 to i32
-  %115 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %111, i64 noundef 3, ptr noundef nonnull @.str.2, i32 noundef %114) #10
-  %116 = add nuw nsw i64 %.0104, 1
-  %exitcond.not = icmp eq i64 %116, 16
-  br i1 %exitcond.not, label %117, label %109, !llvm.loop !9
+112:                                              ; preds = %101, %112
+  %.0104 = phi i64 [ 0, %101 ], [ %119, %112 ]
+  %113 = shl nuw nsw i64 %.0104, 1
+  %114 = getelementptr inbounds [33 x i8], ptr %9, i64 0, i64 %113
+  %115 = getelementptr inbounds [16 x i8], ptr %8, i64 0, i64 %.0104
+  %116 = load i8, ptr %115, align 1
+  %117 = zext i8 %116 to i32
+  %118 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %114, i64 noundef 3, ptr noundef nonnull @.str.2, i32 noundef %117) #10
+  %119 = add nuw nsw i64 %.0104, 1
+  %exitcond.not = icmp eq i64 %119, 16
+  br i1 %exitcond.not, label %120, label %112, !llvm.loop !9
 
-117:                                              ; preds = %109
-  %118 = getelementptr inbounds i8, ptr %0, i64 32
-  %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 80
-  %121 = load ptr, ptr %120, align 8
-  %122 = call ptr @Curl_auth_build_spn(ptr noundef %4, ptr noundef %121, ptr noundef null) #10
-  %.not88 = icmp eq ptr %122, null
-  br i1 %.not88, label %auth_decode_digest_md5_message.exit.thread, label %123
+120:                                              ; preds = %112
+  %121 = getelementptr inbounds i8, ptr %0, i64 32
+  %122 = load ptr, ptr %121, align 8
+  %123 = getelementptr inbounds i8, ptr %122, i64 80
+  %124 = load ptr, ptr %123, align 8
+  %125 = call ptr @Curl_auth_build_spn(ptr noundef %4, ptr noundef %124, ptr noundef null) #10
+  %.not88 = icmp eq ptr %125, null
+  br i1 %.not88, label %auth_decode_digest_md5_message.exit.thread, label %126
 
-123:                                              ; preds = %117
-  %124 = call ptr @Curl_MD5_init(ptr noundef nonnull @Curl_DIGEST_MD5) #10
-  %.not89 = icmp eq ptr %124, null
-  br i1 %.not89, label %125, label %127
+126:                                              ; preds = %120
+  %127 = call ptr @Curl_MD5_init(ptr noundef nonnull @Curl_DIGEST_MD5) #10
+  %.not89 = icmp eq ptr %127, null
+  br i1 %.not89, label %128, label %130
 
-125:                                              ; preds = %123
-  %126 = load ptr, ptr @Curl_cfree, align 8
-  call void %126(ptr noundef nonnull %122) #10
+128:                                              ; preds = %126
+  %129 = load ptr, ptr @Curl_cfree, align 8
+  call void %129(ptr noundef nonnull %125) #10
   br label %auth_decode_digest_md5_message.exit.thread
 
-127:                                              ; preds = %123
-  %128 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #11
-  %129 = call i32 @curlx_uztoui(i64 noundef %128) #10
-  %130 = call i32 @Curl_MD5_update(ptr noundef nonnull %124, ptr noundef nonnull %18, i32 noundef %129) #10
-  %131 = call i32 @Curl_MD5_update(ptr noundef nonnull %124, ptr noundef nonnull @.str.1, i32 noundef 1) #10
-  %132 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %122) #11
-  %133 = call i32 @curlx_uztoui(i64 noundef %132) #10
-  %134 = call i32 @Curl_MD5_update(ptr noundef nonnull %124, ptr noundef nonnull %122, i32 noundef %133) #10
-  %135 = call i32 @Curl_MD5_final(ptr noundef nonnull %124, ptr noundef nonnull %8) #10
-  br label %136
+130:                                              ; preds = %126
+  %131 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #11
+  %132 = call i32 @curlx_uztoui(i64 noundef %131) #10
+  %133 = call i32 @Curl_MD5_update(ptr noundef nonnull %127, ptr noundef nonnull %18, i32 noundef %132) #10
+  %134 = call i32 @Curl_MD5_update(ptr noundef nonnull %127, ptr noundef nonnull @.str.1, i32 noundef 1) #10
+  %135 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %125) #11
+  %136 = call i32 @curlx_uztoui(i64 noundef %135) #10
+  %137 = call i32 @Curl_MD5_update(ptr noundef nonnull %127, ptr noundef nonnull %125, i32 noundef %136) #10
+  %138 = call i32 @Curl_MD5_final(ptr noundef nonnull %127, ptr noundef nonnull %8) #10
+  br label %139
 
-136:                                              ; preds = %127, %136
-  %.1105 = phi i64 [ 0, %127 ], [ %143, %136 ]
-  %137 = shl nuw nsw i64 %.1105, 1
-  %138 = getelementptr inbounds [33 x i8], ptr %10, i64 0, i64 %137
-  %139 = getelementptr inbounds [16 x i8], ptr %8, i64 0, i64 %.1105
-  %140 = load i8, ptr %139, align 1
-  %141 = zext i8 %140 to i32
-  %142 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %138, i64 noundef 3, ptr noundef nonnull @.str.2, i32 noundef %141) #10
-  %143 = add nuw nsw i64 %.1105, 1
-  %exitcond107.not = icmp eq i64 %143, 16
-  br i1 %exitcond107.not, label %144, label %136, !llvm.loop !10
+139:                                              ; preds = %130, %139
+  %.1105 = phi i64 [ 0, %130 ], [ %146, %139 ]
+  %140 = shl nuw nsw i64 %.1105, 1
+  %141 = getelementptr inbounds [33 x i8], ptr %10, i64 0, i64 %140
+  %142 = getelementptr inbounds [16 x i8], ptr %8, i64 0, i64 %.1105
+  %143 = load i8, ptr %142, align 1
+  %144 = zext i8 %143 to i32
+  %145 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %141, i64 noundef 3, ptr noundef nonnull @.str.2, i32 noundef %144) #10
+  %146 = add nuw nsw i64 %.1105, 1
+  %exitcond107.not = icmp eq i64 %146, 16
+  br i1 %exitcond107.not, label %147, label %139, !llvm.loop !10
 
-144:                                              ; preds = %136
-  %145 = call ptr @Curl_MD5_init(ptr noundef nonnull @Curl_DIGEST_MD5) #10
-  %.not90 = icmp eq ptr %145, null
-  br i1 %.not90, label %146, label %148
+147:                                              ; preds = %139
+  %148 = call ptr @Curl_MD5_init(ptr noundef nonnull @Curl_DIGEST_MD5) #10
+  %.not90 = icmp eq ptr %148, null
+  br i1 %.not90, label %149, label %151
 
-146:                                              ; preds = %144
-  %147 = load ptr, ptr @Curl_cfree, align 8
-  call void %147(ptr noundef nonnull %122) #10
+149:                                              ; preds = %147
+  %150 = load ptr, ptr @Curl_cfree, align 8
+  call void %150(ptr noundef nonnull %125) #10
   br label %auth_decode_digest_md5_message.exit.thread
 
-148:                                              ; preds = %144
-  %149 = call i32 @Curl_MD5_update(ptr noundef nonnull %145, ptr noundef nonnull %9, i32 noundef 32) #10
-  %150 = call i32 @Curl_MD5_update(ptr noundef nonnull %145, ptr noundef nonnull @.str.1, i32 noundef 1) #10
-  %151 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #11
-  %152 = call i32 @curlx_uztoui(i64 noundef %151) #10
-  %153 = call i32 @Curl_MD5_update(ptr noundef nonnull %145, ptr noundef nonnull %12, i32 noundef %152) #10
-  %154 = call i32 @Curl_MD5_update(ptr noundef nonnull %145, ptr noundef nonnull @.str.1, i32 noundef 1) #10
-  %155 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #11
-  %156 = call i32 @curlx_uztoui(i64 noundef %155) #10
-  %157 = call i32 @Curl_MD5_update(ptr noundef nonnull %145, ptr noundef nonnull %17, i32 noundef %156) #10
-  %158 = call i32 @Curl_MD5_update(ptr noundef nonnull %145, ptr noundef nonnull @.str.1, i32 noundef 1) #10
-  %159 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #11
-  %160 = call i32 @curlx_uztoui(i64 noundef %159) #10
-  %161 = call i32 @Curl_MD5_update(ptr noundef nonnull %145, ptr noundef nonnull %16, i32 noundef %160) #10
-  %162 = call i32 @Curl_MD5_update(ptr noundef nonnull %145, ptr noundef nonnull @.str.1, i32 noundef 1) #10
-  %163 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #11
-  %164 = call i32 @curlx_uztoui(i64 noundef %163) #10
-  %165 = call i32 @Curl_MD5_update(ptr noundef nonnull %145, ptr noundef nonnull %19, i32 noundef %164) #10
-  %166 = call i32 @Curl_MD5_update(ptr noundef nonnull %145, ptr noundef nonnull @.str.1, i32 noundef 1) #10
-  %167 = call i32 @Curl_MD5_update(ptr noundef nonnull %145, ptr noundef nonnull %10, i32 noundef 32) #10
-  %168 = call i32 @Curl_MD5_final(ptr noundef nonnull %145, ptr noundef nonnull %8) #10
-  br label %169
+151:                                              ; preds = %147
+  %152 = call i32 @Curl_MD5_update(ptr noundef nonnull %148, ptr noundef nonnull %9, i32 noundef 32) #10
+  %153 = call i32 @Curl_MD5_update(ptr noundef nonnull %148, ptr noundef nonnull @.str.1, i32 noundef 1) #10
+  %154 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #11
+  %155 = call i32 @curlx_uztoui(i64 noundef %154) #10
+  %156 = call i32 @Curl_MD5_update(ptr noundef nonnull %148, ptr noundef nonnull %12, i32 noundef %155) #10
+  %157 = call i32 @Curl_MD5_update(ptr noundef nonnull %148, ptr noundef nonnull @.str.1, i32 noundef 1) #10
+  %158 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #11
+  %159 = call i32 @curlx_uztoui(i64 noundef %158) #10
+  %160 = call i32 @Curl_MD5_update(ptr noundef nonnull %148, ptr noundef nonnull %17, i32 noundef %159) #10
+  %161 = call i32 @Curl_MD5_update(ptr noundef nonnull %148, ptr noundef nonnull @.str.1, i32 noundef 1) #10
+  %162 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #11
+  %163 = call i32 @curlx_uztoui(i64 noundef %162) #10
+  %164 = call i32 @Curl_MD5_update(ptr noundef nonnull %148, ptr noundef nonnull %16, i32 noundef %163) #10
+  %165 = call i32 @Curl_MD5_update(ptr noundef nonnull %148, ptr noundef nonnull @.str.1, i32 noundef 1) #10
+  %166 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #11
+  %167 = call i32 @curlx_uztoui(i64 noundef %166) #10
+  %168 = call i32 @Curl_MD5_update(ptr noundef nonnull %148, ptr noundef nonnull %19, i32 noundef %167) #10
+  %169 = call i32 @Curl_MD5_update(ptr noundef nonnull %148, ptr noundef nonnull @.str.1, i32 noundef 1) #10
+  %170 = call i32 @Curl_MD5_update(ptr noundef nonnull %148, ptr noundef nonnull %10, i32 noundef 32) #10
+  %171 = call i32 @Curl_MD5_final(ptr noundef nonnull %148, ptr noundef nonnull %8) #10
+  br label %172
 
-169:                                              ; preds = %148, %169
-  %.2106 = phi i64 [ 0, %148 ], [ %176, %169 ]
-  %170 = shl nuw nsw i64 %.2106, 1
-  %171 = getelementptr inbounds [33 x i8], ptr %11, i64 0, i64 %170
-  %172 = getelementptr inbounds [16 x i8], ptr %8, i64 0, i64 %.2106
-  %173 = load i8, ptr %172, align 1
-  %174 = zext i8 %173 to i32
-  %175 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %171, i64 noundef 3, ptr noundef nonnull @.str.2, i32 noundef %174) #10
-  %176 = add nuw nsw i64 %.2106, 1
-  %exitcond108.not = icmp eq i64 %176, 16
-  br i1 %exitcond108.not, label %177, label %169, !llvm.loop !11
+172:                                              ; preds = %151, %172
+  %.2106 = phi i64 [ 0, %151 ], [ %179, %172 ]
+  %173 = shl nuw nsw i64 %.2106, 1
+  %174 = getelementptr inbounds [33 x i8], ptr %11, i64 0, i64 %173
+  %175 = getelementptr inbounds [16 x i8], ptr %8, i64 0, i64 %.2106
+  %176 = load i8, ptr %175, align 1
+  %177 = zext i8 %176 to i32
+  %178 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %174, i64 noundef 3, ptr noundef nonnull @.str.2, i32 noundef %177) #10
+  %179 = add nuw nsw i64 %.2106, 1
+  %exitcond108.not = icmp eq i64 %179, 16
+  br i1 %exitcond108.not, label %180, label %172, !llvm.loop !11
 
-177:                                              ; preds = %169
-  %178 = call ptr (ptr, ...) @curl_maprintf(ptr noundef nonnull @.str.3, ptr noundef %2, ptr noundef nonnull %13, ptr noundef nonnull %12, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %122, ptr noundef nonnull %11, ptr noundef nonnull %19) #10
-  %179 = load ptr, ptr @Curl_cfree, align 8
-  call void %179(ptr noundef nonnull %122) #10
-  %.not91 = icmp eq ptr %178, null
-  br i1 %.not91, label %auth_decode_digest_md5_message.exit.thread, label %180
+180:                                              ; preds = %172
+  %181 = call ptr (ptr, ...) @curl_maprintf(ptr noundef nonnull @.str.3, ptr noundef %2, ptr noundef nonnull %13, ptr noundef nonnull %12, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %125, ptr noundef nonnull %11, ptr noundef nonnull %19) #10
+  %182 = load ptr, ptr @Curl_cfree, align 8
+  call void %182(ptr noundef nonnull %125) #10
+  %.not91 = icmp eq ptr %181, null
+  br i1 %.not91, label %auth_decode_digest_md5_message.exit.thread, label %183
 
-180:                                              ; preds = %177
-  %181 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %178) #11
-  call void @Curl_bufref_set(ptr noundef %5, ptr noundef nonnull %178, i64 noundef %181, ptr noundef nonnull @curl_free) #10
+183:                                              ; preds = %180
+  %184 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %181) #11
+  call void @Curl_bufref_set(ptr noundef %5, ptr noundef nonnull %181, i64 noundef %184, ptr noundef nonnull @curl_free) #10
   br label %auth_decode_digest_md5_message.exit.thread
 
-auth_decode_digest_md5_message.exit.thread:       ; preds = %.loopexit.thread, %auth_digest_get_key_value.exit42.thread61.i, %auth_digest_get_key_value.exit28.thread59.i, %22, %6, %auth_digest_get_qop_values.exit, %177, %117, %84, %82, %80, %.loopexit, %.loopexit103, %180, %146, %125
-  %.071 = phi i32 [ 0, %180 ], [ 27, %146 ], [ 27, %125 ], [ 61, %.loopexit103 ], [ 27, %auth_digest_get_qop_values.exit ], [ 61, %.loopexit ], [ %81, %80 ], [ 27, %82 ], [ 27, %84 ], [ 27, %117 ], [ 27, %177 ], [ 61, %6 ], [ 61, %22 ], [ 61, %auth_digest_get_key_value.exit28.thread59.i ], [ 61, %auth_digest_get_key_value.exit42.thread61.i ], [ 61, %.loopexit.thread ]
+auth_decode_digest_md5_message.exit.thread:       ; preds = %.loopexit.thread, %55, %44, %22, %6, %auth_digest_get_qop_values.exit, %180, %120, %87, %85, %83, %.loopexit, %.loopexit103, %183, %149, %128
+  %.071 = phi i32 [ 0, %183 ], [ 27, %149 ], [ 27, %128 ], [ 61, %.loopexit103 ], [ 27, %auth_digest_get_qop_values.exit ], [ 61, %.loopexit ], [ %84, %83 ], [ 27, %85 ], [ 27, %87 ], [ 27, %120 ], [ 27, %180 ], [ 61, %6 ], [ 61, %22 ], [ 61, %44 ], [ 61, %55 ], [ 61, %.loopexit.thread ]
   ret i32 %.071
 }
 

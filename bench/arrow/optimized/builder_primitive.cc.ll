@@ -4123,12 +4123,12 @@ do.end6:                                          ; preds = %nrvo.skipdtor.threa
   store i64 %inc4.i.i.i, ptr %bit_length_.i.i.i, align 8
   %length_.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %17 = load i64, ptr %length_.i.i, align 8
-  %inc4.i2.i.i = add nsw i64 %17, 1
-  store i64 %inc4.i2.i.i, ptr %length_.i.i, align 8
+  %inc.i1.i = add nsw i64 %17, 1
+  store i64 %inc.i1.i, ptr %length_.i.i, align 8
   %length_3.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %18 = load i64, ptr %length_3.i.i, align 8
-  %inc4.i1.i = add nsw i64 %18, 1
-  store i64 %inc4.i1.i, ptr %length_3.i.i, align 8
+  %inc4.i2.i = add nsw i64 %18, 1
+  store i64 %inc4.i2.i, ptr %length_3.i.i, align 8
   store ptr null, ptr %agg.result, align 8, !alias.scope !186
   br label %return
 

@@ -689,142 +689,148 @@ define internal fastcc i32 @get_record(ptr nocapture noundef %0, ptr noundef %1,
   %14 = srem i64 %13, 8192
   %15 = trunc nsw i64 %14 to i32
   %16 = icmp eq ptr %9, null
-  br i1 %16, label %.sink.split, label %18
+  br i1 %16, label %17, label %21
 
-.sink.split:                                      ; preds = %6
-  %17 = tail call noalias dereferenceable_or_null(8192) ptr @g_malloc(i64 noundef 8192) #14
-  %. = select i1 %.not, ptr %8, ptr %7
-  %.113 = select i1 %.not, ptr %11, ptr %10
-  store ptr %17, ptr %., align 8
-  store i32 8192, ptr %.113, align 8
-  br label %18
+17:                                               ; preds = %6
+  %18 = tail call noalias dereferenceable_or_null(8192) ptr @g_malloc(i64 noundef 8192) #14
+  br i1 %.not, label %20, label %19
 
-18:                                               ; preds = %.sink.split, %6
-  %.083 = phi ptr [ %9, %6 ], [ %17, %.sink.split ]
-  %.081 = phi i32 [ %12, %6 ], [ 8192, %.sink.split ]
-  %19 = icmp eq i64 %14, 0
-  br i1 %19, label %20, label %22
+19:                                               ; preds = %17
+  store ptr %18, ptr %7, align 8
+  store i32 8192, ptr %10, align 8
+  br label %21
 
-20:                                               ; preds = %18
-  %21 = tail call i32 @wtap_read_bytes(ptr noundef %1, ptr noundef null, i32 noundef 16, ptr noundef %4, ptr noundef %5) #11
-  %.not91 = icmp eq i32 %21, 0
-  br i1 %.not91, label %.loopexit, label %22
+20:                                               ; preds = %17
+  store ptr %18, ptr %8, align 8
+  store i32 8192, ptr %11, align 8
+  br label %21
 
-22:                                               ; preds = %20, %18
-  %.080 = phi i32 [ 4, %18 ], [ 20, %20 ]
-  %23 = tail call i32 @wtap_read_bytes(ptr noundef %1, ptr noundef %.083, i32 noundef 4, ptr noundef %4, ptr noundef %5) #11
-  %.not92 = icmp eq i32 %23, 0
-  br i1 %.not92, label %.loopexit, label %24
+21:                                               ; preds = %19, %20, %6
+  %.083 = phi ptr [ %18, %19 ], [ %18, %20 ], [ %9, %6 ]
+  %.081 = phi i32 [ 8192, %19 ], [ 8192, %20 ], [ %12, %6 ]
+  %22 = icmp eq i64 %14, 0
+  br i1 %22, label %23, label %25
 
-24:                                               ; preds = %22
-  %25 = load i8, ptr %.083, align 1
-  %26 = zext i8 %25 to i32
-  %27 = shl nuw i32 %26, 24
-  %28 = getelementptr i8, ptr %.083, i64 1
-  %29 = load i8, ptr %28, align 1
-  %30 = zext i8 %29 to i32
-  %31 = shl nuw nsw i32 %30, 16
-  %32 = or disjoint i32 %31, %27
-  %33 = getelementptr i8, ptr %.083, i64 2
-  %34 = load i8, ptr %33, align 1
-  %35 = zext i8 %34 to i32
-  %36 = shl nuw nsw i32 %35, 8
-  %37 = or disjoint i32 %32, %36
-  %38 = getelementptr i8, ptr %.083, i64 3
-  %39 = load i8, ptr %38, align 1
-  %40 = zext i8 %39 to i32
-  %41 = or disjoint i32 %37, %40
-  %42 = sub nsw i32 8188, %15
-  %43 = icmp ult i32 %41, 8
-  br i1 %43, label %44, label %46
+23:                                               ; preds = %21
+  %24 = tail call i32 @wtap_read_bytes(ptr noundef %1, ptr noundef null, i32 noundef 16, ptr noundef %4, ptr noundef %5) #11
+  %.not91 = icmp eq i32 %24, 0
+  br i1 %.not91, label %.loopexit, label %25
 
-44:                                               ; preds = %24
+25:                                               ; preds = %23, %21
+  %.080 = phi i32 [ 4, %21 ], [ 20, %23 ]
+  %26 = tail call i32 @wtap_read_bytes(ptr noundef %1, ptr noundef %.083, i32 noundef 4, ptr noundef %4, ptr noundef %5) #11
+  %.not92 = icmp eq i32 %26, 0
+  br i1 %.not92, label %.loopexit, label %27
+
+27:                                               ; preds = %25
+  %28 = load i8, ptr %.083, align 1
+  %29 = zext i8 %28 to i32
+  %30 = shl nuw i32 %29, 24
+  %31 = getelementptr i8, ptr %.083, i64 1
+  %32 = load i8, ptr %31, align 1
+  %33 = zext i8 %32 to i32
+  %34 = shl nuw nsw i32 %33, 16
+  %35 = or disjoint i32 %34, %30
+  %36 = getelementptr i8, ptr %.083, i64 2
+  %37 = load i8, ptr %36, align 1
+  %38 = zext i8 %37 to i32
+  %39 = shl nuw nsw i32 %38, 8
+  %40 = or disjoint i32 %35, %39
+  %41 = getelementptr i8, ptr %.083, i64 3
+  %42 = load i8, ptr %41, align 1
+  %43 = zext i8 %42 to i32
+  %44 = or disjoint i32 %40, %43
+  %45 = sub nsw i32 8188, %15
+  %46 = icmp ult i32 %44, 8
+  br i1 %46, label %47, label %49
+
+47:                                               ; preds = %27
   store i32 -13, ptr %4, align 4
-  %45 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.9, i32 noundef %41) #11
-  store ptr %45, ptr %5, align 8
+  %48 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.9, i32 noundef %44) #11
+  store ptr %48, ptr %5, align 8
   br label %.loopexit
 
-46:                                               ; preds = %24
-  %47 = icmp ugt i32 %41, 262144
-  br i1 %47, label %53, label %.preheader
+49:                                               ; preds = %27
+  %50 = icmp ugt i32 %44, 262144
+  br i1 %50, label %56, label %.preheader
 
-.preheader:                                       ; preds = %46
-  %48 = icmp ugt i32 %41, %.081
-  br i1 %48, label %.lr.ph, label %._crit_edge
+.preheader:                                       ; preds = %49
+  %51 = icmp ugt i32 %44, %.081
+  br i1 %51, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %.182101.us = phi i32 [ %49, %.lr.ph.split.us ], [ %.081, %.lr.ph ]
-  %.184100.us = phi ptr [ %51, %.lr.ph.split.us ], [ %.083, %.lr.ph ]
-  %49 = shl i32 %.182101.us, 1
-  %50 = zext i32 %49 to i64
-  %51 = tail call ptr @g_realloc(ptr noundef %.184100.us, i64 noundef %50) #11
-  store ptr %51, ptr %8, align 8
-  store i32 %49, ptr %11, align 8
-  %52 = icmp ugt i32 %41, %49
-  br i1 %52, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !7
+  %.182101.us = phi i32 [ %52, %.lr.ph.split.us ], [ %.081, %.lr.ph ]
+  %.184100.us = phi ptr [ %54, %.lr.ph.split.us ], [ %.083, %.lr.ph ]
+  %52 = shl i32 %.182101.us, 1
+  %53 = zext i32 %52 to i64
+  %54 = tail call ptr @g_realloc(ptr noundef %.184100.us, i64 noundef %53) #11
+  store ptr %54, ptr %8, align 8
+  store i32 %52, ptr %11, align 8
+  %55 = icmp ugt i32 %44, %52
+  br i1 %55, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !7
 
-53:                                               ; preds = %46
+56:                                               ; preds = %49
   store i32 -13, ptr %4, align 4
-  %54 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.10, i32 noundef %41, i32 noundef 262144) #11
-  store ptr %54, ptr %5, align 8
+  %57 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.10, i32 noundef %44, i32 noundef 262144) #11
+  store ptr %57, ptr %5, align 8
   br label %.loopexit
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
-  %.182101 = phi i32 [ %55, %.lr.ph.split ], [ %.081, %.lr.ph ]
-  %.184100 = phi ptr [ %57, %.lr.ph.split ], [ %.083, %.lr.ph ]
-  %55 = shl i32 %.182101, 1
-  %56 = zext i32 %55 to i64
-  %57 = tail call ptr @g_realloc(ptr noundef %.184100, i64 noundef %56) #11
-  store ptr %57, ptr %7, align 8
-  store i32 %55, ptr %10, align 8
-  %58 = icmp ugt i32 %41, %55
-  br i1 %58, label %.lr.ph.split, label %._crit_edge, !llvm.loop !7
+  %.182101 = phi i32 [ %58, %.lr.ph.split ], [ %.081, %.lr.ph ]
+  %.184100 = phi ptr [ %60, %.lr.ph.split ], [ %.083, %.lr.ph ]
+  %58 = shl i32 %.182101, 1
+  %59 = zext i32 %58 to i64
+  %60 = tail call ptr @g_realloc(ptr noundef %.184100, i64 noundef %59) #11
+  store ptr %60, ptr %7, align 8
+  store i32 %58, ptr %10, align 8
+  %61 = icmp ugt i32 %44, %58
+  br i1 %61, label %.lr.ph.split, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.preheader
-  %.184.lcssa = phi ptr [ %.083, %.preheader ], [ %51, %.lr.ph.split.us ], [ %57, %.lr.ph.split ]
-  %59 = getelementptr i8, ptr %.184.lcssa, i64 4
-  %60 = add nsw i32 %41, -4
-  br label %61
+  %.184.lcssa = phi ptr [ %.083, %.preheader ], [ %54, %.lr.ph.split.us ], [ %60, %.lr.ph.split ]
+  %62 = getelementptr i8, ptr %.184.lcssa, i64 4
+  %63 = add nsw i32 %44, -4
+  br label %64
 
-61:                                               ; preds = %70, %._crit_edge
-  %.1 = phi i32 [ %.080, %._crit_edge ], [ %74, %70 ]
-  %.079 = phi i32 [ %60, %._crit_edge ], [ %75, %70 ]
-  %.078 = phi ptr [ %59, %._crit_edge ], [ %72, %70 ]
-  %.0 = phi i32 [ %42, %._crit_edge ], [ 8192, %70 ]
-  %62 = icmp ugt i32 %.0, %.079
-  br i1 %62, label %63, label %66
+64:                                               ; preds = %73, %._crit_edge
+  %.1 = phi i32 [ %.080, %._crit_edge ], [ %77, %73 ]
+  %.079 = phi i32 [ %63, %._crit_edge ], [ %78, %73 ]
+  %.078 = phi ptr [ %62, %._crit_edge ], [ %75, %73 ]
+  %.0 = phi i32 [ %45, %._crit_edge ], [ 8192, %73 ]
+  %65 = icmp ugt i32 %.0, %.079
+  br i1 %65, label %66, label %69
 
-63:                                               ; preds = %61
-  %64 = tail call i32 @wtap_read_bytes(ptr noundef %1, ptr noundef %.078, i32 noundef %.079, ptr noundef %4, ptr noundef %5) #11
-  %.not96 = icmp eq i32 %64, 0
-  %65 = add i32 %.079, %.1
-  %spec.select = select i1 %.not96, i32 -1, i32 %65
+66:                                               ; preds = %64
+  %67 = tail call i32 @wtap_read_bytes(ptr noundef %1, ptr noundef %.078, i32 noundef %.079, ptr noundef %4, ptr noundef %5) #11
+  %.not96 = icmp eq i32 %67, 0
+  %68 = add i32 %.079, %.1
+  %spec.select = select i1 %.not96, i32 -1, i32 %68
   br label %.loopexit
 
-66:                                               ; preds = %61
-  %67 = tail call i32 @wtap_read_bytes(ptr noundef %1, ptr noundef %.078, i32 noundef %.0, ptr noundef %4, ptr noundef %5) #11
-  %.not93 = icmp eq i32 %67, 0
-  br i1 %.not93, label %.loopexit, label %68
+69:                                               ; preds = %64
+  %70 = tail call i32 @wtap_read_bytes(ptr noundef %1, ptr noundef %.078, i32 noundef %.0, ptr noundef %4, ptr noundef %5) #11
+  %.not93 = icmp eq i32 %70, 0
+  br i1 %.not93, label %.loopexit, label %71
 
-68:                                               ; preds = %66
-  %69 = tail call i32 @wtap_read_bytes(ptr noundef %1, ptr noundef null, i32 noundef 16, ptr noundef %4, ptr noundef %5) #11
-  %.not94 = icmp eq i32 %69, 0
-  br i1 %.not94, label %.loopexit, label %70
+71:                                               ; preds = %69
+  %72 = tail call i32 @wtap_read_bytes(ptr noundef %1, ptr noundef null, i32 noundef 16, ptr noundef %4, ptr noundef %5) #11
+  %.not94 = icmp eq i32 %72, 0
+  br i1 %.not94, label %.loopexit, label %73
 
-70:                                               ; preds = %68
-  %71 = zext i32 %.0 to i64
-  %72 = getelementptr i8, ptr %.078, i64 %71
-  %73 = add i32 %.1, 16
-  %74 = add i32 %73, %.0
-  %75 = sub i32 %.079, %.0
-  %.not95 = icmp eq i32 %75, 0
-  br i1 %.not95, label %.loopexit, label %61, !llvm.loop !8
+73:                                               ; preds = %71
+  %74 = zext i32 %.0 to i64
+  %75 = getelementptr i8, ptr %.078, i64 %74
+  %76 = add i32 %.1, 16
+  %77 = add i32 %76, %.0
+  %78 = sub i32 %.079, %.0
+  %.not95 = icmp eq i32 %78, 0
+  br i1 %.not95, label %.loopexit, label %64, !llvm.loop !8
 
-.loopexit:                                        ; preds = %70, %68, %66, %63, %22, %20, %53, %44
-  %.085 = phi i32 [ -1, %44 ], [ -1, %53 ], [ -1, %20 ], [ -1, %22 ], [ %spec.select, %63 ], [ %74, %70 ], [ -1, %68 ], [ -1, %66 ]
+.loopexit:                                        ; preds = %73, %71, %69, %66, %25, %23, %56, %47
+  %.085 = phi i32 [ -1, %47 ], [ -1, %56 ], [ -1, %23 ], [ -1, %25 ], [ %spec.select, %66 ], [ %77, %73 ], [ -1, %71 ], [ -1, %69 ]
   ret i32 %.085
 }
 

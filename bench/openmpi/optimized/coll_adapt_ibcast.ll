@@ -1145,7 +1145,11 @@ opal_free_list_wait_mt.exit:                      ; preds = %opal_condition_sign
   store volatile i64 %114, ptr %109, align 8
   %115 = getelementptr inbounds i8, ptr %0, i64 32
   %116 = icmp eq ptr %115, %111
-  br i1 %116, label %.lr.ph.i3, label %opal_free_list_wait_st.exit.sink.split
+  br i1 %116, label %.lr.ph.i3, label %opal_lifo_pop.exit.thread48.i
+
+opal_lifo_pop.exit.thread48.i:                    ; preds = %108
+  store volatile ptr null, ptr %112, align 8
+  br label %opal_free_list_wait_st.exit.sink.split
 
 .lr.ph.i3:                                        ; preds = %108
   store ptr null, ptr %4, align 8
@@ -1261,6 +1265,7 @@ opal_lifo_pop_atomic.exit.i30.i:                  ; preds = %opal_update_counted
 
 .thread54.i:                                      ; preds = %153
   %160 = getelementptr inbounds i8, ptr %155, i64 16
+  store volatile ptr null, ptr %160, align 8
   br label %opal_free_list_wait_st.exit.sink.split
 
 161:                                              ; preds = %153, %opal_lifo_pop_atomic.exit.i30.i
@@ -1269,10 +1274,8 @@ opal_lifo_pop_atomic.exit.i30.i:                  ; preds = %opal_update_counted
   %162 = icmp eq ptr %.0.i9.i, null
   br i1 %162, label %121, label %opal_free_list_wait_st.exit, !llvm.loop !18
 
-opal_free_list_wait_st.exit.sink.split:           ; preds = %108, %.thread54.i
-  %.sink = phi ptr [ %160, %.thread54.i ], [ %112, %108 ]
-  %.sink53 = phi ptr [ %155, %.thread54.i ], [ %111, %108 ]
-  store volatile ptr null, ptr %.sink, align 8
+opal_free_list_wait_st.exit.sink.split:           ; preds = %.thread54.i, %opal_lifo_pop.exit.thread48.i
+  %.sink53 = phi ptr [ %111, %opal_lifo_pop.exit.thread48.i ], [ %155, %.thread54.i ]
   %163 = getelementptr inbounds i8, ptr %.sink53, i64 32
   store i32 1, ptr %163, align 8
   br label %opal_free_list_wait_st.exit

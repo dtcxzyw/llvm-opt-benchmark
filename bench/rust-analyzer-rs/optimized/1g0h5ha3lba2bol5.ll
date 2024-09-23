@@ -5155,7 +5155,7 @@ define hidden void @"_ZN66_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$core..clon
   %trunc = trunc nuw i64 %3 to i1
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16
-  br i1 %trunc, label %17, label %6
+  br i1 %trunc, label %18, label %6
 
 6:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1217)
@@ -5182,43 +5182,51 @@ define hidden void @"_ZN66_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$core..clon
   tail call void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #35, !noalias !1217
   unreachable
 
-17:                                               ; preds = %2
+"_ZN78_$LT$syntax..ast..node_ext..TypeOrConstParam$u20$as$u20$core..clone..Clone$GT$5clone17h8d33371393a39564E.llvm.9990925514126320202.exit": ; preds = %13, %15
+  %.sroa.0.0.i = phi i64 [ 0, %13 ], [ 1, %15 ]
+  %17 = extractvalue { i32, i1 } %11, 0
+  store i32 %17, ptr %9, align 4, !noalias !1217
+  br label %30
+
+18:                                               ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1220)
-  %18 = load i64, ptr %4, align 8, !range !198, !alias.scope !1220, !noundef !4
-  %trunc.i1 = trunc nuw i64 %18 to i1
-  %19 = load ptr, ptr %5, align 8, !alias.scope !1220, !nonnull !4, !noundef !4
-  %20 = getelementptr inbounds i8, ptr %19, i64 48
-  %21 = load i32, ptr %20, align 4, !noalias !1220, !noundef !4
-  %22 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %21, i32 1)
-  %23 = extractvalue { i32, i1 } %22, 1
-  br i1 %trunc.i1, label %26, label %24
+  %19 = load i64, ptr %4, align 8, !range !198, !alias.scope !1220, !noundef !4
+  %trunc.i1 = trunc nuw i64 %19 to i1
+  %20 = load ptr, ptr %5, align 8, !alias.scope !1220, !nonnull !4, !noundef !4
+  %21 = getelementptr inbounds i8, ptr %20, i64 48
+  %22 = load i32, ptr %21, align 4, !noalias !1220, !noundef !4
+  %23 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %22, i32 1)
+  %24 = extractvalue { i32, i1 } %23, 1
+  br i1 %trunc.i1, label %27, label %25
 
-24:                                               ; preds = %17
-  br i1 %23, label %25, label %"_ZN78_$LT$syntax..ast..node_ext..TypeOrConstParam$u20$as$u20$core..clone..Clone$GT$5clone17h8d33371393a39564E.llvm.9990925514126320202.exit"
+25:                                               ; preds = %18
+  br i1 %24, label %26, label %"_ZN74_$LT$syntax..ast..node_ext..TraitOrAlias$u20$as$u20$core..clone..Clone$GT$5clone17he55ff90be1afbdfdE.llvm.9990925514126320202.exit"
 
-25:                                               ; preds = %24
+26:                                               ; preds = %25
   tail call void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #35, !noalias !1220
   unreachable
 
-26:                                               ; preds = %17
-  br i1 %23, label %27, label %"_ZN78_$LT$syntax..ast..node_ext..TypeOrConstParam$u20$as$u20$core..clone..Clone$GT$5clone17h8d33371393a39564E.llvm.9990925514126320202.exit"
+27:                                               ; preds = %18
+  br i1 %24, label %28, label %"_ZN74_$LT$syntax..ast..node_ext..TraitOrAlias$u20$as$u20$core..clone..Clone$GT$5clone17he55ff90be1afbdfdE.llvm.9990925514126320202.exit"
 
-27:                                               ; preds = %26
+28:                                               ; preds = %27
   tail call void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #35, !noalias !1220
   unreachable
 
-"_ZN78_$LT$syntax..ast..node_ext..TypeOrConstParam$u20$as$u20$core..clone..Clone$GT$5clone17h8d33371393a39564E.llvm.9990925514126320202.exit": ; preds = %26, %24, %15, %13
-  %.sink7 = phi { i32, i1 } [ %11, %13 ], [ %11, %15 ], [ %22, %24 ], [ %22, %26 ]
-  %.sink6 = phi ptr [ %9, %13 ], [ %9, %15 ], [ %20, %24 ], [ %20, %26 ]
-  %.sroa.0.0.i2.sink = phi i64 [ 0, %13 ], [ 1, %15 ], [ 0, %24 ], [ 1, %26 ]
-  %.sink = phi ptr [ %8, %13 ], [ %8, %15 ], [ %19, %24 ], [ %19, %26 ]
-  %storemerge = phi i64 [ 0, %13 ], [ 0, %15 ], [ 1, %24 ], [ 1, %26 ]
-  %28 = extractvalue { i32, i1 } %.sink7, 0
-  store i32 %28, ptr %.sink6, align 4, !noalias !4
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.0.0.i2.sink, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %.sink, ptr %30, align 8
+"_ZN74_$LT$syntax..ast..node_ext..TraitOrAlias$u20$as$u20$core..clone..Clone$GT$5clone17he55ff90be1afbdfdE.llvm.9990925514126320202.exit": ; preds = %25, %27
+  %.sroa.0.0.i2 = phi i64 [ 0, %25 ], [ 1, %27 ]
+  %29 = extractvalue { i32, i1 } %23, 0
+  store i32 %29, ptr %21, align 4, !noalias !1220
+  br label %30
+
+30:                                               ; preds = %"_ZN74_$LT$syntax..ast..node_ext..TraitOrAlias$u20$as$u20$core..clone..Clone$GT$5clone17he55ff90be1afbdfdE.llvm.9990925514126320202.exit", %"_ZN78_$LT$syntax..ast..node_ext..TypeOrConstParam$u20$as$u20$core..clone..Clone$GT$5clone17h8d33371393a39564E.llvm.9990925514126320202.exit"
+  %.sroa.0.0.i2.sink = phi i64 [ %.sroa.0.0.i2, %"_ZN74_$LT$syntax..ast..node_ext..TraitOrAlias$u20$as$u20$core..clone..Clone$GT$5clone17he55ff90be1afbdfdE.llvm.9990925514126320202.exit" ], [ %.sroa.0.0.i, %"_ZN78_$LT$syntax..ast..node_ext..TypeOrConstParam$u20$as$u20$core..clone..Clone$GT$5clone17h8d33371393a39564E.llvm.9990925514126320202.exit" ]
+  %.sink = phi ptr [ %20, %"_ZN74_$LT$syntax..ast..node_ext..TraitOrAlias$u20$as$u20$core..clone..Clone$GT$5clone17he55ff90be1afbdfdE.llvm.9990925514126320202.exit" ], [ %8, %"_ZN78_$LT$syntax..ast..node_ext..TypeOrConstParam$u20$as$u20$core..clone..Clone$GT$5clone17h8d33371393a39564E.llvm.9990925514126320202.exit" ]
+  %storemerge = phi i64 [ 1, %"_ZN74_$LT$syntax..ast..node_ext..TraitOrAlias$u20$as$u20$core..clone..Clone$GT$5clone17he55ff90be1afbdfdE.llvm.9990925514126320202.exit" ], [ 0, %"_ZN78_$LT$syntax..ast..node_ext..TypeOrConstParam$u20$as$u20$core..clone..Clone$GT$5clone17h8d33371393a39564E.llvm.9990925514126320202.exit" ]
+  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sroa.0.0.i2.sink, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sink, ptr %32, align 8
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -5228,7 +5236,7 @@ define hidden { i64, ptr } @"_ZN66_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$co
   %2 = load i64, ptr %0, align 8, !range !198, !noundef !4
   %trunc = trunc nuw i64 %2 to i1
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %trunc, label %11, label %4
+  br i1 %trunc, label %12, label %4
 
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1223)
@@ -5243,29 +5251,35 @@ define hidden { i64, ptr } @"_ZN66_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$co
   tail call void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #35, !noalias !1223
   unreachable
 
-11:                                               ; preds = %1
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1226)
-  %12 = load ptr, ptr %3, align 8, !alias.scope !1226, !nonnull !4, !noundef !4
-  %13 = getelementptr inbounds i8, ptr %12, i64 48
-  %14 = load i32, ptr %13, align 4, !noalias !1226, !noundef !4
-  %15 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %14, i32 1)
-  %16 = extractvalue { i32, i1 } %15, 1
-  br i1 %16, label %17, label %"_ZN80_$LT$syntax..ast..generated..nodes..TupleField$u20$as$u20$core..clone..Clone$GT$5clone17hf4272994c02a3c46E.llvm.9990925514126320202.exit"
+"_ZN80_$LT$syntax..ast..generated..nodes..TupleField$u20$as$u20$core..clone..Clone$GT$5clone17hf4272994c02a3c46E.llvm.9990925514126320202.exit": ; preds = %4
+  %11 = extractvalue { i32, i1 } %8, 0
+  store i32 %11, ptr %6, align 4, !noalias !1223
+  br label %20
 
-17:                                               ; preds = %11
+12:                                               ; preds = %1
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1226)
+  %13 = load ptr, ptr %3, align 8, !alias.scope !1226, !nonnull !4, !noundef !4
+  %14 = getelementptr inbounds i8, ptr %13, i64 48
+  %15 = load i32, ptr %14, align 4, !noalias !1226, !noundef !4
+  %16 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %15, i32 1)
+  %17 = extractvalue { i32, i1 } %16, 1
+  br i1 %17, label %18, label %"_ZN81_$LT$syntax..ast..generated..nodes..RecordField$u20$as$u20$core..clone..Clone$GT$5clone17h59cf71e58e0c5cd4E.llvm.9990925514126320202.exit"
+
+18:                                               ; preds = %12
   tail call void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #35, !noalias !1226
   unreachable
 
-"_ZN80_$LT$syntax..ast..generated..nodes..TupleField$u20$as$u20$core..clone..Clone$GT$5clone17hf4272994c02a3c46E.llvm.9990925514126320202.exit": ; preds = %11, %4
-  %.sink2 = phi { i32, i1 } [ %8, %4 ], [ %15, %11 ]
-  %.sink1 = phi ptr [ %6, %4 ], [ %13, %11 ]
-  %.sroa.3.0 = phi ptr [ %5, %4 ], [ %12, %11 ]
-  %.sroa.0.0 = phi i64 [ 0, %4 ], [ 1, %11 ]
-  %18 = extractvalue { i32, i1 } %.sink2, 0
-  store i32 %18, ptr %.sink1, align 4, !noalias !4
-  %19 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %20 = insertvalue { i64, ptr } %19, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %20
+"_ZN81_$LT$syntax..ast..generated..nodes..RecordField$u20$as$u20$core..clone..Clone$GT$5clone17h59cf71e58e0c5cd4E.llvm.9990925514126320202.exit": ; preds = %12
+  %19 = extractvalue { i32, i1 } %16, 0
+  store i32 %19, ptr %14, align 4, !noalias !1226
+  br label %20
+
+20:                                               ; preds = %"_ZN81_$LT$syntax..ast..generated..nodes..RecordField$u20$as$u20$core..clone..Clone$GT$5clone17h59cf71e58e0c5cd4E.llvm.9990925514126320202.exit", %"_ZN80_$LT$syntax..ast..generated..nodes..TupleField$u20$as$u20$core..clone..Clone$GT$5clone17hf4272994c02a3c46E.llvm.9990925514126320202.exit"
+  %.sroa.3.0 = phi ptr [ %13, %"_ZN81_$LT$syntax..ast..generated..nodes..RecordField$u20$as$u20$core..clone..Clone$GT$5clone17h59cf71e58e0c5cd4E.llvm.9990925514126320202.exit" ], [ %5, %"_ZN80_$LT$syntax..ast..generated..nodes..TupleField$u20$as$u20$core..clone..Clone$GT$5clone17hf4272994c02a3c46E.llvm.9990925514126320202.exit" ]
+  %.sroa.0.0 = phi i64 [ 1, %"_ZN81_$LT$syntax..ast..generated..nodes..RecordField$u20$as$u20$core..clone..Clone$GT$5clone17h59cf71e58e0c5cd4E.llvm.9990925514126320202.exit" ], [ 0, %"_ZN80_$LT$syntax..ast..generated..nodes..TupleField$u20$as$u20$core..clone..Clone$GT$5clone17hf4272994c02a3c46E.llvm.9990925514126320202.exit" ]
+  %21 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %22 = insertvalue { i64, ptr } %21, ptr %.sroa.3.0, 1
+  ret { i64, ptr } %22
 }
 
 ; Function Attrs: nonlazybind uwtable

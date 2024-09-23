@@ -1135,39 +1135,42 @@ define internal fastcc noundef ptr @new_stat_node(ptr noundef %0, ptr noundef %1
 
 59:                                               ; preds = %.preheader
   %60 = getelementptr inbounds i8, ptr %.0, i64 112
-  br label %61
+  store ptr %7, ptr %60, align 8
+  br label %62
 
-61:                                               ; preds = %48, %59
-  %.sink61 = phi ptr [ %60, %59 ], [ %54, %48 ]
-  store ptr %7, ptr %.sink61, align 8
-  %62 = load ptr, ptr %53, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 80
-  %64 = load ptr, ptr %63, align 8
-  %.not59 = icmp eq ptr %64, null
-  br i1 %.not59, label %68, label %65
+61:                                               ; preds = %48
+  store ptr %7, ptr %54, align 8
+  br label %62
 
-65:                                               ; preds = %61
-  %66 = load ptr, ptr %7, align 8
-  %67 = tail call i32 @g_hash_table_replace(ptr noundef nonnull %64, ptr noundef %66, ptr noundef nonnull %7) #19
-  br label %68
+62:                                               ; preds = %61, %59
+  %63 = load ptr, ptr %53, align 8
+  %64 = getelementptr inbounds i8, ptr %63, i64 80
+  %65 = load ptr, ptr %64, align 8
+  %.not59 = icmp eq ptr %65, null
+  br i1 %.not59, label %69, label %66
 
-68:                                               ; preds = %65, %61
-  %69 = load ptr, ptr %0, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 80
-  %71 = load ptr, ptr %70, align 8
-  %.not60 = icmp eq ptr %71, null
-  br i1 %.not60, label %73, label %72
+66:                                               ; preds = %62
+  %67 = load ptr, ptr %7, align 8
+  %68 = tail call i32 @g_hash_table_replace(ptr noundef nonnull %65, ptr noundef %67, ptr noundef nonnull %7) #19
+  br label %69
 
-72:                                               ; preds = %68
-  tail call void %71(ptr noundef nonnull %7) #19
-  br label %75
+69:                                               ; preds = %66, %62
+  %70 = load ptr, ptr %0, align 8
+  %71 = getelementptr inbounds i8, ptr %70, i64 80
+  %72 = load ptr, ptr %71, align 8
+  %.not60 = icmp eq ptr %72, null
+  br i1 %.not60, label %74, label %73
 
-73:                                               ; preds = %68
-  %74 = getelementptr inbounds i8, ptr %7, i64 128
-  store ptr null, ptr %74, align 8
-  br label %75
+73:                                               ; preds = %69
+  tail call void %72(ptr noundef nonnull %7) #19
+  br label %76
 
-75:                                               ; preds = %73, %72
+74:                                               ; preds = %69
+  %75 = getelementptr inbounds i8, ptr %7, i64 128
+  store ptr null, ptr %75, align 8
+  br label %76
+
+76:                                               ; preds = %74, %73
   ret ptr %7
 }
 

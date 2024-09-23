@@ -378,7 +378,7 @@ define dso_local void @pgstat_count_io_op_time(i32 noundef %0, i32 noundef %1, i
   %.pre = zext i32 %0 to i64
   %.pre25 = zext i32 %1 to i64
   %.pre27 = zext i32 %2 to i64
-  br label %36
+  br label %44
 
 9:                                                ; preds = %5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
@@ -390,10 +390,10 @@ define dso_local void @pgstat_count_io_op_time(i32 noundef %0, i32 noundef %1, i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %15 = sub i64 %14, %3
   %16 = add i64 %15, %12
-  switch i32 %2, label %29 [
+  switch i32 %2, label %37 [
     i32 6, label %17
     i32 1, label %17
-    i32 4, label %22
+    i32 4, label %27
   ]
 
 17:                                               ; preds = %9, %9
@@ -401,53 +401,64 @@ define dso_local void @pgstat_count_io_op_time(i32 noundef %0, i32 noundef %1, i
   %19 = load i64, ptr @pgStatBlockWriteTime, align 8
   %20 = add i64 %19, %18
   store i64 %20, ptr @pgStatBlockWriteTime, align 8
-  switch i32 %0, label %29 [
-    i32 0, label %.sink.split
-    i32 1, label %21
+  switch i32 %0, label %37 [
+    i32 0, label %21
+    i32 1, label %24
   ]
 
 21:                                               ; preds = %17
-  br label %.sink.split
+  %22 = load i64, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 88), align 8
+  %23 = add i64 %22, %16
+  store i64 %23, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 88), align 8
+  br label %37
 
-22:                                               ; preds = %9
-  %23 = sdiv i64 %16, 1000
-  %24 = load i64, ptr @pgStatBlockReadTime, align 8
-  %25 = add i64 %24, %23
-  store i64 %25, ptr @pgStatBlockReadTime, align 8
-  switch i32 %0, label %29 [
-    i32 0, label %.sink.split
-    i32 1, label %26
+24:                                               ; preds = %17
+  %25 = load i64, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 104), align 8
+  %26 = add i64 %25, %16
+  store i64 %26, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 104), align 8
+  br label %37
+
+27:                                               ; preds = %9
+  %28 = sdiv i64 %16, 1000
+  %29 = load i64, ptr @pgStatBlockReadTime, align 8
+  %30 = add i64 %29, %28
+  store i64 %30, ptr @pgStatBlockReadTime, align 8
+  switch i32 %0, label %37 [
+    i32 0, label %31
+    i32 1, label %34
   ]
 
-26:                                               ; preds = %22
-  br label %.sink.split
+31:                                               ; preds = %27
+  %32 = load i64, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 80), align 8
+  %33 = add i64 %32, %16
+  store i64 %33, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 80), align 8
+  br label %37
 
-.sink.split:                                      ; preds = %22, %17, %21, %26
-  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @pgBufferUsage, i64 96), %26 ], [ getelementptr inbounds (i8, ptr @pgBufferUsage, i64 104), %21 ], [ getelementptr inbounds (i8, ptr @pgBufferUsage, i64 88), %17 ], [ getelementptr inbounds (i8, ptr @pgBufferUsage, i64 80), %22 ]
-  %27 = load i64, ptr %.sink, align 8
-  %28 = add i64 %27, %16
-  store i64 %28, ptr %.sink, align 8
-  br label %29
+34:                                               ; preds = %27
+  %35 = load i64, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 96), align 8
+  %36 = add i64 %35, %16
+  store i64 %36, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 96), align 8
+  br label %37
 
-29:                                               ; preds = %.sink.split, %22, %9, %17
-  %30 = zext i32 %0 to i64
-  %31 = zext i32 %1 to i64
-  %32 = zext i32 %2 to i64
-  %33 = getelementptr [2 x [4 x [8 x %struct.instr_time]]], ptr getelementptr inbounds (i8, ptr @PendingIOStats, i64 512), i64 0, i64 %30, i64 %31, i64 %32
-  %34 = load i64, ptr %33, align 8
-  %35 = add i64 %34, %16
-  store i64 %35, ptr %33, align 8
-  br label %36
+37:                                               ; preds = %27, %9, %17, %34, %31, %21, %24
+  %38 = zext i32 %0 to i64
+  %39 = zext i32 %1 to i64
+  %40 = zext i32 %2 to i64
+  %41 = getelementptr [2 x [4 x [8 x %struct.instr_time]]], ptr getelementptr inbounds (i8, ptr @PendingIOStats, i64 512), i64 0, i64 %38, i64 %39, i64 %40
+  %42 = load i64, ptr %41, align 8
+  %43 = add i64 %42, %16
+  store i64 %43, ptr %41, align 8
+  br label %44
 
-36:                                               ; preds = %._crit_edge, %29
-  %.pre-phi28 = phi i64 [ %.pre27, %._crit_edge ], [ %32, %29 ]
-  %.pre-phi26 = phi i64 [ %.pre25, %._crit_edge ], [ %31, %29 ]
-  %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %30, %29 ]
-  %37 = zext i32 %4 to i64
-  %38 = getelementptr [2 x [4 x [8 x i64]]], ptr @PendingIOStats, i64 0, i64 %.pre-phi, i64 %.pre-phi26, i64 %.pre-phi28
-  %39 = load i64, ptr %38, align 8
-  %40 = add i64 %39, %37
-  store i64 %40, ptr %38, align 8
+44:                                               ; preds = %._crit_edge, %37
+  %.pre-phi28 = phi i64 [ %.pre27, %._crit_edge ], [ %40, %37 ]
+  %.pre-phi26 = phi i64 [ %.pre25, %._crit_edge ], [ %39, %37 ]
+  %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %38, %37 ]
+  %45 = zext i32 %4 to i64
+  %46 = getelementptr [2 x [4 x [8 x i64]]], ptr @PendingIOStats, i64 0, i64 %.pre-phi, i64 %.pre-phi26, i64 %.pre-phi28
+  %47 = load i64, ptr %46, align 8
+  %48 = add i64 %47, %45
+  store i64 %48, ptr %46, align 8
   store i8 1, ptr @have_iostats, align 1
   ret void
 }

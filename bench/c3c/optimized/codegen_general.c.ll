@@ -163,19 +163,23 @@ define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unn
     i32 31, label %6
     i32 40, label %7
     i32 32, label %10
-    i32 24, label %16
-    i32 20, label %22
-    i32 21, label %24
-    i32 22, label %24
-    i32 30, label %24
-    i32 29, label %28
+    i32 24, label %17
+    i32 20, label %24
+    i32 21, label %26
+    i32 22, label %26
+    i32 30, label %26
+    i32 29, label %30
     i32 41, label %.backedge.backedge
-    i32 23, label %34
-    i32 34, label %41
-    i32 33, label %41
-    i32 37, label %41
-    i32 35, label %41
+    i32 23, label %37
+    i32 34, label %44
+    i32 33, label %44
+    i32 37, label %44
+    i32 35, label %44
   ]
+
+.backedge.backedge:                               ; preds = %.backedge, %7, %10, %17, %30
+  %.026.be = phi ptr [ %36, %30 ], [ %23, %17 ], [ %16, %10 ], [ %9, %7 ], [ %2, %.backedge ]
+  br label %.backedge
 
 6:                                                ; preds = %.backedge
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.type_lowering, ptr noundef nonnull @.str.11, i32 noundef 29) #5
@@ -183,16 +187,8 @@ define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unn
 
 7:                                                ; preds = %.backedge
   %8 = getelementptr inbounds i8, ptr %4, i64 56
-  br label %.backedge.sink.split
-
-.backedge.sink.split:                             ; preds = %28, %16, %10, %7
-  %.sink = phi ptr [ %8, %7 ], [ %15, %10 ], [ %21, %16 ], [ %33, %28 ]
-  %9 = load ptr, ptr %.sink, align 8
+  %9 = load ptr, ptr %8, align 8
   br label %.backedge.backedge
-
-.backedge.backedge:                               ; preds = %.backedge.sink.split, %.backedge
-  %.026.be = phi ptr [ %2, %.backedge ], [ %9, %.backedge.sink.split ]
-  br label %.backedge
 
 10:                                               ; preds = %.backedge
   %11 = getelementptr inbounds i8, ptr %4, i64 56
@@ -200,87 +196,90 @@ define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unn
   %13 = getelementptr inbounds i8, ptr %12, i64 96
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 8
-  br label %.backedge.sink.split
+  %16 = load ptr, ptr %15, align 8
+  br label %.backedge.backedge
 
-16:                                               ; preds = %.backedge
-  %17 = getelementptr inbounds i8, ptr %4, i64 56
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 112
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
-  br label %.backedge.sink.split
+17:                                               ; preds = %.backedge
+  %18 = getelementptr inbounds i8, ptr %4, i64 56
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 112
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %23 = load ptr, ptr %22, align 8
+  br label %.backedge.backedge
 
-22:                                               ; preds = %.backedge
-  %23 = load ptr, ptr @type_anyptr, align 8
+24:                                               ; preds = %.backedge
+  %25 = load ptr, ptr @type_anyptr, align 8
   br label %.loopexit
 
-24:                                               ; preds = %.backedge, %.backedge, %.backedge
-  %25 = load ptr, ptr @type_iptr, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
-  %27 = load ptr, ptr %26, align 8
+26:                                               ; preds = %.backedge, %.backedge, %.backedge
+  %27 = load ptr, ptr @type_iptr, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %29 = load ptr, ptr %28, align 8
   br label %.loopexit
 
-28:                                               ; preds = %.backedge
-  %29 = getelementptr inbounds i8, ptr %4, i64 56
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 96
+30:                                               ; preds = %.backedge
+  %31 = getelementptr inbounds i8, ptr %4, i64 56
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
-  br label %.backedge.sink.split
-
-34:                                               ; preds = %.backedge
-  %35 = getelementptr inbounds i8, ptr %4, i64 56
+  %33 = getelementptr inbounds i8, ptr %32, i64 96
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
-  %37 = tail call fastcc ptr @type_lowering(ptr noundef %36)
-  %38 = icmp eq ptr %37, %36
-  br i1 %38, label %.loopexit, label %39
+  br label %.backedge.backedge
 
-39:                                               ; preds = %34
-  %40 = tail call ptr @type_get_ptr(ptr noundef %37) #4
+37:                                               ; preds = %.backedge
+  %38 = getelementptr inbounds i8, ptr %4, i64 56
+  %39 = load ptr, ptr %38, align 8
+  %40 = tail call fastcc ptr @type_lowering(ptr noundef %39)
+  %41 = icmp eq ptr %40, %39
+  br i1 %41, label %.loopexit, label %42
+
+42:                                               ; preds = %37
+  %43 = tail call ptr @type_get_ptr(ptr noundef %40) #4
   br label %.loopexit
 
-41:                                               ; preds = %.backedge, %.backedge, %.backedge, %.backedge
-  %42 = getelementptr inbounds i8, ptr %4, i64 56
-  %43 = load ptr, ptr %42, align 8
-  %44 = tail call fastcc ptr @type_lowering(ptr noundef %43)
-  %45 = icmp eq ptr %44, %43
-  br i1 %45, label %.loopexit, label %46
+44:                                               ; preds = %.backedge, %.backedge, %.backedge, %.backedge
+  %45 = getelementptr inbounds i8, ptr %4, i64 56
+  %46 = load ptr, ptr %45, align 8
+  %47 = tail call fastcc ptr @type_lowering(ptr noundef %46)
+  %48 = icmp eq ptr %47, %46
+  br i1 %48, label %.loopexit, label %49
 
-46:                                               ; preds = %41
-  %47 = load i32, ptr %4, align 8
-  switch i32 %47, label %60 [
-    i32 34, label %48
-    i32 33, label %50
-    i32 37, label %54
-    i32 35, label %58
+49:                                               ; preds = %44
+  %50 = load i32, ptr %4, align 8
+  switch i32 %50, label %63 [
+    i32 34, label %51
+    i32 33, label %53
+    i32 37, label %57
+    i32 35, label %61
   ]
 
-48:                                               ; preds = %46
-  %49 = tail call ptr @type_get_subarray(ptr noundef %44) #4
+51:                                               ; preds = %49
+  %52 = tail call ptr @type_get_subarray(ptr noundef %47) #4
   br label %.loopexit
 
-50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %4, i64 64
-  %52 = load i32, ptr %51, align 8
-  %53 = tail call ptr @type_get_array(ptr noundef %44, i32 noundef %52) #4
+53:                                               ; preds = %49
+  %54 = getelementptr inbounds i8, ptr %4, i64 64
+  %55 = load i32, ptr %54, align 8
+  %56 = tail call ptr @type_get_array(ptr noundef %47, i32 noundef %55) #4
   br label %.loopexit
 
-54:                                               ; preds = %46
-  %55 = getelementptr inbounds i8, ptr %4, i64 64
-  %56 = load i32, ptr %55, align 8
-  %57 = tail call ptr @type_get_vector(ptr noundef %44, i32 noundef %56) #4
+57:                                               ; preds = %49
+  %58 = getelementptr inbounds i8, ptr %4, i64 64
+  %59 = load i32, ptr %58, align 8
+  %60 = tail call ptr @type_get_vector(ptr noundef %47, i32 noundef %59) #4
   br label %.loopexit
 
-58:                                               ; preds = %46
-  %59 = tail call ptr @type_get_flexible_array(ptr noundef %44) #4
+61:                                               ; preds = %49
+  %62 = tail call ptr @type_get_flexible_array(ptr noundef %47) #4
   br label %.loopexit
 
-60:                                               ; preds = %46
+63:                                               ; preds = %49
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.type_lowering, ptr noundef nonnull @.str.11, i32 noundef 77) #5
   unreachable
 
-.loopexit:                                        ; preds = %.backedge, %41, %34, %58, %54, %50, %48, %39, %24, %22
-  %.0 = phi ptr [ %59, %58 ], [ %57, %54 ], [ %53, %50 ], [ %49, %48 ], [ %40, %39 ], [ %27, %24 ], [ %23, %22 ], [ %4, %34 ], [ %4, %41 ], [ %4, %.backedge ]
+.loopexit:                                        ; preds = %.backedge, %44, %37, %61, %57, %53, %51, %42, %26, %24
+  %.0 = phi ptr [ %62, %61 ], [ %60, %57 ], [ %56, %53 ], [ %52, %51 ], [ %43, %42 ], [ %29, %26 ], [ %25, %24 ], [ %4, %37 ], [ %4, %44 ], [ %4, %.backedge ]
   ret ptr %.0
 }
 

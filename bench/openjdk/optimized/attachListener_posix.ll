@@ -296,17 +296,17 @@ define hidden noundef ptr @_ZN19PosixAttachListener12read_requestEi(i32 noundef 
   br i1 %17, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %43
-  %.295 = phi i32 [ %.3, %43 ], [ %.044, %.preheader ]
-  %.04894 = phi i64 [ %44, %43 ], [ 0, %.preheader ]
-  %18 = add i64 %.04894, %.045
+  %.293 = phi i32 [ %.3, %43 ], [ %.044, %.preheader ]
+  %.04892 = phi i64 [ %44, %43 ], [ 0, %.preheader ]
+  %18 = add i64 %.04892, %.045
   %19 = getelementptr inbounds [3101 x i8], ptr %3, i64 0, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = icmp eq i8 %20, 0
   br i1 %21, label %22, label %43
 
 22:                                               ; preds = %.lr.ph
-  %23 = add nsw i32 %.295, 1
-  %24 = icmp eq i32 %.295, 0
+  %23 = add nsw i32 %.293, 1
+  %24 = icmp eq i32 %.293, 0
   br i1 %24, label %25, label %43
 
 25:                                               ; preds = %22
@@ -350,8 +350,8 @@ define hidden noundef ptr @_ZN19PosixAttachListener12read_requestEi(i32 noundef 
   br i1 %.not13.i, label %_ZN19PosixAttachListener11write_fullyEiPcm.exit, label %33, !llvm.loop !10
 
 43:                                               ; preds = %.lr.ph, %28, %22
-  %.3 = phi i32 [ 1, %28 ], [ %23, %22 ], [ %.295, %.lr.ph ]
-  %44 = add nuw nsw i64 %.04894, 1
+  %.3 = phi i32 [ 1, %28 ], [ %23, %22 ], [ %.293, %.lr.ph ]
+  %44 = add nuw nsw i64 %.04892, 1
   %exitcond.not = icmp eq i64 %44, %10
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
@@ -438,20 +438,21 @@ _ZN20PosixAttachOperationC2EPc.exit:              ; preds = %75
 
 78:                                               ; preds = %_ZN20PosixAttachOperationC2EPc.exit, %91
   %indvars.iv = phi i64 [ 0, %_ZN20PosixAttachOperationC2EPc.exit ], [ %indvars.iv.next, %91 ]
-  %.sroa.0.096 = phi ptr [ %spec.select.i60, %_ZN20PosixAttachOperationC2EPc.exit ], [ %.sroa.0.390, %91 ]
-  %79 = load i8, ptr %.sroa.0.096, align 1
+  %.sroa.0.094 = phi ptr [ %spec.select.i60, %_ZN20PosixAttachOperationC2EPc.exit ], [ %.sroa.0.388, %91 ]
+  %79 = load i8, ptr %.sroa.0.094, align 1
   %80 = icmp eq i8 %79, 0
   br i1 %80, label %81, label %84
 
 81:                                               ; preds = %78
-  %82 = icmp ult ptr %.sroa.0.096, %54
+  %82 = icmp ult ptr %.sroa.0.094, %54
   %spec.select.idx = zext i1 %82 to i64
-  %spec.select = getelementptr inbounds i8, ptr %.sroa.0.096, i64 %spec.select.idx
+  %spec.select = getelementptr inbounds i8, ptr %.sroa.0.094, i64 %spec.select.idx
   %83 = getelementptr inbounds [3 x [1025 x i8]], ptr %74, i64 0, i64 %indvars.iv
+  store i8 0, ptr %83, align 1
   br label %91
 
 84:                                               ; preds = %78
-  %85 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.0.096) #20
+  %85 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.0.094) #20
   %86 = icmp ugt i64 %85, 1024
   br i1 %86, label %87, label %_ZN15AttachOperation7set_argEiPc.exit
 
@@ -460,23 +461,22 @@ _ZN20PosixAttachOperationC2EPc.exit:              ; preds = %75
   br label %_ZN19PosixAttachListener11write_fullyEiPcm.exit
 
 _ZN15AttachOperation7set_argEiPc.exit:            ; preds = %84
-  %strlen.i66 = call i64 @strlen(ptr nonnull dereferenceable(1) %.sroa.0.096)
-  %strchr.i67 = getelementptr inbounds i8, ptr %.sroa.0.096, i64 %strlen.i66
+  %strlen.i66 = call i64 @strlen(ptr nonnull dereferenceable(1) %.sroa.0.094)
+  %strchr.i67 = getelementptr inbounds i8, ptr %.sroa.0.094, i64 %strlen.i66
   %88 = icmp ult ptr %strchr.i67, %54
   %spec.select.idx.i68 = zext i1 %88 to i64
   %spec.select.i69 = getelementptr inbounds i8, ptr %strchr.i67, i64 %spec.select.idx.i68
   %89 = getelementptr inbounds [3 x [1025 x i8]], ptr %74, i64 0, i64 %indvars.iv
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %89, ptr nonnull align 1 %.sroa.0.096, i64 %85, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %89, ptr nonnull align 1 %.sroa.0.094, i64 %85, i1 false)
   %90 = getelementptr inbounds [3 x [1025 x i8]], ptr %74, i64 0, i64 %indvars.iv, i64 %85
+  store i8 0, ptr %90, align 1
   br label %91
 
 91:                                               ; preds = %81, %_ZN15AttachOperation7set_argEiPc.exit
-  %.sink = phi ptr [ %83, %81 ], [ %90, %_ZN15AttachOperation7set_argEiPc.exit ]
-  %.sroa.0.390 = phi ptr [ %spec.select, %81 ], [ %spec.select.i69, %_ZN15AttachOperation7set_argEiPc.exit ]
-  store i8 0, ptr %.sink, align 1
+  %.sroa.0.388 = phi ptr [ %spec.select, %81 ], [ %spec.select.i69, %_ZN15AttachOperation7set_argEiPc.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond100.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond100.not, label %92, label %78, !llvm.loop !14
+  %exitcond98.not = icmp eq i64 %indvars.iv.next, 3
+  br i1 %exitcond98.not, label %92, label %78, !llvm.loop !14
 
 92:                                               ; preds = %91
   store i32 %0, ptr %77, align 4

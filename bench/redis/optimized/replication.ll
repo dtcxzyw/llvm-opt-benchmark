@@ -2012,6 +2012,7 @@ if.then38:                                        ; preds = %if.then33
   %call39 = call i32 @raxSeek(ptr noundef nonnull %ri, ptr noundef nonnull @.str.31, ptr noundef null, i64 noundef 0) #22
   %call40 = call i32 @raxPrev(ptr noundef nonnull %ri) #22
   %data = getelementptr inbounds i8, ptr %ri, i64 24
+  %17 = load ptr, ptr %data, align 8
   br label %if.end48
 
 if.else:                                          ; preds = %if.then33
@@ -2022,44 +2023,45 @@ if.else:                                          ; preds = %if.then33
 
 if.then44:                                        ; preds = %if.else
   %data45 = getelementptr inbounds i8, ptr %ri, i64 24
+  %18 = load ptr, ptr %data45, align 8
   br label %if.end48
 
 if.else46:                                        ; preds = %if.else
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4480), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4480), align 8
+  %20 = load ptr, ptr %19, align 8
   br label %if.end48
 
 if.end48:                                         ; preds = %if.then44, %if.else46, %if.then38
-  %data45.sink = phi ptr [ %data45, %if.then44 ], [ %17, %if.else46 ], [ %data, %if.then38 ]
-  %18 = load ptr, ptr %data45.sink, align 8
+  %node.0 = phi ptr [ %17, %if.then38 ], [ %18, %if.then44 ], [ %20, %if.else46 ]
   call void @raxStop(ptr noundef nonnull %ri) #22
   br label %if.end51
 
 if.else49:                                        ; preds = %do.end31
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4480), align 8
-  %20 = load ptr, ptr %19, align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4480), align 8
+  %22 = load ptr, ptr %21, align 8
   br label %if.end51
 
 if.end51:                                         ; preds = %if.else49, %if.end48
-  %node.1 = phi ptr [ %18, %if.end48 ], [ %20, %if.else49 ]
+  %node.1 = phi ptr [ %node.0, %if.end48 ], [ %22, %if.else49 ]
   %cmp52.not29 = icmp eq ptr %node.1, null
   br i1 %cmp52.not29, label %cond.false, label %while.body
 
 while.body:                                       ; preds = %if.end51, %if.end55
-  %node.230 = phi ptr [ %24, %if.end55 ], [ %node.1, %if.end51 ]
+  %node.230 = phi ptr [ %26, %if.end55 ], [ %node.1, %if.end51 ]
   %value = getelementptr inbounds i8, ptr %node.230, i64 16
-  %21 = load ptr, ptr %value, align 8
-  %repl_offset = getelementptr inbounds i8, ptr %21, i64 16
-  %22 = load i64, ptr %repl_offset, align 8
-  %used = getelementptr inbounds i8, ptr %21, i64 32
-  %23 = load i64, ptr %used, align 8
-  %add = add nsw i64 %23, %22
+  %23 = load ptr, ptr %value, align 8
+  %repl_offset = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = load i64, ptr %repl_offset, align 8
+  %used = getelementptr inbounds i8, ptr %23, i64 32
+  %25 = load i64, ptr %used, align 8
+  %add = add nsw i64 %25, %24
   %cmp53.not = icmp slt i64 %add, %offset
   br i1 %cmp53.not, label %if.end55, label %cond.end
 
 if.end55:                                         ; preds = %while.body
   %next = getelementptr inbounds i8, ptr %node.230, i64 8
-  %24 = load ptr, ptr %next, align 8
-  %cmp52.not = icmp eq ptr %24, null
+  %26 = load ptr, ptr %next, align 8
+  %cmp52.not = icmp eq ptr %26, null
   br i1 %cmp52.not, label %cond.false, label %while.body, !llvm.loop !14
 
 cond.false:                                       ; preds = %if.end55, %if.end51
@@ -2070,21 +2072,21 @@ cond.false:                                       ; preds = %if.end55, %if.end51
 cond.end:                                         ; preds = %while.body
   %value.le = getelementptr inbounds i8, ptr %node.230, i64 16
   %call59 = call i32 @prepareClientToWrite(ptr noundef %c) #22
-  %25 = load ptr, ptr %value.le, align 8
-  %26 = load i32, ptr %25, align 8
-  %inc = add nsw i32 %26, 1
-  store i32 %inc, ptr %25, align 8
+  %27 = load ptr, ptr %value.le, align 8
+  %28 = load i32, ptr %27, align 8
+  %inc = add nsw i32 %28, 1
+  store i32 %inc, ptr %27, align 8
   %ref_repl_buf_node62 = getelementptr inbounds i8, ptr %c, i64 696
   store ptr %node.230, ptr %ref_repl_buf_node62, align 8
-  %repl_offset63 = getelementptr inbounds i8, ptr %25, i64 16
-  %27 = load i64, ptr %repl_offset63, align 8
-  %sub64 = sub nsw i64 %offset, %27
+  %repl_offset63 = getelementptr inbounds i8, ptr %27, i64 16
+  %29 = load i64, ptr %repl_offset63, align 8
+  %sub64 = sub nsw i64 %offset, %29
   %ref_block_pos = getelementptr inbounds i8, ptr %c, i64 704
   store i64 %sub64, ptr %ref_block_pos, align 8
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4480), align 8
-  %histlen65 = getelementptr inbounds i8, ptr %28, i64 24
-  %29 = load i64, ptr %histlen65, align 8
-  %sub66 = sub nsw i64 %29, %sub22
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4480), align 8
+  %histlen65 = getelementptr inbounds i8, ptr %30, i64 24
+  %31 = load i64, ptr %histlen65, align 8
+  %sub66 = sub nsw i64 %31, %sub22
   br label %return
 
 return:                                           ; preds = %if.end6, %do.body3, %cond.end

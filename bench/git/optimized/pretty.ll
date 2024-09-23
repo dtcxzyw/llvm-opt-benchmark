@@ -7021,7 +7021,7 @@ do.body.i:                                        ; preds = %do.body.i.preheader
   %str.addr.0.i = phi ptr [ %incdec.ptr.i, %do.cond.i ], [ %arrayidx47, %do.body.i.preheader ]
   %prefix.addr.0.i.idx = phi i64 [ %prefix.addr.0.i.add, %do.cond.i ], [ 0, %do.body.i.preheader ]
   %exitcond = icmp eq i64 %prefix.addr.0.i.idx, 7
-  br i1 %exitcond, label %if.end36.sink.split, label %do.cond.i
+  br i1 %exitcond, label %if.then12, label %do.cond.i
 
 do.cond.i:                                        ; preds = %do.body.i
   %prefix.addr.0.i.ptr = getelementptr inbounds i8, ptr @.str.81, i64 %prefix.addr.0.i.idx
@@ -7036,11 +7036,20 @@ do.body.i27.preheader:                            ; preds = %do.cond.i
   %scevgep52 = getelementptr i8, ptr %arrayidx47, i64 10
   br label %do.body.i27
 
+if.then12:                                        ; preds = %do.body.i
+  %sub.ptr.lhs.cast = ptrtoint ptr %scevgep to i64
+  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast25
+  store i64 %sub.ptr.sub, ptr %author, align 8
+  %sub.ptr.lhs.cast15 = ptrtoint ptr %arrayidx3.le to i64
+  %sub.ptr.sub17 = sub i64 %sub.ptr.lhs.cast15, %sub.ptr.lhs.cast
+  store i64 %sub.ptr.sub17, ptr %len, align 8
+  br label %if.end36
+
 do.body.i27:                                      ; preds = %do.body.i27.preheader, %do.cond.i31
   %str.addr.0.i28 = phi ptr [ %incdec.ptr.i32, %do.cond.i31 ], [ %arrayidx47, %do.body.i27.preheader ]
   %prefix.addr.0.i29.idx = phi i64 [ %prefix.addr.0.i29.add, %do.cond.i31 ], [ 0, %do.body.i27.preheader ]
   %exitcond53 = icmp eq i64 %prefix.addr.0.i29.idx, 10
-  br i1 %exitcond53, label %if.end36.sink.split, label %do.cond.i31
+  br i1 %exitcond53, label %if.then23, label %do.cond.i31
 
 do.cond.i31:                                      ; preds = %do.body.i27
   %prefix.addr.0.i29.ptr = getelementptr inbounds i8, ptr @.str.82, i64 %prefix.addr.0.i29.idx
@@ -7051,19 +7060,16 @@ do.cond.i31:                                      ; preds = %do.body.i27
   %cmp.i34 = icmp eq i8 %8, %7
   br i1 %cmp.i34, label %do.body.i27, label %if.end36, !llvm.loop !5
 
-if.end36.sink.split:                              ; preds = %do.body.i, %do.body.i27
-  %scevgep.sink = phi ptr [ %scevgep52, %do.body.i27 ], [ %scevgep, %do.body.i ]
-  %author.sink = phi ptr [ %committer, %do.body.i27 ], [ %author, %do.body.i ]
-  %len.sink = phi ptr [ %len34, %do.body.i27 ], [ %len, %do.body.i ]
-  %sub.ptr.lhs.cast = ptrtoint ptr %scevgep.sink to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast25
-  store i64 %sub.ptr.sub, ptr %author.sink, align 8
-  %sub.ptr.lhs.cast15 = ptrtoint ptr %arrayidx3.le to i64
-  %sub.ptr.sub17 = sub i64 %sub.ptr.lhs.cast15, %sub.ptr.lhs.cast
-  store i64 %sub.ptr.sub17, ptr %len.sink, align 8
+if.then23:                                        ; preds = %do.body.i27
+  %sub.ptr.lhs.cast24 = ptrtoint ptr %scevgep52 to i64
+  %sub.ptr.sub26 = sub i64 %sub.ptr.lhs.cast24, %sub.ptr.rhs.cast25
+  store i64 %sub.ptr.sub26, ptr %committer, align 8
+  %sub.ptr.lhs.cast30 = ptrtoint ptr %arrayidx3.le to i64
+  %sub.ptr.sub32 = sub i64 %sub.ptr.lhs.cast30, %sub.ptr.lhs.cast24
+  store i64 %sub.ptr.sub32, ptr %len34, align 8
   br label %if.end36
 
-if.end36:                                         ; preds = %do.cond.i31, %if.end36.sink.split
+if.end36:                                         ; preds = %do.cond.i31, %if.then12, %if.then23
   %inc38 = add nsw i32 %4, 1
   %idxprom = sext i32 %inc38 to i64
   %arrayidx = getelementptr inbounds i8, ptr %0, i64 %idxprom

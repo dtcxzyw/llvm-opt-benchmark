@@ -1186,388 +1186,406 @@ define range(i32 -1, 1) i32 @sapi_header_op(i32 noundef %0, ptr noundef %1) loca
   %.not1.i = icmp eq ptr %73, null
   br i1 %.not1.i, label %sapi_remove_header.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %72, %94
-  %.02.i = phi ptr [ %75, %94 ], [ %73, %72 ]
+.lr.ph.i:                                         ; preds = %72, %100
+  %.02.i = phi ptr [ %75, %100 ], [ %73, %72 ]
   %74 = getelementptr inbounds i8, ptr %.02.i, i64 16
   %75 = load ptr, ptr %.02.i, align 8
   %76 = getelementptr inbounds i8, ptr %.02.i, i64 24
   %77 = load i64, ptr %76, align 8
   %78 = icmp ugt i64 %77, %.0185266
-  br i1 %78, label %79, label %94
+  br i1 %78, label %79, label %100
 
 79:                                               ; preds = %.lr.ph.i
   %80 = load ptr, ptr %74, align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 %.0185266
   %82 = load i8, ptr %81, align 1
   %83 = icmp eq i8 %82, 58
-  br i1 %83, label %84, label %94
+  br i1 %83, label %84, label %100
 
 84:                                               ; preds = %79
   %85 = call i32 @strncasecmp(ptr noundef nonnull %80, ptr noundef readonly %31, i64 noundef %.0185266) #19
   %.not27.i = icmp eq i32 %85, 0
-  br i1 %.not27.i, label %86, label %94
+  br i1 %.not27.i, label %86, label %100
 
 86:                                               ; preds = %84
   %87 = getelementptr inbounds i8, ptr %.02.i, i64 8
   %88 = load ptr, ptr %87, align 8
   %.not28.i = icmp eq ptr %88, null
-  %..i = select i1 %.not28.i, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 160), ptr %88
-  store ptr %75, ptr %..i, align 8
-  %.not29.i = icmp eq ptr %75, null
-  %89 = load ptr, ptr %87, align 8
-  %90 = getelementptr inbounds i8, ptr %75, i64 8
-  %.sink.i = select i1 %.not29.i, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 168), ptr %90
-  store ptr %89, ptr %.sink.i, align 8
-  %91 = load ptr, ptr %74, align 8
-  call void @_efree(ptr noundef %91) #18
-  call void @_efree(ptr noundef nonnull %.02.i) #18
-  %92 = load i64, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 176), align 8
-  %93 = add i64 %92, -1
-  store i64 %93, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 176), align 8
-  br label %94
+  br i1 %.not28.i, label %90, label %89
 
-94:                                               ; preds = %86, %84, %79, %.lr.ph.i
+89:                                               ; preds = %86
+  store ptr %75, ptr %88, align 8
+  br label %91
+
+90:                                               ; preds = %86
+  store ptr %75, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 160), align 8
+  br label %91
+
+91:                                               ; preds = %90, %89
+  %.not29.i = icmp eq ptr %75, null
+  %92 = load ptr, ptr %87, align 8
+  br i1 %.not29.i, label %95, label %93
+
+93:                                               ; preds = %91
+  %94 = getelementptr inbounds i8, ptr %75, i64 8
+  store ptr %92, ptr %94, align 8
+  br label %96
+
+95:                                               ; preds = %91
+  store ptr %92, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 168), align 8
+  br label %96
+
+96:                                               ; preds = %95, %93
+  %97 = load ptr, ptr %74, align 8
+  call void @_efree(ptr noundef %97) #18
+  call void @_efree(ptr noundef nonnull %.02.i) #18
+  %98 = load i64, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 176), align 8
+  %99 = add i64 %98, -1
+  store i64 %99, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 176), align 8
+  br label %100
+
+100:                                              ; preds = %96, %84, %79, %.lr.ph.i
   %.not.i234 = icmp eq ptr %75, null
   br i1 %.not.i234, label %sapi_remove_header.exit, label %.lr.ph.i
 
-sapi_remove_header.exit:                          ; preds = %94, %72
+sapi_remove_header.exit:                          ; preds = %100, %72
   call void @_efree(ptr noundef %31) #18
   br label %sapi_update_response_code.exit
 
-.lr.ph:                                           ; preds = %.preheader, %102
-  %95 = phi i64 [ %104, %102 ], [ 0, %.preheader ]
-  %.0187253 = phi i32 [ %103, %102 ], [ 0, %.preheader ]
-  %96 = getelementptr inbounds i8, ptr %31, i64 %95
-  %97 = load i8, ptr %96, align 1
-  switch i8 %97, label %102 [
-    i8 10, label %98
-    i8 13, label %98
-    i8 0, label %100
+.lr.ph:                                           ; preds = %.preheader, %108
+  %101 = phi i64 [ %110, %108 ], [ 0, %.preheader ]
+  %.0187253 = phi i32 [ %109, %108 ], [ 0, %.preheader ]
+  %102 = getelementptr inbounds i8, ptr %31, i64 %101
+  %103 = load i8, ptr %102, align 1
+  switch i8 %103, label %108 [
+    i8 10, label %104
+    i8 13, label %104
+    i8 0, label %106
   ]
 
-98:                                               ; preds = %.lr.ph, %.lr.ph
+104:                                              ; preds = %.lr.ph, %.lr.ph
   tail call void @_efree(ptr noundef nonnull %31) #18
-  %99 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 80), align 8
-  tail call void (i32, ptr, ...) %99(i32 noundef 2, ptr noundef nonnull @.str.15) #18
+  %105 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 80), align 8
+  tail call void (i32, ptr, ...) %105(i32 noundef 2, ptr noundef nonnull @.str.15) #18
   br label %sapi_update_response_code.exit
 
-100:                                              ; preds = %.lr.ph
+106:                                              ; preds = %.lr.ph
   tail call void @_efree(ptr noundef nonnull %31) #18
-  %101 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 80), align 8
-  tail call void (i32, ptr, ...) %101(i32 noundef 2, ptr noundef nonnull @.str.16) #18
+  %107 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 80), align 8
+  tail call void (i32, ptr, ...) %107(i32 noundef 2, ptr noundef nonnull @.str.16) #18
   br label %sapi_update_response_code.exit
 
-102:                                              ; preds = %.lr.ph
-  %103 = add i32 %.0187253, 1
-  %104 = zext i32 %103 to i64
-  %105 = icmp ugt i64 %.0185, %104
-  br i1 %105, label %.lr.ph, label %._crit_edge
+108:                                              ; preds = %.lr.ph
+  %109 = add i32 %.0187253, 1
+  %110 = zext i32 %109 to i64
+  %111 = icmp ugt i64 %.0185, %110
+  br i1 %111, label %.lr.ph, label %._crit_edge
 
 ._crit_edge.thread:                               ; preds = %.preheader, %.thread
   store ptr %31, ptr %3, align 8
-  %106 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 0, ptr %106, align 8
-  br label %119
+  %112 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 0, ptr %112, align 8
+  br label %125
 
-._crit_edge:                                      ; preds = %102
+._crit_edge:                                      ; preds = %108
   store ptr %31, ptr %3, align 8
-  %107 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 %.0185, ptr %107, align 8
-  %108 = icmp ugt i64 %.0185, 4
-  br i1 %108, label %109, label %119
+  %113 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 %.0185, ptr %113, align 8
+  %114 = icmp ugt i64 %.0185, 4
+  br i1 %114, label %115, label %125
 
-109:                                              ; preds = %._crit_edge
-  %110 = tail call i32 @strncasecmp(ptr noundef nonnull %31, ptr noundef nonnull @.str.17, i64 noundef 5) #19
-  %.not215 = icmp eq i32 %110, 0
-  br i1 %.not215, label %111, label %119
+115:                                              ; preds = %._crit_edge
+  %116 = tail call i32 @strncasecmp(ptr noundef nonnull %31, ptr noundef nonnull @.str.17, i64 noundef 5) #19
+  %.not215 = icmp eq i32 %116, 0
+  br i1 %.not215, label %117, label %125
 
-111:                                              ; preds = %109
-  %112 = tail call fastcc i32 @sapi_extract_response_code(ptr noundef nonnull %31)
-  %113 = load i32, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 216), align 8
-  %114 = icmp eq i32 %113, %112
+117:                                              ; preds = %115
+  %118 = tail call fastcc i32 @sapi_extract_response_code(ptr noundef nonnull %31)
+  %119 = load i32, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 216), align 8
+  %120 = icmp eq i32 %119, %118
   %.pre264 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 232), align 8
   %.not216 = icmp eq ptr %.pre264, null
-  br i1 %114, label %sapi_update_response_code.exit236, label %115
+  br i1 %120, label %sapi_update_response_code.exit236, label %121
 
-115:                                              ; preds = %111
-  br i1 %.not216, label %sapi_update_response_code.exit236.thread, label %116
+121:                                              ; preds = %117
+  br i1 %.not216, label %sapi_update_response_code.exit236.thread, label %122
 
-116:                                              ; preds = %115
+122:                                              ; preds = %121
   tail call void @_efree(ptr noundef nonnull %.pre264) #18
   br label %sapi_update_response_code.exit236.thread
 
-sapi_update_response_code.exit236.thread:         ; preds = %115, %116
-  store i32 %112, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 216), align 8
-  br label %118
+sapi_update_response_code.exit236.thread:         ; preds = %121, %122
+  store i32 %118, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 216), align 8
+  br label %124
 
-sapi_update_response_code.exit236:                ; preds = %111
-  br i1 %.not216, label %118, label %117
+sapi_update_response_code.exit236:                ; preds = %117
+  br i1 %.not216, label %124, label %123
 
-117:                                              ; preds = %sapi_update_response_code.exit236
+123:                                              ; preds = %sapi_update_response_code.exit236
   tail call void @_efree(ptr noundef nonnull %.pre264) #18
-  br label %118
+  br label %124
 
-118:                                              ; preds = %sapi_update_response_code.exit236.thread, %117, %sapi_update_response_code.exit236
+124:                                              ; preds = %sapi_update_response_code.exit236.thread, %123, %sapi_update_response_code.exit236
   store ptr %31, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 232), align 8
   br label %sapi_update_response_code.exit
 
-119:                                              ; preds = %._crit_edge.thread, %109, %._crit_edge
-  %120 = phi ptr [ %106, %._crit_edge.thread ], [ %107, %109 ], [ %107, %._crit_edge ]
-  %.0185267270272 = phi i64 [ 0, %._crit_edge.thread ], [ %.0185, %109 ], [ %.0185, %._crit_edge ]
-  %121 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %31, i32 noundef 58) #19
-  %.not217 = icmp eq ptr %121, null
-  br i1 %.not217, label %209, label %122
+125:                                              ; preds = %._crit_edge.thread, %115, %._crit_edge
+  %126 = phi ptr [ %112, %._crit_edge.thread ], [ %113, %115 ], [ %113, %._crit_edge ]
+  %.0185267270272 = phi i64 [ 0, %._crit_edge.thread ], [ %.0185, %115 ], [ %.0185, %._crit_edge ]
+  %127 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %31, i32 noundef 58) #19
+  %.not217 = icmp eq ptr %127, null
+  br i1 %.not217, label %215, label %128
 
-122:                                              ; preds = %119
-  store i8 0, ptr %121, align 1
-  %123 = tail call i32 @strcasecmp(ptr noundef %31, ptr noundef nonnull @.str.18) #19
-  %.not218 = icmp eq i32 %123, 0
-  br i1 %.not218, label %124, label %153
+128:                                              ; preds = %125
+  store i8 0, ptr %127, align 1
+  %129 = tail call i32 @strcasecmp(ptr noundef %31, ptr noundef nonnull @.str.18) #19
+  %.not218 = icmp eq i32 %129, 0
+  br i1 %.not218, label %130, label %159
 
-124:                                              ; preds = %122
-  %125 = getelementptr inbounds i8, ptr %121, i64 1
-  %126 = ptrtoint ptr %125 to i64
-  %127 = ptrtoint ptr %31 to i64
-  %.neg = add i64 %.0185267270272, %127
-  %128 = sub i64 %.neg, %126
-  %129 = load i8, ptr %125, align 1
-  %130 = icmp eq i8 %129, 32
-  br i1 %130, label %.lr.ph257, label %._crit_edge258
+130:                                              ; preds = %128
+  %131 = getelementptr inbounds i8, ptr %127, i64 1
+  %132 = ptrtoint ptr %131 to i64
+  %133 = ptrtoint ptr %31 to i64
+  %.neg = add i64 %.0185267270272, %133
+  %134 = sub i64 %.neg, %132
+  %135 = load i8, ptr %131, align 1
+  %136 = icmp eq i8 %135, 32
+  br i1 %136, label %.lr.ph257, label %._crit_edge258
 
-.lr.ph257:                                        ; preds = %124, %.lr.ph257
-  %.0184255 = phi i64 [ %132, %.lr.ph257 ], [ %128, %124 ]
-  %.0186254 = phi ptr [ %131, %.lr.ph257 ], [ %125, %124 ]
-  %131 = getelementptr inbounds i8, ptr %.0186254, i64 1
-  %132 = add i64 %.0184255, -1
-  %133 = load i8, ptr %131, align 1
-  %134 = icmp eq i8 %133, 32
-  br i1 %134, label %.lr.ph257, label %._crit_edge258
+.lr.ph257:                                        ; preds = %130, %.lr.ph257
+  %.0184255 = phi i64 [ %138, %.lr.ph257 ], [ %134, %130 ]
+  %.0186254 = phi ptr [ %137, %.lr.ph257 ], [ %131, %130 ]
+  %137 = getelementptr inbounds i8, ptr %.0186254, i64 1
+  %138 = add i64 %.0184255, -1
+  %139 = load i8, ptr %137, align 1
+  %140 = icmp eq i8 %139, 32
+  br i1 %140, label %.lr.ph257, label %._crit_edge258
 
-._crit_edge258:                                   ; preds = %.lr.ph257, %124
-  %.0186.lcssa = phi ptr [ %125, %124 ], [ %131, %.lr.ph257 ]
-  %.0184.lcssa = phi i64 [ %128, %124 ], [ %132, %.lr.ph257 ]
-  %135 = tail call noalias ptr @_estrdup(ptr noundef nonnull %.0186.lcssa) #18
-  store ptr %135, ptr %4, align 8
-  %136 = call i64 @sapi_apply_default_charset(ptr noundef nonnull %4, i64 noundef %.0184.lcssa)
-  %137 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 224), align 8
-  %.not219 = icmp eq ptr %137, null
-  br i1 %.not219, label %138, label %141
+._crit_edge258:                                   ; preds = %.lr.ph257, %130
+  %.0186.lcssa = phi ptr [ %131, %130 ], [ %137, %.lr.ph257 ]
+  %.0184.lcssa = phi i64 [ %134, %130 ], [ %138, %.lr.ph257 ]
+  %141 = tail call noalias ptr @_estrdup(ptr noundef nonnull %.0186.lcssa) #18
+  store ptr %141, ptr %4, align 8
+  %142 = call i64 @sapi_apply_default_charset(ptr noundef nonnull %4, i64 noundef %.0184.lcssa)
+  %143 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 224), align 8
+  %.not219 = icmp eq ptr %143, null
+  br i1 %.not219, label %144, label %147
 
-138:                                              ; preds = %._crit_edge258
-  %139 = load ptr, ptr %4, align 8
-  %140 = tail call noalias ptr @_estrdup(ptr noundef %139) #18
-  store ptr %140, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 224), align 8
-  br label %141
+144:                                              ; preds = %._crit_edge258
+  %145 = load ptr, ptr %4, align 8
+  %146 = tail call noalias ptr @_estrdup(ptr noundef %145) #18
+  store ptr %146, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 224), align 8
+  br label %147
 
-141:                                              ; preds = %138, %._crit_edge258
-  %.not220 = icmp eq i64 %136, 0
-  br i1 %.not220, label %._crit_edge263, label %142
+147:                                              ; preds = %144, %._crit_edge258
+  %.not220 = icmp eq i64 %142, 0
+  br i1 %.not220, label %._crit_edge263, label %148
 
-._crit_edge263:                                   ; preds = %141
+._crit_edge263:                                   ; preds = %147
   %.pre = load ptr, ptr %4, align 8
-  br label %151
+  br label %157
 
-142:                                              ; preds = %141
-  %143 = add i64 %136, 15
-  %144 = tail call noalias ptr @_emalloc(i64 noundef %143) #20
-  %145 = icmp ugt i64 %136, -16
-  %146 = add i64 %136, 14
-  %.0183 = select i1 %145, i64 %146, i64 14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %144, ptr nonnull align 1 @.str.5, i64 %.0183, i1 false)
-  %147 = getelementptr inbounds i8, ptr %144, i64 %.0183
-  store i8 0, ptr %147, align 1
-  %148 = load ptr, ptr %4, align 8
-  %149 = tail call i64 @php_strlcat(ptr noundef %144, ptr noundef %148, i64 noundef %143) #18
-  store ptr %144, ptr %3, align 8
-  %150 = and i64 %146, 4294967295
-  store i64 %150, ptr %120, align 8
+148:                                              ; preds = %147
+  %149 = add i64 %142, 15
+  %150 = tail call noalias ptr @_emalloc(i64 noundef %149) #20
+  %151 = icmp ugt i64 %142, -16
+  %152 = add i64 %142, 14
+  %.0183 = select i1 %151, i64 %152, i64 14
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %150, ptr nonnull align 1 @.str.5, i64 %.0183, i1 false)
+  %153 = getelementptr inbounds i8, ptr %150, i64 %.0183
+  store i8 0, ptr %153, align 1
+  %154 = load ptr, ptr %4, align 8
+  %155 = tail call i64 @php_strlcat(ptr noundef %150, ptr noundef %154, i64 noundef %149) #18
+  store ptr %150, ptr %3, align 8
+  %156 = and i64 %152, 4294967295
+  store i64 %156, ptr %126, align 8
   tail call void @_efree(ptr noundef %31) #18
-  br label %151
+  br label %157
 
-151:                                              ; preds = %._crit_edge263, %142
-  %152 = phi ptr [ %.pre, %._crit_edge263 ], [ %148, %142 ]
-  tail call void @_efree(ptr noundef %152) #18
+157:                                              ; preds = %._crit_edge263, %148
+  %158 = phi ptr [ %.pre, %._crit_edge263 ], [ %154, %148 ]
+  tail call void @_efree(ptr noundef %158) #18
   store i8 0, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 220), align 4
   br label %sapi_update_response_code.exit238
 
-153:                                              ; preds = %122
-  %154 = tail call i32 @strcasecmp(ptr noundef %31, ptr noundef nonnull @.str.19) #19
-  %.not221 = icmp eq i32 %154, 0
-  br i1 %.not221, label %155, label %171
+159:                                              ; preds = %128
+  %160 = tail call i32 @strcasecmp(ptr noundef %31, ptr noundef nonnull @.str.19) #19
+  %.not221 = icmp eq i32 %160, 0
+  br i1 %.not221, label %161, label %177
 
-155:                                              ; preds = %153
-  %156 = tail call noalias ptr @_emalloc_48() #18
-  store i32 1, ptr %156, align 4
-  %157 = getelementptr inbounds i8, ptr %156, i64 4
-  store i32 22, ptr %157, align 4
-  %158 = getelementptr inbounds i8, ptr %156, i64 8
-  store i64 0, ptr %158, align 8
-  %159 = getelementptr inbounds i8, ptr %156, i64 16
-  store i64 23, ptr %159, align 8
-  %160 = getelementptr inbounds i8, ptr %156, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %160, ptr noundef nonnull align 1 dereferenceable(23) @.str.20, i64 23, i1 false)
-  %161 = getelementptr inbounds i8, ptr %156, i64 47
-  store i8 0, ptr %161, align 1
-  %162 = tail call i32 @zend_alter_ini_entry_chars(ptr noundef nonnull %156, ptr noundef nonnull @.str.21, i64 noundef 1, i32 noundef 1, i32 noundef 16) #18
-  %163 = load i32, ptr %157, align 4
-  %164 = and i32 %163, 64
-  %.not222 = icmp eq i32 %164, 0
-  br i1 %.not222, label %165, label %sapi_update_response_code.exit238
+161:                                              ; preds = %159
+  %162 = tail call noalias ptr @_emalloc_48() #18
+  store i32 1, ptr %162, align 4
+  %163 = getelementptr inbounds i8, ptr %162, i64 4
+  store i32 22, ptr %163, align 4
+  %164 = getelementptr inbounds i8, ptr %162, i64 8
+  store i64 0, ptr %164, align 8
+  %165 = getelementptr inbounds i8, ptr %162, i64 16
+  store i64 23, ptr %165, align 8
+  %166 = getelementptr inbounds i8, ptr %162, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %166, ptr noundef nonnull align 1 dereferenceable(23) @.str.20, i64 23, i1 false)
+  %167 = getelementptr inbounds i8, ptr %162, i64 47
+  store i8 0, ptr %167, align 1
+  %168 = tail call i32 @zend_alter_ini_entry_chars(ptr noundef nonnull %162, ptr noundef nonnull @.str.21, i64 noundef 1, i32 noundef 1, i32 noundef 16) #18
+  %169 = load i32, ptr %163, align 4
+  %170 = and i32 %169, 64
+  %.not222 = icmp eq i32 %170, 0
+  br i1 %.not222, label %171, label %sapi_update_response_code.exit238
 
-165:                                              ; preds = %155
-  %166 = load i32, ptr %156, align 4
-  %167 = icmp ne i32 %166, 0
-  tail call void @llvm.assume(i1 %167)
-  %168 = add i32 %166, -1
-  store i32 %168, ptr %156, align 4
-  %169 = icmp eq i32 %168, 0
-  br i1 %169, label %170, label %sapi_update_response_code.exit238
+171:                                              ; preds = %161
+  %172 = load i32, ptr %162, align 4
+  %173 = icmp ne i32 %172, 0
+  tail call void @llvm.assume(i1 %173)
+  %174 = add i32 %172, -1
+  store i32 %174, ptr %162, align 4
+  %175 = icmp eq i32 %174, 0
+  br i1 %175, label %176, label %sapi_update_response_code.exit238
 
-170:                                              ; preds = %165
-  tail call void @_efree(ptr noundef nonnull %156) #18
+176:                                              ; preds = %171
+  tail call void @_efree(ptr noundef nonnull %162) #18
   br label %sapi_update_response_code.exit238
 
-171:                                              ; preds = %153
-  %172 = tail call i32 @strcasecmp(ptr noundef %31, ptr noundef nonnull @.str.22) #19
-  %.not223 = icmp eq i32 %172, 0
-  br i1 %.not223, label %173, label %198
-
-173:                                              ; preds = %171
-  %174 = load i32, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 216), align 8
-  %175 = add i32 %174, -300
-  %or.cond = icmp ult i32 %175, 100
-  %.not224 = icmp eq i32 %174, 201
-  %or.cond233 = or i1 %.not224, %or.cond
-  br i1 %or.cond233, label %sapi_update_response_code.exit238, label %176
-
-176:                                              ; preds = %173
-  %.not225 = icmp eq i32 %35, 0
-  br i1 %.not225, label %183, label %177
-
-177:                                              ; preds = %176
-  %178 = icmp eq i32 %174, %35
-  br i1 %178, label %sapi_update_response_code.exit238, label %179
+177:                                              ; preds = %159
+  %178 = tail call i32 @strcasecmp(ptr noundef %31, ptr noundef nonnull @.str.22) #19
+  %.not223 = icmp eq i32 %178, 0
+  br i1 %.not223, label %179, label %204
 
 179:                                              ; preds = %177
-  %180 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 232), align 8
-  %.not.i237 = icmp eq ptr %180, null
-  br i1 %.not.i237, label %182, label %181
+  %180 = load i32, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 216), align 8
+  %181 = add i32 %180, -300
+  %or.cond = icmp ult i32 %181, 100
+  %.not224 = icmp eq i32 %180, 201
+  %or.cond233 = or i1 %.not224, %or.cond
+  br i1 %or.cond233, label %sapi_update_response_code.exit238, label %182
 
-181:                                              ; preds = %179
-  tail call void @_efree(ptr noundef nonnull %180) #18
+182:                                              ; preds = %179
+  %.not225 = icmp eq i32 %35, 0
+  br i1 %.not225, label %189, label %183
+
+183:                                              ; preds = %182
+  %184 = icmp eq i32 %180, %35
+  br i1 %184, label %sapi_update_response_code.exit238, label %185
+
+185:                                              ; preds = %183
+  %186 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 232), align 8
+  %.not.i237 = icmp eq ptr %186, null
+  br i1 %.not.i237, label %188, label %187
+
+187:                                              ; preds = %185
+  tail call void @_efree(ptr noundef nonnull %186) #18
   store ptr null, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 232), align 8
-  br label %182
+  br label %188
 
-182:                                              ; preds = %181, %179
+188:                                              ; preds = %187, %185
   store i32 %35, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 216), align 8
   br label %sapi_update_response_code.exit238
 
-183:                                              ; preds = %176
-  %184 = load i32, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 152), align 8
-  %185 = icmp sgt i32 %184, 1000
-  br i1 %185, label %186, label %195
+189:                                              ; preds = %182
+  %190 = load i32, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 152), align 8
+  %191 = icmp sgt i32 %190, 1000
+  br i1 %191, label %192, label %201
 
-186:                                              ; preds = %183
-  %187 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 8), align 8
-  %.not226 = icmp eq ptr %187, null
-  br i1 %.not226, label %195, label %188
-
-188:                                              ; preds = %186
-  %189 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %187, ptr noundef nonnull dereferenceable(5) @.str.10) #19
-  %.not227 = icmp eq i32 %189, 0
-  br i1 %.not227, label %195, label %190
-
-190:                                              ; preds = %188
-  %191 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %187, ptr noundef nonnull dereferenceable(4) @.str.23) #19
-  %.not228 = icmp eq i32 %191, 0
-  br i1 %.not228, label %195, label %192
-
-192:                                              ; preds = %190
-  %193 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 232), align 8
-  %.not.i239 = icmp eq ptr %193, null
-  br i1 %.not.i239, label %sapi_update_response_code.exit240, label %194
+192:                                              ; preds = %189
+  %193 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 8), align 8
+  %.not226 = icmp eq ptr %193, null
+  br i1 %.not226, label %201, label %194
 
 194:                                              ; preds = %192
-  tail call void @_efree(ptr noundef nonnull %193) #18
+  %195 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %193, ptr noundef nonnull dereferenceable(5) @.str.10) #19
+  %.not227 = icmp eq i32 %195, 0
+  br i1 %.not227, label %201, label %196
+
+196:                                              ; preds = %194
+  %197 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %193, ptr noundef nonnull dereferenceable(4) @.str.23) #19
+  %.not228 = icmp eq i32 %197, 0
+  br i1 %.not228, label %201, label %198
+
+198:                                              ; preds = %196
+  %199 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 232), align 8
+  %.not.i239 = icmp eq ptr %199, null
+  br i1 %.not.i239, label %sapi_update_response_code.exit240, label %200
+
+200:                                              ; preds = %198
+  tail call void @_efree(ptr noundef nonnull %199) #18
   store ptr null, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 232), align 8
   br label %sapi_update_response_code.exit240
 
-sapi_update_response_code.exit240:                ; preds = %192, %194
+sapi_update_response_code.exit240:                ; preds = %198, %200
   store i32 303, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 216), align 8
   br label %sapi_update_response_code.exit238
 
-195:                                              ; preds = %183, %186, %188, %190
-  %196 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 232), align 8
-  %.not.i241 = icmp eq ptr %196, null
-  br i1 %.not.i241, label %sapi_update_response_code.exit242, label %197
+201:                                              ; preds = %189, %192, %194, %196
+  %202 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 232), align 8
+  %.not.i241 = icmp eq ptr %202, null
+  br i1 %.not.i241, label %sapi_update_response_code.exit242, label %203
 
-197:                                              ; preds = %195
-  tail call void @_efree(ptr noundef nonnull %196) #18
+203:                                              ; preds = %201
+  tail call void @_efree(ptr noundef nonnull %202) #18
   store ptr null, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 232), align 8
   br label %sapi_update_response_code.exit242
 
-sapi_update_response_code.exit242:                ; preds = %195, %197
+sapi_update_response_code.exit242:                ; preds = %201, %203
   store i32 302, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 216), align 8
   br label %sapi_update_response_code.exit238
 
-198:                                              ; preds = %171
-  %199 = tail call i32 @strcasecmp(ptr noundef %31, ptr noundef nonnull @.str.24) #19
-  %.not229 = icmp ne i32 %199, 0
-  %200 = load i32, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 216), align 8
-  %201 = icmp eq i32 %200, 401
-  %or.cond248 = select i1 %.not229, i1 true, i1 %201
-  br i1 %or.cond248, label %sapi_update_response_code.exit238, label %202
+204:                                              ; preds = %177
+  %205 = tail call i32 @strcasecmp(ptr noundef %31, ptr noundef nonnull @.str.24) #19
+  %.not229 = icmp ne i32 %205, 0
+  %206 = load i32, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 216), align 8
+  %207 = icmp eq i32 %206, 401
+  %or.cond248 = select i1 %.not229, i1 true, i1 %207
+  br i1 %or.cond248, label %sapi_update_response_code.exit238, label %208
 
-202:                                              ; preds = %198
-  %203 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 232), align 8
-  %.not.i243 = icmp eq ptr %203, null
-  br i1 %.not.i243, label %205, label %204
+208:                                              ; preds = %204
+  %209 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 232), align 8
+  %.not.i243 = icmp eq ptr %209, null
+  br i1 %.not.i243, label %211, label %210
 
-204:                                              ; preds = %202
-  tail call void @_efree(ptr noundef nonnull %203) #18
+210:                                              ; preds = %208
+  tail call void @_efree(ptr noundef nonnull %209) #18
   store ptr null, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 232), align 8
-  br label %205
+  br label %211
 
-205:                                              ; preds = %204, %202
+211:                                              ; preds = %210, %208
   store i32 401, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 216), align 8
   br label %sapi_update_response_code.exit238
 
-sapi_update_response_code.exit238:                ; preds = %205, %182, %177, %173, %165, %170, %155, %198, %sapi_update_response_code.exit240, %sapi_update_response_code.exit242, %151
-  %206 = load ptr, ptr %3, align 8
-  %207 = icmp eq ptr %206, %31
-  br i1 %207, label %208, label %209
+sapi_update_response_code.exit238:                ; preds = %211, %188, %183, %179, %171, %176, %161, %204, %sapi_update_response_code.exit240, %sapi_update_response_code.exit242, %157
+  %212 = load ptr, ptr %3, align 8
+  %213 = icmp eq ptr %212, %31
+  br i1 %213, label %214, label %215
 
-208:                                              ; preds = %sapi_update_response_code.exit238
-  store i8 58, ptr %121, align 1
-  br label %209
-
-209:                                              ; preds = %119, %208, %sapi_update_response_code.exit238
-  %.not230 = icmp eq i32 %35, 0
-  %210 = load i32, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 216), align 8
-  %211 = icmp eq i32 %210, %35
-  %or.cond250 = select i1 %.not230, i1 true, i1 %211
-  br i1 %or.cond250, label %sapi_update_response_code.exit246, label %212
-
-212:                                              ; preds = %209
-  %213 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 232), align 8
-  %.not.i245 = icmp eq ptr %213, null
-  br i1 %.not.i245, label %215, label %214
-
-214:                                              ; preds = %212
-  tail call void @_efree(ptr noundef nonnull %213) #18
-  store ptr null, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 232), align 8
+214:                                              ; preds = %sapi_update_response_code.exit238
+  store i8 58, ptr %127, align 1
   br label %215
 
-215:                                              ; preds = %214, %212
+215:                                              ; preds = %125, %214, %sapi_update_response_code.exit238
+  %.not230 = icmp eq i32 %35, 0
+  %216 = load i32, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 216), align 8
+  %217 = icmp eq i32 %216, %35
+  %or.cond250 = select i1 %.not230, i1 true, i1 %217
+  br i1 %or.cond250, label %sapi_update_response_code.exit246, label %218
+
+218:                                              ; preds = %215
+  %219 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 232), align 8
+  %.not.i245 = icmp eq ptr %219, null
+  br i1 %.not.i245, label %221, label %220
+
+220:                                              ; preds = %218
+  tail call void @_efree(ptr noundef nonnull %219) #18
+  store ptr null, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 232), align 8
+  br label %221
+
+221:                                              ; preds = %220, %218
   store i32 %35, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 216), align 8
   br label %sapi_update_response_code.exit246
 
-sapi_update_response_code.exit246:                ; preds = %215, %209
+sapi_update_response_code.exit246:                ; preds = %221, %215
   call fastcc void @sapi_header_add_op(i32 noundef %0, ptr noundef %3)
   br label %sapi_update_response_code.exit
 
-sapi_update_response_code.exit:                   ; preds = %24, %16, %15, %25, %27, %13, %14, %sapi_update_response_code.exit246, %118, %100, %98, %sapi_remove_header.exit, %65, %40
-  %.0 = phi i32 [ 0, %40 ], [ -1, %65 ], [ 0, %sapi_remove_header.exit ], [ -1, %98 ], [ -1, %100 ], [ 0, %sapi_update_response_code.exit246 ], [ 0, %118 ], [ -1, %14 ], [ -1, %13 ], [ -1, %27 ], [ -1, %25 ], [ -1, %15 ], [ 0, %16 ], [ 0, %24 ]
+sapi_update_response_code.exit:                   ; preds = %24, %16, %15, %25, %27, %13, %14, %sapi_update_response_code.exit246, %124, %106, %104, %sapi_remove_header.exit, %65, %40
+  %.0 = phi i32 [ 0, %40 ], [ -1, %65 ], [ 0, %sapi_remove_header.exit ], [ -1, %104 ], [ -1, %106 ], [ 0, %sapi_update_response_code.exit246 ], [ 0, %124 ], [ -1, %14 ], [ -1, %13 ], [ -1, %27 ], [ -1, %25 ], [ -1, %15 ], [ 0, %16 ], [ 0, %24 ]
   ret i32 %.0
 }
 
@@ -1635,17 +1653,17 @@ define internal fastcc void @sapi_header_add_op(i32 noundef range(i32 3, 2) %0, 
   %5 = tail call i32 %3(ptr noundef nonnull %1, i32 noundef %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @sapi_globals, i64 160)) #18
   %6 = and i32 %5, 1
   %.not13 = icmp eq i32 %6, 0
-  br i1 %.not13, label %39, label %7
+  br i1 %.not13, label %45, label %7
 
 7:                                                ; preds = %4, %2
   %8 = icmp eq i32 %0, 0
-  br i1 %8, label %9, label %38
+  br i1 %8, label %9, label %44
 
 9:                                                ; preds = %7
   %10 = load ptr, ptr %1, align 8
   %11 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %10, i32 noundef 58) #19
   %.not14 = icmp eq ptr %11, null
-  br i1 %.not14, label %38, label %12
+  br i1 %.not14, label %44, label %12
 
 12:                                               ; preds = %9
   %13 = load i8, ptr %11, align 1
@@ -1656,64 +1674,82 @@ define internal fastcc void @sapi_header_add_op(i32 noundef range(i32 3, 2) %0, 
   %.not1.i = icmp eq ptr %16, null
   br i1 %.not1.i, label %sapi_remove_header.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %12, %37
-  %.02.i = phi ptr [ %18, %37 ], [ %16, %12 ]
+.lr.ph.i:                                         ; preds = %12, %43
+  %.02.i = phi ptr [ %18, %43 ], [ %16, %12 ]
   %17 = getelementptr inbounds i8, ptr %.02.i, i64 16
   %18 = load ptr, ptr %.02.i, align 8
   %19 = getelementptr inbounds i8, ptr %.02.i, i64 24
   %20 = load i64, ptr %19, align 8
   %21 = icmp ugt i64 %20, %15
-  br i1 %21, label %22, label %37
+  br i1 %21, label %22, label %43
 
 22:                                               ; preds = %.lr.ph.i
   %23 = load ptr, ptr %17, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 %15
   %25 = load i8, ptr %24, align 1
   %26 = icmp eq i8 %25, 58
-  br i1 %26, label %27, label %37
+  br i1 %26, label %27, label %43
 
 27:                                               ; preds = %22
   %28 = tail call i32 @strncasecmp(ptr noundef nonnull %23, ptr noundef readonly %14, i64 noundef %15) #19
   %.not27.i = icmp eq i32 %28, 0
-  br i1 %.not27.i, label %29, label %37
+  br i1 %.not27.i, label %29, label %43
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds i8, ptr %.02.i, i64 8
   %31 = load ptr, ptr %30, align 8
   %.not28.i = icmp eq ptr %31, null
-  %..i = select i1 %.not28.i, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 160), ptr %31
-  store ptr %18, ptr %..i, align 8
-  %.not29.i = icmp eq ptr %18, null
-  %32 = load ptr, ptr %30, align 8
-  %33 = getelementptr inbounds i8, ptr %18, i64 8
-  %.sink.i = select i1 %.not29.i, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 168), ptr %33
-  store ptr %32, ptr %.sink.i, align 8
-  %34 = load ptr, ptr %17, align 8
-  tail call void @_efree(ptr noundef %34) #18
-  tail call void @_efree(ptr noundef nonnull %.02.i) #18
-  %35 = load i64, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 176), align 8
-  %36 = add i64 %35, -1
-  store i64 %36, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 176), align 8
-  br label %37
+  br i1 %.not28.i, label %33, label %32
 
-37:                                               ; preds = %29, %27, %22, %.lr.ph.i
+32:                                               ; preds = %29
+  store ptr %18, ptr %31, align 8
+  br label %34
+
+33:                                               ; preds = %29
+  store ptr %18, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 160), align 8
+  br label %34
+
+34:                                               ; preds = %33, %32
+  %.not29.i = icmp eq ptr %18, null
+  %35 = load ptr, ptr %30, align 8
+  br i1 %.not29.i, label %38, label %36
+
+36:                                               ; preds = %34
+  %37 = getelementptr inbounds i8, ptr %18, i64 8
+  store ptr %35, ptr %37, align 8
+  br label %39
+
+38:                                               ; preds = %34
+  store ptr %35, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 168), align 8
+  br label %39
+
+39:                                               ; preds = %38, %36
+  %40 = load ptr, ptr %17, align 8
+  tail call void @_efree(ptr noundef %40) #18
+  tail call void @_efree(ptr noundef nonnull %.02.i) #18
+  %41 = load i64, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 176), align 8
+  %42 = add i64 %41, -1
+  store i64 %42, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 176), align 8
+  br label %43
+
+43:                                               ; preds = %39, %27, %22, %.lr.ph.i
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %sapi_remove_header.exit, label %.lr.ph.i
 
-sapi_remove_header.exit:                          ; preds = %37, %12
+sapi_remove_header.exit:                          ; preds = %43, %12
   store i8 %13, ptr %11, align 1
-  br label %38
+  br label %44
 
-38:                                               ; preds = %9, %sapi_remove_header.exit, %7
+44:                                               ; preds = %9, %sapi_remove_header.exit, %7
   tail call void @zend_llist_add_element(ptr noundef nonnull getelementptr inbounds (i8, ptr @sapi_globals, i64 160), ptr noundef nonnull %1) #18
-  br label %41
+  br label %47
 
-39:                                               ; preds = %4
-  %40 = load ptr, ptr %1, align 8
-  tail call void @_efree(ptr noundef %40) #18
-  br label %41
+45:                                               ; preds = %4
+  %46 = load ptr, ptr %1, align 8
+  tail call void @_efree(ptr noundef %46) #18
+  br label %47
 
-41:                                               ; preds = %39, %38
+47:                                               ; preds = %45, %44
   ret void
 }
 

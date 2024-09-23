@@ -6141,6 +6141,7 @@ define hidden noundef ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   %89 = getelementptr inbounds { i64, ptr }, ptr %48, i64 %62
   %90 = getelementptr inbounds i8, ptr %89, i64 -8
   %91 = load ptr, ptr %90, align 8, !nonnull !16, !noundef !16
+  store ptr %2, ptr %90, align 8
   br label %110
 
 92:                                               ; preds = %82, %77
@@ -6168,12 +6169,11 @@ define hidden noundef ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   %108 = getelementptr inbounds i8, ptr %107, i64 -16
   store i64 %1, ptr %108, align 8, !noalias !1727
   %109 = getelementptr inbounds i8, ptr %107, i64 -8
+  store ptr %2, ptr %109, align 8, !noalias !1727
   br label %110
 
 110:                                              ; preds = %92, %88
-  %.sink = phi ptr [ %109, %92 ], [ %90, %88 ]
-  %.0 = phi ptr [ null, %92 ], [ %91, %88 ]
-  store ptr %2, ptr %.sink, align 8
+  %.0 = phi ptr [ %91, %88 ], [ null, %92 ]
   ret ptr %.0
 
 111:                                              ; preds = %41, %3, %.noexc, %.noexc8
@@ -6370,6 +6370,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9hashbrown3ma
   %87 = getelementptr inbounds { i64, ptr }, ptr %46, i64 %60
   %88 = getelementptr inbounds i8, ptr %87, i64 -8
   %89 = load ptr, ptr %88, align 8, !nonnull !16, !align !43, !noundef !16
+  store ptr %2, ptr %88, align 8
   br label %108
 
 90:                                               ; preds = %80, %75
@@ -6397,12 +6398,11 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9hashbrown3ma
   %106 = getelementptr inbounds i8, ptr %105, i64 -16
   store i64 %1, ptr %106, align 8, !noalias !1795
   %107 = getelementptr inbounds i8, ptr %105, i64 -8
+  store ptr %2, ptr %107, align 8, !noalias !1795
   br label %108
 
 108:                                              ; preds = %90, %86
-  %.sink = phi ptr [ %107, %90 ], [ %88, %86 ]
   %.0 = phi ptr [ null, %90 ], [ %89, %86 ]
-  store ptr %2, ptr %.sink, align 8
   ret ptr %.0
 }
 

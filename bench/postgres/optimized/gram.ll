@@ -28377,16 +28377,16 @@ list_length.exit.thread:                          ; preds = %3, %list_length.exi
   unreachable
 
 35:                                               ; preds = %18, %10, %7
-  %.sink29 = phi ptr [ %29, %18 ], [ %17, %10 ], [ %.val26, %7 ]
-  %36 = load ptr, ptr %.sink29, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %4, i64 24
-  store ptr %38, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %4, i64 33
-  store i8 112, ptr %40, align 1
-  %41 = getelementptr inbounds i8, ptr %4, i64 48
-  store i32 %1, ptr %41, align 8
+  %.sink.in = phi ptr [ %29, %18 ], [ %17, %10 ], [ %.val26, %7 ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %36 = getelementptr inbounds i8, ptr %.sink, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %4, i64 24
+  store ptr %37, ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %4, i64 33
+  store i8 112, ptr %39, align 1
+  %40 = getelementptr inbounds i8, ptr %4, i64 48
+  store i32 %1, ptr %40, align 8
   ret ptr %4
 }
 
@@ -29059,12 +29059,12 @@ list_length.exit.thread:                          ; preds = %check_qualified_nam
   unreachable
 
 38:                                               ; preds = %23, %19
-  %.sink25 = phi ptr [ %30, %23 ], [ %.val20, %19 ]
-  %39 = load ptr, ptr %.sink25, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %17, i64 24
-  store ptr %41, ptr %42, align 8
+  %.sink.in = phi ptr [ %30, %23 ], [ %.val20, %19 ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %39 = getelementptr inbounds i8, ptr %.sink, i64 8
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %17, i64 24
+  store ptr %40, ptr %41, align 8
   ret ptr %17
 }
 

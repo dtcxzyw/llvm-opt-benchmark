@@ -537,6 +537,8 @@ if.then14:                                        ; preds = %if.then10
   %6 = load ptr, ptr %call.i22, align 8
   tail call void @qemu_plugin_outs(ptr noundef %6) #6
   %call.i.i.i.i = tail call ptr @g_string_free(ptr noundef nonnull %call.i22, i32 noundef 1) #6
+  %shl.i = shl nuw i32 1, %cpu_index
+  %conv.i = sext i32 %shl.i to i64
   br i1 %call4, label %if.then.i23, label %if.else.i
 
 if.then.i23:                                      ; preds = %if.then14
@@ -545,99 +547,103 @@ if.then.i23:                                      ; preds = %if.then14
   %inc.i = add i64 %7, 1
   store i64 %inc.i, ptr %writes.i, align 8
   %cpu_write.i = getelementptr inbounds i8, ptr %counts.0, i64 24
-  br label %if.end20.sink.split
+  %8 = load i64, ptr %cpu_write.i, align 8
+  %or.i = or i64 %8, %conv.i
+  store i64 %or.i, ptr %cpu_write.i, align 8
+  br label %if.end20
 
 if.else.i:                                        ; preds = %if.then14
   %totals = getelementptr inbounds i8, ptr %counts.0, i64 16
   %reads.i = getelementptr inbounds i8, ptr %counts.0, i64 32
-  %8 = load i64, ptr %reads.i, align 8
-  %inc1.i = add i64 %8, 1
+  %9 = load i64, ptr %reads.i, align 8
+  %inc1.i = add i64 %9, 1
   store i64 %inc1.i, ptr %reads.i, align 8
-  br label %if.end20.sink.split
-
-if.else17:                                        ; preds = %if.end
-  br i1 %call4, label %if.then.i31, label %if.else.i24
-
-if.then.i31:                                      ; preds = %if.else17
-  %writes.i32 = getelementptr inbounds i8, ptr %counts.0, i64 40
-  %9 = load i64, ptr %writes.i32, align 8
-  %inc.i33 = add i64 %9, 1
-  store i64 %inc.i33, ptr %writes.i32, align 8
-  %cpu_write.i34 = getelementptr inbounds i8, ptr %counts.0, i64 24
-  br label %if.end20.sink.split
-
-if.else.i24:                                      ; preds = %if.else17
-  %totals18 = getelementptr inbounds i8, ptr %counts.0, i64 16
-  %reads.i25 = getelementptr inbounds i8, ptr %counts.0, i64 32
-  %10 = load i64, ptr %reads.i25, align 8
-  %inc1.i26 = add i64 %10, 1
-  store i64 %inc1.i26, ptr %reads.i25, align 8
-  br label %if.end20.sink.split
-
-if.end20.sink.split:                              ; preds = %if.else.i24, %if.then.i31, %if.else.i, %if.then.i23
-  %count.sink5.i.sink49 = phi ptr [ %totals, %if.else.i ], [ %cpu_write.i, %if.then.i23 ], [ %totals18, %if.else.i24 ], [ %cpu_write.i34, %if.then.i31 ]
-  %shl.i = shl nuw i32 1, %cpu_index
-  %conv.i = sext i32 %shl.i to i64
-  %11 = load i64, ptr %count.sink5.i.sink49, align 8
-  %or4.i = or i64 %11, %conv.i
-  store i64 %or4.i, ptr %count.sink5.i.sink49, align 8
+  %10 = load i64, ptr %totals, align 8
+  %or4.i = or i64 %10, %conv.i
+  store i64 %or4.i, ptr %totals, align 8
   br label %if.end20
 
-if.end20:                                         ; preds = %if.end20.sink.split, %if.then10
-  %12 = load i8, ptr @source, align 1
-  %tobool21 = trunc i8 %12 to i1
-  %13 = ptrtoint ptr %udata to i64
-  %spec.select = select i1 %tobool21, i64 %13, i64 %call3
-  %14 = load i8, ptr @pattern, align 1
-  %tobool24 = trunc i8 %14 to i1
+if.else17:                                        ; preds = %if.end
+  %shl.i24 = shl nuw i32 1, %cpu_index
+  %conv.i25 = sext i32 %shl.i24 to i64
+  br i1 %call4, label %if.then.i30, label %if.else.i26
+
+if.then.i30:                                      ; preds = %if.else17
+  %writes.i31 = getelementptr inbounds i8, ptr %counts.0, i64 40
+  %11 = load i64, ptr %writes.i31, align 8
+  %inc.i32 = add i64 %11, 1
+  store i64 %inc.i32, ptr %writes.i31, align 8
+  %cpu_write.i33 = getelementptr inbounds i8, ptr %counts.0, i64 24
+  %12 = load i64, ptr %cpu_write.i33, align 8
+  %or.i34 = or i64 %12, %conv.i25
+  store i64 %or.i34, ptr %cpu_write.i33, align 8
+  br label %if.end20
+
+if.else.i26:                                      ; preds = %if.else17
+  %totals18 = getelementptr inbounds i8, ptr %counts.0, i64 16
+  %reads.i27 = getelementptr inbounds i8, ptr %counts.0, i64 32
+  %13 = load i64, ptr %reads.i27, align 8
+  %inc1.i28 = add i64 %13, 1
+  store i64 %inc1.i28, ptr %reads.i27, align 8
+  %14 = load i64, ptr %totals18, align 8
+  %or4.i29 = or i64 %14, %conv.i25
+  store i64 %or4.i29, ptr %totals18, align 8
+  br label %if.end20
+
+if.end20:                                         ; preds = %if.else.i26, %if.then.i30, %if.else.i, %if.then.i23, %if.then10
+  %15 = load i8, ptr @source, align 1
+  %tobool21 = trunc i8 %15 to i1
+  %16 = ptrtoint ptr %udata to i64
+  %spec.select = select i1 %tobool21, i64 %16, i64 %call3
+  %17 = load i8, ptr @pattern, align 1
+  %tobool24 = trunc i8 %17 to i1
   %brmerge = select i1 %tobool24, i1 true, i1 %tobool21
   br i1 %brmerge, label %if.then27, label %if.end36
 
 if.then27:                                        ; preds = %if.end20
   %detail = getelementptr inbounds i8, ptr %counts.0, i64 48
-  %15 = load ptr, ptr %detail, align 8
-  %16 = inttoptr i64 %spec.select to ptr
-  %call28 = tail call ptr @g_hash_table_lookup(ptr noundef %15, ptr noundef %16) #6
+  %18 = load ptr, ptr %detail, align 8
+  %19 = inttoptr i64 %spec.select to ptr
+  %call28 = tail call ptr @g_hash_table_lookup(ptr noundef %18, ptr noundef %19) #6
   %tobool29.not = icmp eq ptr %call28, null
   br i1 %tobool29.not, label %if.then30, label %if.end33
 
 if.then30:                                        ; preds = %if.then27
-  %17 = load ptr, ptr %detail, align 8
+  %20 = load ptr, ptr %detail, align 8
   %call.i36 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #8
   store i64 %spec.select, ptr %call.i36, align 8
-  %call2.i = tail call i32 @g_hash_table_insert(ptr noundef %17, ptr noundef %16, ptr noundef nonnull %call.i36) #6
+  %call2.i = tail call i32 @g_hash_table_insert(ptr noundef %20, ptr noundef %19, ptr noundef nonnull %call.i36) #6
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then30, %if.then27
   %io_count.0 = phi ptr [ %call28, %if.then27 ], [ %call.i36, %if.then30 ]
-  br i1 %call4, label %if.then.i44, label %if.else.i37
+  %shl.i37 = shl nuw i32 1, %cpu_index
+  %conv.i38 = sext i32 %shl.i37 to i64
+  br i1 %call4, label %if.then.i43, label %if.else.i39
 
-if.then.i44:                                      ; preds = %if.end33
-  %writes.i45 = getelementptr inbounds i8, ptr %io_count.0, i64 32
-  %18 = load i64, ptr %writes.i45, align 8
-  %inc.i46 = add i64 %18, 1
-  store i64 %inc.i46, ptr %writes.i45, align 8
-  %cpu_write.i47 = getelementptr inbounds i8, ptr %io_count.0, i64 16
-  br label %inc_count.exit48
-
-if.else.i37:                                      ; preds = %if.end33
-  %counts34 = getelementptr inbounds i8, ptr %io_count.0, i64 8
-  %reads.i38 = getelementptr inbounds i8, ptr %io_count.0, i64 24
-  %19 = load i64, ptr %reads.i38, align 8
-  %inc1.i39 = add i64 %19, 1
-  store i64 %inc1.i39, ptr %reads.i38, align 8
-  br label %inc_count.exit48
-
-inc_count.exit48:                                 ; preds = %if.then.i44, %if.else.i37
-  %count.sink5.i40 = phi ptr [ %counts34, %if.else.i37 ], [ %cpu_write.i47, %if.then.i44 ]
-  %shl.i41 = shl nuw i32 1, %cpu_index
-  %conv.i42 = sext i32 %shl.i41 to i64
-  %20 = load i64, ptr %count.sink5.i40, align 8
-  %or4.i43 = or i64 %20, %conv.i42
-  store i64 %or4.i43, ptr %count.sink5.i40, align 8
+if.then.i43:                                      ; preds = %if.end33
+  %writes.i44 = getelementptr inbounds i8, ptr %io_count.0, i64 32
+  %21 = load i64, ptr %writes.i44, align 8
+  %inc.i45 = add i64 %21, 1
+  store i64 %inc.i45, ptr %writes.i44, align 8
+  %cpu_write.i46 = getelementptr inbounds i8, ptr %io_count.0, i64 16
+  %22 = load i64, ptr %cpu_write.i46, align 8
+  %or.i47 = or i64 %22, %conv.i38
+  store i64 %or.i47, ptr %cpu_write.i46, align 8
   br label %if.end36
 
-if.end36:                                         ; preds = %if.end20, %inc_count.exit48
+if.else.i39:                                      ; preds = %if.end33
+  %counts34 = getelementptr inbounds i8, ptr %io_count.0, i64 8
+  %reads.i40 = getelementptr inbounds i8, ptr %io_count.0, i64 24
+  %23 = load i64, ptr %reads.i40, align 8
+  %inc1.i41 = add i64 %23, 1
+  store i64 %inc1.i41, ptr %reads.i40, align 8
+  %24 = load i64, ptr %counts34, align 8
+  %or4.i42 = or i64 %24, %conv.i38
+  store i64 %or4.i42, ptr %counts34, align 8
+  br label %if.end36
+
+if.end36:                                         ; preds = %if.end20, %if.else.i39, %if.then.i43
   tail call void @g_mutex_unlock(ptr noundef nonnull @lock) #6
   br label %if.end37
 

@@ -3453,43 +3453,43 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %38, %88, %94
-  %.sink118 = phi ptr [ %4, %94 ], [ %19, %88 ], [ %4, %38 ]
-  %.sink114 = phi i64 [ 4, %94 ], [ 4, %88 ], [ 8, %38 ]
-  %.sink111 = phi float [ 3.000000e+00, %94 ], [ 0.000000e+00, %88 ], [ 0x3FFBB67AE0000000, %38 ]
-  %.sink110 = phi ptr [ %19, %94 ], [ %4, %88 ], [ %4, %38 ]
-  %.sink106 = phi i64 [ 4, %94 ], [ 8, %88 ], [ 12, %38 ]
-  %.sink = phi float [ 3.000000e+00, %94 ], [ 3.000000e+00, %88 ], [ 0x3FFBB67AE0000000, %38 ]
-  %95 = load i32, ptr %.sink118, align 4
-  %96 = load ptr, ptr %3, align 8
-  %97 = sext i32 %95 to i64
-  %98 = getelementptr float, ptr %96, i64 %97
-  %99 = getelementptr i8, ptr %98, i64 %.sink114
-  store float %.sink111, ptr %99, align 4
-  %100 = load i32, ptr %.sink110, align 4
-  %101 = load ptr, ptr %3, align 8
-  %102 = sext i32 %100 to i64
-  %103 = getelementptr float, ptr %101, i64 %102
-  %104 = getelementptr i8, ptr %103, i64 %.sink106
-  store float %.sink, ptr %104, align 4
+  %.sink117.in = phi ptr [ %4, %38 ], [ %19, %88 ], [ %4, %94 ]
+  %.sink114 = phi i64 [ 8, %38 ], [ 4, %88 ], [ 4, %94 ]
+  %.sink111 = phi float [ 0x3FFBB67AE0000000, %38 ], [ 0.000000e+00, %88 ], [ 3.000000e+00, %94 ]
+  %.sink109.in = phi ptr [ %4, %38 ], [ %4, %88 ], [ %19, %94 ]
+  %.sink106 = phi i64 [ 12, %38 ], [ 8, %88 ], [ 4, %94 ]
+  %.sink = phi float [ 0x3FFBB67AE0000000, %38 ], [ 3.000000e+00, %88 ], [ 3.000000e+00, %94 ]
+  %.sink117 = load i32, ptr %.sink117.in, align 4
+  %95 = load ptr, ptr %3, align 8
+  %96 = sext i32 %.sink117 to i64
+  %97 = getelementptr float, ptr %95, i64 %96
+  %98 = getelementptr i8, ptr %97, i64 %.sink114
+  store float %.sink111, ptr %98, align 4
+  %.sink109 = load i32, ptr %.sink109.in, align 4
+  %99 = load ptr, ptr %3, align 8
+  %100 = sext i32 %.sink109 to i64
+  %101 = getelementptr float, ptr %99, i64 %100
+  %102 = getelementptr i8, ptr %101, i64 %.sink106
+  store float %.sink, ptr %102, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %72, %.loopexit.sink.split
-  %105 = load i32, ptr %19, align 4
-  %.088 = add nsw i32 %105, 1
-  %106 = icmp slt i32 %.088, %7
-  br i1 %106, label %.lr.ph91.preheader, label %._crit_edge92
+  %103 = load i32, ptr %19, align 4
+  %.088 = add nsw i32 %103, 1
+  %104 = icmp slt i32 %.088, %7
+  br i1 %104, label %.lr.ph91.preheader, label %._crit_edge92
 
 .lr.ph91.preheader:                               ; preds = %.loopexit
-  %107 = sext i32 %105 to i64
-  %108 = add nsw i64 %107, 1
+  %105 = sext i32 %103 to i64
+  %106 = add nsw i64 %105, 1
   br label %.lr.ph91
 
 .lr.ph91:                                         ; preds = %.lr.ph91.preheader, %.lr.ph91
-  %indvars.iv99 = phi i64 [ %108, %.lr.ph91.preheader ], [ %indvars.iv.next100, %.lr.ph91 ]
-  %109 = load ptr, ptr %3, align 8
-  %110 = getelementptr float, ptr %109, i64 %indvars.iv99
-  %111 = getelementptr i8, ptr %110, i64 4
-  store float 0.000000e+00, ptr %111, align 4
+  %indvars.iv99 = phi i64 [ %106, %.lr.ph91.preheader ], [ %indvars.iv.next100, %.lr.ph91 ]
+  %107 = load ptr, ptr %3, align 8
+  %108 = getelementptr float, ptr %107, i64 %indvars.iv99
+  %109 = getelementptr i8, ptr %108, i64 4
+  store float 0.000000e+00, ptr %109, align 4
   %indvars.iv.next100 = add nsw i64 %indvars.iv99, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next100 to i32
   %exitcond102.not = icmp eq i32 %7, %lftr.wideiv
@@ -4705,7 +4705,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE23a
   %128 = add nsw i32 %.v, %61
   %129 = zext nneg i32 %128 to i64
   %130 = getelementptr inbounds i32, ptr %31, i64 %129
-  br label %191
+  br label %190
 
 131:                                              ; preds = %3
   store float 0x3FE5555560000000, ptr %16, align 4
@@ -4763,68 +4763,68 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE23a
   br label %161
 
 161:                                              ; preds = %141, %137
-  %.sink183 = phi ptr [ %160, %141 ], [ %133, %137 ]
   %.sink182 = phi i64 [ 16, %141 ], [ 8, %137 ]
-  %162 = load i32, ptr %.sink183, align 4
-  %163 = getelementptr inbounds i8, ptr %20, i64 %.sink182
-  store i32 %162, ptr %163, align 4
-  %164 = getelementptr inbounds i8, ptr %21, i64 %.sink182
-  store float 0.000000e+00, ptr %164, align 4
-  %165 = load i16, ptr %29, align 8
-  %166 = and i16 %165, 128
-  %.not91 = icmp eq i16 %166, 0
+  %.sink.in = phi ptr [ %160, %141 ], [ %133, %137 ]
+  %.sink = load i32, ptr %.sink.in, align 4
+  %162 = getelementptr inbounds i8, ptr %20, i64 %.sink182
+  store i32 %.sink, ptr %162, align 4
+  %163 = getelementptr inbounds i8, ptr %21, i64 %.sink182
+  store float 0.000000e+00, ptr %163, align 4
+  %164 = load i16, ptr %29, align 8
+  %165 = and i16 %164, 128
+  %.not91 = icmp eq i16 %165, 0
   store i32 %1, ptr %25, align 4
-  br i1 %.not91, label %171, label %167
+  br i1 %.not91, label %170, label %166
 
-167:                                              ; preds = %161
+166:                                              ; preds = %161
   store float 0x3FE5555560000000, ptr %26, align 4
-  %168 = load i32, ptr %133, align 4
-  %169 = getelementptr inbounds i8, ptr %25, i64 4
-  store i32 %168, ptr %169, align 4
-  %170 = getelementptr inbounds i8, ptr %26, i64 4
-  store float 0x3FD5555560000000, ptr %170, align 4
-  br label %191
+  %167 = load i32, ptr %133, align 4
+  %168 = getelementptr inbounds i8, ptr %25, i64 4
+  store i32 %167, ptr %168, align 4
+  %169 = getelementptr inbounds i8, ptr %26, i64 4
+  store float 0x3FD5555560000000, ptr %169, align 4
+  br label %190
 
-171:                                              ; preds = %161
+170:                                              ; preds = %161
   store float 5.000000e-01, ptr %26, align 4
-  %172 = getelementptr inbounds i8, ptr %31, i64 4
-  %173 = load i32, ptr %172, align 4
-  %174 = getelementptr inbounds i8, ptr %25, i64 4
-  store i32 %173, ptr %174, align 4
-  %175 = getelementptr inbounds i8, ptr %26, i64 4
-  store float 0x3FC5555560000000, ptr %175, align 4
-  %176 = getelementptr inbounds i8, ptr %31, i64 8
-  %177 = load i32, ptr %176, align 4
-  %178 = getelementptr inbounds i8, ptr %25, i64 8
-  store i32 %177, ptr %178, align 4
-  %179 = getelementptr inbounds i8, ptr %26, i64 8
-  store float 0x3FC5555560000000, ptr %179, align 4
-  %180 = load i16, ptr %29, align 8
-  %181 = and i16 %180, 64
-  %.not92 = icmp eq i16 %181, 0
-  %182 = select i1 %.not92, i64 3, i64 0
-  %183 = getelementptr inbounds i32, ptr %31, i64 %182
-  %184 = load i32, ptr %183, align 4
-  %185 = getelementptr inbounds i8, ptr %25, i64 12
-  store i32 %184, ptr %185, align 4
-  %186 = getelementptr inbounds i8, ptr %26, i64 12
-  store float 0x3FC5555560000000, ptr %186, align 4
-  %187 = load i16, ptr %29, align 8
-  %188 = and i16 %187, 64
-  %.not93 = icmp eq i16 %188, 0
-  %189 = select i1 %.not93, i64 0, i64 3
-  %190 = getelementptr inbounds i32, ptr %31, i64 %189
-  br label %191
+  %171 = getelementptr inbounds i8, ptr %31, i64 4
+  %172 = load i32, ptr %171, align 4
+  %173 = getelementptr inbounds i8, ptr %25, i64 4
+  store i32 %172, ptr %173, align 4
+  %174 = getelementptr inbounds i8, ptr %26, i64 4
+  store float 0x3FC5555560000000, ptr %174, align 4
+  %175 = getelementptr inbounds i8, ptr %31, i64 8
+  %176 = load i32, ptr %175, align 4
+  %177 = getelementptr inbounds i8, ptr %25, i64 8
+  store i32 %176, ptr %177, align 4
+  %178 = getelementptr inbounds i8, ptr %26, i64 8
+  store float 0x3FC5555560000000, ptr %178, align 4
+  %179 = load i16, ptr %29, align 8
+  %180 = and i16 %179, 64
+  %.not92 = icmp eq i16 %180, 0
+  %181 = select i1 %.not92, i64 3, i64 0
+  %182 = getelementptr inbounds i32, ptr %31, i64 %181
+  %183 = load i32, ptr %182, align 4
+  %184 = getelementptr inbounds i8, ptr %25, i64 12
+  store i32 %183, ptr %184, align 4
+  %185 = getelementptr inbounds i8, ptr %26, i64 12
+  store float 0x3FC5555560000000, ptr %185, align 4
+  %186 = load i16, ptr %29, align 8
+  %187 = and i16 %186, 64
+  %.not93 = icmp eq i16 %187, 0
+  %188 = select i1 %.not93, i64 0, i64 3
+  %189 = getelementptr inbounds i32, ptr %31, i64 %188
+  br label %190
 
-191:                                              ; preds = %167, %171, %38
-  %.sink189 = phi ptr [ %31, %167 ], [ %190, %171 ], [ %130, %38 ]
-  %.sink188 = phi i64 [ 8, %167 ], [ 16, %171 ], [ 24, %38 ]
-  %.sink = phi float [ 0.000000e+00, %167 ], [ 0.000000e+00, %171 ], [ 0x3FC1C71C80000000, %38 ]
-  %192 = load i32, ptr %.sink189, align 4
-  %193 = getelementptr inbounds i8, ptr %25, i64 %.sink188
-  store i32 %192, ptr %193, align 4
-  %194 = getelementptr inbounds i8, ptr %26, i64 %.sink188
-  store float %.sink, ptr %194, align 4
+190:                                              ; preds = %166, %170, %38
+  %.sink188 = phi i64 [ 8, %166 ], [ 16, %170 ], [ 24, %38 ]
+  %.sink186.in = phi ptr [ %31, %166 ], [ %189, %170 ], [ %130, %38 ]
+  %.sink183 = phi float [ 0.000000e+00, %166 ], [ 0.000000e+00, %170 ], [ 0x3FC1C71C80000000, %38 ]
+  %.sink186 = load i32, ptr %.sink186.in, align 4
+  %191 = getelementptr inbounds i8, ptr %25, i64 %.sink188
+  store i32 %.sink186, ptr %191, align 4
+  %192 = getelementptr inbounds i8, ptr %26, i64 %.sink188
+  store float %.sink183, ptr %192, align 4
   ret void
 }
 
@@ -9061,43 +9061,43 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %38, %86, %92
-  %.sink118 = phi ptr [ %4, %92 ], [ %19, %86 ], [ %4, %38 ]
-  %.sink114 = phi i64 [ 8, %92 ], [ 8, %86 ], [ 16, %38 ]
-  %.sink111 = phi double [ 3.000000e+00, %92 ], [ 0.000000e+00, %86 ], [ 0x3FFBB67AE8584CAA, %38 ]
-  %.sink110 = phi ptr [ %19, %92 ], [ %4, %86 ], [ %4, %38 ]
-  %.sink106 = phi i64 [ 8, %92 ], [ 16, %86 ], [ 24, %38 ]
-  %.sink = phi double [ 3.000000e+00, %92 ], [ 3.000000e+00, %86 ], [ 0x3FFBB67AE8584CAA, %38 ]
-  %93 = load i32, ptr %.sink118, align 4
-  %94 = load ptr, ptr %3, align 8
-  %95 = sext i32 %93 to i64
-  %96 = getelementptr double, ptr %94, i64 %95
-  %97 = getelementptr i8, ptr %96, i64 %.sink114
-  store double %.sink111, ptr %97, align 8
-  %98 = load i32, ptr %.sink110, align 4
-  %99 = load ptr, ptr %3, align 8
-  %100 = sext i32 %98 to i64
-  %101 = getelementptr double, ptr %99, i64 %100
-  %102 = getelementptr i8, ptr %101, i64 %.sink106
-  store double %.sink, ptr %102, align 8
+  %.sink117.in = phi ptr [ %4, %38 ], [ %19, %86 ], [ %4, %92 ]
+  %.sink114 = phi i64 [ 16, %38 ], [ 8, %86 ], [ 8, %92 ]
+  %.sink111 = phi double [ 0x3FFBB67AE8584CAA, %38 ], [ 0.000000e+00, %86 ], [ 3.000000e+00, %92 ]
+  %.sink109.in = phi ptr [ %4, %38 ], [ %4, %86 ], [ %19, %92 ]
+  %.sink106 = phi i64 [ 24, %38 ], [ 16, %86 ], [ 8, %92 ]
+  %.sink = phi double [ 0x3FFBB67AE8584CAA, %38 ], [ 3.000000e+00, %86 ], [ 3.000000e+00, %92 ]
+  %.sink117 = load i32, ptr %.sink117.in, align 4
+  %93 = load ptr, ptr %3, align 8
+  %94 = sext i32 %.sink117 to i64
+  %95 = getelementptr double, ptr %93, i64 %94
+  %96 = getelementptr i8, ptr %95, i64 %.sink114
+  store double %.sink111, ptr %96, align 8
+  %.sink109 = load i32, ptr %.sink109.in, align 4
+  %97 = load ptr, ptr %3, align 8
+  %98 = sext i32 %.sink109 to i64
+  %99 = getelementptr double, ptr %97, i64 %98
+  %100 = getelementptr i8, ptr %99, i64 %.sink106
+  store double %.sink, ptr %100, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %71, %.loopexit.sink.split
-  %103 = load i32, ptr %19, align 4
-  %.088 = add nsw i32 %103, 1
-  %104 = icmp slt i32 %.088, %7
-  br i1 %104, label %.lr.ph91.preheader, label %._crit_edge92
+  %101 = load i32, ptr %19, align 4
+  %.088 = add nsw i32 %101, 1
+  %102 = icmp slt i32 %.088, %7
+  br i1 %102, label %.lr.ph91.preheader, label %._crit_edge92
 
 .lr.ph91.preheader:                               ; preds = %.loopexit
-  %105 = sext i32 %103 to i64
-  %106 = add nsw i64 %105, 1
+  %103 = sext i32 %101 to i64
+  %104 = add nsw i64 %103, 1
   br label %.lr.ph91
 
 .lr.ph91:                                         ; preds = %.lr.ph91.preheader, %.lr.ph91
-  %indvars.iv99 = phi i64 [ %106, %.lr.ph91.preheader ], [ %indvars.iv.next100, %.lr.ph91 ]
-  %107 = load ptr, ptr %3, align 8
-  %108 = getelementptr double, ptr %107, i64 %indvars.iv99
-  %109 = getelementptr i8, ptr %108, i64 8
-  store double 0.000000e+00, ptr %109, align 8
+  %indvars.iv99 = phi i64 [ %104, %.lr.ph91.preheader ], [ %indvars.iv.next100, %.lr.ph91 ]
+  %105 = load ptr, ptr %3, align 8
+  %106 = getelementptr double, ptr %105, i64 %indvars.iv99
+  %107 = getelementptr i8, ptr %106, i64 8
+  store double 0.000000e+00, ptr %107, align 8
   %indvars.iv.next100 = add nsw i64 %indvars.iv99, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next100 to i32
   %exitcond102.not = icmp eq i32 %7, %lftr.wideiv
@@ -10303,7 +10303,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE23a
   %128 = add nsw i32 %.v, %61
   %129 = zext nneg i32 %128 to i64
   %130 = getelementptr inbounds i32, ptr %31, i64 %129
-  br label %191
+  br label %190
 
 131:                                              ; preds = %3
   store double 0x3FE5555555555555, ptr %16, align 8
@@ -10361,70 +10361,70 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE23a
   br label %161
 
 161:                                              ; preds = %141, %137
-  %.sink183 = phi ptr [ %160, %141 ], [ %133, %137 ]
   %.sink182 = phi i64 [ 16, %141 ], [ 8, %137 ]
+  %.sink.in = phi ptr [ %160, %141 ], [ %133, %137 ]
   %.sink180 = phi i64 [ 32, %141 ], [ 16, %137 ]
-  %162 = load i32, ptr %.sink183, align 4
-  %163 = getelementptr inbounds i8, ptr %20, i64 %.sink182
-  store i32 %162, ptr %163, align 4
-  %164 = getelementptr inbounds i8, ptr %21, i64 %.sink180
-  store double 0.000000e+00, ptr %164, align 8
-  %165 = load i16, ptr %29, align 8
-  %166 = and i16 %165, 128
-  %.not91 = icmp eq i16 %166, 0
+  %.sink = load i32, ptr %.sink.in, align 4
+  %162 = getelementptr inbounds i8, ptr %20, i64 %.sink182
+  store i32 %.sink, ptr %162, align 4
+  %163 = getelementptr inbounds i8, ptr %21, i64 %.sink180
+  store double 0.000000e+00, ptr %163, align 8
+  %164 = load i16, ptr %29, align 8
+  %165 = and i16 %164, 128
+  %.not91 = icmp eq i16 %165, 0
   store i32 %1, ptr %25, align 4
-  br i1 %.not91, label %171, label %167
+  br i1 %.not91, label %170, label %166
 
-167:                                              ; preds = %161
+166:                                              ; preds = %161
   store double 0x3FE5555555555555, ptr %26, align 8
-  %168 = load i32, ptr %133, align 4
-  %169 = getelementptr inbounds i8, ptr %25, i64 4
-  store i32 %168, ptr %169, align 4
-  %170 = getelementptr inbounds i8, ptr %26, i64 8
-  store double 0x3FD5555555555555, ptr %170, align 8
-  br label %191
+  %167 = load i32, ptr %133, align 4
+  %168 = getelementptr inbounds i8, ptr %25, i64 4
+  store i32 %167, ptr %168, align 4
+  %169 = getelementptr inbounds i8, ptr %26, i64 8
+  store double 0x3FD5555555555555, ptr %169, align 8
+  br label %190
 
-171:                                              ; preds = %161
+170:                                              ; preds = %161
   store double 5.000000e-01, ptr %26, align 8
-  %172 = getelementptr inbounds i8, ptr %31, i64 4
-  %173 = load i32, ptr %172, align 4
-  %174 = getelementptr inbounds i8, ptr %25, i64 4
-  store i32 %173, ptr %174, align 4
-  %175 = getelementptr inbounds i8, ptr %26, i64 8
-  store double 0x3FC5555555555555, ptr %175, align 8
-  %176 = getelementptr inbounds i8, ptr %31, i64 8
-  %177 = load i32, ptr %176, align 4
-  %178 = getelementptr inbounds i8, ptr %25, i64 8
-  store i32 %177, ptr %178, align 4
-  %179 = getelementptr inbounds i8, ptr %26, i64 16
-  store double 0x3FC5555555555555, ptr %179, align 8
-  %180 = load i16, ptr %29, align 8
-  %181 = and i16 %180, 64
-  %.not92 = icmp eq i16 %181, 0
-  %182 = select i1 %.not92, i64 3, i64 0
-  %183 = getelementptr inbounds i32, ptr %31, i64 %182
-  %184 = load i32, ptr %183, align 4
-  %185 = getelementptr inbounds i8, ptr %25, i64 12
-  store i32 %184, ptr %185, align 4
-  %186 = getelementptr inbounds i8, ptr %26, i64 24
-  store double 0x3FC5555555555555, ptr %186, align 8
-  %187 = load i16, ptr %29, align 8
-  %188 = and i16 %187, 64
-  %.not93 = icmp eq i16 %188, 0
-  %189 = select i1 %.not93, i64 0, i64 3
-  %190 = getelementptr inbounds i32, ptr %31, i64 %189
-  br label %191
+  %171 = getelementptr inbounds i8, ptr %31, i64 4
+  %172 = load i32, ptr %171, align 4
+  %173 = getelementptr inbounds i8, ptr %25, i64 4
+  store i32 %172, ptr %173, align 4
+  %174 = getelementptr inbounds i8, ptr %26, i64 8
+  store double 0x3FC5555555555555, ptr %174, align 8
+  %175 = getelementptr inbounds i8, ptr %31, i64 8
+  %176 = load i32, ptr %175, align 4
+  %177 = getelementptr inbounds i8, ptr %25, i64 8
+  store i32 %176, ptr %177, align 4
+  %178 = getelementptr inbounds i8, ptr %26, i64 16
+  store double 0x3FC5555555555555, ptr %178, align 8
+  %179 = load i16, ptr %29, align 8
+  %180 = and i16 %179, 64
+  %.not92 = icmp eq i16 %180, 0
+  %181 = select i1 %.not92, i64 3, i64 0
+  %182 = getelementptr inbounds i32, ptr %31, i64 %181
+  %183 = load i32, ptr %182, align 4
+  %184 = getelementptr inbounds i8, ptr %25, i64 12
+  store i32 %183, ptr %184, align 4
+  %185 = getelementptr inbounds i8, ptr %26, i64 24
+  store double 0x3FC5555555555555, ptr %185, align 8
+  %186 = load i16, ptr %29, align 8
+  %187 = and i16 %186, 64
+  %.not93 = icmp eq i16 %187, 0
+  %188 = select i1 %.not93, i64 0, i64 3
+  %189 = getelementptr inbounds i32, ptr %31, i64 %188
+  br label %190
 
-191:                                              ; preds = %167, %171, %38
-  %.sink189 = phi ptr [ %31, %167 ], [ %190, %171 ], [ %130, %38 ]
-  %.sink188 = phi i64 [ 8, %167 ], [ 16, %171 ], [ 24, %38 ]
-  %.sink185 = phi i64 [ 16, %167 ], [ 32, %171 ], [ 48, %38 ]
-  %.sink = phi double [ 0.000000e+00, %167 ], [ 0.000000e+00, %171 ], [ 0x3FC1C71C71C71C72, %38 ]
-  %192 = load i32, ptr %.sink189, align 4
-  %193 = getelementptr inbounds i8, ptr %25, i64 %.sink188
-  store i32 %192, ptr %193, align 4
-  %194 = getelementptr inbounds i8, ptr %26, i64 %.sink185
-  store double %.sink, ptr %194, align 8
+190:                                              ; preds = %166, %170, %38
+  %.sink188 = phi i64 [ 8, %166 ], [ 16, %170 ], [ 24, %38 ]
+  %.sink186.in = phi ptr [ %31, %166 ], [ %189, %170 ], [ %130, %38 ]
+  %.sink185 = phi i64 [ 16, %166 ], [ 32, %170 ], [ 48, %38 ]
+  %.sink183 = phi double [ 0.000000e+00, %166 ], [ 0.000000e+00, %170 ], [ 0x3FC1C71C71C71C72, %38 ]
+  %.sink186 = load i32, ptr %.sink186.in, align 4
+  %191 = getelementptr inbounds i8, ptr %25, i64 %.sink188
+  store i32 %.sink186, ptr %191, align 4
+  %192 = getelementptr inbounds i8, ptr %26, i64 %.sink185
+  store double %.sink183, ptr %192, align 8
   ret void
 }
 

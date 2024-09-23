@@ -3874,14 +3874,26 @@ if.end154:                                        ; preds = %for.body96, %for.bo
   %conv = sext i32 %20 to i64
   %mul = shl nsw i64 %conv, 4
   %tobool.not.i.i.i299 = icmp eq ptr %.pr, null
-  br i1 %tobool.not.i.i.i299, label %if.end238, label %if.then.i.i.i300
+  br i1 %tobool.not.i.i.i299, label %_ZN20btAlignedObjectArrayI18btQuantizedBvhNodeE20initializeFromBufferEPvii.exit307, label %if.then.i.i.i300
 
 if.then.i.i.i300:                                 ; preds = %if.end154.thread, %if.end154
   %mul591 = phi i64 [ %mul589, %if.end154.thread ], [ %mul, %if.end154 ]
   %66 = phi ptr [ %add.ptr, %if.end154.thread ], [ %.pr, %if.end154 ]
   %67 = load i8, ptr %m_ownsMemory.i.i12.i, align 8
   %tobool2.i.i.i302 = trunc i8 %67 to i1
-  br i1 %tobool2.i.i.i302, label %if.end238.sink.split, label %if.end238
+  br i1 %tobool2.i.i.i302, label %if.then3.i.i.i306, label %_ZN20btAlignedObjectArrayI18btQuantizedBvhNodeE20initializeFromBufferEPvii.exit307
+
+if.then3.i.i.i306:                                ; preds = %if.then.i.i.i300
+  tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %66)
+  br label %_ZN20btAlignedObjectArrayI18btQuantizedBvhNodeE20initializeFromBufferEPvii.exit307
+
+_ZN20btAlignedObjectArrayI18btQuantizedBvhNodeE20initializeFromBufferEPvii.exit307: ; preds = %if.end154, %if.then.i.i.i300, %if.then3.i.i.i306
+  %mul592 = phi i64 [ %mul, %if.end154 ], [ %mul591, %if.then.i.i.i300 ], [ %mul591, %if.then3.i.i.i306 ]
+  store i8 0, ptr %m_ownsMemory.i.i12.i, align 8
+  store ptr null, ptr %m_data.i.i13.i, align 8
+  store i32 0, ptr %m_size.i.i14.i, align 4
+  store i32 0, ptr %m_capacity.i.i15.i, align 8
+  br label %if.end238
 
 if.else157:                                       ; preds = %if.end
   %68 = load ptr, ptr %m_data.i.i5.i, align 8
@@ -4050,35 +4062,29 @@ if.end233:                                        ; preds = %for.body199, %_Z19b
   %conv234 = sext i32 %20 to i64
   %mul235 = shl nsw i64 %conv234, 6
   %tobool.not.i.i.i407 = icmp eq ptr %.pr593, null
-  br i1 %tobool.not.i.i.i407, label %if.end238, label %if.then.i.i.i408
+  br i1 %tobool.not.i.i.i407, label %_ZN20btAlignedObjectArrayI18btOptimizedBvhNodeE20initializeFromBufferEPvii.exit415, label %if.then.i.i.i408
 
 if.then.i.i.i408:                                 ; preds = %if.end233.thread, %if.end233
   %mul235597 = phi i64 [ %mul235595, %if.end233.thread ], [ %mul235, %if.end233 ]
   %104 = phi ptr [ %add.ptr, %if.end233.thread ], [ %.pr593, %if.end233 ]
   %105 = load i8, ptr %m_ownsMemory.i.i4.i, align 8
   %tobool2.i.i.i410 = trunc i8 %105 to i1
-  br i1 %tobool2.i.i.i410, label %if.end238.sink.split, label %if.end238
+  br i1 %tobool2.i.i.i410, label %if.then3.i.i.i414, label %_ZN20btAlignedObjectArrayI18btOptimizedBvhNodeE20initializeFromBufferEPvii.exit415
 
-if.end238.sink.split:                             ; preds = %if.then.i.i.i408, %if.then.i.i.i300
-  %.sink = phi ptr [ %66, %if.then.i.i.i300 ], [ %104, %if.then.i.i.i408 ]
-  %m_ownsMemory.i.i4.i.sink.ph = phi ptr [ %m_ownsMemory.i.i12.i, %if.then.i.i.i300 ], [ %m_ownsMemory.i.i4.i, %if.then.i.i.i408 ]
-  %m_data.i.i5.i.sink.ph = phi ptr [ %m_data.i.i13.i, %if.then.i.i.i300 ], [ %m_data.i.i5.i, %if.then.i.i.i408 ]
-  %m_size.i.i6.i.sink.ph = phi ptr [ %m_size.i.i14.i, %if.then.i.i.i300 ], [ %m_size.i.i6.i, %if.then.i.i.i408 ]
-  %m_capacity.i.i7.i.sink.ph = phi ptr [ %m_capacity.i.i15.i, %if.then.i.i.i300 ], [ %m_capacity.i.i7.i, %if.then.i.i.i408 ]
-  %mul.pn.ph = phi i64 [ %mul591, %if.then.i.i.i300 ], [ %mul235597, %if.then.i.i.i408 ]
-  tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %.sink)
+if.then3.i.i.i414:                                ; preds = %if.then.i.i.i408
+  tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %104)
+  br label %_ZN20btAlignedObjectArrayI18btOptimizedBvhNodeE20initializeFromBufferEPvii.exit415
+
+_ZN20btAlignedObjectArrayI18btOptimizedBvhNodeE20initializeFromBufferEPvii.exit415: ; preds = %if.end233, %if.then.i.i.i408, %if.then3.i.i.i414
+  %mul235598 = phi i64 [ %mul235, %if.end233 ], [ %mul235597, %if.then.i.i.i408 ], [ %mul235597, %if.then3.i.i.i414 ]
+  store i8 0, ptr %m_ownsMemory.i.i4.i, align 8
+  store ptr null, ptr %m_data.i.i5.i, align 8
+  store i32 0, ptr %m_size.i.i6.i, align 4
+  store i32 0, ptr %m_capacity.i.i7.i, align 8
   br label %if.end238
 
-if.end238:                                        ; preds = %if.end238.sink.split, %if.then.i.i.i408, %if.end233, %if.then.i.i.i300, %if.end154
-  %m_ownsMemory.i.i4.i.sink = phi ptr [ %m_ownsMemory.i.i12.i, %if.end154 ], [ %m_ownsMemory.i.i12.i, %if.then.i.i.i300 ], [ %m_ownsMemory.i.i4.i, %if.end233 ], [ %m_ownsMemory.i.i4.i, %if.then.i.i.i408 ], [ %m_ownsMemory.i.i4.i.sink.ph, %if.end238.sink.split ]
-  %m_data.i.i5.i.sink = phi ptr [ %m_data.i.i13.i, %if.end154 ], [ %m_data.i.i13.i, %if.then.i.i.i300 ], [ %m_data.i.i5.i, %if.end233 ], [ %m_data.i.i5.i, %if.then.i.i.i408 ], [ %m_data.i.i5.i.sink.ph, %if.end238.sink.split ]
-  %m_size.i.i6.i.sink = phi ptr [ %m_size.i.i14.i, %if.end154 ], [ %m_size.i.i14.i, %if.then.i.i.i300 ], [ %m_size.i.i6.i, %if.end233 ], [ %m_size.i.i6.i, %if.then.i.i.i408 ], [ %m_size.i.i6.i.sink.ph, %if.end238.sink.split ]
-  %m_capacity.i.i7.i.sink = phi ptr [ %m_capacity.i.i15.i, %if.end154 ], [ %m_capacity.i.i15.i, %if.then.i.i.i300 ], [ %m_capacity.i.i7.i, %if.end233 ], [ %m_capacity.i.i7.i, %if.then.i.i.i408 ], [ %m_capacity.i.i7.i.sink.ph, %if.end238.sink.split ]
-  %mul.pn = phi i64 [ %mul, %if.end154 ], [ %mul591, %if.then.i.i.i300 ], [ %mul235, %if.end233 ], [ %mul235597, %if.then.i.i.i408 ], [ %mul.pn.ph, %if.end238.sink.split ]
-  store i8 0, ptr %m_ownsMemory.i.i4.i.sink, align 8
-  store ptr null, ptr %m_data.i.i5.i.sink, align 8
-  store i32 0, ptr %m_size.i.i6.i.sink, align 4
-  store i32 0, ptr %m_capacity.i.i7.i.sink, align 8
+if.end238:                                        ; preds = %_ZN20btAlignedObjectArrayI18btOptimizedBvhNodeE20initializeFromBufferEPvii.exit415, %_ZN20btAlignedObjectArrayI18btQuantizedBvhNodeE20initializeFromBufferEPvii.exit307
+  %mul.pn = phi i64 [ %mul592, %_ZN20btAlignedObjectArrayI18btQuantizedBvhNodeE20initializeFromBufferEPvii.exit307 ], [ %mul235598, %_ZN20btAlignedObjectArrayI18btOptimizedBvhNodeE20initializeFromBufferEPvii.exit415 ]
   %nodeData.0 = getelementptr inbounds i8, ptr %add.ptr, i64 %mul.pn
   %106 = load i32, ptr %m_subtreeHeaderCount, align 8
   %107 = load ptr, ptr %m_data.i.i17.i, align 8

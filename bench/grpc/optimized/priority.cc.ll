@@ -6554,9 +6554,21 @@ if.else:                                          ; preds = %entry
   %_M_parent.i.i.i.i.i.i2 = getelementptr inbounds i8, ptr %value, i64 16
   %12 = load ptr, ptr %_M_parent.i.i.i.i.i.i2, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %12, null
-  br i1 %cmp.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i, label %_ZN4absl12lts_2023080217internal_statusor12StatusOrDataISt3mapIN9grpc_core21RefCountedStringValueESt10shared_ptrINS4_25EndpointAddressesIteratorEENS4_29RefCountedStringValueLessThanESaISt4pairIKS5_S8_EEEE9MakeValueIJSE_EEEvDpOT_.exit.thread, label %_ZN4absl12lts_2023080217internal_statusor12StatusOrDataISt3mapIN9grpc_core21RefCountedStringValueESt10shared_ptrINS4_25EndpointAddressesIteratorEENS4_29RefCountedStringValueLessThanESaISt4pairIKS5_S8_EEEE9MakeValueIJSE_EEEvDpOT_.exit
 
-if.then.i.i.i.i.i.i:                              ; preds = %if.else
+_ZN4absl12lts_2023080217internal_statusor12StatusOrDataISt3mapIN9grpc_core21RefCountedStringValueESt10shared_ptrINS4_25EndpointAddressesIteratorEENS4_29RefCountedStringValueLessThanESaISt4pairIKS5_S8_EEEE9MakeValueIJSE_EEEvDpOT_.exit.thread: ; preds = %if.else
+  store i32 0, ptr %11, align 8
+  %_M_parent.i2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  store ptr null, ptr %_M_parent.i2.i.i.i.i.i.i, align 8
+  %_M_left.i3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  store ptr %11, ptr %_M_left.i3.i.i.i.i.i.i, align 8
+  %_M_right.i4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  store ptr %11, ptr %_M_right.i4.i.i.i.i.i.i, align 8
+  %_M_node_count.i5.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  store i64 0, ptr %_M_node_count.i5.i.i.i.i.i.i, align 8
+  br label %if.then.i
+
+_ZN4absl12lts_2023080217internal_statusor12StatusOrDataISt3mapIN9grpc_core21RefCountedStringValueESt10shared_ptrINS4_25EndpointAddressesIteratorEENS4_29RefCountedStringValueLessThanESaISt4pairIKS5_S8_EEEE9MakeValueIJSE_EEEvDpOT_.exit: ; preds = %if.else
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %value, i64 8
   %13 = load i32, ptr %add.ptr.i.i.i.i.i, align 8
   store i32 %13, ptr %11, align 8
@@ -6580,27 +6592,13 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.else
   store ptr null, ptr %_M_parent.i.i.i.i.i.i2, align 8
   store ptr %add.ptr.i.i.i.i.i, ptr %_M_left.i.i.i.i.i.i.i, align 8
   store ptr %add.ptr.i.i.i.i.i, ptr %_M_right.i.i.i.i.i.i.i, align 8
-  br label %_ZN4absl12lts_2023080217internal_statusor12StatusOrDataISt3mapIN9grpc_core21RefCountedStringValueESt10shared_ptrINS4_25EndpointAddressesIteratorEENS4_29RefCountedStringValueLessThanESaISt4pairIKS5_S8_EEEE9MakeValueIJSE_EEEvDpOT_.exit
-
-if.else.i.i.i.i.i.i:                              ; preds = %if.else
-  store i32 0, ptr %11, align 8
-  %_M_parent.i2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr null, ptr %_M_parent.i2.i.i.i.i.i.i, align 8
-  %_M_left.i3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  store ptr %11, ptr %_M_left.i3.i.i.i.i.i.i, align 8
-  %_M_right.i4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  store ptr %11, ptr %_M_right.i4.i.i.i.i.i.i, align 8
-  %_M_node_count.i5.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  br label %_ZN4absl12lts_2023080217internal_statusor12StatusOrDataISt3mapIN9grpc_core21RefCountedStringValueESt10shared_ptrINS4_25EndpointAddressesIteratorEENS4_29RefCountedStringValueLessThanESaISt4pairIKS5_S8_EEEE9MakeValueIJSE_EEEvDpOT_.exit
-
-_ZN4absl12lts_2023080217internal_statusor12StatusOrDataISt3mapIN9grpc_core21RefCountedStringValueESt10shared_ptrINS4_25EndpointAddressesIteratorEENS4_29RefCountedStringValueLessThanESaISt4pairIKS5_S8_EEEE9MakeValueIJSE_EEEvDpOT_.exit: ; preds = %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i
-  %_M_node_count.i5.sink.i.i.i.i.i.i = phi ptr [ %_M_node_count.i5.i.i.i.i.i.i, %if.else.i.i.i.i.i.i ], [ %_M_node_count.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ]
-  store i64 0, ptr %_M_node_count.i5.sink.i.i.i.i.i.i, align 8
-  %18 = load i64, ptr %this, align 8
-  %cmp.not.i = icmp eq i64 %18, 0
+  store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i, align 8
+  %.pre = load i64, ptr %this, align 8
+  %cmp.not.i = icmp eq i64 %.pre, 0
   br i1 %cmp.not.i, label %if.end, label %if.then.i
 
-if.then.i:                                        ; preds = %_ZN4absl12lts_2023080217internal_statusor12StatusOrDataISt3mapIN9grpc_core21RefCountedStringValueESt10shared_ptrINS4_25EndpointAddressesIteratorEENS4_29RefCountedStringValueLessThanESaISt4pairIKS5_S8_EEEE9MakeValueIJSE_EEEvDpOT_.exit
+if.then.i:                                        ; preds = %_ZN4absl12lts_2023080217internal_statusor12StatusOrDataISt3mapIN9grpc_core21RefCountedStringValueESt10shared_ptrINS4_25EndpointAddressesIteratorEENS4_29RefCountedStringValueLessThanESaISt4pairIKS5_S8_EEEE9MakeValueIJSE_EEEvDpOT_.exit.thread, %_ZN4absl12lts_2023080217internal_statusor12StatusOrDataISt3mapIN9grpc_core21RefCountedStringValueESt10shared_ptrINS4_25EndpointAddressesIteratorEENS4_29RefCountedStringValueLessThanESaISt4pairIKS5_S8_EEEE9MakeValueIJSE_EEEvDpOT_.exit
+  %18 = phi i64 [ %0, %_ZN4absl12lts_2023080217internal_statusor12StatusOrDataISt3mapIN9grpc_core21RefCountedStringValueESt10shared_ptrINS4_25EndpointAddressesIteratorEENS4_29RefCountedStringValueLessThanESaISt4pairIKS5_S8_EEEE9MakeValueIJSE_EEEvDpOT_.exit.thread ], [ %.pre, %_ZN4absl12lts_2023080217internal_statusor12StatusOrDataISt3mapIN9grpc_core21RefCountedStringValueESt10shared_ptrINS4_25EndpointAddressesIteratorEENS4_29RefCountedStringValueLessThanESaISt4pairIKS5_S8_EEEE9MakeValueIJSE_EEEvDpOT_.exit ]
   store i64 0, ptr %this, align 8
   store i64 54, ptr %ref.tmp, align 8
   %and.i.i.i = and i64 %18, 1

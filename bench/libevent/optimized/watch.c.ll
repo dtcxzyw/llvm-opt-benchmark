@@ -134,6 +134,7 @@ do.body5:                                         ; preds = %entry, %if.then
 
 if.then6:                                         ; preds = %do.body5
   %tqe_prev11 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %4, ptr %tqe_prev11, align 8
   br label %if.end15
 
 if.else:                                          ; preds = %do.body5
@@ -143,11 +144,10 @@ if.else:                                          ; preds = %do.body5
   %6 = load i32, ptr %type, align 8
   %idxprom = zext i32 %6 to i64
   %tqh_last = getelementptr inbounds [2 x %struct.evwatch_list], ptr %watchers, i64 0, i64 %idxprom, i32 1
+  store ptr %4, ptr %tqh_last, align 8
   br label %if.end15
 
 if.end15:                                         ; preds = %if.else, %if.then6
-  %tqh_last.sink = phi ptr [ %tqh_last, %if.else ], [ %tqe_prev11, %if.then6 ]
-  store ptr %4, ptr %tqh_last.sink, align 8
   %7 = load ptr, ptr %watcher, align 8
   store ptr %7, ptr %4, align 8
   %8 = load ptr, ptr %base, align 8

@@ -396,24 +396,21 @@ define internal i32 @uint64_cmp_order(ptr noundef %0, ptr noundef %1, ptr nocapt
   %5 = alloca i64, align 8
   %6 = call i32 @fvalue_to_uinteger64(ptr noundef %0, ptr noundef nonnull %4) #9
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %7, label %15
+  br i1 %.not, label %7, label %12
 
 7:                                                ; preds = %3
   %8 = call i32 @fvalue_to_uinteger64(ptr noundef %1, ptr noundef nonnull %5) #9
   %.not12 = icmp eq i32 %8, 0
-  br i1 %.not12, label %9, label %15
+  br i1 %.not12, label %9, label %12
 
 9:                                                ; preds = %7
   %10 = load i64, ptr %4, align 8
   %11 = load i64, ptr %5, align 8
-  %12 = icmp eq i64 %10, %11
-  %13 = icmp ult i64 %10, %11
-  %14 = select i1 %13, i32 -1, i32 1
-  %storemerge = select i1 %12, i32 0, i32 %14
+  %storemerge = call i32 @llvm.ucmp.i32.i64(i64 %10, i64 %11)
   store i32 %storemerge, ptr %2, align 4
-  br label %15
+  br label %12
 
-15:                                               ; preds = %7, %3, %9
+12:                                               ; preds = %7, %3, %9
   %.0 = phi i32 [ 0, %9 ], [ %6, %3 ], [ %8, %7 ]
   ret i32 %.0
 }
@@ -1253,24 +1250,21 @@ define internal i32 @sint64_cmp_order(ptr noundef %0, ptr noundef %1, ptr nocapt
   %5 = alloca i64, align 8
   %6 = call i32 @fvalue_to_sinteger64(ptr noundef %0, ptr noundef nonnull %4) #9
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %7, label %15
+  br i1 %.not, label %7, label %12
 
 7:                                                ; preds = %3
   %8 = call i32 @fvalue_to_sinteger64(ptr noundef %1, ptr noundef nonnull %5) #9
   %.not12 = icmp eq i32 %8, 0
-  br i1 %.not12, label %9, label %15
+  br i1 %.not12, label %9, label %12
 
 9:                                                ; preds = %7
   %10 = load i64, ptr %4, align 8
   %11 = load i64, ptr %5, align 8
-  %12 = icmp eq i64 %10, %11
-  %13 = icmp slt i64 %10, %11
-  %14 = select i1 %13, i32 -1, i32 1
-  %storemerge = select i1 %12, i32 0, i32 %14
+  %storemerge = call i32 @llvm.scmp.i32.i64(i64 %10, i64 %11)
   store i32 %storemerge, ptr %2, align 4
-  br label %15
+  br label %12
 
-15:                                               ; preds = %7, %3, %9
+12:                                               ; preds = %7, %3, %9
   %.0 = phi i32 [ 0, %9 ], [ %6, %3 ], [ %8, %7 ]
   ret i32 %.0
 }
@@ -2270,6 +2264,12 @@ declare ptr @g_byte_array_free(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.bswap.i64(i64) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i64(i64, i64) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i64(i64, i64) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

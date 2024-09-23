@@ -831,19 +831,19 @@ define internal fastcc range(i32 -1, 1) i32 @getNotify(ptr noundef %0) unnamed_a
   %2 = alloca i32, align 4
   %3 = call i32 @pqGetInt(ptr noundef nonnull %2, i64 noundef 4, ptr noundef %0) #16
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %4, label %35
+  br i1 %.not, label %4, label %38
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 1032
   %6 = call i32 @pqGets(ptr noundef nonnull %5, ptr noundef %0) #16
   %.not35 = icmp eq i32 %6, 0
-  br i1 %.not35, label %7, label %35
+  br i1 %.not35, label %7, label %38
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr %5, align 8
   %9 = call noalias ptr @strdup(ptr noundef %8) #16
   %.not36 = icmp eq ptr %9, null
-  br i1 %.not36, label %35, label %10
+  br i1 %.not36, label %38, label %10
 
 10:                                               ; preds = %7
   %11 = call i32 @pqGets(ptr noundef nonnull %5, ptr noundef nonnull %0) #16
@@ -881,19 +881,28 @@ define internal fastcc range(i32 -1, 1) i32 @getNotify(ptr noundef %0) unnamed_a
   %31 = getelementptr inbounds i8, ptr %0, i64 416
   %32 = load ptr, ptr %31, align 8
   %.not40 = icmp eq ptr %32, null
-  %33 = getelementptr inbounds i8, ptr %0, i64 408
+  br i1 %.not40, label %35, label %33
+
+33:                                               ; preds = %21
   %34 = getelementptr inbounds i8, ptr %32, i64 24
-  %.sink = select i1 %.not40, ptr %33, ptr %34
-  store ptr %20, ptr %.sink, align 8
+  store ptr %20, ptr %34, align 8
+  br label %37
+
+35:                                               ; preds = %21
+  %36 = getelementptr inbounds i8, ptr %0, i64 408
+  store ptr %20, ptr %36, align 8
+  br label %37
+
+37:                                               ; preds = %35, %33
   store ptr %20, ptr %31, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %12, %21, %10
-  %.0.ph = phi i32 [ -1, %10 ], [ 0, %21 ], [ 0, %12 ]
+.sink.split:                                      ; preds = %12, %37, %10
+  %.0.ph = phi i32 [ -1, %10 ], [ 0, %37 ], [ 0, %12 ]
   call void @free(ptr noundef nonnull %9) #16
-  br label %35
+  br label %38
 
-35:                                               ; preds = %.sink.split, %7, %4, %1
+38:                                               ; preds = %.sink.split, %7, %4, %1
   %.0 = phi i32 [ -1, %1 ], [ -1, %4 ], [ -1, %7 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }

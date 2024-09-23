@@ -70,10 +70,10 @@ invoke.cont3.i:                                   ; preds = %.noexc
   store i64 %conv.i, ptr %stack_depth_.i, align 8
   %parent_stack_depth_.i = getelementptr inbounds i8, ptr %call, i64 1104
   store i64 0, ptr %parent_stack_depth_.i, align 8
-  %method_10.i = getelementptr inbounds i8, ptr %call, i64 1112
-  store i32 %method, ptr %method_10.i, align 8
-  %parent_method_12.i = getelementptr inbounds i8, ptr %call, i64 1116
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(204) %parent_method_12.i, i8 0, i64 204, i1 false)
+  %method_.i = getelementptr inbounds i8, ptr %call, i64 1112
+  store i32 %method, ptr %method_.i, align 8
+  %parent_method_13.i = getelementptr inbounds i8, ptr %call, i64 1116
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(204) %parent_method_13.i, i8 0, i64 204, i1 false)
   %call8.i = invoke { i64, i32 } @_ZN4absl3NowEv()
           to label %invoke.cont2 unwind label %lpad2.i
 
@@ -373,18 +373,27 @@ if.then:                                          ; preds = %_ZN4absl13base_inte
 
 if.end:                                           ; preds = %if.then, %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit
   %tobool7.not = icmp eq i64 %8, 0
+  br i1 %tobool7.not, label %if.else, label %if.then8
+
+if.then8:                                         ; preds = %if.end
+  %ci_next_9 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i7, i64 48
+  store atomic i64 %7, ptr %ci_next_9 release, align 8
+  br label %if.end12
+
+if.else:                                          ; preds = %if.end
   %9 = load ptr, ptr %list_, align 8
   %head11 = getelementptr inbounds i8, ptr %9, i64 8
-  %ci_next_9 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i7, i64 48
-  %head11.sink = select i1 %tobool7.not, ptr %head11, ptr %ci_next_9
-  store atomic i64 %7, ptr %head11.sink release, align 8
+  store atomic i64 %7, ptr %head11 release, align 8
+  br label %if.end12
+
+if.end12:                                         ; preds = %if.else, %if.then8
   %10 = load atomic i32, ptr %0 monotonic, align 4
   %and.i.i = and i32 %10, 2
   %11 = atomicrmw xchg ptr %0, i32 %and.i.i release, align 4
   %cmp6.not.i.i = icmp ult i32 %11, 8
   br i1 %cmp6.not.i.i, label %_ZN4absl13base_internal14SpinLockHolderD2Ev.exit, label %if.then7.i.i
 
-if.then7.i.i:                                     ; preds = %if.end
+if.then7.i.i:                                     ; preds = %if.end12
   invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %11) #19
           to label %_ZN4absl13base_internal14SpinLockHolderD2Ev.exit unwind label %terminate.lpad.i
 
@@ -395,7 +404,7 @@ terminate.lpad.i:                                 ; preds = %if.then7.i.i
   tail call void @__clang_call_terminate(ptr %13) #20
   unreachable
 
-_ZN4absl13base_internal14SpinLockHolderD2Ev.exit: ; preds = %if.end, %if.then7.i.i
+_ZN4absl13base_internal14SpinLockHolderD2Ev.exit: ; preds = %if.end12, %if.then7.i.i
   %call13 = tail call noundef zeroext i1 @_ZNK4absl13cord_internal11CordzHandle12SafeToDeleteEv(ptr noundef nonnull align 8 dereferenceable(32) %this)
   br i1 %call13, label %if.then14, label %if.end15
 
@@ -503,25 +512,22 @@ if.end:                                           ; preds = %entry
 
 if.then1:                                         ; preds = %if.end
   %parent_stack_ = getelementptr inbounds i8, ptr %src, i64 584
-  br label %return.sink.split
+  %mul = shl i64 %0, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %stack, ptr nonnull align 8 %parent_stack_, i64 %mul, i1 false)
+  %1 = load i64, ptr %parent_stack_depth_, align 8
+  br label %return
 
 if.end4:                                          ; preds = %if.end
   %stack_ = getelementptr inbounds i8, ptr %src, i64 72
   %stack_depth_ = getelementptr inbounds i8, ptr %src, i64 1096
-  %1 = load i64, ptr %stack_depth_, align 8
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.then1, %if.end4
-  %.sink = phi i64 [ %1, %if.end4 ], [ %0, %if.then1 ]
-  %stack_.sink = phi ptr [ %stack_, %if.end4 ], [ %parent_stack_, %if.then1 ]
-  %stack_depth_.sink = phi ptr [ %stack_depth_, %if.end4 ], [ %parent_stack_depth_, %if.then1 ]
-  %mul6 = shl i64 %.sink, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %stack, ptr nonnull align 8 %stack_.sink, i64 %mul6, i1 false)
-  %2 = load i64, ptr %stack_depth_.sink, align 8
+  %2 = load i64, ptr %stack_depth_, align 8
+  %mul6 = shl i64 %2, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %stack, ptr nonnull align 8 %stack_, i64 %mul6, i1 false)
+  %3 = load i64, ptr %stack_depth_, align 8
   br label %return
 
-return:                                           ; preds = %return.sink.split, %entry
-  %retval.0 = phi i64 [ 0, %entry ], [ %2, %return.sink.split ]
+return:                                           ; preds = %entry, %if.end4, %if.then1
+  %retval.0 = phi i64 [ %1, %if.then1 ], [ %3, %if.end4 ], [ 0, %entry ]
   ret i64 %retval.0
 }
 
@@ -550,13 +556,7 @@ invoke.cont3:                                     ; preds = %entry
   %parent_stack_depth_ = getelementptr inbounds i8, ptr %this, i64 1104
   %parent_stack_ = getelementptr inbounds i8, ptr %this, i64 584
   %cmp.i = icmp eq ptr %src, null
-  br i1 %cmp.i, label %_ZN4absl13cord_internal9CordzInfo15FillParentStackEPKS1_PPv.exit.thread, label %if.end.i
-
-_ZN4absl13cord_internal9CordzInfo15FillParentStackEPKS1_PPv.exit.thread: ; preds = %invoke.cont3
-  store i64 0, ptr %parent_stack_depth_, align 8
-  %method_10 = getelementptr inbounds i8, ptr %this, i64 1112
-  store i32 %method, ptr %method_10, align 8
-  br label %_ZN4absl13cord_internal9CordzInfo15GetParentMethodEPKS1_.exit
+  br i1 %cmp.i, label %_ZN4absl13cord_internal9CordzInfo15FillParentStackEPKS1_PPv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %invoke.cont3
   %parent_stack_depth_.i = getelementptr inbounds i8, ptr %src, i64 1104
@@ -574,30 +574,36 @@ if.end4.i:                                        ; preds = %if.end.i
   %1 = load i64, ptr %stack_depth_.i, align 8
   br label %if.end.i6
 
-if.end.i6:                                        ; preds = %if.end4.i, %if.then1.i
-  %.sink.i = phi i64 [ %1, %if.end4.i ], [ %0, %if.then1.i ]
-  %stack_.sink.i = phi ptr [ %stack_.i, %if.end4.i ], [ %parent_stack_.i, %if.then1.i ]
-  %stack_depth_.sink.i = phi ptr [ %stack_depth_.i, %if.end4.i ], [ %parent_stack_depth_.i, %if.then1.i ]
-  %mul6.i = shl i64 %.sink.i, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %parent_stack_, ptr nonnull align 8 %stack_.sink.i, i64 %mul6.i, i1 false)
-  %2 = load i64, ptr %stack_depth_.sink.i, align 8
-  store i64 %2, ptr %parent_stack_depth_, align 8
+_ZN4absl13cord_internal9CordzInfo15FillParentStackEPKS1_PPv.exit: ; preds = %invoke.cont3
+  store i64 0, ptr %parent_stack_depth_, align 8
   %method_ = getelementptr inbounds i8, ptr %this, i64 1112
   store i32 %method, ptr %method_, align 8
+  br label %_ZN4absl13cord_internal9CordzInfo15GetParentMethodEPKS1_.exit
+
+if.end.i6:                                        ; preds = %if.then1.i, %if.end4.i
+  %.sink = phi i64 [ %0, %if.then1.i ], [ %1, %if.end4.i ]
+  %parent_stack_.i.sink = phi ptr [ %parent_stack_.i, %if.then1.i ], [ %stack_.i, %if.end4.i ]
+  %retval.0.i.ph.in = phi ptr [ %parent_stack_depth_.i, %if.then1.i ], [ %stack_depth_.i, %if.end4.i ]
+  %mul.i = shl i64 %.sink, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %parent_stack_, ptr nonnull readonly align 8 %parent_stack_.i.sink, i64 %mul.i, i1 false)
+  %retval.0.i.ph = load i64, ptr %retval.0.i.ph.in, align 8
+  store i64 %retval.0.i.ph, ptr %parent_stack_depth_, align 8
+  %method_10 = getelementptr inbounds i8, ptr %this, i64 1112
+  store i32 %method, ptr %method_10, align 8
   %parent_method_.i = getelementptr inbounds i8, ptr %src, i64 1116
-  %3 = load i32, ptr %parent_method_.i, align 4
-  %cmp1.not.i = icmp eq i32 %3, 0
+  %2 = load i32, ptr %parent_method_.i, align 4
+  %cmp1.not.i = icmp eq i32 %2, 0
   br i1 %cmp1.not.i, label %cond.false.i, label %_ZN4absl13cord_internal9CordzInfo15GetParentMethodEPKS1_.exit
 
 cond.false.i:                                     ; preds = %if.end.i6
   %method_.i = getelementptr inbounds i8, ptr %src, i64 1112
-  %4 = load i32, ptr %method_.i, align 8
+  %3 = load i32, ptr %method_.i, align 8
   br label %_ZN4absl13cord_internal9CordzInfo15GetParentMethodEPKS1_.exit
 
-_ZN4absl13cord_internal9CordzInfo15GetParentMethodEPKS1_.exit: ; preds = %_ZN4absl13cord_internal9CordzInfo15FillParentStackEPKS1_PPv.exit.thread, %if.end.i6, %cond.false.i
-  %retval.0.i7 = phi i32 [ %4, %cond.false.i ], [ %3, %if.end.i6 ], [ 0, %_ZN4absl13cord_internal9CordzInfo15FillParentStackEPKS1_PPv.exit.thread ]
-  %parent_method_12 = getelementptr inbounds i8, ptr %this, i64 1116
-  store i32 %retval.0.i7, ptr %parent_method_12, align 4
+_ZN4absl13cord_internal9CordzInfo15GetParentMethodEPKS1_.exit: ; preds = %_ZN4absl13cord_internal9CordzInfo15FillParentStackEPKS1_PPv.exit, %if.end.i6, %cond.false.i
+  %retval.0.i7 = phi i32 [ 0, %_ZN4absl13cord_internal9CordzInfo15FillParentStackEPKS1_PPv.exit ], [ %3, %cond.false.i ], [ %2, %if.end.i6 ]
+  %parent_method_13 = getelementptr inbounds i8, ptr %this, i64 1116
+  store i32 %retval.0.i7, ptr %parent_method_13, align 4
   %update_tracker_ = getelementptr inbounds i8, ptr %this, i64 1120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %update_tracker_, i8 0, i64 200, i1 false)
   %call8 = invoke { i64, i32 } @_ZN4absl3NowEv()
@@ -612,8 +618,8 @@ invoke.cont7:                                     ; preds = %_ZN4absl13cord_inte
   store i32 %call8.fca.1.extract, ptr %tmp.coerce.sroa.2.0.coerce.dive.sroa_idx, align 8
   %idxprom.i = zext i32 %method to i64
   %arrayidx.i = getelementptr inbounds [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %update_tracker_, i64 0, i64 %idxprom.i
-  %5 = load atomic i64, ptr %arrayidx.i monotonic, align 8
-  %add.i = add nsw i64 %5, 1
+  %4 = load atomic i64, ptr %arrayidx.i monotonic, align 8
+  %add.i = add nsw i64 %4, 1
   store atomic i64 %add.i, ptr %arrayidx.i monotonic, align 8
   br i1 %cmp.i, label %if.end, label %if.then
 
@@ -624,14 +630,14 @@ if.then:                                          ; preds = %invoke.cont7
 for.body.i:                                       ; preds = %for.inc.i, %if.then
   %indvars.iv.i = phi i64 [ 0, %if.then ], [ %indvars.iv.next.i, %for.inc.i ]
   %arrayidx.i.i = getelementptr inbounds [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %update_tracker_12, i64 0, i64 %indvars.iv.i
-  %6 = load atomic i64, ptr %arrayidx.i.i monotonic, align 8
-  %tobool.not.i8 = icmp eq i64 %6, 0
+  %5 = load atomic i64, ptr %arrayidx.i.i monotonic, align 8
+  %tobool.not.i8 = icmp eq i64 %5, 0
   br i1 %tobool.not.i8, label %for.inc.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
   %arrayidx.i6.i = getelementptr inbounds [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %update_tracker_, i64 0, i64 %indvars.iv.i
-  %7 = load atomic i64, ptr %arrayidx.i6.i monotonic, align 8
-  %add.i.i = add nsw i64 %7, %6
+  %6 = load atomic i64, ptr %arrayidx.i6.i monotonic, align 8
+  %add.i.i = add nsw i64 %6, %5
   store atomic i64 %add.i.i, ptr %arrayidx.i6.i monotonic, align 8
   br label %for.inc.i
 
@@ -641,10 +647,10 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !5
 
 lpad2:                                            ; preds = %_ZN4absl13cord_internal9CordzInfo15GetParentMethodEPKS1_.exit, %entry
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN4absl13cord_internal11CordzHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #18
-  resume { ptr, i32 } %8
+  resume { ptr, i32 } %7
 
 if.end:                                           ; preds = %for.inc.i, %invoke.cont7
   ret void

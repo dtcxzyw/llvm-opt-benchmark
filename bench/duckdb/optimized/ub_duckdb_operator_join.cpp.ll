@@ -43287,14 +43287,16 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %cl
   call void @_ZN6duckdb6Vector7FlattenEm(ptr noundef nonnull align 8 dereferenceable(104) %__begin3.sroa.0.0101.us, i64 noundef %46)
   %validity.i.us = getelementptr inbounds i8, ptr %__begin3.sroa.0.0101.us, i64 40
   %47 = load ptr, ptr %validity.i.us, align 8, !tbaa !284
-  %tobool.not.i74.us = icmp ne ptr %47, null
-  %48 = load i64, ptr %count, align 8
-  %cmp98.us = icmp ne i64 %48, 0
-  %or.cond = select i1 %tobool.not.i74.us, i1 %cmp98.us, i1 false
-  br i1 %or.cond, label %for.body20.us.us, label %cleanup.us
+  %tobool.not.i74.us = icmp eq ptr %47, null
+  br i1 %tobool.not.i74.us, label %cleanup.us, label %_ZN6duckdb21TemplatedValidityMaskImE14EnsureWritableEv.exit.i.us
 
-for.body20.us.us:                                 ; preds = %for.body.us, %for.body20.us.us
-  %i.099.us.us = phi i64 [ %inc.us.us, %for.body20.us.us ], [ 0, %for.body.us ]
+_ZN6duckdb21TemplatedValidityMaskImE14EnsureWritableEv.exit.i.us: ; preds = %for.body.us
+  %48 = load i64, ptr %count, align 8, !tbaa !1024
+  %cmp98.us.not = icmp eq i64 %48, 0
+  br i1 %cmp98.us.not, label %cleanup.us, label %for.body20.us.us
+
+for.body20.us.us:                                 ; preds = %_ZN6duckdb21TemplatedValidityMaskImE14EnsureWritableEv.exit.i.us, %for.body20.us.us
+  %i.099.us.us = phi i64 [ %inc.us.us, %for.body20.us.us ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE14EnsureWritableEv.exit.i.us ]
   %div2.i.i.i.us.us = lshr i64 %i.099.us.us, 6
   %rem.i.i.i.us.us = and i64 %i.099.us.us, 63
   %shl.i.i.i.us.us = shl nuw i64 1, %rem.i.i.i.us.us
@@ -43308,7 +43310,7 @@ for.body20.us.us:                                 ; preds = %for.body.us, %for.b
   %cmp.us.us = icmp ult i64 %inc.us.us, %50
   br i1 %cmp.us.us, label %for.body20.us.us, label %cleanup.us, !llvm.loop !1280
 
-cleanup.us:                                       ; preds = %for.body20.us.us, %for.body.us
+cleanup.us:                                       ; preds = %for.body20.us.us, %_ZN6duckdb21TemplatedValidityMaskImE14EnsureWritableEv.exit.i.us, %for.body.us
   %incdec.ptr.i.us = getelementptr inbounds i8, ptr %__begin3.sroa.0.0101.us, i64 104
   %cmp.i.not.us = icmp eq ptr %incdec.ptr.i.us, %43
   br i1 %cmp.i.not.us, label %for.cond.cleanup, label %for.body.us

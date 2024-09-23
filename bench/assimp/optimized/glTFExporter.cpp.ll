@@ -62710,6 +62710,7 @@ _ZN5o3dgc12BinaryStream15WriteUCharASCIIEh.exit:  ; preds = %entry.if.end16_crit
   %inc.i.i = add i64 %3, 1
   store i64 %inc.i.i, ptr %m_size.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %4, i64 %3
+  store i8 %value, ptr %arrayidx.i.i, align 1
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -62749,11 +62750,10 @@ _ZN5o3dgc12BinaryStream14WriteUChar8BinEh.exit:   ; preds = %entry.if.end16_crit
   %inc.i.i7 = add i64 %6, 1
   store i64 %inc.i.i7, ptr %m_size.i.i, align 8
   %arrayidx.i.i8 = getelementptr inbounds i8, ptr %7, i64 %6
+  store i8 %value, ptr %arrayidx.i.i8, align 1
   br label %if.end
 
 if.end:                                           ; preds = %_ZN5o3dgc12BinaryStream14WriteUChar8BinEh.exit, %_ZN5o3dgc12BinaryStream15WriteUCharASCIIEh.exit
-  %arrayidx.i.i8.sink = phi ptr [ %arrayidx.i.i8, %_ZN5o3dgc12BinaryStream14WriteUChar8BinEh.exit ], [ %arrayidx.i.i, %_ZN5o3dgc12BinaryStream15WriteUCharASCIIEh.exit ]
-  store i8 %value, ptr %arrayidx.i.i8.sink, align 1
   ret void
 }
 
@@ -68646,81 +68646,81 @@ if.else13.i:                                      ; preds = %if.else.i
   br label %_ZN5o3dgc18CompueOppositeEdgeItEEvlPKT_RlS4_.exit
 
 _ZN5o3dgc18CompueOppositeEdgeItEEvlPKT_RlS4_.exit: ; preds = %if.then.i, %if.then8.i, %if.else13.i
-  %triangle.sink.i = phi ptr [ %add.ptr, %if.then8.i ], [ %arrayidx1.i, %if.else13.i ], [ %arrayidx3.i, %if.then.i ]
-  %16 = load i16, ptr %triangle.sink.i, align 2
-  %conv12.i = zext i16 %16 to i64
+  %.sink.in.i = phi ptr [ %add.ptr, %if.then8.i ], [ %arrayidx1.i, %if.else13.i ], [ %arrayidx3.i, %if.then.i ]
+  %.sink.i = load i16, ptr %.sink.in.i, align 2
+  %conv12.i = zext i16 %.sink.i to i64
   store i64 %conv12.i, ptr %arrayidx15, align 8
-  %17 = load i64, ptr %m_numNonConqueredTriangles, align 8
-  %inc = add nsw i64 %17, 1
+  %16 = load i64, ptr %m_numNonConqueredTriangles, align 8
+  %inc = add nsw i64 %16, 1
   store i64 %inc, ptr %m_numNonConqueredTriangles, align 8
   br label %for.inc92
 
 if.else:                                          ; preds = %for.body
-  %18 = load i64, ptr %m_numConqueredTriangles, align 8
-  %inc18 = add nsw i64 %18, 1
+  %17 = load i64, ptr %m_numConqueredTriangles, align 8
+  %inc18 = add nsw i64 %17, 1
   store i64 %inc18, ptr %m_numConqueredTriangles, align 8
   %.idx = mul i64 %5, 6
   br label %for.body22
 
 for.body22:                                       ; preds = %if.else, %for.inc88
   %k.0217 = phi i64 [ 0, %if.else ], [ %inc89, %for.inc88 ]
-  %19 = load ptr, ptr %m_triangles23, align 8
-  %20 = getelementptr i8, ptr %19, i64 %.idx
-  %arrayidx25 = getelementptr i16, ptr %20, i64 %k.0217
-  %21 = load i16, ptr %arrayidx25, align 2
-  %conv = zext i16 %21 to i64
-  %22 = load ptr, ptr %m_vmap, align 8
-  %arrayidx26 = getelementptr inbounds i64, ptr %22, i64 %conv
-  %23 = load i64, ptr %arrayidx26, align 8
-  %arrayidx28 = getelementptr inbounds i64, ptr %22, i64 %focusVertex
-  %24 = load i64, ptr %arrayidx28, align 8
-  %cmp29 = icmp sgt i64 %23, %24
+  %18 = load ptr, ptr %m_triangles23, align 8
+  %19 = getelementptr i8, ptr %18, i64 %.idx
+  %arrayidx25 = getelementptr i16, ptr %19, i64 %k.0217
+  %20 = load i16, ptr %arrayidx25, align 2
+  %conv = zext i16 %20 to i64
+  %21 = load ptr, ptr %m_vmap, align 8
+  %arrayidx26 = getelementptr inbounds i64, ptr %21, i64 %conv
+  %22 = load i64, ptr %arrayidx26, align 8
+  %arrayidx28 = getelementptr inbounds i64, ptr %21, i64 %focusVertex
+  %23 = load i64, ptr %arrayidx28, align 8
+  %cmp29 = icmp sgt i64 %22, %23
   br i1 %cmp29, label %for.cond31.preheader, label %for.inc88
 
 for.cond31.preheader:                             ; preds = %for.body22
-  %25 = load i64, ptr %m_numVisitedVertices, align 8
-  %cmp33213 = icmp sgt i64 %25, 0
+  %24 = load i64, ptr %m_numVisitedVertices, align 8
+  %cmp33213 = icmp sgt i64 %24, 0
   %.pre241 = load ptr, ptr %m_visitedVertices, align 8
   br i1 %cmp33213, label %for.body34, label %if.then75
 
 for.body34:                                       ; preds = %for.cond31.preheader, %for.inc72
   %j.0214 = phi i64 [ %inc73, %for.inc72 ], [ 0, %for.cond31.preheader ]
   %arrayidx37 = getelementptr inbounds i64, ptr %.pre241, i64 %j.0214
-  %26 = load i64, ptr %arrayidx37, align 8
-  %cmp38 = icmp eq i64 %23, %26
+  %25 = load i64, ptr %arrayidx37, align 8
+  %cmp38 = icmp eq i64 %22, %25
   br i1 %cmp38, label %if.then39, label %if.else42
 
 if.then39:                                        ; preds = %for.body34
-  %27 = load ptr, ptr %m_visitedVerticesValence81, align 8
-  %arrayidx40 = getelementptr inbounds i64, ptr %27, i64 %j.0214
-  %28 = load i64, ptr %arrayidx40, align 8
-  %inc41 = add nsw i64 %28, 1
+  %26 = load ptr, ptr %m_visitedVerticesValence81, align 8
+  %arrayidx40 = getelementptr inbounds i64, ptr %26, i64 %j.0214
+  %27 = load i64, ptr %arrayidx40, align 8
+  %inc41 = add nsw i64 %27, 1
   store i64 %inc41, ptr %arrayidx40, align 8
   br label %for.inc88
 
 if.else42:                                        ; preds = %for.body34
-  %cmp47 = icmp slt i64 %23, %26
+  %cmp47 = icmp slt i64 %22, %25
   br i1 %cmp47, label %if.then48, label %for.inc72
 
 if.then48:                                        ; preds = %if.else42
-  %inc50 = add nuw nsw i64 %25, 1
+  %inc50 = add nuw nsw i64 %24, 1
   store i64 %inc50, ptr %m_numVisitedVertices, align 8
-  %cmp53215 = icmp sgt i64 %25, %j.0214
+  %cmp53215 = icmp sgt i64 %24, %j.0214
   br i1 %cmp53215, label %for.body54, label %for.end
 
 for.body54:                                       ; preds = %if.then48, %for.body54
-  %h.0216 = phi i64 [ %sub56, %for.body54 ], [ %25, %if.then48 ]
-  %29 = load ptr, ptr %m_visitedVertices, align 8
+  %h.0216 = phi i64 [ %sub56, %for.body54 ], [ %24, %if.then48 ]
+  %28 = load ptr, ptr %m_visitedVertices, align 8
   %sub56 = add nsw i64 %h.0216, -1
-  %arrayidx57 = getelementptr inbounds i64, ptr %29, i64 %sub56
-  %30 = load i64, ptr %arrayidx57, align 8
-  %arrayidx59 = getelementptr inbounds i64, ptr %29, i64 %h.0216
-  store i64 %30, ptr %arrayidx59, align 8
-  %31 = load ptr, ptr %m_visitedVerticesValence81, align 8
-  %arrayidx62 = getelementptr inbounds i64, ptr %31, i64 %sub56
-  %32 = load i64, ptr %arrayidx62, align 8
-  %arrayidx64 = getelementptr inbounds i64, ptr %31, i64 %h.0216
-  store i64 %32, ptr %arrayidx64, align 8
+  %arrayidx57 = getelementptr inbounds i64, ptr %28, i64 %sub56
+  %29 = load i64, ptr %arrayidx57, align 8
+  %arrayidx59 = getelementptr inbounds i64, ptr %28, i64 %h.0216
+  store i64 %29, ptr %arrayidx59, align 8
+  %30 = load ptr, ptr %m_visitedVerticesValence81, align 8
+  %arrayidx62 = getelementptr inbounds i64, ptr %30, i64 %sub56
+  %31 = load i64, ptr %arrayidx62, align 8
+  %arrayidx64 = getelementptr inbounds i64, ptr %30, i64 %h.0216
+  store i64 %31, ptr %arrayidx64, align 8
   %cmp53 = icmp sgt i64 %sub56, %j.0214
   br i1 %cmp53, label %for.body54, label %for.end.loopexit, !llvm.loop !653
 
@@ -68730,31 +68730,31 @@ for.end.loopexit:                                 ; preds = %for.body54
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %if.then48
-  %33 = phi ptr [ %.pre243, %for.end.loopexit ], [ %.pre241, %if.then48 ]
-  %34 = phi ptr [ %.pre242, %for.end.loopexit ], [ %22, %if.then48 ]
-  %arrayidx66 = getelementptr inbounds i64, ptr %34, i64 %conv
-  %35 = load i64, ptr %arrayidx66, align 8
-  %arrayidx68 = getelementptr inbounds i64, ptr %33, i64 %j.0214
-  store i64 %35, ptr %arrayidx68, align 8
-  %36 = load ptr, ptr %m_visitedVerticesValence81, align 8
-  %arrayidx70 = getelementptr inbounds i64, ptr %36, i64 %j.0214
+  %32 = phi ptr [ %.pre243, %for.end.loopexit ], [ %.pre241, %if.then48 ]
+  %33 = phi ptr [ %.pre242, %for.end.loopexit ], [ %21, %if.then48 ]
+  %arrayidx66 = getelementptr inbounds i64, ptr %33, i64 %conv
+  %34 = load i64, ptr %arrayidx66, align 8
+  %arrayidx68 = getelementptr inbounds i64, ptr %32, i64 %j.0214
+  store i64 %34, ptr %arrayidx68, align 8
+  %35 = load ptr, ptr %m_visitedVerticesValence81, align 8
+  %arrayidx70 = getelementptr inbounds i64, ptr %35, i64 %j.0214
   store i64 1, ptr %arrayidx70, align 8
   br label %for.inc88
 
 for.inc72:                                        ; preds = %if.else42
   %inc73 = add nuw nsw i64 %j.0214, 1
-  %exitcond.not = icmp eq i64 %inc73, %25
+  %exitcond.not = icmp eq i64 %inc73, %24
   br i1 %exitcond.not, label %if.then75, label %for.body34, !llvm.loop !654
 
 if.then75:                                        ; preds = %for.inc72, %for.cond31.preheader
-  %arrayidx80 = getelementptr inbounds i64, ptr %.pre241, i64 %25
-  store i64 %23, ptr %arrayidx80, align 8
-  %37 = load ptr, ptr %m_visitedVerticesValence81, align 8
-  %38 = load i64, ptr %m_numVisitedVertices, align 8
-  %arrayidx83 = getelementptr inbounds i64, ptr %37, i64 %38
+  %arrayidx80 = getelementptr inbounds i64, ptr %.pre241, i64 %24
+  store i64 %22, ptr %arrayidx80, align 8
+  %36 = load ptr, ptr %m_visitedVerticesValence81, align 8
+  %37 = load i64, ptr %m_numVisitedVertices, align 8
+  %arrayidx83 = getelementptr inbounds i64, ptr %36, i64 %37
   store i64 1, ptr %arrayidx83, align 8
-  %39 = load i64, ptr %m_numVisitedVertices, align 8
-  %inc85 = add nsw i64 %39, 1
+  %38 = load i64, ptr %m_numVisitedVertices, align 8
+  %inc85 = add nsw i64 %38, 1
   store i64 %inc85, ptr %m_numVisitedVertices, align 8
   br label %for.inc88
 
@@ -68765,10 +68765,10 @@ for.inc88:                                        ; preds = %if.then39, %for.end
 
 for.inc92:                                        ; preds = %for.inc88, %_ZN5o3dgc18CompueOppositeEdgeItEEvlPKT_RlS4_.exit
   %inc93 = add nsw i64 %i.0220, 1
-  %40 = load ptr, ptr %m_numNeighbors.i67, align 8
-  %arrayidx.i68 = getelementptr inbounds i64, ptr %40, i64 %focusVertex
-  %41 = load i64, ptr %arrayidx.i68, align 8
-  %cmp = icmp slt i64 %inc93, %41
+  %39 = load ptr, ptr %m_numNeighbors.i67, align 8
+  %arrayidx.i68 = getelementptr inbounds i64, ptr %39, i64 %focusVertex
+  %40 = load i64, ptr %arrayidx.i68, align 8
+  %cmp = icmp slt i64 %inc93, %40
   br i1 %cmp, label %for.body, label %for.end94, !llvm.loop !656
 
 for.end94:                                        ; preds = %for.inc92
@@ -68782,35 +68782,35 @@ for.body101.lr.ph:                                ; preds = %for.end94
   br label %for.body101
 
 for.body101:                                      ; preds = %for.body101.lr.ph, %for.inc125
-  %42 = phi i64 [ %.pre244, %for.body101.lr.ph ], [ %51, %for.inc125 ]
+  %41 = phi i64 [ %.pre244, %for.body101.lr.ph ], [ %50, %for.inc125 ]
   %x.0223 = phi i64 [ 1, %for.body101.lr.ph ], [ %inc126, %for.inc125 ]
-  %43 = load ptr, ptr %m_visitedVerticesValence102, align 8
-  %arrayidx103 = getelementptr inbounds i64, ptr %43, i64 %x.0223
-  %44 = load i64, ptr %arrayidx103, align 8
-  %cmp104 = icmp eq i64 %44, 1
+  %42 = load ptr, ptr %m_visitedVerticesValence102, align 8
+  %arrayidx103 = getelementptr inbounds i64, ptr %42, i64 %x.0223
+  %43 = load i64, ptr %arrayidx103, align 8
+  %cmp104 = icmp eq i64 %43, 1
   br i1 %cmp104, label %land.rhs, label %for.inc125
 
 land.rhs:                                         ; preds = %for.body101, %while.body
   %y.0221 = phi i64 [ %sub110, %while.body ], [ %x.0223, %for.body101 ]
-  %45 = load ptr, ptr %m_visitedVerticesValence102, align 8
-  %arrayidx108 = getelementptr inbounds i64, ptr %45, i64 %y.0221
-  %46 = load i64, ptr %arrayidx108, align 8
+  %44 = load ptr, ptr %m_visitedVerticesValence102, align 8
+  %arrayidx108 = getelementptr inbounds i64, ptr %44, i64 %y.0221
+  %45 = load i64, ptr %arrayidx108, align 8
   %sub110 = add nsw i64 %y.0221, -1
-  %arrayidx111 = getelementptr inbounds i64, ptr %45, i64 %sub110
-  %47 = load i64, ptr %arrayidx111, align 8
-  %cmp112 = icmp slt i64 %46, %47
+  %arrayidx111 = getelementptr inbounds i64, ptr %44, i64 %sub110
+  %46 = load i64, ptr %arrayidx111, align 8
+  %cmp112 = icmp slt i64 %45, %46
   br i1 %cmp112, label %while.body, label %for.inc125.loopexit
 
 while.body:                                       ; preds = %land.rhs
-  store i64 %47, ptr %arrayidx108, align 8
-  store i64 %46, ptr %arrayidx111, align 8
-  %48 = load ptr, ptr %m_visitedVertices118, align 8
-  %arrayidx119 = getelementptr inbounds i64, ptr %48, i64 %y.0221
-  %arrayidx122 = getelementptr inbounds i64, ptr %48, i64 %sub110
-  %49 = load i64, ptr %arrayidx119, align 8
-  %50 = load i64, ptr %arrayidx122, align 8
-  store i64 %50, ptr %arrayidx119, align 8
-  store i64 %49, ptr %arrayidx122, align 8
+  store i64 %46, ptr %arrayidx108, align 8
+  store i64 %45, ptr %arrayidx111, align 8
+  %47 = load ptr, ptr %m_visitedVertices118, align 8
+  %arrayidx119 = getelementptr inbounds i64, ptr %47, i64 %y.0221
+  %arrayidx122 = getelementptr inbounds i64, ptr %47, i64 %sub110
+  %48 = load i64, ptr %arrayidx119, align 8
+  %49 = load i64, ptr %arrayidx122, align 8
+  store i64 %49, ptr %arrayidx119, align 8
+  store i64 %48, ptr %arrayidx122, align 8
   %cmp106 = icmp sgt i64 %y.0221, 1
   br i1 %cmp106, label %land.rhs, label %for.inc125.loopexit, !llvm.loop !657
 
@@ -68819,94 +68819,94 @@ for.inc125.loopexit:                              ; preds = %land.rhs, %while.bo
   br label %for.inc125
 
 for.inc125:                                       ; preds = %for.inc125.loopexit, %for.body101
-  %51 = phi i64 [ %.pre245, %for.inc125.loopexit ], [ %42, %for.body101 ]
+  %50 = phi i64 [ %.pre245, %for.inc125.loopexit ], [ %41, %for.body101 ]
   %inc126 = add nuw nsw i64 %x.0223, 1
-  %cmp100 = icmp slt i64 %inc126, %51
+  %cmp100 = icmp slt i64 %inc126, %50
   br i1 %cmp100, label %for.body101, label %if.end128, !llvm.loop !658
 
 if.end128:                                        ; preds = %for.inc125, %_ZNK5o3dgc13AdjacencyInfo5BeginEl.exit, %for.end94
-  %52 = load i64, ptr %m_numNonConqueredTriangles, align 8
-  %cmp130 = icmp sgt i64 %52, 0
+  %51 = load i64, ptr %m_numNonConqueredTriangles, align 8
+  %cmp130 = icmp sgt i64 %51, 0
   br i1 %cmp130, label %if.then131, label %if.end241
 
 if.then131:                                       ; preds = %if.end128
   %m_triangleToTriangle = getelementptr inbounds i8, ptr %this, i64 256
   %m_numNeighborsSize.i = getelementptr inbounds i8, ptr %this, i64 264
-  %53 = load i64, ptr %m_numNeighborsSize.i, align 8
-  %cmp.i71 = icmp sgt i64 %52, %53
+  %52 = load i64, ptr %m_numNeighborsSize.i, align 8
+  %cmp.i71 = icmp sgt i64 %51, %52
   %m_numNeighbors.i73 = getelementptr inbounds i8, ptr %this, i64 288
-  %54 = load ptr, ptr %m_numNeighbors.i73, align 8
+  %53 = load ptr, ptr %m_numNeighbors.i73, align 8
   br i1 %cmp.i71, label %if.then.i72, label %if.then131._ZN5o3dgc13AdjacencyInfo25AllocateNumNeighborsArrayEl.exit_crit_edge
 
 if.then131._ZN5o3dgc13AdjacencyInfo25AllocateNumNeighborsArrayEl.exit_crit_edge: ; preds = %if.then131
-  %.pre251 = shl i64 %52, 3
+  %.pre251 = shl i64 %51, 3
   br label %_ZN5o3dgc13AdjacencyInfo25AllocateNumNeighborsArrayEl.exit
 
 if.then.i72:                                      ; preds = %if.then131
-  %isnull.i = icmp eq ptr %54, null
+  %isnull.i = icmp eq ptr %53, null
   br i1 %isnull.i, label %delete.end.i, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %if.then.i72
-  tail call void @_ZdaPv(ptr noundef nonnull %54) #28
+  tail call void @_ZdaPv(ptr noundef nonnull %53) #28
   br label %delete.end.i
 
 delete.end.i:                                     ; preds = %delete.notnull.i, %if.then.i72
-  store i64 %52, ptr %m_numNeighborsSize.i, align 8
-  %55 = icmp ugt i64 %52, 2305843009213693951
-  %56 = shl i64 %52, 3
-  %57 = select i1 %55, i64 -1, i64 %56
-  %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %57) #30
+  store i64 %51, ptr %m_numNeighborsSize.i, align 8
+  %54 = icmp ugt i64 %51, 2305843009213693951
+  %55 = shl i64 %51, 3
+  %56 = select i1 %54, i64 -1, i64 %55
+  %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %56) #30
   store ptr %call.i, ptr %m_numNeighbors.i73, align 8
   br label %_ZN5o3dgc13AdjacencyInfo25AllocateNumNeighborsArrayEl.exit
 
 _ZN5o3dgc13AdjacencyInfo25AllocateNumNeighborsArrayEl.exit: ; preds = %if.then131._ZN5o3dgc13AdjacencyInfo25AllocateNumNeighborsArrayEl.exit_crit_edge, %delete.end.i
-  %mul.i.pre-phi = phi i64 [ %.pre251, %if.then131._ZN5o3dgc13AdjacencyInfo25AllocateNumNeighborsArrayEl.exit_crit_edge ], [ %56, %delete.end.i ]
-  %58 = phi ptr [ %54, %if.then131._ZN5o3dgc13AdjacencyInfo25AllocateNumNeighborsArrayEl.exit_crit_edge ], [ %call.i, %delete.end.i ]
+  %mul.i.pre-phi = phi i64 [ %.pre251, %if.then131._ZN5o3dgc13AdjacencyInfo25AllocateNumNeighborsArrayEl.exit_crit_edge ], [ %55, %delete.end.i ]
+  %57 = phi ptr [ %53, %if.then131._ZN5o3dgc13AdjacencyInfo25AllocateNumNeighborsArrayEl.exit_crit_edge ], [ %call.i, %delete.end.i ]
   %m_numElements.i = getelementptr inbounds i8, ptr %this, i64 272
-  store i64 %52, ptr %m_numElements.i, align 8
+  store i64 %51, ptr %m_numElements.i, align 8
   %m_numNeighbors.i74 = getelementptr inbounds i8, ptr %this, i64 288
-  tail call void @llvm.memset.p0.i64(ptr align 8 %58, i8 0, i64 %mul.i.pre-phi, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %57, i8 0, i64 %mul.i.pre-phi, i1 false)
   %m_triangleToTriangleInv = getelementptr inbounds i8, ptr %this, i64 296
-  %59 = load i64, ptr %m_numNonConqueredTriangles, align 8
+  %58 = load i64, ptr %m_numNonConqueredTriangles, align 8
   %m_numNeighborsSize.i76 = getelementptr inbounds i8, ptr %this, i64 304
-  %60 = load i64, ptr %m_numNeighborsSize.i76, align 8
-  %cmp.i77 = icmp sgt i64 %59, %60
+  %59 = load i64, ptr %m_numNeighborsSize.i76, align 8
+  %cmp.i77 = icmp sgt i64 %58, %59
   %m_numNeighbors.i80 = getelementptr inbounds i8, ptr %this, i64 328
-  %61 = load ptr, ptr %m_numNeighbors.i80, align 8
+  %60 = load ptr, ptr %m_numNeighbors.i80, align 8
   br i1 %cmp.i77, label %if.then.i79, label %_ZN5o3dgc13AdjacencyInfo25AllocateNumNeighborsArrayEl.exit._ZN5o3dgc13AdjacencyInfo25AllocateNumNeighborsArrayEl.exit85_crit_edge
 
 _ZN5o3dgc13AdjacencyInfo25AllocateNumNeighborsArrayEl.exit._ZN5o3dgc13AdjacencyInfo25AllocateNumNeighborsArrayEl.exit85_crit_edge: ; preds = %_ZN5o3dgc13AdjacencyInfo25AllocateNumNeighborsArrayEl.exit
-  %.pre252 = shl i64 %59, 3
+  %.pre252 = shl i64 %58, 3
   br label %_ZN5o3dgc13AdjacencyInfo25AllocateNumNeighborsArrayEl.exit85
 
 if.then.i79:                                      ; preds = %_ZN5o3dgc13AdjacencyInfo25AllocateNumNeighborsArrayEl.exit
-  %isnull.i81 = icmp eq ptr %61, null
+  %isnull.i81 = icmp eq ptr %60, null
   br i1 %isnull.i81, label %delete.end.i83, label %delete.notnull.i82
 
 delete.notnull.i82:                               ; preds = %if.then.i79
-  tail call void @_ZdaPv(ptr noundef nonnull %61) #28
+  tail call void @_ZdaPv(ptr noundef nonnull %60) #28
   br label %delete.end.i83
 
 delete.end.i83:                                   ; preds = %delete.notnull.i82, %if.then.i79
-  store i64 %59, ptr %m_numNeighborsSize.i76, align 8
-  %62 = icmp ugt i64 %59, 2305843009213693951
-  %63 = shl i64 %59, 3
-  %64 = select i1 %62, i64 -1, i64 %63
-  %call.i84 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %64) #30
+  store i64 %58, ptr %m_numNeighborsSize.i76, align 8
+  %61 = icmp ugt i64 %58, 2305843009213693951
+  %62 = shl i64 %58, 3
+  %63 = select i1 %61, i64 -1, i64 %62
+  %call.i84 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %63) #30
   store ptr %call.i84, ptr %m_numNeighbors.i80, align 8
   br label %_ZN5o3dgc13AdjacencyInfo25AllocateNumNeighborsArrayEl.exit85
 
 _ZN5o3dgc13AdjacencyInfo25AllocateNumNeighborsArrayEl.exit85: ; preds = %_ZN5o3dgc13AdjacencyInfo25AllocateNumNeighborsArrayEl.exit._ZN5o3dgc13AdjacencyInfo25AllocateNumNeighborsArrayEl.exit85_crit_edge, %delete.end.i83
-  %mul.i88.pre-phi = phi i64 [ %.pre252, %_ZN5o3dgc13AdjacencyInfo25AllocateNumNeighborsArrayEl.exit._ZN5o3dgc13AdjacencyInfo25AllocateNumNeighborsArrayEl.exit85_crit_edge ], [ %63, %delete.end.i83 ]
-  %65 = phi ptr [ %61, %_ZN5o3dgc13AdjacencyInfo25AllocateNumNeighborsArrayEl.exit._ZN5o3dgc13AdjacencyInfo25AllocateNumNeighborsArrayEl.exit85_crit_edge ], [ %call.i84, %delete.end.i83 ]
+  %mul.i88.pre-phi = phi i64 [ %.pre252, %_ZN5o3dgc13AdjacencyInfo25AllocateNumNeighborsArrayEl.exit._ZN5o3dgc13AdjacencyInfo25AllocateNumNeighborsArrayEl.exit85_crit_edge ], [ %62, %delete.end.i83 ]
+  %64 = phi ptr [ %60, %_ZN5o3dgc13AdjacencyInfo25AllocateNumNeighborsArrayEl.exit._ZN5o3dgc13AdjacencyInfo25AllocateNumNeighborsArrayEl.exit85_crit_edge ], [ %call.i84, %delete.end.i83 ]
   %m_numElements.i78 = getelementptr inbounds i8, ptr %this, i64 312
-  store i64 %59, ptr %m_numElements.i78, align 8
+  store i64 %58, ptr %m_numElements.i78, align 8
   %m_numNeighbors.i86 = getelementptr inbounds i8, ptr %this, i64 328
-  tail call void @llvm.memset.p0.i64(ptr align 8 %65, i8 0, i64 %mul.i88.pre-phi, i1 false)
-  %66 = load ptr, ptr %m_numNeighbors.i74, align 8
-  %67 = load ptr, ptr %m_numNeighbors.i86, align 8
-  %68 = load i64, ptr %m_numNonConqueredTriangles, align 8
-  %cmp147226 = icmp sgt i64 %68, 0
+  tail call void @llvm.memset.p0.i64(ptr align 8 %64, i8 0, i64 %mul.i88.pre-phi, i1 false)
+  %65 = load ptr, ptr %m_numNeighbors.i74, align 8
+  %66 = load ptr, ptr %m_numNeighbors.i86, align 8
+  %67 = load i64, ptr %m_numNonConqueredTriangles, align 8
+  %cmp147226 = icmp sgt i64 %67, 0
   br i1 %cmp147226, label %for.body148.lr.ph, label %for.end188
 
 for.body148.lr.ph:                                ; preds = %_ZN5o3dgc13AdjacencyInfo25AllocateNumNeighborsArrayEl.exit85
@@ -68914,113 +68914,113 @@ for.body148.lr.ph:                                ; preds = %_ZN5o3dgc13Adjacenc
   br label %for.body148
 
 for.cond145.loopexit:                             ; preds = %for.inc183, %for.body148
-  %69 = phi i64 [ %70, %for.body148 ], [ %81, %for.inc183 ]
-  %cmp147 = icmp slt i64 %add150, %69
+  %68 = phi i64 [ %69, %for.body148 ], [ %80, %for.inc183 ]
+  %cmp147 = icmp slt i64 %add150, %68
   br i1 %cmp147, label %for.body148, label %for.end188, !llvm.loop !659
 
 for.body148:                                      ; preds = %for.body148.lr.ph, %for.cond145.loopexit
-  %70 = phi i64 [ %68, %for.body148.lr.ph ], [ %69, %for.cond145.loopexit ]
+  %69 = phi i64 [ %67, %for.body148.lr.ph ], [ %68, %for.cond145.loopexit ]
   %i144.0227 = phi i64 [ 0, %for.body148.lr.ph ], [ %add150, %for.cond145.loopexit ]
   %add150 = add nuw nsw i64 %i144.0227, 1
-  %cmp153224 = icmp slt i64 %add150, %70
+  %cmp153224 = icmp slt i64 %add150, %69
   br i1 %cmp153224, label %for.body154.lr.ph, label %for.cond145.loopexit
 
 for.body154.lr.ph:                                ; preds = %for.body148
   %mul156 = shl nuw nsw i64 %i144.0227, 1
   %add157 = or disjoint i64 %mul156, 1
-  %arrayidx164 = getelementptr inbounds i64, ptr %66, i64 %i144.0227
-  %arrayidx180 = getelementptr inbounds i64, ptr %67, i64 %i144.0227
+  %arrayidx164 = getelementptr inbounds i64, ptr %65, i64 %i144.0227
+  %arrayidx180 = getelementptr inbounds i64, ptr %66, i64 %i144.0227
   br label %for.body154
 
 for.body154:                                      ; preds = %for.body154.lr.ph, %for.inc183
   %j149.0225 = phi i64 [ %add150, %for.body154.lr.ph ], [ %inc184, %for.inc183 ]
-  %71 = load ptr, ptr %m_nonConqueredEdges155, align 8
-  %arrayidx158 = getelementptr inbounds i64, ptr %71, i64 %add157
-  %72 = load i64, ptr %arrayidx158, align 8
+  %70 = load ptr, ptr %m_nonConqueredEdges155, align 8
+  %arrayidx158 = getelementptr inbounds i64, ptr %70, i64 %add157
+  %71 = load i64, ptr %arrayidx158, align 8
   %mul160 = shl nuw nsw i64 %j149.0225, 1
-  %arrayidx161 = getelementptr inbounds i64, ptr %71, i64 %mul160
-  %73 = load i64, ptr %arrayidx161, align 8
-  %cmp162 = icmp eq i64 %72, %73
+  %arrayidx161 = getelementptr inbounds i64, ptr %70, i64 %mul160
+  %72 = load i64, ptr %arrayidx161, align 8
+  %cmp162 = icmp eq i64 %71, %72
   br i1 %cmp162, label %if.then163, label %if.end168
 
 if.then163:                                       ; preds = %for.body154
-  %74 = load i64, ptr %arrayidx164, align 8
-  %inc165 = add nsw i64 %74, 1
+  %73 = load i64, ptr %arrayidx164, align 8
+  %inc165 = add nsw i64 %73, 1
   store i64 %inc165, ptr %arrayidx164, align 8
-  %arrayidx166 = getelementptr inbounds i64, ptr %67, i64 %j149.0225
-  %75 = load i64, ptr %arrayidx166, align 8
-  %inc167 = add nsw i64 %75, 1
+  %arrayidx166 = getelementptr inbounds i64, ptr %66, i64 %j149.0225
+  %74 = load i64, ptr %arrayidx166, align 8
+  %inc167 = add nsw i64 %74, 1
   store i64 %inc167, ptr %arrayidx166, align 8
   %.pre248 = load ptr, ptr %m_nonConqueredEdges155, align 8
   br label %if.end168
 
 if.end168:                                        ; preds = %if.then163, %for.body154
-  %76 = phi ptr [ %.pre248, %if.then163 ], [ %71, %for.body154 ]
-  %arrayidx171 = getelementptr inbounds i64, ptr %76, i64 %mul156
-  %77 = load i64, ptr %arrayidx171, align 8
+  %75 = phi ptr [ %.pre248, %if.then163 ], [ %70, %for.body154 ]
+  %arrayidx171 = getelementptr inbounds i64, ptr %75, i64 %mul156
+  %76 = load i64, ptr %arrayidx171, align 8
   %add174 = or disjoint i64 %mul160, 1
-  %arrayidx175 = getelementptr inbounds i64, ptr %76, i64 %add174
-  %78 = load i64, ptr %arrayidx175, align 8
-  %cmp176 = icmp eq i64 %77, %78
+  %arrayidx175 = getelementptr inbounds i64, ptr %75, i64 %add174
+  %77 = load i64, ptr %arrayidx175, align 8
+  %cmp176 = icmp eq i64 %76, %77
   br i1 %cmp176, label %if.then177, label %for.inc183
 
 if.then177:                                       ; preds = %if.end168
-  %arrayidx178 = getelementptr inbounds i64, ptr %66, i64 %j149.0225
-  %79 = load i64, ptr %arrayidx178, align 8
-  %inc179 = add nsw i64 %79, 1
+  %arrayidx178 = getelementptr inbounds i64, ptr %65, i64 %j149.0225
+  %78 = load i64, ptr %arrayidx178, align 8
+  %inc179 = add nsw i64 %78, 1
   store i64 %inc179, ptr %arrayidx178, align 8
-  %80 = load i64, ptr %arrayidx180, align 8
-  %inc181 = add nsw i64 %80, 1
+  %79 = load i64, ptr %arrayidx180, align 8
+  %inc181 = add nsw i64 %79, 1
   store i64 %inc181, ptr %arrayidx180, align 8
   br label %for.inc183
 
 for.inc183:                                       ; preds = %if.end168, %if.then177
   %inc184 = add nuw nsw i64 %j149.0225, 1
-  %81 = load i64, ptr %m_numNonConqueredTriangles, align 8
-  %cmp153 = icmp slt i64 %inc184, %81
+  %80 = load i64, ptr %m_numNonConqueredTriangles, align 8
+  %cmp153 = icmp slt i64 %inc184, %80
   br i1 %cmp153, label %for.body154, label %for.cond145.loopexit, !llvm.loop !660
 
 for.end188:                                       ; preds = %for.cond145.loopexit, %_ZN5o3dgc13AdjacencyInfo25AllocateNumNeighborsArrayEl.exit85
-  %82 = load i64, ptr %m_numElements.i, align 8
-  %cmp5.i = icmp sgt i64 %82, 1
+  %81 = load i64, ptr %m_numElements.i, align 8
+  %cmp5.i = icmp sgt i64 %81, 1
   br i1 %cmp5.i, label %for.body.i, label %for.end.i
 
 for.body.i:                                       ; preds = %for.end188, %for.body.i
   %i.06.i = phi i64 [ %inc.i, %for.body.i ], [ 1, %for.end188 ]
-  %83 = load ptr, ptr %m_numNeighbors.i74, align 8
-  %84 = getelementptr i64, ptr %83, i64 %i.06.i
-  %arrayidx.i99 = getelementptr i8, ptr %84, i64 -8
-  %85 = load i64, ptr %arrayidx.i99, align 8
-  %86 = load i64, ptr %84, align 8
-  %add.i = add nsw i64 %86, %85
-  store i64 %add.i, ptr %84, align 8
+  %82 = load ptr, ptr %m_numNeighbors.i74, align 8
+  %83 = getelementptr i64, ptr %82, i64 %i.06.i
+  %arrayidx.i99 = getelementptr i8, ptr %83, i64 -8
+  %84 = load i64, ptr %arrayidx.i99, align 8
+  %85 = load i64, ptr %83, align 8
+  %add.i = add nsw i64 %85, %84
+  store i64 %add.i, ptr %83, align 8
   %inc.i = add nuw nsw i64 %i.06.i, 1
-  %87 = load i64, ptr %m_numElements.i, align 8
-  %cmp.i100 = icmp slt i64 %inc.i, %87
+  %86 = load i64, ptr %m_numElements.i, align 8
+  %cmp.i100 = icmp slt i64 %inc.i, %86
   br i1 %cmp.i100, label %for.body.i, label %for.end.i, !llvm.loop !310
 
 for.end.i:                                        ; preds = %for.body.i, %for.end188
-  %.lcssa.i = phi i64 [ %82, %for.end188 ], [ %87, %for.body.i ]
-  %88 = load ptr, ptr %m_numNeighbors.i74, align 8
-  %89 = getelementptr i64, ptr %88, i64 %.lcssa.i
-  %arrayidx7.i = getelementptr i8, ptr %89, i64 -8
-  %90 = load i64, ptr %arrayidx7.i, align 8
-  %91 = load i64, ptr %m_triangleToTriangle, align 8
-  %cmp8.i = icmp sgt i64 %90, %91
+  %.lcssa.i = phi i64 [ %81, %for.end188 ], [ %86, %for.body.i ]
+  %87 = load ptr, ptr %m_numNeighbors.i74, align 8
+  %88 = getelementptr i64, ptr %87, i64 %.lcssa.i
+  %arrayidx7.i = getelementptr i8, ptr %88, i64 -8
+  %89 = load i64, ptr %arrayidx7.i, align 8
+  %90 = load i64, ptr %m_triangleToTriangle, align 8
+  %cmp8.i = icmp sgt i64 %89, %90
   %m_neighbors.i93 = getelementptr inbounds i8, ptr %this, i64 280
-  %92 = load ptr, ptr %m_neighbors.i93, align 8
+  %91 = load ptr, ptr %m_neighbors.i93, align 8
   br i1 %cmp8.i, label %if.then.i92, label %for.end.i._ZN5o3dgc13AdjacencyInfo22AllocateNeighborsArrayEv.exit_crit_edge
 
 for.end.i._ZN5o3dgc13AdjacencyInfo22AllocateNeighborsArrayEv.exit_crit_edge: ; preds = %for.end.i
-  %.pre253 = shl i64 %91, 3
+  %.pre253 = shl i64 %90, 3
   br label %_ZN5o3dgc13AdjacencyInfo22AllocateNeighborsArrayEv.exit
 
 if.then.i92:                                      ; preds = %for.end.i
-  %isnull.i94 = icmp eq ptr %92, null
+  %isnull.i94 = icmp eq ptr %91, null
   br i1 %isnull.i94, label %delete.end.i96, label %delete.notnull.i95
 
 delete.notnull.i95:                               ; preds = %if.then.i92
-  tail call void @_ZdaPv(ptr noundef nonnull %92) #28
+  tail call void @_ZdaPv(ptr noundef nonnull %91) #28
   %.pre.i = load ptr, ptr %m_numNeighbors.i74, align 8
   %.pre8.i = load i64, ptr %m_numElements.i, align 8
   %.phi.trans.insert.i = getelementptr i64, ptr %.pre.i, i64 %.pre8.i
@@ -69029,60 +69029,60 @@ delete.notnull.i95:                               ; preds = %if.then.i92
   br label %delete.end.i96
 
 delete.end.i96:                                   ; preds = %delete.notnull.i95, %if.then.i92
-  %93 = phi i64 [ %.pre9.i, %delete.notnull.i95 ], [ %90, %if.then.i92 ]
-  store i64 %93, ptr %m_triangleToTriangle, align 8
-  %94 = icmp ugt i64 %93, 2305843009213693951
-  %95 = shl i64 %93, 3
-  %96 = select i1 %94, i64 -1, i64 %95
-  %call.i97 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %96) #30
+  %92 = phi i64 [ %.pre9.i, %delete.notnull.i95 ], [ %89, %if.then.i92 ]
+  store i64 %92, ptr %m_triangleToTriangle, align 8
+  %93 = icmp ugt i64 %92, 2305843009213693951
+  %94 = shl i64 %92, 3
+  %95 = select i1 %93, i64 -1, i64 %94
+  %call.i97 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %95) #30
   store ptr %call.i97, ptr %m_neighbors.i93, align 8
   br label %_ZN5o3dgc13AdjacencyInfo22AllocateNeighborsArrayEv.exit
 
 _ZN5o3dgc13AdjacencyInfo22AllocateNeighborsArrayEv.exit: ; preds = %for.end.i._ZN5o3dgc13AdjacencyInfo22AllocateNeighborsArrayEv.exit_crit_edge, %delete.end.i96
-  %mul.i102.pre-phi = phi i64 [ %.pre253, %for.end.i._ZN5o3dgc13AdjacencyInfo22AllocateNeighborsArrayEv.exit_crit_edge ], [ %95, %delete.end.i96 ]
-  %97 = phi ptr [ %92, %for.end.i._ZN5o3dgc13AdjacencyInfo22AllocateNeighborsArrayEv.exit_crit_edge ], [ %call.i97, %delete.end.i96 ]
+  %mul.i102.pre-phi = phi i64 [ %.pre253, %for.end.i._ZN5o3dgc13AdjacencyInfo22AllocateNeighborsArrayEv.exit_crit_edge ], [ %94, %delete.end.i96 ]
+  %96 = phi ptr [ %91, %for.end.i._ZN5o3dgc13AdjacencyInfo22AllocateNeighborsArrayEv.exit_crit_edge ], [ %call.i97, %delete.end.i96 ]
   %m_neighbors.i101 = getelementptr inbounds i8, ptr %this, i64 280
-  tail call void @llvm.memset.p0.i64(ptr align 8 %97, i8 -1, i64 %mul.i102.pre-phi, i1 false)
-  %98 = load i64, ptr %m_numElements.i78, align 8
-  %cmp5.i104 = icmp sgt i64 %98, 1
+  tail call void @llvm.memset.p0.i64(ptr align 8 %96, i8 -1, i64 %mul.i102.pre-phi, i1 false)
+  %97 = load i64, ptr %m_numElements.i78, align 8
+  %cmp5.i104 = icmp sgt i64 %97, 1
   br i1 %cmp5.i104, label %for.body.i123, label %for.end.i105
 
 for.body.i123:                                    ; preds = %_ZN5o3dgc13AdjacencyInfo22AllocateNeighborsArrayEv.exit, %for.body.i123
   %i.06.i124 = phi i64 [ %inc.i127, %for.body.i123 ], [ 1, %_ZN5o3dgc13AdjacencyInfo22AllocateNeighborsArrayEv.exit ]
-  %99 = load ptr, ptr %m_numNeighbors.i86, align 8
-  %100 = getelementptr i64, ptr %99, i64 %i.06.i124
-  %arrayidx.i125 = getelementptr i8, ptr %100, i64 -8
-  %101 = load i64, ptr %arrayidx.i125, align 8
-  %102 = load i64, ptr %100, align 8
-  %add.i126 = add nsw i64 %102, %101
-  store i64 %add.i126, ptr %100, align 8
+  %98 = load ptr, ptr %m_numNeighbors.i86, align 8
+  %99 = getelementptr i64, ptr %98, i64 %i.06.i124
+  %arrayidx.i125 = getelementptr i8, ptr %99, i64 -8
+  %100 = load i64, ptr %arrayidx.i125, align 8
+  %101 = load i64, ptr %99, align 8
+  %add.i126 = add nsw i64 %101, %100
+  store i64 %add.i126, ptr %99, align 8
   %inc.i127 = add nuw nsw i64 %i.06.i124, 1
-  %103 = load i64, ptr %m_numElements.i78, align 8
-  %cmp.i128 = icmp slt i64 %inc.i127, %103
+  %102 = load i64, ptr %m_numElements.i78, align 8
+  %cmp.i128 = icmp slt i64 %inc.i127, %102
   br i1 %cmp.i128, label %for.body.i123, label %for.end.i105, !llvm.loop !310
 
 for.end.i105:                                     ; preds = %for.body.i123, %_ZN5o3dgc13AdjacencyInfo22AllocateNeighborsArrayEv.exit
-  %.lcssa.i106 = phi i64 [ %98, %_ZN5o3dgc13AdjacencyInfo22AllocateNeighborsArrayEv.exit ], [ %103, %for.body.i123 ]
-  %104 = load ptr, ptr %m_numNeighbors.i86, align 8
-  %105 = getelementptr i64, ptr %104, i64 %.lcssa.i106
-  %arrayidx7.i108 = getelementptr i8, ptr %105, i64 -8
-  %106 = load i64, ptr %arrayidx7.i108, align 8
-  %107 = load i64, ptr %m_triangleToTriangleInv, align 8
-  %cmp8.i109 = icmp sgt i64 %106, %107
+  %.lcssa.i106 = phi i64 [ %97, %_ZN5o3dgc13AdjacencyInfo22AllocateNeighborsArrayEv.exit ], [ %102, %for.body.i123 ]
+  %103 = load ptr, ptr %m_numNeighbors.i86, align 8
+  %104 = getelementptr i64, ptr %103, i64 %.lcssa.i106
+  %arrayidx7.i108 = getelementptr i8, ptr %104, i64 -8
+  %105 = load i64, ptr %arrayidx7.i108, align 8
+  %106 = load i64, ptr %m_triangleToTriangleInv, align 8
+  %cmp8.i109 = icmp sgt i64 %105, %106
   %m_neighbors.i111 = getelementptr inbounds i8, ptr %this, i64 320
-  %108 = load ptr, ptr %m_neighbors.i111, align 8
+  %107 = load ptr, ptr %m_neighbors.i111, align 8
   br i1 %cmp8.i109, label %if.then.i110, label %for.end.i105._ZN5o3dgc13AdjacencyInfo22AllocateNeighborsArrayEv.exit129_crit_edge
 
 for.end.i105._ZN5o3dgc13AdjacencyInfo22AllocateNeighborsArrayEv.exit129_crit_edge: ; preds = %for.end.i105
-  %.pre254 = shl i64 %107, 3
+  %.pre254 = shl i64 %106, 3
   br label %_ZN5o3dgc13AdjacencyInfo22AllocateNeighborsArrayEv.exit129
 
 if.then.i110:                                     ; preds = %for.end.i105
-  %isnull.i112 = icmp eq ptr %108, null
+  %isnull.i112 = icmp eq ptr %107, null
   br i1 %isnull.i112, label %delete.end.i119, label %delete.notnull.i113
 
 delete.notnull.i113:                              ; preds = %if.then.i110
-  tail call void @_ZdaPv(ptr noundef nonnull %108) #28
+  tail call void @_ZdaPv(ptr noundef nonnull %107) #28
   %.pre.i114 = load ptr, ptr %m_numNeighbors.i86, align 8
   %.pre8.i115 = load i64, ptr %m_numElements.i78, align 8
   %.phi.trans.insert.i116 = getelementptr i64, ptr %.pre.i114, i64 %.pre8.i115
@@ -69091,33 +69091,33 @@ delete.notnull.i113:                              ; preds = %if.then.i110
   br label %delete.end.i119
 
 delete.end.i119:                                  ; preds = %delete.notnull.i113, %if.then.i110
-  %109 = phi i64 [ %.pre9.i118, %delete.notnull.i113 ], [ %106, %if.then.i110 ]
-  store i64 %109, ptr %m_triangleToTriangleInv, align 8
-  %110 = icmp ugt i64 %109, 2305843009213693951
-  %111 = shl i64 %109, 3
-  %112 = select i1 %110, i64 -1, i64 %111
-  %call.i120 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %112) #30
+  %108 = phi i64 [ %.pre9.i118, %delete.notnull.i113 ], [ %105, %if.then.i110 ]
+  store i64 %108, ptr %m_triangleToTriangleInv, align 8
+  %109 = icmp ugt i64 %108, 2305843009213693951
+  %110 = shl i64 %108, 3
+  %111 = select i1 %109, i64 -1, i64 %110
+  %call.i120 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %111) #30
   store ptr %call.i120, ptr %m_neighbors.i111, align 8
   br label %_ZN5o3dgc13AdjacencyInfo22AllocateNeighborsArrayEv.exit129
 
 _ZN5o3dgc13AdjacencyInfo22AllocateNeighborsArrayEv.exit129: ; preds = %for.end.i105._ZN5o3dgc13AdjacencyInfo22AllocateNeighborsArrayEv.exit129_crit_edge, %delete.end.i119
-  %mul.i131.pre-phi = phi i64 [ %.pre254, %for.end.i105._ZN5o3dgc13AdjacencyInfo22AllocateNeighborsArrayEv.exit129_crit_edge ], [ %111, %delete.end.i119 ]
-  %113 = phi ptr [ %108, %for.end.i105._ZN5o3dgc13AdjacencyInfo22AllocateNeighborsArrayEv.exit129_crit_edge ], [ %call.i120, %delete.end.i119 ]
+  %mul.i131.pre-phi = phi i64 [ %.pre254, %for.end.i105._ZN5o3dgc13AdjacencyInfo22AllocateNeighborsArrayEv.exit129_crit_edge ], [ %110, %delete.end.i119 ]
+  %112 = phi ptr [ %107, %for.end.i105._ZN5o3dgc13AdjacencyInfo22AllocateNeighborsArrayEv.exit129_crit_edge ], [ %call.i120, %delete.end.i119 ]
   %m_neighbors.i130 = getelementptr inbounds i8, ptr %this, i64 320
-  tail call void @llvm.memset.p0.i64(ptr align 8 %113, i8 -1, i64 %mul.i131.pre-phi, i1 false)
-  %114 = load i64, ptr %m_numNonConqueredTriangles, align 8
-  %cmp200230 = icmp sgt i64 %114, 0
+  tail call void @llvm.memset.p0.i64(ptr align 8 %112, i8 -1, i64 %mul.i131.pre-phi, i1 false)
+  %113 = load i64, ptr %m_numNonConqueredTriangles, align 8
+  %cmp200230 = icmp sgt i64 %113, 0
   br i1 %cmp200230, label %for.cond203.preheader.lr.ph, label %if.end241
 
 for.cond203.preheader.lr.ph:                      ; preds = %_ZN5o3dgc13AdjacencyInfo22AllocateNeighborsArrayEv.exit129
   %m_nonConqueredEdges207 = getelementptr inbounds i8, ptr %this, i64 152
-  %.not = icmp eq i64 %114, 1
+  %.not = icmp eq i64 %113, 1
   br i1 %.not, label %if.end241, label %for.cond203.preheader
 
 for.cond203.preheader:                            ; preds = %for.cond203.preheader.lr.ph, %for.inc238
-  %115 = phi i64 [ %147, %for.inc238 ], [ %114, %for.cond203.preheader.lr.ph ]
+  %114 = phi i64 [ %146, %for.inc238 ], [ %113, %for.cond203.preheader.lr.ph ]
   %i197.0231 = phi i64 [ %inc239, %for.inc238 ], [ 0, %for.cond203.preheader.lr.ph ]
-  %cmp205228 = icmp sgt i64 %115, 1
+  %cmp205228 = icmp sgt i64 %114, 1
   br i1 %cmp205228, label %for.body206.lr.ph, label %for.inc238
 
 for.body206.lr.ph:                                ; preds = %for.cond203.preheader
@@ -69128,171 +69128,171 @@ for.body206.lr.ph:                                ; preds = %for.cond203.prehead
 
 for.body206:                                      ; preds = %for.body206.lr.ph, %for.inc235
   %j202.0229 = phi i64 [ 1, %for.body206.lr.ph ], [ %inc236, %for.inc235 ]
-  %116 = load ptr, ptr %m_nonConqueredEdges207, align 8
-  %arrayidx210 = getelementptr inbounds i64, ptr %116, i64 %add209
-  %117 = load i64, ptr %arrayidx210, align 8
+  %115 = load ptr, ptr %m_nonConqueredEdges207, align 8
+  %arrayidx210 = getelementptr inbounds i64, ptr %115, i64 %add209
+  %116 = load i64, ptr %arrayidx210, align 8
   %mul212 = shl nuw nsw i64 %j202.0229, 1
-  %arrayidx213 = getelementptr inbounds i64, ptr %116, i64 %mul212
-  %118 = load i64, ptr %arrayidx213, align 8
-  %cmp214 = icmp eq i64 %117, %118
+  %arrayidx213 = getelementptr inbounds i64, ptr %115, i64 %mul212
+  %117 = load i64, ptr %arrayidx213, align 8
+  %cmp214 = icmp eq i64 %116, %117
   br i1 %cmp214, label %if.then215, label %if.end220
 
 if.then215:                                       ; preds = %for.body206
-  %119 = load ptr, ptr %m_numNeighbors.i74, align 8
+  %118 = load ptr, ptr %m_numNeighbors.i74, align 8
   br i1 %cmp.i.i.not, label %_ZNK5o3dgc13AdjacencyInfo5BeginEl.exit.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %if.then215
-  %120 = getelementptr i64, ptr %119, i64 %i197.0231
-  %arrayidx.i.i = getelementptr i8, ptr %120, i64 -8
-  %121 = load i64, ptr %arrayidx.i.i, align 8
+  %119 = getelementptr i64, ptr %118, i64 %i197.0231
+  %arrayidx.i.i = getelementptr i8, ptr %119, i64 -8
+  %120 = load i64, ptr %arrayidx.i.i, align 8
   br label %_ZNK5o3dgc13AdjacencyInfo5BeginEl.exit.i
 
 _ZNK5o3dgc13AdjacencyInfo5BeginEl.exit.i:         ; preds = %cond.true.i.i, %if.then215
-  %cond.i.i = phi i64 [ %121, %cond.true.i.i ], [ 0, %if.then215 ]
-  %arrayidx.i6.i = getelementptr inbounds i64, ptr %119, i64 %i197.0231
-  %122 = load i64, ptr %arrayidx.i6.i, align 8
-  %cmp7.i132 = icmp slt i64 %cond.i.i, %122
+  %cond.i.i = phi i64 [ %120, %cond.true.i.i ], [ 0, %if.then215 ]
+  %arrayidx.i6.i = getelementptr inbounds i64, ptr %118, i64 %i197.0231
+  %121 = load i64, ptr %arrayidx.i6.i, align 8
+  %cmp7.i132 = icmp slt i64 %cond.i.i, %121
   br i1 %cmp7.i132, label %for.body.lr.ph.i133, label %_ZN5o3dgc13AdjacencyInfo11AddNeighborEll.exit
 
 for.body.lr.ph.i133:                              ; preds = %_ZNK5o3dgc13AdjacencyInfo5BeginEl.exit.i
-  %123 = load ptr, ptr %m_neighbors.i101, align 8
+  %122 = load ptr, ptr %m_neighbors.i101, align 8
   br label %for.body.i135
 
 for.body.i135:                                    ; preds = %for.inc.i, %for.body.lr.ph.i133
   %p.08.i = phi i64 [ %cond.i.i, %for.body.lr.ph.i133 ], [ %inc.i137, %for.inc.i ]
-  %arrayidx.i136 = getelementptr inbounds i64, ptr %123, i64 %p.08.i
-  %124 = load i64, ptr %arrayidx.i136, align 8
-  %cmp3.i = icmp eq i64 %124, -1
+  %arrayidx.i136 = getelementptr inbounds i64, ptr %122, i64 %p.08.i
+  %123 = load i64, ptr %arrayidx.i136, align 8
+  %cmp3.i = icmp eq i64 %123, -1
   br i1 %cmp3.i, label %if.then.i138, label %for.inc.i
 
 if.then.i138:                                     ; preds = %for.body.i135
-  %arrayidx.i136.le = getelementptr inbounds i64, ptr %123, i64 %p.08.i
+  %arrayidx.i136.le = getelementptr inbounds i64, ptr %122, i64 %p.08.i
   store i64 %j202.0229, ptr %arrayidx.i136.le, align 8
   br label %_ZN5o3dgc13AdjacencyInfo11AddNeighborEll.exit
 
 for.inc.i:                                        ; preds = %for.body.i135
   %inc.i137 = add i64 %p.08.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.i137, %122
+  %exitcond.not.i = icmp eq i64 %inc.i137, %121
   br i1 %exitcond.not.i, label %_ZN5o3dgc13AdjacencyInfo11AddNeighborEll.exit, label %for.body.i135, !llvm.loop !327
 
 _ZN5o3dgc13AdjacencyInfo11AddNeighborEll.exit:    ; preds = %for.inc.i, %_ZNK5o3dgc13AdjacencyInfo5BeginEl.exit.i, %if.then.i138
-  %125 = load ptr, ptr %m_numNeighbors.i86, align 8
-  %126 = getelementptr i64, ptr %125, i64 %j202.0229
-  %arrayidx.i.i158 = getelementptr i8, ptr %126, i64 -8
-  %127 = load i64, ptr %arrayidx.i.i158, align 8
-  %128 = load i64, ptr %126, align 8
-  %cmp7.i144 = icmp slt i64 %127, %128
+  %124 = load ptr, ptr %m_numNeighbors.i86, align 8
+  %125 = getelementptr i64, ptr %124, i64 %j202.0229
+  %arrayidx.i.i158 = getelementptr i8, ptr %125, i64 -8
+  %126 = load i64, ptr %arrayidx.i.i158, align 8
+  %127 = load i64, ptr %125, align 8
+  %cmp7.i144 = icmp slt i64 %126, %127
   br i1 %cmp7.i144, label %for.body.lr.ph.i146, label %if.end220
 
 for.body.lr.ph.i146:                              ; preds = %_ZN5o3dgc13AdjacencyInfo11AddNeighborEll.exit
-  %129 = load ptr, ptr %m_neighbors.i130, align 8
+  %128 = load ptr, ptr %m_neighbors.i130, align 8
   br label %for.body.i148
 
 for.body.i148:                                    ; preds = %for.inc.i152, %for.body.lr.ph.i146
-  %p.08.i149 = phi i64 [ %127, %for.body.lr.ph.i146 ], [ %inc.i153, %for.inc.i152 ]
-  %arrayidx.i150 = getelementptr inbounds i64, ptr %129, i64 %p.08.i149
-  %130 = load i64, ptr %arrayidx.i150, align 8
-  %cmp3.i151 = icmp eq i64 %130, -1
+  %p.08.i149 = phi i64 [ %126, %for.body.lr.ph.i146 ], [ %inc.i153, %for.inc.i152 ]
+  %arrayidx.i150 = getelementptr inbounds i64, ptr %128, i64 %p.08.i149
+  %129 = load i64, ptr %arrayidx.i150, align 8
+  %cmp3.i151 = icmp eq i64 %129, -1
   br i1 %cmp3.i151, label %if.then.i155, label %for.inc.i152
 
 if.then.i155:                                     ; preds = %for.body.i148
-  %arrayidx.i150.le = getelementptr inbounds i64, ptr %129, i64 %p.08.i149
+  %arrayidx.i150.le = getelementptr inbounds i64, ptr %128, i64 %p.08.i149
   store i64 %i197.0231, ptr %arrayidx.i150.le, align 8
   br label %if.end220
 
 for.inc.i152:                                     ; preds = %for.body.i148
   %inc.i153 = add i64 %p.08.i149, 1
-  %exitcond.not.i154 = icmp eq i64 %inc.i153, %128
+  %exitcond.not.i154 = icmp eq i64 %inc.i153, %127
   br i1 %exitcond.not.i154, label %if.end220, label %for.body.i148, !llvm.loop !327
 
 if.end220:                                        ; preds = %for.inc.i152, %if.then.i155, %_ZN5o3dgc13AdjacencyInfo11AddNeighborEll.exit, %for.body206
-  %131 = load ptr, ptr %m_nonConqueredEdges207, align 8
-  %arrayidx223 = getelementptr inbounds i64, ptr %131, i64 %mul208
-  %132 = load i64, ptr %arrayidx223, align 8
+  %130 = load ptr, ptr %m_nonConqueredEdges207, align 8
+  %arrayidx223 = getelementptr inbounds i64, ptr %130, i64 %mul208
+  %131 = load i64, ptr %arrayidx223, align 8
   %add226 = or disjoint i64 %mul212, 1
-  %arrayidx227 = getelementptr inbounds i64, ptr %131, i64 %add226
-  %133 = load i64, ptr %arrayidx227, align 8
-  %cmp228 = icmp eq i64 %132, %133
+  %arrayidx227 = getelementptr inbounds i64, ptr %130, i64 %add226
+  %132 = load i64, ptr %arrayidx227, align 8
+  %cmp228 = icmp eq i64 %131, %132
   br i1 %cmp228, label %if.then229, label %for.inc235
 
 if.then229:                                       ; preds = %if.end220
-  %134 = load ptr, ptr %m_numNeighbors.i74, align 8
-  %135 = getelementptr i64, ptr %134, i64 %j202.0229
-  %arrayidx.i.i179 = getelementptr i8, ptr %135, i64 -8
-  %136 = load i64, ptr %arrayidx.i.i179, align 8
-  %137 = load i64, ptr %135, align 8
-  %cmp7.i165 = icmp slt i64 %136, %137
+  %133 = load ptr, ptr %m_numNeighbors.i74, align 8
+  %134 = getelementptr i64, ptr %133, i64 %j202.0229
+  %arrayidx.i.i179 = getelementptr i8, ptr %134, i64 -8
+  %135 = load i64, ptr %arrayidx.i.i179, align 8
+  %136 = load i64, ptr %134, align 8
+  %cmp7.i165 = icmp slt i64 %135, %136
   br i1 %cmp7.i165, label %for.body.lr.ph.i167, label %_ZN5o3dgc13AdjacencyInfo11AddNeighborEll.exit180
 
 for.body.lr.ph.i167:                              ; preds = %if.then229
-  %138 = load ptr, ptr %m_neighbors.i101, align 8
+  %137 = load ptr, ptr %m_neighbors.i101, align 8
   br label %for.body.i169
 
 for.body.i169:                                    ; preds = %for.inc.i173, %for.body.lr.ph.i167
-  %p.08.i170 = phi i64 [ %136, %for.body.lr.ph.i167 ], [ %inc.i174, %for.inc.i173 ]
-  %arrayidx.i171 = getelementptr inbounds i64, ptr %138, i64 %p.08.i170
-  %139 = load i64, ptr %arrayidx.i171, align 8
-  %cmp3.i172 = icmp eq i64 %139, -1
+  %p.08.i170 = phi i64 [ %135, %for.body.lr.ph.i167 ], [ %inc.i174, %for.inc.i173 ]
+  %arrayidx.i171 = getelementptr inbounds i64, ptr %137, i64 %p.08.i170
+  %138 = load i64, ptr %arrayidx.i171, align 8
+  %cmp3.i172 = icmp eq i64 %138, -1
   br i1 %cmp3.i172, label %if.then.i176, label %for.inc.i173
 
 if.then.i176:                                     ; preds = %for.body.i169
-  %arrayidx.i171.le = getelementptr inbounds i64, ptr %138, i64 %p.08.i170
+  %arrayidx.i171.le = getelementptr inbounds i64, ptr %137, i64 %p.08.i170
   store i64 %i197.0231, ptr %arrayidx.i171.le, align 8
   br label %_ZN5o3dgc13AdjacencyInfo11AddNeighborEll.exit180
 
 for.inc.i173:                                     ; preds = %for.body.i169
   %inc.i174 = add i64 %p.08.i170, 1
-  %exitcond.not.i175 = icmp eq i64 %inc.i174, %137
+  %exitcond.not.i175 = icmp eq i64 %inc.i174, %136
   br i1 %exitcond.not.i175, label %_ZN5o3dgc13AdjacencyInfo11AddNeighborEll.exit180, label %for.body.i169, !llvm.loop !327
 
 _ZN5o3dgc13AdjacencyInfo11AddNeighborEll.exit180: ; preds = %for.inc.i173, %if.then229, %if.then.i176
-  %140 = load ptr, ptr %m_numNeighbors.i86, align 8
+  %139 = load ptr, ptr %m_numNeighbors.i86, align 8
   br i1 %cmp.i.i.not, label %_ZNK5o3dgc13AdjacencyInfo5BeginEl.exit.i183, label %cond.true.i.i199
 
 cond.true.i.i199:                                 ; preds = %_ZN5o3dgc13AdjacencyInfo11AddNeighborEll.exit180
-  %141 = getelementptr i64, ptr %140, i64 %i197.0231
-  %arrayidx.i.i200 = getelementptr i8, ptr %141, i64 -8
-  %142 = load i64, ptr %arrayidx.i.i200, align 8
+  %140 = getelementptr i64, ptr %139, i64 %i197.0231
+  %arrayidx.i.i200 = getelementptr i8, ptr %140, i64 -8
+  %141 = load i64, ptr %arrayidx.i.i200, align 8
   br label %_ZNK5o3dgc13AdjacencyInfo5BeginEl.exit.i183
 
 _ZNK5o3dgc13AdjacencyInfo5BeginEl.exit.i183:      ; preds = %cond.true.i.i199, %_ZN5o3dgc13AdjacencyInfo11AddNeighborEll.exit180
-  %cond.i.i184 = phi i64 [ %142, %cond.true.i.i199 ], [ 0, %_ZN5o3dgc13AdjacencyInfo11AddNeighborEll.exit180 ]
-  %arrayidx.i6.i185 = getelementptr inbounds i64, ptr %140, i64 %i197.0231
-  %143 = load i64, ptr %arrayidx.i6.i185, align 8
-  %cmp7.i186 = icmp slt i64 %cond.i.i184, %143
+  %cond.i.i184 = phi i64 [ %141, %cond.true.i.i199 ], [ 0, %_ZN5o3dgc13AdjacencyInfo11AddNeighborEll.exit180 ]
+  %arrayidx.i6.i185 = getelementptr inbounds i64, ptr %139, i64 %i197.0231
+  %142 = load i64, ptr %arrayidx.i6.i185, align 8
+  %cmp7.i186 = icmp slt i64 %cond.i.i184, %142
   br i1 %cmp7.i186, label %for.body.lr.ph.i188, label %for.inc235
 
 for.body.lr.ph.i188:                              ; preds = %_ZNK5o3dgc13AdjacencyInfo5BeginEl.exit.i183
-  %144 = load ptr, ptr %m_neighbors.i130, align 8
+  %143 = load ptr, ptr %m_neighbors.i130, align 8
   br label %for.body.i190
 
 for.body.i190:                                    ; preds = %for.inc.i194, %for.body.lr.ph.i188
   %p.08.i191 = phi i64 [ %cond.i.i184, %for.body.lr.ph.i188 ], [ %inc.i195, %for.inc.i194 ]
-  %arrayidx.i192 = getelementptr inbounds i64, ptr %144, i64 %p.08.i191
-  %145 = load i64, ptr %arrayidx.i192, align 8
-  %cmp3.i193 = icmp eq i64 %145, -1
+  %arrayidx.i192 = getelementptr inbounds i64, ptr %143, i64 %p.08.i191
+  %144 = load i64, ptr %arrayidx.i192, align 8
+  %cmp3.i193 = icmp eq i64 %144, -1
   br i1 %cmp3.i193, label %if.then.i197, label %for.inc.i194
 
 if.then.i197:                                     ; preds = %for.body.i190
-  %arrayidx.i192.le = getelementptr inbounds i64, ptr %144, i64 %p.08.i191
+  %arrayidx.i192.le = getelementptr inbounds i64, ptr %143, i64 %p.08.i191
   store i64 %j202.0229, ptr %arrayidx.i192.le, align 8
   br label %for.inc235
 
 for.inc.i194:                                     ; preds = %for.body.i190
   %inc.i195 = add i64 %p.08.i191, 1
-  %exitcond.not.i196 = icmp eq i64 %inc.i195, %143
+  %exitcond.not.i196 = icmp eq i64 %inc.i195, %142
   br i1 %exitcond.not.i196, label %for.inc235, label %for.body.i190, !llvm.loop !327
 
 for.inc235:                                       ; preds = %for.inc.i194, %if.then.i197, %_ZNK5o3dgc13AdjacencyInfo5BeginEl.exit.i183, %if.end220
   %inc236 = add nuw nsw i64 %j202.0229, 1
-  %146 = load i64, ptr %m_numNonConqueredTriangles, align 8
-  %cmp205 = icmp slt i64 %inc236, %146
+  %145 = load i64, ptr %m_numNonConqueredTriangles, align 8
+  %cmp205 = icmp slt i64 %inc236, %145
   br i1 %cmp205, label %for.body206, label %for.inc238, !llvm.loop !661
 
 for.inc238:                                       ; preds = %for.inc235, %for.cond203.preheader
-  %147 = phi i64 [ %115, %for.cond203.preheader ], [ %146, %for.inc235 ]
+  %146 = phi i64 [ %114, %for.cond203.preheader ], [ %145, %for.inc235 ]
   %inc239 = add nuw nsw i64 %i197.0231, 1
-  %cmp200 = icmp slt i64 %inc239, %147
+  %cmp200 = icmp slt i64 %inc239, %146
   br i1 %cmp200, label %for.cond203.preheader, label %if.end241, !llvm.loop !662
 
 if.end241:                                        ; preds = %for.inc238, %for.cond203.preheader.lr.ph, %_ZN5o3dgc13AdjacencyInfo22AllocateNeighborsArrayEv.exit129, %if.end128

@@ -1778,6 +1778,7 @@ define ptr @prte_hwloc_base_print_locality(i16 noundef zeroext %0) local_unnamed
   %232 = zext nneg i32 %.9144 to i64
   %233 = getelementptr i8, ptr %231, i64 %232
   %234 = getelementptr i8, ptr %233, i64 -1
+  store i8 0, ptr %234, align 1
   br label %272
 
 235:                                              ; preds = %226
@@ -1807,6 +1808,7 @@ define ptr @prte_hwloc_base_print_locality(i16 noundef zeroext %0) local_unnamed
   %253 = getelementptr inbounds [16 x ptr], ptr %.04.i.ph, i64 0, i64 %252
   %254 = load ptr, ptr %253, align 8
   %255 = getelementptr i8, ptr %254, i64 3
+  store i8 0, ptr %255, align 1
   br label %272
 
 256:                                              ; preds = %235
@@ -1828,11 +1830,10 @@ define ptr @prte_hwloc_base_print_locality(i16 noundef zeroext %0) local_unnamed
   %269 = getelementptr inbounds [16 x ptr], ptr %.04.i.ph, i64 0, i64 %268
   %270 = load ptr, ptr %269, align 8
   %271 = getelementptr i8, ptr %270, i64 3
+  store i8 0, ptr %271, align 1
   br label %272
 
 272:                                              ; preds = %240, %256, %227
-  %.sink = phi ptr [ %255, %240 ], [ %271, %256 ], [ %234, %227 ]
-  store i8 0, ptr %.sink, align 1
   %273 = load i32, ptr %19, align 8
   %274 = sext i32 %273 to i64
   %275 = getelementptr inbounds [16 x ptr], ptr %.04.i.ph, i64 0, i64 %274

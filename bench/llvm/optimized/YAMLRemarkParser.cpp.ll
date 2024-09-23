@@ -826,7 +826,7 @@ define internal fastcc void @_ZL11parseStrTabRN4llvm9StringRefEm(ptr dead_on_unw
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = icmp ult i64 %9, %2
-  br i1 %10, label %_ZN4llvm5ErrorD2Ev.exit, label %16
+  br i1 %10, label %_ZN4llvm5ErrorD2Ev.exit, label %17
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #19
@@ -845,40 +845,41 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   %14 = load i8, ptr %13, align 8
   %15 = or i8 %14, 1
   store i8 %15, ptr %13, align 8
+  call void @llvm.experimental.noalias.scope.decl(metadata !85)
+  %16 = load ptr, ptr %6, align 8, !noalias !85
+  store ptr %16, ptr %0, align 8, !alias.scope !85
   br label %_ZN4llvm7remarks17ParsedStringTableD2Ev.exit
 
-16:                                               ; preds = %3
-  %17 = load ptr, ptr %1, align 8
-  call void @_ZN4llvm7remarks17ParsedStringTableC1ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr %17, i64 %2) #18
-  %18 = load i64, ptr %8, align 8
-  %.sroa.speculated5.i.i = call i64 @llvm.umin.i64(i64 %18, i64 %2)
-  %19 = load ptr, ptr %1, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 %.sroa.speculated5.i.i
-  %21 = sub i64 %18, %.sroa.speculated5.i.i
-  store ptr %20, ptr %1, align 8
-  store i64 %21, ptr %8, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %23 = load i8, ptr %22, align 8
-  %24 = and i8 %23, -2
-  store i8 %24, ptr %22, align 8
+17:                                               ; preds = %3
+  %18 = load ptr, ptr %1, align 8
+  call void @_ZN4llvm7remarks17ParsedStringTableC1ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr %18, i64 %2) #18
+  %19 = load i64, ptr %8, align 8
+  %.sroa.speculated5.i.i = call i64 @llvm.umin.i64(i64 %19, i64 %2)
+  %20 = load ptr, ptr %1, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 %.sroa.speculated5.i.i
+  %22 = sub i64 %19, %.sroa.speculated5.i.i
+  store ptr %21, ptr %1, align 8
+  store i64 %22, ptr %8, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %24 = load i8, ptr %23, align 8
+  %25 = and i8 %24, -2
+  store i8 %25, ptr %23, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %26 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %27 = load ptr, ptr %26, align 8
-  store ptr %27, ptr %25, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %29 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %30 = load ptr, ptr %29, align 8
-  store ptr %30, ptr %28, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %32 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %28 = load ptr, ptr %27, align 8
+  store ptr %28, ptr %26, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %31 = load ptr, ptr %30, align 8
+  store ptr %31, ptr %29, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %34 = load ptr, ptr %33, align 8
+  store ptr %34, ptr %32, align 8
   br label %_ZN4llvm7remarks17ParsedStringTableD2Ev.exit
 
-_ZN4llvm7remarks17ParsedStringTableD2Ev.exit:     ; preds = %16, %_ZN4llvm5ErrorD2Ev.exit
-  %.sink7 = phi ptr [ %32, %16 ], [ %6, %_ZN4llvm5ErrorD2Ev.exit ]
-  %.sink6 = phi ptr [ %31, %16 ], [ %0, %_ZN4llvm5ErrorD2Ev.exit ]
-  %33 = load ptr, ptr %.sink7, align 8
-  store ptr %33, ptr %.sink6, align 8
+_ZN4llvm7remarks17ParsedStringTableD2Ev.exit:     ; preds = %17, %_ZN4llvm5ErrorD2Ev.exit
   ret void
 }
 
@@ -990,11 +991,11 @@ define linkonce_odr hidden void @_ZN4llvm15createFileErrorERKNS_5TwineESt10error
   %6 = alloca %"class.llvm::Error", align 8
   call void @_ZN4llvm16errorCodeToErrorESt10error_code(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %6, i32 %2, ptr %3) #18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %7 = load ptr, ptr %6, align 8, !noalias !85
-  store ptr %7, ptr %5, align 8, !noalias !85
-  store ptr null, ptr %6, align 8, !noalias !85
+  %7 = load ptr, ptr %6, align 8, !noalias !88
+  store ptr %7, ptr %5, align 8, !noalias !88
+  store ptr null, ptr %6, align 8, !noalias !88
   call void @_ZN4llvm9FileError5buildERKNS_5TwineESt8optionalImENS_5ErrorE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %1, i64 undef, i8 0, ptr noundef nonnull %5)
-  %8 = load ptr, ptr %5, align 8, !noalias !85
+  %8 = load ptr, ptr %5, align 8, !noalias !88
   %9 = icmp eq ptr %8, null
   br i1 %9, label %_ZN4llvm15createFileErrorERKNS_5TwineENS_5ErrorE.exit, label %10
 
@@ -1052,11 +1053,11 @@ _ZNSt8optionalIN4llvm7remarks17ParsedStringTableEED2Ev.exit:
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 0, i64 48, i1 false), !alias.scope !88
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 0, i64 48, i1 false), !alias.scope !91
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store ptr @_ZL16handleDiagnosticRKN4llvm12SMDiagnosticEPv, ptr %8, align 8, !alias.scope !88
+  store ptr @_ZL16handleDiagnosticRKN4llvm12SMDiagnosticEPv, ptr %8, align 8, !alias.scope !91
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store ptr %6, ptr %9, align 8, !alias.scope !88
+  store ptr %6, ptr %9, align 8, !alias.scope !91
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @_ZN4llvm4yaml6StreamC1ENS_9StringRefERNS_9SourceMgrEbPSt10error_code(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(64) %7, i1 noundef zeroext true, ptr noundef null) #18
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -1105,11 +1106,11 @@ _ZNSt8optionalIN4llvm7remarks17ParsedStringTableEEC2EOS3_.exit: ; preds = %4, %1
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #18
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %23, i8 0, i64 48, i1 false), !alias.scope !91
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %23, i8 0, i64 48, i1 false), !alias.scope !94
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store ptr @_ZL16handleDiagnosticRKN4llvm12SMDiagnosticEPv, ptr %24, align 8, !alias.scope !91
+  store ptr @_ZL16handleDiagnosticRKN4llvm12SMDiagnosticEPv, ptr %24, align 8, !alias.scope !94
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store ptr %22, ptr %25, align 8, !alias.scope !91
+  store ptr %22, ptr %25, align 8, !alias.scope !94
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @_ZN4llvm4yaml6StreamC1ENS_9StringRefERNS_9SourceMgrEbPSt10error_code(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(64) %23, i1 noundef zeroext true, ptr noundef null) #18
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -1128,10 +1129,10 @@ declare ptr @_ZN4llvm4yaml6Stream5beginEv(ptr noundef nonnull align 8 dereferenc
 define dso_local void @_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(224) %1, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(72) %4) local_unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !94)
-  %8 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20, !noalias !97
-  tail call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(72) %4) #18, !noalias !97
-  store ptr %8, ptr %0, align 8, !alias.scope !94
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !97)
+  %8 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20, !noalias !100
+  tail call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(72) %4) #18, !noalias !100
+  store ptr %8, ptr %0, align 8, !alias.scope !97
   ret void
 }
 
@@ -1144,25 +1145,25 @@ define dso_local void @_ZN4llvm7remarks16YAMLRemarkParser5errorEv(ptr dead_on_un
   br i1 %6, label %_ZN4llvm12ErrorSuccessD2Ev.exit, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20, !noalias !100
-  %9 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #18, !noalias !100
-  %10 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #18, !noalias !100
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !100
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm7remarks14YAMLParseErrorE, i64 16), ptr %8, align 8, !noalias !100
+  %8 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20, !noalias !103
+  %9 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #18, !noalias !103
+  %10 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #18, !noalias !103
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !103
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm7remarks14YAMLParseErrorE, i64 16), ptr %8, align 8, !noalias !103
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #18, !noalias !100
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !100
-  %12 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %10, ptr %9) #18, !noalias !100
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #18, !noalias !103
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !103
+  %12 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %10, ptr %9) #18, !noalias !103
   %13 = extractvalue { i64, ptr } %12, 0
   %14 = extractvalue { i64, ptr } %12, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 %13, ptr %14) #18
-  %15 = load i64, ptr %3, align 8, !noalias !100
+  %15 = load i64, ptr %3, align 8, !noalias !103
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %17 = load ptr, ptr %16, align 8, !noalias !100
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 %15, ptr %17, ptr noundef nonnull align 1 dereferenceable(1) %4) #18, !noalias !100
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !100
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #18, !noalias !100
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4), !noalias !100
+  %17 = load ptr, ptr %16, align 8, !noalias !103
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 %15, ptr %17, ptr noundef nonnull align 1 dereferenceable(1) %4) #18, !noalias !103
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !103
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #18, !noalias !103
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4), !noalias !103
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
   br label %_ZN4llvm12ErrorSuccessD2Ev.exit
 
@@ -1201,7 +1202,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   %17 = load i8, ptr %16, align 8
   %18 = or i8 %17, 1
   store i8 %18, ptr %16, align 8
-  store ptr %15, ptr %0, align 8, !alias.scope !105
+  store ptr %15, ptr %0, align 8, !alias.scope !108
   br label %_ZNSt10unique_ptrIN4llvm7remarks6RemarkESt14default_deleteIS2_EED2Ev.exit
 
 19:                                               ; preds = %3
@@ -1220,10 +1221,10 @@ _ZN4llvm5ErrorD2Ev.exit72:                        ; preds = %_ZN4llvm4yaml8Docum
   %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #19
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #18, !noalias !108
-  %24 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #18, !noalias !108
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %24, ptr noundef nonnull align 1 dereferenceable(1) %5) #18, !noalias !108
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 22)), !noalias !108
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #18, !noalias !111
+  %24 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #18, !noalias !111
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %24, ptr noundef nonnull align 1 dereferenceable(1) %5) #18, !noalias !111
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 22)), !noalias !111
   call void @_ZN4llvm17createStringErrorEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10error_code(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 22, ptr nonnull %23) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
@@ -1233,9 +1234,9 @@ _ZN4llvm5ErrorD2Ev.exit72:                        ; preds = %_ZN4llvm4yaml8Docum
   %26 = load i8, ptr %25, align 8
   %27 = or i8 %26, 1
   store i8 %27, ptr %25, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !111)
-  %28 = load ptr, ptr %7, align 8, !noalias !111
-  store ptr %28, ptr %0, align 8, !alias.scope !111
+  call void @llvm.experimental.noalias.scope.decl(metadata !114)
+  %28 = load ptr, ptr %7, align 8, !noalias !114
+  store ptr %28, ptr %0, align 8, !alias.scope !114
   br label %_ZNSt10unique_ptrIN4llvm7remarks6RemarkESt14default_deleteIS2_EED2Ev.exit
 
 _ZN4llvm4yaml8Document7getRootEv.exit.thread:     ; preds = %19, %_ZN4llvm4yaml8Document7getRootEv.exit
@@ -1248,21 +1249,21 @@ _ZN4llvm4yaml8Document7getRootEv.exit.thread:     ; preds = %19, %_ZN4llvm4yaml8
 _ZN4llvm5ErrorD2Ev.exit73:                        ; preds = %_ZN4llvm4yaml8Document7getRootEv.exit.thread
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %33 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20, !noalias !114
-  tail call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr nonnull @.str.4, i64 37, ptr noundef nonnull align 8 dereferenceable(64) %31, ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(72) %.0.i228) #18, !noalias !114
+  %33 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20, !noalias !117
+  tail call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr nonnull @.str.4, i64 37, ptr noundef nonnull align 8 dereferenceable(64) %31, ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(72) %.0.i228) #18, !noalias !117
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load i8, ptr %34, align 8
   %36 = or i8 %35, 1
   store i8 %36, ptr %34, align 8
-  store ptr %33, ptr %0, align 8, !alias.scope !121
+  store ptr %33, ptr %0, align 8, !alias.scope !124
   br label %_ZNSt10unique_ptrIN4llvm7remarks6RemarkESt14default_deleteIS2_EED2Ev.exit
 
 37:                                               ; preds = %_ZN4llvm4yaml8Document7getRootEv.exit.thread
-  %38 = tail call noalias noundef nonnull dereferenceable(440) ptr @_Znwm(i64 noundef 440) #20, !noalias !124
+  %38 = tail call noalias noundef nonnull dereferenceable(440) ptr @_Znwm(i64 noundef 440) #20, !noalias !127
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 104
   %40 = getelementptr inbounds i8, ptr %38, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(440) %38, i8 0, i64 440, i1 false), !noalias !124
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull %40, i64 noundef 5) #18, !noalias !124
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(440) %38, i8 0, i64 440, i1 false), !noalias !127
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull %40, i64 noundef 5) #18, !noalias !127
   call void @_ZN4llvm7remarks16YAMLRemarkParser9parseTypeERNS_4yaml11MappingNodeE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.128") align 8 %8, ptr noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 8 dereferenceable(88) %.0.i228)
   %41 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %42 = load i8, ptr %41, align 8
@@ -1270,14 +1271,14 @@ _ZN4llvm5ErrorD2Ev.exit73:                        ; preds = %_ZN4llvm4yaml8Docum
   br i1 %43, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i, label %49
 
 _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %37
-  %44 = load i64, ptr %8, align 8, !noalias !127
+  %44 = load i64, ptr %8, align 8, !noalias !130
   %45 = inttoptr i64 %44 to ptr
-  store ptr null, ptr %8, align 8, !noalias !127
+  store ptr null, ptr %8, align 8, !noalias !130
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = load i8, ptr %46, align 8
   %48 = or i8 %47, 1
   store i8 %48, ptr %46, align 8
-  store ptr %45, ptr %0, align 8, !alias.scope !130
+  store ptr %45, ptr %0, align 8, !alias.scope !133
   br label %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit155
 
 49:                                               ; preds = %37
@@ -1317,27 +1318,27 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
   %72 = phi i8 [ %.promoted, %.lr.ph301 ], [ %156, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit150 ]
   %.lcssa292298 = phi ptr [ %.promoted285, %.lr.ph301 ], [ %.lcssa286, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit150 ]
   %73 = load ptr, ptr %70, align 8
-  %74 = call noundef ptr @_ZN4llvm4yaml12KeyValueNode6getKeyEv(ptr noundef nonnull align 8 dereferenceable(88) %73) #18, !noalias !133
+  %74 = call noundef ptr @_ZN4llvm4yaml12KeyValueNode6getKeyEv(ptr noundef nonnull align 8 dereferenceable(88) %73) #18, !noalias !136
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 32
-  %76 = load i32, ptr %75, align 8, !noalias !133
+  %76 = load i32, ptr %75, align 8, !noalias !136
   %77 = icmp eq i32 %76, 1
   %.not9.i = icmp ne ptr %74, null
   %.not.i76.not = and i1 %.not9.i, %77
   br i1 %.not.i76.not, label %80, label %_ZN4llvm5ErrorD2Ev.exit79
 
 _ZN4llvm5ErrorD2Ev.exit79:                        ; preds = %71
-  %78 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20, !noalias !136
-  call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %78, ptr nonnull @.str.21, i64 20, ptr noundef nonnull align 8 dereferenceable(64) %54, ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 8 dereferenceable(72) %73) #18, !noalias !136
+  %78 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20, !noalias !139
+  call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %78, ptr nonnull @.str.21, i64 20, ptr noundef nonnull align 8 dereferenceable(64) %54, ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 8 dereferenceable(72) %73) #18, !noalias !139
   %79 = or i8 %72, 1
   store i8 %79, ptr %57, align 8
-  store ptr %78, ptr %0, align 8, !alias.scope !143
+  store ptr %78, ptr %0, align 8, !alias.scope !146
   br label %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit155
 
 80:                                               ; preds = %71
   %81 = getelementptr inbounds nuw i8, ptr %74, i64 72
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %81, align 8, !noalias !133
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %81, align 8, !noalias !136
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %74, i64 80
-  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !133
+  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !136
   switch i64 %.sroa.2.0.copyload.i.i, label %_ZN4llvm5ErrorD2Ev.exit146 [
     i64 4, label %_ZN4llvmeqENS_9StringRefES0_.exit
     i64 8, label %_ZN4llvmeqENS_9StringRefES0_.exit102
@@ -1425,9 +1426,9 @@ _ZN4llvmeqENS_9StringRefES0_.exit114.thread:      ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit150
 
 _ZN4llvm8ExpectedIjED2Ev.exit:                    ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit114.thread
-  %109 = load i64, ptr %12, align 8, !noalias !146
+  %109 = load i64, ptr %12, align 8, !noalias !149
   %110 = inttoptr i64 %109 to ptr
-  store ptr null, ptr %12, align 8, !noalias !146
+  store ptr null, ptr %12, align 8, !noalias !149
   %111 = or i8 %72, 1
   store i8 %111, ptr %57, align 8
   store ptr %110, ptr %0, align 8
@@ -1456,9 +1457,9 @@ _ZN4llvmeqENS_9StringRefES0_.exit124.thread:      ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit150
 
 _ZN4llvm8ExpectedINS_7remarks14RemarkLocationEED2Ev.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit124.thread
-  %119 = load i64, ptr %13, align 8, !noalias !149
+  %119 = load i64, ptr %13, align 8, !noalias !152
   %120 = inttoptr i64 %119 to ptr
-  store ptr null, ptr %13, align 8, !noalias !149
+  store ptr null, ptr %13, align 8, !noalias !152
   %121 = or i8 %72, 1
   store i8 %121, ptr %57, align 8
   store ptr %120, ptr %0, align 8
@@ -1480,11 +1481,11 @@ _ZN4llvmeqENS_9StringRefES0_.exit134.thread:      ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %.not71, label %_ZN4llvm5ErrorD2Ev.exit136, label %129
 
 _ZN4llvm5ErrorD2Ev.exit136:                       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit134.thread
-  %127 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20, !noalias !152
-  call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %127, ptr nonnull @.str.11, i64 25, ptr noundef nonnull align 8 dereferenceable(64) %54, ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 8 dereferenceable(72) %73) #18, !noalias !152
+  %127 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20, !noalias !155
+  call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %127, ptr nonnull @.str.11, i64 25, ptr noundef nonnull align 8 dereferenceable(64) %54, ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 8 dereferenceable(72) %73) #18, !noalias !155
   %128 = or i8 %72, 1
   store i8 %128, ptr %57, align 8
-  store ptr %127, ptr %0, align 8, !alias.scope !159
+  store ptr %127, ptr %0, align 8, !alias.scope !162
   br label %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit155
 
 129:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit134.thread
@@ -1515,9 +1516,9 @@ _ZN4llvm5ErrorD2Ev.exit136:                       ; preds = %_ZN4llvmeqENS_9Stri
   br label %143
 
 _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i140: ; preds = %.lr.ph
-  %140 = load i64, ptr %14, align 8, !noalias !162
+  %140 = load i64, ptr %14, align 8, !noalias !165
   %141 = inttoptr i64 %140 to ptr
-  store ptr null, ptr %14, align 8, !noalias !162
+  store ptr null, ptr %14, align 8, !noalias !165
   %142 = or i8 %134, 1
   br label %143
 
@@ -1554,11 +1555,11 @@ _ZN4llvm4yaml25basic_collection_iteratorINS0_12SequenceNodeENS0_4NodeEEppEv.exit
   br i1 %.not.i145, label %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit150, label %.lr.ph
 
 _ZN4llvm5ErrorD2Ev.exit146:                       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit124, %_ZN4llvmeqENS_9StringRefES0_.exit114, %80, %_ZN4llvmeqENS_9StringRefES0_.exit134
-  %154 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20, !noalias !165
-  call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %154, ptr nonnull @.str.12, i64 12, ptr noundef nonnull align 8 dereferenceable(64) %54, ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 8 dereferenceable(72) %73) #18, !noalias !165
+  %154 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20, !noalias !168
+  call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %154, ptr nonnull @.str.12, i64 12, ptr noundef nonnull align 8 dereferenceable(64) %54, ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 8 dereferenceable(72) %73) #18, !noalias !168
   %155 = or i8 %72, 1
   store i8 %155, ptr %57, align 8
-  store ptr %154, ptr %0, align 8, !alias.scope !172
+  store ptr %154, ptr %0, align 8, !alias.scope !175
   br label %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit155
 
 _ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit150:    ; preds = %_ZN4llvm4yaml25basic_collection_iteratorINS0_12SequenceNodeENS0_4NodeEEppEv.exit, %115, %118, %108, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit110, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit98, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit, %129
@@ -1581,7 +1582,7 @@ _ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit150:    ; preds = %_ZN4llvm4yaml25basi
 
 160:                                              ; preds = %_ZN4llvm8ExpectedINS_7remarks8ArgumentEED2Ev.exit
   store i8 %145, ptr %57, align 8
-  store ptr %146, ptr %0, align 8, !alias.scope !175
+  store ptr %146, ptr %0, align 8, !alias.scope !178
   br label %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit155
 
 select.unfold._crit_edge:                         ; preds = %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit150
@@ -1627,13 +1628,13 @@ _ZN4llvm5ErrorD2Ev.exit159:                       ; preds = %178, %176
   %.0.i157 = phi ptr [ %179, %178 ], [ %177, %176 ]
   %180 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %181 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %182 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20, !noalias !178
-  call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %182, ptr nonnull @.str.13, i64 37, ptr noundef nonnull align 8 dereferenceable(64) %180, ptr noundef nonnull align 8 dereferenceable(16) %181, ptr noundef nonnull align 8 dereferenceable(72) %.0.i157) #18, !noalias !178
+  %182 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20, !noalias !181
+  call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %182, ptr nonnull @.str.13, i64 37, ptr noundef nonnull align 8 dereferenceable(64) %180, ptr noundef nonnull align 8 dereferenceable(16) %181, ptr noundef nonnull align 8 dereferenceable(72) %.0.i157) #18, !noalias !181
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %184 = load i8, ptr %183, align 8
   %185 = or i8 %184, 1
   store i8 %185, ptr %183, align 8
-  store ptr %182, ptr %0, align 8, !alias.scope !185
+  store ptr %182, ptr %0, align 8, !alias.scope !188
   br label %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit155
 
 186:                                              ; preds = %172
@@ -1771,13 +1772,13 @@ _ZN4llvm12StringSwitchINS_7remarks4TypeES2_E4CaseENS_13StringLiteralES2_.exit43:
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3, %_ZN4llvmeqENS_9StringRefES0_.exit.i24, %_ZN4llvmeqENS_9StringRefES0_.exit.i16, %_ZN4llvmeqENS_9StringRefES0_.exit.i8, %_ZN4llvmeqENS_9StringRefES0_.exit.i32, %_ZN4llvmeqENS_9StringRefES0_.exit.i40
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %16 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20, !noalias !188
-  tail call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr nonnull @.str.20, i64 22, ptr noundef nonnull align 8 dereferenceable(64) %14, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(72) %2) #18, !noalias !188
+  %16 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20, !noalias !191
+  tail call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr nonnull @.str.20, i64 22, ptr noundef nonnull align 8 dereferenceable(64) %14, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(72) %2) #18, !noalias !191
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i8, ptr %17, align 8
   %19 = or i8 %18, 1
   store i8 %19, ptr %17, align 8
-  store ptr %16, ptr %0, align 8, !alias.scope !195
+  store ptr %16, ptr %0, align 8, !alias.scope !198
   br label %20
 
 20:                                               ; preds = %_ZN4llvm12StringSwitchINS_7remarks4TypeES2_E4CaseENS_13StringLiteralES2_.exit43, %_ZN4llvm5ErrorD2Ev.exit
@@ -1810,8 +1811,8 @@ define dso_local void @_ZN4llvm7remarks16YAMLRemarkParser8parseKeyERNS_4yaml12Ke
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %15 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20, !noalias !198
-  tail call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr nonnull @.str.21, i64 20, ptr noundef nonnull align 8 dereferenceable(64) %13, ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(72) %2) #18, !noalias !198
+  %15 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20, !noalias !201
+  tail call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr nonnull @.str.21, i64 20, ptr noundef nonnull align 8 dereferenceable(64) %13, ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(72) %2) #18, !noalias !201
   %16 = load i8, ptr %8, align 8
   %17 = or i8 %16, 1
   store i8 %17, ptr %8, align 8
@@ -1840,13 +1841,13 @@ define dso_local void @_ZN4llvm7remarks16YAMLRemarkParser13parseUnsignedERNS_4ya
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %13 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20, !noalias !205
-  call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr nonnull @.str.22, i64 32, ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(72) %2) #18, !noalias !205
+  %13 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20, !noalias !208
+  call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr nonnull @.str.22, i64 32, ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(72) %2) #18, !noalias !208
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i8, ptr %14, align 8
   %16 = or i8 %15, 1
   store i8 %16, ptr %14, align 8
-  store ptr %13, ptr %0, align 8, !alias.scope !212
+  store ptr %13, ptr %0, align 8, !alias.scope !215
   br label %35
 
 17:                                               ; preds = %3
@@ -1866,13 +1867,13 @@ _ZN4llvm5ErrorD2Ev.exit6:                         ; preds = %17, %22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %26 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20, !noalias !215
-  call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr nonnull @.str.24, i64 33, ptr noundef nonnull align 8 dereferenceable(64) %24, ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(72) %7) #18, !noalias !215
+  %26 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20, !noalias !218
+  call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr nonnull @.str.24, i64 33, ptr noundef nonnull align 8 dereferenceable(64) %24, ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(72) %7) #18, !noalias !218
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load i8, ptr %27, align 8
   %29 = or i8 %28, 1
   store i8 %29, ptr %27, align 8
-  store ptr %26, ptr %0, align 8, !alias.scope !222
+  store ptr %26, ptr %0, align 8, !alias.scope !225
   br label %35
 
 30:                                               ; preds = %22
@@ -1916,13 +1917,13 @@ define dso_local void @_ZN4llvm7remarks16YAMLRemarkParser13parseDebugLocERNS_4ya
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %13 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20, !noalias !225
-  tail call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr nonnull @.str.25, i64 33, ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(72) %2) #18, !noalias !225
+  %13 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20, !noalias !228
+  tail call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr nonnull @.str.25, i64 33, ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(72) %2) #18, !noalias !228
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load i8, ptr %14, align 8
   %16 = or i8 %15, 1
   store i8 %16, ptr %14, align 8
-  store ptr %13, ptr %0, align 8, !alias.scope !232
+  store ptr %13, ptr %0, align 8, !alias.scope !235
   br label %.loopexit
 
 17:                                               ; preds = %3
@@ -1951,28 +1952,28 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   %.sroa.2102.0143 = phi i1 [ false, %.lr.ph ], [ %.sroa.2102.1198, %_ZN4llvm4yaml25basic_collection_iteratorINS0_11MappingNodeENS0_12KeyValueNodeEEppEv.exit ]
   %.sroa.0101.0140 = phi i32 [ undef, %.lr.ph ], [ %.sroa.0101.1197, %_ZN4llvm4yaml25basic_collection_iteratorINS0_11MappingNodeENS0_12KeyValueNodeEEppEv.exit ]
   %29 = load ptr, ptr %27, align 8
-  %30 = call noundef ptr @_ZN4llvm4yaml12KeyValueNode6getKeyEv(ptr noundef nonnull align 8 dereferenceable(88) %29) #18, !noalias !235
+  %30 = call noundef ptr @_ZN4llvm4yaml12KeyValueNode6getKeyEv(ptr noundef nonnull align 8 dereferenceable(88) %29) #18, !noalias !238
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  %32 = load i32, ptr %31, align 8, !noalias !235
+  %32 = load i32, ptr %31, align 8, !noalias !238
   %33 = icmp eq i32 %32, 1
   %.not9.i = icmp ne ptr %30, null
   %.not.i.not = and i1 %.not9.i, %33
   br i1 %.not.i.not, label %37, label %_ZN4llvm5ErrorD2Ev.exit27
 
 _ZN4llvm5ErrorD2Ev.exit27:                        ; preds = %28
-  %34 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20, !noalias !238
-  call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr nonnull @.str.21, i64 20, ptr noundef nonnull align 8 dereferenceable(64) %21, ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(72) %29) #18, !noalias !238
+  %34 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20, !noalias !241
+  call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr nonnull @.str.21, i64 20, ptr noundef nonnull align 8 dereferenceable(64) %21, ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(72) %29) #18, !noalias !241
   %35 = load i8, ptr %24, align 8
   %36 = or i8 %35, 1
   store i8 %36, ptr %24, align 8
-  store ptr %34, ptr %0, align 8, !alias.scope !245
+  store ptr %34, ptr %0, align 8, !alias.scope !248
   br label %.loopexit
 
 37:                                               ; preds = %28
   %38 = getelementptr inbounds nuw i8, ptr %30, i64 72
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %38, align 8, !noalias !235
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %38, align 8, !noalias !238
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %30, i64 80
-  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !235
+  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !238
   switch i64 %.sroa.2.0.copyload.i.i, label %_ZN4llvm5ErrorD2Ev.exit56 [
     i64 4, label %_ZN4llvmeqENS_9StringRefES0_.exit
     i64 6, label %_ZN4llvmeqENS_9StringRefES0_.exit37
@@ -1997,13 +1998,13 @@ _ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit60.thread202: ; preds = %_ZN4llvmeqENS
   br label %_ZN4llvm4yaml25basic_collection_iteratorINS0_11MappingNodeENS0_12KeyValueNodeEEppEv.exit
 
 45:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread
-  %46 = load i64, ptr %4, align 8, !noalias !248
+  %46 = load i64, ptr %4, align 8, !noalias !251
   %47 = inttoptr i64 %46 to ptr
-  store ptr null, ptr %4, align 8, !noalias !248
+  store ptr null, ptr %4, align 8, !noalias !251
   %48 = load i8, ptr %24, align 8
   %49 = or i8 %48, 1
   store i8 %49, ptr %24, align 8
-  store ptr %47, ptr %0, align 8, !alias.scope !251
+  store ptr %47, ptr %0, align 8, !alias.scope !254
   br label %.loopexit
 
 _ZN4llvmeqENS_9StringRefES0_.exit37:              ; preds = %37
@@ -2022,13 +2023,13 @@ _ZN4llvmeqENS_9StringRefES0_.exit37.thread:       ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvm4yaml25basic_collection_iteratorINS0_11MappingNodeENS0_12KeyValueNodeEEppEv.exit
 
 55:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit37.thread
-  %56 = load i64, ptr %5, align 8, !noalias !254
+  %56 = load i64, ptr %5, align 8, !noalias !257
   %57 = inttoptr i64 %56 to ptr
-  store ptr null, ptr %5, align 8, !noalias !254
+  store ptr null, ptr %5, align 8, !noalias !257
   %58 = load i8, ptr %24, align 8
   %59 = or i8 %58, 1
   store i8 %59, ptr %24, align 8
-  store ptr %57, ptr %0, align 8, !alias.scope !257
+  store ptr %57, ptr %0, align 8, !alias.scope !260
   br label %.loopexit
 
 _ZN4llvmeqENS_9StringRefES0_.exit47:              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit
@@ -2047,22 +2048,22 @@ _ZN4llvmeqENS_9StringRefES0_.exit47.thread:       ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvm4yaml25basic_collection_iteratorINS0_11MappingNodeENS0_12KeyValueNodeEEppEv.exit
 
 65:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit47.thread
-  %66 = load i64, ptr %6, align 8, !noalias !260
+  %66 = load i64, ptr %6, align 8, !noalias !263
   %67 = inttoptr i64 %66 to ptr
-  store ptr null, ptr %6, align 8, !noalias !260
+  store ptr null, ptr %6, align 8, !noalias !263
   %68 = load i8, ptr %24, align 8
   %69 = or i8 %68, 1
   store i8 %69, ptr %24, align 8
-  store ptr %67, ptr %0, align 8, !alias.scope !263
+  store ptr %67, ptr %0, align 8, !alias.scope !266
   br label %.loopexit
 
 _ZN4llvm5ErrorD2Ev.exit56:                        ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit37, %37, %_ZN4llvmeqENS_9StringRefES0_.exit47
-  %70 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20, !noalias !266
-  call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %70, ptr nonnull @.str.29, i64 30, ptr noundef nonnull align 8 dereferenceable(64) %21, ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(72) %29) #18, !noalias !266
+  %70 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20, !noalias !269
+  call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %70, ptr nonnull @.str.29, i64 30, ptr noundef nonnull align 8 dereferenceable(64) %21, ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(72) %29) #18, !noalias !269
   %71 = load i8, ptr %24, align 8
   %72 = or i8 %71, 1
   store i8 %72, ptr %24, align 8
-  store ptr %70, ptr %0, align 8, !alias.scope !273
+  store ptr %70, ptr %0, align 8, !alias.scope !276
   br label %.loopexit
 
 _ZN4llvm4yaml25basic_collection_iteratorINS0_11MappingNodeENS0_12KeyValueNodeEEppEv.exit: ; preds = %63, %53, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit60.thread202
@@ -2085,13 +2086,13 @@ select.unfold._crit_edge:                         ; preds = %_ZN4llvm4yaml25basi
 _ZN4llvm5ErrorD2Ev.exit62:                        ; preds = %17, %select.unfold._crit_edge
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %79 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20, !noalias !276
-  call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %79, ptr nonnull @.str.30, i64 25, ptr noundef nonnull align 8 dereferenceable(64) %77, ptr noundef nonnull align 8 dereferenceable(16) %78, ptr noundef nonnull align 8 dereferenceable(72) %2) #18, !noalias !276
+  %79 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20, !noalias !279
+  call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %79, ptr nonnull @.str.30, i64 25, ptr noundef nonnull align 8 dereferenceable(64) %77, ptr noundef nonnull align 8 dereferenceable(16) %78, ptr noundef nonnull align 8 dereferenceable(72) %2) #18, !noalias !279
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %81 = load i8, ptr %80, align 8
   %82 = or i8 %81, 1
   store i8 %82, ptr %80, align 8
-  store ptr %79, ptr %0, align 8, !alias.scope !283
+  store ptr %79, ptr %0, align 8, !alias.scope !286
   br label %.loopexit
 
 83:                                               ; preds = %select.unfold._crit_edge
@@ -2127,13 +2128,13 @@ define dso_local void @_ZN4llvm7remarks16YAMLRemarkParser8parseArgERNS_4yaml4Nod
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %10 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20, !noalias !286
-  tail call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr nonnull @.str.25, i64 33, ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(72) %2) #18, !noalias !286
+  %10 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20, !noalias !289
+  tail call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr nonnull @.str.25, i64 33, ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(72) %2) #18, !noalias !289
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load i8, ptr %11, align 8
   %13 = or i8 %12, 1
   store i8 %13, ptr %11, align 8
-  store ptr %10, ptr %0, align 8, !alias.scope !293
+  store ptr %10, ptr %0, align 8, !alias.scope !296
   br label %.loopexit
 
 14:                                               ; preds = %3
@@ -2161,28 +2162,28 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   %.sroa.282.0109 = phi i8 [ 0, %.lr.ph ], [ %.sroa.282.1, %_ZN4llvm4yaml25basic_collection_iteratorINS0_11MappingNodeENS0_12KeyValueNodeEEppEv.exit ]
   %.sroa.277.0108 = phi i8 [ 0, %.lr.ph ], [ %.sroa.277.1, %_ZN4llvm4yaml25basic_collection_iteratorINS0_11MappingNodeENS0_12KeyValueNodeEEppEv.exit ]
   %25 = load ptr, ptr %23, align 8
-  %26 = call noundef ptr @_ZN4llvm4yaml12KeyValueNode6getKeyEv(ptr noundef nonnull align 8 dereferenceable(88) %25) #18, !noalias !296
+  %26 = call noundef ptr @_ZN4llvm4yaml12KeyValueNode6getKeyEv(ptr noundef nonnull align 8 dereferenceable(88) %25) #18, !noalias !299
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  %28 = load i32, ptr %27, align 8, !noalias !296
+  %28 = load i32, ptr %27, align 8, !noalias !299
   %29 = icmp eq i32 %28, 1
   %.not9.i = icmp ne ptr %26, null
   %.not.i.not = and i1 %.not9.i, %29
   br i1 %.not.i.not, label %33, label %_ZN4llvm5ErrorD2Ev.exit17
 
 _ZN4llvm5ErrorD2Ev.exit17:                        ; preds = %24
-  %30 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20, !noalias !299
-  call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr nonnull @.str.21, i64 20, ptr noundef nonnull align 8 dereferenceable(64) %18, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(72) %25) #18, !noalias !299
+  %30 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20, !noalias !302
+  call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr nonnull @.str.21, i64 20, ptr noundef nonnull align 8 dereferenceable(64) %18, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(72) %25) #18, !noalias !302
   %31 = load i8, ptr %21, align 8
   %32 = or i8 %31, 1
   store i8 %32, ptr %21, align 8
-  store ptr %30, ptr %0, align 8, !alias.scope !306
+  store ptr %30, ptr %0, align 8, !alias.scope !309
   br label %.loopexit
 
 33:                                               ; preds = %24
   %34 = getelementptr inbounds nuw i8, ptr %26, i64 72
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %34, align 8, !noalias !296
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %34, align 8, !noalias !299
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %26, i64 80
-  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !296
+  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !299
   %.not.i18 = icmp eq i64 %.sroa.2.0.copyload.i.i, 8
   br i1 %.not.i18, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread94
 
@@ -2196,12 +2197,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %36, label %_ZN4llvm5ErrorD2Ev.exit19, label %40
 
 _ZN4llvm5ErrorD2Ev.exit19:                        ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread
-  %37 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20, !noalias !309
-  call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr nonnull @.str.31, i64 48, ptr noundef nonnull align 8 dereferenceable(64) %18, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(72) %25) #18, !noalias !309
+  %37 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20, !noalias !312
+  call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr nonnull @.str.31, i64 48, ptr noundef nonnull align 8 dereferenceable(64) %18, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(72) %25) #18, !noalias !312
   %38 = load i8, ptr %21, align 8
   %39 = or i8 %38, 1
   store i8 %39, ptr %21, align 8
-  store ptr %37, ptr %0, align 8, !alias.scope !316
+  store ptr %37, ptr %0, align 8, !alias.scope !319
   br label %.loopexit
 
 40:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread
@@ -2215,13 +2216,13 @@ _ZN4llvm5ErrorD2Ev.exit19:                        ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvm4yaml25basic_collection_iteratorINS0_11MappingNodeENS0_12KeyValueNodeEEppEv.exit
 
 44:                                               ; preds = %40
-  %45 = load i64, ptr %4, align 8, !noalias !319
+  %45 = load i64, ptr %4, align 8, !noalias !322
   %46 = inttoptr i64 %45 to ptr
-  store ptr null, ptr %4, align 8, !noalias !319
+  store ptr null, ptr %4, align 8, !noalias !322
   %47 = load i8, ptr %21, align 8
   %48 = or i8 %47, 1
   store i8 %48, ptr %21, align 8
-  store ptr %46, ptr %0, align 8, !alias.scope !322
+  store ptr %46, ptr %0, align 8, !alias.scope !325
   br label %.loopexit
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread94:       ; preds = %33, %_ZN4llvmeqENS_9StringRefES0_.exit
@@ -2229,12 +2230,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread94:       ; preds = %33, %_ZN4llvmeqENS_
   br i1 %49, label %_ZN4llvm5ErrorD2Ev.exit24, label %53
 
 _ZN4llvm5ErrorD2Ev.exit24:                        ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread94
-  %50 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20, !noalias !325
-  call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %50, ptr nonnull @.str.32, i64 46, ptr noundef nonnull align 8 dereferenceable(64) %18, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(72) %25) #18, !noalias !325
+  %50 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20, !noalias !328
+  call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %50, ptr nonnull @.str.32, i64 46, ptr noundef nonnull align 8 dereferenceable(64) %18, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(72) %25) #18, !noalias !328
   %51 = load i8, ptr %21, align 8
   %52 = or i8 %51, 1
   store i8 %52, ptr %21, align 8
-  store ptr %50, ptr %0, align 8, !alias.scope !332
+  store ptr %50, ptr %0, align 8, !alias.scope !335
   br label %.loopexit
 
 53:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread94
@@ -2247,13 +2248,13 @@ _ZN4llvm5ErrorD2Ev.exit24:                        ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %58, label %59, label %64
 
 59:                                               ; preds = %53
-  %60 = load i64, ptr %5, align 8, !noalias !335
+  %60 = load i64, ptr %5, align 8, !noalias !338
   %61 = inttoptr i64 %60 to ptr
-  store ptr null, ptr %5, align 8, !noalias !335
+  store ptr null, ptr %5, align 8, !noalias !338
   %62 = load i8, ptr %21, align 8
   %63 = or i8 %62, 1
   store i8 %63, ptr %21, align 8
-  store ptr %61, ptr %0, align 8, !alias.scope !338
+  store ptr %61, ptr %0, align 8, !alias.scope !341
   br label %.loopexit
 
 64:                                               ; preds = %53
@@ -2278,13 +2279,13 @@ select.unfold._crit_edge:                         ; preds = %_ZN4llvm4yaml25basi
 _ZN4llvm5ErrorD2Ev.exit38:                        ; preds = %14, %select.unfold._crit_edge
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %69 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20, !noalias !341
-  call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %69, ptr nonnull @.str.33, i64 24, ptr noundef nonnull align 8 dereferenceable(64) %67, ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull align 8 dereferenceable(72) %spec.select.i.i) #18, !noalias !341
+  %69 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20, !noalias !344
+  call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %69, ptr nonnull @.str.33, i64 24, ptr noundef nonnull align 8 dereferenceable(64) %67, ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull align 8 dereferenceable(72) %spec.select.i.i) #18, !noalias !344
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %71 = load i8, ptr %70, align 8
   %72 = or i8 %71, 1
   store i8 %72, ptr %70, align 8
-  store ptr %69, ptr %0, align 8, !alias.scope !348
+  store ptr %69, ptr %0, align 8, !alias.scope !351
   br label %.loopexit
 
 73:                                               ; preds = %select.unfold._crit_edge
@@ -2295,12 +2296,12 @@ _ZN4llvm5ErrorD2Ev.exit38:                        ; preds = %14, %select.unfold.
 _ZN4llvm5ErrorD2Ev.exit39:                        ; preds = %73
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %78 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20, !noalias !351
-  call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %78, ptr nonnull @.str.34, i64 26, ptr noundef nonnull align 8 dereferenceable(64) %76, ptr noundef nonnull align 8 dereferenceable(16) %77, ptr noundef nonnull align 8 dereferenceable(72) %spec.select.i.i) #18, !noalias !351
+  %78 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20, !noalias !354
+  call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %78, ptr nonnull @.str.34, i64 26, ptr noundef nonnull align 8 dereferenceable(64) %76, ptr noundef nonnull align 8 dereferenceable(16) %77, ptr noundef nonnull align 8 dereferenceable(72) %spec.select.i.i) #18, !noalias !354
   %79 = load i8, ptr %75, align 8
   %80 = or i8 %79, 1
   store i8 %80, ptr %75, align 8
-  store ptr %78, ptr %0, align 8, !alias.scope !358
+  store ptr %78, ptr %0, align 8, !alias.scope !361
   br label %.loopexit
 
 81:                                               ; preds = %73
@@ -2392,13 +2393,13 @@ define dso_local void @_ZN4llvm7remarks16YAMLRemarkParser8parseStrERNS_4yaml12Ke
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %15 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20, !noalias !361
-  tail call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr nonnull @.str.22, i64 32, ptr noundef nonnull align 8 dereferenceable(64) %13, ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(72) %2) #18, !noalias !361
+  %15 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20, !noalias !364
+  tail call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr nonnull @.str.22, i64 32, ptr noundef nonnull align 8 dereferenceable(64) %13, ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(72) %2) #18, !noalias !364
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i8, ptr %16, align 8
   %18 = or i8 %17, 1
   store i8 %18, ptr %16, align 8
-  store ptr %15, ptr %0, align 8, !alias.scope !368
+  store ptr %15, ptr %0, align 8, !alias.scope !371
   br label %30
 
 19:                                               ; preds = %3, %8
@@ -2490,8 +2491,8 @@ _ZNK4llvm4yaml17document_iteratoreqERKS1_.exit:   ; preds = %9
   br i1 %spec.select.i, label %_ZN4llvm5ErrorD2Ev.exit, label %_ZNK4llvm4yaml17document_iteratoreqERKS1_.exit.thread8
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZNK4llvm4yaml17document_iterator7isAtEndEv.exit10.thread.i, %_ZNK4llvm4yaml17document_iteratoreqERKS1_.exit, %10
-  %14 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #20, !noalias !371
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm7remarks14EndOfFileErrorE, i64 16), ptr %14, align 8, !noalias !371
+  %14 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #20, !noalias !374
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm7remarks14EndOfFileErrorE, i64 16), ptr %14, align 8, !noalias !374
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i8, ptr %15, align 8
   %17 = or i8 %16, 1
@@ -2519,7 +2520,7 @@ _ZNK4llvm4yaml17document_iteratoreqERKS1_.exit.thread8: ; preds = %._ZNK4llvm4ya
 29:                                               ; preds = %_ZNK4llvm4yaml17document_iteratoreqERKS1_.exit.thread8
   %30 = tail call ptr @_ZN4llvm4yaml6Stream3endEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #18
   store ptr %30, ptr %4, align 8
-  %31 = load i64, ptr %3, align 8, !noalias !376
+  %31 = load i64, ptr %3, align 8, !noalias !379
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load i8, ptr %32, align 8
   %34 = or i8 %33, 1
@@ -2597,13 +2598,13 @@ define dso_local void @_ZN4llvm7remarks22YAMLStrTabRemarkParser8parseStrERNS_4ya
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %17 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20, !noalias !379
-  tail call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr nonnull @.str.22, i64 32, ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(72) %2) #18, !noalias !379
+  %17 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20, !noalias !382
+  tail call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr nonnull @.str.22, i64 32, ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(72) %2) #18, !noalias !382
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i8, ptr %18, align 8
   %20 = or i8 %19, 1
   store i8 %20, ptr %18, align 8
-  store ptr %17, ptr %0, align 8, !alias.scope !386
+  store ptr %17, ptr %0, align 8, !alias.scope !389
   br label %_ZN4llvm8ExpectedIjED2Ev.exit
 
 21:                                               ; preds = %3, %10
@@ -2614,14 +2615,14 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %10
   br i1 %24, label %25, label %31
 
 25:                                               ; preds = %21
-  %26 = load i64, ptr %4, align 8, !noalias !389
+  %26 = load i64, ptr %4, align 8, !noalias !392
   %27 = inttoptr i64 %26 to ptr
-  store ptr null, ptr %4, align 8, !noalias !389
+  store ptr null, ptr %4, align 8, !noalias !392
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i8, ptr %28, align 8
   %30 = or i8 %29, 1
   store i8 %30, ptr %28, align 8
-  store ptr %27, ptr %0, align 8, !alias.scope !392
+  store ptr %27, ptr %0, align 8, !alias.scope !395
   br label %_ZN4llvm8ExpectedIjED2Ev.exit
 
 31:                                               ; preds = %21
@@ -2635,13 +2636,13 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %10
   br i1 %37, label %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit.thread, label %43
 
 _ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit.thread: ; preds = %31
-  %38 = load i64, ptr %5, align 8, !noalias !395
+  %38 = load i64, ptr %5, align 8, !noalias !398
   %39 = inttoptr i64 %38 to ptr
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = load i8, ptr %40, align 8
   %42 = or i8 %41, 1
   store i8 %42, ptr %40, align 8
-  store ptr %39, ptr %0, align 8, !alias.scope !398
+  store ptr %39, ptr %0, align 8, !alias.scope !401
   br label %_ZN4llvm8ExpectedIjED2Ev.exit
 
 43:                                               ; preds = %31
@@ -2723,7 +2724,7 @@ _ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit: ; pred
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i) #18
   %13 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq ptr %13, %12
-  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !401
+  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !404
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %.lr.ph.i.i.i.i.i
   %.pr.i.i = load ptr, ptr %9, align 8
@@ -2755,7 +2756,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   tail call void @_ZN4llvm9SourceMgr9SrcBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %.05.i.i.i.i3.i) #18
   %24 = getelementptr inbounds i8, ptr %.05.i.i.i.i3.i, i64 24
   %.not.i.i.i.i4.i = icmp eq ptr %24, %23
-  br i1 %.not.i.i.i.i4.i, label %_ZSt8_DestroyIPN4llvm9SourceMgr9SrcBufferES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i2.i, !llvm.loop !403
+  br i1 %.not.i.i.i.i4.i, label %_ZSt8_DestroyIPN4llvm9SourceMgr9SrcBufferES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i2.i, !llvm.loop !406
 
 _ZSt8_DestroyIPN4llvm9SourceMgr9SrcBufferES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %.lr.ph.i.i.i.i2.i
   %.pr.i5.i = load ptr, ptr %8, align 8
@@ -3055,7 +3056,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %3
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit18
 
 8:                                                ; preds = %3
-  store ptr null, ptr %1, align 8, !noalias !404
+  store ptr null, ptr %1, align 8, !noalias !407
   %9 = load ptr, ptr %7, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 48
   %11 = load ptr, ptr %10, align 8
@@ -3077,30 +3078,30 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %3
   %19 = load i64, ptr %.sroa.023.035, align 8
   %20 = inttoptr i64 %19 to ptr
   store ptr null, ptr %.sroa.023.035, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !407)
-  %21 = load ptr, ptr %20, align 8, !noalias !407
+  call void @llvm.experimental.noalias.scope.decl(metadata !410)
+  %21 = load ptr, ptr %20, align 8, !noalias !410
   %22 = getelementptr inbounds i8, ptr %21, i64 48
-  %23 = load ptr, ptr %22, align 8, !noalias !407
-  %24 = call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull @_ZN4llvm13ErrorInfoBase2IDE) #18, !noalias !407
+  %23 = load ptr, ptr %22, align 8, !noalias !410
+  %24 = call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull @_ZN4llvm13ErrorInfoBase2IDE) #18, !noalias !410
   br i1 %24, label %25, label %_ZN4llvm5ErrorD2Ev.exit
 
 25:                                               ; preds = %.lr.ph
-  %26 = load ptr, ptr %2, align 8, !noalias !410
-  %27 = load ptr, ptr %26, align 8, !noalias !410
-  store ptr %20, ptr %26, align 8, !noalias !410
+  %26 = load ptr, ptr %2, align 8, !noalias !413
+  %27 = load ptr, ptr %26, align 8, !noalias !413
+  store ptr %20, ptr %26, align 8, !noalias !413
   %.not.i.i.i.i.i.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm5ErrorD2Ev.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i.i.i.i: ; preds = %25
-  %28 = load ptr, ptr %27, align 8, !noalias !410
+  %28 = load ptr, ptr %27, align 8, !noalias !413
   %29 = getelementptr inbounds i8, ptr %28, i64 8
-  %30 = load ptr, ptr %29, align 8, !noalias !410
-  call void %30(ptr noundef nonnull align 8 dereferenceable(8) %27) #18, !noalias !410
+  %30 = load ptr, ptr %29, align 8, !noalias !413
+  call void %30(ptr noundef nonnull align 8 dereferenceable(8) %27) #18, !noalias !413
   br label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i.i.i.i, %25, %.lr.ph
   %storemerge.i = phi ptr [ null, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i.i.i.i ], [ null, %25 ], [ %20, %.lr.ph ]
-  store ptr %storemerge.i, ptr %6, align 8, !alias.scope !407
+  store ptr %storemerge.i, ptr %6, align 8, !alias.scope !410
   call void @_ZN4llvm9ErrorList4joinENS_5ErrorES1_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %4, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %31 = load ptr, ptr %4, align 8
   store ptr null, ptr %4, align 8
@@ -3133,30 +3134,30 @@ _ZN4llvm5ErrorD2Ev.exit8:                         ; preds = %_ZNSt10unique_ptrIN
   br i1 %.not33, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i17, label %.lr.ph
 
 45:                                               ; preds = %8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !415)
-  %46 = load ptr, ptr %7, align 8, !noalias !415
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !418)
+  %46 = load ptr, ptr %7, align 8, !noalias !418
   %47 = getelementptr inbounds i8, ptr %46, i64 48
-  %48 = load ptr, ptr %47, align 8, !noalias !415
-  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @_ZN4llvm13ErrorInfoBase2IDE) #18, !noalias !415
+  %48 = load ptr, ptr %47, align 8, !noalias !418
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @_ZN4llvm13ErrorInfoBase2IDE) #18, !noalias !418
   br i1 %49, label %50, label %.thread
 
 50:                                               ; preds = %45
-  %51 = load ptr, ptr %2, align 8, !noalias !418
-  %52 = load ptr, ptr %51, align 8, !noalias !418
-  store ptr %7, ptr %51, align 8, !noalias !418
+  %51 = load ptr, ptr %2, align 8, !noalias !421
+  %52 = load ptr, ptr %51, align 8, !noalias !421
+  store ptr %7, ptr %51, align 8, !noalias !421
   %.not.i.i.i.i.i.i.i10 = icmp eq ptr %52, null
   br i1 %.not.i.i.i.i.i.i.i10, label %.thread, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i.i.i.i11
 
 _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i.i.i.i11: ; preds = %50
-  %53 = load ptr, ptr %52, align 8, !noalias !418
+  %53 = load ptr, ptr %52, align 8, !noalias !421
   %54 = getelementptr inbounds i8, ptr %53, i64 8
-  %55 = load ptr, ptr %54, align 8, !noalias !418
-  tail call void %55(ptr noundef nonnull align 8 dereferenceable(8) %52) #18, !noalias !418
+  %55 = load ptr, ptr %54, align 8, !noalias !421
+  tail call void %55(ptr noundef nonnull align 8 dereferenceable(8) %52) #18, !noalias !421
   br label %.thread
 
 .thread:                                          ; preds = %45, %50, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i.i.i.i11
   %storemerge.i9 = phi ptr [ null, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i.i.i.i11 ], [ null, %50 ], [ %7, %45 ]
-  store ptr %storemerge.i9, ptr %0, align 8, !alias.scope !415
+  store ptr %storemerge.i9, ptr %0, align 8, !alias.scope !418
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit18
 
 _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i17: ; preds = %_ZN4llvm5ErrorD2Ev.exit8, %13
@@ -3219,7 +3220,7 @@ _ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9:     ; preds = %17
   br i1 %23, label %24, label %_ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9.thread
 
 24:                                               ; preds = %_ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9
-  store ptr null, ptr %2, align 8, !noalias !423
+  store ptr null, ptr %2, align 8, !noalias !426
   %25 = getelementptr inbounds nuw i8, ptr %.pre52, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %.pre52, i64 16
@@ -3271,9 +3272,9 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i: ; preds = %24, %._
 
 _ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9.thread: ; preds = %17, %_ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9
   %44 = phi ptr [ null, %17 ], [ %.pre52, %_ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !426)
-  store ptr %44, ptr %4, align 8, !alias.scope !426
-  store ptr null, ptr %2, align 8, !noalias !426
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !429)
+  store ptr %44, ptr %4, align 8, !alias.scope !429
+  store ptr null, ptr %2, align 8, !noalias !429
   %45 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %18, i64 24
@@ -3325,10 +3326,10 @@ _ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit17:    ; preds = %57
   %64 = load ptr, ptr %2, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load ptr, ptr %65, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !429)
-  %67 = load ptr, ptr %1, align 8, !noalias !429
-  store ptr %67, ptr %5, align 8, !alias.scope !429
-  store ptr null, ptr %1, align 8, !noalias !429
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !432)
+  %67 = load ptr, ptr %1, align 8, !noalias !432
+  store ptr %67, ptr %5, align 8, !alias.scope !432
+  store ptr null, ptr %1, align 8, !noalias !432
   %68 = load ptr, ptr %65, align 8
   %69 = ptrtoint ptr %66 to i64
   %70 = ptrtoint ptr %68 to i64
@@ -3391,7 +3392,7 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i.i.i.i.i.i.i.i
 _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i
   %99 = add nsw i64 %.010.i.i.i.i.i.i.i.i, -1
   %100 = icmp sgt i64 %.010.i.i.i.i.i.i.i.i, 1
-  br i1 %100, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt13move_backwardIPSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EES6_ET0_T_S8_S7_.exit.i.i.i, !llvm.loop !432
+  br i1 %100, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt13move_backwardIPSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EES6_ET0_T_S8_S7_.exit.i.i.i, !llvm.loop !435
 
 _ZSt13move_backwardIPSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EES6_ET0_T_S8_S7_.exit.i.i.i: ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i.i.i.i, %81
   %101 = load ptr, ptr %82, align 8
@@ -3428,14 +3429,14 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit21: ; p
 
 _ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit17.thread: ; preds = %57, %_ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit17
   %110 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !433)
-  %111 = load ptr, ptr %1, align 8, !noalias !433
-  store ptr %111, ptr %6, align 8, !alias.scope !433
-  store ptr null, ptr %1, align 8, !noalias !433
   tail call void @llvm.experimental.noalias.scope.decl(metadata !436)
-  %112 = load ptr, ptr %2, align 8, !noalias !436
-  store ptr %112, ptr %7, align 8, !alias.scope !436
-  store ptr null, ptr %2, align 8, !noalias !436
+  %111 = load ptr, ptr %1, align 8, !noalias !436
+  store ptr %111, ptr %6, align 8, !alias.scope !436
+  store ptr null, ptr %1, align 8, !noalias !436
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !439)
+  %112 = load ptr, ptr %2, align 8, !noalias !439
+  store ptr %112, ptr %7, align 8, !alias.scope !439
+  store ptr null, ptr %2, align 8, !noalias !439
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm9ErrorListE, i64 16), ptr %110, align 8
   %113 = getelementptr inbounds nuw i8, ptr %110, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %113, i8 0, i64 24, i1 false)
@@ -3532,15 +3533,15 @@ _ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_E
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %28, %.lr.ph.i.i.i ], [ %23, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit ]
   %.0911.i.i.i = phi ptr [ %27, %.lr.ph.i.i.i ], [ %6, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !439)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !442)
-  %26 = load i64, ptr %.0911.i.i.i, align 8, !alias.scope !442, !noalias !439
-  store i64 %26, ptr %.012.i.i.i, align 8, !alias.scope !439, !noalias !442
-  store ptr null, ptr %.0911.i.i.i, align 8, !alias.scope !442, !noalias !439
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !445)
+  %26 = load i64, ptr %.0911.i.i.i, align 8, !alias.scope !445, !noalias !442
+  store i64 %26, ptr %.012.i.i.i, align 8, !alias.scope !442, !noalias !445
+  store ptr null, ptr %.0911.i.i.i, align 8, !alias.scope !445, !noalias !442
   %27 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 8
   %28 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %27, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %.lr.ph.i.i.i, !llvm.loop !444
+  br i1 %.not.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %.lr.ph.i.i.i, !llvm.loop !447
 
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit ], [ %28, %.lr.ph.i.i.i ]
@@ -3551,15 +3552,15 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i17
   %.012.i.i.i18 = phi ptr [ %32, %.lr.ph.i.i.i17 ], [ %29, %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ]
   %.0911.i.i.i19 = phi ptr [ %31, %.lr.ph.i.i.i17 ], [ %1, %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !445)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !448)
-  %30 = load i64, ptr %.0911.i.i.i19, align 8, !alias.scope !448, !noalias !445
-  store i64 %30, ptr %.012.i.i.i18, align 8, !alias.scope !445, !noalias !448
-  store ptr null, ptr %.0911.i.i.i19, align 8, !alias.scope !448, !noalias !445
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !451)
+  %30 = load i64, ptr %.0911.i.i.i19, align 8, !alias.scope !451, !noalias !448
+  store i64 %30, ptr %.012.i.i.i18, align 8, !alias.scope !448, !noalias !451
+  store ptr null, ptr %.0911.i.i.i19, align 8, !alias.scope !451, !noalias !448
   %31 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 8
   %32 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 8
   %.not.i.i.i20 = icmp eq ptr %31, %5
-  br i1 %.not.i.i.i20, label %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i17, !llvm.loop !444
+  br i1 %.not.i.i.i20, label %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i17, !llvm.loop !447
 
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22: ; preds = %.lr.ph.i.i.i17, %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit
   %.0.lcssa.i.i.i21 = phi ptr [ %29, %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ], [ %32, %.lr.ph.i.i.i17 ]
@@ -3701,7 +3702,7 @@ define linkonce_odr hidden void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAlloc
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %14, i64 noundef %13, i64 noundef 16) #18
   %15 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %.not.i = icmp eq ptr %15, %5
-  br i1 %.not.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15DeallocateSlabsEPPvS4_.exit, label %.lr.ph.i, !llvm.loop !450
+  br i1 %.not.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15DeallocateSlabsEPPvS4_.exit, label %.lr.ph.i, !llvm.loop !453
 
 _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15DeallocateSlabsEPPvS4_.exit: ; preds = %.lr.ph.i, %1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -3761,7 +3762,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN4llvm9StringRefESt4pairIKS1_S1_ESt10_S
   %6 = load ptr, ptr %5, align 8
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 64) #21
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !451
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !454
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -4044,369 +4045,372 @@ attributes #22 = { noreturn nounwind }
 !83 = distinct !{!83, !84, !"_ZN4llvm17createStringErrorESt10error_codePKc: argument 0"}
 !84 = distinct !{!84, !"_ZN4llvm17createStringErrorESt10error_codePKc"}
 !85 = !{!86}
-!86 = distinct !{!86, !87, !"_ZN4llvm15createFileErrorERKNS_5TwineENS_5ErrorE: argument 0"}
-!87 = distinct !{!87, !"_ZN4llvm15createFileErrorERKNS_5TwineENS_5ErrorE"}
+!86 = distinct !{!86, !87, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
+!87 = distinct !{!87, !"_ZN4llvm5Error11takePayloadEv"}
 !88 = !{!89}
-!89 = distinct !{!89, !90, !"_ZL7setupSMRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE: argument 0"}
-!90 = distinct !{!90, !"_ZL7setupSMRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"}
+!89 = distinct !{!89, !90, !"_ZN4llvm15createFileErrorERKNS_5TwineENS_5ErrorE: argument 0"}
+!90 = distinct !{!90, !"_ZN4llvm15createFileErrorERKNS_5TwineENS_5ErrorE"}
 !91 = !{!92}
 !92 = distinct !{!92, !93, !"_ZL7setupSMRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE: argument 0"}
 !93 = distinct !{!93, !"_ZL7setupSMRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"}
 !94 = !{!95}
-!95 = distinct !{!95, !96, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_: argument 0"}
-!96 = distinct !{!96, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_"}
-!97 = !{!98, !95}
-!98 = distinct !{!98, !99, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!99 = distinct !{!99, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!100 = !{!101, !103}
-!101 = distinct !{!101, !102, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!102 = distinct !{!102, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!103 = distinct !{!103, !104, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS_5ErrorEDpOT0_: argument 0"}
-!104 = distinct !{!104, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS_5ErrorEDpOT0_"}
-!105 = !{!106}
-!106 = distinct !{!106, !107, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
-!107 = distinct !{!107, !"_ZN4llvm5Error11takePayloadEv"}
+!95 = distinct !{!95, !96, !"_ZL7setupSMRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE: argument 0"}
+!96 = distinct !{!96, !"_ZL7setupSMRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"}
+!97 = !{!98}
+!98 = distinct !{!98, !99, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_: argument 0"}
+!99 = distinct !{!99, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_"}
+!100 = !{!101, !98}
+!101 = distinct !{!101, !102, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!102 = distinct !{!102, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!103 = !{!104, !106}
+!104 = distinct !{!104, !105, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!105 = distinct !{!105, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!106 = distinct !{!106, !107, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS_5ErrorEDpOT0_: argument 0"}
+!107 = distinct !{!107, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS_5ErrorEDpOT0_"}
 !108 = !{!109}
-!109 = distinct !{!109, !110, !"_ZN4llvm17createStringErrorESt10error_codePKc: argument 0"}
-!110 = distinct !{!110, !"_ZN4llvm17createStringErrorESt10error_codePKc"}
+!109 = distinct !{!109, !110, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
+!110 = distinct !{!110, !"_ZN4llvm5Error11takePayloadEv"}
 !111 = !{!112}
-!112 = distinct !{!112, !113, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
-!113 = distinct !{!113, !"_ZN4llvm5Error11takePayloadEv"}
-!114 = !{!115, !117, !119}
-!115 = distinct !{!115, !116, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!116 = distinct !{!116, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!117 = distinct !{!117, !118, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_: argument 0"}
-!118 = distinct !{!118, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_"}
-!119 = distinct !{!119, !120, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE: argument 0"}
-!120 = distinct !{!120, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE"}
-!121 = !{!122}
-!122 = distinct !{!122, !123, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
-!123 = distinct !{!123, !"_ZN4llvm5Error11takePayloadEv"}
+!112 = distinct !{!112, !113, !"_ZN4llvm17createStringErrorESt10error_codePKc: argument 0"}
+!113 = distinct !{!113, !"_ZN4llvm17createStringErrorESt10error_codePKc"}
+!114 = !{!115}
+!115 = distinct !{!115, !116, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
+!116 = distinct !{!116, !"_ZN4llvm5Error11takePayloadEv"}
+!117 = !{!118, !120, !122}
+!118 = distinct !{!118, !119, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!119 = distinct !{!119, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!120 = distinct !{!120, !121, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_: argument 0"}
+!121 = distinct !{!121, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_"}
+!122 = distinct !{!122, !123, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE: argument 0"}
+!123 = distinct !{!123, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE"}
 !124 = !{!125}
-!125 = distinct !{!125, !126, !"_ZSt11make_uniqueIN4llvm7remarks6RemarkEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!126 = distinct !{!126, !"_ZSt11make_uniqueIN4llvm7remarks6RemarkEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!125 = distinct !{!125, !126, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
+!126 = distinct !{!126, !"_ZN4llvm5Error11takePayloadEv"}
 !127 = !{!128}
-!128 = distinct !{!128, !129, !"_ZN4llvm8ExpectedINS_7remarks4TypeEE9takeErrorEv: argument 0"}
-!129 = distinct !{!129, !"_ZN4llvm8ExpectedINS_7remarks4TypeEE9takeErrorEv"}
+!128 = distinct !{!128, !129, !"_ZSt11make_uniqueIN4llvm7remarks6RemarkEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!129 = distinct !{!129, !"_ZSt11make_uniqueIN4llvm7remarks6RemarkEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !130 = !{!131}
-!131 = distinct !{!131, !132, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
-!132 = distinct !{!132, !"_ZN4llvm5Error11takePayloadEv"}
+!131 = distinct !{!131, !132, !"_ZN4llvm8ExpectedINS_7remarks4TypeEE9takeErrorEv: argument 0"}
+!132 = distinct !{!132, !"_ZN4llvm8ExpectedINS_7remarks4TypeEE9takeErrorEv"}
 !133 = !{!134}
-!134 = distinct !{!134, !135, !"_ZN4llvm7remarks16YAMLRemarkParser8parseKeyERNS_4yaml12KeyValueNodeE: argument 0"}
-!135 = distinct !{!135, !"_ZN4llvm7remarks16YAMLRemarkParser8parseKeyERNS_4yaml12KeyValueNodeE"}
-!136 = !{!137, !139, !141, !134}
-!137 = distinct !{!137, !138, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!138 = distinct !{!138, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!139 = distinct !{!139, !140, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_: argument 0"}
-!140 = distinct !{!140, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_"}
-!141 = distinct !{!141, !142, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE: argument 0"}
-!142 = distinct !{!142, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE"}
-!143 = !{!144}
-!144 = distinct !{!144, !145, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
-!145 = distinct !{!145, !"_ZN4llvm5Error11takePayloadEv"}
+!134 = distinct !{!134, !135, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
+!135 = distinct !{!135, !"_ZN4llvm5Error11takePayloadEv"}
+!136 = !{!137}
+!137 = distinct !{!137, !138, !"_ZN4llvm7remarks16YAMLRemarkParser8parseKeyERNS_4yaml12KeyValueNodeE: argument 0"}
+!138 = distinct !{!138, !"_ZN4llvm7remarks16YAMLRemarkParser8parseKeyERNS_4yaml12KeyValueNodeE"}
+!139 = !{!140, !142, !144, !137}
+!140 = distinct !{!140, !141, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!141 = distinct !{!141, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!142 = distinct !{!142, !143, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_: argument 0"}
+!143 = distinct !{!143, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_"}
+!144 = distinct !{!144, !145, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE: argument 0"}
+!145 = distinct !{!145, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE"}
 !146 = !{!147}
-!147 = distinct !{!147, !148, !"_ZN4llvm8ExpectedIjE9takeErrorEv: argument 0"}
-!148 = distinct !{!148, !"_ZN4llvm8ExpectedIjE9takeErrorEv"}
+!147 = distinct !{!147, !148, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
+!148 = distinct !{!148, !"_ZN4llvm5Error11takePayloadEv"}
 !149 = !{!150}
-!150 = distinct !{!150, !151, !"_ZN4llvm8ExpectedINS_7remarks14RemarkLocationEE9takeErrorEv: argument 0"}
-!151 = distinct !{!151, !"_ZN4llvm8ExpectedINS_7remarks14RemarkLocationEE9takeErrorEv"}
-!152 = !{!153, !155, !157}
-!153 = distinct !{!153, !154, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!154 = distinct !{!154, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!155 = distinct !{!155, !156, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_: argument 0"}
-!156 = distinct !{!156, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_"}
-!157 = distinct !{!157, !158, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE: argument 0"}
-!158 = distinct !{!158, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE"}
-!159 = !{!160}
-!160 = distinct !{!160, !161, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
-!161 = distinct !{!161, !"_ZN4llvm5Error11takePayloadEv"}
+!150 = distinct !{!150, !151, !"_ZN4llvm8ExpectedIjE9takeErrorEv: argument 0"}
+!151 = distinct !{!151, !"_ZN4llvm8ExpectedIjE9takeErrorEv"}
+!152 = !{!153}
+!153 = distinct !{!153, !154, !"_ZN4llvm8ExpectedINS_7remarks14RemarkLocationEE9takeErrorEv: argument 0"}
+!154 = distinct !{!154, !"_ZN4llvm8ExpectedINS_7remarks14RemarkLocationEE9takeErrorEv"}
+!155 = !{!156, !158, !160}
+!156 = distinct !{!156, !157, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!157 = distinct !{!157, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!158 = distinct !{!158, !159, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_: argument 0"}
+!159 = distinct !{!159, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_"}
+!160 = distinct !{!160, !161, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE: argument 0"}
+!161 = distinct !{!161, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE"}
 !162 = !{!163}
-!163 = distinct !{!163, !164, !"_ZN4llvm8ExpectedINS_7remarks8ArgumentEE9takeErrorEv: argument 0"}
-!164 = distinct !{!164, !"_ZN4llvm8ExpectedINS_7remarks8ArgumentEE9takeErrorEv"}
-!165 = !{!166, !168, !170}
-!166 = distinct !{!166, !167, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!167 = distinct !{!167, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!168 = distinct !{!168, !169, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_: argument 0"}
-!169 = distinct !{!169, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_"}
-!170 = distinct !{!170, !171, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE: argument 0"}
-!171 = distinct !{!171, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE"}
-!172 = !{!173}
-!173 = distinct !{!173, !174, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
-!174 = distinct !{!174, !"_ZN4llvm5Error11takePayloadEv"}
+!163 = distinct !{!163, !164, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
+!164 = distinct !{!164, !"_ZN4llvm5Error11takePayloadEv"}
+!165 = !{!166}
+!166 = distinct !{!166, !167, !"_ZN4llvm8ExpectedINS_7remarks8ArgumentEE9takeErrorEv: argument 0"}
+!167 = distinct !{!167, !"_ZN4llvm8ExpectedINS_7remarks8ArgumentEE9takeErrorEv"}
+!168 = !{!169, !171, !173}
+!169 = distinct !{!169, !170, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!170 = distinct !{!170, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!171 = distinct !{!171, !172, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_: argument 0"}
+!172 = distinct !{!172, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_"}
+!173 = distinct !{!173, !174, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE: argument 0"}
+!174 = distinct !{!174, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE"}
 !175 = !{!176}
 !176 = distinct !{!176, !177, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
 !177 = distinct !{!177, !"_ZN4llvm5Error11takePayloadEv"}
-!178 = !{!179, !181, !183}
-!179 = distinct !{!179, !180, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!180 = distinct !{!180, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!181 = distinct !{!181, !182, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_: argument 0"}
-!182 = distinct !{!182, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_"}
-!183 = distinct !{!183, !184, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE: argument 0"}
-!184 = distinct !{!184, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE"}
-!185 = !{!186}
-!186 = distinct !{!186, !187, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
-!187 = distinct !{!187, !"_ZN4llvm5Error11takePayloadEv"}
-!188 = !{!189, !191, !193}
-!189 = distinct !{!189, !190, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!190 = distinct !{!190, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!191 = distinct !{!191, !192, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_: argument 0"}
-!192 = distinct !{!192, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_"}
-!193 = distinct !{!193, !194, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE: argument 0"}
-!194 = distinct !{!194, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE"}
-!195 = !{!196}
-!196 = distinct !{!196, !197, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
-!197 = distinct !{!197, !"_ZN4llvm5Error11takePayloadEv"}
-!198 = !{!199, !201, !203}
-!199 = distinct !{!199, !200, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!200 = distinct !{!200, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!201 = distinct !{!201, !202, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_: argument 0"}
-!202 = distinct !{!202, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_"}
-!203 = distinct !{!203, !204, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE: argument 0"}
-!204 = distinct !{!204, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE"}
-!205 = !{!206, !208, !210}
-!206 = distinct !{!206, !207, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!207 = distinct !{!207, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!208 = distinct !{!208, !209, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_: argument 0"}
-!209 = distinct !{!209, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_"}
-!210 = distinct !{!210, !211, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE: argument 0"}
-!211 = distinct !{!211, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE"}
-!212 = !{!213}
-!213 = distinct !{!213, !214, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
-!214 = distinct !{!214, !"_ZN4llvm5Error11takePayloadEv"}
-!215 = !{!216, !218, !220}
-!216 = distinct !{!216, !217, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!217 = distinct !{!217, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!218 = distinct !{!218, !219, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_: argument 0"}
-!219 = distinct !{!219, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_"}
-!220 = distinct !{!220, !221, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE: argument 0"}
-!221 = distinct !{!221, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE"}
-!222 = !{!223}
-!223 = distinct !{!223, !224, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
-!224 = distinct !{!224, !"_ZN4llvm5Error11takePayloadEv"}
-!225 = !{!226, !228, !230}
-!226 = distinct !{!226, !227, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!227 = distinct !{!227, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!228 = distinct !{!228, !229, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_: argument 0"}
-!229 = distinct !{!229, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_"}
-!230 = distinct !{!230, !231, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE: argument 0"}
-!231 = distinct !{!231, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE"}
-!232 = !{!233}
-!233 = distinct !{!233, !234, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
-!234 = distinct !{!234, !"_ZN4llvm5Error11takePayloadEv"}
+!178 = !{!179}
+!179 = distinct !{!179, !180, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
+!180 = distinct !{!180, !"_ZN4llvm5Error11takePayloadEv"}
+!181 = !{!182, !184, !186}
+!182 = distinct !{!182, !183, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!183 = distinct !{!183, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!184 = distinct !{!184, !185, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_: argument 0"}
+!185 = distinct !{!185, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_"}
+!186 = distinct !{!186, !187, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE: argument 0"}
+!187 = distinct !{!187, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE"}
+!188 = !{!189}
+!189 = distinct !{!189, !190, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
+!190 = distinct !{!190, !"_ZN4llvm5Error11takePayloadEv"}
+!191 = !{!192, !194, !196}
+!192 = distinct !{!192, !193, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!193 = distinct !{!193, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!194 = distinct !{!194, !195, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_: argument 0"}
+!195 = distinct !{!195, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_"}
+!196 = distinct !{!196, !197, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE: argument 0"}
+!197 = distinct !{!197, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE"}
+!198 = !{!199}
+!199 = distinct !{!199, !200, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
+!200 = distinct !{!200, !"_ZN4llvm5Error11takePayloadEv"}
+!201 = !{!202, !204, !206}
+!202 = distinct !{!202, !203, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!203 = distinct !{!203, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!204 = distinct !{!204, !205, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_: argument 0"}
+!205 = distinct !{!205, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_"}
+!206 = distinct !{!206, !207, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE: argument 0"}
+!207 = distinct !{!207, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE"}
+!208 = !{!209, !211, !213}
+!209 = distinct !{!209, !210, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!210 = distinct !{!210, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!211 = distinct !{!211, !212, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_: argument 0"}
+!212 = distinct !{!212, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_"}
+!213 = distinct !{!213, !214, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE: argument 0"}
+!214 = distinct !{!214, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE"}
+!215 = !{!216}
+!216 = distinct !{!216, !217, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
+!217 = distinct !{!217, !"_ZN4llvm5Error11takePayloadEv"}
+!218 = !{!219, !221, !223}
+!219 = distinct !{!219, !220, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!220 = distinct !{!220, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!221 = distinct !{!221, !222, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_: argument 0"}
+!222 = distinct !{!222, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_"}
+!223 = distinct !{!223, !224, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE: argument 0"}
+!224 = distinct !{!224, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE"}
+!225 = !{!226}
+!226 = distinct !{!226, !227, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
+!227 = distinct !{!227, !"_ZN4llvm5Error11takePayloadEv"}
+!228 = !{!229, !231, !233}
+!229 = distinct !{!229, !230, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!230 = distinct !{!230, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!231 = distinct !{!231, !232, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_: argument 0"}
+!232 = distinct !{!232, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_"}
+!233 = distinct !{!233, !234, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE: argument 0"}
+!234 = distinct !{!234, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE"}
 !235 = !{!236}
-!236 = distinct !{!236, !237, !"_ZN4llvm7remarks16YAMLRemarkParser8parseKeyERNS_4yaml12KeyValueNodeE: argument 0"}
-!237 = distinct !{!237, !"_ZN4llvm7remarks16YAMLRemarkParser8parseKeyERNS_4yaml12KeyValueNodeE"}
-!238 = !{!239, !241, !243, !236}
-!239 = distinct !{!239, !240, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!240 = distinct !{!240, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!241 = distinct !{!241, !242, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_: argument 0"}
-!242 = distinct !{!242, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_"}
-!243 = distinct !{!243, !244, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE: argument 0"}
-!244 = distinct !{!244, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE"}
-!245 = !{!246}
-!246 = distinct !{!246, !247, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
-!247 = distinct !{!247, !"_ZN4llvm5Error11takePayloadEv"}
+!236 = distinct !{!236, !237, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
+!237 = distinct !{!237, !"_ZN4llvm5Error11takePayloadEv"}
+!238 = !{!239}
+!239 = distinct !{!239, !240, !"_ZN4llvm7remarks16YAMLRemarkParser8parseKeyERNS_4yaml12KeyValueNodeE: argument 0"}
+!240 = distinct !{!240, !"_ZN4llvm7remarks16YAMLRemarkParser8parseKeyERNS_4yaml12KeyValueNodeE"}
+!241 = !{!242, !244, !246, !239}
+!242 = distinct !{!242, !243, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!243 = distinct !{!243, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!244 = distinct !{!244, !245, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_: argument 0"}
+!245 = distinct !{!245, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_"}
+!246 = distinct !{!246, !247, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE: argument 0"}
+!247 = distinct !{!247, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE"}
 !248 = !{!249}
-!249 = distinct !{!249, !250, !"_ZN4llvm8ExpectedINS_9StringRefEE9takeErrorEv: argument 0"}
-!250 = distinct !{!250, !"_ZN4llvm8ExpectedINS_9StringRefEE9takeErrorEv"}
+!249 = distinct !{!249, !250, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
+!250 = distinct !{!250, !"_ZN4llvm5Error11takePayloadEv"}
 !251 = !{!252}
-!252 = distinct !{!252, !253, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
-!253 = distinct !{!253, !"_ZN4llvm5Error11takePayloadEv"}
+!252 = distinct !{!252, !253, !"_ZN4llvm8ExpectedINS_9StringRefEE9takeErrorEv: argument 0"}
+!253 = distinct !{!253, !"_ZN4llvm8ExpectedINS_9StringRefEE9takeErrorEv"}
 !254 = !{!255}
-!255 = distinct !{!255, !256, !"_ZN4llvm8ExpectedIjE9takeErrorEv: argument 0"}
-!256 = distinct !{!256, !"_ZN4llvm8ExpectedIjE9takeErrorEv"}
+!255 = distinct !{!255, !256, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
+!256 = distinct !{!256, !"_ZN4llvm5Error11takePayloadEv"}
 !257 = !{!258}
-!258 = distinct !{!258, !259, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
-!259 = distinct !{!259, !"_ZN4llvm5Error11takePayloadEv"}
+!258 = distinct !{!258, !259, !"_ZN4llvm8ExpectedIjE9takeErrorEv: argument 0"}
+!259 = distinct !{!259, !"_ZN4llvm8ExpectedIjE9takeErrorEv"}
 !260 = !{!261}
-!261 = distinct !{!261, !262, !"_ZN4llvm8ExpectedIjE9takeErrorEv: argument 0"}
-!262 = distinct !{!262, !"_ZN4llvm8ExpectedIjE9takeErrorEv"}
+!261 = distinct !{!261, !262, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
+!262 = distinct !{!262, !"_ZN4llvm5Error11takePayloadEv"}
 !263 = !{!264}
-!264 = distinct !{!264, !265, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
-!265 = distinct !{!265, !"_ZN4llvm5Error11takePayloadEv"}
-!266 = !{!267, !269, !271}
-!267 = distinct !{!267, !268, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!268 = distinct !{!268, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!269 = distinct !{!269, !270, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_: argument 0"}
-!270 = distinct !{!270, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_"}
-!271 = distinct !{!271, !272, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE: argument 0"}
-!272 = distinct !{!272, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE"}
-!273 = !{!274}
-!274 = distinct !{!274, !275, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
-!275 = distinct !{!275, !"_ZN4llvm5Error11takePayloadEv"}
-!276 = !{!277, !279, !281}
-!277 = distinct !{!277, !278, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!278 = distinct !{!278, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!279 = distinct !{!279, !280, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_: argument 0"}
-!280 = distinct !{!280, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_"}
-!281 = distinct !{!281, !282, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE: argument 0"}
-!282 = distinct !{!282, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE"}
-!283 = !{!284}
-!284 = distinct !{!284, !285, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
-!285 = distinct !{!285, !"_ZN4llvm5Error11takePayloadEv"}
-!286 = !{!287, !289, !291}
-!287 = distinct !{!287, !288, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!288 = distinct !{!288, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!289 = distinct !{!289, !290, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_: argument 0"}
-!290 = distinct !{!290, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_"}
-!291 = distinct !{!291, !292, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE: argument 0"}
-!292 = distinct !{!292, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE"}
-!293 = !{!294}
-!294 = distinct !{!294, !295, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
-!295 = distinct !{!295, !"_ZN4llvm5Error11takePayloadEv"}
+!264 = distinct !{!264, !265, !"_ZN4llvm8ExpectedIjE9takeErrorEv: argument 0"}
+!265 = distinct !{!265, !"_ZN4llvm8ExpectedIjE9takeErrorEv"}
+!266 = !{!267}
+!267 = distinct !{!267, !268, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
+!268 = distinct !{!268, !"_ZN4llvm5Error11takePayloadEv"}
+!269 = !{!270, !272, !274}
+!270 = distinct !{!270, !271, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!271 = distinct !{!271, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!272 = distinct !{!272, !273, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_: argument 0"}
+!273 = distinct !{!273, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_"}
+!274 = distinct !{!274, !275, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE: argument 0"}
+!275 = distinct !{!275, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE"}
+!276 = !{!277}
+!277 = distinct !{!277, !278, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
+!278 = distinct !{!278, !"_ZN4llvm5Error11takePayloadEv"}
+!279 = !{!280, !282, !284}
+!280 = distinct !{!280, !281, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!281 = distinct !{!281, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!282 = distinct !{!282, !283, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_: argument 0"}
+!283 = distinct !{!283, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_"}
+!284 = distinct !{!284, !285, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE: argument 0"}
+!285 = distinct !{!285, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE"}
+!286 = !{!287}
+!287 = distinct !{!287, !288, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
+!288 = distinct !{!288, !"_ZN4llvm5Error11takePayloadEv"}
+!289 = !{!290, !292, !294}
+!290 = distinct !{!290, !291, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!291 = distinct !{!291, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!292 = distinct !{!292, !293, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_: argument 0"}
+!293 = distinct !{!293, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_"}
+!294 = distinct !{!294, !295, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE: argument 0"}
+!295 = distinct !{!295, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE"}
 !296 = !{!297}
-!297 = distinct !{!297, !298, !"_ZN4llvm7remarks16YAMLRemarkParser8parseKeyERNS_4yaml12KeyValueNodeE: argument 0"}
-!298 = distinct !{!298, !"_ZN4llvm7remarks16YAMLRemarkParser8parseKeyERNS_4yaml12KeyValueNodeE"}
-!299 = !{!300, !302, !304, !297}
-!300 = distinct !{!300, !301, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!301 = distinct !{!301, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!302 = distinct !{!302, !303, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_: argument 0"}
-!303 = distinct !{!303, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_"}
-!304 = distinct !{!304, !305, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE: argument 0"}
-!305 = distinct !{!305, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE"}
-!306 = !{!307}
-!307 = distinct !{!307, !308, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
-!308 = distinct !{!308, !"_ZN4llvm5Error11takePayloadEv"}
-!309 = !{!310, !312, !314}
-!310 = distinct !{!310, !311, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!311 = distinct !{!311, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!312 = distinct !{!312, !313, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_: argument 0"}
-!313 = distinct !{!313, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_"}
-!314 = distinct !{!314, !315, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE: argument 0"}
-!315 = distinct !{!315, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE"}
-!316 = !{!317}
-!317 = distinct !{!317, !318, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
-!318 = distinct !{!318, !"_ZN4llvm5Error11takePayloadEv"}
+!297 = distinct !{!297, !298, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
+!298 = distinct !{!298, !"_ZN4llvm5Error11takePayloadEv"}
+!299 = !{!300}
+!300 = distinct !{!300, !301, !"_ZN4llvm7remarks16YAMLRemarkParser8parseKeyERNS_4yaml12KeyValueNodeE: argument 0"}
+!301 = distinct !{!301, !"_ZN4llvm7remarks16YAMLRemarkParser8parseKeyERNS_4yaml12KeyValueNodeE"}
+!302 = !{!303, !305, !307, !300}
+!303 = distinct !{!303, !304, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!304 = distinct !{!304, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!305 = distinct !{!305, !306, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_: argument 0"}
+!306 = distinct !{!306, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_"}
+!307 = distinct !{!307, !308, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE: argument 0"}
+!308 = distinct !{!308, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE"}
+!309 = !{!310}
+!310 = distinct !{!310, !311, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
+!311 = distinct !{!311, !"_ZN4llvm5Error11takePayloadEv"}
+!312 = !{!313, !315, !317}
+!313 = distinct !{!313, !314, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!314 = distinct !{!314, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!315 = distinct !{!315, !316, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_: argument 0"}
+!316 = distinct !{!316, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_"}
+!317 = distinct !{!317, !318, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE: argument 0"}
+!318 = distinct !{!318, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE"}
 !319 = !{!320}
-!320 = distinct !{!320, !321, !"_ZN4llvm8ExpectedINS_7remarks14RemarkLocationEE9takeErrorEv: argument 0"}
-!321 = distinct !{!321, !"_ZN4llvm8ExpectedINS_7remarks14RemarkLocationEE9takeErrorEv"}
+!320 = distinct !{!320, !321, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
+!321 = distinct !{!321, !"_ZN4llvm5Error11takePayloadEv"}
 !322 = !{!323}
-!323 = distinct !{!323, !324, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
-!324 = distinct !{!324, !"_ZN4llvm5Error11takePayloadEv"}
-!325 = !{!326, !328, !330}
-!326 = distinct !{!326, !327, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!327 = distinct !{!327, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!328 = distinct !{!328, !329, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_: argument 0"}
-!329 = distinct !{!329, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_"}
-!330 = distinct !{!330, !331, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE: argument 0"}
-!331 = distinct !{!331, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE"}
-!332 = !{!333}
-!333 = distinct !{!333, !334, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
-!334 = distinct !{!334, !"_ZN4llvm5Error11takePayloadEv"}
+!323 = distinct !{!323, !324, !"_ZN4llvm8ExpectedINS_7remarks14RemarkLocationEE9takeErrorEv: argument 0"}
+!324 = distinct !{!324, !"_ZN4llvm8ExpectedINS_7remarks14RemarkLocationEE9takeErrorEv"}
+!325 = !{!326}
+!326 = distinct !{!326, !327, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
+!327 = distinct !{!327, !"_ZN4llvm5Error11takePayloadEv"}
+!328 = !{!329, !331, !333}
+!329 = distinct !{!329, !330, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!330 = distinct !{!330, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!331 = distinct !{!331, !332, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_: argument 0"}
+!332 = distinct !{!332, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_"}
+!333 = distinct !{!333, !334, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE: argument 0"}
+!334 = distinct !{!334, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE"}
 !335 = !{!336}
-!336 = distinct !{!336, !337, !"_ZN4llvm8ExpectedINS_9StringRefEE9takeErrorEv: argument 0"}
-!337 = distinct !{!337, !"_ZN4llvm8ExpectedINS_9StringRefEE9takeErrorEv"}
+!336 = distinct !{!336, !337, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
+!337 = distinct !{!337, !"_ZN4llvm5Error11takePayloadEv"}
 !338 = !{!339}
-!339 = distinct !{!339, !340, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
-!340 = distinct !{!340, !"_ZN4llvm5Error11takePayloadEv"}
-!341 = !{!342, !344, !346}
-!342 = distinct !{!342, !343, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!343 = distinct !{!343, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!344 = distinct !{!344, !345, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_: argument 0"}
-!345 = distinct !{!345, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_"}
-!346 = distinct !{!346, !347, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE: argument 0"}
-!347 = distinct !{!347, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE"}
-!348 = !{!349}
-!349 = distinct !{!349, !350, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
-!350 = distinct !{!350, !"_ZN4llvm5Error11takePayloadEv"}
-!351 = !{!352, !354, !356}
-!352 = distinct !{!352, !353, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!353 = distinct !{!353, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!354 = distinct !{!354, !355, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_: argument 0"}
-!355 = distinct !{!355, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_"}
-!356 = distinct !{!356, !357, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE: argument 0"}
-!357 = distinct !{!357, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE"}
-!358 = !{!359}
-!359 = distinct !{!359, !360, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
-!360 = distinct !{!360, !"_ZN4llvm5Error11takePayloadEv"}
-!361 = !{!362, !364, !366}
-!362 = distinct !{!362, !363, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!363 = distinct !{!363, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!364 = distinct !{!364, !365, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_: argument 0"}
-!365 = distinct !{!365, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_"}
-!366 = distinct !{!366, !367, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE: argument 0"}
-!367 = distinct !{!367, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE"}
-!368 = !{!369}
-!369 = distinct !{!369, !370, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
-!370 = distinct !{!370, !"_ZN4llvm5Error11takePayloadEv"}
-!371 = !{!372, !374}
-!372 = distinct !{!372, !373, !"_ZSt11make_uniqueIN4llvm7remarks14EndOfFileErrorEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!373 = distinct !{!373, !"_ZSt11make_uniqueIN4llvm7remarks14EndOfFileErrorEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!374 = distinct !{!374, !375, !"_ZN4llvm10make_errorINS_7remarks14EndOfFileErrorEJEEENS_5ErrorEDpOT0_: argument 0"}
-!375 = distinct !{!375, !"_ZN4llvm10make_errorINS_7remarks14EndOfFileErrorEJEEENS_5ErrorEDpOT0_"}
-!376 = !{!377}
-!377 = distinct !{!377, !378, !"_ZN4llvm8ExpectedISt10unique_ptrINS_7remarks6RemarkESt14default_deleteIS3_EEE9takeErrorEv: argument 0"}
-!378 = distinct !{!378, !"_ZN4llvm8ExpectedISt10unique_ptrINS_7remarks6RemarkESt14default_deleteIS3_EEE9takeErrorEv"}
-!379 = !{!380, !382, !384}
-!380 = distinct !{!380, !381, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!381 = distinct !{!381, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!382 = distinct !{!382, !383, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_: argument 0"}
-!383 = distinct !{!383, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_"}
-!384 = distinct !{!384, !385, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE: argument 0"}
-!385 = distinct !{!385, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE"}
-!386 = !{!387}
-!387 = distinct !{!387, !388, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
-!388 = distinct !{!388, !"_ZN4llvm5Error11takePayloadEv"}
+!339 = distinct !{!339, !340, !"_ZN4llvm8ExpectedINS_9StringRefEE9takeErrorEv: argument 0"}
+!340 = distinct !{!340, !"_ZN4llvm8ExpectedINS_9StringRefEE9takeErrorEv"}
+!341 = !{!342}
+!342 = distinct !{!342, !343, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
+!343 = distinct !{!343, !"_ZN4llvm5Error11takePayloadEv"}
+!344 = !{!345, !347, !349}
+!345 = distinct !{!345, !346, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!346 = distinct !{!346, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!347 = distinct !{!347, !348, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_: argument 0"}
+!348 = distinct !{!348, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_"}
+!349 = distinct !{!349, !350, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE: argument 0"}
+!350 = distinct !{!350, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE"}
+!351 = !{!352}
+!352 = distinct !{!352, !353, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
+!353 = distinct !{!353, !"_ZN4llvm5Error11takePayloadEv"}
+!354 = !{!355, !357, !359}
+!355 = distinct !{!355, !356, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!356 = distinct !{!356, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!357 = distinct !{!357, !358, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_: argument 0"}
+!358 = distinct !{!358, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_"}
+!359 = distinct !{!359, !360, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE: argument 0"}
+!360 = distinct !{!360, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE"}
+!361 = !{!362}
+!362 = distinct !{!362, !363, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
+!363 = distinct !{!363, !"_ZN4llvm5Error11takePayloadEv"}
+!364 = !{!365, !367, !369}
+!365 = distinct !{!365, !366, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!366 = distinct !{!366, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!367 = distinct !{!367, !368, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_: argument 0"}
+!368 = distinct !{!368, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_"}
+!369 = distinct !{!369, !370, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE: argument 0"}
+!370 = distinct !{!370, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE"}
+!371 = !{!372}
+!372 = distinct !{!372, !373, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
+!373 = distinct !{!373, !"_ZN4llvm5Error11takePayloadEv"}
+!374 = !{!375, !377}
+!375 = distinct !{!375, !376, !"_ZSt11make_uniqueIN4llvm7remarks14EndOfFileErrorEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!376 = distinct !{!376, !"_ZSt11make_uniqueIN4llvm7remarks14EndOfFileErrorEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!377 = distinct !{!377, !378, !"_ZN4llvm10make_errorINS_7remarks14EndOfFileErrorEJEEENS_5ErrorEDpOT0_: argument 0"}
+!378 = distinct !{!378, !"_ZN4llvm10make_errorINS_7remarks14EndOfFileErrorEJEEENS_5ErrorEDpOT0_"}
+!379 = !{!380}
+!380 = distinct !{!380, !381, !"_ZN4llvm8ExpectedISt10unique_ptrINS_7remarks6RemarkESt14default_deleteIS3_EEE9takeErrorEv: argument 0"}
+!381 = distinct !{!381, !"_ZN4llvm8ExpectedISt10unique_ptrINS_7remarks6RemarkESt14default_deleteIS3_EEE9takeErrorEv"}
+!382 = !{!383, !385, !387}
+!383 = distinct !{!383, !384, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!384 = distinct !{!384, !"_ZSt11make_uniqueIN4llvm7remarks14YAMLParseErrorEJRNS0_9StringRefERNS0_9SourceMgrERNS0_4yaml6StreamERNS7_4NodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!385 = distinct !{!385, !386, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_: argument 0"}
+!386 = distinct !{!386, !"_ZN4llvm10make_errorINS_7remarks14YAMLParseErrorEJRNS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS7_4NodeEEEENS_5ErrorEDpOT0_"}
+!387 = distinct !{!387, !388, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE: argument 0"}
+!388 = distinct !{!388, !"_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE"}
 !389 = !{!390}
-!390 = distinct !{!390, !391, !"_ZN4llvm8ExpectedIjE9takeErrorEv: argument 0"}
-!391 = distinct !{!391, !"_ZN4llvm8ExpectedIjE9takeErrorEv"}
+!390 = distinct !{!390, !391, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
+!391 = distinct !{!391, !"_ZN4llvm5Error11takePayloadEv"}
 !392 = !{!393}
-!393 = distinct !{!393, !394, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
-!394 = distinct !{!394, !"_ZN4llvm5Error11takePayloadEv"}
+!393 = distinct !{!393, !394, !"_ZN4llvm8ExpectedIjE9takeErrorEv: argument 0"}
+!394 = distinct !{!394, !"_ZN4llvm8ExpectedIjE9takeErrorEv"}
 !395 = !{!396}
-!396 = distinct !{!396, !397, !"_ZN4llvm8ExpectedINS_9StringRefEE9takeErrorEv: argument 0"}
-!397 = distinct !{!397, !"_ZN4llvm8ExpectedINS_9StringRefEE9takeErrorEv"}
+!396 = distinct !{!396, !397, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
+!397 = distinct !{!397, !"_ZN4llvm5Error11takePayloadEv"}
 !398 = !{!399}
-!399 = distinct !{!399, !400, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
-!400 = distinct !{!400, !"_ZN4llvm5Error11takePayloadEv"}
-!401 = distinct !{!401, !402}
-!402 = !{!"llvm.loop.mustprogress"}
-!403 = distinct !{!403, !402}
-!404 = !{!405}
-!405 = distinct !{!405, !406, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
-!406 = distinct !{!406, !"_ZN4llvm5Error11takePayloadEv"}
+!399 = distinct !{!399, !400, !"_ZN4llvm8ExpectedINS_9StringRefEE9takeErrorEv: argument 0"}
+!400 = distinct !{!400, !"_ZN4llvm8ExpectedINS_9StringRefEE9takeErrorEv"}
+!401 = !{!402}
+!402 = distinct !{!402, !403, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
+!403 = distinct !{!403, !"_ZN4llvm5Error11takePayloadEv"}
+!404 = distinct !{!404, !405}
+!405 = !{!"llvm.loop.mustprogress"}
+!406 = distinct !{!406, !405}
 !407 = !{!408}
-!408 = distinct !{!408, !409, !"_ZN4llvm15handleErrorImplIZNS_9FileError5buildERKNS_5TwineESt8optionalImENS_5ErrorEEUlSt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS9_EEE_JEEES7_SC_OT_DpOT0_: argument 0"}
-!409 = distinct !{!409, !"_ZN4llvm15handleErrorImplIZNS_9FileError5buildERKNS_5TwineESt8optionalImENS_5ErrorEEUlSt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS9_EEE_JEEES7_SC_OT_DpOT0_"}
-!410 = !{!411, !413, !408}
-!411 = distinct !{!411, !412, !"_ZZN4llvm9FileError5buildERKNS_5TwineESt8optionalImENS_5ErrorEENKUlSt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS8_EEE_clESB_: argument 0"}
-!412 = distinct !{!412, !"_ZZN4llvm9FileError5buildERKNS_5TwineESt8optionalImENS_5ErrorEENKUlSt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS8_EEE_clESB_"}
-!413 = distinct !{!413, !414, !"_ZN4llvm18ErrorHandlerTraitsIRFNS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS3_EEEE5applyIZNS_9FileError5buildERKNS_5TwineESt8optionalImES1_EUlS6_E_EES1_OT_S6_: argument 0"}
-!414 = distinct !{!414, !"_ZN4llvm18ErrorHandlerTraitsIRFNS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS3_EEEE5applyIZNS_9FileError5buildERKNS_5TwineESt8optionalImES1_EUlS6_E_EES1_OT_S6_"}
-!415 = !{!416}
-!416 = distinct !{!416, !417, !"_ZN4llvm15handleErrorImplIZNS_9FileError5buildERKNS_5TwineESt8optionalImENS_5ErrorEEUlSt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS9_EEE_JEEES7_SC_OT_DpOT0_: argument 0"}
-!417 = distinct !{!417, !"_ZN4llvm15handleErrorImplIZNS_9FileError5buildERKNS_5TwineESt8optionalImENS_5ErrorEEUlSt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS9_EEE_JEEES7_SC_OT_DpOT0_"}
-!418 = !{!419, !421, !416}
-!419 = distinct !{!419, !420, !"_ZZN4llvm9FileError5buildERKNS_5TwineESt8optionalImENS_5ErrorEENKUlSt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS8_EEE_clESB_: argument 0"}
-!420 = distinct !{!420, !"_ZZN4llvm9FileError5buildERKNS_5TwineESt8optionalImENS_5ErrorEENKUlSt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS8_EEE_clESB_"}
-!421 = distinct !{!421, !422, !"_ZN4llvm18ErrorHandlerTraitsIRFNS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS3_EEEE5applyIZNS_9FileError5buildERKNS_5TwineESt8optionalImES1_EUlS6_E_EES1_OT_S6_: argument 0"}
-!422 = distinct !{!422, !"_ZN4llvm18ErrorHandlerTraitsIRFNS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS3_EEEE5applyIZNS_9FileError5buildERKNS_5TwineESt8optionalImES1_EUlS6_E_EES1_OT_S6_"}
-!423 = !{!424}
-!424 = distinct !{!424, !425, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
-!425 = distinct !{!425, !"_ZN4llvm5Error11takePayloadEv"}
+!408 = distinct !{!408, !409, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
+!409 = distinct !{!409, !"_ZN4llvm5Error11takePayloadEv"}
+!410 = !{!411}
+!411 = distinct !{!411, !412, !"_ZN4llvm15handleErrorImplIZNS_9FileError5buildERKNS_5TwineESt8optionalImENS_5ErrorEEUlSt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS9_EEE_JEEES7_SC_OT_DpOT0_: argument 0"}
+!412 = distinct !{!412, !"_ZN4llvm15handleErrorImplIZNS_9FileError5buildERKNS_5TwineESt8optionalImENS_5ErrorEEUlSt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS9_EEE_JEEES7_SC_OT_DpOT0_"}
+!413 = !{!414, !416, !411}
+!414 = distinct !{!414, !415, !"_ZZN4llvm9FileError5buildERKNS_5TwineESt8optionalImENS_5ErrorEENKUlSt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS8_EEE_clESB_: argument 0"}
+!415 = distinct !{!415, !"_ZZN4llvm9FileError5buildERKNS_5TwineESt8optionalImENS_5ErrorEENKUlSt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS8_EEE_clESB_"}
+!416 = distinct !{!416, !417, !"_ZN4llvm18ErrorHandlerTraitsIRFNS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS3_EEEE5applyIZNS_9FileError5buildERKNS_5TwineESt8optionalImES1_EUlS6_E_EES1_OT_S6_: argument 0"}
+!417 = distinct !{!417, !"_ZN4llvm18ErrorHandlerTraitsIRFNS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS3_EEEE5applyIZNS_9FileError5buildERKNS_5TwineESt8optionalImES1_EUlS6_E_EES1_OT_S6_"}
+!418 = !{!419}
+!419 = distinct !{!419, !420, !"_ZN4llvm15handleErrorImplIZNS_9FileError5buildERKNS_5TwineESt8optionalImENS_5ErrorEEUlSt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS9_EEE_JEEES7_SC_OT_DpOT0_: argument 0"}
+!420 = distinct !{!420, !"_ZN4llvm15handleErrorImplIZNS_9FileError5buildERKNS_5TwineESt8optionalImENS_5ErrorEEUlSt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS9_EEE_JEEES7_SC_OT_DpOT0_"}
+!421 = !{!422, !424, !419}
+!422 = distinct !{!422, !423, !"_ZZN4llvm9FileError5buildERKNS_5TwineESt8optionalImENS_5ErrorEENKUlSt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS8_EEE_clESB_: argument 0"}
+!423 = distinct !{!423, !"_ZZN4llvm9FileError5buildERKNS_5TwineESt8optionalImENS_5ErrorEENKUlSt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS8_EEE_clESB_"}
+!424 = distinct !{!424, !425, !"_ZN4llvm18ErrorHandlerTraitsIRFNS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS3_EEEE5applyIZNS_9FileError5buildERKNS_5TwineESt8optionalImES1_EUlS6_E_EES1_OT_S6_: argument 0"}
+!425 = distinct !{!425, !"_ZN4llvm18ErrorHandlerTraitsIRFNS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS3_EEEE5applyIZNS_9FileError5buildERKNS_5TwineESt8optionalImES1_EUlS6_E_EES1_OT_S6_"}
 !426 = !{!427}
 !427 = distinct !{!427, !428, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
 !428 = distinct !{!428, !"_ZN4llvm5Error11takePayloadEv"}
 !429 = !{!430}
 !430 = distinct !{!430, !431, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
 !431 = distinct !{!431, !"_ZN4llvm5Error11takePayloadEv"}
-!432 = distinct !{!432, !402}
-!433 = !{!434}
-!434 = distinct !{!434, !435, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
-!435 = distinct !{!435, !"_ZN4llvm5Error11takePayloadEv"}
+!432 = !{!433}
+!433 = distinct !{!433, !434, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
+!434 = distinct !{!434, !"_ZN4llvm5Error11takePayloadEv"}
+!435 = distinct !{!435, !405}
 !436 = !{!437}
 !437 = distinct !{!437, !438, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
 !438 = distinct !{!438, !"_ZN4llvm5Error11takePayloadEv"}
 !439 = !{!440}
-!440 = distinct !{!440, !441, !"_ZSt19__relocate_object_aISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
-!441 = distinct !{!441, !"_ZSt19__relocate_object_aISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}
+!440 = distinct !{!440, !441, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
+!441 = distinct !{!441, !"_ZN4llvm5Error11takePayloadEv"}
 !442 = !{!443}
-!443 = distinct !{!443, !441, !"_ZSt19__relocate_object_aISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
-!444 = distinct !{!444, !402}
+!443 = distinct !{!443, !444, !"_ZSt19__relocate_object_aISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
+!444 = distinct !{!444, !"_ZSt19__relocate_object_aISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}
 !445 = !{!446}
-!446 = distinct !{!446, !447, !"_ZSt19__relocate_object_aISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
-!447 = distinct !{!447, !"_ZSt19__relocate_object_aISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}
+!446 = distinct !{!446, !444, !"_ZSt19__relocate_object_aISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
+!447 = distinct !{!447, !405}
 !448 = !{!449}
-!449 = distinct !{!449, !447, !"_ZSt19__relocate_object_aISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
-!450 = distinct !{!450, !402}
-!451 = distinct !{!451, !402}
+!449 = distinct !{!449, !450, !"_ZSt19__relocate_object_aISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
+!450 = distinct !{!450, !"_ZSt19__relocate_object_aISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}
+!451 = !{!452}
+!452 = distinct !{!452, !450, !"_ZSt19__relocate_object_aISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
+!453 = distinct !{!453, !405}
+!454 = distinct !{!454, !405}

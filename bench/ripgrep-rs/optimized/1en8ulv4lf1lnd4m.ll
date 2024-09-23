@@ -1627,6 +1627,7 @@ default.unreachable:                              ; preds = %51
   %.sroa.427.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1
   store i8 0, ptr %.sroa.427.0..sroa_idx, align 1
   %63 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 -9223372036854775803, ptr %63, align 8
   br label %82
 
 64:                                               ; preds = %53
@@ -1670,6 +1671,7 @@ default.unreachable:                              ; preds = %51
   %.sroa.466.sroa.4.0..sroa.466.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 2
   store i32 %.sroa.0173.0.copyload, ptr %.sroa.466.sroa.4.0..sroa.466.0..sroa_idx.sroa_idx, align 2
   %80 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 -9223372036854775803, ptr %80, align 8
   br label %82
 
 81:                                               ; preds = %75
@@ -1688,8 +1690,6 @@ default.unreachable:                              ; preds = %51
   br label %91
 
 82:                                               ; preds = %138, %117, %79, %62
-  %.sink = phi ptr [ %137, %138 ], [ %118, %117 ], [ %80, %79 ], [ %63, %62 ]
-  store i64 -9223372036854775803, ptr %.sink, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !225
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he4225f608fff2f59E.llvm.1773065985454848448"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15)
   %83 = getelementptr inbounds i8, ptr %6, i64 8
@@ -1785,6 +1785,7 @@ default.unreachable:                              ; preds = %51
   %.sroa.486.sroa.4.0..sroa.486.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 2
   store i32 %.sroa.0196.0.copyload, ptr %.sroa.486.sroa.4.0..sroa.486.0..sroa_idx.sroa_idx, align 2
   %118 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 -9223372036854775803, ptr %118, align 8
   br label %82
 
 119:                                              ; preds = %113
@@ -1846,6 +1847,7 @@ default.unreachable:                              ; preds = %51
   store i8 3, ptr %.sroa.448.0..sroa_idx, align 1
   %.sroa.448.sroa.4.0..sroa.448.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 2
   store i8 %136, ptr %.sroa.448.sroa.4.0..sroa.448.0..sroa_idx.sroa_idx, align 2
+  store i64 -9223372036854775803, ptr %137, align 8
   br label %82
 
 139:                                              ; preds = %132

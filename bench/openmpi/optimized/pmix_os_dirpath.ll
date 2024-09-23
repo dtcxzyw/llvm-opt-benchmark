@@ -21,12 +21,12 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define range(i32 -27, 1) i32 @pmix_os_dirpath_create(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
-  br i1 %3, label %43, label %4
+  br i1 %3, label %42, label %4
 
 4:                                                ; preds = %2
   %5 = tail call i32 @mkdir(ptr noundef nonnull %0, i32 noundef %1) #10
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %43, label %7
+  br i1 %6, label %42, label %7
 
 7:                                                ; preds = %4
   %8 = tail call ptr @__errno_location() #11
@@ -43,7 +43,7 @@ define range(i32 -27, 1) i32 @pmix_os_dirpath_create(ptr noundef %0, i32 noundef
 12:                                               ; preds = %7
   %13 = tail call ptr @strerror(i32 noundef %9) #10
   %14 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1, ptr noundef nonnull %0, ptr noundef %13) #10
-  br label %43
+  br label %42
 
 15:                                               ; preds = %7, %10
   %16 = tail call ptr @PMIx_Argv_split(ptr noundef nonnull %0, i32 noundef 47) #10
@@ -60,8 +60,8 @@ define range(i32 -27, 1) i32 @pmix_os_dirpath_create(ptr noundef %0, i32 noundef
   %wide.trip.count = zext nneg i32 %20 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %42
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %42 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %41
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %41 ]
   %22 = icmp eq i64 %indvars.iv, 0
   br i1 %22, label %23, label %27
 
@@ -94,37 +94,37 @@ define range(i32 -27, 1) i32 @pmix_os_dirpath_create(ptr noundef %0, i32 noundef
   br label %33
 
 33:                                               ; preds = %23, %26, %31
-  %.sink47 = phi ptr [ %32, %31 ], [ %16, %26 ], [ %16, %23 ]
-  %34 = load ptr, ptr %.sink47, align 8
-  %35 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %34) #10
-  %36 = tail call i32 @mkdir(ptr noundef nonnull %19, i32 noundef %1) #10
-  %.not43 = icmp eq i32 %36, 0
-  br i1 %.not43, label %42, label %37
+  %.sink.in = phi ptr [ %32, %31 ], [ %16, %26 ], [ %16, %23 ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %34 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %.sink) #10
+  %35 = tail call i32 @mkdir(ptr noundef nonnull %19, i32 noundef %1) #10
+  %.not43 = icmp eq i32 %35, 0
+  br i1 %.not43, label %41, label %36
 
-37:                                               ; preds = %33
-  %38 = load i32, ptr %8, align 4
-  %.not44 = icmp eq i32 %38, 17
-  br i1 %.not44, label %42, label %39
+36:                                               ; preds = %33
+  %37 = load i32, ptr %8, align 4
+  %.not44 = icmp eq i32 %37, 17
+  br i1 %.not44, label %41, label %38
 
-39:                                               ; preds = %37
-  %40 = tail call ptr @strerror(i32 noundef %38) #10
-  %41 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1, ptr noundef nonnull %19, ptr noundef %40) #10
+38:                                               ; preds = %36
+  %39 = tail call ptr @strerror(i32 noundef %37) #10
+  %40 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1, ptr noundef nonnull %19, ptr noundef %39) #10
   tail call void @PMIx_Argv_free(ptr noundef nonnull %16) #10
   tail call void @free(ptr noundef %19) #10
-  br label %43
+  br label %42
 
-42:                                               ; preds = %33, %37
+41:                                               ; preds = %33, %36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %42, %15
+._crit_edge:                                      ; preds = %41, %15
   tail call void @PMIx_Argv_free(ptr noundef %16) #10
   tail call void @free(ptr noundef %19) #10
-  br label %43
+  br label %42
 
-43:                                               ; preds = %4, %2, %._crit_edge, %39, %12
-  %.0 = phi i32 [ -2, %39 ], [ 0, %._crit_edge ], [ -2, %12 ], [ -27, %2 ], [ 0, %4 ]
+42:                                               ; preds = %4, %2, %._crit_edge, %38, %12
+  %.0 = phi i32 [ -2, %38 ], [ 0, %._crit_edge ], [ -2, %12 ], [ -27, %2 ], [ 0, %4 ]
   ret i32 %.0
 }
 

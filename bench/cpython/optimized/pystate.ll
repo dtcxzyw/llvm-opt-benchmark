@@ -2645,19 +2645,28 @@ PyMutex_LockFlags.exit.i:                         ; preds = %if.then.i.i47, %if.
   %tobool.not.i = icmp eq ptr %19, null
   %next6.i = getelementptr inbounds i8, ptr %13, i64 8
   %20 = load ptr, ptr %next6.i, align 8
-  %head.i48 = getelementptr inbounds i8, ptr %15, i64 944
+  br i1 %tobool.not.i, label %if.else.i, label %if.then3.i
+
+if.then3.i:                                       ; preds = %PyMutex_LockFlags.exit.i
   %next5.i = getelementptr inbounds i8, ptr %19, i64 8
-  %head.sink.i = select i1 %tobool.not.i, ptr %head.i48, ptr %next5.i
-  store ptr %20, ptr %head.sink.i, align 8
+  store ptr %20, ptr %next5.i, align 8
+  br label %if.end7.i
+
+if.else.i:                                        ; preds = %PyMutex_LockFlags.exit.i
+  %head.i49 = getelementptr inbounds i8, ptr %15, i64 944
+  store ptr %20, ptr %head.i49, align 8
+  br label %if.end7.i
+
+if.end7.i:                                        ; preds = %if.else.i, %if.then3.i
   %tobool9.not.i = icmp eq ptr %20, null
   br i1 %tobool9.not.i, label %if.end14.i, label %if.then10.i
 
-if.then10.i:                                      ; preds = %PyMutex_LockFlags.exit.i
+if.then10.i:                                      ; preds = %if.end7.i
   %21 = load ptr, ptr %13, align 8
   store ptr %21, ptr %20, align 8
   br label %if.end14.i
 
-if.end14.i:                                       ; preds = %if.then10.i, %PyMutex_LockFlags.exit.i
+if.end14.i:                                       ; preds = %if.then10.i, %if.end7.i
   %22 = cmpxchg ptr %interpreters.i, i8 1, i8 0 seq_cst seq_cst, align 1
   %23 = extractvalue { i8, i1 } %22, 1
   br i1 %23, label %PyMutex_Unlock.exit.i, label %if.then.i18.i
@@ -2707,8 +2716,8 @@ while.body.i.i:                                   ; preds = %if.end19.i, %while.
   %size.i.i = getelementptr inbounds i8, ptr %chunk.06.i.i, i64 8
   %29 = load i64, ptr %size.i.i, align 8
   tail call void @_PyObject_VirtualFree(ptr noundef nonnull %chunk.06.i.i, i64 noundef %29) #14
-  %cmp.not.i.i49 = icmp eq ptr %28, null
-  br i1 %cmp.not.i.i49, label %clear_datastack.exit.loopexit.i, label %while.body.i.i, !llvm.loop !22
+  %cmp.not.i.i48 = icmp eq ptr %28, null
+  br i1 %cmp.not.i.i48, label %clear_datastack.exit.loopexit.i, label %while.body.i.i, !llvm.loop !22
 
 clear_datastack.exit.loopexit.i:                  ; preds = %while.body.i.i
   %bf.load21.pre.i = load i32, ptr %_status.i, align 8
@@ -3947,19 +3956,28 @@ PyMutex_LockFlags.exit:                           ; preds = %if.end, %if.then.i
   %tobool.not = icmp eq ptr %4, null
   %next6 = getelementptr inbounds i8, ptr %tstate, i64 8
   %5 = load ptr, ptr %next6, align 8
-  %head = getelementptr inbounds i8, ptr %0, i64 944
+  br i1 %tobool.not, label %if.else, label %if.then3
+
+if.then3:                                         ; preds = %PyMutex_LockFlags.exit
   %next5 = getelementptr inbounds i8, ptr %4, i64 8
-  %head.sink = select i1 %tobool.not, ptr %head, ptr %next5
-  store ptr %5, ptr %head.sink, align 8
+  store ptr %5, ptr %next5, align 8
+  br label %if.end7
+
+if.else:                                          ; preds = %PyMutex_LockFlags.exit
+  %head = getelementptr inbounds i8, ptr %0, i64 944
+  store ptr %5, ptr %head, align 8
+  br label %if.end7
+
+if.end7:                                          ; preds = %if.else, %if.then3
   %tobool9.not = icmp eq ptr %5, null
   br i1 %tobool9.not, label %if.end14, label %if.then10
 
-if.then10:                                        ; preds = %PyMutex_LockFlags.exit
+if.then10:                                        ; preds = %if.end7
   %6 = load ptr, ptr %tstate, align 8
   store ptr %6, ptr %5, align 8
   br label %if.end14
 
-if.end14:                                         ; preds = %if.then10, %PyMutex_LockFlags.exit
+if.end14:                                         ; preds = %if.then10, %if.end7
   %7 = cmpxchg ptr %interpreters, i8 1, i8 0 seq_cst seq_cst, align 1
   %8 = extractvalue { i8, i1 } %7, 1
   br i1 %8, label %PyMutex_Unlock.exit, label %if.then.i18

@@ -2889,7 +2889,8 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   %.sroa.0.0.copyload25.i = load i64, ptr %2, align 8, !noalias !458
   %.sroa.2.0.copyload27.i = load i64, ptr %.sink99.i.sroa.gep, align 8, !noalias !458
   %.sroa.3.0..sroa_idx28.i = getelementptr inbounds i8, ptr %2, i64 16
-  br label %32
+  %.sroa.3.0.copyload29.i = load ptr, ptr %.sroa.3.0..sroa_idx28.i, align 8, !noalias !458
+  br label %33
 
 29:                                               ; preds = %27
   %30 = landingpad { ptr, i32 }
@@ -2897,14 +2898,14 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
   call void @_ZN3std9panicking3try8do_catch17hdf3936d15f20ae69E.llvm.5232973679748665674(ptr nonnull %2, ptr %31)
-  br label %32
+  %32 = load ptr, ptr %2, align 8, !noalias !453, !nonnull !4, !align !243, !noundef !4
+  br label %33
 
-32:                                               ; preds = %29, %28
-  %.sink.i = phi ptr [ %2, %29 ], [ %.sroa.3.0..sroa_idx28.i, %28 ]
+33:                                               ; preds = %29, %28
   %.sink99.i.sroa.phi = phi ptr [ %.sink99.i.sroa.gep, %29 ], [ %.sink99.i.sroa.gep1, %28 ]
+  %.sroa.3.0.i = phi ptr [ %32, %29 ], [ %.sroa.3.0.copyload29.i, %28 ]
   %.sroa.2.0.i = phi i64 [ -9223372036854775807, %29 ], [ %.sroa.2.0.copyload27.i, %28 ]
   %.sroa.0.0.i = phi i64 [ undef, %29 ], [ %.sroa.0.0.copyload25.i, %28 ]
-  %33 = load ptr, ptr %.sink.i, align 8, !noalias !458
   %34 = load ptr, ptr %.sink99.i.sroa.phi, align 8, !noalias !458
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2), !noalias !453
   %35 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2913,24 +2914,24 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   invoke fastcc void @"_ZN4core3ptr238drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$$LP$bool$C$alloc..string..String$RP$$C$std..io..error..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17hda0df78b5a759540E"(ptr noalias noundef align 8 dereferenceable(32) %37)
           to label %39 unwind label %.thread75.thread.i
 
-.thread75.thread.i:                               ; preds = %32
+.thread75.thread.i:                               ; preds = %33
   %38 = landingpad { ptr, i32 }
           cleanup
   store i64 %.sroa.0.0.i, ptr %37, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %36, i64 24
   store i64 %.sroa.2.0.i, ptr %.sroa.5.0..sroa_idx.i, align 8
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %36, i64 32
-  store ptr %33, ptr %.sroa.6.0..sroa_idx.i, align 8
+  store ptr %.sroa.3.0.i, ptr %.sroa.6.0..sroa_idx.i, align 8
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %36, i64 40
   store ptr %34, ptr %.sroa.7.0..sroa_idx.i, align 8
   br label %.thread75.i
 
-39:                                               ; preds = %32
+39:                                               ; preds = %33
   store i64 %.sroa.0.0.i, ptr %37, align 8
   %.sroa.5.0..sroa_idx35.i = getelementptr inbounds i8, ptr %36, i64 24
   store i64 %.sroa.2.0.i, ptr %.sroa.5.0..sroa_idx35.i, align 8
   %.sroa.6.0..sroa_idx37.i = getelementptr inbounds i8, ptr %36, i64 32
-  store ptr %33, ptr %.sroa.6.0..sroa_idx37.i, align 8
+  store ptr %.sroa.3.0.i, ptr %.sroa.6.0..sroa_idx37.i, align 8
   %.sroa.7.0..sroa_idx39.i = getelementptr inbounds i8, ptr %36, i64 40
   store ptr %34, ptr %.sroa.7.0..sroa_idx39.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !443
@@ -3339,7 +3340,8 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   %.sroa.0.0.copyload25.i = load i64, ptr %2, align 8, !noalias !537
   %.sroa.2.0.copyload27.i = load i64, ptr %.sink99.i.sroa.gep, align 8, !noalias !537
   %.sroa.3.0..sroa_idx28.i = getelementptr inbounds i8, ptr %2, i64 16
-  br label %32
+  %.sroa.3.0.copyload29.i = load ptr, ptr %.sroa.3.0..sroa_idx28.i, align 8, !noalias !537
+  br label %33
 
 29:                                               ; preds = %27
   %30 = landingpad { ptr, i32 }
@@ -3347,14 +3349,14 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
   call void @_ZN3std9panicking3try8do_catch17ha6cbae1169664533E.llvm.5232973679748665674(ptr nonnull %2, ptr %31)
-  br label %32
+  %32 = load ptr, ptr %2, align 8, !noalias !532, !nonnull !4, !align !243, !noundef !4
+  br label %33
 
-32:                                               ; preds = %29, %28
-  %.sink.i = phi ptr [ %2, %29 ], [ %.sroa.3.0..sroa_idx28.i, %28 ]
+33:                                               ; preds = %29, %28
   %.sink99.i.sroa.phi = phi ptr [ %.sink99.i.sroa.gep, %29 ], [ %.sink99.i.sroa.gep1, %28 ]
+  %.sroa.3.0.i = phi ptr [ %32, %29 ], [ %.sroa.3.0.copyload29.i, %28 ]
   %.sroa.2.0.i = phi i64 [ -9223372036854775807, %29 ], [ %.sroa.2.0.copyload27.i, %28 ]
   %.sroa.0.0.i = phi i64 [ undef, %29 ], [ %.sroa.0.0.copyload25.i, %28 ]
-  %33 = load ptr, ptr %.sink.i, align 8, !noalias !537
   %34 = load ptr, ptr %.sink99.i.sroa.phi, align 8, !noalias !537
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2), !noalias !532
   %35 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3363,24 +3365,24 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   invoke fastcc void @"_ZN4core3ptr238drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$$LP$bool$C$alloc..string..String$RP$$C$std..io..error..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17hda0df78b5a759540E"(ptr noalias noundef align 8 dereferenceable(32) %37)
           to label %39 unwind label %.thread75.thread.i
 
-.thread75.thread.i:                               ; preds = %32
+.thread75.thread.i:                               ; preds = %33
   %38 = landingpad { ptr, i32 }
           cleanup
   store i64 %.sroa.0.0.i, ptr %37, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %36, i64 24
   store i64 %.sroa.2.0.i, ptr %.sroa.5.0..sroa_idx.i, align 8
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %36, i64 32
-  store ptr %33, ptr %.sroa.6.0..sroa_idx.i, align 8
+  store ptr %.sroa.3.0.i, ptr %.sroa.6.0..sroa_idx.i, align 8
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %36, i64 40
   store ptr %34, ptr %.sroa.7.0..sroa_idx.i, align 8
   br label %.thread75.i
 
-39:                                               ; preds = %32
+39:                                               ; preds = %33
   store i64 %.sroa.0.0.i, ptr %37, align 8
   %.sroa.5.0..sroa_idx35.i = getelementptr inbounds i8, ptr %36, i64 24
   store i64 %.sroa.2.0.i, ptr %.sroa.5.0..sroa_idx35.i, align 8
   %.sroa.6.0..sroa_idx37.i = getelementptr inbounds i8, ptr %36, i64 32
-  store ptr %33, ptr %.sroa.6.0..sroa_idx37.i, align 8
+  store ptr %.sroa.3.0.i, ptr %.sroa.6.0..sroa_idx37.i, align 8
   %.sroa.7.0..sroa_idx39.i = getelementptr inbounds i8, ptr %36, i64 40
   store ptr %34, ptr %.sroa.7.0..sroa_idx39.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !522

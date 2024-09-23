@@ -678,15 +678,15 @@ define hidden range(i32 -1, 1) i32 @zend_enum_build_backed_enum_table(ptr nounde
   %20 = getelementptr inbounds i8, ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 24
+  store ptr %11, ptr %22, align 8
   br label %25
 
 23:                                               ; preds = %14, %1
   %24 = getelementptr inbounds i8, ptr %0, i64 480
+  store ptr %11, ptr %24, align 8
   br label %25
 
 25:                                               ; preds = %23, %17
-  %.sink = phi ptr [ %24, %23 ], [ %22, %17 ]
-  store ptr %11, ptr %.sink, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = load i32, ptr %2, align 4
@@ -903,19 +903,16 @@ define hidden range(i32 -1, 1) i32 @zend_enum_build_backed_enum_table(ptr nounde
   %147 = getelementptr inbounds i8, ptr %145, i64 %146
   %148 = load ptr, ptr %147, align 8
   %149 = getelementptr inbounds i8, ptr %148, i64 24
-  br label %.loopexit.sink.split
+  store ptr null, ptr %149, align 8
+  br label %.loopexit
 
 150:                                              ; preds = %141, %139
   %151 = getelementptr inbounds i8, ptr %0, i64 480
-  br label %.loopexit.sink.split
-
-.loopexit.sink.split:                             ; preds = %150, %144
-  %.sink152 = phi ptr [ %149, %144 ], [ %151, %150 ]
-  store ptr null, ptr %.sink152, align 8
+  store ptr null, ptr %151, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %123, %.loopexit.sink.split, %44
-  %.0104 = phi i32 [ 0, %44 ], [ -1, %.loopexit.sink.split ], [ 0, %123 ]
+.loopexit:                                        ; preds = %123, %44, %144, %150
+  %.0104 = phi i32 [ -1, %150 ], [ -1, %144 ], [ 0, %44 ], [ 0, %123 ]
   ret i32 %.0104
 }
 
@@ -1667,18 +1664,15 @@ switch.edge:
   %30 = getelementptr inbounds i8, ptr %28, i64 %29
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 24
-  br label %.sink.split
+  store ptr %21, ptr %32, align 8
+  br label %35
 
 33:                                               ; preds = %24, %20
   %34 = getelementptr inbounds i8, ptr %15, i64 480
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %33, %27
-  %.sink = phi ptr [ %32, %27 ], [ %34, %33 ]
-  store ptr %21, ptr %.sink, align 8
+  store ptr %21, ptr %34, align 8
   br label %35
 
-35:                                               ; preds = %.sink.split, %switch.edge
+35:                                               ; preds = %27, %33, %switch.edge
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)

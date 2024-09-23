@@ -8850,8 +8850,8 @@ define hidden noalias noundef ptr @_ZN10actix_http2h17encoder11MessageType14enco
   %22 = load ptr, ptr %21, align 8, !nonnull !4
   %23 = getelementptr inbounds i8, ptr %22, i64 225
   %24 = getelementptr inbounds i8, ptr %0, i64 209
-  %.sink30 = select i1 %20, ptr %23, ptr %24
-  %25 = load i8, ptr %.sink30, align 1, !noundef !4
+  %.in = select i1 %20, ptr %23, ptr %24
+  %25 = load i8, ptr %.in, align 1, !noundef !4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %17)
   %.sink.in = icmp ne i64 %3, 2

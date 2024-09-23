@@ -44625,7 +44625,8 @@ strprbrk.exit:                                    ; preds = %7
 12:                                               ; preds = %10
   %13 = load i8, ptr %0, align 1
   store i8 %13, ptr @GetDirectoryPath.dirPath, align 16
-  br label %.sink.split
+  store i8 0, ptr getelementptr inbounds (i8, ptr @GetDirectoryPath.dirPath, i64 1), align 1
+  br label %35
 
 14:                                               ; preds = %10
   %15 = load i8, ptr %2, align 1
@@ -44668,14 +44669,10 @@ strprbrk.exit:                                    ; preds = %7
   %32 = phi i64 [ 0, %27 ], [ 0, %19 ], [ %30, %29 ]
   %33 = add i64 %25, %32
   %34 = getelementptr inbounds [4096 x i8], ptr @GetDirectoryPath.dirPath, i64 0, i64 %33
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %31, %12
-  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @GetDirectoryPath.dirPath, i64 1), %12 ], [ %34, %31 ]
-  store i8 0, ptr %.sink, align 1
+  store i8 0, ptr %34, align 1
   br label %35
 
-35:                                               ; preds = %.sink.split, %strprbrk.exit
+35:                                               ; preds = %12, %31, %strprbrk.exit
   ret ptr @GetDirectoryPath.dirPath
 }
 

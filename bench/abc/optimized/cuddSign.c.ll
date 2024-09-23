@@ -27,7 +27,7 @@ define noundef ptr @Cudd_CofMinterm(ptr noundef %0, ptr noundef %1) local_unname
   %13 = shl nsw i64 %12, 3
   %14 = tail call noalias ptr @malloc(i64 noundef %13) #6
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %54, label %15
+  br i1 %.not, label %53, label %15
 
 15:                                               ; preds = %9
   %16 = ptrtoint ptr %1 to i64
@@ -81,63 +81,63 @@ define noundef ptr @Cudd_CofMinterm(ptr noundef %0, ptr noundef %1) local_unname
   %43 = phi i64 [ %41, %37 ], [ 2147483647, %36 ]
   %.not57 = icmp slt i64 %indvars.iv, %43
   %44 = sub nsw i64 %indvars.iv, %33
-  %.sink77.v = select i1 %.not57, i64 %32, i64 %44
-  %.sink77 = getelementptr inbounds double, ptr %8, i64 %.sink77.v
-  %45 = load double, ptr %.sink77, align 8
-  %46 = getelementptr inbounds i32, ptr %35, i64 %indvars.iv
-  %47 = load i32, ptr %46, align 4
-  %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds double, ptr %14, i64 %48
-  store double %45, ptr %49, align 8
+  %.pn = select i1 %.not57, i64 %32, i64 %44
+  %.sink.in = getelementptr inbounds double, ptr %8, i64 %.pn
+  %.sink = load double, ptr %.sink.in, align 8
+  %45 = getelementptr inbounds i32, ptr %35, i64 %indvars.iv
+  %46 = load i32, ptr %45, align 4
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr inbounds double, ptr %14, i64 %47
+  store double %.sink, ptr %48, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %36, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %42, %.._crit_edge_crit_edge
   %.pre-phi71 = phi i64 [ %.pre70, %.._crit_edge_crit_edge ], [ %32, %42 ]
-  %50 = getelementptr inbounds double, ptr %8, i64 %.pre-phi71
-  %51 = load double, ptr %50, align 8
-  %52 = sext i32 %10 to i64
-  %53 = getelementptr inbounds double, ptr %14, i64 %52
-  store double %51, ptr %53, align 8
-  br label %56
+  %49 = getelementptr inbounds double, ptr %8, i64 %.pre-phi71
+  %50 = load double, ptr %49, align 8
+  %51 = sext i32 %10 to i64
+  %52 = getelementptr inbounds double, ptr %14, i64 %51
+  store double %50, ptr %52, align 8
+  br label %55
 
-54:                                               ; preds = %9
-  %55 = getelementptr inbounds i8, ptr %0, i64 624
-  store i32 1, ptr %55, align 8
+53:                                               ; preds = %9
+  %54 = getelementptr inbounds i8, ptr %0, i64 624
+  store i32 1, ptr %54, align 8
   %.pre = ptrtoint ptr %1 to i64
   %.pre64 = and i64 %.pre, -2
   %.pre66 = inttoptr i64 %.pre64 to ptr
-  br label %56
+  br label %55
 
-56:                                               ; preds = %._crit_edge, %54
-  %.pre-phi67 = phi ptr [ %18, %._crit_edge ], [ %.pre66, %54 ]
-  %57 = getelementptr inbounds i8, ptr %.pre-phi67, i64 4
-  %58 = load i32, ptr %57, align 4
-  %59 = icmp eq i32 %58, 1
-  br i1 %59, label %60, label %.thread
+55:                                               ; preds = %._crit_edge, %53
+  %.pre-phi67 = phi ptr [ %18, %._crit_edge ], [ %.pre66, %53 ]
+  %56 = getelementptr inbounds i8, ptr %.pre-phi67, i64 4
+  %57 = load i32, ptr %56, align 4
+  %58 = icmp eq i32 %57, 1
+  br i1 %58, label %59, label %.thread
 
-60:                                               ; preds = %56
+59:                                               ; preds = %55
   tail call void @free(ptr noundef nonnull %8) #5
   br label %.thread
 
-.thread:                                          ; preds = %5, %60, %56
-  %.04760 = phi ptr [ %14, %60 ], [ %14, %56 ], [ null, %5 ]
-  %61 = tail call i32 @st__foreach(ptr noundef nonnull %3, ptr noundef nonnull @cuddStCountfree, ptr noundef null) #5
+.thread:                                          ; preds = %5, %59, %55
+  %.04760 = phi ptr [ %14, %59 ], [ %14, %55 ], [ null, %5 ]
+  %60 = tail call i32 @st__foreach(ptr noundef nonnull %3, ptr noundef nonnull @cuddStCountfree, ptr noundef null) #5
   tail call void @st__free_table(ptr noundef nonnull %3) #5
-  %62 = icmp eq ptr %.04760, null
-  br i1 %62, label %.sink.split, label %67
+  %61 = icmp eq ptr %.04760, null
+  br i1 %61, label %.sink.split, label %66
 
 .sink.split:                                      ; preds = %.thread, %2
-  %.sink = phi i64 [ 616, %2 ], [ 608, %.thread ]
-  %63 = getelementptr inbounds i8, ptr %0, i64 %.sink
-  %64 = load ptr, ptr %63, align 8
-  %65 = tail call i64 @fwrite(ptr nonnull @.str, i64 46, i64 1, ptr %64)
-  %66 = getelementptr inbounds i8, ptr %0, i64 624
-  store i32 1, ptr %66, align 8
-  br label %67
+  %.sink80 = phi i64 [ 616, %2 ], [ 608, %.thread ]
+  %62 = getelementptr inbounds i8, ptr %0, i64 %.sink80
+  %63 = load ptr, ptr %62, align 8
+  %64 = tail call i64 @fwrite(ptr nonnull @.str, i64 46, i64 1, ptr %63)
+  %65 = getelementptr inbounds i8, ptr %0, i64 624
+  store i32 1, ptr %65, align 8
+  br label %66
 
-67:                                               ; preds = %.sink.split, %.thread
+66:                                               ; preds = %.sink.split, %.thread
   %.048 = phi ptr [ %.04760, %.thread ], [ null, %.sink.split ]
   ret ptr %.048
 }

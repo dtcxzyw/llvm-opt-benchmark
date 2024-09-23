@@ -3350,17 +3350,21 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i7
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %9 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %if.end6.sink.split.i.i, label %if.then.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt22_Optional_payload_baseISt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEE10_M_destroyEv.exit.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i.i.i
   %10 = load i8, ptr %this, align 8
   %tobool.i.i.i.i.i.i.i.i.i.i = trunc i8 %10 to i1
-  br i1 %tobool.i.i.i.i.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i.i.i.i, label %if.end6.sink.split.i.i
+  br i1 %tobool.i.i.i.i.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i.i.i.i, label %_ZNSt22_Optional_payload_baseISt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEE10_M_destroyEv.exit.i.i.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i.i.i.i:               ; preds = %if.then.i.i.i.i.i.i.i.i.i
   tail call void @_ZN9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21HttpAuthorityMetadataENS_18HttpMethodMetadataENS_18HttpStatusMetadataENS_18HttpSchemeMetadataENS_19ContentTypeMetadataENS_10TeMetadataENS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEED2Ev(ptr noundef nonnull align 8 dereferenceable(568) %9) #23
   tail call void @_ZdlPv(ptr noundef nonnull %9) #26
-  br label %if.end6.sink.split.i.i
+  br label %_ZNSt22_Optional_payload_baseISt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEE10_M_destroyEv.exit.i.i.i.i.i.i.i
+
+_ZNSt22_Optional_payload_baseISt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEE10_M_destroyEv.exit.i.i.i.i.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
+  store ptr null, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  br label %_ZN9grpc_core14promise_detail11PromiseLikeINS_15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE10RunPromiseEvED2Ev.exit
 
 if.else.i.i:                                      ; preds = %_ZZZZN9grpc_core12PipeReceiverISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE4NextEvENKUlSt8optionalIS5_EE_clES8_ENUlvE_clEvENUlS8_E_D2Ev.exit
   %11 = load ptr, ptr %this, align 8
@@ -3380,21 +3384,20 @@ if.end.i.i:                                       ; preds = %if.then2.i.i, %if.e
   %add.ptr.i.i.i.i.i.i.i.i.i2 = getelementptr inbounds i8, ptr %this, i64 16
   %14 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i2, align 8
   %cmp.not.i.i.i.i.i3 = icmp eq ptr %14, null
-  br i1 %cmp.not.i.i.i.i.i3, label %if.end6.sink.split.i.i, label %if.then.i.i.i.i.i4
+  br i1 %cmp.not.i.i.i.i.i3, label %_ZN9grpc_core8DestructINS_15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE10RunPromise15AsyncResolutionEEEvPT_.exit.i.i, label %if.then.i.i.i.i.i4
 
 if.then.i.i.i.i.i4:                               ; preds = %if.end.i.i
   %space.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %15 = load i8, ptr %space.i.i.i.i, align 8
   %tobool.i.i.i.i.i.i5 = trunc i8 %15 to i1
-  br i1 %tobool.i.i.i.i.i.i5, label %delete.notnull.i.i.i.i.i.i6, label %if.end6.sink.split.i.i
+  br i1 %tobool.i.i.i.i.i.i5, label %delete.notnull.i.i.i.i.i.i6, label %_ZN9grpc_core8DestructINS_15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE10RunPromise15AsyncResolutionEEEvPT_.exit.i.i
 
 delete.notnull.i.i.i.i.i.i6:                      ; preds = %if.then.i.i.i.i.i4
   tail call void @_ZdaPv(ptr noundef nonnull %14) #26
-  br label %if.end6.sink.split.i.i
+  br label %_ZN9grpc_core8DestructINS_15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE10RunPromise15AsyncResolutionEEEvPT_.exit.i.i
 
-if.end6.sink.split.i.i:                           ; preds = %delete.notnull.i.i.i.i.i.i6, %if.then.i.i.i.i.i4, %if.end.i.i, %delete.notnull.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i.i.i.i.i.i.sink.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i, %delete.notnull.i.i.i.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i.i.i2, %if.end.i.i ], [ %add.ptr.i.i.i.i.i.i.i.i.i2, %if.then.i.i.i.i.i4 ], [ %add.ptr.i.i.i.i.i.i.i.i.i2, %delete.notnull.i.i.i.i.i.i6 ]
-  store ptr null, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.sink.i.i, align 8
+_ZN9grpc_core8DestructINS_15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE10RunPromise15AsyncResolutionEEEvPT_.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i6, %if.then.i.i.i.i.i4, %if.end.i.i
+  store ptr null, ptr %add.ptr.i.i.i.i.i.i.i.i.i2, align 8
   br label %_ZN9grpc_core14promise_detail11PromiseLikeINS_15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE10RunPromiseEvED2Ev.exit
 
 terminate.lpad.i.i:                               ; preds = %if.then2.i.i
@@ -3404,7 +3407,7 @@ terminate.lpad.i.i:                               ; preds = %if.then2.i.i
   tail call void @__clang_call_terminate(ptr %17) #27
   unreachable
 
-_ZN9grpc_core14promise_detail11PromiseLikeINS_15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE10RunPromiseEvED2Ev.exit: ; preds = %if.then.i.i7, %if.end6.sink.split.i.i
+_ZN9grpc_core14promise_detail11PromiseLikeINS_15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE10RunPromiseEvED2Ev.exit: ; preds = %if.then.i.i7, %_ZNSt22_Optional_payload_baseISt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEE10_M_destroyEv.exit.i.i.i.i.i.i.i, %_ZN9grpc_core8DestructINS_15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE10RunPromise15AsyncResolutionEEEvPT_.exit.i.i
   ret void
 }
 

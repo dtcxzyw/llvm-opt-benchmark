@@ -293,7 +293,8 @@ Curl_splay.exit:                                  ; preds = %19, %.critedge.i, %
   store ptr %68, ptr %69, align 8
   %70 = getelementptr inbounds i8, ptr %68, i64 16
   store ptr %3, ptr %70, align 8
-  br label %.sink.split
+  store ptr %3, ptr %67, align 8
+  br label %87
 
 .critedge:                                        ; preds = %6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
@@ -337,16 +338,11 @@ Curl_splay.exit:                                  ; preds = %19, %.critedge.i, %
   %85 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %3, ptr %85, align 8
   %86 = getelementptr inbounds i8, ptr %3, i64 24
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %64, %83
-  %.sink = phi ptr [ %86, %83 ], [ %67, %64 ]
-  %.0.ph = phi ptr [ %3, %83 ], [ %.161.i, %64 ]
-  store ptr %3, ptr %.sink, align 8
+  store ptr %3, ptr %86, align 8
   br label %87
 
-87:                                               ; preds = %.sink.split, %4
-  %.0 = phi ptr [ %2, %4 ], [ %.0.ph, %.sink.split ]
+87:                                               ; preds = %4, %83, %64
+  %.0 = phi ptr [ %.161.i, %64 ], [ %3, %83 ], [ %2, %4 ]
   ret ptr %.0
 }
 

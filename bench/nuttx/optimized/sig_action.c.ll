@@ -298,21 +298,18 @@ nxsig_alloc_action.exit:                          ; preds = %up_irq_restore.exit
 116:                                              ; preds = %nxsig_alloc_action.exit
   store ptr %.0.lcssa.i, ptr %114, align 8
   %117 = getelementptr inbounds i8, ptr %12, i64 872
-  br label %.sink.split
+  store ptr %.0.lcssa.i, ptr %117, align 8
+  br label %121
 
 118:                                              ; preds = %nxsig_alloc_action.exit
   %119 = getelementptr inbounds i8, ptr %12, i64 872
   %120 = load ptr, ptr %119, align 8
   store ptr %.0.lcssa.i, ptr %120, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %116, %118
-  %.sink = phi ptr [ %119, %118 ], [ %117, %116 ]
-  store ptr %.0.lcssa.i, ptr %.sink, align 8
+  store ptr %.0.lcssa.i, ptr %119, align 8
   br label %121
 
-121:                                              ; preds = %.sink.split, %87
-  %.081 = phi ptr [ %20, %87 ], [ %.0.lcssa.i, %.sink.split ]
+121:                                              ; preds = %118, %116, %87
+  %.081 = phi ptr [ %.0.lcssa.i, %118 ], [ %.0.lcssa.i, %116 ], [ %20, %87 ]
   %122 = getelementptr inbounds i8, ptr %.081, i64 8
   store ptr %.082, ptr %122, align 8
   %123 = getelementptr inbounds i8, ptr %.081, i64 16

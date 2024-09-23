@@ -4802,104 +4802,121 @@ define internal fastcc void @add_pair_to_block(ptr nocapture noundef %0) unnamed
   %21 = zext i32 %3 to i64
   %22 = getelementptr inbounds [256 x i8], ptr %20, i64 0, i64 %21
   store i8 1, ptr %22, align 1
-  switch i32 %6, label %50 [
+  switch i32 %6, label %65 [
     i32 1, label %23
-    i32 2, label %27
-    i32 3, label %36
+    i32 2, label %32
+    i32 3, label %46
   ]
 
 23:                                               ; preds = %._crit_edge
   %24 = getelementptr inbounds i8, ptr %0, i64 64
-  %25 = getelementptr inbounds i8, ptr %0, i64 108
-  %26 = load i32, ptr %25, align 4
-  br label %80
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 108
+  %27 = load i32, ptr %26, align 4
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr inbounds i8, ptr %25, i64 %28
+  store i8 %4, ptr %29, align 1
+  %30 = load i32, ptr %26, align 4
+  %31 = add nsw i32 %30, 1
+  store i32 %31, ptr %26, align 4
+  br label %100
 
-27:                                               ; preds = %._crit_edge
-  %28 = getelementptr inbounds i8, ptr %0, i64 64
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 108
-  %31 = load i32, ptr %30, align 4
-  %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds i8, ptr %29, i64 %32
-  store i8 %4, ptr %33, align 1
-  %34 = load i32, ptr %30, align 4
-  %35 = add nsw i32 %34, 1
-  store i32 %35, ptr %30, align 4
-  br label %80
+32:                                               ; preds = %._crit_edge
+  %33 = getelementptr inbounds i8, ptr %0, i64 64
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %0, i64 108
+  %36 = load i32, ptr %35, align 4
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr inbounds i8, ptr %34, i64 %37
+  store i8 %4, ptr %38, align 1
+  %39 = load i32, ptr %35, align 4
+  %40 = add nsw i32 %39, 1
+  store i32 %40, ptr %35, align 4
+  %41 = load ptr, ptr %33, align 8
+  %42 = sext i32 %40 to i64
+  %43 = getelementptr inbounds i8, ptr %41, i64 %42
+  store i8 %4, ptr %43, align 1
+  %44 = load i32, ptr %35, align 4
+  %45 = add nsw i32 %44, 1
+  store i32 %45, ptr %35, align 4
+  br label %100
 
-36:                                               ; preds = %._crit_edge
-  %37 = getelementptr inbounds i8, ptr %0, i64 64
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 108
-  %40 = load i32, ptr %39, align 4
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds i8, ptr %38, i64 %41
-  store i8 %4, ptr %42, align 1
-  %43 = load i32, ptr %39, align 4
-  %44 = add nsw i32 %43, 1
-  store i32 %44, ptr %39, align 4
-  %45 = load ptr, ptr %37, align 8
-  %46 = sext i32 %44 to i64
-  %47 = getelementptr inbounds i8, ptr %45, i64 %46
-  store i8 %4, ptr %47, align 1
-  %48 = load i32, ptr %39, align 4
-  %49 = add nsw i32 %48, 1
-  store i32 %49, ptr %39, align 4
-  br label %80
+46:                                               ; preds = %._crit_edge
+  %47 = getelementptr inbounds i8, ptr %0, i64 64
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %0, i64 108
+  %50 = load i32, ptr %49, align 4
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr inbounds i8, ptr %48, i64 %51
+  store i8 %4, ptr %52, align 1
+  %53 = load i32, ptr %49, align 4
+  %54 = add nsw i32 %53, 1
+  store i32 %54, ptr %49, align 4
+  %55 = load ptr, ptr %47, align 8
+  %56 = sext i32 %54 to i64
+  %57 = getelementptr inbounds i8, ptr %55, i64 %56
+  store i8 %4, ptr %57, align 1
+  %58 = load i32, ptr %49, align 4
+  %59 = add nsw i32 %58, 1
+  store i32 %59, ptr %49, align 4
+  %60 = load ptr, ptr %47, align 8
+  %61 = sext i32 %59 to i64
+  %62 = getelementptr inbounds i8, ptr %60, i64 %61
+  store i8 %4, ptr %62, align 1
+  %63 = load i32, ptr %49, align 4
+  %64 = add nsw i32 %63, 1
+  store i32 %64, ptr %49, align 4
+  br label %100
 
-50:                                               ; preds = %._crit_edge
-  %51 = add nsw i32 %6, -4
-  %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds [256 x i8], ptr %20, i64 0, i64 %52
-  store i8 1, ptr %53, align 1
-  %54 = getelementptr inbounds i8, ptr %0, i64 64
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 108
-  %57 = load i32, ptr %56, align 4
-  %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds i8, ptr %55, i64 %58
-  store i8 %4, ptr %59, align 1
-  %60 = load i32, ptr %56, align 4
-  %61 = add nsw i32 %60, 1
-  store i32 %61, ptr %56, align 4
-  %62 = load ptr, ptr %54, align 8
-  %63 = sext i32 %61 to i64
-  %64 = getelementptr inbounds i8, ptr %62, i64 %63
-  store i8 %4, ptr %64, align 1
-  %65 = load i32, ptr %56, align 4
-  %66 = add nsw i32 %65, 1
-  store i32 %66, ptr %56, align 4
-  %67 = load ptr, ptr %54, align 8
-  %68 = sext i32 %66 to i64
-  %69 = getelementptr inbounds i8, ptr %67, i64 %68
-  store i8 %4, ptr %69, align 1
-  %70 = load i32, ptr %56, align 4
-  %71 = add nsw i32 %70, 1
-  store i32 %71, ptr %56, align 4
-  %72 = load ptr, ptr %54, align 8
-  %73 = sext i32 %71 to i64
-  %74 = getelementptr inbounds i8, ptr %72, i64 %73
+65:                                               ; preds = %._crit_edge
+  %66 = add nsw i32 %6, -4
+  %67 = sext i32 %66 to i64
+  %68 = getelementptr inbounds [256 x i8], ptr %20, i64 0, i64 %67
+  store i8 1, ptr %68, align 1
+  %69 = getelementptr inbounds i8, ptr %0, i64 64
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds i8, ptr %0, i64 108
+  %72 = load i32, ptr %71, align 4
+  %73 = sext i32 %72 to i64
+  %74 = getelementptr inbounds i8, ptr %70, i64 %73
   store i8 %4, ptr %74, align 1
-  %75 = load i32, ptr %56, align 4
+  %75 = load i32, ptr %71, align 4
   %76 = add nsw i32 %75, 1
-  store i32 %76, ptr %56, align 4
-  %77 = load i32, ptr %5, align 8
-  %78 = trunc i32 %77 to i8
-  %79 = add i8 %78, -4
-  br label %80
+  store i32 %76, ptr %71, align 4
+  %77 = load ptr, ptr %69, align 8
+  %78 = sext i32 %76 to i64
+  %79 = getelementptr inbounds i8, ptr %77, i64 %78
+  store i8 %4, ptr %79, align 1
+  %80 = load i32, ptr %71, align 4
+  %81 = add nsw i32 %80, 1
+  store i32 %81, ptr %71, align 4
+  %82 = load ptr, ptr %69, align 8
+  %83 = sext i32 %81 to i64
+  %84 = getelementptr inbounds i8, ptr %82, i64 %83
+  store i8 %4, ptr %84, align 1
+  %85 = load i32, ptr %71, align 4
+  %86 = add nsw i32 %85, 1
+  store i32 %86, ptr %71, align 4
+  %87 = load ptr, ptr %69, align 8
+  %88 = sext i32 %86 to i64
+  %89 = getelementptr inbounds i8, ptr %87, i64 %88
+  store i8 %4, ptr %89, align 1
+  %90 = load i32, ptr %71, align 4
+  %91 = add nsw i32 %90, 1
+  store i32 %91, ptr %71, align 4
+  %92 = load i32, ptr %5, align 8
+  %93 = trunc i32 %92 to i8
+  %94 = add i8 %93, -4
+  %95 = load ptr, ptr %69, align 8
+  %96 = sext i32 %91 to i64
+  %97 = getelementptr inbounds i8, ptr %95, i64 %96
+  store i8 %94, ptr %97, align 1
+  %98 = load i32, ptr %71, align 4
+  %99 = add nsw i32 %98, 1
+  store i32 %99, ptr %71, align 4
+  br label %100
 
-80:                                               ; preds = %50, %36, %27, %23
-  %.sink64 = phi i32 [ %76, %50 ], [ %49, %36 ], [ %35, %27 ], [ %26, %23 ]
-  %.sink62.in = phi ptr [ %54, %50 ], [ %37, %36 ], [ %28, %27 ], [ %24, %23 ]
-  %.sink60 = phi i8 [ %79, %50 ], [ %4, %36 ], [ %4, %27 ], [ %4, %23 ]
-  %.sink = phi ptr [ %56, %50 ], [ %39, %36 ], [ %30, %27 ], [ %25, %23 ]
-  %.sink62 = load ptr, ptr %.sink62.in, align 8
-  %81 = sext i32 %.sink64 to i64
-  %82 = getelementptr inbounds i8, ptr %.sink62, i64 %81
-  store i8 %.sink60, ptr %82, align 1
-  %83 = load i32, ptr %.sink, align 4
-  %84 = add nsw i32 %83, 1
-  store i32 %84, ptr %.sink, align 4
+100:                                              ; preds = %65, %46, %32, %23
   ret void
 }
 

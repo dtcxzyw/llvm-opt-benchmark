@@ -1300,7 +1300,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %21, %25
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
   %33 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %9, %3 ]
-  switch i32 %33, label %67 [
+  switch i32 %33, label %66 [
     i32 441, label %34
     i32 442, label %48
   ]
@@ -1366,19 +1366,19 @@ _ZN4llvm6MCInstD2Ev.exit27:                       ; preds = %48, %56
   br label %.sink.split
 
 .sink.split:                                      ; preds = %60, %_ZN4llvm6MCInstD2Ev.exit27, %46, %_ZN4llvm6MCInstD2Ev.exit
-  %.sink45 = phi ptr [ %37, %_ZN4llvm6MCInstD2Ev.exit ], [ %37, %46 ], [ %51, %_ZN4llvm6MCInstD2Ev.exit27 ], [ %51, %60 ]
-  %62 = load ptr, ptr %.sink45, align 8
-  %63 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.sink45) #11
-  %64 = getelementptr inbounds %"class.llvm::MCOperand", ptr %62, i64 %63
-  store i8 1, ptr %64, align 1
-  %.sroa.22.0..sroa_idx.i.i31 = getelementptr inbounds i8, ptr %64, i64 8
+  %.sink44 = phi ptr [ %37, %_ZN4llvm6MCInstD2Ev.exit ], [ %37, %46 ], [ %51, %_ZN4llvm6MCInstD2Ev.exit27 ], [ %51, %60 ]
+  %.sink42 = load ptr, ptr %.sink44, align 8
+  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.sink44) #11
+  %63 = getelementptr inbounds %"class.llvm::MCOperand", ptr %.sink42, i64 %62
+  store i8 1, ptr %63, align 1
+  %.sroa.22.0..sroa_idx.i.i31 = getelementptr inbounds i8, ptr %63, i64 8
   store i64 6, ptr %.sroa.22.0..sroa_idx.i.i31, align 1
-  %65 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.sink45) #11
-  %66 = add i64 %65, 1
-  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %.sink45, i64 noundef %66) #11
-  br label %67
+  %64 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.sink44) #11
+  %65 = add i64 %64, 1
+  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %.sink44, i64 noundef %65) #11
+  br label %66
 
-67:                                               ; preds = %.sink.split, %._crit_edge
+66:                                               ; preds = %.sink.split, %._crit_edge
   ret void
 }
 
@@ -1753,7 +1753,8 @@ _ZN4llvm15SmallVectorImplINS_9MCOperandEE12assignRemoteEOS2_.exit: ; preds = %8,
   store i32 %19, ptr %20, align 4
   store ptr %6, ptr %1, align 8
   store i32 0, ptr %18, align 4
-  br label %.sink.split
+  store i32 0, ptr %15, align 8
+  br label %53
 
 21:                                               ; preds = %4
   %22 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #11
@@ -1782,7 +1783,8 @@ _ZSt4moveIPN4llvm9MCOperandES2_ET0_T_S4_S3_.exit: ; preds = %29, %26, %24
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %22) #11
   %31 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #11
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
+  store i32 0, ptr %32, align 8
+  br label %53
 
 33:                                               ; preds = %21
   %34 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
@@ -1829,14 +1831,10 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9MCOperandELb1EE18uninitialized_moveIPS1_S4
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %22) #11
   %51 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #11
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %_ZN4llvm15SmallVectorImplINS_9MCOperandEE12assignRemoteEOS2_.exit, %_ZSt4moveIPN4llvm9MCOperandES2_ET0_T_S4_S3_.exit, %_ZN4llvm23SmallVectorTemplateBaseINS_9MCOperandELb1EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit
-  %.sink = phi ptr [ %52, %_ZN4llvm23SmallVectorTemplateBaseINS_9MCOperandELb1EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit ], [ %32, %_ZSt4moveIPN4llvm9MCOperandES2_ET0_T_S4_S3_.exit ], [ %15, %_ZN4llvm15SmallVectorImplINS_9MCOperandEE12assignRemoteEOS2_.exit ]
-  store i32 0, ptr %.sink, align 8
+  store i32 0, ptr %52, align 8
   br label %53
 
-53:                                               ; preds = %.sink.split, %2
+53:                                               ; preds = %2, %_ZN4llvm23SmallVectorTemplateBaseINS_9MCOperandELb1EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit, %_ZSt4moveIPN4llvm9MCOperandES2_ET0_T_S4_S3_.exit, %_ZN4llvm15SmallVectorImplINS_9MCOperandEE12assignRemoteEOS2_.exit
   ret ptr %0
 }
 

@@ -1902,7 +1902,8 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %30, %36
   %49 = getelementptr inbounds i8, ptr %8, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %49) #17
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !7
-  br label %.sink.split
+  store volatile i32 4, ptr %11, align 4
+  br label %98
 
 50:                                               ; preds = %5
   %51 = load ptr, ptr @_ZL12replay_state, align 8
@@ -2002,16 +2003,11 @@ _ZN17HandleMarkCleanerD2Ev.exit31:                ; preds = %_ZN13CompileReplay1
   %97 = getelementptr inbounds i8, ptr %54, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %97) #17
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !7
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %_ZN17HandleMarkCleanerD2Ev.exit, %_ZN17HandleMarkCleanerD2Ev.exit31
-  %.sink = phi ptr [ %57, %_ZN17HandleMarkCleanerD2Ev.exit31 ], [ %11, %_ZN17HandleMarkCleanerD2Ev.exit ]
-  %.1.ph = phi i1 [ %78, %_ZN17HandleMarkCleanerD2Ev.exit31 ], [ %25, %_ZN17HandleMarkCleanerD2Ev.exit ]
-  store volatile i32 4, ptr %.sink, align 4
+  store volatile i32 4, ptr %57, align 4
   br label %98
 
-98:                                               ; preds = %.sink.split, %50
-  %.1 = phi i1 [ false, %50 ], [ %.1.ph, %.sink.split ]
+98:                                               ; preds = %50, %_ZN17HandleMarkCleanerD2Ev.exit31, %_ZN17HandleMarkCleanerD2Ev.exit
+  %.1 = phi i1 [ %25, %_ZN17HandleMarkCleanerD2Ev.exit ], [ %78, %_ZN17HandleMarkCleanerD2Ev.exit31 ], [ false, %50 ]
   ret i1 %.1
 }
 
@@ -2185,7 +2181,8 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN20ThreadInVMfrom
   %43 = getelementptr inbounds i8, ptr %7, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %43) #17
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !7
-  br label %.sink.split
+  store volatile i32 4, ptr %10, align 4
+  br label %89
 
 44:                                               ; preds = %4
   %45 = load ptr, ptr @_ZL12replay_state, align 8
@@ -2278,16 +2275,11 @@ _ZN17HandleMarkCleanerD2Ev.exit23:                ; preds = %_ZN13CompileReplay1
   %88 = getelementptr inbounds i8, ptr %48, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %88) #17
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !7
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %_ZN17HandleMarkCleanerD2Ev.exit, %_ZN17HandleMarkCleanerD2Ev.exit23
-  %.sink = phi ptr [ %51, %_ZN17HandleMarkCleanerD2Ev.exit23 ], [ %10, %_ZN17HandleMarkCleanerD2Ev.exit ]
-  %.0.ph = phi i1 [ %.0.i, %_ZN17HandleMarkCleanerD2Ev.exit23 ], [ %24, %_ZN17HandleMarkCleanerD2Ev.exit ]
-  store volatile i32 4, ptr %.sink, align 4
+  store volatile i32 4, ptr %51, align 4
   br label %89
 
-89:                                               ; preds = %.sink.split, %44
-  %.0 = phi i1 [ false, %44 ], [ %.0.ph, %.sink.split ]
+89:                                               ; preds = %44, %_ZN17HandleMarkCleanerD2Ev.exit23, %_ZN17HandleMarkCleanerD2Ev.exit
+  %.0 = phi i1 [ %24, %_ZN17HandleMarkCleanerD2Ev.exit ], [ %.0.i, %_ZN17HandleMarkCleanerD2Ev.exit23 ], [ false, %44 ]
   ret i1 %.0
 }
 

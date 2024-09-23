@@ -4900,12 +4900,16 @@ if.then9:                                         ; preds = %if.then6
   %inbound = getelementptr inbounds i8, ptr %link, i64 72
   %12 = load i32, ptr %inbound, align 8
   %tobool10.not = icmp eq i32 %12, 0
-  br i1 %tobool10.not, label %if.end35.sink.split, label %cond.false
+  br i1 %tobool10.not, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %if.then9
   tail call void @_serverAssert(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.18, i32 noundef 1194) #33
   tail call void @abort() #35
   unreachable
+
+cond.end:                                         ; preds = %if.then9
+  store ptr null, ptr %link8, align 8
+  br label %if.end35
 
 if.else:                                          ; preds = %if.then6
   %inbound_link = getelementptr inbounds i8, ptr %10, i64 2352
@@ -4917,19 +4921,18 @@ if.then19:                                        ; preds = %if.else
   %inbound20 = getelementptr inbounds i8, ptr %link, i64 72
   %14 = load i32, ptr %inbound20, align 8
   %tobool21.not = icmp eq i32 %14, 0
-  br i1 %tobool21.not, label %cond.false29, label %if.end35.sink.split
+  br i1 %tobool21.not, label %cond.false29, label %cond.end30
 
 cond.false29:                                     ; preds = %if.then19
   tail call void @_serverAssert(ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.18, i32 noundef 1197) #33
   tail call void @abort() #35
   unreachable
 
-if.end35.sink.split:                              ; preds = %if.then19, %if.then9
-  %link8.sink = phi ptr [ %link8, %if.then9 ], [ %inbound_link, %if.then19 ]
-  store ptr null, ptr %link8.sink, align 8
+cond.end30:                                       ; preds = %if.then19
+  store ptr null, ptr %inbound_link, align 8
   br label %if.end35
 
-if.end35:                                         ; preds = %if.end35.sink.split, %if.else, %if.end
+if.end35:                                         ; preds = %cond.end, %cond.end30, %if.else, %if.end
   tail call void @zfree(ptr noundef nonnull %link) #33
   ret void
 }
@@ -13317,19 +13320,19 @@ land.lhs.true33:                                  ; preds = %if.end19
   %cmp20 = icmp eq i32 %14, 12
   %16 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4592), align 8
   %lastinteraction = getelementptr inbounds i8, ptr %16, i64 240
-  %.sink20 = select i1 %cmp20, ptr %lastinteraction, ptr getelementptr inbounds (i8, ptr @server, i64 4688)
-  %17 = load i64, ptr %.sink20, align 8
-  %sub25 = sub nsw i64 %atomic-load, %17
+  %.sink.in = select i1 %cmp20, ptr %lastinteraction, ptr getelementptr inbounds (i8, ptr @server, i64 4688)
+  %.sink = load i64, ptr %.sink.in, align 8
+  %sub25 = sub nsw i64 %atomic-load, %.sink
   %data_age.0 = mul nsw i64 %sub25, 1000
-  %18 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5184), align 8
-  %cmp28 = icmp sgt i64 %data_age.0, %18
-  %sub30 = select i1 %cmp28, i64 %18, i64 0
+  %17 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5184), align 8
+  %cmp28 = icmp sgt i64 %data_age.0, %17
+  %sub30 = select i1 %cmp28, i64 %17, i64 0
   %spec.select = sub nsw i64 %data_age.0, %sub30
-  %19 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4476), align 4
-  %conv = sext i32 %19 to i64
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4476), align 4
+  %conv = sext i32 %18 to i64
   %mul34 = mul nsw i64 %conv, 1000
   %conv35 = sext i32 %15 to i64
-  %mul36 = mul nsw i64 %18, %conv35
+  %mul36 = mul nsw i64 %17, %conv35
   %add37 = add nsw i64 %mul34, %mul36
   %cmp38 = icmp sle i64 %spec.select, %add37
   %or.cond2 = select i1 %cmp38, i1 true, i1 %5
@@ -13349,55 +13352,55 @@ if.then47:                                        ; preds = %if.end44
   %call50 = tail call i64 @random() #33
   %rem = srem i64 %call50, 500
   %add51 = add nsw i64 %add49, %rem
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5208), align 8
-  %failover_auth_time52 = getelementptr inbounds i8, ptr %20, i64 393272
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5208), align 8
+  %failover_auth_time52 = getelementptr inbounds i8, ptr %19, i64 393272
   store i64 %add51, ptr %failover_auth_time52, align 8
-  %failover_auth_count = getelementptr inbounds i8, ptr %20, i64 393280
+  %failover_auth_count = getelementptr inbounds i8, ptr %19, i64 393280
   store i32 0, ptr %failover_auth_count, align 8
-  %failover_auth_sent = getelementptr inbounds i8, ptr %20, i64 393284
+  %failover_auth_sent = getelementptr inbounds i8, ptr %19, i64 393284
   store i32 0, ptr %failover_auth_sent, align 4
   %call53 = tail call i32 @clusterGetSlaveRank()
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5208), align 8
-  %failover_auth_rank = getelementptr inbounds i8, ptr %21, i64 393288
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5208), align 8
+  %failover_auth_rank = getelementptr inbounds i8, ptr %20, i64 393288
   store i32 %call53, ptr %failover_auth_rank, align 8
   %mul55 = mul nsw i32 %call53, 1000
   %conv56 = sext i32 %mul55 to i64
-  %failover_auth_time57 = getelementptr inbounds i8, ptr %21, i64 393272
-  %22 = load i64, ptr %failover_auth_time57, align 8
-  %add58 = add nsw i64 %22, %conv56
+  %failover_auth_time57 = getelementptr inbounds i8, ptr %20, i64 393272
+  %21 = load i64, ptr %failover_auth_time57, align 8
+  %add58 = add nsw i64 %21, %conv56
   store i64 %add58, ptr %failover_auth_time57, align 8
-  %mf_end59 = getelementptr inbounds i8, ptr %21, i64 393312
-  %23 = load i64, ptr %mf_end59, align 8
-  %tobool60.not = icmp eq i64 %23, 0
+  %mf_end59 = getelementptr inbounds i8, ptr %20, i64 393312
+  %22 = load i64, ptr %mf_end59, align 8
+  %tobool60.not = icmp eq i64 %22, 0
   br i1 %tobool60.not, label %do.body, label %if.then61
 
 if.then61:                                        ; preds = %if.then47
   %call62 = tail call i64 @mstime() #33
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5208), align 8
-  %failover_auth_time63 = getelementptr inbounds i8, ptr %24, i64 393272
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5208), align 8
+  %failover_auth_time63 = getelementptr inbounds i8, ptr %23, i64 393272
   store i64 %call62, ptr %failover_auth_time63, align 8
-  %failover_auth_rank64 = getelementptr inbounds i8, ptr %24, i64 393288
+  %failover_auth_rank64 = getelementptr inbounds i8, ptr %23, i64 393288
   store i32 0, ptr %failover_auth_rank64, align 8
-  %todo_before_sleep.i = getelementptr inbounds i8, ptr %24, i64 393352
-  %25 = load i32, ptr %todo_before_sleep.i, align 8
-  %or.i = or i32 %25, 1
+  %todo_before_sleep.i = getelementptr inbounds i8, ptr %23, i64 393352
+  %24 = load i32, ptr %todo_before_sleep.i, align 8
+  %or.i = or i32 %24, 1
   store i32 %or.i, ptr %todo_before_sleep.i, align 8
   br label %do.body
 
 do.body:                                          ; preds = %if.then47, %if.then61
-  %26 = phi i64 [ %add58, %if.then47 ], [ %call62, %if.then61 ]
-  %27 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
-  %cmp66 = icmp sgt i32 %27, 2
+  %25 = phi i64 [ %add58, %if.then47 ], [ %call62, %if.then61 ]
+  %26 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
+  %cmp66 = icmp sgt i32 %26, 2
   br i1 %cmp66, label %do.end, label %if.end69
 
 if.end69:                                         ; preds = %do.body
   %call71 = tail call i64 @mstime() #33
-  %sub72 = sub nsw i64 %26, %call71
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5208), align 8
-  %failover_auth_rank73 = getelementptr inbounds i8, ptr %28, i64 393288
-  %29 = load i32, ptr %failover_auth_rank73, align 8
+  %sub72 = sub nsw i64 %25, %call71
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5208), align 8
+  %failover_auth_rank73 = getelementptr inbounds i8, ptr %27, i64 393288
+  %28 = load i32, ptr %failover_auth_rank73, align 8
   %call74 = tail call i64 @replicationGetSlaveOffset() #33
-  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.128, i64 noundef %sub72, i32 noundef %29, i64 noundef %call74) #33
+  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.128, i64 noundef %sub72, i32 noundef %28, i64 noundef %call74) #33
   br label %do.end
 
 do.end:                                           ; preds = %do.body, %if.end69
@@ -13405,37 +13408,37 @@ do.end:                                           ; preds = %do.body, %if.end69
   br label %if.end153
 
 if.end75:                                         ; preds = %if.end44
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5208), align 8
-  %failover_auth_sent76 = getelementptr inbounds i8, ptr %30, i64 393284
-  %31 = load i32, ptr %failover_auth_sent76, align 4
-  %cmp77 = icmp eq i32 %31, 0
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5208), align 8
+  %failover_auth_sent76 = getelementptr inbounds i8, ptr %29, i64 393284
+  %30 = load i32, ptr %failover_auth_sent76, align 4
+  %cmp77 = icmp eq i32 %30, 0
   br i1 %cmp77, label %land.lhs.true79, label %if.end103
 
 land.lhs.true79:                                  ; preds = %if.end75
-  %mf_end80 = getelementptr inbounds i8, ptr %30, i64 393312
-  %32 = load i64, ptr %mf_end80, align 8
-  %cmp81 = icmp eq i64 %32, 0
+  %mf_end80 = getelementptr inbounds i8, ptr %29, i64 393312
+  %31 = load i64, ptr %mf_end80, align 8
+  %cmp81 = icmp eq i64 %31, 0
   br i1 %cmp81, label %if.then83, label %if.end103
 
 if.then83:                                        ; preds = %land.lhs.true79
   %call84 = tail call i32 @clusterGetSlaveRank()
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5208), align 8
-  %failover_auth_rank85 = getelementptr inbounds i8, ptr %33, i64 393288
-  %34 = load i32, ptr %failover_auth_rank85, align 8
-  %cmp86 = icmp sgt i32 %call84, %34
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5208), align 8
+  %failover_auth_rank85 = getelementptr inbounds i8, ptr %32, i64 393288
+  %33 = load i32, ptr %failover_auth_rank85, align 8
+  %cmp86 = icmp sgt i32 %call84, %33
   br i1 %cmp86, label %if.then88, label %if.end103
 
 if.then88:                                        ; preds = %if.then83
-  %sub90 = sub nsw i32 %call84, %34
+  %sub90 = sub nsw i32 %call84, %33
   %mul91 = mul nsw i32 %sub90, 1000
   %conv92 = sext i32 %mul91 to i64
-  %failover_auth_time93 = getelementptr inbounds i8, ptr %33, i64 393272
-  %35 = load i64, ptr %failover_auth_time93, align 8
-  %add94 = add nsw i64 %35, %conv92
+  %failover_auth_time93 = getelementptr inbounds i8, ptr %32, i64 393272
+  %34 = load i64, ptr %failover_auth_time93, align 8
+  %add94 = add nsw i64 %34, %conv92
   store i64 %add94, ptr %failover_auth_time93, align 8
   store i32 %call84, ptr %failover_auth_rank85, align 8
-  %36 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
-  %cmp97 = icmp sgt i32 %36, 2
+  %35 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
+  %cmp97 = icmp sgt i32 %35, 2
   br i1 %cmp97, label %if.end103, label %if.end100
 
 if.end100:                                        ; preds = %if.then88
@@ -13444,10 +13447,10 @@ if.end100:                                        ; preds = %if.then88
 
 if.end103:                                        ; preds = %if.then83, %if.then88, %if.end100, %land.lhs.true79, %if.end75
   %call104 = tail call i64 @mstime() #33
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5208), align 8
-  %failover_auth_time105 = getelementptr inbounds i8, ptr %37, i64 393272
-  %38 = load i64, ptr %failover_auth_time105, align 8
-  %cmp106 = icmp slt i64 %call104, %38
+  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5208), align 8
+  %failover_auth_time105 = getelementptr inbounds i8, ptr %36, i64 393272
+  %37 = load i64, ptr %failover_auth_time105, align 8
+  %cmp106 = icmp slt i64 %call104, %37
   br i1 %cmp106, label %if.then108, label %if.end109
 
 if.then108:                                       ; preds = %if.end103
@@ -13463,49 +13466,49 @@ if.then112:                                       ; preds = %if.end109
   br label %if.end153
 
 if.end113:                                        ; preds = %if.end109
-  %failover_auth_sent114 = getelementptr inbounds i8, ptr %37, i64 393284
-  %39 = load i32, ptr %failover_auth_sent114, align 4
-  %cmp115 = icmp eq i32 %39, 0
+  %failover_auth_sent114 = getelementptr inbounds i8, ptr %36, i64 393284
+  %38 = load i32, ptr %failover_auth_sent114, align 4
+  %cmp115 = icmp eq i32 %38, 0
   br i1 %cmp115, label %if.then117, label %if.end127
 
 if.then117:                                       ; preds = %if.end113
-  %currentEpoch = getelementptr inbounds i8, ptr %37, i64 8
-  %40 = load i64, ptr %currentEpoch, align 8
-  %inc = add i64 %40, 1
+  %currentEpoch = getelementptr inbounds i8, ptr %36, i64 8
+  %39 = load i64, ptr %currentEpoch, align 8
+  %inc = add i64 %39, 1
   store i64 %inc, ptr %currentEpoch, align 8
-  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5208), align 8
-  %currentEpoch118 = getelementptr inbounds i8, ptr %41, i64 8
-  %42 = load i64, ptr %currentEpoch118, align 8
-  %failover_auth_epoch = getelementptr inbounds i8, ptr %41, i64 393296
-  store i64 %42, ptr %failover_auth_epoch, align 8
-  %43 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
-  %cmp120 = icmp sgt i32 %43, 2
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5208), align 8
+  %currentEpoch118 = getelementptr inbounds i8, ptr %40, i64 8
+  %41 = load i64, ptr %currentEpoch118, align 8
+  %failover_auth_epoch = getelementptr inbounds i8, ptr %40, i64 393296
+  store i64 %41, ptr %failover_auth_epoch, align 8
+  %42 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
+  %cmp120 = icmp sgt i32 %42, 2
   br i1 %cmp120, label %do.end125, label %if.end123
 
 if.end123:                                        ; preds = %if.then117
-  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.130, i64 noundef %42) #33
+  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.130, i64 noundef %41) #33
   br label %do.end125
 
 do.end125:                                        ; preds = %if.then117, %if.end123
   tail call void @clusterRequestFailoverAuth()
-  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5208), align 8
-  %failover_auth_sent126 = getelementptr inbounds i8, ptr %44, i64 393284
+  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5208), align 8
+  %failover_auth_sent126 = getelementptr inbounds i8, ptr %43, i64 393284
   store i32 1, ptr %failover_auth_sent126, align 4
-  %todo_before_sleep.i18 = getelementptr inbounds i8, ptr %44, i64 393352
-  %45 = load i32, ptr %todo_before_sleep.i18, align 8
-  %or.i19 = or i32 %45, 14
+  %todo_before_sleep.i18 = getelementptr inbounds i8, ptr %43, i64 393352
+  %44 = load i32, ptr %todo_before_sleep.i18, align 8
+  %or.i19 = or i32 %44, 14
   store i32 %or.i19, ptr %todo_before_sleep.i18, align 8
   br label %if.end153
 
 if.end127:                                        ; preds = %if.end113
-  %failover_auth_count128 = getelementptr inbounds i8, ptr %37, i64 393280
-  %46 = load i32, ptr %failover_auth_count128, align 8
-  %cmp129.not.not = icmp sgt i32 %46, %div
+  %failover_auth_count128 = getelementptr inbounds i8, ptr %36, i64 393280
+  %45 = load i32, ptr %failover_auth_count128, align 8
+  %cmp129.not.not = icmp sgt i32 %45, %div
   br i1 %cmp129.not.not, label %do.body132, label %if.else152
 
 do.body132:                                       ; preds = %if.end127
-  %47 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
-  %cmp133 = icmp sgt i32 %47, 2
+  %46 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
+  %cmp133 = icmp sgt i32 %46, 2
   br i1 %cmp133, label %do.end137, label %if.end136
 
 if.end136:                                        ; preds = %do.body132
@@ -13514,23 +13517,23 @@ if.end136:                                        ; preds = %do.body132
   br label %do.end137
 
 do.end137:                                        ; preds = %do.body132, %if.end136
-  %48 = phi ptr [ %37, %do.body132 ], [ %.pre, %if.end136 ]
-  %49 = load ptr, ptr @myself, align 8
-  %configEpoch = getelementptr inbounds i8, ptr %49, i64 96
-  %50 = load i64, ptr %configEpoch, align 8
-  %failover_auth_epoch138 = getelementptr inbounds i8, ptr %48, i64 393296
-  %51 = load i64, ptr %failover_auth_epoch138, align 8
-  %cmp139 = icmp ult i64 %50, %51
+  %47 = phi ptr [ %36, %do.body132 ], [ %.pre, %if.end136 ]
+  %48 = load ptr, ptr @myself, align 8
+  %configEpoch = getelementptr inbounds i8, ptr %48, i64 96
+  %49 = load i64, ptr %configEpoch, align 8
+  %failover_auth_epoch138 = getelementptr inbounds i8, ptr %47, i64 393296
+  %50 = load i64, ptr %failover_auth_epoch138, align 8
+  %cmp139 = icmp ult i64 %49, %50
   br i1 %cmp139, label %if.then141, label %if.end151
 
 if.then141:                                       ; preds = %do.end137
-  store i64 %51, ptr %configEpoch, align 8
-  %52 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
-  %cmp145 = icmp sgt i32 %52, 2
+  store i64 %50, ptr %configEpoch, align 8
+  %51 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
+  %cmp145 = icmp sgt i32 %51, 2
   br i1 %cmp145, label %if.end151, label %if.end148
 
 if.end148:                                        ; preds = %if.then141
-  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.132, i64 noundef %51) #33
+  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.132, i64 noundef %50) #33
   br label %if.end151
 
 if.end151:                                        ; preds = %if.end148, %if.then141, %do.end137

@@ -528,7 +528,7 @@ _ZN10open_spiel5twixt10BlockerMap12ClearBlockerEv.exit: ; preds = %_ZNSt8__detai
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 16), i8 0, i64 16, i1 false)
   %57 = load i32, ptr %6, align 8
   %58 = icmp sgt i32 %57, 0
-  br i1 %58, label %.preheader.preheader, label %._crit_edge212
+  br i1 %58, label %.preheader.preheader, label %._crit_edge208
 
 .preheader.preheader:                             ; preds = %_ZN10open_spiel5twixt10BlockerMap12ClearBlockerEv.exit
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -537,77 +537,77 @@ _ZN10open_spiel5twixt10BlockerMap12ClearBlockerEv.exit: ; preds = %_ZNSt8__detai
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
   %61 = phi i32 [ %57, %.preheader.preheader ], [ %528, %._crit_edge ]
-  %indvars.iv238 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next239, %._crit_edge ]
+  %indvars.iv234 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next235, %._crit_edge ]
   %62 = icmp sgt i32 %61, 0
   br i1 %62, label %.lr.ph, label %.preheader.._crit_edge_crit_edge
 
 .preheader.._crit_edge_crit_edge:                 ; preds = %.preheader
-  %.pre245 = sext i32 %61 to i64
+  %.pre241 = sext i32 %61 to i64
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %63 = icmp eq i64 %indvars.iv238, 0
-  %64 = mul nuw nsw i64 %indvars.iv238, 10000
-  %65 = trunc nuw nsw i64 %indvars.iv238 to i32
+  %63 = icmp eq i64 %indvars.iv234, 0
+  %64 = mul nuw nsw i64 %indvars.iv234, 10000
+  %65 = trunc nuw nsw i64 %indvars.iv234 to i32
   br i1 %1, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN10open_spiel5twixt5Board19InitializeNeighborsE8PositionRNS0_4CellEb.exit.us
-  %indvars.iv235 = phi i64 [ %indvars.iv.next236, %_ZN10open_spiel5twixt5Board19InitializeNeighborsE8PositionRNS0_4CellEb.exit.us ], [ 0, %.lr.ph ]
+  %indvars.iv231 = phi i64 [ %indvars.iv.next232, %_ZN10open_spiel5twixt5Board19InitializeNeighborsE8PositionRNS0_4CellEb.exit.us ], [ 0, %.lr.ph ]
   %66 = phi i32 [ %448, %_ZN10open_spiel5twixt5Board19InitializeNeighborsE8PositionRNS0_4CellEb.exit.us ], [ %61, %.lr.ph ]
-  %.sroa.4.0.insert.shift21.us = shl nuw nsw i64 %indvars.iv235, 32
+  %.sroa.4.0.insert.shift21.us = shl nuw nsw i64 %indvars.iv231, 32
   %67 = load ptr, ptr %17, align 8
-  %68 = getelementptr inbounds %"class.std::vector.24", ptr %67, i64 %indvars.iv238
+  %68 = getelementptr inbounds %"class.std::vector.24", ptr %67, i64 %indvars.iv234
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds %"class.open_spiel::twixt::Cell", ptr %69, i64 %indvars.iv235
+  %70 = getelementptr inbounds %"class.open_spiel::twixt::Cell", ptr %69, i64 %indvars.iv231
   %71 = sext i32 %66 to i64
-  %.not.i.us = icmp slt i64 %indvars.iv238, %71
+  %.not.i.us = icmp slt i64 %indvars.iv234, %71
   br i1 %.not.i.us, label %72, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread.us
 
 72:                                               ; preds = %.lr.ph.split.us
   %73 = add nsw i32 %66, -1
   %74 = zext i32 %73 to i64
-  %75 = icmp eq i64 %indvars.iv238, %74
+  %75 = icmp eq i64 %indvars.iv234, %74
   %or.cond11.i.us = select i1 %63, i1 true, i1 %75
-  br i1 %or.cond11.i.us, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.us, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread167.us
+  br i1 %or.cond11.i.us, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.us, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread163.us
 
 _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.us: ; preds = %72
-  %76 = icmp eq i64 %indvars.iv235, 0
-  %77 = icmp eq i64 %indvars.iv235, %74
+  %76 = icmp eq i64 %indvars.iv231, 0
+  %77 = icmp eq i64 %indvars.iv231, %74
   %spec.select.i.us = select i1 %76, i1 true, i1 %77
-  br i1 %spec.select.i.us, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread.us, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread167.us
+  br i1 %spec.select.i.us, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread.us, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread163.us
 
-_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread167.us: ; preds = %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.us, %72
+_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread163.us: ; preds = %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.us, %72
   store i32 2, ptr %70, align 4
   br i1 %63, label %.split.us.i.preheader.us.sink.split, label %78
 
-78:                                               ; preds = %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread167.us
+78:                                               ; preds = %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread163.us
   %79 = load i32, ptr %6, align 8
   %80 = add nsw i32 %79, -1
   %81 = zext i32 %80 to i64
-  %82 = icmp eq i64 %indvars.iv238, %81
+  %82 = icmp eq i64 %indvars.iv234, %81
   br i1 %82, label %.split.us.i.preheader.us.sink.split, label %83
 
 83:                                               ; preds = %78
-  %84 = icmp eq i64 %indvars.iv235, 0
+  %84 = icmp eq i64 %indvars.iv231, 0
   br i1 %84, label %.split.us.i.preheader.us.sink.split, label %85
 
 85:                                               ; preds = %83
-  %86 = icmp eq i64 %indvars.iv235, %81
+  %86 = icmp eq i64 %indvars.iv231, %81
   br i1 %86, label %.split.us.i.preheader.us.sink.split, label %.split.us.i.preheader.us
 
-.split.us.i.preheader.us.sink.split:              ; preds = %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread167.us, %78, %83, %85
-  %.sink270 = phi i64 [ 77, %85 ], [ 76, %83 ], [ 79, %78 ], [ 78, %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread167.us ]
-  %87 = getelementptr inbounds i8, ptr %70, i64 %.sink270
+.split.us.i.preheader.us.sink.split:              ; preds = %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread163.us, %78, %83, %85
+  %.sink266 = phi i64 [ 77, %85 ], [ 76, %83 ], [ 79, %78 ], [ 78, %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread163.us ]
+  %87 = getelementptr inbounds i8, ptr %70, i64 %.sink266
   store i8 1, ptr %87, align 1
   br label %.split.us.i.preheader.us
 
 .split.us.i.preheader.us:                         ; preds = %.split.us.i.preheader.us.sink.split, %85
   %88 = getelementptr inbounds nuw i8, ptr %70, i64 12
   %.pre24.i.us = load ptr, ptr @_ZN10open_spiel5twixtL20kLinkDescriptorTableE, align 8
-  %89 = mul nuw nsw i64 %indvars.iv235, 100
+  %89 = mul nuw nsw i64 %indvars.iv231, 100
   %90 = add nuw nsw i64 %89, %64
-  %.sroa.0.sroa.0153.0.insert.insert.us = or disjoint i64 %.sroa.4.0.insert.shift21.us, %indvars.iv238
-  %91 = trunc nuw nsw i64 %indvars.iv235 to i32
+  %.sroa.0.sroa.0149.0.insert.insert.us = or disjoint i64 %.sroa.4.0.insert.shift21.us, %indvars.iv234
+  %91 = trunc nuw nsw i64 %indvars.iv231 to i32
   br label %.split.us.i.us
 
 .split.us.i.us:                                   ; preds = %.split.us.i.preheader.us, %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread.us.i.us
@@ -753,11 +753,11 @@ _ZNKSt8__detail15_Hashtable_baseI4LinkSt4pairIKS1_St3setIS1_St4lessIS1_ESaIS1_EE
   %161 = getelementptr inbounds i8, ptr %159, i64 8
   %162 = load i32, ptr %161, align 4
   %163 = zext i32 %162 to i64
-  %164 = icmp eq i64 %indvars.iv238, %163
+  %164 = icmp eq i64 %indvars.iv234, %163
   %165 = getelementptr inbounds i8, ptr %159, i64 12
   %166 = load i32, ptr %165, align 4
   %167 = zext i32 %166 to i64
-  %168 = icmp eq i64 %indvars.iv235, %167
+  %168 = icmp eq i64 %indvars.iv231, %167
   %169 = select i1 %164, i1 %168, i1 false
   %170 = getelementptr inbounds i8, ptr %159, i64 16
   %171 = load i32, ptr %170, align 4
@@ -782,7 +782,7 @@ _ZNKSt8__detail15_Hashtable_baseI4LinkSt4pairIKS1_St3setIS1_St4lessIS1_ESaIS1_EE
   %179 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #24
   store ptr null, ptr %179, align 8
   %180 = getelementptr inbounds i8, ptr %179, i64 8
-  store i64 %.sroa.0.sroa.0153.0.insert.insert.us, ptr %180, align 8
+  store i64 %.sroa.0.sroa.0149.0.insert.insert.us, ptr %180, align 8
   %.sroa.6.0..sroa_idx.us = getelementptr inbounds i8, ptr %179, i64 16
   store i32 %110, ptr %.sroa.6.0..sroa_idx.us, align 8
   %181 = getelementptr inbounds i8, ptr %179, i64 24
@@ -806,7 +806,7 @@ _ZNKSt8__detail15_Hashtable_baseI4LinkSt4pairIKS1_St3setIS1_St4lessIS1_ESaIS1_EE
   br i1 %190, label %191, label %.noexc115.us._crit_edge
 
 .noexc115.us._crit_edge:                          ; preds = %.noexc115.us
-  %.pre241 = load ptr, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, align 8
+  %.pre237 = load ptr, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, align 8
   br label %221
 
 191:                                              ; preds = %.noexc115.us
@@ -816,89 +816,85 @@ _ZNKSt8__detail15_Hashtable_baseI4LinkSt4pairIKS1_St3setIS1_St4lessIS1_ESaIS1_EE
 
 194:                                              ; preds = %191
   %195 = icmp ugt i64 %192, 1152921504606846975
-  br i1 %195, label %.split196.us, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIK4LinkSt3setIS3_St4lessIS3_ESaIS3_EEELb1EEEEE19_M_allocate_bucketsEm.exit.i.i125.us
+  br i1 %195, label %.split192.us, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIK4LinkSt3setIS3_St4lessIS3_ESaIS3_EEELb1EEEEE19_M_allocate_bucketsEm.exit.i.i124.us
 
-_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIK4LinkSt3setIS3_St4lessIS3_ESaIS3_EEELb1EEEEE19_M_allocate_bucketsEm.exit.i.i125.us: ; preds = %194
+_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIK4LinkSt3setIS3_St4lessIS3_ESaIS3_EEELb1EEEEE19_M_allocate_bucketsEm.exit.i.i124.us: ; preds = %194
   %196 = shl nuw nsw i64 %192, 3
   %197 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %196) #24
-          to label %.noexc144.us unwind label %.loopexit.split.us
+          to label %.noexc140.us unwind label %.loopexit.split.us
 
-.noexc144.us:                                     ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIK4LinkSt3setIS3_St4lessIS3_ESaIS3_EEELb1EEEEE19_M_allocate_bucketsEm.exit.i.i125.us
+.noexc140.us:                                     ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIK4LinkSt3setIS3_St4lessIS3_ESaIS3_EEELb1EEEEE19_M_allocate_bucketsEm.exit.i.i124.us
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %197, i8 0, i64 %196, i1 false)
-  br label %_ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_EN10open_spiel5twixt16LinkHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i126.us
+  br label %_ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_EN10open_spiel5twixt16LinkHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i125.us
 
 198:                                              ; preds = %191
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 48), align 8
-  br label %_ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_EN10open_spiel5twixt16LinkHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i126.us
+  br label %_ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_EN10open_spiel5twixt16LinkHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i125.us
 
-_ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_EN10open_spiel5twixt16LinkHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i126.us: ; preds = %198, %.noexc144.us
-  %.0.i.i127.us = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 48), %198 ], [ %197, %.noexc144.us ]
+_ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_EN10open_spiel5twixt16LinkHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i125.us: ; preds = %198, %.noexc140.us
+  %.0.i.i126.us = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 48), %198 ], [ %197, %.noexc140.us ]
   %199 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 16), align 8
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 16), align 8
-  %.not29.i128.us = icmp eq ptr %199, null
-  br i1 %.not29.i128.us, label %._crit_edge.i138.us, label %.lr.ph.i129.us
+  %.not29.i127.us = icmp eq ptr %199, null
+  br i1 %.not29.i127.us, label %._crit_edge.i134.us, label %.lr.ph.i128.us
 
-.lr.ph.i129.us:                                   ; preds = %_ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_EN10open_spiel5twixt16LinkHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i126.us, %214
-  %.031.i130.us = phi ptr [ %200, %214 ], [ %199, %_ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_EN10open_spiel5twixt16LinkHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i126.us ]
-  %.02530.i131.us = phi i64 [ %.1.i136.us, %214 ], [ 0, %_ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_EN10open_spiel5twixt16LinkHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i126.us ]
-  %200 = load ptr, ptr %.031.i130.us, align 8
-  %201 = getelementptr inbounds i8, ptr %.031.i130.us, i64 72
+.lr.ph.i128.us:                                   ; preds = %_ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_EN10open_spiel5twixt16LinkHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i125.us, %214
+  %.031.i129.us = phi ptr [ %200, %214 ], [ %199, %_ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_EN10open_spiel5twixt16LinkHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i125.us ]
+  %.02530.i130.us = phi i64 [ %.1.i132.us, %214 ], [ 0, %_ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_EN10open_spiel5twixt16LinkHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i125.us ]
+  %200 = load ptr, ptr %.031.i129.us, align 8
+  %201 = getelementptr inbounds i8, ptr %.031.i129.us, i64 72
   %202 = load i64, ptr %201, align 8
   %203 = urem i64 %202, %192
-  %204 = getelementptr inbounds ptr, ptr %.0.i.i127.us, i64 %203
+  %204 = getelementptr inbounds ptr, ptr %.0.i.i126.us, i64 %203
   %205 = load ptr, ptr %204, align 8
-  %.not27.i132.us = icmp eq ptr %205, null
-  br i1 %.not27.i132.us, label %209, label %206
+  %.not27.i131.us = icmp eq ptr %205, null
+  br i1 %.not27.i131.us, label %209, label %206
 
-206:                                              ; preds = %.lr.ph.i129.us
+206:                                              ; preds = %.lr.ph.i128.us
   %207 = load ptr, ptr %205, align 8
-  store ptr %207, ptr %.031.i130.us, align 8
+  store ptr %207, ptr %.031.i129.us, align 8
   %208 = load ptr, ptr %204, align 8
-  br label %.sink.split.i133.us
-
-209:                                              ; preds = %.lr.ph.i129.us
-  %210 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 16), align 8
-  store ptr %210, ptr %.031.i130.us, align 8
-  store ptr %.031.i130.us, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 16), align 8
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 16), ptr %204, align 8
-  %211 = load ptr, ptr %.031.i130.us, align 8
-  %.not28.i139.us = icmp eq ptr %211, null
-  br i1 %.not28.i139.us, label %214, label %212
-
-212:                                              ; preds = %209
-  %213 = getelementptr inbounds ptr, ptr %.0.i.i127.us, i64 %.02530.i131.us
-  br label %.sink.split.i133.us
-
-.sink.split.i133.us:                              ; preds = %212, %206
-  %.sink.i134.us = phi ptr [ %213, %212 ], [ %208, %206 ]
-  %.1.ph.i135.us = phi i64 [ %203, %212 ], [ %.02530.i131.us, %206 ]
-  store ptr %.031.i130.us, ptr %.sink.i134.us, align 8
+  store ptr %.031.i129.us, ptr %208, align 8
   br label %214
 
-214:                                              ; preds = %.sink.split.i133.us, %209
-  %.1.i136.us = phi i64 [ %203, %209 ], [ %.1.ph.i135.us, %.sink.split.i133.us ]
-  %.not.i137.us = icmp eq ptr %200, null
-  br i1 %.not.i137.us, label %._crit_edge.i138.us, label %.lr.ph.i129.us, !llvm.loop !9
+209:                                              ; preds = %.lr.ph.i128.us
+  %210 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 16), align 8
+  store ptr %210, ptr %.031.i129.us, align 8
+  store ptr %.031.i129.us, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 16), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 16), ptr %204, align 8
+  %211 = load ptr, ptr %.031.i129.us, align 8
+  %.not28.i135.us = icmp eq ptr %211, null
+  br i1 %.not28.i135.us, label %214, label %212
 
-._crit_edge.i138.us:                              ; preds = %214, %_ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_EN10open_spiel5twixt16LinkHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i126.us
+212:                                              ; preds = %209
+  %213 = getelementptr inbounds ptr, ptr %.0.i.i126.us, i64 %.02530.i130.us
+  store ptr %.031.i129.us, ptr %213, align 8
+  br label %214
+
+214:                                              ; preds = %212, %209, %206
+  %.1.i132.us = phi i64 [ %.02530.i130.us, %206 ], [ %203, %212 ], [ %203, %209 ]
+  %.not.i133.us = icmp eq ptr %200, null
+  br i1 %.not.i133.us, label %._crit_edge.i134.us, label %.lr.ph.i128.us, !llvm.loop !9
+
+._crit_edge.i134.us:                              ; preds = %214, %_ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_EN10open_spiel5twixt16LinkHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i125.us
   %215 = load ptr, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, align 8
   %216 = icmp eq ptr %215, getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 48)
   br i1 %216, label %_ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_EN10open_spiel5twixt16LinkHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit.i114.us, label %217
 
-217:                                              ; preds = %._crit_edge.i138.us
+217:                                              ; preds = %._crit_edge.i134.us
   %218 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 8), align 8
   %219 = shl i64 %218, 3
   call void @_ZdlPvm(ptr noundef %215, i64 noundef %219) #20
   br label %_ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_EN10open_spiel5twixt16LinkHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit.i114.us
 
-_ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_EN10open_spiel5twixt16LinkHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit.i114.us: ; preds = %217, %._crit_edge.i138.us
+_ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_EN10open_spiel5twixt16LinkHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit.i114.us: ; preds = %217, %._crit_edge.i134.us
   store i64 %192, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 8), align 8
-  store ptr %.0.i.i127.us, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, align 8
+  store ptr %.0.i.i126.us, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, align 8
   %220 = urem i64 %452, %192
   br label %221
 
 221:                                              ; preds = %.noexc115.us._crit_edge, %_ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_EN10open_spiel5twixt16LinkHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit.i114.us
-  %222 = phi ptr [ %.0.i.i127.us, %_ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_EN10open_spiel5twixt16LinkHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit.i114.us ], [ %.pre241, %.noexc115.us._crit_edge ]
+  %222 = phi ptr [ %.0.i.i126.us, %_ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_EN10open_spiel5twixt16LinkHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit.i114.us ], [ %.pre237, %.noexc115.us._crit_edge ]
   %.0.i111.us = phi i64 [ %220, %_ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_EN10open_spiel5twixt16LinkHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit.i114.us ], [ %151, %.noexc115.us._crit_edge ]
   %223 = getelementptr inbounds i8, ptr %179, i64 72
   store i64 %452, ptr %223, align 8
@@ -928,11 +924,11 @@ _ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__d
   %235 = urem i64 %234, %232
   %236 = getelementptr inbounds ptr, ptr %222, i64 %235
   store ptr %179, ptr %236, align 8
-  %.pre242 = load ptr, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, align 8
+  %.pre238 = load ptr, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, align 8
   br label %237
 
 237:                                              ; preds = %231, %229
-  %238 = phi ptr [ %.pre242, %231 ], [ %222, %229 ]
+  %238 = phi ptr [ %.pre238, %231 ], [ %222, %229 ]
   %239 = getelementptr inbounds ptr, ptr %238, i64 %.0.i111.us
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 16), ptr %239, align 8
   br label %_ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_EN10open_spiel5twixt16LinkHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSA_10_Hash_nodeIS8_Lb1EEEm.exit118.us
@@ -1111,11 +1107,11 @@ _ZNKSt8__detail15_Hashtable_baseI4LinkSt4pairIKS1_St3setIS1_St4lessIS1_ESaIS1_EE
   %310 = getelementptr inbounds i8, ptr %308, i64 8
   %311 = load i32, ptr %310, align 4
   %312 = zext i32 %311 to i64
-  %313 = icmp eq i64 %indvars.iv238, %312
+  %313 = icmp eq i64 %indvars.iv234, %312
   %314 = getelementptr inbounds i8, ptr %308, i64 12
   %315 = load i32, ptr %314, align 4
   %316 = zext i32 %315 to i64
-  %317 = icmp eq i64 %indvars.iv235, %316
+  %317 = icmp eq i64 %indvars.iv231, %316
   %318 = select i1 %313, i1 %317, i1 false
   %319 = getelementptr inbounds i8, ptr %308, i64 16
   %320 = load i32, ptr %319, align 4
@@ -1140,9 +1136,9 @@ _ZNKSt8__detail15_Hashtable_baseI4LinkSt4pairIKS1_St3setIS1_St4lessIS1_ESaIS1_EE
   %328 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #24
   store ptr null, ptr %328, align 8
   %329 = getelementptr inbounds i8, ptr %328, i64 8
-  store i64 %.sroa.0.sroa.0153.0.insert.insert.us, ptr %329, align 8
-  %.sroa.6164.0..sroa_idx.us = getelementptr inbounds i8, ptr %328, i64 16
-  store i32 %110, ptr %.sroa.6164.0..sroa_idx.us, align 8
+  store i64 %.sroa.0.sroa.0149.0.insert.insert.us, ptr %329, align 8
+  %.sroa.6160.0..sroa_idx.us = getelementptr inbounds i8, ptr %328, i64 16
+  store i32 %110, ptr %.sroa.6160.0..sroa_idx.us, align 8
   %330 = getelementptr inbounds i8, ptr %328, i64 24
   %331 = getelementptr inbounds i8, ptr %328, i64 32
   %332 = getelementptr inbounds i8, ptr %328, i64 48
@@ -1156,7 +1152,7 @@ _ZNKSt8__detail15_Hashtable_baseI4LinkSt4pairIKS1_St3setIS1_St4lessIS1_ESaIS1_EE
   %335 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 40), align 8
   %336 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 24), align 8
   %337 = invoke { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 32), i64 noundef %299, i64 noundef %336, i64 noundef 1)
-          to label %.noexc110.us unwind label %.split202.us
+          to label %.noexc110.us unwind label %.split198.us
 
 .noexc110.us:                                     ; preds = %.loopexit.i.us
   %338 = extractvalue { i8, i64 } %337, 0
@@ -1164,7 +1160,7 @@ _ZNKSt8__detail15_Hashtable_baseI4LinkSt4pairIKS1_St3setIS1_St4lessIS1_ESaIS1_EE
   br i1 %339, label %340, label %.noexc110.us._crit_edge
 
 .noexc110.us._crit_edge:                          ; preds = %.noexc110.us
-  %.pre243 = load ptr, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, align 8
+  %.pre239 = load ptr, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, align 8
   br label %370
 
 340:                                              ; preds = %.noexc110.us
@@ -1174,14 +1170,14 @@ _ZNKSt8__detail15_Hashtable_baseI4LinkSt4pairIKS1_St3setIS1_St4lessIS1_ESaIS1_EE
 
 343:                                              ; preds = %340
   %344 = icmp ugt i64 %341, 1152921504606846975
-  br i1 %344, label %.split205.us, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIK4LinkSt3setIS3_St4lessIS3_ESaIS3_EEELb1EEEEE19_M_allocate_bucketsEm.exit.i.i.us
+  br i1 %344, label %.split201.us, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIK4LinkSt3setIS3_St4lessIS3_ESaIS3_EEELb1EEEEE19_M_allocate_bucketsEm.exit.i.i.us
 
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIK4LinkSt3setIS3_St4lessIS3_ESaIS3_EEELb1EEEEE19_M_allocate_bucketsEm.exit.i.i.us: ; preds = %343
   %345 = shl nuw nsw i64 %341, 3
   %346 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %345) #24
-          to label %.noexc124.us unwind label %.loopexit168.split.us
+          to label %.noexc123.us unwind label %.loopexit164.split.us
 
-.noexc124.us:                                     ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIK4LinkSt3setIS3_St4lessIS3_ESaIS3_EEELb1EEEEE19_M_allocate_bucketsEm.exit.i.i.us
+.noexc123.us:                                     ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIK4LinkSt3setIS3_St4lessIS3_ESaIS3_EEELb1EEEEE19_M_allocate_bucketsEm.exit.i.i.us
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %346, i8 0, i64 %345, i1 false)
   br label %_ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_EN10open_spiel5twixt16LinkHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i.us
 
@@ -1189,8 +1185,8 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIK4LinkSt3setIS3_St4l
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 48), align 8
   br label %_ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_EN10open_spiel5twixt16LinkHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i.us
 
-_ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_EN10open_spiel5twixt16LinkHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i.us: ; preds = %347, %.noexc124.us
-  %.0.i.i.us = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 48), %347 ], [ %346, %.noexc124.us ]
+_ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_EN10open_spiel5twixt16LinkHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i.us: ; preds = %347, %.noexc123.us
+  %.0.i.i.us = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 48), %347 ], [ %346, %.noexc123.us ]
   %348 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 16), align 8
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 16), align 8
   %.not29.i.us = icmp eq ptr %348, null
@@ -1212,7 +1208,8 @@ _ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__d
   %356 = load ptr, ptr %354, align 8
   store ptr %356, ptr %.031.i.us, align 8
   %357 = load ptr, ptr %353, align 8
-  br label %.sink.split.i.us
+  store ptr %.031.i.us, ptr %357, align 8
+  br label %363
 
 358:                                              ; preds = %.lr.ph.i119.us
   %359 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 16), align 8
@@ -1225,18 +1222,13 @@ _ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__d
 
 361:                                              ; preds = %358
   %362 = getelementptr inbounds ptr, ptr %.0.i.i.us, i64 %.02530.i.us
-  br label %.sink.split.i.us
-
-.sink.split.i.us:                                 ; preds = %361, %355
-  %.sink.i120.us = phi ptr [ %362, %361 ], [ %357, %355 ]
-  %.1.ph.i.us = phi i64 [ %352, %361 ], [ %.02530.i.us, %355 ]
-  store ptr %.031.i.us, ptr %.sink.i120.us, align 8
+  store ptr %.031.i.us, ptr %362, align 8
   br label %363
 
-363:                                              ; preds = %.sink.split.i.us, %358
-  %.1.i.us = phi i64 [ %352, %358 ], [ %.1.ph.i.us, %.sink.split.i.us ]
-  %.not.i121.us = icmp eq ptr %349, null
-  br i1 %.not.i121.us, label %._crit_edge.i.us, label %.lr.ph.i119.us, !llvm.loop !9
+363:                                              ; preds = %361, %358, %355
+  %.1.i.us = phi i64 [ %.02530.i.us, %355 ], [ %352, %361 ], [ %352, %358 ]
+  %.not.i120.us = icmp eq ptr %349, null
+  br i1 %.not.i120.us, label %._crit_edge.i.us, label %.lr.ph.i119.us, !llvm.loop !9
 
 ._crit_edge.i.us:                                 ; preds = %363, %_ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_EN10open_spiel5twixt16LinkHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i.us
   %364 = load ptr, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, align 8
@@ -1256,7 +1248,7 @@ _ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__d
   br label %370
 
 370:                                              ; preds = %.noexc110.us._crit_edge, %_ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_EN10open_spiel5twixt16LinkHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.us
-  %371 = phi ptr [ %.0.i.i.us, %_ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_EN10open_spiel5twixt16LinkHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.us ], [ %.pre243, %.noexc110.us._crit_edge ]
+  %371 = phi ptr [ %.0.i.i.us, %_ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_EN10open_spiel5twixt16LinkHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.us ], [ %.pre239, %.noexc110.us._crit_edge ]
   %.0.i108.us = phi i64 [ %369, %_ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_EN10open_spiel5twixt16LinkHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.us ], [ %300, %.noexc110.us._crit_edge ]
   %372 = getelementptr inbounds i8, ptr %328, i64 72
   store i64 %452, ptr %372, align 8
@@ -1286,11 +1278,11 @@ _ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__d
   %384 = urem i64 %383, %381
   %385 = getelementptr inbounds ptr, ptr %371, i64 %384
   store ptr %328, ptr %385, align 8
-  %.pre244 = load ptr, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, align 8
+  %.pre240 = load ptr, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, align 8
   br label %386
 
 386:                                              ; preds = %380, %378
-  %387 = phi ptr [ %.pre244, %380 ], [ %371, %378 ]
+  %387 = phi ptr [ %.pre240, %380 ], [ %371, %378 ]
   %388 = getelementptr inbounds ptr, ptr %387, i64 %.0.i108.us
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 16), ptr %388, align 8
   br label %_ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_EN10open_spiel5twixt16LinkHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSA_10_Hash_nodeIS8_Lb1EEEm.exit.us
@@ -1428,11 +1420,11 @@ _ZNSt8_Rb_treeI4LinkS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE10_M_insert_IRKS0_NS
   %439 = phi i1 [ true, %423 ], [ true, %_ZNK8PositionltERKS_.exit.i.i.i7.i.us ], [ false, %_ZNK8PositionltERKS_.exit.thread4.i.i.i8.i.us ], [ %438, %435 ], [ true, %425 ], [ false, %429 ]
   %440 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #24
   %441 = getelementptr inbounds nuw i8, ptr %440, i64 32
-  %.sroa.0.sroa.0162.0.insert.ext.us = zext nneg i32 %137 to i64
-  %.sroa.0.sroa.0162.0.insert.insert.us = or disjoint i64 %.sroa.2.0.insert.shift.i38.i.us, %.sroa.0.sroa.0162.0.insert.ext.us
-  store i64 %.sroa.0.sroa.0162.0.insert.insert.us, ptr %441, align 4
-  %.sroa.10159.0..sroa_idx.us = getelementptr inbounds i8, ptr %440, i64 40
-  store i32 %298, ptr %.sroa.10159.0..sroa_idx.us, align 4
+  %.sroa.0.sroa.0158.0.insert.ext.us = zext nneg i32 %137 to i64
+  %.sroa.0.sroa.0158.0.insert.insert.us = or disjoint i64 %.sroa.2.0.insert.shift.i38.i.us, %.sroa.0.sroa.0158.0.insert.ext.us
+  store i64 %.sroa.0.sroa.0158.0.insert.insert.us, ptr %441, align 4
+  %.sroa.10155.0..sroa_idx.us = getelementptr inbounds i8, ptr %440, i64 40
+  store i32 %298, ptr %.sroa.10155.0..sroa_idx.us, align 4
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %439, ptr noundef nonnull %440, ptr noundef nonnull %.sroa.4.0.i.ph.i.us, ptr noundef nonnull align 8 dereferenceable(32) %392) #22
   %442 = getelementptr inbounds i8, ptr %.pn22.i.us, i64 64
   %443 = load i64, ptr %442, align 8
@@ -1462,10 +1454,10 @@ _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread.us: ; pre
   br label %_ZN10open_spiel5twixt5Board19InitializeNeighborsE8PositionRNS0_4CellEb.exit.us
 
 _ZN10open_spiel5twixt5Board19InitializeNeighborsE8PositionRNS0_4CellEb.exit.us: ; preds = %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread.us.i.us, %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread.us
-  %indvars.iv.next236 = add nuw nsw i64 %indvars.iv235, 1
+  %indvars.iv.next232 = add nuw nsw i64 %indvars.iv231, 1
   %448 = load i32, ptr %6, align 8
   %449 = sext i32 %448 to i64
-  %450 = icmp slt i64 %indvars.iv.next236, %449
+  %450 = icmp slt i64 %indvars.iv.next232, %449
   br i1 %450, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !12
 
 .lr.ph.i.preheader.us:                            ; preds = %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread13.us.i.us
@@ -1479,18 +1471,18 @@ _ZN10open_spiel5twixt5Board19InitializeNeighborsE8PositionRNS0_4CellEb.exit.us: 
           cleanup
   br label %.body116
 
-.loopexit.split.us:                               ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIK4LinkSt3setIS3_St4lessIS3_ESaIS3_EEELb1EEEEE19_M_allocate_bucketsEm.exit.i.i125.us
+.loopexit.split.us:                               ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIK4LinkSt3setIS3_St4lessIS3_ESaIS3_EEELb1EEEEE19_M_allocate_bucketsEm.exit.i.i124.us
   %lpad.loopexit.us = landingpad { ptr, i32 }
           catch ptr null
   br label %488
 
-.split202.us:                                     ; preds = %.loopexit.i.us
+.split198.us:                                     ; preds = %.loopexit.i.us
   %454 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.loopexit168.split.us:                            ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIK4LinkSt3setIS3_St4lessIS3_ESaIS3_EEELb1EEEEE19_M_allocate_bucketsEm.exit.i.i.us
-  %lpad.loopexit170.us = landingpad { ptr, i32 }
+.loopexit164.split.us:                            ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIK4LinkSt3setIS3_St4lessIS3_ESaIS3_EEELb1EEEEE19_M_allocate_bucketsEm.exit.i.i.us
+  %lpad.loopexit166.us = landingpad { ptr, i32 }
           catch ptr null
   br label %498
 
@@ -1498,25 +1490,25 @@ _ZN10open_spiel5twixt5Board19InitializeNeighborsE8PositionRNS0_4CellEb.exit.us: 
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN10open_spiel5twixt5Board19InitializeNeighborsE8PositionRNS0_4CellEb.exit ], [ 0, %.lr.ph ]
   %455 = phi i32 [ %525, %_ZN10open_spiel5twixt5Board19InitializeNeighborsE8PositionRNS0_4CellEb.exit ], [ %61, %.lr.ph ]
   %456 = load ptr, ptr %17, align 8
-  %457 = getelementptr inbounds %"class.std::vector.24", ptr %456, i64 %indvars.iv238
+  %457 = getelementptr inbounds %"class.std::vector.24", ptr %456, i64 %indvars.iv234
   %458 = load ptr, ptr %457, align 8
   %459 = getelementptr inbounds %"class.open_spiel::twixt::Cell", ptr %458, i64 %indvars.iv
   %460 = sext i32 %455 to i64
-  %.not.i = icmp slt i64 %indvars.iv238, %460
+  %.not.i = icmp slt i64 %indvars.iv234, %460
   br i1 %.not.i, label %461, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread
 
 461:                                              ; preds = %.lr.ph.split
   %462 = add nsw i32 %455, -1
   %463 = zext i32 %462 to i64
-  %464 = icmp eq i64 %indvars.iv238, %463
+  %464 = icmp eq i64 %indvars.iv234, %463
   %or.cond11.i = select i1 %63, i1 true, i1 %464
-  br i1 %or.cond11.i, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread167
+  br i1 %or.cond11.i, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread163
 
 _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit: ; preds = %461
   %465 = icmp eq i64 %indvars.iv, 0
   %466 = icmp eq i64 %indvars.iv, %463
   %spec.select.i = select i1 %465, i1 true, i1 %466
-  br i1 %spec.select.i, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread167
+  br i1 %spec.select.i, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread163
 
 _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread: ; preds = %.lr.ph.split, %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit
   store i32 3, ptr %459, align 4
@@ -1541,15 +1533,15 @@ common.resume:                                    ; preds = %467, %470, %.body, 
   %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body117, %.body116 ], [ %eh.lpad-body, %.body ], [ %468, %467 ], [ %468, %470 ]
   resume { ptr, i32 } %common.resume.op
 
-_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread167: ; preds = %461, %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit
+_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread163: ; preds = %461, %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit
   store i32 2, ptr %459, align 4
   br i1 %63, label %.split.i.preheader.sink.split, label %475
 
-475:                                              ; preds = %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread167
+475:                                              ; preds = %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread163
   %476 = load i32, ptr %6, align 8
   %477 = add nsw i32 %476, -1
   %478 = zext i32 %477 to i64
-  %479 = icmp eq i64 %indvars.iv238, %478
+  %479 = icmp eq i64 %indvars.iv234, %478
   br i1 %479, label %.split.i.preheader.sink.split, label %480
 
 480:                                              ; preds = %475
@@ -1560,9 +1552,9 @@ _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread167: ; pre
   %483 = icmp eq i64 %indvars.iv, %478
   br i1 %483, label %.split.i.preheader.sink.split, label %.split.i.preheader
 
-.split.i.preheader.sink.split:                    ; preds = %482, %480, %475, %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread167
-  %.sink271 = phi i64 [ 78, %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread167 ], [ 79, %475 ], [ 76, %480 ], [ 77, %482 ]
-  %484 = getelementptr inbounds i8, ptr %459, i64 %.sink271
+.split.i.preheader.sink.split:                    ; preds = %482, %480, %475, %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread163
+  %.sink267 = phi i64 [ 78, %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread163 ], [ 79, %475 ], [ 76, %480 ], [ 77, %482 ]
+  %484 = getelementptr inbounds i8, ptr %459, i64 %.sink267
   store i8 1, ptr %484, align 1
   br label %.split.i.preheader
 
@@ -1572,25 +1564,25 @@ _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread167: ; pre
   %486 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.split.i
 
-.split196.us:                                     ; preds = %194
+.split192.us:                                     ; preds = %194
   %487 = icmp ugt i64 %192, 2305843009213693951
-  br i1 %487, label %.noexc.i.i.i141, label %.noexc7.i.i.i140
+  br i1 %487, label %.noexc.i.i.i137, label %.noexc7.i.i.i136
 
-.noexc.i.i.i141:                                  ; preds = %.split196.us
+.noexc.i.i.i137:                                  ; preds = %.split192.us
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #23
-          to label %.noexc142 unwind label %.loopexit.split-lp
+          to label %.noexc138 unwind label %.loopexit.split-lp
 
-.noexc142:                                        ; preds = %.noexc.i.i.i141
+.noexc138:                                        ; preds = %.noexc.i.i.i137
   unreachable
 
-.noexc7.i.i.i140:                                 ; preds = %.split196.us
+.noexc7.i.i.i136:                                 ; preds = %.split192.us
   invoke void @_ZSt17__throw_bad_allocv() #23
-          to label %.noexc143 unwind label %.loopexit.split-lp
+          to label %.noexc139 unwind label %.loopexit.split-lp
 
-.noexc143:                                        ; preds = %.noexc7.i.i.i140
+.noexc139:                                        ; preds = %.noexc7.i.i.i136
   unreachable
 
-.loopexit.split-lp:                               ; preds = %.noexc.i.i.i141, %.noexc7.i.i.i140
+.loopexit.split-lp:                               ; preds = %.noexc.i.i.i137, %.noexc7.i.i.i136
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           catch ptr null
   br label %488
@@ -1624,32 +1616,32 @@ _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread167: ; pre
   call void @_ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_EN10open_spiel5twixt16LinkHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #22
   br label %common.resume
 
-.split205.us:                                     ; preds = %343
+.split201.us:                                     ; preds = %343
   %497 = icmp ugt i64 %341, 2305843009213693951
   br i1 %497, label %.noexc.i.i.i, label %.noexc7.i.i.i
 
-.noexc.i.i.i:                                     ; preds = %.split205.us
+.noexc.i.i.i:                                     ; preds = %.split201.us
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #23
-          to label %.noexc122 unwind label %.loopexit.split-lp169
+          to label %.noexc121 unwind label %.loopexit.split-lp165
 
-.noexc122:                                        ; preds = %.noexc.i.i.i
+.noexc121:                                        ; preds = %.noexc.i.i.i
   unreachable
 
-.noexc7.i.i.i:                                    ; preds = %.split205.us
+.noexc7.i.i.i:                                    ; preds = %.split201.us
   invoke void @_ZSt17__throw_bad_allocv() #23
-          to label %.noexc123 unwind label %.loopexit.split-lp169
+          to label %.noexc122 unwind label %.loopexit.split-lp165
 
-.noexc123:                                        ; preds = %.noexc7.i.i.i
+.noexc122:                                        ; preds = %.noexc7.i.i.i
   unreachable
 
-.loopexit.split-lp169:                            ; preds = %.noexc.i.i.i, %.noexc7.i.i.i
-  %lpad.loopexit.split-lp171 = landingpad { ptr, i32 }
+.loopexit.split-lp165:                            ; preds = %.noexc.i.i.i, %.noexc7.i.i.i
+  %lpad.loopexit.split-lp167 = landingpad { ptr, i32 }
           catch ptr null
   br label %498
 
-498:                                              ; preds = %.loopexit.split-lp169, %.loopexit168.split.us
-  %lpad.phi172 = phi { ptr, i32 } [ %lpad.loopexit170.us, %.loopexit168.split.us ], [ %lpad.loopexit.split-lp171, %.loopexit.split-lp169 ]
-  %499 = extractvalue { ptr, i32 } %lpad.phi172, 0
+498:                                              ; preds = %.loopexit.split-lp165, %.loopexit164.split.us
+  %lpad.phi168 = phi { ptr, i32 } [ %lpad.loopexit166.us, %.loopexit164.split.us ], [ %lpad.loopexit.split-lp167, %.loopexit.split-lp165 ]
+  %499 = extractvalue { ptr, i32 } %lpad.phi168, 0
   %500 = call ptr @__cxa_begin_catch(ptr %499) #22
   store i64 %335, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 40), align 8
   invoke void @__cxa_rethrow() #23
@@ -1671,8 +1663,8 @@ _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread167: ; pre
 506:                                              ; preds = %498
   unreachable
 
-.body:                                            ; preds = %501, %.split202.us
-  %eh.lpad-body = phi { ptr, i32 } [ %454, %.split202.us ], [ %502, %501 ]
+.body:                                            ; preds = %501, %.split198.us
+  %eh.lpad-body = phi { ptr, i32 } [ %454, %.split198.us ], [ %502, %501 ]
   call void @_ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_EN10open_spiel5twixt16LinkHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #22
   br label %common.resume
 
@@ -1731,13 +1723,13 @@ _ZN10open_spiel5twixt5Board19InitializeNeighborsE8PositionRNS0_4CellEb.exit: ; p
   br i1 %527, label %.lr.ph.split, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %_ZN10open_spiel5twixt5Board19InitializeNeighborsE8PositionRNS0_4CellEb.exit, %_ZN10open_spiel5twixt5Board19InitializeNeighborsE8PositionRNS0_4CellEb.exit.us, %.preheader.._crit_edge_crit_edge
-  %.pre-phi = phi i64 [ %.pre245, %.preheader.._crit_edge_crit_edge ], [ %449, %_ZN10open_spiel5twixt5Board19InitializeNeighborsE8PositionRNS0_4CellEb.exit.us ], [ %526, %_ZN10open_spiel5twixt5Board19InitializeNeighborsE8PositionRNS0_4CellEb.exit ]
+  %.pre-phi = phi i64 [ %.pre241, %.preheader.._crit_edge_crit_edge ], [ %449, %_ZN10open_spiel5twixt5Board19InitializeNeighborsE8PositionRNS0_4CellEb.exit.us ], [ %526, %_ZN10open_spiel5twixt5Board19InitializeNeighborsE8PositionRNS0_4CellEb.exit ]
   %528 = phi i32 [ %61, %.preheader.._crit_edge_crit_edge ], [ %448, %_ZN10open_spiel5twixt5Board19InitializeNeighborsE8PositionRNS0_4CellEb.exit.us ], [ %525, %_ZN10open_spiel5twixt5Board19InitializeNeighborsE8PositionRNS0_4CellEb.exit ]
-  %indvars.iv.next239 = add nuw nsw i64 %indvars.iv238, 1
-  %529 = icmp slt i64 %indvars.iv.next239, %.pre-phi
-  br i1 %529, label %.preheader, label %._crit_edge212, !llvm.loop !13
+  %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
+  %529 = icmp slt i64 %indvars.iv.next235, %.pre-phi
+  br i1 %529, label %.preheader, label %._crit_edge208, !llvm.loop !13
 
-._crit_edge212:                                   ; preds = %._crit_edge, %_ZN10open_spiel5twixt10BlockerMap12ClearBlockerEv.exit
+._crit_edge208:                                   ; preds = %._crit_edge, %_ZN10open_spiel5twixt10BlockerMap12ClearBlockerEv.exit
   ret void
 }
 
@@ -7018,22 +7010,18 @@ _ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__d
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
-  br label %.sink.split
+  store ptr %.031, ptr %24, align 8
+  br label %28
 
 25:                                               ; preds = %.lr.ph
   %26 = load ptr, ptr %19, align 8
   store ptr %26, ptr %.031, align 8
   %27 = load ptr, ptr %18, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %25, %23
-  %.sink = phi ptr [ %24, %23 ], [ %27, %25 ]
-  %.1.ph = phi i64 [ %17, %23 ], [ %.02530, %25 ]
-  store ptr %.031, ptr %.sink, align 8
+  store ptr %.031, ptr %27, align 8
   br label %28
 
-28:                                               ; preds = %.sink.split, %20
-  %.1 = phi i64 [ %17, %20 ], [ %.1.ph, %.sink.split ]
+28:                                               ; preds = %20, %23, %25
+  %.1 = phi i64 [ %.02530, %25 ], [ %17, %23 ], [ %17, %20 ]
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 

@@ -2198,7 +2198,11 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit169:         ; preds = %372, %378, %_ZN5cla
   %383 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %384 = load ptr, ptr %383, align 8
   %.not11.i = icmp eq ptr %7, %384
-  br i1 %.not11.i, label %.sink.split, label %.lr.ph.preheader.i170
+  br i1 %.not11.i, label %_ZN5clang20NumericLiteralParser15SkipOctalDigitsEPKc.exit.thread, label %.lr.ph.preheader.i170
+
+_ZN5clang20NumericLiteralParser15SkipOctalDigitsEPKc.exit.thread: ; preds = %.thread237
+  store ptr %7, ptr %5, align 8
+  br label %394
 
 .lr.ph.preheader.i170:                            ; preds = %.thread237
   %385 = ptrtoint ptr %384 to i64
@@ -2229,16 +2233,11 @@ _ZN5clang20NumericLiteralParser15SkipOctalDigitsEPKc.exit: ; preds = %.lr.ph.i17
 
 392:                                              ; preds = %_ZN5clang20NumericLiteralParser15SkipOctalDigitsEPKc.exit
   %393 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %.thread237, %392
-  %.sink = phi ptr [ %393, %392 ], [ %5, %.thread237 ]
-  %.0.lcssa.i174241.ph = phi ptr [ %.0.lcssa.i174, %392 ], [ %7, %.thread237 ]
-  store ptr %7, ptr %.sink, align 8
+  store ptr %7, ptr %393, align 8
   br label %394
 
-394:                                              ; preds = %.sink.split, %_ZN5clang20NumericLiteralParser15SkipOctalDigitsEPKc.exit
-  %.0.lcssa.i174241 = phi ptr [ %7, %_ZN5clang20NumericLiteralParser15SkipOctalDigitsEPKc.exit ], [ %.0.lcssa.i174241.ph, %.sink.split ]
+394:                                              ; preds = %_ZN5clang20NumericLiteralParser15SkipOctalDigitsEPKc.exit.thread, %392, %_ZN5clang20NumericLiteralParser15SkipOctalDigitsEPKc.exit
+  %.0.lcssa.i174241 = phi ptr [ %7, %_ZN5clang20NumericLiteralParser15SkipOctalDigitsEPKc.exit.thread ], [ %.0.lcssa.i174, %392 ], [ %7, %_ZN5clang20NumericLiteralParser15SkipOctalDigitsEPKc.exit ]
   %395 = icmp eq ptr %.0.lcssa.i174241, %384
   br i1 %395, label %416, label %396
 

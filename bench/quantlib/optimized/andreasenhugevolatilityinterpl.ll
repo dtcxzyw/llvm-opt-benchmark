@@ -27080,8 +27080,8 @@ land.lhs.true1740:                                ; preds = %if.else1732
   %629 = load double, ptr %gep1924, align 8, !tbaa !98
   %cmp1746 = fcmp oeq double %628, %629
   %cmp1758 = fcmp oeq double %628, %625
-  %or.cond2043 = or i1 %cmp1746, %cmp1758
-  br i1 %or.cond2043, label %for.inc1842, label %if.else1764
+  %or.cond2039 = or i1 %cmp1746, %cmp1758
+  br i1 %or.cond2039, label %for.inc1842, label %if.else1764
 
 if.else1752:                                      ; preds = %if.else1732
   %cmp1758.old = fcmp oeq double %628, %625
@@ -27494,7 +27494,7 @@ for.body2311.lr.ph:                               ; preds = %for.cond2307.prehea
   br label %for.body2311
 
 for.body2311:                                     ; preds = %for.body2311.lr.ph, %for.inc2583
-  %705 = phi i64 [ %.pre1989, %for.body2311.lr.ph ], [ %739, %for.inc2583 ]
+  %705 = phi i64 [ %.pre1989, %for.body2311.lr.ph ], [ %741, %for.inc2583 ]
   %i2306.01939 = phi i64 [ 0, %for.body2311.lr.ph ], [ %inc2584, %for.inc2583 ]
   %cmp2312 = icmp eq i64 %i2306.01939, 0
   br i1 %cmp2312, label %if.then2313, label %if.else2348
@@ -27523,7 +27523,10 @@ if.end2336:                                       ; preds = %if.then2313, %if.th
 
 if.then2340:                                      ; preds = %if.end2336
   store double %correction.0, ptr %703, align 8, !tbaa !98
-  br label %for.inc2583.sink.split
+  %710 = load i64, ptr %704, align 8, !tbaa !37
+  %or.i = or i64 %710, 1
+  store i64 %or.i, ptr %704, align 8, !tbaa !37
+  br label %for.inc2583
 
 if.else2348:                                      ; preds = %for.body2311
   %sub2350 = add i64 %705, -1
@@ -27532,61 +27535,64 @@ if.else2348:                                      ; preds = %for.body2311
 
 if.then2352:                                      ; preds = %if.else2348
   %arrayidx.i1633 = getelementptr inbounds nuw double, ptr %703, i64 %i2306.01939
-  %710 = load double, ptr %arrayidx.i1633, align 8, !tbaa !98
+  %711 = load double, ptr %arrayidx.i1633, align 8, !tbaa !98
   %gep1941 = getelementptr double, ptr %invariant.gep1940, i64 %705
-  %711 = load double, ptr %gep1941, align 8, !tbaa !98
-  %mul2359 = fmul double %710, %711
+  %712 = load double, ptr %gep1941, align 8, !tbaa !98
+  %mul2359 = fmul double %711, %712
   %cmp2360 = fcmp ogt double %mul2359, 0.000000e+00
   br i1 %cmp2360, label %if.then2361, label %if.end2379
 
 if.then2361:                                      ; preds = %if.then2352
-  %712 = call double @llvm.fabs.f64(double %710)
-  %div2366 = fdiv double %710, %712
-  %mul2375 = fmul double %711, 3.000000e+00
-  %713 = call double @llvm.fabs.f64(double %mul2375)
-  %cmp.i1639 = fcmp olt double %713, %712
-  %.sroa.speculated1753 = select i1 %cmp.i1639, double %713, double %712
+  %713 = call double @llvm.fabs.f64(double %711)
+  %div2366 = fdiv double %711, %713
+  %mul2375 = fmul double %712, 3.000000e+00
+  %714 = call double @llvm.fabs.f64(double %mul2375)
+  %cmp.i1639 = fcmp olt double %714, %713
+  %.sroa.speculated1753 = select i1 %cmp.i1639, double %714, double %713
   %mul2377 = fmul double %div2366, %.sroa.speculated1753
   br label %if.end2379
 
 if.end2379:                                       ; preds = %if.then2352, %if.then2361
   %correction.1 = phi double [ %mul2377, %if.then2361 ], [ 0.000000e+00, %if.then2352 ]
-  %cmp2382 = fcmp une double %correction.1, %710
+  %cmp2382 = fcmp une double %correction.1, %711
   br i1 %cmp2382, label %if.then2383, label %for.inc2583
 
 if.then2383:                                      ; preds = %if.end2379
   store double %correction.1, ptr %arrayidx.i1633, align 8, !tbaa !98
   %div.i.i.i.i.i = sdiv i64 %i2306.01939, 64
   %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %704, i64 %div.i.i.i.i.i
-  %714 = and i64 %i2306.01939, -9223372036854775745
-  %cmp.i.i.i.i.i = icmp ugt i64 %714, -9223372036854775808
+  %715 = and i64 %i2306.01939, -9223372036854775745
+  %cmp.i.i.i.i.i = icmp ugt i64 %715, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 -8, i64 0
   %storemerge.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 %storemerge.idx.i.i.i.i.i
   %conv4.i.i.i.i.i = and i64 %i2306.01939, 63
   %shl.i.i.i = shl nuw i64 1, %conv4.i.i.i.i.i
-  br label %for.inc2583.sink.split
+  %716 = load i64, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !37
+  %or.i1646 = or i64 %716, %shl.i.i.i
+  store i64 %or.i1646, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !37
+  br label %for.inc2583
 
 if.else2391:                                      ; preds = %if.else2348
   %sub2393 = add i64 %i2306.01939, -1
   %add.ptr.i1647 = getelementptr inbounds nuw double, ptr %701, i64 %sub2393
-  %715 = load double, ptr %add.ptr.i1647, align 8, !tbaa !98
+  %717 = load double, ptr %add.ptr.i1647, align 8, !tbaa !98
   %add.ptr.i1648 = getelementptr inbounds nuw double, ptr %702, i64 %i2306.01939
-  %716 = load double, ptr %add.ptr.i1648, align 8, !tbaa !98
+  %718 = load double, ptr %add.ptr.i1648, align 8, !tbaa !98
   %add.ptr.i1649 = getelementptr inbounds nuw double, ptr %701, i64 %i2306.01939
-  %717 = load double, ptr %add.ptr.i1649, align 8, !tbaa !98
+  %719 = load double, ptr %add.ptr.i1649, align 8, !tbaa !98
   %add.ptr.i1650 = getelementptr inbounds nuw double, ptr %702, i64 %sub2393
-  %718 = load double, ptr %add.ptr.i1650, align 8, !tbaa !98
-  %mul2403 = fmul double %717, %718
-  %719 = call double @llvm.fmuladd.f64(double %715, double %716, double %mul2403)
-  %add2409 = fadd double %716, %718
-  %div2410 = fdiv double %719, %add2409
-  %720 = call double @llvm.fabs.f64(double %715)
-  %721 = call double @llvm.fabs.f64(double %717)
-  %cmp.i1655 = fcmp olt double %721, %720
-  %722 = call double @llvm.fabs.f64(double %div2410)
-  %.sroa.speculated1750 = select i1 %cmp.i1655, double %721, double %720
-  %cmp.i1657 = fcmp olt double %722, %.sroa.speculated1750
-  %.sroa.speculated1747 = select i1 %cmp.i1657, double %722, double %.sroa.speculated1750
+  %720 = load double, ptr %add.ptr.i1650, align 8, !tbaa !98
+  %mul2403 = fmul double %719, %720
+  %721 = call double @llvm.fmuladd.f64(double %717, double %718, double %mul2403)
+  %add2409 = fadd double %718, %720
+  %div2410 = fdiv double %721, %add2409
+  %722 = call double @llvm.fabs.f64(double %717)
+  %723 = call double @llvm.fabs.f64(double %719)
+  %cmp.i1655 = fcmp olt double %723, %722
+  %724 = call double @llvm.fabs.f64(double %div2410)
+  %.sroa.speculated1750 = select i1 %cmp.i1655, double %723, double %722
+  %cmp.i1657 = fcmp olt double %724, %.sroa.speculated1750
+  %.sroa.speculated1747 = select i1 %cmp.i1657, double %724, double %.sroa.speculated1750
   %mul2421 = fmul double %.sroa.speculated1747, 3.000000e+00
   %cmp2422.not = icmp eq i64 %i2306.01939, 1
   br i1 %cmp2422.not, label %if.end2488, label %if.then2423
@@ -27594,22 +27600,22 @@ if.else2391:                                      ; preds = %if.else2348
 if.then2423:                                      ; preds = %if.else2391
   %sub2428 = add i64 %i2306.01939, -2
   %add.ptr.i1660 = getelementptr inbounds nuw double, ptr %701, i64 %sub2428
-  %723 = load double, ptr %add.ptr.i1660, align 8, !tbaa !98
-  %sub2430 = fsub double %715, %723
-  %sub2436 = fsub double %717, %715
+  %725 = load double, ptr %add.ptr.i1660, align 8, !tbaa !98
+  %sub2430 = fsub double %717, %725
+  %sub2436 = fsub double %719, %717
   %mul2437 = fmul double %sub2436, %sub2430
   %cmp2438 = fcmp ogt double %mul2437, 0.000000e+00
   br i1 %cmp2438, label %if.then2439, label %if.end2488
 
 if.then2439:                                      ; preds = %if.then2423
   %add.ptr.i1665 = getelementptr inbounds nuw double, ptr %702, i64 %sub2428
-  %724 = load double, ptr %add.ptr.i1665, align 8, !tbaa !98
-  %725 = call double @llvm.fmuladd.f64(double %718, double 2.000000e+00, double %724)
-  %726 = fneg double %718
-  %neg2458 = fmul double %723, %726
-  %727 = call double @llvm.fmuladd.f64(double %715, double %725, double %neg2458)
-  %add2465 = fadd double %718, %724
-  %div2466 = fdiv double %727, %add2465
+  %726 = load double, ptr %add.ptr.i1665, align 8, !tbaa !98
+  %727 = call double @llvm.fmuladd.f64(double %720, double 2.000000e+00, double %726)
+  %728 = fneg double %720
+  %neg2458 = fmul double %725, %728
+  %729 = call double @llvm.fmuladd.f64(double %717, double %727, double %neg2458)
+  %add2465 = fadd double %720, %726
+  %div2466 = fdiv double %729, %add2465
   %mul2467 = fmul double %div2410, %div2466
   %cmp2468 = fcmp ogt double %mul2467, 0.000000e+00
   %mul2477 = fmul double %div2410, %sub2430
@@ -27618,9 +27624,9 @@ if.then2439:                                      ; preds = %if.then2423
   br i1 %or.cond1869, label %if.then2479, label %if.end2488
 
 if.then2479:                                      ; preds = %if.then2439
-  %728 = call double @llvm.fabs.f64(double %div2466)
-  %cmp.i1672 = fcmp olt double %728, %722
-  %.sroa.speculated1741 = select i1 %cmp.i1672, double %728, double %722
+  %730 = call double @llvm.fabs.f64(double %div2466)
+  %cmp.i1672 = fcmp olt double %730, %724
+  %.sroa.speculated1741 = select i1 %cmp.i1672, double %730, double %724
   %mul2484 = fmul double %.sroa.speculated1741, 1.500000e+00
   %cmp.i1674 = fcmp olt double %mul2421, %mul2484
   %.sroa.speculated1744 = select i1 %cmp.i1674, double %mul2484, double %mul2421
@@ -27633,24 +27639,24 @@ if.end2488:                                       ; preds = %if.then2423, %if.th
   br i1 %cmp2491, label %if.then2492, label %if.end2552
 
 if.then2492:                                      ; preds = %if.end2488
-  %sub2498 = fsub double %717, %715
+  %sub2498 = fsub double %719, %717
   %add2500 = add nuw i64 %i2306.01939, 1
   %add.ptr.i1678 = getelementptr inbounds nuw double, ptr %701, i64 %add2500
-  %729 = load double, ptr %add.ptr.i1678, align 8, !tbaa !98
-  %sub2504 = fsub double %729, %717
+  %731 = load double, ptr %add.ptr.i1678, align 8, !tbaa !98
+  %sub2504 = fsub double %731, %719
   %mul2505 = fmul double %sub2498, %sub2504
   %cmp2506 = fcmp ogt double %mul2505, 0.000000e+00
   br i1 %cmp2506, label %if.then2507, label %if.end2552
 
 if.then2507:                                      ; preds = %if.then2492
   %add.ptr.i1682 = getelementptr inbounds nuw double, ptr %702, i64 %add2500
-  %730 = load double, ptr %add.ptr.i1682, align 8, !tbaa !98
-  %731 = call double @llvm.fmuladd.f64(double %716, double 2.000000e+00, double %730)
-  %732 = fneg double %716
-  %neg2523 = fmul double %729, %732
-  %733 = call double @llvm.fmuladd.f64(double %717, double %731, double %neg2523)
-  %add2529 = fadd double %716, %730
-  %div2530 = fdiv double %733, %add2529
+  %732 = load double, ptr %add.ptr.i1682, align 8, !tbaa !98
+  %733 = call double @llvm.fmuladd.f64(double %718, double 2.000000e+00, double %732)
+  %734 = fneg double %718
+  %neg2523 = fmul double %731, %734
+  %735 = call double @llvm.fmuladd.f64(double %719, double %733, double %neg2523)
+  %add2529 = fadd double %718, %732
+  %div2530 = fdiv double %735, %add2529
   %mul2531 = fmul double %div2410, %div2530
   %cmp2532 = fcmp ogt double %mul2531, 0.000000e+00
   br i1 %cmp2532, label %land.lhs.true2533, label %if.end2552
@@ -27662,9 +27668,9 @@ land.lhs.true2533:                                ; preds = %if.then2507
   br i1 %cmp2542, label %if.then2543, label %if.end2552
 
 if.then2543:                                      ; preds = %land.lhs.true2533
-  %734 = call double @llvm.fabs.f64(double %div2530)
-  %cmp.i1689 = fcmp olt double %734, %722
-  %.sroa.speculated1736 = select i1 %cmp.i1689, double %734, double %722
+  %736 = call double @llvm.fabs.f64(double %div2530)
+  %cmp.i1689 = fcmp olt double %736, %724
+  %.sroa.speculated1736 = select i1 %cmp.i1689, double %736, double %724
   %mul2548 = fmul double %.sroa.speculated1736, 1.500000e+00
   %cmp.i1691 = fcmp olt double %M.0, %mul2548
   %.sroa.speculated1738 = select i1 %cmp.i1691, double %mul2548, double %M.0
@@ -27673,126 +27679,121 @@ if.then2543:                                      ; preds = %land.lhs.true2533
 if.end2552:                                       ; preds = %if.then2492, %if.then2543, %land.lhs.true2533, %if.then2507, %if.end2488
   %M.1 = phi double [ %.sroa.speculated1738, %if.then2543 ], [ %M.0, %land.lhs.true2533 ], [ %M.0, %if.then2507 ], [ %M.0, %if.then2492 ], [ %M.0, %if.end2488 ]
   %arrayidx.i1693 = getelementptr inbounds nuw double, ptr %703, i64 %i2306.01939
-  %735 = load double, ptr %arrayidx.i1693, align 8, !tbaa !98
-  %mul2555 = fmul double %div2410, %735
+  %737 = load double, ptr %arrayidx.i1693, align 8, !tbaa !98
+  %mul2555 = fmul double %div2410, %737
   %cmp2556 = fcmp ogt double %mul2555, 0.000000e+00
   br i1 %cmp2556, label %if.then2557, label %if.end2569
 
 if.then2557:                                      ; preds = %if.end2552
-  %736 = call double @llvm.fabs.f64(double %735)
-  %div2562 = fdiv double %735, %736
-  %cmp.i1697 = fcmp olt double %M.1, %736
-  %.sroa.speculated = select i1 %cmp.i1697, double %M.1, double %736
+  %738 = call double @llvm.fabs.f64(double %737)
+  %div2562 = fdiv double %737, %738
+  %cmp.i1697 = fcmp olt double %M.1, %738
+  %.sroa.speculated = select i1 %cmp.i1697, double %M.1, double %738
   %mul2567 = fmul double %div2562, %.sroa.speculated
   br label %if.end2569
 
 if.end2569:                                       ; preds = %if.end2552, %if.then2557
   %correction.2 = phi double [ %mul2567, %if.then2557 ], [ 0.000000e+00, %if.end2552 ]
-  %cmp2572 = fcmp une double %correction.2, %735
+  %cmp2572 = fcmp une double %correction.2, %737
   br i1 %cmp2572, label %if.then2573, label %for.inc2583
 
 if.then2573:                                      ; preds = %if.end2569
   store double %correction.2, ptr %arrayidx.i1693, align 8, !tbaa !98
   %div.i.i.i.i.i1701 = sdiv i64 %i2306.01939, 64
   %add.ptr.i.i.i.i.i1702 = getelementptr inbounds i64, ptr %704, i64 %div.i.i.i.i.i1701
-  %737 = and i64 %i2306.01939, -9223372036854775745
-  %cmp.i.i.i.i.i1703 = icmp ugt i64 %737, -9223372036854775808
+  %739 = and i64 %i2306.01939, -9223372036854775745
+  %cmp.i.i.i.i.i1703 = icmp ugt i64 %739, -9223372036854775808
   %storemerge.idx.i.i.i.i.i1704 = select i1 %cmp.i.i.i.i.i1703, i64 -8, i64 0
   %storemerge.i.i.i.i.i1705 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i1702, i64 %storemerge.idx.i.i.i.i.i1704
   %conv4.i.i.i.i.i1706 = and i64 %i2306.01939, 63
   %shl.i.i.i1707 = shl nuw i64 1, %conv4.i.i.i.i.i1706
-  br label %for.inc2583.sink.split
-
-for.inc2583.sink.split:                           ; preds = %if.then2383, %if.then2573, %if.then2340
-  %.sink2039 = phi ptr [ %704, %if.then2340 ], [ %storemerge.i.i.i.i.i1705, %if.then2573 ], [ %storemerge.i.i.i.i.i, %if.then2383 ]
-  %.sink2038 = phi i64 [ 1, %if.then2340 ], [ %shl.i.i.i1707, %if.then2573 ], [ %shl.i.i.i, %if.then2383 ]
-  %738 = load i64, ptr %.sink2039, align 8, !tbaa !37
-  %or.i = or i64 %738, %.sink2038
-  store i64 %or.i, ptr %.sink2039, align 8, !tbaa !37
+  %740 = load i64, ptr %storemerge.i.i.i.i.i1705, align 8, !tbaa !37
+  %or.i1711 = or i64 %740, %shl.i.i.i1707
+  store i64 %or.i1711, ptr %storemerge.i.i.i.i.i1705, align 8, !tbaa !37
   br label %for.inc2583
 
-for.inc2583:                                      ; preds = %for.inc2583.sink.split, %if.end2336, %if.end2569, %if.end2379
+for.inc2583:                                      ; preds = %if.then2340, %if.end2336, %if.end2569, %if.then2573, %if.end2379, %if.then2383
   %inc2584 = add nuw i64 %i2306.01939, 1
-  %739 = load i64, ptr %n_, align 8, !tbaa !480
-  %cmp2309 = icmp ult i64 %inc2584, %739
+  %741 = load i64, ptr %n_, align 8, !tbaa !480
+  %cmp2309 = icmp ult i64 %inc2584, %741
   br i1 %cmp2309, label %for.body2311, label %if.end2586, !llvm.loop !524
 
 if.end2586:                                       ; preds = %for.inc2583, %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit
-  %740 = phi i64 [ %.pre1989, %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit ], [ %739, %for.inc2583 ]
-  %sub2590 = add i64 %740, -1
+  %742 = phi i64 [ %.pre1989, %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit ], [ %741, %for.inc2583 ]
+  %sub2590 = add i64 %742, -1
   %cmp25911942.not = icmp eq i64 %sub2590, 0
   br i1 %cmp25911942.not, label %for.cond.cleanup2592.thread, label %for.body2593.lr.ph
 
 for.cond.cleanup2592.thread:                      ; preds = %if.end2586
   %primitiveConst_2027 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %741 = load ptr, ptr %primitiveConst_2027, align 8, !tbaa !148
-  store double 0.000000e+00, ptr %741, align 8, !tbaa !98
+  %743 = load ptr, ptr %primitiveConst_2027, align 8, !tbaa !148
+  store double 0.000000e+00, ptr %743, align 8, !tbaa !98
   br label %for.cond.cleanup2636
 
 for.body2593.lr.ph:                               ; preds = %for.cond2307.preheader, %if.end2586
   %sub25902024 = phi i64 [ %sub2590, %if.end2586 ], [ -1, %for.cond2307.preheader ]
   %tmp_2594 = getelementptr inbounds nuw i8, ptr %this, i64 216
-  %742 = load ptr, ptr %tmp_2594, align 8, !tbaa !3
+  %744 = load ptr, ptr %tmp_2594, align 8, !tbaa !3
   %a_ = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %743 = load ptr, ptr %a_, align 8, !tbaa !148
+  %745 = load ptr, ptr %a_, align 8, !tbaa !148
   %S_2597 = getelementptr inbounds nuw i8, ptr %this, i64 256
-  %744 = load ptr, ptr %S_2597, align 8, !tbaa !148
+  %746 = load ptr, ptr %S_2597, align 8, !tbaa !148
   %dx_2607 = getelementptr inbounds nuw i8, ptr %this, i64 232
-  %745 = load ptr, ptr %dx_2607, align 8, !tbaa !148
+  %747 = load ptr, ptr %dx_2607, align 8, !tbaa !148
   %b_ = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %746 = load ptr, ptr %b_, align 8, !tbaa !148
+  %748 = load ptr, ptr %b_, align 8, !tbaa !148
   %c_ = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %747 = load ptr, ptr %c_, align 8, !tbaa !148
+  %749 = load ptr, ptr %c_, align 8, !tbaa !148
   br label %for.body2593
 
 for.cond.cleanup2592:                             ; preds = %for.body2593
   %primitiveConst_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %748 = load ptr, ptr %primitiveConst_, align 8, !tbaa !148
-  store double 0.000000e+00, ptr %748, align 8, !tbaa !98
+  %750 = load ptr, ptr %primitiveConst_, align 8, !tbaa !148
+  store double 0.000000e+00, ptr %750, align 8, !tbaa !98
   %cmp26351945 = icmp ugt i64 %sub25902024, 1
   br i1 %cmp26351945, label %for.body2637.lr.ph, label %for.cond.cleanup2636
 
 for.body2637.lr.ph:                               ; preds = %for.cond.cleanup2592
   %dx_2641 = getelementptr inbounds nuw i8, ptr %this, i64 232
-  %749 = load ptr, ptr %dx_2641, align 8, !tbaa !148
+  %751 = load ptr, ptr %dx_2641, align 8, !tbaa !148
   %yBegin_2645 = getelementptr inbounds i8, ptr %this, i64 176
-  %750 = load ptr, ptr %yBegin_2645, align 8, !tbaa !486
+  %752 = load ptr, ptr %yBegin_2645, align 8, !tbaa !486
   %a_2651 = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %751 = load ptr, ptr %a_2651, align 8, !tbaa !148
+  %753 = load ptr, ptr %a_2651, align 8, !tbaa !148
   %b_2658 = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %752 = load ptr, ptr %b_2658, align 8, !tbaa !148
+  %754 = load ptr, ptr %b_2658, align 8, !tbaa !148
   %c_2665 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %753 = load ptr, ptr %c_2665, align 8, !tbaa !148
+  %755 = load ptr, ptr %c_2665, align 8, !tbaa !148
   br label %for.body2637
 
 for.body2593:                                     ; preds = %for.body2593.lr.ph, %for.body2593
   %i2587.01943 = phi i64 [ 0, %for.body2593.lr.ph ], [ %add2601, %for.body2593 ]
-  %arrayidx.i1713 = getelementptr inbounds nuw double, ptr %742, i64 %i2587.01943
-  %754 = load double, ptr %arrayidx.i1713, align 8, !tbaa !98
-  %add.ptr.i1714 = getelementptr inbounds nuw double, ptr %743, i64 %i2587.01943
-  store double %754, ptr %add.ptr.i1714, align 8, !tbaa !98
-  %add.ptr.i1715 = getelementptr inbounds nuw double, ptr %744, i64 %i2587.01943
-  %755 = load double, ptr %add.ptr.i1715, align 8, !tbaa !98
+  %arrayidx.i1713 = getelementptr inbounds nuw double, ptr %744, i64 %i2587.01943
+  %756 = load double, ptr %arrayidx.i1713, align 8, !tbaa !98
+  %add.ptr.i1714 = getelementptr inbounds nuw double, ptr %745, i64 %i2587.01943
+  store double %756, ptr %add.ptr.i1714, align 8, !tbaa !98
+  %add.ptr.i1715 = getelementptr inbounds nuw double, ptr %746, i64 %i2587.01943
+  %757 = load double, ptr %add.ptr.i1715, align 8, !tbaa !98
   %add2601 = add nuw i64 %i2587.01943, 1
-  %arrayidx.i1716 = getelementptr inbounds nuw double, ptr %742, i64 %add2601
-  %756 = load double, ptr %arrayidx.i1716, align 8, !tbaa !98
-  %neg2603 = fneg double %756
-  %757 = call double @llvm.fmuladd.f64(double %755, double 3.000000e+00, double %neg2603)
-  %758 = call double @llvm.fmuladd.f64(double %754, double -2.000000e+00, double %757)
-  %add.ptr.i1718 = getelementptr inbounds nuw double, ptr %745, i64 %i2587.01943
-  %759 = load double, ptr %add.ptr.i1718, align 8, !tbaa !98
-  %div2609 = fdiv double %758, %759
-  %add.ptr.i1719 = getelementptr inbounds nuw double, ptr %746, i64 %i2587.01943
+  %arrayidx.i1716 = getelementptr inbounds nuw double, ptr %744, i64 %add2601
+  %758 = load double, ptr %arrayidx.i1716, align 8, !tbaa !98
+  %neg2603 = fneg double %758
+  %759 = call double @llvm.fmuladd.f64(double %757, double 3.000000e+00, double %neg2603)
+  %760 = call double @llvm.fmuladd.f64(double %756, double -2.000000e+00, double %759)
+  %add.ptr.i1718 = getelementptr inbounds nuw double, ptr %747, i64 %i2587.01943
+  %761 = load double, ptr %add.ptr.i1718, align 8, !tbaa !98
+  %div2609 = fdiv double %760, %761
+  %add.ptr.i1719 = getelementptr inbounds nuw double, ptr %748, i64 %i2587.01943
   store double %div2609, ptr %add.ptr.i1719, align 8, !tbaa !98
-  %760 = load double, ptr %arrayidx.i1716, align 8, !tbaa !98
-  %761 = load double, ptr %arrayidx.i1713, align 8, !tbaa !98
-  %add2616 = fadd double %760, %761
-  %762 = load double, ptr %add.ptr.i1715, align 8, !tbaa !98
-  %763 = call double @llvm.fmuladd.f64(double %762, double -2.000000e+00, double %add2616)
-  %764 = load double, ptr %add.ptr.i1718, align 8, !tbaa !98
-  %mul2624 = fmul double %764, %764
-  %div2625 = fdiv double %763, %mul2624
-  %add.ptr.i1725 = getelementptr inbounds nuw double, ptr %747, i64 %i2587.01943
+  %762 = load double, ptr %arrayidx.i1716, align 8, !tbaa !98
+  %763 = load double, ptr %arrayidx.i1713, align 8, !tbaa !98
+  %add2616 = fadd double %762, %763
+  %764 = load double, ptr %add.ptr.i1715, align 8, !tbaa !98
+  %765 = call double @llvm.fmuladd.f64(double %764, double -2.000000e+00, double %add2616)
+  %766 = load double, ptr %add.ptr.i1718, align 8, !tbaa !98
+  %mul2624 = fmul double %766, %766
+  %div2625 = fdiv double %765, %mul2624
+  %add.ptr.i1725 = getelementptr inbounds nuw double, ptr %749, i64 %i2587.01943
   store double %div2625, ptr %add.ptr.i1725, align 8, !tbaa !98
   %exitcond1968.not = icmp eq i64 %add2601, %sub25902024
   br i1 %exitcond1968.not, label %for.cond.cleanup2592, label %for.body2593, !llvm.loop !525
@@ -27801,29 +27802,29 @@ for.cond.cleanup2636:                             ; preds = %for.body2637, %for.
   ret void
 
 for.body2637:                                     ; preds = %for.body2637.lr.ph, %for.body2637
-  %765 = phi double [ 0.000000e+00, %for.body2637.lr.ph ], [ %773, %for.body2637 ]
+  %767 = phi double [ 0.000000e+00, %for.body2637.lr.ph ], [ %775, %for.body2637 ]
   %i2631.01946 = phi i64 [ 1, %for.body2637.lr.ph ], [ %inc2677, %for.body2637 ]
   %sub2639 = add i64 %i2631.01946, -1
-  %add.ptr.i1727 = getelementptr inbounds nuw double, ptr %749, i64 %sub2639
-  %766 = load double, ptr %add.ptr.i1727, align 8, !tbaa !98
-  %arrayidx2647 = getelementptr inbounds nuw double, ptr %750, i64 %sub2639
-  %767 = load double, ptr %arrayidx2647, align 8, !tbaa !98
-  %add.ptr.i1729 = getelementptr inbounds nuw double, ptr %751, i64 %sub2639
-  %768 = load double, ptr %add.ptr.i1729, align 8, !tbaa !98
-  %div2654 = fmul double %768, 5.000000e-01
-  %add.ptr.i1731 = getelementptr inbounds nuw double, ptr %752, i64 %sub2639
-  %769 = load double, ptr %add.ptr.i1731, align 8, !tbaa !98
-  %div2661 = fdiv double %769, 3.000000e+00
-  %add.ptr.i1733 = getelementptr inbounds nuw double, ptr %753, i64 %sub2639
-  %770 = load double, ptr %add.ptr.i1733, align 8, !tbaa !98
-  %mul2668 = fmul double %766, %770
+  %add.ptr.i1727 = getelementptr inbounds nuw double, ptr %751, i64 %sub2639
+  %768 = load double, ptr %add.ptr.i1727, align 8, !tbaa !98
+  %arrayidx2647 = getelementptr inbounds nuw double, ptr %752, i64 %sub2639
+  %769 = load double, ptr %arrayidx2647, align 8, !tbaa !98
+  %add.ptr.i1729 = getelementptr inbounds nuw double, ptr %753, i64 %sub2639
+  %770 = load double, ptr %add.ptr.i1729, align 8, !tbaa !98
+  %div2654 = fmul double %770, 5.000000e-01
+  %add.ptr.i1731 = getelementptr inbounds nuw double, ptr %754, i64 %sub2639
+  %771 = load double, ptr %add.ptr.i1731, align 8, !tbaa !98
+  %div2661 = fdiv double %771, 3.000000e+00
+  %add.ptr.i1733 = getelementptr inbounds nuw double, ptr %755, i64 %sub2639
+  %772 = load double, ptr %add.ptr.i1733, align 8, !tbaa !98
+  %mul2668 = fmul double %768, %772
   %div2669 = fmul double %mul2668, 2.500000e-01
   %add2670 = fadd double %div2661, %div2669
-  %771 = call double @llvm.fmuladd.f64(double %766, double %add2670, double %div2654)
-  %772 = call double @llvm.fmuladd.f64(double %766, double %771, double %767)
-  %773 = call double @llvm.fmuladd.f64(double %766, double %772, double %765)
-  %add.ptr.i1734 = getelementptr inbounds nuw double, ptr %748, i64 %i2631.01946
-  store double %773, ptr %add.ptr.i1734, align 8, !tbaa !98
+  %773 = call double @llvm.fmuladd.f64(double %768, double %add2670, double %div2654)
+  %774 = call double @llvm.fmuladd.f64(double %768, double %773, double %769)
+  %775 = call double @llvm.fmuladd.f64(double %768, double %774, double %767)
+  %add.ptr.i1734 = getelementptr inbounds nuw double, ptr %750, i64 %i2631.01946
+  store double %775, ptr %add.ptr.i1734, align 8, !tbaa !98
   %inc2677 = add nuw i64 %i2631.01946, 1
   %exitcond1969.not = icmp eq i64 %inc2677, %sub25902024
   br i1 %exitcond1969.not, label %for.cond.cleanup2636, label %for.body2637, !llvm.loop !526
@@ -39489,8 +39490,8 @@ land.lhs.true1740:                                ; preds = %if.else1732
   %631 = load double, ptr %gep1936, align 8, !tbaa !98
   %cmp1746 = fcmp oeq double %630, %631
   %cmp1758 = fcmp oeq double %630, %627
-  %or.cond2055 = or i1 %cmp1746, %cmp1758
-  br i1 %or.cond2055, label %for.inc1842, label %if.else1764
+  %or.cond2051 = or i1 %cmp1746, %cmp1758
+  br i1 %or.cond2051, label %for.inc1842, label %if.else1764
 
 if.else1752:                                      ; preds = %if.else1732
   %cmp1758.old = fcmp oeq double %630, %627
@@ -39903,7 +39904,7 @@ for.body2311.lr.ph:                               ; preds = %for.cond2307.prehea
   br label %for.body2311
 
 for.body2311:                                     ; preds = %for.body2311.lr.ph, %for.inc2583
-  %707 = phi i64 [ %.pre2001, %for.body2311.lr.ph ], [ %741, %for.inc2583 ]
+  %707 = phi i64 [ %.pre2001, %for.body2311.lr.ph ], [ %743, %for.inc2583 ]
   %i2306.01951 = phi i64 [ 0, %for.body2311.lr.ph ], [ %inc2584, %for.inc2583 ]
   %cmp2312 = icmp eq i64 %i2306.01951, 0
   br i1 %cmp2312, label %if.then2313, label %if.else2348
@@ -39932,7 +39933,10 @@ if.end2336:                                       ; preds = %if.then2313, %if.th
 
 if.then2340:                                      ; preds = %if.end2336
   store double %correction.0, ptr %705, align 8, !tbaa !98
-  br label %for.inc2583.sink.split
+  %712 = load i64, ptr %706, align 8, !tbaa !37
+  %or.i = or i64 %712, 1
+  store i64 %or.i, ptr %706, align 8, !tbaa !37
+  br label %for.inc2583
 
 if.else2348:                                      ; preds = %for.body2311
   %sub2350 = add i64 %707, -1
@@ -39941,61 +39945,64 @@ if.else2348:                                      ; preds = %for.body2311
 
 if.then2352:                                      ; preds = %if.else2348
   %arrayidx.i1645 = getelementptr inbounds nuw double, ptr %705, i64 %i2306.01951
-  %712 = load double, ptr %arrayidx.i1645, align 8, !tbaa !98
+  %713 = load double, ptr %arrayidx.i1645, align 8, !tbaa !98
   %gep1953 = getelementptr double, ptr %invariant.gep1952, i64 %707
-  %713 = load double, ptr %gep1953, align 8, !tbaa !98
-  %mul2359 = fmul double %712, %713
+  %714 = load double, ptr %gep1953, align 8, !tbaa !98
+  %mul2359 = fmul double %713, %714
   %cmp2360 = fcmp ogt double %mul2359, 0.000000e+00
   br i1 %cmp2360, label %if.then2361, label %if.end2379
 
 if.then2361:                                      ; preds = %if.then2352
-  %714 = call double @llvm.fabs.f64(double %712)
-  %div2366 = fdiv double %712, %714
-  %mul2375 = fmul double %713, 3.000000e+00
-  %715 = call double @llvm.fabs.f64(double %mul2375)
-  %cmp.i1651 = fcmp olt double %715, %714
-  %.sroa.speculated1765 = select i1 %cmp.i1651, double %715, double %714
+  %715 = call double @llvm.fabs.f64(double %713)
+  %div2366 = fdiv double %713, %715
+  %mul2375 = fmul double %714, 3.000000e+00
+  %716 = call double @llvm.fabs.f64(double %mul2375)
+  %cmp.i1651 = fcmp olt double %716, %715
+  %.sroa.speculated1765 = select i1 %cmp.i1651, double %716, double %715
   %mul2377 = fmul double %div2366, %.sroa.speculated1765
   br label %if.end2379
 
 if.end2379:                                       ; preds = %if.then2352, %if.then2361
   %correction.1 = phi double [ %mul2377, %if.then2361 ], [ 0.000000e+00, %if.then2352 ]
-  %cmp2382 = fcmp une double %correction.1, %712
+  %cmp2382 = fcmp une double %correction.1, %713
   br i1 %cmp2382, label %if.then2383, label %for.inc2583
 
 if.then2383:                                      ; preds = %if.end2379
   store double %correction.1, ptr %arrayidx.i1645, align 8, !tbaa !98
   %div.i.i.i.i.i = sdiv i64 %i2306.01951, 64
   %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %706, i64 %div.i.i.i.i.i
-  %716 = and i64 %i2306.01951, -9223372036854775745
-  %cmp.i.i.i.i.i = icmp ugt i64 %716, -9223372036854775808
+  %717 = and i64 %i2306.01951, -9223372036854775745
+  %cmp.i.i.i.i.i = icmp ugt i64 %717, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 -8, i64 0
   %storemerge.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 %storemerge.idx.i.i.i.i.i
   %conv4.i.i.i.i.i = and i64 %i2306.01951, 63
   %shl.i.i.i = shl nuw i64 1, %conv4.i.i.i.i.i
-  br label %for.inc2583.sink.split
+  %718 = load i64, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !37
+  %or.i1658 = or i64 %718, %shl.i.i.i
+  store i64 %or.i1658, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !37
+  br label %for.inc2583
 
 if.else2391:                                      ; preds = %if.else2348
   %sub2393 = add i64 %i2306.01951, -1
   %add.ptr.i1659 = getelementptr inbounds nuw double, ptr %703, i64 %sub2393
-  %717 = load double, ptr %add.ptr.i1659, align 8, !tbaa !98
+  %719 = load double, ptr %add.ptr.i1659, align 8, !tbaa !98
   %add.ptr.i1660 = getelementptr inbounds nuw double, ptr %704, i64 %i2306.01951
-  %718 = load double, ptr %add.ptr.i1660, align 8, !tbaa !98
+  %720 = load double, ptr %add.ptr.i1660, align 8, !tbaa !98
   %add.ptr.i1661 = getelementptr inbounds nuw double, ptr %703, i64 %i2306.01951
-  %719 = load double, ptr %add.ptr.i1661, align 8, !tbaa !98
+  %721 = load double, ptr %add.ptr.i1661, align 8, !tbaa !98
   %add.ptr.i1662 = getelementptr inbounds nuw double, ptr %704, i64 %sub2393
-  %720 = load double, ptr %add.ptr.i1662, align 8, !tbaa !98
-  %mul2403 = fmul double %719, %720
-  %721 = call double @llvm.fmuladd.f64(double %717, double %718, double %mul2403)
-  %add2409 = fadd double %718, %720
-  %div2410 = fdiv double %721, %add2409
-  %722 = call double @llvm.fabs.f64(double %717)
-  %723 = call double @llvm.fabs.f64(double %719)
-  %cmp.i1667 = fcmp olt double %723, %722
-  %724 = call double @llvm.fabs.f64(double %div2410)
-  %.sroa.speculated1762 = select i1 %cmp.i1667, double %723, double %722
-  %cmp.i1669 = fcmp olt double %724, %.sroa.speculated1762
-  %.sroa.speculated1759 = select i1 %cmp.i1669, double %724, double %.sroa.speculated1762
+  %722 = load double, ptr %add.ptr.i1662, align 8, !tbaa !98
+  %mul2403 = fmul double %721, %722
+  %723 = call double @llvm.fmuladd.f64(double %719, double %720, double %mul2403)
+  %add2409 = fadd double %720, %722
+  %div2410 = fdiv double %723, %add2409
+  %724 = call double @llvm.fabs.f64(double %719)
+  %725 = call double @llvm.fabs.f64(double %721)
+  %cmp.i1667 = fcmp olt double %725, %724
+  %726 = call double @llvm.fabs.f64(double %div2410)
+  %.sroa.speculated1762 = select i1 %cmp.i1667, double %725, double %724
+  %cmp.i1669 = fcmp olt double %726, %.sroa.speculated1762
+  %.sroa.speculated1759 = select i1 %cmp.i1669, double %726, double %.sroa.speculated1762
   %mul2421 = fmul double %.sroa.speculated1759, 3.000000e+00
   %cmp2422.not = icmp eq i64 %i2306.01951, 1
   br i1 %cmp2422.not, label %if.end2488, label %if.then2423
@@ -40003,22 +40010,22 @@ if.else2391:                                      ; preds = %if.else2348
 if.then2423:                                      ; preds = %if.else2391
   %sub2428 = add i64 %i2306.01951, -2
   %add.ptr.i1672 = getelementptr inbounds nuw double, ptr %703, i64 %sub2428
-  %725 = load double, ptr %add.ptr.i1672, align 8, !tbaa !98
-  %sub2430 = fsub double %717, %725
-  %sub2436 = fsub double %719, %717
+  %727 = load double, ptr %add.ptr.i1672, align 8, !tbaa !98
+  %sub2430 = fsub double %719, %727
+  %sub2436 = fsub double %721, %719
   %mul2437 = fmul double %sub2436, %sub2430
   %cmp2438 = fcmp ogt double %mul2437, 0.000000e+00
   br i1 %cmp2438, label %if.then2439, label %if.end2488
 
 if.then2439:                                      ; preds = %if.then2423
   %add.ptr.i1677 = getelementptr inbounds nuw double, ptr %704, i64 %sub2428
-  %726 = load double, ptr %add.ptr.i1677, align 8, !tbaa !98
-  %727 = call double @llvm.fmuladd.f64(double %720, double 2.000000e+00, double %726)
-  %728 = fneg double %720
-  %neg2458 = fmul double %725, %728
-  %729 = call double @llvm.fmuladd.f64(double %717, double %727, double %neg2458)
-  %add2465 = fadd double %720, %726
-  %div2466 = fdiv double %729, %add2465
+  %728 = load double, ptr %add.ptr.i1677, align 8, !tbaa !98
+  %729 = call double @llvm.fmuladd.f64(double %722, double 2.000000e+00, double %728)
+  %730 = fneg double %722
+  %neg2458 = fmul double %727, %730
+  %731 = call double @llvm.fmuladd.f64(double %719, double %729, double %neg2458)
+  %add2465 = fadd double %722, %728
+  %div2466 = fdiv double %731, %add2465
   %mul2467 = fmul double %div2410, %div2466
   %cmp2468 = fcmp ogt double %mul2467, 0.000000e+00
   %mul2477 = fmul double %div2410, %sub2430
@@ -40027,9 +40034,9 @@ if.then2439:                                      ; preds = %if.then2423
   br i1 %or.cond1881, label %if.then2479, label %if.end2488
 
 if.then2479:                                      ; preds = %if.then2439
-  %730 = call double @llvm.fabs.f64(double %div2466)
-  %cmp.i1684 = fcmp olt double %730, %724
-  %.sroa.speculated1753 = select i1 %cmp.i1684, double %730, double %724
+  %732 = call double @llvm.fabs.f64(double %div2466)
+  %cmp.i1684 = fcmp olt double %732, %726
+  %.sroa.speculated1753 = select i1 %cmp.i1684, double %732, double %726
   %mul2484 = fmul double %.sroa.speculated1753, 1.500000e+00
   %cmp.i1686 = fcmp olt double %mul2421, %mul2484
   %.sroa.speculated1756 = select i1 %cmp.i1686, double %mul2484, double %mul2421
@@ -40042,24 +40049,24 @@ if.end2488:                                       ; preds = %if.then2423, %if.th
   br i1 %cmp2491, label %if.then2492, label %if.end2552
 
 if.then2492:                                      ; preds = %if.end2488
-  %sub2498 = fsub double %719, %717
+  %sub2498 = fsub double %721, %719
   %add2500 = add nuw i64 %i2306.01951, 1
   %add.ptr.i1690 = getelementptr inbounds nuw double, ptr %703, i64 %add2500
-  %731 = load double, ptr %add.ptr.i1690, align 8, !tbaa !98
-  %sub2504 = fsub double %731, %719
+  %733 = load double, ptr %add.ptr.i1690, align 8, !tbaa !98
+  %sub2504 = fsub double %733, %721
   %mul2505 = fmul double %sub2498, %sub2504
   %cmp2506 = fcmp ogt double %mul2505, 0.000000e+00
   br i1 %cmp2506, label %if.then2507, label %if.end2552
 
 if.then2507:                                      ; preds = %if.then2492
   %add.ptr.i1694 = getelementptr inbounds nuw double, ptr %704, i64 %add2500
-  %732 = load double, ptr %add.ptr.i1694, align 8, !tbaa !98
-  %733 = call double @llvm.fmuladd.f64(double %718, double 2.000000e+00, double %732)
-  %734 = fneg double %718
-  %neg2523 = fmul double %731, %734
-  %735 = call double @llvm.fmuladd.f64(double %719, double %733, double %neg2523)
-  %add2529 = fadd double %718, %732
-  %div2530 = fdiv double %735, %add2529
+  %734 = load double, ptr %add.ptr.i1694, align 8, !tbaa !98
+  %735 = call double @llvm.fmuladd.f64(double %720, double 2.000000e+00, double %734)
+  %736 = fneg double %720
+  %neg2523 = fmul double %733, %736
+  %737 = call double @llvm.fmuladd.f64(double %721, double %735, double %neg2523)
+  %add2529 = fadd double %720, %734
+  %div2530 = fdiv double %737, %add2529
   %mul2531 = fmul double %div2410, %div2530
   %cmp2532 = fcmp ogt double %mul2531, 0.000000e+00
   br i1 %cmp2532, label %land.lhs.true2533, label %if.end2552
@@ -40071,9 +40078,9 @@ land.lhs.true2533:                                ; preds = %if.then2507
   br i1 %cmp2542, label %if.then2543, label %if.end2552
 
 if.then2543:                                      ; preds = %land.lhs.true2533
-  %736 = call double @llvm.fabs.f64(double %div2530)
-  %cmp.i1701 = fcmp olt double %736, %724
-  %.sroa.speculated1748 = select i1 %cmp.i1701, double %736, double %724
+  %738 = call double @llvm.fabs.f64(double %div2530)
+  %cmp.i1701 = fcmp olt double %738, %726
+  %.sroa.speculated1748 = select i1 %cmp.i1701, double %738, double %726
   %mul2548 = fmul double %.sroa.speculated1748, 1.500000e+00
   %cmp.i1703 = fcmp olt double %M.0, %mul2548
   %.sroa.speculated1750 = select i1 %cmp.i1703, double %mul2548, double %M.0
@@ -40082,126 +40089,121 @@ if.then2543:                                      ; preds = %land.lhs.true2533
 if.end2552:                                       ; preds = %if.then2492, %if.then2543, %land.lhs.true2533, %if.then2507, %if.end2488
   %M.1 = phi double [ %.sroa.speculated1750, %if.then2543 ], [ %M.0, %land.lhs.true2533 ], [ %M.0, %if.then2507 ], [ %M.0, %if.then2492 ], [ %M.0, %if.end2488 ]
   %arrayidx.i1705 = getelementptr inbounds nuw double, ptr %705, i64 %i2306.01951
-  %737 = load double, ptr %arrayidx.i1705, align 8, !tbaa !98
-  %mul2555 = fmul double %div2410, %737
+  %739 = load double, ptr %arrayidx.i1705, align 8, !tbaa !98
+  %mul2555 = fmul double %div2410, %739
   %cmp2556 = fcmp ogt double %mul2555, 0.000000e+00
   br i1 %cmp2556, label %if.then2557, label %if.end2569
 
 if.then2557:                                      ; preds = %if.end2552
-  %738 = call double @llvm.fabs.f64(double %737)
-  %div2562 = fdiv double %737, %738
-  %cmp.i1709 = fcmp olt double %M.1, %738
-  %.sroa.speculated = select i1 %cmp.i1709, double %M.1, double %738
+  %740 = call double @llvm.fabs.f64(double %739)
+  %div2562 = fdiv double %739, %740
+  %cmp.i1709 = fcmp olt double %M.1, %740
+  %.sroa.speculated = select i1 %cmp.i1709, double %M.1, double %740
   %mul2567 = fmul double %div2562, %.sroa.speculated
   br label %if.end2569
 
 if.end2569:                                       ; preds = %if.end2552, %if.then2557
   %correction.2 = phi double [ %mul2567, %if.then2557 ], [ 0.000000e+00, %if.end2552 ]
-  %cmp2572 = fcmp une double %correction.2, %737
+  %cmp2572 = fcmp une double %correction.2, %739
   br i1 %cmp2572, label %if.then2573, label %for.inc2583
 
 if.then2573:                                      ; preds = %if.end2569
   store double %correction.2, ptr %arrayidx.i1705, align 8, !tbaa !98
   %div.i.i.i.i.i1713 = sdiv i64 %i2306.01951, 64
   %add.ptr.i.i.i.i.i1714 = getelementptr inbounds i64, ptr %706, i64 %div.i.i.i.i.i1713
-  %739 = and i64 %i2306.01951, -9223372036854775745
-  %cmp.i.i.i.i.i1715 = icmp ugt i64 %739, -9223372036854775808
+  %741 = and i64 %i2306.01951, -9223372036854775745
+  %cmp.i.i.i.i.i1715 = icmp ugt i64 %741, -9223372036854775808
   %storemerge.idx.i.i.i.i.i1716 = select i1 %cmp.i.i.i.i.i1715, i64 -8, i64 0
   %storemerge.i.i.i.i.i1717 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i1714, i64 %storemerge.idx.i.i.i.i.i1716
   %conv4.i.i.i.i.i1718 = and i64 %i2306.01951, 63
   %shl.i.i.i1719 = shl nuw i64 1, %conv4.i.i.i.i.i1718
-  br label %for.inc2583.sink.split
-
-for.inc2583.sink.split:                           ; preds = %if.then2383, %if.then2573, %if.then2340
-  %.sink2051 = phi ptr [ %706, %if.then2340 ], [ %storemerge.i.i.i.i.i1717, %if.then2573 ], [ %storemerge.i.i.i.i.i, %if.then2383 ]
-  %.sink2050 = phi i64 [ 1, %if.then2340 ], [ %shl.i.i.i1719, %if.then2573 ], [ %shl.i.i.i, %if.then2383 ]
-  %740 = load i64, ptr %.sink2051, align 8, !tbaa !37
-  %or.i = or i64 %740, %.sink2050
-  store i64 %or.i, ptr %.sink2051, align 8, !tbaa !37
+  %742 = load i64, ptr %storemerge.i.i.i.i.i1717, align 8, !tbaa !37
+  %or.i1723 = or i64 %742, %shl.i.i.i1719
+  store i64 %or.i1723, ptr %storemerge.i.i.i.i.i1717, align 8, !tbaa !37
   br label %for.inc2583
 
-for.inc2583:                                      ; preds = %for.inc2583.sink.split, %if.end2336, %if.end2569, %if.end2379
+for.inc2583:                                      ; preds = %if.then2340, %if.end2336, %if.end2569, %if.then2573, %if.end2379, %if.then2383
   %inc2584 = add nuw i64 %i2306.01951, 1
-  %741 = load i64, ptr %n_, align 8, !tbaa !480
-  %cmp2309 = icmp ult i64 %inc2584, %741
+  %743 = load i64, ptr %n_, align 8, !tbaa !480
+  %cmp2309 = icmp ult i64 %inc2584, %743
   br i1 %cmp2309, label %for.body2311, label %if.end2586, !llvm.loop !613
 
 if.end2586:                                       ; preds = %for.inc2583, %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit
-  %742 = phi i64 [ %.pre2001, %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit ], [ %741, %for.inc2583 ]
-  %sub2590 = add i64 %742, -1
+  %744 = phi i64 [ %.pre2001, %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit ], [ %743, %for.inc2583 ]
+  %sub2590 = add i64 %744, -1
   %cmp25911954.not = icmp eq i64 %sub2590, 0
   br i1 %cmp25911954.not, label %for.cond.cleanup2592.thread, label %for.body2593.lr.ph
 
 for.cond.cleanup2592.thread:                      ; preds = %if.end2586
   %primitiveConst_2039 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %743 = load ptr, ptr %primitiveConst_2039, align 8, !tbaa !148
-  store double 0.000000e+00, ptr %743, align 8, !tbaa !98
+  %745 = load ptr, ptr %primitiveConst_2039, align 8, !tbaa !148
+  store double 0.000000e+00, ptr %745, align 8, !tbaa !98
   br label %for.cond.cleanup2636
 
 for.body2593.lr.ph:                               ; preds = %for.cond2307.preheader, %if.end2586
   %sub25902036 = phi i64 [ %sub2590, %if.end2586 ], [ -1, %for.cond2307.preheader ]
   %tmp_2594 = getelementptr inbounds nuw i8, ptr %this, i64 216
-  %744 = load ptr, ptr %tmp_2594, align 8, !tbaa !3
+  %746 = load ptr, ptr %tmp_2594, align 8, !tbaa !3
   %a_ = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %745 = load ptr, ptr %a_, align 8, !tbaa !148
+  %747 = load ptr, ptr %a_, align 8, !tbaa !148
   %S_2597 = getelementptr inbounds nuw i8, ptr %this, i64 256
-  %746 = load ptr, ptr %S_2597, align 8, !tbaa !148
+  %748 = load ptr, ptr %S_2597, align 8, !tbaa !148
   %dx_2607 = getelementptr inbounds nuw i8, ptr %this, i64 232
-  %747 = load ptr, ptr %dx_2607, align 8, !tbaa !148
+  %749 = load ptr, ptr %dx_2607, align 8, !tbaa !148
   %b_ = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %748 = load ptr, ptr %b_, align 8, !tbaa !148
+  %750 = load ptr, ptr %b_, align 8, !tbaa !148
   %c_ = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %749 = load ptr, ptr %c_, align 8, !tbaa !148
+  %751 = load ptr, ptr %c_, align 8, !tbaa !148
   br label %for.body2593
 
 for.cond.cleanup2592:                             ; preds = %for.body2593
   %primitiveConst_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %750 = load ptr, ptr %primitiveConst_, align 8, !tbaa !148
-  store double 0.000000e+00, ptr %750, align 8, !tbaa !98
+  %752 = load ptr, ptr %primitiveConst_, align 8, !tbaa !148
+  store double 0.000000e+00, ptr %752, align 8, !tbaa !98
   %cmp26351957 = icmp ugt i64 %sub25902036, 1
   br i1 %cmp26351957, label %for.body2637.lr.ph, label %for.cond.cleanup2636
 
 for.body2637.lr.ph:                               ; preds = %for.cond.cleanup2592
   %dx_2641 = getelementptr inbounds nuw i8, ptr %this, i64 232
-  %751 = load ptr, ptr %dx_2641, align 8, !tbaa !148
+  %753 = load ptr, ptr %dx_2641, align 8, !tbaa !148
   %yBegin_2645 = getelementptr inbounds i8, ptr %this, i64 176
-  %752 = load ptr, ptr %yBegin_2645, align 8, !tbaa !578
+  %754 = load ptr, ptr %yBegin_2645, align 8, !tbaa !578
   %a_2651 = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %753 = load ptr, ptr %a_2651, align 8, !tbaa !148
+  %755 = load ptr, ptr %a_2651, align 8, !tbaa !148
   %b_2658 = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %754 = load ptr, ptr %b_2658, align 8, !tbaa !148
+  %756 = load ptr, ptr %b_2658, align 8, !tbaa !148
   %c_2665 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %755 = load ptr, ptr %c_2665, align 8, !tbaa !148
+  %757 = load ptr, ptr %c_2665, align 8, !tbaa !148
   br label %for.body2637
 
 for.body2593:                                     ; preds = %for.body2593.lr.ph, %for.body2593
   %i2587.01955 = phi i64 [ 0, %for.body2593.lr.ph ], [ %add2601, %for.body2593 ]
-  %arrayidx.i1725 = getelementptr inbounds nuw double, ptr %744, i64 %i2587.01955
-  %756 = load double, ptr %arrayidx.i1725, align 8, !tbaa !98
-  %add.ptr.i1726 = getelementptr inbounds nuw double, ptr %745, i64 %i2587.01955
-  store double %756, ptr %add.ptr.i1726, align 8, !tbaa !98
-  %add.ptr.i1727 = getelementptr inbounds nuw double, ptr %746, i64 %i2587.01955
-  %757 = load double, ptr %add.ptr.i1727, align 8, !tbaa !98
+  %arrayidx.i1725 = getelementptr inbounds nuw double, ptr %746, i64 %i2587.01955
+  %758 = load double, ptr %arrayidx.i1725, align 8, !tbaa !98
+  %add.ptr.i1726 = getelementptr inbounds nuw double, ptr %747, i64 %i2587.01955
+  store double %758, ptr %add.ptr.i1726, align 8, !tbaa !98
+  %add.ptr.i1727 = getelementptr inbounds nuw double, ptr %748, i64 %i2587.01955
+  %759 = load double, ptr %add.ptr.i1727, align 8, !tbaa !98
   %add2601 = add nuw i64 %i2587.01955, 1
-  %arrayidx.i1728 = getelementptr inbounds nuw double, ptr %744, i64 %add2601
-  %758 = load double, ptr %arrayidx.i1728, align 8, !tbaa !98
-  %neg2603 = fneg double %758
-  %759 = call double @llvm.fmuladd.f64(double %757, double 3.000000e+00, double %neg2603)
-  %760 = call double @llvm.fmuladd.f64(double %756, double -2.000000e+00, double %759)
-  %add.ptr.i1730 = getelementptr inbounds nuw double, ptr %747, i64 %i2587.01955
-  %761 = load double, ptr %add.ptr.i1730, align 8, !tbaa !98
-  %div2609 = fdiv double %760, %761
-  %add.ptr.i1731 = getelementptr inbounds nuw double, ptr %748, i64 %i2587.01955
+  %arrayidx.i1728 = getelementptr inbounds nuw double, ptr %746, i64 %add2601
+  %760 = load double, ptr %arrayidx.i1728, align 8, !tbaa !98
+  %neg2603 = fneg double %760
+  %761 = call double @llvm.fmuladd.f64(double %759, double 3.000000e+00, double %neg2603)
+  %762 = call double @llvm.fmuladd.f64(double %758, double -2.000000e+00, double %761)
+  %add.ptr.i1730 = getelementptr inbounds nuw double, ptr %749, i64 %i2587.01955
+  %763 = load double, ptr %add.ptr.i1730, align 8, !tbaa !98
+  %div2609 = fdiv double %762, %763
+  %add.ptr.i1731 = getelementptr inbounds nuw double, ptr %750, i64 %i2587.01955
   store double %div2609, ptr %add.ptr.i1731, align 8, !tbaa !98
-  %762 = load double, ptr %arrayidx.i1728, align 8, !tbaa !98
-  %763 = load double, ptr %arrayidx.i1725, align 8, !tbaa !98
-  %add2616 = fadd double %762, %763
-  %764 = load double, ptr %add.ptr.i1727, align 8, !tbaa !98
-  %765 = call double @llvm.fmuladd.f64(double %764, double -2.000000e+00, double %add2616)
-  %766 = load double, ptr %add.ptr.i1730, align 8, !tbaa !98
-  %mul2624 = fmul double %766, %766
-  %div2625 = fdiv double %765, %mul2624
-  %add.ptr.i1737 = getelementptr inbounds nuw double, ptr %749, i64 %i2587.01955
+  %764 = load double, ptr %arrayidx.i1728, align 8, !tbaa !98
+  %765 = load double, ptr %arrayidx.i1725, align 8, !tbaa !98
+  %add2616 = fadd double %764, %765
+  %766 = load double, ptr %add.ptr.i1727, align 8, !tbaa !98
+  %767 = call double @llvm.fmuladd.f64(double %766, double -2.000000e+00, double %add2616)
+  %768 = load double, ptr %add.ptr.i1730, align 8, !tbaa !98
+  %mul2624 = fmul double %768, %768
+  %div2625 = fdiv double %767, %mul2624
+  %add.ptr.i1737 = getelementptr inbounds nuw double, ptr %751, i64 %i2587.01955
   store double %div2625, ptr %add.ptr.i1737, align 8, !tbaa !98
   %exitcond1980.not = icmp eq i64 %add2601, %sub25902036
   br i1 %exitcond1980.not, label %for.cond.cleanup2592, label %for.body2593, !llvm.loop !614
@@ -40210,29 +40212,29 @@ for.cond.cleanup2636:                             ; preds = %for.body2637, %for.
   ret void
 
 for.body2637:                                     ; preds = %for.body2637.lr.ph, %for.body2637
-  %767 = phi double [ 0.000000e+00, %for.body2637.lr.ph ], [ %775, %for.body2637 ]
+  %769 = phi double [ 0.000000e+00, %for.body2637.lr.ph ], [ %777, %for.body2637 ]
   %i2631.01958 = phi i64 [ 1, %for.body2637.lr.ph ], [ %inc2677, %for.body2637 ]
   %sub2639 = add i64 %i2631.01958, -1
-  %add.ptr.i1739 = getelementptr inbounds nuw double, ptr %751, i64 %sub2639
-  %768 = load double, ptr %add.ptr.i1739, align 8, !tbaa !98
-  %arrayidx2647 = getelementptr inbounds nuw double, ptr %752, i64 %sub2639
-  %769 = load double, ptr %arrayidx2647, align 8, !tbaa !98
-  %add.ptr.i1741 = getelementptr inbounds nuw double, ptr %753, i64 %sub2639
-  %770 = load double, ptr %add.ptr.i1741, align 8, !tbaa !98
-  %div2654 = fmul double %770, 5.000000e-01
-  %add.ptr.i1743 = getelementptr inbounds nuw double, ptr %754, i64 %sub2639
-  %771 = load double, ptr %add.ptr.i1743, align 8, !tbaa !98
-  %div2661 = fdiv double %771, 3.000000e+00
-  %add.ptr.i1745 = getelementptr inbounds nuw double, ptr %755, i64 %sub2639
-  %772 = load double, ptr %add.ptr.i1745, align 8, !tbaa !98
-  %mul2668 = fmul double %768, %772
+  %add.ptr.i1739 = getelementptr inbounds nuw double, ptr %753, i64 %sub2639
+  %770 = load double, ptr %add.ptr.i1739, align 8, !tbaa !98
+  %arrayidx2647 = getelementptr inbounds nuw double, ptr %754, i64 %sub2639
+  %771 = load double, ptr %arrayidx2647, align 8, !tbaa !98
+  %add.ptr.i1741 = getelementptr inbounds nuw double, ptr %755, i64 %sub2639
+  %772 = load double, ptr %add.ptr.i1741, align 8, !tbaa !98
+  %div2654 = fmul double %772, 5.000000e-01
+  %add.ptr.i1743 = getelementptr inbounds nuw double, ptr %756, i64 %sub2639
+  %773 = load double, ptr %add.ptr.i1743, align 8, !tbaa !98
+  %div2661 = fdiv double %773, 3.000000e+00
+  %add.ptr.i1745 = getelementptr inbounds nuw double, ptr %757, i64 %sub2639
+  %774 = load double, ptr %add.ptr.i1745, align 8, !tbaa !98
+  %mul2668 = fmul double %770, %774
   %div2669 = fmul double %mul2668, 2.500000e-01
   %add2670 = fadd double %div2661, %div2669
-  %773 = call double @llvm.fmuladd.f64(double %768, double %add2670, double %div2654)
-  %774 = call double @llvm.fmuladd.f64(double %768, double %773, double %769)
-  %775 = call double @llvm.fmuladd.f64(double %768, double %774, double %767)
-  %add.ptr.i1746 = getelementptr inbounds nuw double, ptr %750, i64 %i2631.01958
-  store double %775, ptr %add.ptr.i1746, align 8, !tbaa !98
+  %775 = call double @llvm.fmuladd.f64(double %770, double %add2670, double %div2654)
+  %776 = call double @llvm.fmuladd.f64(double %770, double %775, double %771)
+  %777 = call double @llvm.fmuladd.f64(double %770, double %776, double %769)
+  %add.ptr.i1746 = getelementptr inbounds nuw double, ptr %752, i64 %i2631.01958
+  store double %777, ptr %add.ptr.i1746, align 8, !tbaa !98
   %inc2677 = add nuw i64 %i2631.01958, 1
   %exitcond1981.not = icmp eq i64 %inc2677, %sub25902036
   br i1 %exitcond1981.not, label %for.cond.cleanup2636, label %for.body2637, !llvm.loop !615
@@ -47668,8 +47670,8 @@ land.lhs.true1740:                                ; preds = %if.else1732
   %629 = load double, ptr %gep1924, align 8, !tbaa !98
   %cmp1746 = fcmp oeq double %628, %629
   %cmp1758 = fcmp oeq double %628, %625
-  %or.cond2043 = or i1 %cmp1746, %cmp1758
-  br i1 %or.cond2043, label %for.inc1842, label %if.else1764
+  %or.cond2039 = or i1 %cmp1746, %cmp1758
+  br i1 %or.cond2039, label %for.inc1842, label %if.else1764
 
 if.else1752:                                      ; preds = %if.else1732
   %cmp1758.old = fcmp oeq double %628, %625
@@ -48082,7 +48084,7 @@ for.body2311.lr.ph:                               ; preds = %for.cond2307.prehea
   br label %for.body2311
 
 for.body2311:                                     ; preds = %for.body2311.lr.ph, %for.inc2583
-  %705 = phi i64 [ %.pre1989, %for.body2311.lr.ph ], [ %739, %for.inc2583 ]
+  %705 = phi i64 [ %.pre1989, %for.body2311.lr.ph ], [ %741, %for.inc2583 ]
   %i2306.01939 = phi i64 [ 0, %for.body2311.lr.ph ], [ %inc2584, %for.inc2583 ]
   %cmp2312 = icmp eq i64 %i2306.01939, 0
   br i1 %cmp2312, label %if.then2313, label %if.else2348
@@ -48111,7 +48113,10 @@ if.end2336:                                       ; preds = %if.then2313, %if.th
 
 if.then2340:                                      ; preds = %if.end2336
   store double %correction.0, ptr %703, align 8, !tbaa !98
-  br label %for.inc2583.sink.split
+  %710 = load i64, ptr %704, align 8, !tbaa !37
+  %or.i = or i64 %710, 1
+  store i64 %or.i, ptr %704, align 8, !tbaa !37
+  br label %for.inc2583
 
 if.else2348:                                      ; preds = %for.body2311
   %sub2350 = add i64 %705, -1
@@ -48120,61 +48125,64 @@ if.else2348:                                      ; preds = %for.body2311
 
 if.then2352:                                      ; preds = %if.else2348
   %arrayidx.i1633 = getelementptr inbounds nuw double, ptr %703, i64 %i2306.01939
-  %710 = load double, ptr %arrayidx.i1633, align 8, !tbaa !98
+  %711 = load double, ptr %arrayidx.i1633, align 8, !tbaa !98
   %gep1941 = getelementptr double, ptr %invariant.gep1940, i64 %705
-  %711 = load double, ptr %gep1941, align 8, !tbaa !98
-  %mul2359 = fmul double %710, %711
+  %712 = load double, ptr %gep1941, align 8, !tbaa !98
+  %mul2359 = fmul double %711, %712
   %cmp2360 = fcmp ogt double %mul2359, 0.000000e+00
   br i1 %cmp2360, label %if.then2361, label %if.end2379
 
 if.then2361:                                      ; preds = %if.then2352
-  %712 = call double @llvm.fabs.f64(double %710)
-  %div2366 = fdiv double %710, %712
-  %mul2375 = fmul double %711, 3.000000e+00
-  %713 = call double @llvm.fabs.f64(double %mul2375)
-  %cmp.i1639 = fcmp olt double %713, %712
-  %.sroa.speculated1753 = select i1 %cmp.i1639, double %713, double %712
+  %713 = call double @llvm.fabs.f64(double %711)
+  %div2366 = fdiv double %711, %713
+  %mul2375 = fmul double %712, 3.000000e+00
+  %714 = call double @llvm.fabs.f64(double %mul2375)
+  %cmp.i1639 = fcmp olt double %714, %713
+  %.sroa.speculated1753 = select i1 %cmp.i1639, double %714, double %713
   %mul2377 = fmul double %div2366, %.sroa.speculated1753
   br label %if.end2379
 
 if.end2379:                                       ; preds = %if.then2352, %if.then2361
   %correction.1 = phi double [ %mul2377, %if.then2361 ], [ 0.000000e+00, %if.then2352 ]
-  %cmp2382 = fcmp une double %correction.1, %710
+  %cmp2382 = fcmp une double %correction.1, %711
   br i1 %cmp2382, label %if.then2383, label %for.inc2583
 
 if.then2383:                                      ; preds = %if.end2379
   store double %correction.1, ptr %arrayidx.i1633, align 8, !tbaa !98
   %div.i.i.i.i.i = sdiv i64 %i2306.01939, 64
   %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %704, i64 %div.i.i.i.i.i
-  %714 = and i64 %i2306.01939, -9223372036854775745
-  %cmp.i.i.i.i.i = icmp ugt i64 %714, -9223372036854775808
+  %715 = and i64 %i2306.01939, -9223372036854775745
+  %cmp.i.i.i.i.i = icmp ugt i64 %715, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 -8, i64 0
   %storemerge.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 %storemerge.idx.i.i.i.i.i
   %conv4.i.i.i.i.i = and i64 %i2306.01939, 63
   %shl.i.i.i = shl nuw i64 1, %conv4.i.i.i.i.i
-  br label %for.inc2583.sink.split
+  %716 = load i64, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !37
+  %or.i1646 = or i64 %716, %shl.i.i.i
+  store i64 %or.i1646, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !37
+  br label %for.inc2583
 
 if.else2391:                                      ; preds = %if.else2348
   %sub2393 = add i64 %i2306.01939, -1
   %add.ptr.i1647 = getelementptr inbounds nuw double, ptr %701, i64 %sub2393
-  %715 = load double, ptr %add.ptr.i1647, align 8, !tbaa !98
+  %717 = load double, ptr %add.ptr.i1647, align 8, !tbaa !98
   %add.ptr.i1648 = getelementptr inbounds nuw double, ptr %702, i64 %i2306.01939
-  %716 = load double, ptr %add.ptr.i1648, align 8, !tbaa !98
+  %718 = load double, ptr %add.ptr.i1648, align 8, !tbaa !98
   %add.ptr.i1649 = getelementptr inbounds nuw double, ptr %701, i64 %i2306.01939
-  %717 = load double, ptr %add.ptr.i1649, align 8, !tbaa !98
+  %719 = load double, ptr %add.ptr.i1649, align 8, !tbaa !98
   %add.ptr.i1650 = getelementptr inbounds nuw double, ptr %702, i64 %sub2393
-  %718 = load double, ptr %add.ptr.i1650, align 8, !tbaa !98
-  %mul2403 = fmul double %717, %718
-  %719 = call double @llvm.fmuladd.f64(double %715, double %716, double %mul2403)
-  %add2409 = fadd double %716, %718
-  %div2410 = fdiv double %719, %add2409
-  %720 = call double @llvm.fabs.f64(double %715)
-  %721 = call double @llvm.fabs.f64(double %717)
-  %cmp.i1655 = fcmp olt double %721, %720
-  %722 = call double @llvm.fabs.f64(double %div2410)
-  %.sroa.speculated1750 = select i1 %cmp.i1655, double %721, double %720
-  %cmp.i1657 = fcmp olt double %722, %.sroa.speculated1750
-  %.sroa.speculated1747 = select i1 %cmp.i1657, double %722, double %.sroa.speculated1750
+  %720 = load double, ptr %add.ptr.i1650, align 8, !tbaa !98
+  %mul2403 = fmul double %719, %720
+  %721 = call double @llvm.fmuladd.f64(double %717, double %718, double %mul2403)
+  %add2409 = fadd double %718, %720
+  %div2410 = fdiv double %721, %add2409
+  %722 = call double @llvm.fabs.f64(double %717)
+  %723 = call double @llvm.fabs.f64(double %719)
+  %cmp.i1655 = fcmp olt double %723, %722
+  %724 = call double @llvm.fabs.f64(double %div2410)
+  %.sroa.speculated1750 = select i1 %cmp.i1655, double %723, double %722
+  %cmp.i1657 = fcmp olt double %724, %.sroa.speculated1750
+  %.sroa.speculated1747 = select i1 %cmp.i1657, double %724, double %.sroa.speculated1750
   %mul2421 = fmul double %.sroa.speculated1747, 3.000000e+00
   %cmp2422.not = icmp eq i64 %i2306.01939, 1
   br i1 %cmp2422.not, label %if.end2488, label %if.then2423
@@ -48182,22 +48190,22 @@ if.else2391:                                      ; preds = %if.else2348
 if.then2423:                                      ; preds = %if.else2391
   %sub2428 = add i64 %i2306.01939, -2
   %add.ptr.i1660 = getelementptr inbounds nuw double, ptr %701, i64 %sub2428
-  %723 = load double, ptr %add.ptr.i1660, align 8, !tbaa !98
-  %sub2430 = fsub double %715, %723
-  %sub2436 = fsub double %717, %715
+  %725 = load double, ptr %add.ptr.i1660, align 8, !tbaa !98
+  %sub2430 = fsub double %717, %725
+  %sub2436 = fsub double %719, %717
   %mul2437 = fmul double %sub2436, %sub2430
   %cmp2438 = fcmp ogt double %mul2437, 0.000000e+00
   br i1 %cmp2438, label %if.then2439, label %if.end2488
 
 if.then2439:                                      ; preds = %if.then2423
   %add.ptr.i1665 = getelementptr inbounds nuw double, ptr %702, i64 %sub2428
-  %724 = load double, ptr %add.ptr.i1665, align 8, !tbaa !98
-  %725 = call double @llvm.fmuladd.f64(double %718, double 2.000000e+00, double %724)
-  %726 = fneg double %718
-  %neg2458 = fmul double %723, %726
-  %727 = call double @llvm.fmuladd.f64(double %715, double %725, double %neg2458)
-  %add2465 = fadd double %718, %724
-  %div2466 = fdiv double %727, %add2465
+  %726 = load double, ptr %add.ptr.i1665, align 8, !tbaa !98
+  %727 = call double @llvm.fmuladd.f64(double %720, double 2.000000e+00, double %726)
+  %728 = fneg double %720
+  %neg2458 = fmul double %725, %728
+  %729 = call double @llvm.fmuladd.f64(double %717, double %727, double %neg2458)
+  %add2465 = fadd double %720, %726
+  %div2466 = fdiv double %729, %add2465
   %mul2467 = fmul double %div2410, %div2466
   %cmp2468 = fcmp ogt double %mul2467, 0.000000e+00
   %mul2477 = fmul double %div2410, %sub2430
@@ -48206,9 +48214,9 @@ if.then2439:                                      ; preds = %if.then2423
   br i1 %or.cond1869, label %if.then2479, label %if.end2488
 
 if.then2479:                                      ; preds = %if.then2439
-  %728 = call double @llvm.fabs.f64(double %div2466)
-  %cmp.i1672 = fcmp olt double %728, %722
-  %.sroa.speculated1741 = select i1 %cmp.i1672, double %728, double %722
+  %730 = call double @llvm.fabs.f64(double %div2466)
+  %cmp.i1672 = fcmp olt double %730, %724
+  %.sroa.speculated1741 = select i1 %cmp.i1672, double %730, double %724
   %mul2484 = fmul double %.sroa.speculated1741, 1.500000e+00
   %cmp.i1674 = fcmp olt double %mul2421, %mul2484
   %.sroa.speculated1744 = select i1 %cmp.i1674, double %mul2484, double %mul2421
@@ -48221,24 +48229,24 @@ if.end2488:                                       ; preds = %if.then2423, %if.th
   br i1 %cmp2491, label %if.then2492, label %if.end2552
 
 if.then2492:                                      ; preds = %if.end2488
-  %sub2498 = fsub double %717, %715
+  %sub2498 = fsub double %719, %717
   %add2500 = add nuw i64 %i2306.01939, 1
   %add.ptr.i1678 = getelementptr inbounds nuw double, ptr %701, i64 %add2500
-  %729 = load double, ptr %add.ptr.i1678, align 8, !tbaa !98
-  %sub2504 = fsub double %729, %717
+  %731 = load double, ptr %add.ptr.i1678, align 8, !tbaa !98
+  %sub2504 = fsub double %731, %719
   %mul2505 = fmul double %sub2498, %sub2504
   %cmp2506 = fcmp ogt double %mul2505, 0.000000e+00
   br i1 %cmp2506, label %if.then2507, label %if.end2552
 
 if.then2507:                                      ; preds = %if.then2492
   %add.ptr.i1682 = getelementptr inbounds nuw double, ptr %702, i64 %add2500
-  %730 = load double, ptr %add.ptr.i1682, align 8, !tbaa !98
-  %731 = call double @llvm.fmuladd.f64(double %716, double 2.000000e+00, double %730)
-  %732 = fneg double %716
-  %neg2523 = fmul double %729, %732
-  %733 = call double @llvm.fmuladd.f64(double %717, double %731, double %neg2523)
-  %add2529 = fadd double %716, %730
-  %div2530 = fdiv double %733, %add2529
+  %732 = load double, ptr %add.ptr.i1682, align 8, !tbaa !98
+  %733 = call double @llvm.fmuladd.f64(double %718, double 2.000000e+00, double %732)
+  %734 = fneg double %718
+  %neg2523 = fmul double %731, %734
+  %735 = call double @llvm.fmuladd.f64(double %719, double %733, double %neg2523)
+  %add2529 = fadd double %718, %732
+  %div2530 = fdiv double %735, %add2529
   %mul2531 = fmul double %div2410, %div2530
   %cmp2532 = fcmp ogt double %mul2531, 0.000000e+00
   br i1 %cmp2532, label %land.lhs.true2533, label %if.end2552
@@ -48250,9 +48258,9 @@ land.lhs.true2533:                                ; preds = %if.then2507
   br i1 %cmp2542, label %if.then2543, label %if.end2552
 
 if.then2543:                                      ; preds = %land.lhs.true2533
-  %734 = call double @llvm.fabs.f64(double %div2530)
-  %cmp.i1689 = fcmp olt double %734, %722
-  %.sroa.speculated1736 = select i1 %cmp.i1689, double %734, double %722
+  %736 = call double @llvm.fabs.f64(double %div2530)
+  %cmp.i1689 = fcmp olt double %736, %724
+  %.sroa.speculated1736 = select i1 %cmp.i1689, double %736, double %724
   %mul2548 = fmul double %.sroa.speculated1736, 1.500000e+00
   %cmp.i1691 = fcmp olt double %M.0, %mul2548
   %.sroa.speculated1738 = select i1 %cmp.i1691, double %mul2548, double %M.0
@@ -48261,126 +48269,121 @@ if.then2543:                                      ; preds = %land.lhs.true2533
 if.end2552:                                       ; preds = %if.then2492, %if.then2543, %land.lhs.true2533, %if.then2507, %if.end2488
   %M.1 = phi double [ %.sroa.speculated1738, %if.then2543 ], [ %M.0, %land.lhs.true2533 ], [ %M.0, %if.then2507 ], [ %M.0, %if.then2492 ], [ %M.0, %if.end2488 ]
   %arrayidx.i1693 = getelementptr inbounds nuw double, ptr %703, i64 %i2306.01939
-  %735 = load double, ptr %arrayidx.i1693, align 8, !tbaa !98
-  %mul2555 = fmul double %div2410, %735
+  %737 = load double, ptr %arrayidx.i1693, align 8, !tbaa !98
+  %mul2555 = fmul double %div2410, %737
   %cmp2556 = fcmp ogt double %mul2555, 0.000000e+00
   br i1 %cmp2556, label %if.then2557, label %if.end2569
 
 if.then2557:                                      ; preds = %if.end2552
-  %736 = call double @llvm.fabs.f64(double %735)
-  %div2562 = fdiv double %735, %736
-  %cmp.i1697 = fcmp olt double %M.1, %736
-  %.sroa.speculated = select i1 %cmp.i1697, double %M.1, double %736
+  %738 = call double @llvm.fabs.f64(double %737)
+  %div2562 = fdiv double %737, %738
+  %cmp.i1697 = fcmp olt double %M.1, %738
+  %.sroa.speculated = select i1 %cmp.i1697, double %M.1, double %738
   %mul2567 = fmul double %div2562, %.sroa.speculated
   br label %if.end2569
 
 if.end2569:                                       ; preds = %if.end2552, %if.then2557
   %correction.2 = phi double [ %mul2567, %if.then2557 ], [ 0.000000e+00, %if.end2552 ]
-  %cmp2572 = fcmp une double %correction.2, %735
+  %cmp2572 = fcmp une double %correction.2, %737
   br i1 %cmp2572, label %if.then2573, label %for.inc2583
 
 if.then2573:                                      ; preds = %if.end2569
   store double %correction.2, ptr %arrayidx.i1693, align 8, !tbaa !98
   %div.i.i.i.i.i1701 = sdiv i64 %i2306.01939, 64
   %add.ptr.i.i.i.i.i1702 = getelementptr inbounds i64, ptr %704, i64 %div.i.i.i.i.i1701
-  %737 = and i64 %i2306.01939, -9223372036854775745
-  %cmp.i.i.i.i.i1703 = icmp ugt i64 %737, -9223372036854775808
+  %739 = and i64 %i2306.01939, -9223372036854775745
+  %cmp.i.i.i.i.i1703 = icmp ugt i64 %739, -9223372036854775808
   %storemerge.idx.i.i.i.i.i1704 = select i1 %cmp.i.i.i.i.i1703, i64 -8, i64 0
   %storemerge.i.i.i.i.i1705 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i1702, i64 %storemerge.idx.i.i.i.i.i1704
   %conv4.i.i.i.i.i1706 = and i64 %i2306.01939, 63
   %shl.i.i.i1707 = shl nuw i64 1, %conv4.i.i.i.i.i1706
-  br label %for.inc2583.sink.split
-
-for.inc2583.sink.split:                           ; preds = %if.then2383, %if.then2573, %if.then2340
-  %.sink2039 = phi ptr [ %704, %if.then2340 ], [ %storemerge.i.i.i.i.i1705, %if.then2573 ], [ %storemerge.i.i.i.i.i, %if.then2383 ]
-  %.sink2038 = phi i64 [ 1, %if.then2340 ], [ %shl.i.i.i1707, %if.then2573 ], [ %shl.i.i.i, %if.then2383 ]
-  %738 = load i64, ptr %.sink2039, align 8, !tbaa !37
-  %or.i = or i64 %738, %.sink2038
-  store i64 %or.i, ptr %.sink2039, align 8, !tbaa !37
+  %740 = load i64, ptr %storemerge.i.i.i.i.i1705, align 8, !tbaa !37
+  %or.i1711 = or i64 %740, %shl.i.i.i1707
+  store i64 %or.i1711, ptr %storemerge.i.i.i.i.i1705, align 8, !tbaa !37
   br label %for.inc2583
 
-for.inc2583:                                      ; preds = %for.inc2583.sink.split, %if.end2336, %if.end2569, %if.end2379
+for.inc2583:                                      ; preds = %if.then2340, %if.end2336, %if.end2569, %if.then2573, %if.end2379, %if.then2383
   %inc2584 = add nuw i64 %i2306.01939, 1
-  %739 = load i64, ptr %n_, align 8, !tbaa !480
-  %cmp2309 = icmp ult i64 %inc2584, %739
+  %741 = load i64, ptr %n_, align 8, !tbaa !480
+  %cmp2309 = icmp ult i64 %inc2584, %741
   br i1 %cmp2309, label %for.body2311, label %if.end2586, !llvm.loop !674
 
 if.end2586:                                       ; preds = %for.inc2583, %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit
-  %740 = phi i64 [ %.pre1989, %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit ], [ %739, %for.inc2583 ]
-  %sub2590 = add i64 %740, -1
+  %742 = phi i64 [ %.pre1989, %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit ], [ %741, %for.inc2583 ]
+  %sub2590 = add i64 %742, -1
   %cmp25911942.not = icmp eq i64 %sub2590, 0
   br i1 %cmp25911942.not, label %for.cond.cleanup2592.thread, label %for.body2593.lr.ph
 
 for.cond.cleanup2592.thread:                      ; preds = %if.end2586
   %primitiveConst_2027 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %741 = load ptr, ptr %primitiveConst_2027, align 8, !tbaa !148
-  store double 0.000000e+00, ptr %741, align 8, !tbaa !98
+  %743 = load ptr, ptr %primitiveConst_2027, align 8, !tbaa !148
+  store double 0.000000e+00, ptr %743, align 8, !tbaa !98
   br label %for.cond.cleanup2636
 
 for.body2593.lr.ph:                               ; preds = %for.cond2307.preheader, %if.end2586
   %sub25902024 = phi i64 [ %sub2590, %if.end2586 ], [ -1, %for.cond2307.preheader ]
   %tmp_2594 = getelementptr inbounds nuw i8, ptr %this, i64 216
-  %742 = load ptr, ptr %tmp_2594, align 8, !tbaa !3
+  %744 = load ptr, ptr %tmp_2594, align 8, !tbaa !3
   %a_ = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %743 = load ptr, ptr %a_, align 8, !tbaa !148
+  %745 = load ptr, ptr %a_, align 8, !tbaa !148
   %S_2597 = getelementptr inbounds nuw i8, ptr %this, i64 256
-  %744 = load ptr, ptr %S_2597, align 8, !tbaa !148
+  %746 = load ptr, ptr %S_2597, align 8, !tbaa !148
   %dx_2607 = getelementptr inbounds nuw i8, ptr %this, i64 232
-  %745 = load ptr, ptr %dx_2607, align 8, !tbaa !148
+  %747 = load ptr, ptr %dx_2607, align 8, !tbaa !148
   %b_ = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %746 = load ptr, ptr %b_, align 8, !tbaa !148
+  %748 = load ptr, ptr %b_, align 8, !tbaa !148
   %c_ = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %747 = load ptr, ptr %c_, align 8, !tbaa !148
+  %749 = load ptr, ptr %c_, align 8, !tbaa !148
   br label %for.body2593
 
 for.cond.cleanup2592:                             ; preds = %for.body2593
   %primitiveConst_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %748 = load ptr, ptr %primitiveConst_, align 8, !tbaa !148
-  store double 0.000000e+00, ptr %748, align 8, !tbaa !98
+  %750 = load ptr, ptr %primitiveConst_, align 8, !tbaa !148
+  store double 0.000000e+00, ptr %750, align 8, !tbaa !98
   %cmp26351945 = icmp ugt i64 %sub25902024, 1
   br i1 %cmp26351945, label %for.body2637.lr.ph, label %for.cond.cleanup2636
 
 for.body2637.lr.ph:                               ; preds = %for.cond.cleanup2592
   %dx_2641 = getelementptr inbounds nuw i8, ptr %this, i64 232
-  %749 = load ptr, ptr %dx_2641, align 8, !tbaa !148
+  %751 = load ptr, ptr %dx_2641, align 8, !tbaa !148
   %yBegin_2645 = getelementptr inbounds i8, ptr %this, i64 176
-  %750 = load ptr, ptr %yBegin_2645, align 8, !tbaa !640
+  %752 = load ptr, ptr %yBegin_2645, align 8, !tbaa !640
   %a_2651 = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %751 = load ptr, ptr %a_2651, align 8, !tbaa !148
+  %753 = load ptr, ptr %a_2651, align 8, !tbaa !148
   %b_2658 = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %752 = load ptr, ptr %b_2658, align 8, !tbaa !148
+  %754 = load ptr, ptr %b_2658, align 8, !tbaa !148
   %c_2665 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %753 = load ptr, ptr %c_2665, align 8, !tbaa !148
+  %755 = load ptr, ptr %c_2665, align 8, !tbaa !148
   br label %for.body2637
 
 for.body2593:                                     ; preds = %for.body2593.lr.ph, %for.body2593
   %i2587.01943 = phi i64 [ 0, %for.body2593.lr.ph ], [ %add2601, %for.body2593 ]
-  %arrayidx.i1713 = getelementptr inbounds nuw double, ptr %742, i64 %i2587.01943
-  %754 = load double, ptr %arrayidx.i1713, align 8, !tbaa !98
-  %add.ptr.i1714 = getelementptr inbounds nuw double, ptr %743, i64 %i2587.01943
-  store double %754, ptr %add.ptr.i1714, align 8, !tbaa !98
-  %add.ptr.i1715 = getelementptr inbounds nuw double, ptr %744, i64 %i2587.01943
-  %755 = load double, ptr %add.ptr.i1715, align 8, !tbaa !98
+  %arrayidx.i1713 = getelementptr inbounds nuw double, ptr %744, i64 %i2587.01943
+  %756 = load double, ptr %arrayidx.i1713, align 8, !tbaa !98
+  %add.ptr.i1714 = getelementptr inbounds nuw double, ptr %745, i64 %i2587.01943
+  store double %756, ptr %add.ptr.i1714, align 8, !tbaa !98
+  %add.ptr.i1715 = getelementptr inbounds nuw double, ptr %746, i64 %i2587.01943
+  %757 = load double, ptr %add.ptr.i1715, align 8, !tbaa !98
   %add2601 = add nuw i64 %i2587.01943, 1
-  %arrayidx.i1716 = getelementptr inbounds nuw double, ptr %742, i64 %add2601
-  %756 = load double, ptr %arrayidx.i1716, align 8, !tbaa !98
-  %neg2603 = fneg double %756
-  %757 = call double @llvm.fmuladd.f64(double %755, double 3.000000e+00, double %neg2603)
-  %758 = call double @llvm.fmuladd.f64(double %754, double -2.000000e+00, double %757)
-  %add.ptr.i1718 = getelementptr inbounds nuw double, ptr %745, i64 %i2587.01943
-  %759 = load double, ptr %add.ptr.i1718, align 8, !tbaa !98
-  %div2609 = fdiv double %758, %759
-  %add.ptr.i1719 = getelementptr inbounds nuw double, ptr %746, i64 %i2587.01943
+  %arrayidx.i1716 = getelementptr inbounds nuw double, ptr %744, i64 %add2601
+  %758 = load double, ptr %arrayidx.i1716, align 8, !tbaa !98
+  %neg2603 = fneg double %758
+  %759 = call double @llvm.fmuladd.f64(double %757, double 3.000000e+00, double %neg2603)
+  %760 = call double @llvm.fmuladd.f64(double %756, double -2.000000e+00, double %759)
+  %add.ptr.i1718 = getelementptr inbounds nuw double, ptr %747, i64 %i2587.01943
+  %761 = load double, ptr %add.ptr.i1718, align 8, !tbaa !98
+  %div2609 = fdiv double %760, %761
+  %add.ptr.i1719 = getelementptr inbounds nuw double, ptr %748, i64 %i2587.01943
   store double %div2609, ptr %add.ptr.i1719, align 8, !tbaa !98
-  %760 = load double, ptr %arrayidx.i1716, align 8, !tbaa !98
-  %761 = load double, ptr %arrayidx.i1713, align 8, !tbaa !98
-  %add2616 = fadd double %760, %761
-  %762 = load double, ptr %add.ptr.i1715, align 8, !tbaa !98
-  %763 = call double @llvm.fmuladd.f64(double %762, double -2.000000e+00, double %add2616)
-  %764 = load double, ptr %add.ptr.i1718, align 8, !tbaa !98
-  %mul2624 = fmul double %764, %764
-  %div2625 = fdiv double %763, %mul2624
-  %add.ptr.i1725 = getelementptr inbounds nuw double, ptr %747, i64 %i2587.01943
+  %762 = load double, ptr %arrayidx.i1716, align 8, !tbaa !98
+  %763 = load double, ptr %arrayidx.i1713, align 8, !tbaa !98
+  %add2616 = fadd double %762, %763
+  %764 = load double, ptr %add.ptr.i1715, align 8, !tbaa !98
+  %765 = call double @llvm.fmuladd.f64(double %764, double -2.000000e+00, double %add2616)
+  %766 = load double, ptr %add.ptr.i1718, align 8, !tbaa !98
+  %mul2624 = fmul double %766, %766
+  %div2625 = fdiv double %765, %mul2624
+  %add.ptr.i1725 = getelementptr inbounds nuw double, ptr %749, i64 %i2587.01943
   store double %div2625, ptr %add.ptr.i1725, align 8, !tbaa !98
   %exitcond1968.not = icmp eq i64 %add2601, %sub25902024
   br i1 %exitcond1968.not, label %for.cond.cleanup2592, label %for.body2593, !llvm.loop !675
@@ -48389,29 +48392,29 @@ for.cond.cleanup2636:                             ; preds = %for.body2637, %for.
   ret void
 
 for.body2637:                                     ; preds = %for.body2637.lr.ph, %for.body2637
-  %765 = phi double [ 0.000000e+00, %for.body2637.lr.ph ], [ %773, %for.body2637 ]
+  %767 = phi double [ 0.000000e+00, %for.body2637.lr.ph ], [ %775, %for.body2637 ]
   %i2631.01946 = phi i64 [ 1, %for.body2637.lr.ph ], [ %inc2677, %for.body2637 ]
   %sub2639 = add i64 %i2631.01946, -1
-  %add.ptr.i1727 = getelementptr inbounds nuw double, ptr %749, i64 %sub2639
-  %766 = load double, ptr %add.ptr.i1727, align 8, !tbaa !98
-  %arrayidx2647 = getelementptr inbounds nuw double, ptr %750, i64 %sub2639
-  %767 = load double, ptr %arrayidx2647, align 8, !tbaa !98
-  %add.ptr.i1729 = getelementptr inbounds nuw double, ptr %751, i64 %sub2639
-  %768 = load double, ptr %add.ptr.i1729, align 8, !tbaa !98
-  %div2654 = fmul double %768, 5.000000e-01
-  %add.ptr.i1731 = getelementptr inbounds nuw double, ptr %752, i64 %sub2639
-  %769 = load double, ptr %add.ptr.i1731, align 8, !tbaa !98
-  %div2661 = fdiv double %769, 3.000000e+00
-  %add.ptr.i1733 = getelementptr inbounds nuw double, ptr %753, i64 %sub2639
-  %770 = load double, ptr %add.ptr.i1733, align 8, !tbaa !98
-  %mul2668 = fmul double %766, %770
+  %add.ptr.i1727 = getelementptr inbounds nuw double, ptr %751, i64 %sub2639
+  %768 = load double, ptr %add.ptr.i1727, align 8, !tbaa !98
+  %arrayidx2647 = getelementptr inbounds nuw double, ptr %752, i64 %sub2639
+  %769 = load double, ptr %arrayidx2647, align 8, !tbaa !98
+  %add.ptr.i1729 = getelementptr inbounds nuw double, ptr %753, i64 %sub2639
+  %770 = load double, ptr %add.ptr.i1729, align 8, !tbaa !98
+  %div2654 = fmul double %770, 5.000000e-01
+  %add.ptr.i1731 = getelementptr inbounds nuw double, ptr %754, i64 %sub2639
+  %771 = load double, ptr %add.ptr.i1731, align 8, !tbaa !98
+  %div2661 = fdiv double %771, 3.000000e+00
+  %add.ptr.i1733 = getelementptr inbounds nuw double, ptr %755, i64 %sub2639
+  %772 = load double, ptr %add.ptr.i1733, align 8, !tbaa !98
+  %mul2668 = fmul double %768, %772
   %div2669 = fmul double %mul2668, 2.500000e-01
   %add2670 = fadd double %div2661, %div2669
-  %771 = call double @llvm.fmuladd.f64(double %766, double %add2670, double %div2654)
-  %772 = call double @llvm.fmuladd.f64(double %766, double %771, double %767)
-  %773 = call double @llvm.fmuladd.f64(double %766, double %772, double %765)
-  %add.ptr.i1734 = getelementptr inbounds nuw double, ptr %748, i64 %i2631.01946
-  store double %773, ptr %add.ptr.i1734, align 8, !tbaa !98
+  %773 = call double @llvm.fmuladd.f64(double %768, double %add2670, double %div2654)
+  %774 = call double @llvm.fmuladd.f64(double %768, double %773, double %769)
+  %775 = call double @llvm.fmuladd.f64(double %768, double %774, double %767)
+  %add.ptr.i1734 = getelementptr inbounds nuw double, ptr %750, i64 %i2631.01946
+  store double %775, ptr %add.ptr.i1734, align 8, !tbaa !98
   %inc2677 = add nuw i64 %i2631.01946, 1
   %exitcond1969.not = icmp eq i64 %inc2677, %sub25902024
   br i1 %exitcond1969.not, label %for.cond.cleanup2636, label %for.body2637, !llvm.loop !676

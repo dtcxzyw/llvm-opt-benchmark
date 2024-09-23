@@ -563,18 +563,18 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   store i32 %263, ptr %9, align 4
   %264 = sext i32 %262 to i64
   %265 = getelementptr inbounds ptr, ptr %261, i64 %264
+  store ptr %215, ptr %265, align 8
   br label %269
 
 Mpm_CutIsContained.exit114.thread:                ; preds = %._crit_edge.loopexit.split.loop.exit13.i.i111, %235, %.lr.ph.i98, %221, %213
   %266 = add nsw i32 %.0141, 1
   %267 = sext i32 %.0141 to i64
   %268 = getelementptr inbounds [33 x ptr], ptr %146, i64 0, i64 %267
+  store ptr %215, ptr %268, align 8
   br label %269
 
 269:                                              ; preds = %Mpm_CutIsContained.exit114.thread, %Vec_PtrPush.exit
-  %.sink = phi ptr [ %268, %Mpm_CutIsContained.exit114.thread ], [ %265, %Vec_PtrPush.exit ]
-  %.1 = phi i32 [ %266, %Mpm_CutIsContained.exit114.thread ], [ %.0141, %Vec_PtrPush.exit ]
-  store ptr %215, ptr %.sink, align 8
+  %.1 = phi i32 [ %.0141, %Vec_PtrPush.exit ], [ %266, %Mpm_CutIsContained.exit114.thread ]
   %indvars.iv.next161 = add nsw i64 %indvars.iv160, 1
   %270 = load i32, ptr %121, align 8
   %271 = sext i32 %270 to i64

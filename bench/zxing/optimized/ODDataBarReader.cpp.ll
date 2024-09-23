@@ -2425,22 +2425,18 @@ _ZNSt10_HashtableIN5ZXing4OneD7DataBar4PairES3_SaIS3_ENSt8__detail9_IdentityESt8
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
-  br label %.sink.split
+  store ptr %.031, ptr %37, align 8
+  br label %41
 
 38:                                               ; preds = %.lr.ph
   %39 = load ptr, ptr %32, align 8
   store ptr %39, ptr %.031, align 8
   %40 = load ptr, ptr %31, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %38, %36
-  %.sink = phi ptr [ %37, %36 ], [ %40, %38 ]
-  %.1.ph = phi i64 [ %30, %36 ], [ %.02530, %38 ]
-  store ptr %.031, ptr %.sink, align 8
+  store ptr %.031, ptr %40, align 8
   br label %41
 
-41:                                               ; preds = %.sink.split, %33
-  %.1 = phi i64 [ %30, %33 ], [ %.1.ph, %.sink.split ]
+41:                                               ; preds = %33, %36, %38
+  %.1 = phi i64 [ %.02530, %38 ], [ %30, %36 ], [ %30, %33 ]
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !46
 

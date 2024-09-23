@@ -3870,13 +3870,16 @@ define void @"_ZN156_$LT$wasmtime_runtime..instance..allocator..on_demand..OnDem
 12:                                               ; preds = %4
   store i32 -1, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  br label %13
+  store ptr %11, ptr %.sroa.6.0..sroa_idx, align 8
+  br label %14
 
-13:                                               ; preds = %4, %12
-  %.sink = phi ptr [ %.sroa.6.0..sroa_idx, %12 ], [ %0, %4 ]
-  store ptr %11, ptr %.sink, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %8, ptr %14, align 8
+13:                                               ; preds = %4
+  store ptr %11, ptr %0, align 8
+  br label %14
+
+14:                                               ; preds = %13, %12
+  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %8, ptr %15, align 8
   ret void
 }
 

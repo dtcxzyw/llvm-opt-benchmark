@@ -2667,11 +2667,11 @@ _ZN6vectorISt4pairIPKcdELb0EjE9push_backEOS3_.exit.i.i: ; preds = %if.then.i.i16
   br label %if.end.sink.split.i
 
 if.end.sink.split.i:                              ; preds = %_ZN6vectorISt4pairIPKcdELb0EjE9push_backEOS3_.exit.i.i, %_ZN6vectorISt4pairIPKcjELb0EjE9push_backEOS3_.exit.i.i
-  %m_d_stats.i.sink.i = phi ptr [ %m_d_stats.i.i, %_ZN6vectorISt4pairIPKcdELb0EjE9push_backEOS3_.exit.i.i ], [ %st, %_ZN6vectorISt4pairIPKcjELb0EjE9push_backEOS3_.exit.i.i ]
-  %24 = load ptr, ptr %m_d_stats.i.sink.i, align 8
-  %arrayidx10.i.i14.i = getelementptr inbounds i8, ptr %24, i64 -4
-  %25 = load i32, ptr %arrayidx10.i.i14.i, align 4
-  %inc.i.i15.i = add i32 %25, 1
+  %.sink.in.i = phi ptr [ %m_d_stats.i.i, %_ZN6vectorISt4pairIPKcdELb0EjE9push_backEOS3_.exit.i.i ], [ %st, %_ZN6vectorISt4pairIPKcjELb0EjE9push_backEOS3_.exit.i.i ]
+  %.sink.i = load ptr, ptr %.sink.in.i, align 8
+  %arrayidx10.i.i14.i = getelementptr inbounds i8, ptr %.sink.i, i64 -4
+  %24 = load i32, ptr %arrayidx10.i.i14.i, align 4
+  %inc.i.i15.i = add i32 %24, 1
   store i32 %inc.i.i15.i, ptr %arrayidx10.i.i14.i, align 4
   br label %_ZL16get_uint64_statsR10statisticsPKcy.exit
 
@@ -2760,11 +2760,11 @@ _ZN6vectorISt4pairIPKcdELb0EjE9push_backEOS3_.exit.i.i: ; preds = %if.then.i.i16
   br label %if.end.sink.split.i
 
 if.end.sink.split.i:                              ; preds = %_ZN6vectorISt4pairIPKcdELb0EjE9push_backEOS3_.exit.i.i, %_ZN6vectorISt4pairIPKcjELb0EjE9push_backEOS3_.exit.i.i
-  %m_d_stats.i.sink.i = phi ptr [ %m_d_stats.i.i, %_ZN6vectorISt4pairIPKcdELb0EjE9push_backEOS3_.exit.i.i ], [ %st, %_ZN6vectorISt4pairIPKcjELb0EjE9push_backEOS3_.exit.i.i ]
-  %10 = load ptr, ptr %m_d_stats.i.sink.i, align 8
-  %arrayidx10.i.i14.i = getelementptr inbounds i8, ptr %10, i64 -4
-  %11 = load i32, ptr %arrayidx10.i.i14.i, align 4
-  %inc.i.i15.i = add i32 %11, 1
+  %.sink.in.i = phi ptr [ %m_d_stats.i.i, %_ZN6vectorISt4pairIPKcdELb0EjE9push_backEOS3_.exit.i.i ], [ %st, %_ZN6vectorISt4pairIPKcjELb0EjE9push_backEOS3_.exit.i.i ]
+  %.sink.i = load ptr, ptr %.sink.in.i, align 8
+  %arrayidx10.i.i14.i = getelementptr inbounds i8, ptr %.sink.i, i64 -4
+  %10 = load i32, ptr %arrayidx10.i.i14.i, align 4
+  %inc.i.i15.i = add i32 %10, 1
   store i32 %inc.i.i15.i, ptr %arrayidx10.i.i14.i, align 4
   br label %_ZL16get_uint64_statsR10statisticsPKcy.exit
 

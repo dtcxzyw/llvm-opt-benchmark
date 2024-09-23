@@ -2365,13 +2365,13 @@ define internal fastcc void @FilterLoop26_C(ptr nocapture noundef %0, i32 nounde
   %23 = load ptr, ptr @VP8ksclip2, align 8
   br label %24
 
-24:                                               ; preds = %7, %126
-  %.in = phi i32 [ %3, %7 ], [ %25, %126 ]
-  %.018 = phi ptr [ %0, %7 ], [ %127, %126 ]
+24:                                               ; preds = %7, %129
+  %.in = phi i32 [ %3, %7 ], [ %25, %129 ]
+  %.018 = phi ptr [ %0, %7 ], [ %130, %129 ]
   %25 = add nsw i32 %.in, -1
   %26 = tail call fastcc i32 @NeedsFilter2_C(ptr noundef %.018, i32 noundef %1, i32 noundef %9, i32 noundef %5)
   %.not = icmp eq i32 %26, 0
-  br i1 %.not, label %126, label %27
+  br i1 %.not, label %129, label %27
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds i8, ptr %.018, i64 %12
@@ -2398,7 +2398,7 @@ Hev.exit:                                         ; preds = %27
   %42 = load i8, ptr %41, align 1
   %43 = zext i8 %42 to i32
   %.not17 = icmp ult i32 %6, %43
-  br i1 %.not17, label %Hev.exit.thread, label %70
+  br i1 %.not17, label %Hev.exit.thread, label %73
 
 Hev.exit.thread:                                  ; preds = %27, %Hev.exit
   %44 = zext i8 %32 to i32
@@ -2428,83 +2428,82 @@ Hev.exit.thread:                                  ; preds = %27, %Hev.exit
   %68 = load i8, ptr %67, align 1
   store i8 %68, ptr %31, align 1
   %69 = sub nsw i32 %45, %58
-  br label %.sink.split
-
-70:                                               ; preds = %Hev.exit
-  %71 = getelementptr inbounds i8, ptr %.018, i64 %18
+  %70 = sext i32 %69 to i64
+  %71 = getelementptr inbounds i8, ptr %22, i64 %70
   %72 = load i8, ptr %71, align 1
-  %73 = zext i8 %72 to i32
-  %74 = zext i8 %29 to i32
-  %75 = zext i8 %32 to i32
-  %76 = zext i8 %.pre to i32
-  %77 = zext i8 %.pre19 to i32
-  %78 = getelementptr inbounds i8, ptr %.018, i64 %20
-  %79 = load i8, ptr %78, align 1
-  %80 = zext i8 %79 to i32
-  %81 = sub nsw i32 %76, %75
-  %82 = mul nsw i32 %81, 3
-  %83 = sub nsw i32 %74, %77
-  %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds i8, ptr %21, i64 %84
-  %86 = load i8, ptr %85, align 1
-  %87 = sext i8 %86 to i32
-  %88 = add nsw i32 %82, %87
-  %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds i8, ptr %21, i64 %89
-  %91 = load i8, ptr %90, align 1
-  %92 = sext i8 %91 to i32
-  %93 = mul nsw i32 %92, 27
-  %94 = add nsw i32 %93, 63
-  %95 = ashr i32 %94, 7
-  %96 = mul nsw i32 %92, 18
+  store i8 %72, ptr %.018, align 1
+  br label %129
+
+73:                                               ; preds = %Hev.exit
+  %74 = getelementptr inbounds i8, ptr %.018, i64 %18
+  %75 = load i8, ptr %74, align 1
+  %76 = zext i8 %75 to i32
+  %77 = zext i8 %29 to i32
+  %78 = zext i8 %32 to i32
+  %79 = zext i8 %.pre to i32
+  %80 = zext i8 %.pre19 to i32
+  %81 = getelementptr inbounds i8, ptr %.018, i64 %20
+  %82 = load i8, ptr %81, align 1
+  %83 = zext i8 %82 to i32
+  %84 = sub nsw i32 %79, %78
+  %85 = mul nsw i32 %84, 3
+  %86 = sub nsw i32 %77, %80
+  %87 = sext i32 %86 to i64
+  %88 = getelementptr inbounds i8, ptr %21, i64 %87
+  %89 = load i8, ptr %88, align 1
+  %90 = sext i8 %89 to i32
+  %91 = add nsw i32 %85, %90
+  %92 = sext i32 %91 to i64
+  %93 = getelementptr inbounds i8, ptr %21, i64 %92
+  %94 = load i8, ptr %93, align 1
+  %95 = sext i8 %94 to i32
+  %96 = mul nsw i32 %95, 27
   %97 = add nsw i32 %96, 63
   %98 = ashr i32 %97, 7
-  %99 = mul nsw i32 %92, 9
+  %99 = mul nsw i32 %95, 18
   %100 = add nsw i32 %99, 63
   %101 = ashr i32 %100, 7
-  %102 = add nsw i32 %101, %73
-  %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds i8, ptr %22, i64 %103
-  %105 = load i8, ptr %104, align 1
-  store i8 %105, ptr %71, align 1
-  %106 = add nsw i32 %98, %74
-  %107 = sext i32 %106 to i64
-  %108 = getelementptr inbounds i8, ptr %22, i64 %107
-  %109 = load i8, ptr %108, align 1
-  store i8 %109, ptr %28, align 1
-  %110 = add nsw i32 %95, %75
-  %111 = sext i32 %110 to i64
-  %112 = getelementptr inbounds i8, ptr %22, i64 %111
-  %113 = load i8, ptr %112, align 1
-  store i8 %113, ptr %31, align 1
-  %114 = sub nsw i32 %76, %95
-  %115 = sext i32 %114 to i64
-  %116 = getelementptr inbounds i8, ptr %22, i64 %115
-  %117 = load i8, ptr %116, align 1
-  store i8 %117, ptr %.018, align 1
-  %118 = sub nsw i32 %77, %98
-  %119 = sext i32 %118 to i64
-  %120 = getelementptr inbounds i8, ptr %22, i64 %119
-  %121 = load i8, ptr %120, align 1
-  store i8 %121, ptr %.phi.trans.insert, align 1
-  %122 = sub nsw i32 %80, %101
-  br label %.sink.split
+  %102 = mul nsw i32 %95, 9
+  %103 = add nsw i32 %102, 63
+  %104 = ashr i32 %103, 7
+  %105 = add nsw i32 %104, %76
+  %106 = sext i32 %105 to i64
+  %107 = getelementptr inbounds i8, ptr %22, i64 %106
+  %108 = load i8, ptr %107, align 1
+  store i8 %108, ptr %74, align 1
+  %109 = add nsw i32 %101, %77
+  %110 = sext i32 %109 to i64
+  %111 = getelementptr inbounds i8, ptr %22, i64 %110
+  %112 = load i8, ptr %111, align 1
+  store i8 %112, ptr %28, align 1
+  %113 = add nsw i32 %98, %78
+  %114 = sext i32 %113 to i64
+  %115 = getelementptr inbounds i8, ptr %22, i64 %114
+  %116 = load i8, ptr %115, align 1
+  store i8 %116, ptr %31, align 1
+  %117 = sub nsw i32 %79, %98
+  %118 = sext i32 %117 to i64
+  %119 = getelementptr inbounds i8, ptr %22, i64 %118
+  %120 = load i8, ptr %119, align 1
+  store i8 %120, ptr %.018, align 1
+  %121 = sub nsw i32 %80, %101
+  %122 = sext i32 %121 to i64
+  %123 = getelementptr inbounds i8, ptr %22, i64 %122
+  %124 = load i8, ptr %123, align 1
+  store i8 %124, ptr %.phi.trans.insert, align 1
+  %125 = sub nsw i32 %83, %104
+  %126 = sext i32 %125 to i64
+  %127 = getelementptr inbounds i8, ptr %22, i64 %126
+  %128 = load i8, ptr %127, align 1
+  store i8 %128, ptr %81, align 1
+  br label %129
 
-.sink.split:                                      ; preds = %70, %Hev.exit.thread
-  %.sink22 = phi i32 [ %69, %Hev.exit.thread ], [ %122, %70 ]
-  %.018.sink = phi ptr [ %.018, %Hev.exit.thread ], [ %78, %70 ]
-  %123 = sext i32 %.sink22 to i64
-  %124 = getelementptr inbounds i8, ptr %22, i64 %123
-  %125 = load i8, ptr %124, align 1
-  store i8 %125, ptr %.018.sink, align 1
-  br label %126
+129:                                              ; preds = %Hev.exit.thread, %73, %24
+  %130 = getelementptr inbounds i8, ptr %.018, i64 %10
+  %131 = icmp ugt i32 %.in, 1
+  br i1 %131, label %24, label %132, !llvm.loop !36
 
-126:                                              ; preds = %.sink.split, %24
-  %127 = getelementptr inbounds i8, ptr %.018, i64 %10
-  %128 = icmp ugt i32 %.in, 1
-  br i1 %128, label %24, label %129, !llvm.loop !36
-
-129:                                              ; preds = %126
+132:                                              ; preds = %129
   ret void
 }
 
@@ -2638,13 +2637,13 @@ define internal fastcc void @FilterLoop24_C(ptr nocapture noundef %0, i32 nounde
   %19 = load ptr, ptr @VP8ksclip1, align 8
   br label %20
 
-20:                                               ; preds = %7, %103
-  %.in = phi i32 [ %3, %7 ], [ %21, %103 ]
-  %.018 = phi ptr [ %0, %7 ], [ %104, %103 ]
+20:                                               ; preds = %7, %106
+  %.in = phi i32 [ %3, %7 ], [ %21, %106 ]
+  %.018 = phi ptr [ %0, %7 ], [ %107, %106 ]
   %21 = add nsw i32 %.in, -1
   %22 = tail call fastcc i32 @NeedsFilter2_C(ptr noundef %.018, i32 noundef %1, i32 noundef %9, i32 noundef %5)
   %.not = icmp eq i32 %22, 0
-  br i1 %.not, label %103, label %23
+  br i1 %.not, label %106, label %23
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds i8, ptr %.018, i64 %12
@@ -2671,7 +2670,7 @@ Hev.exit:                                         ; preds = %23
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i32
   %.not17 = icmp ult i32 %6, %39
-  br i1 %.not17, label %Hev.exit.thread, label %66
+  br i1 %.not17, label %Hev.exit.thread, label %69
 
 Hev.exit.thread:                                  ; preds = %23, %Hev.exit
   %40 = zext i8 %28 to i32
@@ -2701,62 +2700,61 @@ Hev.exit.thread:                                  ; preds = %23, %Hev.exit
   %64 = load i8, ptr %63, align 1
   store i8 %64, ptr %27, align 1
   %65 = sub nsw i32 %41, %54
-  br label %.sink.split
+  %66 = sext i32 %65 to i64
+  %67 = getelementptr inbounds i8, ptr %18, i64 %66
+  %68 = load i8, ptr %67, align 1
+  store i8 %68, ptr %.018, align 1
+  br label %106
 
-66:                                               ; preds = %Hev.exit
-  %67 = zext i8 %25 to i32
-  %68 = zext i8 %28 to i32
-  %69 = zext i8 %.pre to i32
-  %70 = zext i8 %.pre19 to i32
-  %71 = sub nsw i32 %69, %68
-  %72 = mul nsw i32 %71, 3
-  %73 = add nsw i32 %72, 4
-  %74 = ashr i32 %73, 3
-  %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds i8, ptr %17, i64 %75
-  %77 = load i8, ptr %76, align 1
-  %78 = sext i8 %77 to i32
-  %79 = add nsw i32 %72, 3
-  %80 = ashr i32 %79, 3
-  %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds i8, ptr %17, i64 %81
-  %83 = load i8, ptr %82, align 1
-  %84 = sext i8 %83 to i32
-  %85 = add nsw i32 %78, 1
-  %86 = ashr i32 %85, 1
-  %87 = add nsw i32 %86, %67
-  %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds i8, ptr %18, i64 %88
-  %90 = load i8, ptr %89, align 1
-  store i8 %90, ptr %24, align 1
-  %91 = add nsw i32 %84, %68
-  %92 = sext i32 %91 to i64
-  %93 = getelementptr inbounds i8, ptr %18, i64 %92
-  %94 = load i8, ptr %93, align 1
-  store i8 %94, ptr %27, align 1
-  %95 = sub nsw i32 %69, %78
-  %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds i8, ptr %18, i64 %96
-  %98 = load i8, ptr %97, align 1
-  store i8 %98, ptr %.018, align 1
-  %99 = sub nsw i32 %70, %86
-  br label %.sink.split
+69:                                               ; preds = %Hev.exit
+  %70 = zext i8 %25 to i32
+  %71 = zext i8 %28 to i32
+  %72 = zext i8 %.pre to i32
+  %73 = zext i8 %.pre19 to i32
+  %74 = sub nsw i32 %72, %71
+  %75 = mul nsw i32 %74, 3
+  %76 = add nsw i32 %75, 4
+  %77 = ashr i32 %76, 3
+  %78 = sext i32 %77 to i64
+  %79 = getelementptr inbounds i8, ptr %17, i64 %78
+  %80 = load i8, ptr %79, align 1
+  %81 = sext i8 %80 to i32
+  %82 = add nsw i32 %75, 3
+  %83 = ashr i32 %82, 3
+  %84 = sext i32 %83 to i64
+  %85 = getelementptr inbounds i8, ptr %17, i64 %84
+  %86 = load i8, ptr %85, align 1
+  %87 = sext i8 %86 to i32
+  %88 = add nsw i32 %81, 1
+  %89 = ashr i32 %88, 1
+  %90 = add nsw i32 %89, %70
+  %91 = sext i32 %90 to i64
+  %92 = getelementptr inbounds i8, ptr %18, i64 %91
+  %93 = load i8, ptr %92, align 1
+  store i8 %93, ptr %24, align 1
+  %94 = add nsw i32 %87, %71
+  %95 = sext i32 %94 to i64
+  %96 = getelementptr inbounds i8, ptr %18, i64 %95
+  %97 = load i8, ptr %96, align 1
+  store i8 %97, ptr %27, align 1
+  %98 = sub nsw i32 %72, %81
+  %99 = sext i32 %98 to i64
+  %100 = getelementptr inbounds i8, ptr %18, i64 %99
+  %101 = load i8, ptr %100, align 1
+  store i8 %101, ptr %.018, align 1
+  %102 = sub nsw i32 %73, %89
+  %103 = sext i32 %102 to i64
+  %104 = getelementptr inbounds i8, ptr %18, i64 %103
+  %105 = load i8, ptr %104, align 1
+  store i8 %105, ptr %.phi.trans.insert, align 1
+  br label %106
 
-.sink.split:                                      ; preds = %66, %Hev.exit.thread
-  %.sink22 = phi i32 [ %65, %Hev.exit.thread ], [ %99, %66 ]
-  %.018.sink = phi ptr [ %.018, %Hev.exit.thread ], [ %.phi.trans.insert, %66 ]
-  %100 = sext i32 %.sink22 to i64
-  %101 = getelementptr inbounds i8, ptr %18, i64 %100
-  %102 = load i8, ptr %101, align 1
-  store i8 %102, ptr %.018.sink, align 1
-  br label %103
+106:                                              ; preds = %Hev.exit.thread, %69, %20
+  %107 = getelementptr inbounds i8, ptr %.018, i64 %10
+  %108 = icmp ugt i32 %.in, 1
+  br i1 %108, label %20, label %109, !llvm.loop !37
 
-103:                                              ; preds = %.sink.split, %20
-  %104 = getelementptr inbounds i8, ptr %.018, i64 %10
-  %105 = icmp ugt i32 %.in, 1
-  br i1 %105, label %20, label %106, !llvm.loop !37
-
-106:                                              ; preds = %103
+109:                                              ; preds = %106
   ret void
 }
 

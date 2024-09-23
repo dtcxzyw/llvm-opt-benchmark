@@ -893,7 +893,7 @@ define noundef ptr @Map_NodeCreate(ptr noundef %0, ptr noundef %1, ptr noundef %
   %33 = inttoptr i64 %32 to ptr
   %34 = getelementptr inbounds i8, ptr %33, i64 28
   %35 = load i32, ptr %34, align 4
-  br i1 %.not51, label %83, label %36
+  br i1 %.not51, label %85, label %36
 
 36:                                               ; preds = %29
   %37 = lshr i32 %35, 5
@@ -960,70 +960,74 @@ define noundef ptr @Map_NodeCreate(ptr noundef %0, ptr noundef %1, ptr noundef %
 80:                                               ; preds = %76, %70
   %81 = phi i32 [ %75, %70 ], [ %79, %76 ]
   %82 = and i32 %67, %81
-  br label %101
+  %83 = and i32 %53, -9
+  %84 = or disjoint i32 %82, %83
+  store i32 %84, ptr %47, align 4
+  br label %107
 
-83:                                               ; preds = %29
-  %84 = and i32 %35, 2097120
-  %85 = getelementptr inbounds i8, ptr %6, i64 28
-  %86 = load i32, ptr %85, align 4
-  %87 = and i32 %86, -2097121
-  %88 = or disjoint i32 %87, %84
-  store i32 %88, ptr %85, align 4
-  %89 = ptrtoint ptr %1 to i64
-  %90 = and i64 %89, 1
-  %.not52 = icmp eq i64 %90, 0
-  br i1 %.not52, label %97, label %91
+85:                                               ; preds = %29
+  %86 = and i32 %35, 2097120
+  %87 = getelementptr inbounds i8, ptr %6, i64 28
+  %88 = load i32, ptr %87, align 4
+  %89 = and i32 %88, -2097121
+  %90 = or disjoint i32 %89, %86
+  store i32 %90, ptr %87, align 4
+  %91 = ptrtoint ptr %1 to i64
+  %92 = and i64 %91, 1
+  %.not52 = icmp eq i64 %92, 0
+  br i1 %.not52, label %99, label %93
 
-91:                                               ; preds = %83
-  %92 = and i64 %89, -2
-  %93 = inttoptr i64 %92 to ptr
-  %94 = getelementptr inbounds i8, ptr %93, i64 28
-  %95 = load i32, ptr %94, align 4
-  %.lobit = and i32 %95, 8
-  %96 = xor i32 %.lobit, 8
-  br label %101
+93:                                               ; preds = %85
+  %94 = and i64 %91, -2
+  %95 = inttoptr i64 %94 to ptr
+  %96 = getelementptr inbounds i8, ptr %95, i64 28
+  %97 = load i32, ptr %96, align 4
+  %.lobit = and i32 %97, 8
+  %98 = xor i32 %.lobit, 8
+  br label %103
 
-97:                                               ; preds = %83
-  %98 = getelementptr inbounds i8, ptr %1, i64 28
-  %99 = load i32, ptr %98, align 4
-  %100 = and i32 %99, 8
-  br label %101
+99:                                               ; preds = %85
+  %100 = getelementptr inbounds i8, ptr %1, i64 28
+  %101 = load i32, ptr %100, align 4
+  %102 = and i32 %101, 8
+  br label %103
 
-101:                                              ; preds = %91, %97, %80
-  %.sink = phi i32 [ %53, %80 ], [ %88, %97 ], [ %88, %91 ]
-  %.sink62 = phi i32 [ %82, %80 ], [ %100, %97 ], [ %96, %91 ]
-  %.sink61 = phi ptr [ %47, %80 ], [ %85, %97 ], [ %85, %91 ]
-  %.pre-phi = phi i64 [ %54, %80 ], [ %89, %97 ], [ %89, %91 ]
-  %102 = and i32 %.sink, -9
-  %103 = or i32 %.sink62, %102
-  store i32 %103, ptr %.sink61, align 4
-  %104 = and i64 %.pre-phi, -2
-  %105 = inttoptr i64 %104 to ptr
-  %106 = getelementptr inbounds i8, ptr %105, i64 24
-  %107 = load i32, ptr %106, align 8
-  %108 = add nsw i32 %107, 1
-  store i32 %108, ptr %106, align 8
+103:                                              ; preds = %99, %93
+  %104 = phi i32 [ %98, %93 ], [ %102, %99 ]
+  %105 = and i32 %90, -9
+  %106 = or i32 %104, %105
+  store i32 %106, ptr %87, align 4
+  br label %107
+
+107:                                              ; preds = %103, %80
+  %.pre-phi = phi i64 [ %91, %103 ], [ %54, %80 ]
+  %108 = and i64 %.pre-phi, -2
+  %109 = inttoptr i64 %108 to ptr
+  %110 = getelementptr inbounds i8, ptr %109, i64 24
+  %111 = load i32, ptr %110, align 8
+  %112 = add nsw i32 %111, 1
+  store i32 %112, ptr %110, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %28, %101
+.critedge:                                        ; preds = %28, %107
   %.not60 = icmp eq ptr %2, null
-  br i1 %.not60, label %116, label %109
+  br i1 %.not60, label %120, label %113
 
-109:                                              ; preds = %.critedge
-  %110 = ptrtoint ptr %2 to i64
-  %111 = and i64 %110, -2
-  %112 = inttoptr i64 %111 to ptr
-  %113 = getelementptr inbounds i8, ptr %112, i64 24
-  %114 = load i32, ptr %113, align 8
-  %115 = add nsw i32 %114, 1
-  store i32 %115, ptr %113, align 8
-  br label %116
+113:                                              ; preds = %.critedge
+  %114 = ptrtoint ptr %2 to i64
+  %115 = and i64 %114, -2
+  %116 = inttoptr i64 %115 to ptr
+  %117 = getelementptr inbounds i8, ptr %116, i64 24
+  %118 = load i32, ptr %117, align 8
+  %119 = add nsw i32 %118, 1
+  store i32 %119, ptr %117, align 8
+  br label %120
 
-116:                                              ; preds = %109, %.critedge
-  %117 = getelementptr inbounds i8, ptr %6, i64 44
-  %118 = getelementptr inbounds i8, ptr %6, i64 48
-  store float -1.000000e+00, ptr %118, align 4
-  store float -1.000000e+00, ptr %117, align 4
+120:                                              ; preds = %113, %.critedge
+  %121 = getelementptr inbounds i8, ptr %6, i64 44
+  %122 = getelementptr inbounds i8, ptr %6, i64 48
+  store float -1.000000e+00, ptr %122, align 4
+  store float -1.000000e+00, ptr %121, align 4
   ret ptr %6
 }
 

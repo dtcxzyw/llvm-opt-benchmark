@@ -2495,7 +2495,11 @@ if.then7:                                         ; preds = %while.body4, %while
   store ptr null, ptr %next10, align 8
   %10 = load ptr, ptr @active_queue_head, align 8
   %tobool11.not = icmp eq ptr %10, null
-  br i1 %tobool11.not, label %if.end21.sink.split, label %while.cond13
+  br i1 %tobool11.not, label %if.then12, label %while.cond13
+
+if.then12:                                        ; preds = %if.then7
+  store ptr %call8, ptr @active_queue_head, align 8
+  br label %if.end21
 
 while.cond13:                                     ; preds = %if.then7, %while.cond13
   %slot.2 = phi ptr [ %11, %while.cond13 ], [ %10, %if.then7 ]
@@ -2506,15 +2510,11 @@ while.cond13:                                     ; preds = %if.then7, %while.co
 
 while.end18:                                      ; preds = %while.cond13
   %next14.le = getelementptr inbounds i8, ptr %slot.2, i64 56
-  br label %if.end21.sink.split
-
-if.end21.sink.split:                              ; preds = %if.then7, %while.end18
-  %active_queue_head.sink = phi ptr [ %next14.le, %while.end18 ], [ @active_queue_head, %if.then7 ]
-  store ptr %call8, ptr %active_queue_head.sink, align 8
+  store ptr %call8, ptr %next14.le, align 8
   br label %if.end21
 
-if.end21:                                         ; preds = %land.rhs, %if.end21.sink.split
-  %slot.1 = phi ptr [ %call8, %if.end21.sink.split ], [ %slot.049, %land.rhs ]
+if.end21:                                         ; preds = %land.rhs, %if.then12, %while.end18
+  %slot.1 = phi ptr [ %call8, %while.end18 ], [ %call8, %if.then12 ], [ %slot.049, %land.rhs ]
   %12 = load ptr, ptr %slot.1, align 8
   %tobool23.not = icmp eq ptr %12, null
   br i1 %tobool23.not, label %if.then24, label %if.end27

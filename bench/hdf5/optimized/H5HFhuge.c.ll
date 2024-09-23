@@ -73,7 +73,7 @@ define noundef i32 @H5HF__huge_init(ptr nocapture noundef %0) local_unnamed_addr
   %2 = getelementptr inbounds i8, ptr %0, i64 252
   %3 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %20, label %4
+  br i1 %.not, label %21, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 248
@@ -90,7 +90,7 @@ define noundef i32 @H5HF__huge_init(ptr nocapture noundef %0) local_unnamed_addr
   %15 = add nuw nsw i32 %14, %factor
   %.not29 = icmp ult i32 %7, %15
   %16 = getelementptr inbounds i8, ptr %0, i64 681
-  br i1 %.not29, label %35, label %17
+  br i1 %.not29, label %20, label %17
 
 17:                                               ; preds = %4
   store i8 1, ptr %16, align 1
@@ -100,58 +100,64 @@ define noundef i32 @H5HF__huge_init(ptr nocapture noundef %0) local_unnamed_addr
   store i8 %18, ptr %19, align 8
   br label %.thread
 
-20:                                               ; preds = %1
-  %21 = getelementptr inbounds i8, ptr %0, i64 618
-  %22 = load i8, ptr %21, align 2
-  %23 = zext i8 %22 to i32
-  %24 = getelementptr inbounds i8, ptr %0, i64 617
-  %25 = load i8, ptr %24, align 1
-  %26 = zext i8 %25 to i32
-  %27 = add nuw nsw i32 %26, %23
-  %28 = getelementptr inbounds i8, ptr %0, i64 248
-  %29 = load i32, ptr %28, align 8
-  %30 = add i32 %29, -1
-  %.not28 = icmp ugt i32 %27, %30
-  %31 = getelementptr inbounds i8, ptr %0, i64 681
-  br i1 %.not28, label %35, label %32
+20:                                               ; preds = %4
+  store i8 0, ptr %16, align 1
+  br label %37
 
-32:                                               ; preds = %20
-  store i8 1, ptr %31, align 1
-  %33 = add i8 %25, %22
-  %34 = getelementptr inbounds i8, ptr %0, i64 680
-  store i8 %33, ptr %34, align 8
+21:                                               ; preds = %1
+  %22 = getelementptr inbounds i8, ptr %0, i64 618
+  %23 = load i8, ptr %22, align 2
+  %24 = zext i8 %23 to i32
+  %25 = getelementptr inbounds i8, ptr %0, i64 617
+  %26 = load i8, ptr %25, align 1
+  %27 = zext i8 %26 to i32
+  %28 = add nuw nsw i32 %27, %24
+  %29 = getelementptr inbounds i8, ptr %0, i64 248
+  %30 = load i32, ptr %29, align 8
+  %31 = add i32 %30, -1
+  %.not28 = icmp ugt i32 %28, %31
+  %32 = getelementptr inbounds i8, ptr %0, i64 681
+  br i1 %.not28, label %36, label %33
+
+33:                                               ; preds = %21
+  store i8 1, ptr %32, align 1
+  %34 = add i8 %26, %23
+  %35 = getelementptr inbounds i8, ptr %0, i64 680
+  store i8 %34, ptr %35, align 8
   br label %.thread
 
-35:                                               ; preds = %20, %4
-  %.sink = phi ptr [ %16, %4 ], [ %31, %20 ]
-  %36 = phi i32 [ %6, %4 ], [ %29, %20 ]
-  store i8 0, ptr %.sink, align 1
-  %37 = add nsw i32 %36, -1
-  %38 = icmp ult i32 %37, 8
-  br i1 %38, label %39, label %46
+36:                                               ; preds = %21
+  store i8 0, ptr %32, align 1
+  br label %37
 
-39:                                               ; preds = %35
-  %40 = trunc nuw i32 %37 to i8
-  %41 = getelementptr inbounds i8, ptr %0, i64 680
-  store i8 %40, ptr %41, align 8
-  %42 = shl nuw nsw i32 %37, 3
-  %43 = zext nneg i32 %42 to i64
-  %notmask = shl nsw i64 -1, %43
-  %44 = xor i64 %notmask, -1
-  %45 = getelementptr inbounds i8, ptr %0, i64 672
-  store i64 %44, ptr %45, align 8
+37:                                               ; preds = %20, %36
+  %38 = phi i32 [ %30, %36 ], [ %6, %20 ]
+  %39 = add nsw i32 %38, -1
+  %40 = icmp ult i32 %39, 8
+  br i1 %40, label %41, label %48
+
+41:                                               ; preds = %37
+  %42 = trunc nuw i32 %39 to i8
+  %43 = getelementptr inbounds i8, ptr %0, i64 680
+  store i8 %42, ptr %43, align 8
+  %44 = shl nuw nsw i32 %39, 3
+  %45 = zext nneg i32 %44 to i64
+  %notmask = shl nsw i64 -1, %45
+  %46 = xor i64 %notmask, -1
+  %47 = getelementptr inbounds i8, ptr %0, i64 672
+  store i64 %46, ptr %47, align 8
   br label %.thread
 
-46:                                               ; preds = %35
-  %47 = getelementptr inbounds i8, ptr %0, i64 680
-  store i8 8, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 672
-  store i64 -1, ptr %48, align 8
+48:                                               ; preds = %37
+  %49 = getelementptr inbounds i8, ptr %0, i64 680
+  store i8 8, ptr %49, align 8
+  %50 = getelementptr inbounds i8, ptr %0, i64 672
+  store i64 -1, ptr %50, align 8
   br label %.thread
 
-.thread:                                          ; preds = %17, %32, %39, %46
-  %49 = getelementptr inbounds i8, ptr %0, i64 664
-  store ptr null, ptr %49, align 8
+.thread:                                          ; preds = %17, %33, %41, %48
+  %51 = getelementptr inbounds i8, ptr %0, i64 664
+  store ptr null, ptr %51, align 8
   ret i32 0
 }
 
@@ -737,6 +743,7 @@ H5HF__huge_new_id.exit:                           ; preds = %319, %326
   %339 = getelementptr inbounds i8, ptr %13, i64 24
   store i64 %1, ptr %339, align 8
   %340 = getelementptr inbounds i8, ptr %13, i64 32
+  store i64 %322, ptr %340, align 8
   br label %345
 
 341:                                              ; preds = %332
@@ -745,12 +752,11 @@ H5HF__huge_new_id.exit:                           ; preds = %319, %326
   %343 = getelementptr inbounds i8, ptr %14, i64 8
   store i64 %342, ptr %343, align 8
   %344 = getelementptr inbounds i8, ptr %14, i64 16
+  store i64 %322, ptr %344, align 8
   br label %345
 
 345:                                              ; preds = %341, %334
-  %.sink = phi ptr [ %344, %341 ], [ %340, %334 ]
-  %.098 = phi ptr [ %14, %341 ], [ %13, %334 ]
-  store i64 %322, ptr %.sink, align 8
+  %.098 = phi ptr [ %13, %334 ], [ %14, %341 ]
   %346 = getelementptr inbounds i8, ptr %0, i64 664
   %347 = load ptr, ptr %346, align 8
   %348 = call i32 @H5B2_insert(ptr noundef %347, ptr noundef nonnull %.098) #6
@@ -791,8 +797,8 @@ H5HF__huge_new_id.exit:                           ; preds = %319, %326
   br label %.sink.split
 
 .sink.split:                                      ; preds = %._crit_edge, %301, %298, %269, %243, %240, %216
-  %.sink143 = phi ptr [ %232, %216 ], [ %242, %240 ], [ %251, %243 ], [ %289, %269 ], [ %300, %298 ], [ %311, %301 ], [ %365, %._crit_edge ]
-  store ptr %.sink143, ptr %6, align 8
+  %.sink = phi ptr [ %232, %216 ], [ %242, %240 ], [ %251, %243 ], [ %289, %269 ], [ %300, %298 ], [ %311, %301 ], [ %365, %._crit_edge ]
+  store ptr %.sink, ptr %6, align 8
   br label %366
 
 366:                                              ; preds = %.sink.split, %193, %263

@@ -20796,7 +20796,8 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_node_info_msg(ptr nocapture
 
 .thread:                                          ; preds = %74
   %76 = getelementptr inbounds i8, ptr %67, i64 16
-  br label %.loopexit.sink.split
+  store ptr null, ptr %76, align 8
+  br label %.loopexit
 
 77:                                               ; preds = %74
   %78 = zext i32 %75 to i64
@@ -22154,16 +22155,11 @@ _unpack_node_info_members.exit:                   ; preds = %.lr.ph.split.split,
 
 525:                                              ; preds = %_unpack_node_info_members.exit, %77, %72, %69
   call void @slurm_free_node_info_msg(ptr noundef %67) #8
-  br label %.loopexit.sink.split
-
-.loopexit.sink.split:                             ; preds = %525, %.thread
-  %.sink = phi ptr [ %76, %.thread ], [ %0, %525 ]
-  %.0.ph = phi i32 [ 0, %.thread ], [ -1, %525 ]
-  store ptr null, ptr %.sink, align 8
+  store ptr null, ptr %0, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %521, %377, %226, %.loopexit.sink.split, %81, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %81 ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %226 ], [ 0, %377 ], [ 0, %521 ]
+.loopexit:                                        ; preds = %521, %377, %226, %.thread, %81, %3, %525
+  %.0 = phi i32 [ -1, %525 ], [ 0, %3 ], [ 0, %81 ], [ 0, %.thread ], [ 0, %226 ], [ 0, %377 ], [ 0, %521 ]
   ret i32 %.0
 }
 
@@ -27876,7 +27872,8 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_reattach_tasks_response_msg
 
 .thread:                                          ; preds = %23
   %24 = getelementptr inbounds i8, ptr %6, i64 32
-  br label %.loopexit.sink.split
+  store ptr null, ptr %24, align 8
+  br label %.loopexit
 
 25:                                               ; preds = %23
   %26 = zext i32 %21 to i64
@@ -27912,16 +27909,11 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_reattach_tasks_response_msg
 
 .loopexit40:                                      ; preds = %36, %25, %20, %17, %14, %11, %8, %2
   call void @slurm_free_reattach_tasks_response_msg(ptr noundef %6) #8
-  br label %.loopexit.sink.split
-
-.loopexit.sink.split:                             ; preds = %.loopexit40, %.thread
-  %.sink = phi ptr [ %24, %.thread ], [ %0, %.loopexit40 ]
-  %.0.ph = phi i32 [ 0, %.thread ], [ -1, %.loopexit40 ]
-  store ptr null, ptr %.sink, align 8
+  store ptr null, ptr %0, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %32, %.loopexit.sink.split, %29
-  %.0 = phi i32 [ 0, %29 ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %32 ]
+.loopexit:                                        ; preds = %32, %.thread, %29, %.loopexit40
+  %.0 = phi i32 [ -1, %.loopexit40 ], [ 0, %29 ], [ 0, %.thread ], [ 0, %32 ]
   ret i32 %.0
 }
 
@@ -33602,7 +33594,8 @@ _unpack_kvs_host_rec.exit:                        ; preds = %20, %24, %27
 
 .thread78:                                        ; preds = %36
   %38 = getelementptr inbounds i8, ptr %8, i64 24
-  br label %.loopexit57.sink.split
+  store ptr null, ptr %38, align 8
+  br label %.loopexit57
 
 39:                                               ; preds = %36
   %40 = zext i16 %37 to i64
@@ -33742,16 +33735,11 @@ _unpack_kvs_rec.exit.thread:                      ; preds = %62, %57, %54, %51, 
 
 89:                                               ; preds = %_unpack_kvs_rec.exit.thread, %_unpack_kvs_host_rec.exit, %36, %10, %39, %._crit_edge, %13, %3
   call void @slurm_free_kvs_comm_set(ptr noundef %8) #8
-  br label %.loopexit57.sink.split
-
-.loopexit57.sink.split:                           ; preds = %89, %.thread78
-  %.sink = phi ptr [ %38, %.thread78 ], [ %0, %89 ]
-  %.0.ph = phi i32 [ 0, %.thread78 ], [ -1, %89 ]
-  store ptr null, ptr %.sink, align 8
+  store ptr null, ptr %0, align 8
   br label %.loopexit57
 
-.loopexit57:                                      ; preds = %.lr.ph62.split, %.loopexit.us, %.loopexit57.sink.split, %43
-  %.0 = phi i32 [ 0, %43 ], [ %.0.ph, %.loopexit57.sink.split ], [ 0, %.loopexit.us ], [ 0, %.lr.ph62.split ]
+.loopexit57:                                      ; preds = %.lr.ph62.split, %.loopexit.us, %.thread78, %43, %89
+  %.0 = phi i32 [ -1, %89 ], [ 0, %43 ], [ 0, %.thread78 ], [ 0, %.loopexit.us ], [ 0, %.lr.ph62.split ]
   ret i32 %.0
 }
 
@@ -35345,7 +35333,8 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_license_info_msg(ptr nocapt
 
 .thread:                                          ; preds = %12
   %14 = getelementptr inbounds i8, ptr %5, i64 16
-  br label %.loopexit.sink.split
+  store ptr null, ptr %14, align 8
+  br label %.loopexit
 
 15:                                               ; preds = %12
   %16 = zext i32 %13 to i64
@@ -35442,16 +35431,11 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_license_info_msg(ptr nocapt
 
 .loopexit74:                                      ; preds = %50, %46, %42, %38, %34, %30, %26, %22, %15, %10, %7
   call void @slurm_free_license_info_msg(ptr noundef %5) #8
-  br label %.loopexit.sink.split
-
-.loopexit.sink.split:                             ; preds = %.loopexit74, %.thread
-  %.sink = phi ptr [ %14, %.thread ], [ %0, %.loopexit74 ]
-  %.060.ph = phi i32 [ 0, %.thread ], [ -1, %.loopexit74 ]
-  store ptr null, ptr %.sink, align 8
+  store ptr null, ptr %0, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %54, %.loopexit.sink.split, %19, %3
-  %.060 = phi i32 [ 0, %3 ], [ 0, %19 ], [ %.060.ph, %.loopexit.sink.split ], [ 0, %54 ]
+.loopexit:                                        ; preds = %54, %.thread, %19, %3, %.loopexit74
+  %.060 = phi i32 [ -1, %.loopexit74 ], [ 0, %3 ], [ 0, %19 ], [ 0, %.thread ], [ 0, %54 ]
   ret i32 %.060
 }
 

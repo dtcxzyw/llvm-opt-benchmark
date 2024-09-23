@@ -250,49 +250,46 @@ sw.bb29:                                          ; preds = %if.end28
   %data_.i.i.i = getelementptr inbounds i8, ptr %algos, i64 8
   %12 = load ptr, ptr %data_.i.i.i, align 8
   %cond.i.i = select i1 %tobool.i.not.i.i, ptr %data_.i.i.i, ptr %12
-  br label %cleanup.sink.split
+  %13 = load i32, ptr %cond.i.i, align 4
+  br label %cleanup
 
 sw.bb32:                                          ; preds = %if.end28
   %shr.i.i = lshr i64 %11, 2
   %and.i.i.i13 = and i64 %11, 1
   %tobool.i.not.i.i14 = icmp eq i64 %and.i.i.i13, 0
   %data_.i.i.i15 = getelementptr inbounds i8, ptr %algos, i64 8
-  %13 = load ptr, ptr %data_.i.i.i15, align 8
-  %cond.i.i16 = select i1 %tobool.i.not.i.i14, ptr %data_.i.i.i15, ptr %13
+  %14 = load ptr, ptr %data_.i.i.i15, align 8
+  %cond.i.i16 = select i1 %tobool.i.not.i.i14, ptr %data_.i.i.i15, ptr %14
   %arrayidx.i17 = getelementptr inbounds i32, ptr %cond.i.i16, i64 %shr.i.i
-  br label %cleanup.sink.split
+  %15 = load i32, ptr %arrayidx.i17, align 4
+  br label %cleanup
 
 sw.bb36:                                          ; preds = %if.end28
   %and.i.i.i18 = and i64 %11, 1
   %tobool.i.not.i.i19 = icmp eq i64 %and.i.i.i18, 0
   %data_.i.i.i20 = getelementptr inbounds i8, ptr %algos, i64 8
-  %14 = load ptr, ptr %data_.i.i.i20, align 8
-  %cond.i.i21 = select i1 %tobool.i.not.i.i19, ptr %data_.i.i.i20, ptr %14
+  %16 = load ptr, ptr %data_.i.i.i20, align 8
+  %cond.i.i21 = select i1 %tobool.i.not.i.i19, ptr %data_.i.i.i20, ptr %16
   %shr.i.i.i = lshr i64 %11, 1
-  %15 = getelementptr i32, ptr %cond.i.i21, i64 %shr.i.i.i
-  %arrayidx.i22 = getelementptr i8, ptr %15, i64 -4
-  br label %cleanup.sink.split
+  %17 = getelementptr i32, ptr %cond.i.i21, i64 %shr.i.i.i
+  %arrayidx.i22 = getelementptr i8, ptr %17, i64 -4
+  %18 = load i32, ptr %arrayidx.i22, align 4
+  br label %cleanup
 
 sw.default:                                       ; preds = %if.end28
   call void @abort() #26
   unreachable
 
-cleanup.sink.split:                               ; preds = %sw.bb29, %sw.bb32, %sw.bb36
-  %arrayidx.i22.sink = phi ptr [ %arrayidx.i22, %sw.bb36 ], [ %arrayidx.i17, %sw.bb32 ], [ %cond.i.i, %sw.bb29 ]
-  %and.i.i.i.i23.pre-phi.ph = phi i64 [ %and.i.i.i18, %sw.bb36 ], [ %and.i.i.i13, %sw.bb32 ], [ %and.i.i.i, %sw.bb29 ]
-  %16 = load i32, ptr %arrayidx.i22.sink, align 4
-  br label %cleanup
-
-cleanup:                                          ; preds = %cleanup.sink.split, %for.end
-  %and.i.i.i.i23.pre-phi = phi i64 [ %11, %for.end ], [ %and.i.i.i.i23.pre-phi.ph, %cleanup.sink.split ]
-  %retval.1 = phi i32 [ 0, %for.end ], [ %16, %cleanup.sink.split ]
+cleanup:                                          ; preds = %for.end, %sw.bb36, %sw.bb32, %sw.bb29
+  %and.i.i.i.i23.pre-phi = phi i64 [ %and.i.i.i18, %sw.bb36 ], [ %and.i.i.i13, %sw.bb32 ], [ %and.i.i.i, %sw.bb29 ], [ %11, %for.end ]
+  %retval.1 = phi i32 [ %18, %sw.bb36 ], [ %15, %sw.bb32 ], [ %13, %sw.bb29 ], [ 0, %for.end ]
   %tobool.i.not.i.i.i24 = icmp eq i64 %and.i.i.i.i23.pre-phi, 0
   br i1 %tobool.i.not.i.i.i24, label %return, label %if.then.i.i.i25
 
 if.then.i.i.i25:                                  ; preds = %cleanup
   %data_.i.i.i.i26 = getelementptr inbounds i8, ptr %algos, i64 8
-  %17 = load ptr, ptr %data_.i.i.i.i26, align 8
-  call void @_ZdlPv(ptr noundef %17) #25
+  %19 = load ptr, ptr %data_.i.i.i.i26, align 8
+  call void @_ZdlPv(ptr noundef %19) #25
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i25, %cleanup, %if.end8

@@ -1883,7 +1883,11 @@ if.end32:                                         ; preds = %_ZN6icu_7512LocalPo
   store i8 %13, ptr %skeletonWasSpecified35, align 8
   %14 = load ptr, ptr %arrayidx40, align 8
   %cmp41 = icmp eq ptr %14, null
-  br i1 %cmp41, label %_ZN6icu_7512LocalPointerINS_7PtnElemEED2Ev.exit42, label %if.else
+  br i1 %cmp41, label %if.then42, label %if.else
+
+if.then42:                                        ; preds = %if.end32
+  store ptr %call4, ptr %arrayidx40, align 8
+  br label %_ZN6icu_7512LocalPointerINS_7PtnElemEED2Ev.exit42
 
 if.else:                                          ; preds = %if.end32
   %cmp46.not = icmp eq ptr %prevElem.070, null
@@ -1893,13 +1897,17 @@ if.then47:                                        ; preds = %if.else
   %next = getelementptr inbounds i8, ptr %prevElem.070, i64 152
   %15 = load ptr, ptr %next, align 8
   %isnull.i32 = icmp eq ptr %15, null
-  br i1 %isnull.i32, label %_ZN6icu_7512LocalPointerINS_7PtnElemEED2Ev.exit42, label %delete.notnull.i33
+  br i1 %isnull.i32, label %_ZN6icu_7512LocalPointerINS_7PtnElemEE12adoptInsteadEPS1_.exit, label %delete.notnull.i33
 
 delete.notnull.i33:                               ; preds = %if.then47
   %vtable.i34 = load ptr, ptr %15, align 8
   %vfn.i35 = getelementptr inbounds i8, ptr %vtable.i34, i64 8
   %16 = load ptr, ptr %vfn.i35, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(160) %15) #34
+  br label %_ZN6icu_7512LocalPointerINS_7PtnElemEE12adoptInsteadEPS1_.exit
+
+_ZN6icu_7512LocalPointerINS_7PtnElemEE12adoptInsteadEPS1_.exit: ; preds = %if.then47, %delete.notnull.i33
+  store ptr %call4, ptr %next, align 8
   br label %_ZN6icu_7512LocalPointerINS_7PtnElemEED2Ev.exit42
 
 if.else49:                                        ; preds = %if.else
@@ -1913,9 +1921,7 @@ delete.notnull.i38:                               ; preds = %new.cont26.thread, 
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(160) %call4) #34
   br label %for.end
 
-_ZN6icu_7512LocalPointerINS_7PtnElemEED2Ev.exit42: ; preds = %delete.notnull.i33, %if.then47, %if.end32
-  %arrayidx40.sink = phi ptr [ %arrayidx40, %if.end32 ], [ %next, %if.then47 ], [ %next, %delete.notnull.i33 ]
-  store ptr %call4, ptr %arrayidx40.sink, align 8
+_ZN6icu_7512LocalPointerINS_7PtnElemEED2Ev.exit42: ; preds = %if.then42, %_ZN6icu_7512LocalPointerINS_7PtnElemEE12adoptInsteadEPS1_.exit
   %next52 = getelementptr inbounds i8, ptr %otherElem.071, i64 152
   %otherElem.0 = load ptr, ptr %next52, align 8
   %cmp3.not = icmp eq ptr %otherElem.0, null

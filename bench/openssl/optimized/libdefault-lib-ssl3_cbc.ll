@@ -299,7 +299,8 @@ for.body262:                                      ; preds = %for.body256, %if.en
 
 if.then265:                                       ; preds = %for.body262
   %arrayidx266 = getelementptr inbounds i8, ptr %header, i64 %k.2182
-  br label %if.end275.sink.split
+  %6 = load i8, ptr %arrayidx266, align 1
+  br label %if.end275
 
 if.else267:                                       ; preds = %for.body262
   %cmp269 = icmp ult i64 %k.2182, %add116
@@ -308,27 +309,23 @@ if.else267:                                       ; preds = %for.body262
 if.then271:                                       ; preds = %if.else267
   %sub272 = sub i64 %k.2182, %header_length.0
   %arrayidx273 = getelementptr inbounds i8, ptr %data, i64 %sub272
-  br label %if.end275.sink.split
-
-if.end275.sink.split:                             ; preds = %if.then265, %if.then271
-  %arrayidx273.sink = phi ptr [ %arrayidx273, %if.then271 ], [ %arrayidx266, %if.then265 ]
-  %6 = load i8, ptr %arrayidx273.sink, align 1
-  %7 = zext i8 %6 to i32
+  %7 = load i8, ptr %arrayidx273, align 1
   br label %if.end275
 
-if.end275:                                        ; preds = %if.end275.sink.split, %if.else267
-  %b.0 = phi i32 [ 0, %if.else267 ], [ %7, %if.end275.sink.split ]
+if.end275:                                        ; preds = %if.else267, %if.then271, %if.then265
+  %b.0 = phi i8 [ %6, %if.then265 ], [ %7, %if.then271 ], [ 0, %if.else267 ]
   %inc276 = add i64 %k.2182, 1
   %8 = icmp uge i64 %j.0183, %rem
   %and158172 = and i1 %4, %8
   %9 = icmp ugt i64 %j.0183, %rem
   %and285159173 = and i1 %4, %9
   %conv.i163 = select i1 %and158172, i32 255, i32 0
+  %conv2.i = zext i8 %b.0 to i32
   %10 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv.i163) #7, !srcloc !9
   %and.i.i = and i32 %10, 128
   %not.i.i = xor i32 %conv.i163, -1
   %11 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i) #7, !srcloc !9
-  %and2.i.i = and i32 %11, %b.0
+  %and2.i.i = and i32 %11, %conv2.i
   %or.i.i = or i32 %and2.i.i, %and.i.i
   %conv3.i = trunc nuw i32 %or.i.i to i8
   %and290 = select i1 %and285159173, i8 0, i8 %conv3.i

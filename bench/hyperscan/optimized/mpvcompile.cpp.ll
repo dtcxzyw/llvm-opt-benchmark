@@ -1184,20 +1184,22 @@ for.body.i128:                                    ; preds = %for.body96, %for.in
   %__begin1.sroa.0.04.i = phi ptr [ %incdec.ptr.i.i130, %for.inc.i ], [ %counters.sroa.0.9, %for.body96 ]
   %kilo_begin.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.04.i, i64 16
   %60 = load i32, ptr %kilo_begin.i, align 8
-  %cmp.not.i129 = icmp ule i32 %60, %conv98
+  %cmp.not.i129 = icmp ugt i32 %60, %conv98
+  br i1 %cmp.not.i129, label %for.inc.i, label %land.lhs.true.i
+
+land.lhs.true.i:                                  ; preds = %for.body.i128
   %kilo_end.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.04.i, i64 20
   %61 = load i32, ptr %kilo_end.i, align 4
   %cmp5.i = icmp ugt i32 %61, %conv98
-  %or.cond.i = select i1 %cmp.not.i129, i1 %cmp5.i, i1 false
-  br i1 %or.cond.i, label %_ZN3ue2L11findCounterERKSt6vectorI16mpv_counter_infoSaIS1_EEj.exit, label %for.inc.i
+  br i1 %cmp5.i, label %_ZN3ue2L11findCounterERKSt6vectorI16mpv_counter_infoSaIS1_EEj.exit, label %for.inc.i
 
-for.inc.i:                                        ; preds = %for.body.i128
+for.inc.i:                                        ; preds = %land.lhs.true.i, %for.body.i128
   %incdec.ptr.i.i130 = getelementptr inbounds i8, ptr %__begin1.sroa.0.04.i, i64 24
   %cmp.i.not.i131 = icmp eq ptr %incdec.ptr.i.i130, %counters.sroa.14.7
   br i1 %cmp.i.not.i131, label %_ZN3ue2L11findCounterERKSt6vectorI16mpv_counter_infoSaIS1_EEj.exit, label %for.body.i128
 
-_ZN3ue2L11findCounterERKSt6vectorI16mpv_counter_infoSaIS1_EEj.exit: ; preds = %for.body.i128, %for.inc.i, %for.body96
-  %retval.0.i = phi ptr [ %counters.sroa.0.9, %for.body96 ], [ %__begin1.sroa.0.04.i, %for.body.i128 ], [ %counters.sroa.0.9, %for.inc.i ]
+_ZN3ue2L11findCounterERKSt6vectorI16mpv_counter_infoSaIS1_EEj.exit: ; preds = %land.lhs.true.i, %for.inc.i, %for.body96
+  %retval.0.i = phi ptr [ %counters.sroa.0.9, %for.body96 ], [ %__begin1.sroa.0.04.i, %land.lhs.true.i ], [ %counters.sroa.0.9, %for.inc.i ]
   %counter_offset = getelementptr inbounds i8, ptr %retval.0.i, i64 12
   %62 = load i32, ptr %counter_offset, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i132)

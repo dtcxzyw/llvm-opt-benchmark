@@ -2265,21 +2265,28 @@ if.end4:                                          ; preds = %if.end
 if.then6:                                         ; preds = %if.end4
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3640), align 8
   %cmp = icmp ugt i32 %3, 131071
-  br i1 %cmp, label %return, label %if.end16
+  br i1 %cmp, label %return, label %if.end8
+
+if.end8:                                          ; preds = %if.then6
+  %inc = add nuw nsw i32 %3, 1
+  store i32 %inc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3640), align 8
+  br label %if.end16
 
 if.else:                                          ; preds = %if.end4
   %types = getelementptr inbounds i8, ptr %interp, i64 308568
   %4 = load i32, ptr %types, align 8
   %cmp9 = icmp eq i32 %4, 0
-  br i1 %cmp9, label %return, label %if.end16
+  br i1 %cmp9, label %return, label %if.end11
 
-if.end16:                                         ; preds = %if.else, %if.then6
-  %.sink20 = phi i32 [ %3, %if.then6 ], [ %4, %if.else ]
-  %types.sink = phi ptr [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 3640), %if.then6 ], [ %types, %if.else ]
-  %inc14 = add i32 %.sink20, 1
-  store i32 %inc14, ptr %types.sink, align 8
+if.end11:                                         ; preds = %if.else
+  %inc14 = add i32 %4, 1
+  store i32 %inc14, ptr %types, align 8
+  br label %if.end16
+
+if.end16:                                         ; preds = %if.end11, %if.end8
+  %.sink = phi i32 [ %4, %if.end11 ], [ %3, %if.end8 ]
   %tp_version_tag15 = getelementptr inbounds i8, ptr %type, i64 384
-  store i32 %.sink20, ptr %tp_version_tag15, align 8
+  store i32 %.sink, ptr %tp_version_tag15, align 8
   %5 = getelementptr i8, ptr %type, i64 336
   %type.val = load ptr, ptr %5, align 8
   %6 = getelementptr i8, ptr %type.val, i64 16
@@ -7120,10 +7127,12 @@ if.then.i34.i.i:                                  ; preds = %if.end12.i.i
   %64 = ptrtoint ptr %self.val.i.i.i.i to i64
   %sub.i.i.i.i.i.i = add i64 %64, -1
   %tp_dict.i.i.i = getelementptr [200 x %struct.static_builtin_state], ptr %builtins.i.i.i.i.i, i64 0, i64 %sub.i.i.i.i.i.i, i32 3
+  store ptr %call.i.i, ptr %tp_dict.i.i.i, align 8
   br label %if.end.i11
 
 if.end.i35.i.i:                                   ; preds = %if.end12.i.i
   %tp_dict2.i.i.i = getelementptr inbounds i8, ptr %call.i25.i.i, i64 264
+  store ptr %call.i.i, ptr %tp_dict2.i.i.i, align 8
   br label %if.end.i11
 
 do.body.i.i.sink.split:                           ; preds = %if.then14.i.i.i.i.i, %if.then5.i.i.i.i.i, %if.end.i.i.i.i.i.i
@@ -7180,8 +7189,6 @@ if.then1.i.i.i.i:                                 ; preds = %if.end.i.i.i.i26
   br label %type_new_impl.exit
 
 if.end.i11:                                       ; preds = %if.end.i35.i.i, %if.then.i34.i.i
-  %tp_dict2.sink.i.i.i = phi ptr [ %tp_dict2.i.i.i, %if.end.i35.i.i ], [ %tp_dict.i.i.i, %if.then.i34.i.i ]
-  store ptr %call.i.i, ptr %tp_dict2.sink.i.i.i, align 8
   %ht_slots.i.i = getelementptr inbounds i8, ptr %call.i25.i.i, i64 864
   store ptr %ctx.sroa.36.1, ptr %ht_slots.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %name_size.i.i.i)
@@ -9025,18 +9032,15 @@ if.then.i6.i:                                     ; preds = %if.end4.i
   %19 = ptrtoint ptr %self.val.i.i8.i to i64
   %sub.i.i.i.i10.i = add i64 %19, -1
   %tp_dict.i11.i = getelementptr [200 x %struct.static_builtin_state], ptr %builtins.i.i.i9.i, i64 0, i64 %sub.i.i.i.i10.i, i32 3
-  br label %set_tp_dict.exit.i
+  store ptr %call1.i, ptr %tp_dict.i11.i, align 8
+  br label %if.end4
 
 if.end.i12.i:                                     ; preds = %if.end4.i
   %tp_dict2.i13.i = getelementptr inbounds i8, ptr %type, i64 264
-  br label %set_tp_dict.exit.i
-
-set_tp_dict.exit.i:                               ; preds = %if.end.i12.i, %if.then.i6.i
-  %tp_dict2.sink.i.i = phi ptr [ %tp_dict2.i13.i, %if.end.i12.i ], [ %tp_dict.i11.i, %if.then.i6.i ]
-  store ptr %call1.i, ptr %tp_dict2.sink.i.i, align 8
+  store ptr %call1.i, ptr %tp_dict2.i13.i, align 8
   br label %if.end4
 
-if.end4:                                          ; preds = %set_tp_dict.exit.i, %lookup_tp_dict.exit.i
+if.end4:                                          ; preds = %lookup_tp_dict.exit.i, %if.then.i6.i, %if.end.i12.i
   %tp_base.i = getelementptr inbounds i8, ptr %type, i64 256
   %20 = load ptr, ptr %tp_base.i, align 8
   %cmp.i23 = icmp eq ptr %20, null
@@ -12163,27 +12167,31 @@ if.then94:                                        ; preds = %while.end90
 
 if.then98:                                        ; preds = %if.then94
   tail call void @_PyObject_FreeInstanceAttributes(ptr noundef nonnull %self) #20
-  br label %if.end116.sink.split
+  br label %if.end101
 
 if.else:                                          ; preds = %if.then94
   %cmp.not.i = icmp eq ptr %71, null
-  br i1 %cmp.not.i, label %if.end116.sink.split, label %if.then.i106
+  br i1 %cmp.not.i, label %if.end101, label %if.then.i106
 
 if.then.i106:                                     ; preds = %if.else
   %73 = load i64, ptr %71, align 8
   %74 = and i64 %73, 2147483648
   %cmp.i2.not.i = icmp eq i64 %74, 0
-  br i1 %cmp.i2.not.i, label %if.end.i.i108, label %if.end116.sink.split
+  br i1 %cmp.i2.not.i, label %if.end.i.i108, label %if.end101
 
 if.end.i.i108:                                    ; preds = %if.then.i106
   %dec.i.i109 = add i64 %73, -1
   store i64 %dec.i.i109, ptr %71, align 8
   %cmp.i.i110 = icmp eq i64 %dec.i.i109, 0
-  br i1 %cmp.i.i110, label %if.then1.i.i111, label %if.end116.sink.split
+  br i1 %cmp.i.i110, label %if.then1.i.i111, label %if.end101
 
 if.then1.i.i111:                                  ; preds = %if.end.i.i108
   tail call void @_Py_Dealloc(ptr noundef nonnull %71) #20
-  br label %if.end116.sink.split
+  br label %if.end101
+
+if.end101:                                        ; preds = %if.then1.i.i111, %if.end.i.i108, %if.then.i106, %if.else, %if.then98
+  store ptr null, ptr %add.ptr.i104, align 8
+  br label %if.end116
 
 if.else102:                                       ; preds = %while.end90
   %tp_dictoffset = getelementptr inbounds i8, ptr %self.val79, i64 288
@@ -12211,24 +12219,23 @@ if.then112:                                       ; preds = %if.then110
   %78 = load i64, ptr %77, align 8
   %79 = and i64 %78, 2147483648
   %cmp.i161.not = icmp eq i64 %79, 0
-  br i1 %cmp.i161.not, label %if.end.i142, label %if.end116.sink.split
+  br i1 %cmp.i161.not, label %if.end.i142, label %Py_DECREF.exit147
 
 if.end.i142:                                      ; preds = %if.then112
   %dec.i143 = add i64 %78, -1
   store i64 %dec.i143, ptr %77, align 8
   %cmp.i144 = icmp eq i64 %dec.i143, 0
-  br i1 %cmp.i144, label %if.then1.i145, label %if.end116.sink.split
+  br i1 %cmp.i144, label %if.then1.i145, label %Py_DECREF.exit147
 
 if.then1.i145:                                    ; preds = %if.end.i142
   tail call void @_Py_Dealloc(ptr noundef nonnull %77) #20
-  br label %if.end116.sink.split
+  br label %Py_DECREF.exit147
 
-if.end116.sink.split:                             ; preds = %if.end.i142, %if.then1.i145, %if.then112, %if.then98, %if.else, %if.then.i106, %if.end.i.i108, %if.then1.i.i111
-  %call108.sink = phi ptr [ %add.ptr.i104, %if.then1.i.i111 ], [ %add.ptr.i104, %if.end.i.i108 ], [ %add.ptr.i104, %if.then.i106 ], [ %add.ptr.i104, %if.else ], [ %add.ptr.i104, %if.then98 ], [ %call108, %if.then112 ], [ %call108, %if.then1.i145 ], [ %call108, %if.end.i142 ]
-  store ptr null, ptr %call108.sink, align 8
+Py_DECREF.exit147:                                ; preds = %if.then112, %if.then1.i145, %if.end.i142
+  store ptr null, ptr %call108, align 8
   br label %if.end116
 
-if.end116:                                        ; preds = %if.end116.sink.split, %if.else102, %land.lhs.true104, %if.then110, %if.then107
+if.end116:                                        ; preds = %if.else102, %land.lhs.true104, %if.then110, %Py_DECREF.exit147, %if.then107, %if.end101
   %self.val77 = load ptr, ptr %0, align 8
   %80 = getelementptr i8, ptr %base.2.lcssa, i64 168
   %base.2.val = load i64, ptr %80, align 8
@@ -23965,15 +23972,12 @@ if.then1.i28:                                     ; preds = %if.end.i24
   %13 = ptrtoint ptr %self.val.i.i30 to i64
   %sub.i.i.i.i32 = add i64 %13, -1
   %tp_subclasses.i33 = getelementptr [200 x %struct.static_builtin_state], ptr %builtins.i.i.i31, i64 0, i64 %sub.i.i.i.i32, i32 4
-  br label %init_tp_subclasses.exit
+  store ptr %call.i, ptr %tp_subclasses.i33, align 8
+  br label %if.end12
 
 if.end4.i:                                        ; preds = %if.end.i24
   %tp_subclasses5.i = getelementptr inbounds i8, ptr %base, i64 360
-  br label %init_tp_subclasses.exit
-
-init_tp_subclasses.exit:                          ; preds = %if.then1.i28, %if.end4.i
-  %tp_subclasses5.sink.i = phi ptr [ %tp_subclasses5.i, %if.end4.i ], [ %tp_subclasses.i33, %if.then1.i28 ]
-  store ptr %call.i, ptr %tp_subclasses5.sink.i, align 8
+  store ptr %call.i, ptr %tp_subclasses5.i, align 8
   br label %if.end12
 
 if.then10:                                        ; preds = %if.then7
@@ -24004,8 +24008,8 @@ if.end.i26:                                       ; preds = %Py_DECREF.exit40
   %cmp.i28 = icmp eq i64 %dec.i27, 0
   br i1 %cmp.i28, label %return.sink.split, label %return
 
-if.end12:                                         ; preds = %init_tp_subclasses.exit, %lookup_tp_subclasses.exit
-  %subclasses.0 = phi ptr [ %call.i, %init_tp_subclasses.exit ], [ %retval.0.i, %lookup_tp_subclasses.exit ]
+if.end12:                                         ; preds = %if.end4.i, %if.then1.i28, %lookup_tp_subclasses.exit
+  %subclasses.0 = phi ptr [ %retval.0.i, %lookup_tp_subclasses.exit ], [ %call.i, %if.then1.i28 ], [ %call.i, %if.end4.i ]
   %call13 = tail call i32 @PyDict_SetItem(ptr noundef nonnull %subclasses.0, ptr noundef nonnull %call, ptr noundef nonnull %call1) #20
   %18 = load i64, ptr %call1, align 8
   %19 = and i64 %18, 2147483648

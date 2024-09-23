@@ -22791,7 +22791,7 @@ define hidden void @"_ZN86_$LT$image..codecs..dxt..DxtDecoder$LT$R$GT$$u20$as$u2
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %68
   %eh.lpad-body = phi { ptr, i32 } [ %69, %68 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr119drop_in_place$LT$image..codecs..dxt..DxtDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17hed9cd964a44befbfE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1) #39
-          to label %common.resume unwind label %105
+          to label %common.resume unwind label %104
 
 28:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11)
@@ -22829,9 +22829,9 @@ define hidden void @"_ZN86_$LT$image..codecs..dxt..DxtDecoder$LT$R$GT$$u20$as$u2
   %42 = getelementptr inbounds i8, ptr %5, i64 16
   br label %43
 
-43:                                               ; preds = %.lr.ph, %95
-  %.sroa.6.02135 = phi i64 [ %3, %.lr.ph ], [ %45, %95 ]
-  %.sroa.016.034 = phi ptr [ %2, %.lr.ph ], [ %44, %95 ]
+43:                                               ; preds = %.lr.ph, %94
+  %.sroa.6.02135 = phi i64 [ %3, %.lr.ph ], [ %45, %94 ]
+  %.sroa.016.034 = phi ptr [ %2, %.lr.ph ], [ %44, %94 ]
   %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %.sroa.6.02135, i64 %.0.sroa.speculated.i)
   %44 = getelementptr inbounds i8, ptr %.sroa.016.034, i64 %.0.sroa.speculated.i.i
   %45 = sub nuw i64 %.sroa.6.02135, %.0.sroa.speculated.i.i
@@ -22851,7 +22851,7 @@ define hidden void @"_ZN86_$LT$image..codecs..dxt..DxtDecoder$LT$R$GT$$u20$as$u2
   %50 = icmp eq i64 %.0.sroa.speculated.i.i, %49
   br i1 %50, label %59, label %58
 
-.thread:                                          ; preds = %95, %32
+.thread:                                          ; preds = %94, %32
   store i8 10, ptr %0, align 8
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he15038c0c5583cb5E.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
           to label %"_ZN4core3ptr119drop_in_place$LT$image..codecs..dxt..DxtDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17hed9cd964a44befbfE.exit" unwind label %51
@@ -22870,8 +22870,8 @@ define hidden void @"_ZN86_$LT$image..codecs..dxt..DxtDecoder$LT$R$GT$$u20$as$u2
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #38
   unreachable
 
-common.resume:                                    ; preds = %.body, %98, %51
-  %common.resume.op = phi { ptr, i32 } [ %52, %51 ], [ %99, %98 ], [ %eh.lpad-body, %.body ]
+common.resume:                                    ; preds = %.body, %97, %51
+  %common.resume.op = phi { ptr, i32 } [ %52, %51 ], [ %98, %97 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 58:                                               ; preds = %43
@@ -22935,14 +22935,14 @@ default.unreachable:                              ; preds = %"_ZN82_$LT$std..io.
   %75 = getelementptr inbounds i8, ptr %6, i64 8
   %76 = load i64, ptr %75, align 8, !range !103, !noalias !4618, !noundef !5
   %.not.i.i.i.i = icmp eq i64 %76, 0
-  br i1 %.not.i.i.i.i, label %97, label %77
+  br i1 %.not.i.i.i.i, label %96, label %77
 
 77:                                               ; preds = %.noexc10
   %78 = load ptr, ptr %6, align 8, !noalias !4618, !nonnull !5, !noundef !5
   %79 = getelementptr inbounds i8, ptr %6, i64 16
   %80 = load i64, ptr %79, align 8, !noalias !4618, !noundef !5
   invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.9832446184049035033"(ptr noalias noundef nonnull readonly align 1 %39, ptr noundef nonnull %78, i64 noundef %76, i64 noundef %80)
-          to label %97 unwind label %.loopexit.split-lp
+          to label %96 unwind label %.loopexit.split-lp
 
 81:                                               ; preds = %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.thread.i"
   invoke void @_ZN5image6codecs3dxt15decode_dxt1_row17hc239b534651561e0E(ptr noalias noundef nonnull readonly align 1 %72, i64 noundef %73, ptr noalias noundef nonnull align 1 %.sroa.016.034, i64 noundef %.0.sroa.speculated.i.i)
@@ -22967,13 +22967,13 @@ default.unreachable:                              ; preds = %"_ZN82_$LT$std..io.
 .noexc12:                                         ; preds = %84
   %87 = load i64, ptr %41, align 8, !range !103, !noalias !4625, !noundef !5
   %.not.i.i.i26.i = icmp eq i64 %87, 0
-  br i1 %.not.i.i.i26.i, label %95, label %88
+  br i1 %.not.i.i.i26.i, label %94, label %88
 
 88:                                               ; preds = %.noexc12
   %89 = load ptr, ptr %5, align 8, !noalias !4625, !nonnull !5, !noundef !5
   %90 = load i64, ptr %42, align 8, !noalias !4625, !noundef !5
   invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.9832446184049035033"(ptr noalias noundef nonnull readonly align 1 %39, ptr noundef nonnull %89, i64 noundef %87, i64 noundef %90)
-          to label %95 unwind label %.loopexit
+          to label %94 unwind label %.loopexit
 
 91:                                               ; preds = %68
   %92 = landingpad { ptr, i32 }
@@ -22981,43 +22981,43 @@ default.unreachable:                              ; preds = %"_ZN82_$LT$std..io.
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #38, !noalias !4617
   unreachable
 
-"_ZN4core3ptr119drop_in_place$LT$image..codecs..dxt..DxtDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17hed9cd964a44befbfE.exit": ; preds = %97, %.thread
-  %.sink37 = getelementptr inbounds i8, ptr %1, i64 40
-  %93 = load i32, ptr %.sink37, align 8, !noundef !5
-  %94 = call noundef i32 @close(i32 noundef %93), !noalias !5
+"_ZN4core3ptr119drop_in_place$LT$image..codecs..dxt..DxtDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17hed9cd964a44befbfE.exit": ; preds = %96, %.thread
+  %.sink36.in = getelementptr inbounds i8, ptr %1, i64 40
+  %.sink36 = load i32, ptr %.sink36.in, align 8, !noundef !5
+  %93 = call noundef i32 @close(i32 noundef %.sink36), !noalias !5
   ret void
 
-95:                                               ; preds = %.noexc12, %88
+94:                                               ; preds = %.noexc12, %88
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !4625
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !4595
-  %96 = icmp eq i64 %45, 0
-  br i1 %96, label %.thread, label %43
+  %95 = icmp eq i64 %45, 0
+  br i1 %95, label %.thread, label %43
 
-97:                                               ; preds = %77, %.noexc10
+96:                                               ; preds = %77, %.noexc10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !4618
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !4595
   store i8 9, ptr %0, align 8
   %.sroa.419.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %67, ptr %.sroa.419.0..sroa_idx, align 8
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he15038c0c5583cb5E.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
-          to label %"_ZN4core3ptr119drop_in_place$LT$image..codecs..dxt..DxtDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17hed9cd964a44befbfE.exit" unwind label %98
+          to label %"_ZN4core3ptr119drop_in_place$LT$image..codecs..dxt..DxtDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17hed9cd964a44befbfE.exit" unwind label %97
 
-98:                                               ; preds = %97
-  %99 = landingpad { ptr, i32 }
+97:                                               ; preds = %96
+  %98 = landingpad { ptr, i32 }
           cleanup
-  %100 = getelementptr inbounds i8, ptr %1, i64 40
-  %101 = load i32, ptr %100, align 8, !alias.scope !4632, !noundef !5
-  %102 = invoke noundef i32 @close(i32 noundef %101)
-          to label %common.resume unwind label %103
+  %99 = getelementptr inbounds i8, ptr %1, i64 40
+  %100 = load i32, ptr %99, align 8, !alias.scope !4632, !noundef !5
+  %101 = invoke noundef i32 @close(i32 noundef %100)
+          to label %common.resume unwind label %102
 
-103:                                              ; preds = %98
-  %104 = landingpad { ptr, i32 }
+102:                                              ; preds = %97
+  %103 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #38
   unreachable
 
-105:                                              ; preds = %.body
-  %106 = landingpad { ptr, i32 }
+104:                                              ; preds = %.body
+  %105 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #38
   unreachable

@@ -5750,9 +5750,9 @@ for.inc57.i:                                      ; preds = %land.lhs.true.i, %f
   br i1 %tobool43.not.i, label %if.then9, label %for.body44.i, !llvm.loop !43
 
 get_feature_xml.exit:                             ; preds = %glib_autoptr_cleanup_GPtrArray.exit.i, %if.then52.i
-  %target_xml.sink.i = phi ptr [ %target_xml.i, %glib_autoptr_cleanup_GPtrArray.exit.i ], [ %xml55.i, %if.then52.i ]
-  %.pre.i = load ptr, ptr %target_xml.sink.i, align 8
-  %tobool8.not = icmp eq ptr %.pre.i, null
+  %retval.0.i.in = phi ptr [ %xml55.i, %if.then52.i ], [ %target_xml.i, %glib_autoptr_cleanup_GPtrArray.exit.i ]
+  %retval.0.i = load ptr, ptr %retval.0.i.in, align 8
+  %tobool8.not = icmp eq ptr %retval.0.i, null
   br i1 %tobool8.not, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %for.inc57.i, %if.end37.i, %get_feature_xml.exit
@@ -5760,7 +5760,7 @@ if.then9:                                         ; preds = %for.inc57.i, %if.en
   br label %return
 
 if.end11:                                         ; preds = %if.then.i, %if.then29.i, %get_feature_xml.exit
-  %retval.0.i25 = phi ptr [ %.pre.i, %get_feature_xml.exit ], [ %12, %if.then.i ], [ %call33.i, %if.then29.i ]
+  %retval.0.i25 = phi ptr [ %retval.0.i, %get_feature_xml.exit ], [ %12, %if.then.i ], [ %call33.i, %if.then29.i ]
   %29 = load ptr, ptr %params, align 8
   %arrayidx13 = getelementptr i8, ptr %29, i64 16
   %30 = load i64, ptr %arrayidx13, align 8

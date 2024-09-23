@@ -94,58 +94,58 @@ define void @p_set_proto_data(ptr noundef %0, ptr nocapture noundef %1, i32 noun
   unreachable
 
 22:                                               ; preds = %17, %12
-  %.sink16 = phi ptr [ %20, %17 ], [ %13, %12 ]
-  %23 = load ptr, ptr %.sink16, align 8
-  %24 = call ptr @g_slist_find_custom(ptr noundef %23, ptr noundef nonnull %6, ptr noundef nonnull @p_compare) #5
-  %.not = icmp eq ptr %24, null
-  br i1 %.not, label %28, label %25
+  %.sink.in = phi ptr [ %20, %17 ], [ %13, %12 ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %23 = call ptr @g_slist_find_custom(ptr noundef %.sink, ptr noundef nonnull %6, ptr noundef nonnull @p_compare) #5
+  %.not = icmp eq ptr %23, null
+  br i1 %.not, label %27, label %24
 
-25:                                               ; preds = %22
-  %26 = load ptr, ptr %24, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
-  store ptr %4, ptr %27, align 8
-  br label %47
+24:                                               ; preds = %22
+  %25 = load ptr, ptr %23, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  store ptr %4, ptr %26, align 8
+  br label %46
 
-28:                                               ; preds = %22
-  %29 = load ptr, ptr %9, align 8
-  %30 = icmp eq ptr %0, %29
-  br i1 %30, label %31, label %33
+27:                                               ; preds = %22
+  %28 = load ptr, ptr %9, align 8
+  %29 = icmp eq ptr %0, %28
+  br i1 %29, label %30, label %32
 
-31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %1, i64 392
+30:                                               ; preds = %27
+  %31 = getelementptr inbounds i8, ptr %1, i64 392
   br label %p_add_proto_data.exit
 
-33:                                               ; preds = %28
-  %34 = call ptr @wmem_file_scope() #5
-  %35 = icmp eq ptr %0, %34
-  br i1 %35, label %36, label %41
+32:                                               ; preds = %27
+  %33 = call ptr @wmem_file_scope() #5
+  %34 = icmp eq ptr %0, %33
+  br i1 %34, label %35, label %40
 
-36:                                               ; preds = %33
-  %37 = call ptr @wmem_file_scope() #5
-  %38 = getelementptr inbounds i8, ptr %1, i64 80
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 24
+35:                                               ; preds = %32
+  %36 = call ptr @wmem_file_scope() #5
+  %37 = getelementptr inbounds i8, ptr %1, i64 80
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds i8, ptr %38, i64 24
   br label %p_add_proto_data.exit
 
-41:                                               ; preds = %33
+40:                                               ; preds = %32
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 63, ptr noundef nonnull @.str.2) #6
   unreachable
 
-p_add_proto_data.exit:                            ; preds = %31, %36
-  %.015.i = phi ptr [ %32, %31 ], [ %40, %36 ]
-  %.0.i = phi ptr [ %0, %31 ], [ %37, %36 ]
-  %42 = call noalias ptr @wmem_alloc(ptr noundef %.0.i, i64 noundef 16) #5
-  store i32 %2, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 4
-  store i32 %3, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %42, i64 8
-  store ptr %4, ptr %44, align 8
-  %45 = load ptr, ptr %.015.i, align 8
-  %46 = call ptr @g_slist_prepend(ptr noundef %45, ptr noundef nonnull %42) #5
-  store ptr %46, ptr %.015.i, align 8
-  br label %47
+p_add_proto_data.exit:                            ; preds = %30, %35
+  %.015.i = phi ptr [ %31, %30 ], [ %39, %35 ]
+  %.0.i = phi ptr [ %0, %30 ], [ %36, %35 ]
+  %41 = call noalias ptr @wmem_alloc(ptr noundef %.0.i, i64 noundef 16) #5
+  store i32 %2, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 4
+  store i32 %3, ptr %42, align 4
+  %43 = getelementptr inbounds i8, ptr %41, i64 8
+  store ptr %4, ptr %43, align 8
+  %44 = load ptr, ptr %.015.i, align 8
+  %45 = call ptr @g_slist_prepend(ptr noundef %44, ptr noundef nonnull %41) #5
+  store ptr %45, ptr %.015.i, align 8
+  br label %46
 
-47:                                               ; preds = %p_add_proto_data.exit, %25
+46:                                               ; preds = %p_add_proto_data.exit, %24
   ret void
 }
 
@@ -213,20 +213,20 @@ define ptr @p_get_proto_data(ptr noundef readnone %0, ptr nocapture noundef read
   unreachable
 
 21:                                               ; preds = %16, %11
-  %.sink12 = phi ptr [ %19, %16 ], [ %12, %11 ]
-  %22 = load ptr, ptr %.sink12, align 8
-  %23 = call ptr @g_slist_find_custom(ptr noundef %22, ptr noundef nonnull %5, ptr noundef nonnull @p_compare) #5
-  %.not = icmp eq ptr %23, null
-  br i1 %.not, label %28, label %24
+  %.sink.in = phi ptr [ %19, %16 ], [ %12, %11 ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %22 = call ptr @g_slist_find_custom(ptr noundef %.sink, ptr noundef nonnull %5, ptr noundef nonnull @p_compare) #5
+  %.not = icmp eq ptr %22, null
+  br i1 %.not, label %27, label %23
 
-24:                                               ; preds = %21
-  %25 = load ptr, ptr %23, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
-  %27 = load ptr, ptr %26, align 8
-  br label %28
+23:                                               ; preds = %21
+  %24 = load ptr, ptr %22, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %26 = load ptr, ptr %25, align 8
+  br label %27
 
-28:                                               ; preds = %21, %24
-  %.010 = phi ptr [ %27, %24 ], [ null, %21 ]
+27:                                               ; preds = %21, %23
+  %.010 = phi ptr [ %26, %23 ], [ null, %21 ]
   ret ptr %.010
 }
 
@@ -314,16 +314,16 @@ define hidden noalias ptr @p_get_proto_name_and_key(ptr noundef readnone %0, ptr
   unreachable
 
 17:                                               ; preds = %12, %7
-  %.sink10 = phi ptr [ %15, %12 ], [ %8, %7 ]
-  %18 = load ptr, ptr %.sink10, align 8
-  %19 = tail call ptr @g_slist_nth_data(ptr noundef %18, i32 noundef %2) #5
-  %20 = load ptr, ptr %4, align 8
-  %21 = load i32, ptr %19, align 8
-  %22 = tail call ptr @proto_get_protocol_name(i32 noundef %21) #5
-  %23 = getelementptr inbounds i8, ptr %19, i64 4
-  %24 = load i32, ptr %23, align 4
-  %25 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %20, ptr noundef nonnull @.str.3, ptr noundef %22, i32 noundef %24) #5
-  ret ptr %25
+  %.sink.in = phi ptr [ %15, %12 ], [ %8, %7 ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %18 = tail call ptr @g_slist_nth_data(ptr noundef %.sink, i32 noundef %2) #5
+  %19 = load ptr, ptr %4, align 8
+  %20 = load i32, ptr %18, align 8
+  %21 = tail call ptr @proto_get_protocol_name(i32 noundef %20) #5
+  %22 = getelementptr inbounds i8, ptr %18, i64 4
+  %23 = load i32, ptr %22, align 4
+  %24 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %19, ptr noundef nonnull @.str.3, ptr noundef %21, i32 noundef %23) #5
+  ret ptr %24
 }
 
 declare ptr @g_slist_nth_data(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -352,21 +352,21 @@ define i32 @p_get_proto_depth(ptr nocapture noundef readonly %0, i32 noundef %1)
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr null, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 392
-  %7 = load ptr, ptr %6, align 8
-  %8 = call ptr @g_slist_find_custom(ptr noundef %7, ptr noundef nonnull %3, ptr noundef nonnull @p_compare) #5
-  %.not.i = icmp eq ptr %8, null
-  br i1 %.not.i, label %p_get_proto_data.exit, label %9
+  %.sink.i = load ptr, ptr %6, align 8
+  %7 = call ptr @g_slist_find_custom(ptr noundef %.sink.i, ptr noundef nonnull %3, ptr noundef nonnull @p_compare) #5
+  %.not.i = icmp eq ptr %7, null
+  br i1 %.not.i, label %p_get_proto_data.exit, label %8
 
-9:                                                ; preds = %2
-  %10 = load ptr, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
-  %12 = load ptr, ptr %11, align 8
-  %13 = ptrtoint ptr %12 to i64
-  %14 = trunc i64 %13 to i32
+8:                                                ; preds = %2
+  %9 = load ptr, ptr %7, align 8
+  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %11 = load ptr, ptr %10, align 8
+  %12 = ptrtoint ptr %11 to i64
+  %13 = trunc i64 %12 to i32
   br label %p_get_proto_data.exit
 
-p_get_proto_data.exit:                            ; preds = %2, %9
-  %.010.i = phi i32 [ %14, %9 ], [ 0, %2 ]
+p_get_proto_data.exit:                            ; preds = %2, %8
+  %.010.i = phi i32 [ %13, %8 ], [ 0, %2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret i32 %.010.i
 }

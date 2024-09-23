@@ -924,6 +924,7 @@ pmix_pointer_array_get_item.exit469:              ; preds = %pmix_pointer_array_
   %389 = load ptr, ptr %288, align 8
   %390 = getelementptr inbounds i8, ptr %389, i64 128
   store volatile ptr %293, ptr %390, align 8
+  store ptr %293, ptr %288, align 8
   br label %411
 
 391:                                              ; preds = %.lr.ph
@@ -949,6 +950,7 @@ pmix_pointer_array_get_item.exit469:              ; preds = %pmix_pointer_array_
   store volatile ptr %293, ptr %403, align 8
   %404 = getelementptr inbounds i8, ptr %293, i64 120
   store ptr %286, ptr %404, align 8
+  store ptr %293, ptr %287, align 8
   br label %411
 
 405:                                              ; preds = %._crit_edge
@@ -960,11 +962,10 @@ pmix_pointer_array_get_item.exit469:              ; preds = %pmix_pointer_array_
   store ptr %408, ptr %409, align 8
   %410 = getelementptr inbounds i8, ptr %408, i64 120
   store volatile ptr %293, ptr %410, align 8
+  store ptr %293, ptr %407, align 8
   br label %411
 
 411:                                              ; preds = %400, %405, %385
-  %.sink = phi ptr [ %287, %400 ], [ %407, %405 ], [ %288, %385 ]
-  store ptr %293, ptr %.sink, align 8
   %412 = load volatile i64, ptr %244, align 8
   %413 = add i64 %412, 1
   store volatile i64 %413, ptr %244, align 8

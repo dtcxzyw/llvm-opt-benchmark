@@ -1501,12 +1501,12 @@ _ZNSt6vectorIPN4llvm5SUnitESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__
   br label %_ZN4llvm10ReadyQueue4pushEPNS_5SUnitE.exit
 
 _ZN4llvm10ReadyQueue4pushEPNS_5SUnitE.exit:       ; preds = %_ZNSt6vectorIPN4llvm5SUnitESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i13, %72, %_ZNSt6vectorIPN4llvm5SUnitESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %39
-  %.sink = phi ptr [ %33, %39 ], [ %33, %_ZNSt6vectorIPN4llvm5SUnitESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %66, %72 ], [ %66, %_ZNSt6vectorIPN4llvm5SUnitESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i13 ]
-  %98 = load i32, ptr %.sink, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %1, i64 204
-  %100 = load i32, ptr %99, align 4
-  %101 = or i32 %100, %98
-  store i32 %101, ptr %99, align 4
+  %.sink17.in = phi ptr [ %33, %39 ], [ %33, %_ZNSt6vectorIPN4llvm5SUnitESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %66, %72 ], [ %66, %_ZNSt6vectorIPN4llvm5SUnitESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i13 ]
+  %.sink17 = load i32, ptr %.sink17.in, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 204
+  %99 = load i32, ptr %98, align 4
+  %100 = or i32 %99, %.sink17
+  store i32 %100, ptr %98, align 4
   ret void
 }
 
@@ -2034,7 +2034,7 @@ define dso_local void @_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary11rem
   %6 = load i32, ptr %3, align 8
   %7 = and i32 %6, %5
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %53, label %8
+  br i1 %.not, label %63, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -2137,130 +2137,144 @@ _ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit.loopexit.split.loop.exit53: ; preds =
   %52 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i.i, i64 24
   br label %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit
 
-53:                                               ; preds = %2
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %58 = load ptr, ptr %57, align 8
-  %59 = ptrtoint ptr %58 to i64
-  %60 = ptrtoint ptr %56 to i64
-  %61 = sub i64 %59, %60
-  %62 = ashr i64 %61, 5
-  %63 = icmp sgt i64 %62, 0
-  br i1 %63, label %.lr.ph.i.i.i.i.i16, label %._crit_edge.i.i.i.i.i7
+_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit:       ; preds = %19, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit.loopexit.split.loop.exit, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit.loopexit.split.loop.exit51, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit.loopexit.split.loop.exit53, %._crit_edge.i.i.i.i.i, %39, %._crit_edge._crit_edge.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i, %39 ], [ %.sroa.032.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %12, %._crit_edge.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i ], [ %50, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit.loopexit.split.loop.exit ], [ %51, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit.loopexit.split.loop.exit51 ], [ %52, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit.loopexit.split.loop.exit53 ], [ %.sroa.032.051.i.i.i.i.i, %19 ]
+  %53 = xor i32 %6, -1
+  %54 = load ptr, ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 204
+  %56 = load i32, ptr %55, align 4
+  %57 = and i32 %56, %53
+  store i32 %57, ptr %55, align 4
+  %58 = load ptr, ptr %11, align 8
+  %59 = getelementptr inbounds i8, ptr %58, i64 -8
+  %60 = load ptr, ptr %59, align 8
+  store ptr %60, ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, align 8
+  %61 = load ptr, ptr %11, align 8
+  %62 = getelementptr inbounds i8, ptr %61, i64 -8
+  store ptr %62, ptr %11, align 8
+  br label %120
 
-.lr.ph.i.i.i.i.i16:                               ; preds = %53
-  %64 = and i64 %61, -32
-  %scevgep.i.i.i.i.i17 = getelementptr i8, ptr %56, i64 %64
-  br label %65
+63:                                               ; preds = %2
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %68 = load ptr, ptr %67, align 8
+  %69 = ptrtoint ptr %68 to i64
+  %70 = ptrtoint ptr %66 to i64
+  %71 = sub i64 %69, %70
+  %72 = ashr i64 %71, 5
+  %73 = icmp sgt i64 %72, 0
+  br i1 %73, label %.lr.ph.i.i.i.i.i16, label %._crit_edge.i.i.i.i.i7
 
-65:                                               ; preds = %80, %.lr.ph.i.i.i.i.i16
-  %.052.i.i.i.i.i18 = phi i64 [ %62, %.lr.ph.i.i.i.i.i16 ], [ %82, %80 ]
-  %.sroa.032.051.i.i.i.i.i19 = phi ptr [ %56, %.lr.ph.i.i.i.i.i16 ], [ %81, %80 ]
-  %66 = load ptr, ptr %.sroa.032.051.i.i.i.i.i19, align 8
-  %67 = icmp eq ptr %66, %1
-  br i1 %67, label %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26, label %68
+.lr.ph.i.i.i.i.i16:                               ; preds = %63
+  %74 = and i64 %71, -32
+  %scevgep.i.i.i.i.i17 = getelementptr i8, ptr %66, i64 %74
+  br label %75
 
-68:                                               ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i.i19, i64 8
-  %70 = load ptr, ptr %69, align 8
-  %71 = icmp eq ptr %70, %1
-  br i1 %71, label %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26.loopexit.split.loop.exit, label %72
+75:                                               ; preds = %90, %.lr.ph.i.i.i.i.i16
+  %.052.i.i.i.i.i18 = phi i64 [ %72, %.lr.ph.i.i.i.i.i16 ], [ %92, %90 ]
+  %.sroa.032.051.i.i.i.i.i19 = phi ptr [ %66, %.lr.ph.i.i.i.i.i16 ], [ %91, %90 ]
+  %76 = load ptr, ptr %.sroa.032.051.i.i.i.i.i19, align 8
+  %77 = icmp eq ptr %76, %1
+  br i1 %77, label %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26, label %78
 
-72:                                               ; preds = %68
-  %73 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i.i19, i64 16
-  %74 = load ptr, ptr %73, align 8
-  %75 = icmp eq ptr %74, %1
-  br i1 %75, label %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26.loopexit.split.loop.exit59, label %76
+78:                                               ; preds = %75
+  %79 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i.i19, i64 8
+  %80 = load ptr, ptr %79, align 8
+  %81 = icmp eq ptr %80, %1
+  br i1 %81, label %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26.loopexit.split.loop.exit, label %82
 
-76:                                               ; preds = %72
-  %77 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i.i19, i64 24
-  %78 = load ptr, ptr %77, align 8
-  %79 = icmp eq ptr %78, %1
-  br i1 %79, label %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26.loopexit.split.loop.exit61, label %80
+82:                                               ; preds = %78
+  %83 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i.i19, i64 16
+  %84 = load ptr, ptr %83, align 8
+  %85 = icmp eq ptr %84, %1
+  br i1 %85, label %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26.loopexit.split.loop.exit59, label %86
 
-80:                                               ; preds = %76
-  %81 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i.i19, i64 32
-  %82 = add nsw i64 %.052.i.i.i.i.i18, -1
-  %83 = icmp sgt i64 %.052.i.i.i.i.i18, 1
-  br i1 %83, label %65, label %._crit_edge.loopexit.i.i.i.i.i20, !llvm.loop !11
+86:                                               ; preds = %82
+  %87 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i.i19, i64 24
+  %88 = load ptr, ptr %87, align 8
+  %89 = icmp eq ptr %88, %1
+  br i1 %89, label %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26.loopexit.split.loop.exit61, label %90
 
-._crit_edge.loopexit.i.i.i.i.i20:                 ; preds = %80
+90:                                               ; preds = %86
+  %91 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i.i19, i64 32
+  %92 = add nsw i64 %.052.i.i.i.i.i18, -1
+  %93 = icmp sgt i64 %.052.i.i.i.i.i18, 1
+  br i1 %93, label %75, label %._crit_edge.loopexit.i.i.i.i.i20, !llvm.loop !11
+
+._crit_edge.loopexit.i.i.i.i.i20:                 ; preds = %90
   %.pre59.i.i.i.i.i21 = ptrtoint ptr %scevgep.i.i.i.i.i17 to i64
-  %.pre60.i.i.i.i.i22 = sub i64 %59, %.pre59.i.i.i.i.i21
+  %.pre60.i.i.i.i.i22 = sub i64 %69, %.pre59.i.i.i.i.i21
   br label %._crit_edge.i.i.i.i.i7
 
-._crit_edge.i.i.i.i.i7:                           ; preds = %._crit_edge.loopexit.i.i.i.i.i20, %53
-  %.pre-phi61.i.i.i.i.i8 = phi i64 [ %.pre60.i.i.i.i.i22, %._crit_edge.loopexit.i.i.i.i.i20 ], [ %61, %53 ]
-  %.sroa.032.0.lcssa.i.i.i.i.i9 = phi ptr [ %scevgep.i.i.i.i.i17, %._crit_edge.loopexit.i.i.i.i.i20 ], [ %56, %53 ]
-  %84 = ashr exact i64 %.pre-phi61.i.i.i.i.i8, 3
-  switch i64 %84, label %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26 [
-    i64 3, label %85
+._crit_edge.i.i.i.i.i7:                           ; preds = %._crit_edge.loopexit.i.i.i.i.i20, %63
+  %.pre-phi61.i.i.i.i.i8 = phi i64 [ %.pre60.i.i.i.i.i22, %._crit_edge.loopexit.i.i.i.i.i20 ], [ %71, %63 ]
+  %.sroa.032.0.lcssa.i.i.i.i.i9 = phi ptr [ %scevgep.i.i.i.i.i17, %._crit_edge.loopexit.i.i.i.i.i20 ], [ %66, %63 ]
+  %94 = ashr exact i64 %.pre-phi61.i.i.i.i.i8, 3
+  switch i64 %94, label %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26 [
+    i64 3, label %95
     i64 2, label %._crit_edge._crit_edge.i.i.i.i.i14
     i64 1, label %._crit_edge._crit_edge57.i.i.i.i.i10
   ]
 
-85:                                               ; preds = %._crit_edge.i.i.i.i.i7
-  %86 = load ptr, ptr %.sroa.032.0.lcssa.i.i.i.i.i9, align 8
-  %87 = icmp eq ptr %86, %1
-  br i1 %87, label %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26, label %88
+95:                                               ; preds = %._crit_edge.i.i.i.i.i7
+  %96 = load ptr, ptr %.sroa.032.0.lcssa.i.i.i.i.i9, align 8
+  %97 = icmp eq ptr %96, %1
+  br i1 %97, label %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26, label %98
 
-88:                                               ; preds = %85
-  %89 = getelementptr inbounds i8, ptr %.sroa.032.0.lcssa.i.i.i.i.i9, i64 8
+98:                                               ; preds = %95
+  %99 = getelementptr inbounds i8, ptr %.sroa.032.0.lcssa.i.i.i.i.i9, i64 8
   br label %._crit_edge._crit_edge.i.i.i.i.i14
 
-._crit_edge._crit_edge.i.i.i.i.i14:               ; preds = %88, %._crit_edge.i.i.i.i.i7
-  %.sroa.032.1.i.i.i.i.i15 = phi ptr [ %89, %88 ], [ %.sroa.032.0.lcssa.i.i.i.i.i9, %._crit_edge.i.i.i.i.i7 ]
-  %90 = load ptr, ptr %.sroa.032.1.i.i.i.i.i15, align 8
-  %91 = icmp eq ptr %90, %1
-  br i1 %91, label %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26, label %92
+._crit_edge._crit_edge.i.i.i.i.i14:               ; preds = %98, %._crit_edge.i.i.i.i.i7
+  %.sroa.032.1.i.i.i.i.i15 = phi ptr [ %99, %98 ], [ %.sroa.032.0.lcssa.i.i.i.i.i9, %._crit_edge.i.i.i.i.i7 ]
+  %100 = load ptr, ptr %.sroa.032.1.i.i.i.i.i15, align 8
+  %101 = icmp eq ptr %100, %1
+  br i1 %101, label %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26, label %102
 
-92:                                               ; preds = %._crit_edge._crit_edge.i.i.i.i.i14
-  %93 = getelementptr inbounds i8, ptr %.sroa.032.1.i.i.i.i.i15, i64 8
+102:                                              ; preds = %._crit_edge._crit_edge.i.i.i.i.i14
+  %103 = getelementptr inbounds i8, ptr %.sroa.032.1.i.i.i.i.i15, i64 8
   br label %._crit_edge._crit_edge57.i.i.i.i.i10
 
-._crit_edge._crit_edge57.i.i.i.i.i10:             ; preds = %92, %._crit_edge.i.i.i.i.i7
-  %.sroa.032.2.i.i.i.i.i11 = phi ptr [ %93, %92 ], [ %.sroa.032.0.lcssa.i.i.i.i.i9, %._crit_edge.i.i.i.i.i7 ]
-  %94 = load ptr, ptr %.sroa.032.2.i.i.i.i.i11, align 8
-  %95 = icmp eq ptr %94, %1
-  %spec.select.i.i.i.i.i12 = select i1 %95, ptr %.sroa.032.2.i.i.i.i.i11, ptr %58
+._crit_edge._crit_edge57.i.i.i.i.i10:             ; preds = %102, %._crit_edge.i.i.i.i.i7
+  %.sroa.032.2.i.i.i.i.i11 = phi ptr [ %103, %102 ], [ %.sroa.032.0.lcssa.i.i.i.i.i9, %._crit_edge.i.i.i.i.i7 ]
+  %104 = load ptr, ptr %.sroa.032.2.i.i.i.i.i11, align 8
+  %105 = icmp eq ptr %104, %1
+  %spec.select.i.i.i.i.i12 = select i1 %105, ptr %.sroa.032.2.i.i.i.i.i11, ptr %68
   br label %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26
 
-_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26.loopexit.split.loop.exit: ; preds = %68
-  %96 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i.i19, i64 8
+_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26.loopexit.split.loop.exit: ; preds = %78
+  %106 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i.i19, i64 8
   br label %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26
 
-_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26.loopexit.split.loop.exit59: ; preds = %72
-  %97 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i.i19, i64 16
+_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26.loopexit.split.loop.exit59: ; preds = %82
+  %107 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i.i19, i64 16
   br label %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26
 
-_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26.loopexit.split.loop.exit61: ; preds = %76
-  %98 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i.i19, i64 24
+_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26.loopexit.split.loop.exit61: ; preds = %86
+  %108 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i.i19, i64 24
   br label %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26
 
-_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26:     ; preds = %65, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26.loopexit.split.loop.exit, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26.loopexit.split.loop.exit59, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26.loopexit.split.loop.exit61, %._crit_edge.i.i.i.i.i7, %85, %._crit_edge._crit_edge.i.i.i.i.i14, %._crit_edge._crit_edge57.i.i.i.i.i10
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i13 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i9, %85 ], [ %.sroa.032.1.i.i.i.i.i15, %._crit_edge._crit_edge.i.i.i.i.i14 ], [ %58, %._crit_edge.i.i.i.i.i7 ], [ %spec.select.i.i.i.i.i12, %._crit_edge._crit_edge57.i.i.i.i.i10 ], [ %96, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26.loopexit.split.loop.exit ], [ %97, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26.loopexit.split.loop.exit59 ], [ %98, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26.loopexit.split.loop.exit61 ], [ %.sroa.032.051.i.i.i.i.i19, %65 ]
-  %99 = load i32, ptr %54, align 8
-  br label %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit
+_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26:     ; preds = %75, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26.loopexit.split.loop.exit, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26.loopexit.split.loop.exit59, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26.loopexit.split.loop.exit61, %._crit_edge.i.i.i.i.i7, %95, %._crit_edge._crit_edge.i.i.i.i.i14, %._crit_edge._crit_edge57.i.i.i.i.i10
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i13 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i9, %95 ], [ %.sroa.032.1.i.i.i.i.i15, %._crit_edge._crit_edge.i.i.i.i.i14 ], [ %68, %._crit_edge.i.i.i.i.i7 ], [ %spec.select.i.i.i.i.i12, %._crit_edge._crit_edge57.i.i.i.i.i10 ], [ %106, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26.loopexit.split.loop.exit ], [ %107, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26.loopexit.split.loop.exit59 ], [ %108, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26.loopexit.split.loop.exit61 ], [ %.sroa.032.051.i.i.i.i.i19, %75 ]
+  %109 = load i32, ptr %64, align 8
+  %110 = xor i32 %109, -1
+  %111 = load ptr, ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i13, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 204
+  %113 = load i32, ptr %112, align 4
+  %114 = and i32 %113, %110
+  store i32 %114, ptr %112, align 4
+  %115 = load ptr, ptr %67, align 8
+  %116 = getelementptr inbounds i8, ptr %115, i64 -8
+  %117 = load ptr, ptr %116, align 8
+  store ptr %117, ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i13, align 8
+  %118 = load ptr, ptr %67, align 8
+  %119 = getelementptr inbounds i8, ptr %118, i64 -8
+  store ptr %119, ptr %67, align 8
+  br label %120
 
-_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit:       ; preds = %19, %._crit_edge._crit_edge57.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i, %39, %._crit_edge.i.i.i.i.i, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit.loopexit.split.loop.exit53, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit.loopexit.split.loop.exit51, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit.loopexit.split.loop.exit, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26
-  %.sink80 = phi i32 [ %99, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26 ], [ %6, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit.loopexit.split.loop.exit ], [ %6, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit.loopexit.split.loop.exit51 ], [ %6, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit.loopexit.split.loop.exit53 ], [ %6, %._crit_edge.i.i.i.i.i ], [ %6, %39 ], [ %6, %._crit_edge._crit_edge.i.i.i.i.i ], [ %6, %._crit_edge._crit_edge57.i.i.i.i.i ], [ %6, %19 ]
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i13.sink79 = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.i13, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26 ], [ %50, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit.loopexit.split.loop.exit ], [ %51, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit.loopexit.split.loop.exit51 ], [ %52, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit.loopexit.split.loop.exit53 ], [ %12, %._crit_edge.i.i.i.i.i ], [ %.sroa.032.0.lcssa.i.i.i.i.i, %39 ], [ %.sroa.032.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i ], [ %.sroa.032.051.i.i.i.i.i, %19 ]
-  %.sink72 = phi ptr [ %57, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26 ], [ %11, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit.loopexit.split.loop.exit ], [ %11, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit.loopexit.split.loop.exit51 ], [ %11, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit.loopexit.split.loop.exit53 ], [ %11, %._crit_edge.i.i.i.i.i ], [ %11, %39 ], [ %11, %._crit_edge._crit_edge.i.i.i.i.i ], [ %11, %._crit_edge._crit_edge57.i.i.i.i.i ], [ %11, %19 ]
-  %100 = xor i32 %.sink80, -1
-  %101 = load ptr, ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i13.sink79, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 204
-  %103 = load i32, ptr %102, align 4
-  %104 = and i32 %103, %100
-  store i32 %104, ptr %102, align 4
-  %105 = load ptr, ptr %.sink72, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 -8
-  %107 = load ptr, ptr %106, align 8
-  store ptr %107, ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i13.sink79, align 8
-  %108 = load ptr, ptr %.sink72, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 -8
-  store ptr %109, ptr %.sink72, align 8
+120:                                              ; preds = %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit
   ret void
 }
 

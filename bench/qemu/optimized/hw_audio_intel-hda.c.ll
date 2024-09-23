@@ -1119,7 +1119,8 @@ if.then25.i:                                      ; preds = %do.body.i7
 do.end.i:                                         ; preds = %if.then25.i, %do.body.i7
   %conv30.i = trunc i64 %call13.i to i32
   store i32 %conv30.i, ptr %last_sec.i, align 16
-  br label %return.sink.split.i
+  store i32 0, ptr %repeat_count.i, align 4
+  br label %intel_hda_reg_read.exit
 
 if.else34.i:                                      ; preds = %land.lhs.true16.i, %land.lhs.true.i, %if.then12.i
   %repeat_count35.i = getelementptr inbounds i8, ptr %opaque, i64 4164
@@ -1165,15 +1166,11 @@ do.end60.i:                                       ; preds = %if.then54.i, %do.bo
   %conv64.i = trunc i64 %call13.i to i32
   %last_sec65.i = getelementptr inbounds i8, ptr %opaque, i64 4160
   store i32 %conv64.i, ptr %last_sec65.i, align 16
-  br label %return.sink.split.i
-
-return.sink.split.i:                              ; preds = %do.end60.i, %do.end.i
-  %repeat_count.sink.i = phi ptr [ %repeat_count.i, %do.end.i ], [ %repeat_count35.i, %do.end60.i ]
-  store i32 0, ptr %repeat_count.sink.i, align 4
+  store i32 0, ptr %repeat_count35.i, align 4
   br label %intel_hda_reg_read.exit
 
-intel_hda_reg_read.exit:                          ; preds = %if.then5.i, %do.body.i, %if.end10.i, %if.then18.i, %return.sink.split.i
-  %retval.0.i5 = phi i32 [ %ret.0.i, %if.then18.i ], [ %ret.0.i, %if.end10.i ], [ %ret.0.i, %return.sink.split.i ], [ 0, %do.body.i ], [ 0, %if.then5.i ]
+intel_hda_reg_read.exit:                          ; preds = %if.then5.i, %do.body.i, %if.end10.i, %if.then18.i, %do.end.i, %do.end60.i
+  %retval.0.i5 = phi i32 [ %ret.0.i, %do.end60.i ], [ %ret.0.i, %do.end.i ], [ %ret.0.i, %if.then18.i ], [ %ret.0.i, %if.end10.i ], [ 0, %do.body.i ], [ 0, %if.then5.i ]
   %conv2 = zext i32 %retval.0.i5 to i64
   ret i64 %conv2
 }
@@ -1282,7 +1279,8 @@ if.then26.i:                                      ; preds = %do.body22.i
 do.end32.i:                                       ; preds = %if.then26.i, %do.body22.i
   %conv33.i = trunc i64 %call11.i to i32
   store i32 %conv33.i, ptr %last_sec.i, align 16
-  br label %if.end70.sink.split.i
+  store i32 0, ptr %repeat_count.i, align 4
+  br label %if.end70.i
 
 if.else.i:                                        ; preds = %land.lhs.true14.i, %land.lhs.true.i, %if.then10.i
   %repeat_count37.i = getelementptr inbounds i8, ptr %opaque, i64 4164
@@ -1328,14 +1326,10 @@ do.end62.i:                                       ; preds = %if.then56.i, %do.bo
   %conv66.i = trunc i64 %call11.i to i32
   %last_sec67.i = getelementptr inbounds i8, ptr %opaque, i64 4160
   store i32 %conv66.i, ptr %last_sec67.i, align 16
-  br label %if.end70.sink.split.i
-
-if.end70.sink.split.i:                            ; preds = %do.end62.i, %do.end32.i
-  %repeat_count37.sink.i = phi ptr [ %repeat_count37.i, %do.end62.i ], [ %repeat_count.i, %do.end32.i ]
-  store i32 0, ptr %repeat_count37.sink.i, align 4
+  store i32 0, ptr %repeat_count37.i, align 4
   br label %if.end70.i
 
-if.end70.i:                                       ; preds = %if.end70.sink.split.i, %if.then17.i, %if.end8.i
+if.end70.i:                                       ; preds = %do.end62.i, %do.end32.i, %if.then17.i, %if.end8.i
   %offset.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 24
   %27 = load i32, ptr %offset.i, align 8
   %cmp71.not.i = icmp eq i32 %27, 0

@@ -1605,43 +1605,44 @@ define void @ZIP_Close(ptr noundef %0) local_unnamed_addr #0 {
 8:                                                ; preds = %1
   %9 = load ptr, ptr @zfiles_lock, align 8
   tail call void @JVM_RawMonitorExit(ptr noundef %9) #21
-  br label %22
+  br label %25
 
 10:                                               ; preds = %1
   %11 = load ptr, ptr @zfiles, align 8
   %12 = icmp eq ptr %11, %0
-  br i1 %12, label %.loopexit.sink.split, label %.preheader
+  br i1 %12, label %13, label %.preheader
 
-.preheader:                                       ; preds = %10, %15
-  %.0 = phi ptr [ %14, %15 ], [ %11, %10 ]
-  %13 = getelementptr inbounds i8, ptr %.0, i64 144
-  %14 = load ptr, ptr %13, align 8
-  %.not = icmp eq ptr %14, null
-  br i1 %.not, label %.loopexit, label %15
-
-15:                                               ; preds = %.preheader
-  %16 = icmp eq ptr %14, %0
-  br i1 %16, label %17, label %.preheader, !llvm.loop !17
-
-17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %.0, i64 144
-  br label %.loopexit.sink.split
-
-.loopexit.sink.split:                             ; preds = %10, %17
-  %.sink = phi ptr [ %0, %17 ], [ %11, %10 ]
-  %.sink15 = phi ptr [ %18, %17 ], [ @zfiles, %10 ]
-  %19 = getelementptr inbounds i8, ptr %.sink, i64 144
-  %20 = load ptr, ptr %19, align 8
-  store ptr %20, ptr %.sink15, align 8
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds i8, ptr %11, i64 144
+  %15 = load ptr, ptr %14, align 8
+  store ptr %15, ptr @zfiles, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader, %.loopexit.sink.split
-  %21 = load ptr, ptr @zfiles_lock, align 8
-  tail call void @JVM_RawMonitorExit(ptr noundef %21) #21
-  tail call fastcc void @freeZip(ptr noundef %0)
-  br label %22
+.preheader:                                       ; preds = %10, %18
+  %.0 = phi ptr [ %17, %18 ], [ %11, %10 ]
+  %16 = getelementptr inbounds i8, ptr %.0, i64 144
+  %17 = load ptr, ptr %16, align 8
+  %.not = icmp eq ptr %17, null
+  br i1 %.not, label %.loopexit, label %18
 
-22:                                               ; preds = %.loopexit, %8
+18:                                               ; preds = %.preheader
+  %19 = icmp eq ptr %17, %0
+  br i1 %19, label %20, label %.preheader, !llvm.loop !17
+
+20:                                               ; preds = %18
+  %21 = getelementptr inbounds i8, ptr %.0, i64 144
+  %22 = getelementptr inbounds i8, ptr %0, i64 144
+  %23 = load ptr, ptr %22, align 8
+  store ptr %23, ptr %21, align 8
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.preheader, %20, %13
+  %24 = load ptr, ptr @zfiles_lock, align 8
+  tail call void @JVM_RawMonitorExit(ptr noundef %24) #21
+  tail call fastcc void @freeZip(ptr noundef %0)
+  br label %25
+
+25:                                               ; preds = %.loopexit, %8
   ret void
 }
 

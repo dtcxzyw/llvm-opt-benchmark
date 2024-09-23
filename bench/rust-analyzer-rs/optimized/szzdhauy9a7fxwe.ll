@@ -10552,8 +10552,8 @@ define hidden void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..conten
     i8 16, label %7
     i8 17, label %28
     i8 18, label %7
-    i8 19, label %35
-    i8 20, label %41
+    i8 19, label %34
+    i8 20, label %40
   ]
 
 5:                                                ; preds = %1
@@ -10561,7 +10561,7 @@ define hidden void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..conten
   tail call void @"_ZN4core3ptr131drop_in_place$LT$alloc..vec..Vec$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17h0e131eb386a4e1ebE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6)
   br label %7
 
-7:                                                ; preds = %41, %"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$serde..__private..de..content..Content$GT$$GT$17hd5fb141d4c14b32bE.llvm.17975068208802743834.exit1", %"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$serde..__private..de..content..Content$GT$$GT$17hd5fb141d4c14b32bE.llvm.17975068208802743834.exit", %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hb130281c96da2e5fE.exit", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0269e7177c17f6bbE.exit", %5, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
+7:                                                ; preds = %40, %"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$serde..__private..de..content..Content$GT$$GT$17hd5fb141d4c14b32bE.llvm.17975068208802743834.exit1", %"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$serde..__private..de..content..Content$GT$$GT$17hd5fb141d4c14b32bE.llvm.17975068208802743834.exit", %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hb130281c96da2e5fE.exit", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0269e7177c17f6bbE.exit", %5, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
   ret void
 
 8:                                                ; preds = %1
@@ -10617,47 +10617,47 @@ define hidden void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..conten
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1401)
   %30 = load ptr, ptr %29, align 8, !alias.scope !1401, !noundef !5
   invoke void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17hfff8c1decf07245fE.llvm.17975068208802743834"(ptr noalias noundef align 8 dereferenceable(32) %30)
-          to label %"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$serde..__private..de..content..Content$GT$$GT$17hd5fb141d4c14b32bE.llvm.17975068208802743834.exit" unwind label %32, !noalias !1401
+          to label %"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$serde..__private..de..content..Content$GT$$GT$17hd5fb141d4c14b32bE.llvm.17975068208802743834.exit" unwind label %31, !noalias !1401
 
-common.resume:                                    ; preds = %38, %32
-  %.sink2 = phi ptr [ %36, %38 ], [ %29, %32 ]
-  %common.resume.op = phi { ptr, i32 } [ %39, %38 ], [ %33, %32 ]
-  %31 = load ptr, ptr %.sink2, align 8, !nonnull !5, !noundef !5
-  tail call void @__rust_dealloc(ptr noundef nonnull %31, i64 noundef 32, i64 noundef 8) #23, !noalias !5
+common.resume:                                    ; preds = %37, %31
+  %.sink.in = phi ptr [ %35, %37 ], [ %29, %31 ]
+  %common.resume.op = phi { ptr, i32 } [ %38, %37 ], [ %32, %31 ]
+  %.sink = load ptr, ptr %.sink.in, align 8, !nonnull !5, !noundef !5
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sink, i64 noundef 32, i64 noundef 8) #23, !noalias !5
   resume { ptr, i32 } %common.resume.op
 
-32:                                               ; preds = %28
-  %33 = landingpad { ptr, i32 }
+31:                                               ; preds = %28
+  %32 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 "_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$serde..__private..de..content..Content$GT$$GT$17hd5fb141d4c14b32bE.llvm.17975068208802743834.exit": ; preds = %28
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1404)
-  %34 = load ptr, ptr %29, align 8, !alias.scope !1404, !nonnull !5, !noundef !5
-  tail call void @__rust_dealloc(ptr noundef nonnull %34, i64 noundef 32, i64 noundef 8) #23, !noalias !1404
+  %33 = load ptr, ptr %29, align 8, !alias.scope !1404, !nonnull !5, !noundef !5
+  tail call void @__rust_dealloc(ptr noundef nonnull %33, i64 noundef 32, i64 noundef 8) #23, !noalias !1404
   br label %7
 
-35:                                               ; preds = %1
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
+34:                                               ; preds = %1
+  %35 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1407)
-  %37 = load ptr, ptr %36, align 8, !alias.scope !1407, !noundef !5
-  invoke void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17hfff8c1decf07245fE.llvm.17975068208802743834"(ptr noalias noundef align 8 dereferenceable(32) %37)
-          to label %"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$serde..__private..de..content..Content$GT$$GT$17hd5fb141d4c14b32bE.llvm.17975068208802743834.exit1" unwind label %38, !noalias !1407
+  %36 = load ptr, ptr %35, align 8, !alias.scope !1407, !noundef !5
+  invoke void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17hfff8c1decf07245fE.llvm.17975068208802743834"(ptr noalias noundef align 8 dereferenceable(32) %36)
+          to label %"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$serde..__private..de..content..Content$GT$$GT$17hd5fb141d4c14b32bE.llvm.17975068208802743834.exit1" unwind label %37, !noalias !1407
 
-38:                                               ; preds = %35
-  %39 = landingpad { ptr, i32 }
+37:                                               ; preds = %34
+  %38 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$serde..__private..de..content..Content$GT$$GT$17hd5fb141d4c14b32bE.llvm.17975068208802743834.exit1": ; preds = %35
+"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$serde..__private..de..content..Content$GT$$GT$17hd5fb141d4c14b32bE.llvm.17975068208802743834.exit1": ; preds = %34
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1410)
-  %40 = load ptr, ptr %36, align 8, !alias.scope !1410, !nonnull !5, !noundef !5
-  tail call void @__rust_dealloc(ptr noundef nonnull %40, i64 noundef 32, i64 noundef 8) #23, !noalias !1410
+  %39 = load ptr, ptr %35, align 8, !alias.scope !1410, !nonnull !5, !noundef !5
+  tail call void @__rust_dealloc(ptr noundef nonnull %39, i64 noundef 32, i64 noundef 8) #23, !noalias !1410
   br label %7
 
-41:                                               ; preds = %1
-  %42 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$serde..__private..de..content..Content$GT$$GT$17hc176706e543e5f96E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %42)
+40:                                               ; preds = %1
+  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  tail call void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$serde..__private..de..content..Content$GT$$GT$17hc176706e543e5f96E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %41)
   br label %7
 }
 

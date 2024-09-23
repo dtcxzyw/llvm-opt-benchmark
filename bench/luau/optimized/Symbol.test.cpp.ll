@@ -4481,22 +4481,18 @@ _ZNKSt8__detail15_Hash_code_baseIN4Luau6SymbolESt4pairIKS2_iENS_10_Select1stESt4
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
-  br label %.sink.split
+  store ptr %.031, ptr %35, align 8
+  br label %39
 
 36:                                               ; preds = %_ZNKSt8__detail15_Hash_code_baseIN4Luau6SymbolESt4pairIKS2_iENS_10_Select1stESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE15_M_bucket_indexERKNS_16_Hash_node_valueIS5_Lb0EEEm.exit
   %37 = load ptr, ptr %30, align 8
   store ptr %37, ptr %.031, align 8
   %38 = load ptr, ptr %29, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %36, %34
-  %.sink = phi ptr [ %35, %34 ], [ %38, %36 ]
-  %.1.ph = phi i64 [ %28, %34 ], [ %.02530, %36 ]
-  store ptr %.031, ptr %.sink, align 8
+  store ptr %.031, ptr %38, align 8
   br label %39
 
-39:                                               ; preds = %.sink.split, %31
-  %.1 = phi i64 [ %28, %31 ], [ %.1.ph, %.sink.split ]
+39:                                               ; preds = %31, %34, %36
+  %.1 = phi i64 [ %.02530, %36 ], [ %28, %34 ], [ %28, %31 ]
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 

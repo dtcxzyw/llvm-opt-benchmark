@@ -2686,106 +2686,110 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %.tr46 = phi ptr [ %1, %2 ], [ %.tr46.be, %tailrecurse.backedge ]
   %3 = load i8, ptr %.tr, align 1
   switch i8 %3, label %.thread [
-    i8 0, label %.loopexit.sink.split
-    i8 92, label %5
-    i8 63, label %14
+    i8 0, label %5
+    i8 92, label %8
+    i8 63, label %17
     i8 42, label %.preheader
-    i8 91, label %22
+    i8 91, label %28
   ]
 
 .preheader:                                       ; preds = %tailrecurse
   %4 = getelementptr inbounds i8, ptr %.tr, i64 1
-  br label %17
+  br label %20
 
 5:                                                ; preds = %tailrecurse
-  %6 = getelementptr inbounds i8, ptr %.tr, i64 1
-  %7 = load i8, ptr %6, align 1
-  %8 = load i8, ptr %.tr46, align 1
-  %9 = icmp eq i8 %7, %8
-  br i1 %9, label %10, label %.thread
+  %6 = load i8, ptr %.tr46, align 1
+  %7 = icmp eq i8 %6, 0
+  br label %.loopexit
 
-10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %.tr, i64 2
-  %12 = getelementptr inbounds i8, ptr %.tr46, i64 1
-  %13 = tail call noundef zeroext i1 @_ZN5Yosys8patmatchEPKcS1_(ptr noundef nonnull %11, ptr noundef nonnull %12)
-  br i1 %13, label %.loopexit, label %.thread
+8:                                                ; preds = %tailrecurse
+  %9 = getelementptr inbounds i8, ptr %.tr, i64 1
+  %10 = load i8, ptr %9, align 1
+  %11 = load i8, ptr %.tr46, align 1
+  %12 = icmp eq i8 %10, %11
+  br i1 %12, label %13, label %.thread
 
-14:                                               ; preds = %tailrecurse
-  %15 = load i8, ptr %.tr46, align 1
-  %16 = icmp eq i8 %15, 0
-  br i1 %16, label %.loopexit, label %tailrecurse.backedge
+13:                                               ; preds = %8
+  %14 = getelementptr inbounds i8, ptr %.tr, i64 2
+  %15 = getelementptr inbounds i8, ptr %.tr46, i64 1
+  %16 = tail call noundef zeroext i1 @_ZN5Yosys8patmatchEPKcS1_(ptr noundef nonnull %14, ptr noundef nonnull %15)
+  br i1 %16, label %.loopexit, label %.thread
 
-tailrecurse.backedge:                             ; preds = %.thread, %14
+17:                                               ; preds = %tailrecurse
+  %18 = load i8, ptr %.tr46, align 1
+  %19 = icmp eq i8 %18, 0
+  br i1 %19, label %.loopexit, label %tailrecurse.backedge
+
+tailrecurse.backedge:                             ; preds = %.thread, %17
   %.tr46.be = getelementptr inbounds i8, ptr %.tr46, i64 1
   %.tr.be = getelementptr inbounds i8, ptr %.tr, i64 1
   br label %tailrecurse
 
-17:                                               ; preds = %.preheader, %19
-  %.038 = phi ptr [ %20, %19 ], [ %.tr46, %.preheader ]
-  %18 = load i8, ptr %.038, align 1
-  %.not44 = icmp eq i8 %18, 0
-  br i1 %.not44, label %.loopexit.sink.split, label %19
+20:                                               ; preds = %.preheader, %22
+  %.038 = phi ptr [ %23, %22 ], [ %.tr46, %.preheader ]
+  %21 = load i8, ptr %.038, align 1
+  %.not44 = icmp eq i8 %21, 0
+  br i1 %.not44, label %25, label %22
 
-19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %.038, i64 1
-  %21 = tail call noundef zeroext i1 @_ZN5Yosys8patmatchEPKcS1_(ptr noundef nonnull %4, ptr noundef nonnull %.038)
-  br i1 %21, label %.loopexit, label %17, !llvm.loop !9
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds i8, ptr %.038, i64 1
+  %24 = tail call noundef zeroext i1 @_ZN5Yosys8patmatchEPKcS1_(ptr noundef nonnull %4, ptr noundef nonnull %.038)
+  br i1 %24, label %.loopexit, label %20, !llvm.loop !9
 
-22:                                               ; preds = %tailrecurse
-  %23 = getelementptr inbounds i8, ptr %.tr, i64 1
-  %24 = load i8, ptr %23, align 1
-  %25 = icmp eq i8 %24, 33
-  %26 = zext i1 %25 to i64
-  %27 = getelementptr inbounds i8, ptr %.tr, i64 %26
-  br label %28
-
-28:                                               ; preds = %40, %22
-  %.036 = phi i1 [ false, %22 ], [ %spec.select45, %40 ]
-  %.0 = phi ptr [ %27, %22 ], [ %.1, %40 ]
-  %29 = getelementptr inbounds i8, ptr %.0, i64 1
-  %30 = load i8, ptr %29, align 1
-  switch i8 %30, label %40 [
-    i8 0, label %.thread
-    i8 93, label %31
-    i8 92, label %37
-  ]
-
-31:                                               ; preds = %28
-  %32 = xor i1 %25, %.036
-  br i1 %32, label %33, label %.thread
-
-33:                                               ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %.0, i64 2
-  %35 = getelementptr inbounds i8, ptr %.tr46, i64 1
-  %36 = tail call noundef zeroext i1 @_ZN5Yosys8patmatchEPKcS1_(ptr noundef nonnull %34, ptr noundef nonnull %35)
-  br i1 %36, label %.loopexit, label %.thread
-
-37:                                               ; preds = %28
-  %38 = getelementptr inbounds i8, ptr %.0, i64 2
-  %39 = load i8, ptr %38, align 1
-  br label %40
-
-40:                                               ; preds = %28, %37
-  %.sink68 = phi i8 [ %39, %37 ], [ %30, %28 ]
-  %.1 = phi ptr [ %38, %37 ], [ %29, %28 ]
-  %41 = load i8, ptr %.tr46, align 1
-  %42 = icmp eq i8 %.sink68, %41
-  %spec.select45 = select i1 %42, i1 true, i1 %.036
-  br label %28, !llvm.loop !10
-
-.thread:                                          ; preds = %28, %tailrecurse, %10, %5, %33, %31
-  %43 = load i8, ptr %.tr46, align 1
-  %44 = icmp eq i8 %3, %43
-  br i1 %44, label %tailrecurse.backedge, label %.loopexit
-
-.loopexit.sink.split:                             ; preds = %tailrecurse, %17
-  %.sink70 = phi ptr [ %4, %17 ], [ %.tr46, %tailrecurse ]
-  %45 = load i8, ptr %.sink70, align 1
-  %46 = icmp eq i8 %45, 0
+25:                                               ; preds = %20
+  %26 = load i8, ptr %4, align 1
+  %27 = icmp eq i8 %26, 0
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.thread, %33, %14, %10, %19, %.loopexit.sink.split
-  %.035 = phi i1 [ %46, %.loopexit.sink.split ], [ true, %19 ], [ false, %.thread ], [ true, %33 ], [ false, %14 ], [ true, %10 ]
+28:                                               ; preds = %tailrecurse
+  %29 = getelementptr inbounds i8, ptr %.tr, i64 1
+  %30 = load i8, ptr %29, align 1
+  %31 = icmp eq i8 %30, 33
+  %32 = zext i1 %31 to i64
+  %33 = getelementptr inbounds i8, ptr %.tr, i64 %32
+  br label %34
+
+34:                                               ; preds = %46, %28
+  %.036 = phi i1 [ false, %28 ], [ %spec.select45, %46 ]
+  %.0 = phi ptr [ %33, %28 ], [ %.1, %46 ]
+  %35 = getelementptr inbounds i8, ptr %.0, i64 1
+  %36 = load i8, ptr %35, align 1
+  switch i8 %36, label %46 [
+    i8 0, label %.thread
+    i8 93, label %37
+    i8 92, label %43
+  ]
+
+37:                                               ; preds = %34
+  %38 = xor i1 %31, %.036
+  br i1 %38, label %39, label %.thread
+
+39:                                               ; preds = %37
+  %40 = getelementptr inbounds i8, ptr %.0, i64 2
+  %41 = getelementptr inbounds i8, ptr %.tr46, i64 1
+  %42 = tail call noundef zeroext i1 @_ZN5Yosys8patmatchEPKcS1_(ptr noundef nonnull %40, ptr noundef nonnull %41)
+  br i1 %42, label %.loopexit, label %.thread
+
+43:                                               ; preds = %34
+  %44 = getelementptr inbounds i8, ptr %.0, i64 2
+  %45 = load i8, ptr %44, align 1
+  br label %46
+
+46:                                               ; preds = %34, %43
+  %.sink68 = phi i8 [ %45, %43 ], [ %36, %34 ]
+  %.1 = phi ptr [ %44, %43 ], [ %35, %34 ]
+  %47 = load i8, ptr %.tr46, align 1
+  %48 = icmp eq i8 %.sink68, %47
+  %spec.select45 = select i1 %48, i1 true, i1 %.036
+  br label %34, !llvm.loop !10
+
+.thread:                                          ; preds = %34, %tailrecurse, %13, %8, %39, %37
+  %49 = load i8, ptr %.tr46, align 1
+  %50 = icmp eq i8 %3, %49
+  br i1 %50, label %tailrecurse.backedge, label %.loopexit
+
+.loopexit:                                        ; preds = %.thread, %39, %17, %13, %22, %25, %5
+  %.035 = phi i1 [ %7, %5 ], [ %27, %25 ], [ true, %22 ], [ false, %.thread ], [ true, %39 ], [ false, %17 ], [ true, %13 ]
   ret i1 %.035
 }
 

@@ -13508,7 +13508,8 @@ if.end:                                           ; preds = %_ZNKSt7__cxx1112bas
 if.end.split:                                     ; preds = %if.end
   %_M_string_length.i.i13 = getelementptr inbounds i8, ptr %this, i64 8
   store i64 0, ptr %_M_string_length.i.i13, align 8
-  br label %if.end10.sink.split
+  store i8 0, ptr %1, align 1
+  br label %if.end10
 
 if.then6:                                         ; preds = %if.end.thread, %if.end
   %6 = phi ptr [ %call5.i.i.i, %if.end.thread ], [ %1, %if.end ]
@@ -13530,14 +13531,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit: ; pre
   store i64 %0, ptr %_M_string_length.i.i16, align 8
   %9 = load ptr, ptr %this, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %9, i64 %0
-  br label %if.end10.sink.split
-
-if.end10.sink.split:                              ; preds = %if.end.split, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit
-  %arrayidx.i.sink = phi ptr [ %arrayidx.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit ], [ %1, %if.end.split ]
-  store i8 0, ptr %arrayidx.i.sink, align 1
+  store i8 0, ptr %arrayidx.i, align 1
   br label %if.end10
 
-if.end10:                                         ; preds = %if.end10.sink.split, %entry
+if.end10:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit, %if.end.split, %entry
   ret void
 }
 

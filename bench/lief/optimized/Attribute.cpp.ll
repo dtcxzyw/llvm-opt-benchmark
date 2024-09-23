@@ -81,34 +81,34 @@ define noundef ptr @_ZN4LIEF2PE9to_stringENS0_9Attribute4TYPEE(i32 noundef %0) l
   %.not.i.i.i.i.i.i.i = icmp sgt i32 %0, 3
   %.idx.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i, i64 64, i64 0
   %.idx.i.i.i.i.i.i.i.sroa.sel.sroa.sel.v = select i1 %.not.i.i.i.i.i.i.i, i64 88, i64 24
-  %.sink13.i.i.i.i.i.i.v = select i1 %.not.i.i.i.i.i.i, i64 152, i64 %.idx.i.i.i.i.i.i.i.sroa.sel.sroa.sel.v
-  %.sink13.i.i.i.i.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_9Attribute4TYPEE.enums2str, i64 %.sink13.i.i.i.i.i.i.v
+  %.sink.in.i.i.i.i.i.i.v = select i1 %.not.i.i.i.i.i.i, i64 152, i64 %.idx.i.i.i.i.i.i.i.sroa.sel.sroa.sel.v
+  %.sink.in.i.i.i.i.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_9Attribute4TYPEE.enums2str, i64 %.sink.in.i.i.i.i.i.i.v
   %2 = select i1 %.not.i.i.i.i.i.i, i64 128, i64 %.idx.i.i.i.i.i.i.i
-  %3 = load i32, ptr %.sink13.i.i.i.i.i.i, align 8
-  %.not.i.i6.i.i.i.i.i.i = icmp slt i32 %3, %0
+  %.sink.i.i.i.i.i.i = load i32, ptr %.sink.in.i.i.i.i.i.i, align 8
+  %.not.i.i6.i.i.i.i.i.i = icmp slt i32 %.sink.i.i.i.i.i.i, %0
   %.add.i.i = select i1 %.not.i.i6.i.i.i.i.i.i, i64 40, i64 8
   %.add12.i.i = or disjoint i64 %.add.i.i, %2
   %.ptr15.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_9Attribute4TYPEE.enums2str, i64 %.add12.i.i
-  %4 = load i32, ptr %.ptr15.i.i, align 8
-  %.not.i.i.i8.i.i.i.i.i.i = icmp slt i32 %4, %0
+  %3 = load i32, ptr %.ptr15.i.i, align 8
+  %.not.i.i.i8.i.i.i.i.i.i = icmp slt i32 %3, %0
   %.idx.i.i.i9.i.i.i.i.i.i = select i1 %.not.i.i.i8.i.i.i.i.i.i, i64 16, i64 0
   %.add13.i.i = or disjoint i64 %.add12.i.i, %.idx.i.i.i9.i.i.i.i.i.i
   %.not.i.i = icmp eq i64 %.add13.i.i, 184
-  br i1 %.not.i.i, label %_ZNK6frozen3mapIN4LIEF2PE9Attribute4TYPEEPKcLm11ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %5
+  br i1 %.not.i.i, label %_ZNK6frozen3mapIN4LIEF2PE9Attribute4TYPEEPKcLm11ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %4
 
-5:                                                ; preds = %1
+4:                                                ; preds = %1
   %.ptr16.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_9Attribute4TYPEE.enums2str, i64 %.add13.i.i
-  %6 = load i32, ptr %.ptr16.i.i, align 8
-  %.not17.i.i = icmp slt i32 %0, %6
-  br i1 %.not17.i.i, label %_ZNK6frozen3mapIN4LIEF2PE9Attribute4TYPEEPKcLm11ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %7
+  %5 = load i32, ptr %.ptr16.i.i, align 8
+  %.not17.i.i = icmp slt i32 %0, %5
+  br i1 %.not17.i.i, label %_ZNK6frozen3mapIN4LIEF2PE9Attribute4TYPEEPKcLm11ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %6
 
-7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %.ptr16.i.i, i64 8
-  %9 = load ptr, ptr %8, align 8
+6:                                                ; preds = %4
+  %7 = getelementptr inbounds i8, ptr %.ptr16.i.i, i64 8
+  %8 = load ptr, ptr %7, align 8
   br label %_ZNK6frozen3mapIN4LIEF2PE9Attribute4TYPEEPKcLm11ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread
 
-_ZNK6frozen3mapIN4LIEF2PE9Attribute4TYPEEPKcLm11ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread: ; preds = %5, %1, %7
-  %.0 = phi ptr [ %9, %7 ], [ @.str, %1 ], [ @.str, %5 ]
+_ZNK6frozen3mapIN4LIEF2PE9Attribute4TYPEEPKcLm11ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread: ; preds = %4, %1, %6
+  %.0 = phi ptr [ %8, %6 ], [ @.str, %1 ], [ @.str, %4 ]
   ret ptr %.0
 }
 

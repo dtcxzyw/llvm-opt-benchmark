@@ -5079,26 +5079,37 @@ for.body:                                         ; preds = %entry, %for.inc
   %0 = load ptr, ptr %arrayidx, align 8
   %call = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(21) @.str) #28
   %cmp3 = icmp eq i32 %call, 0
-  br i1 %cmp3, label %for.inc.sink.split, label %if.end
+  br i1 %cmp3, label %if.then, label %if.end
+
+if.then:                                          ; preds = %for.body
+  %value = getelementptr inbounds i8, ptr %arrayidx, i64 32
+  %1 = load i64, ptr %value, align 8
+  store i64 %1, ptr %agg.result, align 8
+  br label %for.inc
 
 if.end:                                           ; preds = %for.body
   %call5 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(15) @.str.1) #28
   %cmp6 = icmp eq i32 %call5, 0
-  br i1 %cmp6, label %for.inc.sink.split, label %if.end9
+  br i1 %cmp6, label %if.then7, label %if.end9
+
+if.then7:                                         ; preds = %if.end
+  %value8 = getelementptr inbounds i8, ptr %arrayidx, i64 32
+  %2 = load i64, ptr %value8, align 8
+  store i64 %2, ptr %lock_wait_count, align 8
+  br label %for.inc
 
 if.end9:                                          ; preds = %if.end
   %call11 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(17) @.str.2) #28
   %cmp12 = icmp eq i32 %call11, 0
-  br i1 %cmp12, label %for.inc.sink.split, label %for.inc
+  br i1 %cmp12, label %if.then13, label %for.inc
 
-for.inc.sink.split:                               ; preds = %if.end9, %if.end, %for.body
-  %current_lock_memory.sink = phi ptr [ %agg.result, %for.body ], [ %lock_wait_count, %if.end ], [ %current_lock_memory, %if.end9 ]
+if.then13:                                        ; preds = %if.end9
   %value14 = getelementptr inbounds i8, ptr %arrayidx, i64 32
-  %1 = load i64, ptr %value14, align 8
-  store i64 %1, ptr %current_lock_memory.sink, align 8
+  %3 = load i64, ptr %value14, align 8
+  store i64 %3, ptr %current_lock_memory, align 8
   br label %for.inc
 
-for.inc:                                          ; preds = %for.inc.sink.split, %if.end9
+for.inc:                                          ; preds = %if.end9, %if.then13, %if.then7, %if.then
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !41
@@ -5132,26 +5143,37 @@ for.body.i:                                       ; preds = %for.inc.i, %entry
   %0 = load ptr, ptr %arrayidx.i, align 8, !noalias !42
   %call.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(21) @.str) #28, !noalias !42
   %cmp3.i = icmp eq i32 %call.i, 0
-  br i1 %cmp3.i, label %for.inc.sink.split.i, label %if.end.i
+  br i1 %cmp3.i, label %if.then.i, label %if.end.i
+
+if.then.i:                                        ; preds = %for.body.i
+  %value.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
+  %1 = load i64, ptr %value.i, align 8, !noalias !42
+  store i64 %1, ptr %agg.result, align 8, !alias.scope !42
+  br label %for.inc.i
 
 if.end.i:                                         ; preds = %for.body.i
   %call5.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(15) @.str.1) #28, !noalias !42
   %cmp6.i = icmp eq i32 %call5.i, 0
-  br i1 %cmp6.i, label %for.inc.sink.split.i, label %if.end9.i
+  br i1 %cmp6.i, label %if.then7.i, label %if.end9.i
+
+if.then7.i:                                       ; preds = %if.end.i
+  %value8.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
+  %2 = load i64, ptr %value8.i, align 8, !noalias !42
+  store i64 %2, ptr %lock_wait_count.i, align 8, !alias.scope !42
+  br label %for.inc.i
 
 if.end9.i:                                        ; preds = %if.end.i
   %call11.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(17) @.str.2) #28, !noalias !42
   %cmp12.i = icmp eq i32 %call11.i, 0
-  br i1 %cmp12.i, label %for.inc.sink.split.i, label %for.inc.i
+  br i1 %cmp12.i, label %if.then13.i, label %for.inc.i
 
-for.inc.sink.split.i:                             ; preds = %if.end9.i, %if.end.i, %for.body.i
-  %current_lock_memory.sink.i = phi ptr [ %agg.result, %for.body.i ], [ %lock_wait_count.i, %if.end.i ], [ %current_lock_memory.i, %if.end9.i ]
+if.then13.i:                                      ; preds = %if.end9.i
   %value14.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
-  %1 = load i64, ptr %value14.i, align 8, !noalias !42
-  store i64 %1, ptr %current_lock_memory.sink.i, align 8, !alias.scope !42
+  %3 = load i64, ptr %value14.i, align 8, !noalias !42
+  store i64 %3, ptr %current_lock_memory.i, align 8, !alias.scope !42
   br label %for.inc.i
 
-for.inc.i:                                        ; preds = %for.inc.sink.split.i, %if.end9.i
+for.inc.i:                                        ; preds = %if.then13.i, %if.end9.i, %if.then7.i, %if.then.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 19
   br i1 %exitcond.not.i, label %_ZN7rocksdb20RangeTreeLockManager9GetStatusEv.exit, label %for.body.i, !llvm.loop !41
@@ -7745,7 +7767,8 @@ while.body:                                       ; preds = %_ZNSt10_HashtableIj
 if.then:                                          ; preds = %while.body
   %3 = load ptr, ptr %__prev_p.048, align 8
   store ptr %3, ptr %__p.051, align 8
-  br label %if.end43.sink.split
+  store ptr %__p.051, ptr %__prev_p.048, align 8
+  br label %if.end43
 
 if.else:                                          ; preds = %while.body
   %tobool9 = trunc nuw i8 %__check_bucket.047 to i1
@@ -7787,24 +7810,19 @@ if.then23:                                        ; preds = %if.end20
 
 if.then33:                                        ; preds = %if.then23
   %arrayidx34 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.050
-  br label %if.end43.sink.split
+  store ptr %__p.051, ptr %arrayidx34, align 8
+  br label %if.end43
 
 if.else36:                                        ; preds = %if.end20
   %9 = load ptr, ptr %6, align 8
   store ptr %9, ptr %__p.051, align 8
   %10 = load ptr, ptr %arrayidx21, align 8
-  br label %if.end43.sink.split
-
-if.end43.sink.split:                              ; preds = %if.then, %if.else36, %if.then33
-  %arrayidx34.sink = phi ptr [ %arrayidx34, %if.then33 ], [ %10, %if.else36 ], [ %__prev_p.048, %if.then ]
-  %__check_bucket.1.ph = phi i8 [ %__check_bucket.2, %if.then33 ], [ %__check_bucket.2, %if.else36 ], [ 1, %if.then ]
-  %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then33 ], [ %__bbegin_bkt.050, %if.else36 ], [ %__bbegin_bkt.050, %if.then ]
-  store ptr %__p.051, ptr %arrayidx34.sink, align 8
+  store ptr %__p.051, ptr %10, align 8
   br label %if.end43
 
-if.end43:                                         ; preds = %if.end43.sink.split, %if.then23
-  %__check_bucket.1 = phi i8 [ %__check_bucket.2, %if.then23 ], [ %__check_bucket.1.ph, %if.end43.sink.split ]
-  %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then23 ], [ %__bbegin_bkt.1.ph, %if.end43.sink.split ]
+if.end43:                                         ; preds = %if.then23, %if.then33, %if.else36, %if.then
+  %__check_bucket.1 = phi i8 [ 1, %if.then ], [ %__check_bucket.2, %if.else36 ], [ %__check_bucket.2, %if.then33 ], [ %__check_bucket.2, %if.then23 ]
+  %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.050, %if.then ], [ %__bbegin_bkt.050, %if.else36 ], [ %rem.i.i, %if.then33 ], [ %rem.i.i, %if.then23 ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !62
 
@@ -9949,22 +9967,18 @@ if.then:                                          ; preds = %while.body
 
 if.then15:                                        ; preds = %if.then
   %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
-  br label %if.end22.sink.split
+  store ptr %__p.022, ptr %arrayidx16, align 8
+  br label %if.end22
 
 if.else:                                          ; preds = %while.body
   %6 = load ptr, ptr %3, align 8
   store ptr %6, ptr %__p.022, align 8
   %7 = load ptr, ptr %arrayidx, align 8
-  br label %if.end22.sink.split
-
-if.end22.sink.split:                              ; preds = %if.else, %if.then15
-  %arrayidx16.sink = phi ptr [ %arrayidx16, %if.then15 ], [ %7, %if.else ]
-  %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then15 ], [ %__bbegin_bkt.021, %if.else ]
-  store ptr %__p.022, ptr %arrayidx16.sink, align 8
+  store ptr %__p.022, ptr %7, align 8
   br label %if.end22
 
-if.end22:                                         ; preds = %if.end22.sink.split, %if.then
-  %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then ], [ %__bbegin_bkt.1.ph, %if.end22.sink.split ]
+if.end22:                                         ; preds = %if.then, %if.then15, %if.else
+  %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.021, %if.else ], [ %rem.i.i, %if.then15 ], [ %rem.i.i, %if.then ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !104
 
@@ -10487,7 +10501,8 @@ while.body:                                       ; preds = %_ZNSt10_HashtableIj
 if.then:                                          ; preds = %while.body
   %3 = load ptr, ptr %__prev_p.048, align 8
   store ptr %3, ptr %__p.051, align 8
-  br label %if.end43.sink.split
+  store ptr %__p.051, ptr %__prev_p.048, align 8
+  br label %if.end43
 
 if.else:                                          ; preds = %while.body
   %tobool9 = trunc nuw i8 %__check_bucket.047 to i1
@@ -10529,24 +10544,19 @@ if.then23:                                        ; preds = %if.end20
 
 if.then33:                                        ; preds = %if.then23
   %arrayidx34 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.050
-  br label %if.end43.sink.split
+  store ptr %__p.051, ptr %arrayidx34, align 8
+  br label %if.end43
 
 if.else36:                                        ; preds = %if.end20
   %9 = load ptr, ptr %6, align 8
   store ptr %9, ptr %__p.051, align 8
   %10 = load ptr, ptr %arrayidx21, align 8
-  br label %if.end43.sink.split
-
-if.end43.sink.split:                              ; preds = %if.then, %if.else36, %if.then33
-  %arrayidx34.sink = phi ptr [ %arrayidx34, %if.then33 ], [ %10, %if.else36 ], [ %__prev_p.048, %if.then ]
-  %__check_bucket.1.ph = phi i8 [ %__check_bucket.2, %if.then33 ], [ %__check_bucket.2, %if.else36 ], [ 1, %if.then ]
-  %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then33 ], [ %__bbegin_bkt.050, %if.else36 ], [ %__bbegin_bkt.050, %if.then ]
-  store ptr %__p.051, ptr %arrayidx34.sink, align 8
+  store ptr %__p.051, ptr %10, align 8
   br label %if.end43
 
-if.end43:                                         ; preds = %if.end43.sink.split, %if.then23
-  %__check_bucket.1 = phi i8 [ %__check_bucket.2, %if.then23 ], [ %__check_bucket.1.ph, %if.end43.sink.split ]
-  %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then23 ], [ %__bbegin_bkt.1.ph, %if.end43.sink.split ]
+if.end43:                                         ; preds = %if.then23, %if.then33, %if.else36, %if.then
+  %__check_bucket.1 = phi i8 [ 1, %if.then ], [ %__check_bucket.2, %if.else36 ], [ %__check_bucket.2, %if.then33 ], [ %__check_bucket.2, %if.then23 ]
+  %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.050, %if.then ], [ %__bbegin_bkt.050, %if.else36 ], [ %rem.i.i, %if.then33 ], [ %rem.i.i, %if.then23 ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !108
 

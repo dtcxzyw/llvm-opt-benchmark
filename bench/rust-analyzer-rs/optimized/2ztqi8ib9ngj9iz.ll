@@ -6110,12 +6110,11 @@ define hidden noundef ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
 67:                                               ; preds = %29
   %68 = getelementptr inbounds i8, ptr %37, i64 -8
   %69 = load ptr, ptr %68, align 8, !nonnull !16, !noundef !16
+  store ptr %3, ptr %68, align 8
   br label %70
 
 70:                                               ; preds = %71, %67
-  %.sroa.5.0..sroa_idx.sink = phi ptr [ %.sroa.5.0..sroa_idx, %71 ], [ %68, %67 ]
   %.0 = phi ptr [ null, %71 ], [ %69, %67 ]
-  store ptr %3, ptr %.sroa.5.0..sroa_idx.sink, align 8
   ret ptr %.0
 
 71:                                               ; preds = %55, %60
@@ -6145,6 +6144,7 @@ define hidden noundef ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   %.sroa.416.0..sroa_idx = getelementptr inbounds i8, ptr %86, i64 -12
   store i32 %2, ptr %.sroa.416.0..sroa_idx, align 4, !noalias !1574
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %86, i64 -8
+  store ptr %3, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !1574
   br label %70
 
 88:                                               ; preds = %14

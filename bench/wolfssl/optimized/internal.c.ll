@@ -3332,7 +3332,12 @@ if.then.i.i:                                      ; preds = %if.then.i
   %inc.i.i = add i32 %4, 1
   store i32 %inc.i.i, ptr %peer_sequence_number_lo.i.i, align 4
   %cmp.i.i = icmp eq i32 %4, -1
-  br i1 %cmp.i.i, label %if.end24.sink.split.i.i, label %WriteSEQ.exit
+  br i1 %cmp.i.i, label %if.then6.i.i, label %WriteSEQ.exit
+
+if.then6.i.i:                                     ; preds = %if.then.i.i
+  %inc9.i.i = add i32 %3, 1
+  store i32 %inc9.i.i, ptr %peer_sequence_number_hi.i.i, align 4
+  br label %WriteSEQ.exit
 
 if.else.i.i:                                      ; preds = %if.then.i
   %sequence_number_hi.i.i = getelementptr inbounds i8, ptr %ssl, i64 980
@@ -3342,18 +3347,16 @@ if.else.i.i:                                      ; preds = %if.then.i
   %inc13.i.i = add i32 %6, 1
   store i32 %inc13.i.i, ptr %sequence_number_lo.i.i, align 4
   %cmp18.i.i = icmp eq i32 %6, -1
-  br i1 %cmp18.i.i, label %if.end24.sink.split.i.i, label %WriteSEQ.exit
+  br i1 %cmp18.i.i, label %if.then19.i.i, label %WriteSEQ.exit
 
-if.end24.sink.split.i.i:                          ; preds = %if.else.i.i, %if.then.i.i
-  %7 = phi i32 [ %5, %if.else.i.i ], [ %3, %if.then.i.i ]
-  %sequence_number_hi.sink13.i.i = phi ptr [ %sequence_number_hi.i.i, %if.else.i.i ], [ %peer_sequence_number_hi.i.i, %if.then.i.i ]
-  %inc22.i.i = add i32 %7, 1
-  store i32 %inc22.i.i, ptr %sequence_number_hi.sink13.i.i, align 4
+if.then19.i.i:                                    ; preds = %if.else.i.i
+  %inc22.i.i = add i32 %5, 1
+  store i32 %inc22.i.i, ptr %sequence_number_hi.i.i, align 4
   br label %WriteSEQ.exit
 
-WriteSEQ.exit:                                    ; preds = %entry, %if.then.i.i, %if.else.i.i, %if.end24.sink.split.i.i
-  %seq.sroa.4.0.i = phi i32 [ 0, %entry ], [ -1, %if.end24.sink.split.i.i ], [ %6, %if.else.i.i ], [ %4, %if.then.i.i ]
-  %seq.sroa.0.0.i = phi i32 [ 0, %entry ], [ %7, %if.end24.sink.split.i.i ], [ %5, %if.else.i.i ], [ %3, %if.then.i.i ]
+WriteSEQ.exit:                                    ; preds = %entry, %if.then.i.i, %if.then6.i.i, %if.else.i.i, %if.then19.i.i
+  %seq.sroa.4.0.i = phi i32 [ 0, %entry ], [ -1, %if.then19.i.i ], [ %6, %if.else.i.i ], [ -1, %if.then6.i.i ], [ %4, %if.then.i.i ]
+  %seq.sroa.0.0.i = phi i32 [ 0, %entry ], [ %5, %if.then19.i.i ], [ %5, %if.else.i.i ], [ %3, %if.then6.i.i ], [ %3, %if.then.i.i ]
   %shr.i.i = lshr i32 %seq.sroa.0.0.i, 24
   %conv.i.i = trunc nuw i32 %shr.i.i to i8
   store i8 %conv.i.i, ptr %seq, align 1
@@ -3384,16 +3387,16 @@ WriteSEQ.exit:                                    ; preds = %entry, %if.then.i.i
   %arrayidx11.i13.i = getelementptr inbounds i8, ptr %seq, i64 7
   store i8 %conv10.i12.i, ptr %arrayidx11.i13.i, align 1
   %mac_algorithm = getelementptr inbounds i8, ptr %ssl, i64 708
-  %8 = load i8, ptr %mac_algorithm, align 2
-  %cmp = icmp eq i8 %8, 1
+  %7 = load i8, ptr %mac_algorithm, align 2
+  %cmp = icmp eq i8 %7, 1
   %heap = getelementptr inbounds i8, ptr %ssl, i64 168
-  %9 = load ptr, ptr %heap, align 8
+  %8 = load ptr, ptr %heap, align 8
   %devId = getelementptr inbounds i8, ptr %ssl, i64 1180
-  %10 = load i32, ptr %devId, align 4
+  %9 = load i32, ptr %devId, align 4
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %WriteSEQ.exit
-  %call10 = call i32 @wc_InitMd5_ex(ptr noundef nonnull %md5, ptr noundef %9, i32 noundef %10) #26
+  %call10 = call i32 @wc_InitMd5_ex(ptr noundef nonnull %md5, ptr noundef %8, i32 noundef %9) #26
   %cmp11.not = icmp eq i32 %call10, 0
   br i1 %cmp11.not, label %if.end, label %return
 
@@ -3434,7 +3437,7 @@ if.end48:                                         ; preds = %if.end43
   br label %return
 
 if.else:                                          ; preds = %WriteSEQ.exit
-  %call51 = call i32 @wc_InitSha_ex(ptr noundef nonnull %sha, ptr noundef %9, i32 noundef %10) #26
+  %call51 = call i32 @wc_InitSha_ex(ptr noundef nonnull %sha, ptr noundef %8, i32 noundef %9) #26
   %cmp52.not = icmp eq i32 %call51, 0
   br i1 %cmp52.not, label %if.end55, label %return
 
@@ -5224,7 +5227,12 @@ if.then.i:                                        ; preds = %if.then
   %inc.i = add i32 %2, 1
   store i32 %inc.i, ptr %peer_sequence_number_lo.i, align 4
   %cmp.i = icmp eq i32 %2, -1
-  br i1 %cmp.i, label %if.end24.sink.split.i, label %if.end
+  br i1 %cmp.i, label %if.then6.i, label %if.end
+
+if.then6.i:                                       ; preds = %if.then.i
+  %inc9.i = add i32 %1, 1
+  store i32 %inc9.i, ptr %peer_sequence_number_hi.i, align 4
+  br label %if.end
 
 if.else.i:                                        ; preds = %if.then
   %sequence_number_hi.i = getelementptr inbounds i8, ptr %ssl, i64 980
@@ -5234,18 +5242,16 @@ if.else.i:                                        ; preds = %if.then
   %inc13.i = add i32 %4, 1
   store i32 %inc13.i, ptr %sequence_number_lo.i, align 4
   %cmp18.i = icmp eq i32 %4, -1
-  br i1 %cmp18.i, label %if.end24.sink.split.i, label %if.end
+  br i1 %cmp18.i, label %if.then19.i, label %if.end
 
-if.end24.sink.split.i:                            ; preds = %if.else.i, %if.then.i
-  %5 = phi i32 [ %3, %if.else.i ], [ %1, %if.then.i ]
-  %sequence_number_hi.sink13.i = phi ptr [ %sequence_number_hi.i, %if.else.i ], [ %peer_sequence_number_hi.i, %if.then.i ]
-  %inc22.i = add i32 %5, 1
-  store i32 %inc22.i, ptr %sequence_number_hi.sink13.i, align 4
+if.then19.i:                                      ; preds = %if.else.i
+  %inc22.i = add i32 %3, 1
+  store i32 %inc22.i, ptr %sequence_number_hi.i, align 4
   br label %if.end
 
-if.end:                                           ; preds = %if.end24.sink.split.i, %if.else.i, %if.then.i, %entry
-  %seq.sroa.4.0 = phi i32 [ 0, %entry ], [ -1, %if.end24.sink.split.i ], [ %4, %if.else.i ], [ %2, %if.then.i ]
-  %seq.sroa.0.0 = phi i32 [ 0, %entry ], [ %5, %if.end24.sink.split.i ], [ %3, %if.else.i ], [ %1, %if.then.i ]
+if.end:                                           ; preds = %if.then19.i, %if.else.i, %if.then6.i, %if.then.i, %entry
+  %seq.sroa.4.0 = phi i32 [ 0, %entry ], [ -1, %if.then19.i ], [ %4, %if.else.i ], [ -1, %if.then6.i ], [ %2, %if.then.i ]
+  %seq.sroa.0.0 = phi i32 [ 0, %entry ], [ %3, %if.then19.i ], [ %3, %if.else.i ], [ %1, %if.then6.i ], [ %1, %if.then.i ]
   %shr.i = lshr i32 %seq.sroa.0.0, 24
   %conv.i = trunc nuw i32 %shr.i to i8
   store i8 %conv.i, ptr %out, align 1
@@ -9952,7 +9958,10 @@ land.lhs.true115:                                 ; preds = %if.then111
 if.then120:                                       ; preds = %land.lhs.true115
   %sendVerify = getelementptr inbounds i8, ptr %ssl, i64 1008
   %bf.load = load i64, ptr %sendVerify, align 8
-  br label %if.end138.sink.split
+  %bf.clear = and i64 %bf.load, -4
+  %bf.set = or disjoint i64 %bf.clear, 1
+  store i64 %bf.set, ptr %sendVerify, align 8
+  br label %if.end138
 
 if.else:                                          ; preds = %land.lhs.true106, %while.end
   %20 = load i8, ptr %version.i, align 2
@@ -9980,18 +9989,12 @@ lor.lhs.false125:                                 ; preds = %if.else, %land.lhs.
 if.then131:                                       ; preds = %land.lhs.true.i79.if.then131_crit_edge, %lor.lhs.false125
   %bf.load134 = phi i64 [ %bf.load134.pre, %land.lhs.true.i79.if.then131_crit_edge ], [ %bf.load127, %lor.lhs.false125 ]
   %sendVerify133 = getelementptr inbounds i8, ptr %ssl, i64 1008
-  br label %if.end138.sink.split
-
-if.end138.sink.split:                             ; preds = %if.then120, %if.then131
-  %bf.load134.sink = phi i64 [ %bf.load134, %if.then131 ], [ %bf.load, %if.then120 ]
-  %.sink = phi i64 [ 2, %if.then131 ], [ 1, %if.then120 ]
-  %sendVerify133.sink = phi ptr [ %sendVerify133, %if.then131 ], [ %sendVerify, %if.then120 ]
-  %bf.clear135 = and i64 %bf.load134.sink, -4
-  %bf.set136 = or disjoint i64 %bf.clear135, %.sink
-  store i64 %bf.set136, ptr %sendVerify133.sink, align 8
+  %bf.clear135 = and i64 %bf.load134, -4
+  %bf.set136 = or disjoint i64 %bf.clear135, 2
+  store i64 %bf.set136, ptr %sendVerify133, align 8
   br label %if.end138
 
-if.end138:                                        ; preds = %if.end138.sink.split, %lor.lhs.false125, %if.then111, %land.lhs.true115
+if.end138:                                        ; preds = %lor.lhs.false125, %if.then131, %if.then111, %land.lhs.true115, %if.then120
   %encryptionOn.i = getelementptr inbounds i8, ptr %ssl, i64 996
   %23 = load i8, ptr %encryptionOn.i, align 4
   %tobool.not.i = icmp eq i8 %23, 0
@@ -12983,16 +12986,16 @@ if.then.i:                                        ; preds = %entry
   %inc13.i.i = add i32 %4, 1
   store i32 %inc13.i.i, ptr %sequence_number_lo.i.i, align 4
   %cmp18.i.i = icmp eq i32 %4, -1
-  br i1 %cmp18.i.i, label %if.end24.sink.split.i.i, label %WriteSEQ.exit
+  br i1 %cmp18.i.i, label %if.then19.i.i, label %WriteSEQ.exit
 
-if.end24.sink.split.i.i:                          ; preds = %if.then.i
+if.then19.i.i:                                    ; preds = %if.then.i
   %inc22.i.i = add i32 %3, 1
   store i32 %inc22.i.i, ptr %sequence_number_hi.i.i, align 4
   br label %WriteSEQ.exit
 
-WriteSEQ.exit:                                    ; preds = %entry, %if.then.i, %if.end24.sink.split.i.i
-  %seq.sroa.4.0.i = phi i32 [ 0, %entry ], [ -1, %if.end24.sink.split.i.i ], [ %4, %if.then.i ]
-  %seq.sroa.0.0.i = phi i32 [ 0, %entry ], [ %3, %if.end24.sink.split.i.i ], [ %3, %if.then.i ]
+WriteSEQ.exit:                                    ; preds = %entry, %if.then.i, %if.then19.i.i
+  %seq.sroa.4.0.i = phi i32 [ 0, %entry ], [ -1, %if.then19.i.i ], [ %4, %if.then.i ]
+  %seq.sroa.0.0.i = phi i32 [ 0, %entry ], [ %3, %if.then19.i.i ], [ %3, %if.then.i ]
   %shr.i.i = lshr i32 %seq.sroa.0.0.i, 24
   %conv.i.i = trunc nuw i32 %shr.i.i to i8
   store i8 %conv.i.i, ptr %add, align 8
@@ -13455,16 +13458,16 @@ if.then.i:                                        ; preds = %entry
   %inc.i.i = add i32 %4, 1
   store i32 %inc.i.i, ptr %peer_sequence_number_lo.i.i, align 4
   %cmp.i.i = icmp eq i32 %4, -1
-  br i1 %cmp.i.i, label %if.end24.sink.split.i.i, label %WriteSEQ.exit
+  br i1 %cmp.i.i, label %if.then6.i.i, label %WriteSEQ.exit
 
-if.end24.sink.split.i.i:                          ; preds = %if.then.i
-  %inc22.i.i = add i32 %3, 1
-  store i32 %inc22.i.i, ptr %peer_sequence_number_hi.i.i, align 4
+if.then6.i.i:                                     ; preds = %if.then.i
+  %inc9.i.i = add i32 %3, 1
+  store i32 %inc9.i.i, ptr %peer_sequence_number_hi.i.i, align 4
   br label %WriteSEQ.exit
 
-WriteSEQ.exit:                                    ; preds = %entry, %if.then.i, %if.end24.sink.split.i.i
-  %seq.sroa.4.0.i = phi i32 [ 0, %entry ], [ -1, %if.end24.sink.split.i.i ], [ %4, %if.then.i ]
-  %seq.sroa.0.0.i = phi i32 [ 0, %entry ], [ %3, %if.end24.sink.split.i.i ], [ %3, %if.then.i ]
+WriteSEQ.exit:                                    ; preds = %entry, %if.then.i, %if.then6.i.i
+  %seq.sroa.4.0.i = phi i32 [ 0, %entry ], [ -1, %if.then6.i.i ], [ %4, %if.then.i ]
+  %seq.sroa.0.0.i = phi i32 [ 0, %entry ], [ %3, %if.then6.i.i ], [ %3, %if.then.i ]
   %shr.i.i = lshr i32 %seq.sroa.0.0.i, 24
   %conv.i.i = trunc nuw i32 %shr.i.i to i8
   store i8 %conv.i.i, ptr %add, align 8
@@ -16429,16 +16432,16 @@ if.then.i.i:                                      ; preds = %sw.bb2.i
   %inc.i.i.i = add i32 %12, 1
   store i32 %inc.i.i.i, ptr %peer_sequence_number_lo.i.i.i, align 4
   %cmp.i.i.i = icmp eq i32 %12, -1
-  br i1 %cmp.i.i.i, label %if.end24.sink.split.i.i.i, label %WriteSEQ.exit.i
+  br i1 %cmp.i.i.i, label %if.then6.i.i.i, label %WriteSEQ.exit.i
 
-if.end24.sink.split.i.i.i:                        ; preds = %if.then.i.i
-  %inc22.i.i.i = add i32 %11, 1
-  store i32 %inc22.i.i.i, ptr %peer_sequence_number_hi.i.i.i, align 4
+if.then6.i.i.i:                                   ; preds = %if.then.i.i
+  %inc9.i.i.i = add i32 %11, 1
+  store i32 %inc9.i.i.i, ptr %peer_sequence_number_hi.i.i.i, align 4
   br label %WriteSEQ.exit.i
 
-WriteSEQ.exit.i:                                  ; preds = %if.end24.sink.split.i.i.i, %if.then.i.i, %sw.bb2.i
-  %seq.sroa.4.0.i.i = phi i32 [ 0, %sw.bb2.i ], [ -1, %if.end24.sink.split.i.i.i ], [ %12, %if.then.i.i ]
-  %seq.sroa.0.0.i.i = phi i32 [ 0, %sw.bb2.i ], [ %11, %if.end24.sink.split.i.i.i ], [ %11, %if.then.i.i ]
+WriteSEQ.exit.i:                                  ; preds = %if.then6.i.i.i, %if.then.i.i, %sw.bb2.i
+  %seq.sroa.4.0.i.i = phi i32 [ 0, %sw.bb2.i ], [ -1, %if.then6.i.i.i ], [ %12, %if.then.i.i ]
+  %seq.sroa.0.0.i.i = phi i32 [ 0, %sw.bb2.i ], [ %11, %if.then6.i.i.i ], [ %11, %if.then.i.i ]
   %shr.i.i.i = lshr i32 %seq.sroa.0.0.i.i, 24
   %conv.i.i.i = trunc nuw i32 %shr.i.i.i to i8
   store i8 %conv.i.i.i, ptr %9, align 1
@@ -17808,16 +17811,16 @@ if.then.i.i:                                      ; preds = %sw.bb2.i
   %inc13.i.i.i = add i32 %13, 1
   store i32 %inc13.i.i.i, ptr %sequence_number_lo.i.i.i, align 4
   %cmp18.i.i.i = icmp eq i32 %13, -1
-  br i1 %cmp18.i.i.i, label %if.end24.sink.split.i.i.i, label %WriteSEQ.exit.i
+  br i1 %cmp18.i.i.i, label %if.then19.i.i.i, label %WriteSEQ.exit.i
 
-if.end24.sink.split.i.i.i:                        ; preds = %if.then.i.i
+if.then19.i.i.i:                                  ; preds = %if.then.i.i
   %inc22.i.i.i = add i32 %12, 1
   store i32 %inc22.i.i.i, ptr %sequence_number_hi.i.i.i, align 4
   br label %WriteSEQ.exit.i
 
-WriteSEQ.exit.i:                                  ; preds = %if.end24.sink.split.i.i.i, %if.then.i.i, %sw.bb2.i
-  %seq.sroa.4.0.i.i = phi i32 [ 0, %sw.bb2.i ], [ -1, %if.end24.sink.split.i.i.i ], [ %13, %if.then.i.i ]
-  %seq.sroa.0.0.i.i = phi i32 [ 0, %sw.bb2.i ], [ %12, %if.end24.sink.split.i.i.i ], [ %12, %if.then.i.i ]
+WriteSEQ.exit.i:                                  ; preds = %if.then19.i.i.i, %if.then.i.i, %sw.bb2.i
+  %seq.sroa.4.0.i.i = phi i32 [ 0, %sw.bb2.i ], [ -1, %if.then19.i.i.i ], [ %13, %if.then.i.i ]
+  %seq.sroa.0.0.i.i = phi i32 [ 0, %sw.bb2.i ], [ %12, %if.then19.i.i.i ], [ %12, %if.then.i.i ]
   %shr.i.i.i = lshr i32 %seq.sroa.0.0.i.i, 24
   %conv.i.i.i = trunc nuw i32 %shr.i.i.i to i8
   store i8 %conv.i.i.i, ptr %10, align 1

@@ -1283,7 +1283,7 @@ define noundef ptr @_ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmal
 37:                                               ; preds = %30
   %38 = add nsw i32 %35, 1
   store i32 %38, ptr %34, align 4
-  br label %._crit_edge.sink.split
+  br label %_ZN11TransTableS9AddLenSetEii.exit
 
 39:                                               ; preds = %30
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 368
@@ -1306,7 +1306,7 @@ define noundef ptr @_ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmal
 52:                                               ; preds = %46, %39
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 404
   store i8 1, ptr %53, align 4
-  br label %._crit_edge.sink.split
+  br label %_ZN11TransTableS9AddLenSetEii.exit
 
 54:                                               ; preds = %46
   %55 = add nsw i32 %49, 1
@@ -1329,7 +1329,7 @@ define noundef ptr @_ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmal
 68:                                               ; preds = %54
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 404
   store i8 1, ptr %69, align 4
-  br label %._crit_edge.sink.split
+  br label %_ZN11TransTableS9AddLenSetEii.exit
 
 70:                                               ; preds = %54
   %71 = load i64, ptr %40, align 8
@@ -1344,6 +1344,10 @@ define noundef ptr @_ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmal
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 1352
   %79 = getelementptr inbounds [14 x [4 x ptr]], ptr %78, i64 0, i64 %32, i64 %33
   store ptr %77, ptr %79, align 8
+  br label %_ZN11TransTableS9AddLenSetEii.exit
+
+_ZN11TransTableS9AddLenSetEii.exit:               ; preds = %37, %52, %68, %70
+  store ptr %.0, ptr %29, align 8
   br label %._crit_edge.sink.split
 
 80:                                               ; preds = %.lr.ph
@@ -1368,7 +1372,7 @@ define noundef ptr @_ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmal
 92:                                               ; preds = %85
   %93 = add nsw i32 %90, 1
   store i32 %93, ptr %89, align 4
-  br label %._crit_edge.sink.split
+  br label %_ZN11TransTableS9AddLenSetEii.exit53
 
 94:                                               ; preds = %85
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 368
@@ -1391,7 +1395,7 @@ define noundef ptr @_ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmal
 107:                                              ; preds = %101, %94
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 404
   store i8 1, ptr %108, align 4
-  br label %._crit_edge.sink.split
+  br label %_ZN11TransTableS9AddLenSetEii.exit53
 
 109:                                              ; preds = %101
   %110 = add nsw i32 %104, 1
@@ -1414,7 +1418,7 @@ define noundef ptr @_ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmal
 123:                                              ; preds = %109
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 404
   store i8 1, ptr %124, align 4
-  br label %._crit_edge.sink.split
+  br label %_ZN11TransTableS9AddLenSetEii.exit53
 
 125:                                              ; preds = %109
   %126 = load i64, ptr %95, align 8
@@ -1429,6 +1433,10 @@ define noundef ptr @_ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmal
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 1352
   %134 = getelementptr inbounds [14 x [4 x ptr]], ptr %133, i64 0, i64 %87, i64 %88
   store ptr %132, ptr %134, align 8
+  br label %_ZN11TransTableS9AddLenSetEii.exit53
+
+_ZN11TransTableS9AddLenSetEii.exit53:             ; preds = %92, %107, %123, %125
+  store ptr %.0, ptr %84, align 8
   br label %._crit_edge.sink.split
 
 135:                                              ; preds = %80, %25
@@ -1438,9 +1446,7 @@ define noundef ptr @_ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmal
   %138 = icmp eq i64 %2, %137
   br i1 %138, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
-._crit_edge.sink.split:                           ; preds = %125, %123, %107, %92, %70, %68, %52, %37
-  %.sink66 = phi ptr [ %29, %37 ], [ %29, %52 ], [ %29, %68 ], [ %29, %70 ], [ %84, %92 ], [ %84, %107 ], [ %84, %123 ], [ %84, %125 ]
-  store ptr %.0, ptr %.sink66, align 8
+._crit_edge.sink.split:                           ; preds = %_ZN11TransTableS9AddLenSetEii.exit, %_ZN11TransTableS9AddLenSetEii.exit53
   store ptr null, ptr %.0, align 8
   %139 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   store i64 %2, ptr %139, align 8
@@ -2075,7 +2081,7 @@ define noundef ptr @_ZN11TransTableS9BuildPathEPKiS1_iiccPNS_18posSearchTypeSmal
 _ZN11TransTableS10AddNodeSetEv.exit:              ; preds = %63, %78, %80, %84
   store ptr %45, ptr %39, align 8
   store i8 1, ptr %8, align 1
-  br label %200
+  br label %205
 
 .preheader:                                       ; preds = %9, %118
   %indvars.iv = phi i64 [ %indvars.iv.next, %118 ], [ 0, %9 ]
@@ -2140,7 +2146,7 @@ _ZN11TransTableS9UpdateSOPEiiccP13nodeCardsType.exit: ; preds = %110, %114
   store i8 %5, ptr %116, align 1
   %117 = getelementptr inbounds nuw i8, ptr %103, i64 3
   store i8 %6, ptr %117, align 1
-  br label %200
+  br label %205
 
 118:                                              ; preds = %100
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2160,136 +2166,148 @@ _ZN11TransTableS9UpdateSOPEiiccP13nodeCardsType.exit: ; preds = %110, %114
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 16
   store ptr %.097, ptr %129, align 8
   %.not107 = icmp eq ptr %.097, null
-  %130 = getelementptr inbounds nuw i8, ptr %.097, i64 24
-  %.sink152 = select i1 %.not107, ptr %7, ptr %130
-  %131 = load ptr, ptr %.sink152, align 8
-  %132 = getelementptr inbounds nuw i8, ptr %128, i64 32
-  store ptr %131, ptr %132, align 8
-  store ptr %128, ptr %.sink152, align 8
-  %133 = getelementptr inbounds nuw i8, ptr %128, i64 24
-  store ptr null, ptr %133, align 8
-  %134 = load i32, ptr %122, align 4
-  %135 = getelementptr inbounds nuw i8, ptr %128, i64 4
-  store i32 %134, ptr %135, align 4
-  %136 = load i32, ptr %88, align 4
-  store i32 %136, ptr %128, align 8
-  %137 = getelementptr inbounds nuw i8, ptr %128, i64 8
-  store ptr null, ptr %137, align 8
-  %138 = icmp ult i64 %indvars.iv, 3
-  br i1 %138, label %.lr.ph, label %._crit_edge
+  br i1 %.not107, label %134, label %130
 
-.lr.ph:                                           ; preds = %121, %.lr.ph
-  %indvars.iv132 = phi i64 [ %indvars.iv.next133, %.lr.ph ], [ %indvars.iv, %121 ]
-  %.3120 = phi ptr [ %142, %.lr.ph ], [ %128, %121 ]
+130:                                              ; preds = %121
+  %131 = getelementptr inbounds nuw i8, ptr %.097, i64 24
+  %132 = load ptr, ptr %131, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %128, i64 32
+  store ptr %132, ptr %133, align 8
+  store ptr %128, ptr %131, align 8
+  br label %137
+
+134:                                              ; preds = %121
+  %135 = load ptr, ptr %7, align 8
+  %136 = getelementptr inbounds nuw i8, ptr %128, i64 32
+  store ptr %135, ptr %136, align 8
+  store ptr %128, ptr %7, align 8
+  br label %137
+
+137:                                              ; preds = %134, %130
+  %138 = getelementptr inbounds nuw i8, ptr %128, i64 24
+  store ptr null, ptr %138, align 8
+  %139 = load i32, ptr %122, align 4
+  %140 = getelementptr inbounds nuw i8, ptr %128, i64 4
+  store i32 %139, ptr %140, align 4
+  %141 = load i32, ptr %88, align 4
+  store i32 %141, ptr %128, align 8
+  %142 = getelementptr inbounds nuw i8, ptr %128, i64 8
+  store ptr null, ptr %142, align 8
+  %143 = icmp ult i64 %indvars.iv, 3
+  br i1 %143, label %.lr.ph, label %._crit_edge
+
+.lr.ph:                                           ; preds = %137, %.lr.ph
+  %indvars.iv132 = phi i64 [ %indvars.iv.next133, %.lr.ph ], [ %indvars.iv, %137 ]
+  %.3120 = phi ptr [ %147, %.lr.ph ], [ %128, %137 ]
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
-  %139 = load ptr, ptr %123, align 8
-  %140 = load i32, ptr %125, align 4
-  %141 = sext i32 %140 to i64
-  %142 = getelementptr inbounds %"struct.TransTableS::winCardType", ptr %139, i64 %141
+  %144 = load ptr, ptr %123, align 8
+  %145 = load i32, ptr %125, align 4
+  %146 = sext i32 %145 to i64
+  %147 = getelementptr inbounds %"struct.TransTableS::winCardType", ptr %144, i64 %146
   tail call void @_ZN11TransTableS9AddWinSetEv(ptr noundef nonnull align 8 dereferenceable(2396) %0)
-  %143 = getelementptr inbounds nuw i8, ptr %.3120, i64 24
-  store ptr %142, ptr %143, align 8
-  %144 = getelementptr inbounds nuw i8, ptr %142, i64 16
-  store ptr %.3120, ptr %144, align 8
-  %145 = getelementptr inbounds nuw i8, ptr %142, i64 32
-  store ptr null, ptr %145, align 8
-  %146 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next133
-  %147 = load i32, ptr %146, align 4
-  %148 = getelementptr inbounds nuw i8, ptr %142, i64 4
-  store i32 %147, ptr %148, align 4
-  %149 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next133
-  %150 = load i32, ptr %149, align 4
-  store i32 %150, ptr %142, align 8
-  %151 = getelementptr inbounds nuw i8, ptr %142, i64 8
-  store ptr null, ptr %151, align 8
-  %152 = getelementptr inbounds nuw i8, ptr %142, i64 24
-  store ptr null, ptr %152, align 8
+  %148 = getelementptr inbounds nuw i8, ptr %.3120, i64 24
+  store ptr %147, ptr %148, align 8
+  %149 = getelementptr inbounds nuw i8, ptr %147, i64 16
+  store ptr %.3120, ptr %149, align 8
+  %150 = getelementptr inbounds nuw i8, ptr %147, i64 32
+  store ptr null, ptr %150, align 8
+  %151 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next133
+  %152 = load i32, ptr %151, align 4
+  %153 = getelementptr inbounds nuw i8, ptr %147, i64 4
+  store i32 %152, ptr %153, align 4
+  %154 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next133
+  %155 = load i32, ptr %154, align 4
+  store i32 %155, ptr %147, align 8
+  %156 = getelementptr inbounds nuw i8, ptr %147, i64 8
+  store ptr null, ptr %156, align 8
+  %157 = getelementptr inbounds nuw i8, ptr %147, i64 24
+  store ptr null, ptr %157, align 8
   %exitcond135.not = icmp eq i64 %indvars.iv.next133, 3
   br i1 %exitcond135.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
 
-._crit_edge:                                      ; preds = %.lr.ph, %121
-  %.3.lcssa = phi ptr [ %128, %121 ], [ %142, %.lr.ph ]
-  %153 = getelementptr inbounds nuw i8, ptr %0, i64 1336
-  %154 = load ptr, ptr %153, align 8
-  %155 = getelementptr inbounds nuw i8, ptr %0, i64 1800
-  %156 = load i32, ptr %155, align 8
-  %157 = sext i32 %156 to i64
-  %158 = getelementptr inbounds %struct.nodeCardsType, ptr %154, i64 %157
-  %159 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %160 = load i32, ptr %159, align 8
-  %.not.i108 = icmp slt i32 %156, %160
-  br i1 %.not.i108, label %197, label %161
+._crit_edge:                                      ; preds = %.lr.ph, %137
+  %.3.lcssa = phi ptr [ %128, %137 ], [ %147, %.lr.ph ]
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 1336
+  %159 = load ptr, ptr %158, align 8
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 1800
+  %161 = load i32, ptr %160, align 8
+  %162 = sext i32 %161 to i64
+  %163 = getelementptr inbounds %struct.nodeCardsType, ptr %159, i64 %162
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 352
+  %165 = load i32, ptr %164, align 8
+  %.not.i108 = icmp slt i32 %161, %165
+  br i1 %.not.i108, label %202, label %166
 
-161:                                              ; preds = %._crit_edge
-  %162 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %163 = load i64, ptr %162, align 8
-  %164 = getelementptr inbounds nuw i8, ptr %0, i64 388
-  %165 = load i32, ptr %164, align 4
-  %166 = sext i32 %165 to i64
-  %167 = add i64 %163, %166
-  %168 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %169 = load i64, ptr %168, align 8
-  %170 = icmp ugt i64 %167, %169
-  br i1 %170, label %176, label %171
+166:                                              ; preds = %._crit_edge
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  %168 = load i64, ptr %167, align 8
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 388
+  %170 = load i32, ptr %169, align 4
+  %171 = sext i32 %170 to i64
+  %172 = add i64 %168, %171
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  %174 = load i64, ptr %173, align 8
+  %175 = icmp ugt i64 %172, %174
+  br i1 %175, label %181, label %176
 
-171:                                              ; preds = %161
-  %172 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %173 = load i32, ptr %172, align 8
-  %174 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %175 = load i32, ptr %174, align 8
-  %.not2.i109 = icmp slt i32 %173, %175
-  br i1 %.not2.i109, label %178, label %176
+176:                                              ; preds = %166
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %178 = load i32, ptr %177, align 8
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %180 = load i32, ptr %179, align 8
+  %.not2.i109 = icmp slt i32 %178, %180
+  br i1 %.not2.i109, label %183, label %181
 
-176:                                              ; preds = %171, %161
-  %177 = getelementptr inbounds nuw i8, ptr %0, i64 404
-  store i8 1, ptr %177, align 4
+181:                                              ; preds = %176, %166
+  %182 = getelementptr inbounds nuw i8, ptr %0, i64 404
+  store i8 1, ptr %182, align 4
   br label %_ZN11TransTableS10AddNodeSetEv.exit110
 
-178:                                              ; preds = %171
-  %179 = add nsw i32 %173, 1
-  store i32 %179, ptr %172, align 8
-  store i32 50000, ptr %159, align 8
-  %180 = tail call noalias dereferenceable_or_null(400008) ptr @malloc(i64 noundef 400008) #30
-  %181 = getelementptr inbounds nuw i8, ptr %0, i64 880
-  %182 = load ptr, ptr %181, align 8
-  %183 = sext i32 %179 to i64
-  %184 = getelementptr inbounds ptr, ptr %182, i64 %183
-  store ptr %180, ptr %184, align 8
-  %185 = load ptr, ptr %181, align 8
-  %186 = load i32, ptr %172, align 8
-  %187 = sext i32 %186 to i64
-  %188 = getelementptr inbounds ptr, ptr %185, i64 %187
-  %189 = load ptr, ptr %188, align 8
-  %190 = icmp eq ptr %189, null
-  br i1 %190, label %191, label %193
+183:                                              ; preds = %176
+  %184 = add nsw i32 %178, 1
+  store i32 %184, ptr %177, align 8
+  store i32 50000, ptr %164, align 8
+  %185 = tail call noalias dereferenceable_or_null(400008) ptr @malloc(i64 noundef 400008) #30
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 880
+  %187 = load ptr, ptr %186, align 8
+  %188 = sext i32 %184 to i64
+  %189 = getelementptr inbounds ptr, ptr %187, i64 %188
+  store ptr %185, ptr %189, align 8
+  %190 = load ptr, ptr %186, align 8
+  %191 = load i32, ptr %177, align 8
+  %192 = sext i32 %191 to i64
+  %193 = getelementptr inbounds ptr, ptr %190, i64 %192
+  %194 = load ptr, ptr %193, align 8
+  %195 = icmp eq ptr %194, null
+  br i1 %195, label %196, label %198
 
-191:                                              ; preds = %178
-  %192 = getelementptr inbounds nuw i8, ptr %0, i64 404
-  store i8 1, ptr %192, align 4
+196:                                              ; preds = %183
+  %197 = getelementptr inbounds nuw i8, ptr %0, i64 404
+  store i8 1, ptr %197, align 4
   br label %_ZN11TransTableS10AddNodeSetEv.exit110
 
-193:                                              ; preds = %178
-  %194 = load i64, ptr %162, align 8
-  %195 = add i64 %194, 400008
-  store i64 %195, ptr %162, align 8
-  store i32 0, ptr %155, align 8
-  %196 = load ptr, ptr %188, align 8
-  store ptr %196, ptr %153, align 8
+198:                                              ; preds = %183
+  %199 = load i64, ptr %167, align 8
+  %200 = add i64 %199, 400008
+  store i64 %200, ptr %167, align 8
+  store i32 0, ptr %160, align 8
+  %201 = load ptr, ptr %193, align 8
+  store ptr %201, ptr %158, align 8
   br label %_ZN11TransTableS10AddNodeSetEv.exit110
 
-197:                                              ; preds = %._crit_edge
-  %198 = add nsw i32 %156, 1
-  store i32 %198, ptr %155, align 8
+202:                                              ; preds = %._crit_edge
+  %203 = add nsw i32 %161, 1
+  store i32 %203, ptr %160, align 8
   br label %_ZN11TransTableS10AddNodeSetEv.exit110
 
-_ZN11TransTableS10AddNodeSetEv.exit110:           ; preds = %176, %191, %193, %197
-  %199 = getelementptr inbounds nuw i8, ptr %.3.lcssa, i64 8
-  store ptr %158, ptr %199, align 8
+_ZN11TransTableS10AddNodeSetEv.exit110:           ; preds = %181, %196, %198, %202
+  %204 = getelementptr inbounds nuw i8, ptr %.3.lcssa, i64 8
+  store ptr %163, ptr %204, align 8
   store i8 1, ptr %8, align 1
-  br label %200
+  br label %205
 
-200:                                              ; preds = %_ZN11TransTableS10AddNodeSetEv.exit110, %_ZN11TransTableS9UpdateSOPEiiccP13nodeCardsType.exit, %_ZN11TransTableS10AddNodeSetEv.exit
-  %.0103 = phi ptr [ %45, %_ZN11TransTableS10AddNodeSetEv.exit ], [ %103, %_ZN11TransTableS9UpdateSOPEiiccP13nodeCardsType.exit ], [ %158, %_ZN11TransTableS10AddNodeSetEv.exit110 ]
+205:                                              ; preds = %_ZN11TransTableS10AddNodeSetEv.exit110, %_ZN11TransTableS9UpdateSOPEiiccP13nodeCardsType.exit, %_ZN11TransTableS10AddNodeSetEv.exit
+  %.0103 = phi ptr [ %45, %_ZN11TransTableS10AddNodeSetEv.exit ], [ %103, %_ZN11TransTableS9UpdateSOPEiiccP13nodeCardsType.exit ], [ %163, %_ZN11TransTableS10AddNodeSetEv.exit110 ]
   ret ptr %.0103
 }
 

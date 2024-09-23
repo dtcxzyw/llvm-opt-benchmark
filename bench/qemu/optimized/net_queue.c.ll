@@ -42,22 +42,31 @@ land.rhs.lr.ph:                                   ; preds = %entry
   %tql_prev10 = getelementptr inbounds i8, ptr %queue, i64 32
   br label %land.rhs
 
-land.rhs:                                         ; preds = %land.rhs.lr.ph, %land.rhs
-  %packet.015 = phi ptr [ %0, %land.rhs.lr.ph ], [ %1, %land.rhs ]
+land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end
+  %packet.015 = phi ptr [ %0, %land.rhs.lr.ph ], [ %1, %if.end ]
   %1 = load ptr, ptr %packet.015, align 8
   %cmp.not = icmp eq ptr %1, null
   %tql_prev8 = getelementptr inbounds i8, ptr %packet.015, i64 8
   %2 = load ptr, ptr %tql_prev8, align 8
+  br i1 %cmp.not, label %if.else, label %if.then
+
+if.then:                                          ; preds = %land.rhs
   %tql_prev6 = getelementptr inbounds i8, ptr %1, i64 8
-  %tql_prev10.sink = select i1 %cmp.not, ptr %tql_prev10, ptr %tql_prev6
-  store ptr %2, ptr %tql_prev10.sink, align 8
+  store ptr %2, ptr %tql_prev6, align 8
+  br label %if.end
+
+if.else:                                          ; preds = %land.rhs
+  store ptr %2, ptr %tql_prev10, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then
   %3 = load ptr, ptr %packet.015, align 8
   store ptr %3, ptr %2, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %packet.015, i8 0, i64 16, i1 false)
   tail call void @g_free(ptr noundef nonnull %packet.015) #8
   br i1 %cmp.not, label %for.end, label %land.rhs, !llvm.loop !5
 
-for.end:                                          ; preds = %land.rhs, %entry
+for.end:                                          ; preds = %if.end, %entry
   tail call void @g_free(ptr noundef %queue) #8
   ret void
 }
@@ -361,9 +370,18 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %cmp3.not = icmp eq ptr %2, null
   %tql_prev10 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %tql_prev10, align 8
+  br i1 %cmp3.not, label %if.else, label %if.then4
+
+if.then4:                                         ; preds = %while.body
   %tql_prev8 = getelementptr inbounds i8, ptr %2, i64 8
-  %tql_prev12.sink = select i1 %cmp3.not, ptr %tql_prev12, ptr %tql_prev8
-  store ptr %3, ptr %tql_prev12.sink, align 8
+  store ptr %3, ptr %tql_prev8, align 8
+  br label %if.end13
+
+if.else:                                          ; preds = %while.body
+  store ptr %3, ptr %tql_prev12, align 8
+  br label %if.end13
+
+if.end13:                                         ; preds = %if.else, %if.then4
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %3, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
@@ -395,7 +413,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %cmp23 = icmp eq i64 %11, 0
   br i1 %cmp23, label %if.then25, label %if.end47
 
-if.then25:                                        ; preds = %while.body
+if.then25:                                        ; preds = %if.end13
   %tql_prev16.le = getelementptr inbounds i8, ptr %1, i64 8
   %12 = load i32, ptr %nq_count, align 4
   %inc = add i32 %12, 1
@@ -403,14 +421,23 @@ if.then25:                                        ; preds = %while.body
   %13 = load ptr, ptr %packets, align 8
   store ptr %13, ptr %1, align 8
   %cmp30.not = icmp eq ptr %13, null
+  br i1 %cmp30.not, label %if.else37, label %if.then32
+
+if.then32:                                        ; preds = %if.then25
   %tql_prev36 = getelementptr inbounds i8, ptr %13, i64 8
-  %tql_prev12.sink42 = select i1 %cmp30.not, ptr %tql_prev12, ptr %tql_prev36
-  store ptr %1, ptr %tql_prev12.sink42, align 8
+  store ptr %1, ptr %tql_prev36, align 8
+  br label %if.end41
+
+if.else37:                                        ; preds = %if.then25
+  store ptr %1, ptr %tql_prev12, align 8
+  br label %if.end41
+
+if.end41:                                         ; preds = %if.else37, %if.then32
   store ptr %1, ptr %packets, align 8
   store ptr %packets, ptr %tql_prev16.le, align 8
   br label %return
 
-if.end47:                                         ; preds = %while.body
+if.end47:                                         ; preds = %if.end13
   %sent_cb = getelementptr inbounds i8, ptr %1, i64 32
   %14 = load ptr, ptr %sent_cb, align 8
   %tobool48.not = icmp eq ptr %14, null
@@ -429,8 +456,8 @@ if.end53:                                         ; preds = %if.then49, %if.end4
   %cmp.not = icmp eq ptr %16, null
   br i1 %cmp.not, label %return, label %while.body, !llvm.loop !9
 
-return:                                           ; preds = %if.end53, %while.cond.preheader, %entry, %if.then25
-  %retval.0 = phi i1 [ false, %if.then25 ], [ false, %entry ], [ true, %while.cond.preheader ], [ true, %if.end53 ]
+return:                                           ; preds = %if.end53, %while.cond.preheader, %entry, %if.end41
+  %retval.0 = phi i1 [ false, %if.end41 ], [ false, %entry ], [ true, %while.cond.preheader ], [ true, %if.end53 ]
   ret i1 %retval.0
 }
 
@@ -658,9 +685,18 @@ do.body:                                          ; preds = %land.rhs
   %cmp3.not = icmp eq ptr %1, null
   %tql_prev10 = getelementptr inbounds i8, ptr %packet.020, i64 8
   %3 = load ptr, ptr %tql_prev10, align 8
+  br i1 %cmp3.not, label %if.else, label %if.then4
+
+if.then4:                                         ; preds = %do.body
   %tql_prev8 = getelementptr inbounds i8, ptr %1, i64 8
-  %tql_prev12.sink = select i1 %cmp3.not, ptr %tql_prev12, ptr %tql_prev8
-  store ptr %3, ptr %tql_prev12.sink, align 8
+  store ptr %3, ptr %tql_prev8, align 8
+  br label %if.end
+
+if.else:                                          ; preds = %do.body
+  store ptr %3, ptr %tql_prev12, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then4
   %4 = load ptr, ptr %packet.020, align 8
   store ptr %4, ptr %3, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %packet.020, i8 0, i64 16, i1 false)
@@ -672,12 +708,12 @@ do.body:                                          ; preds = %land.rhs
   %tobool21.not = icmp eq ptr %6, null
   br i1 %tobool21.not, label %if.end25, label %if.then22
 
-if.then22:                                        ; preds = %do.body
+if.then22:                                        ; preds = %if.end
   %7 = load ptr, ptr %sender, align 8
   tail call void %6(ptr noundef %7, i64 noundef 0) #8
   br label %if.end25
 
-if.end25:                                         ; preds = %if.then22, %do.body
+if.end25:                                         ; preds = %if.then22, %if.end
   tail call void @g_free(ptr noundef nonnull %packet.020) #8
   br label %for.inc
 

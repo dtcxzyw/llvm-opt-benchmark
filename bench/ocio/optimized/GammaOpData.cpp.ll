@@ -2283,7 +2283,12 @@ sw.bb:                                            ; preds = %entry, %entry, %ent
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp = icmp eq i64 %sub.ptr.sub.i, 8
-  br i1 %cmp, label %return.sink.split, label %return
+  br i1 %cmp, label %land.rhs, label %return
+
+land.rhs:                                         ; preds = %sw.bb
+  %parameters.val.val = load double, ptr %1, align 8
+  %cmp.i = fcmp oeq double %parameters.val.val, 1.000000e+00
+  br label %return
 
 sw.bb2:                                           ; preds = %entry, %entry, %entry, %entry
   %_M_finish.i5 = getelementptr inbounds i8, ptr %parameters, i64 8
@@ -2302,17 +2307,12 @@ land.rhs5:                                        ; preds = %sw.bb2
 
 land.rhs.i:                                       ; preds = %land.rhs5
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 8
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %sw.bb, %land.rhs.i
-  %add.ptr.i.i.sink = phi ptr [ %add.ptr.i.i, %land.rhs.i ], [ %1, %sw.bb ]
-  %.sink11 = phi double [ 0.000000e+00, %land.rhs.i ], [ 1.000000e+00, %sw.bb ]
-  %5 = load double, ptr %add.ptr.i.i.sink, align 8
-  %cmp2.i = fcmp oeq double %5, %.sink11
+  %5 = load double, ptr %add.ptr.i.i, align 8
+  %cmp2.i = fcmp oeq double %5, 0.000000e+00
   br label %return
 
-return:                                           ; preds = %return.sink.split, %land.rhs5, %entry, %sw.bb2, %sw.bb
-  %retval.0 = phi i1 [ false, %sw.bb ], [ false, %sw.bb2 ], [ false, %entry ], [ false, %land.rhs5 ], [ %cmp2.i, %return.sink.split ]
+return:                                           ; preds = %land.rhs.i, %land.rhs5, %entry, %sw.bb2, %sw.bb, %land.rhs
+  %retval.0 = phi i1 [ false, %sw.bb ], [ %cmp.i, %land.rhs ], [ false, %sw.bb2 ], [ false, %entry ], [ false, %land.rhs5 ], [ %cmp2.i, %land.rhs.i ]
   ret i1 %retval.0
 }
 
@@ -2343,7 +2343,12 @@ sw.bb.i:                                          ; preds = %entry, %entry, %ent
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %cmp.i = icmp eq i64 %sub.ptr.sub.i.i, 8
-  br i1 %cmp.i, label %return.sink.split.i, label %_ZN19OpenColorIO_v2_4dev11GammaOpData20isIdentityParametersERKSt6vectorIdSaIdEENS0_5StyleE.exit
+  br i1 %cmp.i, label %land.rhs.i, label %_ZN19OpenColorIO_v2_4dev11GammaOpData20isIdentityParametersERKSt6vectorIdSaIdEENS0_5StyleE.exit
+
+land.rhs.i:                                       ; preds = %sw.bb.i
+  %parameters.val.val.i = load double, ptr %2, align 8
+  %cmp.i.i = fcmp oeq double %parameters.val.val.i, 1.000000e+00
+  br label %_ZN19OpenColorIO_v2_4dev11GammaOpData20isIdentityParametersERKSt6vectorIdSaIdEENS0_5StyleE.exit
 
 sw.bb2.i:                                         ; preds = %entry, %entry, %entry, %entry
   %_M_finish.i5.i = getelementptr inbounds i8, ptr %this, i64 256
@@ -2362,17 +2367,12 @@ land.rhs5.i:                                      ; preds = %sw.bb2.i
 
 land.rhs.i.i:                                     ; preds = %land.rhs5.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  br label %return.sink.split.i
-
-return.sink.split.i:                              ; preds = %land.rhs.i.i, %sw.bb.i
-  %add.ptr.i.i.sink.i = phi ptr [ %add.ptr.i.i.i, %land.rhs.i.i ], [ %2, %sw.bb.i ]
-  %.sink11.i = phi double [ 0.000000e+00, %land.rhs.i.i ], [ 1.000000e+00, %sw.bb.i ]
-  %6 = load double, ptr %add.ptr.i.i.sink.i, align 8
-  %cmp2.i.i = fcmp oeq double %6, %.sink11.i
+  %6 = load double, ptr %add.ptr.i.i.i, align 8
+  %cmp2.i.i = fcmp oeq double %6, 0.000000e+00
   br label %_ZN19OpenColorIO_v2_4dev11GammaOpData20isIdentityParametersERKSt6vectorIdSaIdEENS0_5StyleE.exit
 
-_ZN19OpenColorIO_v2_4dev11GammaOpData20isIdentityParametersERKSt6vectorIdSaIdEENS0_5StyleE.exit: ; preds = %entry, %sw.bb.i, %sw.bb2.i, %land.rhs5.i, %return.sink.split.i
-  %retval.0.i = phi i1 [ false, %sw.bb.i ], [ false, %sw.bb2.i ], [ false, %entry ], [ false, %land.rhs5.i ], [ %cmp2.i.i, %return.sink.split.i ]
+_ZN19OpenColorIO_v2_4dev11GammaOpData20isIdentityParametersERKSt6vectorIdSaIdEENS0_5StyleE.exit: ; preds = %entry, %sw.bb.i, %land.rhs.i, %sw.bb2.i, %land.rhs5.i, %land.rhs.i.i
+  %retval.0.i = phi i1 [ false, %sw.bb.i ], [ %cmp.i.i, %land.rhs.i ], [ false, %sw.bb2.i ], [ false, %entry ], [ false, %land.rhs5.i ], [ %cmp2.i.i, %land.rhs.i.i ]
   ret i1 %retval.0.i
 }
 
@@ -2579,7 +2579,12 @@ sw.bb.i.i:                                        ; preds = %land.rhs, %land.rhs
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %cmp.i.i = icmp eq i64 %sub.ptr.sub.i.i.i, 8
-  br i1 %cmp.i.i, label %return.sink.split.i.i, label %land.end
+  br i1 %cmp.i.i, label %land.rhs.i.i, label %land.end
+
+land.rhs.i.i:                                     ; preds = %sw.bb.i.i
+  %parameters.val.val.i.i = load double, ptr %14, align 8
+  %cmp.i.i.i = fcmp oeq double %parameters.val.val.i.i, 1.000000e+00
+  br label %land.end
 
 sw.bb2.i.i:                                       ; preds = %land.rhs, %land.rhs, %land.rhs, %land.rhs
   %_M_finish.i5.i.i = getelementptr inbounds i8, ptr %this, i64 256
@@ -2598,17 +2603,12 @@ land.rhs5.i.i:                                    ; preds = %sw.bb2.i.i
 
 land.rhs.i.i.i:                                   ; preds = %land.rhs5.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
-  br label %return.sink.split.i.i
-
-return.sink.split.i.i:                            ; preds = %land.rhs.i.i.i, %sw.bb.i.i
-  %add.ptr.i.i.sink.i.i = phi ptr [ %add.ptr.i.i.i.i, %land.rhs.i.i.i ], [ %14, %sw.bb.i.i ]
-  %.sink11.i.i = phi double [ 0.000000e+00, %land.rhs.i.i.i ], [ 1.000000e+00, %sw.bb.i.i ]
-  %18 = load double, ptr %add.ptr.i.i.sink.i.i, align 8
-  %cmp2.i.i.i = fcmp oeq double %18, %.sink11.i.i
+  %18 = load double, ptr %add.ptr.i.i.i.i, align 8
+  %cmp2.i.i.i = fcmp oeq double %18, 0.000000e+00
   br label %land.end
 
-land.end:                                         ; preds = %for.body.i.i.i.i.i, %for.body.i.i.i.i.i12, %land.lhs.true.thread, %return.sink.split.i.i, %land.rhs5.i.i, %sw.bb2.i.i, %sw.bb.i.i, %land.rhs, %land.lhs.true, %entry
-  %19 = phi i1 [ false, %entry ], [ false, %land.lhs.true ], [ false, %sw.bb.i.i ], [ false, %sw.bb2.i.i ], [ false, %land.rhs ], [ false, %land.rhs5.i.i ], [ %cmp2.i.i.i, %return.sink.split.i.i ], [ false, %land.lhs.true.thread ], [ false, %for.body.i.i.i.i.i12 ], [ false, %for.body.i.i.i.i.i ]
+land.end:                                         ; preds = %for.body.i.i.i.i.i, %for.body.i.i.i.i.i12, %land.lhs.true.thread, %land.rhs.i.i.i, %land.rhs5.i.i, %sw.bb2.i.i, %land.rhs.i.i, %sw.bb.i.i, %land.rhs, %land.lhs.true, %entry
+  %19 = phi i1 [ false, %entry ], [ false, %land.lhs.true ], [ false, %sw.bb.i.i ], [ %cmp.i.i.i, %land.rhs.i.i ], [ false, %sw.bb2.i.i ], [ false, %land.rhs ], [ false, %land.rhs5.i.i ], [ %cmp2.i.i.i, %land.rhs.i.i.i ], [ false, %land.lhs.true.thread ], [ false, %for.body.i.i.i.i.i12 ], [ false, %for.body.i.i.i.i.i ]
   ret i1 %19
 }
 

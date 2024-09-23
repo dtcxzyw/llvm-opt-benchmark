@@ -1788,7 +1788,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @psmouse_switch_protocol(ptr
 33:                                               ; preds = %18
   %34 = tail call i32 %31(ptr noundef %0, i1 noundef zeroext true) #14
   %35 = icmp slt i32 %34, 0
-  br i1 %35, label %92, label %36
+  br i1 %35, label %93, label %36
 
 36:                                               ; preds = %33, %18
   %37 = getelementptr inbounds i8, ptr %1, i64 32
@@ -1799,7 +1799,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @psmouse_switch_protocol(ptr
 40:                                               ; preds = %36
   %41 = tail call i32 %38(ptr noundef %0) #14
   %42 = icmp slt i32 %41, 0
-  br i1 %42, label %92, label %56
+  br i1 %42, label %93, label %56
 
 43:                                               ; preds = %14, %2
   %44 = load i32, ptr @psmouse_max_proto, align 4
@@ -1836,58 +1836,61 @@ define internal fastcc noundef range(i32 -1, 1) i32 @psmouse_switch_protocol(ptr
   %60 = load i8, ptr %59, align 2
   %61 = icmp eq i8 %60, 3
   %62 = getelementptr inbounds i8, ptr %0, i64 392
-  br i1 %61, label %.sink.split, label %63
+  br i1 %61, label %.thread7, label %63
+
+.thread7:                                         ; preds = %56
+  store i32 0, ptr %62, align 8
+  br label %72
 
 63:                                               ; preds = %56
   %.pre = load i32, ptr %62, align 8
   %64 = icmp eq i32 %.pre, 0
-  br i1 %64, label %71, label %65
+  %65 = getelementptr inbounds i8, ptr %0, i64 392
+  br i1 %64, label %72, label %66
 
-65:                                               ; preds = %63
-  %66 = getelementptr inbounds i8, ptr %0, i64 392
+66:                                               ; preds = %63
   %67 = getelementptr inbounds i8, ptr %0, i64 464
   %68 = load ptr, ptr %67, align 8
   %69 = tail call i32 %68(ptr noundef %0) #14
   %70 = icmp eq i32 %69, 0
-  br i1 %70, label %71, label %.sink.split
+  br i1 %70, label %72, label %71
 
-.sink.split:                                      ; preds = %65, %56
-  %.sink = phi ptr [ %62, %56 ], [ %66, %65 ]
-  store i32 0, ptr %.sink, align 8
-  br label %71
+71:                                               ; preds = %66
+  store i32 0, ptr %65, align 8
+  br label %72
 
-71:                                               ; preds = %.sink.split, %65, %63
-  %72 = getelementptr inbounds i8, ptr %0, i64 284
-  %73 = getelementptr inbounds i8, ptr %57, i64 8
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %0, i64 208
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %0, i64 216
-  %78 = load ptr, ptr %77, align 8
-  %79 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %72, i64 noundef 64, ptr noundef nonnull @.str.51, ptr noundef %74, ptr noundef %76, ptr noundef %78) #14
-  store ptr %72, ptr %4, align 8
-  %80 = getelementptr inbounds i8, ptr %0, i64 348
-  %81 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %80, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %4, i64 24
-  store i16 17, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %4, i64 26
-  store i16 2, ptr %83, align 2
-  %84 = load ptr, ptr %58, align 8
-  %85 = load i32, ptr %84, align 8
-  %86 = trunc i32 %85 to i16
-  %87 = getelementptr inbounds i8, ptr %4, i64 28
-  store i16 %86, ptr %87, align 4
-  %88 = getelementptr inbounds i8, ptr %0, i64 248
-  %89 = load i32, ptr %88, align 8
-  %90 = trunc i32 %89 to i16
-  %91 = getelementptr inbounds i8, ptr %4, i64 30
-  store i16 %90, ptr %91, align 2
-  br label %92
+72:                                               ; preds = %.thread7, %71, %66, %63
+  %73 = getelementptr inbounds i8, ptr %0, i64 284
+  %74 = getelementptr inbounds i8, ptr %57, i64 8
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds i8, ptr %0, i64 208
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr inbounds i8, ptr %0, i64 216
+  %79 = load ptr, ptr %78, align 8
+  %80 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %73, i64 noundef 64, ptr noundef nonnull @.str.51, ptr noundef %75, ptr noundef %77, ptr noundef %79) #14
+  store ptr %73, ptr %4, align 8
+  %81 = getelementptr inbounds i8, ptr %0, i64 348
+  %82 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %81, ptr %82, align 8
+  %83 = getelementptr inbounds i8, ptr %4, i64 24
+  store i16 17, ptr %83, align 8
+  %84 = getelementptr inbounds i8, ptr %4, i64 26
+  store i16 2, ptr %84, align 2
+  %85 = load ptr, ptr %58, align 8
+  %86 = load i32, ptr %85, align 8
+  %87 = trunc i32 %86 to i16
+  %88 = getelementptr inbounds i8, ptr %4, i64 28
+  store i16 %87, ptr %88, align 4
+  %89 = getelementptr inbounds i8, ptr %0, i64 248
+  %90 = load i32, ptr %89, align 8
+  %91 = trunc i32 %90 to i16
+  %92 = getelementptr inbounds i8, ptr %4, i64 30
+  store i16 %91, ptr %92, align 2
+  br label %93
 
-92:                                               ; preds = %71, %40, %33
-  %93 = phi i32 [ 0, %71 ], [ -1, %33 ], [ -1, %40 ]
-  ret i32 %93
+93:                                               ; preds = %72, %40, %33
+  %94 = phi i32 [ 0, %72 ], [ -1, %33 ], [ -1, %40 ]
+  ret i32 %94
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

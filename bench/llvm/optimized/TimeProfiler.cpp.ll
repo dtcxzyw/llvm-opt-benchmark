@@ -2936,43 +2936,108 @@ define linkonce_odr hidden void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__nor
   %9 = icmp slt i64 %7, %8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %11 = load i64, ptr %10, align 8
-  br i1 %9, label %12, label %16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  br i1 %9, label %13, label %34
 
-12:                                               ; preds = %4
-  %13 = icmp slt i64 %11, %7
-  br i1 %13, label %20, label %14
+13:                                               ; preds = %4
+  %14 = icmp slt i64 %11, %7
+  br i1 %14, label %15, label %21
 
-14:                                               ; preds = %12
-  %15 = icmp slt i64 %11, %8
-  %. = select i1 %15, ptr %3, ptr %1
-  %.39 = select i1 %15, ptr %10, ptr %5
-  br label %20
+15:                                               ; preds = %13
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %2) #20
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %17 = load i64, ptr %12, align 8
+  %18 = load i64, ptr %16, align 8
+  store i64 %18, ptr %12, align 8
+  store i64 %17, ptr %16, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr %19, align 8
+  %20 = load i64, ptr %6, align 8
+  store i64 %20, ptr %19, align 8
+  store i64 %.sroa.0.0.copyload.i.i.i.i.i.i, ptr %6, align 8
+  br label %55
 
-16:                                               ; preds = %4
-  %17 = icmp slt i64 %11, %8
-  br i1 %17, label %20, label %18
+21:                                               ; preds = %13
+  %22 = icmp slt i64 %11, %8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  br i1 %22, label %24, label %29
 
-18:                                               ; preds = %16
-  %19 = icmp slt i64 %11, %7
-  %.40 = select i1 %19, ptr %3, ptr %2
-  %.41 = select i1 %19, ptr %10, ptr %6
-  br label %20
+24:                                               ; preds = %21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3) #20
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %26 = load i64, ptr %12, align 8
+  %27 = load i64, ptr %25, align 8
+  store i64 %27, ptr %12, align 8
+  store i64 %26, ptr %25, align 8
+  %.sroa.0.0.copyload.i.i.i.i.i.i26 = load i64, ptr %23, align 8
+  %28 = load i64, ptr %10, align 8
+  store i64 %28, ptr %23, align 8
+  store i64 %.sroa.0.0.copyload.i.i.i.i.i.i26, ptr %10, align 8
+  br label %55
 
-20:                                               ; preds = %18, %16, %14, %12
-  %.sink38 = phi ptr [ %2, %12 ], [ %., %14 ], [ %1, %16 ], [ %.40, %18 ]
-  %.sink33 = phi ptr [ %6, %12 ], [ %.39, %14 ], [ %5, %16 ], [ %.41, %18 ]
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sink38) #20
-  %22 = getelementptr inbounds nuw i8, ptr %.sink38, i64 32
-  %23 = load i64, ptr %21, align 8
-  %24 = load i64, ptr %22, align 8
-  store i64 %24, ptr %21, align 8
-  store i64 %23, ptr %22, align 8
-  %.sink34 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.sroa.0.0.copyload.i.i.i.i.i.i28 = load i64, ptr %.sink34, align 8
-  %25 = load i64, ptr %.sink33, align 8
-  store i64 %25, ptr %.sink34, align 8
-  store i64 %.sroa.0.0.copyload.i.i.i.i.i.i28, ptr %.sink33, align 8
+29:                                               ; preds = %21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #20
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %31 = load i64, ptr %12, align 8
+  %32 = load i64, ptr %30, align 8
+  store i64 %32, ptr %12, align 8
+  store i64 %31, ptr %30, align 8
+  %.sroa.0.0.copyload.i.i.i.i.i.i27 = load i64, ptr %23, align 8
+  %33 = load i64, ptr %5, align 8
+  store i64 %33, ptr %23, align 8
+  store i64 %.sroa.0.0.copyload.i.i.i.i.i.i27, ptr %5, align 8
+  br label %55
+
+34:                                               ; preds = %4
+  %35 = icmp slt i64 %11, %8
+  br i1 %35, label %36, label %42
+
+36:                                               ; preds = %34
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #20
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %38 = load i64, ptr %12, align 8
+  %39 = load i64, ptr %37, align 8
+  store i64 %39, ptr %12, align 8
+  store i64 %38, ptr %37, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %.sroa.0.0.copyload.i.i.i.i.i.i28 = load i64, ptr %40, align 8
+  %41 = load i64, ptr %5, align 8
+  store i64 %41, ptr %40, align 8
+  store i64 %.sroa.0.0.copyload.i.i.i.i.i.i28, ptr %5, align 8
+  br label %55
+
+42:                                               ; preds = %34
+  %43 = icmp slt i64 %11, %7
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  br i1 %43, label %45, label %50
+
+45:                                               ; preds = %42
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3) #20
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %47 = load i64, ptr %12, align 8
+  %48 = load i64, ptr %46, align 8
+  store i64 %48, ptr %12, align 8
+  store i64 %47, ptr %46, align 8
+  %.sroa.0.0.copyload.i.i.i.i.i.i29 = load i64, ptr %44, align 8
+  %49 = load i64, ptr %10, align 8
+  store i64 %49, ptr %44, align 8
+  store i64 %.sroa.0.0.copyload.i.i.i.i.i.i29, ptr %10, align 8
+  br label %55
+
+50:                                               ; preds = %42
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %2) #20
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %52 = load i64, ptr %12, align 8
+  %53 = load i64, ptr %51, align 8
+  store i64 %53, ptr %12, align 8
+  store i64 %52, ptr %51, align 8
+  %.sroa.0.0.copyload.i.i.i.i.i.i30 = load i64, ptr %44, align 8
+  %54 = load i64, ptr %6, align 8
+  store i64 %54, ptr %44, align 8
+  store i64 %.sroa.0.0.copyload.i.i.i.i.i.i30, ptr %6, align 8
+  br label %55
+
+55:                                               ; preds = %36, %50, %45, %15, %29, %24
   ret void
 }
 

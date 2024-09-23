@@ -66144,43 +66144,52 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK11opencv_test14ToleranceColor
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   %17 = load double, ptr %16, align 8
   %18 = fcmp ogt double %15, %17
-  br i1 %18, label %.sink.split, label %19
+  br i1 %18, label %19, label %25
 
 19:                                               ; preds = %3
-  %20 = getelementptr inbounds i8, ptr %6, i64 16
-  store i32 0, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 20
-  store i32 0, ptr %21, align 4
+  %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.123)
+  %21 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %20, double noundef %15)
+  %22 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull @.str.104)
+  %23 = load double, ptr %16, align 8
+  %24 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %22, double noundef %23)
+  br label %.sink.split
+
+25:                                               ; preds = %3
+  %26 = getelementptr inbounds i8, ptr %6, i64 16
+  store i32 0, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %6, i64 20
+  store i32 0, ptr %27, align 4
   store i32 16842752, ptr %6, align 8
-  %22 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %1, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %7, i64 16
-  store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %7, i64 20
-  store i32 0, ptr %24, align 4
+  %28 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %1, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %7, i64 16
+  store i32 0, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %7, i64 20
+  store i32 0, ptr %30, align 4
   store i32 16842752, ptr %7, align 8
-  %25 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr %2, ptr %25, align 8
-  %26 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv()
-  %27 = call noundef double @_ZN2cv4normERKNS_11_InputArrayES2_iS2_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef 10, ptr noundef nonnull align 8 dereferenceable(24) %26)
-  %28 = load double, ptr %0, align 8
-  %29 = fcmp ogt double %27, %28
-  br i1 %29, label %.sink.split, label %36
+  %31 = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr %2, ptr %31, align 8
+  %32 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv()
+  %33 = call noundef double @_ZN2cv4normERKNS_11_InputArrayES2_iS2_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef 10, ptr noundef nonnull align 8 dereferenceable(24) %32)
+  %34 = load double, ptr %0, align 8
+  %35 = fcmp ogt double %33, %34
+  br i1 %35, label %36, label %43
 
-.sink.split:                                      ; preds = %19, %3
-  %.str.124.sink = phi ptr [ @.str.123, %3 ], [ @.str.124, %19 ]
-  %.sink25 = phi double [ %15, %3 ], [ %27, %19 ]
-  %.sink = phi ptr [ %16, %3 ], [ %0, %19 ]
-  %30 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull %.str.124.sink)
-  %31 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %30, double noundef %.sink25)
-  %32 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull @.str.104)
-  %33 = load double, ptr %.sink, align 8
-  %34 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %32, double noundef %33)
-  %35 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-  br label %36
+36:                                               ; preds = %25
+  %37 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.124)
+  %38 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %37, double noundef %33)
+  %39 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull @.str.104)
+  %40 = load double, ptr %0, align 8
+  %41 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %39, double noundef %40)
+  br label %.sink.split
 
-36:                                               ; preds = %.sink.split, %19
-  %.0 = phi i1 [ true, %19 ], [ false, %.sink.split ]
+.sink.split:                                      ; preds = %19, %36
+  %.sink = phi ptr [ %41, %36 ], [ %24, %19 ]
+  %42 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %.sink, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+  br label %43
+
+43:                                               ; preds = %.sink.split, %25
+  %.0 = phi i1 [ true, %25 ], [ false, %.sink.split ]
   ret i1 %.0
 }
 

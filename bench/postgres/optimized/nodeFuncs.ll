@@ -1013,7 +1013,7 @@ define dso_local i32 @exprCollation(ptr noundef readonly %0) local_unnamed_addr 
 .lr.ph:                                           ; preds = %1, %tailrecurse.backedge
   %.tr89 = phi ptr [ %.tr.be, %tailrecurse.backedge ], [ %0, %1 ]
   %2 = load i32, ptr %.tr89, align 4
-  switch i32 %2, label %120 [
+  switch i32 %2, label %125 [
     i32 6, label %3
     i32 7, label %6
     i32 8, label %9
@@ -1029,36 +1029,36 @@ define dso_local i32 @exprCollation(ptr noundef readonly %0) local_unnamed_addr 
     i32 18, label %.loopexit
     i32 19, label %.loopexit
     i32 20, label %36
-    i32 21, label %54
-    i32 22, label %60
-    i32 23, label %64
+    i32 21, label %55
+    i32 22, label %61
+    i32 23, label %66
     i32 24, label %.loopexit
-    i32 25, label %67
-    i32 26, label %70
-    i32 27, label %73
+    i32 25, label %69
+    i32 26, label %72
+    i32 27, label %75
     i32 28, label %.loopexit
-    i32 29, label %76
-    i32 30, label %79
-    i32 32, label %82
-    i32 33, label %85
+    i32 29, label %78
+    i32 30, label %81
+    i32 32, label %84
+    i32 33, label %87
     i32 34, label %.loopexit
     i32 35, label %.loopexit
-    i32 36, label %88
-    i32 37, label %91
-    i32 38, label %94
-    i32 39, label %98
-    i32 42, label %102
-    i32 43, label %104
+    i32 36, label %90
+    i32 37, label %93
+    i32 38, label %96
+    i32 39, label %100
+    i32 42, label %104
+    i32 43, label %107
     i32 44, label %.loopexit
     i32 45, label %.loopexit
     i32 46, label %.loopexit
-    i32 48, label %107
-    i32 49, label %110
-    i32 50, label %113
+    i32 48, label %110
+    i32 49, label %113
+    i32 50, label %116
     i32 51, label %.loopexit
     i32 52, label %.loopexit
-    i32 53, label %116
-    i32 303, label %118
+    i32 53, label %119
+    i32 303, label %122
   ]
 
 3:                                                ; preds = %.lr.ph
@@ -1098,15 +1098,11 @@ define dso_local i32 @exprCollation(ptr noundef readonly %0) local_unnamed_addr 
 
 24:                                               ; preds = %.lr.ph
   %25 = getelementptr inbounds i8, ptr %.tr89, i64 8
-  br label %tailrecurse.backedge.sink.split
-
-tailrecurse.backedge.sink.split:                  ; preds = %118, %116, %102, %60, %48, %24
-  %.sink = phi ptr [ %25, %24 ], [ %53, %48 ], [ %.val, %60 ], [ %103, %102 ], [ %117, %116 ], [ %119, %118 ]
-  %26 = load ptr, ptr %.sink, align 8
+  %26 = load ptr, ptr %25, align 8
   br label %tailrecurse.backedge
 
-tailrecurse.backedge:                             ; preds = %tailrecurse.backedge.sink.split, %104
-  %.tr.be = phi ptr [ %106, %104 ], [ %26, %tailrecurse.backedge.sink.split ]
+tailrecurse.backedge:                             ; preds = %24, %48, %61, %104, %119, %122, %107
+  %.tr.be = phi ptr [ %26, %24 ], [ %54, %48 ], [ %65, %61 ], [ %106, %104 ], [ %121, %119 ], [ %124, %122 ], [ %109, %107 ]
   %.not = icmp eq ptr %.tr.be, null
   br i1 %.not, label %.loopexit, label %.lr.ph
 
@@ -1158,110 +1154,108 @@ tailrecurse.backedge:                             ; preds = %tailrecurse.backedg
   %.val59 = load ptr, ptr %51, align 8
   %52 = load ptr, ptr %.val59, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 8
-  br label %tailrecurse.backedge.sink.split
+  %54 = load ptr, ptr %53, align 8
+  br label %tailrecurse.backedge
 
-54:                                               ; preds = %.lr.ph
-  %55 = getelementptr inbounds i8, ptr %.tr89, i64 4
-  %56 = load i32, ptr %55, align 4
-  switch i32 %56, label %.loopexit [
-    i32 4, label %57
-    i32 6, label %57
+55:                                               ; preds = %.lr.ph
+  %56 = getelementptr inbounds i8, ptr %.tr89, i64 4
+  %57 = load i32, ptr %56, align 4
+  switch i32 %57, label %.loopexit [
+    i32 4, label %58
+    i32 6, label %58
   ]
 
-57:                                               ; preds = %54, %54
-  %58 = getelementptr inbounds i8, ptr %.tr89, i64 48
-  %59 = load i32, ptr %58, align 8
+58:                                               ; preds = %55, %55
+  %59 = getelementptr inbounds i8, ptr %.tr89, i64 48
+  %60 = load i32, ptr %59, align 8
   br label %.loopexit
 
-60:                                               ; preds = %.lr.ph
-  %61 = getelementptr inbounds i8, ptr %.tr89, i64 8
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr i8, ptr %62, i64 16
-  %.val = load ptr, ptr %63, align 8
-  br label %tailrecurse.backedge.sink.split
+61:                                               ; preds = %.lr.ph
+  %62 = getelementptr inbounds i8, ptr %.tr89, i64 8
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr i8, ptr %63, i64 16
+  %.val = load ptr, ptr %64, align 8
+  %65 = load ptr, ptr %.val, align 8
+  br label %tailrecurse.backedge
 
-64:                                               ; preds = %.lr.ph
-  %65 = getelementptr inbounds i8, ptr %.tr89, i64 28
-  %66 = load i32, ptr %65, align 4
+66:                                               ; preds = %.lr.ph
+  %67 = getelementptr inbounds i8, ptr %.tr89, i64 28
+  %68 = load i32, ptr %67, align 4
   br label %.loopexit
 
-67:                                               ; preds = %.lr.ph
-  %68 = getelementptr inbounds i8, ptr %.tr89, i64 24
-  %69 = load i32, ptr %68, align 8
+69:                                               ; preds = %.lr.ph
+  %70 = getelementptr inbounds i8, ptr %.tr89, i64 24
+  %71 = load i32, ptr %70, align 8
   br label %.loopexit
 
-70:                                               ; preds = %.lr.ph
-  %71 = getelementptr inbounds i8, ptr %.tr89, i64 20
-  %72 = load i32, ptr %71, align 4
+72:                                               ; preds = %.lr.ph
+  %73 = getelementptr inbounds i8, ptr %.tr89, i64 20
+  %74 = load i32, ptr %73, align 4
   br label %.loopexit
 
-73:                                               ; preds = %.lr.ph
-  %74 = getelementptr inbounds i8, ptr %.tr89, i64 32
-  %75 = load i32, ptr %74, align 8
+75:                                               ; preds = %.lr.ph
+  %76 = getelementptr inbounds i8, ptr %.tr89, i64 32
+  %77 = load i32, ptr %76, align 8
   br label %.loopexit
 
-76:                                               ; preds = %.lr.ph
-  %77 = getelementptr inbounds i8, ptr %.tr89, i64 16
-  %78 = load i32, ptr %77, align 8
+78:                                               ; preds = %.lr.ph
+  %79 = getelementptr inbounds i8, ptr %.tr89, i64 16
+  %80 = load i32, ptr %79, align 8
   br label %.loopexit
 
-79:                                               ; preds = %.lr.ph
-  %80 = getelementptr inbounds i8, ptr %.tr89, i64 8
-  %81 = load i32, ptr %80, align 8
+81:                                               ; preds = %.lr.ph
+  %82 = getelementptr inbounds i8, ptr %.tr89, i64 8
+  %83 = load i32, ptr %82, align 8
   br label %.loopexit
 
-82:                                               ; preds = %.lr.ph
-  %83 = getelementptr inbounds i8, ptr %.tr89, i64 12
-  %84 = load i32, ptr %83, align 4
+84:                                               ; preds = %.lr.ph
+  %85 = getelementptr inbounds i8, ptr %.tr89, i64 12
+  %86 = load i32, ptr %85, align 4
   br label %.loopexit
 
-85:                                               ; preds = %.lr.ph
-  %86 = getelementptr inbounds i8, ptr %.tr89, i64 8
-  %87 = load i32, ptr %86, align 8
+87:                                               ; preds = %.lr.ph
+  %88 = getelementptr inbounds i8, ptr %.tr89, i64 8
+  %89 = load i32, ptr %88, align 8
   br label %.loopexit
 
-88:                                               ; preds = %.lr.ph
-  %89 = getelementptr inbounds i8, ptr %.tr89, i64 8
-  %90 = load i32, ptr %89, align 8
+90:                                               ; preds = %.lr.ph
+  %91 = getelementptr inbounds i8, ptr %.tr89, i64 8
+  %92 = load i32, ptr %91, align 8
   br label %.loopexit
 
-91:                                               ; preds = %.lr.ph
-  %92 = getelementptr inbounds i8, ptr %.tr89, i64 8
-  %93 = load i32, ptr %92, align 8
+93:                                               ; preds = %.lr.ph
+  %94 = getelementptr inbounds i8, ptr %.tr89, i64 8
+  %95 = load i32, ptr %94, align 8
   br label %.loopexit
 
-94:                                               ; preds = %.lr.ph
-  %95 = getelementptr inbounds i8, ptr %.tr89, i64 8
-  %96 = load i32, ptr %95, align 4
-  %97 = icmp eq i32 %96, 19
-  %. = select i1 %97, i32 950, i32 0
+96:                                               ; preds = %.lr.ph
+  %97 = getelementptr inbounds i8, ptr %.tr89, i64 8
+  %98 = load i32, ptr %97, align 4
+  %99 = icmp eq i32 %98, 19
+  %. = select i1 %99, i32 950, i32 0
   br label %.loopexit
 
-98:                                               ; preds = %.lr.ph
-  %99 = getelementptr inbounds i8, ptr %.tr89, i64 4
-  %100 = load i32, ptr %99, align 4
-  %101 = icmp eq i32 %100, 6
-  %.58 = select i1 %101, i32 100, i32 0
+100:                                              ; preds = %.lr.ph
+  %101 = getelementptr inbounds i8, ptr %.tr89, i64 4
+  %102 = load i32, ptr %101, align 4
+  %103 = icmp eq i32 %102, 6
+  %.58 = select i1 %103, i32 100, i32 0
   br label %.loopexit
-
-102:                                              ; preds = %.lr.ph
-  %103 = getelementptr inbounds i8, ptr %.tr89, i64 16
-  br label %tailrecurse.backedge.sink.split
 
 104:                                              ; preds = %.lr.ph
-  %105 = getelementptr inbounds i8, ptr %.tr89, i64 24
+  %105 = getelementptr inbounds i8, ptr %.tr89, i64 16
   %106 = load ptr, ptr %105, align 8
-  %.not56 = icmp eq ptr %106, null
-  br i1 %.not56, label %.loopexit, label %tailrecurse.backedge
+  br label %tailrecurse.backedge
 
 107:                                              ; preds = %.lr.ph
   %108 = getelementptr inbounds i8, ptr %.tr89, i64 24
-  %109 = load i32, ptr %108, align 8
-  br label %.loopexit
+  %109 = load ptr, ptr %108, align 8
+  %.not56 = icmp eq ptr %109, null
+  br i1 %.not56, label %.loopexit, label %tailrecurse.backedge
 
 110:                                              ; preds = %.lr.ph
-  %111 = getelementptr inbounds i8, ptr %.tr89, i64 12
-  %112 = load i32, ptr %111, align 4
+  %111 = getelementptr inbounds i8, ptr %.tr89, i64 24
+  %112 = load i32, ptr %111, align 8
   br label %.loopexit
 
 113:                                              ; preds = %.lr.ph
@@ -1270,23 +1264,30 @@ tailrecurse.backedge:                             ; preds = %tailrecurse.backedg
   br label %.loopexit
 
 116:                                              ; preds = %.lr.ph
-  %117 = getelementptr inbounds i8, ptr %.tr89, i64 8
-  br label %tailrecurse.backedge.sink.split
+  %117 = getelementptr inbounds i8, ptr %.tr89, i64 12
+  %118 = load i32, ptr %117, align 4
+  br label %.loopexit
 
-118:                                              ; preds = %.lr.ph
-  %119 = getelementptr inbounds i8, ptr %.tr89, i64 8
-  br label %tailrecurse.backedge.sink.split
+119:                                              ; preds = %.lr.ph
+  %120 = getelementptr inbounds i8, ptr %.tr89, i64 8
+  %121 = load ptr, ptr %120, align 8
+  br label %tailrecurse.backedge
 
-120:                                              ; preds = %.lr.ph
-  %121 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %121)
-  %122 = load i32, ptr %.tr89, align 4
-  %123 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %122) #12
+122:                                              ; preds = %.lr.ph
+  %123 = getelementptr inbounds i8, ptr %.tr89, i64 8
+  %124 = load ptr, ptr %123, align 8
+  br label %tailrecurse.backedge
+
+125:                                              ; preds = %.lr.ph
+  %126 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  tail call void @llvm.assume(i1 %126)
+  %127 = load i32, ptr %.tr89, align 4
+  %128 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %127) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1004, ptr noundef nonnull @__func__.exprCollation) #12
   unreachable
 
-.loopexit:                                        ; preds = %tailrecurse.backedge, %104, %36, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %1, %3, %6, %9, %12, %15, %18, %21, %27, %30, %33, %64, %67, %70, %73, %76, %79, %82, %85, %88, %91, %107, %110, %113, %57, %54, %94, %98
-  %.0 = phi i32 [ %115, %113 ], [ %112, %110 ], [ %109, %107 ], [ %93, %91 ], [ %90, %88 ], [ %87, %85 ], [ %84, %82 ], [ %81, %79 ], [ %78, %76 ], [ %75, %73 ], [ %72, %70 ], [ %69, %67 ], [ %66, %64 ], [ %59, %57 ], [ %35, %33 ], [ %32, %30 ], [ %29, %27 ], [ %23, %21 ], [ %20, %18 ], [ %17, %15 ], [ %14, %12 ], [ %11, %9 ], [ %8, %6 ], [ %5, %3 ], [ 0, %54 ], [ %., %94 ], [ %.58, %98 ], [ 0, %1 ], [ 0, %.lr.ph ], [ 0, %.lr.ph ], [ 0, %.lr.ph ], [ 0, %.lr.ph ], [ 0, %.lr.ph ], [ 0, %.lr.ph ], [ 0, %.lr.ph ], [ 0, %.lr.ph ], [ 0, %.lr.ph ], [ 0, %.lr.ph ], [ 0, %.lr.ph ], [ 0, %.lr.ph ], [ 0, %36 ], [ 0, %104 ], [ 0, %tailrecurse.backedge ]
+.loopexit:                                        ; preds = %tailrecurse.backedge, %107, %36, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %1, %3, %6, %9, %12, %15, %18, %21, %27, %30, %33, %66, %69, %72, %75, %78, %81, %84, %87, %90, %93, %110, %113, %116, %58, %55, %96, %100
+  %.0 = phi i32 [ %118, %116 ], [ %115, %113 ], [ %112, %110 ], [ %95, %93 ], [ %92, %90 ], [ %89, %87 ], [ %86, %84 ], [ %83, %81 ], [ %80, %78 ], [ %77, %75 ], [ %74, %72 ], [ %71, %69 ], [ %68, %66 ], [ %60, %58 ], [ %35, %33 ], [ %32, %30 ], [ %29, %27 ], [ %23, %21 ], [ %20, %18 ], [ %17, %15 ], [ %14, %12 ], [ %11, %9 ], [ %8, %6 ], [ %5, %3 ], [ 0, %55 ], [ %., %96 ], [ %.58, %100 ], [ 0, %1 ], [ 0, %.lr.ph ], [ 0, %.lr.ph ], [ 0, %.lr.ph ], [ 0, %.lr.ph ], [ 0, %.lr.ph ], [ 0, %.lr.ph ], [ 0, %.lr.ph ], [ 0, %.lr.ph ], [ 0, %.lr.ph ], [ 0, %.lr.ph ], [ 0, %.lr.ph ], [ 0, %.lr.ph ], [ 0, %36 ], [ 0, %107 ], [ 0, %tailrecurse.backedge ]
   ret i32 %.0
 }
 
@@ -2509,110 +2510,82 @@ leftmostLoc.exit:                                 ; preds = %tailrecurse.backedg
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @fix_opfuncids(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = icmp eq ptr %0, null
-  br i1 %2, label %fix_opfuncids_walker.exit, label %3
-
-3:                                                ; preds = %1
-  %4 = load i32, ptr %0, align 4
-  switch i32 %4, label %set_opfuncid.exit.i [
-    i32 15, label %5
-    i32 16, label %9
-    i32 17, label %13
-    i32 18, label %17
-  ]
-
-5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = load i32, ptr %6, align 8
-  %8 = icmp eq i32 %7, 0
-  br i1 %8, label %set_opfuncid.exit.sink.split.i, label %set_opfuncid.exit.i
-
-9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
-  %11 = load i32, ptr %10, align 8
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %set_opfuncid.exit.sink.split.i, label %set_opfuncid.exit.i
-
-13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = load i32, ptr %14, align 8
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %set_opfuncid.exit.sink.split.i, label %set_opfuncid.exit.i
-
-17:                                               ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
-  %19 = load i32, ptr %18, align 8
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %set_opfuncid.exit.sink.split.i, label %set_opfuncid.exit.i
-
-set_opfuncid.exit.sink.split.i:                   ; preds = %17, %13, %9, %5
-  %.sink16.i = phi ptr [ %6, %5 ], [ %10, %9 ], [ %14, %13 ], [ %18, %17 ]
-  %21 = getelementptr inbounds i8, ptr %0, i64 4
-  %22 = load i32, ptr %21, align 4
-  %23 = tail call i32 @get_opcode(i32 noundef %22) #12
-  store i32 %23, ptr %.sink16.i, align 8
-  br label %set_opfuncid.exit.i
-
-set_opfuncid.exit.i:                              ; preds = %set_opfuncid.exit.sink.split.i, %17, %13, %9, %5, %3
-  %24 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.2(ptr noundef nonnull %0) #13
-  br label %fix_opfuncids_walker.exit
-
-fix_opfuncids_walker.exit:                        ; preds = %1, %set_opfuncid.exit.i
+  %2 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %0) unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %25, label %3
+  br i1 %2, label %38, label %3
 
 3:                                                ; preds = %1
   %4 = load i32, ptr %0, align 4
   switch i32 %4, label %set_opfuncid.exit [
     i32 15, label %5
-    i32 16, label %9
-    i32 17, label %13
-    i32 18, label %17
+    i32 16, label %13
+    i32 17, label %21
+    i32 18, label %29
   ]
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %set_opfuncid.exit.sink.split, label %set_opfuncid.exit
+  br i1 %8, label %9, label %set_opfuncid.exit
 
-9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
-  %11 = load i32, ptr %10, align 8
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %set_opfuncid.exit.sink.split, label %set_opfuncid.exit
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = load i32, ptr %10, align 4
+  %12 = tail call i32 @get_opcode(i32 noundef %11) #12
+  store i32 %12, ptr %6, align 8
+  br label %set_opfuncid.exit
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %set_opfuncid.exit.sink.split, label %set_opfuncid.exit
+  br i1 %16, label %17, label %set_opfuncid.exit
 
-17:                                               ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
-  %19 = load i32, ptr %18, align 8
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %set_opfuncid.exit.sink.split, label %set_opfuncid.exit
-
-set_opfuncid.exit.sink.split:                     ; preds = %17, %13, %9, %5
-  %.sink16 = phi ptr [ %6, %5 ], [ %10, %9 ], [ %14, %13 ], [ %18, %17 ]
-  %21 = getelementptr inbounds i8, ptr %0, i64 4
-  %22 = load i32, ptr %21, align 4
-  %23 = tail call i32 @get_opcode(i32 noundef %22) #12
-  store i32 %23, ptr %.sink16, align 8
+17:                                               ; preds = %13
+  %18 = getelementptr inbounds i8, ptr %0, i64 4
+  %19 = load i32, ptr %18, align 4
+  %20 = tail call i32 @get_opcode(i32 noundef %19) #12
+  store i32 %20, ptr %14, align 8
   br label %set_opfuncid.exit
 
-set_opfuncid.exit:                                ; preds = %set_opfuncid.exit.sink.split, %17, %13, %9, %5, %3
-  %24 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.2(ptr noundef nonnull %0)
-  br label %25
+21:                                               ; preds = %3
+  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = load i32, ptr %22, align 8
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %25, label %set_opfuncid.exit
 
-25:                                               ; preds = %1, %set_opfuncid.exit
-  %.0 = phi i1 [ %24, %set_opfuncid.exit ], [ false, %1 ]
+25:                                               ; preds = %21
+  %26 = getelementptr inbounds i8, ptr %0, i64 4
+  %27 = load i32, ptr %26, align 4
+  %28 = tail call i32 @get_opcode(i32 noundef %27) #12
+  store i32 %28, ptr %22, align 8
+  br label %set_opfuncid.exit
+
+29:                                               ; preds = %3
+  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = load i32, ptr %30, align 8
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %33, label %set_opfuncid.exit
+
+33:                                               ; preds = %29
+  %34 = getelementptr inbounds i8, ptr %0, i64 4
+  %35 = load i32, ptr %34, align 4
+  %36 = tail call i32 @get_opcode(i32 noundef %35) #12
+  store i32 %36, ptr %30, align 8
+  br label %set_opfuncid.exit
+
+set_opfuncid.exit:                                ; preds = %33, %29, %25, %21, %17, %13, %9, %5, %3
+  %37 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.2(ptr noundef nonnull %0)
+  br label %38
+
+38:                                               ; preds = %1, %set_opfuncid.exit
+  %.0 = phi i1 [ %37, %set_opfuncid.exit ], [ false, %1 ]
   ret i1 %.0
 }
 

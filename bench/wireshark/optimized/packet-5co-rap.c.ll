@@ -319,7 +319,9 @@ define hidden void @proto_register_FiveCoRAP() local_unnamed_addr #0 {
   %.sroa.619.0..sroa_idx = getelementptr inbounds i8, ptr %46, i64 32
   store ptr %44, ptr %.sroa.619.0..sroa_idx, align 16
   %.sroa.720.0..sroa_idx = getelementptr inbounds i8, ptr %46, i64 40
+  %.sroa.922.0..sroa_idx = getelementptr inbounds i8, ptr %46, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.720.0..sroa_idx, i8 0, i64 16, i1 false)
+  store i32 -1, ptr %.sroa.922.0..sroa_idx, align 8
   br label %57
 
 47:                                               ; preds = %25
@@ -363,13 +365,13 @@ define hidden void @proto_register_FiveCoRAP() local_unnamed_addr #0 {
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %56, i64 28
   store i32 %54, ptr %.sroa.5.0..sroa_idx, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %56, i64 32
+  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %56, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %.sroa.6.0..sroa_idx, i8 0, i64 24, i1 false)
+  store i32 -1, ptr %.sroa.9.0..sroa_idx, align 8
   br label %57
 
 57:                                               ; preds = %35, %47
   %.sink116 = phi ptr [ %46, %35 ], [ %56, %47 ]
-  %.sroa.922.0..sroa_idx.sink = getelementptr inbounds i8, ptr %.sink116, i64 56
-  store i32 -1, ptr %.sroa.922.0..sroa_idx.sink, align 8
   %.sroa.1023.0..sroa_idx = getelementptr inbounds i8, ptr %.sink116, i64 60
   store i32 0, ptr %.sroa.1023.0..sroa_idx, align 4
   %.sroa.1124.0..sroa_idx = getelementptr inbounds i8, ptr %.sink116, i64 64

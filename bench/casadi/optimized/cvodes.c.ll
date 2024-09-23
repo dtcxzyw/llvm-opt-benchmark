@@ -549,7 +549,7 @@ define range(i32 -22, 1) i32 @CVodeInit(ptr noundef %0, ptr noundef %1, double n
 
 8:                                                ; preds = %4
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6)
-  br label %152
+  br label %151
 
 9:                                                ; preds = %4
   %10 = icmp eq ptr %3, null
@@ -557,7 +557,7 @@ define range(i32 -22, 1) i32 @CVodeInit(ptr noundef %0, ptr noundef %1, double n
 
 11:                                               ; preds = %9
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.7)
-  br label %152
+  br label %151
 
 12:                                               ; preds = %9
   %13 = icmp eq ptr %1, null
@@ -565,7 +565,7 @@ define range(i32 -22, 1) i32 @CVodeInit(ptr noundef %0, ptr noundef %1, double n
 
 14:                                               ; preds = %12
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.8)
-  br label %152
+  br label %151
 
 15:                                               ; preds = %12
   %16 = getelementptr i8, ptr %3, i64 8
@@ -648,7 +648,7 @@ cvCheckNvector.exit:                              ; preds = %59
 
 cvCheckNvector.exit.thread:                       ; preds = %15, %19, %23, %27, %31, %35, %39, %43, %47, %51, %55, %59, %cvCheckNvector.exit
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.9)
-  br label %152
+  br label %151
 
 65:                                               ; preds = %cvCheckNvector.exit
   %66 = getelementptr inbounds i8, ptr %.val, i64 24
@@ -762,101 +762,101 @@ cvCheckNvector.exit.thread:                       ; preds = %15, %19, %23, %27, 
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %.loopexit.sink.split.sink.split, %78
-  %.sink83 = phi ptr [ %76, %78 ], [ %80, %.loopexit.sink.split.sink.split ]
-  %110 = load ptr, ptr %.sink83, align 8
-  call void @N_VDestroy(ptr noundef %110) #13
+  %.sink.in = phi ptr [ %76, %78 ], [ %80, %.loopexit.sink.split.sink.split ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  call void @N_VDestroy(ptr noundef %.sink) #13
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph53.i, %.loopexit.sink.split, %70, %99
   call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -20, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.10)
-  br label %152
+  br label %151
 
 .loopexit72:                                      ; preds = %106, %.preheader.i
   %.lcssa.i = phi i32 [ %91, %.preheader.i ], [ %107, %106 ]
-  %111 = add nsw i32 %.lcssa.i, 5
-  %112 = sext i32 %111 to i64
-  %113 = load i64, ptr %73, align 8
-  %114 = mul nsw i64 %113, %112
-  %115 = getelementptr inbounds i8, ptr %0, i64 1624
-  %116 = load i64, ptr %115, align 8
-  %117 = add nsw i64 %114, %116
-  store i64 %117, ptr %115, align 8
-  %118 = load i64, ptr %74, align 8
-  %119 = mul nsw i64 %118, %112
-  %120 = getelementptr inbounds i8, ptr %0, i64 1632
-  %121 = load i64, ptr %120, align 8
-  %122 = add nsw i64 %121, %119
-  store i64 %122, ptr %120, align 8
-  %123 = getelementptr inbounds i8, ptr %0, i64 1760
-  store i32 %.lcssa.i, ptr %123, align 8
-  %124 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %1, ptr %124, align 8
-  %125 = getelementptr inbounds i8, ptr %0, i64 984
-  store double %2, ptr %125, align 8
-  %126 = getelementptr inbounds i8, ptr %0, i64 912
-  store i32 1, ptr %126, align 8
-  %127 = getelementptr inbounds i8, ptr %0, i64 928
-  store i32 2, ptr %127, align 8
-  %128 = getelementptr inbounds i8, ptr %0, i64 924
-  store i32 2, ptr %128, align 4
-  %129 = getelementptr inbounds i8, ptr %0, i64 1424
-  store double 1.000000e+04, ptr %129, align 8
-  %130 = getelementptr inbounds i8, ptr %0, i64 1708
-  store i32 0, ptr %130, align 4
-  %131 = getelementptr inbounds i8, ptr %0, i64 1728
-  store double 0.000000e+00, ptr %131, align 8
-  %132 = getelementptr inbounds i8, ptr %0, i64 1752
-  store double 1.000000e+00, ptr %132, align 8
-  %133 = getelementptr inbounds i8, ptr %0, i64 1664
-  %134 = getelementptr inbounds i8, ptr %0, i64 320
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %133, i8 0, i64 44, i1 false)
-  %135 = load ptr, ptr %134, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef nonnull %3, ptr noundef %135) #13
-  %136 = getelementptr inbounds i8, ptr %0, i64 1432
-  %137 = getelementptr inbounds i8, ptr %0, i64 1488
+  %110 = add nsw i32 %.lcssa.i, 5
+  %111 = sext i32 %110 to i64
+  %112 = load i64, ptr %73, align 8
+  %113 = mul nsw i64 %112, %111
+  %114 = getelementptr inbounds i8, ptr %0, i64 1624
+  %115 = load i64, ptr %114, align 8
+  %116 = add nsw i64 %113, %115
+  store i64 %116, ptr %114, align 8
+  %117 = load i64, ptr %74, align 8
+  %118 = mul nsw i64 %117, %111
+  %119 = getelementptr inbounds i8, ptr %0, i64 1632
+  %120 = load i64, ptr %119, align 8
+  %121 = add nsw i64 %120, %118
+  store i64 %121, ptr %119, align 8
+  %122 = getelementptr inbounds i8, ptr %0, i64 1760
+  store i32 %.lcssa.i, ptr %122, align 8
+  %123 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %1, ptr %123, align 8
+  %124 = getelementptr inbounds i8, ptr %0, i64 984
+  store double %2, ptr %124, align 8
+  %125 = getelementptr inbounds i8, ptr %0, i64 912
+  store i32 1, ptr %125, align 8
+  %126 = getelementptr inbounds i8, ptr %0, i64 928
+  store i32 2, ptr %126, align 8
+  %127 = getelementptr inbounds i8, ptr %0, i64 924
+  store i32 2, ptr %127, align 4
+  %128 = getelementptr inbounds i8, ptr %0, i64 1424
+  store double 1.000000e+04, ptr %128, align 8
+  %129 = getelementptr inbounds i8, ptr %0, i64 1708
+  store i32 0, ptr %129, align 4
+  %130 = getelementptr inbounds i8, ptr %0, i64 1728
+  store double 0.000000e+00, ptr %130, align 8
+  %131 = getelementptr inbounds i8, ptr %0, i64 1752
+  store double 1.000000e+00, ptr %131, align 8
+  %132 = getelementptr inbounds i8, ptr %0, i64 1664
+  %133 = getelementptr inbounds i8, ptr %0, i64 320
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %132, i8 0, i64 44, i1 false)
+  %134 = load ptr, ptr %133, align 8
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef nonnull %3, ptr noundef %134) #13
+  %135 = getelementptr inbounds i8, ptr %0, i64 1432
+  %136 = getelementptr inbounds i8, ptr %0, i64 1488
+  store i64 0, ptr %136, align 8
+  %137 = getelementptr inbounds i8, ptr %0, i64 1536
   store i64 0, ptr %137, align 8
-  %138 = getelementptr inbounds i8, ptr %0, i64 1536
+  %138 = getelementptr inbounds i8, ptr %0, i64 1512
   store i64 0, ptr %138, align 8
-  %139 = getelementptr inbounds i8, ptr %0, i64 1512
+  %139 = getelementptr inbounds i8, ptr %0, i64 1568
   store i64 0, ptr %139, align 8
-  %140 = getelementptr inbounds i8, ptr %0, i64 1568
-  store i64 0, ptr %140, align 8
-  %141 = getelementptr inbounds i8, ptr %0, i64 1584
-  store i32 0, ptr %141, align 8
-  %142 = getelementptr inbounds i8, ptr %0, i64 1712
-  %143 = getelementptr inbounds i8, ptr %0, i64 2048
-  store i32 0, ptr %143, align 8
-  %144 = getelementptr inbounds i8, ptr %0, i64 2168
-  store i64 0, ptr %144, align 8
-  %145 = getelementptr inbounds i8, ptr %0, i64 2164
-  store i32 0, ptr %145, align 4
-  %146 = getelementptr inbounds i8, ptr %0, i64 960
-  store double 0.000000e+00, ptr %146, align 8
-  %147 = getelementptr inbounds i8, ptr %0, i64 920
-  store i32 0, ptr %147, align 8
-  %148 = getelementptr inbounds i8, ptr %0, i64 2056
-  store i64 0, ptr %148, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %136, i8 0, i64 16, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %142, i8 0, i64 16, i1 false)
+  %140 = getelementptr inbounds i8, ptr %0, i64 1584
+  store i32 0, ptr %140, align 8
+  %141 = getelementptr inbounds i8, ptr %0, i64 1712
+  %142 = getelementptr inbounds i8, ptr %0, i64 2048
+  store i32 0, ptr %142, align 8
+  %143 = getelementptr inbounds i8, ptr %0, i64 2168
+  store i64 0, ptr %143, align 8
+  %144 = getelementptr inbounds i8, ptr %0, i64 2164
+  store i32 0, ptr %144, align 4
+  %145 = getelementptr inbounds i8, ptr %0, i64 960
+  store double 0.000000e+00, ptr %145, align 8
+  %146 = getelementptr inbounds i8, ptr %0, i64 920
+  store i32 0, ptr %146, align 8
+  %147 = getelementptr inbounds i8, ptr %0, i64 2056
+  store i64 0, ptr %147, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %135, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %141, i8 0, i64 16, i1 false)
   %invariant.gep = getelementptr i8, ptr %0, i64 1856
   br label %.preheader
 
 .preheader:                                       ; preds = %.loopexit72, %.preheader
   %indvar = phi i64 [ 0, %.loopexit72 ], [ %indvar.next, %.preheader ]
-  %149 = shl nuw nsw i64 %indvar, 5
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %149
+  %148 = shl nuw nsw i64 %indvar, 5
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %148
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %gep, i8 0, i64 24, i1 false)
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond.not = icmp eq i64 %indvar.next, 5
-  br i1 %exitcond.not, label %150, label %.preheader, !llvm.loop !8
+  br i1 %exitcond.not, label %149, label %.preheader, !llvm.loop !8
 
-150:                                              ; preds = %.preheader
-  %151 = getelementptr inbounds i8, ptr %0, i64 1788
-  store i32 1, ptr %151, align 4
-  br label %152
+149:                                              ; preds = %.preheader
+  %150 = getelementptr inbounds i8, ptr %0, i64 1788
+  store i32 1, ptr %150, align 4
+  br label %151
 
-152:                                              ; preds = %150, %.loopexit, %cvCheckNvector.exit.thread, %14, %11, %8
-  %.061 = phi i32 [ -21, %8 ], [ -22, %11 ], [ -22, %14 ], [ 0, %150 ], [ -20, %.loopexit ], [ -22, %cvCheckNvector.exit.thread ]
+151:                                              ; preds = %149, %.loopexit, %cvCheckNvector.exit.thread, %14, %11, %8
+  %.061 = phi i32 [ -21, %8 ], [ -22, %11 ], [ -22, %14 ], [ 0, %149 ], [ -20, %.loopexit ], [ -22, %cvCheckNvector.exit.thread ]
   ret i32 %.061
 }
 
@@ -1053,9 +1053,9 @@ define range(i32 -1, 1) i32 @cvEwtSet(ptr noundef %0, ptr noundef %1, ptr nocapt
   br i1 %28, label %cvEwtSetSS.exit.sink.split, label %cvEwtSetSS.exit
 
 cvEwtSetSS.exit.sink.split:                       ; preds = %18, %6
-  %.sink9 = phi ptr [ %7, %6 ], [ %19, %18 ]
-  %29 = load ptr, ptr %.sink9, align 8
-  tail call void @N_VInv(ptr noundef %29, ptr noundef %1) #13
+  %.sink.in = phi ptr [ %7, %6 ], [ %19, %18 ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  tail call void @N_VInv(ptr noundef %.sink, ptr noundef %1) #13
   br label %cvEwtSetSS.exit
 
 cvEwtSetSS.exit:                                  ; preds = %cvEwtSetSS.exit.sink.split, %18, %6, %3
@@ -1199,7 +1199,7 @@ define range(i32 -21, 1) i32 @CVodeQuadInit(ptr noundef %0, ptr noundef %1, ptr 
 
 7:                                                ; preds = %3
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.6)
-  br label %69
+  br label %67
 
 8:                                                ; preds = %3
   call void @N_VSpace(ptr noundef %2, ptr noundef nonnull %4, ptr noundef nonnull %5) #13
@@ -1292,56 +1292,56 @@ define range(i32 -21, 1) i32 @CVodeQuadInit(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not.not.i, label %33, label %.loopexit20, !llvm.loop !11
 
 .loopexit.sink.split.sink.split:                  ; preds = %20, %31
-  %.sink28 = phi ptr [ %18, %31 ], [ %14, %20 ]
-  %.sink27.ph = phi ptr [ %22, %31 ], [ %18, %20 ]
-  %47 = load ptr, ptr %.sink28, align 8
-  call void @N_VDestroy(ptr noundef %47) #13
+  %.sink28.in = phi ptr [ %18, %31 ], [ %14, %20 ]
+  %.sink.in.ph = phi ptr [ %22, %31 ], [ %18, %20 ]
+  %.sink28 = load ptr, ptr %.sink28.in, align 8
+  call void @N_VDestroy(ptr noundef %.sink28) #13
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %.loopexit.sink.split.sink.split, %16
-  %.sink27 = phi ptr [ %14, %16 ], [ %.sink27.ph, %.loopexit.sink.split.sink.split ]
-  %48 = load ptr, ptr %.sink27, align 8
-  call void @N_VDestroy(ptr noundef %48) #13
+  %.sink.in = phi ptr [ %14, %16 ], [ %.sink.in.ph, %.loopexit.sink.split.sink.split ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  call void @N_VDestroy(ptr noundef %.sink) #13
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph53.i, %.loopexit.sink.split, %8, %37
   call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -20, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.10)
-  br label %69
+  br label %67
 
 .loopexit20:                                      ; preds = %44, %.preheader.i
   %.lcssa.i = phi i32 [ %29, %.preheader.i ], [ %45, %44 ]
-  %49 = getelementptr inbounds i8, ptr %0, i64 1764
-  store i32 %.lcssa.i, ptr %49, align 4
-  %50 = add nsw i32 %.lcssa.i, 5
-  %51 = sext i32 %50 to i64
-  %52 = load i64, ptr %10, align 8
-  %53 = mul nsw i64 %52, %51
-  %54 = getelementptr inbounds i8, ptr %0, i64 1624
-  %55 = load i64, ptr %54, align 8
-  %56 = add nsw i64 %55, %53
-  store i64 %56, ptr %54, align 8
-  %57 = load i64, ptr %12, align 8
-  %58 = mul nsw i64 %57, %51
-  %59 = getelementptr inbounds i8, ptr %0, i64 1632
-  %60 = load i64, ptr %59, align 8
-  %61 = add nsw i64 %60, %58
-  store i64 %61, ptr %59, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 464
-  %63 = load ptr, ptr %62, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %2, ptr noundef %63) #13
-  %64 = getelementptr inbounds i8, ptr %0, i64 96
-  store ptr %1, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 1448
-  store i64 0, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 1544
-  store i64 0, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 88
-  store i32 1, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %0, i64 1796
-  store i32 1, ptr %68, align 4
-  br label %69
+  %47 = getelementptr inbounds i8, ptr %0, i64 1764
+  store i32 %.lcssa.i, ptr %47, align 4
+  %48 = add nsw i32 %.lcssa.i, 5
+  %49 = sext i32 %48 to i64
+  %50 = load i64, ptr %10, align 8
+  %51 = mul nsw i64 %50, %49
+  %52 = getelementptr inbounds i8, ptr %0, i64 1624
+  %53 = load i64, ptr %52, align 8
+  %54 = add nsw i64 %53, %51
+  store i64 %54, ptr %52, align 8
+  %55 = load i64, ptr %12, align 8
+  %56 = mul nsw i64 %55, %49
+  %57 = getelementptr inbounds i8, ptr %0, i64 1632
+  %58 = load i64, ptr %57, align 8
+  %59 = add nsw i64 %58, %56
+  store i64 %59, ptr %57, align 8
+  %60 = getelementptr inbounds i8, ptr %0, i64 464
+  %61 = load ptr, ptr %60, align 8
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %2, ptr noundef %61) #13
+  %62 = getelementptr inbounds i8, ptr %0, i64 96
+  store ptr %1, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %0, i64 1448
+  store i64 0, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %0, i64 1544
+  store i64 0, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %0, i64 88
+  store i32 1, ptr %65, align 8
+  %66 = getelementptr inbounds i8, ptr %0, i64 1796
+  store i32 1, ptr %66, align 4
+  br label %67
 
-69:                                               ; preds = %.loopexit20, %.loopexit, %7
+67:                                               ; preds = %.loopexit20, %.loopexit, %7
   %.0 = phi i32 [ -21, %7 ], [ 0, %.loopexit20 ], [ -20, %.loopexit ]
   ret i32 %.0
 }
@@ -7315,9 +7315,9 @@ define internal fastcc range(i32 -1, 1) i32 @cvQuadEwtSet(ptr nocapture noundef 
   br i1 %28, label %cvQuadEwtSetSS.exit.sink.split, label %cvQuadEwtSetSS.exit
 
 cvQuadEwtSetSS.exit.sink.split:                   ; preds = %18, %6
-  %.sink8 = phi ptr [ %7, %6 ], [ %19, %18 ]
-  %29 = load ptr, ptr %.sink8, align 8
-  tail call void @N_VInv(ptr noundef %29, ptr noundef %2) #13
+  %.sink.in = phi ptr [ %7, %6 ], [ %19, %18 ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  tail call void @N_VInv(ptr noundef %.sink, ptr noundef %2) #13
   br label %cvQuadEwtSetSS.exit
 
 cvQuadEwtSetSS.exit:                              ; preds = %cvQuadEwtSetSS.exit.sink.split, %18, %6, %3

@@ -3482,15 +3482,15 @@ _ZNK5QHashI7QStringP5QMenuE10isDetachedEv.exit:   ; preds = %3
   store i64 %45, ptr %42, align 8
   store i64 %44, ptr %43, align 8
   %46 = getelementptr inbounds i8, ptr %36, i64 24
+  store ptr %18, ptr %46, align 8
   br label %_ZN5QHashI7QStringP5QMenuE14emplace_helperIJS2_EEENS3_8iteratorEOS0_DpOT_.exit
 
 47:                                               ; preds = %17
   %48 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<QString, QMenu *>>::Entry", ptr %31, i64 %34, i32 0, i32 0, i64 24
+  store ptr %18, ptr %48, align 8
   br label %_ZN5QHashI7QStringP5QMenuE14emplace_helperIJS2_EEENS3_8iteratorEOS0_DpOT_.exit
 
 _ZN5QHashI7QStringP5QMenuE14emplace_helperIJS2_EEENS3_8iteratorEOS0_DpOT_.exit: ; preds = %35, %47
-  %.sink = phi ptr [ %46, %35 ], [ %48, %47 ]
-  store ptr %18, ptr %.sink, align 8
   %.sroa.0.0.copyload.i = load ptr, ptr %6, align 8
   %.sroa.2.0.copyload.i = load i64, ptr %25, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)

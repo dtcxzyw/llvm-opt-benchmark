@@ -5155,7 +5155,7 @@ define noundef i32 @Abc_NodeCheckFull(ptr nocapture noundef readnone %0, ptr noc
   ret i32 1
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: read) uwtable
 define noalias noundef ptr @Abc_NodeMffcConstants(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
   %3 = getelementptr i8, ptr %1, i64 4
   %.val = load i32, ptr %3, align 4
@@ -5174,20 +5174,16 @@ define noalias noundef ptr @Abc_NodeMffcConstants(ptr nocapture noundef readnone
   %calloc.i = tail call noalias noundef dereferenceable_or_null(32) ptr @calloc(i64 1, i64 32)
   store i32 1, ptr %calloc.i, align 8
   %10 = getelementptr inbounds i8, ptr %calloc.i, i64 24
-  br label %.sink.split
+  store i32 1, ptr %10, align 8
+  br label %12
 
 11:                                               ; preds = %2
   %calloc.i10 = tail call noalias noundef dereferenceable_or_null(32) ptr @calloc(i64 1, i64 32)
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %9, %11
-  %calloc.i10.sink = phi ptr [ %calloc.i10, %11 ], [ %10, %9 ]
-  %.07.ph = phi ptr [ %calloc.i10, %11 ], [ %calloc.i, %9 ]
-  store i32 1, ptr %calloc.i10.sink, align 8
+  store i32 1, ptr %calloc.i10, align 8
   br label %12
 
-12:                                               ; preds = %.sink.split, %2
-  %.07 = phi ptr [ null, %2 ], [ %.07.ph, %.sink.split ]
+12:                                               ; preds = %2, %11, %9
+  %.07 = phi ptr [ %calloc.i, %9 ], [ %calloc.i10, %11 ], [ null, %2 ]
   ret ptr %.07
 }
 
@@ -5595,7 +5591,7 @@ define noalias noundef ptr @Abc_NodeMffcDoubleNode(ptr nocapture noundef readnon
 define noalias noundef ptr @Abc_NodeResubEval(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = tail call i32 @Abc_Abc_NodeResubCollectDivs(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %52, label %5
+  br i1 %.not, label %54, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %0, i64 56
@@ -5620,75 +5616,75 @@ define noalias noundef ptr @Abc_NodeResubEval(ptr nocapture noundef %0, ptr noca
   %22 = getelementptr i32, ptr %.val9.i, i64 %21
   %23 = getelementptr i8, ptr %22, i64 -4
   %24 = load i32, ptr %23, align 4
-  switch i32 %24, label %Abc_NodeMffcConstants.exit.thread [
-    i32 0, label %Abc_NodeMffcConstants.exit.thread63
-    i32 -1, label %Abc_NodeMffcConstants.exit
+  switch i32 %24, label %Abc_NodeMffcConstants.exit [
+    i32 0, label %25
+    i32 -1, label %27
   ]
 
-Abc_NodeMffcConstants.exit.thread63:              ; preds = %5
+25:                                               ; preds = %5
   %calloc.i.i = tail call noalias noundef dereferenceable_or_null(32) ptr @calloc(i64 1, i64 32)
   store i32 1, ptr %calloc.i.i, align 8
-  %25 = getelementptr inbounds i8, ptr %calloc.i.i, i64 24
-  br label %26
+  %26 = getelementptr inbounds i8, ptr %calloc.i.i, i64 24
+  store i32 1, ptr %26, align 8
+  br label %28
+
+27:                                               ; preds = %5
+  %calloc.i10.i = tail call noalias noundef dereferenceable_or_null(32) ptr @calloc(i64 1, i64 32)
+  store i32 1, ptr %calloc.i10.i, align 8
+  br label %28
+
+28:                                               ; preds = %25, %27
+  %.07.i.ph = phi ptr [ %calloc.i10.i, %27 ], [ %calloc.i.i, %25 ]
+  %29 = getelementptr inbounds i8, ptr %0, i64 132
+  %30 = load i32, ptr %29, align 4
+  %31 = add nsw i32 %30, %10
+  store i32 %31, ptr %29, align 4
+  br label %.sink.split
 
 Abc_NodeMffcConstants.exit:                       ; preds = %5
-  %calloc.i10.i = tail call noalias noundef dereferenceable_or_null(32) ptr @calloc(i64 1, i64 32)
-  br label %26
+  %32 = sub nsw i32 %.val.i, %10
+  %33 = getelementptr inbounds i8, ptr %0, i64 88
+  %34 = load ptr, ptr %33, align 8
+  %35 = tail call ptr @Abc_NodeMffcSingleVar(ptr noundef nonnull %0, ptr noundef nonnull %18, i32 noundef %32, ptr noundef %34)
+  %.not57 = icmp eq ptr %35, null
+  br i1 %.not57, label %40, label %36
 
-26:                                               ; preds = %Abc_NodeMffcConstants.exit, %Abc_NodeMffcConstants.exit.thread63
-  %calloc.i10.i.sink = phi ptr [ %calloc.i10.i, %Abc_NodeMffcConstants.exit ], [ %25, %Abc_NodeMffcConstants.exit.thread63 ]
-  %.07.ph.i67 = phi ptr [ %calloc.i10.i, %Abc_NodeMffcConstants.exit ], [ %calloc.i.i, %Abc_NodeMffcConstants.exit.thread63 ]
-  store i32 1, ptr %calloc.i10.i.sink, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 132
-  %28 = load i32, ptr %27, align 4
-  %29 = add nsw i32 %28, %10
-  store i32 %29, ptr %27, align 4
+36:                                               ; preds = %Abc_NodeMffcConstants.exit
+  %37 = getelementptr inbounds i8, ptr %0, i64 132
+  %38 = load i32, ptr %37, align 4
+  %39 = add nsw i32 %38, %10
+  store i32 %39, ptr %37, align 4
   br label %.sink.split
 
-Abc_NodeMffcConstants.exit.thread:                ; preds = %5
-  %30 = sub nsw i32 %.val.i, %10
-  %31 = getelementptr inbounds i8, ptr %0, i64 88
-  %32 = load ptr, ptr %31, align 8
-  %33 = tail call ptr @Abc_NodeMffcSingleVar(ptr noundef nonnull %0, ptr noundef nonnull %18, i32 noundef %30, ptr noundef %32)
-  %.not57 = icmp eq ptr %33, null
-  br i1 %.not57, label %38, label %34
+40:                                               ; preds = %Abc_NodeMffcConstants.exit
+  %41 = icmp eq i32 %10, 1
+  br i1 %41, label %54, label %42
 
-34:                                               ; preds = %Abc_NodeMffcConstants.exit.thread
-  %35 = getelementptr inbounds i8, ptr %0, i64 132
-  %36 = load i32, ptr %35, align 4
-  %37 = add nsw i32 %36, %10
-  store i32 %37, ptr %35, align 4
+42:                                               ; preds = %40
+  %43 = load ptr, ptr %16, align 8
+  %44 = load ptr, ptr %33, align 8
+  %45 = tail call ptr @Abc_NodeMffcSingleNode(ptr noundef nonnull %0, ptr noundef %43, i32 poison, ptr noundef %44)
+  %.not58 = icmp eq ptr %45, null
+  br i1 %.not58, label %54, label %46
+
+46:                                               ; preds = %42
+  %47 = add nsw i32 %10, -1
+  %48 = getelementptr inbounds i8, ptr %0, i64 132
+  %49 = load i32, ptr %48, align 4
+  %50 = add nsw i32 %47, %49
+  store i32 %50, ptr %48, align 4
   br label %.sink.split
 
-38:                                               ; preds = %Abc_NodeMffcConstants.exit.thread
-  %39 = icmp eq i32 %10, 1
-  br i1 %39, label %52, label %40
+.sink.split:                                      ; preds = %28, %36, %46
+  %.0.ph = phi ptr [ %45, %46 ], [ %35, %36 ], [ %.07.i.ph, %28 ]
+  %51 = getelementptr inbounds i8, ptr %0, i64 128
+  %52 = load i32, ptr %51, align 8
+  %53 = add nsw i32 %52, 1
+  store i32 %53, ptr %51, align 8
+  br label %54
 
-40:                                               ; preds = %38
-  %41 = load ptr, ptr %16, align 8
-  %42 = load ptr, ptr %31, align 8
-  %43 = tail call ptr @Abc_NodeMffcSingleNode(ptr noundef nonnull %0, ptr noundef %41, i32 poison, ptr noundef %42)
-  %.not58 = icmp eq ptr %43, null
-  br i1 %.not58, label %52, label %44
-
-44:                                               ; preds = %40
-  %45 = add nsw i32 %10, -1
-  %46 = getelementptr inbounds i8, ptr %0, i64 132
-  %47 = load i32, ptr %46, align 4
-  %48 = add nsw i32 %45, %47
-  store i32 %48, ptr %46, align 4
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %26, %34, %44
-  %.0.ph = phi ptr [ %43, %44 ], [ %33, %34 ], [ %.07.ph.i67, %26 ]
-  %49 = getelementptr inbounds i8, ptr %0, i64 128
-  %50 = load i32, ptr %49, align 8
-  %51 = add nsw i32 %50, 1
-  store i32 %51, ptr %49, align 8
-  br label %52
-
-52:                                               ; preds = %.sink.split, %40, %38, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %38 ], [ null, %40 ], [ %.0.ph, %.sink.split ]
+54:                                               ; preds = %.sink.split, %42, %40, %3
+  %.0 = phi ptr [ null, %3 ], [ null, %40 ], [ null, %42 ], [ %.0.ph, %.sink.split ]
   ret ptr %.0
 }
 
@@ -5911,7 +5907,7 @@ attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true
 attributes #3 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(readwrite, argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree nounwind memory(readwrite, argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

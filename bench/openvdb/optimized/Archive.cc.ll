@@ -9116,7 +9116,11 @@ if.then.i.i.i60:                                  ; preds = %invoke.cont32
   %43 = load atomic i64, ptr %_M_use_count.i.i.i.i61 acquire, align 8
   %cmp.i.i.i.i62 = icmp eq i64 %43, 4294967297
   %44 = trunc i64 %43 to i32
-  br i1 %cmp.i.i.i.i62, label %if.end45.sink.split.sink.split, label %if.end.i.i.i.i
+  br i1 %cmp.i.i.i.i62, label %if.then.i.i.i.i66, label %if.end.i.i.i.i
+
+if.then.i.i.i.i66:                                ; preds = %if.then.i.i.i60
+  store i32 0, ptr %_M_use_count.i.i.i.i61, align 8
+  br label %if.end45.sink.split.sink.split
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i60
   %45 = load i8, ptr @__libc_single_threaded, align 1
@@ -9282,7 +9286,11 @@ if.then.i.i.i82:                                  ; preds = %invoke.cont44
   %69 = load atomic i64, ptr %_M_use_count.i.i.i.i83 acquire, align 8
   %cmp.i.i.i.i84 = icmp eq i64 %69, 4294967297
   %70 = trunc i64 %69 to i32
-  br i1 %cmp.i.i.i.i84, label %if.end45.sink.split.sink.split, label %if.end.i.i.i.i85
+  br i1 %cmp.i.i.i.i84, label %if.then.i.i.i.i107, label %if.end.i.i.i.i85
+
+if.then.i.i.i.i107:                               ; preds = %if.then.i.i.i82
+  store i32 0, ptr %_M_use_count.i.i.i.i83, align 8
+  br label %if.end45.sink.split.sink.split
 
 if.end.i.i.i.i85:                                 ; preds = %if.then.i.i.i82
   %71 = load i8, ptr @__libc_single_threaded, align 1
@@ -9334,10 +9342,8 @@ lpad43:                                           ; preds = %invoke.cont40
   call void @_ZNSt10shared_ptrIN7openvdb5v11_04tree8TreeBaseEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp34) #26
   br label %ehcleanup
 
-if.end45.sink.split.sink.split:                   ; preds = %if.then.i.i.i82, %if.then.i.i.i60
-  %_M_use_count.i.i.i.i83.sink = phi ptr [ %_M_use_count.i.i.i.i61, %if.then.i.i.i60 ], [ %_M_use_count.i.i.i.i83, %if.then.i.i.i82 ]
-  %.sink190 = phi ptr [ %42, %if.then.i.i.i60 ], [ %68, %if.then.i.i.i82 ]
-  store i32 0, ptr %_M_use_count.i.i.i.i83.sink, align 8
+if.end45.sink.split.sink.split:                   ; preds = %if.then.i.i.i.i66, %if.then.i.i.i.i107
+  %.sink190 = phi ptr [ %68, %if.then.i.i.i.i107 ], [ %42, %if.then.i.i.i.i66 ]
   %_M_weak_count.i.i.i.i108 = getelementptr inbounds i8, ptr %.sink190, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i108, align 4
   %vtable.i.i.i.i109 = load ptr, ptr %.sink190, align 8
@@ -25722,9 +25728,9 @@ invoke.cont.i19.i.i:                              ; preds = %if.then3.i16.i.i
   br label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit5.i15.i.i
 
 common.resume.i.i:                                ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i18.i.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i.i.i
-  %mMutex.i.sink.i.i = phi ptr [ %mMutex.i.i.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i.i.i ], [ %mMutex.i11.i.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i18.i.i ]
-  %common.resume.op.i.i = phi { ptr, i32 } [ %13, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i.i.i ], [ %24, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i18.i.i ]
-  store atomic i8 0, ptr %mMutex.i.sink.i.i release, align 1
+  %mMutex.i11.i.lcssa.sink.i = phi ptr [ %mMutex.i11.i.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i18.i.i ], [ %mMutex.i.i.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i.i.i ]
+  %common.resume.op.i.i = phi { ptr, i32 } [ %24, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i18.i.i ], [ %13, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i.i.i ]
+  store atomic i8 0, ptr %mMutex.i11.i.lcssa.sink.i release, align 1
   resume { ptr, i32 } %common.resume.op.i.i
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i18.i.i: ; preds = %if.then3.i16.i.i
@@ -33312,9 +33318,9 @@ invoke.cont.i19.i.i:                              ; preds = %if.then3.i16.i.i
   br label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit5.i15.i.i
 
 common.resume.i.i:                                ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i18.i.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i.i.i
-  %mMutex.i.sink.i.i = phi ptr [ %mMutex.i.i.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i.i.i ], [ %mMutex.i11.i.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i18.i.i ]
-  %common.resume.op.i.i = phi { ptr, i32 } [ %13, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i.i.i ], [ %24, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i18.i.i ]
-  store atomic i8 0, ptr %mMutex.i.sink.i.i release, align 1
+  %mMutex.i11.i.lcssa.sink.i = phi ptr [ %mMutex.i11.i.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i18.i.i ], [ %mMutex.i.i.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i.i.i ]
+  %common.resume.op.i.i = phi { ptr, i32 } [ %24, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i18.i.i ], [ %13, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i.i.i ]
+  store atomic i8 0, ptr %mMutex.i11.i.lcssa.sink.i release, align 1
   resume { ptr, i32 } %common.resume.op.i.i
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i18.i.i: ; preds = %if.then3.i16.i.i
@@ -40791,9 +40797,9 @@ invoke.cont.i19.i.i:                              ; preds = %if.then3.i16.i.i
   br label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit5.i15.i.i
 
 common.resume.i.i:                                ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i18.i.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i.i.i
-  %mMutex.i.sink.i.i = phi ptr [ %mMutex.i.i.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i.i.i ], [ %mMutex.i11.i.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i18.i.i ]
-  %common.resume.op.i.i = phi { ptr, i32 } [ %13, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i.i.i ], [ %24, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i18.i.i ]
-  store atomic i8 0, ptr %mMutex.i.sink.i.i release, align 1
+  %mMutex.i11.i.lcssa.sink.i = phi ptr [ %mMutex.i11.i.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i18.i.i ], [ %mMutex.i.i.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i.i.i ]
+  %common.resume.op.i.i = phi { ptr, i32 } [ %24, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i18.i.i ], [ %13, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i.i.i ]
+  store atomic i8 0, ptr %mMutex.i11.i.lcssa.sink.i release, align 1
   resume { ptr, i32 } %common.resume.op.i.i
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i18.i.i: ; preds = %if.then3.i16.i.i
@@ -48575,9 +48581,9 @@ invoke.cont.i19.i.i:                              ; preds = %if.then3.i16.i.i
   br label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit5.i15.i.i
 
 common.resume.i.i:                                ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i18.i.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i.i.i
-  %mMutex.i.sink.i.i = phi ptr [ %mMutex.i.i.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i.i.i ], [ %mMutex.i11.i.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i18.i.i ]
-  %common.resume.op.i.i = phi { ptr, i32 } [ %13, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i.i.i ], [ %24, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i18.i.i ]
-  store atomic i8 0, ptr %mMutex.i.sink.i.i release, align 1
+  %mMutex.i11.i.lcssa.sink.i = phi ptr [ %mMutex.i11.i.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i18.i.i ], [ %mMutex.i.i.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i.i.i ]
+  %common.resume.op.i.i = phi { ptr, i32 } [ %24, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i18.i.i ], [ %13, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i.i.i ]
+  store atomic i8 0, ptr %mMutex.i11.i.lcssa.sink.i release, align 1
   resume { ptr, i32 } %common.resume.op.i.i
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i18.i.i: ; preds = %if.then3.i16.i.i
@@ -56357,9 +56363,9 @@ invoke.cont.i19.i.i:                              ; preds = %if.then3.i16.i.i
   br label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit5.i15.i.i
 
 common.resume.i.i:                                ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i18.i.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i.i.i
-  %mMutex.i.sink.i.i = phi ptr [ %mMutex.i.i.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i.i.i ], [ %mMutex.i11.i.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i18.i.i ]
-  %common.resume.op.i.i = phi { ptr, i32 } [ %13, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i.i.i ], [ %24, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i18.i.i ]
-  store atomic i8 0, ptr %mMutex.i.sink.i.i release, align 1
+  %mMutex.i11.i.lcssa.sink.i = phi ptr [ %mMutex.i11.i.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i18.i.i ], [ %mMutex.i.i.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i.i.i ]
+  %common.resume.op.i.i = phi { ptr, i32 } [ %24, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i18.i.i ], [ %13, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i.i.i ]
+  store atomic i8 0, ptr %mMutex.i11.i.lcssa.sink.i release, align 1
   resume { ptr, i32 } %common.resume.op.i.i
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i18.i.i: ; preds = %if.then3.i16.i.i
@@ -64010,9 +64016,9 @@ invoke.cont.i19.i.i:                              ; preds = %if.then3.i16.i.i
   br label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit5.i15.i.i
 
 common.resume.i.i:                                ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i18.i.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i.i.i
-  %mMutex.i.sink.i.i = phi ptr [ %mMutex.i.i.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i.i.i ], [ %mMutex.i11.i.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i18.i.i ]
-  %common.resume.op.i.i = phi { ptr, i32 } [ %13, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i.i.i ], [ %24, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i18.i.i ]
-  store atomic i8 0, ptr %mMutex.i.sink.i.i release, align 1
+  %mMutex.i11.i.lcssa.sink.i = phi ptr [ %mMutex.i11.i.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i18.i.i ], [ %mMutex.i.i.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i.i.i ]
+  %common.resume.op.i.i = phi { ptr, i32 } [ %24, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i18.i.i ], [ %13, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i.i.i ]
+  store atomic i8 0, ptr %mMutex.i11.i.lcssa.sink.i release, align 1
   resume { ptr, i32 } %common.resume.op.i.i
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i18.i.i: ; preds = %if.then3.i16.i.i
@@ -72253,9 +72259,9 @@ invoke.cont.i19.i.i:                              ; preds = %if.then3.i16.i.i
   br label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit5.i15.i.i
 
 common.resume.i.i:                                ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i18.i.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i.i.i
-  %mMutex.i.sink.i.i = phi ptr [ %mMutex.i.i.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i.i.i ], [ %mMutex.i11.i.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i18.i.i ]
-  %common.resume.op.i.i = phi { ptr, i32 } [ %13, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i.i.i ], [ %24, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i18.i.i ]
-  store atomic i8 0, ptr %mMutex.i.sink.i.i release, align 1
+  %mMutex.i11.i.lcssa.sink.i = phi ptr [ %mMutex.i11.i.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i18.i.i ], [ %mMutex.i.i.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i.i.i ]
+  %common.resume.op.i.i = phi { ptr, i32 } [ %24, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i18.i.i ], [ %13, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i.i.i ]
+  store atomic i8 0, ptr %mMutex.i11.i.lcssa.sink.i release, align 1
   resume { ptr, i32 } %common.resume.op.i.i
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i18.i.i: ; preds = %if.then3.i16.i.i

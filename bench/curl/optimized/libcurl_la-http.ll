@@ -1453,8 +1453,8 @@ if.else10:                                        ; preds = %sw.epilog
   switch i8 %1, label %if.end25.thread [
     i8 1, label %sw.bb14
     i8 4, label %sw.bb14
-    i8 2, label %if.end25.sink.split
-    i8 3, label %if.end25.sink.split
+    i8 2, label %sw.bb21
+    i8 3, label %sw.bb21
   ]
 
 if.end25.thread:                                  ; preds = %if.else10
@@ -1466,15 +1466,15 @@ if.end25.thread:                                  ; preds = %if.else10
 
 sw.bb14:                                          ; preds = %if.else10, %if.else10
   %infilesize = getelementptr inbounds i8, ptr %data, i64 4600
-  br label %if.end25.sink.split
-
-if.end25.sink.split:                              ; preds = %if.else10, %if.else10, %sw.bb14
-  %infilesize.sink = phi ptr [ %infilesize, %sw.bb14 ], [ %0, %if.else10 ], [ %0, %if.else10 ]
-  %4 = load i64, ptr %infilesize.sink, align 8
+  %4 = load i64, ptr %infilesize, align 8
   br label %if.end25
 
-if.end25:                                         ; preds = %if.end25.sink.split, %sw.epilog
-  %expectsend.0 = phi i64 [ 0, %sw.epilog ], [ %4, %if.end25.sink.split ]
+sw.bb21:                                          ; preds = %if.else10, %if.else10
+  %5 = load i64, ptr %0, align 8
+  br label %if.end25
+
+if.end25:                                         ; preds = %sw.bb14, %sw.epilog, %sw.bb21
+  %expectsend.0 = phi i64 [ %5, %sw.bb21 ], [ 0, %sw.epilog ], [ %4, %sw.bb14 ]
   %rewindbeforesend = getelementptr inbounds i8, ptr %data, i64 5044
   %bf.load27 = load i32, ptr %rewindbeforesend, align 4
   %bf.clear28 = and i32 %bf.load27, -524289
@@ -1489,8 +1489,8 @@ if.then33:                                        ; preds = %if.end25.thread, %i
   %rewindbeforesend51 = phi ptr [ %rewindbeforesend44, %if.end25.thread ], [ %rewindbeforesend, %if.end25 ]
   %expectsend.050 = phi i64 [ -1, %if.end25.thread ], [ %expectsend.0, %if.end25 ]
   %picked = getelementptr inbounds i8, ptr %data, i64 3600
-  %5 = load i64, ptr %picked, align 8
-  %.fr = freeze i64 %5
+  %6 = load i64, ptr %picked, align 8
+  %.fr = freeze i64 %6
   switch i64 %.fr, label %switch.early.test [
     i64 8, label %if.then54
     i64 32, label %if.then54
@@ -1498,8 +1498,8 @@ if.then33:                                        ; preds = %if.end25.thread, %i
 
 switch.early.test:                                ; preds = %if.then33
   %picked39 = getelementptr inbounds i8, ptr %data, i64 3568
-  %6 = load i64, ptr %picked39, align 8
-  switch i64 %6, label %if.end108 [
+  %7 = load i64, ptr %picked39, align 8
+  switch i64 %7, label %if.end108 [
     i64 32, label %if.then54
     i64 8, label %if.then54
   ]
@@ -1511,26 +1511,26 @@ if.then54:                                        ; preds = %if.then33, %if.then
 
 lor.lhs.false57:                                  ; preds = %if.then54
   %http_ntlm_state = getelementptr inbounds i8, ptr %conn, i64 800
-  %7 = load i32, ptr %http_ntlm_state, align 8
-  %cmp58.not = icmp eq i32 %7, 0
+  %8 = load i32, ptr %http_ntlm_state, align 8
+  %cmp58.not = icmp eq i32 %8, 0
   br i1 %cmp58.not, label %lor.lhs.false60, label %if.then63
 
 lor.lhs.false60:                                  ; preds = %lor.lhs.false57
   %proxy_ntlm_state = getelementptr inbounds i8, ptr %conn, i64 804
-  %8 = load i32, ptr %proxy_ntlm_state, align 4
-  %cmp61.not = icmp eq i32 %8, 0
+  %9 = load i32, ptr %proxy_ntlm_state, align 4
+  %cmp61.not = icmp eq i32 %9, 0
   br i1 %cmp61.not, label %if.end86, label %if.then63
 
 if.then63:                                        ; preds = %lor.lhs.false60, %lor.lhs.false57, %if.then54
   %bf.load65 = load i32, ptr %bits, align 8
-  %9 = and i32 %bf.load65, 65536
-  %tobool68.not = icmp eq i32 %9, 0
+  %10 = and i32 %bf.load65, 65536
+  %tobool68.not = icmp eq i32 %10, 0
   br i1 %tobool68.not, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.then63
   %writesockfd = getelementptr inbounds i8, ptr %conn, i64 748
-  %10 = load i32, ptr %writesockfd, align 4
-  %cmp69.not = icmp eq i32 %10, -1
+  %11 = load i32, ptr %writesockfd, align 4
+  %cmp69.not = icmp eq i32 %11, -1
   br i1 %cmp69.not, label %return, label %land.lhs.true78
 
 land.lhs.true78:                                  ; preds = %land.lhs.true
@@ -1538,21 +1538,21 @@ land.lhs.true78:                                  ; preds = %land.lhs.true
   store i32 %bf.set76, ptr %rewindbeforesend51, align 4
   %verbose = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load79 = load i64, ptr %verbose, align 2
-  %11 = and i64 %bf.load79, 536870912
-  %tobool82.not = icmp eq i64 %11, 0
+  %12 = and i64 %bf.load79, 536870912
+  %tobool82.not = icmp eq i64 %12, 0
   br i1 %tobool82.not, label %return, label %return.sink.split
 
 if.end86:                                         ; preds = %lor.lhs.false60
   %bf.load88 = load i32, ptr %bits, align 8
-  %12 = and i32 %bf.load88, 64
-  %tobool91.not = icmp eq i32 %12, 0
+  %13 = and i32 %bf.load88, 64
+  %tobool91.not = icmp eq i32 %13, 0
   br i1 %tobool91.not, label %land.lhs.true96, label %return
 
 land.lhs.true96:                                  ; preds = %if.end86
   %verbose98 = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load99 = load i64, ptr %verbose98, align 2
-  %13 = and i64 %bf.load99, 536870912
-  %tobool103.not = icmp eq i64 %13, 0
+  %14 = and i64 %bf.load99, 536870912
+  %tobool103.not = icmp eq i64 %14, 0
   br i1 %tobool103.not, label %if.end108, label %if.then104
 
 if.then104:                                       ; preds = %land.lhs.true96
@@ -1575,8 +1575,8 @@ land.lhs.true120:                                 ; preds = %if.end110
   store i32 %bf.set117, ptr %rewindbeforesend52, align 4
   %verbose122 = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load123 = load i64, ptr %verbose122, align 2
-  %14 = and i64 %bf.load123, 536870912
-  %tobool127.not = icmp eq i64 %14, 0
+  %15 = and i64 %bf.load123, 536870912
+  %tobool127.not = icmp eq i64 %15, 0
   br i1 %tobool127.not, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %land.lhs.true120, %land.lhs.true78
@@ -7712,7 +7712,8 @@ if.end4.i:                                        ; preds = %if.end.i27
 
 if.then8.i:                                       ; preds = %if.end4.i
   %path9.i = getelementptr inbounds i8, ptr %call, i64 40
-  br label %if.end38.sink.split.i
+  store ptr null, ptr %path9.i, align 8
+  br label %if.end38.i
 
 if.else.i:                                        ; preds = %if.end4.i
   %tobool10.i = icmp eq ptr %19, null
@@ -7722,7 +7723,8 @@ if.else.i:                                        ; preds = %if.end4.i
 if.then13.i:                                      ; preds = %if.else.i
   %path14.i = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %19, ptr %path14.i, align 8
-  br label %if.end38.sink.split.i
+  store ptr null, ptr %path.i, align 8
+  br label %if.end38.i
 
 if.else15.i:                                      ; preds = %if.else.i
   br i1 %tobool5.i, label %if.then17.i29, label %if.end22.i
@@ -7757,12 +7759,7 @@ if.end29.i:                                       ; preds = %if.then24.i, %if.en
   %tobool34.not.i28 = icmp eq ptr %call31.i, null
   br i1 %tobool34.not.i28, label %req_assign_url_path.exit, label %if.end38.i
 
-if.end38.sink.split.i:                            ; preds = %if.then13.i, %if.then8.i
-  %path.sink.i = phi ptr [ %path.i, %if.then13.i ], [ %path9.i, %if.then8.i ]
-  store ptr null, ptr %path.sink.i, align 8
-  br label %if.end38.i
-
-if.end38.i:                                       ; preds = %if.end38.sink.split.i, %if.end29.i
+if.end38.i:                                       ; preds = %if.end29.i, %if.then13.i, %if.then8.i
   br label %req_assign_url_path.exit
 
 req_assign_url_path.exit:                         ; preds = %if.end24, %if.end.i27, %if.then17.i29, %if.then24.i, %if.end29.i, %if.end38.i

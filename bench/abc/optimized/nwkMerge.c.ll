@@ -980,15 +980,15 @@ define void @Nwk_ManGraphCheckLists(ptr nocapture noundef readonly %0) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Nwk_ManGraphUpdate(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @Nwk_ManGraphUpdate(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   tail call fastcc void @Nwk_ManGraphListExtract(ptr noundef %0, ptr noundef %1)
   tail call fastcc void @Nwk_ManGraphListExtract(ptr noundef %0, ptr noundef %2)
   %4 = getelementptr inbounds i8, ptr %1, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
-  br i1 %6, label %.lr.ph204, label %.critedge.preheader
+  br i1 %6, label %.lr.ph202, label %.critedge.preheader
 
-.lr.ph204:                                        ; preds = %3
+.lr.ph202:                                        ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = getelementptr inbounds i8, ptr %1, i64 16
   %9 = getelementptr inbounds i8, ptr %0, i64 124
@@ -1001,21 +1001,21 @@ define void @Nwk_ManGraphUpdate(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %13 = getelementptr inbounds i8, ptr %2, i64 12
   %14 = load i32, ptr %13, align 4
   %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %.lr.ph209, label %.critedge4
+  br i1 %15, label %.lr.ph207, label %.critedge4
 
-.lr.ph209:                                        ; preds = %.critedge.preheader
+.lr.ph207:                                        ; preds = %.critedge.preheader
   %16 = getelementptr inbounds i8, ptr %0, i64 40
   %17 = getelementptr inbounds i8, ptr %2, i64 16
   %18 = getelementptr inbounds i8, ptr %0, i64 124
   %19 = getelementptr inbounds i8, ptr %0, i64 56
   %20 = getelementptr inbounds i8, ptr %0, i64 120
   %21 = getelementptr inbounds i8, ptr %0, i64 188
-  br label %271
+  br label %276
 
-22:                                               ; preds = %.lr.ph204, %Nwk_ManGraphListInsert.exit109
-  %indvars.iv217 = phi i64 [ 0, %.lr.ph204 ], [ %indvars.iv.next218, %Nwk_ManGraphListInsert.exit109 ]
+22:                                               ; preds = %.lr.ph202, %Nwk_ManGraphListInsert.exit109
+  %indvars.iv215 = phi i64 [ 0, %.lr.ph202 ], [ %indvars.iv.next216, %Nwk_ManGraphListInsert.exit109 ]
   %23 = load ptr, ptr %7, align 8
-  %24 = getelementptr inbounds [0 x i32], ptr %8, i64 0, i64 %indvars.iv217
+  %24 = getelementptr inbounds [0 x i32], ptr %8, i64 0, i64 %indvars.iv215
   %25 = load i32, ptr %24, align 4
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds ptr, ptr %23, i64 %26
@@ -1034,9 +1034,9 @@ define void @Nwk_ManGraphUpdate(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %34 = getelementptr inbounds i8, ptr %28, i64 16
   br label %35
 
-35:                                               ; preds = %.lr.ph, %185
-  %36 = phi i32 [ %32, %.lr.ph ], [ %186, %185 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %185 ]
+35:                                               ; preds = %.lr.ph, %190
+  %36 = phi i32 [ %32, %.lr.ph ], [ %191, %190 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %190 ]
   %37 = load ptr, ptr %7, align 8
   %38 = getelementptr inbounds [0 x i32], ptr %34, i64 0, i64 %indvars.iv
   %39 = load i32, ptr %38, align 4
@@ -1044,17 +1044,17 @@ define void @Nwk_ManGraphUpdate(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %41 = getelementptr inbounds ptr, ptr %37, i64 %40
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, %1
-  br i1 %43, label %185, label %44
+  br i1 %43, label %190, label %44
 
 44:                                               ; preds = %35
   %45 = getelementptr inbounds i8, ptr %42, i64 12
   %46 = load i32, ptr %45, align 4
   %47 = icmp sgt i32 %46, 1
-  br i1 %47, label %185, label %48
+  br i1 %47, label %190, label %48
 
 48:                                               ; preds = %44
   %49 = icmp eq i32 %46, 1
-  br i1 %49, label %50, label %99
+  br i1 %49, label %50, label %103
 
 50:                                               ; preds = %48
   %51 = getelementptr inbounds i8, ptr %42, i64 16
@@ -1065,7 +1065,7 @@ define void @Nwk_ManGraphUpdate(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %56 = getelementptr inbounds i8, ptr %55, i64 12
   %57 = load i32, ptr %56, align 4
   %58 = icmp sgt i32 %57, 15
-  br i1 %58, label %59, label %78
+  br i1 %58, label %59, label %80
 
 59:                                               ; preds = %50
   %60 = getelementptr inbounds i8, ptr %42, i64 4
@@ -1101,1195 +1101,1242 @@ define void @Nwk_ManGraphUpdate(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %75 = load i32, ptr %11, align 4
   %76 = load i32, ptr %42, align 4
   %77 = icmp eq i32 %75, %76
-  br i1 %77, label %Nwk_ManGraphListDelete.exit.sink.split.i, label %Nwk_ManGraphListExtract.exit
+  br i1 %77, label %78, label %Nwk_ManGraphListDelete.exit.i
 
-78:                                               ; preds = %50
-  %79 = sext i32 %57 to i64
-  %80 = getelementptr inbounds i32, ptr %10, i64 %79
-  %81 = getelementptr inbounds i8, ptr %42, i64 4
-  %82 = load i32, ptr %81, align 4
-  %.not.i20.i = icmp eq i32 %82, 0
-  %.phi.trans.insert.i21.i = getelementptr inbounds i8, ptr %42, i64 8
-  %.pre.i22.i = load i32, ptr %.phi.trans.insert.i21.i, align 4
-  br i1 %.not.i20.i, label %._crit_edge.i23.i, label %83
+78:                                               ; preds = %74
+  %79 = load i32, ptr %.phi.trans.insert.i.i, align 4
+  store i32 %79, ptr %11, align 4
+  br label %Nwk_ManGraphListDelete.exit.i
 
-83:                                               ; preds = %78
-  %84 = sext i32 %82 to i64
-  %85 = getelementptr inbounds ptr, ptr %37, i64 %84
-  %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 8
-  store i32 %.pre.i22.i, ptr %87, align 4
-  br label %._crit_edge.i23.i
-
-._crit_edge.i23.i:                                ; preds = %83, %78
-  %.not15.i24.i = icmp eq i32 %.pre.i22.i, 0
-  br i1 %.not15.i24.i, label %95, label %88
-
-88:                                               ; preds = %._crit_edge.i23.i
-  %89 = load i32, ptr %81, align 4
-  %90 = load ptr, ptr %7, align 8
-  %91 = sext i32 %.pre.i22.i to i64
-  %92 = getelementptr inbounds ptr, ptr %90, i64 %91
-  %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 4
-  store i32 %89, ptr %94, align 4
-  br label %95
-
-95:                                               ; preds = %88, %._crit_edge.i23.i
-  %96 = load i32, ptr %80, align 4
-  %97 = load i32, ptr %42, align 4
-  %98 = icmp eq i32 %96, %97
-  br i1 %98, label %Nwk_ManGraphListDelete.exit.sink.split.i, label %Nwk_ManGraphListExtract.exit
-
-99:                                               ; preds = %48
-  %100 = sext i32 %46 to i64
-  %101 = getelementptr inbounds i32, ptr %9, i64 %100
-  %102 = getelementptr inbounds i8, ptr %42, i64 4
-  %103 = load i32, ptr %102, align 4
-  %.not.i32.i = icmp eq i32 %103, 0
-  %.phi.trans.insert.i33.i = getelementptr inbounds i8, ptr %42, i64 8
-  %.pre.i34.i = load i32, ptr %.phi.trans.insert.i33.i, align 4
-  br i1 %.not.i32.i, label %._crit_edge.i35.i, label %104
-
-104:                                              ; preds = %99
-  %105 = sext i32 %103 to i64
-  %106 = getelementptr inbounds ptr, ptr %37, i64 %105
-  %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 8
-  store i32 %.pre.i34.i, ptr %108, align 4
-  br label %._crit_edge.i35.i
-
-._crit_edge.i35.i:                                ; preds = %104, %99
-  %.not15.i36.i = icmp eq i32 %.pre.i34.i, 0
-  br i1 %.not15.i36.i, label %116, label %109
-
-109:                                              ; preds = %._crit_edge.i35.i
-  %110 = load i32, ptr %102, align 4
-  %111 = load ptr, ptr %7, align 8
-  %112 = sext i32 %.pre.i34.i to i64
-  %113 = getelementptr inbounds ptr, ptr %111, i64 %112
-  %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 4
-  store i32 %110, ptr %115, align 4
-  br label %116
-
-116:                                              ; preds = %109, %._crit_edge.i35.i
-  %117 = load i32, ptr %101, align 4
-  %118 = load i32, ptr %42, align 4
-  %119 = icmp eq i32 %117, %118
-  br i1 %119, label %Nwk_ManGraphListDelete.exit.sink.split.i, label %Nwk_ManGraphListExtract.exit
-
-Nwk_ManGraphListDelete.exit.sink.split.i:         ; preds = %116, %95, %74
-  %.phi.trans.insert.i33.sink.i = phi ptr [ %.phi.trans.insert.i.i, %74 ], [ %.phi.trans.insert.i21.i, %95 ], [ %.phi.trans.insert.i33.i, %116 ]
-  %.sink39.i = phi ptr [ %11, %74 ], [ %80, %95 ], [ %101, %116 ]
-  %.sink.ph.i = phi ptr [ %60, %74 ], [ %81, %95 ], [ %102, %116 ]
-  %120 = load i32, ptr %.phi.trans.insert.i33.sink.i, align 4
-  store i32 %120, ptr %.sink39.i, align 4
+Nwk_ManGraphListDelete.exit.i:                    ; preds = %78, %74
+  store i32 0, ptr %.phi.trans.insert.i.i, align 4
+  store i32 0, ptr %60, align 4
   br label %Nwk_ManGraphListExtract.exit
 
-Nwk_ManGraphListExtract.exit:                     ; preds = %74, %95, %116, %Nwk_ManGraphListDelete.exit.sink.split.i
-  %.phi.trans.insert.i27.sink.i = phi ptr [ %.phi.trans.insert.i.i, %74 ], [ %.phi.trans.insert.i21.i, %95 ], [ %.phi.trans.insert.i33.i, %116 ], [ %.phi.trans.insert.i33.sink.i, %Nwk_ManGraphListDelete.exit.sink.split.i ]
-  %.sink.i = phi ptr [ %60, %74 ], [ %81, %95 ], [ %102, %116 ], [ %.sink.ph.i, %Nwk_ManGraphListDelete.exit.sink.split.i ]
-  store i32 0, ptr %.phi.trans.insert.i27.sink.i, align 4
-  store i32 0, ptr %.sink.i, align 4
-  %121 = load i32, ptr %31, align 4
-  %122 = add nsw i32 %121, -1
-  store i32 %122, ptr %31, align 4
-  %123 = load i32, ptr %45, align 4
-  %124 = icmp eq i32 %123, 1
-  br i1 %124, label %125, label %157
+80:                                               ; preds = %50
+  %81 = sext i32 %57 to i64
+  %82 = getelementptr inbounds i32, ptr %10, i64 %81
+  %83 = getelementptr inbounds i8, ptr %42, i64 4
+  %84 = load i32, ptr %83, align 4
+  %.not.i20.i = icmp eq i32 %84, 0
+  %.phi.trans.insert.i21.i = getelementptr inbounds i8, ptr %42, i64 8
+  %.pre.i22.i = load i32, ptr %.phi.trans.insert.i21.i, align 4
+  br i1 %.not.i20.i, label %._crit_edge.i23.i, label %85
 
-125:                                              ; preds = %Nwk_ManGraphListExtract.exit
-  %126 = load ptr, ptr %7, align 8
-  %127 = getelementptr inbounds i8, ptr %42, i64 16
-  %128 = load i32, ptr %127, align 4
-  %129 = sext i32 %128 to i64
-  %130 = getelementptr inbounds ptr, ptr %126, i64 %129
-  %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds i8, ptr %131, i64 12
+85:                                               ; preds = %80
+  %86 = sext i32 %84 to i64
+  %87 = getelementptr inbounds ptr, ptr %37, i64 %86
+  %88 = load ptr, ptr %87, align 8
+  %89 = getelementptr inbounds i8, ptr %88, i64 8
+  store i32 %.pre.i22.i, ptr %89, align 4
+  br label %._crit_edge.i23.i
+
+._crit_edge.i23.i:                                ; preds = %85, %80
+  %.not15.i24.i = icmp eq i32 %.pre.i22.i, 0
+  br i1 %.not15.i24.i, label %97, label %90
+
+90:                                               ; preds = %._crit_edge.i23.i
+  %91 = load i32, ptr %83, align 4
+  %92 = load ptr, ptr %7, align 8
+  %93 = sext i32 %.pre.i22.i to i64
+  %94 = getelementptr inbounds ptr, ptr %92, i64 %93
+  %95 = load ptr, ptr %94, align 8
+  %96 = getelementptr inbounds i8, ptr %95, i64 4
+  store i32 %91, ptr %96, align 4
+  br label %97
+
+97:                                               ; preds = %90, %._crit_edge.i23.i
+  %98 = load i32, ptr %82, align 4
+  %99 = load i32, ptr %42, align 4
+  %100 = icmp eq i32 %98, %99
+  br i1 %100, label %101, label %Nwk_ManGraphListDelete.exit25.i
+
+101:                                              ; preds = %97
+  %102 = load i32, ptr %.phi.trans.insert.i21.i, align 4
+  store i32 %102, ptr %82, align 4
+  br label %Nwk_ManGraphListDelete.exit25.i
+
+Nwk_ManGraphListDelete.exit25.i:                  ; preds = %101, %97
+  store i32 0, ptr %.phi.trans.insert.i21.i, align 4
+  store i32 0, ptr %83, align 4
+  br label %Nwk_ManGraphListExtract.exit
+
+103:                                              ; preds = %48
+  %104 = sext i32 %46 to i64
+  %105 = getelementptr inbounds i32, ptr %9, i64 %104
+  %106 = getelementptr inbounds i8, ptr %42, i64 4
+  %107 = load i32, ptr %106, align 4
+  %.not.i32.i = icmp eq i32 %107, 0
+  %.phi.trans.insert.i33.i = getelementptr inbounds i8, ptr %42, i64 8
+  %.pre.i34.i = load i32, ptr %.phi.trans.insert.i33.i, align 4
+  br i1 %.not.i32.i, label %._crit_edge.i35.i, label %108
+
+108:                                              ; preds = %103
+  %109 = sext i32 %107 to i64
+  %110 = getelementptr inbounds ptr, ptr %37, i64 %109
+  %111 = load ptr, ptr %110, align 8
+  %112 = getelementptr inbounds i8, ptr %111, i64 8
+  store i32 %.pre.i34.i, ptr %112, align 4
+  br label %._crit_edge.i35.i
+
+._crit_edge.i35.i:                                ; preds = %108, %103
+  %.not15.i36.i = icmp eq i32 %.pre.i34.i, 0
+  br i1 %.not15.i36.i, label %120, label %113
+
+113:                                              ; preds = %._crit_edge.i35.i
+  %114 = load i32, ptr %106, align 4
+  %115 = load ptr, ptr %7, align 8
+  %116 = sext i32 %.pre.i34.i to i64
+  %117 = getelementptr inbounds ptr, ptr %115, i64 %116
+  %118 = load ptr, ptr %117, align 8
+  %119 = getelementptr inbounds i8, ptr %118, i64 4
+  store i32 %114, ptr %119, align 4
+  br label %120
+
+120:                                              ; preds = %113, %._crit_edge.i35.i
+  %121 = load i32, ptr %105, align 4
+  %122 = load i32, ptr %42, align 4
+  %123 = icmp eq i32 %121, %122
+  br i1 %123, label %124, label %Nwk_ManGraphListDelete.exit37.i
+
+124:                                              ; preds = %120
+  %125 = load i32, ptr %.phi.trans.insert.i33.i, align 4
+  store i32 %125, ptr %105, align 4
+  br label %Nwk_ManGraphListDelete.exit37.i
+
+Nwk_ManGraphListDelete.exit37.i:                  ; preds = %124, %120
+  store i32 0, ptr %.phi.trans.insert.i33.i, align 4
+  store i32 0, ptr %106, align 4
+  br label %Nwk_ManGraphListExtract.exit
+
+Nwk_ManGraphListExtract.exit:                     ; preds = %Nwk_ManGraphListDelete.exit.i, %Nwk_ManGraphListDelete.exit25.i, %Nwk_ManGraphListDelete.exit37.i
+  %126 = load i32, ptr %31, align 4
+  %127 = add nsw i32 %126, -1
+  store i32 %127, ptr %31, align 4
+  %128 = load i32, ptr %45, align 4
+  %129 = icmp eq i32 %128, 1
+  br i1 %129, label %130, label %162
+
+130:                                              ; preds = %Nwk_ManGraphListExtract.exit
+  %131 = load ptr, ptr %7, align 8
+  %132 = getelementptr inbounds i8, ptr %42, i64 16
   %133 = load i32, ptr %132, align 4
-  %134 = icmp sgt i32 %133, 15
-  br i1 %134, label %135, label %145
+  %134 = sext i32 %133 to i64
+  %135 = getelementptr inbounds ptr, ptr %131, i64 %134
+  %136 = load ptr, ptr %135, align 8
+  %137 = getelementptr inbounds i8, ptr %136, i64 12
+  %138 = load i32, ptr %137, align 4
+  %139 = icmp sgt i32 %138, 15
+  br i1 %139, label %140, label %150
 
-135:                                              ; preds = %125
-  %136 = load i32, ptr %11, align 4
-  %.not.i.i95 = icmp eq i32 %136, 0
+140:                                              ; preds = %130
+  %141 = load i32, ptr %11, align 4
+  %.not.i.i95 = icmp eq i32 %141, 0
   %.pre.i.i96 = load i32, ptr %42, align 4
-  br i1 %.not.i.i95, label %Nwk_ManGraphListAdd.exit.i, label %137
+  br i1 %.not.i.i95, label %Nwk_ManGraphListAdd.exit.i, label %142
 
-137:                                              ; preds = %135
-  %138 = sext i32 %136 to i64
-  %139 = getelementptr inbounds ptr, ptr %126, i64 %138
-  %140 = load ptr, ptr %139, align 8
-  %141 = getelementptr inbounds i8, ptr %42, i64 4
-  store i32 0, ptr %141, align 4
-  %142 = load i32, ptr %140, align 4
-  %143 = getelementptr inbounds i8, ptr %42, i64 8
-  store i32 %142, ptr %143, align 4
-  %144 = getelementptr inbounds i8, ptr %140, i64 4
-  store i32 %.pre.i.i96, ptr %144, align 4
+142:                                              ; preds = %140
+  %143 = sext i32 %141 to i64
+  %144 = getelementptr inbounds ptr, ptr %131, i64 %143
+  %145 = load ptr, ptr %144, align 8
+  %146 = getelementptr inbounds i8, ptr %42, i64 4
+  store i32 0, ptr %146, align 4
+  %147 = load i32, ptr %145, align 4
+  %148 = getelementptr inbounds i8, ptr %42, i64 8
+  store i32 %147, ptr %148, align 4
+  %149 = getelementptr inbounds i8, ptr %145, i64 4
+  store i32 %.pre.i.i96, ptr %149, align 4
   br label %Nwk_ManGraphListAdd.exit.i
 
-Nwk_ManGraphListAdd.exit.i:                       ; preds = %137, %135
+Nwk_ManGraphListAdd.exit.i:                       ; preds = %142, %140
   store i32 %.pre.i.i96, ptr %11, align 4
   br label %Nwk_ManGraphListInsert.exit
 
-145:                                              ; preds = %125
-  %146 = sext i32 %133 to i64
-  %147 = getelementptr inbounds i32, ptr %10, i64 %146
-  %148 = load i32, ptr %147, align 4
-  %.not.i20.i94 = icmp eq i32 %148, 0
+150:                                              ; preds = %130
+  %151 = sext i32 %138 to i64
+  %152 = getelementptr inbounds i32, ptr %10, i64 %151
+  %153 = load i32, ptr %152, align 4
+  %.not.i20.i94 = icmp eq i32 %153, 0
   %.pre.i21.i = load i32, ptr %42, align 4
-  br i1 %.not.i20.i94, label %Nwk_ManGraphListAdd.exit22.i, label %149
+  br i1 %.not.i20.i94, label %Nwk_ManGraphListAdd.exit22.i, label %154
 
-149:                                              ; preds = %145
-  %150 = sext i32 %148 to i64
-  %151 = getelementptr inbounds ptr, ptr %126, i64 %150
-  %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds i8, ptr %42, i64 4
-  store i32 0, ptr %153, align 4
-  %154 = load i32, ptr %152, align 4
-  %155 = getelementptr inbounds i8, ptr %42, i64 8
-  store i32 %154, ptr %155, align 4
-  %156 = getelementptr inbounds i8, ptr %152, i64 4
-  store i32 %.pre.i21.i, ptr %156, align 4
+154:                                              ; preds = %150
+  %155 = sext i32 %153 to i64
+  %156 = getelementptr inbounds ptr, ptr %131, i64 %155
+  %157 = load ptr, ptr %156, align 8
+  %158 = getelementptr inbounds i8, ptr %42, i64 4
+  store i32 0, ptr %158, align 4
+  %159 = load i32, ptr %157, align 4
+  %160 = getelementptr inbounds i8, ptr %42, i64 8
+  store i32 %159, ptr %160, align 4
+  %161 = getelementptr inbounds i8, ptr %157, i64 4
+  store i32 %.pre.i21.i, ptr %161, align 4
   br label %Nwk_ManGraphListAdd.exit22.i
 
-Nwk_ManGraphListAdd.exit22.i:                     ; preds = %149, %145
-  store i32 %.pre.i21.i, ptr %147, align 4
+Nwk_ManGraphListAdd.exit22.i:                     ; preds = %154, %150
+  store i32 %.pre.i21.i, ptr %152, align 4
   br label %Nwk_ManGraphListInsert.exit
 
-157:                                              ; preds = %Nwk_ManGraphListExtract.exit
-  %158 = icmp sgt i32 %123, 15
-  br i1 %158, label %159, label %170
+162:                                              ; preds = %Nwk_ManGraphListExtract.exit
+  %163 = icmp sgt i32 %128, 15
+  br i1 %163, label %164, label %175
 
-159:                                              ; preds = %157
-  %160 = load i32, ptr %12, align 4
-  %.not.i23.i = icmp eq i32 %160, 0
+164:                                              ; preds = %162
+  %165 = load i32, ptr %12, align 4
+  %.not.i23.i = icmp eq i32 %165, 0
   %.pre.i24.i = load i32, ptr %42, align 4
-  br i1 %.not.i23.i, label %Nwk_ManGraphListAdd.exit25.i, label %161
+  br i1 %.not.i23.i, label %Nwk_ManGraphListAdd.exit25.i, label %166
 
-161:                                              ; preds = %159
-  %162 = load ptr, ptr %7, align 8
-  %163 = sext i32 %160 to i64
-  %164 = getelementptr inbounds ptr, ptr %162, i64 %163
-  %165 = load ptr, ptr %164, align 8
-  %166 = getelementptr inbounds i8, ptr %42, i64 4
-  store i32 0, ptr %166, align 4
-  %167 = load i32, ptr %165, align 4
-  %168 = getelementptr inbounds i8, ptr %42, i64 8
-  store i32 %167, ptr %168, align 4
-  %169 = getelementptr inbounds i8, ptr %165, i64 4
-  store i32 %.pre.i24.i, ptr %169, align 4
+166:                                              ; preds = %164
+  %167 = load ptr, ptr %7, align 8
+  %168 = sext i32 %165 to i64
+  %169 = getelementptr inbounds ptr, ptr %167, i64 %168
+  %170 = load ptr, ptr %169, align 8
+  %171 = getelementptr inbounds i8, ptr %42, i64 4
+  store i32 0, ptr %171, align 4
+  %172 = load i32, ptr %170, align 4
+  %173 = getelementptr inbounds i8, ptr %42, i64 8
+  store i32 %172, ptr %173, align 4
+  %174 = getelementptr inbounds i8, ptr %170, i64 4
+  store i32 %.pre.i24.i, ptr %174, align 4
   br label %Nwk_ManGraphListAdd.exit25.i
 
-Nwk_ManGraphListAdd.exit25.i:                     ; preds = %161, %159
+Nwk_ManGraphListAdd.exit25.i:                     ; preds = %166, %164
   store i32 %.pre.i24.i, ptr %12, align 4
   br label %Nwk_ManGraphListInsert.exit
 
-170:                                              ; preds = %157
-  %171 = sext i32 %123 to i64
-  %172 = getelementptr inbounds i32, ptr %9, i64 %171
-  %173 = load i32, ptr %172, align 4
-  %.not.i26.i93 = icmp eq i32 %173, 0
+175:                                              ; preds = %162
+  %176 = sext i32 %128 to i64
+  %177 = getelementptr inbounds i32, ptr %9, i64 %176
+  %178 = load i32, ptr %177, align 4
+  %.not.i26.i93 = icmp eq i32 %178, 0
   %.pre.i27.i = load i32, ptr %42, align 4
-  br i1 %.not.i26.i93, label %Nwk_ManGraphListAdd.exit28.i, label %174
+  br i1 %.not.i26.i93, label %Nwk_ManGraphListAdd.exit28.i, label %179
 
-174:                                              ; preds = %170
-  %175 = load ptr, ptr %7, align 8
-  %176 = sext i32 %173 to i64
-  %177 = getelementptr inbounds ptr, ptr %175, i64 %176
-  %178 = load ptr, ptr %177, align 8
-  %179 = getelementptr inbounds i8, ptr %42, i64 4
-  store i32 0, ptr %179, align 4
-  %180 = load i32, ptr %178, align 4
-  %181 = getelementptr inbounds i8, ptr %42, i64 8
-  store i32 %180, ptr %181, align 4
-  %182 = getelementptr inbounds i8, ptr %178, i64 4
-  store i32 %.pre.i27.i, ptr %182, align 4
+179:                                              ; preds = %175
+  %180 = load ptr, ptr %7, align 8
+  %181 = sext i32 %178 to i64
+  %182 = getelementptr inbounds ptr, ptr %180, i64 %181
+  %183 = load ptr, ptr %182, align 8
+  %184 = getelementptr inbounds i8, ptr %42, i64 4
+  store i32 0, ptr %184, align 4
+  %185 = load i32, ptr %183, align 4
+  %186 = getelementptr inbounds i8, ptr %42, i64 8
+  store i32 %185, ptr %186, align 4
+  %187 = getelementptr inbounds i8, ptr %183, i64 4
+  store i32 %.pre.i27.i, ptr %187, align 4
   br label %Nwk_ManGraphListAdd.exit28.i
 
-Nwk_ManGraphListAdd.exit28.i:                     ; preds = %174, %170
-  store i32 %.pre.i27.i, ptr %172, align 4
+Nwk_ManGraphListAdd.exit28.i:                     ; preds = %179, %175
+  store i32 %.pre.i27.i, ptr %177, align 4
   br label %Nwk_ManGraphListInsert.exit
 
 Nwk_ManGraphListInsert.exit:                      ; preds = %Nwk_ManGraphListAdd.exit.i, %Nwk_ManGraphListAdd.exit22.i, %Nwk_ManGraphListAdd.exit25.i, %Nwk_ManGraphListAdd.exit28.i
-  %183 = load i32, ptr %31, align 4
-  %184 = add nsw i32 %183, 1
-  store i32 %184, ptr %31, align 4
-  br label %185
+  %188 = load i32, ptr %31, align 4
+  %189 = add nsw i32 %188, 1
+  store i32 %189, ptr %31, align 4
+  br label %190
 
-185:                                              ; preds = %35, %44, %Nwk_ManGraphListInsert.exit
-  %186 = phi i32 [ %36, %35 ], [ %36, %44 ], [ %184, %Nwk_ManGraphListInsert.exit ]
+190:                                              ; preds = %35, %44, %Nwk_ManGraphListInsert.exit
+  %191 = phi i32 [ %36, %35 ], [ %36, %44 ], [ %189, %Nwk_ManGraphListInsert.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %187 = sext i32 %186 to i64
-  %188 = icmp slt i64 %indvars.iv.next, %187
-  br i1 %188, label %35, label %.critedge2, !llvm.loop !19
+  %192 = sext i32 %191 to i64
+  %193 = icmp slt i64 %indvars.iv.next, %192
+  br i1 %193, label %35, label %.critedge2, !llvm.loop !19
 
-.critedge2:                                       ; preds = %185, %30
-  %189 = phi i32 [ %32, %30 ], [ %186, %185 ]
-  %190 = getelementptr inbounds i8, ptr %28, i64 16
-  %191 = icmp sgt i32 %189, 0
-  br i1 %191, label %.lr.ph.i, label %._crit_edge.i
+.critedge2:                                       ; preds = %190, %30
+  %194 = phi i32 [ %32, %30 ], [ %191, %190 ]
+  %195 = getelementptr inbounds i8, ptr %28, i64 16
+  %196 = icmp sgt i32 %194, 0
+  br i1 %196, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.critedge2
-  %192 = load i32, ptr %1, align 4
-  %wide.trip.count.i = zext nneg i32 %189 to i64
-  br label %193
+  %197 = load i32, ptr %1, align 4
+  %wide.trip.count.i = zext nneg i32 %194 to i64
+  br label %198
 
-193:                                              ; preds = %197, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %197 ]
-  %194 = getelementptr inbounds [0 x i32], ptr %190, i64 0, i64 %indvars.iv.i
-  %195 = load i32, ptr %194, align 4
-  %196 = icmp eq i32 %195, %192
-  br i1 %196, label %._crit_edge.loopexit.i, label %197
+198:                                              ; preds = %202, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %202 ]
+  %199 = getelementptr inbounds [0 x i32], ptr %195, i64 0, i64 %indvars.iv.i
+  %200 = load i32, ptr %199, align 4
+  %201 = icmp eq i32 %200, %197
+  br i1 %201, label %._crit_edge.loopexit.i, label %202
 
-197:                                              ; preds = %193
+202:                                              ; preds = %198
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.thread.i, label %193, !llvm.loop !20
+  br i1 %exitcond.not.i, label %._crit_edge.thread.i, label %198, !llvm.loop !20
 
-._crit_edge.thread.i:                             ; preds = %197
-  %198 = add nsw i32 %189, -1
-  store i32 %198, ptr %31, align 4
+._crit_edge.thread.i:                             ; preds = %202
+  %203 = add nsw i32 %194, -1
+  store i32 %203, ptr %31, align 4
   br label %Nwk_ManGraphVertexRemoveEdge.exit
 
-._crit_edge.loopexit.i:                           ; preds = %193
-  %199 = trunc nuw nsw i64 %indvars.iv.i to i32
+._crit_edge.loopexit.i:                           ; preds = %198
+  %204 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.critedge2
-  %.0.lcssa.i = phi i32 [ 0, %.critedge2 ], [ %199, %._crit_edge.loopexit.i ]
-  %200 = add nsw i32 %189, -1
-  store i32 %200, ptr %31, align 4
-  %201 = icmp slt i32 %.0.lcssa.i, %200
-  br i1 %201, label %.lr.ph21.i, label %Nwk_ManGraphVertexRemoveEdge.exit
+  %.0.lcssa.i = phi i32 [ 0, %.critedge2 ], [ %204, %._crit_edge.loopexit.i ]
+  %205 = add nsw i32 %194, -1
+  store i32 %205, ptr %31, align 4
+  %206 = icmp slt i32 %.0.lcssa.i, %205
+  br i1 %206, label %.lr.ph21.i, label %Nwk_ManGraphVertexRemoveEdge.exit
 
 .lr.ph21.i:                                       ; preds = %._crit_edge.i
-  %202 = zext i32 %.0.lcssa.i to i64
-  %wide.trip.count = zext i32 %200 to i64
-  br label %203
+  %207 = zext i32 %.0.lcssa.i to i64
+  %wide.trip.count = zext i32 %205 to i64
+  br label %208
 
-203:                                              ; preds = %203, %.lr.ph21.i
-  %indvars.iv25.i = phi i64 [ %202, %.lr.ph21.i ], [ %indvars.iv.next26.i, %203 ]
+208:                                              ; preds = %208, %.lr.ph21.i
+  %indvars.iv25.i = phi i64 [ %207, %.lr.ph21.i ], [ %indvars.iv.next26.i, %208 ]
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
-  %204 = getelementptr inbounds [0 x i32], ptr %190, i64 0, i64 %indvars.iv.next26.i
-  %205 = load i32, ptr %204, align 4
-  %206 = getelementptr inbounds [0 x i32], ptr %190, i64 0, i64 %indvars.iv25.i
-  store i32 %205, ptr %206, align 4
+  %209 = getelementptr inbounds [0 x i32], ptr %195, i64 0, i64 %indvars.iv.next26.i
+  %210 = load i32, ptr %209, align 4
+  %211 = getelementptr inbounds [0 x i32], ptr %195, i64 0, i64 %indvars.iv25.i
+  store i32 %210, ptr %211, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next26.i, %wide.trip.count
-  br i1 %exitcond.not, label %Nwk_ManGraphVertexRemoveEdge.exit, label %203, !llvm.loop !21
+  br i1 %exitcond.not, label %Nwk_ManGraphVertexRemoveEdge.exit, label %208, !llvm.loop !21
 
-Nwk_ManGraphVertexRemoveEdge.exit:                ; preds = %203, %._crit_edge.thread.i, %._crit_edge.i
-  %207 = phi i32 [ %198, %._crit_edge.thread.i ], [ %200, %._crit_edge.i ], [ %200, %203 ]
-  %208 = icmp sgt i32 %207, 0
-  br i1 %208, label %209, label %Nwk_ManGraphListInsert.exit109
+Nwk_ManGraphVertexRemoveEdge.exit:                ; preds = %208, %._crit_edge.thread.i, %._crit_edge.i
+  %212 = phi i32 [ %203, %._crit_edge.thread.i ], [ %205, %._crit_edge.i ], [ %205, %208 ]
+  %213 = icmp sgt i32 %212, 0
+  br i1 %213, label %214, label %Nwk_ManGraphListInsert.exit109
 
-209:                                              ; preds = %Nwk_ManGraphVertexRemoveEdge.exit
-  %210 = icmp eq i32 %207, 1
-  br i1 %210, label %211, label %242
+214:                                              ; preds = %Nwk_ManGraphVertexRemoveEdge.exit
+  %215 = icmp eq i32 %212, 1
+  br i1 %215, label %216, label %247
 
-211:                                              ; preds = %209
-  %212 = load ptr, ptr %7, align 8
-  %213 = load i32, ptr %190, align 4
-  %214 = sext i32 %213 to i64
-  %215 = getelementptr inbounds ptr, ptr %212, i64 %214
-  %216 = load ptr, ptr %215, align 8
-  %217 = getelementptr inbounds i8, ptr %216, i64 12
-  %218 = load i32, ptr %217, align 4
-  %219 = icmp sgt i32 %218, 15
-  br i1 %219, label %220, label %230
+216:                                              ; preds = %214
+  %217 = load ptr, ptr %7, align 8
+  %218 = load i32, ptr %195, align 4
+  %219 = sext i32 %218 to i64
+  %220 = getelementptr inbounds ptr, ptr %217, i64 %219
+  %221 = load ptr, ptr %220, align 8
+  %222 = getelementptr inbounds i8, ptr %221, i64 12
+  %223 = load i32, ptr %222, align 4
+  %224 = icmp sgt i32 %223, 15
+  br i1 %224, label %225, label %235
 
-220:                                              ; preds = %211
-  %221 = load i32, ptr %11, align 4
-  %.not.i.i106 = icmp eq i32 %221, 0
+225:                                              ; preds = %216
+  %226 = load i32, ptr %11, align 4
+  %.not.i.i106 = icmp eq i32 %226, 0
   %.pre.i.i107 = load i32, ptr %28, align 4
-  br i1 %.not.i.i106, label %Nwk_ManGraphListAdd.exit.i108, label %222
+  br i1 %.not.i.i106, label %Nwk_ManGraphListAdd.exit.i108, label %227
 
-222:                                              ; preds = %220
-  %223 = sext i32 %221 to i64
-  %224 = getelementptr inbounds ptr, ptr %212, i64 %223
-  %225 = load ptr, ptr %224, align 8
-  %226 = getelementptr inbounds i8, ptr %28, i64 4
-  store i32 0, ptr %226, align 4
-  %227 = load i32, ptr %225, align 4
-  %228 = getelementptr inbounds i8, ptr %28, i64 8
-  store i32 %227, ptr %228, align 4
-  %229 = getelementptr inbounds i8, ptr %225, i64 4
-  store i32 %.pre.i.i107, ptr %229, align 4
+227:                                              ; preds = %225
+  %228 = sext i32 %226 to i64
+  %229 = getelementptr inbounds ptr, ptr %217, i64 %228
+  %230 = load ptr, ptr %229, align 8
+  %231 = getelementptr inbounds i8, ptr %28, i64 4
+  store i32 0, ptr %231, align 4
+  %232 = load i32, ptr %230, align 4
+  %233 = getelementptr inbounds i8, ptr %28, i64 8
+  store i32 %232, ptr %233, align 4
+  %234 = getelementptr inbounds i8, ptr %230, i64 4
+  store i32 %.pre.i.i107, ptr %234, align 4
   br label %Nwk_ManGraphListAdd.exit.i108
 
-Nwk_ManGraphListAdd.exit.i108:                    ; preds = %222, %220
+Nwk_ManGraphListAdd.exit.i108:                    ; preds = %227, %225
   store i32 %.pre.i.i107, ptr %11, align 4
   br label %Nwk_ManGraphListInsert.exit109
 
-230:                                              ; preds = %211
-  %231 = sext i32 %218 to i64
-  %232 = getelementptr inbounds i32, ptr %10, i64 %231
-  %233 = load i32, ptr %232, align 4
-  %.not.i20.i103 = icmp eq i32 %233, 0
+235:                                              ; preds = %216
+  %236 = sext i32 %223 to i64
+  %237 = getelementptr inbounds i32, ptr %10, i64 %236
+  %238 = load i32, ptr %237, align 4
+  %.not.i20.i103 = icmp eq i32 %238, 0
   %.pre.i21.i104 = load i32, ptr %28, align 4
-  br i1 %.not.i20.i103, label %Nwk_ManGraphListAdd.exit22.i105, label %234
+  br i1 %.not.i20.i103, label %Nwk_ManGraphListAdd.exit22.i105, label %239
 
-234:                                              ; preds = %230
-  %235 = sext i32 %233 to i64
-  %236 = getelementptr inbounds ptr, ptr %212, i64 %235
-  %237 = load ptr, ptr %236, align 8
-  %238 = getelementptr inbounds i8, ptr %28, i64 4
-  store i32 0, ptr %238, align 4
-  %239 = load i32, ptr %237, align 4
-  %240 = getelementptr inbounds i8, ptr %28, i64 8
-  store i32 %239, ptr %240, align 4
-  %241 = getelementptr inbounds i8, ptr %237, i64 4
-  store i32 %.pre.i21.i104, ptr %241, align 4
+239:                                              ; preds = %235
+  %240 = sext i32 %238 to i64
+  %241 = getelementptr inbounds ptr, ptr %217, i64 %240
+  %242 = load ptr, ptr %241, align 8
+  %243 = getelementptr inbounds i8, ptr %28, i64 4
+  store i32 0, ptr %243, align 4
+  %244 = load i32, ptr %242, align 4
+  %245 = getelementptr inbounds i8, ptr %28, i64 8
+  store i32 %244, ptr %245, align 4
+  %246 = getelementptr inbounds i8, ptr %242, i64 4
+  store i32 %.pre.i21.i104, ptr %246, align 4
   br label %Nwk_ManGraphListAdd.exit22.i105
 
-Nwk_ManGraphListAdd.exit22.i105:                  ; preds = %234, %230
-  store i32 %.pre.i21.i104, ptr %232, align 4
+Nwk_ManGraphListAdd.exit22.i105:                  ; preds = %239, %235
+  store i32 %.pre.i21.i104, ptr %237, align 4
   br label %Nwk_ManGraphListInsert.exit109
 
-242:                                              ; preds = %209
-  %243 = icmp ugt i32 %207, 15
-  br i1 %243, label %244, label %255
+247:                                              ; preds = %214
+  %248 = icmp ugt i32 %212, 15
+  br i1 %248, label %249, label %260
 
-244:                                              ; preds = %242
-  %245 = load i32, ptr %12, align 4
-  %.not.i23.i100 = icmp eq i32 %245, 0
+249:                                              ; preds = %247
+  %250 = load i32, ptr %12, align 4
+  %.not.i23.i100 = icmp eq i32 %250, 0
   %.pre.i24.i101 = load i32, ptr %28, align 4
-  br i1 %.not.i23.i100, label %Nwk_ManGraphListAdd.exit25.i102, label %246
+  br i1 %.not.i23.i100, label %Nwk_ManGraphListAdd.exit25.i102, label %251
 
-246:                                              ; preds = %244
-  %247 = load ptr, ptr %7, align 8
-  %248 = sext i32 %245 to i64
-  %249 = getelementptr inbounds ptr, ptr %247, i64 %248
-  %250 = load ptr, ptr %249, align 8
-  %251 = getelementptr inbounds i8, ptr %28, i64 4
-  store i32 0, ptr %251, align 4
-  %252 = load i32, ptr %250, align 4
-  %253 = getelementptr inbounds i8, ptr %28, i64 8
-  store i32 %252, ptr %253, align 4
-  %254 = getelementptr inbounds i8, ptr %250, i64 4
-  store i32 %.pre.i24.i101, ptr %254, align 4
+251:                                              ; preds = %249
+  %252 = load ptr, ptr %7, align 8
+  %253 = sext i32 %250 to i64
+  %254 = getelementptr inbounds ptr, ptr %252, i64 %253
+  %255 = load ptr, ptr %254, align 8
+  %256 = getelementptr inbounds i8, ptr %28, i64 4
+  store i32 0, ptr %256, align 4
+  %257 = load i32, ptr %255, align 4
+  %258 = getelementptr inbounds i8, ptr %28, i64 8
+  store i32 %257, ptr %258, align 4
+  %259 = getelementptr inbounds i8, ptr %255, i64 4
+  store i32 %.pre.i24.i101, ptr %259, align 4
   br label %Nwk_ManGraphListAdd.exit25.i102
 
-Nwk_ManGraphListAdd.exit25.i102:                  ; preds = %246, %244
+Nwk_ManGraphListAdd.exit25.i102:                  ; preds = %251, %249
   store i32 %.pre.i24.i101, ptr %12, align 4
   br label %Nwk_ManGraphListInsert.exit109
 
-255:                                              ; preds = %242
-  %256 = zext nneg i32 %207 to i64
-  %257 = getelementptr inbounds i32, ptr %9, i64 %256
-  %258 = load i32, ptr %257, align 4
-  %.not.i26.i97 = icmp eq i32 %258, 0
+260:                                              ; preds = %247
+  %261 = zext nneg i32 %212 to i64
+  %262 = getelementptr inbounds i32, ptr %9, i64 %261
+  %263 = load i32, ptr %262, align 4
+  %.not.i26.i97 = icmp eq i32 %263, 0
   %.pre.i27.i98 = load i32, ptr %28, align 4
-  br i1 %.not.i26.i97, label %Nwk_ManGraphListAdd.exit28.i99, label %259
+  br i1 %.not.i26.i97, label %Nwk_ManGraphListAdd.exit28.i99, label %264
 
-259:                                              ; preds = %255
-  %260 = load ptr, ptr %7, align 8
-  %261 = sext i32 %258 to i64
-  %262 = getelementptr inbounds ptr, ptr %260, i64 %261
-  %263 = load ptr, ptr %262, align 8
-  %264 = getelementptr inbounds i8, ptr %28, i64 4
-  store i32 0, ptr %264, align 4
-  %265 = load i32, ptr %263, align 4
-  %266 = getelementptr inbounds i8, ptr %28, i64 8
-  store i32 %265, ptr %266, align 4
-  %267 = getelementptr inbounds i8, ptr %263, i64 4
-  store i32 %.pre.i27.i98, ptr %267, align 4
+264:                                              ; preds = %260
+  %265 = load ptr, ptr %7, align 8
+  %266 = sext i32 %263 to i64
+  %267 = getelementptr inbounds ptr, ptr %265, i64 %266
+  %268 = load ptr, ptr %267, align 8
+  %269 = getelementptr inbounds i8, ptr %28, i64 4
+  store i32 0, ptr %269, align 4
+  %270 = load i32, ptr %268, align 4
+  %271 = getelementptr inbounds i8, ptr %28, i64 8
+  store i32 %270, ptr %271, align 4
+  %272 = getelementptr inbounds i8, ptr %268, i64 4
+  store i32 %.pre.i27.i98, ptr %272, align 4
   br label %Nwk_ManGraphListAdd.exit28.i99
 
-Nwk_ManGraphListAdd.exit28.i99:                   ; preds = %259, %255
-  store i32 %.pre.i27.i98, ptr %257, align 4
+Nwk_ManGraphListAdd.exit28.i99:                   ; preds = %264, %260
+  store i32 %.pre.i27.i98, ptr %262, align 4
   br label %Nwk_ManGraphListInsert.exit109
 
 Nwk_ManGraphListInsert.exit109:                   ; preds = %Nwk_ManGraphListAdd.exit28.i99, %Nwk_ManGraphListAdd.exit25.i102, %Nwk_ManGraphListAdd.exit22.i105, %Nwk_ManGraphListAdd.exit.i108, %Nwk_ManGraphVertexRemoveEdge.exit, %22
-  %indvars.iv.next218 = add nuw nsw i64 %indvars.iv217, 1
-  %268 = load i32, ptr %4, align 4
-  %269 = sext i32 %268 to i64
-  %270 = icmp slt i64 %indvars.iv.next218, %269
-  br i1 %270, label %22, label %.critedge.preheader, !llvm.loop !22
+  %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
+  %273 = load i32, ptr %4, align 4
+  %274 = sext i32 %273 to i64
+  %275 = icmp slt i64 %indvars.iv.next216, %274
+  br i1 %275, label %22, label %.critedge.preheader, !llvm.loop !22
 
-271:                                              ; preds = %.lr.ph209, %Nwk_ManGraphListInsert.exit175
-  %indvars.iv228 = phi i64 [ 0, %.lr.ph209 ], [ %indvars.iv.next229, %Nwk_ManGraphListInsert.exit175 ]
-  %272 = load ptr, ptr %16, align 8
-  %273 = getelementptr inbounds [0 x i32], ptr %17, i64 0, i64 %indvars.iv228
-  %274 = load i32, ptr %273, align 4
-  %275 = sext i32 %274 to i64
-  %276 = getelementptr inbounds ptr, ptr %272, i64 %275
-  %277 = load ptr, ptr %276, align 8
-  %278 = icmp eq ptr %277, %1
-  br i1 %278, label %Nwk_ManGraphListInsert.exit175, label %279
+276:                                              ; preds = %.lr.ph207, %Nwk_ManGraphListInsert.exit173
+  %indvars.iv226 = phi i64 [ 0, %.lr.ph207 ], [ %indvars.iv.next227, %Nwk_ManGraphListInsert.exit173 ]
+  %277 = load ptr, ptr %16, align 8
+  %278 = getelementptr inbounds [0 x i32], ptr %17, i64 0, i64 %indvars.iv226
+  %279 = load i32, ptr %278, align 4
+  %280 = sext i32 %279 to i64
+  %281 = getelementptr inbounds ptr, ptr %277, i64 %280
+  %282 = load ptr, ptr %281, align 8
+  %283 = icmp eq ptr %282, %1
+  br i1 %283, label %Nwk_ManGraphListInsert.exit173, label %284
 
-279:                                              ; preds = %271
-  tail call fastcc void @Nwk_ManGraphListExtract(ptr noundef nonnull %0, ptr noundef %277)
-  %280 = getelementptr inbounds i8, ptr %277, i64 12
-  %281 = load i32, ptr %280, align 4
-  %282 = icmp sgt i32 %281, 1
-  br i1 %282, label %.lr.ph206, label %.critedge6
+284:                                              ; preds = %276
+  tail call fastcc void @Nwk_ManGraphListExtract(ptr noundef nonnull %0, ptr noundef %282)
+  %285 = getelementptr inbounds i8, ptr %282, i64 12
+  %286 = load i32, ptr %285, align 4
+  %287 = icmp sgt i32 %286, 1
+  br i1 %287, label %.lr.ph204, label %.critedge6
 
-.lr.ph206:                                        ; preds = %279
-  %283 = getelementptr inbounds i8, ptr %277, i64 16
-  br label %284
+.lr.ph204:                                        ; preds = %284
+  %288 = getelementptr inbounds i8, ptr %282, i64 16
+  br label %289
 
-284:                                              ; preds = %.lr.ph206, %434
-  %285 = phi i32 [ %281, %.lr.ph206 ], [ %435, %434 ]
-  %indvars.iv220 = phi i64 [ 0, %.lr.ph206 ], [ %indvars.iv.next221, %434 ]
-  %286 = load ptr, ptr %16, align 8
-  %287 = getelementptr inbounds [0 x i32], ptr %283, i64 0, i64 %indvars.iv220
-  %288 = load i32, ptr %287, align 4
-  %289 = sext i32 %288 to i64
-  %290 = getelementptr inbounds ptr, ptr %286, i64 %289
-  %291 = load ptr, ptr %290, align 8
-  %292 = icmp eq ptr %291, %2
-  br i1 %292, label %434, label %293
+289:                                              ; preds = %.lr.ph204, %444
+  %290 = phi i32 [ %286, %.lr.ph204 ], [ %445, %444 ]
+  %indvars.iv218 = phi i64 [ 0, %.lr.ph204 ], [ %indvars.iv.next219, %444 ]
+  %291 = load ptr, ptr %16, align 8
+  %292 = getelementptr inbounds [0 x i32], ptr %288, i64 0, i64 %indvars.iv218
+  %293 = load i32, ptr %292, align 4
+  %294 = sext i32 %293 to i64
+  %295 = getelementptr inbounds ptr, ptr %291, i64 %294
+  %296 = load ptr, ptr %295, align 8
+  %297 = icmp eq ptr %296, %2
+  br i1 %297, label %444, label %298
 
-293:                                              ; preds = %284
-  %294 = getelementptr inbounds i8, ptr %291, i64 12
-  %295 = load i32, ptr %294, align 4
-  %296 = icmp sgt i32 %295, 1
-  br i1 %296, label %434, label %297
+298:                                              ; preds = %289
+  %299 = getelementptr inbounds i8, ptr %296, i64 12
+  %300 = load i32, ptr %299, align 4
+  %301 = icmp sgt i32 %300, 1
+  br i1 %301, label %444, label %302
 
-297:                                              ; preds = %293
-  %298 = icmp eq i32 %295, 1
-  br i1 %298, label %299, label %348
+302:                                              ; preds = %298
+  %303 = icmp eq i32 %300, 1
+  br i1 %303, label %304, label %357
 
-299:                                              ; preds = %297
-  %300 = getelementptr inbounds i8, ptr %291, i64 16
-  %301 = load i32, ptr %300, align 4
-  %302 = sext i32 %301 to i64
-  %303 = getelementptr inbounds ptr, ptr %286, i64 %302
-  %304 = load ptr, ptr %303, align 8
-  %305 = getelementptr inbounds i8, ptr %304, i64 12
+304:                                              ; preds = %302
+  %305 = getelementptr inbounds i8, ptr %296, i64 16
   %306 = load i32, ptr %305, align 4
-  %307 = icmp sgt i32 %306, 15
-  br i1 %307, label %308, label %327
+  %307 = sext i32 %306 to i64
+  %308 = getelementptr inbounds ptr, ptr %291, i64 %307
+  %309 = load ptr, ptr %308, align 8
+  %310 = getelementptr inbounds i8, ptr %309, i64 12
+  %311 = load i32, ptr %310, align 4
+  %312 = icmp sgt i32 %311, 15
+  br i1 %312, label %313, label %334
 
-308:                                              ; preds = %299
-  %309 = getelementptr inbounds i8, ptr %291, i64 4
-  %310 = load i32, ptr %309, align 4
-  %.not.i.i131 = icmp eq i32 %310, 0
-  %.phi.trans.insert.i.i132 = getelementptr inbounds i8, ptr %291, i64 8
-  %.pre.i.i133 = load i32, ptr %.phi.trans.insert.i.i132, align 4
-  br i1 %.not.i.i131, label %._crit_edge.i.i134, label %311
+313:                                              ; preds = %304
+  %314 = getelementptr inbounds i8, ptr %296, i64 4
+  %315 = load i32, ptr %314, align 4
+  %.not.i.i128 = icmp eq i32 %315, 0
+  %.phi.trans.insert.i.i129 = getelementptr inbounds i8, ptr %296, i64 8
+  %.pre.i.i130 = load i32, ptr %.phi.trans.insert.i.i129, align 4
+  br i1 %.not.i.i128, label %._crit_edge.i.i131, label %316
 
-311:                                              ; preds = %308
-  %312 = sext i32 %310 to i64
-  %313 = getelementptr inbounds ptr, ptr %286, i64 %312
-  %314 = load ptr, ptr %313, align 8
-  %315 = getelementptr inbounds i8, ptr %314, i64 8
-  store i32 %.pre.i.i133, ptr %315, align 4
-  br label %._crit_edge.i.i134
+316:                                              ; preds = %313
+  %317 = sext i32 %315 to i64
+  %318 = getelementptr inbounds ptr, ptr %291, i64 %317
+  %319 = load ptr, ptr %318, align 8
+  %320 = getelementptr inbounds i8, ptr %319, i64 8
+  store i32 %.pre.i.i130, ptr %320, align 4
+  br label %._crit_edge.i.i131
 
-._crit_edge.i.i134:                               ; preds = %311, %308
-  %.not15.i.i135 = icmp eq i32 %.pre.i.i133, 0
-  br i1 %.not15.i.i135, label %323, label %316
+._crit_edge.i.i131:                               ; preds = %316, %313
+  %.not15.i.i132 = icmp eq i32 %.pre.i.i130, 0
+  br i1 %.not15.i.i132, label %328, label %321
 
-316:                                              ; preds = %._crit_edge.i.i134
-  %317 = load i32, ptr %309, align 4
-  %318 = load ptr, ptr %16, align 8
-  %319 = sext i32 %.pre.i.i133 to i64
-  %320 = getelementptr inbounds ptr, ptr %318, i64 %319
-  %321 = load ptr, ptr %320, align 8
-  %322 = getelementptr inbounds i8, ptr %321, i64 4
-  store i32 %317, ptr %322, align 4
-  br label %323
+321:                                              ; preds = %._crit_edge.i.i131
+  %322 = load i32, ptr %314, align 4
+  %323 = load ptr, ptr %16, align 8
+  %324 = sext i32 %.pre.i.i130 to i64
+  %325 = getelementptr inbounds ptr, ptr %323, i64 %324
+  %326 = load ptr, ptr %325, align 8
+  %327 = getelementptr inbounds i8, ptr %326, i64 4
+  store i32 %322, ptr %327, align 4
+  br label %328
 
-323:                                              ; preds = %316, %._crit_edge.i.i134
-  %324 = load i32, ptr %20, align 4
-  %325 = load i32, ptr %291, align 4
-  %326 = icmp eq i32 %324, %325
-  br i1 %326, label %Nwk_ManGraphListDelete.exit.sink.split.i117, label %Nwk_ManGraphListExtract.exit136
+328:                                              ; preds = %321, %._crit_edge.i.i131
+  %329 = load i32, ptr %20, align 4
+  %330 = load i32, ptr %296, align 4
+  %331 = icmp eq i32 %329, %330
+  br i1 %331, label %332, label %Nwk_ManGraphListDelete.exit.i133
 
-327:                                              ; preds = %299
-  %328 = sext i32 %306 to i64
-  %329 = getelementptr inbounds i32, ptr %19, i64 %328
-  %330 = getelementptr inbounds i8, ptr %291, i64 4
-  %331 = load i32, ptr %330, align 4
-  %.not.i20.i126 = icmp eq i32 %331, 0
-  %.phi.trans.insert.i21.i127 = getelementptr inbounds i8, ptr %291, i64 8
-  %.pre.i22.i128 = load i32, ptr %.phi.trans.insert.i21.i127, align 4
-  br i1 %.not.i20.i126, label %._crit_edge.i23.i129, label %332
+332:                                              ; preds = %328
+  %333 = load i32, ptr %.phi.trans.insert.i.i129, align 4
+  store i32 %333, ptr %20, align 4
+  br label %Nwk_ManGraphListDelete.exit.i133
 
-332:                                              ; preds = %327
-  %333 = sext i32 %331 to i64
-  %334 = getelementptr inbounds ptr, ptr %286, i64 %333
-  %335 = load ptr, ptr %334, align 8
-  %336 = getelementptr inbounds i8, ptr %335, i64 8
-  store i32 %.pre.i22.i128, ptr %336, align 4
-  br label %._crit_edge.i23.i129
+Nwk_ManGraphListDelete.exit.i133:                 ; preds = %332, %328
+  store i32 0, ptr %.phi.trans.insert.i.i129, align 4
+  store i32 0, ptr %314, align 4
+  br label %Nwk_ManGraphListExtract.exit134
 
-._crit_edge.i23.i129:                             ; preds = %332, %327
-  %.not15.i24.i130 = icmp eq i32 %.pre.i22.i128, 0
-  br i1 %.not15.i24.i130, label %344, label %337
+334:                                              ; preds = %304
+  %335 = sext i32 %311 to i64
+  %336 = getelementptr inbounds i32, ptr %19, i64 %335
+  %337 = getelementptr inbounds i8, ptr %296, i64 4
+  %338 = load i32, ptr %337, align 4
+  %.not.i20.i122 = icmp eq i32 %338, 0
+  %.phi.trans.insert.i21.i123 = getelementptr inbounds i8, ptr %296, i64 8
+  %.pre.i22.i124 = load i32, ptr %.phi.trans.insert.i21.i123, align 4
+  br i1 %.not.i20.i122, label %._crit_edge.i23.i125, label %339
 
-337:                                              ; preds = %._crit_edge.i23.i129
-  %338 = load i32, ptr %330, align 4
-  %339 = load ptr, ptr %16, align 8
-  %340 = sext i32 %.pre.i22.i128 to i64
-  %341 = getelementptr inbounds ptr, ptr %339, i64 %340
+339:                                              ; preds = %334
+  %340 = sext i32 %338 to i64
+  %341 = getelementptr inbounds ptr, ptr %291, i64 %340
   %342 = load ptr, ptr %341, align 8
-  %343 = getelementptr inbounds i8, ptr %342, i64 4
-  store i32 %338, ptr %343, align 4
-  br label %344
+  %343 = getelementptr inbounds i8, ptr %342, i64 8
+  store i32 %.pre.i22.i124, ptr %343, align 4
+  br label %._crit_edge.i23.i125
 
-344:                                              ; preds = %337, %._crit_edge.i23.i129
-  %345 = load i32, ptr %329, align 4
-  %346 = load i32, ptr %291, align 4
-  %347 = icmp eq i32 %345, %346
-  br i1 %347, label %Nwk_ManGraphListDelete.exit.sink.split.i117, label %Nwk_ManGraphListExtract.exit136
+._crit_edge.i23.i125:                             ; preds = %339, %334
+  %.not15.i24.i126 = icmp eq i32 %.pre.i22.i124, 0
+  br i1 %.not15.i24.i126, label %351, label %344
 
-348:                                              ; preds = %297
-  %349 = sext i32 %295 to i64
-  %350 = getelementptr inbounds i32, ptr %18, i64 %349
-  %351 = getelementptr inbounds i8, ptr %291, i64 4
-  %352 = load i32, ptr %351, align 4
-  %.not.i32.i110 = icmp eq i32 %352, 0
-  %.phi.trans.insert.i33.i111 = getelementptr inbounds i8, ptr %291, i64 8
+344:                                              ; preds = %._crit_edge.i23.i125
+  %345 = load i32, ptr %337, align 4
+  %346 = load ptr, ptr %16, align 8
+  %347 = sext i32 %.pre.i22.i124 to i64
+  %348 = getelementptr inbounds ptr, ptr %346, i64 %347
+  %349 = load ptr, ptr %348, align 8
+  %350 = getelementptr inbounds i8, ptr %349, i64 4
+  store i32 %345, ptr %350, align 4
+  br label %351
+
+351:                                              ; preds = %344, %._crit_edge.i23.i125
+  %352 = load i32, ptr %336, align 4
+  %353 = load i32, ptr %296, align 4
+  %354 = icmp eq i32 %352, %353
+  br i1 %354, label %355, label %Nwk_ManGraphListDelete.exit25.i127
+
+355:                                              ; preds = %351
+  %356 = load i32, ptr %.phi.trans.insert.i21.i123, align 4
+  store i32 %356, ptr %336, align 4
+  br label %Nwk_ManGraphListDelete.exit25.i127
+
+Nwk_ManGraphListDelete.exit25.i127:               ; preds = %355, %351
+  store i32 0, ptr %.phi.trans.insert.i21.i123, align 4
+  store i32 0, ptr %337, align 4
+  br label %Nwk_ManGraphListExtract.exit134
+
+357:                                              ; preds = %302
+  %358 = sext i32 %300 to i64
+  %359 = getelementptr inbounds i32, ptr %18, i64 %358
+  %360 = getelementptr inbounds i8, ptr %296, i64 4
+  %361 = load i32, ptr %360, align 4
+  %.not.i32.i110 = icmp eq i32 %361, 0
+  %.phi.trans.insert.i33.i111 = getelementptr inbounds i8, ptr %296, i64 8
   %.pre.i34.i112 = load i32, ptr %.phi.trans.insert.i33.i111, align 4
-  br i1 %.not.i32.i110, label %._crit_edge.i35.i113, label %353
+  br i1 %.not.i32.i110, label %._crit_edge.i35.i113, label %362
 
-353:                                              ; preds = %348
-  %354 = sext i32 %352 to i64
-  %355 = getelementptr inbounds ptr, ptr %286, i64 %354
-  %356 = load ptr, ptr %355, align 8
-  %357 = getelementptr inbounds i8, ptr %356, i64 8
-  store i32 %.pre.i34.i112, ptr %357, align 4
+362:                                              ; preds = %357
+  %363 = sext i32 %361 to i64
+  %364 = getelementptr inbounds ptr, ptr %291, i64 %363
+  %365 = load ptr, ptr %364, align 8
+  %366 = getelementptr inbounds i8, ptr %365, i64 8
+  store i32 %.pre.i34.i112, ptr %366, align 4
   br label %._crit_edge.i35.i113
 
-._crit_edge.i35.i113:                             ; preds = %353, %348
+._crit_edge.i35.i113:                             ; preds = %362, %357
   %.not15.i36.i114 = icmp eq i32 %.pre.i34.i112, 0
-  br i1 %.not15.i36.i114, label %365, label %358
+  br i1 %.not15.i36.i114, label %374, label %367
 
-358:                                              ; preds = %._crit_edge.i35.i113
-  %359 = load i32, ptr %351, align 4
-  %360 = load ptr, ptr %16, align 8
-  %361 = sext i32 %.pre.i34.i112 to i64
-  %362 = getelementptr inbounds ptr, ptr %360, i64 %361
-  %363 = load ptr, ptr %362, align 8
-  %364 = getelementptr inbounds i8, ptr %363, i64 4
-  store i32 %359, ptr %364, align 4
-  br label %365
+367:                                              ; preds = %._crit_edge.i35.i113
+  %368 = load i32, ptr %360, align 4
+  %369 = load ptr, ptr %16, align 8
+  %370 = sext i32 %.pre.i34.i112 to i64
+  %371 = getelementptr inbounds ptr, ptr %369, i64 %370
+  %372 = load ptr, ptr %371, align 8
+  %373 = getelementptr inbounds i8, ptr %372, i64 4
+  store i32 %368, ptr %373, align 4
+  br label %374
 
-365:                                              ; preds = %358, %._crit_edge.i35.i113
-  %366 = load i32, ptr %350, align 4
-  %367 = load i32, ptr %291, align 4
-  %368 = icmp eq i32 %366, %367
-  br i1 %368, label %Nwk_ManGraphListDelete.exit.sink.split.i117, label %Nwk_ManGraphListExtract.exit136
+374:                                              ; preds = %367, %._crit_edge.i35.i113
+  %375 = load i32, ptr %359, align 4
+  %376 = load i32, ptr %296, align 4
+  %377 = icmp eq i32 %375, %376
+  br i1 %377, label %378, label %Nwk_ManGraphListDelete.exit37.i115
 
-Nwk_ManGraphListDelete.exit.sink.split.i117:      ; preds = %365, %344, %323
-  %.phi.trans.insert.i33.sink.i118 = phi ptr [ %.phi.trans.insert.i.i132, %323 ], [ %.phi.trans.insert.i21.i127, %344 ], [ %.phi.trans.insert.i33.i111, %365 ]
-  %.sink39.i119 = phi ptr [ %20, %323 ], [ %329, %344 ], [ %350, %365 ]
-  %.sink.ph.i120 = phi ptr [ %309, %323 ], [ %330, %344 ], [ %351, %365 ]
-  %369 = load i32, ptr %.phi.trans.insert.i33.sink.i118, align 4
-  store i32 %369, ptr %.sink39.i119, align 4
-  br label %Nwk_ManGraphListExtract.exit136
+378:                                              ; preds = %374
+  %379 = load i32, ptr %.phi.trans.insert.i33.i111, align 4
+  store i32 %379, ptr %359, align 4
+  br label %Nwk_ManGraphListDelete.exit37.i115
 
-Nwk_ManGraphListExtract.exit136:                  ; preds = %323, %344, %365, %Nwk_ManGraphListDelete.exit.sink.split.i117
-  %.phi.trans.insert.i27.sink.i115 = phi ptr [ %.phi.trans.insert.i.i132, %323 ], [ %.phi.trans.insert.i21.i127, %344 ], [ %.phi.trans.insert.i33.i111, %365 ], [ %.phi.trans.insert.i33.sink.i118, %Nwk_ManGraphListDelete.exit.sink.split.i117 ]
-  %.sink.i116 = phi ptr [ %309, %323 ], [ %330, %344 ], [ %351, %365 ], [ %.sink.ph.i120, %Nwk_ManGraphListDelete.exit.sink.split.i117 ]
-  store i32 0, ptr %.phi.trans.insert.i27.sink.i115, align 4
-  store i32 0, ptr %.sink.i116, align 4
-  %370 = load i32, ptr %280, align 4
-  %371 = add nsw i32 %370, -1
-  store i32 %371, ptr %280, align 4
-  %372 = load i32, ptr %294, align 4
-  %373 = icmp eq i32 %372, 1
-  br i1 %373, label %374, label %406
+Nwk_ManGraphListDelete.exit37.i115:               ; preds = %378, %374
+  store i32 0, ptr %.phi.trans.insert.i33.i111, align 4
+  store i32 0, ptr %360, align 4
+  br label %Nwk_ManGraphListExtract.exit134
 
-374:                                              ; preds = %Nwk_ManGraphListExtract.exit136
-  %375 = load ptr, ptr %16, align 8
-  %376 = getelementptr inbounds i8, ptr %291, i64 16
-  %377 = load i32, ptr %376, align 4
-  %378 = sext i32 %377 to i64
-  %379 = getelementptr inbounds ptr, ptr %375, i64 %378
-  %380 = load ptr, ptr %379, align 8
-  %381 = getelementptr inbounds i8, ptr %380, i64 12
-  %382 = load i32, ptr %381, align 4
-  %383 = icmp sgt i32 %382, 15
-  br i1 %383, label %384, label %394
+Nwk_ManGraphListExtract.exit134:                  ; preds = %Nwk_ManGraphListDelete.exit.i133, %Nwk_ManGraphListDelete.exit25.i127, %Nwk_ManGraphListDelete.exit37.i115
+  %380 = load i32, ptr %285, align 4
+  %381 = add nsw i32 %380, -1
+  store i32 %381, ptr %285, align 4
+  %382 = load i32, ptr %299, align 4
+  %383 = icmp eq i32 %382, 1
+  br i1 %383, label %384, label %416
 
-384:                                              ; preds = %374
-  %385 = load i32, ptr %20, align 4
-  %.not.i.i146 = icmp eq i32 %385, 0
-  %.pre.i.i147 = load i32, ptr %291, align 4
-  br i1 %.not.i.i146, label %Nwk_ManGraphListAdd.exit.i148, label %386
+384:                                              ; preds = %Nwk_ManGraphListExtract.exit134
+  %385 = load ptr, ptr %16, align 8
+  %386 = getelementptr inbounds i8, ptr %296, i64 16
+  %387 = load i32, ptr %386, align 4
+  %388 = sext i32 %387 to i64
+  %389 = getelementptr inbounds ptr, ptr %385, i64 %388
+  %390 = load ptr, ptr %389, align 8
+  %391 = getelementptr inbounds i8, ptr %390, i64 12
+  %392 = load i32, ptr %391, align 4
+  %393 = icmp sgt i32 %392, 15
+  br i1 %393, label %394, label %404
 
-386:                                              ; preds = %384
-  %387 = sext i32 %385 to i64
-  %388 = getelementptr inbounds ptr, ptr %375, i64 %387
-  %389 = load ptr, ptr %388, align 8
-  %390 = getelementptr inbounds i8, ptr %291, i64 4
-  store i32 0, ptr %390, align 4
-  %391 = load i32, ptr %389, align 4
-  %392 = getelementptr inbounds i8, ptr %291, i64 8
-  store i32 %391, ptr %392, align 4
-  %393 = getelementptr inbounds i8, ptr %389, i64 4
-  store i32 %.pre.i.i147, ptr %393, align 4
-  br label %Nwk_ManGraphListAdd.exit.i148
+394:                                              ; preds = %384
+  %395 = load i32, ptr %20, align 4
+  %.not.i.i144 = icmp eq i32 %395, 0
+  %.pre.i.i145 = load i32, ptr %296, align 4
+  br i1 %.not.i.i144, label %Nwk_ManGraphListAdd.exit.i146, label %396
 
-Nwk_ManGraphListAdd.exit.i148:                    ; preds = %386, %384
-  store i32 %.pre.i.i147, ptr %20, align 4
-  br label %Nwk_ManGraphListInsert.exit149
+396:                                              ; preds = %394
+  %397 = sext i32 %395 to i64
+  %398 = getelementptr inbounds ptr, ptr %385, i64 %397
+  %399 = load ptr, ptr %398, align 8
+  %400 = getelementptr inbounds i8, ptr %296, i64 4
+  store i32 0, ptr %400, align 4
+  %401 = load i32, ptr %399, align 4
+  %402 = getelementptr inbounds i8, ptr %296, i64 8
+  store i32 %401, ptr %402, align 4
+  %403 = getelementptr inbounds i8, ptr %399, i64 4
+  store i32 %.pre.i.i145, ptr %403, align 4
+  br label %Nwk_ManGraphListAdd.exit.i146
 
-394:                                              ; preds = %374
-  %395 = sext i32 %382 to i64
-  %396 = getelementptr inbounds i32, ptr %19, i64 %395
-  %397 = load i32, ptr %396, align 4
-  %.not.i20.i143 = icmp eq i32 %397, 0
-  %.pre.i21.i144 = load i32, ptr %291, align 4
-  br i1 %.not.i20.i143, label %Nwk_ManGraphListAdd.exit22.i145, label %398
+Nwk_ManGraphListAdd.exit.i146:                    ; preds = %396, %394
+  store i32 %.pre.i.i145, ptr %20, align 4
+  br label %Nwk_ManGraphListInsert.exit147
 
-398:                                              ; preds = %394
-  %399 = sext i32 %397 to i64
-  %400 = getelementptr inbounds ptr, ptr %375, i64 %399
-  %401 = load ptr, ptr %400, align 8
-  %402 = getelementptr inbounds i8, ptr %291, i64 4
-  store i32 0, ptr %402, align 4
-  %403 = load i32, ptr %401, align 4
-  %404 = getelementptr inbounds i8, ptr %291, i64 8
-  store i32 %403, ptr %404, align 4
-  %405 = getelementptr inbounds i8, ptr %401, i64 4
-  store i32 %.pre.i21.i144, ptr %405, align 4
-  br label %Nwk_ManGraphListAdd.exit22.i145
+404:                                              ; preds = %384
+  %405 = sext i32 %392 to i64
+  %406 = getelementptr inbounds i32, ptr %19, i64 %405
+  %407 = load i32, ptr %406, align 4
+  %.not.i20.i141 = icmp eq i32 %407, 0
+  %.pre.i21.i142 = load i32, ptr %296, align 4
+  br i1 %.not.i20.i141, label %Nwk_ManGraphListAdd.exit22.i143, label %408
 
-Nwk_ManGraphListAdd.exit22.i145:                  ; preds = %398, %394
-  store i32 %.pre.i21.i144, ptr %396, align 4
-  br label %Nwk_ManGraphListInsert.exit149
+408:                                              ; preds = %404
+  %409 = sext i32 %407 to i64
+  %410 = getelementptr inbounds ptr, ptr %385, i64 %409
+  %411 = load ptr, ptr %410, align 8
+  %412 = getelementptr inbounds i8, ptr %296, i64 4
+  store i32 0, ptr %412, align 4
+  %413 = load i32, ptr %411, align 4
+  %414 = getelementptr inbounds i8, ptr %296, i64 8
+  store i32 %413, ptr %414, align 4
+  %415 = getelementptr inbounds i8, ptr %411, i64 4
+  store i32 %.pre.i21.i142, ptr %415, align 4
+  br label %Nwk_ManGraphListAdd.exit22.i143
 
-406:                                              ; preds = %Nwk_ManGraphListExtract.exit136
-  %407 = icmp sgt i32 %372, 15
-  br i1 %407, label %408, label %419
+Nwk_ManGraphListAdd.exit22.i143:                  ; preds = %408, %404
+  store i32 %.pre.i21.i142, ptr %406, align 4
+  br label %Nwk_ManGraphListInsert.exit147
 
-408:                                              ; preds = %406
-  %409 = load i32, ptr %21, align 4
-  %.not.i23.i140 = icmp eq i32 %409, 0
-  %.pre.i24.i141 = load i32, ptr %291, align 4
-  br i1 %.not.i23.i140, label %Nwk_ManGraphListAdd.exit25.i142, label %410
+416:                                              ; preds = %Nwk_ManGraphListExtract.exit134
+  %417 = icmp sgt i32 %382, 15
+  br i1 %417, label %418, label %429
 
-410:                                              ; preds = %408
-  %411 = load ptr, ptr %16, align 8
-  %412 = sext i32 %409 to i64
-  %413 = getelementptr inbounds ptr, ptr %411, i64 %412
-  %414 = load ptr, ptr %413, align 8
-  %415 = getelementptr inbounds i8, ptr %291, i64 4
-  store i32 0, ptr %415, align 4
-  %416 = load i32, ptr %414, align 4
-  %417 = getelementptr inbounds i8, ptr %291, i64 8
-  store i32 %416, ptr %417, align 4
-  %418 = getelementptr inbounds i8, ptr %414, i64 4
-  store i32 %.pre.i24.i141, ptr %418, align 4
-  br label %Nwk_ManGraphListAdd.exit25.i142
+418:                                              ; preds = %416
+  %419 = load i32, ptr %21, align 4
+  %.not.i23.i138 = icmp eq i32 %419, 0
+  %.pre.i24.i139 = load i32, ptr %296, align 4
+  br i1 %.not.i23.i138, label %Nwk_ManGraphListAdd.exit25.i140, label %420
 
-Nwk_ManGraphListAdd.exit25.i142:                  ; preds = %410, %408
-  store i32 %.pre.i24.i141, ptr %21, align 4
-  br label %Nwk_ManGraphListInsert.exit149
+420:                                              ; preds = %418
+  %421 = load ptr, ptr %16, align 8
+  %422 = sext i32 %419 to i64
+  %423 = getelementptr inbounds ptr, ptr %421, i64 %422
+  %424 = load ptr, ptr %423, align 8
+  %425 = getelementptr inbounds i8, ptr %296, i64 4
+  store i32 0, ptr %425, align 4
+  %426 = load i32, ptr %424, align 4
+  %427 = getelementptr inbounds i8, ptr %296, i64 8
+  store i32 %426, ptr %427, align 4
+  %428 = getelementptr inbounds i8, ptr %424, i64 4
+  store i32 %.pre.i24.i139, ptr %428, align 4
+  br label %Nwk_ManGraphListAdd.exit25.i140
 
-419:                                              ; preds = %406
-  %420 = sext i32 %372 to i64
-  %421 = getelementptr inbounds i32, ptr %18, i64 %420
-  %422 = load i32, ptr %421, align 4
-  %.not.i26.i137 = icmp eq i32 %422, 0
-  %.pre.i27.i138 = load i32, ptr %291, align 4
-  br i1 %.not.i26.i137, label %Nwk_ManGraphListAdd.exit28.i139, label %423
+Nwk_ManGraphListAdd.exit25.i140:                  ; preds = %420, %418
+  store i32 %.pre.i24.i139, ptr %21, align 4
+  br label %Nwk_ManGraphListInsert.exit147
 
-423:                                              ; preds = %419
-  %424 = load ptr, ptr %16, align 8
-  %425 = sext i32 %422 to i64
-  %426 = getelementptr inbounds ptr, ptr %424, i64 %425
-  %427 = load ptr, ptr %426, align 8
-  %428 = getelementptr inbounds i8, ptr %291, i64 4
-  store i32 0, ptr %428, align 4
-  %429 = load i32, ptr %427, align 4
-  %430 = getelementptr inbounds i8, ptr %291, i64 8
-  store i32 %429, ptr %430, align 4
-  %431 = getelementptr inbounds i8, ptr %427, i64 4
-  store i32 %.pre.i27.i138, ptr %431, align 4
-  br label %Nwk_ManGraphListAdd.exit28.i139
+429:                                              ; preds = %416
+  %430 = sext i32 %382 to i64
+  %431 = getelementptr inbounds i32, ptr %18, i64 %430
+  %432 = load i32, ptr %431, align 4
+  %.not.i26.i135 = icmp eq i32 %432, 0
+  %.pre.i27.i136 = load i32, ptr %296, align 4
+  br i1 %.not.i26.i135, label %Nwk_ManGraphListAdd.exit28.i137, label %433
 
-Nwk_ManGraphListAdd.exit28.i139:                  ; preds = %423, %419
-  store i32 %.pre.i27.i138, ptr %421, align 4
-  br label %Nwk_ManGraphListInsert.exit149
+433:                                              ; preds = %429
+  %434 = load ptr, ptr %16, align 8
+  %435 = sext i32 %432 to i64
+  %436 = getelementptr inbounds ptr, ptr %434, i64 %435
+  %437 = load ptr, ptr %436, align 8
+  %438 = getelementptr inbounds i8, ptr %296, i64 4
+  store i32 0, ptr %438, align 4
+  %439 = load i32, ptr %437, align 4
+  %440 = getelementptr inbounds i8, ptr %296, i64 8
+  store i32 %439, ptr %440, align 4
+  %441 = getelementptr inbounds i8, ptr %437, i64 4
+  store i32 %.pre.i27.i136, ptr %441, align 4
+  br label %Nwk_ManGraphListAdd.exit28.i137
 
-Nwk_ManGraphListInsert.exit149:                   ; preds = %Nwk_ManGraphListAdd.exit.i148, %Nwk_ManGraphListAdd.exit22.i145, %Nwk_ManGraphListAdd.exit25.i142, %Nwk_ManGraphListAdd.exit28.i139
-  %432 = load i32, ptr %280, align 4
-  %433 = add nsw i32 %432, 1
-  store i32 %433, ptr %280, align 4
-  br label %434
+Nwk_ManGraphListAdd.exit28.i137:                  ; preds = %433, %429
+  store i32 %.pre.i27.i136, ptr %431, align 4
+  br label %Nwk_ManGraphListInsert.exit147
 
-434:                                              ; preds = %284, %293, %Nwk_ManGraphListInsert.exit149
-  %435 = phi i32 [ %285, %284 ], [ %285, %293 ], [ %433, %Nwk_ManGraphListInsert.exit149 ]
-  %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
-  %436 = sext i32 %435 to i64
-  %437 = icmp slt i64 %indvars.iv.next221, %436
-  br i1 %437, label %284, label %.critedge6, !llvm.loop !23
+Nwk_ManGraphListInsert.exit147:                   ; preds = %Nwk_ManGraphListAdd.exit.i146, %Nwk_ManGraphListAdd.exit22.i143, %Nwk_ManGraphListAdd.exit25.i140, %Nwk_ManGraphListAdd.exit28.i137
+  %442 = load i32, ptr %285, align 4
+  %443 = add nsw i32 %442, 1
+  store i32 %443, ptr %285, align 4
+  br label %444
 
-.critedge6:                                       ; preds = %434, %279
-  %438 = phi i32 [ %281, %279 ], [ %435, %434 ]
-  %439 = getelementptr inbounds i8, ptr %277, i64 16
-  %440 = icmp sgt i32 %438, 0
-  br i1 %440, label %.lr.ph.i155, label %._crit_edge.i150
+444:                                              ; preds = %289, %298, %Nwk_ManGraphListInsert.exit147
+  %445 = phi i32 [ %290, %289 ], [ %290, %298 ], [ %443, %Nwk_ManGraphListInsert.exit147 ]
+  %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 1
+  %446 = sext i32 %445 to i64
+  %447 = icmp slt i64 %indvars.iv.next219, %446
+  br i1 %447, label %289, label %.critedge6, !llvm.loop !23
 
-.lr.ph.i155:                                      ; preds = %.critedge6
-  %441 = load i32, ptr %2, align 4
-  %wide.trip.count.i156 = zext nneg i32 %438 to i64
-  br label %442
+.critedge6:                                       ; preds = %444, %284
+  %448 = phi i32 [ %286, %284 ], [ %445, %444 ]
+  %449 = getelementptr inbounds i8, ptr %282, i64 16
+  %450 = icmp sgt i32 %448, 0
+  br i1 %450, label %.lr.ph.i153, label %._crit_edge.i148
 
-442:                                              ; preds = %446, %.lr.ph.i155
-  %indvars.iv.i157 = phi i64 [ 0, %.lr.ph.i155 ], [ %indvars.iv.next.i158, %446 ]
-  %443 = getelementptr inbounds [0 x i32], ptr %439, i64 0, i64 %indvars.iv.i157
-  %444 = load i32, ptr %443, align 4
-  %445 = icmp eq i32 %444, %441
-  br i1 %445, label %._crit_edge.loopexit.i161, label %446
-
-446:                                              ; preds = %442
-  %indvars.iv.next.i158 = add nuw nsw i64 %indvars.iv.i157, 1
-  %exitcond.not.i159 = icmp eq i64 %indvars.iv.next.i158, %wide.trip.count.i156
-  br i1 %exitcond.not.i159, label %._crit_edge.thread.i160, label %442, !llvm.loop !20
-
-._crit_edge.thread.i160:                          ; preds = %446
-  %447 = add nsw i32 %438, -1
-  store i32 %447, ptr %280, align 4
-  br label %Nwk_ManGraphVertexRemoveEdge.exit162
-
-._crit_edge.loopexit.i161:                        ; preds = %442
-  %448 = trunc nuw nsw i64 %indvars.iv.i157 to i32
-  br label %._crit_edge.i150
-
-._crit_edge.i150:                                 ; preds = %._crit_edge.loopexit.i161, %.critedge6
-  %.0.lcssa.i151 = phi i32 [ 0, %.critedge6 ], [ %448, %._crit_edge.loopexit.i161 ]
-  %449 = add nsw i32 %438, -1
-  store i32 %449, ptr %280, align 4
-  %450 = icmp slt i32 %.0.lcssa.i151, %449
-  br i1 %450, label %.lr.ph21.i152, label %Nwk_ManGraphVertexRemoveEdge.exit162
-
-.lr.ph21.i152:                                    ; preds = %._crit_edge.i150
-  %451 = zext i32 %.0.lcssa.i151 to i64
-  %wide.trip.count226 = zext i32 %449 to i64
+.lr.ph.i153:                                      ; preds = %.critedge6
+  %451 = load i32, ptr %2, align 4
+  %wide.trip.count.i154 = zext nneg i32 %448 to i64
   br label %452
 
-452:                                              ; preds = %452, %.lr.ph21.i152
-  %indvars.iv25.i153 = phi i64 [ %451, %.lr.ph21.i152 ], [ %indvars.iv.next26.i154, %452 ]
-  %indvars.iv.next26.i154 = add nuw nsw i64 %indvars.iv25.i153, 1
-  %453 = getelementptr inbounds [0 x i32], ptr %439, i64 0, i64 %indvars.iv.next26.i154
+452:                                              ; preds = %456, %.lr.ph.i153
+  %indvars.iv.i155 = phi i64 [ 0, %.lr.ph.i153 ], [ %indvars.iv.next.i156, %456 ]
+  %453 = getelementptr inbounds [0 x i32], ptr %449, i64 0, i64 %indvars.iv.i155
   %454 = load i32, ptr %453, align 4
-  %455 = getelementptr inbounds [0 x i32], ptr %439, i64 0, i64 %indvars.iv25.i153
-  store i32 %454, ptr %455, align 4
-  %exitcond227.not = icmp eq i64 %indvars.iv.next26.i154, %wide.trip.count226
-  br i1 %exitcond227.not, label %Nwk_ManGraphVertexRemoveEdge.exit162, label %452, !llvm.loop !21
+  %455 = icmp eq i32 %454, %451
+  br i1 %455, label %._crit_edge.loopexit.i159, label %456
 
-Nwk_ManGraphVertexRemoveEdge.exit162:             ; preds = %452, %._crit_edge.thread.i160, %._crit_edge.i150
-  %456 = phi i32 [ %447, %._crit_edge.thread.i160 ], [ %449, %._crit_edge.i150 ], [ %449, %452 ]
-  %457 = icmp sgt i32 %456, 0
-  br i1 %457, label %458, label %Nwk_ManGraphListInsert.exit175
+456:                                              ; preds = %452
+  %indvars.iv.next.i156 = add nuw nsw i64 %indvars.iv.i155, 1
+  %exitcond.not.i157 = icmp eq i64 %indvars.iv.next.i156, %wide.trip.count.i154
+  br i1 %exitcond.not.i157, label %._crit_edge.thread.i158, label %452, !llvm.loop !20
 
-458:                                              ; preds = %Nwk_ManGraphVertexRemoveEdge.exit162
-  %459 = icmp eq i32 %456, 1
-  br i1 %459, label %460, label %491
+._crit_edge.thread.i158:                          ; preds = %456
+  %457 = add nsw i32 %448, -1
+  store i32 %457, ptr %285, align 4
+  br label %Nwk_ManGraphVertexRemoveEdge.exit160
 
-460:                                              ; preds = %458
-  %461 = load ptr, ptr %16, align 8
-  %462 = load i32, ptr %439, align 4
-  %463 = sext i32 %462 to i64
-  %464 = getelementptr inbounds ptr, ptr %461, i64 %463
-  %465 = load ptr, ptr %464, align 8
-  %466 = getelementptr inbounds i8, ptr %465, i64 12
-  %467 = load i32, ptr %466, align 4
-  %468 = icmp sgt i32 %467, 15
-  br i1 %468, label %469, label %479
+._crit_edge.loopexit.i159:                        ; preds = %452
+  %458 = trunc nuw nsw i64 %indvars.iv.i155 to i32
+  br label %._crit_edge.i148
 
-469:                                              ; preds = %460
-  %470 = load i32, ptr %20, align 4
-  %.not.i.i172 = icmp eq i32 %470, 0
-  %.pre.i.i173 = load i32, ptr %277, align 4
-  br i1 %.not.i.i172, label %Nwk_ManGraphListAdd.exit.i174, label %471
+._crit_edge.i148:                                 ; preds = %._crit_edge.loopexit.i159, %.critedge6
+  %.0.lcssa.i149 = phi i32 [ 0, %.critedge6 ], [ %458, %._crit_edge.loopexit.i159 ]
+  %459 = add nsw i32 %448, -1
+  store i32 %459, ptr %285, align 4
+  %460 = icmp slt i32 %.0.lcssa.i149, %459
+  br i1 %460, label %.lr.ph21.i150, label %Nwk_ManGraphVertexRemoveEdge.exit160
 
-471:                                              ; preds = %469
-  %472 = sext i32 %470 to i64
-  %473 = getelementptr inbounds ptr, ptr %461, i64 %472
-  %474 = load ptr, ptr %473, align 8
-  %475 = getelementptr inbounds i8, ptr %277, i64 4
-  store i32 0, ptr %475, align 4
-  %476 = load i32, ptr %474, align 4
-  %477 = getelementptr inbounds i8, ptr %277, i64 8
-  store i32 %476, ptr %477, align 4
-  %478 = getelementptr inbounds i8, ptr %474, i64 4
-  store i32 %.pre.i.i173, ptr %478, align 4
-  br label %Nwk_ManGraphListAdd.exit.i174
+.lr.ph21.i150:                                    ; preds = %._crit_edge.i148
+  %461 = zext i32 %.0.lcssa.i149 to i64
+  %wide.trip.count224 = zext i32 %459 to i64
+  br label %462
 
-Nwk_ManGraphListAdd.exit.i174:                    ; preds = %471, %469
-  store i32 %.pre.i.i173, ptr %20, align 4
-  br label %Nwk_ManGraphListInsert.exit175
+462:                                              ; preds = %462, %.lr.ph21.i150
+  %indvars.iv25.i151 = phi i64 [ %461, %.lr.ph21.i150 ], [ %indvars.iv.next26.i152, %462 ]
+  %indvars.iv.next26.i152 = add nuw nsw i64 %indvars.iv25.i151, 1
+  %463 = getelementptr inbounds [0 x i32], ptr %449, i64 0, i64 %indvars.iv.next26.i152
+  %464 = load i32, ptr %463, align 4
+  %465 = getelementptr inbounds [0 x i32], ptr %449, i64 0, i64 %indvars.iv25.i151
+  store i32 %464, ptr %465, align 4
+  %exitcond225.not = icmp eq i64 %indvars.iv.next26.i152, %wide.trip.count224
+  br i1 %exitcond225.not, label %Nwk_ManGraphVertexRemoveEdge.exit160, label %462, !llvm.loop !21
 
-479:                                              ; preds = %460
-  %480 = sext i32 %467 to i64
-  %481 = getelementptr inbounds i32, ptr %19, i64 %480
-  %482 = load i32, ptr %481, align 4
-  %.not.i20.i169 = icmp eq i32 %482, 0
-  %.pre.i21.i170 = load i32, ptr %277, align 4
-  br i1 %.not.i20.i169, label %Nwk_ManGraphListAdd.exit22.i171, label %483
+Nwk_ManGraphVertexRemoveEdge.exit160:             ; preds = %462, %._crit_edge.thread.i158, %._crit_edge.i148
+  %466 = phi i32 [ %457, %._crit_edge.thread.i158 ], [ %459, %._crit_edge.i148 ], [ %459, %462 ]
+  %467 = icmp sgt i32 %466, 0
+  br i1 %467, label %468, label %Nwk_ManGraphListInsert.exit173
 
-483:                                              ; preds = %479
-  %484 = sext i32 %482 to i64
-  %485 = getelementptr inbounds ptr, ptr %461, i64 %484
-  %486 = load ptr, ptr %485, align 8
-  %487 = getelementptr inbounds i8, ptr %277, i64 4
-  store i32 0, ptr %487, align 4
-  %488 = load i32, ptr %486, align 4
-  %489 = getelementptr inbounds i8, ptr %277, i64 8
-  store i32 %488, ptr %489, align 4
-  %490 = getelementptr inbounds i8, ptr %486, i64 4
-  store i32 %.pre.i21.i170, ptr %490, align 4
-  br label %Nwk_ManGraphListAdd.exit22.i171
+468:                                              ; preds = %Nwk_ManGraphVertexRemoveEdge.exit160
+  %469 = icmp eq i32 %466, 1
+  br i1 %469, label %470, label %501
 
-Nwk_ManGraphListAdd.exit22.i171:                  ; preds = %483, %479
-  store i32 %.pre.i21.i170, ptr %481, align 4
-  br label %Nwk_ManGraphListInsert.exit175
+470:                                              ; preds = %468
+  %471 = load ptr, ptr %16, align 8
+  %472 = load i32, ptr %449, align 4
+  %473 = sext i32 %472 to i64
+  %474 = getelementptr inbounds ptr, ptr %471, i64 %473
+  %475 = load ptr, ptr %474, align 8
+  %476 = getelementptr inbounds i8, ptr %475, i64 12
+  %477 = load i32, ptr %476, align 4
+  %478 = icmp sgt i32 %477, 15
+  br i1 %478, label %479, label %489
 
-491:                                              ; preds = %458
-  %492 = icmp ugt i32 %456, 15
-  br i1 %492, label %493, label %504
+479:                                              ; preds = %470
+  %480 = load i32, ptr %20, align 4
+  %.not.i.i170 = icmp eq i32 %480, 0
+  %.pre.i.i171 = load i32, ptr %282, align 4
+  br i1 %.not.i.i170, label %Nwk_ManGraphListAdd.exit.i172, label %481
 
-493:                                              ; preds = %491
-  %494 = load i32, ptr %21, align 4
-  %.not.i23.i166 = icmp eq i32 %494, 0
-  %.pre.i24.i167 = load i32, ptr %277, align 4
-  br i1 %.not.i23.i166, label %Nwk_ManGraphListAdd.exit25.i168, label %495
+481:                                              ; preds = %479
+  %482 = sext i32 %480 to i64
+  %483 = getelementptr inbounds ptr, ptr %471, i64 %482
+  %484 = load ptr, ptr %483, align 8
+  %485 = getelementptr inbounds i8, ptr %282, i64 4
+  store i32 0, ptr %485, align 4
+  %486 = load i32, ptr %484, align 4
+  %487 = getelementptr inbounds i8, ptr %282, i64 8
+  store i32 %486, ptr %487, align 4
+  %488 = getelementptr inbounds i8, ptr %484, i64 4
+  store i32 %.pre.i.i171, ptr %488, align 4
+  br label %Nwk_ManGraphListAdd.exit.i172
 
-495:                                              ; preds = %493
-  %496 = load ptr, ptr %16, align 8
-  %497 = sext i32 %494 to i64
-  %498 = getelementptr inbounds ptr, ptr %496, i64 %497
-  %499 = load ptr, ptr %498, align 8
-  %500 = getelementptr inbounds i8, ptr %277, i64 4
-  store i32 0, ptr %500, align 4
-  %501 = load i32, ptr %499, align 4
-  %502 = getelementptr inbounds i8, ptr %277, i64 8
-  store i32 %501, ptr %502, align 4
-  %503 = getelementptr inbounds i8, ptr %499, i64 4
-  store i32 %.pre.i24.i167, ptr %503, align 4
-  br label %Nwk_ManGraphListAdd.exit25.i168
+Nwk_ManGraphListAdd.exit.i172:                    ; preds = %481, %479
+  store i32 %.pre.i.i171, ptr %20, align 4
+  br label %Nwk_ManGraphListInsert.exit173
 
-Nwk_ManGraphListAdd.exit25.i168:                  ; preds = %495, %493
-  store i32 %.pre.i24.i167, ptr %21, align 4
-  br label %Nwk_ManGraphListInsert.exit175
+489:                                              ; preds = %470
+  %490 = sext i32 %477 to i64
+  %491 = getelementptr inbounds i32, ptr %19, i64 %490
+  %492 = load i32, ptr %491, align 4
+  %.not.i20.i167 = icmp eq i32 %492, 0
+  %.pre.i21.i168 = load i32, ptr %282, align 4
+  br i1 %.not.i20.i167, label %Nwk_ManGraphListAdd.exit22.i169, label %493
 
-504:                                              ; preds = %491
-  %505 = zext nneg i32 %456 to i64
-  %506 = getelementptr inbounds i32, ptr %18, i64 %505
-  %507 = load i32, ptr %506, align 4
-  %.not.i26.i163 = icmp eq i32 %507, 0
-  %.pre.i27.i164 = load i32, ptr %277, align 4
-  br i1 %.not.i26.i163, label %Nwk_ManGraphListAdd.exit28.i165, label %508
+493:                                              ; preds = %489
+  %494 = sext i32 %492 to i64
+  %495 = getelementptr inbounds ptr, ptr %471, i64 %494
+  %496 = load ptr, ptr %495, align 8
+  %497 = getelementptr inbounds i8, ptr %282, i64 4
+  store i32 0, ptr %497, align 4
+  %498 = load i32, ptr %496, align 4
+  %499 = getelementptr inbounds i8, ptr %282, i64 8
+  store i32 %498, ptr %499, align 4
+  %500 = getelementptr inbounds i8, ptr %496, i64 4
+  store i32 %.pre.i21.i168, ptr %500, align 4
+  br label %Nwk_ManGraphListAdd.exit22.i169
 
-508:                                              ; preds = %504
-  %509 = load ptr, ptr %16, align 8
-  %510 = sext i32 %507 to i64
-  %511 = getelementptr inbounds ptr, ptr %509, i64 %510
-  %512 = load ptr, ptr %511, align 8
-  %513 = getelementptr inbounds i8, ptr %277, i64 4
-  store i32 0, ptr %513, align 4
-  %514 = load i32, ptr %512, align 4
-  %515 = getelementptr inbounds i8, ptr %277, i64 8
-  store i32 %514, ptr %515, align 4
-  %516 = getelementptr inbounds i8, ptr %512, i64 4
-  store i32 %.pre.i27.i164, ptr %516, align 4
-  br label %Nwk_ManGraphListAdd.exit28.i165
+Nwk_ManGraphListAdd.exit22.i169:                  ; preds = %493, %489
+  store i32 %.pre.i21.i168, ptr %491, align 4
+  br label %Nwk_ManGraphListInsert.exit173
 
-Nwk_ManGraphListAdd.exit28.i165:                  ; preds = %508, %504
-  store i32 %.pre.i27.i164, ptr %506, align 4
-  br label %Nwk_ManGraphListInsert.exit175
+501:                                              ; preds = %468
+  %502 = icmp ugt i32 %466, 15
+  br i1 %502, label %503, label %514
 
-Nwk_ManGraphListInsert.exit175:                   ; preds = %Nwk_ManGraphListAdd.exit28.i165, %Nwk_ManGraphListAdd.exit25.i168, %Nwk_ManGraphListAdd.exit22.i171, %Nwk_ManGraphListAdd.exit.i174, %Nwk_ManGraphVertexRemoveEdge.exit162, %271
-  %indvars.iv.next229 = add nuw nsw i64 %indvars.iv228, 1
-  %517 = load i32, ptr %13, align 4
-  %518 = sext i32 %517 to i64
-  %519 = icmp slt i64 %indvars.iv.next229, %518
-  br i1 %519, label %271, label %.critedge4, !llvm.loop !24
+503:                                              ; preds = %501
+  %504 = load i32, ptr %21, align 4
+  %.not.i23.i164 = icmp eq i32 %504, 0
+  %.pre.i24.i165 = load i32, ptr %282, align 4
+  br i1 %.not.i23.i164, label %Nwk_ManGraphListAdd.exit25.i166, label %505
 
-.critedge4:                                       ; preds = %Nwk_ManGraphListInsert.exit175, %.critedge.preheader
-  %520 = load i32, ptr %1, align 4
-  %521 = load i32, ptr %2, align 4
-  %522 = icmp slt i32 %520, %521
-  %523 = getelementptr inbounds i8, ptr %0, i64 192
-  %524 = load ptr, ptr %523, align 8
-  %525 = getelementptr inbounds i8, ptr %0, i64 208
-  %526 = load ptr, ptr %525, align 8
-  %527 = getelementptr inbounds i8, ptr %524, i64 4
-  %528 = load i32, ptr %527, align 4
-  %529 = load i32, ptr %524, align 8
-  %530 = icmp eq i32 %528, %529
-  br i1 %522, label %531, label %594
+505:                                              ; preds = %503
+  %506 = load ptr, ptr %16, align 8
+  %507 = sext i32 %504 to i64
+  %508 = getelementptr inbounds ptr, ptr %506, i64 %507
+  %509 = load ptr, ptr %508, align 8
+  %510 = getelementptr inbounds i8, ptr %282, i64 4
+  store i32 0, ptr %510, align 4
+  %511 = load i32, ptr %509, align 4
+  %512 = getelementptr inbounds i8, ptr %282, i64 8
+  store i32 %511, ptr %512, align 4
+  %513 = getelementptr inbounds i8, ptr %509, i64 4
+  store i32 %.pre.i24.i165, ptr %513, align 4
+  br label %Nwk_ManGraphListAdd.exit25.i166
 
-531:                                              ; preds = %.critedge4
-  %532 = sext i32 %520 to i64
-  %533 = getelementptr inbounds i32, ptr %526, i64 %532
-  %534 = load i32, ptr %533, align 4
-  br i1 %530, label %535, label %.Vec_IntGrow.exit10_crit_edge.i
+Nwk_ManGraphListAdd.exit25.i166:                  ; preds = %505, %503
+  store i32 %.pre.i24.i165, ptr %21, align 4
+  br label %Nwk_ManGraphListInsert.exit173
 
-.Vec_IntGrow.exit10_crit_edge.i:                  ; preds = %531
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %524, i64 8
+514:                                              ; preds = %501
+  %515 = zext nneg i32 %466 to i64
+  %516 = getelementptr inbounds i32, ptr %18, i64 %515
+  %517 = load i32, ptr %516, align 4
+  %.not.i26.i161 = icmp eq i32 %517, 0
+  %.pre.i27.i162 = load i32, ptr %282, align 4
+  br i1 %.not.i26.i161, label %Nwk_ManGraphListAdd.exit28.i163, label %518
+
+518:                                              ; preds = %514
+  %519 = load ptr, ptr %16, align 8
+  %520 = sext i32 %517 to i64
+  %521 = getelementptr inbounds ptr, ptr %519, i64 %520
+  %522 = load ptr, ptr %521, align 8
+  %523 = getelementptr inbounds i8, ptr %282, i64 4
+  store i32 0, ptr %523, align 4
+  %524 = load i32, ptr %522, align 4
+  %525 = getelementptr inbounds i8, ptr %282, i64 8
+  store i32 %524, ptr %525, align 4
+  %526 = getelementptr inbounds i8, ptr %522, i64 4
+  store i32 %.pre.i27.i162, ptr %526, align 4
+  br label %Nwk_ManGraphListAdd.exit28.i163
+
+Nwk_ManGraphListAdd.exit28.i163:                  ; preds = %518, %514
+  store i32 %.pre.i27.i162, ptr %516, align 4
+  br label %Nwk_ManGraphListInsert.exit173
+
+Nwk_ManGraphListInsert.exit173:                   ; preds = %Nwk_ManGraphListAdd.exit28.i163, %Nwk_ManGraphListAdd.exit25.i166, %Nwk_ManGraphListAdd.exit22.i169, %Nwk_ManGraphListAdd.exit.i172, %Nwk_ManGraphVertexRemoveEdge.exit160, %276
+  %indvars.iv.next227 = add nuw nsw i64 %indvars.iv226, 1
+  %527 = load i32, ptr %13, align 4
+  %528 = sext i32 %527 to i64
+  %529 = icmp slt i64 %indvars.iv.next227, %528
+  br i1 %529, label %276, label %.critedge4, !llvm.loop !24
+
+.critedge4:                                       ; preds = %Nwk_ManGraphListInsert.exit173, %.critedge.preheader
+  %530 = load i32, ptr %1, align 4
+  %531 = load i32, ptr %2, align 4
+  %532 = icmp slt i32 %530, %531
+  %533 = getelementptr inbounds i8, ptr %0, i64 192
+  %534 = load ptr, ptr %533, align 8
+  %535 = getelementptr inbounds i8, ptr %0, i64 208
+  %536 = load ptr, ptr %535, align 8
+  %537 = getelementptr inbounds i8, ptr %534, i64 4
+  %538 = load i32, ptr %537, align 4
+  %539 = load i32, ptr %534, align 8
+  %540 = icmp eq i32 %538, %539
+  br i1 %532, label %541, label %607
+
+541:                                              ; preds = %.critedge4
+  %542 = sext i32 %530 to i64
+  %543 = getelementptr inbounds i32, ptr %536, i64 %542
+  %544 = load i32, ptr %543, align 4
+  br i1 %540, label %545, label %.Vec_IntGrow.exit10_crit_edge.i
+
+.Vec_IntGrow.exit10_crit_edge.i:                  ; preds = %541
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %534, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_IntPush.exit
 
-535:                                              ; preds = %531
-  %536 = icmp slt i32 %528, 16
-  br i1 %536, label %537, label %545
+545:                                              ; preds = %541
+  %546 = icmp slt i32 %538, 16
+  br i1 %546, label %547, label %555
 
-537:                                              ; preds = %535
-  %538 = getelementptr inbounds i8, ptr %524, i64 8
-  %539 = load ptr, ptr %538, align 8
-  %.not9.i.i = icmp eq ptr %539, null
-  br i1 %.not9.i.i, label %542, label %540
+547:                                              ; preds = %545
+  %548 = getelementptr inbounds i8, ptr %534, i64 8
+  %549 = load ptr, ptr %548, align 8
+  %.not9.i.i = icmp eq ptr %549, null
+  br i1 %.not9.i.i, label %552, label %550
 
-540:                                              ; preds = %537
-  %541 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %539, i64 noundef 64) #21
+550:                                              ; preds = %547
+  %551 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %549, i64 noundef 64) #21
   br label %Vec_IntGrow.exit.i
 
-542:                                              ; preds = %537
-  %543 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #20
+552:                                              ; preds = %547
+  %553 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #20
   br label %Vec_IntGrow.exit.i
 
-Vec_IntGrow.exit.i:                               ; preds = %542, %540
-  %544 = phi ptr [ %541, %540 ], [ %543, %542 ]
-  store ptr %544, ptr %538, align 8
-  store i32 16, ptr %524, align 8
+Vec_IntGrow.exit.i:                               ; preds = %552, %550
+  %554 = phi ptr [ %551, %550 ], [ %553, %552 ]
+  store ptr %554, ptr %548, align 8
+  store i32 16, ptr %534, align 8
   br label %Vec_IntPush.exit
 
-545:                                              ; preds = %535
-  %546 = shl nuw nsw i32 %528, 1
-  %547 = getelementptr inbounds i8, ptr %524, i64 8
-  %548 = load ptr, ptr %547, align 8
-  %.not9.i9.i = icmp eq ptr %548, null
-  %549 = zext nneg i32 %546 to i64
-  %550 = shl nuw nsw i64 %549, 2
-  br i1 %.not9.i9.i, label %553, label %551
+555:                                              ; preds = %545
+  %556 = shl nuw nsw i32 %538, 1
+  %557 = getelementptr inbounds i8, ptr %534, i64 8
+  %558 = load ptr, ptr %557, align 8
+  %.not9.i9.i = icmp eq ptr %558, null
+  %559 = zext nneg i32 %556 to i64
+  %560 = shl nuw nsw i64 %559, 2
+  br i1 %.not9.i9.i, label %563, label %561
 
-551:                                              ; preds = %545
-  %552 = tail call ptr @realloc(ptr noundef nonnull %548, i64 noundef %550) #21
-  br label %555
+561:                                              ; preds = %555
+  %562 = tail call ptr @realloc(ptr noundef nonnull %558, i64 noundef %560) #21
+  br label %565
 
-553:                                              ; preds = %545
-  %554 = tail call noalias ptr @malloc(i64 noundef %550) #20
-  br label %555
+563:                                              ; preds = %555
+  %564 = tail call noalias ptr @malloc(i64 noundef %560) #20
+  br label %565
 
-555:                                              ; preds = %553, %551
-  %556 = phi ptr [ %552, %551 ], [ %554, %553 ]
-  store ptr %556, ptr %547, align 8
-  store i32 %546, ptr %524, align 8
+565:                                              ; preds = %563, %561
+  %566 = phi ptr [ %562, %561 ], [ %564, %563 ]
+  store ptr %566, ptr %557, align 8
+  store i32 %556, ptr %534, align 8
   br label %Vec_IntPush.exit
 
-Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10_crit_edge.i, %Vec_IntGrow.exit.i, %555
-  %557 = phi ptr [ %.pre.i, %.Vec_IntGrow.exit10_crit_edge.i ], [ %556, %555 ], [ %544, %Vec_IntGrow.exit.i ]
-  %558 = load i32, ptr %527, align 4
-  %559 = add nsw i32 %558, 1
-  store i32 %559, ptr %527, align 4
-  %560 = sext i32 %558 to i64
-  %561 = getelementptr inbounds i32, ptr %557, i64 %560
-  store i32 %534, ptr %561, align 4
-  %562 = load ptr, ptr %523, align 8
-  %563 = load ptr, ptr %525, align 8
-  %564 = load i32, ptr %2, align 4
-  %565 = sext i32 %564 to i64
-  %566 = getelementptr inbounds i32, ptr %563, i64 %565
-  %567 = load i32, ptr %566, align 4
-  %568 = getelementptr inbounds i8, ptr %562, i64 4
-  %569 = load i32, ptr %568, align 4
-  %570 = load i32, ptr %562, align 8
-  %571 = icmp eq i32 %569, %570
-  br i1 %571, label %572, label %.Vec_IntGrow.exit10_crit_edge.i176
+Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10_crit_edge.i, %Vec_IntGrow.exit.i, %565
+  %567 = phi ptr [ %.pre.i, %.Vec_IntGrow.exit10_crit_edge.i ], [ %566, %565 ], [ %554, %Vec_IntGrow.exit.i ]
+  %568 = load i32, ptr %537, align 4
+  %569 = add nsw i32 %568, 1
+  store i32 %569, ptr %537, align 4
+  %570 = sext i32 %568 to i64
+  %571 = getelementptr inbounds i32, ptr %567, i64 %570
+  store i32 %544, ptr %571, align 4
+  %572 = load ptr, ptr %533, align 8
+  %573 = load ptr, ptr %535, align 8
+  %574 = load i32, ptr %2, align 4
+  %575 = sext i32 %574 to i64
+  %576 = getelementptr inbounds i32, ptr %573, i64 %575
+  %577 = load i32, ptr %576, align 4
+  %578 = getelementptr inbounds i8, ptr %572, i64 4
+  %579 = load i32, ptr %578, align 4
+  %580 = load i32, ptr %572, align 8
+  %581 = icmp eq i32 %579, %580
+  br i1 %581, label %582, label %.Vec_IntGrow.exit10_crit_edge.i174
 
-.Vec_IntGrow.exit10_crit_edge.i176:               ; preds = %Vec_IntPush.exit
-  %.phi.trans.insert.i177 = getelementptr inbounds i8, ptr %562, i64 8
-  %.pre.i178 = load ptr, ptr %.phi.trans.insert.i177, align 8
-  br label %Vec_IntPush.exit182
+.Vec_IntGrow.exit10_crit_edge.i174:               ; preds = %Vec_IntPush.exit
+  %.phi.trans.insert.i175 = getelementptr inbounds i8, ptr %572, i64 8
+  %.pre.i176 = load ptr, ptr %.phi.trans.insert.i175, align 8
+  br label %Vec_IntPush.exit180
 
-572:                                              ; preds = %Vec_IntPush.exit
-  %573 = icmp slt i32 %569, 16
-  br i1 %573, label %574, label %582
+582:                                              ; preds = %Vec_IntPush.exit
+  %583 = icmp slt i32 %579, 16
+  br i1 %583, label %584, label %592
 
-574:                                              ; preds = %572
-  %575 = getelementptr inbounds i8, ptr %562, i64 8
-  %576 = load ptr, ptr %575, align 8
-  %.not9.i.i180 = icmp eq ptr %576, null
-  br i1 %.not9.i.i180, label %579, label %577
+584:                                              ; preds = %582
+  %585 = getelementptr inbounds i8, ptr %572, i64 8
+  %586 = load ptr, ptr %585, align 8
+  %.not9.i.i178 = icmp eq ptr %586, null
+  br i1 %.not9.i.i178, label %589, label %587
 
-577:                                              ; preds = %574
-  %578 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %576, i64 noundef 64) #21
-  br label %Vec_IntGrow.exit.i181
+587:                                              ; preds = %584
+  %588 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %586, i64 noundef 64) #21
+  br label %Vec_IntGrow.exit.i179
 
-579:                                              ; preds = %574
-  %580 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #20
-  br label %Vec_IntGrow.exit.i181
+589:                                              ; preds = %584
+  %590 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #20
+  br label %Vec_IntGrow.exit.i179
 
-Vec_IntGrow.exit.i181:                            ; preds = %579, %577
-  %581 = phi ptr [ %578, %577 ], [ %580, %579 ]
-  store ptr %581, ptr %575, align 8
-  store i32 16, ptr %562, align 8
-  br label %Vec_IntPush.exit182
+Vec_IntGrow.exit.i179:                            ; preds = %589, %587
+  %591 = phi ptr [ %588, %587 ], [ %590, %589 ]
+  store ptr %591, ptr %585, align 8
+  store i32 16, ptr %572, align 8
+  br label %Vec_IntPush.exit180
 
-582:                                              ; preds = %572
-  %583 = shl nuw nsw i32 %569, 1
-  %584 = getelementptr inbounds i8, ptr %562, i64 8
-  %585 = load ptr, ptr %584, align 8
-  %.not9.i9.i179 = icmp eq ptr %585, null
-  %586 = zext nneg i32 %583 to i64
-  %587 = shl nuw nsw i64 %586, 2
-  br i1 %.not9.i9.i179, label %590, label %588
+592:                                              ; preds = %582
+  %593 = shl nuw nsw i32 %579, 1
+  %594 = getelementptr inbounds i8, ptr %572, i64 8
+  %595 = load ptr, ptr %594, align 8
+  %.not9.i9.i177 = icmp eq ptr %595, null
+  %596 = zext nneg i32 %593 to i64
+  %597 = shl nuw nsw i64 %596, 2
+  br i1 %.not9.i9.i177, label %600, label %598
 
-588:                                              ; preds = %582
-  %589 = tail call ptr @realloc(ptr noundef nonnull %585, i64 noundef %587) #21
-  br label %592
+598:                                              ; preds = %592
+  %599 = tail call ptr @realloc(ptr noundef nonnull %595, i64 noundef %597) #21
+  br label %602
 
-590:                                              ; preds = %582
-  %591 = tail call noalias ptr @malloc(i64 noundef %587) #20
-  br label %592
+600:                                              ; preds = %592
+  %601 = tail call noalias ptr @malloc(i64 noundef %597) #20
+  br label %602
 
-592:                                              ; preds = %590, %588
-  %593 = phi ptr [ %589, %588 ], [ %591, %590 ]
-  store ptr %593, ptr %584, align 8
-  store i32 %583, ptr %562, align 8
-  br label %Vec_IntPush.exit182
+602:                                              ; preds = %600, %598
+  %603 = phi ptr [ %599, %598 ], [ %601, %600 ]
+  store ptr %603, ptr %594, align 8
+  store i32 %593, ptr %572, align 8
+  br label %Vec_IntPush.exit180
 
-594:                                              ; preds = %.critedge4
-  %595 = sext i32 %521 to i64
-  %596 = getelementptr inbounds i32, ptr %526, i64 %595
-  %597 = load i32, ptr %596, align 4
-  br i1 %530, label %598, label %.Vec_IntGrow.exit10_crit_edge.i183
+Vec_IntPush.exit180:                              ; preds = %.Vec_IntGrow.exit10_crit_edge.i174, %Vec_IntGrow.exit.i179, %602
+  %604 = phi ptr [ %.pre.i176, %.Vec_IntGrow.exit10_crit_edge.i174 ], [ %603, %602 ], [ %591, %Vec_IntGrow.exit.i179 ]
+  %605 = load i32, ptr %578, align 4
+  %606 = add nsw i32 %605, 1
+  store i32 %606, ptr %578, align 4
+  br label %673
 
-.Vec_IntGrow.exit10_crit_edge.i183:               ; preds = %594
-  %.phi.trans.insert.i184 = getelementptr inbounds i8, ptr %524, i64 8
-  %.pre.i185 = load ptr, ptr %.phi.trans.insert.i184, align 8
-  br label %Vec_IntPush.exit189
+607:                                              ; preds = %.critedge4
+  %608 = sext i32 %531 to i64
+  %609 = getelementptr inbounds i32, ptr %536, i64 %608
+  %610 = load i32, ptr %609, align 4
+  br i1 %540, label %611, label %.Vec_IntGrow.exit10_crit_edge.i181
 
-598:                                              ; preds = %594
-  %599 = icmp slt i32 %528, 16
-  br i1 %599, label %600, label %608
+.Vec_IntGrow.exit10_crit_edge.i181:               ; preds = %607
+  %.phi.trans.insert.i182 = getelementptr inbounds i8, ptr %534, i64 8
+  %.pre.i183 = load ptr, ptr %.phi.trans.insert.i182, align 8
+  br label %Vec_IntPush.exit187
 
-600:                                              ; preds = %598
-  %601 = getelementptr inbounds i8, ptr %524, i64 8
-  %602 = load ptr, ptr %601, align 8
-  %.not9.i.i187 = icmp eq ptr %602, null
-  br i1 %.not9.i.i187, label %605, label %603
+611:                                              ; preds = %607
+  %612 = icmp slt i32 %538, 16
+  br i1 %612, label %613, label %621
 
-603:                                              ; preds = %600
-  %604 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %602, i64 noundef 64) #21
-  br label %Vec_IntGrow.exit.i188
+613:                                              ; preds = %611
+  %614 = getelementptr inbounds i8, ptr %534, i64 8
+  %615 = load ptr, ptr %614, align 8
+  %.not9.i.i185 = icmp eq ptr %615, null
+  br i1 %.not9.i.i185, label %618, label %616
 
-605:                                              ; preds = %600
-  %606 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #20
-  br label %Vec_IntGrow.exit.i188
+616:                                              ; preds = %613
+  %617 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %615, i64 noundef 64) #21
+  br label %Vec_IntGrow.exit.i186
 
-Vec_IntGrow.exit.i188:                            ; preds = %605, %603
-  %607 = phi ptr [ %604, %603 ], [ %606, %605 ]
-  store ptr %607, ptr %601, align 8
-  store i32 16, ptr %524, align 8
-  br label %Vec_IntPush.exit189
+618:                                              ; preds = %613
+  %619 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #20
+  br label %Vec_IntGrow.exit.i186
 
-608:                                              ; preds = %598
-  %609 = shl nuw nsw i32 %528, 1
-  %610 = getelementptr inbounds i8, ptr %524, i64 8
-  %611 = load ptr, ptr %610, align 8
-  %.not9.i9.i186 = icmp eq ptr %611, null
-  %612 = zext nneg i32 %609 to i64
-  %613 = shl nuw nsw i64 %612, 2
-  br i1 %.not9.i9.i186, label %616, label %614
+Vec_IntGrow.exit.i186:                            ; preds = %618, %616
+  %620 = phi ptr [ %617, %616 ], [ %619, %618 ]
+  store ptr %620, ptr %614, align 8
+  store i32 16, ptr %534, align 8
+  br label %Vec_IntPush.exit187
 
-614:                                              ; preds = %608
-  %615 = tail call ptr @realloc(ptr noundef nonnull %611, i64 noundef %613) #21
-  br label %618
+621:                                              ; preds = %611
+  %622 = shl nuw nsw i32 %538, 1
+  %623 = getelementptr inbounds i8, ptr %534, i64 8
+  %624 = load ptr, ptr %623, align 8
+  %.not9.i9.i184 = icmp eq ptr %624, null
+  %625 = zext nneg i32 %622 to i64
+  %626 = shl nuw nsw i64 %625, 2
+  br i1 %.not9.i9.i184, label %629, label %627
 
-616:                                              ; preds = %608
-  %617 = tail call noalias ptr @malloc(i64 noundef %613) #20
-  br label %618
+627:                                              ; preds = %621
+  %628 = tail call ptr @realloc(ptr noundef nonnull %624, i64 noundef %626) #21
+  br label %631
 
-618:                                              ; preds = %616, %614
-  %619 = phi ptr [ %615, %614 ], [ %617, %616 ]
-  store ptr %619, ptr %610, align 8
-  store i32 %609, ptr %524, align 8
-  br label %Vec_IntPush.exit189
+629:                                              ; preds = %621
+  %630 = tail call noalias ptr @malloc(i64 noundef %626) #20
+  br label %631
 
-Vec_IntPush.exit189:                              ; preds = %.Vec_IntGrow.exit10_crit_edge.i183, %Vec_IntGrow.exit.i188, %618
-  %620 = phi ptr [ %.pre.i185, %.Vec_IntGrow.exit10_crit_edge.i183 ], [ %619, %618 ], [ %607, %Vec_IntGrow.exit.i188 ]
-  %621 = load i32, ptr %527, align 4
-  %622 = add nsw i32 %621, 1
-  store i32 %622, ptr %527, align 4
-  %623 = sext i32 %621 to i64
-  %624 = getelementptr inbounds i32, ptr %620, i64 %623
-  store i32 %597, ptr %624, align 4
-  %625 = load ptr, ptr %523, align 8
-  %626 = load ptr, ptr %525, align 8
-  %627 = load i32, ptr %1, align 4
-  %628 = sext i32 %627 to i64
-  %629 = getelementptr inbounds i32, ptr %626, i64 %628
-  %630 = load i32, ptr %629, align 4
-  %631 = getelementptr inbounds i8, ptr %625, i64 4
-  %632 = load i32, ptr %631, align 4
-  %633 = load i32, ptr %625, align 8
-  %634 = icmp eq i32 %632, %633
-  br i1 %634, label %635, label %.Vec_IntGrow.exit10_crit_edge.i190
+631:                                              ; preds = %629, %627
+  %632 = phi ptr [ %628, %627 ], [ %630, %629 ]
+  store ptr %632, ptr %623, align 8
+  store i32 %622, ptr %534, align 8
+  br label %Vec_IntPush.exit187
 
-.Vec_IntGrow.exit10_crit_edge.i190:               ; preds = %Vec_IntPush.exit189
-  %.phi.trans.insert.i191 = getelementptr inbounds i8, ptr %625, i64 8
-  %.pre.i192 = load ptr, ptr %.phi.trans.insert.i191, align 8
-  br label %Vec_IntPush.exit182
+Vec_IntPush.exit187:                              ; preds = %.Vec_IntGrow.exit10_crit_edge.i181, %Vec_IntGrow.exit.i186, %631
+  %633 = phi ptr [ %.pre.i183, %.Vec_IntGrow.exit10_crit_edge.i181 ], [ %632, %631 ], [ %620, %Vec_IntGrow.exit.i186 ]
+  %634 = load i32, ptr %537, align 4
+  %635 = add nsw i32 %634, 1
+  store i32 %635, ptr %537, align 4
+  %636 = sext i32 %634 to i64
+  %637 = getelementptr inbounds i32, ptr %633, i64 %636
+  store i32 %610, ptr %637, align 4
+  %638 = load ptr, ptr %533, align 8
+  %639 = load ptr, ptr %535, align 8
+  %640 = load i32, ptr %1, align 4
+  %641 = sext i32 %640 to i64
+  %642 = getelementptr inbounds i32, ptr %639, i64 %641
+  %643 = load i32, ptr %642, align 4
+  %644 = getelementptr inbounds i8, ptr %638, i64 4
+  %645 = load i32, ptr %644, align 4
+  %646 = load i32, ptr %638, align 8
+  %647 = icmp eq i32 %645, %646
+  br i1 %647, label %648, label %.Vec_IntGrow.exit10_crit_edge.i188
 
-635:                                              ; preds = %Vec_IntPush.exit189
-  %636 = icmp slt i32 %632, 16
-  br i1 %636, label %637, label %645
+.Vec_IntGrow.exit10_crit_edge.i188:               ; preds = %Vec_IntPush.exit187
+  %.phi.trans.insert.i189 = getelementptr inbounds i8, ptr %638, i64 8
+  %.pre.i190 = load ptr, ptr %.phi.trans.insert.i189, align 8
+  br label %Vec_IntPush.exit194
 
-637:                                              ; preds = %635
-  %638 = getelementptr inbounds i8, ptr %625, i64 8
-  %639 = load ptr, ptr %638, align 8
-  %.not9.i.i194 = icmp eq ptr %639, null
-  br i1 %.not9.i.i194, label %642, label %640
+648:                                              ; preds = %Vec_IntPush.exit187
+  %649 = icmp slt i32 %645, 16
+  br i1 %649, label %650, label %658
 
-640:                                              ; preds = %637
-  %641 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %639, i64 noundef 64) #21
-  br label %Vec_IntGrow.exit.i195
+650:                                              ; preds = %648
+  %651 = getelementptr inbounds i8, ptr %638, i64 8
+  %652 = load ptr, ptr %651, align 8
+  %.not9.i.i192 = icmp eq ptr %652, null
+  br i1 %.not9.i.i192, label %655, label %653
 
-642:                                              ; preds = %637
-  %643 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #20
-  br label %Vec_IntGrow.exit.i195
+653:                                              ; preds = %650
+  %654 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %652, i64 noundef 64) #21
+  br label %Vec_IntGrow.exit.i193
 
-Vec_IntGrow.exit.i195:                            ; preds = %642, %640
-  %644 = phi ptr [ %641, %640 ], [ %643, %642 ]
-  store ptr %644, ptr %638, align 8
-  store i32 16, ptr %625, align 8
-  br label %Vec_IntPush.exit182
+655:                                              ; preds = %650
+  %656 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #20
+  br label %Vec_IntGrow.exit.i193
 
-645:                                              ; preds = %635
-  %646 = shl nuw nsw i32 %632, 1
-  %647 = getelementptr inbounds i8, ptr %625, i64 8
-  %648 = load ptr, ptr %647, align 8
-  %.not9.i9.i193 = icmp eq ptr %648, null
-  %649 = zext nneg i32 %646 to i64
-  %650 = shl nuw nsw i64 %649, 2
-  br i1 %.not9.i9.i193, label %653, label %651
+Vec_IntGrow.exit.i193:                            ; preds = %655, %653
+  %657 = phi ptr [ %654, %653 ], [ %656, %655 ]
+  store ptr %657, ptr %651, align 8
+  store i32 16, ptr %638, align 8
+  br label %Vec_IntPush.exit194
 
-651:                                              ; preds = %645
-  %652 = tail call ptr @realloc(ptr noundef nonnull %648, i64 noundef %650) #21
-  br label %655
+658:                                              ; preds = %648
+  %659 = shl nuw nsw i32 %645, 1
+  %660 = getelementptr inbounds i8, ptr %638, i64 8
+  %661 = load ptr, ptr %660, align 8
+  %.not9.i9.i191 = icmp eq ptr %661, null
+  %662 = zext nneg i32 %659 to i64
+  %663 = shl nuw nsw i64 %662, 2
+  br i1 %.not9.i9.i191, label %666, label %664
 
-653:                                              ; preds = %645
-  %654 = tail call noalias ptr @malloc(i64 noundef %650) #20
-  br label %655
+664:                                              ; preds = %658
+  %665 = tail call ptr @realloc(ptr noundef nonnull %661, i64 noundef %663) #21
+  br label %668
 
-655:                                              ; preds = %653, %651
-  %656 = phi ptr [ %652, %651 ], [ %654, %653 ]
-  store ptr %656, ptr %647, align 8
-  store i32 %646, ptr %625, align 8
-  br label %Vec_IntPush.exit182
+666:                                              ; preds = %658
+  %667 = tail call noalias ptr @malloc(i64 noundef %663) #20
+  br label %668
 
-Vec_IntPush.exit182:                              ; preds = %655, %Vec_IntGrow.exit.i195, %.Vec_IntGrow.exit10_crit_edge.i190, %592, %Vec_IntGrow.exit.i181, %.Vec_IntGrow.exit10_crit_edge.i176
-  %.sink241 = phi ptr [ %568, %.Vec_IntGrow.exit10_crit_edge.i176 ], [ %568, %Vec_IntGrow.exit.i181 ], [ %568, %592 ], [ %631, %.Vec_IntGrow.exit10_crit_edge.i190 ], [ %631, %Vec_IntGrow.exit.i195 ], [ %631, %655 ]
-  %.sink235 = phi ptr [ %.pre.i178, %.Vec_IntGrow.exit10_crit_edge.i176 ], [ %581, %Vec_IntGrow.exit.i181 ], [ %593, %592 ], [ %.pre.i192, %.Vec_IntGrow.exit10_crit_edge.i190 ], [ %644, %Vec_IntGrow.exit.i195 ], [ %656, %655 ]
-  %.sink = phi i32 [ %567, %.Vec_IntGrow.exit10_crit_edge.i176 ], [ %567, %Vec_IntGrow.exit.i181 ], [ %567, %592 ], [ %630, %.Vec_IntGrow.exit10_crit_edge.i190 ], [ %630, %Vec_IntGrow.exit.i195 ], [ %630, %655 ]
-  %657 = load i32, ptr %.sink241, align 4
-  %658 = add nsw i32 %657, 1
-  store i32 %658, ptr %.sink241, align 4
-  %659 = sext i32 %657 to i64
-  %660 = getelementptr inbounds i32, ptr %.sink235, i64 %659
-  store i32 %.sink, ptr %660, align 4
+668:                                              ; preds = %666, %664
+  %669 = phi ptr [ %665, %664 ], [ %667, %666 ]
+  store ptr %669, ptr %660, align 8
+  store i32 %659, ptr %638, align 8
+  br label %Vec_IntPush.exit194
+
+Vec_IntPush.exit194:                              ; preds = %.Vec_IntGrow.exit10_crit_edge.i188, %Vec_IntGrow.exit.i193, %668
+  %670 = phi ptr [ %.pre.i190, %.Vec_IntGrow.exit10_crit_edge.i188 ], [ %669, %668 ], [ %657, %Vec_IntGrow.exit.i193 ]
+  %671 = load i32, ptr %644, align 4
+  %672 = add nsw i32 %671, 1
+  store i32 %672, ptr %644, align 4
+  br label %673
+
+673:                                              ; preds = %Vec_IntPush.exit194, %Vec_IntPush.exit180
+  %.sink235 = phi i32 [ %671, %Vec_IntPush.exit194 ], [ %605, %Vec_IntPush.exit180 ]
+  %.sink233 = phi ptr [ %670, %Vec_IntPush.exit194 ], [ %604, %Vec_IntPush.exit180 ]
+  %.sink = phi i32 [ %643, %Vec_IntPush.exit194 ], [ %577, %Vec_IntPush.exit180 ]
+  %674 = sext i32 %.sink235 to i64
+  %675 = getelementptr inbounds i32, ptr %.sink233, i64 %674
+  store i32 %.sink, ptr %675, align 4
   ret void
 }
 
@@ -2298,7 +2345,7 @@ define internal fastcc void @Nwk_ManGraphListExtract(ptr nocapture noundef %0, p
   %3 = getelementptr inbounds i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 1
-  br i1 %5, label %6, label %59
+  br i1 %5, label %6, label %63
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 40
@@ -2311,7 +2358,7 @@ define internal fastcc void @Nwk_ManGraphListExtract(ptr nocapture noundef %0, p
   %14 = getelementptr inbounds i8, ptr %13, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = icmp sgt i32 %15, 15
-  br i1 %16, label %17, label %37
+  br i1 %16, label %17, label %39
 
 17:                                               ; preds = %6
   %18 = getelementptr inbounds i8, ptr %0, i64 120
@@ -2348,146 +2395,174 @@ define internal fastcc void @Nwk_ManGraphListExtract(ptr nocapture noundef %0, p
   %34 = load i32, ptr %18, align 4
   %35 = load i32, ptr %1, align 4
   %36 = icmp eq i32 %34, %35
-  br i1 %36, label %Nwk_ManGraphListDelete.exit.sink.split, label %Nwk_ManGraphListDelete.exit
+  br i1 %36, label %37, label %Nwk_ManGraphListDelete.exit
 
-37:                                               ; preds = %6
-  %38 = getelementptr inbounds i8, ptr %0, i64 56
-  %39 = sext i32 %15 to i64
-  %40 = getelementptr inbounds i32, ptr %38, i64 %39
-  %41 = getelementptr inbounds i8, ptr %1, i64 4
-  %42 = load i32, ptr %41, align 4
-  %.not.i20 = icmp eq i32 %42, 0
-  %.phi.trans.insert.i21 = getelementptr inbounds i8, ptr %1, i64 8
-  %.pre.i22 = load i32, ptr %.phi.trans.insert.i21, align 4
-  br i1 %.not.i20, label %._crit_edge.i23, label %43
-
-43:                                               ; preds = %37
-  %44 = sext i32 %42 to i64
-  %45 = getelementptr inbounds ptr, ptr %8, i64 %44
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 8
-  store i32 %.pre.i22, ptr %47, align 4
-  br label %._crit_edge.i23
-
-._crit_edge.i23:                                  ; preds = %43, %37
-  %.not15.i24 = icmp eq i32 %.pre.i22, 0
-  br i1 %.not15.i24, label %55, label %48
-
-48:                                               ; preds = %._crit_edge.i23
-  %49 = load i32, ptr %41, align 4
-  %50 = load ptr, ptr %7, align 8
-  %51 = sext i32 %.pre.i22 to i64
-  %52 = getelementptr inbounds ptr, ptr %50, i64 %51
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 4
-  store i32 %49, ptr %54, align 4
-  br label %55
-
-55:                                               ; preds = %48, %._crit_edge.i23
-  %56 = load i32, ptr %40, align 4
-  %57 = load i32, ptr %1, align 4
-  %58 = icmp eq i32 %56, %57
-  br i1 %58, label %Nwk_ManGraphListDelete.exit.sink.split, label %Nwk_ManGraphListDelete.exit
-
-59:                                               ; preds = %2
-  %60 = icmp sgt i32 %4, 15
-  br i1 %60, label %61, label %84
-
-61:                                               ; preds = %59
-  %62 = getelementptr inbounds i8, ptr %0, i64 188
-  %63 = getelementptr inbounds i8, ptr %1, i64 4
-  %64 = load i32, ptr %63, align 4
-  %.not.i26 = icmp eq i32 %64, 0
-  %.phi.trans.insert.i27 = getelementptr inbounds i8, ptr %1, i64 8
-  %.pre.i28 = load i32, ptr %.phi.trans.insert.i27, align 4
-  br i1 %.not.i26, label %._crit_edge.i29, label %65
-
-65:                                               ; preds = %61
-  %66 = getelementptr inbounds i8, ptr %0, i64 40
-  %67 = load ptr, ptr %66, align 8
-  %68 = sext i32 %64 to i64
-  %69 = getelementptr inbounds ptr, ptr %67, i64 %68
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 8
-  store i32 %.pre.i28, ptr %71, align 4
-  br label %._crit_edge.i29
-
-._crit_edge.i29:                                  ; preds = %65, %61
-  %.not15.i30 = icmp eq i32 %.pre.i28, 0
-  br i1 %.not15.i30, label %80, label %72
-
-72:                                               ; preds = %._crit_edge.i29
-  %73 = load i32, ptr %63, align 4
-  %74 = getelementptr inbounds i8, ptr %0, i64 40
-  %75 = load ptr, ptr %74, align 8
-  %76 = sext i32 %.pre.i28 to i64
-  %77 = getelementptr inbounds ptr, ptr %75, i64 %76
-  %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 4
-  store i32 %73, ptr %79, align 4
-  br label %80
-
-80:                                               ; preds = %72, %._crit_edge.i29
-  %81 = load i32, ptr %62, align 4
-  %82 = load i32, ptr %1, align 4
-  %83 = icmp eq i32 %81, %82
-  br i1 %83, label %Nwk_ManGraphListDelete.exit.sink.split, label %Nwk_ManGraphListDelete.exit
-
-84:                                               ; preds = %59
-  %85 = getelementptr inbounds i8, ptr %0, i64 124
-  %86 = sext i32 %4 to i64
-  %87 = getelementptr inbounds i32, ptr %85, i64 %86
-  %88 = getelementptr inbounds i8, ptr %1, i64 4
-  %89 = load i32, ptr %88, align 4
-  %.not.i32 = icmp eq i32 %89, 0
-  %.phi.trans.insert.i33 = getelementptr inbounds i8, ptr %1, i64 8
-  %.pre.i34 = load i32, ptr %.phi.trans.insert.i33, align 4
-  br i1 %.not.i32, label %._crit_edge.i35, label %90
-
-90:                                               ; preds = %84
-  %91 = getelementptr inbounds i8, ptr %0, i64 40
-  %92 = load ptr, ptr %91, align 8
-  %93 = sext i32 %89 to i64
-  %94 = getelementptr inbounds ptr, ptr %92, i64 %93
-  %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 8
-  store i32 %.pre.i34, ptr %96, align 4
-  br label %._crit_edge.i35
-
-._crit_edge.i35:                                  ; preds = %90, %84
-  %.not15.i36 = icmp eq i32 %.pre.i34, 0
-  br i1 %.not15.i36, label %105, label %97
-
-97:                                               ; preds = %._crit_edge.i35
-  %98 = load i32, ptr %88, align 4
-  %99 = getelementptr inbounds i8, ptr %0, i64 40
-  %100 = load ptr, ptr %99, align 8
-  %101 = sext i32 %.pre.i34 to i64
-  %102 = getelementptr inbounds ptr, ptr %100, i64 %101
-  %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 4
-  store i32 %98, ptr %104, align 4
-  br label %105
-
-105:                                              ; preds = %97, %._crit_edge.i35
-  %106 = load i32, ptr %87, align 4
-  %107 = load i32, ptr %1, align 4
-  %108 = icmp eq i32 %106, %107
-  br i1 %108, label %Nwk_ManGraphListDelete.exit.sink.split, label %Nwk_ManGraphListDelete.exit
-
-Nwk_ManGraphListDelete.exit.sink.split:           ; preds = %105, %80, %55, %33
-  %.phi.trans.insert.i33.sink = phi ptr [ %.phi.trans.insert.i, %33 ], [ %.phi.trans.insert.i21, %55 ], [ %.phi.trans.insert.i27, %80 ], [ %.phi.trans.insert.i33, %105 ]
-  %.sink39 = phi ptr [ %18, %33 ], [ %40, %55 ], [ %62, %80 ], [ %87, %105 ]
-  %.sink.ph = phi ptr [ %19, %33 ], [ %41, %55 ], [ %63, %80 ], [ %88, %105 ]
-  %109 = load i32, ptr %.phi.trans.insert.i33.sink, align 4
-  store i32 %109, ptr %.sink39, align 4
+37:                                               ; preds = %33
+  %38 = load i32, ptr %.phi.trans.insert.i, align 4
+  store i32 %38, ptr %18, align 4
   br label %Nwk_ManGraphListDelete.exit
 
-Nwk_ManGraphListDelete.exit:                      ; preds = %Nwk_ManGraphListDelete.exit.sink.split, %105, %80, %55, %33
-  %.phi.trans.insert.i27.sink = phi ptr [ %.phi.trans.insert.i, %33 ], [ %.phi.trans.insert.i21, %55 ], [ %.phi.trans.insert.i27, %80 ], [ %.phi.trans.insert.i33, %105 ], [ %.phi.trans.insert.i33.sink, %Nwk_ManGraphListDelete.exit.sink.split ]
-  %.sink = phi ptr [ %19, %33 ], [ %41, %55 ], [ %63, %80 ], [ %88, %105 ], [ %.sink.ph, %Nwk_ManGraphListDelete.exit.sink.split ]
-  store i32 0, ptr %.phi.trans.insert.i27.sink, align 4
-  store i32 0, ptr %.sink, align 4
+Nwk_ManGraphListDelete.exit:                      ; preds = %33, %37
+  store i32 0, ptr %.phi.trans.insert.i, align 4
+  store i32 0, ptr %19, align 4
+  br label %117
+
+39:                                               ; preds = %6
+  %40 = getelementptr inbounds i8, ptr %0, i64 56
+  %41 = sext i32 %15 to i64
+  %42 = getelementptr inbounds i32, ptr %40, i64 %41
+  %43 = getelementptr inbounds i8, ptr %1, i64 4
+  %44 = load i32, ptr %43, align 4
+  %.not.i20 = icmp eq i32 %44, 0
+  %.phi.trans.insert.i21 = getelementptr inbounds i8, ptr %1, i64 8
+  %.pre.i22 = load i32, ptr %.phi.trans.insert.i21, align 4
+  br i1 %.not.i20, label %._crit_edge.i23, label %45
+
+45:                                               ; preds = %39
+  %46 = sext i32 %44 to i64
+  %47 = getelementptr inbounds ptr, ptr %8, i64 %46
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %48, i64 8
+  store i32 %.pre.i22, ptr %49, align 4
+  br label %._crit_edge.i23
+
+._crit_edge.i23:                                  ; preds = %45, %39
+  %.not15.i24 = icmp eq i32 %.pre.i22, 0
+  br i1 %.not15.i24, label %57, label %50
+
+50:                                               ; preds = %._crit_edge.i23
+  %51 = load i32, ptr %43, align 4
+  %52 = load ptr, ptr %7, align 8
+  %53 = sext i32 %.pre.i22 to i64
+  %54 = getelementptr inbounds ptr, ptr %52, i64 %53
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds i8, ptr %55, i64 4
+  store i32 %51, ptr %56, align 4
+  br label %57
+
+57:                                               ; preds = %50, %._crit_edge.i23
+  %58 = load i32, ptr %42, align 4
+  %59 = load i32, ptr %1, align 4
+  %60 = icmp eq i32 %58, %59
+  br i1 %60, label %61, label %Nwk_ManGraphListDelete.exit25
+
+61:                                               ; preds = %57
+  %62 = load i32, ptr %.phi.trans.insert.i21, align 4
+  store i32 %62, ptr %42, align 4
+  br label %Nwk_ManGraphListDelete.exit25
+
+Nwk_ManGraphListDelete.exit25:                    ; preds = %57, %61
+  store i32 0, ptr %.phi.trans.insert.i21, align 4
+  store i32 0, ptr %43, align 4
+  br label %117
+
+63:                                               ; preds = %2
+  %64 = icmp sgt i32 %4, 15
+  br i1 %64, label %65, label %90
+
+65:                                               ; preds = %63
+  %66 = getelementptr inbounds i8, ptr %0, i64 188
+  %67 = getelementptr inbounds i8, ptr %1, i64 4
+  %68 = load i32, ptr %67, align 4
+  %.not.i26 = icmp eq i32 %68, 0
+  %.phi.trans.insert.i27 = getelementptr inbounds i8, ptr %1, i64 8
+  %.pre.i28 = load i32, ptr %.phi.trans.insert.i27, align 4
+  br i1 %.not.i26, label %._crit_edge.i29, label %69
+
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds i8, ptr %0, i64 40
+  %71 = load ptr, ptr %70, align 8
+  %72 = sext i32 %68 to i64
+  %73 = getelementptr inbounds ptr, ptr %71, i64 %72
+  %74 = load ptr, ptr %73, align 8
+  %75 = getelementptr inbounds i8, ptr %74, i64 8
+  store i32 %.pre.i28, ptr %75, align 4
+  br label %._crit_edge.i29
+
+._crit_edge.i29:                                  ; preds = %69, %65
+  %.not15.i30 = icmp eq i32 %.pre.i28, 0
+  br i1 %.not15.i30, label %84, label %76
+
+76:                                               ; preds = %._crit_edge.i29
+  %77 = load i32, ptr %67, align 4
+  %78 = getelementptr inbounds i8, ptr %0, i64 40
+  %79 = load ptr, ptr %78, align 8
+  %80 = sext i32 %.pre.i28 to i64
+  %81 = getelementptr inbounds ptr, ptr %79, i64 %80
+  %82 = load ptr, ptr %81, align 8
+  %83 = getelementptr inbounds i8, ptr %82, i64 4
+  store i32 %77, ptr %83, align 4
+  br label %84
+
+84:                                               ; preds = %76, %._crit_edge.i29
+  %85 = load i32, ptr %66, align 4
+  %86 = load i32, ptr %1, align 4
+  %87 = icmp eq i32 %85, %86
+  br i1 %87, label %88, label %Nwk_ManGraphListDelete.exit31
+
+88:                                               ; preds = %84
+  %89 = load i32, ptr %.phi.trans.insert.i27, align 4
+  store i32 %89, ptr %66, align 4
+  br label %Nwk_ManGraphListDelete.exit31
+
+Nwk_ManGraphListDelete.exit31:                    ; preds = %84, %88
+  store i32 0, ptr %.phi.trans.insert.i27, align 4
+  store i32 0, ptr %67, align 4
+  br label %117
+
+90:                                               ; preds = %63
+  %91 = getelementptr inbounds i8, ptr %0, i64 124
+  %92 = sext i32 %4 to i64
+  %93 = getelementptr inbounds i32, ptr %91, i64 %92
+  %94 = getelementptr inbounds i8, ptr %1, i64 4
+  %95 = load i32, ptr %94, align 4
+  %.not.i32 = icmp eq i32 %95, 0
+  %.phi.trans.insert.i33 = getelementptr inbounds i8, ptr %1, i64 8
+  %.pre.i34 = load i32, ptr %.phi.trans.insert.i33, align 4
+  br i1 %.not.i32, label %._crit_edge.i35, label %96
+
+96:                                               ; preds = %90
+  %97 = getelementptr inbounds i8, ptr %0, i64 40
+  %98 = load ptr, ptr %97, align 8
+  %99 = sext i32 %95 to i64
+  %100 = getelementptr inbounds ptr, ptr %98, i64 %99
+  %101 = load ptr, ptr %100, align 8
+  %102 = getelementptr inbounds i8, ptr %101, i64 8
+  store i32 %.pre.i34, ptr %102, align 4
+  br label %._crit_edge.i35
+
+._crit_edge.i35:                                  ; preds = %96, %90
+  %.not15.i36 = icmp eq i32 %.pre.i34, 0
+  br i1 %.not15.i36, label %111, label %103
+
+103:                                              ; preds = %._crit_edge.i35
+  %104 = load i32, ptr %94, align 4
+  %105 = getelementptr inbounds i8, ptr %0, i64 40
+  %106 = load ptr, ptr %105, align 8
+  %107 = sext i32 %.pre.i34 to i64
+  %108 = getelementptr inbounds ptr, ptr %106, i64 %107
+  %109 = load ptr, ptr %108, align 8
+  %110 = getelementptr inbounds i8, ptr %109, i64 4
+  store i32 %104, ptr %110, align 4
+  br label %111
+
+111:                                              ; preds = %103, %._crit_edge.i35
+  %112 = load i32, ptr %93, align 4
+  %113 = load i32, ptr %1, align 4
+  %114 = icmp eq i32 %112, %113
+  br i1 %114, label %115, label %Nwk_ManGraphListDelete.exit37
+
+115:                                              ; preds = %111
+  %116 = load i32, ptr %.phi.trans.insert.i33, align 4
+  store i32 %116, ptr %93, align 4
+  br label %Nwk_ManGraphListDelete.exit37
+
+Nwk_ManGraphListDelete.exit37:                    ; preds = %111, %115
+  store i32 0, ptr %.phi.trans.insert.i33, align 4
+  store i32 0, ptr %94, align 4
+  br label %117
+
+117:                                              ; preds = %Nwk_ManGraphListDelete.exit31, %Nwk_ManGraphListDelete.exit37, %Nwk_ManGraphListDelete.exit, %Nwk_ManGraphListDelete.exit25
   ret void
 }
 
@@ -2660,7 +2735,7 @@ define ptr @Nwk_ManGraphListFindMin(ptr nocapture noundef readonly %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Nwk_ManGraphSolve(ptr noundef %0) local_unnamed_addr #0 {
+define void @Nwk_ManGraphSolve(ptr nocapture noundef %0) local_unnamed_addr #0 {
   tail call void @Nwk_ManGraphPrepare(ptr noundef %0)
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = getelementptr inbounds i8, ptr %0, i64 40
@@ -3023,38 +3098,34 @@ Abc_Clock.exit16:                                 ; preds = %Abc_Clock.exit14, %
   %50 = sitofp i64 %49 to double
   %51 = fdiv double %50, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.8, double noundef %51)
-  %52 = load ptr, ptr %35, align 8
-  %53 = getelementptr i8, ptr %52, i64 4
-  %.val = load i32, ptr %53, align 4
-  %54 = sdiv i32 %.val, 2
-  %55 = getelementptr inbounds i8, ptr %12, i64 8
-  %56 = load i32, ptr %55, align 8
-  %57 = shl i32 %56, 3
-  %58 = add i32 %57, 224
-  %59 = load i32, ptr %12, align 8
-  %60 = getelementptr inbounds i8, ptr %12, i64 4
-  %61 = load i32, ptr %60, align 4
-  %62 = add nsw i32 %61, %59
-  %63 = shl i32 %62, 2
-  %64 = add i32 %58, %63
-  %65 = load i32, ptr %33, align 8
-  %66 = shl i32 %65, 4
-  %67 = add i32 %64, %66
-  %68 = getelementptr inbounds i8, ptr %12, i64 216
-  store i32 %67, ptr %68, align 8
-  %69 = load i32, ptr %31, align 4
-  %70 = shl i32 %69, 4
-  %71 = shl i32 %65, 3
-  %72 = add i32 %70, %71
-  %73 = getelementptr inbounds i8, ptr %12, i64 220
-  store i32 %72, ptr %73, align 4
-  %74 = sitofp i32 %67 to double
-  %75 = fmul double %74, 0x3EB0000000000000
-  %76 = sitofp i32 %72 to double
-  %77 = fmul double %76, 0x3EB0000000000000
-  %78 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, double noundef %75, double noundef %77)
+  %.val = load i32, ptr %37, align 4
+  %52 = sdiv i32 %.val, 2
+  %53 = getelementptr inbounds i8, ptr %12, i64 8
+  %54 = load i32, ptr %53, align 8
+  %55 = shl i32 %54, 3
+  %56 = load i32, ptr %12, align 8
+  %57 = getelementptr inbounds i8, ptr %12, i64 4
+  %58 = load i32, ptr %57, align 4
+  %59 = add nsw i32 %58, %56
+  %60 = shl i32 %59, 2
+  %61 = shl i32 %34, 4
+  %62 = add i32 %61, 224
+  %63 = add i32 %62, %55
+  %64 = add i32 %63, %60
+  %65 = getelementptr inbounds i8, ptr %12, i64 216
+  store i32 %64, ptr %65, align 8
+  %66 = shl i32 %32, 4
+  %67 = shl i32 %34, 3
+  %68 = add i32 %67, %66
+  %69 = getelementptr inbounds i8, ptr %12, i64 220
+  store i32 %68, ptr %69, align 4
+  %70 = sitofp i32 %64 to double
+  %71 = fmul double %70, 0x3EB0000000000000
+  %72 = sitofp i32 %68 to double
+  %73 = fmul double %72, 0x3EB0000000000000
+  %74 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, double noundef %71, double noundef %73)
   call void @Nwk_ManGraphFree(ptr noundef nonnull %12)
-  ret i32 %54
+  ret i32 %52
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4145,7 +4216,7 @@ Abc_Clock.exit:                                   ; preds = %2, %9
   br label %58
 
 58:                                               ; preds = %.lr.ph159, %155
-  %.val100.pre175 = phi i32 [ 0, %.lr.ph159 ], [ %.val100.pre176, %155 ]
+  %.val100.pre176 = phi i32 [ 0, %.lr.ph159 ], [ %.val100.pre177, %155 ]
   %indvars.iv172 = phi i64 [ 0, %.lr.ph159 ], [ %indvars.iv.next173, %155 ]
   %59 = phi ptr [ %49, %.lr.ph159 ], [ %156, %155 ]
   %.0158 = phi i32 [ 0, %.lr.ph159 ], [ %.1, %155 ]
@@ -4182,7 +4253,7 @@ Abc_Clock.exit:                                   ; preds = %2, %9
   br label %74
 
 74:                                               ; preds = %73, %71
-  %.val100.pre = phi i32 [ %.val100.pre.pre, %73 ], [ %.val100.pre175, %71 ]
+  %.val100.pre = phi i32 [ %.val100.pre.pre, %73 ], [ %.val100.pre176, %71 ]
   %.val103 = load i32, ptr %42, align 4
   %75 = icmp eq i32 %.val103, 0
   br i1 %75, label %76, label %78
@@ -4371,7 +4442,7 @@ Nwk_ManGraphHashEdge.exit129:                     ; preds = %138, %118, %._crit_
   br label %155
 
 155:                                              ; preds = %64, %58, %152, %.critedge6, %76, %67
-  %.val100.pre176 = phi i32 [ %.val100.pre175, %58 ], [ %.val100.pre175, %67 ], [ 0, %76 ], [ %.val100.pre, %152 ], [ %.val100.pre, %.critedge6 ], [ %.val100.pre175, %64 ]
+  %.val100.pre177 = phi i32 [ %.val100.pre176, %58 ], [ %.val100.pre176, %67 ], [ 0, %76 ], [ %.val100.pre, %152 ], [ %.val100.pre, %.critedge6 ], [ %.val100.pre176, %64 ]
   %.1 = phi i32 [ %.0158, %58 ], [ %.0158, %67 ], [ %.0158, %76 ], [ %82, %152 ], [ %82, %.critedge6 ], [ %.0158, %64 ]
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
   %156 = load ptr, ptr %13, align 8
@@ -4481,7 +4552,12 @@ Abc_Clock.exit140:                                ; preds = %186, %189
   call void @Nwk_ManGraphSolve(ptr noundef %32)
   %193 = load i32, ptr %168, align 4
   %.not89 = icmp eq i32 %193, 0
-  br i1 %.not89, label %240, label %194
+  br i1 %.not89, label %Abc_Clock.exit140._crit_edge, label %194
+
+Abc_Clock.exit140._crit_edge:                     ; preds = %Abc_Clock.exit140
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %32, i64 192
+  %.pre175 = load ptr, ptr %.phi.trans.insert, align 8
+  br label %238
 
 194:                                              ; preds = %Abc_Clock.exit140
   %195 = getelementptr inbounds i8, ptr %32, i64 36
@@ -4519,37 +4595,35 @@ Abc_Clock.exit142:                                ; preds = %194, %206
   %216 = getelementptr inbounds i8, ptr %32, i64 8
   %217 = load i32, ptr %216, align 8
   %218 = shl i32 %217, 3
-  %219 = add i32 %218, 224
-  %220 = load i32, ptr %32, align 8
-  %221 = getelementptr inbounds i8, ptr %32, i64 4
-  %222 = load i32, ptr %221, align 4
-  %223 = add nsw i32 %222, %220
-  %224 = shl i32 %223, 2
-  %225 = add i32 %219, %224
-  %226 = load i32, ptr %197, align 8
-  %227 = shl i32 %226, 4
-  %228 = add i32 %225, %227
-  %229 = getelementptr inbounds i8, ptr %32, i64 216
-  store i32 %228, ptr %229, align 8
-  %230 = load i32, ptr %195, align 4
-  %231 = shl i32 %230, 4
-  %232 = shl i32 %226, 3
-  %233 = add i32 %231, %232
-  %234 = getelementptr inbounds i8, ptr %32, i64 220
-  store i32 %233, ptr %234, align 4
-  %235 = sitofp i32 %228 to double
+  %219 = load i32, ptr %32, align 8
+  %220 = getelementptr inbounds i8, ptr %32, i64 4
+  %221 = load i32, ptr %220, align 4
+  %222 = add nsw i32 %221, %219
+  %223 = shl i32 %222, 2
+  %224 = shl i32 %198, 4
+  %225 = add i32 %224, 224
+  %226 = add i32 %225, %218
+  %227 = add i32 %226, %223
+  %228 = getelementptr inbounds i8, ptr %32, i64 216
+  store i32 %227, ptr %228, align 8
+  %229 = shl i32 %196, 4
+  %230 = shl i32 %198, 3
+  %231 = add i32 %230, %229
+  %232 = getelementptr inbounds i8, ptr %32, i64 220
+  store i32 %231, ptr %232, align 4
+  %233 = sitofp i32 %227 to double
+  %234 = fmul double %233, 0x3EB0000000000000
+  %235 = sitofp i32 %231 to double
   %236 = fmul double %235, 0x3EB0000000000000
-  %237 = sitofp i32 %233 to double
-  %238 = fmul double %237, 0x3EB0000000000000
-  %239 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, double noundef %236, double noundef %238)
-  br label %240
+  %237 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, double noundef %234, double noundef %236)
+  br label %238
 
-240:                                              ; preds = %Abc_Clock.exit142, %Abc_Clock.exit140
-  %241 = getelementptr inbounds i8, ptr %32, i64 192
-  %242 = load ptr, ptr %241, align 8
-  store ptr null, ptr %241, align 8
-  call void @Nwk_ManGraphFree(ptr noundef %32)
-  ret ptr %242
+238:                                              ; preds = %Abc_Clock.exit140._crit_edge, %Abc_Clock.exit142
+  %239 = phi ptr [ %.pre175, %Abc_Clock.exit140._crit_edge ], [ %200, %Abc_Clock.exit142 ]
+  %240 = getelementptr inbounds i8, ptr %32, i64 192
+  store ptr null, ptr %240, align 8
+  call void @Nwk_ManGraphFree(ptr noundef nonnull %32)
+  ret ptr %239
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)

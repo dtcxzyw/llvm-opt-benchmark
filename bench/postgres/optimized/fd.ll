@@ -2369,6 +2369,7 @@ LruInsert.exit.thread:                            ; preds = %ReleaseLruFiles.exi
   %38 = load i32, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %35, i64 24
   store i32 %38, ptr %39, align 8
+  store i32 %0, ptr %37, align 8
   br label %LruInsert.exit.sink.split
 
 40:                                               ; preds = %1
@@ -2391,17 +2392,16 @@ LruInsert.exit.thread:                            ; preds = %ReleaseLruFiles.exi
   store i32 0, ptr %44, align 4
   %52 = load i32, ptr %41, align 8
   store i32 %52, ptr %46, align 8
+  store i32 %0, ptr %41, align 8
   br label %LruInsert.exit.sink.split
 
 LruInsert.exit.sink.split:                        ; preds = %LruInsert.exit.thread, %43
-  %.sink = phi ptr [ %41, %43 ], [ %37, %LruInsert.exit.thread ]
-  %.sink15 = phi ptr [ %46, %43 ], [ %39, %LruInsert.exit.thread ]
+  %.sink.in = phi ptr [ %46, %43 ], [ %39, %LruInsert.exit.thread ]
   %.sink13 = phi ptr [ %2, %43 ], [ %.pre.i, %LruInsert.exit.thread ]
-  store i32 %0, ptr %.sink, align 8
-  %53 = load i32, ptr %.sink15, align 8
-  %54 = sext i32 %53 to i64
-  %55 = getelementptr %struct.vfd, ptr %.sink13, i64 %54, i32 4
-  store i32 %0, ptr %55, align 4
+  %.sink = load i32, ptr %.sink.in, align 8
+  %53 = sext i32 %.sink to i64
+  %54 = getelementptr %struct.vfd, ptr %.sink13, i64 %53, i32 4
+  store i32 %0, ptr %54, align 4
   br label %LruInsert.exit
 
 LruInsert.exit:                                   ; preds = %LruInsert.exit.sink.split, %40, %ReleaseLruFiles.exit.i

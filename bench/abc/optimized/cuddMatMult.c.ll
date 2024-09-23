@@ -685,7 +685,7 @@ define internal fastcc ptr @addTriangleRecur(ptr noundef %0, ptr noundef %1, ptr
   %8 = icmp eq ptr %1, %7
   %9 = icmp eq ptr %2, %7
   %or.cond = or i1 %8, %9
-  br i1 %or.cond, label %122, label %10
+  br i1 %or.cond, label %124, label %10
 
 10:                                               ; preds = %5
   %11 = load i32, ptr %1, align 8
@@ -704,7 +704,7 @@ define internal fastcc ptr @addTriangleRecur(ptr noundef %0, ptr noundef %1, ptr
   %20 = load double, ptr %19, align 8
   %21 = fadd double %18, %20
   %22 = tail call ptr @cuddUniqueConst(ptr noundef nonnull %0, double noundef %21) #7
-  br label %122
+  br label %124
 
 23:                                               ; preds = %13, %10
   %24 = icmp ult ptr %1, %2
@@ -724,7 +724,7 @@ define internal fastcc ptr @addTriangleRecur(ptr noundef %0, ptr noundef %1, ptr
 30:                                               ; preds = %27, %23
   %31 = tail call ptr @cuddCacheLookup(ptr noundef nonnull %0, i64 noundef 134, ptr noundef nonnull %spec.select127, ptr noundef %spec.select, ptr noundef nonnull %4) #7
   %.not122 = icmp eq ptr %31, null
-  br i1 %.not122, label %32, label %122
+  br i1 %.not122, label %32, label %124
 
 32:                                               ; preds = %30, %27
   %33 = load i32, ptr %spec.select127, align 8
@@ -784,7 +784,7 @@ define internal fastcc ptr @addTriangleRecur(ptr noundef %0, ptr noundef %1, ptr
   %.0107 = phi ptr [ %62, %60 ], [ %spec.select, %59 ]
   %66 = tail call fastcc ptr @addTriangleRecur(ptr noundef nonnull %0, ptr noundef %.0105, ptr noundef %.0107, ptr noundef %3, ptr noundef %4)
   %67 = icmp eq ptr %66, null
-  br i1 %67, label %122, label %68
+  br i1 %67, label %124, label %68
 
 68:                                               ; preds = %65
   %69 = ptrtoint ptr %66 to i64
@@ -800,7 +800,7 @@ define internal fastcc ptr @addTriangleRecur(ptr noundef %0, ptr noundef %1, ptr
 
 77:                                               ; preds = %68
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %66) #7
-  br label %122
+  br label %124
 
 78:                                               ; preds = %68
   %79 = ptrtoint ptr %75 to i64
@@ -819,7 +819,7 @@ define internal fastcc ptr @addTriangleRecur(ptr noundef %0, ptr noundef %1, ptr
   %91 = getelementptr inbounds i32, ptr %3, i64 %90
   %92 = load i32, ptr %91, align 4
   %93 = icmp slt i32 %92, 0
-  br i1 %93, label %94, label %103
+  br i1 %93, label %94, label %105
 
 94:                                               ; preds = %78
   %95 = icmp eq ptr %66, %75
@@ -833,59 +833,61 @@ define internal fastcc ptr @addTriangleRecur(ptr noundef %0, ptr noundef %1, ptr
 99:                                               ; preds = %96
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %66) #7
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %75) #7
-  br label %122
+  br label %124
 
 .thread:                                          ; preds = %94, %96
   %100 = phi ptr [ %97, %96 ], [ %66, %94 ]
   %101 = load i32, ptr %72, align 4
   %102 = add i32 %101, -1
   store i32 %102, ptr %72, align 4
-  br label %114
+  %103 = load i32, ptr %82, align 4
+  %104 = add i32 %103, -1
+  store i32 %104, ptr %82, align 4
+  br label %118
 
-103:                                              ; preds = %78
-  %104 = tail call ptr @cuddAddApplyRecur(ptr noundef nonnull %0, ptr noundef nonnull @Cudd_addMinimum, ptr noundef nonnull %66, ptr noundef nonnull %75) #7
-  %105 = icmp eq ptr %104, null
-  br i1 %105, label %106, label %107
+105:                                              ; preds = %78
+  %106 = tail call ptr @cuddAddApplyRecur(ptr noundef nonnull %0, ptr noundef nonnull @Cudd_addMinimum, ptr noundef nonnull %66, ptr noundef nonnull %75) #7
+  %107 = icmp eq ptr %106, null
+  br i1 %107, label %108, label %109
 
-106:                                              ; preds = %103
+108:                                              ; preds = %105
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %66) #7
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %75) #7
-  br label %122
+  br label %124
 
-107:                                              ; preds = %103
-  %108 = ptrtoint ptr %104 to i64
-  %109 = and i64 %108, -2
-  %110 = inttoptr i64 %109 to ptr
-  %111 = getelementptr inbounds i8, ptr %110, i64 4
-  %112 = load i32, ptr %111, align 4
-  %113 = add i32 %112, 1
-  store i32 %113, ptr %111, align 4
+109:                                              ; preds = %105
+  %110 = ptrtoint ptr %106 to i64
+  %111 = and i64 %110, -2
+  %112 = inttoptr i64 %111 to ptr
+  %113 = getelementptr inbounds i8, ptr %112, i64 4
+  %114 = load i32, ptr %113, align 4
+  %115 = add i32 %114, 1
+  store i32 %115, ptr %113, align 4
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %66) #7
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %75) #7
-  br label %114
+  %116 = load i32, ptr %113, align 4
+  %117 = add i32 %116, -1
+  store i32 %117, ptr %113, align 4
+  br label %118
 
-114:                                              ; preds = %107, %.thread
-  %.sink = phi ptr [ %111, %107 ], [ %82, %.thread ]
-  %.0108 = phi ptr [ %104, %107 ], [ %100, %.thread ]
-  %115 = load i32, ptr %.sink, align 4
-  %116 = add i32 %115, -1
-  store i32 %116, ptr %.sink, align 4
-  %117 = load i32, ptr %25, align 4
-  %.not125 = icmp eq i32 %117, 1
-  br i1 %.not125, label %118, label %121
+118:                                              ; preds = %109, %.thread
+  %.0108 = phi ptr [ %100, %.thread ], [ %106, %109 ]
+  %119 = load i32, ptr %25, align 4
+  %.not125 = icmp eq i32 %119, 1
+  br i1 %.not125, label %120, label %123
 
-118:                                              ; preds = %114
-  %119 = getelementptr inbounds i8, ptr %spec.select, i64 4
-  %120 = load i32, ptr %119, align 4
-  %.not126 = icmp eq i32 %120, 1
-  br i1 %.not126, label %122, label %121
+120:                                              ; preds = %118
+  %121 = getelementptr inbounds i8, ptr %spec.select, i64 4
+  %122 = load i32, ptr %121, align 4
+  %.not126 = icmp eq i32 %122, 1
+  br i1 %.not126, label %124, label %123
 
-121:                                              ; preds = %118, %114
+123:                                              ; preds = %120, %118
   tail call void @cuddCacheInsert(ptr noundef nonnull %0, i64 noundef 134, ptr noundef nonnull %spec.select127, ptr noundef nonnull %spec.select, ptr noundef nonnull %4, ptr noundef nonnull %.0108) #7
-  br label %122
+  br label %124
 
-122:                                              ; preds = %5, %118, %121, %65, %30, %106, %99, %77, %16
-  %.0 = phi ptr [ %22, %16 ], [ null, %77 ], [ null, %99 ], [ null, %106 ], [ %31, %30 ], [ null, %65 ], [ %.0108, %121 ], [ %.0108, %118 ], [ %7, %5 ]
+124:                                              ; preds = %5, %120, %123, %65, %30, %108, %99, %77, %16
+  %.0 = phi ptr [ %22, %16 ], [ null, %77 ], [ null, %99 ], [ null, %108 ], [ %31, %30 ], [ null, %65 ], [ %.0108, %123 ], [ %.0108, %120 ], [ %7, %5 ]
   ret ptr %.0
 }
 

@@ -3953,7 +3953,7 @@ _ZN5Yosys10shared_strD2Ev.exit:                   ; preds = %_ZNSt6vectorIN5Yosy
 67:                                               ; preds = %74, %16, %2
   %68 = landingpad { ptr, i32 }
           cleanup
-  br label %167
+  br label %166
 
 69:                                               ; preds = %17
   %70 = landingpad { ptr, i32 }
@@ -3969,7 +3969,7 @@ _ZN5Yosys10shared_strD2Ev.exit:                   ; preds = %_ZNSt6vectorIN5Yosy
 73:                                               ; preds = %71, %69
   %.pn = phi { ptr, i32 } [ %72, %71 ], [ %70, %69 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #30
-  br label %167
+  br label %166
 
 74:                                               ; preds = %9
   %75 = load i32, ptr @_ZN5Yosys16string_buf_indexE, align 4
@@ -4153,16 +4153,16 @@ _ZN5Yosys10shared_strD2Ev.exit16:                 ; preds = %_ZN5Yosys10shared_s
   %163 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #30
-  br label %167
+  br label %166
 
 164:                                              ; preds = %_ZN5Yosys10shared_strD2Ev.exit16, %_ZN5Yosys10shared_strD2Ev.exit
-  %.sink17 = phi ptr [ %161, %_ZN5Yosys10shared_strD2Ev.exit16 ], [ %66, %_ZN5Yosys10shared_strD2Ev.exit ]
-  %165 = load ptr, ptr %.sink17, align 8
-  %166 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %165) #30
+  %.sink.in = phi ptr [ %161, %_ZN5Yosys10shared_strD2Ev.exit16 ], [ %66, %_ZN5Yosys10shared_strD2Ev.exit ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %165 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #30
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3) #30
-  ret ptr %166
+  ret ptr %165
 
-167:                                              ; preds = %162, %73, %67
+166:                                              ; preds = %162, %73, %67
   %.pn.pn = phi { ptr, i32 } [ %.pn, %73 ], [ %68, %67 ], [ %163, %162 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3) #30
   resume { ptr, i32 } %.pn.pn
@@ -4592,7 +4592,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_Z
   %31 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL7SigSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #30
-  br label %200
+  br label %199
 
 32:                                               ; preds = %2
   call void @_ZNK5Yosys5RTLIL5Const13decode_stringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -4743,12 +4743,12 @@ _ZN5Yosys10shared_strD2Ev.exit:                   ; preds = %_ZNSt6vectorIN5Yosy
 98:                                               ; preds = %96, %94
   %.pn = phi { ptr, i32 } [ %97, %96 ], [ %95, %94 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #30
-  br label %200
+  br label %199
 
 99:                                               ; preds = %106, %43
   %100 = landingpad { ptr, i32 }
           cleanup
-  br label %199
+  br label %198
 
 101:                                              ; preds = %44
   %102 = landingpad { ptr, i32 }
@@ -4764,7 +4764,7 @@ _ZN5Yosys10shared_strD2Ev.exit:                   ; preds = %_ZNSt6vectorIN5Yosy
 105:                                              ; preds = %103, %101
   %.pn13 = phi { ptr, i32 } [ %104, %103 ], [ %102, %101 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #30
-  br label %199
+  br label %198
 
 106:                                              ; preds = %36
   %107 = load i32, ptr @_ZN5Yosys16string_buf_indexE, align 4
@@ -4948,26 +4948,26 @@ _ZN5Yosys10shared_strD2Ev.exit27:                 ; preds = %_ZN5Yosys10shared_s
   %195 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #30
-  br label %199
+  br label %198
 
 196:                                              ; preds = %_ZN5Yosys10shared_strD2Ev.exit27, %_ZN5Yosys10shared_strD2Ev.exit
-  %.sink28 = phi ptr [ %193, %_ZN5Yosys10shared_strD2Ev.exit27 ], [ %93, %_ZN5Yosys10shared_strD2Ev.exit ]
-  %197 = load ptr, ptr %.sink28, align 8
-  %198 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %197) #30
+  %.sink.in = phi ptr [ %193, %_ZN5Yosys10shared_strD2Ev.exit27 ], [ %93, %_ZN5Yosys10shared_strD2Ev.exit ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %197 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #30
   br label %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit
 
-199:                                              ; preds = %194, %105, %99
+198:                                              ; preds = %194, %105, %99
   %.pn13.pn = phi { ptr, i32 } [ %.pn13, %105 ], [ %100, %99 ], [ %195, %194 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #30
-  br label %200
+  br label %199
 
 _ZN5Yosys5RTLIL7SigSpecD2Ev.exit:                 ; preds = %29, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i, %196
-  %.010 = phi ptr [ %198, %196 ], [ %15, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i ], [ %15, %29 ]
+  %.010 = phi ptr [ %197, %196 ], [ %15, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i ], [ %15, %29 ]
   ret ptr %.010
 
-200:                                              ; preds = %199, %98, %30
-  %.pn16 = phi { ptr, i32 } [ %31, %30 ], [ %.pn13.pn, %199 ], [ %.pn, %98 ]
+199:                                              ; preds = %198, %98, %30
+  %.pn16 = phi { ptr, i32 } [ %31, %30 ], [ %.pn13.pn, %198 ], [ %.pn, %98 ]
   resume { ptr, i32 } %.pn16
 }
 

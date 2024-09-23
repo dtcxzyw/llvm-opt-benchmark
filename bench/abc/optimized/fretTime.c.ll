@@ -1260,7 +1260,7 @@ Vec_IntFillExtra.exit326.i:                       ; preds = %._crit_edge.i316.i,
 .critedge24.i:                                    ; preds = %.critedge20.i, %.critedge20.preheader.i
   %.val211.i = load i32, ptr %66, align 4
   %511 = icmp sgt i32 %.val211.i, 0
-  br i1 %511, label %.lr.ph406.i, label %.critedge
+  br i1 %511, label %.lr.ph406.i, label %Abc_FlowRetime_ConstrainConserv_forw.exit
 
 .lr.ph406.i:                                      ; preds = %.critedge24.i
   %512 = getelementptr i8, ptr %34, i64 8
@@ -1471,7 +1471,11 @@ Vec_IntFillExtra.exit340.i:                       ; preds = %._crit_edge.i330.i,
 
 611:                                              ; preds = %609, %603
   %612 = icmp sgt i64 %indvars.iv447.i, 1
-  br i1 %612, label %514, label %.critedge, !llvm.loop !23
+  br i1 %612, label %514, label %Abc_FlowRetime_ConstrainConserv_forw.exit, !llvm.loop !23
+
+Abc_FlowRetime_ConstrainConserv_forw.exit:        ; preds = %611, %.critedge24.i
+  store i32 0, ptr %66, align 4
+  br label %.critedge
 
 613:                                              ; preds = %._crit_edge
   br i1 %.not.i.i20, label %614, label %Abc_NtkIncrementTravId.exit.i21
@@ -2567,7 +2571,7 @@ Vec_IntFillExtra.exit329.i:                       ; preds = %._crit_edge.i319.i,
 .critedge24.i31:                                  ; preds = %.critedge20.i44, %.critedge20.preheader.i30
   %.val.i32 = load i32, ptr %641, align 4
   %1097 = icmp sgt i32 %.val.i32, 0
-  br i1 %1097, label %.lr.ph407.i, label %.critedge
+  br i1 %1097, label %.lr.ph407.i, label %Abc_FlowRetime_ConstrainConserv_back.exit
 
 .lr.ph407.i:                                      ; preds = %.critedge24.i31
   %1098 = getelementptr i8, ptr %34, i64 8
@@ -2778,11 +2782,13 @@ Vec_IntFillExtra.exit343.i:                       ; preds = %._crit_edge.i333.i,
 
 1198:                                             ; preds = %1196, %1190
   %1199 = icmp sgt i64 %indvars.iv448.i, 1
-  br i1 %1199, label %1100, label %.critedge, !llvm.loop !38
+  br i1 %1199, label %1100, label %Abc_FlowRetime_ConstrainConserv_back.exit, !llvm.loop !38
 
-.critedge:                                        ; preds = %611, %1198, %.critedge24.i31, %.critedge24.i
-  %.sink = phi ptr [ %66, %.critedge24.i ], [ %641, %.critedge24.i31 ], [ %641, %1198 ], [ %66, %611 ]
-  store i32 0, ptr %.sink, align 4
+Abc_FlowRetime_ConstrainConserv_back.exit:        ; preds = %1198, %.critedge24.i31
+  store i32 0, ptr %641, align 4
+  br label %.critedge
+
+.critedge:                                        ; preds = %Abc_FlowRetime_ConstrainConserv_back.exit, %Abc_FlowRetime_ConstrainConserv_forw.exit
   ret void
 }
 
@@ -3151,6 +3157,10 @@ Vec_PtrPush.exit89.i:                             ; preds = %175, %Vec_PtrGrow.e
   %190 = icmp sgt i64 %indvars.iv111.i, 1
   br i1 %190, label %104, label %Abc_FlowRetime_ConstrainExact_forw.exit, !llvm.loop !42
 
+Abc_FlowRetime_ConstrainExact_forw.exit:          ; preds = %189, %Vec_PtrPush.exit.i, %.critedge.i
+  store i32 0, ptr %58, align 4
+  br label %352
+
 191:                                              ; preds = %18
   br i1 %29, label %192, label %.Vec_PtrGrow.exit11_crit_edge.i.i6
 
@@ -3218,7 +3228,7 @@ Vec_PtrPush.exit.i9:                              ; preds = %212, %Vec_PtrGrow.e
   %219 = getelementptr i8, ptr %23, i64 4
   %.val68.i10 = load i32, ptr %219, align 4
   %220 = icmp sgt i32 %.val68.i10, 0
-  br i1 %220, label %.lr.ph97.i11, label %Abc_FlowRetime_ConstrainExact_forw.exit
+  br i1 %220, label %.lr.ph97.i11, label %Abc_FlowRetime_ConstrainExact_back.exit
 
 .lr.ph97.i11:                                     ; preds = %Vec_PtrPush.exit.i9
   %221 = getelementptr i8, ptr %23, i64 8
@@ -3297,7 +3307,7 @@ Vec_PtrPush.exit.i9:                              ; preds = %212, %Vec_PtrGrow.e
 .critedge.i15:                                    ; preds = %261
   %.val.pre.i16 = load i32, ptr %219, align 4
   %263 = icmp sgt i32 %.val.pre.i16, 0
-  br i1 %263, label %.lr.ph103.i17, label %Abc_FlowRetime_ConstrainExact_forw.exit
+  br i1 %263, label %.lr.ph103.i17, label %Abc_FlowRetime_ConstrainExact_back.exit
 
 .lr.ph103.i17:                                    ; preds = %.critedge.i15
   %264 = zext nneg i32 %.val.pre.i16 to i64
@@ -3468,11 +3478,13 @@ Vec_PtrPush.exit89.i28:                           ; preds = %336, %Vec_PtrGrow.e
 
 350:                                              ; preds = %347, %265
   %351 = icmp sgt i64 %indvars.iv111.i18, 1
-  br i1 %351, label %265, label %Abc_FlowRetime_ConstrainExact_forw.exit, !llvm.loop !46
+  br i1 %351, label %265, label %Abc_FlowRetime_ConstrainExact_back.exit, !llvm.loop !46
 
-Abc_FlowRetime_ConstrainExact_forw.exit:          ; preds = %189, %350, %.critedge.i15, %Vec_PtrPush.exit.i9, %.critedge.i, %Vec_PtrPush.exit.i
-  %.sink = phi ptr [ %58, %Vec_PtrPush.exit.i ], [ %58, %.critedge.i ], [ %219, %Vec_PtrPush.exit.i9 ], [ %219, %.critedge.i15 ], [ %219, %350 ], [ %58, %189 ]
-  store i32 0, ptr %.sink, align 4
+Abc_FlowRetime_ConstrainExact_back.exit:          ; preds = %350, %Vec_PtrPush.exit.i9, %.critedge.i15
+  store i32 0, ptr %219, align 4
+  br label %352
+
+352:                                              ; preds = %Abc_FlowRetime_ConstrainExact_back.exit, %Abc_FlowRetime_ConstrainExact_forw.exit
   ret void
 }
 

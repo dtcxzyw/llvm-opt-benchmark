@@ -6976,7 +6976,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %.noexc77, %_ZSt6fil
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %90, ptr nonnull align 4 %34, i64 %91, i1 false)
   store i32 %109, ptr %34, align 4
   store float %120, ptr %88, align 4
-  br label %_ZN5faiss9nndescent16insert_into_poolEPNS0_8NeighborEiS1_.exit.sink.split
+  store i8 1, ptr %.sroa.12.0..sroa_idx.i, align 4
+  br label %_ZN5faiss9nndescent16insert_into_poolEPNS0_8NeighborEiS1_.exit
 
 128:                                              ; preds = %124
   %129 = fcmp olt float %122, %120
@@ -6988,7 +6989,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %.noexc77, %_ZSt6fil
 130:                                              ; preds = %128
   store i32 %109, ptr %78, align 4
   store float %120, ptr %.sroa.7.0..sroa_idx51.i, align 4
-  br label %_ZN5faiss9nndescent16insert_into_poolEPNS0_8NeighborEiS1_.exit.sink.split
+  store i8 1, ptr %.sroa.12.0..sroa_idx58.i, align 4
+  br label %_ZN5faiss9nndescent16insert_into_poolEPNS0_8NeighborEiS1_.exit
 
 .preheader.i:                                     ; preds = %.lr.ph.i
   %131 = icmp sgt i32 %.064..i, 0
@@ -7054,16 +7056,11 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %.noexc77, %_ZSt6fil
   %.sroa.7.0..sroa_idx53.i = getelementptr inbounds i8, ptr %157, i64 4
   store float %120, ptr %.sroa.7.0..sroa_idx53.i, align 4
   %.sroa.12.0..sroa_idx60.i = getelementptr inbounds i8, ptr %157, i64 8
-  br label %_ZN5faiss9nndescent16insert_into_poolEPNS0_8NeighborEiS1_.exit.sink.split
-
-_ZN5faiss9nndescent16insert_into_poolEPNS0_8NeighborEiS1_.exit.sink.split: ; preds = %160, %130, %127
-  %.sroa.12.0..sroa_idx.i.sink = phi ptr [ %.sroa.12.0..sroa_idx.i, %127 ], [ %.sroa.12.0..sroa_idx58.i, %130 ], [ %.sroa.12.0..sroa_idx60.i, %160 ]
-  %.0.i.ph = phi i32 [ 0, %127 ], [ %.sroa.speculated, %130 ], [ %.063.lcssa80.i, %160 ]
-  store i8 1, ptr %.sroa.12.0..sroa_idx.i.sink, align 4
+  store i8 1, ptr %.sroa.12.0..sroa_idx60.i, align 4
   br label %_ZN5faiss9nndescent16insert_into_poolEPNS0_8NeighborEiS1_.exit
 
-_ZN5faiss9nndescent16insert_into_poolEPNS0_8NeighborEiS1_.exit: ; preds = %145, %_ZN5faiss9nndescent16insert_into_poolEPNS0_8NeighborEiS1_.exit.sink.split, %._crit_edge.i, %155
-  %.0.i = phi i32 [ %30, %155 ], [ %30, %._crit_edge.i ], [ %.0.i.ph, %_ZN5faiss9nndescent16insert_into_poolEPNS0_8NeighborEiS1_.exit.sink.split ], [ %30, %145 ]
+_ZN5faiss9nndescent16insert_into_poolEPNS0_8NeighborEiS1_.exit: ; preds = %145, %._crit_edge.i, %155, %127, %130, %160
+  %.0.i = phi i32 [ 0, %127 ], [ %.sroa.speculated, %130 ], [ %.063.lcssa80.i, %160 ], [ %30, %155 ], [ %30, %._crit_edge.i ], [ %30, %145 ]
   %spec.select = call i32 @llvm.smin.i32(i32 %.0.i, i32 %.166124)
   br label %165
 

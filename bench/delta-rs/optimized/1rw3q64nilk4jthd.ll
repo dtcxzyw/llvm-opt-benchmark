@@ -19636,7 +19636,7 @@ define hidden void @"_ZN4core3ptr48drop_in_place$LT$reqwest..proxy..ProxyScheme$
   %29 = getelementptr inbounds i8, ptr %0, i64 56
   %30 = load i64, ptr %29, align 8, !alias.scope !4044, !noundef !4
   invoke void %25(ptr noalias noundef nonnull align 8 dereferenceable(8) %26, ptr noundef %28, i64 noundef %30)
-          to label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$http..header..value..HeaderValue$GT$$GT$17h68778a42e93ff5a8E.exit" unwind label %52
+          to label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$http..header..value..HeaderValue$GT$$GT$17h68778a42e93ff5a8E.exit" unwind label %51
 
 31:                                               ; preds = %8
   %32 = landingpad { ptr, i32 }
@@ -19655,49 +19655,49 @@ define hidden void @"_ZN4core3ptr48drop_in_place$LT$reqwest..proxy..ProxyScheme$
   %40 = getelementptr inbounds i8, ptr %0, i64 24
   %41 = load i64, ptr %40, align 8, !alias.scope !4057, !noundef !4
   invoke void %36(ptr noalias noundef nonnull align 8 dereferenceable(8) %37, ptr noundef %39, i64 noundef %41)
-          to label %"_ZN4core3ptr52drop_in_place$LT$http..uri..authority..Authority$GT$17hb6a63ebeb7d58ce7E.exit" unwind label %50
+          to label %"_ZN4core3ptr52drop_in_place$LT$http..uri..authority..Authority$GT$17hb6a63ebeb7d58ce7E.exit" unwind label %49
 
 "_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$http..header..value..HeaderValue$GT$$GT$17h68778a42e93ff5a8E.exit": ; preds = %21, %18, %8, %5
-  %.sink = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = load ptr, ptr %.sink, align 8, !nonnull !4, !align !5, !noundef !4
-  %43 = getelementptr inbounds i8, ptr %42, i64 24
-  %44 = load ptr, ptr %43, align 8, !noalias !4, !nonnull !4, !noundef !4
-  %45 = getelementptr inbounds i8, ptr %0, i64 32
-  %46 = getelementptr inbounds i8, ptr %0, i64 16
-  %47 = load ptr, ptr %46, align 8, !noundef !4
-  %48 = getelementptr inbounds i8, ptr %0, i64 24
-  %49 = load i64, ptr %48, align 8, !noundef !4
-  tail call void %44(ptr noalias noundef nonnull align 8 dereferenceable(8) %45, ptr noundef %47, i64 noundef %49)
+  %.sink12.in = getelementptr inbounds i8, ptr %0, i64 8
+  %.sink12 = load ptr, ptr %.sink12.in, align 8, !nonnull !4, !align !5, !noundef !4
+  %42 = getelementptr inbounds i8, ptr %.sink12, i64 24
+  %43 = load ptr, ptr %42, align 8, !noalias !4, !nonnull !4, !noundef !4
+  %44 = getelementptr inbounds i8, ptr %0, i64 32
+  %45 = getelementptr inbounds i8, ptr %0, i64 16
+  %46 = load ptr, ptr %45, align 8, !noundef !4
+  %47 = getelementptr inbounds i8, ptr %0, i64 24
+  %48 = load i64, ptr %47, align 8, !noundef !4
+  tail call void %43(ptr noalias noundef nonnull align 8 dereferenceable(8) %44, ptr noundef %46, i64 noundef %48)
   ret void
 
-50:                                               ; preds = %52, %31
-  %51 = landingpad { ptr, i32 }
+49:                                               ; preds = %51, %31
+  %50 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #76
   unreachable
 
-"_ZN4core3ptr52drop_in_place$LT$http..uri..authority..Authority$GT$17hb6a63ebeb7d58ce7E.exit": ; preds = %52, %31
-  %.pn = phi { ptr, i32 } [ %32, %31 ], [ %53, %52 ]
+"_ZN4core3ptr52drop_in_place$LT$http..uri..authority..Authority$GT$17hb6a63ebeb7d58ce7E.exit": ; preds = %51, %31
+  %.pn = phi { ptr, i32 } [ %32, %31 ], [ %52, %51 ]
   resume { ptr, i32 } %.pn
 
-52:                                               ; preds = %21
-  %53 = landingpad { ptr, i32 }
+51:                                               ; preds = %21
+  %52 = landingpad { ptr, i32 }
           cleanup
-  %54 = getelementptr inbounds i8, ptr %0, i64 8
+  %53 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4058)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4061)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4064)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4067)
-  %55 = load ptr, ptr %54, align 8, !alias.scope !4070, !nonnull !4, !align !5, !noundef !4
-  %56 = getelementptr inbounds i8, ptr %55, i64 24
-  %57 = load ptr, ptr %56, align 8, !noalias !4070, !nonnull !4, !noundef !4
-  %58 = getelementptr inbounds i8, ptr %0, i64 32
-  %59 = getelementptr inbounds i8, ptr %0, i64 16
-  %60 = load ptr, ptr %59, align 8, !alias.scope !4070, !noundef !4
-  %61 = getelementptr inbounds i8, ptr %0, i64 24
-  %62 = load i64, ptr %61, align 8, !alias.scope !4070, !noundef !4
-  invoke void %57(ptr noalias noundef nonnull align 8 dereferenceable(8) %58, ptr noundef %60, i64 noundef %62)
-          to label %"_ZN4core3ptr52drop_in_place$LT$http..uri..authority..Authority$GT$17hb6a63ebeb7d58ce7E.exit" unwind label %50
+  %54 = load ptr, ptr %53, align 8, !alias.scope !4070, !nonnull !4, !align !5, !noundef !4
+  %55 = getelementptr inbounds i8, ptr %54, i64 24
+  %56 = load ptr, ptr %55, align 8, !noalias !4070, !nonnull !4, !noundef !4
+  %57 = getelementptr inbounds i8, ptr %0, i64 32
+  %58 = getelementptr inbounds i8, ptr %0, i64 16
+  %59 = load ptr, ptr %58, align 8, !alias.scope !4070, !noundef !4
+  %60 = getelementptr inbounds i8, ptr %0, i64 24
+  %61 = load i64, ptr %60, align 8, !alias.scope !4070, !noundef !4
+  invoke void %56(ptr noalias noundef nonnull align 8 dereferenceable(8) %57, ptr noundef %59, i64 noundef %61)
+          to label %"_ZN4core3ptr52drop_in_place$LT$http..uri..authority..Authority$GT$17hb6a63ebeb7d58ce7E.exit" unwind label %49
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -132529,8 +132529,8 @@ select.unfold:                                    ; preds = %18, %_ZN14deltalake
 
 33:                                               ; preds = %select.unfold
   store i64 24, ptr %0, align 8
-  %.sroa.4.0..sroa_idx7 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 -9223372036854775799, ptr %.sroa.4.0..sroa_idx7, align 8
+  %.sroa.4.0..sroa_idx5 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 -9223372036854775799, ptr %.sroa.4.0..sroa_idx5, align 8
   br label %34
 
 34:                                               ; preds = %31, %33, %32

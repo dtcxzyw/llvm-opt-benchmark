@@ -259,40 +259,40 @@ define dso_local noundef ptr @_ZNK5clang4ento4SVal11getAsSymbolEb(ptr nocapture 
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %.sroa.2.0.copyload.i.i.i.i = load i8, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !noalias !42
   %3 = icmp eq i8 %.sroa.2.0.copyload.i.i.i.i, 9
-  br i1 %3, label %_ZNK5clang4ento4SVal14getAsLocSymbolEb.exit.sink.split, label %_ZNK5clang4ento4SVal5getAsINS0_6nonloc9SymbolValEEESt8optionalIT_Ev.exit
+  br i1 %3, label %4, label %_ZNK5clang4ento4SVal5getAsINS0_6nonloc9SymbolValEEESt8optionalIT_Ev.exit
 
-_ZNK5clang4ento4SVal5getAsINS0_6nonloc9SymbolValEEESt8optionalIT_Ev.exit: ; preds = %2
-  %4 = tail call noundef ptr @_ZNK5clang4ento4SVal11getAsRegionEv(ptr noundef nonnull readonly align 8 dereferenceable(9) %0)
-  %.not.i = icmp eq ptr %4, null
-  br i1 %.not.i, label %_ZNK5clang4ento4SVal14getAsLocSymbolEb.exit, label %5
-
-5:                                                ; preds = %_ZNK5clang4ento4SVal5getAsINS0_6nonloc9SymbolValEEESt8optionalIT_Ev.exit
-  br i1 %1, label %11, label %6
-
-6:                                                ; preds = %5
-  %7 = tail call noundef nonnull ptr @_ZNK5clang4ento9MemRegion10StripCastsEb(ptr noundef nonnull align 8 dereferenceable(48) %4, i1 noundef zeroext true) #15
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %9 = load i32, ptr %8, align 8
-  %10 = icmp eq i32 %9, 10
-  br i1 %10, label %.thread11.i, label %_ZNK5clang4ento4SVal14getAsLocSymbolEb.exit
-
-11:                                               ; preds = %5
-  %12 = tail call noundef ptr @_ZNK5clang4ento9MemRegion15getSymbolicBaseEv(ptr noundef nonnull align 8 dereferenceable(48) %4) #15
-  %.not9.i = icmp eq ptr %12, null
-  br i1 %.not9.i, label %_ZNK5clang4ento4SVal14getAsLocSymbolEb.exit, label %.thread11.i
-
-.thread11.i:                                      ; preds = %11, %6
-  %13 = phi ptr [ %12, %11 ], [ %7, %6 ]
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  br label %_ZNK5clang4ento4SVal14getAsLocSymbolEb.exit.sink.split
-
-_ZNK5clang4ento4SVal14getAsLocSymbolEb.exit.sink.split: ; preds = %2, %.thread11.i
-  %.sink = phi ptr [ %14, %.thread11.i ], [ %0, %2 ]
-  %15 = load ptr, ptr %.sink, align 8
+4:                                                ; preds = %2
+  %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %0, align 8, !noalias !42
   br label %_ZNK5clang4ento4SVal14getAsLocSymbolEb.exit
 
-_ZNK5clang4ento4SVal14getAsLocSymbolEb.exit:      ; preds = %_ZNK5clang4ento4SVal14getAsLocSymbolEb.exit.sink.split, %11, %6, %_ZNK5clang4ento4SVal5getAsINS0_6nonloc9SymbolValEEESt8optionalIT_Ev.exit
-  %.0 = phi ptr [ null, %11 ], [ null, %_ZNK5clang4ento4SVal5getAsINS0_6nonloc9SymbolValEEESt8optionalIT_Ev.exit ], [ null, %6 ], [ %15, %_ZNK5clang4ento4SVal14getAsLocSymbolEb.exit.sink.split ]
+_ZNK5clang4ento4SVal5getAsINS0_6nonloc9SymbolValEEESt8optionalIT_Ev.exit: ; preds = %2
+  %5 = tail call noundef ptr @_ZNK5clang4ento4SVal11getAsRegionEv(ptr noundef nonnull readonly align 8 dereferenceable(9) %0)
+  %.not.i = icmp eq ptr %5, null
+  br i1 %.not.i, label %_ZNK5clang4ento4SVal14getAsLocSymbolEb.exit, label %6
+
+6:                                                ; preds = %_ZNK5clang4ento4SVal5getAsINS0_6nonloc9SymbolValEEESt8optionalIT_Ev.exit
+  br i1 %1, label %12, label %7
+
+7:                                                ; preds = %6
+  %8 = tail call noundef nonnull ptr @_ZNK5clang4ento9MemRegion10StripCastsEb(ptr noundef nonnull align 8 dereferenceable(48) %5, i1 noundef zeroext true) #15
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %10 = load i32, ptr %9, align 8
+  %11 = icmp eq i32 %10, 10
+  br i1 %11, label %.thread11.i, label %_ZNK5clang4ento4SVal14getAsLocSymbolEb.exit
+
+12:                                               ; preds = %6
+  %13 = tail call noundef ptr @_ZNK5clang4ento9MemRegion15getSymbolicBaseEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #15
+  %.not9.i = icmp eq ptr %13, null
+  br i1 %.not9.i, label %_ZNK5clang4ento4SVal14getAsLocSymbolEb.exit, label %.thread11.i
+
+.thread11.i:                                      ; preds = %12, %7
+  %14 = phi ptr [ %13, %12 ], [ %8, %7 ]
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 56
+  %16 = load ptr, ptr %15, align 8
+  br label %_ZNK5clang4ento4SVal14getAsLocSymbolEb.exit
+
+_ZNK5clang4ento4SVal14getAsLocSymbolEb.exit:      ; preds = %.thread11.i, %12, %7, %_ZNK5clang4ento4SVal5getAsINS0_6nonloc9SymbolValEEESt8optionalIT_Ev.exit, %4
+  %.0 = phi ptr [ %.sroa.0.0.copyload.i.i.i.i, %4 ], [ %16, %.thread11.i ], [ null, %12 ], [ null, %_ZNK5clang4ento4SVal5getAsINS0_6nonloc9SymbolValEEESt8optionalIT_Ev.exit ], [ null, %7 ]
   ret ptr %.0
 }
 

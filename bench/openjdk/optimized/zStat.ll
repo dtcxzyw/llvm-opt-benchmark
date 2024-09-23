@@ -7209,6 +7209,7 @@ define linkonce_odr hidden void @_ZN17ZStatTablePrinter7ZColumn5rightEPKcz(ptr d
   %20 = load i64, ptr %11, align 8, !noalias !119
   %21 = getelementptr i8, ptr %18, i64 %19
   %22 = getelementptr i8, ptr %21, i64 %20
+  store i8 32, ptr %22, align 1, !noalias !119
   br label %43
 
 23:                                               ; preds = %3
@@ -7238,11 +7239,10 @@ define linkonce_odr hidden void @_ZN17ZStatTablePrinter7ZColumn5rightEPKcz(ptr d
   %40 = load i64, ptr %5, align 8, !noalias !122
   %41 = getelementptr i8, ptr %39, i64 %40
   %42 = getelementptr i8, ptr %41, i64 %38
+  store i8 32, ptr %42, align 1, !noalias !122
   br label %43
 
 43:                                               ; preds = %37, %14
-  %.sink = phi ptr [ %42, %37 ], [ %22, %14 ]
-  store i8 32, ptr %.sink, align 1, !noalias !125
   %44 = load ptr, ptr %1, align 8, !noalias !125
   %45 = load i64, ptr %5, align 8, !noalias !125
   %46 = load i64, ptr %11, align 8, !noalias !125
@@ -7339,6 +7339,7 @@ define linkonce_odr hidden void @_ZN17ZStatTablePrinter7ZColumn6centerEPKcz(ptr 
   %20 = load i64, ptr %11, align 8, !noalias !132
   %21 = getelementptr i8, ptr %18, i64 %19
   %22 = getelementptr i8, ptr %21, i64 %20
+  store i8 32, ptr %22, align 1, !noalias !132
   br label %47
 
 23:                                               ; preds = %3
@@ -7373,11 +7374,10 @@ define linkonce_odr hidden void @_ZN17ZStatTablePrinter7ZColumn6centerEPKcz(ptr 
   %44 = load i64, ptr %5, align 8, !noalias !135
   %45 = getelementptr i8, ptr %43, i64 %44
   %46 = getelementptr i8, ptr %45, i64 %42
+  store i8 32, ptr %46, align 1, !noalias !135
   br label %47
 
 47:                                               ; preds = %41, %14
-  %.sink = phi ptr [ %46, %41 ], [ %22, %14 ]
-  store i8 32, ptr %.sink, align 1, !noalias !125
   %48 = load ptr, ptr %1, align 8, !noalias !125
   %49 = load i64, ptr %5, align 8, !noalias !125
   %50 = load i64, ptr %11, align 8, !noalias !125

@@ -415,7 +415,11 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %2 = load ptr, ptr %ph, align 8
   %cmp1.i = icmp eq ptr %2, null
-  br i1 %cmp1.i, label %if.end21.i, label %if.else.i
+  br i1 %cmp1.i, label %if.then.i, label %if.else.i
+
+if.then.i:                                        ; preds = %entry
+  store ptr %phn, ptr %ph, align 8
+  br label %if.end21.i
 
 if.else.i:                                        ; preds = %entry
   %3 = getelementptr i8, ptr %phn, i64 8
@@ -473,11 +477,10 @@ if.end18.i:                                       ; preds = %if.then15.i, %if.en
   %add.i36 = add i64 %20, 40
   %21 = inttoptr i64 %add.i36 to ptr
   %next1.i = getelementptr inbounds i8, ptr %21, i64 8
+  store ptr %phn, ptr %next1.i, align 8
   br label %if.end21.i
 
-if.end21.i:                                       ; preds = %entry, %if.end18.i
-  %next1.i.sink = phi ptr [ %next1.i, %if.end18.i ], [ %ph, %entry ]
-  store ptr %phn, ptr %next1.i.sink, align 8
+if.end21.i:                                       ; preds = %if.end18.i, %if.then.i
   %auxcount22.i = getelementptr inbounds i8, ptr %ph, i64 8
   %22 = load i64, ptr %auxcount22.i, align 8
   %cmp23.i = icmp ugt i64 %22, 1

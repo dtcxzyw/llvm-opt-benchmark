@@ -4488,40 +4488,48 @@ do.body8.i:                                       ; preds = %do.body.i
   %num_ready_.i = getelementptr inbounds i8, ptr %this.val, i64 64
   %16 = load i64, ptr %num_ready_.i, align 8
   %cmp9.not.i = icmp eq i64 %16, 0
-  br i1 %cmp9.not.i, label %if.then11.i, label %do.body42.sink.split.i
+  br i1 %cmp9.not.i, label %if.then11.i, label %do.end13.i
 
 if.then11.i:                                      ; preds = %do.body8.i
   tail call void @gpr_assertion_failed(ptr noundef nonnull @.str.2, i32 noundef 340, ptr noundef nonnull @.str.29) #25
   unreachable
 
+do.end13.i:                                       ; preds = %do.body8.i
+  %dec.i = add i64 %16, -1
+  store i64 %dec.i, ptr %num_ready_.i, align 8
+  br label %do.body42.i
+
 do.body18.i:                                      ; preds = %do.body.i
   %num_connecting_.i = getelementptr inbounds i8, ptr %this.val, i64 72
   %17 = load i64, ptr %num_connecting_.i, align 8
   %cmp19.not.i = icmp eq i64 %17, 0
-  br i1 %cmp19.not.i, label %if.then21.i, label %do.body42.sink.split.i
+  br i1 %cmp19.not.i, label %if.then21.i, label %do.end23.i
 
 if.then21.i:                                      ; preds = %do.body18.i
   tail call void @gpr_assertion_failed(ptr noundef nonnull @.str.2, i32 noundef 343, ptr noundef nonnull @.str.30) #25
   unreachable
 
+do.end23.i:                                       ; preds = %do.body18.i
+  %dec25.i = add i64 %17, -1
+  store i64 %dec25.i, ptr %num_connecting_.i, align 8
+  br label %do.body42.i
+
 do.body30.i:                                      ; preds = %do.body.i
   %num_transient_failure_.i = getelementptr inbounds i8, ptr %this.val, i64 80
   %18 = load i64, ptr %num_transient_failure_.i, align 8
   %cmp31.not.i = icmp eq i64 %18, 0
-  br i1 %cmp31.not.i, label %if.then33.i, label %do.body42.sink.split.i
+  br i1 %cmp31.not.i, label %if.then33.i, label %do.end35.i
 
 if.then33.i:                                      ; preds = %do.body30.i
   tail call void @gpr_assertion_failed(ptr noundef nonnull @.str.2, i32 noundef 346, ptr noundef nonnull @.str.31) #25
   unreachable
 
-do.body42.sink.split.i:                           ; preds = %do.body30.i, %do.body18.i, %do.body8.i
-  %.sink.i = phi i64 [ %16, %do.body8.i ], [ %17, %do.body18.i ], [ %18, %do.body30.i ]
-  %num_connecting_.sink.i = phi ptr [ %num_ready_.i, %do.body8.i ], [ %num_connecting_.i, %do.body18.i ], [ %num_transient_failure_.i, %do.body30.i ]
-  %dec25.i = add i64 %.sink.i, -1
-  store i64 %dec25.i, ptr %num_connecting_.sink.i, align 8
+do.end35.i:                                       ; preds = %do.body30.i
+  %dec37.i = add i64 %18, -1
+  store i64 %dec37.i, ptr %num_transient_failure_.i, align 8
   br label %do.body42.i
 
-do.body42.i:                                      ; preds = %do.body42.sink.split.i, %do.body.i, %if.end40
+do.body42.i:                                      ; preds = %do.end35.i, %do.end23.i, %do.end13.i, %do.body.i, %if.end40
   switch i32 %connectivity_state.addr.0, label %_ZN9grpc_core12_GLOBAL__N_113OldRoundRobin24RoundRobinSubchannelList25UpdateStateCountersLockedESt8optionalI23grpc_connectivity_stateES4_.exit [
     i32 4, label %if.then45.i
     i32 2, label %if.end63.sink.split.i
@@ -4540,8 +4548,8 @@ if.then58.i:                                      ; preds = %do.body42.i
   br label %if.end63.sink.split.i
 
 if.end63.sink.split.i:                            ; preds = %if.then58.i, %if.then53.i, %do.body42.i
-  %.sink9.i = phi i64 [ 72, %if.then53.i ], [ 80, %if.then58.i ], [ 64, %do.body42.i ]
-  %num_connecting_54.i = getelementptr inbounds i8, ptr %this.val, i64 %.sink9.i
+  %.sink.i = phi i64 [ 72, %if.then53.i ], [ 80, %if.then58.i ], [ 64, %do.body42.i ]
+  %num_connecting_54.i = getelementptr inbounds i8, ptr %this.val, i64 %.sink.i
   %19 = load i64, ptr %num_connecting_54.i, align 8
   %inc55.i = add i64 %19, 1
   store i64 %inc55.i, ptr %num_connecting_54.i, align 8
@@ -6932,40 +6940,48 @@ do.body8.i:                                       ; preds = %do.body.i
   %num_ready_.i = getelementptr inbounds i8, ptr %this.val, i64 56
   %8 = load i64, ptr %num_ready_.i, align 8
   %cmp9.not.i = icmp eq i64 %8, 0
-  br i1 %cmp9.not.i, label %if.then11.i, label %do.body44.sink.split.i
+  br i1 %cmp9.not.i, label %if.then11.i, label %do.end13.i
 
 if.then11.i:                                      ; preds = %do.body8.i
   call void @gpr_assertion_failed(ptr noundef nonnull @.str.2, i32 noundef 785, ptr noundef nonnull @.str.29) #25
   unreachable
 
+do.end13.i:                                       ; preds = %do.body8.i
+  %dec.i = add i64 %8, -1
+  store i64 %dec.i, ptr %num_ready_.i, align 8
+  br label %do.body44.i
+
 do.body20.i:                                      ; preds = %do.body.i, %do.body.i
   %num_connecting_.i = getelementptr inbounds i8, ptr %this.val, i64 64
   %9 = load i64, ptr %num_connecting_.i, align 8
   %cmp21.not.i = icmp eq i64 %9, 0
-  br i1 %cmp21.not.i, label %if.then23.i, label %do.body44.sink.split.i
+  br i1 %cmp21.not.i, label %if.then23.i, label %do.end25.i
 
 if.then23.i:                                      ; preds = %do.body20.i
   call void @gpr_assertion_failed(ptr noundef nonnull @.str.2, i32 noundef 789, ptr noundef nonnull @.str.30) #25
   unreachable
 
+do.end25.i:                                       ; preds = %do.body20.i
+  %dec27.i = add i64 %9, -1
+  store i64 %dec27.i, ptr %num_connecting_.i, align 8
+  br label %do.body44.i
+
 do.body32.i:                                      ; preds = %do.body.i
   %num_transient_failure_.i = getelementptr inbounds i8, ptr %this.val, i64 72
   %10 = load i64, ptr %num_transient_failure_.i, align 8
   %cmp33.not.i = icmp eq i64 %10, 0
-  br i1 %cmp33.not.i, label %if.then35.i, label %do.body44.sink.split.i
+  br i1 %cmp33.not.i, label %if.then35.i, label %do.end37.i
 
 if.then35.i:                                      ; preds = %do.body32.i
   call void @gpr_assertion_failed(ptr noundef nonnull @.str.2, i32 noundef 792, ptr noundef nonnull @.str.31) #25
   unreachable
 
-do.body44.sink.split.i:                           ; preds = %do.body32.i, %do.body20.i, %do.body8.i
-  %.sink.i = phi i64 [ %8, %do.body8.i ], [ %9, %do.body20.i ], [ %10, %do.body32.i ]
-  %num_connecting_.sink.i = phi ptr [ %num_ready_.i, %do.body8.i ], [ %num_connecting_.i, %do.body20.i ], [ %num_transient_failure_.i, %do.body32.i ]
-  %dec27.i = add i64 %.sink.i, -1
-  store i64 %dec27.i, ptr %num_connecting_.sink.i, align 8
+do.end37.i:                                       ; preds = %do.body32.i
+  %dec39.i = add i64 %10, -1
+  store i64 %dec39.i, ptr %num_transient_failure_.i, align 8
   br label %do.body44.i
 
-do.body44.i:                                      ; preds = %do.body44.sink.split.i, %do.body.i, %if.then20
+do.body44.i:                                      ; preds = %do.end37.i, %do.end25.i, %do.end13.i, %do.body.i, %if.then20
   switch i32 %new_state, label %if.else53.i [
     i32 4, label %if.then47.i
     i32 2, label %if.end67.sink.split.i
@@ -6984,8 +7000,8 @@ if.else60.i:                                      ; preds = %if.else53.i
   br i1 %cmp61.i, label %if.end67.sink.split.i, label %if.end23
 
 if.end67.sink.split.i:                            ; preds = %if.else60.i, %if.else53.i, %do.body44.i
-  %.sink11.i = phi i64 [ 56, %do.body44.i ], [ 64, %if.else53.i ], [ 72, %if.else60.i ]
-  %num_connecting_58.i = getelementptr inbounds i8, ptr %this.val, i64 %.sink11.i
+  %.sink.i = phi i64 [ 56, %do.body44.i ], [ 64, %if.else53.i ], [ 72, %if.else60.i ]
+  %num_connecting_58.i = getelementptr inbounds i8, ptr %this.val, i64 %.sink.i
   %11 = load i64, ptr %num_connecting_58.i, align 8
   %inc59.i = add i64 %11, 1
   store i64 %inc59.i, ptr %num_connecting_58.i, align 8

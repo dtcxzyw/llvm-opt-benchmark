@@ -6488,39 +6488,40 @@ do.body:                                          ; preds = %if.end
   %conv = sext i32 %sub to i64
   %mul = shl nsw i64 %conv, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %4, ptr nonnull align 4 %add.ptr, i64 %mul, i1 false)
+  %7 = load i32, ptr %len, align 4
+  %dec = add nsw i32 %7, -1
+  store i32 %dec, ptr %len, align 4
   br label %if.end23
 
 if.else:                                          ; preds = %if.end
   %len8 = getelementptr inbounds i8, ptr %this, i64 28
-  %7 = load i32, ptr %len8, align 4
-  %add = add nsw i32 %7, 1
+  %8 = load i32, ptr %len8, align 4
+  %add = add nsw i32 %8, 1
   %call9 = tail call noundef zeroext i1 @_ZN6icu_7510UnicodeSet14ensureCapacityEi(ptr noundef nonnull align 8 dereferenceable(200) %this, i32 noundef %add)
   br i1 %call9, label %do.body12, label %return
 
 do.body12:                                        ; preds = %if.else
-  %8 = load ptr, ptr %list, align 8
-  %add.ptr14 = getelementptr inbounds i8, ptr %8, i64 4
-  %9 = load i32, ptr %len8, align 4
-  %conv17 = sext i32 %9 to i64
+  %9 = load ptr, ptr %list, align 8
+  %add.ptr14 = getelementptr inbounds i8, ptr %9, i64 4
+  %10 = load i32, ptr %len8, align 4
+  %conv17 = sext i32 %10 to i64
   %mul18 = shl nsw i64 %conv17, 2
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr14, ptr align 4 %8, i64 %mul18, i1 false)
-  %10 = load ptr, ptr %list, align 8
-  store i32 0, ptr %10, align 4
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr14, ptr align 4 %9, i64 %mul18, i1 false)
+  %11 = load ptr, ptr %list, align 8
+  store i32 0, ptr %11, align 4
+  %12 = load i32, ptr %len8, align 4
+  %inc = add nsw i32 %12, 1
+  store i32 %inc, ptr %len8, align 4
   br label %if.end23
 
 if.end23:                                         ; preds = %do.body12, %do.body
-  %len8.sink2 = phi ptr [ %len8, %do.body12 ], [ %len, %do.body ]
-  %.sink1 = phi i32 [ 1, %do.body12 ], [ -1, %do.body ]
-  %11 = load i32, ptr %len8.sink2, align 4
-  %inc = add nsw i32 %11, %.sink1
-  store i32 %inc, ptr %len8.sink2, align 4
   %pat.i = getelementptr inbounds i8, ptr %this, i64 64
-  %12 = load ptr, ptr %pat.i, align 8
-  %tobool.not.i = icmp eq ptr %12, null
+  %13 = load ptr, ptr %pat.i, align 8
+  %tobool.not.i = icmp eq ptr %13, null
   br i1 %tobool.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end23
-  tail call void @uprv_free_75(ptr noundef nonnull %12)
+  tail call void @uprv_free_75(ptr noundef nonnull %13)
   store ptr null, ptr %pat.i, align 8
   %patLen.i = getelementptr inbounds i8, ptr %this, i64 72
   store i32 0, ptr %patLen.i, align 8

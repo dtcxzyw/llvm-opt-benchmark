@@ -2224,7 +2224,8 @@ Sfm_LibNewContains.exit:                          ; preds = %222, %.preheader.i2
 240:                                              ; preds = %238
   %.val179 = load ptr, ptr %136, align 8
   %241 = getelementptr inbounds i32, ptr %.val179, i64 %137
-  br label %.loopexit242.sink.split
+  store i32 -1, ptr %241, align 4
+  br label %.loopexit242
 
 242:                                              ; preds = %238
   store i32 %.1147, ptr %135, align 4
@@ -2268,7 +2269,8 @@ Sfm_LibFun.exit219:                               ; preds = %Sfm_LibFun.exit219.
   %258 = load ptr, ptr %257, align 8
   %259 = sext i32 %.0145.lcssa to i64
   %260 = getelementptr inbounds %struct.Sfm_Fun_t_, ptr %258, i64 %259
-  br label %.loopexit242.sink.split
+  store i32 -1, ptr %260, align 4
+  br label %.loopexit242
 
 261:                                              ; preds = %120
   %262 = getelementptr i8, ptr %0, i64 64
@@ -2310,12 +2312,7 @@ Sfm_LibFun.exit222:                               ; preds = %275
   %.not155 = icmp eq ptr %278, null
   br i1 %.not155, label %.loopexit242, label %272, !llvm.loop !31
 
-.loopexit242.sink.split:                          ; preds = %240, %.critedge2
-  %.sink = phi ptr [ %260, %.critedge2 ], [ %241, %240 ]
-  store i32 -1, ptr %.sink, align 4
-  br label %.loopexit242
-
-.loopexit242:                                     ; preds = %275, %Sfm_LibFun.exit222, %.loopexit242.sink.split, %261, %Sfm_LibCellProfile.exit, %Sfm_LibFun.exit, %.preheader, %Sfm_LibFun.exit221, %.critedge
+.loopexit242:                                     ; preds = %275, %Sfm_LibFun.exit222, %261, %Sfm_LibCellProfile.exit, %Sfm_LibFun.exit, %.preheader, %Sfm_LibFun.exit221, %.critedge, %.critedge2, %240
   %281 = icmp sgt i32 %3, 0
   br i1 %281, label %.lr.ph260.preheader, label %._crit_edge
 

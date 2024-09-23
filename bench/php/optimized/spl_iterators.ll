@@ -1055,7 +1055,7 @@ define hidden void @zim_RecursiveIteratorIterator_current(ptr nocapture noundef 
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %9 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %9)
-  br label %47
+  br label %46
 
 .critedge:                                        ; preds = %2
   %10 = getelementptr inbounds i8, ptr %4, i64 -152
@@ -1065,7 +1065,7 @@ define hidden void @zim_RecursiveIteratorIterator_current(ptr nocapture noundef 
 
 12:                                               ; preds = %.critedge
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str) #10
-  br label %47
+  br label %46
 
 13:                                               ; preds = %.critedge
   %14 = getelementptr inbounds i8, ptr %4, i64 -144
@@ -1079,14 +1079,14 @@ define hidden void @zim_RecursiveIteratorIterator_current(ptr nocapture noundef 
   %22 = load ptr, ptr %21, align 8
   %23 = tail call ptr %22(ptr noundef %18) #10
   %.not31 = icmp eq ptr %23, null
-  br i1 %.not31, label %47, label %24
+  br i1 %.not31, label %46, label %24
 
 24:                                               ; preds = %13
   %25 = getelementptr inbounds i8, ptr %23, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = and i32 %26, 65280
   %.not32 = icmp eq i32 %27, 0
-  br i1 %.not32, label %42, label %28
+  br i1 %.not32, label %41, label %28
 
 28:                                               ; preds = %24
   %29 = and i32 %26, 255
@@ -1100,31 +1100,31 @@ define hidden void @zim_RecursiveIteratorIterator_current(ptr nocapture noundef 
   %35 = load i32, ptr %34, align 8
   %36 = and i32 %35, 65280
   %.not33 = icmp eq i32 %36, 0
-  br i1 %.not33, label %42, label %.sink.split
+  br i1 %.not33, label %41, label %.sink.split
 
 .sink.split:                                      ; preds = %28, %31
-  %.sink = phi i32 [ %35, %31 ], [ %26, %28 ]
-  %.sink36 = phi ptr [ %33, %31 ], [ %23, %28 ]
-  %37 = and i32 %.sink, 65280
+  %.sink38 = phi i32 [ %35, %31 ], [ %26, %28 ]
+  %.sink.in = phi ptr [ %33, %31 ], [ %23, %28 ]
+  %37 = and i32 %.sink38, 65280
   %38 = icmp ne i32 %37, 0
   tail call void @llvm.assume(i1 %38)
-  %39 = load ptr, ptr %.sink36, align 8
-  %40 = load i32, ptr %39, align 4
-  %41 = add i32 %40, 1
-  store i32 %41, ptr %39, align 4
-  br label %42
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %39 = load i32, ptr %.sink, align 4
+  %40 = add i32 %39, 1
+  store i32 %40, ptr %.sink, align 4
+  br label %41
 
-42:                                               ; preds = %.sink.split, %24, %31
-  %.0 = phi ptr [ %33, %31 ], [ %23, %24 ], [ %.sink36, %.sink.split ]
-  %43 = load ptr, ptr %.0, align 8
-  %44 = getelementptr inbounds i8, ptr %.0, i64 8
-  %45 = load i32, ptr %44, align 8
-  store ptr %43, ptr %1, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %45, ptr %46, align 8
-  br label %47
+41:                                               ; preds = %.sink.split, %24, %31
+  %.0 = phi ptr [ %33, %31 ], [ %23, %24 ], [ %.sink.in, %.sink.split ]
+  %42 = load ptr, ptr %.0, align 8
+  %43 = getelementptr inbounds i8, ptr %.0, i64 8
+  %44 = load i32, ptr %43, align 8
+  store ptr %42, ptr %1, align 8
+  %45 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %44, ptr %45, align 8
+  br label %46
 
-47:                                               ; preds = %42, %13, %12, %7
+46:                                               ; preds = %41, %13, %12, %7
   ret void
 }
 
@@ -1712,7 +1712,7 @@ define hidden void @zim_RecursiveIteratorIterator_getSubIterator(ptr nocapture n
   %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %14 = icmp ne ptr %13, null
   call void @llvm.assume(i1 %14)
-  br label %62
+  br label %61
 
 15:                                               ; preds = %2
   %16 = load i8, ptr %4, align 1
@@ -1741,7 +1741,7 @@ define hidden void @zim_RecursiveIteratorIterator_getSubIterator(ptr nocapture n
 30:                                               ; preds = %25, %22
   %31 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 1, ptr %31, align 8
-  br label %62
+  br label %61
 
 32:                                               ; preds = %25, %18
   %33 = phi i64 [ %23, %25 ], [ %21, %18 ]
@@ -1754,7 +1754,7 @@ define hidden void @zim_RecursiveIteratorIterator_getSubIterator(ptr nocapture n
   %36 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %37 = icmp ne ptr %36, null
   call void @llvm.assume(i1 %37)
-  br label %62
+  br label %61
 
 38:                                               ; preds = %32
   %39 = getelementptr inbounds %struct._spl_sub_iterator, ptr %34, i64 %33, i32 1
@@ -1762,7 +1762,7 @@ define hidden void @zim_RecursiveIteratorIterator_getSubIterator(ptr nocapture n
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 65280
   %.not29 = icmp eq i32 %42, 0
-  br i1 %.not29, label %57, label %43
+  br i1 %.not29, label %56, label %43
 
 43:                                               ; preds = %38
   %44 = and i32 %41, 255
@@ -1776,31 +1776,31 @@ define hidden void @zim_RecursiveIteratorIterator_getSubIterator(ptr nocapture n
   %50 = load i32, ptr %49, align 8
   %51 = and i32 %50, 65280
   %.not30 = icmp eq i32 %51, 0
-  br i1 %.not30, label %57, label %.sink.split
+  br i1 %.not30, label %56, label %.sink.split
 
 .sink.split:                                      ; preds = %43, %46
-  %.sink = phi i32 [ %50, %46 ], [ %41, %43 ]
-  %.sink33 = phi ptr [ %48, %46 ], [ %39, %43 ]
-  %52 = and i32 %.sink, 65280
+  %.sink35 = phi i32 [ %50, %46 ], [ %41, %43 ]
+  %.sink.in = phi ptr [ %48, %46 ], [ %39, %43 ]
+  %52 = and i32 %.sink35, 65280
   %53 = icmp ne i32 %52, 0
   call void @llvm.assume(i1 %53)
-  %54 = load ptr, ptr %.sink33, align 8
-  %55 = load i32, ptr %54, align 4
-  %56 = add i32 %55, 1
-  store i32 %56, ptr %54, align 4
-  br label %57
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %54 = load i32, ptr %.sink, align 4
+  %55 = add i32 %54, 1
+  store i32 %55, ptr %.sink, align 4
+  br label %56
 
-57:                                               ; preds = %.sink.split, %38, %46
-  %.0 = phi ptr [ %48, %46 ], [ %39, %38 ], [ %.sink33, %.sink.split ]
-  %58 = load ptr, ptr %.0, align 8
-  %59 = getelementptr inbounds i8, ptr %.0, i64 8
-  %60 = load i32, ptr %59, align 8
-  store ptr %58, ptr %1, align 8
-  %61 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %60, ptr %61, align 8
-  br label %62
+56:                                               ; preds = %.sink.split, %38, %46
+  %.0 = phi ptr [ %48, %46 ], [ %39, %38 ], [ %.sink.in, %.sink.split ]
+  %57 = load ptr, ptr %.0, align 8
+  %58 = getelementptr inbounds i8, ptr %.0, i64 8
+  %59 = load i32, ptr %58, align 8
+  store ptr %57, ptr %1, align 8
+  %60 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %59, ptr %60, align 8
+  br label %61
 
-62:                                               ; preds = %57, %35, %30, %12
+61:                                               ; preds = %56, %35, %30, %12
   ret void
 }
 
@@ -1820,7 +1820,7 @@ define hidden void @zim_RecursiveIteratorIterator_getInnerIterator(ptr nocapture
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %9 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %9)
-  br label %42
+  br label %41
 
 .critedge:                                        ; preds = %2
   %10 = getelementptr inbounds i8, ptr %4, i64 -152
@@ -1833,7 +1833,7 @@ define hidden void @zim_RecursiveIteratorIterator_getInnerIterator(ptr nocapture
   %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %14 = icmp ne ptr %13, null
   tail call void @llvm.assume(i1 %14)
-  br label %42
+  br label %41
 
 15:                                               ; preds = %.critedge
   %16 = getelementptr inbounds i8, ptr %4, i64 -144
@@ -1844,7 +1844,7 @@ define hidden void @zim_RecursiveIteratorIterator_getInnerIterator(ptr nocapture
   %21 = load i32, ptr %20, align 8
   %22 = and i32 %21, 65280
   %.not27 = icmp eq i32 %22, 0
-  br i1 %.not27, label %37, label %23
+  br i1 %.not27, label %36, label %23
 
 23:                                               ; preds = %15
   %24 = and i32 %21, 255
@@ -1858,31 +1858,31 @@ define hidden void @zim_RecursiveIteratorIterator_getInnerIterator(ptr nocapture
   %30 = load i32, ptr %29, align 8
   %31 = and i32 %30, 65280
   %.not28 = icmp eq i32 %31, 0
-  br i1 %.not28, label %37, label %.sink.split
+  br i1 %.not28, label %36, label %.sink.split
 
 .sink.split:                                      ; preds = %23, %26
-  %.sink = phi i32 [ %30, %26 ], [ %21, %23 ]
-  %.sink31 = phi ptr [ %28, %26 ], [ %19, %23 ]
-  %32 = and i32 %.sink, 65280
+  %.sink33 = phi i32 [ %30, %26 ], [ %21, %23 ]
+  %.sink.in = phi ptr [ %28, %26 ], [ %19, %23 ]
+  %32 = and i32 %.sink33, 65280
   %33 = icmp ne i32 %32, 0
   tail call void @llvm.assume(i1 %33)
-  %34 = load ptr, ptr %.sink31, align 8
-  %35 = load i32, ptr %34, align 4
-  %36 = add i32 %35, 1
-  store i32 %36, ptr %34, align 4
-  br label %37
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %34 = load i32, ptr %.sink, align 4
+  %35 = add i32 %34, 1
+  store i32 %35, ptr %.sink, align 4
+  br label %36
 
-37:                                               ; preds = %.sink.split, %15, %26
-  %.0 = phi ptr [ %28, %26 ], [ %19, %15 ], [ %.sink31, %.sink.split ]
-  %38 = load ptr, ptr %.0, align 8
-  %39 = getelementptr inbounds i8, ptr %.0, i64 8
-  %40 = load i32, ptr %39, align 8
-  store ptr %38, ptr %1, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %40, ptr %41, align 8
-  br label %42
+36:                                               ; preds = %.sink.split, %15, %26
+  %.0 = phi ptr [ %28, %26 ], [ %19, %15 ], [ %.sink.in, %.sink.split ]
+  %37 = load ptr, ptr %.0, align 8
+  %38 = getelementptr inbounds i8, ptr %.0, i64 8
+  %39 = load i32, ptr %38, align 8
+  store ptr %37, ptr %1, align 8
+  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %39, ptr %40, align 8
+  br label %41
 
-42:                                               ; preds = %37, %12, %7
+41:                                               ; preds = %36, %12, %7
   ret void
 }
 
@@ -2849,7 +2849,7 @@ define hidden void @zim_RecursiveTreeIterator_current(ptr nocapture noundef read
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
-  br label %136
+  br label %135
 
 .critedge:                                        ; preds = %2
   %11 = load ptr, ptr %5, align 8
@@ -2861,7 +2861,7 @@ define hidden void @zim_RecursiveTreeIterator_current(ptr nocapture noundef read
   %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %14 = icmp ne ptr %13, null
   tail call void @llvm.assume(i1 %14)
-  br label %136
+  br label %135
 
 15:                                               ; preds = %.critedge
   %16 = getelementptr inbounds i8, ptr %4, i64 -136
@@ -2879,17 +2879,17 @@ define hidden void @zim_RecursiveTreeIterator_current(ptr nocapture noundef read
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr %26(ptr noundef %22) #10
   %.not.i = icmp eq ptr %27, null
-  br i1 %.not81, label %54, label %28
+  br i1 %.not81, label %53, label %28
 
 28:                                               ; preds = %15
-  br i1 %.not.i, label %52, label %29
+  br i1 %.not.i, label %51, label %29
 
 29:                                               ; preds = %28
   %30 = getelementptr inbounds i8, ptr %27, i64 8
   %31 = load i32, ptr %30, align 8
   %32 = and i32 %31, 65280
   %.not90 = icmp eq i32 %32, 0
-  br i1 %.not90, label %47, label %33
+  br i1 %.not90, label %46, label %33
 
 33:                                               ; preds = %29
   %34 = and i32 %31, 255
@@ -2903,213 +2903,213 @@ define hidden void @zim_RecursiveTreeIterator_current(ptr nocapture noundef read
   %40 = load i32, ptr %39, align 8
   %41 = and i32 %40, 65280
   %.not91 = icmp eq i32 %41, 0
-  br i1 %.not91, label %47, label %.sink.split
+  br i1 %.not91, label %46, label %.sink.split
 
 .sink.split:                                      ; preds = %33, %36
-  %.sink = phi i32 [ %40, %36 ], [ %31, %33 ]
-  %.sink103 = phi ptr [ %38, %36 ], [ %27, %33 ]
-  %42 = and i32 %.sink, 65280
+  %.sink105 = phi i32 [ %40, %36 ], [ %31, %33 ]
+  %.sink.in = phi ptr [ %38, %36 ], [ %27, %33 ]
+  %42 = and i32 %.sink105, 65280
   %43 = icmp ne i32 %42, 0
   tail call void @llvm.assume(i1 %43)
-  %44 = load ptr, ptr %.sink103, align 8
-  %45 = load i32, ptr %44, align 4
-  %46 = add i32 %45, 1
-  store i32 %46, ptr %44, align 4
-  br label %47
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %44 = load i32, ptr %.sink, align 4
+  %45 = add i32 %44, 1
+  store i32 %45, ptr %.sink, align 4
+  br label %46
 
-47:                                               ; preds = %.sink.split, %29, %36
-  %.0 = phi ptr [ %38, %36 ], [ %27, %29 ], [ %.sink103, %.sink.split ]
-  %48 = load ptr, ptr %.0, align 8
-  %49 = getelementptr inbounds i8, ptr %.0, i64 8
-  %50 = load i32, ptr %49, align 8
-  store ptr %48, ptr %1, align 8
-  %51 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %50, ptr %51, align 8
-  br label %136
+46:                                               ; preds = %.sink.split, %29, %36
+  %.0 = phi ptr [ %38, %36 ], [ %27, %29 ], [ %.sink.in, %.sink.split ]
+  %47 = load ptr, ptr %.0, align 8
+  %48 = getelementptr inbounds i8, ptr %.0, i64 8
+  %49 = load i32, ptr %48, align 8
+  store ptr %47, ptr %1, align 8
+  %50 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %49, ptr %50, align 8
+  br label %135
 
-52:                                               ; preds = %28
-  %53 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 1, ptr %53, align 8
-  br label %136
+51:                                               ; preds = %28
+  %52 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 1, ptr %52, align 8
+  br label %135
 
-54:                                               ; preds = %15
-  br i1 %.not.i, label %spl_recursive_tree_iterator_get_entry.exit.thread98, label %55
+53:                                               ; preds = %15
+  br i1 %.not.i, label %spl_recursive_tree_iterator_get_entry.exit.thread98, label %54
 
-55:                                               ; preds = %54
-  %56 = getelementptr inbounds i8, ptr %27, i64 8
-  %57 = load i8, ptr %56, align 8
-  %58 = icmp eq i8 %57, 10
-  br i1 %58, label %59, label %62
+54:                                               ; preds = %53
+  %55 = getelementptr inbounds i8, ptr %27, i64 8
+  %56 = load i8, ptr %55, align 8
+  %57 = icmp eq i8 %56, 10
+  br i1 %57, label %58, label %61
 
-59:                                               ; preds = %55
-  %60 = load ptr, ptr %27, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %60, i64 16
+58:                                               ; preds = %54
+  %59 = load ptr, ptr %27, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %59, i64 16
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8
-  br label %62
+  br label %61
 
-62:                                               ; preds = %59, %55
-  %63 = phi i8 [ %.pre.i, %59 ], [ %57, %55 ]
-  %.0.i = phi ptr [ %61, %59 ], [ %27, %55 ]
-  switch i8 %63, label %76 [
-    i8 7, label %64
-    i8 6, label %68
+61:                                               ; preds = %58, %54
+  %62 = phi i8 [ %.pre.i, %58 ], [ %56, %54 ]
+  %.0.i = phi ptr [ %60, %58 ], [ %27, %54 ]
+  switch i8 %62, label %75 [
+    i8 7, label %63
+    i8 6, label %67
   ]
 
-64:                                               ; preds = %62
-  %65 = load ptr, ptr @zend_known_strings, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 376
-  %67 = load ptr, ptr %66, align 8
+63:                                               ; preds = %61
+  %64 = load ptr, ptr @zend_known_strings, align 8
+  %65 = getelementptr inbounds i8, ptr %64, i64 376
+  %66 = load ptr, ptr %65, align 8
   br label %spl_recursive_tree_iterator_get_entry.exit
 
-68:                                               ; preds = %62
-  %69 = load ptr, ptr %.0.i, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 4
-  %71 = load i32, ptr %70, align 4
-  %72 = and i32 %71, 64
-  %.not23.i = icmp eq i32 %72, 0
-  br i1 %.not23.i, label %73, label %spl_recursive_tree_iterator_get_entry.exit.thread
+67:                                               ; preds = %61
+  %68 = load ptr, ptr %.0.i, align 8
+  %69 = getelementptr inbounds i8, ptr %68, i64 4
+  %70 = load i32, ptr %69, align 4
+  %71 = and i32 %70, 64
+  %.not23.i = icmp eq i32 %71, 0
+  br i1 %.not23.i, label %72, label %spl_recursive_tree_iterator_get_entry.exit.thread
 
-73:                                               ; preds = %68
-  %74 = load i32, ptr %69, align 4
-  %75 = add i32 %74, 1
-  store i32 %75, ptr %69, align 4
+72:                                               ; preds = %67
+  %73 = load i32, ptr %68, align 4
+  %74 = add i32 %73, 1
+  store i32 %74, ptr %68, align 4
   br label %spl_recursive_tree_iterator_get_entry.exit.thread
 
-76:                                               ; preds = %62
-  %77 = tail call ptr @zval_get_string_func(ptr noundef nonnull %.0.i) #10
+75:                                               ; preds = %61
+  %76 = tail call ptr @zval_get_string_func(ptr noundef nonnull %.0.i) #10
   br label %spl_recursive_tree_iterator_get_entry.exit
 
-spl_recursive_tree_iterator_get_entry.exit:       ; preds = %64, %76
-  %.020.i = phi ptr [ %67, %64 ], [ %77, %76 ]
+spl_recursive_tree_iterator_get_entry.exit:       ; preds = %63, %75
+  %.020.i = phi ptr [ %66, %63 ], [ %76, %75 ]
   %.not82 = icmp eq ptr %.020.i, null
   br i1 %.not82, label %spl_recursive_tree_iterator_get_entry.exit.thread98, label %spl_recursive_tree_iterator_get_entry.exit.thread
 
-spl_recursive_tree_iterator_get_entry.exit.thread98: ; preds = %54, %spl_recursive_tree_iterator_get_entry.exit
-  %78 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 1, ptr %78, align 8
-  br label %136
+spl_recursive_tree_iterator_get_entry.exit.thread98: ; preds = %53, %spl_recursive_tree_iterator_get_entry.exit
+  %77 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 1, ptr %77, align 8
+  br label %135
 
-spl_recursive_tree_iterator_get_entry.exit.thread: ; preds = %68, %73, %spl_recursive_tree_iterator_get_entry.exit
-  %.020.i97 = phi ptr [ %.020.i, %spl_recursive_tree_iterator_get_entry.exit ], [ %69, %73 ], [ %69, %68 ]
-  %79 = tail call fastcc ptr @spl_recursive_tree_iterator_get_prefix(ptr noundef nonnull %5)
-  %80 = getelementptr i8, ptr %4, i64 -8
-  %.val93 = load ptr, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %.val93, i64 4
-  %82 = load i32, ptr %81, align 4
-  %83 = and i32 %82, 64
-  %.not.i94 = icmp eq i32 %83, 0
-  br i1 %.not.i94, label %84, label %spl_recursive_tree_iterator_get_postfix.exit
+spl_recursive_tree_iterator_get_entry.exit.thread: ; preds = %67, %72, %spl_recursive_tree_iterator_get_entry.exit
+  %.020.i97 = phi ptr [ %.020.i, %spl_recursive_tree_iterator_get_entry.exit ], [ %68, %72 ], [ %68, %67 ]
+  %78 = tail call fastcc ptr @spl_recursive_tree_iterator_get_prefix(ptr noundef nonnull %5)
+  %79 = getelementptr i8, ptr %4, i64 -8
+  %.val93 = load ptr, ptr %79, align 8
+  %80 = getelementptr inbounds i8, ptr %.val93, i64 4
+  %81 = load i32, ptr %80, align 4
+  %82 = and i32 %81, 64
+  %.not.i94 = icmp eq i32 %82, 0
+  br i1 %.not.i94, label %83, label %spl_recursive_tree_iterator_get_postfix.exit
 
-84:                                               ; preds = %spl_recursive_tree_iterator_get_entry.exit.thread
-  %85 = load i32, ptr %.val93, align 4
-  %86 = add i32 %85, 1
-  store i32 %86, ptr %.val93, align 4
+83:                                               ; preds = %spl_recursive_tree_iterator_get_entry.exit.thread
+  %84 = load i32, ptr %.val93, align 4
+  %85 = add i32 %84, 1
+  store i32 %85, ptr %.val93, align 4
   br label %spl_recursive_tree_iterator_get_postfix.exit
 
-spl_recursive_tree_iterator_get_postfix.exit:     ; preds = %spl_recursive_tree_iterator_get_entry.exit.thread, %84
-  %87 = getelementptr inbounds i8, ptr %79, i64 24
-  %88 = getelementptr inbounds i8, ptr %79, i64 16
-  %89 = load i64, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %.020.i97, i64 24
-  %91 = getelementptr inbounds i8, ptr %.020.i97, i64 16
-  %92 = load i64, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %.val93, i64 24
-  %94 = getelementptr inbounds i8, ptr %.val93, i64 16
-  %95 = load i64, ptr %94, align 8
-  %96 = tail call ptr @zend_string_concat3(ptr noundef nonnull %87, i64 noundef %89, ptr noundef nonnull %90, i64 noundef %92, ptr noundef nonnull %93, i64 noundef %95) #10
-  %97 = getelementptr inbounds i8, ptr %.020.i97, i64 4
-  %98 = load i32, ptr %97, align 4
-  %99 = and i32 %98, 64
-  %.not83 = icmp eq i32 %99, 0
-  br i1 %.not83, label %100, label %109
+spl_recursive_tree_iterator_get_postfix.exit:     ; preds = %spl_recursive_tree_iterator_get_entry.exit.thread, %83
+  %86 = getelementptr inbounds i8, ptr %78, i64 24
+  %87 = getelementptr inbounds i8, ptr %78, i64 16
+  %88 = load i64, ptr %87, align 8
+  %89 = getelementptr inbounds i8, ptr %.020.i97, i64 24
+  %90 = getelementptr inbounds i8, ptr %.020.i97, i64 16
+  %91 = load i64, ptr %90, align 8
+  %92 = getelementptr inbounds i8, ptr %.val93, i64 24
+  %93 = getelementptr inbounds i8, ptr %.val93, i64 16
+  %94 = load i64, ptr %93, align 8
+  %95 = tail call ptr @zend_string_concat3(ptr noundef nonnull %86, i64 noundef %88, ptr noundef nonnull %89, i64 noundef %91, ptr noundef nonnull %92, i64 noundef %94) #10
+  %96 = getelementptr inbounds i8, ptr %.020.i97, i64 4
+  %97 = load i32, ptr %96, align 4
+  %98 = and i32 %97, 64
+  %.not83 = icmp eq i32 %98, 0
+  br i1 %.not83, label %99, label %108
 
-100:                                              ; preds = %spl_recursive_tree_iterator_get_postfix.exit
-  %101 = load i32, ptr %.020.i97, align 4
-  %102 = icmp ne i32 %101, 0
-  tail call void @llvm.assume(i1 %102)
-  %103 = add i32 %101, -1
-  store i32 %103, ptr %.020.i97, align 4
-  %104 = icmp eq i32 %103, 0
-  br i1 %104, label %105, label %109
+99:                                               ; preds = %spl_recursive_tree_iterator_get_postfix.exit
+  %100 = load i32, ptr %.020.i97, align 4
+  %101 = icmp ne i32 %100, 0
+  tail call void @llvm.assume(i1 %101)
+  %102 = add i32 %100, -1
+  store i32 %102, ptr %.020.i97, align 4
+  %103 = icmp eq i32 %102, 0
+  br i1 %103, label %104, label %108
 
-105:                                              ; preds = %100
-  %106 = and i32 %98, 128
-  %.not84 = icmp eq i32 %106, 0
-  br i1 %.not84, label %108, label %107
+104:                                              ; preds = %99
+  %105 = and i32 %97, 128
+  %.not84 = icmp eq i32 %105, 0
+  br i1 %.not84, label %107, label %106
 
-107:                                              ; preds = %105
+106:                                              ; preds = %104
   tail call void @free(ptr noundef nonnull %.020.i97) #10
-  br label %109
+  br label %108
 
-108:                                              ; preds = %105
+107:                                              ; preds = %104
   tail call void @_efree(ptr noundef nonnull %.020.i97) #10
-  br label %109
+  br label %108
 
-109:                                              ; preds = %100, %108, %107, %spl_recursive_tree_iterator_get_postfix.exit
-  %110 = getelementptr inbounds i8, ptr %79, i64 4
-  %111 = load i32, ptr %110, align 4
-  %112 = and i32 %111, 64
-  %.not85 = icmp eq i32 %112, 0
-  br i1 %.not85, label %113, label %122
+108:                                              ; preds = %99, %107, %106, %spl_recursive_tree_iterator_get_postfix.exit
+  %109 = getelementptr inbounds i8, ptr %78, i64 4
+  %110 = load i32, ptr %109, align 4
+  %111 = and i32 %110, 64
+  %.not85 = icmp eq i32 %111, 0
+  br i1 %.not85, label %112, label %121
 
-113:                                              ; preds = %109
-  %114 = load i32, ptr %79, align 4
-  %115 = icmp ne i32 %114, 0
-  tail call void @llvm.assume(i1 %115)
-  %116 = add i32 %114, -1
-  store i32 %116, ptr %79, align 4
-  %117 = icmp eq i32 %116, 0
-  br i1 %117, label %118, label %122
+112:                                              ; preds = %108
+  %113 = load i32, ptr %78, align 4
+  %114 = icmp ne i32 %113, 0
+  tail call void @llvm.assume(i1 %114)
+  %115 = add i32 %113, -1
+  store i32 %115, ptr %78, align 4
+  %116 = icmp eq i32 %115, 0
+  br i1 %116, label %117, label %121
 
-118:                                              ; preds = %113
-  %119 = and i32 %111, 128
-  %.not86 = icmp eq i32 %119, 0
-  br i1 %.not86, label %121, label %120
+117:                                              ; preds = %112
+  %118 = and i32 %110, 128
+  %.not86 = icmp eq i32 %118, 0
+  br i1 %.not86, label %120, label %119
 
-120:                                              ; preds = %118
-  tail call void @free(ptr noundef nonnull %79) #10
-  br label %122
+119:                                              ; preds = %117
+  tail call void @free(ptr noundef nonnull %78) #10
+  br label %121
 
-121:                                              ; preds = %118
-  tail call void @_efree(ptr noundef nonnull %79) #10
-  br label %122
+120:                                              ; preds = %117
+  tail call void @_efree(ptr noundef nonnull %78) #10
+  br label %121
 
-122:                                              ; preds = %113, %121, %120, %109
-  %123 = load i32, ptr %81, align 4
-  %124 = and i32 %123, 64
-  %.not87 = icmp eq i32 %124, 0
-  br i1 %.not87, label %125, label %134
+121:                                              ; preds = %112, %120, %119, %108
+  %122 = load i32, ptr %80, align 4
+  %123 = and i32 %122, 64
+  %.not87 = icmp eq i32 %123, 0
+  br i1 %.not87, label %124, label %133
 
-125:                                              ; preds = %122
-  %126 = load i32, ptr %.val93, align 4
-  %127 = icmp ne i32 %126, 0
-  tail call void @llvm.assume(i1 %127)
-  %128 = add i32 %126, -1
-  store i32 %128, ptr %.val93, align 4
-  %129 = icmp eq i32 %128, 0
-  br i1 %129, label %130, label %134
+124:                                              ; preds = %121
+  %125 = load i32, ptr %.val93, align 4
+  %126 = icmp ne i32 %125, 0
+  tail call void @llvm.assume(i1 %126)
+  %127 = add i32 %125, -1
+  store i32 %127, ptr %.val93, align 4
+  %128 = icmp eq i32 %127, 0
+  br i1 %128, label %129, label %133
 
-130:                                              ; preds = %125
-  %131 = and i32 %123, 128
-  %.not88 = icmp eq i32 %131, 0
-  br i1 %.not88, label %133, label %132
+129:                                              ; preds = %124
+  %130 = and i32 %122, 128
+  %.not88 = icmp eq i32 %130, 0
+  br i1 %.not88, label %132, label %131
 
-132:                                              ; preds = %130
+131:                                              ; preds = %129
   tail call void @free(ptr noundef nonnull %.val93) #10
-  br label %134
+  br label %133
 
-133:                                              ; preds = %130
+132:                                              ; preds = %129
   tail call void @_efree(ptr noundef nonnull %.val93) #10
-  br label %134
+  br label %133
 
-134:                                              ; preds = %125, %133, %132, %122
-  store ptr %96, ptr %1, align 8
-  %135 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 262, ptr %135, align 8
-  br label %136
+133:                                              ; preds = %124, %132, %131, %121
+  store ptr %95, ptr %1, align 8
+  %134 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 262, ptr %134, align 8
+  br label %135
 
-136:                                              ; preds = %134, %spl_recursive_tree_iterator_get_entry.exit.thread98, %52, %47, %12, %8
+135:                                              ; preds = %133, %spl_recursive_tree_iterator_get_entry.exit.thread98, %51, %46, %12, %8
   ret void
 }
 
@@ -3784,7 +3784,7 @@ define hidden void @zim_IteratorIterator_getInnerIterator(ptr nocapture noundef 
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
-  br label %45
+  br label %44
 
 .critedge:                                        ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 32
@@ -3800,19 +3800,19 @@ define hidden void @zim_IteratorIterator_getInnerIterator(ptr nocapture noundef 
   %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %16 = icmp ne ptr %15, null
   tail call void @llvm.assume(i1 %16)
-  br label %45
+  br label %44
 
 17:                                               ; preds = %.critedge
   %18 = getelementptr inbounds i8, ptr %9, i64 -128
   %19 = load i8, ptr %18, align 8
   %20 = icmp eq i8 %19, 0
-  br i1 %20, label %43, label %21
+  br i1 %20, label %42, label %21
 
 21:                                               ; preds = %17
   %22 = load i32, ptr %18, align 8
   %23 = and i32 %22, 65280
   %.not28 = icmp eq i32 %23, 0
-  br i1 %.not28, label %38, label %24
+  br i1 %.not28, label %37, label %24
 
 24:                                               ; preds = %21
   %25 = and i32 %22, 255
@@ -3826,36 +3826,36 @@ define hidden void @zim_IteratorIterator_getInnerIterator(ptr nocapture noundef 
   %31 = load i32, ptr %30, align 8
   %32 = and i32 %31, 65280
   %.not29 = icmp eq i32 %32, 0
-  br i1 %.not29, label %38, label %.sink.split
+  br i1 %.not29, label %37, label %.sink.split
 
 .sink.split:                                      ; preds = %24, %27
-  %.sink = phi i32 [ %31, %27 ], [ %22, %24 ]
-  %.sink32 = phi ptr [ %29, %27 ], [ %10, %24 ]
-  %33 = and i32 %.sink, 65280
+  %.sink34 = phi i32 [ %31, %27 ], [ %22, %24 ]
+  %.sink.in = phi ptr [ %29, %27 ], [ %10, %24 ]
+  %33 = and i32 %.sink34, 65280
   %34 = icmp ne i32 %33, 0
   tail call void @llvm.assume(i1 %34)
-  %35 = load ptr, ptr %.sink32, align 8
-  %36 = load i32, ptr %35, align 4
-  %37 = add i32 %36, 1
-  store i32 %37, ptr %35, align 4
-  br label %38
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %35 = load i32, ptr %.sink, align 4
+  %36 = add i32 %35, 1
+  store i32 %36, ptr %.sink, align 4
+  br label %37
 
-38:                                               ; preds = %.sink.split, %21, %27
-  %.0 = phi ptr [ %29, %27 ], [ %10, %21 ], [ %.sink32, %.sink.split ]
-  %39 = load ptr, ptr %.0, align 8
-  %40 = getelementptr inbounds i8, ptr %.0, i64 8
-  %41 = load i32, ptr %40, align 8
-  store ptr %39, ptr %1, align 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %41, ptr %42, align 8
-  br label %45
+37:                                               ; preds = %.sink.split, %21, %27
+  %.0 = phi ptr [ %29, %27 ], [ %10, %21 ], [ %.sink.in, %.sink.split ]
+  %38 = load ptr, ptr %.0, align 8
+  %39 = getelementptr inbounds i8, ptr %.0, i64 8
+  %40 = load i32, ptr %39, align 8
+  store ptr %38, ptr %1, align 8
+  %41 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %40, ptr %41, align 8
+  br label %44
 
-43:                                               ; preds = %17
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 1, ptr %44, align 8
-  br label %45
+42:                                               ; preds = %17
+  %43 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 1, ptr %43, align 8
+  br label %44
 
-45:                                               ; preds = %43, %38, %14, %5
+44:                                               ; preds = %42, %37, %14, %5
   ret void
 }
 
@@ -4128,7 +4128,7 @@ define hidden void @zim_IteratorIterator_key(ptr nocapture noundef readonly %0, 
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
-  br label %44
+  br label %43
 
 .critedge:                                        ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 32
@@ -4143,20 +4143,20 @@ define hidden void @zim_IteratorIterator_key(ptr nocapture noundef readonly %0, 
   %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %15 = icmp ne ptr %14, null
   tail call void @llvm.assume(i1 %15)
-  br label %44
+  br label %43
 
 16:                                               ; preds = %.critedge
   %17 = getelementptr inbounds i8, ptr %9, i64 -80
   %18 = getelementptr inbounds i8, ptr %9, i64 -72
   %19 = load i8, ptr %18, align 8
   %.not27 = icmp eq i8 %19, 0
-  br i1 %.not27, label %42, label %20
+  br i1 %.not27, label %41, label %20
 
 20:                                               ; preds = %16
   %21 = load i32, ptr %18, align 8
   %22 = and i32 %21, 65280
   %.not28 = icmp eq i32 %22, 0
-  br i1 %.not28, label %37, label %23
+  br i1 %.not28, label %36, label %23
 
 23:                                               ; preds = %20
   %24 = and i32 %21, 255
@@ -4170,36 +4170,36 @@ define hidden void @zim_IteratorIterator_key(ptr nocapture noundef readonly %0, 
   %30 = load i32, ptr %29, align 8
   %31 = and i32 %30, 65280
   %.not29 = icmp eq i32 %31, 0
-  br i1 %.not29, label %37, label %.sink.split
+  br i1 %.not29, label %36, label %.sink.split
 
 .sink.split:                                      ; preds = %23, %26
-  %.sink = phi i32 [ %30, %26 ], [ %21, %23 ]
-  %.sink32 = phi ptr [ %28, %26 ], [ %17, %23 ]
-  %32 = and i32 %.sink, 65280
+  %.sink34 = phi i32 [ %30, %26 ], [ %21, %23 ]
+  %.sink.in = phi ptr [ %28, %26 ], [ %17, %23 ]
+  %32 = and i32 %.sink34, 65280
   %33 = icmp ne i32 %32, 0
   tail call void @llvm.assume(i1 %33)
-  %34 = load ptr, ptr %.sink32, align 8
-  %35 = load i32, ptr %34, align 4
-  %36 = add i32 %35, 1
-  store i32 %36, ptr %34, align 4
-  br label %37
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %34 = load i32, ptr %.sink, align 4
+  %35 = add i32 %34, 1
+  store i32 %35, ptr %.sink, align 4
+  br label %36
 
-37:                                               ; preds = %.sink.split, %20, %26
-  %.0 = phi ptr [ %28, %26 ], [ %17, %20 ], [ %.sink32, %.sink.split ]
-  %38 = load ptr, ptr %.0, align 8
-  %39 = getelementptr inbounds i8, ptr %.0, i64 8
-  %40 = load i32, ptr %39, align 8
-  store ptr %38, ptr %1, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %40, ptr %41, align 8
-  br label %44
+36:                                               ; preds = %.sink.split, %20, %26
+  %.0 = phi ptr [ %28, %26 ], [ %17, %20 ], [ %.sink.in, %.sink.split ]
+  %37 = load ptr, ptr %.0, align 8
+  %38 = getelementptr inbounds i8, ptr %.0, i64 8
+  %39 = load i32, ptr %38, align 8
+  store ptr %37, ptr %1, align 8
+  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %39, ptr %40, align 8
+  br label %43
 
-42:                                               ; preds = %16
-  %43 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 1, ptr %43, align 8
-  br label %44
+41:                                               ; preds = %16
+  %42 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 1, ptr %42, align 8
+  br label %43
 
-44:                                               ; preds = %42, %37, %13, %5
+43:                                               ; preds = %41, %36, %13, %5
   ret void
 }
 
@@ -4215,7 +4215,7 @@ define hidden void @zim_IteratorIterator_current(ptr nocapture noundef readonly 
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
-  br label %44
+  br label %43
 
 .critedge:                                        ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 32
@@ -4230,20 +4230,20 @@ define hidden void @zim_IteratorIterator_current(ptr nocapture noundef readonly 
   %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %15 = icmp ne ptr %14, null
   tail call void @llvm.assume(i1 %15)
-  br label %44
+  br label %43
 
 16:                                               ; preds = %.critedge
   %17 = getelementptr inbounds i8, ptr %9, i64 -96
   %18 = getelementptr inbounds i8, ptr %9, i64 -88
   %19 = load i8, ptr %18, align 8
   %.not27 = icmp eq i8 %19, 0
-  br i1 %.not27, label %42, label %20
+  br i1 %.not27, label %41, label %20
 
 20:                                               ; preds = %16
   %21 = load i32, ptr %18, align 8
   %22 = and i32 %21, 65280
   %.not28 = icmp eq i32 %22, 0
-  br i1 %.not28, label %37, label %23
+  br i1 %.not28, label %36, label %23
 
 23:                                               ; preds = %20
   %24 = and i32 %21, 255
@@ -4257,36 +4257,36 @@ define hidden void @zim_IteratorIterator_current(ptr nocapture noundef readonly 
   %30 = load i32, ptr %29, align 8
   %31 = and i32 %30, 65280
   %.not29 = icmp eq i32 %31, 0
-  br i1 %.not29, label %37, label %.sink.split
+  br i1 %.not29, label %36, label %.sink.split
 
 .sink.split:                                      ; preds = %23, %26
-  %.sink = phi i32 [ %30, %26 ], [ %21, %23 ]
-  %.sink32 = phi ptr [ %28, %26 ], [ %17, %23 ]
-  %32 = and i32 %.sink, 65280
+  %.sink34 = phi i32 [ %30, %26 ], [ %21, %23 ]
+  %.sink.in = phi ptr [ %28, %26 ], [ %17, %23 ]
+  %32 = and i32 %.sink34, 65280
   %33 = icmp ne i32 %32, 0
   tail call void @llvm.assume(i1 %33)
-  %34 = load ptr, ptr %.sink32, align 8
-  %35 = load i32, ptr %34, align 4
-  %36 = add i32 %35, 1
-  store i32 %36, ptr %34, align 4
-  br label %37
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %34 = load i32, ptr %.sink, align 4
+  %35 = add i32 %34, 1
+  store i32 %35, ptr %.sink, align 4
+  br label %36
 
-37:                                               ; preds = %.sink.split, %20, %26
-  %.0 = phi ptr [ %28, %26 ], [ %17, %20 ], [ %.sink32, %.sink.split ]
-  %38 = load ptr, ptr %.0, align 8
-  %39 = getelementptr inbounds i8, ptr %.0, i64 8
-  %40 = load i32, ptr %39, align 8
-  store ptr %38, ptr %1, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %40, ptr %41, align 8
-  br label %44
+36:                                               ; preds = %.sink.split, %20, %26
+  %.0 = phi ptr [ %28, %26 ], [ %17, %20 ], [ %.sink.in, %.sink.split ]
+  %37 = load ptr, ptr %.0, align 8
+  %38 = getelementptr inbounds i8, ptr %.0, i64 8
+  %39 = load i32, ptr %38, align 8
+  store ptr %37, ptr %1, align 8
+  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %39, ptr %40, align 8
+  br label %43
 
-42:                                               ; preds = %16
-  %43 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 1, ptr %43, align 8
-  br label %44
+41:                                               ; preds = %16
+  %42 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 1, ptr %42, align 8
+  br label %43
 
-44:                                               ; preds = %42, %37, %13, %5
+43:                                               ; preds = %41, %36, %13, %5
   ret void
 }
 
@@ -7233,7 +7233,7 @@ define hidden void @zim_CachingIterator_offsetGet(ptr nocapture noundef readonly
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %11 = icmp ne ptr %10, null
   call void @llvm.assume(i1 %11)
-  br label %85
+  br label %84
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %0, i64 32
@@ -7248,7 +7248,7 @@ define hidden void @zim_CachingIterator_offsetGet(ptr nocapture noundef readonly
   %19 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %20 = icmp ne ptr %19, null
   call void @llvm.assume(i1 %20)
-  br label %85
+  br label %84
 
 21:                                               ; preds = %12
   %22 = getelementptr inbounds i8, ptr %14, i64 -48
@@ -7268,7 +7268,7 @@ define hidden void @zim_CachingIterator_offsetGet(ptr nocapture noundef readonly
   %33 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %34 = icmp ne ptr %33, null
   call void @llvm.assume(i1 %34)
-  br label %85
+  br label %84
 
 35:                                               ; preds = %21
   %36 = getelementptr inbounds i8, ptr %14, i64 -16
@@ -7318,14 +7318,14 @@ define hidden void @zim_CachingIterator_offsetGet(ptr nocapture noundef readonly
   %60 = load ptr, ptr %4, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 24
   call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.16, ptr noundef nonnull %61) #10
-  br label %85
+  br label %84
 
 62:                                               ; preds = %57
   %63 = getelementptr inbounds i8, ptr %.044, i64 8
   %64 = load i32, ptr %63, align 8
   %65 = and i32 %64, 65280
   %.not49 = icmp eq i32 %65, 0
-  br i1 %.not49, label %80, label %66
+  br i1 %.not49, label %79, label %66
 
 66:                                               ; preds = %62
   %67 = and i32 %64, 255
@@ -7339,31 +7339,31 @@ define hidden void @zim_CachingIterator_offsetGet(ptr nocapture noundef readonly
   %73 = load i32, ptr %72, align 8
   %74 = and i32 %73, 65280
   %.not50 = icmp eq i32 %74, 0
-  br i1 %.not50, label %80, label %.sink.split
+  br i1 %.not50, label %79, label %.sink.split
 
 .sink.split:                                      ; preds = %66, %69
-  %.sink = phi i32 [ %73, %69 ], [ %64, %66 ]
-  %.sink53 = phi ptr [ %71, %69 ], [ %.044, %66 ]
-  %75 = and i32 %.sink, 65280
+  %.sink55 = phi i32 [ %73, %69 ], [ %64, %66 ]
+  %.sink.in = phi ptr [ %71, %69 ], [ %.044, %66 ]
+  %75 = and i32 %.sink55, 65280
   %76 = icmp ne i32 %75, 0
   call void @llvm.assume(i1 %76)
-  %77 = load ptr, ptr %.sink53, align 8
-  %78 = load i32, ptr %77, align 4
-  %79 = add i32 %78, 1
-  store i32 %79, ptr %77, align 4
-  br label %80
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %77 = load i32, ptr %.sink, align 4
+  %78 = add i32 %77, 1
+  store i32 %78, ptr %.sink, align 4
+  br label %79
 
-80:                                               ; preds = %.sink.split, %62, %69
-  %.045 = phi ptr [ %71, %69 ], [ %.044, %62 ], [ %.sink53, %.sink.split ]
-  %81 = load ptr, ptr %.045, align 8
-  %82 = getelementptr inbounds i8, ptr %.045, i64 8
-  %83 = load i32, ptr %82, align 8
-  store ptr %81, ptr %1, align 8
-  %84 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %83, ptr %84, align 8
-  br label %85
+79:                                               ; preds = %.sink.split, %62, %69
+  %.045 = phi ptr [ %71, %69 ], [ %.044, %62 ], [ %.sink.in, %.sink.split ]
+  %80 = load ptr, ptr %.045, align 8
+  %81 = getelementptr inbounds i8, ptr %.045, i64 8
+  %82 = load i32, ptr %81, align 8
+  store ptr %80, ptr %1, align 8
+  %83 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %82, ptr %83, align 8
+  br label %84
 
-85:                                               ; preds = %80, %59, %25, %18, %9
+84:                                               ; preds = %79, %59, %25, %18, %9
   ret void
 }
 
@@ -7922,7 +7922,7 @@ define hidden void @zim_RecursiveCachingIterator_getChildren(ptr nocapture nound
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
-  br label %44
+  br label %43
 
 .critedge:                                        ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 32
@@ -7937,20 +7937,20 @@ define hidden void @zim_RecursiveCachingIterator_getChildren(ptr nocapture nound
   %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %15 = icmp ne ptr %14, null
   tail call void @llvm.assume(i1 %15)
-  br label %44
+  br label %43
 
 16:                                               ; preds = %.critedge
   %17 = getelementptr inbounds i8, ptr %9, i64 -32
   %18 = getelementptr inbounds i8, ptr %9, i64 -24
   %19 = load i8, ptr %18, align 8
   %.not28 = icmp eq i8 %19, 0
-  br i1 %.not28, label %42, label %20
+  br i1 %.not28, label %41, label %20
 
 20:                                               ; preds = %16
   %21 = load i32, ptr %18, align 8
   %22 = and i32 %21, 65280
   %.not29 = icmp eq i32 %22, 0
-  br i1 %.not29, label %37, label %23
+  br i1 %.not29, label %36, label %23
 
 23:                                               ; preds = %20
   %24 = and i32 %21, 255
@@ -7964,36 +7964,36 @@ define hidden void @zim_RecursiveCachingIterator_getChildren(ptr nocapture nound
   %30 = load i32, ptr %29, align 8
   %31 = and i32 %30, 65280
   %.not30 = icmp eq i32 %31, 0
-  br i1 %.not30, label %37, label %.sink.split
+  br i1 %.not30, label %36, label %.sink.split
 
 .sink.split:                                      ; preds = %23, %26
-  %.sink = phi i32 [ %30, %26 ], [ %21, %23 ]
-  %.sink33 = phi ptr [ %28, %26 ], [ %17, %23 ]
-  %32 = and i32 %.sink, 65280
+  %.sink35 = phi i32 [ %30, %26 ], [ %21, %23 ]
+  %.sink.in = phi ptr [ %28, %26 ], [ %17, %23 ]
+  %32 = and i32 %.sink35, 65280
   %33 = icmp ne i32 %32, 0
   tail call void @llvm.assume(i1 %33)
-  %34 = load ptr, ptr %.sink33, align 8
-  %35 = load i32, ptr %34, align 4
-  %36 = add i32 %35, 1
-  store i32 %36, ptr %34, align 4
-  br label %37
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %34 = load i32, ptr %.sink, align 4
+  %35 = add i32 %34, 1
+  store i32 %35, ptr %.sink, align 4
+  br label %36
 
-37:                                               ; preds = %.sink.split, %20, %26
-  %.0 = phi ptr [ %28, %26 ], [ %17, %20 ], [ %.sink33, %.sink.split ]
-  %38 = load ptr, ptr %.0, align 8
-  %39 = getelementptr inbounds i8, ptr %.0, i64 8
-  %40 = load i32, ptr %39, align 8
-  store ptr %38, ptr %1, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %40, ptr %41, align 8
-  br label %44
+36:                                               ; preds = %.sink.split, %20, %26
+  %.0 = phi ptr [ %28, %26 ], [ %17, %20 ], [ %.sink.in, %.sink.split ]
+  %37 = load ptr, ptr %.0, align 8
+  %38 = getelementptr inbounds i8, ptr %.0, i64 8
+  %39 = load i32, ptr %38, align 8
+  store ptr %37, ptr %1, align 8
+  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %39, ptr %40, align 8
+  br label %43
 
-42:                                               ; preds = %16
-  %43 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 1, ptr %43, align 8
-  br label %44
+41:                                               ; preds = %16
+  %42 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 1, ptr %42, align 8
+  br label %43
 
-44:                                               ; preds = %42, %37, %13, %5
+43:                                               ; preds = %41, %36, %13, %5
   ret void
 }
 
@@ -8199,7 +8199,7 @@ define hidden void @zim_NoRewindIterator_current(ptr nocapture noundef readonly 
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
-  br label %47
+  br label %46
 
 .critedge:                                        ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 32
@@ -8214,7 +8214,7 @@ define hidden void @zim_NoRewindIterator_current(ptr nocapture noundef readonly 
   %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %15 = icmp ne ptr %14, null
   tail call void @llvm.assume(i1 %15)
-  br label %47
+  br label %46
 
 16:                                               ; preds = %.critedge
   %17 = getelementptr inbounds i8, ptr %9, i64 -104
@@ -8225,14 +8225,14 @@ define hidden void @zim_NoRewindIterator_current(ptr nocapture noundef readonly 
   %22 = load ptr, ptr %21, align 8
   %23 = tail call ptr %22(ptr noundef %18) #10
   %.not28 = icmp eq ptr %23, null
-  br i1 %.not28, label %47, label %24
+  br i1 %.not28, label %46, label %24
 
 24:                                               ; preds = %16
   %25 = getelementptr inbounds i8, ptr %23, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = and i32 %26, 65280
   %.not29 = icmp eq i32 %27, 0
-  br i1 %.not29, label %42, label %28
+  br i1 %.not29, label %41, label %28
 
 28:                                               ; preds = %24
   %29 = and i32 %26, 255
@@ -8246,31 +8246,31 @@ define hidden void @zim_NoRewindIterator_current(ptr nocapture noundef readonly 
   %35 = load i32, ptr %34, align 8
   %36 = and i32 %35, 65280
   %.not30 = icmp eq i32 %36, 0
-  br i1 %.not30, label %42, label %.sink.split
+  br i1 %.not30, label %41, label %.sink.split
 
 .sink.split:                                      ; preds = %28, %31
-  %.sink = phi i32 [ %35, %31 ], [ %26, %28 ]
-  %.sink33 = phi ptr [ %33, %31 ], [ %23, %28 ]
-  %37 = and i32 %.sink, 65280
+  %.sink35 = phi i32 [ %35, %31 ], [ %26, %28 ]
+  %.sink.in = phi ptr [ %33, %31 ], [ %23, %28 ]
+  %37 = and i32 %.sink35, 65280
   %38 = icmp ne i32 %37, 0
   tail call void @llvm.assume(i1 %38)
-  %39 = load ptr, ptr %.sink33, align 8
-  %40 = load i32, ptr %39, align 4
-  %41 = add i32 %40, 1
-  store i32 %41, ptr %39, align 4
-  br label %42
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %39 = load i32, ptr %.sink, align 4
+  %40 = add i32 %39, 1
+  store i32 %40, ptr %.sink, align 4
+  br label %41
 
-42:                                               ; preds = %.sink.split, %24, %31
-  %.0 = phi ptr [ %33, %31 ], [ %23, %24 ], [ %.sink33, %.sink.split ]
-  %43 = load ptr, ptr %.0, align 8
-  %44 = getelementptr inbounds i8, ptr %.0, i64 8
-  %45 = load i32, ptr %44, align 8
-  store ptr %43, ptr %1, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %45, ptr %46, align 8
-  br label %47
+41:                                               ; preds = %.sink.split, %24, %31
+  %.0 = phi ptr [ %33, %31 ], [ %23, %24 ], [ %.sink.in, %.sink.split ]
+  %42 = load ptr, ptr %.0, align 8
+  %43 = getelementptr inbounds i8, ptr %.0, i64 8
+  %44 = load i32, ptr %43, align 8
+  store ptr %42, ptr %1, align 8
+  %45 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %44, ptr %45, align 8
+  br label %46
 
-47:                                               ; preds = %42, %16, %13, %5
+46:                                               ; preds = %41, %16, %13, %5
   ret void
 }
 
@@ -9142,7 +9142,7 @@ define hidden void @zim_AppendIterator_current(ptr nocapture noundef readonly %0
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
-  br label %83
+  br label %82
 
 .critedge:                                        ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 32
@@ -9157,7 +9157,7 @@ define hidden void @zim_AppendIterator_current(ptr nocapture noundef readonly %0
   %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %15 = icmp ne ptr %14, null
   tail call void @llvm.assume(i1 %15)
-  br label %83
+  br label %82
 
 16:                                               ; preds = %.critedge
   %17 = getelementptr inbounds i8, ptr %9, i64 -136
@@ -9241,13 +9241,13 @@ spl_dual_it_fetch.exit:                           ; preds = %49, %.sink.split.i,
   %57 = getelementptr inbounds i8, ptr %9, i64 -88
   %58 = load i8, ptr %57, align 8
   %.not28 = icmp eq i8 %58, 0
-  br i1 %.not28, label %81, label %59
+  br i1 %.not28, label %80, label %59
 
 59:                                               ; preds = %spl_dual_it_fetch.exit
   %60 = load i32, ptr %57, align 8
   %61 = and i32 %60, 65280
   %.not29 = icmp eq i32 %61, 0
-  br i1 %.not29, label %76, label %62
+  br i1 %.not29, label %75, label %62
 
 62:                                               ; preds = %59
   %63 = and i32 %60, 255
@@ -9261,36 +9261,36 @@ spl_dual_it_fetch.exit:                           ; preds = %49, %.sink.split.i,
   %69 = load i32, ptr %68, align 8
   %70 = and i32 %69, 65280
   %.not30 = icmp eq i32 %70, 0
-  br i1 %.not30, label %76, label %.sink.split
+  br i1 %.not30, label %75, label %.sink.split
 
 .sink.split:                                      ; preds = %62, %65
-  %.sink = phi i32 [ %69, %65 ], [ %60, %62 ]
-  %.sink33 = phi ptr [ %67, %65 ], [ %56, %62 ]
-  %71 = and i32 %.sink, 65280
+  %.sink35 = phi i32 [ %69, %65 ], [ %60, %62 ]
+  %.sink.in = phi ptr [ %67, %65 ], [ %56, %62 ]
+  %71 = and i32 %.sink35, 65280
   %72 = icmp ne i32 %71, 0
   tail call void @llvm.assume(i1 %72)
-  %73 = load ptr, ptr %.sink33, align 8
-  %74 = load i32, ptr %73, align 4
-  %75 = add i32 %74, 1
-  store i32 %75, ptr %73, align 4
-  br label %76
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %73 = load i32, ptr %.sink, align 4
+  %74 = add i32 %73, 1
+  store i32 %74, ptr %.sink, align 4
+  br label %75
 
-76:                                               ; preds = %.sink.split, %59, %65
-  %.0 = phi ptr [ %67, %65 ], [ %56, %59 ], [ %.sink33, %.sink.split ]
-  %77 = load ptr, ptr %.0, align 8
-  %78 = getelementptr inbounds i8, ptr %.0, i64 8
-  %79 = load i32, ptr %78, align 8
-  store ptr %77, ptr %1, align 8
-  %80 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %79, ptr %80, align 8
-  br label %83
+75:                                               ; preds = %.sink.split, %59, %65
+  %.0 = phi ptr [ %67, %65 ], [ %56, %59 ], [ %.sink.in, %.sink.split ]
+  %76 = load ptr, ptr %.0, align 8
+  %77 = getelementptr inbounds i8, ptr %.0, i64 8
+  %78 = load i32, ptr %77, align 8
+  store ptr %76, ptr %1, align 8
+  %79 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %78, ptr %79, align 8
+  br label %82
 
-81:                                               ; preds = %spl_dual_it_fetch.exit
-  %82 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 1, ptr %82, align 8
-  br label %83
+80:                                               ; preds = %spl_dual_it_fetch.exit
+  %81 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 1, ptr %81, align 8
+  br label %82
 
-83:                                               ; preds = %81, %76, %13, %5
+82:                                               ; preds = %80, %75, %13, %5
   ret void
 }
 
@@ -9505,7 +9505,7 @@ define hidden void @zim_AppendIterator_getArrayIterator(ptr nocapture noundef re
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
-  br label %40
+  br label %39
 
 .critedge:                                        ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 32
@@ -9520,7 +9520,7 @@ define hidden void @zim_AppendIterator_getArrayIterator(ptr nocapture noundef re
   %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %15 = icmp ne ptr %14, null
   tail call void @llvm.assume(i1 %15)
-  br label %40
+  br label %39
 
 16:                                               ; preds = %.critedge
   %17 = getelementptr inbounds i8, ptr %9, i64 -48
@@ -9528,7 +9528,7 @@ define hidden void @zim_AppendIterator_getArrayIterator(ptr nocapture noundef re
   %19 = load i32, ptr %18, align 8
   %20 = and i32 %19, 65280
   %.not25 = icmp eq i32 %20, 0
-  br i1 %.not25, label %35, label %21
+  br i1 %.not25, label %34, label %21
 
 21:                                               ; preds = %16
   %22 = and i32 %19, 255
@@ -9542,31 +9542,31 @@ define hidden void @zim_AppendIterator_getArrayIterator(ptr nocapture noundef re
   %28 = load i32, ptr %27, align 8
   %29 = and i32 %28, 65280
   %.not26 = icmp eq i32 %29, 0
-  br i1 %.not26, label %35, label %.sink.split
+  br i1 %.not26, label %34, label %.sink.split
 
 .sink.split:                                      ; preds = %21, %24
-  %.sink = phi i32 [ %28, %24 ], [ %19, %21 ]
-  %.sink29 = phi ptr [ %26, %24 ], [ %17, %21 ]
-  %30 = and i32 %.sink, 65280
+  %.sink31 = phi i32 [ %28, %24 ], [ %19, %21 ]
+  %.sink.in = phi ptr [ %26, %24 ], [ %17, %21 ]
+  %30 = and i32 %.sink31, 65280
   %31 = icmp ne i32 %30, 0
   tail call void @llvm.assume(i1 %31)
-  %32 = load ptr, ptr %.sink29, align 8
-  %33 = load i32, ptr %32, align 4
-  %34 = add i32 %33, 1
-  store i32 %34, ptr %32, align 4
-  br label %35
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %32 = load i32, ptr %.sink, align 4
+  %33 = add i32 %32, 1
+  store i32 %33, ptr %.sink, align 4
+  br label %34
 
-35:                                               ; preds = %.sink.split, %16, %24
-  %.0 = phi ptr [ %26, %24 ], [ %17, %16 ], [ %.sink29, %.sink.split ]
-  %36 = load ptr, ptr %.0, align 8
-  %37 = getelementptr inbounds i8, ptr %.0, i64 8
-  %38 = load i32, ptr %37, align 8
-  store ptr %36, ptr %1, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %38, ptr %39, align 8
-  br label %40
+34:                                               ; preds = %.sink.split, %16, %24
+  %.0 = phi ptr [ %26, %24 ], [ %17, %16 ], [ %.sink.in, %.sink.split ]
+  %35 = load ptr, ptr %.0, align 8
+  %36 = getelementptr inbounds i8, ptr %.0, i64 8
+  %37 = load i32, ptr %36, align 8
+  store ptr %35, ptr %1, align 8
+  %38 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %37, ptr %38, align 8
+  br label %39
 
-40:                                               ; preds = %35, %13, %5
+39:                                               ; preds = %34, %13, %5
   ret void
 }
 

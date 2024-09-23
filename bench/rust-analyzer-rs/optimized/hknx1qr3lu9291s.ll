@@ -23072,31 +23072,34 @@ define hidden void @_ZN6memchr6memmem8searcher8Searcher3new17h24e729601cc13dcbE.
   %14 = ptrtoint ptr %13 to i64
   br label %15
 
-15:                                               ; preds = %21, %10
-  %.not.i.i = phi i1 [ false, %10 ], [ true, %21 ]
-  %.sroa.10.020.i = phi i64 [ 1, %10 ], [ 0, %21 ]
-  %.sroa.0.019.i = phi ptr [ %2, %10 ], [ %.sroa.0.1.i, %21 ]
-  %.sroa.10.0.i = phi i32 [ 1, %10 ], [ %26, %21 ]
-  %.sroa.01.0.i = phi i32 [ %12, %10 ], [ %25, %21 ]
+15:                                               ; preds = %22, %10
+  %.not.i.i = phi i1 [ false, %10 ], [ true, %22 ]
+  %.sroa.10.020.i = phi i64 [ 1, %10 ], [ 0, %22 ]
+  %.sroa.0.019.i = phi ptr [ %2, %10 ], [ %.sroa.0.1.i, %22 ]
+  %.sroa.10.0.i = phi i32 [ 1, %10 ], [ %26, %22 ]
+  %.sroa.01.0.i = phi i32 [ %12, %10 ], [ %25, %22 ]
   br i1 %.not.i.i, label %16, label %17
 
 16:                                               ; preds = %15
   %.not5.i.i = icmp eq ptr %.sroa.0.019.i, %13
-  br i1 %.not5.i.i, label %_ZN6memchr4arch3all9rabinkarp6Finder3new17h3cfc7bfaf88debcdE.exit, label %21
+  br i1 %.not5.i.i, label %_ZN6memchr4arch3all9rabinkarp6Finder3new17h3cfc7bfaf88debcdE.exit, label %22
 
 17:                                               ; preds = %15
   %18 = ptrtoint ptr %.sroa.0.019.i to i64
   %19 = sub nuw i64 %14, %18
   %.not.i.i.i.i = icmp ult i64 %.sroa.10.020.i, %19
-  %20 = getelementptr inbounds i8, ptr %.sroa.0.019.i, i64 %.sroa.10.020.i
-  br i1 %.not.i.i.i.i, label %21, label %_ZN6memchr4arch3all9rabinkarp6Finder3new17h3cfc7bfaf88debcdE.exit
+  br i1 %.not.i.i.i.i, label %20, label %_ZN6memchr4arch3all9rabinkarp6Finder3new17h3cfc7bfaf88debcdE.exit
 
-21:                                               ; preds = %17, %16
-  %.sink.i.i = phi ptr [ %20, %17 ], [ %.sroa.0.019.i, %16 ]
-  %.sroa.0.1.i = getelementptr inbounds i8, ptr %.sink.i.i, i64 1
-  %22 = load i8, ptr %.sink.i.i, align 1, !alias.scope !7793, !noalias !7796, !noundef !4
+20:                                               ; preds = %17
+  %21 = getelementptr inbounds i8, ptr %.sroa.0.019.i, i64 %.sroa.10.020.i
+  br label %22
+
+22:                                               ; preds = %20, %16
+  %.sroa.0.019.pn.i = phi ptr [ %21, %20 ], [ %.sroa.0.019.i, %16 ]
+  %.sroa.3.0.i2.pn.i.i = load i8, ptr %.sroa.0.019.pn.i, align 1, !alias.scope !7793, !noalias !7796, !noundef !4
+  %.sroa.0.1.i = getelementptr inbounds i8, ptr %.sroa.0.019.pn.i, i64 1
   %23 = shl i32 %.sroa.01.0.i, 1
-  %24 = zext i8 %22 to i32
+  %24 = zext i8 %.sroa.3.0.i2.pn.i.i to i32
   %25 = add i32 %23, %24
   %26 = shl i32 %.sroa.10.0.i, 1
   br label %15

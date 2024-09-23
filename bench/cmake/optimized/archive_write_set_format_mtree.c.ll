@@ -1539,7 +1539,11 @@ attr_counter_set_free.exit.i:                     ; preds = %38, %attr_counter_f
 49:                                               ; preds = %44
   %50 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #17
   %.not.i.i75.i = icmp eq ptr %50, null
-  br i1 %.not.i.i75.i, label %.loopexit80.sink.split.i, label %attr_counter_new.exit.i.i
+  br i1 %.not.i.i75.i, label %attr_counter_new.exit.thread.i.i, label %attr_counter_new.exit.i.i
+
+attr_counter_new.exit.thread.i.i:                 ; preds = %49
+  store ptr null, ptr %8, align 8
+  br label %.loopexit80.i
 
 attr_counter_new.exit.i.i:                        ; preds = %49
   %51 = getelementptr inbounds i8, ptr %50, i64 24
@@ -1668,7 +1672,11 @@ attr_counter_inc.exit.thread.i.i:                 ; preds = %89, %88, %84, %70, 
 101:                                              ; preds = %96
   %102 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #17
   %.not.i95.i.i = icmp eq ptr %102, null
-  br i1 %.not.i95.i.i, label %.loopexit80.sink.split.i, label %attr_counter_new.exit96.i.i
+  br i1 %.not.i95.i.i, label %attr_counter_new.exit96.thread.i.i, label %attr_counter_new.exit96.i.i
+
+attr_counter_new.exit96.thread.i.i:               ; preds = %101
+  store ptr null, ptr %9, align 8
+  br label %.loopexit80.i
 
 attr_counter_new.exit96.i.i:                      ; preds = %101
   %103 = getelementptr inbounds i8, ptr %102, i64 24
@@ -1797,7 +1805,11 @@ attr_counter_inc.exit100.thread.i.i:              ; preds = %141, %140, %136, %1
 153:                                              ; preds = %148
   %154 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #17
   %.not.i115.i.i = icmp eq ptr %154, null
-  br i1 %.not.i115.i.i, label %.loopexit80.sink.split.i, label %attr_counter_new.exit116.i.i
+  br i1 %.not.i115.i.i, label %attr_counter_new.exit116.thread.i.i, label %attr_counter_new.exit116.i.i
+
+attr_counter_new.exit116.thread.i.i:              ; preds = %153
+  store ptr null, ptr %10, align 8
+  br label %.loopexit80.i
 
 attr_counter_new.exit116.i.i:                     ; preds = %153
   %155 = getelementptr inbounds i8, ptr %154, i64 24
@@ -1927,7 +1939,11 @@ attr_counter_inc.exit120.thread.i.i:              ; preds = %193, %192, %188, %1
 206:                                              ; preds = %200
   %207 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #17
   %.not.i135.i.i = icmp eq ptr %207, null
-  br i1 %.not.i135.i.i, label %.loopexit80.sink.split.i, label %attr_counter_new.exit136.i.i
+  br i1 %.not.i135.i.i, label %attr_counter_new.exit136.thread.i.i, label %attr_counter_new.exit136.i.i
+
+attr_counter_new.exit136.thread.i.i:              ; preds = %206
+  store ptr null, ptr %11, align 8
+  br label %.loopexit80.i
 
 attr_counter_new.exit136.i.i:                     ; preds = %206
   %208 = getelementptr inbounds i8, ptr %207, i64 24
@@ -2045,12 +2061,7 @@ attr_counter_new.exit136.i.i:                     ; preds = %206
   %.not89.i.i = icmp eq ptr %256, null
   br i1 %.not89.i.i, label %.split76.i.i, label %216, !llvm.loop !13
 
-.loopexit80.sink.split.i:                         ; preds = %206, %153, %101, %49
-  %.sink.i = phi ptr [ %8, %49 ], [ %9, %101 ], [ %10, %153 ], [ %11, %206 ]
-  store ptr null, ptr %.sink.i, align 8
-  br label %.loopexit80.i
-
-.loopexit80.i:                                    ; preds = %.split76.i.i, %.split73.i.i, %.split70.i.i, %.split.i.i, %.loopexit80.sink.split.i
+.loopexit80.i:                                    ; preds = %.split76.i.i, %.split73.i.i, %.split70.i.i, %.split.i.i, %attr_counter_new.exit136.thread.i.i, %attr_counter_new.exit116.thread.i.i, %attr_counter_new.exit96.thread.i.i, %attr_counter_new.exit.thread.i.i
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.43) #14
   br label %write_mtree_entry_tree.exit.thread
 

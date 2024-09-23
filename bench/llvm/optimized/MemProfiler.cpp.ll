@@ -1820,11 +1820,11 @@ define dso_local void @_Z29createMemprofHistogramFlagVarRN4llvm6ModuleE(ptr noun
   %8 = tail call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %7) #19
   %9 = tail call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 88, i32 noundef 1) #19
   %10 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL11ClHistogram, i64 128), align 8
-  %11 = and i8 %10, 1
-  %12 = zext nneg i8 %11 to i64
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 1, ptr %13, align 8
-  store i64 %12, ptr %2, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i32 1, ptr %11, align 8
+  %12 = and i8 %10, 1
+  %13 = zext nneg i8 %12 to i64
+  store i64 %13, ptr %2, align 8
   %14 = call noundef ptr @_ZN4llvm8Constant15getIntegerValueEPNS_4TypeERKNS_5APIntE(ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(12) %2) #19
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i8 5, ptr %15, align 8
@@ -1834,7 +1834,7 @@ define dso_local void @_Z29createMemprofHistogramFlagVarRN4llvm6ModuleE(ptr noun
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 19, ptr %17, align 8
   call void @_ZN4llvm14GlobalVariableC1ERNS_6ModuleEPNS_4TypeEbNS_11GlobalValue12LinkageTypesEPNS_8ConstantERKNS_5TwineEPS0_NS5_15ThreadLocalModeESt8optionalIjEb(ptr noundef nonnull align 8 dereferenceable(81) %9, ptr noundef nonnull align 8 dereferenceable(857) %0, ptr noundef %8, i1 noundef zeroext true, i32 noundef 4, ptr noundef %14, ptr noundef nonnull align 8 dereferenceable(34) %3, ptr noundef null, i32 noundef 0, i64 0, i1 noundef zeroext false) #19
-  %18 = load i32, ptr %13, align 8
+  %18 = load i32, ptr %11, align 8
   %19 = icmp ugt i32 %18, 64
   br i1 %19, label %20, label %_ZN4llvm5APIntD2Ev.exit
 

@@ -15346,10 +15346,8 @@ common.ret:                                       ; preds = %349, %285, %60, %32
   ret void
 
 32:                                               ; preds = %399, %191
-  %.sink303 = phi ptr [ %400, %399 ], [ %143, %191 ]
   %.sroa.0263.0 = phi i64 [ %.sroa.0263.1, %399 ], [ 27, %191 ]
   %.sroa.6.0 = phi i64 [ %.sroa.6.1, %399 ], [ %.sroa.0268.0.copyload, %191 ]
-  store i8 0, ptr %.sink303, align 1
   store i64 %.sroa.0263.0, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 8
@@ -15776,10 +15774,10 @@ common.ret:                                       ; preds = %349, %285, %60, %32
 182:                                              ; preds = %"_ZN4core3ptr225drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$object_store..ObjectMeta$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hd90d9e9303a32a04E.exit183"
   %183 = getelementptr inbounds i8, ptr %1, i64 48
   %spec.select = call i64 @llvm.usub.sat.i64(i64 %47, i64 1000)
-  %spec.select304 = call i64 @llvm.umin.i64(i64 %47, i64 1000)
+  %spec.select303 = call i64 @llvm.umin.i64(i64 %47, i64 1000)
   store i64 %spec.select, ptr %183, align 8
   %184 = getelementptr inbounds i8, ptr %1, i64 104
-  store i64 %spec.select304, ptr %184, align 8
+  store i64 %spec.select303, ptr %184, align 8
   %185 = getelementptr inbounds i8, ptr %1, i64 80
   %186 = load ptr, ptr %185, align 8, !noundef !23
   %.not105 = icmp eq ptr %186, null
@@ -15794,6 +15792,7 @@ common.ret:                                       ; preds = %349, %285, %60, %32
 191:                                              ; preds = %"_ZN4core3ptr45drop_in_place$LT$object_store..path..Path$GT$17hf0f4f12ca6ecee65E.exit187", %187, %"_ZN4core3ptr225drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$object_store..ObjectMeta$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hd90d9e9303a32a04E.exit"
   %192 = getelementptr inbounds i8, ptr %1, i64 152
   store i8 0, ptr %192, align 8
+  store i8 0, ptr %143, align 1
   br label %32
 
 193:                                              ; preds = %187
@@ -16148,11 +16147,11 @@ common.ret:                                       ; preds = %349, %285, %60, %32
   %.val162 = load i64, ptr %309, align 8, !noundef !23
   %316 = getelementptr inbounds i8, ptr %1, i64 104
   %317 = load i64, ptr %316, align 8, !noundef !23
-  %spec.select305 = call i64 @llvm.umin.i64(i64 %.val162, i64 %317)
+  %spec.select304 = call i64 @llvm.umin.i64(i64 %.val162, i64 %317)
   %318 = getelementptr inbounds i8, ptr %1, i64 136
-  store i64 %spec.select305, ptr %318, align 8
+  store i64 %spec.select304, ptr %318, align 8
   %.val163 = load ptr, ptr %284, align 8, !nonnull !23, !noundef !23
-  %319 = getelementptr inbounds { { { { { ptr, i64 }, i64 } } }, i64, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { { { i32, i32 }, i32 }, {} }, [1 x i32] }, ptr %.val163, i64 %spec.select305
+  %319 = getelementptr inbounds { { { { { ptr, i64 }, i64 } } }, i64, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { { { i32, i32 }, i32 }, {} }, [1 x i32] }, ptr %.val163, i64 %spec.select304
   %320 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %.val163, ptr %320, align 8
   %321 = getelementptr inbounds i8, ptr %1, i64 24
@@ -16392,6 +16391,7 @@ common.ret:                                       ; preds = %349, %285, %60, %32
 
 399:                                              ; preds = %388
   %400 = getelementptr inbounds i8, ptr %1, i64 153
+  store i8 0, ptr %400, align 1
   br label %32
 
 401:                                              ; preds = %.body173

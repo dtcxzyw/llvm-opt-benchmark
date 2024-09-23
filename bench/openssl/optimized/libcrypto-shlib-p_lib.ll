@@ -162,22 +162,24 @@ if.then:                                          ; preds = %entry
   %save_parameters = getelementptr inbounds i8, ptr %pkey, i64 72
   %1 = load i32, ptr %save_parameters, align 8
   %cmp1 = icmp sgt i32 %mode, -1
-  br i1 %cmp1, label %return.sink.split, label %return
+  br i1 %cmp1, label %if.then2, label %return
+
+if.then2:                                         ; preds = %if.then
+  store i32 %mode, ptr %save_parameters, align 8
+  br label %return
 
 if.then7:                                         ; preds = %entry
   %save_parameters9 = getelementptr inbounds i8, ptr %pkey, i64 72
   %2 = load i32, ptr %save_parameters9, align 8
   %cmp10 = icmp sgt i32 %mode, -1
-  br i1 %cmp10, label %return.sink.split, label %return
+  br i1 %cmp10, label %if.then11, label %return
 
-return.sink.split:                                ; preds = %if.then7, %if.then
-  %save_parameters9.sink = phi ptr [ %save_parameters, %if.then ], [ %save_parameters9, %if.then7 ]
-  %retval.0.ph = phi i32 [ %1, %if.then ], [ %2, %if.then7 ]
-  store i32 %mode, ptr %save_parameters9.sink, align 8
+if.then11:                                        ; preds = %if.then7
+  store i32 %mode, ptr %save_parameters9, align 8
   br label %return
 
-return:                                           ; preds = %return.sink.split, %entry, %if.then7, %if.then
-  %retval.0 = phi i32 [ %1, %if.then ], [ %2, %if.then7 ], [ 0, %entry ], [ %retval.0.ph, %return.sink.split ]
+return:                                           ; preds = %entry, %if.then7, %if.then11, %if.then, %if.then2
+  %retval.0 = phi i32 [ %1, %if.then2 ], [ %1, %if.then ], [ %2, %if.then11 ], [ %2, %if.then7 ], [ 0, %entry ]
   ret i32 %retval.0
 }
 

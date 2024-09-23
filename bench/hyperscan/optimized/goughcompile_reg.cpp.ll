@@ -3332,22 +3332,18 @@ if.then.i97.i:                                    ; preds = %while.body.i.i
 
 if.then15.i.i:                                    ; preds = %if.then.i97.i
   %arrayidx16.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i, i64 %__bbegin_bkt.021.i.i
-  br label %if.end22.sink.split.i.i
+  store ptr %__p.022.i.i, ptr %arrayidx16.i.i, align 8
+  br label %if.end22.i.i
 
 if.else.i.i:                                      ; preds = %while.body.i.i
   %332 = load ptr, ptr %329, align 8
   store ptr %332, ptr %__p.022.i.i, align 8
   %333 = load ptr, ptr %arrayidx.i.i, align 8
-  br label %if.end22.sink.split.i.i
-
-if.end22.sink.split.i.i:                          ; preds = %if.else.i.i, %if.then15.i.i
-  %arrayidx16.sink.i.i = phi ptr [ %arrayidx16.i.i, %if.then15.i.i ], [ %333, %if.else.i.i ]
-  %__bbegin_bkt.1.ph.i.i = phi i64 [ %rem.i.i.i.i, %if.then15.i.i ], [ %__bbegin_bkt.021.i.i, %if.else.i.i ]
-  store ptr %__p.022.i.i, ptr %arrayidx16.sink.i.i, align 8
+  store ptr %__p.022.i.i, ptr %333, align 8
   br label %if.end22.i.i
 
-if.end22.i.i:                                     ; preds = %if.end22.sink.split.i.i, %if.then.i97.i
-  %__bbegin_bkt.1.i.i = phi i64 [ %rem.i.i.i.i, %if.then.i97.i ], [ %__bbegin_bkt.1.ph.i.i, %if.end22.sink.split.i.i ]
+if.end22.i.i:                                     ; preds = %if.else.i.i, %if.then15.i.i, %if.then.i97.i
+  %__bbegin_bkt.1.i.i = phi i64 [ %__bbegin_bkt.021.i.i, %if.else.i.i ], [ %rem.i.i.i.i, %if.then15.i.i ], [ %rem.i.i.i.i, %if.then.i97.i ]
   %tobool.not.i.i = icmp eq ptr %327, null
   br i1 %tobool.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !110
 

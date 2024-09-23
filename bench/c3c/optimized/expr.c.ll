@@ -1589,52 +1589,52 @@ define dso_local noundef zeroext i1 @expr_rewrite_to_const_initializer_index(ptr
   unreachable
 
 initializer_for_index.exit:                       ; preds = %18, %42
-  %.sink.i = phi ptr [ %43, %42 ], [ %20, %18 ]
-  %46 = load ptr, ptr %.sink.i, align 8
-  %.not = icmp eq ptr %46, null
+  %.041.i.in = phi ptr [ %43, %42 ], [ %20, %18 ]
+  %.041.i = load ptr, ptr %.041.i.in, align 8
+  %.not = icmp eq ptr %.041.i, null
   br i1 %.not, label %.thread, label %initializer_for_index.exit.thread24thread-pre-split
 
 initializer_for_index.exit.thread24thread-pre-split: ; preds = %initializer_for_index.exit
-  %.pr = load i32, ptr %46, align 8
+  %.pr = load i32, ptr %.041.i, align 8
   br label %initializer_for_index.exit.thread24
 
 initializer_for_index.exit.thread24:              ; preds = %initializer_for_index.exit.thread24thread-pre-split, %5, %5, %5, %5
-  %47 = phi i32 [ %.pr, %initializer_for_index.exit.thread24thread-pre-split ], [ %6, %5 ], [ %6, %5 ], [ %6, %5 ], [ %6, %5 ]
-  %.041.i27 = phi ptr [ %46, %initializer_for_index.exit.thread24thread-pre-split ], [ %1, %5 ], [ %1, %5 ], [ %1, %5 ], [ %1, %5 ]
-  switch i32 %47, label %54 [
+  %46 = phi i32 [ %.pr, %initializer_for_index.exit.thread24thread-pre-split ], [ %6, %5 ], [ %6, %5 ], [ %6, %5 ], [ %6, %5 ]
+  %.041.i27 = phi ptr [ %.041.i, %initializer_for_index.exit.thread24thread-pre-split ], [ %1, %5 ], [ %1, %5 ], [ %1, %5 ], [ %1, %5 ]
+  switch i32 %46, label %53 [
     i32 0, label %.thread
-    i32 1, label %55
-    i32 2, label %55
-    i32 4, label %55
-    i32 5, label %55
-    i32 6, label %55
-    i32 3, label %50
+    i32 1, label %54
+    i32 2, label %54
+    i32 4, label %54
+    i32 5, label %54
+    i32 6, label %54
+    i32 3, label %49
   ]
 
 .thread:                                          ; preds = %36, %30, %33, %22, %14, %initializer_for_index.exit, %initializer_for_index.exit.thread24
-  %48 = tail call ptr @type_get_indexed_type(ptr noundef %0) #12
-  %.not19 = icmp eq ptr %48, null
-  br i1 %.not19, label %55, label %49
+  %47 = tail call ptr @type_get_indexed_type(ptr noundef %0) #12
+  %.not19 = icmp eq ptr %47, null
+  br i1 %.not19, label %54, label %48
 
-49:                                               ; preds = %.thread
-  tail call void @expr_rewrite_to_const_zero(ptr noundef %2, ptr noundef nonnull %48)
-  br label %55
+48:                                               ; preds = %.thread
+  tail call void @expr_rewrite_to_const_zero(ptr noundef %2, ptr noundef nonnull %47)
+  br label %54
 
-50:                                               ; preds = %initializer_for_index.exit.thread24
-  %51 = getelementptr inbounds i8, ptr %.041.i27, i64 16
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %2, i64 8
-  %.sroa.0.0.copyload = load i64, ptr %53, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %52, i64 56, i1 false)
-  store i64 %.sroa.0.0.copyload, ptr %53, align 8
-  br label %55
+49:                                               ; preds = %initializer_for_index.exit.thread24
+  %50 = getelementptr inbounds i8, ptr %.041.i27, i64 16
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.0.0.copyload = load i64, ptr %52, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %51, i64 56, i1 false)
+  store i64 %.sroa.0.0.copyload, ptr %52, align 8
+  br label %54
 
-54:                                               ; preds = %initializer_for_index.exit.thread24
+53:                                               ; preds = %initializer_for_index.exit.thread24
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.expr_rewrite_to_const_initializer_index, ptr noundef nonnull @.str.2, i32 noundef 656) #13
   unreachable
 
-55:                                               ; preds = %initializer_for_index.exit.thread24, %initializer_for_index.exit.thread24, %initializer_for_index.exit.thread24, %initializer_for_index.exit.thread24, %initializer_for_index.exit.thread24, %.thread, %50, %49
-  %.0 = phi i1 [ true, %50 ], [ true, %49 ], [ false, %.thread ], [ false, %initializer_for_index.exit.thread24 ], [ false, %initializer_for_index.exit.thread24 ], [ false, %initializer_for_index.exit.thread24 ], [ false, %initializer_for_index.exit.thread24 ], [ false, %initializer_for_index.exit.thread24 ]
+54:                                               ; preds = %initializer_for_index.exit.thread24, %initializer_for_index.exit.thread24, %initializer_for_index.exit.thread24, %initializer_for_index.exit.thread24, %initializer_for_index.exit.thread24, %.thread, %49, %48
+  %.0 = phi i1 [ true, %49 ], [ true, %48 ], [ false, %.thread ], [ false, %initializer_for_index.exit.thread24 ], [ false, %initializer_for_index.exit.thread24 ], [ false, %initializer_for_index.exit.thread24 ], [ false, %initializer_for_index.exit.thread24 ], [ false, %initializer_for_index.exit.thread24 ]
   ret i1 %.0
 }
 

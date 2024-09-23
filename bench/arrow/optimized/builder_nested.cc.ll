@@ -2064,39 +2064,43 @@ do.end8:                                          ; preds = %nrvo.skipdtor.threa
   %and4.i.i.i = and i8 %xor.i.i.i, %6
   %xor105.i.i.i = xor i8 %and4.i.i.i, %5
   store i8 %xor105.i.i.i, ptr %arrayidx.i.i.i, align 1
-  br i1 %is_valid, label %_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit, label %if.then.i40
+  br i1 %is_valid, label %_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEb.exit.thread.i, label %if.then.i40
+
+_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEb.exit.thread.i: ; preds = %do.end8
+  %7 = load i64, ptr %bit_length_.i.i, align 8
+  br label %_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit
 
 if.then.i40:                                      ; preds = %do.end8
   %false_count_.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %7 = load i64, ptr %false_count_.i.i, align 8
-  %inc.i.i = add nsw i64 %7, 1
+  %8 = load i64, ptr %false_count_.i.i, align 8
+  %inc.i.i = add nsw i64 %8, 1
   store i64 %inc.i.i, ptr %false_count_.i.i, align 8
-  %8 = load i64, ptr %bit_length_.i.i, align 8
-  %inc4.i.i = add nsw i64 %8, 1
-  store i64 %inc4.i.i, ptr %bit_length_.i.i, align 8
+  %9 = load i64, ptr %bit_length_.i.i, align 8
   %length_.i = getelementptr inbounds i8, ptr %this, i64 104
+  %10 = load i64, ptr %length_.i, align 8
+  %inc.i = add nsw i64 %10, 1
+  store i64 %inc.i, ptr %length_.i, align 8
   br label %_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit
 
-_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit: ; preds = %do.end8, %if.then.i40
-  %bit_length_.i.sink7.i = phi ptr [ %length_.i, %if.then.i40 ], [ %bit_length_.i.i, %do.end8 ]
-  %.sink.i = phi i64 [ 96, %if.then.i40 ], [ 104, %do.end8 ]
-  %9 = load i64, ptr %bit_length_.i.sink7.i, align 8
-  %inc4.i2.i = add nsw i64 %9, 1
-  store i64 %inc4.i2.i, ptr %bit_length_.i.sink7.i, align 8
+_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit: ; preds = %_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEb.exit.thread.i, %if.then.i40
+  %inc4.i.i.sink.in = phi i64 [ %7, %_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEb.exit.thread.i ], [ %9, %if.then.i40 ]
+  %.sink.i = phi i64 [ 104, %_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEb.exit.thread.i ], [ 96, %if.then.i40 ]
+  %inc4.i.i.sink = add nsw i64 %inc4.i.i.sink.in, 1
+  store i64 %inc4.i.i.sink, ptr %bit_length_.i.i, align 8
   %length_3.i = getelementptr inbounds i8, ptr %this, i64 %.sink.i
-  %10 = load i64, ptr %length_3.i, align 8
-  %inc4.i = add nsw i64 %10, 1
+  %11 = load i64, ptr %length_3.i, align 8
+  %inc4.i = add nsw i64 %11, 1
   store i64 %inc4.i, ptr %length_3.i, align 8
   %value_builder_ = getelementptr inbounds i8, ptr %this, i64 200
-  %11 = load ptr, ptr %value_builder_, align 8
-  %vtable = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %value_builder_, align 8
+  %vtable = load ptr, ptr %12, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %12 = load ptr, ptr %vfn, align 8
-  %call10 = call noundef i64 %12(ptr noundef nonnull align 8 dereferenceable(144) %11)
+  %13 = load ptr, ptr %vfn, align 8
+  %call10 = call noundef i64 %13(ptr noundef nonnull align 8 dereferenceable(144) %12)
   %vtable11 = load ptr, ptr %this, align 8
   %vfn12 = getelementptr inbounds i8, ptr %vtable11, i64 128
-  %13 = load ptr, ptr %vfn12, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(232) %this, i64 noundef %call10, i64 noundef %list_length)
+  %14 = load ptr, ptr %vfn12, align 8
+  call void %14(ptr noundef nonnull align 8 dereferenceable(232) %this, i64 noundef %call10, i64 noundef %list_length)
   store ptr null, ptr %agg.result, align 8, !alias.scope !37
   br label %return
 
@@ -2159,12 +2163,12 @@ do.end8.i:                                        ; preds = %_ZN5arrow6StatusD2E
   %inc.i.i.i = add nsw i64 %8, 1
   store i64 %inc.i.i.i, ptr %false_count_.i.i.i, align 8, !noalias !40
   %9 = load i64, ptr %bit_length_.i.i.i, align 8, !noalias !40
-  %inc4.i.i.i = add nsw i64 %9, 1
-  store i64 %inc4.i.i.i, ptr %bit_length_.i.i.i, align 8, !noalias !40
   %length_.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %10 = load i64, ptr %length_.i.i, align 8, !noalias !40
-  %inc4.i2.i.i = add nsw i64 %10, 1
-  store i64 %inc4.i2.i.i, ptr %length_.i.i, align 8, !noalias !40
+  %inc.i.i = add nsw i64 %10, 1
+  store i64 %inc.i.i, ptr %length_.i.i, align 8, !noalias !40
+  %inc4.i.i.sink.i = add nsw i64 %9, 1
+  store i64 %inc4.i.i.sink.i, ptr %bit_length_.i.i.i, align 8, !noalias !40
   %length_3.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %11 = load i64, ptr %length_3.i.i, align 8, !noalias !40
   %inc4.i.i = add nsw i64 %11, 1
@@ -2284,8 +2288,8 @@ do.end8.i:                                        ; preds = %_ZN5arrow6StatusD2E
   %xor105.i.i.i.i = or i8 %6, %5
   store i8 %xor105.i.i.i.i, ptr %arrayidx.i.i.i.i, align 1, !noalias !67
   %7 = load i64, ptr %bit_length_.i.i.i, align 8, !noalias !67
-  %inc4.i2.i.i = add nsw i64 %7, 1
-  store i64 %inc4.i2.i.i, ptr %bit_length_.i.i.i, align 8, !noalias !67
+  %inc4.i.i.sink.i = add nsw i64 %7, 1
+  store i64 %inc4.i.i.sink.i, ptr %bit_length_.i.i.i, align 8, !noalias !67
   %length_3.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %8 = load i64, ptr %length_3.i.i, align 8, !noalias !67
   %inc4.i.i = add nsw i64 %8, 1
@@ -2551,53 +2555,57 @@ if.end24:                                         ; preds = %if.then16.i, %if.th
   %and4.i.i.i = and i8 %xor.i.i.i, %34
   %xor105.i.i.i = xor i8 %and4.i.i.i, %33
   store i8 %xor105.i.i.i, ptr %arrayidx.i.i.i, align 1
-  br i1 %30, label %_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit, label %if.then.i76
+  br i1 %30, label %_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEb.exit.thread.i, label %if.then.i76
 
-if.then.i76:                                      ; preds = %if.end24
-  %35 = load i64, ptr %false_count_.i.i, align 8
-  %inc.i.i = add nsw i64 %35, 1
-  store i64 %inc.i.i, ptr %false_count_.i.i, align 8
-  %36 = load i64, ptr %bit_length_.i.i, align 8
-  %inc4.i.i = add nsw i64 %36, 1
-  store i64 %inc4.i.i, ptr %bit_length_.i.i, align 8
+_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEb.exit.thread.i: ; preds = %if.end24
+  %35 = load i64, ptr %bit_length_.i.i, align 8
   br label %_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit
 
-_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit: ; preds = %if.end24, %if.then.i76
-  %bit_length_.i.sink7.i = phi ptr [ %length_.i, %if.then.i76 ], [ %bit_length_.i.i, %if.end24 ]
-  %.sink.i = phi i64 [ 96, %if.then.i76 ], [ 104, %if.end24 ]
-  %37 = load i64, ptr %bit_length_.i.sink7.i, align 8
-  %inc4.i2.i = add nsw i64 %37, 1
-  store i64 %inc4.i2.i, ptr %bit_length_.i.sink7.i, align 8
+if.then.i76:                                      ; preds = %if.end24
+  %36 = load i64, ptr %false_count_.i.i, align 8
+  %inc.i.i = add nsw i64 %36, 1
+  store i64 %inc.i.i, ptr %false_count_.i.i, align 8
+  %37 = load i64, ptr %bit_length_.i.i, align 8
+  %38 = load i64, ptr %length_.i, align 8
+  %inc.i = add nsw i64 %38, 1
+  store i64 %inc.i, ptr %length_.i, align 8
+  br label %_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit
+
+_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit: ; preds = %_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEb.exit.thread.i, %if.then.i76
+  %inc4.i.i.sink.in = phi i64 [ %35, %_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEb.exit.thread.i ], [ %37, %if.then.i76 ]
+  %.sink.i = phi i64 [ 104, %_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEb.exit.thread.i ], [ 96, %if.then.i76 ]
+  %inc4.i.i.sink = add nsw i64 %inc4.i.i.sink.in, 1
+  store i64 %inc4.i.i.sink, ptr %bit_length_.i.i, align 8
   %length_3.i = getelementptr inbounds i8, ptr %this, i64 %.sink.i
-  %38 = load i64, ptr %length_3.i, align 8
-  %inc4.i = add nsw i64 %38, 1
+  %39 = load i64, ptr %length_3.i, align 8
+  %inc4.i = add nsw i64 %39, 1
   store i64 %inc4.i, ptr %length_3.i, align 8
-  %39 = load ptr, ptr %value_builder_, align 8
-  %vtable = load ptr, ptr %39, align 8
+  %40 = load ptr, ptr %value_builder_, align 8
+  %vtable = load ptr, ptr %40, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %40 = load ptr, ptr %vfn, align 8
-  %call27 = call noundef i64 %40(ptr noundef nonnull align 8 dereferenceable(144) %39)
+  %41 = load ptr, ptr %vfn, align 8
+  %call27 = call noundef i64 %41(ptr noundef nonnull align 8 dereferenceable(144) %40)
   %vtable28 = load ptr, ptr %this, align 8
   %vfn29 = getelementptr inbounds i8, ptr %vtable28, i64 128
-  %41 = load ptr, ptr %vfn29, align 8
-  call void %41(ptr noundef nonnull align 8 dereferenceable(232) %this, i64 noundef %call27, i64 noundef %size.0)
+  %42 = load ptr, ptr %vfn29, align 8
+  call void %42(ptr noundef nonnull align 8 dereferenceable(232) %this, i64 noundef %call27, i64 noundef %size.0)
   br i1 %30, label %_ZN5arrow6StatusD2Ev.exit114, label %for.inc
 
 _ZN5arrow6StatusD2Ev.exit114:                     ; preds = %_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit
-  %42 = load ptr, ptr %value_builder_, align 8
-  %43 = load ptr, ptr %child_data, align 8
+  %43 = load ptr, ptr %value_builder_, align 8
+  %44 = load ptr, ptr %child_data, align 8
   %arrayidx38 = getelementptr inbounds i32, ptr %add.ptr.i.i, i64 %row.0158
-  %44 = load i32, ptr %arrayidx38, align 4
-  %conv39 = sext i32 %44 to i64
-  %vtable40 = load ptr, ptr %42, align 8
+  %45 = load i32, ptr %arrayidx38, align 4
+  %conv39 = sext i32 %45 to i64
+  %vtable40 = load ptr, ptr %43, align 8
   %vfn41 = getelementptr inbounds i8, ptr %vtable40, i64 88
-  %45 = load ptr, ptr %vfn41, align 8
-  call void %45(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp34, ptr noundef nonnull align 8 dereferenceable(144) %42, ptr noundef nonnull align 8 dereferenceable(128) %43, i64 noundef %conv39, i64 noundef %size.0)
+  %46 = load ptr, ptr %vfn41, align 8
+  call void %46(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp34, ptr noundef nonnull align 8 dereferenceable(144) %43, ptr noundef nonnull align 8 dereferenceable(128) %44, i64 noundef %conv39, i64 noundef %size.0)
   call void @llvm.experimental.noalias.scope.decl(metadata !102)
-  %46 = load ptr, ptr %ref.tmp34, align 8, !noalias !102
-  store ptr %46, ptr %agg.result, align 8, !alias.scope !102
+  %47 = load ptr, ptr %ref.tmp34, align 8, !noalias !102
+  store ptr %47, ptr %agg.result, align 8, !alias.scope !102
   store ptr null, ptr %ref.tmp34, align 8, !noalias !102
-  %cmp.i115 = icmp eq ptr %46, null
+  %cmp.i115 = icmp eq ptr %47, null
   br i1 %cmp.i115, label %for.inc, label %return
 
 for.inc:                                          ; preds = %_ZN5arrow6StatusD2Ev.exit114, %_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit
@@ -4006,39 +4014,43 @@ do.end8:                                          ; preds = %nrvo.skipdtor.threa
   %and4.i.i.i = and i8 %xor.i.i.i, %6
   %xor105.i.i.i = xor i8 %and4.i.i.i, %5
   store i8 %xor105.i.i.i, ptr %arrayidx.i.i.i, align 1
-  br i1 %is_valid, label %_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit, label %if.then.i40
+  br i1 %is_valid, label %_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEb.exit.thread.i, label %if.then.i40
+
+_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEb.exit.thread.i: ; preds = %do.end8
+  %7 = load i64, ptr %bit_length_.i.i, align 8
+  br label %_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit
 
 if.then.i40:                                      ; preds = %do.end8
   %false_count_.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %7 = load i64, ptr %false_count_.i.i, align 8
-  %inc.i.i = add nsw i64 %7, 1
+  %8 = load i64, ptr %false_count_.i.i, align 8
+  %inc.i.i = add nsw i64 %8, 1
   store i64 %inc.i.i, ptr %false_count_.i.i, align 8
-  %8 = load i64, ptr %bit_length_.i.i, align 8
-  %inc4.i.i = add nsw i64 %8, 1
-  store i64 %inc4.i.i, ptr %bit_length_.i.i, align 8
+  %9 = load i64, ptr %bit_length_.i.i, align 8
   %length_.i = getelementptr inbounds i8, ptr %this, i64 104
+  %10 = load i64, ptr %length_.i, align 8
+  %inc.i = add nsw i64 %10, 1
+  store i64 %inc.i, ptr %length_.i, align 8
   br label %_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit
 
-_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit: ; preds = %do.end8, %if.then.i40
-  %bit_length_.i.sink7.i = phi ptr [ %length_.i, %if.then.i40 ], [ %bit_length_.i.i, %do.end8 ]
-  %.sink.i = phi i64 [ 96, %if.then.i40 ], [ 104, %do.end8 ]
-  %9 = load i64, ptr %bit_length_.i.sink7.i, align 8
-  %inc4.i2.i = add nsw i64 %9, 1
-  store i64 %inc4.i2.i, ptr %bit_length_.i.sink7.i, align 8
+_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit: ; preds = %_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEb.exit.thread.i, %if.then.i40
+  %inc4.i.i.sink.in = phi i64 [ %7, %_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEb.exit.thread.i ], [ %9, %if.then.i40 ]
+  %.sink.i = phi i64 [ 104, %_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEb.exit.thread.i ], [ 96, %if.then.i40 ]
+  %inc4.i.i.sink = add nsw i64 %inc4.i.i.sink.in, 1
+  store i64 %inc4.i.i.sink, ptr %bit_length_.i.i, align 8
   %length_3.i = getelementptr inbounds i8, ptr %this, i64 %.sink.i
-  %10 = load i64, ptr %length_3.i, align 8
-  %inc4.i = add nsw i64 %10, 1
+  %11 = load i64, ptr %length_3.i, align 8
+  %inc4.i = add nsw i64 %11, 1
   store i64 %inc4.i, ptr %length_3.i, align 8
   %value_builder_ = getelementptr inbounds i8, ptr %this, i64 200
-  %11 = load ptr, ptr %value_builder_, align 8
-  %vtable = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %value_builder_, align 8
+  %vtable = load ptr, ptr %12, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %12 = load ptr, ptr %vfn, align 8
-  %call10 = call noundef i64 %12(ptr noundef nonnull align 8 dereferenceable(144) %11)
+  %13 = load ptr, ptr %vfn, align 8
+  %call10 = call noundef i64 %13(ptr noundef nonnull align 8 dereferenceable(144) %12)
   %vtable11 = load ptr, ptr %this, align 8
   %vfn12 = getelementptr inbounds i8, ptr %vtable11, i64 128
-  %13 = load ptr, ptr %vfn12, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(232) %this, i64 noundef %call10, i64 noundef %list_length)
+  %14 = load ptr, ptr %vfn12, align 8
+  call void %14(ptr noundef nonnull align 8 dereferenceable(232) %this, i64 noundef %call10, i64 noundef %list_length)
   store ptr null, ptr %agg.result, align 8, !alias.scope !150
   br label %return
 
@@ -4101,12 +4113,12 @@ do.end8.i:                                        ; preds = %_ZN5arrow6StatusD2E
   %inc.i.i.i = add nsw i64 %8, 1
   store i64 %inc.i.i.i, ptr %false_count_.i.i.i, align 8, !noalias !153
   %9 = load i64, ptr %bit_length_.i.i.i, align 8, !noalias !153
-  %inc4.i.i.i = add nsw i64 %9, 1
-  store i64 %inc4.i.i.i, ptr %bit_length_.i.i.i, align 8, !noalias !153
   %length_.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %10 = load i64, ptr %length_.i.i, align 8, !noalias !153
-  %inc4.i2.i.i = add nsw i64 %10, 1
-  store i64 %inc4.i2.i.i, ptr %length_.i.i, align 8, !noalias !153
+  %inc.i.i = add nsw i64 %10, 1
+  store i64 %inc.i.i, ptr %length_.i.i, align 8, !noalias !153
+  %inc4.i.i.sink.i = add nsw i64 %9, 1
+  store i64 %inc4.i.i.sink.i, ptr %bit_length_.i.i.i, align 8, !noalias !153
   %length_3.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %11 = load i64, ptr %length_3.i.i, align 8, !noalias !153
   %inc4.i.i = add nsw i64 %11, 1
@@ -4226,8 +4238,8 @@ do.end8.i:                                        ; preds = %_ZN5arrow6StatusD2E
   %xor105.i.i.i.i = or i8 %6, %5
   store i8 %xor105.i.i.i.i, ptr %arrayidx.i.i.i.i, align 1, !noalias !180
   %7 = load i64, ptr %bit_length_.i.i.i, align 8, !noalias !180
-  %inc4.i2.i.i = add nsw i64 %7, 1
-  store i64 %inc4.i2.i.i, ptr %bit_length_.i.i.i, align 8, !noalias !180
+  %inc4.i.i.sink.i = add nsw i64 %7, 1
+  store i64 %inc4.i.i.sink.i, ptr %bit_length_.i.i.i, align 8, !noalias !180
   %length_3.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %8 = load i64, ptr %length_3.i.i, align 8, !noalias !180
   %inc4.i.i = add nsw i64 %8, 1
@@ -4492,52 +4504,56 @@ if.end24:                                         ; preds = %if.then16.i, %if.th
   %and4.i.i.i = and i8 %xor.i.i.i, %34
   %xor105.i.i.i = xor i8 %and4.i.i.i, %33
   store i8 %xor105.i.i.i, ptr %arrayidx.i.i.i, align 1
-  br i1 %30, label %_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit, label %if.then.i76
+  br i1 %30, label %_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEb.exit.thread.i, label %if.then.i76
 
-if.then.i76:                                      ; preds = %if.end24
-  %35 = load i64, ptr %false_count_.i.i, align 8
-  %inc.i.i = add nsw i64 %35, 1
-  store i64 %inc.i.i, ptr %false_count_.i.i, align 8
-  %36 = load i64, ptr %bit_length_.i.i, align 8
-  %inc4.i.i = add nsw i64 %36, 1
-  store i64 %inc4.i.i, ptr %bit_length_.i.i, align 8
+_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEb.exit.thread.i: ; preds = %if.end24
+  %35 = load i64, ptr %bit_length_.i.i, align 8
   br label %_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit
 
-_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit: ; preds = %if.end24, %if.then.i76
-  %bit_length_.i.sink7.i = phi ptr [ %length_.i, %if.then.i76 ], [ %bit_length_.i.i, %if.end24 ]
-  %.sink.i = phi i64 [ 96, %if.then.i76 ], [ 104, %if.end24 ]
-  %37 = load i64, ptr %bit_length_.i.sink7.i, align 8
-  %inc4.i2.i = add nsw i64 %37, 1
-  store i64 %inc4.i2.i, ptr %bit_length_.i.sink7.i, align 8
+if.then.i76:                                      ; preds = %if.end24
+  %36 = load i64, ptr %false_count_.i.i, align 8
+  %inc.i.i = add nsw i64 %36, 1
+  store i64 %inc.i.i, ptr %false_count_.i.i, align 8
+  %37 = load i64, ptr %bit_length_.i.i, align 8
+  %38 = load i64, ptr %length_.i, align 8
+  %inc.i = add nsw i64 %38, 1
+  store i64 %inc.i, ptr %length_.i, align 8
+  br label %_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit
+
+_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit: ; preds = %_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEb.exit.thread.i, %if.then.i76
+  %inc4.i.i.sink.in = phi i64 [ %35, %_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEb.exit.thread.i ], [ %37, %if.then.i76 ]
+  %.sink.i = phi i64 [ 104, %_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEb.exit.thread.i ], [ 96, %if.then.i76 ]
+  %inc4.i.i.sink = add nsw i64 %inc4.i.i.sink.in, 1
+  store i64 %inc4.i.i.sink, ptr %bit_length_.i.i, align 8
   %length_3.i = getelementptr inbounds i8, ptr %this, i64 %.sink.i
-  %38 = load i64, ptr %length_3.i, align 8
-  %inc4.i = add nsw i64 %38, 1
+  %39 = load i64, ptr %length_3.i, align 8
+  %inc4.i = add nsw i64 %39, 1
   store i64 %inc4.i, ptr %length_3.i, align 8
-  %39 = load ptr, ptr %value_builder_, align 8
-  %vtable = load ptr, ptr %39, align 8
+  %40 = load ptr, ptr %value_builder_, align 8
+  %vtable = load ptr, ptr %40, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %40 = load ptr, ptr %vfn, align 8
-  %call27 = call noundef i64 %40(ptr noundef nonnull align 8 dereferenceable(144) %39)
+  %41 = load ptr, ptr %vfn, align 8
+  %call27 = call noundef i64 %41(ptr noundef nonnull align 8 dereferenceable(144) %40)
   %vtable28 = load ptr, ptr %this, align 8
   %vfn29 = getelementptr inbounds i8, ptr %vtable28, i64 128
-  %41 = load ptr, ptr %vfn29, align 8
-  call void %41(ptr noundef nonnull align 8 dereferenceable(232) %this, i64 noundef %call27, i64 noundef %size.0)
+  %42 = load ptr, ptr %vfn29, align 8
+  call void %42(ptr noundef nonnull align 8 dereferenceable(232) %this, i64 noundef %call27, i64 noundef %size.0)
   br i1 %30, label %_ZN5arrow6StatusD2Ev.exit114, label %for.inc
 
 _ZN5arrow6StatusD2Ev.exit114:                     ; preds = %_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit
-  %42 = load ptr, ptr %value_builder_, align 8
-  %43 = load ptr, ptr %child_data, align 8
+  %43 = load ptr, ptr %value_builder_, align 8
+  %44 = load ptr, ptr %child_data, align 8
   %arrayidx38 = getelementptr inbounds i64, ptr %add.ptr.i.i, i64 %row.0158
-  %44 = load i64, ptr %arrayidx38, align 8
-  %vtable39 = load ptr, ptr %42, align 8
+  %45 = load i64, ptr %arrayidx38, align 8
+  %vtable39 = load ptr, ptr %43, align 8
   %vfn40 = getelementptr inbounds i8, ptr %vtable39, i64 88
-  %45 = load ptr, ptr %vfn40, align 8
-  call void %45(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp34, ptr noundef nonnull align 8 dereferenceable(144) %42, ptr noundef nonnull align 8 dereferenceable(128) %43, i64 noundef %44, i64 noundef %size.0)
+  %46 = load ptr, ptr %vfn40, align 8
+  call void %46(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp34, ptr noundef nonnull align 8 dereferenceable(144) %43, ptr noundef nonnull align 8 dereferenceable(128) %44, i64 noundef %45, i64 noundef %size.0)
   call void @llvm.experimental.noalias.scope.decl(metadata !215)
-  %46 = load ptr, ptr %ref.tmp34, align 8, !noalias !215
-  store ptr %46, ptr %agg.result, align 8, !alias.scope !215
+  %47 = load ptr, ptr %ref.tmp34, align 8, !noalias !215
+  store ptr %47, ptr %agg.result, align 8, !alias.scope !215
   store ptr null, ptr %ref.tmp34, align 8, !noalias !215
-  %cmp.i115 = icmp eq ptr %46, null
+  %cmp.i115 = icmp eq ptr %47, null
   br i1 %cmp.i115, label %for.inc, label %return
 
 for.inc:                                          ; preds = %_ZN5arrow6StatusD2Ev.exit114, %_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit
@@ -5783,39 +5799,43 @@ do.end8:                                          ; preds = %nrvo.skipdtor.threa
   %and4.i.i.i = and i8 %xor.i.i.i, %6
   %xor105.i.i.i = xor i8 %and4.i.i.i, %5
   store i8 %xor105.i.i.i, ptr %arrayidx.i.i.i, align 1
-  br i1 %is_valid, label %_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit, label %if.then.i40
+  br i1 %is_valid, label %_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEb.exit.thread.i, label %if.then.i40
+
+_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEb.exit.thread.i: ; preds = %do.end8
+  %7 = load i64, ptr %bit_length_.i.i, align 8
+  br label %_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit
 
 if.then.i40:                                      ; preds = %do.end8
   %false_count_.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %7 = load i64, ptr %false_count_.i.i, align 8
-  %inc.i.i = add nsw i64 %7, 1
+  %8 = load i64, ptr %false_count_.i.i, align 8
+  %inc.i.i = add nsw i64 %8, 1
   store i64 %inc.i.i, ptr %false_count_.i.i, align 8
-  %8 = load i64, ptr %bit_length_.i.i, align 8
-  %inc4.i.i = add nsw i64 %8, 1
-  store i64 %inc4.i.i, ptr %bit_length_.i.i, align 8
+  %9 = load i64, ptr %bit_length_.i.i, align 8
   %length_.i = getelementptr inbounds i8, ptr %this, i64 104
+  %10 = load i64, ptr %length_.i, align 8
+  %inc.i = add nsw i64 %10, 1
+  store i64 %inc.i, ptr %length_.i, align 8
   br label %_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit
 
-_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit: ; preds = %do.end8, %if.then.i40
-  %bit_length_.i.sink7.i = phi ptr [ %length_.i, %if.then.i40 ], [ %bit_length_.i.i, %do.end8 ]
-  %.sink.i = phi i64 [ 96, %if.then.i40 ], [ 104, %do.end8 ]
-  %9 = load i64, ptr %bit_length_.i.sink7.i, align 8
-  %inc4.i2.i = add nsw i64 %9, 1
-  store i64 %inc4.i2.i, ptr %bit_length_.i.sink7.i, align 8
+_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit: ; preds = %_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEb.exit.thread.i, %if.then.i40
+  %inc4.i.i.sink.in = phi i64 [ %7, %_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEb.exit.thread.i ], [ %9, %if.then.i40 ]
+  %.sink.i = phi i64 [ 104, %_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEb.exit.thread.i ], [ 96, %if.then.i40 ]
+  %inc4.i.i.sink = add nsw i64 %inc4.i.i.sink.in, 1
+  store i64 %inc4.i.i.sink, ptr %bit_length_.i.i, align 8
   %length_3.i = getelementptr inbounds i8, ptr %this, i64 %.sink.i
-  %10 = load i64, ptr %length_3.i, align 8
-  %inc4.i = add nsw i64 %10, 1
+  %11 = load i64, ptr %length_3.i, align 8
+  %inc4.i = add nsw i64 %11, 1
   store i64 %inc4.i, ptr %length_3.i, align 8
   %value_builder_ = getelementptr inbounds i8, ptr %this, i64 200
-  %11 = load ptr, ptr %value_builder_, align 8
-  %vtable = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %value_builder_, align 8
+  %vtable = load ptr, ptr %12, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %12 = load ptr, ptr %vfn, align 8
-  %call10 = call noundef i64 %12(ptr noundef nonnull align 8 dereferenceable(144) %11)
+  %13 = load ptr, ptr %vfn, align 8
+  %call10 = call noundef i64 %13(ptr noundef nonnull align 8 dereferenceable(144) %12)
   %vtable11 = load ptr, ptr %this, align 8
   %vfn12 = getelementptr inbounds i8, ptr %vtable11, i64 128
-  %13 = load ptr, ptr %vfn12, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(232) %this, i64 noundef %call10, i64 noundef %list_length)
+  %14 = load ptr, ptr %vfn12, align 8
+  call void %14(ptr noundef nonnull align 8 dereferenceable(232) %this, i64 noundef %call10, i64 noundef %list_length)
   store ptr null, ptr %agg.result, align 8, !alias.scope !263
   br label %return
 
@@ -5878,12 +5898,12 @@ do.end8.i:                                        ; preds = %_ZN5arrow6StatusD2E
   %inc.i.i.i = add nsw i64 %8, 1
   store i64 %inc.i.i.i, ptr %false_count_.i.i.i, align 8, !noalias !266
   %9 = load i64, ptr %bit_length_.i.i.i, align 8, !noalias !266
-  %inc4.i.i.i = add nsw i64 %9, 1
-  store i64 %inc4.i.i.i, ptr %bit_length_.i.i.i, align 8, !noalias !266
   %length_.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %10 = load i64, ptr %length_.i.i, align 8, !noalias !266
-  %inc4.i2.i.i = add nsw i64 %10, 1
-  store i64 %inc4.i2.i.i, ptr %length_.i.i, align 8, !noalias !266
+  %inc.i.i = add nsw i64 %10, 1
+  store i64 %inc.i.i, ptr %length_.i.i, align 8, !noalias !266
+  %inc4.i.i.sink.i = add nsw i64 %9, 1
+  store i64 %inc4.i.i.sink.i, ptr %bit_length_.i.i.i, align 8, !noalias !266
   %length_3.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %11 = load i64, ptr %length_3.i.i, align 8, !noalias !266
   %inc4.i.i = add nsw i64 %11, 1
@@ -6003,8 +6023,8 @@ do.end8.i:                                        ; preds = %_ZN5arrow6StatusD2E
   %xor105.i.i.i.i = or i8 %6, %5
   store i8 %xor105.i.i.i.i, ptr %arrayidx.i.i.i.i, align 1, !noalias !293
   %7 = load i64, ptr %bit_length_.i.i.i, align 8, !noalias !293
-  %inc4.i2.i.i = add nsw i64 %7, 1
-  store i64 %inc4.i2.i.i, ptr %bit_length_.i.i.i, align 8, !noalias !293
+  %inc4.i.i.sink.i = add nsw i64 %7, 1
+  store i64 %inc4.i.i.sink.i, ptr %bit_length_.i.i.i, align 8, !noalias !293
   %length_3.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %8 = load i64, ptr %length_3.i.i, align 8, !noalias !293
   %inc4.i.i = add nsw i64 %8, 1
@@ -6270,53 +6290,57 @@ if.end23:                                         ; preds = %if.then16.i, %if.th
   %and4.i.i.i = and i8 %xor.i.i.i, %33
   %xor105.i.i.i = xor i8 %and4.i.i.i, %32
   store i8 %xor105.i.i.i, ptr %arrayidx.i.i.i, align 1
-  br i1 %29, label %_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit, label %if.then.i78
+  br i1 %29, label %_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEb.exit.thread.i, label %if.then.i78
 
-if.then.i78:                                      ; preds = %if.end23
-  %34 = load i64, ptr %false_count_.i.i, align 8
-  %inc.i.i = add nsw i64 %34, 1
-  store i64 %inc.i.i, ptr %false_count_.i.i, align 8
-  %35 = load i64, ptr %bit_length_.i.i, align 8
-  %inc4.i.i = add nsw i64 %35, 1
-  store i64 %inc4.i.i, ptr %bit_length_.i.i, align 8
+_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEb.exit.thread.i: ; preds = %if.end23
+  %34 = load i64, ptr %bit_length_.i.i, align 8
   br label %_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit
 
-_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit: ; preds = %if.end23, %if.then.i78
-  %bit_length_.i.sink7.i = phi ptr [ %length_.i, %if.then.i78 ], [ %bit_length_.i.i, %if.end23 ]
-  %.sink.i = phi i64 [ 96, %if.then.i78 ], [ 104, %if.end23 ]
-  %36 = load i64, ptr %bit_length_.i.sink7.i, align 8
-  %inc4.i2.i = add nsw i64 %36, 1
-  store i64 %inc4.i2.i, ptr %bit_length_.i.sink7.i, align 8
+if.then.i78:                                      ; preds = %if.end23
+  %35 = load i64, ptr %false_count_.i.i, align 8
+  %inc.i.i = add nsw i64 %35, 1
+  store i64 %inc.i.i, ptr %false_count_.i.i, align 8
+  %36 = load i64, ptr %bit_length_.i.i, align 8
+  %37 = load i64, ptr %length_.i, align 8
+  %inc.i = add nsw i64 %37, 1
+  store i64 %inc.i, ptr %length_.i, align 8
+  br label %_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit
+
+_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit: ; preds = %_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEb.exit.thread.i, %if.then.i78
+  %inc4.i.i.sink.in = phi i64 [ %34, %_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEb.exit.thread.i ], [ %36, %if.then.i78 ]
+  %.sink.i = phi i64 [ 104, %_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEb.exit.thread.i ], [ 96, %if.then.i78 ]
+  %inc4.i.i.sink = add nsw i64 %inc4.i.i.sink.in, 1
+  store i64 %inc4.i.i.sink, ptr %bit_length_.i.i, align 8
   %length_3.i = getelementptr inbounds i8, ptr %this, i64 %.sink.i
-  %37 = load i64, ptr %length_3.i, align 8
-  %inc4.i = add nsw i64 %37, 1
+  %38 = load i64, ptr %length_3.i, align 8
+  %inc4.i = add nsw i64 %38, 1
   store i64 %inc4.i, ptr %length_3.i, align 8
-  %38 = load ptr, ptr %value_builder_, align 8
-  %vtable = load ptr, ptr %38, align 8
+  %39 = load ptr, ptr %value_builder_, align 8
+  %vtable = load ptr, ptr %39, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %39 = load ptr, ptr %vfn, align 8
-  %call26 = call noundef i64 %39(ptr noundef nonnull align 8 dereferenceable(144) %38)
+  %40 = load ptr, ptr %vfn, align 8
+  %call26 = call noundef i64 %40(ptr noundef nonnull align 8 dereferenceable(144) %39)
   %vtable27 = load ptr, ptr %this, align 8
   %vfn28 = getelementptr inbounds i8, ptr %vtable27, i64 128
-  %40 = load ptr, ptr %vfn28, align 8
-  call void %40(ptr noundef nonnull align 8 dereferenceable(232) %this, i64 noundef %call26, i64 noundef %size.0)
+  %41 = load ptr, ptr %vfn28, align 8
+  call void %41(ptr noundef nonnull align 8 dereferenceable(232) %this, i64 noundef %call26, i64 noundef %size.0)
   br i1 %29, label %_ZN5arrow6StatusD2Ev.exit116, label %for.inc
 
 _ZN5arrow6StatusD2Ev.exit116:                     ; preds = %_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit
-  %41 = load ptr, ptr %value_builder_, align 8
-  %42 = load ptr, ptr %child_data, align 8
+  %42 = load ptr, ptr %value_builder_, align 8
+  %43 = load ptr, ptr %child_data, align 8
   %arrayidx37 = getelementptr inbounds i32, ptr %add.ptr.i.i, i64 %row.0160
-  %43 = load i32, ptr %arrayidx37, align 4
-  %conv38 = sext i32 %43 to i64
-  %vtable39 = load ptr, ptr %41, align 8
+  %44 = load i32, ptr %arrayidx37, align 4
+  %conv38 = sext i32 %44 to i64
+  %vtable39 = load ptr, ptr %42, align 8
   %vfn40 = getelementptr inbounds i8, ptr %vtable39, i64 88
-  %44 = load ptr, ptr %vfn40, align 8
-  call void %44(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp33, ptr noundef nonnull align 8 dereferenceable(144) %41, ptr noundef nonnull align 8 dereferenceable(128) %42, i64 noundef %conv38, i64 noundef %size.0)
+  %45 = load ptr, ptr %vfn40, align 8
+  call void %45(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp33, ptr noundef nonnull align 8 dereferenceable(144) %42, ptr noundef nonnull align 8 dereferenceable(128) %43, i64 noundef %conv38, i64 noundef %size.0)
   call void @llvm.experimental.noalias.scope.decl(metadata !328)
-  %45 = load ptr, ptr %ref.tmp33, align 8, !noalias !328
-  store ptr %45, ptr %agg.result, align 8, !alias.scope !328
+  %46 = load ptr, ptr %ref.tmp33, align 8, !noalias !328
+  store ptr %46, ptr %agg.result, align 8, !alias.scope !328
   store ptr null, ptr %ref.tmp33, align 8, !noalias !328
-  %cmp.i117 = icmp eq ptr %45, null
+  %cmp.i117 = icmp eq ptr %46, null
   br i1 %cmp.i117, label %for.inc, label %return
 
 for.inc:                                          ; preds = %_ZN5arrow6StatusD2Ev.exit116, %_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit
@@ -7564,39 +7588,43 @@ do.end8:                                          ; preds = %nrvo.skipdtor.threa
   %and4.i.i.i = and i8 %xor.i.i.i, %6
   %xor105.i.i.i = xor i8 %and4.i.i.i, %5
   store i8 %xor105.i.i.i, ptr %arrayidx.i.i.i, align 1
-  br i1 %is_valid, label %_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit, label %if.then.i40
+  br i1 %is_valid, label %_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEb.exit.thread.i, label %if.then.i40
+
+_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEb.exit.thread.i: ; preds = %do.end8
+  %7 = load i64, ptr %bit_length_.i.i, align 8
+  br label %_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit
 
 if.then.i40:                                      ; preds = %do.end8
   %false_count_.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %7 = load i64, ptr %false_count_.i.i, align 8
-  %inc.i.i = add nsw i64 %7, 1
+  %8 = load i64, ptr %false_count_.i.i, align 8
+  %inc.i.i = add nsw i64 %8, 1
   store i64 %inc.i.i, ptr %false_count_.i.i, align 8
-  %8 = load i64, ptr %bit_length_.i.i, align 8
-  %inc4.i.i = add nsw i64 %8, 1
-  store i64 %inc4.i.i, ptr %bit_length_.i.i, align 8
+  %9 = load i64, ptr %bit_length_.i.i, align 8
   %length_.i = getelementptr inbounds i8, ptr %this, i64 104
+  %10 = load i64, ptr %length_.i, align 8
+  %inc.i = add nsw i64 %10, 1
+  store i64 %inc.i, ptr %length_.i, align 8
   br label %_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit
 
-_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit: ; preds = %do.end8, %if.then.i40
-  %bit_length_.i.sink7.i = phi ptr [ %length_.i, %if.then.i40 ], [ %bit_length_.i.i, %do.end8 ]
-  %.sink.i = phi i64 [ 96, %if.then.i40 ], [ 104, %do.end8 ]
-  %9 = load i64, ptr %bit_length_.i.sink7.i, align 8
-  %inc4.i2.i = add nsw i64 %9, 1
-  store i64 %inc4.i2.i, ptr %bit_length_.i.sink7.i, align 8
+_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit: ; preds = %_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEb.exit.thread.i, %if.then.i40
+  %inc4.i.i.sink.in = phi i64 [ %7, %_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEb.exit.thread.i ], [ %9, %if.then.i40 ]
+  %.sink.i = phi i64 [ 104, %_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEb.exit.thread.i ], [ 96, %if.then.i40 ]
+  %inc4.i.i.sink = add nsw i64 %inc4.i.i.sink.in, 1
+  store i64 %inc4.i.i.sink, ptr %bit_length_.i.i, align 8
   %length_3.i = getelementptr inbounds i8, ptr %this, i64 %.sink.i
-  %10 = load i64, ptr %length_3.i, align 8
-  %inc4.i = add nsw i64 %10, 1
+  %11 = load i64, ptr %length_3.i, align 8
+  %inc4.i = add nsw i64 %11, 1
   store i64 %inc4.i, ptr %length_3.i, align 8
   %value_builder_ = getelementptr inbounds i8, ptr %this, i64 200
-  %11 = load ptr, ptr %value_builder_, align 8
-  %vtable = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %value_builder_, align 8
+  %vtable = load ptr, ptr %12, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %12 = load ptr, ptr %vfn, align 8
-  %call10 = call noundef i64 %12(ptr noundef nonnull align 8 dereferenceable(144) %11)
+  %13 = load ptr, ptr %vfn, align 8
+  %call10 = call noundef i64 %13(ptr noundef nonnull align 8 dereferenceable(144) %12)
   %vtable11 = load ptr, ptr %this, align 8
   %vfn12 = getelementptr inbounds i8, ptr %vtable11, i64 128
-  %13 = load ptr, ptr %vfn12, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(232) %this, i64 noundef %call10, i64 noundef %list_length)
+  %14 = load ptr, ptr %vfn12, align 8
+  call void %14(ptr noundef nonnull align 8 dereferenceable(232) %this, i64 noundef %call10, i64 noundef %list_length)
   store ptr null, ptr %agg.result, align 8, !alias.scope !376
   br label %return
 
@@ -7659,12 +7687,12 @@ do.end8.i:                                        ; preds = %_ZN5arrow6StatusD2E
   %inc.i.i.i = add nsw i64 %8, 1
   store i64 %inc.i.i.i, ptr %false_count_.i.i.i, align 8, !noalias !379
   %9 = load i64, ptr %bit_length_.i.i.i, align 8, !noalias !379
-  %inc4.i.i.i = add nsw i64 %9, 1
-  store i64 %inc4.i.i.i, ptr %bit_length_.i.i.i, align 8, !noalias !379
   %length_.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %10 = load i64, ptr %length_.i.i, align 8, !noalias !379
-  %inc4.i2.i.i = add nsw i64 %10, 1
-  store i64 %inc4.i2.i.i, ptr %length_.i.i, align 8, !noalias !379
+  %inc.i.i = add nsw i64 %10, 1
+  store i64 %inc.i.i, ptr %length_.i.i, align 8, !noalias !379
+  %inc4.i.i.sink.i = add nsw i64 %9, 1
+  store i64 %inc4.i.i.sink.i, ptr %bit_length_.i.i.i, align 8, !noalias !379
   %length_3.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %11 = load i64, ptr %length_3.i.i, align 8, !noalias !379
   %inc4.i.i = add nsw i64 %11, 1
@@ -7784,8 +7812,8 @@ do.end8.i:                                        ; preds = %_ZN5arrow6StatusD2E
   %xor105.i.i.i.i = or i8 %6, %5
   store i8 %xor105.i.i.i.i, ptr %arrayidx.i.i.i.i, align 1, !noalias !406
   %7 = load i64, ptr %bit_length_.i.i.i, align 8, !noalias !406
-  %inc4.i2.i.i = add nsw i64 %7, 1
-  store i64 %inc4.i2.i.i, ptr %bit_length_.i.i.i, align 8, !noalias !406
+  %inc4.i.i.sink.i = add nsw i64 %7, 1
+  store i64 %inc4.i.i.sink.i, ptr %bit_length_.i.i.i, align 8, !noalias !406
   %length_3.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %8 = load i64, ptr %length_3.i.i, align 8, !noalias !406
   %inc4.i.i = add nsw i64 %8, 1
@@ -8050,52 +8078,56 @@ if.end23:                                         ; preds = %if.then16.i, %if.th
   %and4.i.i.i = and i8 %xor.i.i.i, %33
   %xor105.i.i.i = xor i8 %and4.i.i.i, %32
   store i8 %xor105.i.i.i, ptr %arrayidx.i.i.i, align 1
-  br i1 %29, label %_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit, label %if.then.i78
+  br i1 %29, label %_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEb.exit.thread.i, label %if.then.i78
 
-if.then.i78:                                      ; preds = %if.end23
-  %34 = load i64, ptr %false_count_.i.i, align 8
-  %inc.i.i = add nsw i64 %34, 1
-  store i64 %inc.i.i, ptr %false_count_.i.i, align 8
-  %35 = load i64, ptr %bit_length_.i.i, align 8
-  %inc4.i.i = add nsw i64 %35, 1
-  store i64 %inc4.i.i, ptr %bit_length_.i.i, align 8
+_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEb.exit.thread.i: ; preds = %if.end23
+  %34 = load i64, ptr %bit_length_.i.i, align 8
   br label %_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit
 
-_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit: ; preds = %if.end23, %if.then.i78
-  %bit_length_.i.sink7.i = phi ptr [ %length_.i, %if.then.i78 ], [ %bit_length_.i.i, %if.end23 ]
-  %.sink.i = phi i64 [ 96, %if.then.i78 ], [ 104, %if.end23 ]
-  %36 = load i64, ptr %bit_length_.i.sink7.i, align 8
-  %inc4.i2.i = add nsw i64 %36, 1
-  store i64 %inc4.i2.i, ptr %bit_length_.i.sink7.i, align 8
+if.then.i78:                                      ; preds = %if.end23
+  %35 = load i64, ptr %false_count_.i.i, align 8
+  %inc.i.i = add nsw i64 %35, 1
+  store i64 %inc.i.i, ptr %false_count_.i.i, align 8
+  %36 = load i64, ptr %bit_length_.i.i, align 8
+  %37 = load i64, ptr %length_.i, align 8
+  %inc.i = add nsw i64 %37, 1
+  store i64 %inc.i, ptr %length_.i, align 8
+  br label %_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit
+
+_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit: ; preds = %_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEb.exit.thread.i, %if.then.i78
+  %inc4.i.i.sink.in = phi i64 [ %34, %_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEb.exit.thread.i ], [ %36, %if.then.i78 ]
+  %.sink.i = phi i64 [ 104, %_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEb.exit.thread.i ], [ 96, %if.then.i78 ]
+  %inc4.i.i.sink = add nsw i64 %inc4.i.i.sink.in, 1
+  store i64 %inc4.i.i.sink, ptr %bit_length_.i.i, align 8
   %length_3.i = getelementptr inbounds i8, ptr %this, i64 %.sink.i
-  %37 = load i64, ptr %length_3.i, align 8
-  %inc4.i = add nsw i64 %37, 1
+  %38 = load i64, ptr %length_3.i, align 8
+  %inc4.i = add nsw i64 %38, 1
   store i64 %inc4.i, ptr %length_3.i, align 8
-  %38 = load ptr, ptr %value_builder_, align 8
-  %vtable = load ptr, ptr %38, align 8
+  %39 = load ptr, ptr %value_builder_, align 8
+  %vtable = load ptr, ptr %39, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %39 = load ptr, ptr %vfn, align 8
-  %call26 = call noundef i64 %39(ptr noundef nonnull align 8 dereferenceable(144) %38)
+  %40 = load ptr, ptr %vfn, align 8
+  %call26 = call noundef i64 %40(ptr noundef nonnull align 8 dereferenceable(144) %39)
   %vtable27 = load ptr, ptr %this, align 8
   %vfn28 = getelementptr inbounds i8, ptr %vtable27, i64 128
-  %40 = load ptr, ptr %vfn28, align 8
-  call void %40(ptr noundef nonnull align 8 dereferenceable(232) %this, i64 noundef %call26, i64 noundef %size.0)
+  %41 = load ptr, ptr %vfn28, align 8
+  call void %41(ptr noundef nonnull align 8 dereferenceable(232) %this, i64 noundef %call26, i64 noundef %size.0)
   br i1 %29, label %_ZN5arrow6StatusD2Ev.exit116, label %for.inc
 
 _ZN5arrow6StatusD2Ev.exit116:                     ; preds = %_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit
-  %41 = load ptr, ptr %value_builder_, align 8
-  %42 = load ptr, ptr %child_data, align 8
+  %42 = load ptr, ptr %value_builder_, align 8
+  %43 = load ptr, ptr %child_data, align 8
   %arrayidx37 = getelementptr inbounds i64, ptr %add.ptr.i.i, i64 %row.0160
-  %43 = load i64, ptr %arrayidx37, align 8
-  %vtable38 = load ptr, ptr %41, align 8
+  %44 = load i64, ptr %arrayidx37, align 8
+  %vtable38 = load ptr, ptr %42, align 8
   %vfn39 = getelementptr inbounds i8, ptr %vtable38, i64 88
-  %44 = load ptr, ptr %vfn39, align 8
-  call void %44(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp33, ptr noundef nonnull align 8 dereferenceable(144) %41, ptr noundef nonnull align 8 dereferenceable(128) %42, i64 noundef %43, i64 noundef %size.0)
+  %45 = load ptr, ptr %vfn39, align 8
+  call void %45(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp33, ptr noundef nonnull align 8 dereferenceable(144) %42, ptr noundef nonnull align 8 dereferenceable(128) %43, i64 noundef %44, i64 noundef %size.0)
   call void @llvm.experimental.noalias.scope.decl(metadata !441)
-  %45 = load ptr, ptr %ref.tmp33, align 8, !noalias !441
-  store ptr %45, ptr %agg.result, align 8, !alias.scope !441
+  %46 = load ptr, ptr %ref.tmp33, align 8, !noalias !441
+  store ptr %46, ptr %agg.result, align 8, !alias.scope !441
   store ptr null, ptr %ref.tmp33, align 8, !noalias !441
-  %cmp.i117 = icmp eq ptr %45, null
+  %cmp.i117 = icmp eq ptr %46, null
   br i1 %cmp.i117, label %for.inc, label %return
 
 for.inc:                                          ; preds = %_ZN5arrow6StatusD2Ev.exit116, %_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit
@@ -17995,8 +18027,8 @@ do.end45:                                         ; preds = %nrvo.skipdtor.threa
   %xor105.i.i.i.i = or i8 %18, %17
   store i8 %xor105.i.i.i.i, ptr %arrayidx.i.i.i.i, align 1, !noalias !821
   %19 = load i64, ptr %bit_length_.i.i.i, align 8, !noalias !821
-  %inc4.i2.i.i = add nsw i64 %19, 1
-  store i64 %inc4.i2.i.i, ptr %bit_length_.i.i.i, align 8, !noalias !821
+  %inc4.i.i.sink.i = add nsw i64 %19, 1
+  store i64 %inc4.i.i.sink.i, ptr %bit_length_.i.i.i, align 8, !noalias !821
   %length_3.i.i = getelementptr inbounds i8, ptr %11, i64 104
   %20 = load i64, ptr %length_3.i.i, align 8, !noalias !821
   %inc4.i.i = add nsw i64 %20, 1
@@ -18150,12 +18182,12 @@ do.end45:                                         ; preds = %nrvo.skipdtor.threa
   %inc.i.i.i.i = add nsw i64 %20, 1
   store i64 %inc.i.i.i.i, ptr %false_count_.i.i.i.i, align 8, !noalias !856
   %21 = load i64, ptr %bit_length_.i.i.i.i, align 8, !noalias !856
-  %inc4.i.i.i.i = add nsw i64 %21, 1
-  store i64 %inc4.i.i.i.i, ptr %bit_length_.i.i.i.i, align 8, !noalias !856
   %length_.i.i.i = getelementptr inbounds i8, ptr %11, i64 104
   %22 = load i64, ptr %length_.i.i.i, align 8, !noalias !856
-  %inc4.i2.i.i.i = add nsw i64 %22, 1
-  store i64 %inc4.i2.i.i.i, ptr %length_.i.i.i, align 8, !noalias !856
+  %inc.i.i.i = add nsw i64 %22, 1
+  store i64 %inc.i.i.i, ptr %length_.i.i.i, align 8, !noalias !856
+  %inc4.i.i.sink.i.i = add nsw i64 %21, 1
+  store i64 %inc4.i.i.sink.i.i, ptr %bit_length_.i.i.i.i, align 8, !noalias !856
   %length_3.i.i.i = getelementptr inbounds i8, ptr %11, i64 96
   %23 = load i64, ptr %length_3.i.i.i, align 8, !noalias !856
   %inc4.i.i.i = add nsw i64 %23, 1
@@ -18440,8 +18472,8 @@ do.end45:                                         ; preds = %nrvo.skipdtor.threa
   %xor105.i.i.i.i.i = or i8 %18, %17
   store i8 %xor105.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i, align 1, !noalias !923
   %19 = load i64, ptr %bit_length_.i.i.i.i, align 8, !noalias !923
-  %inc4.i2.i.i.i = add nsw i64 %19, 1
-  store i64 %inc4.i2.i.i.i, ptr %bit_length_.i.i.i.i, align 8, !noalias !923
+  %inc4.i.i.sink.i.i = add nsw i64 %19, 1
+  store i64 %inc4.i.i.sink.i.i, ptr %bit_length_.i.i.i.i, align 8, !noalias !923
   %length_3.i.i.i = getelementptr inbounds i8, ptr %11, i64 104
   %20 = load i64, ptr %length_3.i.i.i, align 8, !noalias !923
   %inc4.i.i.i = add nsw i64 %20, 1
@@ -19169,8 +19201,8 @@ do.end8:                                          ; preds = %nrvo.skipdtor.threa
   store i64 %inc4.i.i, ptr %bit_length_.i.i, align 8
   %length_.i = getelementptr inbounds i8, ptr %this, i64 104
   %10 = load i64, ptr %length_.i, align 8
-  %inc4.i2.i = add nsw i64 %10, 1
-  store i64 %inc4.i2.i, ptr %length_.i, align 8
+  %inc.i = add nsw i64 %10, 1
+  store i64 %inc.i, ptr %length_.i, align 8
   %length_3.i = getelementptr inbounds i8, ptr %this, i64 96
   %11 = load i64, ptr %length_3.i, align 8
   %inc4.i = add nsw i64 %11, 1
@@ -25049,8 +25081,8 @@ entry:
   %1 = load ptr, ptr %buffers.i, align 8
   %cond = select i1 %cmp.not.i.not, ptr null, ptr %1
   %add = add nsw i64 %length, %offset
-  %cmp236 = icmp sgt i64 %length, 0
-  br i1 %cmp236, label %for.body.lr.ph, label %return.sink.split
+  %cmp235 = icmp sgt i64 %length, 0
+  br i1 %cmp235, label %for.body.lr.ph, label %return.sink.split
 
 for.body.lr.ph:                                   ; preds = %entry
   %tobool.not = icmp eq ptr %cond, null
@@ -25060,24 +25092,24 @@ for.body.lr.ph:                                   ; preds = %entry
   %bit_length_.i.i.i140 = getelementptr inbounds i8, ptr %this, i64 80
   %false_count_.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %length_.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %length_3.i.i147 = getelementptr inbounds i8, ptr %this, i64 96
+  %length_3.i.i146 = getelementptr inbounds i8, ptr %this, i64 96
   %value_builder_.i = getelementptr inbounds i8, ptr %this, i64 168
   %list_size_.i = getelementptr inbounds i8, ptr %this, i64 160
   %child_data = getelementptr inbounds i8, ptr %array, i64 104
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %row.0237 = phi i64 [ %offset, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %row.0236 = phi i64 [ %offset, %for.body.lr.ph ], [ %inc, %for.inc ]
   %.pre = load i64, ptr %offset2, align 8
-  %.pre238 = add nsw i64 %.pre, %row.0237
+  %.pre237 = add nsw i64 %.pre, %row.0236
   br i1 %tobool.not, label %_ZN5arrow6StatusD2Ev.exit, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body
-  %shr.i = lshr i64 %.pre238, 3
+  %shr.i = lshr i64 %.pre237, 3
   %arrayidx.i = getelementptr inbounds i8, ptr %cond, i64 %shr.i
   %2 = load i8, ptr %arrayidx.i, align 1
   %conv.i = zext i8 %2 to i32
-  %3 = trunc i64 %.pre238 to i32
+  %3 = trunc i64 %.pre237 to i32
   %sh_prom.i = and i32 %3, 7
   %4 = shl nuw nsw i32 1, %sh_prom.i
   %5 = and i32 %4, %conv.i
@@ -25089,7 +25121,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %for.body, %lor.lhs.
   %7 = load ptr, ptr %child_data, align 8
   %8 = load i32, ptr %list_size_.i, align 8
   %conv = sext i32 %8 to i64
-  %mul = mul nsw i64 %.pre238, %conv
+  %mul = mul nsw i64 %.pre237, %conv
   %vtable = load ptr, ptr %6, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
   %9 = load ptr, ptr %vfn, align 8
@@ -25162,13 +25194,13 @@ do.body40:                                        ; preds = %lor.lhs.false
   %21 = load ptr, ptr %vfn.i.i127, align 8, !noalias !1114
   %call2.i.i128 = call noundef i64 %21(ptr noundef nonnull align 8 dereferenceable(144) %this), !noalias !1114
   %cmp.not.i.not.i129 = icmp slt i64 %call2.i.i128, %20
-  br i1 %cmp.not.i.not.i129, label %nrvo.skipdtor.thread.i150, label %_ZN5arrow6StatusD2Ev.exit.i130
+  br i1 %cmp.not.i.not.i129, label %nrvo.skipdtor.thread.i149, label %_ZN5arrow6StatusD2Ev.exit.i130
 
-nrvo.skipdtor.thread.i150:                        ; preds = %do.body40
+nrvo.skipdtor.thread.i149:                        ; preds = %do.body40
   call void @llvm.experimental.noalias.scope.decl(metadata !1117)
   store ptr null, ptr %ref.tmp42, align 8, !alias.scope !1120
   store ptr null, ptr %ref.tmp.i124, align 8, !noalias !1120
-  br label %_ZN5arrow6StatusD2Ev.exit186
+  br label %_ZN5arrow6StatusD2Ev.exit185
 
 _ZN5arrow6StatusD2Ev.exit.i130:                   ; preds = %do.body40
   %add.i.i131 = add nsw i64 %call2.i.i128, 1
@@ -25183,13 +25215,13 @@ _ZN5arrow6StatusD2Ev.exit.i130:                   ; preds = %do.body40
   store ptr %.pr.i136, ptr %ref.tmp42, align 8, !alias.scope !1121
   store ptr null, ptr %ref.tmp.i124, align 8, !noalias !1121
   %cmp.i.i137 = icmp eq ptr %.pr.i136, null
-  br i1 %cmp.i.i137, label %_ZN5arrow6StatusD2Ev.exit186, label %nrvo.skipdtor56.thread
+  br i1 %cmp.i.i137, label %_ZN5arrow6StatusD2Ev.exit185, label %nrvo.skipdtor56.thread
 
 nrvo.skipdtor56.thread:                           ; preds = %_ZN5arrow6StatusD2Ev.exit.i130
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i124)
   br label %return.sink.split
 
-_ZN5arrow6StatusD2Ev.exit186:                     ; preds = %nrvo.skipdtor.thread.i150, %_ZN5arrow6StatusD2Ev.exit.i130
+_ZN5arrow6StatusD2Ev.exit185:                     ; preds = %nrvo.skipdtor.thread.i149, %_ZN5arrow6StatusD2Ev.exit.i130
   %23 = load ptr, ptr %data_.i.i.i.i.i139, align 8, !noalias !1111
   %24 = load i64, ptr %bit_length_.i.i.i140, align 8, !noalias !1111
   %div.i.i.i.i141 = sdiv i64 %24, 8
@@ -25208,28 +25240,28 @@ _ZN5arrow6StatusD2Ev.exit186:                     ; preds = %nrvo.skipdtor.threa
   %inc4.i.i.i = add nsw i64 %29, 1
   store i64 %inc4.i.i.i, ptr %bit_length_.i.i.i140, align 8, !noalias !1111
   %30 = load i64, ptr %length_.i.i, align 8, !noalias !1111
-  %inc4.i2.i.i146 = add nsw i64 %30, 1
-  store i64 %inc4.i2.i.i146, ptr %length_.i.i, align 8, !noalias !1111
-  %31 = load i64, ptr %length_3.i.i147, align 8, !noalias !1111
-  %inc4.i.i148 = add nsw i64 %31, 1
-  store i64 %inc4.i.i148, ptr %length_3.i.i147, align 8, !noalias !1111
+  %inc.i.i = add nsw i64 %30, 1
+  store i64 %inc.i.i, ptr %length_.i.i, align 8, !noalias !1111
+  %31 = load i64, ptr %length_3.i.i146, align 8, !noalias !1111
+  %inc4.i.i147 = add nsw i64 %31, 1
+  store i64 %inc4.i.i147, ptr %length_3.i.i146, align 8, !noalias !1111
   %32 = load ptr, ptr %value_builder_.i, align 8, !noalias !1111
   %33 = load i32, ptr %list_size_.i, align 8, !noalias !1111
-  %conv.i149 = sext i32 %33 to i64
+  %conv.i148 = sext i32 %33 to i64
   %vtable.i = load ptr, ptr %32, align 8, !noalias !1111
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 48
   %34 = load ptr, ptr %vfn.i, align 8, !noalias !1111
-  call void %34(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp42, ptr noundef nonnull align 8 dereferenceable(144) %32, i64 noundef %conv.i149)
+  call void %34(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp42, ptr noundef nonnull align 8 dereferenceable(144) %32, i64 noundef %conv.i148)
   %.pr = load ptr, ptr %ref.tmp42, align 8, !noalias !1124
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i124)
   call void @llvm.experimental.noalias.scope.decl(metadata !1124)
   store ptr %.pr, ptr %agg.result, align 8, !alias.scope !1124
   store ptr null, ptr %ref.tmp42, align 8, !noalias !1124
-  %cmp.i187 = icmp eq ptr %.pr, null
-  br i1 %cmp.i187, label %for.inc, label %return
+  %cmp.i186 = icmp eq ptr %.pr, null
+  br i1 %cmp.i186, label %for.inc, label %return
 
-for.inc:                                          ; preds = %nrvo.skipdtor35.thread, %_ZN5arrow6StatusD2Ev.exit186
-  %inc = add nsw i64 %row.0237, 1
+for.inc:                                          ; preds = %nrvo.skipdtor35.thread, %_ZN5arrow6StatusD2Ev.exit185
+  %inc = add nsw i64 %row.0236, 1
   %cmp = icmp slt i64 %inc, %add
   br i1 %cmp, label %for.body, label %return.sink.split, !llvm.loop !1127
 
@@ -25238,7 +25270,7 @@ return.sink.split:                                ; preds = %for.inc, %entry, %n
   store ptr %.pr.i136.lcssa.sink, ptr %agg.result, align 8
   br label %return
 
-return:                                           ; preds = %_ZN5arrow6StatusD2Ev.exit186, %_ZN5arrow6StatusD2Ev.exit, %return.sink.split
+return:                                           ; preds = %_ZN5arrow6StatusD2Ev.exit185, %_ZN5arrow6StatusD2Ev.exit, %return.sink.split
   ret void
 }
 
@@ -25678,12 +25710,12 @@ do.end6.i:                                        ; preds = %_ZN5arrow6StatusD2E
   %inc.i.i.i = add nsw i64 %13, 1
   store i64 %inc.i.i.i, ptr %false_count_.i.i.i, align 8, !noalias !1131
   %14 = load i64, ptr %bit_length_.i.i.i, align 8, !noalias !1131
-  %inc4.i.i.i = add nsw i64 %14, 1
-  store i64 %inc4.i.i.i, ptr %bit_length_.i.i.i, align 8, !noalias !1131
   %length_.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %15 = load i64, ptr %length_.i.i, align 8, !noalias !1131
-  %inc4.i2.i.i = add nsw i64 %15, 1
-  store i64 %inc4.i2.i.i, ptr %length_.i.i, align 8, !noalias !1131
+  %inc.i.i = add nsw i64 %15, 1
+  store i64 %inc.i.i, ptr %length_.i.i, align 8, !noalias !1131
+  %inc4.i.i.sink.i = add nsw i64 %14, 1
+  store i64 %inc4.i.i.sink.i, ptr %bit_length_.i.i.i, align 8, !noalias !1131
   %length_3.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %16 = load i64, ptr %length_3.i.i, align 8, !noalias !1131
   %inc4.i.i = add nsw i64 %16, 1
@@ -25846,8 +25878,8 @@ do.end6.i:                                        ; preds = %_ZN5arrow6StatusD2E
   %xor105.i.i.i.i = or i8 %11, %10
   store i8 %xor105.i.i.i.i, ptr %arrayidx.i.i.i.i, align 1, !noalias !1163
   %12 = load i64, ptr %bit_length_.i.i.i, align 8, !noalias !1163
-  %inc4.i2.i.i = add nsw i64 %12, 1
-  store i64 %inc4.i2.i.i, ptr %bit_length_.i.i.i, align 8, !noalias !1163
+  %inc4.i.i.sink.i = add nsw i64 %12, 1
+  store i64 %inc4.i.i.sink.i, ptr %bit_length_.i.i.i, align 8, !noalias !1163
   %length_3.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %13 = load i64, ptr %length_3.i.i, align 8, !noalias !1163
   %inc4.i.i = add nsw i64 %13, 1

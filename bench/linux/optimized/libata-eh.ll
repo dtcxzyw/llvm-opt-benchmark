@@ -1528,25 +1528,25 @@ define dso_local void @ata_eh_finish(ptr noundef %0) local_unnamed_addr #0 align
   %2 = getelementptr inbounds i8, ptr %0, i64 304
   br label %3
 
-3:                                                ; preds = %83, %1
-  %4 = phi i64 [ 0, %1 ], [ %84, %83 ]
+3:                                                ; preds = %88, %1
+  %4 = phi i64 [ 0, %1 ], [ %89, %88 ]
   %5 = getelementptr [33 x %struct.ata_queued_cmd], ptr %2, i64 0, i64 %4
   %6 = getelementptr inbounds i8, ptr %5, i64 80
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 65536
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %83, label %10
+  br i1 %9, label %88, label %10
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds i8, ptr %5, i64 180
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %45, label %14
+  br i1 %13, label %48, label %14
 
 14:                                               ; preds = %10
   %15 = and i64 %7, 128
   %16 = icmp eq i64 %15, 0
-  br i1 %16, label %29, label %17
+  br i1 %16, label %30, label %17
 
 17:                                               ; preds = %14
   %18 = load ptr, ptr %5, align 8
@@ -1561,129 +1561,145 @@ define dso_local void @ata_eh_finish(ptr noundef %0) local_unnamed_addr #0 align
   %25 = getelementptr inbounds i8, ptr %5, i64 88
   %26 = load i32, ptr %25, align 8
   %27 = icmp ult i32 %26, 33
-  br i1 %27, label %28, label %.sink.split, !prof !7
+  br i1 %27, label %28, label %ata_eh_qc_retry.exit, !prof !7
 
 28:                                               ; preds = %17
   tail call void asm sideeffect "933: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 933b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 933) #18, !srcloc !55
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 1172, i32 2305, i64 12) #18, !srcloc !56
   tail call void asm sideeffect "934: nop\0A\09.pushsection .discard.instr_end\0A\09.long 934b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 934) #18, !srcloc !57
+  br label %ata_eh_qc_retry.exit
+
+ata_eh_qc_retry.exit:                             ; preds = %17, %28
+  %29 = load ptr, ptr %21, align 16
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %29, i64 noundef %23) #18
   br label %.sink.split
 
-29:                                               ; preds = %14
-  %30 = getelementptr inbounds i8, ptr %5, i64 16
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 148
-  %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %31, i64 144
-  store i32 %33, ptr %34, align 8
-  %35 = load ptr, ptr %5, align 8
-  %36 = load ptr, ptr %30, align 8
-  %37 = getelementptr inbounds i8, ptr %35, i64 16
-  %38 = load ptr, ptr %37, align 16
-  %39 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %38) #18
-  %40 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr @ata_eh_scsidone, ptr %40, align 8
+30:                                               ; preds = %14
+  %31 = getelementptr inbounds i8, ptr %5, i64 16
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %32, i64 148
+  %34 = load i32, ptr %33, align 4
+  %35 = getelementptr inbounds i8, ptr %32, i64 144
+  store i32 %34, ptr %35, align 8
+  %36 = load ptr, ptr %5, align 8
+  %37 = load ptr, ptr %31, align 8
+  %38 = getelementptr inbounds i8, ptr %36, i64 16
+  %39 = load ptr, ptr %38, align 16
+  %40 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %39) #18
+  %41 = getelementptr inbounds i8, ptr %5, i64 24
+  store ptr @ata_eh_scsidone, ptr %41, align 8
   tail call void @__ata_qc_complete(ptr noundef %5) #18
-  %41 = getelementptr inbounds i8, ptr %5, i64 88
-  %42 = load i32, ptr %41, align 8
-  %43 = icmp ult i32 %42, 33
-  br i1 %43, label %44, label %.sink.split, !prof !7
+  %42 = getelementptr inbounds i8, ptr %5, i64 88
+  %43 = load i32, ptr %42, align 8
+  %44 = icmp ult i32 %43, 33
+  br i1 %44, label %45, label %46, !prof !7
 
-44:                                               ; preds = %29
+45:                                               ; preds = %30
   tail call void asm sideeffect "933: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 933b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 933) #18, !srcloc !55
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 1172, i32 2305, i64 12) #18, !srcloc !56
   tail call void asm sideeffect "934: nop\0A\09.pushsection .discard.instr_end\0A\09.long 934b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 934) #18, !srcloc !57
+  br label %46
+
+46:                                               ; preds = %45, %30
+  %47 = load ptr, ptr %38, align 16
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %47, i64 noundef %40) #18
   br label %.sink.split
 
-45:                                               ; preds = %10
-  %46 = and i64 %7, 655360
-  %47 = icmp eq i64 %46, 0
-  br i1 %47, label %64, label %48
+48:                                               ; preds = %10
+  %49 = and i64 %7, 655360
+  %50 = icmp eq i64 %49, 0
+  br i1 %50, label %69, label %51
 
-48:                                               ; preds = %45
-  %49 = getelementptr inbounds i8, ptr %5, i64 16
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 148
-  %52 = load i32, ptr %51, align 4
-  %53 = getelementptr inbounds i8, ptr %50, i64 144
-  store i32 %52, ptr %53, align 8
-  %54 = load ptr, ptr %5, align 8
-  %55 = load ptr, ptr %49, align 8
-  %56 = getelementptr inbounds i8, ptr %54, i64 16
-  %57 = load ptr, ptr %56, align 16
-  %58 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %57) #18
-  %59 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr @ata_eh_scsidone, ptr %59, align 8
+51:                                               ; preds = %48
+  %52 = getelementptr inbounds i8, ptr %5, i64 16
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 148
+  %55 = load i32, ptr %54, align 4
+  %56 = getelementptr inbounds i8, ptr %53, i64 144
+  store i32 %55, ptr %56, align 8
+  %57 = load ptr, ptr %5, align 8
+  %58 = load ptr, ptr %52, align 8
+  %59 = getelementptr inbounds i8, ptr %57, i64 16
+  %60 = load ptr, ptr %59, align 16
+  %61 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %60) #18
+  %62 = getelementptr inbounds i8, ptr %5, i64 24
+  store ptr @ata_eh_scsidone, ptr %62, align 8
   tail call void @__ata_qc_complete(ptr noundef %5) #18
-  %60 = getelementptr inbounds i8, ptr %5, i64 88
-  %61 = load i32, ptr %60, align 8
-  %62 = icmp ult i32 %61, 33
-  br i1 %62, label %63, label %.sink.split, !prof !7
+  %63 = getelementptr inbounds i8, ptr %5, i64 88
+  %64 = load i32, ptr %63, align 8
+  %65 = icmp ult i32 %64, 33
+  br i1 %65, label %66, label %67, !prof !7
 
-63:                                               ; preds = %48
+66:                                               ; preds = %51
   tail call void asm sideeffect "933: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 933b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 933) #18, !srcloc !55
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 1172, i32 2305, i64 12) #18, !srcloc !56
   tail call void asm sideeffect "934: nop\0A\09.pushsection .discard.instr_end\0A\09.long 934b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 934) #18, !srcloc !57
+  br label %67
+
+67:                                               ; preds = %66, %51
+  %68 = load ptr, ptr %59, align 16
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %68, i64 noundef %61) #18
   br label %.sink.split
 
-64:                                               ; preds = %45
-  %65 = getelementptr inbounds i8, ptr %5, i64 184
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(32) %65, i8 0, i64 32, i1 false)
-  %66 = getelementptr inbounds i8, ptr %5, i64 16
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 148
-  %69 = load i32, ptr %68, align 4
-  %70 = add i32 %69, 1
-  store i32 %70, ptr %68, align 4
-  %71 = load ptr, ptr %5, align 8
-  %72 = load ptr, ptr %66, align 8
-  %73 = getelementptr inbounds i8, ptr %71, i64 16
-  %74 = load ptr, ptr %73, align 16
-  %75 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %74) #18
-  %76 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr @ata_eh_scsidone, ptr %76, align 8
+69:                                               ; preds = %48
+  %70 = getelementptr inbounds i8, ptr %5, i64 184
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(32) %70, i8 0, i64 32, i1 false)
+  %71 = getelementptr inbounds i8, ptr %5, i64 16
+  %72 = load ptr, ptr %71, align 8
+  %73 = getelementptr inbounds i8, ptr %72, i64 148
+  %74 = load i32, ptr %73, align 4
+  %75 = add i32 %74, 1
+  store i32 %75, ptr %73, align 4
+  %76 = load ptr, ptr %5, align 8
+  %77 = load ptr, ptr %71, align 8
+  %78 = getelementptr inbounds i8, ptr %76, i64 16
+  %79 = load ptr, ptr %78, align 16
+  %80 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %79) #18
+  %81 = getelementptr inbounds i8, ptr %5, i64 24
+  store ptr @ata_eh_scsidone, ptr %81, align 8
   tail call void @__ata_qc_complete(ptr noundef %5) #18
-  %77 = getelementptr inbounds i8, ptr %5, i64 88
-  %78 = load i32, ptr %77, align 8
-  %79 = icmp ult i32 %78, 33
-  br i1 %79, label %80, label %.sink.split, !prof !7
+  %82 = getelementptr inbounds i8, ptr %5, i64 88
+  %83 = load i32, ptr %82, align 8
+  %84 = icmp ult i32 %83, 33
+  br i1 %84, label %85, label %ata_eh_qc_retry.exit1, !prof !7
 
-80:                                               ; preds = %64
+85:                                               ; preds = %69
   tail call void asm sideeffect "933: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 933b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 933) #18, !srcloc !55
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 1172, i32 2305, i64 12) #18, !srcloc !56
   tail call void asm sideeffect "934: nop\0A\09.pushsection .discard.instr_end\0A\09.long 934b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 934) #18, !srcloc !57
+  br label %ata_eh_qc_retry.exit1
+
+ata_eh_qc_retry.exit1:                            ; preds = %69, %85
+  %86 = load ptr, ptr %78, align 16
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %86, i64 noundef %80) #18
   br label %.sink.split
 
-.sink.split:                                      ; preds = %80, %64, %48, %63, %29, %44, %28, %17
-  %.sink6 = phi ptr [ %21, %17 ], [ %21, %28 ], [ %37, %44 ], [ %37, %29 ], [ %56, %63 ], [ %56, %48 ], [ %73, %64 ], [ %73, %80 ]
-  %.sink5 = phi i64 [ %23, %17 ], [ %23, %28 ], [ %39, %44 ], [ %39, %29 ], [ %58, %63 ], [ %58, %48 ], [ %75, %64 ], [ %75, %80 ]
-  %.sink3 = phi ptr [ %18, %17 ], [ %18, %28 ], [ %35, %44 ], [ %35, %29 ], [ %54, %63 ], [ %54, %48 ], [ %71, %64 ], [ %71, %80 ]
-  %.sink = phi ptr [ %20, %17 ], [ %20, %28 ], [ %36, %44 ], [ %36, %29 ], [ %55, %63 ], [ %55, %48 ], [ %72, %64 ], [ %72, %80 ]
-  %81 = load ptr, ptr %.sink6, align 16
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %81, i64 noundef %.sink5) #18
-  %82 = getelementptr inbounds i8, ptr %.sink3, i64 15736
-  tail call void @scsi_eh_finish_cmd(ptr noundef %.sink, ptr noundef %82) #18
-  br label %83
+.sink.split:                                      ; preds = %ata_eh_qc_retry.exit, %46, %67, %ata_eh_qc_retry.exit1
+  %.sink3 = phi ptr [ %76, %ata_eh_qc_retry.exit1 ], [ %57, %67 ], [ %36, %46 ], [ %18, %ata_eh_qc_retry.exit ]
+  %.sink = phi ptr [ %77, %ata_eh_qc_retry.exit1 ], [ %58, %67 ], [ %37, %46 ], [ %20, %ata_eh_qc_retry.exit ]
+  %87 = getelementptr inbounds i8, ptr %.sink3, i64 15736
+  tail call void @scsi_eh_finish_cmd(ptr noundef %.sink, ptr noundef %87) #18
+  br label %88
 
-83:                                               ; preds = %.sink.split, %3
-  %84 = add nuw nsw i64 %4, 1
-  %85 = icmp eq i64 %84, 32
-  br i1 %85, label %86, label %3, !llvm.loop !58
+88:                                               ; preds = %.sink.split, %3
+  %89 = add nuw nsw i64 %4, 1
+  %90 = icmp eq i64 %89, 32
+  br i1 %90, label %91, label %3, !llvm.loop !58
 
-86:                                               ; preds = %83
-  %87 = getelementptr inbounds i8, ptr %0, i64 8232
-  %88 = load i32, ptr %87, align 8
-  %89 = icmp eq i32 %88, 0
-  br i1 %89, label %91, label %90, !prof !16
+91:                                               ; preds = %88
+  %92 = getelementptr inbounds i8, ptr %0, i64 8232
+  %93 = load i32, ptr %92, align 8
+  %94 = icmp eq i32 %93, 0
+  br i1 %94, label %96, label %95, !prof !16
 
-90:                                               ; preds = %86
+95:                                               ; preds = %91
   tail call void asm sideeffect "951: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 951b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 951) #18, !srcloc !59
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 3963, i32 2305, i64 12) #18, !srcloc !60
   tail call void asm sideeffect "952: nop\0A\09.pushsection .discard.instr_end\0A\09.long 952b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 952) #18, !srcloc !61
-  br label %91
+  br label %96
 
-91:                                               ; preds = %90, %86
-  store i32 0, ptr %87, align 8
+96:                                               ; preds = %95, %91
+  store i32 0, ptr %92, align 8
   ret void
 }
 

@@ -6000,10 +6000,10 @@ define void @_ZN3vcg10trackutils14DrawSphereIconEPNS_9TrackballEbb(ptr noundef %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull align 16 dereferenceable(16) @__const._ZN3vcg10trackutils14DrawSphereAxisEPNS_9TrackballE.amb, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 16 dereferenceable(16) @__const._ZN3vcg10trackutils14DrawSphereAxisEPNS_9TrackballE.col, i64 16, i1 false)
   call void @glEnable(i32 noundef 2848)
-  %.val = load float, ptr getelementptr inbounds (i8, ptr @_ZN3vcg10trackutils2DHE, i64 16), align 4
-  %.val29 = load float, ptr getelementptr inbounds (i8, ptr @_ZN3vcg10trackutils2DHE, i64 12), align 4
-  %75 = select i1 %1, float %.val, float %.val29
-  call void @glLineWidth(float noundef %75)
+  %75 = load float, ptr getelementptr inbounds (i8, ptr @_ZN3vcg10trackutils2DHE, i64 12), align 4
+  %76 = load float, ptr getelementptr inbounds (i8, ptr @_ZN3vcg10trackutils2DHE, i64 16), align 4
+  %.sink = select i1 %1, float %76, float %75
+  call void @glLineWidth(float noundef %.sink)
   call void @glDisable(i32 noundef 2903)
   call void @glEnable(i32 noundef 2896)
   call void @glEnable(i32 noundef 16384)
@@ -6012,108 +6012,108 @@ define void @_ZN3vcg10trackutils14DrawSphereIconEPNS_9TrackballEbb(ptr noundef %
   call void @glColor4ubv(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN3vcg10trackutils2DHE, i64 6))
   call void @glMaterialfv(i32 noundef 1032, i32 noundef 5632, ptr noundef nonnull %6)
   store float 0x3FD99999A0000000, ptr %7, align 16
-  %76 = getelementptr inbounds i8, ptr %7, i64 4
-  store float 0x3FD99999A0000000, ptr %76, align 4
-  %77 = getelementptr inbounds i8, ptr %7, i64 8
-  store float 0x3FEB333340000000, ptr %77, align 8
+  %77 = getelementptr inbounds i8, ptr %7, i64 4
+  store float 0x3FD99999A0000000, ptr %77, align 4
+  %78 = getelementptr inbounds i8, ptr %7, i64 8
+  store float 0x3FEB333340000000, ptr %78, align 8
   call void @glMaterialfv(i32 noundef 1032, i32 noundef 4609, ptr noundef nonnull %7)
-  %78 = load i32, ptr @_ZN3vcg10trackutils2DHE, align 4
+  %79 = load i32, ptr @_ZN3vcg10trackutils2DHE, align 4
   call void @glBegin(i32 noundef 2)
-  %79 = sitofp i32 %78 to double
-  %80 = icmp sgt i32 %78, 0
-  br i1 %80, label %.lr.ph.i, label %._crit_edge.i
+  %80 = sitofp i32 %79 to double
+  %81 = icmp sgt i32 %79, 0
+  br i1 %81, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %60, %.lr.ph.i
-  %.012.i = phi double [ %87, %.lr.ph.i ], [ 0.000000e+00, %60 ]
-  %81 = fmul double %.012.i, 0x401921FB53C8D4F1
-  %82 = fdiv double %81, %79
-  %83 = call double @cos(double noundef %82) #34
-  %84 = call double @sin(double noundef %82) #34
-  call void @glNormal3d(double noundef %83, double noundef %84, double noundef 0.000000e+00)
-  %85 = call double @cos(double noundef %82) #34
-  %86 = call double @sin(double noundef %82) #34
-  call void @glVertex3d(double noundef %85, double noundef %86, double noundef 0.000000e+00)
-  %87 = fadd double %.012.i, 1.000000e+00
-  %88 = fcmp olt double %87, %79
-  br i1 %88, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !52
+  %.012.i = phi double [ %88, %.lr.ph.i ], [ 0.000000e+00, %60 ]
+  %82 = fmul double %.012.i, 0x401921FB53C8D4F1
+  %83 = fdiv double %82, %80
+  %84 = call double @cos(double noundef %83) #34
+  %85 = call double @sin(double noundef %83) #34
+  call void @glNormal3d(double noundef %84, double noundef %85, double noundef 0.000000e+00)
+  %86 = call double @cos(double noundef %83) #34
+  %87 = call double @sin(double noundef %83) #34
+  call void @glVertex3d(double noundef %86, double noundef %87, double noundef 0.000000e+00)
+  %88 = fadd double %.012.i, 1.000000e+00
+  %89 = fcmp olt double %88, %80
+  br i1 %89, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !52
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %60
   call void @glEnd()
-  br i1 %2, label %89, label %_ZN3vcg10trackutils10DrawCircleEb.exit
+  br i1 %2, label %90, label %_ZN3vcg10trackutils10DrawCircleEb.exit
 
-89:                                               ; preds = %._crit_edge.i
+90:                                               ; preds = %._crit_edge.i
   call void @_ZN3vcg10trackutils15DrawPlaneHandleEv()
   br label %_ZN3vcg10trackutils10DrawCircleEb.exit
 
-_ZN3vcg10trackutils10DrawCircleEb.exit:           ; preds = %._crit_edge.i, %89
+_ZN3vcg10trackutils10DrawCircleEb.exit:           ; preds = %._crit_edge.i, %90
   call void @glRotatef(float noundef 9.000000e+01, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00)
   store float 0x3FD99999A0000000, ptr %7, align 16
-  store float 0x3FEB333340000000, ptr %76, align 4
-  store float 0x3FD99999A0000000, ptr %77, align 8
+  store float 0x3FEB333340000000, ptr %77, align 4
+  store float 0x3FD99999A0000000, ptr %78, align 8
   call void @glMaterialfv(i32 noundef 1032, i32 noundef 4609, ptr noundef nonnull %7)
-  %90 = load i32, ptr @_ZN3vcg10trackutils2DHE, align 4
+  %91 = load i32, ptr @_ZN3vcg10trackutils2DHE, align 4
   call void @glBegin(i32 noundef 2)
-  %91 = sitofp i32 %90 to double
-  %92 = icmp sgt i32 %90, 0
-  br i1 %92, label %.lr.ph.i18, label %._crit_edge.i17
+  %92 = sitofp i32 %91 to double
+  %93 = icmp sgt i32 %91, 0
+  br i1 %93, label %.lr.ph.i18, label %._crit_edge.i17
 
 .lr.ph.i18:                                       ; preds = %_ZN3vcg10trackutils10DrawCircleEb.exit, %.lr.ph.i18
-  %.012.i19 = phi double [ %99, %.lr.ph.i18 ], [ 0.000000e+00, %_ZN3vcg10trackutils10DrawCircleEb.exit ]
-  %93 = fmul double %.012.i19, 0x401921FB53C8D4F1
-  %94 = fdiv double %93, %91
-  %95 = call double @cos(double noundef %94) #34
-  %96 = call double @sin(double noundef %94) #34
-  call void @glNormal3d(double noundef %95, double noundef %96, double noundef 0.000000e+00)
-  %97 = call double @cos(double noundef %94) #34
-  %98 = call double @sin(double noundef %94) #34
-  call void @glVertex3d(double noundef %97, double noundef %98, double noundef 0.000000e+00)
-  %99 = fadd double %.012.i19, 1.000000e+00
-  %100 = fcmp olt double %99, %91
-  br i1 %100, label %.lr.ph.i18, label %._crit_edge.i17, !llvm.loop !52
+  %.012.i19 = phi double [ %100, %.lr.ph.i18 ], [ 0.000000e+00, %_ZN3vcg10trackutils10DrawCircleEb.exit ]
+  %94 = fmul double %.012.i19, 0x401921FB53C8D4F1
+  %95 = fdiv double %94, %92
+  %96 = call double @cos(double noundef %95) #34
+  %97 = call double @sin(double noundef %95) #34
+  call void @glNormal3d(double noundef %96, double noundef %97, double noundef 0.000000e+00)
+  %98 = call double @cos(double noundef %95) #34
+  %99 = call double @sin(double noundef %95) #34
+  call void @glVertex3d(double noundef %98, double noundef %99, double noundef 0.000000e+00)
+  %100 = fadd double %.012.i19, 1.000000e+00
+  %101 = fcmp olt double %100, %92
+  br i1 %101, label %.lr.ph.i18, label %._crit_edge.i17, !llvm.loop !52
 
 ._crit_edge.i17:                                  ; preds = %.lr.ph.i18, %_ZN3vcg10trackutils10DrawCircleEb.exit
   call void @glEnd()
-  br i1 %2, label %101, label %_ZN3vcg10trackutils10DrawCircleEb.exit20
+  br i1 %2, label %102, label %_ZN3vcg10trackutils10DrawCircleEb.exit20
 
-101:                                              ; preds = %._crit_edge.i17
+102:                                              ; preds = %._crit_edge.i17
   call void @_ZN3vcg10trackutils15DrawPlaneHandleEv()
   br label %_ZN3vcg10trackutils10DrawCircleEb.exit20
 
-_ZN3vcg10trackutils10DrawCircleEb.exit20:         ; preds = %._crit_edge.i17, %101
+_ZN3vcg10trackutils10DrawCircleEb.exit20:         ; preds = %._crit_edge.i17, %102
   call void @glRotatef(float noundef 9.000000e+01, float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef 0.000000e+00)
   store float 0x3FEB333340000000, ptr %7, align 16
-  store float 0x3FD99999A0000000, ptr %76, align 4
-  store float 0x3FD99999A0000000, ptr %77, align 8
+  store float 0x3FD99999A0000000, ptr %77, align 4
+  store float 0x3FD99999A0000000, ptr %78, align 8
   call void @glMaterialfv(i32 noundef 1032, i32 noundef 4609, ptr noundef nonnull %7)
-  %102 = load i32, ptr @_ZN3vcg10trackutils2DHE, align 4
+  %103 = load i32, ptr @_ZN3vcg10trackutils2DHE, align 4
   call void @glBegin(i32 noundef 2)
-  %103 = sitofp i32 %102 to double
-  %104 = icmp sgt i32 %102, 0
-  br i1 %104, label %.lr.ph.i22, label %._crit_edge.i21
+  %104 = sitofp i32 %103 to double
+  %105 = icmp sgt i32 %103, 0
+  br i1 %105, label %.lr.ph.i22, label %._crit_edge.i21
 
 .lr.ph.i22:                                       ; preds = %_ZN3vcg10trackutils10DrawCircleEb.exit20, %.lr.ph.i22
-  %.012.i23 = phi double [ %111, %.lr.ph.i22 ], [ 0.000000e+00, %_ZN3vcg10trackutils10DrawCircleEb.exit20 ]
-  %105 = fmul double %.012.i23, 0x401921FB53C8D4F1
-  %106 = fdiv double %105, %103
-  %107 = call double @cos(double noundef %106) #34
-  %108 = call double @sin(double noundef %106) #34
-  call void @glNormal3d(double noundef %107, double noundef %108, double noundef 0.000000e+00)
-  %109 = call double @cos(double noundef %106) #34
-  %110 = call double @sin(double noundef %106) #34
-  call void @glVertex3d(double noundef %109, double noundef %110, double noundef 0.000000e+00)
-  %111 = fadd double %.012.i23, 1.000000e+00
-  %112 = fcmp olt double %111, %103
-  br i1 %112, label %.lr.ph.i22, label %._crit_edge.i21, !llvm.loop !52
+  %.012.i23 = phi double [ %112, %.lr.ph.i22 ], [ 0.000000e+00, %_ZN3vcg10trackutils10DrawCircleEb.exit20 ]
+  %106 = fmul double %.012.i23, 0x401921FB53C8D4F1
+  %107 = fdiv double %106, %104
+  %108 = call double @cos(double noundef %107) #34
+  %109 = call double @sin(double noundef %107) #34
+  call void @glNormal3d(double noundef %108, double noundef %109, double noundef 0.000000e+00)
+  %110 = call double @cos(double noundef %107) #34
+  %111 = call double @sin(double noundef %107) #34
+  call void @glVertex3d(double noundef %110, double noundef %111, double noundef 0.000000e+00)
+  %112 = fadd double %.012.i23, 1.000000e+00
+  %113 = fcmp olt double %112, %104
+  br i1 %113, label %.lr.ph.i22, label %._crit_edge.i21, !llvm.loop !52
 
 ._crit_edge.i21:                                  ; preds = %.lr.ph.i22, %_ZN3vcg10trackutils10DrawCircleEb.exit20
   call void @glEnd()
-  br i1 %2, label %113, label %_ZN3vcg10trackutils10DrawCircleEb.exit24
+  br i1 %2, label %114, label %_ZN3vcg10trackutils10DrawCircleEb.exit24
 
-113:                                              ; preds = %._crit_edge.i21
+114:                                              ; preds = %._crit_edge.i21
   call void @_ZN3vcg10trackutils15DrawPlaneHandleEv()
   br label %_ZN3vcg10trackutils10DrawCircleEb.exit24
 
-_ZN3vcg10trackutils10DrawCircleEb.exit24:         ; preds = %._crit_edge.i21, %113
+_ZN3vcg10trackutils10DrawCircleEb.exit24:         ; preds = %._crit_edge.i21, %114
   call void @glPopMatrix()
   call void @glPopAttrib()
   ret void

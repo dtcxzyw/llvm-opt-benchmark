@@ -260,6 +260,7 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %12, %1
   %28 = load volatile ptr, ptr %24, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 24
   store volatile ptr %8, ptr %29, align 8
+  store volatile ptr %8, ptr %24, align 8
   br label %37
 
 30:                                               ; preds = %opal_obj_new.exit
@@ -272,11 +273,10 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %12, %1
   store volatile ptr %8, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 16
   store volatile ptr %5, ptr %36, align 8
+  store volatile ptr %8, ptr %31, align 8
   br label %37
 
 37:                                               ; preds = %30, %23
-  %.sink = phi ptr [ %31, %30 ], [ %24, %23 ]
-  store volatile ptr %8, ptr %.sink, align 8
   %38 = load volatile i64, ptr %22, align 8
   %39 = add i64 %38, 1
   store volatile i64 %39, ptr %22, align 8
@@ -611,16 +611,16 @@ opal_obj_new.exit126:                             ; preds = %.lr.ph.i.i123, %186
   br label %.loopexit.sink.split
 
 205:                                              ; preds = %178, %142
-  %.sink184 = phi i64 [ 16, %142 ], [ 24, %178 ]
+  %.sink = phi i64 [ 16, %142 ], [ 24, %178 ]
   %.191 = phi i8 [ 1, %142 ], [ -1, %178 ]
-  %206 = getelementptr inbounds i8, ptr %.0151, i64 %.sink184
+  %206 = getelementptr inbounds i8, ptr %.0151, i64 %.sink
   %.1 = load volatile ptr, ptr %206, align 8
   %207 = icmp eq ptr %.1, %5
   br i1 %207, label %._crit_edge, label %.lr.ph
 
 .loopexit.sink.split:                             ; preds = %42, %140, %opal_thread_add_fetch_32.exit107, %opal_obj_run_destructors.exit112, %91, %opal_thread_add_fetch_32.exit, %opal_obj_run_destructors.exit, %37, %165, %opal_obj_new.exit126
-  %.sink185 = phi ptr [ %182, %opal_obj_new.exit126 ], [ %146, %165 ], [ %8, %37 ], [ %.0151, %opal_obj_run_destructors.exit ], [ %.0151, %opal_thread_add_fetch_32.exit ], [ %.0151, %91 ], [ %.0151, %opal_obj_run_destructors.exit112 ], [ %.0151, %opal_thread_add_fetch_32.exit107 ], [ %.0151, %140 ], [ %.0151, %42 ]
-  store ptr %.sink185, ptr %3, align 8
+  %.sink184 = phi ptr [ %182, %opal_obj_new.exit126 ], [ %146, %165 ], [ %8, %37 ], [ %.0151, %opal_obj_run_destructors.exit ], [ %.0151, %opal_thread_add_fetch_32.exit ], [ %.0151, %91 ], [ %.0151, %opal_obj_run_destructors.exit112 ], [ %.0151, %opal_thread_add_fetch_32.exit107 ], [ %.0151, %140 ], [ %.0151, %42 ]
+  store ptr %.sink184, ptr %3, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %176, %.loopexit.sink.split

@@ -1019,43 +1019,63 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZN17algebraic_numbers7manager6is_posERKNS_4anumE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %a) local_unnamed_addr #8 align 2 {
 entry:
-  %0 = load ptr, ptr %this, align 8
-  %1 = load ptr, ptr %a, align 8
-  %2 = ptrtoint ptr %1 to i64
-  %and.i.i = and i64 %2, 7
-  %cmp.i.i = icmp ne i64 %and.i.i, 0
-  %and.i3.i = and i64 %2, -8
-  %3 = inttoptr i64 %and.i3.i to ptr
-  %m_interval.i = getelementptr inbounds i8, ptr %3, i64 16
-  %cmp.i.i.i = icmp eq ptr %1, null
-  %m_zero.i.i = getelementptr inbounds i8, ptr %0, i64 640
-  %retval.0.i.i = select i1 %cmp.i.i.i, ptr %m_zero.i.i, ptr %1
-  %m_interval.sink.i = select i1 %cmp.i.i, ptr %m_interval.i, ptr %retval.0.i.i
-  %.sink4.i = sext i1 %cmp.i.i to i32
-  %4 = load i32, ptr %m_interval.sink.i, align 8
-  %cmp.i.i.i.i.i = icmp sgt i32 %4, %.sink4.i
-  ret i1 %cmp.i.i.i.i.i
+  %0 = load ptr, ptr %a, align 8
+  %1 = ptrtoint ptr %0 to i64
+  %and.i.i = and i64 %1, 7
+  %cmp.i.i = icmp eq i64 %and.i.i, 0
+  br i1 %cmp.i.i, label %if.then.i, label %if.else.i
+
+if.then.i:                                        ; preds = %entry
+  %2 = load ptr, ptr %this, align 8
+  %cmp.i.i.i = icmp eq ptr %0, null
+  %m_zero.i.i = getelementptr inbounds i8, ptr %2, i64 640
+  %retval.0.i.i = select i1 %cmp.i.i.i, ptr %m_zero.i.i, ptr %0
+  %3 = load i32, ptr %retval.0.i.i, align 8
+  %cmp.i.i.i.i = icmp sgt i32 %3, 0
+  br label %_ZN17algebraic_numbers7manager3imp6is_posERKNS_4anumE.exit
+
+if.else.i:                                        ; preds = %entry
+  %and.i3.i = and i64 %1, -8
+  %4 = inttoptr i64 %and.i3.i to ptr
+  %m_interval.i = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = load i32, ptr %m_interval.i, align 8
+  %cmp.i.i.i.i.i = icmp sgt i32 %5, -1
+  br label %_ZN17algebraic_numbers7manager3imp6is_posERKNS_4anumE.exit
+
+_ZN17algebraic_numbers7manager3imp6is_posERKNS_4anumE.exit: ; preds = %if.then.i, %if.else.i
+  %retval.0.i = phi i1 [ %cmp.i.i.i.i, %if.then.i ], [ %cmp.i.i.i.i.i, %if.else.i ]
+  ret i1 %retval.0.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZN17algebraic_numbers7manager6is_negERKNS_4anumE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %a) local_unnamed_addr #8 align 2 {
 entry:
-  %0 = load ptr, ptr %this, align 8
-  %1 = load ptr, ptr %a, align 8
-  %2 = ptrtoint ptr %1 to i64
-  %and.i.i = and i64 %2, 7
-  %cmp.i.i = icmp ne i64 %and.i.i, 0
-  %and.i3.i = and i64 %2, -8
-  %3 = inttoptr i64 %and.i3.i to ptr
-  %m_upper.i.i = getelementptr inbounds i8, ptr %3, i64 40
-  %cmp.i.i.i = icmp eq ptr %1, null
-  %m_zero.i.i = getelementptr inbounds i8, ptr %0, i64 640
-  %retval.0.i.i = select i1 %cmp.i.i.i, ptr %m_zero.i.i, ptr %1
-  %m_upper.i.sink.i = select i1 %cmp.i.i, ptr %m_upper.i.i, ptr %retval.0.i.i
-  %.sink4.i = zext i1 %cmp.i.i to i32
-  %4 = load i32, ptr %m_upper.i.sink.i, align 8
-  %cmp.i.i.i.i.i = icmp slt i32 %4, %.sink4.i
-  ret i1 %cmp.i.i.i.i.i
+  %0 = load ptr, ptr %a, align 8
+  %1 = ptrtoint ptr %0 to i64
+  %and.i.i = and i64 %1, 7
+  %cmp.i.i = icmp eq i64 %and.i.i, 0
+  br i1 %cmp.i.i, label %if.then.i, label %if.else.i
+
+if.then.i:                                        ; preds = %entry
+  %2 = load ptr, ptr %this, align 8
+  %cmp.i.i.i = icmp eq ptr %0, null
+  %m_zero.i.i = getelementptr inbounds i8, ptr %2, i64 640
+  %retval.0.i.i = select i1 %cmp.i.i.i, ptr %m_zero.i.i, ptr %0
+  %3 = load i32, ptr %retval.0.i.i, align 8
+  %cmp.i.i.i.i = icmp slt i32 %3, 0
+  br label %_ZN17algebraic_numbers7manager3imp6is_negERKNS_4anumE.exit
+
+if.else.i:                                        ; preds = %entry
+  %and.i3.i = and i64 %1, -8
+  %4 = inttoptr i64 %and.i3.i to ptr
+  %m_upper.i.i = getelementptr inbounds i8, ptr %4, i64 40
+  %5 = load i32, ptr %m_upper.i.i, align 8
+  %cmp.i.i.i.i.i = icmp slt i32 %5, 1
+  br label %_ZN17algebraic_numbers7manager3imp6is_negERKNS_4anumE.exit
+
+_ZN17algebraic_numbers7manager3imp6is_negERKNS_4anumE.exit: ; preds = %if.then.i, %if.else.i
+  %retval.0.i = phi i1 [ %cmp.i.i.i.i, %if.then.i ], [ %cmp.i.i.i.i.i, %if.else.i ]
+  ret i1 %retval.0.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3658,20 +3678,29 @@ if.then3:                                         ; preds = %entry, %lor.lhs.fal
 if.end4:                                          ; preds = %lor.lhs.false
   %2 = ptrtoint ptr %1 to i64
   %and.i.i = and i64 %2, 7
-  %cmp.i.i = icmp ne i64 %and.i.i, 0
-  %and.i3.i = and i64 %2, -8
-  %3 = inttoptr i64 %and.i3.i to ptr
-  %m_upper.i.i = getelementptr inbounds i8, ptr %3, i64 40
-  %m_upper.i.sink.i = select i1 %cmp.i.i, ptr %m_upper.i.i, ptr %1
-  %.sink4.i = zext i1 %cmp.i.i to i32
-  %4 = load i32, ptr %m_upper.i.sink.i, align 8
-  %cmp.i.i.i.i.i = icmp slt i32 %4, %.sink4.i
+  %cmp.i.i = icmp eq i64 %and.i.i, 0
+  br i1 %cmp.i.i, label %_ZN17algebraic_numbers7manager3imp6is_negERKNS_4anumE.exit, label %_ZN17algebraic_numbers7manager3imp6is_negERKNS_4anumE.exit.thread
+
+_ZN17algebraic_numbers7manager3imp6is_negERKNS_4anumE.exit: ; preds = %if.end4
+  %3 = load i32, ptr %1, align 8
+  %cmp.i.i.i.i = icmp slt i32 %3, 0
   %rem = and i32 %k, 1
   %cmp6 = icmp eq i32 %rem, 0
-  %or.cond = and i1 %cmp6, %cmp.i.i.i.i.i
-  br i1 %or.cond, label %if.then7, label %if.end11
+  %or.cond = and i1 %cmp6, %cmp.i.i.i.i
+  br i1 %or.cond, label %if.then7, label %if.then13
 
-if.then7:                                         ; preds = %if.end4
+_ZN17algebraic_numbers7manager3imp6is_negERKNS_4anumE.exit.thread: ; preds = %if.end4
+  %and.i3.i = and i64 %2, -8
+  %4 = inttoptr i64 %and.i3.i to ptr
+  %m_upper.i.i = getelementptr inbounds i8, ptr %4, i64 40
+  %5 = load i32, ptr %m_upper.i.i, align 8
+  %cmp.i.i.i.i.i = icmp slt i32 %5, 1
+  %rem20 = and i32 %k, 1
+  %cmp621 = icmp eq i32 %rem20, 0
+  %or.cond22 = and i1 %cmp621, %cmp.i.i.i.i.i
+  br i1 %or.cond22, label %if.then7, label %if.else
+
+if.then7:                                         ; preds = %_ZN17algebraic_numbers7manager3imp6is_negERKNS_4anumE.exit.thread, %_ZN17algebraic_numbers7manager3imp6is_negERKNS_4anumE.exit
   %exception8 = tail call ptr @__cxa_allocate_exception(i64 40) #26
   invoke void @_ZN17algebraic_numbers19algebraic_exceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %exception8, ptr noundef nonnull @.str.27)
           to label %invoke.cont10 unwind label %lpad9
@@ -3681,19 +3710,15 @@ invoke.cont10:                                    ; preds = %if.then7
   unreachable
 
 lpad9:                                            ; preds = %if.then7
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
-if.end11:                                         ; preds = %if.end4
-  %cmp.i15 = icmp eq i64 %and.i.i, 0
-  br i1 %cmp.i15, label %if.then13, label %if.else
-
-if.then13:                                        ; preds = %if.end11
-  tail call void @_ZN17algebraic_numbers7manager3imp9root_coreEPNS_10basic_cellEjRNS_4anumE(ptr noundef nonnull align 8 dereferenceable(936) %this, ptr noundef %3, i32 noundef %k, ptr noundef nonnull align 8 dereferenceable(8) %b)
+if.then13:                                        ; preds = %_ZN17algebraic_numbers7manager3imp6is_negERKNS_4anumE.exit
+  tail call void @_ZN17algebraic_numbers7manager3imp9root_coreEPNS_10basic_cellEjRNS_4anumE(ptr noundef nonnull align 8 dereferenceable(936) %this, ptr noundef nonnull %1, i32 noundef %k, ptr noundef nonnull align 8 dereferenceable(8) %b)
   br label %if.end17
 
-if.else:                                          ; preds = %if.end11
+if.else:                                          ; preds = %_ZN17algebraic_numbers7manager3imp6is_negERKNS_4anumE.exit.thread
   store ptr %this, ptr %ref.tmp, align 8
   %k.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i32 %k, ptr %k.i, align 8
@@ -3711,7 +3736,7 @@ if.end17:                                         ; preds = %if.else, %if.then13
 
 eh.resume:                                        ; preds = %lpad9, %lpad
   %exception8.sink = phi ptr [ %exception8, %lpad9 ], [ %exception, %lpad ]
-  %.pn = phi { ptr, i32 } [ %5, %lpad9 ], [ %0, %lpad ]
+  %.pn = phi { ptr, i32 } [ %6, %lpad9 ], [ %0, %lpad ]
   tail call void @__cxa_free_exception(ptr %exception8.sink) #26
   resume { ptr, i32 } %.pn
 }
@@ -17318,19 +17343,28 @@ if.end:                                           ; preds = %if.then
   %m_upmanager.i23 = getelementptr inbounds i8, ptr %this, i64 328
   %call9 = tail call noundef i32 @_ZN11upolynomial7manager23sign_variations_at_zeroERKNS_20upolynomial_sequenceE(ptr noundef nonnull align 8 dereferenceable(312) %m_upmanager.i23, ptr noundef nonnull align 8 dereferenceable(24) %seq)
   %cmp = icmp eq i32 %lV, %call9
-  %r_i.m_upper.i = select i1 %cmp, ptr %r_i, ptr %m_upper.i
-  %. = select i1 %cmp, i64 4, i64 28
-  %.82 = select i1 %cmp, i64 16, i64 40
-  store i32 0, ptr %r_i.m_upper.i, align 8
-  %m_kind.i.i.i = getelementptr inbounds i8, ptr %r_i, i64 %.
+  br i1 %cmp, label %_ZN22basic_interval_managerI12mpbq_managerLb0EE9set_lowerERNS1_8intervalERK4mpbq.exit, label %_ZN22basic_interval_managerI12mpbq_managerLb0EE9set_upperERNS1_8intervalERK4mpbq.exit
+
+_ZN22basic_interval_managerI12mpbq_managerLb0EE9set_lowerERNS1_8intervalERK4mpbq.exit: ; preds = %if.end
+  store i32 0, ptr %r_i, align 8
+  br label %if.end15.sink.split
+
+_ZN22basic_interval_managerI12mpbq_managerLb0EE9set_upperERNS1_8intervalERK4mpbq.exit: ; preds = %if.end
+  store i32 0, ptr %m_upper.i, align 8
+  br label %if.end15.sink.split
+
+if.end15.sink.split:                              ; preds = %_ZN22basic_interval_managerI12mpbq_managerLb0EE9set_upperERNS1_8intervalERK4mpbq.exit, %_ZN22basic_interval_managerI12mpbq_managerLb0EE9set_lowerERNS1_8intervalERK4mpbq.exit
+  %.sink81 = phi i64 [ 4, %_ZN22basic_interval_managerI12mpbq_managerLb0EE9set_lowerERNS1_8intervalERK4mpbq.exit ], [ 28, %_ZN22basic_interval_managerI12mpbq_managerLb0EE9set_upperERNS1_8intervalERK4mpbq.exit ]
+  %.sink = phi i64 [ 16, %_ZN22basic_interval_managerI12mpbq_managerLb0EE9set_lowerERNS1_8intervalERK4mpbq.exit ], [ 40, %_ZN22basic_interval_managerI12mpbq_managerLb0EE9set_upperERNS1_8intervalERK4mpbq.exit ]
+  %m_kind.i.i.i = getelementptr inbounds i8, ptr %r_i, i64 %.sink81
   %bf.load.i.i.i = load i8, ptr %m_kind.i.i.i, align 4
   %bf.clear.i.i.i = and i8 %bf.load.i.i.i, -2
   store i8 %bf.clear.i.i.i, ptr %m_kind.i.i.i, align 4
-  %m_k3.i.i = getelementptr inbounds i8, ptr %r_i, i64 %.82
+  %m_k3.i.i = getelementptr inbounds i8, ptr %r_i, i64 %.sink
   store i32 0, ptr %m_k3.i.i, align 8
   br label %if.end15
 
-if.end15:                                         ; preds = %if.end, %entry
+if.end15:                                         ; preds = %if.end15.sink.split, %entry
   %m_add_tmp = getelementptr inbounds i8, ptr %this, i64 856
   %10 = load ptr, ptr %p, align 8
   %11 = load i32, ptr %10, align 8

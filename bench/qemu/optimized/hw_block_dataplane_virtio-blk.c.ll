@@ -500,7 +500,8 @@ if.end:                                           ; preds = %lor.lhs.false
 
 if.then7:                                         ; preds = %if.end
   store i8 0, ptr %dataplane_disabled, align 8
-  br label %return.sink.split
+  store i8 0, ptr %dataplane_started, align 1
+  br label %return
 
 if.end10:                                         ; preds = %if.end
   store i8 1, ptr %stopping, align 1
@@ -597,14 +598,10 @@ for.end27:                                        ; preds = %for.body23, %for.en
   %parent = getelementptr inbounds i8, ptr %call2, i64 40
   %22 = load ptr, ptr %parent, align 8
   %call39 = tail call i32 %21(ptr noundef %22, i32 noundef %conv, i1 noundef zeroext false) #6
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.then7, %for.end27
-  %stopping.sink = phi ptr [ %stopping, %for.end27 ], [ %dataplane_started, %if.then7 ]
-  store i8 0, ptr %stopping.sink, align 1
+  store i8 0, ptr %stopping, align 1
   br label %return
 
-return:                                           ; preds = %return.sink.split, %entry, %lor.lhs.false
+return:                                           ; preds = %entry, %lor.lhs.false, %for.end27, %if.then7
   ret void
 }
 

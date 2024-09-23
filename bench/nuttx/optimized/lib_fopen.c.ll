@@ -15,16 +15,16 @@ define noalias ptr @fdopen(i32 noundef %0, ptr nocapture noundef readonly %1) lo
   %3 = tail call ptr @lib_get_streams() #6
   %4 = tail call i32 @lib_mode2oflags(ptr noundef %1)
   %5 = icmp slt i32 %4, 0
-  br i1 %5, label %41, label %6
+  br i1 %5, label %44, label %6
 
 6:                                                ; preds = %2
   %7 = icmp sgt i32 %0, 2
-  br i1 %7, label %8, label %22
+  br i1 %7, label %8, label %25
 
 8:                                                ; preds = %6
   %9 = tail call noalias dereferenceable_or_null(200) ptr @zalloc(i64 noundef 200) #7
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %38, label %11
+  br i1 %10, label %41, label %11
 
 11:                                               ; preds = %8
   %12 = tail call i32 @nxmutex_lock(ptr noundef %3) #6
@@ -33,61 +33,70 @@ define noalias ptr @fdopen(i32 noundef %0, ptr nocapture noundef readonly %1) lo
 
 14:                                               ; preds = %11
   tail call void @free(ptr noundef nonnull %9)
-  br label %38
+  br label %41
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds i8, ptr %3, i64 648
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
-  %18 = getelementptr inbounds i8, ptr %3, i64 640
-  %.sink = select i1 %.not, ptr %18, ptr %17
-  store ptr %9, ptr %.sink, align 8
+  br i1 %.not, label %19, label %18
+
+18:                                               ; preds = %15
+  store ptr %9, ptr %17, align 8
+  br label %21
+
+19:                                               ; preds = %15
+  %20 = getelementptr inbounds i8, ptr %3, i64 640
+  store ptr %9, ptr %20, align 8
+  br label %21
+
+21:                                               ; preds = %19, %18
   store ptr %9, ptr %16, align 8
-  %19 = tail call i32 @nxmutex_unlock(ptr noundef nonnull %3) #6
-  %20 = getelementptr inbounds i8, ptr %9, i64 8
-  %21 = tail call i32 @nxrmutex_init(ptr noundef nonnull %20) #6
+  %22 = tail call i32 @nxmutex_unlock(ptr noundef nonnull %3) #6
+  %23 = getelementptr inbounds i8, ptr %9, i64 8
+  %24 = tail call i32 @nxrmutex_init(ptr noundef nonnull %23) #6
   %.pre = zext nneg i32 %0 to i64
-  br label %26
+  br label %29
 
-22:                                               ; preds = %6
-  %23 = getelementptr inbounds i8, ptr %3, i64 40
-  %24 = sext i32 %0 to i64
-  %25 = getelementptr inbounds [3 x %struct.file_struct], ptr %23, i64 0, i64 %24
-  br label %26
+25:                                               ; preds = %6
+  %26 = getelementptr inbounds i8, ptr %3, i64 40
+  %27 = sext i32 %0 to i64
+  %28 = getelementptr inbounds [3 x %struct.file_struct], ptr %26, i64 0, i64 %27
+  br label %29
 
-26:                                               ; preds = %22, %15
-  %.pre-phi = phi i64 [ %24, %22 ], [ %.pre, %15 ]
-  %.041 = phi ptr [ %25, %22 ], [ %9, %15 ]
-  %27 = getelementptr inbounds i8, ptr %.041, i64 128
-  %28 = getelementptr inbounds i8, ptr %.041, i64 96
-  store ptr %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %.041, i64 192
-  %30 = getelementptr inbounds i8, ptr %.041, i64 104
-  store ptr %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %.041, i64 112
-  store ptr %27, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %.041, i64 120
-  store ptr %27, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %.041, i64 194
-  store i8 12, ptr %33, align 2
-  %34 = inttoptr i64 %.pre-phi to ptr
-  %35 = getelementptr inbounds i8, ptr %.041, i64 88
-  store ptr %34, ptr %35, align 8
-  %36 = trunc i32 %4 to i16
-  store i16 %36, ptr %29, align 8
-  %37 = getelementptr inbounds i8, ptr %.041, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, i8 0, i64 32, i1 false)
-  br label %41
+29:                                               ; preds = %25, %21
+  %.pre-phi = phi i64 [ %27, %25 ], [ %.pre, %21 ]
+  %.041 = phi ptr [ %28, %25 ], [ %9, %21 ]
+  %30 = getelementptr inbounds i8, ptr %.041, i64 128
+  %31 = getelementptr inbounds i8, ptr %.041, i64 96
+  store ptr %30, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %.041, i64 192
+  %33 = getelementptr inbounds i8, ptr %.041, i64 104
+  store ptr %32, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %.041, i64 112
+  store ptr %30, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %.041, i64 120
+  store ptr %30, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %.041, i64 194
+  store i8 12, ptr %36, align 2
+  %37 = inttoptr i64 %.pre-phi to ptr
+  %38 = getelementptr inbounds i8, ptr %.041, i64 88
+  store ptr %37, ptr %38, align 8
+  %39 = trunc i32 %4 to i16
+  store i16 %39, ptr %32, align 8
+  %40 = getelementptr inbounds i8, ptr %.041, i64 56
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, i8 0, i64 32, i1 false)
+  br label %44
 
-38:                                               ; preds = %8, %14
+41:                                               ; preds = %8, %14
   %.0 = phi i32 [ %12, %14 ], [ -12, %8 ]
-  %39 = sub nsw i32 0, %.0
-  %40 = tail call ptr @__errno() #6
-  store i32 %39, ptr %40, align 4
-  br label %41
+  %42 = sub nsw i32 0, %.0
+  %43 = tail call ptr @__errno() #6
+  store i32 %42, ptr %43, align 4
+  br label %44
 
-41:                                               ; preds = %2, %38, %26
-  %.040 = phi ptr [ null, %38 ], [ %.041, %26 ], [ null, %2 ]
+44:                                               ; preds = %2, %41, %29
+  %.040 = phi ptr [ null, %41 ], [ %.041, %29 ], [ null, %2 ]
   ret ptr %.040
 }
 

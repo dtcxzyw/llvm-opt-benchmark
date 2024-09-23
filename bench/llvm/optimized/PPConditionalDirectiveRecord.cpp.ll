@@ -236,7 +236,7 @@ declare noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnit
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local i32 @_ZNK5clang28PPConditionalDirectiveRecord33findConditionalDirectiveRegionLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 %1) local_unnamed_addr #0 align 2 {
   %3 = icmp eq i32 %1, 0
-  br i1 %3, label %38, label %4
+  br i1 %3, label %39, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -244,7 +244,7 @@ define dso_local i32 @_ZNK5clang28PPConditionalDirectiveRecord33findConditionalD
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %6, %8
-  br i1 %9, label %38, label %10
+  br i1 %9, label %39, label %10
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -252,7 +252,7 @@ define dso_local i32 @_ZNK5clang28PPConditionalDirectiveRecord33findConditionalD
   %13 = getelementptr inbounds i8, ptr %8, i64 -8
   %.sroa.0.0.copyload.i = load i32, ptr %13, align 4
   %14 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %12, i32 %.sroa.0.0.copyload.i, i32 %1) #11
-  br i1 %14, label %15, label %21
+  br i1 %14, label %15, label %22
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -260,46 +260,43 @@ define dso_local i32 @_ZNK5clang28PPConditionalDirectiveRecord33findConditionalD
   %18 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #11
   %19 = getelementptr inbounds %"class.clang::SourceLocation", ptr %17, i64 %18
   %20 = getelementptr inbounds i8, ptr %19, i64 -4
-  br label %.sink.split
+  %21 = load i32, ptr %20, align 4
+  br label %39
 
-21:                                               ; preds = %10
-  %22 = load ptr, ptr %11, align 8
-  %23 = load ptr, ptr %5, align 8
-  %24 = load ptr, ptr %7, align 8
-  %25 = ptrtoint ptr %24 to i64
-  %26 = ptrtoint ptr %23 to i64
-  %27 = sub i64 %25, %26
-  %28 = ashr exact i64 %27, 3
-  %29 = icmp sgt i64 %28, 0
-  br i1 %29, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i.i, label %_ZN4llvm11lower_boundIRKSt6vectorIN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESaIS4_EERNS2_14SourceLocationENS4_4CompEEEDaOT_OT0_T1_.exit
+22:                                               ; preds = %10
+  %23 = load ptr, ptr %11, align 8
+  %24 = load ptr, ptr %5, align 8
+  %25 = load ptr, ptr %7, align 8
+  %26 = ptrtoint ptr %25 to i64
+  %27 = ptrtoint ptr %24 to i64
+  %28 = sub i64 %26, %27
+  %29 = ashr exact i64 %28, 3
+  %30 = icmp sgt i64 %29, 0
+  br i1 %30, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i.i, label %_ZN4llvm11lower_boundIRKSt6vectorIN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESaIS4_EERNS2_14SourceLocationENS4_4CompEEEDaOT_OT0_T1_.exit
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i.i: ; preds = %21, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i.i
-  %.014.i.i.i = phi i64 [ %.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i.i ], [ %28, %21 ]
-  %.sroa.012.013.i.i.i = phi ptr [ %.sroa.012.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i.i ], [ %23, %21 ]
-  %30 = lshr i64 %.014.i.i.i, 1
-  %31 = getelementptr inbounds %"class.clang::PPConditionalDirectiveRecord::CondDirectiveLoc", ptr %.sroa.012.013.i.i.i, i64 %30
-  %.sroa.0.0.copyload.i.i.i.i.i.i = load i32, ptr %31, align 4
-  %32 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %22, i32 %.sroa.0.0.copyload.i.i.i.i.i.i, i32 %1) #11
-  %33 = getelementptr inbounds i8, ptr %31, i64 8
-  %34 = xor i64 %30, -1
-  %35 = add nsw i64 %.014.i.i.i, %34
-  %.sroa.012.1.i.i.i = select i1 %32, ptr %33, ptr %.sroa.012.013.i.i.i
-  %.1.i.i.i = select i1 %32, i64 %35, i64 %30
-  %36 = icmp sgt i64 %.1.i.i.i, 0
-  br i1 %36, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i.i, label %_ZN4llvm11lower_boundIRKSt6vectorIN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESaIS4_EERNS2_14SourceLocationENS4_4CompEEEDaOT_OT0_T1_.exit, !llvm.loop !4
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i.i: ; preds = %22, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i.i
+  %.014.i.i.i = phi i64 [ %.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i.i ], [ %29, %22 ]
+  %.sroa.012.013.i.i.i = phi ptr [ %.sroa.012.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i.i ], [ %24, %22 ]
+  %31 = lshr i64 %.014.i.i.i, 1
+  %32 = getelementptr inbounds %"class.clang::PPConditionalDirectiveRecord::CondDirectiveLoc", ptr %.sroa.012.013.i.i.i, i64 %31
+  %.sroa.0.0.copyload.i.i.i.i.i.i = load i32, ptr %32, align 4
+  %33 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %23, i32 %.sroa.0.0.copyload.i.i.i.i.i.i, i32 %1) #11
+  %34 = getelementptr inbounds i8, ptr %32, i64 8
+  %35 = xor i64 %31, -1
+  %36 = add nsw i64 %.014.i.i.i, %35
+  %.sroa.012.1.i.i.i = select i1 %33, ptr %34, ptr %.sroa.012.013.i.i.i
+  %.1.i.i.i = select i1 %33, i64 %36, i64 %31
+  %37 = icmp sgt i64 %.1.i.i.i, 0
+  br i1 %37, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i.i, label %_ZN4llvm11lower_boundIRKSt6vectorIN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESaIS4_EERNS2_14SourceLocationENS4_4CompEEEDaOT_OT0_T1_.exit, !llvm.loop !4
 
-_ZN4llvm11lower_boundIRKSt6vectorIN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESaIS4_EERNS2_14SourceLocationENS4_4CompEEEDaOT_OT0_T1_.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i.i, %21
-  %.sroa.012.0.lcssa.i.i.i = phi ptr [ %23, %21 ], [ %.sroa.012.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i.i ]
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.012.0.lcssa.i.i.i, i64 4
-  br label %.sink.split
+_ZN4llvm11lower_boundIRKSt6vectorIN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESaIS4_EERNS2_14SourceLocationENS4_4CompEEEDaOT_OT0_T1_.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i.i, %22
+  %.sroa.012.0.lcssa.i.i.i = phi ptr [ %24, %22 ], [ %.sroa.012.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i.i ]
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.012.0.lcssa.i.i.i, i64 4
+  %.sroa.0.0.copyload.i2 = load i32, ptr %38, align 4
+  br label %39
 
-.sink.split:                                      ; preds = %15, %_ZN4llvm11lower_boundIRKSt6vectorIN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESaIS4_EERNS2_14SourceLocationENS4_4CompEEEDaOT_OT0_T1_.exit
-  %.sink = phi ptr [ %37, %_ZN4llvm11lower_boundIRKSt6vectorIN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESaIS4_EERNS2_14SourceLocationENS4_4CompEEEDaOT_OT0_T1_.exit ], [ %20, %15 ]
-  %.sroa.0.0.copyload.i2 = load i32, ptr %.sink, align 4
-  br label %38
-
-38:                                               ; preds = %.sink.split, %4, %2
-  %.sroa.07.0 = phi i32 [ 0, %2 ], [ 0, %4 ], [ %.sroa.0.0.copyload.i2, %.sink.split ]
+39:                                               ; preds = %4, %2, %_ZN4llvm11lower_boundIRKSt6vectorIN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESaIS4_EERNS2_14SourceLocationENS4_4CompEEEDaOT_OT0_T1_.exit, %15
+  %.sroa.07.0 = phi i32 [ %21, %15 ], [ %.sroa.0.0.copyload.i2, %_ZN4llvm11lower_boundIRKSt6vectorIN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESaIS4_EERNS2_14SourceLocationENS4_4CompEEEDaOT_OT0_T1_.exit ], [ 0, %2 ], [ 0, %4 ]
   ret i32 %.sroa.07.0
 }
 

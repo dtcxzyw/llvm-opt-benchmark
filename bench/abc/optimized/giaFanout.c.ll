@@ -218,6 +218,8 @@ Gia_ObjWhatFanin.exit:                            ; preds = %36, %42, %Gia_ObjFa
 
 80:                                               ; preds = %Gia_ObjWhatFanin.exit
   store i32 %61, ptr %77, align 4
+  store i32 %61, ptr %71, align 4
+  store i32 %61, ptr %73, align 4
   br label %100
 
 81:                                               ; preds = %Gia_ObjWhatFanin.exit
@@ -241,13 +243,11 @@ Gia_ObjWhatFanin.exit:                            ; preds = %36, %42, %Gia_ObjFa
   store i32 %90, ptr %71, align 4
   %99 = load i32, ptr %77, align 4
   store i32 %99, ptr %73, align 4
+  store i32 %61, ptr %89, align 4
+  store i32 %61, ptr %98, align 4
   br label %100
 
 100:                                              ; preds = %81, %80
-  %.sink81 = phi ptr [ %89, %81 ], [ %71, %80 ]
-  %.sink = phi ptr [ %98, %81 ], [ %73, %80 ]
-  store i32 %61, ptr %.sink81, align 4
-  store i32 %61, ptr %.sink, align 4
   ret void
 }
 

@@ -1895,7 +1895,7 @@ define internal fastcc noundef ptr @addif(ptr noundef %0, i32 noundef range(i32 
 
 22:                                               ; preds = %8
   call void @JNU_ThrowOutOfMemoryError(ptr noundef %0, ptr noundef nonnull @.str.32) #14
-  br label %117
+  br label %118
 
 23:                                               ; preds = %8
   %24 = getelementptr inbounds i8, ptr %20, i64 32
@@ -1927,7 +1927,7 @@ define internal fastcc noundef ptr @addif(ptr noundef %0, i32 noundef range(i32 
 35:                                               ; preds = %33, %30
   %36 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %12, i32 noundef 58) #15
   %.not = icmp eq ptr %36, null
-  br i1 %.not, label %48, label %37
+  br i1 %.not, label %49, label %37
 
 37:                                               ; preds = %35
   store i8 0, ptr %36, align 1
@@ -1940,74 +1940,73 @@ define internal fastcc noundef ptr @addif(ptr noundef %0, i32 noundef range(i32 
   %41 = call i32 (i32, i64, ...) @ioctl(i32 noundef %1, i64 noundef 35091, ptr noundef nonnull %11) #14
   %42 = icmp slt i32 %41, 0
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
-  br i1 %42, label %.sink.split, label %43
+  br i1 %42, label %43, label %44
 
 43:                                               ; preds = %37
+  store i8 58, ptr %36, align 1
+  br label %49
+
+44:                                               ; preds = %37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %13, ptr noundef nonnull align 16 dereferenceable(16) %12, i64 16, i1 false)
-  %44 = ptrtoint ptr %36 to i64
-  %45 = ptrtoint ptr %12 to i64
-  %46 = sub i64 %44, %45
-  %47 = getelementptr inbounds [16 x i8], ptr %13, i64 0, i64 %46
-  br label %.sink.split
+  %45 = ptrtoint ptr %36 to i64
+  %46 = ptrtoint ptr %12 to i64
+  %47 = sub i64 %45, %46
+  %48 = getelementptr inbounds [16 x i8], ptr %13, i64 0, i64 %47
+  store i8 58, ptr %48, align 1
+  br label %49
 
-.sink.split:                                      ; preds = %37, %43
-  %.sink = phi ptr [ %47, %43 ], [ %36, %37 ]
-  %.0105.ph = phi i8 [ 0, %43 ], [ 1, %37 ]
-  store i8 58, ptr %.sink, align 1
-  br label %48
-
-48:                                               ; preds = %.sink.split, %35
-  %.0105 = phi i8 [ 0, %35 ], [ %.0105.ph, %.sink.split ]
+49:                                               ; preds = %43, %44, %35
+  %.0105 = phi i8 [ 1, %43 ], [ 0, %44 ], [ 0, %35 ]
   %cond129 = icmp eq ptr %3, null
   br i1 %cond129, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %48, %52
-  %.0106130 = phi ptr [ %54, %52 ], [ %3, %48 ]
-  %49 = load ptr, ptr %.0106130, align 8
-  %50 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %49) #15
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %.loopexit126.loopexit, label %52
+.lr.ph:                                           ; preds = %49, %53
+  %.0106130 = phi ptr [ %55, %53 ], [ %3, %49 ]
+  %50 = load ptr, ptr %.0106130, align 8
+  %51 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %50) #15
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %.loopexit126.loopexit, label %53
 
-52:                                               ; preds = %.lr.ph
-  %53 = getelementptr inbounds i8, ptr %.0106130, i64 32
-  %54 = load ptr, ptr %53, align 8
-  %cond = icmp eq ptr %54, null
+53:                                               ; preds = %.lr.ph
+  %54 = getelementptr inbounds i8, ptr %.0106130, i64 32
+  %55 = load ptr, ptr %54, align 8
+  %cond = icmp eq ptr %55, null
   br i1 %cond, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
-._crit_edge:                                      ; preds = %52, %48
-  %55 = call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #17
-  %56 = icmp eq ptr %55, null
-  br i1 %56, label %57, label %58
-
-57:                                               ; preds = %._crit_edge
-  call void @JNU_ThrowOutOfMemoryError(ptr noundef %0, ptr noundef nonnull @.str.32) #14
-  br label %117
+._crit_edge:                                      ; preds = %53, %49
+  %56 = call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #17
+  %57 = icmp eq ptr %56, null
+  br i1 %57, label %58, label %59
 
 58:                                               ; preds = %._crit_edge
-  %59 = getelementptr inbounds i8, ptr %55, i64 40
-  store ptr %59, ptr %55, align 8
-  %60 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %59, ptr noundef nonnull dereferenceable(1) %12, i64 noundef 16) #14
-  %61 = getelementptr inbounds i8, ptr %55, i64 55
-  store i8 0, ptr %61, align 1
+  call void @JNU_ThrowOutOfMemoryError(ptr noundef %0, ptr noundef nonnull @.str.32) #14
+  br label %118
+
+59:                                               ; preds = %._crit_edge
+  %60 = getelementptr inbounds i8, ptr %56, i64 40
+  store ptr %60, ptr %56, align 8
+  %61 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %60, ptr noundef nonnull dereferenceable(1) %12, i64 noundef 16) #14
+  %62 = getelementptr inbounds i8, ptr %56, i64 55
+  store i8 0, ptr %62, align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
-  %62 = getelementptr inbounds i8, ptr %10, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %62, i8 0, i64 24, i1 false)
-  %63 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %12, i64 noundef 16) #14
-  %64 = getelementptr inbounds i8, ptr %10, i64 15
-  store i8 0, ptr %64, align 1
-  %65 = call i32 (i32, i64, ...) @ioctl(i32 noundef %1, i64 noundef 35123, ptr noundef nonnull %10) #14
-  %66 = load i32, ptr %62, align 8
-  %.inv.i = icmp sgt i32 %65, -1
-  %.0.i120 = select i1 %.inv.i, i32 %66, i32 -1
+  %63 = getelementptr inbounds i8, ptr %10, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %63, i8 0, i64 24, i1 false)
+  %64 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %12, i64 noundef 16) #14
+  %65 = getelementptr inbounds i8, ptr %10, i64 15
+  store i8 0, ptr %65, align 1
+  %66 = call i32 (i32, i64, ...) @ioctl(i32 noundef %1, i64 noundef 35123, ptr noundef nonnull %10) #14
+  %67 = load i32, ptr %63, align 8
+  %.inv.i = icmp sgt i32 %66, -1
+  %.0.i120 = select i1 %.inv.i, i32 %67, i32 -1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
-  %67 = getelementptr inbounds i8, ptr %55, i64 8
-  store i32 %.0.i120, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %55, i64 16
-  %69 = getelementptr inbounds i8, ptr %55, i64 12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, i8 0, i64 16, i1 false)
-  store i8 %.0105, ptr %69, align 4
-  %70 = getelementptr inbounds i8, ptr %55, i64 32
-  store ptr %3, ptr %70, align 8
+  %68 = getelementptr inbounds i8, ptr %56, i64 8
+  store i32 %.0.i120, ptr %68, align 8
+  %69 = getelementptr inbounds i8, ptr %56, i64 16
+  %70 = getelementptr inbounds i8, ptr %56, i64 12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, i8 0, i64 16, i1 false)
+  store i8 %.0105, ptr %70, align 4
+  %71 = getelementptr inbounds i8, ptr %56, i64 32
+  store ptr %3, ptr %71, align 8
   br label %.loopexit126
 
 .loopexit126.loopexit:                            ; preds = %.lr.ph
@@ -2015,122 +2014,122 @@ define internal fastcc noundef ptr @addif(ptr noundef %0, i32 noundef range(i32 
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %.loopexit126
 
-.loopexit126:                                     ; preds = %.loopexit126.loopexit, %58
-  %71 = phi ptr [ null, %58 ], [ %.pre, %.loopexit126.loopexit ]
-  %.1 = phi ptr [ %55, %58 ], [ %.0106130, %.loopexit126.loopexit ]
-  %.0104 = phi ptr [ %55, %58 ], [ %3, %.loopexit126.loopexit ]
-  %72 = getelementptr inbounds i8, ptr %.1, i64 16
-  store ptr %71, ptr %28, align 8
-  store ptr %20, ptr %72, align 8
-  %73 = load i8, ptr %13, align 16
-  %.not114 = icmp eq i8 %73, 0
-  br i1 %.not114, label %117, label %74
+.loopexit126:                                     ; preds = %.loopexit126.loopexit, %59
+  %72 = phi ptr [ null, %59 ], [ %.pre, %.loopexit126.loopexit ]
+  %.1 = phi ptr [ %56, %59 ], [ %.0106130, %.loopexit126.loopexit ]
+  %.0104 = phi ptr [ %56, %59 ], [ %3, %.loopexit126.loopexit ]
+  %73 = getelementptr inbounds i8, ptr %.1, i64 16
+  store ptr %72, ptr %28, align 8
+  store ptr %20, ptr %73, align 8
+  %74 = load i8, ptr %13, align 16
+  %.not114 = icmp eq i8 %74, 0
+  br i1 %.not114, label %118, label %75
 
-74:                                               ; preds = %.loopexit126
-  %75 = getelementptr inbounds i8, ptr %.1, i64 24
-  %.2131 = load ptr, ptr %75, align 8
+75:                                               ; preds = %.loopexit126
+  %76 = getelementptr inbounds i8, ptr %.1, i64 24
+  %.2131 = load ptr, ptr %76, align 8
   %cond119132 = icmp eq ptr %.2131, null
   br i1 %cond119132, label %._crit_edge136, label %.lr.ph135
 
-.lr.ph135:                                        ; preds = %74, %79
-  %.2133 = phi ptr [ %.2, %79 ], [ %.2131, %74 ]
-  %76 = load ptr, ptr %.2133, align 8
-  %77 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %76) #15
-  %78 = icmp eq i32 %77, 0
-  br i1 %78, label %.loopexit, label %79
+.lr.ph135:                                        ; preds = %75, %80
+  %.2133 = phi ptr [ %.2, %80 ], [ %.2131, %75 ]
+  %77 = load ptr, ptr %.2133, align 8
+  %78 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %77) #15
+  %79 = icmp eq i32 %78, 0
+  br i1 %79, label %.loopexit, label %80
 
-79:                                               ; preds = %.lr.ph135
-  %80 = getelementptr inbounds i8, ptr %.2133, i64 32
-  %.2 = load ptr, ptr %80, align 8
+80:                                               ; preds = %.lr.ph135
+  %81 = getelementptr inbounds i8, ptr %.2133, i64 32
+  %.2 = load ptr, ptr %81, align 8
   %cond119 = icmp eq ptr %.2, null
   br i1 %cond119, label %._crit_edge136, label %.lr.ph135, !llvm.loop !25
 
-._crit_edge136:                                   ; preds = %79, %74
-  %81 = call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #17
-  %82 = icmp eq ptr %81, null
-  br i1 %82, label %83, label %84
-
-83:                                               ; preds = %._crit_edge136
-  call void @JNU_ThrowOutOfMemoryError(ptr noundef %0, ptr noundef nonnull @.str.32) #14
-  br label %117
+._crit_edge136:                                   ; preds = %80, %75
+  %82 = call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #17
+  %83 = icmp eq ptr %82, null
+  br i1 %83, label %84, label %85
 
 84:                                               ; preds = %._crit_edge136
-  %85 = getelementptr inbounds i8, ptr %81, i64 40
-  store ptr %85, ptr %81, align 8
-  %86 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %85, ptr noundef nonnull dereferenceable(1) %13, i64 noundef 16) #14
-  %87 = getelementptr inbounds i8, ptr %81, i64 55
-  store i8 0, ptr %87, align 1
+  call void @JNU_ThrowOutOfMemoryError(ptr noundef %0, ptr noundef nonnull @.str.32) #14
+  br label %118
+
+85:                                               ; preds = %._crit_edge136
+  %86 = getelementptr inbounds i8, ptr %82, i64 40
+  store ptr %86, ptr %82, align 8
+  %87 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %86, ptr noundef nonnull dereferenceable(1) %13, i64 noundef 16) #14
+  %88 = getelementptr inbounds i8, ptr %82, i64 55
+  store i8 0, ptr %88, align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
-  %88 = getelementptr inbounds i8, ptr %9, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %88, i8 0, i64 24, i1 false)
-  %89 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(1) %13, i64 noundef 16) #14
-  %90 = getelementptr inbounds i8, ptr %9, i64 15
-  store i8 0, ptr %90, align 1
-  %91 = call i32 (i32, i64, ...) @ioctl(i32 noundef %1, i64 noundef 35123, ptr noundef nonnull %9) #14
-  %92 = load i32, ptr %88, align 8
-  %.inv.i121 = icmp sgt i32 %91, -1
-  %.0.i122 = select i1 %.inv.i121, i32 %92, i32 -1
+  %89 = getelementptr inbounds i8, ptr %9, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %89, i8 0, i64 24, i1 false)
+  %90 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(1) %13, i64 noundef 16) #14
+  %91 = getelementptr inbounds i8, ptr %9, i64 15
+  store i8 0, ptr %91, align 1
+  %92 = call i32 (i32, i64, ...) @ioctl(i32 noundef %1, i64 noundef 35123, ptr noundef nonnull %9) #14
+  %93 = load i32, ptr %89, align 8
+  %.inv.i121 = icmp sgt i32 %92, -1
+  %.0.i122 = select i1 %.inv.i121, i32 %93, i32 -1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
-  %93 = getelementptr inbounds i8, ptr %81, i64 8
-  store i32 %.0.i122, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %81, i64 16
-  store ptr null, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %81, i64 12
-  store i8 1, ptr %95, align 4
-  %96 = getelementptr inbounds i8, ptr %81, i64 24
-  store ptr null, ptr %96, align 8
-  %97 = load ptr, ptr %75, align 8
-  %98 = getelementptr inbounds i8, ptr %81, i64 32
-  store ptr %97, ptr %98, align 8
-  store ptr %81, ptr %75, align 8
+  %94 = getelementptr inbounds i8, ptr %82, i64 8
+  store i32 %.0.i122, ptr %94, align 8
+  %95 = getelementptr inbounds i8, ptr %82, i64 16
+  store ptr null, ptr %95, align 8
+  %96 = getelementptr inbounds i8, ptr %82, i64 12
+  store i8 1, ptr %96, align 4
+  %97 = getelementptr inbounds i8, ptr %82, i64 24
+  store ptr null, ptr %97, align 8
+  %98 = load ptr, ptr %76, align 8
+  %99 = getelementptr inbounds i8, ptr %82, i64 32
+  store ptr %98, ptr %99, align 8
+  store ptr %82, ptr %76, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph135, %84
-  %.3 = phi ptr [ %81, %84 ], [ %.2133, %.lr.ph135 ]
-  %99 = call noalias ptr @malloc(i64 noundef %19) #17
-  %100 = icmp eq ptr %99, null
-  br i1 %100, label %101, label %102
-
-101:                                              ; preds = %.loopexit
-  call void @JNU_ThrowOutOfMemoryError(ptr noundef %0, ptr noundef nonnull @.str.32) #14
-  br label %117
+.loopexit:                                        ; preds = %.lr.ph135, %85
+  %.3 = phi ptr [ %82, %85 ], [ %.2133, %.lr.ph135 ]
+  %100 = call noalias ptr @malloc(i64 noundef %19) #17
+  %101 = icmp eq ptr %100, null
+  br i1 %101, label %102, label %103
 
 102:                                              ; preds = %.loopexit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %99, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 32, i1 false)
-  %103 = load ptr, ptr %20, align 8
-  %.not116 = icmp eq ptr %103, null
-  br i1 %.not116, label %106, label %104
+  call void @JNU_ThrowOutOfMemoryError(ptr noundef %0, ptr noundef nonnull @.str.32) #14
+  br label %118
 
-104:                                              ; preds = %102
-  %105 = getelementptr inbounds i8, ptr %99, i64 32
-  store ptr %105, ptr %99, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %105, ptr noundef nonnull align 2 dereferenceable(1) %103, i64 %25, i1 false)
-  br label %106
+103:                                              ; preds = %.loopexit
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %100, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 32, i1 false)
+  %104 = load ptr, ptr %20, align 8
+  %.not116 = icmp eq ptr %104, null
+  br i1 %.not116, label %107, label %105
 
-106:                                              ; preds = %104, %102
-  %107 = getelementptr inbounds i8, ptr %20, i64 8
-  %108 = load ptr, ptr %107, align 8
-  %.not117 = icmp eq ptr %108, null
-  br i1 %.not117, label %113, label %109
+105:                                              ; preds = %103
+  %106 = getelementptr inbounds i8, ptr %100, i64 32
+  store ptr %106, ptr %100, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %106, ptr noundef nonnull align 2 dereferenceable(1) %104, i64 %25, i1 false)
+  br label %107
 
-109:                                              ; preds = %106
-  %110 = getelementptr inbounds i8, ptr %99, i64 32
-  %111 = getelementptr inbounds i8, ptr %110, i64 %25
-  %112 = getelementptr inbounds i8, ptr %99, i64 8
-  store ptr %111, ptr %112, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %111, ptr noundef nonnull align 2 dereferenceable(1) %108, i64 %25, i1 false)
-  br label %113
+107:                                              ; preds = %105, %103
+  %108 = getelementptr inbounds i8, ptr %20, i64 8
+  %109 = load ptr, ptr %108, align 8
+  %.not117 = icmp eq ptr %109, null
+  br i1 %.not117, label %114, label %110
 
-113:                                              ; preds = %109, %106
-  %114 = getelementptr inbounds i8, ptr %.3, i64 16
-  %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %99, i64 24
-  store ptr %115, ptr %116, align 8
-  store ptr %99, ptr %114, align 8
-  br label %117
+110:                                              ; preds = %107
+  %111 = getelementptr inbounds i8, ptr %100, i64 32
+  %112 = getelementptr inbounds i8, ptr %111, i64 %25
+  %113 = getelementptr inbounds i8, ptr %100, i64 8
+  store ptr %112, ptr %113, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %112, ptr noundef nonnull align 2 dereferenceable(1) %109, i64 %25, i1 false)
+  br label %114
 
-117:                                              ; preds = %.loopexit126, %113, %101, %83, %57, %22
-  %.0 = phi ptr [ %3, %22 ], [ %3, %57 ], [ %.0104, %83 ], [ %.0104, %101 ], [ %.0104, %113 ], [ %.0104, %.loopexit126 ]
+114:                                              ; preds = %110, %107
+  %115 = getelementptr inbounds i8, ptr %.3, i64 16
+  %116 = load ptr, ptr %115, align 8
+  %117 = getelementptr inbounds i8, ptr %100, i64 24
+  store ptr %116, ptr %117, align 8
+  store ptr %100, ptr %115, align 8
+  br label %118
+
+118:                                              ; preds = %.loopexit126, %114, %102, %84, %58, %22
+  %.0 = phi ptr [ %3, %22 ], [ %3, %58 ], [ %.0104, %84 ], [ %.0104, %102 ], [ %.0104, %114 ], [ %.0104, %.loopexit126 ]
   ret ptr %.0
 }
 

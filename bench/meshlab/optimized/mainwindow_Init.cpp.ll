@@ -14797,8 +14797,8 @@ _ZN7QStringD2Ev.exit355:                          ; preds = %_ZN7QStringD2Ev.exi
   br i1 %574, label %.invoke, label %.thread
 
 .invoke:                                          ; preds = %573, %571
-  %.sink = phi ptr [ %209, %571 ], [ %37, %573 ]
-  %575 = load ptr, ptr %.sink, align 8
+  %.in = phi ptr [ %209, %571 ], [ %37, %573 ]
+  %575 = load ptr, ptr %.in, align 8
   invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(48) %575, ptr noundef nonnull %403)
           to label %.thread unwind label %497
 

@@ -2373,7 +2373,7 @@ define i32 @arkInitialSetup(ptr noundef %0, double noundef %1) local_unnamed_add
 
 6:                                                ; preds = %2
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 1958, ptr noundef nonnull @__func__.arkInitialSetup, ptr noundef nonnull @.str, ptr noundef nonnull @.str.87)
-  br label %272
+  br label %274
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 616
@@ -2384,7 +2384,7 @@ define i32 @arkInitialSetup(ptr noundef %0, double noundef %1) local_unnamed_add
 
 11:                                               ; preds = %7
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef %10, i32 noundef 1965, ptr noundef nonnull @__func__.arkInitialSetup, ptr noundef nonnull @.str, ptr noundef nonnull @.str.88)
-  br label %272
+  br label %274
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds i8, ptr %0, i64 440
@@ -2400,7 +2400,7 @@ define i32 @arkInitialSetup(ptr noundef %0, double noundef %1) local_unnamed_add
 
 19:                                               ; preds = %15
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 1973, ptr noundef nonnull @__func__.arkInitialSetup, ptr noundef nonnull @.str, ptr noundef nonnull @.str.89)
-  br label %272
+  br label %274
 
 20:                                               ; preds = %15, %12
   %21 = getelementptr inbounds i8, ptr %0, i64 84
@@ -2426,7 +2426,7 @@ define i32 @arkInitialSetup(ptr noundef %0, double noundef %1) local_unnamed_add
 
 33:                                               ; preds = %26
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 1982, ptr noundef nonnull @__func__.arkInitialSetup, ptr noundef nonnull @.str, ptr noundef nonnull @.str.90)
-  br label %272
+  br label %274
 
 34:                                               ; preds = %26, %23, %20
   %35 = getelementptr inbounds i8, ptr %0, i64 104
@@ -2458,7 +2458,7 @@ define i32 @arkInitialSetup(ptr noundef %0, double noundef %1) local_unnamed_add
 
 50:                                               ; preds = %43
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 1989, ptr noundef nonnull @__func__.arkInitialSetup, ptr noundef nonnull @.str, ptr noundef nonnull @.str.91)
-  br label %272
+  br label %274
 
 51:                                               ; preds = %43, %40, %37, %34
   %52 = getelementptr inbounds i8, ptr %0, i64 348
@@ -2483,7 +2483,7 @@ define i32 @arkInitialSetup(ptr noundef %0, double noundef %1) local_unnamed_add
 
 66:                                               ; preds = %._crit_edge
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 2000, ptr noundef nonnull @__func__.arkInitialSetup, ptr noundef nonnull @.str, ptr noundef nonnull @.str.92, double noundef %62, double noundef %58)
-  br label %272
+  br label %274
 
 67:                                               ; preds = %._crit_edge, %51
   %68 = getelementptr inbounds i8, ptr %0, i64 128
@@ -2504,7 +2504,7 @@ define i32 @arkInitialSetup(ptr noundef %0, double noundef %1) local_unnamed_add
 
 78:                                               ; preds = %70
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 2012, ptr noundef nonnull @__func__.arkInitialSetup, ptr noundef nonnull @.str, ptr noundef nonnull @.str.93)
-  br label %272
+  br label %274
 
 79:                                               ; preds = %70, %67
   %80 = getelementptr inbounds i8, ptr %0, i64 88
@@ -2527,11 +2527,11 @@ define i32 @arkInitialSetup(ptr noundef %0, double noundef %1) local_unnamed_add
 
 93:                                               ; preds = %89
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 2024, ptr noundef nonnull @__func__.arkInitialSetup, ptr noundef nonnull @.str, ptr noundef nonnull @.str.94)
-  br label %272
+  br label %274
 
 94:                                               ; preds = %89
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 2029, ptr noundef nonnull @__func__.arkInitialSetup, ptr noundef nonnull @.str, ptr noundef nonnull @.str.95)
-  br label %272
+  br label %274
 
 95:                                               ; preds = %79
   %96 = getelementptr inbounds i8, ptr %0, i64 256
@@ -2565,11 +2565,11 @@ define i32 @arkInitialSetup(ptr noundef %0, double noundef %1) local_unnamed_add
 
 114:                                              ; preds = %110
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 2047, ptr noundef nonnull @__func__.arkInitialSetup, ptr noundef nonnull @.str, ptr noundef nonnull @.str.96)
-  br label %272
+  br label %274
 
 115:                                              ; preds = %110
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 2052, ptr noundef nonnull @__func__.arkInitialSetup, ptr noundef nonnull @.str, ptr noundef nonnull @.str.97)
-  br label %272
+  br label %274
 
 116:                                              ; preds = %101, %98
   %117 = getelementptr inbounds i8, ptr %0, i64 336
@@ -2582,7 +2582,7 @@ define i32 @arkInitialSetup(ptr noundef %0, double noundef %1) local_unnamed_add
   %121 = load double, ptr %120, align 8
   %122 = tail call i32 @arkInterpInit(ptr noundef nonnull %0, ptr noundef nonnull %118, double noundef %121) #16
   %.not177 = icmp eq i32 %122, 0
-  br i1 %.not177, label %123, label %272
+  br i1 %.not177, label %123, label %274
 
 123:                                              ; preds = %119, %116
   %124 = getelementptr inbounds i8, ptr %0, i64 628
@@ -2616,7 +2616,7 @@ define i32 @arkInitialSetup(ptr noundef %0, double noundef %1) local_unnamed_add
 
 140:                                              ; preds = %137
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 2074, ptr noundef nonnull @__func__.arkInitialSetup, ptr noundef nonnull @.str, ptr noundef nonnull @.str.98)
-  br label %272
+  br label %274
 
 141:                                              ; preds = %137
   %142 = load ptr, ptr %82, align 8
@@ -2632,7 +2632,7 @@ define i32 @arkInitialSetup(ptr noundef %0, double noundef %1) local_unnamed_add
 
 145:                                              ; preds = %141
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -20, i32 noundef 2081, ptr noundef nonnull @__func__.arkInitialSetup, ptr noundef nonnull @.str, ptr noundef nonnull @.str.37)
-  br label %272
+  br label %274
 
 146:                                              ; preds = %._crit_edge187, %134
   %147 = phi double [ %.pre189, %._crit_edge187 ], [ %128, %134 ]
@@ -2640,7 +2640,7 @@ define i32 @arkInitialSetup(ptr noundef %0, double noundef %1) local_unnamed_add
   store i32 1, ptr %148, align 8
   %149 = getelementptr inbounds i8, ptr %0, i64 560
   %150 = fcmp oeq double %147, 0.000000e+00
-  br i1 %150, label %151, label %236
+  br i1 %150, label %151, label %238
 
 151:                                              ; preds = %146
   %152 = getelementptr inbounds i8, ptr %0, i64 368
@@ -2660,11 +2660,11 @@ define i32 @arkInitialSetup(ptr noundef %0, double noundef %1) local_unnamed_add
 
 162:                                              ; preds = %156
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 2097, ptr noundef nonnull @__func__.arkInitialSetup, ptr noundef nonnull @.str, ptr noundef nonnull @.str.99)
-  br label %272
+  br label %274
 
 163:                                              ; preds = %156, %151
   %164 = fcmp oeq double %153, 0.000000e+00
-  br i1 %164, label %165, label %187
+  br i1 %164, label %165, label %188
 
 165:                                              ; preds = %163
   %166 = getelementptr inbounds i8, ptr %0, i64 424
@@ -2697,158 +2697,160 @@ define i32 @arkInitialSetup(ptr noundef %0, double noundef %1) local_unnamed_add
 
 181:                                              ; preds = %179
   %182 = tail call i32 @arkHandleFailure(ptr noundef nonnull %0, i32 noundef %180)
-  br label %272
+  br label %274
 
 183:                                              ; preds = %179
   %184 = getelementptr inbounds i8, ptr %0, i64 448
   %185 = load ptr, ptr %184, align 8
   %186 = getelementptr inbounds i8, ptr %185, i64 8
-  br label %197
+  %187 = load double, ptr %186, align 8
+  store double %187, ptr %185, align 8
+  br label %200
 
-187:                                              ; preds = %163
-  %188 = getelementptr inbounds i8, ptr %0, i64 488
-  %189 = load i64, ptr %188, align 8
-  %190 = icmp eq i64 %189, 0
-  %191 = getelementptr inbounds i8, ptr %0, i64 448
-  %192 = load ptr, ptr %191, align 8
-  br i1 %190, label %193, label %195
+188:                                              ; preds = %163
+  %189 = getelementptr inbounds i8, ptr %0, i64 488
+  %190 = load i64, ptr %189, align 8
+  %191 = icmp eq i64 %190, 0
+  %192 = getelementptr inbounds i8, ptr %0, i64 448
+  %193 = load ptr, ptr %192, align 8
+  br i1 %191, label %194, label %197
 
-193:                                              ; preds = %187
-  %194 = getelementptr inbounds i8, ptr %192, i64 8
-  br label %197
+194:                                              ; preds = %188
+  %195 = getelementptr inbounds i8, ptr %193, i64 8
+  %196 = load double, ptr %195, align 8
+  store double %196, ptr %193, align 8
+  br label %200
 
-195:                                              ; preds = %187
-  %196 = getelementptr inbounds i8, ptr %192, i64 64
-  br label %197
+197:                                              ; preds = %188
+  %198 = getelementptr inbounds i8, ptr %193, i64 64
+  %199 = load double, ptr %198, align 8
+  store double %199, ptr %193, align 8
+  br label %200
 
-197:                                              ; preds = %193, %195, %183
-  %.sink192 = phi ptr [ %194, %193 ], [ %196, %195 ], [ %186, %183 ]
-  %.sink191 = phi ptr [ %192, %193 ], [ %192, %195 ], [ %185, %183 ]
-  %198 = load double, ptr %.sink192, align 8
-  store double %198, ptr %.sink191, align 8
-  %199 = load double, ptr %154, align 8
-  %200 = tail call double @llvm.fabs.f64(double %199)
-  %201 = getelementptr inbounds i8, ptr %0, i64 392
-  %202 = load double, ptr %201, align 8
-  %203 = fmul double %200, %202
-  %204 = fcmp ogt double %203, 1.000000e+00
-  br i1 %204, label %205, label %207
+200:                                              ; preds = %194, %197, %183
+  %201 = load double, ptr %154, align 8
+  %202 = tail call double @llvm.fabs.f64(double %201)
+  %203 = getelementptr inbounds i8, ptr %0, i64 392
+  %204 = load double, ptr %203, align 8
+  %205 = fmul double %202, %204
+  %206 = fcmp ogt double %205, 1.000000e+00
+  br i1 %206, label %207, label %209
 
-205:                                              ; preds = %197
-  %206 = fdiv double %199, %203
-  store double %206, ptr %154, align 8
-  %.pre190 = tail call double @llvm.fabs.f64(double %206)
-  br label %207
+207:                                              ; preds = %200
+  %208 = fdiv double %201, %205
+  store double %208, ptr %154, align 8
+  %.pre190 = tail call double @llvm.fabs.f64(double %208)
+  br label %209
 
-207:                                              ; preds = %205, %197
-  %.pre-phi = phi double [ %.pre190, %205 ], [ %200, %197 ]
-  %208 = phi double [ %206, %205 ], [ %199, %197 ]
-  %209 = getelementptr inbounds i8, ptr %0, i64 384
-  %210 = load double, ptr %209, align 8
-  %211 = fcmp olt double %.pre-phi, %210
-  br i1 %211, label %212, label %215
+209:                                              ; preds = %207, %200
+  %.pre-phi = phi double [ %.pre190, %207 ], [ %202, %200 ]
+  %210 = phi double [ %208, %207 ], [ %201, %200 ]
+  %211 = getelementptr inbounds i8, ptr %0, i64 384
+  %212 = load double, ptr %211, align 8
+  %213 = fcmp olt double %.pre-phi, %212
+  br i1 %213, label %214, label %217
 
-212:                                              ; preds = %207
-  %213 = fdiv double %210, %.pre-phi
-  %214 = fmul double %208, %213
-  store double %214, ptr %154, align 8
-  br label %215
+214:                                              ; preds = %209
+  %215 = fdiv double %212, %.pre-phi
+  %216 = fmul double %210, %215
+  store double %216, ptr %154, align 8
+  br label %217
 
-215:                                              ; preds = %212, %207
-  %216 = phi double [ %214, %212 ], [ %208, %207 ]
-  %217 = load i32, ptr %52, align 4
-  %.not185 = icmp eq i32 %217, 0
-  br i1 %.not185, label %233, label %218
+217:                                              ; preds = %214, %209
+  %218 = phi double [ %216, %214 ], [ %210, %209 ]
+  %219 = load i32, ptr %52, align 4
+  %.not185 = icmp eq i32 %219, 0
+  br i1 %.not185, label %235, label %220
 
-218:                                              ; preds = %215
-  %219 = getelementptr inbounds i8, ptr %0, i64 424
-  %220 = load double, ptr %219, align 8
-  %221 = fadd double %220, %216
-  %222 = getelementptr inbounds i8, ptr %0, i64 360
-  %223 = load double, ptr %222, align 8
-  %224 = fsub double %221, %223
-  %225 = fmul double %216, %224
-  %226 = fcmp ogt double %225, 0.000000e+00
-  br i1 %226, label %227, label %233
+220:                                              ; preds = %217
+  %221 = getelementptr inbounds i8, ptr %0, i64 424
+  %222 = load double, ptr %221, align 8
+  %223 = fadd double %222, %218
+  %224 = getelementptr inbounds i8, ptr %0, i64 360
+  %225 = load double, ptr %224, align 8
+  %226 = fsub double %223, %225
+  %227 = fmul double %218, %226
+  %228 = fcmp ogt double %227, 0.000000e+00
+  br i1 %228, label %229, label %235
 
-227:                                              ; preds = %218
-  %228 = fsub double %223, %220
-  %229 = getelementptr inbounds i8, ptr %0, i64 8
-  %230 = load double, ptr %229, align 8
-  %231 = tail call double @llvm.fmuladd.f64(double %230, double -4.000000e+00, double 1.000000e+00)
-  %232 = fmul double %228, %231
-  store double %232, ptr %154, align 8
-  br label %233
+229:                                              ; preds = %220
+  %230 = fsub double %225, %222
+  %231 = getelementptr inbounds i8, ptr %0, i64 8
+  %232 = load double, ptr %231, align 8
+  %233 = tail call double @llvm.fmuladd.f64(double %232, double -4.000000e+00, double 1.000000e+00)
+  %234 = fmul double %230, %233
+  store double %234, ptr %154, align 8
+  br label %235
 
-233:                                              ; preds = %218, %227, %215
-  %234 = phi double [ %216, %218 ], [ %232, %227 ], [ %216, %215 ]
-  store double %234, ptr %149, align 8
-  %235 = getelementptr inbounds i8, ptr %0, i64 416
-  store double 1.000000e+00, ptr %235, align 8
+235:                                              ; preds = %220, %229, %217
+  %236 = phi double [ %218, %220 ], [ %234, %229 ], [ %218, %217 ]
+  store double %236, ptr %149, align 8
+  %237 = getelementptr inbounds i8, ptr %0, i64 416
+  store double 1.000000e+00, ptr %237, align 8
   br label %.sink.split
 
-236:                                              ; preds = %146
-  %237 = load i32, ptr %52, align 4
-  %.not182 = icmp eq i32 %237, 0
-  br i1 %.not182, label %259, label %238
+238:                                              ; preds = %146
+  %239 = load i32, ptr %52, align 4
+  %.not182 = icmp eq i32 %239, 0
+  br i1 %.not182, label %261, label %240
 
-238:                                              ; preds = %236
-  %239 = getelementptr inbounds i8, ptr %0, i64 424
-  %240 = load double, ptr %239, align 8
-  %241 = getelementptr inbounds i8, ptr %0, i64 400
+240:                                              ; preds = %238
+  %241 = getelementptr inbounds i8, ptr %0, i64 424
   %242 = load double, ptr %241, align 8
-  %243 = fadd double %240, %242
-  %244 = getelementptr inbounds i8, ptr %0, i64 360
-  %245 = load double, ptr %244, align 8
-  %246 = fsub double %243, %245
-  %247 = getelementptr inbounds i8, ptr %0, i64 376
-  %248 = load double, ptr %247, align 8
-  %249 = fmul double %246, %248
-  %250 = fcmp ogt double %249, 0.000000e+00
-  br i1 %250, label %251, label %259
+  %243 = getelementptr inbounds i8, ptr %0, i64 400
+  %244 = load double, ptr %243, align 8
+  %245 = fadd double %242, %244
+  %246 = getelementptr inbounds i8, ptr %0, i64 360
+  %247 = load double, ptr %246, align 8
+  %248 = fsub double %245, %247
+  %249 = getelementptr inbounds i8, ptr %0, i64 376
+  %250 = load double, ptr %249, align 8
+  %251 = fmul double %248, %250
+  %252 = fcmp ogt double %251, 0.000000e+00
+  br i1 %252, label %253, label %261
 
-251:                                              ; preds = %238
-  %252 = fsub double %245, %240
-  %253 = getelementptr inbounds i8, ptr %0, i64 8
-  %254 = load double, ptr %253, align 8
-  %255 = tail call double @llvm.fmuladd.f64(double %254, double -4.000000e+00, double 1.000000e+00)
-  %256 = fmul double %252, %255
-  store double %256, ptr %241, align 8
-  %257 = fdiv double %256, %248
+253:                                              ; preds = %240
+  %254 = fsub double %247, %242
+  %255 = getelementptr inbounds i8, ptr %0, i64 8
+  %256 = load double, ptr %255, align 8
+  %257 = tail call double @llvm.fmuladd.f64(double %256, double -4.000000e+00, double 1.000000e+00)
+  %258 = fmul double %254, %257
+  store double %258, ptr %243, align 8
+  %259 = fdiv double %258, %250
   br label %.sink.split
 
-.sink.split:                                      ; preds = %233, %251
-  %.sink194 = phi i64 [ 416, %251 ], [ 400, %233 ]
-  %.sink = phi double [ %257, %251 ], [ %234, %233 ]
-  %258 = getelementptr inbounds i8, ptr %0, i64 %.sink194
-  store double %.sink, ptr %258, align 8
-  br label %259
+.sink.split:                                      ; preds = %235, %253
+  %.sink192 = phi i64 [ 416, %253 ], [ 400, %235 ]
+  %.sink = phi double [ %259, %253 ], [ %236, %235 ]
+  %260 = getelementptr inbounds i8, ptr %0, i64 %.sink192
+  store double %.sink, ptr %260, align 8
+  br label %261
 
-259:                                              ; preds = %.sink.split, %236, %238
-  %260 = getelementptr inbounds i8, ptr %0, i64 632
-  %261 = load ptr, ptr %260, align 8
-  %.not186 = icmp eq ptr %261, null
-  br i1 %.not186, label %272, label %262
+261:                                              ; preds = %.sink.split, %238, %240
+  %262 = getelementptr inbounds i8, ptr %0, i64 632
+  %263 = load ptr, ptr %262, align 8
+  %.not186 = icmp eq ptr %263, null
+  br i1 %.not186, label %274, label %264
 
-262:                                              ; preds = %259
-  %263 = getelementptr inbounds i8, ptr %261, i64 8
-  %264 = load i32, ptr %263, align 8
-  %265 = icmp sgt i32 %264, 0
-  br i1 %265, label %266, label %272
+264:                                              ; preds = %261
+  %265 = getelementptr inbounds i8, ptr %263, i64 8
+  %266 = load i32, ptr %265, align 8
+  %267 = icmp sgt i32 %266, 0
+  br i1 %267, label %268, label %274
 
-266:                                              ; preds = %262
-  %267 = tail call i32 @arkRootCheck1(ptr noundef nonnull %0) #16
-  %268 = icmp eq i32 %267, -12
-  br i1 %268, label %269, label %272
+268:                                              ; preds = %264
+  %269 = tail call i32 @arkRootCheck1(ptr noundef nonnull %0) #16
+  %270 = icmp eq i32 %269, -12
+  br i1 %270, label %271, label %274
 
-269:                                              ; preds = %266
-  %270 = getelementptr inbounds i8, ptr %0, i64 424
-  %271 = load double, ptr %270, align 8
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -12, i32 noundef 2181, ptr noundef nonnull @__func__.arkInitialSetup, ptr noundef nonnull @.str, ptr noundef nonnull @.str.28, double noundef %271)
-  br label %272
+271:                                              ; preds = %268
+  %272 = getelementptr inbounds i8, ptr %0, i64 424
+  %273 = load double, ptr %272, align 8
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -12, i32 noundef 2181, ptr noundef nonnull @__func__.arkInitialSetup, ptr noundef nonnull @.str, ptr noundef nonnull @.str.28, double noundef %273)
+  br label %274
 
-272:                                              ; preds = %259, %266, %262, %119, %114, %115, %93, %94, %269, %181, %162, %145, %140, %78, %66, %50, %33, %19, %11, %6
-  %.0 = phi i32 [ -22, %6 ], [ %10, %11 ], [ -22, %19 ], [ -22, %66 ], [ -22, %162 ], [ %182, %181 ], [ -12, %269 ], [ -20, %145 ], [ -22, %140 ], [ -22, %78 ], [ -22, %50 ], [ -22, %33 ], [ -22, %94 ], [ -22, %93 ], [ -22, %115 ], [ -22, %114 ], [ %122, %119 ], [ 0, %262 ], [ 0, %266 ], [ 0, %259 ]
+274:                                              ; preds = %261, %268, %264, %119, %114, %115, %93, %94, %271, %181, %162, %145, %140, %78, %66, %50, %33, %19, %11, %6
+  %.0 = phi i32 [ -22, %6 ], [ %10, %11 ], [ -22, %19 ], [ -22, %66 ], [ -22, %162 ], [ %182, %181 ], [ -12, %271 ], [ -20, %145 ], [ -22, %140 ], [ -22, %78 ], [ -22, %50 ], [ -22, %33 ], [ -22, %94 ], [ -22, %93 ], [ -22, %115 ], [ -22, %114 ], [ %122, %119 ], [ 0, %264 ], [ 0, %268 ], [ 0, %261 ]
   ret i32 %.0
 }
 

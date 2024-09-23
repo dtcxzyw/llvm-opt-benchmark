@@ -2199,6 +2199,7 @@ define internal fastcc void @_ZL16register_commandIbEvP24TypedMethodOptionMatche
 _ZL21command_set_in_filter18CompileCommandEnum.exit: ; preds = %.split, %.split.thread, %21
   %22 = sext i32 %1 to i64
   %23 = getelementptr inbounds [41 x i8], ptr @_ZL13option_filter, i64 0, i64 %22
+  store i8 1, ptr %23, align 1
   br label %44
 
 24:                                               ; preds = %3
@@ -2217,6 +2218,7 @@ _ZL21command_set_in_filter18CompileCommandEnum.exit: ; preds = %.split, %.split.
   store i8 %30, ptr %31, align 8
   store ptr %0, ptr @_ZL11option_list, align 8
   store i1 true, ptr @_ZL7any_set, align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL13option_filter, i64 6), align 2
   br label %44
 
 32:                                               ; preds = %24
@@ -2246,8 +2248,6 @@ _ZN24TypedMethodOptionMatcherD2Ev.exit:           ; preds = %34, %41
   br label %53
 
 44:                                               ; preds = %.split10, %_ZL21command_set_in_filter18CompileCommandEnum.exit
-  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @_ZL13option_filter, i64 6), %.split10 ], [ %23, %_ZL21command_set_in_filter18CompileCommandEnum.exit ]
-  store i8 1, ptr %.sink, align 1
   %45 = load i8, ptr @_ZN14CompilerOracle6_quietE, align 1
   %46 = trunc i8 %45 to i1
   br i1 %46, label %53, label %47
@@ -2317,6 +2317,7 @@ define internal fastcc void @_ZL16register_commandImEvP24TypedMethodOptionMatche
 _ZL21command_set_in_filter18CompileCommandEnum.exit: ; preds = %.split, %.split.thread, %19
   %20 = sext i32 %1 to i64
   %21 = getelementptr inbounds [41 x i8], ptr @_ZL13option_filter, i64 0, i64 %20
+  store i8 1, ptr %21, align 1
   br label %41
 
 22:                                               ; preds = %3
@@ -2334,6 +2335,7 @@ _ZL21command_set_in_filter18CompileCommandEnum.exit: ; preds = %.split, %.split.
   store i64 %2, ptr %28, align 8
   store ptr %0, ptr @_ZL11option_list, align 8
   store i1 true, ptr @_ZL7any_set, align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL13option_filter, i64 6), align 2
   br label %41
 
 29:                                               ; preds = %22
@@ -2363,8 +2365,6 @@ _ZN24TypedMethodOptionMatcherD2Ev.exit:           ; preds = %31, %38
   br label %50
 
 41:                                               ; preds = %.split10, %_ZL21command_set_in_filter18CompileCommandEnum.exit
-  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @_ZL13option_filter, i64 6), %.split10 ], [ %21, %_ZL21command_set_in_filter18CompileCommandEnum.exit ]
-  store i8 1, ptr %.sink, align 1
   %42 = load i8, ptr @_ZN14CompilerOracle6_quietE, align 1
   %43 = trunc i8 %42 to i1
   br i1 %43, label %50, label %44
@@ -2620,6 +2620,7 @@ _ZL13parseMemLimitPKcRlRiPci.exit:                ; preds = %28
 
 _ZL21command_set_in_filter18CompileCommandEnum.exit.i: ; preds = %102, %.split.i, %.split.thread.i
   %103 = getelementptr inbounds [41 x i8], ptr @_ZL13option_filter, i64 0, i64 %16
+  store i8 1, ptr %103, align 1
   br label %123
 
 104:                                              ; preds = %81
@@ -2637,6 +2638,7 @@ _ZL21command_set_in_filter18CompileCommandEnum.exit.i: ; preds = %102, %.split.i
   store i64 %85, ptr %110, align 8
   store ptr %3, ptr @_ZL11option_list, align 8
   store i1 true, ptr @_ZL7any_set, align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL13option_filter, i64 6), align 2
   br label %123
 
 111:                                              ; preds = %104
@@ -2666,8 +2668,6 @@ _ZN24TypedMethodOptionMatcherD2Ev.exit.i:         ; preds = %120, %113
   br label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit
 
 123:                                              ; preds = %.split10.i, %_ZL21command_set_in_filter18CompileCommandEnum.exit.i
-  %.sink.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZL13option_filter, i64 6), %.split10.i ], [ %103, %_ZL21command_set_in_filter18CompileCommandEnum.exit.i ]
-  store i8 1, ptr %.sink.i, align 1
   %124 = load i8, ptr @_ZN14CompilerOracle6_quietE, align 1
   %125 = trunc i8 %124 to i1
   br i1 %125, label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit, label %126
@@ -2706,7 +2706,7 @@ _ZL13parseMemLimitPKcRlRiPci.exit.thread:         ; preds = %_ZL13parseMemLimitP
 137:                                              ; preds = %133
   %138 = call i32 @strncasecmp(ptr noundef readonly %25, ptr noundef nonnull @.str.32, i64 noundef 5) #21
   %139 = icmp eq i32 %138, 0
-  br i1 %139, label %140, label %_ZL12parseMemStatPKcRmRiPci.exit.thread145
+  br i1 %139, label %140, label %_ZL12parseMemStatPKcRmRiPci.exit.thread144
 
 140:                                              ; preds = %137
   store i32 5, ptr %9, align 4
@@ -2714,7 +2714,7 @@ _ZL13parseMemLimitPKcRlRiPci.exit.thread:         ; preds = %_ZL13parseMemLimitP
   store i1 true, ptr @_ZL26print_final_memstat_report, align 1
   br label %_ZL12parseMemStatPKcRmRiPci.exit.thread
 
-_ZL12parseMemStatPKcRmRiPci.exit.thread145:       ; preds = %137
+_ZL12parseMemStatPKcRmRiPci.exit.thread144:       ; preds = %137
   %141 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.139) #19
   br label %148
 
@@ -2725,20 +2725,20 @@ _ZL12parseMemStatPKcRmRiPci.exit:                 ; preds = %131
 
 _ZL12parseMemStatPKcRmRiPci.exit._ZL12parseMemStatPKcRmRiPci.exit.thread_crit_edge: ; preds = %_ZL12parseMemStatPKcRmRiPci.exit
   %.pre = load i32, ptr %9, align 4
-  %.pre150 = load i32, ptr %2, align 4
-  %.pre151 = load i64, ptr %11, align 8
+  %.pre149 = load i32, ptr %2, align 4
+  %.pre150 = load i64, ptr %11, align 8
   br label %_ZL12parseMemStatPKcRmRiPci.exit.thread
 
 _ZL12parseMemStatPKcRmRiPci.exit.thread:          ; preds = %_ZL12parseMemStatPKcRmRiPci.exit._ZL12parseMemStatPKcRmRiPci.exit.thread_crit_edge, %140, %136
-  %144 = phi i64 [ %.pre151, %_ZL12parseMemStatPKcRmRiPci.exit._ZL12parseMemStatPKcRmRiPci.exit.thread_crit_edge ], [ 2, %140 ], [ 1, %136 ]
-  %145 = phi i32 [ %.pre150, %_ZL12parseMemStatPKcRmRiPci.exit._ZL12parseMemStatPKcRmRiPci.exit.thread_crit_edge ], [ %27, %140 ], [ %27, %136 ]
+  %144 = phi i64 [ %.pre150, %_ZL12parseMemStatPKcRmRiPci.exit._ZL12parseMemStatPKcRmRiPci.exit.thread_crit_edge ], [ 2, %140 ], [ 1, %136 ]
+  %145 = phi i32 [ %.pre149, %_ZL12parseMemStatPKcRmRiPci.exit._ZL12parseMemStatPKcRmRiPci.exit.thread_crit_edge ], [ %27, %140 ], [ %27, %136 ]
   %146 = phi i32 [ %.pre, %_ZL12parseMemStatPKcRmRiPci.exit._ZL12parseMemStatPKcRmRiPci.exit.thread_crit_edge ], [ 5, %140 ], [ 7, %136 ]
   %147 = add nsw i32 %145, %146
   store i32 %147, ptr %2, align 4
   call fastcc void @_ZL16register_commandImEvP24TypedMethodOptionMatcher18CompileCommandEnumT_(ptr noundef %3, i32 noundef %4, i64 noundef %144)
   br label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit
 
-148:                                              ; preds = %_ZL12parseMemStatPKcRmRiPci.exit.thread145, %_ZL12parseMemStatPKcRmRiPci.exit
+148:                                              ; preds = %_ZL12parseMemStatPKcRmRiPci.exit.thread144, %_ZL12parseMemStatPKcRmRiPci.exit
   %149 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.120, ptr noundef %18, ptr noundef %21) #19
   br label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit
 
@@ -2829,19 +2829,19 @@ _ZL12parseMemStatPKcRmRiPci.exit.thread:          ; preds = %_ZL12parseMemStatPK
   br i1 %207, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %198, %.lr.ph
-  %.0149 = phi ptr [ %216, %.lr.ph ], [ %204, %198 ]
-  %.091148 = phi ptr [ %215, %.lr.ph ], [ %205, %198 ]
-  %.0140147 = phi ptr [ %212, %.lr.ph ], [ %203, %198 ]
+  %.0148 = phi ptr [ %216, %.lr.ph ], [ %204, %198 ]
+  %.091147 = phi ptr [ %215, %.lr.ph ], [ %205, %198 ]
+  %.0139146 = phi ptr [ %212, %.lr.ph ], [ %203, %198 ]
   %208 = load i32, ptr %9, align 4
   %209 = load i32, ptr %2, align 4
   %210 = add nsw i32 %209, %208
   store i32 %210, ptr %2, align 4
   %211 = sext i32 %208 to i64
-  %212 = getelementptr inbounds i8, ptr %.0140147, i64 %211
-  store i8 32, ptr %.0149, align 1
+  %212 = getelementptr inbounds i8, ptr %.0139146, i64 %211
+  store i8 32, ptr %.0148, align 1
   %213 = load i32, ptr %9, align 4
   %214 = sext i32 %213 to i64
-  %215 = getelementptr inbounds i8, ptr %.091148, i64 %214
+  %215 = getelementptr inbounds i8, ptr %.091147, i64 %214
   %216 = getelementptr inbounds i8, ptr %215, i64 -1
   %217 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %212, ptr noundef nonnull @.str.124, ptr noundef %215, ptr noundef nonnull %9) #19
   %218 = icmp eq i32 %217, 1
@@ -2966,7 +2966,7 @@ _ZN25ControlIntrinsicValidatorD2Ev.exit:          ; preds = %231, %228, %._crit_
   %273 = add nsw i32 %272, %271
   store i32 %273, ptr %2, align 4
   %274 = call double @atof(ptr noundef nonnull %15) #21
-  switch i32 %4, label %.split.i107 [
+  switch i32 %4, label %.split.i106 [
     i32 2, label %275
     i32 6, label %292
   ]
@@ -2974,16 +2974,16 @@ _ZN25ControlIntrinsicValidatorD2Ev.exit:          ; preds = %231, %228, %._crit_
 275:                                              ; preds = %269
   %276 = load i8, ptr @LogCompilation, align 1
   %277 = trunc i8 %276 to i1
-  br i1 %277, label %.split.thread.i105, label %278
+  br i1 %277, label %.split.thread.i104, label %278
 
 278:                                              ; preds = %275
   %279 = load ptr, ptr @tty, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %279, ptr noundef nonnull @.str.134) #19
   %280 = load ptr, ptr @tty, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %280, ptr noundef nonnull @.str.135) #19
-  br label %.split.thread.i105
+  br label %.split.thread.i104
 
-.split.thread.i105:                               ; preds = %278, %275
+.split.thread.i104:                               ; preds = %278, %275
   %281 = load ptr, ptr @_ZL11option_list, align 8
   %282 = getelementptr inbounds i8, ptr %3, i64 32
   store ptr %281, ptr %282, align 8
@@ -2992,9 +2992,9 @@ _ZN25ControlIntrinsicValidatorD2Ev.exit:          ; preds = %231, %228, %._crit_
   %284 = getelementptr inbounds i8, ptr %3, i64 48
   store double %274, ptr %284, align 8
   store ptr %3, ptr @_ZL11option_list, align 8
-  br label %_ZL21command_set_in_filter18CompileCommandEnum.exit.i106
+  br label %_ZL21command_set_in_filter18CompileCommandEnum.exit.i105
 
-.split.i107:                                      ; preds = %269
+.split.i106:                                      ; preds = %269
   %285 = load ptr, ptr @_ZL11option_list, align 8
   %286 = getelementptr inbounds i8, ptr %3, i64 32
   store ptr %285, ptr %286, align 8
@@ -3004,15 +3004,16 @@ _ZN25ControlIntrinsicValidatorD2Ev.exit:          ; preds = %231, %228, %._crit_
   store double %274, ptr %288, align 8
   store ptr %3, ptr @_ZL11option_list, align 8
   %289 = and i32 %4, -2
-  %switch.i108 = icmp eq i32 %289, 4
-  br i1 %switch.i108, label %_ZL21command_set_in_filter18CompileCommandEnum.exit.i106, label %290
+  %switch.i107 = icmp eq i32 %289, 4
+  br i1 %switch.i107, label %_ZL21command_set_in_filter18CompileCommandEnum.exit.i105, label %290
 
-290:                                              ; preds = %.split.i107
+290:                                              ; preds = %.split.i106
   store i1 true, ptr @_ZL7any_set, align 1
-  br label %_ZL21command_set_in_filter18CompileCommandEnum.exit.i106
+  br label %_ZL21command_set_in_filter18CompileCommandEnum.exit.i105
 
-_ZL21command_set_in_filter18CompileCommandEnum.exit.i106: ; preds = %290, %.split.i107, %.split.thread.i105
+_ZL21command_set_in_filter18CompileCommandEnum.exit.i105: ; preds = %290, %.split.i106, %.split.thread.i104
   %291 = getelementptr inbounds [41 x i8], ptr @_ZL13option_filter, i64 0, i64 %16
+  store i8 1, ptr %291, align 1
   br label %311
 
 292:                                              ; preds = %269
@@ -3030,6 +3031,7 @@ _ZL21command_set_in_filter18CompileCommandEnum.exit.i106: ; preds = %290, %.spli
   store double %274, ptr %298, align 8
   store ptr %3, ptr @_ZL11option_list, align 8
   store i1 true, ptr @_ZL7any_set, align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL13option_filter, i64 6), align 2
   br label %311
 
 299:                                              ; preds = %292
@@ -3058,9 +3060,7 @@ _ZN24TypedMethodOptionMatcherD2Ev.exit.i102:      ; preds = %308, %301
   call void @_Z8FreeHeapPv(ptr noundef nonnull %3) #19
   br label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit
 
-311:                                              ; preds = %.split10.i103, %_ZL21command_set_in_filter18CompileCommandEnum.exit.i106
-  %.sink.i104 = phi ptr [ getelementptr inbounds (i8, ptr @_ZL13option_filter, i64 6), %.split10.i103 ], [ %291, %_ZL21command_set_in_filter18CompileCommandEnum.exit.i106 ]
-  store i8 1, ptr %.sink.i104, align 1
+311:                                              ; preds = %.split10.i103, %_ZL21command_set_in_filter18CompileCommandEnum.exit.i105
   %312 = load i8, ptr @_ZN14CompilerOracle6_quietE, align 1
   %313 = trunc i8 %312 to i1
   br i1 %313, label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit, label %314
@@ -3556,6 +3556,7 @@ define internal fastcc void @_ZL16register_commandIPKcEvP24TypedMethodOptionMatc
 _ZL21command_set_in_filter18CompileCommandEnum.exit: ; preds = %.split, %.split.thread, %21
   %22 = sext i32 %1 to i64
   %23 = getelementptr inbounds [41 x i8], ptr @_ZL13option_filter, i64 0, i64 %22
+  store i8 1, ptr %23, align 1
   br label %44
 
 24:                                               ; preds = %3
@@ -3574,6 +3575,7 @@ _ZL21command_set_in_filter18CompileCommandEnum.exit: ; preds = %.split, %.split.
   store ptr %30, ptr %31, align 8
   store ptr %0, ptr @_ZL11option_list, align 8
   store i1 true, ptr @_ZL7any_set, align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL13option_filter, i64 6), align 2
   br label %44
 
 32:                                               ; preds = %24
@@ -3603,8 +3605,6 @@ _ZN24TypedMethodOptionMatcherD2Ev.exit:           ; preds = %34, %41
   br label %53
 
 44:                                               ; preds = %.split10, %_ZL21command_set_in_filter18CompileCommandEnum.exit
-  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @_ZL13option_filter, i64 6), %.split10 ], [ %23, %_ZL21command_set_in_filter18CompileCommandEnum.exit ]
-  store i8 1, ptr %.sink, align 1
   %45 = load i8, ptr @_ZN14CompilerOracle6_quietE, align 1
   %46 = trunc i8 %45 to i1
   br i1 %46, label %53, label %47

@@ -177,14 +177,14 @@ entry:
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %transition_types_, align 8
-  %cmp.not32 = icmp eq ptr %0, %1
-  br i1 %cmp.not32, label %for.end, label %for.body
+  %cmp.not29 = icmp eq ptr %0, %1
+  br i1 %cmp.not29, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %2 = phi ptr [ %10, %for.inc ], [ %1, %entry ]
-  %type_index.034 = phi i64 [ %inc, %for.inc ], [ 0, %entry ]
-  %abbr_index.033 = phi i64 [ %abbr_index.2, %for.inc ], [ %call, %entry ]
-  %add.ptr.i = getelementptr inbounds %"struct.absl::time_internal::cctz::TransitionType", ptr %2, i64 %type_index.034
+  %type_index.031 = phi i64 [ %inc, %for.inc ], [ 0, %entry ]
+  %abbr_index.030 = phi i64 [ %abbr_index.2, %for.inc ], [ %call, %entry ]
+  %add.ptr.i = getelementptr inbounds %"struct.absl::time_internal::cctz::TransitionType", ptr %2, i64 %type_index.031
   %abbr_index6 = getelementptr inbounds i8, ptr %add.ptr.i, i64 41
   %3 = load i8, ptr %abbr_index6, align 1
   %conv = zext i8 %3 to i64
@@ -193,21 +193,23 @@ for.body:                                         ; preds = %entry, %for.inc
   %cmp.i = icmp eq i32 %call.i, 0
   %4 = load i8, ptr %abbr_index6, align 1
   %conv10 = zext i8 %4 to i64
-  %abbr_index.2 = select i1 %cmp.i, i64 %conv10, i64 %abbr_index.033
+  %abbr_index.2 = select i1 %cmp.i, i64 %conv10, i64 %abbr_index.030
   %5 = load i32, ptr %add.ptr.i, align 8
   %conv12 = sext i32 %5 to i64
-  %cmp13 = icmp ne i64 %utc_offset, %conv12
+  %cmp13 = icmp eq i64 %utc_offset, %conv12
+  br i1 %cmp13, label %land.lhs.true, label %for.inc
+
+land.lhs.true:                                    ; preds = %for.body
   %is_dst14 = getelementptr inbounds i8, ptr %add.ptr.i, i64 40
   %6 = load i8, ptr %is_dst14, align 8
   %7 = trunc i8 %6 to i1
   %8 = xor i1 %is_dst, %7
-  %or.cond = select i1 %cmp13, i1 true, i1 %8
   %cmp22 = icmp ne i64 %abbr_index.2, %conv10
-  %or.cond21.not = select i1 %or.cond, i1 true, i1 %cmp22
-  br i1 %or.cond21.not, label %for.inc, label %for.end
+  %or.cond.not24 = select i1 %8, i1 true, i1 %cmp22
+  br i1 %or.cond.not24, label %for.inc, label %for.end
 
-for.inc:                                          ; preds = %for.body
-  %inc = add i64 %type_index.034, 1
+for.inc:                                          ; preds = %for.body, %land.lhs.true
+  %inc = add i64 %type_index.031, 1
   %9 = load ptr, ptr %_M_finish.i, align 8
   %10 = load ptr, ptr %transition_types_, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %9 to i64
@@ -217,9 +219,9 @@ for.inc:                                          ; preds = %for.body
   %cmp.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !5
 
-for.end:                                          ; preds = %for.inc, %for.body, %entry
-  %type_index.0.lcssa = phi i64 [ 0, %entry ], [ %inc, %for.inc ], [ %type_index.034, %for.body ]
-  %abbr_index.1 = phi i64 [ %call, %entry ], [ %abbr_index.2, %for.inc ], [ %conv10, %for.body ]
+for.end:                                          ; preds = %for.inc, %land.lhs.true, %entry
+  %type_index.0.lcssa = phi i64 [ 0, %entry ], [ %inc, %for.inc ], [ %type_index.031, %land.lhs.true ]
+  %abbr_index.1 = phi i64 [ %call, %entry ], [ %abbr_index.2, %for.inc ], [ %conv10, %land.lhs.true ]
   %cmp26 = icmp ult i64 %type_index.0.lcssa, 256
   %cmp27 = icmp ult i64 %abbr_index.1, 256
   %or.cond.not = select i1 %cmp26, i1 %cmp27, i1 false
@@ -228,11 +230,11 @@ for.end:                                          ; preds = %for.inc, %for.body,
 if.end29:                                         ; preds = %for.end
   %11 = load ptr, ptr %_M_finish.i, align 8
   %12 = load ptr, ptr %transition_types_, align 8
-  %sub.ptr.lhs.cast.i23 = ptrtoint ptr %11 to i64
-  %sub.ptr.rhs.cast.i24 = ptrtoint ptr %12 to i64
-  %sub.ptr.sub.i25 = sub i64 %sub.ptr.lhs.cast.i23, %sub.ptr.rhs.cast.i24
-  %sub.ptr.div.i26 = sdiv exact i64 %sub.ptr.sub.i25, 48
-  %cmp32 = icmp eq i64 %type_index.0.lcssa, %sub.ptr.div.i26
+  %sub.ptr.lhs.cast.i19 = ptrtoint ptr %11 to i64
+  %sub.ptr.rhs.cast.i20 = ptrtoint ptr %12 to i64
+  %sub.ptr.sub.i21 = sub i64 %sub.ptr.lhs.cast.i19, %sub.ptr.rhs.cast.i20
+  %sub.ptr.div.i22 = sdiv exact i64 %sub.ptr.sub.i21, 48
+  %cmp32 = icmp eq i64 %type_index.0.lcssa, %sub.ptr.div.i22
   br i1 %cmp32, label %if.then33, label %if.end59
 
 if.then33:                                        ; preds = %if.end29
@@ -261,13 +263,13 @@ if.then9.i.i:                                     ; preds = %if.then33
   br label %_ZNSt6vectorIN4absl13time_internal4cctz14TransitionTypeESaIS3_EE7emplaceIJEEEN9__gnu_cxx17__normal_iteratorIPS3_S5_EENS8_IPKS3_S5_EEDpOT_.exit
 
 if.else22.i.i:                                    ; preds = %if.then33
-  %add.ptr.i6.i.i = getelementptr inbounds i8, ptr %12, i64 %sub.ptr.sub.i25
+  %add.ptr.i6.i.i = getelementptr inbounds i8, ptr %12, i64 %sub.ptr.sub.i21
   tail call void @_ZNSt6vectorIN4absl13time_internal4cctz14TransitionTypeESaIS3_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %transition_types_, ptr %add.ptr.i6.i.i)
   br label %_ZNSt6vectorIN4absl13time_internal4cctz14TransitionTypeESaIS3_EE7emplaceIJEEEN9__gnu_cxx17__normal_iteratorIPS3_S5_EENS8_IPKS3_S5_EEDpOT_.exit
 
 _ZNSt6vectorIN4absl13time_internal4cctz14TransitionTypeESaIS3_EE7emplaceIJEEEN9__gnu_cxx17__normal_iteratorIPS3_S5_EENS8_IPKS3_S5_EEDpOT_.exit: ; preds = %if.then9.i.i, %if.else22.i.i
   %15 = load ptr, ptr %transition_types_, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %15, i64 %sub.ptr.sub.i25
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %15, i64 %sub.ptr.sub.i21
   %conv43 = trunc i64 %utc_offset to i32
   store i32 %conv43, ptr %add.ptr.i.i, align 8
   %is_dst46 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 40

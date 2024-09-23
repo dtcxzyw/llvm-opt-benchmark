@@ -1305,7 +1305,9 @@ land.lhs.true5.i:                                 ; preds = %land.lhs.true.i
 
 land.rhs.i:                                       ; preds = %land.lhs.true5.i
   %arrayidx9.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
-  br label %return.sink.split.i
+  %6 = load i16, ptr %arrayidx9.i, align 2
+  %cmp11.i = icmp eq i16 %6, 8709
+  br label %_ZN12_GLOBAL__N_121isNoInheritanceMarkerEPK12ResourceDataj.exit
 
 if.else13.i:                                      ; preds = %if.else.i
   %shr.mask.i = and i32 %1, -268435456
@@ -1314,64 +1316,61 @@ if.else13.i:                                      ; preds = %if.else.i
 
 if.then15.i:                                      ; preds = %if.else13.i
   %poolStringIndexLimit.i = getelementptr inbounds i8, ptr %0, i64 48
-  %6 = load i32, ptr %poolStringIndexLimit.i, align 8
-  %cmp17.i = icmp slt i32 %and.i, %6
-  %sub.i = select i1 %cmp17.i, i32 0, i32 %6
+  %7 = load i32, ptr %poolStringIndexLimit.i, align 8
+  %cmp17.i = icmp slt i32 %and.i, %7
+  %sub.i = select i1 %cmp17.i, i32 0, i32 %7
   %sub.sink.i = sub i32 %and.i, %sub.i
   %.sink.in.i.v = select i1 %cmp17.i, i64 40, i64 16
   %.sink.in.i = getelementptr inbounds i8, ptr %0, i64 %.sink.in.i.v
   %.sink.i = load ptr, ptr %.sink.in.i, align 8
   %idx.ext23.i = zext i32 %sub.sink.i to i64
   %add.ptr24.i = getelementptr inbounds i16, ptr %.sink.i, i64 %idx.ext23.i
-  %7 = load i16, ptr %add.ptr24.i, align 2
-  switch i16 %7, label %_ZN12_GLOBAL__N_121isNoInheritanceMarkerEPK12ResourceDataj.exit [
+  %8 = load i16, ptr %add.ptr24.i, align 2
+  switch i16 %8, label %_ZN12_GLOBAL__N_121isNoInheritanceMarkerEPK12ResourceDataj.exit [
     i16 8709, label %if.then27.i
     i16 -9213, label %if.then43.i
   ]
 
 if.then27.i:                                      ; preds = %if.then15.i
   %arrayidx28.i = getelementptr inbounds i8, ptr %add.ptr24.i, i64 2
-  %8 = load i16, ptr %arrayidx28.i, align 2
-  %cmp30.i = icmp eq i16 %8, 8709
+  %9 = load i16, ptr %arrayidx28.i, align 2
+  %cmp30.i = icmp eq i16 %9, 8709
   br i1 %cmp30.i, label %land.lhs.true31.i, label %_ZN12_GLOBAL__N_121isNoInheritanceMarkerEPK12ResourceDataj.exit
 
 land.lhs.true31.i:                                ; preds = %if.then27.i
   %arrayidx32.i = getelementptr inbounds i8, ptr %add.ptr24.i, i64 4
-  %9 = load i16, ptr %arrayidx32.i, align 2
-  %cmp34.i = icmp eq i16 %9, 8709
+  %10 = load i16, ptr %arrayidx32.i, align 2
+  %cmp34.i = icmp eq i16 %10, 8709
   br i1 %cmp34.i, label %land.rhs35.i, label %_ZN12_GLOBAL__N_121isNoInheritanceMarkerEPK12ResourceDataj.exit
 
 land.rhs35.i:                                     ; preds = %land.lhs.true31.i
   %arrayidx36.i = getelementptr inbounds i8, ptr %add.ptr24.i, i64 6
-  br label %return.sink.split.i
+  %11 = load i16, ptr %arrayidx36.i, align 2
+  %cmp38.i = icmp eq i16 %11, 0
+  br label %_ZN12_GLOBAL__N_121isNoInheritanceMarkerEPK12ResourceDataj.exit
 
 if.then43.i:                                      ; preds = %if.then15.i
   %arrayidx44.i = getelementptr inbounds i8, ptr %add.ptr24.i, i64 2
-  %10 = load i16, ptr %arrayidx44.i, align 2
-  %cmp46.i = icmp eq i16 %10, 8709
+  %12 = load i16, ptr %arrayidx44.i, align 2
+  %cmp46.i = icmp eq i16 %12, 8709
   br i1 %cmp46.i, label %land.lhs.true47.i, label %_ZN12_GLOBAL__N_121isNoInheritanceMarkerEPK12ResourceDataj.exit
 
 land.lhs.true47.i:                                ; preds = %if.then43.i
   %arrayidx48.i = getelementptr inbounds i8, ptr %add.ptr24.i, i64 4
-  %11 = load i16, ptr %arrayidx48.i, align 2
-  %cmp50.i = icmp eq i16 %11, 8709
+  %13 = load i16, ptr %arrayidx48.i, align 2
+  %cmp50.i = icmp eq i16 %13, 8709
   br i1 %cmp50.i, label %land.rhs51.i, label %_ZN12_GLOBAL__N_121isNoInheritanceMarkerEPK12ResourceDataj.exit
 
 land.rhs51.i:                                     ; preds = %land.lhs.true47.i
   %arrayidx52.i = getelementptr inbounds i8, ptr %add.ptr24.i, i64 6
-  br label %return.sink.split.i
-
-return.sink.split.i:                              ; preds = %land.rhs51.i, %land.rhs35.i, %land.rhs.i
-  %arrayidx52.sink.i = phi ptr [ %arrayidx52.i, %land.rhs51.i ], [ %arrayidx36.i, %land.rhs35.i ], [ %arrayidx9.i, %land.rhs.i ]
-  %.sink23.i = phi i16 [ 8709, %land.rhs51.i ], [ 0, %land.rhs35.i ], [ 8709, %land.rhs.i ]
-  %12 = load i16, ptr %arrayidx52.sink.i, align 2
-  %cmp54.i = icmp eq i16 %12, %.sink23.i
-  %13 = zext i1 %cmp54.i to i8
+  %14 = load i16, ptr %arrayidx52.i, align 2
+  %cmp54.i = icmp eq i16 %14, 8709
   br label %_ZN12_GLOBAL__N_121isNoInheritanceMarkerEPK12ResourceDataj.exit
 
-_ZN12_GLOBAL__N_121isNoInheritanceMarkerEPK12ResourceDataj.exit: ; preds = %entry, %if.then2.i, %land.lhs.true.i, %land.lhs.true5.i, %if.else13.i, %if.then15.i, %if.then27.i, %land.lhs.true31.i, %if.then43.i, %land.lhs.true47.i, %return.sink.split.i
-  %retval.0.shrunk.i = phi i8 [ 0, %land.lhs.true5.i ], [ 0, %land.lhs.true.i ], [ 0, %if.then2.i ], [ 0, %land.lhs.true31.i ], [ 0, %if.then27.i ], [ 0, %land.lhs.true47.i ], [ 0, %if.then43.i ], [ 0, %if.then15.i ], [ 0, %if.else13.i ], [ 0, %entry ], [ %13, %return.sink.split.i ]
-  ret i8 %retval.0.shrunk.i
+_ZN12_GLOBAL__N_121isNoInheritanceMarkerEPK12ResourceDataj.exit: ; preds = %entry, %if.then2.i, %land.lhs.true.i, %land.lhs.true5.i, %land.rhs.i, %if.else13.i, %if.then15.i, %if.then27.i, %land.lhs.true31.i, %land.rhs35.i, %if.then43.i, %land.lhs.true47.i, %land.rhs51.i
+  %retval.0.shrunk.i = phi i1 [ false, %land.lhs.true5.i ], [ false, %land.lhs.true.i ], [ false, %if.then2.i ], [ %cmp11.i, %land.rhs.i ], [ false, %land.lhs.true31.i ], [ false, %if.then27.i ], [ %cmp38.i, %land.rhs35.i ], [ false, %land.lhs.true47.i ], [ false, %if.then43.i ], [ %cmp54.i, %land.rhs51.i ], [ false, %if.then15.i ], [ false, %if.else13.i ], [ false, %entry ]
+  %retval.0.i = zext i1 %retval.0.shrunk.i to i8
+  ret i8 %retval.0.i
 }
 
 ; Function Attrs: mustprogress uwtable

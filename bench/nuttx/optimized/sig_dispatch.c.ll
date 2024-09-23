@@ -26,19 +26,19 @@ define range(i32 -22, 1) i32 @nxsig_tcbdispatch(ptr noundef %0, ptr nocapture no
   %12 = load i16, ptr %11, align 16
   %13 = and i16 %12, 256
   %.not = icmp eq i16 %13, 0
-  br i1 %.not, label %14, label %196
+  br i1 %.not, label %14, label %202
 
 14:                                               ; preds = %2
   %15 = load i8, ptr %1, align 8
   %16 = icmp eq i8 %15, 0
-  br i1 %16, label %196, label %17
+  br i1 %16, label %202, label %17
 
 17:                                               ; preds = %14
   %18 = zext i8 %15 to i32
   %19 = getelementptr inbounds i8, ptr %0, i64 136
   %20 = tail call i32 @nxsig_ismember(ptr noundef nonnull %19, i32 noundef %18) #6
   %21 = icmp eq i32 %20, 1
-  br i1 %21, label %22, label %108
+  br i1 %21, label %22, label %111
 
 22:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
@@ -49,7 +49,7 @@ define range(i32 -22, 1) i32 @nxsig_tcbdispatch(ptr noundef %0, ptr nocapture no
   %24 = getelementptr inbounds i8, ptr %0, i64 48
   %25 = load i8, ptr %24, align 16
   %26 = icmp eq i8 %25, 6
-  br i1 %26, label %27, label %50
+  br i1 %26, label %27, label %53
 
 27:                                               ; preds = %22
   %28 = getelementptr inbounds i8, ptr %0, i64 144
@@ -57,7 +57,7 @@ define range(i32 -22, 1) i32 @nxsig_tcbdispatch(ptr noundef %0, ptr nocapture no
   %30 = zext i8 %29 to i32
   %31 = call i32 @nxsig_ismember(ptr noundef nonnull %28, i32 noundef %30) #6
   %.not81 = icmp eq i32 %31, 0
-  br i1 %.not81, label %50, label %32
+  br i1 %.not81, label %53, label %32
 
 32:                                               ; preds = %27
   %33 = getelementptr inbounds i8, ptr %0, i64 184
@@ -81,390 +81,408 @@ define range(i32 -22, 1) i32 @nxsig_tcbdispatch(ptr noundef %0, ptr nocapture no
   %g_waitingforsignal. = select i1 %.not83, ptr @g_waitingforsignal, ptr %42
   store ptr %43, ptr %g_waitingforsignal., align 8
   %.not84 = icmp eq ptr %43, null
-  %44 = getelementptr inbounds i8, ptr %43, i64 8
-  %.sink98 = select i1 %.not84, ptr getelementptr inbounds (i8, ptr @g_waitingforsignal, i64 8), ptr %44
-  store ptr %42, ptr %.sink98, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  %45 = call zeroext i1 @nxsched_add_readytorun(ptr noundef nonnull %0) #6
-  br i1 %45, label %46, label %47
+  br i1 %.not84, label %44, label %45
 
-46:                                               ; preds = %40
-  call void @up_switch_context(ptr noundef nonnull %0, ptr noundef %10) #6
+44:                                               ; preds = %40
+  store ptr %42, ptr getelementptr inbounds (i8, ptr @g_waitingforsignal, i64 8), align 8
   br label %47
 
-47:                                               ; preds = %46, %40
-  %48 = and i64 %23, 512
-  %.not.i = icmp eq i64 %48, 0
-  br i1 %.not.i, label %up_irq_restore.exit95, label %49
+45:                                               ; preds = %40
+  %46 = getelementptr inbounds i8, ptr %43, i64 8
+  store ptr %42, ptr %46, align 8
+  br label %47
+
+47:                                               ; preds = %45, %44
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  %48 = call zeroext i1 @nxsched_add_readytorun(ptr noundef nonnull %0) #6
+  br i1 %48, label %49, label %50
 
 49:                                               ; preds = %47
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !8
-  br label %up_irq_restore.exit95
+  call void @up_switch_context(ptr noundef nonnull %0, ptr noundef %10) #6
+  br label %50
 
-50:                                               ; preds = %27, %22
+50:                                               ; preds = %49, %47
   %51 = and i64 %23, 512
-  %.not.i85 = icmp eq i64 %51, 0
-  br i1 %.not.i85, label %up_irq_restore.exit86, label %52
+  %.not.i = icmp eq i64 %51, 0
+  br i1 %.not.i, label %up_irq_restore.exit94, label %52
 
 52:                                               ; preds = %50
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !8
+  br label %up_irq_restore.exit94
+
+53:                                               ; preds = %27, %22
+  %54 = and i64 %23, 512
+  %.not.i85 = icmp eq i64 %54, 0
+  br i1 %.not.i85, label %up_irq_restore.exit86, label %55
+
+55:                                               ; preds = %53
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !8
   br label %up_irq_restore.exit86
 
-up_irq_restore.exit86:                            ; preds = %50, %52
-  %53 = getelementptr inbounds i8, ptr %0, i64 16
-  %54 = load ptr, ptr %53, align 16
-  %55 = load i8, ptr %1, align 8
-  %56 = and i8 %55, -32
-  %or.cond.i.i = icmp eq i8 %56, 32
-  br i1 %or.cond.i.i, label %nxsig_find_pendingsignal.exit.thread.i, label %57
+up_irq_restore.exit86:                            ; preds = %53, %55
+  %56 = getelementptr inbounds i8, ptr %0, i64 16
+  %57 = load ptr, ptr %56, align 16
+  %58 = load i8, ptr %1, align 8
+  %59 = and i8 %58, -32
+  %or.cond.i.i = icmp eq i8 %59, 32
+  br i1 %or.cond.i.i, label %nxsig_find_pendingsignal.exit.thread.i, label %60
 
-57:                                               ; preds = %up_irq_restore.exit86
+60:                                               ; preds = %up_irq_restore.exit86
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %8) #6, !srcloc !6
-  %58 = load i64, ptr %8, align 8
+  %61 = load i64, ptr %8, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !7
-  %59 = getelementptr inbounds i8, ptr %54, i64 880
-  br label %60
+  %62 = getelementptr inbounds i8, ptr %57, i64 880
+  br label %63
 
-60:                                               ; preds = %61, %57
-  %.011.in.i.i = phi ptr [ %59, %57 ], [ %.011.i.i, %61 ]
+63:                                               ; preds = %64, %60
+  %.011.in.i.i = phi ptr [ %62, %60 ], [ %.011.i.i, %64 ]
   %.011.i.i = load ptr, ptr %.011.in.i.i, align 8
   %.not.i.i = icmp eq ptr %.011.i.i, null
-  br i1 %.not.i.i, label %.critedge.i.i, label %61
+  br i1 %.not.i.i, label %.critedge.i.i, label %64
 
-61:                                               ; preds = %60
-  %62 = getelementptr inbounds i8, ptr %.011.i.i, i64 8
-  %63 = load i8, ptr %62, align 8
-  %.not12.i.i = icmp eq i8 %55, %63
-  br i1 %.not12.i.i, label %.critedge.i.i, label %60, !llvm.loop !9
+64:                                               ; preds = %63
+  %65 = getelementptr inbounds i8, ptr %.011.i.i, i64 8
+  %66 = load i8, ptr %65, align 8
+  %.not12.i.i = icmp eq i8 %58, %66
+  br i1 %.not12.i.i, label %.critedge.i.i, label %63, !llvm.loop !9
 
-.critedge.i.i:                                    ; preds = %61, %60
-  %64 = and i64 %58, 512
-  %.not.i.i.i = icmp eq i64 %64, 0
-  br i1 %.not.i.i.i, label %nxsig_find_pendingsignal.exit.i, label %65
+.critedge.i.i:                                    ; preds = %64, %63
+  %67 = and i64 %61, 512
+  %.not.i.i.i = icmp eq i64 %67, 0
+  br i1 %.not.i.i.i, label %nxsig_find_pendingsignal.exit.i, label %68
 
-65:                                               ; preds = %.critedge.i.i
+68:                                               ; preds = %.critedge.i.i
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !8
   br label %nxsig_find_pendingsignal.exit.i
 
-nxsig_find_pendingsignal.exit.i:                  ; preds = %65, %.critedge.i.i
-  br i1 %.not.i.i, label %nxsig_find_pendingsignal.exit.thread.i, label %66
+nxsig_find_pendingsignal.exit.i:                  ; preds = %68, %.critedge.i.i
+  br i1 %.not.i.i, label %nxsig_find_pendingsignal.exit.thread.i, label %69
 
-66:                                               ; preds = %nxsig_find_pendingsignal.exit.i
-  %67 = getelementptr inbounds i8, ptr %.011.i.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull readonly align 8 dereferenceable(32) %1, i64 32, i1 false)
+69:                                               ; preds = %nxsig_find_pendingsignal.exit.i
+  %70 = getelementptr inbounds i8, ptr %.011.i.i, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, ptr noundef nonnull readonly align 8 dereferenceable(32) %1, i64 32, i1 false)
   br label %up_irq_restore.exit
 
 nxsig_find_pendingsignal.exit.thread.i:           ; preds = %nxsig_find_pendingsignal.exit.i, %up_irq_restore.exit86
-  %68 = load ptr, ptr @g_current_regs, align 8
-  %.not.i25.i = icmp eq ptr %68, null
-  br i1 %.not.i25.i, label %71, label %69
+  %71 = load ptr, ptr @g_current_regs, align 8
+  %.not.i25.i = icmp eq ptr %71, null
+  br i1 %.not.i25.i, label %74, label %72
 
-69:                                               ; preds = %nxsig_find_pendingsignal.exit.thread.i
-  %70 = call ptr @sq_remfirst(ptr noundef nonnull @g_sigpendingsignal) #6
-  %.not10.i.i = icmp eq ptr %70, null
+72:                                               ; preds = %nxsig_find_pendingsignal.exit.thread.i
+  %73 = call ptr @sq_remfirst(ptr noundef nonnull @g_sigpendingsignal) #6
+  %.not10.i.i = icmp eq ptr %73, null
   br i1 %.not10.i.i, label %nxsig_alloc_pendingsignal.exit.i, label %nxsig_alloc_pendingsignal.exit.thread.i
 
-71:                                               ; preds = %nxsig_find_pendingsignal.exit.thread.i
+74:                                               ; preds = %nxsig_find_pendingsignal.exit.thread.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7) #6, !srcloc !6
-  %72 = load i64, ptr %7, align 8
+  %75 = load i64, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !7
-  %73 = call ptr @sq_remfirst(ptr noundef nonnull @g_sigpendingsignal) #6
-  %74 = and i64 %72, 512
-  %.not.i.i27.i = icmp eq i64 %74, 0
-  br i1 %.not.i.i27.i, label %up_irq_restore.exit.i.i, label %75
+  %76 = call ptr @sq_remfirst(ptr noundef nonnull @g_sigpendingsignal) #6
+  %77 = and i64 %75, 512
+  %.not.i.i27.i = icmp eq i64 %77, 0
+  br i1 %.not.i.i27.i, label %up_irq_restore.exit.i.i, label %78
 
-75:                                               ; preds = %71
+78:                                               ; preds = %74
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !8
   br label %up_irq_restore.exit.i.i
 
-up_irq_restore.exit.i.i:                          ; preds = %75, %71
-  %.not8.i.i = icmp eq ptr %73, null
-  br i1 %.not8.i.i, label %76, label %nxsig_alloc_pendingsignal.exit.thread.i
+up_irq_restore.exit.i.i:                          ; preds = %78, %74
+  %.not8.i.i = icmp eq ptr %76, null
+  br i1 %.not8.i.i, label %79, label %nxsig_alloc_pendingsignal.exit.thread.i
 
-76:                                               ; preds = %up_irq_restore.exit.i.i
-  %77 = call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #7
-  %.not9.i.i = icmp eq ptr %77, null
-  br i1 %.not9.i.i, label %up_irq_restore.exit, label %78
+79:                                               ; preds = %up_irq_restore.exit.i.i
+  %80 = call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #7
+  %.not9.i.i = icmp eq ptr %80, null
+  br i1 %.not9.i.i, label %up_irq_restore.exit, label %81
 
-78:                                               ; preds = %76
-  %79 = getelementptr inbounds i8, ptr %77, i64 40
-  store i8 1, ptr %79, align 8
+81:                                               ; preds = %79
+  %82 = getelementptr inbounds i8, ptr %80, i64 40
+  store i8 1, ptr %82, align 8
   br label %nxsig_alloc_pendingsignal.exit.thread.i
 
-nxsig_alloc_pendingsignal.exit.i:                 ; preds = %69
-  %80 = call ptr @sq_remfirst(ptr noundef nonnull @g_sigpendingirqsignal) #6
-  %.not23.i = icmp eq ptr %80, null
+nxsig_alloc_pendingsignal.exit.i:                 ; preds = %72
+  %83 = call ptr @sq_remfirst(ptr noundef nonnull @g_sigpendingirqsignal) #6
+  %.not23.i = icmp eq ptr %83, null
   br i1 %.not23.i, label %up_irq_restore.exit, label %nxsig_alloc_pendingsignal.exit.thread.i
 
-nxsig_alloc_pendingsignal.exit.thread.i:          ; preds = %nxsig_alloc_pendingsignal.exit.i, %78, %up_irq_restore.exit.i.i, %69
-  %.0.i2635.i = phi ptr [ %80, %nxsig_alloc_pendingsignal.exit.i ], [ %77, %78 ], [ %73, %up_irq_restore.exit.i.i ], [ %70, %69 ]
-  %81 = getelementptr inbounds i8, ptr %.0.i2635.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %81, ptr noundef nonnull readonly align 8 dereferenceable(32) %1, i64 32, i1 false)
+nxsig_alloc_pendingsignal.exit.thread.i:          ; preds = %nxsig_alloc_pendingsignal.exit.i, %81, %up_irq_restore.exit.i.i, %72
+  %.0.i2635.i = phi ptr [ %83, %nxsig_alloc_pendingsignal.exit.i ], [ %80, %81 ], [ %76, %up_irq_restore.exit.i.i ], [ %73, %72 ]
+  %84 = getelementptr inbounds i8, ptr %.0.i2635.i, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %84, ptr noundef nonnull readonly align 8 dereferenceable(32) %1, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6) #6, !srcloc !6
-  %82 = load i64, ptr %6, align 8
+  %85 = load i64, ptr %6, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !7
   store ptr null, ptr %.0.i2635.i, align 8
-  %83 = getelementptr inbounds i8, ptr %54, i64 880
-  %84 = load ptr, ptr %83, align 8
-  %.not24.i = icmp eq ptr %84, null
-  br i1 %.not24.i, label %85, label %87
+  %86 = getelementptr inbounds i8, ptr %57, i64 880
+  %87 = load ptr, ptr %86, align 8
+  %.not24.i = icmp eq ptr %87, null
+  br i1 %.not24.i, label %88, label %90
 
-85:                                               ; preds = %nxsig_alloc_pendingsignal.exit.thread.i
-  store ptr %.0.i2635.i, ptr %83, align 8
-  %86 = getelementptr inbounds i8, ptr %54, i64 888
-  br label %90
-
-87:                                               ; preds = %nxsig_alloc_pendingsignal.exit.thread.i
-  %88 = getelementptr inbounds i8, ptr %54, i64 888
-  %89 = load ptr, ptr %88, align 8
+88:                                               ; preds = %nxsig_alloc_pendingsignal.exit.thread.i
+  store ptr %.0.i2635.i, ptr %86, align 8
+  %89 = getelementptr inbounds i8, ptr %57, i64 888
   store ptr %.0.i2635.i, ptr %89, align 8
-  br label %90
+  br label %93
 
-90:                                               ; preds = %87, %85
-  %.sink.i = phi ptr [ %86, %85 ], [ %88, %87 ]
-  store ptr %.0.i2635.i, ptr %.sink.i, align 8
-  %91 = and i64 %82, 512
-  %.not.i28.i = icmp eq i64 %91, 0
-  br i1 %.not.i28.i, label %up_irq_restore.exit.i, label %92
+90:                                               ; preds = %nxsig_alloc_pendingsignal.exit.thread.i
+  %91 = getelementptr inbounds i8, ptr %57, i64 888
+  %92 = load ptr, ptr %91, align 8
+  store ptr %.0.i2635.i, ptr %92, align 8
+  store ptr %.0.i2635.i, ptr %91, align 8
+  br label %93
 
-92:                                               ; preds = %90
+93:                                               ; preds = %90, %88
+  %94 = and i64 %85, 512
+  %.not.i28.i = icmp eq i64 %94, 0
+  br i1 %.not.i28.i, label %up_irq_restore.exit.i, label %95
+
+95:                                               ; preds = %93
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !8
   br label %up_irq_restore.exit.i
 
-up_irq_restore.exit.i:                            ; preds = %92, %90
-  %.val.i = load ptr, ptr %53, align 16
-  %93 = load i8, ptr %81, align 8
-  %94 = zext i8 %93 to i32
-  %95 = call ptr @nxsig_find_action(ptr noundef %.val.i, i32 noundef %94) #6
-  %.not.i29.i = icmp eq ptr %95, null
-  br i1 %.not.i29.i, label %up_irq_restore.exit, label %96
+up_irq_restore.exit.i:                            ; preds = %95, %93
+  %.val.i = load ptr, ptr %56, align 16
+  %96 = load i8, ptr %84, align 8
+  %97 = zext i8 %96 to i32
+  %98 = call ptr @nxsig_find_action(ptr noundef %.val.i, i32 noundef %97) #6
+  %.not.i29.i = icmp eq ptr %98, null
+  br i1 %.not.i29.i, label %up_irq_restore.exit, label %99
 
-96:                                               ; preds = %up_irq_restore.exit.i
-  %97 = getelementptr inbounds i8, ptr %95, i64 24
-  %98 = load i32, ptr %97, align 8
-  %99 = and i32 %98, 128
-  %.not10.i30.i = icmp eq i32 %99, 0
-  br i1 %.not10.i30.i, label %up_irq_restore.exit, label %100
+99:                                               ; preds = %up_irq_restore.exit.i
+  %100 = getelementptr inbounds i8, ptr %98, i64 24
+  %101 = load i32, ptr %100, align 8
+  %102 = and i32 %101, 128
+  %.not10.i30.i = icmp eq i32 %102, 0
+  br i1 %.not10.i30.i, label %up_irq_restore.exit, label %103
 
-100:                                              ; preds = %96
-  %101 = getelementptr inbounds i8, ptr %95, i64 8
-  %102 = getelementptr inbounds i8, ptr %95, i64 32
-  %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %.0.i2635.i, i64 32
-  store ptr %103, ptr %104, align 8
-  %105 = load ptr, ptr %101, align 8
-  %106 = load i8, ptr %81, align 8
-  %107 = zext i8 %106 to i32
-  call void %105(i32 noundef %107, ptr noundef nonnull %81, ptr noundef null) #6
+103:                                              ; preds = %99
+  %104 = getelementptr inbounds i8, ptr %98, i64 8
+  %105 = getelementptr inbounds i8, ptr %98, i64 32
+  %106 = load ptr, ptr %105, align 8
+  %107 = getelementptr inbounds i8, ptr %.0.i2635.i, i64 32
+  store ptr %106, ptr %107, align 8
+  %108 = load ptr, ptr %104, align 8
+  %109 = load i8, ptr %84, align 8
+  %110 = zext i8 %109 to i32
+  call void %108(i32 noundef %110, ptr noundef nonnull %84, ptr noundef null) #6
   br label %up_irq_restore.exit
 
-108:                                              ; preds = %17
-  %109 = tail call i32 @sched_lock() #6
-  %110 = getelementptr inbounds i8, ptr %0, i64 16
-  %111 = load ptr, ptr %110, align 16
-  %112 = load i8, ptr %1, align 8
-  %113 = zext i8 %112 to i32
-  %114 = tail call ptr @nxsig_find_action(ptr noundef %111, i32 noundef %113) #6
-  %.not.i88 = icmp eq ptr %114, null
-  br i1 %.not.i88, label %nxsig_queue_action.exit, label %115
+111:                                              ; preds = %17
+  %112 = tail call i32 @sched_lock() #6
+  %113 = getelementptr inbounds i8, ptr %0, i64 16
+  %114 = load ptr, ptr %113, align 16
+  %115 = load i8, ptr %1, align 8
+  %116 = zext i8 %115 to i32
+  %117 = tail call ptr @nxsig_find_action(ptr noundef %114, i32 noundef %116) #6
+  %.not.i88 = icmp eq ptr %117, null
+  br i1 %.not.i88, label %nxsig_queue_action.exit, label %118
 
-115:                                              ; preds = %108
-  %116 = getelementptr inbounds i8, ptr %114, i64 8
-  %117 = load ptr, ptr %116, align 8
-  %.not31.i = icmp eq ptr %117, null
-  br i1 %.not31.i, label %nxsig_queue_action.exit, label %118
+118:                                              ; preds = %111
+  %119 = getelementptr inbounds i8, ptr %117, i64 8
+  %120 = load ptr, ptr %119, align 8
+  %.not31.i = icmp eq ptr %120, null
+  br i1 %.not31.i, label %nxsig_queue_action.exit, label %121
 
-118:                                              ; preds = %115
-  %119 = tail call ptr @nxsig_alloc_pendingsigaction() #6
-  %.not32.i = icmp eq ptr %119, null
-  br i1 %.not32.i, label %nxsig_queue_action.exit, label %120
+121:                                              ; preds = %118
+  %122 = tail call ptr @nxsig_alloc_pendingsigaction() #6
+  %.not32.i = icmp eq ptr %122, null
+  br i1 %.not32.i, label %nxsig_queue_action.exit, label %123
 
-120:                                              ; preds = %118
-  %121 = load ptr, ptr %116, align 8
-  %122 = getelementptr inbounds i8, ptr %119, i64 8
-  store ptr %121, ptr %122, align 8
-  %123 = getelementptr inbounds i8, ptr %119, i64 16
-  %124 = getelementptr inbounds i8, ptr %114, i64 16
-  %125 = load i64, ptr %124, align 8
-  store i64 %125, ptr %123, align 8
-  %126 = getelementptr inbounds i8, ptr %114, i64 24
-  %127 = load i32, ptr %126, align 8
-  %128 = and i32 %127, 32
-  %129 = icmp eq i32 %128, 0
-  br i1 %129, label %130, label %134
+123:                                              ; preds = %121
+  %124 = load ptr, ptr %119, align 8
+  %125 = getelementptr inbounds i8, ptr %122, i64 8
+  store ptr %124, ptr %125, align 8
+  %126 = getelementptr inbounds i8, ptr %122, i64 16
+  %127 = getelementptr inbounds i8, ptr %117, i64 16
+  %128 = load i64, ptr %127, align 8
+  store i64 %128, ptr %126, align 8
+  %129 = getelementptr inbounds i8, ptr %117, i64 24
+  %130 = load i32, ptr %129, align 8
+  %131 = and i32 %130, 32
+  %132 = icmp eq i32 %131, 0
+  br i1 %132, label %133, label %137
 
-130:                                              ; preds = %120
-  %131 = load i8, ptr %1, align 8
-  %132 = zext i8 %131 to i32
-  %133 = tail call i32 @sigaddset(ptr noundef nonnull %123, i32 noundef %132) #6
-  br label %134
+133:                                              ; preds = %123
+  %134 = load i8, ptr %1, align 8
+  %135 = zext i8 %134 to i32
+  %136 = tail call i32 @sigaddset(ptr noundef nonnull %126, i32 noundef %135) #6
+  br label %137
 
-134:                                              ; preds = %130, %120
-  %135 = getelementptr inbounds i8, ptr %119, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %135, ptr noundef nonnull readonly align 8 dereferenceable(32) %1, i64 32, i1 false)
-  %136 = getelementptr inbounds i8, ptr %114, i64 32
-  %137 = load ptr, ptr %136, align 8
-  %138 = getelementptr inbounds i8, ptr %119, i64 48
-  store ptr %137, ptr %138, align 8
+137:                                              ; preds = %133, %123
+  %138 = getelementptr inbounds i8, ptr %122, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %138, ptr noundef nonnull readonly align 8 dereferenceable(32) %1, i64 32, i1 false)
+  %139 = getelementptr inbounds i8, ptr %117, i64 32
+  %140 = load ptr, ptr %139, align 8
+  %141 = getelementptr inbounds i8, ptr %122, i64 48
+  store ptr %140, ptr %141, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5) #6, !srcloc !6
-  %139 = load i64, ptr %5, align 8
+  %142 = load i64, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !7
-  store ptr null, ptr %119, align 8
-  %140 = getelementptr inbounds i8, ptr %0, i64 152
-  %141 = load ptr, ptr %140, align 8
-  %.not33.i = icmp eq ptr %141, null
-  br i1 %.not33.i, label %142, label %144
+  store ptr null, ptr %122, align 8
+  %143 = getelementptr inbounds i8, ptr %0, i64 152
+  %144 = load ptr, ptr %143, align 8
+  %.not33.i = icmp eq ptr %144, null
+  br i1 %.not33.i, label %145, label %147
 
-142:                                              ; preds = %134
-  store ptr %119, ptr %140, align 8
-  %143 = getelementptr inbounds i8, ptr %0, i64 160
-  br label %147
+145:                                              ; preds = %137
+  store ptr %122, ptr %143, align 8
+  %146 = getelementptr inbounds i8, ptr %0, i64 160
+  store ptr %122, ptr %146, align 8
+  br label %150
 
-144:                                              ; preds = %134
-  %145 = getelementptr inbounds i8, ptr %0, i64 160
-  %146 = load ptr, ptr %145, align 8
-  store ptr %119, ptr %146, align 8
-  br label %147
+147:                                              ; preds = %137
+  %148 = getelementptr inbounds i8, ptr %0, i64 160
+  %149 = load ptr, ptr %148, align 8
+  store ptr %122, ptr %149, align 8
+  store ptr %122, ptr %148, align 8
+  br label %150
 
-147:                                              ; preds = %144, %142
-  %.sink.i89 = phi ptr [ %143, %142 ], [ %145, %144 ]
-  store ptr %119, ptr %.sink.i89, align 8
+150:                                              ; preds = %147, %145
   call void @up_schedule_sigaction(ptr noundef nonnull %0, ptr noundef nonnull @nxsig_deliver) #6
-  %148 = and i64 %139, 512
-  %.not.i.i90 = icmp eq i64 %148, 0
-  br i1 %.not.i.i90, label %nxsig_queue_action.exit, label %149
+  %151 = and i64 %142, 512
+  %.not.i.i89 = icmp eq i64 %151, 0
+  br i1 %.not.i.i89, label %nxsig_queue_action.exit, label %152
 
-149:                                              ; preds = %147
+152:                                              ; preds = %150
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !8
   br label %nxsig_queue_action.exit
 
-nxsig_queue_action.exit:                          ; preds = %108, %115, %118, %147, %149
-  %.0.i = phi i32 [ 0, %115 ], [ 0, %108 ], [ -12, %118 ], [ 0, %147 ], [ 0, %149 ]
-  %150 = call i32 @sched_unlock() #6
+nxsig_queue_action.exit:                          ; preds = %111, %118, %121, %150, %152
+  %.0.i = phi i32 [ 0, %118 ], [ 0, %111 ], [ -12, %121 ], [ 0, %150 ], [ 0, %152 ]
+  %153 = call i32 @sched_unlock() #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4) #6, !srcloc !6
-  %151 = load i64, ptr %4, align 8
+  %154 = load i64, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !7
-  %152 = getelementptr inbounds i8, ptr %0, i64 48
-  %153 = load i8, ptr %152, align 16
-  %154 = icmp eq i8 %153, 6
-  br i1 %154, label %155, label %171
+  %155 = getelementptr inbounds i8, ptr %0, i64 48
+  %156 = load i8, ptr %155, align 16
+  %157 = icmp eq i8 %156, 6
+  br i1 %157, label %158, label %177
 
-155:                                              ; preds = %nxsig_queue_action.exit
-  %156 = getelementptr inbounds i8, ptr %0, i64 184
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %156, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  %157 = getelementptr inbounds i8, ptr %0, i64 144
-  %158 = call i32 @sigemptyset(ptr noundef nonnull %157) #6
-  %159 = getelementptr inbounds i8, ptr %0, i64 88
-  %160 = load ptr, ptr %159, align 8
-  %.not78 = icmp eq ptr %160, null
-  br i1 %.not78, label %164, label %161
+158:                                              ; preds = %nxsig_queue_action.exit
+  %159 = getelementptr inbounds i8, ptr %0, i64 184
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %159, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
+  %160 = getelementptr inbounds i8, ptr %0, i64 144
+  %161 = call i32 @sigemptyset(ptr noundef nonnull %160) #6
+  %162 = getelementptr inbounds i8, ptr %0, i64 88
+  %163 = load ptr, ptr %162, align 8
+  %.not78 = icmp eq ptr %163, null
+  br i1 %.not78, label %167, label %164
 
-161:                                              ; preds = %155
-  %162 = getelementptr inbounds i8, ptr %0, i64 72
-  %163 = call i32 @wd_cancel(ptr noundef nonnull %162) #6
-  br label %164
+164:                                              ; preds = %158
+  %165 = getelementptr inbounds i8, ptr %0, i64 72
+  %166 = call i32 @wd_cancel(ptr noundef nonnull %165) #6
+  br label %167
 
-164:                                              ; preds = %155, %161
-  %165 = getelementptr inbounds i8, ptr %0, i64 8
-  %166 = load ptr, ptr %165, align 8
-  %167 = load ptr, ptr %0, align 8
-  %.not79 = icmp eq ptr %166, null
-  %g_waitingforsignal.101 = select i1 %.not79, ptr @g_waitingforsignal, ptr %166
-  store ptr %167, ptr %g_waitingforsignal.101, align 8
-  %.not80 = icmp eq ptr %167, null
-  %168 = getelementptr inbounds i8, ptr %167, i64 8
-  %.sink100 = select i1 %.not80, ptr getelementptr inbounds (i8, ptr @g_waitingforsignal, i64 8), ptr %168
-  store ptr %166, ptr %.sink100, align 8
+167:                                              ; preds = %158, %164
+  %168 = getelementptr inbounds i8, ptr %0, i64 8
+  %169 = load ptr, ptr %168, align 8
+  %170 = load ptr, ptr %0, align 8
+  %.not79 = icmp eq ptr %169, null
+  %g_waitingforsignal.98 = select i1 %.not79, ptr @g_waitingforsignal, ptr %169
+  store ptr %170, ptr %g_waitingforsignal.98, align 8
+  %.not80 = icmp eq ptr %170, null
+  br i1 %.not80, label %171, label %172
+
+171:                                              ; preds = %167
+  store ptr %169, ptr getelementptr inbounds (i8, ptr @g_waitingforsignal, i64 8), align 8
+  br label %174
+
+172:                                              ; preds = %167
+  %173 = getelementptr inbounds i8, ptr %170, i64 8
+  store ptr %169, ptr %173, align 8
+  br label %174
+
+174:                                              ; preds = %172, %171
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  %169 = call zeroext i1 @nxsched_add_readytorun(ptr noundef nonnull %0) #6
-  br i1 %169, label %170, label %171
+  %175 = call zeroext i1 @nxsched_add_readytorun(ptr noundef nonnull %0) #6
+  br i1 %175, label %176, label %177
 
-170:                                              ; preds = %164
+176:                                              ; preds = %174
   call void @up_switch_context(ptr noundef nonnull %0, ptr noundef %10) #6
-  br label %171
+  br label %177
 
-171:                                              ; preds = %164, %170, %nxsig_queue_action.exit
-  %172 = and i64 %151, 512
-  %.not.i92 = icmp eq i64 %172, 0
-  br i1 %.not.i92, label %up_irq_restore.exit, label %173
+177:                                              ; preds = %174, %176, %nxsig_queue_action.exit
+  %178 = and i64 %154, 512
+  %.not.i91 = icmp eq i64 %178, 0
+  br i1 %.not.i91, label %up_irq_restore.exit, label %179
 
-173:                                              ; preds = %171
+179:                                              ; preds = %177
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !8
   br label %up_irq_restore.exit
 
-up_irq_restore.exit:                              ; preds = %173, %171, %100, %96, %up_irq_restore.exit.i, %nxsig_alloc_pendingsignal.exit.i, %76, %66
-  %.071 = phi i32 [ 0, %66 ], [ 0, %76 ], [ 0, %nxsig_alloc_pendingsignal.exit.i ], [ 0, %up_irq_restore.exit.i ], [ 0, %96 ], [ 0, %100 ], [ %.0.i, %171 ], [ %.0.i, %173 ]
-  %174 = icmp eq i32 %20, 0
-  br i1 %174, label %175, label %up_irq_restore.exit95
+up_irq_restore.exit:                              ; preds = %179, %177, %103, %99, %up_irq_restore.exit.i, %nxsig_alloc_pendingsignal.exit.i, %79, %69
+  %.071 = phi i32 [ 0, %69 ], [ 0, %79 ], [ 0, %nxsig_alloc_pendingsignal.exit.i ], [ 0, %up_irq_restore.exit.i ], [ 0, %99 ], [ 0, %103 ], [ %.0.i, %177 ], [ %.0.i, %179 ]
+  %180 = icmp eq i32 %20, 0
+  br i1 %180, label %181, label %up_irq_restore.exit94
 
-175:                                              ; preds = %up_irq_restore.exit
+181:                                              ; preds = %up_irq_restore.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #6, !srcloc !6
-  %176 = load i64, ptr %3, align 8
+  %182 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !7
-  %177 = getelementptr inbounds i8, ptr %0, i64 48
-  %178 = load i8, ptr %177, align 16
-  %179 = icmp eq i8 %178, 5
-  br i1 %179, label %180, label %181
+  %183 = getelementptr inbounds i8, ptr %0, i64 48
+  %184 = load i8, ptr %183, align 16
+  %185 = icmp eq i8 %184, 5
+  br i1 %185, label %186, label %187
 
-180:                                              ; preds = %175
+186:                                              ; preds = %181
   call void @nxsem_wait_irq(ptr noundef nonnull %0, i32 noundef 4) #6
-  %.pre = load i8, ptr %177, align 16
-  br label %181
+  %.pre = load i8, ptr %183, align 16
+  br label %187
 
-181:                                              ; preds = %180, %175
-  %182 = phi i8 [ %.pre, %180 ], [ %178, %175 ]
-  %.off = add i8 %182, -7
+187:                                              ; preds = %186, %181
+  %188 = phi i8 [ %.pre, %186 ], [ %184, %181 ]
+  %.off = add i8 %188, -7
   %switch = icmp ult i8 %.off, 2
-  br i1 %switch, label %183, label %184
+  br i1 %switch, label %189, label %190
 
-183:                                              ; preds = %181
+189:                                              ; preds = %187
   call void @nxmq_wait_irq(ptr noundef nonnull %0, i32 noundef 4) #6
-  %.pr = load i8, ptr %177, align 16
-  br label %184
+  %.pr = load i8, ptr %183, align 16
+  br label %190
 
-184:                                              ; preds = %181, %183
-  %185 = phi i8 [ %182, %181 ], [ %.pr, %183 ]
-  %186 = icmp eq i8 %185, 9
-  br i1 %186, label %187, label %192
+190:                                              ; preds = %187, %189
+  %191 = phi i8 [ %188, %187 ], [ %.pr, %189 ]
+  %192 = icmp eq i8 %191, 9
+  br i1 %192, label %193, label %198
 
-187:                                              ; preds = %184
-  %188 = load i8, ptr %1, align 8
-  %189 = icmp eq i8 %188, 18
-  br i1 %189, label %190, label %192
+193:                                              ; preds = %190
+  %194 = load i8, ptr %1, align 8
+  %195 = icmp eq i8 %194, 18
+  br i1 %195, label %196, label %198
 
-190:                                              ; preds = %187
-  %191 = call i32 @group_continue(ptr noundef nonnull %0) #6
-  br label %192
+196:                                              ; preds = %193
+  %197 = call i32 @group_continue(ptr noundef nonnull %0) #6
+  br label %198
 
-192:                                              ; preds = %190, %187, %184
-  %193 = and i64 %176, 512
-  %.not.i94 = icmp eq i64 %193, 0
-  br i1 %.not.i94, label %up_irq_restore.exit95, label %194
+198:                                              ; preds = %196, %193, %190
+  %199 = and i64 %182, 512
+  %.not.i93 = icmp eq i64 %199, 0
+  br i1 %.not.i93, label %up_irq_restore.exit94, label %200
 
-194:                                              ; preds = %192
+200:                                              ; preds = %198
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !8
-  br label %up_irq_restore.exit95
+  br label %up_irq_restore.exit94
 
-up_irq_restore.exit95:                            ; preds = %47, %49, %194, %192, %up_irq_restore.exit
-  %.07197 = phi i32 [ %.071, %up_irq_restore.exit ], [ %.071, %192 ], [ %.071, %194 ], [ 0, %49 ], [ 0, %47 ]
-  %195 = icmp slt i32 %20, 0
-  %spec.select = select i1 %195, i32 -22, i32 %.07197
-  br label %196
+up_irq_restore.exit94:                            ; preds = %50, %52, %200, %198, %up_irq_restore.exit
+  %.07196 = phi i32 [ %.071, %up_irq_restore.exit ], [ %.071, %198 ], [ %.071, %200 ], [ 0, %52 ], [ 0, %50 ]
+  %201 = icmp slt i32 %20, 0
+  %spec.select = select i1 %201, i32 -22, i32 %.07196
+  br label %202
 
-196:                                              ; preds = %14, %2, %up_irq_restore.exit95
-  %.0 = phi i32 [ %spec.select, %up_irq_restore.exit95 ], [ -3, %2 ], [ 0, %14 ]
+202:                                              ; preds = %14, %2, %up_irq_restore.exit94
+  %.0 = phi i32 [ %spec.select, %up_irq_restore.exit94 ], [ -3, %2 ], [ 0, %14 ]
   ret i32 %.0
 }
 

@@ -262,7 +262,7 @@ is_http_header.exit:                              ; preds = %44, %49, %54
 73:                                               ; preds = %72, %66, %61
   %74 = load ptr, ptr @ippusb_dissector_table, align 8
   %75 = call i32 @dissector_try_uint_new(ptr noundef %74, i32 noundef 0, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 1, ptr noundef %3) #5
-  br label %299
+  br label %298
 
 76:                                               ; preds = %is_http_header.exit.thread, %is_http_header.exit
   %77 = phi i8 [ %57, %is_http_header.exit.thread ], [ %59, %is_http_header.exit ]
@@ -494,7 +494,7 @@ is_http_header.exit266:                           ; preds = %100, %98, %93, %87
 208:                                              ; preds = %194, %203, %196, %is_http_header.exit266
   %.1 = phi i32 [ %205, %203 ], [ 0, %196 ], [ 0, %194 ], [ 0, %is_http_header.exit266 ]
   store i32 %86, ptr %85, align 8
-  br label %299
+  br label %298
 
 209:                                              ; preds = %79
   %210 = load ptr, ptr %.0.i, align 8
@@ -642,28 +642,28 @@ is_http_header.exit266:                           ; preds = %100, %98, %93, %87
   br i1 %.not260, label %.critedge.thread, label %.critedge.thread.sink.split
 
 .critedge.thread.sink.split:                      ; preds = %289, %277
-  %.sink277 = phi ptr [ %278, %277 ], [ %293, %289 ]
+  %.sink.in = phi ptr [ %278, %277 ], [ %293, %289 ]
   %.2.ph = phi i32 [ %273, %277 ], [ %292, %289 ]
-  %298 = load ptr, ptr %.sink277, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %298, i32 noundef 25, ptr noundef nonnull @.str.43) #5
+  %.sink = load ptr, ptr %.sink.in, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %.sink, i32 noundef 25, ptr noundef nonnull @.str.43) #5
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.critedge.thread.sink.split, %209, %.critedge, %279, %289, %282, %268, %270
   %.2 = phi i32 [ %292, %289 ], [ 0, %282 ], [ 0, %279 ], [ 0, %.critedge ], [ %273, %270 ], [ 0, %268 ], [ 0, %209 ], [ %.2.ph, %.critedge.thread.sink.split ]
   store i32 %86, ptr %85, align 8
-  br label %299
+  br label %298
 
-299:                                              ; preds = %208, %.critedge.thread, %73
+298:                                              ; preds = %208, %.critedge.thread, %73
   %.0226 = phi i32 [ %75, %73 ], [ %.2, %.critedge.thread ], [ %.1, %208 ]
   %.not262 = icmp eq i32 %.0226, 0
-  br i1 %.not262, label %.thread, label %300
+  br i1 %.not262, label %.thread, label %299
 
-300:                                              ; preds = %299
-  %301 = call i32 @tvb_captured_length(ptr noundef %0) #5
+299:                                              ; preds = %298
+  %300 = call i32 @tvb_captured_length(ptr noundef %0) #5
   br label %.thread
 
-.thread:                                          ; preds = %76, %103, %299, %214, %300
-  %.0 = phi i32 [ %301, %300 ], [ %7, %214 ], [ 0, %299 ], [ 0, %103 ], [ 0, %76 ]
+.thread:                                          ; preds = %76, %103, %298, %214, %299
+  %.0 = phi i32 [ %300, %299 ], [ %7, %214 ], [ 0, %298 ], [ 0, %103 ], [ 0, %76 ]
   ret i32 %.0
 }
 

@@ -353,6 +353,7 @@ define internal i32 @dissect_bthci_sco(ptr noundef %0, ptr noundef %1, ptr nound
   %165 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %149) #9
   %166 = trunc i64 %165 to i32
   %167 = add i32 %166, 1
+  store i32 7, ptr %164, align 8
   br label %.sink.split
 
 168:                                              ; preds = %139
@@ -379,6 +380,7 @@ define internal i32 @dissect_bthci_sco(ptr noundef %0, ptr noundef %1, ptr nound
   %181 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %149) #9
   %182 = trunc i64 %181 to i32
   %183 = add i32 %182, 1
+  store i32 7, ptr %180, align 8
   br label %.sink.split
 
 184:                                              ; preds = %92, %87, %83, %77
@@ -406,6 +408,7 @@ define internal i32 @dissect_bthci_sco(ptr noundef %0, ptr noundef %1, ptr nound
   %194 = getelementptr inbounds i8, ptr %1, i64 128
   store ptr null, ptr %194, align 8
   %195 = getelementptr inbounds i8, ptr %1, i64 208
+  store i32 7, ptr %195, align 8
   br label %.sink.split
 
 196:                                              ; preds = %184
@@ -426,16 +429,15 @@ define internal i32 @dissect_bthci_sco(ptr noundef %0, ptr noundef %1, ptr nound
   %204 = getelementptr inbounds i8, ptr %1, i64 152
   store ptr null, ptr %204, align 8
   %205 = getelementptr inbounds i8, ptr %1, i64 232
+  store i32 7, ptr %205, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %168, %152, %196, %186
-  %.sink211 = phi ptr [ %195, %186 ], [ %205, %196 ], [ %164, %152 ], [ %180, %168 ]
   %.sink210 = phi i64 [ 212, %186 ], [ 236, %196 ], [ 212, %152 ], [ 236, %168 ]
   %.sink = phi i32 [ 10, %186 ], [ 10, %196 ], [ %167, %152 ], [ %183, %168 ]
   %.sink208 = phi i64 [ 216, %186 ], [ 240, %196 ], [ 216, %152 ], [ 240, %168 ]
   %.str.35.sink = phi ptr [ @.str.35, %186 ], [ @.str.35, %196 ], [ %149, %152 ], [ %149, %168 ]
   %.sink207 = phi i64 [ 224, %186 ], [ 248, %196 ], [ 224, %152 ], [ 248, %168 ]
-  store i32 7, ptr %.sink211, align 8
   %206 = getelementptr inbounds i8, ptr %1, i64 %.sink210
   store i32 %.sink, ptr %206, align 4
   %207 = getelementptr inbounds i8, ptr %1, i64 %.sink208
@@ -531,59 +533,59 @@ define internal i32 @dissect_bthci_sco(ptr noundef %0, ptr noundef %1, ptr nound
   %257 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %256, i64 noundef %255, ptr noundef nonnull @.str.34, ptr noundef %.0172, ptr noundef %.0) #7
   %258 = load i32, ptr %19, align 4
   switch i32 %258, label %278 [
-    i32 1, label %.sink.split212
+    i32 1, label %.sink.split211
     i32 0, label %259
   ]
 
 259:                                              ; preds = %248
-  br label %.sink.split212
+  br label %.sink.split211
 
-.sink.split212:                                   ; preds = %248, %259
-  %.sink242 = phi i64 [ 160, %259 ], [ 184, %248 ]
-  %.sink238 = phi i64 [ 164, %259 ], [ 188, %248 ]
-  %.sink235 = phi i64 [ 168, %259 ], [ 192, %248 ]
-  %.sink233 = phi i64 [ 176, %259 ], [ 200, %248 ]
-  %.sink231 = phi i64 [ 112, %259 ], [ 136, %248 ]
-  %.sink229 = phi i64 [ 116, %259 ], [ 140, %248 ]
-  %.sink227 = phi i64 [ 120, %259 ], [ 144, %248 ]
-  %.sink225 = phi i64 [ 128, %259 ], [ 152, %248 ]
-  %.sink223 = phi i64 [ 208, %259 ], [ 232, %248 ]
-  %.sink219 = phi i64 [ 212, %259 ], [ 236, %248 ]
-  %.sink216 = phi i64 [ 216, %259 ], [ 240, %248 ]
-  %.sink214 = phi i64 [ 224, %259 ], [ 248, %248 ]
-  %260 = getelementptr inbounds i8, ptr %1, i64 %.sink242
+.sink.split211:                                   ; preds = %248, %259
+  %.sink241 = phi i64 [ 160, %259 ], [ 184, %248 ]
+  %.sink237 = phi i64 [ 164, %259 ], [ 188, %248 ]
+  %.sink234 = phi i64 [ 168, %259 ], [ 192, %248 ]
+  %.sink232 = phi i64 [ 176, %259 ], [ 200, %248 ]
+  %.sink230 = phi i64 [ 112, %259 ], [ 136, %248 ]
+  %.sink228 = phi i64 [ 116, %259 ], [ 140, %248 ]
+  %.sink226 = phi i64 [ 120, %259 ], [ 144, %248 ]
+  %.sink224 = phi i64 [ 128, %259 ], [ 152, %248 ]
+  %.sink222 = phi i64 [ 208, %259 ], [ 232, %248 ]
+  %.sink218 = phi i64 [ 212, %259 ], [ 236, %248 ]
+  %.sink215 = phi i64 [ 216, %259 ], [ 240, %248 ]
+  %.sink213 = phi i64 [ 224, %259 ], [ 248, %248 ]
+  %260 = getelementptr inbounds i8, ptr %1, i64 %.sink241
   %261 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #9
   %262 = trunc i64 %261 to i32
   %263 = add i32 %262, 1
   store i32 7, ptr %260, align 8
-  %264 = getelementptr inbounds i8, ptr %1, i64 %.sink238
+  %264 = getelementptr inbounds i8, ptr %1, i64 %.sink237
   store i32 %263, ptr %264, align 4
-  %265 = getelementptr inbounds i8, ptr %1, i64 %.sink235
+  %265 = getelementptr inbounds i8, ptr %1, i64 %.sink234
   store ptr %.0, ptr %265, align 8
-  %266 = getelementptr inbounds i8, ptr %1, i64 %.sink233
+  %266 = getelementptr inbounds i8, ptr %1, i64 %.sink232
   store ptr null, ptr %266, align 8
-  %267 = getelementptr inbounds i8, ptr %1, i64 %.sink231
+  %267 = getelementptr inbounds i8, ptr %1, i64 %.sink230
   store i32 1, ptr %267, align 8
-  %268 = getelementptr inbounds i8, ptr %1, i64 %.sink229
+  %268 = getelementptr inbounds i8, ptr %1, i64 %.sink228
   store i32 6, ptr %268, align 4
-  %269 = getelementptr inbounds i8, ptr %1, i64 %.sink227
+  %269 = getelementptr inbounds i8, ptr %1, i64 %.sink226
   store ptr %218, ptr %269, align 8
-  %270 = getelementptr inbounds i8, ptr %1, i64 %.sink225
+  %270 = getelementptr inbounds i8, ptr %1, i64 %.sink224
   store ptr null, ptr %270, align 8
-  %271 = getelementptr inbounds i8, ptr %1, i64 %.sink223
+  %271 = getelementptr inbounds i8, ptr %1, i64 %.sink222
   %272 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %256) #9
   %273 = trunc i64 %272 to i32
   %274 = add i32 %273, 1
   store i32 7, ptr %271, align 8
-  %275 = getelementptr inbounds i8, ptr %1, i64 %.sink219
+  %275 = getelementptr inbounds i8, ptr %1, i64 %.sink218
   store i32 %274, ptr %275, align 4
-  %276 = getelementptr inbounds i8, ptr %1, i64 %.sink216
+  %276 = getelementptr inbounds i8, ptr %1, i64 %.sink215
   store ptr %256, ptr %276, align 8
-  %277 = getelementptr inbounds i8, ptr %1, i64 %.sink214
+  %277 = getelementptr inbounds i8, ptr %1, i64 %.sink213
   store ptr null, ptr %277, align 8
   br label %278
 
-278:                                              ; preds = %.sink.split212, %248
+278:                                              ; preds = %.sink.split211, %248
   %279 = load i32, ptr @hf_bthci_sco_data, align 4
   %280 = call i32 @tvb_reported_length(ptr noundef %0) #7
   %281 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %279, ptr noundef %0, i32 noundef 3, i32 noundef %280, i32 noundef 0) #7

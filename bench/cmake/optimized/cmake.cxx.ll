@@ -10693,7 +10693,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %26 = icmp eq i32 %25, 0
   %27 = getelementptr inbounds i8, ptr %0, i64 1944
   %28 = load ptr, ptr %27, align 8
-  br i1 %26, label %29, label %41
+  br i1 %26, label %29, label %42
 
 29:                                               ; preds = %23
   %30 = load ptr, ptr %7, align 8
@@ -10702,60 +10702,66 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %32 = getelementptr inbounds i8, ptr %5, i64 32
   store i8 1, ptr %32, align 8
   invoke void @_ZN11cmMessenger12SetTopSourceESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr noundef nonnull align 8 dereferenceable(64) %28, ptr noundef nonnull %5)
-          to label %33 unwind label %36
+          to label %33 unwind label %37
 
 33:                                               ; preds = %29
   %34 = load i8, ptr %32, align 8
   %35 = trunc i8 %34 to i1
-  br i1 %35, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.sink.split, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
+  br i1 %35, label %36, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
-36:                                               ; preds = %29
-  %37 = landingpad { ptr, i32 }
+36:                                               ; preds = %33
+  store i8 0, ptr %32, align 8
+  br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.sink.split
+
+37:                                               ; preds = %29
+  %38 = landingpad { ptr, i32 }
           cleanup
-  %38 = load i8, ptr %32, align 8
-  %39 = trunc i8 %38 to i1
-  br i1 %39, label %40, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit10
+  %39 = load i8, ptr %32, align 8
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %41, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit10
 
-40:                                               ; preds = %36
+41:                                               ; preds = %37
   store i8 0, ptr %32, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #31
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit10
 
-41:                                               ; preds = %23
-  %42 = getelementptr inbounds i8, ptr %6, i64 32
-  store i8 0, ptr %42, align 8
+42:                                               ; preds = %23
+  %43 = getelementptr inbounds i8, ptr %6, i64 32
+  store i8 0, ptr %43, align 8
   invoke void @_ZN11cmMessenger12SetTopSourceESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr noundef nonnull align 8 dereferenceable(64) %28, ptr noundef nonnull %6)
-          to label %43 unwind label %46
+          to label %44 unwind label %48
 
-43:                                               ; preds = %41
-  %44 = load i8, ptr %42, align 8
-  %45 = trunc i8 %44 to i1
-  br i1 %45, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.sink.split, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
+44:                                               ; preds = %42
+  %45 = load i8, ptr %43, align 8
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %47, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
-46:                                               ; preds = %41
-  %47 = landingpad { ptr, i32 }
+47:                                               ; preds = %44
+  store i8 0, ptr %43, align 8
+  br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.sink.split
+
+48:                                               ; preds = %42
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %48 = load i8, ptr %42, align 8
-  %49 = trunc i8 %48 to i1
-  br i1 %49, label %50, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit10
+  %50 = load i8, ptr %43, align 8
+  %51 = trunc i8 %50 to i1
+  br i1 %51, label %52, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit10
 
-50:                                               ; preds = %46
-  store i8 0, ptr %42, align 8
+52:                                               ; preds = %48
+  store i8 0, ptr %43, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #31
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit10
 
-_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.sink.split: ; preds = %43, %33
-  %.sink13 = phi ptr [ %32, %33 ], [ %42, %43 ]
-  %.sink = phi ptr [ %5, %33 ], [ %6, %43 ]
-  store i8 0, ptr %.sink13, align 8
+_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.sink.split: ; preds = %36, %47
+  %.sink = phi ptr [ %6, %47 ], [ %5, %36 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #31
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
-_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.sink.split, %43, %33
+_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.sink.split, %44, %33
   ret void
 
-_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit10: ; preds = %50, %46, %40, %36, %.body
-  %.pn7 = phi { ptr, i32 } [ %.pn, %.body ], [ %37, %36 ], [ %37, %40 ], [ %47, %46 ], [ %47, %50 ]
+_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit10: ; preds = %52, %48, %41, %37, %.body
+  %.pn7 = phi { ptr, i32 } [ %.pn, %.body ], [ %38, %37 ], [ %38, %41 ], [ %49, %48 ], [ %49, %52 ]
   resume { ptr, i32 } %.pn7
 }
 
@@ -40866,22 +40872,18 @@ _ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEES3_SaIS3_ENSt8__deta
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
-  br label %.sink.split
+  store ptr %.031, ptr %24, align 8
+  br label %28
 
 25:                                               ; preds = %.lr.ph
   %26 = load ptr, ptr %19, align 8
   store ptr %26, ptr %.031, align 8
   %27 = load ptr, ptr %18, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %25, %23
-  %.sink = phi ptr [ %24, %23 ], [ %27, %25 ]
-  %.1.ph = phi i64 [ %17, %23 ], [ %.02530, %25 ]
-  store ptr %.031, ptr %.sink, align 8
+  store ptr %.031, ptr %27, align 8
   br label %28
 
-28:                                               ; preds = %.sink.split, %20
-  %.1 = phi i64 [ %17, %20 ], [ %.1.ph, %.sink.split ]
+28:                                               ; preds = %20, %23, %25
+  %.1 = phi i64 [ %.02530, %25 ], [ %17, %23 ], [ %17, %20 ]
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1837
 
@@ -45430,22 +45432,18 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
-  br label %.sink.split
+  store ptr %.031, ptr %24, align 8
+  br label %28
 
 25:                                               ; preds = %.lr.ph
   %26 = load ptr, ptr %19, align 8
   store ptr %26, ptr %.031, align 8
   %27 = load ptr, ptr %18, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %25, %23
-  %.sink = phi ptr [ %24, %23 ], [ %27, %25 ]
-  %.1.ph = phi i64 [ %17, %23 ], [ %.02530, %25 ]
-  store ptr %.031, ptr %.sink, align 8
+  store ptr %.031, ptr %27, align 8
   br label %28
 
-28:                                               ; preds = %.sink.split, %20
-  %.1 = phi i64 [ %17, %20 ], [ %.1.ph, %.sink.split ]
+28:                                               ; preds = %20, %23, %25
+  %.1 = phi i64 [ %.02530, %25 ], [ %17, %23 ], [ %17, %20 ]
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1886
 

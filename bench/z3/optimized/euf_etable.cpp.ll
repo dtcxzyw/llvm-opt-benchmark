@@ -806,6 +806,7 @@ _ZN10chashtableIPN3euf5enodeENS0_6etable12cg_comm_hashENS3_10cg_comm_eqEEC2ERKS4
   %m_free_cell.i.i18 = getelementptr inbounds i8, ptr %call5, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_free_cell.i.i18, i8 0, i64 16, i1 false)
   %m_collisions.i19 = getelementptr inbounds i8, ptr %call5, i64 40
+  store i32 0, ptr %m_collisions.i19, align 8
   br label %if.end
 
 if.else:                                          ; preds = %sw.bb3, %_ZNK9func_decl14is_commutativeEv.exit
@@ -842,13 +843,12 @@ _ZN10chashtableIPN3euf5enodeENS0_6etable14cg_binary_hashENS3_12cg_binary_eqEEC2E
   %m_free_cell.i.i35 = getelementptr inbounds i8, ptr %call9, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_free_cell.i.i35, i8 0, i64 16, i1 false)
   %m_collisions.i36 = getelementptr inbounds i8, ptr %call9, i64 32
+  store i32 0, ptr %m_collisions.i36, align 8
   br label %if.end
 
 if.end:                                           ; preds = %_ZN10chashtableIPN3euf5enodeENS0_6etable14cg_binary_hashENS3_12cg_binary_eqEEC2ERKS4_RKS5_jj.exit, %_ZN10chashtableIPN3euf5enodeENS0_6etable12cg_comm_hashENS3_10cg_comm_eqEEC2ERKS4_RKS5_jj.exit
-  %m_collisions.i36.sink = phi ptr [ %m_collisions.i36, %_ZN10chashtableIPN3euf5enodeENS0_6etable14cg_binary_hashENS3_12cg_binary_eqEEC2ERKS4_RKS5_jj.exit ], [ %m_collisions.i19, %_ZN10chashtableIPN3euf5enodeENS0_6etable12cg_comm_hashENS3_10cg_comm_eqEEC2ERKS4_RKS5_jj.exit ]
   %call9.sink = phi ptr [ %call9, %_ZN10chashtableIPN3euf5enodeENS0_6etable14cg_binary_hashENS3_12cg_binary_eqEEC2ERKS4_RKS5_jj.exit ], [ %call5, %_ZN10chashtableIPN3euf5enodeENS0_6etable12cg_comm_hashENS3_10cg_comm_eqEEC2ERKS4_RKS5_jj.exit ]
   %.sink54 = phi i64 [ 1, %_ZN10chashtableIPN3euf5enodeENS0_6etable14cg_binary_hashENS3_12cg_binary_eqEEC2ERKS4_RKS5_jj.exit ], [ 2, %_ZN10chashtableIPN3euf5enodeENS0_6etable12cg_comm_hashENS3_10cg_comm_eqEEC2ERKS4_RKS5_jj.exit ]
-  store i32 0, ptr %m_collisions.i36.sink, align 8
   %3 = ptrtoint ptr %call9.sink to i64
   %or12 = or i64 %.sink54, %3
   %r.0 = inttoptr i64 %or12 to ptr

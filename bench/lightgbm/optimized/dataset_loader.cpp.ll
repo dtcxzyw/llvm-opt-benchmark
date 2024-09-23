@@ -5542,22 +5542,18 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
-  br label %.sink.split
+  store ptr %.031, ptr %24, align 8
+  br label %28
 
 25:                                               ; preds = %.lr.ph
   %26 = load ptr, ptr %19, align 8
   store ptr %26, ptr %.031, align 8
   %27 = load ptr, ptr %18, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %25, %23
-  %.sink = phi ptr [ %24, %23 ], [ %27, %25 ]
-  %.1.ph = phi i64 [ %17, %23 ], [ %.02530, %25 ]
-  store ptr %.031, ptr %.sink, align 8
+  store ptr %.031, ptr %27, align 8
   br label %28
 
-28:                                               ; preds = %.sink.split, %20
-  %.1 = phi i64 [ %17, %20 ], [ %.1.ph, %.sink.split ]
+28:                                               ; preds = %20, %23, %25
+  %.1 = phi i64 [ %.02530, %25 ], [ %17, %23 ], [ %17, %20 ]
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
@@ -5908,22 +5904,18 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
-  br label %.sink.split
+  store ptr %.031, ptr %25, align 8
+  br label %29
 
 26:                                               ; preds = %.lr.ph
   %27 = load ptr, ptr %20, align 8
   store ptr %27, ptr %.031, align 8
   %28 = load ptr, ptr %19, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %26, %24
-  %.sink = phi ptr [ %25, %24 ], [ %28, %26 ]
-  %.1.ph = phi i64 [ %18, %24 ], [ %.02530, %26 ]
-  store ptr %.031, ptr %.sink, align 8
+  store ptr %.031, ptr %28, align 8
   br label %29
 
-29:                                               ; preds = %.sink.split, %21
-  %.1 = phi i64 [ %18, %21 ], [ %.1.ph, %.sink.split ]
+29:                                               ; preds = %21, %24, %26
+  %.1 = phi i64 [ %.02530, %26 ], [ %18, %24 ], [ %18, %21 ]
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
@@ -18049,10 +18041,10 @@ _ZNSt10unique_ptrIN8LightGBM9BinMapperESt14default_deleteIS1_EE5resetEPS1_.exit:
   %138 = trunc i8 %137 to i1
   %139 = load ptr, ptr %9, align 8, !llvm.access.group !159
   %140 = getelementptr inbounds %"class.std::vector.14", ptr %139, i64 %indvars.iv
-  %141 = getelementptr inbounds i8, ptr %111, i64 844
-  %142 = getelementptr inbounds i32, ptr %113, i64 %indvars.iv
-  %.sink = select i1 %116, ptr %141, ptr %142
-  %143 = load i32, ptr %.sink, align 4, !llvm.access.group !159
+  %141 = getelementptr inbounds i32, ptr %113, i64 %indvars.iv
+  %142 = getelementptr inbounds i8, ptr %111, i64 844
+  %.in = select i1 %116, ptr %142, ptr %141
+  %143 = load i32, ptr %.in, align 4, !llvm.access.group !159
   invoke void @_ZN8LightGBM9BinMapper7FindBinEPdimiiibNS_7BinTypeEbbRKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(160) %119, ptr noundef %122, i32 noundef %125, i64 noundef %126, i32 noundef %143, i32 noundef %128, i32 noundef %129, i1 noundef zeroext %132, i32 noundef %.026, i1 noundef zeroext %135, i1 noundef zeroext %138, ptr noundef nonnull align 8 dereferenceable(24) %140)
           to label %_ZNSt10unique_ptrIN8LightGBM9BinMapperESt14default_deleteIS1_EEaSEDn.exit unwind label %65, !llvm.access.group !159
 
@@ -18514,10 +18506,10 @@ _ZNSt10unique_ptrIN8LightGBM9BinMapperESt14default_deleteIS1_EE5resetEPS1_.exit:
   %152 = trunc i8 %151 to i1
   %153 = load ptr, ptr %12, align 8, !llvm.access.group !164
   %154 = getelementptr inbounds %"class.std::vector.14", ptr %153, i64 %indvars.iv
-  %155 = getelementptr inbounds i8, ptr %125, i64 844
-  %156 = getelementptr inbounds i32, ptr %127, i64 %110
-  %.sink = select i1 %130, ptr %155, ptr %156
-  %157 = load i32, ptr %.sink, align 4, !llvm.access.group !164
+  %155 = getelementptr inbounds i32, ptr %127, i64 %110
+  %156 = getelementptr inbounds i8, ptr %125, i64 844
+  %.in = select i1 %130, ptr %156, ptr %155
+  %157 = load i32, ptr %.in, align 4, !llvm.access.group !164
   invoke void @_ZN8LightGBM9BinMapper7FindBinEPdimiiibNS_7BinTypeEbbRKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(160) %133, ptr noundef %136, i32 noundef %139, i64 noundef %140, i32 noundef %157, i32 noundef %142, i32 noundef %143, i1 noundef zeroext %146, i32 noundef %spec.select, i1 noundef zeroext %149, i1 noundef zeroext %152, ptr noundef nonnull align 8 dereferenceable(24) %154)
           to label %.loopexit72 unwind label %72, !llvm.access.group !164
 
@@ -20036,22 +20028,18 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
-  br label %.sink.split
+  store ptr %.031, ptr %24, align 8
+  br label %28
 
 25:                                               ; preds = %.lr.ph
   %26 = load ptr, ptr %19, align 8
   store ptr %26, ptr %.031, align 8
   %27 = load ptr, ptr %18, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %25, %23
-  %.sink = phi ptr [ %24, %23 ], [ %27, %25 ]
-  %.1.ph = phi i64 [ %17, %23 ], [ %.02530, %25 ]
-  store ptr %.031, ptr %.sink, align 8
+  store ptr %.031, ptr %27, align 8
   br label %28
 
-28:                                               ; preds = %.sink.split, %20
-  %.1 = phi i64 [ %17, %20 ], [ %.1.ph, %.sink.split ]
+28:                                               ; preds = %20, %23, %25
+  %.1 = phi i64 [ %.02530, %25 ], [ %17, %23 ], [ %17, %20 ]
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !179
 
@@ -22393,10 +22381,10 @@ _ZNSt10unique_ptrIN8LightGBM9BinMapperESt14default_deleteIS1_EE5resetEPS1_.exit:
   %142 = trunc i8 %141 to i1
   %143 = load ptr, ptr %7, align 8, !llvm.access.group !187
   %144 = getelementptr inbounds %"class.std::vector.14", ptr %143, i64 %indvars.iv
-  %145 = getelementptr inbounds i8, ptr %106, i64 844
-  %146 = getelementptr inbounds i32, ptr %108, i64 %indvars.iv
-  %.sink = select i1 %111, ptr %145, ptr %146
-  %147 = load i32, ptr %.sink, align 4, !llvm.access.group !187
+  %145 = getelementptr inbounds i32, ptr %108, i64 %indvars.iv
+  %146 = getelementptr inbounds i8, ptr %106, i64 844
+  %.in = select i1 %111, ptr %146, ptr %145
+  %147 = load i32, ptr %.in, align 4, !llvm.access.group !187
   invoke void @_ZN8LightGBM9BinMapper7FindBinEPdimiiibNS_7BinTypeEbbRKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(160) %114, ptr noundef %117, i32 noundef %124, i64 noundef %130, i32 noundef %147, i32 noundef %132, i32 noundef %133, i1 noundef zeroext %136, i32 noundef %spec.select, i1 noundef zeroext %139, i1 noundef zeroext %142, ptr noundef nonnull align 8 dereferenceable(24) %144)
           to label %_ZNSt10unique_ptrIN8LightGBM9BinMapperESt14default_deleteIS1_EEaSEDn.exit unwind label %71, !llvm.access.group !187
 
@@ -22749,10 +22737,10 @@ _ZNSt10unique_ptrIN8LightGBM9BinMapperESt14default_deleteIS1_EE5resetEPS1_.exit:
   %165 = trunc i8 %164 to i1
   %166 = load ptr, ptr %10, align 8, !llvm.access.group !190
   %167 = getelementptr inbounds %"class.std::vector.14", ptr %166, i64 %indvars.iv
-  %168 = getelementptr inbounds i8, ptr %130, i64 844
-  %169 = getelementptr inbounds i32, ptr %132, i64 %indvars.iv
-  %.sink = select i1 %135, ptr %168, ptr %169
-  %170 = load i32, ptr %.sink, align 4, !llvm.access.group !190
+  %168 = getelementptr inbounds i32, ptr %132, i64 %indvars.iv
+  %169 = getelementptr inbounds i8, ptr %130, i64 844
+  %.in = select i1 %135, ptr %169, ptr %168
+  %170 = load i32, ptr %.in, align 4, !llvm.access.group !190
   invoke void @_ZN8LightGBM9BinMapper7FindBinEPdimiiibNS_7BinTypeEbbRKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(160) %138, ptr noundef %140, i32 noundef %147, i64 noundef %153, i32 noundef %170, i32 noundef %155, i32 noundef %156, i1 noundef zeroext %159, i32 noundef %spec.select, i1 noundef zeroext %162, i1 noundef zeroext %165, ptr noundef nonnull align 8 dereferenceable(24) %167)
           to label %.loopexit72 unwind label %72, !llvm.access.group !190
 

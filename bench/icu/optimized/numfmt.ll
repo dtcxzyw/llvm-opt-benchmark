@@ -2712,19 +2712,19 @@ entry:
 if.end:                                           ; preds = %entry
   %tobool2.not = icmp eq ptr %theCurrency, null
   %fCurrency6 = getelementptr inbounds i8, ptr %this, i64 342
-  br i1 %tobool2.not, label %if.end8.sink.split, label %if.then3
+  br i1 %tobool2.not, label %if.else, label %if.then3
 
 if.then3:                                         ; preds = %if.end
   %call4 = tail call ptr @u_strncpy_75(ptr noundef nonnull %fCurrency6, ptr noundef nonnull %theCurrency, i32 noundef 3)
   %arrayidx = getelementptr inbounds i8, ptr %this, i64 348
-  br label %if.end8.sink.split
-
-if.end8.sink.split:                               ; preds = %if.end, %if.then3
-  %fCurrency6.sink = phi ptr [ %arrayidx, %if.then3 ], [ %fCurrency6, %if.end ]
-  store i16 0, ptr %fCurrency6.sink, align 2
+  store i16 0, ptr %arrayidx, align 4
   br label %if.end8
 
-if.end8:                                          ; preds = %if.end8.sink.split, %entry
+if.else:                                          ; preds = %if.end
+  store i16 0, ptr %fCurrency6, align 2
+  br label %if.end8
+
+if.end8:                                          ; preds = %entry, %if.else, %if.then3
   ret void
 }
 

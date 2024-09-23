@@ -2737,7 +2737,7 @@ _ZN10BigIntegerD2Ev.exit42:                       ; preds = %_ZNK10BigIntegerplE
   br label %_ZN10BigIntegerD2Ev.exit43
 
 _ZN10BigIntegerD2Ev.exit43:                       ; preds = %76, %80
-  br i1 %77, label %119, label %93
+  br i1 %77, label %123, label %93
 
 81:                                               ; preds = %63
   %82 = landingpad { ptr, i32 }
@@ -2753,7 +2753,7 @@ _ZN10BigIntegerD2Ev.exit43:                       ; preds = %76, %80
   call void @_ZdaPv(ptr noundef nonnull %83) #18
   br label %_ZN10BigIntegerD2Ev.exit44
 
-86:                                               ; preds = %112, %93, %_ZN10BigIntegerD2Ev.exit42
+86:                                               ; preds = %116, %93, %_ZN10BigIntegerD2Ev.exit42
   %87 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN10BigIntegerD2Ev.exit45
@@ -2781,7 +2781,7 @@ _ZN10BigIntegerD2Ev.exit43:                       ; preds = %76, %80
 
 100:                                              ; preds = %93
   %101 = invoke noundef i32 @_ZNK10BigInteger9compareToERKS_(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %16)
-          to label %102 unwind label %107
+          to label %102 unwind label %111
 
 102:                                              ; preds = %100
   %.not = icmp eq i32 %101, -1
@@ -2794,98 +2794,99 @@ _ZN10BigIntegerD2Ev.exit43:                       ; preds = %76, %80
   br label %_ZN10BigIntegerD2Ev.exit46
 
 _ZN10BigIntegerD2Ev.exit46:                       ; preds = %102, %105
-  br i1 %.not, label %112, label %106
+  br i1 %.not, label %116, label %106
 
 106:                                              ; preds = %_ZN10BigIntegerD2Ev.exit46
-  br i1 %3, label %.sink.split, label %119
+  br i1 %3, label %107, label %123
 
-107:                                              ; preds = %100
-  %108 = landingpad { ptr, i32 }
+107:                                              ; preds = %106
+  %108 = load ptr, ptr %35, align 8
+  %109 = getelementptr inbounds i8, ptr %108, i64 -1
+  %110 = load i8, ptr %109, align 1
+  br label %123
+
+111:                                              ; preds = %100
+  %112 = landingpad { ptr, i32 }
           cleanup
-  %109 = load ptr, ptr %58, align 8
-  %110 = icmp eq ptr %109, null
-  br i1 %110, label %_ZN10BigIntegerD2Ev.exit45, label %111
+  %113 = load ptr, ptr %58, align 8
+  %114 = icmp eq ptr %113, null
+  br i1 %114, label %_ZN10BigIntegerD2Ev.exit45, label %115
 
-111:                                              ; preds = %107
-  call void @_ZdaPv(ptr noundef nonnull %109) #18
+115:                                              ; preds = %111
+  call void @_ZdaPv(ptr noundef nonnull %113) #18
   br label %_ZN10BigIntegerD2Ev.exit45
 
-112:                                              ; preds = %_ZN10BigIntegerD2Ev.exit46
-  %113 = invoke noundef i32 @_ZNK10BigInteger5toIntEv(ptr noundef nonnull align 8 dereferenceable(24) %13)
-          to label %114 unwind label %86
+116:                                              ; preds = %_ZN10BigIntegerD2Ev.exit46
+  %117 = invoke noundef i32 @_ZNK10BigInteger5toIntEv(ptr noundef nonnull align 8 dereferenceable(24) %13)
+          to label %118 unwind label %86
 
-114:                                              ; preds = %112
-  %115 = sext i32 %113 to i64
-  br label %.sink.split
+118:                                              ; preds = %116
+  %119 = sext i32 %117 to i64
+  %120 = load ptr, ptr %34, align 8
+  %121 = getelementptr inbounds i8, ptr %120, i64 %119
+  %122 = load i8, ptr %121, align 1
+  br label %123
 
-.sink.split:                                      ; preds = %106, %114
-  %.sink60 = phi ptr [ %34, %114 ], [ %35, %106 ]
-  %.sink59 = phi i64 [ %115, %114 ], [ -1, %106 ]
-  %116 = load ptr, ptr %.sink60, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 %.sink59
-  %118 = load i8, ptr %117, align 1
-  br label %119
+123:                                              ; preds = %107, %106, %_ZN10BigIntegerD2Ev.exit43, %118
+  %.sink = phi i8 [ %122, %118 ], [ %7, %_ZN10BigIntegerD2Ev.exit43 ], [ %110, %107 ], [ %7, %106 ]
+  %124 = load ptr, ptr %59, align 8
+  %125 = getelementptr inbounds i8, ptr %124, i64 %indvars.iv
+  store i8 %.sink, ptr %125, align 1
+  %126 = load ptr, ptr %60, align 8
+  %127 = icmp eq ptr %126, null
+  br i1 %127, label %_ZN10BigIntegerD2Ev.exit48, label %128
 
-119:                                              ; preds = %.sink.split, %106, %_ZN10BigIntegerD2Ev.exit43
-  %.sink = phi i8 [ %7, %_ZN10BigIntegerD2Ev.exit43 ], [ %7, %106 ], [ %118, %.sink.split ]
-  %120 = load ptr, ptr %59, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 %indvars.iv
-  store i8 %.sink, ptr %121, align 1
-  %122 = load ptr, ptr %60, align 8
-  %123 = icmp eq ptr %122, null
-  br i1 %123, label %_ZN10BigIntegerD2Ev.exit48, label %124
-
-124:                                              ; preds = %119
-  call void @_ZdaPv(ptr noundef nonnull %122) #18
+128:                                              ; preds = %123
+  call void @_ZdaPv(ptr noundef nonnull %126) #18
   br label %_ZN10BigIntegerD2Ev.exit48
 
-_ZN10BigIntegerD2Ev.exit48:                       ; preds = %119, %124
+_ZN10BigIntegerD2Ev.exit48:                       ; preds = %123, %128
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %63, !llvm.loop !37
 
-_ZN10BigIntegerD2Ev.exit45:                       ; preds = %111, %107, %92, %88, %86
-  %.pn31 = phi { ptr, i32 } [ %87, %86 ], [ %89, %88 ], [ %89, %92 ], [ %108, %107 ], [ %108, %111 ]
-  %125 = load ptr, ptr %60, align 8
-  %126 = icmp eq ptr %125, null
-  br i1 %126, label %_ZN10BigIntegerD2Ev.exit44, label %127
+_ZN10BigIntegerD2Ev.exit45:                       ; preds = %115, %111, %92, %88, %86
+  %.pn31 = phi { ptr, i32 } [ %87, %86 ], [ %89, %88 ], [ %89, %92 ], [ %112, %111 ], [ %112, %115 ]
+  %129 = load ptr, ptr %60, align 8
+  %130 = icmp eq ptr %129, null
+  br i1 %130, label %_ZN10BigIntegerD2Ev.exit44, label %131
 
-127:                                              ; preds = %_ZN10BigIntegerD2Ev.exit45
-  call void @_ZdaPv(ptr noundef nonnull %125) #18
+131:                                              ; preds = %_ZN10BigIntegerD2Ev.exit45
+  call void @_ZdaPv(ptr noundef nonnull %129) #18
   br label %_ZN10BigIntegerD2Ev.exit44
 
 .loopexit:                                        ; preds = %_ZN10BigIntegerD2Ev.exit48, %51
-  %128 = getelementptr inbounds i8, ptr %10, i64 16
-  %129 = load ptr, ptr %128, align 8
-  %130 = icmp eq ptr %129, null
-  br i1 %130, label %_ZN10BigIntegerD2Ev.exit50, label %131
+  %132 = getelementptr inbounds i8, ptr %10, i64 16
+  %133 = load ptr, ptr %132, align 8
+  %134 = icmp eq ptr %133, null
+  br i1 %134, label %_ZN10BigIntegerD2Ev.exit50, label %135
 
-131:                                              ; preds = %.loopexit
-  call void @_ZdaPv(ptr noundef nonnull %129) #18
+135:                                              ; preds = %.loopexit
+  call void @_ZdaPv(ptr noundef nonnull %133) #18
   br label %_ZN10BigIntegerD2Ev.exit50
 
-_ZN10BigIntegerD2Ev.exit50:                       ; preds = %.loopexit, %131
+_ZN10BigIntegerD2Ev.exit50:                       ; preds = %.loopexit, %135
   ret void
 
-_ZN10BigIntegerD2Ev.exit44:                       ; preds = %127, %_ZN10BigIntegerD2Ev.exit45, %85, %.body40, %81
-  %.pn31.pn = phi { ptr, i32 } [ %82, %81 ], [ %67, %.body40 ], [ %67, %85 ], [ %.pn31, %_ZN10BigIntegerD2Ev.exit45 ], [ %.pn31, %127 ]
-  %132 = load ptr, ptr %59, align 8
-  %.not.i.i.i.i = icmp eq ptr %132, null
-  br i1 %.not.i.i.i.i, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit, label %133
+_ZN10BigIntegerD2Ev.exit44:                       ; preds = %131, %_ZN10BigIntegerD2Ev.exit45, %85, %.body40, %81
+  %.pn31.pn = phi { ptr, i32 } [ %82, %81 ], [ %67, %.body40 ], [ %67, %85 ], [ %.pn31, %_ZN10BigIntegerD2Ev.exit45 ], [ %.pn31, %131 ]
+  %136 = load ptr, ptr %59, align 8
+  %.not.i.i.i.i = icmp eq ptr %136, null
+  br i1 %.not.i.i.i.i, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit, label %137
 
-133:                                              ; preds = %_ZN10BigIntegerD2Ev.exit44
-  call void @_ZdlPv(ptr noundef nonnull %132) #18
+137:                                              ; preds = %_ZN10BigIntegerD2Ev.exit44
+  call void @_ZdlPv(ptr noundef nonnull %136) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit
 
-_ZN5Yosys5RTLIL5ConstD2Ev.exit:                   ; preds = %133, %_ZN10BigIntegerD2Ev.exit44, %61
-  %.pn31.pn.pn = phi { ptr, i32 } [ %62, %61 ], [ %.pn31.pn, %_ZN10BigIntegerD2Ev.exit44 ], [ %.pn31.pn, %133 ]
-  %134 = getelementptr inbounds i8, ptr %10, i64 16
-  %135 = load ptr, ptr %134, align 8
-  %136 = icmp eq ptr %135, null
-  br i1 %136, label %_ZN10BigIntegerD2Ev.exit38, label %_ZN10BigIntegerD2Ev.exit38.sink.split
+_ZN5Yosys5RTLIL5ConstD2Ev.exit:                   ; preds = %137, %_ZN10BigIntegerD2Ev.exit44, %61
+  %.pn31.pn.pn = phi { ptr, i32 } [ %62, %61 ], [ %.pn31.pn, %_ZN10BigIntegerD2Ev.exit44 ], [ %.pn31.pn, %137 ]
+  %138 = getelementptr inbounds i8, ptr %10, i64 16
+  %139 = load ptr, ptr %138, align 8
+  %140 = icmp eq ptr %139, null
+  br i1 %140, label %_ZN10BigIntegerD2Ev.exit38, label %_ZN10BigIntegerD2Ev.exit38.sink.split
 
 _ZN10BigIntegerD2Ev.exit38.sink.split:            ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit, %_ZN10BigIntegerD2Ev.exit37
-  %.sink56 = phi ptr [ %49, %_ZN10BigIntegerD2Ev.exit37 ], [ %135, %_ZN5Yosys5RTLIL5ConstD2Ev.exit ]
+  %.sink56 = phi ptr [ %49, %_ZN10BigIntegerD2Ev.exit37 ], [ %139, %_ZN5Yosys5RTLIL5ConstD2Ev.exit ]
   %.pn31.pn.pn.pn.ph = phi { ptr, i32 } [ %.pn, %_ZN10BigIntegerD2Ev.exit37 ], [ %.pn31.pn.pn, %_ZN5Yosys5RTLIL5ConstD2Ev.exit ]
   call void @_ZdaPv(ptr noundef nonnull %.sink56) #18
   br label %_ZN10BigIntegerD2Ev.exit38

@@ -4239,7 +4239,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %55 = and i64 %.val38, 536870911
   %56 = icmp ne i64 %55, 536870911
   %narrow.i = and i1 %.not.i, %56
-  br i1 %narrow.i, label %57, label %89
+  br i1 %narrow.i, label %57, label %91
 
 57:                                               ; preds = %53
   %58 = getelementptr inbounds i8, ptr %0, i64 32
@@ -4278,32 +4278,31 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.val52 = load ptr, ptr %86, align 8
   %87 = sext i32 %78 to i64
   %88 = getelementptr inbounds i32, ptr %.val52, i64 %87
-  br label %.sink.split
+  %89 = load i32, ptr %88, align 4
+  %90 = add nsw i32 %89, 1
+  store i32 %90, ptr %88, align 4
+  br label %102
 
-89:                                               ; preds = %53
+91:                                               ; preds = %53
   %.not.i55 = icmp ne i64 %54, 0
   %narrow.i56 = and i1 %.not.i55, %56
-  br i1 %narrow.i56, label %90, label %100
+  br i1 %narrow.i56, label %92, label %102
 
-90:                                               ; preds = %89
-  %91 = trunc i64 %.val38 to i32
-  %92 = and i32 %91, 536870911
-  %93 = sub nsw i32 %1, %92
-  %94 = sext i32 %93 to i64
-  %95 = load ptr, ptr %9, align 8
-  %96 = getelementptr i8, ptr %95, i64 8
-  %.val53 = load ptr, ptr %96, align 8
-  %97 = getelementptr inbounds i32, ptr %.val53, i64 %94
-  br label %.sink.split
+92:                                               ; preds = %91
+  %93 = trunc i64 %.val38 to i32
+  %94 = and i32 %93, 536870911
+  %95 = sub nsw i32 %1, %94
+  %96 = sext i32 %95 to i64
+  %97 = load ptr, ptr %9, align 8
+  %98 = getelementptr i8, ptr %97, i64 8
+  %.val53 = load ptr, ptr %98, align 8
+  %99 = getelementptr inbounds i32, ptr %.val53, i64 %96
+  %100 = load i32, ptr %99, align 4
+  %101 = add nsw i32 %100, 1
+  store i32 %101, ptr %99, align 4
+  br label %102
 
-.sink.split:                                      ; preds = %57, %90
-  %.sink = phi ptr [ %97, %90 ], [ %88, %57 ]
-  %98 = load i32, ptr %.sink, align 4
-  %99 = add nsw i32 %98, 1
-  store i32 %99, ptr %.sink, align 4
-  br label %100
-
-100:                                              ; preds = %.sink.split, %89
+102:                                              ; preds = %91, %92, %57
   ret void
 }
 

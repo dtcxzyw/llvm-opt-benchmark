@@ -1398,22 +1398,18 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_mESaIS
 
 147:                                              ; preds = %144
   %148 = getelementptr inbounds ptr, ptr %.0.i.i, i64 %.02530.i
-  br label %.sink.split.i
+  store ptr %.031.i, ptr %148, align 8
+  br label %152
 
 149:                                              ; preds = %.lr.ph.i47
   %150 = load ptr, ptr %143, align 8
   store ptr %150, ptr %.031.i, align 8
   %151 = load ptr, ptr %142, align 8
-  br label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %149, %147
-  %.sink.i = phi ptr [ %148, %147 ], [ %151, %149 ]
-  %.1.ph.i = phi i64 [ %141, %147 ], [ %.02530.i, %149 ]
-  store ptr %.031.i, ptr %.sink.i, align 8
+  store ptr %.031.i, ptr %151, align 8
   br label %152
 
-152:                                              ; preds = %.sink.split.i, %144
-  %.1.i = phi i64 [ %141, %144 ], [ %.1.ph.i, %.sink.split.i ]
+152:                                              ; preds = %149, %147, %144
+  %.1.i = phi i64 [ %.02530.i, %149 ], [ %141, %147 ], [ %141, %144 ]
   %.not.i48 = icmp eq ptr %138, null
   br i1 %.not.i48, label %._crit_edge.i, label %.lr.ph.i47, !llvm.loop !18
 
@@ -3481,22 +3477,18 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_mESaIS
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
-  br label %.sink.split
+  store ptr %.031, ptr %24, align 8
+  br label %28
 
 25:                                               ; preds = %.lr.ph
   %26 = load ptr, ptr %19, align 8
   store ptr %26, ptr %.031, align 8
   %27 = load ptr, ptr %18, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %25, %23
-  %.sink = phi ptr [ %24, %23 ], [ %27, %25 ]
-  %.1.ph = phi i64 [ %17, %23 ], [ %.02530, %25 ]
-  store ptr %.031, ptr %.sink, align 8
+  store ptr %.031, ptr %27, align 8
   br label %28
 
-28:                                               ; preds = %.sink.split, %20
-  %.1 = phi i64 [ %17, %20 ], [ %.1.ph, %.sink.split ]
+28:                                               ; preds = %20, %23, %25
+  %.1 = phi i64 [ %.02530, %25 ], [ %17, %23 ], [ %17, %20 ]
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 

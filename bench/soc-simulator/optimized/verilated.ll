@@ -715,9 +715,9 @@ $_ZZN19VerilatedContextImp1sEvE3s_s = comdat any
 @.str.218 = private unnamed_addr constant [79 x i8] c"/home/dtcxzyw/WorkSpace/Projects/compilers/verilator/include/verilated_trace.h\00", section "llvm.metadata"
 @llvm.global.annotations = appending global [340 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @_Z14VL_SSCANF_INNXiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_iz, ptr @.str.205, ptr @.str.121, i32 1660, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN19VerilatedContextImp16timeFormatSuffixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @.str.206, ptr @.str.117, i32 260, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN19VerilatedContextImp16timeFormatSuffixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @.str.207, ptr @.str.117, i32 260, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK16VerilatedContext21statCpuTimeSinceStartEv, ptr @.str.206, ptr @.str.121, i32 2889, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK16VerilatedContext21statCpuTimeSinceStartEv, ptr @.str.207, ptr @.str.121, i32 2889, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z13VL_SFORMAT_NXiRhRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiz, ptr @.str.205, ptr @.str.121, i32 1519, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN19VerilatedContextImp1sEv, ptr @.str.205, ptr @.str.117, i32 229, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK16VerilatedContext10errorLimitEv, ptr @.str.205, ptr @.str.65, i32 484, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN21VerilatedEvalMsgQueue7processEv, ptr @.str.206, ptr @.str.117, i32 113, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN21VerilatedEvalMsgQueue7processEv, ptr @.str.207, ptr @.str.117, i32 113, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z13VL_SFORMAT_NXiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_iz, ptr @.str.205, ptr @.str.121, i32 1574, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z20VL_VALUEPLUSARGS_INNiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS4_, ptr @.str.205, ptr @.str.121, i32 1843, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z10VL_POW_WWWiiiPjPKjS1_, ptr @.str.205, ptr @.str.121, i32 561, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK16VerilatedContext8randSeedEv, ptr @.str.205, ptr @.str.65, i32 515, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN19VerilatedContextImp9argc_argvEv, ptr @.str.206, ptr @.str.121, i32 2758, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN19VerilatedContextImp9argc_argvEv, ptr @.str.207, ptr @.str.121, i32 2758, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN12VerilatedImp12hierarchyAddEPK14VerilatedScopeS2_, ptr @.str.205, ptr @.str.117, i32 512, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z11VL_SUBSTR_NRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjj, ptr @.str.208, ptr @.str.121, i32 1946, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN9Verilated16endOfEvalReqdDecEv, ptr @.str.205, ptr @.str.65, i32 963, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK14VerilatedScope7varFindEPKc, ptr @.str.209, ptr @.str.121, i32 3359, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN16VerilatedContext10errorLimitEi, ptr @.str.205, ptr @.str.121, i32 2537, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z11VL_FATAL_MTPKciS0_S0_, ptr @.str.205, ptr @.str.121, i32 219, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN19VerilatedContextImp19timeFormatPrecisionEi, ptr @.str.205, ptr @.str.117, i32 253, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK14VerilatedScope5varspEv, ptr @.str.209, ptr @.str.65, i32 699, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL17_vl_vsss_read_strP8_IO_FILERiPKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPcPKc, ptr @.str.205, ptr @.str.121, i32 1148, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN19VerilatedContextImp15timeFormatUnitsEi, ptr @.str.205, ptr @.str.117, i32 251, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK19VerilatedContextImp19timeFormatPrecisionEv, ptr @.str.205, ptr @.str.117, i32 252, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN16VerilatedContext17statsPrintSummaryEv, ptr @.str.210, ptr @.str.121, i32 2897, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN6VlWideILm2EEcvPjEv, ptr @.str.208, ptr @.str.145, i32 442, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN19VerilatedContextImp5fdNewEPKcS1_, ptr @.str.206, ptr @.str.117, i32 284, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN19VerilatedContextImp5fdNewEPKcS1_, ptr @.str.207, ptr @.str.117, i32 284, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN16VerilatedContext8dumpfileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @.str.206, ptr @.str.121, i32 2513, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN16VerilatedContext8dumpfileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @.str.207, ptr @.str.121, i32 2513, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN9Verilated16endOfEvalReqdIncEv, ptr @.str.205, ptr @.str.65, i32 962, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK16VerilatedContext22statWallTimeSinceStartEv, ptr @.str.206, ptr @.str.121, i32 2893, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK16VerilatedContext22statWallTimeSinceStartEv, ptr @.str.207, ptr @.str.121, i32 2893, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN16VerilatedContext16profExecFilenameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @.str.205, ptr @.str.121, i32 2565, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN19VerilatedContextImp13randSeedEpochEv, ptr @.str.205, ptr @.str.117, i32 243, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z17_vl_debug_print_wiPKj, ptr @.str.205, ptr @.str.121, i32 437, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z13VL_DECIMAL_NWB5cxx11iPKj, ptr @.str.205, ptr @.str.121, i32 689, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN16VerilatedContext11commandArgsEiPPKc, ptr @.str.206, ptr @.str.121, i32 2626, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN16VerilatedContext11commandArgsEiPPKc, ptr @.str.207, ptr @.str.121, i32 2626, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z13VL_SFORMAT_NXiRmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiz, ptr @.str.205, ptr @.str.121, i32 1552, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z18VL_TIMEFORMAT_IINIiiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiP16VerilatedContext, ptr @.str.205, ptr @.str.121, i32 2452, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z15VL_RANDOM_RNG_WR5VlRNGiPj, ptr @.str.210, ptr @.str.121, i32 389, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL12VL_EXTEND_WIiiPjj, ptr @.str.205, ptr @.str.211, i32 547, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z12_vl_vsformatRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_P13__va_list_tag, ptr @.str.205, ptr @.str.121, i32 812, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN5VlRNG20vl_thread_rng_rand64Ev, ptr @.str.205, ptr @.str.121, i32 311, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z10VL_WARN_MTPKciS0_S0_, ptr @.str.205, ptr @.str.121, i32 225, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN9Verilated7catNameEPKcS1_S1_, ptr @.str.205, ptr @.str.121, i32 3017, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK19VerilatedContextImp15timeFormatWidthEv, ptr @.str.205, ptr @.str.117, i32 254, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN9Verilated14threadContextpEP16VerilatedContext, ptr @.str.205, ptr @.str.65, i32 790, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK4VlOs12DeltaCpuTime9deltaTimeEv, ptr @.str.205, ptr @.str.212, i32 637, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN16VerilatedContext9gotFinishEb, ptr @.str.205, ptr @.str.121, i32 2553, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN19VerilatedContextImp6fdSeekEjjj, ptr @.str.206, ptr @.str.117, i32 310, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN19VerilatedContextImp6fdSeekEjjj, ptr @.str.207, ptr @.str.117, i32 310, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL11VL_MEMCPY_WPjPKji, ptr @.str.205, ptr @.str.211, i32 356, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL15_vl_vsss_setbitPjiiij, ptr @.str.205, ptr @.str.121, i32 1177, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z9VL_PUTC_NRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjh, ptr @.str.208, ptr @.str.121, i32 1930, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z15VL_ZERO_RESET_WiPj, ptr @.str.205, ptr @.str.121, i32 429, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN9Verilated14overWidthErrorEPKc, ptr @.str.205, ptr @.str.121, i32 3116, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN9Verilated12lastContextpEv, ptr @.str.205, ptr @.str.65, i32 781, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN9Verilated20scTimePrecisionErrorEii, ptr @.str.205, ptr @.str.121, i32 3124, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z18VL_CVT_PACK_STR_NDRK7VlQueueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm0EE, ptr @.str.208, ptr @.str.121, i32 1924, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z12VL_FERROR_IWjiPj, ptr @.str.205, ptr @.str.121, i32 1495, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z9VL_GETC_NRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj, ptr @.str.208, ptr @.str.121, i32 1938, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN5VlRNGC2Em, ptr @.str.205, ptr @.str.145, i32 291, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN16VerilatedContext12scopeNameMapEv, ptr @.str.205, ptr @.str.121, i32 2950, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN5VlRNG13set_randstateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @.str.210, ptr @.str.121, i32 339, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z11VL_FCLOSE_Ij, ptr @.str.205, ptr @.str.121, i32 1514, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z16VL_SFORMATF_N_NXRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiz, ptr @.str.205, ptr @.str.121, i32 1585, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z12VL_POWSS_WWQiiiPjPKjmbb, ptr @.str.205, ptr @.str.121, i32 633, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK16VerilatedContext5quietEv, ptr @.str.205, ptr @.str.65, i32 504, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL13_vl_vsss_peekP8_IO_FILERiPKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @.str.205, ptr @.str.121, i32 1122, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL8VL_MUL_WiPjPKjS1_, ptr @.str.205, ptr @.str.211, i32 1023, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN18VerilatedLockGuardD2Ev, ptr @.str.213, ptr @.str.65, i32 231, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN19VerilatedContextImp7fdFlushEj, ptr @.str.206, ptr @.str.117, i32 305, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN19VerilatedContextImp7fdFlushEj, ptr @.str.207, ptr @.str.117, i32 305, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK17VerilatedVarProps6packedEv, ptr @.str.205, ptr @.str.214, i32 150, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z13VL_SFORMAT_NXiRtRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiz, ptr @.str.205, ptr @.str.121, i32 1530, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z9VL_NTOI_QiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @.str.208, ptr @.str.121, i32 1966, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK16VerilatedContext10errorCountEv, ptr @.str.205, ptr @.str.65, i32 478, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN9Verilated5debugEi, ptr @.str.205, ptr @.str.121, i32 3003, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z17_vl_vsformat_timeImENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPcT_ibm, ptr @.str.205, ptr @.str.121, i32 728, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL12removeCbExitPFvPvES_, ptr @.str.206, ptr @.str.121, i32 3068, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL12removeCbExitPFvPvES_, ptr @.str.207, ptr @.str.121, i32 3068, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN9Verilated14productVersionEv, ptr @.str.208, ptr @.str.121, i32 3108, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK19VerilatedContextImp16timeFormatSuffixB5cxx11Ev, ptr @.str.206, ptr @.str.117, i32 256, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK19VerilatedContextImp16timeFormatSuffixB5cxx11Ev, ptr @.str.207, ptr @.str.117, i32 256, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL18_vl_vsss_skipspaceP8_IO_FILERiPKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @.str.205, ptr @.str.121, i32 1140, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z20VL_VALUEPLUSARGS_INWiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPj, ptr @.str.205, ptr @.str.121, i32 1770, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z9VL_NTOI_WiPjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @.str.208, ptr @.str.121, i32 1978, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z13VL_FWRITEF_NXjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiz, ptr @.str.205, ptr @.str.121, i32 1607, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK19VerilatedContextImp15timeFormatUnitsEv, ptr @.str.205, ptr @.str.117, i32 246, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN9Verilated20endOfThreadMTaskGutsEP21VerilatedEvalMsgQueue, ptr @.str.205, ptr @.str.121, i32 3193, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN23VerilatedThreadMsgQueue5flushEP21VerilatedEvalMsgQueue, ptr @.str.205, ptr @.str.117, i32 170, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN16VerilatedContext16coverageFilenameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @.str.205, ptr @.str.121, i32 2505, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL12_vl_vsss_eofP8_IO_FILEi, ptr @.str.205, ptr @.str.121, i32 1108, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z11VL_RANDOM_WiPj, ptr @.str.205, ptr @.str.121, i32 383, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK16VerilatedContext13timeprecisionEv, ptr @.str.205, ptr @.str.65, i32 561, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN9Verilated9addExitCbEPFvPvES0_, ptr @.str.205, ptr @.str.121, i32 3096, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK16VerilatedContext16profExecFilenameB5cxx11Ev, ptr @.str.205, ptr @.str.121, i32 2569, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN16VerilatedContext14calcUnusedSigsEb, ptr @.str.205, ptr @.str.121, i32 2501, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN12VerilatedImp10exportNameEi, ptr @.str.205, ptr @.str.117, i32 560, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN4VlOs12DeltaCpuTime7gettimeEv, ptr @.str.205, ptr @.str.215, i32 41, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK17VerilatedVarProps4highEi, ptr @.str.205, ptr @.str.214, i32 168, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK14VerilatedScope4nameEv, ptr @.str.209, ptr @.str.65, i32 694, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z12VL_SYSTEM_IWiPKj, ptr @.str.205, ptr @.str.121, i32 1755, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK17VerilatedVarProps3lowEi, ptr @.str.205, ptr @.str.214, i32 163, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL15VL_ASSIGNBIT_WIiPjj, ptr @.str.205, ptr @.str.211, i32 408, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL10VL_CVT_Q_Dd, ptr @.str.208, ptr @.str.211, i32 216, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z13vl_time_pow10i, ptr @.str.208, ptr @.str.121, i32 2406, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN5VlRNG7srandomEm, ptr @.str.210, ptr @.str.121, i32 320, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z15VL_STACKTRACE_NB5cxx11v, ptr @.str.205, ptr @.str.121, i32 1722, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z20vl_timescaled_doubleB5cxx11dPKc, ptr @.str.208, ptr @.str.121, i32 2431, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK16VerilatedContext4imppEv, ptr @.str.205, ptr @.str.65, i32 596, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z13VL_WRITEMEM_NbimiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvmm, ptr @.str.205, ptr @.str.121, i32 2307, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN19VerilatedContextImp15commandArgsGutsEiPPKc, ptr @.str.206, ptr @.str.121, i32 2711, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN19VerilatedContextImp15commandArgsGutsEiPPKc, ptr @.str.207, ptr @.str.121, i32 2711, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN16VerilatedContext14commandArgsAddEiPPKc, ptr @.str.206, ptr @.str.121, i32 2632, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN16VerilatedContext14commandArgsAddEiPPKc, ptr @.str.207, ptr @.str.121, i32 2632, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN16VerilatedContext8timeunitEi, ptr @.str.205, ptr @.str.121, i32 2597, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z15VL_RAND_RESET_WiPj, ptr @.str.205, ptr @.str.121, i32 424, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK19VerilatedContextImp14commandArgDumpEv, ptr @.str.206, ptr @.str.121, i32 2732, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK19VerilatedContextImp14commandArgDumpEv, ptr @.str.207, ptr @.str.121, i32 2732, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z11VL_CVT_I_FPj, ptr @.str.205, ptr @.str.121, i32 1418, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN9Verilated9endOfEvalEP21VerilatedEvalMsgQueue, ptr @.str.205, ptr @.str.121, i32 3198, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN9Verilated13removeFlushCbEPFvPvES0_, ptr @.str.205, ptr @.str.121, i32 3079, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN4VlOs13DeltaWallTime7gettimeEv, ptr @.str.205, ptr @.str.215, i32 59, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN14VerilatedScope19exportFindNullErrorEi, ptr @.str.205, ptr @.str.121, i32 3367, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z17_vl_vsformat_timeIdENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPcT_ibm, ptr @.str.205, ptr @.str.121, i32 728, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z14VL_SSCANF_IINXijRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiz, ptr @.str.205, ptr @.str.121, i32 1632, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK16VerilatedContext8dumpfileB5cxx11Ev, ptr @.str.206, ptr @.str.121, i32 2517, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK16VerilatedContext8dumpfileB5cxx11Ev, ptr @.str.207, ptr @.str.121, i32 2517, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z12VL_PRINTF_MTPKcz, ptr @.str.205, ptr @.str.121, i32 279, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z17VL_PRINTTIMESCALEPKcS0_PK16VerilatedContext, ptr @.str.205, ptr @.str.121, i32 2447, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL14VL_COUNTONES_Ij, ptr @.str.208, ptr @.str.211, i32 704, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN19VerilatedContextImp12argPlusMatchB5cxx11EPKc, ptr @.str.206, ptr @.str.121, i32 2738, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN19VerilatedContextImp12argPlusMatchB5cxx11EPKc, ptr @.str.207, ptr @.str.121, i32 2738, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN16VerilatedContext5traceEP19VerilatedTraceBaseCii, ptr @.str.205, ptr @.str.121, i32 2957, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN6VlWideILm128EEcvPjEv, ptr @.str.208, ptr @.str.145, i32 442, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL9addCbExitPFvPvES_, ptr @.str.206, ptr @.str.121, i32 3055, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL9addCbExitPFvPvES_, ptr @.str.207, ptr @.str.121, i32 3055, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z12_vl_moddiv_wiPjPKjS1_b, ptr @.str.205, ptr @.str.121, i32 446, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN23VerilatedThreadMsgQueue9threadtonEv, ptr @.str.205, ptr @.str.117, i32 151, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN9Verilated13exportFuncNumEPKc, ptr @.str.205, ptr @.str.121, i32 3189, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN16VerilatedContext10errorCountEi, ptr @.str.205, ptr @.str.121, i32 2529, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK16VerilatedContext13solverProgramB5cxx11Ev, ptr @.str.205, ptr @.str.121, i32 2585, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN14VerilatedMutex8try_lockEv, ptr @.str.205, ptr @.str.65, i32 201, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z9vl_rand64v, ptr @.str.205, ptr @.str.145, i32 301, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN12VerilatedImp10exportFindEPKc, ptr @.str.205, ptr @.str.117, i32 551, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN16VerilatedContext8gotErrorEb, ptr @.str.205, ptr @.str.121, i32 2549, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL8VL_ADD_WiPjPKjS1_, ptr @.str.205, ptr @.str.211, i32 997, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN16VerilatedContext9randResetEi, ptr @.str.205, ptr @.str.121, i32 2593, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z20VL_URANDOM_SEEDED_IIj, ptr @.str.205, ptr @.str.121, i32 401, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL16VL_MEMSET_ZERO_WPji, ptr @.str.205, ptr @.str.211, i32 348, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z12VL_FERROR_INjRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @.str.205, ptr @.str.121, i32 1489, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z9VL_NTOI_IiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @.str.208, ptr @.str.121, i32 1965, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z14VL_FOPEN_MCD_NRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @.str.205, ptr @.str.121, i32 1505, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL11VL_ASSIGN_WiPjPKj, ptr @.str.205, ptr @.str.211, i32 391, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN6VlWideILm4EEcvPjEv, ptr @.str.208, ptr @.str.145, i32 442, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK4VlOs13DeltaWallTime9deltaTimeEv, ptr @.str.205, ptr @.str.212, i32 652, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK16VerilatedContext9scopeFindEPKc, ptr @.str.205, ptr @.str.121, i32 2942, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z13VL_TOUPPER_NNRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @.str.208, ptr @.str.121, i32 1900, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK16VerilatedContext12fatalOnErrorEv, ptr @.str.205, ptr @.str.65, i32 488, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z14VL_SSCANF_IWNXiPKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiz, ptr @.str.205, ptr @.str.121, i32 1652, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN19VerilatedContextImp18commandArgsAddGutsEiPPKc, ptr @.str.216, ptr @.str.121, i32 2724, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN9Verilated7mtaskIdEv, ptr @.str.205, ptr @.str.65, i32 960, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z13sc_time_stampv, ptr @.str.205, ptr @.str.211, i32 293, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN14VerilatedScope12exportInsertEiPKcPv, ptr @.str.210, ptr @.str.121, i32 3304, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN9Verilated7quiesceEv, ptr @.str.205, ptr @.str.121, i32 3184, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN23VerilatedThreadMsgQueue4postERK12VerilatedMsg, ptr @.str.205, ptr @.str.117, i32 158, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z10VL_FSEEK_Ijjj, ptr @.str.205, ptr @.str.121, i32 1510, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z7vl_warnPKciS0_S0_, ptr @.str.210, ptr @.str.121, i32 191, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL10addCbFlushPFvPvES_, ptr @.str.206, ptr @.str.121, i32 3048, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL10addCbFlushPFvPvES_, ptr @.str.207, ptr @.str.121, i32 3048, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK17VerilatedVarProps6vltypeEv, ptr @.str.205, ptr @.str.214, i32 140, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK17VerilatedVarProps5udimsEv, ptr @.str.205, ptr @.str.214, i32 148, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z12VL_ISTOR_D_WiPKj, ptr @.str.205, ptr @.str.121, i32 675, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN12VerilatedImp15hierarchyRemoveEPK14VerilatedScopeS2_, ptr @.str.205, ptr @.str.117, i32 517, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z12VL_READMEM_NbimiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPvmm, ptr @.str.205, ptr @.str.121, i32 2258, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z11VL_DBG_MSGFPKcz, ptr @.str.205, ptr @.str.121, i32 263, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK16VerilatedContext4timeEv, ptr @.str.205, ptr @.str.211, i32 305, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN9Verilated5mkdirEPKc, ptr @.str.210, ptr @.str.121, i32 3176, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL12VL_ALLONES_WiPj, ptr @.str.205, ptr @.str.211, i32 381, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL19_vl_clean_inplace_wiPj, ptr @.str.205, ptr @.str.211, i32 367, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN19VerilatedContextImp7fdCloseEj, ptr @.str.206, ptr @.str.117, i32 331, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN19VerilatedContextImp7fdCloseEj, ptr @.str.207, ptr @.str.117, i32 331, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN16VerilatedContext19traceBaseModelCbAddESt8functionIFvP19VerilatedTraceBaseCiiEE, ptr @.str.205, ptr @.str.121, i32 2978, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN12VerilatedImp12exportInsertEPKc, ptr @.str.205, ptr @.str.117, i32 540, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN19VerilatedContextImp8fdNewMcdEPKc, ptr @.str.206, ptr @.str.117, i32 275, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN19VerilatedContextImp8fdNewMcdEPKc, ptr @.str.207, ptr @.str.117, i32 275, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK16VerilatedContext13dumpfileCheckB5cxx11Ev, ptr @.str.206, ptr @.str.121, i32 2521, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK16VerilatedContext13dumpfileCheckB5cxx11Ev, ptr @.str.207, ptr @.str.121, i32 2521, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN16VerilatedContext20commandArgsPlusMatchEPKc, ptr @.str.206, ptr @.str.121, i32 2639, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN16VerilatedContext20commandArgsPlusMatchEPKc, ptr @.str.207, ptr @.str.121, i32 2639, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z19vl_mc_scan_plusargsPKc, ptr @.str.205, ptr @.str.121, i32 1871, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z19VL_RANDOM_SEEDED_IIRj, ptr @.str.205, ptr @.str.121, i32 395, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z12VL_SYSTEM_INRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @.str.205, ptr @.str.121, i32 1760, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK19VerilatedContextImp17randSeedDefault64Ev, ptr @.str.205, ptr @.str.121, i32 2877, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN14VerilatedMutex4lockEv, ptr @.str.217, ptr @.str.65, i32 187, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN14VerilatedMutex4lockEv, ptr @.str.205, ptr @.str.65, i32 187, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL13VL_SHIFTL_WWIiiiPjPKjj, ptr @.str.205, ptr @.str.211, i32 1743, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z13VL_SFORMAT_NXiRjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiz, ptr @.str.205, ptr @.str.121, i32 1541, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN16VerilatedContext12fatalOnErrorEb, ptr @.str.205, ptr @.str.121, i32 2541, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK16VerilatedContext19timeprecisionStringEv, ptr @.str.205, ptr @.str.121, i32 2603, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN9Verilated12removeExitCbEPFvPvES0_, ptr @.str.205, ptr @.str.121, i32 3097, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z10VL_FREAD_IiiiPvjjj, ptr @.str.205, ptr @.str.121, i32 1670, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL7getLineRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjm, ptr @.str.205, ptr @.str.121, i32 1452, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z12VL_POWSS_QQWiiimPKjbb, ptr @.str.205, ptr @.str.121, i32 639, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN19VerilatedContextImp6fdToFpEj, ptr @.str.206, ptr @.str.117, i32 355, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN19VerilatedContextImp6fdToFpEj, ptr @.str.207, ptr @.str.117, i32 355, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN9Verilated10stackCheckEm, ptr @.str.210, ptr @.str.121, i32 3144, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN9Verilated17runFlushCallbacksEv, ptr @.str.205, ptr @.str.121, i32 3080, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z13vl_stop_maybePKciS0_b, ptr @.str.210, ptr @.str.121, i32 174, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN9Verilated10addFlushCbEPFvPvES0_, ptr @.str.205, ptr @.str.121, i32 3078, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK14VerilatedRange3lowEv, ptr @.str.208, ptr @.str.214, i32 58, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK5VlRNG13get_randstateB5cxx11Ev, ptr @.str.210, ptr @.str.121, i32 328, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK16VerilatedContext10scopesDumpEv, ptr @.str.205, ptr @.str.121, i32 2919, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN12VerilatedImp14userEraseScopeEPK14VerilatedScope, ptr @.str.205, ptr @.str.117, i32 487, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z11VL_FOPEN_NNRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_, ptr @.str.205, ptr @.str.121, i32 1502, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN12VerilatedImp8userDumpEv, ptr @.str.205, ptr @.str.117, i32 498, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z12VL_THREAD_IDv, ptr @.str.205, ptr @.str.121, i32 255, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN9Verilated12lastContextpEP16VerilatedContext, ptr @.str.205, ptr @.str.65, i32 778, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL20_vl_shiftl_inplace_wiPjj, ptr @.str.205, ptr @.str.211, i32 1710, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL15VL_EXTENDSIGN_Qim, ptr @.str.208, ptr @.str.211, i32 266, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z10VL_POW_WWQiiiPjPKjm, ptr @.str.205, ptr @.str.121, i32 586, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z18VL_CVT_PACK_STR_NWB5cxx11iPKj, ptr @.str.208, ptr @.str.121, i32 1906, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK16VerilatedContext8timeunitEv, ptr @.str.205, ptr @.str.65, i32 555, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN19VerilatedContextImp11scopeInsertEPK14VerilatedScope, ptr @.str.205, ptr @.str.121, i32 2929, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z18_vl_vint_to_stringiPcPKj, ptr @.str.205, ptr @.str.121, i32 1423, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK19VerilatedTraceBaseC14modelConnectedEv, ptr @.str.205, ptr @.str.218, i32 194, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN16VerilatedContext4imppEv, ptr @.str.205, ptr @.str.65, i32 595, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN16VerilatedContext5quietEb, ptr @.str.205, ptr @.str.121, i32 2589, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN12VerilatedImp1sEv, ptr @.str.205, ptr @.str.117, i32 446, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK14VerilatedScope15exportFindErrorEi, ptr @.str.205, ptr @.str.121, i32 3376, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL13removeCbFlushPFvPvES_, ptr @.str.206, ptr @.str.121, i32 3062, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL13removeCbFlushPFvPvES_, ptr @.str.207, ptr @.str.121, i32 3062, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL12runCallbacksRKNSt7__cxx114listISt4pairIPFvPvES2_ESaIS5_EEE, ptr @.str.205, ptr @.str.121, i32 3074, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN9Verilated11productNameEv, ptr @.str.208, ptr @.str.121, i32 3107, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN4VlOs13memUsageBytesEv, ptr @.str.205, ptr @.str.215, i32 78, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN18VerilatedLockGuardC2ER14VerilatedMutex, ptr @.str.217, ptr @.str.65, i32 226, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN18VerilatedLockGuardC2ER14VerilatedMutex, ptr @.str.205, ptr @.str.65, i32 226, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN5VlRNGC2Ev, ptr @.str.205, ptr @.str.121, i32 292, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z10VL_STOP_MTPKciS0_b, ptr @.str.205, ptr @.str.121, i32 213, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL17_vl_vsss_read_binP8_IO_FILERiPKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPcmb, ptr @.str.205, ptr @.str.121, i32 1163, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL13_vl_insert_WWPjPKjiii, ptr @.str.205, ptr @.str.211, i32 1343, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL13vl_sys_rand32v, ptr @.str.205, ptr @.str.121, i32 351, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z12VL_POWSS_WWWiiiPjPKjS1_bb, ptr @.str.205, ptr @.str.121, i32 607, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z11VL_FGETS_NIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj, ptr @.str.205, ptr @.str.121, i32 1485, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL11vl_time_stri, ptr @.str.208, ptr @.str.121, i32 2349, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL12VL_EXTEND_WQiiPjm, ptr @.str.205, ptr @.str.211, i32 553, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z18vl_time_multiplieri, ptr @.str.208, ptr @.str.121, i32 2356, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL13VL_EXTENDS_QQiim, ptr @.str.208, ptr @.str.211, i32 574, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z11_vl_vsscanfP8_IO_FILEiPKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_P13__va_list_tag, ptr @.str.205, ptr @.str.121, i32 1212, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN16VerilatedContext13profExecStartEm, ptr @.str.205, ptr @.str.121, i32 2557, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN5VlRNG6rand64Ev, ptr @.str.210, ptr @.str.121, i32 303, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN16VerilatedContext14profExecWindowEm, ptr @.str.205, ptr @.str.121, i32 2561, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z11VL_ITOR_D_WiPKj, ptr @.str.208, ptr @.str.121, i32 659, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z12VL_FGETS_IXIiPvj, ptr @.str.205, ptr @.str.121, i32 1469, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN19VerilatedContextImp15timeFormatWidthEi, ptr @.str.205, ptr @.str.117, i32 255, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK16VerilatedContext15profVltFilenameB5cxx11Ev, ptr @.str.205, ptr @.str.121, i32 2577, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN14VerilatedScope9varInsertEiPKcPvb16VerilatedVarTypeiiz, ptr @.str.210, ptr @.str.121, i32 3325, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL11VL_NEGATE_WiPjPKj, ptr @.str.205, ptr @.str.211, i32 962, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK17VerilatedVarProps16datapAdjustIndexEPvii, ptr @.str.205, ptr @.str.121, i32 3259, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN16VerilatedContext15fatalOnVpiErrorEb, ptr @.str.205, ptr @.str.121, i32 2545, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z10VL_FTELL_Ij, ptr @.str.205, ptr @.str.121, i32 1513, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL16VL_MEMSET_ONES_WPji, ptr @.str.205, ptr @.str.211, i32 352, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN4VlOs12DeltaCpuTime5startEv, ptr @.str.205, ptr @.str.212, i32 636, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z15VL_RAND_RESET_Qi, ptr @.str.205, ptr @.str.121, i32 415, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z10VL_POW_QQWiiimPKj, ptr @.str.205, ptr @.str.121, i32 592, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN9Verilated16nullPointerErrorEPKci, ptr @.str.205, ptr @.str.121, i32 3110, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z11VL_RANDOM_Iv, ptr @.str.205, ptr @.str.211, i32 85, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL9VL_ZERO_WiPj, ptr @.str.205, ptr @.str.211, i32 378, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN14VerilatedMutex6unlockEv, ptr @.str.213, ptr @.str.65, i32 199, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN14VerilatedMutex6unlockEv, ptr @.str.205, ptr @.str.65, i32 199, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL17VL_MOSTSETBITP1_WiPKj, ptr @.str.208, ptr @.str.211, i32 815, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN14VerilatedScope9configureEP13VerilatedSymsPKcS3_S3_aRKNS_4TypeE, ptr @.str.210, ptr @.str.121, i32 3283, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z13VL_STACKTRACEv, ptr @.str.205, ptr @.str.121, i32 1745, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN4VlOs13DeltaWallTime5startEv, ptr @.str.205, ptr @.str.212, i32 651, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z18_vl_string_to_vintiPvmPKc, ptr @.str.205, ptr @.str.121, i32 1442, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z14VL_SSCANF_IQNXimRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiz, ptr @.str.205, ptr @.str.121, i32 1642, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK14VerilatedRange8elementsEv, ptr @.str.208, ptr @.str.214, i32 60, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN9Verilated15defaultContextpEv, ptr @.str.205, ptr @.str.65, i32 800, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z11VL_RANDOM_Qv, ptr @.str.205, ptr @.str.211, i32 86, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z9vl_finishPKciS0_, ptr @.str.210, ptr @.str.121, i32 120, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN19VerilatedContextImp7fdWriteEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @.str.206, ptr @.str.117, i32 323, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN19VerilatedContextImp7fdWriteEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @.str.207, ptr @.str.117, i32 323, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z12VL_SYSTEM_IQm, ptr @.str.205, ptr @.str.121, i32 1750, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN9Verilated16runExitCallbacksEv, ptr @.str.205, ptr @.str.121, i32 3098, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z9VL_ATOI_NRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi, ptr @.str.208, ptr @.str.121, i32 1955, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK16VerilatedContext8gotErrorEv, ptr @.str.205, ptr @.str.65, i32 496, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN9VlDeleter9deleteAllEv, ptr @.str.207, ptr @.str.121, i32 3421, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN9VlDeleter9deleteAllEv, ptr @.str.207, ptr @.str.121, i32 3421, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN9VlDeleter9deleteAllEv, ptr @.str.205, ptr @.str.121, i32 3421, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN16VerilatedContext13errorCountIncEv, ptr @.str.205, ptr @.str.121, i32 2533, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z11VL_FFLUSH_Ij, ptr @.str.205, ptr @.str.121, i32 1509, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN16VerilatedContext8randSeedEi, ptr @.str.205, ptr @.str.121, i32 2867, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z18_vl_string_vprintfB5cxx11PKcP13__va_list_tag, ptr @.str.205, ptr @.str.121, i32 235, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z17VL_TESTPLUSARGS_IRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @.str.205, ptr @.str.121, i32 1765, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z7vl_stopPKciS0_, ptr @.str.210, ptr @.str.121, i32 130, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z15VL_RAND_RESET_Ii, ptr @.str.205, ptr @.str.121, i32 406, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z15vl_time_stamp64v, ptr @.str.205, ptr @.str.211, i32 294, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN6VlWideILm2050EEcvPjEv, ptr @.str.208, ptr @.str.145, i32 442, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN16VerilatedContext13solverProgramERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @.str.205, ptr @.str.121, i32 2581, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z12VL_FINISH_MTPKciS0_, ptr @.str.205, ptr @.str.121, i32 207, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z23_vl_dbg_sequence_numberv, ptr @.str.205, ptr @.str.121, i32 250, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN16VerilatedContext9randResetEv, ptr @.str.205, ptr @.str.65, i32 508, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK16VerilatedContext16coverageFilenameB5cxx11Ev, ptr @.str.205, ptr @.str.121, i32 2509, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN12VerilatedImp11versionDumpEv, ptr @.str.205, ptr @.str.121, i32 3211, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN12VerilatedImp11exportsDumpEv, ptr @.str.205, ptr @.str.117, i32 568, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK16VerilatedContext9gotFinishEv, ptr @.str.205, ptr @.str.65, i32 500, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN19VerilatedContextImp10scopeEraseEPK14VerilatedScope, ptr @.str.205, ptr @.str.121, i32 2935, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN19VerilatedContextImp6fdTellEj, ptr @.str.206, ptr @.str.117, i32 317, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN19VerilatedContextImp6fdTellEj, ptr @.str.207, ptr @.str.117, i32 317, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN21VerilatedEvalMsgQueue4postERK12VerilatedMsg, ptr @.str.206, ptr @.str.117, i32 107, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN21VerilatedEvalMsgQueue4postERK12VerilatedMsg, ptr @.str.207, ptr @.str.117, i32 107, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z8vl_fatalPKciS0_S0_, ptr @.str.210, ptr @.str.121, i32 149, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN16VerilatedContext15profVltFilenameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @.str.205, ptr @.str.121, i32 2573, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z13VL_TOLOWER_NNRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @.str.208, ptr @.str.121, i32 1895, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN5VlRNG13vl_thread_rngEv, ptr @.str.205, ptr @.str.121, i32 364, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z13VL_FSCANF_INXjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiz, ptr @.str.205, ptr @.str.121, i32 1620, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN19VerilatedContextImp22commandArgsAddGutsLockEiPPKc, ptr @.str.206, ptr @.str.121, i32 2718, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN19VerilatedContextImp22commandArgsAddGutsLockEiPPKc, ptr @.str.207, ptr @.str.121, i32 2718, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK16VerilatedContext13internalsDumpEv, ptr @.str.205, ptr @.str.121, i32 2650, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL9_vl_cmp_wiPKjS0_, ptr @.str.208, ptr @.str.211, i32 884, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z12VL_WRITEF_NXRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiz, ptr @.str.205, ptr @.str.121, i32 1596, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN4VlOs9getenvStrERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_, ptr @.str.205, ptr @.str.215, i32 105, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN9Verilated29scTraceBeforeElaborationErrorEv, ptr @.str.205, ptr @.str.121, i32 3136, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z13VL_SFORMAT_NXiPvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiz, ptr @.str.205, ptr @.str.121, i32 1563, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL16_vl_vsss_advanceP8_IO_FILERi, ptr @.str.205, ptr @.str.121, i32 1115, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN9Verilated14threadContextpEv, ptr @.str.205, ptr @.str.65, i32 795, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN19VerilatedTraceBaseC14modelConnectedEb, ptr @.str.205, ptr @.str.218, i32 195, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z14_vl_vsss_basedPjiiPKcmm, ptr @.str.205, ptr @.str.121, i32 1180, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK17VerilatedVarProps7entSizeEv, ptr @.str.205, ptr @.str.121, i32 3239, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK14VerilatedRange4highEv, ptr @.str.208, ptr @.str.214, i32 59, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK16VerilatedContext14timeunitStringEv, ptr @.str.205, ptr @.str.121, i32 2602, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN19VerilatedContextImp10fdToFpListEj, ptr @.str.216, ptr @.str.117, i32 363, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK17VerilatedVarProps8elementsEi, ptr @.str.205, ptr @.str.214, i32 178, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN16VerilatedContext8assertOnEb, ptr @.str.205, ptr @.str.121, i32 2497, ptr null }], section "llvm.metadata"
 @str = private unnamed_addr constant [12 x i8] c"Aborting...\00", align 1
+@switch.table._ZN19VerilatedContextImp6fdTellEj = private unnamed_addr constant [3 x ptr] [ptr @stdin, ptr @stdout, ptr @stderr], align 8
 @switch.table._ZN10VlWriteMem5printEmbPKv = private unnamed_addr constant [4 x ptr] [ptr @.str.163, ptr @.str.164, ptr @.str.165, ptr @.str.166], align 8
 @switch.table._ZL10memhFormati = private unnamed_addr constant [8 x ptr] [ptr @.str.159, ptr @.str.160, ptr @.str.161, ptr @.str.162, ptr @.str.163, ptr @.str.164, ptr @.str.165, ptr @.str.166], align 8
-@switch.table._ZN19VerilatedContextImp10fdToFpListEj = private unnamed_addr constant [3 x ptr] [ptr @stdin, ptr @stdout, ptr @stderr], align 8
 
 @_ZN5VlRNGC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN5VlRNGC2Ev
 @_ZN9VlReadMemC1EbiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm = dso_local unnamed_addr alias void (ptr, i1, i32, ptr, i64, i64), ptr @_ZN9VlReadMemC2EbiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm
@@ -11146,6 +11146,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %30
   %38 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %37, ptr %38, align 8
   store ptr %28, ptr %25, align 8
+  store i64 0, ptr %36, align 8
+  store i8 0, ptr %28, align 8
   br label %64
 
 39:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit10
@@ -11222,13 +11224,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit12: ; preds = %
   %63 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %62, ptr %63, align 8
   store ptr %10, ptr %1, align 8
+  store i64 0, ptr %4, align 8
+  store i8 0, ptr %10, align 8
   br label %64
 
 64:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit12, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
-  %.sink14 = phi ptr [ %4, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit12 ], [ %36, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit ]
-  %.sink = phi ptr [ %10, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit12 ], [ %28, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit ]
-  store i64 0, ptr %.sink14, align 8
-  store i8 0, ptr %.sink, align 1
   ret void
 }
 
@@ -14143,115 +14143,120 @@ _ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit: ; preds = %.preheader.i.i, %2,
   tail call void @llvm.experimental.noalias.scope.decl(metadata !104)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %3, i8 0, i64 256, i1 false), !alias.scope !104
   %.not.i = icmp sgt i32 %1, -1
-  br i1 %.not.i, label %31, label %12
+  br i1 %.not.i, label %37, label %12
 
 12:                                               ; preds = %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit
   %13 = and i32 %1, 2147483647
-  %14 = icmp ult i32 %13, 3
-  br i1 %14, label %switch.lookup, label %15
+  switch i32 %13, label %20 [
+    i32 0, label %14
+    i32 1, label %16
+    i32 2, label %18
+  ]
 
-15:                                               ; preds = %12
-  %16 = zext nneg i32 %13 to i64
-  %17 = getelementptr inbounds i8, ptr %0, i64 528
-  %18 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %17, ptr nonnull @.str.64, ptr nonnull @.str.65, i32 430, ptr null)
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
-  %20 = load ptr, ptr %19, align 8, !noalias !104
-  %21 = load ptr, ptr %18, align 8, !noalias !104
-  %22 = ptrtoint ptr %20 to i64
-  %23 = ptrtoint ptr %21 to i64
-  %24 = sub i64 %22, %23
-  %25 = ashr exact i64 %24, 3
-  %26 = icmp ugt i64 %25, %16
-  br i1 %26, label %27, label %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread8
+14:                                               ; preds = %12
+  %15 = load ptr, ptr @stdin, align 8, !noalias !104
+  br label %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread8
 
-27:                                               ; preds = %15
-  %28 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %17, ptr nonnull @.str.64, ptr nonnull @.str.65, i32 430, ptr null)
-  %29 = load ptr, ptr %28, align 8, !noalias !104
-  %30 = getelementptr inbounds ptr, ptr %29, i64 %16
-  br label %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread
+16:                                               ; preds = %12
+  %17 = load ptr, ptr @stdout, align 8, !noalias !104
+  br label %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread8
 
-31:                                               ; preds = %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit
-  %32 = and i32 %1, 1
-  %.not15.i = icmp eq i32 %32, 0
-  br i1 %.not15.i, label %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i, label %33
+18:                                               ; preds = %12
+  %19 = load ptr, ptr @stderr, align 8, !noalias !104
+  br label %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread8
 
-33:                                               ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %3, i64 248
-  %35 = load ptr, ptr @stdout, align 8, !noalias !104
-  store i64 1, ptr %34, align 8, !alias.scope !104
-  store ptr %35, ptr %3, align 8, !alias.scope !104
+20:                                               ; preds = %12
+  %21 = zext nneg i32 %13 to i64
+  %22 = getelementptr inbounds i8, ptr %0, i64 528
+  %23 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %22, ptr nonnull @.str.64, ptr nonnull @.str.65, i32 430, ptr null)
+  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %25 = load ptr, ptr %24, align 8, !noalias !104
+  %26 = load ptr, ptr %23, align 8, !noalias !104
+  %27 = ptrtoint ptr %25 to i64
+  %28 = ptrtoint ptr %26 to i64
+  %29 = sub i64 %27, %28
+  %30 = ashr exact i64 %29, 3
+  %31 = icmp ugt i64 %30, %21
+  br i1 %31, label %32, label %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread8
+
+32:                                               ; preds = %20
+  %33 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %22, ptr nonnull @.str.64, ptr nonnull @.str.65, i32 430, ptr null)
+  %34 = load ptr, ptr %33, align 8, !noalias !104
+  %35 = getelementptr inbounds ptr, ptr %34, i64 %21
+  %36 = load ptr, ptr %35, align 8, !noalias !104
+  br label %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread8
+
+37:                                               ; preds = %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit
+  %38 = and i32 %1, 1
+  %.not15.i = icmp eq i32 %38, 0
+  br i1 %.not15.i, label %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i, label %39
+
+39:                                               ; preds = %37
+  %40 = getelementptr inbounds i8, ptr %3, i64 248
+  %41 = load ptr, ptr @stdout, align 8, !noalias !104
+  store i64 1, ptr %40, align 8, !alias.scope !104
+  store ptr %41, ptr %3, align 8, !alias.scope !104
   br label %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i
 
-_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i: ; preds = %33, %31
-  %36 = phi ptr [ %35, %33 ], [ null, %31 ]
-  %37 = phi i64 [ 1, %33 ], [ 0, %31 ]
+_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i: ; preds = %39, %37
+  %42 = phi ptr [ %41, %39 ], [ null, %37 ]
+  %43 = phi i64 [ 1, %39 ], [ 0, %37 ]
   %.not1624.i = icmp ugt i32 %1, 1
   br i1 %.not1624.i, label %.lr.ph.i, label %_ZN19VerilatedContextImp10fdToFpListEj.exit
 
 .lr.ph.i:                                         ; preds = %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i
-  %38 = getelementptr inbounds i8, ptr %0, i64 528
-  %39 = getelementptr inbounds i8, ptr %3, i64 248
-  br label %40
+  %44 = getelementptr inbounds i8, ptr %0, i64 528
+  %45 = getelementptr inbounds i8, ptr %3, i64 248
+  br label %46
 
-40:                                               ; preds = %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i, %.lr.ph.i
-  %.026.i = phi i64 [ 1, %.lr.ph.i ], [ %52, %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i ]
+46:                                               ; preds = %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i, %.lr.ph.i
+  %.026.i = phi i64 [ 1, %.lr.ph.i ], [ %58, %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i ]
   %.013.in25.i = phi i32 [ %1, %.lr.ph.i ], [ %.01327.i, %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i ]
   %.01327.i = lshr i32 %.013.in25.i, 1
-  %41 = and i32 %.013.in25.i, 2
-  %.not17.i = icmp eq i32 %41, 0
-  br i1 %.not17.i, label %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i, label %42
+  %47 = and i32 %.013.in25.i, 2
+  %.not17.i = icmp eq i32 %47, 0
+  br i1 %.not17.i, label %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i, label %48
 
-42:                                               ; preds = %40
-  %43 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %38, ptr nonnull @.str.64, ptr nonnull @.str.65, i32 430, ptr null)
-  %44 = load i64, ptr %39, align 8
-  %45 = icmp ult i64 %44, 31
-  br i1 %45, label %46, label %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i
+48:                                               ; preds = %46
+  %49 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %44, ptr nonnull @.str.64, ptr nonnull @.str.65, i32 430, ptr null)
+  %50 = load i64, ptr %45, align 8
+  %51 = icmp ult i64 %50, 31
+  br i1 %51, label %52, label %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i
 
-46:                                               ; preds = %42
-  %47 = load ptr, ptr %43, align 8, !noalias !104
-  %48 = getelementptr inbounds ptr, ptr %47, i64 %.026.i
-  %49 = load ptr, ptr %48, align 8, !noalias !104
-  %50 = add nuw nsw i64 %44, 1
-  store i64 %50, ptr %39, align 8, !alias.scope !104
-  %51 = getelementptr inbounds [31 x ptr], ptr %3, i64 0, i64 %44
-  store ptr %49, ptr %51, align 8, !alias.scope !104
+52:                                               ; preds = %48
+  %53 = load ptr, ptr %49, align 8, !noalias !104
+  %54 = getelementptr inbounds ptr, ptr %53, i64 %.026.i
+  %55 = load ptr, ptr %54, align 8, !noalias !104
+  %56 = add nuw nsw i64 %50, 1
+  store i64 %56, ptr %45, align 8, !alias.scope !104
+  %57 = getelementptr inbounds [31 x ptr], ptr %3, i64 0, i64 %50
+  store ptr %55, ptr %57, align 8, !alias.scope !104
   br label %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i
 
-_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i: ; preds = %46, %42, %40
-  %52 = add nuw nsw i64 %.026.i, 1
+_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i: ; preds = %52, %48, %46
+  %58 = add nuw nsw i64 %.026.i, 1
   %.not16.i = icmp ugt i32 %.013.in25.i, 3
-  %53 = icmp ult i64 %.026.i, 30
-  %or.cond.i = select i1 %.not16.i, i1 %53, i1 false
-  br i1 %or.cond.i, label %40, label %_ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit, !llvm.loop !107
-
-switch.lookup:                                    ; preds = %12
-  %54 = zext nneg i32 %13 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN19VerilatedContextImp10fdToFpListEj, i64 0, i64 %54
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread
-
-_ZN19VerilatedContextImp10fdToFpListEj.exit.thread: ; preds = %switch.lookup, %27
-  %.sink32.i = phi ptr [ %30, %27 ], [ %switch.load, %switch.lookup ]
-  %55 = load ptr, ptr %.sink32.i, align 8, !noalias !104
-  br label %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread8
+  %59 = icmp ult i64 %.026.i, 30
+  %or.cond.i = select i1 %.not16.i, i1 %59, i1 false
+  br i1 %or.cond.i, label %46, label %_ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit, !llvm.loop !107
 
 _ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit: ; preds = %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i
-  %.pre = load i64, ptr %39, align 8
+  %.pre = load i64, ptr %45, align 8
   %.pre5 = load ptr, ptr %3, align 8
-  %56 = freeze i64 %.pre
+  %60 = freeze i64 %.pre
   br label %_ZN19VerilatedContextImp10fdToFpListEj.exit
 
 _ZN19VerilatedContextImp10fdToFpListEj.exit:      ; preds = %_ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit, %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i
-  %57 = phi ptr [ %.pre5, %_ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit ], [ %36, %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i ]
-  %.fr = phi i64 [ %56, %_ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit ], [ %37, %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i ]
+  %61 = phi ptr [ %.pre5, %_ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit ], [ %42, %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i ]
+  %.fr = phi i64 [ %60, %_ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit ], [ %43, %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i ]
   %.not = icmp eq i64 %.fr, 1
-  %spec.select = select i1 %.not, ptr %57, ptr null
+  %spec.select = select i1 %.not, ptr %61, ptr null
   br label %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread8
 
-_ZN19VerilatedContextImp10fdToFpListEj.exit.thread8: ; preds = %_ZN19VerilatedContextImp10fdToFpListEj.exit, %15, %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread
-  %58 = phi ptr [ %55, %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread ], [ null, %15 ], [ %spec.select, %_ZN19VerilatedContextImp10fdToFpListEj.exit ]
-  %59 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #23
-  ret ptr %58
+_ZN19VerilatedContextImp10fdToFpListEj.exit.thread8: ; preds = %_ZN19VerilatedContextImp10fdToFpListEj.exit, %32, %18, %16, %14, %20
+  %62 = phi ptr [ null, %20 ], [ %36, %32 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %spec.select, %_ZN19VerilatedContextImp10fdToFpListEj.exit ]
+  %63 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #23
+  ret ptr %62
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
@@ -15353,125 +15358,140 @@ _ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit: ; preds = %.preheader.i.i, %2,
   tail call void @llvm.experimental.noalias.scope.decl(metadata !113)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %3, i8 0, i64 256, i1 false), !alias.scope !113
   %.not.i = icmp sgt i32 %1, -1
-  br i1 %.not.i, label %31, label %12
+  br i1 %.not.i, label %41, label %12
 
 12:                                               ; preds = %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit
   %13 = and i32 %1, 2147483647
-  %14 = icmp ult i32 %13, 3
-  br i1 %14, label %switch.lookup, label %15
+  switch i32 %13, label %23 [
+    i32 0, label %14
+    i32 1, label %17
+    i32 2, label %20
+  ]
 
-15:                                               ; preds = %12
-  %16 = zext nneg i32 %13 to i64
-  %17 = getelementptr inbounds i8, ptr %0, i64 528
-  %18 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %17, ptr nonnull @.str.64, ptr nonnull @.str.65, i32 430, ptr null)
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
-  %20 = load ptr, ptr %19, align 8, !noalias !113
-  %21 = load ptr, ptr %18, align 8, !noalias !113
-  %22 = ptrtoint ptr %20 to i64
-  %23 = ptrtoint ptr %21 to i64
-  %24 = sub i64 %22, %23
-  %25 = ashr exact i64 %24, 3
-  %26 = icmp ugt i64 %25, %16
-  br i1 %26, label %27, label %._crit_edge
-
-27:                                               ; preds = %15
-  %28 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %17, ptr nonnull @.str.64, ptr nonnull @.str.65, i32 430, ptr null)
-  %29 = load ptr, ptr %28, align 8, !noalias !113
-  %30 = getelementptr inbounds ptr, ptr %29, i64 %16
+14:                                               ; preds = %12
+  %15 = getelementptr inbounds i8, ptr %3, i64 248
+  %16 = load ptr, ptr @stdin, align 8, !noalias !113
+  store i64 1, ptr %15, align 8, !alias.scope !113
   br label %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread14
 
-31:                                               ; preds = %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit
-  %32 = and i32 %1, 1
-  %.not15.i = icmp eq i32 %32, 0
-  br i1 %.not15.i, label %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i, label %33
+17:                                               ; preds = %12
+  %18 = getelementptr inbounds i8, ptr %3, i64 248
+  %19 = load ptr, ptr @stdout, align 8, !noalias !113
+  store i64 1, ptr %18, align 8, !alias.scope !113
+  br label %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread14
 
-33:                                               ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %3, i64 248
-  %35 = load ptr, ptr @stdout, align 8, !noalias !113
-  store i64 1, ptr %34, align 8, !alias.scope !113
-  store ptr %35, ptr %3, align 8, !alias.scope !113
+20:                                               ; preds = %12
+  %21 = getelementptr inbounds i8, ptr %3, i64 248
+  %22 = load ptr, ptr @stderr, align 8, !noalias !113
+  store i64 1, ptr %21, align 8, !alias.scope !113
+  br label %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread14
+
+23:                                               ; preds = %12
+  %24 = zext nneg i32 %13 to i64
+  %25 = getelementptr inbounds i8, ptr %0, i64 528
+  %26 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %25, ptr nonnull @.str.64, ptr nonnull @.str.65, i32 430, ptr null)
+  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %28 = load ptr, ptr %27, align 8, !noalias !113
+  %29 = load ptr, ptr %26, align 8, !noalias !113
+  %30 = ptrtoint ptr %28 to i64
+  %31 = ptrtoint ptr %29 to i64
+  %32 = sub i64 %30, %31
+  %33 = ashr exact i64 %32, 3
+  %34 = icmp ugt i64 %33, %24
+  br i1 %34, label %35, label %._crit_edge
+
+35:                                               ; preds = %23
+  %36 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %25, ptr nonnull @.str.64, ptr nonnull @.str.65, i32 430, ptr null)
+  %37 = getelementptr inbounds i8, ptr %3, i64 248
+  %38 = load ptr, ptr %36, align 8, !noalias !113
+  %39 = getelementptr inbounds ptr, ptr %38, i64 %24
+  %40 = load ptr, ptr %39, align 8, !noalias !113
+  store i64 1, ptr %37, align 8, !alias.scope !113
+  br label %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread14
+
+41:                                               ; preds = %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit
+  %42 = and i32 %1, 1
+  %.not15.i = icmp eq i32 %42, 0
+  br i1 %.not15.i, label %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i, label %43
+
+43:                                               ; preds = %41
+  %44 = getelementptr inbounds i8, ptr %3, i64 248
+  %45 = load ptr, ptr @stdout, align 8, !noalias !113
+  store i64 1, ptr %44, align 8, !alias.scope !113
+  store ptr %45, ptr %3, align 8, !alias.scope !113
   br label %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i
 
-_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i: ; preds = %33, %31
-  %36 = phi i64 [ 1, %33 ], [ 0, %31 ]
+_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i: ; preds = %43, %41
+  %46 = phi i64 [ 1, %43 ], [ 0, %41 ]
   %.not1624.i = icmp ugt i32 %1, 1
   br i1 %.not1624.i, label %.lr.ph.i, label %_ZN19VerilatedContextImp10fdToFpListEj.exit
 
 .lr.ph.i:                                         ; preds = %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i
-  %37 = getelementptr inbounds i8, ptr %0, i64 528
-  %38 = getelementptr inbounds i8, ptr %3, i64 248
-  br label %39
+  %47 = getelementptr inbounds i8, ptr %0, i64 528
+  %48 = getelementptr inbounds i8, ptr %3, i64 248
+  br label %49
 
-39:                                               ; preds = %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i, %.lr.ph.i
-  %.026.i = phi i64 [ 1, %.lr.ph.i ], [ %51, %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i ]
+49:                                               ; preds = %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i, %.lr.ph.i
+  %.026.i = phi i64 [ 1, %.lr.ph.i ], [ %61, %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i ]
   %.013.in25.i = phi i32 [ %1, %.lr.ph.i ], [ %.01327.i, %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i ]
   %.01327.i = lshr i32 %.013.in25.i, 1
-  %40 = and i32 %.013.in25.i, 2
-  %.not17.i = icmp eq i32 %40, 0
-  br i1 %.not17.i, label %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i, label %41
+  %50 = and i32 %.013.in25.i, 2
+  %.not17.i = icmp eq i32 %50, 0
+  br i1 %.not17.i, label %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i, label %51
 
-41:                                               ; preds = %39
-  %42 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %37, ptr nonnull @.str.64, ptr nonnull @.str.65, i32 430, ptr null)
-  %43 = load i64, ptr %38, align 8
-  %44 = icmp ult i64 %43, 31
-  br i1 %44, label %45, label %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i
+51:                                               ; preds = %49
+  %52 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %47, ptr nonnull @.str.64, ptr nonnull @.str.65, i32 430, ptr null)
+  %53 = load i64, ptr %48, align 8
+  %54 = icmp ult i64 %53, 31
+  br i1 %54, label %55, label %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i
 
-45:                                               ; preds = %41
-  %46 = load ptr, ptr %42, align 8, !noalias !113
-  %47 = getelementptr inbounds ptr, ptr %46, i64 %.026.i
-  %48 = load ptr, ptr %47, align 8, !noalias !113
-  %49 = add nuw nsw i64 %43, 1
-  store i64 %49, ptr %38, align 8, !alias.scope !113
-  %50 = getelementptr inbounds [31 x ptr], ptr %3, i64 0, i64 %43
-  store ptr %48, ptr %50, align 8, !alias.scope !113
+55:                                               ; preds = %51
+  %56 = load ptr, ptr %52, align 8, !noalias !113
+  %57 = getelementptr inbounds ptr, ptr %56, i64 %.026.i
+  %58 = load ptr, ptr %57, align 8, !noalias !113
+  %59 = add nuw nsw i64 %53, 1
+  store i64 %59, ptr %48, align 8, !alias.scope !113
+  %60 = getelementptr inbounds [31 x ptr], ptr %3, i64 0, i64 %53
+  store ptr %58, ptr %60, align 8, !alias.scope !113
   br label %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i
 
-_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i: ; preds = %45, %41, %39
-  %51 = add nuw nsw i64 %.026.i, 1
+_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i: ; preds = %55, %51, %49
+  %61 = add nuw nsw i64 %.026.i, 1
   %.not16.i = icmp ugt i32 %.013.in25.i, 3
-  %52 = icmp ult i64 %.026.i, 30
-  %or.cond.i = select i1 %.not16.i, i1 %52, i1 false
-  br i1 %or.cond.i, label %39, label %_ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit, !llvm.loop !107
+  %62 = icmp ult i64 %.026.i, 30
+  %or.cond.i = select i1 %.not16.i, i1 %62, i1 false
+  br i1 %or.cond.i, label %49, label %_ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit, !llvm.loop !107
 
-switch.lookup:                                    ; preds = %12
-  %53 = zext nneg i32 %13 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN19VerilatedContextImp10fdToFpListEj, i64 0, i64 %53
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread14
-
-_ZN19VerilatedContextImp10fdToFpListEj.exit.thread14: ; preds = %switch.lookup, %27
-  %.sink32.i = phi ptr [ %30, %27 ], [ %switch.load, %switch.lookup ]
-  %.sink31.i = getelementptr inbounds i8, ptr %3, i64 248
-  %54 = load ptr, ptr %.sink32.i, align 8, !noalias !113
-  store i64 1, ptr %.sink31.i, align 8, !alias.scope !113
-  store ptr %54, ptr %3, align 8, !alias.scope !113
-  %55 = getelementptr inbounds i8, ptr %3, i64 8
+_ZN19VerilatedContextImp10fdToFpListEj.exit.thread14: ; preds = %14, %17, %20, %35
+  %.sink.i = phi ptr [ %40, %35 ], [ %22, %20 ], [ %19, %17 ], [ %16, %14 ]
+  store ptr %.sink.i, ptr %3, align 8, !alias.scope !113
+  %63 = getelementptr inbounds i8, ptr %3, i64 8
   br label %.lr.ph.preheader
 
 _ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit: ; preds = %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i
-  %.pre = load i64, ptr %38, align 8
+  %.pre = load i64, ptr %48, align 8
   br label %_ZN19VerilatedContextImp10fdToFpListEj.exit
 
 _ZN19VerilatedContextImp10fdToFpListEj.exit:      ; preds = %_ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit, %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i
-  %56 = phi i64 [ %.pre, %_ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit ], [ %36, %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i ]
-  %57 = getelementptr inbounds ptr, ptr %3, i64 %56
-  %.not11 = icmp eq i64 %56, 0
+  %64 = phi i64 [ %.pre, %_ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit ], [ %46, %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i ]
+  %65 = getelementptr inbounds ptr, ptr %3, i64 %64
+  %.not11 = icmp eq i64 %64, 0
   br i1 %.not11, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread14, %_ZN19VerilatedContextImp10fdToFpListEj.exit
-  %58 = phi ptr [ %55, %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread14 ], [ %57, %_ZN19VerilatedContextImp10fdToFpListEj.exit ]
+  %66 = phi ptr [ %63, %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread14 ], [ %65, %_ZN19VerilatedContextImp10fdToFpListEj.exit ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.012 = phi ptr [ %61, %.lr.ph ], [ %3, %.lr.ph.preheader ]
-  %59 = load ptr, ptr %.012, align 8
-  %60 = call i32 @fflush(ptr noundef %59)
-  %61 = getelementptr inbounds i8, ptr %.012, i64 8
-  %.not = icmp eq ptr %61, %58
+  %.012 = phi ptr [ %69, %.lr.ph ], [ %3, %.lr.ph.preheader ]
+  %67 = load ptr, ptr %.012, align 8
+  %68 = call i32 @fflush(ptr noundef %67)
+  %69 = getelementptr inbounds i8, ptr %.012, i64 8
+  %.not = icmp eq ptr %69, %66
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %15, %_ZN19VerilatedContextImp10fdToFpListEj.exit
-  %62 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #23
+._crit_edge:                                      ; preds = %.lr.ph, %23, %_ZN19VerilatedContextImp10fdToFpListEj.exit
+  %70 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #23
   ret void
 }
 
@@ -15642,34 +15662,34 @@ _ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i: ; preds = %47, %43, %41
 
 switch.lookup:                                    ; preds = %14
   %55 = zext nneg i32 %15 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN19VerilatedContextImp10fdToFpListEj, i64 0, i64 %55
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN19VerilatedContextImp6fdTellEj, i64 0, i64 %55
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread
 
 _ZN19VerilatedContextImp10fdToFpListEj.exit.thread: ; preds = %switch.lookup, %29
-  %.sink32.i = phi ptr [ %32, %29 ], [ %switch.load, %switch.lookup ]
-  %56 = load ptr, ptr %.sink32.i, align 8, !noalias !116
-  store ptr %56, ptr %5, align 8, !alias.scope !116
-  br label %58
+  %.sink.i.in = phi ptr [ %32, %29 ], [ %switch.load, %switch.lookup ]
+  %.sink.i = load ptr, ptr %.sink.i.in, align 8, !noalias !116
+  store ptr %.sink.i, ptr %5, align 8, !alias.scope !116
+  br label %57
 
 _ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit: ; preds = %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i
   %.pre = load i64, ptr %40, align 8
   br label %_ZN19VerilatedContextImp10fdToFpListEj.exit
 
 _ZN19VerilatedContextImp10fdToFpListEj.exit:      ; preds = %_ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit, %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i
-  %57 = phi i64 [ %.pre, %_ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit ], [ %38, %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i ]
-  %.not = icmp eq i64 %57, 1
-  br i1 %.not, label %58, label %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread8
+  %56 = phi i64 [ %.pre, %_ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit ], [ %38, %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i ]
+  %.not = icmp eq i64 %56, 1
+  br i1 %.not, label %57, label %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread8
 
-58:                                               ; preds = %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread, %_ZN19VerilatedContextImp10fdToFpListEj.exit
-  %59 = load ptr, ptr %5, align 8
-  %60 = zext i32 %2 to i64
-  %61 = tail call i32 @fseek(ptr noundef %59, i64 noundef %60, i32 noundef %3)
+57:                                               ; preds = %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread, %_ZN19VerilatedContextImp10fdToFpListEj.exit
+  %58 = load ptr, ptr %5, align 8
+  %59 = zext i32 %2 to i64
+  %60 = tail call i32 @fseek(ptr noundef %58, i64 noundef %59, i32 noundef %3)
   br label %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread8
 
-_ZN19VerilatedContextImp10fdToFpListEj.exit.thread8: ; preds = %17, %_ZN19VerilatedContextImp10fdToFpListEj.exit, %58
-  %.0 = phi i32 [ %61, %58 ], [ -1, %_ZN19VerilatedContextImp10fdToFpListEj.exit ], [ -1, %17 ]
-  %62 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %6) #23
+_ZN19VerilatedContextImp10fdToFpListEj.exit.thread8: ; preds = %17, %_ZN19VerilatedContextImp10fdToFpListEj.exit, %57
+  %.0 = phi i32 [ %60, %57 ], [ -1, %_ZN19VerilatedContextImp10fdToFpListEj.exit ], [ -1, %17 ]
+  %61 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %6) #23
   ret i32 %.0
 }
 
@@ -15840,34 +15860,34 @@ _ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i: ; preds = %45, %41, %39
 
 switch.lookup:                                    ; preds = %12
   %53 = zext nneg i32 %13 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN19VerilatedContextImp10fdToFpListEj, i64 0, i64 %53
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN19VerilatedContextImp6fdTellEj, i64 0, i64 %53
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread
 
 _ZN19VerilatedContextImp10fdToFpListEj.exit.thread: ; preds = %switch.lookup, %27
-  %.sink32.i = phi ptr [ %30, %27 ], [ %switch.load, %switch.lookup ]
-  %54 = load ptr, ptr %.sink32.i, align 8, !noalias !119
-  store ptr %54, ptr %3, align 8, !alias.scope !119
-  br label %56
+  %.sink.i.in = phi ptr [ %30, %27 ], [ %switch.load, %switch.lookup ]
+  %.sink.i = load ptr, ptr %.sink.i.in, align 8, !noalias !119
+  store ptr %.sink.i, ptr %3, align 8, !alias.scope !119
+  br label %55
 
 _ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit: ; preds = %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i
   %.pre = load i64, ptr %38, align 8
   br label %_ZN19VerilatedContextImp10fdToFpListEj.exit
 
 _ZN19VerilatedContextImp10fdToFpListEj.exit:      ; preds = %_ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit, %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i
-  %55 = phi i64 [ %.pre, %_ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit ], [ %36, %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i ]
-  %.not = icmp eq i64 %55, 1
-  br i1 %.not, label %56, label %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread6
+  %54 = phi i64 [ %.pre, %_ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit ], [ %36, %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i ]
+  %.not = icmp eq i64 %54, 1
+  br i1 %.not, label %55, label %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread6
 
-56:                                               ; preds = %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread, %_ZN19VerilatedContextImp10fdToFpListEj.exit
-  %57 = load ptr, ptr %3, align 8
-  %58 = tail call i64 @ftell(ptr noundef %57)
-  %59 = trunc i64 %58 to i32
+55:                                               ; preds = %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread, %_ZN19VerilatedContextImp10fdToFpListEj.exit
+  %56 = load ptr, ptr %3, align 8
+  %57 = tail call i64 @ftell(ptr noundef %56)
+  %58 = trunc i64 %57 to i32
   br label %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread6
 
-_ZN19VerilatedContextImp10fdToFpListEj.exit.thread6: ; preds = %15, %_ZN19VerilatedContextImp10fdToFpListEj.exit, %56
-  %.0 = phi i32 [ %59, %56 ], [ -1, %_ZN19VerilatedContextImp10fdToFpListEj.exit ], [ -1, %15 ]
-  %60 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #23
+_ZN19VerilatedContextImp10fdToFpListEj.exit.thread6: ; preds = %15, %_ZN19VerilatedContextImp10fdToFpListEj.exit, %55
+  %.0 = phi i32 [ %58, %55 ], [ -1, %_ZN19VerilatedContextImp10fdToFpListEj.exit ], [ -1, %15 ]
+  %59 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #23
   ret i32 %.0
 }
 
@@ -16689,135 +16709,150 @@ _ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit: ; preds = %.preheader.i.i, %3,
   tail call void @llvm.experimental.noalias.scope.decl(metadata !123)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %4, i8 0, i64 256, i1 false), !alias.scope !123
   %.not.i = icmp sgt i32 %1, -1
-  br i1 %.not.i, label %32, label %13
+  br i1 %.not.i, label %42, label %13
 
 13:                                               ; preds = %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit
   %14 = and i32 %1, 2147483647
-  %15 = icmp ult i32 %14, 3
-  br i1 %15, label %switch.lookup, label %16
+  switch i32 %14, label %24 [
+    i32 0, label %15
+    i32 1, label %18
+    i32 2, label %21
+  ]
 
-16:                                               ; preds = %13
-  %17 = zext nneg i32 %14 to i64
-  %18 = getelementptr inbounds i8, ptr %0, i64 528
-  %19 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %18, ptr nonnull @.str.64, ptr nonnull @.str.65, i32 430, ptr null)
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
-  %21 = load ptr, ptr %20, align 8, !noalias !123
-  %22 = load ptr, ptr %19, align 8, !noalias !123
-  %23 = ptrtoint ptr %21 to i64
-  %24 = ptrtoint ptr %22 to i64
-  %25 = sub i64 %23, %24
-  %26 = ashr exact i64 %25, 3
-  %27 = icmp ugt i64 %26, %17
-  br i1 %27, label %28, label %._crit_edge
-
-28:                                               ; preds = %16
-  %29 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %18, ptr nonnull @.str.64, ptr nonnull @.str.65, i32 430, ptr null)
-  %30 = load ptr, ptr %29, align 8, !noalias !123
-  %31 = getelementptr inbounds ptr, ptr %30, i64 %17
+15:                                               ; preds = %13
+  %16 = getelementptr inbounds i8, ptr %4, i64 248
+  %17 = load ptr, ptr @stdin, align 8, !noalias !123
+  store i64 1, ptr %16, align 8, !alias.scope !123
   br label %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread18
 
-32:                                               ; preds = %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit
-  %33 = and i32 %1, 1
-  %.not15.i = icmp eq i32 %33, 0
-  br i1 %.not15.i, label %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i, label %34
+18:                                               ; preds = %13
+  %19 = getelementptr inbounds i8, ptr %4, i64 248
+  %20 = load ptr, ptr @stdout, align 8, !noalias !123
+  store i64 1, ptr %19, align 8, !alias.scope !123
+  br label %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread18
 
-34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %4, i64 248
-  %36 = load ptr, ptr @stdout, align 8, !noalias !123
-  store i64 1, ptr %35, align 8, !alias.scope !123
-  store ptr %36, ptr %4, align 8, !alias.scope !123
+21:                                               ; preds = %13
+  %22 = getelementptr inbounds i8, ptr %4, i64 248
+  %23 = load ptr, ptr @stderr, align 8, !noalias !123
+  store i64 1, ptr %22, align 8, !alias.scope !123
+  br label %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread18
+
+24:                                               ; preds = %13
+  %25 = zext nneg i32 %14 to i64
+  %26 = getelementptr inbounds i8, ptr %0, i64 528
+  %27 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %26, ptr nonnull @.str.64, ptr nonnull @.str.65, i32 430, ptr null)
+  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %29 = load ptr, ptr %28, align 8, !noalias !123
+  %30 = load ptr, ptr %27, align 8, !noalias !123
+  %31 = ptrtoint ptr %29 to i64
+  %32 = ptrtoint ptr %30 to i64
+  %33 = sub i64 %31, %32
+  %34 = ashr exact i64 %33, 3
+  %35 = icmp ugt i64 %34, %25
+  br i1 %35, label %36, label %._crit_edge
+
+36:                                               ; preds = %24
+  %37 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %26, ptr nonnull @.str.64, ptr nonnull @.str.65, i32 430, ptr null)
+  %38 = getelementptr inbounds i8, ptr %4, i64 248
+  %39 = load ptr, ptr %37, align 8, !noalias !123
+  %40 = getelementptr inbounds ptr, ptr %39, i64 %25
+  %41 = load ptr, ptr %40, align 8, !noalias !123
+  store i64 1, ptr %38, align 8, !alias.scope !123
+  br label %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread18
+
+42:                                               ; preds = %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit
+  %43 = and i32 %1, 1
+  %.not15.i = icmp eq i32 %43, 0
+  br i1 %.not15.i, label %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i, label %44
+
+44:                                               ; preds = %42
+  %45 = getelementptr inbounds i8, ptr %4, i64 248
+  %46 = load ptr, ptr @stdout, align 8, !noalias !123
+  store i64 1, ptr %45, align 8, !alias.scope !123
+  store ptr %46, ptr %4, align 8, !alias.scope !123
   br label %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i
 
-_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i: ; preds = %34, %32
-  %37 = phi i64 [ 1, %34 ], [ 0, %32 ]
+_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i: ; preds = %44, %42
+  %47 = phi i64 [ 1, %44 ], [ 0, %42 ]
   %.not1624.i = icmp ugt i32 %1, 1
   br i1 %.not1624.i, label %.lr.ph.i, label %_ZN19VerilatedContextImp10fdToFpListEj.exit
 
 .lr.ph.i:                                         ; preds = %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i
-  %38 = getelementptr inbounds i8, ptr %0, i64 528
-  %39 = getelementptr inbounds i8, ptr %4, i64 248
-  br label %40
+  %48 = getelementptr inbounds i8, ptr %0, i64 528
+  %49 = getelementptr inbounds i8, ptr %4, i64 248
+  br label %50
 
-40:                                               ; preds = %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i, %.lr.ph.i
-  %.026.i = phi i64 [ 1, %.lr.ph.i ], [ %52, %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i ]
+50:                                               ; preds = %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i, %.lr.ph.i
+  %.026.i = phi i64 [ 1, %.lr.ph.i ], [ %62, %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i ]
   %.013.in25.i = phi i32 [ %1, %.lr.ph.i ], [ %.01327.i, %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i ]
   %.01327.i = lshr i32 %.013.in25.i, 1
-  %41 = and i32 %.013.in25.i, 2
-  %.not17.i = icmp eq i32 %41, 0
-  br i1 %.not17.i, label %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i, label %42
+  %51 = and i32 %.013.in25.i, 2
+  %.not17.i = icmp eq i32 %51, 0
+  br i1 %.not17.i, label %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i, label %52
 
-42:                                               ; preds = %40
-  %43 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %38, ptr nonnull @.str.64, ptr nonnull @.str.65, i32 430, ptr null)
-  %44 = load i64, ptr %39, align 8
-  %45 = icmp ult i64 %44, 31
-  br i1 %45, label %46, label %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i
+52:                                               ; preds = %50
+  %53 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %48, ptr nonnull @.str.64, ptr nonnull @.str.65, i32 430, ptr null)
+  %54 = load i64, ptr %49, align 8
+  %55 = icmp ult i64 %54, 31
+  br i1 %55, label %56, label %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i
 
-46:                                               ; preds = %42
-  %47 = load ptr, ptr %43, align 8, !noalias !123
-  %48 = getelementptr inbounds ptr, ptr %47, i64 %.026.i
-  %49 = load ptr, ptr %48, align 8, !noalias !123
-  %50 = add nuw nsw i64 %44, 1
-  store i64 %50, ptr %39, align 8, !alias.scope !123
-  %51 = getelementptr inbounds [31 x ptr], ptr %4, i64 0, i64 %44
-  store ptr %49, ptr %51, align 8, !alias.scope !123
+56:                                               ; preds = %52
+  %57 = load ptr, ptr %53, align 8, !noalias !123
+  %58 = getelementptr inbounds ptr, ptr %57, i64 %.026.i
+  %59 = load ptr, ptr %58, align 8, !noalias !123
+  %60 = add nuw nsw i64 %54, 1
+  store i64 %60, ptr %49, align 8, !alias.scope !123
+  %61 = getelementptr inbounds [31 x ptr], ptr %4, i64 0, i64 %54
+  store ptr %59, ptr %61, align 8, !alias.scope !123
   br label %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i
 
-_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i: ; preds = %46, %42, %40
-  %52 = add nuw nsw i64 %.026.i, 1
+_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i: ; preds = %56, %52, %50
+  %62 = add nuw nsw i64 %.026.i, 1
   %.not16.i = icmp ugt i32 %.013.in25.i, 3
-  %53 = icmp ult i64 %.026.i, 30
-  %or.cond.i = select i1 %.not16.i, i1 %53, i1 false
-  br i1 %or.cond.i, label %40, label %_ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit, !llvm.loop !107
+  %63 = icmp ult i64 %.026.i, 30
+  %or.cond.i = select i1 %.not16.i, i1 %63, i1 false
+  br i1 %or.cond.i, label %50, label %_ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit, !llvm.loop !107
 
-switch.lookup:                                    ; preds = %13
-  %54 = zext nneg i32 %14 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN19VerilatedContextImp10fdToFpListEj, i64 0, i64 %54
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread18
-
-_ZN19VerilatedContextImp10fdToFpListEj.exit.thread18: ; preds = %switch.lookup, %28
-  %.sink32.i = phi ptr [ %31, %28 ], [ %switch.load, %switch.lookup ]
-  %.sink31.i = getelementptr inbounds i8, ptr %4, i64 248
-  %55 = load ptr, ptr %.sink32.i, align 8, !noalias !123
-  store i64 1, ptr %.sink31.i, align 8, !alias.scope !123
-  store ptr %55, ptr %4, align 8, !alias.scope !123
-  %56 = getelementptr inbounds i8, ptr %4, i64 8
+_ZN19VerilatedContextImp10fdToFpListEj.exit.thread18: ; preds = %15, %18, %21, %36
+  %.sink.i = phi ptr [ %41, %36 ], [ %23, %21 ], [ %20, %18 ], [ %17, %15 ]
+  store ptr %.sink.i, ptr %4, align 8, !alias.scope !123
+  %64 = getelementptr inbounds i8, ptr %4, i64 8
   br label %.lr.ph
 
 _ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit: ; preds = %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i
-  %.pre = load i64, ptr %39, align 8
+  %.pre = load i64, ptr %49, align 8
   br label %_ZN19VerilatedContextImp10fdToFpListEj.exit
 
 _ZN19VerilatedContextImp10fdToFpListEj.exit:      ; preds = %_ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit, %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i
-  %57 = phi i64 [ %.pre, %_ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit ], [ %37, %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i ]
-  %58 = getelementptr inbounds ptr, ptr %4, i64 %57
-  %.not15 = icmp eq i64 %57, 0
+  %65 = phi i64 [ %.pre, %_ZN19VerilatedContextImp10fdToFpListEj.exit.loopexit ], [ %47, %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i ]
+  %66 = getelementptr inbounds ptr, ptr %4, i64 %65
+  %.not15 = icmp eq i64 %65, 0
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread18, %_ZN19VerilatedContextImp10fdToFpListEj.exit
-  %59 = phi ptr [ %56, %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread18 ], [ %58, %_ZN19VerilatedContextImp10fdToFpListEj.exit ]
-  %60 = getelementptr inbounds i8, ptr %2, i64 8
-  br label %61
+  %67 = phi ptr [ %64, %_ZN19VerilatedContextImp10fdToFpListEj.exit.thread18 ], [ %66, %_ZN19VerilatedContextImp10fdToFpListEj.exit ]
+  %68 = getelementptr inbounds i8, ptr %2, i64 8
+  br label %69
 
-61:                                               ; preds = %.lr.ph, %67
-  %.016 = phi ptr [ %4, %.lr.ph ], [ %68, %67 ]
-  %62 = load ptr, ptr %.016, align 8
-  %.not13 = icmp eq ptr %62, null
-  br i1 %.not13, label %67, label %63
+69:                                               ; preds = %.lr.ph, %75
+  %.016 = phi ptr [ %4, %.lr.ph ], [ %76, %75 ]
+  %70 = load ptr, ptr %.016, align 8
+  %.not13 = icmp eq ptr %70, null
+  br i1 %.not13, label %75, label %71
 
-63:                                               ; preds = %61
-  %64 = load ptr, ptr %2, align 8
-  %65 = load i64, ptr %60, align 8
-  %66 = call i64 @fwrite(ptr noundef %64, i64 noundef 1, i64 noundef %65, ptr noundef nonnull %62)
-  br label %67
+71:                                               ; preds = %69
+  %72 = load ptr, ptr %2, align 8
+  %73 = load i64, ptr %68, align 8
+  %74 = call i64 @fwrite(ptr noundef %72, i64 noundef 1, i64 noundef %73, ptr noundef nonnull %70)
+  br label %75
 
-67:                                               ; preds = %61, %63
-  %68 = getelementptr inbounds i8, ptr %.016, i64 8
-  %.not = icmp eq ptr %68, %59
-  br i1 %.not, label %._crit_edge, label %61
+75:                                               ; preds = %69, %71
+  %76 = getelementptr inbounds i8, ptr %.016, i64 8
+  %.not = icmp eq ptr %76, %67
+  br i1 %.not, label %._crit_edge, label %69
 
-._crit_edge:                                      ; preds = %67, %16, %_ZN19VerilatedContextImp10fdToFpListEj.exit
-  %69 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #23
+._crit_edge:                                      ; preds = %75, %24, %_ZN19VerilatedContextImp10fdToFpListEj.exit
+  %77 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #23
   ret void
 }
 
@@ -18048,19 +18083,19 @@ define dso_local noundef range(i32 0, 2) i32 @_Z20VL_VALUEPLUSARGS_INWiRKNSt7__c
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   %14 = load ptr, ptr %1, align 8
   %15 = load i8, ptr %14, align 1
-  %.not100 = icmp eq i8 %15, 0
-  br i1 %.not100, label %.critedge, label %.lr.ph
+  %.not99 = icmp eq i8 %15, 0
+  br i1 %.not99, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %52
   %16 = phi i8 [ %54, %52 ], [ %15, %3 ]
-  %.06383102 = phi ptr [ %53, %52 ], [ %14, %3 ]
-  %.05885101 = phi i1 [ %.1, %52 ], [ false, %3 ]
+  %.06383101 = phi ptr [ %53, %52 ], [ %14, %3 ]
+  %.05885100 = phi i1 [ %.1, %52 ], [ false, %3 ]
   %17 = icmp ne i8 %16, 37
-  %or.cond.not = or i1 %.05885101, %17
+  %or.cond.not = or i1 %.05885100, %17
   br i1 %or.cond.not, label %18, label %52
 
 18:                                               ; preds = %.lr.ph
-  br i1 %.05885101, label %32, label %19
+  br i1 %.05885100, label %32, label %19
 
 19:                                               ; preds = %18
   %20 = load i64, ptr %12, align 8
@@ -18091,6 +18126,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i: ; pr
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i, %.noexc
   %30 = phi ptr [ %.pre.i.i, %.noexc ], [ %22, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i ]
   %31 = getelementptr inbounds i8, ptr %30, i64 %20
+  store i8 %16, ptr %31, align 1
   br label %.sink.split
 
 .loopexit80:                                      ; preds = %29, %47
@@ -18142,12 +18178,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i71: ; 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit74: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i71, %.noexc73
   %48 = phi ptr [ %.pre.i.i72, %.noexc73 ], [ %40, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i71 ]
   %49 = getelementptr inbounds i8, ptr %48, i64 %38
+  store i8 %16, ptr %49, align 1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit74
-  %.sink99 = phi ptr [ %49, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit74 ], [ %31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit ]
   %.sink = phi i64 [ %39, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit74 ], [ %21, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit ]
-  store i8 %16, ptr %.sink99, align 1
   store i64 %.sink, ptr %12, align 8
   %50 = load ptr, ptr %5, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 %.sink
@@ -18156,7 +18191,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit74: ; preds = %_ZN
 
 52:                                               ; preds = %.sink.split, %.lr.ph, %32
   %.1 = phi i1 [ true, %32 ], [ true, %.lr.ph ], [ false, %.sink.split ]
-  %53 = getelementptr inbounds i8, ptr %.06383102, i64 1
+  %53 = getelementptr inbounds i8, ptr %.06383101, i64 1
   %54 = load i8, ptr %53, align 1
   %.not = icmp eq i8 %54, 0
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !131
@@ -18453,20 +18488,20 @@ define dso_local noundef range(i32 0, 2) i32 @_Z20VL_VALUEPLUSARGS_INNiRKNSt7__c
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   %12 = load ptr, ptr %1, align 8
   %13 = load i8, ptr %12, align 1
-  %.not46 = icmp eq i8 %13, 0
-  br i1 %.not46, label %.critedge, label %.lr.ph
+  %.not45 = icmp eq i8 %13, 0
+  br i1 %.not45, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %48
   %14 = phi i8 [ %50, %48 ], [ %13, %3 ]
-  %.01639.not48 = phi i1 [ %or.cond.not.not.not, %48 ], [ true, %3 ]
-  %.0193847 = phi ptr [ %49, %48 ], [ %12, %3 ]
-  %.01639.not48.not = xor i1 %.01639.not48, true
+  %.01639.not47 = phi i1 [ %or.cond.not.not.not, %48 ], [ true, %3 ]
+  %.0193846 = phi ptr [ %49, %48 ], [ %12, %3 ]
+  %.01639.not47.not = xor i1 %.01639.not47, true
   %15 = icmp ne i8 %14, 37
-  %or.cond.not.not.not = or i1 %15, %.01639.not48.not
+  %or.cond.not.not.not = or i1 %15, %.01639.not47.not
   br i1 %or.cond.not.not.not, label %16, label %48
 
 16:                                               ; preds = %.lr.ph
-  br i1 %.01639.not48, label %17, label %30
+  br i1 %.01639.not47, label %17, label %30
 
 17:                                               ; preds = %16
   %18 = load i64, ptr %10, align 8
@@ -18497,6 +18532,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i: ; pr
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i, %.noexc
   %28 = phi ptr [ %.pre.i.i, %.noexc ], [ %20, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i ]
   %29 = getelementptr inbounds i8, ptr %28, i64 %18
+  store i8 %14, ptr %29, align 1
   br label %.sink.split
 
 .loopexit:                                        ; preds = %27, %43
@@ -18544,12 +18580,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i25: ; 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit28: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i25, %.noexc27
   %44 = phi ptr [ %.pre.i.i26, %.noexc27 ], [ %36, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i25 ]
   %45 = getelementptr inbounds i8, ptr %44, i64 %34
+  store i8 %14, ptr %45, align 1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit28
-  %.sink44 = phi ptr [ %45, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit28 ], [ %29, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit ]
   %.sink = phi i64 [ %35, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit28 ], [ %19, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit ]
-  store i8 %14, ptr %.sink44, align 1
   store i64 %.sink, ptr %10, align 8
   %46 = load ptr, ptr %5, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 %.sink
@@ -18557,7 +18592,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit28: ; preds = %_ZN
   br label %48
 
 48:                                               ; preds = %.sink.split, %.lr.ph
-  %49 = getelementptr inbounds i8, ptr %.0193847, i64 1
+  %49 = getelementptr inbounds i8, ptr %.0193846, i64 1
   %50 = load i8, ptr %49, align 1
   %.not = icmp eq i8 %50, 0
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !133
@@ -29794,8 +29829,8 @@ define dso_local noundef ptr @_ZNK17VerilatedVarProps16datapAdjustIndexEPvii(ptr
   br i1 %.not, label %_ZNK17VerilatedVarProps3lowEi.exit, label %_ZNK17VerilatedVarProps3lowEi.exit.thread
 
 _ZNK17VerilatedVarProps3lowEi.exit:               ; preds = %10
-  %.not48 = icmp eq i32 %3, 0
-  br i1 %.not48, label %_ZNK17VerilatedVarProps3lowEi.exit37, label %.critedge
+  %.not41 = icmp eq i32 %3, 0
+  br i1 %.not41, label %_ZNK17VerilatedVarProps3lowEi.exit31, label %.critedge
 
 _ZNK17VerilatedVarProps3lowEi.exit.thread:        ; preds = %10
   %11 = getelementptr inbounds i8, ptr %0, i64 32
@@ -29803,238 +29838,234 @@ _ZNK17VerilatedVarProps3lowEi.exit.thread:        ; preds = %10
   %13 = zext nneg i32 %2 to i64
   %14 = getelementptr %class.VerilatedRange, ptr %12, i64 %13
   %15 = getelementptr i8, ptr %14, i64 -8
-  %16 = getelementptr i8, ptr %14, i64 -4
-  %.sink.i = load i32, ptr %15, align 4
-  %17 = load i32, ptr %16, align 4
-  %..i4.i = tail call noundef i32 @llvm.smin.i32(i32 %.sink.i, i32 %17)
-  %18 = icmp slt i32 %3, %..i4.i
-  br i1 %18, label %.critedge, label %_ZNK17VerilatedVarProps4highEi.exit.thread
+  %16 = load i32, ptr %15, align 4
+  %17 = getelementptr i8, ptr %14, i64 -4
+  %18 = load i32, ptr %17, align 4
+  %..i4.i = tail call noundef i32 @llvm.smin.i32(i32 %16, i32 %18)
+  %19 = icmp slt i32 %3, %..i4.i
+  br i1 %19, label %.critedge, label %_ZNK17VerilatedVarProps4highEi.exit.thread
 
 _ZNK17VerilatedVarProps4highEi.exit.thread:       ; preds = %_ZNK17VerilatedVarProps3lowEi.exit.thread
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
-  %20 = load ptr, ptr %19, align 8
-  %21 = zext nneg i32 %2 to i64
-  %22 = getelementptr %class.VerilatedRange, ptr %20, i64 %21
-  %23 = getelementptr i8, ptr %22, i64 -8
-  %24 = getelementptr i8, ptr %22, i64 -4
-  %.sink.i29 = load i32, ptr %23, align 4
+  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = load ptr, ptr %20, align 8
+  %22 = zext nneg i32 %2 to i64
+  %23 = getelementptr %class.VerilatedRange, ptr %21, i64 %22
+  %24 = getelementptr i8, ptr %23, i64 -8
   %25 = load i32, ptr %24, align 4
-  %..i4.i30 = tail call noundef i32 @llvm.smax.i32(i32 %.sink.i29, i32 %25)
-  %26 = icmp sgt i32 %3, %..i4.i30
-  br i1 %26, label %.critedge, label %.critedge.sink.split.i32
+  %26 = getelementptr i8, ptr %23, i64 -4
+  %27 = load i32, ptr %26, align 4
+  %..i4.i26 = tail call noundef i32 @llvm.smax.i32(i32 %25, i32 %27)
+  %28 = icmp sgt i32 %3, %..i4.i26
+  br i1 %28, label %.critedge, label %29
 
-.critedge.sink.split.i32:                         ; preds = %_ZNK17VerilatedVarProps4highEi.exit.thread
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
-  %28 = load ptr, ptr %27, align 8
-  %29 = zext nneg i32 %2 to i64
-  %30 = getelementptr %class.VerilatedRange, ptr %28, i64 %29
-  %31 = getelementptr i8, ptr %30, i64 -8
-  %32 = getelementptr i8, ptr %30, i64 -4
-  %.sink.i35 = load i32, ptr %31, align 4
-  %33 = load i32, ptr %32, align 4
-  %..i4.i36 = tail call noundef i32 @llvm.smin.i32(i32 %.sink.i35, i32 %33)
-  br label %_ZNK17VerilatedVarProps3lowEi.exit37
+29:                                               ; preds = %_ZNK17VerilatedVarProps4highEi.exit.thread
+  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %31 = load ptr, ptr %30, align 8
+  %32 = zext nneg i32 %2 to i64
+  %33 = getelementptr %class.VerilatedRange, ptr %31, i64 %32
+  %34 = getelementptr i8, ptr %33, i64 -8
+  %35 = load i32, ptr %34, align 4
+  %36 = getelementptr i8, ptr %33, i64 -4
+  %37 = load i32, ptr %36, align 4
+  %..i4.i29 = tail call noundef i32 @llvm.smin.i32(i32 %35, i32 %37)
+  br label %_ZNK17VerilatedVarProps3lowEi.exit31
 
-_ZNK17VerilatedVarProps3lowEi.exit37:             ; preds = %_ZNK17VerilatedVarProps3lowEi.exit, %.critedge.sink.split.i32
-  %34 = phi i32 [ %..i4.i36, %.critedge.sink.split.i32 ], [ 0, %_ZNK17VerilatedVarProps3lowEi.exit ]
-  %35 = sub nsw i32 %3, %34
-  %36 = getelementptr inbounds i8, ptr %0, i64 4
-  %37 = load i8, ptr %36, align 4
-  switch i8 %37, label %51 [
+_ZNK17VerilatedVarProps3lowEi.exit31:             ; preds = %_ZNK17VerilatedVarProps3lowEi.exit, %29
+  %38 = phi i32 [ %..i4.i29, %29 ], [ 0, %_ZNK17VerilatedVarProps3lowEi.exit ]
+  %39 = sub nsw i32 %3, %38
+  %40 = getelementptr inbounds i8, ptr %0, i64 4
+  %41 = load i8, ptr %40, align 4
+  switch i8 %41, label %55 [
     i8 1, label %_ZNK17VerilatedVarProps7entSizeEv.exit
-    i8 2, label %38
-    i8 3, label %39
-    i8 4, label %40
+    i8 2, label %42
+    i8 3, label %43
+    i8 4, label %44
     i8 5, label %_ZNK17VerilatedVarProps7entSizeEv.exit
-    i8 6, label %41
+    i8 6, label %45
   ]
 
-38:                                               ; preds = %_ZNK17VerilatedVarProps3lowEi.exit37
+42:                                               ; preds = %_ZNK17VerilatedVarProps3lowEi.exit31
   br label %_ZNK17VerilatedVarProps7entSizeEv.exit
 
-39:                                               ; preds = %_ZNK17VerilatedVarProps3lowEi.exit37
+43:                                               ; preds = %_ZNK17VerilatedVarProps3lowEi.exit31
   br label %_ZNK17VerilatedVarProps7entSizeEv.exit
 
-40:                                               ; preds = %_ZNK17VerilatedVarProps3lowEi.exit37
+44:                                               ; preds = %_ZNK17VerilatedVarProps3lowEi.exit31
   br label %_ZNK17VerilatedVarProps7entSizeEv.exit
 
-41:                                               ; preds = %_ZNK17VerilatedVarProps3lowEi.exit37
-  %42 = getelementptr inbounds i8, ptr %0, i64 20
-  %43 = load i32, ptr %42, align 4
-  %44 = getelementptr inbounds i8, ptr %0, i64 24
-  %45 = load i32, ptr %44, align 8
-  %46 = sub nsw i32 %43, %45
-  %.in.i.i = tail call i32 @llvm.abs.i32(i32 %46, i1 true)
-  %47 = add nuw nsw i32 %.in.i.i, 32
-  %48 = lshr i32 %47, 3
-  %49 = and i32 %48, 268435452
-  %50 = zext nneg i32 %49 to i64
+45:                                               ; preds = %_ZNK17VerilatedVarProps3lowEi.exit31
+  %46 = getelementptr inbounds i8, ptr %0, i64 20
+  %47 = load i32, ptr %46, align 4
+  %48 = getelementptr inbounds i8, ptr %0, i64 24
+  %49 = load i32, ptr %48, align 8
+  %50 = sub nsw i32 %47, %49
+  %.in.i.i = tail call i32 @llvm.abs.i32(i32 %50, i1 true)
+  %51 = add nuw nsw i32 %.in.i.i, 32
+  %52 = lshr i32 %51, 3
+  %53 = and i32 %52, 268435452
+  %54 = zext nneg i32 %53 to i64
   br label %_ZNK17VerilatedVarProps7entSizeEv.exit
 
-51:                                               ; preds = %_ZNK17VerilatedVarProps3lowEi.exit37
+55:                                               ; preds = %_ZNK17VerilatedVarProps3lowEi.exit31
   br label %_ZNK17VerilatedVarProps7entSizeEv.exit
 
-_ZNK17VerilatedVarProps7entSizeEv.exit:           ; preds = %_ZNK17VerilatedVarProps3lowEi.exit37, %_ZNK17VerilatedVarProps3lowEi.exit37, %38, %39, %40, %41, %51
-  %.0.i = phi i64 [ 0, %51 ], [ %50, %41 ], [ 4, %40 ], [ 2, %39 ], [ 1, %38 ], [ 8, %_ZNK17VerilatedVarProps3lowEi.exit37 ], [ 8, %_ZNK17VerilatedVarProps3lowEi.exit37 ]
-  %.not.not43 = icmp ult i32 %2, %8
-  br i1 %.not.not43, label %.critedge.sink.split.i39.lr.ph, label %._crit_edge
+_ZNK17VerilatedVarProps7entSizeEv.exit:           ; preds = %_ZNK17VerilatedVarProps3lowEi.exit31, %_ZNK17VerilatedVarProps3lowEi.exit31, %42, %43, %44, %45, %55
+  %.0.i = phi i64 [ 0, %55 ], [ %54, %45 ], [ 4, %44 ], [ 2, %43 ], [ 1, %42 ], [ 8, %_ZNK17VerilatedVarProps3lowEi.exit31 ], [ 8, %_ZNK17VerilatedVarProps3lowEi.exit31 ]
+  %.not.not36 = icmp ult i32 %2, %8
+  br i1 %.not.not36, label %_ZNK17VerilatedVarProps8elementsEi.exit.lr.ph, label %._crit_edge
 
-.critedge.sink.split.i39.lr.ph:                   ; preds = %_ZNK17VerilatedVarProps7entSizeEv.exit
-  %52 = getelementptr inbounds i8, ptr %0, i64 32
-  %53 = load ptr, ptr %52, align 8
-  %54 = zext nneg i32 %2 to i64
-  br label %.critedge.sink.split.i39
+_ZNK17VerilatedVarProps8elementsEi.exit.lr.ph:    ; preds = %_ZNK17VerilatedVarProps7entSizeEv.exit
+  %56 = getelementptr inbounds i8, ptr %0, i64 32
+  %57 = load ptr, ptr %56, align 8
+  %58 = zext nneg i32 %2 to i64
+  br label %_ZNK17VerilatedVarProps8elementsEi.exit
 
-.critedge.sink.split.i39:                         ; preds = %.critedge.sink.split.i39.lr.ph, %.critedge.sink.split.i39
-  %indvars.iv = phi i64 [ %54, %.critedge.sink.split.i39.lr.ph ], [ %indvars.iv.next, %.critedge.sink.split.i39 ]
-  %.01944 = phi i64 [ %.0.i, %.critedge.sink.split.i39.lr.ph ], [ %62, %.critedge.sink.split.i39 ]
+_ZNK17VerilatedVarProps8elementsEi.exit:          ; preds = %_ZNK17VerilatedVarProps8elementsEi.exit.lr.ph, %_ZNK17VerilatedVarProps8elementsEi.exit
+  %indvars.iv = phi i64 [ %58, %_ZNK17VerilatedVarProps8elementsEi.exit.lr.ph ], [ %indvars.iv.next, %_ZNK17VerilatedVarProps8elementsEi.exit ]
+  %.01937 = phi i64 [ %.0.i, %_ZNK17VerilatedVarProps8elementsEi.exit.lr.ph ], [ %67, %_ZNK17VerilatedVarProps8elementsEi.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %55 = getelementptr %class.VerilatedRange, ptr %53, i64 %indvars.iv.next
-  %56 = getelementptr i8, ptr %55, i64 -8
-  %57 = getelementptr i8, ptr %55, i64 -4
-  %.sink7.i = load i32, ptr %56, align 4
-  %58 = load i32, ptr %57, align 4
-  %59 = sub nsw i32 %.sink7.i, %58
-  %.in.i4.i = tail call i32 @llvm.abs.i32(i32 %59, i1 true)
-  %60 = add nuw nsw i32 %.in.i4.i, 1
-  %61 = zext nneg i32 %60 to i64
-  %62 = mul i64 %.01944, %61
-  %63 = trunc nuw i64 %indvars.iv.next to i32
-  %.not.not = icmp sgt i32 %8, %63
-  br i1 %.not.not, label %.critedge.sink.split.i39, label %._crit_edge, !llvm.loop !183
+  %59 = getelementptr %class.VerilatedRange, ptr %57, i64 %indvars.iv.next
+  %60 = getelementptr i8, ptr %59, i64 -8
+  %61 = load i32, ptr %60, align 4
+  %62 = getelementptr i8, ptr %59, i64 -4
+  %63 = load i32, ptr %62, align 4
+  %64 = sub nsw i32 %61, %63
+  %.in.i4.i = tail call i32 @llvm.abs.i32(i32 %64, i1 true)
+  %65 = add nuw nsw i32 %.in.i4.i, 1
+  %66 = zext nneg i32 %65 to i64
+  %67 = mul i64 %.01937, %66
+  %68 = trunc nuw i64 %indvars.iv.next to i32
+  %.not.not = icmp sgt i32 %8, %68
+  br i1 %.not.not, label %_ZNK17VerilatedVarProps8elementsEi.exit, label %._crit_edge, !llvm.loop !183
 
-._crit_edge:                                      ; preds = %.critedge.sink.split.i39, %_ZNK17VerilatedVarProps7entSizeEv.exit
-  %.019.lcssa = phi i64 [ %.0.i, %_ZNK17VerilatedVarProps7entSizeEv.exit ], [ %62, %.critedge.sink.split.i39 ]
-  %64 = sext i32 %35 to i64
-  %65 = mul i64 %.019.lcssa, %64
-  %66 = getelementptr inbounds i8, ptr %1, i64 %65
+._crit_edge:                                      ; preds = %_ZNK17VerilatedVarProps8elementsEi.exit, %_ZNK17VerilatedVarProps7entSizeEv.exit
+  %.019.lcssa = phi i64 [ %.0.i, %_ZNK17VerilatedVarProps7entSizeEv.exit ], [ %67, %_ZNK17VerilatedVarProps8elementsEi.exit ]
+  %69 = sext i32 %39 to i64
+  %70 = mul i64 %.019.lcssa, %69
+  %71 = getelementptr inbounds i8, ptr %1, i64 %70
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNK17VerilatedVarProps4highEi.exit.thread, %_ZNK17VerilatedVarProps3lowEi.exit.thread, %_ZNK17VerilatedVarProps3lowEi.exit, %4, %6, %._crit_edge
-  %.020 = phi ptr [ %66, %._crit_edge ], [ null, %6 ], [ null, %4 ], [ null, %_ZNK17VerilatedVarProps3lowEi.exit ], [ null, %_ZNK17VerilatedVarProps3lowEi.exit.thread ], [ null, %_ZNK17VerilatedVarProps4highEi.exit.thread ]
+  %.020 = phi ptr [ %71, %._crit_edge ], [ null, %6 ], [ null, %4 ], [ null, %_ZNK17VerilatedVarProps3lowEi.exit ], [ null, %_ZNK17VerilatedVarProps3lowEi.exit.thread ], [ null, %_ZNK17VerilatedVarProps4highEi.exit.thread ]
   ret ptr %.020
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZNK17VerilatedVarProps3lowEi(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1) #0 comdat align 2 {
   %3 = icmp eq i32 %1, 0
-  br i1 %3, label %4, label %7
+  br i1 %3, label %4, label %9
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 20
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  br label %.critedge.sink.split
-
-7:                                                ; preds = %2
-  %8 = icmp sgt i32 %1, 0
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = load i32, ptr %9, align 8
-  %11 = icmp sle i32 %1, %10
-  %or.cond = select i1 %8, i1 %11, i1 false
-  br i1 %or.cond, label %12, label %.critedge
-
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
-  %14 = load ptr, ptr %13, align 8
-  %15 = zext nneg i32 %1 to i64
-  %16 = getelementptr %class.VerilatedRange, ptr %14, i64 %15
-  %17 = getelementptr i8, ptr %16, i64 -8
-  %18 = getelementptr i8, ptr %16, i64 -4
-  br label %.critedge.sink.split
-
-.critedge.sink.split:                             ; preds = %4, %12
-  %.sink8 = phi ptr [ %18, %12 ], [ %6, %4 ]
-  %.sink.in = phi ptr [ %17, %12 ], [ %5, %4 ]
-  %.sink = load i32, ptr %.sink.in, align 4
-  %19 = load i32, ptr %.sink8, align 4
-  %..i4 = tail call noundef i32 @llvm.smin.i32(i32 %.sink, i32 %19)
+  %6 = load i32, ptr %5, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = load i32, ptr %7, align 8
+  %..i = tail call noundef i32 @llvm.smin.i32(i32 %6, i32 %8)
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.sink.split, %7
-  %20 = phi i32 [ 0, %7 ], [ %..i4, %.critedge.sink.split ]
-  ret i32 %20
+9:                                                ; preds = %2
+  %10 = icmp sgt i32 %1, 0
+  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = load i32, ptr %11, align 8
+  %13 = icmp sle i32 %1, %12
+  %or.cond = select i1 %10, i1 %13, i1 false
+  br i1 %or.cond, label %14, label %.critedge
+
+14:                                               ; preds = %9
+  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = load ptr, ptr %15, align 8
+  %17 = zext nneg i32 %1 to i64
+  %18 = getelementptr %class.VerilatedRange, ptr %16, i64 %17
+  %19 = getelementptr i8, ptr %18, i64 -8
+  %20 = load i32, ptr %19, align 4
+  %21 = getelementptr i8, ptr %18, i64 -4
+  %22 = load i32, ptr %21, align 4
+  %..i4 = tail call noundef i32 @llvm.smin.i32(i32 %20, i32 %22)
+  br label %.critedge
+
+.critedge:                                        ; preds = %9, %14, %4
+  %23 = phi i32 [ %..i, %4 ], [ %..i4, %14 ], [ 0, %9 ]
+  ret i32 %23
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZNK17VerilatedVarProps4highEi(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1) #0 comdat align 2 {
   %3 = icmp eq i32 %1, 0
-  br i1 %3, label %4, label %7
+  br i1 %3, label %4, label %9
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 20
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  br label %.critedge.sink.split
-
-7:                                                ; preds = %2
-  %8 = icmp sgt i32 %1, 0
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = load i32, ptr %9, align 8
-  %11 = icmp sle i32 %1, %10
-  %or.cond = select i1 %8, i1 %11, i1 false
-  br i1 %or.cond, label %12, label %.critedge
-
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
-  %14 = load ptr, ptr %13, align 8
-  %15 = zext nneg i32 %1 to i64
-  %16 = getelementptr %class.VerilatedRange, ptr %14, i64 %15
-  %17 = getelementptr i8, ptr %16, i64 -8
-  %18 = getelementptr i8, ptr %16, i64 -4
-  br label %.critedge.sink.split
-
-.critedge.sink.split:                             ; preds = %4, %12
-  %.sink8 = phi ptr [ %18, %12 ], [ %6, %4 ]
-  %.sink.in = phi ptr [ %17, %12 ], [ %5, %4 ]
-  %.sink = load i32, ptr %.sink.in, align 4
-  %19 = load i32, ptr %.sink8, align 4
-  %..i4 = tail call noundef i32 @llvm.smax.i32(i32 %.sink, i32 %19)
+  %6 = load i32, ptr %5, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = load i32, ptr %7, align 8
+  %..i = tail call noundef i32 @llvm.smax.i32(i32 %6, i32 %8)
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.sink.split, %7
-  %20 = phi i32 [ 0, %7 ], [ %..i4, %.critedge.sink.split ]
-  ret i32 %20
+9:                                                ; preds = %2
+  %10 = icmp sgt i32 %1, 0
+  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = load i32, ptr %11, align 8
+  %13 = icmp sle i32 %1, %12
+  %or.cond = select i1 %10, i1 %13, i1 false
+  br i1 %or.cond, label %14, label %.critedge
+
+14:                                               ; preds = %9
+  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = load ptr, ptr %15, align 8
+  %17 = zext nneg i32 %1 to i64
+  %18 = getelementptr %class.VerilatedRange, ptr %16, i64 %17
+  %19 = getelementptr i8, ptr %18, i64 -8
+  %20 = load i32, ptr %19, align 4
+  %21 = getelementptr i8, ptr %18, i64 -4
+  %22 = load i32, ptr %21, align 4
+  %..i4 = tail call noundef i32 @llvm.smax.i32(i32 %20, i32 %22)
+  br label %.critedge
+
+.critedge:                                        ; preds = %9, %14, %4
+  %23 = phi i32 [ %..i, %4 ], [ %..i4, %14 ], [ 0, %9 ]
+  ret i32 %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i32 @_ZNK17VerilatedVarProps8elementsEi(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1) #2 comdat align 2 {
   %3 = icmp eq i32 %1, 0
-  br i1 %3, label %4, label %7
+  br i1 %3, label %4, label %11
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 20
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  br label %.critedge.sink.split
-
-7:                                                ; preds = %2
-  %8 = icmp sgt i32 %1, 0
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = load i32, ptr %9, align 8
-  %11 = icmp sle i32 %1, %10
-  %or.cond = select i1 %8, i1 %11, i1 false
-  br i1 %or.cond, label %12, label %.critedge
-
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
-  %14 = load ptr, ptr %13, align 8
-  %15 = zext nneg i32 %1 to i64
-  %16 = getelementptr %class.VerilatedRange, ptr %14, i64 %15
-  %17 = getelementptr i8, ptr %16, i64 -8
-  %18 = getelementptr i8, ptr %16, i64 -4
-  br label %.critedge.sink.split
-
-.critedge.sink.split:                             ; preds = %4, %12
-  %.sink = phi ptr [ %18, %12 ], [ %6, %4 ]
-  %.sink7.in = phi ptr [ %17, %12 ], [ %5, %4 ]
-  %.sink7 = load i32, ptr %.sink7.in, align 4
-  %19 = load i32, ptr %.sink, align 4
-  %20 = sub nsw i32 %.sink7, %19
-  %.in.i4 = tail call i32 @llvm.abs.i32(i32 %20, i1 true)
-  %21 = add nuw nsw i32 %.in.i4, 1
+  %6 = load i32, ptr %5, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = load i32, ptr %7, align 8
+  %9 = sub nsw i32 %6, %8
+  %.in.i = tail call i32 @llvm.abs.i32(i32 %9, i1 true)
+  %10 = add nuw nsw i32 %.in.i, 1
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.sink.split, %7
-  %22 = phi i32 [ 0, %7 ], [ %21, %.critedge.sink.split ]
-  ret i32 %22
+11:                                               ; preds = %2
+  %12 = icmp sgt i32 %1, 0
+  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = load i32, ptr %13, align 8
+  %15 = icmp sle i32 %1, %14
+  %or.cond = select i1 %12, i1 %15, i1 false
+  br i1 %or.cond, label %16, label %.critedge
+
+16:                                               ; preds = %11
+  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = load ptr, ptr %17, align 8
+  %19 = zext nneg i32 %1 to i64
+  %20 = getelementptr %class.VerilatedRange, ptr %18, i64 %19
+  %21 = getelementptr i8, ptr %20, i64 -8
+  %22 = load i32, ptr %21, align 4
+  %23 = getelementptr i8, ptr %20, i64 -4
+  %24 = load i32, ptr %23, align 4
+  %25 = sub nsw i32 %22, %24
+  %.in.i4 = tail call i32 @llvm.abs.i32(i32 %25, i1 true)
+  %26 = add nuw nsw i32 %.in.i4, 1
+  br label %.critedge
+
+.critedge:                                        ; preds = %11, %16, %4
+  %27 = phi i32 [ %10, %4 ], [ %26, %16 ], [ 0, %11 ]
+  ret i32 %27
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -33686,100 +33717,115 @@ declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #20
 define linkonce_odr dso_local void @_ZN19VerilatedContextImp10fdToFpListEj(ptr dead_on_unwind noalias writable sret(%class.VerilatedFpList) align 8 %0, ptr noundef nonnull align 8 dereferenceable(608) %1, i32 noundef %2) #0 comdat align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %0, i8 0, i64 256, i1 false)
   %.not = icmp sgt i32 %2, -1
-  br i1 %.not, label %23, label %4
+  br i1 %.not, label %33, label %4
 
 4:                                                ; preds = %3
   %5 = and i32 %2, 2147483647
-  %6 = icmp ult i32 %5, 3
-  br i1 %6, label %switch.lookup, label %7
+  switch i32 %5, label %15 [
+    i32 0, label %6
+    i32 1, label %9
+    i32 2, label %12
+  ]
 
-7:                                                ; preds = %4
-  %8 = zext nneg i32 %5 to i64
-  %9 = getelementptr inbounds i8, ptr %1, i64 528
-  %10 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %9, ptr nonnull @.str.64, ptr nonnull @.str.65, i32 430, ptr null)
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
-  %12 = load ptr, ptr %11, align 8
-  %13 = load ptr, ptr %10, align 8
-  %14 = ptrtoint ptr %12 to i64
-  %15 = ptrtoint ptr %13 to i64
-  %16 = sub i64 %14, %15
-  %17 = ashr exact i64 %16, 3
-  %18 = icmp ugt i64 %17, %8
-  br i1 %18, label %19, label %.critedge
-
-19:                                               ; preds = %7
-  %20 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %9, ptr nonnull @.str.64, ptr nonnull @.str.65, i32 430, ptr null)
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds ptr, ptr %21, i64 %8
+6:                                                ; preds = %4
+  %7 = getelementptr inbounds i8, ptr %0, i64 248
+  %8 = load ptr, ptr @stdin, align 8
+  store i64 1, ptr %7, align 8
   br label %.critedge.sink.split
 
-23:                                               ; preds = %3
-  %24 = and i32 %2, 1
-  %.not15 = icmp eq i32 %24, 0
-  br i1 %.not15, label %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21, label %25
+9:                                                ; preds = %4
+  %10 = getelementptr inbounds i8, ptr %0, i64 248
+  %11 = load ptr, ptr @stdout, align 8
+  store i64 1, ptr %10, align 8
+  br label %.critedge.sink.split
 
-25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %0, i64 248
-  %27 = load ptr, ptr @stdout, align 8
-  store i64 1, ptr %26, align 8
-  store ptr %27, ptr %0, align 8
+12:                                               ; preds = %4
+  %13 = getelementptr inbounds i8, ptr %0, i64 248
+  %14 = load ptr, ptr @stderr, align 8
+  store i64 1, ptr %13, align 8
+  br label %.critedge.sink.split
+
+15:                                               ; preds = %4
+  %16 = zext nneg i32 %5 to i64
+  %17 = getelementptr inbounds i8, ptr %1, i64 528
+  %18 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %17, ptr nonnull @.str.64, ptr nonnull @.str.65, i32 430, ptr null)
+  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %20 = load ptr, ptr %19, align 8
+  %21 = load ptr, ptr %18, align 8
+  %22 = ptrtoint ptr %20 to i64
+  %23 = ptrtoint ptr %21 to i64
+  %24 = sub i64 %22, %23
+  %25 = ashr exact i64 %24, 3
+  %26 = icmp ugt i64 %25, %16
+  br i1 %26, label %27, label %.critedge
+
+27:                                               ; preds = %15
+  %28 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %17, ptr nonnull @.str.64, ptr nonnull @.str.65, i32 430, ptr null)
+  %29 = getelementptr inbounds i8, ptr %0, i64 248
+  %30 = load ptr, ptr %28, align 8
+  %31 = getelementptr inbounds ptr, ptr %30, i64 %16
+  %32 = load ptr, ptr %31, align 8
+  store i64 1, ptr %29, align 8
+  br label %.critedge.sink.split
+
+33:                                               ; preds = %3
+  %34 = and i32 %2, 1
+  %.not15 = icmp eq i32 %34, 0
+  br i1 %.not15, label %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21, label %35
+
+35:                                               ; preds = %33
+  %36 = getelementptr inbounds i8, ptr %0, i64 248
+  %37 = load ptr, ptr @stdout, align 8
+  store i64 1, ptr %36, align 8
+  store ptr %37, ptr %0, align 8
   br label %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21
 
-_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21: ; preds = %25, %23
+_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21: ; preds = %35, %33
   %.not1624 = icmp ugt i32 %2, 1
   br i1 %.not1624, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21
-  %28 = getelementptr inbounds i8, ptr %1, i64 528
-  %29 = getelementptr inbounds i8, ptr %0, i64 248
-  br label %30
+  %38 = getelementptr inbounds i8, ptr %1, i64 528
+  %39 = getelementptr inbounds i8, ptr %0, i64 248
+  br label %40
 
-30:                                               ; preds = %.lr.ph, %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22
-  %.026 = phi i64 [ 1, %.lr.ph ], [ %42, %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22 ]
+40:                                               ; preds = %.lr.ph, %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22
+  %.026 = phi i64 [ 1, %.lr.ph ], [ %52, %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22 ]
   %.013.in25 = phi i32 [ %2, %.lr.ph ], [ %.01327, %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22 ]
   %.01327 = lshr i32 %.013.in25, 1
-  %31 = and i32 %.013.in25, 2
-  %.not17 = icmp eq i32 %31, 0
-  br i1 %.not17, label %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22, label %32
+  %41 = and i32 %.013.in25, 2
+  %.not17 = icmp eq i32 %41, 0
+  br i1 %.not17, label %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22, label %42
 
-32:                                               ; preds = %30
-  %33 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %28, ptr nonnull @.str.64, ptr nonnull @.str.65, i32 430, ptr null)
-  %34 = load i64, ptr %29, align 8
-  %35 = icmp ult i64 %34, 31
-  br i1 %35, label %36, label %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22
+42:                                               ; preds = %40
+  %43 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %38, ptr nonnull @.str.64, ptr nonnull @.str.65, i32 430, ptr null)
+  %44 = load i64, ptr %39, align 8
+  %45 = icmp ult i64 %44, 31
+  br i1 %45, label %46, label %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22
 
-36:                                               ; preds = %32
-  %37 = load ptr, ptr %33, align 8
-  %38 = getelementptr inbounds ptr, ptr %37, i64 %.026
-  %39 = load ptr, ptr %38, align 8
-  %40 = add nuw nsw i64 %34, 1
-  store i64 %40, ptr %29, align 8
-  %41 = getelementptr inbounds [31 x ptr], ptr %0, i64 0, i64 %34
-  store ptr %39, ptr %41, align 8
+46:                                               ; preds = %42
+  %47 = load ptr, ptr %43, align 8
+  %48 = getelementptr inbounds ptr, ptr %47, i64 %.026
+  %49 = load ptr, ptr %48, align 8
+  %50 = add nuw nsw i64 %44, 1
+  store i64 %50, ptr %39, align 8
+  %51 = getelementptr inbounds [31 x ptr], ptr %0, i64 0, i64 %44
+  store ptr %49, ptr %51, align 8
   br label %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22
 
-_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22: ; preds = %36, %32, %30
-  %42 = add nuw nsw i64 %.026, 1
+_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22: ; preds = %46, %42, %40
+  %52 = add nuw nsw i64 %.026, 1
   %.not16 = icmp ugt i32 %.013.in25, 3
-  %43 = icmp ult i64 %.026, 30
-  %or.cond = select i1 %.not16, i1 %43, i1 false
-  br i1 %or.cond, label %30, label %.critedge, !llvm.loop !107
+  %53 = icmp ult i64 %.026, 30
+  %or.cond = select i1 %.not16, i1 %53, i1 false
+  br i1 %or.cond, label %40, label %.critedge, !llvm.loop !107
 
-switch.lookup:                                    ; preds = %4
-  %44 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN19VerilatedContextImp10fdToFpListEj, i64 0, i64 %44
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %.critedge.sink.split
-
-.critedge.sink.split:                             ; preds = %switch.lookup, %19
-  %.sink32 = phi ptr [ %22, %19 ], [ %switch.load, %switch.lookup ]
-  %.sink31 = getelementptr inbounds i8, ptr %0, i64 248
-  %45 = load ptr, ptr %.sink32, align 8
-  store i64 1, ptr %.sink31, align 8
-  store ptr %45, ptr %0, align 8
+.critedge.sink.split:                             ; preds = %6, %9, %12, %27
+  %.sink = phi ptr [ %32, %27 ], [ %14, %12 ], [ %11, %9 ], [ %8, %6 ]
+  store ptr %.sink, ptr %0, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22, %.critedge.sink.split, %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21, %7
+.critedge:                                        ; preds = %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22, %.critedge.sink.split, %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21, %15
   ret void
 }
 
@@ -33867,7 +33913,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
 .split:                                           ; preds = %30
   %31 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %31, align 8
-  br label %.sink.split
+  store i8 0, ptr %6, align 1
+  br label %40
 
 .split12:                                         ; preds = %.thread, %30
   %32 = phi ptr [ %25, %.thread ], [ %6, %30 ]
@@ -33889,14 +33936,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit: ; pre
   store i64 %5, ptr %37, align 8
   %38 = load ptr, ptr %0, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 %5
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %.split, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit
-  %.sink = phi ptr [ %39, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit ], [ %6, %.split ]
-  store i8 0, ptr %.sink, align 1
+  store i8 0, ptr %39, align 1
   br label %40
 
-40:                                               ; preds = %.sink.split, %2
+40:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit, %.split, %2
   ret void
 }
 
@@ -35603,22 +35646,18 @@ _ZNSt10_HashtableIPK14VerilatedScopeSt4pairIKS2_St6vectorIS2_SaIS2_EEESaIS8_ENSt
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
-  br label %.sink.split
+  store ptr %.031, ptr %27, align 8
+  br label %31
 
 28:                                               ; preds = %.lr.ph
   %29 = load ptr, ptr %22, align 8
   store ptr %29, ptr %.031, align 8
   %30 = load ptr, ptr %21, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %28, %26
-  %.sink = phi ptr [ %27, %26 ], [ %30, %28 ]
-  %.1.ph = phi i64 [ %20, %26 ], [ %.02530, %28 ]
-  store ptr %.031, ptr %.sink, align 8
+  store ptr %.031, ptr %30, align 8
   br label %31
 
-31:                                               ; preds = %.sink.split, %23
-  %.1 = phi i64 [ %20, %23 ], [ %.1.ph, %.sink.split ]
+31:                                               ; preds = %23, %26, %28
+  %.1 = phi i64 [ %.02530, %28 ], [ %20, %26 ], [ %20, %23 ]
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !253
 

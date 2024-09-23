@@ -10132,9 +10132,9 @@ if.else46.i:                                      ; preds = %if.else29.i
   br label %if.end52.i.sink.split
 
 if.end52.i.sink.split:                            ; preds = %if.then36.i, %if.else40.i, %if.else46.i
-  %local_lpc_compute_residual_from_qlp_coefficients_64bit.i.sink = phi ptr [ %local_lpc_compute_residual_from_qlp_coefficients_64bit.i, %if.else46.i ], [ %local_lpc_compute_residual_from_qlp_coefficients.i, %if.else40.i ], [ %local_lpc_compute_residual_from_qlp_coefficients_16bit.i, %if.then36.i ]
-  %138 = load ptr, ptr %local_lpc_compute_residual_from_qlp_coefficients_64bit.i.sink, align 8
-  call void %138(ptr noundef %add.ptr49.i, i32 noundef %sub.i184, ptr noundef nonnull %qlp_coeff.i, i32 noundef %lpc_order.0257, i32 noundef %135, ptr noundef %125) #24
+  %.sink.in = phi ptr [ %local_lpc_compute_residual_from_qlp_coefficients_64bit.i, %if.else46.i ], [ %local_lpc_compute_residual_from_qlp_coefficients.i, %if.else40.i ], [ %local_lpc_compute_residual_from_qlp_coefficients_16bit.i, %if.then36.i ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  call void %.sink(ptr noundef %add.ptr49.i, i32 noundef %sub.i184, ptr noundef nonnull %qlp_coeff.i, i32 noundef %lpc_order.0257, i32 noundef %135, ptr noundef %125) #24
   br label %if.end52.i
 
 if.end52.i:                                       ; preds = %if.end52.i.sink.split, %if.else.i207, %if.then16.i
@@ -10145,15 +10145,15 @@ if.end52.i:                                       ; preds = %if.end52.i.sink.spl
   store ptr %132, ptr %contents.i189, align 8
   %residual58.i = getelementptr inbounds i8, ptr %131, i64 432
   store ptr %125, ptr %residual58.i, align 8
-  %139 = load ptr, ptr %private_, align 8
-  %call62.i = call fastcc i32 @find_best_partition_order_(ptr noundef %139, ptr noundef nonnull readonly %threadtask, ptr noundef %125, ptr noundef %126, ptr noundef %127, i32 noundef %sub.i184, i32 noundef %lpc_order.0257, i32 noundef %cond, i32 noundef %min_partition_order, i32 noundef %max_partition_order, i32 noundef %subframe_bps, i32 noundef %130, ptr noundef nonnull %data.i188)
+  %138 = load ptr, ptr %private_, align 8
+  %call62.i = call fastcc i32 @find_best_partition_order_(ptr noundef %138, ptr noundef nonnull readonly %threadtask, ptr noundef %125, ptr noundef %126, ptr noundef %127, i32 noundef %sub.i184, i32 noundef %lpc_order.0257, i32 noundef %cond, i32 noundef %min_partition_order, i32 noundef %max_partition_order, i32 noundef %subframe_bps, i32 noundef %130, ptr noundef nonnull %data.i188)
   %order64.i = getelementptr inbounds i8, ptr %131, i64 32
   store i32 %lpc_order.0257, ptr %order64.i, align 8
   %qlp_coeff_precision66.i = getelementptr inbounds i8, ptr %131, i64 36
   store i32 %qlp_coeff_precision.addr.0.i, ptr %qlp_coeff_precision66.i, align 4
-  %140 = load i32, ptr %quantization.i, align 4
+  %139 = load i32, ptr %quantization.i, align 4
   %quantization_level.i = getelementptr inbounds i8, ptr %131, i64 40
-  store i32 %140, ptr %quantization_level.i, align 8
+  store i32 %139, ptr %quantization_level.i, align 8
   %qlp_coeff69.i = getelementptr inbounds i8, ptr %131, i64 44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %qlp_coeff69.i, ptr noundef nonnull align 16 dereferenceable(128) %qlp_coeff.i, i64 128, i1 false)
   br i1 %cmp38.i, label %for.cond.preheader.i198, label %for.cond79.preheader.i
@@ -10175,8 +10175,8 @@ for.body.lr.ph.i199:                              ; preds = %for.cond.preheader.
 for.body.i201:                                    ; preds = %for.body.i201, %for.body.lr.ph.i199
   %indvars.iv85.i = phi i64 [ 0, %for.body.lr.ph.i199 ], [ %indvars.iv.next86.i, %for.body.i201 ]
   %arrayidx.i202 = getelementptr inbounds i32, ptr %integer_signal, i64 %indvars.iv85.i
-  %141 = load i32, ptr %arrayidx.i202, align 4
-  %conv.i203 = sext i32 %141 to i64
+  %140 = load i32, ptr %arrayidx.i202, align 4
+  %conv.i203 = sext i32 %140 to i64
   %arrayidx77.i = getelementptr inbounds [32 x i64], ptr %warmup.i200, i64 0, i64 %indvars.iv85.i
   store i64 %conv.i203, ptr %arrayidx77.i, align 8
   %indvars.iv.next86.i = add nuw nsw i64 %indvars.iv85.i, 1
@@ -10186,20 +10186,20 @@ for.body.i201:                                    ; preds = %for.body.i201, %for
 for.body82.i:                                     ; preds = %for.body82.i, %for.body82.lr.ph.i
   %indvars.iv.i191 = phi i64 [ 0, %for.body82.lr.ph.i ], [ %indvars.iv.next.i192, %for.body82.i ]
   %arrayidx84.i = getelementptr inbounds i64, ptr %integer_signal, i64 %indvars.iv.i191
-  %142 = load i64, ptr %arrayidx84.i, align 8
+  %141 = load i64, ptr %arrayidx84.i, align 8
   %arrayidx88.i = getelementptr inbounds [32 x i64], ptr %warmup86.i, i64 0, i64 %indvars.iv.i191
-  store i64 %142, ptr %arrayidx88.i, align 8
+  store i64 %141, ptr %arrayidx88.i, align 8
   %indvars.iv.next.i192 = add nuw nsw i64 %indvars.iv.i191, 1
   %exitcond.not.i193 = icmp eq i64 %indvars.iv.next.i192, %idx.ext48.i
   br i1 %exitcond.not.i193, label %if.end92.i, label %for.body82.i, !llvm.loop !118
 
 if.end92.i:                                       ; preds = %for.body82.i, %for.body.i201, %for.cond.preheader.i198, %for.cond79.preheader.i
   %wasted_bits.i194 = getelementptr inbounds i8, ptr %131, i64 440
-  %143 = load i32, ptr %wasted_bits.i194, align 8
+  %142 = load i32, ptr %wasted_bits.i194, align 8
   %add97.i = add i32 %qlp_coeff_precision.addr.0.i, %subframe_bps
   %mul.i195 = mul i32 %add97.i, %lpc_order.0257
   %add94.i.reass = add i32 %mul.i195, %invariant.op252
-  %add95.i = add i32 %add94.i.reass, %143
+  %add95.i = add i32 %add94.i.reass, %142
   %add98.i.reass = add i32 %add95.i, %invariant.op253
   %estimate.0.i197 = call i32 @llvm.uadd.sat.i32(i32 %add98.i.reass, i32 %call62.i)
   br label %evaluate_lpc_subframe_.exit
@@ -10221,8 +10221,8 @@ for.inc298:                                       ; preds = %evaluate_lpc_subfra
   %_best_bits.7 = phi i32 [ %_best_bits.6255, %for.body211 ], [ %_best_bits.9, %evaluate_lpc_subframe_.exit ]
   %_best_subframe.6 = phi i32 [ %_best_subframe.5256, %for.body211 ], [ %_best_subframe.8, %evaluate_lpc_subframe_.exit ]
   %inc299 = add i32 %lpc_order.0257, 1
-  %144 = load i32, ptr %max_lpc_order_this_apodization, align 4
-  %cmp209.not = icmp ugt i32 %inc299, %144
+  %143 = load i32, ptr %max_lpc_order_this_apodization, align 4
+  %cmp209.not = icmp ugt i32 %inc299, %143
   br i1 %cmp209.not, label %while.cond.loopexit.loopexit, label %for.body211, !llvm.loop !120
 
 if.end304:                                        ; preds = %while.cond.loopexit, %apply_apodization_.exit, %if.then191, %if.end101, %if.then176, %if.end171, %if.end
@@ -10232,27 +10232,27 @@ if.end304:                                        ; preds = %while.cond.loopexit
   br i1 %cmp305, label %if.then307, label %if.end312
 
 if.then307:                                       ; preds = %if.end304
-  %145 = load i32, ptr %frame_header, align 8
+  %144 = load i32, ptr %frame_header, align 8
   %idxprom309 = zext nneg i32 %_best_subframe.0 to i64
   %arrayidx310 = getelementptr inbounds ptr, ptr %subframe, i64 %idxprom309
-  %146 = load ptr, ptr %arrayidx310, align 8
-  store i32 1, ptr %146, align 8
+  %145 = load ptr, ptr %arrayidx310, align 8
+  store i32 1, ptr %145, align 8
   %cmp.i212 = icmp ugt i32 %subframe_bps, 32
   %spec.select.i213 = zext i1 %cmp.i212 to i32
-  %147 = getelementptr inbounds i8, ptr %146, i64 16
-  store i32 %spec.select.i213, ptr %147, align 8
-  %148 = getelementptr inbounds i8, ptr %146, i64 8
-  store ptr %integer_signal, ptr %148, align 8
-  %149 = load i32, ptr @FLAC__SUBFRAME_ZERO_PAD_LEN, align 4
-  %150 = load i32, ptr @FLAC__SUBFRAME_TYPE_LEN, align 4
-  %151 = load i32, ptr @FLAC__SUBFRAME_WASTED_BITS_FLAG_LEN, align 4
-  %wasted_bits.i214 = getelementptr inbounds i8, ptr %146, i64 440
-  %152 = load i32, ptr %wasted_bits.i214, align 8
-  %mul.i215 = mul i32 %145, %subframe_bps
-  %add.i216 = add i32 %149, %mul.i215
-  %add7.i217 = add i32 %add.i216, %150
-  %add8.i218 = add i32 %add7.i217, %151
-  %add9.i219 = add i32 %add8.i218, %152
+  %146 = getelementptr inbounds i8, ptr %145, i64 16
+  store i32 %spec.select.i213, ptr %146, align 8
+  %147 = getelementptr inbounds i8, ptr %145, i64 8
+  store ptr %integer_signal, ptr %147, align 8
+  %148 = load i32, ptr @FLAC__SUBFRAME_ZERO_PAD_LEN, align 4
+  %149 = load i32, ptr @FLAC__SUBFRAME_TYPE_LEN, align 4
+  %150 = load i32, ptr @FLAC__SUBFRAME_WASTED_BITS_FLAG_LEN, align 4
+  %wasted_bits.i214 = getelementptr inbounds i8, ptr %145, i64 440
+  %151 = load i32, ptr %wasted_bits.i214, align 8
+  %mul.i215 = mul i32 %144, %subframe_bps
+  %add.i216 = add i32 %148, %mul.i215
+  %add7.i217 = add i32 %add.i216, %149
+  %add8.i218 = add i32 %add7.i217, %150
+  %add9.i219 = add i32 %add8.i218, %151
   br label %if.end312
 
 if.end312:                                        ; preds = %if.then307, %if.end304

@@ -2268,13 +2268,13 @@ define double @cvGetCentralMoment(ptr noundef readonly %0, i32 noundef %1, i32 n
 12:                                               ; preds = %9
   %13 = landingpad { ptr, i32 }
           cleanup
-  br label %40
+  br label %42
 
 14:                                               ; preds = %10
   %15 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #16
-  br label %40
+  br label %42
 
 16:                                               ; preds = %3
   %17 = or i32 %2, %1
@@ -2298,17 +2298,17 @@ define double @cvGetCentralMoment(ptr noundef readonly %0, i32 noundef %1, i32 n
 23:                                               ; preds = %20
   %24 = landingpad { ptr, i32 }
           cleanup
-  br label %40
+  br label %42
 
 25:                                               ; preds = %21
   %26 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #16
-  br label %40
+  br label %42
 
 27:                                               ; preds = %16
   %28 = icmp sgt i32 %8, 1
-  br i1 %28, label %29, label %35
+  br i1 %28, label %29, label %36
 
 29:                                               ; preds = %27
   %30 = mul nuw nsw i32 %8, 3
@@ -2316,25 +2316,25 @@ define double @cvGetCentralMoment(ptr noundef readonly %0, i32 noundef %1, i32 n
   %32 = add i32 %31, %30
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds double, ptr %0, i64 %33
-  br label %.sink.split
+  %35 = load double, ptr %34, align 8
+  br label %40
 
-35:                                               ; preds = %27
-  %36 = icmp eq i32 %8, 0
-  br i1 %36, label %.sink.split, label %38
+36:                                               ; preds = %27
+  %37 = icmp eq i32 %8, 0
+  br i1 %37, label %38, label %40
 
-.sink.split:                                      ; preds = %35, %29
-  %.sink = phi ptr [ %34, %29 ], [ %0, %35 ]
-  %37 = load double, ptr %.sink, align 8
-  br label %38
+38:                                               ; preds = %36
+  %39 = load double, ptr %0, align 8
+  br label %40
 
-38:                                               ; preds = %.sink.split, %35
-  %39 = phi double [ 0.000000e+00, %35 ], [ %37, %.sink.split ]
-  ret double %39
+40:                                               ; preds = %38, %36, %29
+  %41 = phi double [ %35, %29 ], [ %39, %38 ], [ 0.000000e+00, %36 ]
+  ret double %41
 
-40:                                               ; preds = %23, %25, %12, %14
-  %.sink23 = phi ptr [ %5, %14 ], [ %5, %12 ], [ %7, %25 ], [ %7, %23 ]
+42:                                               ; preds = %23, %25, %12, %14
+  %.sink = phi ptr [ %5, %14 ], [ %5, %12 ], [ %7, %25 ], [ %7, %23 ]
   %.pn20.pn = phi { ptr, i32 } [ %15, %14 ], [ %13, %12 ], [ %26, %25 ], [ %24, %23 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink23) #16
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #16
   resume { ptr, i32 } %.pn20.pn
 }
 

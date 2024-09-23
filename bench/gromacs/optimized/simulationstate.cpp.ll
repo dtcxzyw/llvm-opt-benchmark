@@ -6335,6 +6335,7 @@ _ZN5nblib17ParticleSequencerC2EOS0_.exit:         ; preds = %69, %71
   store ptr null, ptr %78, align 8
   store ptr %81, ptr %85, align 8
   store ptr %81, ptr %88, align 8
+  store i64 0, ptr %92, align 8
   br label %_ZN5nblib23NonBondedInteractionMapC2EOS0_.exit
 
 95:                                               ; preds = %_ZN5nblib17ParticleSequencerC2EOS0_.exit
@@ -6346,11 +6347,10 @@ _ZN5nblib17ParticleSequencerC2EOS0_.exit:         ; preds = %69, %71
   %98 = getelementptr inbounds i8, ptr %0, i64 216
   store ptr %77, ptr %98, align 8
   %99 = getelementptr inbounds i8, ptr %0, i64 224
+  store i64 0, ptr %99, align 8
   br label %_ZN5nblib23NonBondedInteractionMapC2EOS0_.exit
 
 _ZN5nblib23NonBondedInteractionMapC2EOS0_.exit:   ; preds = %80, %95
-  %.sink.i.i.i.i.i = phi ptr [ %99, %95 ], [ %92, %80 ]
-  store i64 0, ptr %.sink.i.i.i.i.i, align 8
   %100 = getelementptr inbounds i8, ptr %0, i64 232
   %101 = getelementptr inbounds i8, ptr %1, i64 232
   tail call void @_ZNSt11_Tuple_implILm0EJN5nblib14ListedTypeDataINS0_23TwoParameterInteractionINS0_25HarmonicBondTypeParameterEEEEENS1_INS0_11G96BondTypeEEENS1_INS0_13CubicBondTypeEEENS1_INS0_13MorseBondTypeEEENS1_INS2_INS0_21FENEBondTypeParameterEEEEENS1_INS2_INS0_38HalfAttractiveQuarticBondTypeParameterEEEEENS1_INS0_10PairLJTypeEEENS1_INS0_20AngleInteractionTypeINS0_22HarmonicAngleParameterEEEEENS1_INS0_16CosineParamAngleINS0_17G96AngleParameterEEEEENS1_INS0_12QuarticAngleEEENS1_INSO_INS0_24RestrictedAngleParameterEEEEENS1_INS0_13CrossBondBondEEENS1_INS0_14CrossBondAngleEEENS1_INS2_INS0_20LinearAngleParameterEEEEENS1_INS0_14ProperDihedralEEENS1_INS0_16ImproperDihedralEEENS1_INS0_24RyckaertBellemanDihedralEEENS1_INS0_14Default5CenterEEEEEC2EOS1C_(ptr noundef nonnull align 8 dereferenceable(864) %100, ptr noundef nonnull align 8 dereferenceable(864) %101) #22

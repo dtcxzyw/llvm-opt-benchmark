@@ -1128,128 +1128,209 @@ pmix_cmd_line_get_param.exit.thread:              ; preds = %12, %pmix_cmd_line_
   %.not3645 = icmp eq ptr %58, null
   br i1 %.not3645, label %.loopexit, label %.lr.ph47
 
-.lr.ph47:                                         ; preds = %.preheader, %129
-  %indvars.iv51 = phi i64 [ %indvars.iv.next52, %129 ], [ 0, %.preheader ]
-  %59 = phi ptr [ %133, %129 ], [ %58, %.preheader ]
+.lr.ph47:                                         ; preds = %.preheader, %163
+  %indvars.iv51 = phi i64 [ %indvars.iv.next52, %163 ], [ 0, %.preheader ]
+  %59 = phi ptr [ %166, %163 ], [ %58, %.preheader ]
   %60 = load ptr, ptr @pmix_info_path_prefix, align 8
   %61 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %60, ptr noundef nonnull dereferenceable(1) %59) #23
   %62 = icmp eq i32 %61, 0
-  br i1 %62, label %129, label %63
+  br i1 %62, label %63, label %65
 
 63:                                               ; preds = %.lr.ph47
-  %64 = load ptr, ptr @pmix_info_path_bindir, align 8
-  %65 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %64, ptr noundef nonnull dereferenceable(1) %59) #23
-  %66 = icmp eq i32 %65, 0
-  br i1 %66, label %129, label %67
+  %64 = load ptr, ptr @pmix_pinstall_dirs, align 8
+  tail call void @pmix_info_show_path(ptr noundef %60, ptr noundef %64)
+  br label %163
 
-67:                                               ; preds = %63
-  %68 = load ptr, ptr @pmix_info_path_libdir, align 8
-  %69 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %68, ptr noundef nonnull dereferenceable(1) %59) #23
-  %70 = icmp eq i32 %69, 0
-  br i1 %70, label %129, label %71
+65:                                               ; preds = %.lr.ph47
+  %66 = load ptr, ptr @pmix_info_path_bindir, align 8
+  %67 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %66, ptr noundef nonnull dereferenceable(1) %59) #23
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %69, label %71
 
-71:                                               ; preds = %67
-  %72 = load ptr, ptr @pmix_info_path_incdir, align 8
+69:                                               ; preds = %65
+  %70 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 16), align 8
+  tail call void @pmix_info_show_path(ptr noundef %66, ptr noundef %70)
+  br label %163
+
+71:                                               ; preds = %65
+  %72 = load ptr, ptr @pmix_info_path_libdir, align 8
   %73 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %72, ptr noundef nonnull dereferenceable(1) %59) #23
   %74 = icmp eq i32 %73, 0
-  br i1 %74, label %129, label %75
+  br i1 %74, label %75, label %77
 
 75:                                               ; preds = %71
-  %76 = load ptr, ptr @pmix_info_path_mandir, align 8
-  %77 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %76, ptr noundef nonnull dereferenceable(1) %59) #23
-  %78 = icmp eq i32 %77, 0
-  br i1 %78, label %129, label %79
+  %76 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 80), align 8
+  tail call void @pmix_info_show_path(ptr noundef %72, ptr noundef %76)
+  br label %163
 
-79:                                               ; preds = %75
-  %80 = load ptr, ptr @pmix_info_path_pkglibdir, align 8
-  %81 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %80, ptr noundef nonnull dereferenceable(1) %59) #23
-  %82 = icmp eq i32 %81, 0
-  br i1 %82, label %129, label %83
+77:                                               ; preds = %71
+  %78 = load ptr, ptr @pmix_info_path_incdir, align 8
+  %79 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %78, ptr noundef nonnull dereferenceable(1) %59) #23
+  %80 = icmp eq i32 %79, 0
+  br i1 %80, label %81, label %83
 
-83:                                               ; preds = %79
-  %84 = load ptr, ptr @pmix_info_path_sysconfdir, align 8
+81:                                               ; preds = %77
+  %82 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 88), align 8
+  tail call void @pmix_info_show_path(ptr noundef %78, ptr noundef %82)
+  br label %163
+
+83:                                               ; preds = %77
+  %84 = load ptr, ptr @pmix_info_path_mandir, align 8
   %85 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %84, ptr noundef nonnull dereferenceable(1) %59) #23
   %86 = icmp eq i32 %85, 0
-  br i1 %86, label %129, label %87
+  br i1 %86, label %87, label %89
 
 87:                                               ; preds = %83
-  %88 = load ptr, ptr @pmix_info_path_exec_prefix, align 8
-  %89 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %88, ptr noundef nonnull dereferenceable(1) %59) #23
-  %90 = icmp eq i32 %89, 0
-  br i1 %90, label %129, label %91
+  %88 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 104), align 8
+  tail call void @pmix_info_show_path(ptr noundef %84, ptr noundef %88)
+  br label %163
 
-91:                                               ; preds = %87
-  %92 = load ptr, ptr @pmix_info_path_sbindir, align 8
-  %93 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %92, ptr noundef nonnull dereferenceable(1) %59) #23
-  %94 = icmp eq i32 %93, 0
-  br i1 %94, label %129, label %95
+89:                                               ; preds = %83
+  %90 = load ptr, ptr @pmix_info_path_pkglibdir, align 8
+  %91 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %90, ptr noundef nonnull dereferenceable(1) %59) #23
+  %92 = icmp eq i32 %91, 0
+  br i1 %92, label %93, label %95
 
-95:                                               ; preds = %91
-  %96 = load ptr, ptr @pmix_info_path_libexecdir, align 8
+93:                                               ; preds = %89
+  %94 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 120), align 8
+  tail call void @pmix_info_show_path(ptr noundef %90, ptr noundef %94)
+  br label %163
+
+95:                                               ; preds = %89
+  %96 = load ptr, ptr @pmix_info_path_sysconfdir, align 8
   %97 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %96, ptr noundef nonnull dereferenceable(1) %59) #23
   %98 = icmp eq i32 %97, 0
-  br i1 %98, label %129, label %99
+  br i1 %98, label %99, label %101
 
 99:                                               ; preds = %95
-  %100 = load ptr, ptr @pmix_info_path_datarootdir, align 8
-  %101 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %100, ptr noundef nonnull dereferenceable(1) %59) #23
-  %102 = icmp eq i32 %101, 0
-  br i1 %102, label %129, label %103
+  %100 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 56), align 8
+  tail call void @pmix_info_show_path(ptr noundef %96, ptr noundef %100)
+  br label %163
 
-103:                                              ; preds = %99
-  %104 = load ptr, ptr @pmix_info_path_datadir, align 8
-  %105 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %104, ptr noundef nonnull dereferenceable(1) %59) #23
-  %106 = icmp eq i32 %105, 0
-  br i1 %106, label %129, label %107
+101:                                              ; preds = %95
+  %102 = load ptr, ptr @pmix_info_path_exec_prefix, align 8
+  %103 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %102, ptr noundef nonnull dereferenceable(1) %59) #23
+  %104 = icmp eq i32 %103, 0
+  br i1 %104, label %105, label %107
 
-107:                                              ; preds = %103
-  %108 = load ptr, ptr @pmix_info_path_sharedstatedir, align 8
+105:                                              ; preds = %101
+  %106 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 8), align 8
+  tail call void @pmix_info_show_path(ptr noundef %102, ptr noundef %106)
+  br label %163
+
+107:                                              ; preds = %101
+  %108 = load ptr, ptr @pmix_info_path_sbindir, align 8
   %109 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %108, ptr noundef nonnull dereferenceable(1) %59) #23
   %110 = icmp eq i32 %109, 0
-  br i1 %110, label %129, label %111
+  br i1 %110, label %111, label %113
 
 111:                                              ; preds = %107
-  %112 = load ptr, ptr @pmix_info_path_localstatedir, align 8
-  %113 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %112, ptr noundef nonnull dereferenceable(1) %59) #23
-  %114 = icmp eq i32 %113, 0
-  br i1 %114, label %129, label %115
+  %112 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 24), align 8
+  tail call void @pmix_info_show_path(ptr noundef %108, ptr noundef %112)
+  br label %163
 
-115:                                              ; preds = %111
-  %116 = load ptr, ptr @pmix_info_path_infodir, align 8
-  %117 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %116, ptr noundef nonnull dereferenceable(1) %59) #23
-  %118 = icmp eq i32 %117, 0
-  br i1 %118, label %129, label %119
+113:                                              ; preds = %107
+  %114 = load ptr, ptr @pmix_info_path_libexecdir, align 8
+  %115 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %114, ptr noundef nonnull dereferenceable(1) %59) #23
+  %116 = icmp eq i32 %115, 0
+  br i1 %116, label %117, label %119
 
-119:                                              ; preds = %115
-  %120 = load ptr, ptr @pmix_info_path_pkgdatadir, align 8
+117:                                              ; preds = %113
+  %118 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 32), align 8
+  tail call void @pmix_info_show_path(ptr noundef %114, ptr noundef %118)
+  br label %163
+
+119:                                              ; preds = %113
+  %120 = load ptr, ptr @pmix_info_path_datarootdir, align 8
   %121 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %120, ptr noundef nonnull dereferenceable(1) %59) #23
   %122 = icmp eq i32 %121, 0
-  br i1 %122, label %129, label %123
+  br i1 %122, label %123, label %125
 
 123:                                              ; preds = %119
-  %124 = load ptr, ptr @pmix_info_path_pkgincludedir, align 8
-  %125 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %124, ptr noundef nonnull dereferenceable(1) %59) #23
-  %126 = icmp eq i32 %125, 0
-  br i1 %126, label %129, label %127
+  %124 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 40), align 8
+  tail call void @pmix_info_show_path(ptr noundef %120, ptr noundef %124)
+  br label %163
 
-127:                                              ; preds = %123
-  %128 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.47, i32 noundef 1, ptr noundef nonnull @.str.48) #18
+125:                                              ; preds = %119
+  %126 = load ptr, ptr @pmix_info_path_datadir, align 8
+  %127 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %126, ptr noundef nonnull dereferenceable(1) %59) #23
+  %128 = icmp eq i32 %127, 0
+  br i1 %128, label %129, label %131
+
+129:                                              ; preds = %125
+  %130 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 48), align 8
+  tail call void @pmix_info_show_path(ptr noundef %126, ptr noundef %130)
+  br label %163
+
+131:                                              ; preds = %125
+  %132 = load ptr, ptr @pmix_info_path_sharedstatedir, align 8
+  %133 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull dereferenceable(1) %59) #23
+  %134 = icmp eq i32 %133, 0
+  br i1 %134, label %135, label %137
+
+135:                                              ; preds = %131
+  %136 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 64), align 8
+  tail call void @pmix_info_show_path(ptr noundef %132, ptr noundef %136)
+  br label %163
+
+137:                                              ; preds = %131
+  %138 = load ptr, ptr @pmix_info_path_localstatedir, align 8
+  %139 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %138, ptr noundef nonnull dereferenceable(1) %59) #23
+  %140 = icmp eq i32 %139, 0
+  br i1 %140, label %141, label %143
+
+141:                                              ; preds = %137
+  %142 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 72), align 8
+  tail call void @pmix_info_show_path(ptr noundef %138, ptr noundef %142)
+  br label %163
+
+143:                                              ; preds = %137
+  %144 = load ptr, ptr @pmix_info_path_infodir, align 8
+  %145 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %144, ptr noundef nonnull dereferenceable(1) %59) #23
+  %146 = icmp eq i32 %145, 0
+  br i1 %146, label %147, label %149
+
+147:                                              ; preds = %143
+  %148 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 96), align 8
+  tail call void @pmix_info_show_path(ptr noundef %144, ptr noundef %148)
+  br label %163
+
+149:                                              ; preds = %143
+  %150 = load ptr, ptr @pmix_info_path_pkgdatadir, align 8
+  %151 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %150, ptr noundef nonnull dereferenceable(1) %59) #23
+  %152 = icmp eq i32 %151, 0
+  br i1 %152, label %153, label %155
+
+153:                                              ; preds = %149
+  %154 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 112), align 8
+  tail call void @pmix_info_show_path(ptr noundef %150, ptr noundef %154)
+  br label %163
+
+155:                                              ; preds = %149
+  %156 = load ptr, ptr @pmix_info_path_pkgincludedir, align 8
+  %157 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %156, ptr noundef nonnull dereferenceable(1) %59) #23
+  %158 = icmp eq i32 %157, 0
+  br i1 %158, label %159, label %161
+
+159:                                              ; preds = %155
+  %160 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 128), align 8
+  tail call void @pmix_info_show_path(ptr noundef %156, ptr noundef %160)
+  br label %163
+
+161:                                              ; preds = %155
+  %162 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.47, i32 noundef 1, ptr noundef nonnull @.str.48) #18
   tail call void @exit(i32 noundef 1) #22
   unreachable
 
-129:                                              ; preds = %123, %119, %115, %111, %107, %103, %99, %95, %91, %87, %83, %79, %75, %71, %67, %63, %.lr.ph47
-  %pmix_pinstall_dirs.sink = phi ptr [ @pmix_pinstall_dirs, %.lr.ph47 ], [ getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 16), %63 ], [ getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 80), %67 ], [ getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 88), %71 ], [ getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 104), %75 ], [ getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 120), %79 ], [ getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 56), %83 ], [ getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 8), %87 ], [ getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 24), %91 ], [ getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 32), %95 ], [ getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 40), %99 ], [ getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 48), %103 ], [ getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 64), %107 ], [ getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 72), %111 ], [ getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 96), %115 ], [ getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 112), %119 ], [ getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 128), %123 ]
-  %.sink = phi ptr [ %60, %.lr.ph47 ], [ %64, %63 ], [ %68, %67 ], [ %72, %71 ], [ %76, %75 ], [ %80, %79 ], [ %84, %83 ], [ %88, %87 ], [ %92, %91 ], [ %96, %95 ], [ %100, %99 ], [ %104, %103 ], [ %108, %107 ], [ %112, %111 ], [ %116, %115 ], [ %120, %119 ], [ %124, %123 ]
-  %130 = load ptr, ptr %pmix_pinstall_dirs.sink, align 8
-  tail call void @pmix_info_show_path(ptr noundef %.sink, ptr noundef %130)
+163:                                              ; preds = %63, %75, %87, %99, %111, %123, %135, %147, %159, %153, %141, %129, %117, %105, %93, %81, %69
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
-  %131 = load ptr, ptr %56, align 8
-  %132 = getelementptr inbounds ptr, ptr %131, i64 %indvars.iv.next52
-  %133 = load ptr, ptr %132, align 8
-  %.not36 = icmp eq ptr %133, null
+  %164 = load ptr, ptr %56, align 8
+  %165 = getelementptr inbounds ptr, ptr %164, i64 %indvars.iv.next52
+  %166 = load ptr, ptr %165, align 8
+  %.not36 = icmp eq ptr %166, null
   br i1 %.not36, label %.loopexit, label %.lr.ph47, !llvm.loop !15
 
-.loopexit:                                        ; preds = %129, %.preheader, %55, %.critedge
+.loopexit:                                        ; preds = %163, %.preheader, %55, %.critedge
   ret void
 }
 

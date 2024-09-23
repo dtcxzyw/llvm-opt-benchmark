@@ -11645,6 +11645,7 @@ define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_12TypeMismatchENS_13Unk
   store ptr null, ptr %7, align 8
   store ptr %10, ptr %14, align 8
   store ptr %10, ptr %17, align 8
+  store i64 0, ptr %21, align 8
   br label %_ZN4Luau27UnknownPropButFoundLikePropC2EOS0_.exit
 
 24:                                               ; preds = %2
@@ -11656,11 +11657,10 @@ define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_12TypeMismatchENS_13Unk
   %27 = getelementptr inbounds i8, ptr %0, i64 72
   store ptr %6, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 80
+  store i64 0, ptr %28, align 8
   br label %_ZN4Luau27UnknownPropButFoundLikePropC2EOS0_.exit
 
 _ZN4Luau27UnknownPropButFoundLikePropC2EOS0_.exit: ; preds = %9, %24
-  %.sink.i.i.i.i.i = phi ptr [ %28, %24 ], [ %21, %9 ]
-  store i64 0, ptr %.sink.i.i.i.i.i, align 8
   ret void
 }
 

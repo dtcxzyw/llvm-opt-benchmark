@@ -3493,7 +3493,7 @@ _ZN3url12CanonOutputTItE9push_backEt.exit:        ; preds = %do.body.i.i, %retur
   %9 = and i16 %8, 1023
   %conv1 = or disjoint i16 %9, -9216
   %cmp.i8 = icmp slt i32 %7, %6
-  br i1 %cmp.i8, label %if.end.sink.split, label %if.end.i9
+  br i1 %cmp.i8, label %return.sink.split.i21, label %if.end.i9
 
 if.end.i9:                                        ; preds = %_ZN3url12CanonOutputTItE9push_backEt.exit
   %cmp.i.i10 = icmp eq i32 %6, 0
@@ -3508,20 +3508,40 @@ do.body.i.i12:                                    ; preds = %if.end.i9, %if.end.
 if.end.i.i15:                                     ; preds = %do.body.i.i12
   %mul.i.i16 = shl nsw i32 %new_len.0.i.i13, 1
   %cmp5.i.not.i17 = icmp sgt i32 %mul.i.i16, %6
-  br i1 %cmp5.i.not.i17, label %if.end.sink.split.sink.split, label %do.body.i.i12, !llvm.loop !10
+  br i1 %cmp5.i.not.i17, label %if.end5.i18, label %do.body.i.i12, !llvm.loop !10
+
+if.end5.i18:                                      ; preds = %if.end.i.i15
+  %vtable.i.i19 = load ptr, ptr %output, align 8
+  %vfn.i.i20 = getelementptr inbounds i8, ptr %vtable.i.i19, i64 16
+  %10 = load ptr, ptr %vfn.i.i20, align 8
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i16)
+  %11 = load i32, ptr %cur_len_.i, align 4
+  br label %return.sink.split.i21
+
+return.sink.split.i21:                            ; preds = %_ZN3url12CanonOutputTItE9push_backEt.exit, %if.end5.i18
+  %.sink2.i22 = phi i32 [ %11, %if.end5.i18 ], [ %7, %_ZN3url12CanonOutputTItE9push_backEt.exit ]
+  %.sink.in.i23 = getelementptr inbounds i8, ptr %output, i64 8
+  %.sink.i24 = load ptr, ptr %.sink.in.i23, align 8
+  %idxprom8.i25 = sext i32 %.sink2.i22 to i64
+  %arrayidx9.i26 = getelementptr inbounds i16, ptr %.sink.i24, i64 %idxprom8.i25
+  store i16 %conv1, ptr %arrayidx9.i26, align 2
+  %12 = load i32, ptr %cur_len_.i, align 4
+  %inc11.i27 = add nsw i32 %12, 1
+  store i32 %inc11.i27, ptr %cur_len_.i, align 4
+  br label %if.end
 
 if.else:                                          ; preds = %entry
   %conv2 = trunc nuw i32 %code_point to i16
   %cur_len_.i30 = getelementptr inbounds i8, ptr %output, i64 20
-  %10 = load i32, ptr %cur_len_.i30, align 4
+  %13 = load i32, ptr %cur_len_.i30, align 4
   %buffer_len_.i31 = getelementptr inbounds i8, ptr %output, i64 16
-  %11 = load i32, ptr %buffer_len_.i31, align 8
-  %cmp.i32 = icmp slt i32 %10, %11
-  br i1 %cmp.i32, label %if.end.sink.split, label %if.end.i33
+  %14 = load i32, ptr %buffer_len_.i31, align 8
+  %cmp.i32 = icmp slt i32 %13, %14
+  br i1 %cmp.i32, label %return.sink.split.i45, label %if.end.i33
 
 if.end.i33:                                       ; preds = %if.else
-  %cmp.i.i34 = icmp eq i32 %11, 0
-  %spec.select64 = select i1 %cmp.i.i34, i32 16, i32 %11
+  %cmp.i.i34 = icmp eq i32 %14, 0
+  %spec.select64 = select i1 %cmp.i.i34, i32 16, i32 %14
   br label %do.body.i.i36
 
 do.body.i.i36:                                    ; preds = %if.end.i33, %if.end.i.i39
@@ -3531,35 +3551,30 @@ do.body.i.i36:                                    ; preds = %if.end.i33, %if.end
 
 if.end.i.i39:                                     ; preds = %do.body.i.i36
   %mul.i.i40 = shl nsw i32 %new_len.0.i.i37, 1
-  %cmp5.i.not.i41 = icmp sgt i32 %mul.i.i40, %11
-  br i1 %cmp5.i.not.i41, label %if.end.sink.split.sink.split, label %do.body.i.i36, !llvm.loop !10
+  %cmp5.i.not.i41 = icmp sgt i32 %mul.i.i40, %14
+  br i1 %cmp5.i.not.i41, label %if.end5.i42, label %do.body.i.i36, !llvm.loop !10
 
-if.end.sink.split.sink.split:                     ; preds = %if.end.i.i39, %if.end.i.i15
-  %mul.i.i40.lcssa.sink = phi i32 [ %mul.i.i16, %if.end.i.i15 ], [ %mul.i.i40, %if.end.i.i39 ]
-  %cur_len_.i30.sink = phi ptr [ %cur_len_.i, %if.end.i.i15 ], [ %cur_len_.i30, %if.end.i.i39 ]
-  %conv2.sink.ph = phi i16 [ %conv1, %if.end.i.i15 ], [ %conv2, %if.end.i.i39 ]
+if.end5.i42:                                      ; preds = %if.end.i.i39
   %vtable.i.i43 = load ptr, ptr %output, align 8
   %vfn.i.i44 = getelementptr inbounds i8, ptr %vtable.i.i43, i64 16
-  %12 = load ptr, ptr %vfn.i.i44, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i40.lcssa.sink)
-  %13 = load i32, ptr %cur_len_.i30.sink, align 4
-  br label %if.end.sink.split
+  %15 = load ptr, ptr %vfn.i.i44, align 8
+  tail call void %15(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i40)
+  %16 = load i32, ptr %cur_len_.i30, align 4
+  br label %return.sink.split.i45
 
-if.end.sink.split:                                ; preds = %if.end.sink.split.sink.split, %if.else, %_ZN3url12CanonOutputTItE9push_backEt.exit
-  %.sink2.i46.sink = phi i32 [ %7, %_ZN3url12CanonOutputTItE9push_backEt.exit ], [ %10, %if.else ], [ %13, %if.end.sink.split.sink.split ]
-  %conv2.sink = phi i16 [ %conv1, %_ZN3url12CanonOutputTItE9push_backEt.exit ], [ %conv2, %if.else ], [ %conv2.sink.ph, %if.end.sink.split.sink.split ]
-  %cur_len_.i30.sink65 = phi ptr [ %cur_len_.i, %_ZN3url12CanonOutputTItE9push_backEt.exit ], [ %cur_len_.i30, %if.else ], [ %cur_len_.i30.sink, %if.end.sink.split.sink.split ]
+return.sink.split.i45:                            ; preds = %if.else, %if.end5.i42
+  %.sink2.i46 = phi i32 [ %16, %if.end5.i42 ], [ %13, %if.else ]
   %.sink.in.i47 = getelementptr inbounds i8, ptr %output, i64 8
   %.sink.i48 = load ptr, ptr %.sink.in.i47, align 8
-  %idxprom8.i49 = sext i32 %.sink2.i46.sink to i64
+  %idxprom8.i49 = sext i32 %.sink2.i46 to i64
   %arrayidx9.i50 = getelementptr inbounds i16, ptr %.sink.i48, i64 %idxprom8.i49
-  store i16 %conv2.sink, ptr %arrayidx9.i50, align 2
-  %14 = load i32, ptr %cur_len_.i30.sink65, align 4
-  %inc11.i51 = add nsw i32 %14, 1
-  store i32 %inc11.i51, ptr %cur_len_.i30.sink65, align 4
+  store i16 %conv2, ptr %arrayidx9.i50, align 2
+  %17 = load i32, ptr %cur_len_.i30, align 4
+  %inc11.i51 = add nsw i32 %17, 1
+  store i32 %inc11.i51, ptr %cur_len_.i30, align 4
   br label %if.end
 
-if.end:                                           ; preds = %do.body.i.i36, %do.body.i.i12, %if.end.sink.split
+if.end:                                           ; preds = %do.body.i.i36, %do.body.i.i12, %return.sink.split.i45, %return.sink.split.i21
   ret void
 }
 

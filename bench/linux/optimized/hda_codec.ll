@@ -4239,7 +4239,7 @@ define dso_local noundef range(i32 -16, 1) i32 @snd_hda_codec_reset(ptr noundef 
   %11 = getelementptr inbounds i8, ptr %5, i64 528
   %12 = load volatile ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, %11
-  br i1 %13, label %14, label %snd_hda_lock_devices.exit.thread.sink.split
+  br i1 %13, label %14, label %.thread.i
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %3, i64 88
@@ -4265,13 +4265,13 @@ define dso_local noundef range(i32 -16, 1) i32 @snd_hda_codec_reset(ptr noundef 
   %27 = getelementptr inbounds i8, ptr %24, i64 204
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %snd_hda_lock_devices.exit.thread.sink.split
+  br i1 %29, label %30, label %.thread.i
 
 30:                                               ; preds = %26
   %31 = getelementptr i8, ptr %24, i64 260
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %snd_hda_lock_devices.exit.thread.sink.split
+  br i1 %33, label %34, label %.thread.i
 
 34:                                               ; preds = %30, %.preheader.i
   %35 = load ptr, ptr %22, align 8
@@ -4283,6 +4283,10 @@ define dso_local noundef range(i32 -16, 1) i32 @snd_hda_codec_reset(ptr noundef 
   %38 = icmp eq ptr %37, %15
   br i1 %38, label %.loopexit, label %.lr.ph.i
 
+.thread.i:                                        ; preds = %30, %26, %10
+  store i32 0, ptr %7, align 4
+  br label %snd_hda_lock_devices.exit.thread
+
 .loopexit:                                        ; preds = %.loopexit.i, %14
   tail call void @_raw_spin_unlock(ptr noundef %6) #24
   tail call void @device_release_driver(ptr noundef %0) #24
@@ -4290,18 +4294,12 @@ define dso_local noundef range(i32 -16, 1) i32 @snd_hda_codec_reset(ptr noundef 
   %40 = getelementptr inbounds i8, ptr %39, i64 624
   tail call void @_raw_spin_lock(ptr noundef %40) #24
   %41 = getelementptr inbounds i8, ptr %39, i64 628
-  br label %snd_hda_lock_devices.exit.thread.sink.split
-
-snd_hda_lock_devices.exit.thread.sink.split:      ; preds = %26, %30, %10, %.loopexit
-  %.sink1 = phi ptr [ %41, %.loopexit ], [ %7, %10 ], [ %7, %30 ], [ %7, %26 ]
-  %.sink.ph = phi ptr [ %40, %.loopexit ], [ %6, %10 ], [ %6, %30 ], [ %6, %26 ]
-  %.ph = phi i32 [ 0, %.loopexit ], [ -16, %10 ], [ -16, %30 ], [ -16, %26 ]
-  store i32 0, ptr %.sink1, align 4
+  store i32 0, ptr %41, align 4
   br label %snd_hda_lock_devices.exit.thread
 
-snd_hda_lock_devices.exit.thread:                 ; preds = %snd_hda_lock_devices.exit.thread.sink.split, %1
-  %.sink = phi ptr [ %6, %1 ], [ %.sink.ph, %snd_hda_lock_devices.exit.thread.sink.split ]
-  %42 = phi i32 [ -16, %1 ], [ %.ph, %snd_hda_lock_devices.exit.thread.sink.split ]
+snd_hda_lock_devices.exit.thread:                 ; preds = %.thread.i, %1, %.loopexit
+  %.sink = phi ptr [ %40, %.loopexit ], [ %6, %1 ], [ %6, %.thread.i ]
+  %42 = phi i32 [ 0, %.loopexit ], [ -16, %1 ], [ -16, %.thread.i ]
   tail call void @_raw_spin_unlock(ptr noundef %.sink) #24
   ret i32 %42
 }

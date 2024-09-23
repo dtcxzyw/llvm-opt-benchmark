@@ -15037,14 +15037,8 @@ define internal fastcc { i32, i32 } @"_ZN115_$LT$core..iter..adapters..filter_ma
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #34, !noalias !5446
   unreachable
 
-common.resume.sink.split.i.i.i:                   ; preds = %93, %58, %40
-  %.sink.i.i.i = phi ptr [ %7, %40 ], [ %7, %58 ], [ %60, %93 ]
-  %common.resume.op.ph.i.i.i = phi { ptr, i32 } [ %41, %40 ], [ %59, %58 ], [ %94, %93 ]
-  store i64 0, ptr %.sink.i.i.i, align 8, !alias.scope !5425, !noalias !5426
-  br label %common.resume.i.i.i
-
-common.resume.i.i.i:                              ; preds = %72, %common.resume.sink.split.i.i.i, %19
-  %common.resume.op.i.i.i = phi { ptr, i32 } [ %20, %19 ], [ %73, %72 ], [ %common.resume.op.ph.i.i.i, %common.resume.sink.split.i.i.i ]
+common.resume.i.i.i:                              ; preds = %93, %72, %58, %40, %19
+  %common.resume.op.i.i.i = phi { ptr, i32 } [ %20, %19 ], [ %73, %72 ], [ %94, %93 ], [ %59, %58 ], [ %41, %40 ]
   resume { ptr, i32 } %common.resume.op.i.i.i
 
 "_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hbab41f5e9f759739E.exit.i.i.i.i.i": ; preds = %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeAlias$GT$17h3e7d0050796b239eE.exit.sink.split.i.i.i.i.i.i.i.i.i.i", %21
@@ -15080,7 +15074,8 @@ common.resume.i.i.i:                              ; preds = %72, %common.resume.
 40:                                               ; preds = %37
   %41 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume.sink.split.i.i.i
+  store i64 0, ptr %7, align 8, !alias.scope !5425, !noalias !5426
+  br label %common.resume.i.i.i
 
 "_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..AssocItem$GT$$GT$$GT$17h8dadc27f9a28a921E.exit.i.i.i": ; preds = %37, %32, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17he48946d216daa07eE.exit.thread.i.i.i", %1
   store i64 0, ptr %7, align 8, !alias.scope !5425, !noalias !5426
@@ -15127,7 +15122,8 @@ common.resume.i.i.i:                              ; preds = %72, %common.resume.
 58:                                               ; preds = %57
   %59 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume.sink.split.i.i.i
+  store i64 0, ptr %7, align 8, !alias.scope !5425, !noalias !5426
+  br label %common.resume.i.i.i
 
 "_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..AssocItem$GT$$GT$$GT$17h8dadc27f9a28a921E.exit36.i.i.i": ; preds = %57, %52, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17hd1f3ef2554b882bcE.exit.thread.i.i.i", %"_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..AssocItem$GT$$GT$$GT$17h8dadc27f9a28a921E.exit.i.i.i"
   store i64 0, ptr %7, align 8, !alias.scope !5425, !noalias !5426
@@ -15215,7 +15211,8 @@ common.resume.i.i.i:                              ; preds = %72, %common.resume.
 93:                                               ; preds = %90
   %94 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume.sink.split.i.i.i
+  store i64 0, ptr %60, align 8, !alias.scope !5425, !noalias !5426
+  br label %common.resume.i.i.i
 
 "_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..AssocItem$GT$$GT$$GT$17h8dadc27f9a28a921E.exit45.i.i.i": ; preds = %90, %85, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17he48946d216daa07eE.exit42.thread.i.i.i", %"_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..AssocItem$GT$$GT$$GT$17h8dadc27f9a28a921E.exit36.i.i.i"
   store i64 0, ptr %60, align 8, !alias.scope !5425, !noalias !5426
@@ -15295,14 +15292,8 @@ define internal fastcc { i32, i32 } @"_ZN115_$LT$core..iter..adapters..filter_ma
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #34, !noalias !5566
   unreachable
 
-common.resume.sink.split.i.i.i:                   ; preds = %93, %58, %40
-  %.sink.i.i.i = phi ptr [ %7, %40 ], [ %7, %58 ], [ %60, %93 ]
-  %common.resume.op.ph.i.i.i = phi { ptr, i32 } [ %41, %40 ], [ %59, %58 ], [ %94, %93 ]
-  store i64 0, ptr %.sink.i.i.i, align 8, !alias.scope !5545, !noalias !5546
-  br label %common.resume.i.i.i
-
-common.resume.i.i.i:                              ; preds = %72, %common.resume.sink.split.i.i.i, %19
-  %common.resume.op.i.i.i = phi { ptr, i32 } [ %20, %19 ], [ %73, %72 ], [ %common.resume.op.ph.i.i.i, %common.resume.sink.split.i.i.i ]
+common.resume.i.i.i:                              ; preds = %93, %72, %58, %40, %19
+  %common.resume.op.i.i.i = phi { ptr, i32 } [ %20, %19 ], [ %73, %72 ], [ %94, %93 ], [ %59, %58 ], [ %41, %40 ]
   resume { ptr, i32 } %common.resume.op.i.i.i
 
 "_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h571b7140c27bbacbE.exit.i.i.i.i.i": ; preds = %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeAlias$GT$17h3e7d0050796b239eE.exit.sink.split.i.i.i.i.i.i.i.i.i.i", %21
@@ -15338,7 +15329,8 @@ common.resume.i.i.i:                              ; preds = %72, %common.resume.
 40:                                               ; preds = %37
   %41 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume.sink.split.i.i.i
+  store i64 0, ptr %7, align 8, !alias.scope !5545, !noalias !5546
+  br label %common.resume.i.i.i
 
 "_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..AssocItem$GT$$GT$$GT$17h8dadc27f9a28a921E.exit.i.i.i": ; preds = %37, %32, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hff7785541ab04343E.exit.thread.i.i.i", %1
   store i64 0, ptr %7, align 8, !alias.scope !5545, !noalias !5546
@@ -15385,7 +15377,8 @@ common.resume.i.i.i:                              ; preds = %72, %common.resume.
 58:                                               ; preds = %57
   %59 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume.sink.split.i.i.i
+  store i64 0, ptr %7, align 8, !alias.scope !5545, !noalias !5546
+  br label %common.resume.i.i.i
 
 "_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..AssocItem$GT$$GT$$GT$17h8dadc27f9a28a921E.exit36.i.i.i": ; preds = %57, %52, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17hdc52b6c04d0ed5f3E.exit.thread.i.i.i", %"_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..AssocItem$GT$$GT$$GT$17h8dadc27f9a28a921E.exit.i.i.i"
   store i64 0, ptr %7, align 8, !alias.scope !5545, !noalias !5546
@@ -15473,7 +15466,8 @@ common.resume.i.i.i:                              ; preds = %72, %common.resume.
 93:                                               ; preds = %90
   %94 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume.sink.split.i.i.i
+  store i64 0, ptr %60, align 8, !alias.scope !5545, !noalias !5546
+  br label %common.resume.i.i.i
 
 "_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..AssocItem$GT$$GT$$GT$17h8dadc27f9a28a921E.exit45.i.i.i": ; preds = %90, %85, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hff7785541ab04343E.exit42.thread.i.i.i", %"_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..AssocItem$GT$$GT$$GT$17h8dadc27f9a28a921E.exit36.i.i.i"
   store i64 0, ptr %60, align 8, !alias.scope !5545, !noalias !5546

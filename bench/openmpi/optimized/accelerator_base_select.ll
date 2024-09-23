@@ -153,6 +153,7 @@ opal_obj_run_constructors.exit62:                 ; preds = %.lr.ph.i59, %34
   store volatile ptr %28, ptr %51, align 8
   %52 = getelementptr inbounds i8, ptr %28, i64 16
   store volatile ptr %23, ptr %52, align 8
+  store volatile ptr %28, ptr %26, align 8
   br label %59
 
 53:                                               ; preds = %opal_obj_run_constructors.exit62
@@ -164,11 +165,10 @@ opal_obj_run_constructors.exit62:                 ; preds = %.lr.ph.i59, %34
   %57 = load volatile ptr, ptr %24, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 24
   store volatile ptr %28, ptr %58, align 8
+  store volatile ptr %28, ptr %24, align 8
   br label %59
 
 59:                                               ; preds = %47, %53
-  %.sink = phi ptr [ %26, %47 ], [ %24, %53 ]
-  store volatile ptr %28, ptr %.sink, align 8
   %60 = load volatile i64, ptr %25, align 8
   %61 = add i64 %60, 1
   store volatile i64 %61, ptr %25, align 8

@@ -4570,20 +4570,17 @@ define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValues
 switch.lookup:                                    ; preds = %14
   %22 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 0, i64 %22
-  br label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit.sink.split
+  %switch.load = load i32, ptr %switch.gep, align 4
+  br label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit
 
 switch.lookup11:                                  ; preds = %18
   %23 = zext nneg i32 %switch.tableidx12 to i64
   %switch.gep13 = getelementptr inbounds [10 x i32], ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 0, i64 %23
-  br label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit.sink.split
-
-_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit.sink.split: ; preds = %switch.lookup, %switch.lookup11
-  %switch.gep13.sink = phi ptr [ %switch.gep13, %switch.lookup11 ], [ %switch.gep, %switch.lookup ]
-  %switch.load14 = load i32, ptr %switch.gep13.sink, align 4
+  %switch.load14 = load i32, ptr %switch.gep13, align 4
   br label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit
 
-_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit: ; preds = %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit.sink.split, %18, %14
-  %24 = phi i32 [ -1, %14 ], [ -1, %18 ], [ %switch.load14, %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit.sink.split ]
+_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit: ; preds = %18, %switch.lookup11, %14, %switch.lookup
+  %24 = phi i32 [ %switch.load, %switch.lookup ], [ -1, %14 ], [ %switch.load14, %switch.lookup11 ], [ -1, %18 ]
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %27 = load i32, ptr %26, align 4
@@ -4630,20 +4627,17 @@ define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValues
 switch.lookup:                                    ; preds = %16
   %24 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 0, i64 %24
-  br label %_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.exit.sink.split
+  %switch.load = load i32, ptr %switch.gep, align 4
+  br label %_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.exit
 
 switch.lookup4:                                   ; preds = %20
   %25 = zext nneg i32 %switch.tableidx5 to i64
   %switch.gep6 = getelementptr inbounds [10 x i32], ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 0, i64 %25
-  br label %_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.exit.sink.split
-
-_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.exit.sink.split: ; preds = %switch.lookup, %switch.lookup4
-  %switch.gep6.sink = phi ptr [ %switch.gep6, %switch.lookup4 ], [ %switch.gep, %switch.lookup ]
-  %switch.load7 = load i32, ptr %switch.gep6.sink, align 4
+  %switch.load7 = load i32, ptr %switch.gep6, align 4
   br label %_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.exit
 
-_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.exit: ; preds = %_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.exit.sink.split, %20, %16
-  %26 = phi i32 [ -1, %16 ], [ -1, %20 ], [ %switch.load7, %_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.exit.sink.split ]
+_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.exit: ; preds = %20, %switch.lookup4, %16, %switch.lookup
+  %26 = phi i32 [ %switch.load, %switch.lookup ], [ -1, %16 ], [ %switch.load7, %switch.lookup4 ], [ -1, %20 ]
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %29 = load i32, ptr %28, align 4
@@ -4694,20 +4688,17 @@ define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValues
 switch.lookup:                                    ; preds = %21
   %29 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 0, i64 %29
-  br label %_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.exit.sink.split
+  %switch.load = load i32, ptr %switch.gep, align 4
+  br label %_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.exit
 
 switch.lookup5:                                   ; preds = %25
   %30 = zext nneg i32 %switch.tableidx6 to i64
   %switch.gep7 = getelementptr inbounds [10 x i32], ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 0, i64 %30
-  br label %_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.exit.sink.split
-
-_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.exit.sink.split: ; preds = %switch.lookup, %switch.lookup5
-  %switch.gep7.sink = phi ptr [ %switch.gep7, %switch.lookup5 ], [ %switch.gep, %switch.lookup ]
-  %switch.load8 = load i32, ptr %switch.gep7.sink, align 4
+  %switch.load8 = load i32, ptr %switch.gep7, align 4
   br label %_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.exit
 
-_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.exit: ; preds = %_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.exit.sink.split, %25, %21
-  %31 = phi i32 [ -1, %21 ], [ -1, %25 ], [ %switch.load8, %_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.exit.sink.split ]
+_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.exit: ; preds = %25, %switch.lookup5, %21, %switch.lookup
+  %31 = phi i32 [ %switch.load, %switch.lookup ], [ -1, %21 ], [ %switch.load8, %switch.lookup5 ], [ -1, %25 ]
   %32 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %33 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %34 = load i32, ptr %33, align 4

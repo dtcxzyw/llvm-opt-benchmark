@@ -496,9 +496,9 @@ valid_variable_name.exit:                         ; preds = %13, %29
   br i1 %.not49, label %valid_variable_name.exit.thread, label %valid_variable_name.exit.thread.sink.split
 
 valid_variable_name.exit.thread.sink.split:       ; preds = %42, %27
-  %.sink59 = phi ptr [ %28, %27 ], [ %34, %42 ]
-  %43 = load ptr, ptr %.sink59, align 8
-  %44 = tail call zeroext i1 %3(ptr noundef %43) #10
+  %.sink.in = phi ptr [ %28, %27 ], [ %34, %42 ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %43 = tail call zeroext i1 %3(ptr noundef %.sink) #10
   br label %valid_variable_name.exit.thread
 
 valid_variable_name.exit.thread:                  ; preds = %11, %valid_variable_name.exit.thread.sink.split, %7, %26, %4, %42

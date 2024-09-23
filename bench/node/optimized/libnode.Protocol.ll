@@ -4046,7 +4046,6 @@ define dso_local void @_ZN4node9inspector8protocol14DispatcherBase12sendResponse
 entry:
   %agg.tmp.i = alloca %"class.std::unique_ptr.110", align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
-  %agg.tmp.sroa.0.i = alloca ptr, align 8
   %agg.tmp = alloca %"class.std::unique_ptr.110", align 8
   %m_frontendChannel = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_frontendChannel, align 8
@@ -4081,17 +4080,17 @@ if.then.i:                                        ; preds = %if.end
   %3 = load ptr, ptr %vfn.i, align 8
   call void %3(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %callId, ptr noundef nonnull %agg.tmp.i) #27
   %4 = load ptr, ptr %agg.tmp.i, align 8
-  %cmp.not.i.i13 = icmp eq ptr %4, null
-  br i1 %cmp.not.i.i13, label %_ZN4node9inspector8protocolL21reportProtocolErrorToEPNS1_15FrontendChannelEiNS1_16DispatchResponse9ErrorCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_12ErrorSupportE.exit, label %_ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i.i14
+  %cmp.not.i.i = icmp eq ptr %4, null
+  br i1 %cmp.not.i.i, label %_ZN4node9inspector8protocolL21reportProtocolErrorToEPNS1_15FrontendChannelEiNS1_16DispatchResponse9ErrorCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_12ErrorSupportE.exit, label %_ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i.i
 
-_ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i.i14: ; preds = %if.then.i
-  %vtable.i.i.i15 = load ptr, ptr %4, align 8
-  %vfn.i.i.i16 = getelementptr inbounds i8, ptr %vtable.i.i.i15, i64 24
-  %5 = load ptr, ptr %vfn.i.i.i16, align 8
+_ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i.i: ; preds = %if.then.i
+  %vtable.i.i.i = load ptr, ptr %4, align 8
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
+  %5 = load ptr, ptr %vfn.i.i.i, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #27
   br label %_ZN4node9inspector8protocolL21reportProtocolErrorToEPNS1_15FrontendChannelEiNS1_16DispatchResponse9ErrorCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_12ErrorSupportE.exit
 
-_ZN4node9inspector8protocolL21reportProtocolErrorToEPNS1_15FrontendChannelEiNS1_16DispatchResponse9ErrorCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_12ErrorSupportE.exit: ; preds = %if.then.i, %_ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i.i14
+_ZN4node9inspector8protocolL21reportProtocolErrorToEPNS1_15FrontendChannelEiNS1_16DispatchResponse9ErrorCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_12ErrorSupportE.exit: ; preds = %if.then.i, %_ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)
   br label %return
 
@@ -4099,59 +4098,35 @@ if.end5:                                          ; preds = %if.end
   %6 = load ptr, ptr %result, align 8
   store ptr null, ptr %result, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.sroa.0.i)
   %call.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #30, !noalias !80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #27, !noalias !80
-  store ptr %6, ptr %agg.tmp.sroa.0.i, align 8, !noalias !80
+  %7 = ptrtoint ptr %6 to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector8protocol16InternalResponseE, i64 16), ptr %call.i, align 8, !noalias !80
   %m_callId.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 %callId, ptr %m_callId.i.i, align 8, !noalias !80
   %m_notification.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_notification.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #27, !noalias !80
   %m_params.i.i = getelementptr inbounds i8, ptr %call.i, i64 48
-  %cmp.i.not.i.i = icmp eq ptr %6, null
-  br i1 %cmp.i.not.i.i, label %_ZN4node9inspector8protocol16InternalResponseC2EiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS1_12SerializableESt14default_deleteISC_EE.exit.i, label %cond.true.i.i
-
-cond.true.i.i:                                    ; preds = %if.end5
-  %7 = ptrtoint ptr %6 to i64
   store i64 %7, ptr %m_params.i.i, align 8, !noalias !80
-  br label %_ZN4node9inspector8protocol16InternalResponseC2EiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS1_12SerializableESt14default_deleteISC_EE.exit.i
-
-_ZN4node9inspector8protocol16InternalResponseC2EiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS1_12SerializableESt14default_deleteISC_EE.exit.i: ; preds = %cond.true.i.i, %if.end5
-  %m_params.sink.i.i = phi ptr [ %agg.tmp.sroa.0.i, %cond.true.i.i ], [ %m_params.i.i, %if.end5 ]
-  store ptr null, ptr %m_params.sink.i.i, align 8, !noalias !80
-  %agg.tmp.sroa.0.i.0.agg.tmp.sroa.0.i.0.agg.tmp.sroa.0.i.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.1.i = load ptr, ptr %agg.tmp.sroa.0.i, align 8, !noalias !80
-  %cmp.not.i.i = icmp eq ptr %agg.tmp.sroa.0.i.0.agg.tmp.sroa.0.i.0.agg.tmp.sroa.0.i.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.1.i, null
-  br i1 %cmp.not.i.i, label %_ZN4node9inspector8protocol16InternalResponse14createResponseEiSt10unique_ptrINS1_12SerializableESt14default_deleteIS4_EE.exit, label %_ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i.i
-
-_ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i.i: ; preds = %_ZN4node9inspector8protocol16InternalResponseC2EiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS1_12SerializableESt14default_deleteISC_EE.exit.i
-  %vtable.i.i.i = load ptr, ptr %agg.tmp.sroa.0.i.0.agg.tmp.sroa.0.i.0.agg.tmp.sroa.0.i.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.1.i, align 8, !noalias !80
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
-  %8 = load ptr, ptr %vfn.i.i.i, align 8, !noalias !80
-  call void %8(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp.sroa.0.i.0.agg.tmp.sroa.0.i.0.agg.tmp.sroa.0.i.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.1.i) #27, !noalias !80
-  br label %_ZN4node9inspector8protocol16InternalResponse14createResponseEiSt10unique_ptrINS1_12SerializableESt14default_deleteIS4_EE.exit
-
-_ZN4node9inspector8protocol16InternalResponse14createResponseEiSt10unique_ptrINS1_12SerializableESt14default_deleteIS4_EE.exit: ; preds = %_ZN4node9inspector8protocol16InternalResponseC2EiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS1_12SerializableESt14default_deleteISC_EE.exit.i, %_ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #27, !noalias !80
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.sroa.0.i)
   store ptr %call.i, ptr %agg.tmp, align 8
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %9 = load ptr, ptr %vfn, align 8
-  call void %9(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %callId, ptr noundef nonnull %agg.tmp) #27
-  %10 = load ptr, ptr %agg.tmp, align 8
-  %cmp.not.i = icmp eq ptr %10, null
+  %8 = load ptr, ptr %vfn, align 8
+  call void %8(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %callId, ptr noundef nonnull %agg.tmp) #27
+  %9 = load ptr, ptr %agg.tmp, align 8
+  %cmp.not.i = icmp eq ptr %9, null
   br i1 %cmp.not.i, label %return, label %_ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i
 
-_ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i: ; preds = %_ZN4node9inspector8protocol16InternalResponse14createResponseEiSt10unique_ptrINS1_12SerializableESt14default_deleteIS4_EE.exit
-  %vtable.i.i = load ptr, ptr %10, align 8
+_ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i: ; preds = %if.end5
+  %vtable.i.i = load ptr, ptr %9, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 24
-  %11 = load ptr, ptr %vfn.i.i, align 8
-  call void %11(ptr noundef nonnull align 8 dereferenceable(8) %10) #27
+  %10 = load ptr, ptr %vfn.i.i, align 8
+  call void %10(ptr noundef nonnull align 8 dereferenceable(8) %9) #27
   br label %return
 
-return:                                           ; preds = %_ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i, %_ZN4node9inspector8protocol16InternalResponse14createResponseEiSt10unique_ptrINS1_12SerializableESt14default_deleteIS4_EE.exit, %entry, %_ZN4node9inspector8protocolL21reportProtocolErrorToEPNS1_15FrontendChannelEiNS1_16DispatchResponse9ErrorCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_12ErrorSupportE.exit
+return:                                           ; preds = %_ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i, %if.end5, %entry, %_ZN4node9inspector8protocolL21reportProtocolErrorToEPNS1_15FrontendChannelEiNS1_16DispatchResponse9ErrorCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_12ErrorSupportE.exit
   ret void
 }
 
@@ -4348,12 +4323,9 @@ entry:
 define dso_local void @_ZN4node9inspector8protocol16InternalResponse14createResponseEiSt10unique_ptrINS1_12SerializableESt14default_deleteIS4_EE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.118") align 8 %agg.result, i32 noundef %callId, ptr nocapture noundef %params) local_unnamed_addr #1 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %agg.tmp.sroa.0 = alloca ptr, align 8
   %call = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #27
   %0 = load i64, ptr %params, align 8
-  %1 = inttoptr i64 %0 to ptr
-  store ptr %1, ptr %agg.tmp.sroa.0, align 8
   store ptr null, ptr %params, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector8protocol16InternalResponseE, i64 16), ptr %call, align 8
   %m_callId.i = getelementptr inbounds i8, ptr %call, i64 8
@@ -4361,29 +4333,8 @@ entry:
   %m_notification.i = getelementptr inbounds i8, ptr %call, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_notification.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #27
   %m_params.i = getelementptr inbounds i8, ptr %call, i64 48
-  %cmp.i.not.i = icmp eq i64 %0, 0
-  br i1 %cmp.i.not.i, label %_ZN4node9inspector8protocol16InternalResponseC2EiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS1_12SerializableESt14default_deleteISC_EE.exit, label %cond.true.i
-
-cond.true.i:                                      ; preds = %entry
   store i64 %0, ptr %m_params.i, align 8
-  br label %_ZN4node9inspector8protocol16InternalResponseC2EiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS1_12SerializableESt14default_deleteISC_EE.exit
-
-_ZN4node9inspector8protocol16InternalResponseC2EiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS1_12SerializableESt14default_deleteISC_EE.exit: ; preds = %entry, %cond.true.i
-  %m_params.sink.i = phi ptr [ %agg.tmp.sroa.0, %cond.true.i ], [ %m_params.i, %entry ]
-  store ptr null, ptr %m_params.sink.i, align 8
   store ptr %call, ptr %agg.result, align 8
-  %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.1 = load ptr, ptr %agg.tmp.sroa.0, align 8
-  %cmp.not.i = icmp eq ptr %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.1, null
-  br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN4node9inspector8protocol12SerializableESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i
-
-_ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i: ; preds = %_ZN4node9inspector8protocol16InternalResponseC2EiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS1_12SerializableESt14default_deleteISC_EE.exit
-  %vtable.i.i = load ptr, ptr %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.1, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 24
-  %2 = load ptr, ptr %vfn.i.i, align 8
-  call void %2(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.1) #27
-  br label %_ZNSt10unique_ptrIN4node9inspector8protocol12SerializableESt14default_deleteIS3_EED2Ev.exit
-
-_ZNSt10unique_ptrIN4node9inspector8protocol12SerializableESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZN4node9inspector8protocol16InternalResponseC2EiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS1_12SerializableESt14default_deleteISC_EE.exit, %_ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #27
   ret void
 }
@@ -5272,11 +5223,8 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node9inspector8protocol16InternalResponse18createNotificationERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS1_12SerializableESt14default_deleteISC_EE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.118") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %notification, ptr nocapture noundef %params) local_unnamed_addr #1 align 2 {
 entry:
-  %agg.tmp.sroa.0 = alloca ptr, align 8
   %call = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #30
   %0 = load i64, ptr %params, align 8
-  %1 = inttoptr i64 %0 to ptr
-  store ptr %1, ptr %agg.tmp.sroa.0, align 8
   store ptr null, ptr %params, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector8protocol16InternalResponseE, i64 16), ptr %call, align 8
   %m_callId.i = getelementptr inbounds i8, ptr %call, i64 8
@@ -5284,29 +5232,8 @@ entry:
   %m_notification.i = getelementptr inbounds i8, ptr %call, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_notification.i, ptr noundef nonnull align 8 dereferenceable(32) %notification) #27
   %m_params.i = getelementptr inbounds i8, ptr %call, i64 48
-  %cmp.i.not.i = icmp eq i64 %0, 0
-  br i1 %cmp.i.not.i, label %_ZN4node9inspector8protocol16InternalResponseC2EiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS1_12SerializableESt14default_deleteISC_EE.exit, label %cond.true.i
-
-cond.true.i:                                      ; preds = %entry
   store i64 %0, ptr %m_params.i, align 8
-  br label %_ZN4node9inspector8protocol16InternalResponseC2EiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS1_12SerializableESt14default_deleteISC_EE.exit
-
-_ZN4node9inspector8protocol16InternalResponseC2EiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS1_12SerializableESt14default_deleteISC_EE.exit: ; preds = %entry, %cond.true.i
-  %m_params.sink.i = phi ptr [ %agg.tmp.sroa.0, %cond.true.i ], [ %m_params.i, %entry ]
-  store ptr null, ptr %m_params.sink.i, align 8
   store ptr %call, ptr %agg.result, align 8
-  %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.1 = load ptr, ptr %agg.tmp.sroa.0, align 8
-  %cmp.not.i = icmp eq ptr %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.1, null
-  br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN4node9inspector8protocol12SerializableESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i
-
-_ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i: ; preds = %_ZN4node9inspector8protocol16InternalResponseC2EiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS1_12SerializableESt14default_deleteISC_EE.exit
-  %vtable.i.i = load ptr, ptr %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.1, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 24
-  %2 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.1) #27
-  br label %_ZNSt10unique_ptrIN4node9inspector8protocol12SerializableESt14default_deleteIS3_EED2Ev.exit
-
-_ZNSt10unique_ptrIN4node9inspector8protocol12SerializableESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZN4node9inspector8protocol16InternalResponseC2EiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS1_12SerializableESt14default_deleteISC_EE.exit, %_ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i
   ret void
 }
 
@@ -5776,16 +5703,19 @@ entry:
   %m_params = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %params, align 8
   %cmp.i.not = icmp eq ptr %0, null
-  br i1 %cmp.i.not, label %cond.end, label %cond.true
+  br i1 %cmp.i.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %entry
   %1 = ptrtoint ptr %0 to i64
   store i64 %1, ptr %m_params, align 8
+  store ptr null, ptr %params, align 8
   br label %cond.end
 
-cond.end:                                         ; preds = %entry, %cond.true
-  %m_params.sink = phi ptr [ %params, %cond.true ], [ %m_params, %entry ]
-  store ptr null, ptr %m_params.sink, align 8
+cond.false:                                       ; preds = %entry
+  store ptr null, ptr %m_params, align 8
+  br label %cond.end
+
+cond.end:                                         ; preds = %cond.false, %cond.true
   ret void
 }
 
@@ -12136,22 +12066,18 @@ if.then:                                          ; preds = %while.body
 
 if.then15:                                        ; preds = %if.then
   %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
-  br label %if.end22.sink.split
+  store ptr %__p.022, ptr %arrayidx16, align 8
+  br label %if.end22
 
 if.else:                                          ; preds = %while.body
   %6 = load ptr, ptr %3, align 8
   store ptr %6, ptr %__p.022, align 8
   %7 = load ptr, ptr %arrayidx, align 8
-  br label %if.end22.sink.split
-
-if.end22.sink.split:                              ; preds = %if.else, %if.then15
-  %arrayidx16.sink = phi ptr [ %arrayidx16, %if.then15 ], [ %7, %if.else ]
-  %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then15 ], [ %__bbegin_bkt.021, %if.else ]
-  store ptr %__p.022, ptr %arrayidx16.sink, align 8
+  store ptr %__p.022, ptr %7, align 8
   br label %if.end22
 
-if.end22:                                         ; preds = %if.end22.sink.split, %if.then
-  %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then ], [ %__bbegin_bkt.1.ph, %if.end22.sink.split ]
+if.end22:                                         ; preds = %if.then, %if.then15, %if.else
+  %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.021, %if.else ], [ %rem.i.i, %if.then15 ], [ %rem.i.i, %if.then ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !236
 
@@ -13182,22 +13108,18 @@ if.then:                                          ; preds = %while.body
 
 if.then15:                                        ; preds = %if.then
   %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
-  br label %if.end22.sink.split
+  store ptr %__p.022, ptr %arrayidx16, align 8
+  br label %if.end22
 
 if.else:                                          ; preds = %while.body
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %__p.022, align 8
   %8 = load ptr, ptr %arrayidx, align 8
-  br label %if.end22.sink.split
-
-if.end22.sink.split:                              ; preds = %if.else, %if.then15
-  %arrayidx16.sink = phi ptr [ %arrayidx16, %if.then15 ], [ %8, %if.else ]
-  %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then15 ], [ %__bbegin_bkt.021, %if.else ]
-  store ptr %__p.022, ptr %arrayidx16.sink, align 8
+  store ptr %__p.022, ptr %8, align 8
   br label %if.end22
 
-if.end22:                                         ; preds = %if.end22.sink.split, %if.then
-  %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then ], [ %__bbegin_bkt.1.ph, %if.end22.sink.split ]
+if.end22:                                         ; preds = %if.then, %if.then15, %if.else
+  %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.021, %if.else ], [ %rem.i.i, %if.then15 ], [ %rem.i.i, %if.then ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !255
 
@@ -13436,22 +13358,18 @@ if.then:                                          ; preds = %while.body
 
 if.then15:                                        ; preds = %if.then
   %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
-  br label %if.end22.sink.split
+  store ptr %__p.022, ptr %arrayidx16, align 8
+  br label %if.end22
 
 if.else:                                          ; preds = %while.body
   %6 = load ptr, ptr %3, align 8
   store ptr %6, ptr %__p.022, align 8
   %7 = load ptr, ptr %arrayidx, align 8
-  br label %if.end22.sink.split
-
-if.end22.sink.split:                              ; preds = %if.else, %if.then15
-  %arrayidx16.sink = phi ptr [ %arrayidx16, %if.then15 ], [ %7, %if.else ]
-  %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then15 ], [ %__bbegin_bkt.021, %if.else ]
-  store ptr %__p.022, ptr %arrayidx16.sink, align 8
+  store ptr %__p.022, ptr %7, align 8
   br label %if.end22
 
-if.end22:                                         ; preds = %if.end22.sink.split, %if.then
-  %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then ], [ %__bbegin_bkt.1.ph, %if.end22.sink.split ]
+if.end22:                                         ; preds = %if.then, %if.then15, %if.else
+  %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.021, %if.else ], [ %rem.i.i, %if.then15 ], [ %rem.i.i, %if.then ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !257
 
@@ -13690,22 +13608,18 @@ if.then:                                          ; preds = %while.body
 
 if.then15:                                        ; preds = %if.then
   %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
-  br label %if.end22.sink.split
+  store ptr %__p.022, ptr %arrayidx16, align 8
+  br label %if.end22
 
 if.else:                                          ; preds = %while.body
   %6 = load ptr, ptr %3, align 8
   store ptr %6, ptr %__p.022, align 8
   %7 = load ptr, ptr %arrayidx, align 8
-  br label %if.end22.sink.split
-
-if.end22.sink.split:                              ; preds = %if.else, %if.then15
-  %arrayidx16.sink = phi ptr [ %arrayidx16, %if.then15 ], [ %7, %if.else ]
-  %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then15 ], [ %__bbegin_bkt.021, %if.else ]
-  store ptr %__p.022, ptr %arrayidx16.sink, align 8
+  store ptr %__p.022, ptr %7, align 8
   br label %if.end22
 
-if.end22:                                         ; preds = %if.end22.sink.split, %if.then
-  %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then ], [ %__bbegin_bkt.1.ph, %if.end22.sink.split ]
+if.end22:                                         ; preds = %if.then, %if.then15, %if.else
+  %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.021, %if.else ], [ %rem.i.i, %if.then15 ], [ %rem.i.i, %if.then ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !259
 

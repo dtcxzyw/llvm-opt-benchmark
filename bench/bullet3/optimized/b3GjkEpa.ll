@@ -3867,45 +3867,48 @@ if.else:                                          ; preds = %if.then12
 if.end:                                           ; preds = %if.else, %if.then14
   store ptr %call11, ptr %horizon, align 8
   %nf17 = getelementptr inbounds i8, ptr %horizon, i64 16
-  br label %return.sink.split
+  %14 = load i32, ptr %nf17, align 8
+  %inc = add i32 %14, 1
+  store i32 %inc, ptr %nf17, align 8
+  br label %return
 
 if.else19:                                        ; preds = %if.then
   %arrayidx21 = getelementptr inbounds [3 x i32], ptr @_ZZN13gjkepa2_impl25b3EPA6expandEjPNS_5b3GJK3sSVEPNS0_5sFaceEjRNS0_8sHorizonEE4i2m3, i64 0, i64 %idxprom
-  %14 = load i32, ptr %arrayidx21, align 4
+  %15 = load i32, ptr %arrayidx21, align 4
   %conv22 = trunc i32 %pass to i8
   store i8 %conv22, ptr %pass2, align 1
   %f24 = getelementptr inbounds i8, ptr %f, i64 48
   %idxprom25 = zext i32 %1 to i64
   %arrayidx26 = getelementptr inbounds [3 x ptr], ptr %f24, i64 0, i64 %idxprom25
-  %15 = load ptr, ptr %arrayidx26, align 8
+  %16 = load ptr, ptr %arrayidx26, align 8
   %e27 = getelementptr inbounds i8, ptr %f, i64 88
   %arrayidx29 = getelementptr inbounds [3 x i8], ptr %e27, i64 0, i64 %idxprom25
-  %16 = load i8, ptr %arrayidx29, align 1
-  %conv30 = zext i8 %16 to i32
-  %call31 = tail call noundef zeroext i1 @_ZN13gjkepa2_impl25b3EPA6expandEjPNS_5b3GJK3sSVEPNS0_5sFaceEjRNS0_8sHorizonE(ptr noundef nonnull align 16 dereferenceable(14472) %this, i32 noundef %pass, ptr noundef nonnull %w, ptr noundef %15, i32 noundef %conv30, ptr noundef nonnull align 8 dereferenceable(20) %horizon)
+  %17 = load i8, ptr %arrayidx29, align 1
+  %conv30 = zext i8 %17 to i32
+  %call31 = tail call noundef zeroext i1 @_ZN13gjkepa2_impl25b3EPA6expandEjPNS_5b3GJK3sSVEPNS0_5sFaceEjRNS0_8sHorizonE(ptr noundef nonnull align 16 dereferenceable(14472) %this, i32 noundef %pass, ptr noundef nonnull %w, ptr noundef %16, i32 noundef %conv30, ptr noundef nonnull align 8 dereferenceable(20) %horizon)
   br i1 %call31, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.else19
-  %idxprom33 = zext i32 %14 to i64
+  %idxprom33 = zext i32 %15 to i64
   %arrayidx34 = getelementptr inbounds [3 x ptr], ptr %f24, i64 0, i64 %idxprom33
-  %17 = load ptr, ptr %arrayidx34, align 8
+  %18 = load ptr, ptr %arrayidx34, align 8
   %arrayidx37 = getelementptr inbounds [3 x i8], ptr %e27, i64 0, i64 %idxprom33
-  %18 = load i8, ptr %arrayidx37, align 1
-  %conv38 = zext i8 %18 to i32
-  %call39 = tail call noundef zeroext i1 @_ZN13gjkepa2_impl25b3EPA6expandEjPNS_5b3GJK3sSVEPNS0_5sFaceEjRNS0_8sHorizonE(ptr noundef nonnull align 16 dereferenceable(14472) %this, i32 noundef %pass, ptr noundef nonnull %w, ptr noundef %17, i32 noundef %conv38, ptr noundef nonnull align 8 dereferenceable(20) %horizon)
+  %19 = load i8, ptr %arrayidx37, align 1
+  %conv38 = zext i8 %19 to i32
+  %call39 = tail call noundef zeroext i1 @_ZN13gjkepa2_impl25b3EPA6expandEjPNS_5b3GJK3sSVEPNS0_5sFaceEjRNS0_8sHorizonE(ptr noundef nonnull align 16 dereferenceable(14472) %this, i32 noundef %pass, ptr noundef nonnull %w, ptr noundef %18, i32 noundef %conv38, ptr noundef nonnull align 8 dereferenceable(20) %horizon)
   br i1 %call39, label %if.then40, label %return
 
 if.then40:                                        ; preds = %land.lhs.true
   %m_hull = getelementptr inbounds i8, ptr %this, i64 14440
   %l.i = getelementptr inbounds i8, ptr %f, i64 72
   %arrayidx.i41 = getelementptr inbounds i8, ptr %f, i64 80
-  %19 = load ptr, ptr %arrayidx.i41, align 8
-  %tobool.not.i = icmp eq ptr %19, null
+  %20 = load ptr, ptr %arrayidx.i41, align 8
+  %tobool.not.i = icmp eq ptr %20, null
   %.pre.i = load ptr, ptr %l.i, align 8
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then40
-  %l5.i = getelementptr inbounds i8, ptr %19, i64 72
+  %l5.i = getelementptr inbounds i8, ptr %20, i64 72
   store ptr %.pre.i, ptr %l5.i, align 8
   br label %if.end.i
 
@@ -3914,52 +3917,48 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
   br i1 %tobool9.not.i, label %if.end17.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end.i
-  %20 = load ptr, ptr %arrayidx.i41, align 8
+  %21 = load ptr, ptr %arrayidx.i41, align 8
   %arrayidx16.i = getelementptr inbounds i8, ptr %.pre.i, i64 80
-  store ptr %20, ptr %arrayidx16.i, align 8
+  store ptr %21, ptr %arrayidx16.i, align 8
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.then10.i, %if.end.i
-  %21 = load ptr, ptr %m_hull, align 8
-  %cmp.i = icmp eq ptr %f, %21
+  %22 = load ptr, ptr %m_hull, align 8
+  %cmp.i = icmp eq ptr %f, %22
   br i1 %cmp.i, label %if.then18.i, label %_ZN13gjkepa2_impl25b3EPA6removeERNS0_5sListEPNS0_5sFaceE.exit
 
 if.then18.i:                                      ; preds = %if.end17.i
-  %22 = load ptr, ptr %arrayidx.i41, align 8
-  store ptr %22, ptr %m_hull, align 8
+  %23 = load ptr, ptr %arrayidx.i41, align 8
+  store ptr %23, ptr %m_hull, align 8
   br label %_ZN13gjkepa2_impl25b3EPA6removeERNS0_5sListEPNS0_5sFaceE.exit
 
 _ZN13gjkepa2_impl25b3EPA6removeERNS0_5sListEPNS0_5sFaceE.exit: ; preds = %if.end17.i, %if.then18.i
   %count.i = getelementptr inbounds i8, ptr %this, i64 14448
-  %23 = load i32, ptr %count.i, align 16
-  %dec.i = add i32 %23, -1
+  %24 = load i32, ptr %count.i, align 16
+  %dec.i = add i32 %24, -1
   store i32 %dec.i, ptr %count.i, align 16
   %m_stock = getelementptr inbounds i8, ptr %this, i64 14456
   store ptr null, ptr %l.i, align 8
-  %24 = load ptr, ptr %m_stock, align 8
-  store ptr %24, ptr %arrayidx.i41, align 8
-  %tobool.not.i44 = icmp eq ptr %24, null
+  %25 = load ptr, ptr %m_stock, align 8
+  store ptr %25, ptr %arrayidx.i41, align 8
+  %tobool.not.i44 = icmp eq ptr %25, null
   br i1 %tobool.not.i44, label %_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit, label %if.then.i45
 
 if.then.i45:                                      ; preds = %_ZN13gjkepa2_impl25b3EPA6removeERNS0_5sListEPNS0_5sFaceE.exit
-  %l5.i46 = getelementptr inbounds i8, ptr %24, i64 72
+  %l5.i46 = getelementptr inbounds i8, ptr %25, i64 72
   store ptr %f, ptr %l5.i46, align 8
   br label %_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit
 
 _ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit: ; preds = %_ZN13gjkepa2_impl25b3EPA6removeERNS0_5sListEPNS0_5sFaceE.exit, %if.then.i45
   store ptr %f, ptr %m_stock, align 8
   %count.i48 = getelementptr inbounds i8, ptr %this, i64 14464
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.end, %_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit
-  %count.i48.sink49 = phi ptr [ %count.i48, %_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit ], [ %nf17, %if.end ]
-  %25 = load i32, ptr %count.i48.sink49, align 8
-  %inc.i = add i32 %25, 1
-  store i32 %inc.i, ptr %count.i48.sink49, align 8
+  %26 = load i32, ptr %count.i48, align 16
+  %inc.i = add i32 %26, 1
+  store i32 %inc.i, ptr %count.i48, align 16
   br label %return
 
-return:                                           ; preds = %return.sink.split, %entry, %if.else19, %land.lhs.true, %if.then5
-  %retval.0 = phi i1 [ false, %if.then5 ], [ false, %land.lhs.true ], [ false, %if.else19 ], [ false, %entry ], [ true, %return.sink.split ]
+return:                                           ; preds = %entry, %if.else19, %land.lhs.true, %if.then5, %_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit, %if.end
+  %retval.0 = phi i1 [ true, %if.end ], [ true, %_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit ], [ false, %if.then5 ], [ false, %land.lhs.true ], [ false, %if.else19 ], [ false, %entry ]
   ret i1 %retval.0
 }
 

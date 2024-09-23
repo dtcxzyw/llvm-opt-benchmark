@@ -2511,7 +2511,7 @@ define i32 @Cec5_ObjGetCnfVar(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   %13 = getelementptr inbounds i8, ptr %.val165, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = icmp sgt i32 %14, -1
-  br i1 %15, label %168, label %16
+  br i1 %15, label %170, label %16
 
 16:                                               ; preds = %2
   %.val166 = load i64, ptr %9, align 4
@@ -2524,18 +2524,18 @@ define i32 @Cec5_ObjGetCnfVar(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 @bmcg2_sat_solver_addvar(ptr noundef %20) #24
   %22 = tail call fastcc i32 @Cec5_ObjSetSatId(ptr noundef nonnull %6, ptr noundef nonnull %9, i32 noundef %21)
-  br label %168
+  br label %170
 
 23:                                               ; preds = %16
   %24 = getelementptr inbounds i8, ptr %6, i64 40
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %27, label %72
+  br i1 %26, label %27, label %74
 
 27:                                               ; preds = %23
   %28 = call i32 @Gia_ObjRecognizeExor(ptr noundef nonnull %9, ptr noundef nonnull %3, ptr noundef nonnull %4) #24
   %.not151 = icmp eq i32 %28, 0
-  br i1 %.not151, label %72, label %29
+  br i1 %.not151, label %74, label %29
 
 29:                                               ; preds = %27
   %30 = load ptr, ptr %3, align 8
@@ -2545,7 +2545,7 @@ define i32 @Cec5_ObjGetCnfVar(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   %34 = xor i64 %33, %31
   %35 = and i64 %34, 1
   %36 = icmp eq i64 %35, 0
-  br i1 %36, label %37, label %72
+  br i1 %36, label %37, label %74
 
 37:                                               ; preds = %29
   %38 = load ptr, ptr %5, align 8
@@ -2584,7 +2584,7 @@ define i32 @Cec5_ObjGetCnfVar(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   %.pre = load ptr, ptr %0, align 8
   %.pre186 = load i32, ptr %.pre, align 4
   %67 = icmp sgt i32 %.pre186, 0
-  br i1 %67, label %.thread, label %158
+  br i1 %67, label %.thread, label %160
 
 .thread:                                          ; preds = %37, %64
   %68 = shl nsw i32 %45, 1
@@ -2594,159 +2594,158 @@ define i32 @Cec5_ObjGetCnfVar(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   %70 = load ptr, ptr %57, align 8
   call void @bmcg2_sat_solver_set_var_fanin_lit(ptr noundef %70, i32 noundef %59, i32 noundef %spec.select, i32 noundef %spec.select154) #24
   %71 = getelementptr inbounds i8, ptr %0, i64 252
-  br label %.sink.split
+  %72 = load i32, ptr %71, align 4
+  %73 = add nsw i32 %72, 1
+  store i32 %73, ptr %71, align 4
+  br label %160
 
-72:                                               ; preds = %29, %27, %23
+74:                                               ; preds = %29, %27, %23
   %.val159 = load i64, ptr %9, align 4
-  %73 = trunc i64 %.val159 to i32
-  %74 = and i32 %73, 536870911
-  %75 = sub nsw i32 %1, %74
-  %76 = call i32 @Cec5_ObjGetCnfVar(ptr noundef nonnull %0, i32 noundef %75)
+  %75 = trunc i64 %.val159 to i32
+  %76 = and i32 %75, 536870911
+  %77 = sub nsw i32 %1, %76
+  %78 = call i32 @Cec5_ObjGetCnfVar(ptr noundef nonnull %0, i32 noundef %77)
   %.val173 = load i64, ptr %9, align 4
-  %77 = lshr i64 %.val173, 32
-  %78 = trunc nuw i64 %77 to i32
-  %79 = and i32 %78, 536870911
-  %80 = sub nsw i32 %1, %79
-  %81 = call i32 @Cec5_ObjGetCnfVar(ptr noundef nonnull %0, i32 noundef %80)
-  %82 = load ptr, ptr %5, align 8
-  %83 = getelementptr inbounds i8, ptr %0, i64 24
-  %84 = load ptr, ptr %83, align 8
-  %85 = call i32 @bmcg2_sat_solver_addvar(ptr noundef %84) #24
-  %86 = call fastcc i32 @Cec5_ObjSetSatId(ptr noundef %82, ptr noundef nonnull %9, i32 noundef %85)
-  %87 = load ptr, ptr %0, align 8
-  %88 = load i32, ptr %87, align 4
-  %89 = icmp slt i32 %88, 2
-  br i1 %89, label %90, label %113
+  %79 = lshr i64 %.val173, 32
+  %80 = trunc nuw i64 %79 to i32
+  %81 = and i32 %80, 536870911
+  %82 = sub nsw i32 %1, %81
+  %83 = call i32 @Cec5_ObjGetCnfVar(ptr noundef nonnull %0, i32 noundef %82)
+  %84 = load ptr, ptr %5, align 8
+  %85 = getelementptr inbounds i8, ptr %0, i64 24
+  %86 = load ptr, ptr %85, align 8
+  %87 = call i32 @bmcg2_sat_solver_addvar(ptr noundef %86) #24
+  %88 = call fastcc i32 @Cec5_ObjSetSatId(ptr noundef %84, ptr noundef nonnull %9, i32 noundef %87)
+  %89 = load ptr, ptr %0, align 8
+  %90 = load i32, ptr %89, align 4
+  %91 = icmp slt i32 %90, 2
+  br i1 %91, label %92, label %115
 
-90:                                               ; preds = %72
+92:                                               ; preds = %74
   %.val174 = load i64, ptr %9, align 4
-  %91 = and i64 %.val174, 2147483648
-  %.not.i.i = icmp ne i64 %91, 0
-  %92 = and i64 %.val174, 536870911
-  %93 = icmp eq i64 %92, 536870911
-  %narrow.i.not.i = or i1 %.not.i.i, %93
+  %93 = and i64 %.val174, 2147483648
+  %.not.i.i = icmp ne i64 %93, 0
+  %94 = and i64 %.val174, 536870911
+  %95 = icmp eq i64 %94, 536870911
+  %narrow.i.not.i = or i1 %.not.i.i, %95
   %.pre187 = trunc i64 %.val174 to i32
   br i1 %narrow.i.not.i, label %Gia_ObjIsXor.exit.thread, label %Gia_ObjIsXor.exit
 
-Gia_ObjIsXor.exit:                                ; preds = %90
-  %94 = and i32 %.pre187, 536870911
-  %95 = lshr i64 %.val174, 32
-  %96 = trunc nuw i64 %95 to i32
-  %97 = and i32 %96, 536870911
-  %.not = icmp ult i32 %94, %97
-  br i1 %.not, label %98, label %Gia_ObjIsXor.exit.thread
+Gia_ObjIsXor.exit:                                ; preds = %92
+  %96 = and i32 %.pre187, 536870911
+  %97 = lshr i64 %.val174, 32
+  %98 = trunc nuw i64 %97 to i32
+  %99 = and i32 %98, 536870911
+  %.not = icmp ult i32 %96, %99
+  br i1 %.not, label %100, label %Gia_ObjIsXor.exit.thread
 
-98:                                               ; preds = %Gia_ObjIsXor.exit
-  %99 = load ptr, ptr %83, align 8
-  %100 = lshr i32 %.pre187, 29
-  %101 = lshr i64 %.val174, 61
-  %102 = trunc nuw nsw i64 %101 to i32
-  %103 = xor i32 %100, %102
-  %104 = and i32 %103, 1
-  %105 = call i32 @bmcg2_sat_solver_add_xor(ptr noundef %99, i32 noundef %85, i32 noundef %76, i32 noundef %81, i32 noundef %104) #24
-  br label %113
+100:                                              ; preds = %Gia_ObjIsXor.exit
+  %101 = load ptr, ptr %85, align 8
+  %102 = lshr i32 %.pre187, 29
+  %103 = lshr i64 %.val174, 61
+  %104 = trunc nuw nsw i64 %103 to i32
+  %105 = xor i32 %102, %104
+  %106 = and i32 %105, 1
+  %107 = call i32 @bmcg2_sat_solver_add_xor(ptr noundef %101, i32 noundef %87, i32 noundef %78, i32 noundef %83, i32 noundef %106) #24
+  br label %115
 
-Gia_ObjIsXor.exit.thread:                         ; preds = %90, %Gia_ObjIsXor.exit
-  %106 = load ptr, ptr %83, align 8
-  %107 = lshr i32 %.pre187, 29
-  %108 = and i32 %107, 1
-  %109 = lshr i64 %.val174, 61
-  %110 = trunc nuw nsw i64 %109 to i32
-  %111 = and i32 %110, 1
-  %112 = call i32 @bmcg2_sat_solver_add_and(ptr noundef %106, i32 noundef %85, i32 noundef %76, i32 noundef %81, i32 noundef %108, i32 noundef %111, i32 noundef 0) #24
-  br label %113
+Gia_ObjIsXor.exit.thread:                         ; preds = %92, %Gia_ObjIsXor.exit
+  %108 = load ptr, ptr %85, align 8
+  %109 = lshr i32 %.pre187, 29
+  %110 = and i32 %109, 1
+  %111 = lshr i64 %.val174, 61
+  %112 = trunc nuw nsw i64 %111 to i32
+  %113 = and i32 %112, 1
+  %114 = call i32 @bmcg2_sat_solver_add_and(ptr noundef %108, i32 noundef %87, i32 noundef %78, i32 noundef %83, i32 noundef %110, i32 noundef %113, i32 noundef 0) #24
+  br label %115
 
-113:                                              ; preds = %98, %Gia_ObjIsXor.exit.thread, %72
-  %114 = load ptr, ptr %0, align 8
-  %115 = load i32, ptr %114, align 4
-  %116 = icmp sgt i32 %115, 0
-  br i1 %116, label %117, label %158
+115:                                              ; preds = %100, %Gia_ObjIsXor.exit.thread, %74
+  %116 = load ptr, ptr %0, align 8
+  %117 = load i32, ptr %116, align 4
+  %118 = icmp sgt i32 %117, 0
+  br i1 %118, label %119, label %160
 
-117:                                              ; preds = %113
+119:                                              ; preds = %115
   %.val169 = load i64, ptr %9, align 4
-  %118 = trunc i64 %.val169 to i32
-  %119 = lshr i32 %118, 29
-  %120 = and i32 %119, 1
-  %121 = shl nsw i32 %76, 1
-  %122 = or disjoint i32 %120, %121
-  %123 = lshr i64 %.val169, 61
-  %124 = trunc nuw nsw i64 %123 to i32
-  %125 = and i32 %124, 1
-  %126 = shl nsw i32 %81, 1
-  %127 = or disjoint i32 %125, %126
-  %128 = icmp sgt i32 %122, %127
-  %129 = zext i1 %128 to i32
-  %130 = and i64 %.val169, 2147483648
-  %.not.i.i178 = icmp ne i64 %130, 0
-  %131 = and i64 %.val169, 536870911
-  %132 = icmp eq i64 %131, 536870911
-  %narrow.i.not.i179 = or i1 %.not.i.i178, %132
-  br i1 %narrow.i.not.i179, label %Gia_ObjIsXor.exit180, label %133
+  %120 = trunc i64 %.val169 to i32
+  %121 = lshr i32 %120, 29
+  %122 = and i32 %121, 1
+  %123 = shl nsw i32 %78, 1
+  %124 = or disjoint i32 %122, %123
+  %125 = lshr i64 %.val169, 61
+  %126 = trunc nuw nsw i64 %125 to i32
+  %127 = and i32 %126, 1
+  %128 = shl nsw i32 %83, 1
+  %129 = or disjoint i32 %127, %128
+  %130 = icmp sgt i32 %124, %129
+  %131 = zext i1 %130 to i32
+  %132 = and i64 %.val169, 2147483648
+  %.not.i.i178 = icmp ne i64 %132, 0
+  %133 = and i64 %.val169, 536870911
+  %134 = icmp eq i64 %133, 536870911
+  %narrow.i.not.i179 = or i1 %.not.i.i178, %134
+  br i1 %narrow.i.not.i179, label %Gia_ObjIsXor.exit180, label %135
 
-133:                                              ; preds = %117
-  %134 = and i32 %118, 536870911
-  %135 = lshr i64 %.val169, 32
-  %136 = trunc nuw i64 %135 to i32
-  %137 = and i32 %136, 536870911
-  %138 = icmp ult i32 %134, %137
-  %139 = zext i1 %138 to i32
+135:                                              ; preds = %119
+  %136 = and i32 %120, 536870911
+  %137 = lshr i64 %.val169, 32
+  %138 = trunc nuw i64 %137 to i32
+  %139 = and i32 %138, 536870911
+  %140 = icmp ult i32 %136, %139
+  %141 = zext i1 %140 to i32
   br label %Gia_ObjIsXor.exit180
 
-Gia_ObjIsXor.exit180:                             ; preds = %117, %133
-  %140 = phi i32 [ 0, %117 ], [ %139, %133 ]
-  %.not153 = icmp eq i32 %140, %129
-  %spec.select155 = select i1 %.not153, i32 %122, i32 %127
-  %spec.select156 = select i1 %.not153, i32 %127, i32 %122
-  %141 = load ptr, ptr %83, align 8
-  call void @bmcg2_sat_solver_set_var_fanin_lit(ptr noundef %141, i32 noundef %85, i32 noundef %spec.select155, i32 noundef %spec.select156) #24
-  %142 = getelementptr inbounds i8, ptr %0, i64 248
+Gia_ObjIsXor.exit180:                             ; preds = %119, %135
+  %142 = phi i32 [ 0, %119 ], [ %141, %135 ]
+  %.not153 = icmp eq i32 %142, %131
+  %spec.select155 = select i1 %.not153, i32 %124, i32 %129
+  %spec.select156 = select i1 %.not153, i32 %129, i32 %124
+  %143 = load ptr, ptr %85, align 8
+  call void @bmcg2_sat_solver_set_var_fanin_lit(ptr noundef %143, i32 noundef %87, i32 noundef %spec.select155, i32 noundef %spec.select156) #24
+  %144 = getelementptr inbounds i8, ptr %0, i64 248
   %.val176 = load i64, ptr %9, align 4
-  %143 = and i64 %.val176, 2147483648
-  %.not.i.i181 = icmp ne i64 %143, 0
-  %144 = and i64 %.val176, 536870911
-  %145 = icmp eq i64 %144, 536870911
-  %narrow.i.not.i182 = or i1 %.not.i.i181, %145
-  br i1 %narrow.i.not.i182, label %Gia_ObjIsXor.exit183, label %146
+  %145 = and i64 %.val176, 2147483648
+  %.not.i.i181 = icmp ne i64 %145, 0
+  %146 = and i64 %.val176, 536870911
+  %147 = icmp eq i64 %146, 536870911
+  %narrow.i.not.i182 = or i1 %.not.i.i181, %147
+  br i1 %narrow.i.not.i182, label %Gia_ObjIsXor.exit183, label %148
 
-146:                                              ; preds = %Gia_ObjIsXor.exit180
-  %147 = trunc i64 %.val176 to i32
-  %148 = and i32 %147, 536870911
-  %149 = lshr i64 %.val176, 32
-  %150 = trunc nuw i64 %149 to i32
-  %151 = and i32 %150, 536870911
-  %152 = icmp ult i32 %148, %151
-  %153 = zext i1 %152 to i64
+148:                                              ; preds = %Gia_ObjIsXor.exit180
+  %149 = trunc i64 %.val176 to i32
+  %150 = and i32 %149, 536870911
+  %151 = lshr i64 %.val176, 32
+  %152 = trunc nuw i64 %151 to i32
+  %153 = and i32 %152, 536870911
+  %154 = icmp ult i32 %150, %153
+  %155 = zext i1 %154 to i64
   br label %Gia_ObjIsXor.exit183
 
-Gia_ObjIsXor.exit183:                             ; preds = %Gia_ObjIsXor.exit180, %146
-  %154 = phi i64 [ 0, %Gia_ObjIsXor.exit180 ], [ %153, %146 ]
-  %155 = getelementptr inbounds [2 x i32], ptr %142, i64 0, i64 %154
-  br label %.sink.split
+Gia_ObjIsXor.exit183:                             ; preds = %Gia_ObjIsXor.exit180, %148
+  %156 = phi i64 [ 0, %Gia_ObjIsXor.exit180 ], [ %155, %148 ]
+  %157 = getelementptr inbounds [2 x i32], ptr %144, i64 0, i64 %156
+  %158 = load i32, ptr %157, align 4
+  %159 = add nsw i32 %158, 1
+  store i32 %159, ptr %157, align 4
+  br label %160
 
-.sink.split:                                      ; preds = %.thread, %Gia_ObjIsXor.exit183
-  %.sink = phi ptr [ %155, %Gia_ObjIsXor.exit183 ], [ %71, %.thread ]
-  %156 = load i32, ptr %.sink, align 4
-  %157 = add nsw i32 %156, 1
-  store i32 %157, ptr %.sink, align 4
-  br label %158
+160:                                              ; preds = %115, %Gia_ObjIsXor.exit183, %64, %.thread
+  %161 = load ptr, ptr %5, align 8
+  %162 = getelementptr i8, ptr %161, i64 32
+  %.val160 = load ptr, ptr %162, align 8
+  %163 = getelementptr i8, ptr %161, i64 416
+  %.val161 = load ptr, ptr %163, align 8
+  %164 = ptrtoint ptr %.val160 to i64
+  %165 = sub i64 %11, %164
+  %166 = sdiv exact i64 %165, 12
+  %sext.i184 = shl i64 %166, 32
+  %167 = ashr exact i64 %sext.i184, 30
+  %168 = getelementptr inbounds i8, ptr %.val161, i64 %167
+  %169 = load i32, ptr %168, align 4
+  br label %170
 
-158:                                              ; preds = %.sink.split, %113, %64
-  %159 = load ptr, ptr %5, align 8
-  %160 = getelementptr i8, ptr %159, i64 32
-  %.val160 = load ptr, ptr %160, align 8
-  %161 = getelementptr i8, ptr %159, i64 416
-  %.val161 = load ptr, ptr %161, align 8
-  %162 = ptrtoint ptr %.val160 to i64
-  %163 = sub i64 %11, %162
-  %164 = sdiv exact i64 %163, 12
-  %sext.i184 = shl i64 %164, 32
-  %165 = ashr exact i64 %sext.i184, 30
-  %166 = getelementptr inbounds i8, ptr %.val161, i64 %165
-  %167 = load i32, ptr %166, align 4
-  br label %168
-
-168:                                              ; preds = %2, %158, %18
-  %.0142 = phi i32 [ %21, %18 ], [ %167, %158 ], [ %14, %2 ]
+170:                                              ; preds = %2, %160, %18
+  %.0142 = phi i32 [ %21, %18 ], [ %169, %160 ], [ %14, %2 ]
   ret i32 %.0142
 }
 

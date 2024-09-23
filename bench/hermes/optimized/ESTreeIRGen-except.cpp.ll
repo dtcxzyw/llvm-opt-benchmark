@@ -75,6 +75,7 @@ entry:
   %agg.tmp8.sroa.3.0.genFinalizer4.i.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %thisTry.i.i, i64 40
   store i64 0, ptr %agg.tmp8.sroa.3.0.genFinalizer4.i.sroa_idx.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPN6hermes6ESTree4NodeENS0_5irgen17ControlFlowChangeEPNS0_10BasicBlockEEZZNS4_11ESTreeIRGen15genTryStatementEPNS1_16TryStatementNodeEENK3$_0clEvEUlS3_S5_S7_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager.i.i.i.i.i.i, align 8
+  store ptr %thisTry.i.i, ptr %surroundingTry.i.i.i.i, align 8
   br label %if.end.i.i
 
 _ZN4llvh8OptionalIN6hermes5irgen14SurroundingTryEE7emplaceIJPNS2_15FunctionContextERKPNS1_6ESTree16TryStatementNodeEEEEvDpOT_.exit.i.i: ; preds = %entry
@@ -82,12 +83,11 @@ _ZN4llvh8OptionalIN6hermes5irgen14SurroundingTryEE7emplaceIJPNS2_15FunctionConte
   %6 = load ptr, ptr %surroundingTry.i.i5.i.i, align 8
   %tryEndLoc3.i.i7.i.i = getelementptr inbounds i8, ptr %thisTry.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %tryEndLoc3.i.i7.i.i, i8 0, i64 40, i1 false)
+  store ptr %thisTry.i.i, ptr %surroundingTry.i.i5.i.i, align 8
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %_ZN4llvh8OptionalIN6hermes5irgen14SurroundingTryEE7emplaceIJPNS2_15FunctionContextERKPNS1_6ESTree16TryStatementNodeEEEEvDpOT_.exit.i.i, %"_ZN4llvh8OptionalIN6hermes5irgen14SurroundingTryEE7emplaceIJPNS2_15FunctionContextERKPNS1_6ESTree16TryStatementNodeENS_5SMLocEZZNS2_11ESTreeIRGen15genTryStatementESA_ENK3$_0clEvEUlPNS8_4NodeENS2_17ControlFlowChangeEPNS1_10BasicBlockEE_EEEvDpOT_.exit.i.i"
-  %surroundingTry.i.i5.sink.i.i = phi ptr [ %surroundingTry.i.i5.i.i, %_ZN4llvh8OptionalIN6hermes5irgen14SurroundingTryEE7emplaceIJPNS2_15FunctionContextERKPNS1_6ESTree16TryStatementNodeEEEEvDpOT_.exit.i.i ], [ %surroundingTry.i.i.i.i, %"_ZN4llvh8OptionalIN6hermes5irgen14SurroundingTryEE7emplaceIJPNS2_15FunctionContextERKPNS1_6ESTree16TryStatementNodeENS_5SMLocEZZNS2_11ESTreeIRGen15genTryStatementESA_ENK3$_0clEvEUlPNS8_4NodeENS2_17ControlFlowChangeEPNS1_10BasicBlockEE_EEEvDpOT_.exit.i.i" ]
   %.sink27.i.i = phi ptr [ %6, %_ZN4llvh8OptionalIN6hermes5irgen14SurroundingTryEE7emplaceIJPNS2_15FunctionContextERKPNS1_6ESTree16TryStatementNodeEEEEvDpOT_.exit.i.i ], [ %5, %"_ZN4llvh8OptionalIN6hermes5irgen14SurroundingTryEE7emplaceIJPNS2_15FunctionContextERKPNS1_6ESTree16TryStatementNodeENS_5SMLocEZZNS2_11ESTreeIRGen15genTryStatementESA_ENK3$_0clEvEUlPNS8_4NodeENS2_17ControlFlowChangeEPNS1_10BasicBlockEE_EEEvDpOT_.exit.i.i" ]
-  store ptr %thisTry.i.i, ptr %surroundingTry.i.i5.sink.i.i, align 8
   store i8 1, ptr %hasVal.i.i.i.i, align 8
   store ptr %3, ptr %thisTry.i.i, align 8
   %7 = getelementptr inbounds i8, ptr %thisTry.i.i, i64 8

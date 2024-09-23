@@ -4421,7 +4421,8 @@ if.then.i:                                        ; preds = %if.end6
   store ptr %call3, ptr %m_bindings, align 8
   store ptr %call3, ptr %call3, align 8
   %m_prev.i = getelementptr inbounds i8, ptr %call3, i64 8
-  br label %if.end12.sink.split.i
+  store ptr %call3, ptr %m_prev.i, align 8
+  br label %_ZN8dll_baseIN1q7bindingEE13push_to_frontERPS1_S3_.exit
 
 if.else.i:                                        ; preds = %if.end6
   %cmp.not.i = icmp eq ptr %10, %call3
@@ -4446,14 +4447,10 @@ if.then1.i:                                       ; preds = %if.else.i
   store ptr %17, ptr %call3, align 8
   %m_prev11.i = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %call3, ptr %m_prev11.i, align 8
-  br label %if.end12.sink.split.i
-
-if.end12.sink.split.i:                            ; preds = %if.then1.i, %if.then.i
-  %list.sink.i = phi ptr [ %m_bindings, %if.then1.i ], [ %m_prev.i, %if.then.i ]
-  store ptr %call3, ptr %list.sink.i, align 8
+  store ptr %call3, ptr %m_bindings, align 8
   br label %_ZN8dll_baseIN1q7bindingEE13push_to_frontERPS1_S3_.exit
 
-_ZN8dll_baseIN1q7bindingEE13push_to_frontERPS1_S3_.exit: ; preds = %if.else.i, %if.end12.sink.split.i
+_ZN8dll_baseIN1q7bindingEE13push_to_frontERPS1_S3_.exit: ; preds = %if.then.i, %if.else.i, %if.then1.i
   %18 = load ptr, ptr %this, align 8
   %m_trail.i = getelementptr inbounds i8, ptr %18, i64 2192
   %m_region.i.i = getelementptr inbounds i8, ptr %18, i64 2208
@@ -10496,7 +10493,8 @@ if.then.i:                                        ; preds = %entry
   store ptr %1, ptr %m_bindings, align 8
   store ptr %1, ptr %1, align 8
   %m_prev.i = getelementptr inbounds i8, ptr %1, i64 8
-  br label %if.end12.sink.split.i
+  store ptr %1, ptr %m_prev.i, align 8
+  br label %_ZN8dll_baseIN1q7bindingEE13push_to_frontERPS1_S3_.exit
 
 if.else.i:                                        ; preds = %entry
   %cmp.not.i = icmp eq ptr %2, %1
@@ -10521,14 +10519,10 @@ if.then1.i:                                       ; preds = %if.else.i
   store ptr %9, ptr %1, align 8
   %m_prev11.i = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %1, ptr %m_prev11.i, align 8
-  br label %if.end12.sink.split.i
-
-if.end12.sink.split.i:                            ; preds = %if.then1.i, %if.then.i
-  %list.sink.i = phi ptr [ %m_bindings, %if.then1.i ], [ %m_prev.i, %if.then.i ]
-  store ptr %1, ptr %list.sink.i, align 8
+  store ptr %1, ptr %m_bindings, align 8
   br label %_ZN8dll_baseIN1q7bindingEE13push_to_frontERPS1_S3_.exit
 
-_ZN8dll_baseIN1q7bindingEE13push_to_frontERPS1_S3_.exit: ; preds = %if.else.i, %if.end12.sink.split.i
+_ZN8dll_baseIN1q7bindingEE13push_to_frontERPS1_S3_.exit: ; preds = %if.then.i, %if.else.i, %if.then1.i
   ret void
 }
 

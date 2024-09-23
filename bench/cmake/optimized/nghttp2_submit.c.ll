@@ -382,7 +382,7 @@ define dso_local i32 @nghttp2_submit_window_update(ptr noundef %0, i8 noundef ze
   %5 = alloca i32, align 4
   store i32 %3, ptr %5, align 4
   %6 = icmp eq i32 %3, 0
-  br i1 %6, label %34, label %7
+  br i1 %6, label %37, label %7
 
 7:                                                ; preds = %4
   %8 = icmp eq i32 %2, 0
@@ -394,12 +394,12 @@ define dso_local i32 @nghttp2_submit_window_update(ptr noundef %0, i8 noundef ze
   %12 = getelementptr inbounds i8, ptr %0, i64 2752
   %13 = call i32 @nghttp2_adjust_local_window_size(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %5) #5
   %.not32 = icmp eq i32 %13, 0
-  br i1 %.not32, label %21, label %34
+  br i1 %.not32, label %21, label %37
 
 14:                                               ; preds = %7
   %15 = tail call ptr @nghttp2_session_get_stream(ptr noundef %0, i32 noundef %2) #5
   %.not = icmp eq ptr %15, null
-  br i1 %.not, label %34, label %16
+  br i1 %.not, label %37, label %16
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds i8, ptr %15, i64 188
@@ -407,38 +407,41 @@ define dso_local i32 @nghttp2_submit_window_update(ptr noundef %0, i8 noundef ze
   %19 = getelementptr inbounds i8, ptr %15, i64 184
   %20 = call i32 @nghttp2_adjust_local_window_size(ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %5) #5
   %.not31 = icmp eq i32 %20, 0
-  br i1 %.not31, label %.thread, label %34
+  br i1 %.not31, label %.thread, label %37
 
 21:                                               ; preds = %9
   %22 = load i32, ptr %5, align 4
   %23 = icmp sgt i32 %22, 0
-  br i1 %23, label %26, label %34
+  br i1 %23, label %26, label %37
 
 .thread:                                          ; preds = %16
   %24 = load i32, ptr %5, align 4
   %25 = icmp sgt i32 %24, 0
-  br i1 %25, label %28, label %34
+  br i1 %25, label %30, label %37
 
 26:                                               ; preds = %21
   %27 = getelementptr inbounds i8, ptr %0, i64 2748
-  br label %30
-
-28:                                               ; preds = %.thread
-  %29 = getelementptr inbounds i8, ptr %15, i64 180
-  br label %30
-
-30:                                               ; preds = %28, %26
-  %.sink42 = phi ptr [ %29, %28 ], [ %27, %26 ]
-  %.sink41 = phi i32 [ %24, %28 ], [ %22, %26 ]
-  %31 = load i32, ptr %.sink42, align 4
-  %32 = sub nsw i32 %31, %.sink41
-  %spec.select33 = call i32 @llvm.smax.i32(i32 %32, i32 0)
-  store i32 %spec.select33, ptr %.sink42, align 4
-  %33 = call i32 @nghttp2_session_add_window_update(ptr noundef %0, i8 noundef zeroext 0, i32 noundef %2, i32 noundef %.sink41) #5
+  %28 = load i32, ptr %27, align 4
+  %29 = sub nsw i32 %28, %22
+  %spec.select = call i32 @llvm.smax.i32(i32 %29, i32 0)
+  store i32 %spec.select, ptr %27, align 4
   br label %34
 
-34:                                               ; preds = %.thread, %21, %16, %14, %9, %4, %30
-  %.023 = phi i32 [ %33, %30 ], [ 0, %4 ], [ %13, %9 ], [ 0, %14 ], [ %20, %16 ], [ 0, %21 ], [ 0, %.thread ]
+30:                                               ; preds = %.thread
+  %31 = getelementptr inbounds i8, ptr %15, i64 180
+  %32 = load i32, ptr %31, align 4
+  %33 = sub nsw i32 %32, %24
+  %spec.select33 = call i32 @llvm.smax.i32(i32 %33, i32 0)
+  store i32 %spec.select33, ptr %31, align 4
+  br label %34
+
+34:                                               ; preds = %30, %26
+  %35 = phi i32 [ %24, %30 ], [ %22, %26 ]
+  %36 = call i32 @nghttp2_session_add_window_update(ptr noundef %0, i8 noundef zeroext 0, i32 noundef %2, i32 noundef %35) #5
+  br label %37
+
+37:                                               ; preds = %.thread, %21, %16, %14, %9, %4, %34
+  %.023 = phi i32 [ %36, %34 ], [ 0, %4 ], [ %13, %9 ], [ 0, %14 ], [ %20, %16 ], [ 0, %21 ], [ 0, %.thread ]
   ret i32 %.023
 }
 

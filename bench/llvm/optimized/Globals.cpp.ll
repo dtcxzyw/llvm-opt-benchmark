@@ -2423,31 +2423,38 @@ define dso_local void @_ZN4llvm14GlobalVariableC2ERNS_6ModuleEPNS_4TypeEbNS_11Gl
   %15 = select i1 %.not12, i32 %14, i32 %.sroa.0.0.extract.trunc
   tail call void @_ZN4llvm14GlobalVariableC2EPNS_4TypeEbNS_11GlobalValue12LinkageTypesEPNS_8ConstantERKNS_5TwineENS3_15ThreadLocalModeEjb(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef %2, i1 noundef zeroext %3, i32 noundef %4, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(34) %6, i32 noundef %8, i32 noundef %15, i1 noundef zeroext %10)
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %21, label %16
+  br i1 %.not, label %25, label %16
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %7, i64 56
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  br label %23
+  tail call void @_ZN4llvm21SymbolTableListTraitsINS_14GlobalVariableEJEE13addNodeToListEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %20, ptr noundef nonnull %0) #12
+  %21 = getelementptr inbounds i8, ptr %0, i64 56
+  %22 = load ptr, ptr %19, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 64
+  store ptr %19, ptr %23, align 8
+  store ptr %22, ptr %21, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  store ptr %21, ptr %24, align 8
+  store ptr %21, ptr %19, align 8
+  br label %31
 
-21:                                               ; preds = %11
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %23
+25:                                               ; preds = %11
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  tail call void @_ZN4llvm21SymbolTableListTraitsINS_14GlobalVariableEJEE13addNodeToListEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %26, ptr noundef nonnull %0) #12
+  %27 = getelementptr inbounds i8, ptr %0, i64 56
+  %28 = load ptr, ptr %26, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 64
+  store ptr %26, ptr %29, align 8
+  store ptr %28, ptr %27, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  store ptr %27, ptr %30, align 8
+  store ptr %27, ptr %26, align 8
+  br label %31
 
-23:                                               ; preds = %21, %16
-  %.sink = phi ptr [ %22, %21 ], [ %20, %16 ]
-  %.sink21 = phi ptr [ %22, %21 ], [ %19, %16 ]
-  tail call void @_ZN4llvm21SymbolTableListTraitsINS_14GlobalVariableEJEE13addNodeToListEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %.sink, ptr noundef nonnull %0) #12
-  %24 = getelementptr inbounds i8, ptr %0, i64 56
-  %25 = load ptr, ptr %.sink21, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 64
-  store ptr %.sink21, ptr %26, align 8
-  store ptr %25, ptr %24, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store ptr %24, ptr %27, align 8
-  store ptr %24, ptr %.sink21, align 8
+31:                                               ; preds = %25, %16
   ret void
 }
 

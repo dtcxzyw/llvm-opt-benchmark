@@ -3267,14 +3267,14 @@ if.end.i:                                         ; preds = %while.body.i
   br i1 %cmp.i.not.i, label %return, label %land.rhs.i, !llvm.loop !48
 
 return.sink.split:                                ; preds = %if.then, %if.then.i
-  %_M_finish.i.i10.i.lcssa14.sink = phi ptr [ %_M_finish.i.i10.i, %if.then.i ], [ %_M_finish.i.i.i, %if.then ]
-  %_M_finish.i.i1.i.i.sink = phi ptr [ %_M_finish.i.i1.i.i, %if.then.i ], [ %_M_finish.i.i1.i, %if.then ]
-  %19 = load ptr, ptr %_M_finish.i.i10.i.lcssa14.sink, align 8
-  %pinned_pos_.i.i = getelementptr inbounds i8, ptr %this, i64 152
-  store ptr %19, ptr %pinned_pos_.i.i, align 8
-  %20 = load ptr, ptr %_M_finish.i.i1.i.i.sink, align 8
+  %.sink18.in = phi ptr [ %_M_finish.i.i.i, %if.then ], [ %_M_finish.i.i10.i, %if.then.i ]
+  %.sink.in = phi ptr [ %_M_finish.i.i1.i, %if.then ], [ %_M_finish.i.i1.i.i, %if.then.i ]
+  %.sink18 = load ptr, ptr %.sink18.in, align 8
+  %pinned_pos_.i = getelementptr inbounds i8, ptr %this, i64 152
+  store ptr %.sink18, ptr %pinned_pos_.i, align 8
+  %.sink = load ptr, ptr %.sink.in, align 8
   %pinned_seq_pos_.i.i = getelementptr inbounds i8, ptr %this, i64 160
-  store ptr %20, ptr %pinned_seq_pos_.i.i, align 8
+  store ptr %.sink, ptr %pinned_seq_pos_.i.i, align 8
   br label %return
 
 return:                                           ; preds = %if.end.i, %lor.rhs.i, %return.sink.split, %if.end
@@ -3577,14 +3577,14 @@ if.end.i:                                         ; preds = %while.body.i
   br i1 %cmp.i.not.i, label %return, label %land.rhs.i, !llvm.loop !51
 
 return.sink.split:                                ; preds = %if.then, %if.then.i
-  %_M_finish.i.i.le.i.sink = phi ptr [ %_M_finish.i.i.le.i, %if.then.i ], [ %_M_finish.i.i.i, %if.then ]
-  %_M_finish.i.i1.i.i.sink = phi ptr [ %_M_finish.i.i1.i.i, %if.then.i ], [ %_M_finish.i.i1.i, %if.then ]
-  %20 = load ptr, ptr %_M_finish.i.i.le.i.sink, align 8
-  %pinned_pos_.i.i = getelementptr inbounds i8, ptr %this, i64 152
-  store ptr %20, ptr %pinned_pos_.i.i, align 8
-  %21 = load ptr, ptr %_M_finish.i.i1.i.i.sink, align 8
+  %.sink18.in = phi ptr [ %_M_finish.i.i.i, %if.then ], [ %_M_finish.i.i.le.i, %if.then.i ]
+  %.sink.in = phi ptr [ %_M_finish.i.i1.i, %if.then ], [ %_M_finish.i.i1.i.i, %if.then.i ]
+  %.sink18 = load ptr, ptr %.sink18.in, align 8
+  %pinned_pos_.i = getelementptr inbounds i8, ptr %this, i64 152
+  store ptr %.sink18, ptr %pinned_pos_.i, align 8
+  %.sink = load ptr, ptr %.sink.in, align 8
   %pinned_seq_pos_.i.i = getelementptr inbounds i8, ptr %this, i64 160
-  store ptr %21, ptr %pinned_seq_pos_.i.i, align 8
+  store ptr %.sink, ptr %pinned_seq_pos_.i.i, align 8
   br label %return
 
 return:                                           ; preds = %if.end.i, %lor.rhs.i, %return.sink.split, %if.end
@@ -3796,14 +3796,14 @@ if.end.i16:                                       ; preds = %while.body.i
   br i1 %cmp.i.not.i, label %return, label %land.rhs.i, !llvm.loop !48
 
 return.sink.split:                                ; preds = %if.then, %if.then.i18
-  %_M_finish.i.i10.i.lcssa29.sink = phi ptr [ %_M_finish.i.i10.i, %if.then.i18 ], [ %_M_finish.i.i.i, %if.then ]
-  %_M_finish.i.i1.i.i.sink = phi ptr [ %_M_finish.i.i1.i.i, %if.then.i18 ], [ %_M_finish.i.i1.i, %if.then ]
-  %24 = load ptr, ptr %_M_finish.i.i10.i.lcssa29.sink, align 8
-  %pinned_pos_.i.i = getelementptr inbounds i8, ptr %this, i64 152
-  store ptr %24, ptr %pinned_pos_.i.i, align 8
-  %25 = load ptr, ptr %_M_finish.i.i1.i.i.sink, align 8
+  %.sink33.in = phi ptr [ %_M_finish.i.i.i, %if.then ], [ %_M_finish.i.i10.i, %if.then.i18 ]
+  %.sink.in = phi ptr [ %_M_finish.i.i1.i, %if.then ], [ %_M_finish.i.i1.i.i, %if.then.i18 ]
+  %.sink33 = load ptr, ptr %.sink33.in, align 8
+  %pinned_pos_.i = getelementptr inbounds i8, ptr %this, i64 152
+  store ptr %.sink33, ptr %pinned_pos_.i, align 8
+  %.sink = load ptr, ptr %.sink.in, align 8
   %pinned_seq_pos_.i.i = getelementptr inbounds i8, ptr %this, i64 160
-  store ptr %25, ptr %pinned_seq_pos_.i.i, align 8
+  store ptr %.sink, ptr %pinned_seq_pos_.i.i, align 8
   br label %return
 
 return:                                           ; preds = %if.end.i16, %lor.rhs.i, %return.sink.split, %_ZN7rocksdb32FragmentedRangeTombstoneIterator23SeekToCoveringTombstoneERKNS_5SliceE.exit
@@ -4023,14 +4023,14 @@ if.end.i13:                                       ; preds = %while.body.i
   br i1 %cmp.i.not.i, label %return, label %land.rhs.i, !llvm.loop !51
 
 return.sink.split:                                ; preds = %if.then, %if.then.i16
-  %_M_finish.i.i.le.i.sink = phi ptr [ %_M_finish.i.i.le.i, %if.then.i16 ], [ %_M_finish.i.i.i, %if.then ]
-  %_M_finish.i.i1.i.i17.sink = phi ptr [ %_M_finish.i.i1.i.i17, %if.then.i16 ], [ %_M_finish.i.i1.i, %if.then ]
-  %28 = load ptr, ptr %_M_finish.i.i.le.i.sink, align 8
-  %pinned_pos_.i.i18 = getelementptr inbounds i8, ptr %this, i64 152
-  store ptr %28, ptr %pinned_pos_.i.i18, align 8
-  %29 = load ptr, ptr %_M_finish.i.i1.i.i17.sink, align 8
+  %.sink34.in = phi ptr [ %_M_finish.i.i.i, %if.then ], [ %_M_finish.i.i.le.i, %if.then.i16 ]
+  %.sink.in = phi ptr [ %_M_finish.i.i1.i, %if.then ], [ %_M_finish.i.i1.i.i17, %if.then.i16 ]
+  %.sink34 = load ptr, ptr %.sink34.in, align 8
+  %pinned_pos_.i = getelementptr inbounds i8, ptr %this, i64 152
+  store ptr %.sink34, ptr %pinned_pos_.i, align 8
+  %.sink = load ptr, ptr %.sink.in, align 8
   %pinned_seq_pos_.i.i19 = getelementptr inbounds i8, ptr %this, i64 160
-  store ptr %29, ptr %pinned_seq_pos_.i.i19, align 8
+  store ptr %.sink, ptr %pinned_seq_pos_.i.i19, align 8
   br label %return
 
 return:                                           ; preds = %if.end.i13, %lor.rhs.i, %return.sink.split, %_ZN7rocksdb32FragmentedRangeTombstoneIterator30SeekForPrevToCoveringTombstoneERKNS_5SliceE.exit
@@ -4376,14 +4376,14 @@ if.end.i:                                         ; preds = %while.body.i
   br i1 %cmp.i.not.i, label %return, label %land.rhs.i, !llvm.loop !51
 
 return.sink.split:                                ; preds = %if.then, %if.then.i
-  %_M_finish.i.i.le.i.sink = phi ptr [ %_M_finish.i.i.le.i, %if.then.i ], [ %_M_finish.i.i.i, %if.then ]
-  %_M_finish.i.i1.i.i.sink = phi ptr [ %_M_finish.i.i1.i.i, %if.then.i ], [ %_M_finish.i.i1.i, %if.then ]
-  %21 = load ptr, ptr %_M_finish.i.i.le.i.sink, align 8
-  %pinned_pos_.i.i = getelementptr inbounds i8, ptr %this, i64 152
-  store ptr %21, ptr %pinned_pos_.i.i, align 8
-  %22 = load ptr, ptr %_M_finish.i.i1.i.i.sink, align 8
+  %.sink18.in = phi ptr [ %_M_finish.i.i.i, %if.then ], [ %_M_finish.i.i.le.i, %if.then.i ]
+  %.sink.in = phi ptr [ %_M_finish.i.i1.i, %if.then ], [ %_M_finish.i.i1.i.i, %if.then.i ]
+  %.sink18 = load ptr, ptr %.sink18.in, align 8
+  %pinned_pos_.i = getelementptr inbounds i8, ptr %this, i64 152
+  store ptr %.sink18, ptr %pinned_pos_.i, align 8
+  %.sink = load ptr, ptr %.sink.in, align 8
   %pinned_seq_pos_.i.i = getelementptr inbounds i8, ptr %this, i64 160
-  store ptr %22, ptr %pinned_seq_pos_.i.i, align 8
+  store ptr %.sink, ptr %pinned_seq_pos_.i.i, align 8
   br label %return
 
 return:                                           ; preds = %if.end.i, %lor.rhs.i, %return.sink.split, %if.end

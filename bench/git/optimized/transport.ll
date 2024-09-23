@@ -1551,12 +1551,16 @@ if.end8.thread.if.then10_crit_edge:               ; preds = %if.end8.thread
 if.then10:                                        ; preds = %if.end8.thread.if.then10_crit_edge, %if.end8
   %bf.load12 = phi i8 [ %bf.load12.pre, %if.end8.thread.if.then10_crit_edge ], [ %bf.load2013, %if.end8 ]
   %tobool.not = icmp eq i32 %force_progress, 0
+  %progress = getelementptr inbounds i8, ptr %transport, i64 120
   %bf.shl = select i1 %tobool.not, i8 0, i8 8
+  %bf.clear14 = and i8 %bf.load12, -9
+  %bf.set15 = or disjoint i8 %bf.clear14, %bf.shl
+  store i8 %bf.set15, ptr %progress, align 8
   br label %if.end26
 
 if.else:                                          ; preds = %if.end8
   %cmp17 = icmp sgt i32 %verbosity, -1
-  br i1 %cmp17, label %land.rhs, label %if.end26
+  br i1 %cmp17, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %if.end8.thread, %if.else
   %call = tail call i32 @isatty(i32 noundef 2) #20
@@ -1564,15 +1568,18 @@ land.rhs:                                         ; preds = %if.end8.thread, %if
   %2 = select i1 %tobool18.not, i8 0, i8 8
   %progress19.phi.trans.insert = getelementptr inbounds i8, ptr %transport, i64 120
   %bf.load20.pre = load i8, ptr %progress19.phi.trans.insert, align 8
+  br label %land.end
+
+land.end:                                         ; preds = %land.rhs, %if.else
+  %bf.load20 = phi i8 [ %bf.load2013, %if.else ], [ %bf.load20.pre, %land.rhs ]
+  %bf.shl22 = phi i8 [ 0, %if.else ], [ %2, %land.rhs ]
+  %progress19 = getelementptr inbounds i8, ptr %transport, i64 120
+  %bf.clear23 = and i8 %bf.load20, -9
+  %bf.set24 = or disjoint i8 %bf.clear23, %bf.shl22
+  store i8 %bf.set24, ptr %progress19, align 8
   br label %if.end26
 
-if.end26:                                         ; preds = %if.else, %land.rhs, %if.then10
-  %bf.load20.sink = phi i8 [ %bf.load12, %if.then10 ], [ %bf.load2013, %if.else ], [ %bf.load20.pre, %land.rhs ]
-  %bf.shl22.sink = phi i8 [ %bf.shl, %if.then10 ], [ 0, %if.else ], [ %2, %land.rhs ]
-  %progress19.sink = getelementptr inbounds i8, ptr %transport, i64 120
-  %bf.clear23 = and i8 %bf.load20.sink, -9
-  %bf.set24 = or disjoint i8 %bf.clear23, %bf.shl22.sink
-  store i8 %bf.set24, ptr %progress19.sink, align 8
+if.end26:                                         ; preds = %land.end, %if.then10
   ret void
 }
 

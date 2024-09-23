@@ -7953,7 +7953,8 @@ _ZN4llvm15SmallVectorImplINS_10DILineInfoEE12assignRemoteEOS2_.exit: ; preds = %
   store i32 %25, ptr %26, align 4
   store ptr %7, ptr %1, align 8
   store i32 0, ptr %24, align 4
-  br label %.sink.split
+  store i32 0, ptr %21, align 8
+  br label %118
 
 27:                                               ; preds = %5
   %28 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #19
@@ -8035,7 +8036,8 @@ _ZN4llvm23SmallVectorTemplateBaseINS_10DILineInfoELb0EE13destroy_rangeEPS1_S3_.e
 
 _ZN4llvm15SmallVectorImplINS_10DILineInfoEE5clearEv.exit: ; preds = %.lr.ph.i.i36, %_ZN4llvm23SmallVectorTemplateBaseINS_10DILineInfoELb0EE13destroy_rangeEPS1_S3_.exit
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
+  store i32 0, ptr %61, align 8
+  br label %118
 
 62:                                               ; preds = %27
   %63 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
@@ -8173,14 +8175,10 @@ _ZN4llvm23SmallVectorTemplateBaseINS_10DILineInfoELb0EE18uninitialized_moveIPS1_
 
 _ZN4llvm15SmallVectorImplINS_10DILineInfoEE5clearEv.exit61: ; preds = %.lr.ph.i.i57, %_ZN4llvm23SmallVectorTemplateBaseINS_10DILineInfoELb0EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit
   %117 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %_ZN4llvm15SmallVectorImplINS_10DILineInfoEE12assignRemoteEOS2_.exit, %_ZN4llvm15SmallVectorImplINS_10DILineInfoEE5clearEv.exit, %_ZN4llvm15SmallVectorImplINS_10DILineInfoEE5clearEv.exit61
-  %.sink = phi ptr [ %117, %_ZN4llvm15SmallVectorImplINS_10DILineInfoEE5clearEv.exit61 ], [ %61, %_ZN4llvm15SmallVectorImplINS_10DILineInfoEE5clearEv.exit ], [ %21, %_ZN4llvm15SmallVectorImplINS_10DILineInfoEE12assignRemoteEOS2_.exit ]
-  store i32 0, ptr %.sink, align 8
+  store i32 0, ptr %117, align 8
   br label %118
 
-118:                                              ; preds = %.sink.split, %2
+118:                                              ; preds = %2, %_ZN4llvm15SmallVectorImplINS_10DILineInfoEE5clearEv.exit61, %_ZN4llvm15SmallVectorImplINS_10DILineInfoEE5clearEv.exit, %_ZN4llvm15SmallVectorImplINS_10DILineInfoEE12assignRemoteEOS2_.exit
   ret ptr %0
 }
 

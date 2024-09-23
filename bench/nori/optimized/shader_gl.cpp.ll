@@ -1177,7 +1177,7 @@ define hidden void @_ZN7nanogui6Shader10set_bufferERKNSt7__cxx1112basic_stringIc
 
 23:                                               ; preds = %21
   %24 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.5)
-          to label %25 unwind label %.thread122
+          to label %25 unwind label %.thread121
 
 25:                                               ; preds = %23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %24) #15
@@ -1193,7 +1193,7 @@ define hidden void @_ZN7nanogui6Shader10set_bufferERKNSt7__cxx1112basic_stringIc
           cleanup
   br label %.sink.split
 
-.thread122:                                       ; preds = %23
+.thread121:                                       ; preds = %23
   %28 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #15
@@ -1228,15 +1228,15 @@ define hidden void @_ZN7nanogui6Shader10set_bufferERKNSt7__cxx1112basic_stringIc
   br label %45
 
 45:                                               ; preds = %.lr.ph, %45
-  %.082135 = phi i64 [ %42, %.lr.ph ], [ %52, %45 ]
-  %.083134 = phi i1 [ %38, %.lr.ph ], [ %51, %45 ]
-  %46 = getelementptr inbounds i64, ptr %4, i64 %.082135
+  %.082134 = phi i64 [ %42, %.lr.ph ], [ %52, %45 ]
+  %.083133 = phi i1 [ %38, %.lr.ph ], [ %51, %45 ]
+  %46 = getelementptr inbounds i64, ptr %4, i64 %.082134
   %47 = load i64, ptr %46, align 8
-  %48 = getelementptr inbounds [3 x i64], ptr %44, i64 0, i64 %.082135
+  %48 = getelementptr inbounds [3 x i64], ptr %44, i64 0, i64 %.082134
   %49 = load i64, ptr %48, align 8
   %50 = icmp ne i64 %47, %49
-  %51 = or i1 %.083134, %50
-  %52 = add nuw i64 %.082135, 1
+  %51 = or i1 %.083133, %50
+  %52 = add nuw i64 %.082134, 1
   %exitcond.not = icmp eq i64 %52, %3
   br i1 %exitcond.not, label %._crit_edge, label %45, !llvm.loop !11
 
@@ -1256,33 +1256,33 @@ define hidden void @_ZN7nanogui6Shader10set_bufferERKNSt7__cxx1112basic_stringIc
   br label %58
 
 58:                                               ; preds = %53, %63
-  %.081138 = phi i64 [ 0, %53 ], [ %66, %63 ]
-  %59 = icmp ult i64 %.081138, %3
+  %.081137 = phi i64 [ 0, %53 ], [ %66, %63 ]
+  %59 = icmp ult i64 %.081137, %3
   br i1 %59, label %60, label %63
 
 60:                                               ; preds = %58
-  %61 = getelementptr inbounds i64, ptr %4, i64 %.081138
+  %61 = getelementptr inbounds i64, ptr %4, i64 %.081137
   %62 = load i64, ptr %61, align 8
   br label %63
 
 63:                                               ; preds = %58, %60
   %64 = phi i64 [ %62, %60 ], [ 1, %58 ]
-  %65 = getelementptr inbounds [3 x i64], ptr %57, i64 0, i64 %.081138
+  %65 = getelementptr inbounds [3 x i64], ptr %57, i64 0, i64 %.081137
   store i64 %64, ptr %65, align 8
-  %66 = add nuw nsw i64 %.081138, 1
-  %exitcond141.not = icmp eq i64 %66, 3
-  br i1 %exitcond141.not, label %67, label %58, !llvm.loop !12
+  %66 = add nuw nsw i64 %.081137, 1
+  %exitcond140.not = icmp eq i64 %66, 3
+  br i1 %exitcond140.not, label %67, label %58, !llvm.loop !12
 
 67:                                               ; preds = %63
   %68 = getelementptr inbounds i8, ptr %9, i64 12
   store i32 %2, ptr %68, align 4
   %69 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %14, ptr noundef nonnull @.str.6, ptr noundef nonnull align 8 dereferenceable(32) %1)
-          to label %70 unwind label %.thread125
+          to label %70 unwind label %.thread124
 
 70:                                               ; preds = %67
   %71 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.7)
-          to label %72 unwind label %.thread129
+          to label %72 unwind label %.thread128
 
 72:                                               ; preds = %70
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %71) #15
@@ -1314,12 +1314,12 @@ define hidden void @_ZN7nanogui6Shader10set_bufferERKNSt7__cxx1112basic_stringIc
   invoke void @__cxa_throw(ptr nonnull %69, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #16
           to label %142 unwind label %92
 
-.thread125:                                       ; preds = %67
+.thread124:                                       ; preds = %67
   %80 = landingpad { ptr, i32 }
           cleanup
   br label %.sink.split
 
-.thread129:                                       ; preds = %70
+.thread128:                                       ; preds = %70
   %81 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #15
@@ -1394,24 +1394,24 @@ define hidden void @_ZN7nanogui6Shader10set_bufferERKNSt7__cxx1112basic_stringIc
   br label %102
 
 102:                                              ; preds = %99, %107
-  %.071137 = phi i64 [ 0, %99 ], [ %111, %107 ]
-  %.072136 = phi i64 [ %100, %99 ], [ %110, %107 ]
-  %103 = icmp ult i64 %.071137, %3
+  %.071136 = phi i64 [ 0, %99 ], [ %111, %107 ]
+  %.072135 = phi i64 [ %100, %99 ], [ %110, %107 ]
+  %103 = icmp ult i64 %.071136, %3
   br i1 %103, label %104, label %107
 
 104:                                              ; preds = %102
-  %105 = getelementptr inbounds i64, ptr %4, i64 %.071137
+  %105 = getelementptr inbounds i64, ptr %4, i64 %.071136
   %106 = load i64, ptr %105, align 8
   br label %107
 
 107:                                              ; preds = %102, %104
   %108 = phi i64 [ %106, %104 ], [ 1, %102 ]
-  %109 = getelementptr inbounds [3 x i64], ptr %101, i64 0, i64 %.071137
+  %109 = getelementptr inbounds [3 x i64], ptr %101, i64 0, i64 %.071136
   store i64 %108, ptr %109, align 8
-  %110 = mul i64 %108, %.072136
-  %111 = add nuw nsw i64 %.071137, 1
-  %exitcond140.not = icmp eq i64 %111, 3
-  br i1 %exitcond140.not, label %112, label %102, !llvm.loop !13
+  %110 = mul i64 %108, %.072135
+  %111 = add nuw nsw i64 %.071136, 1
+  %exitcond139.not = icmp eq i64 %111, 3
+  br i1 %exitcond139.not, label %112, label %102, !llvm.loop !13
 
 112:                                              ; preds = %107
   %113 = load i32, ptr %39, align 8
@@ -1421,27 +1421,26 @@ define hidden void @_ZN7nanogui6Shader10set_bufferERKNSt7__cxx1112basic_stringIc
 115:                                              ; preds = %112
   %116 = load ptr, ptr %32, align 8
   %.not101 = icmp eq ptr %116, null
-  %117 = getelementptr inbounds i8, ptr %32, i64 56
-  %118 = load i64, ptr %117, align 8
-  %.not102 = icmp eq i64 %118, %110
-  %or.cond = select i1 %.not101, i1 true, i1 %.not102
-  br i1 %or.cond, label %119, label %.thread132
+  br i1 %.not101, label %.thread131, label %117
 
-.thread132:                                       ; preds = %115
+117:                                              ; preds = %115
+  %118 = getelementptr inbounds i8, ptr %32, i64 56
+  %119 = load i64, ptr %118, align 8
+  %.not102 = icmp eq i64 %119, %110
+  br i1 %.not102, label %122, label %120
+
+120:                                              ; preds = %117
   tail call void @_ZdaPv(ptr noundef nonnull %116) #17
   store ptr null, ptr %32, align 8
-  br label %120
+  br label %.thread131
 
-119:                                              ; preds = %115
-  br i1 %.not101, label %120, label %122
-
-120:                                              ; preds = %.thread132, %119
+.thread131:                                       ; preds = %115, %120
   %121 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %110) #19
   store ptr %121, ptr %32, align 8
   br label %122
 
-122:                                              ; preds = %120, %119
-  %123 = phi ptr [ %121, %120 ], [ %116, %119 ]
+122:                                              ; preds = %117, %.thread131
+  %123 = phi ptr [ %121, %.thread131 ], [ %116, %117 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %123, ptr align 1 %5, i64 %110, i1 false)
   br label %138
 
@@ -1483,9 +1482,9 @@ define hidden void @_ZN7nanogui6Shader10set_bufferERKNSt7__cxx1112basic_stringIc
   store i8 1, ptr %140, align 8
   ret void
 
-.sink.split:                                      ; preds = %98, %.thread125, %.thread129, %29, %.thread, %.thread122
-  %.sink = phi ptr [ %22, %.thread122 ], [ %22, %.thread ], [ %22, %29 ], [ %69, %.thread129 ], [ %69, %.thread125 ], [ %69, %98 ]
-  %.pn111.pn.pn.ph = phi { ptr, i32 } [ %28, %.thread122 ], [ %27, %.thread ], [ %30, %29 ], [ %81, %.thread129 ], [ %80, %.thread125 ], [ %.pn.pn.pn.pn.pn, %98 ]
+.sink.split:                                      ; preds = %98, %.thread124, %.thread128, %29, %.thread, %.thread121
+  %.sink = phi ptr [ %22, %.thread121 ], [ %22, %.thread ], [ %22, %29 ], [ %69, %.thread128 ], [ %69, %.thread124 ], [ %69, %98 ]
+  %.pn111.pn.pn.ph = phi { ptr, i32 } [ %28, %.thread121 ], [ %27, %.thread ], [ %30, %29 ], [ %81, %.thread128 ], [ %80, %.thread124 ], [ %.pn.pn.pn.pn.pn, %98 ]
   call void @__cxa_free_exception(ptr %.sink) #15
   br label %141
 
@@ -3430,22 +3429,18 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
-  br label %.sink.split
+  store ptr %.031, ptr %24, align 8
+  br label %28
 
 25:                                               ; preds = %.lr.ph
   %26 = load ptr, ptr %19, align 8
   store ptr %26, ptr %.031, align 8
   %27 = load ptr, ptr %18, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %25, %23
-  %.sink = phi ptr [ %24, %23 ], [ %27, %25 ]
-  %.1.ph = phi i64 [ %17, %23 ], [ %.02530, %25 ]
-  store ptr %.031, ptr %.sink, align 8
+  store ptr %.031, ptr %27, align 8
   br label %28
 
-28:                                               ; preds = %.sink.split, %20
-  %.1 = phi i64 [ %17, %20 ], [ %.1.ph, %.sink.split ]
+28:                                               ; preds = %20, %23, %25
+  %.1 = phi i64 [ %.02530, %25 ], [ %17, %23 ], [ %17, %20 ]
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 

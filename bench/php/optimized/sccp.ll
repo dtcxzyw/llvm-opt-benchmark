@@ -7684,50 +7684,47 @@ define internal fastcc void @scdf_add_to_worklist(ptr nocapture noundef readonly
   %57 = getelementptr inbounds i8, ptr %.04653, i64 96
   %58 = load ptr, ptr %57, align 8
   %wide.trip.count = zext nneg i32 %55 to i64
-  br label %63
+  br label %64
 
 59:                                               ; preds = %46
   %60 = getelementptr inbounds i8, ptr %.04653, i64 80
   %61 = load ptr, ptr %60, align 8
-  br label %.loopexit.sink.split
-
-62:                                               ; preds = %63
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %63
-
-63:                                               ; preds = %.lr.ph51, %62
-  %indvars.iv = phi i64 [ 0, %.lr.ph51 ], [ %indvars.iv.next, %62 ]
-  %64 = getelementptr inbounds i32, ptr %58, i64 %indvars.iv
-  %65 = load i32, ptr %64, align 4
-  %66 = icmp eq i32 %65, %41
-  br i1 %66, label %67, label %62
-
-67:                                               ; preds = %63
-  %68 = getelementptr inbounds i8, ptr %.04653, i64 80
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds ptr, ptr %69, i64 %indvars.iv
-  br label %.loopexit.sink.split
-
-.loopexit.sink.split:                             ; preds = %59, %67
-  %.sink60 = phi ptr [ %70, %67 ], [ %61, %59 ]
-  %71 = load ptr, ptr %.sink60, align 8
+  %62 = load ptr, ptr %61, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %62, %.loopexit.sink.split, %.preheader
-  %.0 = phi ptr [ null, %.preheader ], [ %71, %.loopexit.sink.split ], [ null, %62 ]
-  %72 = load ptr, ptr %45, align 8
-  %73 = getelementptr inbounds i8, ptr %.04653, i64 68
-  %74 = load i32, ptr %73, align 4
-  %75 = and i32 %74, 63
-  %76 = zext nneg i32 %75 to i64
-  %77 = shl nuw i64 1, %76
-  %78 = lshr i32 %74, 6
-  %79 = zext nneg i32 %78 to i64
-  %80 = getelementptr inbounds i64, ptr %72, i64 %79
-  %81 = load i64, ptr %80, align 8
-  %82 = or i64 %77, %81
-  store i64 %82, ptr %80, align 8
+63:                                               ; preds = %64
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %.loopexit, label %64
+
+64:                                               ; preds = %.lr.ph51, %63
+  %indvars.iv = phi i64 [ 0, %.lr.ph51 ], [ %indvars.iv.next, %63 ]
+  %65 = getelementptr inbounds i32, ptr %58, i64 %indvars.iv
+  %66 = load i32, ptr %65, align 4
+  %67 = icmp eq i32 %66, %41
+  br i1 %67, label %68, label %63
+
+68:                                               ; preds = %64
+  %69 = getelementptr inbounds i8, ptr %.04653, i64 80
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds ptr, ptr %70, i64 %indvars.iv
+  %72 = load ptr, ptr %71, align 8
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %63, %.preheader, %68, %59
+  %.0 = phi ptr [ %62, %59 ], [ %72, %68 ], [ null, %.preheader ], [ null, %63 ]
+  %73 = load ptr, ptr %45, align 8
+  %74 = getelementptr inbounds i8, ptr %.04653, i64 68
+  %75 = load i32, ptr %74, align 4
+  %76 = and i32 %75, 63
+  %77 = zext nneg i32 %76 to i64
+  %78 = shl nuw i64 1, %77
+  %79 = lshr i32 %75, 6
+  %80 = zext nneg i32 %79 to i64
+  %81 = getelementptr inbounds i64, ptr %73, i64 %80
+  %82 = load i64, ptr %81, align 8
+  %83 = or i64 %78, %82
+  store i64 %83, ptr %81, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge56, label %46
 

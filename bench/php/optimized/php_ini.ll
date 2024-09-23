@@ -791,7 +791,7 @@ append_ini_path.exit273:                          ; preds = %45, %47
   %118 = and i64 %115, 4294967295
   %119 = icmp ne i64 %118, 0
   %or.cond = select i1 %117, i1 %119, i1 false
-  br i1 %or.cond, label %120, label %217
+  br i1 %or.cond, label %120, label %216
 
 120:                                              ; preds = %113
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %7, i8 0, i64 144, i1 false)
@@ -809,9 +809,9 @@ append_ini_path.exit273:                          ; preds = %45, %47
   %123 = getelementptr inbounds i8, ptr %7, i64 24
   br label %124
 
-124:                                              ; preds = %.lr.ph, %183
-  %.0193291 = phi ptr [ %122, %.lr.ph ], [ %.0192, %183 ]
-  %.0194290 = phi i32 [ 0, %.lr.ph ], [ %.5, %183 ]
+124:                                              ; preds = %.lr.ph, %182
+  %.0193291 = phi ptr [ %122, %.lr.ph ], [ %.0192, %182 ]
+  %.0194290 = phi i32 [ 0, %.lr.ph ], [ %.5, %182 ]
   %125 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0193291, i32 noundef 58) #16
   %.not258 = icmp eq ptr %125, null
   br i1 %.not258, label %128, label %126
@@ -829,12 +829,12 @@ append_ini_path.exit273:                          ; preds = %45, %47
   %130 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select3) #16
   %131 = trunc i64 %130 to i32
   %132 = icmp sgt i32 %131, 0
-  br i1 %132, label %133, label %183
+  br i1 %132, label %133, label %182
 
 133:                                              ; preds = %128
   %134 = call i32 @scandir(ptr noundef nonnull %spec.store.select3, ptr noundef nonnull %6, ptr noundef null, ptr noundef nonnull @alphasort) #15
   %135 = icmp sgt i32 %134, 0
-  br i1 %135, label %.preheader, label %183
+  br i1 %135, label %.preheader, label %182
 
 .preheader:                                       ; preds = %133
   %136 = add i64 %130, 4294967295
@@ -923,121 +923,121 @@ append_ini_path.exit273:                          ; preds = %45, %47
   br label %179
 
 179:                                              ; preds = %139, %145, %176
-  %.sink360 = phi ptr [ %178, %176 ], [ %141, %145 ], [ %141, %139 ]
+  %.sink.in = phi ptr [ %178, %176 ], [ %141, %145 ], [ %141, %139 ]
   %.2 = phi i32 [ %.3, %176 ], [ %.1195288, %145 ], [ %.1195288, %139 ]
-  %180 = load ptr, ptr %.sink360, align 8
-  call void @free(ptr noundef %180) #15
+  %.sink = load ptr, ptr %.sink.in, align 8
+  call void @free(ptr noundef %.sink) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %181, label %139
+  br i1 %exitcond.not, label %180, label %139
 
-181:                                              ; preds = %179
-  %182 = load ptr, ptr %6, align 8
-  call void @free(ptr noundef %182) #15
-  br label %183
+180:                                              ; preds = %179
+  %181 = load ptr, ptr %6, align 8
+  call void @free(ptr noundef %181) #15
+  br label %182
 
-183:                                              ; preds = %128, %133, %181
-  %.5 = phi i32 [ %.2, %181 ], [ %.0194290, %133 ], [ %.0194290, %128 ]
+182:                                              ; preds = %128, %133, %180
+  %.5 = phi i32 [ %.2, %180 ], [ %.0194290, %133 ], [ %.0194290, %128 ]
   %.not251 = icmp eq ptr %.0192, null
   br i1 %.not251, label %._crit_edge, label %124
 
-._crit_edge:                                      ; preds = %183
+._crit_edge:                                      ; preds = %182
   call void @_efree(ptr noundef nonnull %122) #15
   %.not252 = icmp eq i32 %.5, 0
-  br i1 %.not252, label %.loopexit, label %184
+  br i1 %.not252, label %.loopexit, label %183
 
-184:                                              ; preds = %._crit_edge
-  %185 = load ptr, ptr @php_ini_scanned_files, align 8
-  %.not253 = icmp eq ptr %185, null
-  br i1 %.not253, label %190, label %186
+183:                                              ; preds = %._crit_edge
+  %184 = load ptr, ptr @php_ini_scanned_files, align 8
+  %.not253 = icmp eq ptr %184, null
+  br i1 %.not253, label %189, label %185
 
-186:                                              ; preds = %184
-  %187 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %185) #16
-  %188 = trunc i64 %187 to i32
-  %189 = add nsw i32 %188, 1
-  br label %190
+185:                                              ; preds = %183
+  %186 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %184) #16
+  %187 = trunc i64 %186 to i32
+  %188 = add nsw i32 %187, 1
+  br label %189
 
-190:                                              ; preds = %184, %186
-  %191 = phi i32 [ %189, %186 ], [ 0, %184 ]
-  %192 = add nsw i32 %191, %.5
-  %193 = add nsw i32 %192, 1
-  %194 = sext i32 %193 to i64
-  %195 = call ptr @realloc(ptr noundef %185, i64 noundef %194) #18
-  store ptr %195, ptr @php_ini_scanned_files, align 8
-  %.not254 = icmp eq i32 %191, 0
-  br i1 %.not254, label %196, label %.thread353
+189:                                              ; preds = %183, %185
+  %190 = phi i32 [ %188, %185 ], [ 0, %183 ]
+  %191 = add nsw i32 %190, %.5
+  %192 = add nsw i32 %191, 1
+  %193 = sext i32 %192 to i64
+  %194 = call ptr @realloc(ptr noundef %184, i64 noundef %193) #18
+  store ptr %194, ptr @php_ini_scanned_files, align 8
+  %.not254 = icmp eq i32 %190, 0
+  br i1 %.not254, label %195, label %.thread353
 
-196:                                              ; preds = %190
-  store i8 0, ptr %195, align 1
+195:                                              ; preds = %189
+  store i8 0, ptr %194, align 1
   %.0199292 = load ptr, ptr %10, align 8
   %.not255293 = icmp eq ptr %.0199292, null
   br i1 %.not255293, label %.loopexit, label %.lr.ph296.split.us.preheader
 
-.thread353:                                       ; preds = %190
+.thread353:                                       ; preds = %189
   %.0199292354 = load ptr, ptr %10, align 8
   %.not255293355 = icmp eq ptr %.0199292354, null
   br i1 %.not255293355, label %.loopexit, label %.lr.ph296.split.preheader
 
 .lr.ph296.split.preheader:                        ; preds = %.thread353
-  %197 = sext i32 %192 to i64
+  %196 = sext i32 %191 to i64
   br label %.lr.ph296.split
 
-.lr.ph296.split.us.preheader:                     ; preds = %196
-  %198 = sext i32 %192 to i64
+.lr.ph296.split.us.preheader:                     ; preds = %195
+  %197 = sext i32 %191 to i64
   br label %.lr.ph296.split.us
 
 .lr.ph296.split.us:                               ; preds = %.lr.ph296.split.us.preheader, %.lr.ph296.split.us
   %.0199294.us = phi ptr [ %.0199.us, %.lr.ph296.split.us ], [ %.0199292, %.lr.ph296.split.us.preheader ]
-  %199 = load ptr, ptr @php_ini_scanned_files, align 8
-  %200 = getelementptr inbounds i8, ptr %.0199294.us, i64 16
-  %201 = load ptr, ptr %200, align 8
-  %202 = call i64 @php_strlcat(ptr noundef %199, ptr noundef %201, i64 noundef %198) #15
-  %203 = load ptr, ptr @php_ini_scanned_files, align 8
-  %204 = load ptr, ptr %.0199294.us, align 8
-  %.not257.us = icmp eq ptr %204, null
-  %205 = select i1 %.not257.us, ptr @.str.8, ptr @.str.21
-  %206 = call i64 @php_strlcat(ptr noundef %203, ptr noundef nonnull %205, i64 noundef %198) #15
+  %198 = load ptr, ptr @php_ini_scanned_files, align 8
+  %199 = getelementptr inbounds i8, ptr %.0199294.us, i64 16
+  %200 = load ptr, ptr %199, align 8
+  %201 = call i64 @php_strlcat(ptr noundef %198, ptr noundef %200, i64 noundef %197) #15
+  %202 = load ptr, ptr @php_ini_scanned_files, align 8
+  %203 = load ptr, ptr %.0199294.us, align 8
+  %.not257.us = icmp eq ptr %203, null
+  %204 = select i1 %.not257.us, ptr @.str.8, ptr @.str.21
+  %205 = call i64 @php_strlcat(ptr noundef %202, ptr noundef nonnull %204, i64 noundef %197) #15
   %.0199.us = load ptr, ptr %.0199294.us, align 8
   %.not255.us = icmp eq ptr %.0199.us, null
   br i1 %.not255.us, label %.loopexit, label %.lr.ph296.split.us
 
 .lr.ph296.split:                                  ; preds = %.lr.ph296.split.preheader, %.lr.ph296.split
   %.0199294 = phi ptr [ %.0199, %.lr.ph296.split ], [ %.0199292354, %.lr.ph296.split.preheader ]
-  %207 = load ptr, ptr @php_ini_scanned_files, align 8
-  %208 = call i64 @php_strlcat(ptr noundef %207, ptr noundef nonnull @.str.21, i64 noundef %197) #15
-  %209 = load ptr, ptr @php_ini_scanned_files, align 8
-  %210 = getelementptr inbounds i8, ptr %.0199294, i64 16
-  %211 = load ptr, ptr %210, align 8
-  %212 = call i64 @php_strlcat(ptr noundef %209, ptr noundef %211, i64 noundef %197) #15
-  %213 = load ptr, ptr @php_ini_scanned_files, align 8
-  %214 = load ptr, ptr %.0199294, align 8
-  %.not257 = icmp eq ptr %214, null
-  %215 = select i1 %.not257, ptr @.str.8, ptr @.str.21
-  %216 = call i64 @php_strlcat(ptr noundef %213, ptr noundef nonnull %215, i64 noundef %197) #15
+  %206 = load ptr, ptr @php_ini_scanned_files, align 8
+  %207 = call i64 @php_strlcat(ptr noundef %206, ptr noundef nonnull @.str.21, i64 noundef %196) #15
+  %208 = load ptr, ptr @php_ini_scanned_files, align 8
+  %209 = getelementptr inbounds i8, ptr %.0199294, i64 16
+  %210 = load ptr, ptr %209, align 8
+  %211 = call i64 @php_strlcat(ptr noundef %208, ptr noundef %210, i64 noundef %196) #15
+  %212 = load ptr, ptr @php_ini_scanned_files, align 8
+  %213 = load ptr, ptr %.0199294, align 8
+  %.not257 = icmp eq ptr %213, null
+  %214 = select i1 %.not257, ptr @.str.8, ptr @.str.21
+  %215 = call i64 @php_strlcat(ptr noundef %212, ptr noundef nonnull %214, i64 noundef %196) #15
   %.0199 = load ptr, ptr %.0199294, align 8
   %.not255 = icmp eq ptr %.0199, null
   br i1 %.not255, label %.loopexit, label %.lr.ph296.split
 
-.loopexit:                                        ; preds = %.lr.ph296.split, %.lr.ph296.split.us, %.thread353, %._crit_edge.thread, %196, %._crit_edge
+.loopexit:                                        ; preds = %.lr.ph296.split, %.lr.ph296.split.us, %.thread353, %._crit_edge.thread, %195, %._crit_edge
   call void @zend_llist_destroy(ptr noundef nonnull %10) #15
-  br label %218
+  br label %217
 
-217:                                              ; preds = %113
+216:                                              ; preds = %113
   store ptr null, ptr @php_ini_scanned_path, align 8
-  br label %218
+  br label %217
 
-218:                                              ; preds = %217, %.loopexit
-  %219 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 256), align 8
-  %.not256 = icmp eq ptr %219, null
-  br i1 %.not256, label %222, label %220
+217:                                              ; preds = %216, %.loopexit
+  %218 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 256), align 8
+  %.not256 = icmp eq ptr %218, null
+  br i1 %.not256, label %221, label %219
 
-220:                                              ; preds = %218
+219:                                              ; preds = %217
   store ptr null, ptr @active_ini_hash, align 8
   store i1 false, ptr @is_special_section, align 4
-  %221 = call i32 @zend_parse_ini_string(ptr noundef nonnull %219, i1 noundef zeroext true, i32 noundef 0, ptr noundef nonnull @php_ini_parser_cb, ptr noundef nonnull @configuration_hash) #15
-  br label %222
+  %220 = call i32 @zend_parse_ini_string(ptr noundef nonnull %218, i1 noundef zeroext true, i32 noundef 0, ptr noundef nonnull @php_ini_parser_cb, ptr noundef nonnull @configuration_hash) #15
+  br label %221
 
-222:                                              ; preds = %220, %218
+221:                                              ; preds = %219, %217
   ret i32 0
 }
 

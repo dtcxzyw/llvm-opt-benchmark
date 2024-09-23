@@ -971,6 +971,8 @@ do.body:                                          ; preds = %save_state_priority
   store ptr %12, ptr %tql_prev20, align 8
   store ptr %9, ptr %nse, align 8
   %13 = load ptr, ptr %tql_prev, align 8
+  store ptr %nse, ptr %13, align 8
+  store ptr %nse, ptr %tql_prev, align 8
   br label %if.end35
 
 do.body28:                                        ; preds = %for.cond
@@ -978,13 +980,11 @@ do.body28:                                        ; preds = %for.cond
   %14 = load ptr, ptr getelementptr inbounds (i8, ptr @savevm_state, i64 8), align 8
   %tql_prev31 = getelementptr inbounds i8, ptr %nse, i64 8
   store ptr %14, ptr %tql_prev31, align 8
+  store ptr %nse, ptr %14, align 8
+  store ptr %nse, ptr getelementptr inbounds (i8, ptr @savevm_state, i64 8), align 8
   br label %if.end35
 
 if.end35:                                         ; preds = %do.body28, %do.body
-  %.sink40 = phi ptr [ %14, %do.body28 ], [ %13, %do.body ]
-  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @savevm_state, i64 8), %do.body28 ], [ %tql_prev, %do.body ]
-  store ptr %nse, ptr %.sink40, align 8
-  store ptr %nse, ptr %.sink, align 8
   %arrayidx37 = getelementptr [7 x ptr], ptr getelementptr inbounds (i8, ptr @savevm_state, i64 16), i64 0, i64 %8
   %15 = load ptr, ptr %arrayidx37, align 8
   %cmp38 = icmp eq ptr %15, null
@@ -1058,7 +1058,7 @@ save_state_priority.exit.i:                       ; preds = %if.then.i.i, %if.th
   %arrayidx.i = getelementptr [7 x ptr], ptr getelementptr inbounds (i8, ptr @savevm_state, i64 16), i64 0, i64 %idxprom.i
   %6 = load ptr, ptr %arrayidx.i, align 8
   %cmp.i = icmp eq ptr %se.011, %6
-  br i1 %cmp.i, label %if.then.i, label %savevm_state_handler_remove.exit
+  br i1 %cmp.i, label %if.then.i, label %do.body.i
 
 if.then.i:                                        ; preds = %save_state_priority.exit.i
   %cmp2.not.i = icmp eq ptr %2, null
@@ -1087,16 +1087,25 @@ do.body.sink.split.i:                             ; preds = %if.else.i, %save_st
   %.sink.i = phi ptr [ null, %if.else.i ], [ %2, %save_state_priority.exit22.i ]
   store ptr %.sink.i, ptr %arrayidx.i, align 8
   %.pre = load ptr, ptr %se.011, align 8
-  br label %savevm_state_handler_remove.exit
+  br label %do.body.i
 
-savevm_state_handler_remove.exit:                 ; preds = %save_state_priority.exit.i, %do.body.sink.split.i
-  %9 = phi ptr [ %2, %save_state_priority.exit.i ], [ %.pre, %do.body.sink.split.i ]
+do.body.i:                                        ; preds = %do.body.sink.split.i, %save_state_priority.exit.i
+  %9 = phi ptr [ %.pre, %do.body.sink.split.i ], [ %2, %save_state_priority.exit.i ]
   %cmp12.not.i = icmp eq ptr %9, null
   %tql_prev20.i = getelementptr inbounds i8, ptr %se.011, i64 8
   %10 = load ptr, ptr %tql_prev20.i, align 8
+  br i1 %cmp12.not.i, label %if.else18.i, label %if.then13.i
+
+if.then13.i:                                      ; preds = %do.body.i
   %tql_prev17.i = getelementptr inbounds i8, ptr %9, i64 8
-  %.sink23.i = select i1 %cmp12.not.i, ptr getelementptr inbounds (i8, ptr @savevm_state, i64 8), ptr %tql_prev17.i
-  store ptr %10, ptr %.sink23.i, align 8
+  store ptr %10, ptr %tql_prev17.i, align 8
+  br label %savevm_state_handler_remove.exit
+
+if.else18.i:                                      ; preds = %do.body.i
+  store ptr %10, ptr getelementptr inbounds (i8, ptr @savevm_state, i64 8), align 8
+  br label %savevm_state_handler_remove.exit
+
+savevm_state_handler_remove.exit:                 ; preds = %if.then13.i, %if.else18.i
   %11 = load ptr, ptr %se.011, align 8
   store ptr %11, ptr %10, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %se.011, i8 0, i64 16, i1 false)
@@ -1201,7 +1210,7 @@ save_state_priority.exit.i:                       ; preds = %if.then.i.i, %if.th
   %arrayidx.i = getelementptr [7 x ptr], ptr getelementptr inbounds (i8, ptr @savevm_state, i64 16), i64 0, i64 %idxprom.i
   %8 = load ptr, ptr %arrayidx.i, align 8
   %cmp.i4 = icmp eq ptr %se.019.i, %8
-  br i1 %cmp.i4, label %if.then.i, label %savevm_state_handler_remove.exit
+  br i1 %cmp.i4, label %if.then.i, label %do.body.i
 
 if.then.i:                                        ; preds = %save_state_priority.exit.i
   %9 = load ptr, ptr %se.019.i, align 8
@@ -1230,16 +1239,25 @@ if.else.i:                                        ; preds = %save_state_priority
 do.body.sink.split.i:                             ; preds = %if.else.i, %save_state_priority.exit22.i
   %.sink.i = phi ptr [ null, %if.else.i ], [ %9, %save_state_priority.exit22.i ]
   store ptr %.sink.i, ptr %arrayidx.i, align 8
-  br label %savevm_state_handler_remove.exit
+  br label %do.body.i
 
-savevm_state_handler_remove.exit:                 ; preds = %save_state_priority.exit.i, %do.body.sink.split.i
+do.body.i:                                        ; preds = %do.body.sink.split.i, %save_state_priority.exit.i
   %12 = load ptr, ptr %se.019.i, align 8
   %cmp12.not.i = icmp eq ptr %12, null
   %tql_prev20.i = getelementptr inbounds i8, ptr %se.019.i, i64 8
   %13 = load ptr, ptr %tql_prev20.i, align 8
+  br i1 %cmp12.not.i, label %if.else18.i, label %if.then13.i
+
+if.then13.i:                                      ; preds = %do.body.i
   %tql_prev17.i = getelementptr inbounds i8, ptr %12, i64 8
-  %.sink23.i = select i1 %cmp12.not.i, ptr getelementptr inbounds (i8, ptr @savevm_state, i64 8), ptr %tql_prev17.i
-  store ptr %13, ptr %.sink23.i, align 8
+  store ptr %13, ptr %tql_prev17.i, align 8
+  br label %savevm_state_handler_remove.exit
+
+if.else18.i:                                      ; preds = %do.body.i
+  store ptr %13, ptr getelementptr inbounds (i8, ptr @savevm_state, i64 8), align 8
+  br label %savevm_state_handler_remove.exit
+
+savevm_state_handler_remove.exit:                 ; preds = %if.then13.i, %if.else18.i
   %14 = load ptr, ptr %se.019.i, align 8
   store ptr %14, ptr %13, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %se.019.i, i8 0, i64 16, i1 false)
@@ -1563,7 +1581,7 @@ save_state_priority.exit.i:                       ; preds = %if.then.i.i, %if.th
   %arrayidx.i = getelementptr [7 x ptr], ptr getelementptr inbounds (i8, ptr @savevm_state, i64 16), i64 0, i64 %idxprom.i
   %5 = load ptr, ptr %arrayidx.i, align 8
   %cmp.i = icmp eq ptr %se.08, %5
-  br i1 %cmp.i, label %if.then.i, label %savevm_state_handler_remove.exit
+  br i1 %cmp.i, label %if.then.i, label %do.body.i
 
 if.then.i:                                        ; preds = %save_state_priority.exit.i
   %cmp2.not.i = icmp eq ptr %1, null
@@ -1592,16 +1610,25 @@ do.body.sink.split.i:                             ; preds = %if.else.i, %save_st
   %.sink.i = phi ptr [ null, %if.else.i ], [ %1, %save_state_priority.exit22.i ]
   store ptr %.sink.i, ptr %arrayidx.i, align 8
   %.pre = load ptr, ptr %se.08, align 8
-  br label %savevm_state_handler_remove.exit
+  br label %do.body.i
 
-savevm_state_handler_remove.exit:                 ; preds = %save_state_priority.exit.i, %do.body.sink.split.i
-  %8 = phi ptr [ %1, %save_state_priority.exit.i ], [ %.pre, %do.body.sink.split.i ]
+do.body.i:                                        ; preds = %do.body.sink.split.i, %save_state_priority.exit.i
+  %8 = phi ptr [ %.pre, %do.body.sink.split.i ], [ %1, %save_state_priority.exit.i ]
   %cmp12.not.i = icmp eq ptr %8, null
   %tql_prev20.i = getelementptr inbounds i8, ptr %se.08, i64 8
   %9 = load ptr, ptr %tql_prev20.i, align 8
+  br i1 %cmp12.not.i, label %if.else18.i, label %if.then13.i
+
+if.then13.i:                                      ; preds = %do.body.i
   %tql_prev17.i = getelementptr inbounds i8, ptr %8, i64 8
-  %.sink23.i = select i1 %cmp12.not.i, ptr getelementptr inbounds (i8, ptr @savevm_state, i64 8), ptr %tql_prev17.i
-  store ptr %9, ptr %.sink23.i, align 8
+  store ptr %9, ptr %tql_prev17.i, align 8
+  br label %savevm_state_handler_remove.exit
+
+if.else18.i:                                      ; preds = %do.body.i
+  store ptr %9, ptr getelementptr inbounds (i8, ptr @savevm_state, i64 8), align 8
+  br label %savevm_state_handler_remove.exit
+
+savevm_state_handler_remove.exit:                 ; preds = %if.then13.i, %if.else18.i
   %10 = load ptr, ptr %se.08, align 8
   store ptr %10, ptr %9, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %se.08, i8 0, i64 16, i1 false)

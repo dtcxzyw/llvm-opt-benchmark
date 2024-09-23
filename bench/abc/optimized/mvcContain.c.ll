@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 define range(i32 0, 2) i32 @Mvc_CoverContain(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @Mvc_CoverReadCubeNum(ptr noundef %0) #2
   %3 = icmp slt i32 %2, 2
-  br i1 %3, label %110, label %4
+  br i1 %3, label %113, label %4
 
 4:                                                ; preds = %1
   %5 = tail call i32 @Mvc_CoverSetCubeSizes(ptr noundef %0) #2
@@ -106,7 +106,7 @@ Mvc_CoverRemoveDuplicates.exit:                   ; preds = %.thread.i, %4
   br label %51
 
 51:                                               ; preds = %._crit_edge89.i, %Mvc_CoverRemoveDuplicates.exit
-  %.0.i = phi ptr [ %47, %Mvc_CoverRemoveDuplicates.exit ], [ %106, %._crit_edge89.i ]
+  %.0.i = phi ptr [ %47, %Mvc_CoverRemoveDuplicates.exit ], [ %109, %._crit_edge89.i ]
   %52 = getelementptr inbounds i8, ptr %.0.i, i64 12
   %53 = load i32, ptr %52, align 4
   br label %54
@@ -127,8 +127,8 @@ Mvc_CoverRemoveDuplicates.exit:                   ; preds = %.thread.i, %4
   %.not6586.i = icmp eq ptr %.0.i, null
   br i1 %.not6586.i, label %._crit_edge89.i, label %.lr.ph88.i
 
-.lr.ph88.i:                                       ; preds = %.preheader78.i, %104
-  %.06187.i = phi ptr [ %105, %104 ], [ %.0.i, %.preheader78.i ]
+.lr.ph88.i:                                       ; preds = %.preheader78.i, %107
+  %.06187.i = phi ptr [ %108, %107 ], [ %.0.i, %.preheader78.i ]
   %59 = load ptr, ptr %.056.i10, align 8
   %.not66.i = icmp eq ptr %59, null
   br i1 %.not66.i, label %._crit_edge.i, label %.lr.ph.i11
@@ -200,54 +200,63 @@ Mvc_CoverRemoveDuplicates.exit:                   ; preds = %.thread.i, %4
 
 .thread75.i:                                      ; preds = %85, %95
   %96 = icmp eq ptr %.05785.i, null
-  %..05785.i = select i1 %96, ptr %48, ptr %.05785.i
-  store ptr %.05884.i, ptr %..05785.i, align 8
-  %97 = load ptr, ptr %49, align 8
-  %98 = icmp eq ptr %97, %.16083.i
-  br i1 %98, label %99, label %100
+  br i1 %96, label %97, label %98
 
-99:                                               ; preds = %.thread75.i
+97:                                               ; preds = %.thread75.i
+  store ptr %.05884.i, ptr %48, align 8
+  br label %99
+
+98:                                               ; preds = %.thread75.i
+  store ptr %.05884.i, ptr %.05785.i, align 8
+  br label %99
+
+99:                                               ; preds = %98, %97
+  %100 = load ptr, ptr %49, align 8
+  %101 = icmp eq ptr %100, %.16083.i
+  br i1 %101, label %102, label %103
+
+102:                                              ; preds = %99
   store ptr %.05785.i, ptr %49, align 8
-  br label %100
+  br label %103
 
-100:                                              ; preds = %99, %.thread75.i
-  %101 = load i32, ptr %50, align 8
-  %102 = add nsw i32 %101, -1
-  store i32 %102, ptr %50, align 8
+103:                                              ; preds = %102, %99
+  %104 = load i32, ptr %50, align 8
+  %105 = add nsw i32 %104, -1
+  store i32 %105, ptr %50, align 8
   tail call void @Mvc_CubeFree(ptr noundef nonnull %0, ptr noundef nonnull %.16083.i) #2
   br label %.thread.i12
 
-.thread.i12:                                      ; preds = %.preheader.i14, %100, %95, %72
-  %.1.i13 = phi ptr [ %.05785.i, %100 ], [ %.16083.i, %95 ], [ %.16083.i, %72 ], [ %.16083.i, %.preheader.i14 ]
+.thread.i12:                                      ; preds = %.preheader.i14, %103, %95, %72
+  %.1.i13 = phi ptr [ %.05785.i, %103 ], [ %.16083.i, %95 ], [ %.16083.i, %72 ], [ %.16083.i, %.preheader.i14 ]
   %.not72.i = icmp eq ptr %.05884.i, null
   br i1 %.not72.i, label %._crit_edge.i, label %62, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %.thread.i12, %.lr.ph88.i
-  %103 = icmp eq ptr %.06187.i, %.056.i10
-  br i1 %103, label %._crit_edge89.loopexit.i, label %104
+  %106 = icmp eq ptr %.06187.i, %.056.i10
+  br i1 %106, label %._crit_edge89.loopexit.i, label %107
 
-104:                                              ; preds = %._crit_edge.i
-  %105 = load ptr, ptr %.06187.i, align 8
-  %.not65.i = icmp eq ptr %105, null
+107:                                              ; preds = %._crit_edge.i
+  %108 = load ptr, ptr %.06187.i, align 8
+  %.not65.i = icmp eq ptr %108, null
   br i1 %.not65.i, label %._crit_edge89.loopexit.i, label %.lr.ph88.i, !llvm.loop !10
 
-._crit_edge89.loopexit.i:                         ; preds = %._crit_edge.i, %104
+._crit_edge89.loopexit.i:                         ; preds = %._crit_edge.i, %107
   %.pre.i.pre = load ptr, ptr %.056.i10, align 8
   br label %._crit_edge89.i
 
 ._crit_edge89.i:                                  ; preds = %._crit_edge89.loopexit.i, %.preheader78.i
-  %106 = phi ptr [ %.pre.i.pre, %._crit_edge89.loopexit.i ], [ %.059.i, %.preheader78.i ]
-  %.not68.i = icmp eq ptr %106, null
+  %109 = phi ptr [ %.pre.i.pre, %._crit_edge89.loopexit.i ], [ %.059.i, %.preheader78.i ]
+  %.not68.i = icmp eq ptr %109, null
   br i1 %.not68.i, label %Mvc_CoverRemoveContained.exit, label %51, !llvm.loop !12
 
 Mvc_CoverRemoveContained.exit:                    ; preds = %._crit_edge89.i, %54
-  %107 = tail call i32 @Mvc_CoverReadCubeNum(ptr noundef %0) #2
-  %108 = icmp ne i32 %2, %107
-  %109 = zext i1 %108 to i32
-  br label %110
+  %110 = tail call i32 @Mvc_CoverReadCubeNum(ptr noundef %0) #2
+  %111 = icmp ne i32 %2, %110
+  %112 = zext i1 %111 to i32
+  br label %113
 
-110:                                              ; preds = %1, %Mvc_CoverRemoveContained.exit
-  %.0 = phi i32 [ %109, %Mvc_CoverRemoveContained.exit ], [ 0, %1 ]
+113:                                              ; preds = %1, %Mvc_CoverRemoveContained.exit
+  %.0 = phi i32 [ %112, %Mvc_CoverRemoveContained.exit ], [ 0, %1 ]
   ret i32 %.0
 }
 

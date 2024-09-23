@@ -3786,7 +3786,11 @@ while.end51:                                      ; preds = %while.cond45, %land
   store ptr %call53, ptr %ref_prefix, align 8
   %5 = load ptr, ptr @proc_receive_ref, align 8
   %tobool54.not = icmp eq ptr %5, null
-  br i1 %tobool54.not, label %if.end63, label %while.cond57
+  br i1 %tobool54.not, label %if.then55, label %while.cond57
+
+if.then55:                                        ; preds = %while.end51
+  store ptr %call, ptr @proc_receive_ref, align 8
+  br label %if.end63
 
 while.cond57:                                     ; preds = %while.end51, %while.cond57
   %end.0 = phi ptr [ %6, %while.cond57 ], [ %5, %while.end51 ]
@@ -3797,11 +3801,10 @@ while.cond57:                                     ; preds = %while.end51, %while
 
 while.end61:                                      ; preds = %while.cond57
   %next.le = getelementptr inbounds i8, ptr %end.0, i64 16
+  store ptr %call, ptr %next.le, align 8
   br label %if.end63
 
-if.end63:                                         ; preds = %while.end51, %while.end61
-  %next.le.sink = phi ptr [ %next.le, %while.end61 ], [ @proc_receive_ref, %while.end51 ]
-  store ptr %call, ptr %next.le.sink, align 8
+if.end63:                                         ; preds = %while.end61, %if.then55
   ret void
 }
 
@@ -5224,7 +5227,12 @@ if.then22:                                        ; preds = %if.end20
   %report23 = getelementptr inbounds i8, ptr %hint.0109, i64 16
   %1 = load ptr, ptr %report23, align 8
   %tobool24.not = icmp eq ptr %1, null
-  br i1 %tobool24.not, label %if.end36.sink.split, label %while.cond
+  br i1 %tobool24.not, label %if.then25, label %while.cond
+
+if.then25:                                        ; preds = %if.then22
+  %call26 = call ptr @xcalloc(i64 noundef 1, i64 noundef 40) #16
+  store ptr %call26, ptr %report23, align 8
+  br label %if.end36
 
 while.cond:                                       ; preds = %if.then22, %while.cond
   %report.3 = phi ptr [ %2, %while.cond ], [ %1, %if.then22 ]
@@ -5235,16 +5243,12 @@ while.cond:                                       ; preds = %if.then22, %while.c
 
 while.end:                                        ; preds = %while.cond
   %next.le = getelementptr inbounds i8, ptr %report.3, i64 32
-  br label %if.end36.sink.split
-
-if.end36.sink.split:                              ; preds = %if.then22, %while.end
-  %report23.sink = phi ptr [ %next.le, %while.end ], [ %report23, %if.then22 ]
-  %call26 = call ptr @xcalloc(i64 noundef 1, i64 noundef 40) #16
-  store ptr %call26, ptr %report23.sink, align 8
+  %call32 = call ptr @xcalloc(i64 noundef 1, i64 noundef 40) #16
+  store ptr %call32, ptr %next.le, align 8
   br label %if.end36
 
-if.end36:                                         ; preds = %if.end36.sink.split, %if.end20
-  %report.1 = phi ptr [ %report.0108, %if.end20 ], [ %call26, %if.end36.sink.split ]
+if.end36:                                         ; preds = %if.then25, %while.end, %if.end20
+  %report.1 = phi ptr [ %report.0108, %if.end20 ], [ %call32, %while.end ], [ %call26, %if.then25 ]
   %call37 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %incdec.ptr, i32 noundef 32) #18
   %tobool38.not = icmp eq ptr %call37, null
   br i1 %tobool38.not, label %if.end41, label %if.then39

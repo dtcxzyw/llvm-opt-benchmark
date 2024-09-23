@@ -1921,19 +1921,12 @@ land.lhs.true15:                                  ; preds = %if.end13
   %p.val14 = load ptr, ptr %p, align 8
   %13 = getelementptr i8, ptr %p.val14, i64 8
   %p.val14.val = load ptr, ptr %13, align 8
-  br label %while.cond.i.sink.split
-
-while.cond.i.sink.split:                          ; preds = %while.body.i, %land.lhs.true15
-  %p.val14.val.sink = phi ptr [ %p.val14.val, %land.lhs.true15 ], [ %incdec.ptr.i, %while.body.i ]
-  %14 = load i8, ptr %p.val14.val.sink, align 1
+  %14 = load i8, ptr %p.val14.val, align 1
   br label %while.cond.i
 
-while.cond.i.loopexit:                            ; preds = %while.cond18.i, %while.cond18.i
-  br label %while.cond.i
-
-while.cond.i:                                     ; preds = %while.cond.i.loopexit, %while.cond.i.sink.split
-  %cur.1.i = phi ptr [ %p.val14.val.sink, %while.cond.i.sink.split ], [ %cur.2.i, %while.cond.i.loopexit ]
-  %c.1.i = phi i8 [ %14, %while.cond.i.sink.split ], [ %c.2.i, %while.cond.i.loopexit ]
+while.cond.i:                                     ; preds = %while.cond.i.backedge, %land.lhs.true15
+  %cur.1.i = phi ptr [ %p.val14.val, %land.lhs.true15 ], [ %cur.1.i.be, %while.cond.i.backedge ]
+  %c.1.i = phi i8 [ %14, %land.lhs.true15 ], [ %c.1.i.be, %while.cond.i.backedge ]
   switch i8 %c.1.i, label %if.then18 [
     i8 32, label %while.body.i
     i8 12, label %while.body.i
@@ -1945,26 +1938,32 @@ while.cond.i:                                     ; preds = %while.cond.i.loopex
 
 while.body.i:                                     ; preds = %while.cond.i, %while.cond.i, %while.cond.i, %while.cond.i
   %incdec.ptr.i = getelementptr i8, ptr %cur.1.i, i64 1
-  br label %while.cond.i.sink.split, !llvm.loop !16
+  %15 = load i8, ptr %incdec.ptr.i, align 1
+  br label %while.cond.i.backedge
+
+while.cond.i.backedge:                            ; preds = %while.cond18.i, %while.cond18.i, %while.body.i
+  %cur.1.i.be = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %cur.2.i, %while.cond18.i ], [ %cur.2.i, %while.cond18.i ]
+  %c.1.i.be = phi i8 [ %15, %while.body.i ], [ %c.2.i, %while.cond18.i ], [ %c.2.i, %while.cond18.i ]
+  br label %while.cond.i, !llvm.loop !16
 
 while.cond18.i:                                   ; preds = %while.cond.i, %while.body24.i
   %cur.2.i = phi ptr [ %incdec.ptr25.i, %while.body24.i ], [ %cur.1.i, %while.cond.i ]
-  %c.2.i = phi i8 [ %15, %while.body24.i ], [ %c.1.i, %while.cond.i ]
+  %c.2.i = phi i8 [ %16, %while.body24.i ], [ %c.1.i, %while.cond.i ]
   switch i8 %c.2.i, label %while.body24.i [
-    i8 10, label %while.cond.i.loopexit
-    i8 0, label %while.cond.i.loopexit
+    i8 10, label %while.cond.i.backedge
+    i8 0, label %while.cond.i.backedge
   ]
 
 while.body24.i:                                   ; preds = %while.cond18.i
   %incdec.ptr25.i = getelementptr i8, ptr %cur.2.i, i64 1
-  %15 = load i8, ptr %incdec.ptr25.i, align 1
+  %16 = load i8, ptr %incdec.ptr25.i, align 1
   br label %while.cond18.i, !llvm.loop !17
 
 if.then18:                                        ; preds = %while.cond.i
   %done = getelementptr inbounds i8, ptr %p.val14, i64 64
   store i32 27, ptr %done, align 8
-  %16 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %call19 = tail call ptr (ptr, ptr, i32, ptr, ...) @_PyPegen_raise_error(ptr noundef nonnull %p, ptr noundef %16, i32 noundef 0, ptr noundef nonnull @.str.8) #12
+  %17 = load ptr, ptr @PyExc_SyntaxError, align 8
+  %call19 = tail call ptr (ptr, ptr, i32, ptr, ...) @_PyPegen_raise_error(ptr noundef nonnull %p, ptr noundef %17, i32 noundef 0, ptr noundef nonnull @.str.8) #12
   br label %return
 
 return:                                           ; preds = %while.cond.i, %if.end13, %land.lhs.true7, %if.then18, %reset_parser_state_for_error_pass.exit, %if.then3

@@ -335,10 +335,10 @@ sw.bb144.i:                                       ; preds = %if.end124.i
   br label %nfaExecGough8_Q2i.exit
 
 sw.epilog.i.sink.split:                           ; preds = %sw.bb.i, %goughEnableStarts.exit
-  %retval.0.in.i.sink = phi ptr [ %retval.0.in.i, %goughEnableStarts.exit ], [ %start_anchored.i, %sw.bb.i ]
+  %retval.0.i.sink.in = phi ptr [ %retval.0.in.i, %goughEnableStarts.exit ], [ %start_anchored.i, %sw.bb.i ]
   %.ph = phi i32 [ %.pre, %goughEnableStarts.exit ], [ %27, %sw.bb.i ]
-  %retval.0.i = load i16, ptr %retval.0.in.i.sink, align 4
-  %conv143.i = trunc i16 %retval.0.i to i8
+  %retval.0.i.sink = load i16, ptr %retval.0.i.sink.in, align 4
+  %conv143.i = trunc i16 %retval.0.i.sink to i8
   store i8 %conv143.i, ptr %s.i, align 1
   br label %sw.epilog.i
 
@@ -685,10 +685,10 @@ sw.bb134.i:                                       ; preds = %if.end117.i
   br label %nfaExecGough16_Q2i.exit
 
 sw.epilog.i.sink.split:                           ; preds = %sw.bb.i, %goughEnableStarts.exit
-  %retval.0.in.i.sink = phi ptr [ %retval.0.in.i, %goughEnableStarts.exit ], [ %start_anchored.i, %sw.bb.i ]
+  %retval.0.i.sink.in = phi ptr [ %retval.0.in.i, %goughEnableStarts.exit ], [ %start_anchored.i, %sw.bb.i ]
   %.ph = phi i32 [ %.pre, %goughEnableStarts.exit ], [ %27, %sw.bb.i ]
-  %retval.0.i = load i16, ptr %retval.0.in.i.sink, align 4
-  store i16 %retval.0.i, ptr %s.i, align 2
+  %retval.0.i.sink = load i16, ptr %retval.0.i.sink.in, align 4
+  store i16 %retval.0.i.sink, ptr %s.i, align 2
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %sw.epilog.i.sink.split, %if.end117.i
@@ -1057,10 +1057,10 @@ sw.bb144.i:                                       ; preds = %if.end124.i
   br label %nfaExecGough8_Q2i.exit
 
 sw.epilog.i.sink.split:                           ; preds = %sw.bb.i, %goughEnableStarts.exit
-  %retval.0.in.i.sink = phi ptr [ %retval.0.in.i, %goughEnableStarts.exit ], [ %start_anchored.i, %sw.bb.i ]
+  %retval.0.i.sink.in = phi ptr [ %retval.0.in.i, %goughEnableStarts.exit ], [ %start_anchored.i, %sw.bb.i ]
   %.ph = phi i32 [ %.pre, %goughEnableStarts.exit ], [ %28, %sw.bb.i ]
-  %retval.0.i = load i16, ptr %retval.0.in.i.sink, align 4
-  %conv143.i = trunc i16 %retval.0.i to i8
+  %retval.0.i.sink = load i16, ptr %retval.0.i.sink.in, align 4
+  %conv143.i = trunc i16 %retval.0.i.sink to i8
   store i8 %conv143.i, ptr %s.i, align 1
   br label %sw.epilog.i
 
@@ -1430,10 +1430,10 @@ sw.bb134.i:                                       ; preds = %if.end117.i
   br label %nfaExecGough16_Q2i.exit
 
 sw.epilog.i.sink.split:                           ; preds = %sw.bb.i, %goughEnableStarts.exit
-  %retval.0.in.i.sink = phi ptr [ %retval.0.in.i, %goughEnableStarts.exit ], [ %start_anchored.i, %sw.bb.i ]
+  %retval.0.i.sink.in = phi ptr [ %retval.0.in.i, %goughEnableStarts.exit ], [ %start_anchored.i, %sw.bb.i ]
   %.ph = phi i32 [ %.pre, %goughEnableStarts.exit ], [ %28, %sw.bb.i ]
-  %retval.0.i = load i16, ptr %retval.0.in.i.sink, align 4
-  store i16 %retval.0.i, ptr %s.i, align 2
+  %retval.0.i.sink = load i16, ptr %retval.0.i.sink.in, align 4
+  store i16 %retval.0.i.sink, ptr %s.i, align 2
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %sw.epilog.i.sink.split, %if.end117.i
@@ -1734,10 +1734,10 @@ goughEnableStarts.exit:                           ; preds = %goughEnableStarts.e
   br label %sw.epilog.i.sink.split
 
 sw.epilog.i.sink.split:                           ; preds = %sw.bb.i, %goughEnableStarts.exit
-  %retval.0.in.i.sink = phi ptr [ %retval.0.in.i, %goughEnableStarts.exit ], [ %start_anchored.i, %sw.bb.i ]
+  %retval.0.i.sink.in = phi ptr [ %retval.0.in.i, %goughEnableStarts.exit ], [ %start_anchored.i, %sw.bb.i ]
   %.ph = phi i32 [ %.pre134, %goughEnableStarts.exit ], [ %.pre.pre, %sw.bb.i ]
-  %retval.0.i = load i16, ptr %retval.0.in.i.sink, align 4
-  %conv143.i = trunc i16 %retval.0.i to i8
+  %retval.0.i.sink = load i16, ptr %retval.0.i.sink.in, align 4
+  %conv143.i = trunc i16 %retval.0.i.sink to i8
   store i8 %conv143.i, ptr %s.i, align 1
   br label %sw.epilog.i
 
@@ -2057,10 +2057,10 @@ goughEnableStarts.exit:                           ; preds = %goughEnableStarts.e
   br label %sw.epilog.i.sink.split
 
 sw.epilog.i.sink.split:                           ; preds = %sw.bb.i, %goughEnableStarts.exit
-  %retval.0.in.i.sink = phi ptr [ %retval.0.in.i, %goughEnableStarts.exit ], [ %start_anchored.i, %sw.bb.i ]
+  %retval.0.i.sink.in = phi ptr [ %retval.0.in.i, %goughEnableStarts.exit ], [ %start_anchored.i, %sw.bb.i ]
   %.ph = phi i32 [ %.pre134, %goughEnableStarts.exit ], [ %.pre.pre, %sw.bb.i ]
-  %retval.0.i = load i16, ptr %retval.0.in.i.sink, align 4
-  store i16 %retval.0.i, ptr %s.i, align 2
+  %retval.0.i.sink = load i16, ptr %retval.0.i.sink.in, align 4
+  store i16 %retval.0.i.sink, ptr %s.i, align 2
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %sw.epilog.i.sink.split, %if.end117.i

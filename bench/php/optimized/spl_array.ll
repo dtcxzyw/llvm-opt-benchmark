@@ -467,7 +467,7 @@ define hidden void @zim_ArrayObject_offsetGet(ptr nocapture noundef readonly %0,
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
-  br label %44
+  br label %43
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds i8, ptr %0, i64 32
@@ -480,14 +480,14 @@ define hidden void @zim_ArrayObject_offsetGet(ptr nocapture noundef readonly %0,
   %19 = load ptr, ptr %18, align 8
   %20 = call fastcc ptr @spl_array_get_dimension_ptr(ptr noundef nonnull %15, ptr noundef %19, ptr noundef %14, i32 noundef 0)
   %.not = icmp eq ptr %20, %1
-  br i1 %.not, label %44, label %21
+  br i1 %.not, label %43, label %21
 
 21:                                               ; preds = %11
   %22 = getelementptr inbounds i8, ptr %20, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = and i32 %23, 65280
   %.not27 = icmp eq i32 %24, 0
-  br i1 %.not27, label %39, label %25
+  br i1 %.not27, label %38, label %25
 
 25:                                               ; preds = %21
   %26 = and i32 %23, 255
@@ -501,31 +501,31 @@ define hidden void @zim_ArrayObject_offsetGet(ptr nocapture noundef readonly %0,
   %32 = load i32, ptr %31, align 8
   %33 = and i32 %32, 65280
   %.not28 = icmp eq i32 %33, 0
-  br i1 %.not28, label %39, label %.sink.split
+  br i1 %.not28, label %38, label %.sink.split
 
 .sink.split:                                      ; preds = %25, %28
-  %.sink = phi i32 [ %32, %28 ], [ %23, %25 ]
-  %.sink31 = phi ptr [ %30, %28 ], [ %20, %25 ]
-  %34 = and i32 %.sink, 65280
+  %.sink33 = phi i32 [ %32, %28 ], [ %23, %25 ]
+  %.sink.in = phi ptr [ %30, %28 ], [ %20, %25 ]
+  %34 = and i32 %.sink33, 65280
   %35 = icmp ne i32 %34, 0
   call void @llvm.assume(i1 %35)
-  %36 = load ptr, ptr %.sink31, align 8
-  %37 = load i32, ptr %36, align 4
-  %38 = add i32 %37, 1
-  store i32 %38, ptr %36, align 4
-  br label %39
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %36 = load i32, ptr %.sink, align 4
+  %37 = add i32 %36, 1
+  store i32 %37, ptr %.sink, align 4
+  br label %38
 
-39:                                               ; preds = %.sink.split, %21, %28
-  %.0 = phi ptr [ %30, %28 ], [ %20, %21 ], [ %.sink31, %.sink.split ]
-  %40 = load ptr, ptr %.0, align 8
-  %41 = getelementptr inbounds i8, ptr %.0, i64 8
-  %42 = load i32, ptr %41, align 8
-  store ptr %40, ptr %1, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %42, ptr %43, align 8
-  br label %44
+38:                                               ; preds = %.sink.split, %21, %28
+  %.0 = phi ptr [ %30, %28 ], [ %20, %21 ], [ %.sink.in, %.sink.split ]
+  %39 = load ptr, ptr %.0, align 8
+  %40 = getelementptr inbounds i8, ptr %.0, i64 8
+  %41 = load i32, ptr %40, align 8
+  store ptr %39, ptr %1, align 8
+  %42 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %41, ptr %42, align 8
+  br label %43
 
-44:                                               ; preds = %39, %11, %8
+43:                                               ; preds = %38, %11, %8
   ret void
 }
 
@@ -4163,7 +4163,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
   %45 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %46 = icmp ne ptr %45, null
   tail call void @llvm.assume(i1 %46)
-  br label %100
+  br label %99
 
 .critedge:                                        ; preds = %spl_array_get_hash_table.exit
   %47 = getelementptr inbounds i8, ptr %4, i64 -72
@@ -4195,7 +4195,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
 64:                                               ; preds = %57
   %65 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 1, ptr %65, align 8
-  br label %100
+  br label %99
 
 66:                                               ; preds = %57
   %67 = getelementptr inbounds i8, ptr %62, i64 8
@@ -4213,7 +4213,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
 75:                                               ; preds = %70
   %76 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 1, ptr %76, align 8
-  br label %100
+  br label %99
 
 77:                                               ; preds = %70, %66
   %.0 = phi ptr [ %71, %70 ], [ %62, %66 ]
@@ -4221,7 +4221,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
   %79 = load i32, ptr %78, align 8
   %80 = and i32 %79, 65280
   %.not40 = icmp eq i32 %80, 0
-  br i1 %.not40, label %95, label %81
+  br i1 %.not40, label %94, label %81
 
 81:                                               ; preds = %77
   %82 = and i32 %79, 255
@@ -4235,31 +4235,31 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
   %88 = load i32, ptr %87, align 8
   %89 = and i32 %88, 65280
   %.not41 = icmp eq i32 %89, 0
-  br i1 %.not41, label %95, label %.sink.split
+  br i1 %.not41, label %94, label %.sink.split
 
 .sink.split:                                      ; preds = %81, %84
-  %.sink = phi i32 [ %88, %84 ], [ %79, %81 ]
-  %.sink47 = phi ptr [ %86, %84 ], [ %.0, %81 ]
-  %90 = and i32 %.sink, 65280
+  %.sink50 = phi i32 [ %88, %84 ], [ %79, %81 ]
+  %.sink.in = phi ptr [ %86, %84 ], [ %.0, %81 ]
+  %90 = and i32 %.sink50, 65280
   %91 = icmp ne i32 %90, 0
   tail call void @llvm.assume(i1 %91)
-  %92 = load ptr, ptr %.sink47, align 8
-  %93 = load i32, ptr %92, align 4
-  %94 = add i32 %93, 1
-  store i32 %94, ptr %92, align 4
-  br label %95
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %92 = load i32, ptr %.sink, align 4
+  %93 = add i32 %92, 1
+  store i32 %93, ptr %.sink, align 4
+  br label %94
 
-95:                                               ; preds = %.sink.split, %77, %84
-  %.038 = phi ptr [ %86, %84 ], [ %.0, %77 ], [ %.sink47, %.sink.split ]
-  %96 = load ptr, ptr %.038, align 8
-  %97 = getelementptr inbounds i8, ptr %.038, i64 8
-  %98 = load i32, ptr %97, align 8
-  store ptr %96, ptr %1, align 8
-  %99 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %98, ptr %99, align 8
-  br label %100
+94:                                               ; preds = %.sink.split, %77, %84
+  %.038 = phi ptr [ %86, %84 ], [ %.0, %77 ], [ %.sink.in, %.sink.split ]
+  %95 = load ptr, ptr %.038, align 8
+  %96 = getelementptr inbounds i8, ptr %.038, i64 8
+  %97 = load i32, ptr %96, align 8
+  store ptr %95, ptr %1, align 8
+  %98 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %97, ptr %98, align 8
+  br label %99
 
-100:                                              ; preds = %95, %75, %64, %44
+99:                                               ; preds = %94, %75, %64, %44
   ret void
 }
 

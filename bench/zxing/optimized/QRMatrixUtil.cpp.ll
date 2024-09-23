@@ -805,6 +805,7 @@ _ZN5ZXing6QRCodeL16MakeTypeInfoBitsENS0_20ErrorCorrectionLevelEi.exit.i: ; preds
   %329 = add nsw i32 %327, %328
   %330 = sext i32 %329 to i64
   %331 = getelementptr inbounds %"class.ZXing::Trit", ptr %324, i64 %330
+  store i8 %316, ptr %331, align 1
   br label %345
 
 332:                                              ; preds = %310
@@ -827,11 +828,10 @@ _ZN5ZXing6QRCodeL16MakeTypeInfoBitsENS0_20ErrorCorrectionLevelEi.exit.i: ; preds
   %342 = sext i32 %341 to i64
   %343 = getelementptr %"class.ZXing::Trit", ptr %324, i64 %342
   %344 = getelementptr i8, ptr %343, i64 8
+  store i8 %316, ptr %344, align 1
   br label %345
 
 345:                                              ; preds = %336, %325
-  %.sink.i = phi ptr [ %344, %336 ], [ %331, %325 ]
-  store i8 %316, ptr %.sink.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %346 = load ptr, ptr %172, align 8
   %347 = load ptr, ptr %16, align 8

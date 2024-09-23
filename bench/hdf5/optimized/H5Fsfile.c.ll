@@ -110,7 +110,7 @@ define range(i32 -1, 1) i32 @H5F__sfile_remove(ptr noundef readnone %0) local_un
   %5 = load i64, ptr @H5E_FILE_g, align 8
   %6 = load i64, ptr @H5E_NOTFOUND_g, align 8
   %7 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5F__sfile_remove, i32 noundef 186, i64 noundef %5, i64 noundef %6, ptr noundef nonnull @.str.2) #3
-  br label %12
+  br label %15
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader
   %.01321.lcssa = phi ptr [ %.01318, %.lr.ph.preheader ], [ %.013, %.lr.ph ]
@@ -118,14 +118,23 @@ define range(i32 -1, 1) i32 @H5F__sfile_remove(ptr noundef readnone %0) local_un
   %.not15 = icmp eq ptr %.01220.lcssa, null
   %8 = getelementptr inbounds i8, ptr %.01321.lcssa, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %.01220.lcssa, i64 8
-  %H5F_sfile_head_s.sink = select i1 %.not15, ptr @H5F_sfile_head_s, ptr %10
-  store ptr %9, ptr %H5F_sfile_head_s.sink, align 8
-  %11 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5F_sfile_node_t_reg_free_list, ptr noundef nonnull %.01321.lcssa) #3
-  br label %12
+  br i1 %.not15, label %12, label %10
 
-12:                                               ; preds = %.critedge, %._crit_edge
-  %.0 = phi i32 [ -1, %._crit_edge ], [ 0, %.critedge ]
+10:                                               ; preds = %.critedge
+  %11 = getelementptr inbounds i8, ptr %.01220.lcssa, i64 8
+  store ptr %9, ptr %11, align 8
+  br label %13
+
+12:                                               ; preds = %.critedge
+  store ptr %9, ptr @H5F_sfile_head_s, align 8
+  br label %13
+
+13:                                               ; preds = %12, %10
+  %14 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5F_sfile_node_t_reg_free_list, ptr noundef nonnull %.01321.lcssa) #3
+  br label %15
+
+15:                                               ; preds = %13, %._crit_edge
+  %.0 = phi i32 [ -1, %._crit_edge ], [ 0, %13 ]
   ret i32 %.0
 }
 

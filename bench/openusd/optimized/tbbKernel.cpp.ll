@@ -6018,6 +6018,8 @@ define internal fastcc void @_ZN10OpenSubdiv6v3_6_03OsdL37Osd_adjustBoxSplineTri
   %92 = load float, ptr %91, align 4
   %93 = fsub float %92, %85
   store float %93, ptr %91, align 4
+  store float 0.000000e+00, ptr %84, align 4
+  store float 0.000000e+00, ptr %77, align 4
   br label %.thread222.sink.split
 
 94:                                               ; preds = %51
@@ -6083,144 +6085,142 @@ define internal fastcc void @_ZN10OpenSubdiv6v3_6_03OsdL37Osd_adjustBoxSplineTri
   %127 = getelementptr inbounds i8, ptr %1, i64 12
   %128 = load float, ptr %127, align 4
   %129 = fadd float %124, %128
-  br i1 %.not, label %132, label %130
+  br i1 %.not, label %133, label %130
 
 130:                                              ; preds = %114
   %131 = fadd float %128, %129
-  br label %137
+  %132 = fsub float %126, %128
+  store float %132, ptr %125, align 4
+  br label %139
 
-132:                                              ; preds = %114
-  %133 = load float, ptr %1, align 4
-  %134 = fadd float %128, %133
-  store float %134, ptr %1, align 4
-  %135 = getelementptr inbounds i8, ptr %1, i64 4
-  %136 = load float, ptr %135, align 4
-  br label %137
+133:                                              ; preds = %114
+  %134 = load float, ptr %1, align 4
+  %135 = fadd float %128, %134
+  store float %135, ptr %1, align 4
+  %136 = getelementptr inbounds i8, ptr %1, i64 4
+  %137 = load float, ptr %136, align 4
+  %138 = fsub float %137, %128
+  store float %138, ptr %136, align 4
+  br label %139
 
-137:                                              ; preds = %132, %130
-  %.sink259 = phi float [ %136, %132 ], [ %126, %130 ]
-  %.sink258 = phi ptr [ %135, %132 ], [ %125, %130 ]
-  %.sink = phi float [ %129, %132 ], [ %131, %130 ]
-  %138 = fsub float %.sink259, %128
-  store float %138, ptr %.sink258, align 4
+139:                                              ; preds = %133, %130
+  %.sink = phi float [ %129, %133 ], [ %131, %130 ]
   store float %.sink, ptr %123, align 4
+  store float 0.000000e+00, ptr %127, align 4
+  store float 0.000000e+00, ptr %119, align 4
   br label %.thread222.sink.split
 
-.thread222.sink.split:                            ; preds = %137, %.thread240
-  %.sink262 = phi ptr [ %84, %.thread240 ], [ %127, %137 ]
-  %.sink261 = phi ptr [ %77, %.thread240 ], [ %119, %137 ]
-  %.sink260 = phi ptr [ %76, %.thread240 ], [ %118, %137 ]
-  store float 0.000000e+00, ptr %.sink262, align 4
-  store float 0.000000e+00, ptr %.sink261, align 4
-  store float 0.000000e+00, ptr %.sink260, align 4
+.thread222.sink.split:                            ; preds = %139, %.thread240
+  %.sink257 = phi ptr [ %76, %.thread240 ], [ %118, %139 ]
+  store float 0.000000e+00, ptr %.sink257, align 4
   br label %.thread222
 
 .thread222:                                       ; preds = %.thread222.sink.split, %.thread239, %2, %94
   %.0179192204227 = phi i32 [ %.0179, %94 ], [ %5, %2 ], [ %.0179, %.thread239 ], [ %.0179, %.thread222.sink.split ]
-  %139 = and i32 %.0179192204227, 1
-  %.not184 = icmp eq i32 %139, 0
-  br i1 %.not184, label %160, label %140
+  %140 = and i32 %.0179192204227, 1
+  %.not184 = icmp eq i32 %140, 0
+  br i1 %.not184, label %161, label %141
 
-140:                                              ; preds = %.thread222
-  %141 = getelementptr inbounds i8, ptr %1, i64 12
-  %142 = load float, ptr %141, align 4
-  %143 = getelementptr inbounds i8, ptr %1, i64 16
-  %144 = load float, ptr %143, align 4
-  %145 = fadd float %142, %144
-  %146 = getelementptr inbounds i8, ptr %1, i64 28
-  %147 = load float, ptr %146, align 4
-  %148 = fadd float %142, %147
-  store float %148, ptr %146, align 4
-  %149 = getelementptr inbounds i8, ptr %1, i64 32
-  %150 = load float, ptr %149, align 4
-  %151 = fsub float %150, %142
-  store float %151, ptr %149, align 4
-  %152 = load float, ptr %1, align 4
-  %153 = fadd float %145, %152
-  store float %153, ptr %143, align 4
-  %154 = getelementptr inbounds i8, ptr %1, i64 4
-  %155 = load float, ptr %154, align 4
-  %156 = fadd float %152, %155
-  store float %156, ptr %154, align 4
-  %157 = getelementptr inbounds i8, ptr %1, i64 20
-  %158 = load float, ptr %157, align 4
-  %159 = fsub float %158, %152
-  store float %159, ptr %157, align 4
+141:                                              ; preds = %.thread222
+  %142 = getelementptr inbounds i8, ptr %1, i64 12
+  %143 = load float, ptr %142, align 4
+  %144 = getelementptr inbounds i8, ptr %1, i64 16
+  %145 = load float, ptr %144, align 4
+  %146 = fadd float %143, %145
+  %147 = getelementptr inbounds i8, ptr %1, i64 28
+  %148 = load float, ptr %147, align 4
+  %149 = fadd float %143, %148
+  store float %149, ptr %147, align 4
+  %150 = getelementptr inbounds i8, ptr %1, i64 32
+  %151 = load float, ptr %150, align 4
+  %152 = fsub float %151, %143
+  store float %152, ptr %150, align 4
+  %153 = load float, ptr %1, align 4
+  %154 = fadd float %146, %153
+  store float %154, ptr %144, align 4
+  %155 = getelementptr inbounds i8, ptr %1, i64 4
+  %156 = load float, ptr %155, align 4
+  %157 = fadd float %153, %156
+  store float %157, ptr %155, align 4
+  %158 = getelementptr inbounds i8, ptr %1, i64 20
+  %159 = load float, ptr %158, align 4
+  %160 = fsub float %159, %153
+  store float %160, ptr %158, align 4
   store float 0.000000e+00, ptr %1, align 4
-  store float 0.000000e+00, ptr %141, align 4
-  br label %160
+  store float 0.000000e+00, ptr %142, align 4
+  br label %161
 
-160:                                              ; preds = %140, %.thread222
-  %161 = and i32 %.0179192204227, 2
-  %.not185 = icmp eq i32 %161, 0
-  br i1 %.not185, label %183, label %162
+161:                                              ; preds = %141, %.thread222
+  %162 = and i32 %.0179192204227, 2
+  %.not185 = icmp eq i32 %162, 0
+  br i1 %.not185, label %184, label %163
 
-162:                                              ; preds = %160
-  %163 = getelementptr inbounds i8, ptr %1, i64 8
-  %164 = load float, ptr %163, align 4
-  %165 = getelementptr inbounds i8, ptr %1, i64 20
-  %166 = load float, ptr %165, align 4
-  %167 = fadd float %164, %166
-  %168 = getelementptr inbounds i8, ptr %1, i64 4
-  %169 = load float, ptr %168, align 4
-  %170 = fadd float %164, %169
-  store float %170, ptr %168, align 4
-  %171 = getelementptr inbounds i8, ptr %1, i64 16
-  %172 = load float, ptr %171, align 4
-  %173 = fsub float %172, %164
-  store float %173, ptr %171, align 4
-  %174 = getelementptr inbounds i8, ptr %1, i64 24
-  %175 = load float, ptr %174, align 4
-  %176 = fadd float %167, %175
-  store float %176, ptr %165, align 4
-  %177 = getelementptr inbounds i8, ptr %1, i64 36
-  %178 = load float, ptr %177, align 4
-  %179 = fadd float %175, %178
-  store float %179, ptr %177, align 4
-  %180 = getelementptr inbounds i8, ptr %1, i64 32
-  %181 = load float, ptr %180, align 4
-  %182 = fsub float %181, %175
-  store float %182, ptr %180, align 4
-  store float 0.000000e+00, ptr %174, align 4
-  store float 0.000000e+00, ptr %163, align 4
-  br label %183
+163:                                              ; preds = %161
+  %164 = getelementptr inbounds i8, ptr %1, i64 8
+  %165 = load float, ptr %164, align 4
+  %166 = getelementptr inbounds i8, ptr %1, i64 20
+  %167 = load float, ptr %166, align 4
+  %168 = fadd float %165, %167
+  %169 = getelementptr inbounds i8, ptr %1, i64 4
+  %170 = load float, ptr %169, align 4
+  %171 = fadd float %165, %170
+  store float %171, ptr %169, align 4
+  %172 = getelementptr inbounds i8, ptr %1, i64 16
+  %173 = load float, ptr %172, align 4
+  %174 = fsub float %173, %165
+  store float %174, ptr %172, align 4
+  %175 = getelementptr inbounds i8, ptr %1, i64 24
+  %176 = load float, ptr %175, align 4
+  %177 = fadd float %168, %176
+  store float %177, ptr %166, align 4
+  %178 = getelementptr inbounds i8, ptr %1, i64 36
+  %179 = load float, ptr %178, align 4
+  %180 = fadd float %176, %179
+  store float %180, ptr %178, align 4
+  %181 = getelementptr inbounds i8, ptr %1, i64 32
+  %182 = load float, ptr %181, align 4
+  %183 = fsub float %182, %176
+  store float %183, ptr %181, align 4
+  store float 0.000000e+00, ptr %175, align 4
+  store float 0.000000e+00, ptr %164, align 4
+  br label %184
 
-183:                                              ; preds = %162, %160
-  %184 = and i32 %.0179192204227, 4
-  %.not186 = icmp eq i32 %184, 0
-  br i1 %.not186, label %206, label %185
+184:                                              ; preds = %163, %161
+  %185 = and i32 %.0179192204227, 4
+  %.not186 = icmp eq i32 %185, 0
+  br i1 %.not186, label %207, label %186
 
-185:                                              ; preds = %183
-  %186 = getelementptr inbounds i8, ptr %1, i64 44
-  %187 = load float, ptr %186, align 4
-  %188 = getelementptr inbounds i8, ptr %1, i64 32
-  %189 = load float, ptr %188, align 4
-  %190 = fadd float %187, %189
-  %191 = getelementptr inbounds i8, ptr %1, i64 36
-  %192 = load float, ptr %191, align 4
-  %193 = fadd float %187, %192
-  store float %193, ptr %191, align 4
-  %194 = getelementptr inbounds i8, ptr %1, i64 20
-  %195 = load float, ptr %194, align 4
-  %196 = fsub float %195, %187
-  store float %196, ptr %194, align 4
-  %197 = getelementptr inbounds i8, ptr %1, i64 40
-  %198 = load float, ptr %197, align 4
-  %199 = fadd float %190, %198
-  store float %199, ptr %188, align 4
-  %200 = getelementptr inbounds i8, ptr %1, i64 28
-  %201 = load float, ptr %200, align 4
-  %202 = fadd float %198, %201
-  store float %202, ptr %200, align 4
-  %203 = getelementptr inbounds i8, ptr %1, i64 16
-  %204 = load float, ptr %203, align 4
-  %205 = fsub float %204, %198
-  store float %205, ptr %203, align 4
-  store float 0.000000e+00, ptr %197, align 4
-  store float 0.000000e+00, ptr %186, align 4
-  br label %206
+186:                                              ; preds = %184
+  %187 = getelementptr inbounds i8, ptr %1, i64 44
+  %188 = load float, ptr %187, align 4
+  %189 = getelementptr inbounds i8, ptr %1, i64 32
+  %190 = load float, ptr %189, align 4
+  %191 = fadd float %188, %190
+  %192 = getelementptr inbounds i8, ptr %1, i64 36
+  %193 = load float, ptr %192, align 4
+  %194 = fadd float %188, %193
+  store float %194, ptr %192, align 4
+  %195 = getelementptr inbounds i8, ptr %1, i64 20
+  %196 = load float, ptr %195, align 4
+  %197 = fsub float %196, %188
+  store float %197, ptr %195, align 4
+  %198 = getelementptr inbounds i8, ptr %1, i64 40
+  %199 = load float, ptr %198, align 4
+  %200 = fadd float %191, %199
+  store float %200, ptr %189, align 4
+  %201 = getelementptr inbounds i8, ptr %1, i64 28
+  %202 = load float, ptr %201, align 4
+  %203 = fadd float %199, %202
+  store float %203, ptr %201, align 4
+  %204 = getelementptr inbounds i8, ptr %1, i64 16
+  %205 = load float, ptr %204, align 4
+  %206 = fsub float %205, %199
+  store float %206, ptr %204, align 4
+  store float 0.000000e+00, ptr %198, align 4
+  store float 0.000000e+00, ptr %187, align 4
+  br label %207
 
-206:                                              ; preds = %185, %183
+207:                                              ; preds = %186, %184
   ret void
 }
 

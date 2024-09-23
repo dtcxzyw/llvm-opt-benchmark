@@ -319,7 +319,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
 .split.i.i.i:                                     ; preds = %86
   %87 = getelementptr inbounds i8, ptr %1, i64 16
   store i64 0, ptr %87, align 8
-  br label %.sink.split.i.i.i
+  store i8 0, ptr %63, align 1
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEaSERKS6_.exit
 
 .split12.i.i.i:                                   ; preds = %86, %.thread.i.i.i
   %88 = phi ptr [ %80, %.thread.i.i.i ], [ %63, %86 ]
@@ -342,14 +343,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7_S
   store i64 %61, ptr %94, align 8
   %95 = load ptr, ptr %62, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 %61
-  br label %.sink.split.i.i.i
-
-.sink.split.i.i.i:                                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7_S_copyEPcPKcm.exit.i.i.i, %.split.i.i.i
-  %.sink.i.i.i = phi ptr [ %96, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7_S_copyEPcPKcm.exit.i.i.i ], [ %63, %.split.i.i.i ]
-  store i8 0, ptr %.sink.i.i.i, align 1
+  store i8 0, ptr %96, align 1
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEaSERKS6_.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEaSERKS6_.exit: ; preds = %_ZNK7glslang14TAttributeArgs13getConstUnionENS_10TBasicTypeEi.exit, %.sink.split.i.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEaSERKS6_.exit: ; preds = %_ZNK7glslang14TAttributeArgs13getConstUnionENS_10TBasicTypeEi.exit, %.split.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7_S_copyEPcPKcm.exit.i.i.i
   br i1 %3, label %97, label %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEEEESB_PDoFiiEET0_T_SF_SE_T1_.exit
 
 97:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEaSERKS6_.exit

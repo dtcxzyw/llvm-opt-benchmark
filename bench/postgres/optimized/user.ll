@@ -2645,12 +2645,12 @@ plan_single_revoke.exit.thread:                   ; preds = %90, %92, %86, %97, 
   %101 = add i32 %.sroa.8.0, 1
   br label %36, !llvm.loop !13
 
-102:                                              ; preds = %.lr.ph, %129
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %129 ]
+102:                                              ; preds = %.lr.ph, %130
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %130 ]
   %103 = getelementptr i32, ptr %.08.i, i64 %indvars.iv
   %104 = load i32, ptr %103, align 4
   %105 = icmp eq i32 %104, 0
-  br i1 %105, label %129, label %106
+  br i1 %105, label %130, label %106
 
 106:                                              ; preds = %102
   %107 = getelementptr [0 x ptr], ptr %35, i64 0, i64 %indvars.iv
@@ -2670,47 +2670,51 @@ plan_single_revoke.exit.thread:                   ; preds = %90, %92, %86, %97, 
   call void @deleteSharedDependencyRecordsFor(i32 noundef 1261, i32 noundef %118, i32 noundef 0) #10
   %119 = getelementptr inbounds i8, ptr %108, i64 68
   call void @CatalogTupleDelete(ptr noundef %13, ptr noundef nonnull %119) #10
-  br label %129
+  br label %130
 
 120:                                              ; preds = %106
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %9, i8 0, i64 56, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %10, i8 0, i64 7, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %11, i8 0, i64 7, i1 false)
-  switch i32 %104, label %123 [
-    i32 1, label %126
-    i32 2, label %121
-    i32 3, label %122
+  switch i32 %104, label %124 [
+    i32 1, label %121
+    i32 2, label %122
+    i32 3, label %123
   ]
 
 121:                                              ; preds = %120
-  br label %126
+  store i8 1, ptr %60, align 1
+  br label %127
 
 122:                                              ; preds = %120
-  br label %126
+  store i8 1, ptr %59, align 1
+  br label %127
 
 123:                                              ; preds = %120
-  %124 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  call void @llvm.assume(i1 %124)
-  %125 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.91) #10
+  store i8 1, ptr %58, align 1
+  br label %127
+
+124:                                              ; preds = %120
+  %125 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  call void @llvm.assume(i1 %125)
+  %126 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.91) #10
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 2089, ptr noundef nonnull @__func__.DelRoleMems) #10
   unreachable
 
-126:                                              ; preds = %120, %121, %122
-  %.sink = phi ptr [ %59, %121 ], [ %58, %122 ], [ %60, %120 ]
-  store i8 1, ptr %.sink, align 1
-  %127 = call ptr @heap_modify_tuple(ptr noundef nonnull %109, ptr noundef %15, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11) #10
-  %128 = getelementptr inbounds i8, ptr %127, i64 4
-  call void @CatalogTupleUpdate(ptr noundef %13, ptr noundef nonnull %128, ptr noundef %127) #10
-  br label %129
+127:                                              ; preds = %122, %123, %121
+  %128 = call ptr @heap_modify_tuple(ptr noundef nonnull %109, ptr noundef %15, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11) #10
+  %129 = getelementptr inbounds i8, ptr %128, i64 4
+  call void @CatalogTupleUpdate(ptr noundef %13, ptr noundef nonnull %129, ptr noundef %128) #10
+  br label %130
 
-129:                                              ; preds = %111, %126, %102
+130:                                              ; preds = %111, %127, %102
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %130 = load i32, ptr %18, align 8
-  %131 = sext i32 %130 to i64
-  %132 = icmp slt i64 %indvars.iv.next, %131
-  br i1 %132, label %102, label %._crit_edge, !llvm.loop !14
+  %131 = load i32, ptr %18, align 8
+  %132 = sext i32 %131 to i64
+  %133 = icmp slt i64 %indvars.iv.next, %132
+  br i1 %133, label %102, label %._crit_edge, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %129, %.preheader
+._crit_edge:                                      ; preds = %130, %.preheader
   call void @ReleaseCatCacheList(ptr noundef nonnull %17) #10
   call void @table_close(ptr noundef %13, i32 noundef 0) #10
   ret void

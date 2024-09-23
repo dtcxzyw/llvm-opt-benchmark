@@ -361,6 +361,7 @@ _ZNSt6vectorIPKN7testing8TestInfoESaIS3_EE9push_backEOS3_.exit: ; preds = %_ZNSt
   store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN6cvtestL21getTestTagsSkipCountsB5cxx11EvE18testTagsSkipCountsB5cxx11, i64 16), align 8
   store ptr getelementptr inbounds (i8, ptr @_ZZN6cvtestL21getTestTagsSkipCountsB5cxx11EvE18testTagsSkipCountsB5cxx11, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN6cvtestL21getTestTagsSkipCountsB5cxx11EvE18testTagsSkipCountsB5cxx11, i64 24), align 8
   store ptr getelementptr inbounds (i8, ptr @_ZZN6cvtestL21getTestTagsSkipCountsB5cxx11EvE18testTagsSkipCountsB5cxx11, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN6cvtestL21getTestTagsSkipCountsB5cxx11EvE18testTagsSkipCountsB5cxx11, i64 32), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZZN6cvtestL21getTestTagsSkipCountsB5cxx11EvE18testTagsSkipCountsB5cxx11, i64 40), align 8
   br label %_ZN6cvtestL21getTestTagsSkipCountsB5cxx11Ev.exit.sink.split
 
 41:                                               ; preds = %_ZNSt6vectorIPKN7testing8TestInfoESaIS3_EE9push_backEOS3_.exit
@@ -378,13 +379,12 @@ _ZNSt6vectorIPKN7testing8TestInfoESaIS3_EE9push_backEOS3_.exit: ; preds = %_ZNSt
   store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN6cvtestL26getTestTagsSkipExtraCountsB5cxx11EvE23testTagsSkipExtraCountsB5cxx11, i64 16), align 8
   store ptr getelementptr inbounds (i8, ptr @_ZZN6cvtestL26getTestTagsSkipExtraCountsB5cxx11EvE23testTagsSkipExtraCountsB5cxx11, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN6cvtestL26getTestTagsSkipExtraCountsB5cxx11EvE23testTagsSkipExtraCountsB5cxx11, i64 24), align 8
   store ptr getelementptr inbounds (i8, ptr @_ZZN6cvtestL26getTestTagsSkipExtraCountsB5cxx11EvE23testTagsSkipExtraCountsB5cxx11, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN6cvtestL26getTestTagsSkipExtraCountsB5cxx11EvE23testTagsSkipExtraCountsB5cxx11, i64 32), align 8
+  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZZN6cvtestL26getTestTagsSkipExtraCountsB5cxx11EvE23testTagsSkipExtraCountsB5cxx11, i64 40), align 8
   br label %_ZN6cvtestL21getTestTagsSkipCountsB5cxx11Ev.exit.sink.split
 
 _ZN6cvtestL21getTestTagsSkipCountsB5cxx11Ev.exit.sink.split: ; preds = %40, %46
-  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN6cvtestL26getTestTagsSkipExtraCountsB5cxx11EvE23testTagsSkipExtraCountsB5cxx11, i64 40), %46 ], [ getelementptr inbounds (i8, ptr @_ZZN6cvtestL21getTestTagsSkipCountsB5cxx11EvE18testTagsSkipCountsB5cxx11, i64 40), %40 ]
   %_ZZN6cvtestL26getTestTagsSkipExtraCountsB5cxx11EvE23testTagsSkipExtraCountsB5cxx11.sink = phi ptr [ @_ZZN6cvtestL26getTestTagsSkipExtraCountsB5cxx11EvE23testTagsSkipExtraCountsB5cxx11, %46 ], [ @_ZZN6cvtestL21getTestTagsSkipCountsB5cxx11EvE18testTagsSkipCountsB5cxx11, %40 ]
   %_ZGVZN6cvtestL26getTestTagsSkipExtraCountsB5cxx11EvE23testTagsSkipExtraCountsB5cxx11.sink = phi ptr [ @_ZGVZN6cvtestL26getTestTagsSkipExtraCountsB5cxx11EvE23testTagsSkipExtraCountsB5cxx11, %46 ], [ @_ZGVZN6cvtestL21getTestTagsSkipCountsB5cxx11EvE18testTagsSkipCountsB5cxx11, %40 ]
-  store i64 0, ptr %.sink, align 8
   %47 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEED2Ev, ptr nonnull %_ZZN6cvtestL26getTestTagsSkipExtraCountsB5cxx11EvE23testTagsSkipExtraCountsB5cxx11.sink, ptr nonnull @__dso_handle) #19
   tail call void @__cxa_guard_release(ptr nonnull %_ZGVZN6cvtestL26getTestTagsSkipExtraCountsB5cxx11EvE23testTagsSkipExtraCountsB5cxx11.sink) #19
   br label %_ZN6cvtestL21getTestTagsSkipCountsB5cxx11Ev.exit

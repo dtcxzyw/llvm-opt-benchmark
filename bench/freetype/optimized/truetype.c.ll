@@ -6740,12 +6740,12 @@ define internal fastcc void @Ins_ISECT(ptr nocapture noundef %0, ptr nocapture n
   %34 = getelementptr inbounds i8, ptr %0, i64 1001
   %35 = load i8, ptr %34, align 1
   %.not99 = icmp eq i8 %35, 0
-  br i1 %.not99, label %139, label %36
+  br i1 %.not99, label %141, label %36
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 134, ptr %37, align 8
-  br label %139
+  br label %141
 
 38:                                               ; preds = %27
   %39 = getelementptr inbounds i8, ptr %0, i64 96
@@ -6787,7 +6787,7 @@ define internal fastcc void @Ins_ISECT(ptr nocapture noundef %0, ptr nocapture n
   %75 = mul i64 %74, 19
   %76 = tail call i64 @llvm.abs.i64(i64 %73, i1 true)
   %77 = icmp sgt i64 %75, %76
-  br i1 %77, label %78, label %98
+  br i1 %77, label %78, label %100
 
 78:                                               ; preds = %38
   %79 = sub i64 %51, %65
@@ -6810,60 +6810,61 @@ define internal fastcc void @Ins_ISECT(ptr nocapture noundef %0, ptr nocapture n
   %95 = getelementptr inbounds %struct.FT_Vector_, ptr %94, i64 %58, i32 1
   %96 = load i64, ptr %95, align 8
   %97 = add i64 %96, %85
-  br label %131
+  %98 = load ptr, ptr %90, align 8
+  %99 = getelementptr inbounds %struct.FT_Vector_, ptr %98, i64 %92, i32 1
+  store i64 %97, ptr %99, align 8
+  br label %135
 
-98:                                               ; preds = %38
-  %99 = load ptr, ptr %53, align 8
-  %100 = getelementptr inbounds %struct.FT_Vector_, ptr %99, i64 %58
-  %101 = load i64, ptr %100, align 8
-  %102 = getelementptr inbounds %struct.FT_Vector_, ptr %99, i64 %55
+100:                                              ; preds = %38
+  %101 = load ptr, ptr %53, align 8
+  %102 = getelementptr inbounds %struct.FT_Vector_, ptr %101, i64 %58
   %103 = load i64, ptr %102, align 8
-  %104 = load ptr, ptr %39, align 8
-  %105 = getelementptr inbounds %struct.FT_Vector_, ptr %104, i64 %44
-  %106 = load i64, ptr %105, align 8
-  %107 = getelementptr inbounds %struct.FT_Vector_, ptr %104, i64 %41
+  %104 = getelementptr inbounds %struct.FT_Vector_, ptr %101, i64 %55
+  %105 = load i64, ptr %104, align 8
+  %106 = load ptr, ptr %39, align 8
+  %107 = getelementptr inbounds %struct.FT_Vector_, ptr %106, i64 %44
   %108 = load i64, ptr %107, align 8
-  %109 = add i64 %103, %101
-  %110 = add i64 %109, %106
-  %111 = add i64 %110, %108
-  %112 = sdiv i64 %111, 4
-  %113 = getelementptr inbounds i8, ptr %0, i64 224
-  %114 = load ptr, ptr %113, align 8
-  %115 = and i64 %3, 65535
-  %116 = getelementptr inbounds %struct.FT_Vector_, ptr %114, i64 %115
-  store i64 %112, ptr %116, align 8
-  %117 = load ptr, ptr %53, align 8
-  %118 = getelementptr inbounds %struct.FT_Vector_, ptr %117, i64 %58, i32 1
-  %119 = load i64, ptr %118, align 8
-  %120 = getelementptr inbounds %struct.FT_Vector_, ptr %117, i64 %55, i32 1
+  %109 = getelementptr inbounds %struct.FT_Vector_, ptr %106, i64 %41
+  %110 = load i64, ptr %109, align 8
+  %111 = add i64 %105, %103
+  %112 = add i64 %111, %108
+  %113 = add i64 %112, %110
+  %114 = sdiv i64 %113, 4
+  %115 = getelementptr inbounds i8, ptr %0, i64 224
+  %116 = load ptr, ptr %115, align 8
+  %117 = and i64 %3, 65535
+  %118 = getelementptr inbounds %struct.FT_Vector_, ptr %116, i64 %117
+  store i64 %114, ptr %118, align 8
+  %119 = load ptr, ptr %53, align 8
+  %120 = getelementptr inbounds %struct.FT_Vector_, ptr %119, i64 %58, i32 1
   %121 = load i64, ptr %120, align 8
-  %122 = load ptr, ptr %39, align 8
-  %123 = getelementptr inbounds %struct.FT_Vector_, ptr %122, i64 %44, i32 1
-  %124 = load i64, ptr %123, align 8
-  %125 = getelementptr inbounds %struct.FT_Vector_, ptr %122, i64 %41, i32 1
+  %122 = getelementptr inbounds %struct.FT_Vector_, ptr %119, i64 %55, i32 1
+  %123 = load i64, ptr %122, align 8
+  %124 = load ptr, ptr %39, align 8
+  %125 = getelementptr inbounds %struct.FT_Vector_, ptr %124, i64 %44, i32 1
   %126 = load i64, ptr %125, align 8
-  %127 = add i64 %121, %119
-  %128 = add i64 %127, %124
-  %129 = add i64 %128, %126
-  %130 = sdiv i64 %129, 4
-  br label %131
+  %127 = getelementptr inbounds %struct.FT_Vector_, ptr %124, i64 %41, i32 1
+  %128 = load i64, ptr %127, align 8
+  %129 = add i64 %123, %121
+  %130 = add i64 %129, %126
+  %131 = add i64 %130, %128
+  %132 = sdiv i64 %131, 4
+  %133 = load ptr, ptr %115, align 8
+  %134 = getelementptr inbounds %struct.FT_Vector_, ptr %133, i64 %117, i32 1
+  store i64 %132, ptr %134, align 8
+  br label %135
 
-131:                                              ; preds = %98, %78
-  %.sink106 = phi ptr [ %113, %98 ], [ %90, %78 ]
-  %.sink105 = phi i64 [ %115, %98 ], [ %92, %78 ]
-  %.sink = phi i64 [ %130, %98 ], [ %97, %78 ]
-  %132 = load ptr, ptr %.sink106, align 8
-  %133 = getelementptr inbounds %struct.FT_Vector_, ptr %132, i64 %.sink105, i32 1
-  store i64 %.sink, ptr %133, align 8
-  %134 = getelementptr inbounds i8, ptr %0, i64 240
-  %135 = load ptr, ptr %134, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 %.sink105
-  %137 = load i8, ptr %136, align 1
-  %138 = or i8 %137, 24
-  store i8 %138, ptr %136, align 1
-  br label %139
+135:                                              ; preds = %100, %78
+  %.pre-phi = phi i64 [ %117, %100 ], [ %92, %78 ]
+  %136 = getelementptr inbounds i8, ptr %0, i64 240
+  %137 = load ptr, ptr %136, align 8
+  %138 = getelementptr inbounds i8, ptr %137, i64 %.pre-phi
+  %139 = load i8, ptr %138, align 1
+  %140 = or i8 %139, 24
+  store i8 %140, ptr %138, align 1
+  br label %141
 
-139:                                              ; preds = %33, %36, %131
+141:                                              ; preds = %33, %36, %135
   ret void
 }
 

@@ -2287,7 +2287,7 @@ if.end:                                           ; preds = %entry
 if.then1:                                         ; preds = %if.end
   %call2 = tail call i32 (ptr, ptr, ptr, ...) @_PySys_Audit(ptr noundef nonnull %2, ptr noundef nonnull @.str.6, ptr noundef null)
   %cmp3 = icmp slt i32 %call2, 0
-  br i1 %cmp3, label %if.then4, label %if.end10.thread27
+  br i1 %cmp3, label %if.then4, label %if.end10.thread28
 
 if.then4:                                         ; preds = %if.then1
   %3 = load ptr, ptr @PyExc_RuntimeError, align 8
@@ -2304,26 +2304,26 @@ if.end10:                                         ; preds = %if.end
   %tobool12.not = icmp eq ptr %call11, null
   br i1 %tobool12.not, label %return, label %if.end18
 
-if.end10.thread27:                                ; preds = %if.then1
-  %call1128 = tail call ptr @PyMem_RawMalloc(i64 noundef 24) #15
-  %tobool12.not29 = icmp eq ptr %call1128, null
-  br i1 %tobool12.not29, label %if.then15, label %if.end18
+if.end10.thread28:                                ; preds = %if.then1
+  %call1129 = tail call ptr @PyMem_RawMalloc(i64 noundef 24) #15
+  %tobool12.not30 = icmp eq ptr %call1129, null
+  br i1 %tobool12.not30, label %if.then15, label %if.end18
 
 if.end10.thread:                                  ; preds = %entry
-  %call1120 = tail call ptr @PyMem_RawMalloc(i64 noundef 24) #15
-  %tobool12.not21 = icmp eq ptr %call1120, null
-  br i1 %tobool12.not21, label %return, label %if.end18
+  %call1121 = tail call ptr @PyMem_RawMalloc(i64 noundef 24) #15
+  %tobool12.not22 = icmp eq ptr %call1121, null
+  br i1 %tobool12.not22, label %return, label %if.end18
 
-if.then15:                                        ; preds = %if.end10.thread27
+if.then15:                                        ; preds = %if.end10.thread28
   %call16 = tail call ptr @_PyErr_NoMemory(ptr noundef nonnull %2) #15
   br label %return
 
-if.end18:                                         ; preds = %if.end10.thread27, %if.end10.thread, %if.end10
-  %call1124 = phi ptr [ %call1120, %if.end10.thread ], [ %call11, %if.end10 ], [ %call1128, %if.end10.thread27 ]
-  store ptr null, ptr %call1124, align 8
-  %hookCFunction = getelementptr inbounds i8, ptr %call1124, i64 8
+if.end18:                                         ; preds = %if.end10.thread28, %if.end10.thread, %if.end10
+  %call1125 = phi ptr [ %call1121, %if.end10.thread ], [ %call11, %if.end10 ], [ %call1129, %if.end10.thread28 ]
+  store ptr null, ptr %call1125, align 8
+  %hookCFunction = getelementptr inbounds i8, ptr %call1125, i64 8
   store ptr %hook, ptr %hookCFunction, align 8
-  %userData19 = getelementptr inbounds i8, ptr %call1124, i64 16
+  %userData19 = getelementptr inbounds i8, ptr %call1125, i64 16
   store ptr %userData, ptr %userData19, align 8
   %4 = cmpxchg ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3592), i8 0, i8 1 seq_cst seq_cst, align 1
   %5 = extractvalue { i8, i1 } %4, 1
@@ -2336,27 +2336,33 @@ if.then.i:                                        ; preds = %if.end18
 PyMutex_Lock.exit:                                ; preds = %if.end18, %if.then.i
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3600), align 8
   %cmp.i = icmp eq ptr %6, null
-  br i1 %cmp.i, label %add_audit_hook_entry_unlocked.exit, label %while.cond.i
+  br i1 %cmp.i, label %if.then.i13, label %while.cond.i
+
+if.then.i13:                                      ; preds = %PyMutex_Lock.exit
+  store ptr %call1125, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3600), align 8
+  br label %add_audit_hook_entry_unlocked.exit
 
 while.cond.i:                                     ; preds = %PyMutex_Lock.exit, %while.cond.i
   %last.0.i = phi ptr [ %7, %while.cond.i ], [ %6, %PyMutex_Lock.exit ]
   %7 = load ptr, ptr %last.0.i, align 8
   %tobool.not.i = icmp eq ptr %7, null
-  br i1 %tobool.not.i, label %add_audit_hook_entry_unlocked.exit, label %while.cond.i, !llvm.loop !9
+  br i1 %tobool.not.i, label %while.end.i, label %while.cond.i, !llvm.loop !9
 
-add_audit_hook_entry_unlocked.exit:               ; preds = %while.cond.i, %PyMutex_Lock.exit
-  %last.0.lcssa.sink.i = phi ptr [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 3600), %PyMutex_Lock.exit ], [ %last.0.i, %while.cond.i ]
-  store ptr %call1124, ptr %last.0.lcssa.sink.i, align 8
+while.end.i:                                      ; preds = %while.cond.i
+  store ptr %call1125, ptr %last.0.i, align 8
+  br label %add_audit_hook_entry_unlocked.exit
+
+add_audit_hook_entry_unlocked.exit:               ; preds = %if.then.i13, %while.end.i
   %8 = cmpxchg ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3592), i8 1, i8 0 seq_cst seq_cst, align 1
   %9 = extractvalue { i8, i1 } %8, 1
-  br i1 %9, label %return, label %if.then.i13
+  br i1 %9, label %return, label %if.then.i14
 
-if.then.i13:                                      ; preds = %add_audit_hook_entry_unlocked.exit
+if.then.i14:                                      ; preds = %add_audit_hook_entry_unlocked.exit
   tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3592)) #15
   br label %return
 
-return:                                           ; preds = %if.end10, %if.end10.thread, %if.then.i13, %add_audit_hook_entry_unlocked.exit, %if.then15, %if.then4, %if.then7
-  %retval.0 = phi i32 [ 0, %if.then7 ], [ -1, %if.then4 ], [ -1, %if.then15 ], [ 0, %add_audit_hook_entry_unlocked.exit ], [ 0, %if.then.i13 ], [ -1, %if.end10.thread ], [ -1, %if.end10 ]
+return:                                           ; preds = %if.end10, %if.end10.thread, %if.then.i14, %add_audit_hook_entry_unlocked.exit, %if.then15, %if.then4, %if.then7
+  %retval.0 = phi i32 [ 0, %if.then7 ], [ -1, %if.then4 ], [ -1, %if.then15 ], [ 0, %add_audit_hook_entry_unlocked.exit ], [ 0, %if.then.i14 ], [ -1, %if.end10.thread ], [ -1, %if.end10 ]
   ret i32 %retval.0
 }
 

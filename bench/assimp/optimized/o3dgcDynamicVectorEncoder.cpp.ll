@@ -1094,6 +1094,7 @@ _ZN5o3dgc12BinaryStream15WriteUCharASCIIEh.exit:  ; preds = %entry.if.end16_crit
   %inc.i.i = add i64 %3, 1
   store i64 %inc.i.i, ptr %m_size.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %4, i64 %3
+  store i8 %value, ptr %arrayidx.i.i, align 1
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -1133,11 +1134,10 @@ _ZN5o3dgc12BinaryStream14WriteUChar8BinEh.exit:   ; preds = %entry.if.end16_crit
   %inc.i.i7 = add i64 %6, 1
   store i64 %inc.i.i7, ptr %m_size.i.i, align 8
   %arrayidx.i.i8 = getelementptr inbounds i8, ptr %7, i64 %6
+  store i8 %value, ptr %arrayidx.i.i8, align 1
   br label %if.end
 
 if.end:                                           ; preds = %_ZN5o3dgc12BinaryStream14WriteUChar8BinEh.exit, %_ZN5o3dgc12BinaryStream15WriteUCharASCIIEh.exit
-  %arrayidx.i.i8.sink = phi ptr [ %arrayidx.i.i8, %_ZN5o3dgc12BinaryStream14WriteUChar8BinEh.exit ], [ %arrayidx.i.i, %_ZN5o3dgc12BinaryStream15WriteUCharASCIIEh.exit ]
-  store i8 %value, ptr %arrayidx.i.i8.sink, align 1
   ret void
 }
 

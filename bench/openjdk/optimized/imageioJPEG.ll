@@ -1762,7 +1762,7 @@ define internal void @sun_jpeg_output_message(ptr noundef %0) #1 {
   %22 = getelementptr inbounds i8, ptr %4, i64 32
   %23 = load ptr, ptr %22, align 8
   %.not.i.i43 = icmp eq ptr %23, null
-  br i1 %.not, label %88, label %24
+  br i1 %.not, label %93, label %24
 
 24:                                               ; preds = %15
   br i1 %.not.i.i43, label %unpinStreamBuffer.exit.i, label %25
@@ -1877,142 +1877,148 @@ unpinStreamBuffer.exit.i.i:                       ; preds = %76
   store ptr null, ptr %22, align 8
   %.pre.i = load ptr, ptr %37, align 8
   %.not.i5.i.i = icmp eq ptr %.pre.i, null
-  br i1 %.not.i5.i.i, label %GET_ARRAYS.exit.sink.split, label %GET_ARRAYS.exit.sink.split.sink.split
+  br i1 %.not.i5.i.i, label %GET_ARRAYS.exit.sink.split, label %88
 
-88:                                               ; preds = %15
-  br i1 %.not.i.i43, label %unpinStreamBuffer.exit.i45, label %89
+88:                                               ; preds = %unpinStreamBuffer.exit.i.i
+  %89 = load ptr, ptr %6, align 8
+  %90 = getelementptr inbounds i8, ptr %89, i64 1784
+  %91 = load ptr, ptr %90, align 8
+  %92 = load ptr, ptr %68, align 8
+  call void %91(ptr noundef nonnull %6, ptr noundef %92, ptr noundef nonnull %.pre.i, i32 noundef 0) #13
+  store ptr null, ptr %37, align 8
+  br label %GET_ARRAYS.exit.sink.split
 
-89:                                               ; preds = %88
-  %90 = load ptr, ptr %21, align 8
-  %91 = icmp eq ptr %90, null
-  %92 = ptrtoint ptr %90 to i64
-  %93 = ptrtoint ptr %23 to i64
-  %94 = sub i64 %92, %93
-  %.sink.i.i44 = select i1 %91, i64 -1, i64 %94
-  %95 = getelementptr inbounds i8, ptr %4, i64 40
-  store i64 %.sink.i.i44, ptr %95, align 8
-  %96 = load ptr, ptr %6, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 1784
-  %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %4, i64 24
-  %100 = load ptr, ptr %99, align 8
-  call void %98(ptr noundef nonnull %6, ptr noundef %100, ptr noundef nonnull %23, i32 noundef 0) #13
+93:                                               ; preds = %15
+  br i1 %.not.i.i43, label %unpinStreamBuffer.exit.i45, label %94
+
+94:                                               ; preds = %93
+  %95 = load ptr, ptr %21, align 8
+  %96 = icmp eq ptr %95, null
+  %97 = ptrtoint ptr %95 to i64
+  %98 = ptrtoint ptr %23 to i64
+  %99 = sub i64 %97, %98
+  %.sink.i.i44 = select i1 %96, i64 -1, i64 %99
+  %100 = getelementptr inbounds i8, ptr %4, i64 40
+  store i64 %.sink.i.i44, ptr %100, align 8
+  %101 = load ptr, ptr %6, align 8
+  %102 = getelementptr inbounds i8, ptr %101, i64 1784
+  %103 = load ptr, ptr %102, align 8
+  %104 = getelementptr inbounds i8, ptr %4, i64 24
+  %105 = load ptr, ptr %104, align 8
+  call void %103(ptr noundef nonnull %6, ptr noundef %105, ptr noundef nonnull %23, i32 noundef 0) #13
   store ptr null, ptr %22, align 8
   br label %unpinStreamBuffer.exit.i45
 
-unpinStreamBuffer.exit.i45:                       ; preds = %89, %88
-  %101 = getelementptr inbounds i8, ptr %4, i64 88
-  %102 = load ptr, ptr %101, align 8
-  %.not.i5.i46 = icmp eq ptr %102, null
-  br i1 %.not.i5.i46, label %RELEASE_ARRAYS.exit47, label %103
-
-103:                                              ; preds = %unpinStreamBuffer.exit.i45
-  %104 = getelementptr inbounds i8, ptr %4, i64 72
-  %105 = load ptr, ptr %6, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 1784
+unpinStreamBuffer.exit.i45:                       ; preds = %94, %93
+  %106 = getelementptr inbounds i8, ptr %4, i64 88
   %107 = load ptr, ptr %106, align 8
-  %108 = load ptr, ptr %104, align 8
-  call void %107(ptr noundef nonnull %6, ptr noundef %108, ptr noundef nonnull %102, i32 noundef 0) #13
-  store ptr null, ptr %101, align 8
+  %.not.i5.i46 = icmp eq ptr %107, null
+  br i1 %.not.i5.i46, label %RELEASE_ARRAYS.exit47, label %108
+
+108:                                              ; preds = %unpinStreamBuffer.exit.i45
+  %109 = getelementptr inbounds i8, ptr %4, i64 72
+  %110 = load ptr, ptr %6, align 8
+  %111 = getelementptr inbounds i8, ptr %110, i64 1784
+  %112 = load ptr, ptr %111, align 8
+  %113 = load ptr, ptr %109, align 8
+  call void %112(ptr noundef nonnull %6, ptr noundef %113, ptr noundef nonnull %107, i32 noundef 0) #13
+  store ptr null, ptr %106, align 8
   br label %RELEASE_ARRAYS.exit47
 
-RELEASE_ARRAYS.exit47:                            ; preds = %unpinStreamBuffer.exit.i45, %103
-  %109 = load ptr, ptr %6, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 488
-  %111 = load ptr, ptr %110, align 8
-  %112 = load ptr, ptr @JPEGImageWriter_warningWithMessageID, align 8
-  call void (ptr, ptr, ptr, ...) %111(ptr noundef nonnull %6, ptr noundef %17, ptr noundef %112, ptr noundef nonnull %13) #13
-  %113 = load ptr, ptr %6, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 120
-  %115 = load ptr, ptr %114, align 8
-  %116 = call ptr %115(ptr noundef nonnull %6) #13
-  %.not38 = icmp eq ptr %116, null
-  br i1 %.not38, label %117, label %GET_ARRAYS.exit.sink.split
+RELEASE_ARRAYS.exit47:                            ; preds = %unpinStreamBuffer.exit.i45, %108
+  %114 = load ptr, ptr %6, align 8
+  %115 = getelementptr inbounds i8, ptr %114, i64 488
+  %116 = load ptr, ptr %115, align 8
+  %117 = load ptr, ptr @JPEGImageWriter_warningWithMessageID, align 8
+  call void (ptr, ptr, ptr, ...) %116(ptr noundef nonnull %6, ptr noundef %17, ptr noundef %117, ptr noundef nonnull %13) #13
+  %118 = load ptr, ptr %6, align 8
+  %119 = getelementptr inbounds i8, ptr %118, i64 120
+  %120 = load ptr, ptr %119, align 8
+  %121 = call ptr %120(ptr noundef nonnull %6) #13
+  %.not38 = icmp eq ptr %121, null
+  br i1 %.not38, label %122, label %GET_ARRAYS.exit.sink.split
 
-117:                                              ; preds = %RELEASE_ARRAYS.exit47
-  %118 = getelementptr inbounds i8, ptr %4, i64 24
-  %119 = load ptr, ptr %118, align 8
-  %.not.i.i48 = icmp eq ptr %119, null
-  br i1 %.not.i.i48, label %131, label %120
+122:                                              ; preds = %RELEASE_ARRAYS.exit47
+  %123 = getelementptr inbounds i8, ptr %4, i64 24
+  %124 = load ptr, ptr %123, align 8
+  %.not.i.i48 = icmp eq ptr %124, null
+  br i1 %.not.i.i48, label %136, label %125
 
-120:                                              ; preds = %117
-  %121 = load ptr, ptr %6, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 1776
-  %123 = load ptr, ptr %122, align 8
-  %124 = call ptr %123(ptr noundef nonnull %6, ptr noundef nonnull %119, ptr noundef null) #13
-  store ptr %124, ptr %22, align 8
-  %125 = icmp eq ptr %124, null
-  br i1 %125, label %GET_ARRAYS.exit.sink.split, label %126
+125:                                              ; preds = %122
+  %126 = load ptr, ptr %6, align 8
+  %127 = getelementptr inbounds i8, ptr %126, i64 1776
+  %128 = load ptr, ptr %127, align 8
+  %129 = call ptr %128(ptr noundef nonnull %6, ptr noundef nonnull %124, ptr noundef null) #13
+  store ptr %129, ptr %22, align 8
+  %130 = icmp eq ptr %129, null
+  br i1 %130, label %GET_ARRAYS.exit.sink.split, label %131
 
-126:                                              ; preds = %120
-  %127 = getelementptr inbounds i8, ptr %4, i64 40
-  %128 = load i64, ptr %127, align 8
-  %.not13.i.i49 = icmp eq i64 %128, -1
-  br i1 %.not13.i.i49, label %131, label %129
-
-129:                                              ; preds = %126
-  %130 = getelementptr inbounds i8, ptr %124, i64 %128
-  store ptr %130, ptr %21, align 8
-  br label %131
-
-131:                                              ; preds = %129, %126, %117
-  %132 = getelementptr inbounds i8, ptr %4, i64 72
-  %133 = load ptr, ptr %132, align 8
-  %.not.i8.i50 = icmp eq ptr %133, null
-  br i1 %.not.i8.i50, label %GET_ARRAYS.exit, label %134
+131:                                              ; preds = %125
+  %132 = getelementptr inbounds i8, ptr %4, i64 40
+  %133 = load i64, ptr %132, align 8
+  %.not13.i.i49 = icmp eq i64 %133, -1
+  br i1 %.not13.i.i49, label %136, label %134
 
 134:                                              ; preds = %131
-  %135 = load ptr, ptr %6, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 1776
-  %137 = load ptr, ptr %136, align 8
-  %138 = call ptr %137(ptr noundef nonnull %6, ptr noundef nonnull %133, ptr noundef null) #13
-  store ptr %138, ptr %101, align 8
-  %139 = icmp eq ptr %138, null
-  br i1 %139, label %140, label %GET_ARRAYS.exit
+  %135 = getelementptr inbounds i8, ptr %129, i64 %133
+  store ptr %135, ptr %21, align 8
+  br label %136
 
-140:                                              ; preds = %134
-  %141 = load ptr, ptr %22, align 8
-  %.not.i.i.i52 = icmp eq ptr %141, null
+136:                                              ; preds = %134, %131, %122
+  %137 = getelementptr inbounds i8, ptr %4, i64 72
+  %138 = load ptr, ptr %137, align 8
+  %.not.i8.i50 = icmp eq ptr %138, null
+  br i1 %.not.i8.i50, label %GET_ARRAYS.exit, label %139
+
+139:                                              ; preds = %136
+  %140 = load ptr, ptr %6, align 8
+  %141 = getelementptr inbounds i8, ptr %140, i64 1776
+  %142 = load ptr, ptr %141, align 8
+  %143 = call ptr %142(ptr noundef nonnull %6, ptr noundef nonnull %138, ptr noundef null) #13
+  store ptr %143, ptr %106, align 8
+  %144 = icmp eq ptr %143, null
+  br i1 %144, label %145, label %GET_ARRAYS.exit
+
+145:                                              ; preds = %139
+  %146 = load ptr, ptr %22, align 8
+  %.not.i.i.i52 = icmp eq ptr %146, null
   br i1 %.not.i.i.i52, label %GET_ARRAYS.exit.sink.split, label %unpinStreamBuffer.exit.i.i53
 
-unpinStreamBuffer.exit.i.i53:                     ; preds = %140
-  %142 = load ptr, ptr %21, align 8
-  %143 = icmp eq ptr %142, null
-  %144 = ptrtoint ptr %142 to i64
-  %145 = ptrtoint ptr %141 to i64
-  %146 = sub i64 %144, %145
-  %.sink.i.i.i54 = select i1 %143, i64 -1, i64 %146
-  %147 = getelementptr inbounds i8, ptr %4, i64 40
-  store i64 %.sink.i.i.i54, ptr %147, align 8
-  %148 = load ptr, ptr %6, align 8
-  %149 = getelementptr inbounds i8, ptr %148, i64 1784
-  %150 = load ptr, ptr %149, align 8
-  %151 = load ptr, ptr %118, align 8
-  call void %150(ptr noundef nonnull %6, ptr noundef %151, ptr noundef nonnull %141, i32 noundef 0) #13
+unpinStreamBuffer.exit.i.i53:                     ; preds = %145
+  %147 = load ptr, ptr %21, align 8
+  %148 = icmp eq ptr %147, null
+  %149 = ptrtoint ptr %147 to i64
+  %150 = ptrtoint ptr %146 to i64
+  %151 = sub i64 %149, %150
+  %.sink.i.i.i54 = select i1 %148, i64 -1, i64 %151
+  %152 = getelementptr inbounds i8, ptr %4, i64 40
+  store i64 %.sink.i.i.i54, ptr %152, align 8
+  %153 = load ptr, ptr %6, align 8
+  %154 = getelementptr inbounds i8, ptr %153, i64 1784
+  %155 = load ptr, ptr %154, align 8
+  %156 = load ptr, ptr %123, align 8
+  call void %155(ptr noundef nonnull %6, ptr noundef %156, ptr noundef nonnull %146, i32 noundef 0) #13
   store ptr null, ptr %22, align 8
-  %.pre.i55 = load ptr, ptr %101, align 8
+  %.pre.i55 = load ptr, ptr %106, align 8
   %.not.i5.i.i56 = icmp eq ptr %.pre.i55, null
-  br i1 %.not.i5.i.i56, label %GET_ARRAYS.exit.sink.split, label %GET_ARRAYS.exit.sink.split.sink.split
+  br i1 %.not.i5.i.i56, label %GET_ARRAYS.exit.sink.split, label %157
 
-GET_ARRAYS.exit.sink.split.sink.split:            ; preds = %unpinStreamBuffer.exit.i.i53, %unpinStreamBuffer.exit.i.i
-  %.sink65 = phi ptr [ %68, %unpinStreamBuffer.exit.i.i ], [ %132, %unpinStreamBuffer.exit.i.i53 ]
-  %.pre.i55.sink = phi ptr [ %.pre.i, %unpinStreamBuffer.exit.i.i ], [ %.pre.i55, %unpinStreamBuffer.exit.i.i53 ]
-  %.sink = phi ptr [ %37, %unpinStreamBuffer.exit.i.i ], [ %101, %unpinStreamBuffer.exit.i.i53 ]
-  %152 = load ptr, ptr %6, align 8
-  %153 = getelementptr inbounds i8, ptr %152, i64 1784
-  %154 = load ptr, ptr %153, align 8
-  %155 = load ptr, ptr %.sink65, align 8
-  call void %154(ptr noundef nonnull %6, ptr noundef %155, ptr noundef nonnull %.pre.i55.sink, i32 noundef 0) #13
-  store ptr null, ptr %.sink, align 8
+157:                                              ; preds = %unpinStreamBuffer.exit.i.i53
+  %158 = load ptr, ptr %6, align 8
+  %159 = getelementptr inbounds i8, ptr %158, i64 1784
+  %160 = load ptr, ptr %159, align 8
+  %161 = load ptr, ptr %137, align 8
+  call void %160(ptr noundef nonnull %6, ptr noundef %161, ptr noundef nonnull %.pre.i55, i32 noundef 0) #13
+  store ptr null, ptr %106, align 8
   br label %GET_ARRAYS.exit.sink.split
 
-GET_ARRAYS.exit.sink.split:                       ; preds = %GET_ARRAYS.exit.sink.split.sink.split, %RELEASE_ARRAYS.exit47, %120, %unpinStreamBuffer.exit.i.i53, %140, %RELEASE_ARRAYS.exit, %56, %unpinStreamBuffer.exit.i.i, %76
-  %156 = load ptr, ptr %0, align 8
-  %157 = load ptr, ptr %156, align 8
-  call void %157(ptr noundef nonnull %0) #13
+GET_ARRAYS.exit.sink.split:                       ; preds = %RELEASE_ARRAYS.exit47, %125, %unpinStreamBuffer.exit.i.i53, %157, %145, %RELEASE_ARRAYS.exit, %56, %unpinStreamBuffer.exit.i.i, %88, %76
+  %162 = load ptr, ptr %0, align 8
+  %163 = load ptr, ptr %162, align 8
+  call void %163(ptr noundef nonnull %0) #13
   br label %GET_ARRAYS.exit
 
-GET_ARRAYS.exit:                                  ; preds = %GET_ARRAYS.exit.sink.split, %134, %131, %70, %67, %1
+GET_ARRAYS.exit:                                  ; preds = %GET_ARRAYS.exit.sink.split, %139, %136, %70, %67, %1
   ret void
 }
 
@@ -3719,8 +3725,8 @@ define internal fastcc void @setQTables(ptr noundef %0, ptr noundef %1, ptr noun
   %wide.trip.count = zext nneg i32 %spec.store.select to i64
   br label %14
 
-14:                                               ; preds = %.lr.ph, %49
-  %indvars.iv62 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next63, %49 ]
+14:                                               ; preds = %.lr.ph, %52
+  %indvars.iv62 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next63, %52 ]
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 1384
   %17 = load ptr, ptr %16, align 8
@@ -3745,53 +3751,57 @@ define internal fastcc void @setQTables(ptr noundef %0, ptr noundef %1, ptr noun
 32:                                               ; preds = %21
   %33 = load i32, ptr %10, align 8
   %.not = icmp eq i32 %33, 0
-  br i1 %.not, label %38, label %34
+  br i1 %.not, label %40, label %34
 
 34:                                               ; preds = %32
   %35 = getelementptr inbounds [4 x ptr], ptr %11, i64 0, i64 %indvars.iv62
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %.sink.split, label %43
+  br i1 %37, label %38, label %46
 
-38:                                               ; preds = %32
-  %39 = getelementptr inbounds [4 x ptr], ptr %12, i64 0, i64 %indvars.iv62
-  %40 = load ptr, ptr %39, align 8
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %.sink.split, label %43
+38:                                               ; preds = %34
+  %39 = tail call ptr @jAlcQTable(ptr noundef nonnull %1) #13
+  store ptr %39, ptr %35, align 8
+  br label %46
 
-.sink.split:                                      ; preds = %38, %34
-  %.sink67 = phi ptr [ %35, %34 ], [ %39, %38 ]
-  %42 = tail call ptr @jAlcQTable(ptr noundef nonnull %1) #13
-  store ptr %42, ptr %.sink67, align 8
-  br label %43
+40:                                               ; preds = %32
+  %41 = getelementptr inbounds [4 x ptr], ptr %12, i64 0, i64 %indvars.iv62
+  %42 = load ptr, ptr %41, align 8
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %44, label %46
 
-43:                                               ; preds = %.sink.split, %38, %34
-  %.051 = phi ptr [ %36, %34 ], [ %40, %38 ], [ %42, %.sink.split ]
-  br label %44
+44:                                               ; preds = %40
+  %45 = tail call ptr @jAlcQTable(ptr noundef nonnull %1) #13
+  store ptr %45, ptr %41, align 8
+  br label %46
 
-44:                                               ; preds = %43, %44
-  %indvars.iv = phi i64 [ 0, %43 ], [ %indvars.iv.next, %44 ]
-  %45 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv
-  %46 = load i32, ptr %45, align 4
-  %47 = trunc i32 %46 to i16
-  %48 = getelementptr inbounds [64 x i16], ptr %.051, i64 0, i64 %indvars.iv
-  store i16 %47, ptr %48, align 2
+46:                                               ; preds = %40, %44, %34, %38
+  %.051 = phi ptr [ %39, %38 ], [ %36, %34 ], [ %45, %44 ], [ %42, %40 ]
+  br label %47
+
+47:                                               ; preds = %46, %47
+  %indvars.iv = phi i64 [ 0, %46 ], [ %indvars.iv.next, %47 ]
+  %48 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv
+  %49 = load i32, ptr %48, align 4
+  %50 = trunc i32 %49 to i16
+  %51 = getelementptr inbounds [64 x i16], ptr %.051, i64 0, i64 %indvars.iv
+  store i16 %50, ptr %51, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %49, label %44, !llvm.loop !17
+  br i1 %exitcond.not, label %52, label %47, !llvm.loop !17
 
-49:                                               ; preds = %44
-  %50 = getelementptr inbounds i8, ptr %.051, i64 128
-  store i32 %13, ptr %50, align 4
-  %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 1784
-  %53 = load ptr, ptr %52, align 8
-  tail call void %53(ptr noundef nonnull %0, ptr noundef %26, ptr noundef nonnull %30, i32 noundef 0) #13
+52:                                               ; preds = %47
+  %53 = getelementptr inbounds i8, ptr %.051, i64 128
+  store i32 %13, ptr %53, align 4
+  %54 = load ptr, ptr %0, align 8
+  %55 = getelementptr inbounds i8, ptr %54, i64 1784
+  %56 = load ptr, ptr %55, align 8
+  tail call void %56(ptr noundef nonnull %0, ptr noundef %26, ptr noundef nonnull %30, i32 noundef 0) #13
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count
   br i1 %exitcond65.not, label %._crit_edge, label %14, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %14, %21, %49, %4
+._crit_edge:                                      ; preds = %14, %21, %52, %4
   ret void
 }
 
@@ -3814,117 +3824,125 @@ define internal fastcc void @setHTables(ptr noundef %0, ptr noundef %1, ptr noun
   %wide.trip.count = zext nneg i32 %11 to i64
   br label %16
 
-16:                                               ; preds = %.lr.ph, %36
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
+16:                                               ; preds = %.lr.ph, %39
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
   %17 = load i32, ptr %12, align 8
   %.not77 = icmp eq i32 %17, 0
-  br i1 %.not77, label %22, label %18
+  br i1 %.not77, label %24, label %18
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds [4 x ptr], ptr %13, i64 0, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %.sink.split, label %27
+  br i1 %21, label %22, label %30
 
-22:                                               ; preds = %16
-  %23 = getelementptr inbounds [4 x ptr], ptr %14, i64 0, i64 %indvars.iv
-  %24 = load ptr, ptr %23, align 8
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %.sink.split, label %27
+22:                                               ; preds = %18
+  %23 = tail call ptr @jAlcHTable(ptr noundef nonnull %1) #13
+  store ptr %23, ptr %19, align 8
+  br label %30
 
-.sink.split:                                      ; preds = %22, %18
-  %.sink99 = phi ptr [ %19, %18 ], [ %23, %22 ]
-  %26 = tail call ptr @jAlcHTable(ptr noundef nonnull %1) #13
-  store ptr %26, ptr %.sink99, align 8
-  br label %27
+24:                                               ; preds = %16
+  %25 = getelementptr inbounds [4 x ptr], ptr %14, i64 0, i64 %indvars.iv
+  %26 = load ptr, ptr %25, align 8
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %28, label %30
 
-27:                                               ; preds = %.sink.split, %22, %18
-  %.0 = phi ptr [ %20, %18 ], [ %24, %22 ], [ %26, %.sink.split ]
-  %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 1384
-  %30 = load ptr, ptr %29, align 8
-  %31 = trunc nuw nsw i64 %indvars.iv to i32
-  %32 = tail call ptr %30(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %31) #13
-  %33 = icmp eq ptr %32, null
-  br i1 %33, label %.loopexit, label %34
+28:                                               ; preds = %24
+  %29 = tail call ptr @jAlcHTable(ptr noundef nonnull %1) #13
+  store ptr %29, ptr %25, align 8
+  br label %30
 
-34:                                               ; preds = %27
-  %35 = tail call fastcc i32 @setHuffTable(ptr noundef nonnull %0, ptr noundef %.0, ptr noundef %32)
-  %.not78 = icmp eq i32 %35, 0
-  br i1 %.not78, label %.loopexit, label %36
+30:                                               ; preds = %24, %28, %18, %22
+  %.0 = phi ptr [ %23, %22 ], [ %20, %18 ], [ %29, %28 ], [ %26, %24 ]
+  %31 = load ptr, ptr %0, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 1384
+  %33 = load ptr, ptr %32, align 8
+  %34 = trunc nuw nsw i64 %indvars.iv to i32
+  %35 = tail call ptr %33(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %34) #13
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %.loopexit, label %37
 
-36:                                               ; preds = %34
-  %37 = getelementptr inbounds i8, ptr %.0, i64 276
-  store i32 %15, ptr %37, align 4
+37:                                               ; preds = %30
+  %38 = tail call fastcc i32 @setHuffTable(ptr noundef nonnull %0, ptr noundef %.0, ptr noundef %35)
+  %.not78 = icmp eq i32 %38, 0
+  br i1 %.not78, label %.loopexit, label %39
+
+39:                                               ; preds = %37
+  %40 = getelementptr inbounds i8, ptr %.0, i64 276
+  store i32 %15, ptr %40, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %36, %5
-  %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 1368
-  %40 = load ptr, ptr %39, align 8
-  %41 = tail call i32 %40(ptr noundef nonnull %0, ptr noundef %3) #13
-  %42 = icmp sgt i32 %41, 0
-  br i1 %42, label %.lr.ph84, label %.loopexit
+._crit_edge:                                      ; preds = %39, %5
+  %41 = load ptr, ptr %0, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 1368
+  %43 = load ptr, ptr %42, align 8
+  %44 = tail call i32 %43(ptr noundef nonnull %0, ptr noundef %3) #13
+  %45 = icmp sgt i32 %44, 0
+  br i1 %45, label %.lr.ph84, label %.loopexit
 
 .lr.ph84:                                         ; preds = %._crit_edge
-  %spec.store.select1 = tail call i32 @llvm.smin.i32(i32 %41, i32 4)
-  %43 = getelementptr inbounds i8, ptr %1, i64 32
-  %44 = getelementptr inbounds i8, ptr %1, i64 264
-  %45 = getelementptr inbounds i8, ptr %1, i64 160
+  %spec.store.select1 = tail call i32 @llvm.smin.i32(i32 %44, i32 4)
+  %46 = getelementptr inbounds i8, ptr %1, i64 32
+  %47 = getelementptr inbounds i8, ptr %1, i64 264
+  %48 = getelementptr inbounds i8, ptr %1, i64 160
   %.not76 = icmp eq i32 %4, 0
-  %46 = zext i1 %.not76 to i32
+  %49 = zext i1 %.not76 to i32
   %wide.trip.count94 = zext nneg i32 %spec.store.select1 to i64
-  br label %47
+  br label %50
 
-47:                                               ; preds = %.lr.ph84, %67
-  %indvars.iv91 = phi i64 [ 0, %.lr.ph84 ], [ %indvars.iv.next92, %67 ]
-  %48 = load i32, ptr %43, align 8
-  %.not = icmp eq i32 %48, 0
-  br i1 %.not, label %53, label %49
+50:                                               ; preds = %.lr.ph84, %73
+  %indvars.iv91 = phi i64 [ 0, %.lr.ph84 ], [ %indvars.iv.next92, %73 ]
+  %51 = load i32, ptr %46, align 8
+  %.not = icmp eq i32 %51, 0
+  br i1 %.not, label %58, label %52
 
-49:                                               ; preds = %47
-  %50 = getelementptr inbounds [4 x ptr], ptr %44, i64 0, i64 %indvars.iv91
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %51, null
-  br i1 %52, label %.sink.split100, label %58
+52:                                               ; preds = %50
+  %53 = getelementptr inbounds [4 x ptr], ptr %47, i64 0, i64 %indvars.iv91
+  %54 = load ptr, ptr %53, align 8
+  %55 = icmp eq ptr %54, null
+  br i1 %55, label %56, label %64
 
-53:                                               ; preds = %47
-  %54 = getelementptr inbounds [4 x ptr], ptr %45, i64 0, i64 %indvars.iv91
-  %55 = load ptr, ptr %54, align 8
-  %56 = icmp eq ptr %55, null
-  br i1 %56, label %.sink.split100, label %58
-
-.sink.split100:                                   ; preds = %53, %49
-  %.sink101 = phi ptr [ %50, %49 ], [ %54, %53 ]
+56:                                               ; preds = %52
   %57 = tail call ptr @jAlcHTable(ptr noundef nonnull %1) #13
-  store ptr %57, ptr %.sink101, align 8
-  br label %58
+  store ptr %57, ptr %53, align 8
+  br label %64
 
-58:                                               ; preds = %.sink.split100, %53, %49
-  %.1 = phi ptr [ %51, %49 ], [ %55, %53 ], [ %57, %.sink.split100 ]
-  %59 = load ptr, ptr %0, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 1384
-  %61 = load ptr, ptr %60, align 8
-  %62 = trunc nuw nsw i64 %indvars.iv91 to i32
-  %63 = tail call ptr %61(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %62) #13
-  %64 = icmp eq ptr %63, null
-  br i1 %64, label %.loopexit, label %65
+58:                                               ; preds = %50
+  %59 = getelementptr inbounds [4 x ptr], ptr %48, i64 0, i64 %indvars.iv91
+  %60 = load ptr, ptr %59, align 8
+  %61 = icmp eq ptr %60, null
+  br i1 %61, label %62, label %64
 
-65:                                               ; preds = %58
-  %66 = tail call fastcc i32 @setHuffTable(ptr noundef nonnull %0, ptr noundef %.1, ptr noundef %63)
-  %.not75 = icmp eq i32 %66, 0
-  br i1 %.not75, label %.loopexit, label %67
+62:                                               ; preds = %58
+  %63 = tail call ptr @jAlcHTable(ptr noundef nonnull %1) #13
+  store ptr %63, ptr %59, align 8
+  br label %64
 
-67:                                               ; preds = %65
-  %68 = getelementptr inbounds i8, ptr %.1, i64 276
-  store i32 %46, ptr %68, align 4
+64:                                               ; preds = %58, %62, %52, %56
+  %.1 = phi ptr [ %57, %56 ], [ %54, %52 ], [ %63, %62 ], [ %60, %58 ]
+  %65 = load ptr, ptr %0, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 1384
+  %67 = load ptr, ptr %66, align 8
+  %68 = trunc nuw nsw i64 %indvars.iv91 to i32
+  %69 = tail call ptr %67(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %68) #13
+  %70 = icmp eq ptr %69, null
+  br i1 %70, label %.loopexit, label %71
+
+71:                                               ; preds = %64
+  %72 = tail call fastcc i32 @setHuffTable(ptr noundef nonnull %0, ptr noundef %.1, ptr noundef %69)
+  %.not75 = icmp eq i32 %72, 0
+  br i1 %.not75, label %.loopexit, label %73
+
+73:                                               ; preds = %71
+  %74 = getelementptr inbounds i8, ptr %.1, i64 276
+  store i32 %49, ptr %74, align 4
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %exitcond95.not = icmp eq i64 %indvars.iv.next92, %wide.trip.count94
-  br i1 %exitcond95.not, label %.loopexit, label %47, !llvm.loop !20
+  br i1 %exitcond95.not, label %.loopexit, label %50, !llvm.loop !20
 
-.loopexit:                                        ; preds = %27, %34, %65, %58, %67, %._crit_edge
+.loopexit:                                        ; preds = %30, %37, %71, %64, %73, %._crit_edge
   ret void
 }
 
@@ -4008,7 +4026,7 @@ define void @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_resetReader(ptr n
 
 5:                                                ; preds = %3
   call void @JNU_ThrowByName(ptr noundef %0, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26) #13
-  br label %27
+  br label %31
 
 6:                                                ; preds = %3
   %7 = inttoptr i64 %2 to ptr
@@ -4018,7 +4036,7 @@ define void @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_resetReader(ptr n
   %10 = getelementptr inbounds i8, ptr %9, i64 168
   %11 = call i32 @_setjmp(ptr noundef nonnull %10) #15
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %17, label %12
+  br i1 %.not, label %21, label %12
 
 12:                                               ; preds = %6
   %13 = load ptr, ptr %0, align 8
@@ -4026,32 +4044,33 @@ define void @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_resetReader(ptr n
   %15 = load ptr, ptr %14, align 8
   %16 = call ptr %15(ptr noundef nonnull %0) #13
   %.not16 = icmp eq ptr %16, null
-  br i1 %.not16, label %22, label %.sink.split
+  br i1 %.not16, label %26, label %17
 
-17:                                               ; preds = %6
-  %18 = getelementptr inbounds i8, ptr %8, i64 40
-  br label %.sink.split
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %0, align 8
+  %19 = getelementptr inbounds i8, ptr %18, i64 136
+  %20 = load ptr, ptr %19, align 8
+  call void %20(ptr noundef nonnull %0) #13
+  br label %26
 
-.sink.split:                                      ; preds = %12, %17
-  %.sink21 = phi ptr [ %18, %17 ], [ %0, %12 ]
-  %.sink20 = phi i64 [ 48, %17 ], [ 136, %12 ]
-  %.sink = phi ptr [ %8, %17 ], [ %0, %12 ]
-  %19 = load ptr, ptr %.sink21, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 %.sink20
-  %21 = load ptr, ptr %20, align 8
-  call void %21(ptr noundef nonnull %.sink) #13
-  br label %22
+21:                                               ; preds = %6
+  %22 = getelementptr inbounds i8, ptr %8, i64 40
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %23, i64 48
+  %25 = load ptr, ptr %24, align 8
+  call void %25(ptr noundef nonnull %8) #13
+  br label %26
 
-22:                                               ; preds = %.sink.split, %12
-  %23 = getelementptr inbounds i8, ptr %8, i64 40
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
-  store i64 0, ptr %25, align 8
-  %26 = load ptr, ptr %23, align 8
-  store ptr null, ptr %26, align 8
-  br label %27
+26:                                               ; preds = %12, %17, %21
+  %27 = getelementptr inbounds i8, ptr %8, i64 40
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  store i64 0, ptr %29, align 8
+  %30 = load ptr, ptr %27, align 8
+  store ptr null, ptr %30, align 8
+  br label %31
 
-27:                                               ; preds = %22, %5
+31:                                               ; preds = %26, %5
   ret void
 }
 

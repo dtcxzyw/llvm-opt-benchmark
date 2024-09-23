@@ -1784,13 +1784,17 @@ sw.bb:                                            ; preds = %if.end3
   %p2 = getelementptr inbounds i8, ptr %ctx, i64 32
   store ptr %call5, ptr %p2, align 8
   %cmp6 = icmp eq ptr %call5, null
-  br i1 %cmp6, label %if.then7, label %sw.epilog.sink.split
+  br i1 %cmp6, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %sw.bb
   tail call void @ERR_new() #8
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1035, ptr noundef nonnull @__func__.fix_dh_nid5114) #8
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 222, ptr noundef null) #8
   br label %return
+
+if.end8:                                          ; preds = %sw.bb
+  store i32 0, ptr %p1, align 4
+  br label %sw.epilog
 
 sw.bb10:                                          ; preds = %if.end3
   %p211 = getelementptr inbounds i8, ptr %ctx, i64 32
@@ -1814,14 +1818,10 @@ if.then21:                                        ; preds = %if.end14
 
 if.end22:                                         ; preds = %if.end14
   %p123 = getelementptr inbounds i8, ptr %ctx, i64 28
-  br label %sw.epilog.sink.split
-
-sw.epilog.sink.split:                             ; preds = %sw.bb, %if.end22
-  %p123.sink = phi ptr [ %p123, %if.end22 ], [ %p1, %sw.bb ]
-  store i32 0, ptr %p123.sink, align 4
+  store i32 0, ptr %p123, align 4
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.epilog.sink.split, %if.end3
+sw.epilog:                                        ; preds = %if.end3, %if.end22, %if.end8
   %call24 = tail call i32 @default_fixup_args(i32 noundef %state, ptr noundef %translation, ptr noundef nonnull %ctx)
   br label %return
 
@@ -2455,15 +2455,15 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 if.then84:                                        ; preds = %cond.end
   %orig_p285 = getelementptr inbounds i8, ptr %ctx, i64 56
   %9 = load ptr, ptr %orig_p285, align 8
+  store i32 %cond, ptr %9, align 4
   br label %if.end88
 
 if.else86:                                        ; preds = %cond.end
   %p187 = getelementptr inbounds i8, ptr %ctx, i64 28
+  store i32 %cond, ptr %p187, align 4
   br label %if.end88
 
 if.end88:                                         ; preds = %if.else86, %if.then84
-  %p187.sink = phi ptr [ %p187, %if.else86 ], [ %9, %if.then84 ]
-  store i32 %cond, ptr %p187.sink, align 4
   store ptr null, ptr %p265, align 8
   br label %return
 

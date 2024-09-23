@@ -8744,6 +8744,7 @@ define internal fastcc void @_ZN2cvL7CCSIDFTIfEEvRKNS_13OcvDftOptionsEPKT_PS4_(p
   store float %145, ptr %150, align 4
   %151 = or disjoint i64 %119, 1
   %152 = getelementptr inbounds float, ptr %2, i64 %151
+  store float %146, ptr %152, align 4
   br label %168
 
 153:                                              ; preds = %118
@@ -8764,11 +8765,10 @@ define internal fastcc void @_ZN2cvL7CCSIDFTIfEEvRKNS_13OcvDftOptionsEPKT_PS4_(p
   %166 = getelementptr inbounds float, ptr %2, i64 %165
   store float %145, ptr %166, align 4
   %167 = getelementptr i8, ptr %166, i64 4
+  store float %146, ptr %167, align 4
   br label %168
 
 168:                                              ; preds = %147, %153
-  %.sink = phi ptr [ %152, %147 ], [ %167, %153 ]
-  store float %146, ptr %.sink, align 4
   %indvars.iv.next267 = add nuw nsw i64 %indvars.iv266, 2
   %169 = icmp ult i64 %indvars.iv.next267, %116
   br i1 %169, label %118, label %._crit_edge254.loopexit, !llvm.loop !94
@@ -8795,7 +8795,8 @@ define internal fastcc void @_ZN2cvL7CCSIDFTIfEEvRKNS_13OcvDftOptionsEPKT_PS4_(p
   %178 = getelementptr inbounds float, ptr %2, i64 %173
   store float %172, ptr %178, align 4
   %179 = getelementptr i8, ptr %178, i64 4
-  br label %.sink.split
+  store float %176, ptr %179, align 4
+  br label %191
 
 180:                                              ; preds = %171
   %181 = getelementptr inbounds i8, ptr %0, i64 24
@@ -8809,14 +8810,10 @@ define internal fastcc void @_ZN2cvL7CCSIDFTIfEEvRKNS_13OcvDftOptionsEPKT_PS4_(p
   %188 = or disjoint i32 %185, 1
   %189 = sext i32 %188 to i64
   %190 = getelementptr inbounds float, ptr %2, i64 %189
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %180, %177
-  %.sink273 = phi ptr [ %179, %177 ], [ %190, %180 ]
-  store float %176, ptr %.sink273, align 4
+  store float %176, ptr %190, align 4
   br label %191
 
-191:                                              ; preds = %.sink.split, %._crit_edge254
+191:                                              ; preds = %177, %180, %._crit_edge254
   %192 = getelementptr inbounds i8, ptr %0, i64 8
   %193 = load ptr, ptr %192, align 8
   %194 = load i32, ptr %193, align 4
@@ -8876,8 +8873,8 @@ define internal fastcc void @_ZN2cvL7CCSIDFTIfEEvRKNS_13OcvDftOptionsEPKT_PS4_(p
 
 .loopexit.sink.split:                             ; preds = %42, %44
   %.pn = phi float [ %48, %44 ], [ %43, %42 ]
-  %.sink274 = fmul float %.pn, %17
-  store float %.sink274, ptr %2, align 4
+  %.sink = fmul float %.pn, %17
+  store float %.sink, ptr %2, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph246, %217, %.loopexit.sink.split, %._crit_edge, %191
@@ -8891,9 +8888,9 @@ define internal fastcc void @_ZN2cvL7CCSIDFTIfEEvRKNS_13OcvDftOptionsEPKT_PS4_(p
   ret void
 
 228:                                              ; preds = %33, %35, %24, %26
-  %.sink275 = phi ptr [ %5, %26 ], [ %5, %24 ], [ %7, %35 ], [ %7, %33 ]
+  %.sink273 = phi ptr [ %5, %26 ], [ %5, %24 ], [ %7, %35 ], [ %7, %33 ]
   %.pn236.pn = phi { ptr, i32 } [ %27, %26 ], [ %25, %24 ], [ %36, %35 ], [ %34, %33 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink275) #20
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink273) #20
   resume { ptr, i32 } %.pn236.pn
 }
 
@@ -11040,6 +11037,7 @@ define internal fastcc void @_ZN2cvL7CCSIDFTIdEEvRKNS_13OcvDftOptionsEPKT_PS4_(p
   store double %144, ptr %149, align 8
   %150 = or disjoint i64 %118, 1
   %151 = getelementptr inbounds double, ptr %2, i64 %150
+  store double %145, ptr %151, align 8
   br label %167
 
 152:                                              ; preds = %117
@@ -11060,11 +11058,10 @@ define internal fastcc void @_ZN2cvL7CCSIDFTIdEEvRKNS_13OcvDftOptionsEPKT_PS4_(p
   %165 = getelementptr inbounds double, ptr %2, i64 %164
   store double %144, ptr %165, align 8
   %166 = getelementptr i8, ptr %165, i64 8
+  store double %145, ptr %166, align 8
   br label %167
 
 167:                                              ; preds = %146, %152
-  %.sink = phi ptr [ %151, %146 ], [ %166, %152 ]
-  store double %145, ptr %.sink, align 8
   %indvars.iv.next267 = add nuw nsw i64 %indvars.iv266, 2
   %168 = icmp ult i64 %indvars.iv.next267, %115
   br i1 %168, label %117, label %._crit_edge254.loopexit, !llvm.loop !124
@@ -11091,7 +11088,8 @@ define internal fastcc void @_ZN2cvL7CCSIDFTIdEEvRKNS_13OcvDftOptionsEPKT_PS4_(p
   %177 = getelementptr inbounds double, ptr %2, i64 %172
   store double %171, ptr %177, align 8
   %178 = getelementptr i8, ptr %177, i64 8
-  br label %.sink.split
+  store double %175, ptr %178, align 8
+  br label %190
 
 179:                                              ; preds = %170
   %180 = getelementptr inbounds i8, ptr %0, i64 24
@@ -11105,14 +11103,10 @@ define internal fastcc void @_ZN2cvL7CCSIDFTIdEEvRKNS_13OcvDftOptionsEPKT_PS4_(p
   %187 = or disjoint i32 %184, 1
   %188 = sext i32 %187 to i64
   %189 = getelementptr inbounds double, ptr %2, i64 %188
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %179, %176
-  %.sink273 = phi ptr [ %178, %176 ], [ %189, %179 ]
-  store double %175, ptr %.sink273, align 8
+  store double %175, ptr %189, align 8
   br label %190
 
-190:                                              ; preds = %.sink.split, %._crit_edge254
+190:                                              ; preds = %176, %179, %._crit_edge254
   %191 = getelementptr inbounds i8, ptr %0, i64 8
   %192 = load ptr, ptr %191, align 8
   %193 = load i32, ptr %192, align 4
@@ -11172,8 +11166,8 @@ define internal fastcc void @_ZN2cvL7CCSIDFTIdEEvRKNS_13OcvDftOptionsEPKT_PS4_(p
 
 .loopexit.sink.split:                             ; preds = %41, %43
   %.pn = phi double [ %47, %43 ], [ %42, %41 ]
-  %.sink274 = fmul double %16, %.pn
-  store double %.sink274, ptr %2, align 8
+  %.sink = fmul double %16, %.pn
+  store double %.sink, ptr %2, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph246, %216, %.loopexit.sink.split, %._crit_edge, %190
@@ -11187,9 +11181,9 @@ define internal fastcc void @_ZN2cvL7CCSIDFTIdEEvRKNS_13OcvDftOptionsEPKT_PS4_(p
   ret void
 
 227:                                              ; preds = %32, %34, %23, %25
-  %.sink275 = phi ptr [ %5, %25 ], [ %5, %23 ], [ %7, %34 ], [ %7, %32 ]
+  %.sink273 = phi ptr [ %5, %25 ], [ %5, %23 ], [ %7, %34 ], [ %7, %32 ]
   %.pn236.pn = phi { ptr, i32 } [ %26, %25 ], [ %24, %23 ], [ %35, %34 ], [ %33, %32 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink275) #20
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink273) #20
   resume { ptr, i32 } %.pn236.pn
 }
 

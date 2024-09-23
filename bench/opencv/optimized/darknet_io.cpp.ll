@@ -15566,6 +15566,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn7darknet14LayerParameterC2EOS2_(ptr n
   store ptr null, ptr %15, align 8
   store ptr %18, ptr %22, align 8
   store ptr %18, ptr %25, align 8
+  store i64 0, ptr %29, align 8
   br label %_ZN2cv3dnn14dnn4_v2024052111LayerParamsC2EOS2_.exit
 
 32:                                               ; preds = %2
@@ -15577,11 +15578,10 @@ define linkonce_odr hidden void @_ZN2cv3dnn7darknet14LayerParameterC2EOS2_(ptr n
   %35 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %14, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %0, i64 128
+  store i64 0, ptr %36, align 8
   br label %_ZN2cv3dnn14dnn4_v2024052111LayerParamsC2EOS2_.exit
 
 _ZN2cv3dnn14dnn4_v2024052111LayerParamsC2EOS2_.exit: ; preds = %17, %32
-  %.sink.i.i.i.i.i.i = phi ptr [ %36, %32 ], [ %29, %17 ]
-  store i64 0, ptr %.sink.i.i.i.i.i.i, align 8
   %37 = getelementptr inbounds i8, ptr %0, i64 136
   %38 = getelementptr inbounds i8, ptr %1, i64 136
   %39 = load ptr, ptr %38, align 8

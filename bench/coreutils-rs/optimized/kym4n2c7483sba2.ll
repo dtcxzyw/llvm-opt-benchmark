@@ -932,6 +932,7 @@ define hidden { i1, i8 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inser
   %88 = getelementptr inbounds { i8, i8 }, ptr %47, i64 %60
   %89 = getelementptr inbounds i8, ptr %88, i64 -1
   %90 = load i8, ptr %89, align 1, !noundef !9
+  store i8 %2, ptr %89, align 1
   br label %109
 
 91:                                               ; preds = %80, %75
@@ -959,12 +960,11 @@ define hidden { i1, i8 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inser
   %107 = getelementptr inbounds i8, ptr %106, i64 -2
   store i8 %1, ptr %107, align 1, !noalias !300
   %108 = getelementptr inbounds i8, ptr %106, i64 -1
+  store i8 %2, ptr %108, align 1, !noalias !300
   br label %109
 
 109:                                              ; preds = %91, %87
-  %.sink = phi ptr [ %108, %91 ], [ %89, %87 ]
   %.sroa.3.0 = phi i8 [ undef, %91 ], [ %90, %87 ]
-  store i8 %2, ptr %.sink, align 1
   %110 = insertvalue { i1, i8 } poison, i1 %.not.i.not.i.i.not.not.not.not.not, 0
   %111 = insertvalue { i1, i8 } %110, i8 %.sroa.3.0, 1
   ret { i1, i8 } %111

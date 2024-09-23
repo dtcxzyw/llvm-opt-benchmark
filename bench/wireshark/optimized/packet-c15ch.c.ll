@@ -4443,7 +4443,7 @@ define internal i32 @dissect_c15ch_cp_state_ch(ptr noundef %0, ptr nocapture nou
 define internal i32 @dissect_c15ch_cp_event(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
   %6 = icmp ult i32 %5, 28
-  br i1 %6, label %77, label %7
+  br i1 %6, label %78, label %7
 
 7:                                                ; preds = %4
   %8 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #3
@@ -4504,7 +4504,7 @@ define internal i32 @dissect_c15ch_cp_event(ptr noundef %0, ptr nocapture nounde
   %41 = tail call ptr @val_to_str_ext(i32 noundef %11, ptr noundef nonnull @c15_event_types_ext, ptr noundef nonnull @.str.2896) #3
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %40, i32 noundef 25, ptr noundef nonnull @.str.2901, ptr noundef %41, i32 noundef %12) #3
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %75, label %42
+  br i1 %.not, label %76, label %42
 
 42:                                               ; preds = %39
   %43 = load i32, ptr @hf_c15ch_cp_event, align 4
@@ -4518,54 +4518,50 @@ define internal i32 @dissect_c15ch_cp_event(ptr noundef %0, ptr nocapture nounde
   %49 = load i32, ptr @hf_c15ch_cp_event_pm, align 4
   %50 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %49, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #3
   %51 = icmp ugt i32 %8, 77
-  br i1 %51, label %62, label %52
+  br i1 %51, label %63, label %52
 
 52:                                               ; preds = %42
-  br i1 %18, label %53, label %56
+  br i1 %18, label %53, label %57
 
 53:                                               ; preds = %52
   %54 = zext nneg i32 %8 to i64
   %55 = getelementptr [78 x ptr], ptr @subpm_table, i64 0, i64 %54
-  br label %.sink.split
+  %56 = load ptr, ptr %55, align 8
+  br label %63
 
-56:                                               ; preds = %52
-  %57 = icmp ugt i32 %10, 5
-  br i1 %57, label %62, label %58
+57:                                               ; preds = %52
+  %58 = icmp ugt i32 %10, 5
+  br i1 %58, label %63, label %59
 
-58:                                               ; preds = %56
-  %59 = zext nneg i32 %10 to i64
-  %60 = getelementptr [6 x ptr], ptr @dig_ckt_test_subpm_table, i64 0, i64 %59
-  br label %.sink.split
+59:                                               ; preds = %57
+  %60 = zext nneg i32 %10 to i64
+  %61 = getelementptr [6 x ptr], ptr @dig_ckt_test_subpm_table, i64 0, i64 %60
+  %62 = load ptr, ptr %61, align 8
+  br label %63
 
-.sink.split:                                      ; preds = %53, %58
-  %.sink = phi ptr [ %60, %58 ], [ %55, %53 ]
-  %hf_c15ch_cp_event_dig_ckt_test_trkpm.sink.ph = phi ptr [ @hf_c15ch_cp_event_dig_ckt_test_trkpm, %58 ], [ @hf_c15ch_cp_event_trkpm, %53 ]
-  %61 = load ptr, ptr %.sink, align 8
-  br label %62
+63:                                               ; preds = %59, %57, %53, %42
+  %hf_c15ch_cp_event_subpm_dig_ckt_test.sink.sink = phi ptr [ %56, %53 ], [ @hf_c15ch_cp_event_subpm, %42 ], [ %62, %59 ], [ @hf_c15ch_cp_event_subpm_dig_ckt_test, %57 ]
+  %hf_c15ch_cp_event_dig_ckt_test_trkpm.sink = phi ptr [ @hf_c15ch_cp_event_trkpm, %53 ], [ @hf_c15ch_cp_event_trkpm, %42 ], [ @hf_c15ch_cp_event_dig_ckt_test_trkpm, %59 ], [ @hf_c15ch_cp_event_dig_ckt_test_trkpm, %57 ]
+  %64 = load i32, ptr %hf_c15ch_cp_event_subpm_dig_ckt_test.sink.sink, align 4
+  %65 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %64, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #3
+  %66 = load i32, ptr %hf_c15ch_cp_event_dig_ckt_test_trkpm.sink, align 4
+  %67 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %66, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0) #3
+  %68 = load i32, ptr @hf_c15ch_cp_event_devid, align 4
+  %69 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %68, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef 0) #3
+  %70 = load i32, ptr @hf_c15ch_cp_event_event, align 4
+  %71 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %70, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0) #3
+  %72 = load i32, ptr @hf_c15ch_cp_event_parm, align 4
+  %73 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %72, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef 0) #3
+  %74 = load i32, ptr @hf_c15ch_cp_event_iptime, align 4
+  %75 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %74, ptr noundef %0, i32 noundef 24, i32 noundef 4, i32 noundef 0) #3
+  br label %76
 
-62:                                               ; preds = %.sink.split, %56, %42
-  %hf_c15ch_cp_event_subpm_dig_ckt_test.sink.sink = phi ptr [ @hf_c15ch_cp_event_subpm, %42 ], [ @hf_c15ch_cp_event_subpm_dig_ckt_test, %56 ], [ %61, %.sink.split ]
-  %hf_c15ch_cp_event_dig_ckt_test_trkpm.sink = phi ptr [ @hf_c15ch_cp_event_trkpm, %42 ], [ @hf_c15ch_cp_event_dig_ckt_test_trkpm, %56 ], [ %hf_c15ch_cp_event_dig_ckt_test_trkpm.sink.ph, %.sink.split ]
-  %63 = load i32, ptr %hf_c15ch_cp_event_subpm_dig_ckt_test.sink.sink, align 4
-  %64 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %63, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #3
-  %65 = load i32, ptr %hf_c15ch_cp_event_dig_ckt_test_trkpm.sink, align 4
-  %66 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %65, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0) #3
-  %67 = load i32, ptr @hf_c15ch_cp_event_devid, align 4
-  %68 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %67, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef 0) #3
-  %69 = load i32, ptr @hf_c15ch_cp_event_event, align 4
-  %70 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %69, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0) #3
-  %71 = load i32, ptr @hf_c15ch_cp_event_parm, align 4
-  %72 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %71, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef 0) #3
-  %73 = load i32, ptr @hf_c15ch_cp_event_iptime, align 4
-  %74 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %73, ptr noundef %0, i32 noundef 24, i32 noundef 4, i32 noundef 0) #3
-  br label %75
+76:                                               ; preds = %63, %39
+  %77 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
+  br label %78
 
-75:                                               ; preds = %62, %39
-  %76 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
-  br label %77
-
-77:                                               ; preds = %4, %75
-  %.0 = phi i32 [ %76, %75 ], [ 0, %4 ]
+78:                                               ; preds = %4, %76
+  %.0 = phi i32 [ %77, %76 ], [ 0, %4 ]
   ret i32 %.0
 }
 

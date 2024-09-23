@@ -7248,9 +7248,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm4yaml7Scanner21findBlockScalarInden
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %12
 
-12:                                               ; preds = %78, %5
-  %.012 = phi ptr [ undef, %5 ], [ %.1134282, %78 ]
-  %.011 = phi i32 [ 0, %5 ], [ %.14384, %78 ]
+12:                                               ; preds = %79, %5
+  %.012 = phi ptr [ undef, %5 ], [ %.1134282, %79 ]
+  %.011 = phi i32 [ 0, %5 ], [ %.14384, %79 ]
   %13 = load ptr, ptr %8, align 8
   %14 = ptrtoint ptr %13 to i64
   %15 = load ptr, ptr %9, align 8
@@ -7260,7 +7260,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm4yaml7Scanner21findBlockScalarInden
 .split.us.i.i:                                    ; preds = %_ZN4llvm4yaml7Scanner12skip_s_spaceEPKc.exit, %12
   %.0.us.i.i = phi ptr [ %spec.select.i26, %_ZN4llvm4yaml7Scanner12skip_s_spaceEPKc.exit ], [ %13, %12 ]
   %17 = icmp eq ptr %.0.us.i.i, %15
-  br i1 %17, label %67, label %_ZN4llvm4yaml7Scanner12skip_s_spaceEPKc.exit
+  br i1 %17, label %68, label %_ZN4llvm4yaml7Scanner12skip_s_spaceEPKc.exit
 
 _ZN4llvm4yaml7Scanner12skip_s_spaceEPKc.exit:     ; preds = %.split.us.i.i
   %18 = load i8, ptr %.0.us.i.i, align 1
@@ -7312,128 +7312,135 @@ _ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit:     ; preds = %30
 
 _ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.thread32: ; preds = %20, %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit
   %.not19 = icmp ugt i32 %25, %2
-  br i1 %.not19, label %39, label %.sink.split
+  br i1 %.not19, label %40, label %39
 
 39:                                               ; preds = %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.thread32
+  store i8 1, ptr %4, align 1
+  br label %84
+
+40:                                               ; preds = %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.thread32
   store i32 %25, ptr %1, align 4
-  %40 = icmp ugt i32 %.011, %25
-  br i1 %40, label %41, label %83
+  %41 = icmp ugt i32 %.011, %25
+  br i1 %41, label %42, label %84
 
-41:                                               ; preds = %39
-  %42 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %43 = getelementptr inbounds nuw i8, ptr %7, i64 33
-  store i8 1, ptr %43, align 1
+42:                                               ; preds = %40
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 33
+  store i8 1, ptr %44, align 1
   store ptr @.str.60, ptr %7, align 8
-  store i8 3, ptr %42, align 8
-  %44 = load ptr, ptr %9, align 8
-  %.not.i = icmp ult ptr %.012, %44
-  %45 = getelementptr inbounds i8, ptr %44, i64 -1
-  %spec.select.i21 = select i1 %.not.i, ptr %.012, ptr %45
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %47 = load ptr, ptr %46, align 8
-  %.not8.i = icmp eq ptr %47, null
-  br i1 %.not8.i, label %50, label %48
+  store i8 3, ptr %43, align 8
+  %45 = load ptr, ptr %9, align 8
+  %.not.i = icmp ult ptr %.012, %45
+  %46 = getelementptr inbounds i8, ptr %45, i64 -1
+  %spec.select.i21 = select i1 %.not.i, ptr %.012, ptr %46
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %48 = load ptr, ptr %47, align 8
+  %.not8.i = icmp eq ptr %48, null
+  br i1 %.not8.i, label %51, label %49
 
-48:                                               ; preds = %41
-  %49 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #27
-  store i32 22, ptr %47, align 8
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %47, i64 8
-  store ptr %49, ptr %.sroa.22.0..sroa_idx.i, align 8
-  br label %50
+49:                                               ; preds = %42
+  %50 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #27
+  store i32 22, ptr %48, align 8
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %48, i64 8
+  store ptr %50, ptr %.sroa.22.0..sroa_idx.i, align 8
+  br label %51
 
-50:                                               ; preds = %48, %41
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 75
-  %52 = load i8, ptr %51, align 1
-  %53 = trunc i8 %52 to i1
-  br i1 %53, label %.sink.split, label %54
+51:                                               ; preds = %49, %42
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 75
+  %53 = load i8, ptr %52, align 1
+  %54 = trunc i8 %53 to i1
+  br i1 %54, label %_ZN4llvm4yaml7Scanner8setErrorERKNS_5TwineEPKc.exit, label %55
 
-54:                                               ; preds = %50
+55:                                               ; preds = %51
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %55 = load ptr, ptr %0, align 8
+  %56 = load ptr, ptr %0, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %57 = load i8, ptr %56, align 4
-  %58 = trunc i8 %57 to i1
-  call void @_ZNK4llvm9SourceMgr12PrintMessageENS_5SMLocENS0_8DiagKindERKNS_5TwineENS_8ArrayRefINS_7SMRangeEEENS6_INS_7SMFixItEEEb(ptr noundef nonnull align 8 dereferenceable(64) %55, ptr %spec.select.i21, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %7, ptr null, i64 0, ptr noundef nonnull byval(%"class.llvm::ArrayRef.71") align 8 %6, i1 noundef zeroext %58) #25
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %58 = load i8, ptr %57, align 4
+  %59 = trunc i8 %58 to i1
+  call void @_ZNK4llvm9SourceMgr12PrintMessageENS_5SMLocENS0_8DiagKindERKNS_5TwineENS_8ArrayRefINS_7SMRangeEEENS6_INS_7SMFixItEEEb(ptr noundef nonnull align 8 dereferenceable(64) %56, ptr %spec.select.i21, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %7, ptr null, i64 0, ptr noundef nonnull byval(%"class.llvm::ArrayRef.71") align 8 %6, i1 noundef zeroext %59) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  br label %.sink.split
+  br label %_ZN4llvm4yaml7Scanner8setErrorERKNS_5TwineEPKc.exit
+
+_ZN4llvm4yaml7Scanner8setErrorERKNS_5TwineEPKc.exit: ; preds = %51, %55
+  store i8 1, ptr %52, align 1
+  br label %84
 
 .thread:                                          ; preds = %29, %30, %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit
-  switch i8 %26, label %.sink.split [
-    i8 13, label %59
+  switch i8 %26, label %_ZN4llvm4yaml7Scanner25consumeLineBreakIfPresentEv.exit [
+    i8 13, label %60
     i8 10, label %.thread86
   ]
 
-59:                                               ; preds = %.thread
-  %60 = getelementptr inbounds i8, ptr %.0.us.i.i, i64 1
-  %.not.i23 = icmp eq ptr %60, %15
-  br i1 %.not.i23, label %.thread75, label %61
+60:                                               ; preds = %.thread
+  %61 = getelementptr inbounds i8, ptr %.0.us.i.i, i64 1
+  %.not.i23 = icmp eq ptr %61, %15
+  br i1 %.not.i23, label %.thread75, label %62
 
-61:                                               ; preds = %59
-  %62 = load i8, ptr %60, align 1
-  %63 = icmp eq i8 %62, 10
-  %64 = getelementptr inbounds i8, ptr %.0.us.i.i, i64 2
-  %spec.select.i24 = select i1 %63, ptr %64, ptr %60
+62:                                               ; preds = %60
+  %63 = load i8, ptr %61, align 1
+  %64 = icmp eq i8 %63, 10
+  %65 = getelementptr inbounds i8, ptr %.0.us.i.i, i64 2
+  %spec.select.i24 = select i1 %64, ptr %65, ptr %61
   br label %.thread75
 
 .thread86:                                        ; preds = %.thread
-  %65 = icmp ugt i32 %25, %.011
-  %spec.select4089 = select i1 %65, ptr %.0.us.i.i, ptr %.012
+  %66 = icmp ugt i32 %25, %.011
+  %spec.select4089 = select i1 %66, ptr %.0.us.i.i, ptr %.012
   %spec.select204190 = tail call i32 @llvm.umax.i32(i32 %25, i32 %.011)
-  %66 = getelementptr inbounds i8, ptr %.0.us.i.i, i64 1
-  br label %78
+  %67 = getelementptr inbounds i8, ptr %.0.us.i.i, i64 1
+  br label %79
 
-67:                                               ; preds = %.split.us.i.i
-  %68 = sub i64 %16, %14
-  %scevgep.le = getelementptr i8, ptr %13, i64 %68
-  %69 = load i32, ptr %10, align 4
-  %70 = trunc i64 %68 to i32
-  %71 = add i32 %69, %70
-  store i32 %71, ptr %10, align 4
+68:                                               ; preds = %.split.us.i.i
+  %69 = sub i64 %16, %14
+  %scevgep.le = getelementptr i8, ptr %13, i64 %69
+  %70 = load i32, ptr %10, align 4
+  %71 = trunc i64 %69 to i32
+  %72 = add i32 %70, %71
+  store i32 %72, ptr %10, align 4
   store ptr %scevgep.le, ptr %8, align 8
-  br label %.sink.split
+  store i8 1, ptr %4, align 1
+  br label %84
 
-.thread75:                                        ; preds = %61, %59
-  %.0.i22.ph.ph = phi ptr [ %15, %59 ], [ %spec.select.i24, %61 ]
+.thread75:                                        ; preds = %62, %60
+  %.0.i22.ph.ph = phi ptr [ %15, %60 ], [ %spec.select.i24, %62 ]
   %.not183977 = icmp eq ptr %.0.i22.ph.ph, %.0.us.i.i
-  %72 = icmp ugt i32 %25, %.011
-  %spec.select4078 = select i1 %72, ptr %.0.us.i.i, ptr %.012
+  %73 = icmp ugt i32 %25, %.011
+  %spec.select4078 = select i1 %73, ptr %.0.us.i.i, ptr %.012
   %spec.select204179 = tail call i32 @llvm.umax.i32(i32 %25, i32 %.011)
   %.1134280 = select i1 %.not183977, ptr %.012, ptr %spec.select4078
   %.14381 = select i1 %.not183977, i32 %.011, i32 %spec.select204179
-  %73 = getelementptr inbounds i8, ptr %.0.us.i.i, i64 1
-  %.not.i.i = icmp eq ptr %73, %15
-  br i1 %.not.i.i, label %78, label %74
+  %74 = getelementptr inbounds i8, ptr %.0.us.i.i, i64 1
+  %.not.i.i = icmp eq ptr %74, %15
+  br i1 %.not.i.i, label %79, label %75
 
-74:                                               ; preds = %.thread75
-  %75 = load i8, ptr %73, align 1
-  %76 = icmp eq i8 %75, 10
-  %77 = getelementptr inbounds i8, ptr %.0.us.i.i, i64 2
-  %spec.select.i.i = select i1 %76, ptr %77, ptr %73
-  br label %78
+_ZN4llvm4yaml7Scanner25consumeLineBreakIfPresentEv.exit: ; preds = %.thread
+  store i8 1, ptr %4, align 1
+  br label %84
 
-78:                                               ; preds = %.thread75, %74, %.thread86
-  %.14384 = phi i32 [ %.14381, %74 ], [ %.14381, %.thread75 ], [ %spec.select204190, %.thread86 ]
-  %.1134282 = phi ptr [ %.1134280, %74 ], [ %.1134280, %.thread75 ], [ %spec.select4089, %.thread86 ]
-  %.0.i.ph.i = phi ptr [ %spec.select.i.i, %74 ], [ %73, %.thread75 ], [ %66, %.thread86 ]
+75:                                               ; preds = %.thread75
+  %76 = load i8, ptr %74, align 1
+  %77 = icmp eq i8 %76, 10
+  %78 = getelementptr inbounds i8, ptr %.0.us.i.i, i64 2
+  %spec.select.i.i = select i1 %77, ptr %78, ptr %74
+  br label %79
+
+79:                                               ; preds = %.thread75, %75, %.thread86
+  %.14384 = phi i32 [ %.14381, %75 ], [ %.14381, %.thread75 ], [ %spec.select204190, %.thread86 ]
+  %.1134282 = phi ptr [ %.1134280, %75 ], [ %.1134280, %.thread75 ], [ %spec.select4089, %.thread86 ]
+  %.0.i.ph.i = phi ptr [ %spec.select.i.i, %75 ], [ %74, %.thread75 ], [ %67, %.thread86 ]
   store i32 0, ptr %10, align 4
-  %79 = load i32, ptr %11, align 8
-  %80 = add i32 %79, 1
-  store i32 %80, ptr %11, align 8
+  %80 = load i32, ptr %11, align 8
+  %81 = add i32 %80, 1
+  store i32 %81, ptr %11, align 8
   store ptr %.0.i.ph.i, ptr %8, align 8
-  %81 = load i32, ptr %3, align 4
-  %82 = add i32 %81, 1
-  store i32 %82, ptr %3, align 4
+  %82 = load i32, ptr %3, align 4
+  %83 = add i32 %82, 1
+  store i32 %83, ptr %3, align 4
   br label %12, !llvm.loop !61
 
-.sink.split:                                      ; preds = %.thread, %54, %50, %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.thread32, %67
-  %.sink = phi ptr [ %4, %67 ], [ %4, %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.thread32 ], [ %51, %50 ], [ %51, %54 ], [ %4, %.thread ]
-  %.0.ph = phi i1 [ true, %67 ], [ true, %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.thread32 ], [ false, %50 ], [ false, %54 ], [ true, %.thread ]
-  store i8 1, ptr %.sink, align 1
-  br label %83
-
-83:                                               ; preds = %.sink.split, %39
-  %.0 = phi i1 [ true, %39 ], [ %.0.ph, %.sink.split ]
+84:                                               ; preds = %40, %_ZN4llvm4yaml7Scanner25consumeLineBreakIfPresentEv.exit, %68, %_ZN4llvm4yaml7Scanner8setErrorERKNS_5TwineEPKc.exit, %39
+  %.0 = phi i1 [ true, %39 ], [ false, %_ZN4llvm4yaml7Scanner8setErrorERKNS_5TwineEPKc.exit ], [ true, %68 ], [ true, %_ZN4llvm4yaml7Scanner25consumeLineBreakIfPresentEv.exit ], [ true, %40 ]
   ret i1 %.0
 }
 
@@ -7514,61 +7521,67 @@ _ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit:     ; preds = %26
 
 _ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.thread18: ; preds = %21, %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit
   %.not = icmp ugt i32 %.lcssa23, %2
-  br i1 %.not, label %37, label %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.thread.sink.split
+  br i1 %.not, label %38, label %37
 
 37:                                               ; preds = %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.thread18
-  br i1 %.lcssa, label %38, label %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.thread
-
-38:                                               ; preds = %37
-  %39 = icmp eq i8 %22, 35
-  br i1 %39, label %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.thread.sink.split, label %40
-
-40:                                               ; preds = %38
-  %41 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %42 = getelementptr inbounds nuw i8, ptr %6, i64 33
-  store i8 1, ptr %42, align 1
-  store ptr @.str.61, ptr %6, align 8
-  store i8 3, ptr %41, align 8
-  %.not.i = icmp ult ptr %19, %11
-  %43 = getelementptr inbounds i8, ptr %11, i64 -1
-  %spec.select.i15 = select i1 %.not.i, ptr %19, ptr %43
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %45 = load ptr, ptr %44, align 8
-  %.not8.i = icmp eq ptr %45, null
-  br i1 %.not8.i, label %48, label %46
-
-46:                                               ; preds = %40
-  %47 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #27
-  store i32 22, ptr %45, align 8
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %45, i64 8
-  store ptr %47, ptr %.sroa.22.0..sroa_idx.i, align 8
-  br label %48
-
-48:                                               ; preds = %46, %40
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 75
-  %50 = load i8, ptr %49, align 1
-  %51 = trunc i8 %50 to i1
-  br i1 %51, label %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.thread.sink.split, label %52
-
-52:                                               ; preds = %48
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %53 = load ptr, ptr %0, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %55 = load i8, ptr %54, align 4
-  %56 = trunc i8 %55 to i1
-  call void @_ZNK4llvm9SourceMgr12PrintMessageENS_5SMLocENS0_8DiagKindERKNS_5TwineENS_8ArrayRefINS_7SMRangeEEENS6_INS_7SMFixItEEEb(ptr noundef nonnull align 8 dereferenceable(64) %53, ptr nonnull %spec.select.i15, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %6, ptr null, i64 0, ptr noundef nonnull byval(%"class.llvm::ArrayRef.71") align 8 %5, i1 noundef zeroext %56) #25
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br label %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.thread.sink.split
-
-_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.thread.sink.split: ; preds = %52, %48, %38, %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.thread18
-  %.sink = phi ptr [ %3, %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.thread18 ], [ %3, %38 ], [ %49, %48 ], [ %49, %52 ]
-  %.0.ph = phi i1 [ true, %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.thread18 ], [ true, %38 ], [ false, %48 ], [ false, %52 ]
-  store i8 1, ptr %.sink, align 1
+  store i8 1, ptr %3, align 1
   br label %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.thread
 
-_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.thread: ; preds = %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.thread.sink.split, %25, %26, %_ZN4llvm4yaml7Scanner12skip_s_spaceEPKc.exit.thread, %37, %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit
-  %.0 = phi i1 [ true, %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit ], [ true, %37 ], [ true, %_ZN4llvm4yaml7Scanner12skip_s_spaceEPKc.exit.thread ], [ true, %26 ], [ true, %25 ], [ %.0.ph, %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.thread.sink.split ]
+38:                                               ; preds = %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.thread18
+  br i1 %.lcssa, label %39, label %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.thread
+
+39:                                               ; preds = %38
+  %40 = icmp eq i8 %22, 35
+  br i1 %40, label %41, label %42
+
+41:                                               ; preds = %39
+  store i8 1, ptr %3, align 1
+  br label %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.thread
+
+42:                                               ; preds = %39
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 33
+  store i8 1, ptr %44, align 1
+  store ptr @.str.61, ptr %6, align 8
+  store i8 3, ptr %43, align 8
+  %.not.i = icmp ult ptr %19, %11
+  %45 = getelementptr inbounds i8, ptr %11, i64 -1
+  %spec.select.i15 = select i1 %.not.i, ptr %19, ptr %45
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %47 = load ptr, ptr %46, align 8
+  %.not8.i = icmp eq ptr %47, null
+  br i1 %.not8.i, label %50, label %48
+
+48:                                               ; preds = %42
+  %49 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #27
+  store i32 22, ptr %47, align 8
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %47, i64 8
+  store ptr %49, ptr %.sroa.22.0..sroa_idx.i, align 8
+  br label %50
+
+50:                                               ; preds = %48, %42
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 75
+  %52 = load i8, ptr %51, align 1
+  %53 = trunc i8 %52 to i1
+  br i1 %53, label %_ZN4llvm4yaml7Scanner8setErrorERKNS_5TwineEPKc.exit, label %54
+
+54:                                               ; preds = %50
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  %55 = load ptr, ptr %0, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %57 = load i8, ptr %56, align 4
+  %58 = trunc i8 %57 to i1
+  call void @_ZNK4llvm9SourceMgr12PrintMessageENS_5SMLocENS0_8DiagKindERKNS_5TwineENS_8ArrayRefINS_7SMRangeEEENS6_INS_7SMFixItEEEb(ptr noundef nonnull align 8 dereferenceable(64) %55, ptr nonnull %spec.select.i15, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %6, ptr null, i64 0, ptr noundef nonnull byval(%"class.llvm::ArrayRef.71") align 8 %5, i1 noundef zeroext %58) #25
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  br label %_ZN4llvm4yaml7Scanner8setErrorERKNS_5TwineEPKc.exit
+
+_ZN4llvm4yaml7Scanner8setErrorERKNS_5TwineEPKc.exit: ; preds = %50, %54
+  store i8 1, ptr %51, align 1
+  br label %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.thread
+
+_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.thread: ; preds = %25, %26, %_ZN4llvm4yaml7Scanner12skip_s_spaceEPKc.exit.thread, %38, %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit, %_ZN4llvm4yaml7Scanner8setErrorERKNS_5TwineEPKc.exit, %41, %37
+  %.0 = phi i1 [ true, %37 ], [ true, %41 ], [ false, %_ZN4llvm4yaml7Scanner8setErrorERKNS_5TwineEPKc.exit ], [ true, %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit ], [ true, %38 ], [ true, %_ZN4llvm4yaml7Scanner12skip_s_spaceEPKc.exit.thread ], [ true, %26 ], [ true, %25 ]
   ret i1 %.0
 }
 

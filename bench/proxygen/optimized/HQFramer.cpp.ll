@@ -1534,6 +1534,9 @@ if.then.i.i.i.i25:                                ; preds = %_ZNK5folly10IOBufQu
 lpad:                                             ; preds = %if.end.i.i.i.i.i.i
   %26 = landingpad { ptr, i32 }
           cleanup
+  %agg.tmp.val10 = load i8, ptr %attached.i.i.i.i, align 8
+  %agg.tmp.val11 = load ptr, ptr %queue_.i.i.i, align 8
+  call fastcc void @"_ZZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEmEN3$_0D2Ev"(i8 %agg.tmp.val10, ptr %agg.tmp.val11) #25
   br label %eh.resume
 
 if.else:                                          ; preds = %entry
@@ -1704,6 +1707,9 @@ if.then.i.i.i.i89:                                ; preds = %_ZNK5folly10IOBufQu
 lpad5:                                            ; preds = %if.end.i.i.i.i.i.i59
   %54 = landingpad { ptr, i32 }
           cleanup
+  %agg.tmp4.val13 = load i8, ptr %attached.i.i.i.i27, align 8
+  %agg.tmp4.val14 = load ptr, ptr %queue_.i.i.i30, align 8
+  call fastcc void @"_ZZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEmEN3$_0D2Ev"(i8 %agg.tmp4.val13, ptr %agg.tmp4.val14) #25
   br label %eh.resume
 
 if.else8:                                         ; preds = %if.else
@@ -1874,6 +1880,9 @@ if.then.i.i.i.i166:                               ; preds = %_ZNK5folly10IOBufQu
 lpad13:                                           ; preds = %if.end.i.i.i.i.i.i136
   %82 = landingpad { ptr, i32 }
           cleanup
+  %agg.tmp12.val16 = load i8, ptr %attached.i.i.i.i96, align 8
+  %agg.tmp12.val17 = load ptr, ptr %queue_.i.i.i99, align 8
+  call fastcc void @"_ZZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEmEN3$_0D2Ev"(i8 %agg.tmp12.val16, ptr %agg.tmp12.val17) #25
   br label %eh.resume
 
 if.else16:                                        ; preds = %if.else8
@@ -2043,6 +2052,9 @@ if.then.i.i.i.i241:                               ; preds = %_ZNK5folly10IOBufQu
 lpad21:                                           ; preds = %if.end.i.i.i.i.i.i212
   %110 = landingpad { ptr, i32 }
           cleanup
+  %agg.tmp20.val19 = load i8, ptr %attached.i.i.i.i173, align 8
+  %agg.tmp20.val20 = load ptr, ptr %queue_.i.i.i176, align 8
+  call fastcc void @"_ZZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEmEN3$_0D2Ev"(i8 %agg.tmp20.val19, ptr %agg.tmp20.val20) #25
   br label %eh.resume
 
 if.end26:                                         ; preds = %if.else16
@@ -2057,12 +2069,7 @@ return:                                           ; preds = %if.then.i.i.i.i241,
   ret void
 
 eh.resume:                                        ; preds = %lpad21, %lpad13, %lpad5, %lpad
-  %attached.i.i.i.i173.sink = phi ptr [ %attached.i.i.i.i173, %lpad21 ], [ %attached.i.i.i.i96, %lpad13 ], [ %attached.i.i.i.i27, %lpad5 ], [ %attached.i.i.i.i, %lpad ]
-  %queue_.i.i.i176.sink = phi ptr [ %queue_.i.i.i176, %lpad21 ], [ %queue_.i.i.i99, %lpad13 ], [ %queue_.i.i.i30, %lpad5 ], [ %queue_.i.i.i, %lpad ]
-  %.pn = phi { ptr, i32 } [ %110, %lpad21 ], [ %82, %lpad13 ], [ %54, %lpad5 ], [ %26, %lpad ]
-  %agg.tmp20.val19 = load i8, ptr %attached.i.i.i.i173.sink, align 8
-  %agg.tmp20.val20 = load ptr, ptr %queue_.i.i.i176.sink, align 8
-  call fastcc void @"_ZZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEmEN3$_0D2Ev"(i8 %agg.tmp20.val19, ptr %agg.tmp20.val20) #25
+  %.pn = phi { ptr, i32 } [ %26, %lpad ], [ %54, %lpad5 ], [ %82, %lpad13 ], [ %110, %lpad21 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -2665,7 +2672,10 @@ if.then.i.i.i.i25.i:                              ; preds = %_ZNK5folly10IOBufQu
 lpad.i:                                           ; preds = %if.end.i.i.i.i.i.i.i
   %35 = landingpad { ptr, i32 }
           catch ptr null
-  br label %eh.resume.i
+  %agg.tmp.val10.i = load i8, ptr %attached.i.i.i.i.i7, align 8, !noalias !34
+  %agg.tmp.val11.i = load ptr, ptr %queue_.i.i.i.i, align 8, !noalias !34
+  call fastcc void @"_ZZN8proxygen2hq15writeCancelPushERN5folly10IOBufQueueEmEN3$_0D2Ev"(i8 %agg.tmp.val10.i, ptr %agg.tmp.val11.i) #25, !noalias !34
+  br label %terminate.lpad.body
 
 if.else.i:                                        ; preds = %invoke.cont7
   %cmp1.i = icmp ult i64 %pushId, 16384
@@ -2824,7 +2834,10 @@ if.then.i.i.i.i89.i:                              ; preds = %_ZNK5folly10IOBufQu
 lpad5.i:                                          ; preds = %if.end.i.i.i.i.i.i59.i
   %61 = landingpad { ptr, i32 }
           catch ptr null
-  br label %eh.resume.i
+  %agg.tmp4.val13.i = load i8, ptr %attached.i.i.i.i27.i, align 8, !noalias !34
+  %agg.tmp4.val14.i = load ptr, ptr %queue_.i.i.i30.i, align 8, !noalias !34
+  call fastcc void @"_ZZN8proxygen2hq15writeCancelPushERN5folly10IOBufQueueEmEN3$_0D2Ev"(i8 %agg.tmp4.val13.i, ptr %agg.tmp4.val14.i) #25, !noalias !34
+  br label %terminate.lpad.body
 
 if.else8.i:                                       ; preds = %if.else.i
   %cmp9.i = icmp ult i64 %pushId, 1073741824
@@ -2983,7 +2996,10 @@ if.then.i.i.i.i166.i:                             ; preds = %_ZNK5folly10IOBufQu
 lpad13.i:                                         ; preds = %if.end.i.i.i.i.i.i136.i
   %87 = landingpad { ptr, i32 }
           catch ptr null
-  br label %eh.resume.i
+  %agg.tmp12.val16.i = load i8, ptr %attached.i.i.i.i96.i, align 8, !noalias !34
+  %agg.tmp12.val17.i = load ptr, ptr %queue_.i.i.i99.i, align 8, !noalias !34
+  call fastcc void @"_ZZN8proxygen2hq15writeCancelPushERN5folly10IOBufQueueEmEN3$_0D2Ev"(i8 %agg.tmp12.val16.i, ptr %agg.tmp12.val17.i) #25, !noalias !34
+  br label %terminate.lpad.body
 
 if.else16.i:                                      ; preds = %if.else8.i
   %cmp17.i = icmp ult i64 %pushId, 4611686018427387904
@@ -3141,14 +3157,8 @@ if.then.i.i.i.i241.i:                             ; preds = %_ZNK5folly10IOBufQu
 lpad21.i:                                         ; preds = %if.end.i.i.i.i.i.i212.i
   %113 = landingpad { ptr, i32 }
           catch ptr null
-  br label %eh.resume.i
-
-eh.resume.i:                                      ; preds = %lpad21.i, %lpad13.i, %lpad5.i, %lpad.i
-  %attached.i.i.i.i173.sink.i = phi ptr [ %attached.i.i.i.i173.i, %lpad21.i ], [ %attached.i.i.i.i96.i, %lpad13.i ], [ %attached.i.i.i.i27.i, %lpad5.i ], [ %attached.i.i.i.i.i7, %lpad.i ]
-  %queue_.i.i.i176.sink.i = phi ptr [ %queue_.i.i.i176.i, %lpad21.i ], [ %queue_.i.i.i99.i, %lpad13.i ], [ %queue_.i.i.i30.i, %lpad5.i ], [ %queue_.i.i.i.i, %lpad.i ]
-  %.pn.i = phi { ptr, i32 } [ %113, %lpad21.i ], [ %87, %lpad13.i ], [ %61, %lpad5.i ], [ %35, %lpad.i ]
-  %agg.tmp20.val19.i = load i8, ptr %attached.i.i.i.i173.sink.i, align 8, !noalias !34
-  %agg.tmp20.val20.i = load ptr, ptr %queue_.i.i.i176.sink.i, align 8, !noalias !34
+  %agg.tmp20.val19.i = load i8, ptr %attached.i.i.i.i173.i, align 8, !noalias !34
+  %agg.tmp20.val20.i = load ptr, ptr %queue_.i.i.i176.i, align 8, !noalias !34
   call fastcc void @"_ZZN8proxygen2hq15writeCancelPushERN5folly10IOBufQueueEmEN3$_0D2Ev"(i8 %agg.tmp20.val19.i, ptr %agg.tmp20.val20.i) #25, !noalias !34
   br label %terminate.lpad.body
 
@@ -3379,8 +3389,8 @@ terminate.lpad:                                   ; preds = %if.end.i.i.i, %if.t
           catch ptr null
   br label %terminate.lpad.body
 
-terminate.lpad.body:                              ; preds = %eh.resume.i, %terminate.lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %154, %terminate.lpad ], [ %.pn.i, %eh.resume.i ]
+terminate.lpad.body:                              ; preds = %lpad.i, %lpad5.i, %lpad13.i, %lpad21.i, %terminate.lpad
+  %eh.lpad-body = phi { ptr, i32 } [ %154, %terminate.lpad ], [ %35, %lpad.i ], [ %61, %lpad5.i ], [ %87, %lpad13.i ], [ %113, %lpad21.i ]
   %155 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   call void @__clang_call_terminate(ptr %155) #26
   unreachable
@@ -4135,6 +4145,9 @@ if.then.i.i.i.i25:                                ; preds = %_ZNK5folly10IOBufQu
 lpad:                                             ; preds = %if.end.i.i.i.i.i.i
   %26 = landingpad { ptr, i32 }
           cleanup
+  %agg.tmp.val10 = load i8, ptr %attached.i.i.i.i, align 8
+  %agg.tmp.val11 = load ptr, ptr %queue_.i.i.i, align 8
+  call fastcc void @"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev"(i8 %agg.tmp.val10, ptr %agg.tmp.val11) #25
   br label %eh.resume
 
 if.else:                                          ; preds = %entry
@@ -4305,6 +4318,9 @@ if.then.i.i.i.i89:                                ; preds = %_ZNK5folly10IOBufQu
 lpad5:                                            ; preds = %if.end.i.i.i.i.i.i59
   %54 = landingpad { ptr, i32 }
           cleanup
+  %agg.tmp4.val13 = load i8, ptr %attached.i.i.i.i27, align 8
+  %agg.tmp4.val14 = load ptr, ptr %queue_.i.i.i30, align 8
+  call fastcc void @"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev"(i8 %agg.tmp4.val13, ptr %agg.tmp4.val14) #25
   br label %eh.resume
 
 if.else8:                                         ; preds = %if.else
@@ -4475,6 +4491,9 @@ if.then.i.i.i.i166:                               ; preds = %_ZNK5folly10IOBufQu
 lpad13:                                           ; preds = %if.end.i.i.i.i.i.i136
   %82 = landingpad { ptr, i32 }
           cleanup
+  %agg.tmp12.val16 = load i8, ptr %attached.i.i.i.i96, align 8
+  %agg.tmp12.val17 = load ptr, ptr %queue_.i.i.i99, align 8
+  call fastcc void @"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev"(i8 %agg.tmp12.val16, ptr %agg.tmp12.val17) #25
   br label %eh.resume
 
 if.else16:                                        ; preds = %if.else8
@@ -4644,6 +4663,9 @@ if.then.i.i.i.i241:                               ; preds = %_ZNK5folly10IOBufQu
 lpad21:                                           ; preds = %if.end.i.i.i.i.i.i212
   %110 = landingpad { ptr, i32 }
           cleanup
+  %agg.tmp20.val19 = load i8, ptr %attached.i.i.i.i173, align 8
+  %agg.tmp20.val20 = load ptr, ptr %queue_.i.i.i176, align 8
+  call fastcc void @"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev"(i8 %agg.tmp20.val19, ptr %agg.tmp20.val20) #25
   br label %eh.resume
 
 if.end26:                                         ; preds = %if.else16
@@ -4658,12 +4680,7 @@ return:                                           ; preds = %if.then.i.i.i.i241,
   ret void
 
 eh.resume:                                        ; preds = %lpad21, %lpad13, %lpad5, %lpad
-  %attached.i.i.i.i173.sink = phi ptr [ %attached.i.i.i.i173, %lpad21 ], [ %attached.i.i.i.i96, %lpad13 ], [ %attached.i.i.i.i27, %lpad5 ], [ %attached.i.i.i.i, %lpad ]
-  %queue_.i.i.i176.sink = phi ptr [ %queue_.i.i.i176, %lpad21 ], [ %queue_.i.i.i99, %lpad13 ], [ %queue_.i.i.i30, %lpad5 ], [ %queue_.i.i.i, %lpad ]
-  %.pn = phi { ptr, i32 } [ %110, %lpad21 ], [ %82, %lpad13 ], [ %54, %lpad5 ], [ %26, %lpad ]
-  %agg.tmp20.val19 = load i8, ptr %attached.i.i.i.i173.sink, align 8
-  %agg.tmp20.val20 = load ptr, ptr %queue_.i.i.i176.sink, align 8
-  call fastcc void @"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev"(i8 %agg.tmp20.val19, ptr %agg.tmp20.val20) #25
+  %.pn = phi { ptr, i32 } [ %26, %lpad ], [ %54, %lpad5 ], [ %82, %lpad13 ], [ %110, %lpad21 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -5491,7 +5508,10 @@ if.then.i.i.i.i25.i:                              ; preds = %_ZNK5folly10IOBufQu
 lpad.i:                                           ; preds = %if.end.i.i.i.i.i.i.i
   %35 = landingpad { ptr, i32 }
           catch ptr null
-  br label %eh.resume.i
+  %agg.tmp.val10.i = load i8, ptr %attached.i.i.i.i.i7, align 8, !noalias !61
+  %agg.tmp.val11.i = load ptr, ptr %queue_.i.i.i.i, align 8, !noalias !61
+  call fastcc void @"_ZZN8proxygen2hq11writeGoawayERN5folly10IOBufQueueEmEN3$_0D2Ev"(i8 %agg.tmp.val10.i, ptr %agg.tmp.val11.i) #25, !noalias !61
+  br label %terminate.lpad.body
 
 if.else.i:                                        ; preds = %invoke.cont7
   %cmp1.i = icmp ult i64 %lastStreamId, 16384
@@ -5650,7 +5670,10 @@ if.then.i.i.i.i89.i:                              ; preds = %_ZNK5folly10IOBufQu
 lpad5.i:                                          ; preds = %if.end.i.i.i.i.i.i59.i
   %61 = landingpad { ptr, i32 }
           catch ptr null
-  br label %eh.resume.i
+  %agg.tmp4.val13.i = load i8, ptr %attached.i.i.i.i27.i, align 8, !noalias !61
+  %agg.tmp4.val14.i = load ptr, ptr %queue_.i.i.i30.i, align 8, !noalias !61
+  call fastcc void @"_ZZN8proxygen2hq11writeGoawayERN5folly10IOBufQueueEmEN3$_0D2Ev"(i8 %agg.tmp4.val13.i, ptr %agg.tmp4.val14.i) #25, !noalias !61
+  br label %terminate.lpad.body
 
 if.else8.i:                                       ; preds = %if.else.i
   %cmp9.i = icmp ult i64 %lastStreamId, 1073741824
@@ -5809,7 +5832,10 @@ if.then.i.i.i.i166.i:                             ; preds = %_ZNK5folly10IOBufQu
 lpad13.i:                                         ; preds = %if.end.i.i.i.i.i.i136.i
   %87 = landingpad { ptr, i32 }
           catch ptr null
-  br label %eh.resume.i
+  %agg.tmp12.val16.i = load i8, ptr %attached.i.i.i.i96.i, align 8, !noalias !61
+  %agg.tmp12.val17.i = load ptr, ptr %queue_.i.i.i99.i, align 8, !noalias !61
+  call fastcc void @"_ZZN8proxygen2hq11writeGoawayERN5folly10IOBufQueueEmEN3$_0D2Ev"(i8 %agg.tmp12.val16.i, ptr %agg.tmp12.val17.i) #25, !noalias !61
+  br label %terminate.lpad.body
 
 if.else16.i:                                      ; preds = %if.else8.i
   %cmp17.i = icmp ult i64 %lastStreamId, 4611686018427387904
@@ -5967,14 +5993,8 @@ if.then.i.i.i.i241.i:                             ; preds = %_ZNK5folly10IOBufQu
 lpad21.i:                                         ; preds = %if.end.i.i.i.i.i.i212.i
   %113 = landingpad { ptr, i32 }
           catch ptr null
-  br label %eh.resume.i
-
-eh.resume.i:                                      ; preds = %lpad21.i, %lpad13.i, %lpad5.i, %lpad.i
-  %attached.i.i.i.i173.sink.i = phi ptr [ %attached.i.i.i.i173.i, %lpad21.i ], [ %attached.i.i.i.i96.i, %lpad13.i ], [ %attached.i.i.i.i27.i, %lpad5.i ], [ %attached.i.i.i.i.i7, %lpad.i ]
-  %queue_.i.i.i176.sink.i = phi ptr [ %queue_.i.i.i176.i, %lpad21.i ], [ %queue_.i.i.i99.i, %lpad13.i ], [ %queue_.i.i.i30.i, %lpad5.i ], [ %queue_.i.i.i.i, %lpad.i ]
-  %.pn.i = phi { ptr, i32 } [ %113, %lpad21.i ], [ %87, %lpad13.i ], [ %61, %lpad5.i ], [ %35, %lpad.i ]
-  %agg.tmp20.val19.i = load i8, ptr %attached.i.i.i.i173.sink.i, align 8, !noalias !61
-  %agg.tmp20.val20.i = load ptr, ptr %queue_.i.i.i176.sink.i, align 8, !noalias !61
+  %agg.tmp20.val19.i = load i8, ptr %attached.i.i.i.i173.i, align 8, !noalias !61
+  %agg.tmp20.val20.i = load ptr, ptr %queue_.i.i.i176.i, align 8, !noalias !61
   call fastcc void @"_ZZN8proxygen2hq11writeGoawayERN5folly10IOBufQueueEmEN3$_0D2Ev"(i8 %agg.tmp20.val19.i, ptr %agg.tmp20.val20.i) #25, !noalias !61
   br label %terminate.lpad.body
 
@@ -6205,8 +6225,8 @@ terminate.lpad:                                   ; preds = %if.end.i.i.i, %if.t
           catch ptr null
   br label %terminate.lpad.body
 
-terminate.lpad.body:                              ; preds = %eh.resume.i, %terminate.lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %154, %terminate.lpad ], [ %.pn.i, %eh.resume.i ]
+terminate.lpad.body:                              ; preds = %lpad.i, %lpad5.i, %lpad13.i, %lpad21.i, %terminate.lpad
+  %eh.lpad-body = phi { ptr, i32 } [ %154, %terminate.lpad ], [ %35, %lpad.i ], [ %61, %lpad5.i ], [ %87, %lpad13.i ], [ %113, %lpad21.i ]
   %155 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   call void @__clang_call_terminate(ptr %155) #26
   unreachable
@@ -6535,7 +6555,10 @@ if.then.i.i.i.i25.i:                              ; preds = %_ZNK5folly10IOBufQu
 lpad.i:                                           ; preds = %if.end.i.i.i.i.i.i.i
   %35 = landingpad { ptr, i32 }
           catch ptr null
-  br label %eh.resume.i
+  %agg.tmp.val10.i = load i8, ptr %attached.i.i.i.i.i7, align 8, !noalias !73
+  %agg.tmp.val11.i = load ptr, ptr %queue_.i.i.i.i, align 8, !noalias !73
+  call fastcc void @"_ZZN8proxygen2hq14writeMaxPushIdERN5folly10IOBufQueueEmEN3$_0D2Ev"(i8 %agg.tmp.val10.i, ptr %agg.tmp.val11.i) #25, !noalias !73
+  br label %terminate.lpad.body
 
 if.else.i:                                        ; preds = %invoke.cont7
   %cmp1.i = icmp ult i64 %maxPushId, 16384
@@ -6694,7 +6717,10 @@ if.then.i.i.i.i89.i:                              ; preds = %_ZNK5folly10IOBufQu
 lpad5.i:                                          ; preds = %if.end.i.i.i.i.i.i59.i
   %61 = landingpad { ptr, i32 }
           catch ptr null
-  br label %eh.resume.i
+  %agg.tmp4.val13.i = load i8, ptr %attached.i.i.i.i27.i, align 8, !noalias !73
+  %agg.tmp4.val14.i = load ptr, ptr %queue_.i.i.i30.i, align 8, !noalias !73
+  call fastcc void @"_ZZN8proxygen2hq14writeMaxPushIdERN5folly10IOBufQueueEmEN3$_0D2Ev"(i8 %agg.tmp4.val13.i, ptr %agg.tmp4.val14.i) #25, !noalias !73
+  br label %terminate.lpad.body
 
 if.else8.i:                                       ; preds = %if.else.i
   %cmp9.i = icmp ult i64 %maxPushId, 1073741824
@@ -6853,7 +6879,10 @@ if.then.i.i.i.i166.i:                             ; preds = %_ZNK5folly10IOBufQu
 lpad13.i:                                         ; preds = %if.end.i.i.i.i.i.i136.i
   %87 = landingpad { ptr, i32 }
           catch ptr null
-  br label %eh.resume.i
+  %agg.tmp12.val16.i = load i8, ptr %attached.i.i.i.i96.i, align 8, !noalias !73
+  %agg.tmp12.val17.i = load ptr, ptr %queue_.i.i.i99.i, align 8, !noalias !73
+  call fastcc void @"_ZZN8proxygen2hq14writeMaxPushIdERN5folly10IOBufQueueEmEN3$_0D2Ev"(i8 %agg.tmp12.val16.i, ptr %agg.tmp12.val17.i) #25, !noalias !73
+  br label %terminate.lpad.body
 
 if.else16.i:                                      ; preds = %if.else8.i
   %cmp17.i = icmp ult i64 %maxPushId, 4611686018427387904
@@ -7011,14 +7040,8 @@ if.then.i.i.i.i241.i:                             ; preds = %_ZNK5folly10IOBufQu
 lpad21.i:                                         ; preds = %if.end.i.i.i.i.i.i212.i
   %113 = landingpad { ptr, i32 }
           catch ptr null
-  br label %eh.resume.i
-
-eh.resume.i:                                      ; preds = %lpad21.i, %lpad13.i, %lpad5.i, %lpad.i
-  %attached.i.i.i.i173.sink.i = phi ptr [ %attached.i.i.i.i173.i, %lpad21.i ], [ %attached.i.i.i.i96.i, %lpad13.i ], [ %attached.i.i.i.i27.i, %lpad5.i ], [ %attached.i.i.i.i.i7, %lpad.i ]
-  %queue_.i.i.i176.sink.i = phi ptr [ %queue_.i.i.i176.i, %lpad21.i ], [ %queue_.i.i.i99.i, %lpad13.i ], [ %queue_.i.i.i30.i, %lpad5.i ], [ %queue_.i.i.i.i, %lpad.i ]
-  %.pn.i = phi { ptr, i32 } [ %113, %lpad21.i ], [ %87, %lpad13.i ], [ %61, %lpad5.i ], [ %35, %lpad.i ]
-  %agg.tmp20.val19.i = load i8, ptr %attached.i.i.i.i173.sink.i, align 8, !noalias !73
-  %agg.tmp20.val20.i = load ptr, ptr %queue_.i.i.i176.sink.i, align 8, !noalias !73
+  %agg.tmp20.val19.i = load i8, ptr %attached.i.i.i.i173.i, align 8, !noalias !73
+  %agg.tmp20.val20.i = load ptr, ptr %queue_.i.i.i176.i, align 8, !noalias !73
   call fastcc void @"_ZZN8proxygen2hq14writeMaxPushIdERN5folly10IOBufQueueEmEN3$_0D2Ev"(i8 %agg.tmp20.val19.i, ptr %agg.tmp20.val20.i) #25, !noalias !73
   br label %terminate.lpad.body
 
@@ -7249,8 +7272,8 @@ terminate.lpad:                                   ; preds = %if.end.i.i.i, %if.t
           catch ptr null
   br label %terminate.lpad.body
 
-terminate.lpad.body:                              ; preds = %eh.resume.i, %terminate.lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %154, %terminate.lpad ], [ %.pn.i, %eh.resume.i ]
+terminate.lpad.body:                              ; preds = %lpad.i, %lpad5.i, %lpad13.i, %lpad21.i, %terminate.lpad
+  %eh.lpad-body = phi { ptr, i32 } [ %154, %terminate.lpad ], [ %35, %lpad.i ], [ %61, %lpad5.i ], [ %87, %lpad13.i ], [ %113, %lpad21.i ]
   %155 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   call void @__clang_call_terminate(ptr %155) #26
   unreachable

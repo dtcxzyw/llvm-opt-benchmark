@@ -92,21 +92,18 @@ define void @dbdsdc_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %58 = sext i32 %57 to i64
   %59 = getelementptr double, ptr %38, i64 %58
   %60 = getelementptr i8, ptr %59, i64 8
-  br label %.sink.split
+  store double 1.000000e+00, ptr %60, align 8
+  br label %65
 
 61:                                               ; preds = %51
   %62 = load double, ptr %3, align 8
   %63 = fcmp ogt double %62, 0.000000e+00
   %64 = select i1 %63, double 1.000000e+00, double -1.000000e+00
   store double %64, ptr %5, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %52, %61
-  %.sink483 = phi ptr [ %7, %61 ], [ %60, %52 ]
-  store double 1.000000e+00, ptr %.sink483, align 8
+  store double 1.000000e+00, ptr %7, align 8
   br label %65
 
-65:                                               ; preds = %.sink.split, %51
+65:                                               ; preds = %51, %61, %52
   %66 = load double, ptr %3, align 8
   %67 = tail call noundef double @llvm.fabs.f64(double %66)
   store double %67, ptr %3, align 8
@@ -177,7 +174,7 @@ define void @dbdsdc_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %100 = load i32, ptr %2, align 4
   %101 = mul nsw i32 %100, 3
   %102 = add nsw i32 %101, %96
-  br label %.sink.split484
+  br label %.sink.split
 
 103:                                              ; preds = %.lr.ph
   %104 = getelementptr inbounds double, ptr %40, i64 %indvars.iv
@@ -186,19 +183,19 @@ define void @dbdsdc_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %106 = load i32, ptr %19, align 4
   %107 = trunc nuw nsw i64 %indvars.iv to i32
   %108 = add nsw i32 %106, %107
-  br label %.sink.split484
+  br label %.sink.split
 
-.sink.split484:                                   ; preds = %103, %93
-  %.sink489 = phi i32 [ %102, %93 ], [ %108, %103 ]
+.sink.split:                                      ; preds = %103, %93
+  %.sink487 = phi i32 [ %102, %93 ], [ %108, %103 ]
   %109 = phi ptr [ %9, %93 ], [ %11, %103 ]
-  %.sink485 = phi double [ %85, %93 ], [ %105, %103 ]
+  %.sink483 = phi double [ %85, %93 ], [ %105, %103 ]
   %110 = getelementptr inbounds i8, ptr %109, i64 -8
-  %111 = sext i32 %.sink489 to i64
+  %111 = sext i32 %.sink487 to i64
   %112 = getelementptr inbounds double, ptr %110, i64 %111
-  store double %.sink485, ptr %112, align 8
+  store double %.sink483, ptr %112, align 8
   br label %113
 
-113:                                              ; preds = %.sink.split484, %.lr.ph
+113:                                              ; preds = %.sink.split, %.lr.ph
   %114 = load i32, ptr %15, align 4
   %115 = sext i32 %114 to i64
   %.not.not = icmp slt i64 %indvars.iv, %115
@@ -442,7 +439,7 @@ define void @dbdsdc_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   store double %241, ptr %244, align 8
   %245 = load i32, ptr %2, align 4
   %246 = mul i32 %245, %195
-  br label %.sink.split490
+  br label %.sink.split488
 
 247:                                              ; preds = %230
   %248 = load i32, ptr %2, align 4
@@ -459,17 +456,17 @@ define void @dbdsdc_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %258 = load i32, ptr %25, align 4
   %259 = add nsw i32 %258, %.0391
   %260 = mul i32 %259, %257
-  br label %.sink.split490
+  br label %.sink.split488
 
-.sink.split490:                                   ; preds = %235, %247
-  %.sink494 = phi i32 [ %260, %247 ], [ %246, %235 ]
-  %.sink492 = phi ptr [ %38, %247 ], [ %37, %235 ]
-  %261 = sext i32 %.sink494 to i64
-  %262 = getelementptr inbounds double, ptr %.sink492, i64 %261
+.sink.split488:                                   ; preds = %235, %247
+  %.sink492 = phi i32 [ %260, %247 ], [ %246, %235 ]
+  %.sink490 = phi ptr [ %38, %247 ], [ %37, %235 ]
+  %261 = sext i32 %.sink492 to i64
+  %262 = getelementptr inbounds double, ptr %.sink490, i64 %261
   store double 1.000000e+00, ptr %262, align 8
   br label %263
 
-263:                                              ; preds = %.sink.split490, %230
+263:                                              ; preds = %.sink.split488, %230
   %264 = load i32, ptr %2, align 4
   %265 = sext i32 %264 to i64
   %266 = getelementptr inbounds double, ptr %30, i64 %265

@@ -1055,9 +1055,9 @@ define void @Abc_NtkCutsOracle(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br label %62
 
 62:                                               ; preds = %51, %49
-  %.sink = phi ptr [ %61, %51 ], [ %.val43, %49 ]
-  %.val44.val = load i32, ptr %.sink, align 4
-  tail call void @Cut_OracleTryDroppingCuts(ptr noundef %1, i32 noundef %.val44.val) #12
+  %.val44.val.sink.in = phi ptr [ %61, %51 ], [ %.val43, %49 ]
+  %.val44.val.sink = load i32, ptr %.val44.val.sink.in, align 4
+  tail call void @Cut_OracleTryDroppingCuts(ptr noundef %1, i32 noundef %.val44.val.sink) #12
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %.val = load i32, ptr %23, align 4
   %63 = sext i32 %.val to i64

@@ -489,15 +489,15 @@ define range(i32 -101, 1) i32 @CVDiagB(ptr noundef %0, i32 noundef %1) local_unn
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %16
-  %.sink = phi ptr [ %20, %.lr.ph ], [ %17, %16 ]
-  %.016 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
-  %18 = load i32, ptr %.016, align 8
+  %.016.sink.in = phi ptr [ %20, %.lr.ph ], [ %17, %16 ]
+  %.016.sink = load ptr, ptr %.016.sink.in, align 8, !nonnull !4, !noundef !4
+  %18 = load i32, ptr %.016.sink, align 8
   %19 = icmp eq i32 %1, %18
-  %20 = getelementptr inbounds i8, ptr %.016, i64 120
+  %20 = getelementptr inbounds i8, ptr %.016.sink, i64 120
   br i1 %19, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %21 = getelementptr inbounds i8, ptr %.016, i64 16
+  %21 = getelementptr inbounds i8, ptr %.016.sink, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 @CVDiag(ptr noundef %22)
   br label %24

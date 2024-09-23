@@ -1487,6 +1487,7 @@ if.end79:                                         ; preds = %if.then67, %if.end6
 do.end8.i:                                        ; preds = %if.end79
   %last.i = getelementptr inbounds i8, ptr %buf, i64 8
   store ptr %call.i.i, ptr %last.i, align 8
+  store ptr %call.i.i, ptr %buf, align 8
   br label %evbuffer_chain_insert.exit
 
 land.rhs.i.i:                                     ; preds = %if.end79, %while.body.i.i
@@ -1533,11 +1534,10 @@ if.then10.i:                                      ; preds = %evbuffer_free_trail
 
 if.end12.i:                                       ; preds = %if.then10.i, %evbuffer_free_trailing_empty_chains.exit.i
   %last13.i = getelementptr inbounds i8, ptr %buf, i64 8
+  store ptr %call.i.i, ptr %last13.i, align 8
   br label %evbuffer_chain_insert.exit
 
 evbuffer_chain_insert.exit:                       ; preds = %do.end8.i, %if.end12.i
-  %last13.sink.i = phi ptr [ %last13.i, %if.end12.i ], [ %buf, %do.end8.i ]
-  store ptr %call.i.i, ptr %last13.sink.i, align 8
   %32 = load i64, ptr %off83, align 8
   br label %out
 
@@ -2816,6 +2816,7 @@ evbuffer_incref_.exit.i:                          ; preds = %if.then8.i.i, %do.e
 
 do.end8.i.i:                                      ; preds = %evbuffer_incref_.exit.i
   store ptr %call.i.i, ptr %last13.i.i, align 8
+  store ptr %call.i.i, ptr %outbuf, align 8
   br label %evbuffer_chain_insert.exit.i
 
 land.rhs.i.i.i:                                   ; preds = %evbuffer_incref_.exit.i, %while.body.i.i.i
@@ -2854,15 +2855,17 @@ evbuffer_free_trailing_empty_chains.exit.i.i:     ; preds = %while.body.i.i.i, %
   store ptr %call.i.i, ptr %ch.011.i.i.i, align 8
   %31 = load i64, ptr %off26.i, align 8
   %tobool9.not.i.i = icmp eq i64 %31, 0
-  br i1 %tobool9.not.i.i, label %evbuffer_chain_insert.exit.i, label %if.then10.i.i
+  br i1 %tobool9.not.i.i, label %if.end12.i.i, label %if.then10.i.i
 
 if.then10.i.i:                                    ; preds = %evbuffer_free_trailing_empty_chains.exit.i.i
   store ptr %ch.011.i.i.i, ptr %last_with_datap.i.i, align 8
+  br label %if.end12.i.i
+
+if.end12.i.i:                                     ; preds = %if.then10.i.i, %evbuffer_free_trailing_empty_chains.exit.i.i
+  store ptr %call.i.i, ptr %last13.i.i, align 8
   br label %evbuffer_chain_insert.exit.i
 
-evbuffer_chain_insert.exit.i:                     ; preds = %if.then10.i.i, %evbuffer_free_trailing_empty_chains.exit.i.i, %do.end8.i.i
-  %last13.sink.i.i = phi ptr [ %outbuf, %do.end8.i.i ], [ %last13.i.i, %if.then10.i.i ], [ %last13.i.i, %evbuffer_free_trailing_empty_chains.exit.i.i ]
-  store ptr %call.i.i, ptr %last13.sink.i.i, align 8
+evbuffer_chain_insert.exit.i:                     ; preds = %if.end12.i.i, %do.end8.i.i
   %32 = load i64, ptr %off26.i, align 8
   %33 = load i64, ptr %total_len22, align 8
   %add.i.i = add i64 %33, %32
@@ -4737,6 +4740,7 @@ if.end:                                           ; preds = %if.end.i.i
 do.end8.i:                                        ; preds = %if.end
   %last.i = getelementptr inbounds i8, ptr %buf, i64 8
   store ptr %call.i.i, ptr %last.i, align 8
+  store ptr %call.i.i, ptr %buf, align 8
   br label %evbuffer_chain_insert.exit
 
 land.rhs.i.i:                                     ; preds = %if.end, %while.body.i.i
@@ -4784,11 +4788,10 @@ if.then10.i:                                      ; preds = %evbuffer_free_trail
 
 if.end12.i:                                       ; preds = %if.then10.i, %evbuffer_free_trailing_empty_chains.exit.i
   %last13.i = getelementptr inbounds i8, ptr %buf, i64 8
+  store ptr %call.i.i, ptr %last13.i, align 8
   br label %evbuffer_chain_insert.exit
 
 evbuffer_chain_insert.exit:                       ; preds = %do.end8.i, %if.end12.i
-  %last13.sink.i = phi ptr [ %last13.i, %if.end12.i ], [ %buf, %do.end8.i ]
-  store ptr %call.i.i, ptr %last13.sink.i, align 8
   %off15.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   %7 = load i64, ptr %off15.i, align 8
   %total_len.i = getelementptr inbounds i8, ptr %buf, i64 24
@@ -6179,6 +6182,7 @@ if.end12:                                         ; preds = %do.end9
 do.end8.i:                                        ; preds = %if.end12
   %last.i = getelementptr inbounds i8, ptr %outbuf, i64 8
   store ptr %call.i, ptr %last.i, align 8
+  store ptr %call.i, ptr %outbuf, align 8
   br label %evbuffer_chain_insert.exit
 
 land.rhs.i.i:                                     ; preds = %if.end12, %while.body.i.i
@@ -6225,11 +6229,10 @@ if.then10.i:                                      ; preds = %evbuffer_free_trail
 
 if.end12.i:                                       ; preds = %if.then10.i, %evbuffer_free_trailing_empty_chains.exit.i
   %last13.i = getelementptr inbounds i8, ptr %outbuf, i64 8
+  store ptr %call.i, ptr %last13.i, align 8
   br label %evbuffer_chain_insert.exit
 
 evbuffer_chain_insert.exit:                       ; preds = %do.end8.i, %if.end12.i
-  %last13.sink.i = phi ptr [ %last13.i, %if.end12.i ], [ %outbuf, %do.end8.i ]
-  store ptr %call.i, ptr %last13.sink.i, align 8
   %10 = load i64, ptr %off, align 8
   %total_len.i = getelementptr inbounds i8, ptr %outbuf, i64 24
   %11 = load i64, ptr %total_len.i, align 8
@@ -6239,7 +6242,7 @@ evbuffer_chain_insert.exit:                       ; preds = %do.end8.i, %if.end1
   %12 = load i64, ptr %n_add_for_cb, align 8
   %add13 = add i64 %12, %datlen
   store i64 %add13, ptr %n_add_for_cb, align 8
-  tail call void @evbuffer_invoke_callbacks_(ptr noundef %outbuf)
+  tail call void @evbuffer_invoke_callbacks_(ptr noundef nonnull %outbuf)
   br label %do.body15
 
 do.body15:                                        ; preds = %evbuffer_chain_insert.exit, %if.then11
@@ -6812,6 +6815,7 @@ do.end108:                                        ; preds = %do.end100.thread, %
 do.end8.i:                                        ; preds = %do.end108
   %last.i = getelementptr inbounds i8, ptr %buf, i64 8
   store ptr %call.i, ptr %last.i, align 8
+  store ptr %call.i, ptr %buf, align 8
   br label %evbuffer_chain_insert.exit
 
 land.rhs.i.i:                                     ; preds = %do.end108, %while.body.i.i
@@ -6859,18 +6863,17 @@ if.then10.i:                                      ; preds = %evbuffer_free_trail
 
 if.end12.i:                                       ; preds = %if.then10.i, %evbuffer_free_trailing_empty_chains.exit.i
   %last13.i = getelementptr inbounds i8, ptr %buf, i64 8
+  store ptr %call.i, ptr %last13.i, align 8
   br label %evbuffer_chain_insert.exit
 
 evbuffer_chain_insert.exit:                       ; preds = %do.end8.i, %if.end12.i
-  %last13.sink.i = phi ptr [ %last13.i, %if.end12.i ], [ %buf, %do.end8.i ]
-  store ptr %call.i, ptr %last13.sink.i, align 8
   %off15.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %27 = load i64, ptr %off15.i, align 8
   %total_len.i = getelementptr inbounds i8, ptr %buf, i64 24
   %28 = load i64, ptr %total_len.i, align 8
   %add.i = add i64 %28, %27
   store i64 %add.i, ptr %total_len.i, align 8
-  tail call void @evbuffer_invoke_callbacks_(ptr noundef %buf)
+  tail call void @evbuffer_invoke_callbacks_(ptr noundef nonnull %buf)
   %29 = load ptr, ptr %lock, align 8
   %tobool113.not = icmp eq ptr %29, null
   br i1 %tobool113.not, label %return, label %if.then114

@@ -119,33 +119,42 @@ oss_init_per_direction.exit16:                    ; preds = %oss_init_per_direct
   %..str.4 = select i1 %tobool.not, ptr @.str.4, ptr %6
   %call = tail call i32 @access(ptr noundef nonnull %..str.4, i32 noundef 6) #13
   %cmp3 = icmp slt i32 %call, 0
-  br i1 %cmp3, label %return.sink.split, label %if.end13
+  br i1 %cmp3, label %if.then4, label %if.end13
 
-if.end13:                                         ; preds = %oss_init_per_direction.exit16
-  %7 = load ptr, ptr %out, align 8
-  %dev15 = getelementptr inbounds i8, ptr %7, i64 48
-  %8 = load ptr, ptr %dev15, align 8
-  %tobool16.not = icmp eq ptr %8, null
-  %..str.42 = select i1 %tobool16.not, ptr @.str.4, ptr %8
-  %call21 = tail call i32 @access(ptr noundef nonnull %..str.42, i32 noundef 6) #13
-  %cmp22 = icmp slt i32 %call21, 0
-  br i1 %cmp22, label %return.sink.split, label %return
-
-return.sink.split:                                ; preds = %if.end13, %oss_init_per_direction.exit16
-  %out.sink = phi ptr [ %u, %oss_init_per_direction.exit16 ], [ %out, %if.end13 ]
-  %.sink = phi i32 [ 749, %oss_init_per_direction.exit16 ], [ 753, %if.end13 ]
-  %call24 = tail call ptr @__errno_location() #15
-  %9 = load i32, ptr %call24, align 4
-  %10 = load ptr, ptr %out.sink, align 8
-  %dev26 = getelementptr inbounds i8, ptr %10, i64 48
-  %11 = load ptr, ptr %dev26, align 8
-  %tobool27.not = icmp eq ptr %11, null
-  %..str.43 = select i1 %tobool27.not, ptr @.str.4, ptr %11
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef %.sink, ptr noundef nonnull @__func__.oss_audio_init, i32 noundef %9, ptr noundef nonnull @.str.5, ptr noundef nonnull %..str.43) #13
+if.then4:                                         ; preds = %oss_init_per_direction.exit16
+  %call5 = tail call ptr @__errno_location() #15
+  %7 = load i32, ptr %call5, align 4
+  %8 = load ptr, ptr %u, align 8
+  %dev7 = getelementptr inbounds i8, ptr %8, i64 48
+  %9 = load ptr, ptr %dev7, align 8
+  %tobool8.not = icmp eq ptr %9, null
+  %..str.41 = select i1 %tobool8.not, ptr @.str.4, ptr %9
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 749, ptr noundef nonnull @__func__.oss_audio_init, i32 noundef %7, ptr noundef nonnull @.str.5, ptr noundef nonnull %..str.41) #13
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.end13
-  %retval.0 = phi ptr [ %dev, %if.end13 ], [ null, %return.sink.split ]
+if.end13:                                         ; preds = %oss_init_per_direction.exit16
+  %10 = load ptr, ptr %out, align 8
+  %dev15 = getelementptr inbounds i8, ptr %10, i64 48
+  %11 = load ptr, ptr %dev15, align 8
+  %tobool16.not = icmp eq ptr %11, null
+  %..str.42 = select i1 %tobool16.not, ptr @.str.4, ptr %11
+  %call21 = tail call i32 @access(ptr noundef nonnull %..str.42, i32 noundef 6) #13
+  %cmp22 = icmp slt i32 %call21, 0
+  br i1 %cmp22, label %if.then23, label %return
+
+if.then23:                                        ; preds = %if.end13
+  %call24 = tail call ptr @__errno_location() #15
+  %12 = load i32, ptr %call24, align 4
+  %13 = load ptr, ptr %out, align 8
+  %dev26 = getelementptr inbounds i8, ptr %13, i64 48
+  %14 = load ptr, ptr %dev26, align 8
+  %tobool27.not = icmp eq ptr %14, null
+  %..str.43 = select i1 %tobool27.not, ptr @.str.4, ptr %14
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 753, ptr noundef nonnull @__func__.oss_audio_init, i32 noundef %12, ptr noundef nonnull @.str.5, ptr noundef nonnull %..str.43) #13
+  br label %return
+
+return:                                           ; preds = %if.end13, %if.then23, %if.then4
+  %retval.0 = phi ptr [ null, %if.then4 ], [ null, %if.then23 ], [ %dev, %if.end13 ]
   ret ptr %retval.0
 }
 

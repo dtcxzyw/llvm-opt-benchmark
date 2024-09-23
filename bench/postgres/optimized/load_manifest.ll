@@ -264,7 +264,7 @@ define internal fastcc noundef ptr @manifest_files_insert_hash_internal(ptr noca
 
 9:                                                ; preds = %.backedge, %4
   %10 = phi i32 [ 0, %.backedge ], [ %.pre168, %4 ]
-  %11 = phi i32 [ %56, %.backedge ], [ %.pre, %4 ]
+  %11 = phi i32 [ %60, %.backedge ], [ %.pre, %4 ]
   %.not = icmp ult i32 %11, %10
   br i1 %.not, label %18, label %12
 
@@ -291,132 +291,144 @@ define internal fastcc noundef ptr @manifest_files_insert_hash_internal(ptr noca
   %22 = getelementptr %struct.manifest_file, ptr %19, i64 %21
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %.sink.split, label %.lr.ph
+  br i1 %24, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %18, %78
-  %25 = phi ptr [ %80, %78 ], [ %22, %18 ]
-  %.069108 = phi i32 [ %41, %78 ], [ %20, %18 ]
-  %.074107 = phi i32 [ %69, %78 ], [ 0, %18 ]
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
-  %27 = load ptr, ptr %26, align 8
-  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) %1) #19
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %.loopexit, label %30
+._crit_edge:                                      ; preds = %18, %84
+  %.lcssa = phi ptr [ %86, %84 ], [ %22, %18 ]
+  %25 = load i32, ptr %5, align 8
+  %26 = add i32 %25, 1
+  store i32 %26, ptr %5, align 8
+  %27 = getelementptr inbounds i8, ptr %.lcssa, i64 8
+  store ptr %1, ptr %27, align 8
+  br label %.sink.split
 
-30:                                               ; preds = %.lr.ph
-  %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #19
-  %32 = trunc i64 %31 to i32
-  %33 = tail call i32 @hash_bytes(ptr noundef %27, i32 noundef %32) #17
+.lr.ph:                                           ; preds = %18, %84
+  %28 = phi ptr [ %86, %84 ], [ %22, %18 ]
+  %.069108 = phi i32 [ %44, %84 ], [ %20, %18 ]
+  %.074107 = phi i32 [ %75, %84 ], [ 0, %18 ]
+  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %30 = load ptr, ptr %29, align 8
+  %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) %1) #19
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %.loopexit, label %33
+
+33:                                               ; preds = %.lr.ph
+  %34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #19
+  %35 = trunc i64 %34 to i32
+  %36 = tail call i32 @hash_bytes(ptr noundef %30, i32 noundef %35) #17
   %.val76 = load i32, ptr %8, align 4
-  %34 = and i32 %.val76, %33
-  %.not.i = icmp ugt i32 %34, %.069108
-  br i1 %.not.i, label %35, label %manifest_files_distance.exit
+  %37 = and i32 %.val76, %36
+  %.not.i = icmp ugt i32 %37, %.069108
+  br i1 %.not.i, label %38, label %manifest_files_distance.exit
 
-35:                                               ; preds = %30
-  %36 = load i64, ptr %0, align 8
-  %37 = trunc i64 %36 to i32
-  %38 = add i32 %.069108, %37
+38:                                               ; preds = %33
+  %39 = load i64, ptr %0, align 8
+  %40 = trunc i64 %39 to i32
+  %41 = add i32 %.069108, %40
   br label %manifest_files_distance.exit
 
-manifest_files_distance.exit:                     ; preds = %30, %35
-  %.pn.i = phi i32 [ %38, %35 ], [ %.069108, %30 ]
-  %.0.i = sub i32 %.pn.i, %34
-  %39 = icmp ugt i32 %.074107, %.0.i
-  %40 = add i32 %.069108, 1
-  %41 = and i32 %40, %.val76
-  br i1 %39, label %.preheader81, label %68
+manifest_files_distance.exit:                     ; preds = %33, %38
+  %.pn.i = phi i32 [ %41, %38 ], [ %.069108, %33 ]
+  %.0.i = sub i32 %.pn.i, %37
+  %42 = icmp ugt i32 %.074107, %.0.i
+  %43 = add i32 %.069108, 1
+  %44 = and i32 %43, %.val76
+  br i1 %42, label %.preheader81, label %74
 
 .preheader81:                                     ; preds = %manifest_files_distance.exit
-  %42 = zext i32 %41 to i64
-  %43 = getelementptr %struct.manifest_file, ptr %19, i64 %42
-  %44 = load i32, ptr %43, align 8
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %.preheader, label %.lr.ph114
+  %45 = zext i32 %44 to i64
+  %46 = getelementptr %struct.manifest_file, ptr %19, i64 %45
+  %47 = load i32, ptr %46, align 8
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %.preheader, label %.lr.ph114
 
-.preheader:                                       ; preds = %.preheader81, %57
-  %.lcssa94 = phi i32 [ %59, %57 ], [ %41, %.preheader81 ]
-  %.lcssa92 = phi ptr [ %61, %57 ], [ %43, %.preheader81 ]
+.preheader:                                       ; preds = %.preheader81, %61
+  %.lcssa94 = phi i32 [ %63, %61 ], [ %44, %.preheader81 ]
+  %.lcssa92 = phi ptr [ %65, %61 ], [ %46, %.preheader81 ]
+  %49 = getelementptr inbounds i8, ptr %28, i64 8
   %.not75132 = icmp eq i32 %.lcssa94, %.069108
-  br i1 %.not75132, label %.sink.split, label %.lr.ph135
+  br i1 %.not75132, label %._crit_edge136, label %.lr.ph135
 
-.lr.ph114:                                        ; preds = %.preheader81, %57
-  %46 = phi i32 [ %59, %57 ], [ %41, %.preheader81 ]
-  %.070113 = phi i32 [ %47, %57 ], [ 0, %.preheader81 ]
-  %47 = add i32 %.070113, 1
-  %48 = icmp sgt i32 %47, 150
-  br i1 %48, label %49, label %57
+.lr.ph114:                                        ; preds = %.preheader81, %61
+  %50 = phi i32 [ %63, %61 ], [ %44, %.preheader81 ]
+  %.070113 = phi i32 [ %51, %61 ], [ 0, %.preheader81 ]
+  %51 = add i32 %.070113, 1
+  %52 = icmp sgt i32 %51, 150
+  br i1 %52, label %53, label %61
 
-49:                                               ; preds = %.lr.ph114
-  %50 = load i32, ptr %5, align 8
-  %51 = uitofp i32 %50 to double
-  %52 = load i64, ptr %0, align 8
-  %53 = uitofp i64 %52 to double
-  %54 = fdiv double %51, %53
-  %55 = fcmp ult double %54, 1.000000e-01
-  br i1 %55, label %57, label %.backedge
+53:                                               ; preds = %.lr.ph114
+  %54 = load i32, ptr %5, align 8
+  %55 = uitofp i32 %54 to double
+  %56 = load i64, ptr %0, align 8
+  %57 = uitofp i64 %56 to double
+  %58 = fdiv double %55, %57
+  %59 = fcmp ult double %58, 1.000000e-01
+  br i1 %59, label %61, label %.backedge
 
-.backedge:                                        ; preds = %71, %49
-  %56 = phi i32 [ %50, %49 ], [ %72, %71 ]
+.backedge:                                        ; preds = %77, %53
+  %60 = phi i32 [ %54, %53 ], [ %78, %77 ]
   store i32 0, ptr %6, align 8
   br label %9
 
-57:                                               ; preds = %49, %.lr.ph114
-  %58 = add i32 %46, 1
-  %59 = and i32 %58, %.val76
-  %60 = zext i32 %59 to i64
-  %61 = getelementptr %struct.manifest_file, ptr %19, i64 %60
-  %62 = load i32, ptr %61, align 8
-  %63 = icmp eq i32 %62, 0
-  br i1 %63, label %.preheader, label %.lr.ph114
+61:                                               ; preds = %53, %.lr.ph114
+  %62 = add i32 %50, 1
+  %63 = and i32 %62, %.val76
+  %64 = zext i32 %63 to i64
+  %65 = getelementptr %struct.manifest_file, ptr %19, i64 %64
+  %66 = load i32, ptr %65, align 8
+  %67 = icmp eq i32 %66, 0
+  br i1 %67, label %.preheader, label %.lr.ph114
 
 .lr.ph135:                                        ; preds = %.preheader, %.lr.ph135
-  %.071134 = phi i32 [ %65, %.lr.ph135 ], [ %.lcssa94, %.preheader ]
-  %.073133 = phi ptr [ %67, %.lr.ph135 ], [ %.lcssa92, %.preheader ]
+  %.071134 = phi i32 [ %69, %.lr.ph135 ], [ %.lcssa94, %.preheader ]
+  %.073133 = phi ptr [ %71, %.lr.ph135 ], [ %.lcssa92, %.preheader ]
   %.val80 = load i32, ptr %8, align 4
-  %64 = add i32 %.071134, -1
-  %65 = and i32 %.val80, %64
-  %66 = zext i32 %65 to i64
-  %67 = getelementptr %struct.manifest_file, ptr %19, i64 %66
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.073133, ptr noundef nonnull align 8 dereferenceable(40) %67, i64 40, i1 false)
-  %.not75 = icmp eq i32 %65, %.069108
-  br i1 %.not75, label %.sink.split, label %.lr.ph135, !llvm.loop !8
+  %68 = add i32 %.071134, -1
+  %69 = and i32 %.val80, %68
+  %70 = zext i32 %69 to i64
+  %71 = getelementptr %struct.manifest_file, ptr %19, i64 %70
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.073133, ptr noundef nonnull align 8 dereferenceable(40) %71, i64 40, i1 false)
+  %.not75 = icmp eq i32 %69, %.069108
+  br i1 %.not75, label %._crit_edge136, label %.lr.ph135, !llvm.loop !8
 
-68:                                               ; preds = %manifest_files_distance.exit
-  %69 = add i32 %.074107, 1
-  %70 = icmp ugt i32 %69, 25
-  br i1 %70, label %71, label %78
-
-71:                                               ; preds = %68
+._crit_edge136:                                   ; preds = %.lr.ph135, %.preheader
   %72 = load i32, ptr %5, align 8
-  %73 = uitofp i32 %72 to double
-  %74 = load i64, ptr %0, align 8
-  %75 = uitofp i64 %74 to double
-  %76 = fdiv double %73, %75
-  %77 = fcmp ult double %76, 1.000000e-01
-  br i1 %77, label %78, label %.backedge
+  %73 = add i32 %72, 1
+  store i32 %73, ptr %5, align 8
+  store ptr %1, ptr %49, align 8
+  br label %.sink.split
 
-78:                                               ; preds = %71, %68
-  %79 = zext i32 %41 to i64
-  %80 = getelementptr %struct.manifest_file, ptr %19, i64 %79
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  br i1 %82, label %.sink.split, label %.lr.ph
+74:                                               ; preds = %manifest_files_distance.exit
+  %75 = add i32 %.074107, 1
+  %76 = icmp ugt i32 %75, 25
+  br i1 %76, label %77, label %84
 
-.sink.split:                                      ; preds = %18, %78, %.lr.ph135, %.preheader
-  %.lcssa210.lcssa.sink.sink = phi ptr [ %25, %.preheader ], [ %25, %.lr.ph135 ], [ %80, %78 ], [ %22, %18 ]
-  %storemerge.in = load i32, ptr %5, align 8
-  %storemerge = add i32 %storemerge.in, 1
-  store i32 %storemerge, ptr %5, align 8
-  %.sink212 = getelementptr inbounds i8, ptr %.lcssa210.lcssa.sink.sink, i64 8
-  store ptr %1, ptr %.sink212, align 8
+77:                                               ; preds = %74
+  %78 = load i32, ptr %5, align 8
+  %79 = uitofp i32 %78 to double
+  %80 = load i64, ptr %0, align 8
+  %81 = uitofp i64 %80 to double
+  %82 = fdiv double %79, %81
+  %83 = fcmp ult double %82, 1.000000e-01
+  br i1 %83, label %84, label %.backedge
+
+84:                                               ; preds = %77, %74
+  %85 = zext i32 %44 to i64
+  %86 = getelementptr %struct.manifest_file, ptr %19, i64 %85
+  %87 = load i32, ptr %86, align 8
+  %88 = icmp eq i32 %87, 0
+  br i1 %88, label %._crit_edge, label %.lr.ph
+
+.sink.split:                                      ; preds = %._crit_edge, %._crit_edge136
+  %.lcssa210.lcssa.sink.sink = phi ptr [ %28, %._crit_edge136 ], [ %.lcssa, %._crit_edge ]
   store i32 1, ptr %.lcssa210.lcssa.sink.sink, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.sink.split
   %.sink = phi i8 [ 0, %.sink.split ], [ 1, %.lr.ph ]
-  %83 = phi ptr [ %.lcssa210.lcssa.sink.sink, %.sink.split ], [ %25, %.lr.ph ]
+  %89 = phi ptr [ %.lcssa210.lcssa.sink.sink, %.sink.split ], [ %28, %.lr.ph ]
   store i8 %.sink, ptr %3, align 1
-  ret ptr %83
+  ret ptr %89
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1045,16 +1057,19 @@ define internal void @combinebackup_per_wal_range_cb(ptr nocapture noundef reado
   %13 = getelementptr inbounds i8, ptr %5, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %19, label %16
+  br i1 %15, label %16, label %17
 
 16:                                               ; preds = %4
-  %17 = load ptr, ptr %9, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
-  br label %19
+  store ptr %6, ptr %13, align 8
+  br label %20
 
-19:                                               ; preds = %4, %16
-  %.sink = phi ptr [ %18, %16 ], [ %13, %4 ]
-  store ptr %6, ptr %.sink, align 8
+17:                                               ; preds = %4
+  %18 = load ptr, ptr %9, align 8
+  %19 = getelementptr inbounds i8, ptr %18, i64 24
+  store ptr %6, ptr %19, align 8
+  br label %20
+
+20:                                               ; preds = %17, %16
   store ptr %6, ptr %9, align 8
   ret void
 }

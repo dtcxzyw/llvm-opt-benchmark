@@ -250,23 +250,26 @@ Mvc_CoverMakeEmpty.exit:                          ; preds = %.lr.ph.i, %1
 .loopexit:                                        ; preds = %.lr.ph.preheader, %14, %9
   %29 = load ptr, ptr %2, align 8
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %34, label %31
+  br i1 %30, label %31, label %32
 
 31:                                               ; preds = %.loopexit
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
-  %33 = load ptr, ptr %32, align 8
-  br label %34
+  store ptr %5, ptr %2, align 8
+  br label %35
 
-34:                                               ; preds = %.loopexit, %31
-  %.sink = phi ptr [ %33, %31 ], [ %2, %.loopexit ]
-  store ptr %5, ptr %.sink, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %5, ptr %35, align 8
+32:                                               ; preds = %.loopexit
+  %33 = getelementptr inbounds i8, ptr %0, i64 24
+  %34 = load ptr, ptr %33, align 8
+  store ptr %5, ptr %34, align 8
+  br label %35
+
+35:                                               ; preds = %32, %31
+  %36 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %5, ptr %36, align 8
   store ptr null, ptr %5, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 32
-  %37 = load i32, ptr %36, align 8
-  %38 = add nsw i32 %37, 1
-  store i32 %38, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %0, i64 32
+  %38 = load i32, ptr %37, align 8
+  %39 = add nsw i32 %38, 1
+  store i32 %39, ptr %37, align 8
   ret void
 }
 
@@ -336,23 +339,26 @@ define noundef ptr @Mvc_CoverCreateTautology(ptr nocapture noundef readonly %0) 
   %31 = getelementptr inbounds i8, ptr %6, i64 16
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %37, label %34
+  br i1 %33, label %34, label %35
 
 34:                                               ; preds = %.loopexit
-  %35 = getelementptr inbounds i8, ptr %6, i64 24
-  %36 = load ptr, ptr %35, align 8
-  br label %37
+  store ptr %7, ptr %31, align 8
+  br label %38
 
-37:                                               ; preds = %.loopexit, %34
-  %.sink = phi ptr [ %36, %34 ], [ %31, %.loopexit ]
-  store ptr %7, ptr %.sink, align 8
-  %38 = getelementptr inbounds i8, ptr %6, i64 24
-  store ptr %7, ptr %38, align 8
+35:                                               ; preds = %.loopexit
+  %36 = getelementptr inbounds i8, ptr %6, i64 24
+  %37 = load ptr, ptr %36, align 8
+  store ptr %7, ptr %37, align 8
+  br label %38
+
+38:                                               ; preds = %35, %34
+  %39 = getelementptr inbounds i8, ptr %6, i64 24
+  store ptr %7, ptr %39, align 8
   store ptr null, ptr %7, align 8
-  %39 = getelementptr inbounds i8, ptr %6, i64 32
-  %40 = load i32, ptr %39, align 8
-  %41 = add nsw i32 %40, 1
-  store i32 %41, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %6, i64 32
+  %41 = load i32, ptr %40, align 8
+  %42 = add nsw i32 %41, 1
+  store i32 %42, ptr %40, align 8
   ret ptr %6
 }
 

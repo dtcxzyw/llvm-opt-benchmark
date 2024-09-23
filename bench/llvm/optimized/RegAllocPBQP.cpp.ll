@@ -13011,7 +13011,15 @@ _ZN4llvm4PBQP6VectorC2ERKS1_.exit:                ; preds = %107, %114
   call void @_ZN4llvm4PBQP5GraphINS0_8RegAlloc18RegAllocSolverImplEE12setNodeCostsINS0_6VectorEEEvjT_(ptr noundef nonnull align 8 dereferenceable(224) %1, i32 noundef %.0.i, ptr noundef nonnull %4)
   %123 = load ptr, ptr %30, align 8
   %.not.i.i = icmp eq ptr %123, null
-  br i1 %.not.i.i, label %.critedge.sink.split, label %.critedge.sink.split.sink.split
+  br i1 %.not.i.i, label %_ZN4llvm4PBQP6VectorD2Ev.exit59, label %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
+
+_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i: ; preds = %_ZN4llvm4PBQP6VectorC2ERKS1_.exit
+  call void @_ZdaPv(ptr noundef nonnull %123) #26
+  br label %_ZN4llvm4PBQP6VectorD2Ev.exit59
+
+_ZN4llvm4PBQP6VectorD2Ev.exit59:                  ; preds = %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i, %_ZN4llvm4PBQP6VectorC2ERKS1_.exit
+  store ptr null, ptr %30, align 8
+  br label %.critedge
 
 124:                                              ; preds = %37
   %125 = load ptr, ptr %21, align 8
@@ -13225,7 +13233,15 @@ _ZN12_GLOBAL__N_110Coalescing18addVirtRegCoalesceERN4llvm4PBQP6MatrixERKNS2_8Reg
   %232 = call noundef i32 @_ZN4llvm4PBQP5GraphINS0_8RegAlloc18RegAllocSolverImplEE7addEdgeINS0_6MatrixEEEjjjT_(ptr noundef nonnull align 8 dereferenceable(224) %1, i32 noundef %.0.i67159, i32 noundef %.0.i76, ptr noundef nonnull %5)
   %233 = load ptr, ptr %28, align 8
   %.not.i.i83 = icmp eq ptr %233, null
-  br i1 %.not.i.i83, label %.critedge.sink.split, label %.critedge.sink.split.sink.split
+  br i1 %.not.i.i83, label %_ZN4llvm4PBQP6MatrixD2Ev.exit87, label %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i84
+
+_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i84: ; preds = %_ZN12_GLOBAL__N_110Coalescing18addVirtRegCoalesceERN4llvm4PBQP6MatrixERKNS2_8RegAlloc16AllowedRegVectorES8_f.exit
+  call void @_ZdaPv(ptr noundef nonnull %233) #26
+  br label %_ZN4llvm4PBQP6MatrixD2Ev.exit87
+
+_ZN4llvm4PBQP6MatrixD2Ev.exit87:                  ; preds = %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i84, %_ZN12_GLOBAL__N_110Coalescing18addVirtRegCoalesceERN4llvm4PBQP6MatrixERKNS2_8RegAlloc16AllowedRegVectorES8_f.exit
+  store ptr null, ptr %28, align 8
+  br label %.critedge
 
 234:                                              ; preds = %_ZN4llvm4PBQP5GraphINS0_8RegAlloc18RegAllocSolverImplEE8findEdgeEjj.exit
   %spec.select = select i1 %188, ptr %174, ptr %171
@@ -13324,20 +13340,17 @@ _ZN12_GLOBAL__N_110Coalescing18addVirtRegCoalesceERN4llvm4PBQP6MatrixERKNS2_8Reg
   call void @_ZN4llvm4PBQP5GraphINS0_8RegAlloc18RegAllocSolverImplEE15updateEdgeCostsINS0_6MatrixEEEvjT_(ptr noundef nonnull align 8 dereferenceable(224) %1, i32 noundef %184, ptr noundef nonnull %6)
   %277 = load ptr, ptr %26, align 8
   %.not.i.i109 = icmp eq ptr %277, null
-  br i1 %.not.i.i109, label %.critedge.sink.split, label %.critedge.sink.split.sink.split
+  br i1 %.not.i.i109, label %_ZN4llvm4PBQP6MatrixD2Ev.exit114, label %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i110
 
-.critedge.sink.split.sink.split:                  ; preds = %_ZN12_GLOBAL__N_110Coalescing18addVirtRegCoalesceERN4llvm4PBQP6MatrixERKNS2_8RegAlloc16AllowedRegVectorES8_f.exit108, %_ZN12_GLOBAL__N_110Coalescing18addVirtRegCoalesceERN4llvm4PBQP6MatrixERKNS2_8RegAlloc16AllowedRegVectorES8_f.exit, %_ZN4llvm4PBQP6VectorC2ERKS1_.exit
-  %.sink199 = phi ptr [ %123, %_ZN4llvm4PBQP6VectorC2ERKS1_.exit ], [ %233, %_ZN12_GLOBAL__N_110Coalescing18addVirtRegCoalesceERN4llvm4PBQP6MatrixERKNS2_8RegAlloc16AllowedRegVectorES8_f.exit ], [ %277, %_ZN12_GLOBAL__N_110Coalescing18addVirtRegCoalesceERN4llvm4PBQP6MatrixERKNS2_8RegAlloc16AllowedRegVectorES8_f.exit108 ]
-  %.sink.ph = phi ptr [ %30, %_ZN4llvm4PBQP6VectorC2ERKS1_.exit ], [ %28, %_ZN12_GLOBAL__N_110Coalescing18addVirtRegCoalesceERN4llvm4PBQP6MatrixERKNS2_8RegAlloc16AllowedRegVectorES8_f.exit ], [ %26, %_ZN12_GLOBAL__N_110Coalescing18addVirtRegCoalesceERN4llvm4PBQP6MatrixERKNS2_8RegAlloc16AllowedRegVectorES8_f.exit108 ]
-  call void @_ZdaPv(ptr noundef nonnull %.sink199) #26
-  br label %.critedge.sink.split
+_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i110: ; preds = %_ZN12_GLOBAL__N_110Coalescing18addVirtRegCoalesceERN4llvm4PBQP6MatrixERKNS2_8RegAlloc16AllowedRegVectorES8_f.exit108
+  call void @_ZdaPv(ptr noundef nonnull %277) #26
+  br label %_ZN4llvm4PBQP6MatrixD2Ev.exit114
 
-.critedge.sink.split:                             ; preds = %.critedge.sink.split.sink.split, %_ZN12_GLOBAL__N_110Coalescing18addVirtRegCoalesceERN4llvm4PBQP6MatrixERKNS2_8RegAlloc16AllowedRegVectorES8_f.exit108, %_ZN12_GLOBAL__N_110Coalescing18addVirtRegCoalesceERN4llvm4PBQP6MatrixERKNS2_8RegAlloc16AllowedRegVectorES8_f.exit, %_ZN4llvm4PBQP6VectorC2ERKS1_.exit
-  %.sink = phi ptr [ %30, %_ZN4llvm4PBQP6VectorC2ERKS1_.exit ], [ %28, %_ZN12_GLOBAL__N_110Coalescing18addVirtRegCoalesceERN4llvm4PBQP6MatrixERKNS2_8RegAlloc16AllowedRegVectorES8_f.exit ], [ %26, %_ZN12_GLOBAL__N_110Coalescing18addVirtRegCoalesceERN4llvm4PBQP6MatrixERKNS2_8RegAlloc16AllowedRegVectorES8_f.exit108 ], [ %.sink.ph, %.critedge.sink.split.sink.split ]
-  store ptr null, ptr %.sink, align 8
+_ZN4llvm4PBQP6MatrixD2Ev.exit114:                 ; preds = %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i110, %_ZN12_GLOBAL__N_110Coalescing18addVirtRegCoalesceERN4llvm4PBQP6MatrixERKNS2_8RegAlloc16AllowedRegVectorES8_f.exit108
+  store ptr null, ptr %26, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %106, %.critedge.sink.split, %_ZNK4llvm4PBQP8RegAlloc13GraphMetadata16getNodeIdForVRegENS_8RegisterE.exit, %45, %.lr.ph174, %_ZNK4llvm19MachineRegisterInfo13isAllocatableENS_10MCRegisterE.exit, %35
+.critedge:                                        ; preds = %106, %_ZNK4llvm4PBQP8RegAlloc13GraphMetadata16getNodeIdForVRegENS_8RegisterE.exit, %45, %.lr.ph174, %_ZN4llvm4PBQP6VectorD2Ev.exit59, %_ZN4llvm4PBQP6MatrixD2Ev.exit114, %_ZN4llvm4PBQP6MatrixD2Ev.exit87, %_ZNK4llvm19MachineRegisterInfo13isAllocatableENS_10MCRegisterE.exit, %35
   %278 = icmp ne ptr %.sroa.0150.0173, null
   call void @llvm.assume(i1 %278)
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0150.0173, align 8

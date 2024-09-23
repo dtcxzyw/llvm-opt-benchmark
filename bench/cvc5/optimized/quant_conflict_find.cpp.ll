@@ -21886,7 +21886,7 @@ _ZNSt3mapImmSt4lessImESaISt4pairIKmmEEE5clearEv.exit: ; preds = %_ZNSt3mapImN4cv
   %_M_parent.i.i.i.i1106 = getelementptr inbounds i8, ptr %this, i64 280
   %68 = load ptr, ptr %_M_parent.i.i.i.i1106, align 8
   invoke void @_ZNSt8_Rb_treeImSt4pairIKmmESt10_Select1stIS2_ESt4lessImESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %d_qni_bound373, ptr noundef %68)
-          to label %if.end413 unwind label %terminate.lpad.i.i1107
+          to label %_ZNSt3mapImmSt4lessImESaISt4pairIKmmEEE5clearEv.exit1112 unwind label %terminate.lpad.i.i1107
 
 terminate.lpad.i.i1107:                           ; preds = %_ZNSt3mapImmSt4lessImESaISt4pairIKmmEEE5clearEv.exit
   %69 = landingpad { ptr, i32 }
@@ -21894,6 +21894,10 @@ terminate.lpad.i.i1107:                           ; preds = %_ZNSt3mapImmSt4less
   %70 = extractvalue { ptr, i32 } %69, 0
   call void @__clang_call_terminate(ptr %70) #24
   unreachable
+
+_ZNSt3mapImmSt4lessImESaISt4pairIKmmEEE5clearEv.exit1112: ; preds = %_ZNSt3mapImmSt4lessImESaISt4pairIKmmEEE5clearEv.exit
+  store ptr null, ptr %_M_parent.i.i.i.i1106, align 8
+  br label %if.end413
 
 if.else374:                                       ; preds = %if.then309
   %d_qni_bound376 = getelementptr inbounds i8, ptr %this, i64 264
@@ -21930,7 +21934,7 @@ for.end411:                                       ; preds = %_ZN4cvc58internal12
   %_M_parent.i.i.i.i1196 = getelementptr inbounds i8, ptr %this, i64 280
   %79 = load ptr, ptr %_M_parent.i.i.i.i1196, align 8
   invoke void @_ZNSt8_Rb_treeImSt4pairIKmmESt10_Select1stIS2_ESt4lessImESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %d_qni_bound376, ptr noundef %79)
-          to label %if.end413 unwind label %terminate.lpad.i.i1197
+          to label %_ZNSt3mapImmSt4lessImESaISt4pairIKmmEEE5clearEv.exit1202 unwind label %terminate.lpad.i.i1197
 
 terminate.lpad.i.i1197:                           ; preds = %for.end411
   %80 = landingpad { ptr, i32 }
@@ -21939,9 +21943,11 @@ terminate.lpad.i.i1197:                           ; preds = %for.end411
   call void @__clang_call_terminate(ptr %81) #24
   unreachable
 
-if.end413:                                        ; preds = %for.end411, %_ZNSt3mapImmSt4lessImESaISt4pairIKmmEEE5clearEv.exit
-  %_M_parent.i.i.i.i1196.sink = phi ptr [ %_M_parent.i.i.i.i1106, %_ZNSt3mapImmSt4lessImESaISt4pairIKmmEEE5clearEv.exit ], [ %_M_parent.i.i.i.i1196, %for.end411 ]
-  store ptr null, ptr %_M_parent.i.i.i.i1196.sink, align 8
+_ZNSt3mapImmSt4lessImESaISt4pairIKmmEEE5clearEv.exit1202: ; preds = %for.end411
+  store ptr null, ptr %_M_parent.i.i.i.i1196, align 8
+  br label %if.end413
+
+if.end413:                                        ; preds = %_ZNSt3mapImmSt4lessImESaISt4pairIKmmEEE5clearEv.exit1202, %_ZNSt3mapImmSt4lessImESaISt4pairIKmmEEE5clearEv.exit1112
   store ptr %add.ptr.i.i457, ptr %_M_left.i.i, align 8
   %_M_right.i.i.i1200 = getelementptr inbounds i8, ptr %this, i64 296
   store ptr %add.ptr.i.i457, ptr %_M_right.i.i.i1200, align 8
@@ -36400,22 +36406,18 @@ if.then:                                          ; preds = %while.body
 
 if.then15:                                        ; preds = %if.then
   %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
-  br label %if.end22.sink.split
+  store ptr %__p.022, ptr %arrayidx16, align 8
+  br label %if.end22
 
 if.else:                                          ; preds = %while.body
   %6 = load ptr, ptr %3, align 8
   store ptr %6, ptr %__p.022, align 8
   %7 = load ptr, ptr %arrayidx, align 8
-  br label %if.end22.sink.split
-
-if.end22.sink.split:                              ; preds = %if.else, %if.then15
-  %arrayidx16.sink = phi ptr [ %arrayidx16, %if.then15 ], [ %7, %if.else ]
-  %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then15 ], [ %__bbegin_bkt.021, %if.else ]
-  store ptr %__p.022, ptr %arrayidx16.sink, align 8
+  store ptr %__p.022, ptr %7, align 8
   br label %if.end22
 
-if.end22:                                         ; preds = %if.end22.sink.split, %if.then
-  %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then ], [ %__bbegin_bkt.1.ph, %if.end22.sink.split ]
+if.end22:                                         ; preds = %if.then, %if.then15, %if.else
+  %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.021, %if.else ], [ %rem.i.i, %if.then15 ], [ %rem.i.i, %if.then ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !390
 
@@ -42106,22 +42108,18 @@ if.then:                                          ; preds = %while.body
 
 if.then15:                                        ; preds = %if.then
   %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
-  br label %if.end22.sink.split
+  store ptr %__p.022, ptr %arrayidx16, align 8
+  br label %if.end22
 
 if.else:                                          ; preds = %while.body
   %6 = load ptr, ptr %3, align 8
   store ptr %6, ptr %__p.022, align 8
   %7 = load ptr, ptr %arrayidx, align 8
-  br label %if.end22.sink.split
-
-if.end22.sink.split:                              ; preds = %if.else, %if.then15
-  %arrayidx16.sink = phi ptr [ %arrayidx16, %if.then15 ], [ %7, %if.else ]
-  %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then15 ], [ %__bbegin_bkt.021, %if.else ]
-  store ptr %__p.022, ptr %arrayidx16.sink, align 8
+  store ptr %__p.022, ptr %7, align 8
   br label %if.end22
 
-if.end22:                                         ; preds = %if.end22.sink.split, %if.then
-  %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then ], [ %__bbegin_bkt.1.ph, %if.end22.sink.split ]
+if.end22:                                         ; preds = %if.then, %if.then15, %if.else
+  %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.021, %if.else ], [ %rem.i.i, %if.then15 ], [ %rem.i.i, %if.then ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !413
 

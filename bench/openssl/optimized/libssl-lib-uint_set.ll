@@ -592,12 +592,19 @@ if.then34:                                        ; preds = %if.else
   br label %for.inc
 
 if.else37:                                        ; preds = %if.else
-  br i1 %cmp22.not, label %if.else45, label %return.sink.split
+  br i1 %cmp22.not, label %if.else45, label %if.then42
+
+if.then42:                                        ; preds = %if.else37
+  %end11.le63 = getelementptr inbounds i8, ptr %z.052, i64 24
+  %sub = add i64 %0, -1
+  store i64 %sub, ptr %end11.le63, align 8
+  br label %return
 
 if.else45:                                        ; preds = %if.else37
   br i1 %cmp18.not, label %if.then55, label %for.inc
 
 if.then55:                                        ; preds = %if.else45
+  %end11.le = getelementptr inbounds i8, ptr %z.052, i64 24
   %call.i = tail call noalias ptr @CRYPTO_malloc(i64 noundef 32, ptr noundef nonnull @.str, i32 noundef 114) #6
   %cmp.i38 = icmp eq ptr %call.i, null
   br i1 %cmp.i38, label %create_set_item.exit, label %if.end.i39
@@ -636,20 +643,16 @@ ossl_list_uint_set_insert_after.exit:             ; preds = %if.end.i42, %if.the
   %14 = load i64, ptr %num_elems.i, align 8
   %inc.i = add i64 %14, 1
   store i64 %inc.i, ptr %num_elems.i, align 8
-  br label %return.sink.split
+  %sub60 = add i64 %0, -1
+  store i64 %sub60, ptr %end11.le, align 8
+  br label %return
 
 for.inc:                                          ; preds = %ossl_list_uint_set_remove.exit, %if.else45, %if.then34
   %cmp7.not = icmp eq ptr %z.0.val, null
   br i1 %cmp7.not, label %return, label %for.body, !llvm.loop !10
 
-return.sink.split:                                ; preds = %if.else37, %ossl_list_uint_set_insert_after.exit
-  %end11.le63.sink = getelementptr inbounds i8, ptr %z.052, i64 24
-  %sub = add i64 %0, -1
-  store i64 %sub, ptr %end11.le63.sink, align 8
-  br label %return
-
-return:                                           ; preds = %for.body, %for.inc, %return.sink.split, %if.end, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 1, %if.end ], [ 1, %return.sink.split ], [ 1, %for.inc ], [ 1, %for.body ]
+return:                                           ; preds = %for.body, %for.inc, %if.end, %if.then42, %ossl_list_uint_set_insert_after.exit, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ 1, %ossl_list_uint_set_insert_after.exit ], [ 1, %if.then42 ], [ 1, %if.end ], [ 1, %for.inc ], [ 1, %for.body ]
   ret i32 %retval.0
 }
 

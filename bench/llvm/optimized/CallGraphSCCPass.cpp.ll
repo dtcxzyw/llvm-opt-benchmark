@@ -4552,7 +4552,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_118PrintCallGraphPass8runOnS
   %3 = tail call noundef zeroext i1 @_ZN4llvm18forcePrintModuleIREv() #19
   %4 = tail call noundef zeroext i1 @_ZN4llvm21isFunctionInPrintListENS_9StringRefE(ptr nonnull @.str.12, i64 1) #19
   %brmerge.demorgan = and i1 %3, %4
-  br i1 %brmerge.demorgan, label %_ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_clEv.exit, label %22
+  br i1 %brmerge.demorgan, label %_ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_clEv.exit, label %25
 
 _ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_clEv.exit: ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -4571,162 +4571,168 @@ _ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_cl
 
 17:                                               ; preds = %_ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_clEv.exit
   %18 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull @.str.13, i64 noundef 1) #19
-  br label %._crit_edge.thread.sink.split
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 19:                                               ; preds = %_ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_clEv.exit
   store i8 10, ptr %15, align 1
   %20 = load ptr, ptr %14, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 1
   store ptr %21, ptr %14, align 8
-  br label %._crit_edge.thread.sink.split
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
-22:                                               ; preds = %2
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %26 = load ptr, ptr %25, align 8
-  %.not5052 = icmp eq ptr %24, %26
-  br i1 %.not5052, label %._crit_edge.thread, label %.lr.ph
-
-.lr.ph:                                           ; preds = %22
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br label %29
-
-29:                                               ; preds = %.lr.ph, %_ZN4llvm11raw_ostreamlsEPKc.exit24
-  %.01555 = phi i1 [ false, %.lr.ph ], [ %.1, %_ZN4llvm11raw_ostreamlsEPKc.exit24 ]
-  %.sroa.030.054 = phi ptr [ %24, %.lr.ph ], [ %71, %_ZN4llvm11raw_ostreamlsEPKc.exit24 ]
-  %.053 = phi i8 [ 0, %.lr.ph ], [ %.149, %_ZN4llvm11raw_ostreamlsEPKc.exit24 ]
-  %30 = load ptr, ptr %.sroa.030.054, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %32 = load ptr, ptr %31, align 8
-  %.not = icmp eq ptr %32, null
-  br i1 %.not, label %48, label %33
-
-33:                                               ; preds = %29
-  %34 = tail call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(48) %32) #19
-  br i1 %34, label %_ZN4llvm11raw_ostreamlsEPKc.exit24, label %35
-
-35:                                               ; preds = %33
-  %36 = tail call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %32) #19
-  %37 = extractvalue { ptr, i64 } %36, 0
-  %38 = extractvalue { ptr, i64 } %36, 1
-  %39 = tail call noundef zeroext i1 @_ZN4llvm21isFunctionInPrintListENS_9StringRefE(ptr %37, i64 %38) #19
-  %.not18 = xor i1 %39, true
-  %brmerge19 = or i1 %3, %.not18
-  %.015.mux = select i1 %39, i1 true, i1 %.01555
-  br i1 %brmerge19, label %_ZN4llvm11raw_ostreamlsEPKc.exit24, label %40
-
-40:                                               ; preds = %35
-  %41 = trunc nuw i8 %.053 to i1
-  br i1 %41, label %_ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_clEv.exit20, label %42
-
-42:                                               ; preds = %40
-  %43 = load ptr, ptr %27, align 8
-  %44 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %28) #19
-  %45 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %28) #19
-  %46 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %43, ptr noundef %44, i64 noundef %45) #19
-  br label %_ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_clEv.exit20
-
-_ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_clEv.exit20: ; preds = %40, %42
-  %.2 = phi i8 [ %.053, %40 ], [ 1, %42 ]
-  %47 = load ptr, ptr %27, align 8
-  tail call void @_ZNK4llvm8Function5printERNS_11raw_ostreamEPNS_24AssemblyAnnotationWriterEbb(ptr noundef nonnull align 8 dereferenceable(136) %32, ptr noundef nonnull align 8 dereferenceable(48) %47, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false) #19
-  br label %_ZN4llvm11raw_ostreamlsEPKc.exit24
-
-48:                                               ; preds = %29
-  %49 = tail call noundef zeroext i1 @_ZN4llvm21isFunctionInPrintListENS_9StringRefE(ptr nonnull @.str.12, i64 1) #19
-  br i1 %49, label %50, label %_ZN4llvm11raw_ostreamlsEPKc.exit24
-
-50:                                               ; preds = %48
-  %51 = trunc nuw i8 %.053 to i1
-  br i1 %51, label %_ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_clEv.exit21, label %52
-
-52:                                               ; preds = %50
-  %53 = load ptr, ptr %27, align 8
-  %54 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %28) #19
-  %55 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %28) #19
-  %56 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %53, ptr noundef %54, i64 noundef %55) #19
-  br label %_ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_clEv.exit21
-
-_ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_clEv.exit21: ; preds = %50, %52
-  %.3 = phi i8 [ %.053, %50 ], [ 1, %52 ]
-  %57 = load ptr, ptr %27, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %57, i64 32
-  %61 = load ptr, ptr %60, align 8
-  %62 = ptrtoint ptr %59 to i64
-  %63 = ptrtoint ptr %61 to i64
-  %64 = sub i64 %62, %63
-  %65 = icmp ult i64 %64, 26
-  br i1 %65, label %66, label %68
-
-66:                                               ; preds = %_ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_clEv.exit21
-  %67 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %57, ptr noundef nonnull @.str.14, i64 noundef 26) #19
-  br label %_ZN4llvm11raw_ostreamlsEPKc.exit24
-
-68:                                               ; preds = %_ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_clEv.exit21
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(26) %61, ptr noundef nonnull align 1 dereferenceable(26) @.str.14, i64 26, i1 false)
-  %69 = load ptr, ptr %60, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 26
-  store ptr %70, ptr %60, align 8
-  br label %_ZN4llvm11raw_ostreamlsEPKc.exit24
-
-_ZN4llvm11raw_ostreamlsEPKc.exit24:               ; preds = %68, %66, %35, %_ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_clEv.exit20, %33, %48
-  %.149 = phi i8 [ %.053, %48 ], [ %.053, %33 ], [ %.053, %35 ], [ %.2, %_ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_clEv.exit20 ], [ %.3, %66 ], [ %.3, %68 ]
-  %.1 = phi i1 [ %.01555, %48 ], [ %.01555, %33 ], [ %.015.mux, %35 ], [ true, %_ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_clEv.exit20 ], [ %.01555, %66 ], [ %.01555, %68 ]
-  %71 = getelementptr inbounds i8, ptr %.sroa.030.054, i64 8
-  %.not50 = icmp eq ptr %71, %26
-  br i1 %.not50, label %._crit_edge, label %29
-
-._crit_edge:                                      ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit24
-  %72 = select i1 %3, i1 %.1, i1 false
-  br i1 %72, label %73, label %._crit_edge.thread
-
-73:                                               ; preds = %._crit_edge
-  %74 = trunc nuw i8 %.149 to i1
-  br i1 %74, label %_ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_clEv.exit25, label %75
-
-75:                                               ; preds = %73
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %79 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %78) #19
-  %80 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %78) #19
-  %81 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %77, ptr noundef %79, i64 noundef %80) #19
-  br label %_ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_clEv.exit25
-
-_ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_clEv.exit25: ; preds = %73, %75
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 24
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %83, i64 32
-  %87 = load ptr, ptr %86, align 8
-  %88 = icmp eq ptr %85, %87
-  br i1 %88, label %89, label %91
-
-89:                                               ; preds = %_ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_clEv.exit25
-  %90 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %83, ptr noundef nonnull @.str.13, i64 noundef 1) #19
-  br label %._crit_edge.thread.sink.split
-
-91:                                               ; preds = %_ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_clEv.exit25
-  store i8 10, ptr %87, align 1
-  %92 = load ptr, ptr %86, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 1
-  store ptr %93, ptr %86, align 8
-  br label %._crit_edge.thread.sink.split
-
-._crit_edge.thread.sink.split:                    ; preds = %91, %89, %19, %17
-  %.sink60 = phi ptr [ %5, %17 ], [ %5, %19 ], [ %82, %89 ], [ %82, %91 ]
-  %94 = load ptr, ptr %1, align 8
-  %95 = load ptr, ptr %94, align 8
-  %96 = load ptr, ptr %.sink60, align 8
-  tail call void @_ZNK4llvm6Module5printERNS_11raw_ostreamEPNS_24AssemblyAnnotationWriterEbb(ptr noundef nonnull align 8 dereferenceable(857) %95, ptr noundef nonnull align 8 dereferenceable(48) %96, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false) #19
+_ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %17, %19
+  %22 = load ptr, ptr %1, align 8
+  %23 = load ptr, ptr %22, align 8
+  %24 = load ptr, ptr %5, align 8
+  tail call void @_ZNK4llvm6Module5printERNS_11raw_ostreamEPNS_24AssemblyAnnotationWriterEbb(ptr noundef nonnull align 8 dereferenceable(857) %23, ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false) #19
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %._crit_edge.thread.sink.split, %22, %._crit_edge
+25:                                               ; preds = %2
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %29 = load ptr, ptr %28, align 8
+  %.not5052 = icmp eq ptr %27, %29
+  br i1 %.not5052, label %._crit_edge.thread, label %.lr.ph
+
+.lr.ph:                                           ; preds = %25
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  br label %32
+
+32:                                               ; preds = %.lr.ph, %_ZN4llvm11raw_ostreamlsEPKc.exit24
+  %.01555 = phi i1 [ false, %.lr.ph ], [ %.1, %_ZN4llvm11raw_ostreamlsEPKc.exit24 ]
+  %.sroa.030.054 = phi ptr [ %27, %.lr.ph ], [ %74, %_ZN4llvm11raw_ostreamlsEPKc.exit24 ]
+  %.053 = phi i8 [ 0, %.lr.ph ], [ %.149, %_ZN4llvm11raw_ostreamlsEPKc.exit24 ]
+  %33 = load ptr, ptr %.sroa.030.054, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %35 = load ptr, ptr %34, align 8
+  %.not = icmp eq ptr %35, null
+  br i1 %.not, label %51, label %36
+
+36:                                               ; preds = %32
+  %37 = tail call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(48) %35) #19
+  br i1 %37, label %_ZN4llvm11raw_ostreamlsEPKc.exit24, label %38
+
+38:                                               ; preds = %36
+  %39 = tail call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %35) #19
+  %40 = extractvalue { ptr, i64 } %39, 0
+  %41 = extractvalue { ptr, i64 } %39, 1
+  %42 = tail call noundef zeroext i1 @_ZN4llvm21isFunctionInPrintListENS_9StringRefE(ptr %40, i64 %41) #19
+  %.not18 = xor i1 %42, true
+  %brmerge19 = or i1 %3, %.not18
+  %.015.mux = select i1 %42, i1 true, i1 %.01555
+  br i1 %brmerge19, label %_ZN4llvm11raw_ostreamlsEPKc.exit24, label %43
+
+43:                                               ; preds = %38
+  %44 = trunc nuw i8 %.053 to i1
+  br i1 %44, label %_ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_clEv.exit20, label %45
+
+45:                                               ; preds = %43
+  %46 = load ptr, ptr %30, align 8
+  %47 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %31) #19
+  %48 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %31) #19
+  %49 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %46, ptr noundef %47, i64 noundef %48) #19
+  br label %_ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_clEv.exit20
+
+_ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_clEv.exit20: ; preds = %43, %45
+  %.2 = phi i8 [ %.053, %43 ], [ 1, %45 ]
+  %50 = load ptr, ptr %30, align 8
+  tail call void @_ZNK4llvm8Function5printERNS_11raw_ostreamEPNS_24AssemblyAnnotationWriterEbb(ptr noundef nonnull align 8 dereferenceable(136) %35, ptr noundef nonnull align 8 dereferenceable(48) %50, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false) #19
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit24
+
+51:                                               ; preds = %32
+  %52 = tail call noundef zeroext i1 @_ZN4llvm21isFunctionInPrintListENS_9StringRefE(ptr nonnull @.str.12, i64 1) #19
+  br i1 %52, label %53, label %_ZN4llvm11raw_ostreamlsEPKc.exit24
+
+53:                                               ; preds = %51
+  %54 = trunc nuw i8 %.053 to i1
+  br i1 %54, label %_ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_clEv.exit21, label %55
+
+55:                                               ; preds = %53
+  %56 = load ptr, ptr %30, align 8
+  %57 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %31) #19
+  %58 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %31) #19
+  %59 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %56, ptr noundef %57, i64 noundef %58) #19
+  br label %_ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_clEv.exit21
+
+_ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_clEv.exit21: ; preds = %53, %55
+  %.3 = phi i8 [ %.053, %53 ], [ 1, %55 ]
+  %60 = load ptr, ptr %30, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 32
+  %64 = load ptr, ptr %63, align 8
+  %65 = ptrtoint ptr %62 to i64
+  %66 = ptrtoint ptr %64 to i64
+  %67 = sub i64 %65, %66
+  %68 = icmp ult i64 %67, 26
+  br i1 %68, label %69, label %71
+
+69:                                               ; preds = %_ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_clEv.exit21
+  %70 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %60, ptr noundef nonnull @.str.14, i64 noundef 26) #19
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit24
+
+71:                                               ; preds = %_ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_clEv.exit21
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(26) %64, ptr noundef nonnull align 1 dereferenceable(26) @.str.14, i64 26, i1 false)
+  %72 = load ptr, ptr %63, align 8
+  %73 = getelementptr inbounds i8, ptr %72, i64 26
+  store ptr %73, ptr %63, align 8
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit24
+
+_ZN4llvm11raw_ostreamlsEPKc.exit24:               ; preds = %71, %69, %38, %_ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_clEv.exit20, %36, %51
+  %.149 = phi i8 [ %.053, %51 ], [ %.053, %36 ], [ %.053, %38 ], [ %.2, %_ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_clEv.exit20 ], [ %.3, %69 ], [ %.3, %71 ]
+  %.1 = phi i1 [ %.01555, %51 ], [ %.01555, %36 ], [ %.015.mux, %38 ], [ true, %_ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_clEv.exit20 ], [ %.01555, %69 ], [ %.01555, %71 ]
+  %74 = getelementptr inbounds i8, ptr %.sroa.030.054, i64 8
+  %.not50 = icmp eq ptr %74, %29
+  br i1 %.not50, label %._crit_edge, label %32
+
+._crit_edge:                                      ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit24
+  %75 = select i1 %3, i1 %.1, i1 false
+  br i1 %75, label %76, label %._crit_edge.thread
+
+76:                                               ; preds = %._crit_edge
+  %77 = trunc nuw i8 %.149 to i1
+  br i1 %77, label %_ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_clEv.exit25, label %78
+
+78:                                               ; preds = %76
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %82 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %81) #19
+  %83 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %81) #19
+  %84 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %80, ptr noundef %82, i64 noundef %83) #19
+  br label %_ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_clEv.exit25
+
+_ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_clEv.exit25: ; preds = %76, %78
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %86 = load ptr, ptr %85, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 24
+  %88 = load ptr, ptr %87, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %86, i64 32
+  %90 = load ptr, ptr %89, align 8
+  %91 = icmp eq ptr %88, %90
+  br i1 %91, label %92, label %94
+
+92:                                               ; preds = %_ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_clEv.exit25
+  %93 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %86, ptr noundef nonnull @.str.13, i64 noundef 1) #19
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit28
+
+94:                                               ; preds = %_ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_clEv.exit25
+  store i8 10, ptr %90, align 1
+  %95 = load ptr, ptr %89, align 8
+  %96 = getelementptr inbounds i8, ptr %95, i64 1
+  store ptr %96, ptr %89, align 8
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit28
+
+_ZN4llvm11raw_ostreamlsEPKc.exit28:               ; preds = %92, %94
+  %97 = load ptr, ptr %1, align 8
+  %98 = load ptr, ptr %97, align 8
+  %99 = load ptr, ptr %85, align 8
+  tail call void @_ZNK4llvm6Module5printERNS_11raw_ostreamEPNS_24AssemblyAnnotationWriterEbb(ptr noundef nonnull align 8 dereferenceable(857) %98, ptr noundef nonnull align 8 dereferenceable(48) %99, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false) #19
+  br label %._crit_edge.thread
+
+._crit_edge.thread:                               ; preds = %25, %._crit_edge, %_ZN4llvm11raw_ostreamlsEPKc.exit28, %_ZN4llvm11raw_ostreamlsEPKc.exit
   ret i1 false
 }
 

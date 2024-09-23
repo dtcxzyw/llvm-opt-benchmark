@@ -2394,7 +2394,7 @@ define hidden ptr @gcp_trx(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr n
   %65 = getelementptr inbounds i8, ptr %0, i64 32
   %66 = load ptr, ptr %65, align 8
   %.not56 = icmp eq ptr %66, null
-  br i1 %.not56, label %.loopexit.sink.split, label %67
+  br i1 %.not56, label %73, label %67
 
 67:                                               ; preds = %62
   %68 = getelementptr inbounds i8, ptr %66, i64 16
@@ -2403,15 +2403,15 @@ define hidden ptr @gcp_trx(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr n
   store ptr %.1, ptr %70, align 8
   %71 = load ptr, ptr %65, align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 16
-  br label %.loopexit.sink.split
-
-.loopexit.sink.split:                             ; preds = %62, %67
-  %.sink = phi ptr [ %72, %67 ], [ %65, %62 ]
-  store ptr %.1, ptr %.sink, align 8
+  store ptr %.1, ptr %72, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %15, %.loopexit.sink.split, %5
-  %.047 = phi ptr [ null, %5 ], [ %.146, %.loopexit.sink.split ], [ %14, %15 ]
+73:                                               ; preds = %62
+  store ptr %.1, ptr %65, align 8
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %15, %67, %73, %5
+  %.047 = phi ptr [ null, %5 ], [ %.146, %73 ], [ %.146, %67 ], [ %14, %15 ]
   ret ptr %.047
 }
 
@@ -2759,15 +2759,15 @@ define hidden ptr @gcp_cmd(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   store ptr %.069, ptr %67, align 8
   %68 = load ptr, ptr %62, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 16
+  store ptr %.069, ptr %69, align 8
   br label %71
 
 70:                                               ; preds = %54
   store ptr %.069, ptr %62, align 8
+  store ptr %.069, ptr %60, align 8
   br label %71
 
 71:                                               ; preds = %70, %64
-  %.sink86 = phi ptr [ %60, %70 ], [ %69, %64 ]
-  store ptr %.069, ptr %.sink86, align 8
   %72 = getelementptr inbounds i8, ptr %2, i64 16
   %73 = load ptr, ptr %72, align 8
   %.not80 = icmp eq ptr %73, null
@@ -2780,19 +2780,16 @@ define hidden ptr @gcp_cmd(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   store ptr %45, ptr %77, align 8
   %78 = load ptr, ptr %72, align 8
   %79 = getelementptr inbounds i8, ptr %78, i64 16
-  br label %.loopexit.sink.split
+  store ptr %45, ptr %79, align 8
+  br label %.loopexit
 
 80:                                               ; preds = %71
   store ptr %45, ptr %72, align 8
-  br label %.loopexit.sink.split
-
-.loopexit.sink.split:                             ; preds = %80, %74
-  %.sink87 = phi ptr [ %79, %74 ], [ %61, %80 ]
-  store ptr %45, ptr %.sink87, align 8
+  store ptr %45, ptr %61, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %24, %.loopexit.sink.split, %7
-  %.071 = phi ptr [ null, %7 ], [ %.070, %.loopexit.sink.split ], [ %20, %24 ]
+.loopexit:                                        ; preds = %24, %74, %80, %7
+  %.071 = phi ptr [ null, %7 ], [ %.070, %80 ], [ %.070, %74 ], [ %20, %24 ]
   ret ptr %.071
 }
 

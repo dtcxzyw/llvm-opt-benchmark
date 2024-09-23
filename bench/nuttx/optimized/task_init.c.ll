@@ -123,15 +123,24 @@ define void @nxtask_uninit(ptr noundef %0) local_unnamed_addr #0 {
   %g_inactivetasks. = select i1 %.not, ptr @g_inactivetasks, ptr %3
   store ptr %4, ptr %g_inactivetasks., align 8
   %.not16 = icmp eq ptr %4, null
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
-  %.sink17 = select i1 %.not16, ptr getelementptr inbounds (i8, ptr @g_inactivetasks, i64 8), ptr %5
-  store ptr %3, ptr %.sink17, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  br i1 %.not16, label %5, label %6
+
+5:                                                ; preds = %1
+  store ptr %3, ptr getelementptr inbounds (i8, ptr @g_inactivetasks, i64 8), align 8
+  br label %8
+
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %3, ptr %7, align 8
+  br label %8
+
+8:                                                ; preds = %6, %5
+  %9 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  %7 = load i16, ptr %6, align 16
-  %8 = trunc i16 %7 to i8
-  %9 = and i8 %8, 3
-  %10 = tail call i32 @nxsched_release_tcb(ptr noundef nonnull %0, i8 noundef zeroext %9) #3
+  %10 = load i16, ptr %9, align 16
+  %11 = trunc i16 %10 to i8
+  %12 = and i8 %11, 3
+  %13 = tail call i32 @nxsched_release_tcb(ptr noundef nonnull %0, i8 noundef zeroext %12) #3
   ret void
 }
 

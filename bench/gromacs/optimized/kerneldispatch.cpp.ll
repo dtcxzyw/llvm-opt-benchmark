@@ -1187,8 +1187,8 @@ define internal void @_ZL16nbnxn_kernel_cpuRK11PairlistSetRKN5Nbnxm11KernelSetup
   br label %.invoke
 
 .invoke:                                          ; preds = %70, %64, %55
-  %.sink97 = phi ptr [ %75, %70 ], [ %69, %64 ], [ %60, %55 ]
-  %61 = load ptr, ptr %.sink97, align 8
+  %.in = phi ptr [ %60, %55 ], [ %69, %64 ], [ %75, %70 ]
+  %61 = load ptr, ptr %.in, align 8
   %62 = load ptr, ptr %3, align 8
   %63 = load ptr, ptr %11, align 8
   invoke void %61(ptr noundef nonnull %50, ptr noundef %62, ptr noundef nonnull %10, ptr noundef %63, ptr noundef nonnull %39)
@@ -1240,17 +1240,17 @@ define internal void @_ZL16nbnxn_kernel_cpuRK11PairlistSetRKN5Nbnxm11KernelSetup
   %92 = getelementptr inbounds i8, ptr %91, i64 64
   store float 0.000000e+00, ptr %92, align 32
   %93 = getelementptr inbounds i8, ptr %91, i64 68
+  store float 0.000000e+00, ptr %93, align 4
   br label %97
 
 94:                                               ; preds = %88
   store float 0.000000e+00, ptr %81, align 4
   %95 = getelementptr inbounds i8, ptr %39, i64 104
   %96 = load ptr, ptr %95, align 8
+  store float 0.000000e+00, ptr %96, align 4
   br label %97
 
 97:                                               ; preds = %94, %89
-  %.sink = phi ptr [ %96, %94 ], [ %93, %89 ]
-  store float 0.000000e+00, ptr %.sink, align 4
   %98 = load i32, ptr %7, align 4
   switch i32 %98, label %.invoke96 [
     i32 1, label %99
@@ -1267,8 +1267,8 @@ define internal void @_ZL16nbnxn_kernel_cpuRK11PairlistSetRKN5Nbnxm11KernelSetup
   br label %.invoke94
 
 .invoke94:                                        ; preds = %114, %108, %99
-  %.sink98 = phi ptr [ %119, %114 ], [ %113, %108 ], [ %104, %99 ]
-  %105 = load ptr, ptr %.sink98, align 8
+  %.in98 = phi ptr [ %104, %99 ], [ %113, %108 ], [ %119, %114 ]
+  %105 = load ptr, ptr %.in98, align 8
   %106 = load ptr, ptr %3, align 8
   %107 = load ptr, ptr %11, align 8
   invoke void %105(ptr noundef nonnull %50, ptr noundef %106, ptr noundef nonnull %10, ptr noundef %107, ptr noundef nonnull %39)
@@ -1372,8 +1372,8 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20Hos
   br label %.invoke95
 
 .invoke95:                                        ; preds = %176, %170, %161
-  %.sink99 = phi ptr [ %181, %176 ], [ %175, %170 ], [ %166, %161 ]
-  %167 = load ptr, ptr %.sink99, align 8
+  %.in97 = phi ptr [ %166, %161 ], [ %175, %170 ], [ %181, %176 ]
+  %167 = load ptr, ptr %.in97, align 8
   %168 = load ptr, ptr %3, align 8
   %169 = load ptr, ptr %11, align 8
   invoke void %167(ptr noundef nonnull %50, ptr noundef %168, ptr noundef nonnull %10, ptr noundef %169, ptr noundef nonnull %39)

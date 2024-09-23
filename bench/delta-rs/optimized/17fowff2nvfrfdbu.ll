@@ -2255,7 +2255,7 @@ define hidden void @"_ZN4core3ptr48drop_in_place$LT$reqwest..proxy..ProxyScheme$
   %29 = getelementptr inbounds i8, ptr %0, i64 56
   %30 = load i64, ptr %29, align 8, !alias.scope !468, !noundef !14
   invoke void %25(ptr noalias noundef nonnull align 8 dereferenceable(8) %26, ptr noundef %28, i64 noundef %30)
-          to label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$http..header..value..HeaderValue$GT$$GT$17h33c26bacafe1a4cbE.exit" unwind label %52
+          to label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$http..header..value..HeaderValue$GT$$GT$17h33c26bacafe1a4cbE.exit" unwind label %51
 
 31:                                               ; preds = %8
   %32 = landingpad { ptr, i32 }
@@ -2274,49 +2274,49 @@ define hidden void @"_ZN4core3ptr48drop_in_place$LT$reqwest..proxy..ProxyScheme$
   %40 = getelementptr inbounds i8, ptr %0, i64 24
   %41 = load i64, ptr %40, align 8, !alias.scope !481, !noundef !14
   invoke void %36(ptr noalias noundef nonnull align 8 dereferenceable(8) %37, ptr noundef %39, i64 noundef %41)
-          to label %"_ZN4core3ptr52drop_in_place$LT$http..uri..authority..Authority$GT$17hefa6f28f8db936edE.exit" unwind label %50
+          to label %"_ZN4core3ptr52drop_in_place$LT$http..uri..authority..Authority$GT$17hefa6f28f8db936edE.exit" unwind label %49
 
 "_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$http..header..value..HeaderValue$GT$$GT$17h33c26bacafe1a4cbE.exit": ; preds = %21, %18, %8, %5
-  %.sink = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = load ptr, ptr %.sink, align 8, !nonnull !14, !align !65, !noundef !14
-  %43 = getelementptr inbounds i8, ptr %42, i64 24
-  %44 = load ptr, ptr %43, align 8, !noalias !14, !nonnull !14, !noundef !14
-  %45 = getelementptr inbounds i8, ptr %0, i64 32
-  %46 = getelementptr inbounds i8, ptr %0, i64 16
-  %47 = load ptr, ptr %46, align 8, !noundef !14
-  %48 = getelementptr inbounds i8, ptr %0, i64 24
-  %49 = load i64, ptr %48, align 8, !noundef !14
-  tail call void %44(ptr noalias noundef nonnull align 8 dereferenceable(8) %45, ptr noundef %47, i64 noundef %49)
+  %.sink12.in = getelementptr inbounds i8, ptr %0, i64 8
+  %.sink12 = load ptr, ptr %.sink12.in, align 8, !nonnull !14, !align !65, !noundef !14
+  %42 = getelementptr inbounds i8, ptr %.sink12, i64 24
+  %43 = load ptr, ptr %42, align 8, !noalias !14, !nonnull !14, !noundef !14
+  %44 = getelementptr inbounds i8, ptr %0, i64 32
+  %45 = getelementptr inbounds i8, ptr %0, i64 16
+  %46 = load ptr, ptr %45, align 8, !noundef !14
+  %47 = getelementptr inbounds i8, ptr %0, i64 24
+  %48 = load i64, ptr %47, align 8, !noundef !14
+  tail call void %43(ptr noalias noundef nonnull align 8 dereferenceable(8) %44, ptr noundef %46, i64 noundef %48)
   ret void
 
-50:                                               ; preds = %52, %31
-  %51 = landingpad { ptr, i32 }
+49:                                               ; preds = %51, %31
+  %50 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #41
   unreachable
 
-"_ZN4core3ptr52drop_in_place$LT$http..uri..authority..Authority$GT$17hefa6f28f8db936edE.exit": ; preds = %52, %31
-  %.pn = phi { ptr, i32 } [ %32, %31 ], [ %53, %52 ]
+"_ZN4core3ptr52drop_in_place$LT$http..uri..authority..Authority$GT$17hefa6f28f8db936edE.exit": ; preds = %51, %31
+  %.pn = phi { ptr, i32 } [ %32, %31 ], [ %52, %51 ]
   resume { ptr, i32 } %.pn
 
-52:                                               ; preds = %21
-  %53 = landingpad { ptr, i32 }
+51:                                               ; preds = %21
+  %52 = landingpad { ptr, i32 }
           cleanup
-  %54 = getelementptr inbounds i8, ptr %0, i64 8
+  %53 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !482)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !485)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !488)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !491)
-  %55 = load ptr, ptr %54, align 8, !alias.scope !494, !nonnull !14, !align !65, !noundef !14
-  %56 = getelementptr inbounds i8, ptr %55, i64 24
-  %57 = load ptr, ptr %56, align 8, !noalias !494, !nonnull !14, !noundef !14
-  %58 = getelementptr inbounds i8, ptr %0, i64 32
-  %59 = getelementptr inbounds i8, ptr %0, i64 16
-  %60 = load ptr, ptr %59, align 8, !alias.scope !494, !noundef !14
-  %61 = getelementptr inbounds i8, ptr %0, i64 24
-  %62 = load i64, ptr %61, align 8, !alias.scope !494, !noundef !14
-  invoke void %57(ptr noalias noundef nonnull align 8 dereferenceable(8) %58, ptr noundef %60, i64 noundef %62)
-          to label %"_ZN4core3ptr52drop_in_place$LT$http..uri..authority..Authority$GT$17hefa6f28f8db936edE.exit" unwind label %50
+  %54 = load ptr, ptr %53, align 8, !alias.scope !494, !nonnull !14, !align !65, !noundef !14
+  %55 = getelementptr inbounds i8, ptr %54, i64 24
+  %56 = load ptr, ptr %55, align 8, !noalias !494, !nonnull !14, !noundef !14
+  %57 = getelementptr inbounds i8, ptr %0, i64 32
+  %58 = getelementptr inbounds i8, ptr %0, i64 16
+  %59 = load ptr, ptr %58, align 8, !alias.scope !494, !noundef !14
+  %60 = getelementptr inbounds i8, ptr %0, i64 24
+  %61 = load i64, ptr %60, align 8, !alias.scope !494, !noundef !14
+  invoke void %56(ptr noalias noundef nonnull align 8 dereferenceable(8) %57, ptr noundef %59, i64 noundef %61)
+          to label %"_ZN4core3ptr52drop_in_place$LT$http..uri..authority..Authority$GT$17hefa6f28f8db936edE.exit" unwind label %49
 }
 
 ; Function Attrs: nonlazybind uwtable

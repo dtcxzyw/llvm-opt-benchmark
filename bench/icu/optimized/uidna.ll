@@ -633,7 +633,6 @@ if.end67:                                         ; preds = %if.end15.i105, %uid
   br i1 %cmp.i109, label %if.end71, label %CLEANUP
 
 if.end71:                                         ; preds = %if.end67
-  %cmp.not.i = icmp eq i32 %b1Len.1, %b3Len.0
   %cmp515.i = icmp eq i32 %b3Len.0, 0
   br i1 %cmp515.i, label %_ZL27compareCaseInsensitiveASCIIPKDsiS0_i.exit, label %if.end7.preheader.i
 
@@ -669,7 +668,8 @@ for.inc.i:                                        ; preds = %if.then12.i, %if.en
   br i1 %cmp5.i117, label %_ZL27compareCaseInsensitiveASCIIPKDsiS0_i.exit, label %if.end7.i, !llvm.loop !10
 
 _ZL27compareCaseInsensitiveASCIIPKDsiS0_i.exit:   ; preds = %for.inc.i, %if.end71
-  br i1 %cmp.not.i, label %if.end75, label %if.then74
+  %retval.0.i115 = icmp eq i32 %b1Len.1, %b3Len.0
+  br i1 %retval.0.i115, label %if.end75, label %if.then74
 
 if.then74:                                        ; preds = %if.then12.i, %_ZL27compareCaseInsensitiveASCIIPKDsiS0_i.exit
   store i32 66565, ptr %status, align 4
@@ -1134,7 +1134,7 @@ return:                                           ; preds = %if.end10, %entry, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -65535, 65536) i32 @uidna_compare_75(ptr noundef %s1, i32 noundef %length1, ptr noundef %s2, i32 noundef %length2, i32 noundef %options, ptr noundef %status) local_unnamed_addr #0 {
+define i32 @uidna_compare_75(ptr noundef %s1, i32 noundef %length1, ptr noundef %s2, i32 noundef %length2, i32 noundef %options, ptr noundef %status) local_unnamed_addr #0 {
 entry:
   %b1Stack = alloca [256 x i16], align 16
   %b2Stack = alloca [256 x i16], align 16
@@ -1196,11 +1196,8 @@ if.end19:                                         ; preds = %if.then13
 if.end21:                                         ; preds = %if.end19, %if.end10
   %b2.1 = phi ptr [ %call16, %if.end19 ], [ %b2Stack, %if.end10 ]
   %b2Len.0 = phi i32 [ %call20, %if.end19 ], [ %call11, %if.end10 ]
-  %cmp.not.i = icmp eq i32 %b1Len.0, %b2Len.0
-  %cmp1.i = icmp slt i32 %b1Len.0, %b2Len.0
-  %..i = select i1 %cmp1.i, i32 -1, i32 1
   %s1Len.s2Len.i = call i32 @llvm.smin.i32(i32 %b1Len.0, i32 %b2Len.0)
-  %lengthResult.0.i = select i1 %cmp.not.i, i32 0, i32 %..i
+  %lengthResult.0.i = call i32 @llvm.scmp.i32.i32(i32 %b1Len.0, i32 %b2Len.0)
   %cmp515.i = icmp eq i32 %s1Len.s2Len.i, 0
   br i1 %cmp515.i, label %CLEANUP, label %if.end7.preheader.i
 
@@ -1289,6 +1286,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #4
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #4
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

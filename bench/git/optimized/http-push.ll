@@ -203,17 +203,17 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %rs, i8 0, i64 40, i1 false)
   %call = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 48) #15
   store ptr %call, ptr @repo, align 8
-  %cmp170 = icmp sgt i32 %argc, 1
-  br i1 %cmp170, label %for.body, label %for.end
+  %cmp171 = icmp sgt i32 %argc, 1
+  br i1 %cmp171, label %for.body, label %for.end
 
 for.body:                                         ; preds = %entry, %for.inc
   %0 = phi ptr [ %21, %for.inc ], [ %call, %entry ]
-  %argv.addr.0174.pn = phi ptr [ %argv.addr.0174, %for.inc ], [ %argv, %entry ]
-  %i.0173 = phi i32 [ %inc, %for.inc ], [ 1, %entry ]
-  %delete_branch.0172 = phi i32 [ %delete_branch.1, %for.inc ], [ 0, %entry ]
-  %force_delete.0171 = phi i32 [ %force_delete.1, %for.inc ], [ 0, %entry ]
-  %argv.addr.0174 = getelementptr inbounds i8, ptr %argv.addr.0174.pn, i64 8
-  %1 = load ptr, ptr %argv.addr.0174, align 8
+  %argv.addr.0175.pn = phi ptr [ %argv.addr.0175, %for.inc ], [ %argv, %entry ]
+  %i.0174 = phi i32 [ %inc, %for.inc ], [ 1, %entry ]
+  %delete_branch.0173 = phi i32 [ %delete_branch.1, %for.inc ], [ 0, %entry ]
+  %force_delete.0172 = phi i32 [ %force_delete.1, %for.inc ], [ 0, %entry ]
+  %argv.addr.0175 = getelementptr inbounds i8, ptr %argv.addr.0175.pn, i64 8
+  %1 = load ptr, ptr %argv.addr.0175, align 8
   %2 = load i8, ptr %1, align 1
   %cmp1 = icmp eq i8 %2, 45
   br i1 %cmp1, label %if.then, label %if.end33
@@ -267,34 +267,34 @@ if.then19:                                        ; preds = %if.end16
 sub_1:                                            ; preds = %if.end16
   %3 = getelementptr inbounds i8, ptr %1, i64 1
   %4 = load i8, ptr %3, align 1
-  %.not182 = icmp eq i8 %4, 100
-  br i1 %.not182, label %if.end20.tail, label %sub_1149
+  %.not183 = icmp eq i8 %4, 100
+  br i1 %.not183, label %if.end20.tail, label %sub_1150
 
 if.end20.tail:                                    ; preds = %sub_1
   %5 = getelementptr inbounds i8, ptr %1, i64 2
   %6 = load i8, ptr %5, align 1
   %7 = icmp eq i8 %6, 0
-  br i1 %7, label %for.inc, label %sub_1149
+  br i1 %7, label %for.inc, label %sub_1150
 
-sub_1149:                                         ; preds = %sub_1, %if.end20.tail
+sub_1150:                                         ; preds = %sub_1, %if.end20.tail
   %8 = getelementptr inbounds i8, ptr %1, i64 1
   %9 = load i8, ptr %8, align 1
-  %.not184 = icmp eq i8 %9, 68
-  br i1 %.not184, label %if.end24.tail, label %sub_1153
+  %.not185 = icmp eq i8 %9, 68
+  br i1 %.not185, label %if.end24.tail, label %sub_1154
 
-if.end24.tail:                                    ; preds = %sub_1149
+if.end24.tail:                                    ; preds = %sub_1150
   %10 = getelementptr inbounds i8, ptr %1, i64 2
   %11 = load i8, ptr %10, align 1
   %12 = icmp eq i8 %11, 0
-  br i1 %12, label %for.inc, label %sub_1153
+  br i1 %12, label %for.inc, label %sub_1154
 
-sub_1153:                                         ; preds = %sub_1149, %if.end24.tail
+sub_1154:                                         ; preds = %sub_1150, %if.end24.tail
   %13 = getelementptr inbounds i8, ptr %1, i64 1
   %14 = load i8, ptr %13, align 1
-  %.not186 = icmp eq i8 %14, 104
-  br i1 %.not186, label %if.end28.tail, label %if.end33
+  %.not187 = icmp eq i8 %14, 104
+  br i1 %.not187, label %if.end28.tail, label %if.end33
 
-if.end28.tail:                                    ; preds = %sub_1153
+if.end28.tail:                                    ; preds = %sub_1154
   %15 = getelementptr inbounds i8, ptr %1, i64 2
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, 0
@@ -304,7 +304,7 @@ if.then31:                                        ; preds = %if.end28.tail
   tail call void @usage(ptr noundef nonnull @http_push_usage) #17
   unreachable
 
-if.end33:                                         ; preds = %sub_1153, %if.end28.tail, %for.body
+if.end33:                                         ; preds = %sub_1154, %if.end28.tail, %for.body
   %18 = load ptr, ptr %0, align 8
   %tobool34.not = icmp eq ptr %18, null
   br i1 %tobool34.not, label %if.then35, label %if.end54
@@ -336,24 +336,24 @@ if.then47:                                        ; preds = %if.then42
   br label %for.inc
 
 if.end54:                                         ; preds = %if.end33
-  %sub = sub nsw i32 %argc, %i.0173
-  call void @refspec_appendn(ptr noundef nonnull %rs, ptr noundef nonnull %argv.addr.0174, i32 noundef %sub) #15
+  %sub = sub nsw i32 %argc, %i.0174
+  call void @refspec_appendn(ptr noundef nonnull %rs, ptr noundef nonnull %argv.addr.0175, i32 noundef %sub) #15
   %.pre = load ptr, ptr @repo, align 8
   br label %for.end
 
 for.inc:                                          ; preds = %if.end24.tail, %if.end20.tail, %if.then35, %if.then47, %if.then42, %if.then19, %if.then15, %if.then11, %if.then7, %if.then4
   %21 = phi ptr [ %19, %if.then47 ], [ %19, %if.then42 ], [ %19, %if.then35 ], [ %0, %if.then19 ], [ %0, %if.then15 ], [ %0, %if.then11 ], [ %0, %if.then7 ], [ %0, %if.then4 ], [ %0, %if.end20.tail ], [ %0, %if.end24.tail ]
-  %force_delete.1 = phi i32 [ %force_delete.0171, %if.then47 ], [ %force_delete.0171, %if.then42 ], [ %force_delete.0171, %if.then35 ], [ %force_delete.0171, %if.then19 ], [ %force_delete.0171, %if.then15 ], [ %force_delete.0171, %if.then11 ], [ %force_delete.0171, %if.then7 ], [ %force_delete.0171, %if.then4 ], [ %force_delete.0171, %if.end20.tail ], [ 1, %if.end24.tail ]
-  %delete_branch.1 = phi i32 [ %delete_branch.0172, %if.then47 ], [ %delete_branch.0172, %if.then42 ], [ %delete_branch.0172, %if.then35 ], [ %delete_branch.0172, %if.then19 ], [ %delete_branch.0172, %if.then15 ], [ %delete_branch.0172, %if.then11 ], [ %delete_branch.0172, %if.then7 ], [ %delete_branch.0172, %if.then4 ], [ 1, %if.end20.tail ], [ 1, %if.end24.tail ]
-  %inc = add nuw nsw i32 %i.0173, 1
+  %force_delete.1 = phi i32 [ %force_delete.0172, %if.then47 ], [ %force_delete.0172, %if.then42 ], [ %force_delete.0172, %if.then35 ], [ %force_delete.0172, %if.then19 ], [ %force_delete.0172, %if.then15 ], [ %force_delete.0172, %if.then11 ], [ %force_delete.0172, %if.then7 ], [ %force_delete.0172, %if.then4 ], [ %force_delete.0172, %if.end20.tail ], [ 1, %if.end24.tail ]
+  %delete_branch.1 = phi i32 [ %delete_branch.0173, %if.then47 ], [ %delete_branch.0173, %if.then42 ], [ %delete_branch.0173, %if.then35 ], [ %delete_branch.0173, %if.then19 ], [ %delete_branch.0173, %if.then15 ], [ %delete_branch.0173, %if.then11 ], [ %delete_branch.0173, %if.then7 ], [ %delete_branch.0173, %if.then4 ], [ 1, %if.end20.tail ], [ 1, %if.end24.tail ]
+  %inc = add nuw nsw i32 %i.0174, 1
   %exitcond.not = icmp eq i32 %inc, %argc
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.inc, %entry, %if.end54
   %22 = phi ptr [ %.pre, %if.end54 ], [ %call, %entry ], [ %21, %for.inc ]
-  %force_delete.0168 = phi i32 [ %force_delete.0171, %if.end54 ], [ 0, %entry ], [ %force_delete.1, %for.inc ]
-  %delete_branch.0165 = phi i32 [ %delete_branch.0172, %if.end54 ], [ 0, %entry ], [ %delete_branch.1, %for.inc ]
-  %i.0162 = phi i32 [ %i.0173, %if.end54 ], [ 1, %entry ], [ %argc, %for.inc ]
+  %force_delete.0169 = phi i32 [ %force_delete.0172, %if.end54 ], [ 0, %entry ], [ %force_delete.1, %for.inc ]
+  %delete_branch.0166 = phi i32 [ %delete_branch.0173, %if.end54 ], [ 0, %entry ], [ %delete_branch.1, %for.inc ]
+  %i.0163 = phi i32 [ %i.0174, %if.end54 ], [ 1, %entry ], [ %argc, %for.inc ]
   %23 = load ptr, ptr %22, align 8
   %tobool57.not = icmp eq ptr %23, null
   br i1 %tobool57.not, label %if.then58, label %if.end59
@@ -363,7 +363,7 @@ if.then58:                                        ; preds = %for.end
   unreachable
 
 if.end59:                                         ; preds = %for.end
-  %tobool60 = icmp ne i32 %delete_branch.0165, 0
+  %tobool60 = icmp ne i32 %delete_branch.0166, 0
   %nr = getelementptr inbounds i8, ptr %rs, i64 12
   %24 = load i32, ptr %nr, align 4
   %cmp61 = icmp ne i32 %24, 1
@@ -563,7 +563,7 @@ if.then78:                                        ; preds = %if.then75
   %can_update_info_refs79 = getelementptr inbounds i8, ptr %53, i64 24
   store i32 1, ptr %can_update_info_refs79, align 8
   %has_info_packs84.phi.trans.insert = getelementptr inbounds i8, ptr %53, i64 28
-  %.pre196 = load i32, ptr %has_info_packs84.phi.trans.insert, align 4
+  %.pre197 = load i32, ptr %has_info_packs84.phi.trans.insert, align 4
   br label %if.end83
 
 if.else:                                          ; preds = %if.then75
@@ -571,7 +571,7 @@ if.else:                                          ; preds = %if.then75
   br label %if.end321
 
 if.end83:                                         ; preds = %if.then78, %remote_exists.exit99
-  %54 = phi i32 [ %.pre196, %if.then78 ], [ %ret.0.i97, %remote_exists.exit99 ]
+  %54 = phi i32 [ %.pre197, %if.then78 ], [ %ret.0.i97, %remote_exists.exit99 ]
   %55 = phi ptr [ %53, %if.then78 ], [ %51, %remote_exists.exit99 ]
   %info_ref_lock.1 = phi ptr [ %call76, %if.then78 ], [ null, %remote_exists.exit99 ]
   %tobool85.not = icmp eq i32 %54, 0
@@ -584,11 +584,11 @@ if.then86:                                        ; preds = %if.end83
 if.then.i101:                                     ; preds = %if.then86
   %56 = load ptr, ptr @stderr, align 8
   %57 = call i64 @fwrite(ptr nonnull @.str.67, i64 18, i64 1, ptr %56) #18
-  %.pre197 = load ptr, ptr @repo, align 8
+  %.pre198 = load ptr, ptr @repo, align 8
   br label %fetch_indices.exit
 
 fetch_indices.exit:                               ; preds = %if.then86, %if.then.i101
-  %58 = phi ptr [ %55, %if.then86 ], [ %.pre197, %if.then.i101 ]
+  %58 = phi ptr [ %55, %if.then86 ], [ %.pre198, %if.then.i101 ]
   %59 = load ptr, ptr %58, align 8
   %packs.i = getelementptr inbounds i8, ptr %58, i64 32
   %call1.i = call i32 @http_get_info_packs(ptr noundef %59, ptr noundef nonnull %packs.i) #15
@@ -619,10 +619,10 @@ run_request_queue.exit:                           ; preds = %do.body.i
 
 if.then92:                                        ; preds = %run_request_queue.exit
   %63 = load ptr, ptr %rs, align 8
-  %idxprom = zext nneg i32 %i.0162 to i64
+  %idxprom = zext nneg i32 %i.0163 to i64
   %src = getelementptr inbounds %struct.refspec_item, ptr %63, i64 %idxprom, i32 1
   %64 = load ptr, ptr %src, align 8
-  %call93 = call fastcc i32 @delete_remote_branch(ptr noundef %64, i32 noundef %force_delete.0168)
+  %call93 = call fastcc i32 @delete_remote_branch(ptr noundef %64, i32 noundef %force_delete.0169)
   %cmp94 = icmp eq i32 %call93, -1
   br i1 %cmp94, label %if.then96, label %cleanup
 
@@ -664,11 +664,11 @@ if.then112:                                       ; preds = %if.then109
   br label %cleanup
 
 for.body118:                                      ; preds = %for.cond116.preheader, %for.inc298
-  %ref.0179 = phi ptr [ %67, %for.cond116.preheader ], [ %101, %for.inc298 ]
-  %new_refs.0178 = phi i32 [ 0, %for.cond116.preheader ], [ %new_refs.1, %for.inc298 ]
-  %rc.1177 = phi i32 [ 0, %for.cond116.preheader ], [ %rc.2, %for.inc298 ]
+  %ref.0180 = phi ptr [ %67, %for.cond116.preheader ], [ %101, %for.inc298 ]
+  %new_refs.0179 = phi i32 [ 0, %for.cond116.preheader ], [ %new_refs.1, %for.inc298 ]
+  %rc.1178 = phi i32 [ 0, %for.cond116.preheader ], [ %rc.2, %for.inc298 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %commit_argv, ptr noundef nonnull align 8 dereferenceable(24) @__const.cmd_main.commit_argv, i64 24, i1 false)
-  %peer_ref = getelementptr inbounds i8, ptr %ref.0179, i64 168
+  %peer_ref = getelementptr inbounds i8, ptr %ref.0180, i64 168
   %70 = load ptr, ptr %peer_ref, align 8
   %tobool119.not = icmp eq ptr %70, null
   br i1 %tobool119.not, label %for.inc298, label %if.end121
@@ -713,7 +713,7 @@ is_null_oid.exit:                                 ; preds = %if.then.i.i.i, %if.
   br i1 %retval.0.in.i.i.i.not, label %if.then125, label %if.end149
 
 if.then125:                                       ; preds = %is_null_oid.exit
-  %name = getelementptr inbounds i8, ptr %ref.0179, i64 176
+  %name = getelementptr inbounds i8, ptr %ref.0180, i64 176
   %call126 = call fastcc i32 @delete_remote_branch(ptr noundef nonnull %name, i32 noundef 1)
   %cmp127 = icmp eq i32 %call126, -1
   br i1 %cmp127, label %if.then129, label %if.else140
@@ -729,20 +729,20 @@ if.else140:                                       ; preds = %if.then125
 
 if.end147.sink.split:                             ; preds = %if.else140, %if.then129
   %.str.15.sink = phi ptr [ @.str.15, %if.then129 ], [ @.str.19, %if.else140 ]
-  %rc.3.ph = phi i32 [ -4, %if.then129 ], [ %rc.1177, %if.else140 ]
+  %rc.3.ph = phi i32 [ -4, %if.then129 ], [ %rc.1178, %if.else140 ]
   %call138 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.15.sink, ptr noundef nonnull %name)
   br label %if.end147
 
 if.end147:                                        ; preds = %if.end147.sink.split, %if.then129, %if.else140
-  %rc.3 = phi i32 [ %rc.1177, %if.else140 ], [ -4, %if.then129 ], [ %rc.3.ph, %if.end147.sink.split ]
-  %inc148 = add nsw i32 %new_refs.0178, 1
+  %rc.3 = phi i32 [ %rc.1178, %if.else140 ], [ -4, %if.then129 ], [ %rc.3.ph, %if.end147.sink.split ]
+  %inc148 = add nsw i32 %new_refs.0179, 1
   br label %for.inc298
 
 if.end149:                                        ; preds = %is_null_oid.exit
-  %old_oid = getelementptr inbounds i8, ptr %ref.0179, i64 8
+  %old_oid = getelementptr inbounds i8, ptr %ref.0180, i64 8
   %75 = load ptr, ptr %peer_ref, align 8
   %new_oid151 = getelementptr inbounds i8, ptr %75, i64 44
-  %algo.i = getelementptr inbounds i8, ptr %ref.0179, i64 40
+  %algo.i = getelementptr inbounds i8, ptr %ref.0180, i64 40
   %76 = load i32, ptr %algo.i, align 4
   %tobool.not.i104 = icmp eq i32 %76, 0
   br i1 %tobool.not.i104, label %if.then.i109, label %if.else.i105
@@ -784,7 +784,7 @@ if.then154:                                       ; preds = %oideq.exit
 
 if.then156:                                       ; preds = %if.then154
   %80 = load ptr, ptr @stderr, align 8
-  %name157 = getelementptr inbounds i8, ptr %ref.0179, i64 176
+  %name157 = getelementptr inbounds i8, ptr %ref.0180, i64 176
   %call159 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %80, ptr noundef nonnull @.str.20, ptr noundef nonnull %name157) #18
   br label %if.end160
 
@@ -793,7 +793,7 @@ if.end160:                                        ; preds = %if.then156, %if.the
   br i1 %.b83, label %if.then162, label %for.inc298
 
 if.then162:                                       ; preds = %if.end160
-  %name163 = getelementptr inbounds i8, ptr %ref.0179, i64 176
+  %name163 = getelementptr inbounds i8, ptr %ref.0180, i64 176
   %call165 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, ptr noundef nonnull %name163)
   br label %for.inc298
 
@@ -839,7 +839,7 @@ is_null_oid.exit129:                              ; preds = %if.then.i.i.i125, %
   br i1 %retval.0.in.i.i.i123.not, label %if.end199, label %land.lhs.true173
 
 land.lhs.true173:                                 ; preds = %is_null_oid.exit129
-  %force = getelementptr inbounds i8, ptr %ref.0179, i64 136
+  %force = getelementptr inbounds i8, ptr %ref.0180, i64 136
   %bf.load = load i8, ptr %force, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool174.not = icmp eq i8 %bf.clear, 0
@@ -859,7 +859,7 @@ lor.lhs.false:                                    ; preds = %if.then175
   br i1 %tobool183.not, label %if.then184, label %if.end199
 
 if.then184:                                       ; preds = %lor.lhs.false, %if.then175
-  %name185 = getelementptr inbounds i8, ptr %ref.0179, i64 176
+  %name185 = getelementptr inbounds i8, ptr %ref.0180, i64 176
   %87 = load ptr, ptr %peer_ref, align 8
   %name188 = getelementptr inbounds i8, ptr %87, i64 176
   %call190 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.22, ptr noundef nonnull %name185, ptr noundef nonnull %name188) #15
@@ -871,17 +871,17 @@ if.then193:                                       ; preds = %if.then184
   br label %for.inc298
 
 if.end199:                                        ; preds = %lor.lhs.false, %land.lhs.true173, %is_null_oid.exit129, %if.end167
-  %new_oid200 = getelementptr inbounds i8, ptr %ref.0179, i64 44
+  %new_oid200 = getelementptr inbounds i8, ptr %ref.0180, i64 44
   %88 = load ptr, ptr %peer_ref, align 8
   %new_oid202 = getelementptr inbounds i8, ptr %88, i64 44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %new_oid200, ptr noundef nonnull readonly align 4 dereferenceable(32) %new_oid202, i64 32, i1 false)
   %algo.i130 = getelementptr inbounds i8, ptr %88, i64 76
   %89 = load i32, ptr %algo.i130, align 4
-  %algo3.i = getelementptr inbounds i8, ptr %ref.0179, i64 76
+  %algo3.i = getelementptr inbounds i8, ptr %ref.0180, i64 76
   store i32 %89, ptr %algo3.i, align 4
-  %inc203 = add nsw i32 %new_refs.0178, 1
+  %inc203 = add nsw i32 %new_refs.0179, 1
   %90 = load ptr, ptr @stderr, align 8
-  %name204 = getelementptr inbounds i8, ptr %ref.0179, i64 176
+  %name204 = getelementptr inbounds i8, ptr %ref.0180, i64 176
   %call206 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %90, ptr noundef nonnull @.str.24, ptr noundef nonnull %name204) #18
   %91 = load ptr, ptr %peer_ref, align 8
   %name210 = getelementptr inbounds i8, ptr %91, i64 176
@@ -987,7 +987,7 @@ lor.lhs.false280:                                 ; preds = %if.end278
   br i1 %tobool283.not, label %if.end289, label %if.end285
 
 if.end285:                                        ; preds = %lor.lhs.false280
-  %tobool286.not = icmp eq i32 %rc.1177, 0
+  %tobool286.not = icmp eq i32 %rc.1178, 0
   br i1 %tobool286.not, label %if.then287, label %if.end289
 
 if.then287:                                       ; preds = %if.end285
@@ -996,13 +996,13 @@ if.then287:                                       ; preds = %if.end285
   br label %if.end289
 
 if.end289:                                        ; preds = %lor.lhs.false280, %if.end278, %if.then287, %if.end285
-  %tobool286.not136 = phi ptr [ @.str.36, %if.then287 ], [ @.str.37, %if.end285 ], [ @.str.37, %if.end278 ], [ @.str.37, %lor.lhs.false280 ]
-  %rc.4135 = phi i32 [ 0, %if.then287 ], [ %rc.1177, %if.end285 ], [ 1, %if.end278 ], [ 1, %lor.lhs.false280 ]
+  %tobool286.not137 = phi ptr [ @.str.36, %if.then287 ], [ @.str.37, %if.end285 ], [ @.str.37, %if.end278 ], [ @.str.37, %lor.lhs.false280 ]
+  %rc.4136 = phi i32 [ 0, %if.then287 ], [ %rc.1178, %if.end285 ], [ 1, %if.end278 ], [ 1, %lor.lhs.false280 ]
   %.b79 = load i1, ptr @helper_status, align 4
   br i1 %.b79, label %if.then291, label %if.end296
 
 if.then291:                                       ; preds = %if.end289
-  %call295 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.35, ptr noundef nonnull %tobool286.not136, ptr noundef nonnull %name204)
+  %call295 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.35, ptr noundef nonnull %tobool286.not137, ptr noundef nonnull %name204)
   br label %if.end296
 
 if.end296:                                        ; preds = %if.then291, %if.end289
@@ -1013,9 +1013,9 @@ if.end296:                                        ; preds = %if.then291, %if.end
   br label %for.inc298
 
 for.inc298:                                       ; preds = %if.then238, %if.then243, %if.then184, %if.then193, %if.then226, %if.then228, %if.end160, %if.then162, %for.body118, %if.end296, %if.end147
-  %rc.2 = phi i32 [ %rc.3, %if.end147 ], [ %rc.1177, %if.then162 ], [ %rc.1177, %if.end160 ], [ %rc.1177, %if.then228 ], [ %rc.1177, %if.then226 ], [ %rc.4135, %if.end296 ], [ %rc.1177, %for.body118 ], [ -2, %if.then193 ], [ -2, %if.then184 ], [ 1, %if.then243 ], [ 1, %if.then238 ]
-  %new_refs.1 = phi i32 [ %inc148, %if.end147 ], [ %new_refs.0178, %if.then162 ], [ %new_refs.0178, %if.end160 ], [ %inc203, %if.then228 ], [ %inc203, %if.then226 ], [ %inc203, %if.end296 ], [ %new_refs.0178, %for.body118 ], [ %new_refs.0178, %if.then193 ], [ %new_refs.0178, %if.then184 ], [ %inc203, %if.then243 ], [ %inc203, %if.then238 ]
-  %101 = load ptr, ptr %ref.0179, align 8
+  %rc.2 = phi i32 [ %rc.3, %if.end147 ], [ %rc.1178, %if.then162 ], [ %rc.1178, %if.end160 ], [ %rc.1178, %if.then228 ], [ %rc.1178, %if.then226 ], [ %rc.4136, %if.end296 ], [ %rc.1178, %for.body118 ], [ -2, %if.then193 ], [ -2, %if.then184 ], [ 1, %if.then243 ], [ 1, %if.then238 ]
+  %new_refs.1 = phi i32 [ %inc148, %if.end147 ], [ %new_refs.0179, %if.then162 ], [ %new_refs.0179, %if.end160 ], [ %inc203, %if.then228 ], [ %inc203, %if.then226 ], [ %inc203, %if.end296 ], [ %new_refs.0179, %for.body118 ], [ %new_refs.0179, %if.then193 ], [ %new_refs.0179, %if.then184 ], [ %inc203, %if.then243 ], [ %inc203, %if.then238 ]
+  %101 = load ptr, ptr %ref.0180, align 8
   %tobool117.not = icmp eq ptr %101, null
   br i1 %tobool117.not, label %for.end299, label %for.body118, !llvm.loop !8
 
@@ -1059,26 +1059,30 @@ cleanup:                                          ; preds = %if.then109, %if.the
   br i1 %tobool318.not, label %if.end321, label %if.then319
 
 if.then319:                                       ; preds = %if.then312, %if.then309, %cleanup
-  %rc.0146 = phi i32 [ %rc.0, %cleanup ], [ %rc.2, %if.then309 ], [ %rc.2, %if.then312 ]
+  %rc.0147 = phi i32 [ %rc.0, %cleanup ], [ %rc.2, %if.then309 ], [ %rc.2, %if.then312 ]
   call fastcc void @unlock_remote(ptr noundef %info_ref_lock.1)
   br label %if.end321
 
 if.end321:                                        ; preds = %locking_available.exit, %if.else, %if.then319, %cleanup
-  %rc.0140 = phi i32 [ %rc.0146, %if.then319 ], [ %rc.0, %cleanup ], [ 1, %if.else ], [ 1, %locking_available.exit ]
+  %rc.0141 = phi i32 [ %rc.0147, %if.then319 ], [ %rc.0, %cleanup ], [ 1, %if.else ], [ 1, %locking_available.exit ]
   %109 = load ptr, ptr @repo, align 8
   call void @free(ptr noundef %109) #15
   call void @http_cleanup() #15
   %110 = load ptr, ptr @request_queue_head, align 8
-  %cmp322.not180 = icmp eq ptr %110, null
-  br i1 %cmp322.not180, label %while.end, label %while.body
+  %cmp322.not181 = icmp eq ptr %110, null
+  br i1 %cmp322.not181, label %while.end, label %while.body
 
 while.body:                                       ; preds = %if.end321, %release_request.exit
-  %request.0181 = phi ptr [ %111, %release_request.exit ], [ %110, %if.end321 ]
-  %next324 = getelementptr inbounds i8, ptr %request.0181, i64 368
+  %request.0182 = phi ptr [ %111, %release_request.exit ], [ %110, %if.end321 ]
+  %next324 = getelementptr inbounds i8, ptr %request.0182, i64 368
   %111 = load ptr, ptr %next324, align 8
   %112 = load ptr, ptr @request_queue_head, align 8
-  %cmp.i131 = icmp eq ptr %request.0181, %112
-  br i1 %cmp.i131, label %if.end9.sink.split.i, label %while.cond.i
+  %cmp.i131 = icmp eq ptr %request.0182, %112
+  br i1 %cmp.i131, label %if.then.i133, label %while.cond.i
+
+if.then.i133:                                     ; preds = %while.body
+  store ptr %111, ptr @request_queue_head, align 8
+  br label %release_request.exit
 
 while.cond.i:                                     ; preds = %while.body, %land.rhs.i
   %entry1.0.i = phi ptr [ %113, %land.rhs.i ], [ %112, %while.body ]
@@ -1088,28 +1092,24 @@ while.cond.i:                                     ; preds = %while.body, %land.r
 land.rhs.i:                                       ; preds = %while.cond.i
   %next2.i = getelementptr inbounds i8, ptr %entry1.0.i, i64 368
   %113 = load ptr, ptr %next2.i, align 8
-  %cmp3.not.i = icmp eq ptr %113, %request.0181
-  br i1 %cmp3.not.i, label %if.end9.sink.split.i.loopexit, label %while.cond.i, !llvm.loop !9
+  %cmp3.not.i = icmp eq ptr %113, %request.0182
+  br i1 %cmp3.not.i, label %if.then6.i, label %while.cond.i, !llvm.loop !9
 
-if.end9.sink.split.i.loopexit:                    ; preds = %land.rhs.i
+if.then6.i:                                       ; preds = %land.rhs.i
   %next2.i.le = getelementptr inbounds i8, ptr %entry1.0.i, i64 368
-  br label %if.end9.sink.split.i
-
-if.end9.sink.split.i:                             ; preds = %if.end9.sink.split.i.loopexit, %while.body
-  %next2.le.sink.i = phi ptr [ @request_queue_head, %while.body ], [ %next2.i.le, %if.end9.sink.split.i.loopexit ]
-  store ptr %111, ptr %next2.le.sink.i, align 8
+  store ptr %111, ptr %next2.i.le, align 8
   br label %release_request.exit
 
-release_request.exit:                             ; preds = %while.cond.i, %if.end9.sink.split.i
-  %url.i = getelementptr inbounds i8, ptr %request.0181, i64 16
+release_request.exit:                             ; preds = %while.cond.i, %if.then.i133, %if.then6.i
+  %url.i = getelementptr inbounds i8, ptr %request.0182, i64 16
   %114 = load ptr, ptr %url.i, align 8
   call void @free(ptr noundef %114) #15
-  call void @free(ptr noundef %request.0181) #15
+  call void @free(ptr noundef %request.0182) #15
   %cmp322.not = icmp eq ptr %111, null
   br i1 %cmp322.not, label %while.end, label %while.body, !llvm.loop !10
 
 while.end:                                        ; preds = %release_request.exit, %if.end321
-  ret i32 %rc.0140
+  ret i32 %rc.0141
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -1980,38 +1980,40 @@ if.end10:                                         ; preds = %if.then, %if.else, 
   %locks11 = getelementptr inbounds i8, ptr %13, i64 40
   %14 = load ptr, ptr %locks11, align 8
   %cmp12 = icmp eq ptr %14, %lock
-  br i1 %cmp12, label %if.end25.sink.split, label %while.cond
+  br i1 %cmp12, label %if.then13, label %while.cond
+
+if.then13:                                        ; preds = %if.end10
+  %next = getelementptr inbounds i8, ptr %lock, i64 120
+  %15 = load ptr, ptr %next, align 8
+  store ptr %15, ptr %locks11, align 8
+  br label %if.end25
 
 while.cond:                                       ; preds = %if.end10, %land.rhs
-  %prev.0 = phi ptr [ %15, %land.rhs ], [ %1, %if.end10 ]
+  %prev.0 = phi ptr [ %16, %land.rhs ], [ %1, %if.end10 ]
   %tobool16.not = icmp eq ptr %prev.0, null
   br i1 %tobool16.not, label %if.end25, label %land.rhs
 
 land.rhs:                                         ; preds = %while.cond
   %next17 = getelementptr inbounds i8, ptr %prev.0, i64 120
-  %15 = load ptr, ptr %next17, align 8
-  %cmp18.not = icmp eq ptr %15, %lock
+  %16 = load ptr, ptr %next17, align 8
+  %cmp18.not = icmp eq ptr %16, %lock
   br i1 %cmp18.not, label %if.then21, label %while.cond, !llvm.loop !17
 
 if.then21:                                        ; preds = %land.rhs
   %next17.le = getelementptr inbounds i8, ptr %prev.0, i64 120
-  br label %if.end25.sink.split
-
-if.end25.sink.split:                              ; preds = %if.end10, %if.then21
-  %next17.le.sink = phi ptr [ %next17.le, %if.then21 ], [ %locks11, %if.end10 ]
   %next22 = getelementptr inbounds i8, ptr %lock, i64 120
-  %16 = load ptr, ptr %next22, align 8
-  store ptr %16, ptr %next17.le.sink, align 8
+  %17 = load ptr, ptr %next22, align 8
+  store ptr %17, ptr %next17.le, align 8
   br label %if.end25
 
-if.end25:                                         ; preds = %while.cond, %if.end25.sink.split
+if.end25:                                         ; preds = %while.cond, %if.then21, %if.then13
   %owner = getelementptr inbounds i8, ptr %lock, i64 8
-  %17 = load ptr, ptr %owner, align 8
-  call void @free(ptr noundef %17) #15
-  %18 = load ptr, ptr %lock, align 8
+  %18 = load ptr, ptr %owner, align 8
   call void @free(ptr noundef %18) #15
-  %19 = load ptr, ptr %token6.i, align 8
+  %19 = load ptr, ptr %lock, align 8
   call void @free(ptr noundef %19) #15
+  %20 = load ptr, ptr %token6.i, align 8
+  call void @free(ptr noundef %20) #15
   call void @free(ptr noundef nonnull %lock) #15
   ret void
 }
@@ -2189,34 +2191,36 @@ define internal fastcc void @release_request(ptr noundef %request) unnamed_addr 
 entry:
   %0 = load ptr, ptr @request_queue_head, align 8
   %cmp = icmp eq ptr %request, %0
-  br i1 %cmp, label %if.end9.sink.split, label %while.cond
+  br i1 %cmp, label %if.then, label %while.cond
+
+if.then:                                          ; preds = %entry
+  %next = getelementptr inbounds i8, ptr %request, i64 368
+  %1 = load ptr, ptr %next, align 8
+  store ptr %1, ptr @request_queue_head, align 8
+  br label %if.end9
 
 while.cond:                                       ; preds = %entry, %land.rhs
-  %entry1.0 = phi ptr [ %1, %land.rhs ], [ %0, %entry ]
+  %entry1.0 = phi ptr [ %2, %land.rhs ], [ %0, %entry ]
   %tobool.not = icmp eq ptr %entry1.0, null
   br i1 %tobool.not, label %if.end9, label %land.rhs
 
 land.rhs:                                         ; preds = %while.cond
   %next2 = getelementptr inbounds i8, ptr %entry1.0, i64 368
-  %1 = load ptr, ptr %next2, align 8
-  %cmp3.not = icmp eq ptr %1, %request
+  %2 = load ptr, ptr %next2, align 8
+  %cmp3.not = icmp eq ptr %2, %request
   br i1 %cmp3.not, label %if.then6, label %while.cond, !llvm.loop !9
 
 if.then6:                                         ; preds = %land.rhs
   %next2.le = getelementptr inbounds i8, ptr %entry1.0, i64 368
-  br label %if.end9.sink.split
-
-if.end9.sink.split:                               ; preds = %entry, %if.then6
-  %next2.le.sink = phi ptr [ %next2.le, %if.then6 ], [ @request_queue_head, %entry ]
   %next7 = getelementptr inbounds i8, ptr %request, i64 368
-  %2 = load ptr, ptr %next7, align 8
-  store ptr %2, ptr %next2.le.sink, align 8
+  %3 = load ptr, ptr %next7, align 8
+  store ptr %3, ptr %next2.le, align 8
   br label %if.end9
 
-if.end9:                                          ; preds = %while.cond, %if.end9.sink.split
+if.end9:                                          ; preds = %while.cond, %if.then6, %if.then
   %url = getelementptr inbounds i8, ptr %request, i64 16
-  %3 = load ptr, ptr %url, align 8
-  tail call void @free(ptr noundef %3) #15
+  %4 = load ptr, ptr %url, align 8
+  tail call void @free(ptr noundef %4) #15
   tail call void @free(ptr noundef %request) #15
   ret void
 }
@@ -3189,46 +3193,48 @@ if.then6.i:                                       ; preds = %if.end.i
   tail call void @release_http_object_request(ptr noundef nonnull %call.i) #15
   %9 = load ptr, ptr @request_queue_head, align 8
   %cmp.i.i = icmp eq ptr %.us-phi, %9
-  br i1 %cmp.i.i, label %if.end9.sink.split.i.i, label %while.cond.i.i
+  br i1 %cmp.i.i, label %if.then.i.i, label %while.cond.i.i
+
+if.then.i.i:                                      ; preds = %if.then6.i
+  %next.i.i = getelementptr inbounds i8, ptr %.us-phi, i64 368
+  %10 = load ptr, ptr %next.i.i, align 8
+  store ptr %10, ptr @request_queue_head, align 8
+  br label %release_request.exit.i
 
 while.cond.i.i:                                   ; preds = %if.then6.i, %land.rhs.i.i
-  %entry1.0.i.i = phi ptr [ %10, %land.rhs.i.i ], [ %9, %if.then6.i ]
+  %entry1.0.i.i = phi ptr [ %11, %land.rhs.i.i ], [ %9, %if.then6.i ]
   %tobool.not.i.i = icmp eq ptr %entry1.0.i.i, null
   br i1 %tobool.not.i.i, label %release_request.exit.i, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %while.cond.i.i
   %next2.i.i = getelementptr inbounds i8, ptr %entry1.0.i.i, i64 368
-  %10 = load ptr, ptr %next2.i.i, align 8
-  %cmp3.not.i.i = icmp eq ptr %10, %.us-phi
-  br i1 %cmp3.not.i.i, label %if.end9.sink.split.i.i.loopexit, label %while.cond.i.i, !llvm.loop !9
+  %11 = load ptr, ptr %next2.i.i, align 8
+  %cmp3.not.i.i = icmp eq ptr %11, %.us-phi
+  br i1 %cmp3.not.i.i, label %if.then6.i.i, label %while.cond.i.i, !llvm.loop !9
 
-if.end9.sink.split.i.i.loopexit:                  ; preds = %land.rhs.i.i
+if.then6.i.i:                                     ; preds = %land.rhs.i.i
   %next2.i.i.le = getelementptr inbounds i8, ptr %entry1.0.i.i, i64 368
-  br label %if.end9.sink.split.i.i
-
-if.end9.sink.split.i.i:                           ; preds = %if.end9.sink.split.i.i.loopexit, %if.then6.i
-  %next2.le.sink.i.i = phi ptr [ @request_queue_head, %if.then6.i ], [ %next2.i.i.le, %if.end9.sink.split.i.i.loopexit ]
   %next7.i.i = getelementptr inbounds i8, ptr %.us-phi, i64 368
-  %11 = load ptr, ptr %next7.i.i, align 8
-  store ptr %11, ptr %next2.le.sink.i.i, align 8
+  %12 = load ptr, ptr %next7.i.i, align 8
+  store ptr %12, ptr %next2.i.i.le, align 8
   br label %release_request.exit.i
 
-release_request.exit.i:                           ; preds = %while.cond.i.i, %if.end9.sink.split.i.i
+release_request.exit.i:                           ; preds = %while.cond.i.i, %if.then6.i.i, %if.then.i.i
   %url.i.i = getelementptr inbounds i8, ptr %.us-phi, i64 16
-  %12 = load ptr, ptr %url.i.i, align 8
-  tail call void @free(ptr noundef %12) #15
+  %13 = load ptr, ptr %url.i.i, align 8
+  tail call void @free(ptr noundef %13) #15
   tail call void @free(ptr noundef nonnull %.us-phi) #15
   br label %return
 
 if.then7:                                         ; preds = %for.body
   %state.le = getelementptr inbounds i8, ptr %request.026, i64 80
-  %13 = load ptr, ptr %request.026, align 8
-  %oid = getelementptr inbounds i8, ptr %13, i64 4
-  %14 = load i8, ptr %oid, align 4
-  %idxprom = zext i8 %14 to i64
+  %14 = load ptr, ptr %request.026, align 8
+  %oid = getelementptr inbounds i8, ptr %14, i64 4
+  %15 = load i8, ptr %oid, align 4
+  %idxprom = zext i8 %15 to i64
   %arrayidx8 = getelementptr inbounds [256 x i8], ptr @remote_dir_exists, i64 0, i64 %idxprom
-  %15 = load i8, ptr %arrayidx8, align 1
-  %cmp9 = icmp eq i8 %15, 1
+  %16 = load i8, ptr %arrayidx8, align 1
+  %cmp9 = icmp eq i8 %16, 1
   br i1 %cmp9, label %if.then11, label %if.else12
 
 if.then11:                                        ; preds = %if.then7
@@ -3237,9 +3243,9 @@ if.then11:                                        ; preds = %if.then7
 
 if.else12:                                        ; preds = %if.then7
   %call.i12 = tail call ptr @oid_to_hex(ptr noundef nonnull %oid) #15
-  %16 = load ptr, ptr @repo, align 8
-  %17 = load ptr, ptr %16, align 8
-  %call1.i = tail call ptr @get_remote_object_url(ptr noundef %17, ptr noundef %call.i12, i32 noundef 1) #15
+  %17 = load ptr, ptr @repo, align 8
+  %18 = load ptr, ptr %17, align 8
+  %call1.i = tail call ptr @get_remote_object_url(ptr noundef %18, ptr noundef %call.i12, i32 noundef 1) #15
   %url2.i = getelementptr inbounds i8, ptr %request.026, i64 16
   store ptr %call1.i, ptr %url2.i, align 8
   %call3.i = tail call ptr @get_active_slot() #15
@@ -3247,15 +3253,15 @@ if.else12:                                        ; preds = %if.then7
   store ptr @process_response, ptr %callback_func.i13, align 8
   %callback_data.i14 = getelementptr inbounds i8, ptr %call3.i, i64 40
   store ptr %request.026, ptr %callback_data.i14, align 8
-  %18 = load ptr, ptr %call3.i, align 8
-  %19 = load ptr, ptr %url2.i, align 8
-  %call.i.i = tail call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %18, i32 noundef 80, i32 noundef 1) #15
-  %call1.i.i = tail call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %18, i32 noundef 10002, ptr noundef %19) #15
-  %call2.i.i = tail call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %18, i32 noundef 10036, ptr noundef nonnull @.str.55) #15
-  %call3.i.i = tail call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %18, i32 noundef 20011, ptr noundef nonnull @fwrite_null) #15
-  %20 = load ptr, ptr %call3.i, align 8
+  %19 = load ptr, ptr %call3.i, align 8
+  %20 = load ptr, ptr %url2.i, align 8
+  %call.i.i = tail call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %19, i32 noundef 80, i32 noundef 1) #15
+  %call1.i.i = tail call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %19, i32 noundef 10002, ptr noundef %20) #15
+  %call2.i.i = tail call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %19, i32 noundef 10036, ptr noundef nonnull @.str.55) #15
+  %call3.i.i = tail call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %19, i32 noundef 20011, ptr noundef nonnull @fwrite_null) #15
+  %21 = load ptr, ptr %call3.i, align 8
   %errorstr.i = getelementptr inbounds i8, ptr %request.026, i64 88
-  %call6.i = tail call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %20, i32 noundef 10010, ptr noundef nonnull %errorstr.i) #15
+  %call6.i = tail call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %21, i32 noundef 10010, ptr noundef nonnull %errorstr.i) #15
   %call7.i = tail call i32 @start_active_slot(ptr noundef nonnull %call3.i) #15
   %tobool.not.i15 = icmp eq i32 %call7.i, 0
   br i1 %tobool.not.i15, label %if.else.i, label %if.then.i16
@@ -3268,8 +3274,8 @@ if.then.i16:                                      ; preds = %if.else12
 
 if.else.i:                                        ; preds = %if.else12
   store i32 7, ptr %state.le, align 8
-  %21 = load ptr, ptr %url2.i, align 8
-  tail call void @free(ptr noundef %21) #15
+  %22 = load ptr, ptr %url2.i, align 8
+  tail call void @free(ptr noundef %22) #15
   store ptr null, ptr %url2.i, align 8
   br label %return
 
@@ -3563,108 +3569,112 @@ if.end56.i:                                       ; preds = %if.then51.i, %if.th
   store i32 %bf.set.i, ptr %28, align 4
   %29 = load ptr, ptr @request_queue_head, align 8
   %cmp.i.i = icmp eq ptr %callback_data, %29
-  br i1 %cmp.i.i, label %if.end9.sink.split.i.i, label %while.cond.i.i
+  br i1 %cmp.i.i, label %if.then.i57.i, label %while.cond.i.i
+
+if.then.i57.i:                                    ; preds = %if.end56.i
+  %next.i.i = getelementptr inbounds i8, ptr %callback_data, i64 368
+  %30 = load ptr, ptr %next.i.i, align 8
+  store ptr %30, ptr @request_queue_head, align 8
+  br label %release_request.exit.i
 
 while.cond.i.i:                                   ; preds = %if.end56.i, %land.rhs.i.i
-  %entry1.0.i.i = phi ptr [ %30, %land.rhs.i.i ], [ %29, %if.end56.i ]
+  %entry1.0.i.i = phi ptr [ %31, %land.rhs.i.i ], [ %29, %if.end56.i ]
   %tobool.not.i55.i = icmp eq ptr %entry1.0.i.i, null
   br i1 %tobool.not.i55.i, label %release_request.exit.i, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %while.cond.i.i
   %next2.i.i = getelementptr inbounds i8, ptr %entry1.0.i.i, i64 368
-  %30 = load ptr, ptr %next2.i.i, align 8
-  %cmp3.not.i.i = icmp eq ptr %30, %callback_data
-  br i1 %cmp3.not.i.i, label %if.end9.sink.split.i.i.loopexit, label %while.cond.i.i, !llvm.loop !9
+  %31 = load ptr, ptr %next2.i.i, align 8
+  %cmp3.not.i.i = icmp eq ptr %31, %callback_data
+  br i1 %cmp3.not.i.i, label %if.then6.i.i, label %while.cond.i.i, !llvm.loop !9
 
-if.end9.sink.split.i.i.loopexit:                  ; preds = %land.rhs.i.i
+if.then6.i.i:                                     ; preds = %land.rhs.i.i
   %next2.i.i.le = getelementptr inbounds i8, ptr %entry1.0.i.i, i64 368
-  br label %if.end9.sink.split.i.i
-
-if.end9.sink.split.i.i:                           ; preds = %if.end9.sink.split.i.i.loopexit, %if.end56.i
-  %next2.le.sink.i.i = phi ptr [ @request_queue_head, %if.end56.i ], [ %next2.i.i.le, %if.end9.sink.split.i.i.loopexit ]
   %next7.i.i = getelementptr inbounds i8, ptr %callback_data, i64 368
-  %31 = load ptr, ptr %next7.i.i, align 8
-  store ptr %31, ptr %next2.le.sink.i.i, align 8
+  %32 = load ptr, ptr %next7.i.i, align 8
+  store ptr %32, ptr %next2.i.i.le, align 8
   br label %release_request.exit.i
 
-release_request.exit.i:                           ; preds = %while.cond.i.i, %if.end9.sink.split.i.i
+release_request.exit.i:                           ; preds = %while.cond.i.i, %if.then6.i.i, %if.then.i57.i
   %url.i56.i = getelementptr inbounds i8, ptr %callback_data, i64 16
-  %32 = load ptr, ptr %url.i56.i, align 8
-  tail call void @free(ptr noundef %32) #15
+  %33 = load ptr, ptr %url.i56.i, align 8
+  tail call void @free(ptr noundef %33) #15
   tail call void @free(ptr noundef %callback_data) #15
   br label %finish_request.exit
 
 if.else59.i:                                      ; preds = %if.then46.i
-  %33 = load ptr, ptr @stderr, align 8
-  %34 = load ptr, ptr %callback_data, align 8
-  %oid61.i = getelementptr inbounds i8, ptr %34, i64 4
+  %34 = load ptr, ptr @stderr, align 8
+  %35 = load ptr, ptr %callback_data, align 8
+  %oid61.i = getelementptr inbounds i8, ptr %35, i64 4
   %call62.i = tail call ptr @oid_to_hex(ptr noundef nonnull %oid61.i) #15
-  %35 = load i32, ptr %curl_result1.i, align 4
-  %36 = load i64, ptr %http_code3.i, align 8
-  %call65.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.84, ptr noundef %call62.i, i32 noundef %35, i64 noundef %36) #18
+  %36 = load i32, ptr %curl_result1.i, align 4
+  %37 = load i64, ptr %http_code3.i, align 8
+  %call65.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str.84, ptr noundef %call62.i, i32 noundef %36, i64 noundef %37) #18
   store i32 7, ptr %state.i, align 8
   store i1 true, ptr @aborted, align 4
   br label %finish_request.exit
 
 if.then71.i:                                      ; preds = %if.end10.i
   %userData.i = getelementptr inbounds i8, ptr %callback_data, i64 352
-  %37 = load ptr, ptr %userData.i, align 8
-  %call72.i = tail call i32 @finish_http_object_request(ptr noundef %37) #15
+  %38 = load ptr, ptr %userData.i, align 8
+  %call72.i = tail call i32 @finish_http_object_request(ptr noundef %38) #15
   %cmp73.i = icmp eq i32 %call72.i, 0
   br i1 %cmp73.i, label %if.then74.i, label %if.end87.i
 
 if.then74.i:                                      ; preds = %if.then71.i
-  %rename.i = getelementptr inbounds i8, ptr %37, i64 2940
-  %38 = load i32, ptr %rename.i, align 4
-  %cmp75.i = icmp eq i32 %38, 0
+  %rename.i = getelementptr inbounds i8, ptr %38, i64 2940
+  %39 = load i32, ptr %rename.i, align 4
+  %cmp75.i = icmp eq i32 %39, 0
   br i1 %cmp75.i, label %if.then76.i, label %if.end87.i
 
 if.then76.i:                                      ; preds = %if.then74.i
-  %39 = load ptr, ptr %callback_data, align 8
-  %bf.load78.i = load i32, ptr %39, align 4
+  %40 = load ptr, ptr %callback_data, align 8
+  %bf.load78.i = load i32, ptr %40, align 4
   %bf.set85.i = or i32 %bf.load78.i, 98304
-  store i32 %bf.set85.i, ptr %39, align 4
+  store i32 %bf.set85.i, ptr %40, align 4
   br label %if.end87.i
 
 if.end87.i:                                       ; preds = %if.then76.i, %if.then74.i, %if.then71.i
-  %40 = load ptr, ptr %callback_data, align 8
-  %bf.load89.i = load i32, ptr %40, align 4
-  %41 = and i32 %bf.load89.i, 32768
-  %tobool91.not.i = icmp eq i32 %41, 0
+  %41 = load ptr, ptr %callback_data, align 8
+  %bf.load89.i = load i32, ptr %41, align 4
+  %42 = and i32 %bf.load89.i, 32768
+  %tobool91.not.i = icmp eq i32 %42, 0
   br i1 %tobool91.not.i, label %if.else93.i, label %if.then92.i
 
 if.then92.i:                                      ; preds = %if.end87.i
-  tail call void @release_http_object_request(ptr noundef %37) #15
-  %42 = load ptr, ptr @request_queue_head, align 8
-  %cmp.i57.i = icmp eq ptr %callback_data, %42
-  br i1 %cmp.i57.i, label %if.end9.sink.split.i66.i, label %while.cond.i58.i
+  tail call void @release_http_object_request(ptr noundef %38) #15
+  %43 = load ptr, ptr @request_queue_head, align 8
+  %cmp.i58.i = icmp eq ptr %callback_data, %43
+  br i1 %cmp.i58.i, label %if.then.i69.i, label %while.cond.i59.i
 
-while.cond.i58.i:                                 ; preds = %if.then92.i, %land.rhs.i61.i
-  %entry1.0.i59.i = phi ptr [ %43, %land.rhs.i61.i ], [ %42, %if.then92.i ]
-  %tobool.not.i60.i = icmp eq ptr %entry1.0.i59.i, null
-  br i1 %tobool.not.i60.i, label %release_request.exit70.i, label %land.rhs.i61.i
+if.then.i69.i:                                    ; preds = %if.then92.i
+  %next.i70.i = getelementptr inbounds i8, ptr %callback_data, i64 368
+  %44 = load ptr, ptr %next.i70.i, align 8
+  store ptr %44, ptr @request_queue_head, align 8
+  br label %release_request.exit71.i
 
-land.rhs.i61.i:                                   ; preds = %while.cond.i58.i
-  %next2.i62.i = getelementptr inbounds i8, ptr %entry1.0.i59.i, i64 368
-  %43 = load ptr, ptr %next2.i62.i, align 8
-  %cmp3.not.i63.i = icmp eq ptr %43, %callback_data
-  br i1 %cmp3.not.i63.i, label %if.end9.sink.split.i66.i.loopexit, label %while.cond.i58.i, !llvm.loop !9
+while.cond.i59.i:                                 ; preds = %if.then92.i, %land.rhs.i62.i
+  %entry1.0.i60.i = phi ptr [ %45, %land.rhs.i62.i ], [ %43, %if.then92.i ]
+  %tobool.not.i61.i = icmp eq ptr %entry1.0.i60.i, null
+  br i1 %tobool.not.i61.i, label %release_request.exit71.i, label %land.rhs.i62.i
 
-if.end9.sink.split.i66.i.loopexit:                ; preds = %land.rhs.i61.i
-  %next2.i62.i.le = getelementptr inbounds i8, ptr %entry1.0.i59.i, i64 368
-  br label %if.end9.sink.split.i66.i
+land.rhs.i62.i:                                   ; preds = %while.cond.i59.i
+  %next2.i63.i = getelementptr inbounds i8, ptr %entry1.0.i60.i, i64 368
+  %45 = load ptr, ptr %next2.i63.i, align 8
+  %cmp3.not.i64.i = icmp eq ptr %45, %callback_data
+  br i1 %cmp3.not.i64.i, label %if.then6.i65.i, label %while.cond.i59.i, !llvm.loop !9
 
-if.end9.sink.split.i66.i:                         ; preds = %if.end9.sink.split.i66.i.loopexit, %if.then92.i
-  %next2.le.sink.i67.i = phi ptr [ @request_queue_head, %if.then92.i ], [ %next2.i62.i.le, %if.end9.sink.split.i66.i.loopexit ]
-  %next7.i68.i = getelementptr inbounds i8, ptr %callback_data, i64 368
-  %44 = load ptr, ptr %next7.i68.i, align 8
-  store ptr %44, ptr %next2.le.sink.i67.i, align 8
-  br label %release_request.exit70.i
+if.then6.i65.i:                                   ; preds = %land.rhs.i62.i
+  %next2.i63.i.le = getelementptr inbounds i8, ptr %entry1.0.i60.i, i64 368
+  %next7.i67.i = getelementptr inbounds i8, ptr %callback_data, i64 368
+  %46 = load ptr, ptr %next7.i67.i, align 8
+  store ptr %46, ptr %next2.i63.i.le, align 8
+  br label %release_request.exit71.i
 
-release_request.exit70.i:                         ; preds = %while.cond.i58.i, %if.end9.sink.split.i66.i
-  %url.i69.i = getelementptr inbounds i8, ptr %callback_data, i64 16
-  %45 = load ptr, ptr %url.i69.i, align 8
-  tail call void @free(ptr noundef %45) #15
+release_request.exit71.i:                         ; preds = %while.cond.i59.i, %if.then6.i65.i, %if.then.i69.i
+  %url.i68.i = getelementptr inbounds i8, ptr %callback_data, i64 16
+  %47 = load ptr, ptr %url.i68.i, align 8
+  tail call void @free(ptr noundef %47) #15
   tail call void @free(ptr noundef %callback_data) #15
   br label %finish_request.exit
 
@@ -3673,78 +3683,80 @@ if.else93.i:                                      ; preds = %if.end87.i
   br label %finish_request.exit
 
 if.then98.i:                                      ; preds = %if.end10.i
-  %46 = load i32, ptr %curl_result1.i, align 4
-  %cmp100.not.i = icmp eq i32 %46, 0
+  %48 = load i32, ptr %curl_result1.i, align 4
+  %cmp100.not.i = icmp eq i32 %48, 0
   br i1 %cmp100.not.i, label %if.else104.i, label %if.then101.i
 
 if.then101.i:                                     ; preds = %if.then98.i
-  %47 = load ptr, ptr @stderr, align 8
+  %49 = load ptr, ptr @stderr, align 8
   %url102.i = getelementptr inbounds i8, ptr %callback_data, i64 16
-  %48 = load ptr, ptr %url102.i, align 8
-  %call103.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef nonnull @.str.85, ptr noundef %48, ptr noundef nonnull @curl_errorstr) #18
+  %50 = load ptr, ptr %url102.i, align 8
+  %call103.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef nonnull @.str.85, ptr noundef %50, ptr noundef nonnull @curl_errorstr) #18
   br label %if.then115.i
 
 if.else104.i:                                     ; preds = %if.then98.i
   %userData105.i = getelementptr inbounds i8, ptr %callback_data, i64 352
-  %49 = load ptr, ptr %userData105.i, align 8
-  %tobool106.not.i = icmp eq ptr %49, null
+  %51 = load ptr, ptr %userData105.i, align 8
+  %tobool106.not.i = icmp eq ptr %51, null
   br i1 %tobool106.not.i, label %if.then115.i, label %if.then107.i
 
 if.then107.i:                                     ; preds = %if.else104.i
-  %call108.i = tail call i32 @finish_http_pack_request(ptr noundef nonnull %49) #15
+  %call108.i = tail call i32 @finish_http_pack_request(ptr noundef nonnull %51) #15
   %cmp109.i = icmp eq i32 %call108.i, 0
-  tail call void @release_http_pack_request(ptr noundef nonnull %49) #15
+  tail call void @release_http_pack_request(ptr noundef nonnull %51) #15
   br i1 %cmp109.i, label %if.else116.i, label %if.then115.i
 
 if.then115.i:                                     ; preds = %if.then107.i, %if.else104.i, %if.then101.i
-  %50 = load ptr, ptr @repo, align 8
-  %can_update_info_refs.i = getelementptr inbounds i8, ptr %50, i64 24
+  %52 = load ptr, ptr @repo, align 8
+  %can_update_info_refs.i = getelementptr inbounds i8, ptr %52, i64 24
   store i32 0, ptr %can_update_info_refs.i, align 8
   br label %if.end117.i
 
 if.else116.i:                                     ; preds = %if.then107.i
   %target.i = getelementptr inbounds i8, ptr %callback_data, i64 8
-  %51 = load ptr, ptr %target.i, align 8
-  %52 = load ptr, ptr @repo, align 8
-  %packs.i = getelementptr inbounds i8, ptr %52, i64 32
-  tail call void @http_install_packfile(ptr noundef %51, ptr noundef nonnull %packs.i) #15
+  %53 = load ptr, ptr %target.i, align 8
+  %54 = load ptr, ptr @repo, align 8
+  %packs.i = getelementptr inbounds i8, ptr %54, i64 32
+  tail call void @http_install_packfile(ptr noundef %53, ptr noundef nonnull %packs.i) #15
   br label %if.end117.i
 
 if.end117.i:                                      ; preds = %if.else116.i, %if.then115.i
-  %53 = load ptr, ptr @request_queue_head, align 8
-  %cmp.i71.i = icmp eq ptr %callback_data, %53
-  br i1 %cmp.i71.i, label %if.end9.sink.split.i80.i, label %while.cond.i72.i
+  %55 = load ptr, ptr @request_queue_head, align 8
+  %cmp.i72.i = icmp eq ptr %callback_data, %55
+  br i1 %cmp.i72.i, label %if.then.i83.i, label %while.cond.i73.i
 
-while.cond.i72.i:                                 ; preds = %if.end117.i, %land.rhs.i75.i
-  %entry1.0.i73.i = phi ptr [ %54, %land.rhs.i75.i ], [ %53, %if.end117.i ]
-  %tobool.not.i74.i = icmp eq ptr %entry1.0.i73.i, null
-  br i1 %tobool.not.i74.i, label %release_request.exit84.i, label %land.rhs.i75.i
+if.then.i83.i:                                    ; preds = %if.end117.i
+  %next.i84.i = getelementptr inbounds i8, ptr %callback_data, i64 368
+  %56 = load ptr, ptr %next.i84.i, align 8
+  store ptr %56, ptr @request_queue_head, align 8
+  br label %release_request.exit85.i
 
-land.rhs.i75.i:                                   ; preds = %while.cond.i72.i
-  %next2.i76.i = getelementptr inbounds i8, ptr %entry1.0.i73.i, i64 368
-  %54 = load ptr, ptr %next2.i76.i, align 8
-  %cmp3.not.i77.i = icmp eq ptr %54, %callback_data
-  br i1 %cmp3.not.i77.i, label %if.end9.sink.split.i80.i.loopexit, label %while.cond.i72.i, !llvm.loop !9
+while.cond.i73.i:                                 ; preds = %if.end117.i, %land.rhs.i76.i
+  %entry1.0.i74.i = phi ptr [ %57, %land.rhs.i76.i ], [ %55, %if.end117.i ]
+  %tobool.not.i75.i = icmp eq ptr %entry1.0.i74.i, null
+  br i1 %tobool.not.i75.i, label %release_request.exit85.i, label %land.rhs.i76.i
 
-if.end9.sink.split.i80.i.loopexit:                ; preds = %land.rhs.i75.i
-  %next2.i76.i.le = getelementptr inbounds i8, ptr %entry1.0.i73.i, i64 368
-  br label %if.end9.sink.split.i80.i
+land.rhs.i76.i:                                   ; preds = %while.cond.i73.i
+  %next2.i77.i = getelementptr inbounds i8, ptr %entry1.0.i74.i, i64 368
+  %57 = load ptr, ptr %next2.i77.i, align 8
+  %cmp3.not.i78.i = icmp eq ptr %57, %callback_data
+  br i1 %cmp3.not.i78.i, label %if.then6.i79.i, label %while.cond.i73.i, !llvm.loop !9
 
-if.end9.sink.split.i80.i:                         ; preds = %if.end9.sink.split.i80.i.loopexit, %if.end117.i
-  %next2.le.sink.i81.i = phi ptr [ @request_queue_head, %if.end117.i ], [ %next2.i76.i.le, %if.end9.sink.split.i80.i.loopexit ]
-  %next7.i82.i = getelementptr inbounds i8, ptr %callback_data, i64 368
-  %55 = load ptr, ptr %next7.i82.i, align 8
-  store ptr %55, ptr %next2.le.sink.i81.i, align 8
-  br label %release_request.exit84.i
+if.then6.i79.i:                                   ; preds = %land.rhs.i76.i
+  %next2.i77.i.le = getelementptr inbounds i8, ptr %entry1.0.i74.i, i64 368
+  %next7.i81.i = getelementptr inbounds i8, ptr %callback_data, i64 368
+  %58 = load ptr, ptr %next7.i81.i, align 8
+  store ptr %58, ptr %next2.i77.i.le, align 8
+  br label %release_request.exit85.i
 
-release_request.exit84.i:                         ; preds = %while.cond.i72.i, %if.end9.sink.split.i80.i
-  %url.i83.i = getelementptr inbounds i8, ptr %callback_data, i64 16
-  %56 = load ptr, ptr %url.i83.i, align 8
-  tail call void @free(ptr noundef %56) #15
+release_request.exit85.i:                         ; preds = %while.cond.i73.i, %if.then6.i79.i, %if.then.i83.i
+  %url.i82.i = getelementptr inbounds i8, ptr %callback_data, i64 16
+  %59 = load ptr, ptr %url.i82.i, align 8
+  tail call void @free(ptr noundef %59) #15
   tail call void @free(ptr noundef %callback_data) #15
   br label %finish_request.exit
 
-finish_request.exit:                              ; preds = %if.end10.i, %if.then18.i, %if.else.i, %if.then.i.i, %if.else.i.i, %if.else34.i, %release_request.exit.i, %if.else59.i, %release_request.exit70.i, %if.else93.i, %release_request.exit84.i
+finish_request.exit:                              ; preds = %if.end10.i, %if.then18.i, %if.else.i, %if.then.i.i, %if.else.i.i, %if.else34.i, %release_request.exit.i, %if.else59.i, %release_request.exit71.i, %if.else93.i, %release_request.exit85.i
   ret void
 }
 
@@ -3776,34 +3788,36 @@ if.then:                                          ; preds = %entry
   store i32 0, ptr %can_update_info_refs, align 8
   %7 = load ptr, ptr @request_queue_head, align 8
   %cmp.i = icmp eq ptr %request, %7
-  br i1 %cmp.i, label %if.end9.sink.split.i, label %while.cond.i
+  br i1 %cmp.i, label %if.then.i, label %while.cond.i
+
+if.then.i:                                        ; preds = %if.then
+  %next.i = getelementptr inbounds i8, ptr %request, i64 368
+  %8 = load ptr, ptr %next.i, align 8
+  store ptr %8, ptr @request_queue_head, align 8
+  br label %release_request.exit
 
 while.cond.i:                                     ; preds = %if.then, %land.rhs.i
-  %entry1.0.i = phi ptr [ %8, %land.rhs.i ], [ %7, %if.then ]
+  %entry1.0.i = phi ptr [ %9, %land.rhs.i ], [ %7, %if.then ]
   %tobool.not.i = icmp eq ptr %entry1.0.i, null
   br i1 %tobool.not.i, label %release_request.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.cond.i
   %next2.i = getelementptr inbounds i8, ptr %entry1.0.i, i64 368
-  %8 = load ptr, ptr %next2.i, align 8
-  %cmp3.not.i = icmp eq ptr %8, %request
-  br i1 %cmp3.not.i, label %if.end9.sink.split.i.loopexit, label %while.cond.i, !llvm.loop !9
+  %9 = load ptr, ptr %next2.i, align 8
+  %cmp3.not.i = icmp eq ptr %9, %request
+  br i1 %cmp3.not.i, label %if.then6.i, label %while.cond.i, !llvm.loop !9
 
-if.end9.sink.split.i.loopexit:                    ; preds = %land.rhs.i
+if.then6.i:                                       ; preds = %land.rhs.i
   %next2.i.le = getelementptr inbounds i8, ptr %entry1.0.i, i64 368
-  br label %if.end9.sink.split.i
-
-if.end9.sink.split.i:                             ; preds = %if.end9.sink.split.i.loopexit, %if.then
-  %next2.le.sink.i = phi ptr [ @request_queue_head, %if.then ], [ %next2.i.le, %if.end9.sink.split.i.loopexit ]
   %next7.i = getelementptr inbounds i8, ptr %request, i64 368
-  %9 = load ptr, ptr %next7.i, align 8
-  store ptr %9, ptr %next2.le.sink.i, align 8
+  %10 = load ptr, ptr %next7.i, align 8
+  store ptr %10, ptr %next2.i.le, align 8
   br label %release_request.exit
 
-release_request.exit:                             ; preds = %while.cond.i, %if.end9.sink.split.i
+release_request.exit:                             ; preds = %while.cond.i, %if.then.i, %if.then6.i
   %url.i = getelementptr inbounds i8, ptr %request, i64 16
-  %10 = load ptr, ptr %url.i, align 8
-  tail call void @free(ptr noundef %10) #15
+  %11 = load ptr, ptr %url.i, align 8
+  tail call void @free(ptr noundef %11) #15
   tail call void @free(ptr noundef %request) #15
   br label %if.end38
 
@@ -3811,18 +3825,18 @@ if.end:                                           ; preds = %entry
   tail call void @close_pack_index(ptr noundef nonnull %call) #15
   %target5 = getelementptr inbounds i8, ptr %request, i64 8
   store ptr %call, ptr %target5, align 8
-  %11 = load ptr, ptr @stderr, align 8
+  %12 = load ptr, ptr @stderr, align 8
   %hash6 = getelementptr inbounds i8, ptr %call, i64 153
   %call8 = tail call ptr @hash_to_hex(ptr noundef nonnull %hash6) #15
-  %call9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.89, ptr noundef %call8) #18
-  %12 = load ptr, ptr @stderr, align 8
-  %13 = load ptr, ptr %request, align 8
-  %oid11 = getelementptr inbounds i8, ptr %13, i64 4
+  %call9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.89, ptr noundef %call8) #18
+  %13 = load ptr, ptr @stderr, align 8
+  %14 = load ptr, ptr %request, align 8
+  %oid11 = getelementptr inbounds i8, ptr %14, i64 4
   %call12 = tail call ptr @oid_to_hex(ptr noundef nonnull %oid11) #15
-  %call13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.90, ptr noundef %call12) #18
-  %14 = load ptr, ptr @repo, align 8
-  %15 = load ptr, ptr %14, align 8
-  %call16 = tail call ptr @new_http_pack_request(ptr noundef nonnull %hash6, ptr noundef %15) #15
+  %call13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.90, ptr noundef %call12) #18
+  %15 = load ptr, ptr @repo, align 8
+  %16 = load ptr, ptr %15, align 8
+  %call16 = tail call ptr @new_http_pack_request(ptr noundef nonnull %hash6, ptr noundef %16) #15
   %tobool17.not = icmp eq ptr %call16, null
   br i1 %tobool17.not, label %if.then18, label %while.cond.preheader
 
@@ -3831,93 +3845,95 @@ while.cond.preheader:                             ; preds = %if.end
   br i1 %tobool21.not40, label %while.end, label %while.body
 
 if.then18:                                        ; preds = %if.end
-  %16 = load ptr, ptr @repo, align 8
-  %can_update_info_refs19 = getelementptr inbounds i8, ptr %16, i64 24
+  %17 = load ptr, ptr @repo, align 8
+  %can_update_info_refs19 = getelementptr inbounds i8, ptr %17, i64 24
   store i32 0, ptr %can_update_info_refs19, align 8
   br label %if.end38
 
 while.body:                                       ; preds = %while.cond.preheader, %if.end27
-  %check_request.041 = phi ptr [ %24, %if.end27 ], [ %0, %while.cond.preheader ]
+  %check_request.041 = phi ptr [ %26, %if.end27 ], [ %0, %while.cond.preheader ]
   %state = getelementptr inbounds i8, ptr %check_request.041, i64 80
-  %17 = load i32, ptr %state, align 8
-  %cmp = icmp eq i32 %17, 2
+  %18 = load i32, ptr %state, align 8
+  %cmp = icmp eq i32 %18, 2
   br i1 %cmp, label %land.lhs.true, label %if.end27
 
 land.lhs.true:                                    ; preds = %while.body
   %url22 = getelementptr inbounds i8, ptr %check_request.041, i64 16
-  %18 = load ptr, ptr %url22, align 8
-  %19 = load ptr, ptr %call16, align 8
-  %call24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %19) #16
+  %19 = load ptr, ptr %url22, align 8
+  %20 = load ptr, ptr %call16, align 8
+  %call24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %20) #16
   %tobool25.not = icmp eq i32 %call24, 0
   br i1 %tobool25.not, label %if.then26, label %if.end27
 
 if.then26:                                        ; preds = %land.lhs.true
   tail call void @release_http_pack_request(ptr noundef nonnull %call16) #15
-  %20 = load ptr, ptr @request_queue_head, align 8
-  %cmp.i26 = icmp eq ptr %request, %20
-  br i1 %cmp.i26, label %if.end9.sink.split.i35, label %while.cond.i27
+  %21 = load ptr, ptr @request_queue_head, align 8
+  %cmp.i26 = icmp eq ptr %request, %21
+  br i1 %cmp.i26, label %if.then.i37, label %while.cond.i27
+
+if.then.i37:                                      ; preds = %if.then26
+  %next.i38 = getelementptr inbounds i8, ptr %request, i64 368
+  %22 = load ptr, ptr %next.i38, align 8
+  store ptr %22, ptr @request_queue_head, align 8
+  br label %release_request.exit39
 
 while.cond.i27:                                   ; preds = %if.then26, %land.rhs.i30
-  %entry1.0.i28 = phi ptr [ %21, %land.rhs.i30 ], [ %20, %if.then26 ]
+  %entry1.0.i28 = phi ptr [ %23, %land.rhs.i30 ], [ %21, %if.then26 ]
   %tobool.not.i29 = icmp eq ptr %entry1.0.i28, null
   br i1 %tobool.not.i29, label %release_request.exit39, label %land.rhs.i30
 
 land.rhs.i30:                                     ; preds = %while.cond.i27
   %next2.i31 = getelementptr inbounds i8, ptr %entry1.0.i28, i64 368
-  %21 = load ptr, ptr %next2.i31, align 8
-  %cmp3.not.i32 = icmp eq ptr %21, %request
-  br i1 %cmp3.not.i32, label %if.end9.sink.split.i35.loopexit, label %while.cond.i27, !llvm.loop !9
+  %23 = load ptr, ptr %next2.i31, align 8
+  %cmp3.not.i32 = icmp eq ptr %23, %request
+  br i1 %cmp3.not.i32, label %if.then6.i33, label %while.cond.i27, !llvm.loop !9
 
-if.end9.sink.split.i35.loopexit:                  ; preds = %land.rhs.i30
+if.then6.i33:                                     ; preds = %land.rhs.i30
   %next2.i31.le = getelementptr inbounds i8, ptr %entry1.0.i28, i64 368
-  br label %if.end9.sink.split.i35
-
-if.end9.sink.split.i35:                           ; preds = %if.end9.sink.split.i35.loopexit, %if.then26
-  %next2.le.sink.i36 = phi ptr [ @request_queue_head, %if.then26 ], [ %next2.i31.le, %if.end9.sink.split.i35.loopexit ]
-  %next7.i37 = getelementptr inbounds i8, ptr %request, i64 368
-  %22 = load ptr, ptr %next7.i37, align 8
-  store ptr %22, ptr %next2.le.sink.i36, align 8
+  %next7.i35 = getelementptr inbounds i8, ptr %request, i64 368
+  %24 = load ptr, ptr %next7.i35, align 8
+  store ptr %24, ptr %next2.i31.le, align 8
   br label %release_request.exit39
 
-release_request.exit39:                           ; preds = %while.cond.i27, %if.end9.sink.split.i35
-  %url.i38 = getelementptr inbounds i8, ptr %request, i64 16
-  %23 = load ptr, ptr %url.i38, align 8
-  tail call void @free(ptr noundef %23) #15
+release_request.exit39:                           ; preds = %while.cond.i27, %if.then.i37, %if.then6.i33
+  %url.i36 = getelementptr inbounds i8, ptr %request, i64 16
+  %25 = load ptr, ptr %url.i36, align 8
+  tail call void @free(ptr noundef %25) #15
   tail call void @free(ptr noundef %request) #15
   br label %if.end38
 
 if.end27:                                         ; preds = %land.lhs.true, %while.body
   %next = getelementptr inbounds i8, ptr %check_request.041, i64 368
-  %24 = load ptr, ptr %next, align 8
-  %tobool21.not = icmp eq ptr %24, null
+  %26 = load ptr, ptr %next, align 8
+  %tobool21.not = icmp eq ptr %26, null
   br i1 %tobool21.not, label %while.end, label %while.body, !llvm.loop !24
 
 while.end:                                        ; preds = %if.end27, %while.cond.preheader
   %slot = getelementptr inbounds i8, ptr %call16, i64 56
-  %25 = load ptr, ptr %slot, align 8
-  %callback_func = getelementptr inbounds i8, ptr %25, i64 48
-  store ptr @process_response, ptr %callback_func, align 8
-  %26 = load ptr, ptr %slot, align 8
-  %callback_data = getelementptr inbounds i8, ptr %26, i64 40
-  store ptr %request, ptr %callback_data, align 8
   %27 = load ptr, ptr %slot, align 8
+  %callback_func = getelementptr inbounds i8, ptr %27, i64 48
+  store ptr @process_response, ptr %callback_func, align 8
+  %28 = load ptr, ptr %slot, align 8
+  %callback_data = getelementptr inbounds i8, ptr %28, i64 40
+  store ptr %request, ptr %callback_data, align 8
+  %29 = load ptr, ptr %slot, align 8
   %slot30 = getelementptr inbounds i8, ptr %request, i64 360
-  store ptr %27, ptr %slot30, align 8
+  store ptr %29, ptr %slot30, align 8
   %userData = getelementptr inbounds i8, ptr %request, i64 352
   store ptr %call16, ptr %userData, align 8
   %state31 = getelementptr inbounds i8, ptr %request, i64 80
   store i32 2, ptr %state31, align 8
-  %28 = load ptr, ptr %slot, align 8
-  %call33 = tail call i32 @start_active_slot(ptr noundef %28) #15
+  %30 = load ptr, ptr %slot, align 8
+  %call33 = tail call i32 @start_active_slot(ptr noundef %30) #15
   %tobool34.not = icmp eq i32 %call33, 0
   br i1 %tobool34.not, label %if.then35, label %if.end38
 
 if.then35:                                        ; preds = %while.end
-  %29 = load ptr, ptr @stderr, align 8
-  %30 = tail call i64 @fwrite(ptr nonnull @.str.80, i64 28, i64 1, ptr %29) #18
+  %31 = load ptr, ptr @stderr, align 8
+  %32 = tail call i64 @fwrite(ptr nonnull @.str.80, i64 28, i64 1, ptr %31) #18
   tail call void @release_http_pack_request(ptr noundef nonnull %call16) #15
-  %31 = load ptr, ptr @repo, align 8
-  %can_update_info_refs37 = getelementptr inbounds i8, ptr %31, i64 24
+  %33 = load ptr, ptr @repo, align 8
+  %can_update_info_refs37 = getelementptr inbounds i8, ptr %33, i64 24
   store i32 0, ptr %can_update_info_refs37, align 8
   tail call fastcc void @release_request(ptr noundef nonnull %request)
   br label %if.end38

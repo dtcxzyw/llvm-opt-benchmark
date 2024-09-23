@@ -454,34 +454,43 @@ _ZN16JvmtiEnvIteratorC2Ev.exit:                   ; preds = %_ZN16JvmtiEnvIterat
 
 10:                                               ; preds = %_ZN16JvmtiEnvIteratorC2Ev.exit
   %11 = icmp eq ptr %.06, null
-  %12 = getelementptr inbounds i8, ptr %.06, i64 16
-  %.sink = select i1 %11, ptr @_ZN12JvmtiEnvBase17_head_environmentE, ptr %12
-  store ptr %0, ptr %.sink, align 8
-  br i1 %.not7, label %_ZN16JvmtiEnvIteratorD2Ev.exit, label %13
+  br i1 %11, label %12, label %13
+
+12:                                               ; preds = %10
+  store ptr %0, ptr @_ZN12JvmtiEnvBase17_head_environmentE, align 8
+  br label %15
 
 13:                                               ; preds = %10
-  %14 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 844
-  %17 = load volatile i32, ptr %16, align 4
-  %18 = add nsw i32 %17, -1
-  store volatile i32 %18, ptr %16, align 4
+  %14 = getelementptr inbounds i8, ptr %.06, i64 16
+  store ptr %0, ptr %14, align 8
+  br label %15
+
+15:                                               ; preds = %13, %12
+  br i1 %.not7, label %_ZN16JvmtiEnvIteratorD2Ev.exit, label %16
+
+16:                                               ; preds = %15
+  %17 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %18, i64 844
+  %20 = load volatile i32, ptr %19, align 4
+  %21 = add nsw i32 %20, -1
+  store volatile i32 %21, ptr %19, align 4
   br label %_ZN16JvmtiEnvIteratorD2Ev.exit
 
-_ZN16JvmtiEnvIteratorD2Ev.exit:                   ; preds = %10, %13
-  %19 = load i8, ptr @_ZN12JvmtiEnvBase21_globally_initializedE, align 1
-  %20 = and i8 %19, 1
-  %21 = icmp eq i8 %20, 0
-  br i1 %21, label %22, label %23
+_ZN16JvmtiEnvIteratorD2Ev.exit:                   ; preds = %15, %16
+  %22 = load i8, ptr @_ZN12JvmtiEnvBase21_globally_initializedE, align 1
+  %23 = and i8 %22, 1
+  %24 = icmp eq i8 %23, 0
+  br i1 %24, label %25, label %26
 
-22:                                               ; preds = %_ZN16JvmtiEnvIteratorD2Ev.exit
+25:                                               ; preds = %_ZN16JvmtiEnvIteratorD2Ev.exit
   tail call void @_ZN23JvmtiManageCapabilities10initializeEv() #18
   tail call void @_ZN15JvmtiExtensions19register_extensionsEv() #18
   tail call void @_ZN10JvmtiTrace10initializeEv() #18
   store i8 1, ptr @_ZN12JvmtiEnvBase21_globally_initializedE, align 1
-  br label %23
+  br label %26
 
-23:                                               ; preds = %22, %_ZN16JvmtiEnvIteratorD2Ev.exit
+26:                                               ; preds = %25, %_ZN16JvmtiEnvIteratorD2Ev.exit
   ret void
 }
 
@@ -850,57 +859,66 @@ _ZN16JvmtiEnvIteratorC2Ev.exit:                   ; preds = %0, %2
   %.not14 = icmp eq ptr %8, null
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZN16JvmtiEnvIteratorC2Ev.exit, %20
-  %.016 = phi ptr [ %.1, %20 ], [ null, %_ZN16JvmtiEnvIteratorC2Ev.exit ]
-  %.01115 = phi ptr [ %12, %20 ], [ %8, %_ZN16JvmtiEnvIteratorC2Ev.exit ]
+.lr.ph:                                           ; preds = %_ZN16JvmtiEnvIteratorC2Ev.exit, %23
+  %.016 = phi ptr [ %.1, %23 ], [ null, %_ZN16JvmtiEnvIteratorC2Ev.exit ]
+  %.01115 = phi ptr [ %12, %23 ], [ %8, %_ZN16JvmtiEnvIteratorC2Ev.exit ]
   %9 = getelementptr inbounds i8, ptr %.01115, i64 8
   %.0.i.i.i = load i32, ptr %9, align 1
   %10 = icmp eq i32 %.0.i.i.i, 29166
   %11 = getelementptr inbounds i8, ptr %.01115, i64 16
   %12 = load ptr, ptr %11, align 8
-  br i1 %10, label %20, label %13
+  br i1 %10, label %23, label %13
 
 13:                                               ; preds = %.lr.ph
   %14 = icmp eq ptr %.016, null
-  %15 = getelementptr inbounds i8, ptr %.016, i64 16
-  %_ZN12JvmtiEnvBase17_head_environmentE.sink = select i1 %14, ptr @_ZN12JvmtiEnvBase17_head_environmentE, ptr %15
-  store ptr %12, ptr %_ZN12JvmtiEnvBase17_head_environmentE.sink, align 8
-  %16 = getelementptr inbounds i8, ptr %.01115, i64 376
-  %17 = load volatile ptr, ptr %16, align 8
-  store volatile ptr null, ptr %16, align 8
-  %.not.i = icmp eq ptr %17, null
-  br i1 %.not.i, label %_ZN12JvmtiEnvBaseD2Ev.exit, label %18
+  br i1 %14, label %15, label %16
 
-18:                                               ; preds = %13
-  tail call void @_ZN11JvmtiTagMapD1Ev(ptr noundef nonnull align 8 dereferenceable(122) %17) #18
-  tail call void @_Z8FreeHeapPv(ptr noundef nonnull %17) #18
+15:                                               ; preds = %13
+  store ptr %12, ptr @_ZN12JvmtiEnvBase17_head_environmentE, align 8
+  br label %18
+
+16:                                               ; preds = %13
+  %17 = getelementptr inbounds i8, ptr %.016, i64 16
+  store ptr %12, ptr %17, align 8
+  br label %18
+
+18:                                               ; preds = %15, %16
+  %19 = getelementptr inbounds i8, ptr %.01115, i64 376
+  %20 = load volatile ptr, ptr %19, align 8
+  store volatile ptr null, ptr %19, align 8
+  %.not.i = icmp eq ptr %20, null
+  br i1 %.not.i, label %_ZN12JvmtiEnvBaseD2Ev.exit, label %21
+
+21:                                               ; preds = %18
+  tail call void @_ZN11JvmtiTagMapD1Ev(ptr noundef nonnull align 8 dereferenceable(122) %20) #18
+  tail call void @_Z8FreeHeapPv(ptr noundef nonnull %20) #18
   br label %_ZN12JvmtiEnvBaseD2Ev.exit
 
-_ZN12JvmtiEnvBaseD2Ev.exit:                       ; preds = %13, %18
+_ZN12JvmtiEnvBaseD2Ev.exit:                       ; preds = %18, %21
   store i32 57005, ptr %9, align 8
-  %19 = getelementptr inbounds i8, ptr %.01115, i64 384
-  tail call void @_ZN19JvmtiEnvEventEnableD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #18
+  %22 = getelementptr inbounds i8, ptr %.01115, i64 384
+  tail call void @_ZN19JvmtiEnvEventEnableD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #18
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %.01115) #18
-  br label %20
+  br label %23
 
-20:                                               ; preds = %.lr.ph, %_ZN12JvmtiEnvBaseD2Ev.exit
+23:                                               ; preds = %.lr.ph, %_ZN12JvmtiEnvBaseD2Ev.exit
   %.1 = phi ptr [ %.016, %_ZN12JvmtiEnvBaseD2Ev.exit ], [ %.01115, %.lr.ph ]
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %20, %_ZN16JvmtiEnvIteratorC2Ev.exit
-  br i1 %.not13, label %_ZN16JvmtiEnvIteratorD2Ev.exit, label %21
+._crit_edge:                                      ; preds = %23, %_ZN16JvmtiEnvIteratorC2Ev.exit
+  br i1 %.not13, label %_ZN16JvmtiEnvIteratorD2Ev.exit, label %24
 
-21:                                               ; preds = %._crit_edge
-  %22 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 844
-  %25 = load volatile i32, ptr %24, align 4
-  %26 = add nsw i32 %25, -1
-  store volatile i32 %26, ptr %24, align 4
+24:                                               ; preds = %._crit_edge
+  %25 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 844
+  %28 = load volatile i32, ptr %27, align 4
+  %29 = add nsw i32 %28, -1
+  store volatile i32 %29, ptr %27, align 4
   br label %_ZN16JvmtiEnvIteratorD2Ev.exit
 
-_ZN16JvmtiEnvIteratorD2Ev.exit:                   ; preds = %._crit_edge, %21
+_ZN16JvmtiEnvIteratorD2Ev.exit:                   ; preds = %._crit_edge, %24
   ret void
 }
 

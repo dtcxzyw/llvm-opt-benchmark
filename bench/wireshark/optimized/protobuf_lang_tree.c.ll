@@ -1862,7 +1862,7 @@ define hidden noundef ptr @pbl_add_child(ptr noundef returned %0, ptr noundef %1
   %3 = icmp eq ptr %1, null
   %4 = icmp eq ptr %0, null
   %or.cond = or i1 %4, %3
-  br i1 %or.cond, label %115, label %5
+  br i1 %or.cond, label %118, label %5
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %1, align 8
@@ -1994,14 +1994,14 @@ define hidden noundef ptr @pbl_add_child(ptr noundef returned %0, ptr noundef %1
   %79 = load ptr, ptr %39, align 8
   %80 = tail call i32 @g_hash_table_insert(ptr noundef %78, ptr noundef %79, ptr noundef nonnull %1) #14
   %81 = load i32, ptr %0, align 8
-  switch i32 %81, label %115 [
+  switch i32 %81, label %118 [
     i32 2, label %82
-    i32 6, label %95
+    i32 6, label %97
   ]
 
 82:                                               ; preds = %.critedge
   %83 = load i32, ptr %1, align 8
-  switch i32 %83, label %115 [
+  switch i32 %83, label %118 [
     i32 3, label %84
     i32 5, label %84
   ]
@@ -2023,48 +2023,52 @@ define hidden noundef ptr @pbl_add_child(ptr noundef returned %0, ptr noundef %1
   %92 = getelementptr inbounds i8, ptr %0, i64 72
   %93 = load ptr, ptr %92, align 8
   %94 = icmp eq ptr %93, null
-  br i1 %94, label %.sink.split.sink.split, label %.sink.split
+  br i1 %94, label %95, label %.sink.split
 
-95:                                               ; preds = %.critedge
-  %96 = load i32, ptr %1, align 8
-  %97 = icmp eq i32 %96, 7
-  br i1 %97, label %98, label %115
-
-98:                                               ; preds = %95
-  %99 = getelementptr inbounds i8, ptr %0, i64 64
-  %100 = load ptr, ptr %99, align 8
-  %101 = icmp eq ptr %100, null
-  br i1 %101, label %102, label %104
-
-102:                                              ; preds = %98
-  %103 = tail call ptr @g_queue_new() #14
-  store ptr %103, ptr %99, align 8
-  br label %104
-
-104:                                              ; preds = %102, %98
-  %105 = phi ptr [ %103, %102 ], [ %100, %98 ]
-  tail call void @g_queue_push_tail(ptr noundef %105, ptr noundef nonnull %1) #14
-  %106 = getelementptr inbounds i8, ptr %0, i64 72
-  %107 = load ptr, ptr %106, align 8
-  %108 = icmp eq ptr %107, null
-  br i1 %108, label %.sink.split.sink.split, label %.sink.split
-
-.sink.split.sink.split:                           ; preds = %104, %90
-  %.sink94 = phi ptr [ %92, %90 ], [ %106, %104 ]
-  %109 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal, ptr noundef null, ptr noundef null) #14
-  store ptr %109, ptr %.sink94, align 8
+95:                                               ; preds = %90
+  %96 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal, ptr noundef null, ptr noundef null) #14
+  store ptr %96, ptr %92, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.sink.split.sink.split, %104, %90
-  %.sink = phi ptr [ %93, %90 ], [ %107, %104 ], [ %109, %.sink.split.sink.split ]
-  %110 = getelementptr inbounds i8, ptr %1, i64 64
-  %111 = load i32, ptr %110, align 8
-  %112 = sext i32 %111 to i64
-  %113 = inttoptr i64 %112 to ptr
-  %114 = tail call i32 @g_hash_table_insert(ptr noundef %.sink, ptr noundef %113, ptr noundef nonnull %1) #14
-  br label %115
+97:                                               ; preds = %.critedge
+  %98 = load i32, ptr %1, align 8
+  %99 = icmp eq i32 %98, 7
+  br i1 %99, label %100, label %118
 
-115:                                              ; preds = %.sink.split, %95, %82, %.critedge, %2
+100:                                              ; preds = %97
+  %101 = getelementptr inbounds i8, ptr %0, i64 64
+  %102 = load ptr, ptr %101, align 8
+  %103 = icmp eq ptr %102, null
+  br i1 %103, label %104, label %106
+
+104:                                              ; preds = %100
+  %105 = tail call ptr @g_queue_new() #14
+  store ptr %105, ptr %101, align 8
+  br label %106
+
+106:                                              ; preds = %104, %100
+  %107 = phi ptr [ %105, %104 ], [ %102, %100 ]
+  tail call void @g_queue_push_tail(ptr noundef %107, ptr noundef nonnull %1) #14
+  %108 = getelementptr inbounds i8, ptr %0, i64 72
+  %109 = load ptr, ptr %108, align 8
+  %110 = icmp eq ptr %109, null
+  br i1 %110, label %111, label %.sink.split
+
+111:                                              ; preds = %106
+  %112 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal, ptr noundef null, ptr noundef null) #14
+  store ptr %112, ptr %108, align 8
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %106, %111, %90, %95
+  %.sink = phi ptr [ %96, %95 ], [ %93, %90 ], [ %112, %111 ], [ %109, %106 ]
+  %113 = getelementptr inbounds i8, ptr %1, i64 64
+  %114 = load i32, ptr %113, align 8
+  %115 = sext i32 %114 to i64
+  %116 = inttoptr i64 %115 to ptr
+  %117 = tail call i32 @g_hash_table_insert(ptr noundef %.sink, ptr noundef %116, ptr noundef nonnull %1) #14
+  br label %118
+
+118:                                              ; preds = %.sink.split, %97, %82, %.critedge, %2
   ret ptr %0
 }
 
@@ -2073,13 +2077,13 @@ define hidden noundef ptr @pbl_merge_children(ptr noundef returned %0, ptr nound
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
-  br i1 %or.cond, label %34, label %5
+  br i1 %or.cond, label %36, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %1, i64 32
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %34, label %8
+  br i1 %.not, label %36, label %8
 
 8:                                                ; preds = %5
   %9 = tail call ptr @g_queue_peek_head_link(ptr noundef nonnull %7) #14
@@ -2111,9 +2115,9 @@ define hidden noundef ptr @pbl_merge_children(ptr noundef returned %0, ptr nound
 18:                                               ; preds = %17, %._crit_edge
   store ptr null, ptr %15, align 8
   %19 = load i32, ptr %1, align 8
-  switch i32 %19, label %34 [
+  switch i32 %19, label %36 [
     i32 2, label %20
-    i32 6, label %27
+    i32 6, label %28
   ]
 
 20:                                               ; preds = %18
@@ -2131,33 +2135,36 @@ define hidden noundef ptr @pbl_merge_children(ptr noundef returned %0, ptr nound
   %25 = getelementptr inbounds i8, ptr %1, i64 72
   %26 = load ptr, ptr %25, align 8
   %.not48 = icmp eq ptr %26, null
-  br i1 %.not48, label %34, label %.sink.split
+  br i1 %.not48, label %36, label %27
 
-27:                                               ; preds = %18
-  %28 = getelementptr inbounds i8, ptr %1, i64 64
-  %29 = load ptr, ptr %28, align 8
-  %.not45 = icmp eq ptr %29, null
-  br i1 %.not45, label %31, label %30
+27:                                               ; preds = %24
+  tail call void @g_hash_table_destroy(ptr noundef nonnull %26) #14
+  store ptr null, ptr %25, align 8
+  br label %36
 
-30:                                               ; preds = %27
-  tail call void @g_queue_free(ptr noundef nonnull %29) #14
-  store ptr null, ptr %28, align 8
-  br label %31
+28:                                               ; preds = %18
+  %29 = getelementptr inbounds i8, ptr %1, i64 64
+  %30 = load ptr, ptr %29, align 8
+  %.not45 = icmp eq ptr %30, null
+  br i1 %.not45, label %32, label %31
 
-31:                                               ; preds = %30, %27
-  %32 = getelementptr inbounds i8, ptr %1, i64 72
-  %33 = load ptr, ptr %32, align 8
-  %.not46 = icmp eq ptr %33, null
-  br i1 %.not46, label %34, label %.sink.split
+31:                                               ; preds = %28
+  tail call void @g_queue_free(ptr noundef nonnull %30) #14
+  store ptr null, ptr %29, align 8
+  br label %32
 
-.sink.split:                                      ; preds = %31, %24
-  %.sink51 = phi ptr [ %26, %24 ], [ %33, %31 ]
-  %.sink = phi ptr [ %25, %24 ], [ %32, %31 ]
-  tail call void @g_hash_table_destroy(ptr noundef nonnull %.sink51) #14
-  store ptr null, ptr %.sink, align 8
-  br label %34
+32:                                               ; preds = %31, %28
+  %33 = getelementptr inbounds i8, ptr %1, i64 72
+  %34 = load ptr, ptr %33, align 8
+  %.not46 = icmp eq ptr %34, null
+  br i1 %.not46, label %36, label %35
 
-34:                                               ; preds = %.sink.split, %5, %31, %24, %18, %2
+35:                                               ; preds = %32
+  tail call void @g_hash_table_destroy(ptr noundef nonnull %34) #14
+  store ptr null, ptr %33, align 8
+  br label %36
+
+36:                                               ; preds = %5, %35, %32, %24, %27, %18, %2
   ret ptr %0
 }
 

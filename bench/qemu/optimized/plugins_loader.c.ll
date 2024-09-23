@@ -286,8 +286,8 @@ land.rhs.lr.ph:                                   ; preds = %entry
   %tql_prev13 = getelementptr inbounds i8, ptr %head, i64 8
   br label %land.rhs
 
-land.rhs:                                         ; preds = %land.rhs.lr.ph, %do.body
-  %desc.040 = phi ptr [ %0, %land.rhs.lr.ph ], [ %1, %do.body ]
+land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end14
+  %desc.040 = phi ptr [ %0, %land.rhs.lr.ph ], [ %1, %if.end14 ]
   %entry2 = getelementptr inbounds i8, ptr %desc.040, i64 16
   %1 = load ptr, ptr %entry2, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sym.i)
@@ -449,9 +449,18 @@ do.body:                                          ; preds = %do.body58.i
   %cmp.not = icmp eq ptr %28, null
   %tql_prev12 = getelementptr inbounds i8, ptr %desc.040, i64 24
   %29 = load ptr, ptr %tql_prev12, align 8
+  br i1 %cmp.not, label %if.else, label %if.then6
+
+if.then6:                                         ; preds = %do.body
   %tql_prev10 = getelementptr inbounds i8, ptr %28, i64 24
-  %tql_prev13.sink = select i1 %cmp.not, ptr %tql_prev13, ptr %tql_prev10
-  store ptr %29, ptr %tql_prev13.sink, align 8
+  store ptr %29, ptr %tql_prev10, align 8
+  br label %if.end14
+
+if.else:                                          ; preds = %do.body
+  store ptr %29, ptr %tql_prev13, align 8
+  br label %if.end14
+
+if.end14:                                         ; preds = %if.else, %if.then6
   %30 = load ptr, ptr %entry2, align 8
   store ptr %30, ptr %29, align 8
   %tobool.not = icmp eq ptr %1, null
@@ -463,8 +472,8 @@ cleanup.sink.split:                               ; preds = %plugin_load.exit.th
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sym.i)
   br label %cleanup
 
-cleanup:                                          ; preds = %do.body, %cleanup.sink.split, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %retval.0.ph, %cleanup.sink.split ], [ 0, %do.body ]
+cleanup:                                          ; preds = %if.end14, %cleanup.sink.split, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ %retval.0.ph, %cleanup.sink.split ], [ 0, %if.end14 ]
   call void @g_free(ptr noundef nonnull %call) #11
   ret i32 %retval.0
 }
@@ -494,22 +503,25 @@ lor.lhs.false.us.us:                              ; preds = %for.body.us.us
   %resetting.us.us = getelementptr inbounds i8, ptr %call1.us.us, i64 114
   %3 = load i8, ptr %resetting.us.us, align 2
   %tobool4.us.us = trunc i8 %3 to i1
-  br i1 %tobool4.us.us, label %glib_autoptr_cleanup_QemuLockable.exit, label %for.end
+  br i1 %tobool4.us.us, label %glib_autoptr_cleanup_QemuLockable.exit, label %qemu_lockable_auto_unlock.exit.us.us
+
+qemu_lockable_auto_unlock.exit.us.us:             ; preds = %lor.lhs.false.us.us
+  store i8 %frombool, ptr %resetting.us.us, align 2
+  br label %for.end
 
 for.body.us30:                                    ; preds = %entry
   br i1 %tobool2.us.us, label %glib_autoptr_cleanup_QemuLockable.exit, label %lor.lhs.false.us35
 
 lor.lhs.false.us35:                               ; preds = %for.body.us30
   %resetting6.us36 = getelementptr inbounds i8, ptr %call1.us.us, i64 114
+  store i8 %frombool, ptr %resetting6.us36, align 2
   br label %for.end
 
 glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %for.body.us30, %lor.lhs.false.us.us, %for.body.us.us
   tail call void @qemu_rec_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @plugin, i64 112), ptr noundef nonnull @.str.24, i32 noundef 147) #11
   br label %if.end20
 
-for.end:                                          ; preds = %lor.lhs.false.us.us, %lor.lhs.false.us35
-  %resetting.us.us.sink = phi ptr [ %resetting6.us36, %lor.lhs.false.us35 ], [ %resetting.us.us, %lor.lhs.false.us.us ]
-  store i8 %frombool, ptr %resetting.us.us.sink, align 2
+for.end:                                          ; preds = %qemu_lockable_auto_unlock.exit.us.us, %lor.lhs.false.us35
   store i8 %frombool10, ptr %uninstalling.us.us, align 1
   tail call void @qemu_rec_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @plugin, i64 112), ptr noundef nonnull @.str.24, i32 noundef 147) #11
   %call11 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #15

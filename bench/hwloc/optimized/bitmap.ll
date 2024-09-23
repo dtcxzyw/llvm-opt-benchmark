@@ -1673,39 +1673,39 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_set_range(ptr nocapture noundef %0, i3
   br label %72
 
 72:                                               ; preds = %58, %48
-  %.sink = phi ptr [ %62, %58 ], [ %57, %48 ]
+  %.sink68.in = phi ptr [ %62, %58 ], [ %57, %48 ]
   %.sink67 = phi i64 [ %71, %58 ], [ %56, %48 ]
-  %73 = load ptr, ptr %.sink, align 8
-  %74 = zext nneg i32 %41 to i64
-  %75 = getelementptr inbounds i64, ptr %73, i64 %74
-  %76 = load i64, ptr %75, align 8
-  %77 = or i64 %76, %.sink67
-  store i64 %77, ptr %75, align 8
+  %.sink68 = load ptr, ptr %.sink68.in, align 8
+  %73 = zext nneg i32 %41 to i64
+  %74 = getelementptr inbounds i64, ptr %.sink68, i64 %73
+  %75 = load i64, ptr %74, align 8
+  %76 = or i64 %75, %.sink67
+  store i64 %76, ptr %74, align 8
   %.158 = add nuw nsw i32 %46, 1
-  %78 = icmp ult i32 %.158, %41
-  br i1 %78, label %.lr.ph, label %.loopexit
+  %77 = icmp ult i32 %.158, %41
+  br i1 %77, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %72
-  %79 = getelementptr inbounds i8, ptr %0, i64 8
-  %80 = lshr i32 %1, 6
-  %narrow = add nuw nsw i32 %80, 1
-  %81 = zext nneg i32 %narrow to i64
-  %82 = add nuw nsw i32 %41, %80
-  %83 = sub nsw i32 %82, %46
-  %wide.trip.count = zext i32 %83 to i64
-  br label %84
+  %78 = getelementptr inbounds i8, ptr %0, i64 8
+  %79 = lshr i32 %1, 6
+  %narrow = add nuw nsw i32 %79, 1
+  %80 = zext nneg i32 %narrow to i64
+  %81 = add nuw nsw i32 %41, %79
+  %82 = sub nsw i32 %81, %46
+  %wide.trip.count = zext i32 %82 to i64
+  br label %83
 
-84:                                               ; preds = %.lr.ph, %84
-  %indvars.iv = phi i64 [ %81, %.lr.ph ], [ %indvars.iv.next, %84 ]
-  %85 = load ptr, ptr %79, align 8
-  %86 = getelementptr inbounds i64, ptr %85, i64 %indvars.iv
-  store i64 -1, ptr %86, align 8
+83:                                               ; preds = %.lr.ph, %83
+  %indvars.iv = phi i64 [ %80, %.lr.ph ], [ %indvars.iv.next, %83 ]
+  %84 = load ptr, ptr %78, align 8
+  %85 = getelementptr inbounds i64, ptr %84, i64 %indvars.iv
+  store i64 -1, ptr %85, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %84, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit, label %83, !llvm.loop !17
 
-.loopexit:                                        ; preds = %84, %72, %._crit_edge, %40, %14, %8, %3
-  %.046 = phi i32 [ 0, %3 ], [ 0, %8 ], [ -1, %14 ], [ -1, %40 ], [ 0, %._crit_edge ], [ 0, %72 ], [ 0, %84 ]
+.loopexit:                                        ; preds = %83, %72, %._crit_edge, %40, %14, %8, %3
+  %.046 = phi i32 [ 0, %3 ], [ 0, %8 ], [ -1, %14 ], [ -1, %40 ], [ 0, %._crit_edge ], [ 0, %72 ], [ 0, %83 ]
   ret i32 %.046
 }
 
@@ -3093,40 +3093,40 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_clr_range(ptr nocapture noundef %0, i3
   br label %73
 
 73:                                               ; preds = %58, %48
-  %.sink = phi ptr [ %63, %58 ], [ %57, %48 ]
+  %.sink68.in = phi ptr [ %63, %58 ], [ %57, %48 ]
   %.sink67.in = phi i64 [ %72, %58 ], [ %56, %48 ]
   %.sink67 = xor i64 %.sink67.in, -1
-  %74 = load ptr, ptr %.sink, align 8
-  %75 = zext nneg i32 %41 to i64
-  %76 = getelementptr inbounds i64, ptr %74, i64 %75
-  %77 = load i64, ptr %76, align 8
-  %78 = and i64 %77, %.sink67
-  store i64 %78, ptr %76, align 8
+  %.sink68 = load ptr, ptr %.sink68.in, align 8
+  %74 = zext nneg i32 %41 to i64
+  %75 = getelementptr inbounds i64, ptr %.sink68, i64 %74
+  %76 = load i64, ptr %75, align 8
+  %77 = and i64 %76, %.sink67
+  store i64 %77, ptr %75, align 8
   %.158 = add nuw nsw i32 %46, 1
-  %79 = icmp ult i32 %.158, %41
-  br i1 %79, label %.lr.ph, label %.loopexit
+  %78 = icmp ult i32 %.158, %41
+  br i1 %78, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %73
-  %80 = getelementptr inbounds i8, ptr %0, i64 8
-  %81 = lshr i32 %1, 6
-  %narrow = add nuw nsw i32 %81, 1
-  %82 = zext nneg i32 %narrow to i64
-  %83 = add nuw nsw i32 %41, %81
-  %84 = sub nsw i32 %83, %46
-  %wide.trip.count = zext i32 %84 to i64
-  br label %85
+  %79 = getelementptr inbounds i8, ptr %0, i64 8
+  %80 = lshr i32 %1, 6
+  %narrow = add nuw nsw i32 %80, 1
+  %81 = zext nneg i32 %narrow to i64
+  %82 = add nuw nsw i32 %41, %80
+  %83 = sub nsw i32 %82, %46
+  %wide.trip.count = zext i32 %83 to i64
+  br label %84
 
-85:                                               ; preds = %.lr.ph, %85
-  %indvars.iv = phi i64 [ %82, %.lr.ph ], [ %indvars.iv.next, %85 ]
-  %86 = load ptr, ptr %80, align 8
-  %87 = getelementptr inbounds i64, ptr %86, i64 %indvars.iv
-  store i64 0, ptr %87, align 8
+84:                                               ; preds = %.lr.ph, %84
+  %indvars.iv = phi i64 [ %81, %.lr.ph ], [ %indvars.iv.next, %84 ]
+  %85 = load ptr, ptr %79, align 8
+  %86 = getelementptr inbounds i64, ptr %85, i64 %indvars.iv
+  store i64 0, ptr %86, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %85, !llvm.loop !28
+  br i1 %exitcond.not, label %.loopexit, label %84, !llvm.loop !28
 
-.loopexit:                                        ; preds = %85, %73, %._crit_edge, %.thread57, %14, %8, %3
-  %.046 = phi i32 [ 0, %3 ], [ 0, %8 ], [ -1, %14 ], [ -1, %.thread57 ], [ 0, %._crit_edge ], [ 0, %73 ], [ 0, %85 ]
+.loopexit:                                        ; preds = %84, %73, %._crit_edge, %.thread57, %14, %8, %3
+  %.046 = phi i32 [ 0, %3 ], [ 0, %8 ], [ -1, %14 ], [ -1, %.thread57 ], [ 0, %._crit_edge ], [ 0, %73 ], [ 0, %84 ]
   ret i32 %.046
 }
 

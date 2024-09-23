@@ -178,7 +178,7 @@ define internal void @finish_output_gif(ptr noundef %0, ptr nocapture noundef %1
 ._crit_edge.i:                                    ; preds = %8
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %1, i64 136
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 8
-  br label %35
+  br label %43
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds i8, ptr %1, i64 92
@@ -194,7 +194,7 @@ define internal void @finish_output_gif(ptr noundef %0, ptr nocapture noundef %1
   store i8 %17, ptr %23, align 1
   %24 = load i32, ptr %19, align 8
   %25 = icmp sgt i32 %24, 254
-  br i1 %25, label %26, label %35
+  br i1 %25, label %26, label %43
 
 26:                                               ; preds = %14
   %27 = add nuw nsw i32 %24, 1
@@ -208,70 +208,84 @@ define internal void @finish_output_gif(ptr noundef %0, ptr nocapture noundef %1
   %33 = load i32, ptr %19, align 8
   %34 = sext i32 %33 to i64
   %.not.i.i = icmp eq i64 %32, %34
-  br i1 %.not.i.i, label %flush_packet.exit13.sink.split.i, label %flush_packet.exit13.sink.split.sink.split.i
+  br i1 %.not.i.i, label %.thread.i, label %35
 
-35:                                               ; preds = %14, %._crit_edge.i
-  %36 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %24, %14 ]
-  %37 = icmp sgt i32 %36, 0
-  br i1 %37, label %38, label %compress_term.exit
+35:                                               ; preds = %26
+  %36 = getelementptr inbounds i8, ptr %1, i64 72
+  %37 = load ptr, ptr %36, align 8
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds i8, ptr %38, i64 40
+  store i32 37, ptr %39, align 8
+  %40 = load ptr, ptr %36, align 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = load ptr, ptr %41, align 8
+  tail call void %42(ptr noundef nonnull %40) #7
+  br label %.thread.i
 
-38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %1, i64 136
-  %40 = add nuw nsw i32 %36, 1
-  store i32 %40, ptr %39, align 8
-  %41 = trunc i32 %36 to i8
-  %42 = getelementptr inbounds i8, ptr %1, i64 140
-  store i8 %41, ptr %42, align 4
-  %43 = zext nneg i32 %40 to i64
-  %44 = getelementptr inbounds i8, ptr %1, i64 32
-  %45 = load ptr, ptr %44, align 8
-  %46 = tail call i64 @fwrite(ptr noundef nonnull %42, i64 noundef 1, i64 noundef %43, ptr noundef %45)
-  %47 = load i32, ptr %39, align 8
-  %48 = sext i32 %47 to i64
-  %.not.i12.i = icmp eq i64 %46, %48
-  br i1 %.not.i12.i, label %flush_packet.exit13.sink.split.i, label %flush_packet.exit13.sink.split.sink.split.i
-
-flush_packet.exit13.sink.split.sink.split.i:      ; preds = %38, %26
-  %.sink.ph.i = phi ptr [ %19, %26 ], [ %39, %38 ]
-  %49 = getelementptr inbounds i8, ptr %1, i64 72
-  %50 = load ptr, ptr %49, align 8
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 40
-  store i32 37, ptr %52, align 8
-  %53 = load ptr, ptr %49, align 8
-  %54 = load ptr, ptr %53, align 8
-  %55 = load ptr, ptr %54, align 8
-  tail call void %55(ptr noundef nonnull %53) #7
-  br label %flush_packet.exit13.sink.split.i
-
-flush_packet.exit13.sink.split.i:                 ; preds = %flush_packet.exit13.sink.split.sink.split.i, %38, %26
-  %.sink.i = phi ptr [ %19, %26 ], [ %39, %38 ], [ %.sink.ph.i, %flush_packet.exit13.sink.split.sink.split.i ]
-  store i32 0, ptr %.sink.i, align 8
+.thread.i:                                        ; preds = %35, %26
+  store i32 0, ptr %19, align 8
   br label %compress_term.exit
 
-compress_term.exit:                               ; preds = %35, %flush_packet.exit13.sink.split.i
-  %56 = getelementptr inbounds i8, ptr %1, i64 32
-  %57 = load ptr, ptr %56, align 8
-  %58 = tail call i32 @putc(i32 noundef 0, ptr noundef %57)
-  %59 = load ptr, ptr %56, align 8
-  %60 = tail call i32 @putc(i32 noundef 59, ptr noundef %59)
-  %61 = load ptr, ptr %56, align 8
-  %62 = tail call i32 @fflush(ptr noundef %61)
-  %63 = load ptr, ptr %56, align 8
-  %64 = tail call i32 @ferror(ptr noundef %63) #7
-  %.not = icmp eq i32 %64, 0
-  br i1 %.not, label %70, label %65
+43:                                               ; preds = %14, %._crit_edge.i
+  %44 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %24, %14 ]
+  %45 = getelementptr inbounds i8, ptr %1, i64 136
+  %46 = icmp sgt i32 %44, 0
+  br i1 %46, label %47, label %compress_term.exit
 
-65:                                               ; preds = %compress_term.exit
-  %66 = load ptr, ptr %0, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 40
-  store i32 37, ptr %67, align 8
-  %68 = load ptr, ptr %0, align 8
-  %69 = load ptr, ptr %68, align 8
-  tail call void %69(ptr noundef nonnull %0) #7
-  br label %70
+47:                                               ; preds = %43
+  %48 = add nuw nsw i32 %44, 1
+  store i32 %48, ptr %45, align 8
+  %49 = trunc i32 %44 to i8
+  %50 = getelementptr inbounds i8, ptr %1, i64 140
+  store i8 %49, ptr %50, align 4
+  %51 = zext nneg i32 %48 to i64
+  %52 = getelementptr inbounds i8, ptr %1, i64 32
+  %53 = load ptr, ptr %52, align 8
+  %54 = tail call i64 @fwrite(ptr noundef nonnull %50, i64 noundef 1, i64 noundef %51, ptr noundef %53)
+  %55 = load i32, ptr %45, align 8
+  %56 = sext i32 %55 to i64
+  %.not.i12.i = icmp eq i64 %54, %56
+  br i1 %.not.i12.i, label %65, label %57
 
-70:                                               ; preds = %65, %compress_term.exit
+57:                                               ; preds = %47
+  %58 = getelementptr inbounds i8, ptr %1, i64 72
+  %59 = load ptr, ptr %58, align 8
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 40
+  store i32 37, ptr %61, align 8
+  %62 = load ptr, ptr %58, align 8
+  %63 = load ptr, ptr %62, align 8
+  %64 = load ptr, ptr %63, align 8
+  tail call void %64(ptr noundef nonnull %62) #7
+  br label %65
+
+65:                                               ; preds = %57, %47
+  store i32 0, ptr %45, align 8
+  br label %compress_term.exit
+
+compress_term.exit:                               ; preds = %.thread.i, %43, %65
+  %66 = getelementptr inbounds i8, ptr %1, i64 32
+  %67 = load ptr, ptr %66, align 8
+  %68 = tail call i32 @putc(i32 noundef 0, ptr noundef %67)
+  %69 = load ptr, ptr %66, align 8
+  %70 = tail call i32 @putc(i32 noundef 59, ptr noundef %69)
+  %71 = load ptr, ptr %66, align 8
+  %72 = tail call i32 @fflush(ptr noundef %71)
+  %73 = load ptr, ptr %66, align 8
+  %74 = tail call i32 @ferror(ptr noundef %73) #7
+  %.not = icmp eq i32 %74, 0
+  br i1 %.not, label %80, label %75
+
+75:                                               ; preds = %compress_term.exit
+  %76 = load ptr, ptr %0, align 8
+  %77 = getelementptr inbounds i8, ptr %76, i64 40
+  store i32 37, ptr %77, align 8
+  %78 = load ptr, ptr %0, align 8
+  %79 = load ptr, ptr %78, align 8
+  tail call void %79(ptr noundef nonnull %0) #7
+  br label %80
+
+80:                                               ; preds = %75, %compress_term.exit
   ret void
 }
 

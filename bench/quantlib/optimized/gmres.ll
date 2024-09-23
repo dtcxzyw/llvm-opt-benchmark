@@ -2494,12 +2494,11 @@ if.else.i.i.i.i.i:                                ; preds = %_ZNSt7__cxx114listI
   store i64 %18, ptr %_M_size.i.i.i.i.i.i, align 8, !tbaa !33
   store ptr %ref.tmp, ptr %_M_prev.i.i.i.i.i14, align 8, !tbaa !27
   store ptr %ref.tmp, ptr %ref.tmp, align 8, !tbaa !32
+  store i64 0, ptr %_M_size.i.i.i.i.i15, align 8, !tbaa !33
   br label %_ZN8QuantLib11GMRESResultaSEOS0_.exit
 
 _ZN8QuantLib11GMRESResultaSEOS0_.exit:            ; preds = %_ZNSt7__cxx114listIdSaIdEE5clearEv.exit.i.i.i, %if.else.i.i.i.i.i
-  %19 = phi ptr [ %ref.tmp, %if.else.i.i.i.i.i ], [ %15, %_ZNSt7__cxx114listIdSaIdEE5clearEv.exit.i.i.i ]
-  %_M_size.sink.i.i.i.i.i = phi ptr [ %_M_size.i.i.i.i.i15, %if.else.i.i.i.i.i ], [ %_M_size.i.i.i.i.i.i, %_ZNSt7__cxx114listIdSaIdEE5clearEv.exit.i.i.i ]
-  store i64 0, ptr %_M_size.sink.i.i.i.i.i, align 8, !tbaa !33
+  %19 = phi ptr [ %15, %_ZNSt7__cxx114listIdSaIdEE5clearEv.exit.i.i.i ], [ %ref.tmp, %if.else.i.i.i.i.i ]
   %20 = load ptr, ptr %x, align 8, !tbaa !46
   %21 = load ptr, ptr %x3.i, align 8, !tbaa !46
   store ptr %21, ptr %x, align 8, !tbaa !46

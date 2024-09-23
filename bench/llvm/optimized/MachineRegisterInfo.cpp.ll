@@ -1321,6 +1321,7 @@ define dso_local void @_ZN4llvm19MachineRegisterInfo22addRegOperandToUseListEPNS
   store ptr %1, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr null, ptr %18, align 8
+  store ptr %1, ptr %.0.i, align 8
   br label %29
 
 19:                                               ; preds = %2
@@ -1337,16 +1338,16 @@ define dso_local void @_ZN4llvm19MachineRegisterInfo22addRegOperandToUseListEPNS
 
 26:                                               ; preds = %19
   store ptr %15, ptr %25, align 8
+  store ptr %1, ptr %.0.i, align 8
   br label %29
 
 27:                                               ; preds = %19
   store ptr null, ptr %25, align 8
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  store ptr %1, ptr %28, align 8
   br label %29
 
 29:                                               ; preds = %27, %26, %16
-  %.sink = phi ptr [ %28, %27 ], [ %.0.i, %26 ], [ %.0.i, %16 ]
-  store ptr %1, ptr %.sink, align 8
   ret void
 }
 
@@ -1371,13 +1372,22 @@ define dso_local void @_ZN4llvm19MachineRegisterInfo27removeRegOperandFromUseLis
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %16, align 8
   %20 = icmp eq ptr %1, %15
-  %21 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %.sink = select i1 %20, ptr %.0.i, ptr %21
-  store ptr %18, ptr %.sink, align 8
+  br i1 %20, label %21, label %22
+
+21:                                               ; preds = %2
+  store ptr %18, ptr %.0.i, align 8
+  br label %24
+
+22:                                               ; preds = %2
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  store ptr %18, ptr %23, align 8
+  br label %24
+
+24:                                               ; preds = %22, %21
   %.not = icmp eq ptr %18, null
-  %22 = select i1 %.not, ptr %15, ptr %18
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  store ptr %19, ptr %23, align 8
+  %25 = select i1 %.not, ptr %15, ptr %18
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  store ptr %19, ptr %26, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   ret void
 }
@@ -1399,15 +1409,15 @@ define dso_local void @_ZN4llvm19MachineRegisterInfo12moveOperandsEPNS_14Machine
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 304
   br label %12
 
-12:                                               ; preds = %40, %4
-  %.032 = phi i32 [ %3, %4 ], [ %43, %40 ]
-  %.131 = phi ptr [ %.030, %4 ], [ %42, %40 ]
-  %.1 = phi ptr [ %.0, %4 ], [ %41, %40 ]
+12:                                               ; preds = %42, %4
+  %.032 = phi i32 [ %3, %4 ], [ %45, %42 ]
+  %.131 = phi ptr [ %.030, %4 ], [ %44, %42 ]
+  %.1 = phi ptr [ %.0, %4 ], [ %43, %42 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.1, ptr noundef nonnull align 8 dereferenceable(32) %.131, i64 32, i1 false)
   %13 = load i32, ptr %.131, align 8
   %14 = and i32 %13, 255
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %40
+  br i1 %15, label %16, label %42
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %.131, i64 4
@@ -1436,25 +1446,30 @@ define dso_local void @_ZN4llvm19MachineRegisterInfo12moveOperandsEPNS_14Machine
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   store ptr %.1, ptr %35, align 8
-  %.pre = load ptr, ptr %.0.i, align 8
   br label %36
 
 36:                                               ; preds = %32, %31
-  %37 = phi ptr [ %.pre, %32 ], [ %.1, %31 ]
   %.not40 = icmp eq ptr %28, null
-  %38 = select i1 %.not40, ptr %37, ptr %28
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  store ptr %.1, ptr %39, align 8
-  br label %40
+  br i1 %.not40, label %37, label %39
 
-40:                                               ; preds = %36, %12
-  %41 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %.1, i64 %.033
-  %42 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %.131, i64 %.033
-  %43 = add i32 %.032, -1
-  %.not41 = icmp eq i32 %43, 0
-  br i1 %.not41, label %44, label %12, !llvm.loop !10
+37:                                               ; preds = %36
+  %38 = load ptr, ptr %.0.i, align 8
+  br label %39
 
-44:                                               ; preds = %40
+39:                                               ; preds = %36, %37
+  %40 = phi ptr [ %38, %37 ], [ %28, %36 ]
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  store ptr %.1, ptr %41, align 8
+  br label %42
+
+42:                                               ; preds = %39, %12
+  %43 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %.1, i64 %.033
+  %44 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %.131, i64 %.033
+  %45 = add i32 %.032, -1
+  %.not41 = icmp eq i32 %45, 0
+  br i1 %.not41, label %46, label %12, !llvm.loop !10
+
+46:                                               ; preds = %42
   ret void
 }
 
@@ -3772,7 +3787,8 @@ _ZN4llvm15SmallVectorImplImE12assignRemoteEOS1_.exit: ; preds = %8, %13
   store i32 %19, ptr %20, align 4
   store ptr %6, ptr %1, align 8
   store i32 0, ptr %18, align 4
-  br label %.sink.split
+  store i32 0, ptr %15, align 8
+  br label %53
 
 21:                                               ; preds = %4
   %22 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #19
@@ -3801,7 +3817,8 @@ _ZSt4moveIPmS0_ET0_T_S2_S1_.exit:                 ; preds = %29, %26, %24
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %22) #19
   %31 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #19
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
+  store i32 0, ptr %32, align 8
+  br label %53
 
 33:                                               ; preds = %21
   %34 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
@@ -3848,14 +3865,10 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.ex
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %22) #19
   %51 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #19
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %_ZN4llvm15SmallVectorImplImE12assignRemoteEOS1_.exit, %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.exit
-  %.sink = phi ptr [ %52, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.exit ], [ %32, %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit ], [ %15, %_ZN4llvm15SmallVectorImplImE12assignRemoteEOS1_.exit ]
-  store i32 0, ptr %.sink, align 8
+  store i32 0, ptr %52, align 8
   br label %53
 
-53:                                               ; preds = %.sink.split, %2
+53:                                               ; preds = %2, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.exit, %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit, %_ZN4llvm15SmallVectorImplImE12assignRemoteEOS1_.exit
   ret ptr %0
 }
 

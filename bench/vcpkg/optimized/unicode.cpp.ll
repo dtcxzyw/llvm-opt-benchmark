@@ -664,6 +664,7 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unic
 20:                                               ; preds = %18
   store i32 -1, ptr %0, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %16, ptr %21, align 8
   br label %35
 
 22:                                               ; preds = %18
@@ -682,6 +683,7 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unic
   store i32 -1, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %16, ptr %31, align 8
+  store ptr %16, ptr %13, align 8
   br label %35
 
 32:                                               ; preds = %9
@@ -692,9 +694,7 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unic
   unreachable
 
 35:                                               ; preds = %30, %20
-  %.sink = phi ptr [ %13, %30 ], [ %21, %20 ]
-  %.0.i = phi i32 [ 3, %30 ], [ %19, %20 ]
-  store ptr %16, ptr %.sink, align 8
+  %.0.i = phi i32 [ %19, %20 ], [ 3, %30 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   store i32 259, ptr %4, align 8
@@ -724,11 +724,11 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unic
   unreachable
 
 44:                                               ; preds = %22, %26, %12
-  %.sink6 = phi i32 [ -1, %12 ], [ %23, %26 ], [ %23, %22 ]
-  %.sink4 = phi ptr [ %16, %12 ], [ %14, %26 ], [ %14, %22 ]
-  store i32 %.sink6, ptr %0, align 8
+  %.sink5 = phi i32 [ -1, %12 ], [ %23, %26 ], [ %23, %22 ]
+  %.sink = phi ptr [ %16, %12 ], [ %14, %26 ], [ %14, %22 ]
+  store i32 %.sink5, ptr %0, align 8
   %45 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sink4, ptr %45, align 8
+  store ptr %.sink, ptr %45, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   ret ptr %0

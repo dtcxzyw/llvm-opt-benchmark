@@ -434,129 +434,138 @@ define dso_local void @_ZN5clang10extractapi13RecordContext16stealRecordChainERS
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   %or.cond = select i1 %6, i1 %9, i1 false
-  br i1 %or.cond, label %43, label %10
+  br i1 %or.cond, label %46, label %10
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 360
-  %.sink = select i1 %.not, ptr %11, ptr %15
-  store ptr %5, ptr %.sink, align 8
-  %16 = load ptr, ptr %7, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %16, ptr %17, align 8
+  br i1 %.not, label %17, label %13
+
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 360
+  store ptr %5, ptr %16, align 8
+  br label %18
+
+17:                                               ; preds = %10
+  store ptr %5, ptr %11, align 8
+  br label %18
+
+18:                                               ; preds = %17, %13
+  %19 = load ptr, ptr %7, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %19, ptr %20, align 8
   %.015 = load ptr, ptr %4, align 8
   %.not1216 = icmp eq ptr %.015, null
   br i1 %.not1216, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %10
-  %18 = getelementptr inbounds i8, ptr %0, i64 -368
-  br label %19
+.lr.ph:                                           ; preds = %18
+  %21 = getelementptr inbounds i8, ptr %0, i64 -368
+  br label %22
 
-19:                                               ; preds = %.lr.ph, %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit
+22:                                               ; preds = %.lr.ph, %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit
   %.017 = phi ptr [ %.015, %.lr.ph ], [ %.0, %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit ]
-  %20 = load i32, ptr %0, align 8
-  switch i32 %20, label %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit [
-    i32 2, label %21
-    i32 3, label %22
-    i32 4, label %23
-    i32 5, label %24
-    i32 7, label %25
-    i32 6, label %26
-    i32 8, label %27
-    i32 9, label %28
-    i32 10, label %29
-    i32 11, label %30
-    i32 12, label %31
-    i32 13, label %32
-    i32 14, label %33
-    i32 15, label %34
-    i32 16, label %35
-    i32 17, label %36
-    i32 18, label %37
-    i32 19, label %38
-    i32 20, label %39
-    i32 21, label %40
+  %23 = load i32, ptr %0, align 8
+  switch i32 %23, label %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit [
+    i32 2, label %24
+    i32 3, label %25
+    i32 4, label %26
+    i32 5, label %27
+    i32 7, label %28
+    i32 6, label %29
+    i32 8, label %30
+    i32 9, label %31
+    i32 10, label %32
+    i32 11, label %33
+    i32 12, label %34
+    i32 13, label %35
+    i32 14, label %36
+    i32 15, label %37
+    i32 16, label %38
+    i32 17, label %39
+    i32 18, label %40
+    i32 19, label %41
+    i32 20, label %42
+    i32 21, label %43
   ]
 
-21:                                               ; preds = %19
+24:                                               ; preds = %22
   br label %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit
 
-22:                                               ; preds = %19
+25:                                               ; preds = %22
   br label %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit
 
-23:                                               ; preds = %19
+26:                                               ; preds = %22
   br label %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit
 
-24:                                               ; preds = %19
+27:                                               ; preds = %22
   br label %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit
 
-25:                                               ; preds = %19
+28:                                               ; preds = %22
   br label %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit
 
-26:                                               ; preds = %19
+29:                                               ; preds = %22
   br label %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit
 
-27:                                               ; preds = %19
+30:                                               ; preds = %22
   br label %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit
 
-28:                                               ; preds = %19
+31:                                               ; preds = %22
   br label %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit
 
-29:                                               ; preds = %19
+32:                                               ; preds = %22
   br label %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit
 
-30:                                               ; preds = %19
+33:                                               ; preds = %22
   br label %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit
 
-31:                                               ; preds = %19
+34:                                               ; preds = %22
   br label %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit
 
-32:                                               ; preds = %19
+35:                                               ; preds = %22
   br label %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit
 
-33:                                               ; preds = %19
+36:                                               ; preds = %22
   br label %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit
 
-34:                                               ; preds = %19
+37:                                               ; preds = %22
   br label %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit
 
-35:                                               ; preds = %19
+38:                                               ; preds = %22
   br label %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit
 
-36:                                               ; preds = %19
+39:                                               ; preds = %22
   br label %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit
 
-37:                                               ; preds = %19
+40:                                               ; preds = %22
   br label %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit
 
-38:                                               ; preds = %19
+41:                                               ; preds = %22
   br label %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit
 
-39:                                               ; preds = %19
+42:                                               ; preds = %22
   br label %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit
 
-40:                                               ; preds = %19
+43:                                               ; preds = %22
   br label %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit
 
-_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit: ; preds = %19, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %31, %32, %33, %34, %35, %36, %37, %38, %39, %40
-  %.0.i.i.i.i = phi ptr [ %18, %40 ], [ %18, %39 ], [ %18, %38 ], [ %18, %37 ], [ %18, %36 ], [ %18, %35 ], [ %18, %34 ], [ %18, %33 ], [ %18, %32 ], [ %18, %31 ], [ %18, %30 ], [ %18, %29 ], [ %18, %28 ], [ %18, %27 ], [ %18, %26 ], [ %18, %25 ], [ %18, %24 ], [ %18, %23 ], [ %18, %22 ], [ %18, %21 ], [ null, %19 ]
+_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit: ; preds = %22, %24, %25, %26, %27, %28, %29, %30, %31, %32, %33, %34, %35, %36, %37, %38, %39, %40, %41, %42, %43
+  %.0.i.i.i.i = phi ptr [ %21, %43 ], [ %21, %42 ], [ %21, %41 ], [ %21, %40 ], [ %21, %39 ], [ %21, %38 ], [ %21, %37 ], [ %21, %36 ], [ %21, %35 ], [ %21, %34 ], [ %21, %33 ], [ %21, %32 ], [ %21, %31 ], [ %21, %30 ], [ %21, %29 ], [ %21, %28 ], [ %21, %27 ], [ %21, %26 ], [ %21, %25 ], [ %21, %24 ], [ null, %22 ]
   call void @_ZN5clang10extractapi15SymbolReferenceC1EPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %.0.i.i.i.i) #17
-  %41 = getelementptr inbounds nuw i8, ptr %.017, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %41, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)
-  %42 = getelementptr inbounds nuw i8, ptr %.017, i64 360
-  %.0 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %.017, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %44, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)
+  %45 = getelementptr inbounds nuw i8, ptr %.017, i64 360
+  %.0 = load ptr, ptr %45, align 8
   %.not12 = icmp eq ptr %.0, null
-  br i1 %.not12, label %._crit_edge, label %19, !llvm.loop !4
+  br i1 %.not12, label %._crit_edge, label %22, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit, %10
+._crit_edge:                                      ; preds = %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit, %18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  br label %43
+  br label %46
 
-43:                                               ; preds = %2, %._crit_edge
+46:                                               ; preds = %2, %._crit_edge
   ret void
 }
 
@@ -570,6 +579,7 @@ define dso_local void @_ZNK5clang10extractapi13RecordContext16addToRecordChainEP
 5:                                                ; preds = %2
   store ptr %1, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %1, ptr %6, align 8
   br label %11
 
 7:                                                ; preds = %2
@@ -577,11 +587,10 @@ define dso_local void @_ZNK5clang10extractapi13RecordContext16addToRecordChainEP
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 360
   store ptr %1, ptr %10, align 8
+  store ptr %1, ptr %8, align 8
   br label %11
 
 11:                                               ; preds = %7, %5
-  %.sink = phi ptr [ %8, %7 ], [ %6, %5 ]
-  store ptr %1, ptr %.sink, align 8
   ret void
 }
 
@@ -602,21 +611,30 @@ define dso_local void @_ZN5clang10extractapi13RecordContext21removeFromRecordCha
   %.not14 = icmp eq ptr %.012, null
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %.012, i64 360
-  %.sink = select i1 %.not14, ptr %3, ptr %9
-  store ptr %8, ptr %.sink, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load ptr, ptr %10, align 8
-  %12 = icmp eq ptr %11, %1
-  br i1 %12, label %13, label %14
+  br i1 %.not14, label %11, label %9
 
-13:                                               ; preds = %6
-  store ptr %.012, ptr %10, align 8
-  br label %14
+9:                                                ; preds = %6
+  %10 = getelementptr inbounds nuw i8, ptr %.012, i64 360
+  store ptr %8, ptr %10, align 8
+  br label %12
 
-14:                                               ; preds = %13, %6
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 360
-  store ptr null, ptr %15, align 8
+11:                                               ; preds = %6
+  store ptr %8, ptr %3, align 8
+  br label %12
+
+12:                                               ; preds = %11, %9
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %14 = load ptr, ptr %13, align 8
+  %15 = icmp eq ptr %14, %1
+  br i1 %15, label %16, label %17
+
+16:                                               ; preds = %12
+  store ptr %.012, ptr %13, align 8
+  br label %17
+
+17:                                               ; preds = %16, %12
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 360
+  store ptr null, ptr %18, align 8
   ret void
 }
 
@@ -800,9 +818,9 @@ define dso_local void @_ZN5clang10extractapi6APISet12removeRecordEN4llvm9StringR
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
   %14 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %10, i64 %13
-  %.not5556 = icmp eq ptr %9, %14
-  %.not55 = select i1 %.not.i, i1 true, i1 %.not5556
-  br i1 %.not55, label %172, label %15
+  %.not5455 = icmp eq ptr %9, %14
+  %.not54 = select i1 %.not.i, i1 true, i1 %.not5455
+  br i1 %.not54, label %178, label %15
 
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -822,7 +840,7 @@ define dso_local void @_ZN5clang10extractapi6APISet12removeRecordEN4llvm9StringR
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %.sroa.213.0.copyload, ptr %22, align 8
   %23 = icmp eq i64 %.sroa.213.0.copyload, 0
-  br i1 %23, label %.thread49, label %24
+  br i1 %23, label %.thread48, label %24
 
 24:                                               ; preds = %20
   %25 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefESt10unique_ptrIN5clang10extractapi9APIRecordENS5_6APISet16APIRecordDeleterEENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S9_EEEES2_S9_SB_SE_E6doFindIS2_EEPSE_RKT_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(16) %5)
@@ -833,9 +851,9 @@ define dso_local void @_ZN5clang10extractapi6APISet12removeRecordEN4llvm9StringR
   %29 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %26, i64 %28
   %.not4.i = icmp eq ptr %25, %29
   %.not.i30 = select i1 %.not.i.i, i1 true, i1 %.not4.i
-  br i1 %.not.i30, label %.thread49, label %30
+  br i1 %.not.i30, label %.thread48, label %30
 
-.thread49:                                        ; preds = %20, %24
+.thread48:                                        ; preds = %20, %24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %_ZN4llvm15cast_if_presentIN5clang10extractapi13RecordContextENS2_9APIRecordEEEDaPT0_.exit
 
@@ -847,15 +865,15 @@ define dso_local void @_ZN5clang10extractapi6APISet12removeRecordEN4llvm9StringR
   br i1 %.not.i31, label %_ZN4llvm15cast_if_presentIN5clang10extractapi13RecordContextENS2_9APIRecordEEEDaPT0_.exit, label %.thread
 
 .thread:                                          ; preds = %15, %30
-  %.048 = phi ptr [ %32, %30 ], [ %19, %15 ]
-  %33 = getelementptr inbounds nuw i8, ptr %.048, i64 356
+  %.047 = phi ptr [ %32, %30 ], [ %19, %15 ]
+  %33 = getelementptr inbounds nuw i8, ptr %.047, i64 356
   %34 = load i32, ptr %33, align 4
   %.off = add i32 %34, -2
   %switch = icmp ult i32 %.off, 20
   br i1 %switch, label %35, label %_ZN4llvm15cast_if_presentIN5clang10extractapi13RecordContextENS2_9APIRecordEEEDaPT0_.exit
 
 35:                                               ; preds = %.thread
-  %36 = getelementptr inbounds i8, ptr %.048, i64 376
+  %36 = getelementptr inbounds i8, ptr %.047, i64 376
   br label %37
 
 37:                                               ; preds = %37, %35
@@ -867,97 +885,97 @@ define dso_local void @_ZN5clang10extractapi6APISet12removeRecordEN4llvm9StringR
   br i1 %.not.i34, label %39, label %37, !llvm.loop !6
 
 39:                                               ; preds = %37
-  %.0.i32.ph = getelementptr inbounds i8, ptr %.048, i64 368
+  %.0.i32.ph = getelementptr inbounds i8, ptr %.047, i64 368
   %.not14.i = icmp eq ptr %.012.i, null
   %40 = getelementptr inbounds nuw i8, ptr %17, i64 360
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %.012.i, i64 360
-  %.sink.i = select i1 %.not14.i, ptr %36, ptr %42
-  store ptr %41, ptr %.sink.i, align 8
-  %43 = getelementptr inbounds i8, ptr %.048, i64 384
-  %44 = load ptr, ptr %43, align 8
-  %45 = icmp eq ptr %44, %17
-  br i1 %45, label %46, label %_ZN5clang10extractapi13RecordContext21removeFromRecordChainEPNS0_9APIRecordE.exit
+  br i1 %.not14.i, label %44, label %42
 
-46:                                               ; preds = %39
-  store ptr %.012.i, ptr %43, align 8
+42:                                               ; preds = %39
+  %43 = getelementptr inbounds nuw i8, ptr %.012.i, i64 360
+  store ptr %41, ptr %43, align 8
+  br label %45
+
+44:                                               ; preds = %39
+  store ptr %41, ptr %36, align 8
+  br label %45
+
+45:                                               ; preds = %44, %42
+  %46 = getelementptr inbounds i8, ptr %.047, i64 384
+  %47 = load ptr, ptr %46, align 8
+  %48 = icmp eq ptr %47, %17
+  br i1 %48, label %49, label %_ZN5clang10extractapi13RecordContext21removeFromRecordChainEPNS0_9APIRecordE.exit
+
+49:                                               ; preds = %45
+  store ptr %.012.i, ptr %46, align 8
   br label %_ZN5clang10extractapi13RecordContext21removeFromRecordChainEPNS0_9APIRecordE.exit
 
-_ZN5clang10extractapi13RecordContext21removeFromRecordChainEPNS0_9APIRecordE.exit: ; preds = %39, %46
+_ZN5clang10extractapi13RecordContext21removeFromRecordChainEPNS0_9APIRecordE.exit: ; preds = %45, %49
   store ptr null, ptr %40, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %17, i64 356
-  %48 = load i32, ptr %47, align 4
-  %49 = add i32 %48, -22
-  %50 = icmp ult i32 %49, -20
-  br i1 %50, label %.loopexit, label %51
+  %50 = getelementptr inbounds nuw i8, ptr %17, i64 356
+  %51 = load i32, ptr %50, align 4
+  %52 = add i32 %51, -22
+  %53 = icmp ult i32 %52, -20
+  br i1 %53, label %.loopexit, label %54
 
-51:                                               ; preds = %_ZN5clang10extractapi13RecordContext21removeFromRecordChainEPNS0_9APIRecordE.exit
+54:                                               ; preds = %_ZN5clang10extractapi13RecordContext21removeFromRecordChainEPNS0_9APIRecordE.exit
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
-  %52 = getelementptr inbounds i8, ptr %17, i64 376
-  %53 = load ptr, ptr %52, align 8
-  %54 = icmp eq ptr %53, null
-  %55 = getelementptr inbounds i8, ptr %17, i64 384
+  %55 = getelementptr inbounds i8, ptr %17, i64 376
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, null
-  %or.cond.i = select i1 %54, i1 %57, i1 false
-  br i1 %or.cond.i, label %_ZN5clang10extractapi13RecordContext16stealRecordChainERS1_.exit, label %58
+  %58 = getelementptr inbounds i8, ptr %17, i64 384
+  %59 = load ptr, ptr %58, align 8
+  %60 = icmp eq ptr %59, null
+  %or.cond.i = select i1 %57, i1 %60, i1 false
+  br i1 %or.cond.i, label %_ZN5clang10extractapi13RecordContext16stealRecordChainERS1_.exit, label %61
 
-58:                                               ; preds = %51
-  %59 = load ptr, ptr %36, align 8
-  %.not.i35 = icmp eq ptr %59, null
-  %60 = load ptr, ptr %43, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 360
-  %.sink.i36 = select i1 %.not.i35, ptr %36, ptr %61
-  store ptr %53, ptr %.sink.i36, align 8
-  %62 = load ptr, ptr %55, align 8
-  store ptr %62, ptr %43, align 8
-  %.015.i = load ptr, ptr %52, align 8
+61:                                               ; preds = %54
+  %62 = load ptr, ptr %36, align 8
+  %.not.i35 = icmp eq ptr %62, null
+  br i1 %.not.i35, label %66, label %63
+
+63:                                               ; preds = %61
+  %64 = load ptr, ptr %46, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 360
+  store ptr %56, ptr %65, align 8
+  br label %67
+
+66:                                               ; preds = %61
+  store ptr %56, ptr %36, align 8
+  br label %67
+
+67:                                               ; preds = %66, %63
+  %68 = load ptr, ptr %58, align 8
+  store ptr %68, ptr %46, align 8
+  %.015.i = load ptr, ptr %55, align 8
   %.not1216.i = icmp eq ptr %.015.i, null
   br i1 %.not1216.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %58, %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit.i
-  %.017.i = phi ptr [ %.0.i37, %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit.i ], [ %.015.i, %58 ]
-  %63 = load i32, ptr %.0.i32.ph, align 8
-  switch i32 %63, label %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit.i [
-    i32 2, label %64
-    i32 3, label %65
-    i32 4, label %66
-    i32 5, label %67
-    i32 7, label %68
-    i32 6, label %69
-    i32 8, label %70
-    i32 9, label %71
-    i32 10, label %72
-    i32 11, label %73
-    i32 12, label %74
-    i32 13, label %75
-    i32 14, label %76
-    i32 15, label %77
-    i32 16, label %78
-    i32 17, label %79
-    i32 18, label %80
-    i32 19, label %81
-    i32 20, label %82
-    i32 21, label %83
+.lr.ph.i:                                         ; preds = %67, %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit.i
+  %.017.i = phi ptr [ %.0.i36, %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit.i ], [ %.015.i, %67 ]
+  %69 = load i32, ptr %.0.i32.ph, align 8
+  switch i32 %69, label %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit.i [
+    i32 2, label %70
+    i32 3, label %71
+    i32 4, label %72
+    i32 5, label %73
+    i32 7, label %74
+    i32 6, label %75
+    i32 8, label %76
+    i32 9, label %77
+    i32 10, label %78
+    i32 11, label %79
+    i32 12, label %80
+    i32 13, label %81
+    i32 14, label %82
+    i32 15, label %83
+    i32 16, label %84
+    i32 17, label %85
+    i32 18, label %86
+    i32 19, label %87
+    i32 20, label %88
+    i32 21, label %89
   ]
-
-64:                                               ; preds = %.lr.ph.i
-  br label %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit.i
-
-65:                                               ; preds = %.lr.ph.i
-  br label %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit.i
-
-66:                                               ; preds = %.lr.ph.i
-  br label %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit.i
-
-67:                                               ; preds = %.lr.ph.i
-  br label %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit.i
-
-68:                                               ; preds = %.lr.ph.i
-  br label %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit.i
-
-69:                                               ; preds = %.lr.ph.i
-  br label %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit.i
 
 70:                                               ; preds = %.lr.ph.i
   br label %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit.i
@@ -1001,222 +1019,240 @@ _ZN5clang10extractapi13RecordContext21removeFromRecordChainEPNS0_9APIRecordE.exi
 83:                                               ; preds = %.lr.ph.i
   br label %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit.i
 
-_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit.i: ; preds = %83, %82, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %70, %69, %68, %67, %66, %65, %64, %.lr.ph.i
-  %.0.i.i.i.i.i = phi ptr [ %.048, %83 ], [ %.048, %82 ], [ %.048, %81 ], [ %.048, %80 ], [ %.048, %79 ], [ %.048, %78 ], [ %.048, %77 ], [ %.048, %76 ], [ %.048, %75 ], [ %.048, %74 ], [ %.048, %73 ], [ %.048, %72 ], [ %.048, %71 ], [ %.048, %70 ], [ %.048, %69 ], [ %.048, %68 ], [ %.048, %67 ], [ %.048, %66 ], [ %.048, %65 ], [ %.048, %64 ], [ null, %.lr.ph.i ]
+84:                                               ; preds = %.lr.ph.i
+  br label %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit.i
+
+85:                                               ; preds = %.lr.ph.i
+  br label %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit.i
+
+86:                                               ; preds = %.lr.ph.i
+  br label %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit.i
+
+87:                                               ; preds = %.lr.ph.i
+  br label %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit.i
+
+88:                                               ; preds = %.lr.ph.i
+  br label %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit.i
+
+89:                                               ; preds = %.lr.ph.i
+  br label %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit.i
+
+_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit.i: ; preds = %89, %88, %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %70, %.lr.ph.i
+  %.0.i.i.i.i.i = phi ptr [ %.047, %89 ], [ %.047, %88 ], [ %.047, %87 ], [ %.047, %86 ], [ %.047, %85 ], [ %.047, %84 ], [ %.047, %83 ], [ %.047, %82 ], [ %.047, %81 ], [ %.047, %80 ], [ %.047, %79 ], [ %.047, %78 ], [ %.047, %77 ], [ %.047, %76 ], [ %.047, %75 ], [ %.047, %74 ], [ %.047, %73 ], [ %.047, %72 ], [ %.047, %71 ], [ %.047, %70 ], [ null, %.lr.ph.i ]
   call void @_ZN5clang10extractapi15SymbolReferenceC1EPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef %.0.i.i.i.i.i) #17
-  %84 = getelementptr inbounds nuw i8, ptr %.017.i, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %84, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
-  %85 = getelementptr inbounds nuw i8, ptr %.017.i, i64 360
-  %.0.i37 = load ptr, ptr %85, align 8
-  %.not12.i = icmp eq ptr %.0.i37, null
+  %90 = getelementptr inbounds nuw i8, ptr %.017.i, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %90, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
+  %91 = getelementptr inbounds nuw i8, ptr %.017.i, i64 360
+  %.0.i36 = load ptr, ptr %91, align 8
+  %.not12.i = icmp eq ptr %.0.i36, null
   br i1 %.not12.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !4
 
-._crit_edge.i:                                    ; preds = %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit.i, %58
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, i8 0, i64 16, i1 false)
+._crit_edge.i:                                    ; preds = %_ZN4llvm4castIN5clang10extractapi9APIRecordENS2_13RecordContextEEEDcPT0_.exit.i, %67
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, i8 0, i64 16, i1 false)
   br label %_ZN5clang10extractapi13RecordContext16stealRecordChainERS1_.exit
 
-_ZN5clang10extractapi13RecordContext16stealRecordChainERS1_.exit: ; preds = %51, %._crit_edge.i
+_ZN5clang10extractapi13RecordContext16stealRecordChainERS1_.exit: ; preds = %54, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
   br label %.loopexit
 
-_ZN4llvm15cast_if_presentIN5clang10extractapi13RecordContextENS2_9APIRecordEEEDaPT0_.exit: ; preds = %.thread, %30, %.thread49
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %87 = load ptr, ptr %86, align 8
-  %88 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %86) #17
-  %.idx3.i = shl nsw i64 %88, 3
-  %89 = getelementptr inbounds i8, ptr %87, i64 %.idx3.i
-  %90 = ashr i64 %88, 2
-  %91 = icmp sgt i64 %90, 0
-  br i1 %91, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
+_ZN4llvm15cast_if_presentIN5clang10extractapi13RecordContextENS2_9APIRecordEEEDaPT0_.exit: ; preds = %.thread, %30, %.thread48
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %93 = load ptr, ptr %92, align 8
+  %94 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %92) #17
+  %.idx3.i = shl nsw i64 %94, 3
+  %95 = getelementptr inbounds i8, ptr %93, i64 %.idx3.i
+  %96 = ashr i64 %94, 2
+  %97 = icmp sgt i64 %96, 0
+  br i1 %97, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN4llvm15cast_if_presentIN5clang10extractapi13RecordContextENS2_9APIRecordEEEDaPT0_.exit
-  %92 = and i64 %.idx3.i, -32
-  %scevgep.i.i.i.i = getelementptr i8, ptr %87, i64 %92
-  br label %93
+  %98 = and i64 %.idx3.i, -32
+  %scevgep.i.i.i.i = getelementptr i8, ptr %93, i64 %98
+  br label %99
 
-93:                                               ; preds = %108, %.lr.ph.i.i.i.i
-  %.047.i.i.i.i = phi i64 [ %90, %.lr.ph.i.i.i.i ], [ %110, %108 ]
-  %.02946.i.i.i.i = phi ptr [ %87, %.lr.ph.i.i.i.i ], [ %109, %108 ]
-  %94 = load ptr, ptr %.02946.i.i.i.i, align 8
-  %95 = icmp eq ptr %94, %17
-  br i1 %95, label %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit, label %96
+99:                                               ; preds = %114, %.lr.ph.i.i.i.i
+  %.047.i.i.i.i = phi i64 [ %96, %.lr.ph.i.i.i.i ], [ %116, %114 ]
+  %.02946.i.i.i.i = phi ptr [ %93, %.lr.ph.i.i.i.i ], [ %115, %114 ]
+  %100 = load ptr, ptr %.02946.i.i.i.i, align 8
+  %101 = icmp eq ptr %100, %17
+  br i1 %101, label %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit, label %102
 
-96:                                               ; preds = %93
-  %97 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 8
-  %98 = load ptr, ptr %97, align 8
-  %99 = icmp eq ptr %98, %17
-  br i1 %99, label %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit, label %100
+102:                                              ; preds = %99
+  %103 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 8
+  %104 = load ptr, ptr %103, align 8
+  %105 = icmp eq ptr %104, %17
+  br i1 %105, label %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit, label %106
 
-100:                                              ; preds = %96
-  %101 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 16
-  %102 = load ptr, ptr %101, align 8
-  %103 = icmp eq ptr %102, %17
-  br i1 %103, label %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit72, label %104
+106:                                              ; preds = %102
+  %107 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 16
+  %108 = load ptr, ptr %107, align 8
+  %109 = icmp eq ptr %108, %17
+  br i1 %109, label %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit71, label %110
 
-104:                                              ; preds = %100
-  %105 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 24
-  %106 = load ptr, ptr %105, align 8
-  %107 = icmp eq ptr %106, %17
-  br i1 %107, label %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit74, label %108
+110:                                              ; preds = %106
+  %111 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 24
+  %112 = load ptr, ptr %111, align 8
+  %113 = icmp eq ptr %112, %17
+  br i1 %113, label %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit73, label %114
 
-108:                                              ; preds = %104
-  %109 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 32
-  %110 = add nsw i64 %.047.i.i.i.i, -1
-  %111 = icmp sgt i64 %.047.i.i.i.i, 1
-  br i1 %111, label %93, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !9
+114:                                              ; preds = %110
+  %115 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 32
+  %116 = add nsw i64 %.047.i.i.i.i, -1
+  %117 = icmp sgt i64 %.047.i.i.i.i, 1
+  br i1 %117, label %99, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !9
 
-._crit_edge.loopexit.i.i.i.i:                     ; preds = %108
-  %112 = and i64 %88, 3
+._crit_edge.loopexit.i.i.i.i:                     ; preds = %114
+  %118 = and i64 %94, 3
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %_ZN4llvm15cast_if_presentIN5clang10extractapi13RecordContextENS2_9APIRecordEEEDaPT0_.exit
-  %.pre-phi56.i.i.i.i = phi i64 [ %112, %._crit_edge.loopexit.i.i.i.i ], [ %88, %_ZN4llvm15cast_if_presentIN5clang10extractapi13RecordContextENS2_9APIRecordEEEDaPT0_.exit ]
-  %.029.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %87, %_ZN4llvm15cast_if_presentIN5clang10extractapi13RecordContextENS2_9APIRecordEEEDaPT0_.exit ]
-  switch i64 %.pre-phi56.i.i.i.i, label %124 [
-    i64 3, label %113
+  %.pre-phi56.i.i.i.i = phi i64 [ %118, %._crit_edge.loopexit.i.i.i.i ], [ %94, %_ZN4llvm15cast_if_presentIN5clang10extractapi13RecordContextENS2_9APIRecordEEEDaPT0_.exit ]
+  %.029.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %93, %_ZN4llvm15cast_if_presentIN5clang10extractapi13RecordContextENS2_9APIRecordEEEDaPT0_.exit ]
+  switch i64 %.pre-phi56.i.i.i.i, label %130 [
+    i64 3, label %119
     i64 2, label %._crit_edge._crit_edge.i.i.i.i
     i64 1, label %._crit_edge._crit_edge52.i.i.i.i
   ]
 
-113:                                              ; preds = %._crit_edge.i.i.i.i
-  %114 = load ptr, ptr %.029.lcssa.i.i.i.i, align 8
-  %115 = icmp eq ptr %114, %17
-  br i1 %115, label %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit, label %116
+119:                                              ; preds = %._crit_edge.i.i.i.i
+  %120 = load ptr, ptr %.029.lcssa.i.i.i.i, align 8
+  %121 = icmp eq ptr %120, %17
+  br i1 %121, label %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit, label %122
 
-116:                                              ; preds = %113
-  %117 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i, i64 8
+122:                                              ; preds = %119
+  %123 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i, i64 8
   br label %._crit_edge._crit_edge.i.i.i.i
 
-._crit_edge._crit_edge.i.i.i.i:                   ; preds = %._crit_edge.i.i.i.i, %116
-  %.1.i.i.i.i = phi ptr [ %117, %116 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %118 = load ptr, ptr %.1.i.i.i.i, align 8
-  %119 = icmp eq ptr %118, %17
-  br i1 %119, label %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit, label %120
+._crit_edge._crit_edge.i.i.i.i:                   ; preds = %._crit_edge.i.i.i.i, %122
+  %.1.i.i.i.i = phi ptr [ %123, %122 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
+  %124 = load ptr, ptr %.1.i.i.i.i, align 8
+  %125 = icmp eq ptr %124, %17
+  br i1 %125, label %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit, label %126
 
-120:                                              ; preds = %._crit_edge._crit_edge.i.i.i.i
-  %121 = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 8
+126:                                              ; preds = %._crit_edge._crit_edge.i.i.i.i
+  %127 = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 8
   br label %._crit_edge._crit_edge52.i.i.i.i
 
-._crit_edge._crit_edge52.i.i.i.i:                 ; preds = %._crit_edge.i.i.i.i, %120
-  %.2.i.i.i.i = phi ptr [ %121, %120 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %122 = load ptr, ptr %.2.i.i.i.i, align 8
-  %123 = icmp eq ptr %122, %17
-  br i1 %123, label %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit, label %124
+._crit_edge._crit_edge52.i.i.i.i:                 ; preds = %._crit_edge.i.i.i.i, %126
+  %.2.i.i.i.i = phi ptr [ %127, %126 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
+  %128 = load ptr, ptr %.2.i.i.i.i, align 8
+  %129 = icmp eq ptr %128, %17
+  br i1 %129, label %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit, label %130
 
-124:                                              ; preds = %._crit_edge._crit_edge52.i.i.i.i, %._crit_edge.i.i.i.i
+130:                                              ; preds = %._crit_edge._crit_edge52.i.i.i.i, %._crit_edge.i.i.i.i
   br label %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit
 
-_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit: ; preds = %96
-  %125 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 8
+_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit: ; preds = %102
+  %131 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 8
   br label %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit
 
-_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit72: ; preds = %100
-  %126 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 16
+_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit71: ; preds = %106
+  %132 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 16
   br label %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit
 
-_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit74: ; preds = %104
-  %127 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 24
+_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit73: ; preds = %110
+  %133 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 24
   br label %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit
 
-_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit: ; preds = %93, %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit72, %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit74, %113, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i, %124
-  %.028.i.i.i.i = phi ptr [ %89, %124 ], [ %.029.lcssa.i.i.i.i, %113 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %125, %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit ], [ %126, %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit72 ], [ %127, %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit74 ], [ %.02946.i.i.i.i, %93 ]
-  %128 = load ptr, ptr %86, align 8
-  %129 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %86) #17
-  %130 = getelementptr inbounds ptr, ptr %128, i64 %129
-  %.not26 = icmp eq ptr %.028.i.i.i.i, %130
-  br i1 %.not26, label %142, label %131
+_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit: ; preds = %99, %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit71, %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit73, %119, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i, %130
+  %.028.i.i.i.i = phi ptr [ %95, %130 ], [ %.029.lcssa.i.i.i.i, %119 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %131, %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit ], [ %132, %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit71 ], [ %133, %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit73 ], [ %.02946.i.i.i.i, %99 ]
+  %134 = load ptr, ptr %92, align 8
+  %135 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %92) #17
+  %136 = getelementptr inbounds ptr, ptr %134, i64 %135
+  %.not26 = icmp eq ptr %.028.i.i.i.i, %136
+  br i1 %.not26, label %148, label %137
 
-131:                                              ; preds = %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit
-  %132 = getelementptr inbounds i8, ptr %.028.i.i.i.i, i64 8
-  %133 = load ptr, ptr %86, align 8
-  %134 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %86) #17
-  %135 = getelementptr inbounds ptr, ptr %133, i64 %134
-  %.not.i.i.i.i.i.i = icmp eq ptr %135, %132
-  br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplIPKN5clang10extractapi9APIRecordEE5eraseEPKS5_.exit, label %136
+137:                                              ; preds = %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit
+  %138 = getelementptr inbounds i8, ptr %.028.i.i.i.i, i64 8
+  %139 = load ptr, ptr %92, align 8
+  %140 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %92) #17
+  %141 = getelementptr inbounds ptr, ptr %139, i64 %140
+  %.not.i.i.i.i.i.i = icmp eq ptr %141, %138
+  br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplIPKN5clang10extractapi9APIRecordEE5eraseEPKS5_.exit, label %142
 
-136:                                              ; preds = %131
-  %137 = ptrtoint ptr %135 to i64
-  %138 = ptrtoint ptr %132 to i64
-  %139 = sub i64 %137, %138
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %.028.i.i.i.i, ptr nonnull align 8 %132, i64 %139, i1 false)
+142:                                              ; preds = %137
+  %143 = ptrtoint ptr %141 to i64
+  %144 = ptrtoint ptr %138 to i64
+  %145 = sub i64 %143, %144
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %.028.i.i.i.i, ptr nonnull align 8 %138, i64 %145, i1 false)
   br label %_ZN4llvm15SmallVectorImplIPKN5clang10extractapi9APIRecordEE5eraseEPKS5_.exit
 
-_ZN4llvm15SmallVectorImplIPKN5clang10extractapi9APIRecordEE5eraseEPKS5_.exit: ; preds = %131, %136
-  %140 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %86) #17
-  %141 = add i64 %140, -1
-  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %86, i64 noundef %141) #17
-  br label %142
+_ZN4llvm15SmallVectorImplIPKN5clang10extractapi9APIRecordEE5eraseEPKS5_.exit: ; preds = %137, %142
+  %146 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %92) #17
+  %147 = add i64 %146, -1
+  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %92, i64 noundef %147) #17
+  br label %148
 
-142:                                              ; preds = %_ZN4llvm15SmallVectorImplIPKN5clang10extractapi9APIRecordEE5eraseEPKS5_.exit, %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit
-  %143 = getelementptr inbounds nuw i8, ptr %17, i64 356
-  %144 = load i32, ptr %143, align 4
-  %145 = add i32 %144, -22
-  %146 = icmp ult i32 %145, -20
-  br i1 %146, label %.loopexit, label %147
+148:                                              ; preds = %_ZN4llvm15SmallVectorImplIPKN5clang10extractapi9APIRecordEE5eraseEPKS5_.exit, %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit
+  %149 = getelementptr inbounds nuw i8, ptr %17, i64 356
+  %150 = load i32, ptr %149, align 4
+  %151 = add i32 %150, -22
+  %152 = icmp ult i32 %151, -20
+  br i1 %152, label %.loopexit, label %153
 
-147:                                              ; preds = %142
-  %148 = getelementptr inbounds i8, ptr %17, i64 376
-  %.01965 = load ptr, ptr %148, align 8
-  %.not2866 = icmp eq ptr %.01965, null
-  br i1 %.not2866, label %.loopexit, label %.lr.ph
+153:                                              ; preds = %148
+  %154 = getelementptr inbounds i8, ptr %17, i64 376
+  %.01964 = load ptr, ptr %154, align 8
+  %.not2865 = icmp eq ptr %.01964, null
+  br i1 %.not2865, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %147
-  %149 = getelementptr inbounds i8, ptr %0, i64 200
-  br label %150
+.lr.ph:                                           ; preds = %153
+  %155 = getelementptr inbounds i8, ptr %0, i64 200
+  br label %156
 
-150:                                              ; preds = %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang10extractapi9APIRecordELb1EE9push_backES5_.exit
-  %.01967 = phi ptr [ %.01965, %.lr.ph ], [ %.019, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang10extractapi9APIRecordELb1EE9push_backES5_.exit ]
-  %151 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %86) #17
-  %152 = add i64 %151, 1
-  %153 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %86) #17
-  %.not.i.i.i = icmp ugt i64 %152, %153
-  br i1 %.not.i.i.i, label %154, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang10extractapi9APIRecordELb1EE9push_backES5_.exit
+156:                                              ; preds = %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang10extractapi9APIRecordELb1EE9push_backES5_.exit
+  %.01966 = phi ptr [ %.01964, %.lr.ph ], [ %.019, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang10extractapi9APIRecordELb1EE9push_backES5_.exit ]
+  %157 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %92) #17
+  %158 = add i64 %157, 1
+  %159 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %92) #17
+  %.not.i.i.i = icmp ugt i64 %158, %159
+  br i1 %.not.i.i.i, label %160, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang10extractapi9APIRecordELb1EE9push_backES5_.exit
 
-154:                                              ; preds = %150
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull %149, i64 noundef %152, i64 noundef 8) #17
+160:                                              ; preds = %156
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %92, ptr noundef nonnull %155, i64 noundef %158, i64 noundef 8) #17
   br label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang10extractapi9APIRecordELb1EE9push_backES5_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseIPKN5clang10extractapi9APIRecordELb1EE9push_backES5_.exit: ; preds = %150, %154
-  %155 = load ptr, ptr %86, align 8
-  %156 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %86) #17
-  %157 = getelementptr inbounds ptr, ptr %155, i64 %156
-  %158 = ptrtoint ptr %.01967 to i64
-  store i64 %158, ptr %157, align 1
-  %159 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %86) #17
-  %160 = add i64 %159, 1
-  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %86, i64 noundef %160) #17
-  %161 = getelementptr inbounds nuw i8, ptr %.01967, i64 360
-  %.019 = load ptr, ptr %161, align 8
+_ZN4llvm23SmallVectorTemplateBaseIPKN5clang10extractapi9APIRecordELb1EE9push_backES5_.exit: ; preds = %156, %160
+  %161 = load ptr, ptr %92, align 8
+  %162 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %92) #17
+  %163 = getelementptr inbounds ptr, ptr %161, i64 %162
+  %164 = ptrtoint ptr %.01966 to i64
+  store i64 %164, ptr %163, align 1
+  %165 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %92) #17
+  %166 = add i64 %165, 1
+  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %92, i64 noundef %166) #17
+  %167 = getelementptr inbounds nuw i8, ptr %.01966, i64 360
+  %.019 = load ptr, ptr %167, align 8
   %.not28 = icmp eq ptr %.019, null
-  br i1 %.not28, label %.loopexit, label %150, !llvm.loop !10
+  br i1 %.not28, label %.loopexit, label %156, !llvm.loop !10
 
-.loopexit:                                        ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang10extractapi9APIRecordELb1EE9push_backES5_.exit, %147, %142, %_ZN5clang10extractapi13RecordContext21removeFromRecordChainEPNS0_9APIRecordE.exit, %_ZN5clang10extractapi13RecordContext16stealRecordChainERS1_.exit
-  %162 = load ptr, ptr %16, align 8
-  %.not.i.i39 = icmp eq ptr %162, null
-  br i1 %.not.i.i39, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefESt10unique_ptrIN5clang10extractapi9APIRecordENS5_6APISet16APIRecordDeleterEENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S9_EEEES2_S9_SB_SE_E5eraseENS_16DenseMapIteratorIS2_S9_SB_SE_Lb0EEE.exit, label %163
+.loopexit:                                        ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang10extractapi9APIRecordELb1EE9push_backES5_.exit, %153, %148, %_ZN5clang10extractapi13RecordContext21removeFromRecordChainEPNS0_9APIRecordE.exit, %_ZN5clang10extractapi13RecordContext16stealRecordChainERS1_.exit
+  %168 = load ptr, ptr %16, align 8
+  %.not.i.i38 = icmp eq ptr %168, null
+  br i1 %.not.i.i38, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefESt10unique_ptrIN5clang10extractapi9APIRecordENS5_6APISet16APIRecordDeleterEENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S9_EEEES2_S9_SB_SE_E5eraseENS_16DenseMapIteratorIS2_S9_SB_SE_Lb0EEE.exit, label %169
 
-163:                                              ; preds = %.loopexit
-  %164 = load ptr, ptr %162, align 8
-  %165 = load ptr, ptr %164, align 8
-  call void %165(ptr noundef nonnull align 8 dereferenceable(368) %162) #17
+169:                                              ; preds = %.loopexit
+  %170 = load ptr, ptr %168, align 8
+  %171 = load ptr, ptr %170, align 8
+  call void %171(ptr noundef nonnull align 8 dereferenceable(368) %168) #17
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefESt10unique_ptrIN5clang10extractapi9APIRecordENS5_6APISet16APIRecordDeleterEENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S9_EEEES2_S9_SB_SE_E5eraseENS_16DenseMapIteratorIS2_S9_SB_SE_Lb0EEE.exit
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefESt10unique_ptrIN5clang10extractapi9APIRecordENS5_6APISet16APIRecordDeleterEENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S9_EEEES2_S9_SB_SE_E5eraseENS_16DenseMapIteratorIS2_S9_SB_SE_Lb0EEE.exit: ; preds = %.loopexit, %163
+_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefESt10unique_ptrIN5clang10extractapi9APIRecordENS5_6APISet16APIRecordDeleterEENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S9_EEEES2_S9_SB_SE_E5eraseENS_16DenseMapIteratorIS2_S9_SB_SE_Lb0EEE.exit: ; preds = %.loopexit, %169
   store ptr null, ptr %16, align 8
   store ptr inttoptr (i64 -2 to ptr), ptr %9, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 8
   store i64 0, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %166 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %167 = load i32, ptr %166, align 8
-  %168 = add i32 %167, -1
-  store i32 %168, ptr %166, align 8
-  %169 = getelementptr inbounds nuw i8, ptr %0, i64 172
-  %170 = load i32, ptr %169, align 4
-  %171 = add i32 %170, 1
-  store i32 %171, ptr %169, align 4
-  br label %172
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %173 = load i32, ptr %172, align 8
+  %174 = add i32 %173, -1
+  store i32 %174, ptr %172, align 8
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 172
+  %176 = load i32, ptr %175, align 4
+  %177 = add i32 %176, 1
+  store i32 %177, ptr %175, align 4
+  br label %178
 
-172:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefESt10unique_ptrIN5clang10extractapi9APIRecordENS5_6APISet16APIRecordDeleterEENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S9_EEEES2_S9_SB_SE_E5eraseENS_16DenseMapIteratorIS2_S9_SB_SE_Lb0EEE.exit, %3
+178:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefESt10unique_ptrIN5clang10extractapi9APIRecordENS5_6APISet16APIRecordDeleterEENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S9_EEEES2_S9_SB_SE_E5eraseENS_16DenseMapIteratorIS2_S9_SB_SE_Lb0EEE.exit, %3
   ret void
 }
 

@@ -533,14 +533,15 @@ define dso_local ptr @ExecGetResultSlotOps(ptr nocapture noundef readonly %0, pt
   br i1 %.not, label %14, label %9
 
 9:                                                ; preds = %6
-  br i1 %.not20, label %33, label %10
+  br i1 %.not20, label %34, label %10
 
 10:                                               ; preds = %9
   %11 = getelementptr inbounds i8, ptr %0, i64 195
   %12 = load i8, ptr %11, align 1
   %13 = and i8 %12, 1
   store i8 %13, ptr %1, align 1
-  br label %.sink.split26
+  %.pre = load ptr, ptr %7, align 8
+  br label %34
 
 14:                                               ; preds = %6
   br i1 %.not20, label %28, label %15
@@ -578,19 +579,15 @@ define dso_local ptr @ExecGetResultSlotOps(ptr nocapture noundef readonly %0, pt
   %29 = getelementptr inbounds i8, ptr %0, i64 120
   %30 = load ptr, ptr %29, align 8
   %.not22 = icmp eq ptr %30, null
-  br i1 %.not22, label %33, label %31
+  br i1 %.not22, label %34, label %31
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds i8, ptr %30, i64 8
-  br label %.sink.split26
+  %33 = load ptr, ptr %32, align 8
+  br label %34
 
-.sink.split26:                                    ; preds = %31, %10
-  %.sink27 = phi ptr [ %7, %10 ], [ %32, %31 ]
-  %.pre = load ptr, ptr %.sink27, align 8
-  br label %33
-
-33:                                               ; preds = %.sink.split26, %9, %28
-  %.0 = phi ptr [ @TTSOpsVirtual, %28 ], [ %8, %9 ], [ %.pre, %.sink.split26 ]
+34:                                               ; preds = %9, %10, %28, %31
+  %.0 = phi ptr [ %33, %31 ], [ @TTSOpsVirtual, %28 ], [ %.pre, %10 ], [ %8, %9 ]
   ret ptr %.0
 }
 

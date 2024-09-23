@@ -3113,7 +3113,7 @@ define range(i32 -6, 1) i32 @onigenc_unicode_ctype_code_range(i32 noundef %0, pt
   %5 = add i32 %0, -611
   %6 = load i32, ptr @UserDefinedPropertyNum, align 4
   %7 = icmp slt i32 %5, %6
-  br i1 %7, label %8, label %15
+  br i1 %7, label %8, label %14
 
 8:                                                ; preds = %4
   %9 = sext i32 %5 to i64
@@ -3126,12 +3126,12 @@ define range(i32 -6, 1) i32 @onigenc_unicode_ctype_code_range(i32 noundef %0, pt
   br label %.sink.split
 
 .sink.split:                                      ; preds = %8, %11
-  %.sink9 = phi ptr [ %13, %11 ], [ %10, %8 ]
-  %14 = load ptr, ptr %.sink9, align 8
-  store ptr %14, ptr %1, align 8
-  br label %15
+  %.sink.in = phi ptr [ %13, %11 ], [ %10, %8 ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  store ptr %.sink, ptr %1, align 8
+  br label %14
 
-15:                                               ; preds = %.sink.split, %4
+14:                                               ; preds = %.sink.split, %4
   %.0 = phi i32 [ -6, %4 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
@@ -3159,9 +3159,9 @@ define range(i32 -6, 1) i32 @onigenc_utf16_32_get_ctype_code_range(i32 noundef %
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %12, %9
-  %.sink9.i = phi ptr [ %14, %12 ], [ %11, %9 ]
-  %15 = load ptr, ptr %.sink9.i, align 8
-  store ptr %15, ptr %2, align 8
+  %.sink.in.i = phi ptr [ %14, %12 ], [ %11, %9 ]
+  %.sink.i = load ptr, ptr %.sink.in.i, align 8
+  store ptr %.sink.i, ptr %2, align 8
   br label %onigenc_unicode_ctype_code_range.exit
 
 onigenc_unicode_ctype_code_range.exit:            ; preds = %5, %.sink.split.i

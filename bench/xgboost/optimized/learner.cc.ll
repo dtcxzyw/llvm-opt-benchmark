@@ -23487,22 +23487,18 @@ _ZNKSt8__detail15_Hash_code_baseIN7xgboost12DMatrixCacheINS1_20PredictionCacheEn
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
-  br label %.sink.split
+  store ptr %.031, ptr %32, align 8
+  br label %36
 
 33:                                               ; preds = %_ZNKSt8__detail15_Hash_code_baseIN7xgboost12DMatrixCacheINS1_20PredictionCacheEntryEE3KeyESt4pairIKS5_NS4_4ItemEENS_10_Select1stENS4_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE15_M_bucket_indexERKNS_16_Hash_node_valueIS9_Lb0EEEm.exit
   %34 = load ptr, ptr %27, align 8
   store ptr %34, ptr %.031, align 8
   %35 = load ptr, ptr %26, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %33, %31
-  %.sink = phi ptr [ %32, %31 ], [ %35, %33 ]
-  %.1.ph = phi i64 [ %25, %31 ], [ %.02530, %33 ]
-  store ptr %.031, ptr %.sink, align 8
+  store ptr %.031, ptr %35, align 8
   br label %36
 
-36:                                               ; preds = %.sink.split, %28
-  %.1 = phi i64 [ %25, %28 ], [ %.1.ph, %.sink.split ]
+36:                                               ; preds = %28, %31, %33
+  %.1 = phi i64 [ %.02530, %33 ], [ %25, %31 ], [ %25, %28 ]
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !153
 

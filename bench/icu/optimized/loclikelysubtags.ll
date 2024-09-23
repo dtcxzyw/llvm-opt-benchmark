@@ -3427,6 +3427,7 @@ invoke.cont164:                                   ; preds = %invoke.cont162
   %63 = getelementptr inbounds i8, ptr %agg.tmp159, i64 8
   %64 = load i32, ptr %63, align 8
   %65 = getelementptr inbounds i8, ptr %agg.tmp161, i64 8
+  %66 = load i32, ptr %65, align 8
   br label %if.end202.invoke
 
 if.end166:                                        ; preds = %if.end145
@@ -3446,28 +3447,28 @@ if.end173:                                        ; preds = %invoke.cont172, %if
   br i1 %brmerge35, label %if.end184, label %if.then179
 
 if.then179:                                       ; preds = %if.end173
-  %66 = load ptr, ptr %arrayidx147, align 8
+  %67 = load ptr, ptr %arrayidx147, align 8
   %script181 = getelementptr inbounds i8, ptr %arrayidx147, i64 8
-  %67 = load ptr, ptr %script181, align 8
+  %68 = load ptr, ptr %script181, align 8
   %region182 = getelementptr inbounds i8, ptr %arrayidx147, i64 16
-  %68 = load ptr, ptr %region182, align 8
+  %69 = load ptr, ptr %region182, align 8
   %flags = getelementptr inbounds i8, ptr %arrayidx147, i64 36
-  %69 = load i32, ptr %flags, align 4
-  store ptr %66, ptr %agg.result, align 8
+  %70 = load i32, ptr %flags, align 4
+  store ptr %67, ptr %agg.result, align 8
   %script.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr %67, ptr %script.i, align 8
+  store ptr %68, ptr %script.i, align 8
   %region.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store ptr %68, ptr %region.i, align 8
+  store ptr %69, ptr %region.i, align 8
   %owned.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store ptr null, ptr %owned.i, align 8
-  %call.i249 = invoke noundef i32 @_ZN6icu_753LSR14indexForRegionEPKc(ptr noundef %68)
+  %call.i249 = invoke noundef i32 @_ZN6icu_753LSR14indexForRegionEPKc(ptr noundef %69)
           to label %_ZN6icu_753LSRC2EPKcS2_S2_i.exit unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZN6icu_753LSRC2EPKcS2_S2_i.exit:                 ; preds = %if.then179
   %regionIndex.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i32 %call.i249, ptr %regionIndex.i, align 8
   %flags.i = getelementptr inbounds i8, ptr %agg.result, i64 36
-  store i32 %69, ptr %flags.i, align 4
+  store i32 %70, ptr %flags.i, align 4
   %hashCode.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i32 0, ptr %hashCode.i, align 8
   br label %cleanup
@@ -3476,8 +3477,8 @@ if.end184:                                        ; preds = %if.end173
   br i1 %retainLanguage.0272280306, label %if.end190, label %if.then186
 
 if.then186:                                       ; preds = %if.end184
-  %70 = load ptr, ptr %arrayidx147, align 8
-  invoke void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp187, ptr noundef %70)
+  %71 = load ptr, ptr %arrayidx147, align 8
+  invoke void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp187, ptr noundef %71)
           to label %invoke.cont189 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont189:                                   ; preds = %if.then186
@@ -3489,8 +3490,8 @@ if.end190:                                        ; preds = %invoke.cont189, %if
 
 if.then192:                                       ; preds = %if.end190
   %script194 = getelementptr inbounds i8, ptr %arrayidx147, i64 8
-  %71 = load ptr, ptr %script194, align 8
-  invoke void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp193, ptr noundef %71)
+  %72 = load ptr, ptr %script194, align 8
+  invoke void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp193, ptr noundef %72)
           to label %invoke.cont195 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont195:                                   ; preds = %if.then192
@@ -3502,8 +3503,8 @@ if.end196:                                        ; preds = %invoke.cont195, %if
 
 if.then198:                                       ; preds = %if.end196
   %region200 = getelementptr inbounds i8, ptr %arrayidx147, i64 16
-  %72 = load ptr, ptr %region200, align 8
-  invoke void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp199, ptr noundef %72)
+  %73 = load ptr, ptr %region200, align 8
+  invoke void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp199, ptr noundef %73)
           to label %invoke.cont201 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont201:                                   ; preds = %if.then198
@@ -3517,19 +3518,19 @@ if.end202:                                        ; preds = %invoke.cont201, %if
   %cond207 = zext i1 %retainRegion.0 to i32
   %add208 = or disjoint i32 %add, %cond207
   %agg.tmp209.sroa.2.0.copyload = load i32, ptr %0, align 8
+  %agg.tmp210.sroa.2.0.copyload = load i32, ptr %1, align 8
   br label %if.end202.invoke
 
 if.end202.invoke:                                 ; preds = %invoke.cont164, %if.end202
-  %.sink = phi ptr [ %65, %invoke.cont164 ], [ %1, %if.end202 ]
-  %.in = phi ptr [ %agg.tmp159, %invoke.cont164 ], [ %language, %if.end202 ]
-  %73 = phi i32 [ %64, %invoke.cont164 ], [ %agg.tmp209.sroa.2.0.copyload, %if.end202 ]
-  %.in381 = phi ptr [ %agg.tmp161, %invoke.cont164 ], [ %script, %if.end202 ]
-  %74 = phi ptr [ %agg.tmp163, %invoke.cont164 ], [ %region, %if.end202 ]
-  %75 = phi i32 [ 7, %invoke.cont164 ], [ %add208, %if.end202 ]
-  %76 = load ptr, ptr %.in381, align 8
-  %77 = load ptr, ptr %.in, align 8
-  %78 = load i32, ptr %.sink, align 8
-  invoke void @_ZN6icu_753LSRC1ENS_11StringPieceES1_S1_iR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr %77, i32 %73, ptr %76, i32 %78, ptr noundef nonnull byval(%"class.icu_75::StringPiece") align 8 %74, i32 noundef %75, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %.in = phi ptr [ %language, %if.end202 ], [ %agg.tmp159, %invoke.cont164 ]
+  %74 = phi i32 [ %agg.tmp209.sroa.2.0.copyload, %if.end202 ], [ %64, %invoke.cont164 ]
+  %.in381 = phi ptr [ %script, %if.end202 ], [ %agg.tmp161, %invoke.cont164 ]
+  %75 = phi i32 [ %agg.tmp210.sroa.2.0.copyload, %if.end202 ], [ %66, %invoke.cont164 ]
+  %76 = phi ptr [ %region, %if.end202 ], [ %agg.tmp163, %invoke.cont164 ]
+  %77 = phi i32 [ %add208, %if.end202 ], [ 7, %invoke.cont164 ]
+  %78 = load ptr, ptr %.in381, align 8
+  %79 = load ptr, ptr %.in, align 8
+  invoke void @_ZN6icu_753LSRC1ENS_11StringPieceES1_S1_iR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr %79, i32 %74, ptr %78, i32 %75, ptr noundef nonnull byval(%"class.icu_75::StringPiece") align 8 %76, i32 noundef %77, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %cleanup unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 cleanup:                                          ; preds = %if.end202.invoke, %_ZN6icu_753LSRC2EPKcS2_S2_i.exit

@@ -1304,28 +1304,28 @@ _ZN6frozen4bits10LowerBoundIN4LIEF2PE17LoadConfiguration7VERSIONENS_4impl10Compa
   br label %_ZNK6frozen3mapIN4LIEF2PE17LoadConfiguration7VERSIONEPKcLm13ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i
 
 _ZNK6frozen3mapIN4LIEF2PE17LoadConfiguration7VERSIONEPKcLm13ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i: ; preds = %3, %_ZN6frozen4bits10LowerBoundIN4LIEF2PE17LoadConfiguration7VERSIONENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_PKcELm5EEET_SJ_St17integral_constantImXT0_EESK_IbLb0EE.exit.i.i.i.i.i.i
-  %.sink10.i.i.i.i.idx.i.i = phi i64 [ %.add13.i.i, %3 ], [ %.add.i.i, %_ZN6frozen4bits10LowerBoundIN4LIEF2PE17LoadConfiguration7VERSIONENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_PKcELm5EEET_SJ_St17integral_constantImXT0_EESK_IbLb0EE.exit.i.i.i.i.i.i ]
-  %.sink10.i.i.i.i.ptr.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_17LoadConfiguration7VERSIONE.enums2str, i64 %.sink10.i.i.i.i.idx.i.i
-  %5 = load i32, ptr %.sink10.i.i.i.i.ptr.i.i, align 4
-  %.not.i.i.i.i.i.i.i.i.i = icmp slt i32 %5, %0
+  %.sink.i.i.i.i.idx.i.i = phi i64 [ %.add13.i.i, %3 ], [ %.add.i.i, %_ZN6frozen4bits10LowerBoundIN4LIEF2PE17LoadConfiguration7VERSIONENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_PKcELm5EEET_SJ_St17integral_constantImXT0_EESK_IbLb0EE.exit.i.i.i.i.i.i ]
+  %.sink.i.i.i.i.ptr.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_17LoadConfiguration7VERSIONE.enums2str, i64 %.sink.i.i.i.i.idx.i.i
+  %.sink9.i.i.i.i.i.i = load i32, ptr %.sink.i.i.i.i.ptr.i.i, align 4
+  %.not.i.i.i.i.i.i.i.i.i = icmp slt i32 %.sink9.i.i.i.i.i.i, %0
   %.idx.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i64 16, i64 0
-  %.sink10.i.i.i.i.add.i.i = add nuw nsw i64 %.idx.i.i.i.i.i.i.i.i.i, %.sink10.i.i.i.i.idx.i.i
-  %.not.i.i = icmp eq i64 %.sink10.i.i.i.i.add.i.i, 216
-  br i1 %.not.i.i, label %_ZNK6frozen3mapIN4LIEF2PE17LoadConfiguration7VERSIONEPKcLm13ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %6
+  %.sink.i.i.i.i.add.i.i = add nuw nsw i64 %.idx.i.i.i.i.i.i.i.i.i, %.sink.i.i.i.i.idx.i.i
+  %.not.i.i = icmp eq i64 %.sink.i.i.i.i.add.i.i, 216
+  br i1 %.not.i.i, label %_ZNK6frozen3mapIN4LIEF2PE17LoadConfiguration7VERSIONEPKcLm13ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %5
 
-6:                                                ; preds = %_ZNK6frozen3mapIN4LIEF2PE17LoadConfiguration7VERSIONEPKcLm13ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i
-  %.ptr.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_17LoadConfiguration7VERSIONE.enums2str, i64 %.sink10.i.i.i.i.add.i.i
-  %7 = load i32, ptr %.ptr.i.i, align 4
-  %.not19.i.i = icmp slt i32 %0, %7
-  br i1 %.not19.i.i, label %_ZNK6frozen3mapIN4LIEF2PE17LoadConfiguration7VERSIONEPKcLm13ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %8
+5:                                                ; preds = %_ZNK6frozen3mapIN4LIEF2PE17LoadConfiguration7VERSIONEPKcLm13ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i
+  %.ptr.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_17LoadConfiguration7VERSIONE.enums2str, i64 %.sink.i.i.i.i.add.i.i
+  %6 = load i32, ptr %.ptr.i.i, align 4
+  %.not19.i.i = icmp slt i32 %0, %6
+  br i1 %.not19.i.i, label %_ZNK6frozen3mapIN4LIEF2PE17LoadConfiguration7VERSIONEPKcLm13ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %7
 
-8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %.ptr.i.i, i64 8
-  %10 = load ptr, ptr %9, align 8
+7:                                                ; preds = %5
+  %8 = getelementptr inbounds i8, ptr %.ptr.i.i, i64 8
+  %9 = load ptr, ptr %8, align 8
   br label %_ZNK6frozen3mapIN4LIEF2PE17LoadConfiguration7VERSIONEPKcLm13ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread
 
-_ZNK6frozen3mapIN4LIEF2PE17LoadConfiguration7VERSIONEPKcLm13ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread: ; preds = %6, %_ZNK6frozen3mapIN4LIEF2PE17LoadConfiguration7VERSIONEPKcLm13ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i, %8
-  %.0 = phi ptr [ %10, %8 ], [ @.str.20, %_ZNK6frozen3mapIN4LIEF2PE17LoadConfiguration7VERSIONEPKcLm13ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i ], [ @.str.20, %6 ]
+_ZNK6frozen3mapIN4LIEF2PE17LoadConfiguration7VERSIONEPKcLm13ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread: ; preds = %5, %_ZNK6frozen3mapIN4LIEF2PE17LoadConfiguration7VERSIONEPKcLm13ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i, %7
+  %.0 = phi ptr [ %9, %7 ], [ @.str.20, %_ZNK6frozen3mapIN4LIEF2PE17LoadConfiguration7VERSIONEPKcLm13ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i ], [ @.str.20, %5 ]
   ret ptr %.0
 }
 
@@ -7498,6 +7498,7 @@ _ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit: ; preds = %6,
   %18 = load ptr, ptr %17, align 8
   store i64 %.pre-phi.i.i, ptr %7, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 %16
+  store i8 92, ptr %19, align 1
   br label %82
 
 20:                                               ; preds = %2
@@ -7524,6 +7525,7 @@ _ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit28: ; preds = %
   %32 = load ptr, ptr %31, align 8
   store i64 %.pre-phi.i.i25, ptr %21, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 %30
+  store i8 92, ptr %33, align 1
   br label %82
 
 34:                                               ; preds = %2
@@ -7550,6 +7552,7 @@ _ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit33: ; preds = %
   %46 = load ptr, ptr %45, align 8
   store i64 %.pre-phi.i.i30, ptr %35, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 %44
+  store i8 92, ptr %47, align 1
   br label %82
 
 48:                                               ; preds = %2, %2, %2
@@ -7576,6 +7579,7 @@ _ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit38: ; preds = %
   %60 = load ptr, ptr %59, align 8
   store i64 %.pre-phi.i.i35, ptr %49, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 %58
+  store i8 92, ptr %61, align 1
   br label %82
 
 62:                                               ; preds = %2
@@ -7620,9 +7624,7 @@ _ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit38: ; preds = %
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 82:                                               ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit38, %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit33, %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit28, %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit
-  %.sink = phi ptr [ %61, %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit38 ], [ %47, %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit33 ], [ %33, %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit28 ], [ %19, %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit ]
   %.054 = phi i8 [ %5, %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit38 ], [ 116, %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit33 ], [ 114, %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit28 ], [ 110, %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit ]
-  store i8 92, ptr %.sink, align 1
   %83 = getelementptr inbounds i8, ptr %0, i64 16
   %84 = load i64, ptr %83, align 8
   %85 = add i64 %84, 1
@@ -33973,86 +33975,86 @@ _ZN6frozen4bits10LowerBoundIN4LIEF2PE17LoadConfiguration7VERSIONENS_4impl10Compa
   br label %_ZNK6frozen3mapIN4LIEF2PE17LoadConfiguration7VERSIONEPKcLm13ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i
 
 _ZNK6frozen3mapIN4LIEF2PE17LoadConfiguration7VERSIONEPKcLm13ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i: ; preds = %6, %_ZN6frozen4bits10LowerBoundIN4LIEF2PE17LoadConfiguration7VERSIONENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_PKcELm5EEET_SJ_St17integral_constantImXT0_EESK_IbLb0EE.exit.i.i.i.i.i.i.i
-  %.sink10.i.i.i.i.idx.i.i.i = phi i64 [ %.add13.i.i.i, %6 ], [ %.add.i.i.i, %_ZN6frozen4bits10LowerBoundIN4LIEF2PE17LoadConfiguration7VERSIONENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_PKcELm5EEET_SJ_St17integral_constantImXT0_EESK_IbLb0EE.exit.i.i.i.i.i.i.i ]
-  %.sink10.i.i.i.i.ptr.i.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_17LoadConfiguration7VERSIONE.enums2str, i64 %.sink10.i.i.i.i.idx.i.i.i
-  %8 = load i32, ptr %.sink10.i.i.i.i.ptr.i.i.i, align 4
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp slt i32 %8, %4
+  %.sink.i.i.i.i.idx.i.i.i = phi i64 [ %.add13.i.i.i, %6 ], [ %.add.i.i.i, %_ZN6frozen4bits10LowerBoundIN4LIEF2PE17LoadConfiguration7VERSIONENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_PKcELm5EEET_SJ_St17integral_constantImXT0_EESK_IbLb0EE.exit.i.i.i.i.i.i.i ]
+  %.sink.i.i.i.i.ptr.i.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_17LoadConfiguration7VERSIONE.enums2str, i64 %.sink.i.i.i.i.idx.i.i.i
+  %.sink9.i.i.i.i.i.i.i = load i32, ptr %.sink.i.i.i.i.ptr.i.i.i, align 4
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp slt i32 %.sink9.i.i.i.i.i.i.i, %4
   %.idx.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i64 16, i64 0
-  %.sink10.i.i.i.i.add.i.i.i = add nuw nsw i64 %.idx.i.i.i.i.i.i.i.i.i.i, %.sink10.i.i.i.i.idx.i.i.i
-  %.not.i.i.i = icmp eq i64 %.sink10.i.i.i.i.add.i.i.i, 216
-  br i1 %.not.i.i.i, label %_ZN4LIEF2PE9to_stringENS0_17LoadConfiguration7VERSIONE.exit.thread, label %9
+  %.sink.i.i.i.i.add.i.i.i = add nuw nsw i64 %.idx.i.i.i.i.i.i.i.i.i.i, %.sink.i.i.i.i.idx.i.i.i
+  %.not.i.i.i = icmp eq i64 %.sink.i.i.i.i.add.i.i.i, 216
+  br i1 %.not.i.i.i, label %_ZN4LIEF2PE9to_stringENS0_17LoadConfiguration7VERSIONE.exit.thread, label %8
 
-9:                                                ; preds = %_ZNK6frozen3mapIN4LIEF2PE17LoadConfiguration7VERSIONEPKcLm13ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i
-  %.ptr.i.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_17LoadConfiguration7VERSIONE.enums2str, i64 %.sink10.i.i.i.i.add.i.i.i
-  %10 = load i32, ptr %.ptr.i.i.i, align 4
-  %.not19.i.i.i = icmp slt i32 %4, %10
+8:                                                ; preds = %_ZNK6frozen3mapIN4LIEF2PE17LoadConfiguration7VERSIONEPKcLm13ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i
+  %.ptr.i.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_17LoadConfiguration7VERSIONE.enums2str, i64 %.sink.i.i.i.i.add.i.i.i
+  %9 = load i32, ptr %.ptr.i.i.i, align 4
+  %.not19.i.i.i = icmp slt i32 %4, %9
   br i1 %.not19.i.i.i, label %_ZN4LIEF2PE9to_stringENS0_17LoadConfiguration7VERSIONE.exit.thread, label %_ZN4LIEF2PE9to_stringENS0_17LoadConfiguration7VERSIONE.exit
 
-_ZN4LIEF2PE9to_stringENS0_17LoadConfiguration7VERSIONE.exit: ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %.ptr.i.i.i, i64 8
-  %12 = load ptr, ptr %11, align 8
-  %.not.i = icmp eq ptr %12, null
-  br i1 %.not.i, label %13, label %_ZN4LIEF2PE9to_stringENS0_17LoadConfiguration7VERSIONE.exit.thread
+_ZN4LIEF2PE9to_stringENS0_17LoadConfiguration7VERSIONE.exit: ; preds = %8
+  %10 = getelementptr inbounds i8, ptr %.ptr.i.i.i, i64 8
+  %11 = load ptr, ptr %10, align 8
+  %.not.i = icmp eq ptr %11, null
+  br i1 %.not.i, label %12, label %_ZN4LIEF2PE9to_stringENS0_17LoadConfiguration7VERSIONE.exit.thread
 
-13:                                               ; preds = %_ZN4LIEF2PE9to_stringENS0_17LoadConfiguration7VERSIONE.exit
+12:                                               ; preds = %_ZN4LIEF2PE9to_stringENS0_17LoadConfiguration7VERSIONE.exit
   tail call void @_ZN3fmt2v96detail18throw_format_errorEPKc(ptr noundef nonnull @.str.60) #24
   unreachable
 
-_ZN4LIEF2PE9to_stringENS0_17LoadConfiguration7VERSIONE.exit.thread: ; preds = %9, %_ZNK6frozen3mapIN4LIEF2PE17LoadConfiguration7VERSIONEPKcLm13ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i, %_ZN4LIEF2PE9to_stringENS0_17LoadConfiguration7VERSIONE.exit
-  %.0.i6 = phi ptr [ %12, %_ZN4LIEF2PE9to_stringENS0_17LoadConfiguration7VERSIONE.exit ], [ @.str.20, %_ZNK6frozen3mapIN4LIEF2PE17LoadConfiguration7VERSIONEPKcLm13ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i ], [ @.str.20, %9 ]
-  %14 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i6) #22
-  %15 = getelementptr inbounds i8, ptr %.0.i6, i64 %14
-  %.not18.i.i.i.i.i = icmp eq i64 %14, 0
+_ZN4LIEF2PE9to_stringENS0_17LoadConfiguration7VERSIONE.exit.thread: ; preds = %8, %_ZNK6frozen3mapIN4LIEF2PE17LoadConfiguration7VERSIONEPKcLm13ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i, %_ZN4LIEF2PE9to_stringENS0_17LoadConfiguration7VERSIONE.exit
+  %.0.i6 = phi ptr [ %11, %_ZN4LIEF2PE9to_stringENS0_17LoadConfiguration7VERSIONE.exit ], [ @.str.20, %_ZNK6frozen3mapIN4LIEF2PE17LoadConfiguration7VERSIONEPKcLm13ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i ], [ @.str.20, %8 ]
+  %13 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i6) #22
+  %14 = getelementptr inbounds i8, ptr %.0.i6, i64 %13
+  %.not18.i.i.i.i.i = icmp eq i64 %13, 0
   br i1 %.not18.i.i.i.i.i, label %_ZN3fmt2v96detail5writeIcNS0_8appenderEEET0_S4_PKT_.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN4LIEF2PE9to_stringENS0_17LoadConfiguration7VERSIONE.exit.thread
-  %16 = ptrtoint ptr %15 to i64
-  %17 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 16
-  %18 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 24
-  %19 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 8
-  %.pre.i.i.i.i.i = load i64, ptr %17, align 8
-  br label %20
+  %15 = ptrtoint ptr %14 to i64
+  %16 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 16
+  %17 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 24
+  %18 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 8
+  %.pre.i.i.i.i.i = load i64, ptr %16, align 8
+  br label %19
 
-20:                                               ; preds = %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
-  %21 = phi i64 [ %.pre.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %37, %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i.i.i.i ]
-  %.019.i.i.i.i.i = phi ptr [ %.0.i6, %.lr.ph.i.i.i.i.i ], [ %38, %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i.i.i.i ]
-  %22 = ptrtoint ptr %.019.i.i.i.i.i to i64
-  %23 = sub i64 %16, %22
-  %24 = add i64 %23, %21
-  %25 = load i64, ptr %18, align 8
-  %26 = icmp ugt i64 %24, %25
-  br i1 %26, label %27, label %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i
+19:                                               ; preds = %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
+  %20 = phi i64 [ %.pre.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %36, %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i.i.i.i ]
+  %.019.i.i.i.i.i = phi ptr [ %.0.i6, %.lr.ph.i.i.i.i.i ], [ %37, %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i.i.i.i ]
+  %21 = ptrtoint ptr %.019.i.i.i.i.i to i64
+  %22 = sub i64 %15, %21
+  %23 = add i64 %22, %20
+  %24 = load i64, ptr %17, align 8
+  %25 = icmp ugt i64 %23, %24
+  br i1 %25, label %26, label %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i
 
-27:                                               ; preds = %20
-  %28 = load ptr, ptr %.sroa.0.0.copyload.i, align 8
-  %29 = load ptr, ptr %28, align 8
-  tail call void %29(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.0.copyload.i, i64 noundef %24)
-  %.pre20.i.i.i.i.i = load i64, ptr %18, align 8
-  %.pre21.i.i.i.i.i = load i64, ptr %17, align 8
+26:                                               ; preds = %19
+  %27 = load ptr, ptr %.sroa.0.0.copyload.i, align 8
+  %28 = load ptr, ptr %27, align 8
+  tail call void %28(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.0.copyload.i, i64 noundef %23)
+  %.pre20.i.i.i.i.i = load i64, ptr %17, align 8
+  %.pre21.i.i.i.i.i = load i64, ptr %16, align 8
   br label %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i
 
-_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i: ; preds = %27, %20
-  %30 = phi i64 [ %21, %20 ], [ %.pre21.i.i.i.i.i, %27 ]
-  %31 = phi i64 [ %25, %20 ], [ %.pre20.i.i.i.i.i, %27 ]
-  %32 = sub i64 %31, %30
-  %spec.select.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %32, i64 %23)
+_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i: ; preds = %26, %19
+  %29 = phi i64 [ %20, %19 ], [ %.pre21.i.i.i.i.i, %26 ]
+  %30 = phi i64 [ %24, %19 ], [ %.pre20.i.i.i.i.i, %26 ]
+  %31 = sub i64 %30, %29
+  %spec.select.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %31, i64 %22)
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %spec.select.i.i.i.i.i, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i.i.i.i, label %33
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i.i.i.i, label %32
 
-33:                                               ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i
-  %34 = load ptr, ptr %19, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 %30
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %35, ptr align 1 %.019.i.i.i.i.i, i64 %spec.select.i.i.i.i.i, i1 false)
-  %.pre22.i.i.i.i.i = load i64, ptr %17, align 8
+32:                                               ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i
+  %33 = load ptr, ptr %18, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 %29
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %34, ptr align 1 %.019.i.i.i.i.i, i64 %spec.select.i.i.i.i.i, i1 false)
+  %.pre22.i.i.i.i.i = load i64, ptr %16, align 8
   br label %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i.i.i.i
 
-_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i.i.i.i: ; preds = %33, %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i
-  %36 = phi i64 [ %30, %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i ], [ %.pre22.i.i.i.i.i, %33 ]
-  %37 = add i64 %36, %spec.select.i.i.i.i.i
-  store i64 %37, ptr %17, align 8
-  %38 = getelementptr inbounds i8, ptr %.019.i.i.i.i.i, i64 %spec.select.i.i.i.i.i
-  %.not.i.i.i.i.i = icmp eq ptr %38, %15
-  br i1 %.not.i.i.i.i.i, label %_ZN3fmt2v96detail5writeIcNS0_8appenderEEET0_S4_PKT_.exit, label %20, !llvm.loop !64
+_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i.i.i.i: ; preds = %32, %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i
+  %35 = phi i64 [ %29, %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i ], [ %.pre22.i.i.i.i.i, %32 ]
+  %36 = add i64 %35, %spec.select.i.i.i.i.i
+  store i64 %36, ptr %16, align 8
+  %37 = getelementptr inbounds i8, ptr %.019.i.i.i.i.i, i64 %spec.select.i.i.i.i.i
+  %.not.i.i.i.i.i = icmp eq ptr %37, %14
+  br i1 %.not.i.i.i.i.i, label %_ZN3fmt2v96detail5writeIcNS0_8appenderEEET0_S4_PKT_.exit, label %19, !llvm.loop !64
 
 _ZN3fmt2v96detail5writeIcNS0_8appenderEEET0_S4_PKT_.exit: ; preds = %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i.i.i.i, %_ZN4LIEF2PE9to_stringENS0_17LoadConfiguration7VERSIONE.exit.thread
   ret ptr %.sroa.0.0.copyload.i

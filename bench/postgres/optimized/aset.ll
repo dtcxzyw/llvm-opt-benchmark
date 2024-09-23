@@ -414,15 +414,15 @@ MemoryContextCheckSize.exit.i:                    ; preds = %10, %8
 39:                                               ; preds = %37, %33
   %40 = phi ptr [ %.pre.i, %37 ], [ %31, %33 ]
   %41 = getelementptr inbounds i8, ptr %40, i64 16
+  store ptr %18, ptr %41, align 8
   br label %43
 
 42:                                               ; preds = %22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
+  store ptr %18, ptr %30, align 8
   br label %43
 
 43:                                               ; preds = %42, %39
-  %.sink.i = phi ptr [ %30, %42 ], [ %41, %39 ]
-  store ptr %18, ptr %.sink.i, align 8
   %44 = getelementptr i8, ptr %18, i64 48
   br label %AllocSetAllocLarge.exit
 
@@ -624,7 +624,7 @@ define dso_local void @AllocSetFree(ptr noundef %0) local_unnamed_addr #0 {
   %.val = load i64, ptr %2, align 8
   %3 = and i64 %.val, 8
   %.not39 = icmp eq i64 %3, 0
-  br i1 %.not39, label %36, label %4
+  br i1 %.not39, label %39, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr i8, ptr %0, i64 -48
@@ -662,46 +662,55 @@ define dso_local void @AllocSetFree(ptr noundef %0) local_unnamed_addr #0 {
   %.not36 = icmp eq ptr %21, null
   %22 = getelementptr i8, ptr %0, i64 -32
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %7, i64 80
+  br i1 %.not36, label %26, label %24
+
+24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %21, i64 16
-  %.sink = select i1 %.not36, ptr %24, ptr %25
-  store ptr %23, ptr %.sink, align 8
-  %.not37 = icmp eq ptr %23, null
-  br i1 %.not37, label %29, label %26
+  store ptr %23, ptr %25, align 8
+  br label %28
 
 26:                                               ; preds = %19
-  %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds i8, ptr %23, i64 8
-  store ptr %27, ptr %28, align 8
-  br label %29
+  %27 = getelementptr inbounds i8, ptr %7, i64 80
+  store ptr %23, ptr %27, align 8
+  br label %28
 
-29:                                               ; preds = %26, %19
-  %30 = load ptr, ptr %14, align 8
-  %31 = ptrtoint ptr %30 to i64
-  %32 = ptrtoint ptr %5 to i64
-  %.neg = sub i64 %32, %31
-  %33 = getelementptr inbounds i8, ptr %7, i64 8
-  %34 = load i64, ptr %33, align 8
-  %35 = add i64 %.neg, %34
-  store i64 %35, ptr %33, align 8
+28:                                               ; preds = %26, %24
+  %.not37 = icmp eq ptr %23, null
+  br i1 %.not37, label %32, label %29
+
+29:                                               ; preds = %28
+  %30 = load ptr, ptr %20, align 8
+  %31 = getelementptr inbounds i8, ptr %23, i64 8
+  store ptr %30, ptr %31, align 8
+  br label %32
+
+32:                                               ; preds = %29, %28
+  %33 = load ptr, ptr %14, align 8
+  %34 = ptrtoint ptr %33 to i64
+  %35 = ptrtoint ptr %5 to i64
+  %.neg = sub i64 %35, %34
+  %36 = getelementptr inbounds i8, ptr %7, i64 8
+  %37 = load i64, ptr %36, align 8
+  %38 = add i64 %.neg, %37
+  store i64 %38, ptr %36, align 8
   tail call void @free(ptr noundef nonnull %5) #13
-  br label %46
+  br label %49
 
-36:                                               ; preds = %1
-  %37 = lshr i64 %.val, 34
-  %38 = sub nsw i64 0, %37
-  %39 = getelementptr i8, ptr %2, i64 %38
-  %40 = load ptr, ptr %39, align 8
-  %41 = lshr i64 %.val, 4
-  %42 = and i64 %41, 1073741823
-  %43 = getelementptr inbounds i8, ptr %40, i64 88
-  %44 = getelementptr [11 x ptr], ptr %43, i64 0, i64 %42
-  %45 = load ptr, ptr %44, align 8
-  store ptr %45, ptr %0, align 8
-  store ptr %2, ptr %44, align 8
-  br label %46
+39:                                               ; preds = %1
+  %40 = lshr i64 %.val, 34
+  %41 = sub nsw i64 0, %40
+  %42 = getelementptr i8, ptr %2, i64 %41
+  %43 = load ptr, ptr %42, align 8
+  %44 = lshr i64 %.val, 4
+  %45 = and i64 %44, 1073741823
+  %46 = getelementptr inbounds i8, ptr %43, i64 88
+  %47 = getelementptr [11 x ptr], ptr %46, i64 0, i64 %45
+  %48 = load ptr, ptr %47, align 8
+  store ptr %48, ptr %0, align 8
+  store ptr %2, ptr %47, align 8
+  br label %49
 
-46:                                               ; preds = %36, %29
+49:                                               ; preds = %39, %32
   ret void
 }
 
@@ -713,7 +722,7 @@ define dso_local ptr @AllocSetRealloc(ptr noundef %0, i64 noundef %1, i32 nounde
   %.val = load i64, ptr %4, align 8
   %5 = and i64 %.val, 8
   %.not78 = icmp eq i64 %5, 0
-  br i1 %.not78, label %54, label %6
+  br i1 %.not78, label %57, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr i8, ptr %0, i64 -48
@@ -770,7 +779,7 @@ MemoryContextCheckSize.exit:                      ; preds = %21, %23
 
 33:                                               ; preds = %MemoryContextCheckSize.exit
   %34 = tail call ptr @MemoryContextAllocationFailure(ptr noundef nonnull %9, i64 noundef %1, i32 noundef %2) #13
-  br label %68
+  br label %71
 
 35:                                               ; preds = %MemoryContextCheckSize.exit
   %36 = ptrtoint ptr %15 to i64
@@ -790,47 +799,56 @@ MemoryContextCheckSize.exit:                      ; preds = %21, %23
   %46 = getelementptr inbounds i8, ptr %31, i64 8
   %47 = load ptr, ptr %46, align 8
   %.not75 = icmp eq ptr %47, null
-  %48 = getelementptr inbounds i8, ptr %9, i64 80
+  br i1 %.not75, label %50, label %48
+
+48:                                               ; preds = %35
   %49 = getelementptr inbounds i8, ptr %47, i64 16
-  %.sink = select i1 %.not75, ptr %48, ptr %49
-  store ptr %31, ptr %.sink, align 8
-  %50 = getelementptr inbounds i8, ptr %31, i64 16
-  %51 = load ptr, ptr %50, align 8
-  %.not76 = icmp eq ptr %51, null
-  br i1 %.not76, label %68, label %52
+  store ptr %31, ptr %49, align 8
+  br label %52
 
-52:                                               ; preds = %35
-  %53 = getelementptr inbounds i8, ptr %51, i64 8
-  store ptr %31, ptr %53, align 8
-  br label %68
+50:                                               ; preds = %35
+  %51 = getelementptr inbounds i8, ptr %9, i64 80
+  store ptr %31, ptr %51, align 8
+  br label %52
 
-54:                                               ; preds = %3
-  %55 = lshr i64 %.val, 34
-  %56 = sub nsw i64 0, %55
-  %57 = getelementptr i8, ptr %4, i64 %56
-  %58 = load ptr, ptr %57, align 8
-  %59 = lshr i64 %.val, 4
-  %60 = and i64 %59, 1073741823
-  %61 = shl i64 8, %60
-  %.not = icmp ult i64 %61, %1
-  br i1 %.not, label %62, label %68
+52:                                               ; preds = %50, %48
+  %53 = getelementptr inbounds i8, ptr %31, i64 16
+  %54 = load ptr, ptr %53, align 8
+  %.not76 = icmp eq ptr %54, null
+  br i1 %.not76, label %71, label %55
 
-62:                                               ; preds = %54
-  %63 = tail call ptr @AllocSetAlloc(ptr noundef %58, i64 noundef %1, i32 noundef %2)
-  %64 = icmp eq ptr %63, null
-  br i1 %64, label %65, label %67
+55:                                               ; preds = %52
+  %56 = getelementptr inbounds i8, ptr %54, i64 8
+  store ptr %31, ptr %56, align 8
+  br label %71
 
-65:                                               ; preds = %62
-  %66 = tail call ptr @MemoryContextAllocationFailure(ptr noundef %58, i64 noundef %1, i32 noundef %2) #13
-  br label %68
+57:                                               ; preds = %3
+  %58 = lshr i64 %.val, 34
+  %59 = sub nsw i64 0, %58
+  %60 = getelementptr i8, ptr %4, i64 %59
+  %61 = load ptr, ptr %60, align 8
+  %62 = lshr i64 %.val, 4
+  %63 = and i64 %62, 1073741823
+  %64 = shl i64 8, %63
+  %.not = icmp ult i64 %64, %1
+  br i1 %.not, label %65, label %71
 
-67:                                               ; preds = %62
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %63, ptr nonnull align 1 %0, i64 %61, i1 false)
+65:                                               ; preds = %57
+  %66 = tail call ptr @AllocSetAlloc(ptr noundef %61, i64 noundef %1, i32 noundef %2)
+  %67 = icmp eq ptr %66, null
+  br i1 %67, label %68, label %70
+
+68:                                               ; preds = %65
+  %69 = tail call ptr @MemoryContextAllocationFailure(ptr noundef %61, i64 noundef %1, i32 noundef %2) #13
+  br label %71
+
+70:                                               ; preds = %65
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %66, ptr nonnull align 1 %0, i64 %64, i1 false)
   tail call void @AllocSetFree(ptr noundef nonnull %0)
-  br label %68
+  br label %71
 
-68:                                               ; preds = %54, %35, %52, %67, %65, %33
-  %.0 = phi ptr [ %34, %33 ], [ %66, %65 ], [ %63, %67 ], [ %45, %52 ], [ %45, %35 ], [ %0, %54 ]
+71:                                               ; preds = %57, %52, %55, %70, %68, %33
+  %.0 = phi ptr [ %34, %33 ], [ %69, %68 ], [ %66, %70 ], [ %45, %55 ], [ %45, %52 ], [ %0, %57 ]
   ret ptr %.0
 }
 

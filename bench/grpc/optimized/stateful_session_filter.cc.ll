@@ -1785,8 +1785,8 @@ for.end.i:                                        ; preds = %_ZN9grpc_core13Chun
           to label %invoke.cont48 unwind label %lpad28.loopexit.split-lp
 
 invoke.cont48:                                    ; preds = %.noexc69, %for.end.i
-  %call.i.sink.i = phi ptr [ %call.i.i70, %for.end.i ], [ %arrayidx.i.i, %.noexc69 ]
-  store ptr %t.i.i.i.i, ptr %call.i.sink.i, align 8
+  %call.i.i70.sink = phi ptr [ %call.i.i70, %for.end.i ], [ %arrayidx.i.i, %.noexc69 ]
+  store ptr %t.i.i.i.i, ptr %call.i.i70.sink, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i60)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp5.i)
   %second = getelementptr inbounds i8, ptr %host_cluster, i64 16

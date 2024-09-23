@@ -1723,17 +1723,17 @@ agxbsizeof.exit.i.i34:                            ; preds = %agxbuf_trim_zeros.e
 126:                                              ; preds = %125
   %127 = zext i8 %.val.i15.pre.i.i to i64
   %128 = getelementptr inbounds [31 x i8], ptr %0, i64 0, i64 %127
+  store i8 0, ptr %128, align 1
   br label %agxbputc.exit.i
 
 .thread.i:                                        ; preds = %..thread_crit_edge.i, %agxbsizeof.exit.i.i34
   %129 = phi i64 [ %.pre.i, %..thread_crit_edge.i ], [ %122, %agxbsizeof.exit.i.i34 ]
   %130 = load ptr, ptr %0, align 8
   %131 = getelementptr inbounds i8, ptr %130, i64 %129
+  store i8 0, ptr %131, align 1
   br label %agxbputc.exit.i
 
 agxbputc.exit.i:                                  ; preds = %.thread.i, %126
-  %.sink.i = phi ptr [ %128, %126 ], [ %131, %.thread.i ]
-  store i8 0, ptr %.sink.i, align 1
   %132 = load ptr, ptr %0, align 8
   br label %agxbdisown.exit
 

@@ -428,7 +428,7 @@ _ZNK9metaspace10ArenaStats6totalsEv.exit:         ; preds = %22
   %54 = getelementptr inbounds i8, ptr %0, i64 720
   %55 = load i64, ptr %54, align 8
   %.not = icmp eq i64 %55, 0
-  br i1 %.not, label %92, label %56
+  br i1 %.not, label %91, label %56
 
 56:                                               ; preds = %_ZNK9metaspace10ArenaStats6totalsEv.exit
   tail call void @_ZN12outputStream9cr_indentEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #6
@@ -486,18 +486,18 @@ _ZNK9metaspace10ArenaStats6totalsEv.exit33:       ; preds = %58
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZNK9metaspace10ArenaStats6totalsEv.exit33, %56
-  %.sink72 = phi ptr [ %54, %56 ], [ %88, %_ZNK9metaspace10ArenaStats6totalsEv.exit33 ]
-  %89 = load i64, ptr %.sink72, align 8
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.22, i64 noundef %89) #6
-  %90 = getelementptr inbounds i8, ptr %0, i64 728
-  %91 = load i64, ptr %90, align 8
-  tail call void @_ZN9metaspace18print_scaled_wordsEP12outputStreammmi(ptr noundef nonnull %1, i64 noundef %91, i64 noundef %2, i32 noundef -1) #6
-  br label %92
+  %.sink.in = phi ptr [ %54, %56 ], [ %88, %_ZNK9metaspace10ArenaStats6totalsEv.exit33 ]
+  %.sink = load i64, ptr %.sink.in, align 8
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.22, i64 noundef %.sink) #6
+  %89 = getelementptr inbounds i8, ptr %0, i64 728
+  %90 = load i64, ptr %89, align 8
+  tail call void @_ZN9metaspace18print_scaled_wordsEP12outputStreammmi(ptr noundef nonnull %1, i64 noundef %90, i64 noundef %2, i32 noundef -1) #6
+  br label %91
 
-92:                                               ; preds = %.sink.split, %_ZNK9metaspace10ArenaStats6totalsEv.exit
-  %93 = load i32, ptr %7, align 8
-  %94 = add nsw i32 %93, -2
-  store i32 %94, ptr %7, align 8
+91:                                               ; preds = %.sink.split, %_ZNK9metaspace10ArenaStats6totalsEv.exit
+  %92 = load i32, ptr %7, align 8
+  %93 = add nsw i32 %92, -2
+  store i32 %93, ptr %7, align 8
   ret void
 }
 

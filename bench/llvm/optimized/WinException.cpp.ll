@@ -4468,7 +4468,7 @@ define hidden void @_ZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHF
   br label %30
 
 30:                                               ; preds = %.lr.ph, %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit48"
-  %.057 = phi i32 [ %4, %.lr.ph ], [ %139, %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit48" ]
+  %.057 = phi i32 [ %4, %.lr.ph ], [ %141, %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit48" ]
   %31 = sext i32 %.057 to i64
   %32 = load ptr, ptr %20, align 8
   %33 = getelementptr inbounds %"struct.llvm::SEHUnwindMapEntry", ptr %32, i64 %31
@@ -4618,62 +4618,68 @@ _ZN4llvm12WinException14create32bitRefEPKNS_8MCSymbolE.exit41: ; preds = %84, %7
   call void @_ZN4llvm10MCStreamer9emitValueEPKNS_6MCExprEjNS_5SMLocE(ptr noundef nonnull align 8 dereferenceable(288) %13, ptr noundef %117, i32 noundef 4, ptr null) #13
   %118 = load i8, ptr %37, align 4
   %119 = trunc i8 %118 to i1
-  %120 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %121 = load ptr, ptr %120, align 8
-  %.not29 = icmp eq ptr %121, null
-  %122 = select i1 %.not29, ptr @.str.10, ptr @.str.9
-  %123 = select i1 %119, ptr @.str.8, ptr %122
-  store i8 1, ptr %27, align 1
-  %124 = load i8, ptr %123, align 1
-  %.not.i43 = icmp eq i8 %124, 0
-  br i1 %.not.i43, label %_ZN4llvm5TwineC2EPKc.exit, label %125
+  br i1 %119, label %124, label %120
 
-125:                                              ; preds = %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit42"
-  store ptr %123, ptr %8, align 8
+120:                                              ; preds = %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit42"
+  %121 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %122 = load ptr, ptr %121, align 8
+  %.not29 = icmp eq ptr %122, null
+  %123 = select i1 %.not29, ptr @.str.10, ptr @.str.9
+  br label %124
+
+124:                                              ; preds = %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit42", %120
+  %125 = phi ptr [ %123, %120 ], [ @.str.8, %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit42" ]
+  store i8 1, ptr %27, align 1
+  %126 = load i8, ptr %125, align 1
+  %.not.i43 = icmp eq i8 %126, 0
+  br i1 %.not.i43, label %_ZN4llvm5TwineC2EPKc.exit, label %127
+
+127:                                              ; preds = %124
+  store ptr %125, ptr %8, align 8
   br label %_ZN4llvm5TwineC2EPKc.exit
 
-_ZN4llvm5TwineC2EPKc.exit:                        ; preds = %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit42", %125
-  %storemerge.i = phi i8 [ 3, %125 ], [ 1, %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit42" ]
+_ZN4llvm5TwineC2EPKc.exit:                        ; preds = %124, %127
+  %storemerge.i = phi i8 [ 3, %127 ], [ 1, %124 ]
   store i8 %storemerge.i, ptr %26, align 8
-  br i1 %19, label %126, label %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit44"
+  br i1 %19, label %128, label %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit44"
 
-126:                                              ; preds = %_ZN4llvm5TwineC2EPKc.exit
-  %127 = load ptr, ptr %13, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 120
-  %129 = load ptr, ptr %128, align 8
-  call void %129(ptr noundef nonnull align 8 dereferenceable(288) %13, ptr noundef nonnull align 8 dereferenceable(34) %8, i1 noundef zeroext true) #13
+128:                                              ; preds = %_ZN4llvm5TwineC2EPKc.exit
+  %129 = load ptr, ptr %13, align 8
+  %130 = getelementptr inbounds i8, ptr %129, i64 120
+  %131 = load ptr, ptr %130, align 8
+  call void %131(ptr noundef nonnull align 8 dereferenceable(288) %13, ptr noundef nonnull align 8 dereferenceable(34) %8, i1 noundef zeroext true) #13
   br label %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit44"
 
-"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit44": ; preds = %_ZN4llvm5TwineC2EPKc.exit, %126
+"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit44": ; preds = %_ZN4llvm5TwineC2EPKc.exit, %128
   call void @_ZN4llvm10MCStreamer9emitValueEPKNS_6MCExprEjNS_5SMLocE(ptr noundef nonnull align 8 dereferenceable(288) %13, ptr noundef %.026, i32 noundef 4, ptr null) #13
-  %130 = load i8, ptr %37, align 4
-  %131 = trunc i8 %130 to i1
-  %132 = select i1 %131, ptr @.str.11, ptr @.str.12
+  %132 = load i8, ptr %37, align 4
+  %133 = trunc i8 %132 to i1
+  %134 = select i1 %133, ptr @.str.11, ptr @.str.12
   store i8 1, ptr %29, align 1
-  %133 = load i8, ptr %132, align 1
-  %.not.i45 = icmp eq i8 %133, 0
-  br i1 %.not.i45, label %_ZN4llvm5TwineC2EPKc.exit47, label %134
+  %135 = load i8, ptr %134, align 1
+  %.not.i45 = icmp eq i8 %135, 0
+  br i1 %.not.i45, label %_ZN4llvm5TwineC2EPKc.exit47, label %136
 
-134:                                              ; preds = %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit44"
-  store ptr %132, ptr %9, align 8
+136:                                              ; preds = %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit44"
+  store ptr %134, ptr %9, align 8
   br label %_ZN4llvm5TwineC2EPKc.exit47
 
-_ZN4llvm5TwineC2EPKc.exit47:                      ; preds = %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit44", %134
-  %storemerge.i46 = phi i8 [ 3, %134 ], [ 1, %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit44" ]
+_ZN4llvm5TwineC2EPKc.exit47:                      ; preds = %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit44", %136
+  %storemerge.i46 = phi i8 [ 3, %136 ], [ 1, %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit44" ]
   store i8 %storemerge.i46, ptr %28, align 8
-  br i1 %19, label %135, label %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit48"
+  br i1 %19, label %137, label %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit48"
 
-135:                                              ; preds = %_ZN4llvm5TwineC2EPKc.exit47
-  %136 = load ptr, ptr %13, align 8
-  %137 = getelementptr inbounds i8, ptr %136, i64 120
-  %138 = load ptr, ptr %137, align 8
-  call void %138(ptr noundef nonnull align 8 dereferenceable(288) %13, ptr noundef nonnull align 8 dereferenceable(34) %9, i1 noundef zeroext true) #13
+137:                                              ; preds = %_ZN4llvm5TwineC2EPKc.exit47
+  %138 = load ptr, ptr %13, align 8
+  %139 = getelementptr inbounds i8, ptr %138, i64 120
+  %140 = load ptr, ptr %139, align 8
+  call void %140(ptr noundef nonnull align 8 dereferenceable(288) %13, ptr noundef nonnull align 8 dereferenceable(34) %9, i1 noundef zeroext true) #13
   br label %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit48"
 
-"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit48": ; preds = %_ZN4llvm5TwineC2EPKc.exit47, %135
+"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit48": ; preds = %_ZN4llvm5TwineC2EPKc.exit47, %137
   call void @_ZN4llvm10MCStreamer9emitValueEPKNS_6MCExprEjNS_5SMLocE(ptr noundef nonnull align 8 dereferenceable(288) %13, ptr noundef %.025, i32 noundef 4, ptr null) #13
-  %139 = load i32, ptr %33, align 8
-  %.not = icmp eq i32 %139, -1
+  %141 = load i32, ptr %33, align 8
+  %.not = icmp eq i32 %141, -1
   br i1 %.not, label %._crit_edge, label %30, !llvm.loop !89
 
 ._crit_edge:                                      ; preds = %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit48", %5

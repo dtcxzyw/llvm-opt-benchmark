@@ -6319,10 +6319,10 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit266:       ; preds = %_ZNSt6vectorIjSaIjE
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit212
 
 _ZNSt6vectorIjSaIjEE9push_backERKj.exit212:       ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i211, %328, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit266
-  %.sink594 = phi ptr [ %838, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit266 ], [ %329, %328 ], [ %350, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i211 ]
-  %839 = load i32, ptr %.sink594, align 4
-  %840 = getelementptr inbounds i8, ptr %0, i64 48
-  store i32 %839, ptr %840, align 8
+  %.sink.in = phi ptr [ %838, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit266 ], [ %329, %328 ], [ %350, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i211 ]
+  %.sink = load i32, ptr %.sink.in, align 4
+  %839 = getelementptr inbounds i8, ptr %0, i64 48
+  store i32 %.sink, ptr %839, align 8
   ret void
 }
 

@@ -656,7 +656,7 @@ define hidden void @zim_SplObjectStorage_offsetGet(ptr noundef %0, ptr nocapture
   %.07599 = phi i32 [ 1, %.thread ], [ 9, %10 ]
   %.07698 = phi i32 [ 0, %.thread ], [ 18, %10 ]
   tail call void @zend_wrong_parameter_error(i32 noundef %.07599, i32 noundef %.072101, ptr noundef null, i32 noundef %.07698, ptr noundef %.073100) #10
-  br label %75
+  br label %74
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %11, align 8
@@ -702,7 +702,7 @@ define hidden void @zim_SplObjectStorage_offsetGet(ptr noundef %0, ptr nocapture
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %34 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 1, ptr %34, align 8
-  br label %75
+  br label %74
 
 35:                                               ; preds = %19
   %36 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
@@ -748,7 +748,7 @@ spl_object_storage_free_hash.exit:                ; preds = %spl_object_storage_
 spl_object_storage_free_hash.exit.thread:         ; preds = %.thread110, %spl_object_storage_free_hash.exit
   %49 = load ptr, ptr @spl_ce_UnexpectedValueException, align 8
   %50 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %49, i64 noundef 0, ptr noundef nonnull @.str) #10
-  br label %75
+  br label %74
 
 51:                                               ; preds = %spl_object_storage_free_hash.exit.thread138, %spl_object_storage_free_hash.exit
   %.018.i125141 = phi ptr [ %38, %spl_object_storage_free_hash.exit.thread138 ], [ %.018.i131, %spl_object_storage_free_hash.exit ]
@@ -757,7 +757,7 @@ spl_object_storage_free_hash.exit.thread:         ; preds = %.thread110, %spl_ob
   %54 = load i32, ptr %53, align 8
   %55 = and i32 %54, 65280
   %.not84 = icmp eq i32 %55, 0
-  br i1 %.not84, label %70, label %56
+  br i1 %.not84, label %69, label %56
 
 56:                                               ; preds = %51
   %57 = and i32 %54, 255
@@ -771,31 +771,31 @@ spl_object_storage_free_hash.exit.thread:         ; preds = %.thread110, %spl_ob
   %63 = load i32, ptr %62, align 8
   %64 = and i32 %63, 65280
   %.not85 = icmp eq i32 %64, 0
-  br i1 %.not85, label %70, label %.sink.split
+  br i1 %.not85, label %69, label %.sink.split
 
 .sink.split:                                      ; preds = %56, %59
-  %.sink = phi i32 [ %63, %59 ], [ %54, %56 ]
-  %.sink144 = phi ptr [ %61, %59 ], [ %52, %56 ]
-  %65 = and i32 %.sink, 65280
+  %.sink146 = phi i32 [ %63, %59 ], [ %54, %56 ]
+  %.sink.in = phi ptr [ %61, %59 ], [ %52, %56 ]
+  %65 = and i32 %.sink146, 65280
   %66 = icmp ne i32 %65, 0
   call void @llvm.assume(i1 %66)
-  %67 = load ptr, ptr %.sink144, align 8
-  %68 = load i32, ptr %67, align 4
-  %69 = add i32 %68, 1
-  store i32 %69, ptr %67, align 4
-  br label %70
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %67 = load i32, ptr %.sink, align 4
+  %68 = add i32 %67, 1
+  store i32 %68, ptr %.sink, align 4
+  br label %69
 
-70:                                               ; preds = %.sink.split, %51, %59
-  %.074 = phi ptr [ %61, %59 ], [ %52, %51 ], [ %.sink144, %.sink.split ]
-  %71 = load ptr, ptr %.074, align 8
-  %72 = getelementptr inbounds i8, ptr %.074, i64 8
-  %73 = load i32, ptr %72, align 8
-  store ptr %71, ptr %1, align 8
-  %74 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %73, ptr %74, align 8
-  br label %75
+69:                                               ; preds = %.sink.split, %51, %59
+  %.074 = phi ptr [ %61, %59 ], [ %52, %51 ], [ %.sink.in, %.sink.split ]
+  %70 = load ptr, ptr %.074, align 8
+  %71 = getelementptr inbounds i8, ptr %.074, i64 8
+  %72 = load i32, ptr %71, align 8
+  store ptr %70, ptr %1, align 8
+  %73 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %72, ptr %73, align 8
+  br label %74
 
-75:                                               ; preds = %70, %spl_object_storage_free_hash.exit.thread, %33, %14
+74:                                               ; preds = %69, %spl_object_storage_free_hash.exit.thread, %33, %14
   ret void
 }
 
@@ -3788,7 +3788,7 @@ define internal ptr @spl_object_storage_read_dimension(ptr noundef %0, ptr nound
 
 .critedge:                                        ; preds = %7, %4, %10
   %14 = tail call ptr @zend_std_read_dimension(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #10
-  br label %51
+  br label %50
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %1, align 8
@@ -3801,12 +3801,12 @@ define internal ptr @spl_object_storage_read_dimension(ptr noundef %0, ptr nound
 
 21:                                               ; preds = %15
   %22 = icmp eq i32 %2, 3
-  br i1 %22, label %51, label %23
+  br i1 %22, label %50, label %23
 
 23:                                               ; preds = %21
   %24 = load ptr, ptr @spl_ce_UnexpectedValueException, align 8
   %25 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %24, i64 noundef 0, ptr noundef nonnull @.str) #10
-  br label %51
+  br label %50
 
 26:                                               ; preds = %15
   %27 = load ptr, ptr %20, align 8, !nonnull !4, !noundef !4
@@ -3815,7 +3815,7 @@ define internal ptr @spl_object_storage_read_dimension(ptr noundef %0, ptr nound
   %30 = load i32, ptr %29, align 8
   %31 = and i32 %30, 65280
   %.not47 = icmp eq i32 %31, 0
-  br i1 %.not47, label %46, label %32
+  br i1 %.not47, label %45, label %32
 
 32:                                               ; preds = %26
   %33 = and i32 %30, 255
@@ -3829,32 +3829,32 @@ define internal ptr @spl_object_storage_read_dimension(ptr noundef %0, ptr nound
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 65280
   %.not48 = icmp eq i32 %40, 0
-  br i1 %.not48, label %46, label %.sink.split
+  br i1 %.not48, label %45, label %.sink.split
 
 .sink.split:                                      ; preds = %32, %35
-  %.sink = phi i32 [ %39, %35 ], [ %30, %32 ]
-  %.sink54 = phi ptr [ %37, %35 ], [ %28, %32 ]
-  %41 = and i32 %.sink, 65280
+  %.sink56 = phi i32 [ %39, %35 ], [ %30, %32 ]
+  %.sink.in = phi ptr [ %37, %35 ], [ %28, %32 ]
+  %41 = and i32 %.sink56, 65280
   %42 = icmp ne i32 %41, 0
   tail call void @llvm.assume(i1 %42)
-  %43 = load ptr, ptr %.sink54, align 8
-  %44 = load i32, ptr %43, align 4
-  %45 = add i32 %44, 1
-  store i32 %45, ptr %43, align 4
-  br label %46
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %43 = load i32, ptr %.sink, align 4
+  %44 = add i32 %43, 1
+  store i32 %44, ptr %.sink, align 4
+  br label %45
 
-46:                                               ; preds = %.sink.split, %26, %35
-  %.042 = phi ptr [ %37, %35 ], [ %28, %26 ], [ %.sink54, %.sink.split ]
-  %47 = load ptr, ptr %.042, align 8
-  %48 = getelementptr inbounds i8, ptr %.042, i64 8
-  %49 = load i32, ptr %48, align 8
-  store ptr %47, ptr %3, align 8
-  %50 = getelementptr inbounds i8, ptr %3, i64 8
-  store i32 %49, ptr %50, align 8
-  br label %51
+45:                                               ; preds = %.sink.split, %26, %35
+  %.042 = phi ptr [ %37, %35 ], [ %28, %26 ], [ %.sink.in, %.sink.split ]
+  %46 = load ptr, ptr %.042, align 8
+  %47 = getelementptr inbounds i8, ptr %.042, i64 8
+  %48 = load i32, ptr %47, align 8
+  store ptr %46, ptr %3, align 8
+  %49 = getelementptr inbounds i8, ptr %3, i64 8
+  store i32 %48, ptr %49, align 8
+  br label %50
 
-51:                                               ; preds = %21, %46, %23, %.critedge
-  %.041 = phi ptr [ %14, %.critedge ], [ %3, %46 ], [ null, %23 ], [ @executor_globals, %21 ]
+50:                                               ; preds = %21, %45, %23, %.critedge
+  %.041 = phi ptr [ %14, %.critedge ], [ %3, %45 ], [ null, %23 ], [ @executor_globals, %21 ]
   ret ptr %.041
 }
 

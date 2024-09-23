@@ -464,6 +464,7 @@ if.end5:                                          ; preds = %if.end3
 if.then9:                                         ; preds = %if.end5
   %idxprom = sext i32 %1 to i64
   %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %idxprom
+  store ptr %data, ptr %arrayidx, align 8
   br label %if.end22
 
 if.else:                                          ; preds = %if.end5
@@ -476,11 +477,10 @@ if.else:                                          ; preds = %if.end5
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %arrayidx14, ptr align 8 %4, i64 %mul, i1 false)
   %5 = load ptr, ptr %data10, align 8
   %arrayidx21 = getelementptr inbounds ptr, ptr %5, i64 %3
+  store ptr %data, ptr %arrayidx21, align 8
   br label %if.end22
 
 if.end22:                                         ; preds = %if.else, %if.then9
-  %arrayidx21.sink = phi ptr [ %arrayidx21, %if.else ], [ %arrayidx, %if.then9 ]
-  store ptr %data, ptr %arrayidx21.sink, align 8
   %6 = load i32, ptr %st, align 8
   %inc = add nsw i32 %6, 1
   store i32 %inc, ptr %st, align 8
@@ -1039,6 +1039,7 @@ if.end5.i:                                        ; preds = %if.end3.i
 if.then9.i:                                       ; preds = %if.end5.i
   %idxprom.i = sext i32 %1 to i64
   %arrayidx.i = getelementptr inbounds ptr, ptr %2, i64 %idxprom.i
+  store ptr %data, ptr %arrayidx.i, align 8
   br label %if.end22.i
 
 if.else.i:                                        ; preds = %if.end5.i
@@ -1051,11 +1052,10 @@ if.else.i:                                        ; preds = %if.end5.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %arrayidx14.i, ptr align 8 %4, i64 %mul.i, i1 false)
   %5 = load ptr, ptr %data10.i, align 8
   %arrayidx21.i = getelementptr inbounds ptr, ptr %5, i64 %3
+  store ptr %data, ptr %arrayidx21.i, align 8
   br label %if.end22.i
 
 if.end22.i:                                       ; preds = %if.else.i, %if.then9.i
-  %arrayidx21.sink.i = phi ptr [ %arrayidx21.i, %if.else.i ], [ %arrayidx.i, %if.then9.i ]
-  store ptr %data, ptr %arrayidx21.sink.i, align 8
   %6 = load i32, ptr %st, align 8
   %inc.i = add nsw i32 %6, 1
   store i32 %inc.i, ptr %st, align 8

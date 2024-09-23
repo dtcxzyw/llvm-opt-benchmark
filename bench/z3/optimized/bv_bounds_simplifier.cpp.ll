@@ -3607,6 +3607,7 @@ declare void @_ZN8rational12power_of_twoEj(ptr sret(%class.rational) align 8, i3
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2bv8intervalC2ERK8rationalS3_jb(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(32) %l, ptr noundef nonnull align 8 dereferenceable(32) %h, i32 noundef %sz, i1 noundef zeroext %tight) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
+  %frombool = zext i1 %tight to i8
   store i8 1, ptr %this, align 8
   %i = getelementptr inbounds i8, ptr %this, i64 8
   %tight.i.i = getelementptr inbounds i8, ptr %this, i64 28
@@ -3632,6 +3633,7 @@ invoke.cont:                                      ; preds = %if.then
 invoke.cont5:                                     ; preds = %invoke.cont
   %h8 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %call.i.i.i7, ptr %h8, align 8
+  store i8 %frombool, ptr %tight.i.i, align 4
   br label %if.end
 
 lpad:                                             ; preds = %if.else.i.i7.i.i22, %if.else.i.i.i.i14, %if.else.i.i7.i.i, %if.else.i.i.i.i, %invoke.cont, %if.then
@@ -3730,13 +3732,11 @@ if.else.i.i7.i.i22:                               ; preds = %_ZN11mpq_managerILb
 
 invoke.cont21:                                    ; preds = %if.then.i.i8.i.i23, %if.else.i.i7.i.i22
   %tight25 = getelementptr inbounds i8, ptr %this, i64 100
+  store i8 %frombool, ptr %tight25, align 4
   br label %if.end
 
 if.end:                                           ; preds = %invoke.cont21, %invoke.cont5
-  %tight25.sink = phi ptr [ %tight25, %invoke.cont21 ], [ %tight.i.i, %invoke.cont5 ]
   %.sink = phi i64 [ 96, %invoke.cont21 ], [ 24, %invoke.cont5 ]
-  %frombool = zext i1 %tight to i8
-  store i8 %frombool, ptr %tight25.sink, align 4
   %sz28 = getelementptr inbounds i8, ptr %this, i64 %.sink
   store i32 %sz, ptr %sz28, align 8
   ret void

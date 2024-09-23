@@ -5201,7 +5201,8 @@ if.then:                                          ; preds = %entry
 
 if.then4:                                         ; preds = %if.then
   %report = getelementptr inbounds i8, ptr %n, i64 4180
-  br label %if.end7.sink.split.sink.split
+  %12 = load i32, ptr %report, align 4
+  br label %if.end7.sink.split
 
 land.lhs.true.i:                                  ; preds = %if.then
   %cmp.i = icmp eq i8 %3, 0
@@ -5211,35 +5212,34 @@ cond.false.i:                                     ; preds = %land.lhs.true.i
   %idx.ext.i27 = zext i32 %9 to i64
   %add.ptr.i28 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext.i27
   %add.ptr1.i29 = getelementptr inbounds i8, ptr %add.ptr.i28, i64 -64
-  %12 = load i32, ptr %add.ptr1.i29, align 4
+  %13 = load i32, ptr %add.ptr1.i29, align 4
   %report.i = getelementptr inbounds i8, ptr %add.ptr.i28, i64 -60
-  switch i32 %12, label %for.body.i.preheader [
-    i32 1, label %if.end7.sink.split.sink.split
+  switch i32 %13, label %for.body.i.preheader [
+    i32 1, label %if.then21.i
     i32 0, label %if.end7
   ]
 
 for.body.i.preheader:                             ; preds = %cond.false.i
-  %wide.trip.count = zext i32 %12 to i64
+  %wide.trip.count = zext i32 %13 to i64
   br label %for.body.i
+
+if.then21.i:                                      ; preds = %cond.false.i
+  %14 = load i32, ptr %report.i, align 4
+  br label %if.end7.sink.split
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.i.preheader
   %indvars.iv = phi i64 [ 0, %for.body.i.preheader ], [ %indvars.iv.next, %for.body.i ]
   %arrayidx37.i = getelementptr inbounds [0 x i32], ptr %report.i, i64 0, i64 %indvars.iv
-  %13 = load i32, ptr %arrayidx37.i, align 4
-  %call38.i = tail call i32 %0(i64 noundef 0, i64 noundef %add.i13, i32 noundef %13, ptr noundef %1) #10
+  %15 = load i32, ptr %arrayidx37.i, align 4
+  %call38.i = tail call i32 %0(i64 noundef 0, i64 noundef %add.i13, i32 noundef %15, ptr noundef %1) #10
   %cmp39.i = icmp eq i32 %call38.i, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond = select i1 %cmp39.i, i1 true, i1 %exitcond.not
   br i1 %or.cond, label %if.end7, label %for.body.i, !llvm.loop !5
 
-if.end7.sink.split.sink.split:                    ; preds = %cond.false.i, %if.then4
-  %report.sink = phi ptr [ %report, %if.then4 ], [ %report.i, %cond.false.i ]
-  %14 = load i32, ptr %report.sink, align 4
-  br label %if.end7.sink.split
-
-if.end7.sink.split:                               ; preds = %if.end7.sink.split.sink.split, %land.lhs.true.i
-  %.sink = phi i32 [ 0, %land.lhs.true.i ], [ %14, %if.end7.sink.split.sink.split ]
+if.end7.sink.split:                               ; preds = %land.lhs.true.i, %if.then4, %if.then21.i
+  %.sink = phi i32 [ %14, %if.then21.i ], [ %12, %if.then4 ], [ 0, %land.lhs.true.i ]
   %call26.i = tail call i32 %0(i64 noundef 0, i64 noundef %add.i13, i32 noundef %.sink, ptr noundef %1) #10
   br label %if.end7
 

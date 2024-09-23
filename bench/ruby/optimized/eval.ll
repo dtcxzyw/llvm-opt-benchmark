@@ -2448,107 +2448,110 @@ rb_ec_ractor_ptr.exit.i.i.i.i30:                  ; preds = %132, %124
 rb_ec_vm_lock_rec.exit.i.i.i35:                   ; preds = %139, %rb_ec_ractor_ptr.exit.i.i.i.i30
   %.0.i.i.i.i36 = phi i32 [ %141, %139 ], [ 0, %rb_ec_ractor_ptr.exit.i.i.i.i30 ]
   %.not.i.i17.i = icmp eq i32 %.0.i.i.i.i36, %130
-  br i1 %.not.i.i17.i, label %154, label %142
+  br i1 %.not.i.i17.i, label %155, label %142
 
 142:                                              ; preds = %rb_ec_vm_lock_rec.exit.i.i.i35
   call void @rb_ec_vm_lock_rec_release(ptr noundef nonnull %.0..0..0..0..0..0.2.i27, i32 noundef %130, i32 noundef %.0.i.i.i.i36) #9
   %.0..0..0..0..0..0.4.pre.i37 = load ptr, ptr %3, align 8
-  br label %154
+  br label %155
 
-.thread.i:                                        ; preds = %163, %rb_ec_vm_lock_rec.exit.i24
-  %.sink.i = phi ptr [ %164, %163 ], [ %10, %rb_ec_vm_lock_rec.exit.i24 ]
-  store ptr %4, ptr %.sink.i, align 8
+.thread.i:                                        ; preds = %rb_ec_vm_lock_rec.exit.i24
+  store ptr %4, ptr %10, align 8
+  br label %143
+
+143:                                              ; preds = %164, %.thread.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.2.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.3.i.i)
-  %143 = load i64, ptr %104, align 8
-  %144 = load volatile ptr, ptr @ephemeral_end_procs, align 8
-  %.not7.i.i = icmp eq ptr %144, null
+  %144 = load i64, ptr %104, align 8
+  %145 = load volatile ptr, ptr @ephemeral_end_procs, align 8
+  %.not7.i.i = icmp eq ptr %145, null
   br i1 %.not7.i.i, label %exec_end_procs_chain.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.thread.i, %.lr.ph.i.i
-  %145 = phi ptr [ %148, %.lr.ph.i.i ], [ %144, %.thread.i ]
-  %146 = getelementptr inbounds i8, ptr %145, i64 16
-  %147 = load ptr, ptr %146, align 8
-  store volatile ptr %147, ptr @ephemeral_end_procs, align 8
-  %.sroa.0.0.copyload.i.i = load volatile ptr, ptr %145, align 8
+.lr.ph.i.i:                                       ; preds = %143, %.lr.ph.i.i
+  %146 = phi ptr [ %149, %.lr.ph.i.i ], [ %145, %143 ]
+  %147 = getelementptr inbounds i8, ptr %146, i64 16
+  %148 = load ptr, ptr %147, align 8
+  store volatile ptr %148, ptr @ephemeral_end_procs, align 8
+  %.sroa.0.0.copyload.i.i = load volatile ptr, ptr %146, align 8
   store volatile ptr %.sroa.0.0.copyload.i.i, ptr %.sroa.0.i.i, align 8
-  %.sroa.2.0..0.1.sroa_idx.i.i = getelementptr inbounds i8, ptr %145, i64 8
+  %.sroa.2.0..0.1.sroa_idx.i.i = getelementptr inbounds i8, ptr %146, i64 8
   %.sroa.2.0.copyload.i.i = load volatile i64, ptr %.sroa.2.0..0.1.sroa_idx.i.i, align 8
   store volatile i64 %.sroa.2.0.copyload.i.i, ptr %.sroa.2.i.i, align 8
-  %.sroa.3.0.copyload.i.i = load volatile ptr, ptr %146, align 8
+  %.sroa.3.0.copyload.i.i = load volatile ptr, ptr %147, align 8
   store volatile ptr %.sroa.3.0.copyload.i.i, ptr %.sroa.3.i.i, align 8
-  call void @ruby_xfree(ptr noundef nonnull %145) #9
+  call void @ruby_xfree(ptr noundef nonnull %146) #9
   %.sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0..i.i = load volatile ptr, ptr %.sroa.0.i.i, align 8
   %.sroa.2.i.i.0..sroa.2.i.i.0..sroa.2.i.i.0..sroa.2.i.0..sroa.2.i.0..sroa.2.0..sroa.2.0..sroa.2.0..sroa.2.8..i.i = load volatile i64, ptr %.sroa.2.i.i, align 8
   call void %.sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0..i.i(i64 noundef %.sroa.2.i.i.0..sroa.2.i.i.0..sroa.2.i.i.0..sroa.2.i.0..sroa.2.i.0..sroa.2.0..sroa.2.0..sroa.2.0..sroa.2.8..i.i) #9
-  store i64 %143, ptr %104, align 8
-  %148 = load volatile ptr, ptr @ephemeral_end_procs, align 8
-  %.not.i18.i = icmp eq ptr %148, null
+  store i64 %144, ptr %104, align 8
+  %149 = load volatile ptr, ptr @ephemeral_end_procs, align 8
+  %.not.i18.i = icmp eq ptr %149, null
   br i1 %.not.i18.i, label %exec_end_procs_chain.exit.i, label %.lr.ph.i.i, !llvm.loop !22
 
-exec_end_procs_chain.exit.i:                      ; preds = %.lr.ph.i.i, %.thread.i
+exec_end_procs_chain.exit.i:                      ; preds = %.lr.ph.i.i, %143
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.2.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.3.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0.i19.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.2.i20.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.3.i21.i)
-  %149 = load volatile ptr, ptr @end_procs, align 8
-  %.not7.i22.i = icmp eq ptr %149, null
+  %150 = load volatile ptr, ptr @end_procs, align 8
+  %.not7.i22.i = icmp eq ptr %150, null
   br i1 %.not7.i22.i, label %rb_ec_exec_end_proc.exit, label %.lr.ph.i23.i
 
 .lr.ph.i23.i:                                     ; preds = %exec_end_procs_chain.exit.i, %.lr.ph.i23.i
-  %150 = phi ptr [ %153, %.lr.ph.i23.i ], [ %149, %exec_end_procs_chain.exit.i ]
-  %151 = getelementptr inbounds i8, ptr %150, i64 16
-  %152 = load ptr, ptr %151, align 8
-  store volatile ptr %152, ptr @end_procs, align 8
-  %.sroa.0.0.copyload.i24.i = load volatile ptr, ptr %150, align 8
+  %151 = phi ptr [ %154, %.lr.ph.i23.i ], [ %150, %exec_end_procs_chain.exit.i ]
+  %152 = getelementptr inbounds i8, ptr %151, i64 16
+  %153 = load ptr, ptr %152, align 8
+  store volatile ptr %153, ptr @end_procs, align 8
+  %.sroa.0.0.copyload.i24.i = load volatile ptr, ptr %151, align 8
   store volatile ptr %.sroa.0.0.copyload.i24.i, ptr %.sroa.0.i19.i, align 8
-  %.sroa.2.0..0.1.sroa_idx.i25.i = getelementptr inbounds i8, ptr %150, i64 8
+  %.sroa.2.0..0.1.sroa_idx.i25.i = getelementptr inbounds i8, ptr %151, i64 8
   %.sroa.2.0.copyload.i26.i = load volatile i64, ptr %.sroa.2.0..0.1.sroa_idx.i25.i, align 8
   store volatile i64 %.sroa.2.0.copyload.i26.i, ptr %.sroa.2.i20.i, align 8
-  %.sroa.3.0.copyload.i27.i = load volatile ptr, ptr %151, align 8
+  %.sroa.3.0.copyload.i27.i = load volatile ptr, ptr %152, align 8
   store volatile ptr %.sroa.3.0.copyload.i27.i, ptr %.sroa.3.i21.i, align 8
-  call void @ruby_xfree(ptr noundef nonnull %150) #9
+  call void @ruby_xfree(ptr noundef nonnull %151) #9
   %.sroa.0.i19.i.0..sroa.0.i19.i.0..sroa.0.i19.i.0..sroa.0.i19.0..sroa.0.i19.0..sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0..i28.i = load volatile ptr, ptr %.sroa.0.i19.i, align 8
   %.sroa.2.i20.i.0..sroa.2.i20.i.0..sroa.2.i20.i.0..sroa.2.i20.0..sroa.2.i20.0..sroa.2.0..sroa.2.0..sroa.2.0..sroa.2.8..i29.i = load volatile i64, ptr %.sroa.2.i20.i, align 8
   call void %.sroa.0.i19.i.0..sroa.0.i19.i.0..sroa.0.i19.i.0..sroa.0.i19.0..sroa.0.i19.0..sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0..i28.i(i64 noundef %.sroa.2.i20.i.0..sroa.2.i20.i.0..sroa.2.i20.i.0..sroa.2.i20.0..sroa.2.i20.0..sroa.2.0..sroa.2.0..sroa.2.0..sroa.2.8..i29.i) #9
-  store i64 %143, ptr %104, align 8
-  %153 = load volatile ptr, ptr @end_procs, align 8
-  %.not.i30.i = icmp eq ptr %153, null
+  store i64 %144, ptr %104, align 8
+  %154 = load volatile ptr, ptr @end_procs, align 8
+  %.not.i30.i = icmp eq ptr %154, null
   br i1 %.not.i30.i, label %rb_ec_exec_end_proc.exit, label %.lr.ph.i23.i, !llvm.loop !22
 
-154:                                              ; preds = %142, %rb_ec_vm_lock_rec.exit.i.i.i35
+155:                                              ; preds = %142, %rb_ec_vm_lock_rec.exit.i.i.i35
   %.0..0..0.4.i38 = phi ptr [ %.0..0..0..0..0..0.2.i27, %rb_ec_vm_lock_rec.exit.i.i.i35 ], [ %.0..0..0..0..0..0.4.pre.i37, %142 ]
-  %155 = icmp ne i32 %128, 0
-  call void @llvm.assume(i1 %155)
-  %156 = load ptr, ptr %108, align 8
-  %157 = getelementptr inbounds i8, ptr %.0..0..0.4.i38, i64 24
-  store ptr %156, ptr %157, align 8
-  %158 = load i64, ptr %104, align 8
-  %159 = call fastcc i32 @error_handle(ptr noundef nonnull %0, i64 noundef %158, i32 noundef %128)
-  %160 = load i64, ptr %104, align 8
-  %161 = icmp eq i64 %160, 4
-  br i1 %161, label %163, label %162
+  %156 = icmp ne i32 %128, 0
+  call void @llvm.assume(i1 %156)
+  %157 = load ptr, ptr %108, align 8
+  %158 = getelementptr inbounds i8, ptr %.0..0..0.4.i38, i64 24
+  store ptr %157, ptr %158, align 8
+  %159 = load i64, ptr %104, align 8
+  %160 = call fastcc i32 @error_handle(ptr noundef nonnull %0, i64 noundef %159, i32 noundef %128)
+  %161 = load i64, ptr %104, align 8
+  %162 = icmp eq i64 %161, 4
+  br i1 %162, label %164, label %163
 
-162:                                              ; preds = %154
-  store volatile i64 %160, ptr %2, align 8
-  br label %163
+163:                                              ; preds = %155
+  store volatile i64 %161, ptr %2, align 8
+  br label %164
 
-163:                                              ; preds = %162, %154
+164:                                              ; preds = %163, %155
   %.0..0..0..0..0..0.5.i = load ptr, ptr %3, align 8
-  %164 = getelementptr inbounds i8, ptr %.0..0..0..0..0..0.5.i, i64 24
-  br label %.thread.i
+  %165 = getelementptr inbounds i8, ptr %.0..0..0..0..0..0.5.i, i64 24
+  store ptr %4, ptr %165, align 8
+  br label %143
 
 rb_ec_exec_end_proc.exit:                         ; preds = %.lr.ph.i23.i, %exec_end_procs_chain.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i19.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.2.i20.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.3.i21.i)
-  %165 = load ptr, ptr %108, align 8
+  %166 = load ptr, ptr %108, align 8
   %.0..0..0..0..0..0.6.i = load ptr, ptr %3, align 8
-  %166 = getelementptr inbounds i8, ptr %.0..0..0..0..0..0.6.i, i64 24
-  store ptr %165, ptr %166, align 8
+  %167 = getelementptr inbounds i8, ptr %.0..0..0..0..0..0.6.i, i64 24
+  store ptr %166, ptr %167, align 8
   %.0..0..0..0..0..0.7.i = load volatile i64, ptr %2, align 8
   store i64 %.0..0..0..0..0..0.7.i, ptr %104, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
@@ -6252,10 +6255,10 @@ define internal noundef i64 @top_include(i32 noundef %0, ptr nocapture noundef r
   br label %10
 
 10:                                               ; preds = %3, %9
-  %rb_cObject.sink = phi ptr [ %7, %9 ], [ @rb_cObject, %3 ]
-  %11 = load i64, ptr %rb_cObject.sink, align 8
-  %12 = tail call i64 @rb_mod_include(i32 noundef %0, ptr noundef %1, i64 noundef %11)
-  ret i64 %11
+  %.sink.in = phi ptr [ %7, %9 ], [ @rb_cObject, %3 ]
+  %.sink = load i64, ptr %.sink.in, align 8
+  %11 = tail call i64 @rb_mod_include(i32 noundef %0, ptr noundef %1, i64 noundef %.sink)
+  ret i64 %.sink
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

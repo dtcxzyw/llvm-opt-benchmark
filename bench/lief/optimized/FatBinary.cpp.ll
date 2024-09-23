@@ -191,30 +191,36 @@ define void @_ZN4LIEF5MachO9FatBinary8pop_backEv(ptr dead_on_unwind noalias noca
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %4, %6
-  br i1 %7, label %_ZNSt6vectorISt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS3_EESaIS6_EE8pop_backEv.exit, label %8
+  br i1 %7, label %8, label %9
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %6, i64 -8
-  %10 = load i64, ptr %9, align 8
-  store i64 %10, ptr %0, align 8
-  store ptr null, ptr %9, align 8
-  %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 -8
-  store ptr %12, ptr %5, align 8
-  %13 = load ptr, ptr %12, align 8
-  %.not.i.i.i.i = icmp eq ptr %13, null
+  store ptr null, ptr %0, align 8
+  br label %18
+
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds i8, ptr %6, i64 -8
+  %11 = load i64, ptr %10, align 8
+  store i64 %11, ptr %0, align 8
+  store ptr null, ptr %10, align 8
+  %12 = load ptr, ptr %5, align 8
+  %13 = getelementptr inbounds i8, ptr %12, i64 -8
+  store ptr %13, ptr %5, align 8
+  %14 = load ptr, ptr %13, align 8
+  %.not.i.i.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS3_EESaIS6_EE8pop_backEv.exit, label %_ZNKSt14default_deleteIN4LIEF5MachO6BinaryEEclEPS2_.exit.i.i.i.i
 
-_ZNKSt14default_deleteIN4LIEF5MachO6BinaryEEclEPS2_.exit.i.i.i.i: ; preds = %8
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
-  %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(384) %13) #12
+_ZNKSt14default_deleteIN4LIEF5MachO6BinaryEEclEPS2_.exit.i.i.i.i: ; preds = %9
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %17 = load ptr, ptr %16, align 8
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(384) %14) #12
   br label %_ZNSt6vectorISt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS3_EESaIS6_EE8pop_backEv.exit
 
-_ZNSt6vectorISt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS3_EESaIS6_EE8pop_backEv.exit: ; preds = %_ZNKSt14default_deleteIN4LIEF5MachO6BinaryEEclEPS2_.exit.i.i.i.i, %8, %2
-  %.sink = phi ptr [ %0, %2 ], [ %12, %8 ], [ %12, %_ZNKSt14default_deleteIN4LIEF5MachO6BinaryEEclEPS2_.exit.i.i.i.i ]
-  store ptr null, ptr %.sink, align 8
+_ZNSt6vectorISt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS3_EESaIS6_EE8pop_backEv.exit: ; preds = %9, %_ZNKSt14default_deleteIN4LIEF5MachO6BinaryEEclEPS2_.exit.i.i.i.i
+  store ptr null, ptr %13, align 8
+  br label %18
+
+18:                                               ; preds = %_ZNSt6vectorISt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS3_EESaIS6_EE8pop_backEv.exit, %8
   ret void
 }
 
@@ -509,77 +515,83 @@ define void @_ZN4LIEF5MachO9FatBinary4takeENS0_9CPU_TYPESE(ptr dead_on_unwind no
   %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i, %36 ], [ %.sroa.038.1.i.i.i, %42 ], [ %7, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %48 ], [ %52, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_9CPU_TYPESEE3$_0ET_SH_SH_T0_.exit.loopexit.split.loop.exit" ], [ %53, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_9CPU_TYPESEE3$_0ET_SH_SH_T0_.exit.loopexit.split.loop.exit23" ], [ %54, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_9CPU_TYPESEE3$_0ET_SH_SH_T0_.exit.loopexit.split.loop.exit25" ], [ %.sroa.038.057.i.i.i, %.lr.ph.i.i.i ]
   %55 = load ptr, ptr %6, align 8
   %56 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %55
-  br i1 %56, label %_ZNSt6vectorISt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS3_EESaIS6_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS6_S8_EE.exit, label %57
+  br i1 %56, label %57, label %58
 
 57:                                               ; preds = %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_9CPU_TYPESEE3$_0ET_SH_SH_T0_.exit"
-  %58 = load i64, ptr %.sroa.08.0.in.sroa.speculated.i.i.i, align 8
-  store i64 %58, ptr %0, align 8
+  store ptr null, ptr %0, align 8
+  br label %88
+
+58:                                               ; preds = %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_9CPU_TYPESEE3$_0ET_SH_SH_T0_.exit"
+  %59 = load i64, ptr %.sroa.08.0.in.sroa.speculated.i.i.i, align 8
+  store i64 %59, ptr %0, align 8
   store ptr null, ptr %.sroa.08.0.in.sroa.speculated.i.i.i, align 8
-  %59 = load ptr, ptr %4, align 8
-  %60 = ptrtoint ptr %.sroa.08.0.in.sroa.speculated.i.i.i to i64
-  %61 = ptrtoint ptr %59 to i64
-  %62 = sub i64 %60, %61
-  %63 = getelementptr inbounds i8, ptr %59, i64 %62
-  %64 = getelementptr inbounds i8, ptr %63, i64 8
-  %65 = load ptr, ptr %6, align 8
-  %.not.i.i = icmp eq ptr %64, %65
-  br i1 %.not.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.i.i, label %66
+  %60 = load ptr, ptr %4, align 8
+  %61 = ptrtoint ptr %.sroa.08.0.in.sroa.speculated.i.i.i to i64
+  %62 = ptrtoint ptr %60 to i64
+  %63 = sub i64 %61, %62
+  %64 = getelementptr inbounds i8, ptr %60, i64 %63
+  %65 = getelementptr inbounds i8, ptr %64, i64 8
+  %66 = load ptr, ptr %6, align 8
+  %.not.i.i = icmp eq ptr %65, %66
+  br i1 %.not.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.i.i, label %67
 
-66:                                               ; preds = %57
-  %67 = ptrtoint ptr %65 to i64
-  %68 = ptrtoint ptr %64 to i64
-  %69 = sub i64 %67, %68
-  %70 = ashr exact i64 %69, 3
-  %71 = icmp sgt i64 %70, 0
-  br i1 %71, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.i.i
+67:                                               ; preds = %58
+  %68 = ptrtoint ptr %66 to i64
+  %69 = ptrtoint ptr %65 to i64
+  %70 = sub i64 %68, %69
+  %71 = ashr exact i64 %70, 3
+  %72 = icmp sgt i64 %71, 0
+  br i1 %72, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.i.i
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %66, %_ZNSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i.i
-  %.012.i.i.i.i.i.i.i = phi i64 [ %79, %_ZNSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i.i ], [ %70, %66 ]
-  %.0811.i.i.i.i.i.i.i = phi ptr [ %78, %_ZNSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i.i ], [ %63, %66 ]
-  %.0910.i.i.i.i.i.i.i = phi ptr [ %77, %_ZNSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i.i ], [ %64, %66 ]
-  %72 = load ptr, ptr %.0910.i.i.i.i.i.i.i, align 8
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %67, %_ZNSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i.i
+  %.012.i.i.i.i.i.i.i = phi i64 [ %80, %_ZNSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i.i ], [ %71, %67 ]
+  %.0811.i.i.i.i.i.i.i = phi ptr [ %79, %_ZNSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i.i ], [ %64, %67 ]
+  %.0910.i.i.i.i.i.i.i = phi ptr [ %78, %_ZNSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i.i ], [ %65, %67 ]
+  %73 = load ptr, ptr %.0910.i.i.i.i.i.i.i, align 8
   store ptr null, ptr %.0910.i.i.i.i.i.i.i, align 8
-  %73 = load ptr, ptr %.0811.i.i.i.i.i.i.i, align 8
-  store ptr %72, ptr %.0811.i.i.i.i.i.i.i, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %73, null
+  %74 = load ptr, ptr %.0811.i.i.i.i.i.i.i, align 8
+  store ptr %73, ptr %.0811.i.i.i.i.i.i.i, align 8
+  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %74, null
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN4LIEF5MachO6BinaryEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN4LIEF5MachO6BinaryEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 24
-  %76 = load ptr, ptr %75, align 8
-  tail call void %76(ptr noundef nonnull align 8 dereferenceable(384) %73) #12
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds i8, ptr %75, i64 24
+  %77 = load ptr, ptr %76, align 8
+  tail call void %77(ptr noundef nonnull align 8 dereferenceable(384) %74) #12
   br label %_ZNSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i.i
 
 _ZNSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN4LIEF5MachO6BinaryEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i
-  %77 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i, i64 8
-  %78 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i, i64 8
-  %79 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
-  %80 = icmp sgt i64 %.012.i.i.i.i.i.i.i, 1
-  br i1 %80, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.loopexit.i.i, !llvm.loop !13
+  %78 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i, i64 8
+  %79 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i, i64 8
+  %80 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
+  %81 = icmp sgt i64 %.012.i.i.i.i.i.i.i, 1
+  br i1 %81, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.loopexit.i.i, !llvm.loop !13
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.loopexit.i.i: ; preds = %_ZNSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i.i
   %.pre.i.i = load ptr, ptr %6, align 8
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.i.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.i.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.loopexit.i.i, %66, %57
-  %81 = phi ptr [ %.pre.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.loopexit.i.i ], [ %65, %66 ], [ %65, %57 ]
-  %82 = getelementptr inbounds i8, ptr %81, i64 -8
-  store ptr %82, ptr %6, align 8
-  %83 = load ptr, ptr %82, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %83, null
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.i.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.loopexit.i.i, %67, %58
+  %82 = phi ptr [ %.pre.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.loopexit.i.i ], [ %66, %67 ], [ %66, %58 ]
+  %83 = getelementptr inbounds i8, ptr %82, i64 -8
+  store ptr %83, ptr %6, align 8
+  %84 = load ptr, ptr %83, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %84, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS3_EESaIS6_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS6_S8_EE.exit, label %_ZNKSt14default_deleteIN4LIEF5MachO6BinaryEEclEPS2_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIN4LIEF5MachO6BinaryEEclEPS2_.exit.i.i.i.i.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.i.i
-  %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 24
-  %86 = load ptr, ptr %85, align 8
-  tail call void %86(ptr noundef nonnull align 8 dereferenceable(384) %83) #12
+  %85 = load ptr, ptr %84, align 8
+  %86 = getelementptr inbounds i8, ptr %85, i64 24
+  %87 = load ptr, ptr %86, align 8
+  tail call void %87(ptr noundef nonnull align 8 dereferenceable(384) %84) #12
   br label %_ZNSt6vectorISt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS3_EESaIS6_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS6_S8_EE.exit
 
-_ZNSt6vectorISt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS3_EESaIS6_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS6_S8_EE.exit: ; preds = %_ZNKSt14default_deleteIN4LIEF5MachO6BinaryEEclEPS2_.exit.i.i.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.i.i, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_9CPU_TYPESEE3$_0ET_SH_SH_T0_.exit"
-  %.sink = phi ptr [ %0, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_9CPU_TYPESEE3$_0ET_SH_SH_T0_.exit" ], [ %82, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.i.i ], [ %82, %_ZNKSt14default_deleteIN4LIEF5MachO6BinaryEEclEPS2_.exit.i.i.i.i.i ]
-  store ptr null, ptr %.sink, align 8
+_ZNSt6vectorISt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS3_EESaIS6_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS6_S8_EE.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.i.i, %_ZNKSt14default_deleteIN4LIEF5MachO6BinaryEEclEPS2_.exit.i.i.i.i.i
+  store ptr null, ptr %83, align 8
+  br label %88
+
+88:                                               ; preds = %_ZNSt6vectorISt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS3_EESaIS6_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS6_S8_EE.exit, %57
   ret void
 }
 
@@ -596,78 +608,84 @@ define void @_ZN4LIEF5MachO9FatBinary4takeEm(ptr dead_on_unwind noalias nocaptur
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 3
   %.not = icmp ult i64 %2, %11
-  br i1 %.not, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEmEvRT_T0_.exit, label %_ZNSt6vectorISt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS3_EESaIS6_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS6_S8_EE.exit
+  br i1 %.not, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEmEvRT_T0_.exit, label %12
+
+12:                                               ; preds = %3
+  store ptr null, ptr %0, align 8
+  br label %43
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEmEvRT_T0_.exit: ; preds = %3
-  %12 = getelementptr inbounds %"class.std::unique_ptr", ptr %7, i64 %2
-  %13 = load i64, ptr %12, align 8
-  store i64 %13, ptr %0, align 8
-  store ptr null, ptr %12, align 8
-  %14 = load ptr, ptr %4, align 8
-  %15 = ptrtoint ptr %12 to i64
-  %16 = ptrtoint ptr %14 to i64
-  %17 = sub i64 %15, %16
-  %18 = getelementptr inbounds i8, ptr %14, i64 %17
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
-  %20 = load ptr, ptr %5, align 8
-  %.not.i.i = icmp eq ptr %19, %20
-  br i1 %.not.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.i.i, label %21
+  %13 = getelementptr inbounds %"class.std::unique_ptr", ptr %7, i64 %2
+  %14 = load i64, ptr %13, align 8
+  store i64 %14, ptr %0, align 8
+  store ptr null, ptr %13, align 8
+  %15 = load ptr, ptr %4, align 8
+  %16 = ptrtoint ptr %13 to i64
+  %17 = ptrtoint ptr %15 to i64
+  %18 = sub i64 %16, %17
+  %19 = getelementptr inbounds i8, ptr %15, i64 %18
+  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = load ptr, ptr %5, align 8
+  %.not.i.i = icmp eq ptr %20, %21
+  br i1 %.not.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.i.i, label %22
 
-21:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEmEvRT_T0_.exit
-  %22 = ptrtoint ptr %20 to i64
-  %23 = ptrtoint ptr %19 to i64
-  %24 = sub i64 %22, %23
-  %25 = ashr exact i64 %24, 3
-  %26 = icmp sgt i64 %25, 0
-  br i1 %26, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.i.i
+22:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEmEvRT_T0_.exit
+  %23 = ptrtoint ptr %21 to i64
+  %24 = ptrtoint ptr %20 to i64
+  %25 = sub i64 %23, %24
+  %26 = ashr exact i64 %25, 3
+  %27 = icmp sgt i64 %26, 0
+  br i1 %27, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.i.i
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %21, %_ZNSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i.i
-  %.012.i.i.i.i.i.i.i = phi i64 [ %34, %_ZNSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i.i ], [ %25, %21 ]
-  %.0811.i.i.i.i.i.i.i = phi ptr [ %33, %_ZNSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i.i ], [ %18, %21 ]
-  %.0910.i.i.i.i.i.i.i = phi ptr [ %32, %_ZNSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i.i ], [ %19, %21 ]
-  %27 = load ptr, ptr %.0910.i.i.i.i.i.i.i, align 8
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %22, %_ZNSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i.i
+  %.012.i.i.i.i.i.i.i = phi i64 [ %35, %_ZNSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i.i ], [ %26, %22 ]
+  %.0811.i.i.i.i.i.i.i = phi ptr [ %34, %_ZNSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i.i ], [ %19, %22 ]
+  %.0910.i.i.i.i.i.i.i = phi ptr [ %33, %_ZNSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i.i ], [ %20, %22 ]
+  %28 = load ptr, ptr %.0910.i.i.i.i.i.i.i, align 8
   store ptr null, ptr %.0910.i.i.i.i.i.i.i, align 8
-  %28 = load ptr, ptr %.0811.i.i.i.i.i.i.i, align 8
-  store ptr %27, ptr %.0811.i.i.i.i.i.i.i, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %28, null
+  %29 = load ptr, ptr %.0811.i.i.i.i.i.i.i, align 8
+  store ptr %28, ptr %.0811.i.i.i.i.i.i.i, align 8
+  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN4LIEF5MachO6BinaryEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN4LIEF5MachO6BinaryEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 24
-  %31 = load ptr, ptr %30, align 8
-  tail call void %31(ptr noundef nonnull align 8 dereferenceable(384) %28) #12
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds i8, ptr %30, i64 24
+  %32 = load ptr, ptr %31, align 8
+  tail call void %32(ptr noundef nonnull align 8 dereferenceable(384) %29) #12
   br label %_ZNSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i.i
 
 _ZNSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN4LIEF5MachO6BinaryEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i
-  %32 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i, i64 8
-  %33 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i, i64 8
-  %34 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
-  %35 = icmp sgt i64 %.012.i.i.i.i.i.i.i, 1
-  br i1 %35, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.loopexit.i.i, !llvm.loop !13
+  %33 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i, i64 8
+  %34 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i, i64 8
+  %35 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
+  %36 = icmp sgt i64 %.012.i.i.i.i.i.i.i, 1
+  br i1 %36, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.loopexit.i.i, !llvm.loop !13
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.loopexit.i.i: ; preds = %_ZNSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i.i
   %.pre.i.i = load ptr, ptr %5, align 8
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.i.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.i.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.loopexit.i.i, %21, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEmEvRT_T0_.exit
-  %36 = phi ptr [ %.pre.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.loopexit.i.i ], [ %20, %21 ], [ %20, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEmEvRT_T0_.exit ]
-  %37 = getelementptr inbounds i8, ptr %36, i64 -8
-  store ptr %37, ptr %5, align 8
-  %38 = load ptr, ptr %37, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %38, null
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.i.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.loopexit.i.i, %22, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEmEvRT_T0_.exit
+  %37 = phi ptr [ %.pre.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.loopexit.i.i ], [ %21, %22 ], [ %21, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEmEvRT_T0_.exit ]
+  %38 = getelementptr inbounds i8, ptr %37, i64 -8
+  store ptr %38, ptr %5, align 8
+  %39 = load ptr, ptr %38, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %39, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS3_EESaIS6_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS6_S8_EE.exit, label %_ZNKSt14default_deleteIN4LIEF5MachO6BinaryEEclEPS2_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIN4LIEF5MachO6BinaryEEclEPS2_.exit.i.i.i.i.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.i.i
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 24
-  %41 = load ptr, ptr %40, align 8
-  tail call void %41(ptr noundef nonnull align 8 dereferenceable(384) %38) #12
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 24
+  %42 = load ptr, ptr %41, align 8
+  tail call void %42(ptr noundef nonnull align 8 dereferenceable(384) %39) #12
   br label %_ZNSt6vectorISt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS3_EESaIS6_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS6_S8_EE.exit
 
-_ZNSt6vectorISt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS3_EESaIS6_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS6_S8_EE.exit: ; preds = %_ZNKSt14default_deleteIN4LIEF5MachO6BinaryEEclEPS2_.exit.i.i.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.i.i, %3
-  %.sink = phi ptr [ %0, %3 ], [ %37, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.i.i ], [ %37, %_ZNKSt14default_deleteIN4LIEF5MachO6BinaryEEclEPS2_.exit.i.i.i.i.i ]
-  store ptr null, ptr %.sink, align 8
+_ZNSt6vectorISt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS3_EESaIS6_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS6_S8_EE.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.i.i, %_ZNKSt14default_deleteIN4LIEF5MachO6BinaryEEclEPS2_.exit.i.i.i.i.i
+  store ptr null, ptr %38, align 8
+  br label %43
+
+43:                                               ; preds = %_ZNSt6vectorISt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS3_EESaIS6_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS6_S8_EE.exit, %12
   ret void
 }
 

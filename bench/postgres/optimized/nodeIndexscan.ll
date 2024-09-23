@@ -2182,7 +2182,7 @@ ExecQualAndReset.exit:                            ; preds = %146
 .loopexit:                                        ; preds = %ExecQualAndReset.exit, %.lr.ph, %ExecQualAndReset.exit.thread
   %167 = load i8, ptr %50, align 8
   %168 = trunc i8 %167 to i1
-  br i1 %168, label %169, label %.thread127.sink.split
+  br i1 %168, label %169, label %.thread
 
 169:                                              ; preds = %.loopexit
   store ptr %8, ptr %46, align 8
@@ -2236,7 +2236,7 @@ EvalOrderByExpressions.exit:                      ; preds = %.lr.ph24.i, %169, %
   %198 = load i32, ptr %43, align 8
   %199 = sext i32 %198 to i64
   %200 = icmp slt i64 %indvars.iv.next.i95, %199
-  br i1 %200, label %.lr.ph.i92, label %.thread127.sink.split, !llvm.loop !14
+  br i1 %200, label %.lr.ph.i92, label %.thread127.loopexit, !llvm.loop !14
 
 .lr.ph.i92:                                       ; preds = %EvalOrderByExpressions.exit, %197
   %indvars.iv.i93 = phi i64 [ %indvars.iv.next.i95, %197 ], [ 0, %EvalOrderByExpressions.exit ]
@@ -2280,6 +2280,16 @@ cmp_orderbyvals.exit97.thread112:                 ; preds = %cmp_orderbyvals.exi
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 310, ptr noundef nonnull @__func__.IndexNextWithReorder) #8
   unreachable
 
+.thread:                                          ; preds = %.loopexit
+  %.073117 = load ptr, ptr %42, align 8
+  %.074118 = load ptr, ptr %41, align 8
+  br label %.thread127
+
+.thread127.loopexit:                              ; preds = %197
+  %.073129.pre = load ptr, ptr %52, align 8
+  %.074130.pre = load ptr, ptr %53, align 8
+  br label %.thread127
+
 221:                                              ; preds = %.lr.ph.i92
   %222 = and i8 %207, 1
   %.not133 = icmp eq i8 %222, 0
@@ -2287,16 +2297,9 @@ cmp_orderbyvals.exit97.thread112:                 ; preds = %cmp_orderbyvals.exi
   %.074 = load ptr, ptr %53, align 8
   br i1 %.not133, label %255, label %.thread127
 
-.thread127.sink.split:                            ; preds = %197, %.loopexit
-  %.sink182 = phi ptr [ %42, %.loopexit ], [ %52, %197 ]
-  %.sink = phi ptr [ %41, %.loopexit ], [ %53, %197 ]
-  %.073129.pre = load ptr, ptr %.sink182, align 8
-  %.074130.pre = load ptr, ptr %.sink, align 8
-  br label %.thread127
-
-.thread127:                                       ; preds = %.thread127.sink.split, %EvalOrderByExpressions.exit, %221
-  %.074121 = phi ptr [ %.074, %221 ], [ %191, %EvalOrderByExpressions.exit ], [ %.074130.pre, %.thread127.sink.split ]
-  %.073119 = phi ptr [ %.073, %221 ], [ %192, %EvalOrderByExpressions.exit ], [ %.073129.pre, %.thread127.sink.split ]
+.thread127:                                       ; preds = %EvalOrderByExpressions.exit, %.thread127.loopexit, %.thread, %221
+  %.074121 = phi ptr [ %.074118, %.thread ], [ %.074, %221 ], [ %.074130.pre, %.thread127.loopexit ], [ %191, %EvalOrderByExpressions.exit ]
+  %.073119 = phi ptr [ %.073117, %.thread ], [ %.073, %221 ], [ %.073129.pre, %.thread127.loopexit ], [ %192, %EvalOrderByExpressions.exit ]
   %.not83 = icmp eq ptr %.177, null
   br i1 %.not83, label %cmp_orderbyvals.exit104.thread, label %223
 

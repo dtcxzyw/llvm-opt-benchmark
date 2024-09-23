@@ -1453,15 +1453,15 @@ call38.i.i.noexc:                                 ; preds = %if.then.i151
   %add.ptr.i4.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %92, i64 %call38.i.i152
   store i64 %connection_id.0, ptr %add.ptr.i4.i, align 8, !noalias !23
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i4.i, i64 8
+  store ptr %call99, ptr %second.i.i.i.i.i.i.i.i, align 8, !noalias !23
   br label %invoke.cont130
 
 if.else.i:                                        ; preds = %for.body.i.i
   %second.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %85, i64 %and.i.i.i148, i32 0, i32 1
+  store ptr %call99, ptr %second.i.i, align 8, !noalias !23
   br label %invoke.cont130
 
 invoke.cont130:                                   ; preds = %call38.i.i.noexc, %if.else.i
-  %second.i.i.i.i.i.i.i.i.sink = phi ptr [ %second.i.i.i.i.i.i.i.i, %call38.i.i.noexc ], [ %second.i.i, %if.else.i ]
-  store ptr %call99, ptr %second.i.i.i.i.i.i.i.i.sink, align 8, !noalias !23
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i)
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit unwind label %terminate.lpad.i138
 

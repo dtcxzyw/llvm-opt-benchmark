@@ -463,25 +463,24 @@ invoke.cont6:                                     ; preds = %invoke.cont
   %channel_creds_registry_ = getelementptr inbounds i8, ptr %this, i64 504
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp.i)
-  %0 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %builder, i64 624
-  %1 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8, !noalias !8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8, !noalias !8
+  %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont6
+  %1 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %builder, i64 616
   %2 = load i32, ptr %add.ptr.i.i.i.i, align 8, !noalias !8
-  store i32 %2, ptr %0, align 8, !noalias !8
+  store i32 %2, ptr %1, align 8, !noalias !8
   %_M_left.i.i.i.i.i.i = getelementptr inbounds i8, ptr %builder, i64 632
   %3 = load ptr, ptr %_M_left.i.i.i.i.i.i, align 8, !noalias !8
   %_M_right.i.i.i.i.i.i = getelementptr inbounds i8, ptr %builder, i64 640
   %4 = load ptr, ptr %_M_right.i.i.i.i.i.i, align 8, !noalias !8
-  %_M_parent16.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
-  store ptr %0, ptr %_M_parent16.i.i.i.i.i.i, align 8, !noalias !8
+  %_M_parent16.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %1, ptr %_M_parent16.i.i.i.i.i.i, align 8, !noalias !8
   %_M_node_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %builder, i64 648
   %5 = load i64, ptr %_M_node_count.i.i.i.i.i.i, align 8, !noalias !8
-  %_M_node_count17.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 40
   store ptr null, ptr %_M_parent.i.i.i.i.i, align 8, !noalias !8
   store ptr %add.ptr.i.i.i.i, ptr %_M_left.i.i.i.i.i.i, align 8, !noalias !8
   store ptr %add.ptr.i.i.i.i, ptr %_M_right.i.i.i.i.i.i, align 8, !noalias !8
@@ -489,28 +488,25 @@ if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont6
   %6 = getelementptr inbounds i8, ptr %this, i64 512
   store i32 %2, ptr %6, align 8, !alias.scope !8
   store ptr %6, ptr %_M_parent16.i.i.i.i.i.i, align 8, !noalias !8
-  %_M_node_count17.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 544
-  store i64 %5, ptr %_M_node_count17.i.i.i.i.i.i.i, align 8, !alias.scope !8
   br label %invoke.cont9
 
 if.else.i.i.i.i.i.i:                              ; preds = %invoke.cont6
-  store i32 0, ptr %0, align 8, !noalias !8
   %7 = getelementptr inbounds i8, ptr %this, i64 512
   store i32 0, ptr %7, align 8, !alias.scope !8
-  %_M_node_count.i5.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 544
   br label %invoke.cont9
 
 invoke.cont9:                                     ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %.sink16 = phi ptr [ %7, %if.else.i.i.i.i.i.i ], [ %3, %if.then.i.i.i.i.i.i ]
   %.sink = phi ptr [ %7, %if.else.i.i.i.i.i.i ], [ %4, %if.then.i.i.i.i.i.i ]
-  %_M_node_count.i5.sink.i.i.i.i.i.i = phi ptr [ %_M_node_count.i5.i.i.i.i.i.i, %if.else.i.i.i.i.i.i ], [ %_M_node_count17.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ]
+  %.sink2.i = phi i64 [ 0, %if.else.i.i.i.i.i.i ], [ %5, %if.then.i.i.i.i.i.i ]
   %8 = getelementptr inbounds i8, ptr %this, i64 520
-  store ptr %1, ptr %8, align 8
+  store ptr %0, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %this, i64 528
   store ptr %.sink16, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %this, i64 536
   store ptr %.sink, ptr %10, align 8
-  store i64 0, ptr %_M_node_count.i5.sink.i.i.i.i.i.i, align 8
+  %11 = getelementptr inbounds i8, ptr %this, i64 544
+  store i64 %.sink2.i, ptr %11, align 8, !alias.scope !8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp.i)
   %service_config_parser_ = getelementptr inbounds i8, ptr %this, i64 552
   %service_config_parser_10 = getelementptr inbounds i8, ptr %builder, i64 656
@@ -545,64 +541,64 @@ invoke.cont24:                                    ; preds = %invoke.cont21
   ret void
 
 lpad:                                             ; preds = %entry
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup30
 
 lpad5:                                            ; preds = %invoke.cont
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup29
 
 lpad11:                                           ; preds = %invoke.cont9
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup27
 
 lpad14:                                           ; preds = %invoke.cont12
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup26
 
 lpad17:                                           ; preds = %invoke.cont15
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup25
 
 lpad20:                                           ; preds = %invoke.cont18
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad23:                                           ; preds = %invoke.cont21
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9grpc_core19ProxyMapperRegistryD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %proxy_mapper_registry_) #16
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad23, %lpad20
-  %.pn = phi { ptr, i32 } [ %17, %lpad23 ], [ %16, %lpad20 ]
+  %.pn = phi { ptr, i32 } [ %18, %lpad23 ], [ %17, %lpad20 ]
   call void @_ZN9grpc_core27LoadBalancingPolicyRegistryD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %lb_policy_registry_) #16
   br label %ehcleanup25
 
 ehcleanup25:                                      ; preds = %ehcleanup, %lpad17
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %15, %lpad17 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %16, %lpad17 ]
   call void @_ZN9grpc_core16ResolverRegistryD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %resolver_registry_) #16
   br label %ehcleanup26
 
 ehcleanup26:                                      ; preds = %ehcleanup25, %lpad14
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup25 ], [ %14, %lpad14 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup25 ], [ %15, %lpad14 ]
   call void @_ZN9grpc_core19ServiceConfigParserD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %service_config_parser_) #16
   br label %ehcleanup27
 
 ehcleanup27:                                      ; preds = %ehcleanup26, %lpad11
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup26 ], [ %13, %lpad11 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup26 ], [ %14, %lpad11 ]
   call void @_ZN9grpc_core20ChannelCredsRegistryI24grpc_channel_credentialsED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %channel_creds_registry_) #16
   call void @_ZN9grpc_core18HandshakerRegistryD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %handshaker_registry_) #16
   br label %ehcleanup29
 
 ehcleanup29:                                      ; preds = %ehcleanup27, %lpad5
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup27 ], [ %12, %lpad5 ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup27 ], [ %13, %lpad5 ]
   br label %arraydestroy.body.i
 
 arraydestroy.body.i:                              ; preds = %arraydestroy.body.i, %ehcleanup29
@@ -614,7 +610,7 @@ arraydestroy.body.i:                              ; preds = %arraydestroy.body.i
   br i1 %arraydestroy.done.i, label %ehcleanup30, label %arraydestroy.body.i
 
 ehcleanup30:                                      ; preds = %arraydestroy.body.i, %lpad
-  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %11, %lpad ], [ %.pn.pn.pn.pn.pn.pn, %arraydestroy.body.i ]
+  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %12, %lpad ], [ %.pn.pn.pn.pn.pn.pn, %arraydestroy.body.i ]
   call void @_ZN9grpc_core26ChannelArgsPreconditioningD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #16
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn
 }

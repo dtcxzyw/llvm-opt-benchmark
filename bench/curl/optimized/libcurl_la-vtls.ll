@@ -3339,10 +3339,10 @@ do.body12:                                        ; preds = %sw.bb9
   br label %sw.epilog.sink.split
 
 sw.epilog.sink.split:                             ; preds = %do.body, %do.body12
-  %ctx13.sink = phi ptr [ %ctx13, %do.body12 ], [ %ctx, %do.body ]
+  %.sink.in = phi ptr [ %ctx13, %do.body12 ], [ %ctx, %do.body ]
   %save.sroa.0.0.copyload2.sink = phi ptr [ %save.sroa.0.0.copyload2, %do.body12 ], [ %save.sroa.0.0.copyload, %do.body ]
-  %8 = load ptr, ptr %ctx13.sink, align 8
-  %call_data22 = getelementptr inbounds i8, ptr %8, i64 56
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %call_data22 = getelementptr inbounds i8, ptr %.sink, i64 56
   store ptr %save.sroa.0.0.copyload2.sink, ptr %call_data22, align 8
   br label %sw.epilog
 

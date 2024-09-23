@@ -5398,7 +5398,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34S
 58:                                               ; preds = %66
   %59 = landingpad { ptr, i32 }
           cleanup
-  br label %89
+  br label %90
 
 60:                                               ; preds = %54
   store ptr @.str.14, ptr %9, align 8
@@ -5428,139 +5428,140 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34S
 _ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_LocationB5cxx11Ev.exit27: ; preds = %70, %66
   %71 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #18
   %72 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__10SdfAllowed9GetWhyNotB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %8)
-          to label %73 unwind label %78
+          to label %73 unwind label %79
 
 73:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_LocationB5cxx11Ev.exit27
   %74 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %72) #18
   invoke void (ptr, i32, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13TfCallContextENS_16TfDiagnosticTypeEPKcz(ptr noundef nonnull align 8 dereferenceable(33) %9, i32 noundef 1, ptr noundef nonnull @.str.17, ptr noundef %71, ptr noundef %74)
-          to label %75 unwind label %78
+          to label %75 unwind label %79
 
 75:                                               ; preds = %73
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #18
   %76 = load i8, ptr %55, align 8
   %77 = trunc i8 %76 to i1
-  br i1 %77, label %_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit.sink.split.sink.split, label %_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit
+  br i1 %77, label %78, label %_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit
 
-78:                                               ; preds = %73, %_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_LocationB5cxx11Ev.exit27
-  %79 = landingpad { ptr, i32 }
+78:                                               ; preds = %75
+  store i8 0, ptr %55, align 8
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit.sink.split
+
+79:                                               ; preds = %73, %_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_LocationB5cxx11Ev.exit27
+  %80 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #18
-  br label %89
+  br label %90
 
 _ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit28: ; preds = %54
-  %80 = load ptr, ptr %0, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %82 = load ptr, ptr %80, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 96
-  %84 = load ptr, ptr %83, align 8
-  invoke void %84(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfAllowed") align 8 %11, ptr noundef nonnull align 8 dereferenceable(8) %80, ptr noundef nonnull align 8 dereferenceable(16) %81)
-          to label %85 unwind label %45
+  %81 = load ptr, ptr %0, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %83 = load ptr, ptr %81, align 8
+  %84 = getelementptr inbounds i8, ptr %83, i64 96
+  %85 = load ptr, ptr %84, align 8
+  invoke void %85(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfAllowed") align 8 %11, ptr noundef nonnull align 8 dereferenceable(8) %81, ptr noundef nonnull align 8 dereferenceable(16) %82)
+          to label %86 unwind label %45
 
-85:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit28
-  %86 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %87 = load i8, ptr %86, align 8
-  %88 = and i8 %87, 1
-  %.not18.not.not = icmp eq i8 %88, 0
-  br i1 %.not18.not.not, label %113, label %95
+86:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit28
+  %87 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %88 = load i8, ptr %87, align 8
+  %89 = and i8 %88, 1
+  %.not18.not.not = icmp eq i8 %89, 0
+  br i1 %.not18.not.not, label %114, label %96
 
-89:                                               ; preds = %78, %58
-  %.pn = phi { ptr, i32 } [ %79, %78 ], [ %59, %58 ]
-  %90 = load i8, ptr %55, align 8
-  %91 = trunc i8 %90 to i1
-  br i1 %91, label %92, label %.body
+90:                                               ; preds = %79, %58
+  %.pn = phi { ptr, i32 } [ %80, %79 ], [ %59, %58 ]
+  %91 = load i8, ptr %55, align 8
+  %92 = trunc i8 %91 to i1
+  br i1 %92, label %93, label %.body
 
-92:                                               ; preds = %89
+93:                                               ; preds = %90
   store i8 0, ptr %55, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
   br label %.body
 
-93:                                               ; preds = %101
-  %94 = landingpad { ptr, i32 }
+94:                                               ; preds = %102
+  %95 = landingpad { ptr, i32 }
           cleanup
-  br label %116
+  br label %118
 
-95:                                               ; preds = %85
+96:                                               ; preds = %86
   store ptr @.str.14, ptr %12, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE15_ValidateInsertERKSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VtValueEE, ptr %96, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 983, ptr %97, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE15_ValidateInsertERKSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VtValueEE, ptr %98, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store i8 0, ptr %99, align 8
-  %100 = load ptr, ptr %0, align 8, !noalias !89
-  %.not.i30 = icmp eq ptr %100, null
-  br i1 %.not.i30, label %105, label %101
+  %97 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE15_ValidateInsertERKSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VtValueEE, ptr %97, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 983, ptr %98, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  store ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE15_ValidateInsertERKSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VtValueEE, ptr %99, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  store i8 0, ptr %100, align 8
+  %101 = load ptr, ptr %0, align 8, !noalias !89
+  %.not.i30 = icmp eq ptr %101, null
+  br i1 %.not.i30, label %106, label %102
 
-101:                                              ; preds = %95
-  %102 = load ptr, ptr %100, align 8, !noalias !89
-  %103 = getelementptr inbounds i8, ptr %102, i64 16
-  %104 = load ptr, ptr %103, align 8, !noalias !89
-  invoke void %104(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %13, ptr noundef nonnull align 8 dereferenceable(8) %100)
-          to label %_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_LocationB5cxx11Ev.exit32 unwind label %93
+102:                                              ; preds = %96
+  %103 = load ptr, ptr %101, align 8, !noalias !89
+  %104 = getelementptr inbounds i8, ptr %103, i64 16
+  %105 = load ptr, ptr %104, align 8, !noalias !89
+  invoke void %105(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %13, ptr noundef nonnull align 8 dereferenceable(8) %101)
+          to label %_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_LocationB5cxx11Ev.exit32 unwind label %94
 
-105:                                              ; preds = %95
+106:                                              ; preds = %96
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #18
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_LocationB5cxx11Ev.exit32
 
-_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_LocationB5cxx11Ev.exit32: ; preds = %105, %101
-  %106 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #18
-  %107 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__10SdfAllowed9GetWhyNotB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %11)
-          to label %108 unwind label %111
+_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_LocationB5cxx11Ev.exit32: ; preds = %106, %102
+  %107 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #18
+  %108 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__10SdfAllowed9GetWhyNotB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %11)
+          to label %109 unwind label %112
 
-108:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_LocationB5cxx11Ev.exit32
-  %109 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %107) #18
-  invoke void (ptr, i32, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13TfCallContextENS_16TfDiagnosticTypeEPKcz(ptr noundef nonnull align 8 dereferenceable(33) %12, i32 noundef 1, ptr noundef nonnull @.str.18, ptr noundef %106, ptr noundef %109)
-          to label %110 unwind label %111
+109:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_LocationB5cxx11Ev.exit32
+  %110 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %108) #18
+  invoke void (ptr, i32, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13TfCallContextENS_16TfDiagnosticTypeEPKcz(ptr noundef nonnull align 8 dereferenceable(33) %12, i32 noundef 1, ptr noundef nonnull @.str.18, ptr noundef %107, ptr noundef %110)
+          to label %111 unwind label %112
 
-110:                                              ; preds = %108
+111:                                              ; preds = %109
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #18
-  %.pre = load i8, ptr %86, align 8
-  br label %113
+  %.pre = load i8, ptr %87, align 8
+  br label %114
 
-111:                                              ; preds = %108, %_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_LocationB5cxx11Ev.exit32
-  %112 = landingpad { ptr, i32 }
+112:                                              ; preds = %109, %_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_LocationB5cxx11Ev.exit32
+  %113 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #18
-  br label %116
+  br label %118
 
-113:                                              ; preds = %85, %110
-  %114 = phi i8 [ %87, %85 ], [ %.pre, %110 ]
-  %115 = trunc i8 %114 to i1
-  br i1 %115, label %_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit.sink.split.sink.split, label %_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit
+114:                                              ; preds = %86, %111
+  %115 = phi i8 [ %88, %86 ], [ %.pre, %111 ]
+  %116 = trunc i8 %115 to i1
+  br i1 %116, label %117, label %_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit
 
-116:                                              ; preds = %111, %93
-  %.pn19 = phi { ptr, i32 } [ %112, %111 ], [ %94, %93 ]
-  %117 = load i8, ptr %86, align 8
-  %118 = trunc i8 %117 to i1
-  br i1 %118, label %119, label %.body
+117:                                              ; preds = %114
+  store i8 0, ptr %87, align 8
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit.sink.split
 
-119:                                              ; preds = %116
-  store i8 0, ptr %86, align 8
+118:                                              ; preds = %112, %94
+  %.pn19 = phi { ptr, i32 } [ %113, %112 ], [ %95, %94 ]
+  %119 = load i8, ptr %87, align 8
+  %120 = trunc i8 %119 to i1
+  br i1 %120, label %121, label %.body
+
+121:                                              ; preds = %118
+  store i8 0, ptr %87, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #18
   br label %.body
 
-_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit.sink.split.sink.split: ; preds = %113, %75
-  %.sink35 = phi ptr [ %55, %75 ], [ %86, %113 ]
-  %.sink.ph = phi ptr [ %8, %75 ], [ %11, %113 ]
-  %.013.ph.ph = phi i1 [ false, %75 ], [ %.not18.not.not, %113 ]
-  store i8 0, ptr %.sink35, align 8
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit.sink.split
-
-_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit.sink.split: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit.sink.split.sink.split, %_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_LocationB5cxx11Ev.exit
-  %.sink = phi ptr [ %7, %_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_LocationB5cxx11Ev.exit ], [ %.sink.ph, %_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit.sink.split.sink.split ]
-  %.013.ph = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_LocationB5cxx11Ev.exit ], [ %.013.ph.ph, %_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit.sink.split.sink.split ]
+_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit.sink.split: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_LocationB5cxx11Ev.exit, %78, %117
+  %.sink = phi ptr [ %11, %117 ], [ %8, %78 ], [ %7, %_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_LocationB5cxx11Ev.exit ]
+  %.013.ph = phi i1 [ %.not18.not.not, %117 ], [ false, %78 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_LocationB5cxx11Ev.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #18
   br label %_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit.sink.split, %113, %75
-  %.013 = phi i1 [ false, %75 ], [ %.not18.not.not, %113 ], [ %.013.ph, %_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit.sink.split ]
+_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit.sink.split, %114, %75
+  %.013 = phi i1 [ false, %75 ], [ %.not18.not.not, %114 ], [ %.013.ph, %_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit.sink.split ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfSpecD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #18
   ret i1 %.013
 
-.body:                                            ; preds = %119, %116, %92, %89, %45, %28, %47
-  %.pn19.pn = phi { ptr, i32 } [ %48, %47 ], [ %46, %45 ], [ %29, %28 ], [ %.pn, %89 ], [ %.pn, %92 ], [ %.pn19, %116 ], [ %.pn19, %119 ]
+.body:                                            ; preds = %121, %118, %93, %90, %45, %28, %47
+  %.pn19.pn = phi { ptr, i32 } [ %48, %47 ], [ %46, %45 ], [ %29, %28 ], [ %.pn, %90 ], [ %.pn, %93 ], [ %.pn19, %118 ], [ %.pn19, %121 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfSpecD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #18
   resume { ptr, i32 } %.pn19.pn
 }

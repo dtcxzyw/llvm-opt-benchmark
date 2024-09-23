@@ -6786,7 +6786,7 @@ while.body.i.i41:                                 ; preds = %while.cond.i.i35
 while.cond5.i.i:                                  ; preds = %while.cond5.i.i.preheader, %while.body10.i.i
   %10 = phi i8 [ %.pre.i.i38, %while.body10.i.i ], [ %9, %while.cond5.i.i.preheader ]
   %in.addr.1.i.i = phi ptr [ %incdec.ptr11.i.i, %while.body10.i.i ], [ %in.addr.0.i.i36, %while.cond5.i.i.preheader ]
-  switch i8 %10, label %return [
+  switch i8 %10, label %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit [
     i8 13, label %while.body10.i.i
     i8 10, label %while.body10.i.i
   ]
@@ -6795,6 +6795,12 @@ while.body10.i.i:                                 ; preds = %while.cond5.i.i, %w
   %incdec.ptr11.i.i = getelementptr inbounds i8, ptr %in.addr.1.i.i, i64 1
   %.pre.i.i38 = load i8, ptr %incdec.ptr11.i.i, align 1
   br label %while.cond5.i.i, !llvm.loop !46
+
+_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit:    ; preds = %while.cond5.i.i
+  %11 = load i32, ptr %iLineNumber.i34, align 4
+  %inc.i40 = add i32 %11, 1
+  store i32 %inc.i40, ptr %iLineNumber.i34, align 4
+  br label %return
 
 if.end7:                                          ; preds = %for.end.i.i.i, %if.then6.i.i, %if.else.i.i, %for.end.i.i.i.thread
   %in.addr.0.lcssa.i.i.i377 = phi ptr [ %in.addr.0.lcssa.i.i.i378384, %if.then6.i.i ], [ %incdec.ptr.i.i1.i, %if.else.i.i ], [ %incdec.ptr.i.i1.i, %for.end.i.i.i ], [ %3, %for.end.i.i.i.thread ]
@@ -6805,8 +6811,8 @@ if.end7:                                          ; preds = %for.end.i.i.i, %if.
 
 while.cond.i.i.i43:                               ; preds = %while.body.i.i.i45, %if.end7
   %in.addr.0.i.i.i44 = phi ptr [ %in.addr.0.lcssa.i.i.i377, %if.end7 ], [ %incdec.ptr.i.i.i46, %while.body.i.i.i45 ]
-  %11 = load i8, ptr %in.addr.0.i.i.i44, align 1
-  switch i8 %11, label %if.end11 [
+  %12 = load i8, ptr %in.addr.0.i.i.i44, align 1
+  switch i8 %12, label %if.end11 [
     i8 32, label %while.body.i.i.i45
     i8 9, label %while.body.i.i.i45
     i8 13, label %if.then9
@@ -6822,8 +6828,8 @@ while.body.i.i.i45:                               ; preds = %while.cond.i.i.i43,
 if.then9:                                         ; preds = %while.cond.i.i.i43, %while.cond.i.i.i43, %while.cond.i.i.i43, %while.cond.i.i.i43
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %szTemp.i49)
   %iLineNumber.i50 = getelementptr inbounds i8, ptr %this, i64 212
-  %12 = load i32, ptr %iLineNumber.i50, align 4
-  %call.i51 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %szTemp.i49, i64 noundef 1024, ptr noundef nonnull @.str.8, i32 noundef %12, ptr noundef nonnull @.str.51) #26
+  %13 = load i32, ptr %iLineNumber.i50, align 4
+  %call.i51 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %szTemp.i49, i64 noundef 1024, ptr noundef nonnull @.str.8, i32 noundef %13, ptr noundef nonnull @.str.51) #26
   %call2.i52 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   call void @_ZN6Assimp6Logger5errorIJRA1024_cEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(12) %call2.i52, ptr noundef nonnull align 1 dereferenceable(1024) %szTemp.i49)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %szTemp.i49)
@@ -6831,8 +6837,8 @@ if.then9:                                         ; preds = %while.cond.i.i.i43,
 
 while.cond.i.i53:                                 ; preds = %while.body.i.i63, %if.then9
   %in.addr.0.i.i54 = phi ptr [ %in.addr.0.lcssa.i.i.i377, %if.then9 ], [ %incdec.ptr.i.i64, %while.body.i.i63 ]
-  %13 = load i8, ptr %in.addr.0.i.i54, align 1
-  switch i8 %13, label %while.body.i.i63 [
+  %14 = load i8, ptr %in.addr.0.i.i54, align 1
+  switch i8 %14, label %while.body.i.i63 [
     i8 13, label %while.cond5.i.i56.preheader
     i8 10, label %while.cond5.i.i56.preheader
     i8 0, label %while.cond5.i.i56.preheader
@@ -6846,9 +6852,9 @@ while.body.i.i63:                                 ; preds = %while.cond.i.i53
   br label %while.cond.i.i53, !llvm.loop !45
 
 while.cond5.i.i56:                                ; preds = %while.cond5.i.i56.preheader, %while.body10.i.i58
-  %14 = phi i8 [ %.pre.i.i60, %while.body10.i.i58 ], [ %13, %while.cond5.i.i56.preheader ]
+  %15 = phi i8 [ %.pre.i.i60, %while.body10.i.i58 ], [ %14, %while.cond5.i.i56.preheader ]
   %in.addr.1.i.i57 = phi ptr [ %incdec.ptr11.i.i59, %while.body10.i.i58 ], [ %in.addr.0.i.i54, %while.cond5.i.i56.preheader ]
-  switch i8 %14, label %return [
+  switch i8 %15, label %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit65 [
     i8 13, label %while.body10.i.i58
     i8 10, label %while.body10.i.i58
   ]
@@ -6858,6 +6864,12 @@ while.body10.i.i58:                               ; preds = %while.cond5.i.i56, 
   %.pre.i.i60 = load i8, ptr %incdec.ptr11.i.i59, align 1
   br label %while.cond5.i.i56, !llvm.loop !46
 
+_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit65:  ; preds = %while.cond5.i.i56
+  %16 = load i32, ptr %iLineNumber.i50, align 4
+  %inc.i62 = add i32 %16, 1
+  store i32 %inc.i62, ptr %iLineNumber.i50, align 4
+  br label %return
+
 if.end11:                                         ; preds = %while.cond.i.i.i43
   %call2.i48 = call noundef ptr @_ZN6Assimp17fast_atoreal_moveIf17DeadlyImportErrorEEPKcS3_RT_b(ptr noundef nonnull %in.addr.0.i.i.i44, ptr noundef nonnull align 4 dereferenceable(4) %vertex, i1 noundef zeroext true)
   %y = getelementptr inbounds i8, ptr %vertex, i64 4
@@ -6865,8 +6877,8 @@ if.end11:                                         ; preds = %while.cond.i.i.i43
 
 while.cond.i.i.i66:                               ; preds = %while.body.i.i.i69, %if.end11
   %in.addr.0.i.i.i67 = phi ptr [ %call2.i48, %if.end11 ], [ %incdec.ptr.i.i.i70, %while.body.i.i.i69 ]
-  %15 = load i8, ptr %in.addr.0.i.i.i67, align 1
-  switch i8 %15, label %if.end16 [
+  %17 = load i8, ptr %in.addr.0.i.i.i67, align 1
+  switch i8 %17, label %if.end16 [
     i8 32, label %while.body.i.i.i69
     i8 9, label %while.body.i.i.i69
     i8 13, label %if.then14
@@ -6882,8 +6894,8 @@ while.body.i.i.i69:                               ; preds = %while.cond.i.i.i66,
 if.then14:                                        ; preds = %while.cond.i.i.i66, %while.cond.i.i.i66, %while.cond.i.i.i66, %while.cond.i.i.i66
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %szTemp.i74)
   %iLineNumber.i75 = getelementptr inbounds i8, ptr %this, i64 212
-  %16 = load i32, ptr %iLineNumber.i75, align 4
-  %call.i76 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %szTemp.i74, i64 noundef 1024, ptr noundef nonnull @.str.8, i32 noundef %16, ptr noundef nonnull @.str.52) #26
+  %18 = load i32, ptr %iLineNumber.i75, align 4
+  %call.i76 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %szTemp.i74, i64 noundef 1024, ptr noundef nonnull @.str.8, i32 noundef %18, ptr noundef nonnull @.str.52) #26
   %call2.i77 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   call void @_ZN6Assimp6Logger5errorIJRA1024_cEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(12) %call2.i77, ptr noundef nonnull align 1 dereferenceable(1024) %szTemp.i74)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %szTemp.i74)
@@ -6891,8 +6903,8 @@ if.then14:                                        ; preds = %while.cond.i.i.i66,
 
 while.cond.i.i78:                                 ; preds = %while.body.i.i88, %if.then14
   %in.addr.0.i.i79 = phi ptr [ %call2.i48, %if.then14 ], [ %incdec.ptr.i.i89, %while.body.i.i88 ]
-  %17 = load i8, ptr %in.addr.0.i.i79, align 1
-  switch i8 %17, label %while.body.i.i88 [
+  %19 = load i8, ptr %in.addr.0.i.i79, align 1
+  switch i8 %19, label %while.body.i.i88 [
     i8 13, label %while.cond5.i.i81.preheader
     i8 10, label %while.cond5.i.i81.preheader
     i8 0, label %while.cond5.i.i81.preheader
@@ -6906,9 +6918,9 @@ while.body.i.i88:                                 ; preds = %while.cond.i.i78
   br label %while.cond.i.i78, !llvm.loop !45
 
 while.cond5.i.i81:                                ; preds = %while.cond5.i.i81.preheader, %while.body10.i.i83
-  %18 = phi i8 [ %.pre.i.i85, %while.body10.i.i83 ], [ %17, %while.cond5.i.i81.preheader ]
+  %20 = phi i8 [ %.pre.i.i85, %while.body10.i.i83 ], [ %19, %while.cond5.i.i81.preheader ]
   %in.addr.1.i.i82 = phi ptr [ %incdec.ptr11.i.i84, %while.body10.i.i83 ], [ %in.addr.0.i.i79, %while.cond5.i.i81.preheader ]
-  switch i8 %18, label %return [
+  switch i8 %20, label %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit90 [
     i8 13, label %while.body10.i.i83
     i8 10, label %while.body10.i.i83
   ]
@@ -6918,6 +6930,12 @@ while.body10.i.i83:                               ; preds = %while.cond5.i.i81, 
   %.pre.i.i85 = load i8, ptr %incdec.ptr11.i.i84, align 1
   br label %while.cond5.i.i81, !llvm.loop !46
 
+_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit90:  ; preds = %while.cond5.i.i81
+  %21 = load i32, ptr %iLineNumber.i75, align 4
+  %inc.i87 = add i32 %21, 1
+  store i32 %inc.i87, ptr %iLineNumber.i75, align 4
+  br label %return
+
 if.end16:                                         ; preds = %while.cond.i.i.i66
   %call2.i72 = call noundef ptr @_ZN6Assimp17fast_atoreal_moveIf17DeadlyImportErrorEEPKcS3_RT_b(ptr noundef nonnull %in.addr.0.i.i.i67, ptr noundef nonnull align 4 dereferenceable(4) %y, i1 noundef zeroext true)
   %z = getelementptr inbounds i8, ptr %vertex, i64 8
@@ -6925,8 +6943,8 @@ if.end16:                                         ; preds = %while.cond.i.i.i66
 
 while.cond.i.i.i91:                               ; preds = %while.body.i.i.i94, %if.end16
   %in.addr.0.i.i.i92 = phi ptr [ %call2.i72, %if.end16 ], [ %incdec.ptr.i.i.i95, %while.body.i.i.i94 ]
-  %19 = load i8, ptr %in.addr.0.i.i.i92, align 1
-  switch i8 %19, label %if.end21 [
+  %22 = load i8, ptr %in.addr.0.i.i.i92, align 1
+  switch i8 %22, label %if.end21 [
     i8 32, label %while.body.i.i.i94
     i8 9, label %while.body.i.i.i94
     i8 13, label %if.then19
@@ -6942,8 +6960,8 @@ while.body.i.i.i94:                               ; preds = %while.cond.i.i.i91,
 if.then19:                                        ; preds = %while.cond.i.i.i91, %while.cond.i.i.i91, %while.cond.i.i.i91, %while.cond.i.i.i91
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %szTemp.i99)
   %iLineNumber.i100 = getelementptr inbounds i8, ptr %this, i64 212
-  %20 = load i32, ptr %iLineNumber.i100, align 4
-  %call.i101 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %szTemp.i99, i64 noundef 1024, ptr noundef nonnull @.str.8, i32 noundef %20, ptr noundef nonnull @.str.53) #26
+  %23 = load i32, ptr %iLineNumber.i100, align 4
+  %call.i101 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %szTemp.i99, i64 noundef 1024, ptr noundef nonnull @.str.8, i32 noundef %23, ptr noundef nonnull @.str.53) #26
   %call2.i102 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   call void @_ZN6Assimp6Logger5errorIJRA1024_cEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(12) %call2.i102, ptr noundef nonnull align 1 dereferenceable(1024) %szTemp.i99)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %szTemp.i99)
@@ -6951,8 +6969,8 @@ if.then19:                                        ; preds = %while.cond.i.i.i91,
 
 while.cond.i.i103:                                ; preds = %while.body.i.i113, %if.then19
   %in.addr.0.i.i104 = phi ptr [ %call2.i72, %if.then19 ], [ %incdec.ptr.i.i114, %while.body.i.i113 ]
-  %21 = load i8, ptr %in.addr.0.i.i104, align 1
-  switch i8 %21, label %while.body.i.i113 [
+  %24 = load i8, ptr %in.addr.0.i.i104, align 1
+  switch i8 %24, label %while.body.i.i113 [
     i8 13, label %while.cond5.i.i106.preheader
     i8 10, label %while.cond5.i.i106.preheader
     i8 0, label %while.cond5.i.i106.preheader
@@ -6966,9 +6984,9 @@ while.body.i.i113:                                ; preds = %while.cond.i.i103
   br label %while.cond.i.i103, !llvm.loop !45
 
 while.cond5.i.i106:                               ; preds = %while.cond5.i.i106.preheader, %while.body10.i.i108
-  %22 = phi i8 [ %.pre.i.i110, %while.body10.i.i108 ], [ %21, %while.cond5.i.i106.preheader ]
+  %25 = phi i8 [ %.pre.i.i110, %while.body10.i.i108 ], [ %24, %while.cond5.i.i106.preheader ]
   %in.addr.1.i.i107 = phi ptr [ %incdec.ptr11.i.i109, %while.body10.i.i108 ], [ %in.addr.0.i.i104, %while.cond5.i.i106.preheader ]
-  switch i8 %22, label %return [
+  switch i8 %25, label %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit115 [
     i8 13, label %while.body10.i.i108
     i8 10, label %while.body10.i.i108
   ]
@@ -6978,6 +6996,12 @@ while.body10.i.i108:                              ; preds = %while.cond5.i.i106,
   %.pre.i.i110 = load i8, ptr %incdec.ptr11.i.i109, align 1
   br label %while.cond5.i.i106, !llvm.loop !46
 
+_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit115: ; preds = %while.cond5.i.i106
+  %26 = load i32, ptr %iLineNumber.i100, align 4
+  %inc.i112 = add i32 %26, 1
+  store i32 %inc.i112, ptr %iLineNumber.i100, align 4
+  br label %return
+
 if.end21:                                         ; preds = %while.cond.i.i.i91
   %call2.i97 = call noundef ptr @_ZN6Assimp17fast_atoreal_moveIf17DeadlyImportErrorEEPKcS3_RT_b(ptr noundef nonnull %in.addr.0.i.i.i92, ptr noundef nonnull align 4 dereferenceable(4) %z, i1 noundef zeroext true)
   %nor = getelementptr inbounds i8, ptr %vertex, i64 12
@@ -6985,8 +7009,8 @@ if.end21:                                         ; preds = %while.cond.i.i.i91
 
 while.cond.i.i.i116:                              ; preds = %while.body.i.i.i119, %if.end21
   %in.addr.0.i.i.i117 = phi ptr [ %call2.i97, %if.end21 ], [ %incdec.ptr.i.i.i120, %while.body.i.i.i119 ]
-  %23 = load i8, ptr %in.addr.0.i.i.i117, align 1
-  switch i8 %23, label %if.end26 [
+  %27 = load i8, ptr %in.addr.0.i.i.i117, align 1
+  switch i8 %27, label %if.end26 [
     i8 32, label %while.body.i.i.i119
     i8 9, label %while.body.i.i.i119
     i8 13, label %if.then24
@@ -7002,8 +7026,8 @@ while.body.i.i.i119:                              ; preds = %while.cond.i.i.i116
 if.then24:                                        ; preds = %while.cond.i.i.i116, %while.cond.i.i.i116, %while.cond.i.i.i116, %while.cond.i.i.i116
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %szTemp.i124)
   %iLineNumber.i125 = getelementptr inbounds i8, ptr %this, i64 212
-  %24 = load i32, ptr %iLineNumber.i125, align 4
-  %call.i126 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %szTemp.i124, i64 noundef 1024, ptr noundef nonnull @.str.8, i32 noundef %24, ptr noundef nonnull @.str.54) #26
+  %28 = load i32, ptr %iLineNumber.i125, align 4
+  %call.i126 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %szTemp.i124, i64 noundef 1024, ptr noundef nonnull @.str.8, i32 noundef %28, ptr noundef nonnull @.str.54) #26
   %call2.i127 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   call void @_ZN6Assimp6Logger5errorIJRA1024_cEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(12) %call2.i127, ptr noundef nonnull align 1 dereferenceable(1024) %szTemp.i124)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %szTemp.i124)
@@ -7011,8 +7035,8 @@ if.then24:                                        ; preds = %while.cond.i.i.i116
 
 while.cond.i.i128:                                ; preds = %while.body.i.i138, %if.then24
   %in.addr.0.i.i129 = phi ptr [ %call2.i97, %if.then24 ], [ %incdec.ptr.i.i139, %while.body.i.i138 ]
-  %25 = load i8, ptr %in.addr.0.i.i129, align 1
-  switch i8 %25, label %while.body.i.i138 [
+  %29 = load i8, ptr %in.addr.0.i.i129, align 1
+  switch i8 %29, label %while.body.i.i138 [
     i8 13, label %while.cond5.i.i131.preheader
     i8 10, label %while.cond5.i.i131.preheader
     i8 0, label %while.cond5.i.i131.preheader
@@ -7026,9 +7050,9 @@ while.body.i.i138:                                ; preds = %while.cond.i.i128
   br label %while.cond.i.i128, !llvm.loop !45
 
 while.cond5.i.i131:                               ; preds = %while.cond5.i.i131.preheader, %while.body10.i.i133
-  %26 = phi i8 [ %.pre.i.i135, %while.body10.i.i133 ], [ %25, %while.cond5.i.i131.preheader ]
+  %30 = phi i8 [ %.pre.i.i135, %while.body10.i.i133 ], [ %29, %while.cond5.i.i131.preheader ]
   %in.addr.1.i.i132 = phi ptr [ %incdec.ptr11.i.i134, %while.body10.i.i133 ], [ %in.addr.0.i.i129, %while.cond5.i.i131.preheader ]
-  switch i8 %26, label %return [
+  switch i8 %30, label %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit140 [
     i8 13, label %while.body10.i.i133
     i8 10, label %while.body10.i.i133
   ]
@@ -7038,6 +7062,12 @@ while.body10.i.i133:                              ; preds = %while.cond5.i.i131,
   %.pre.i.i135 = load i8, ptr %incdec.ptr11.i.i134, align 1
   br label %while.cond5.i.i131, !llvm.loop !46
 
+_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit140: ; preds = %while.cond5.i.i131
+  %31 = load i32, ptr %iLineNumber.i125, align 4
+  %inc.i137 = add i32 %31, 1
+  store i32 %inc.i137, ptr %iLineNumber.i125, align 4
+  br label %return
+
 if.end26:                                         ; preds = %while.cond.i.i.i116
   %call2.i122 = call noundef ptr @_ZN6Assimp17fast_atoreal_moveIf17DeadlyImportErrorEEPKcS3_RT_b(ptr noundef nonnull %in.addr.0.i.i.i117, ptr noundef nonnull align 4 dereferenceable(4) %nor, i1 noundef zeroext true)
   %y28 = getelementptr inbounds i8, ptr %vertex, i64 16
@@ -7045,8 +7075,8 @@ if.end26:                                         ; preds = %while.cond.i.i.i116
 
 while.cond.i.i.i141:                              ; preds = %while.body.i.i.i144, %if.end26
   %in.addr.0.i.i.i142 = phi ptr [ %call2.i122, %if.end26 ], [ %incdec.ptr.i.i.i145, %while.body.i.i.i144 ]
-  %27 = load i8, ptr %in.addr.0.i.i.i142, align 1
-  switch i8 %27, label %if.end32 [
+  %32 = load i8, ptr %in.addr.0.i.i.i142, align 1
+  switch i8 %32, label %if.end32 [
     i8 32, label %while.body.i.i.i144
     i8 9, label %while.body.i.i.i144
     i8 13, label %if.then30
@@ -7065,8 +7095,8 @@ if.then30:                                        ; preds = %while.cond.i.i.i141
 
 while.cond.i.i149:                                ; preds = %while.body.i.i159, %if.then30
   %in.addr.0.i.i150 = phi ptr [ %call2.i122, %if.then30 ], [ %incdec.ptr.i.i160, %while.body.i.i159 ]
-  %28 = load i8, ptr %in.addr.0.i.i150, align 1
-  switch i8 %28, label %while.body.i.i159 [
+  %33 = load i8, ptr %in.addr.0.i.i150, align 1
+  switch i8 %33, label %while.body.i.i159 [
     i8 13, label %while.cond5.i.i152.preheader
     i8 10, label %while.cond5.i.i152.preheader
     i8 0, label %while.cond5.i.i152.preheader
@@ -7080,9 +7110,9 @@ while.body.i.i159:                                ; preds = %while.cond.i.i149
   br label %while.cond.i.i149, !llvm.loop !45
 
 while.cond5.i.i152:                               ; preds = %while.cond5.i.i152.preheader, %while.body10.i.i154
-  %29 = phi i8 [ %.pre.i.i156, %while.body10.i.i154 ], [ %28, %while.cond5.i.i152.preheader ]
+  %34 = phi i8 [ %.pre.i.i156, %while.body10.i.i154 ], [ %33, %while.cond5.i.i152.preheader ]
   %in.addr.1.i.i153 = phi ptr [ %incdec.ptr11.i.i155, %while.body10.i.i154 ], [ %in.addr.0.i.i150, %while.cond5.i.i152.preheader ]
-  switch i8 %29, label %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit161 [
+  switch i8 %34, label %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit161 [
     i8 13, label %while.body10.i.i154
     i8 10, label %while.body10.i.i154
   ]
@@ -7094,6 +7124,9 @@ while.body10.i.i154:                              ; preds = %while.cond5.i.i152,
 
 _ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit161: ; preds = %while.cond5.i.i152
   %iLineNumber.i157 = getelementptr inbounds i8, ptr %this, i64 212
+  %35 = load i32, ptr %iLineNumber.i157, align 4
+  %inc.i158 = add i32 %35, 1
+  store i32 %inc.i158, ptr %iLineNumber.i157, align 4
   br label %return
 
 if.end32:                                         ; preds = %while.cond.i.i.i141
@@ -7103,8 +7136,8 @@ if.end32:                                         ; preds = %while.cond.i.i.i141
 
 while.cond.i.i.i162:                              ; preds = %while.body.i.i.i165, %if.end32
   %in.addr.0.i.i.i163 = phi ptr [ %call2.i147, %if.end32 ], [ %incdec.ptr.i.i.i166, %while.body.i.i.i165 ]
-  %30 = load i8, ptr %in.addr.0.i.i.i163, align 1
-  switch i8 %30, label %if.end38 [
+  %36 = load i8, ptr %in.addr.0.i.i.i163, align 1
+  switch i8 %36, label %if.end38 [
     i8 32, label %while.body.i.i.i165
     i8 9, label %while.body.i.i.i165
     i8 13, label %if.then36
@@ -7123,8 +7156,8 @@ if.then36:                                        ; preds = %while.cond.i.i.i162
 
 while.cond.i.i170:                                ; preds = %while.body.i.i180, %if.then36
   %in.addr.0.i.i171 = phi ptr [ %call2.i147, %if.then36 ], [ %incdec.ptr.i.i181, %while.body.i.i180 ]
-  %31 = load i8, ptr %in.addr.0.i.i171, align 1
-  switch i8 %31, label %while.body.i.i180 [
+  %37 = load i8, ptr %in.addr.0.i.i171, align 1
+  switch i8 %37, label %while.body.i.i180 [
     i8 13, label %while.cond5.i.i173.preheader
     i8 10, label %while.cond5.i.i173.preheader
     i8 0, label %while.cond5.i.i173.preheader
@@ -7138,9 +7171,9 @@ while.body.i.i180:                                ; preds = %while.cond.i.i170
   br label %while.cond.i.i170, !llvm.loop !45
 
 while.cond5.i.i173:                               ; preds = %while.cond5.i.i173.preheader, %while.body10.i.i175
-  %32 = phi i8 [ %.pre.i.i177, %while.body10.i.i175 ], [ %31, %while.cond5.i.i173.preheader ]
+  %38 = phi i8 [ %.pre.i.i177, %while.body10.i.i175 ], [ %37, %while.cond5.i.i173.preheader ]
   %in.addr.1.i.i174 = phi ptr [ %incdec.ptr11.i.i176, %while.body10.i.i175 ], [ %in.addr.0.i.i171, %while.cond5.i.i173.preheader ]
-  switch i8 %32, label %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit182 [
+  switch i8 %38, label %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit182 [
     i8 13, label %while.body10.i.i175
     i8 10, label %while.body10.i.i175
   ]
@@ -7152,6 +7185,9 @@ while.body10.i.i175:                              ; preds = %while.cond5.i.i173,
 
 _ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit182: ; preds = %while.cond5.i.i173
   %iLineNumber.i178 = getelementptr inbounds i8, ptr %this, i64 212
+  %39 = load i32, ptr %iLineNumber.i178, align 4
+  %inc.i179 = add i32 %39, 1
+  store i32 %inc.i179, ptr %iLineNumber.i178, align 4
   br label %return
 
 if.end38:                                         ; preds = %while.cond.i.i.i162
@@ -7160,8 +7196,8 @@ if.end38:                                         ; preds = %while.cond.i.i.i162
 
 while.cond.i.i183:                                ; preds = %if.end38, %while.body.i.i193
   %in.addr.0.i.i184 = phi ptr [ %incdec.ptr.i.i194, %while.body.i.i193 ], [ %call2.i168, %if.end38 ]
-  %33 = load i8, ptr %in.addr.0.i.i184, align 1
-  switch i8 %33, label %while.body.i.i193 [
+  %40 = load i8, ptr %in.addr.0.i.i184, align 1
+  switch i8 %40, label %while.body.i.i193 [
     i8 13, label %while.cond5.i.i186.preheader
     i8 10, label %while.cond5.i.i186.preheader
     i8 0, label %while.cond5.i.i186.preheader
@@ -7175,9 +7211,9 @@ while.body.i.i193:                                ; preds = %while.cond.i.i183
   br label %while.cond.i.i183, !llvm.loop !45
 
 while.cond5.i.i186:                               ; preds = %while.cond5.i.i186.preheader, %while.body10.i.i188
-  %34 = phi i8 [ %.pre.i.i190, %while.body10.i.i188 ], [ %33, %while.cond5.i.i186.preheader ]
+  %41 = phi i8 [ %.pre.i.i190, %while.body10.i.i188 ], [ %40, %while.cond5.i.i186.preheader ]
   %in.addr.1.i.i187 = phi ptr [ %incdec.ptr11.i.i189, %while.body10.i.i188 ], [ %in.addr.0.i.i184, %while.cond5.i.i186.preheader ]
-  switch i8 %34, label %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit195 [
+  switch i8 %41, label %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit195 [
     i8 13, label %while.body10.i.i188
     i8 10, label %while.body10.i.i188
   ]
@@ -7189,6 +7225,9 @@ while.body10.i.i188:                              ; preds = %while.cond5.i.i186,
 
 _ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit195: ; preds = %while.cond5.i.i186
   %iLineNumber.i191 = getelementptr inbounds i8, ptr %this, i64 212
+  %42 = load i32, ptr %iLineNumber.i191, align 4
+  %inc.i192 = add i32 %42, 1
+  store i32 %inc.i192, ptr %iLineNumber.i191, align 4
   br label %return
 
 if.end42:                                         ; preds = %if.end38
@@ -7197,8 +7236,8 @@ if.end42:                                         ; preds = %if.end38
 
 while.cond.i.i.i196:                              ; preds = %while.body.i.i.i199, %if.end42
   %in.addr.0.i.i.i197 = phi ptr [ %call2.i168, %if.end42 ], [ %incdec.ptr.i.i.i200, %while.body.i.i.i199 ]
-  %35 = load i8, ptr %in.addr.0.i.i.i197, align 1
-  switch i8 %35, label %if.end47 [
+  %43 = load i8, ptr %in.addr.0.i.i.i197, align 1
+  switch i8 %43, label %if.end47 [
     i8 32, label %while.body.i.i.i199
     i8 9, label %while.body.i.i.i199
     i8 13, label %if.then45
@@ -7217,8 +7256,8 @@ if.then45:                                        ; preds = %while.cond.i.i.i196
 
 while.cond.i.i204:                                ; preds = %while.body.i.i214, %if.then45
   %in.addr.0.i.i205 = phi ptr [ %call2.i168, %if.then45 ], [ %incdec.ptr.i.i215, %while.body.i.i214 ]
-  %36 = load i8, ptr %in.addr.0.i.i205, align 1
-  switch i8 %36, label %while.body.i.i214 [
+  %44 = load i8, ptr %in.addr.0.i.i205, align 1
+  switch i8 %44, label %while.body.i.i214 [
     i8 13, label %while.cond5.i.i207.preheader
     i8 10, label %while.cond5.i.i207.preheader
     i8 0, label %while.cond5.i.i207.preheader
@@ -7232,9 +7271,9 @@ while.body.i.i214:                                ; preds = %while.cond.i.i204
   br label %while.cond.i.i204, !llvm.loop !45
 
 while.cond5.i.i207:                               ; preds = %while.cond5.i.i207.preheader, %while.body10.i.i209
-  %37 = phi i8 [ %.pre.i.i211, %while.body10.i.i209 ], [ %36, %while.cond5.i.i207.preheader ]
+  %45 = phi i8 [ %.pre.i.i211, %while.body10.i.i209 ], [ %44, %while.cond5.i.i207.preheader ]
   %in.addr.1.i.i208 = phi ptr [ %incdec.ptr11.i.i210, %while.body10.i.i209 ], [ %in.addr.0.i.i205, %while.cond5.i.i207.preheader ]
-  switch i8 %37, label %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit216 [
+  switch i8 %45, label %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit216 [
     i8 13, label %while.body10.i.i209
     i8 10, label %while.body10.i.i209
   ]
@@ -7246,6 +7285,9 @@ while.body10.i.i209:                              ; preds = %while.cond5.i.i207,
 
 _ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit216: ; preds = %while.cond5.i.i207
   %iLineNumber.i212 = getelementptr inbounds i8, ptr %this, i64 212
+  %46 = load i32, ptr %iLineNumber.i212, align 4
+  %inc.i213 = add i32 %46, 1
+  store i32 %inc.i213, ptr %iLineNumber.i212, align 4
   br label %return
 
 if.end47:                                         ; preds = %while.cond.i.i.i196
@@ -7255,8 +7297,8 @@ if.end47:                                         ; preds = %while.cond.i.i.i196
 
 while.cond.i.i.i217:                              ; preds = %while.body.i.i.i220, %if.end47
   %in.addr.0.i.i.i218 = phi ptr [ %call2.i202, %if.end47 ], [ %incdec.ptr.i.i.i221, %while.body.i.i.i220 ]
-  %38 = load i8, ptr %in.addr.0.i.i.i218, align 1
-  switch i8 %38, label %if.end53 [
+  %47 = load i8, ptr %in.addr.0.i.i.i218, align 1
+  switch i8 %47, label %if.end53 [
     i8 32, label %while.body.i.i.i220
     i8 9, label %while.body.i.i.i220
     i8 13, label %if.then51
@@ -7275,8 +7317,8 @@ if.then51:                                        ; preds = %while.cond.i.i.i217
 
 while.cond.i.i225:                                ; preds = %while.body.i.i235, %if.then51
   %in.addr.0.i.i226 = phi ptr [ %call2.i202, %if.then51 ], [ %incdec.ptr.i.i236, %while.body.i.i235 ]
-  %39 = load i8, ptr %in.addr.0.i.i226, align 1
-  switch i8 %39, label %while.body.i.i235 [
+  %48 = load i8, ptr %in.addr.0.i.i226, align 1
+  switch i8 %48, label %while.body.i.i235 [
     i8 13, label %while.cond5.i.i228.preheader
     i8 10, label %while.cond5.i.i228.preheader
     i8 0, label %while.cond5.i.i228.preheader
@@ -7290,9 +7332,9 @@ while.body.i.i235:                                ; preds = %while.cond.i.i225
   br label %while.cond.i.i225, !llvm.loop !45
 
 while.cond5.i.i228:                               ; preds = %while.cond5.i.i228.preheader, %while.body10.i.i230
-  %40 = phi i8 [ %.pre.i.i232, %while.body10.i.i230 ], [ %39, %while.cond5.i.i228.preheader ]
+  %49 = phi i8 [ %.pre.i.i232, %while.body10.i.i230 ], [ %48, %while.cond5.i.i228.preheader ]
   %in.addr.1.i.i229 = phi ptr [ %incdec.ptr11.i.i231, %while.body10.i.i230 ], [ %in.addr.0.i.i226, %while.cond5.i.i228.preheader ]
-  switch i8 %40, label %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit237 [
+  switch i8 %49, label %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit237 [
     i8 13, label %while.body10.i.i230
     i8 10, label %while.body10.i.i230
   ]
@@ -7304,6 +7346,9 @@ while.body10.i.i230:                              ; preds = %while.cond5.i.i228,
 
 _ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit237: ; preds = %while.cond5.i.i228
   %iLineNumber.i233 = getelementptr inbounds i8, ptr %this, i64 212
+  %50 = load i32, ptr %iLineNumber.i233, align 4
+  %inc.i234 = add i32 %50, 1
+  store i32 %inc.i234, ptr %iLineNumber.i233, align 4
   br label %return
 
 if.end53:                                         ; preds = %while.cond.i.i.i217
@@ -7312,8 +7357,8 @@ if.end53:                                         ; preds = %while.cond.i.i.i217
 
 while.cond.i.i.i238:                              ; preds = %while.body.i.i.i241, %if.end53
   %in.addr.0.i.i.i239 = phi ptr [ %call2.i223, %if.end53 ], [ %incdec.ptr.i.i.i242, %while.body.i.i.i241 ]
-  %41 = load i8, ptr %in.addr.0.i.i.i239, align 1
-  switch i8 %41, label %if.end.i243 [
+  %51 = load i8, ptr %in.addr.0.i.i.i239, align 1
+  switch i8 %51, label %if.end.i243 [
     i8 32, label %while.body.i.i.i241
     i8 9, label %while.body.i.i.i241
     i8 13, label %while.cond.i.i248.preheader
@@ -7330,28 +7375,28 @@ while.body.i.i.i241:                              ; preds = %while.cond.i.i.i238
   br label %while.cond.i.i.i238, !llvm.loop !40
 
 if.end.i243:                                      ; preds = %while.cond.i.i.i238
-  %42 = add i8 %41, -58
-  %or.cond7.i.i = icmp ult i8 %42, -10
+  %52 = add i8 %51, -58
+  %or.cond7.i.i = icmp ult i8 %52, -10
   br i1 %or.cond7.i.i, label %if.end57, label %if.end.i.i244
 
 if.end.i.i244:                                    ; preds = %if.end.i243, %if.end.i.i244
-  %43 = phi i8 [ %44, %if.end.i.i244 ], [ %41, %if.end.i243 ]
+  %53 = phi i8 [ %54, %if.end.i.i244 ], [ %51, %if.end.i243 ]
   %value.09.i.i = phi i32 [ %add.i.i, %if.end.i.i244 ], [ 0, %if.end.i243 ]
   %in.addr.08.i.i = phi ptr [ %incdec.ptr.i.i246, %if.end.i.i244 ], [ %in.addr.0.i.i.i239, %if.end.i243 ]
   %mul.i.i = mul i32 %value.09.i.i, 10
-  %narrow.i.i = add nsw i8 %43, -48
+  %narrow.i.i = add nsw i8 %53, -48
   %sub.i.i245 = zext nneg i8 %narrow.i.i to i32
   %add.i.i = add i32 %mul.i.i, %sub.i.i245
   %incdec.ptr.i.i246 = getelementptr inbounds i8, ptr %in.addr.08.i.i, i64 1
-  %44 = load i8, ptr %incdec.ptr.i.i246, align 1
-  %45 = add i8 %44, -58
-  %or.cond.i.i = icmp ult i8 %45, -10
+  %54 = load i8, ptr %incdec.ptr.i.i246, align 1
+  %55 = add i8 %54, -58
+  %or.cond.i.i = icmp ult i8 %55, -10
   br i1 %or.cond.i.i, label %if.end57.loopexit, label %if.end.i.i244, !llvm.loop !41
 
 while.cond.i.i248:                                ; preds = %while.cond.i.i248.preheader, %while.body.i.i258
   %in.addr.0.i.i249 = phi ptr [ %incdec.ptr.i.i259, %while.body.i.i258 ], [ %call2.i223, %while.cond.i.i248.preheader ]
-  %46 = load i8, ptr %in.addr.0.i.i249, align 1
-  switch i8 %46, label %while.body.i.i258 [
+  %56 = load i8, ptr %in.addr.0.i.i249, align 1
+  switch i8 %56, label %while.body.i.i258 [
     i8 13, label %while.cond5.i.i251.preheader
     i8 10, label %while.cond5.i.i251.preheader
     i8 0, label %while.cond5.i.i251.preheader
@@ -7365,9 +7410,9 @@ while.body.i.i258:                                ; preds = %while.cond.i.i248
   br label %while.cond.i.i248, !llvm.loop !45
 
 while.cond5.i.i251:                               ; preds = %while.cond5.i.i251.preheader, %while.body10.i.i253
-  %47 = phi i8 [ %.pre.i.i255, %while.body10.i.i253 ], [ %46, %while.cond5.i.i251.preheader ]
+  %57 = phi i8 [ %.pre.i.i255, %while.body10.i.i253 ], [ %56, %while.cond5.i.i251.preheader ]
   %in.addr.1.i.i252 = phi ptr [ %incdec.ptr11.i.i254, %while.body10.i.i253 ], [ %in.addr.0.i.i249, %while.cond5.i.i251.preheader ]
-  switch i8 %47, label %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit260 [
+  switch i8 %57, label %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit260 [
     i8 13, label %while.body10.i.i253
     i8 10, label %while.body10.i.i253
   ]
@@ -7379,35 +7424,38 @@ while.body10.i.i253:                              ; preds = %while.cond5.i.i251,
 
 _ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit260: ; preds = %while.cond5.i.i251
   %iLineNumber.i256 = getelementptr inbounds i8, ptr %this, i64 212
+  %58 = load i32, ptr %iLineNumber.i256, align 4
+  %inc.i257 = add i32 %58, 1
+  store i32 %inc.i257, ptr %iLineNumber.i256, align 4
   br label %return
 
 if.end57.loopexit:                                ; preds = %if.end.i.i244
-  %48 = zext i32 %add.i.i to i64
+  %59 = zext i32 %add.i.i to i64
   br label %if.end57
 
 if.end57:                                         ; preds = %if.end57.loopexit, %if.end.i243
-  %iSize.0.ph = phi i64 [ 0, %if.end.i243 ], [ %48, %if.end57.loopexit ]
+  %iSize.0.ph = phi i64 [ 0, %if.end.i243 ], [ %59, %if.end57.loopexit ]
   %szCurrent.addr.10.ph = phi ptr [ %in.addr.0.i.i.i239, %if.end.i243 ], [ %incdec.ptr.i.i246, %if.end57.loopexit ]
   %aiBoneLinks = getelementptr inbounds i8, ptr %vertex, i64 40
   store i32 0, ptr %ref.tmp, align 4
   %second.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   store float 0.000000e+00, ptr %second.i, align 4
   call void @_ZNSt6vectorISt4pairIjfESaIS1_EE6resizeEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %aiBoneLinks, i64 noundef %iSize.0.ph, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp)
-  %49 = load ptr, ptr %aiBoneLinks, align 8
+  %60 = load ptr, ptr %aiBoneLinks, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %vertex, i64 48
-  %50 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i.not456 = icmp eq ptr %49, %50
+  %61 = load ptr, ptr %_M_finish.i, align 8
+  %cmp.i.not456 = icmp eq ptr %60, %61
   br i1 %cmp.i.not456, label %while.cond.i.i316.preheader, label %while.cond.i.i.i261.preheader
 
 while.cond.i.i.i261.preheader:                    ; preds = %if.end57, %for.inc
   %szCurrent.addr.0458 = phi ptr [ %call2.i301, %for.inc ], [ %szCurrent.addr.10.ph, %if.end57 ]
-  %__begin1.sroa.0.0457 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %49, %if.end57 ]
+  %__begin1.sroa.0.0457 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %60, %if.end57 ]
   br label %while.cond.i.i.i261
 
 while.cond.i.i.i261:                              ; preds = %while.cond.i.i.i261.preheader, %while.body.i.i.i264
   %in.addr.0.i.i.i262 = phi ptr [ %incdec.ptr.i.i.i265, %while.body.i.i.i264 ], [ %szCurrent.addr.0458, %while.cond.i.i.i261.preheader ]
-  %51 = load i8, ptr %in.addr.0.i.i.i262, align 1
-  switch i8 %51, label %if.end.i266 [
+  %62 = load i8, ptr %in.addr.0.i.i.i262, align 1
+  switch i8 %62, label %if.end.i266 [
     i8 32, label %while.body.i.i.i264
     i8 9, label %while.body.i.i.i264
     i8 13, label %while.cond.i.i282.preheader
@@ -7424,28 +7472,28 @@ while.body.i.i.i264:                              ; preds = %while.cond.i.i.i261
   br label %while.cond.i.i.i261, !llvm.loop !40
 
 if.end.i266:                                      ; preds = %while.cond.i.i.i261
-  %52 = add i8 %51, -58
-  %or.cond7.i.i267 = icmp ult i8 %52, -10
+  %63 = add i8 %62, -58
+  %or.cond7.i.i267 = icmp ult i8 %63, -10
   br i1 %or.cond7.i.i267, label %if.end69, label %if.end.i.i268
 
 if.end.i.i268:                                    ; preds = %if.end.i266, %if.end.i.i268
-  %53 = phi i8 [ %54, %if.end.i.i268 ], [ %51, %if.end.i266 ]
+  %64 = phi i8 [ %65, %if.end.i.i268 ], [ %62, %if.end.i266 ]
   %value.09.i.i269 = phi i32 [ %add.i.i274, %if.end.i.i268 ], [ 0, %if.end.i266 ]
   %in.addr.08.i.i270 = phi ptr [ %incdec.ptr.i.i275, %if.end.i.i268 ], [ %in.addr.0.i.i.i262, %if.end.i266 ]
   %mul.i.i271 = mul i32 %value.09.i.i269, 10
-  %narrow.i.i272 = add nsw i8 %53, -48
+  %narrow.i.i272 = add nsw i8 %64, -48
   %sub.i.i273 = zext nneg i8 %narrow.i.i272 to i32
   %add.i.i274 = add i32 %mul.i.i271, %sub.i.i273
   %incdec.ptr.i.i275 = getelementptr inbounds i8, ptr %in.addr.08.i.i270, i64 1
-  %54 = load i8, ptr %incdec.ptr.i.i275, align 1
-  %55 = add i8 %54, -58
-  %or.cond.i.i276 = icmp ult i8 %55, -10
+  %65 = load i8, ptr %incdec.ptr.i.i275, align 1
+  %66 = add i8 %65, -58
+  %or.cond.i.i276 = icmp ult i8 %66, -10
   br i1 %or.cond.i.i276, label %if.end69, label %if.end.i.i268, !llvm.loop !41
 
 while.cond.i.i282:                                ; preds = %while.cond.i.i282.preheader, %while.body.i.i292
   %in.addr.0.i.i283 = phi ptr [ %incdec.ptr.i.i293, %while.body.i.i292 ], [ %szCurrent.addr.0458, %while.cond.i.i282.preheader ]
-  %56 = load i8, ptr %in.addr.0.i.i283, align 1
-  switch i8 %56, label %while.body.i.i292 [
+  %67 = load i8, ptr %in.addr.0.i.i283, align 1
+  switch i8 %67, label %while.body.i.i292 [
     i8 13, label %while.cond5.i.i285.preheader
     i8 10, label %while.cond5.i.i285.preheader
     i8 0, label %while.cond5.i.i285.preheader
@@ -7459,9 +7507,9 @@ while.body.i.i292:                                ; preds = %while.cond.i.i282
   br label %while.cond.i.i282, !llvm.loop !45
 
 while.cond5.i.i285:                               ; preds = %while.cond5.i.i285.preheader, %while.body10.i.i287
-  %57 = phi i8 [ %.pre.i.i289, %while.body10.i.i287 ], [ %56, %while.cond5.i.i285.preheader ]
+  %68 = phi i8 [ %.pre.i.i289, %while.body10.i.i287 ], [ %67, %while.cond5.i.i285.preheader ]
   %in.addr.1.i.i286 = phi ptr [ %incdec.ptr11.i.i288, %while.body10.i.i287 ], [ %in.addr.0.i.i283, %while.cond5.i.i285.preheader ]
-  switch i8 %57, label %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit294 [
+  switch i8 %68, label %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit294 [
     i8 13, label %while.body10.i.i287
     i8 10, label %while.body10.i.i287
   ]
@@ -7473,6 +7521,9 @@ while.body10.i.i287:                              ; preds = %while.cond5.i.i285,
 
 _ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit294: ; preds = %while.cond5.i.i285
   %iLineNumber.i290 = getelementptr inbounds i8, ptr %this, i64 212
+  %69 = load i32, ptr %iLineNumber.i290, align 4
+  %inc.i291 = add i32 %69, 1
+  store i32 %inc.i291, ptr %iLineNumber.i290, align 4
   br label %return
 
 if.end69:                                         ; preds = %if.end.i.i268, %if.end.i266
@@ -7484,8 +7535,8 @@ if.end69:                                         ; preds = %if.end.i.i268, %if.
 
 while.cond.i.i.i295:                              ; preds = %while.body.i.i.i298, %if.end69
   %in.addr.0.i.i.i296 = phi ptr [ %in.addr.0.lcssa.i.i278, %if.end69 ], [ %incdec.ptr.i.i.i299, %while.body.i.i.i298 ]
-  %58 = load i8, ptr %in.addr.0.i.i.i296, align 1
-  switch i8 %58, label %for.inc [
+  %70 = load i8, ptr %in.addr.0.i.i.i296, align 1
+  switch i8 %70, label %for.inc [
     i8 32, label %while.body.i.i.i298
     i8 9, label %while.body.i.i.i298
     i8 13, label %while.cond.i.i303.preheader
@@ -7503,8 +7554,8 @@ while.body.i.i.i298:                              ; preds = %while.cond.i.i.i295
 
 while.cond.i.i303:                                ; preds = %while.cond.i.i303.preheader, %while.body.i.i313
   %in.addr.0.i.i304 = phi ptr [ %incdec.ptr.i.i314, %while.body.i.i313 ], [ %in.addr.0.lcssa.i.i278, %while.cond.i.i303.preheader ]
-  %59 = load i8, ptr %in.addr.0.i.i304, align 1
-  switch i8 %59, label %while.body.i.i313 [
+  %71 = load i8, ptr %in.addr.0.i.i304, align 1
+  switch i8 %71, label %while.body.i.i313 [
     i8 13, label %while.cond5.i.i306.preheader
     i8 10, label %while.cond5.i.i306.preheader
     i8 0, label %while.cond5.i.i306.preheader
@@ -7518,9 +7569,9 @@ while.body.i.i313:                                ; preds = %while.cond.i.i303
   br label %while.cond.i.i303, !llvm.loop !45
 
 while.cond5.i.i306:                               ; preds = %while.cond5.i.i306.preheader, %while.body10.i.i308
-  %60 = phi i8 [ %.pre.i.i310, %while.body10.i.i308 ], [ %59, %while.cond5.i.i306.preheader ]
+  %72 = phi i8 [ %.pre.i.i310, %while.body10.i.i308 ], [ %71, %while.cond5.i.i306.preheader ]
   %in.addr.1.i.i307 = phi ptr [ %incdec.ptr11.i.i309, %while.body10.i.i308 ], [ %in.addr.0.i.i304, %while.cond5.i.i306.preheader ]
-  switch i8 %60, label %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit315 [
+  switch i8 %72, label %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit315 [
     i8 13, label %while.body10.i.i308
     i8 10, label %while.body10.i.i308
   ]
@@ -7532,12 +7583,15 @@ while.body10.i.i308:                              ; preds = %while.cond5.i.i306,
 
 _ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit315: ; preds = %while.cond5.i.i306
   %iLineNumber.i311 = getelementptr inbounds i8, ptr %this, i64 212
+  %73 = load i32, ptr %iLineNumber.i311, align 4
+  %inc.i312 = add i32 %73, 1
+  store i32 %inc.i312, ptr %iLineNumber.i311, align 4
   br label %return
 
 for.inc:                                          ; preds = %while.cond.i.i.i295
   %call2.i301 = call noundef ptr @_ZN6Assimp17fast_atoreal_moveIf17DeadlyImportErrorEEPKcS3_RT_b(ptr noundef nonnull %in.addr.0.i.i.i296, ptr noundef nonnull align 4 dereferenceable(4) %second, i1 noundef zeroext true)
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0457, i64 8
-  %cmp.i.not = icmp eq ptr %incdec.ptr.i, %50
+  %cmp.i.not = icmp eq ptr %incdec.ptr.i, %61
   br i1 %cmp.i.not, label %while.cond.i.i316.preheader, label %while.cond.i.i.i261.preheader
 
 while.cond.i.i316.preheader:                      ; preds = %for.inc, %if.end57
@@ -7546,8 +7600,8 @@ while.cond.i.i316.preheader:                      ; preds = %for.inc, %if.end57
 
 while.cond.i.i316:                                ; preds = %while.cond.i.i316.preheader, %while.body.i.i326
   %in.addr.0.i.i317 = phi ptr [ %incdec.ptr.i.i327, %while.body.i.i326 ], [ %in.addr.0.i.i317.ph, %while.cond.i.i316.preheader ]
-  %61 = load i8, ptr %in.addr.0.i.i317, align 1
-  switch i8 %61, label %while.body.i.i326 [
+  %74 = load i8, ptr %in.addr.0.i.i317, align 1
+  switch i8 %74, label %while.body.i.i326 [
     i8 13, label %while.cond5.i.i319.preheader
     i8 10, label %while.cond5.i.i319.preheader
     i8 0, label %while.cond5.i.i319.preheader
@@ -7561,9 +7615,9 @@ while.body.i.i326:                                ; preds = %while.cond.i.i316
   br label %while.cond.i.i316, !llvm.loop !45
 
 while.cond5.i.i319:                               ; preds = %while.cond5.i.i319.preheader, %while.body10.i.i321
-  %62 = phi i8 [ %.pre.i.i323, %while.body10.i.i321 ], [ %61, %while.cond5.i.i319.preheader ]
+  %75 = phi i8 [ %.pre.i.i323, %while.body10.i.i321 ], [ %74, %while.cond5.i.i319.preheader ]
   %in.addr.1.i.i320 = phi ptr [ %incdec.ptr11.i.i322, %while.body10.i.i321 ], [ %in.addr.0.i.i317, %while.cond5.i.i319.preheader ]
-  switch i8 %62, label %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit328 [
+  switch i8 %75, label %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit328 [
     i8 13, label %while.body10.i.i321
     i8 10, label %while.body10.i.i321
   ]
@@ -7575,14 +7629,13 @@ while.body10.i.i321:                              ; preds = %while.cond5.i.i319,
 
 _ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit328: ; preds = %while.cond5.i.i319
   %iLineNumber.i324 = getelementptr inbounds i8, ptr %this, i64 212
+  %76 = load i32, ptr %iLineNumber.i324, align 4
+  %inc.i325 = add i32 %76, 1
+  store i32 %inc.i325, ptr %iLineNumber.i324, align 4
   br label %return
 
-return:                                           ; preds = %while.cond5.i.i, %while.cond5.i.i56, %while.cond5.i.i81, %while.cond5.i.i106, %while.cond5.i.i131, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit328, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit315, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit294, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit260, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit237, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit216, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit195, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit182, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit161
-  %iLineNumber.i324.sink528 = phi ptr [ %iLineNumber.i324, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit328 ], [ %iLineNumber.i311, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit315 ], [ %iLineNumber.i290, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit294 ], [ %iLineNumber.i256, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit260 ], [ %iLineNumber.i233, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit237 ], [ %iLineNumber.i212, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit216 ], [ %iLineNumber.i191, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit195 ], [ %iLineNumber.i178, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit182 ], [ %iLineNumber.i157, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit161 ], [ %iLineNumber.i125, %while.cond5.i.i131 ], [ %iLineNumber.i100, %while.cond5.i.i106 ], [ %iLineNumber.i75, %while.cond5.i.i81 ], [ %iLineNumber.i50, %while.cond5.i.i56 ], [ %iLineNumber.i34, %while.cond5.i.i ]
-  %in.addr.1.i.i320.lcssa.sink = phi ptr [ %in.addr.1.i.i320, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit328 ], [ %in.addr.1.i.i307, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit315 ], [ %in.addr.1.i.i286, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit294 ], [ %in.addr.1.i.i252, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit260 ], [ %in.addr.1.i.i229, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit237 ], [ %in.addr.1.i.i208, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit216 ], [ %in.addr.1.i.i187, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit195 ], [ %in.addr.1.i.i174, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit182 ], [ %in.addr.1.i.i153, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit161 ], [ %in.addr.1.i.i132, %while.cond5.i.i131 ], [ %in.addr.1.i.i107, %while.cond5.i.i106 ], [ %in.addr.1.i.i82, %while.cond5.i.i81 ], [ %in.addr.1.i.i57, %while.cond5.i.i56 ], [ %in.addr.1.i.i, %while.cond5.i.i ]
-  %63 = load i32, ptr %iLineNumber.i324.sink528, align 4
-  %inc.i325 = add i32 %63, 1
-  store i32 %inc.i325, ptr %iLineNumber.i324.sink528, align 4
+return:                                           ; preds = %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit328, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit315, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit294, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit260, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit237, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit216, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit195, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit182, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit161, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit140, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit115, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit90, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit65, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit
+  %in.addr.1.i.i320.lcssa.sink = phi ptr [ %in.addr.1.i.i320, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit328 ], [ %in.addr.1.i.i307, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit315 ], [ %in.addr.1.i.i286, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit294 ], [ %in.addr.1.i.i252, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit260 ], [ %in.addr.1.i.i229, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit237 ], [ %in.addr.1.i.i208, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit216 ], [ %in.addr.1.i.i187, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit195 ], [ %in.addr.1.i.i174, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit182 ], [ %in.addr.1.i.i153, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit161 ], [ %in.addr.1.i.i132, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit140 ], [ %in.addr.1.i.i107, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit115 ], [ %in.addr.1.i.i82, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit90 ], [ %in.addr.1.i.i57, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit65 ], [ %in.addr.1.i.i, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit ]
   store ptr %in.addr.1.i.i320.lcssa.sink, ptr %szCurrentOut, align 8
   ret void
 }
@@ -7680,21 +7733,24 @@ while.body10.i.i:                                 ; preds = %while.cond5.i.i, %w
 
 _ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit:    ; preds = %while.cond5.i.i
   %iLineNumber.i = getelementptr inbounds i8, ptr %this, i64 212
+  %7 = load i32, ptr %iLineNumber.i, align 4
+  %inc.i = add i32 %7, 1
+  store i32 %inc.i, ptr %iLineNumber.i, align 4
   br label %return
 
 if.end.loopexit:                                  ; preds = %if.end.i.i
-  %7 = zext i32 %add.i.i to i64
+  %8 = zext i32 %add.i.i to i64
   br label %if.end
 
 if.end:                                           ; preds = %if.end.loopexit, %if.end.i
-  %iBone.0.ph = phi i64 [ 0, %if.end.i ], [ %7, %if.end.loopexit ]
+  %iBone.0.ph = phi i64 [ 0, %if.end.i ], [ %8, %if.end.loopexit ]
   %szCurrent.addr.0.ph = phi ptr [ %in.addr.0.i.i.i, %if.end.i ], [ %incdec.ptr.i.i, %if.end.loopexit ]
   %asBones = getelementptr inbounds i8, ptr %this, i64 168
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 176
-  %8 = load ptr, ptr %_M_finish.i, align 8
-  %9 = load ptr, ptr %asBones, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %8 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %9 to i64
+  %9 = load ptr, ptr %_M_finish.i, align 8
+  %10 = load ptr, ptr %asBones, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %9 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 144
   %cmp.not = icmp ugt i64 %sub.ptr.div.i, %iBone.0.ph
@@ -7703,8 +7759,8 @@ if.end:                                           ; preds = %if.end.loopexit, %i
 if.then5:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %szTemp.i)
   %iLineNumber.i18 = getelementptr inbounds i8, ptr %this, i64 212
-  %10 = load i32, ptr %iLineNumber.i18, align 4
-  %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %szTemp.i, i64 noundef 1024, ptr noundef nonnull @.str.8, i32 noundef %10, ptr noundef nonnull @.str.42) #26
+  %11 = load i32, ptr %iLineNumber.i18, align 4
+  %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %szTemp.i, i64 noundef 1024, ptr noundef nonnull @.str.8, i32 noundef %11, ptr noundef nonnull @.str.42) #26
   %call2.i = tail call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   call void @_ZN6Assimp6Logger5errorIJRA1024_cEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(12) %call2.i, ptr noundef nonnull align 1 dereferenceable(1024) %szTemp.i)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %szTemp.i)
@@ -7712,8 +7768,8 @@ if.then5:                                         ; preds = %if.end
 
 while.cond.i.i19:                                 ; preds = %while.body.i.i29, %if.then5
   %in.addr.0.i.i20 = phi ptr [ %szCurrent.addr.0.ph, %if.then5 ], [ %incdec.ptr.i.i30, %while.body.i.i29 ]
-  %11 = load i8, ptr %in.addr.0.i.i20, align 1
-  switch i8 %11, label %while.body.i.i29 [
+  %12 = load i8, ptr %in.addr.0.i.i20, align 1
+  switch i8 %12, label %while.body.i.i29 [
     i8 13, label %while.cond5.i.i22.preheader
     i8 10, label %while.cond5.i.i22.preheader
     i8 0, label %while.cond5.i.i22.preheader
@@ -7727,9 +7783,9 @@ while.body.i.i29:                                 ; preds = %while.cond.i.i19
   br label %while.cond.i.i19, !llvm.loop !45
 
 while.cond5.i.i22:                                ; preds = %while.cond5.i.i22.preheader, %while.body10.i.i24
-  %12 = phi i8 [ %.pre.i.i26, %while.body10.i.i24 ], [ %11, %while.cond5.i.i22.preheader ]
+  %13 = phi i8 [ %.pre.i.i26, %while.body10.i.i24 ], [ %12, %while.cond5.i.i22.preheader ]
   %in.addr.1.i.i23 = phi ptr [ %incdec.ptr11.i.i25, %while.body10.i.i24 ], [ %in.addr.0.i.i20, %while.cond5.i.i22.preheader ]
-  switch i8 %12, label %return [
+  switch i8 %13, label %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit31 [
     i8 13, label %while.body10.i.i24
     i8 10, label %while.body10.i.i24
   ]
@@ -7739,69 +7795,75 @@ while.body10.i.i24:                               ; preds = %while.cond5.i.i22, 
   %.pre.i.i26 = load i8, ptr %incdec.ptr11.i.i25, align 1
   br label %while.cond5.i.i22, !llvm.loop !46
 
+_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit31:  ; preds = %while.cond5.i.i22
+  %14 = load i32, ptr %iLineNumber.i18, align 4
+  %inc.i28 = add i32 %14, 1
+  store i32 %inc.i28, ptr %iLineNumber.i18, align 4
+  br label %return
+
 if.end7:                                          ; preds = %if.end
-  %asKeys = getelementptr inbounds %"struct.Assimp::SMD::Bone", ptr %9, i64 %iBone.0.ph, i32 3, i32 1
+  %asKeys = getelementptr inbounds %"struct.Assimp::SMD::Bone", ptr %10, i64 %iBone.0.ph, i32 3, i32 1
   %_M_finish.i32 = getelementptr inbounds i8, ptr %asKeys, i64 8
-  %13 = load ptr, ptr %_M_finish.i32, align 8
+  %15 = load ptr, ptr %_M_finish.i32, align 8
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %asKeys, i64 16
-  %14 = load ptr, ptr %_M_end_of_storage.i, align 8
-  %cmp.not.i = icmp eq ptr %13, %14
+  %16 = load ptr, ptr %_M_end_of_storage.i, align 8
+  %cmp.not.i = icmp eq ptr %15, %16
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end7
-  %15 = getelementptr inbounds i8, ptr %13, i64 152
-  store i64 0, ptr %15, align 8
-  store float 1.000000e+00, ptr %13, align 4
-  %a2.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 4
-  %b2.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 20
+  %17 = getelementptr inbounds i8, ptr %15, i64 152
+  store i64 0, ptr %17, align 8
+  store float 1.000000e+00, ptr %15, align 4
+  %a2.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 4
+  %b2.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %a2.i.i.i.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %b2.i.i.i.i.i, align 4
-  %b3.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 24
-  %c3.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 40
+  %b3.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 24
+  %c3.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %b3.i.i.i.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %c3.i.i.i.i.i, align 4
-  %c4.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 44
-  %d4.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 60
+  %c4.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 44
+  %d4.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 60
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %c4.i.i.i.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %d4.i.i.i.i.i, align 4
-  %matrixAbsolute.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 64
+  %matrixAbsolute.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 64
   store float 1.000000e+00, ptr %matrixAbsolute.i.i.i.i, align 4
-  %a2.i1.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 68
-  %b2.i2.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 84
+  %a2.i1.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 68
+  %b2.i2.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 84
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %a2.i1.i.i.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %b2.i2.i.i.i.i, align 4
-  %b3.i3.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 88
-  %c3.i4.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 104
+  %b3.i3.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 88
+  %c3.i4.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %b3.i3.i.i.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %c3.i4.i.i.i.i, align 4
-  %c4.i5.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 108
-  %d4.i6.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 124
+  %c4.i5.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 108
+  %d4.i6.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 124
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %c4.i5.i.i.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %d4.i6.i.i.i.i, align 4
-  %vPos.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 128
+  %vPos.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %vPos.i.i.i.i, i8 0, i64 24, i1 false)
-  %16 = load ptr, ptr %_M_finish.i32, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %16, i64 160
+  %18 = load ptr, ptr %_M_finish.i32, align 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %18, i64 160
   store ptr %incdec.ptr.i, ptr %_M_finish.i32, align 8
   br label %_ZNSt6vectorIN6Assimp3SMD4Bone9Animation9MatrixKeyESaIS4_EE12emplace_backIJEEERS4_DpOT_.exit
 
 if.else.i:                                        ; preds = %if.end7
-  tail call void @_ZNSt6vectorIN6Assimp3SMD4Bone9Animation9MatrixKeyESaIS4_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %asKeys, ptr %13)
+  tail call void @_ZNSt6vectorIN6Assimp3SMD4Bone9Animation9MatrixKeyESaIS4_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %asKeys, ptr %15)
   %.pre = load ptr, ptr %_M_finish.i32, align 8
   br label %_ZNSt6vectorIN6Assimp3SMD4Bone9Animation9MatrixKeyESaIS4_EE12emplace_backIJEEERS4_DpOT_.exit
 
 _ZNSt6vectorIN6Assimp3SMD4Bone9Animation9MatrixKeyESaIS4_EE12emplace_backIJEEERS4_DpOT_.exit: ; preds = %if.then.i, %if.else.i
-  %17 = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %.pre, %if.else.i ]
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %17, i64 -160
+  %19 = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %.pre, %if.else.i ]
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %19, i64 -160
   %conv15 = sitofp i32 %iTime to double
-  %dTime = getelementptr inbounds i8, ptr %17, i64 -8
+  %dTime = getelementptr inbounds i8, ptr %19, i64 -8
   store double %conv15, ptr %dTime, align 8
   br label %while.cond.i.i.i34
 
 while.cond.i.i.i34:                               ; preds = %while.body.i.i.i37, %_ZNSt6vectorIN6Assimp3SMD4Bone9Animation9MatrixKeyESaIS4_EE12emplace_backIJEEERS4_DpOT_.exit
   %in.addr.0.i.i.i35 = phi ptr [ %szCurrent.addr.0.ph, %_ZNSt6vectorIN6Assimp3SMD4Bone9Animation9MatrixKeyESaIS4_EE12emplace_backIJEEERS4_DpOT_.exit ], [ %incdec.ptr.i.i.i38, %while.body.i.i.i37 ]
-  %18 = load i8, ptr %in.addr.0.i.i.i35, align 1
-  switch i8 %18, label %if.end19 [
+  %20 = load i8, ptr %in.addr.0.i.i.i35, align 1
+  switch i8 %20, label %if.end19 [
     i8 32, label %while.body.i.i.i37
     i8 9, label %while.body.i.i.i37
     i8 13, label %if.then17
@@ -7817,8 +7879,8 @@ while.body.i.i.i37:                               ; preds = %while.cond.i.i.i34,
 if.then17:                                        ; preds = %while.cond.i.i.i34, %while.cond.i.i.i34, %while.cond.i.i.i34, %while.cond.i.i.i34
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %szTemp.i41)
   %iLineNumber.i42 = getelementptr inbounds i8, ptr %this, i64 212
-  %19 = load i32, ptr %iLineNumber.i42, align 4
-  %call.i43 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %szTemp.i41, i64 noundef 1024, ptr noundef nonnull @.str.8, i32 noundef %19, ptr noundef nonnull @.str.43) #26
+  %21 = load i32, ptr %iLineNumber.i42, align 4
+  %call.i43 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %szTemp.i41, i64 noundef 1024, ptr noundef nonnull @.str.8, i32 noundef %21, ptr noundef nonnull @.str.43) #26
   %call2.i44 = tail call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   call void @_ZN6Assimp6Logger5errorIJRA1024_cEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(12) %call2.i44, ptr noundef nonnull align 1 dereferenceable(1024) %szTemp.i41)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %szTemp.i41)
@@ -7826,8 +7888,8 @@ if.then17:                                        ; preds = %while.cond.i.i.i34,
 
 while.cond.i.i45:                                 ; preds = %while.body.i.i55, %if.then17
   %in.addr.0.i.i46 = phi ptr [ %szCurrent.addr.0.ph, %if.then17 ], [ %incdec.ptr.i.i56, %while.body.i.i55 ]
-  %20 = load i8, ptr %in.addr.0.i.i46, align 1
-  switch i8 %20, label %while.body.i.i55 [
+  %22 = load i8, ptr %in.addr.0.i.i46, align 1
+  switch i8 %22, label %while.body.i.i55 [
     i8 13, label %while.cond5.i.i48.preheader
     i8 10, label %while.cond5.i.i48.preheader
     i8 0, label %while.cond5.i.i48.preheader
@@ -7841,9 +7903,9 @@ while.body.i.i55:                                 ; preds = %while.cond.i.i45
   br label %while.cond.i.i45, !llvm.loop !45
 
 while.cond5.i.i48:                                ; preds = %while.cond5.i.i48.preheader, %while.body10.i.i50
-  %21 = phi i8 [ %.pre.i.i52, %while.body10.i.i50 ], [ %20, %while.cond5.i.i48.preheader ]
+  %23 = phi i8 [ %.pre.i.i52, %while.body10.i.i50 ], [ %22, %while.cond5.i.i48.preheader ]
   %in.addr.1.i.i49 = phi ptr [ %incdec.ptr11.i.i51, %while.body10.i.i50 ], [ %in.addr.0.i.i46, %while.cond5.i.i48.preheader ]
-  switch i8 %21, label %return [
+  switch i8 %23, label %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit57 [
     i8 13, label %while.body10.i.i50
     i8 10, label %while.body10.i.i50
   ]
@@ -7853,14 +7915,20 @@ while.body10.i.i50:                               ; preds = %while.cond5.i.i48, 
   %.pre.i.i52 = load i8, ptr %incdec.ptr11.i.i51, align 1
   br label %while.cond5.i.i48, !llvm.loop !46
 
+_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit57:  ; preds = %while.cond5.i.i48
+  %24 = load i32, ptr %iLineNumber.i42, align 4
+  %inc.i54 = add i32 %24, 1
+  store i32 %inc.i54, ptr %iLineNumber.i42, align 4
+  br label %return
+
 if.end19:                                         ; preds = %while.cond.i.i.i34
   %call2.i40 = call noundef ptr @_ZN6Assimp17fast_atoreal_moveIf17DeadlyImportErrorEEPKcS3_RT_b(ptr noundef nonnull %in.addr.0.i.i.i35, ptr noundef nonnull align 4 dereferenceable(4) %vPos, i1 noundef zeroext true)
   br label %while.cond.i.i.i58
 
 while.cond.i.i.i58:                               ; preds = %while.body.i.i.i61, %if.end19
   %in.addr.0.i.i.i59 = phi ptr [ %call2.i40, %if.end19 ], [ %incdec.ptr.i.i.i62, %while.body.i.i.i61 ]
-  %22 = load i8, ptr %in.addr.0.i.i.i59, align 1
-  switch i8 %22, label %if.end23 [
+  %25 = load i8, ptr %in.addr.0.i.i.i59, align 1
+  switch i8 %25, label %if.end23 [
     i8 32, label %while.body.i.i.i61
     i8 9, label %while.body.i.i.i61
     i8 13, label %if.then21
@@ -7876,8 +7944,8 @@ while.body.i.i.i61:                               ; preds = %while.cond.i.i.i58,
 if.then21:                                        ; preds = %while.cond.i.i.i58, %while.cond.i.i.i58, %while.cond.i.i.i58, %while.cond.i.i.i58
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %szTemp.i66)
   %iLineNumber.i67 = getelementptr inbounds i8, ptr %this, i64 212
-  %23 = load i32, ptr %iLineNumber.i67, align 4
-  %call.i68 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %szTemp.i66, i64 noundef 1024, ptr noundef nonnull @.str.8, i32 noundef %23, ptr noundef nonnull @.str.44) #26
+  %26 = load i32, ptr %iLineNumber.i67, align 4
+  %call.i68 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %szTemp.i66, i64 noundef 1024, ptr noundef nonnull @.str.8, i32 noundef %26, ptr noundef nonnull @.str.44) #26
   %call2.i69 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   call void @_ZN6Assimp6Logger5errorIJRA1024_cEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(12) %call2.i69, ptr noundef nonnull align 1 dereferenceable(1024) %szTemp.i66)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %szTemp.i66)
@@ -7885,8 +7953,8 @@ if.then21:                                        ; preds = %while.cond.i.i.i58,
 
 while.cond.i.i70:                                 ; preds = %while.body.i.i80, %if.then21
   %in.addr.0.i.i71 = phi ptr [ %call2.i40, %if.then21 ], [ %incdec.ptr.i.i81, %while.body.i.i80 ]
-  %24 = load i8, ptr %in.addr.0.i.i71, align 1
-  switch i8 %24, label %while.body.i.i80 [
+  %27 = load i8, ptr %in.addr.0.i.i71, align 1
+  switch i8 %27, label %while.body.i.i80 [
     i8 13, label %while.cond5.i.i73.preheader
     i8 10, label %while.cond5.i.i73.preheader
     i8 0, label %while.cond5.i.i73.preheader
@@ -7900,9 +7968,9 @@ while.body.i.i80:                                 ; preds = %while.cond.i.i70
   br label %while.cond.i.i70, !llvm.loop !45
 
 while.cond5.i.i73:                                ; preds = %while.cond5.i.i73.preheader, %while.body10.i.i75
-  %25 = phi i8 [ %.pre.i.i77, %while.body10.i.i75 ], [ %24, %while.cond5.i.i73.preheader ]
+  %28 = phi i8 [ %.pre.i.i77, %while.body10.i.i75 ], [ %27, %while.cond5.i.i73.preheader ]
   %in.addr.1.i.i74 = phi ptr [ %incdec.ptr11.i.i76, %while.body10.i.i75 ], [ %in.addr.0.i.i71, %while.cond5.i.i73.preheader ]
-  switch i8 %25, label %return [
+  switch i8 %28, label %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit82 [
     i8 13, label %while.body10.i.i75
     i8 10, label %while.body10.i.i75
   ]
@@ -7912,14 +7980,20 @@ while.body10.i.i75:                               ; preds = %while.cond5.i.i73, 
   %.pre.i.i77 = load i8, ptr %incdec.ptr11.i.i76, align 1
   br label %while.cond5.i.i73, !llvm.loop !46
 
+_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit82:  ; preds = %while.cond5.i.i73
+  %29 = load i32, ptr %iLineNumber.i67, align 4
+  %inc.i79 = add i32 %29, 1
+  store i32 %inc.i79, ptr %iLineNumber.i67, align 4
+  br label %return
+
 if.end23:                                         ; preds = %while.cond.i.i.i58
   %call2.i64 = call noundef ptr @_ZN6Assimp17fast_atoreal_moveIf17DeadlyImportErrorEEPKcS3_RT_b(ptr noundef nonnull %in.addr.0.i.i.i59, ptr noundef nonnull align 4 dereferenceable(4) %y.i, i1 noundef zeroext true)
   br label %while.cond.i.i.i83
 
 while.cond.i.i.i83:                               ; preds = %while.body.i.i.i86, %if.end23
   %in.addr.0.i.i.i84 = phi ptr [ %call2.i64, %if.end23 ], [ %incdec.ptr.i.i.i87, %while.body.i.i.i86 ]
-  %26 = load i8, ptr %in.addr.0.i.i.i84, align 1
-  switch i8 %26, label %if.end27 [
+  %30 = load i8, ptr %in.addr.0.i.i.i84, align 1
+  switch i8 %30, label %if.end27 [
     i8 32, label %while.body.i.i.i86
     i8 9, label %while.body.i.i.i86
     i8 13, label %if.then25
@@ -7935,8 +8009,8 @@ while.body.i.i.i86:                               ; preds = %while.cond.i.i.i83,
 if.then25:                                        ; preds = %while.cond.i.i.i83, %while.cond.i.i.i83, %while.cond.i.i.i83, %while.cond.i.i.i83
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %szTemp.i91)
   %iLineNumber.i92 = getelementptr inbounds i8, ptr %this, i64 212
-  %27 = load i32, ptr %iLineNumber.i92, align 4
-  %call.i93 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %szTemp.i91, i64 noundef 1024, ptr noundef nonnull @.str.8, i32 noundef %27, ptr noundef nonnull @.str.45) #26
+  %31 = load i32, ptr %iLineNumber.i92, align 4
+  %call.i93 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %szTemp.i91, i64 noundef 1024, ptr noundef nonnull @.str.8, i32 noundef %31, ptr noundef nonnull @.str.45) #26
   %call2.i94 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   call void @_ZN6Assimp6Logger5errorIJRA1024_cEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(12) %call2.i94, ptr noundef nonnull align 1 dereferenceable(1024) %szTemp.i91)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %szTemp.i91)
@@ -7944,8 +8018,8 @@ if.then25:                                        ; preds = %while.cond.i.i.i83,
 
 while.cond.i.i95:                                 ; preds = %while.body.i.i105, %if.then25
   %in.addr.0.i.i96 = phi ptr [ %call2.i64, %if.then25 ], [ %incdec.ptr.i.i106, %while.body.i.i105 ]
-  %28 = load i8, ptr %in.addr.0.i.i96, align 1
-  switch i8 %28, label %while.body.i.i105 [
+  %32 = load i8, ptr %in.addr.0.i.i96, align 1
+  switch i8 %32, label %while.body.i.i105 [
     i8 13, label %while.cond5.i.i98.preheader
     i8 10, label %while.cond5.i.i98.preheader
     i8 0, label %while.cond5.i.i98.preheader
@@ -7959,9 +8033,9 @@ while.body.i.i105:                                ; preds = %while.cond.i.i95
   br label %while.cond.i.i95, !llvm.loop !45
 
 while.cond5.i.i98:                                ; preds = %while.cond5.i.i98.preheader, %while.body10.i.i100
-  %29 = phi i8 [ %.pre.i.i102, %while.body10.i.i100 ], [ %28, %while.cond5.i.i98.preheader ]
+  %33 = phi i8 [ %.pre.i.i102, %while.body10.i.i100 ], [ %32, %while.cond5.i.i98.preheader ]
   %in.addr.1.i.i99 = phi ptr [ %incdec.ptr11.i.i101, %while.body10.i.i100 ], [ %in.addr.0.i.i96, %while.cond5.i.i98.preheader ]
-  switch i8 %29, label %return [
+  switch i8 %33, label %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit107 [
     i8 13, label %while.body10.i.i100
     i8 10, label %while.body10.i.i100
   ]
@@ -7971,14 +8045,20 @@ while.body10.i.i100:                              ; preds = %while.cond5.i.i98, 
   %.pre.i.i102 = load i8, ptr %incdec.ptr11.i.i101, align 1
   br label %while.cond5.i.i98, !llvm.loop !46
 
+_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit107: ; preds = %while.cond5.i.i98
+  %34 = load i32, ptr %iLineNumber.i92, align 4
+  %inc.i104 = add i32 %34, 1
+  store i32 %inc.i104, ptr %iLineNumber.i92, align 4
+  br label %return
+
 if.end27:                                         ; preds = %while.cond.i.i.i83
   %call2.i89 = call noundef ptr @_ZN6Assimp17fast_atoreal_moveIf17DeadlyImportErrorEEPKcS3_RT_b(ptr noundef nonnull %in.addr.0.i.i.i84, ptr noundef nonnull align 4 dereferenceable(4) %z.i, i1 noundef zeroext true)
   br label %while.cond.i.i.i108
 
 while.cond.i.i.i108:                              ; preds = %while.body.i.i.i111, %if.end27
   %in.addr.0.i.i.i109 = phi ptr [ %call2.i89, %if.end27 ], [ %incdec.ptr.i.i.i112, %while.body.i.i.i111 ]
-  %30 = load i8, ptr %in.addr.0.i.i.i109, align 1
-  switch i8 %30, label %if.end32 [
+  %35 = load i8, ptr %in.addr.0.i.i.i109, align 1
+  switch i8 %35, label %if.end32 [
     i8 32, label %while.body.i.i.i111
     i8 9, label %while.body.i.i.i111
     i8 13, label %if.then30
@@ -7997,8 +8077,8 @@ if.then30:                                        ; preds = %while.cond.i.i.i108
 
 while.cond.i.i116:                                ; preds = %while.body.i.i126, %if.then30
   %in.addr.0.i.i117 = phi ptr [ %call2.i89, %if.then30 ], [ %incdec.ptr.i.i127, %while.body.i.i126 ]
-  %31 = load i8, ptr %in.addr.0.i.i117, align 1
-  switch i8 %31, label %while.body.i.i126 [
+  %36 = load i8, ptr %in.addr.0.i.i117, align 1
+  switch i8 %36, label %while.body.i.i126 [
     i8 13, label %while.cond5.i.i119.preheader
     i8 10, label %while.cond5.i.i119.preheader
     i8 0, label %while.cond5.i.i119.preheader
@@ -8012,9 +8092,9 @@ while.body.i.i126:                                ; preds = %while.cond.i.i116
   br label %while.cond.i.i116, !llvm.loop !45
 
 while.cond5.i.i119:                               ; preds = %while.cond5.i.i119.preheader, %while.body10.i.i121
-  %32 = phi i8 [ %.pre.i.i123, %while.body10.i.i121 ], [ %31, %while.cond5.i.i119.preheader ]
+  %37 = phi i8 [ %.pre.i.i123, %while.body10.i.i121 ], [ %36, %while.cond5.i.i119.preheader ]
   %in.addr.1.i.i120 = phi ptr [ %incdec.ptr11.i.i122, %while.body10.i.i121 ], [ %in.addr.0.i.i117, %while.cond5.i.i119.preheader ]
-  switch i8 %32, label %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit128 [
+  switch i8 %37, label %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit128 [
     i8 13, label %while.body10.i.i121
     i8 10, label %while.body10.i.i121
   ]
@@ -8026,6 +8106,9 @@ while.body10.i.i121:                              ; preds = %while.cond5.i.i119,
 
 _ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit128: ; preds = %while.cond5.i.i119
   %iLineNumber.i124 = getelementptr inbounds i8, ptr %this, i64 212
+  %38 = load i32, ptr %iLineNumber.i124, align 4
+  %inc.i125 = add i32 %38, 1
+  store i32 %inc.i125, ptr %iLineNumber.i124, align 4
   br label %return
 
 if.end32:                                         ; preds = %while.cond.i.i.i108
@@ -8034,8 +8117,8 @@ if.end32:                                         ; preds = %while.cond.i.i.i108
 
 while.cond.i.i.i129:                              ; preds = %while.body.i.i.i132, %if.end32
   %in.addr.0.i.i.i130 = phi ptr [ %call2.i114, %if.end32 ], [ %incdec.ptr.i.i.i133, %while.body.i.i.i132 ]
-  %33 = load i8, ptr %in.addr.0.i.i.i130, align 1
-  switch i8 %33, label %if.end37 [
+  %39 = load i8, ptr %in.addr.0.i.i.i130, align 1
+  switch i8 %39, label %if.end37 [
     i8 32, label %while.body.i.i.i132
     i8 9, label %while.body.i.i.i132
     i8 13, label %if.then35
@@ -8054,8 +8137,8 @@ if.then35:                                        ; preds = %while.cond.i.i.i129
 
 while.cond.i.i137:                                ; preds = %while.body.i.i147, %if.then35
   %in.addr.0.i.i138 = phi ptr [ %call2.i114, %if.then35 ], [ %incdec.ptr.i.i148, %while.body.i.i147 ]
-  %34 = load i8, ptr %in.addr.0.i.i138, align 1
-  switch i8 %34, label %while.body.i.i147 [
+  %40 = load i8, ptr %in.addr.0.i.i138, align 1
+  switch i8 %40, label %while.body.i.i147 [
     i8 13, label %while.cond5.i.i140.preheader
     i8 10, label %while.cond5.i.i140.preheader
     i8 0, label %while.cond5.i.i140.preheader
@@ -8069,9 +8152,9 @@ while.body.i.i147:                                ; preds = %while.cond.i.i137
   br label %while.cond.i.i137, !llvm.loop !45
 
 while.cond5.i.i140:                               ; preds = %while.cond5.i.i140.preheader, %while.body10.i.i142
-  %35 = phi i8 [ %.pre.i.i144, %while.body10.i.i142 ], [ %34, %while.cond5.i.i140.preheader ]
+  %41 = phi i8 [ %.pre.i.i144, %while.body10.i.i142 ], [ %40, %while.cond5.i.i140.preheader ]
   %in.addr.1.i.i141 = phi ptr [ %incdec.ptr11.i.i143, %while.body10.i.i142 ], [ %in.addr.0.i.i138, %while.cond5.i.i140.preheader ]
-  switch i8 %35, label %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit149 [
+  switch i8 %41, label %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit149 [
     i8 13, label %while.body10.i.i142
     i8 10, label %while.body10.i.i142
   ]
@@ -8083,6 +8166,9 @@ while.body10.i.i142:                              ; preds = %while.cond5.i.i140,
 
 _ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit149: ; preds = %while.cond5.i.i140
   %iLineNumber.i145 = getelementptr inbounds i8, ptr %this, i64 212
+  %42 = load i32, ptr %iLineNumber.i145, align 4
+  %inc.i146 = add i32 %42, 1
+  store i32 %inc.i146, ptr %iLineNumber.i145, align 4
   br label %return
 
 if.end37:                                         ; preds = %while.cond.i.i.i129
@@ -8091,8 +8177,8 @@ if.end37:                                         ; preds = %while.cond.i.i.i129
 
 while.cond.i.i.i150:                              ; preds = %while.body.i.i.i153, %if.end37
   %in.addr.0.i.i.i151 = phi ptr [ %call2.i135, %if.end37 ], [ %incdec.ptr.i.i.i154, %while.body.i.i.i153 ]
-  %36 = load i8, ptr %in.addr.0.i.i.i151, align 1
-  switch i8 %36, label %if.end42 [
+  %43 = load i8, ptr %in.addr.0.i.i.i151, align 1
+  switch i8 %43, label %if.end42 [
     i8 32, label %while.body.i.i.i153
     i8 9, label %while.body.i.i.i153
     i8 13, label %if.then40
@@ -8111,8 +8197,8 @@ if.then40:                                        ; preds = %while.cond.i.i.i150
 
 while.cond.i.i158:                                ; preds = %while.body.i.i168, %if.then40
   %in.addr.0.i.i159 = phi ptr [ %call2.i135, %if.then40 ], [ %incdec.ptr.i.i169, %while.body.i.i168 ]
-  %37 = load i8, ptr %in.addr.0.i.i159, align 1
-  switch i8 %37, label %while.body.i.i168 [
+  %44 = load i8, ptr %in.addr.0.i.i159, align 1
+  switch i8 %44, label %while.body.i.i168 [
     i8 13, label %while.cond5.i.i161.preheader
     i8 10, label %while.cond5.i.i161.preheader
     i8 0, label %while.cond5.i.i161.preheader
@@ -8126,9 +8212,9 @@ while.body.i.i168:                                ; preds = %while.cond.i.i158
   br label %while.cond.i.i158, !llvm.loop !45
 
 while.cond5.i.i161:                               ; preds = %while.cond5.i.i161.preheader, %while.body10.i.i163
-  %38 = phi i8 [ %.pre.i.i165, %while.body10.i.i163 ], [ %37, %while.cond5.i.i161.preheader ]
+  %45 = phi i8 [ %.pre.i.i165, %while.body10.i.i163 ], [ %44, %while.cond5.i.i161.preheader ]
   %in.addr.1.i.i162 = phi ptr [ %incdec.ptr11.i.i164, %while.body10.i.i163 ], [ %in.addr.0.i.i159, %while.cond5.i.i161.preheader ]
-  switch i8 %38, label %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit170 [
+  switch i8 %45, label %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit170 [
     i8 13, label %while.body10.i.i163
     i8 10, label %while.body10.i.i163
   ]
@@ -8140,22 +8226,25 @@ while.body10.i.i163:                              ; preds = %while.cond5.i.i161,
 
 _ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit170: ; preds = %while.cond5.i.i161
   %iLineNumber.i166 = getelementptr inbounds i8, ptr %this, i64 212
+  %46 = load i32, ptr %iLineNumber.i166, align 4
+  %inc.i167 = add i32 %46, 1
+  store i32 %inc.i167, ptr %iLineNumber.i166, align 4
   br label %return
 
 if.end42:                                         ; preds = %while.cond.i.i.i150
   %call2.i156 = call noundef ptr @_ZN6Assimp17fast_atoreal_moveIf17DeadlyImportErrorEEPKcS3_RT_b(ptr noundef nonnull %in.addr.0.i.i.i151, ptr noundef nonnull align 4 dereferenceable(4) %z.i16, i1 noundef zeroext true)
-  %39 = load float, ptr %vRot, align 4
-  %40 = load float, ptr %y.i15, align 4
-  %41 = load float, ptr %z.i16, align 4
-  %call46 = call noundef nonnull align 4 dereferenceable(64) ptr @_ZN12aiMatrix4x4tIfE18FromEulerAnglesXYZEfff(ptr noundef nonnull align 4 dereferenceable(64) %add.ptr.i.i, float noundef %39, float noundef %40, float noundef %41)
-  %42 = load float, ptr %vPos, align 4
-  %43 = load float, ptr %y.i, align 4
-  %44 = load float, ptr %z.i, align 4
+  %47 = load float, ptr %vRot, align 4
+  %48 = load float, ptr %y.i15, align 4
+  %49 = load float, ptr %z.i16, align 4
+  %call46 = call noundef nonnull align 4 dereferenceable(64) ptr @_ZN12aiMatrix4x4tIfE18FromEulerAnglesXYZEfff(ptr noundef nonnull align 4 dereferenceable(64) %add.ptr.i.i, float noundef %47, float noundef %48, float noundef %49)
+  %50 = load float, ptr %vPos, align 4
+  %51 = load float, ptr %y.i, align 4
+  %52 = load float, ptr %z.i, align 4
   store float 1.000000e+00, ptr %ref.tmp, align 4
   %mTemp.sroa.2.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   store i64 0, ptr %mTemp.sroa.2.0.ref.tmp.sroa_idx, align 4
   %mTemp.sroa.3.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 12
-  store float %42, ptr %mTemp.sroa.3.0.ref.tmp.sroa_idx, align 4
+  store float %50, ptr %mTemp.sroa.3.0.ref.tmp.sroa_idx, align 4
   %mTemp.sroa.4.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store float 0.000000e+00, ptr %mTemp.sroa.4.0.ref.tmp.sroa_idx, align 4
   %mTemp.sroa.4185.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 20
@@ -8163,29 +8252,29 @@ if.end42:                                         ; preds = %while.cond.i.i.i150
   %mTemp.sroa.5.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store float 0.000000e+00, ptr %mTemp.sroa.5.0.ref.tmp.sroa_idx, align 4
   %mTemp.sroa.6.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 28
-  store float %43, ptr %mTemp.sroa.6.0.ref.tmp.sroa_idx, align 4
+  store float %51, ptr %mTemp.sroa.6.0.ref.tmp.sroa_idx, align 4
   %mTemp.sroa.7.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   store i64 0, ptr %mTemp.sroa.7.0.ref.tmp.sroa_idx, align 4
   %mTemp.sroa.7186.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store float 1.000000e+00, ptr %mTemp.sroa.7186.0.ref.tmp.sroa_idx, align 4
   %mTemp.sroa.8.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 44
-  store float %44, ptr %mTemp.sroa.8.0.ref.tmp.sroa_idx, align 4
+  store float %52, ptr %mTemp.sroa.8.0.ref.tmp.sroa_idx, align 4
   %mTemp.sroa.10.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %mTemp.sroa.10.0.ref.tmp.sroa_idx, i8 0, i64 12, i1 false)
   %mTemp.sroa.10187.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 60
   store float 1.000000e+00, ptr %mTemp.sroa.10187.0.ref.tmp.sroa_idx, align 4
   %call.i171 = call noundef nonnull align 4 dereferenceable(64) ptr @_ZN12aiMatrix4x4tIfEmLERKS0_(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(64) %add.ptr.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i.i, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp, i64 64, i1 false)
-  %vPos52 = getelementptr inbounds i8, ptr %17, i64 -32
+  %vPos52 = getelementptr inbounds i8, ptr %19, i64 -32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %vPos52, ptr noundef nonnull align 4 dereferenceable(12) %vPos, i64 12, i1 false)
-  %vRot53 = getelementptr inbounds i8, ptr %17, i64 -20
+  %vRot53 = getelementptr inbounds i8, ptr %19, i64 -20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %vRot53, ptr noundef nonnull align 4 dereferenceable(12) %vRot, i64 12, i1 false)
   br label %while.cond.i.i172
 
 while.cond.i.i172:                                ; preds = %while.body.i.i182, %if.end42
   %in.addr.0.i.i173 = phi ptr [ %call2.i156, %if.end42 ], [ %incdec.ptr.i.i183, %while.body.i.i182 ]
-  %45 = load i8, ptr %in.addr.0.i.i173, align 1
-  switch i8 %45, label %while.body.i.i182 [
+  %53 = load i8, ptr %in.addr.0.i.i173, align 1
+  switch i8 %53, label %while.body.i.i182 [
     i8 13, label %while.cond5.i.i175.preheader
     i8 10, label %while.cond5.i.i175.preheader
     i8 0, label %while.cond5.i.i175.preheader
@@ -8199,9 +8288,9 @@ while.body.i.i182:                                ; preds = %while.cond.i.i172
   br label %while.cond.i.i172, !llvm.loop !45
 
 while.cond5.i.i175:                               ; preds = %while.cond5.i.i175.preheader, %while.body10.i.i177
-  %46 = phi i8 [ %.pre.i.i179, %while.body10.i.i177 ], [ %45, %while.cond5.i.i175.preheader ]
+  %54 = phi i8 [ %.pre.i.i179, %while.body10.i.i177 ], [ %53, %while.cond5.i.i175.preheader ]
   %in.addr.1.i.i176 = phi ptr [ %incdec.ptr11.i.i178, %while.body10.i.i177 ], [ %in.addr.0.i.i173, %while.cond5.i.i175.preheader ]
-  switch i8 %46, label %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit184 [
+  switch i8 %54, label %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit184 [
     i8 13, label %while.body10.i.i177
     i8 10, label %while.body10.i.i177
   ]
@@ -8213,14 +8302,13 @@ while.body10.i.i177:                              ; preds = %while.cond5.i.i175,
 
 _ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit184: ; preds = %while.cond5.i.i175
   %iLineNumber.i180 = getelementptr inbounds i8, ptr %this, i64 212
+  %55 = load i32, ptr %iLineNumber.i180, align 4
+  %inc.i181 = add i32 %55, 1
+  store i32 %inc.i181, ptr %iLineNumber.i180, align 4
   br label %return
 
-return:                                           ; preds = %while.cond5.i.i22, %while.cond5.i.i48, %while.cond5.i.i73, %while.cond5.i.i98, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit184, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit170, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit149, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit128, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit
-  %iLineNumber.i180.sink287 = phi ptr [ %iLineNumber.i180, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit184 ], [ %iLineNumber.i166, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit170 ], [ %iLineNumber.i145, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit149 ], [ %iLineNumber.i124, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit128 ], [ %iLineNumber.i, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit ], [ %iLineNumber.i92, %while.cond5.i.i98 ], [ %iLineNumber.i67, %while.cond5.i.i73 ], [ %iLineNumber.i42, %while.cond5.i.i48 ], [ %iLineNumber.i18, %while.cond5.i.i22 ]
-  %in.addr.1.i.i176.lcssa.sink = phi ptr [ %in.addr.1.i.i176, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit184 ], [ %in.addr.1.i.i162, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit170 ], [ %in.addr.1.i.i141, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit149 ], [ %in.addr.1.i.i120, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit128 ], [ %in.addr.1.i.i, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit ], [ %in.addr.1.i.i99, %while.cond5.i.i98 ], [ %in.addr.1.i.i74, %while.cond5.i.i73 ], [ %in.addr.1.i.i49, %while.cond5.i.i48 ], [ %in.addr.1.i.i23, %while.cond5.i.i22 ]
-  %47 = load i32, ptr %iLineNumber.i180.sink287, align 4
-  %inc.i181 = add i32 %47, 1
-  store i32 %inc.i181, ptr %iLineNumber.i180.sink287, align 4
+return:                                           ; preds = %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit184, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit170, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit149, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit128, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit107, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit82, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit57, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit31, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit
+  %in.addr.1.i.i176.lcssa.sink = phi ptr [ %in.addr.1.i.i176, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit184 ], [ %in.addr.1.i.i162, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit170 ], [ %in.addr.1.i.i141, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit149 ], [ %in.addr.1.i.i120, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit128 ], [ %in.addr.1.i.i99, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit107 ], [ %in.addr.1.i.i74, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit82 ], [ %in.addr.1.i.i49, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit57 ], [ %in.addr.1.i.i23, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit31 ], [ %in.addr.1.i.i, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit ]
   store ptr %in.addr.1.i.i176.lcssa.sink, ptr %szCurrentOut, align 8
   ret void
 }

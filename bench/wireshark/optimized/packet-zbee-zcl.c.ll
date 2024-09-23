@@ -2332,35 +2332,35 @@ define internal fastcc void @dissect_zcl_array_type(ptr noundef %0, ptr noundef 
   %12 = zext i8 %3 to i32
   br label %13
 
-13:                                               ; preds = %.lr.ph, %24
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %24 ]
-  %14 = phi i32 [ %8, %.lr.ph ], [ %21, %24 ]
-  %.031 = phi i16 [ %4, %.lr.ph ], [ %25, %24 ]
+13:                                               ; preds = %.lr.ph, %23
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %23 ]
+  %14 = phi i32 [ %8, %.lr.ph ], [ %20, %23 ]
+  %.031 = phi i16 [ %4, %.lr.ph ], [ %24, %23 ]
   %15 = icmp ult i64 %indvars.iv, 15
   %16 = getelementptr [16 x i32], ptr @ett_zbee_zcl_array_elements, i64 0, i64 %indvars.iv
-  %.sink37 = select i1 %15, ptr %16, ptr getelementptr inbounds (i8, ptr @ett_zbee_zcl_array_elements, i64 60)
-  %17 = load i32, ptr %.sink37, align 4
-  %18 = trunc nuw nsw i64 %indvars.iv to i32
-  %19 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %14, i32 noundef 0, i32 noundef %17, ptr noundef null, ptr noundef nonnull @.str.829, i32 noundef %18) #5
+  %.sink.in = select i1 %15, ptr %16, ptr getelementptr inbounds (i8, ptr @ett_zbee_zcl_array_elements, i64 60)
+  %.sink = load i32, ptr %.sink.in, align 4
+  %17 = trunc nuw nsw i64 %indvars.iv to i32
+  %18 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %14, i32 noundef 0, i32 noundef %.sink, ptr noundef null, ptr noundef nonnull @.str.829, i32 noundef %17) #5
+  %19 = load i32, ptr %2, align 4
+  tail call void @dissect_zcl_attr_data(ptr noundef %0, ptr noundef %18, ptr noundef nonnull %2, i32 noundef %12, i32 noundef %5)
   %20 = load i32, ptr %2, align 4
-  tail call void @dissect_zcl_attr_data(ptr noundef %0, ptr noundef %19, ptr noundef nonnull %2, i32 noundef %12, i32 noundef %5)
-  %21 = load i32, ptr %2, align 4
-  %.not = icmp ult i32 %20, %21
-  br i1 %.not, label %24, label %22
+  %.not = icmp ult i32 %19, %20
+  br i1 %.not, label %23, label %21
 
-22:                                               ; preds = %13
-  %23 = tail call ptr @proto_tree_add_expert(ptr noundef %19, ptr noundef null, ptr noundef nonnull @ei_zbee_zero_length_element, ptr noundef %0, i32 noundef %20, i32 noundef -1) #5
+21:                                               ; preds = %13
+  %22 = tail call ptr @proto_tree_add_expert(ptr noundef %18, ptr noundef null, ptr noundef nonnull @ei_zbee_zero_length_element, ptr noundef %0, i32 noundef %19, i32 noundef -1) #5
   br label %.loopexit
 
-24:                                               ; preds = %13
-  %25 = add i16 %.031, -1
+23:                                               ; preds = %13
+  %24 = add i16 %.031, -1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %26 = icmp ult i32 %21, %7
-  %27 = icmp ne i16 %25, 0
-  %28 = select i1 %26, i1 %27, i1 false
-  br i1 %28, label %13, label %.loopexit, !llvm.loop !10
+  %25 = icmp ult i32 %20, %7
+  %26 = icmp ne i16 %24, 0
+  %27 = select i1 %25, i1 %26, i1 false
+  br i1 %27, label %13, label %.loopexit, !llvm.loop !10
 
-.loopexit:                                        ; preds = %24, %6, %22
+.loopexit:                                        ; preds = %23, %6, %21
   ret void
 }
 
@@ -2377,34 +2377,34 @@ define internal fastcc void @dissect_zcl_set_type(ptr noundef %0, ptr noundef %1
   %12 = zext i8 %3 to i32
   br label %13
 
-13:                                               ; preds = %.lr.ph, %23
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %23 ]
-  %14 = phi i32 [ %8, %.lr.ph ], [ %20, %23 ]
-  %.029 = phi i16 [ %4, %.lr.ph ], [ %24, %23 ]
+13:                                               ; preds = %.lr.ph, %22
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %22 ]
+  %14 = phi i32 [ %8, %.lr.ph ], [ %19, %22 ]
+  %.029 = phi i16 [ %4, %.lr.ph ], [ %23, %22 ]
   %15 = icmp ult i64 %indvars.iv, 15
   %16 = getelementptr [16 x i32], ptr @ett_zbee_zcl_array_elements, i64 0, i64 %indvars.iv
-  %.sink34 = select i1 %15, ptr %16, ptr getelementptr inbounds (i8, ptr @ett_zbee_zcl_array_elements, i64 60)
-  %17 = load i32, ptr %.sink34, align 4
-  %18 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %14, i32 noundef 0, i32 noundef %17, ptr noundef null, ptr noundef nonnull @.str.830) #5
+  %.sink.in = select i1 %15, ptr %16, ptr getelementptr inbounds (i8, ptr @ett_zbee_zcl_array_elements, i64 60)
+  %.sink = load i32, ptr %.sink.in, align 4
+  %17 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %14, i32 noundef 0, i32 noundef %.sink, ptr noundef null, ptr noundef nonnull @.str.830) #5
+  %18 = load i32, ptr %2, align 4
+  tail call void @dissect_zcl_attr_data(ptr noundef %0, ptr noundef %17, ptr noundef nonnull %2, i32 noundef %12, i32 noundef %5)
   %19 = load i32, ptr %2, align 4
-  tail call void @dissect_zcl_attr_data(ptr noundef %0, ptr noundef %18, ptr noundef nonnull %2, i32 noundef %12, i32 noundef %5)
-  %20 = load i32, ptr %2, align 4
-  %.not = icmp ult i32 %19, %20
-  br i1 %.not, label %23, label %21
+  %.not = icmp ult i32 %18, %19
+  br i1 %.not, label %22, label %20
 
-21:                                               ; preds = %13
-  %22 = tail call ptr @proto_tree_add_expert(ptr noundef %18, ptr noundef null, ptr noundef nonnull @ei_zbee_zero_length_element, ptr noundef %0, i32 noundef %19, i32 noundef -1) #5
+20:                                               ; preds = %13
+  %21 = tail call ptr @proto_tree_add_expert(ptr noundef %17, ptr noundef null, ptr noundef nonnull @ei_zbee_zero_length_element, ptr noundef %0, i32 noundef %18, i32 noundef -1) #5
   br label %.loopexit
 
-23:                                               ; preds = %13
-  %24 = add i16 %.029, -1
+22:                                               ; preds = %13
+  %23 = add i16 %.029, -1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %25 = icmp ult i32 %20, %7
-  %26 = icmp ne i16 %24, 0
-  %27 = select i1 %25, i1 %26, i1 false
-  br i1 %27, label %13, label %.loopexit, !llvm.loop !11
+  %24 = icmp ult i32 %19, %7
+  %25 = icmp ne i16 %23, 0
+  %26 = select i1 %24, i1 %25, i1 false
+  br i1 %26, label %13, label %.loopexit, !llvm.loop !11
 
-.loopexit:                                        ; preds = %23, %6, %21
+.loopexit:                                        ; preds = %22, %6, %20
   ret void
 }
 

@@ -2370,22 +2370,18 @@ _ZNSt10_HashtableIN6opencc19UTF8StringSliceBaseIhEESt4pairIKS2_NS0_13PhraseExtra
 
 133:                                              ; preds = %130
   %134 = getelementptr inbounds ptr, ptr %.0.i.i, i64 %.02530.i
-  br label %.sink.split.i
+  store ptr %.031.i, ptr %134, align 8
+  br label %138
 
 135:                                              ; preds = %.lr.ph.i
   %136 = load ptr, ptr %129, align 8
   store ptr %136, ptr %.031.i, align 8
   %137 = load ptr, ptr %128, align 8
-  br label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %135, %133
-  %.sink.i = phi ptr [ %134, %133 ], [ %137, %135 ]
-  %.1.ph.i = phi i64 [ %127, %133 ], [ %.02530.i, %135 ]
-  store ptr %.031.i, ptr %.sink.i, align 8
+  store ptr %.031.i, ptr %137, align 8
   br label %138
 
-138:                                              ; preds = %.sink.split.i, %130
-  %.1.i = phi i64 [ %127, %130 ], [ %.1.ph.i, %.sink.split.i ]
+138:                                              ; preds = %135, %133, %130
+  %.1.i = phi i64 [ %.02530.i, %135 ], [ %127, %133 ], [ %127, %130 ]
   %.not.i = icmp eq ptr %124, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !41
 
@@ -7139,22 +7135,18 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
-  br label %.sink.split
+  store ptr %.031, ptr %24, align 8
+  br label %28
 
 25:                                               ; preds = %.lr.ph
   %26 = load ptr, ptr %19, align 8
   store ptr %26, ptr %.031, align 8
   %27 = load ptr, ptr %18, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %25, %23
-  %.sink = phi ptr [ %24, %23 ], [ %27, %25 ]
-  %.1.ph = phi i64 [ %17, %23 ], [ %.02530, %25 ]
-  store ptr %.031, ptr %.sink, align 8
+  store ptr %.031, ptr %27, align 8
   br label %28
 
-28:                                               ; preds = %.sink.split, %20
-  %.1 = phi i64 [ %17, %20 ], [ %.1.ph, %.sink.split ]
+28:                                               ; preds = %20, %23, %25
+  %.1 = phi i64 [ %.02530, %25 ], [ %17, %23 ], [ %17, %20 ]
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !85
 
@@ -10791,22 +10783,18 @@ _ZNSt10_HashtableIN6opencc19UTF8StringSliceBaseIhEESt4pairIKS2_mESaIS5_ENSt8__de
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
-  br label %.sink.split
+  store ptr %.031, ptr %24, align 8
+  br label %28
 
 25:                                               ; preds = %.lr.ph
   %26 = load ptr, ptr %19, align 8
   store ptr %26, ptr %.031, align 8
   %27 = load ptr, ptr %18, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %25, %23
-  %.sink = phi ptr [ %24, %23 ], [ %27, %25 ]
-  %.1.ph = phi i64 [ %17, %23 ], [ %.02530, %25 ]
-  store ptr %.031, ptr %.sink, align 8
+  store ptr %.031, ptr %27, align 8
   br label %28
 
-28:                                               ; preds = %.sink.split, %20
-  %.1 = phi i64 [ %17, %20 ], [ %.1.ph, %.sink.split ]
+28:                                               ; preds = %20, %23, %25
+  %.1 = phi i64 [ %.02530, %25 ], [ %17, %23 ], [ %17, %20 ]
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !117
 

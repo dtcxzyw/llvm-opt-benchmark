@@ -2707,11 +2707,11 @@ _ZN7Compile13node_notes_atEi.exit.thread:         ; preds = %218, %.thread.i, %2
   %266 = getelementptr inbounds [20 x i32], ptr @type2size, i64 0, i64 %265
   %267 = load i32, ptr %266, align 4
   %.not124 = icmp eq i32 %267, 0
-  br i1 %.not124, label %293, label %268
+  br i1 %.not124, label %292, label %268
 
 268:                                              ; preds = %256
   %269 = call noundef zeroext i1 @_ZN8GraphKit7stoppedEv(ptr noundef nonnull align 8 dereferenceable(84) %4) #8
-  br i1 %269, label %293, label %270
+  br i1 %269, label %292, label %270
 
 270:                                              ; preds = %268
   %271 = icmp eq i32 %267, 1
@@ -2739,99 +2739,99 @@ _ZN7Compile13node_notes_atEi.exit.thread:         ; preds = %218, %.thread.i, %2
   br label %.sink.split
 
 .sink.split:                                      ; preds = %280, %275
-  %.sink174 = phi ptr [ %284, %280 ], [ %276, %275 ]
-  %.sink173 = phi i32 [ %285, %280 ], [ %279, %275 ]
-  %286 = getelementptr inbounds i8, ptr %.sink174, i64 16
+  %.sink173 = phi ptr [ %284, %280 ], [ %276, %275 ]
+  %.sink172 = phi i32 [ %285, %280 ], [ %279, %275 ]
+  %286 = getelementptr inbounds i8, ptr %.sink173, i64 16
   %287 = load i32, ptr %286, align 8
-  %288 = add i32 %287, %.sink173
-  %.sink171 = getelementptr inbounds i8, ptr %273, i64 8
-  %289 = load ptr, ptr %.sink171, align 8
-  %290 = zext i32 %288 to i64
-  %291 = getelementptr inbounds ptr, ptr %289, i64 %290
-  %292 = load ptr, ptr %291, align 8
-  br label %293
+  %288 = add i32 %287, %.sink172
+  %.sink169.in = getelementptr inbounds i8, ptr %273, i64 8
+  %.sink169 = load ptr, ptr %.sink169.in, align 8
+  %289 = zext i32 %288 to i64
+  %290 = getelementptr inbounds ptr, ptr %.sink169, i64 %289
+  %291 = load ptr, ptr %290, align 8
+  br label %292
 
-293:                                              ; preds = %.sink.split, %268, %256
-  %.0107 = phi ptr [ %257, %268 ], [ %257, %256 ], [ %292, %.sink.split ]
-  %294 = getelementptr inbounds i8, ptr %8, i64 44
-  %295 = load i32, ptr %294, align 4
-  %296 = and i32 %295, 31
-  %297 = icmp eq i32 %296, 31
-  br i1 %297, label %298, label %_ZNK18CallStaticJavaNode16is_boxing_methodEv.exit.thread
+292:                                              ; preds = %.sink.split, %268, %256
+  %.0107 = phi ptr [ %257, %268 ], [ %257, %256 ], [ %291, %.sink.split ]
+  %293 = getelementptr inbounds i8, ptr %8, i64 44
+  %294 = load i32, ptr %293, align 4
+  %295 = and i32 %294, 31
+  %296 = icmp eq i32 %295, 31
+  br i1 %296, label %297, label %_ZNK18CallStaticJavaNode16is_boxing_methodEv.exit.thread
 
-298:                                              ; preds = %293
-  %299 = load i32, ptr %116, align 8
-  %300 = and i32 %299, 8
-  %.not1.i = icmp eq i32 %300, 0
-  br i1 %.not1.i, label %_ZNK18CallStaticJavaNode16is_boxing_methodEv.exit.thread, label %301
+297:                                              ; preds = %292
+  %298 = load i32, ptr %116, align 8
+  %299 = and i32 %298, 8
+  %.not1.i = icmp eq i32 %299, 0
+  br i1 %.not1.i, label %_ZNK18CallStaticJavaNode16is_boxing_methodEv.exit.thread, label %300
 
-301:                                              ; preds = %298
-  %302 = getelementptr inbounds i8, ptr %8, i64 136
-  %303 = load ptr, ptr %302, align 8
-  %.not.i129 = icmp eq ptr %303, null
+300:                                              ; preds = %297
+  %301 = getelementptr inbounds i8, ptr %8, i64 136
+  %302 = load ptr, ptr %301, align 8
+  %.not.i129 = icmp eq ptr %302, null
   br i1 %.not.i129, label %_ZNK18CallStaticJavaNode16is_boxing_methodEv.exit.thread, label %_ZNK18CallStaticJavaNode16is_boxing_methodEv.exit
 
-_ZNK18CallStaticJavaNode16is_boxing_methodEv.exit: ; preds = %301
-  %304 = call noundef zeroext i1 @_ZNK8ciMethod16is_boxing_methodEv(ptr noundef nonnull align 8 dereferenceable(160) %303) #8
-  br i1 %304, label %305, label %_ZNK18CallStaticJavaNode16is_boxing_methodEv.exit.thread
+_ZNK18CallStaticJavaNode16is_boxing_methodEv.exit: ; preds = %300
+  %303 = call noundef zeroext i1 @_ZNK8ciMethod16is_boxing_methodEv(ptr noundef nonnull align 8 dereferenceable(160) %302) #8
+  br i1 %303, label %304, label %_ZNK18CallStaticJavaNode16is_boxing_methodEv.exit.thread
 
-305:                                              ; preds = %_ZNK18CallStaticJavaNode16is_boxing_methodEv.exit
-  %306 = call noundef ptr @_ZN8GraphKit16must_be_not_nullEP4Nodeb(ptr noundef nonnull align 8 dereferenceable(84) %4, ptr noundef %.0107, i1 noundef zeroext false) #8
+304:                                              ; preds = %_ZNK18CallStaticJavaNode16is_boxing_methodEv.exit
+  %305 = call noundef ptr @_ZN8GraphKit16must_be_not_nullEP4Nodeb(ptr noundef nonnull align 8 dereferenceable(84) %4, ptr noundef %.0107, i1 noundef zeroext false) #8
   br label %_ZNK18CallStaticJavaNode16is_boxing_methodEv.exit.thread
 
-_ZNK18CallStaticJavaNode16is_boxing_methodEv.exit.thread: ; preds = %298, %301, %305, %_ZNK18CallStaticJavaNode16is_boxing_methodEv.exit, %293
-  %.1 = phi ptr [ %306, %305 ], [ %.0107, %_ZNK18CallStaticJavaNode16is_boxing_methodEv.exit ], [ %.0107, %293 ], [ %.0107, %301 ], [ %.0107, %298 ]
-  %307 = load ptr, ptr %0, align 8
-  %308 = getelementptr inbounds i8, ptr %307, i64 8
-  %309 = load ptr, ptr %308, align 8
-  %310 = call noundef ptr %309(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
-  %311 = load ptr, ptr %310, align 8
-  %312 = getelementptr inbounds i8, ptr %311, i64 24
-  %313 = load ptr, ptr %312, align 8
-  %314 = call noundef zeroext i1 %313(ptr noundef nonnull align 8 dereferenceable(16) %310) #8
-  br i1 %314, label %315, label %337
+_ZNK18CallStaticJavaNode16is_boxing_methodEv.exit.thread: ; preds = %297, %300, %304, %_ZNK18CallStaticJavaNode16is_boxing_methodEv.exit, %292
+  %.1 = phi ptr [ %305, %304 ], [ %.0107, %_ZNK18CallStaticJavaNode16is_boxing_methodEv.exit ], [ %.0107, %292 ], [ %.0107, %300 ], [ %.0107, %297 ]
+  %306 = load ptr, ptr %0, align 8
+  %307 = getelementptr inbounds i8, ptr %306, i64 8
+  %308 = load ptr, ptr %307, align 8
+  %309 = call noundef ptr %308(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
+  %310 = load ptr, ptr %309, align 8
+  %311 = getelementptr inbounds i8, ptr %310, i64 24
+  %312 = load ptr, ptr %311, align 8
+  %313 = call noundef zeroext i1 %312(ptr noundef nonnull align 8 dereferenceable(16) %309) #8
+  br i1 %313, label %314, label %336
 
-315:                                              ; preds = %_ZNK18CallStaticJavaNode16is_boxing_methodEv.exit.thread
-  %316 = getelementptr inbounds i8, ptr %115, i64 123
-  %317 = load i8, ptr %316, align 1
-  %318 = trunc i8 %317 to i1
-  br i1 %318, label %328, label %319
+314:                                              ; preds = %_ZNK18CallStaticJavaNode16is_boxing_methodEv.exit.thread
+  %315 = getelementptr inbounds i8, ptr %115, i64 123
+  %316 = load i8, ptr %315, align 1
+  %317 = trunc i8 %316 to i1
+  br i1 %317, label %327, label %318
 
-319:                                              ; preds = %315
-  %320 = load ptr, ptr %0, align 8
-  %321 = getelementptr inbounds i8, ptr %320, i64 8
-  %322 = load ptr, ptr %321, align 8
-  %323 = call noundef ptr %322(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
-  %324 = getelementptr inbounds i8, ptr %323, i64 8
-  %325 = load ptr, ptr %324, align 8
-  %326 = call noundef zeroext i1 @_ZNK8ciMethod9has_loopsEv(ptr noundef nonnull align 8 dereferenceable(160) %325) #8
-  %327 = zext i1 %326 to i8
-  br label %328
+318:                                              ; preds = %314
+  %319 = load ptr, ptr %0, align 8
+  %320 = getelementptr inbounds i8, ptr %319, i64 8
+  %321 = load ptr, ptr %320, align 8
+  %322 = call noundef ptr %321(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
+  %323 = getelementptr inbounds i8, ptr %322, i64 8
+  %324 = load ptr, ptr %323, align 8
+  %325 = call noundef zeroext i1 @_ZNK8ciMethod9has_loopsEv(ptr noundef nonnull align 8 dereferenceable(160) %324) #8
+  %326 = zext i1 %325 to i8
+  br label %327
 
-328:                                              ; preds = %319, %315
-  %329 = phi i8 [ 1, %315 ], [ %327, %319 ]
-  store i8 %329, ptr %316, align 1
-  %330 = load ptr, ptr %247, align 8
-  %331 = load ptr, ptr %0, align 8
-  %332 = getelementptr inbounds i8, ptr %331, i64 8
-  %333 = load ptr, ptr %332, align 8
-  %334 = call noundef ptr %333(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
-  %335 = getelementptr inbounds i8, ptr %334, i64 8
-  %336 = load ptr, ptr %335, align 8
-  call void @_ZN5ciEnv21notice_inlined_methodEP8ciMethod(ptr noundef nonnull align 8 dereferenceable(1265) %330, ptr noundef %336) #8
-  br label %337
+327:                                              ; preds = %318, %314
+  %328 = phi i8 [ 1, %314 ], [ %326, %318 ]
+  store i8 %328, ptr %315, align 1
+  %329 = load ptr, ptr %247, align 8
+  %330 = load ptr, ptr %0, align 8
+  %331 = getelementptr inbounds i8, ptr %330, i64 8
+  %332 = load ptr, ptr %331, align 8
+  %333 = call noundef ptr %332(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
+  %334 = getelementptr inbounds i8, ptr %333, i64 8
+  %335 = load ptr, ptr %334, align 8
+  call void @_ZN5ciEnv21notice_inlined_methodEP8ciMethod(ptr noundef nonnull align 8 dereferenceable(1265) %329, ptr noundef %335) #8
+  br label %336
 
-337:                                              ; preds = %328, %_ZNK18CallStaticJavaNode16is_boxing_methodEv.exit.thread
-  %338 = getelementptr inbounds i8, ptr %115, i64 120
-  store i8 1, ptr %338, align 8
-  %339 = call noundef zeroext i1 @_ZN8GraphKit7stoppedEv(ptr noundef nonnull align 8 dereferenceable(84) %4) #8
-  %340 = zext i1 %339 to i8
-  %341 = getelementptr inbounds i8, ptr %115, i64 122
-  store i8 %340, ptr %341, align 2
+336:                                              ; preds = %327, %_ZNK18CallStaticJavaNode16is_boxing_methodEv.exit.thread
+  %337 = getelementptr inbounds i8, ptr %115, i64 120
+  store i8 1, ptr %337, align 8
+  %338 = call noundef zeroext i1 @_ZN8GraphKit7stoppedEv(ptr noundef nonnull align 8 dereferenceable(84) %4) #8
+  %339 = zext i1 %338 to i8
+  %340 = getelementptr inbounds i8, ptr %115, i64 122
+  store i8 %339, ptr %340, align 2
   call void @_ZN8GraphKit12replace_callEP8CallNodeP4Nodeb(ptr noundef nonnull align 8 dereferenceable(84) %4, ptr noundef nonnull %8, ptr noundef %.1, i1 noundef zeroext true) #8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %49, %246, %_ZN7Compile13node_notes_atEi.exit.thread, %72, %81, %90, %102, %107, %64, %._crit_edge, %1, %10, %14, %19, %337, %202, %136
+.loopexit:                                        ; preds = %49, %246, %_ZN7Compile13node_notes_atEi.exit.thread, %72, %81, %90, %102, %107, %64, %._crit_edge, %1, %10, %14, %19, %336, %202, %136
   ret void
 }
 

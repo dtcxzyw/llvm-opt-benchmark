@@ -368,6 +368,7 @@ aux_tblinsert_layout.exit:                        ; preds = %75, %.preheader94
 
 92:                                               ; preds = %88
   %93 = getelementptr inbounds %struct.pack_info_t, ptr %91, i64 %80, i32 3
+  store i32 1, ptr %93, align 4
   br label %aux_tblinsert_layout.exit81.sink.split
 
 94:                                               ; preds = %88
@@ -423,6 +424,7 @@ aux_tblinsert_layout.exit.thread:                 ; preds = %.lr.ph.i, %63, %59,
 
 126:                                              ; preds = %122
   %127 = getelementptr inbounds %struct.pack_info_t, ptr %125, i64 %115, i32 3
+  store i32 1, ptr %127, align 4
   br label %aux_tblinsert_layout.exit81.sink.split
 
 128:                                              ; preds = %122
@@ -447,11 +449,9 @@ aux_tblinsert_layout.exit.thread:                 ; preds = %.lr.ph.i, %63, %59,
   br i1 %139, label %.lr.ph.i82, label %aux_tblinsert_layout.exit81
 
 aux_tblinsert_layout.exit81.sink.split:           ; preds = %92, %126
-  %.sink = phi ptr [ %127, %126 ], [ %93, %92 ]
   %.sink145 = phi i64 [ %115, %126 ], [ %80, %92 ]
   %.191.ph = phi i1 [ true, %126 ], [ false, %92 ]
   %.170.ph = phi i32 [ %114, %126 ], [ %78, %92 ]
-  store i32 1, ptr %.sink, align 4
   %140 = load ptr, ptr %14, align 8
   %141 = getelementptr inbounds %struct.pack_info_t, ptr %140, i64 %.sink145, i32 4, i32 1
   store i32 -2, ptr %141, align 8

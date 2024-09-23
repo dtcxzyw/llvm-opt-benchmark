@@ -1785,11 +1785,10 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont
   %_M_parent16.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i6.i.i2, i64 8
   store ptr %6, ptr %_M_parent16.i.i.i.i.i.i, align 8
   %8 = load i64, ptr %_M_node_count.i.i.i.i.i, align 8
-  %_M_node_count17.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 64
-  store i64 %8, ptr %_M_node_count17.i.i.i.i.i.i, align 8
   store ptr null, ptr %_M_parent.i.i.i.i.i, align 8
   store ptr %0, ptr %_M_left.i.i.i.i.i, align 8
   store ptr %0, ptr %_M_right.i.i.i.i.i, align 8
+  store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8
   br label %invoke.cont2
 
 if.else.i.i.i.i.i:                                ; preds = %invoke.cont.thread, %invoke.cont
@@ -1801,20 +1800,20 @@ if.else.i.i.i.i.i:                                ; preds = %invoke.cont.thread,
   store ptr %9, ptr %_M_left.i3.i.i.i.i.i, align 8
   %_M_right.i4.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 56
   store ptr %9, ptr %_M_right.i4.i.i.i.i.i, align 8
-  %_M_node_count.i5.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 64
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
-  %_M_node_count.i5.sink.i.i.i.i.i = phi ptr [ %_M_node_count.i5.i.i.i.i.i, %if.else.i.i.i.i.i ], [ %_M_node_count.i.i.i.i.i, %if.then.i.i.i.i.i ]
-  store i64 0, ptr %_M_node_count.i5.sink.i.i.i.i.i, align 8
-  %10 = getelementptr inbounds i8, ptr %call, i64 80
-  store i32 0, ptr %10, align 8
+  %.sink = phi i64 [ 0, %if.else.i.i.i.i.i ], [ %8, %if.then.i.i.i.i.i ]
+  %10 = getelementptr inbounds i8, ptr %call, i64 64
+  store i64 %.sink, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %call, i64 80
+  store i32 0, ptr %11, align 8
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 88
   store ptr null, ptr %_M_parent.i.i.i.i.i.i, align 8
   %_M_left.i.i.i.i.i1.i = getelementptr inbounds i8, ptr %call, i64 96
-  store ptr %10, ptr %_M_left.i.i.i.i.i1.i, align 8
+  store ptr %11, ptr %_M_left.i.i.i.i.i1.i, align 8
   %_M_right.i.i.i.i.i2.i = getelementptr inbounds i8, ptr %call, i64 104
-  store ptr %10, ptr %_M_right.i.i.i.i.i2.i, align 8
+  store ptr %11, ptr %_M_right.i.i.i.i.i2.i, align 8
   %_M_node_count.i.i.i.i.i3.i = getelementptr inbounds i8, ptr %call, i64 112
   store i64 0, ptr %_M_node_count.i.i.i.i.i3.i, align 8
   store ptr %call, ptr %agg.result, align 8
@@ -1822,20 +1821,20 @@ invoke.cont2:                                     ; preds = %if.else.i.i.i.i.i, 
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core24CertificateProviderStore16PluginDefinitionESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %invoke.cont2
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #26
+  %13 = extractvalue { ptr, i32 } %12, 0
+  call void @__clang_call_terminate(ptr %13) #26
   unreachable
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core24CertificateProviderStore16PluginDefinitionESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit: ; preds = %invoke.cont2
   ret void
 
 lpad:                                             ; preds = %if.then.i.i
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call) #25
-  resume { ptr, i32 } %13
+  resume { ptr, i32 } %14
 }
 
 ; Function Attrs: nounwind

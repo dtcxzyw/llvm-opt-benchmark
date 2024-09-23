@@ -723,14 +723,14 @@ define linkonce_odr hidden void @_ZN15JvmtiRawMonitor14dequeue_waiterERNS_5QNode
   %3 = getelementptr inbounds i8, ptr %1, i64 28
   %4 = load volatile i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 2
-  br i1 %5, label %6, label %29
+  br i1 %5, label %6, label %32
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr @RawMonitor_lock, align 8
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %7) #9
   %8 = load volatile i32, ptr %3, align 4
   %9 = icmp eq i32 %8, 2
-  br i1 %9, label %10, label %27
+  br i1 %9, label %10, label %30
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %0, i64 24
@@ -745,12 +745,12 @@ define linkonce_odr hidden void @_ZN15JvmtiRawMonitor14dequeue_waiterERNS_5QNode
 
 13:                                               ; preds = %12
   %14 = icmp eq ptr %.0, null
-  br i1 %14, label %15, label %20
+  br i1 %14, label %15, label %22
 
 15:                                               ; preds = %13
   %16 = load volatile ptr, ptr %11, align 8
   %17 = icmp eq ptr %1, %16
-  br i1 %17, label %25, label %18
+  br i1 %17, label %20, label %18
 
 18:                                               ; preds = %15
   %19 = load ptr, ptr @g_assert_poison, align 8
@@ -758,41 +758,48 @@ define linkonce_odr hidden void @_ZN15JvmtiRawMonitor14dequeue_waiterERNS_5QNode
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 214, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.6) #10
   unreachable
 
-20:                                               ; preds = %13
-  %21 = load volatile ptr, ptr %.0, align 8
-  %22 = icmp eq ptr %1, %21
-  br i1 %22, label %25, label %23
+20:                                               ; preds = %15
+  %21 = load volatile ptr, ptr %.018, align 8
+  store volatile ptr %21, ptr %11, align 8
+  br label %29
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %24, align 1
+22:                                               ; preds = %13
+  %23 = load volatile ptr, ptr %.0, align 8
+  %24 = icmp eq ptr %1, %23
+  br i1 %24, label %27, label %25
+
+25:                                               ; preds = %22
+  %26 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %26, align 1
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 217, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.6) #10
   unreachable
 
-25:                                               ; preds = %20, %15
-  %.0.lcssa.sink = phi ptr [ %11, %15 ], [ %.0, %20 ]
-  %26 = load volatile ptr, ptr %.018, align 8
-  store volatile ptr %26, ptr %.0.lcssa.sink, align 8
-  store volatile i32 1, ptr %3, align 4
-  br label %27
-
-27:                                               ; preds = %25, %6
-  %28 = load ptr, ptr @RawMonitor_lock, align 8
-  tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %28) #9
+27:                                               ; preds = %22
+  %28 = load volatile ptr, ptr %.018, align 8
+  store volatile ptr %28, ptr %.0, align 8
   br label %29
 
-29:                                               ; preds = %2, %27
-  %30 = load volatile i32, ptr %3, align 4
-  %31 = icmp eq i32 %30, 1
-  br i1 %31, label %34, label %32
+29:                                               ; preds = %27, %20
+  store volatile i32 1, ptr %3, align 4
+  br label %30
 
-32:                                               ; preds = %29
-  %33 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %33, align 1
+30:                                               ; preds = %29, %6
+  %31 = load ptr, ptr @RawMonitor_lock, align 8
+  tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %31) #9
+  br label %32
+
+32:                                               ; preds = %2, %30
+  %33 = load volatile i32, ptr %3, align 4
+  %34 = icmp eq i32 %33, 1
+  br i1 %34, label %37, label %35
+
+35:                                               ; preds = %32
+  %36 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %36, align 1
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 225, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.6) #10
   unreachable
 
-34:                                               ; preds = %29
+37:                                               ; preds = %32
   ret void
 }
 

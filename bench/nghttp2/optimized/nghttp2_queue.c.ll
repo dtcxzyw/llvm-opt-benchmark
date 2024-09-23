@@ -58,15 +58,21 @@ if.end:                                           ; preds = %entry
   %back = getelementptr inbounds i8, ptr %queue, i64 8
   %0 = load ptr, ptr %back, align 8
   %tobool2.not = icmp eq ptr %0, null
+  br i1 %tobool2.not, label %if.else, label %if.then3
+
+if.then3:                                         ; preds = %if.end
   %next5 = getelementptr inbounds i8, ptr %0, i64 8
-  %next5.sink = select i1 %tobool2.not, ptr %back, ptr %next5
-  %back.sink = select i1 %tobool2.not, ptr %queue, ptr %back
-  store ptr %call, ptr %next5.sink, align 8
-  store ptr %call, ptr %back.sink, align 8
+  store ptr %call, ptr %next5, align 8
+  store ptr %call, ptr %back, align 8
   br label %return
 
-return:                                           ; preds = %if.end, %entry
-  %retval.0 = phi i32 [ -901, %entry ], [ 0, %if.end ]
+if.else:                                          ; preds = %if.end
+  store ptr %call, ptr %back, align 8
+  store ptr %call, ptr %queue, align 8
+  br label %return
+
+return:                                           ; preds = %if.then3, %if.else, %entry
+  %retval.0 = phi i32 [ -901, %entry ], [ 0, %if.else ], [ 0, %if.then3 ]
   ret i32 %retval.0
 }
 

@@ -4136,84 +4136,82 @@ define dso_local noundef ptr @_ZNK4llvm11Instruction13getAccessTypeEv(ptr nocapt
     i8 62, label %3
     i8 61, label %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit.thread.sink.split
     i8 66, label %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit.thread.sink.split
-    i8 65, label %5
-    i8 85, label %7
+    i8 65, label %6
+    i8 85, label %9
   ]
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 -64
-  br label %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit.thread.sink.split.sink.split
+  %5 = load ptr, ptr %4, align 8
+  br label %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit.thread.sink.split
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 -32
-  br label %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit.thread.sink.split.sink.split
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds i8, ptr %0, i64 -32
+  %8 = load ptr, ptr %7, align 8
+  br label %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit.thread.sink.split
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 -32
-  %9 = load ptr, ptr %8, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit.thread, label %10
+9:                                                ; preds = %1
+  %10 = getelementptr inbounds i8, ptr %0, i64 -32
+  %11 = load ptr, ptr %10, align 8
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %11, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit.thread, label %12
 
-10:                                               ; preds = %7
-  %11 = load i8, ptr %9, align 8
-  %12 = icmp eq i8 %11, 0
-  br i1 %12, label %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit.thread
+12:                                               ; preds = %9
+  %13 = load i8, ptr %11, align 8
+  %14 = icmp eq i8 %13, 0
+  br i1 %14, label %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit.thread
 
-_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %10
-  %13 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
+_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %12
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = icmp eq ptr %14, %16
-  br i1 %17, label %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPKNS_11InstructionEvE10isPossibleERKS4_.exit.i.i, label %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit.thread
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp eq ptr %16, %18
+  br i1 %19, label %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPKNS_11InstructionEvE10isPossibleERKS4_.exit.i.i, label %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit.thread
 
 _ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPKNS_11InstructionEvE10isPossibleERKS4_.exit.i.i: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i
-  %18 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %19 = load i32, ptr %18, align 8
-  %20 = and i32 %19, 8192
-  %.not.i.i = icmp eq i32 %20, 0
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %21 = load i32, ptr %20, align 8
+  %22 = and i32 %21, 8192
+  %.not.i.i = icmp eq i32 %22, 0
   br i1 %.not.i.i, label %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit.thread, label %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit
 
 _ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit: ; preds = %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPKNS_11InstructionEvE10isPossibleERKS4_.exit.i.i
-  %21 = getelementptr inbounds nuw i8, ptr %9, i64 36
-  %22 = load i32, ptr %21, align 4
-  switch i32 %22, label %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit.thread [
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 36
+  %24 = load i32, ptr %23, align 4
+  switch i32 %24, label %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit.thread [
     i32 222, label %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit.thread.sink.split
     i32 221, label %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit.thread.sink.split
     i32 220, label %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit.thread.sink.split
     i32 423, label %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit.thread.sink.split
     i32 418, label %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit.thread.sink.split
     i32 161, label %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit.thread.sink.split
-    i32 224, label %23
-    i32 223, label %23
-    i32 219, label %23
-    i32 466, label %23
-    i32 455, label %23
-    i32 162, label %23
+    i32 224, label %25
+    i32 223, label %25
+    i32 219, label %25
+    i32 466, label %25
+    i32 455, label %25
+    i32 162, label %25
   ]
 
-23:                                               ; preds = %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %25 = load i32, ptr %24, align 4
-  %26 = and i32 %25, 134217727
-  %27 = zext nneg i32 %26 to i64
-  %28 = sub nsw i64 0, %27
-  %29 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %28
-  br label %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit.thread.sink.split.sink.split
-
-_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit.thread.sink.split.sink.split: ; preds = %23, %5, %3
-  %.sink = phi ptr [ %4, %3 ], [ %6, %5 ], [ %29, %23 ]
-  %30 = load ptr, ptr %.sink, align 8
+25:                                               ; preds = %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %27 = load i32, ptr %26, align 4
+  %28 = and i32 %27, 134217727
+  %29 = zext nneg i32 %28 to i64
+  %30 = sub nsw i64 0, %29
+  %31 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %30
+  %32 = load ptr, ptr %31, align 8
   br label %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit.thread.sink.split
 
-_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit.thread.sink.split: ; preds = %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit.thread.sink.split.sink.split, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit, %1, %1
-  %.sink9 = phi ptr [ %0, %1 ], [ %0, %1 ], [ %0, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit ], [ %0, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit ], [ %0, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit ], [ %0, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit ], [ %0, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit ], [ %0, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit ], [ %30, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit.thread.sink.split.sink.split ]
-  %31 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
-  %32 = load ptr, ptr %31, align 8
+_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit.thread.sink.split: ; preds = %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit, %1, %1, %3, %6, %25
+  %.sink9 = phi ptr [ %32, %25 ], [ %8, %6 ], [ %5, %3 ], [ %0, %1 ], [ %0, %1 ], [ %0, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit ], [ %0, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit ], [ %0, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit ], [ %0, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit ], [ %0, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit ], [ %0, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit ]
+  %33 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
+  %34 = load ptr, ptr %33, align 8
   br label %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit.thread
 
-_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit.thread: ; preds = %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit.thread.sink.split, %1, %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPKNS_11InstructionEvE10isPossibleERKS4_.exit.i.i, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i, %10, %7, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit
-  %.0 = phi ptr [ null, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit ], [ null, %7 ], [ null, %10 ], [ null, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i ], [ null, %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPKNS_11InstructionEvE10isPossibleERKS4_.exit.i.i ], [ null, %1 ], [ %32, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit.thread.sink.split ]
+_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit.thread: ; preds = %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit.thread.sink.split, %1, %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPKNS_11InstructionEvE10isPossibleERKS4_.exit.i.i, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i, %12, %9, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit
+  %.0 = phi ptr [ null, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit ], [ null, %9 ], [ null, %12 ], [ null, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i ], [ null, %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPKNS_11InstructionEvE10isPossibleERKS4_.exit.i.i ], [ null, %1 ], [ %34, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit.thread.sink.split ]
   ret ptr %.0
 }
 
@@ -5314,15 +5312,15 @@ define dso_local noundef i32 @_ZNK4llvm11Instruction16getNumSuccessorsEv(ptr noc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef ptr @_ZNK4llvm11Instruction12getSuccessorEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = load i8, ptr %0, align 8
-  switch i8 %3, label %64 [
-    i8 40, label %44
+  switch i8 %3, label %72 [
+    i8 40, label %51
     i8 31, label %4
-    i8 32, label %9
-    i8 33, label %16
-    i8 34, label %22
-    i8 39, label %38
-    i8 38, label %36
-    i8 37, label %24
+    i8 32, label %10
+    i8 33, label %18
+    i8 34, label %25
+    i8 39, label %44
+    i8 38, label %41
+    i8 37, label %28
   ]
 
 4:                                                ; preds = %2
@@ -5330,96 +5328,103 @@ define dso_local noundef ptr @_ZNK4llvm11Instruction12getSuccessorEj(ptr nocaptu
   %6 = zext i32 %1 to i64
   %7 = sub nsw i64 0, %6
   %8 = getelementptr inbounds %"class.llvm::Use", ptr %5, i64 %7
-  br label %_ZNK4llvm17CleanupReturnInst12getSuccessorEj.exit.sink.split
-
-9:                                                ; preds = %2
-  %10 = shl i32 %1, 1
-  %11 = or disjoint i32 %10, 1
-  %12 = getelementptr inbounds i8, ptr %0, i64 -8
-  %13 = load ptr, ptr %12, align 8
-  %14 = zext i32 %11 to i64
-  %15 = getelementptr inbounds %"class.llvm::Use", ptr %13, i64 %14
-  br label %_ZNK4llvm17CleanupReturnInst12getSuccessorEj.exit.sink.split
-
-16:                                               ; preds = %2
-  %17 = add i32 %1, 1
-  %18 = getelementptr inbounds i8, ptr %0, i64 -8
-  %19 = load ptr, ptr %18, align 8
-  %20 = zext i32 %17 to i64
-  %21 = getelementptr inbounds %"class.llvm::Use", ptr %19, i64 %20
-  br label %_ZNK4llvm17CleanupReturnInst12getSuccessorEj.exit.sink.split
-
-22:                                               ; preds = %2
-  %23 = icmp eq i32 %1, 0
-  %.in.v.i = select i1 %23, i64 -96, i64 -64
-  %.in.i = getelementptr inbounds i8, ptr %0, i64 %.in.v.i
-  br label %_ZNK4llvm17CleanupReturnInst12getSuccessorEj.exit.sink.split
-
-24:                                               ; preds = %2
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %26 = load i16, ptr %25, align 2
-  %27 = and i16 %26, 1
-  %.not.i.i = icmp eq i16 %27, 0
-  br i1 %.not.i.i, label %_ZNK4llvm17CleanupReturnInst12getSuccessorEj.exit, label %28
-
-28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %30 = load i32, ptr %29, align 4
-  %31 = and i32 %30, 134217727
-  %32 = zext nneg i32 %31 to i64
-  %33 = sub nsw i64 0, %32
-  %34 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %33
-  %35 = getelementptr inbounds i8, ptr %34, i64 32
-  br label %_ZNK4llvm17CleanupReturnInst12getSuccessorEj.exit.sink.split
-
-36:                                               ; preds = %2
-  %37 = getelementptr inbounds i8, ptr %0, i64 -32
-  br label %_ZNK4llvm17CleanupReturnInst12getSuccessorEj.exit.sink.split
-
-38:                                               ; preds = %2
-  %39 = add i32 %1, 1
-  %40 = getelementptr inbounds i8, ptr %0, i64 -8
-  %41 = load ptr, ptr %40, align 8
-  %42 = zext i32 %39 to i64
-  %43 = getelementptr inbounds %"class.llvm::Use", ptr %41, i64 %42
-  br label %_ZNK4llvm17CleanupReturnInst12getSuccessorEj.exit.sink.split
-
-44:                                               ; preds = %2
-  %45 = icmp eq i32 %1, 0
-  br i1 %45, label %46, label %54
-
-46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %0, i64 -32
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %49 = load i32, ptr %48, align 8
-  %50 = zext i32 %49 to i64
-  %51 = sub nsw i64 0, %50
-  %52 = getelementptr inbounds %"class.llvm::Use", ptr %47, i64 %51
-  %53 = getelementptr inbounds i8, ptr %52, i64 -32
-  br label %_ZNK4llvm17CleanupReturnInst12getSuccessorEj.exit.sink.split
-
-54:                                               ; preds = %44
-  %55 = add i32 %1, -1
-  %56 = getelementptr inbounds i8, ptr %0, i64 -32
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %58 = load i32, ptr %57, align 8
-  %59 = zext i32 %58 to i64
-  %60 = sub nsw i64 0, %59
-  %61 = getelementptr inbounds %"class.llvm::Use", ptr %56, i64 %60
-  %62 = zext i32 %55 to i64
-  %63 = getelementptr inbounds %"class.llvm::Use", ptr %61, i64 %62
-  br label %_ZNK4llvm17CleanupReturnInst12getSuccessorEj.exit.sink.split
-
-64:                                               ; preds = %2
-  unreachable
-
-_ZNK4llvm17CleanupReturnInst12getSuccessorEj.exit.sink.split: ; preds = %54, %46, %4, %9, %16, %22, %36, %38, %28
-  %.sink = phi ptr [ %35, %28 ], [ %43, %38 ], [ %37, %36 ], [ %.in.i, %22 ], [ %21, %16 ], [ %15, %9 ], [ %8, %4 ], [ %53, %46 ], [ %63, %54 ]
-  %65 = load ptr, ptr %.sink, align 8
+  %9 = load ptr, ptr %8, align 8
   br label %_ZNK4llvm17CleanupReturnInst12getSuccessorEj.exit
 
-_ZNK4llvm17CleanupReturnInst12getSuccessorEj.exit: ; preds = %_ZNK4llvm17CleanupReturnInst12getSuccessorEj.exit.sink.split, %24
-  %.0 = phi ptr [ null, %24 ], [ %65, %_ZNK4llvm17CleanupReturnInst12getSuccessorEj.exit.sink.split ]
+10:                                               ; preds = %2
+  %11 = shl i32 %1, 1
+  %12 = or disjoint i32 %11, 1
+  %13 = getelementptr inbounds i8, ptr %0, i64 -8
+  %14 = load ptr, ptr %13, align 8
+  %15 = zext i32 %12 to i64
+  %16 = getelementptr inbounds %"class.llvm::Use", ptr %14, i64 %15
+  %17 = load ptr, ptr %16, align 8
+  br label %_ZNK4llvm17CleanupReturnInst12getSuccessorEj.exit
+
+18:                                               ; preds = %2
+  %19 = add i32 %1, 1
+  %20 = getelementptr inbounds i8, ptr %0, i64 -8
+  %21 = load ptr, ptr %20, align 8
+  %22 = zext i32 %19 to i64
+  %23 = getelementptr inbounds %"class.llvm::Use", ptr %21, i64 %22
+  %24 = load ptr, ptr %23, align 8
+  br label %_ZNK4llvm17CleanupReturnInst12getSuccessorEj.exit
+
+25:                                               ; preds = %2
+  %26 = icmp eq i32 %1, 0
+  %.in.v.i = select i1 %26, i64 -96, i64 -64
+  %.in.i = getelementptr inbounds i8, ptr %0, i64 %.in.v.i
+  %27 = load ptr, ptr %.in.i, align 8
+  br label %_ZNK4llvm17CleanupReturnInst12getSuccessorEj.exit
+
+28:                                               ; preds = %2
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %30 = load i16, ptr %29, align 2
+  %31 = and i16 %30, 1
+  %.not.i.i = icmp eq i16 %31, 0
+  br i1 %.not.i.i, label %_ZNK4llvm17CleanupReturnInst12getSuccessorEj.exit, label %32
+
+32:                                               ; preds = %28
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %34 = load i32, ptr %33, align 4
+  %35 = and i32 %34, 134217727
+  %36 = zext nneg i32 %35 to i64
+  %37 = sub nsw i64 0, %36
+  %38 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %37
+  %39 = getelementptr inbounds i8, ptr %38, i64 32
+  %40 = load ptr, ptr %39, align 8
+  br label %_ZNK4llvm17CleanupReturnInst12getSuccessorEj.exit
+
+41:                                               ; preds = %2
+  %42 = getelementptr inbounds i8, ptr %0, i64 -32
+  %43 = load ptr, ptr %42, align 8
+  br label %_ZNK4llvm17CleanupReturnInst12getSuccessorEj.exit
+
+44:                                               ; preds = %2
+  %45 = add i32 %1, 1
+  %46 = getelementptr inbounds i8, ptr %0, i64 -8
+  %47 = load ptr, ptr %46, align 8
+  %48 = zext i32 %45 to i64
+  %49 = getelementptr inbounds %"class.llvm::Use", ptr %47, i64 %48
+  %50 = load ptr, ptr %49, align 8
+  br label %_ZNK4llvm17CleanupReturnInst12getSuccessorEj.exit
+
+51:                                               ; preds = %2
+  %52 = icmp eq i32 %1, 0
+  br i1 %52, label %53, label %61
+
+53:                                               ; preds = %51
+  %54 = getelementptr inbounds i8, ptr %0, i64 -32
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %56 = load i32, ptr %55, align 8
+  %57 = zext i32 %56 to i64
+  %58 = sub nsw i64 0, %57
+  %59 = getelementptr inbounds %"class.llvm::Use", ptr %54, i64 %58
+  %60 = getelementptr inbounds i8, ptr %59, i64 -32
+  br label %_ZNK4llvm10CallBrInst12getSuccessorEj.exit
+
+61:                                               ; preds = %51
+  %62 = add i32 %1, -1
+  %63 = getelementptr inbounds i8, ptr %0, i64 -32
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %65 = load i32, ptr %64, align 8
+  %66 = zext i32 %65 to i64
+  %67 = sub nsw i64 0, %66
+  %68 = getelementptr inbounds %"class.llvm::Use", ptr %63, i64 %67
+  %69 = zext i32 %62 to i64
+  %70 = getelementptr inbounds %"class.llvm::Use", ptr %68, i64 %69
+  br label %_ZNK4llvm10CallBrInst12getSuccessorEj.exit
+
+_ZNK4llvm10CallBrInst12getSuccessorEj.exit:       ; preds = %53, %61
+  %.in.i12 = phi ptr [ %60, %53 ], [ %70, %61 ]
+  %71 = load ptr, ptr %.in.i12, align 8
+  br label %_ZNK4llvm17CleanupReturnInst12getSuccessorEj.exit
+
+72:                                               ; preds = %2
+  unreachable
+
+_ZNK4llvm17CleanupReturnInst12getSuccessorEj.exit: ; preds = %32, %28, %_ZNK4llvm10CallBrInst12getSuccessorEj.exit, %44, %41, %25, %18, %10, %4
+  %.0 = phi ptr [ %71, %_ZNK4llvm10CallBrInst12getSuccessorEj.exit ], [ %50, %44 ], [ %43, %41 ], [ %27, %25 ], [ %24, %18 ], [ %17, %10 ], [ %9, %4 ], [ %40, %32 ], [ null, %28 ]
   ret ptr %.0
 }
 
@@ -6020,106 +6025,107 @@ _ZNK4llvm11Instruction16getNumSuccessorsEv.exit:  ; preds = %11, %16, %21, %27, 
   %42 = zext i32 %.0.i17 to i64
   br label %43
 
-43:                                               ; preds = %.lr.ph, %87
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %87 ]
+43:                                               ; preds = %.lr.ph, %92
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %92 ]
   %44 = load i8, ptr %0, align 8
-  switch i8 %44, label %82 [
-    i8 40, label %72
+  switch i8 %44, label %88 [
+    i8 40, label %_ZNK4llvm10CallBrInst12getSuccessorEj.exit.i
     i8 31, label %45
-    i8 32, label %48
-    i8 33, label %54
-    i8 34, label %58
-    i8 39, label %68
-    i8 38, label %_ZNK4llvm17CleanupReturnInst12getSuccessorEj.exit.sink.split.i
-    i8 37, label %60
+    i8 32, label %49
+    i8 33, label %56
+    i8 34, label %61
+    i8 39, label %75
+    i8 38, label %73
+    i8 37, label %64
   ]
 
 45:                                               ; preds = %43
   %46 = sub nsw i64 0, %indvars.iv
   %47 = getelementptr inbounds %"class.llvm::Use", ptr %39, i64 %46
-  br label %_ZNK4llvm17CleanupReturnInst12getSuccessorEj.exit.sink.split.i
-
-48:                                               ; preds = %43
-  %49 = shl nuw i64 %indvars.iv, 1
-  %50 = load ptr, ptr %40, align 8
-  %51 = and i64 %49, 4294967294
-  %52 = or disjoint i64 %51, 1
-  %53 = getelementptr inbounds %"class.llvm::Use", ptr %50, i64 %52
-  br label %_ZNK4llvm17CleanupReturnInst12getSuccessorEj.exit.sink.split.i
-
-54:                                               ; preds = %43
-  %55 = load ptr, ptr %40, align 8
-  %56 = getelementptr inbounds %"class.llvm::Use", ptr %55, i64 %indvars.iv
-  %57 = getelementptr inbounds i8, ptr %56, i64 32
-  br label %_ZNK4llvm17CleanupReturnInst12getSuccessorEj.exit.sink.split.i
-
-58:                                               ; preds = %43
-  %59 = icmp eq i64 %indvars.iv, 0
-  %.in.v.i.i = select i1 %59, i64 -96, i64 -64
-  %.in.i.i = getelementptr inbounds i8, ptr %0, i64 %.in.v.i.i
-  br label %_ZNK4llvm17CleanupReturnInst12getSuccessorEj.exit.sink.split.i
-
-60:                                               ; preds = %43
-  %61 = load i16, ptr %37, align 2
-  %62 = and i16 %61, 1
-  %.not.i.i.i = icmp eq i16 %62, 0
-  br i1 %.not.i.i.i, label %_ZNK4llvm11Instruction12getSuccessorEj.exit, label %63
-
-63:                                               ; preds = %60
-  %64 = load i32, ptr %38, align 4
-  %65 = and i32 %64, 134217727
-  %66 = zext nneg i32 %65 to i64
-  %67 = sub nsw i64 0, %66
-  %gep = getelementptr %"class.llvm::Use", ptr %invariant.gep18, i64 %67
-  br label %_ZNK4llvm17CleanupReturnInst12getSuccessorEj.exit.sink.split.i
-
-68:                                               ; preds = %43
-  %69 = load ptr, ptr %40, align 8
-  %70 = getelementptr inbounds %"class.llvm::Use", ptr %69, i64 %indvars.iv
-  %71 = getelementptr inbounds i8, ptr %70, i64 32
-  br label %_ZNK4llvm17CleanupReturnInst12getSuccessorEj.exit.sink.split.i
-
-72:                                               ; preds = %43
-  %73 = icmp eq i64 %indvars.iv, 0
-  %74 = load i32, ptr %41, align 8
-  %75 = zext i32 %74 to i64
-  %76 = sub nsw i64 0, %75
-  br i1 %73, label %77, label %78
-
-77:                                               ; preds = %72
-  %gep12 = getelementptr %"class.llvm::Use", ptr %invariant.gep11, i64 %76
-  br label %_ZNK4llvm17CleanupReturnInst12getSuccessorEj.exit.sink.split.i
-
-78:                                               ; preds = %72
-  %79 = getelementptr inbounds %"class.llvm::Use", ptr %39, i64 %76
-  %80 = getelementptr %"class.llvm::Use", ptr %79, i64 %indvars.iv
-  %81 = getelementptr i8, ptr %80, i64 -32
-  br label %_ZNK4llvm17CleanupReturnInst12getSuccessorEj.exit.sink.split.i
-
-82:                                               ; preds = %43
-  unreachable
-
-_ZNK4llvm17CleanupReturnInst12getSuccessorEj.exit.sink.split.i: ; preds = %43, %78, %77, %68, %63, %58, %54, %48, %45
-  %.sink.i = phi ptr [ %gep, %63 ], [ %71, %68 ], [ %.in.i.i, %58 ], [ %57, %54 ], [ %53, %48 ], [ %47, %45 ], [ %gep12, %77 ], [ %81, %78 ], [ %39, %43 ]
-  %83 = load ptr, ptr %.sink.i, align 8
+  %48 = load ptr, ptr %47, align 8
   br label %_ZNK4llvm11Instruction12getSuccessorEj.exit
 
-_ZNK4llvm11Instruction12getSuccessorEj.exit:      ; preds = %60, %_ZNK4llvm17CleanupReturnInst12getSuccessorEj.exit.sink.split.i
-  %.0.i7 = phi ptr [ null, %60 ], [ %83, %_ZNK4llvm17CleanupReturnInst12getSuccessorEj.exit.sink.split.i ]
-  %84 = icmp eq ptr %.0.i7, %1
-  br i1 %84, label %85, label %87
+49:                                               ; preds = %43
+  %50 = shl nuw i64 %indvars.iv, 1
+  %51 = load ptr, ptr %40, align 8
+  %52 = and i64 %50, 4294967294
+  %53 = or disjoint i64 %52, 1
+  %54 = getelementptr inbounds %"class.llvm::Use", ptr %51, i64 %53
+  %55 = load ptr, ptr %54, align 8
+  br label %_ZNK4llvm11Instruction12getSuccessorEj.exit
 
-85:                                               ; preds = %_ZNK4llvm11Instruction12getSuccessorEj.exit
-  %86 = trunc nuw i64 %indvars.iv to i32
-  tail call void @_ZN4llvm11Instruction12setSuccessorEjPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %86, ptr noundef %2)
-  br label %87
+56:                                               ; preds = %43
+  %57 = load ptr, ptr %40, align 8
+  %58 = getelementptr inbounds %"class.llvm::Use", ptr %57, i64 %indvars.iv
+  %59 = getelementptr inbounds i8, ptr %58, i64 32
+  %60 = load ptr, ptr %59, align 8
+  br label %_ZNK4llvm11Instruction12getSuccessorEj.exit
 
-87:                                               ; preds = %_ZNK4llvm11Instruction12getSuccessorEj.exit, %85
+61:                                               ; preds = %43
+  %62 = icmp eq i64 %indvars.iv, 0
+  %.in.v.i.i = select i1 %62, i64 -96, i64 -64
+  %.in.i.i = getelementptr inbounds i8, ptr %0, i64 %.in.v.i.i
+  %63 = load ptr, ptr %.in.i.i, align 8
+  br label %_ZNK4llvm11Instruction12getSuccessorEj.exit
+
+64:                                               ; preds = %43
+  %65 = load i16, ptr %37, align 2
+  %66 = and i16 %65, 1
+  %.not.i.i.i = icmp eq i16 %66, 0
+  br i1 %.not.i.i.i, label %_ZNK4llvm11Instruction12getSuccessorEj.exit, label %67
+
+67:                                               ; preds = %64
+  %68 = load i32, ptr %38, align 4
+  %69 = and i32 %68, 134217727
+  %70 = zext nneg i32 %69 to i64
+  %71 = sub nsw i64 0, %70
+  %gep = getelementptr %"class.llvm::Use", ptr %invariant.gep18, i64 %71
+  %72 = load ptr, ptr %gep, align 8
+  br label %_ZNK4llvm11Instruction12getSuccessorEj.exit
+
+73:                                               ; preds = %43
+  %74 = load ptr, ptr %39, align 8
+  br label %_ZNK4llvm11Instruction12getSuccessorEj.exit
+
+75:                                               ; preds = %43
+  %76 = load ptr, ptr %40, align 8
+  %77 = getelementptr inbounds %"class.llvm::Use", ptr %76, i64 %indvars.iv
+  %78 = getelementptr inbounds i8, ptr %77, i64 32
+  %79 = load ptr, ptr %78, align 8
+  br label %_ZNK4llvm11Instruction12getSuccessorEj.exit
+
+_ZNK4llvm10CallBrInst12getSuccessorEj.exit.i:     ; preds = %43
+  %80 = icmp eq i64 %indvars.iv, 0
+  %81 = load i32, ptr %41, align 8
+  %82 = zext i32 %81 to i64
+  %83 = sub nsw i64 0, %82
+  %gep12 = getelementptr %"class.llvm::Use", ptr %invariant.gep11, i64 %83
+  %84 = getelementptr inbounds %"class.llvm::Use", ptr %39, i64 %83
+  %85 = getelementptr %"class.llvm::Use", ptr %84, i64 %indvars.iv
+  %86 = getelementptr i8, ptr %85, i64 -32
+  %.in.i12.i = select i1 %80, ptr %gep12, ptr %86
+  %87 = load ptr, ptr %.in.i12.i, align 8
+  br label %_ZNK4llvm11Instruction12getSuccessorEj.exit
+
+88:                                               ; preds = %43
+  unreachable
+
+_ZNK4llvm11Instruction12getSuccessorEj.exit:      ; preds = %45, %49, %56, %61, %64, %67, %73, %75, %_ZNK4llvm10CallBrInst12getSuccessorEj.exit.i
+  %.0.i7 = phi ptr [ %87, %_ZNK4llvm10CallBrInst12getSuccessorEj.exit.i ], [ %79, %75 ], [ %74, %73 ], [ %63, %61 ], [ %60, %56 ], [ %55, %49 ], [ %48, %45 ], [ %72, %67 ], [ null, %64 ]
+  %89 = icmp eq ptr %.0.i7, %1
+  br i1 %89, label %90, label %92
+
+90:                                               ; preds = %_ZNK4llvm11Instruction12getSuccessorEj.exit
+  %91 = trunc nuw i64 %indvars.iv to i32
+  tail call void @_ZN4llvm11Instruction12setSuccessorEjPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %91, ptr noundef %2)
+  br label %92
+
+92:                                               ; preds = %_ZNK4llvm11Instruction12getSuccessorEj.exit, %90
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %42
   br i1 %.not, label %._crit_edge, label %43, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %87, %3, %3, %3, %_ZNK4llvm11Instruction16getNumSuccessorsEv.exit
+._crit_edge:                                      ; preds = %92, %3, %3, %3, %_ZNK4llvm11Instruction16getNumSuccessorsEv.exit
   ret void
 }
 

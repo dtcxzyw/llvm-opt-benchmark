@@ -153,13 +153,13 @@ copy_address.exit68:                              ; preds = %copy_address.exit, 
   %68 = load i32, ptr %0, align 8
   %69 = tail call i32 @compare_headers(ptr noundef nonnull %56, ptr noundef nonnull %57, i16 noundef zeroext %59, i16 noundef zeroext %61, ptr noundef nonnull %62, ptr noundef nonnull %63, i16 noundef zeroext %65, i16 noundef zeroext %67, i32 noundef %68)
   %.not = icmp eq i32 %69, 0
-  br i1 %.not, label %149, label %70
+  br i1 %.not, label %150, label %70
 
 70:                                               ; preds = %55
   %71 = load i32, ptr %8, align 4
   %72 = load i32, ptr %10, align 4
   %73 = icmp eq i32 %71, %72
-  br i1 %73, label %74, label %149
+  br i1 %73, label %74, label %150
 
 74:                                               ; preds = %70
   %75 = tail call noalias dereferenceable_or_null(136) ptr @g_malloc_n(i64 noundef 1, i64 noundef 136) #17
@@ -277,16 +277,19 @@ copy_address.exit70:                              ; preds = %copy_address.exit69
 144:                                              ; preds = %140
   %145 = getelementptr inbounds i8, ptr %0, i64 16
   %146 = load ptr, ptr %145, align 8
-  br label %147
+  store ptr %75, ptr %146, align 8
+  br label %148
 
-147:                                              ; preds = %140, %144
-  %.sink = phi ptr [ %146, %144 ], [ %142, %140 ]
-  store ptr %75, ptr %.sink, align 8
-  %148 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %75, ptr %148, align 8
-  br label %149
+147:                                              ; preds = %140
+  store ptr %75, ptr %142, align 8
+  br label %148
 
-149:                                              ; preds = %147, %70, %55
+148:                                              ; preds = %147, %144
+  %149 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %75, ptr %149, align 8
+  br label %150
+
+150:                                              ; preds = %148, %70, %55
   ret i32 0
 }
 

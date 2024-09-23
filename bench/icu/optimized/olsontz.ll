@@ -1560,9 +1560,9 @@ if.else128:                                       ; preds = %entry
   br label %if.end133
 
 if.end133:                                        ; preds = %if.then6, %_ZNK6icu_7513OlsonTimeZone11dstOffsetAtEs.exit152, %if.else128
-  %arrayidx.i.sink = phi ptr [ %arrayidx.i, %if.then6 ], [ %arrayidx6.i146, %_ZNK6icu_7513OlsonTimeZone11dstOffsetAtEs.exit152 ], [ %arrayidx.i155, %if.else128 ]
-  %68 = load i32, ptr %arrayidx.i.sink, align 4
-  %mul9 = mul nsw i32 %68, 1000
+  %.sink.in = phi ptr [ %arrayidx.i, %if.then6 ], [ %arrayidx6.i146, %_ZNK6icu_7513OlsonTimeZone11dstOffsetAtEs.exit152 ], [ %arrayidx.i155, %if.else128 ]
+  %.sink = load i32, ptr %.sink.in, align 4
+  %mul9 = mul nsw i32 %.sink, 1000
   store i32 %mul9, ptr %dstoff, align 4
   ret void
 }

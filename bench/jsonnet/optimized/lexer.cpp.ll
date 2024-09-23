@@ -3939,9 +3939,9 @@ define void @_ZN7jsonnet8internal13jsonnet_unlexERKNSt7__cxx114listINS0_5TokenES
           to label %.invoke83 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .invoke83:                                        ; preds = %29, %51
-  %.sink = phi ptr [ %52, %51 ], [ %13, %29 ]
   %31 = phi ptr [ %50, %51 ], [ %30, %29 ]
-  %32 = load ptr, ptr %.sink, align 8
+  %.in = phi ptr [ %52, %51 ], [ %13, %29 ]
+  %32 = load ptr, ptr %.in, align 8
   %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(32) %32)
           to label %.invoke unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 

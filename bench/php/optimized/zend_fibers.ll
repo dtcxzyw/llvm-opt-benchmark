@@ -1410,16 +1410,16 @@ define hidden void @zim_Fiber_getReturn(ptr nocapture noundef readonly %0, ptr n
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #22
-  br label %47
+  br label %46
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 104
   %10 = load i32, ptr %9, align 8
-  switch i32 %10, label %42 [
+  switch i32 %10, label %41 [
     i32 3, label %11
-    i32 0, label %43
+    i32 0, label %42
   ]
 
 11:                                               ; preds = %6
@@ -1428,12 +1428,12 @@ define hidden void @zim_Fiber_getReturn(ptr nocapture noundef readonly %0, ptr n
   %14 = zext i8 %13 to i32
   %15 = and i32 %14, 1
   %.not29 = icmp eq i32 %15, 0
-  br i1 %.not29, label %16, label %43
+  br i1 %.not29, label %16, label %42
 
 16:                                               ; preds = %11
   %17 = and i32 %14, 2
   %.not30 = icmp eq i32 %17, 0
-  br i1 %.not30, label %18, label %43
+  br i1 %.not30, label %18, label %42
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds i8, ptr %8, i64 312
@@ -1441,7 +1441,7 @@ define hidden void @zim_Fiber_getReturn(ptr nocapture noundef readonly %0, ptr n
   %21 = load i32, ptr %20, align 8
   %22 = and i32 %21, 65280
   %.not31 = icmp eq i32 %22, 0
-  br i1 %.not31, label %37, label %23
+  br i1 %.not31, label %36, label %23
 
 23:                                               ; preds = %18
   %24 = and i32 %21, 255
@@ -1455,43 +1455,43 @@ define hidden void @zim_Fiber_getReturn(ptr nocapture noundef readonly %0, ptr n
   %30 = load i32, ptr %29, align 8
   %31 = and i32 %30, 65280
   %.not32 = icmp eq i32 %31, 0
-  br i1 %.not32, label %37, label %.sink.split
+  br i1 %.not32, label %36, label %.sink.split
 
 .sink.split:                                      ; preds = %23, %26
-  %.sink = phi i32 [ %30, %26 ], [ %21, %23 ]
-  %.sink35 = phi ptr [ %28, %26 ], [ %19, %23 ]
-  %32 = and i32 %.sink, 65280
+  %.sink37 = phi i32 [ %30, %26 ], [ %21, %23 ]
+  %.sink.in = phi ptr [ %28, %26 ], [ %19, %23 ]
+  %32 = and i32 %.sink37, 65280
   %33 = icmp ne i32 %32, 0
   tail call void @llvm.assume(i1 %33)
-  %34 = load ptr, ptr %.sink35, align 8
-  %35 = load i32, ptr %34, align 4
-  %36 = add i32 %35, 1
-  store i32 %36, ptr %34, align 4
-  br label %37
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %34 = load i32, ptr %.sink, align 4
+  %35 = add i32 %34, 1
+  store i32 %35, ptr %.sink, align 4
+  br label %36
 
-37:                                               ; preds = %.sink.split, %18, %26
-  %.027 = phi ptr [ %28, %26 ], [ %19, %18 ], [ %.sink35, %.sink.split ]
-  %38 = load ptr, ptr %.027, align 8
-  %39 = getelementptr inbounds i8, ptr %.027, i64 8
-  %40 = load i32, ptr %39, align 8
-  store ptr %38, ptr %1, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %40, ptr %41, align 8
-  br label %47
+36:                                               ; preds = %.sink.split, %18, %26
+  %.027 = phi ptr [ %28, %26 ], [ %19, %18 ], [ %.sink.in, %.sink.split ]
+  %37 = load ptr, ptr %.027, align 8
+  %38 = getelementptr inbounds i8, ptr %.027, i64 8
+  %39 = load i32, ptr %38, align 8
+  store ptr %37, ptr %1, align 8
+  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %39, ptr %40, align 8
+  br label %46
 
-42:                                               ; preds = %6
-  br label %43
+41:                                               ; preds = %6
+  br label %42
 
-43:                                               ; preds = %6, %16, %11, %42
-  %.0 = phi ptr [ @.str.14, %42 ], [ @.str.11, %11 ], [ @.str.12, %16 ], [ @.str.13, %6 ]
-  %44 = load ptr, ptr @zend_ce_fiber_error, align 8
-  tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef %44, ptr noundef nonnull @.str.15, ptr noundef nonnull %.0) #22
-  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %46 = icmp ne ptr %45, null
-  tail call void @llvm.assume(i1 %46)
-  br label %47
+42:                                               ; preds = %6, %16, %11, %41
+  %.0 = phi ptr [ @.str.14, %41 ], [ @.str.11, %11 ], [ @.str.12, %16 ], [ @.str.13, %6 ]
+  %43 = load ptr, ptr @zend_ce_fiber_error, align 8
+  tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef %43, ptr noundef nonnull @.str.15, ptr noundef nonnull %.0) #22
+  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %45 = icmp ne ptr %44, null
+  tail call void @llvm.assume(i1 %45)
+  br label %46
 
-47:                                               ; preds = %43, %37, %5
+46:                                               ; preds = %42, %36, %5
   ret void
 }
 

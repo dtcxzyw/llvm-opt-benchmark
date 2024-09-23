@@ -2404,22 +2404,18 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 622:                                              ; preds = %619
   %623 = getelementptr inbounds ptr, ptr %.0.i.i.i.i.i.i.i.i.i.i, i64 %.0252.i.i.i.i.i.i.i.i.i
-  br label %.sink.split.i.i.i.i.i.i.i.i.i
+  store ptr %.03.i.i.i.i.i.i.i.i.i, ptr %623, align 8
+  br label %627
 
 624:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
   %625 = load ptr, ptr %618, align 8
   store ptr %625, ptr %.03.i.i.i.i.i.i.i.i.i, align 8
   %626 = load ptr, ptr %617, align 8
-  br label %.sink.split.i.i.i.i.i.i.i.i.i
-
-.sink.split.i.i.i.i.i.i.i.i.i:                    ; preds = %624, %622
-  %.sink.i.i.i.i.i.i.i.i.i = phi ptr [ %623, %622 ], [ %626, %624 ]
-  %.1.ph.i.i.i.i.i.i.i.i.i = phi i64 [ %616, %622 ], [ %.0252.i.i.i.i.i.i.i.i.i, %624 ]
-  store ptr %.03.i.i.i.i.i.i.i.i.i, ptr %.sink.i.i.i.i.i.i.i.i.i, align 8
+  store ptr %.03.i.i.i.i.i.i.i.i.i, ptr %626, align 8
   br label %627
 
-627:                                              ; preds = %.sink.split.i.i.i.i.i.i.i.i.i, %619
-  %.1.i.i.i.i.i.i.i.i.i = phi i64 [ %616, %619 ], [ %.1.ph.i.i.i.i.i.i.i.i.i, %.sink.split.i.i.i.i.i.i.i.i.i ]
+627:                                              ; preds = %624, %622, %619
+  %.1.i.i.i.i.i.i.i.i.i = phi i64 [ %.0252.i.i.i.i.i.i.i.i.i, %624 ], [ %616, %622 ], [ %616, %619 ]
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %.0.val.i.i.i.i.i.i.i.i.i, null
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !10
 

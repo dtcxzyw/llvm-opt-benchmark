@@ -52,19 +52,19 @@ if.then:                                          ; preds = %for.body
   %inc = add i64 %1, 1
   store i64 %inc, ptr %del_len, align 8
   %arrayidx10 = getelementptr inbounds ptr, ptr %call3, i64 %1
+  store ptr %2, ptr %arrayidx10, align 8
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
   %inc16 = add i64 %0, 1
   store i64 %inc16, ptr %add_len, align 8
   %arrayidx17 = getelementptr inbounds ptr, ptr %call, i64 %0
+  store ptr %2, ptr %arrayidx17, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then, %if.else
-  %arrayidx10.sink = phi ptr [ %arrayidx10, %if.then ], [ %arrayidx17, %if.else ]
   %3 = phi i64 [ %0, %if.then ], [ %inc16, %if.else ]
   %4 = phi i64 [ %inc, %if.then ], [ %1, %if.else ]
-  store ptr %2, ptr %arrayidx10.sink, align 8
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %sz
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5

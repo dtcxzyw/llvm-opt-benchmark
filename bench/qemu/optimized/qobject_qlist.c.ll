@@ -199,10 +199,19 @@ if.end:                                           ; preds = %lor.lhs.false
   %cmp4.not = icmp eq ptr %1, null
   %tql_prev11 = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %tql_prev11, align 8
-  %tql_prev13 = getelementptr inbounds i8, ptr %qlist, i64 24
+  br i1 %cmp4.not, label %if.else, label %if.then5
+
+if.then5:                                         ; preds = %if.end
   %tql_prev9 = getelementptr inbounds i8, ptr %1, i64 16
-  %tql_prev13.sink = select i1 %cmp4.not, ptr %tql_prev13, ptr %tql_prev9
-  store ptr %2, ptr %tql_prev13.sink, align 8
+  store ptr %2, ptr %tql_prev9, align 8
+  br label %if.end14
+
+if.else:                                          ; preds = %if.end
+  %tql_prev13 = getelementptr inbounds i8, ptr %qlist, i64 24
+  store ptr %2, ptr %tql_prev13, align 8
+  br label %if.end14
+
+if.end14:                                         ; preds = %if.else, %if.then5
   %3 = load ptr, ptr %next, align 8
   store ptr %3, ptr %2, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next, i8 0, i64 16, i1 false)
@@ -210,8 +219,8 @@ if.end:                                           ; preds = %lor.lhs.false
   tail call void @g_free(ptr noundef nonnull %0) #10
   br label %return
 
-return:                                           ; preds = %entry, %lor.lhs.false, %if.end
-  %retval.0 = phi ptr [ %4, %if.end ], [ null, %lor.lhs.false ], [ null, %entry ]
+return:                                           ; preds = %entry, %lor.lhs.false, %if.end14
+  %retval.0 = phi ptr [ %4, %if.end14 ], [ null, %lor.lhs.false ], [ null, %entry ]
   ret ptr %retval.0
 }
 
@@ -389,9 +398,18 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %qo
   %cmp3.not = icmp eq ptr %2, null
   %tql_prev11 = getelementptr inbounds i8, ptr %entry1.023, i64 16
   %3 = load ptr, ptr %tql_prev11, align 8
+  br i1 %cmp3.not, label %if.else9, label %if.then4
+
+if.then4:                                         ; preds = %land.rhs
   %tql_prev8 = getelementptr inbounds i8, ptr %2, i64 16
-  %tql_prev13.sink = select i1 %cmp3.not, ptr %tql_prev13, ptr %tql_prev8
-  store ptr %3, ptr %tql_prev13.sink, align 8
+  store ptr %3, ptr %tql_prev8, align 8
+  br label %if.end14
+
+if.else9:                                         ; preds = %land.rhs
+  store ptr %3, ptr %tql_prev13, align 8
+  br label %if.end14
+
+if.end14:                                         ; preds = %if.else9, %if.then4
   %4 = load ptr, ptr %next, align 8
   store ptr %4, ptr %3, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next, i8 0, i64 16, i1 false)
@@ -399,7 +417,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %qo
   %tobool23.not = icmp eq ptr %5, null
   br i1 %tobool23.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
-lor.lhs.false.i:                                  ; preds = %land.rhs
+lor.lhs.false.i:                                  ; preds = %if.end14
   %refcnt.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %6, 0
@@ -419,7 +437,7 @@ if.then5.i:                                       ; preds = %land.lhs.true.i19
   tail call void @qobject_destroy(ptr noundef nonnull %5) #10
   br label %qobject_unref_impl.exit
 
-qobject_unref_impl.exit:                          ; preds = %land.rhs, %land.lhs.true.i19, %if.then5.i
+qobject_unref_impl.exit:                          ; preds = %if.end14, %land.lhs.true.i19, %if.then5.i
   tail call void @g_free(ptr noundef nonnull %entry1.023) #10
   br i1 %cmp3.not, label %for.end, label %land.rhs, !llvm.loop !9
 

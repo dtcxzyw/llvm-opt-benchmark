@@ -1153,101 +1153,104 @@ link_dep.exit:                                    ; preds = %2
 
 link_sib.exit:                                    ; preds = %.preheader
   %17 = getelementptr inbounds i8, ptr %.0.i, i64 120
-  br label %link_dep.exit47
+  store ptr %11, ptr %17, align 8
+  br label %18
 
-link_dep.exit47:                                  ; preds = %link_dep.exit, %link_sib.exit
-  %.sink71 = phi ptr [ %17, %link_sib.exit ], [ %13, %link_dep.exit ]
-  %.sink70 = phi i64 [ 112, %link_sib.exit ], [ 96, %link_dep.exit ]
-  %.sink = phi ptr [ %.0.i, %link_sib.exit ], [ %1, %link_dep.exit ]
-  store ptr %11, ptr %.sink71, align 8
-  %18 = getelementptr inbounds i8, ptr %11, i64 %.sink70
-  store ptr %.sink, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %20
+link_dep.exit47:                                  ; preds = %link_dep.exit
+  store ptr %11, ptr %13, align 8
+  br label %18
 
-20:                                               ; preds = %link_dep.exit47, %stream_obq_move.exit.thread
-  %.064 = phi ptr [ %11, %link_dep.exit47 ], [ %55, %stream_obq_move.exit.thread ]
-  %21 = getelementptr inbounds i8, ptr %.064, i64 96
-  store ptr %1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %.064, i64 218
-  %23 = load i8, ptr %22, align 2
-  %.not42 = icmp eq i8 %23, 0
-  br i1 %.not42, label %stream_obq_move.exit.thread, label %24
+18:                                               ; preds = %link_dep.exit47, %link_sib.exit
+  %.sink70 = phi i64 [ 96, %link_dep.exit47 ], [ 112, %link_sib.exit ]
+  %.sink = phi ptr [ %1, %link_dep.exit47 ], [ %.0.i, %link_sib.exit ]
+  %19 = getelementptr inbounds i8, ptr %11, i64 %.sink70
+  store ptr %.sink, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  br label %21
 
-24:                                               ; preds = %20
-  tail call void @nghttp2_pq_remove(ptr noundef nonnull %19, ptr noundef nonnull %.064) #8
-  store i8 0, ptr %22, align 2
+21:                                               ; preds = %18, %stream_obq_move.exit.thread
+  %.064 = phi ptr [ %11, %18 ], [ %56, %stream_obq_move.exit.thread ]
+  %22 = getelementptr inbounds i8, ptr %.064, i64 96
+  store ptr %1, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %.064, i64 218
+  %24 = load i8, ptr %23, align 2
+  %.not42 = icmp eq i8 %24, 0
+  br i1 %.not42, label %stream_obq_move.exit.thread, label %25
+
+25:                                               ; preds = %21
+  tail call void @nghttp2_pq_remove(ptr noundef nonnull %20, ptr noundef nonnull %.064) #8
+  store i8 0, ptr %23, align 2
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %24, %51
-  %.01320.i.i = phi ptr [ %.01419.i.i, %51 ], [ %.064, %24 ]
-  %.01419.i.i = phi ptr [ %53, %51 ], [ %1, %24 ]
-  %25 = getelementptr inbounds i8, ptr %.01320.i.i, i64 218
-  %26 = load i8, ptr %25, align 2
-  %.not16.i.i = icmp eq i8 %26, 0
-  br i1 %.not16.i.i, label %27, label %stream_obq_move.exit.thread
+.lr.ph.i.i:                                       ; preds = %25, %52
+  %.01320.i.i = phi ptr [ %.01419.i.i, %52 ], [ %.064, %25 ]
+  %.01419.i.i = phi ptr [ %54, %52 ], [ %1, %25 ]
+  %26 = getelementptr inbounds i8, ptr %.01320.i.i, i64 218
+  %27 = load i8, ptr %26, align 2
+  %.not16.i.i = icmp eq i8 %27, 0
+  br i1 %.not16.i.i, label %28, label %stream_obq_move.exit.thread
 
-27:                                               ; preds = %.lr.ph.i.i
-  %28 = getelementptr inbounds i8, ptr %.01419.i.i, i64 64
-  %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %.01320.i.i, i64 160
-  %31 = load i64, ptr %30, align 8
-  %32 = shl i64 %31, 8
-  %33 = getelementptr inbounds i8, ptr %.01320.i.i, i64 196
-  %34 = load i32, ptr %33, align 4
-  %35 = zext i32 %34 to i64
-  %36 = add i64 %32, %35
-  %37 = getelementptr inbounds i8, ptr %.01320.i.i, i64 192
-  %38 = load i32, ptr %37, align 8
-  %39 = zext i32 %38 to i64
-  %40 = udiv i64 %36, %39
-  %41 = add i64 %40, %29
-  %42 = getelementptr inbounds i8, ptr %.01320.i.i, i64 72
-  store i64 %41, ptr %42, align 8
-  %43 = urem i64 %36, %39
-  %44 = trunc nuw i64 %43 to i32
-  store i32 %44, ptr %33, align 4
-  %45 = getelementptr inbounds i8, ptr %.01419.i.i, i64 80
-  %46 = load i64, ptr %45, align 8
-  %47 = add i64 %46, 1
-  store i64 %47, ptr %45, align 8
-  %48 = getelementptr inbounds i8, ptr %.01320.i.i, i64 88
-  store i64 %46, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %.01419.i.i, i64 8
-  %50 = tail call i32 @nghttp2_pq_push(ptr noundef nonnull %49, ptr noundef nonnull %.01320.i.i) #8
-  %.not17.i.i = icmp eq i32 %50, 0
-  br i1 %.not17.i.i, label %51, label %stream_obq_move.exit
+28:                                               ; preds = %.lr.ph.i.i
+  %29 = getelementptr inbounds i8, ptr %.01419.i.i, i64 64
+  %30 = load i64, ptr %29, align 8
+  %31 = getelementptr inbounds i8, ptr %.01320.i.i, i64 160
+  %32 = load i64, ptr %31, align 8
+  %33 = shl i64 %32, 8
+  %34 = getelementptr inbounds i8, ptr %.01320.i.i, i64 196
+  %35 = load i32, ptr %34, align 4
+  %36 = zext i32 %35 to i64
+  %37 = add i64 %33, %36
+  %38 = getelementptr inbounds i8, ptr %.01320.i.i, i64 192
+  %39 = load i32, ptr %38, align 8
+  %40 = zext i32 %39 to i64
+  %41 = udiv i64 %37, %40
+  %42 = add i64 %41, %30
+  %43 = getelementptr inbounds i8, ptr %.01320.i.i, i64 72
+  store i64 %42, ptr %43, align 8
+  %44 = urem i64 %37, %40
+  %45 = trunc nuw i64 %44 to i32
+  store i32 %45, ptr %34, align 4
+  %46 = getelementptr inbounds i8, ptr %.01419.i.i, i64 80
+  %47 = load i64, ptr %46, align 8
+  %48 = add i64 %47, 1
+  store i64 %48, ptr %46, align 8
+  %49 = getelementptr inbounds i8, ptr %.01320.i.i, i64 88
+  store i64 %47, ptr %49, align 8
+  %50 = getelementptr inbounds i8, ptr %.01419.i.i, i64 8
+  %51 = tail call i32 @nghttp2_pq_push(ptr noundef nonnull %50, ptr noundef nonnull %.01320.i.i) #8
+  %.not17.i.i = icmp eq i32 %51, 0
+  br i1 %.not17.i.i, label %52, label %stream_obq_move.exit
 
-51:                                               ; preds = %27
-  store i8 1, ptr %25, align 2
-  %52 = getelementptr inbounds i8, ptr %.01419.i.i, i64 96
-  %53 = load ptr, ptr %52, align 8
-  %.not.i.i = icmp eq ptr %53, null
+52:                                               ; preds = %28
+  store i8 1, ptr %26, align 2
+  %53 = getelementptr inbounds i8, ptr %.01419.i.i, i64 96
+  %54 = load ptr, ptr %53, align 8
+  %.not.i.i = icmp eq ptr %54, null
   br i1 %.not.i.i, label %stream_obq_move.exit.thread, label %.lr.ph.i.i, !llvm.loop !7
 
-stream_obq_move.exit.thread:                      ; preds = %.lr.ph.i.i, %51, %20
-  %54 = getelementptr inbounds i8, ptr %.064, i64 120
-  %55 = load ptr, ptr %54, align 8
-  %.not39 = icmp eq ptr %55, null
-  br i1 %.not39, label %.loopexit, label %20, !llvm.loop !13
+stream_obq_move.exit.thread:                      ; preds = %.lr.ph.i.i, %52, %21
+  %55 = getelementptr inbounds i8, ptr %.064, i64 120
+  %56 = load ptr, ptr %55, align 8
+  %.not39 = icmp eq ptr %56, null
+  br i1 %.not39, label %.loopexit, label %21, !llvm.loop !13
 
 .loopexit:                                        ; preds = %stream_obq_move.exit.thread, %2
-  %56 = getelementptr inbounds i8, ptr %1, i64 152
-  %57 = load ptr, ptr %56, align 8
-  %.not.i.i52 = icmp eq ptr %57, null
+  %57 = getelementptr inbounds i8, ptr %1, i64 152
+  %58 = load ptr, ptr %57, align 8
+  %.not.i.i52 = icmp eq ptr %58, null
   br i1 %.not.i.i52, label %stream_subtree_active.exit, label %stream_active.exit.i
 
 stream_active.exit.i:                             ; preds = %.loopexit
-  %58 = getelementptr inbounds i8, ptr %1, i64 216
-  %59 = load i8, ptr %58, align 8
-  %60 = and i8 %59, 12
-  %.not.i53 = icmp eq i8 %60, 0
+  %59 = getelementptr inbounds i8, ptr %1, i64 216
+  %60 = load i8, ptr %59, align 8
+  %61 = and i8 %60, 12
+  %.not.i53 = icmp eq i8 %61, 0
   br i1 %.not.i53, label %stream_subtree_active.exit.thread, label %stream_subtree_active.exit
 
 stream_subtree_active.exit:                       ; preds = %.loopexit, %stream_active.exit.i
-  %61 = getelementptr inbounds i8, ptr %1, i64 8
-  %62 = tail call i32 @nghttp2_pq_empty(ptr noundef nonnull %61) #8
-  %.not2.i = icmp ne i32 %62, 0
+  %62 = getelementptr inbounds i8, ptr %1, i64 8
+  %63 = tail call i32 @nghttp2_pq_empty(ptr noundef nonnull %62) #8
+  %.not2.i = icmp ne i32 %63, 0
   %.not18.i = icmp eq ptr %0, null
   %or.cond = or i1 %.not18.i, %.not2.i
   br i1 %or.cond, label %stream_obq_move.exit, label %.lr.ph.i.preheader
@@ -1259,54 +1262,54 @@ stream_subtree_active.exit.thread:                ; preds = %stream_active.exit.
 .lr.ph.i.preheader:                               ; preds = %stream_subtree_active.exit.thread, %stream_subtree_active.exit
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %89
-  %.01320.i = phi ptr [ %.01419.i, %89 ], [ %1, %.lr.ph.i.preheader ]
-  %.01419.i = phi ptr [ %91, %89 ], [ %0, %.lr.ph.i.preheader ]
-  %63 = getelementptr inbounds i8, ptr %.01320.i, i64 218
-  %64 = load i8, ptr %63, align 2
-  %.not16.i = icmp eq i8 %64, 0
-  br i1 %.not16.i, label %65, label %stream_obq_move.exit
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %90
+  %.01320.i = phi ptr [ %.01419.i, %90 ], [ %1, %.lr.ph.i.preheader ]
+  %.01419.i = phi ptr [ %92, %90 ], [ %0, %.lr.ph.i.preheader ]
+  %64 = getelementptr inbounds i8, ptr %.01320.i, i64 218
+  %65 = load i8, ptr %64, align 2
+  %.not16.i = icmp eq i8 %65, 0
+  br i1 %.not16.i, label %66, label %stream_obq_move.exit
 
-65:                                               ; preds = %.lr.ph.i
-  %66 = getelementptr inbounds i8, ptr %.01419.i, i64 64
-  %67 = load i64, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %.01320.i, i64 160
-  %69 = load i64, ptr %68, align 8
-  %70 = shl i64 %69, 8
-  %71 = getelementptr inbounds i8, ptr %.01320.i, i64 196
-  %72 = load i32, ptr %71, align 4
-  %73 = zext i32 %72 to i64
-  %74 = add i64 %70, %73
-  %75 = getelementptr inbounds i8, ptr %.01320.i, i64 192
-  %76 = load i32, ptr %75, align 8
-  %77 = zext i32 %76 to i64
-  %78 = udiv i64 %74, %77
-  %79 = add i64 %78, %67
-  %80 = getelementptr inbounds i8, ptr %.01320.i, i64 72
-  store i64 %79, ptr %80, align 8
-  %81 = urem i64 %74, %77
-  %82 = trunc nuw i64 %81 to i32
-  store i32 %82, ptr %71, align 4
-  %83 = getelementptr inbounds i8, ptr %.01419.i, i64 80
-  %84 = load i64, ptr %83, align 8
-  %85 = add i64 %84, 1
-  store i64 %85, ptr %83, align 8
-  %86 = getelementptr inbounds i8, ptr %.01320.i, i64 88
-  store i64 %84, ptr %86, align 8
-  %87 = getelementptr inbounds i8, ptr %.01419.i, i64 8
-  %88 = tail call i32 @nghttp2_pq_push(ptr noundef nonnull %87, ptr noundef nonnull %.01320.i) #8
-  %.not17.i = icmp eq i32 %88, 0
-  br i1 %.not17.i, label %89, label %stream_obq_move.exit
+66:                                               ; preds = %.lr.ph.i
+  %67 = getelementptr inbounds i8, ptr %.01419.i, i64 64
+  %68 = load i64, ptr %67, align 8
+  %69 = getelementptr inbounds i8, ptr %.01320.i, i64 160
+  %70 = load i64, ptr %69, align 8
+  %71 = shl i64 %70, 8
+  %72 = getelementptr inbounds i8, ptr %.01320.i, i64 196
+  %73 = load i32, ptr %72, align 4
+  %74 = zext i32 %73 to i64
+  %75 = add i64 %71, %74
+  %76 = getelementptr inbounds i8, ptr %.01320.i, i64 192
+  %77 = load i32, ptr %76, align 8
+  %78 = zext i32 %77 to i64
+  %79 = udiv i64 %75, %78
+  %80 = add i64 %79, %68
+  %81 = getelementptr inbounds i8, ptr %.01320.i, i64 72
+  store i64 %80, ptr %81, align 8
+  %82 = urem i64 %75, %78
+  %83 = trunc nuw i64 %82 to i32
+  store i32 %83, ptr %72, align 4
+  %84 = getelementptr inbounds i8, ptr %.01419.i, i64 80
+  %85 = load i64, ptr %84, align 8
+  %86 = add i64 %85, 1
+  store i64 %86, ptr %84, align 8
+  %87 = getelementptr inbounds i8, ptr %.01320.i, i64 88
+  store i64 %85, ptr %87, align 8
+  %88 = getelementptr inbounds i8, ptr %.01419.i, i64 8
+  %89 = tail call i32 @nghttp2_pq_push(ptr noundef nonnull %88, ptr noundef nonnull %.01320.i) #8
+  %.not17.i = icmp eq i32 %89, 0
+  br i1 %.not17.i, label %90, label %stream_obq_move.exit
 
-89:                                               ; preds = %65
-  store i8 1, ptr %63, align 2
-  %90 = getelementptr inbounds i8, ptr %.01419.i, i64 96
-  %91 = load ptr, ptr %90, align 8
-  %.not.i55 = icmp eq ptr %91, null
+90:                                               ; preds = %66
+  store i8 1, ptr %64, align 2
+  %91 = getelementptr inbounds i8, ptr %.01419.i, i64 96
+  %92 = load ptr, ptr %91, align 8
+  %.not.i55 = icmp eq ptr %92, null
   br i1 %.not.i55, label %stream_obq_move.exit, label %.lr.ph.i, !llvm.loop !7
 
-stream_obq_move.exit:                             ; preds = %27, %89, %.lr.ph.i, %65, %stream_subtree_active.exit.thread, %stream_subtree_active.exit
-  %.033 = phi i32 [ 0, %stream_subtree_active.exit ], [ 0, %stream_subtree_active.exit.thread ], [ 0, %89 ], [ 0, %.lr.ph.i ], [ %88, %65 ], [ %50, %27 ]
+stream_obq_move.exit:                             ; preds = %28, %90, %.lr.ph.i, %66, %stream_subtree_active.exit.thread, %stream_subtree_active.exit
+  %.033 = phi i32 [ 0, %stream_subtree_active.exit ], [ 0, %stream_subtree_active.exit.thread ], [ 0, %90 ], [ 0, %.lr.ph.i ], [ %89, %66 ], [ %51, %28 ]
   ret i32 %.033
 }
 

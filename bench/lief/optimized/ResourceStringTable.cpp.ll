@@ -169,7 +169,8 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.i.
 .split.i.i.i:                                     ; preds = %30
   %31 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %31, align 8
-  br label %.sink.split.i.i.i
+  store i16 0, ptr %9, align 2
+  br label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEaSERKS4_.exit
 
 .split12.i.i.i:                                   ; preds = %30, %.thread.i.i.i
   %32 = phi ptr [ %26, %.thread.i.i.i ], [ %9, %30 ]
@@ -192,14 +193,10 @@ _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7_S_copyEPDsPKDsm.exit.i
   store i64 %8, ptr %38, align 8
   %39 = load ptr, ptr %4, align 8
   %40 = getelementptr inbounds i16, ptr %39, i64 %8
-  br label %.sink.split.i.i.i
-
-.sink.split.i.i.i:                                ; preds = %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7_S_copyEPDsPKDsm.exit.i.i.i, %.split.i.i.i
-  %.sink.i.i.i = phi ptr [ %40, %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7_S_copyEPDsPKDsm.exit.i.i.i ], [ %9, %.split.i.i.i ]
-  store i16 0, ptr %.sink.i.i.i, align 2
+  store i16 0, ptr %40, align 2
   br label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEaSERKS4_.exit
 
-_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEaSERKS4_.exit: ; preds = %2, %.sink.split.i.i.i
+_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEaSERKS4_.exit: ; preds = %2, %.split.i.i.i, %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7_S_copyEPDsPKDsm.exit.i.i.i
   %41 = getelementptr inbounds i8, ptr %1, i64 40
   %42 = load i16, ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %0, i64 40

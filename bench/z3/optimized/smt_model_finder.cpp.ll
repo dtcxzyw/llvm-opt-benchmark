@@ -9554,9 +9554,9 @@ invoke.cont108:                                   ; preds = %_ZN11ast_manager7in
   br label %invoke.cont108.invoke
 
 invoke.cont108.invoke:                            ; preds = %invoke.cont29, %invoke.cont39, %invoke.cont55, %_ZN3smt2mf6x_eq_yC2ER11ast_managerjj.exit, %invoke.cont83, %_ZN3smt2mf7x_leq_yC2ER11ast_managerjj.exit, %invoke.cont108
-  %m_info.i40.sink = phi ptr [ %m_info.i40, %invoke.cont29 ], [ %m_info.i50, %invoke.cont39 ], [ %m_info.i68, %invoke.cont55 ], [ %m_info, %_ZN3smt2mf6x_eq_yC2ER11ast_managerjj.exit ], [ %m_info.i100, %invoke.cont83 ], [ %m_info.i109, %_ZN3smt2mf7x_leq_yC2ER11ast_managerjj.exit ], [ %m_info.i120, %invoke.cont108 ]
-  %64 = phi ptr [ %call23, %invoke.cont29 ], [ %call33, %invoke.cont39 ], [ %call49, %invoke.cont55 ], [ %call59, %_ZN3smt2mf6x_eq_yC2ER11ast_managerjj.exit ], [ %call77, %invoke.cont83 ], [ %call87, %_ZN3smt2mf7x_leq_yC2ER11ast_managerjj.exit ], [ %call102, %invoke.cont108 ]
-  %65 = load ptr, ptr %m_info.i40.sink, align 8
+  %.in = phi ptr [ %m_info.i120, %invoke.cont108 ], [ %m_info.i109, %_ZN3smt2mf7x_leq_yC2ER11ast_managerjj.exit ], [ %m_info.i100, %invoke.cont83 ], [ %m_info, %_ZN3smt2mf6x_eq_yC2ER11ast_managerjj.exit ], [ %m_info.i68, %invoke.cont55 ], [ %m_info.i50, %invoke.cont39 ], [ %m_info.i40, %invoke.cont29 ]
+  %64 = phi ptr [ %call102, %invoke.cont108 ], [ %call87, %_ZN3smt2mf7x_leq_yC2ER11ast_managerjj.exit ], [ %call77, %invoke.cont83 ], [ %call59, %_ZN3smt2mf6x_eq_yC2ER11ast_managerjj.exit ], [ %call49, %invoke.cont55 ], [ %call33, %invoke.cont39 ], [ %call23, %invoke.cont29 ]
+  %65 = load ptr, ptr %.in, align 8
   invoke void @_ZN3smt2mf15quantifier_info12insert_qinfoEPNS0_5qinfoE(ptr noundef nonnull align 8 dereferenceable(128) %65, ptr noundef nonnull %64)
           to label %if.end116 unwind label %lpad
 

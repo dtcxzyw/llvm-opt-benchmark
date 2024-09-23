@@ -138,12 +138,21 @@ define ptr @group_remove_child(ptr nocapture noundef %0, i32 noundef %1) local_u
 9:                                                ; preds = %5
   %.not14 = icmp eq ptr %.0, null
   %10 = load ptr, ptr %.013, align 8
-  %..0.lcssa23 = select i1 %.not14, ptr %3, ptr %.0
-  store ptr %10, ptr %..0.lcssa23, align 8
+  br i1 %.not14, label %12, label %11
+
+11:                                               ; preds = %9
+  store ptr %10, ptr %.0, align 8
+  br label %13
+
+12:                                               ; preds = %9
+  store ptr %10, ptr %3, align 8
+  br label %13
+
+13:                                               ; preds = %12, %11
   store ptr null, ptr %.013, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %4, %9
+.critedge:                                        ; preds = %4, %13
   ret ptr %.013
 }
 

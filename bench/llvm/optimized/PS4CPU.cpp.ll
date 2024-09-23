@@ -1777,88 +1777,91 @@ define internal fastcc void @"_ZZNK5clang6driver5tools6PS4cpu6Linker12ConstructJ
   %9 = load ptr, ptr %8, align 8
   %10 = load i8, ptr %9, align 1
   %.not.i = icmp eq i8 %10, 0
-  br i1 %.not.i, label %13, label %11
+  br i1 %.not.i, label %11, label %12
 
 11:                                               ; preds = %2
-  store ptr %9, ptr %5, align 8, !alias.scope !46
-  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  br label %13
+  store ptr @.str.58, ptr %5, align 8
+  br label %14
 
-13:                                               ; preds = %2, %11
-  %.sink24 = phi ptr [ %12, %11 ], [ %5, %2 ]
-  %.sink = phi i8 [ 3, %11 ], [ 1, %2 ]
-  %.sroa.05.0.i.i6 = phi ptr [ %5, %11 ], [ @.str.58, %2 ]
-  store ptr @.str.58, ptr %.sink24, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 32
-  store i8 3, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 33
-  store i8 %.sink, ptr %15, align 1
+12:                                               ; preds = %2
+  store ptr %9, ptr %5, align 8, !alias.scope !46
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr @.str.58, ptr %13, align 8, !alias.scope !46
+  br label %14
+
+14:                                               ; preds = %12, %11
+  %.sink = phi i8 [ 3, %12 ], [ 1, %11 ]
+  %.sroa.05.0.i.i6 = phi ptr [ %5, %12 ], [ @.str.58, %11 ]
+  %15 = getelementptr inbounds i8, ptr %5, i64 32
+  store i8 3, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %5, i64 33
+  store i8 %.sink, ptr %16, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %17 = load i8, ptr %16, align 8, !noalias !57
-  switch i8 %17, label %22 [
-    i8 0, label %18
-    i8 1, label %21
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %18 = load i8, ptr %17, align 8, !noalias !57
+  switch i8 %18, label %23 [
+    i8 0, label %19
+    i8 1, label %22
   ]
 
-18:                                               ; preds = %13
-  %19 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i8 0, ptr %19, align 8, !alias.scope !57
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 33
-  store i8 1, ptr %20, align 1, !alias.scope !57
+19:                                               ; preds = %14
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store i8 0, ptr %20, align 8, !alias.scope !57
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 33
+  store i8 1, ptr %21, align 1, !alias.scope !57
   br label %_ZN4llvmplERKNS_5TwineES2_.exit16
 
-21:                                               ; preds = %13
+22:                                               ; preds = %14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
   br label %_ZN4llvmplERKNS_5TwineES2_.exit16
 
-22:                                               ; preds = %13
+23:                                               ; preds = %14
   %.014.i.i5 = select i1 %.not.i, i8 3, i8 2
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 33
-  %24 = load i8, ptr %23, align 1, !noalias !57
-  %25 = icmp eq i8 %24, 1
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 33
+  %25 = load i8, ptr %24, align 1, !noalias !57
+  %26 = icmp eq i8 %25, 1
   %.sroa.04.0.copyload.i.i8 = load ptr, ptr %1, align 8, !noalias !57
   %.sroa.3.0..sroa_idx.i.i9 = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.3.0.copyload.i.i10 = load i64, ptr %.sroa.3.0..sroa_idx.i.i9, align 8, !noalias !57
-  %.0.i.i11 = select i1 %25, i8 %17, i8 2
-  %.sroa.04.0.i.i12 = select i1 %25, ptr %.sroa.04.0.copyload.i.i8, ptr %1
-  %.sroa.3.0.i.i13 = select i1 %25, i64 %.sroa.3.0.copyload.i.i10, i64 undef
+  %.0.i.i11 = select i1 %26, i8 %18, i8 2
+  %.sroa.04.0.i.i12 = select i1 %26, ptr %.sroa.04.0.copyload.i.i8, ptr %1
+  %.sroa.3.0.i.i13 = select i1 %26, i64 %.sroa.3.0.copyload.i.i10, i64 undef
   store ptr %.sroa.05.0.i.i6, ptr %4, align 8, !alias.scope !57
-  %26 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %.sroa.04.0.i.i12, ptr %26, align 8, !alias.scope !57
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %.sroa.04.0.i.i12, ptr %27, align 8, !alias.scope !57
   %.sroa.2.0..sroa_idx.i.i.i15 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 %.sroa.3.0.i.i13, ptr %.sroa.2.0..sroa_idx.i.i.i15, align 8, !alias.scope !57
-  %27 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i8 %.014.i.i5, ptr %27, align 8, !alias.scope !57
-  %28 = getelementptr inbounds nuw i8, ptr %4, i64 33
-  store i8 %.0.i.i11, ptr %28, align 1, !alias.scope !57
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store i8 %.014.i.i5, ptr %28, align 8, !alias.scope !57
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 33
+  store i8 %.0.i.i11, ptr %29, align 1, !alias.scope !57
   br label %_ZN4llvmplERKNS_5TwineES2_.exit16
 
-_ZN4llvmplERKNS_5TwineES2_.exit16:                ; preds = %18, %21, %22
+_ZN4llvmplERKNS_5TwineES2_.exit16:                ; preds = %19, %22, %23
   call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %3)
-  %29 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %29, i64 noundef 256) #13
-  %30 = call { ptr, i64 } @_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(34) %4, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  %31 = extractvalue { ptr, i64 } %30, 0
-  %32 = extractvalue { ptr, i64 } %30, 1
-  %33 = load ptr, ptr %7, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
-  %35 = load ptr, ptr %34, align 8
-  %36 = call noundef ptr %35(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr %31, i64 %32) #13
-  %37 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
-  %38 = load ptr, ptr %3, align 8
-  %39 = icmp eq ptr %38, %29
-  br i1 %39, label %_ZNK4llvm3opt7ArgList13MakeArgStringERKNS_5TwineE.exit, label %40
+  %30 = getelementptr inbounds i8, ptr %3, i64 24
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %30, i64 noundef 256) #13
+  %31 = call { ptr, i64 } @_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(34) %4, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  %32 = extractvalue { ptr, i64 } %31, 0
+  %33 = extractvalue { ptr, i64 } %31, 1
+  %34 = load ptr, ptr %7, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 16
+  %36 = load ptr, ptr %35, align 8
+  %37 = call noundef ptr %36(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr %32, i64 %33) #13
+  %38 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
+  %39 = load ptr, ptr %3, align 8
+  %40 = icmp eq ptr %39, %30
+  br i1 %40, label %_ZNK4llvm3opt7ArgList13MakeArgStringERKNS_5TwineE.exit, label %41
 
-40:                                               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit16
-  call void @free(ptr noundef %38) #13
+41:                                               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit16
+  call void @free(ptr noundef %39) #13
   br label %_ZNK4llvm3opt7ArgList13MakeArgStringERKNS_5TwineE.exit
 
-_ZNK4llvm3opt7ArgList13MakeArgStringERKNS_5TwineE.exit: ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit16, %40
+_ZNK4llvm3opt7ArgList13MakeArgStringERKNS_5TwineE.exit: ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit16, %41
   call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %3)
-  %41 = load ptr, ptr %0, align 8
-  store ptr %36, ptr %41, align 8
+  %42 = load ptr, ptr %0, align 8
+  store ptr %37, ptr %42, align 8
   ret void
 }
 

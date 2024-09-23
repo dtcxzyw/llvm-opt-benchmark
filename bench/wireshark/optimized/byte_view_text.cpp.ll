@@ -6961,7 +6961,7 @@ _ZNK17QArrayDataPointerI5QRectE11needsDetachEv.exit: ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i64 %1, %10
-  br i1 %11, label %_ZNK17QArrayDataPointerI5QRectE14freeSpaceAtEndEv.exit, label %25
+  br i1 %11, label %_ZNK17QArrayDataPointerI5QRectE14freeSpaceAtEndEv.exit, label %27
 
 _ZNK17QArrayDataPointerI5QRectE14freeSpaceAtEndEv.exit: ; preds = %8
   %12 = getelementptr inbounds i8, ptr %5, i64 8
@@ -6976,71 +6976,79 @@ _ZNK17QArrayDataPointerI5QRectE14freeSpaceAtEndEv.exit: ; preds = %8
   %21 = ashr exact i64 %20, 4
   %22 = add i64 %21, %1
   %.not = icmp eq i64 %13, %22
-  br i1 %.not, label %25, label %23
+  br i1 %.not, label %27, label %23
 
 23:                                               ; preds = %_ZNK17QArrayDataPointerI5QRectE14freeSpaceAtEndEv.exit
   %24 = getelementptr %class.QRect, ptr %15, i64 %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %24, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
-  br label %55
+  %25 = load i64, ptr %9, align 8
+  %26 = add i64 %25, 1
+  store i64 %26, ptr %9, align 8
+  br label %63
 
-25:                                               ; preds = %_ZNK17QArrayDataPointerI5QRectE14freeSpaceAtEndEv.exit, %8
-  %26 = icmp eq i64 %1, 0
-  br i1 %26, label %_ZNK17QArrayDataPointerI5QRectE16freeSpaceAtBeginEv.exit, label %_ZNK17QArrayDataPointerI5QRectE11needsDetachEv.exit.thread
+27:                                               ; preds = %_ZNK17QArrayDataPointerI5QRectE14freeSpaceAtEndEv.exit, %8
+  %28 = icmp eq i64 %1, 0
+  br i1 %28, label %_ZNK17QArrayDataPointerI5QRectE16freeSpaceAtBeginEv.exit, label %_ZNK17QArrayDataPointerI5QRectE11needsDetachEv.exit.thread
 
-_ZNK17QArrayDataPointerI5QRectE16freeSpaceAtBeginEv.exit: ; preds = %25
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
-  %28 = load ptr, ptr %27, align 8
-  %29 = ptrtoint ptr %5 to i64
-  %30 = add i64 %29, 23
-  %31 = and i64 %30, -8
-  %32 = ptrtoint ptr %28 to i64
-  %.not13 = icmp eq i64 %31, %32
-  br i1 %.not13, label %_ZNK17QArrayDataPointerI5QRectE11needsDetachEv.exit.thread, label %33
+_ZNK17QArrayDataPointerI5QRectE16freeSpaceAtBeginEv.exit: ; preds = %27
+  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = load ptr, ptr %29, align 8
+  %31 = ptrtoint ptr %5 to i64
+  %32 = add i64 %31, 23
+  %33 = and i64 %32, -8
+  %34 = ptrtoint ptr %30 to i64
+  %.not13 = icmp eq i64 %33, %34
+  br i1 %.not13, label %_ZNK17QArrayDataPointerI5QRectE11needsDetachEv.exit.thread, label %35
 
-33:                                               ; preds = %_ZNK17QArrayDataPointerI5QRectE16freeSpaceAtBeginEv.exit
-  %34 = getelementptr i8, ptr %28, i64 -16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %34, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
-  %35 = load ptr, ptr %27, align 8
-  %36 = getelementptr i8, ptr %35, i64 -16
-  store ptr %36, ptr %27, align 8
-  br label %55
+35:                                               ; preds = %_ZNK17QArrayDataPointerI5QRectE16freeSpaceAtBeginEv.exit
+  %36 = getelementptr i8, ptr %30, i64 -16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %36, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  %37 = load ptr, ptr %29, align 8
+  %38 = getelementptr i8, ptr %37, i64 -16
+  store ptr %38, ptr %29, align 8
+  %39 = load i64, ptr %9, align 8
+  %40 = add i64 %39, 1
+  store i64 %40, ptr %9, align 8
+  br label %63
 
-_ZNK17QArrayDataPointerI5QRectE11needsDetachEv.exit.thread: ; preds = %3, %25, %_ZNK17QArrayDataPointerI5QRectE16freeSpaceAtBeginEv.exit, %_ZNK17QArrayDataPointerI5QRectE11needsDetachEv.exit
+_ZNK17QArrayDataPointerI5QRectE11needsDetachEv.exit.thread: ; preds = %3, %27, %_ZNK17QArrayDataPointerI5QRectE16freeSpaceAtBeginEv.exit, %_ZNK17QArrayDataPointerI5QRectE11needsDetachEv.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
-  %37 = getelementptr inbounds i8, ptr %0, i64 16
-  %38 = load i64, ptr %37, align 8
-  %39 = icmp ne i64 %38, 0
-  %40 = icmp eq i64 %1, 0
-  %41 = and i1 %40, %39
-  %42 = zext i1 %41 to i32
-  tail call void @_ZN17QArrayDataPointerI5QRectE13detachAndGrowEN10QArrayData14GrowthPositionExPPKS0_PS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %42, i64 noundef 1, ptr noundef null, ptr noundef null)
-  %43 = getelementptr inbounds i8, ptr %0, i64 8
-  %44 = load ptr, ptr %43, align 8
-  br i1 %41, label %45, label %49
-
-45:                                               ; preds = %_ZNK17QArrayDataPointerI5QRectE11needsDetachEv.exit.thread
-  %46 = getelementptr i8, ptr %44, i64 -16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %46, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
-  %47 = load ptr, ptr %43, align 8
-  %48 = getelementptr i8, ptr %47, i64 -16
-  store ptr %48, ptr %43, align 8
-  br label %55
+  %41 = getelementptr inbounds i8, ptr %0, i64 16
+  %42 = load i64, ptr %41, align 8
+  %43 = icmp ne i64 %42, 0
+  %44 = icmp eq i64 %1, 0
+  %45 = and i1 %44, %43
+  %46 = zext i1 %45 to i32
+  tail call void @_ZN17QArrayDataPointerI5QRectE13detachAndGrowEN10QArrayData14GrowthPositionExPPKS0_PS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %46, i64 noundef 1, ptr noundef null, ptr noundef null)
+  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  %48 = load ptr, ptr %47, align 8
+  br i1 %45, label %49, label %55
 
 49:                                               ; preds = %_ZNK17QArrayDataPointerI5QRectE11needsDetachEv.exit.thread
-  %50 = getelementptr %class.QRect, ptr %44, i64 %1
-  %51 = getelementptr i8, ptr %50, i64 16
-  %52 = load i64, ptr %37, align 8
-  %53 = sub i64 %52, %1
-  %54 = shl i64 %53, 4
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %51, ptr align 1 %50, i64 %54, i1 false)
+  %50 = getelementptr i8, ptr %48, i64 -16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %50, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
-  br label %55
+  %51 = load ptr, ptr %47, align 8
+  %52 = getelementptr i8, ptr %51, i64 -16
+  store ptr %52, ptr %47, align 8
+  %53 = load i64, ptr %41, align 8
+  %54 = add i64 %53, 1
+  store i64 %54, ptr %41, align 8
+  br label %63
 
-55:                                               ; preds = %49, %45, %33, %23
-  %.sink = phi ptr [ %37, %49 ], [ %37, %45 ], [ %9, %33 ], [ %9, %23 ]
-  %56 = load i64, ptr %.sink, align 8
-  %57 = add i64 %56, 1
-  store i64 %57, ptr %.sink, align 8
+55:                                               ; preds = %_ZNK17QArrayDataPointerI5QRectE11needsDetachEv.exit.thread
+  %56 = getelementptr %class.QRect, ptr %48, i64 %1
+  %57 = getelementptr i8, ptr %56, i64 16
+  %58 = load i64, ptr %41, align 8
+  %59 = sub i64 %58, %1
+  %60 = shl i64 %59, 4
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %57, ptr align 1 %56, i64 %60, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %56, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
+  %61 = load i64, ptr %41, align 8
+  %62 = add i64 %61, 1
+  store i64 %62, ptr %41, align 8
+  br label %63
+
+63:                                               ; preds = %55, %49, %35, %23
   ret void
 }
 

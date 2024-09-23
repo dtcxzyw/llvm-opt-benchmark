@@ -4265,7 +4265,7 @@ add_item_to_array.exit:                           ; preds = %26, %23, %21, %16, 
 ; Function Attrs: nounwind sspstrong uwtable
 define range(i32 0, 2) i32 @cJSON_ReplaceItemViaPointer(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #8 {
   %4 = icmp eq ptr %0, null
-  br i1 %4, label %38, label %5
+  br i1 %4, label %39, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -4275,11 +4275,11 @@ define range(i32 0, 2) i32 @cJSON_ReplaceItemViaPointer(ptr noundef %0, ptr noun
   %or.cond = or i1 %9, %8
   %10 = icmp eq ptr %1, null
   %or.cond3 = or i1 %10, %or.cond
-  br i1 %or.cond3, label %38, label %11
+  br i1 %or.cond3, label %39, label %11
 
 11:                                               ; preds = %5
   %12 = icmp eq ptr %2, %1
-  br i1 %12, label %38, label %13
+  br i1 %12, label %39, label %13
 
 13:                                               ; preds = %11
   %14 = load ptr, ptr %1, align 8
@@ -4299,49 +4299,49 @@ define range(i32 0, 2) i32 @cJSON_ReplaceItemViaPointer(ptr noundef %0, ptr noun
 20:                                               ; preds = %18, %13
   %21 = load ptr, ptr %6, align 8
   %22 = icmp eq ptr %21, %1
-  br i1 %22, label %23, label %28
+  br i1 %22, label %23, label %29
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds i8, ptr %21, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, %1
-  br i1 %26, label %27, label %.sink.split
+  br i1 %26, label %27, label %28
 
 27:                                               ; preds = %23
   store ptr %2, ptr %17, align 8
-  br label %.sink.split
+  br label %28
 
-28:                                               ; preds = %20
-  %29 = load ptr, ptr %17, align 8
-  %.not39 = icmp eq ptr %29, null
-  br i1 %.not39, label %31, label %30
-
-30:                                               ; preds = %28
-  store ptr %2, ptr %29, align 8
-  br label %31
-
-31:                                               ; preds = %30, %28
-  %32 = load ptr, ptr %2, align 8
-  %33 = icmp eq ptr %32, null
-  br i1 %33, label %34, label %37
-
-34:                                               ; preds = %31
-  %35 = load ptr, ptr %6, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %23, %27, %34
-  %.sink = phi ptr [ %36, %34 ], [ %6, %27 ], [ %6, %23 ]
-  store ptr %2, ptr %.sink, align 8
-  br label %37
-
-37:                                               ; preds = %.sink.split, %31
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
-  tail call void @cJSON_Delete(ptr noundef nonnull %1)
+28:                                               ; preds = %27, %23
+  store ptr %2, ptr %6, align 8
   br label %38
 
-38:                                               ; preds = %11, %3, %5, %37
-  %.0 = phi i32 [ 1, %37 ], [ 0, %5 ], [ 0, %3 ], [ 1, %11 ]
+29:                                               ; preds = %20
+  %30 = load ptr, ptr %17, align 8
+  %.not39 = icmp eq ptr %30, null
+  br i1 %.not39, label %32, label %31
+
+31:                                               ; preds = %29
+  store ptr %2, ptr %30, align 8
+  br label %32
+
+32:                                               ; preds = %31, %29
+  %33 = load ptr, ptr %2, align 8
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %35, label %38
+
+35:                                               ; preds = %32
+  %36 = load ptr, ptr %6, align 8
+  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  store ptr %2, ptr %37, align 8
+  br label %38
+
+38:                                               ; preds = %32, %35, %28
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
+  tail call void @cJSON_Delete(ptr noundef nonnull %1)
+  br label %39
+
+39:                                               ; preds = %11, %3, %5, %38
+  %.0 = phi i32 [ 1, %38 ], [ 0, %5 ], [ 0, %3 ], [ 1, %11 ]
   ret i32 %.0
 }
 
@@ -4398,49 +4398,49 @@ get_array_item.exit:                              ; preds = %9
 27:                                               ; preds = %25, %20
   %28 = load ptr, ptr %8, align 8
   %29 = icmp eq ptr %28, %.0.i
-  br i1 %29, label %30, label %35
+  br i1 %29, label %30, label %36
 
 30:                                               ; preds = %27
   %31 = getelementptr inbounds i8, ptr %28, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, %.0.i
-  br i1 %33, label %34, label %.sink.split.i
+  br i1 %33, label %34, label %35
 
 34:                                               ; preds = %30
   store ptr %2, ptr %24, align 8
-  br label %.sink.split.i
+  br label %35
 
-35:                                               ; preds = %27
-  %36 = load ptr, ptr %24, align 8
-  %.not39.i = icmp eq ptr %36, null
-  br i1 %.not39.i, label %38, label %37
+35:                                               ; preds = %34, %30
+  store ptr %2, ptr %8, align 8
+  br label %45
 
-37:                                               ; preds = %35
-  store ptr %2, ptr %36, align 8
-  br label %38
+36:                                               ; preds = %27
+  %37 = load ptr, ptr %24, align 8
+  %.not39.i = icmp eq ptr %37, null
+  br i1 %.not39.i, label %39, label %38
 
-38:                                               ; preds = %37, %35
-  %39 = load ptr, ptr %2, align 8
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %41, label %44
+38:                                               ; preds = %36
+  store ptr %2, ptr %37, align 8
+  br label %39
 
-41:                                               ; preds = %38
-  %42 = load ptr, ptr %8, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 8
-  br label %.sink.split.i
+39:                                               ; preds = %38, %36
+  %40 = load ptr, ptr %2, align 8
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %42, label %45
 
-.sink.split.i:                                    ; preds = %41, %34, %30
-  %.sink.i = phi ptr [ %43, %41 ], [ %8, %34 ], [ %8, %30 ]
-  store ptr %2, ptr %.sink.i, align 8
-  br label %44
+42:                                               ; preds = %39
+  %43 = load ptr, ptr %8, align 8
+  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  store ptr %2, ptr %44, align 8
+  br label %45
 
-44:                                               ; preds = %.sink.split.i, %38
+45:                                               ; preds = %42, %39, %35
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0.i, i8 0, i64 16, i1 false)
   tail call void @cJSON_Delete(ptr noundef nonnull %.0.i)
   br label %cJSON_ReplaceItemViaPointer.exit
 
-cJSON_ReplaceItemViaPointer.exit:                 ; preds = %44, %18, %get_array_item.exit, %3
-  %.0 = phi i32 [ 0, %3 ], [ 1, %44 ], [ 0, %get_array_item.exit ], [ 1, %18 ]
+cJSON_ReplaceItemViaPointer.exit:                 ; preds = %45, %18, %get_array_item.exit, %3
+  %.0 = phi i32 [ 0, %3 ], [ 1, %45 ], [ 0, %get_array_item.exit ], [ 1, %18 ]
   ret i32 %.0
 }
 
@@ -4529,49 +4529,49 @@ cJSON_strdup.exit.thread:                         ; preds = %16
 43:                                               ; preds = %41, %36
   %44 = load ptr, ptr %30, align 8
   %45 = icmp eq ptr %44, %27
-  br i1 %45, label %46, label %51
+  br i1 %45, label %46, label %52
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds i8, ptr %44, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, %27
-  br i1 %49, label %50, label %.sink.split.i
+  br i1 %49, label %50, label %51
 
 50:                                               ; preds = %46
   store ptr %2, ptr %40, align 8
-  br label %.sink.split.i
+  br label %51
 
-51:                                               ; preds = %43
-  %52 = load ptr, ptr %40, align 8
-  %.not39.i = icmp eq ptr %52, null
-  br i1 %.not39.i, label %54, label %53
+51:                                               ; preds = %50, %46
+  store ptr %2, ptr %30, align 8
+  br label %61
 
-53:                                               ; preds = %51
-  store ptr %2, ptr %52, align 8
-  br label %54
+52:                                               ; preds = %43
+  %53 = load ptr, ptr %40, align 8
+  %.not39.i = icmp eq ptr %53, null
+  br i1 %.not39.i, label %55, label %54
 
-54:                                               ; preds = %53, %51
-  %55 = load ptr, ptr %2, align 8
-  %56 = icmp eq ptr %55, null
-  br i1 %56, label %57, label %60
+54:                                               ; preds = %52
+  store ptr %2, ptr %53, align 8
+  br label %55
 
-57:                                               ; preds = %54
-  %58 = load ptr, ptr %30, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 8
-  br label %.sink.split.i
+55:                                               ; preds = %54, %52
+  %56 = load ptr, ptr %2, align 8
+  %57 = icmp eq ptr %56, null
+  br i1 %57, label %58, label %61
 
-.sink.split.i:                                    ; preds = %57, %50, %46
-  %.sink.i = phi ptr [ %59, %57 ], [ %30, %50 ], [ %30, %46 ]
-  store ptr %2, ptr %.sink.i, align 8
-  br label %60
+58:                                               ; preds = %55
+  %59 = load ptr, ptr %30, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 8
+  store ptr %2, ptr %60, align 8
+  br label %61
 
-60:                                               ; preds = %.sink.split.i, %54
+61:                                               ; preds = %58, %55, %51
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
   tail call void @cJSON_Delete(ptr noundef nonnull %27)
   br label %cJSON_ReplaceItemViaPointer.exit
 
-cJSON_ReplaceItemViaPointer.exit:                 ; preds = %60, %34, %29, %23, %cJSON_strdup.exit.thread, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %cJSON_strdup.exit.thread ], [ 1, %60 ], [ 0, %29 ], [ 0, %23 ], [ 1, %34 ]
+cJSON_ReplaceItemViaPointer.exit:                 ; preds = %61, %34, %29, %23, %cJSON_strdup.exit.thread, %4
+  %.0 = phi i32 [ 0, %4 ], [ 0, %cJSON_strdup.exit.thread ], [ 1, %61 ], [ 0, %29 ], [ 0, %23 ], [ 1, %34 ]
   ret i32 %.0
 }
 

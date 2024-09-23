@@ -7067,7 +7067,7 @@ define internal range(i32 -1, 1) i32 @php_cli_server_send_event(ptr noundef %0, 
   %3 = getelementptr inbounds i8, ptr %1, i64 480
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
-  br i1 %5, label %6, label %111
+  br i1 %5, label %6, label %110
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %1, i64 504
@@ -7256,8 +7256,8 @@ php_cli_server_chunk_dtor.exit.i23:               ; preds = %72, %69, %67
 php_cli_server_chunk_dtor.exit55.i:               ; preds = %91, %89, %87
   tail call void @free(ptr noundef nonnull %.04859.i) #29
   store ptr %54, ptr %49, align 8
-  %cond36 = icmp eq ptr %54, null
-  br i1 %cond36, label %php_cli_server_content_sender_send.exit.thread.thread.sink.split, label %.backedge.backedge
+  %cond35 = icmp eq ptr %54, null
+  br i1 %cond35, label %php_cli_server_content_sender_send.exit.thread.thread.sink.split, label %.backedge.backedge
 
 92:                                               ; preds = %84
   %93 = load ptr, ptr %78, align 8
@@ -7292,7 +7292,7 @@ php_cli_server_content_sender_send.exit:          ; preds = %77, %57
 php_cli_server_content_sender_send.exit.thread:   ; preds = %96, %php_cli_server_content_sender_send.exit, %php_cli_server_content_sender_send.exit
   %.pr.pr = load ptr, ptr %49, align 8
   %.not21 = icmp eq ptr %.pr.pr, null
-  br i1 %.not21, label %php_cli_server_content_sender_send.exit.thread.thread, label %111
+  br i1 %.not21, label %php_cli_server_content_sender_send.exit.thread.thread, label %110
 
 php_cli_server_content_sender_send.exit.thread.thread.sink.split: ; preds = %php_cli_server_chunk_dtor.exit55.i, %php_cli_server_chunk_dtor.exit.i23
   store ptr null, ptr %53, align 8
@@ -7301,7 +7301,7 @@ php_cli_server_content_sender_send.exit.thread.thread.sink.split: ; preds = %php
 php_cli_server_content_sender_send.exit.thread.thread: ; preds = %php_cli_server_content_sender_send.exit.thread.thread.sink.split, %48, %php_cli_server_content_sender_send.exit.thread
   %102 = load i32, ptr %7, align 8
   %103 = icmp slt i32 %102, 0
-  br i1 %103, label %104, label %111
+  br i1 %103, label %104, label %110
 
 104:                                              ; preds = %php_cli_server_content_sender_send.exit.thread.thread
   %105 = getelementptr inbounds i8, ptr %1, i64 32
@@ -7311,15 +7311,15 @@ php_cli_server_content_sender_send.exit.thread.thread: ; preds = %php_cli_server
   br label %.sink.split
 
 .sink.split:                                      ; preds = %php_cli_server_content_sender_pull.exit.thread, %98, %104
-  %.sink35 = phi ptr [ %50, %104 ], [ %50, %98 ], [ %38, %php_cli_server_content_sender_pull.exit.thread ]
+  %.sink34.in = phi ptr [ %50, %104 ], [ %50, %98 ], [ %38, %php_cli_server_content_sender_pull.exit.thread ]
   %.0.ph = phi i32 [ 0, %104 ], [ -1, %98 ], [ -1, %php_cli_server_content_sender_pull.exit.thread ]
   %.sink = getelementptr inbounds i8, ptr %0, i64 592
-  %108 = load i32, ptr %.sink35, align 8
-  %109 = sext i32 %108 to i64
-  %110 = tail call i32 @zend_hash_index_del(ptr noundef nonnull %.sink, i64 noundef %109) #29
-  br label %111
+  %.sink34 = load i32, ptr %.sink34.in, align 8
+  %108 = sext i32 %.sink34 to i64
+  %109 = tail call i32 @zend_hash_index_del(ptr noundef nonnull %.sink, i64 noundef %108) #29
+  br label %110
 
-111:                                              ; preds = %.sink.split, %2, %php_cli_server_content_sender_send.exit.thread.thread, %php_cli_server_content_sender_send.exit.thread
+110:                                              ; preds = %.sink.split, %2, %php_cli_server_content_sender_send.exit.thread.thread, %php_cli_server_content_sender_send.exit.thread
   %.0 = phi i32 [ 0, %php_cli_server_content_sender_send.exit.thread ], [ 0, %php_cli_server_content_sender_send.exit.thread.thread ], [ 0, %2 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
@@ -8631,6 +8631,7 @@ define internal noundef i32 @php_cli_server_client_read_request_on_url(ptr nocap
   %20 = getelementptr inbounds i8, ptr %16, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %20, ptr align 1 %1, i64 %2, i1 false)
   %21 = getelementptr inbounds [1 x i8], ptr %20, i64 0, i64 %2
+  store i8 0, ptr %21, align 1
   br label %74
 
 22:                                               ; preds = %3
@@ -8714,12 +8715,11 @@ cli_concat_persistent_zstr_with_char.exit:        ; preds = %43, %52, %65
   %71 = getelementptr inbounds i8, ptr %.0.i, i64 16
   %72 = load i64, ptr %71, align 8
   %73 = getelementptr inbounds [1 x i8], ptr %69, i64 0, i64 %72
+  store i8 0, ptr %73, align 1
   br label %74
 
 74:                                               ; preds = %cli_concat_persistent_zstr_with_char.exit, %10
-  %.sink = phi ptr [ %73, %cli_concat_persistent_zstr_with_char.exit ], [ %21, %10 ]
   %storemerge = phi ptr [ %.0.i, %cli_concat_persistent_zstr_with_char.exit ], [ %16, %10 ]
-  store i8 0, ptr %.sink, align 1
   store ptr %storemerge, ptr %7, align 8
   ret i32 0
 }

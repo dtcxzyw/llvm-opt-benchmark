@@ -113,7 +113,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN2cv6detail8tracking3tld15tld_InitDatasetEiPKci(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::Rect_") align 8 %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = add nsw i32 %1, -1
-  switch i32 %3, label %37 [
+  switch i32 %3, label %36 [
     i32 0, label %.thread
     i32 1, label %20
   ]
@@ -155,37 +155,37 @@ define void @_ZN2cv6detail8tracking3tld15tld_InitDatasetEiPKci(ptr dead_on_unwin
   br label %.sink.split
 
 .sink.split:                                      ; preds = %20, %.thread
-  %.sink37 = phi ptr [ %19, %.thread ], [ %34, %20 ]
+  %.sink36.in = phi ptr [ %19, %.thread ], [ %34, %20 ]
   %.sink = phi i8 [ 0, %.thread ], [ 1, %20 ]
   %.129.ph = phi double [ %10, %.thread ], [ %25, %20 ]
   %.127.ph = phi double [ %12, %.thread ], [ %27, %20 ]
   %.125.ph = phi double [ %14, %.thread ], [ %29, %20 ]
   %.123.ph = phi double [ %16, %.thread ], [ %31, %20 ]
   %.1.ph = phi ptr [ %8, %.thread ], [ %23, %20 ]
-  %35 = load i8, ptr %.sink37, align 1
-  %36 = and i8 %35, 1
-  store i8 %36, ptr @_ZN2cv6detail8tracking3tld7flagPNGE, align 1
+  %.sink36 = load i8, ptr %.sink36.in, align 1
+  %35 = and i8 %.sink36, 1
+  store i8 %35, ptr @_ZN2cv6detail8tracking3tld7flagPNGE, align 1
   store i8 %.sink, ptr @_ZN2cv6detail8tracking3tld7flagVOTE, align 1
-  br label %37
+  br label %36
 
-37:                                               ; preds = %.sink.split, %4
+36:                                               ; preds = %.sink.split, %4
   %.129 = phi double [ 0.000000e+00, %4 ], [ %.129.ph, %.sink.split ]
   %.127 = phi double [ 0.000000e+00, %4 ], [ %.127.ph, %.sink.split ]
   %.125 = phi double [ 0.000000e+00, %4 ], [ %.125.ph, %.sink.split ]
   %.123 = phi double [ 0.000000e+00, %4 ], [ %.123.ph, %.sink.split ]
   %.1 = phi ptr [ @.str.72, %4 ], [ %.1.ph, %.sink.split ]
-  %38 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @_ZN2cv6detail8tracking3tld11tldRootPathE, ptr noundef nonnull dereferenceable(1) %2) #10
+  %37 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @_ZN2cv6detail8tracking3tld11tldRootPathE, ptr noundef nonnull dereferenceable(1) %2) #10
   %strlen = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @_ZN2cv6detail8tracking3tld11tldRootPathE)
   %endptr = getelementptr inbounds i8, ptr @_ZN2cv6detail8tracking3tld11tldRootPathE, i64 %strlen
   store i16 92, ptr %endptr, align 1
-  %39 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) @_ZN2cv6detail8tracking3tld11tldRootPathE, ptr noundef nonnull dereferenceable(1) %.1) #10
+  %38 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) @_ZN2cv6detail8tracking3tld11tldRootPathE, ptr noundef nonnull dereferenceable(1) %.1) #10
   store double %.129, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 8
-  store double %.127, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 16
-  store double %.125, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 24
-  store double %.123, ptr %42, align 8
+  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  store double %.127, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  store double %.125, ptr %40, align 8
+  %41 = getelementptr inbounds i8, ptr %0, i64 24
+  store double %.123, ptr %41, align 8
   ret void
 }
 

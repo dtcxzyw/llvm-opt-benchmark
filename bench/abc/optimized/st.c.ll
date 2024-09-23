@@ -1406,7 +1406,7 @@ define range(i32 0, 2) i32 @st__foreach(ptr nocapture noundef %0, ptr nocapture 
   br label %9
 
 9:                                                ; preds = %.lr.ph30, %._crit_edge
-  %10 = phi i32 [ %5, %.lr.ph30 ], [ %27, %._crit_edge ]
+  %10 = phi i32 [ %5, %.lr.ph30 ], [ %28, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %.lr.ph30 ], [ %indvars.iv.next, %._crit_edge ]
   %11 = load ptr, ptr %7, align 8
   %12 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv
@@ -1414,54 +1414,51 @@ define range(i32 0, 2) i32 @st__foreach(ptr nocapture noundef %0, ptr nocapture 
   %.not25 = icmp eq ptr %13, null
   br i1 %.not25, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %9, %26
-  %.02127 = phi ptr [ %.1, %26 ], [ %12, %9 ]
-  %.02226 = phi ptr [ %.123, %26 ], [ %13, %9 ]
+.lr.ph:                                           ; preds = %9, %27
+  %.02127 = phi ptr [ %.1, %27 ], [ %12, %9 ]
+  %.02226 = phi ptr [ %.123, %27 ], [ %13, %9 ]
   %14 = load ptr, ptr %.02226, align 8
   %15 = getelementptr inbounds i8, ptr %.02226, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 %1(ptr noundef %14, ptr noundef %16, ptr noundef %2) #13
-  switch i32 %17, label %26 [
+  switch i32 %17, label %27 [
     i32 0, label %18
     i32 1, label %.loopexit
-    i32 2, label %20
+    i32 2, label %21
   ]
 
 18:                                               ; preds = %.lr.ph
   %19 = getelementptr inbounds i8, ptr %.02226, i64 16
-  br label %.sink.split
+  %20 = load ptr, ptr %19, align 8
+  br label %27
 
-20:                                               ; preds = %.lr.ph
-  %21 = getelementptr inbounds i8, ptr %.02226, i64 16
-  %22 = load ptr, ptr %21, align 8
-  store ptr %22, ptr %.02127, align 8
-  %23 = load i32, ptr %8, align 4
-  %24 = add nsw i32 %23, -1
-  store i32 %24, ptr %8, align 4
+21:                                               ; preds = %.lr.ph
+  %22 = getelementptr inbounds i8, ptr %.02226, i64 16
+  %23 = load ptr, ptr %22, align 8
+  store ptr %23, ptr %.02127, align 8
+  %24 = load i32, ptr %8, align 4
+  %25 = add nsw i32 %24, -1
+  store i32 %25, ptr %8, align 4
   tail call void @free(ptr noundef nonnull %.02226) #13
-  br label %.sink.split
+  %26 = load ptr, ptr %.02127, align 8
+  br label %27
 
-.sink.split:                                      ; preds = %18, %20
-  %.02127.sink = phi ptr [ %.02127, %20 ], [ %19, %18 ]
-  %25 = load ptr, ptr %.02127.sink, align 8
-  br label %26
-
-26:                                               ; preds = %.sink.split, %.lr.ph
-  %.123 = phi ptr [ %.02226, %.lr.ph ], [ %25, %.sink.split ]
-  %.1 = phi ptr [ %.02127, %.lr.ph ], [ %.02127.sink, %.sink.split ]
+27:                                               ; preds = %21, %18, %.lr.ph
+  %.123 = phi ptr [ %.02226, %.lr.ph ], [ %26, %21 ], [ %20, %18 ]
+  %.1 = phi ptr [ %.02127, %.lr.ph ], [ %.02127, %21 ], [ %19, %18 ]
   %.not = icmp eq ptr %.123, null
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !21
 
-._crit_edge.loopexit:                             ; preds = %26
+._crit_edge.loopexit:                             ; preds = %27
   %.pre = load i32, ptr %4, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %9
-  %27 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %10, %9 ]
+  %28 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %10, %9 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %28 = sext i32 %27 to i64
-  %29 = icmp slt i64 %indvars.iv.next, %28
-  br i1 %29, label %9, label %.loopexit, !llvm.loop !22
+  %29 = sext i32 %28 to i64
+  %30 = icmp slt i64 %indvars.iv.next, %29
+  br i1 %30, label %9, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %._crit_edge, %.lr.ph, %3
   %.020 = phi i32 [ 1, %3 ], [ 0, %.lr.ph ], [ 1, %._crit_edge ]

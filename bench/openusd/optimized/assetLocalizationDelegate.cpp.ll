@@ -4469,7 +4469,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEEaSEOS2_.exit: ;
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %41 = load ptr, ptr %40, align 8
   store ptr %41, ptr %15, align 8
-  br label %.sink.split
+  store ptr null, ptr %40, align 8
+  br label %69
 
 42:                                               ; preds = %39, %69, %47
   %43 = landingpad { ptr, i32 }
@@ -4510,7 +4511,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValue4TakeINS_7VtArrayINS_12SdfAssetPath
   %57 = and i64 %56, 3
   %58 = icmp eq i64 %57, 3
   %or.cond.i.i = or i1 %.not.i.i5, %58
-  br i1 %or.cond.i.i, label %.sink.split, label %59
+  br i1 %or.cond.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit, label %59
 
 59:                                               ; preds = %54
   %60 = and i64 %56, -8
@@ -4518,7 +4519,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValue4TakeINS_7VtArrayINS_12SdfAssetPath
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %63 = load ptr, ptr %62, align 8
   invoke void %63(ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %.sink.split unwind label %64
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %64
 
 64:                                               ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -4527,18 +4528,17 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValue4TakeINS_7VtArrayINS_12SdfAssetPath
   call void @__clang_call_terminate(ptr %66) #20
   unreachable
 
+_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %54, %59
+  store ptr null, ptr %50, align 8
+  br label %69
+
 67:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue4TakeINS_7VtArrayINS_12SdfAssetPathEEEEES0_RT_.exit
   %68 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #18
   br label %.body
 
-.sink.split:                                      ; preds = %59, %54, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEEaSEOS2_.exit
-  %.sink = phi ptr [ %40, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEEaSEOS2_.exit ], [ %50, %54 ], [ %50, %59 ]
-  store ptr null, ptr %.sink, align 8
-  br label %69
-
-69:                                               ; preds = %.sink.split, %47
+69:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEEaSEOS2_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit, %47
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 208
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEE5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %70)
           to label %71 unwind label %42
@@ -10586,22 +10586,18 @@ _ZNSt10_HashtableISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
-  br label %.sink.split
+  store ptr %.031, ptr %24, align 8
+  br label %28
 
 25:                                               ; preds = %.lr.ph
   %26 = load ptr, ptr %19, align 8
   store ptr %26, ptr %.031, align 8
   %27 = load ptr, ptr %18, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %25, %23
-  %.sink = phi ptr [ %24, %23 ], [ %27, %25 ]
-  %.1.ph = phi i64 [ %17, %23 ], [ %.02530, %25 ]
-  store ptr %.031, ptr %.sink, align 8
+  store ptr %.031, ptr %27, align 8
   br label %28
 
-28:                                               ; preds = %.sink.split, %20
-  %.1 = phi i64 [ %17, %20 ], [ %.1.ph, %.sink.split ]
+28:                                               ; preds = %20, %23, %25
+  %.1 = phi i64 [ %.02530, %25 ], [ %17, %23 ], [ %17, %20 ]
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !120
 

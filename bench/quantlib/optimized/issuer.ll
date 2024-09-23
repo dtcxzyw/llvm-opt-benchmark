@@ -140,6 +140,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   store ptr null, ptr %_M_parent.i.i.i.i, align 8, !tbaa !10
   store ptr %add.ptr.i.i.i, ptr %_M_left.i.i.i.i.i, align 8, !tbaa !16
   store ptr %add.ptr.i.i.i, ptr %_M_right.i.i.i.i.i, align 8, !tbaa !17
+  store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8, !tbaa !19
   br label %_ZNSt3setIN5boost10shared_ptrIN8QuantLib12DefaultEventEEENS2_12earlier_thanIS4_EESaIS4_EEC2EOS8_.exit
 
 if.else.i.i.i.i:                                  ; preds = %entry
@@ -150,12 +151,11 @@ if.else.i.i.i.i:                                  ; preds = %entry
   %_M_right.i4.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %3, ptr %_M_right.i4.i.i.i.i, align 8, !tbaa !17
   %_M_node_count.i5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  store i64 0, ptr %_M_node_count.i5.i.i.i.i, align 8, !tbaa !19
   br label %_ZNSt3setIN5boost10shared_ptrIN8QuantLib12DefaultEventEEENS2_12earlier_thanIS4_EESaIS4_EEC2EOS8_.exit
 
 _ZNSt3setIN5boost10shared_ptrIN8QuantLib12DefaultEventEEENS2_12earlier_thanIS4_EESaIS4_EEC2EOS8_.exit: ; preds = %if.then.i.i.i.i, %if.else.i.i.i.i
-  %_M_node_count.i5.sink.i.i.i.i = phi ptr [ %_M_node_count.i5.i.i.i.i, %if.else.i.i.i.i ], [ %_M_node_count.i.i.i.i.i, %if.then.i.i.i.i ]
   %.sink.i.i.i.i = phi i32 [ 0, %if.else.i.i.i.i ], [ %5, %if.then.i.i.i.i ]
-  store i64 0, ptr %_M_node_count.i5.sink.i.i.i.i, align 8, !tbaa !19
   store i32 %.sink.i.i.i.i, ptr %3, align 8
   ret void
 }
@@ -201,6 +201,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   store ptr null, ptr %_M_parent.i.i.i.i, align 8, !tbaa !10
   store ptr %add.ptr.i.i.i, ptr %_M_left.i.i.i.i.i, align 8, !tbaa !16
   store ptr %add.ptr.i.i.i, ptr %_M_right.i.i.i.i.i, align 8, !tbaa !17
+  store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8, !tbaa !19
   br label %_ZNSt3setIN5boost10shared_ptrIN8QuantLib12DefaultEventEEENS2_12earlier_thanIS4_EESaIS4_EEC2EOS8_.exit
 
 if.else.i.i.i.i:                                  ; preds = %entry
@@ -211,12 +212,11 @@ if.else.i.i.i.i:                                  ; preds = %entry
   %_M_right.i4.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %0, ptr %_M_right.i4.i.i.i.i, align 8, !tbaa !17
   %_M_node_count.i5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  store i64 0, ptr %_M_node_count.i5.i.i.i.i, align 8, !tbaa !19
   br label %_ZNSt3setIN5boost10shared_ptrIN8QuantLib12DefaultEventEEENS2_12earlier_thanIS4_EESaIS4_EEC2EOS8_.exit
 
 _ZNSt3setIN5boost10shared_ptrIN8QuantLib12DefaultEventEEENS2_12earlier_thanIS4_EESaIS4_EEC2EOS8_.exit: ; preds = %if.then.i.i.i.i, %if.else.i.i.i.i
-  %_M_node_count.i5.sink.i.i.i.i = phi ptr [ %_M_node_count.i5.i.i.i.i, %if.else.i.i.i.i ], [ %_M_node_count.i.i.i.i.i, %if.then.i.i.i.i ]
   %.sink.i.i.i.i = phi i32 [ 0, %if.else.i.i.i.i ], [ %2, %if.then.i.i.i.i ]
-  store i64 0, ptr %_M_node_count.i5.sink.i.i.i.i, align 8, !tbaa !19
   store i32 %.sink.i.i.i.i, ptr %0, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %eventTypes, i64 8
   %6 = load ptr, ptr %_M_finish.i, align 8, !tbaa !20

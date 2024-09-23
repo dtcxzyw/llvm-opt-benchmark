@@ -1376,13 +1376,20 @@ if.then21:                                        ; preds = %if.then16
 
 if.end22:                                         ; preds = %if.then16
   %16 = load ptr, ptr %pos, align 8
+  %incdec.ptr24 = getelementptr inbounds i8, ptr %16, i64 2
+  store ptr %incdec.ptr24, ptr %pos, align 8
   br label %for.end.sink.split
 
 land.lhs.true31:                                  ; preds = %_ZN6icu_7525FCDUTF16CollationIterator15switchToForwardEv.exit, %if.else.lr.ph
   %.lcssa45 = phi ptr [ %pos.i.promoted, %_ZN6icu_7525FCDUTF16CollationIterator15switchToForwardEv.exit ], [ %start.i.promoted, %if.else.lr.ph ]
   %.lcssa = phi ptr [ %pos.i.promoted, %_ZN6icu_7525FCDUTF16CollationIterator15switchToForwardEv.exit ], [ %segmentStart.i30.promoted, %if.else.lr.ph ]
   %cmp34.not = icmp eq ptr %pos.i.promoted, %limit33.promoted
-  br i1 %cmp34.not, label %if.else7.i, label %for.end.sink.split
+  br i1 %cmp34.not, label %if.else7.i, label %if.then35
+
+if.then35:                                        ; preds = %land.lhs.true31
+  %incdec.ptr37 = getelementptr inbounds i8, ptr %pos.i.promoted, i64 2
+  store ptr %incdec.ptr37, ptr %pos.i, align 8
+  br label %for.end.sink.split
 
 if.then.i:                                        ; preds = %if.else.lr.ph
   %cmp3.i = icmp eq ptr %pos.i.promoted, %0
@@ -1410,12 +1417,9 @@ _ZN6icu_7525FCDUTF16CollationIterator15switchToForwardEv.exit: ; preds = %if.the
   store i8 0, ptr %checkDir, align 8
   br label %land.lhs.true31
 
-for.end.sink.split:                               ; preds = %land.lhs.true31, %if.end22
-  %.sink = phi ptr [ %16, %if.end22 ], [ %pos.i.promoted, %land.lhs.true31 ]
-  %pos.sink = phi ptr [ %pos, %if.end22 ], [ %pos.i, %land.lhs.true31 ]
-  %incdec.ptr24 = getelementptr inbounds i8, ptr %.sink, i64 2
-  store ptr %incdec.ptr24, ptr %pos.sink, align 8
-  %18 = load i16, ptr %.sink, align 2
+for.end.sink.split:                               ; preds = %if.then35, %if.end22
+  %.sink43 = phi ptr [ %16, %if.end22 ], [ %pos.i.promoted, %if.then35 ]
+  %18 = load i16, ptr %.sink43, align 2
   %conv25 = zext i16 %18 to i32
   store i32 %conv25, ptr %c, align 4
   br label %for.end
@@ -1879,6 +1883,8 @@ if.then16:                                        ; preds = %_ZN6icu_7512Collati
 
 if.end22:                                         ; preds = %if.then16
   %15 = load ptr, ptr %pos, align 8
+  %incdec.ptr24 = getelementptr inbounds i8, ptr %15, i64 2
+  store ptr %incdec.ptr24, ptr %pos, align 8
   br label %for.end.sink.split
 
 if.else:                                          ; preds = %if.end
@@ -1900,7 +1906,12 @@ land.lhs.true41:                                  ; preds = %_ZN6icu_7525FCDUTF1
   %.lcssa46 = phi ptr [ %pos.i.promoted, %_ZN6icu_7525FCDUTF16CollationIterator15switchToForwardEv.exit ], [ %start.i.promoted, %if.else37.lr.ph ]
   %.lcssa = phi ptr [ %pos.i.promoted, %_ZN6icu_7525FCDUTF16CollationIterator15switchToForwardEv.exit ], [ %segmentStart.i28.promoted, %if.else37.lr.ph ]
   %cmp44.not = icmp eq ptr %pos.i.promoted, %limit43.promoted
-  br i1 %cmp44.not, label %if.else7.i, label %for.end.sink.split
+  br i1 %cmp44.not, label %if.else7.i, label %if.then45
+
+if.then45:                                        ; preds = %land.lhs.true41
+  %incdec.ptr47 = getelementptr inbounds i8, ptr %pos.i.promoted, i64 2
+  store ptr %incdec.ptr47, ptr %pos.i, align 8
+  br label %for.end.sink.split
 
 if.then.i:                                        ; preds = %if.else37.lr.ph
   %cmp3.i = icmp eq ptr %pos.i.promoted, %0
@@ -1928,17 +1939,15 @@ _ZN6icu_7525FCDUTF16CollationIterator15switchToForwardEv.exit: ; preds = %if.the
   store i8 0, ptr %checkDir, align 8
   br label %land.lhs.true41
 
-for.end.sink.split:                               ; preds = %land.lhs.true41, %if.end22
-  %.sink = phi ptr [ %15, %if.end22 ], [ %pos.i.promoted, %land.lhs.true41 ]
-  %pos.sink = phi ptr [ %pos, %if.end22 ], [ %pos.i, %land.lhs.true41 ]
-  %incdec.ptr24 = getelementptr inbounds i8, ptr %.sink, i64 2
-  store ptr %incdec.ptr24, ptr %pos.sink, align 8
-  %17 = load i16, ptr %.sink, align 2
+for.end.sink.split:                               ; preds = %if.then45, %if.end22
+  %.sink44 = phi ptr [ %15, %if.end22 ], [ %pos.i.promoted, %if.then45 ]
+  %.ph = phi ptr [ %incdec.ptr24, %if.end22 ], [ %incdec.ptr47, %if.then45 ]
+  %17 = load i16, ptr %.sink44, align 2
   %conv25 = zext i16 %17 to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.end.sink.split, %_ZN6icu_7512CollationFCD7hasTcccEi.exit, %land.lhs.true.i, %land.lhs.true, %land.lhs.true.i13, %_ZN6icu_7512CollationFCD7hasLcccEi.exit, %lor.lhs.false, %if.else
-  %18 = phi ptr [ %incdec.ptr, %_ZN6icu_7512CollationFCD7hasLcccEi.exit ], [ %incdec.ptr, %lor.lhs.false ], [ %incdec.ptr, %if.else ], [ %incdec.ptr, %land.lhs.true.i13 ], [ %incdec.ptr, %land.lhs.true ], [ %incdec.ptr, %land.lhs.true.i ], [ %incdec.ptr, %_ZN6icu_7512CollationFCD7hasTcccEi.exit ], [ %incdec.ptr24, %for.end.sink.split ]
+  %18 = phi ptr [ %incdec.ptr, %_ZN6icu_7512CollationFCD7hasLcccEi.exit ], [ %incdec.ptr, %lor.lhs.false ], [ %incdec.ptr, %if.else ], [ %incdec.ptr, %land.lhs.true.i13 ], [ %incdec.ptr, %land.lhs.true ], [ %incdec.ptr, %land.lhs.true.i ], [ %incdec.ptr, %_ZN6icu_7512CollationFCD7hasTcccEi.exit ], [ %.ph, %for.end.sink.split ]
   %c.0 = phi i32 [ %conv5, %_ZN6icu_7512CollationFCD7hasLcccEi.exit ], [ %conv5, %lor.lhs.false ], [ %conv5, %if.else ], [ %conv5, %land.lhs.true.i13 ], [ %conv5, %land.lhs.true ], [ %conv5, %land.lhs.true.i ], [ %conv5, %_ZN6icu_7512CollationFCD7hasTcccEi.exit ], [ %conv25, %for.end.sink.split ]
   %and = and i32 %c.0, 64512
   %cmp52 = icmp eq i32 %and, 55296
@@ -2074,11 +2083,22 @@ if.then16:                                        ; preds = %_ZN6icu_7512Collati
 
 if.end22:                                         ; preds = %if.then16
   %15 = load ptr, ptr %pos, align 8
-  br label %for.end.sink.split
+  %incdec.ptr24 = getelementptr inbounds i8, ptr %15, i64 -2
+  store ptr %incdec.ptr24, ptr %pos, align 8
+  %16 = load i16, ptr %incdec.ptr24, align 2
+  %conv25 = zext i16 %16 to i32
+  br label %for.end
 
 land.lhs.true31:                                  ; preds = %_ZN6icu_7525FCDUTF16CollationIterator16switchToBackwardEv.exit, %if.else.lr.ph
   %cmp34.not = icmp eq ptr %pos.i.promoted, %start.i.promoted
-  br i1 %cmp34.not, label %if.else7.i, label %for.end.sink.split
+  br i1 %cmp34.not, label %if.else7.i, label %if.then35
+
+if.then35:                                        ; preds = %land.lhs.true31
+  %incdec.ptr37 = getelementptr inbounds i8, ptr %pos.i.promoted, i64 -2
+  store ptr %incdec.ptr37, ptr %pos.phi.trans.insert, align 8
+  %17 = load i16, ptr %incdec.ptr37, align 2
+  %conv38 = zext i16 %17 to i32
+  br label %for.end
 
 if.then.i:                                        ; preds = %if.else.lr.ph
   %cmp3.i = icmp eq ptr %pos.i.promoted, %0
@@ -2106,18 +2126,9 @@ _ZN6icu_7525FCDUTF16CollationIterator16switchToBackwardEv.exit: ; preds = %if.th
   store i8 0, ptr %checkDir, align 8
   br label %land.lhs.true31
 
-for.end.sink.split:                               ; preds = %land.lhs.true31, %if.end22
-  %.sink = phi ptr [ %15, %if.end22 ], [ %pos.i.promoted, %land.lhs.true31 ]
-  %pos.sink = phi ptr [ %pos, %if.end22 ], [ %pos.phi.trans.insert, %land.lhs.true31 ]
-  %incdec.ptr24 = getelementptr inbounds i8, ptr %.sink, i64 -2
-  store ptr %incdec.ptr24, ptr %pos.sink, align 8
-  %16 = load i16, ptr %incdec.ptr24, align 2
-  %conv25 = zext i16 %16 to i32
-  br label %for.end
-
-for.end:                                          ; preds = %for.end.sink.split, %land.lhs.true, %land.lhs.true.i12, %if.end, %land.lhs.true.i, %_ZN6icu_7512CollationFCD7hasLcccEi.exit, %_ZN6icu_7512CollationFCD7hasTcccEi.exit, %lor.lhs.false
-  %17 = phi ptr [ %incdec.ptr, %_ZN6icu_7512CollationFCD7hasTcccEi.exit ], [ %incdec.ptr, %lor.lhs.false ], [ %incdec.ptr, %_ZN6icu_7512CollationFCD7hasLcccEi.exit ], [ %incdec.ptr, %land.lhs.true.i ], [ %incdec.ptr, %if.end ], [ %incdec.ptr, %land.lhs.true.i12 ], [ %incdec.ptr, %land.lhs.true ], [ %incdec.ptr24, %for.end.sink.split ]
-  %c.0 = phi i32 [ %conv5, %_ZN6icu_7512CollationFCD7hasTcccEi.exit ], [ %conv5, %lor.lhs.false ], [ %conv5, %_ZN6icu_7512CollationFCD7hasLcccEi.exit ], [ %conv5, %land.lhs.true.i ], [ %conv5, %if.end ], [ %conv5, %land.lhs.true.i12 ], [ %conv5, %land.lhs.true ], [ %conv25, %for.end.sink.split ]
+for.end:                                          ; preds = %land.lhs.true, %land.lhs.true.i12, %if.end, %land.lhs.true.i, %_ZN6icu_7512CollationFCD7hasLcccEi.exit, %if.end22, %_ZN6icu_7512CollationFCD7hasTcccEi.exit, %lor.lhs.false, %if.then35
+  %18 = phi ptr [ %incdec.ptr24, %if.end22 ], [ %incdec.ptr, %_ZN6icu_7512CollationFCD7hasTcccEi.exit ], [ %incdec.ptr, %lor.lhs.false ], [ %incdec.ptr, %_ZN6icu_7512CollationFCD7hasLcccEi.exit ], [ %incdec.ptr37, %if.then35 ], [ %incdec.ptr, %land.lhs.true.i ], [ %incdec.ptr, %if.end ], [ %incdec.ptr, %land.lhs.true.i12 ], [ %incdec.ptr, %land.lhs.true ]
+  %c.0 = phi i32 [ %conv25, %if.end22 ], [ %conv5, %_ZN6icu_7512CollationFCD7hasTcccEi.exit ], [ %conv5, %lor.lhs.false ], [ %conv5, %_ZN6icu_7512CollationFCD7hasLcccEi.exit ], [ %conv38, %if.then35 ], [ %conv5, %land.lhs.true.i ], [ %conv5, %if.end ], [ %conv5, %land.lhs.true.i12 ], [ %conv5, %land.lhs.true ]
   %and = and i32 %c.0, 64512
   %cmp42 = icmp eq i32 %and, 56320
   br i1 %cmp42, label %land.lhs.true43, label %return
@@ -2125,14 +2136,14 @@ for.end:                                          ; preds = %for.end.sink.split,
 land.lhs.true43:                                  ; preds = %for.end
   %pos44 = getelementptr inbounds i8, ptr %this, i64 400
   %start45 = getelementptr inbounds i8, ptr %this, i64 392
-  %18 = load ptr, ptr %start45, align 8
-  %cmp46.not = icmp eq ptr %17, %18
+  %19 = load ptr, ptr %start45, align 8
+  %cmp46.not = icmp eq ptr %18, %19
   br i1 %cmp46.not, label %return, label %land.lhs.true47
 
 land.lhs.true47:                                  ; preds = %land.lhs.true43
-  %add.ptr49 = getelementptr inbounds i8, ptr %17, i64 -2
-  %19 = load i16, ptr %add.ptr49, align 2
-  %conv50 = zext i16 %19 to i32
+  %add.ptr49 = getelementptr inbounds i8, ptr %18, i64 -2
+  %20 = load i16, ptr %add.ptr49, align 2
+  %conv50 = zext i16 %20 to i32
   %and51 = and i32 %conv50, 64512
   %cmp52 = icmp eq i32 %and51, 55296
   br i1 %cmp52, label %if.then53, label %return

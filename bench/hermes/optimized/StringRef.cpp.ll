@@ -2265,9 +2265,9 @@ _ZN4llvh5APInt15clearUnusedBitsEv.exit.i74:       ; preds = %if.then34
   %sub2.i.i = xor i32 %rem.i.i, 63
   %sh_prom.i.i = zext nneg i32 %sub2.i.i to i64
   %shr.i.i = lshr i64 -1, %sh_prom.i.i
-  %and6.i.i = and i64 %shr.i.i, %conv36
-  store i64 %and6.i.i, ptr %ref.tmp35, align 8
-  store i64 %and6.i.i, ptr %RadixAP, align 8
+  %and.i.i = and i64 %shr.i.i, %conv36
+  store i64 %and.i.i, ptr %ref.tmp35, align 8
+  store i64 %and.i.i, ptr %RadixAP, align 8
   %11 = load i32, ptr %BitWidth.i56, align 8
   store i32 %11, ptr %BitWidth.i54, align 8
   store i32 0, ptr %BitWidth.i56, align 8
@@ -2372,8 +2372,8 @@ _ZN4llvh5APIntlSEj.exit.us.thread:                ; preds = %if.end85.us
   %sub2.i.i112.us = xor i32 %rem.i.i111.us, 63
   %sh_prom.i.i113.us = zext nneg i32 %sub2.i.i112.us to i64
   %shr.i.i114.us = lshr i64 -1, %sh_prom.i.i113.us
-  %and6.i.i115.us = and i64 %storemerge.i.us, %shr.i.i114.us
-  store i64 %and6.i.i115.us, ptr %Result, align 8
+  %and.i.i115.us = and i64 %storemerge.i.us, %shr.i.i114.us
+  store i64 %and.i.i115.us, ptr %Result, align 8
   %conv89.us229 = zext nneg i32 %sub.us to i64
   br label %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i119.us
 
@@ -2401,8 +2401,8 @@ _ZN4llvh5APInt15clearUnusedBitsEv.exit.i119.us:   ; preds = %_ZN4llvh5APIntlSEj.
   %sub2.i.i122.us = xor i32 %rem.i.i121.us, 63
   %sh_prom.i.i123.us = zext nneg i32 %sub2.i.i122.us to i64
   %shr.i.i124.us = lshr i64 -1, %sh_prom.i.i123.us
-  %and6.i.i125.us = and i64 %or.i.us, %shr.i.i124.us
-  store i64 %and6.i.i125.us, ptr %Result, align 8
+  %and.i.i125.us = and i64 %or.i.us, %shr.i.i124.us
+  store i64 %and.i.i125.us, ptr %Result, align 8
   br label %if.end96.us
 
 if.end96.us:                                      ; preds = %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i119.us, %if.else.i118.us
@@ -2455,8 +2455,8 @@ _ZN4llvh5APInt15clearUnusedBitsEv.exit.i135:      ; preds = %if.end85
   %sub2.i.i138 = xor i32 %rem.i.i137, 63
   %sh_prom.i.i139 = zext nneg i32 %sub2.i.i138 to i64
   %shr.i.i140 = lshr i64 -1, %sh_prom.i.i139
-  %and6.i.i141 = and i64 %shr.i.i140, %conv93
-  store i64 %and6.i.i141, ptr %CharAP, align 8
+  %and.i.i141 = and i64 %shr.i.i140, %conv93
+  store i64 %and.i.i141, ptr %CharAP, align 8
   br label %_ZN4llvh5APIntaSEm.exit142
 
 if.else.i128:                                     ; preds = %if.end85

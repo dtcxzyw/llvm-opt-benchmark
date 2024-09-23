@@ -73305,7 +73305,8 @@ call3.i.noexc:                                    ; preds = %if.then.i
   %default_enum_value_.i = getelementptr inbounds i8, ptr %call, i64 8
   %7 = load i32, ptr %default_enum_value_.i, align 8
   store i32 %7, ptr %second.i, align 4
-  br label %cleanup.sink.split
+  %.pre.i = load ptr, ptr %v_.i.i, align 8
+  br label %cleanup
 
 lpad:                                             ; preds = %if.then.i, %if.then, %entry
   %8 = landingpad { ptr, i32 }
@@ -73315,31 +73316,27 @@ lpad:                                             ; preds = %if.then.i, %if.then
 
 invoke.cont9:                                     ; preds = %invoke.cont4
   %v_.i.i.i8 = getelementptr inbounds i8, ptr %2, i64 8
-  br label %cleanup.sink.split
-
-cleanup.sink.split:                               ; preds = %invoke.cont9, %call3.i.noexc
-  %v_.i.i.sink = phi ptr [ %v_.i.i, %call3.i.noexc ], [ %v_.i.i.i8, %invoke.cont9 ]
-  %.pre.i = load ptr, ptr %v_.i.i.sink, align 8
+  %9 = load ptr, ptr %v_.i.i.i8, align 8
   br label %cleanup
 
-cleanup:                                          ; preds = %cleanup.sink.split, %.noexc
-  %.pn = phi ptr [ %5, %.noexc ], [ %.pre.i, %cleanup.sink.split ]
+cleanup:                                          ; preds = %.noexc, %call3.i.noexc, %invoke.cont9
+  %.pn = phi ptr [ %9, %invoke.cont9 ], [ %.pre.i, %call3.i.noexc ], [ %5, %.noexc ]
   %storemerge = getelementptr inbounds i8, ptr %.pn, i64 32
   store ptr %storemerge, ptr %val, align 8
-  %9 = load ptr, ptr %ref.tmp, align 8
-  %10 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %cmp.i.i.i = icmp eq ptr %9, %10
+  %10 = load ptr, ptr %ref.tmp, align 8
+  %11 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %cmp.i.i.i = icmp eq ptr %10, %11
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %cleanup
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %11 = load i64, ptr %_M_string_length.i.i.i, align 8
-  %cmp3.i.i.i = icmp ult i64 %11, 16
+  %12 = load i64, ptr %_M_string_length.i.i.i, align 8
+  %cmp3.i.i.i = icmp ult i64 %12, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 if.then.i.i:                                      ; preds = %cleanup
-  call void @_ZdlPv(ptr noundef %9) #29
+  call void @_ZdlPv(ptr noundef %10) #29
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %if.then.i.i
@@ -74402,66 +74399,63 @@ while.end27:                                      ; preds = %while.body23.i, %if
   %arrayidx = getelementptr inbounds ptr, ptr %12, i64 %11
   %13 = load ptr, ptr %arrayidx, align 8
   %call28 = call noundef ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto311ForeignEnumEE8InnerMap19EraseFromLinkedListEPNSC_4NodeESE_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %5, ptr noundef %13)
-  br label %if.end61.sink.split
+  %14 = load ptr, ptr %table_, align 8
+  %arrayidx30 = getelementptr inbounds ptr, ptr %14, i64 %11
+  store ptr %call28, ptr %arrayidx30, align 8
+  br label %if.end61
 
 while.end50:                                      ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto311ForeignEnumEE8InnerMap13iterator_baseINSB_12KeyValuePairEE23revalidate_if_necessaryEPSt23_Rb_tree_const_iteratorIPNS0_8internal7KeyViewIS7_EEE.exit
   %table_51 = getelementptr inbounds i8, ptr %this, i64 32
-  %14 = load ptr, ptr %table_51, align 8
-  %arrayidx52 = getelementptr inbounds ptr, ptr %14, i64 %ref.tmp30.sroa.3.0.copyload.i
-  %15 = load ptr, ptr %arrayidx52, align 8
-  %16 = load ptr, ptr %tree_it, align 8
-  %_M_storage.i.i = getelementptr inbounds i8, ptr %16, i64 32
-  %call.i = call noundef i64 @_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE5eraseERKSB_(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i)
-  %_M_node_count.i.i = getelementptr inbounds i8, ptr %15, i64 48
-  %17 = load i64, ptr %_M_node_count.i.i, align 8
-  %cmp.i.i = icmp eq i64 %17, 0
+  %15 = load ptr, ptr %table_51, align 8
+  %arrayidx52 = getelementptr inbounds ptr, ptr %15, i64 %ref.tmp30.sroa.3.0.copyload.i
+  %16 = load ptr, ptr %arrayidx52, align 8
+  %17 = load ptr, ptr %tree_it, align 8
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %17, i64 32
+  %call.i = call noundef i64 @_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE5eraseERKSB_(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i)
+  %_M_node_count.i.i = getelementptr inbounds i8, ptr %16, i64 48
+  %18 = load i64, ptr %_M_node_count.i.i, align 8
+  %cmp.i.i = icmp eq i64 %18, 0
   br i1 %cmp.i.i, label %if.then56, label %if.end61
 
 if.then56:                                        ; preds = %while.end50
   %and = and i64 %ref.tmp30.sroa.3.0.copyload.i, -2
   %alloc_.i = getelementptr inbounds i8, ptr %this, i64 40
-  %18 = load ptr, ptr %alloc_.i, align 8
-  %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 24
-  %19 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
-  invoke void @_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef %19)
+  %19 = load ptr, ptr %alloc_.i, align 8
+  %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 24
+  %20 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
+  invoke void @_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef %20)
           to label %_ZN6google8protobuf8internal12MapAllocatorISt3setIPNS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_12DerefCompareISB_EENS2_ISC_EEEE7destroyISG_EEvPT_.exit.i unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then56
-  %20 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           catch ptr null
-  %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #31
+  %22 = extractvalue { ptr, i32 } %21, 0
+  call void @__clang_call_terminate(ptr %22) #31
   unreachable
 
 _ZN6google8protobuf8internal12MapAllocatorISt3setIPNS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_12DerefCompareISB_EENS2_ISC_EEEE7destroyISG_EEvPT_.exit.i: ; preds = %if.then56
-  %cmp.i.i11 = icmp eq ptr %18, null
+  %cmp.i.i11 = icmp eq ptr %19, null
   br i1 %cmp.i.i11, label %if.then.i.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto311ForeignEnumEE8InnerMap11DestroyTreeEPSt3setIPNS0_8internal7KeyViewIS7_EENSE_12DerefCompareISG_EENSE_12MapAllocatorISH_EEE.exit
 
 if.then.i.i:                                      ; preds = %_ZN6google8protobuf8internal12MapAllocatorISt3setIPNS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_12DerefCompareISB_EENS2_ISC_EEEE7destroyISG_EEvPT_.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %15) #30
+  call void @_ZdlPv(ptr noundef nonnull %16) #30
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto311ForeignEnumEE8InnerMap11DestroyTreeEPSt3setIPNS0_8internal7KeyViewIS7_EENSE_12DerefCompareISG_EENSE_12MapAllocatorISH_EEE.exit
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto311ForeignEnumEE8InnerMap11DestroyTreeEPSt3setIPNS0_8internal7KeyViewIS7_EENSE_12DerefCompareISG_EENSE_12MapAllocatorISH_EEE.exit: ; preds = %_ZN6google8protobuf8internal12MapAllocatorISt3setIPNS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_12DerefCompareISB_EENS2_ISC_EEEE7destroyISG_EEvPT_.exit.i, %if.then.i.i
-  %22 = load ptr, ptr %table_51, align 8
+  %23 = load ptr, ptr %table_51, align 8
   %add = or i64 %ref.tmp30.sroa.3.0.copyload.i, 1
-  %arrayidx58 = getelementptr inbounds ptr, ptr %22, i64 %add
+  %arrayidx58 = getelementptr inbounds ptr, ptr %23, i64 %add
   store ptr null, ptr %arrayidx58, align 8
-  br label %if.end61.sink.split
-
-if.end61.sink.split:                              ; preds = %while.end27, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto311ForeignEnumEE8InnerMap11DestroyTreeEPSt3setIPNS0_8internal7KeyViewIS7_EENSE_12DerefCompareISG_EENSE_12MapAllocatorISH_EEE.exit
-  %table_51.sink = phi ptr [ %table_51, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto311ForeignEnumEE8InnerMap11DestroyTreeEPSt3setIPNS0_8internal7KeyViewIS7_EENSE_12DerefCompareISG_EENSE_12MapAllocatorISH_EEE.exit ], [ %table_, %while.end27 ]
-  %and.sink = phi i64 [ %and, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto311ForeignEnumEE8InnerMap11DestroyTreeEPSt3setIPNS0_8internal7KeyViewIS7_EENSE_12DerefCompareISG_EENSE_12MapAllocatorISH_EEE.exit ], [ %11, %while.end27 ]
-  %.sink = phi ptr [ null, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto311ForeignEnumEE8InnerMap11DestroyTreeEPSt3setIPNS0_8internal7KeyViewIS7_EENSE_12DerefCompareISG_EENSE_12MapAllocatorISH_EEE.exit ], [ %call28, %while.end27 ]
-  %23 = load ptr, ptr %table_51.sink, align 8
-  %arrayidx60 = getelementptr inbounds ptr, ptr %23, i64 %and.sink
-  store ptr %.sink, ptr %arrayidx60, align 8
+  %24 = load ptr, ptr %table_51, align 8
+  %arrayidx60 = getelementptr inbounds ptr, ptr %24, i64 %and
+  store ptr null, ptr %arrayidx60, align 8
   br label %if.end61
 
-if.end61:                                         ; preds = %if.end61.sink.split, %while.end50
-  %b.0 = phi i64 [ %ref.tmp30.sroa.3.0.copyload.i, %while.end50 ], [ %and.sink, %if.end61.sink.split ]
+if.end61:                                         ; preds = %while.end50, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto311ForeignEnumEE8InnerMap11DestroyTreeEPSt3setIPNS0_8internal7KeyViewIS7_EENSE_12DerefCompareISG_EENSE_12MapAllocatorISH_EEE.exit, %while.end27
+  %b.0 = phi i64 [ %11, %while.end27 ], [ %and, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto311ForeignEnumEE8InnerMap11DestroyTreeEPSt3setIPNS0_8internal7KeyViewIS7_EENSE_12DerefCompareISG_EENSE_12MapAllocatorISH_EEE.exit ], [ %ref.tmp30.sroa.3.0.copyload.i, %while.end50 ]
   %alloc_.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %24 = load ptr, ptr %alloc_.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %24, null
+  %25 = load ptr, ptr %alloc_.i.i, align 8
+  %cmp.i.i.i = icmp eq ptr %25, null
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto311ForeignEnumEE8InnerMap11DestroyNodeEPNSC_4NodeE.exit
 
 if.then.i.i.i:                                    ; preds = %if.end61
@@ -74469,36 +74463,36 @@ if.then.i.i.i:                                    ; preds = %if.end61
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto311ForeignEnumEE8InnerMap11DestroyNodeEPNSC_4NodeE.exit
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto311ForeignEnumEE8InnerMap11DestroyNodeEPNSC_4NodeE.exit: ; preds = %if.end61, %if.then.i.i.i
-  %25 = load i64, ptr %this, align 8
-  %dec = add i64 %25, -1
+  %26 = load i64, ptr %this, align 8
+  %dec = add i64 %26, -1
   store i64 %dec, ptr %this, align 8
   %index_of_first_non_null_ = getelementptr inbounds i8, ptr %this, i64 24
-  %26 = load i64, ptr %index_of_first_non_null_, align 8
-  %cmp62 = icmp eq i64 %b.0, %26
+  %27 = load i64, ptr %index_of_first_non_null_, align 8
+  %cmp62 = icmp eq i64 %b.0, %27
   br i1 %cmp62, label %while.cond64.preheader, label %if.end74
 
 while.cond64.preheader:                           ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto311ForeignEnumEE8InnerMap11DestroyNodeEPNSC_4NodeE.exit
   %num_buckets_ = getelementptr inbounds i8, ptr %this, i64 8
-  %27 = load i64, ptr %num_buckets_, align 8
-  %cmp6613 = icmp ult i64 %b.0, %27
+  %28 = load i64, ptr %num_buckets_, align 8
+  %cmp6613 = icmp ult i64 %b.0, %28
   br i1 %cmp6613, label %land.rhs.lr.ph, label %if.end74
 
 land.rhs.lr.ph:                                   ; preds = %while.cond64.preheader
   %table_67 = getelementptr inbounds i8, ptr %this, i64 32
-  %28 = load ptr, ptr %table_67, align 8
+  %29 = load ptr, ptr %table_67, align 8
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %while.body71
-  %29 = phi i64 [ %b.0, %land.rhs.lr.ph ], [ %inc, %while.body71 ]
-  %arrayidx69 = getelementptr inbounds ptr, ptr %28, i64 %29
-  %30 = load ptr, ptr %arrayidx69, align 8
-  %cmp70 = icmp eq ptr %30, null
+  %30 = phi i64 [ %b.0, %land.rhs.lr.ph ], [ %inc, %while.body71 ]
+  %arrayidx69 = getelementptr inbounds ptr, ptr %29, i64 %30
+  %31 = load ptr, ptr %arrayidx69, align 8
+  %cmp70 = icmp eq ptr %31, null
   br i1 %cmp70, label %while.body71, label %if.end74
 
 while.body71:                                     ; preds = %land.rhs
-  %inc = add i64 %29, 1
+  %inc = add i64 %30, 1
   store i64 %inc, ptr %index_of_first_non_null_, align 8
-  %exitcond.not = icmp eq i64 %inc, %27
+  %exitcond.not = icmp eq i64 %inc, %28
   br i1 %exitcond.not, label %if.end74, label %land.rhs, !llvm.loop !889
 
 if.end74:                                         ; preds = %while.body71, %land.rhs, %while.cond64.preheader, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto311ForeignEnumEE8InnerMap11DestroyNodeEPNSC_4NodeE.exit
@@ -77376,7 +77370,8 @@ if.end:                                           ; preds = %_ZNKSt7__cxx1112bas
 if.end.split:                                     ; preds = %if.end
   %_M_string_length.i.i13 = getelementptr inbounds i8, ptr %this, i64 8
   store i64 0, ptr %_M_string_length.i.i13, align 8
-  br label %if.end10.sink.split
+  store i8 0, ptr %1, align 1
+  br label %if.end10
 
 if.then6:                                         ; preds = %if.end.thread, %if.end
   %6 = phi ptr [ %call5.i.i.i, %if.end.thread ], [ %1, %if.end ]
@@ -77398,14 +77393,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit: ; pre
   store i64 %0, ptr %_M_string_length.i.i16, align 8
   %9 = load ptr, ptr %this, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %9, i64 %0
-  br label %if.end10.sink.split
-
-if.end10.sink.split:                              ; preds = %if.end.split, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit
-  %arrayidx.i.sink = phi ptr [ %arrayidx.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit ], [ %1, %if.end.split ]
-  store i8 0, ptr %arrayidx.i.sink, align 1
+  store i8 0, ptr %arrayidx.i, align 1
   br label %if.end10
 
-if.end10:                                         ; preds = %if.end10.sink.split, %entry
+if.end10:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit, %if.end.split, %entry
   ret void
 }
 
@@ -77653,7 +77644,8 @@ call3.i.noexc:                                    ; preds = %if.then.i
   %default_enum_value_.i = getelementptr inbounds i8, ptr %call, i64 8
   %7 = load i32, ptr %default_enum_value_.i, align 8
   store i32 %7, ptr %second.i, align 4
-  br label %cleanup.sink.split
+  %.pre.i = load ptr, ptr %v_.i.i, align 8
+  br label %cleanup
 
 lpad:                                             ; preds = %if.then.i, %if.then, %entry
   %8 = landingpad { ptr, i32 }
@@ -77663,31 +77655,27 @@ lpad:                                             ; preds = %if.then.i, %if.then
 
 invoke.cont8:                                     ; preds = %invoke.cont4
   %v_.i.i.i8 = getelementptr inbounds i8, ptr %2, i64 8
-  br label %cleanup.sink.split
-
-cleanup.sink.split:                               ; preds = %invoke.cont8, %call3.i.noexc
-  %v_.i.i.sink = phi ptr [ %v_.i.i, %call3.i.noexc ], [ %v_.i.i.i8, %invoke.cont8 ]
-  %.pre.i = load ptr, ptr %v_.i.i.sink, align 8
+  %9 = load ptr, ptr %v_.i.i.i8, align 8
   br label %cleanup
 
-cleanup:                                          ; preds = %cleanup.sink.split, %.noexc
-  %.pn = phi ptr [ %5, %.noexc ], [ %.pre.i, %cleanup.sink.split ]
+cleanup:                                          ; preds = %.noexc, %call3.i.noexc, %invoke.cont8
+  %.pn = phi ptr [ %9, %invoke.cont8 ], [ %.pre.i, %call3.i.noexc ], [ %5, %.noexc ]
   %storemerge = getelementptr inbounds i8, ptr %.pn, i64 32
   store ptr %storemerge, ptr %val, align 8
-  %9 = load ptr, ptr %ref.tmp, align 8
-  %10 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %cmp.i.i.i = icmp eq ptr %9, %10
+  %10 = load ptr, ptr %ref.tmp, align 8
+  %11 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %cmp.i.i.i = icmp eq ptr %10, %11
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %cleanup
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %11 = load i64, ptr %_M_string_length.i.i.i, align 8
-  %cmp3.i.i.i = icmp ult i64 %11, 16
+  %12 = load i64, ptr %_M_string_length.i.i.i, align 8
+  %cmp3.i.i.i = icmp ult i64 %12, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 if.then.i.i:                                      ; preds = %cleanup
-  call void @_ZdlPv(ptr noundef %9) #29
+  call void @_ZdlPv(ptr noundef %10) #29
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %if.then.i.i
@@ -78750,66 +78738,63 @@ while.end27:                                      ; preds = %while.body23.i, %if
   %arrayidx = getelementptr inbounds ptr, ptr %12, i64 %11
   %13 = load ptr, ptr %arrayidx, align 8
   %call28 = call noundef ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto329TestAllTypesProto3_NestedEnumEE8InnerMap19EraseFromLinkedListEPNSC_4NodeESE_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %5, ptr noundef %13)
-  br label %if.end61.sink.split
+  %14 = load ptr, ptr %table_, align 8
+  %arrayidx30 = getelementptr inbounds ptr, ptr %14, i64 %11
+  store ptr %call28, ptr %arrayidx30, align 8
+  br label %if.end61
 
 while.end50:                                      ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto329TestAllTypesProto3_NestedEnumEE8InnerMap13iterator_baseINSB_12KeyValuePairEE23revalidate_if_necessaryEPSt23_Rb_tree_const_iteratorIPNS0_8internal7KeyViewIS7_EEE.exit
   %table_51 = getelementptr inbounds i8, ptr %this, i64 32
-  %14 = load ptr, ptr %table_51, align 8
-  %arrayidx52 = getelementptr inbounds ptr, ptr %14, i64 %ref.tmp30.sroa.3.0.copyload.i
-  %15 = load ptr, ptr %arrayidx52, align 8
-  %16 = load ptr, ptr %tree_it, align 8
-  %_M_storage.i.i = getelementptr inbounds i8, ptr %16, i64 32
-  %call.i = call noundef i64 @_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE5eraseERKSB_(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i)
-  %_M_node_count.i.i = getelementptr inbounds i8, ptr %15, i64 48
-  %17 = load i64, ptr %_M_node_count.i.i, align 8
-  %cmp.i.i = icmp eq i64 %17, 0
+  %15 = load ptr, ptr %table_51, align 8
+  %arrayidx52 = getelementptr inbounds ptr, ptr %15, i64 %ref.tmp30.sroa.3.0.copyload.i
+  %16 = load ptr, ptr %arrayidx52, align 8
+  %17 = load ptr, ptr %tree_it, align 8
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %17, i64 32
+  %call.i = call noundef i64 @_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE5eraseERKSB_(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i)
+  %_M_node_count.i.i = getelementptr inbounds i8, ptr %16, i64 48
+  %18 = load i64, ptr %_M_node_count.i.i, align 8
+  %cmp.i.i = icmp eq i64 %18, 0
   br i1 %cmp.i.i, label %if.then56, label %if.end61
 
 if.then56:                                        ; preds = %while.end50
   %and = and i64 %ref.tmp30.sroa.3.0.copyload.i, -2
   %alloc_.i = getelementptr inbounds i8, ptr %this, i64 40
-  %18 = load ptr, ptr %alloc_.i, align 8
-  %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 24
-  %19 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
-  invoke void @_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef %19)
+  %19 = load ptr, ptr %alloc_.i, align 8
+  %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 24
+  %20 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
+  invoke void @_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef %20)
           to label %_ZN6google8protobuf8internal12MapAllocatorISt3setIPNS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_12DerefCompareISB_EENS2_ISC_EEEE7destroyISG_EEvPT_.exit.i unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then56
-  %20 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           catch ptr null
-  %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #31
+  %22 = extractvalue { ptr, i32 } %21, 0
+  call void @__clang_call_terminate(ptr %22) #31
   unreachable
 
 _ZN6google8protobuf8internal12MapAllocatorISt3setIPNS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_12DerefCompareISB_EENS2_ISC_EEEE7destroyISG_EEvPT_.exit.i: ; preds = %if.then56
-  %cmp.i.i11 = icmp eq ptr %18, null
+  %cmp.i.i11 = icmp eq ptr %19, null
   br i1 %cmp.i.i11, label %if.then.i.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto329TestAllTypesProto3_NestedEnumEE8InnerMap11DestroyTreeEPSt3setIPNS0_8internal7KeyViewIS7_EENSE_12DerefCompareISG_EENSE_12MapAllocatorISH_EEE.exit
 
 if.then.i.i:                                      ; preds = %_ZN6google8protobuf8internal12MapAllocatorISt3setIPNS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_12DerefCompareISB_EENS2_ISC_EEEE7destroyISG_EEvPT_.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %15) #30
+  call void @_ZdlPv(ptr noundef nonnull %16) #30
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto329TestAllTypesProto3_NestedEnumEE8InnerMap11DestroyTreeEPSt3setIPNS0_8internal7KeyViewIS7_EENSE_12DerefCompareISG_EENSE_12MapAllocatorISH_EEE.exit
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto329TestAllTypesProto3_NestedEnumEE8InnerMap11DestroyTreeEPSt3setIPNS0_8internal7KeyViewIS7_EENSE_12DerefCompareISG_EENSE_12MapAllocatorISH_EEE.exit: ; preds = %_ZN6google8protobuf8internal12MapAllocatorISt3setIPNS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_12DerefCompareISB_EENS2_ISC_EEEE7destroyISG_EEvPT_.exit.i, %if.then.i.i
-  %22 = load ptr, ptr %table_51, align 8
+  %23 = load ptr, ptr %table_51, align 8
   %add = or i64 %ref.tmp30.sroa.3.0.copyload.i, 1
-  %arrayidx58 = getelementptr inbounds ptr, ptr %22, i64 %add
+  %arrayidx58 = getelementptr inbounds ptr, ptr %23, i64 %add
   store ptr null, ptr %arrayidx58, align 8
-  br label %if.end61.sink.split
-
-if.end61.sink.split:                              ; preds = %while.end27, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto329TestAllTypesProto3_NestedEnumEE8InnerMap11DestroyTreeEPSt3setIPNS0_8internal7KeyViewIS7_EENSE_12DerefCompareISG_EENSE_12MapAllocatorISH_EEE.exit
-  %table_51.sink = phi ptr [ %table_51, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto329TestAllTypesProto3_NestedEnumEE8InnerMap11DestroyTreeEPSt3setIPNS0_8internal7KeyViewIS7_EENSE_12DerefCompareISG_EENSE_12MapAllocatorISH_EEE.exit ], [ %table_, %while.end27 ]
-  %and.sink = phi i64 [ %and, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto329TestAllTypesProto3_NestedEnumEE8InnerMap11DestroyTreeEPSt3setIPNS0_8internal7KeyViewIS7_EENSE_12DerefCompareISG_EENSE_12MapAllocatorISH_EEE.exit ], [ %11, %while.end27 ]
-  %.sink = phi ptr [ null, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto329TestAllTypesProto3_NestedEnumEE8InnerMap11DestroyTreeEPSt3setIPNS0_8internal7KeyViewIS7_EENSE_12DerefCompareISG_EENSE_12MapAllocatorISH_EEE.exit ], [ %call28, %while.end27 ]
-  %23 = load ptr, ptr %table_51.sink, align 8
-  %arrayidx60 = getelementptr inbounds ptr, ptr %23, i64 %and.sink
-  store ptr %.sink, ptr %arrayidx60, align 8
+  %24 = load ptr, ptr %table_51, align 8
+  %arrayidx60 = getelementptr inbounds ptr, ptr %24, i64 %and
+  store ptr null, ptr %arrayidx60, align 8
   br label %if.end61
 
-if.end61:                                         ; preds = %if.end61.sink.split, %while.end50
-  %b.0 = phi i64 [ %ref.tmp30.sroa.3.0.copyload.i, %while.end50 ], [ %and.sink, %if.end61.sink.split ]
+if.end61:                                         ; preds = %while.end50, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto329TestAllTypesProto3_NestedEnumEE8InnerMap11DestroyTreeEPSt3setIPNS0_8internal7KeyViewIS7_EENSE_12DerefCompareISG_EENSE_12MapAllocatorISH_EEE.exit, %while.end27
+  %b.0 = phi i64 [ %11, %while.end27 ], [ %and, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto329TestAllTypesProto3_NestedEnumEE8InnerMap11DestroyTreeEPSt3setIPNS0_8internal7KeyViewIS7_EENSE_12DerefCompareISG_EENSE_12MapAllocatorISH_EEE.exit ], [ %ref.tmp30.sroa.3.0.copyload.i, %while.end50 ]
   %alloc_.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %24 = load ptr, ptr %alloc_.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %24, null
+  %25 = load ptr, ptr %alloc_.i.i, align 8
+  %cmp.i.i.i = icmp eq ptr %25, null
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto329TestAllTypesProto3_NestedEnumEE8InnerMap11DestroyNodeEPNSC_4NodeE.exit
 
 if.then.i.i.i:                                    ; preds = %if.end61
@@ -78817,36 +78802,36 @@ if.then.i.i.i:                                    ; preds = %if.end61
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto329TestAllTypesProto3_NestedEnumEE8InnerMap11DestroyNodeEPNSC_4NodeE.exit
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto329TestAllTypesProto3_NestedEnumEE8InnerMap11DestroyNodeEPNSC_4NodeE.exit: ; preds = %if.end61, %if.then.i.i.i
-  %25 = load i64, ptr %this, align 8
-  %dec = add i64 %25, -1
+  %26 = load i64, ptr %this, align 8
+  %dec = add i64 %26, -1
   store i64 %dec, ptr %this, align 8
   %index_of_first_non_null_ = getelementptr inbounds i8, ptr %this, i64 24
-  %26 = load i64, ptr %index_of_first_non_null_, align 8
-  %cmp62 = icmp eq i64 %b.0, %26
+  %27 = load i64, ptr %index_of_first_non_null_, align 8
+  %cmp62 = icmp eq i64 %b.0, %27
   br i1 %cmp62, label %while.cond64.preheader, label %if.end74
 
 while.cond64.preheader:                           ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto329TestAllTypesProto3_NestedEnumEE8InnerMap11DestroyNodeEPNSC_4NodeE.exit
   %num_buckets_ = getelementptr inbounds i8, ptr %this, i64 8
-  %27 = load i64, ptr %num_buckets_, align 8
-  %cmp6613 = icmp ult i64 %b.0, %27
+  %28 = load i64, ptr %num_buckets_, align 8
+  %cmp6613 = icmp ult i64 %b.0, %28
   br i1 %cmp6613, label %land.rhs.lr.ph, label %if.end74
 
 land.rhs.lr.ph:                                   ; preds = %while.cond64.preheader
   %table_67 = getelementptr inbounds i8, ptr %this, i64 32
-  %28 = load ptr, ptr %table_67, align 8
+  %29 = load ptr, ptr %table_67, align 8
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %while.body71
-  %29 = phi i64 [ %b.0, %land.rhs.lr.ph ], [ %inc, %while.body71 ]
-  %arrayidx69 = getelementptr inbounds ptr, ptr %28, i64 %29
-  %30 = load ptr, ptr %arrayidx69, align 8
-  %cmp70 = icmp eq ptr %30, null
+  %30 = phi i64 [ %b.0, %land.rhs.lr.ph ], [ %inc, %while.body71 ]
+  %arrayidx69 = getelementptr inbounds ptr, ptr %29, i64 %30
+  %31 = load ptr, ptr %arrayidx69, align 8
+  %cmp70 = icmp eq ptr %31, null
   br i1 %cmp70, label %while.body71, label %if.end74
 
 while.body71:                                     ; preds = %land.rhs
-  %inc = add i64 %29, 1
+  %inc = add i64 %30, 1
   store i64 %inc, ptr %index_of_first_non_null_, align 8
-  %exitcond.not = icmp eq i64 %inc, %27
+  %exitcond.not = icmp eq i64 %inc, %28
   br i1 %exitcond.not, label %if.end74, label %land.rhs, !llvm.loop !1026
 
 if.end74:                                         ; preds = %while.body71, %land.rhs, %while.cond64.preheader, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto329TestAllTypesProto3_NestedEnumEE8InnerMap11DestroyNodeEPNSC_4NodeE.exit
@@ -81940,66 +81925,63 @@ while.end27:                                      ; preds = %while.body23.i, %if
   %arrayidx = getelementptr inbounds ptr, ptr %12, i64 %11
   %13 = load ptr, ptr %arrayidx, align 8
   %call28 = call noundef ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto314ForeignMessageEE8InnerMap19EraseFromLinkedListEPNSC_4NodeESE_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %5, ptr noundef %13)
-  br label %if.end61.sink.split
+  %14 = load ptr, ptr %table_, align 8
+  %arrayidx30 = getelementptr inbounds ptr, ptr %14, i64 %11
+  store ptr %call28, ptr %arrayidx30, align 8
+  br label %if.end61
 
 while.end50:                                      ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto314ForeignMessageEE8InnerMap13iterator_baseINSB_12KeyValuePairEE23revalidate_if_necessaryEPSt23_Rb_tree_const_iteratorIPNS0_8internal7KeyViewIS7_EEE.exit
   %table_51 = getelementptr inbounds i8, ptr %this, i64 32
-  %14 = load ptr, ptr %table_51, align 8
-  %arrayidx52 = getelementptr inbounds ptr, ptr %14, i64 %ref.tmp30.sroa.3.0.copyload.i
-  %15 = load ptr, ptr %arrayidx52, align 8
-  %16 = load ptr, ptr %tree_it, align 8
-  %_M_storage.i.i = getelementptr inbounds i8, ptr %16, i64 32
-  %call.i = call noundef i64 @_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE5eraseERKSB_(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i)
-  %_M_node_count.i.i = getelementptr inbounds i8, ptr %15, i64 48
-  %17 = load i64, ptr %_M_node_count.i.i, align 8
-  %cmp.i.i = icmp eq i64 %17, 0
+  %15 = load ptr, ptr %table_51, align 8
+  %arrayidx52 = getelementptr inbounds ptr, ptr %15, i64 %ref.tmp30.sroa.3.0.copyload.i
+  %16 = load ptr, ptr %arrayidx52, align 8
+  %17 = load ptr, ptr %tree_it, align 8
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %17, i64 32
+  %call.i = call noundef i64 @_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE5eraseERKSB_(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i)
+  %_M_node_count.i.i = getelementptr inbounds i8, ptr %16, i64 48
+  %18 = load i64, ptr %_M_node_count.i.i, align 8
+  %cmp.i.i = icmp eq i64 %18, 0
   br i1 %cmp.i.i, label %if.then56, label %if.end61
 
 if.then56:                                        ; preds = %while.end50
   %and = and i64 %ref.tmp30.sroa.3.0.copyload.i, -2
   %alloc_.i = getelementptr inbounds i8, ptr %this, i64 40
-  %18 = load ptr, ptr %alloc_.i, align 8
-  %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 24
-  %19 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
-  invoke void @_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef %19)
+  %19 = load ptr, ptr %alloc_.i, align 8
+  %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 24
+  %20 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
+  invoke void @_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef %20)
           to label %_ZN6google8protobuf8internal12MapAllocatorISt3setIPNS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_12DerefCompareISB_EENS2_ISC_EEEE7destroyISG_EEvPT_.exit.i unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then56
-  %20 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           catch ptr null
-  %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #31
+  %22 = extractvalue { ptr, i32 } %21, 0
+  call void @__clang_call_terminate(ptr %22) #31
   unreachable
 
 _ZN6google8protobuf8internal12MapAllocatorISt3setIPNS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_12DerefCompareISB_EENS2_ISC_EEEE7destroyISG_EEvPT_.exit.i: ; preds = %if.then56
-  %cmp.i.i11 = icmp eq ptr %18, null
+  %cmp.i.i11 = icmp eq ptr %19, null
   br i1 %cmp.i.i11, label %if.then.i.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto314ForeignMessageEE8InnerMap11DestroyTreeEPSt3setIPNS0_8internal7KeyViewIS7_EENSE_12DerefCompareISG_EENSE_12MapAllocatorISH_EEE.exit
 
 if.then.i.i:                                      ; preds = %_ZN6google8protobuf8internal12MapAllocatorISt3setIPNS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_12DerefCompareISB_EENS2_ISC_EEEE7destroyISG_EEvPT_.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %15) #30
+  call void @_ZdlPv(ptr noundef nonnull %16) #30
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto314ForeignMessageEE8InnerMap11DestroyTreeEPSt3setIPNS0_8internal7KeyViewIS7_EENSE_12DerefCompareISG_EENSE_12MapAllocatorISH_EEE.exit
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto314ForeignMessageEE8InnerMap11DestroyTreeEPSt3setIPNS0_8internal7KeyViewIS7_EENSE_12DerefCompareISG_EENSE_12MapAllocatorISH_EEE.exit: ; preds = %_ZN6google8protobuf8internal12MapAllocatorISt3setIPNS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_12DerefCompareISB_EENS2_ISC_EEEE7destroyISG_EEvPT_.exit.i, %if.then.i.i
-  %22 = load ptr, ptr %table_51, align 8
+  %23 = load ptr, ptr %table_51, align 8
   %add = or i64 %ref.tmp30.sroa.3.0.copyload.i, 1
-  %arrayidx58 = getelementptr inbounds ptr, ptr %22, i64 %add
+  %arrayidx58 = getelementptr inbounds ptr, ptr %23, i64 %add
   store ptr null, ptr %arrayidx58, align 8
-  br label %if.end61.sink.split
-
-if.end61.sink.split:                              ; preds = %while.end27, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto314ForeignMessageEE8InnerMap11DestroyTreeEPSt3setIPNS0_8internal7KeyViewIS7_EENSE_12DerefCompareISG_EENSE_12MapAllocatorISH_EEE.exit
-  %table_51.sink = phi ptr [ %table_51, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto314ForeignMessageEE8InnerMap11DestroyTreeEPSt3setIPNS0_8internal7KeyViewIS7_EENSE_12DerefCompareISG_EENSE_12MapAllocatorISH_EEE.exit ], [ %table_, %while.end27 ]
-  %and.sink = phi i64 [ %and, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto314ForeignMessageEE8InnerMap11DestroyTreeEPSt3setIPNS0_8internal7KeyViewIS7_EENSE_12DerefCompareISG_EENSE_12MapAllocatorISH_EEE.exit ], [ %11, %while.end27 ]
-  %.sink = phi ptr [ null, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto314ForeignMessageEE8InnerMap11DestroyTreeEPSt3setIPNS0_8internal7KeyViewIS7_EENSE_12DerefCompareISG_EENSE_12MapAllocatorISH_EEE.exit ], [ %call28, %while.end27 ]
-  %23 = load ptr, ptr %table_51.sink, align 8
-  %arrayidx60 = getelementptr inbounds ptr, ptr %23, i64 %and.sink
-  store ptr %.sink, ptr %arrayidx60, align 8
+  %24 = load ptr, ptr %table_51, align 8
+  %arrayidx60 = getelementptr inbounds ptr, ptr %24, i64 %and
+  store ptr null, ptr %arrayidx60, align 8
   br label %if.end61
 
-if.end61:                                         ; preds = %if.end61.sink.split, %while.end50
-  %b.0 = phi i64 [ %ref.tmp30.sroa.3.0.copyload.i, %while.end50 ], [ %and.sink, %if.end61.sink.split ]
+if.end61:                                         ; preds = %while.end50, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto314ForeignMessageEE8InnerMap11DestroyTreeEPSt3setIPNS0_8internal7KeyViewIS7_EENSE_12DerefCompareISG_EENSE_12MapAllocatorISH_EEE.exit, %while.end27
+  %b.0 = phi i64 [ %11, %while.end27 ], [ %and, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto314ForeignMessageEE8InnerMap11DestroyTreeEPSt3setIPNS0_8internal7KeyViewIS7_EENSE_12DerefCompareISG_EENSE_12MapAllocatorISH_EEE.exit ], [ %ref.tmp30.sroa.3.0.copyload.i, %while.end50 ]
   %alloc_.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %24 = load ptr, ptr %alloc_.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %24, null
+  %25 = load ptr, ptr %alloc_.i.i, align 8
+  %cmp.i.i.i = icmp eq ptr %25, null
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto314ForeignMessageEE8InnerMap11DestroyNodeEPNSC_4NodeE.exit
 
 if.then.i.i.i:                                    ; preds = %if.end61
@@ -82007,36 +81989,36 @@ if.then.i.i.i:                                    ; preds = %if.end61
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto314ForeignMessageEE8InnerMap11DestroyNodeEPNSC_4NodeE.exit
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto314ForeignMessageEE8InnerMap11DestroyNodeEPNSC_4NodeE.exit: ; preds = %if.end61, %if.then.i.i.i
-  %25 = load i64, ptr %this, align 8
-  %dec = add i64 %25, -1
+  %26 = load i64, ptr %this, align 8
+  %dec = add i64 %26, -1
   store i64 %dec, ptr %this, align 8
   %index_of_first_non_null_ = getelementptr inbounds i8, ptr %this, i64 24
-  %26 = load i64, ptr %index_of_first_non_null_, align 8
-  %cmp62 = icmp eq i64 %b.0, %26
+  %27 = load i64, ptr %index_of_first_non_null_, align 8
+  %cmp62 = icmp eq i64 %b.0, %27
   br i1 %cmp62, label %while.cond64.preheader, label %if.end74
 
 while.cond64.preheader:                           ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto314ForeignMessageEE8InnerMap11DestroyNodeEPNSC_4NodeE.exit
   %num_buckets_ = getelementptr inbounds i8, ptr %this, i64 8
-  %27 = load i64, ptr %num_buckets_, align 8
-  %cmp6613 = icmp ult i64 %b.0, %27
+  %28 = load i64, ptr %num_buckets_, align 8
+  %cmp6613 = icmp ult i64 %b.0, %28
   br i1 %cmp6613, label %land.rhs.lr.ph, label %if.end74
 
 land.rhs.lr.ph:                                   ; preds = %while.cond64.preheader
   %table_67 = getelementptr inbounds i8, ptr %this, i64 32
-  %28 = load ptr, ptr %table_67, align 8
+  %29 = load ptr, ptr %table_67, align 8
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %while.body71
-  %29 = phi i64 [ %b.0, %land.rhs.lr.ph ], [ %inc, %while.body71 ]
-  %arrayidx69 = getelementptr inbounds ptr, ptr %28, i64 %29
-  %30 = load ptr, ptr %arrayidx69, align 8
-  %cmp70 = icmp eq ptr %30, null
+  %30 = phi i64 [ %b.0, %land.rhs.lr.ph ], [ %inc, %while.body71 ]
+  %arrayidx69 = getelementptr inbounds ptr, ptr %29, i64 %30
+  %31 = load ptr, ptr %arrayidx69, align 8
+  %cmp70 = icmp eq ptr %31, null
   br i1 %cmp70, label %while.body71, label %if.end74
 
 while.body71:                                     ; preds = %land.rhs
-  %inc = add i64 %29, 1
+  %inc = add i64 %30, 1
   store i64 %inc, ptr %index_of_first_non_null_, align 8
-  %exitcond.not = icmp eq i64 %inc, %27
+  %exitcond.not = icmp eq i64 %inc, %28
   br i1 %exitcond.not, label %if.end74, label %land.rhs, !llvm.loop !1154
 
 if.end74:                                         ; preds = %while.body71, %land.rhs, %while.cond64.preheader, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto314ForeignMessageEE8InnerMap11DestroyNodeEPNSC_4NodeE.exit
@@ -82608,7 +82590,14 @@ entry:
 if.then:                                          ; preds = %entry
   %call = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #28
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %call, ptr noundef nonnull align 8 dereferenceable(32) %key)
-          to label %return unwind label %common.resume
+          to label %_ZN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto314ForeignMessageEEC2ERKS7_.exit unwind label %common.resume
+
+_ZN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto314ForeignMessageEEC2ERKS7_.exit: ; preds = %if.then
+  %second.i = getelementptr inbounds i8, ptr %call, i64 32
+  %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 40
+  store ptr null, ptr %_internal_metadata_.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 16), ptr %second.i, align 8
+  br label %return
 
 common.resume:                                    ; preds = %if.then
   %1 = landingpad { ptr, i32 }
@@ -82631,21 +82620,20 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %_ZN6google
   %3 = load ptr, ptr %this, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %call11.i25, ptr noundef nonnull align 8 dereferenceable(32) %key)
   tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull %call11.i25, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPv)
+  %second = getelementptr inbounds i8, ptr %call11.i25, i64 32
   %4 = load ptr, ptr %this, align 8
+  %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call11.i25, i64 40
+  store ptr %4, ptr %_internal_metadata_.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 16), ptr %second, align 8
   br label %return
 
-return:                                           ; preds = %if.then, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit
-  %call.sink11 = phi ptr [ %call11.i25, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ], [ %call, %if.then ]
-  %.sink = phi ptr [ %4, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ], [ null, %if.then ]
-  %second.i.sink = getelementptr inbounds i8, ptr %call.sink11, i64 32
-  %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.sink11, i64 40
-  store ptr %.sink, ptr %_internal_metadata_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 16), ptr %second.i.sink, align 8
-  %_cached_size_.i.i.i = getelementptr inbounds i8, ptr %call.sink11, i64 52
+return:                                           ; preds = %_ZN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto314ForeignMessageEEC2ERKS7_.exit, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit
+  %call.sink10 = phi ptr [ %call, %_ZN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto314ForeignMessageEEC2ERKS7_.exit ], [ %call11.i25, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ]
+  %_cached_size_.i.i.i = getelementptr inbounds i8, ptr %call.sink10, i64 52
   store i32 0, ptr %_cached_size_.i.i.i, align 4
-  %c_.i.i.i.i = getelementptr inbounds i8, ptr %call.sink11, i64 48
+  %c_.i.i.i.i = getelementptr inbounds i8, ptr %call.sink10, i64 48
   store i32 0, ptr %c_.i.i.i.i, align 8
-  ret ptr %call.sink11
+  ret ptr %call.sink10
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -85367,66 +85355,63 @@ while.end27:                                      ; preds = %while.body23.i, %if
   %arrayidx = getelementptr inbounds ptr, ptr %12, i64 %11
   %13 = load ptr, ptr %arrayidx, align 8
   %call28 = call noundef ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE8InnerMap19EraseFromLinkedListEPNSC_4NodeESE_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %5, ptr noundef %13)
-  br label %if.end61.sink.split
+  %14 = load ptr, ptr %table_, align 8
+  %arrayidx30 = getelementptr inbounds ptr, ptr %14, i64 %11
+  store ptr %call28, ptr %arrayidx30, align 8
+  br label %if.end61
 
 while.end50:                                      ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE8InnerMap13iterator_baseINSB_12KeyValuePairEE23revalidate_if_necessaryEPSt23_Rb_tree_const_iteratorIPNS0_8internal7KeyViewIS7_EEE.exit
   %table_51 = getelementptr inbounds i8, ptr %this, i64 32
-  %14 = load ptr, ptr %table_51, align 8
-  %arrayidx52 = getelementptr inbounds ptr, ptr %14, i64 %ref.tmp30.sroa.3.0.copyload.i
-  %15 = load ptr, ptr %arrayidx52, align 8
-  %16 = load ptr, ptr %tree_it, align 8
-  %_M_storage.i.i = getelementptr inbounds i8, ptr %16, i64 32
-  %call.i = call noundef i64 @_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE5eraseERKSB_(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i)
-  %_M_node_count.i.i = getelementptr inbounds i8, ptr %15, i64 48
-  %17 = load i64, ptr %_M_node_count.i.i, align 8
-  %cmp.i.i = icmp eq i64 %17, 0
+  %15 = load ptr, ptr %table_51, align 8
+  %arrayidx52 = getelementptr inbounds ptr, ptr %15, i64 %ref.tmp30.sroa.3.0.copyload.i
+  %16 = load ptr, ptr %arrayidx52, align 8
+  %17 = load ptr, ptr %tree_it, align 8
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %17, i64 32
+  %call.i = call noundef i64 @_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE5eraseERKSB_(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i)
+  %_M_node_count.i.i = getelementptr inbounds i8, ptr %16, i64 48
+  %18 = load i64, ptr %_M_node_count.i.i, align 8
+  %cmp.i.i = icmp eq i64 %18, 0
   br i1 %cmp.i.i, label %if.then56, label %if.end61
 
 if.then56:                                        ; preds = %while.end50
   %and = and i64 %ref.tmp30.sroa.3.0.copyload.i, -2
   %alloc_.i = getelementptr inbounds i8, ptr %this, i64 40
-  %18 = load ptr, ptr %alloc_.i, align 8
-  %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 24
-  %19 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
-  invoke void @_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef %19)
+  %19 = load ptr, ptr %alloc_.i, align 8
+  %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 24
+  %20 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
+  invoke void @_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef %20)
           to label %_ZN6google8protobuf8internal12MapAllocatorISt3setIPNS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_12DerefCompareISB_EENS2_ISC_EEEE7destroyISG_EEvPT_.exit.i unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then56
-  %20 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           catch ptr null
-  %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #31
+  %22 = extractvalue { ptr, i32 } %21, 0
+  call void @__clang_call_terminate(ptr %22) #31
   unreachable
 
 _ZN6google8protobuf8internal12MapAllocatorISt3setIPNS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_12DerefCompareISB_EENS2_ISC_EEEE7destroyISG_EEvPT_.exit.i: ; preds = %if.then56
-  %cmp.i.i11 = icmp eq ptr %18, null
+  %cmp.i.i11 = icmp eq ptr %19, null
   br i1 %cmp.i.i11, label %if.then.i.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE8InnerMap11DestroyTreeEPSt3setIPNS0_8internal7KeyViewIS7_EENSE_12DerefCompareISG_EENSE_12MapAllocatorISH_EEE.exit
 
 if.then.i.i:                                      ; preds = %_ZN6google8protobuf8internal12MapAllocatorISt3setIPNS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_12DerefCompareISB_EENS2_ISC_EEEE7destroyISG_EEvPT_.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %15) #30
+  call void @_ZdlPv(ptr noundef nonnull %16) #30
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE8InnerMap11DestroyTreeEPSt3setIPNS0_8internal7KeyViewIS7_EENSE_12DerefCompareISG_EENSE_12MapAllocatorISH_EEE.exit
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE8InnerMap11DestroyTreeEPSt3setIPNS0_8internal7KeyViewIS7_EENSE_12DerefCompareISG_EENSE_12MapAllocatorISH_EEE.exit: ; preds = %_ZN6google8protobuf8internal12MapAllocatorISt3setIPNS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_12DerefCompareISB_EENS2_ISC_EEEE7destroyISG_EEvPT_.exit.i, %if.then.i.i
-  %22 = load ptr, ptr %table_51, align 8
+  %23 = load ptr, ptr %table_51, align 8
   %add = or i64 %ref.tmp30.sroa.3.0.copyload.i, 1
-  %arrayidx58 = getelementptr inbounds ptr, ptr %22, i64 %add
+  %arrayidx58 = getelementptr inbounds ptr, ptr %23, i64 %add
   store ptr null, ptr %arrayidx58, align 8
-  br label %if.end61.sink.split
-
-if.end61.sink.split:                              ; preds = %while.end27, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE8InnerMap11DestroyTreeEPSt3setIPNS0_8internal7KeyViewIS7_EENSE_12DerefCompareISG_EENSE_12MapAllocatorISH_EEE.exit
-  %table_51.sink = phi ptr [ %table_51, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE8InnerMap11DestroyTreeEPSt3setIPNS0_8internal7KeyViewIS7_EENSE_12DerefCompareISG_EENSE_12MapAllocatorISH_EEE.exit ], [ %table_, %while.end27 ]
-  %and.sink = phi i64 [ %and, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE8InnerMap11DestroyTreeEPSt3setIPNS0_8internal7KeyViewIS7_EENSE_12DerefCompareISG_EENSE_12MapAllocatorISH_EEE.exit ], [ %11, %while.end27 ]
-  %.sink = phi ptr [ null, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE8InnerMap11DestroyTreeEPSt3setIPNS0_8internal7KeyViewIS7_EENSE_12DerefCompareISG_EENSE_12MapAllocatorISH_EEE.exit ], [ %call28, %while.end27 ]
-  %23 = load ptr, ptr %table_51.sink, align 8
-  %arrayidx60 = getelementptr inbounds ptr, ptr %23, i64 %and.sink
-  store ptr %.sink, ptr %arrayidx60, align 8
+  %24 = load ptr, ptr %table_51, align 8
+  %arrayidx60 = getelementptr inbounds ptr, ptr %24, i64 %and
+  store ptr null, ptr %arrayidx60, align 8
   br label %if.end61
 
-if.end61:                                         ; preds = %if.end61.sink.split, %while.end50
-  %b.0 = phi i64 [ %ref.tmp30.sroa.3.0.copyload.i, %while.end50 ], [ %and.sink, %if.end61.sink.split ]
+if.end61:                                         ; preds = %while.end50, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE8InnerMap11DestroyTreeEPSt3setIPNS0_8internal7KeyViewIS7_EENSE_12DerefCompareISG_EENSE_12MapAllocatorISH_EEE.exit, %while.end27
+  %b.0 = phi i64 [ %11, %while.end27 ], [ %and, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE8InnerMap11DestroyTreeEPSt3setIPNS0_8internal7KeyViewIS7_EENSE_12DerefCompareISG_EENSE_12MapAllocatorISH_EEE.exit ], [ %ref.tmp30.sroa.3.0.copyload.i, %while.end50 ]
   %alloc_.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %24 = load ptr, ptr %alloc_.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %24, null
+  %25 = load ptr, ptr %alloc_.i.i, align 8
+  %cmp.i.i.i = icmp eq ptr %25, null
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE8InnerMap11DestroyNodeEPNSC_4NodeE.exit
 
 if.then.i.i.i:                                    ; preds = %if.end61
@@ -85434,36 +85419,36 @@ if.then.i.i.i:                                    ; preds = %if.end61
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE8InnerMap11DestroyNodeEPNSC_4NodeE.exit
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE8InnerMap11DestroyNodeEPNSC_4NodeE.exit: ; preds = %if.end61, %if.then.i.i.i
-  %25 = load i64, ptr %this, align 8
-  %dec = add i64 %25, -1
+  %26 = load i64, ptr %this, align 8
+  %dec = add i64 %26, -1
   store i64 %dec, ptr %this, align 8
   %index_of_first_non_null_ = getelementptr inbounds i8, ptr %this, i64 24
-  %26 = load i64, ptr %index_of_first_non_null_, align 8
-  %cmp62 = icmp eq i64 %b.0, %26
+  %27 = load i64, ptr %index_of_first_non_null_, align 8
+  %cmp62 = icmp eq i64 %b.0, %27
   br i1 %cmp62, label %while.cond64.preheader, label %if.end74
 
 while.cond64.preheader:                           ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE8InnerMap11DestroyNodeEPNSC_4NodeE.exit
   %num_buckets_ = getelementptr inbounds i8, ptr %this, i64 8
-  %27 = load i64, ptr %num_buckets_, align 8
-  %cmp6613 = icmp ult i64 %b.0, %27
+  %28 = load i64, ptr %num_buckets_, align 8
+  %cmp6613 = icmp ult i64 %b.0, %28
   br i1 %cmp6613, label %land.rhs.lr.ph, label %if.end74
 
 land.rhs.lr.ph:                                   ; preds = %while.cond64.preheader
   %table_67 = getelementptr inbounds i8, ptr %this, i64 32
-  %28 = load ptr, ptr %table_67, align 8
+  %29 = load ptr, ptr %table_67, align 8
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %while.body71
-  %29 = phi i64 [ %b.0, %land.rhs.lr.ph ], [ %inc, %while.body71 ]
-  %arrayidx69 = getelementptr inbounds ptr, ptr %28, i64 %29
-  %30 = load ptr, ptr %arrayidx69, align 8
-  %cmp70 = icmp eq ptr %30, null
+  %30 = phi i64 [ %b.0, %land.rhs.lr.ph ], [ %inc, %while.body71 ]
+  %arrayidx69 = getelementptr inbounds ptr, ptr %29, i64 %30
+  %31 = load ptr, ptr %arrayidx69, align 8
+  %cmp70 = icmp eq ptr %31, null
   br i1 %cmp70, label %while.body71, label %if.end74
 
 while.body71:                                     ; preds = %land.rhs
-  %inc = add i64 %29, 1
+  %inc = add i64 %30, 1
   store i64 %inc, ptr %index_of_first_non_null_, align 8
-  %exitcond.not = icmp eq i64 %inc, %27
+  %exitcond.not = icmp eq i64 %inc, %28
   br i1 %exitcond.not, label %if.end74, label %land.rhs, !llvm.loop !1294
 
 if.end74:                                         ; preds = %while.body71, %land.rhs, %while.cond64.preheader, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE8InnerMap11DestroyNodeEPNSC_4NodeE.exit
@@ -88724,66 +88709,63 @@ while.end27:                                      ; preds = %while.body23.i, %if
   %arrayidx = getelementptr inbounds ptr, ptr %12, i64 %11
   %13 = load ptr, ptr %arrayidx, align 8
   %call28 = call noundef ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8InnerMap19EraseFromLinkedListEPNS9_4NodeESB_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %5, ptr noundef %13)
-  br label %if.end61.sink.split
+  %14 = load ptr, ptr %table_, align 8
+  %arrayidx30 = getelementptr inbounds ptr, ptr %14, i64 %11
+  store ptr %call28, ptr %arrayidx30, align 8
+  br label %if.end61
 
 while.end50:                                      ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8InnerMap13iterator_baseINS8_12KeyValuePairEE23revalidate_if_necessaryEPSt23_Rb_tree_const_iteratorIPNS0_8internal7KeyViewIS7_EEE.exit
   %table_51 = getelementptr inbounds i8, ptr %this, i64 32
-  %14 = load ptr, ptr %table_51, align 8
-  %arrayidx52 = getelementptr inbounds ptr, ptr %14, i64 %ref.tmp30.sroa.3.0.copyload.i
-  %15 = load ptr, ptr %arrayidx52, align 8
-  %16 = load ptr, ptr %tree_it, align 8
-  %_M_storage.i.i = getelementptr inbounds i8, ptr %16, i64 32
-  %call.i = call noundef i64 @_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE5eraseERKSB_(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i)
-  %_M_node_count.i.i = getelementptr inbounds i8, ptr %15, i64 48
-  %17 = load i64, ptr %_M_node_count.i.i, align 8
-  %cmp.i.i = icmp eq i64 %17, 0
+  %15 = load ptr, ptr %table_51, align 8
+  %arrayidx52 = getelementptr inbounds ptr, ptr %15, i64 %ref.tmp30.sroa.3.0.copyload.i
+  %16 = load ptr, ptr %arrayidx52, align 8
+  %17 = load ptr, ptr %tree_it, align 8
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %17, i64 32
+  %call.i = call noundef i64 @_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE5eraseERKSB_(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i)
+  %_M_node_count.i.i = getelementptr inbounds i8, ptr %16, i64 48
+  %18 = load i64, ptr %_M_node_count.i.i, align 8
+  %cmp.i.i = icmp eq i64 %18, 0
   br i1 %cmp.i.i, label %if.then56, label %if.end61
 
 if.then56:                                        ; preds = %while.end50
   %and = and i64 %ref.tmp30.sroa.3.0.copyload.i, -2
   %alloc_.i = getelementptr inbounds i8, ptr %this, i64 40
-  %18 = load ptr, ptr %alloc_.i, align 8
-  %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 24
-  %19 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
-  invoke void @_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef %19)
+  %19 = load ptr, ptr %alloc_.i, align 8
+  %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 24
+  %20 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
+  invoke void @_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef %20)
           to label %_ZN6google8protobuf8internal12MapAllocatorISt3setIPNS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_12DerefCompareISB_EENS2_ISC_EEEE7destroyISG_EEvPT_.exit.i unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then56
-  %20 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           catch ptr null
-  %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #31
+  %22 = extractvalue { ptr, i32 } %21, 0
+  call void @__clang_call_terminate(ptr %22) #31
   unreachable
 
 _ZN6google8protobuf8internal12MapAllocatorISt3setIPNS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_12DerefCompareISB_EENS2_ISC_EEEE7destroyISG_EEvPT_.exit.i: ; preds = %if.then56
-  %cmp.i.i11 = icmp eq ptr %18, null
+  %cmp.i.i11 = icmp eq ptr %19, null
   br i1 %cmp.i.i11, label %if.then.i.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8InnerMap11DestroyTreeEPSt3setIPNS0_8internal7KeyViewIS7_EENSB_12DerefCompareISD_EENSB_12MapAllocatorISE_EEE.exit
 
 if.then.i.i:                                      ; preds = %_ZN6google8protobuf8internal12MapAllocatorISt3setIPNS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_12DerefCompareISB_EENS2_ISC_EEEE7destroyISG_EEvPT_.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %15) #30
+  call void @_ZdlPv(ptr noundef nonnull %16) #30
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8InnerMap11DestroyTreeEPSt3setIPNS0_8internal7KeyViewIS7_EENSB_12DerefCompareISD_EENSB_12MapAllocatorISE_EEE.exit
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8InnerMap11DestroyTreeEPSt3setIPNS0_8internal7KeyViewIS7_EENSB_12DerefCompareISD_EENSB_12MapAllocatorISE_EEE.exit: ; preds = %_ZN6google8protobuf8internal12MapAllocatorISt3setIPNS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_12DerefCompareISB_EENS2_ISC_EEEE7destroyISG_EEvPT_.exit.i, %if.then.i.i
-  %22 = load ptr, ptr %table_51, align 8
+  %23 = load ptr, ptr %table_51, align 8
   %add = or i64 %ref.tmp30.sroa.3.0.copyload.i, 1
-  %arrayidx58 = getelementptr inbounds ptr, ptr %22, i64 %add
+  %arrayidx58 = getelementptr inbounds ptr, ptr %23, i64 %add
   store ptr null, ptr %arrayidx58, align 8
-  br label %if.end61.sink.split
-
-if.end61.sink.split:                              ; preds = %while.end27, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8InnerMap11DestroyTreeEPSt3setIPNS0_8internal7KeyViewIS7_EENSB_12DerefCompareISD_EENSB_12MapAllocatorISE_EEE.exit
-  %table_51.sink = phi ptr [ %table_51, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8InnerMap11DestroyTreeEPSt3setIPNS0_8internal7KeyViewIS7_EENSB_12DerefCompareISD_EENSB_12MapAllocatorISE_EEE.exit ], [ %table_, %while.end27 ]
-  %and.sink = phi i64 [ %and, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8InnerMap11DestroyTreeEPSt3setIPNS0_8internal7KeyViewIS7_EENSB_12DerefCompareISD_EENSB_12MapAllocatorISE_EEE.exit ], [ %11, %while.end27 ]
-  %.sink = phi ptr [ null, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8InnerMap11DestroyTreeEPSt3setIPNS0_8internal7KeyViewIS7_EENSB_12DerefCompareISD_EENSB_12MapAllocatorISE_EEE.exit ], [ %call28, %while.end27 ]
-  %23 = load ptr, ptr %table_51.sink, align 8
-  %arrayidx60 = getelementptr inbounds ptr, ptr %23, i64 %and.sink
-  store ptr %.sink, ptr %arrayidx60, align 8
+  %24 = load ptr, ptr %table_51, align 8
+  %arrayidx60 = getelementptr inbounds ptr, ptr %24, i64 %and
+  store ptr null, ptr %arrayidx60, align 8
   br label %if.end61
 
-if.end61:                                         ; preds = %if.end61.sink.split, %while.end50
-  %b.0 = phi i64 [ %ref.tmp30.sroa.3.0.copyload.i, %while.end50 ], [ %and.sink, %if.end61.sink.split ]
+if.end61:                                         ; preds = %while.end50, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8InnerMap11DestroyTreeEPSt3setIPNS0_8internal7KeyViewIS7_EENSB_12DerefCompareISD_EENSB_12MapAllocatorISE_EEE.exit, %while.end27
+  %b.0 = phi i64 [ %11, %while.end27 ], [ %and, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8InnerMap11DestroyTreeEPSt3setIPNS0_8internal7KeyViewIS7_EENSB_12DerefCompareISD_EENSB_12MapAllocatorISE_EEE.exit ], [ %ref.tmp30.sroa.3.0.copyload.i, %while.end50 ]
   %alloc_.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %24 = load ptr, ptr %alloc_.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %24, null
+  %25 = load ptr, ptr %alloc_.i.i, align 8
+  %cmp.i.i.i = icmp eq ptr %25, null
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8InnerMap11DestroyNodeEPNS9_4NodeE.exit
 
 if.then.i.i.i:                                    ; preds = %if.end61
@@ -88791,36 +88773,36 @@ if.then.i.i.i:                                    ; preds = %if.end61
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8InnerMap11DestroyNodeEPNS9_4NodeE.exit
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8InnerMap11DestroyNodeEPNS9_4NodeE.exit: ; preds = %if.end61, %if.then.i.i.i
-  %25 = load i64, ptr %this, align 8
-  %dec = add i64 %25, -1
+  %26 = load i64, ptr %this, align 8
+  %dec = add i64 %26, -1
   store i64 %dec, ptr %this, align 8
   %index_of_first_non_null_ = getelementptr inbounds i8, ptr %this, i64 24
-  %26 = load i64, ptr %index_of_first_non_null_, align 8
-  %cmp62 = icmp eq i64 %b.0, %26
+  %27 = load i64, ptr %index_of_first_non_null_, align 8
+  %cmp62 = icmp eq i64 %b.0, %27
   br i1 %cmp62, label %while.cond64.preheader, label %if.end74
 
 while.cond64.preheader:                           ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8InnerMap11DestroyNodeEPNS9_4NodeE.exit
   %num_buckets_ = getelementptr inbounds i8, ptr %this, i64 8
-  %27 = load i64, ptr %num_buckets_, align 8
-  %cmp6613 = icmp ult i64 %b.0, %27
+  %28 = load i64, ptr %num_buckets_, align 8
+  %cmp6613 = icmp ult i64 %b.0, %28
   br i1 %cmp6613, label %land.rhs.lr.ph, label %if.end74
 
 land.rhs.lr.ph:                                   ; preds = %while.cond64.preheader
   %table_67 = getelementptr inbounds i8, ptr %this, i64 32
-  %28 = load ptr, ptr %table_67, align 8
+  %29 = load ptr, ptr %table_67, align 8
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %while.body71
-  %29 = phi i64 [ %b.0, %land.rhs.lr.ph ], [ %inc, %while.body71 ]
-  %arrayidx69 = getelementptr inbounds ptr, ptr %28, i64 %29
-  %30 = load ptr, ptr %arrayidx69, align 8
-  %cmp70 = icmp eq ptr %30, null
+  %30 = phi i64 [ %b.0, %land.rhs.lr.ph ], [ %inc, %while.body71 ]
+  %arrayidx69 = getelementptr inbounds ptr, ptr %29, i64 %30
+  %31 = load ptr, ptr %arrayidx69, align 8
+  %cmp70 = icmp eq ptr %31, null
   br i1 %cmp70, label %while.body71, label %if.end74
 
 while.body71:                                     ; preds = %land.rhs
-  %inc = add i64 %29, 1
+  %inc = add i64 %30, 1
   store i64 %inc, ptr %index_of_first_non_null_, align 8
-  %exitcond.not = icmp eq i64 %inc, %27
+  %exitcond.not = icmp eq i64 %inc, %28
   br i1 %exitcond.not, label %if.end74, label %land.rhs, !llvm.loop !1430
 
 if.end74:                                         ; preds = %while.body71, %land.rhs, %while.cond64.preheader, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8InnerMap11DestroyNodeEPNS9_4NodeE.exit

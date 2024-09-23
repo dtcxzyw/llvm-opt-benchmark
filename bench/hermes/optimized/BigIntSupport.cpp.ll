@@ -2361,8 +2361,8 @@ _ZN4llvh5APInt15clearUnusedBitsEv.exit.i.i.i:     ; preds = %if.then8.i
   %sub2.i.i.i.i = xor i32 %rem.i.i.i.i, 63
   %sh_prom.i.i.i.i = zext nneg i32 %sub2.i.i.i.i to i64
   %shr.i.i.i.i = lshr i64 -1, %sh_prom.i.i.i.i
-  %and6.i.i.i.i = and i64 %shr.i.i.i.i, %xor.i.i.i
-  store i64 %and6.i.i.i.i, ptr %i.i, align 8, !noalias !28
+  %and.i.i.i.i = and i64 %shr.i.i.i.i, %xor.i.i.i
+  store i64 %and.i.i.i.i, ptr %i.i, align 8, !noalias !28
   br label %_ZN4llvh5APInt6negateEv.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then8.i
@@ -2550,8 +2550,8 @@ _ZN4llvh5APInt15clearUnusedBitsEv.exit.i.i.i:     ; preds = %if.then8.i
   %sub2.i.i.i.i = xor i32 %rem.i.i.i.i, 63
   %sh_prom.i.i.i.i = zext nneg i32 %sub2.i.i.i.i to i64
   %shr.i.i.i.i = lshr i64 -1, %sh_prom.i.i.i.i
-  %and6.i.i.i.i = and i64 %shr.i.i.i.i, %xor.i.i.i
-  store i64 %and6.i.i.i.i, ptr %i.i, align 8, !noalias !35
+  %and.i.i.i.i = and i64 %shr.i.i.i.i, %xor.i.i.i
+  store i64 %and.i.i.i.i, ptr %i.i, align 8, !noalias !35
   br label %_ZN4llvh5APInt6negateEv.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then8.i
@@ -2739,8 +2739,8 @@ _ZN4llvh5APInt15clearUnusedBitsEv.exit.i.i.i:     ; preds = %if.then8.i
   %sub2.i.i.i.i = xor i32 %rem.i.i.i.i, 63
   %sh_prom.i.i.i.i = zext nneg i32 %sub2.i.i.i.i to i64
   %shr.i.i.i.i = lshr i64 -1, %sh_prom.i.i.i.i
-  %and6.i.i.i.i = and i64 %shr.i.i.i.i, %xor.i.i.i
-  store i64 %and6.i.i.i.i, ptr %i.i, align 8, !noalias !41
+  %and.i.i.i.i = and i64 %shr.i.i.i.i, %xor.i.i.i
+  store i64 %and.i.i.i.i, ptr %i.i, align 8, !noalias !41
   br label %_ZN4llvh5APInt6negateEv.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then8.i
@@ -2964,8 +2964,8 @@ _ZN4llvh5APInt15clearUnusedBitsEv.exit.i.i:       ; preds = %if.then7
   %sub2.i.i.i = xor i32 %rem.i.i.i, 63
   %sh_prom.i.i.i = zext nneg i32 %sub2.i.i.i to i64
   %shr.i.i.i = lshr i64 -1, %sh_prom.i.i.i
-  %and6.i.i.i = and i64 %shr.i.i.i, %xor.i.i
-  store i64 %and6.i.i.i, ptr %tmp, align 8
+  %and.i.i.i = and i64 %shr.i.i.i, %xor.i.i
+  store i64 %and.i.i.i, ptr %tmp, align 8
   br label %_ZN4llvh5APInt6negateEv.exit
 
 if.else.i.i8:                                     ; preds = %if.then7

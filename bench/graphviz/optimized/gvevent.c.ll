@@ -204,12 +204,12 @@ define internal void @gvevent_refresh(ptr noundef %0) #2 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @gvevent_button_press(ptr noundef %0, i32 noundef %1, double %2, double %3) #2 {
-  switch i32 %1, label %283 [
+  switch i32 %1, label %281 [
     i32 1, label %5
     i32 2, label %169
     i32 3, label %172
     i32 4, label %175
-    i32 5, label %229
+    i32 5, label %228
   ]
 
 5:                                                ; preds = %4
@@ -438,9 +438,9 @@ define internal void @gvevent_button_press(ptr noundef %0, i32 noundef %1, doubl
   br i1 %.not64.i.i, label %.outer._crit_edge.i.i, label %125
 
 .outer.i.i.sink.split:                            ; preds = %131, %125
-  %.sink125 = phi i32 [ 2, %125 ], [ 5, %131 ]
+  %.sink123 = phi i32 [ 2, %125 ], [ 5, %131 ]
   %140 = tail call ptr @agxget(ptr noundef nonnull %44, ptr noundef nonnull %126) #12
-  tail call void @gv_argvlist_set_item(ptr noundef nonnull %87, i32 noundef %.sink125, ptr noundef %140) #12
+  tail call void @gv_argvlist_set_item(ptr noundef nonnull %87, i32 noundef %.sink123, ptr noundef %140) #12
   br label %.outer.i.i
 
 .outer.i.i:                                       ; preds = %134, %.outer.i.i.sink.split
@@ -567,99 +567,99 @@ gvevent_select_current_obj.exit:                  ; preds = %40, %45, %47, %76, 
   br label %220
 
 220:                                              ; preds = %201, %182
-  %.sink107 = phi ptr [ %219, %201 ], [ %181, %182 ]
+  %.sink106.in = phi ptr [ %219, %201 ], [ %181, %182 ]
   %.sink.in = phi double [ %218, %201 ], [ %200, %182 ]
   %.sink = fmul double %.sink.in, 0x3FB99999999999A0
-  %221 = load double, ptr %.sink107, align 8
-  %222 = fmul double %180, %221
-  %223 = fdiv double %.sink, %222
-  %224 = getelementptr inbounds i8, ptr %0, i64 464
-  %225 = load double, ptr %224, align 8
-  %226 = fadd double %225, %223
-  store double %226, ptr %224, align 8
-  %227 = getelementptr inbounds i8, ptr %0, i64 472
-  %228 = fmul double %180, 1.100000e+00
-  store double %228, ptr %227, align 8
+  %.sink106 = load double, ptr %.sink106.in, align 8
+  %221 = fmul double %180, %.sink106
+  %222 = fdiv double %.sink, %221
+  %223 = getelementptr inbounds i8, ptr %0, i64 464
+  %224 = load double, ptr %223, align 8
+  %225 = fadd double %224, %222
+  store double %225, ptr %223, align 8
+  %226 = getelementptr inbounds i8, ptr %0, i64 472
+  %227 = fmul double %180, 1.100000e+00
+  store double %227, ptr %226, align 8
   br label %.sink.split
 
-229:                                              ; preds = %4
-  %230 = getelementptr inbounds i8, ptr %0, i64 656
-  store i8 0, ptr %230, align 8
-  %231 = getelementptr inbounds i8, ptr %0, i64 472
-  %232 = load double, ptr %231, align 8
-  %233 = fdiv double %232, 1.100000e+00
-  store double %233, ptr %231, align 8
-  %234 = getelementptr inbounds i8, ptr %0, i64 480
-  %235 = load i32, ptr %234, align 8
-  %.not = icmp eq i32 %235, 0
-  %236 = getelementptr inbounds i8, ptr %0, i64 640
-  br i1 %.not, label %256, label %237
+228:                                              ; preds = %4
+  %229 = getelementptr inbounds i8, ptr %0, i64 656
+  store i8 0, ptr %229, align 8
+  %230 = getelementptr inbounds i8, ptr %0, i64 472
+  %231 = load double, ptr %230, align 8
+  %232 = fdiv double %231, 1.100000e+00
+  store double %232, ptr %230, align 8
+  %233 = getelementptr inbounds i8, ptr %0, i64 480
+  %234 = load i32, ptr %233, align 8
+  %.not = icmp eq i32 %234, 0
+  %235 = getelementptr inbounds i8, ptr %0, i64 640
+  br i1 %.not, label %255, label %236
 
-237:                                              ; preds = %229
-  %238 = getelementptr inbounds i8, ptr %0, i64 572
-  %239 = load i32, ptr %238, align 4
-  %240 = uitofp i32 %239 to double
-  %241 = fmul double %240, 5.000000e-01
-  %242 = fsub double %3, %241
-  %243 = fmul double %242, 0x3FB99999999999A0
-  %244 = getelementptr inbounds i8, ptr %0, i64 648
-  %245 = load double, ptr %244, align 8
-  %246 = fmul double %233, %245
-  %247 = fdiv double %243, %246
-  %248 = getelementptr inbounds i8, ptr %0, i64 456
-  %249 = load double, ptr %248, align 8
-  %250 = fadd double %249, %247
-  store double %250, ptr %248, align 8
-  %251 = getelementptr inbounds i8, ptr %0, i64 568
-  %252 = load i32, ptr %251, align 8
-  %253 = uitofp i32 %252 to double
-  %254 = fmul double %253, 5.000000e-01
-  %255 = fsub double %2, %254
-  br label %275
+236:                                              ; preds = %228
+  %237 = getelementptr inbounds i8, ptr %0, i64 572
+  %238 = load i32, ptr %237, align 4
+  %239 = uitofp i32 %238 to double
+  %240 = fmul double %239, 5.000000e-01
+  %241 = fsub double %3, %240
+  %242 = fmul double %241, 0x3FB99999999999A0
+  %243 = getelementptr inbounds i8, ptr %0, i64 648
+  %244 = load double, ptr %243, align 8
+  %245 = fmul double %232, %244
+  %246 = fdiv double %242, %245
+  %247 = getelementptr inbounds i8, ptr %0, i64 456
+  %248 = load double, ptr %247, align 8
+  %249 = fadd double %248, %246
+  store double %249, ptr %247, align 8
+  %250 = getelementptr inbounds i8, ptr %0, i64 568
+  %251 = load i32, ptr %250, align 8
+  %252 = uitofp i32 %251 to double
+  %253 = fmul double %252, 5.000000e-01
+  %254 = fsub double %2, %253
+  br label %274
 
-256:                                              ; preds = %229
-  %257 = getelementptr inbounds i8, ptr %0, i64 568
-  %258 = load i32, ptr %257, align 8
-  %259 = uitofp i32 %258 to double
-  %260 = fmul double %259, 5.000000e-01
-  %261 = fsub double %2, %260
-  %262 = fmul double %261, 0x3FB99999999999A0
-  %263 = load double, ptr %236, align 8
-  %264 = fmul double %233, %263
-  %265 = fdiv double %262, %264
-  %266 = getelementptr inbounds i8, ptr %0, i64 456
-  %267 = load double, ptr %266, align 8
-  %268 = fsub double %267, %265
-  store double %268, ptr %266, align 8
-  %269 = getelementptr inbounds i8, ptr %0, i64 572
-  %270 = load i32, ptr %269, align 4
-  %271 = uitofp i32 %270 to double
-  %272 = fmul double %271, 5.000000e-01
-  %273 = fsub double %3, %272
-  %274 = getelementptr inbounds i8, ptr %0, i64 648
-  br label %275
+255:                                              ; preds = %228
+  %256 = getelementptr inbounds i8, ptr %0, i64 568
+  %257 = load i32, ptr %256, align 8
+  %258 = uitofp i32 %257 to double
+  %259 = fmul double %258, 5.000000e-01
+  %260 = fsub double %2, %259
+  %261 = fmul double %260, 0x3FB99999999999A0
+  %262 = load double, ptr %235, align 8
+  %263 = fmul double %232, %262
+  %264 = fdiv double %261, %263
+  %265 = getelementptr inbounds i8, ptr %0, i64 456
+  %266 = load double, ptr %265, align 8
+  %267 = fsub double %266, %264
+  store double %267, ptr %265, align 8
+  %268 = getelementptr inbounds i8, ptr %0, i64 572
+  %269 = load i32, ptr %268, align 4
+  %270 = uitofp i32 %269 to double
+  %271 = fmul double %270, 5.000000e-01
+  %272 = fsub double %3, %271
+  %273 = getelementptr inbounds i8, ptr %0, i64 648
+  br label %274
 
-275:                                              ; preds = %256, %237
-  %.sink116 = phi ptr [ %274, %256 ], [ %236, %237 ]
-  %.sink113.in = phi double [ %273, %256 ], [ %255, %237 ]
-  %.sink113 = fmul double %.sink113.in, 0x3FB99999999999A0
-  %276 = load double, ptr %.sink116, align 8
-  %277 = fmul double %233, %276
-  %278 = fdiv double %.sink113, %277
-  %279 = getelementptr inbounds i8, ptr %0, i64 464
-  %280 = load double, ptr %279, align 8
-  %281 = fsub double %280, %278
-  store double %281, ptr %279, align 8
+274:                                              ; preds = %255, %236
+  %.sink114.in = phi ptr [ %273, %255 ], [ %235, %236 ]
+  %.sink112.in = phi double [ %272, %255 ], [ %254, %236 ]
+  %.sink112 = fmul double %.sink112.in, 0x3FB99999999999A0
+  %.sink114 = load double, ptr %.sink114.in, align 8
+  %275 = fmul double %232, %.sink114
+  %276 = fdiv double %.sink112, %275
+  %277 = getelementptr inbounds i8, ptr %0, i64 464
+  %278 = load double, ptr %277, align 8
+  %279 = fsub double %278, %276
+  store double %279, ptr %277, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %gvevent_select_current_obj.exit, %169, %172, %220, %275
-  %282 = getelementptr inbounds i8, ptr %0, i64 657
-  store i8 1, ptr %282, align 1
-  br label %283
+.sink.split:                                      ; preds = %gvevent_select_current_obj.exit, %169, %172, %220, %274
+  %280 = getelementptr inbounds i8, ptr %0, i64 657
+  store i8 1, ptr %280, align 1
+  br label %281
 
-283:                                              ; preds = %.sink.split, %4
-  %284 = getelementptr inbounds i8, ptr %0, i64 680
-  store double %2, ptr %284, align 8
+281:                                              ; preds = %.sink.split, %4
+  %282 = getelementptr inbounds i8, ptr %0, i64 680
+  store double %2, ptr %282, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 688
   store double %3, ptr %.sroa.8.0..sroa_idx, align 8
   ret void
@@ -1001,194 +1001,194 @@ define internal fastcc void @gvevent_find_current_obj(ptr nocapture noundef %0, 
   br label %pointer2graph.exit
 
 pointer2graph.exit:                               ; preds = %10, %19
-  %.sink21.i = phi ptr [ %26, %19 ], [ %9, %10 ]
+  %.sink.in.i = phi ptr [ %26, %19 ], [ %9, %10 ]
   %.sink19.i = phi double [ %2, %19 ], [ %18, %10 ]
   %.sroa.015.0.i = phi double [ %25, %19 ], [ %17, %10 ]
-  %27 = load double, ptr %.sink21.i, align 8
-  %28 = fmul double %8, %27
-  %29 = fdiv double %.sink19.i, %28
-  %30 = getelementptr inbounds i8, ptr %0, i64 632
-  %31 = load double, ptr %30, align 8
-  %32 = fsub double %29, %31
-  %33 = fdiv double 1.000000e+00, %8
-  %34 = fadd double %33, %.sroa.015.0.i
-  %35 = fadd double %33, %32
-  %36 = fsub double %.sroa.015.0.i, %33
-  %37 = fsub double %32, %33
-  %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 304
-  %40 = load ptr, ptr %39, align 8
+  %.sink.i = load double, ptr %.sink.in.i, align 8
+  %27 = fmul double %8, %.sink.i
+  %28 = fdiv double %.sink19.i, %27
+  %29 = getelementptr inbounds i8, ptr %0, i64 632
+  %30 = load double, ptr %29, align 8
+  %31 = fsub double %28, %30
+  %32 = fdiv double 1.000000e+00, %8
+  %33 = fadd double %32, %.sroa.015.0.i
+  %34 = fadd double %32, %31
+  %35 = fsub double %.sroa.015.0.i, %32
+  %36 = fsub double %31, %32
+  %37 = load ptr, ptr %0, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 304
+  %39 = load ptr, ptr %38, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  store double %36, ptr %4, align 8
+  store double %35, ptr %4, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
-  store double %37, ptr %.sroa.2.0..sroa_idx, align 8
+  store double %36, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
-  store double %34, ptr %.sroa.3.0..sroa_idx, align 8
+  store double %33, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
-  store double %35, ptr %.sroa.4.0..sroa_idx, align 8
-  %41 = tail call ptr @agfstnode(ptr noundef %40) #12
-  %.not33.i = icmp eq ptr %41, null
+  store double %34, ptr %.sroa.4.0..sroa_idx, align 8
+  %40 = tail call ptr @agfstnode(ptr noundef %39) #12
+  %.not33.i = icmp eq ptr %40, null
   br i1 %.not33.i, label %._crit_edge37.i, label %.lr.ph36.i
 
 .lr.ph36.i:                                       ; preds = %pointer2graph.exit, %._crit_edge.i
-  %.02234.i = phi ptr [ %46, %._crit_edge.i ], [ %41, %pointer2graph.exit ]
-  %42 = tail call ptr @agfstout(ptr noundef %40, ptr noundef nonnull %.02234.i) #12
-  %.not2731.i = icmp eq ptr %42, null
+  %.02234.i = phi ptr [ %45, %._crit_edge.i ], [ %40, %pointer2graph.exit ]
+  %41 = tail call ptr @agfstout(ptr noundef %39, ptr noundef nonnull %.02234.i) #12
+  %.not2731.i = icmp eq ptr %41, null
   br i1 %.not2731.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph36.i, %44
-  %.032.i = phi ptr [ %45, %44 ], [ %42, %.lr.ph36.i ]
-  %43 = tail call zeroext i1 @overlap_edge(ptr noundef nonnull %.032.i, ptr noundef nonnull byval(%struct.boxf) align 8 %4) #12
-  br i1 %43, label %gvevent_find_obj.exit, label %44
+.lr.ph.i:                                         ; preds = %.lr.ph36.i, %43
+  %.032.i = phi ptr [ %44, %43 ], [ %41, %.lr.ph36.i ]
+  %42 = tail call zeroext i1 @overlap_edge(ptr noundef nonnull %.032.i, ptr noundef nonnull byval(%struct.boxf) align 8 %4) #12
+  br i1 %42, label %gvevent_find_obj.exit, label %43
 
-44:                                               ; preds = %.lr.ph.i
-  %45 = tail call ptr @agnxtout(ptr noundef %40, ptr noundef nonnull %.032.i) #12
-  %.not27.i = icmp eq ptr %45, null
+43:                                               ; preds = %.lr.ph.i
+  %44 = tail call ptr @agnxtout(ptr noundef %39, ptr noundef nonnull %.032.i) #12
+  %.not27.i = icmp eq ptr %44, null
   br i1 %.not27.i, label %._crit_edge.i, label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %44, %.lr.ph36.i
-  %46 = tail call ptr @agnxtnode(ptr noundef %40, ptr noundef nonnull %.02234.i) #12
-  %.not.i19 = icmp eq ptr %46, null
+._crit_edge.i:                                    ; preds = %43, %.lr.ph36.i
+  %45 = tail call ptr @agnxtnode(ptr noundef %39, ptr noundef nonnull %.02234.i) #12
+  %.not.i19 = icmp eq ptr %45, null
   br i1 %.not.i19, label %._crit_edge37.i, label %.lr.ph36.i
 
 ._crit_edge37.i:                                  ; preds = %._crit_edge.i, %pointer2graph.exit
-  %47 = tail call ptr @aglstnode(ptr noundef %40) #12
-  %.not2538.i = icmp eq ptr %47, null
+  %46 = tail call ptr @aglstnode(ptr noundef %39) #12
+  %.not2538.i = icmp eq ptr %46, null
   br i1 %.not2538.i, label %._crit_edge42.i, label %.lr.ph41.i
 
-.lr.ph41.i:                                       ; preds = %._crit_edge37.i, %49
-  %.139.i = phi ptr [ %50, %49 ], [ %47, %._crit_edge37.i ]
-  %48 = tail call zeroext i1 @overlap_node(ptr noundef nonnull %.139.i, ptr noundef nonnull byval(%struct.boxf) align 8 %4) #12
-  br i1 %48, label %gvevent_find_obj.exit, label %49
+.lr.ph41.i:                                       ; preds = %._crit_edge37.i, %48
+  %.139.i = phi ptr [ %49, %48 ], [ %46, %._crit_edge37.i ]
+  %47 = tail call zeroext i1 @overlap_node(ptr noundef nonnull %.139.i, ptr noundef nonnull byval(%struct.boxf) align 8 %4) #12
+  br i1 %47, label %gvevent_find_obj.exit, label %48
 
-49:                                               ; preds = %.lr.ph41.i
-  %50 = tail call ptr @agprvnode(ptr noundef %40, ptr noundef nonnull %.139.i) #12
-  %.not25.i = icmp eq ptr %50, null
+48:                                               ; preds = %.lr.ph41.i
+  %49 = tail call ptr @agprvnode(ptr noundef %39, ptr noundef nonnull %.139.i) #12
+  %.not25.i = icmp eq ptr %49, null
   br i1 %.not25.i, label %._crit_edge42.i, label %.lr.ph41.i
 
-._crit_edge42.i:                                  ; preds = %49, %._crit_edge37.i
-  %51 = tail call fastcc ptr @gvevent_find_cluster(ptr noundef %40, ptr noundef nonnull byval(%struct.boxf) align 8 %4)
-  %.not26.i = icmp eq ptr %51, null
-  %..i = select i1 %.not26.i, ptr %40, ptr %51
+._crit_edge42.i:                                  ; preds = %48, %._crit_edge37.i
+  %50 = tail call fastcc ptr @gvevent_find_cluster(ptr noundef %39, ptr noundef nonnull byval(%struct.boxf) align 8 %4)
+  %.not26.i = icmp eq ptr %50, null
+  %..i = select i1 %.not26.i, ptr %39, ptr %50
   br label %gvevent_find_obj.exit
 
 gvevent_find_obj.exit:                            ; preds = %.lr.ph.i, %.lr.ph41.i, %._crit_edge42.i
   %.023.i = phi ptr [ %..i, %._crit_edge42.i ], [ %.139.i, %.lr.ph41.i ], [ %.032.i, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  %52 = getelementptr inbounds i8, ptr %0, i64 696
-  %53 = load ptr, ptr %52, align 8
-  %.not = icmp eq ptr %.023.i, %53
-  br i1 %.not, label %110, label %54
+  %51 = getelementptr inbounds i8, ptr %0, i64 696
+  %52 = load ptr, ptr %51, align 8
+  %.not = icmp eq ptr %.023.i, %52
+  br i1 %.not, label %109, label %53
 
-54:                                               ; preds = %gvevent_find_obj.exit
-  %.not.i20 = icmp eq ptr %53, null
-  br i1 %.not.i20, label %gvevent_leave_obj.exit, label %55
+53:                                               ; preds = %gvevent_find_obj.exit
+  %.not.i20 = icmp eq ptr %52, null
+  br i1 %.not.i20, label %gvevent_leave_obj.exit, label %54
 
-55:                                               ; preds = %54
-  %56 = tail call i32 @agobjkind(ptr noundef nonnull %53) #12
-  switch i32 %56, label %gvevent_leave_obj.exit [
-    i32 0, label %57
-    i32 1, label %63
-    i32 2, label %69
+54:                                               ; preds = %53
+  %55 = tail call i32 @agobjkind(ptr noundef nonnull %52) #12
+  switch i32 %55, label %gvevent_leave_obj.exit [
+    i32 0, label %56
+    i32 1, label %62
+    i32 2, label %68
   ]
 
-57:                                               ; preds = %55
-  %58 = getelementptr inbounds i8, ptr %53, i64 16
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 128
-  %61 = load i8, ptr %60, align 8
-  %62 = and i8 %61, -2
-  store i8 %62, ptr %60, align 8
+56:                                               ; preds = %54
+  %57 = getelementptr inbounds i8, ptr %52, i64 16
+  %58 = load ptr, ptr %57, align 8
+  %59 = getelementptr inbounds i8, ptr %58, i64 128
+  %60 = load i8, ptr %59, align 8
+  %61 = and i8 %60, -2
+  store i8 %61, ptr %59, align 8
   br label %gvevent_leave_obj.exit
 
-63:                                               ; preds = %55
-  %64 = getelementptr inbounds i8, ptr %53, i64 16
-  %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 161
-  %67 = load i8, ptr %66, align 1
-  %68 = and i8 %67, -2
-  store i8 %68, ptr %66, align 1
+62:                                               ; preds = %54
+  %63 = getelementptr inbounds i8, ptr %52, i64 16
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds i8, ptr %64, i64 161
+  %66 = load i8, ptr %65, align 1
+  %67 = and i8 %66, -2
+  store i8 %67, ptr %65, align 1
   br label %gvevent_leave_obj.exit
 
-69:                                               ; preds = %55
-  %70 = getelementptr inbounds i8, ptr %53, i64 16
-  %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 156
-  %73 = load i8, ptr %72, align 4
-  %74 = and i8 %73, -2
-  store i8 %74, ptr %72, align 4
+68:                                               ; preds = %54
+  %69 = getelementptr inbounds i8, ptr %52, i64 16
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds i8, ptr %70, i64 156
+  %72 = load i8, ptr %71, align 4
+  %73 = and i8 %72, -2
+  store i8 %73, ptr %71, align 4
   br label %gvevent_leave_obj.exit
 
-gvevent_leave_obj.exit:                           ; preds = %54, %55, %57, %63, %69
-  %75 = getelementptr inbounds i8, ptr %0, i64 712
-  store ptr %.023.i, ptr %52, align 8
-  store ptr null, ptr %75, align 8
+gvevent_leave_obj.exit:                           ; preds = %53, %54, %56, %62, %68
+  %74 = getelementptr inbounds i8, ptr %0, i64 712
+  store ptr %.023.i, ptr %51, align 8
+  store ptr null, ptr %74, align 8
   %.not.i21 = icmp eq ptr %.023.i, null
-  br i1 %.not.i21, label %gvevent_enter_obj.exit, label %76
+  br i1 %.not.i21, label %gvevent_enter_obj.exit, label %75
 
-76:                                               ; preds = %gvevent_leave_obj.exit
-  %77 = tail call i32 @agobjkind(ptr noundef nonnull %.023.i) #12
-  switch i32 %77, label %gvevent_enter_obj.exit [
-    i32 0, label %78
-    i32 1, label %85
-    i32 2, label %93
+75:                                               ; preds = %gvevent_leave_obj.exit
+  %76 = tail call i32 @agobjkind(ptr noundef nonnull %.023.i) #12
+  switch i32 %76, label %gvevent_enter_obj.exit [
+    i32 0, label %77
+    i32 1, label %84
+    i32 2, label %92
   ]
 
-78:                                               ; preds = %76
-  %79 = getelementptr inbounds i8, ptr %.023.i, i64 16
-  %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 128
-  %82 = load i8, ptr %81, align 8
-  %83 = or i8 %82, 1
-  store i8 %83, ptr %81, align 8
-  %84 = tail call ptr @agattr(ptr noundef nonnull %.023.i, i32 noundef 0, ptr noundef nonnull @.str.19, ptr noundef null) #12
-  %.not36.i = icmp eq ptr %84, null
+77:                                               ; preds = %75
+  %78 = getelementptr inbounds i8, ptr %.023.i, i64 16
+  %79 = load ptr, ptr %78, align 8
+  %80 = getelementptr inbounds i8, ptr %79, i64 128
+  %81 = load i8, ptr %80, align 8
+  %82 = or i8 %81, 1
+  store i8 %82, ptr %80, align 8
+  %83 = tail call ptr @agattr(ptr noundef nonnull %.023.i, i32 noundef 0, ptr noundef nonnull @.str.19, ptr noundef null) #12
+  %.not36.i = icmp eq ptr %83, null
   br i1 %.not36.i, label %gvevent_enter_obj.exit, label %.sink.split.i
 
-85:                                               ; preds = %76
-  %86 = getelementptr inbounds i8, ptr %.023.i, i64 16
-  %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 161
-  %89 = load i8, ptr %88, align 1
-  %90 = or i8 %89, 1
-  store i8 %90, ptr %88, align 1
-  %91 = tail call ptr @agraphof(ptr noundef nonnull %.023.i) #12
-  %92 = tail call ptr @agattr(ptr noundef %91, i32 noundef 1, ptr noundef nonnull @.str.19, ptr noundef null) #12
-  %.not35.i = icmp eq ptr %92, null
+84:                                               ; preds = %75
+  %85 = getelementptr inbounds i8, ptr %.023.i, i64 16
+  %86 = load ptr, ptr %85, align 8
+  %87 = getelementptr inbounds i8, ptr %86, i64 161
+  %88 = load i8, ptr %87, align 1
+  %89 = or i8 %88, 1
+  store i8 %89, ptr %87, align 1
+  %90 = tail call ptr @agraphof(ptr noundef nonnull %.023.i) #12
+  %91 = tail call ptr @agattr(ptr noundef %90, i32 noundef 1, ptr noundef nonnull @.str.19, ptr noundef null) #12
+  %.not35.i = icmp eq ptr %91, null
   br i1 %.not35.i, label %gvevent_enter_obj.exit, label %.sink.split.i
 
-93:                                               ; preds = %76
-  %94 = getelementptr inbounds i8, ptr %.023.i, i64 16
-  %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 156
-  %97 = load i8, ptr %96, align 4
-  %98 = or i8 %97, 1
-  store i8 %98, ptr %96, align 4
-  %99 = load i32, ptr %.023.i, align 8
-  %100 = and i32 %99, 3
-  %101 = icmp eq i32 %100, 2
-  %.idx.i = select i1 %101, i64 0, i64 -64
-  %102 = getelementptr inbounds i8, ptr %.023.i, i64 %.idx.i
-  %103 = getelementptr inbounds i8, ptr %102, i64 56
-  %104 = load ptr, ptr %103, align 8
-  %105 = tail call ptr @agraphof(ptr noundef %104) #12
-  %106 = tail call ptr @agattr(ptr noundef %105, i32 noundef 2, ptr noundef nonnull @.str.19, ptr noundef null) #12
-  %.not34.i = icmp eq ptr %106, null
+92:                                               ; preds = %75
+  %93 = getelementptr inbounds i8, ptr %.023.i, i64 16
+  %94 = load ptr, ptr %93, align 8
+  %95 = getelementptr inbounds i8, ptr %94, i64 156
+  %96 = load i8, ptr %95, align 4
+  %97 = or i8 %96, 1
+  store i8 %97, ptr %95, align 4
+  %98 = load i32, ptr %.023.i, align 8
+  %99 = and i32 %98, 3
+  %100 = icmp eq i32 %99, 2
+  %.idx.i = select i1 %100, i64 0, i64 -64
+  %101 = getelementptr inbounds i8, ptr %.023.i, i64 %.idx.i
+  %102 = getelementptr inbounds i8, ptr %101, i64 56
+  %103 = load ptr, ptr %102, align 8
+  %104 = tail call ptr @agraphof(ptr noundef %103) #12
+  %105 = tail call ptr @agattr(ptr noundef %104, i32 noundef 2, ptr noundef nonnull @.str.19, ptr noundef null) #12
+  %.not34.i = icmp eq ptr %105, null
   br i1 %.not34.i, label %gvevent_enter_obj.exit, label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %93, %85, %78
-  %.sink.i = phi ptr [ %84, %78 ], [ %92, %85 ], [ %106, %93 ]
-  %107 = tail call ptr @agxget(ptr noundef nonnull %.023.i, ptr noundef nonnull %.sink.i) #12
-  %108 = tail call ptr @strdup_and_subst_obj(ptr noundef %107, ptr noundef nonnull %.023.i) #12
-  store ptr %108, ptr %75, align 8
+.sink.split.i:                                    ; preds = %92, %84, %77
+  %.sink.i22 = phi ptr [ %83, %77 ], [ %91, %84 ], [ %105, %92 ]
+  %106 = tail call ptr @agxget(ptr noundef nonnull %.023.i, ptr noundef nonnull %.sink.i22) #12
+  %107 = tail call ptr @strdup_and_subst_obj(ptr noundef %106, ptr noundef nonnull %.023.i) #12
+  store ptr %107, ptr %74, align 8
   br label %gvevent_enter_obj.exit
 
-gvevent_enter_obj.exit:                           ; preds = %gvevent_leave_obj.exit, %76, %78, %85, %93, %.sink.split.i
-  %109 = getelementptr inbounds i8, ptr %0, i64 657
-  store i8 1, ptr %109, align 1
-  br label %110
+gvevent_enter_obj.exit:                           ; preds = %gvevent_leave_obj.exit, %75, %77, %84, %92, %.sink.split.i
+  %108 = getelementptr inbounds i8, ptr %0, i64 657
+  store i8 1, ptr %108, align 1
+  br label %109
 
-110:                                              ; preds = %gvevent_enter_obj.exit, %gvevent_find_obj.exit
+109:                                              ; preds = %gvevent_enter_obj.exit, %gvevent_find_obj.exit
   ret void
 }
 

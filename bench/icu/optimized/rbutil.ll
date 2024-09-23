@@ -13,7 +13,7 @@ entry:
   %incdec.ptr = getelementptr inbounds i8, ptr %call, i64 1
   %spec.select = select i1 %cmp.not, ptr null, ptr %incdec.ptr
   %cmp1 = icmp ugt ptr %spec.select, %filename
-  br i1 %cmp1, label %if.then2, label %if.end7
+  br i1 %cmp1, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %entry
   %sub.ptr.lhs.cast = ptrtoint ptr %spec.select to i64
@@ -21,11 +21,14 @@ if.then2:                                         ; preds = %entry
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %call3 = tail call ptr @strncpy(ptr noundef %dirname, ptr noundef %filename, i64 noundef %sub.ptr.sub) #8
   %add.ptr = getelementptr inbounds i8, ptr %dirname, i64 %sub.ptr.sub
+  store i8 0, ptr %add.ptr, align 1
   br label %if.end7
 
-if.end7:                                          ; preds = %entry, %if.then2
-  %dirname.sink = phi ptr [ %add.ptr, %if.then2 ], [ %dirname, %entry ]
-  store i8 0, ptr %dirname.sink, align 1
+if.else:                                          ; preds = %entry
+  store i8 0, ptr %dirname, align 1
+  br label %if.end7
+
+if.end7:                                          ; preds = %if.else, %if.then2
   ret void
 }
 

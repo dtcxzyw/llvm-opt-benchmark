@@ -2651,7 +2651,8 @@ _ZN4llvm15SmallVectorImplINS_16CodeGenIntrinsic12ArgAttributeEE12assignRemoteEOS
   store i32 %19, ptr %20, align 4
   store ptr %6, ptr %1, align 8
   store i32 0, ptr %18, align 4
-  br label %.sink.split
+  store i32 0, ptr %15, align 8
+  br label %53
 
 21:                                               ; preds = %4
   %22 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #17
@@ -2680,7 +2681,8 @@ _ZSt4moveIPN4llvm16CodeGenIntrinsic12ArgAttributeES3_ET0_T_S5_S4_.exit: ; preds 
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %22) #17
   %31 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #17
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
+  store i32 0, ptr %32, align 8
+  br label %53
 
 33:                                               ; preds = %21
   %34 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
@@ -2727,14 +2729,10 @@ _ZN4llvm23SmallVectorTemplateBaseINS_16CodeGenIntrinsic12ArgAttributeELb1EE18uni
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %22) #17
   %51 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #17
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %_ZN4llvm15SmallVectorImplINS_16CodeGenIntrinsic12ArgAttributeEE12assignRemoteEOS3_.exit, %_ZSt4moveIPN4llvm16CodeGenIntrinsic12ArgAttributeES3_ET0_T_S5_S4_.exit, %_ZN4llvm23SmallVectorTemplateBaseINS_16CodeGenIntrinsic12ArgAttributeELb1EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit
-  %.sink = phi ptr [ %52, %_ZN4llvm23SmallVectorTemplateBaseINS_16CodeGenIntrinsic12ArgAttributeELb1EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit ], [ %32, %_ZSt4moveIPN4llvm16CodeGenIntrinsic12ArgAttributeES3_ET0_T_S5_S4_.exit ], [ %15, %_ZN4llvm15SmallVectorImplINS_16CodeGenIntrinsic12ArgAttributeEE12assignRemoteEOS3_.exit ]
-  store i32 0, ptr %.sink, align 8
+  store i32 0, ptr %52, align 8
   br label %53
 
-53:                                               ; preds = %.sink.split, %2
+53:                                               ; preds = %2, %_ZN4llvm23SmallVectorTemplateBaseINS_16CodeGenIntrinsic12ArgAttributeELb1EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit, %_ZSt4moveIPN4llvm16CodeGenIntrinsic12ArgAttributeES3_ET0_T_S5_S4_.exit, %_ZN4llvm15SmallVectorImplINS_16CodeGenIntrinsic12ArgAttributeEE12assignRemoteEOS3_.exit
   ret ptr %0
 }
 
@@ -3070,7 +3068,8 @@ _ZN4llvm15SmallVectorImplINS_11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeEL
   store i32 %27, ptr %28, align 4
   store ptr %7, ptr %1, align 8
   store i32 0, ptr %26, align 4
-  br label %.sink.split
+  store i32 0, ptr %23, align 8
+  br label %145
 
 29:                                               ; preds = %5
   %30 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #17
@@ -3090,24 +3089,25 @@ _ZN4llvm15SmallVectorImplINS_11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeEL
   br i1 %37, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPN4llvm11SmallVectorINS0_16CodeGenIntrinsic12ArgAttributeELj0EEES5_ET0_T_S7_S6_.exit
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %34, %_ZN4llvm11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEaSEOS3_.exit.i.i.i.i.i
-  %.014.i.i.i.i.i = phi i64 [ %59, %_ZN4llvm11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEaSEOS3_.exit.i.i.i.i.i ], [ %36, %34 ]
-  %.0812.i.i.i.i.i = phi ptr [ %58, %_ZN4llvm11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEaSEOS3_.exit.i.i.i.i.i ], [ %33, %34 ]
+  %.012.i.i.i.i.i = phi i64 [ %59, %_ZN4llvm11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEaSEOS3_.exit.i.i.i.i.i ], [ %36, %34 ]
+  %.0811.i.i.i.i.i = phi ptr [ %58, %_ZN4llvm11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEaSEOS3_.exit.i.i.i.i.i ], [ %33, %34 ]
   %.0910.i.i.i.i.i = phi ptr [ %57, %_ZN4llvm11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEaSEOS3_.exit.i.i.i.i.i ], [ %35, %34 ]
-  %38 = icmp eq ptr %.0812.i.i.i.i.i, %.0910.i.i.i.i.i
+  %38 = icmp eq ptr %.0811.i.i.i.i.i, %.0910.i.i.i.i.i
   br i1 %38, label %_ZN4llvm11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEaSEOS3_.exit.i.i.i.i.i, label %39
 
 39:                                               ; preds = %.lr.ph.i.i.i.i.i
   %40 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %.0910.i.i.i.i.i) #17
-  %41 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.0812.i.i.i.i.i) #17
+  %41 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.0811.i.i.i.i.i) #17
   br i1 %40, label %42, label %44
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds nuw i8, ptr %.0812.i.i.i.i.i, i64 8
-  br label %.sink.split.i.i.i.i.i.i
+  %43 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 8
+  store i32 0, ptr %43, align 8
+  br label %_ZN4llvm11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEaSEOS3_.exit.i.i.i.i.i
 
 44:                                               ; preds = %39
-  %45 = load ptr, ptr %.0812.i.i.i.i.i, align 8
-  %46 = getelementptr inbounds i8, ptr %.0812.i.i.i.i.i, i64 16
+  %45 = load ptr, ptr %.0811.i.i.i.i.i, align 8
+  %46 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 16
   %47 = icmp eq ptr %45, %46
   br i1 %47, label %_ZN4llvm15SmallVectorImplINS_16CodeGenIntrinsic12ArgAttributeEE12assignRemoteEOS3_.exit.i.i.i.i.i.i, label %48
 
@@ -3117,30 +3117,26 @@ _ZN4llvm15SmallVectorImplINS_11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeEL
 
 _ZN4llvm15SmallVectorImplINS_16CodeGenIntrinsic12ArgAttributeEE12assignRemoteEOS3_.exit.i.i.i.i.i.i: ; preds = %48, %44
   %49 = load ptr, ptr %.0910.i.i.i.i.i, align 8
-  store ptr %49, ptr %.0812.i.i.i.i.i, align 8
+  store ptr %49, ptr %.0811.i.i.i.i.i, align 8
   %50 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 8
   %51 = load i32, ptr %50, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %.0812.i.i.i.i.i, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 8
   store i32 %51, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 12
   %54 = load i32, ptr %53, align 4
-  %55 = getelementptr inbounds nuw i8, ptr %.0812.i.i.i.i.i, i64 12
+  %55 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 12
   store i32 %54, ptr %55, align 4
   %56 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 16
   store ptr %56, ptr %.0910.i.i.i.i.i, align 8
   store i32 0, ptr %53, align 4
-  br label %.sink.split.i.i.i.i.i.i
-
-.sink.split.i.i.i.i.i.i:                          ; preds = %_ZN4llvm15SmallVectorImplINS_16CodeGenIntrinsic12ArgAttributeEE12assignRemoteEOS3_.exit.i.i.i.i.i.i, %42
-  %.sink.i.i.i.i.i.i = phi ptr [ %43, %42 ], [ %50, %_ZN4llvm15SmallVectorImplINS_16CodeGenIntrinsic12ArgAttributeEE12assignRemoteEOS3_.exit.i.i.i.i.i.i ]
-  store i32 0, ptr %.sink.i.i.i.i.i.i, align 8
+  store i32 0, ptr %50, align 8
   br label %_ZN4llvm11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEaSEOS3_.exit.i.i.i.i.i
 
-_ZN4llvm11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEaSEOS3_.exit.i.i.i.i.i: ; preds = %.sink.split.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i
+_ZN4llvm11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEaSEOS3_.exit.i.i.i.i.i: ; preds = %_ZN4llvm15SmallVectorImplINS_16CodeGenIntrinsic12ArgAttributeEE12assignRemoteEOS3_.exit.i.i.i.i.i.i, %42, %.lr.ph.i.i.i.i.i
   %57 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 16
-  %58 = getelementptr inbounds i8, ptr %.0812.i.i.i.i.i, i64 16
-  %59 = add nsw i64 %.014.i.i.i.i.i, -1
-  %60 = icmp sgt i64 %.014.i.i.i.i.i, 1
+  %58 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 16
+  %59 = add nsw i64 %.012.i.i.i.i.i, -1
+  %60 = icmp sgt i64 %.012.i.i.i.i.i, 1
   br i1 %60, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPN4llvm11SmallVectorINS0_16CodeGenIntrinsic12ArgAttributeELj0EEES5_ET0_T_S7_S6_.exit, !llvm.loop !51
 
 _ZSt4moveIPN4llvm11SmallVectorINS0_16CodeGenIntrinsic12ArgAttributeELj0EEES5_ET0_T_S7_S6_.exit: ; preds = %_ZN4llvm11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEaSEOS3_.exit.i.i.i.i.i, %34, %32
@@ -3196,7 +3192,8 @@ _ZN4llvm11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EED2Ev.exit.i.i38: 
 
 _ZN4llvm15SmallVectorImplINS_11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEEE5clearEv.exit: ; preds = %_ZN4llvm11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EED2Ev.exit.i.i38, %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEELb0EE13destroy_rangeEPS4_S6_.exit
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
+  store i32 0, ptr %77, align 8
+  br label %145
 
 78:                                               ; preds = %29
   %79 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
@@ -3248,40 +3245,41 @@ _ZN4llvm15SmallVectorImplINS_11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeEL
 _ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEELb0EE4growEm.exit: ; preds = %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEEE5clearEv.exit48, %96
   call void @_ZN4llvm15SmallVectorBaseIjE20set_allocation_rangeEPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %92, i64 noundef %93) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %_ZSt4moveIPN4llvm11SmallVectorINS0_16CodeGenIntrinsic12ArgAttributeELj0EEES5_ET0_T_S7_S6_.exit58
+  br label %_ZSt4moveIPN4llvm11SmallVectorINS0_16CodeGenIntrinsic12ArgAttributeELj0EEES5_ET0_T_S7_S6_.exit56
 
 97:                                               ; preds = %78
   %.not32 = icmp eq i64 %31, 0
-  br i1 %.not32, label %_ZSt4moveIPN4llvm11SmallVectorINS0_16CodeGenIntrinsic12ArgAttributeELj0EEES5_ET0_T_S7_S6_.exit58, label %98
+  br i1 %.not32, label %_ZSt4moveIPN4llvm11SmallVectorINS0_16CodeGenIntrinsic12ArgAttributeELj0EEES5_ET0_T_S7_S6_.exit56, label %98
 
 98:                                               ; preds = %97
   %99 = icmp sgt i64 %31, 0
-  br i1 %99, label %.lr.ph.i.i.i.i.i50.preheader, label %_ZSt4moveIPN4llvm11SmallVectorINS0_16CodeGenIntrinsic12ArgAttributeELj0EEES5_ET0_T_S7_S6_.exit58
+  br i1 %99, label %.lr.ph.i.i.i.i.i50.preheader, label %_ZSt4moveIPN4llvm11SmallVectorINS0_16CodeGenIntrinsic12ArgAttributeELj0EEES5_ET0_T_S7_S6_.exit56
 
 .lr.ph.i.i.i.i.i50.preheader:                     ; preds = %98
   %100 = load ptr, ptr %0, align 8
   %101 = load ptr, ptr %1, align 8
   br label %.lr.ph.i.i.i.i.i50
 
-.lr.ph.i.i.i.i.i50:                               ; preds = %.lr.ph.i.i.i.i.i50.preheader, %_ZN4llvm11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEaSEOS3_.exit.i.i.i.i.i57
-  %.014.i.i.i.i.i51 = phi i64 [ %123, %_ZN4llvm11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEaSEOS3_.exit.i.i.i.i.i57 ], [ %31, %.lr.ph.i.i.i.i.i50.preheader ]
-  %.0812.i.i.i.i.i52 = phi ptr [ %122, %_ZN4llvm11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEaSEOS3_.exit.i.i.i.i.i57 ], [ %100, %.lr.ph.i.i.i.i.i50.preheader ]
-  %.0910.i.i.i.i.i53 = phi ptr [ %121, %_ZN4llvm11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEaSEOS3_.exit.i.i.i.i.i57 ], [ %101, %.lr.ph.i.i.i.i.i50.preheader ]
-  %102 = icmp eq ptr %.0812.i.i.i.i.i52, %.0910.i.i.i.i.i53
-  br i1 %102, label %_ZN4llvm11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEaSEOS3_.exit.i.i.i.i.i57, label %103
+.lr.ph.i.i.i.i.i50:                               ; preds = %.lr.ph.i.i.i.i.i50.preheader, %_ZN4llvm11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEaSEOS3_.exit.i.i.i.i.i55
+  %.012.i.i.i.i.i51 = phi i64 [ %123, %_ZN4llvm11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEaSEOS3_.exit.i.i.i.i.i55 ], [ %31, %.lr.ph.i.i.i.i.i50.preheader ]
+  %.0811.i.i.i.i.i52 = phi ptr [ %122, %_ZN4llvm11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEaSEOS3_.exit.i.i.i.i.i55 ], [ %100, %.lr.ph.i.i.i.i.i50.preheader ]
+  %.0910.i.i.i.i.i53 = phi ptr [ %121, %_ZN4llvm11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEaSEOS3_.exit.i.i.i.i.i55 ], [ %101, %.lr.ph.i.i.i.i.i50.preheader ]
+  %102 = icmp eq ptr %.0811.i.i.i.i.i52, %.0910.i.i.i.i.i53
+  br i1 %102, label %_ZN4llvm11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEaSEOS3_.exit.i.i.i.i.i55, label %103
 
 103:                                              ; preds = %.lr.ph.i.i.i.i.i50
   %104 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %.0910.i.i.i.i.i53) #17
-  %105 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.0812.i.i.i.i.i52) #17
+  %105 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.0811.i.i.i.i.i52) #17
   br i1 %104, label %106, label %108
 
 106:                                              ; preds = %103
-  %107 = getelementptr inbounds nuw i8, ptr %.0812.i.i.i.i.i52, i64 8
-  br label %.sink.split.i.i.i.i.i.i55
+  %107 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i52, i64 8
+  store i32 0, ptr %107, align 8
+  br label %_ZN4llvm11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEaSEOS3_.exit.i.i.i.i.i55
 
 108:                                              ; preds = %103
-  %109 = load ptr, ptr %.0812.i.i.i.i.i52, align 8
-  %110 = getelementptr inbounds i8, ptr %.0812.i.i.i.i.i52, i64 16
+  %109 = load ptr, ptr %.0811.i.i.i.i.i52, align 8
+  %110 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i52, i64 16
   %111 = icmp eq ptr %109, %110
   br i1 %111, label %_ZN4llvm15SmallVectorImplINS_16CodeGenIntrinsic12ArgAttributeEE12assignRemoteEOS3_.exit.i.i.i.i.i.i54, label %112
 
@@ -3291,100 +3289,92 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_16CodeGenIntrinsic12ArgAtt
 
 _ZN4llvm15SmallVectorImplINS_16CodeGenIntrinsic12ArgAttributeEE12assignRemoteEOS3_.exit.i.i.i.i.i.i54: ; preds = %112, %108
   %113 = load ptr, ptr %.0910.i.i.i.i.i53, align 8
-  store ptr %113, ptr %.0812.i.i.i.i.i52, align 8
+  store ptr %113, ptr %.0811.i.i.i.i.i52, align 8
   %114 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i53, i64 8
   %115 = load i32, ptr %114, align 8
-  %116 = getelementptr inbounds nuw i8, ptr %.0812.i.i.i.i.i52, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i52, i64 8
   store i32 %115, ptr %116, align 8
   %117 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i53, i64 12
   %118 = load i32, ptr %117, align 4
-  %119 = getelementptr inbounds nuw i8, ptr %.0812.i.i.i.i.i52, i64 12
+  %119 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i52, i64 12
   store i32 %118, ptr %119, align 4
   %120 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i53, i64 16
   store ptr %120, ptr %.0910.i.i.i.i.i53, align 8
   store i32 0, ptr %117, align 4
-  br label %.sink.split.i.i.i.i.i.i55
+  store i32 0, ptr %114, align 8
+  br label %_ZN4llvm11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEaSEOS3_.exit.i.i.i.i.i55
 
-.sink.split.i.i.i.i.i.i55:                        ; preds = %_ZN4llvm15SmallVectorImplINS_16CodeGenIntrinsic12ArgAttributeEE12assignRemoteEOS3_.exit.i.i.i.i.i.i54, %106
-  %.sink.i.i.i.i.i.i56 = phi ptr [ %107, %106 ], [ %114, %_ZN4llvm15SmallVectorImplINS_16CodeGenIntrinsic12ArgAttributeEE12assignRemoteEOS3_.exit.i.i.i.i.i.i54 ]
-  store i32 0, ptr %.sink.i.i.i.i.i.i56, align 8
-  br label %_ZN4llvm11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEaSEOS3_.exit.i.i.i.i.i57
-
-_ZN4llvm11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEaSEOS3_.exit.i.i.i.i.i57: ; preds = %.sink.split.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i50
+_ZN4llvm11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEaSEOS3_.exit.i.i.i.i.i55: ; preds = %_ZN4llvm15SmallVectorImplINS_16CodeGenIntrinsic12ArgAttributeEE12assignRemoteEOS3_.exit.i.i.i.i.i.i54, %106, %.lr.ph.i.i.i.i.i50
   %121 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i53, i64 16
-  %122 = getelementptr inbounds i8, ptr %.0812.i.i.i.i.i52, i64 16
-  %123 = add nsw i64 %.014.i.i.i.i.i51, -1
-  %124 = icmp sgt i64 %.014.i.i.i.i.i51, 1
-  br i1 %124, label %.lr.ph.i.i.i.i.i50, label %_ZSt4moveIPN4llvm11SmallVectorINS0_16CodeGenIntrinsic12ArgAttributeELj0EEES5_ET0_T_S7_S6_.exit58, !llvm.loop !51
+  %122 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i52, i64 16
+  %123 = add nsw i64 %.012.i.i.i.i.i51, -1
+  %124 = icmp sgt i64 %.012.i.i.i.i.i51, 1
+  br i1 %124, label %.lr.ph.i.i.i.i.i50, label %_ZSt4moveIPN4llvm11SmallVectorINS0_16CodeGenIntrinsic12ArgAttributeELj0EEES5_ET0_T_S7_S6_.exit56, !llvm.loop !51
 
-_ZSt4moveIPN4llvm11SmallVectorINS0_16CodeGenIntrinsic12ArgAttributeELj0EEES5_ET0_T_S7_S6_.exit58: ; preds = %_ZN4llvm11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEaSEOS3_.exit.i.i.i.i.i57, %98, %97, %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEELb0EE4growEm.exit
-  %.026 = phi i64 [ 0, %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEELb0EE4growEm.exit ], [ 0, %97 ], [ %31, %98 ], [ %31, %_ZN4llvm11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEaSEOS3_.exit.i.i.i.i.i57 ]
+_ZSt4moveIPN4llvm11SmallVectorINS0_16CodeGenIntrinsic12ArgAttributeELj0EEES5_ET0_T_S7_S6_.exit56: ; preds = %_ZN4llvm11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEaSEOS3_.exit.i.i.i.i.i55, %98, %97, %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEELb0EE4growEm.exit
+  %.026 = phi i64 [ 0, %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEELb0EE4growEm.exit ], [ 0, %97 ], [ %31, %98 ], [ %31, %_ZN4llvm11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEaSEOS3_.exit.i.i.i.i.i55 ]
   %125 = load ptr, ptr %1, align 8
   %126 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #17
   %127 = getelementptr inbounds %"class.llvm::SmallVector.69", ptr %125, i64 %126
   %.not7.i.i.i.i.i = icmp eq i64 %.026, %126
-  br i1 %.not7.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEELb0EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit, label %.lr.ph.i.i.i.i.i59.preheader
+  br i1 %.not7.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEELb0EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit, label %.lr.ph.i.i.i.i.i57.preheader
 
-.lr.ph.i.i.i.i.i59.preheader:                     ; preds = %_ZSt4moveIPN4llvm11SmallVectorINS0_16CodeGenIntrinsic12ArgAttributeELj0EEES5_ET0_T_S7_S6_.exit58
+.lr.ph.i.i.i.i.i57.preheader:                     ; preds = %_ZSt4moveIPN4llvm11SmallVectorINS0_16CodeGenIntrinsic12ArgAttributeELj0EEES5_ET0_T_S7_S6_.exit56
   %128 = load ptr, ptr %0, align 8
   %129 = getelementptr inbounds %"class.llvm::SmallVector.69", ptr %128, i64 %.026
   %130 = getelementptr inbounds %"class.llvm::SmallVector.69", ptr %125, i64 %.026
-  br label %.lr.ph.i.i.i.i.i59
+  br label %.lr.ph.i.i.i.i.i57
 
-.lr.ph.i.i.i.i.i59:                               ; preds = %.lr.ph.i.i.i.i.i59.preheader, %_ZSt10_ConstructIN4llvm11SmallVectorINS0_16CodeGenIntrinsic12ArgAttributeELj0EEEJS4_EEvPT_DpOT0_.exit.i.i.i.i.i
-  %.09.i.i.i.i.i = phi ptr [ %131, %_ZSt10_ConstructIN4llvm11SmallVectorINS0_16CodeGenIntrinsic12ArgAttributeELj0EEEJS4_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %129, %.lr.ph.i.i.i.i.i59.preheader ]
-  %.sroa.04.08.i.i.i.i.i = phi ptr [ %135, %_ZSt10_ConstructIN4llvm11SmallVectorINS0_16CodeGenIntrinsic12ArgAttributeELj0EEEJS4_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %130, %.lr.ph.i.i.i.i.i59.preheader ]
+.lr.ph.i.i.i.i.i57:                               ; preds = %.lr.ph.i.i.i.i.i57.preheader, %_ZSt10_ConstructIN4llvm11SmallVectorINS0_16CodeGenIntrinsic12ArgAttributeELj0EEEJS4_EEvPT_DpOT0_.exit.i.i.i.i.i
+  %.09.i.i.i.i.i = phi ptr [ %131, %_ZSt10_ConstructIN4llvm11SmallVectorINS0_16CodeGenIntrinsic12ArgAttributeELj0EEEJS4_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %129, %.lr.ph.i.i.i.i.i57.preheader ]
+  %.sroa.04.08.i.i.i.i.i = phi ptr [ %135, %_ZSt10_ConstructIN4llvm11SmallVectorINS0_16CodeGenIntrinsic12ArgAttributeELj0EEEJS4_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %130, %.lr.ph.i.i.i.i.i57.preheader ]
   %131 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %.09.i.i.i.i.i, ptr noundef nonnull %131, i64 noundef 0) #17
   %132 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.04.08.i.i.i.i.i) #17
   br i1 %132, label %_ZSt10_ConstructIN4llvm11SmallVectorINS0_16CodeGenIntrinsic12ArgAttributeELj0EEEJS4_EEvPT_DpOT0_.exit.i.i.i.i.i, label %133
 
-133:                                              ; preds = %.lr.ph.i.i.i.i.i59
+133:                                              ; preds = %.lr.ph.i.i.i.i.i57
   %134 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplINS_16CodeGenIntrinsic12ArgAttributeEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(16) %.09.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.04.08.i.i.i.i.i)
   br label %_ZSt10_ConstructIN4llvm11SmallVectorINS0_16CodeGenIntrinsic12ArgAttributeELj0EEEJS4_EEvPT_DpOT0_.exit.i.i.i.i.i
 
-_ZSt10_ConstructIN4llvm11SmallVectorINS0_16CodeGenIntrinsic12ArgAttributeELj0EEEJS4_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %133, %.lr.ph.i.i.i.i.i59
+_ZSt10_ConstructIN4llvm11SmallVectorINS0_16CodeGenIntrinsic12ArgAttributeELj0EEEJS4_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %133, %.lr.ph.i.i.i.i.i57
   %135 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i = icmp eq ptr %135, %127
-  br i1 %.not.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEELb0EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit, label %.lr.ph.i.i.i.i.i59, !llvm.loop !50
+  br i1 %.not.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEELb0EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit, label %.lr.ph.i.i.i.i.i57, !llvm.loop !50
 
-_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEELb0EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit: ; preds = %_ZSt10_ConstructIN4llvm11SmallVectorINS0_16CodeGenIntrinsic12ArgAttributeELj0EEEJS4_EEvPT_DpOT0_.exit.i.i.i.i.i, %_ZSt4moveIPN4llvm11SmallVectorINS0_16CodeGenIntrinsic12ArgAttributeELj0EEES5_ET0_T_S7_S6_.exit58
+_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEELb0EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit: ; preds = %_ZSt10_ConstructIN4llvm11SmallVectorINS0_16CodeGenIntrinsic12ArgAttributeELj0EEEJS4_EEvPT_DpOT0_.exit.i.i.i.i.i, %_ZSt4moveIPN4llvm11SmallVectorINS0_16CodeGenIntrinsic12ArgAttributeELj0EEES5_ET0_T_S7_S6_.exit56
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %30) #17
   %136 = load ptr, ptr %1, align 8
   %137 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #17
-  %.not4.i.i60 = icmp eq i64 %137, 0
-  br i1 %.not4.i.i60, label %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEEE5clearEv.exit67, label %.lr.ph.i.preheader.i61
+  %.not4.i.i58 = icmp eq i64 %137, 0
+  br i1 %.not4.i.i58, label %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEEE5clearEv.exit65, label %.lr.ph.i.preheader.i59
 
-.lr.ph.i.preheader.i61:                           ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEELb0EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit
+.lr.ph.i.preheader.i59:                           ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEELb0EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit
   %138 = getelementptr inbounds %"class.llvm::SmallVector.69", ptr %136, i64 %137
-  br label %.lr.ph.i.i62
+  br label %.lr.ph.i.i60
 
-.lr.ph.i.i62:                                     ; preds = %_ZN4llvm11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EED2Ev.exit.i.i64, %.lr.ph.i.preheader.i61
-  %.05.i.i63 = phi ptr [ %139, %_ZN4llvm11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EED2Ev.exit.i.i64 ], [ %138, %.lr.ph.i.preheader.i61 ]
-  %139 = getelementptr inbounds i8, ptr %.05.i.i63, i64 -16
+.lr.ph.i.i60:                                     ; preds = %_ZN4llvm11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EED2Ev.exit.i.i62, %.lr.ph.i.preheader.i59
+  %.05.i.i61 = phi ptr [ %139, %_ZN4llvm11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EED2Ev.exit.i.i62 ], [ %138, %.lr.ph.i.preheader.i59 ]
+  %139 = getelementptr inbounds i8, ptr %.05.i.i61, i64 -16
   %140 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %139) #17
   %141 = load ptr, ptr %139, align 8
-  %142 = icmp eq ptr %141, %.05.i.i63
-  br i1 %142, label %_ZN4llvm11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EED2Ev.exit.i.i64, label %143
+  %142 = icmp eq ptr %141, %.05.i.i61
+  br i1 %142, label %_ZN4llvm11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EED2Ev.exit.i.i62, label %143
 
-143:                                              ; preds = %.lr.ph.i.i62
+143:                                              ; preds = %.lr.ph.i.i60
   call void @free(ptr noundef %141) #17
-  br label %_ZN4llvm11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EED2Ev.exit.i.i64
+  br label %_ZN4llvm11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EED2Ev.exit.i.i62
 
-_ZN4llvm11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EED2Ev.exit.i.i64: ; preds = %143, %.lr.ph.i.i62
-  %.not.i.i65 = icmp eq ptr %136, %139
-  br i1 %.not.i.i65, label %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEEE5clearEv.exit67, label %.lr.ph.i.i62, !llvm.loop !17
+_ZN4llvm11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EED2Ev.exit.i.i62: ; preds = %143, %.lr.ph.i.i60
+  %.not.i.i63 = icmp eq ptr %136, %139
+  br i1 %.not.i.i63, label %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEEE5clearEv.exit65, label %.lr.ph.i.i60, !llvm.loop !17
 
-_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEEE5clearEv.exit67: ; preds = %_ZN4llvm11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EED2Ev.exit.i.i64, %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEELb0EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit
+_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEEE5clearEv.exit65: ; preds = %_ZN4llvm11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EED2Ev.exit.i.i62, %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEELb0EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit
   %144 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEEE12assignRemoteEOS5_.exit, %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEEE5clearEv.exit, %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEEE5clearEv.exit67
-  %.sink = phi ptr [ %144, %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEEE5clearEv.exit67 ], [ %77, %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEEE5clearEv.exit ], [ %23, %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEEE12assignRemoteEOS5_.exit ]
-  store i32 0, ptr %.sink, align 8
+  store i32 0, ptr %144, align 8
   br label %145
 
-145:                                              ; preds = %.sink.split, %2
+145:                                              ; preds = %2, %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEEE5clearEv.exit65, %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEEE5clearEv.exit, %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EEEE12assignRemoteEOS5_.exit
   ret ptr %0
 }
 

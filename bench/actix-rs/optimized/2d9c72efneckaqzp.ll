@@ -2581,6 +2581,7 @@ define hidden void @_ZN2h25proto7streams6buffer5Deque10push_front17h3b10b3cf5da5
   %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %7, ptr %.sroa.42.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %7, ptr %.sroa.5.0..sroa_idx, align 8
   br label %22
 
 10:                                               ; preds = %3
@@ -2608,11 +2609,10 @@ define hidden void @_ZN2h25proto7streams6buffer5Deque10push_front17h3b10b3cf5da5
   store i64 1, ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 8
   store i64 %12, ptr %21, align 8
+  store i64 %7, ptr %11, align 8
   br label %22
 
 22:                                               ; preds = %"_ZN79_$LT$slab..Slab$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17h6ff0608d0fbc9563E.exit", %9
-  %.sink = phi ptr [ %11, %"_ZN79_$LT$slab..Slab$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17h6ff0608d0fbc9563E.exit" ], [ %.sroa.5.0..sroa_idx, %9 ]
-  store i64 %7, ptr %.sink, align 8
   ret void
 }
 
@@ -2728,6 +2728,7 @@ define hidden void @_ZN2h25proto7streams6buffer5Deque9push_back17hf14df871de39c0
   %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %7, ptr %.sroa.42.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %7, ptr %.sroa.5.0..sroa_idx, align 8
   br label %22
 
 10:                                               ; preds = %3
@@ -2755,11 +2756,10 @@ define hidden void @_ZN2h25proto7streams6buffer5Deque9push_back17hf14df871de39c0
   store i64 1, ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 8
   store i64 %7, ptr %21, align 8
+  store i64 %7, ptr %11, align 8
   br label %22
 
 22:                                               ; preds = %"_ZN79_$LT$slab..Slab$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17h6ff0608d0fbc9563E.exit", %9
-  %.sink = phi ptr [ %11, %"_ZN79_$LT$slab..Slab$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17h6ff0608d0fbc9563E.exit" ], [ %.sroa.5.0..sroa_idx, %9 ]
-  store i64 %7, ptr %.sink, align 8
   ret void
 }
 

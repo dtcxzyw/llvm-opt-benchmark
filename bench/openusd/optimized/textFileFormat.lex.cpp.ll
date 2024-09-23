@@ -498,8 +498,8 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   br label %300
 
 300:                                              ; preds = %_ZL18yy_get_next_bufferPv.exit.thread, %292
-  %.0366 = phi i32 [ %296, %292 ], [ %1316, %_ZL18yy_get_next_bufferPv.exit.thread ]
-  switch i32 %.0366, label %1331 [
+  %.0366 = phi i32 [ %296, %292 ], [ %1315, %_ZL18yy_get_next_bufferPv.exit.thread ]
+  switch i32 %.0366, label %1330 [
     i32 0, label %301
     i32 1, label %.loopexit.backedge
     i32 2, label %306
@@ -627,7 +627,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
 322:                                              ; preds = %320, %318
   %.pn467 = phi { ptr, i32 } [ %321, %320 ], [ %319, %318 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #32
-  br label %1332
+  br label %1331
 
 323:                                              ; preds = %300
   store i32 3, ptr %248, align 4
@@ -679,7 +679,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
 341:                                              ; preds = %339, %337
   %.pn465 = phi { ptr, i32 } [ %340, %339 ], [ %338, %337 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #32
-  br label %1332
+  br label %1331
 
 342:                                              ; preds = %300
   %343 = load ptr, ptr %249, align 8
@@ -715,7 +715,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
 353:                                              ; preds = %351, %349
   %.pn463 = phi { ptr, i32 } [ %352, %351 ], [ %350, %349 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #32
-  br label %1332
+  br label %1331
 
 354:                                              ; preds = %300
   %355 = load ptr, ptr %249, align 8
@@ -751,7 +751,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
 365:                                              ; preds = %363, %361
   %.pn461 = phi { ptr, i32 } [ %364, %363 ], [ %362, %361 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #32
-  br label %1332
+  br label %1331
 
 366:                                              ; preds = %300
   %367 = load ptr, ptr %249, align 8
@@ -787,7 +787,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
 377:                                              ; preds = %375, %373
   %.pn459 = phi { ptr, i32 } [ %376, %375 ], [ %374, %373 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #32
-  br label %1332
+  br label %1331
 
 378:                                              ; preds = %300
   %379 = load ptr, ptr %249, align 8
@@ -823,7 +823,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
 389:                                              ; preds = %387, %385
   %.pn457 = phi { ptr, i32 } [ %388, %387 ], [ %386, %385 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #32
-  br label %1332
+  br label %1331
 
 390:                                              ; preds = %300
   %391 = load ptr, ptr %249, align 8
@@ -859,7 +859,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
 401:                                              ; preds = %399, %397
   %.pn455 = phi { ptr, i32 } [ %400, %399 ], [ %398, %397 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %26) #32
-  br label %1332
+  br label %1331
 
 402:                                              ; preds = %300
   %403 = load ptr, ptr %249, align 8
@@ -895,7 +895,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
 413:                                              ; preds = %411, %409
   %.pn453 = phi { ptr, i32 } [ %412, %411 ], [ %410, %409 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #32
-  br label %1332
+  br label %1331
 
 414:                                              ; preds = %300
   %415 = load ptr, ptr %249, align 8
@@ -931,7 +931,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
 425:                                              ; preds = %423, %421
   %.pn451 = phi { ptr, i32 } [ %424, %423 ], [ %422, %421 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %32) #32
-  br label %1332
+  br label %1331
 
 426:                                              ; preds = %300
   %427 = load ptr, ptr %249, align 8
@@ -967,7 +967,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
 437:                                              ; preds = %435, %433
   %.pn449 = phi { ptr, i32 } [ %436, %435 ], [ %434, %433 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %35) #32
-  br label %1332
+  br label %1331
 
 438:                                              ; preds = %300
   %439 = load ptr, ptr %249, align 8
@@ -1003,7 +1003,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
 449:                                              ; preds = %447, %445
   %.pn447 = phi { ptr, i32 } [ %448, %447 ], [ %446, %445 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %38) #32
-  br label %1332
+  br label %1331
 
 450:                                              ; preds = %300
   %451 = load ptr, ptr %249, align 8
@@ -1039,7 +1039,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
 461:                                              ; preds = %459, %457
   %.pn445 = phi { ptr, i32 } [ %460, %459 ], [ %458, %457 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %41) #32
-  br label %1332
+  br label %1331
 
 462:                                              ; preds = %300
   %463 = load ptr, ptr %249, align 8
@@ -1075,7 +1075,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
 473:                                              ; preds = %471, %469
   %.pn443 = phi { ptr, i32 } [ %472, %471 ], [ %470, %469 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %44) #32
-  br label %1332
+  br label %1331
 
 474:                                              ; preds = %300
   %475 = load ptr, ptr %249, align 8
@@ -1111,7 +1111,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
 485:                                              ; preds = %483, %481
   %.pn441 = phi { ptr, i32 } [ %484, %483 ], [ %482, %481 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #32
-  br label %1332
+  br label %1331
 
 486:                                              ; preds = %300
   %487 = load ptr, ptr %249, align 8
@@ -1147,7 +1147,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
 497:                                              ; preds = %495, %493
   %.pn439 = phi { ptr, i32 } [ %496, %495 ], [ %494, %493 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %50) #32
-  br label %1332
+  br label %1331
 
 498:                                              ; preds = %300
   %499 = load ptr, ptr %249, align 8
@@ -1183,7 +1183,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
 509:                                              ; preds = %507, %505
   %.pn437 = phi { ptr, i32 } [ %508, %507 ], [ %506, %505 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %53) #32
-  br label %1332
+  br label %1331
 
 510:                                              ; preds = %300
   %511 = load ptr, ptr %249, align 8
@@ -1219,7 +1219,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
 521:                                              ; preds = %519, %517
   %.pn435 = phi { ptr, i32 } [ %520, %519 ], [ %518, %517 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %56) #32
-  br label %1332
+  br label %1331
 
 522:                                              ; preds = %300
   %523 = load ptr, ptr %249, align 8
@@ -1255,7 +1255,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
 533:                                              ; preds = %531, %529
   %.pn433 = phi { ptr, i32 } [ %532, %531 ], [ %530, %529 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %59) #32
-  br label %1332
+  br label %1331
 
 534:                                              ; preds = %300
   %535 = load ptr, ptr %249, align 8
@@ -1291,7 +1291,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
 545:                                              ; preds = %543, %541
   %.pn431 = phi { ptr, i32 } [ %544, %543 ], [ %542, %541 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %62) #32
-  br label %1332
+  br label %1331
 
 546:                                              ; preds = %300
   %547 = load ptr, ptr %249, align 8
@@ -1327,7 +1327,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
 557:                                              ; preds = %555, %553
   %.pn429 = phi { ptr, i32 } [ %556, %555 ], [ %554, %553 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %65) #32
-  br label %1332
+  br label %1331
 
 558:                                              ; preds = %300
   %559 = load ptr, ptr %249, align 8
@@ -1363,7 +1363,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
 569:                                              ; preds = %567, %565
   %.pn427 = phi { ptr, i32 } [ %568, %567 ], [ %566, %565 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %68) #32
-  br label %1332
+  br label %1331
 
 570:                                              ; preds = %300
   %571 = load ptr, ptr %249, align 8
@@ -1399,7 +1399,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
 581:                                              ; preds = %579, %577
   %.pn425 = phi { ptr, i32 } [ %580, %579 ], [ %578, %577 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %71) #32
-  br label %1332
+  br label %1331
 
 582:                                              ; preds = %300
   %583 = load ptr, ptr %249, align 8
@@ -1435,7 +1435,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
 593:                                              ; preds = %591, %589
   %.pn423 = phi { ptr, i32 } [ %592, %591 ], [ %590, %589 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %74) #32
-  br label %1332
+  br label %1331
 
 594:                                              ; preds = %300
   %595 = load ptr, ptr %249, align 8
@@ -1471,7 +1471,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
 605:                                              ; preds = %603, %601
   %.pn421 = phi { ptr, i32 } [ %604, %603 ], [ %602, %601 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %77) #32
-  br label %1332
+  br label %1331
 
 606:                                              ; preds = %300
   %607 = load ptr, ptr %249, align 8
@@ -1507,7 +1507,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
 617:                                              ; preds = %615, %613
   %.pn419 = phi { ptr, i32 } [ %616, %615 ], [ %614, %613 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %80) #32
-  br label %1332
+  br label %1331
 
 618:                                              ; preds = %300
   %619 = load ptr, ptr %249, align 8
@@ -1543,7 +1543,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
 629:                                              ; preds = %627, %625
   %.pn417 = phi { ptr, i32 } [ %628, %627 ], [ %626, %625 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %83) #32
-  br label %1332
+  br label %1331
 
 630:                                              ; preds = %300
   %631 = load ptr, ptr %249, align 8
@@ -1579,7 +1579,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
 641:                                              ; preds = %639, %637
   %.pn415 = phi { ptr, i32 } [ %640, %639 ], [ %638, %637 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %86) #32
-  br label %1332
+  br label %1331
 
 642:                                              ; preds = %300
   %643 = load ptr, ptr %249, align 8
@@ -1615,7 +1615,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
 653:                                              ; preds = %651, %649
   %.pn413 = phi { ptr, i32 } [ %652, %651 ], [ %650, %649 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %89) #32
-  br label %1332
+  br label %1331
 
 654:                                              ; preds = %300
   %655 = load ptr, ptr %249, align 8
@@ -1651,7 +1651,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
 665:                                              ; preds = %663, %661
   %.pn411 = phi { ptr, i32 } [ %664, %663 ], [ %662, %661 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %92) #32
-  br label %1332
+  br label %1331
 
 666:                                              ; preds = %300
   %667 = load ptr, ptr %249, align 8
@@ -1687,7 +1687,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
 677:                                              ; preds = %675, %673
   %.pn409 = phi { ptr, i32 } [ %676, %675 ], [ %674, %673 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %95) #32
-  br label %1332
+  br label %1331
 
 678:                                              ; preds = %300
   %679 = load ptr, ptr %249, align 8
@@ -1723,7 +1723,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
 689:                                              ; preds = %687, %685
   %.pn407 = phi { ptr, i32 } [ %688, %687 ], [ %686, %685 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %98) #32
-  br label %1332
+  br label %1331
 
 690:                                              ; preds = %300
   %691 = load ptr, ptr %249, align 8
@@ -1759,7 +1759,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
 701:                                              ; preds = %699, %697
   %.pn405 = phi { ptr, i32 } [ %700, %699 ], [ %698, %697 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %101) #32
-  br label %1332
+  br label %1331
 
 702:                                              ; preds = %300
   %703 = load ptr, ptr %249, align 8
@@ -1795,7 +1795,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
 713:                                              ; preds = %711, %709
   %.pn403 = phi { ptr, i32 } [ %712, %711 ], [ %710, %709 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %104) #32
-  br label %1332
+  br label %1331
 
 714:                                              ; preds = %300
   %715 = load ptr, ptr %249, align 8
@@ -1831,7 +1831,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
 725:                                              ; preds = %723, %721
   %.pn401 = phi { ptr, i32 } [ %724, %723 ], [ %722, %721 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %107) #32
-  br label %1332
+  br label %1331
 
 726:                                              ; preds = %300
   %727 = load ptr, ptr %249, align 8
@@ -1867,7 +1867,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
 737:                                              ; preds = %735, %733
   %.pn399 = phi { ptr, i32 } [ %736, %735 ], [ %734, %733 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %110) #32
-  br label %1332
+  br label %1331
 
 738:                                              ; preds = %300
   %739 = load ptr, ptr %249, align 8
@@ -1903,7 +1903,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
 749:                                              ; preds = %747, %745
   %.pn397 = phi { ptr, i32 } [ %748, %747 ], [ %746, %745 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %113) #32
-  br label %1332
+  br label %1331
 
 750:                                              ; preds = %300
   %751 = load ptr, ptr %249, align 8
@@ -1939,7 +1939,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
 761:                                              ; preds = %759, %757
   %.pn395 = phi { ptr, i32 } [ %760, %759 ], [ %758, %757 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %116) #32
-  br label %1332
+  br label %1331
 
 762:                                              ; preds = %300
   %763 = load ptr, ptr %249, align 8
@@ -1975,7 +1975,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
 773:                                              ; preds = %771, %769
   %.pn393 = phi { ptr, i32 } [ %772, %771 ], [ %770, %769 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %119) #32
-  br label %1332
+  br label %1331
 
 774:                                              ; preds = %300
   %775 = load ptr, ptr %249, align 8
@@ -2011,7 +2011,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
 785:                                              ; preds = %783, %781
   %.pn391 = phi { ptr, i32 } [ %784, %783 ], [ %782, %781 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %122) #32
-  br label %1332
+  br label %1331
 
 786:                                              ; preds = %300
   %787 = load ptr, ptr %249, align 8
@@ -2047,7 +2047,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
 797:                                              ; preds = %795, %793
   %.pn389 = phi { ptr, i32 } [ %796, %795 ], [ %794, %793 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %125) #32
-  br label %1332
+  br label %1331
 
 798:                                              ; preds = %300
   %799 = load ptr, ptr %249, align 8
@@ -2083,7 +2083,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
 809:                                              ; preds = %807, %805
   %.pn387 = phi { ptr, i32 } [ %808, %807 ], [ %806, %805 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %128) #32
-  br label %1332
+  br label %1331
 
 810:                                              ; preds = %300
   %811 = load ptr, ptr %249, align 8
@@ -2119,7 +2119,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
 821:                                              ; preds = %819, %817
   %.pn385 = phi { ptr, i32 } [ %820, %819 ], [ %818, %817 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %131) #32
-  br label %1332
+  br label %1331
 
 822:                                              ; preds = %300
   %823 = load ptr, ptr %249, align 8
@@ -2155,7 +2155,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
 833:                                              ; preds = %831, %829
   %.pn383 = phi { ptr, i32 } [ %832, %831 ], [ %830, %829 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %134) #32
-  br label %1332
+  br label %1331
 
 834:                                              ; preds = %300
   %835 = load ptr, ptr %249, align 8
@@ -2184,13 +2184,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit.thread: ; preds = %83
   %843 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %136) #32
-  br label %1332
+  br label %1331
 
 844:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit, %837
   %845 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %135) #32
-  br label %1332
+  br label %1331
 
 _ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit: ; preds = %838
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %138, ptr noundef nonnull align 8 dereferenceable(32) %135)
@@ -2235,13 +2235,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit516.thread: ; preds = 
   %859 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %140) #32
-  br label %1332
+  br label %1331
 
 860:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit516, %853
   %861 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %139) #32
-  br label %1332
+  br label %1331
 
 _ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit516: ; preds = %854
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %142, ptr noundef nonnull align 8 dereferenceable(32) %139)
@@ -2278,7 +2278,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit516: ; preds = %854
   %873 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %144) #32
-  br label %1332
+  br label %1331
 
 874:                                              ; preds = %300
   call void @_ZN32pxrInternal_v0_24__pxrReserved__11TfErrorMarkC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %145)
@@ -2319,7 +2319,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit516: ; preds = %854
 888:                                              ; preds = %886, %884
   %.pn381 = phi { ptr, i32 } [ %885, %884 ], [ %887, %886 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__11TfErrorMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %145) #32
-  br label %1332
+  br label %1331
 
 889:                                              ; preds = %300
   call void @_ZN32pxrInternal_v0_24__pxrReserved__11TfErrorMarkC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %148)
@@ -2360,7 +2360,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit516: ; preds = %854
 903:                                              ; preds = %901, %899
   %.pn = phi { ptr, i32 } [ %900, %899 ], [ %902, %901 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__11TfErrorMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %148) #32
-  br label %1332
+  br label %1331
 
 904:                                              ; preds = %300, %300
   %905 = load ptr, ptr %249, align 8
@@ -2435,7 +2435,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit: ; preds
   %926 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %152) #32
-  br label %1332
+  br label %1331
 
 927:                                              ; preds = %300
   %928 = load i8, ptr %247, align 8
@@ -2464,7 +2464,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit: ; preds
   %935 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %154) #32
-  br label %1332
+  br label %1331
 
 936:                                              ; preds = %300
   %937 = load i8, ptr %247, align 8
@@ -2493,7 +2493,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit: ; preds
   %944 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %156) #32
-  br label %1332
+  br label %1331
 
 945:                                              ; preds = %300, %300
   store i32 0, ptr %157, align 4
@@ -2575,7 +2575,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit528: ; pr
   %972 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %159) #32
-  br label %1332
+  br label %1331
 
 973:                                              ; preds = %300
   store double -0.000000e+00, ptr %160, align 8
@@ -2831,8 +2831,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit529: ;
   br i1 %1113, label %.outer.backedge, label %1114
 
 .outer.backedge:                                  ; preds = %1101, %_ZL18yy_get_next_bufferPv.exit.thread537
-  %.2365.ph.be = phi ptr [ %1330, %_ZL18yy_get_next_bufferPv.exit.thread537 ], [ %1109, %1101 ]
-  %.2313.ph.be = phi i32 [ %1329, %_ZL18yy_get_next_bufferPv.exit.thread537 ], [ %1108, %1101 ]
+  %.2365.ph.be = phi ptr [ %1329, %_ZL18yy_get_next_bufferPv.exit.thread537 ], [ %1109, %1101 ]
+  %.2313.ph.be = phi i32 [ %1328, %_ZL18yy_get_next_bufferPv.exit.thread537 ], [ %1108, %1101 ]
   %.1368.ph.be = load ptr, ptr %249, align 8
   br label %.outer
 
@@ -2855,10 +2855,10 @@ _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %1119, %1114
   store ptr %1121, ptr %246, align 8
   br label %.backedge
 
-.backedge:                                        ; preds = %_ZL16yy_try_NUL_transiPv.exit, %1317
-  %.0367.be = phi ptr [ %1120, %_ZL16yy_try_NUL_transiPv.exit ], [ %1325, %1317 ]
-  %.0363.be = phi ptr [ %1121, %_ZL16yy_try_NUL_transiPv.exit ], [ %1324, %1317 ]
-  %.0311.be = phi i32 [ %1115, %_ZL16yy_try_NUL_transiPv.exit ], [ %1323, %1317 ]
+.backedge:                                        ; preds = %_ZL16yy_try_NUL_transiPv.exit, %1316
+  %.0367.be = phi ptr [ %1120, %_ZL16yy_try_NUL_transiPv.exit ], [ %1324, %1316 ]
+  %.0363.be = phi ptr [ %1121, %_ZL16yy_try_NUL_transiPv.exit ], [ %1323, %1316 ]
+  %.0311.be = phi i32 [ %1115, %_ZL16yy_try_NUL_transiPv.exit ], [ %1322, %1316 ]
   %.pre1288 = load i8, ptr %.0363.be, align 1
   br label %262
 
@@ -3112,152 +3112,152 @@ _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %1119, %1114
   br label %1245
 
 1245:                                             ; preds = %.critedge2.i, %1150
-  %.sink184.i = phi ptr [ %1244, %.critedge2.i ], [ %1151, %1150 ]
+  %.sink183.in.i = phi ptr [ %1244, %.critedge2.i ], [ %1151, %1150 ]
   %.sink.i = phi i64 [ %1241, %.critedge2.i ], [ 0, %1150 ]
-  %1246 = load ptr, ptr %.sink184.i, align 8
-  %1247 = getelementptr inbounds nuw i8, ptr %1246, i64 32
-  store i64 %.sink.i, ptr %1247, align 8
-  %1248 = load i64, ptr %253, align 8
-  %1249 = icmp eq i64 %1248, 0
-  br i1 %1249, label %1250, label %1260
+  %.sink183.i = load ptr, ptr %.sink183.in.i, align 8
+  %1246 = getelementptr inbounds nuw i8, ptr %.sink183.i, i64 32
+  store i64 %.sink.i, ptr %1246, align 8
+  %1247 = load i64, ptr %253, align 8
+  %1248 = icmp eq i64 %1247, 0
+  br i1 %1248, label %1249, label %1259
 
-1250:                                             ; preds = %1245
-  %1251 = icmp eq i32 %1138, 0
-  br i1 %1251, label %1252, label %1254
+1249:                                             ; preds = %1245
+  %1250 = icmp eq i32 %1138, 0
+  br i1 %1250, label %1251, label %1253
 
-1252:                                             ; preds = %1250
-  %1253 = load ptr, ptr %254, align 8
-  tail call void @_Z23textFileFormatYyrestartP8_IO_FILEPv(ptr noundef %1253, ptr noundef nonnull %1)
-  br label %1260
+1251:                                             ; preds = %1249
+  %1252 = load ptr, ptr %254, align 8
+  tail call void @_Z23textFileFormatYyrestartP8_IO_FILEPv(ptr noundef %1252, ptr noundef nonnull %1)
+  br label %1259
 
-1254:                                             ; preds = %1250
-  %1255 = load ptr, ptr %251, align 8
-  %1256 = load i64, ptr %252, align 8
-  %1257 = getelementptr inbounds ptr, ptr %1255, i64 %1256
-  %1258 = load ptr, ptr %1257, align 8
-  %1259 = getelementptr inbounds nuw i8, ptr %1258, i64 64
-  store i32 2, ptr %1259, align 8
-  br label %1260
+1253:                                             ; preds = %1249
+  %1254 = load ptr, ptr %251, align 8
+  %1255 = load i64, ptr %252, align 8
+  %1256 = getelementptr inbounds ptr, ptr %1254, i64 %1255
+  %1257 = load ptr, ptr %1256, align 8
+  %1258 = getelementptr inbounds nuw i8, ptr %1257, i64 64
+  store i32 2, ptr %1258, align 8
+  br label %1259
 
-1260:                                             ; preds = %1254, %1252, %1245
-  %.0132.i = phi i32 [ 1, %1252 ], [ 2, %1254 ], [ 0, %1245 ]
-  %1261 = load i64, ptr %253, align 8
-  %1262 = sext i32 %1138 to i64
-  %1263 = add i64 %1261, %1262
-  %1264 = load ptr, ptr %251, align 8
-  %1265 = load i64, ptr %252, align 8
-  %1266 = getelementptr inbounds ptr, ptr %1264, i64 %1265
-  %1267 = load ptr, ptr %1266, align 8
-  %1268 = getelementptr inbounds nuw i8, ptr %1267, i64 24
-  %1269 = load i64, ptr %1268, align 8
-  %1270 = icmp ugt i64 %1263, %1269
-  br i1 %1270, label %1271, label %_ZL18yy_get_next_bufferPv.exit
+1259:                                             ; preds = %1253, %1251, %1245
+  %.0132.i = phi i32 [ 1, %1251 ], [ 2, %1253 ], [ 0, %1245 ]
+  %1260 = load i64, ptr %253, align 8
+  %1261 = sext i32 %1138 to i64
+  %1262 = add i64 %1260, %1261
+  %1263 = load ptr, ptr %251, align 8
+  %1264 = load i64, ptr %252, align 8
+  %1265 = getelementptr inbounds ptr, ptr %1263, i64 %1264
+  %1266 = load ptr, ptr %1265, align 8
+  %1267 = getelementptr inbounds nuw i8, ptr %1266, i64 24
+  %1268 = load i64, ptr %1267, align 8
+  %1269 = icmp ugt i64 %1262, %1268
+  br i1 %1269, label %1270, label %_ZL18yy_get_next_bufferPv.exit
 
-1271:                                             ; preds = %1260
-  %1272 = lshr i64 %1261, 1
-  %1273 = add i64 %1263, %1272
-  %1274 = getelementptr inbounds nuw i8, ptr %1267, i64 8
-  %1275 = load ptr, ptr %1274, align 8
-  %1276 = tail call noalias noundef ptr @realloc(ptr noundef %1275, i64 noundef %1273) #31
-  %1277 = load ptr, ptr %251, align 8
-  %1278 = load i64, ptr %252, align 8
-  %1279 = getelementptr inbounds ptr, ptr %1277, i64 %1278
-  %1280 = load ptr, ptr %1279, align 8
-  %1281 = getelementptr inbounds nuw i8, ptr %1280, i64 8
-  store ptr %1276, ptr %1281, align 8
-  %1282 = load ptr, ptr %251, align 8
-  %1283 = load i64, ptr %252, align 8
-  %1284 = getelementptr inbounds ptr, ptr %1282, i64 %1283
-  %1285 = load ptr, ptr %1284, align 8
-  %1286 = getelementptr inbounds nuw i8, ptr %1285, i64 8
-  %1287 = load ptr, ptr %1286, align 8
-  %.not143.i = icmp eq ptr %1287, null
-  br i1 %.not143.i, label %1288, label %._crit_edge174.i
+1270:                                             ; preds = %1259
+  %1271 = lshr i64 %1260, 1
+  %1272 = add i64 %1262, %1271
+  %1273 = getelementptr inbounds nuw i8, ptr %1266, i64 8
+  %1274 = load ptr, ptr %1273, align 8
+  %1275 = tail call noalias noundef ptr @realloc(ptr noundef %1274, i64 noundef %1272) #31
+  %1276 = load ptr, ptr %251, align 8
+  %1277 = load i64, ptr %252, align 8
+  %1278 = getelementptr inbounds ptr, ptr %1276, i64 %1277
+  %1279 = load ptr, ptr %1278, align 8
+  %1280 = getelementptr inbounds nuw i8, ptr %1279, i64 8
+  store ptr %1275, ptr %1280, align 8
+  %1281 = load ptr, ptr %251, align 8
+  %1282 = load i64, ptr %252, align 8
+  %1283 = getelementptr inbounds ptr, ptr %1281, i64 %1282
+  %1284 = load ptr, ptr %1283, align 8
+  %1285 = getelementptr inbounds nuw i8, ptr %1284, i64 8
+  %1286 = load ptr, ptr %1285, align 8
+  %.not143.i = icmp eq ptr %1286, null
+  br i1 %.not143.i, label %1287, label %._crit_edge174.i
 
-._crit_edge174.i:                                 ; preds = %1271
+._crit_edge174.i:                                 ; preds = %1270
   %.pre175.i = load i64, ptr %253, align 8
-  %.pre176.i = add i64 %.pre175.i, %1262
+  %.pre176.i = add i64 %.pre175.i, %1261
   br label %_ZL18yy_get_next_bufferPv.exit
 
-1288:                                             ; preds = %1271
+1287:                                             ; preds = %1270
   tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.14)
   unreachable
 
-_ZL18yy_get_next_bufferPv.exit:                   ; preds = %1260, %._crit_edge174.i
-  %.pre-phi.i = phi i64 [ %.pre176.i, %._crit_edge174.i ], [ %1263, %1260 ]
-  %1289 = phi i64 [ %1283, %._crit_edge174.i ], [ %1265, %1260 ]
-  %1290 = phi ptr [ %1282, %._crit_edge174.i ], [ %1264, %1260 ]
+_ZL18yy_get_next_bufferPv.exit:                   ; preds = %1259, %._crit_edge174.i
+  %.pre-phi.i = phi i64 [ %.pre176.i, %._crit_edge174.i ], [ %1262, %1259 ]
+  %1288 = phi i64 [ %1282, %._crit_edge174.i ], [ %1264, %1259 ]
+  %1289 = phi ptr [ %1281, %._crit_edge174.i ], [ %1263, %1259 ]
   store i64 %.pre-phi.i, ptr %253, align 8
-  %1291 = getelementptr inbounds ptr, ptr %1290, i64 %1289
-  %1292 = load ptr, ptr %1291, align 8
-  %1293 = getelementptr inbounds nuw i8, ptr %1292, i64 8
-  %1294 = load ptr, ptr %1293, align 8
-  %1295 = getelementptr inbounds i8, ptr %1294, i64 %.pre-phi.i
-  store i8 0, ptr %1295, align 1
-  %1296 = load ptr, ptr %251, align 8
-  %1297 = load i64, ptr %252, align 8
-  %1298 = getelementptr inbounds ptr, ptr %1296, i64 %1297
-  %1299 = load ptr, ptr %1298, align 8
-  %1300 = getelementptr inbounds nuw i8, ptr %1299, i64 8
-  %1301 = load ptr, ptr %1300, align 8
-  %1302 = load i64, ptr %253, align 8
-  %1303 = getelementptr i8, ptr %1301, i64 %1302
-  %1304 = getelementptr i8, ptr %1303, i64 1
-  store i8 0, ptr %1304, align 1
-  %1305 = load ptr, ptr %251, align 8
-  %1306 = load i64, ptr %252, align 8
-  %1307 = getelementptr inbounds ptr, ptr %1305, i64 %1306
-  %1308 = load ptr, ptr %1307, align 8
-  %1309 = getelementptr inbounds nuw i8, ptr %1308, i64 8
-  %1310 = load ptr, ptr %1309, align 8
-  store ptr %1310, ptr %249, align 8
+  %1290 = getelementptr inbounds ptr, ptr %1289, i64 %1288
+  %1291 = load ptr, ptr %1290, align 8
+  %1292 = getelementptr inbounds nuw i8, ptr %1291, i64 8
+  %1293 = load ptr, ptr %1292, align 8
+  %1294 = getelementptr inbounds i8, ptr %1293, i64 %.pre-phi.i
+  store i8 0, ptr %1294, align 1
+  %1295 = load ptr, ptr %251, align 8
+  %1296 = load i64, ptr %252, align 8
+  %1297 = getelementptr inbounds ptr, ptr %1295, i64 %1296
+  %1298 = load ptr, ptr %1297, align 8
+  %1299 = getelementptr inbounds nuw i8, ptr %1298, i64 8
+  %1300 = load ptr, ptr %1299, align 8
+  %1301 = load i64, ptr %253, align 8
+  %1302 = getelementptr i8, ptr %1300, i64 %1301
+  %1303 = getelementptr i8, ptr %1302, i64 1
+  store i8 0, ptr %1303, align 1
+  %1304 = load ptr, ptr %251, align 8
+  %1305 = load i64, ptr %252, align 8
+  %1306 = getelementptr inbounds ptr, ptr %1304, i64 %1305
+  %1307 = load ptr, ptr %1306, align 8
+  %1308 = getelementptr inbounds nuw i8, ptr %1307, i64 8
+  %1309 = load ptr, ptr %1308, align 8
+  store ptr %1309, ptr %249, align 8
   switch i32 %.0132.i, label %default.unreachable1297 [
     i32 1, label %_ZL18yy_get_next_bufferPv.exit.thread
-    i32 0, label %1317
+    i32 0, label %1316
     i32 2, label %_ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread537_crit_edge
   ]
 
 _ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread537_crit_edge: ; preds = %_ZL18yy_get_next_bufferPv.exit
-  %1311 = getelementptr inbounds ptr, ptr %1305, i64 %1306
-  %.pre1293 = load ptr, ptr %1311, align 8
+  %1310 = getelementptr inbounds ptr, ptr %1304, i64 %1305
+  %.pre1293 = load ptr, ptr %1310, align 8
   %.phi.trans.insert1294 = getelementptr inbounds nuw i8, ptr %.pre1293, i64 8
   %.pre1295 = load ptr, ptr %.phi.trans.insert1294, align 8
   %.pre1296 = load i64, ptr %253, align 8
   br label %_ZL18yy_get_next_bufferPv.exit.thread537
 
 _ZL18yy_get_next_bufferPv.exit.thread:            ; preds = %1134, %_ZL18yy_get_next_bufferPv.exit
-  %1312 = phi ptr [ %1123, %1134 ], [ %1310, %_ZL18yy_get_next_bufferPv.exit ]
+  %1311 = phi ptr [ %1123, %1134 ], [ %1309, %_ZL18yy_get_next_bufferPv.exit ]
   store i32 0, ptr %255, align 8
-  store ptr %1312, ptr %246, align 8
-  %1313 = load i32, ptr %248, align 4
-  %1314 = add nsw i32 %1313, -1
-  %1315 = sdiv i32 %1314, 2
-  %1316 = add nsw i32 %1315, 71
+  store ptr %1311, ptr %246, align 8
+  %1312 = load i32, ptr %248, align 4
+  %1313 = add nsw i32 %1312, -1
+  %1314 = sdiv i32 %1313, 2
+  %1315 = add nsw i32 %1314, 71
   br label %300
 
-1317:                                             ; preds = %_ZL18yy_get_next_bufferPv.exit
-  %1318 = ptrtoint ptr %1073 to i64
-  %1319 = xor i64 %1318, -1
-  %1320 = add i64 %1319, %297
-  %sext1038 = shl i64 %1320, 32
-  %1321 = ashr exact i64 %sext1038, 32
-  %1322 = getelementptr inbounds i8, ptr %1310, i64 %1321
-  store ptr %1322, ptr %246, align 8
-  %1323 = tail call fastcc noundef i32 @_ZL21yy_get_previous_statePv(ptr noundef nonnull %1)
-  %1324 = load ptr, ptr %246, align 8
-  %1325 = load ptr, ptr %249, align 8
+1316:                                             ; preds = %_ZL18yy_get_next_bufferPv.exit
+  %1317 = ptrtoint ptr %1073 to i64
+  %1318 = xor i64 %1317, -1
+  %1319 = add i64 %1318, %297
+  %sext1038 = shl i64 %1319, 32
+  %1320 = ashr exact i64 %sext1038, 32
+  %1321 = getelementptr inbounds i8, ptr %1309, i64 %1320
+  store ptr %1321, ptr %246, align 8
+  %1322 = tail call fastcc noundef i32 @_ZL21yy_get_previous_statePv(ptr noundef nonnull %1)
+  %1323 = load ptr, ptr %246, align 8
+  %1324 = load ptr, ptr %249, align 8
   br label %.backedge
 
 _ZL18yy_get_next_bufferPv.exit.thread537:         ; preds = %1134, %_ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread537_crit_edge
-  %1326 = phi i64 [ %.pre1296, %_ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread537_crit_edge ], [ %1099, %1134 ]
-  %1327 = phi ptr [ %.pre1295, %_ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread537_crit_edge ], [ %1098, %1134 ]
-  %1328 = getelementptr inbounds i8, ptr %1327, i64 %1326
-  store ptr %1328, ptr %246, align 8
-  %1329 = tail call fastcc noundef i32 @_ZL21yy_get_previous_statePv(ptr noundef nonnull %1)
-  %1330 = load ptr, ptr %246, align 8
+  %1325 = phi i64 [ %.pre1296, %_ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread537_crit_edge ], [ %1099, %1134 ]
+  %1326 = phi ptr [ %.pre1295, %_ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread537_crit_edge ], [ %1098, %1134 ]
+  %1327 = getelementptr inbounds i8, ptr %1326, i64 %1325
+  store ptr %1327, ptr %246, align 8
+  %1328 = tail call fastcc noundef i32 @_ZL21yy_get_previous_statePv(ptr noundef nonnull %1)
+  %1329 = load ptr, ptr %246, align 8
   br label %.outer.backedge
 
-1331:                                             ; preds = %300
+1330:                                             ; preds = %300
   tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.4)
   unreachable
 
@@ -3271,7 +3271,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532: ; pr
   %.0 = phi i32 [ %1066, %1063 ], [ 266, %1060 ], [ 266, %973 ], [ 267, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit528 ], [ 267, %940 ], [ 267, %931 ], [ 267, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit ], [ %898, %897 ], [ %883, %882 ], [ 262, %869 ], [ %.2, %865 ], [ %.1, %849 ], [ 264, %826 ], [ 310, %814 ], [ 307, %802 ], [ 309, %790 ], [ 308, %778 ], [ 306, %766 ], [ 305, %754 ], [ 304, %742 ], [ 303, %730 ], [ 301, %718 ], [ 291, %706 ], [ 302, %694 ], [ 300, %682 ], [ 299, %670 ], [ 298, %658 ], [ 296, %646 ], [ 295, %634 ], [ 294, %622 ], [ 293, %610 ], [ 292, %598 ], [ 290, %586 ], [ 288, %574 ], [ 289, %562 ], [ 287, %550 ], [ 286, %538 ], [ 285, %526 ], [ 284, %514 ], [ 283, %502 ], [ 282, %490 ], [ 281, %478 ], [ 280, %466 ], [ 279, %454 ], [ 278, %442 ], [ 276, %430 ], [ 277, %418 ], [ 275, %406 ], [ 274, %394 ], [ 273, %382 ], [ 272, %370 ], [ 271, %358 ], [ 270, %346 ], [ 269, %334 ], [ 258, %325 ], [ 259, %315 ], [ 266, %1002 ], [ 266, %976 ], [ 266, %1034 ], [ 266, %1008 ], [ 266, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit529 ], [ 266, %1057 ], [ 266, %1053 ], [ 266, %1049 ], [ 266, %1048 ], [ 266, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit529 ], [ 266, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit529 ], [ 266, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit529 ], [ 260, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532.loopexit ], [ 0, %300 ], [ 0, %300 ]
   ret i32 %.0
 
-1332:                                             ; preds = %971, %943, %934, %925, %903, %888, %872, %860, %858, %844, %842, %833, %821, %809, %797, %785, %773, %761, %749, %737, %725, %713, %701, %689, %677, %665, %653, %641, %629, %617, %605, %593, %581, %569, %557, %545, %533, %521, %509, %497, %485, %473, %461, %449, %437, %425, %413, %401, %389, %377, %365, %353, %341, %322
+1331:                                             ; preds = %971, %943, %934, %925, %903, %888, %872, %860, %858, %844, %842, %833, %821, %809, %797, %785, %773, %761, %749, %737, %725, %713, %701, %689, %677, %665, %653, %641, %629, %617, %605, %593, %581, %569, %557, %545, %533, %521, %509, %497, %485, %473, %461, %449, %437, %425, %413, %401, %389, %377, %365, %353, %341, %322
   %.pn469 = phi { ptr, i32 } [ %972, %971 ], [ %944, %943 ], [ %935, %934 ], [ %926, %925 ], [ %.pn, %903 ], [ %.pn381, %888 ], [ %873, %872 ], [ %861, %860 ], [ %859, %858 ], [ %845, %844 ], [ %843, %842 ], [ %.pn383, %833 ], [ %.pn385, %821 ], [ %.pn387, %809 ], [ %.pn389, %797 ], [ %.pn391, %785 ], [ %.pn393, %773 ], [ %.pn395, %761 ], [ %.pn397, %749 ], [ %.pn399, %737 ], [ %.pn401, %725 ], [ %.pn403, %713 ], [ %.pn405, %701 ], [ %.pn407, %689 ], [ %.pn409, %677 ], [ %.pn411, %665 ], [ %.pn413, %653 ], [ %.pn415, %641 ], [ %.pn417, %629 ], [ %.pn419, %617 ], [ %.pn421, %605 ], [ %.pn423, %593 ], [ %.pn425, %581 ], [ %.pn427, %569 ], [ %.pn429, %557 ], [ %.pn431, %545 ], [ %.pn433, %533 ], [ %.pn435, %521 ], [ %.pn437, %509 ], [ %.pn439, %497 ], [ %.pn441, %485 ], [ %.pn443, %473 ], [ %.pn445, %461 ], [ %.pn447, %449 ], [ %.pn449, %437 ], [ %.pn451, %425 ], [ %.pn453, %413 ], [ %.pn455, %401 ], [ %.pn457, %389 ], [ %.pn459, %377 ], [ %.pn461, %365 ], [ %.pn463, %353 ], [ %.pn465, %341 ], [ %.pn467, %322 ]
   resume { ptr, i32 } %.pn469
 }

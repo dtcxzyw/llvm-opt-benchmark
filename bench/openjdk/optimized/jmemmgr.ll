@@ -203,23 +203,29 @@ define internal nonnull ptr @alloc_small(ptr noundef %0, i32 noundef %1, i64 nou
   %50 = getelementptr inbounds i8, ptr %.lcssa, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.lcssa, i8 0, i64 16, i1 false)
   store i64 %49, ptr %50, align 8
-  %..061.lcssa = select i1 %30, ptr %25, ptr %.061.lcssa
-  store ptr %.lcssa, ptr %..061.lcssa, align 8
+  br i1 %30, label %51, label %52
+
+51:                                               ; preds = %._crit_edge78
+  store ptr %.lcssa, ptr %25, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %._crit_edge78
-  %.160 = phi ptr [ %.lcssa, %._crit_edge78 ], [ %.05973, %.lr.ph ]
-  %51 = getelementptr inbounds i8, ptr %.160, i64 24
-  %52 = getelementptr inbounds i8, ptr %.160, i64 8
-  %53 = load i64, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %51, i64 %53
-  %55 = add i64 %53, %.058
-  store i64 %55, ptr %52, align 8
-  %56 = getelementptr inbounds i8, ptr %.160, i64 16
-  %57 = load i64, ptr %56, align 8
-  %58 = sub i64 %57, %.058
-  store i64 %58, ptr %56, align 8
-  ret ptr %54
+52:                                               ; preds = %._crit_edge78
+  store ptr %.lcssa, ptr %.061.lcssa, align 8
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.lr.ph, %51, %52
+  %.160 = phi ptr [ %.lcssa, %51 ], [ %.lcssa, %52 ], [ %.05973, %.lr.ph ]
+  %53 = getelementptr inbounds i8, ptr %.160, i64 24
+  %54 = getelementptr inbounds i8, ptr %.160, i64 8
+  %55 = load i64, ptr %54, align 8
+  %56 = getelementptr inbounds i8, ptr %53, i64 %55
+  %57 = add i64 %55, %.058
+  store i64 %57, ptr %54, align 8
+  %58 = getelementptr inbounds i8, ptr %.160, i64 16
+  %59 = load i64, ptr %58, align 8
+  %60 = sub i64 %59, %.058
+  store i64 %60, ptr %58, align 8
+  ret ptr %56
 }
 
 ; Function Attrs: nounwind uwtable

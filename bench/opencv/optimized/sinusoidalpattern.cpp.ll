@@ -3549,19 +3549,19 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit41:             ; preds = %37
 44:                                               ; preds = %57, %50, %37, %30
   %45 = landingpad { ptr, i32 }
           cleanup
-  br label %94
+  br label %101
 
 46:                                               ; preds = %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit
   %47 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #29
-  br label %94
+  br label %101
 
 48:                                               ; preds = %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit41
   %49 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #29
-  br label %94
+  br label %101
 
 50:                                               ; preds = %4
   %51 = add nsw i32 %23, -5
@@ -3602,13 +3602,13 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit43:             ; preds = %57
   %65 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #29
-  br label %94
+  br label %101
 
 66:                                               ; preds = %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit43
   %67 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #29
-  br label %94
+  br label %101
 
 68:                                               ; preds = %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit43, %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit41
   %.sink = phi ptr [ %11, %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit41 ], [ %15, %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit43 ]
@@ -3621,11 +3621,11 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit43:             ; preds = %57
   %71 = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %5, ptr %71, align 8
   %72 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv()
-          to label %73 unwind label %90
+          to label %73 unwind label %88
 
 73:                                               ; preds = %68
   invoke void @_ZN2cv9minMaxLocERKNS_11_InputArrayEPdS3_PNS_6Point_IiEES6_S2_(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef null, ptr noundef nonnull %7, ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(24) %72)
-          to label %74 unwind label %90
+          to label %74 unwind label %88
 
 74:                                               ; preds = %73
   %75 = getelementptr inbounds i8, ptr %18, i64 16
@@ -3636,43 +3636,54 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit43:             ; preds = %57
   %77 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %6, ptr %77, align 8
   %78 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv()
-          to label %79 unwind label %92
+          to label %79 unwind label %90
 
 79:                                               ; preds = %74
   invoke void @_ZN2cv9minMaxLocERKNS_11_InputArrayEPdS3_PNS_6Point_IiEES6_S2_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef null, ptr noundef nonnull %8, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(24) %78)
-          to label %80 unwind label %92
+          to label %80 unwind label %90
 
 80:                                               ; preds = %79
   %81 = load i8, ptr %27, align 8
   %82 = trunc i8 %81 to i1
-  %.sink49.idx = select i1 %82, i64 4, i64 0
-  %.sink49 = getelementptr inbounds i8, ptr %3, i64 %.sink49.idx
-  %.sink48 = select i1 %82, i32 %26, i32 %23
-  %83 = load i32, ptr %.sink49, align 4
-  %84 = add nsw i32 %.sink48, 5
-  %85 = add i32 %84, %83
-  store i32 %85, ptr %.sink49, align 4
-  %86 = load double, ptr %7, align 8
-  %87 = fcmp une double %86, -1.000000e+00
-  %88 = load double, ptr %8, align 8
-  %89 = fcmp une double %88, -1.000000e+00
-  %or.cond.not = select i1 %87, i1 %89, i1 false
+  br i1 %82, label %83, label %92
+
+83:                                               ; preds = %80
+  %84 = getelementptr inbounds i8, ptr %3, i64 4
+  %85 = load i32, ptr %84, align 4
+  %86 = add nsw i32 %26, 5
+  %87 = add i32 %86, %85
+  store i32 %87, ptr %84, align 4
+  br label %96
+
+88:                                               ; preds = %73, %68
+  %89 = landingpad { ptr, i32 }
+          cleanup
+  br label %101
+
+90:                                               ; preds = %79, %74
+  %91 = landingpad { ptr, i32 }
+          cleanup
+  br label %101
+
+92:                                               ; preds = %80
+  %93 = load i32, ptr %3, align 4
+  %94 = add nsw i32 %23, 5
+  %95 = add i32 %94, %93
+  store i32 %95, ptr %3, align 4
+  br label %96
+
+96:                                               ; preds = %92, %83
+  %97 = load double, ptr %7, align 8
+  %98 = fcmp une double %97, -1.000000e+00
+  %99 = load double, ptr %8, align 8
+  %100 = fcmp une double %99, -1.000000e+00
+  %or.cond.not = select i1 %98, i1 %100, i1 false
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #29
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #29
   ret i1 %or.cond.not
 
-90:                                               ; preds = %73, %68
-  %91 = landingpad { ptr, i32 }
-          cleanup
-  br label %94
-
-92:                                               ; preds = %79, %74
-  %93 = landingpad { ptr, i32 }
-          cleanup
-  br label %94
-
-94:                                               ; preds = %92, %90, %66, %64, %48, %46, %44
-  %.pn = phi { ptr, i32 } [ %93, %92 ], [ %45, %44 ], [ %91, %90 ], [ %49, %48 ], [ %47, %46 ], [ %67, %66 ], [ %65, %64 ]
+101:                                              ; preds = %90, %88, %66, %64, %48, %46, %44
+  %.pn = phi { ptr, i32 } [ %91, %90 ], [ %45, %44 ], [ %89, %88 ], [ %49, %48 ], [ %47, %46 ], [ %67, %66 ], [ %65, %64 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #29
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #29
   resume { ptr, i32 } %.pn

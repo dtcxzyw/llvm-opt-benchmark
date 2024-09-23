@@ -176,28 +176,31 @@ _ZN4llvhplERKNS_5TwineES2_.exit97:                ; preds = %_ZN4llvhplERKNS_5Tw
   %spec.select20.i.i83 = select i1 %cmp.i13.i.i80, ptr %NewLHS.sroa.0.0.copyload.i.i81, ptr %ref.tmp3
   store ptr %spec.select20.i.i83, ptr %ref.tmp2, align 8, !alias.scope !20
   %RHS4.i.i.i89 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
-  br label %6
+  store ptr @.str.2, ptr %RHS4.i.i.i89, align 8, !alias.scope !20
+  br label %7
 
-6:                                                ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit64, %_ZN4llvhplERKNS_5TwineES2_.exit97
-  %RHS4.i.i.i89.sink = phi ptr [ %RHS4.i.i.i89, %_ZN4llvhplERKNS_5TwineES2_.exit97 ], [ %ref.tmp2, %_ZN4llvhplERKNS_5TwineES2_.exit64 ]
-  %spec.select.i.i82.sink = phi i8 [ %spec.select.i.i82, %_ZN4llvhplERKNS_5TwineES2_.exit97 ], [ 3, %_ZN4llvhplERKNS_5TwineES2_.exit64 ]
-  %.sink = phi i8 [ 3, %_ZN4llvhplERKNS_5TwineES2_.exit97 ], [ %.pre, %_ZN4llvhplERKNS_5TwineES2_.exit64 ]
-  %7 = phi i8 [ 2, %_ZN4llvhplERKNS_5TwineES2_.exit97 ], [ 3, %_ZN4llvhplERKNS_5TwineES2_.exit64 ]
-  %8 = phi ptr [ %ref.tmp2, %_ZN4llvhplERKNS_5TwineES2_.exit97 ], [ @.str.2, %_ZN4llvhplERKNS_5TwineES2_.exit64 ]
-  store ptr @.str.2, ptr %RHS4.i.i.i89.sink, align 8
+6:                                                ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit64
+  store ptr @.str.2, ptr %ref.tmp2, align 8
+  br label %7
+
+7:                                                ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit97, %6
+  %spec.select.i.i82.sink = phi i8 [ %spec.select.i.i82, %_ZN4llvhplERKNS_5TwineES2_.exit97 ], [ 3, %6 ]
+  %.sink = phi i8 [ 3, %_ZN4llvhplERKNS_5TwineES2_.exit97 ], [ 1, %6 ]
+  %8 = phi i8 [ 2, %_ZN4llvhplERKNS_5TwineES2_.exit97 ], [ 3, %6 ]
+  %9 = phi ptr [ %ref.tmp2, %_ZN4llvhplERKNS_5TwineES2_.exit97 ], [ @.str.2, %6 ]
   %LHSKind5.i.i.i90 = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
   store i8 %spec.select.i.i82.sink, ptr %LHSKind5.i.i.i90, align 8
   %RHSKind6.i.i.i91 = getelementptr inbounds i8, ptr %ref.tmp2, i64 17
   store i8 %.sink, ptr %RHSKind6.i.i.i91, align 1
   %vtable.i = load ptr, ptr %code.coerce1, align 8, !noalias !27
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
-  %9 = load ptr, ptr %vfn.i, align 8, !noalias !27
-  call void %9(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp14, ptr noundef nonnull align 8 dereferenceable(8) %code.coerce1, i32 noundef %code.coerce0) #11
-  store ptr %8, ptr %ref.tmp1, align 8, !alias.scope !30
+  %10 = load ptr, ptr %vfn.i, align 8, !noalias !27
+  call void %10(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp14, ptr noundef nonnull align 8 dereferenceable(8) %code.coerce1, i32 noundef %code.coerce0) #11
+  store ptr %9, ptr %ref.tmp1, align 8, !alias.scope !30
   %RHS4.i.i.i120 = getelementptr inbounds i8, ptr %ref.tmp1, i64 8
   store ptr %ref.tmp14, ptr %RHS4.i.i.i120, align 8, !alias.scope !30
   %LHSKind5.i.i.i121 = getelementptr inbounds i8, ptr %ref.tmp1, i64 16
-  store i8 %7, ptr %LHSKind5.i.i.i121, align 8, !alias.scope !30
+  store i8 %8, ptr %LHSKind5.i.i.i121, align 8, !alias.scope !30
   %RHSKind6.i.i.i122 = getelementptr inbounds i8, ptr %ref.tmp1, i64 17
   store i8 4, ptr %RHSKind6.i.i.i122, align 1, !alias.scope !30
   store ptr %ref.tmp1, ptr %ref.tmp, align 8, !alias.scope !35
@@ -205,9 +208,9 @@ _ZN4llvhplERKNS_5TwineES2_.exit97:                ; preds = %_ZN4llvhplERKNS_5Tw
   store ptr @.str.3, ptr %RHS4.i.i.i153, align 8, !alias.scope !35
   br label %_ZN4llvhplERKNS_5TwineES2_.exit161
 
-_ZN4llvhplERKNS_5TwineES2_.exit161:               ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit97.thread179, %6
-  %.sink211 = phi i8 [ 0, %_ZN4llvhplERKNS_5TwineES2_.exit97.thread179 ], [ 2, %6 ]
-  %.sink210 = phi i8 [ 1, %_ZN4llvhplERKNS_5TwineES2_.exit97.thread179 ], [ 3, %6 ]
+_ZN4llvhplERKNS_5TwineES2_.exit161:               ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit97.thread179, %7
+  %.sink211 = phi i8 [ 0, %_ZN4llvhplERKNS_5TwineES2_.exit97.thread179 ], [ 2, %7 ]
+  %.sink210 = phi i8 [ 1, %_ZN4llvhplERKNS_5TwineES2_.exit97.thread179 ], [ 3, %7 ]
   %LHSKind.i.i.i159 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i8 %.sink211, ptr %LHSKind.i.i.i159, align 8, !alias.scope !35
   %RHSKind.i.i.i160 = getelementptr inbounds i8, ptr %ref.tmp, i64 17

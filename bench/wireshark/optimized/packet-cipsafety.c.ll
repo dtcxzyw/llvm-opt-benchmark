@@ -1587,301 +1587,303 @@ define internal i32 @dissect_cipsafety(ptr noundef %0, ptr noundef %1, ptr nound
   %53 = icmp eq i32 %.0146.i, 2
   %54 = icmp eq i32 %.0147.i, 1
   %or.cond3.i = select i1 %53, i1 %54, i1 false
-  br i1 %or.cond3.i, label %.thread.i, label %138
+  br i1 %or.cond3.i, label %.thread.i, label %144
 
 55:                                               ; preds = %49
-  br i1 %30, label %56, label %69
+  br i1 %30, label %56, label %75
 
 .thread.i:                                        ; preds = %52
-  br i1 %30, label %59, label %69
+  br i1 %30, label %65, label %75
 
 56:                                               ; preds = %55
   %57 = getelementptr inbounds i8, ptr %3, i64 8
   %58 = load ptr, ptr %57, align 8
-  br label %.sink.split.i
+  %59 = load i64, ptr %58, align 8
+  %60 = lshr i64 %59, 16
+  %61 = trunc i64 %60 to i16
+  %62 = lshr i64 %59, 32
+  %63 = trunc nuw i64 %62 to i32
+  %64 = trunc i64 %59 to i16
+  br label %75
 
-59:                                               ; preds = %.thread.i
-  %60 = getelementptr inbounds i8, ptr %3, i64 8
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 40
-  br label %.sink.split.i
+65:                                               ; preds = %.thread.i
+  %66 = getelementptr inbounds i8, ptr %3, i64 8
+  %67 = load ptr, ptr %66, align 8
+  %68 = getelementptr inbounds i8, ptr %67, i64 40
+  %69 = load i64, ptr %68, align 8
+  %70 = lshr i64 %69, 16
+  %71 = trunc i64 %70 to i16
+  %72 = lshr i64 %69, 32
+  %73 = trunc nuw i64 %72 to i32
+  %74 = trunc i64 %69 to i16
+  br label %75
 
-.sink.split.i:                                    ; preds = %59, %56
-  %.sink170.i = phi ptr [ %58, %56 ], [ %62, %59 ]
-  %63 = load i64, ptr %.sink170.i, align 8
-  %64 = lshr i64 %63, 16
-  %65 = trunc i64 %64 to i16
-  %66 = lshr i64 %63, 32
-  %67 = trunc nuw i64 %66 to i32
-  %68 = trunc i64 %63 to i16
-  br label %69
-
-69:                                               ; preds = %.sink.split.i, %.thread.i, %55
-  %70 = phi i16 [ 0, %.thread.i ], [ 0, %55 ], [ %68, %.sink.split.i ]
-  %71 = phi i32 [ 0, %.thread.i ], [ 0, %55 ], [ %67, %.sink.split.i ]
-  %72 = phi i16 [ 0, %.thread.i ], [ 0, %55 ], [ %65, %.sink.split.i ]
+75:                                               ; preds = %65, %56, %.thread.i, %55
+  %76 = phi i16 [ 0, %.thread.i ], [ %64, %56 ], [ %74, %65 ], [ 0, %55 ]
+  %77 = phi i32 [ 0, %.thread.i ], [ %63, %56 ], [ %73, %65 ], [ 0, %55 ]
+  %78 = phi i16 [ 0, %.thread.i ], [ %61, %56 ], [ %71, %65 ], [ 0, %55 ]
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.516) #6
-  %73 = load ptr, ptr %32, align 8
-  tail call void @col_append_str(ptr noundef %73, i32 noundef 25, ptr noundef nonnull @.str.10) #6
+  %79 = load ptr, ptr %32, align 8
+  tail call void @col_append_str(ptr noundef %79, i32 noundef 25, ptr noundef nonnull @.str.10) #6
   switch i32 %.0145.i, label %dissect_cip_safety_data.exit [
-    i32 0, label %74
-    i32 1, label %107
+    i32 0, label %80
+    i32 1, label %113
   ]
 
-74:                                               ; preds = %69
-  %75 = load i32, ptr @hf_cip_safety_message_encoding, align 4
-  %76 = tail call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %75, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 5) #6
-  %.not.i.i.i = icmp eq ptr %76, null
-  br i1 %.not.i.i.i, label %proto_item_set_generated.exit.i.i, label %77
+80:                                               ; preds = %75
+  %81 = load i32, ptr @hf_cip_safety_message_encoding, align 4
+  %82 = tail call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %81, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 5) #6
+  %.not.i.i.i = icmp eq ptr %82, null
+  br i1 %.not.i.i.i, label %proto_item_set_generated.exit.i.i, label %83
 
-77:                                               ; preds = %74
-  %78 = getelementptr inbounds i8, ptr %76, i64 32
-  %79 = load ptr, ptr %78, align 8
-  %.not5.i.i.i = icmp eq ptr %79, null
-  br i1 %.not5.i.i.i, label %proto_item_set_generated.exit.i.i, label %80
+83:                                               ; preds = %80
+  %84 = getelementptr inbounds i8, ptr %82, i64 32
+  %85 = load ptr, ptr %84, align 8
+  %.not5.i.i.i = icmp eq ptr %85, null
+  br i1 %.not5.i.i.i, label %proto_item_set_generated.exit.i.i, label %86
 
-80:                                               ; preds = %77
-  %81 = getelementptr inbounds i8, ptr %79, i64 28
-  %82 = load i32, ptr %81, align 4
-  %83 = or i32 %82, 2
-  store i32 %83, ptr %81, align 4
+86:                                               ; preds = %83
+  %87 = getelementptr inbounds i8, ptr %85, i64 28
+  %88 = load i32, ptr %87, align 4
+  %89 = or i32 %88, 2
+  store i32 %89, ptr %87, align 4
   br label %proto_item_set_generated.exit.i.i
 
-proto_item_set_generated.exit.i.i:                ; preds = %80, %77, %74
-  %84 = load i32, ptr @hf_cipsafety_ack_byte, align 4
-  %85 = load i32, ptr @ett_cipsafety_ack_byte, align 4
-  %86 = tail call ptr @proto_tree_add_bitmask(ptr noundef %18, ptr noundef %0, i32 noundef 0, i32 noundef %84, i32 noundef %85, ptr noundef nonnull @dissect_ack_byte.bits, i32 noundef -2147483648) #6
-  %87 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #6
-  %88 = load i32, ptr @hf_cipsafety_consumer_time_value, align 4
-  %89 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %88, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef -2147483648) #6
-  %90 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 1) #6
-  %91 = load i32, ptr @hf_cipsafety_ack_byte2, align 4
-  %92 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %91, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef -2147483648) #6
-  br i1 %30, label %93, label %103
+proto_item_set_generated.exit.i.i:                ; preds = %86, %83, %80
+  %90 = load i32, ptr @hf_cipsafety_ack_byte, align 4
+  %91 = load i32, ptr @ett_cipsafety_ack_byte, align 4
+  %92 = tail call ptr @proto_tree_add_bitmask(ptr noundef %18, ptr noundef %0, i32 noundef 0, i32 noundef %90, i32 noundef %91, ptr noundef nonnull @dissect_ack_byte.bits, i32 noundef -2147483648) #6
+  %93 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #6
+  %94 = load i32, ptr @hf_cipsafety_consumer_time_value, align 4
+  %95 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %94, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef -2147483648) #6
+  %96 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 1) #6
+  %97 = load i32, ptr @hf_cipsafety_ack_byte2, align 4
+  %98 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %97, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef -2147483648) #6
+  br i1 %30, label %99, label %109
 
-93:                                               ; preds = %proto_item_set_generated.exit.i.i
+99:                                               ; preds = %proto_item_set_generated.exit.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
-  store i16 %72, ptr %13, align 2
-  %94 = getelementptr inbounds i8, ptr %13, i64 2
-  store i32 %71, ptr %94, align 2
-  %95 = getelementptr inbounds i8, ptr %13, i64 6
-  store i16 %70, ptr %95, align 2
-  %96 = call zeroext i16 @crc16_0x080F_seed(ptr noundef nonnull %13, i32 noundef 8, i16 noundef zeroext 0) #6
+  store i16 %78, ptr %13, align 2
+  %100 = getelementptr inbounds i8, ptr %13, i64 2
+  store i32 %77, ptr %100, align 2
+  %101 = getelementptr inbounds i8, ptr %13, i64 6
+  store i16 %76, ptr %101, align 2
+  %102 = call zeroext i16 @crc16_0x080F_seed(ptr noundef nonnull %13, i32 noundef 8, i16 noundef zeroext 0) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %12)
-  store i8 %87, ptr %11, align 1
-  store i16 %90, ptr %12, align 2
-  %97 = call zeroext i16 @crc16_0x080F_seed(ptr noundef nonnull %11, i32 noundef 1, i16 noundef zeroext %96) #6
-  %98 = call zeroext i16 @crc16_0x080F_seed(ptr noundef nonnull %12, i32 noundef 2, i16 noundef zeroext %97) #6
+  store i8 %93, ptr %11, align 1
+  store i16 %96, ptr %12, align 2
+  %103 = call zeroext i16 @crc16_0x080F_seed(ptr noundef nonnull %11, i32 noundef 1, i16 noundef zeroext %102) #6
+  %104 = call zeroext i16 @crc16_0x080F_seed(ptr noundef nonnull %12, i32 noundef 2, i16 noundef zeroext %103) #6
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12)
-  %99 = load i32, ptr @hf_cipsafety_crc_s3, align 4
-  %100 = load i32, ptr @hf_cipsafety_crc_s3_status, align 4
-  %101 = zext i16 %98 to i32
-  %102 = call ptr @proto_tree_add_checksum(ptr noundef %18, ptr noundef %0, i32 noundef 4, i32 noundef %99, i32 noundef %100, ptr noundef nonnull @ei_cipsafety_crc_s3, ptr noundef nonnull %1, i32 noundef %101, i32 noundef -2147483648, i32 noundef 1) #6
+  %105 = load i32, ptr @hf_cipsafety_crc_s3, align 4
+  %106 = load i32, ptr @hf_cipsafety_crc_s3_status, align 4
+  %107 = zext i16 %104 to i32
+  %108 = call ptr @proto_tree_add_checksum(ptr noundef %18, ptr noundef %0, i32 noundef 4, i32 noundef %105, i32 noundef %106, ptr noundef nonnull @ei_cipsafety_crc_s3, ptr noundef nonnull %1, i32 noundef %107, i32 noundef -2147483648, i32 noundef 1) #6
   br label %dissect_cip_safety_data.exit
 
-103:                                              ; preds = %proto_item_set_generated.exit.i.i
-  %104 = load i32, ptr @hf_cipsafety_crc_s3, align 4
-  %105 = load i32, ptr @hf_cipsafety_crc_s3_status, align 4
-  %106 = tail call ptr @proto_tree_add_checksum(ptr noundef %18, ptr noundef %0, i32 noundef 4, i32 noundef %104, i32 noundef %105, ptr noundef nonnull @ei_cipsafety_crc_s3, ptr noundef nonnull %1, i32 noundef 0, i32 noundef -2147483648, i32 noundef 0) #6
+109:                                              ; preds = %proto_item_set_generated.exit.i.i
+  %110 = load i32, ptr @hf_cipsafety_crc_s3, align 4
+  %111 = load i32, ptr @hf_cipsafety_crc_s3_status, align 4
+  %112 = tail call ptr @proto_tree_add_checksum(ptr noundef %18, ptr noundef %0, i32 noundef 4, i32 noundef %110, i32 noundef %111, ptr noundef nonnull @ei_cipsafety_crc_s3, ptr noundef nonnull %1, i32 noundef 0, i32 noundef -2147483648, i32 noundef 0) #6
   br label %dissect_cip_safety_data.exit
 
-107:                                              ; preds = %69
+113:                                              ; preds = %75
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  %108 = load i32, ptr @hf_cip_safety_message_encoding, align 4
-  %109 = tail call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %108, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 6) #6
-  %.not.i.i160.i = icmp eq ptr %109, null
-  br i1 %.not.i.i160.i, label %dissect_extended_format_time_coordination_message.exit.i, label %110
+  %114 = load i32, ptr @hf_cip_safety_message_encoding, align 4
+  %115 = tail call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %114, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 6) #6
+  %.not.i.i160.i = icmp eq ptr %115, null
+  br i1 %.not.i.i160.i, label %dissect_extended_format_time_coordination_message.exit.i, label %116
 
-110:                                              ; preds = %107
-  %111 = getelementptr inbounds i8, ptr %109, i64 32
-  %112 = load ptr, ptr %111, align 8
-  %.not5.i.i161.i = icmp eq ptr %112, null
-  br i1 %.not5.i.i161.i, label %dissect_extended_format_time_coordination_message.exit.i, label %113
+116:                                              ; preds = %113
+  %117 = getelementptr inbounds i8, ptr %115, i64 32
+  %118 = load ptr, ptr %117, align 8
+  %.not5.i.i161.i = icmp eq ptr %118, null
+  br i1 %.not5.i.i161.i, label %dissect_extended_format_time_coordination_message.exit.i, label %119
 
-113:                                              ; preds = %110
-  %114 = getelementptr inbounds i8, ptr %112, i64 28
-  %115 = load i32, ptr %114, align 4
-  %116 = or i32 %115, 2
-  store i32 %116, ptr %114, align 4
+119:                                              ; preds = %116
+  %120 = getelementptr inbounds i8, ptr %118, i64 28
+  %121 = load i32, ptr %120, align 4
+  %122 = or i32 %121, 2
+  store i32 %122, ptr %120, align 4
   br label %dissect_extended_format_time_coordination_message.exit.i
 
-dissect_extended_format_time_coordination_message.exit.i: ; preds = %113, %110, %107
-  %117 = load i32, ptr @hf_cipsafety_ack_byte, align 4
-  %118 = load i32, ptr @ett_cipsafety_ack_byte, align 4
-  %119 = tail call ptr @proto_tree_add_bitmask(ptr noundef %18, ptr noundef %0, i32 noundef 0, i32 noundef %117, i32 noundef %118, ptr noundef nonnull @dissect_ack_byte.bits, i32 noundef -2147483648) #6
-  %120 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #6
-  %121 = load i32, ptr @hf_cipsafety_consumer_time_value, align 4
-  %122 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %121, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef -2147483648) #6
-  %123 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 1) #6
-  %124 = load i32, ptr @hf_cipsafety_crc_s5_0, align 4
-  %125 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %18, i32 noundef %124, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %8) #6
-  %126 = load i32, ptr @hf_cipsafety_crc_s5_1, align 4
-  %127 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %18, i32 noundef %126, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %9) #6
-  %128 = load i32, ptr @hf_cipsafety_crc_s5_2, align 4
-  %129 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %18, i32 noundef %128, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %10) #6
+dissect_extended_format_time_coordination_message.exit.i: ; preds = %119, %116, %113
+  %123 = load i32, ptr @hf_cipsafety_ack_byte, align 4
+  %124 = load i32, ptr @ett_cipsafety_ack_byte, align 4
+  %125 = tail call ptr @proto_tree_add_bitmask(ptr noundef %18, ptr noundef %0, i32 noundef 0, i32 noundef %123, i32 noundef %124, ptr noundef nonnull @dissect_ack_byte.bits, i32 noundef -2147483648) #6
+  %126 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #6
+  %127 = load i32, ptr @hf_cipsafety_consumer_time_value, align 4
+  %128 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %127, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef -2147483648) #6
+  %129 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 1) #6
+  %130 = load i32, ptr @hf_cipsafety_crc_s5_0, align 4
+  %131 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %18, i32 noundef %130, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %8) #6
+  %132 = load i32, ptr @hf_cipsafety_crc_s5_1, align 4
+  %133 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %18, i32 noundef %132, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %9) #6
+  %134 = load i32, ptr @hf_cipsafety_crc_s5_2, align 4
+  %135 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %18, i32 noundef %134, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %10) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  store i16 %72, ptr %7, align 2
-  %130 = getelementptr inbounds i8, ptr %7, i64 2
-  store i32 %71, ptr %130, align 2
-  %131 = getelementptr inbounds i8, ptr %7, i64 6
-  store i16 %70, ptr %131, align 2
-  %132 = call i32 @crc32_0x5D6DCB_seed(ptr noundef nonnull %7, i32 noundef 8, i32 noundef 0) #6
+  store i16 %78, ptr %7, align 2
+  %136 = getelementptr inbounds i8, ptr %7, i64 2
+  store i32 %77, ptr %136, align 2
+  %137 = getelementptr inbounds i8, ptr %7, i64 6
+  store i16 %76, ptr %137, align 2
+  %138 = call i32 @crc32_0x5D6DCB_seed(ptr noundef nonnull %7, i32 noundef 8, i32 noundef 0) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
-  store i8 %120, ptr %5, align 1
-  store i16 %123, ptr %6, align 2
-  %133 = call i32 @crc32_0x5D6DCB_seed(ptr noundef nonnull %5, i32 noundef 1, i32 noundef %132) #6
-  %134 = call i32 @crc32_0x5D6DCB_seed(ptr noundef nonnull %6, i32 noundef 2, i32 noundef %133) #6
+  store i8 %126, ptr %5, align 1
+  store i16 %129, ptr %6, align 2
+  %139 = call i32 @crc32_0x5D6DCB_seed(ptr noundef nonnull %5, i32 noundef 1, i32 noundef %138) #6
+  %140 = call i32 @crc32_0x5D6DCB_seed(ptr noundef nonnull %6, i32 noundef 2, i32 noundef %139) #6
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
-  %135 = load i32, ptr %8, align 4
-  %136 = load i32, ptr %9, align 4
-  %137 = load i32, ptr %10, align 4
-  call fastcc void @validate_crc_s5(ptr noundef nonnull %1, ptr noundef %18, ptr noundef %0, i32 noundef %31, i32 noundef %135, i32 noundef %136, i32 noundef %137, i32 noundef %134)
+  %141 = load i32, ptr %8, align 4
+  %142 = load i32, ptr %9, align 4
+  %143 = load i32, ptr %10, align 4
+  call fastcc void @validate_crc_s5(ptr noundef nonnull %1, ptr noundef %18, ptr noundef %0, i32 noundef %31, i32 noundef %141, i32 noundef %142, i32 noundef %143, i32 noundef %140)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   br label %dissect_cip_safety_data.exit
 
-138:                                              ; preds = %52
+144:                                              ; preds = %52
   %or.cond7.i = select i1 %50, i1 %54, i1 false
   %or.cond9.i = select i1 %53, i1 %51, i1 false
   %or.cond159.i = select i1 %or.cond7.i, i1 true, i1 %or.cond9.i
-  br i1 %or.cond159.i, label %139, label %185
+  br i1 %or.cond159.i, label %145, label %190
 
-139:                                              ; preds = %138
-  br i1 %30, label %.sink.split171.i, label %143
+145:                                              ; preds = %144
+  br i1 %30, label %.sink.split.i, label %148
 
-.sink.split171.i:                                 ; preds = %139
-  %140 = getelementptr inbounds i8, ptr %3, i64 8
-  %141 = load ptr, ptr %140, align 8
-  %.sink172.idx.i = select i1 %or.cond7.i, i64 0, i64 40
-  %.sink172.i = getelementptr inbounds i8, ptr %141, i64 %.sink172.idx.i
-  %142 = load i64, ptr %.sink172.i, align 8
-  store i64 %142, ptr %14, align 8
-  br label %143
+.sink.split.i:                                    ; preds = %145
+  %146 = getelementptr inbounds i8, ptr %3, i64 8
+  %147 = load ptr, ptr %146, align 8
+  %spec.select.idx = select i1 %or.cond7.i, i64 0, i64 40
+  %spec.select = getelementptr inbounds i8, ptr %147, i64 %spec.select.idx
+  %.sink.i = load i64, ptr %spec.select, align 8
+  store i64 %.sink.i, ptr %14, align 8
+  br label %148
 
-143:                                              ; preds = %.sink.split171.i, %139
-  %144 = sub nsw i32 %19, %45
-  %145 = icmp sgt i32 %144, 2
+148:                                              ; preds = %.sink.split.i, %145
+  %149 = sub nsw i32 %19, %45
+  %150 = icmp sgt i32 %149, 2
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.517) #6
-  %146 = load ptr, ptr %32, align 8
-  tail call void @col_append_str(ptr noundef %146, i32 noundef 25, ptr noundef nonnull @.str.11) #6
+  %151 = load ptr, ptr %32, align 8
+  tail call void @col_append_str(ptr noundef %151, i32 noundef 25, ptr noundef nonnull @.str.11) #6
   switch i32 %.0145.i, label %dissect_cip_safety_data.exit [
-    i32 0, label %147
-    i32 1, label %162
+    i32 0, label %152
+    i32 1, label %167
   ]
 
-147:                                              ; preds = %143
-  br i1 %145, label %153, label %148
+152:                                              ; preds = %148
+  br i1 %150, label %158, label %153
 
-148:                                              ; preds = %147
-  %149 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %144) #6
-  call fastcc void @dissect_base_format_1_or_2_byte_data(ptr noundef nonnull %1, ptr noundef %18, ptr noundef %0, i32 noundef %144, i32 noundef %31, ptr noundef %14)
-  %150 = add nsw i32 %144, 3
-  call fastcc void @dissect_base_format_time_stamp_section(ptr noundef nonnull %1, ptr noundef %18, ptr noundef %0, i32 noundef %150, i32 noundef %31, i8 noundef zeroext %149, ptr noundef %14)
-  br i1 %24, label %151, label %dissect_cip_safety_data.exit
+153:                                              ; preds = %152
+  %154 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %149) #6
+  call fastcc void @dissect_base_format_1_or_2_byte_data(ptr noundef nonnull %1, ptr noundef %18, ptr noundef %0, i32 noundef %149, i32 noundef %31, ptr noundef %14)
+  %155 = add nsw i32 %149, 3
+  call fastcc void @dissect_base_format_time_stamp_section(ptr noundef nonnull %1, ptr noundef %18, ptr noundef %0, i32 noundef %155, i32 noundef %31, i8 noundef zeroext %154, ptr noundef %14)
+  br i1 %24, label %156, label %dissect_cip_safety_data.exit
 
-151:                                              ; preds = %148
-  %152 = add nsw i32 %19, -6
-  tail call fastcc void @dissect_base_format_time_correction_message(ptr noundef %18, ptr noundef %0, i32 noundef %152)
+156:                                              ; preds = %153
+  %157 = add nsw i32 %19, -6
+  tail call fastcc void @dissect_base_format_time_correction_message(ptr noundef %18, ptr noundef %0, i32 noundef %157)
   br label %dissect_cip_safety_data.exit
 
-153:                                              ; preds = %147
-  %154 = and i32 %19, 1
-  %.not157.i = icmp eq i32 %154, 0
-  br i1 %.not157.i, label %157, label %155
+158:                                              ; preds = %152
+  %159 = and i32 %19, 1
+  %.not157.i = icmp eq i32 %159, 0
+  br i1 %.not157.i, label %162, label %160
 
-155:                                              ; preds = %153
-  %156 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %16, ptr noundef nonnull @ei_mal_io) #6
+160:                                              ; preds = %158
+  %161 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %16, ptr noundef nonnull @ei_mal_io) #6
   br label %dissect_cip_safety_data.exit
 
-157:                                              ; preds = %153
+162:                                              ; preds = %158
   %.in158.v.i = select i1 %24, i32 -14, i32 -8
   %.in158.i = add nsw i32 %.in158.v.i, %19
-  %158 = ashr exact i32 %.in158.i, 1
-  %159 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %158) #6
-  call fastcc void @dissect_base_format_3_to_250_byte_data(ptr noundef nonnull %1, ptr noundef %18, ptr noundef %0, i32 noundef %158, i32 noundef %31, ptr noundef %14)
-  %160 = add nsw i32 %.in158.i, 5
-  call fastcc void @dissect_base_format_time_stamp_section(ptr noundef nonnull %1, ptr noundef %18, ptr noundef %0, i32 noundef %160, i32 noundef %31, i8 noundef zeroext %159, ptr noundef %14)
-  br i1 %24, label %161, label %dissect_cip_safety_data.exit
+  %163 = ashr exact i32 %.in158.i, 1
+  %164 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %163) #6
+  call fastcc void @dissect_base_format_3_to_250_byte_data(ptr noundef nonnull %1, ptr noundef %18, ptr noundef %0, i32 noundef %163, i32 noundef %31, ptr noundef %14)
+  %165 = add nsw i32 %.in158.i, 5
+  call fastcc void @dissect_base_format_time_stamp_section(ptr noundef nonnull %1, ptr noundef %18, ptr noundef %0, i32 noundef %165, i32 noundef %31, i8 noundef zeroext %164, ptr noundef %14)
+  br i1 %24, label %166, label %dissect_cip_safety_data.exit
 
-161:                                              ; preds = %157
-  tail call fastcc void @dissect_base_format_time_correction_message(ptr noundef %18, ptr noundef %0, i32 noundef %160)
+166:                                              ; preds = %162
+  tail call fastcc void @dissect_base_format_time_correction_message(ptr noundef %18, ptr noundef %0, i32 noundef %165)
   br label %dissect_cip_safety_data.exit
 
-162:                                              ; preds = %143
-  br i1 %145, label %165, label %163
+167:                                              ; preds = %148
+  br i1 %150, label %170, label %168
 
-163:                                              ; preds = %162
-  %164 = add nsw i32 %144, 3
-  br label %169
+168:                                              ; preds = %167
+  %169 = add nsw i32 %149, 3
+  br label %174
 
-165:                                              ; preds = %162
+170:                                              ; preds = %167
   %.in.v.i = select i1 %24, i32 -14, i32 -8
   %.in.i = add nsw i32 %.in.v.i, %19
-  %166 = sdiv i32 %.in.i, 2
-  %167 = shl nsw i32 %166, 1
-  %168 = add nsw i32 %167, 5
-  br label %169
+  %171 = sdiv i32 %.in.i, 2
+  %172 = shl nsw i32 %171, 1
+  %173 = add nsw i32 %172, 5
+  br label %174
 
-169:                                              ; preds = %165, %163
-  %.sink.i = phi i32 [ %168, %165 ], [ %164, %163 ]
-  %.0142.i = phi i32 [ %166, %165 ], [ %144, %163 ]
-  %170 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.sink.i) #6
-  br i1 %30, label %171, label %173
+174:                                              ; preds = %170, %168
+  %.sink164.i = phi i32 [ %173, %170 ], [ %169, %168 ]
+  %.0142.i = phi i32 [ %171, %170 ], [ %149, %168 ]
+  %175 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.sink164.i) #6
+  br i1 %30, label %176, label %178
 
-171:                                              ; preds = %169
-  %172 = tail call fastcc ptr @get_timestamp_packet_data(ptr noundef nonnull %1, ptr noundef readonly %3, i16 noundef zeroext %170)
-  br label %173
+176:                                              ; preds = %174
+  %177 = tail call fastcc ptr @get_timestamp_packet_data(ptr noundef nonnull %1, ptr noundef readonly %3, i16 noundef zeroext %175)
+  br label %178
 
-173:                                              ; preds = %171, %169
-  %.0.i = phi ptr [ %172, %171 ], [ null, %169 ]
-  br i1 %145, label %177, label %174
+178:                                              ; preds = %176, %174
+  %.0.i = phi ptr [ %177, %176 ], [ null, %174 ]
+  br i1 %150, label %182, label %179
 
-174:                                              ; preds = %173
+179:                                              ; preds = %178
   call fastcc void @dissect_extended_format_1_or_2_byte_data(ptr noundef nonnull %1, ptr noundef %18, ptr noundef %0, i32 noundef %.0142.i, i32 noundef %31, ptr noundef %14, ptr noundef %.0.i)
-  br i1 %24, label %175, label %dissect_cip_safety_data.exit
+  br i1 %24, label %180, label %dissect_cip_safety_data.exit
 
-175:                                              ; preds = %174
-  %176 = add nsw i32 %19, -6
-  tail call fastcc void @dissect_extended_format_time_correction_message(ptr noundef %18, ptr noundef %0, i32 noundef %176)
+180:                                              ; preds = %179
+  %181 = add nsw i32 %19, -6
+  tail call fastcc void @dissect_extended_format_time_correction_message(ptr noundef %18, ptr noundef %0, i32 noundef %181)
   br label %dissect_cip_safety_data.exit
 
-177:                                              ; preds = %173
-  %178 = and i32 %19, 1
-  %.not155.i = icmp eq i32 %178, 0
-  br i1 %.not155.i, label %181, label %179
+182:                                              ; preds = %178
+  %183 = and i32 %19, 1
+  %.not155.i = icmp eq i32 %183, 0
+  br i1 %.not155.i, label %186, label %184
 
-179:                                              ; preds = %177
-  %180 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %16, ptr noundef nonnull @ei_mal_io) #6
+184:                                              ; preds = %182
+  %185 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %16, ptr noundef nonnull @ei_mal_io) #6
   br label %dissect_cip_safety_data.exit
 
-181:                                              ; preds = %177
+186:                                              ; preds = %182
   call fastcc void @dissect_extended_format_3_to_250_byte_data(ptr noundef nonnull %1, ptr noundef %18, ptr noundef %0, i32 noundef %.0142.i, i32 noundef %31, ptr noundef %14, ptr noundef %.0.i)
-  br i1 %24, label %182, label %dissect_cip_safety_data.exit
+  br i1 %24, label %187, label %dissect_cip_safety_data.exit
 
-182:                                              ; preds = %181
-  %183 = shl nsw i32 %.0142.i, 1
-  %184 = add nsw i32 %183, 8
-  tail call fastcc void @dissect_extended_format_time_correction_message(ptr noundef %18, ptr noundef %0, i32 noundef %184)
+187:                                              ; preds = %186
+  %188 = shl nsw i32 %.0142.i, 1
+  %189 = add nsw i32 %188, 8
+  tail call fastcc void @dissect_extended_format_time_correction_message(ptr noundef %18, ptr noundef %0, i32 noundef %189)
   br label %dissect_cip_safety_data.exit
 
-185:                                              ; preds = %138
-  %186 = load i32, ptr @hf_cipsafety_data, align 4
-  %187 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %186, ptr noundef %0, i32 noundef 0, i32 noundef %19, i32 noundef 0) #6
+190:                                              ; preds = %144
+  %191 = load i32, ptr @hf_cipsafety_data, align 4
+  %192 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %191, ptr noundef %0, i32 noundef 0, i32 noundef %19, i32 noundef 0) #6
   br label %dissect_cip_safety_data.exit
 
-dissect_cip_safety_data.exit:                     ; preds = %47, %69, %93, %103, %dissect_extended_format_time_coordination_message.exit.i, %143, %148, %151, %155, %157, %161, %174, %175, %179, %181, %182, %185
+dissect_cip_safety_data.exit:                     ; preds = %47, %75, %99, %109, %dissect_extended_format_time_coordination_message.exit.i, %148, %153, %156, %160, %162, %166, %179, %180, %184, %186, %187, %190
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
-  %188 = call i32 @tvb_captured_length(ptr noundef %0) #6
-  ret i32 %188
+  %193 = call i32 @tvb_captured_length(ptr noundef %0) #6
+  ret i32 %193
 }
 
 declare i32 @proto_register_protocol_in_name_only(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3

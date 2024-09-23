@@ -2419,7 +2419,7 @@ define linkonce_odr hidden void @_ZN17SignatureIterator16do_parameters_onI23Nati
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, -1
   %spec.select.i = icmp ult i64 %6, -2
-  br i1 %spec.select.i, label %49, label %7
+  br i1 %spec.select.i, label %48, label %7
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %0, align 8
@@ -2491,108 +2491,108 @@ define linkonce_odr hidden void @_ZN17SignatureIterator16do_parameters_onI23Nati
   unreachable
 
 _ZN23NativeSignatureIterator7do_typeE9BasicType.exit: ; preds = %17, %20, %23, %25, %28, %31, %34
-  %.sink8.i = phi ptr [ %36, %34 ], [ %33, %31 ], [ %30, %28 ], [ %27, %25 ], [ %24, %23 ], [ %22, %20 ], [ %19, %17 ]
+  %.sink.in.i = phi ptr [ %36, %34 ], [ %33, %31 ], [ %30, %28 ], [ %27, %25 ], [ %24, %23 ], [ %22, %20 ], [ %19, %17 ]
   %.sink5.i = phi i32 [ 1, %34 ], [ 2, %31 ], [ 2, %28 ], [ 1, %25 ], [ 1, %23 ], [ 1, %20 ], [ 1, %17 ]
-  %39 = load ptr, ptr %.sink8.i, align 8
-  call void %39(ptr noundef nonnull align 8 dereferenceable(60) %1) #17
-  %40 = load i32, ptr %13, align 8
-  %41 = add nsw i32 %40, 1
-  store i32 %41, ptr %13, align 8
-  %42 = load i32, ptr %14, align 8
-  %43 = add nsw i32 %42, %.sink5.i
-  store i32 %43, ptr %14, align 8
+  %.sink.i = load ptr, ptr %.sink.in.i, align 8
+  call void %.sink.i(ptr noundef nonnull align 8 dereferenceable(60) %1) #17
+  %39 = load i32, ptr %13, align 8
+  %40 = add nsw i32 %39, 1
+  store i32 %40, ptr %13, align 8
+  %41 = load i32, ptr %14, align 8
+  %42 = add nsw i32 %41, %.sink5.i
+  store i32 %42, ptr %14, align 8
   call void @_ZN15SignatureStream4nextEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #17
-  %44 = load i32, ptr %9, align 4
-  %45 = icmp eq i32 %44, 3
-  br i1 %45, label %._crit_edge, label %15, !llvm.loop !24
+  %43 = load i32, ptr %9, align 4
+  %44 = icmp eq i32 %43, 3
+  br i1 %44, label %._crit_edge, label %15, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %_ZN23NativeSignatureIterator7do_typeE9BasicType.exit, %7
-  %46 = getelementptr inbounds i8, ptr %3, i64 24
-  %47 = load i8, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 8
-  store i8 %47, ptr %48, align 8
+  %45 = getelementptr inbounds i8, ptr %3, i64 24
+  %46 = load i8, ptr %45, align 8
+  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  store i8 %46, ptr %47, align 8
   call void @_ZN15SignatureStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #17
   br label %.loopexit
 
-49:                                               ; preds = %2
-  %50 = lshr i64 %5, 5
-  %51 = getelementptr inbounds i8, ptr %1, i64 56
-  %52 = getelementptr inbounds i8, ptr %1, i64 48
-  br label %53
+48:                                               ; preds = %2
+  %49 = lshr i64 %5, 5
+  %50 = getelementptr inbounds i8, ptr %1, i64 56
+  %51 = getelementptr inbounds i8, ptr %1, i64 48
+  br label %52
 
-53:                                               ; preds = %_ZN23NativeSignatureIterator7do_typeE9BasicType.exit5, %49
-  %.0 = phi i64 [ %50, %49 ], [ %56, %_ZN23NativeSignatureIterator7do_typeE9BasicType.exit5 ]
-  %54 = trunc i64 %.0 to i8
-  %55 = and i8 %54, 15
-  %56 = lshr i64 %.0, 4
-  switch i8 %55, label %77 [
+52:                                               ; preds = %_ZN23NativeSignatureIterator7do_typeE9BasicType.exit6, %48
+  %.0 = phi i64 [ %49, %48 ], [ %55, %_ZN23NativeSignatureIterator7do_typeE9BasicType.exit6 ]
+  %53 = trunc i64 %.0 to i8
+  %54 = and i8 %53, 15
+  %55 = lshr i64 %.0, 4
+  switch i8 %54, label %76 [
     i8 0, label %.loopexit
-    i8 8, label %57
-    i8 4, label %57
-    i8 5, label %60
-    i8 9, label %60
-    i8 10, label %63
-    i8 6, label %65
-    i8 7, label %68
-    i8 11, label %71
-    i8 13, label %74
-    i8 12, label %74
+    i8 8, label %56
+    i8 4, label %56
+    i8 5, label %59
+    i8 9, label %59
+    i8 10, label %62
+    i8 6, label %64
+    i8 7, label %67
+    i8 11, label %70
+    i8 13, label %73
+    i8 12, label %73
   ]
 
-57:                                               ; preds = %53, %53
-  %58 = load ptr, ptr %1, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 32
-  br label %_ZN23NativeSignatureIterator7do_typeE9BasicType.exit5
+56:                                               ; preds = %52, %52
+  %57 = load ptr, ptr %1, align 8
+  %58 = getelementptr inbounds i8, ptr %57, i64 32
+  br label %_ZN23NativeSignatureIterator7do_typeE9BasicType.exit6
 
-60:                                               ; preds = %53, %53
-  %61 = load ptr, ptr %1, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 40
-  br label %_ZN23NativeSignatureIterator7do_typeE9BasicType.exit5
+59:                                               ; preds = %52, %52
+  %60 = load ptr, ptr %1, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 40
+  br label %_ZN23NativeSignatureIterator7do_typeE9BasicType.exit6
 
-63:                                               ; preds = %53
-  %64 = load ptr, ptr %1, align 8
-  br label %_ZN23NativeSignatureIterator7do_typeE9BasicType.exit5
+62:                                               ; preds = %52
+  %63 = load ptr, ptr %1, align 8
+  br label %_ZN23NativeSignatureIterator7do_typeE9BasicType.exit6
 
-65:                                               ; preds = %53
-  %66 = load ptr, ptr %1, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 24
-  br label %_ZN23NativeSignatureIterator7do_typeE9BasicType.exit5
+64:                                               ; preds = %52
+  %65 = load ptr, ptr %1, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 24
+  br label %_ZN23NativeSignatureIterator7do_typeE9BasicType.exit6
 
-68:                                               ; preds = %53
-  %69 = load ptr, ptr %1, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 48
-  br label %_ZN23NativeSignatureIterator7do_typeE9BasicType.exit5
+67:                                               ; preds = %52
+  %68 = load ptr, ptr %1, align 8
+  %69 = getelementptr inbounds i8, ptr %68, i64 48
+  br label %_ZN23NativeSignatureIterator7do_typeE9BasicType.exit6
 
-71:                                               ; preds = %53
-  %72 = load ptr, ptr %1, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 8
-  br label %_ZN23NativeSignatureIterator7do_typeE9BasicType.exit5
+70:                                               ; preds = %52
+  %71 = load ptr, ptr %1, align 8
+  %72 = getelementptr inbounds i8, ptr %71, i64 8
+  br label %_ZN23NativeSignatureIterator7do_typeE9BasicType.exit6
 
-74:                                               ; preds = %53, %53
-  %75 = load ptr, ptr %1, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 16
-  br label %_ZN23NativeSignatureIterator7do_typeE9BasicType.exit5
+73:                                               ; preds = %52, %52
+  %74 = load ptr, ptr %1, align 8
+  %75 = getelementptr inbounds i8, ptr %74, i64 16
+  br label %_ZN23NativeSignatureIterator7do_typeE9BasicType.exit6
 
-77:                                               ; preds = %53
-  %78 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %78, align 1
+76:                                               ; preds = %52
+  %77 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %77, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.26, i32 noundef 412) #18
   unreachable
 
-_ZN23NativeSignatureIterator7do_typeE9BasicType.exit5: ; preds = %57, %60, %63, %65, %68, %71, %74
-  %.sink8.i3 = phi ptr [ %76, %74 ], [ %73, %71 ], [ %70, %68 ], [ %67, %65 ], [ %64, %63 ], [ %62, %60 ], [ %59, %57 ]
-  %.sink5.i4 = phi i32 [ 1, %74 ], [ 2, %71 ], [ 2, %68 ], [ 1, %65 ], [ 1, %63 ], [ 1, %60 ], [ 1, %57 ]
-  %79 = load ptr, ptr %.sink8.i3, align 8
-  tail call void %79(ptr noundef nonnull align 8 dereferenceable(60) %1) #17
+_ZN23NativeSignatureIterator7do_typeE9BasicType.exit6: ; preds = %56, %59, %62, %64, %67, %70, %73
+  %.sink.in.i3 = phi ptr [ %75, %73 ], [ %72, %70 ], [ %69, %67 ], [ %66, %64 ], [ %63, %62 ], [ %61, %59 ], [ %58, %56 ]
+  %.sink5.i4 = phi i32 [ 1, %73 ], [ 2, %70 ], [ 2, %67 ], [ 1, %64 ], [ 1, %62 ], [ 1, %59 ], [ 1, %56 ]
+  %.sink.i5 = load ptr, ptr %.sink.in.i3, align 8
+  tail call void %.sink.i5(ptr noundef nonnull align 8 dereferenceable(60) %1) #17
+  %78 = load i32, ptr %50, align 8
+  %79 = add nsw i32 %78, 1
+  store i32 %79, ptr %50, align 8
   %80 = load i32, ptr %51, align 8
-  %81 = add nsw i32 %80, 1
+  %81 = add nsw i32 %80, %.sink5.i4
   store i32 %81, ptr %51, align 8
-  %82 = load i32, ptr %52, align 8
-  %83 = add nsw i32 %82, %.sink5.i4
-  store i32 %83, ptr %52, align 8
-  br label %53, !llvm.loop !25
+  br label %52, !llvm.loop !25
 
-.loopexit:                                        ; preds = %53, %._crit_edge
+.loopexit:                                        ; preds = %52, %._crit_edge
   ret void
 }
 

@@ -378,8 +378,8 @@ define range(i32 0, 2) i32 @range_add_value(ptr noundef %0, ptr noundef %1, i32 
   %wide.trip.count = zext i32 %6 to i64
   br label %8
 
-8:                                                ; preds = %.lr.ph, %24
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
+8:                                                ; preds = %.lr.ph, %25
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
   %9 = getelementptr [1 x %struct.range_admin_tag], ptr %7, i64 0, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %.not38 = icmp ult i32 %2, %10
@@ -394,52 +394,53 @@ define range(i32 0, 2) i32 @range_add_value(ptr noundef %0, ptr noundef %1, i32 
 14:                                               ; preds = %11, %8
   %15 = add i32 %10, -1
   %16 = icmp eq i32 %2, %15
-  br i1 %16, label %.loopexit.sink.split, label %17
+  br i1 %16, label %17, label %18
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %9, i64 4
-  %19 = load i32, ptr %18, align 4
-  %20 = add i32 %19, 1
-  %21 = icmp eq i32 %2, %20
-  br i1 %21, label %22, label %24
+  store i32 %2, ptr %9, align 4
+  br label %.loopexit
 
-22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %9, i64 4
-  br label %.loopexit.sink.split
+18:                                               ; preds = %14
+  %19 = getelementptr inbounds i8, ptr %9, i64 4
+  %20 = load i32, ptr %19, align 4
+  %21 = add i32 %20, 1
+  %22 = icmp eq i32 %2, %21
+  br i1 %22, label %23, label %25
 
-24:                                               ; preds = %17
+23:                                               ; preds = %18
+  %24 = getelementptr inbounds i8, ptr %9, i64 4
+  store i32 %2, ptr %24, align 4
+  br label %.loopexit
+
+25:                                               ; preds = %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %8, !llvm.loop !11
 
-._crit_edge.loopexit:                             ; preds = %24
-  %25 = zext i32 %6 to i64
+._crit_edge.loopexit:                             ; preds = %25
+  %26 = zext i32 %6 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %.0.lcssa = phi i64 [ 0, %.preheader ], [ %25, %._crit_edge.loopexit ]
-  %26 = add i32 %6, 1
-  %27 = zext i32 %26 to i64
-  %28 = shl nuw nsw i64 %27, 3
-  %29 = or disjoint i64 %28, 4
-  %30 = tail call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %29) #4
-  store ptr %30, ptr %1, align 8
-  %31 = load i32, ptr %30, align 4
-  %32 = add i32 %31, 1
-  store i32 %32, ptr %30, align 4
-  %33 = getelementptr inbounds i8, ptr %30, i64 4
-  %34 = getelementptr [1 x %struct.range_admin_tag], ptr %33, i64 0, i64 %.0.lcssa, i32 1
-  store i32 %2, ptr %34, align 4
-  %35 = getelementptr [1 x %struct.range_admin_tag], ptr %33, i64 0, i64 %.0.lcssa
-  br label %.loopexit.sink.split
-
-.loopexit.sink.split:                             ; preds = %14, %22, %._crit_edge
-  %.sink = phi ptr [ %35, %._crit_edge ], [ %23, %22 ], [ %9, %14 ]
-  store i32 %2, ptr %.sink, align 4
+  %.0.lcssa = phi i64 [ 0, %.preheader ], [ %26, %._crit_edge.loopexit ]
+  %27 = add i32 %6, 1
+  %28 = zext i32 %27 to i64
+  %29 = shl nuw nsw i64 %28, 3
+  %30 = or disjoint i64 %29, 4
+  %31 = tail call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %30) #4
+  store ptr %31, ptr %1, align 8
+  %32 = load i32, ptr %31, align 4
+  %33 = add i32 %32, 1
+  store i32 %33, ptr %31, align 4
+  %34 = getelementptr inbounds i8, ptr %31, i64 4
+  %35 = getelementptr [1 x %struct.range_admin_tag], ptr %34, i64 0, i64 %.0.lcssa, i32 1
+  store i32 %2, ptr %35, align 4
+  %36 = getelementptr [1 x %struct.range_admin_tag], ptr %34, i64 0, i64 %.0.lcssa
+  store i32 %2, ptr %36, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %11, %.loopexit.sink.split, %3, %4
-  %.033 = phi i32 [ 0, %4 ], [ 0, %3 ], [ 1, %.loopexit.sink.split ], [ 1, %11 ]
+.loopexit:                                        ; preds = %11, %3, %4, %._crit_edge, %23, %17
+  %.033 = phi i32 [ 1, %17 ], [ 1, %23 ], [ 1, %._crit_edge ], [ 0, %4 ], [ 0, %3 ], [ 1, %11 ]
   ret i32 %.033
 }
 

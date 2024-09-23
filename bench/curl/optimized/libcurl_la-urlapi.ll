@@ -3344,7 +3344,7 @@ if.else16.tail:                                   ; preds = %if.else.tail
   %13 = getelementptr inbounds i8, ptr %input.addr.0, i64 1
   %14 = load i8, ptr %13, align 1
   %tobool18.not = icmp eq i8 %14, 0
-  br i1 %tobool18.not, label %do.end108.sink.split, label %sub_163
+  br i1 %tobool18.not, label %if.then28, label %sub_163
 
 sub_163:                                          ; preds = %if.else16.tail
   %15 = getelementptr inbounds i8, ptr %input.addr.0, i64 1
@@ -3364,13 +3364,13 @@ sub_264:                                          ; preds = %sub_163
 lor.lhs.false19.tail:                             ; preds = %sub_163, %sub_264
   %23 = phi i32 [ %18, %sub_163 ], [ %22, %sub_264 ]
   %tobool21.not = icmp eq i32 %23, 0
-  br i1 %tobool21.not, label %do.end108.sink.split, label %lor.lhs.false22.tail
+  br i1 %tobool21.not, label %if.then28, label %lor.lhs.false22.tail
 
 lor.lhs.false22.tail:                             ; preds = %lor.lhs.false19.tail
   %24 = getelementptr inbounds i8, ptr %input.addr.0, i64 1
   %25 = load i8, ptr %24, align 1
   %tobool24.not = icmp eq i8 %25, 63
-  br i1 %tobool24.not, label %do.end108.sink.split, label %sub_170
+  br i1 %tobool24.not, label %if.then28, label %sub_170
 
 sub_170:                                          ; preds = %lor.lhs.false22.tail
   %26 = getelementptr inbounds i8, ptr %input.addr.0, i64 1
@@ -3390,10 +3390,14 @@ sub_271:                                          ; preds = %sub_170
 lor.lhs.false25.tail:                             ; preds = %sub_170, %sub_271
   %34 = phi i32 [ %29, %sub_170 ], [ %33, %sub_271 ]
   %tobool27.not = icmp eq i32 %34, 0
-  br i1 %tobool27.not, label %do.end108.sink.split, label %do.body93.preheader
+  br i1 %tobool27.not, label %if.then28, label %do.body93.preheader
 
 do.body93.preheader:                              ; preds = %do.body, %lor.lhs.false67, %lor.lhs.false25.tail
   br label %do.body93
+
+if.then28:                                        ; preds = %lor.lhs.false25.tail, %lor.lhs.false22.tail, %lor.lhs.false19.tail, %if.else16.tail
+  store i8 0, ptr %call1, align 1
+  br label %do.end108
 
 sub_174:                                          ; preds = %do.body
   %35 = getelementptr inbounds i8, ptr %input.addr.0, i64 1
@@ -3437,7 +3441,7 @@ sub_279:                                          ; preds = %sub_178
 if.else43.tail:                                   ; preds = %sub_178, %sub_279
   %52 = phi i32 [ %47, %sub_178 ], [ %51, %sub_279 ]
   %tobool45.not = icmp eq i32 %52, 0
-  br i1 %tobool45.not, label %do.end108.sink.split.sink.split, label %sub_182
+  br i1 %tobool45.not, label %if.then49, label %sub_182
 
 sub_182:                                          ; preds = %if.else43.tail
   %53 = getelementptr inbounds i8, ptr %input.addr.0, i64 1
@@ -3457,7 +3461,13 @@ sub_283:                                          ; preds = %sub_182
 lor.lhs.false46.tail:                             ; preds = %sub_182, %sub_283
   %61 = phi i32 [ %56, %sub_182 ], [ %60, %sub_283 ]
   %tobool48.not = icmp eq i32 %61, 0
-  br i1 %tobool48.not, label %do.end108.sink.split.sink.split, label %if.else50
+  br i1 %tobool48.not, label %if.then49, label %if.else50
+
+if.then49:                                        ; preds = %lor.lhs.false46.tail, %if.else43.tail
+  %incdec.ptr = getelementptr inbounds i8, ptr %outptr.0, i64 1
+  store i8 47, ptr %outptr.0, align 1
+  store i8 0, ptr %incdec.ptr, align 1
+  br label %do.end108
 
 if.else50:                                        ; preds = %lor.lhs.false46.tail
   %call51 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.47, ptr noundef nonnull dereferenceable(1) %input.addr.0, i64 noundef 4) #11
@@ -3500,13 +3510,20 @@ while.cond71.preheader:                           ; preds = %lor.lhs.false67, %i
 while.cond71:                                     ; preds = %while.cond71.preheader, %while.body74
   %outptr.4 = phi ptr [ %incdec.ptr75, %while.body74 ], [ %outptr.0, %while.cond71.preheader ]
   %cmp72 = icmp ugt ptr %outptr.4, %call1
-  br i1 %cmp72, label %while.body74, label %do.end108.sink.split.sink.split
+  br i1 %cmp72, label %while.body74, label %while.end81
 
 while.body74:                                     ; preds = %while.cond71
   %incdec.ptr75 = getelementptr inbounds i8, ptr %outptr.4, i64 -1
   %63 = load i8, ptr %incdec.ptr75, align 1
   %cmp77 = icmp eq i8 %63, 47
-  br i1 %cmp77, label %do.end108.sink.split.sink.split, label %while.cond71, !llvm.loop !18
+  br i1 %cmp77, label %while.end81, label %while.cond71, !llvm.loop !18
+
+while.end81:                                      ; preds = %while.body74, %while.cond71
+  %outptr.5 = phi ptr [ %incdec.ptr75, %while.body74 ], [ %outptr.4, %while.cond71 ]
+  %incdec.ptr82 = getelementptr inbounds i8, ptr %outptr.5, i64 1
+  store i8 47, ptr %outptr.5, align 1
+  store i8 0, ptr %incdec.ptr82, align 1
+  br label %do.end108
 
 do.body93:                                        ; preds = %do.body93.preheader, %do.body93
   %64 = phi i8 [ %65, %do.body93 ], [ %1, %do.body93.preheader ]
@@ -3532,18 +3549,7 @@ do.cond105:                                       ; preds = %if.then40, %while.e
   %cmp106 = icmp ult ptr %input.addr.3, %arrayidx
   br i1 %cmp106, label %do.body, label %do.end108, !llvm.loop !19
 
-do.end108.sink.split.sink.split:                  ; preds = %if.else43.tail, %lor.lhs.false46.tail, %while.cond71, %while.body74
-  %outptr.0.lcssa.sink108 = phi ptr [ %incdec.ptr75, %while.body74 ], [ %outptr.4, %while.cond71 ], [ %outptr.0, %lor.lhs.false46.tail ], [ %outptr.0, %if.else43.tail ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %outptr.0.lcssa.sink108, i64 1
-  store i8 47, ptr %outptr.0.lcssa.sink108, align 1
-  br label %do.end108.sink.split
-
-do.end108.sink.split:                             ; preds = %if.else16.tail, %lor.lhs.false19.tail, %lor.lhs.false22.tail, %lor.lhs.false25.tail, %do.end108.sink.split.sink.split
-  %incdec.ptr82.sink = phi ptr [ %incdec.ptr, %do.end108.sink.split.sink.split ], [ %call1, %lor.lhs.false25.tail ], [ %call1, %lor.lhs.false22.tail ], [ %call1, %lor.lhs.false19.tail ], [ %call1, %if.else16.tail ]
-  store i8 0, ptr %incdec.ptr82.sink, align 1
-  br label %do.end108
-
-do.end108:                                        ; preds = %do.cond105, %do.end108.sink.split
+do.end108:                                        ; preds = %do.cond105, %while.end81, %if.then49, %if.then28
   store ptr %call1, ptr %outp, align 8
   br label %return
 

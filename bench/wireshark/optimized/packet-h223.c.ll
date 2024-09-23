@@ -386,54 +386,61 @@ define internal void @h223_set_mc(ptr noundef %0, i8 noundef zeroext %1, ptr nou
   %24 = getelementptr [16 x ptr], ptr %20, i64 0, i64 %23
   %25 = load ptr, ptr %24, align 8
   %.not.i = icmp eq ptr %25, null
-  br i1 %.not.i, label %42, label %.preheader.i
+  br i1 %.not.i, label %26, label %.preheader.i
+
+26:                                               ; preds = %13
+  store ptr %22, ptr %24, align 8
+  br label %44
 
 .preheader.i:                                     ; preds = %13, %.preheader.i
-  %.028.i = phi ptr [ %26, %.preheader.i ], [ %24, %13 ]
-  %.0.i = phi ptr [ %27, %.preheader.i ], [ %25, %13 ]
-  %26 = getelementptr inbounds i8, ptr %.0.i, i64 16
-  %27 = load ptr, ptr %26, align 8
-  %.not33.i = icmp eq ptr %27, null
-  br i1 %.not33.i, label %28, label %.preheader.i, !llvm.loop !4
+  %.028.i = phi ptr [ %27, %.preheader.i ], [ %24, %13 ]
+  %.0.i = phi ptr [ %28, %.preheader.i ], [ %25, %13 ]
+  %27 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %28 = load ptr, ptr %27, align 8
+  %.not33.i = icmp eq ptr %28, null
+  br i1 %.not33.i, label %29, label %.preheader.i, !llvm.loop !4
 
-28:                                               ; preds = %.preheader.i
-  %29 = getelementptr inbounds i8, ptr %.0.i, i64 8
-  %30 = load i32, ptr %29, align 8
-  %31 = icmp ult i32 %10, %30
-  br i1 %31, label %add_h223_mux_element.exit, label %32
+29:                                               ; preds = %.preheader.i
+  %30 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %31 = load i32, ptr %30, align 8
+  %32 = icmp ult i32 %10, %31
+  br i1 %32, label %add_h223_mux_element.exit, label %33
 
-32:                                               ; preds = %28
-  %33 = icmp eq i32 %10, %30
-  br i1 %33, label %34, label %41
+33:                                               ; preds = %29
+  %34 = icmp eq i32 %10, %31
+  br i1 %34, label %35, label %43
 
-34:                                               ; preds = %32
-  %35 = load i32, ptr @pdu_offset, align 4
-  %36 = getelementptr inbounds i8, ptr %.0.i, i64 12
-  %37 = load i32, ptr %36, align 4
-  %38 = icmp ult i32 %35, %37
-  br i1 %38, label %add_h223_mux_element.exit, label %39
+35:                                               ; preds = %33
+  %36 = load i32, ptr @pdu_offset, align 4
+  %37 = getelementptr inbounds i8, ptr %.0.i, i64 12
+  %38 = load i32, ptr %37, align 4
+  %39 = icmp ult i32 %36, %38
+  br i1 %39, label %add_h223_mux_element.exit, label %40
 
-39:                                               ; preds = %34
-  %40 = icmp eq i32 %35, %37
-  br i1 %40, label %42, label %41
+40:                                               ; preds = %35
+  %41 = icmp eq i32 %36, %38
+  br i1 %41, label %42, label %43
 
-41:                                               ; preds = %39, %32
-  br label %42
+42:                                               ; preds = %40
+  store ptr %22, ptr %.028.i, align 8
+  br label %44
 
-42:                                               ; preds = %41, %39, %13
-  %.lcssa.sink.i = phi ptr [ %26, %41 ], [ %24, %13 ], [ %.028.i, %39 ]
-  store ptr %22, ptr %.lcssa.sink.i, align 8
-  %43 = getelementptr inbounds i8, ptr %22, i64 8
-  store i32 %10, ptr %43, align 8
-  %44 = load i32, ptr @pdu_offset, align 4
-  %45 = getelementptr inbounds i8, ptr %22, i64 12
-  store i32 %44, ptr %45, align 4
-  %46 = getelementptr inbounds i8, ptr %22, i64 16
-  store ptr null, ptr %46, align 8
+43:                                               ; preds = %40, %33
+  store ptr %22, ptr %27, align 8
+  br label %44
+
+44:                                               ; preds = %43, %42, %26
+  %45 = getelementptr inbounds i8, ptr %22, i64 8
+  store i32 %10, ptr %45, align 8
+  %46 = load i32, ptr @pdu_offset, align 4
+  %47 = getelementptr inbounds i8, ptr %22, i64 12
+  store i32 %46, ptr %47, align 4
+  %48 = getelementptr inbounds i8, ptr %22, i64 16
+  store ptr null, ptr %48, align 8
   store ptr %2, ptr %22, align 8
   br label %add_h223_mux_element.exit
 
-add_h223_mux_element.exit:                        ; preds = %42, %34, %28, %5, %3
+add_h223_mux_element.exit:                        ; preds = %44, %35, %29, %5, %3
   ret void
 }
 
@@ -1332,7 +1339,7 @@ declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @create_call_info(i32 noundef %0) unnamed_addr #0 {
-init_direction_data.exit23:
+init_direction_data.exit20:
   %1 = tail call ptr @wmem_file_scope() #12
   %2 = tail call noalias ptr @wmem_alloc(ptr noundef %1, i64 noundef 296) #12
   %3 = getelementptr inbounds i8, ptr %2, i64 40
@@ -1342,8 +1349,8 @@ init_direction_data.exit23:
   %6 = tail call noalias ptr @wmem_alloc(ptr noundef %5, i64 noundef 24) #12
   %7 = tail call ptr @wmem_file_scope() #12
   %8 = tail call noalias ptr @wmem_alloc(ptr noundef %7, i64 noundef 24) #12
-  %.pre.i = load i32, ptr @pdu_offset, align 4
   store ptr %8, ptr %3, align 8
+  %.pre.i = load i32, ptr @pdu_offset, align 4
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 0, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %8, i64 12
@@ -1365,12 +1372,12 @@ init_direction_data.exit23:
   %18 = tail call noalias ptr @wmem_alloc(ptr noundef %17, i64 noundef 24) #12
   %19 = tail call ptr @wmem_file_scope() #12
   %20 = tail call noalias ptr @wmem_alloc(ptr noundef %19, i64 noundef 24) #12
-  %.pre.i22 = load i32, ptr @pdu_offset, align 4
   store ptr %20, ptr %15, align 8
+  %.pre.i19 = load i32, ptr @pdu_offset, align 4
   %21 = getelementptr inbounds i8, ptr %20, i64 8
   store i32 0, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %20, i64 12
-  store i32 %.pre.i22, ptr %22, align 4
+  store i32 %.pre.i19, ptr %22, align 4
   %23 = getelementptr inbounds i8, ptr %20, i64 16
   store ptr null, ptr %23, align 8
   store ptr %18, ptr %20, align 8

@@ -2029,7 +2029,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang14SourceLocationES3_NS_12DenseMapInfo
   %61 = load i32, ptr %6, align 4, !noalias !28
   store i32 %61, ptr %60, align 4, !noalias !28
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 4
-  br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread.sink.split
+  store i32 %.sroa.02.0.i, ptr %62, align 4, !noalias !28
+  br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 
 .loopexit:                                        ; preds = %52, %42
   %63 = phi i64 [ %45, %42 ], [ %57, %52 ]
@@ -2037,14 +2038,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang14SourceLocationES3_NS_12DenseMapInfo
   %65 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.295", ptr %38, i64 %63, i32 0, i32 1
   %.sroa.01.0.copyload = load i32, ptr %65, align 4
   %66 = call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %64, i32 %.sroa.01.0.copyload, i32 %.sroa.02.0.i) #17
-  br i1 %66, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread.sink.split, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
+  br i1 %66, label %67, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread.sink.split: ; preds = %.loopexit, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang14SourceLocationES3_NS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S3_EEEES3_S3_S5_S8_E11try_emplaceIJRKS3_EEESt4pairINS_16DenseMapIteratorIS3_S3_S5_S8_Lb0EEEbESD_DpOT_.exit
-  %.sink = phi ptr [ %62, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang14SourceLocationES3_NS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S3_EEEES3_S3_S5_S8_E11try_emplaceIJRKS3_EEESt4pairINS_16DenseMapIteratorIS3_S3_S5_S8_Lb0EEEbESD_DpOT_.exit ], [ %65, %.loopexit ]
-  store i32 %.sroa.02.0.i, ptr %.sink, align 4
+67:                                               ; preds = %.loopexit
+  store i32 %.sroa.02.0.i, ptr %65, align 4
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread.sink.split, %.loopexit, %_ZN4llvmeqENS_9StringRefES0_.exit
+_ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang14SourceLocationES3_NS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S3_EEEES3_S3_S5_S8_E11try_emplaceIJRKS3_EEESt4pairINS_16DenseMapIteratorIS3_S3_S5_S8_Lb0EEEbESD_DpOT_.exit, %.loopexit, %67, %_ZN4llvmeqENS_9StringRefES0_.exit
   ret void
 }
 

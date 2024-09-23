@@ -852,40 +852,37 @@ agxbsizeof.exit.i.i:                              ; preds = %16
 31:                                               ; preds = %30
   %32 = zext i8 %.val.i15.pre.i.i to i64
   %33 = getelementptr inbounds [31 x i8], ptr %8, i64 0, i64 %32
-  br label %agxbputc.exit.i
+  store i8 0, ptr %33, align 1
+  %.pre = load ptr, ptr %8, align 8
+  br label %agxbdisown.exit
 
 .thread.i:                                        ; preds = %..thread_crit_edge.i, %agxbsizeof.exit.i.i
   %34 = phi i64 [ %.pre.i, %..thread_crit_edge.i ], [ %27, %agxbsizeof.exit.i.i ]
   %35 = load ptr, ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 %34
-  br label %agxbputc.exit.i
-
-agxbputc.exit.i:                                  ; preds = %.thread.i, %31
-  %.sink.i = phi ptr [ %33, %31 ], [ %36, %.thread.i ]
-  store i8 0, ptr %.sink.i, align 1
-  %37 = load ptr, ptr %8, align 8
+  store i8 0, ptr %36, align 1
   br label %agxbdisown.exit
 
-agxbdisown.exit:                                  ; preds = %agxbputc.exit.i, %agxblen.exit.i, %.thread
-  %spec.store.select32 = phi ptr [ %spec.store.select30, %.thread ], [ %spec.store.select, %agxblen.exit.i ], [ %spec.store.select, %agxbputc.exit.i ]
-  %.031 = phi i32 [ %3, %.thread ], [ %17, %agxblen.exit.i ], [ %17, %agxbputc.exit.i ]
-  %38 = phi ptr [ null, %.thread ], [ %20, %agxblen.exit.i ], [ %37, %agxbputc.exit.i ]
-  %39 = tail call i32 @excomp(ptr noundef %0, ptr noundef nonnull %spec.store.select32, i32 noundef %.031, ptr noundef %9, ptr noundef %38) #24
-  %40 = tail call i32 @fclose(ptr noundef %9)
-  %41 = icmp sgt i32 %39, -1
-  br i1 %41, label %42, label %47
+agxbdisown.exit:                                  ; preds = %agxblen.exit.i, %.thread.i, %31, %.thread
+  %spec.store.select32 = phi ptr [ %spec.store.select30, %.thread ], [ %spec.store.select, %31 ], [ %spec.store.select, %.thread.i ], [ %spec.store.select, %agxblen.exit.i ]
+  %.031 = phi i32 [ %3, %.thread ], [ %17, %31 ], [ %17, %.thread.i ], [ %17, %agxblen.exit.i ]
+  %37 = phi ptr [ null, %.thread ], [ %.pre, %31 ], [ %35, %.thread.i ], [ %20, %agxblen.exit.i ]
+  %38 = tail call i32 @excomp(ptr noundef %0, ptr noundef nonnull %spec.store.select32, i32 noundef %.031, ptr noundef %9, ptr noundef %37) #24
+  %39 = tail call i32 @fclose(ptr noundef %9)
+  %40 = icmp sgt i32 %38, -1
+  br i1 %40, label %41, label %46
 
-42:                                               ; preds = %agxbdisown.exit
-  %43 = tail call i32 @getErrorErrors() #24
-  %44 = icmp eq i32 %43, 0
-  br i1 %44, label %45, label %47
+41:                                               ; preds = %agxbdisown.exit
+  %42 = tail call i32 @getErrorErrors() #24
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %44, label %46
 
-45:                                               ; preds = %42
-  %46 = tail call ptr @exexpr(ptr noundef %0, ptr noundef %4, ptr noundef null, i32 noundef %6) #24
-  br label %47
+44:                                               ; preds = %41
+  %45 = tail call ptr @exexpr(ptr noundef %0, ptr noundef %4, ptr noundef null, i32 noundef %6) #24
+  br label %46
 
-47:                                               ; preds = %45, %42, %agxbdisown.exit
-  %.021 = phi ptr [ %46, %45 ], [ null, %42 ], [ null, %agxbdisown.exit ]
+46:                                               ; preds = %44, %41, %agxbdisown.exit
+  %.021 = phi ptr [ %45, %44 ], [ null, %41 ], [ null, %agxbdisown.exit ]
   ret ptr %.021
 }
 

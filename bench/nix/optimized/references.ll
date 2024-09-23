@@ -4475,6 +4475,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit5: ; preds = %2
   store ptr null, ptr %32, align 8
   store ptr %35, ptr %39, align 8
   store ptr %35, ptr %42, align 8
+  store i64 0, ptr %46, align 8
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2EOSC_.exit
 
 49:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit5
@@ -4486,11 +4487,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit5: ; preds = %2
   %52 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr %31, ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 104
+  store i64 0, ptr %53, align 8
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2EOSC_.exit
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2EOSC_.exit: ; preds = %34, %49
-  %.sink.i.i.i.i = phi ptr [ %53, %49 ], [ %46, %34 ]
-  store i64 0, ptr %.sink.i.i.i.i, align 8
   ret void
 }
 

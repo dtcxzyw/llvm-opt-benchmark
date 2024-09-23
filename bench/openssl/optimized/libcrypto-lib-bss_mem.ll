@@ -293,7 +293,11 @@ entry:
   %sub = add nsw i32 %size, -1
   %j.0 = select i1 %cmp.not, i32 %conv, i32 %sub
   %cmp6 = icmp slt i32 %j.0, 1
-  br i1 %cmp6, label %return.sink.split, label %if.end9
+  br i1 %cmp6, label %if.then8, label %if.end9
+
+if.then8:                                         ; preds = %entry
+  store i8 0, ptr %buf, align 1
+  br label %return
 
 if.end9:                                          ; preds = %entry
   %data = getelementptr inbounds i8, ptr %bm.0, i64 8
@@ -388,16 +392,11 @@ if.then20:                                        ; preds = %mem_read.exit.if.th
   %idxprom21.pre-phi = phi i64 [ %.pre, %mem_read.exit.if.then20_crit_edge ], [ %conv11.i, %mem_read.exit.thread ]
   %ret.0.i20 = phi i32 [ %ret.0.i, %mem_read.exit.if.then20_crit_edge ], [ %spec.select22.i, %mem_read.exit.thread ]
   %arrayidx22 = getelementptr inbounds i8, ptr %buf, i64 %idxprom21.pre-phi
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %entry, %if.then20
-  %arrayidx22.sink = phi ptr [ %arrayidx22, %if.then20 ], [ %buf, %entry ]
-  %retval.0.ph = phi i32 [ %ret.0.i20, %if.then20 ], [ 0, %entry ]
-  store i8 0, ptr %arrayidx22.sink, align 1
+  store i8 0, ptr %arrayidx22, align 1
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.then20.i, %mem_read.exit
-  %retval.0 = phi i32 [ %ret.0.i, %mem_read.exit ], [ 0, %if.then20.i ], [ %retval.0.ph, %return.sink.split ]
+return:                                           ; preds = %if.then20.i, %mem_read.exit, %if.then20, %if.then8
+  %retval.0 = phi i32 [ 0, %if.then8 ], [ %ret.0.i20, %if.then20 ], [ %ret.0.i, %mem_read.exit ], [ 0, %if.then20.i ]
   ret i32 %retval.0
 }
 

@@ -1142,15 +1142,21 @@ if.else.i.i.i:                                    ; preds = %_ZNR5folly8Optional
 _ZN5folly8OptionalISt6vectorIN4fizz16CertificateEntryESaIS3_EEE6assignEOS5_.exit.i.i: ; preds = %if.else.i.i.i, %if.then.i.i.i6
   %18 = phi i8 [ %7, %if.else.i.i.i ], [ %.pre83, %if.then.i.i.i6 ]
   %tobool.i.i7.i.i = trunc i8 %18 to i1
-  br i1 %tobool.i.i7.i.i, label %_ZN5folly8OptionalISt6vectorIN4fizz16CertificateEntryESaIS3_EEEaSEOS6_.exit.sink.split, label %_ZN5folly8OptionalISt6vectorIN4fizz16CertificateEntryESaIS3_EEEaSEOS6_.exit
+  br i1 %tobool.i.i7.i.i, label %if.then.i.i8.i.i, label %_ZN5folly8OptionalISt6vectorIN4fizz16CertificateEntryESaIS3_EEEaSEOS6_.exit
+
+if.then.i.i8.i.i:                                 ; preds = %_ZN5folly8OptionalISt6vectorIN4fizz16CertificateEntryESaIS3_EEE6assignEOS5_.exit.i.i
+  store i8 0, ptr %hasValue.i.i.i.i, align 8
+  br label %_ZN5folly8OptionalISt6vectorIN4fizz16CertificateEntryESaIS3_EEEaSEOS6_.exit.sink.split
 
 if.else.i.i:                                      ; preds = %invoke.cont10
-  br i1 %tobool.i.i.i.i.i, label %_ZN5folly8OptionalISt6vectorIN4fizz16CertificateEntryESaIS3_EEEaSEOS6_.exit.sink.split, label %_ZN5folly8OptionalISt6vectorIN4fizz16CertificateEntryESaIS3_EEEaSEOS6_.exit
+  br i1 %tobool.i.i.i.i.i, label %if.then.i.i11.i.i, label %_ZN5folly8OptionalISt6vectorIN4fizz16CertificateEntryESaIS3_EEEaSEOS6_.exit
 
-_ZN5folly8OptionalISt6vectorIN4fizz16CertificateEntryESaIS3_EEEaSEOS6_.exit.sink.split: ; preds = %if.else.i.i, %_ZN5folly8OptionalISt6vectorIN4fizz16CertificateEntryESaIS3_EEE6assignEOS5_.exit.i.i
-  %hasValue.i.i.i.i.sink = phi ptr [ %hasValue.i.i.i.i, %_ZN5folly8OptionalISt6vectorIN4fizz16CertificateEntryESaIS3_EEE6assignEOS5_.exit.i.i ], [ %hasValue.i.i5, %if.else.i.i ]
-  %ref.tmp.sink = phi ptr [ %ref.tmp, %_ZN5folly8OptionalISt6vectorIN4fizz16CertificateEntryESaIS3_EEE6assignEOS5_.exit.i.i ], [ %certs, %if.else.i.i ]
-  store i8 0, ptr %hasValue.i.i.i.i.sink, align 8
+if.then.i.i11.i.i:                                ; preds = %if.else.i.i
+  store i8 0, ptr %hasValue.i.i5, align 8
+  br label %_ZN5folly8OptionalISt6vectorIN4fizz16CertificateEntryESaIS3_EEEaSEOS6_.exit.sink.split
+
+_ZN5folly8OptionalISt6vectorIN4fizz16CertificateEntryESaIS3_EEEaSEOS6_.exit.sink.split: ; preds = %if.then.i.i11.i.i, %if.then.i.i8.i.i
+  %ref.tmp.sink = phi ptr [ %ref.tmp, %if.then.i.i8.i.i ], [ %certs, %if.then.i.i11.i.i ]
   call void @_ZNSt6vectorIN4fizz16CertificateEntryESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sink) #17
   br label %_ZN5folly8OptionalISt6vectorIN4fizz16CertificateEntryESaIS3_EEEaSEOS6_.exit
 
@@ -1255,15 +1261,21 @@ if.else.i.i.i30:                                  ; preds = %_ZNR5folly8Optional
 _ZN5folly8OptionalISt6vectorIN4fizz16CertificateEntryESaIS3_EEE6assignEOS5_.exit.i.i34: ; preds = %if.else.i.i.i30, %if.then.i.i.i37
   %36 = phi i8 [ %25, %if.else.i.i.i30 ], [ %.pre, %if.then.i.i.i37 ]
   %tobool.i.i7.i.i35 = trunc i8 %36 to i1
-  br i1 %tobool.i.i7.i.i35, label %_ZN5folly8OptionalISt6vectorIN4fizz16CertificateEntryESaIS3_EEEaSEOS6_.exit43.sink.split, label %_ZN5folly8OptionalISt6vectorIN4fizz16CertificateEntryESaIS3_EEEaSEOS6_.exit43
+  br i1 %tobool.i.i7.i.i35, label %if.then.i.i8.i.i36, label %_ZN5folly8OptionalISt6vectorIN4fizz16CertificateEntryESaIS3_EEEaSEOS6_.exit43
+
+if.then.i.i8.i.i36:                               ; preds = %_ZN5folly8OptionalISt6vectorIN4fizz16CertificateEntryESaIS3_EEE6assignEOS5_.exit.i.i34
+  store i8 0, ptr %hasValue.i.i.i.i22, align 8
+  br label %_ZN5folly8OptionalISt6vectorIN4fizz16CertificateEntryESaIS3_EEEaSEOS6_.exit43.sink.split
 
 if.else.i.i26:                                    ; preds = %invoke.cont18
-  br i1 %tobool.i.i.i.i.i25, label %_ZN5folly8OptionalISt6vectorIN4fizz16CertificateEntryESaIS3_EEEaSEOS6_.exit43.sink.split, label %_ZN5folly8OptionalISt6vectorIN4fizz16CertificateEntryESaIS3_EEEaSEOS6_.exit43
+  br i1 %tobool.i.i.i.i.i25, label %if.then.i.i11.i.i27, label %_ZN5folly8OptionalISt6vectorIN4fizz16CertificateEntryESaIS3_EEEaSEOS6_.exit43
 
-_ZN5folly8OptionalISt6vectorIN4fizz16CertificateEntryESaIS3_EEEaSEOS6_.exit43.sink.split: ; preds = %if.else.i.i26, %_ZN5folly8OptionalISt6vectorIN4fizz16CertificateEntryESaIS3_EEE6assignEOS5_.exit.i.i34
-  %hasValue.i.i.i.i22.sink = phi ptr [ %hasValue.i.i.i.i22, %_ZN5folly8OptionalISt6vectorIN4fizz16CertificateEntryESaIS3_EEE6assignEOS5_.exit.i.i34 ], [ %hasValue.i.i5, %if.else.i.i26 ]
-  %ref.tmp12.sink = phi ptr [ %ref.tmp12, %_ZN5folly8OptionalISt6vectorIN4fizz16CertificateEntryESaIS3_EEE6assignEOS5_.exit.i.i34 ], [ %certs, %if.else.i.i26 ]
-  store i8 0, ptr %hasValue.i.i.i.i22.sink, align 8
+if.then.i.i11.i.i27:                              ; preds = %if.else.i.i26
+  store i8 0, ptr %hasValue.i.i5, align 8
+  br label %_ZN5folly8OptionalISt6vectorIN4fizz16CertificateEntryESaIS3_EEEaSEOS6_.exit43.sink.split
+
+_ZN5folly8OptionalISt6vectorIN4fizz16CertificateEntryESaIS3_EEEaSEOS6_.exit43.sink.split: ; preds = %if.then.i.i11.i.i27, %if.then.i.i8.i.i36
+  %ref.tmp12.sink = phi ptr [ %ref.tmp12, %if.then.i.i8.i.i36 ], [ %certs, %if.then.i.i11.i.i27 ]
   call void @_ZNSt6vectorIN4fizz16CertificateEntryESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp12.sink) #17
   br label %_ZN5folly8OptionalISt6vectorIN4fizz16CertificateEntryESaIS3_EEEaSEOS6_.exit43
 

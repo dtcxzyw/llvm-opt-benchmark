@@ -4971,7 +4971,7 @@ define internal fastcc range(i32 -1, 1) i32 @_setup_job_start_msg(ptr nocapture 
   %9 = getelementptr inbounds i8, ptr %1, i64 392
   %10 = load i32, ptr %9, align 8
   %11 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.110, i32 noundef %10) #14
-  br label %197
+  br label %196
 
 12:                                               ; preds = %5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %0, i8 0, i64 280, i1 false)
@@ -5161,102 +5161,102 @@ define internal fastcc range(i32 -1, 1) i32 @_setup_job_start_msg(ptr nocapture 
   br label %131
 
 131:                                              ; preds = %129, %127
-  %.sink140 = phi ptr [ %130, %129 ], [ %128, %127 ]
-  %132 = load ptr, ptr %.sink140, align 8
-  %133 = tail call ptr @slurm_xstrdup(ptr noundef %132) #14
-  %134 = getelementptr inbounds i8, ptr %0, i64 152
-  store ptr %133, ptr %134, align 8
-  %135 = load ptr, ptr %3, align 8
-  %.not125 = icmp eq ptr %135, null
-  br i1 %.not125, label %161, label %136
+  %.sink139.in = phi ptr [ %130, %129 ], [ %128, %127 ]
+  %.sink139 = load ptr, ptr %.sink139.in, align 8
+  %132 = tail call ptr @slurm_xstrdup(ptr noundef %.sink139) #14
+  %133 = getelementptr inbounds i8, ptr %0, i64 152
+  store ptr %132, ptr %133, align 8
+  %134 = load ptr, ptr %3, align 8
+  %.not125 = icmp eq ptr %134, null
+  br i1 %.not125, label %160, label %135
 
-136:                                              ; preds = %131
-  %137 = getelementptr inbounds i8, ptr %135, i64 268
-  %138 = load i32, ptr %137, align 4
-  %139 = getelementptr inbounds i8, ptr %0, i64 168
-  store i32 %138, ptr %139, align 8
-  %140 = load ptr, ptr %3, align 8
-  %141 = getelementptr inbounds i8, ptr %140, i64 312
-  %142 = load i64, ptr %141, align 8
-  %143 = getelementptr inbounds i8, ptr %0, i64 176
-  store i64 %142, ptr %143, align 8
-  %144 = load ptr, ptr %3, align 8
-  %145 = getelementptr inbounds i8, ptr %144, i64 440
-  %146 = load ptr, ptr %145, align 8
-  %147 = tail call ptr @slurm_xstrdup(ptr noundef %146) #14
-  %148 = getelementptr inbounds i8, ptr %0, i64 216
-  store ptr %147, ptr %148, align 8
-  %149 = load i64, ptr %83, align 8
-  switch i64 %149, label %161 [
-    i64 0, label %150
-    i64 -2, label %150
+135:                                              ; preds = %131
+  %136 = getelementptr inbounds i8, ptr %134, i64 268
+  %137 = load i32, ptr %136, align 4
+  %138 = getelementptr inbounds i8, ptr %0, i64 168
+  store i32 %137, ptr %138, align 8
+  %139 = load ptr, ptr %3, align 8
+  %140 = getelementptr inbounds i8, ptr %139, i64 312
+  %141 = load i64, ptr %140, align 8
+  %142 = getelementptr inbounds i8, ptr %0, i64 176
+  store i64 %141, ptr %142, align 8
+  %143 = load ptr, ptr %3, align 8
+  %144 = getelementptr inbounds i8, ptr %143, i64 440
+  %145 = load ptr, ptr %144, align 8
+  %146 = tail call ptr @slurm_xstrdup(ptr noundef %145) #14
+  %147 = getelementptr inbounds i8, ptr %0, i64 216
+  store ptr %146, ptr %147, align 8
+  %148 = load i64, ptr %83, align 8
+  switch i64 %148, label %160 [
+    i64 0, label %149
+    i64 -2, label %149
   ]
 
-150:                                              ; preds = %136, %136
-  %151 = load ptr, ptr %3, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 152
-  %153 = load ptr, ptr %152, align 8
-  %154 = tail call ptr @slurm_xstrdup(ptr noundef %153) #14
-  %155 = getelementptr inbounds i8, ptr %0, i64 80
-  store ptr %154, ptr %155, align 8
-  %156 = load ptr, ptr %3, align 8
-  %157 = getelementptr inbounds i8, ptr %156, i64 408
-  %158 = load ptr, ptr %157, align 8
-  %159 = tail call ptr @slurm_xstrdup(ptr noundef %158) #14
-  %160 = getelementptr inbounds i8, ptr %0, i64 192
-  store ptr %159, ptr %160, align 8
-  br label %161
+149:                                              ; preds = %135, %135
+  %150 = load ptr, ptr %3, align 8
+  %151 = getelementptr inbounds i8, ptr %150, i64 152
+  %152 = load ptr, ptr %151, align 8
+  %153 = tail call ptr @slurm_xstrdup(ptr noundef %152) #14
+  %154 = getelementptr inbounds i8, ptr %0, i64 80
+  store ptr %153, ptr %154, align 8
+  %155 = load ptr, ptr %3, align 8
+  %156 = getelementptr inbounds i8, ptr %155, i64 408
+  %157 = load ptr, ptr %156, align 8
+  %158 = tail call ptr @slurm_xstrdup(ptr noundef %157) #14
+  %159 = getelementptr inbounds i8, ptr %0, i64 192
+  store ptr %158, ptr %159, align 8
+  br label %160
 
-161:                                              ; preds = %136, %150, %131
-  %162 = getelementptr inbounds i8, ptr %1, i64 792
-  %163 = load i32, ptr %162, align 8
-  %164 = getelementptr inbounds i8, ptr %0, i64 184
-  store i32 %163, ptr %164, align 8
-  %165 = getelementptr inbounds i8, ptr %1, i64 712
-  %166 = load i32, ptr %165, align 8
-  %167 = getelementptr inbounds i8, ptr %0, i64 160
-  store i32 %166, ptr %167, align 8
-  %168 = getelementptr inbounds i8, ptr %1, i64 944
-  %169 = load i32, ptr %168, align 8
-  %170 = getelementptr inbounds i8, ptr %0, i64 232
-  store i32 %169, ptr %170, align 8
-  %171 = getelementptr inbounds i8, ptr %1, i64 1048
-  %172 = load ptr, ptr %171, align 8
-  %173 = tail call ptr @slurm_xstrdup(ptr noundef %172) #14
-  %174 = getelementptr inbounds i8, ptr %0, i64 248
-  store ptr %173, ptr %174, align 8
-  %175 = getelementptr inbounds i8, ptr %1, i64 1024
-  %176 = load ptr, ptr %175, align 8
-  %177 = tail call ptr @slurm_xstrdup(ptr noundef %176) #14
-  %178 = getelementptr inbounds i8, ptr %0, i64 256
-  store ptr %177, ptr %178, align 8
-  %179 = getelementptr inbounds i8, ptr %1, i64 528
-  %180 = load ptr, ptr %179, align 8
-  %181 = tail call ptr @slurm_xstrdup(ptr noundef %180) #14
-  %182 = getelementptr inbounds i8, ptr %0, i64 120
-  store ptr %181, ptr %182, align 8
-  %183 = getelementptr inbounds i8, ptr %1, i64 1088
-  %184 = load ptr, ptr %183, align 8
-  %185 = tail call ptr @slurm_xstrdup(ptr noundef %184) #14
-  %186 = getelementptr inbounds i8, ptr %0, i64 264
-  store ptr %185, ptr %186, align 8
-  %187 = getelementptr inbounds i8, ptr %1, i64 1064
-  %188 = load i32, ptr %187, align 8
-  %189 = getelementptr inbounds i8, ptr %0, i64 236
-  store i32 %188, ptr %189, align 4
-  %190 = getelementptr inbounds i8, ptr %1, i64 752
-  %191 = load i32, ptr %190, align 8
-  %192 = getelementptr inbounds i8, ptr %0, i64 164
-  store i32 %191, ptr %192, align 4
-  %193 = getelementptr inbounds i8, ptr %1, i64 336
-  %194 = load ptr, ptr %193, align 8
-  %195 = tail call ptr @slurm_xstrdup(ptr noundef %194) #14
-  %196 = getelementptr inbounds i8, ptr %0, i64 240
-  store ptr %195, ptr %196, align 8
-  br label %197
+160:                                              ; preds = %135, %149, %131
+  %161 = getelementptr inbounds i8, ptr %1, i64 792
+  %162 = load i32, ptr %161, align 8
+  %163 = getelementptr inbounds i8, ptr %0, i64 184
+  store i32 %162, ptr %163, align 8
+  %164 = getelementptr inbounds i8, ptr %1, i64 712
+  %165 = load i32, ptr %164, align 8
+  %166 = getelementptr inbounds i8, ptr %0, i64 160
+  store i32 %165, ptr %166, align 8
+  %167 = getelementptr inbounds i8, ptr %1, i64 944
+  %168 = load i32, ptr %167, align 8
+  %169 = getelementptr inbounds i8, ptr %0, i64 232
+  store i32 %168, ptr %169, align 8
+  %170 = getelementptr inbounds i8, ptr %1, i64 1048
+  %171 = load ptr, ptr %170, align 8
+  %172 = tail call ptr @slurm_xstrdup(ptr noundef %171) #14
+  %173 = getelementptr inbounds i8, ptr %0, i64 248
+  store ptr %172, ptr %173, align 8
+  %174 = getelementptr inbounds i8, ptr %1, i64 1024
+  %175 = load ptr, ptr %174, align 8
+  %176 = tail call ptr @slurm_xstrdup(ptr noundef %175) #14
+  %177 = getelementptr inbounds i8, ptr %0, i64 256
+  store ptr %176, ptr %177, align 8
+  %178 = getelementptr inbounds i8, ptr %1, i64 528
+  %179 = load ptr, ptr %178, align 8
+  %180 = tail call ptr @slurm_xstrdup(ptr noundef %179) #14
+  %181 = getelementptr inbounds i8, ptr %0, i64 120
+  store ptr %180, ptr %181, align 8
+  %182 = getelementptr inbounds i8, ptr %1, i64 1088
+  %183 = load ptr, ptr %182, align 8
+  %184 = tail call ptr @slurm_xstrdup(ptr noundef %183) #14
+  %185 = getelementptr inbounds i8, ptr %0, i64 264
+  store ptr %184, ptr %185, align 8
+  %186 = getelementptr inbounds i8, ptr %1, i64 1064
+  %187 = load i32, ptr %186, align 8
+  %188 = getelementptr inbounds i8, ptr %0, i64 236
+  store i32 %187, ptr %188, align 4
+  %189 = getelementptr inbounds i8, ptr %1, i64 752
+  %190 = load i32, ptr %189, align 8
+  %191 = getelementptr inbounds i8, ptr %0, i64 164
+  store i32 %190, ptr %191, align 4
+  %192 = getelementptr inbounds i8, ptr %1, i64 336
+  %193 = load ptr, ptr %192, align 8
+  %194 = tail call ptr @slurm_xstrdup(ptr noundef %193) #14
+  %195 = getelementptr inbounds i8, ptr %0, i64 240
+  store ptr %194, ptr %195, align 8
+  br label %196
 
-197:                                              ; preds = %161, %8
-  %.0 = phi i32 [ 0, %161 ], [ -1, %8 ]
+196:                                              ; preds = %160, %8
+  %.0 = phi i32 [ 0, %160 ], [ -1, %8 ]
   ret i32 %.0
 }
 

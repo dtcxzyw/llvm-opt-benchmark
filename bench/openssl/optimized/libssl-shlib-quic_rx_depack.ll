@@ -177,8 +177,8 @@ lor.lhs.false:                                    ; preds = %switch.lookup
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %was_minimal.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %frame_type.i)
   %9 = sext i32 %switch.load to i64
-  %switch.gep314 = getelementptr inbounds [4 x i32], ptr @switch.table.ossl_quic_handle_frames.23, i64 0, i64 %9
-  %switch.load315 = load i32, ptr %switch.gep314, align 4
+  %switch.gep320 = getelementptr inbounds [4 x i32], ptr @switch.table.ossl_quic_handle_frames.23, i64 0, i64 %9
+  %switch.load321 = load i32, ptr %switch.gep320, align 4
   %cmp.i17 = icmp eq i64 %7, 0
   br i1 %cmp.i17, label %if.then.i, label %while.cond.preheader.i
 
@@ -224,6 +224,8 @@ if.then.i:                                        ; preds = %lor.lhs.false
   br label %if.then20.sink.split
 
 while.body.i:                                     ; preds = %if.end211.i, %while.cond.preheader.i
+  %bf.load.i174.i179 = phi i8 [ %bf.load.i174.i, %if.end211.i ], [ %switch.masked, %while.cond.preheader.i ]
+  %bf.load14.i = phi i8 [ %bf.load14.i175, %if.end211.i ], [ %switch.masked, %while.cond.preheader.i ]
   %10 = load ptr, ptr %msg_callback.i, align 8
   %cmp4.not.i = icmp eq ptr %10, null
   %pkt.val138.i = load ptr, ptr %pkt, align 8
@@ -256,12 +258,13 @@ if.end13.i:                                       ; preds = %if.end10.i
   ]
 
 sw.default.i20:                                   ; preds = %if.end13.i
-  %bf.load14.i = load i8, ptr %pkt_space, align 8
   %bf.set.i = or i8 %bf.load14.i, 4
   store i8 %bf.set.i, ptr %pkt_space, align 8
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %sw.default.i20, %if.end13.i, %if.end13.i, %if.end13.i, %if.end13.i, %if.end13.i
+  %bf.load.i174.i = phi i8 [ %bf.set.i, %sw.default.i20 ], [ %bf.load.i174.i179, %if.end13.i ], [ %bf.load.i174.i179, %if.end13.i ], [ %bf.load.i174.i179, %if.end13.i ], [ %bf.load.i174.i179, %if.end13.i ], [ %bf.load.i174.i179, %if.end13.i ]
+  %bf.load14.i177 = phi i8 [ %bf.set.i, %sw.default.i20 ], [ %bf.load14.i, %if.end13.i ], [ %bf.load14.i, %if.end13.i ], [ %bf.load14.i, %if.end13.i ], [ %bf.load14.i, %if.end13.i ], [ %bf.load14.i, %if.end13.i ]
   switch i64 %12, label %sw.default197.i [
     i64 1, label %sw.bb16.i
     i64 0, label %sw.bb21.i
@@ -395,7 +398,7 @@ if.then31.i.i:                                    ; preds = %land.lhs.true27.i.i
 
 if.end32.i.i:                                     ; preds = %land.lhs.true27.i.i, %lor.lhs.false23.i.i, %if.end17.i.i
   %28 = load ptr, ptr %ackm.i.i, align 8
-  %call34.i.i = call i32 @ossl_ackm_on_rx_ack_frame(ptr noundef %28, ptr noundef nonnull %ack.i.i, i32 noundef %switch.load315, i64 %2) #3
+  %call34.i.i = call i32 @ossl_ackm_on_rx_ack_frame(ptr noundef %28, ptr noundef nonnull %ack.i.i, i32 noundef %switch.load321, i64 %2) #3
   %tobool35.not.i.i = icmp eq i32 %call34.i.i, 0
   br i1 %tobool35.not.i.i, label %malformed.i.i, label %depack_do_frame_ack.exit.i
 
@@ -584,7 +587,6 @@ if.end.i172.i:                                    ; preds = %if.end57.i
   br i1 %cmp.i173.i, label %depack_do_frame_crypto.exit.i, label %if.end2.i.i
 
 if.end2.i.i:                                      ; preds = %if.end.i172.i
-  %bf.load.i174.i = load i8, ptr %pkt_space, align 8
   %bf.clear.i175.i = and i8 %bf.load.i174.i, 3
   %idxprom.i.i = zext nneg i8 %bf.clear.i175.i to i64
   %arrayidx.i.i = getelementptr inbounds [3 x ptr], ptr %crypto_recv.i.i, i64 0, i64 %idxprom.i.i
@@ -637,6 +639,7 @@ depack_do_frame_crypto.exit.thread.i:             ; preds = %if.end2.i.i, %if.th
   br label %if.then20.sink.split
 
 depack_do_frame_crypto.exit.i:                    ; preds = %if.end32.i179.i, %if.end.i172.i
+  %bf.load14.i176 = phi i8 [ %bf.load14.i177, %if.end.i172.i ], [ %bf.load.i174.i, %if.end32.i179.i ]
   %datalen.1.i = phi i64 [ 0, %if.end.i172.i ], [ %48, %if.end32.i179.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %f.i.i)
   br label %sw.epilog198.i
@@ -993,25 +996,27 @@ if.end2.i251.i:                                   ; preds = %if.end.i249.i
 sw.bb.i.i:                                        ; preds = %if.end2.i251.i
   %77 = load i64, ptr %max_local_streams_bidi.i.i, align 8
   %cmp3.i.i = icmp ugt i64 %76, %77
-  br i1 %cmp3.i.i, label %depack_do_frame_max_streams.exit.sink.split.i, label %depack_do_frame_max_streams.exit.i
+  br i1 %cmp3.i.i, label %if.then4.i256.i, label %depack_do_frame_max_streams.exit.i
+
+if.then4.i256.i:                                  ; preds = %sw.bb.i.i
+  store i64 %76, ptr %max_local_streams_bidi.i.i, align 8
+  br label %depack_do_frame_max_streams.exit.i
 
 sw.bb7.i.i:                                       ; preds = %if.end2.i251.i
   %78 = load i64, ptr %max_local_streams_uni.i.i, align 8
   %cmp8.i.i = icmp ugt i64 %76, %78
-  br i1 %cmp8.i.i, label %depack_do_frame_max_streams.exit.sink.split.i, label %depack_do_frame_max_streams.exit.i
+  br i1 %cmp8.i.i, label %if.then9.i253.i, label %depack_do_frame_max_streams.exit.i
+
+if.then9.i253.i:                                  ; preds = %sw.bb7.i.i
+  store i64 %76, ptr %max_local_streams_uni.i.i, align 8
+  br label %depack_do_frame_max_streams.exit.i
 
 depack_do_frame_max_streams.exit.thread.i:        ; preds = %if.then1.i257.i, %if.then.i258.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %max_streams.i.i)
   br label %if.then20.sink.split
 
-depack_do_frame_max_streams.exit.sink.split.i:    ; preds = %sw.bb7.i.i, %sw.bb.i.i
-  %max_local_streams_uni.i.sink.i = phi ptr [ %max_local_streams_bidi.i.i, %sw.bb.i.i ], [ %max_local_streams_uni.i.i, %sw.bb7.i.i ]
-  %update_streams_bidi.sink.ph.i = phi ptr [ @update_streams_bidi, %sw.bb.i.i ], [ @update_streams_uni, %sw.bb7.i.i ]
-  store i64 %76, ptr %max_local_streams_uni.i.sink.i, align 8
-  br label %depack_do_frame_max_streams.exit.i
-
-depack_do_frame_max_streams.exit.i:               ; preds = %depack_do_frame_max_streams.exit.sink.split.i, %sw.bb7.i.i, %sw.bb.i.i
-  %update_streams_bidi.sink.i = phi ptr [ @update_streams_bidi, %sw.bb.i.i ], [ @update_streams_uni, %sw.bb7.i.i ], [ %update_streams_bidi.sink.ph.i, %depack_do_frame_max_streams.exit.sink.split.i ]
+depack_do_frame_max_streams.exit.i:               ; preds = %if.then9.i253.i, %sw.bb7.i.i, %if.then4.i256.i, %sw.bb.i.i
+  %update_streams_bidi.sink.i = phi ptr [ @update_streams_bidi, %if.then4.i256.i ], [ @update_streams_bidi, %sw.bb.i.i ], [ @update_streams_uni, %if.then9.i253.i ], [ @update_streams_uni, %sw.bb7.i.i ]
   call void @ossl_quic_stream_map_visit(ptr noundef nonnull %qsm12.i.i, ptr noundef nonnull %update_streams_bidi.sink.i, ptr noundef nonnull %ch) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %max_streams.i.i)
   br label %sw.epilog198.i
@@ -1340,6 +1345,7 @@ sw.default197.i:                                  ; preds = %sw.epilog.i
   br label %if.then20.sink.split
 
 sw.epilog198.i:                                   ; preds = %depack_do_frame_handshake_done.exit.i, %depack_do_frame_conn_close.exit.i, %depack_do_frame_path_response.exit.i, %depack_do_frame_path_challenge.exit.i, %depack_do_frame_retire_conn_id.exit.i, %depack_do_frame_new_conn_id.exit.i, %depack_do_frame_streams_blocked.exit.i, %depack_do_frame_stream_data_blocked.exit.i, %depack_do_frame_data_blocked.exit.i, %depack_do_frame_max_streams.exit.i, %depack_do_frame_max_stream_data.exit.i, %depack_do_frame_max_data.exit.i, %depack_do_frame_stream.exit.i, %depack_do_frame_new_token.exit.i, %depack_do_frame_crypto.exit.i, %depack_do_frame_stop_sending.exit.i, %depack_do_frame_reset_stream.exit.i, %depack_do_frame_ack.exit.i, %sw.bb21.i, %depack_do_frame_ping.exit.i
+  %bf.load14.i175 = phi i8 [ %bf.load14.i177, %depack_do_frame_handshake_done.exit.i ], [ %bf.load14.i177, %depack_do_frame_conn_close.exit.i ], [ %bf.load14.i177, %depack_do_frame_path_response.exit.i ], [ %bf.load14.i177, %depack_do_frame_path_challenge.exit.i ], [ %bf.load14.i177, %depack_do_frame_retire_conn_id.exit.i ], [ %bf.load14.i177, %depack_do_frame_new_conn_id.exit.i ], [ %bf.load14.i177, %depack_do_frame_streams_blocked.exit.i ], [ %bf.load14.i177, %depack_do_frame_stream_data_blocked.exit.i ], [ %bf.load14.i177, %depack_do_frame_data_blocked.exit.i ], [ %bf.load14.i177, %depack_do_frame_max_streams.exit.i ], [ %bf.load14.i177, %depack_do_frame_max_stream_data.exit.i ], [ %bf.load14.i177, %depack_do_frame_max_data.exit.i ], [ %bf.load14.i177, %depack_do_frame_stream.exit.i ], [ %bf.load14.i177, %depack_do_frame_new_token.exit.i ], [ %bf.load14.i176, %depack_do_frame_crypto.exit.i ], [ %bf.load14.i177, %depack_do_frame_stop_sending.exit.i ], [ %bf.load14.i177, %depack_do_frame_reset_stream.exit.i ], [ %bf.load14.i177, %depack_do_frame_ack.exit.i ], [ %bf.load14.i177, %sw.bb21.i ], [ %bf.load14.i177, %depack_do_frame_ping.exit.i ]
   %datalen.0.i = phi i64 [ 0, %depack_do_frame_handshake_done.exit.i ], [ 0, %depack_do_frame_conn_close.exit.i ], [ 0, %depack_do_frame_path_response.exit.i ], [ 0, %depack_do_frame_path_challenge.exit.i ], [ 0, %depack_do_frame_retire_conn_id.exit.i ], [ 0, %depack_do_frame_new_conn_id.exit.i ], [ 0, %depack_do_frame_streams_blocked.exit.i ], [ 0, %depack_do_frame_stream_data_blocked.exit.i ], [ 0, %depack_do_frame_data_blocked.exit.i ], [ 0, %depack_do_frame_max_streams.exit.i ], [ 0, %depack_do_frame_max_stream_data.exit.i ], [ 0, %depack_do_frame_max_data.exit.i ], [ %datalen.2.i, %depack_do_frame_stream.exit.i ], [ 0, %depack_do_frame_new_token.exit.i ], [ %datalen.1.i, %depack_do_frame_crypto.exit.i ], [ 0, %depack_do_frame_stop_sending.exit.i ], [ 0, %depack_do_frame_reset_stream.exit.i ], [ 0, %depack_do_frame_ack.exit.i ], [ 0, %sw.bb21.i ], [ 0, %depack_do_frame_ping.exit.i ]
   %87 = load ptr, ptr %msg_callback.i, align 8
   %cmp200.not.i = icmp eq ptr %87, null

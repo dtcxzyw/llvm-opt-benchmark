@@ -2862,13 +2862,13 @@ define internal noundef zeroext i1 @php_auto_globals_create_request(ptr noundef 
   %.not1015 = icmp eq ptr %.0, null
   br i1 %.not1015, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %12
-  %.sroa.0.019 = phi i8 [ %.sroa.0.1, %12 ], [ 0, %1 ]
-  %.sroa.3.018 = phi i8 [ %.sroa.3.1, %12 ], [ 0, %1 ]
-  %.117 = phi ptr [ %13, %12 ], [ %.0, %1 ]
-  %.sroa.5.016 = phi i8 [ %.sroa.5.1, %12 ], [ 0, %1 ]
+.lr.ph:                                           ; preds = %1, %11
+  %.sroa.0.019 = phi i8 [ %.sroa.0.1, %11 ], [ 0, %1 ]
+  %.sroa.3.018 = phi i8 [ %.sroa.3.1, %11 ], [ 0, %1 ]
+  %.117 = phi ptr [ %12, %11 ], [ %.0, %1 ]
+  %.sroa.5.016 = phi i8 [ %.sroa.5.1, %11 ], [ 0, %1 ]
   %7 = load i8, ptr %.117, align 1
-  switch i8 %7, label %12 [
+  switch i8 %7, label %11 [
     i8 0, label %.critedge
     i8 103, label %8
     i8 71, label %8
@@ -2880,34 +2880,34 @@ define internal noundef zeroext i1 @php_auto_globals_create_request(ptr noundef 
 
 8:                                                ; preds = %.lr.ph, %.lr.ph
   %.not14 = icmp eq i8 %.sroa.0.019, 0
-  br i1 %.not14, label %.sink.split, label %12
+  br i1 %.not14, label %.sink.split, label %11
 
 9:                                                ; preds = %.lr.ph, %.lr.ph
   %.not13 = icmp eq i8 %.sroa.3.018, 0
-  br i1 %.not13, label %.sink.split, label %12
+  br i1 %.not13, label %.sink.split, label %11
 
 10:                                               ; preds = %.lr.ph, %.lr.ph
   %.not12 = icmp eq i8 %.sroa.5.016, 0
-  br i1 %.not12, label %.sink.split, label %12
+  br i1 %.not12, label %.sink.split, label %11
 
 .sink.split:                                      ; preds = %10, %9, %8
-  %.sink21 = phi ptr [ getelementptr inbounds (i8, ptr @core_globals, i64 360), %8 ], [ getelementptr inbounds (i8, ptr @core_globals, i64 344), %9 ], [ getelementptr inbounds (i8, ptr @core_globals, i64 376), %10 ]
+  %.sink.in = phi ptr [ getelementptr inbounds (i8, ptr @core_globals, i64 360), %8 ], [ getelementptr inbounds (i8, ptr @core_globals, i64 344), %9 ], [ getelementptr inbounds (i8, ptr @core_globals, i64 376), %10 ]
   %.sroa.5.1.ph = phi i8 [ %.sroa.5.016, %8 ], [ %.sroa.5.016, %9 ], [ 1, %10 ]
   %.sroa.3.1.ph = phi i8 [ %.sroa.3.018, %8 ], [ 1, %9 ], [ %.sroa.3.018, %10 ]
   %.sroa.0.1.ph = phi i8 [ 1, %8 ], [ %.sroa.0.019, %9 ], [ %.sroa.0.019, %10 ]
-  %11 = load ptr, ptr %.sink21, align 8
-  tail call fastcc void @php_autoglobal_merge(ptr noundef %3, ptr noundef %11)
-  br label %12
+  %.sink = load ptr, ptr %.sink.in, align 8
+  tail call fastcc void @php_autoglobal_merge(ptr noundef %3, ptr noundef %.sink)
+  br label %11
 
-12:                                               ; preds = %.sink.split, %.lr.ph, %8, %9, %10
+11:                                               ; preds = %.sink.split, %.lr.ph, %8, %9, %10
   %.sroa.5.1 = phi i8 [ 1, %10 ], [ %.sroa.5.016, %9 ], [ %.sroa.5.016, %8 ], [ %.sroa.5.016, %.lr.ph ], [ %.sroa.5.1.ph, %.sink.split ]
   %.sroa.3.1 = phi i8 [ %.sroa.3.018, %10 ], [ 1, %9 ], [ %.sroa.3.018, %8 ], [ %.sroa.3.018, %.lr.ph ], [ %.sroa.3.1.ph, %.sink.split ]
   %.sroa.0.1 = phi i8 [ %.sroa.0.019, %10 ], [ %.sroa.0.019, %9 ], [ 1, %8 ], [ %.sroa.0.019, %.lr.ph ], [ %.sroa.0.1.ph, %.sink.split ]
-  %13 = getelementptr inbounds i8, ptr %.117, i64 1
+  %12 = getelementptr inbounds i8, ptr %.117, i64 1
   br label %.lr.ph
 
 .critedge:                                        ; preds = %.lr.ph, %1
-  %14 = call ptr @zend_hash_update(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 304), ptr noundef %0, ptr noundef nonnull %2) #17
+  %13 = call ptr @zend_hash_update(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 304), ptr noundef %0, ptr noundef nonnull %2) #17
   ret i1 false
 }
 

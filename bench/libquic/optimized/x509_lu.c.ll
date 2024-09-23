@@ -625,6 +625,7 @@ sw.bb.i.i.i:                                      ; preds = %entry
   store ptr %x509_s.i.i.i, ptr %data.i.i.i, align 8
   store ptr %cinf_s.i.i.i, ptr %x509_s.i.i.i, align 8
   %subject.i.i.i = getelementptr inbounds i8, ptr %cinf_s.i.i.i, i64 40
+  store ptr %name, ptr %subject.i.i.i, align 8
   br label %sw.epilog.i.i.i
 
 sw.bb2.i.i.i:                                     ; preds = %entry
@@ -632,11 +633,10 @@ sw.bb2.i.i.i:                                     ; preds = %entry
   store ptr %crl_s.i.i.i, ptr %data3.i.i.i, align 8
   store ptr %crl_info_s.i.i.i, ptr %crl_s.i.i.i, align 8
   %issuer.i.i.i = getelementptr inbounds i8, ptr %crl_info_s.i.i.i, i64 16
+  store ptr %name, ptr %issuer.i.i.i, align 8
   br label %sw.epilog.i.i.i
 
 sw.epilog.i.i.i:                                  ; preds = %sw.bb2.i.i.i, %sw.bb.i.i.i
-  %issuer.sink.i.i.i = phi ptr [ %issuer.i.i.i, %sw.bb2.i.i.i ], [ %subject.i.i.i, %sw.bb.i.i.i ]
-  store ptr %name, ptr %issuer.sink.i.i.i, align 8
   %call.i.i.i = call i32 @sk_find(ptr noundef %1, ptr noundef nonnull %idx.i.i.i, ptr noundef nonnull %stmp.i.i.i) #10
   %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %X509_OBJECT_idx_by_subject.exit.thread.i, label %X509_OBJECT_idx_by_subject.exit.i
@@ -795,6 +795,7 @@ sw.bb.i.i:                                        ; preds = %entry
   store ptr %x509_s.i.i, ptr %data.i.i, align 8
   store ptr %cinf_s.i.i, ptr %x509_s.i.i, align 8
   %subject.i.i = getelementptr inbounds i8, ptr %cinf_s.i.i, i64 40
+  store ptr %name, ptr %subject.i.i, align 8
   br label %sw.epilog.i.i
 
 sw.bb2.i.i:                                       ; preds = %entry
@@ -802,11 +803,10 @@ sw.bb2.i.i:                                       ; preds = %entry
   store ptr %crl_s.i.i, ptr %data3.i.i, align 8
   store ptr %crl_info_s.i.i, ptr %crl_s.i.i, align 8
   %issuer.i.i = getelementptr inbounds i8, ptr %crl_info_s.i.i, i64 16
+  store ptr %name, ptr %issuer.i.i, align 8
   br label %sw.epilog.i.i
 
 sw.epilog.i.i:                                    ; preds = %sw.bb2.i.i, %sw.bb.i.i
-  %issuer.sink.i.i = phi ptr [ %issuer.i.i, %sw.bb2.i.i ], [ %subject.i.i, %sw.bb.i.i ]
-  store ptr %name, ptr %issuer.sink.i.i, align 8
   %call.i.i = call i32 @sk_find(ptr noundef %h, ptr noundef nonnull %idx.i.i, ptr noundef nonnull %stmp.i.i) #10
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %X509_OBJECT_idx_by_subject.exit.thread, label %X509_OBJECT_idx_by_subject.exit
@@ -1160,6 +1160,7 @@ sw.bb.i:                                          ; preds = %entry
   store ptr %x509_s.i, ptr %data.i, align 8
   store ptr %cinf_s.i, ptr %x509_s.i, align 8
   %subject.i = getelementptr inbounds i8, ptr %cinf_s.i, i64 40
+  store ptr %name, ptr %subject.i, align 8
   br label %sw.epilog.i
 
 sw.bb2.i:                                         ; preds = %entry
@@ -1167,11 +1168,10 @@ sw.bb2.i:                                         ; preds = %entry
   store ptr %crl_s.i, ptr %data3.i, align 8
   store ptr %crl_info_s.i, ptr %crl_s.i, align 8
   %issuer.i = getelementptr inbounds i8, ptr %crl_info_s.i, i64 16
+  store ptr %name, ptr %issuer.i, align 8
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %sw.bb2.i, %sw.bb.i
-  %issuer.sink.i = phi ptr [ %issuer.i, %sw.bb2.i ], [ %subject.i, %sw.bb.i ]
-  store ptr %name, ptr %issuer.sink.i, align 8
   %call.i = call i32 @sk_find(ptr noundef %h, ptr noundef nonnull %idx.i, ptr noundef nonnull %stmp.i) #10
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %x509_object_idx_cnt.exit, label %if.end.i
@@ -1212,6 +1212,7 @@ sw.bb:                                            ; preds = %entry
   store ptr %x509_s, ptr %data, align 8
   store ptr %cinf_s, ptr %x509_s, align 8
   %subject = getelementptr inbounds i8, ptr %cinf_s, i64 40
+  store ptr %name, ptr %subject, align 8
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry
@@ -1219,11 +1220,10 @@ sw.bb2:                                           ; preds = %entry
   store ptr %crl_s, ptr %data3, align 8
   store ptr %crl_info_s, ptr %crl_s, align 8
   %issuer = getelementptr inbounds i8, ptr %crl_info_s, i64 16
+  store ptr %name, ptr %issuer, align 8
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb2, %sw.bb
-  %issuer.sink = phi ptr [ %issuer, %sw.bb2 ], [ %subject, %sw.bb ]
-  store ptr %name, ptr %issuer.sink, align 8
   %call = call i32 @sk_find(ptr noundef %h, ptr noundef nonnull %idx, ptr noundef nonnull %stmp) #10
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end

@@ -1251,7 +1251,11 @@ if.then.i.i.i.i.i.i21.i:                          ; preds = %delete.notnull.i.i1
   %41 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i22.i acquire, align 8
   %cmp.i.i.i.i.i.i.i23.i = icmp eq i64 %41, 4294967297
   %42 = trunc i64 %41 to i32
-  br i1 %cmp.i.i.i.i.i.i.i23.i, label %cleanup140.sink.split.sink.split.sink.split.i, label %if.end.i.i.i.i.i.i.i24.i
+  br i1 %cmp.i.i.i.i.i.i.i23.i, label %if.then.i.i.i.i.i.i.i48.i, label %if.end.i.i.i.i.i.i.i24.i
+
+if.then.i.i.i.i.i.i.i48.i:                        ; preds = %if.then.i.i.i.i.i.i21.i
+  store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i22.i, align 8
+  br label %cleanup140.sink.split.sink.split.sink.split.i
 
 if.end.i.i.i.i.i.i.i24.i:                         ; preds = %if.then.i.i.i.i.i.i21.i
   %43 = load i8, ptr @__libc_single_threaded, align 1, !noalias !18
@@ -1332,7 +1336,11 @@ if.then.i.i.i.i.i.i130.i:                         ; preds = %delete.notnull.i.i1
   %54 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i131.i acquire, align 8
   %cmp.i.i.i.i.i.i.i132.i = icmp eq i64 %54, 4294967297
   %55 = trunc i64 %54 to i32
-  br i1 %cmp.i.i.i.i.i.i.i132.i, label %cleanup140.sink.split.sink.split.sink.split.i, label %if.end.i.i.i.i.i.i.i133.i
+  br i1 %cmp.i.i.i.i.i.i.i132.i, label %if.then.i.i.i.i.i.i.i157.i, label %if.end.i.i.i.i.i.i.i133.i
+
+if.then.i.i.i.i.i.i.i157.i:                       ; preds = %if.then.i.i.i.i.i.i130.i
+  store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i131.i, align 8
+  br label %cleanup140.sink.split.sink.split.sink.split.i
 
 if.end.i.i.i.i.i.i.i133.i:                        ; preds = %if.then.i.i.i.i.i.i130.i
   %56 = load i8, ptr @__libc_single_threaded, align 1, !noalias !18
@@ -1408,7 +1416,11 @@ if.then.i.i.i.i.i.i239.i:                         ; preds = %delete.notnull.i.i2
   %66 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i240.i acquire, align 8
   %cmp.i.i.i.i.i.i.i241.i = icmp eq i64 %66, 4294967297
   %67 = trunc i64 %66 to i32
-  br i1 %cmp.i.i.i.i.i.i.i241.i, label %cleanup140.sink.split.sink.split.sink.split.i, label %if.end.i.i.i.i.i.i.i242.i
+  br i1 %cmp.i.i.i.i.i.i.i241.i, label %if.then.i.i.i.i.i.i.i266.i, label %if.end.i.i.i.i.i.i.i242.i
+
+if.then.i.i.i.i.i.i.i266.i:                       ; preds = %if.then.i.i.i.i.i.i239.i
+  store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i240.i, align 8
+  br label %cleanup140.sink.split.sink.split.sink.split.i
 
 if.end.i.i.i.i.i.i.i242.i:                        ; preds = %if.then.i.i.i.i.i.i239.i
   %68 = load i8, ptr @__libc_single_threaded, align 1, !noalias !18
@@ -2941,12 +2953,10 @@ arraydestroy.body135.i:                           ; preds = %arraydestroy.body13
   %arraydestroy.done138.i = icmp eq ptr %arraydestroy.element137.i, %ref.tmp45.i
   br i1 %arraydestroy.done138.i, label %ehcleanup141.i, label %arraydestroy.body135.i
 
-cleanup140.sink.split.sink.split.sink.split.i:    ; preds = %if.then.i.i.i.i.i.i239.i, %if.then.i.i.i.i.i.i130.i, %if.then.i.i.i.i.i.i21.i
-  %_M_use_count.i.i.i.i.i.i.i240.sink.i = phi ptr [ %_M_use_count.i.i.i.i.i.i.i22.i, %if.then.i.i.i.i.i.i21.i ], [ %_M_use_count.i.i.i.i.i.i.i131.i, %if.then.i.i.i.i.i.i130.i ], [ %_M_use_count.i.i.i.i.i.i.i240.i, %if.then.i.i.i.i.i.i239.i ]
-  %.sink830.i = phi ptr [ %40, %if.then.i.i.i.i.i.i21.i ], [ %53, %if.then.i.i.i.i.i.i130.i ], [ %65, %if.then.i.i.i.i.i.i239.i ]
-  %.sink825.ph.ph.i = phi ptr [ %39, %if.then.i.i.i.i.i.i21.i ], [ %52, %if.then.i.i.i.i.i.i130.i ], [ %64, %if.then.i.i.i.i.i.i239.i ]
-  %__s26.sink.ph.ph.i = phi ptr [ %__s.i, %if.then.i.i.i.i.i.i21.i ], [ %__s8.i, %if.then.i.i.i.i.i.i130.i ], [ %__s26.i, %if.then.i.i.i.i.i.i239.i ]
-  store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i240.sink.i, align 8
+cleanup140.sink.split.sink.split.sink.split.i:    ; preds = %if.then.i.i.i.i.i.i.i266.i, %if.then.i.i.i.i.i.i.i157.i, %if.then.i.i.i.i.i.i.i48.i
+  %.sink830.i = phi ptr [ %65, %if.then.i.i.i.i.i.i.i266.i ], [ %53, %if.then.i.i.i.i.i.i.i157.i ], [ %40, %if.then.i.i.i.i.i.i.i48.i ]
+  %.sink825.ph.ph.i = phi ptr [ %64, %if.then.i.i.i.i.i.i.i266.i ], [ %52, %if.then.i.i.i.i.i.i.i157.i ], [ %39, %if.then.i.i.i.i.i.i.i48.i ]
+  %__s26.sink.ph.ph.i = phi ptr [ %__s26.i, %if.then.i.i.i.i.i.i.i266.i ], [ %__s8.i, %if.then.i.i.i.i.i.i.i157.i ], [ %__s.i, %if.then.i.i.i.i.i.i.i48.i ]
   %_M_weak_count.i.i.i.i.i.i.i267.i = getelementptr inbounds i8, ptr %.sink830.i, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i267.i, align 4
   %vtable.i.i.i.i.i.i.i268.i = load ptr, ptr %.sink830.i, align 8
@@ -4801,22 +4811,18 @@ if.then:                                          ; preds = %while.body
 
 if.then15:                                        ; preds = %if.then
   %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
-  br label %if.end22.sink.split
+  store ptr %__p.022, ptr %arrayidx16, align 8
+  br label %if.end22
 
 if.else:                                          ; preds = %while.body
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %__p.022, align 8
   %8 = load ptr, ptr %arrayidx, align 8
-  br label %if.end22.sink.split
-
-if.end22.sink.split:                              ; preds = %if.else, %if.then15
-  %arrayidx16.sink = phi ptr [ %arrayidx16, %if.then15 ], [ %8, %if.else ]
-  %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then15 ], [ %__bbegin_bkt.021, %if.else ]
-  store ptr %__p.022, ptr %arrayidx16.sink, align 8
+  store ptr %__p.022, ptr %8, align 8
   br label %if.end22
 
-if.end22:                                         ; preds = %if.end22.sink.split, %if.then
-  %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then ], [ %__bbegin_bkt.1.ph, %if.end22.sink.split ]
+if.end22:                                         ; preds = %if.then, %if.then15, %if.else
+  %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.021, %if.else ], [ %rem.i.i, %if.then15 ], [ %rem.i.i, %if.then ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !69
 
@@ -7272,8 +7278,8 @@ do.end8:                                          ; preds = %nrvo.skipdtor.threa
   store i64 %inc4.i.i, ptr %bit_length_.i.i, align 8
   %length_.i = getelementptr inbounds i8, ptr %this, i64 104
   %13 = load i64, ptr %length_.i, align 8
-  %inc4.i2.i = add nsw i64 %13, 1
-  store i64 %inc4.i2.i, ptr %length_.i, align 8
+  %inc.i = add nsw i64 %13, 1
+  store i64 %inc.i, ptr %length_.i, align 8
   %length_3.i = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load i64, ptr %length_3.i, align 8
   %inc4.i = add nsw i64 %14, 1

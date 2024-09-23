@@ -496,7 +496,8 @@ if.then.i:                                        ; preds = %if.then6
 if.end.i:                                         ; preds = %if.then.i
   store ptr null, ptr %depends, align 8
   %depends_on_flush.i = getelementptr inbounds i8, ptr %c, i64 24
-  br label %if.end22.sink.split
+  store i8 0, ptr %depends_on_flush.i, align 8
+  br label %if.end22
 
 if.else:                                          ; preds = %trace_qcow2_cache_entry_flush.exit
   %depends_on_flush = getelementptr inbounds i8, ptr %c, i64 24
@@ -510,14 +511,13 @@ if.then9:                                         ; preds = %if.else
   %16 = load ptr, ptr %15, align 8
   %call11 = tail call i32 @bdrv_flush(ptr noundef %16) #13
   %cmp12 = icmp sgt i32 %call11, -1
-  br i1 %cmp12, label %if.end22.sink.split, label %return
+  br i1 %cmp12, label %if.then14, label %return
 
-if.end22.sink.split:                              ; preds = %if.then9, %if.end.i
-  %depends_on_flush.sink = phi ptr [ %depends_on_flush.i, %if.end.i ], [ %depends_on_flush, %if.then9 ]
-  store i8 0, ptr %depends_on_flush.sink, align 8
+if.then14:                                        ; preds = %if.then9
+  store i8 0, ptr %depends_on_flush, align 8
   br label %if.end22
 
-if.end22:                                         ; preds = %if.end22.sink.split, %if.else
+if.end22:                                         ; preds = %if.then14, %if.else, %if.end.i
   %refcount_block_cache = getelementptr inbounds i8, ptr %0, i64 88
   %17 = load ptr, ptr %refcount_block_cache, align 8
   %cmp23 = icmp eq ptr %c, %17

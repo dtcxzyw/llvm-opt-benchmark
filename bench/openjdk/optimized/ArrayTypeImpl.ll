@@ -412,257 +412,257 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %jdwpTag.exit
 
 jdwpTag.exit:                                     ; preds = %4, %6, %12, %switch.lookup
-  %switch.gep.sink = phi ptr [ %switch.gep, %switch.lookup ], [ %3, %12 ], [ %3, %6 ], [ %3, %4 ]
-  %switch.load = load i8, ptr %switch.gep.sink, align 1
-  switch i8 %switch.load, label %102 [
-    i8 66, label %14
-    i8 67, label %25
-    i8 70, label %36
-    i8 68, label %47
-    i8 73, label %58
-    i8 74, label %69
-    i8 83, label %80
-    i8 90, label %91
+  %.in = phi ptr [ %switch.gep, %switch.lookup ], [ %3, %12 ], [ %3, %6 ], [ %3, %4 ]
+  %14 = load i8, ptr %.in, align 1
+  switch i8 %14, label %103 [
+    i8 66, label %15
+    i8 67, label %26
+    i8 70, label %37
+    i8 68, label %48
+    i8 73, label %59
+    i8 74, label %70
+    i8 83, label %81
+    i8 90, label %92
   ]
 
-14:                                               ; preds = %jdwpTag.exit
-  %15 = load ptr, ptr @gdata, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 528
-  %17 = load i32, ptr %16, align 8
-  %18 = and i32 %17, 2
-  %.not46 = icmp eq i32 %18, 0
-  br i1 %.not46, label %20, label %19
+15:                                               ; preds = %jdwpTag.exit
+  %16 = load ptr, ptr @gdata, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 528
+  %18 = load i32, ptr %17, align 8
+  %19 = and i32 %18, 2
+  %.not46 = icmp eq i32 %19, 0
+  br i1 %.not46, label %21, label %20
 
-19:                                               ; preds = %14
+20:                                               ; preds = %15
   tail call void @log_message_begin(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 155) #4
   tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.11) #4
-  br label %20
+  br label %21
 
-20:                                               ; preds = %14, %19
-  %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 1408
-  %23 = load ptr, ptr %22, align 8
-  %24 = tail call ptr %23(ptr noundef nonnull %0, i32 noundef %2) #4
-  br label %103
+21:                                               ; preds = %15, %20
+  %22 = load ptr, ptr %0, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 1408
+  %24 = load ptr, ptr %23, align 8
+  %25 = tail call ptr %24(ptr noundef nonnull %0, i32 noundef %2) #4
+  br label %104
 
-25:                                               ; preds = %jdwpTag.exit
-  %26 = load ptr, ptr @gdata, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 528
-  %28 = load i32, ptr %27, align 8
-  %29 = and i32 %28, 2
-  %.not45 = icmp eq i32 %29, 0
-  br i1 %.not45, label %31, label %30
+26:                                               ; preds = %jdwpTag.exit
+  %27 = load ptr, ptr @gdata, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 528
+  %29 = load i32, ptr %28, align 8
+  %30 = and i32 %29, 2
+  %.not45 = icmp eq i32 %30, 0
+  br i1 %.not45, label %32, label %31
 
-30:                                               ; preds = %25
+31:                                               ; preds = %26
   tail call void @log_message_begin(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 159) #4
   tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.12) #4
-  br label %31
+  br label %32
 
-31:                                               ; preds = %25, %30
-  %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 1416
-  %34 = load ptr, ptr %33, align 8
-  %35 = tail call ptr %34(ptr noundef nonnull %0, i32 noundef %2) #4
-  br label %103
+32:                                               ; preds = %26, %31
+  %33 = load ptr, ptr %0, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 1416
+  %35 = load ptr, ptr %34, align 8
+  %36 = tail call ptr %35(ptr noundef nonnull %0, i32 noundef %2) #4
+  br label %104
 
-36:                                               ; preds = %jdwpTag.exit
-  %37 = load ptr, ptr @gdata, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 528
-  %39 = load i32, ptr %38, align 8
-  %40 = and i32 %39, 2
-  %.not44 = icmp eq i32 %40, 0
-  br i1 %.not44, label %42, label %41
+37:                                               ; preds = %jdwpTag.exit
+  %38 = load ptr, ptr @gdata, align 8
+  %39 = getelementptr inbounds i8, ptr %38, i64 528
+  %40 = load i32, ptr %39, align 8
+  %41 = and i32 %40, 2
+  %.not44 = icmp eq i32 %41, 0
+  br i1 %.not44, label %43, label %42
 
-41:                                               ; preds = %36
+42:                                               ; preds = %37
   tail call void @log_message_begin(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 163) #4
   tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.13) #4
-  br label %42
+  br label %43
 
-42:                                               ; preds = %36, %41
-  %43 = load ptr, ptr %0, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 1448
-  %45 = load ptr, ptr %44, align 8
-  %46 = tail call ptr %45(ptr noundef nonnull %0, i32 noundef %2) #4
-  br label %103
+43:                                               ; preds = %37, %42
+  %44 = load ptr, ptr %0, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 1448
+  %46 = load ptr, ptr %45, align 8
+  %47 = tail call ptr %46(ptr noundef nonnull %0, i32 noundef %2) #4
+  br label %104
 
-47:                                               ; preds = %jdwpTag.exit
-  %48 = load ptr, ptr @gdata, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 528
-  %50 = load i32, ptr %49, align 8
-  %51 = and i32 %50, 2
-  %.not43 = icmp eq i32 %51, 0
-  br i1 %.not43, label %53, label %52
+48:                                               ; preds = %jdwpTag.exit
+  %49 = load ptr, ptr @gdata, align 8
+  %50 = getelementptr inbounds i8, ptr %49, i64 528
+  %51 = load i32, ptr %50, align 8
+  %52 = and i32 %51, 2
+  %.not43 = icmp eq i32 %52, 0
+  br i1 %.not43, label %54, label %53
 
-52:                                               ; preds = %47
+53:                                               ; preds = %48
   tail call void @log_message_begin(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 167) #4
   tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.14) #4
-  br label %53
+  br label %54
 
-53:                                               ; preds = %47, %52
-  %54 = load ptr, ptr %0, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 1456
-  %56 = load ptr, ptr %55, align 8
-  %57 = tail call ptr %56(ptr noundef nonnull %0, i32 noundef %2) #4
-  br label %103
+54:                                               ; preds = %48, %53
+  %55 = load ptr, ptr %0, align 8
+  %56 = getelementptr inbounds i8, ptr %55, i64 1456
+  %57 = load ptr, ptr %56, align 8
+  %58 = tail call ptr %57(ptr noundef nonnull %0, i32 noundef %2) #4
+  br label %104
 
-58:                                               ; preds = %jdwpTag.exit
-  %59 = load ptr, ptr @gdata, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 528
-  %61 = load i32, ptr %60, align 8
-  %62 = and i32 %61, 2
-  %.not42 = icmp eq i32 %62, 0
-  br i1 %.not42, label %64, label %63
+59:                                               ; preds = %jdwpTag.exit
+  %60 = load ptr, ptr @gdata, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 528
+  %62 = load i32, ptr %61, align 8
+  %63 = and i32 %62, 2
+  %.not42 = icmp eq i32 %63, 0
+  br i1 %.not42, label %65, label %64
 
-63:                                               ; preds = %58
+64:                                               ; preds = %59
   tail call void @log_message_begin(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 171) #4
   tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.15) #4
-  br label %64
+  br label %65
 
-64:                                               ; preds = %58, %63
-  %65 = load ptr, ptr %0, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 1432
-  %67 = load ptr, ptr %66, align 8
-  %68 = tail call ptr %67(ptr noundef nonnull %0, i32 noundef %2) #4
-  br label %103
+65:                                               ; preds = %59, %64
+  %66 = load ptr, ptr %0, align 8
+  %67 = getelementptr inbounds i8, ptr %66, i64 1432
+  %68 = load ptr, ptr %67, align 8
+  %69 = tail call ptr %68(ptr noundef nonnull %0, i32 noundef %2) #4
+  br label %104
 
-69:                                               ; preds = %jdwpTag.exit
-  %70 = load ptr, ptr @gdata, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 528
-  %72 = load i32, ptr %71, align 8
-  %73 = and i32 %72, 2
-  %.not41 = icmp eq i32 %73, 0
-  br i1 %.not41, label %75, label %74
+70:                                               ; preds = %jdwpTag.exit
+  %71 = load ptr, ptr @gdata, align 8
+  %72 = getelementptr inbounds i8, ptr %71, i64 528
+  %73 = load i32, ptr %72, align 8
+  %74 = and i32 %73, 2
+  %.not41 = icmp eq i32 %74, 0
+  br i1 %.not41, label %76, label %75
 
-74:                                               ; preds = %69
+75:                                               ; preds = %70
   tail call void @log_message_begin(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 175) #4
   tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.16) #4
-  br label %75
+  br label %76
 
-75:                                               ; preds = %69, %74
-  %76 = load ptr, ptr %0, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 1440
-  %78 = load ptr, ptr %77, align 8
-  %79 = tail call ptr %78(ptr noundef nonnull %0, i32 noundef %2) #4
-  br label %103
+76:                                               ; preds = %70, %75
+  %77 = load ptr, ptr %0, align 8
+  %78 = getelementptr inbounds i8, ptr %77, i64 1440
+  %79 = load ptr, ptr %78, align 8
+  %80 = tail call ptr %79(ptr noundef nonnull %0, i32 noundef %2) #4
+  br label %104
 
-80:                                               ; preds = %jdwpTag.exit
-  %81 = load ptr, ptr @gdata, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 528
-  %83 = load i32, ptr %82, align 8
-  %84 = and i32 %83, 2
-  %.not40 = icmp eq i32 %84, 0
-  br i1 %.not40, label %86, label %85
+81:                                               ; preds = %jdwpTag.exit
+  %82 = load ptr, ptr @gdata, align 8
+  %83 = getelementptr inbounds i8, ptr %82, i64 528
+  %84 = load i32, ptr %83, align 8
+  %85 = and i32 %84, 2
+  %.not40 = icmp eq i32 %85, 0
+  br i1 %.not40, label %87, label %86
 
-85:                                               ; preds = %80
+86:                                               ; preds = %81
   tail call void @log_message_begin(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 179) #4
   tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.17) #4
-  br label %86
+  br label %87
 
-86:                                               ; preds = %80, %85
-  %87 = load ptr, ptr %0, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 1424
-  %89 = load ptr, ptr %88, align 8
-  %90 = tail call ptr %89(ptr noundef nonnull %0, i32 noundef %2) #4
-  br label %103
+87:                                               ; preds = %81, %86
+  %88 = load ptr, ptr %0, align 8
+  %89 = getelementptr inbounds i8, ptr %88, i64 1424
+  %90 = load ptr, ptr %89, align 8
+  %91 = tail call ptr %90(ptr noundef nonnull %0, i32 noundef %2) #4
+  br label %104
 
-91:                                               ; preds = %jdwpTag.exit
-  %92 = load ptr, ptr @gdata, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 528
-  %94 = load i32, ptr %93, align 8
-  %95 = and i32 %94, 2
-  %.not = icmp eq i32 %95, 0
-  br i1 %.not, label %97, label %96
+92:                                               ; preds = %jdwpTag.exit
+  %93 = load ptr, ptr @gdata, align 8
+  %94 = getelementptr inbounds i8, ptr %93, i64 528
+  %95 = load i32, ptr %94, align 8
+  %96 = and i32 %95, 2
+  %.not = icmp eq i32 %96, 0
+  br i1 %.not, label %98, label %97
 
-96:                                               ; preds = %91
+97:                                               ; preds = %92
   tail call void @log_message_begin(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 183) #4
   tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.18) #4
-  br label %97
+  br label %98
 
-97:                                               ; preds = %91, %96
-  %98 = load ptr, ptr %0, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 1400
-  %100 = load ptr, ptr %99, align 8
-  %101 = tail call ptr %100(ptr noundef nonnull %0, i32 noundef %2) #4
-  br label %103
+98:                                               ; preds = %92, %97
+  %99 = load ptr, ptr %0, align 8
+  %100 = getelementptr inbounds i8, ptr %99, i64 1400
+  %101 = load ptr, ptr %100, align 8
+  %102 = tail call ptr %101(ptr noundef nonnull %0, i32 noundef %2) #4
+  br label %104
 
-102:                                              ; preds = %jdwpTag.exit
+103:                                              ; preds = %jdwpTag.exit
   tail call void @outStream_setError(ptr noundef %1, i16 noundef zeroext 34) #4
-  br label %103
+  br label %104
 
-103:                                              ; preds = %102, %97, %86, %75, %64, %53, %42, %31, %20
-  %.0 = phi ptr [ null, %102 ], [ %101, %97 ], [ %90, %86 ], [ %79, %75 ], [ %68, %64 ], [ %57, %53 ], [ %46, %42 ], [ %35, %31 ], [ %24, %20 ]
-  %104 = load ptr, ptr @gdata, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 528
-  %106 = load i32, ptr %105, align 8
-  %107 = and i32 %106, 2
-  %.not47 = icmp eq i32 %107, 0
-  br i1 %.not47, label %109, label %108
+104:                                              ; preds = %103, %98, %87, %76, %65, %54, %43, %32, %21
+  %.0 = phi ptr [ null, %103 ], [ %102, %98 ], [ %91, %87 ], [ %80, %76 ], [ %69, %65 ], [ %58, %54 ], [ %47, %43 ], [ %36, %32 ], [ %25, %21 ]
+  %105 = load ptr, ptr @gdata, align 8
+  %106 = getelementptr inbounds i8, ptr %105, i64 528
+  %107 = load i32, ptr %106, align 8
+  %108 = and i32 %107, 2
+  %.not47 = icmp eq i32 %108, 0
+  br i1 %.not47, label %110, label %109
 
-108:                                              ; preds = %103
+109:                                              ; preds = %104
   tail call void @log_message_begin(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 191) #4
   tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8) #4
-  br label %109
+  br label %110
 
-109:                                              ; preds = %103, %108
-  %110 = load ptr, ptr %0, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 120
-  %112 = load ptr, ptr %111, align 8
-  %113 = tail call ptr %112(ptr noundef nonnull %0) #4
-  %.not48 = icmp eq ptr %113, null
-  br i1 %.not48, label %123, label %114
+110:                                              ; preds = %104, %109
+  %111 = load ptr, ptr %0, align 8
+  %112 = getelementptr inbounds i8, ptr %111, i64 120
+  %113 = load ptr, ptr %112, align 8
+  %114 = tail call ptr %113(ptr noundef nonnull %0) #4
+  %.not48 = icmp eq ptr %114, null
+  br i1 %.not48, label %124, label %115
 
-114:                                              ; preds = %109
-  %115 = load ptr, ptr @gdata, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 528
-  %117 = load i32, ptr %116, align 8
-  %118 = and i32 %117, 2
-  %.not49 = icmp eq i32 %118, 0
-  br i1 %.not49, label %.thread, label %119
+115:                                              ; preds = %110
+  %116 = load ptr, ptr @gdata, align 8
+  %117 = getelementptr inbounds i8, ptr %116, i64 528
+  %118 = load i32, ptr %117, align 8
+  %119 = and i32 %118, 2
+  %.not49 = icmp eq i32 %119, 0
+  br i1 %.not49, label %.thread, label %120
 
-119:                                              ; preds = %114
+120:                                              ; preds = %115
   tail call void @log_message_begin(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 192) #4
   tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.9) #4
   br label %.thread
 
-.thread:                                          ; preds = %119, %114
-  %120 = load ptr, ptr %0, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 136
-  %122 = load ptr, ptr %121, align 8
-  tail call void %122(ptr noundef nonnull %0) #4
-  br label %125
+.thread:                                          ; preds = %120, %115
+  %121 = load ptr, ptr %0, align 8
+  %122 = getelementptr inbounds i8, ptr %121, i64 136
+  %123 = load ptr, ptr %122, align 8
+  tail call void %123(ptr noundef nonnull %0) #4
+  br label %126
 
-123:                                              ; preds = %109
-  %124 = icmp eq ptr %.0, null
-  br i1 %124, label %125, label %126
+124:                                              ; preds = %110
+  %125 = icmp eq ptr %.0, null
+  br i1 %125, label %126, label %127
 
-125:                                              ; preds = %.thread, %123
+126:                                              ; preds = %.thread, %124
   tail call void @outStream_setError(ptr noundef %1, i16 noundef zeroext 110) #4
-  br label %130
+  br label %131
 
-126:                                              ; preds = %123
-  %127 = tail call signext i8 @specificTypeKey(ptr noundef nonnull %0, ptr noundef nonnull %.0) #4
-  %128 = tail call zeroext i16 @outStream_writeByte(ptr noundef %1, i8 noundef signext %127) #4
-  %129 = tail call zeroext i16 @outStream_writeObjectRef(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %.0) #4
-  br label %130
+127:                                              ; preds = %124
+  %128 = tail call signext i8 @specificTypeKey(ptr noundef nonnull %0, ptr noundef nonnull %.0) #4
+  %129 = tail call zeroext i16 @outStream_writeByte(ptr noundef %1, i8 noundef signext %128) #4
+  %130 = tail call zeroext i16 @outStream_writeObjectRef(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %.0) #4
+  br label %131
 
-130:                                              ; preds = %126, %125
-  %131 = load ptr, ptr @gdata, align 8
-  %132 = getelementptr inbounds i8, ptr %131, i64 528
-  %133 = load i32, ptr %132, align 8
-  %134 = and i32 %133, 2
-  %.not50 = icmp eq i32 %134, 0
-  br i1 %.not50, label %136, label %135
+131:                                              ; preds = %127, %126
+  %132 = load ptr, ptr @gdata, align 8
+  %133 = getelementptr inbounds i8, ptr %132, i64 528
+  %134 = load i32, ptr %133, align 8
+  %135 = and i32 %134, 2
+  %.not50 = icmp eq i32 %135, 0
+  br i1 %.not50, label %137, label %136
 
-135:                                              ; preds = %130
+136:                                              ; preds = %131
   tail call void @log_message_begin(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 203) #4
   tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.10) #4
-  br label %136
+  br label %137
 
-136:                                              ; preds = %130, %135
-  %137 = load ptr, ptr %0, align 8
-  %138 = getelementptr inbounds i8, ptr %137, i64 160
-  %139 = load ptr, ptr %138, align 8
-  %140 = tail call ptr %139(ptr noundef nonnull %0, ptr noundef null) #4
+137:                                              ; preds = %131, %136
+  %138 = load ptr, ptr %0, align 8
+  %139 = getelementptr inbounds i8, ptr %138, i64 160
+  %140 = load ptr, ptr %139, align 8
+  %141 = tail call ptr %140(ptr noundef nonnull %0, ptr noundef null) #4
   ret void
 }
 

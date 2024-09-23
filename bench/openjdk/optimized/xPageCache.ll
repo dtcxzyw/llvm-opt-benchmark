@@ -172,66 +172,83 @@ define hidden noundef ptr @_ZN10XPageCache16alloc_small_pageEv(ptr nocapture nou
   %14 = add i64 %13, -120
   %.not.i22 = icmp eq i64 %14, 0
   %.not.i = select i1 %11, i1 true, i1 %.not.i22
-  br i1 %.not.i, label %15, label %.loopexit.sink.split
+  br i1 %.not.i, label %26, label %15
 
 15:                                               ; preds = %1
-  %16 = add i32 %3, -1
-  %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph
-
-17:                                               ; preds = %.lr.ph
-  %18 = add nuw i32 %.01527, 1
-  %exitcond.not = icmp eq i32 %18, %16
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
-
-.lr.ph:                                           ; preds = %15, %17
-  %.01527 = phi i32 [ %18, %17 ], [ 0, %15 ]
-  %.016.in26 = phi i32 [ %spec.store.select, %17 ], [ %2, %15 ]
-  %.016 = add i32 %.016.in26, 1
-  %19 = icmp eq i32 %.016, %3
-  %spec.store.select = select i1 %19, i32 0, i32 %.016
-  %20 = zext i32 %spec.store.select to i64
-  %21 = shl nuw nsw i64 %20, 12
-  %22 = add i64 %4, %21
-  %23 = inttoptr i64 %22 to ptr
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
-  %25 = load i64, ptr %24, align 8
-  %26 = icmp eq i64 %25, 0
-  %27 = load ptr, ptr %23, align 8
-  %28 = ptrtoint ptr %27 to i64
-  %29 = add i64 %28, -120
-  %.not.i2023 = icmp eq i64 %29, 0
-  %.not.i20 = select i1 %26, i1 true, i1 %.not.i2023
-  br i1 %.not.i20, label %17, label %30
-
-30:                                               ; preds = %.lr.ph
-  %31 = getelementptr inbounds i8, ptr %23, i64 16
+  %16 = inttoptr i64 %14 to ptr
+  %17 = getelementptr inbounds i8, ptr %16, i64 120
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %16, i64 128
+  %20 = load ptr, ptr %19, align 8
+  %21 = load ptr, ptr %20, align 8
+  store ptr %21, ptr %17, align 8
+  %22 = getelementptr inbounds i8, ptr %18, i64 8
+  %23 = load ptr, ptr %22, align 8
+  store ptr %23, ptr %19, align 8
+  store ptr %20, ptr %22, align 8
+  store ptr %18, ptr %20, align 8
+  %24 = load i64, ptr %9, align 8
+  %25 = add i64 %24, -1
+  store i64 %25, ptr %9, align 8
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %1, %30
-  %.lcssa.sink = phi i64 [ %29, %30 ], [ %14, %1 ]
-  %.sink = phi ptr [ %31, %30 ], [ %9, %1 ]
-  %_ZL22XCounterPageCacheHitL2.sink = phi ptr [ @_ZL22XCounterPageCacheHitL2, %30 ], [ @_ZL22XCounterPageCacheHitL1, %1 ]
-  %32 = inttoptr i64 %.lcssa.sink to ptr
-  %33 = getelementptr inbounds i8, ptr %32, i64 120
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %32, i64 128
-  %36 = load ptr, ptr %35, align 8
-  %37 = load ptr, ptr %36, align 8
-  store ptr %37, ptr %33, align 8
-  %38 = getelementptr inbounds i8, ptr %34, i64 8
-  %39 = load ptr, ptr %38, align 8
-  store ptr %39, ptr %35, align 8
-  store ptr %36, ptr %38, align 8
-  store ptr %34, ptr %36, align 8
-  %40 = load i64, ptr %.sink, align 8
-  %41 = add i64 %40, -1
-  store i64 %41, ptr %.sink, align 8
+26:                                               ; preds = %1
+  %27 = add i32 %3, -1
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph
+
+28:                                               ; preds = %.lr.ph
+  %29 = add nuw i32 %.01527, 1
+  %exitcond.not = icmp eq i32 %29, %27
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
+
+.lr.ph:                                           ; preds = %26, %28
+  %.01527 = phi i32 [ %29, %28 ], [ 0, %26 ]
+  %.016.in26 = phi i32 [ %spec.store.select, %28 ], [ %2, %26 ]
+  %.016 = add i32 %.016.in26, 1
+  %30 = icmp eq i32 %.016, %3
+  %spec.store.select = select i1 %30, i32 0, i32 %.016
+  %31 = zext i32 %spec.store.select to i64
+  %32 = shl nuw nsw i64 %31, 12
+  %33 = add i64 %4, %32
+  %34 = inttoptr i64 %33 to ptr
+  %35 = getelementptr inbounds i8, ptr %34, i64 16
+  %36 = load i64, ptr %35, align 8
+  %37 = icmp eq i64 %36, 0
+  %38 = load ptr, ptr %34, align 8
+  %39 = ptrtoint ptr %38 to i64
+  %40 = add i64 %39, -120
+  %.not.i2023 = icmp eq i64 %40, 0
+  %.not.i20 = select i1 %37, i1 true, i1 %.not.i2023
+  br i1 %.not.i20, label %28, label %41
+
+41:                                               ; preds = %.lr.ph
+  %42 = getelementptr inbounds i8, ptr %34, i64 16
+  %43 = inttoptr i64 %40 to ptr
+  %44 = getelementptr inbounds i8, ptr %43, i64 120
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds i8, ptr %43, i64 128
+  %47 = load ptr, ptr %46, align 8
+  %48 = load ptr, ptr %47, align 8
+  store ptr %48, ptr %44, align 8
+  %49 = getelementptr inbounds i8, ptr %45, i64 8
+  %50 = load ptr, ptr %49, align 8
+  store ptr %50, ptr %46, align 8
+  store ptr %47, ptr %49, align 8
+  store ptr %45, ptr %47, align 8
+  %51 = load i64, ptr %42, align 8
+  %52 = add i64 %51, -1
+  store i64 %52, ptr %42, align 8
+  br label %.loopexit.sink.split
+
+.loopexit.sink.split:                             ; preds = %15, %41
+  %_ZL22XCounterPageCacheHitL2.sink = phi ptr [ @_ZL22XCounterPageCacheHitL2, %41 ], [ @_ZL22XCounterPageCacheHitL1, %15 ]
+  %.0.ph = phi ptr [ %43, %41 ], [ %16, %15 ]
   tail call void @_Z8XStatIncRK12XStatCounterm(ptr noundef nonnull align 8 dereferenceable(72) %_ZL22XCounterPageCacheHitL2.sink, i64 noundef 1) #9
   br label %.loopexit
 
-.loopexit:                                        ; preds = %17, %.loopexit.sink.split, %15
-  %.0 = phi ptr [ null, %15 ], [ %32, %.loopexit.sink.split ], [ null, %17 ]
+.loopexit:                                        ; preds = %28, %.loopexit.sink.split, %26
+  %.0 = phi ptr [ null, %26 ], [ %.0.ph, %.loopexit.sink.split ], [ null, %28 ]
   ret ptr %.0
 }
 
@@ -447,7 +464,7 @@ select.unfold.i.preheader:
 select.unfold.i:                                  ; preds = %select.unfold.i.preheader, %10
   %.sroa.2.0.i = phi ptr [ %17, %10 ], [ %spec.select, %select.unfold.i.preheader ]
   %.not.i.not.i = icmp eq ptr %.sroa.2.0.i, null
-  br i1 %.not.i.not.i, label %24, label %10
+  br i1 %.not.i.not.i, label %31, label %10
 
 10:                                               ; preds = %select.unfold.i
   %11 = getelementptr inbounds i8, ptr %.sroa.2.0.i, i64 120
@@ -467,53 +484,62 @@ select.unfold.i:                                  ; preds = %select.unfold.i.pre
 
 _ZN10XPageCache26alloc_oversized_large_pageEm.exit: ; preds = %10
   %23 = getelementptr inbounds i8, ptr %.sroa.2.0.i, i64 120
+  %24 = getelementptr inbounds i8, ptr %.sroa.2.0.i, i64 128
+  %25 = load ptr, ptr %24, align 8
+  %26 = load ptr, ptr %25, align 8
+  store ptr %26, ptr %23, align 8
+  %27 = getelementptr inbounds i8, ptr %12, i64 8
+  %28 = load ptr, ptr %27, align 8
+  store ptr %28, ptr %24, align 8
+  store ptr %25, ptr %27, align 8
+  store ptr %12, ptr %25, align 8
+  %29 = load i64, ptr %3, align 8
+  %30 = add i64 %29, -1
+  store i64 %30, ptr %3, align 8
   br label %_ZN10XPageCache27alloc_oversized_medium_pageEm.exit
 
-24:                                               ; preds = %select.unfold.i
-  %25 = load i64, ptr @XPageSizeMedium, align 8
-  %.not.i6 = icmp ugt i64 %1, %25
-  br i1 %.not.i6, label %_ZN10XPageCache27alloc_oversized_medium_pageEm.exit.thread, label %26
+31:                                               ; preds = %select.unfold.i
+  %32 = load i64, ptr @XPageSizeMedium, align 8
+  %.not.i6 = icmp ugt i64 %1, %32
+  br i1 %.not.i6, label %_ZN10XPageCache27alloc_oversized_medium_pageEm.exit.thread, label %33
 
-26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
-  %29 = load i64, ptr %28, align 8
-  %30 = icmp eq i64 %29, 0
-  %31 = load ptr, ptr %27, align 8
-  %32 = ptrtoint ptr %31 to i64
-  %33 = add i64 %32, -120
-  %.not.i2.i = icmp eq i64 %33, 0
-  %.not.i.i = select i1 %30, i1 true, i1 %.not.i2.i
-  br i1 %.not.i.i, label %_ZN10XPageCache27alloc_oversized_medium_pageEm.exit.thread, label %34
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds i8, ptr %0, i64 24
+  %36 = load i64, ptr %35, align 8
+  %37 = icmp eq i64 %36, 0
+  %38 = load ptr, ptr %34, align 8
+  %39 = ptrtoint ptr %38 to i64
+  %40 = add i64 %39, -120
+  %.not.i2.i = icmp eq i64 %40, 0
+  %.not.i.i = select i1 %37, i1 true, i1 %.not.i2.i
+  br i1 %.not.i.i, label %_ZN10XPageCache27alloc_oversized_medium_pageEm.exit.thread, label %41
 
-34:                                               ; preds = %26
-  %35 = inttoptr i64 %33 to ptr
-  %36 = getelementptr inbounds i8, ptr %35, i64 120
-  %37 = load ptr, ptr %36, align 8
+41:                                               ; preds = %33
+  %42 = inttoptr i64 %40 to ptr
+  %43 = getelementptr inbounds i8, ptr %42, i64 120
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %42, i64 128
+  %46 = load ptr, ptr %45, align 8
+  %47 = load ptr, ptr %46, align 8
+  store ptr %47, ptr %43, align 8
+  %48 = getelementptr inbounds i8, ptr %44, i64 8
+  %49 = load ptr, ptr %48, align 8
+  store ptr %49, ptr %45, align 8
+  store ptr %46, ptr %48, align 8
+  store ptr %44, ptr %46, align 8
+  %50 = load i64, ptr %35, align 8
+  %51 = add i64 %50, -1
+  store i64 %51, ptr %35, align 8
   br label %_ZN10XPageCache27alloc_oversized_medium_pageEm.exit
 
-_ZN10XPageCache27alloc_oversized_medium_pageEm.exit: ; preds = %_ZN10XPageCache26alloc_oversized_large_pageEm.exit, %34
-  %.sroa.2.0.i.lcssa.sink = phi ptr [ %.sroa.2.0.i, %_ZN10XPageCache26alloc_oversized_large_pageEm.exit ], [ %35, %34 ]
-  %.sink25 = phi ptr [ %23, %_ZN10XPageCache26alloc_oversized_large_pageEm.exit ], [ %36, %34 ]
-  %.lcssa.sink23 = phi ptr [ %12, %_ZN10XPageCache26alloc_oversized_large_pageEm.exit ], [ %37, %34 ]
-  %.sink = phi ptr [ %3, %_ZN10XPageCache26alloc_oversized_large_pageEm.exit ], [ %28, %34 ]
-  %38 = getelementptr inbounds i8, ptr %.sroa.2.0.i.lcssa.sink, i64 128
-  %39 = load ptr, ptr %38, align 8
-  %40 = load ptr, ptr %39, align 8
-  store ptr %40, ptr %.sink25, align 8
-  %41 = getelementptr inbounds i8, ptr %.lcssa.sink23, i64 8
-  %42 = load ptr, ptr %41, align 8
-  store ptr %42, ptr %38, align 8
-  store ptr %39, ptr %41, align 8
-  store ptr %.lcssa.sink23, ptr %39, align 8
-  %43 = load i64, ptr %.sink, align 8
-  %44 = add i64 %43, -1
-  store i64 %44, ptr %.sink, align 8
+_ZN10XPageCache27alloc_oversized_medium_pageEm.exit: ; preds = %_ZN10XPageCache26alloc_oversized_large_pageEm.exit, %41
+  %.0 = phi ptr [ %.sroa.2.0.i, %_ZN10XPageCache26alloc_oversized_large_pageEm.exit ], [ %42, %41 ]
   tail call void @_Z8XStatIncRK12XStatCounterm(ptr noundef nonnull align 8 dereferenceable(72) @_ZL22XCounterPageCacheHitL3, i64 noundef 1) #9
   br label %_ZN10XPageCache27alloc_oversized_medium_pageEm.exit.thread
 
-_ZN10XPageCache27alloc_oversized_medium_pageEm.exit.thread: ; preds = %26, %24, %_ZN10XPageCache27alloc_oversized_medium_pageEm.exit
-  %.09 = phi ptr [ %.sroa.2.0.i.lcssa.sink, %_ZN10XPageCache27alloc_oversized_medium_pageEm.exit ], [ null, %24 ], [ null, %26 ]
+_ZN10XPageCache27alloc_oversized_medium_pageEm.exit.thread: ; preds = %33, %31, %_ZN10XPageCache27alloc_oversized_medium_pageEm.exit
+  %.09 = phi ptr [ %.0, %_ZN10XPageCache27alloc_oversized_medium_pageEm.exit ], [ null, %31 ], [ null, %33 ]
   ret ptr %.09
 }
 
@@ -540,246 +566,265 @@ define hidden noundef ptr @_ZN10XPageCache10alloc_pageEhm(ptr noundef nonnull al
   %13 = inttoptr i64 %11 to ptr
   %14 = getelementptr inbounds i8, ptr %13, i64 120
   %15 = load ptr, ptr %14, align 8
-  br label %.thread.sink.split.sink.split
+  %16 = getelementptr inbounds i8, ptr %13, i64 128
+  %17 = load ptr, ptr %16, align 8
+  %18 = load ptr, ptr %17, align 8
+  store ptr %18, ptr %14, align 8
+  %19 = getelementptr inbounds i8, ptr %15, i64 8
+  %20 = load ptr, ptr %19, align 8
+  store ptr %20, ptr %16, align 8
+  store ptr %17, ptr %19, align 8
+  store ptr %15, ptr %17, align 8
+  %21 = load i64, ptr %6, align 8
+  %22 = add i64 %21, -1
+  store i64 %22, ptr %6, align 8
+  br label %_ZN10XPageCache9free_pageEP5XPage.exit.thread.sink.split
 
 select.unfold.i.preheader:                        ; preds = %3
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
-  %18 = load i64, ptr %17, align 8
-  %19 = icmp eq i64 %18, 0
-  %20 = load ptr, ptr %16, align 8
-  %21 = ptrtoint ptr %20 to i64
-  %22 = add i64 %21, -120
-  %23 = inttoptr i64 %22 to ptr
-  %spec.select = select i1 %19, ptr null, ptr %23
-  br label %select.unfold.i
-
-select.unfold.i:                                  ; preds = %select.unfold.i.preheader, %24
-  %.sroa.2.0.i = phi ptr [ %31, %24 ], [ %spec.select, %select.unfold.i.preheader ]
-  %.not.i.not.i = icmp eq ptr %.sroa.2.0.i, null
-  br i1 %.not.i.not.i, label %_ZN10XPageCache17alloc_medium_pageEv.exit.thread, label %24
-
-24:                                               ; preds = %select.unfold.i
-  %25 = getelementptr inbounds i8, ptr %.sroa.2.0.i, i64 120
-  %26 = load ptr, ptr %25, align 8
-  %27 = icmp eq ptr %26, %16
-  %28 = ptrtoint ptr %26 to i64
+  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds i8, ptr %0, i64 48
+  %25 = load i64, ptr %24, align 8
+  %26 = icmp eq i64 %25, 0
+  %27 = load ptr, ptr %23, align 8
+  %28 = ptrtoint ptr %27 to i64
   %29 = add i64 %28, -120
   %30 = inttoptr i64 %29 to ptr
-  %31 = select i1 %27, ptr null, ptr %30
-  %32 = getelementptr inbounds i8, ptr %.sroa.2.0.i, i64 8
-  %33 = getelementptr inbounds i8, ptr %.sroa.2.0.i, i64 16
-  %34 = load i64, ptr %33, align 8
-  %35 = load i64, ptr %32, align 8
-  %36 = sub i64 %34, %35
-  %37 = icmp eq i64 %2, %36
-  br i1 %37, label %38, label %select.unfold.i, !llvm.loop !9
+  %spec.select = select i1 %26, ptr null, ptr %30
+  br label %select.unfold.i
 
-38:                                               ; preds = %24
-  %39 = getelementptr inbounds i8, ptr %.sroa.2.0.i, i64 120
-  br label %.thread.sink.split.sink.split
+select.unfold.i:                                  ; preds = %select.unfold.i.preheader, %31
+  %.sroa.2.0.i = phi ptr [ %38, %31 ], [ %spec.select, %select.unfold.i.preheader ]
+  %.not.i.not.i = icmp eq ptr %.sroa.2.0.i, null
+  br i1 %.not.i.not.i, label %_ZN10XPageCache17alloc_medium_pageEv.exit.thread, label %31
+
+31:                                               ; preds = %select.unfold.i
+  %32 = getelementptr inbounds i8, ptr %.sroa.2.0.i, i64 120
+  %33 = load ptr, ptr %32, align 8
+  %34 = icmp eq ptr %33, %23
+  %35 = ptrtoint ptr %33 to i64
+  %36 = add i64 %35, -120
+  %37 = inttoptr i64 %36 to ptr
+  %38 = select i1 %34, ptr null, ptr %37
+  %39 = getelementptr inbounds i8, ptr %.sroa.2.0.i, i64 8
+  %40 = getelementptr inbounds i8, ptr %.sroa.2.0.i, i64 16
+  %41 = load i64, ptr %40, align 8
+  %42 = load i64, ptr %39, align 8
+  %43 = sub i64 %41, %42
+  %44 = icmp eq i64 %2, %43
+  br i1 %44, label %45, label %select.unfold.i, !llvm.loop !9
+
+45:                                               ; preds = %31
+  %46 = getelementptr inbounds i8, ptr %.sroa.2.0.i, i64 120
+  %47 = getelementptr inbounds i8, ptr %.sroa.2.0.i, i64 128
+  %48 = load ptr, ptr %47, align 8
+  %49 = load ptr, ptr %48, align 8
+  store ptr %49, ptr %46, align 8
+  %50 = getelementptr inbounds i8, ptr %33, i64 8
+  %51 = load ptr, ptr %50, align 8
+  store ptr %51, ptr %47, align 8
+  store ptr %48, ptr %50, align 8
+  store ptr %33, ptr %48, align 8
+  %52 = load i64, ptr %24, align 8
+  %53 = add i64 %52, -1
+  store i64 %53, ptr %24, align 8
+  br label %_ZN10XPageCache9free_pageEP5XPage.exit.thread.sink.split
 
 _ZN10XPageCache17alloc_medium_pageEv.exit:        ; preds = %3
-  %40 = tail call noundef ptr @_ZN10XPageCache16alloc_small_pageEv(ptr noundef nonnull align 8 dereferenceable(64) %0)
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %_ZN10XPageCache17alloc_medium_pageEv.exit.thread, label %.thread
+  %54 = tail call noundef ptr @_ZN10XPageCache16alloc_small_pageEv(ptr noundef nonnull align 8 dereferenceable(64) %0)
+  %55 = icmp eq ptr %54, null
+  br i1 %55, label %_ZN10XPageCache17alloc_medium_pageEv.exit.thread, label %_ZN10XPageCache9free_pageEP5XPage.exit.thread
 
 _ZN10XPageCache17alloc_medium_pageEv.exit.thread: ; preds = %select.unfold.i, %4, %_ZN10XPageCache17alloc_medium_pageEv.exit
-  %42 = getelementptr inbounds i8, ptr %0, i64 32
-  %43 = getelementptr inbounds i8, ptr %0, i64 48
-  %44 = load i64, ptr %43, align 8
-  %45 = icmp eq i64 %44, 0
-  %46 = load ptr, ptr %42, align 8
-  %47 = ptrtoint ptr %46 to i64
-  %48 = add i64 %47, -120
-  %49 = inttoptr i64 %48 to ptr
-  %spec.select49 = select i1 %45, ptr null, ptr %49
+  %56 = getelementptr inbounds i8, ptr %0, i64 32
+  %57 = getelementptr inbounds i8, ptr %0, i64 48
+  %58 = load i64, ptr %57, align 8
+  %59 = icmp eq i64 %58, 0
+  %60 = load ptr, ptr %56, align 8
+  %61 = ptrtoint ptr %60 to i64
+  %62 = add i64 %61, -120
+  %63 = inttoptr i64 %62 to ptr
+  %spec.select49 = select i1 %59, ptr null, ptr %63
   br label %select.unfold.i.i
 
-select.unfold.i.i:                                ; preds = %_ZN10XPageCache17alloc_medium_pageEv.exit.thread, %50
-  %.sroa.2.0.i.i = phi ptr [ %57, %50 ], [ %spec.select49, %_ZN10XPageCache17alloc_medium_pageEv.exit.thread ]
+select.unfold.i.i:                                ; preds = %_ZN10XPageCache17alloc_medium_pageEv.exit.thread, %64
+  %.sroa.2.0.i.i = phi ptr [ %71, %64 ], [ %spec.select49, %_ZN10XPageCache17alloc_medium_pageEv.exit.thread ]
   %.not.i.not.i.i = icmp eq ptr %.sroa.2.0.i.i, null
-  br i1 %.not.i.not.i.i, label %63, label %50
+  br i1 %.not.i.not.i.i, label %85, label %64
 
-50:                                               ; preds = %select.unfold.i.i
-  %51 = getelementptr inbounds i8, ptr %.sroa.2.0.i.i, i64 120
-  %52 = load ptr, ptr %51, align 8
-  %53 = icmp eq ptr %52, %42
-  %54 = ptrtoint ptr %52 to i64
-  %55 = add i64 %54, -120
-  %56 = inttoptr i64 %55 to ptr
-  %57 = select i1 %53, ptr null, ptr %56
-  %58 = getelementptr inbounds i8, ptr %.sroa.2.0.i.i, i64 8
-  %59 = getelementptr inbounds i8, ptr %.sroa.2.0.i.i, i64 16
-  %60 = load i64, ptr %59, align 8
-  %61 = load i64, ptr %58, align 8
-  %62 = sub i64 %60, %61
-  %.not.i.i20 = icmp ugt i64 %2, %62
-  br i1 %.not.i.i20, label %select.unfold.i.i, label %.loopexit.loopexit, !llvm.loop !10
+64:                                               ; preds = %select.unfold.i.i
+  %65 = getelementptr inbounds i8, ptr %.sroa.2.0.i.i, i64 120
+  %66 = load ptr, ptr %65, align 8
+  %67 = icmp eq ptr %66, %56
+  %68 = ptrtoint ptr %66 to i64
+  %69 = add i64 %68, -120
+  %70 = inttoptr i64 %69 to ptr
+  %71 = select i1 %67, ptr null, ptr %70
+  %72 = getelementptr inbounds i8, ptr %.sroa.2.0.i.i, i64 8
+  %73 = getelementptr inbounds i8, ptr %.sroa.2.0.i.i, i64 16
+  %74 = load i64, ptr %73, align 8
+  %75 = load i64, ptr %72, align 8
+  %76 = sub i64 %74, %75
+  %.not.i.i20 = icmp ugt i64 %2, %76
+  br i1 %.not.i.i20, label %select.unfold.i.i, label %_ZN10XPageCache26alloc_oversized_large_pageEm.exit.i, !llvm.loop !10
 
-63:                                               ; preds = %select.unfold.i.i
-  %64 = load i64, ptr @XPageSizeMedium, align 8
-  %.not.i6.i = icmp ugt i64 %2, %64
-  br i1 %.not.i6.i, label %.thread.sink.split, label %65
-
-65:                                               ; preds = %63
-  %66 = getelementptr inbounds i8, ptr %0, i64 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 24
-  %68 = load i64, ptr %67, align 8
-  %69 = icmp eq i64 %68, 0
-  %70 = load ptr, ptr %66, align 8
-  %71 = ptrtoint ptr %70 to i64
-  %72 = add i64 %71, -120
-  %.not.i2.i.i = icmp eq i64 %72, 0
-  %.not.i.i.i = select i1 %69, i1 true, i1 %.not.i2.i.i
-  br i1 %.not.i.i.i, label %.thread.sink.split, label %73
-
-73:                                               ; preds = %65
-  %74 = inttoptr i64 %72 to ptr
-  %75 = getelementptr inbounds i8, ptr %74, i64 120
-  %76 = load ptr, ptr %75, align 8
-  br label %.loopexit
-
-.loopexit.loopexit:                               ; preds = %50
+_ZN10XPageCache26alloc_oversized_large_pageEm.exit.i: ; preds = %64
   %77 = getelementptr inbounds i8, ptr %.sroa.2.0.i.i, i64 120
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %.loopexit.loopexit, %73
-  %.sroa.2.0.i.lcssa.sink.i = phi ptr [ %74, %73 ], [ %.sroa.2.0.i.i, %.loopexit.loopexit ]
-  %.sink25.i = phi ptr [ %75, %73 ], [ %77, %.loopexit.loopexit ]
-  %.lcssa.sink23.i = phi ptr [ %76, %73 ], [ %52, %.loopexit.loopexit ]
-  %.sink.i = phi ptr [ %67, %73 ], [ %43, %.loopexit.loopexit ]
-  %78 = getelementptr inbounds i8, ptr %.sroa.2.0.i.lcssa.sink.i, i64 128
+  %78 = getelementptr inbounds i8, ptr %.sroa.2.0.i.i, i64 128
   %79 = load ptr, ptr %78, align 8
   %80 = load ptr, ptr %79, align 8
-  store ptr %80, ptr %.sink25.i, align 8
-  %81 = getelementptr inbounds i8, ptr %.lcssa.sink23.i, i64 8
+  store ptr %80, ptr %77, align 8
+  %81 = getelementptr inbounds i8, ptr %66, i64 8
   %82 = load ptr, ptr %81, align 8
   store ptr %82, ptr %78, align 8
   store ptr %79, ptr %81, align 8
-  store ptr %.lcssa.sink23.i, ptr %79, align 8
-  %83 = load i64, ptr %.sink.i, align 8
+  store ptr %66, ptr %79, align 8
+  %83 = load i64, ptr %57, align 8
   %84 = add i64 %83, -1
-  store i64 %84, ptr %.sink.i, align 8
-  tail call void @_Z8XStatIncRK12XStatCounterm(ptr noundef nonnull align 8 dereferenceable(72) @_ZL22XCounterPageCacheHitL3, i64 noundef 1) #9
-  %85 = getelementptr inbounds i8, ptr %.sroa.2.0.i.lcssa.sink.i, i64 8
-  %86 = getelementptr inbounds i8, ptr %.sroa.2.0.i.lcssa.sink.i, i64 16
-  %87 = load i64, ptr %86, align 8
-  %88 = load i64, ptr %85, align 8
-  %89 = sub i64 %87, %88
-  %90 = icmp ult i64 %2, %89
-  br i1 %90, label %91, label %131
+  store i64 %84, ptr %57, align 8
+  br label %106
 
-91:                                               ; preds = %.loopexit
-  %92 = tail call noundef ptr @_ZN5XPage5splitEhm(ptr noundef nonnull align 8 dereferenceable(136) %.sroa.2.0.i.lcssa.sink.i, i8 noundef zeroext %1, i64 noundef %2) #9
-  %93 = load i8, ptr %.sroa.2.0.i.lcssa.sink.i, align 8
-  switch i8 %93, label %124 [
-    i8 0, label %94
-    i8 1, label %117
+85:                                               ; preds = %select.unfold.i.i
+  %86 = load i64, ptr @XPageSizeMedium, align 8
+  %.not.i6.i = icmp ugt i64 %2, %86
+  br i1 %.not.i6.i, label %_ZN10XPageCache9free_pageEP5XPage.exit.thread.sink.split, label %87
+
+87:                                               ; preds = %85
+  %88 = getelementptr inbounds i8, ptr %0, i64 8
+  %89 = getelementptr inbounds i8, ptr %0, i64 24
+  %90 = load i64, ptr %89, align 8
+  %91 = icmp eq i64 %90, 0
+  %92 = load ptr, ptr %88, align 8
+  %93 = ptrtoint ptr %92 to i64
+  %94 = add i64 %93, -120
+  %.not.i2.i.i = icmp eq i64 %94, 0
+  %.not.i.i.i = select i1 %91, i1 true, i1 %.not.i2.i.i
+  br i1 %.not.i.i.i, label %_ZN10XPageCache9free_pageEP5XPage.exit.thread.sink.split, label %95
+
+95:                                               ; preds = %87
+  %96 = inttoptr i64 %94 to ptr
+  %97 = getelementptr inbounds i8, ptr %96, i64 120
+  %98 = load ptr, ptr %97, align 8
+  %99 = getelementptr inbounds i8, ptr %96, i64 128
+  %100 = load ptr, ptr %99, align 8
+  %101 = load ptr, ptr %100, align 8
+  store ptr %101, ptr %97, align 8
+  %102 = getelementptr inbounds i8, ptr %98, i64 8
+  %103 = load ptr, ptr %102, align 8
+  store ptr %103, ptr %99, align 8
+  store ptr %100, ptr %102, align 8
+  store ptr %98, ptr %100, align 8
+  %104 = load i64, ptr %89, align 8
+  %105 = add i64 %104, -1
+  store i64 %105, ptr %89, align 8
+  br label %106
+
+106:                                              ; preds = %95, %_ZN10XPageCache26alloc_oversized_large_pageEm.exit.i
+  %.0.i21 = phi ptr [ %.sroa.2.0.i.i, %_ZN10XPageCache26alloc_oversized_large_pageEm.exit.i ], [ %96, %95 ]
+  tail call void @_Z8XStatIncRK12XStatCounterm(ptr noundef nonnull align 8 dereferenceable(72) @_ZL22XCounterPageCacheHitL3, i64 noundef 1) #9
+  %107 = getelementptr inbounds i8, ptr %.0.i21, i64 8
+  %108 = getelementptr inbounds i8, ptr %.0.i21, i64 16
+  %109 = load i64, ptr %108, align 8
+  %110 = load i64, ptr %107, align 8
+  %111 = sub i64 %109, %110
+  %112 = icmp ult i64 %2, %111
+  br i1 %112, label %113, label %160
+
+113:                                              ; preds = %106
+  %114 = tail call noundef ptr @_ZN5XPage5splitEhm(ptr noundef nonnull align 8 dereferenceable(136) %.0.i21, i8 noundef zeroext %1, i64 noundef %2) #9
+  %115 = load i8, ptr %.0.i21, align 8
+  switch i8 %115, label %152 [
+    i8 0, label %116
+    i8 1, label %142
   ]
 
-94:                                               ; preds = %91
-  %95 = getelementptr inbounds i8, ptr %.sroa.2.0.i.lcssa.sink.i, i64 1
-  %96 = load i8, ptr %95, align 1
-  %97 = icmp eq i8 %96, -1
-  br i1 %97, label %98, label %_ZN5XPage7numa_idEv.exit.i
+116:                                              ; preds = %113
+  %117 = getelementptr inbounds i8, ptr %.0.i21, i64 1
+  %118 = load i8, ptr %117, align 1
+  %119 = icmp eq i8 %118, -1
+  br i1 %119, label %120, label %_ZN5XPage7numa_idEv.exit.i
 
-98:                                               ; preds = %94
-  %99 = load i64, ptr %85, align 8
-  %100 = load i64, ptr @XAddressOffsetMask, align 8
-  %101 = and i64 %100, %99
-  %102 = load i64, ptr @XAddressGoodMask, align 8
-  %103 = or i64 %101, %102
-  %104 = tail call noundef i32 @_ZN5XNUMA9memory_idEm(i64 noundef %103) #9
-  %105 = trunc i32 %104 to i8
-  store i8 %105, ptr %95, align 1
+120:                                              ; preds = %116
+  %121 = load i64, ptr %107, align 8
+  %122 = load i64, ptr @XAddressOffsetMask, align 8
+  %123 = and i64 %122, %121
+  %124 = load i64, ptr @XAddressGoodMask, align 8
+  %125 = or i64 %123, %124
+  %126 = tail call noundef i32 @_ZN5XNUMA9memory_idEm(i64 noundef %125) #9
+  %127 = trunc i32 %126 to i8
+  store i8 %127, ptr %117, align 1
   br label %_ZN5XPage7numa_idEv.exit.i
 
-_ZN5XPage7numa_idEv.exit.i:                       ; preds = %98, %94
-  %106 = phi i8 [ %105, %98 ], [ %96, %94 ]
-  %107 = load i64, ptr %0, align 8
-  %108 = zext i8 %106 to i64
-  %109 = shl nuw nsw i64 %108, 12
-  %110 = add i64 %109, %107
-  %111 = inttoptr i64 %110 to ptr
-  %112 = getelementptr inbounds i8, ptr %.sroa.2.0.i.lcssa.sink.i, i64 120
-  store ptr %111, ptr %78, align 8
-  %113 = load ptr, ptr %111, align 8
-  store ptr %113, ptr %112, align 8
-  store ptr %112, ptr %111, align 8
-  %114 = load ptr, ptr %112, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 8
-  store ptr %112, ptr %115, align 8
-  %116 = getelementptr inbounds i8, ptr %111, i64 16
+_ZN5XPage7numa_idEv.exit.i:                       ; preds = %120, %116
+  %128 = phi i8 [ %127, %120 ], [ %118, %116 ]
+  %129 = load i64, ptr %0, align 8
+  %130 = zext i8 %128 to i64
+  %131 = shl nuw nsw i64 %130, 12
+  %132 = add i64 %131, %129
+  %133 = inttoptr i64 %132 to ptr
+  %134 = getelementptr inbounds i8, ptr %.0.i21, i64 120
+  %135 = getelementptr inbounds i8, ptr %.0.i21, i64 128
+  store ptr %133, ptr %135, align 8
+  %136 = load ptr, ptr %133, align 8
+  store ptr %136, ptr %134, align 8
+  store ptr %134, ptr %133, align 8
+  %137 = load ptr, ptr %134, align 8
+  %138 = getelementptr inbounds i8, ptr %137, i64 8
+  store ptr %134, ptr %138, align 8
+  %139 = getelementptr inbounds i8, ptr %133, i64 16
+  %140 = load i64, ptr %139, align 8
+  %141 = add i64 %140, 1
+  store i64 %141, ptr %139, align 8
   br label %_ZN10XPageCache9free_pageEP5XPage.exit
 
-117:                                              ; preds = %91
-  %118 = getelementptr inbounds i8, ptr %0, i64 8
-  %119 = getelementptr inbounds i8, ptr %.sroa.2.0.i.lcssa.sink.i, i64 120
-  store ptr %118, ptr %78, align 8
-  %120 = load ptr, ptr %118, align 8
-  store ptr %120, ptr %119, align 8
-  store ptr %119, ptr %118, align 8
-  %121 = load ptr, ptr %119, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 8
-  store ptr %119, ptr %122, align 8
-  %123 = getelementptr inbounds i8, ptr %0, i64 24
+142:                                              ; preds = %113
+  %143 = getelementptr inbounds i8, ptr %0, i64 8
+  %144 = getelementptr inbounds i8, ptr %.0.i21, i64 120
+  %145 = getelementptr inbounds i8, ptr %.0.i21, i64 128
+  store ptr %143, ptr %145, align 8
+  %146 = load ptr, ptr %143, align 8
+  store ptr %146, ptr %144, align 8
+  store ptr %144, ptr %143, align 8
+  %147 = load ptr, ptr %144, align 8
+  %148 = getelementptr inbounds i8, ptr %147, i64 8
+  store ptr %144, ptr %148, align 8
+  %149 = getelementptr inbounds i8, ptr %0, i64 24
+  %150 = load i64, ptr %149, align 8
+  %151 = add i64 %150, 1
+  store i64 %151, ptr %149, align 8
   br label %_ZN10XPageCache9free_pageEP5XPage.exit
 
-124:                                              ; preds = %91
-  %125 = getelementptr inbounds i8, ptr %.sroa.2.0.i.lcssa.sink.i, i64 120
-  store ptr %42, ptr %78, align 8
-  %126 = load ptr, ptr %42, align 8
-  store ptr %126, ptr %125, align 8
-  store ptr %125, ptr %42, align 8
-  %127 = load ptr, ptr %125, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 8
-  store ptr %125, ptr %128, align 8
+152:                                              ; preds = %113
+  %153 = getelementptr inbounds i8, ptr %.0.i21, i64 120
+  %154 = getelementptr inbounds i8, ptr %.0.i21, i64 128
+  store ptr %56, ptr %154, align 8
+  %155 = load ptr, ptr %56, align 8
+  store ptr %155, ptr %153, align 8
+  store ptr %153, ptr %56, align 8
+  %156 = load ptr, ptr %153, align 8
+  %157 = getelementptr inbounds i8, ptr %156, i64 8
+  store ptr %153, ptr %157, align 8
+  %158 = load i64, ptr %57, align 8
+  %159 = add i64 %158, 1
+  store i64 %159, ptr %57, align 8
   br label %_ZN10XPageCache9free_pageEP5XPage.exit
 
-_ZN10XPageCache9free_pageEP5XPage.exit:           ; preds = %_ZN5XPage7numa_idEv.exit.i, %117, %124
-  %.sink.i21 = phi ptr [ %123, %117 ], [ %43, %124 ], [ %116, %_ZN5XPage7numa_idEv.exit.i ]
-  %129 = load i64, ptr %.sink.i21, align 8
-  %130 = add i64 %129, 1
-  store i64 %130, ptr %.sink.i21, align 8
-  br label %133
+160:                                              ; preds = %106
+  %161 = tail call noundef ptr @_ZN5XPage6retypeEh(ptr noundef nonnull align 8 dereferenceable(136) %.0.i21, i8 noundef zeroext %1) #9
+  br label %_ZN10XPageCache9free_pageEP5XPage.exit
 
-131:                                              ; preds = %.loopexit
-  %132 = tail call noundef ptr @_ZN5XPage6retypeEh(ptr noundef nonnull align 8 dereferenceable(136) %.sroa.2.0.i.lcssa.sink.i, i8 noundef zeroext %1) #9
-  br label %133
+_ZN10XPageCache9free_pageEP5XPage.exit:           ; preds = %152, %142, %_ZN5XPage7numa_idEv.exit.i, %160
+  %.1 = phi ptr [ %161, %160 ], [ %114, %_ZN5XPage7numa_idEv.exit.i ], [ %114, %142 ], [ %114, %152 ]
+  %162 = icmp eq ptr %.1, null
+  br i1 %162, label %_ZN10XPageCache9free_pageEP5XPage.exit.thread.sink.split, label %_ZN10XPageCache9free_pageEP5XPage.exit.thread
 
-133:                                              ; preds = %131, %_ZN10XPageCache9free_pageEP5XPage.exit
-  %.1 = phi ptr [ %92, %_ZN10XPageCache9free_pageEP5XPage.exit ], [ %132, %131 ]
-  %134 = icmp eq ptr %.1, null
-  br i1 %134, label %.thread.sink.split, label %.thread
-
-.thread.sink.split.sink.split:                    ; preds = %38, %12
-  %.sink64 = phi ptr [ %13, %12 ], [ %.sroa.2.0.i, %38 ]
-  %.sink61 = phi ptr [ %14, %12 ], [ %39, %38 ]
-  %.sink59 = phi ptr [ %15, %12 ], [ %26, %38 ]
-  %.sink = phi ptr [ %6, %12 ], [ %17, %38 ]
-  %135 = getelementptr inbounds i8, ptr %.sink64, i64 128
-  %136 = load ptr, ptr %135, align 8
-  %137 = load ptr, ptr %136, align 8
-  store ptr %137, ptr %.sink61, align 8
-  %138 = getelementptr inbounds i8, ptr %.sink59, i64 8
-  %139 = load ptr, ptr %138, align 8
-  store ptr %139, ptr %135, align 8
-  store ptr %136, ptr %138, align 8
-  store ptr %.sink59, ptr %136, align 8
-  %140 = load i64, ptr %.sink, align 8
-  %141 = add i64 %140, -1
-  store i64 %141, ptr %.sink, align 8
-  br label %.thread.sink.split
-
-.thread.sink.split:                               ; preds = %.thread.sink.split.sink.split, %133, %65, %63
-  %_ZL22XCounterPageCacheHitL1.sink = phi ptr [ @_ZL21XCounterPageCacheMiss, %63 ], [ @_ZL21XCounterPageCacheMiss, %65 ], [ @_ZL21XCounterPageCacheMiss, %133 ], [ @_ZL22XCounterPageCacheHitL1, %.thread.sink.split.sink.split ]
-  %.130.ph = phi ptr [ null, %63 ], [ null, %65 ], [ null, %133 ], [ %.sink64, %.thread.sink.split.sink.split ]
+_ZN10XPageCache9free_pageEP5XPage.exit.thread.sink.split: ; preds = %_ZN10XPageCache9free_pageEP5XPage.exit, %87, %85, %12, %45
+  %_ZL22XCounterPageCacheHitL1.sink = phi ptr [ @_ZL22XCounterPageCacheHitL1, %45 ], [ @_ZL22XCounterPageCacheHitL1, %12 ], [ @_ZL21XCounterPageCacheMiss, %85 ], [ @_ZL21XCounterPageCacheMiss, %87 ], [ @_ZL21XCounterPageCacheMiss, %_ZN10XPageCache9free_pageEP5XPage.exit ]
+  %.130.ph = phi ptr [ %.sroa.2.0.i, %45 ], [ %13, %12 ], [ null, %85 ], [ null, %87 ], [ null, %_ZN10XPageCache9free_pageEP5XPage.exit ]
   tail call void @_Z8XStatIncRK12XStatCounterm(ptr noundef nonnull align 8 dereferenceable(72) %_ZL22XCounterPageCacheHitL1.sink, i64 noundef 1) #9
-  br label %.thread
+  br label %_ZN10XPageCache9free_pageEP5XPage.exit.thread
 
-.thread:                                          ; preds = %.thread.sink.split, %_ZN10XPageCache17alloc_medium_pageEv.exit, %133
-  %.130 = phi ptr [ %.1, %133 ], [ %40, %_ZN10XPageCache17alloc_medium_pageEv.exit ], [ %.130.ph, %.thread.sink.split ]
+_ZN10XPageCache9free_pageEP5XPage.exit.thread:    ; preds = %_ZN10XPageCache9free_pageEP5XPage.exit.thread.sink.split, %_ZN10XPageCache17alloc_medium_pageEv.exit, %_ZN10XPageCache9free_pageEP5XPage.exit
+  %.130 = phi ptr [ %.1, %_ZN10XPageCache9free_pageEP5XPage.exit ], [ %54, %_ZN10XPageCache17alloc_medium_pageEv.exit ], [ %.130.ph, %_ZN10XPageCache9free_pageEP5XPage.exit.thread.sink.split ]
   ret ptr %.130
 }
 
@@ -788,9 +833,9 @@ declare noundef ptr @_ZN5XPage5splitEhm(ptr noundef nonnull align 8 dereferencea
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10XPageCache9free_pageEP5XPage(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = load i8, ptr %1, align 8
-  switch i8 %3, label %37 [
+  switch i8 %3, label %41 [
     i8 0, label %4
-    i8 1, label %29
+    i8 1, label %31
   ]
 
 4:                                                ; preds = %2
@@ -828,41 +873,46 @@ _ZN5XPage7numa_idEv.exit:                         ; preds = %4, %8
   %27 = getelementptr inbounds i8, ptr %26, i64 8
   store ptr %23, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %22, i64 16
-  br label %45
+  %29 = load i64, ptr %28, align 8
+  %30 = add i64 %29, 1
+  store i64 %30, ptr %28, align 8
+  br label %51
 
-29:                                               ; preds = %2
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 120
-  %32 = getelementptr inbounds i8, ptr %1, i64 128
-  store ptr %30, ptr %32, align 8
-  %33 = load ptr, ptr %30, align 8
-  store ptr %33, ptr %31, align 8
-  store ptr %31, ptr %30, align 8
-  %34 = load ptr, ptr %31, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
-  store ptr %31, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
-  br label %45
+31:                                               ; preds = %2
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds i8, ptr %1, i64 120
+  %34 = getelementptr inbounds i8, ptr %1, i64 128
+  store ptr %32, ptr %34, align 8
+  %35 = load ptr, ptr %32, align 8
+  store ptr %35, ptr %33, align 8
+  store ptr %33, ptr %32, align 8
+  %36 = load ptr, ptr %33, align 8
+  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  store ptr %33, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %0, i64 24
+  %39 = load i64, ptr %38, align 8
+  %40 = add i64 %39, 1
+  store i64 %40, ptr %38, align 8
+  br label %51
 
-37:                                               ; preds = %2
-  %38 = getelementptr inbounds i8, ptr %0, i64 32
-  %39 = getelementptr inbounds i8, ptr %1, i64 120
-  %40 = getelementptr inbounds i8, ptr %1, i64 128
-  store ptr %38, ptr %40, align 8
-  %41 = load ptr, ptr %38, align 8
-  store ptr %41, ptr %39, align 8
-  store ptr %39, ptr %38, align 8
-  %42 = load ptr, ptr %39, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 8
-  store ptr %39, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 48
-  br label %45
+41:                                               ; preds = %2
+  %42 = getelementptr inbounds i8, ptr %0, i64 32
+  %43 = getelementptr inbounds i8, ptr %1, i64 120
+  %44 = getelementptr inbounds i8, ptr %1, i64 128
+  store ptr %42, ptr %44, align 8
+  %45 = load ptr, ptr %42, align 8
+  store ptr %45, ptr %43, align 8
+  store ptr %43, ptr %42, align 8
+  %46 = load ptr, ptr %43, align 8
+  %47 = getelementptr inbounds i8, ptr %46, i64 8
+  store ptr %43, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %0, i64 48
+  %49 = load i64, ptr %48, align 8
+  %50 = add i64 %49, 1
+  store i64 %50, ptr %48, align 8
+  br label %51
 
-45:                                               ; preds = %29, %37, %_ZN5XPage7numa_idEv.exit
-  %.sink = phi ptr [ %36, %29 ], [ %44, %37 ], [ %28, %_ZN5XPage7numa_idEv.exit ]
-  %46 = load i64, ptr %.sink, align 8
-  %47 = add i64 %46, 1
-  store i64 %47, ptr %.sink, align 8
+51:                                               ; preds = %31, %41, %_ZN5XPage7numa_idEv.exit
   ret void
 }
 
@@ -1274,7 +1324,7 @@ _ZN10XPageCache20flush_per_numa_listsEP22XPageCacheFlushClosureP6XValueI15XPerNU
   %129 = getelementptr inbounds i8, ptr %1, i64 8
   %130 = load i64, ptr %129, align 8
   %131 = icmp ugt i64 %128, %130
-  br i1 %131, label %132, label %186
+  br i1 %131, label %132, label %190
 
 132:                                              ; preds = %_ZN10XPageCache20flush_per_numa_listsEP22XPageCacheFlushClosureP6XValueI15XPerNUMAStorage5XListI5XPageEEPS6_.exit
   %133 = sub nuw i64 %128, %130
@@ -1289,9 +1339,9 @@ _ZN10XPageCache20flush_per_numa_listsEP22XPageCacheFlushClosureP6XValueI15XPerNU
   %142 = select i1 %136, ptr null, ptr %141
   %143 = tail call noundef ptr @_ZN5XPage5splitEm(ptr noundef nonnull align 8 dereferenceable(136) %142, i64 noundef %133) #9
   %144 = load i8, ptr %143, align 8
-  switch i8 %144, label %176 [
+  switch i8 %144, label %180 [
     i8 0, label %145
-    i8 1, label %170
+    i8 1, label %172
   ]
 
 145:                                              ; preds = %132
@@ -1329,43 +1379,48 @@ _ZN5XPage7numa_idEv.exit.i:                       ; preds = %149, %145
   %168 = getelementptr inbounds i8, ptr %167, i64 8
   store ptr %164, ptr %168, align 8
   %169 = getelementptr inbounds i8, ptr %163, i64 16
+  %170 = load i64, ptr %169, align 8
+  %171 = add i64 %170, 1
+  store i64 %171, ptr %169, align 8
   br label %_ZN10XPageCache9free_pageEP5XPage.exit
 
-170:                                              ; preds = %132
-  %171 = getelementptr inbounds i8, ptr %143, i64 120
-  %172 = getelementptr inbounds i8, ptr %143, i64 128
-  store ptr %43, ptr %172, align 8
-  %173 = load ptr, ptr %43, align 8
-  store ptr %173, ptr %171, align 8
-  store ptr %171, ptr %43, align 8
-  %174 = load ptr, ptr %171, align 8
-  %175 = getelementptr inbounds i8, ptr %174, i64 8
-  store ptr %171, ptr %175, align 8
+172:                                              ; preds = %132
+  %173 = getelementptr inbounds i8, ptr %143, i64 120
+  %174 = getelementptr inbounds i8, ptr %143, i64 128
+  store ptr %43, ptr %174, align 8
+  %175 = load ptr, ptr %43, align 8
+  store ptr %175, ptr %173, align 8
+  store ptr %173, ptr %43, align 8
+  %176 = load ptr, ptr %173, align 8
+  %177 = getelementptr inbounds i8, ptr %176, i64 8
+  store ptr %173, ptr %177, align 8
+  %178 = load i64, ptr %44, align 8
+  %179 = add i64 %178, 1
+  store i64 %179, ptr %44, align 8
   br label %_ZN10XPageCache9free_pageEP5XPage.exit
 
-176:                                              ; preds = %132
-  %177 = getelementptr inbounds i8, ptr %143, i64 120
-  %178 = getelementptr inbounds i8, ptr %143, i64 128
-  store ptr %4, ptr %178, align 8
-  %179 = load ptr, ptr %4, align 8
-  store ptr %179, ptr %177, align 8
-  store ptr %177, ptr %4, align 8
-  %180 = load ptr, ptr %177, align 8
-  %181 = getelementptr inbounds i8, ptr %180, i64 8
-  store ptr %177, ptr %181, align 8
+180:                                              ; preds = %132
+  %181 = getelementptr inbounds i8, ptr %143, i64 120
+  %182 = getelementptr inbounds i8, ptr %143, i64 128
+  store ptr %4, ptr %182, align 8
+  %183 = load ptr, ptr %4, align 8
+  store ptr %183, ptr %181, align 8
+  store ptr %181, ptr %4, align 8
+  %184 = load ptr, ptr %181, align 8
+  %185 = getelementptr inbounds i8, ptr %184, i64 8
+  store ptr %181, ptr %185, align 8
+  %186 = load i64, ptr %5, align 8
+  %187 = add i64 %186, 1
+  store i64 %187, ptr %5, align 8
   br label %_ZN10XPageCache9free_pageEP5XPage.exit
 
-_ZN10XPageCache9free_pageEP5XPage.exit:           ; preds = %_ZN5XPage7numa_idEv.exit.i, %170, %176
-  %.sink.i = phi ptr [ %44, %170 ], [ %5, %176 ], [ %169, %_ZN5XPage7numa_idEv.exit.i ]
-  %182 = load i64, ptr %.sink.i, align 8
-  %183 = add i64 %182, 1
-  store i64 %183, ptr %.sink.i, align 8
-  %184 = load i64, ptr %127, align 8
-  %185 = sub i64 %184, %133
-  store i64 %185, ptr %127, align 8
-  br label %186
+_ZN10XPageCache9free_pageEP5XPage.exit:           ; preds = %_ZN5XPage7numa_idEv.exit.i, %172, %180
+  %188 = load i64, ptr %127, align 8
+  %189 = sub i64 %188, %133
+  store i64 %189, ptr %127, align 8
+  br label %190
 
-186:                                              ; preds = %_ZN10XPageCache9free_pageEP5XPage.exit, %_ZN10XPageCache20flush_per_numa_listsEP22XPageCacheFlushClosureP6XValueI15XPerNUMAStorage5XListI5XPageEEPS6_.exit
+190:                                              ; preds = %_ZN10XPageCache9free_pageEP5XPage.exit, %_ZN10XPageCache20flush_per_numa_listsEP22XPageCacheFlushClosureP6XValueI15XPerNUMAStorage5XListI5XPageEEPS6_.exit
   ret void
 }
 

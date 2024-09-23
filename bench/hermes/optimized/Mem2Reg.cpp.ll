@@ -7640,39 +7640,49 @@ if.then38:                                        ; preds = %for.body.i, %for.bo
   %22 = load i32, ptr %Size.i.i18, align 8
   %23 = load i32, ptr %Capacity.i.i, align 4
   %cmp.not.i = icmp ult i32 %22, %23
-  br i1 %cmp.not.i, label %for.inc40.sink.split, label %if.then.i19
+  br i1 %cmp.not.i, label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes14AllocStackInstELb1EE9push_backERKS3_.exit, label %if.then.i19
 
 if.then.i19:                                      ; preds = %if.then38
   call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %unsafe, ptr noundef nonnull %add.ptr.i.i.i.i20, i64 noundef 0, i64 noundef 8) #10
   %.pre.i = load i32, ptr %Size.i.i18, align 8
-  br label %for.inc40.sink.split
+  br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes14AllocStackInstELb1EE9push_backERKS3_.exit
+
+_ZN4llvh23SmallVectorTemplateBaseIPN6hermes14AllocStackInstELb1EE9push_backERKS3_.exit: ; preds = %if.then38, %if.then.i19
+  %24 = phi i32 [ %.pre.i, %if.then.i19 ], [ %22, %if.then38 ]
+  %25 = load ptr, ptr %unsafe, align 8
+  %conv.i3.i = zext i32 %24 to i64
+  %add.ptr.i.i21 = getelementptr inbounds ptr, ptr %25, i64 %conv.i3.i
+  %26 = ptrtoint ptr %__begin2.sroa.0.053 to i64
+  store i64 %26, ptr %add.ptr.i.i21, align 1
+  %27 = load i32, ptr %Size.i.i18, align 8
+  %add.i = add i32 %27, 1
+  store i32 %add.i, ptr %Size.i.i18, align 8
+  br label %for.inc40
 
 if.end39:                                         ; preds = %for.inc17.i, %if.end36
-  %24 = load i32, ptr %Size.i.i22, align 8
-  %25 = load i32, ptr %Capacity.i.i23, align 4
-  %cmp.not.i24 = icmp ult i32 %24, %25
-  br i1 %cmp.not.i24, label %for.inc40.sink.split, label %if.then.i25
+  %28 = load i32, ptr %Size.i.i22, align 8
+  %29 = load i32, ptr %Capacity.i.i23, align 4
+  %cmp.not.i24 = icmp ult i32 %28, %29
+  br i1 %cmp.not.i24, label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes14AllocStackInstELb1EE9push_backERKS3_.exit31, label %if.then.i25
 
 if.then.i25:                                      ; preds = %if.end39
   call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %allocas, ptr noundef nonnull %add.ptr.i.i.i.i26, i64 noundef 0, i64 noundef 8) #10
   %.pre.i27 = load i32, ptr %Size.i.i22, align 8
-  br label %for.inc40.sink.split
+  br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes14AllocStackInstELb1EE9push_backERKS3_.exit31
 
-for.inc40.sink.split:                             ; preds = %if.then.i25, %if.end39, %if.then.i19, %if.then38
-  %allocas.sink = phi ptr [ %unsafe, %if.then38 ], [ %unsafe, %if.then.i19 ], [ %allocas, %if.end39 ], [ %allocas, %if.then.i25 ]
-  %.sink73 = phi i32 [ %22, %if.then38 ], [ %.pre.i, %if.then.i19 ], [ %24, %if.end39 ], [ %.pre.i27, %if.then.i25 ]
-  %Size.i.i22.sink72 = phi ptr [ %Size.i.i18, %if.then38 ], [ %Size.i.i18, %if.then.i19 ], [ %Size.i.i22, %if.end39 ], [ %Size.i.i22, %if.then.i25 ]
-  %26 = load ptr, ptr %allocas.sink, align 8
-  %conv.i3.i28 = zext i32 %.sink73 to i64
-  %add.ptr.i.i29 = getelementptr inbounds ptr, ptr %26, i64 %conv.i3.i28
-  %27 = ptrtoint ptr %__begin2.sroa.0.053 to i64
-  store i64 %27, ptr %add.ptr.i.i29, align 1
-  %28 = load i32, ptr %Size.i.i22.sink72, align 8
-  %add.i30 = add i32 %28, 1
-  store i32 %add.i30, ptr %Size.i.i22.sink72, align 8
+_ZN4llvh23SmallVectorTemplateBaseIPN6hermes14AllocStackInstELb1EE9push_backERKS3_.exit31: ; preds = %if.end39, %if.then.i25
+  %30 = phi i32 [ %.pre.i27, %if.then.i25 ], [ %28, %if.end39 ]
+  %31 = load ptr, ptr %allocas, align 8
+  %conv.i3.i28 = zext i32 %30 to i64
+  %add.ptr.i.i29 = getelementptr inbounds ptr, ptr %31, i64 %conv.i3.i28
+  %32 = ptrtoint ptr %__begin2.sroa.0.053 to i64
+  store i64 %32, ptr %add.ptr.i.i29, align 1
+  %33 = load i32, ptr %Size.i.i22, align 8
+  %add.i30 = add i32 %33, 1
+  store i32 %add.i30, ptr %Size.i.i22, align 8
   br label %for.inc40
 
-for.inc40:                                        ; preds = %for.inc40.sink.split, %for.body32
+for.inc40:                                        ; preds = %for.body32, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes14AllocStackInstELb1EE9push_backERKS3_.exit31, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes14AllocStackInstELb1EE9push_backERKS3_.exit
   %Next.i.i.i32 = getelementptr inbounds i8, ptr %__begin2.sroa.0.053, i64 8
   %__begin2.sroa.0.0 = load ptr, ptr %Next.i.i.i32, align 8
   %cmp.i14.not = icmp eq ptr %__begin2.sroa.0.0, %InstList.i
@@ -7685,8 +7695,8 @@ for.inc43:                                        ; preds = %for.inc40, %for.bod
   br i1 %cmp.i12.not, label %for.end45, label %for.body23
 
 for.end45:                                        ; preds = %for.inc43, %for.cond21.preheader
-  %29 = load ptr, ptr %exceptionHandlingBlocks, align 8
-  call void @_ZdlPv(ptr noundef %29) #10
+  %34 = load ptr, ptr %exceptionHandlingBlocks, align 8
+  call void @_ZdlPv(ptr noundef %34) #10
   ret void
 }
 

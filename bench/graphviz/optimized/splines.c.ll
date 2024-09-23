@@ -986,9 +986,9 @@ define void @beginpath(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2,
   br label %.sink.split
 
 .sink.split:                                      ; preds = %47, %60
-  %.sink345 = phi double [ %62, %60 ], [ %54, %47 ]
+  %.sink336 = phi double [ %62, %60 ], [ %54, %47 ]
   %63 = getelementptr inbounds i8, ptr %0, i64 16
-  store double %.sink345, ptr %63, align 8
+  store double %.sink336, ptr %63, align 8
   br label %64
 
 64:                                               ; preds = %.sink.split, %55
@@ -1001,7 +1001,7 @@ define void @beginpath(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2,
   store ptr %1, ptr %67, align 8
   %68 = getelementptr inbounds i8, ptr %3, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
-  switch i32 %2, label %299 [
+  switch i32 %2, label %311 [
     i32 1, label %69
     i32 2, label %189
   ]
@@ -1011,7 +1011,7 @@ define void @beginpath(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2,
   %71 = getelementptr inbounds i8, ptr %70, i64 216
   %72 = load i8, ptr %71, align 8
   %73 = icmp eq i8 %72, 0
-  br i1 %73, label %74, label %302
+  br i1 %73, label %74, label %314
 
 74:                                               ; preds = %69
   %75 = load ptr, ptr %14, align 8
@@ -1019,7 +1019,7 @@ define void @beginpath(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2,
   %77 = load i8, ptr %76, align 1
   %78 = zext i8 %77 to i32
   %.not294 = icmp eq i8 %77, 0
-  br i1 %.not294, label %302, label %79
+  br i1 %.not294, label %314, label %79
 
 79:                                               ; preds = %74
   %.sroa.050.0.copyload = load double, ptr %3, align 8
@@ -1079,12 +1079,12 @@ define void @beginpath(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2,
   %.sroa.050.0.copyload.sink = phi double [ %.sroa.050.0.copyload, %104 ], [ %95, %94 ]
   %.sink323 = phi double [ %105, %104 ], [ %96, %94 ]
   %.sink322 = phi double [ %106, %104 ], [ %.sroa.1668.0.copyload, %94 ]
-  %.pn348 = phi ptr [ %107, %104 ], [ %97, %94 ]
+  %.pn339 = phi ptr [ %107, %104 ], [ %97, %94 ]
   %.sink316 = phi double [ %114, %104 ], [ %95, %94 ]
   %.sink314 = phi double [ %106, %104 ], [ %103, %94 ]
-  %.pn347.in = getelementptr inbounds i8, ptr %.pn348, i64 16
-  %.pn347 = load ptr, ptr %.pn347.in, align 8
-  %.pn.in.in.in = getelementptr inbounds i8, ptr %.pn347, i64 364
+  %.pn338.in = getelementptr inbounds i8, ptr %.pn339, i64 16
+  %.pn338 = load ptr, ptr %.pn338.in, align 8
+  %.pn.in.in.in = getelementptr inbounds i8, ptr %.pn338, i64 364
   %.pn.in.in = load i32, ptr %.pn.in.in.in, align 4
   %.pn.in = sdiv i32 %.pn.in.in, 2
   %.pn = sitofp i32 %.pn.in to double
@@ -1229,12 +1229,12 @@ define void @beginpath(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2,
 185:                                              ; preds = %.critedge
   %186 = getelementptr inbounds i8, ptr %172, i64 58
   store i8 0, ptr %186, align 2
-  br label %334
+  br label %346
 
 187:                                              ; preds = %.critedge
   %188 = getelementptr inbounds i8, ptr %172, i64 106
   store i8 0, ptr %188, align 2
-  br label %334
+  br label %346
 
 189:                                              ; preds = %64
   %190 = load ptr, ptr %14, align 8
@@ -1242,7 +1242,7 @@ define void @beginpath(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2,
   %192 = load i8, ptr %191, align 1
   %193 = zext i8 %192 to i32
   %.not295 = icmp eq i8 %192, 0
-  br i1 %.not295, label %299, label %194
+  br i1 %.not295, label %311, label %194
 
 194:                                              ; preds = %189
   %.sroa.0.0.copyload = load double, ptr %3, align 8
@@ -1254,244 +1254,284 @@ define void @beginpath(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2,
   %.sroa.20.0.copyload = load double, ptr %.sroa.20.0..sroa_idx, align 8
   %195 = and i32 %193, 4
   %.not298 = icmp eq i32 %195, 0
-  br i1 %.not298, label %199, label %196
+  br i1 %.not298, label %203, label %196
 
 196:                                              ; preds = %194
   %197 = load double, ptr %.sroa.2112.0..sroa_idx, align 8
   %198 = fcmp olt double %.sroa.8.0.copyload, %197
   %.sroa.8.0.copyload. = select i1 %198, double %.sroa.8.0.copyload, double %197
-  br label %274
+  %199 = getelementptr inbounds i8, ptr %3, i64 56
+  store double %.sroa.0.0.copyload, ptr %199, align 8
+  %.sroa.8.0..sroa_idx15 = getelementptr inbounds i8, ptr %3, i64 64
+  store double %.sroa.8.0.copyload., ptr %.sroa.8.0..sroa_idx15, align 8
+  %.sroa.16.0..sroa_idx26 = getelementptr inbounds i8, ptr %3, i64 72
+  store double %.sroa.16.0.copyload, ptr %.sroa.16.0..sroa_idx26, align 8
+  %.sroa.20.0..sroa_idx37 = getelementptr inbounds i8, ptr %3, i64 80
+  store double %.sroa.20.0.copyload, ptr %.sroa.20.0..sroa_idx37, align 8
+  %200 = getelementptr inbounds i8, ptr %3, i64 52
+  store i32 1, ptr %200, align 4
+  %201 = load double, ptr %.sroa.2112.0..sroa_idx, align 8
+  %202 = fadd double %201, 1.000000e+00
+  store double %202, ptr %.sroa.2112.0..sroa_idx, align 8
+  br label %.preheader341
 
-199:                                              ; preds = %194
-  %200 = and i32 %193, 1
-  %.not299 = icmp eq i32 %200, 0
-  br i1 %.not299, label %241, label %201
+203:                                              ; preds = %194
+  %204 = and i32 %193, 1
+  %.not299 = icmp eq i32 %204, 0
+  br i1 %.not299, label %253, label %205
 
-201:                                              ; preds = %199
-  %202 = getelementptr inbounds i8, ptr %3, i64 48
-  %203 = load i32, ptr %202, align 8
-  %204 = icmp eq i32 %203, 4
-  br i1 %204, label %205, label %238
+205:                                              ; preds = %203
+  %206 = getelementptr inbounds i8, ptr %3, i64 48
+  %207 = load i32, ptr %206, align 8
+  %208 = icmp eq i32 %207, 4
+  br i1 %208, label %209, label %242
 
-205:                                              ; preds = %201
-  %206 = load ptr, ptr %26, align 8
-  %207 = getelementptr inbounds i8, ptr %206, i64 40
-  %208 = load double, ptr %207, align 8
-  %209 = getelementptr inbounds i8, ptr %206, i64 96
-  %210 = load double, ptr %209, align 8
-  %211 = fmul double %210, 5.000000e-01
-  %212 = fsub double %208, %211
-  %213 = fadd double %.sroa.16.0.copyload, 1.000000e+00
-  %214 = load double, ptr %0, align 8
-  %215 = call ptr @agraphof(ptr noundef nonnull %13) #17
-  %216 = getelementptr inbounds i8, ptr %215, i64 16
-  %217 = load ptr, ptr %216, align 8
-  %218 = getelementptr inbounds i8, ptr %217, i64 364
-  %219 = load i32, ptr %218, align 4
-  %220 = sdiv i32 %219, 2
-  %221 = sitofp i32 %220 to double
-  %222 = fsub double %212, %221
-  %223 = load ptr, ptr %26, align 8
-  %224 = getelementptr inbounds i8, ptr %223, i64 32
-  %225 = load double, ptr %224, align 8
-  %226 = getelementptr inbounds i8, ptr %223, i64 112
-  %227 = load double, ptr %226, align 8
-  %228 = fadd double %225, %227
-  %229 = fadd double %228, 0.000000e+00
-  %230 = getelementptr inbounds i8, ptr %223, i64 40
+209:                                              ; preds = %205
+  %210 = load ptr, ptr %26, align 8
+  %211 = getelementptr inbounds i8, ptr %210, i64 40
+  %212 = load double, ptr %211, align 8
+  %213 = getelementptr inbounds i8, ptr %210, i64 96
+  %214 = load double, ptr %213, align 8
+  %215 = fmul double %214, 5.000000e-01
+  %216 = fsub double %212, %215
+  %217 = fadd double %.sroa.16.0.copyload, 1.000000e+00
+  %218 = load double, ptr %0, align 8
+  %219 = call ptr @agraphof(ptr noundef nonnull %13) #17
+  %220 = getelementptr inbounds i8, ptr %219, i64 16
+  %221 = load ptr, ptr %220, align 8
+  %222 = getelementptr inbounds i8, ptr %221, i64 364
+  %223 = load i32, ptr %222, align 4
+  %224 = sdiv i32 %223, 2
+  %225 = sitofp i32 %224 to double
+  %226 = fsub double %216, %225
+  %227 = load ptr, ptr %26, align 8
+  %228 = getelementptr inbounds i8, ptr %227, i64 32
+  %229 = load double, ptr %228, align 8
+  %230 = getelementptr inbounds i8, ptr %227, i64 112
   %231 = load double, ptr %230, align 8
-  %232 = getelementptr inbounds i8, ptr %223, i64 96
-  %233 = load double, ptr %232, align 8
-  %234 = fmul double %233, 5.000000e-01
-  %235 = fadd double %231, %234
-  %236 = getelementptr inbounds i8, ptr %3, i64 56
-  store double %214, ptr %236, align 8
-  %237 = getelementptr inbounds i8, ptr %3, i64 88
-  store double %229, ptr %237, align 8
+  %232 = fadd double %229, %231
+  %233 = fadd double %232, 0.000000e+00
+  %234 = getelementptr inbounds i8, ptr %227, i64 40
+  %235 = load double, ptr %234, align 8
+  %236 = getelementptr inbounds i8, ptr %227, i64 96
+  %237 = load double, ptr %236, align 8
+  %238 = fmul double %237, 5.000000e-01
+  %239 = fadd double %235, %238
+  %240 = getelementptr inbounds i8, ptr %3, i64 56
+  store double %218, ptr %240, align 8
+  %241 = getelementptr inbounds i8, ptr %3, i64 88
+  store double %233, ptr %241, align 8
   %.sroa.8.0..sroa_idx17 = getelementptr inbounds i8, ptr %3, i64 96
-  store double %212, ptr %.sroa.8.0..sroa_idx17, align 8
+  store double %216, ptr %.sroa.8.0..sroa_idx17, align 8
   %.sroa.16.0..sroa_idx28 = getelementptr inbounds i8, ptr %3, i64 104
-  store double %213, ptr %.sroa.16.0..sroa_idx28, align 8
-  br label %274
+  store double %217, ptr %.sroa.16.0..sroa_idx28, align 8
+  br label %245
 
-238:                                              ; preds = %201
-  %239 = load double, ptr %.sroa.2112.0..sroa_idx, align 8
-  %240 = fcmp ogt double %.sroa.20.0.copyload, %239
-  %.sroa.20.0.copyload. = select i1 %240, double %.sroa.20.0.copyload, double %239
-  br label %274
+242:                                              ; preds = %205
+  %243 = load double, ptr %.sroa.2112.0..sroa_idx, align 8
+  %244 = fcmp ogt double %.sroa.20.0.copyload, %243
+  %.sroa.20.0.copyload. = select i1 %244, double %.sroa.20.0.copyload, double %243
+  br label %245
 
-241:                                              ; preds = %199
-  %242 = and i32 %193, 8
-  %.not300 = icmp eq i32 %242, 0
-  %243 = load double, ptr %0, align 8
-  br i1 %.not300, label %260, label %244
+245:                                              ; preds = %242, %209
+  %.sink333 = phi i64 [ 56, %242 ], [ 112, %209 ]
+  %.sroa.0.0.copyload.sink = phi double [ %.sroa.0.0.copyload, %242 ], [ %239, %209 ]
+  %.sroa.8.0.copyload.sink = phi double [ %.sroa.8.0.copyload, %242 ], [ %226, %209 ]
+  %.sroa.16.0.copyload.sink = phi double [ %.sroa.16.0.copyload, %242 ], [ %217, %209 ]
+  %.sroa.20.0.copyload..sink = phi double [ %.sroa.20.0.copyload., %242 ], [ %216, %209 ]
+  %.sink318 = phi i32 [ 1, %242 ], [ 2, %209 ]
+  %246 = getelementptr inbounds i8, ptr %3, i64 %.sink333
+  store double %.sroa.0.0.copyload.sink, ptr %246, align 8
+  %247 = getelementptr inbounds i8, ptr %3, i64 64
+  store double %.sroa.8.0.copyload.sink, ptr %247, align 8
+  %248 = getelementptr inbounds i8, ptr %3, i64 72
+  store double %.sroa.16.0.copyload.sink, ptr %248, align 8
+  %249 = getelementptr inbounds i8, ptr %3, i64 80
+  store double %.sroa.20.0.copyload..sink, ptr %249, align 8
+  %250 = getelementptr inbounds i8, ptr %3, i64 52
+  store i32 %.sink318, ptr %250, align 4
+  %251 = load double, ptr %.sroa.2112.0..sroa_idx, align 8
+  %252 = fadd double %251, -1.000000e+00
+  store double %252, ptr %.sroa.2112.0..sroa_idx, align 8
+  br label %.preheader341
 
-244:                                              ; preds = %241
-  %245 = fadd double %243, 1.000000e+00
-  %246 = getelementptr inbounds i8, ptr %3, i64 48
-  %247 = load i32, ptr %246, align 8
-  %248 = icmp eq i32 %247, 4
-  %249 = load ptr, ptr %26, align 8
-  %250 = getelementptr inbounds i8, ptr %249, i64 40
-  %251 = load double, ptr %250, align 8
-  %252 = getelementptr inbounds i8, ptr %249, i64 96
-  %253 = load double, ptr %252, align 8
-  %254 = fmul double %253, 5.000000e-01
-  %255 = load double, ptr %.sroa.2112.0..sroa_idx, align 8
-  %256 = fadd double %251, %254
-  %257 = fadd double %255, -1.000000e+00
-  %258 = fsub double %251, %254
-  %259 = fadd double %255, 1.000000e+00
-  %.sroa.20.0 = select i1 %248, double %256, double %259
-  %.sroa.8.0 = select i1 %248, double %257, double %258
-  br label %274
+253:                                              ; preds = %203
+  %254 = and i32 %193, 8
+  %.not300 = icmp eq i32 %254, 0
+  %255 = load double, ptr %0, align 8
+  br i1 %.not300, label %276, label %256
 
-260:                                              ; preds = %241
-  %261 = getelementptr inbounds i8, ptr %3, i64 48
-  %262 = load i32, ptr %261, align 8
-  %263 = icmp eq i32 %262, 4
-  %264 = load ptr, ptr %26, align 8
-  %265 = getelementptr inbounds i8, ptr %264, i64 40
-  %266 = load double, ptr %265, align 8
-  %267 = getelementptr inbounds i8, ptr %264, i64 96
-  %268 = load double, ptr %267, align 8
-  %269 = fmul double %268, 5.000000e-01
-  %270 = load double, ptr %.sroa.2112.0..sroa_idx, align 8
-  %271 = fadd double %266, %269
-  %272 = fsub double %266, %269
-  %273 = fadd double %270, 1.000000e+00
-  %.sroa.20.1 = select i1 %263, double %271, double %273
-  %.sroa.8.1 = select i1 %263, double %270, double %272
-  br label %274
+256:                                              ; preds = %253
+  %257 = fadd double %255, 1.000000e+00
+  %258 = getelementptr inbounds i8, ptr %3, i64 48
+  %259 = load i32, ptr %258, align 8
+  %260 = icmp eq i32 %259, 4
+  %261 = load ptr, ptr %26, align 8
+  %262 = getelementptr inbounds i8, ptr %261, i64 40
+  %263 = load double, ptr %262, align 8
+  %264 = getelementptr inbounds i8, ptr %261, i64 96
+  %265 = load double, ptr %264, align 8
+  %266 = fmul double %265, 5.000000e-01
+  %267 = load double, ptr %.sroa.2112.0..sroa_idx, align 8
+  %268 = fadd double %263, %266
+  %269 = fadd double %267, -1.000000e+00
+  %270 = fsub double %263, %266
+  %271 = fadd double %267, 1.000000e+00
+  %.sroa.20.0 = select i1 %260, double %268, double %271
+  %.sroa.8.0 = select i1 %260, double %269, double %270
+  %272 = getelementptr inbounds i8, ptr %3, i64 56
+  store double %.sroa.0.0.copyload, ptr %272, align 8
+  %.sroa.8.0..sroa_idx21 = getelementptr inbounds i8, ptr %3, i64 64
+  store double %.sroa.8.0, ptr %.sroa.8.0..sroa_idx21, align 8
+  %.sroa.16.0..sroa_idx32 = getelementptr inbounds i8, ptr %3, i64 72
+  store double %257, ptr %.sroa.16.0..sroa_idx32, align 8
+  %.sroa.20.0..sroa_idx43 = getelementptr inbounds i8, ptr %3, i64 80
+  store double %.sroa.20.0, ptr %.sroa.20.0..sroa_idx43, align 8
+  %273 = getelementptr inbounds i8, ptr %3, i64 52
+  store i32 1, ptr %273, align 4
+  %274 = load double, ptr %0, align 8
+  %275 = fadd double %274, -1.000000e+00
+  store double %275, ptr %0, align 8
+  br label %.preheader341
 
-274:                                              ; preds = %205, %238, %260, %244, %196
-  %.sink333.sink = phi i64 [ 56, %260 ], [ 56, %244 ], [ 56, %196 ], [ 56, %238 ], [ 112, %205 ]
-  %.sroa.0.0.copyload.sink.sink = phi double [ %243, %260 ], [ %.sroa.0.0.copyload, %244 ], [ %.sroa.0.0.copyload, %196 ], [ %.sroa.0.0.copyload, %238 ], [ %235, %205 ]
-  %.sroa.8.0.copyload.sink.sink = phi double [ %.sroa.8.1, %260 ], [ %.sroa.8.0, %244 ], [ %.sroa.8.0.copyload., %196 ], [ %.sroa.8.0.copyload, %238 ], [ %222, %205 ]
-  %.sroa.16.0.copyload.sink.sink = phi double [ %.sroa.16.0.copyload, %260 ], [ %245, %244 ], [ %.sroa.16.0.copyload, %196 ], [ %.sroa.16.0.copyload, %238 ], [ %213, %205 ]
-  %.sroa.20.0.copyload..sink.sink = phi double [ %.sroa.20.1, %260 ], [ %.sroa.20.0, %244 ], [ %.sroa.20.0.copyload, %196 ], [ %.sroa.20.0.copyload., %238 ], [ %212, %205 ]
-  %.sink318.sink = phi i32 [ 1, %260 ], [ 1, %244 ], [ 1, %196 ], [ 1, %238 ], [ 2, %205 ]
-  %.sroa.2112.0..sroa_idx.sink337 = phi ptr [ %0, %260 ], [ %0, %244 ], [ %.sroa.2112.0..sroa_idx, %196 ], [ %.sroa.2112.0..sroa_idx, %238 ], [ %.sroa.2112.0..sroa_idx, %205 ]
-  %.sink336 = phi double [ 1.000000e+00, %260 ], [ -1.000000e+00, %244 ], [ 1.000000e+00, %196 ], [ -1.000000e+00, %238 ], [ -1.000000e+00, %205 ]
-  %275 = getelementptr inbounds i8, ptr %3, i64 %.sink333.sink
-  store double %.sroa.0.0.copyload.sink.sink, ptr %275, align 8
-  %276 = getelementptr inbounds i8, ptr %3, i64 64
-  store double %.sroa.8.0.copyload.sink.sink, ptr %276, align 8
-  %277 = getelementptr inbounds i8, ptr %3, i64 72
-  store double %.sroa.16.0.copyload.sink.sink, ptr %277, align 8
-  %278 = getelementptr inbounds i8, ptr %3, i64 80
-  store double %.sroa.20.0.copyload..sink.sink, ptr %278, align 8
-  %279 = getelementptr inbounds i8, ptr %3, i64 52
-  store i32 %.sink318.sink, ptr %279, align 4
-  %280 = load double, ptr %.sroa.2112.0..sroa_idx.sink337, align 8
-  %281 = fadd double %280, %.sink336
-  store double %281, ptr %.sroa.2112.0..sroa_idx.sink337, align 8
-  br label %282
+276:                                              ; preds = %253
+  %277 = getelementptr inbounds i8, ptr %3, i64 48
+  %278 = load i32, ptr %277, align 8
+  %279 = icmp eq i32 %278, 4
+  %280 = load ptr, ptr %26, align 8
+  %281 = getelementptr inbounds i8, ptr %280, i64 40
+  %282 = load double, ptr %281, align 8
+  %283 = getelementptr inbounds i8, ptr %280, i64 96
+  %284 = load double, ptr %283, align 8
+  %285 = fmul double %284, 5.000000e-01
+  %286 = load double, ptr %.sroa.2112.0..sroa_idx, align 8
+  %287 = fadd double %282, %285
+  %288 = fsub double %282, %285
+  %289 = fadd double %286, 1.000000e+00
+  %.sroa.20.1 = select i1 %279, double %287, double %289
+  %.sroa.8.1 = select i1 %279, double %286, double %288
+  %290 = getelementptr inbounds i8, ptr %3, i64 56
+  store double %255, ptr %290, align 8
+  %.sroa.8.0..sroa_idx23 = getelementptr inbounds i8, ptr %3, i64 64
+  store double %.sroa.8.1, ptr %.sroa.8.0..sroa_idx23, align 8
+  %.sroa.16.0..sroa_idx34 = getelementptr inbounds i8, ptr %3, i64 72
+  store double %.sroa.16.0.copyload, ptr %.sroa.16.0..sroa_idx34, align 8
+  %.sroa.20.0..sroa_idx45 = getelementptr inbounds i8, ptr %3, i64 80
+  store double %.sroa.20.1, ptr %.sroa.20.0..sroa_idx45, align 8
+  %291 = getelementptr inbounds i8, ptr %3, i64 52
+  store i32 1, ptr %291, align 4
+  %292 = load double, ptr %0, align 8
+  %293 = fadd double %292, 1.000000e+00
+  store double %293, ptr %0, align 8
+  br label %.preheader341
 
-282:                                              ; preds = %287, %274
-  %.0 = phi ptr [ %1, %274 ], [ %286, %287 ]
-  %283 = getelementptr inbounds i8, ptr %.0, i64 16
-  %284 = load ptr, ptr %283, align 8
-  %285 = getelementptr inbounds i8, ptr %284, i64 160
-  %286 = load ptr, ptr %285, align 8
-  %.not301 = icmp eq ptr %286, null
-  br i1 %.not301, label %.critedge2, label %287
+.preheader341:                                    ; preds = %245, %276, %256, %196
+  br label %294
 
-287:                                              ; preds = %282
-  %288 = getelementptr inbounds i8, ptr %284, i64 152
-  %289 = load i8, ptr %288, align 8
-  %.not302 = icmp eq i8 %289, 0
-  br i1 %.not302, label %.critedge2, label %282
+294:                                              ; preds = %.preheader341, %299
+  %.0 = phi ptr [ %298, %299 ], [ %1, %.preheader341 ]
+  %295 = getelementptr inbounds i8, ptr %.0, i64 16
+  %296 = load ptr, ptr %295, align 8
+  %297 = getelementptr inbounds i8, ptr %296, i64 160
+  %298 = load ptr, ptr %297, align 8
+  %.not301 = icmp eq ptr %298, null
+  br i1 %.not301, label %.critedge2, label %299
 
-.critedge2:                                       ; preds = %282, %287
-  %290 = load i32, ptr %.0, align 8
-  %291 = and i32 %290, 3
-  %292 = icmp eq i32 %291, 3
-  %.idx303 = select i1 %292, i64 0, i64 64
-  %293 = getelementptr inbounds i8, ptr %.0, i64 %.idx303
-  %294 = getelementptr inbounds i8, ptr %293, i64 56
-  %295 = load ptr, ptr %294, align 8
-  %296 = icmp eq ptr %13, %295
-  %. = select i1 %296, i64 58, i64 106
-  %297 = getelementptr inbounds i8, ptr %284, i64 %.
-  store i8 0, ptr %297, align 2
-  %298 = getelementptr inbounds i8, ptr %3, i64 48
-  store i32 %193, ptr %298, align 8
-  br label %334
+299:                                              ; preds = %294
+  %300 = getelementptr inbounds i8, ptr %296, i64 152
+  %301 = load i8, ptr %300, align 8
+  %.not302 = icmp eq i8 %301, 0
+  br i1 %.not302, label %.critedge2, label %294
 
-299:                                              ; preds = %64, %189
-  %300 = getelementptr inbounds i8, ptr %3, i64 48
-  %301 = load i32, ptr %300, align 8
-  br label %302
-
-302:                                              ; preds = %69, %74, %299
-  %.0282 = phi i32 [ %301, %299 ], [ 1, %74 ], [ 1, %69 ]
-  %.not296 = icmp eq ptr %.0283, null
-  br i1 %.not296, label %311, label %303
-
-303:                                              ; preds = %302
-  %304 = load ptr, ptr %14, align 8
-  %305 = getelementptr inbounds i8, ptr %304, i64 24
-  %306 = getelementptr inbounds i8, ptr %3, i64 56
-  %307 = getelementptr inbounds i8, ptr %3, i64 52
-  %308 = call i32 %.0283(ptr noundef nonnull %13, ptr noundef nonnull %305, i32 noundef %.0282, ptr noundef nonnull %306, ptr noundef nonnull %307) #17
-  %.not297 = icmp eq i32 %308, 0
-  br i1 %.not297, label %311, label %309
-
-309:                                              ; preds = %303
+.critedge2:                                       ; preds = %294, %299
+  %302 = load i32, ptr %.0, align 8
+  %303 = and i32 %302, 3
+  %304 = icmp eq i32 %303, 3
+  %.idx303 = select i1 %304, i64 0, i64 64
+  %305 = getelementptr inbounds i8, ptr %.0, i64 %.idx303
+  %306 = getelementptr inbounds i8, ptr %305, i64 56
+  %307 = load ptr, ptr %306, align 8
+  %308 = icmp eq ptr %13, %307
+  %. = select i1 %308, i64 58, i64 106
+  %309 = getelementptr inbounds i8, ptr %296, i64 %.
+  store i8 0, ptr %309, align 2
   %310 = getelementptr inbounds i8, ptr %3, i64 48
-  store i32 %308, ptr %310, align 8
-  br label %334
+  store i32 %193, ptr %310, align 8
+  br label %346
 
-311:                                              ; preds = %303, %302
-  %312 = getelementptr inbounds i8, ptr %3, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %312, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  %313 = getelementptr inbounds i8, ptr %3, i64 52
-  store i32 1, ptr %313, align 4
-  switch i32 %2, label %334 [
-    i32 8, label %314
-    i32 2, label %319
-    i32 1, label %328
+311:                                              ; preds = %64, %189
+  %312 = getelementptr inbounds i8, ptr %3, i64 48
+  %313 = load i32, ptr %312, align 8
+  br label %314
+
+314:                                              ; preds = %69, %74, %311
+  %.0282 = phi i32 [ %313, %311 ], [ 1, %74 ], [ 1, %69 ]
+  %.not296 = icmp eq ptr %.0283, null
+  br i1 %.not296, label %323, label %315
+
+315:                                              ; preds = %314
+  %316 = load ptr, ptr %14, align 8
+  %317 = getelementptr inbounds i8, ptr %316, i64 24
+  %318 = getelementptr inbounds i8, ptr %3, i64 56
+  %319 = getelementptr inbounds i8, ptr %3, i64 52
+  %320 = call i32 %.0283(ptr noundef nonnull %13, ptr noundef nonnull %317, i32 noundef %.0282, ptr noundef nonnull %318, ptr noundef nonnull %319) #17
+  %.not297 = icmp eq i32 %320, 0
+  br i1 %.not297, label %323, label %321
+
+321:                                              ; preds = %315
+  %322 = getelementptr inbounds i8, ptr %3, i64 48
+  store i32 %320, ptr %322, align 8
+  br label %346
+
+323:                                              ; preds = %315, %314
+  %324 = getelementptr inbounds i8, ptr %3, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %324, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
+  %325 = getelementptr inbounds i8, ptr %3, i64 52
+  store i32 1, ptr %325, align 4
+  switch i32 %2, label %346 [
+    i32 8, label %326
+    i32 2, label %331
+    i32 1, label %340
   ]
 
-314:                                              ; preds = %311
-  %315 = load double, ptr %.sroa.2112.0..sroa_idx, align 8
-  %316 = fadd double %315, -1.000000e+00
-  %317 = getelementptr inbounds i8, ptr %3, i64 80
-  store double %316, ptr %317, align 8
-  %318 = getelementptr inbounds i8, ptr %3, i64 48
-  store i32 1, ptr %318, align 8
-  br label %334
+326:                                              ; preds = %323
+  %327 = load double, ptr %.sroa.2112.0..sroa_idx, align 8
+  %328 = fadd double %327, -1.000000e+00
+  %329 = getelementptr inbounds i8, ptr %3, i64 80
+  store double %328, ptr %329, align 8
+  %330 = getelementptr inbounds i8, ptr %3, i64 48
+  store i32 1, ptr %330, align 8
+  br label %346
 
-319:                                              ; preds = %311
-  %320 = getelementptr inbounds i8, ptr %3, i64 48
-  %321 = load i32, ptr %320, align 8
-  %322 = icmp eq i32 %321, 4
-  %323 = load double, ptr %.sroa.2112.0..sroa_idx, align 8
-  br i1 %322, label %324, label %326
+331:                                              ; preds = %323
+  %332 = getelementptr inbounds i8, ptr %3, i64 48
+  %333 = load i32, ptr %332, align 8
+  %334 = icmp eq i32 %333, 4
+  %335 = load double, ptr %.sroa.2112.0..sroa_idx, align 8
+  br i1 %334, label %336, label %338
 
-324:                                              ; preds = %319
-  %325 = getelementptr inbounds i8, ptr %3, i64 64
-  store double %323, ptr %325, align 8
-  br label %334
+336:                                              ; preds = %331
+  %337 = getelementptr inbounds i8, ptr %3, i64 64
+  store double %335, ptr %337, align 8
+  br label %346
 
-326:                                              ; preds = %319
-  %327 = getelementptr inbounds i8, ptr %3, i64 80
-  store double %323, ptr %327, align 8
-  br label %334
+338:                                              ; preds = %331
+  %339 = getelementptr inbounds i8, ptr %3, i64 80
+  store double %335, ptr %339, align 8
+  br label %346
 
-328:                                              ; preds = %311
-  %329 = load double, ptr %.sroa.2112.0..sroa_idx, align 8
-  %330 = getelementptr inbounds i8, ptr %3, i64 80
-  store double %329, ptr %330, align 8
-  %331 = getelementptr inbounds i8, ptr %3, i64 48
-  store i32 1, ptr %331, align 8
-  %332 = load double, ptr %.sroa.2112.0..sroa_idx, align 8
-  %333 = fadd double %332, -1.000000e+00
-  store double %333, ptr %.sroa.2112.0..sroa_idx, align 8
-  br label %334
+340:                                              ; preds = %323
+  %341 = load double, ptr %.sroa.2112.0..sroa_idx, align 8
+  %342 = getelementptr inbounds i8, ptr %3, i64 80
+  store double %341, ptr %342, align 8
+  %343 = getelementptr inbounds i8, ptr %3, i64 48
+  store i32 1, ptr %343, align 8
+  %344 = load double, ptr %.sroa.2112.0..sroa_idx, align 8
+  %345 = fadd double %344, -1.000000e+00
+  store double %345, ptr %.sroa.2112.0..sroa_idx, align 8
+  br label %346
 
-334:                                              ; preds = %311, %314, %328, %326, %324, %185, %187, %309, %.critedge2
+346:                                              ; preds = %323, %326, %340, %338, %336, %185, %187, %321, %.critedge2
   ret void
 }
 
@@ -1705,9 +1745,9 @@ define void @endpath(ptr nocapture noundef %0, ptr nocapture noundef readonly %1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %48, %62
-  %.sink347 = phi double [ %64, %62 ], [ %56, %48 ]
+  %.sink333 = phi double [ %64, %62 ], [ %56, %48 ]
   %65 = getelementptr inbounds i8, ptr %0, i64 64
-  store double %.sink347, ptr %65, align 8
+  store double %.sink333, ptr %65, align 8
   br label %66
 
 66:                                               ; preds = %.sink.split, %57
@@ -1716,9 +1756,9 @@ define void @endpath(ptr nocapture noundef %0, ptr nocapture noundef readonly %1
   store i8 %.sink317, ptr %67, align 1
   %68 = getelementptr inbounds i8, ptr %3, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull align 8 dereferenceable(16) %36, i64 16, i1 false)
-  switch i32 %2, label %281 [
+  switch i32 %2, label %298 [
     i32 1, label %69
-    i32 2, label %182
+    i32 2, label %187
   ]
 
 69:                                               ; preds = %66
@@ -1726,7 +1766,7 @@ define void @endpath(ptr nocapture noundef %0, ptr nocapture noundef readonly %1
   %71 = getelementptr inbounds i8, ptr %70, i64 216
   %72 = load i8, ptr %71, align 8
   %73 = icmp eq i8 %72, 0
-  br i1 %73, label %74, label %284
+  br i1 %73, label %74, label %301
 
 74:                                               ; preds = %69
   %75 = load ptr, ptr %14, align 8
@@ -1734,7 +1774,7 @@ define void @endpath(ptr nocapture noundef %0, ptr nocapture noundef readonly %1
   %77 = load i8, ptr %76, align 1
   %78 = zext i8 %77 to i32
   %.not291 = icmp eq i8 %77, 0
-  br i1 %.not291, label %284, label %79
+  br i1 %.not291, label %301, label %79
 
 79:                                               ; preds = %74
   %.sroa.050.0.copyload = load double, ptr %3, align 8
@@ -1742,7 +1782,7 @@ define void @endpath(ptr nocapture noundef %0, ptr nocapture noundef readonly %1
   %.sroa.19.0.copyload = load double, ptr %.sroa.19.0..sroa_idx, align 8
   %80 = and i32 %78, 4
   %.not301 = icmp eq i32 %80, 0
-  br i1 %.not301, label %87, label %81
+  br i1 %.not301, label %89, label %81
 
 81:                                               ; preds = %79
   %.sroa.25.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
@@ -1764,190 +1804,197 @@ define void @endpath(ptr nocapture noundef %0, ptr nocapture noundef readonly %1
   store double %.sroa.25.0.copyload, ptr %.sroa.25.0..sroa_idx81, align 8
   %86 = getelementptr inbounds i8, ptr %3, i64 52
   store i32 1, ptr %86, align 4
-  br label %162
+  %87 = load double, ptr %.sroa.2110.0..sroa_idx, align 8
+  %88 = fadd double %87, 1.000000e+00
+  store double %88, ptr %.sroa.2110.0..sroa_idx, align 8
+  br label %.preheader
 
-87:                                               ; preds = %79
-  %88 = and i32 %78, 1
-  %.not302 = icmp eq i32 %88, 0
-  br i1 %.not302, label %137, label %89
+89:                                               ; preds = %79
+  %90 = and i32 %78, 1
+  %.not302 = icmp eq i32 %90, 0
+  br i1 %.not302, label %141, label %91
 
-89:                                               ; preds = %87
-  %90 = getelementptr inbounds i8, ptr %3, i64 48
-  store i32 1, ptr %90, align 8
-  %91 = load double, ptr %36, align 8
-  %92 = load ptr, ptr %26, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 32
-  %94 = load double, ptr %93, align 8
-  %95 = fcmp olt double %91, %94
-  %96 = getelementptr inbounds i8, ptr %92, i64 40
-  %97 = load double, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %92, i64 96
+91:                                               ; preds = %89
+  %92 = getelementptr inbounds i8, ptr %3, i64 48
+  store i32 1, ptr %92, align 8
+  %93 = load double, ptr %36, align 8
+  %94 = load ptr, ptr %26, align 8
+  %95 = getelementptr inbounds i8, ptr %94, i64 32
+  %96 = load double, ptr %95, align 8
+  %97 = fcmp olt double %93, %96
+  %98 = getelementptr inbounds i8, ptr %94, i64 40
   %99 = load double, ptr %98, align 8
-  %100 = fmul double %99, 5.000000e-01
-  %101 = fsub double %97, %100
-  br i1 %95, label %102, label %112
+  %100 = getelementptr inbounds i8, ptr %94, i64 96
+  %101 = load double, ptr %100, align 8
+  %102 = fmul double %101, 5.000000e-01
+  %103 = fsub double %99, %102
+  br i1 %97, label %104, label %114
 
-102:                                              ; preds = %89
-  %103 = fadd double %.sroa.050.0.copyload, -1.000000e+00
-  %104 = load double, ptr %.sroa.2110.0..sroa_idx, align 8
-  %105 = call ptr @agraphof(ptr noundef nonnull %13) #17
-  %106 = load ptr, ptr %26, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 32
-  %108 = load double, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %106, i64 104
+104:                                              ; preds = %91
+  %105 = fadd double %.sroa.050.0.copyload, -1.000000e+00
+  %106 = load double, ptr %.sroa.2110.0..sroa_idx, align 8
+  %107 = call ptr @agraphof(ptr noundef nonnull %13) #17
+  %108 = load ptr, ptr %26, align 8
+  %109 = getelementptr inbounds i8, ptr %108, i64 32
   %110 = load double, ptr %109, align 8
-  %111 = fsub double %108, %110
-  br label %123
+  %111 = getelementptr inbounds i8, ptr %108, i64 104
+  %112 = load double, ptr %111, align 8
+  %113 = fsub double %110, %112
+  br label %125
 
-112:                                              ; preds = %89
-  %113 = load double, ptr %.sroa.2110.0..sroa_idx, align 8
-  %114 = fadd double %.sroa.19.0.copyload, 1.000000e+00
-  %115 = call ptr @agraphof(ptr noundef nonnull %13) #17
-  %116 = load ptr, ptr %26, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 32
-  %118 = load double, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %116, i64 112
+114:                                              ; preds = %91
+  %115 = load double, ptr %.sroa.2110.0..sroa_idx, align 8
+  %116 = fadd double %.sroa.19.0.copyload, 1.000000e+00
+  %117 = call ptr @agraphof(ptr noundef nonnull %13) #17
+  %118 = load ptr, ptr %26, align 8
+  %119 = getelementptr inbounds i8, ptr %118, i64 32
   %120 = load double, ptr %119, align 8
-  %121 = fadd double %118, %120
-  %122 = fadd double %121, 0.000000e+00
-  br label %123
+  %121 = getelementptr inbounds i8, ptr %118, i64 112
+  %122 = load double, ptr %121, align 8
+  %123 = fadd double %120, %122
+  %124 = fadd double %123, 0.000000e+00
+  br label %125
 
-123:                                              ; preds = %112, %102
-  %.sink326 = phi ptr [ %116, %112 ], [ %106, %102 ]
-  %.sroa.050.0.copyload.sink = phi double [ %.sroa.050.0.copyload, %112 ], [ %103, %102 ]
-  %.pn351 = phi ptr [ %115, %112 ], [ %105, %102 ]
-  %.sink319 = phi double [ %114, %112 ], [ %.sroa.19.0.copyload, %102 ]
-  %.sink314 = phi double [ %113, %112 ], [ %104, %102 ]
-  %.sink313 = phi double [ %122, %112 ], [ %103, %102 ]
-  %.sink311 = phi double [ %114, %112 ], [ %111, %102 ]
-  %.pn350.in = getelementptr inbounds i8, ptr %.pn351, i64 16
-  %.pn350 = load ptr, ptr %.pn350.in, align 8
-  %.pn.in.in.in = getelementptr inbounds i8, ptr %.pn350, i64 364
+125:                                              ; preds = %114, %104
+  %.sink326 = phi ptr [ %118, %114 ], [ %108, %104 ]
+  %.sroa.050.0.copyload.sink = phi double [ %.sroa.050.0.copyload, %114 ], [ %105, %104 ]
+  %.pn337 = phi ptr [ %117, %114 ], [ %107, %104 ]
+  %.sink319 = phi double [ %116, %114 ], [ %.sroa.19.0.copyload, %104 ]
+  %.sink314 = phi double [ %115, %114 ], [ %106, %104 ]
+  %.sink313 = phi double [ %124, %114 ], [ %105, %104 ]
+  %.sink311 = phi double [ %116, %114 ], [ %113, %104 ]
+  %.pn336.in = getelementptr inbounds i8, ptr %.pn337, i64 16
+  %.pn336 = load ptr, ptr %.pn336.in, align 8
+  %.pn.in.in.in = getelementptr inbounds i8, ptr %.pn336, i64 364
   %.pn.in.in = load i32, ptr %.pn.in.in.in, align 4
   %.pn.in = sdiv i32 %.pn.in.in, 2
   %.pn = sitofp i32 %.pn.in to double
-  %.sink320 = fsub double %101, %.pn
-  %124 = getelementptr inbounds i8, ptr %.sink326, i64 40
-  %125 = load double, ptr %124, align 8
-  %126 = getelementptr inbounds i8, ptr %.sink326, i64 96
+  %.sink320 = fsub double %103, %.pn
+  %126 = getelementptr inbounds i8, ptr %.sink326, i64 40
   %127 = load double, ptr %126, align 8
-  %128 = fmul double %127, 5.000000e-01
-  %129 = fadd double %125, %128
-  %130 = getelementptr inbounds i8, ptr %3, i64 56
-  store double %.sroa.050.0.copyload.sink, ptr %130, align 8
+  %128 = getelementptr inbounds i8, ptr %.sink326, i64 96
+  %129 = load double, ptr %128, align 8
+  %130 = fmul double %129, 5.000000e-01
+  %131 = fadd double %127, %130
+  %132 = getelementptr inbounds i8, ptr %3, i64 56
+  store double %.sroa.050.0.copyload.sink, ptr %132, align 8
   %.sroa.493.0..sroa_idx94 = getelementptr inbounds i8, ptr %3, i64 64
   store double %.sink320, ptr %.sroa.493.0..sroa_idx94, align 8
   %.sroa.6.0..sroa_idx96 = getelementptr inbounds i8, ptr %3, i64 72
   store double %.sink319, ptr %.sroa.6.0..sroa_idx96, align 8
-  %131 = getelementptr inbounds i8, ptr %3, i64 80
-  store double %.sink314, ptr %131, align 8
-  %132 = getelementptr inbounds i8, ptr %3, i64 88
-  store double %.sink313, ptr %132, align 8
-  %133 = getelementptr inbounds i8, ptr %3, i64 96
+  %133 = getelementptr inbounds i8, ptr %3, i64 80
   store double %.sink314, ptr %133, align 8
-  %134 = getelementptr inbounds i8, ptr %3, i64 104
-  store double %.sink311, ptr %134, align 8
-  %135 = getelementptr inbounds i8, ptr %3, i64 112
-  store double %129, ptr %135, align 8
-  %136 = getelementptr inbounds i8, ptr %3, i64 52
-  store i32 2, ptr %136, align 4
-  br label %162
+  %134 = getelementptr inbounds i8, ptr %3, i64 88
+  store double %.sink313, ptr %134, align 8
+  %135 = getelementptr inbounds i8, ptr %3, i64 96
+  store double %.sink314, ptr %135, align 8
+  %136 = getelementptr inbounds i8, ptr %3, i64 104
+  store double %.sink311, ptr %136, align 8
+  %137 = getelementptr inbounds i8, ptr %3, i64 112
+  store double %131, ptr %137, align 8
+  %138 = getelementptr inbounds i8, ptr %3, i64 52
+  store i32 2, ptr %138, align 4
+  %139 = load double, ptr %.sroa.2110.0..sroa_idx, align 8
+  %140 = fadd double %139, -1.000000e+00
+  store double %140, ptr %.sroa.2110.0..sroa_idx, align 8
+  br label %.preheader
 
-137:                                              ; preds = %87
-  %138 = and i32 %78, 8
-  %.not303 = icmp eq i32 %138, 0
-  %139 = getelementptr inbounds i8, ptr %3, i64 48
-  %140 = getelementptr inbounds i8, ptr %3, i64 56
+141:                                              ; preds = %89
+  %142 = and i32 %78, 8
+  %.not303 = icmp eq i32 %142, 0
+  %143 = getelementptr inbounds i8, ptr %3, i64 48
+  %144 = getelementptr inbounds i8, ptr %3, i64 56
   %.sroa.12.0..sroa_idx66 = getelementptr inbounds i8, ptr %3, i64 64
   %.sroa.19.0..sroa_idx77 = getelementptr inbounds i8, ptr %3, i64 72
   %.sroa.25.0..sroa_idx89 = getelementptr inbounds i8, ptr %3, i64 80
-  %141 = getelementptr inbounds i8, ptr %3, i64 52
-  br i1 %.not303, label %152, label %142
+  %145 = getelementptr inbounds i8, ptr %3, i64 52
+  br i1 %.not303, label %158, label %146
 
-142:                                              ; preds = %137
-  store i32 8, ptr %139, align 8
-  %143 = load double, ptr %36, align 8
-  %144 = load ptr, ptr %26, align 8
-  %145 = getelementptr inbounds i8, ptr %144, i64 40
-  %146 = load double, ptr %145, align 8
-  %147 = getelementptr inbounds i8, ptr %144, i64 96
-  %148 = load double, ptr %147, align 8
-  %149 = fmul double %148, 5.000000e-01
-  %150 = fadd double %146, %149
-  %151 = load double, ptr %.sroa.2110.0..sroa_idx, align 8
-  store double %.sroa.050.0.copyload, ptr %140, align 8
-  store double %151, ptr %.sroa.12.0..sroa_idx66, align 8
-  store double %143, ptr %.sroa.19.0..sroa_idx77, align 8
-  store double %150, ptr %.sroa.25.0..sroa_idx89, align 8
-  store i32 1, ptr %141, align 4
-  br label %162
+146:                                              ; preds = %141
+  store i32 8, ptr %143, align 8
+  %147 = load double, ptr %36, align 8
+  %148 = load ptr, ptr %26, align 8
+  %149 = getelementptr inbounds i8, ptr %148, i64 40
+  %150 = load double, ptr %149, align 8
+  %151 = getelementptr inbounds i8, ptr %148, i64 96
+  %152 = load double, ptr %151, align 8
+  %153 = fmul double %152, 5.000000e-01
+  %154 = fadd double %150, %153
+  %155 = load double, ptr %.sroa.2110.0..sroa_idx, align 8
+  store double %.sroa.050.0.copyload, ptr %144, align 8
+  store double %155, ptr %.sroa.12.0..sroa_idx66, align 8
+  store double %147, ptr %.sroa.19.0..sroa_idx77, align 8
+  store double %154, ptr %.sroa.25.0..sroa_idx89, align 8
+  store i32 1, ptr %145, align 4
+  %156 = load double, ptr %36, align 8
+  %157 = fadd double %156, -1.000000e+00
+  store double %157, ptr %36, align 8
+  br label %.preheader
 
-152:                                              ; preds = %137
-  store i32 2, ptr %139, align 8
-  %153 = load double, ptr %36, align 8
-  %154 = load ptr, ptr %26, align 8
-  %155 = getelementptr inbounds i8, ptr %154, i64 40
-  %156 = load double, ptr %155, align 8
-  %157 = getelementptr inbounds i8, ptr %154, i64 96
-  %158 = load double, ptr %157, align 8
-  %159 = fmul double %158, 5.000000e-01
-  %160 = fadd double %156, %159
-  %161 = load double, ptr %.sroa.2110.0..sroa_idx, align 8
-  store double %153, ptr %140, align 8
-  store double %161, ptr %.sroa.12.0..sroa_idx66, align 8
+158:                                              ; preds = %141
+  store i32 2, ptr %143, align 8
+  %159 = load double, ptr %36, align 8
+  %160 = load ptr, ptr %26, align 8
+  %161 = getelementptr inbounds i8, ptr %160, i64 40
+  %162 = load double, ptr %161, align 8
+  %163 = getelementptr inbounds i8, ptr %160, i64 96
+  %164 = load double, ptr %163, align 8
+  %165 = fmul double %164, 5.000000e-01
+  %166 = fadd double %162, %165
+  %167 = load double, ptr %.sroa.2110.0..sroa_idx, align 8
+  store double %159, ptr %144, align 8
+  store double %167, ptr %.sroa.12.0..sroa_idx66, align 8
   store double %.sroa.19.0.copyload, ptr %.sroa.19.0..sroa_idx77, align 8
-  store double %160, ptr %.sroa.25.0..sroa_idx89, align 8
-  store i32 1, ptr %141, align 4
-  br label %162
+  store double %166, ptr %.sroa.25.0..sroa_idx89, align 8
+  store i32 1, ptr %145, align 4
+  %168 = load double, ptr %36, align 8
+  %169 = fadd double %168, 1.000000e+00
+  store double %169, ptr %36, align 8
+  br label %.preheader
 
-162:                                              ; preds = %123, %152, %142, %81
-  %.sroa.2110.0..sroa_idx.sink330 = phi ptr [ %.sroa.2110.0..sroa_idx, %123 ], [ %36, %152 ], [ %36, %142 ], [ %.sroa.2110.0..sroa_idx, %81 ]
-  %.sink329 = phi double [ -1.000000e+00, %123 ], [ 1.000000e+00, %152 ], [ -1.000000e+00, %142 ], [ 1.000000e+00, %81 ]
-  %163 = load double, ptr %.sroa.2110.0..sroa_idx.sink330, align 8
-  %164 = fadd double %163, %.sink329
-  store double %164, ptr %.sroa.2110.0..sroa_idx.sink330, align 8
-  br label %165
+.preheader:                                       ; preds = %125, %158, %146, %81
+  br label %170
 
-165:                                              ; preds = %170, %162
-  %.0281 = phi ptr [ %1, %162 ], [ %169, %170 ]
-  %166 = getelementptr inbounds i8, ptr %.0281, i64 16
-  %167 = load ptr, ptr %166, align 8
-  %168 = getelementptr inbounds i8, ptr %167, i64 160
-  %169 = load ptr, ptr %168, align 8
-  %.not304 = icmp eq ptr %169, null
-  br i1 %.not304, label %.critedge, label %170
+170:                                              ; preds = %.preheader, %175
+  %.0281 = phi ptr [ %174, %175 ], [ %1, %.preheader ]
+  %171 = getelementptr inbounds i8, ptr %.0281, i64 16
+  %172 = load ptr, ptr %171, align 8
+  %173 = getelementptr inbounds i8, ptr %172, i64 160
+  %174 = load ptr, ptr %173, align 8
+  %.not304 = icmp eq ptr %174, null
+  br i1 %.not304, label %.critedge, label %175
 
-170:                                              ; preds = %165
-  %171 = getelementptr inbounds i8, ptr %167, i64 152
-  %172 = load i8, ptr %171, align 8
-  %.not305 = icmp eq i8 %172, 0
-  br i1 %.not305, label %.critedge, label %165
+175:                                              ; preds = %170
+  %176 = getelementptr inbounds i8, ptr %172, i64 152
+  %177 = load i8, ptr %176, align 8
+  %.not305 = icmp eq i8 %177, 0
+  br i1 %.not305, label %.critedge, label %170
 
-.critedge:                                        ; preds = %165, %170
-  %173 = load i32, ptr %.0281, align 8
-  %174 = and i32 %173, 3
-  %175 = icmp eq i32 %174, 2
-  %.idx306 = select i1 %175, i64 0, i64 -64
-  %176 = getelementptr inbounds i8, ptr %.0281, i64 %.idx306
-  %177 = getelementptr inbounds i8, ptr %176, i64 56
-  %178 = load ptr, ptr %177, align 8
-  %179 = icmp eq ptr %13, %178
-  %. = select i1 %179, i64 106, i64 58
-  %180 = getelementptr inbounds i8, ptr %167, i64 %.
-  store i8 0, ptr %180, align 2
-  %181 = getelementptr inbounds i8, ptr %3, i64 48
-  store i32 %78, ptr %181, align 8
-  br label %316
+.critedge:                                        ; preds = %170, %175
+  %178 = load i32, ptr %.0281, align 8
+  %179 = and i32 %178, 3
+  %180 = icmp eq i32 %179, 2
+  %.idx306 = select i1 %180, i64 0, i64 -64
+  %181 = getelementptr inbounds i8, ptr %.0281, i64 %.idx306
+  %182 = getelementptr inbounds i8, ptr %181, i64 56
+  %183 = load ptr, ptr %182, align 8
+  %184 = icmp eq ptr %13, %183
+  %. = select i1 %184, i64 106, i64 58
+  %185 = getelementptr inbounds i8, ptr %172, i64 %.
+  store i8 0, ptr %185, align 2
+  %186 = getelementptr inbounds i8, ptr %3, i64 48
+  store i32 %78, ptr %186, align 8
+  br label %333
 
-182:                                              ; preds = %66
-  %183 = load ptr, ptr %14, align 8
-  %184 = getelementptr inbounds i8, ptr %183, i64 109
-  %185 = load i8, ptr %184, align 1
-  %186 = zext i8 %185 to i32
-  %.not292 = icmp eq i8 %185, 0
-  br i1 %.not292, label %281, label %187
+187:                                              ; preds = %66
+  %188 = load ptr, ptr %14, align 8
+  %189 = getelementptr inbounds i8, ptr %188, i64 109
+  %190 = load i8, ptr %189, align 1
+  %191 = zext i8 %190 to i32
+  %.not292 = icmp eq i8 %190, 0
+  br i1 %.not292, label %298, label %192
 
-187:                                              ; preds = %182
+192:                                              ; preds = %187
   %.sroa.0.0.copyload = load double, ptr %3, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
   %.sroa.10.0.copyload = load double, ptr %.sroa.10.0..sroa_idx, align 8
@@ -1955,235 +2002,275 @@ define void @endpath(ptr nocapture noundef %0, ptr nocapture noundef readonly %1
   %.sroa.18.0.copyload = load double, ptr %.sroa.18.0..sroa_idx, align 8
   %.sroa.20.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
   %.sroa.20.0.copyload = load double, ptr %.sroa.20.0..sroa_idx, align 8
-  %188 = and i32 %186, 4
-  %.not295 = icmp eq i32 %188, 0
-  br i1 %.not295, label %192, label %189
-
-189:                                              ; preds = %187
-  %190 = load double, ptr %.sroa.2110.0..sroa_idx, align 8
-  %191 = fcmp olt double %.sroa.10.0.copyload, %190
-  %.sroa.10.0.copyload. = select i1 %191, double %.sroa.10.0.copyload, double %190
-  br label %256
-
-192:                                              ; preds = %187
-  %193 = and i32 %186, 1
-  %.not296 = icmp eq i32 %193, 0
-  br i1 %.not296, label %235, label %194
+  %193 = and i32 %191, 4
+  %.not295 = icmp eq i32 %193, 0
+  br i1 %.not295, label %201, label %194
 
 194:                                              ; preds = %192
-  %195 = getelementptr inbounds i8, ptr %3, i64 48
-  %196 = load i32, ptr %195, align 8
-  %197 = icmp eq i32 %196, 4
-  br i1 %197, label %198, label %231
+  %195 = load double, ptr %.sroa.2110.0..sroa_idx, align 8
+  %196 = fcmp olt double %.sroa.10.0.copyload, %195
+  %.sroa.10.0.copyload. = select i1 %196, double %.sroa.10.0.copyload, double %195
+  %197 = getelementptr inbounds i8, ptr %3, i64 56
+  store double %.sroa.0.0.copyload, ptr %197, align 8
+  %.sroa.10.0..sroa_idx16 = getelementptr inbounds i8, ptr %3, i64 64
+  store double %.sroa.10.0.copyload., ptr %.sroa.10.0..sroa_idx16, align 8
+  %.sroa.18.0..sroa_idx27 = getelementptr inbounds i8, ptr %3, i64 72
+  store double %.sroa.18.0.copyload, ptr %.sroa.18.0..sroa_idx27, align 8
+  %.sroa.20.0..sroa_idx37 = getelementptr inbounds i8, ptr %3, i64 80
+  store double %.sroa.20.0.copyload, ptr %.sroa.20.0..sroa_idx37, align 8
+  %198 = getelementptr inbounds i8, ptr %3, i64 52
+  store i32 1, ptr %198, align 4
+  %199 = load double, ptr %.sroa.2110.0..sroa_idx, align 8
+  %200 = fadd double %199, 1.000000e+00
+  store double %200, ptr %.sroa.2110.0..sroa_idx, align 8
+  br label %.preheader339
 
-198:                                              ; preds = %194
-  %199 = fadd double %.sroa.0.0.copyload, -1.000000e+00
-  %200 = load ptr, ptr %26, align 8
-  %201 = getelementptr inbounds i8, ptr %200, i64 40
-  %202 = load double, ptr %201, align 8
-  %203 = getelementptr inbounds i8, ptr %200, i64 96
-  %204 = load double, ptr %203, align 8
-  %205 = fmul double %204, 5.000000e-01
-  %206 = fsub double %202, %205
-  %207 = load double, ptr %36, align 8
-  %208 = call ptr @agraphof(ptr noundef nonnull %13) #17
-  %209 = getelementptr inbounds i8, ptr %208, i64 16
-  %210 = load ptr, ptr %209, align 8
-  %211 = getelementptr inbounds i8, ptr %210, i64 364
-  %212 = load i32, ptr %211, align 4
-  %213 = sdiv i32 %212, 2
-  %214 = sitofp i32 %213 to double
-  %215 = fsub double %206, %214
-  %216 = load ptr, ptr %26, align 8
-  %217 = getelementptr inbounds i8, ptr %216, i64 32
-  %218 = load double, ptr %217, align 8
-  %219 = getelementptr inbounds i8, ptr %216, i64 104
-  %220 = load double, ptr %219, align 8
-  %221 = fsub double %218, %220
-  %222 = fadd double %221, -2.000000e+00
-  %223 = getelementptr inbounds i8, ptr %216, i64 40
-  %224 = load double, ptr %223, align 8
-  %225 = getelementptr inbounds i8, ptr %216, i64 96
-  %226 = load double, ptr %225, align 8
-  %227 = fmul double %226, 5.000000e-01
-  %228 = fadd double %224, %227
-  %229 = getelementptr inbounds i8, ptr %3, i64 56
-  store double %199, ptr %229, align 8
-  %230 = getelementptr inbounds i8, ptr %3, i64 88
-  store double %199, ptr %230, align 8
-  %.sroa.10.0..sroa_idx18 = getelementptr inbounds i8, ptr %3, i64 96
-  store double %206, ptr %.sroa.10.0..sroa_idx18, align 8
-  %.sroa.18.0..sroa_idx29 = getelementptr inbounds i8, ptr %3, i64 104
-  store double %222, ptr %.sroa.18.0..sroa_idx29, align 8
-  br label %256
+201:                                              ; preds = %192
+  %202 = and i32 %191, 1
+  %.not296 = icmp eq i32 %202, 0
+  br i1 %.not296, label %252, label %203
 
-231:                                              ; preds = %194
-  %232 = getelementptr inbounds i8, ptr %0, i64 8
+203:                                              ; preds = %201
+  %204 = getelementptr inbounds i8, ptr %3, i64 48
+  %205 = load i32, ptr %204, align 8
+  %206 = icmp eq i32 %205, 4
+  br i1 %206, label %207, label %240
+
+207:                                              ; preds = %203
+  %208 = fadd double %.sroa.0.0.copyload, -1.000000e+00
+  %209 = load ptr, ptr %26, align 8
+  %210 = getelementptr inbounds i8, ptr %209, i64 40
+  %211 = load double, ptr %210, align 8
+  %212 = getelementptr inbounds i8, ptr %209, i64 96
+  %213 = load double, ptr %212, align 8
+  %214 = fmul double %213, 5.000000e-01
+  %215 = fsub double %211, %214
+  %216 = load double, ptr %36, align 8
+  %217 = call ptr @agraphof(ptr noundef nonnull %13) #17
+  %218 = getelementptr inbounds i8, ptr %217, i64 16
+  %219 = load ptr, ptr %218, align 8
+  %220 = getelementptr inbounds i8, ptr %219, i64 364
+  %221 = load i32, ptr %220, align 4
+  %222 = sdiv i32 %221, 2
+  %223 = sitofp i32 %222 to double
+  %224 = fsub double %215, %223
+  %225 = load ptr, ptr %26, align 8
+  %226 = getelementptr inbounds i8, ptr %225, i64 32
+  %227 = load double, ptr %226, align 8
+  %228 = getelementptr inbounds i8, ptr %225, i64 104
+  %229 = load double, ptr %228, align 8
+  %230 = fsub double %227, %229
+  %231 = fadd double %230, -2.000000e+00
+  %232 = getelementptr inbounds i8, ptr %225, i64 40
   %233 = load double, ptr %232, align 8
-  %234 = fcmp ogt double %.sroa.20.0.copyload, %233
-  %.sroa.20.0.copyload. = select i1 %234, double %.sroa.20.0.copyload, double %233
-  br label %256
+  %234 = getelementptr inbounds i8, ptr %225, i64 96
+  %235 = load double, ptr %234, align 8
+  %236 = fmul double %235, 5.000000e-01
+  %237 = fadd double %233, %236
+  %238 = getelementptr inbounds i8, ptr %3, i64 56
+  store double %208, ptr %238, align 8
+  %239 = getelementptr inbounds i8, ptr %3, i64 88
+  store double %208, ptr %239, align 8
+  %.sroa.10.0..sroa_idx18 = getelementptr inbounds i8, ptr %3, i64 96
+  store double %215, ptr %.sroa.10.0..sroa_idx18, align 8
+  %.sroa.18.0..sroa_idx29 = getelementptr inbounds i8, ptr %3, i64 104
+  store double %231, ptr %.sroa.18.0..sroa_idx29, align 8
+  br label %244
 
-235:                                              ; preds = %192
-  %236 = and i32 %186, 8
-  %.not297 = icmp eq i32 %236, 0
-  %237 = load double, ptr %36, align 8
-  %238 = getelementptr inbounds i8, ptr %3, i64 48
-  %239 = load i32, ptr %238, align 8
-  %240 = icmp eq i32 %239, 4
-  %241 = load ptr, ptr %26, align 8
-  %242 = getelementptr inbounds i8, ptr %241, i64 40
-  %243 = load double, ptr %242, align 8
-  %244 = getelementptr inbounds i8, ptr %241, i64 96
-  %245 = load double, ptr %244, align 8
-  %246 = fmul double %245, 5.000000e-01
-  %247 = load double, ptr %.sroa.2110.0..sroa_idx, align 8
-  %248 = fadd double %243, %246
-  %249 = fadd double %247, -1.000000e+00
-  %250 = fsub double %243, %246
-  br i1 %.not297, label %254, label %251
+240:                                              ; preds = %203
+  %241 = getelementptr inbounds i8, ptr %0, i64 8
+  %242 = load double, ptr %241, align 8
+  %243 = fcmp ogt double %.sroa.20.0.copyload, %242
+  %.sroa.20.0.copyload. = select i1 %243, double %.sroa.20.0.copyload, double %242
+  br label %244
 
-251:                                              ; preds = %235
-  %252 = fadd double %237, 1.000000e+00
-  %253 = fadd double %247, 1.000000e+00
-  %.sroa.20.0 = select i1 %240, double %248, double %253
-  %.sroa.10.0 = select i1 %240, double %249, double %250
-  br label %256
+244:                                              ; preds = %240, %207
+  %.sink330 = phi i64 [ 56, %240 ], [ 112, %207 ]
+  %.sroa.0.0.copyload.sink = phi double [ %.sroa.0.0.copyload, %240 ], [ %237, %207 ]
+  %.sroa.10.0.copyload.sink = phi double [ %.sroa.10.0.copyload, %240 ], [ %224, %207 ]
+  %.sroa.18.0.copyload.sink = phi double [ %.sroa.18.0.copyload, %240 ], [ %216, %207 ]
+  %.sroa.20.0.copyload..sink = phi double [ %.sroa.20.0.copyload., %240 ], [ %215, %207 ]
+  %.sink315 = phi i32 [ 1, %240 ], [ 2, %207 ]
+  %245 = getelementptr inbounds i8, ptr %3, i64 %.sink330
+  store double %.sroa.0.0.copyload.sink, ptr %245, align 8
+  %246 = getelementptr inbounds i8, ptr %3, i64 64
+  store double %.sroa.10.0.copyload.sink, ptr %246, align 8
+  %247 = getelementptr inbounds i8, ptr %3, i64 72
+  store double %.sroa.18.0.copyload.sink, ptr %247, align 8
+  %248 = getelementptr inbounds i8, ptr %3, i64 80
+  store double %.sroa.20.0.copyload..sink, ptr %248, align 8
+  %249 = getelementptr inbounds i8, ptr %3, i64 52
+  store i32 %.sink315, ptr %249, align 4
+  %250 = load double, ptr %.sroa.2110.0..sroa_idx, align 8
+  %251 = fadd double %250, -1.000000e+00
+  store double %251, ptr %.sroa.2110.0..sroa_idx, align 8
+  br label %.preheader339
 
-254:                                              ; preds = %235
-  %255 = fadd double %237, -1.000000e+00
-  %.sroa.20.1 = select i1 %240, double %248, double %247
-  %.sroa.10.1 = select i1 %240, double %249, double %250
-  br label %256
+252:                                              ; preds = %201
+  %253 = and i32 %191, 8
+  %.not297 = icmp eq i32 %253, 0
+  %254 = load double, ptr %36, align 8
+  %255 = getelementptr inbounds i8, ptr %3, i64 48
+  %256 = load i32, ptr %255, align 8
+  %257 = icmp eq i32 %256, 4
+  %258 = load ptr, ptr %26, align 8
+  %259 = getelementptr inbounds i8, ptr %258, i64 40
+  %260 = load double, ptr %259, align 8
+  %261 = getelementptr inbounds i8, ptr %258, i64 96
+  %262 = load double, ptr %261, align 8
+  %263 = fmul double %262, 5.000000e-01
+  %264 = load double, ptr %.sroa.2110.0..sroa_idx, align 8
+  %265 = fadd double %260, %263
+  %266 = fadd double %264, -1.000000e+00
+  %267 = fsub double %260, %263
+  br i1 %.not297, label %275, label %268
 
-256:                                              ; preds = %198, %231, %254, %251, %189
-  %.sink334.sink = phi i64 [ 56, %254 ], [ 56, %251 ], [ 56, %189 ], [ 56, %231 ], [ 112, %198 ]
-  %.sroa.0.0.copyload.sink.sink = phi double [ %255, %254 ], [ %.sroa.0.0.copyload, %251 ], [ %.sroa.0.0.copyload, %189 ], [ %.sroa.0.0.copyload, %231 ], [ %228, %198 ]
-  %.sroa.10.0.copyload.sink.sink = phi double [ %.sroa.10.1, %254 ], [ %.sroa.10.0, %251 ], [ %.sroa.10.0.copyload., %189 ], [ %.sroa.10.0.copyload, %231 ], [ %215, %198 ]
-  %.sroa.18.0.copyload.sink.sink = phi double [ %.sroa.18.0.copyload, %254 ], [ %252, %251 ], [ %.sroa.18.0.copyload, %189 ], [ %.sroa.18.0.copyload, %231 ], [ %207, %198 ]
-  %.sroa.20.0.copyload..sink.sink = phi double [ %.sroa.20.1, %254 ], [ %.sroa.20.0, %251 ], [ %.sroa.20.0.copyload, %189 ], [ %.sroa.20.0.copyload., %231 ], [ %206, %198 ]
-  %.sink315.sink = phi i32 [ 1, %254 ], [ 1, %251 ], [ 1, %189 ], [ 1, %231 ], [ 2, %198 ]
-  %.sroa.2110.0..sroa_idx.sink339 = phi ptr [ %36, %254 ], [ %36, %251 ], [ %.sroa.2110.0..sroa_idx, %189 ], [ %.sroa.2110.0..sroa_idx, %231 ], [ %.sroa.2110.0..sroa_idx, %198 ]
-  %.sink338 = phi double [ 1.000000e+00, %254 ], [ -1.000000e+00, %251 ], [ 1.000000e+00, %189 ], [ -1.000000e+00, %231 ], [ -1.000000e+00, %198 ]
-  %257 = getelementptr inbounds i8, ptr %3, i64 %.sink334.sink
-  store double %.sroa.0.0.copyload.sink.sink, ptr %257, align 8
-  %258 = getelementptr inbounds i8, ptr %3, i64 64
-  store double %.sroa.10.0.copyload.sink.sink, ptr %258, align 8
-  %259 = getelementptr inbounds i8, ptr %3, i64 72
-  store double %.sroa.18.0.copyload.sink.sink, ptr %259, align 8
-  %260 = getelementptr inbounds i8, ptr %3, i64 80
-  store double %.sroa.20.0.copyload..sink.sink, ptr %260, align 8
-  %261 = getelementptr inbounds i8, ptr %3, i64 52
-  store i32 %.sink315.sink, ptr %261, align 4
-  %262 = load double, ptr %.sroa.2110.0..sroa_idx.sink339, align 8
-  %263 = fadd double %262, %.sink338
-  store double %263, ptr %.sroa.2110.0..sroa_idx.sink339, align 8
-  br label %264
+268:                                              ; preds = %252
+  %269 = fadd double %254, 1.000000e+00
+  %270 = fadd double %264, 1.000000e+00
+  %.sroa.20.0 = select i1 %257, double %265, double %270
+  %.sroa.10.0 = select i1 %257, double %266, double %267
+  %271 = getelementptr inbounds i8, ptr %3, i64 56
+  store double %.sroa.0.0.copyload, ptr %271, align 8
+  %.sroa.10.0..sroa_idx22 = getelementptr inbounds i8, ptr %3, i64 64
+  store double %.sroa.10.0, ptr %.sroa.10.0..sroa_idx22, align 8
+  %.sroa.18.0..sroa_idx33 = getelementptr inbounds i8, ptr %3, i64 72
+  store double %269, ptr %.sroa.18.0..sroa_idx33, align 8
+  %.sroa.20.0..sroa_idx43 = getelementptr inbounds i8, ptr %3, i64 80
+  store double %.sroa.20.0, ptr %.sroa.20.0..sroa_idx43, align 8
+  %272 = getelementptr inbounds i8, ptr %3, i64 52
+  store i32 1, ptr %272, align 4
+  %273 = load double, ptr %36, align 8
+  %274 = fadd double %273, -1.000000e+00
+  store double %274, ptr %36, align 8
+  br label %.preheader339
 
-264:                                              ; preds = %269, %256
-  %.0 = phi ptr [ %1, %256 ], [ %268, %269 ]
-  %265 = getelementptr inbounds i8, ptr %.0, i64 16
-  %266 = load ptr, ptr %265, align 8
-  %267 = getelementptr inbounds i8, ptr %266, i64 160
-  %268 = load ptr, ptr %267, align 8
-  %.not298 = icmp eq ptr %268, null
-  br i1 %.not298, label %.critedge2, label %269
+275:                                              ; preds = %252
+  %276 = fadd double %254, -1.000000e+00
+  %.sroa.20.1 = select i1 %257, double %265, double %264
+  %.sroa.10.1 = select i1 %257, double %266, double %267
+  %277 = getelementptr inbounds i8, ptr %3, i64 56
+  store double %276, ptr %277, align 8
+  %.sroa.10.0..sroa_idx24 = getelementptr inbounds i8, ptr %3, i64 64
+  store double %.sroa.10.1, ptr %.sroa.10.0..sroa_idx24, align 8
+  %.sroa.18.0..sroa_idx35 = getelementptr inbounds i8, ptr %3, i64 72
+  store double %.sroa.18.0.copyload, ptr %.sroa.18.0..sroa_idx35, align 8
+  %.sroa.20.0..sroa_idx45 = getelementptr inbounds i8, ptr %3, i64 80
+  store double %.sroa.20.1, ptr %.sroa.20.0..sroa_idx45, align 8
+  %278 = getelementptr inbounds i8, ptr %3, i64 52
+  store i32 1, ptr %278, align 4
+  %279 = load double, ptr %36, align 8
+  %280 = fadd double %279, 1.000000e+00
+  store double %280, ptr %36, align 8
+  br label %.preheader339
 
-269:                                              ; preds = %264
-  %270 = getelementptr inbounds i8, ptr %266, i64 152
-  %271 = load i8, ptr %270, align 8
-  %.not299 = icmp eq i8 %271, 0
-  br i1 %.not299, label %.critedge2, label %264
+.preheader339:                                    ; preds = %244, %275, %268, %194
+  br label %281
 
-.critedge2:                                       ; preds = %264, %269
-  %272 = load i32, ptr %.0, align 8
-  %273 = and i32 %272, 3
-  %274 = icmp eq i32 %273, 2
-  %.idx300 = select i1 %274, i64 0, i64 -64
-  %275 = getelementptr inbounds i8, ptr %.0, i64 %.idx300
-  %276 = getelementptr inbounds i8, ptr %275, i64 56
-  %277 = load ptr, ptr %276, align 8
-  %278 = icmp eq ptr %13, %277
-  %.349 = select i1 %278, i64 106, i64 58
-  %279 = getelementptr inbounds i8, ptr %266, i64 %.349
-  store i8 0, ptr %279, align 2
-  %280 = getelementptr inbounds i8, ptr %3, i64 48
-  store i32 %186, ptr %280, align 8
-  br label %316
+281:                                              ; preds = %.preheader339, %286
+  %.0 = phi ptr [ %285, %286 ], [ %1, %.preheader339 ]
+  %282 = getelementptr inbounds i8, ptr %.0, i64 16
+  %283 = load ptr, ptr %282, align 8
+  %284 = getelementptr inbounds i8, ptr %283, i64 160
+  %285 = load ptr, ptr %284, align 8
+  %.not298 = icmp eq ptr %285, null
+  br i1 %.not298, label %.critedge2, label %286
 
-281:                                              ; preds = %66, %182
-  %282 = getelementptr inbounds i8, ptr %3, i64 48
-  %283 = load i32, ptr %282, align 8
-  br label %284
+286:                                              ; preds = %281
+  %287 = getelementptr inbounds i8, ptr %283, i64 152
+  %288 = load i8, ptr %287, align 8
+  %.not299 = icmp eq i8 %288, 0
+  br i1 %.not299, label %.critedge2, label %281
 
-284:                                              ; preds = %69, %74, %281
-  %.0279 = phi i32 [ %283, %281 ], [ 4, %74 ], [ 4, %69 ]
+.critedge2:                                       ; preds = %281, %286
+  %289 = load i32, ptr %.0, align 8
+  %290 = and i32 %289, 3
+  %291 = icmp eq i32 %290, 2
+  %.idx300 = select i1 %291, i64 0, i64 -64
+  %292 = getelementptr inbounds i8, ptr %.0, i64 %.idx300
+  %293 = getelementptr inbounds i8, ptr %292, i64 56
+  %294 = load ptr, ptr %293, align 8
+  %295 = icmp eq ptr %13, %294
+  %.335 = select i1 %295, i64 106, i64 58
+  %296 = getelementptr inbounds i8, ptr %283, i64 %.335
+  store i8 0, ptr %296, align 2
+  %297 = getelementptr inbounds i8, ptr %3, i64 48
+  store i32 %191, ptr %297, align 8
+  br label %333
+
+298:                                              ; preds = %66, %187
+  %299 = getelementptr inbounds i8, ptr %3, i64 48
+  %300 = load i32, ptr %299, align 8
+  br label %301
+
+301:                                              ; preds = %69, %74, %298
+  %.0279 = phi i32 [ %300, %298 ], [ 4, %74 ], [ 4, %69 ]
   %.not293 = icmp eq ptr %.0280, null
-  br i1 %.not293, label %293, label %285
+  br i1 %.not293, label %310, label %302
 
-285:                                              ; preds = %284
-  %286 = load ptr, ptr %14, align 8
-  %287 = getelementptr inbounds i8, ptr %286, i64 72
-  %288 = getelementptr inbounds i8, ptr %3, i64 56
-  %289 = getelementptr inbounds i8, ptr %3, i64 52
-  %290 = call i32 %.0280(ptr noundef nonnull %13, ptr noundef nonnull %287, i32 noundef %.0279, ptr noundef nonnull %288, ptr noundef nonnull %289) #17
-  %.not294 = icmp eq i32 %290, 0
-  br i1 %.not294, label %293, label %291
+302:                                              ; preds = %301
+  %303 = load ptr, ptr %14, align 8
+  %304 = getelementptr inbounds i8, ptr %303, i64 72
+  %305 = getelementptr inbounds i8, ptr %3, i64 56
+  %306 = getelementptr inbounds i8, ptr %3, i64 52
+  %307 = call i32 %.0280(ptr noundef nonnull %13, ptr noundef nonnull %304, i32 noundef %.0279, ptr noundef nonnull %305, ptr noundef nonnull %306) #17
+  %.not294 = icmp eq i32 %307, 0
+  br i1 %.not294, label %310, label %308
 
-291:                                              ; preds = %285
-  %292 = getelementptr inbounds i8, ptr %3, i64 48
-  store i32 %290, ptr %292, align 8
-  br label %316
+308:                                              ; preds = %302
+  %309 = getelementptr inbounds i8, ptr %3, i64 48
+  store i32 %307, ptr %309, align 8
+  br label %333
 
-293:                                              ; preds = %285, %284
-  %294 = getelementptr inbounds i8, ptr %3, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %294, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  %295 = getelementptr inbounds i8, ptr %3, i64 52
-  store i32 1, ptr %295, align 4
-  switch i32 %2, label %316 [
-    i32 8, label %296
-    i32 2, label %301
-    i32 1, label %310
+310:                                              ; preds = %302, %301
+  %311 = getelementptr inbounds i8, ptr %3, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %311, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
+  %312 = getelementptr inbounds i8, ptr %3, i64 52
+  store i32 1, ptr %312, align 4
+  switch i32 %2, label %333 [
+    i32 8, label %313
+    i32 2, label %318
+    i32 1, label %327
   ]
 
-296:                                              ; preds = %293
-  %297 = load double, ptr %.sroa.2110.0..sroa_idx, align 8
-  %298 = fadd double %297, 1.000000e+00
-  %299 = getelementptr inbounds i8, ptr %3, i64 64
-  store double %298, ptr %299, align 8
-  %300 = getelementptr inbounds i8, ptr %3, i64 48
-  store i32 4, ptr %300, align 8
-  br label %316
-
-301:                                              ; preds = %293
-  %302 = getelementptr inbounds i8, ptr %3, i64 48
-  %303 = load i32, ptr %302, align 8
-  %304 = icmp eq i32 %303, 4
-  %305 = load double, ptr %.sroa.2110.0..sroa_idx, align 8
-  br i1 %304, label %306, label %308
-
-306:                                              ; preds = %301
-  %307 = getelementptr inbounds i8, ptr %3, i64 64
-  store double %305, ptr %307, align 8
-  br label %316
-
-308:                                              ; preds = %301
-  %309 = getelementptr inbounds i8, ptr %3, i64 80
-  store double %305, ptr %309, align 8
-  br label %316
-
-310:                                              ; preds = %293
-  %311 = load double, ptr %.sroa.2110.0..sroa_idx, align 8
-  %312 = getelementptr inbounds i8, ptr %3, i64 64
-  store double %311, ptr %312, align 8
-  %313 = getelementptr inbounds i8, ptr %3, i64 48
-  store i32 4, ptr %313, align 8
+313:                                              ; preds = %310
   %314 = load double, ptr %.sroa.2110.0..sroa_idx, align 8
   %315 = fadd double %314, 1.000000e+00
-  store double %315, ptr %.sroa.2110.0..sroa_idx, align 8
-  br label %316
+  %316 = getelementptr inbounds i8, ptr %3, i64 64
+  store double %315, ptr %316, align 8
+  %317 = getelementptr inbounds i8, ptr %3, i64 48
+  store i32 4, ptr %317, align 8
+  br label %333
 
-316:                                              ; preds = %293, %296, %310, %308, %306, %291, %.critedge2, %.critedge
+318:                                              ; preds = %310
+  %319 = getelementptr inbounds i8, ptr %3, i64 48
+  %320 = load i32, ptr %319, align 8
+  %321 = icmp eq i32 %320, 4
+  %322 = load double, ptr %.sroa.2110.0..sroa_idx, align 8
+  br i1 %321, label %323, label %325
+
+323:                                              ; preds = %318
+  %324 = getelementptr inbounds i8, ptr %3, i64 64
+  store double %322, ptr %324, align 8
+  br label %333
+
+325:                                              ; preds = %318
+  %326 = getelementptr inbounds i8, ptr %3, i64 80
+  store double %322, ptr %326, align 8
+  br label %333
+
+327:                                              ; preds = %310
+  %328 = load double, ptr %.sroa.2110.0..sroa_idx, align 8
+  %329 = getelementptr inbounds i8, ptr %3, i64 64
+  store double %328, ptr %329, align 8
+  %330 = getelementptr inbounds i8, ptr %3, i64 48
+  store i32 4, ptr %330, align 8
+  %331 = load double, ptr %.sroa.2110.0..sroa_idx, align 8
+  %332 = fadd double %331, 1.000000e+00
+  store double %332, ptr %.sroa.2110.0..sroa_idx, align 8
+  br label %333
+
+333:                                              ; preds = %310, %313, %327, %325, %323, %308, %.critedge2, %.critedge
   ret void
 }
 

@@ -651,10 +651,10 @@ execute_validate_msg_test.exit:                   ; preds = %if.then12, %land.rh
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %execute_validate_msg_test.exit, %if.end10.thread
-  %cmp_ctx.i.sink = phi ptr [ %cmp_ctx.i, %if.end10.thread ], [ %cmp_ctx, %execute_validate_msg_test.exit ]
+  %.sink.in = phi ptr [ %cmp_ctx.i, %if.end10.thread ], [ %cmp_ctx, %execute_validate_msg_test.exit ]
   %retval.0.ph = phi i32 [ 0, %if.end10.thread ], [ %land.ext.i, %execute_validate_msg_test.exit ]
-  %16 = load ptr, ptr %cmp_ctx.i.sink, align 8
-  tail call void @OSSL_CMP_CTX_free(ptr noundef %16) #6
+  %.sink = load ptr, ptr %.sink.in, align 8
+  tail call void @OSSL_CMP_CTX_free(ptr noundef %.sink) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 47) #6
   br label %return
 
@@ -738,10 +738,10 @@ execute_validate_msg_test.exit:                   ; preds = %if.then12, %land.rh
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %execute_validate_msg_test.exit, %if.end10.thread
-  %cmp_ctx.i.sink = phi ptr [ %cmp_ctx.i, %if.end10.thread ], [ %cmp_ctx, %execute_validate_msg_test.exit ]
+  %.sink.in = phi ptr [ %cmp_ctx.i, %if.end10.thread ], [ %cmp_ctx, %execute_validate_msg_test.exit ]
   %retval.0.ph = phi i32 [ 0, %if.end10.thread ], [ %land.ext.i, %execute_validate_msg_test.exit ]
-  %16 = load ptr, ptr %cmp_ctx.i.sink, align 8
-  tail call void @OSSL_CMP_CTX_free(ptr noundef %16) #6
+  %.sink = load ptr, ptr %.sink.in, align 8
+  tail call void @OSSL_CMP_CTX_free(ptr noundef %.sink) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 47) #6
   br label %return
 
@@ -891,10 +891,10 @@ execute_validate_msg_test.exit:                   ; preds = %if.then6, %land.rhs
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %execute_validate_msg_test.exit, %if.end4.thread
-  %cmp_ctx.i.sink = phi ptr [ %cmp_ctx.i, %if.end4.thread ], [ %cmp_ctx.i7, %execute_validate_msg_test.exit ]
+  %.sink.in = phi ptr [ %cmp_ctx.i, %if.end4.thread ], [ %cmp_ctx.i7, %execute_validate_msg_test.exit ]
   %retval.0.ph = phi i32 [ 0, %if.end4.thread ], [ %land.ext.i, %execute_validate_msg_test.exit ]
-  %11 = load ptr, ptr %cmp_ctx.i.sink, align 8
-  tail call void @OSSL_CMP_CTX_free(ptr noundef %11) #6
+  %.sink = load ptr, ptr %.sink.in, align 8
+  tail call void @OSSL_CMP_CTX_free(ptr noundef %.sink) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 47) #6
   br label %return
 
@@ -978,10 +978,10 @@ execute_validate_msg_test.exit:                   ; preds = %if.then6, %land.rhs
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %execute_validate_msg_test.exit, %if.end4.thread
-  %cmp_ctx.i.sink = phi ptr [ %cmp_ctx.i, %if.end4.thread ], [ %cmp_ctx.i7, %execute_validate_msg_test.exit ]
+  %.sink.in = phi ptr [ %cmp_ctx.i, %if.end4.thread ], [ %cmp_ctx.i7, %execute_validate_msg_test.exit ]
   %retval.0.ph = phi i32 [ 0, %if.end4.thread ], [ %land.ext.i, %execute_validate_msg_test.exit ]
-  %11 = load ptr, ptr %cmp_ctx.i.sink, align 8
-  tail call void @OSSL_CMP_CTX_free(ptr noundef %11) #6
+  %.sink = load ptr, ptr %.sink.in, align 8
+  tail call void @OSSL_CMP_CTX_free(ptr noundef %.sink) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 47) #6
   br label %return
 
@@ -1072,12 +1072,12 @@ lor.rhs.i:                                        ; preds = %land.rhs.i
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %lor.rhs.i, %land.rhs.i, %if.then11, %if.end8.thread
-  %msg.i.sink = phi ptr [ %msg.i, %if.end8.thread ], [ %msg, %if.then11 ], [ %msg, %land.rhs.i ], [ %msg, %lor.rhs.i ]
+  %.sink.in = phi ptr [ %msg.i, %if.end8.thread ], [ %msg, %if.then11 ], [ %msg, %land.rhs.i ], [ %msg, %lor.rhs.i ]
   %retval.0.ph = phi i32 [ 0, %if.end8.thread ], [ 0, %if.then11 ], [ 1, %land.rhs.i ], [ %9, %lor.rhs.i ]
-  %10 = load ptr, ptr %msg.i.sink, align 8
-  call void @OSSL_CMP_MSG_free(ptr noundef %10) #6
-  %11 = load ptr, ptr %cmp_ctx, align 8
-  call void @OSSL_CMP_CTX_free(ptr noundef %11) #6
+  %.sink = load ptr, ptr %.sink.in, align 8
+  call void @OSSL_CMP_MSG_free(ptr noundef %.sink) #6
+  %10 = load ptr, ptr %cmp_ctx, align 8
+  call void @OSSL_CMP_CTX_free(ptr noundef %10) #6
   call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 47) #6
   br label %return
 
@@ -1237,12 +1237,12 @@ if.then2:                                         ; preds = %if.end
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end, %if.then2
-  %.sink = phi ptr [ %1, %if.then2 ], [ null, %if.end ]
+  %.sink11 = phi ptr [ %1, %if.then2 ], [ null, %if.end ]
   %retval.0.ph = phi i32 [ %call3, %if.then2 ], [ 0, %if.end ]
-  tail call void @OSSL_CMP_MSG_free(ptr noundef %.sink) #6
-  %cmp_ctx.i.sink = getelementptr inbounds i8, ptr %call, i64 16
-  %2 = load ptr, ptr %cmp_ctx.i.sink, align 8
-  tail call void @OSSL_CMP_CTX_free(ptr noundef %2) #6
+  tail call void @OSSL_CMP_MSG_free(ptr noundef %.sink11) #6
+  %.sink.in = getelementptr inbounds i8, ptr %call, i64 16
+  %.sink = load ptr, ptr %.sink.in, align 8
+  tail call void @OSSL_CMP_CTX_free(ptr noundef %.sink) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 47) #6
   br label %return
 
@@ -1278,12 +1278,12 @@ if.then2:                                         ; preds = %if.end
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end, %if.then2
-  %.sink = phi ptr [ %1, %if.then2 ], [ null, %if.end ]
+  %.sink11 = phi ptr [ %1, %if.then2 ], [ null, %if.end ]
   %retval.0.ph = phi i32 [ %call3, %if.then2 ], [ 0, %if.end ]
-  tail call void @OSSL_CMP_MSG_free(ptr noundef %.sink) #6
-  %cmp_ctx.i.sink = getelementptr inbounds i8, ptr %call, i64 16
-  %2 = load ptr, ptr %cmp_ctx.i.sink, align 8
-  tail call void @OSSL_CMP_CTX_free(ptr noundef %2) #6
+  tail call void @OSSL_CMP_MSG_free(ptr noundef %.sink11) #6
+  %.sink.in = getelementptr inbounds i8, ptr %call, i64 16
+  %.sink = load ptr, ptr %.sink.in, align 8
+  tail call void @OSSL_CMP_CTX_free(ptr noundef %.sink) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 47) #6
   br label %return
 
@@ -1319,12 +1319,12 @@ if.then2:                                         ; preds = %if.end
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end, %if.then2
-  %.sink = phi ptr [ %1, %if.then2 ], [ null, %if.end ]
+  %.sink11 = phi ptr [ %1, %if.then2 ], [ null, %if.end ]
   %retval.0.ph = phi i32 [ %call3, %if.then2 ], [ 0, %if.end ]
-  tail call void @OSSL_CMP_MSG_free(ptr noundef %.sink) #6
-  %cmp_ctx.i.sink = getelementptr inbounds i8, ptr %call, i64 16
-  %2 = load ptr, ptr %cmp_ctx.i.sink, align 8
-  tail call void @OSSL_CMP_CTX_free(ptr noundef %2) #6
+  tail call void @OSSL_CMP_MSG_free(ptr noundef %.sink11) #6
+  %.sink.in = getelementptr inbounds i8, ptr %call, i64 16
+  %.sink = load ptr, ptr %.sink.in, align 8
+  tail call void @OSSL_CMP_CTX_free(ptr noundef %.sink) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 47) #6
   br label %return
 
@@ -1733,12 +1733,12 @@ lor.rhs.i:                                        ; preds = %land.rhs.i
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %lor.rhs.i, %land.rhs.i, %if.then18, %if.end16
-  %msg.i.sink = phi ptr [ %msg.i, %if.end16 ], [ %msg, %if.then18 ], [ %msg, %land.rhs.i ], [ %msg, %lor.rhs.i ]
+  %.sink.in = phi ptr [ %msg.i, %if.end16 ], [ %msg, %if.then18 ], [ %msg, %land.rhs.i ], [ %msg, %lor.rhs.i ]
   %retval.0.ph = phi i32 [ 0, %if.end16 ], [ 0, %if.then18 ], [ 1, %land.rhs.i ], [ %13, %lor.rhs.i ]
-  %14 = load ptr, ptr %msg.i.sink, align 8
-  tail call void @OSSL_CMP_MSG_free(ptr noundef %14) #6
-  %15 = load ptr, ptr %cmp_ctx, align 8
-  tail call void @OSSL_CMP_CTX_free(ptr noundef %15) #6
+  %.sink = load ptr, ptr %.sink.in, align 8
+  tail call void @OSSL_CMP_MSG_free(ptr noundef %.sink) #6
+  %14 = load ptr, ptr %cmp_ctx, align 8
+  tail call void @OSSL_CMP_CTX_free(ptr noundef %14) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 47) #6
   br label %return
 
@@ -1862,10 +1862,10 @@ execute_validate_msg_test.exit:                   ; preds = %if.then28, %land.rh
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %execute_validate_msg_test.exit, %if.end25
-  %cmp_ctx.i.sink = phi ptr [ %cmp_ctx.i, %if.end25 ], [ %cmp_ctx.i14, %execute_validate_msg_test.exit ]
+  %.sink.in = phi ptr [ %cmp_ctx.i, %if.end25 ], [ %cmp_ctx.i14, %execute_validate_msg_test.exit ]
   %retval.0.ph = phi i32 [ 0, %if.end25 ], [ %land.ext.i, %execute_validate_msg_test.exit ]
-  %19 = load ptr, ptr %cmp_ctx.i.sink, align 8
-  tail call void @OSSL_CMP_CTX_free(ptr noundef %19) #6
+  %.sink = load ptr, ptr %.sink.in, align 8
+  tail call void @OSSL_CMP_CTX_free(ptr noundef %.sink) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 47) #6
   br label %return
 
@@ -1962,10 +1962,10 @@ execute_validate_msg_test.exit:                   ; preds = %if.then19, %land.rh
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %execute_validate_msg_test.exit, %if.end16.thread
-  %cmp_ctx.i.sink = phi ptr [ %cmp_ctx.i, %if.end16.thread ], [ %cmp_ctx, %execute_validate_msg_test.exit ]
+  %.sink.in = phi ptr [ %cmp_ctx.i, %if.end16.thread ], [ %cmp_ctx, %execute_validate_msg_test.exit ]
   %retval.0.ph = phi i32 [ 0, %if.end16.thread ], [ %land.ext.i, %execute_validate_msg_test.exit ]
-  %15 = load ptr, ptr %cmp_ctx.i.sink, align 8
-  tail call void @OSSL_CMP_CTX_free(ptr noundef %15) #6
+  %.sink = load ptr, ptr %.sink.in, align 8
+  tail call void @OSSL_CMP_CTX_free(ptr noundef %.sink) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 47) #6
   br label %return
 
@@ -2065,10 +2065,10 @@ execute_validate_msg_test.exit:                   ; preds = %if.then19, %land.rh
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %execute_validate_msg_test.exit, %if.end16.thread
-  %cmp_ctx.i.sink = phi ptr [ %cmp_ctx.i, %if.end16.thread ], [ %cmp_ctx.i12, %execute_validate_msg_test.exit ]
+  %.sink.in = phi ptr [ %cmp_ctx.i, %if.end16.thread ], [ %cmp_ctx.i12, %execute_validate_msg_test.exit ]
   %retval.0.ph = phi i32 [ 0, %if.end16.thread ], [ %land.ext.i, %execute_validate_msg_test.exit ]
-  %14 = load ptr, ptr %cmp_ctx.i.sink, align 8
-  tail call void @OSSL_CMP_CTX_free(ptr noundef %14) #6
+  %.sink = load ptr, ptr %.sink.in, align 8
+  tail call void @OSSL_CMP_CTX_free(ptr noundef %.sink) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 47) #6
   br label %return
 

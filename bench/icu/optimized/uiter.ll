@@ -258,12 +258,14 @@ if.then3:                                         ; preds = %if.then
   %add = add nsw i32 %shl, -56613888
   %sub = add nuw nsw i32 %add, %call6
   %c.1 = select i1 %cmp8, i32 %sub, i32 %call
-  br label %if.end26.sink.split
+  %3 = load ptr, ptr %move, align 8
+  %call11 = tail call noundef i32 %3(ptr noundef nonnull %iter, i32 noundef -1, i32 noundef 1)
+  br label %if.end26
 
 if.else:                                          ; preds = %if.then
   %previous = getelementptr inbounds i8, ptr %iter, i64 80
-  %3 = load ptr, ptr %previous, align 8
-  %call12 = tail call noundef i32 %3(ptr noundef nonnull %iter)
+  %4 = load ptr, ptr %previous, align 8
+  %call12 = tail call noundef i32 %4(ptr noundef nonnull %iter)
   %and13 = and i32 %call12, -1024
   %cmp14 = icmp eq i32 %and13, 55296
   %shl16 = shl nuw nsw i32 %call12, 10
@@ -275,18 +277,12 @@ if.else:                                          ; preds = %if.then
 
 if.then21:                                        ; preds = %if.else
   %move22 = getelementptr inbounds i8, ptr %iter, i64 40
-  br label %if.end26.sink.split
-
-if.end26.sink.split:                              ; preds = %if.then21, %if.then3
-  %move.sink = phi ptr [ %move, %if.then3 ], [ %move22, %if.then21 ]
-  %.sink = phi i32 [ -1, %if.then3 ], [ 1, %if.then21 ]
-  %c.0.ph = phi i32 [ %c.1, %if.then3 ], [ %c.2, %if.then21 ]
-  %4 = load ptr, ptr %move.sink, align 8
-  %call11 = tail call noundef i32 %4(ptr noundef nonnull %iter, i32 noundef %.sink, i32 noundef 1)
+  %5 = load ptr, ptr %move22, align 8
+  %call23 = tail call noundef i32 %5(ptr noundef nonnull %iter, i32 noundef 1, i32 noundef 1)
   br label %if.end26
 
-if.end26:                                         ; preds = %if.end26.sink.split, %if.else, %entry
-  %c.0 = phi i32 [ %c.2, %if.else ], [ %call, %entry ], [ %c.0.ph, %if.end26.sink.split ]
+if.end26:                                         ; preds = %if.then3, %if.then21, %if.else, %entry
+  %c.0 = phi i32 [ %c.1, %if.then3 ], [ %c.2, %if.then21 ], [ %c.2, %if.else ], [ %call, %entry ]
   ret i32 %c.0
 }
 
@@ -1690,7 +1686,8 @@ if.then39:                                        ; preds = %if.end34
   store i32 0, ptr %reservedField40, align 8
   %start41 = getelementptr inbounds i8, ptr %iter, i64 12
   store i32 0, ptr %start41, align 4
-  br label %if.end58.sink.split
+  store i32 0, ptr %index35, align 8
+  br label %if.end58
 
 if.else43:                                        ; preds = %if.end34
   %cmp45 = icmp sgt i32 %3, -1
@@ -1709,16 +1706,11 @@ if.then51:                                        ; preds = %land.lhs.true46
   %start55 = getelementptr inbounds i8, ptr %iter, i64 12
   store i32 %6, ptr %start55, align 4
   %reservedField56 = getelementptr inbounds i8, ptr %iter, i64 24
-  br label %if.end58.sink.split
-
-if.end58.sink.split:                              ; preds = %if.then39, %if.then51
-  %reservedField56.sink = phi ptr [ %reservedField56, %if.then51 ], [ %index35, %if.then39 ]
-  %.ph = phi i32 [ %3, %if.then51 ], [ 0, %if.then39 ]
-  store i32 0, ptr %reservedField56.sink, align 8
+  store i32 0, ptr %reservedField56, align 8
   br label %if.end58
 
-if.end58:                                         ; preds = %if.end58.sink.split, %if.else43, %land.lhs.true46
-  %7 = phi i32 [ %5, %if.else43 ], [ %5, %land.lhs.true46 ], [ %.ph, %if.end58.sink.split ]
+if.end58:                                         ; preds = %if.else43, %land.lhs.true46, %if.then51, %if.then39
+  %7 = phi i32 [ %5, %if.else43 ], [ %5, %land.lhs.true46 ], [ %3, %if.then51 ], [ 0, %if.then39 ]
   %sub60 = sub nsw i32 %pos.0151, %7
   %cmp61 = icmp eq i32 %sub60, 0
   br i1 %cmp61, label %return, label %if.end58.if.end93_crit_edge

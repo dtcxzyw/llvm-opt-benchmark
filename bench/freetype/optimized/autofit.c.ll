@@ -6065,11 +6065,11 @@ af_axis_hints_new_segment.exit.thread:            ; preds = %227, %232
   %279 = load i32, ptr %8, align 8
   %280 = zext i32 %279 to i64
   %281 = getelementptr inbounds %struct.AF_SegmentRec_, ptr %277, i64 %280
-  %.not516 = icmp eq i32 %279, 0
-  br i1 %.not516, label %.loopexit, label %.lr.ph494
+  %.not512 = icmp eq i32 %279, 0
+  br i1 %.not512, label %.loopexit, label %.lr.ph494
 
-.lr.ph494:                                        ; preds = %278, %332
-  %storemerge492 = phi ptr [ %333, %332 ], [ %277, %278 ]
+.lr.ph494:                                        ; preds = %278, %339
+  %storemerge492 = phi ptr [ %340, %339 ], [ %277, %278 ]
   %282 = getelementptr inbounds i8, ptr %storemerge492, i64 64
   %283 = load ptr, ptr %282, align 8
   %284 = getelementptr inbounds i8, ptr %storemerge492, i64 72
@@ -6083,7 +6083,7 @@ af_axis_hints_new_segment.exit.thread:            ; preds = %227, %232
   %292 = load ptr, ptr %291, align 8
   %293 = getelementptr inbounds i8, ptr %292, i64 56
   %294 = load i64, ptr %293, align 8
-  br i1 %290, label %295, label %312
+  br i1 %290, label %295, label %317
 
 295:                                              ; preds = %.lr.ph494
   %296 = icmp slt i64 %294, %287
@@ -6105,55 +6105,57 @@ af_axis_hints_new_segment.exit.thread:            ; preds = %227, %232
   %307 = getelementptr inbounds i8, ptr %306, i64 56
   %308 = load i64, ptr %307, align 8
   %309 = icmp sgt i64 %308, %289
-  br i1 %309, label %310, label %332
+  br i1 %309, label %310, label %339
 
 310:                                              ; preds = %304
-  %311 = sub nsw i64 %308, %289
-  br label %.sink.split
+  %311 = getelementptr inbounds i8, ptr %storemerge492, i64 10
+  %312 = load i16, ptr %311, align 2
+  %313 = sub nsw i64 %308, %289
+  %314 = lshr i64 %313, 1
+  %315 = trunc i64 %314 to i16
+  %316 = add i16 %312, %315
+  store i16 %316, ptr %311, align 2
+  br label %339
 
-312:                                              ; preds = %.lr.ph494
-  %313 = icmp sgt i64 %294, %287
-  br i1 %313, label %314, label %321
+317:                                              ; preds = %.lr.ph494
+  %318 = icmp sgt i64 %294, %287
+  br i1 %318, label %319, label %326
 
-314:                                              ; preds = %312
-  %315 = getelementptr inbounds i8, ptr %storemerge492, i64 10
-  %316 = load i16, ptr %315, align 2
-  %317 = sub nsw i64 %294, %287
-  %318 = lshr i64 %317, 1
-  %319 = trunc i64 %318 to i16
-  %320 = add i16 %316, %319
-  store i16 %320, ptr %315, align 2
-  br label %321
+319:                                              ; preds = %317
+  %320 = getelementptr inbounds i8, ptr %storemerge492, i64 10
+  %321 = load i16, ptr %320, align 2
+  %322 = sub nsw i64 %294, %287
+  %323 = lshr i64 %322, 1
+  %324 = trunc i64 %323 to i16
+  %325 = add i16 %321, %324
+  store i16 %325, ptr %320, align 2
+  br label %326
 
-321:                                              ; preds = %314, %312
-  %322 = getelementptr inbounds i8, ptr %285, i64 64
-  %323 = load ptr, ptr %322, align 8
-  %324 = getelementptr inbounds i8, ptr %323, i64 56
-  %325 = load i64, ptr %324, align 8
-  %326 = icmp slt i64 %325, %289
-  br i1 %326, label %327, label %332
+326:                                              ; preds = %319, %317
+  %327 = getelementptr inbounds i8, ptr %285, i64 64
+  %328 = load ptr, ptr %327, align 8
+  %329 = getelementptr inbounds i8, ptr %328, i64 56
+  %330 = load i64, ptr %329, align 8
+  %331 = icmp slt i64 %330, %289
+  br i1 %331, label %332, label %339
 
-327:                                              ; preds = %321
-  %328 = sub nsw i64 %289, %325
-  br label %.sink.split
+332:                                              ; preds = %326
+  %333 = getelementptr inbounds i8, ptr %storemerge492, i64 10
+  %334 = load i16, ptr %333, align 2
+  %335 = sub nsw i64 %289, %330
+  %336 = lshr i64 %335, 1
+  %337 = trunc i64 %336 to i16
+  %338 = add i16 %334, %337
+  store i16 %338, ptr %333, align 2
+  br label %339
 
-.sink.split:                                      ; preds = %327, %310
-  %.sink515 = phi i64 [ %311, %310 ], [ %328, %327 ]
-  %.sink512 = getelementptr inbounds i8, ptr %storemerge492, i64 10
-  %.sink513 = load i16, ptr %.sink512, align 2
-  %329 = lshr i64 %.sink515, 1
-  %330 = trunc i64 %329 to i16
-  %331 = add i16 %.sink513, %330
-  store i16 %331, ptr %.sink512, align 2
-  br label %332
+339:                                              ; preds = %310, %304, %332, %326
+  %340 = getelementptr inbounds i8, ptr %storemerge492, i64 80
+  %341 = icmp ult ptr %340, %281
+  br i1 %341, label %.lr.ph494, label %.loopexit, !llvm.loop !75
 
-332:                                              ; preds = %.sink.split, %304, %321
-  %333 = getelementptr inbounds i8, ptr %storemerge492, i64 80
-  %334 = icmp ult ptr %333, %281
-  br i1 %334, label %.lr.ph494, label %.loopexit, !llvm.loop !75
-
-.loopexit:                                        ; preds = %332, %._crit_edge, %278, %af_axis_hints_new_segment.exit.thread, %214
-  %.0 = phi i32 [ 0, %214 ], [ %.ph, %af_axis_hints_new_segment.exit.thread ], [ 0, %278 ], [ 0, %._crit_edge ], [ 0, %332 ]
+.loopexit:                                        ; preds = %339, %._crit_edge, %278, %af_axis_hints_new_segment.exit.thread, %214
+  %.0 = phi i32 [ 0, %214 ], [ %.ph, %af_axis_hints_new_segment.exit.thread ], [ 0, %278 ], [ 0, %._crit_edge ], [ 0, %339 ]
   ret i32 %.0
 }
 
@@ -6828,7 +6830,7 @@ define internal fastcc i32 @af_cjk_hints_detect_features(ptr noundef %0, i32 nou
   %12 = getelementptr inbounds %struct.AF_SegmentRec_, ptr %8, i64 %11
   %13 = tail call fastcc i32 @af_latin_hints_compute_segments(ptr noundef nonnull %0, i32 noundef %1)
   %.not35.i = icmp eq i32 %13, 0
-  br i1 %.not35.i, label %.preheader.i, label %af_cjk_hints_compute_segments.exit.thread23
+  br i1 %.not35.i, label %.preheader.i, label %af_cjk_hints_compute_segments.exit.thread22
 
 .preheader.i:                                     ; preds = %9
   %.not45.i = icmp eq i32 %10, 0
@@ -6880,7 +6882,7 @@ define internal fastcc i32 @af_cjk_hints_detect_features(ptr noundef %0, i32 nou
 af_cjk_hints_compute_segments.exit:               ; preds = %2
   %33 = tail call fastcc i32 @af_latin_hints_compute_segments(ptr noundef nonnull %0, i32 noundef %1)
   %.not = icmp eq i32 %33, 0
-  br i1 %.not, label %af_cjk_hints_compute_segments.exit.thread, label %af_cjk_hints_compute_segments.exit.thread23
+  br i1 %.not, label %af_cjk_hints_compute_segments.exit.thread, label %af_cjk_hints_compute_segments.exit.thread22
 
 af_cjk_hints_compute_segments.exit.thread:        ; preds = %._crit_edge.i, %.preheader.i, %af_cjk_hints_compute_segments.exit
   %34 = load ptr, ptr %7, align 8
@@ -7370,6 +7372,7 @@ af_cjk_hints_link_segments.exit:                  ; preds = %193, %39
   %289 = getelementptr inbounds i8, ptr %276, i64 16
   store i64 %287, ptr %289, align 8
   %290 = getelementptr inbounds i8, ptr %.0148233.i, i64 24
+  store ptr %.0148233.i, ptr %290, align 8
   br label %298
 
 291:                                              ; preds = %._crit_edge.i19
@@ -7381,11 +7384,10 @@ af_cjk_hints_link_segments.exit:                  ; preds = %193, %39
   %296 = load ptr, ptr %295, align 8
   %297 = getelementptr inbounds i8, ptr %296, i64 24
   store ptr %.0148233.i, ptr %297, align 8
+  store ptr %.0148233.i, ptr %295, align 8
   br label %298
 
 298:                                              ; preds = %291, %274
-  %.sink.i20 = phi ptr [ %290, %274 ], [ %295, %291 ]
-  store ptr %.0148233.i, ptr %.sink.i20, align 8
   %299 = getelementptr inbounds i8, ptr %.0148233.i, i64 80
   %300 = icmp ult ptr %299, %205
   br i1 %300, label %.preheader228.i, label %._crit_edge234.i, !llvm.loop !95
@@ -7400,8 +7402,8 @@ af_cjk_hints_link_segments.exit:                  ; preds = %193, %39
   %304 = load i32, ptr %206, align 8
   %305 = zext i32 %304 to i64
   %306 = getelementptr inbounds %struct.AF_EdgeRec_, ptr %302, i64 %305
-  %.not249.i = icmp eq i32 %304, 0
-  br i1 %.not249.i, label %af_cjk_hints_compute_edges.exit, label %.lr.ph237.i
+  %.not248.i = icmp eq i32 %304, 0
+  br i1 %.not248.i, label %af_cjk_hints_compute_edges.exit, label %.lr.ph237.i
 
 .lr.ph237.i:                                      ; preds = %303, %.loopexit227.i
   %.0157235.i = phi ptr [ %313, %.loopexit227.i ], [ %302, %303 ]
@@ -7566,9 +7568,9 @@ af_cjk_hints_link_segments.exit:                  ; preds = %193, %39
 af_cjk_hints_compute_edges.exit:                  ; preds = %._crit_edge.thread.i, %378, %._crit_edge234.i, %303
   %.1.i = phi i32 [ 0, %303 ], [ 0, %._crit_edge234.i ], [ 0, %378 ], [ %273, %._crit_edge.thread.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %af_cjk_hints_compute_segments.exit.thread23
+  br label %af_cjk_hints_compute_segments.exit.thread22
 
-af_cjk_hints_compute_segments.exit.thread23:      ; preds = %9, %af_cjk_hints_compute_edges.exit, %af_cjk_hints_compute_segments.exit
+af_cjk_hints_compute_segments.exit.thread22:      ; preds = %9, %af_cjk_hints_compute_edges.exit, %af_cjk_hints_compute_segments.exit
   %.0 = phi i32 [ %33, %af_cjk_hints_compute_segments.exit ], [ %.1.i, %af_cjk_hints_compute_edges.exit ], [ %13, %9 ]
   ret i32 %.0
 }
@@ -9907,7 +9909,8 @@ define internal fastcc i32 @af_latin_hints_detect_features(ptr noundef %0, i32 n
   %115 = getelementptr inbounds i8, ptr %102, i64 16
   store i64 %113, ptr %115, align 8
   %116 = getelementptr inbounds i8, ptr %.0176250.i, i64 24
-  br label %.sink.split.i
+  store ptr %.0176250.i, ptr %116, align 8
+  br label %124
 
 117:                                              ; preds = %91
   %118 = getelementptr inbounds i8, ptr %86, i64 72
@@ -9918,14 +9921,10 @@ define internal fastcc i32 @af_latin_hints_detect_features(ptr noundef %0, i32 n
   %122 = load ptr, ptr %121, align 8
   %123 = getelementptr inbounds i8, ptr %122, i64 24
   store ptr %.0176250.i, ptr %123, align 8
-  br label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %117, %100
-  %.sink.i = phi ptr [ %116, %100 ], [ %121, %117 ]
-  store ptr %.0176250.i, ptr %.sink.i, align 8
+  store ptr %.0176250.i, ptr %121, align 8
   br label %124
 
-124:                                              ; preds = %.sink.split.i, %74, %67, %62, %57
+124:                                              ; preds = %117, %100, %74, %67, %62, %57
   %125 = getelementptr inbounds i8, ptr %.0176250.i, i64 80
   %126 = icmp ult ptr %125, %28
   br i1 %126, label %57, label %.preheader245.i, !llvm.loop !130
@@ -9992,8 +9991,8 @@ define internal fastcc i32 @af_latin_hints_detect_features(ptr noundef %0, i32 n
   %153 = load i32, ptr %29, align 8
   %154 = zext i32 %153 to i64
   %155 = getelementptr inbounds %struct.AF_EdgeRec_, ptr %151, i64 %154
-  %.not285.i = icmp eq i32 %153, 0
-  br i1 %.not285.i, label %af_latin_hints_compute_edges.exit, label %.lr.ph260.i
+  %.not283.i = icmp eq i32 %153, 0
+  br i1 %.not283.i, label %af_latin_hints_compute_edges.exit, label %.lr.ph260.i
 
 .lr.ph260.i:                                      ; preds = %152, %.loopexit243.i
   %.0173258.i = phi ptr [ %162, %.loopexit243.i ], [ %151, %152 ]
@@ -10079,7 +10078,7 @@ define internal fastcc i32 @af_latin_hints_detect_features(ptr noundef %0, i32 n
   %.0165.i = load ptr, ptr %spec.select226.i, align 8
   %.0166.i = load ptr, ptr %spec.select225.i, align 8
   %.not212.i = icmp eq ptr %.0166.i, null
-  br i1 %.not212.i, label %.sink.split283.i, label %194
+  br i1 %.not212.i, label %.sink.split.i, label %194
 
 194:                                              ; preds = %193
   %195 = load i16, ptr %.1174261.i, align 8
@@ -10097,15 +10096,15 @@ define internal fastcc i32 @af_latin_hints_detect_features(ptr noundef %0, i32 n
   %206 = sub nsw i64 %202, %205
   %.0.i = tail call i64 @llvm.abs.i64(i64 %206, i1 true)
   %207 = icmp ult i64 %.0.i, %spec.select227.i
-  br i1 %207, label %.sink.split283.i, label %210
+  br i1 %207, label %.sink.split.i, label %210
 
-.sink.split283.i:                                 ; preds = %194, %193
+.sink.split.i:                                    ; preds = %194, %193
   %208 = getelementptr inbounds i8, ptr %.0165.i, i64 16
   %209 = load ptr, ptr %208, align 8
   br label %210
 
-210:                                              ; preds = %.sink.split283.i, %194
-  %.1.i = phi ptr [ %.0166.i, %194 ], [ %209, %.sink.split283.i ]
+210:                                              ; preds = %.sink.split.i, %194
+  %.1.i = phi ptr [ %.0166.i, %194 ], [ %209, %.sink.split.i ]
   br i1 %.not211.i, label %215, label %211
 
 211:                                              ; preds = %210

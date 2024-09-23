@@ -2375,6 +2375,7 @@ _ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDelet
 if.then.i.i.i.i9:                                 ; preds = %_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE12MakeMapToAddIZNS_21promise_filter_detail30InterceptClientToServerMessageINS_23ClientMessageSizeFilterEEEvMNT_4CallEFS1_I19grpc_metadata_batchS4_ERKS2_EPNS8_14FilterCallDataISB_EERKNS_8CallArgsEEUlS5_E_ZNS6_9AppendMapISP_EEvSB_NS_13DebugLocationEEUlvE_EEPNS6_3MapESB_T0_SR_.exit.i.i.i
   store ptr %retval.0.i.i.i.i.i.i, ptr %5, align 8
   %last_map_.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %retval.0.i.i.i.i.i.i, ptr %last_map_.i.i.i.i, align 8
   br label %_ZN9grpc_core21promise_filter_detail30InterceptClientToServerMessageINS_23ClientMessageSizeFilterEEEvMNT_4CallEFSt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEERKNS_7MessageEEPNS0_14FilterCallDataIS3_EERKNS_8CallArgsE.exit
 
 if.else.i.i.i.i8:                                 ; preds = %_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE12MakeMapToAddIZNS_21promise_filter_detail30InterceptClientToServerMessageINS_23ClientMessageSizeFilterEEEvMNT_4CallEFS1_I19grpc_metadata_batchS4_ERKS2_EPNS8_14FilterCallDataISB_EERKNS_8CallArgsEEUlS5_E_ZNS6_9AppendMapISP_EEvSB_NS_13DebugLocationEEUlvE_EEPNS6_3MapESB_T0_SR_.exit.i.i.i
@@ -2382,11 +2383,10 @@ if.else.i.i.i.i8:                                 ; preds = %_ZN9grpc_core15Inte
   %11 = load ptr, ptr %last_map_3.i.i.i.i, align 8
   %next_.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %retval.0.i.i.i.i.i.i, ptr %next_.i.i.i.i.i, align 8
+  store ptr %retval.0.i.i.i.i.i.i, ptr %last_map_3.i.i.i.i, align 8
   br label %_ZN9grpc_core21promise_filter_detail30InterceptClientToServerMessageINS_23ClientMessageSizeFilterEEEvMNT_4CallEFSt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEERKNS_7MessageEEPNS0_14FilterCallDataIS3_EERKNS_8CallArgsE.exit
 
 _ZN9grpc_core21promise_filter_detail30InterceptClientToServerMessageINS_23ClientMessageSizeFilterEEEvMNT_4CallEFSt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEERKNS_7MessageEEPNS0_14FilterCallDataIS3_EERKNS_8CallArgsE.exit: ; preds = %if.then.i.i.i.i9, %if.else.i.i.i.i8
-  %last_map_3.sink.i.i.i.i = phi ptr [ %last_map_3.i.i.i.i, %if.else.i.i.i.i8 ], [ %last_map_.i.i.i.i, %if.then.i.i.i.i9 ]
-  store ptr %retval.0.i.i.i.i.i.i, ptr %last_map_3.sink.i.i.i.i, align 8
   %server_to_client_messages.i = getelementptr inbounds i8, ptr %call_args, i64 48
   %12 = load ptr, ptr %server_to_client_messages.i, align 8
   %13 = load ptr, ptr %12, align 8
@@ -4879,6 +4879,7 @@ _ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDelet
 if.then.i.i.i.i9:                                 ; preds = %_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE12MakeMapToAddIZNS_21promise_filter_detail30InterceptClientToServerMessageINS_23ServerMessageSizeFilterEEEvMNT_4CallEFS1_I19grpc_metadata_batchS4_ERKS2_PSB_EPNS8_14FilterCallDataISB_EERKNS_8CallArgsEEUlS5_E_ZNS6_9AppendMapISQ_EEvSB_NS_13DebugLocationEEUlvE_EEPNS6_3MapESB_T0_SS_.exit.i.i.i
   store ptr %retval.0.i.i.i.i.i.i, ptr %6, align 8
   %last_map_.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %retval.0.i.i.i.i.i.i, ptr %last_map_.i.i.i.i, align 8
   br label %_ZN9grpc_core21promise_filter_detail30InterceptClientToServerMessageINS_23ServerMessageSizeFilterEEEvMNT_4CallEFSt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEERKNS_7MessageEPS3_EPNS0_14FilterCallDataIS3_EERKNS_8CallArgsE.exit
 
 if.else.i.i.i.i8:                                 ; preds = %_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE12MakeMapToAddIZNS_21promise_filter_detail30InterceptClientToServerMessageINS_23ServerMessageSizeFilterEEEvMNT_4CallEFS1_I19grpc_metadata_batchS4_ERKS2_PSB_EPNS8_14FilterCallDataISB_EERKNS_8CallArgsEEUlS5_E_ZNS6_9AppendMapISQ_EEvSB_NS_13DebugLocationEEUlvE_EEPNS6_3MapESB_T0_SS_.exit.i.i.i
@@ -4886,11 +4887,10 @@ if.else.i.i.i.i8:                                 ; preds = %_ZN9grpc_core15Inte
   %12 = load ptr, ptr %last_map_3.i.i.i.i, align 8
   %next_.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %retval.0.i.i.i.i.i.i, ptr %next_.i.i.i.i.i, align 8
+  store ptr %retval.0.i.i.i.i.i.i, ptr %last_map_3.i.i.i.i, align 8
   br label %_ZN9grpc_core21promise_filter_detail30InterceptClientToServerMessageINS_23ServerMessageSizeFilterEEEvMNT_4CallEFSt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEERKNS_7MessageEPS3_EPNS0_14FilterCallDataIS3_EERKNS_8CallArgsE.exit
 
 _ZN9grpc_core21promise_filter_detail30InterceptClientToServerMessageINS_23ServerMessageSizeFilterEEEvMNT_4CallEFSt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEERKNS_7MessageEPS3_EPNS0_14FilterCallDataIS3_EERKNS_8CallArgsE.exit: ; preds = %if.then.i.i.i.i9, %if.else.i.i.i.i8
-  %last_map_3.sink.i.i.i.i = phi ptr [ %last_map_3.i.i.i.i, %if.else.i.i.i.i8 ], [ %last_map_.i.i.i.i, %if.then.i.i.i.i9 ]
-  store ptr %retval.0.i.i.i.i.i.i, ptr %last_map_3.sink.i.i.i.i, align 8
   %server_to_client_messages.i = getelementptr inbounds i8, ptr %call_args, i64 48
   %13 = load ptr, ptr %server_to_client_messages.i, align 8
   %14 = load ptr, ptr %13, align 8
@@ -7054,6 +7054,7 @@ _ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDelet
 if.then.i.i.i.i:                                  ; preds = %_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE12MakeMapToAddIZNS_21promise_filter_detail30InterceptClientToServerMessageINS_23ClientMessageSizeFilterEEEvMNT_4CallEFS1_I19grpc_metadata_batchS4_ERKS2_EPNSB_4CallEPSB_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_9AppendMapISO_EEvSB_NS_13DebugLocationEEUlvE_EEPNS6_3MapESB_T0_SQ_.exit.i.i.i
   store ptr %retval.0.i.i.i.i.i.i, ptr %18, align 8
   %last_map_.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
+  store ptr %retval.0.i.i.i.i.i.i, ptr %last_map_.i.i.i.i, align 8
   br label %_ZN9grpc_core21promise_filter_detail30InterceptClientToServerMessageINS_23ClientMessageSizeFilterEEEvMNT_4CallEFSt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEERKNS_7MessageEEPNS3_4CallEPS3_PNS_18CallSpineInterfaceE.exit
 
 if.else.i.i.i.i:                                  ; preds = %_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE12MakeMapToAddIZNS_21promise_filter_detail30InterceptClientToServerMessageINS_23ClientMessageSizeFilterEEEvMNT_4CallEFS1_I19grpc_metadata_batchS4_ERKS2_EPNSB_4CallEPSB_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_9AppendMapISO_EEvSB_NS_13DebugLocationEEUlvE_EEPNS6_3MapESB_T0_SQ_.exit.i.i.i
@@ -7061,11 +7062,10 @@ if.else.i.i.i.i:                                  ; preds = %_ZN9grpc_core15Inte
   %24 = load ptr, ptr %last_map_3.i.i.i.i, align 8
   %next_.i.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 8
   store ptr %retval.0.i.i.i.i.i.i, ptr %next_.i.i.i.i.i, align 8
+  store ptr %retval.0.i.i.i.i.i.i, ptr %last_map_3.i.i.i.i, align 8
   br label %_ZN9grpc_core21promise_filter_detail30InterceptClientToServerMessageINS_23ClientMessageSizeFilterEEEvMNT_4CallEFSt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEERKNS_7MessageEEPNS3_4CallEPS3_PNS_18CallSpineInterfaceE.exit
 
 _ZN9grpc_core21promise_filter_detail30InterceptClientToServerMessageINS_23ClientMessageSizeFilterEEEvMNT_4CallEFSt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEERKNS_7MessageEEPNS3_4CallEPS3_PNS_18CallSpineInterfaceE.exit: ; preds = %if.then.i.i.i.i, %if.else.i.i.i.i
-  %last_map_3.sink.i.i.i.i = phi ptr [ %last_map_3.i.i.i.i, %if.else.i.i.i.i ], [ %last_map_.i.i.i.i, %if.then.i.i.i.i ]
-  store ptr %retval.0.i.i.i.i.i.i, ptr %last_map_3.sink.i.i.i.i, align 8
   %vtable.i10 = load ptr, ptr %call_spine, align 8
   %vfn.i11 = getelementptr inbounds i8, ptr %vtable.i10, i64 40
   %25 = load ptr, ptr %vfn.i11, align 8
@@ -8607,6 +8607,7 @@ _ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDelet
 if.then.i.i.i.i:                                  ; preds = %_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE12MakeMapToAddIZNS_21promise_filter_detail30InterceptClientToServerMessageINS_23ServerMessageSizeFilterEEEvMNT_4CallEFS1_I19grpc_metadata_batchS4_ERKS2_PSB_EPNSB_4CallESH_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_9AppendMapISO_EEvSB_NS_13DebugLocationEEUlvE_EEPNS6_3MapESB_T0_SQ_.exit.i.i.i
   store ptr %retval.0.i.i.i.i.i.i, ptr %5, align 8
   %last_map_.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %retval.0.i.i.i.i.i.i, ptr %last_map_.i.i.i.i, align 8
   br label %_ZN9grpc_core21promise_filter_detail30InterceptClientToServerMessageINS_23ServerMessageSizeFilterEEEvMNT_4CallEFSt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEERKNS_7MessageEPS3_EPNS3_4CallESD_PNS_18CallSpineInterfaceE.exit
 
 if.else.i.i.i.i:                                  ; preds = %_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE12MakeMapToAddIZNS_21promise_filter_detail30InterceptClientToServerMessageINS_23ServerMessageSizeFilterEEEvMNT_4CallEFS1_I19grpc_metadata_batchS4_ERKS2_PSB_EPNSB_4CallESH_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_9AppendMapISO_EEvSB_NS_13DebugLocationEEUlvE_EEPNS6_3MapESB_T0_SQ_.exit.i.i.i
@@ -8614,11 +8615,10 @@ if.else.i.i.i.i:                                  ; preds = %_ZN9grpc_core15Inte
   %11 = load ptr, ptr %last_map_3.i.i.i.i, align 8
   %next_.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %retval.0.i.i.i.i.i.i, ptr %next_.i.i.i.i.i, align 8
+  store ptr %retval.0.i.i.i.i.i.i, ptr %last_map_3.i.i.i.i, align 8
   br label %_ZN9grpc_core21promise_filter_detail30InterceptClientToServerMessageINS_23ServerMessageSizeFilterEEEvMNT_4CallEFSt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEERKNS_7MessageEPS3_EPNS3_4CallESD_PNS_18CallSpineInterfaceE.exit
 
 _ZN9grpc_core21promise_filter_detail30InterceptClientToServerMessageINS_23ServerMessageSizeFilterEEEvMNT_4CallEFSt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEERKNS_7MessageEPS3_EPNS3_4CallESD_PNS_18CallSpineInterfaceE.exit: ; preds = %if.then.i.i.i.i, %if.else.i.i.i.i
-  %last_map_3.sink.i.i.i.i = phi ptr [ %last_map_3.i.i.i.i, %if.else.i.i.i.i ], [ %last_map_.i.i.i.i, %if.then.i.i.i.i ]
-  store ptr %retval.0.i.i.i.i.i.i, ptr %last_map_3.sink.i.i.i.i, align 8
   %vtable.i10 = load ptr, ptr %call_spine, align 8
   %vfn.i11 = getelementptr inbounds i8, ptr %vtable.i10, i64 40
   %12 = load ptr, ptr %vfn.i11, align 8

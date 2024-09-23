@@ -16248,7 +16248,8 @@ _ZN3vcg3tri10TrivialEarI4MeshE26CheckManifoldAfterEarCloseEv.exit.thread: ; pred
   %192 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr null, ptr %192, align 8
   %193 = getelementptr inbounds i8, ptr %2, i64 8
-  br label %_ZN3vcg3tri10TrivialEarI4MeshE26CheckManifoldAfterEarCloseEv.exit.sink.split
+  store i32 -1, ptr %193, align 8
+  br label %_ZN3vcg3tri10TrivialEarI4MeshE26CheckManifoldAfterEarCloseEv.exit
 
 _ZNK3vcg4face3PosI8MeshFaceEeqERKS3_.exit.thread: ; preds = %_ZN3vcg3tri10TrivialEarI4MeshE26CheckManifoldAfterEarCloseEv.exit.thread
   br i1 %89, label %_ZN3vcg4face3PosI8MeshFaceE5NextBEv.exit53, label %203
@@ -16277,7 +16278,8 @@ _ZN3vcg4face3PosI8MeshFaceE5NextBEv.exit53:       ; preds = %_ZNK3vcg4face3PosI8
   %201 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr null, ptr %201, align 8
   %202 = getelementptr inbounds i8, ptr %2, i64 8
-  br label %_ZN3vcg3tri10TrivialEarI4MeshE26CheckManifoldAfterEarCloseEv.exit.sink.split
+  store i32 -1, ptr %202, align 8
+  br label %_ZN3vcg3tri10TrivialEarI4MeshE26CheckManifoldAfterEarCloseEv.exit
 
 203:                                              ; preds = %_ZNK3vcg4face3PosI8MeshFaceEeqERKS3_.exit.thread
   %204 = load ptr, ptr %50, align 8
@@ -16367,7 +16369,8 @@ _ZN3vcg4face3PosI8MeshFaceE5NextBEv.exit67:       ; preds = %_ZN3vcg4face3PosI8M
   %252 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr null, ptr %252, align 8
   %253 = getelementptr inbounds i8, ptr %2, i64 8
-  br label %_ZN3vcg3tri10TrivialEarI4MeshE26CheckManifoldAfterEarCloseEv.exit.sink.split
+  store i32 -1, ptr %253, align 8
+  br label %_ZN3vcg3tri10TrivialEarI4MeshE26CheckManifoldAfterEarCloseEv.exit
 
 254:                                              ; preds = %203
   store ptr %35, ptr %1, align 8
@@ -16406,15 +16409,11 @@ _ZN3vcg4face3PosI8MeshFaceE5NextBEv.exit67:       ; preds = %_ZN3vcg4face3PosI8M
 265:                                              ; preds = %260
   store ptr null, ptr %2, align 8
   store ptr null, ptr %.sroa.373.0..sroa_idx, align 8
-  br label %_ZN3vcg3tri10TrivialEarI4MeshE26CheckManifoldAfterEarCloseEv.exit.sink.split
-
-_ZN3vcg3tri10TrivialEarI4MeshE26CheckManifoldAfterEarCloseEv.exit.sink.split: ; preds = %_ZN3vcg4face3PosI8MeshFaceE5NextBEv.exit53, %265, %_ZN3vcg4face3PosI8MeshFaceE5NextBEv.exit67, %186
-  %.sink = phi ptr [ %193, %186 ], [ %253, %_ZN3vcg4face3PosI8MeshFaceE5NextBEv.exit67 ], [ %.sroa.2.0..sroa_idx71, %265 ], [ %202, %_ZN3vcg4face3PosI8MeshFaceE5NextBEv.exit53 ]
-  store i32 -1, ptr %.sink, align 8
+  store i32 -1, ptr %.sroa.2.0..sroa_idx71, align 8
   br label %_ZN3vcg3tri10TrivialEarI4MeshE26CheckManifoldAfterEarCloseEv.exit
 
-_ZN3vcg3tri10TrivialEarI4MeshE26CheckManifoldAfterEarCloseEv.exit: ; preds = %_ZN3vcg4face3PosI8MeshFaceE5FlipEEv.exit.i, %_ZN3vcg3tri10TrivialEarI4MeshE26CheckManifoldAfterEarCloseEv.exit.sink.split, %260, %4
-  %.0 = phi i1 [ false, %4 ], [ true, %260 ], [ true, %_ZN3vcg3tri10TrivialEarI4MeshE26CheckManifoldAfterEarCloseEv.exit.sink.split ], [ false, %_ZN3vcg4face3PosI8MeshFaceE5FlipEEv.exit.i ]
+_ZN3vcg3tri10TrivialEarI4MeshE26CheckManifoldAfterEarCloseEv.exit: ; preds = %_ZN3vcg4face3PosI8MeshFaceE5FlipEEv.exit.i, %186, %_ZN3vcg4face3PosI8MeshFaceE5NextBEv.exit67, %265, %260, %_ZN3vcg4face3PosI8MeshFaceE5NextBEv.exit53, %4
+  %.0 = phi i1 [ false, %4 ], [ true, %_ZN3vcg4face3PosI8MeshFaceE5NextBEv.exit53 ], [ true, %260 ], [ true, %265 ], [ true, %_ZN3vcg4face3PosI8MeshFaceE5NextBEv.exit67 ], [ true, %186 ], [ false, %_ZN3vcg4face3PosI8MeshFaceE5FlipEEv.exit.i ]
   ret i1 %.0
 }
 

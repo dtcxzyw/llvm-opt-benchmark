@@ -2641,41 +2641,41 @@ define weak_odr void @_ZNK7mitsuba5SceneIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4
   store i32 -1, ptr %15, align 8, !noalias !24
   %16 = getelementptr inbounds i8, ptr %9, i64 24
   %17 = getelementptr inbounds i8, ptr %9, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, i8 0, i64 16, i1 false)
+  %18 = getelementptr inbounds i8, ptr %9, i64 12
+  %19 = getelementptr inbounds i8, ptr %9, i64 16
+  %20 = getelementptr inbounds i8, ptr %9, i64 32
+  %21 = getelementptr inbounds i8, ptr %9, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   store float 0x7FF0000000000000, ptr %9, align 8
-  %18 = load <4 x float>, ptr %2, align 16
-  %.sroa.0.12.vec.insert.i = insertelement <4 x float> %18, float 0.000000e+00, i64 3
+  %22 = load <4 x float>, ptr %2, align 16
+  %.sroa.0.12.vec.insert.i = insertelement <4 x float> %22, float 0.000000e+00, i64 3
   store <4 x float> %.sroa.0.12.vec.insert.i, ptr %8, align 16
-  %19 = getelementptr inbounds i8, ptr %2, i64 16
-  %.sroa.081.0.copyload = load <4 x float>, ptr %19, align 16
-  %20 = getelementptr inbounds i8, ptr %2, i64 36
-  %21 = load float, ptr %20, align 4
-  %.sroa.0.12.vec.insert.i79 = insertelement <4 x float> %.sroa.081.0.copyload, float %21, i64 3
-  %22 = getelementptr inbounds i8, ptr %8, i64 16
-  store <4 x float> %.sroa.0.12.vec.insert.i79, ptr %22, align 16
-  %23 = getelementptr inbounds i8, ptr %8, i64 32
-  store float %13, ptr %23, align 16, !noalias !24
-  %24 = getelementptr inbounds i8, ptr %8, i64 36
-  store i32 0, ptr %24, align 4, !noalias !24
-  %25 = getelementptr inbounds i8, ptr %8, i64 40
-  store i32 0, ptr %25, align 8, !noalias !24
-  %26 = getelementptr inbounds i8, ptr %8, i64 44
-  store i32 0, ptr %26, align 4, !noalias !24
-  %27 = getelementptr inbounds i8, ptr %8, i64 72
-  store i32 -1, ptr %27, align 8, !noalias !24
-  %28 = load ptr, ptr %11, align 8
-  call void @rtcIntersect1(ptr noundef %28, ptr noundef nonnull %7, ptr noundef nonnull %8)
-  %29 = load float, ptr %23, align 16, !noalias !24
-  %30 = fcmp contract une float %29, %13
-  br i1 %30, label %31, label %51
+  %23 = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.081.0.copyload = load <4 x float>, ptr %23, align 16
+  %24 = getelementptr inbounds i8, ptr %2, i64 36
+  %25 = load float, ptr %24, align 4
+  %.sroa.0.12.vec.insert.i79 = insertelement <4 x float> %.sroa.081.0.copyload, float %25, i64 3
+  %26 = getelementptr inbounds i8, ptr %8, i64 16
+  store <4 x float> %.sroa.0.12.vec.insert.i79, ptr %26, align 16
+  %27 = getelementptr inbounds i8, ptr %8, i64 32
+  store float %13, ptr %27, align 16, !noalias !24
+  %28 = getelementptr inbounds i8, ptr %8, i64 36
+  store i32 0, ptr %28, align 4, !noalias !24
+  %29 = getelementptr inbounds i8, ptr %8, i64 40
+  store i32 0, ptr %29, align 8, !noalias !24
+  %30 = getelementptr inbounds i8, ptr %8, i64 44
+  store i32 0, ptr %30, align 4, !noalias !24
+  %31 = getelementptr inbounds i8, ptr %8, i64 72
+  store i32 -1, ptr %31, align 8, !noalias !24
+  %32 = load ptr, ptr %11, align 8
+  call void @rtcIntersect1(ptr noundef %32, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %33 = load float, ptr %27, align 16, !noalias !24
+  %34 = fcmp contract une float %33, %13
+  br i1 %34, label %35, label %54
 
-31:                                               ; preds = %6
-  %32 = getelementptr inbounds i8, ptr %9, i64 32
-  %33 = getelementptr inbounds i8, ptr %9, i64 16
-  %34 = getelementptr inbounds i8, ptr %9, i64 12
-  %35 = getelementptr inbounds i8, ptr %9, i64 4
-  %36 = load i32, ptr %27, align 8, !noalias !24
+35:                                               ; preds = %6
+  %36 = load i32, ptr %31, align 8, !noalias !24
   %37 = getelementptr inbounds i8, ptr %8, i64 68
   %38 = load i32, ptr %37, align 4, !noalias !24
   %39 = getelementptr inbounds i8, ptr %8, i64 76
@@ -2687,21 +2687,30 @@ define weak_odr void @_ZNK7mitsuba5SceneIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4
   %44 = load ptr, ptr %42, align 16
   %45 = getelementptr inbounds %"class.mitsuba::ref.101", ptr %44, i64 %43
   %46 = load ptr, ptr %45, align 8
-  %. = select i1 %.not, ptr %16, ptr %32
-  store ptr %46, ptr %., align 8, !alias.scope !24
-  store i32 %36, ptr %33, align 8, !alias.scope !24
-  store float %29, ptr %9, align 8, !alias.scope !24
-  store i32 %38, ptr %34, align 4, !alias.scope !24
-  %47 = getelementptr inbounds i8, ptr %8, i64 60
-  %48 = getelementptr inbounds i8, ptr %8, i64 64
-  %49 = load i32, ptr %47, align 4
-  %50 = load i32, ptr %48, align 16
-  store i32 %49, ptr %35, align 4
-  %.sroa_idx80 = getelementptr inbounds i8, ptr %9, i64 8
-  store i32 %50, ptr %.sroa_idx80, align 8
-  br label %51
+  br i1 %.not, label %48, label %47
 
-51:                                               ; preds = %6, %31
+47:                                               ; preds = %35
+  store ptr %46, ptr %20, align 8, !alias.scope !24
+  br label %49
+
+48:                                               ; preds = %35
+  store ptr %46, ptr %16, align 8, !alias.scope !24
+  br label %49
+
+49:                                               ; preds = %47, %48
+  store i32 %36, ptr %19, align 8, !alias.scope !24
+  store float %33, ptr %9, align 8, !alias.scope !24
+  store i32 %38, ptr %18, align 4, !alias.scope !24
+  %50 = getelementptr inbounds i8, ptr %8, i64 60
+  %51 = getelementptr inbounds i8, ptr %8, i64 64
+  %52 = load i32, ptr %50, align 4
+  %53 = load i32, ptr %51, align 16
+  store i32 %52, ptr %17, align 4
+  %.sroa_idx80 = getelementptr inbounds i8, ptr %9, i64 8
+  store i32 %53, ptr %.sroa_idx80, align 8
+  br label %54
+
+54:                                               ; preds = %6, %49
   call void @_ZN7mitsuba23PreliminaryIntersectionIfNS_5ShapeIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEE27compute_surface_interactionERKNS_3RayINS_5PointIfLm3EEES6_EEjb(ptr dead_on_unwind writable sret(%"struct.mitsuba::SurfaceInteraction") align 16 %0, ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 16 dereferenceable(64) %2, i32 noundef %3, i1 noundef zeroext true)
   ret void
 }
@@ -2724,41 +2733,41 @@ define weak_odr void @_ZNK7mitsuba5SceneIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4
   store i32 -1, ptr %14, align 8, !noalias !27
   %15 = getelementptr inbounds i8, ptr %8, i64 24
   %16 = getelementptr inbounds i8, ptr %8, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %16, i8 0, i64 16, i1 false)
+  %17 = getelementptr inbounds i8, ptr %8, i64 12
+  %18 = getelementptr inbounds i8, ptr %8, i64 16
+  %19 = getelementptr inbounds i8, ptr %8, i64 32
+  %20 = getelementptr inbounds i8, ptr %8, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %20, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   store float 0x7FF0000000000000, ptr %8, align 8
-  %17 = load <4 x float>, ptr %2, align 16
-  %.sroa.0.12.vec.insert.i = insertelement <4 x float> %17, float 0.000000e+00, i64 3
+  %21 = load <4 x float>, ptr %2, align 16
+  %.sroa.0.12.vec.insert.i = insertelement <4 x float> %21, float 0.000000e+00, i64 3
   store <4 x float> %.sroa.0.12.vec.insert.i, ptr %7, align 16
-  %18 = getelementptr inbounds i8, ptr %7, i64 16
-  %19 = getelementptr inbounds i8, ptr %2, i64 16
-  %.sroa.074.0.copyload = load <4 x float>, ptr %19, align 16
-  %20 = getelementptr inbounds i8, ptr %2, i64 36
-  %21 = load float, ptr %20, align 4
-  %.sroa.0.12.vec.insert.i72 = insertelement <4 x float> %.sroa.074.0.copyload, float %21, i64 3
-  store <4 x float> %.sroa.0.12.vec.insert.i72, ptr %18, align 16
-  %22 = getelementptr inbounds i8, ptr %7, i64 32
-  store float %12, ptr %22, align 16, !noalias !27
-  %23 = getelementptr inbounds i8, ptr %7, i64 36
-  store i32 0, ptr %23, align 4, !noalias !27
-  %24 = getelementptr inbounds i8, ptr %7, i64 40
-  store i32 0, ptr %24, align 8, !noalias !27
-  %25 = getelementptr inbounds i8, ptr %7, i64 44
-  store i32 0, ptr %25, align 4, !noalias !27
-  %26 = getelementptr inbounds i8, ptr %7, i64 72
-  store i32 -1, ptr %26, align 8, !noalias !27
-  %27 = load ptr, ptr %10, align 8
-  call void @rtcIntersect1(ptr noundef %27, ptr noundef nonnull %6, ptr noundef nonnull %7)
-  %28 = load float, ptr %22, align 16, !noalias !27
-  %29 = fcmp contract une float %28, %12
-  br i1 %29, label %30, label %50
+  %22 = getelementptr inbounds i8, ptr %7, i64 16
+  %23 = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.074.0.copyload = load <4 x float>, ptr %23, align 16
+  %24 = getelementptr inbounds i8, ptr %2, i64 36
+  %25 = load float, ptr %24, align 4
+  %.sroa.0.12.vec.insert.i72 = insertelement <4 x float> %.sroa.074.0.copyload, float %25, i64 3
+  store <4 x float> %.sroa.0.12.vec.insert.i72, ptr %22, align 16
+  %26 = getelementptr inbounds i8, ptr %7, i64 32
+  store float %12, ptr %26, align 16, !noalias !27
+  %27 = getelementptr inbounds i8, ptr %7, i64 36
+  store i32 0, ptr %27, align 4, !noalias !27
+  %28 = getelementptr inbounds i8, ptr %7, i64 40
+  store i32 0, ptr %28, align 8, !noalias !27
+  %29 = getelementptr inbounds i8, ptr %7, i64 44
+  store i32 0, ptr %29, align 4, !noalias !27
+  %30 = getelementptr inbounds i8, ptr %7, i64 72
+  store i32 -1, ptr %30, align 8, !noalias !27
+  %31 = load ptr, ptr %10, align 8
+  call void @rtcIntersect1(ptr noundef %31, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %32 = load float, ptr %26, align 16, !noalias !27
+  %33 = fcmp contract une float %32, %12
+  br i1 %33, label %34, label %53
 
-30:                                               ; preds = %.critedge
-  %31 = getelementptr inbounds i8, ptr %8, i64 32
-  %32 = getelementptr inbounds i8, ptr %8, i64 16
-  %33 = getelementptr inbounds i8, ptr %8, i64 12
-  %34 = getelementptr inbounds i8, ptr %8, i64 4
-  %35 = load i32, ptr %26, align 8, !noalias !27
+34:                                               ; preds = %.critedge
+  %35 = load i32, ptr %30, align 8, !noalias !27
   %36 = getelementptr inbounds i8, ptr %7, i64 68
   %37 = load i32, ptr %36, align 4, !noalias !27
   %38 = getelementptr inbounds i8, ptr %7, i64 76
@@ -2770,21 +2779,30 @@ define weak_odr void @_ZNK7mitsuba5SceneIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4
   %43 = load ptr, ptr %41, align 16
   %44 = getelementptr inbounds %"class.mitsuba::ref.101", ptr %43, i64 %42
   %45 = load ptr, ptr %44, align 8
-  %. = select i1 %.not, ptr %15, ptr %31
-  store ptr %45, ptr %., align 8, !alias.scope !27
-  store i32 %35, ptr %32, align 8, !alias.scope !27
-  store float %28, ptr %8, align 8, !alias.scope !27
-  store i32 %37, ptr %33, align 4, !alias.scope !27
-  %46 = getelementptr inbounds i8, ptr %7, i64 60
-  %47 = getelementptr inbounds i8, ptr %7, i64 64
-  %48 = load i32, ptr %46, align 4
-  %49 = load i32, ptr %47, align 16
-  store i32 %48, ptr %34, align 4
-  %.sroa_idx73 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %49, ptr %.sroa_idx73, align 8
-  br label %50
+  br i1 %.not, label %47, label %46
 
-50:                                               ; preds = %30, %.critedge
+46:                                               ; preds = %34
+  store ptr %45, ptr %19, align 8, !alias.scope !27
+  br label %48
+
+47:                                               ; preds = %34
+  store ptr %45, ptr %15, align 8, !alias.scope !27
+  br label %48
+
+48:                                               ; preds = %47, %46
+  store i32 %35, ptr %18, align 8, !alias.scope !27
+  store float %32, ptr %8, align 8, !alias.scope !27
+  store i32 %37, ptr %17, align 4, !alias.scope !27
+  %49 = getelementptr inbounds i8, ptr %7, i64 60
+  %50 = getelementptr inbounds i8, ptr %7, i64 64
+  %51 = load i32, ptr %49, align 4
+  %52 = load i32, ptr %50, align 16
+  store i32 %51, ptr %16, align 4
+  %.sroa_idx73 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %52, ptr %.sroa_idx73, align 8
+  br label %53
+
+53:                                               ; preds = %48, %.critedge
   call void @_ZN7mitsuba23PreliminaryIntersectionIfNS_5ShapeIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEE27compute_surface_interactionERKNS_3RayINS_5PointIfLm3EEES6_EEjb(ptr dead_on_unwind writable sret(%"struct.mitsuba::SurfaceInteraction") align 16 %0, ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 16 dereferenceable(64) %2, i32 noundef %3, i1 noundef zeroext %5)
   ret void
 }
@@ -2925,41 +2943,41 @@ define weak_odr void @_ZNK7mitsuba5SceneIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4
   store i32 -1, ptr %12, align 8, !noalias !30
   %13 = getelementptr inbounds i8, ptr %0, i64 24
   %14 = getelementptr inbounds i8, ptr %0, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %14, i8 0, i64 16, i1 false)
+  %15 = getelementptr inbounds i8, ptr %0, i64 12
+  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds i8, ptr %0, i64 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   store float 0x7FF0000000000000, ptr %0, align 8
-  %15 = load <4 x float>, ptr %2, align 16
-  %.sroa.0.12.vec.insert.i = insertelement <4 x float> %15, float 0.000000e+00, i64 3
+  %19 = load <4 x float>, ptr %2, align 16
+  %.sroa.0.12.vec.insert.i = insertelement <4 x float> %19, float 0.000000e+00, i64 3
   store <4 x float> %.sroa.0.12.vec.insert.i, ptr %6, align 16
-  %16 = getelementptr inbounds i8, ptr %6, i64 16
-  %17 = getelementptr inbounds i8, ptr %2, i64 16
-  %.sroa.071.0.copyload = load <4 x float>, ptr %17, align 16
-  %18 = getelementptr inbounds i8, ptr %2, i64 36
-  %19 = load float, ptr %18, align 4
-  %.sroa.0.12.vec.insert.i69 = insertelement <4 x float> %.sroa.071.0.copyload, float %19, i64 3
-  store <4 x float> %.sroa.0.12.vec.insert.i69, ptr %16, align 16
-  %20 = getelementptr inbounds i8, ptr %6, i64 32
-  store float %10, ptr %20, align 16, !noalias !30
-  %21 = getelementptr inbounds i8, ptr %6, i64 36
-  store i32 0, ptr %21, align 4, !noalias !30
-  %22 = getelementptr inbounds i8, ptr %6, i64 40
-  store i32 0, ptr %22, align 8, !noalias !30
-  %23 = getelementptr inbounds i8, ptr %6, i64 44
-  store i32 0, ptr %23, align 4, !noalias !30
-  %24 = getelementptr inbounds i8, ptr %6, i64 72
-  store i32 -1, ptr %24, align 8, !noalias !30
-  %25 = load ptr, ptr %8, align 8
-  call void @rtcIntersect1(ptr noundef %25, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  %26 = load float, ptr %20, align 16, !noalias !30
-  %27 = fcmp contract une float %26, %10
-  br i1 %27, label %28, label %48
+  %20 = getelementptr inbounds i8, ptr %6, i64 16
+  %21 = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.071.0.copyload = load <4 x float>, ptr %21, align 16
+  %22 = getelementptr inbounds i8, ptr %2, i64 36
+  %23 = load float, ptr %22, align 4
+  %.sroa.0.12.vec.insert.i69 = insertelement <4 x float> %.sroa.071.0.copyload, float %23, i64 3
+  store <4 x float> %.sroa.0.12.vec.insert.i69, ptr %20, align 16
+  %24 = getelementptr inbounds i8, ptr %6, i64 32
+  store float %10, ptr %24, align 16, !noalias !30
+  %25 = getelementptr inbounds i8, ptr %6, i64 36
+  store i32 0, ptr %25, align 4, !noalias !30
+  %26 = getelementptr inbounds i8, ptr %6, i64 40
+  store i32 0, ptr %26, align 8, !noalias !30
+  %27 = getelementptr inbounds i8, ptr %6, i64 44
+  store i32 0, ptr %27, align 4, !noalias !30
+  %28 = getelementptr inbounds i8, ptr %6, i64 72
+  store i32 -1, ptr %28, align 8, !noalias !30
+  %29 = load ptr, ptr %8, align 8
+  call void @rtcIntersect1(ptr noundef %29, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %30 = load float, ptr %24, align 16, !noalias !30
+  %31 = fcmp contract une float %30, %10
+  br i1 %31, label %32, label %51
 
-28:                                               ; preds = %.critedge
-  %29 = getelementptr inbounds i8, ptr %0, i64 32
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
-  %31 = getelementptr inbounds i8, ptr %0, i64 12
-  %32 = getelementptr inbounds i8, ptr %0, i64 4
-  %33 = load i32, ptr %24, align 8, !noalias !30
+32:                                               ; preds = %.critedge
+  %33 = load i32, ptr %28, align 8, !noalias !30
   %34 = getelementptr inbounds i8, ptr %6, i64 68
   %35 = load i32, ptr %34, align 4, !noalias !30
   %36 = getelementptr inbounds i8, ptr %6, i64 76
@@ -2971,21 +2989,30 @@ define weak_odr void @_ZNK7mitsuba5SceneIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4
   %41 = load ptr, ptr %39, align 16
   %42 = getelementptr inbounds %"class.mitsuba::ref.101", ptr %41, i64 %40
   %43 = load ptr, ptr %42, align 8
-  %. = select i1 %.not, ptr %13, ptr %29
-  store ptr %43, ptr %., align 8, !alias.scope !30
-  store i32 %33, ptr %30, align 8, !alias.scope !30
-  store float %26, ptr %0, align 8, !alias.scope !30
-  store i32 %35, ptr %31, align 4, !alias.scope !30
-  %44 = getelementptr inbounds i8, ptr %6, i64 60
-  %45 = getelementptr inbounds i8, ptr %6, i64 64
-  %46 = load i32, ptr %44, align 4
-  %47 = load i32, ptr %45, align 16
-  store i32 %46, ptr %32, align 4
-  %.sroa_idx70 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %47, ptr %.sroa_idx70, align 8
-  br label %48
+  br i1 %.not, label %45, label %44
 
-48:                                               ; preds = %28, %.critedge
+44:                                               ; preds = %32
+  store ptr %43, ptr %17, align 8, !alias.scope !30
+  br label %46
+
+45:                                               ; preds = %32
+  store ptr %43, ptr %13, align 8, !alias.scope !30
+  br label %46
+
+46:                                               ; preds = %45, %44
+  store i32 %33, ptr %16, align 8, !alias.scope !30
+  store float %30, ptr %0, align 8, !alias.scope !30
+  store i32 %35, ptr %15, align 4, !alias.scope !30
+  %47 = getelementptr inbounds i8, ptr %6, i64 60
+  %48 = getelementptr inbounds i8, ptr %6, i64 64
+  %49 = load i32, ptr %47, align 4
+  %50 = load i32, ptr %48, align 16
+  store i32 %49, ptr %14, align 4
+  %.sroa_idx70 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %50, ptr %.sroa_idx70, align 8
+  br label %51
+
+51:                                               ; preds = %46, %.critedge
   ret void
 }
 
@@ -3005,41 +3032,41 @@ define weak_odr void @_ZNK7mitsuba5SceneIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4
   store i32 -1, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 24
   %14 = getelementptr inbounds i8, ptr %0, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %14, i8 0, i64 16, i1 false)
+  %15 = getelementptr inbounds i8, ptr %0, i64 12
+  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds i8, ptr %0, i64 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   store float 0x7FF0000000000000, ptr %0, align 8
-  %15 = load <4 x float>, ptr %2, align 16
-  %.sroa.0.12.vec.insert.i = insertelement <4 x float> %15, float 0.000000e+00, i64 3
+  %19 = load <4 x float>, ptr %2, align 16
+  %.sroa.0.12.vec.insert.i = insertelement <4 x float> %19, float 0.000000e+00, i64 3
   store <4 x float> %.sroa.0.12.vec.insert.i, ptr %6, align 16
-  %16 = getelementptr inbounds i8, ptr %6, i64 16
-  %17 = getelementptr inbounds i8, ptr %2, i64 16
-  %.sroa.067.0.copyload = load <4 x float>, ptr %17, align 16
-  %18 = getelementptr inbounds i8, ptr %2, i64 36
-  %19 = load float, ptr %18, align 4
-  %.sroa.0.12.vec.insert.i65 = insertelement <4 x float> %.sroa.067.0.copyload, float %19, i64 3
-  store <4 x float> %.sroa.0.12.vec.insert.i65, ptr %16, align 16
-  %20 = getelementptr inbounds i8, ptr %6, i64 32
-  store float %10, ptr %20, align 16
-  %21 = getelementptr inbounds i8, ptr %6, i64 36
-  store i32 0, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %6, i64 40
-  store i32 0, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %6, i64 44
-  store i32 0, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %6, i64 72
-  store i32 -1, ptr %24, align 8
-  %25 = load ptr, ptr %8, align 8
-  call void @rtcIntersect1(ptr noundef %25, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  %26 = load float, ptr %20, align 16
-  %27 = fcmp contract une float %26, %10
-  br i1 %27, label %28, label %48
+  %20 = getelementptr inbounds i8, ptr %6, i64 16
+  %21 = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.067.0.copyload = load <4 x float>, ptr %21, align 16
+  %22 = getelementptr inbounds i8, ptr %2, i64 36
+  %23 = load float, ptr %22, align 4
+  %.sroa.0.12.vec.insert.i65 = insertelement <4 x float> %.sroa.067.0.copyload, float %23, i64 3
+  store <4 x float> %.sroa.0.12.vec.insert.i65, ptr %20, align 16
+  %24 = getelementptr inbounds i8, ptr %6, i64 32
+  store float %10, ptr %24, align 16
+  %25 = getelementptr inbounds i8, ptr %6, i64 36
+  store i32 0, ptr %25, align 4
+  %26 = getelementptr inbounds i8, ptr %6, i64 40
+  store i32 0, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %6, i64 44
+  store i32 0, ptr %27, align 4
+  %28 = getelementptr inbounds i8, ptr %6, i64 72
+  store i32 -1, ptr %28, align 8
+  %29 = load ptr, ptr %8, align 8
+  call void @rtcIntersect1(ptr noundef %29, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %30 = load float, ptr %24, align 16
+  %31 = fcmp contract une float %30, %10
+  br i1 %31, label %32, label %51
 
-28:                                               ; preds = %.critedge
-  %29 = getelementptr inbounds i8, ptr %0, i64 32
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
-  %31 = getelementptr inbounds i8, ptr %0, i64 12
-  %32 = getelementptr inbounds i8, ptr %0, i64 4
-  %33 = load i32, ptr %24, align 8
+32:                                               ; preds = %.critedge
+  %33 = load i32, ptr %28, align 8
   %34 = getelementptr inbounds i8, ptr %6, i64 68
   %35 = load i32, ptr %34, align 4
   %36 = getelementptr inbounds i8, ptr %6, i64 76
@@ -3051,21 +3078,30 @@ define weak_odr void @_ZNK7mitsuba5SceneIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4
   %41 = load ptr, ptr %39, align 16
   %42 = getelementptr inbounds %"class.mitsuba::ref.101", ptr %41, i64 %40
   %43 = load ptr, ptr %42, align 8
-  %. = select i1 %.not, ptr %13, ptr %29
-  store ptr %43, ptr %., align 8
-  store i32 %33, ptr %30, align 8
-  store float %26, ptr %0, align 8
-  store i32 %35, ptr %31, align 4
-  %44 = getelementptr inbounds i8, ptr %6, i64 60
-  %45 = getelementptr inbounds i8, ptr %6, i64 64
-  %46 = load i32, ptr %44, align 4
-  %47 = load i32, ptr %45, align 16
-  store i32 %46, ptr %32, align 4
-  %.sroa_idx66 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %47, ptr %.sroa_idx66, align 8
-  br label %48
+  br i1 %.not, label %45, label %44
 
-48:                                               ; preds = %28, %.critedge
+44:                                               ; preds = %32
+  store ptr %43, ptr %17, align 8
+  br label %46
+
+45:                                               ; preds = %32
+  store ptr %43, ptr %13, align 8
+  br label %46
+
+46:                                               ; preds = %45, %44
+  store i32 %33, ptr %16, align 8
+  store float %30, ptr %0, align 8
+  store i32 %35, ptr %15, align 4
+  %47 = getelementptr inbounds i8, ptr %6, i64 60
+  %48 = getelementptr inbounds i8, ptr %6, i64 64
+  %49 = load i32, ptr %47, align 4
+  %50 = load i32, ptr %48, align 16
+  store i32 %49, ptr %14, align 4
+  %.sroa_idx66 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %50, ptr %.sroa_idx66, align 8
+  br label %51
+
+51:                                               ; preds = %46, %.critedge
   ret void
 }
 
@@ -6898,41 +6934,41 @@ define weak_odr void @_ZNK7mitsuba5SceneIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4
   store i32 -1, ptr %12, align 8, !noalias !102
   %13 = getelementptr inbounds i8, ptr %6, i64 24
   %14 = getelementptr inbounds i8, ptr %6, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %14, i8 0, i64 16, i1 false)
+  %15 = getelementptr inbounds i8, ptr %6, i64 12
+  %16 = getelementptr inbounds i8, ptr %6, i64 16
+  %17 = getelementptr inbounds i8, ptr %6, i64 32
+  %18 = getelementptr inbounds i8, ptr %6, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   store float 0x7FF0000000000000, ptr %6, align 8, !noalias !105
-  %15 = load <4 x float>, ptr %2, align 16, !noalias !105
-  %.sroa.0.12.vec.insert.i = insertelement <4 x float> %15, float 0.000000e+00, i64 3
+  %19 = load <4 x float>, ptr %2, align 16, !noalias !105
+  %.sroa.0.12.vec.insert.i = insertelement <4 x float> %19, float 0.000000e+00, i64 3
   store <4 x float> %.sroa.0.12.vec.insert.i, ptr %5, align 16, !noalias !105
-  %16 = getelementptr inbounds i8, ptr %5, i64 16
-  %17 = getelementptr inbounds i8, ptr %2, i64 16
-  %.sroa.077.0.copyload = load <4 x float>, ptr %17, align 16, !noalias !105
-  %18 = getelementptr inbounds i8, ptr %2, i64 36
-  %19 = load float, ptr %18, align 4, !noalias !105
-  %.sroa.0.12.vec.insert.i75 = insertelement <4 x float> %.sroa.077.0.copyload, float %19, i64 3
-  store <4 x float> %.sroa.0.12.vec.insert.i75, ptr %16, align 16, !noalias !105
-  %20 = getelementptr inbounds i8, ptr %5, i64 32
-  store float %10, ptr %20, align 16, !noalias !102
-  %21 = getelementptr inbounds i8, ptr %5, i64 36
-  store i32 0, ptr %21, align 4, !noalias !102
-  %22 = getelementptr inbounds i8, ptr %5, i64 40
-  store i32 0, ptr %22, align 8, !noalias !102
-  %23 = getelementptr inbounds i8, ptr %5, i64 44
-  store i32 0, ptr %23, align 4, !noalias !102
-  %24 = getelementptr inbounds i8, ptr %5, i64 72
-  store i32 -1, ptr %24, align 8, !noalias !102
-  %25 = load ptr, ptr %8, align 8, !noalias !105
-  call void @rtcIntersect1(ptr noundef %25, ptr noundef nonnull %4, ptr noundef nonnull %5), !noalias !105
-  %26 = load float, ptr %20, align 16, !noalias !102
-  %27 = fcmp contract une float %26, %10
-  br i1 %27, label %28, label %48
+  %20 = getelementptr inbounds i8, ptr %5, i64 16
+  %21 = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.077.0.copyload = load <4 x float>, ptr %21, align 16, !noalias !105
+  %22 = getelementptr inbounds i8, ptr %2, i64 36
+  %23 = load float, ptr %22, align 4, !noalias !105
+  %.sroa.0.12.vec.insert.i75 = insertelement <4 x float> %.sroa.077.0.copyload, float %23, i64 3
+  store <4 x float> %.sroa.0.12.vec.insert.i75, ptr %20, align 16, !noalias !105
+  %24 = getelementptr inbounds i8, ptr %5, i64 32
+  store float %10, ptr %24, align 16, !noalias !102
+  %25 = getelementptr inbounds i8, ptr %5, i64 36
+  store i32 0, ptr %25, align 4, !noalias !102
+  %26 = getelementptr inbounds i8, ptr %5, i64 40
+  store i32 0, ptr %26, align 8, !noalias !102
+  %27 = getelementptr inbounds i8, ptr %5, i64 44
+  store i32 0, ptr %27, align 4, !noalias !102
+  %28 = getelementptr inbounds i8, ptr %5, i64 72
+  store i32 -1, ptr %28, align 8, !noalias !102
+  %29 = load ptr, ptr %8, align 8, !noalias !105
+  call void @rtcIntersect1(ptr noundef %29, ptr noundef nonnull %4, ptr noundef nonnull %5), !noalias !105
+  %30 = load float, ptr %24, align 16, !noalias !102
+  %31 = fcmp contract une float %30, %10
+  br i1 %31, label %32, label %51
 
-28:                                               ; preds = %.critedge
-  %29 = getelementptr inbounds i8, ptr %6, i64 32
-  %30 = getelementptr inbounds i8, ptr %6, i64 16
-  %31 = getelementptr inbounds i8, ptr %6, i64 12
-  %32 = getelementptr inbounds i8, ptr %6, i64 4
-  %33 = load i32, ptr %24, align 8, !noalias !102
+32:                                               ; preds = %.critedge
+  %33 = load i32, ptr %28, align 8, !noalias !102
   %34 = getelementptr inbounds i8, ptr %5, i64 68
   %35 = load i32, ptr %34, align 4, !noalias !102
   %36 = getelementptr inbounds i8, ptr %5, i64 76
@@ -6944,21 +6980,30 @@ define weak_odr void @_ZNK7mitsuba5SceneIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4
   %41 = load ptr, ptr %39, align 16, !noalias !105
   %42 = getelementptr inbounds %"class.mitsuba::ref.101", ptr %41, i64 %40
   %43 = load ptr, ptr %42, align 8, !noalias !105
-  %. = select i1 %.not, ptr %13, ptr %29
-  store ptr %43, ptr %., align 8, !alias.scope !99, !noalias !105
-  store i32 %33, ptr %30, align 8, !alias.scope !99, !noalias !105
-  store float %26, ptr %6, align 8, !alias.scope !99, !noalias !105
-  store i32 %35, ptr %31, align 4, !alias.scope !99, !noalias !105
-  %44 = getelementptr inbounds i8, ptr %5, i64 60
-  %45 = getelementptr inbounds i8, ptr %5, i64 64
-  %46 = load i32, ptr %44, align 4, !noalias !105
-  %47 = load i32, ptr %45, align 16, !noalias !105
-  store i32 %46, ptr %32, align 4, !noalias !105
-  %.sroa_idx76 = getelementptr inbounds i8, ptr %6, i64 8
-  store i32 %47, ptr %.sroa_idx76, align 8, !noalias !105
-  br label %48
+  br i1 %.not, label %45, label %44
 
-48:                                               ; preds = %28, %.critedge
+44:                                               ; preds = %32
+  store ptr %43, ptr %17, align 8, !alias.scope !99, !noalias !105
+  br label %46
+
+45:                                               ; preds = %32
+  store ptr %43, ptr %13, align 8, !alias.scope !99, !noalias !105
+  br label %46
+
+46:                                               ; preds = %45, %44
+  store i32 %33, ptr %16, align 8, !alias.scope !99, !noalias !105
+  store float %30, ptr %6, align 8, !alias.scope !99, !noalias !105
+  store i32 %35, ptr %15, align 4, !alias.scope !99, !noalias !105
+  %47 = getelementptr inbounds i8, ptr %5, i64 60
+  %48 = getelementptr inbounds i8, ptr %5, i64 64
+  %49 = load i32, ptr %47, align 4, !noalias !105
+  %50 = load i32, ptr %48, align 16, !noalias !105
+  store i32 %49, ptr %14, align 4, !noalias !105
+  %.sroa_idx76 = getelementptr inbounds i8, ptr %6, i64 8
+  store i32 %50, ptr %.sroa_idx76, align 8, !noalias !105
+  br label %51
+
+51:                                               ; preds = %46, %.critedge
   call void @_ZN7mitsuba23PreliminaryIntersectionIfNS_5ShapeIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEE27compute_surface_interactionERKNS_3RayINS_5PointIfLm3EEES6_EEjb(ptr dead_on_unwind writable sret(%"struct.mitsuba::SurfaceInteraction") align 16 %0, ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 16 dereferenceable(64) %2, i32 noundef 14, i1 noundef zeroext %3)
   ret void
 }

@@ -2004,6 +2004,7 @@ Vec_QuePrio.exit30.i:                             ; preds = %30, %26
 Vec_QueMoveUp.exit.thread13:                      ; preds = %36
   %44 = load ptr, ptr %16, align 8
   %45 = getelementptr inbounds i32, ptr %44, i64 %23
+  store i32 %1, ptr %45, align 4
   br label %.sink.split
 
 Vec_QueMoveUp.exit:                               ; preds = %Vec_QuePrio.exit30.i
@@ -2133,13 +2134,12 @@ Vec_QueMoveDown.exit:                             ; preds = %Vec_QuePrio.exit46.
   %112 = load ptr, ptr %16, align 8
   %113 = sext i32 %.035.lcssa.i to i64
   %114 = getelementptr inbounds i32, ptr %112, i64 %113
+  store i32 %1, ptr %114, align 4
   br label %.sink.split
 
 .sink.split:                                      ; preds = %Vec_QueMoveDown.exit, %Vec_QueMoveUp.exit.thread13
-  %.sink = phi ptr [ %45, %Vec_QueMoveUp.exit.thread13 ], [ %114, %Vec_QueMoveDown.exit ]
   %.pre-phi.i.sink = phi i64 [ %.pre-phi.i, %Vec_QueMoveUp.exit.thread13 ], [ %.pre-phi.i7, %Vec_QueMoveDown.exit ]
   %.02634.i.lcssa26.sink = phi i32 [ %.02634.i, %Vec_QueMoveUp.exit.thread13 ], [ %.035.lcssa.i, %Vec_QueMoveDown.exit ]
-  store i32 %1, ptr %.sink, align 4
   %115 = load ptr, ptr %11, align 8
   %116 = getelementptr inbounds i32, ptr %115, i64 %.pre-phi.i.sink
   store i32 %.02634.i.lcssa26.sink, ptr %116, align 4
@@ -3096,6 +3096,7 @@ Vec_QuePrio.exit30.i.i.i:                         ; preds = %179, %175
 Vec_QueMoveUp.exit.thread13.i.i:                  ; preds = %185
   %193 = load ptr, ptr %165, align 8
   %194 = getelementptr inbounds i32, ptr %193, i64 %172
+  store i32 %151, ptr %194, align 4
   br label %.sink.split.i.i
 
 Vec_QueMoveUp.exit.i.i:                           ; preds = %Vec_QuePrio.exit30.i.i.i
@@ -3225,13 +3226,12 @@ Vec_QueMoveDown.exit.i.i:                         ; preds = %250, %Vec_QuePrio.e
   %261 = load ptr, ptr %165, align 8
   %262 = sext i32 %.035.lcssa.i.i.i to i64
   %263 = getelementptr inbounds i32, ptr %261, i64 %262
+  store i32 %151, ptr %263, align 4
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %Vec_QueMoveDown.exit.i.i, %Vec_QueMoveUp.exit.thread13.i.i
-  %.sink.i.i = phi ptr [ %194, %Vec_QueMoveUp.exit.thread13.i.i ], [ %263, %Vec_QueMoveDown.exit.i.i ]
   %.pre-phi.i.sink.i.i = phi i64 [ %.pre-phi.i.i.i, %Vec_QueMoveUp.exit.thread13.i.i ], [ %.pre-phi.i7.i.i, %Vec_QueMoveDown.exit.i.i ]
   %.02634.i.lcssa26.sink.i.i = phi i32 [ %.02634.i.i.i, %Vec_QueMoveUp.exit.thread13.i.i ], [ %.035.lcssa.i.i.i, %Vec_QueMoveDown.exit.i.i ]
-  store i32 %151, ptr %.sink.i.i, align 4
   %264 = load ptr, ptr %160, align 8
   %265 = getelementptr inbounds i32, ptr %264, i64 %.pre-phi.i.sink.i.i
   store i32 %.02634.i.lcssa26.sink.i.i, ptr %265, align 4

@@ -2070,79 +2070,88 @@ define internal fastcc ptr @_php_dom_insert_fragment(ptr noundef %0, ptr noundef
   %6 = getelementptr inbounds i8, ptr %3, i64 24
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %44, label %8
+  br i1 %.not, label %47, label %8
 
 8:                                                ; preds = %5
   %9 = icmp eq ptr %1, null
-  %10 = getelementptr inbounds i8, ptr %1, i64 48
+  br i1 %9, label %10, label %12
+
+10:                                               ; preds = %8
   %11 = getelementptr inbounds i8, ptr %0, i64 24
-  %.sink = select i1 %9, ptr %11, ptr %10
-  store ptr %7, ptr %.sink, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 56
-  store ptr %1, ptr %12, align 8
-  %13 = icmp eq ptr %2, null
-  %14 = getelementptr inbounds i8, ptr %3, i64 32
-  %15 = load ptr, ptr %14, align 8
-  br i1 %13, label %16, label %18
+  store ptr %7, ptr %11, align 8
+  br label %14
 
-16:                                               ; preds = %8
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %15, ptr %17, align 8
-  br label %22
+12:                                               ; preds = %8
+  %13 = getelementptr inbounds i8, ptr %1, i64 48
+  store ptr %7, ptr %13, align 8
+  br label %14
 
-18:                                               ; preds = %8
-  %19 = getelementptr inbounds i8, ptr %15, i64 48
-  store ptr %2, ptr %19, align 8
-  %20 = load ptr, ptr %14, align 8
-  %21 = getelementptr inbounds i8, ptr %2, i64 56
-  store ptr %20, ptr %21, align 8
-  br label %22
+14:                                               ; preds = %12, %10
+  %15 = getelementptr inbounds i8, ptr %7, i64 56
+  store ptr %1, ptr %15, align 8
+  %16 = icmp eq ptr %2, null
+  %17 = getelementptr inbounds i8, ptr %3, i64 32
+  %18 = load ptr, ptr %17, align 8
+  br i1 %16, label %19, label %21
 
-22:                                               ; preds = %18, %16
-  %23 = getelementptr inbounds i8, ptr %0, i64 64
-  %24 = getelementptr inbounds i8, ptr %4, i64 8
-  %25 = getelementptr inbounds i8, ptr %3, i64 32
-  br label %26
+19:                                               ; preds = %14
+  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %18, ptr %20, align 8
+  br label %25
 
-26:                                               ; preds = %22, %40
-  %.043 = phi ptr [ %7, %22 ], [ %42, %40 ]
-  %27 = getelementptr inbounds i8, ptr %.043, i64 40
-  store ptr %0, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %.043, i64 64
-  %29 = load ptr, ptr %28, align 8
-  %30 = load ptr, ptr %23, align 8
-  %.not41 = icmp eq ptr %29, %30
-  br i1 %.not41, label %37, label %31
+21:                                               ; preds = %14
+  %22 = getelementptr inbounds i8, ptr %18, i64 48
+  store ptr %2, ptr %22, align 8
+  %23 = load ptr, ptr %17, align 8
+  %24 = getelementptr inbounds i8, ptr %2, i64 56
+  store ptr %23, ptr %24, align 8
+  br label %25
 
-31:                                               ; preds = %26
-  tail call void @xmlSetTreeDoc(ptr noundef nonnull %.043, ptr noundef %30) #12
-  %32 = load ptr, ptr %.043, align 8
-  %.not42 = icmp eq ptr %32, null
-  br i1 %.not42, label %37, label %33
+25:                                               ; preds = %21, %19
+  %26 = getelementptr inbounds i8, ptr %0, i64 64
+  %27 = getelementptr inbounds i8, ptr %4, i64 8
+  %28 = getelementptr inbounds i8, ptr %3, i64 32
+  br label %29
 
-33:                                               ; preds = %31
-  %34 = load ptr, ptr %24, align 8
-  %35 = getelementptr inbounds i8, ptr %32, i64 8
-  store ptr %34, ptr %35, align 8
-  %36 = tail call i32 @php_libxml_increment_doc_ref(ptr noundef nonnull %32, ptr noundef null) #12
-  br label %37
+29:                                               ; preds = %25, %43
+  %.043 = phi ptr [ %7, %25 ], [ %45, %43 ]
+  %30 = getelementptr inbounds i8, ptr %.043, i64 40
+  store ptr %0, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %.043, i64 64
+  %32 = load ptr, ptr %31, align 8
+  %33 = load ptr, ptr %26, align 8
+  %.not41 = icmp eq ptr %32, %33
+  br i1 %.not41, label %40, label %34
 
-37:                                               ; preds = %31, %33, %26
-  %38 = load ptr, ptr %25, align 8
-  %39 = icmp eq ptr %.043, %38
-  br i1 %39, label %43, label %40
+34:                                               ; preds = %29
+  tail call void @xmlSetTreeDoc(ptr noundef nonnull %.043, ptr noundef %33) #12
+  %35 = load ptr, ptr %.043, align 8
+  %.not42 = icmp eq ptr %35, null
+  br i1 %.not42, label %40, label %36
 
-40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %.043, i64 48
-  %42 = load ptr, ptr %41, align 8
-  %.not40 = icmp eq ptr %42, null
-  br i1 %.not40, label %43, label %26
+36:                                               ; preds = %34
+  %37 = load ptr, ptr %27, align 8
+  %38 = getelementptr inbounds i8, ptr %35, i64 8
+  store ptr %37, ptr %38, align 8
+  %39 = tail call i32 @php_libxml_increment_doc_ref(ptr noundef nonnull %35, ptr noundef null) #12
+  br label %40
 
-43:                                               ; preds = %37, %40
+40:                                               ; preds = %34, %36, %29
+  %41 = load ptr, ptr %28, align 8
+  %42 = icmp eq ptr %.043, %41
+  br i1 %42, label %46, label %43
+
+43:                                               ; preds = %40
+  %44 = getelementptr inbounds i8, ptr %.043, i64 48
+  %45 = load ptr, ptr %44, align 8
+  %.not40 = icmp eq ptr %45, null
+  br i1 %.not40, label %46, label %29
+
+46:                                               ; preds = %40, %43
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  br label %44
+  br label %47
 
-44:                                               ; preds = %43, %5
+47:                                               ; preds = %46, %5
   ret ptr %7
 }
 

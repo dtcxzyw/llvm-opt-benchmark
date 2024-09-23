@@ -5430,7 +5430,7 @@ switch.lookup:
 14:                                               ; preds = %9
   %15 = load i64, ptr %10, align 8, !noundef !4
   %16 = icmp ult i32 %3, 327680
-  br i1 %16, label %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit149.thread, label %126
+  br i1 %16, label %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit149.thread, label %130
 
 17:                                               ; preds = %9
   %18 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
@@ -5478,19 +5478,14 @@ _ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit: ; preds = %31, 
   %45 = load ptr, ptr %33, align 8, !alias.scope !541, !noalias !538, !nonnull !4, !noundef !4
   %46 = getelementptr inbounds i8, ptr %45, i64 %44
   store i8 0, ptr %46, align 1
-  br label %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit149.thread.sink.split
-
-_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit149.thread.sink.split: ; preds = %_ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit, %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit, %_ZN5gimli5write6writer6Writer9write_u3217h828145f091d49137E.exit.i, %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit153, %_ZN5gimli5write6writer6Writer9write_u3217h828145f091d49137E.exit.i156
-  %.sink = phi ptr [ %133, %_ZN5gimli5write6writer6Writer9write_u3217h828145f091d49137E.exit.i156 ], [ %133, %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit153 ], [ %56, %_ZN5gimli5write6writer6Writer9write_u3217h828145f091d49137E.exit.i ], [ %56, %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit ], [ %22, %_ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit ]
-  %.sink11 = phi i64 [ 4, %_ZN5gimli5write6writer6Writer9write_u3217h828145f091d49137E.exit.i156 ], [ 8, %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit153 ], [ 4, %_ZN5gimli5write6writer6Writer9write_u3217h828145f091d49137E.exit.i ], [ 8, %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit ], [ 1, %_ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit ]
-  %47 = load i64, ptr %.sink, align 8, !noalias !4, !noundef !4
-  %48 = add i64 %47, %.sink11
-  store i64 %48, ptr %.sink, align 8, !noalias !4
+  %47 = load i64, ptr %22, align 8, !alias.scope !541, !noalias !538, !noundef !4
+  %48 = add i64 %47, 1
+  store i64 %48, ptr %22, align 8, !alias.scope !541, !noalias !538
   br label %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit149.thread
 
-_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit149.thread: ; preds = %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit149.thread.sink.split, %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit148", %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit136", %14, %11, %switch.lookup
-  %.sroa.9.sroa.0.0 = phi i64 [ 0, %switch.lookup ], [ 327680, %11 ], [ 327680, %14 ], [ 0, %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit136" ], [ 0, %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit148" ], [ 0, %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit149.thread.sink.split ]
-  %.sroa.04.0 = phi i64 [ 10, %switch.lookup ], [ 9, %11 ], [ 9, %14 ], [ 3, %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit136" ], [ 3, %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit148" ], [ 18, %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit149.thread.sink.split ]
+_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit149.thread: ; preds = %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit148", %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit136", %_ZN5gimli5write6writer6Writer9write_u3217h828145f091d49137E.exit.i156, %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit153, %_ZN5gimli5write6writer6Writer9write_u3217h828145f091d49137E.exit.i, %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit, %_ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit, %14, %11, %switch.lookup
+  %.sroa.9.sroa.0.0 = phi i64 [ 0, %switch.lookup ], [ 327680, %11 ], [ 327680, %14 ], [ 0, %_ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit ], [ 0, %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit ], [ 0, %_ZN5gimli5write6writer6Writer9write_u3217h828145f091d49137E.exit.i ], [ 0, %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit153 ], [ 0, %_ZN5gimli5write6writer6Writer9write_u3217h828145f091d49137E.exit.i156 ], [ 0, %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit136" ], [ 0, %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit148" ]
+  %.sroa.04.0 = phi i64 [ 10, %switch.lookup ], [ 9, %11 ], [ 9, %14 ], [ 18, %_ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit ], [ 18, %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit ], [ 18, %_ZN5gimli5write6writer6Writer9write_u3217h828145f091d49137E.exit.i ], [ 18, %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit153 ], [ 18, %_ZN5gimli5write6writer6Writer9write_u3217h828145f091d49137E.exit.i156 ], [ 3, %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit136" ], [ 3, %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit148" ]
   %.sroa.04.0.insert.insert = or disjoint i64 %.sroa.04.0, %.sroa.9.sroa.0.0
   ret i64 %.sroa.04.0.insert.insert
 
@@ -5574,223 +5569,235 @@ _ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit: ; preds = %
   %90 = load ptr, ptr %89, align 8, !alias.scope !561, !noalias !568, !nonnull !4, !noundef !4
   %91 = getelementptr inbounds i8, ptr %90, i64 %86
   store i64 %storemerge.i.i.i, ptr %91, align 1
-  br label %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit149.thread.sink.split
+  %92 = load i64, ptr %56, align 8, !alias.scope !561, !noalias !568, !noundef !4
+  %93 = add i64 %92, 8
+  store i64 %93, ptr %56, align 8, !alias.scope !561, !noalias !568
+  br label %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit149.thread
 
 .split:                                           ; preds = %51
   tail call void @llvm.experimental.noalias.scope.decl(metadata !574)
-  %92 = load i64, ptr %56, align 8, !alias.scope !577, !noundef !4
-  %93 = tail call { ptr, i64 } @_ZN5gimli6common9SectionId4name17h79ee0cdda66ab332E.llvm.8882213390170994431(i8 noundef 18), !noalias !574
-  %94 = load i64, ptr %57, align 8, !alias.scope !580, !noalias !583, !noundef !4
-  %95 = load i64, ptr %1, align 8, !alias.scope !580, !noalias !583, !noundef !4
-  %96 = icmp eq i64 %94, %95
-  br i1 %96, label %97, label %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit136"
+  %94 = load i64, ptr %56, align 8, !alias.scope !577, !noundef !4
+  %95 = tail call { ptr, i64 } @_ZN5gimli6common9SectionId4name17h79ee0cdda66ab332E.llvm.8882213390170994431(i8 noundef 18), !noalias !574
+  %96 = load i64, ptr %57, align 8, !alias.scope !580, !noalias !583, !noundef !4
+  %97 = load i64, ptr %1, align 8, !alias.scope !580, !noalias !583, !noundef !4
+  %98 = icmp eq i64 %96, %97
+  br i1 %98, label %99, label %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit136"
 
-97:                                               ; preds = %.split
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h9769a49065d80abaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %94), !noalias !583
+99:                                               ; preds = %.split
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h9769a49065d80abaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %96), !noalias !583
   %.pre.i.i135 = load i64, ptr %57, align 8, !alias.scope !580, !noalias !583
   br label %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit136"
 
-"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit136": ; preds = %.split, %97
-  %98 = phi i64 [ %.pre.i.i135, %97 ], [ %94, %.split ]
-  %99 = trunc i64 %54 to i32
-  %100 = extractvalue { ptr, i64 } %93, 1
-  %101 = extractvalue { ptr, i64 } %93, 0
-  %102 = trunc i64 %92 to i32
-  %103 = getelementptr inbounds i8, ptr %1, i64 8
-  %104 = load ptr, ptr %103, align 8, !alias.scope !580, !noalias !583, !nonnull !4, !noundef !4
-  %105 = getelementptr inbounds { { ptr, [1 x i64] }, i32, i32, i8, [7 x i8] }, ptr %104, i64 %98
-  store ptr %101, ptr %105, align 8
-  %.sroa.4.0..sroa_idx.i131 = getelementptr inbounds i8, ptr %105, i64 8
-  store i64 %100, ptr %.sroa.4.0..sroa_idx.i131, align 8
-  %.sroa.5.0..sroa_idx.i132 = getelementptr inbounds i8, ptr %105, i64 16
-  store i32 %102, ptr %.sroa.5.0..sroa_idx.i132, align 8
-  %.sroa.6.0..sroa_idx.i133 = getelementptr inbounds i8, ptr %105, i64 20
-  store i32 %99, ptr %.sroa.6.0..sroa_idx.i133, align 4
-  %.sroa.7.0..sroa_idx.i134 = getelementptr inbounds i8, ptr %105, i64 24
+"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit136": ; preds = %.split, %99
+  %100 = phi i64 [ %.pre.i.i135, %99 ], [ %96, %.split ]
+  %101 = trunc i64 %54 to i32
+  %102 = extractvalue { ptr, i64 } %95, 1
+  %103 = extractvalue { ptr, i64 } %95, 0
+  %104 = trunc i64 %94 to i32
+  %105 = getelementptr inbounds i8, ptr %1, i64 8
+  %106 = load ptr, ptr %105, align 8, !alias.scope !580, !noalias !583, !nonnull !4, !noundef !4
+  %107 = getelementptr inbounds { { ptr, [1 x i64] }, i32, i32, i8, [7 x i8] }, ptr %106, i64 %100
+  store ptr %103, ptr %107, align 8
+  %.sroa.4.0..sroa_idx.i131 = getelementptr inbounds i8, ptr %107, i64 8
+  store i64 %102, ptr %.sroa.4.0..sroa_idx.i131, align 8
+  %.sroa.5.0..sroa_idx.i132 = getelementptr inbounds i8, ptr %107, i64 16
+  store i32 %104, ptr %.sroa.5.0..sroa_idx.i132, align 8
+  %.sroa.6.0..sroa_idx.i133 = getelementptr inbounds i8, ptr %107, i64 20
+  store i32 %101, ptr %.sroa.6.0..sroa_idx.i133, align 4
+  %.sroa.7.0..sroa_idx.i134 = getelementptr inbounds i8, ptr %107, i64 24
   store i8 4, ptr %.sroa.7.0..sroa_idx.i134, align 8
-  %106 = load i64, ptr %57, align 8, !alias.scope !580, !noalias !583, !noundef !4
-  %107 = add i64 %106, 1
-  store i64 %107, ptr %57, align 8, !alias.scope !580, !noalias !583
+  %108 = load i64, ptr %57, align 8, !alias.scope !580, !noalias !583, !noundef !4
+  %109 = add i64 %108, 1
+  store i64 %109, ptr %57, align 8, !alias.scope !580, !noalias !583
   %.not.i = icmp ult i64 %54, 4294967296
-  br i1 %.not.i, label %108, label %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit149.thread
+  br i1 %.not.i, label %110, label %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit149.thread
 
-108:                                              ; preds = %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit136"
-  %109 = getelementptr inbounds i8, ptr %1, i64 48
-  %110 = load i8, ptr %109, align 8, !range !553, !alias.scope !585, !noundef !4
-  %111 = getelementptr inbounds i8, ptr %1, i64 24
-  %112 = load i64, ptr %56, align 8, !alias.scope !592, !noalias !599, !noundef !4
-  %113 = load i64, ptr %111, align 8, !alias.scope !602, !noalias !599, !noundef !4
-  %114 = sub i64 %113, %112
-  %115 = icmp ult i64 %114, 4
-  br i1 %115, label %116, label %_ZN5gimli5write6writer6Writer9write_u3217h828145f091d49137E.exit.i
+110:                                              ; preds = %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit136"
+  %111 = getelementptr inbounds i8, ptr %1, i64 48
+  %112 = load i8, ptr %111, align 8, !range !553, !alias.scope !585, !noundef !4
+  %113 = getelementptr inbounds i8, ptr %1, i64 24
+  %114 = load i64, ptr %56, align 8, !alias.scope !592, !noalias !599, !noundef !4
+  %115 = load i64, ptr %113, align 8, !alias.scope !602, !noalias !599, !noundef !4
+  %116 = sub i64 %115, %114
+  %117 = icmp ult i64 %116, 4
+  br i1 %117, label %118, label %_ZN5gimli5write6writer6Writer9write_u3217h828145f091d49137E.exit.i
 
-116:                                              ; preds = %108
-  %117 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %111, i64 noundef %112, i64 noundef 4), !noalias !599
-  %118 = extractvalue { i64, i64 } %117, 0
-  %119 = extractvalue { i64, i64 } %117, 1
-  tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %118, i64 %119), !noalias !599
+118:                                              ; preds = %110
+  %119 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %113, i64 noundef %114, i64 noundef 4), !noalias !599
+  %120 = extractvalue { i64, i64 } %119, 0
+  %121 = extractvalue { i64, i64 } %119, 1
+  tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %120, i64 %121), !noalias !599
   %.pre.i.i.i.i35.i = load i64, ptr %56, align 8, !alias.scope !592, !noalias !599
   br label %_ZN5gimli5write6writer6Writer9write_u3217h828145f091d49137E.exit.i
 
-_ZN5gimli5write6writer6Writer9write_u3217h828145f091d49137E.exit.i: ; preds = %116, %108
-  %120 = phi i64 [ %112, %108 ], [ %.pre.i.i.i.i35.i, %116 ]
-  %121 = trunc nuw i8 %110 to i1
-  %122 = tail call i32 @llvm.bswap.i32(i32 %99)
-  %storemerge.i.i34.i = select i1 %121, i32 %122, i32 %99
-  %123 = getelementptr inbounds i8, ptr %1, i64 32
-  %124 = load ptr, ptr %123, align 8, !alias.scope !592, !noalias !599, !nonnull !4, !noundef !4
-  %125 = getelementptr inbounds i8, ptr %124, i64 %120
-  store i32 %storemerge.i.i34.i, ptr %125, align 1
-  br label %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit149.thread.sink.split
+_ZN5gimli5write6writer6Writer9write_u3217h828145f091d49137E.exit.i: ; preds = %118, %110
+  %122 = phi i64 [ %114, %110 ], [ %.pre.i.i.i.i35.i, %118 ]
+  %123 = trunc nuw i8 %112 to i1
+  %124 = tail call i32 @llvm.bswap.i32(i32 %101)
+  %storemerge.i.i34.i = select i1 %123, i32 %124, i32 %101
+  %125 = getelementptr inbounds i8, ptr %1, i64 32
+  %126 = load ptr, ptr %125, align 8, !alias.scope !592, !noalias !599, !nonnull !4, !noundef !4
+  %127 = getelementptr inbounds i8, ptr %126, i64 %122
+  store i32 %storemerge.i.i34.i, ptr %127, align 1
+  %128 = load i64, ptr %56, align 8, !alias.scope !592, !noalias !599, !noundef !4
+  %129 = add i64 %128, 4
+  store i64 %129, ptr %56, align 8, !alias.scope !592, !noalias !599
+  br label %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit149.thread
 
-126:                                              ; preds = %14
-  %127 = icmp ult i64 %15, %.16.val
-  br i1 %127, label %128, label %135, !prof !304
+130:                                              ; preds = %14
+  %131 = icmp ult i64 %15, %.16.val
+  br i1 %131, label %132, label %139, !prof !304
 
-128:                                              ; preds = %126
-  %129 = icmp ne ptr %.8.val, null
-  tail call void @llvm.assume(i1 %129)
-  %130 = getelementptr inbounds [0 x i64], ptr %.8.val, i64 0, i64 %15
-  %131 = load i64, ptr %130, align 8, !noundef !4
-  %132 = and i32 %3, 65280
-  %switch129 = icmp eq i32 %132, 2048
-  %133 = getelementptr inbounds i8, ptr %1, i64 40
-  %134 = getelementptr inbounds i8, ptr %1, i64 16
+132:                                              ; preds = %130
+  %133 = icmp ne ptr %.8.val, null
+  tail call void @llvm.assume(i1 %133)
+  %134 = getelementptr inbounds [0 x i64], ptr %.8.val, i64 0, i64 %15
+  %135 = load i64, ptr %134, align 8, !noundef !4
+  %136 = and i32 %3, 65280
+  %switch129 = icmp eq i32 %136, 2048
+  %137 = getelementptr inbounds i8, ptr %1, i64 40
+  %138 = getelementptr inbounds i8, ptr %1, i64 16
   br i1 %switch129, label %.split122, label %.split120
 
-135:                                              ; preds = %126
+139:                                              ; preds = %130
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %15, i64 noundef %.16.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.09e90edf43d250f664dd687a08bfc1c9.89) #19
   unreachable
 
-.split122:                                        ; preds = %128
+.split122:                                        ; preds = %132
   tail call void @llvm.experimental.noalias.scope.decl(metadata !605)
-  %136 = load i64, ptr %133, align 8, !alias.scope !608, !noundef !4
-  %137 = tail call { ptr, i64 } @_ZN5gimli6common9SectionId4name17h79ee0cdda66ab332E.llvm.8882213390170994431(i8 noundef 9), !noalias !605
-  %138 = load i64, ptr %134, align 8, !alias.scope !611, !noalias !614, !noundef !4
-  %139 = load i64, ptr %1, align 8, !alias.scope !611, !noalias !614, !noundef !4
-  %140 = icmp eq i64 %138, %139
-  br i1 %140, label %141, label %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit142"
+  %140 = load i64, ptr %137, align 8, !alias.scope !608, !noundef !4
+  %141 = tail call { ptr, i64 } @_ZN5gimli6common9SectionId4name17h79ee0cdda66ab332E.llvm.8882213390170994431(i8 noundef 9), !noalias !605
+  %142 = load i64, ptr %138, align 8, !alias.scope !611, !noalias !614, !noundef !4
+  %143 = load i64, ptr %1, align 8, !alias.scope !611, !noalias !614, !noundef !4
+  %144 = icmp eq i64 %142, %143
+  br i1 %144, label %145, label %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit142"
 
-141:                                              ; preds = %.split122
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h9769a49065d80abaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %138), !noalias !614
-  %.pre.i.i141 = load i64, ptr %134, align 8, !alias.scope !611, !noalias !614
+145:                                              ; preds = %.split122
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h9769a49065d80abaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %142), !noalias !614
+  %.pre.i.i141 = load i64, ptr %138, align 8, !alias.scope !611, !noalias !614
   br label %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit142"
 
-"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit142": ; preds = %.split122, %141
-  %142 = phi i64 [ %.pre.i.i141, %141 ], [ %138, %.split122 ]
-  %143 = trunc i64 %131 to i32
-  %144 = extractvalue { ptr, i64 } %137, 1
-  %145 = extractvalue { ptr, i64 } %137, 0
-  %146 = trunc i64 %136 to i32
-  %147 = getelementptr inbounds i8, ptr %1, i64 8
-  %148 = load ptr, ptr %147, align 8, !alias.scope !611, !noalias !614, !nonnull !4, !noundef !4
-  %149 = getelementptr inbounds { { ptr, [1 x i64] }, i32, i32, i8, [7 x i8] }, ptr %148, i64 %142
-  store ptr %145, ptr %149, align 8
-  %.sroa.4.0..sroa_idx.i137 = getelementptr inbounds i8, ptr %149, i64 8
-  store i64 %144, ptr %.sroa.4.0..sroa_idx.i137, align 8
-  %.sroa.5.0..sroa_idx.i138 = getelementptr inbounds i8, ptr %149, i64 16
-  store i32 %146, ptr %.sroa.5.0..sroa_idx.i138, align 8
-  %.sroa.6.0..sroa_idx.i139 = getelementptr inbounds i8, ptr %149, i64 20
-  store i32 %143, ptr %.sroa.6.0..sroa_idx.i139, align 4
-  %.sroa.7.0..sroa_idx.i140 = getelementptr inbounds i8, ptr %149, i64 24
+"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit142": ; preds = %.split122, %145
+  %146 = phi i64 [ %.pre.i.i141, %145 ], [ %142, %.split122 ]
+  %147 = trunc i64 %135 to i32
+  %148 = extractvalue { ptr, i64 } %141, 1
+  %149 = extractvalue { ptr, i64 } %141, 0
+  %150 = trunc i64 %140 to i32
+  %151 = getelementptr inbounds i8, ptr %1, i64 8
+  %152 = load ptr, ptr %151, align 8, !alias.scope !611, !noalias !614, !nonnull !4, !noundef !4
+  %153 = getelementptr inbounds { { ptr, [1 x i64] }, i32, i32, i8, [7 x i8] }, ptr %152, i64 %146
+  store ptr %149, ptr %153, align 8
+  %.sroa.4.0..sroa_idx.i137 = getelementptr inbounds i8, ptr %153, i64 8
+  store i64 %148, ptr %.sroa.4.0..sroa_idx.i137, align 8
+  %.sroa.5.0..sroa_idx.i138 = getelementptr inbounds i8, ptr %153, i64 16
+  store i32 %150, ptr %.sroa.5.0..sroa_idx.i138, align 8
+  %.sroa.6.0..sroa_idx.i139 = getelementptr inbounds i8, ptr %153, i64 20
+  store i32 %147, ptr %.sroa.6.0..sroa_idx.i139, align 4
+  %.sroa.7.0..sroa_idx.i140 = getelementptr inbounds i8, ptr %153, i64 24
   store i8 8, ptr %.sroa.7.0..sroa_idx.i140, align 8
-  %150 = load i64, ptr %134, align 8, !alias.scope !611, !noalias !614, !noundef !4
-  %151 = add i64 %150, 1
-  store i64 %151, ptr %134, align 8, !alias.scope !611, !noalias !614
-  %152 = getelementptr inbounds i8, ptr %1, i64 48
-  %153 = load i8, ptr %152, align 8, !range !553, !alias.scope !616, !noundef !4
-  %154 = getelementptr inbounds i8, ptr %1, i64 24
-  %155 = load i64, ptr %133, align 8, !alias.scope !623, !noalias !630, !noundef !4
-  %156 = load i64, ptr %154, align 8, !alias.scope !633, !noalias !630, !noundef !4
-  %157 = sub i64 %156, %155
-  %158 = icmp ult i64 %157, 8
-  br i1 %158, label %159, label %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit153
+  %154 = load i64, ptr %138, align 8, !alias.scope !611, !noalias !614, !noundef !4
+  %155 = add i64 %154, 1
+  store i64 %155, ptr %138, align 8, !alias.scope !611, !noalias !614
+  %156 = getelementptr inbounds i8, ptr %1, i64 48
+  %157 = load i8, ptr %156, align 8, !range !553, !alias.scope !616, !noundef !4
+  %158 = getelementptr inbounds i8, ptr %1, i64 24
+  %159 = load i64, ptr %137, align 8, !alias.scope !623, !noalias !630, !noundef !4
+  %160 = load i64, ptr %158, align 8, !alias.scope !633, !noalias !630, !noundef !4
+  %161 = sub i64 %160, %159
+  %162 = icmp ult i64 %161, 8
+  br i1 %162, label %163, label %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit153
 
-159:                                              ; preds = %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit142"
-  %160 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %154, i64 noundef %155, i64 noundef 8), !noalias !630
-  %161 = extractvalue { i64, i64 } %160, 0
-  %162 = extractvalue { i64, i64 } %160, 1
-  tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %161, i64 %162), !noalias !630
-  %.pre.i.i.i.i.i152 = load i64, ptr %133, align 8, !alias.scope !623, !noalias !630
+163:                                              ; preds = %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit142"
+  %164 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %158, i64 noundef %159, i64 noundef 8), !noalias !630
+  %165 = extractvalue { i64, i64 } %164, 0
+  %166 = extractvalue { i64, i64 } %164, 1
+  tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %165, i64 %166), !noalias !630
+  %.pre.i.i.i.i.i152 = load i64, ptr %137, align 8, !alias.scope !623, !noalias !630
   br label %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit153
 
-_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit153: ; preds = %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit142", %159
-  %163 = phi i64 [ %155, %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit142" ], [ %.pre.i.i.i.i.i152, %159 ]
-  %164 = trunc nuw i8 %153 to i1
-  %165 = tail call i64 @llvm.bswap.i64(i64 %131)
-  %storemerge.i.i.i150 = select i1 %164, i64 %165, i64 %131
-  %166 = getelementptr inbounds i8, ptr %1, i64 32
-  %167 = load ptr, ptr %166, align 8, !alias.scope !623, !noalias !630, !nonnull !4, !noundef !4
-  %168 = getelementptr inbounds i8, ptr %167, i64 %163
-  store i64 %storemerge.i.i.i150, ptr %168, align 1
-  br label %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit149.thread.sink.split
+_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit153: ; preds = %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit142", %163
+  %167 = phi i64 [ %159, %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit142" ], [ %.pre.i.i.i.i.i152, %163 ]
+  %168 = trunc nuw i8 %157 to i1
+  %169 = tail call i64 @llvm.bswap.i64(i64 %135)
+  %storemerge.i.i.i150 = select i1 %168, i64 %169, i64 %135
+  %170 = getelementptr inbounds i8, ptr %1, i64 32
+  %171 = load ptr, ptr %170, align 8, !alias.scope !623, !noalias !630, !nonnull !4, !noundef !4
+  %172 = getelementptr inbounds i8, ptr %171, i64 %167
+  store i64 %storemerge.i.i.i150, ptr %172, align 1
+  %173 = load i64, ptr %137, align 8, !alias.scope !623, !noalias !630, !noundef !4
+  %174 = add i64 %173, 8
+  store i64 %174, ptr %137, align 8, !alias.scope !623, !noalias !630
+  br label %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit149.thread
 
-.split120:                                        ; preds = %128
+.split120:                                        ; preds = %132
   tail call void @llvm.experimental.noalias.scope.decl(metadata !636)
-  %169 = load i64, ptr %133, align 8, !alias.scope !639, !noundef !4
-  %170 = tail call { ptr, i64 } @_ZN5gimli6common9SectionId4name17h79ee0cdda66ab332E.llvm.8882213390170994431(i8 noundef 9), !noalias !636
-  %171 = load i64, ptr %134, align 8, !alias.scope !642, !noalias !645, !noundef !4
-  %172 = load i64, ptr %1, align 8, !alias.scope !642, !noalias !645, !noundef !4
-  %173 = icmp eq i64 %171, %172
-  br i1 %173, label %174, label %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit148"
+  %175 = load i64, ptr %137, align 8, !alias.scope !639, !noundef !4
+  %176 = tail call { ptr, i64 } @_ZN5gimli6common9SectionId4name17h79ee0cdda66ab332E.llvm.8882213390170994431(i8 noundef 9), !noalias !636
+  %177 = load i64, ptr %138, align 8, !alias.scope !642, !noalias !645, !noundef !4
+  %178 = load i64, ptr %1, align 8, !alias.scope !642, !noalias !645, !noundef !4
+  %179 = icmp eq i64 %177, %178
+  br i1 %179, label %180, label %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit148"
 
-174:                                              ; preds = %.split120
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h9769a49065d80abaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %171), !noalias !645
-  %.pre.i.i147 = load i64, ptr %134, align 8, !alias.scope !642, !noalias !645
+180:                                              ; preds = %.split120
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h9769a49065d80abaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %177), !noalias !645
+  %.pre.i.i147 = load i64, ptr %138, align 8, !alias.scope !642, !noalias !645
   br label %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit148"
 
-"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit148": ; preds = %.split120, %174
-  %175 = phi i64 [ %.pre.i.i147, %174 ], [ %171, %.split120 ]
-  %176 = trunc i64 %131 to i32
-  %177 = extractvalue { ptr, i64 } %170, 1
-  %178 = extractvalue { ptr, i64 } %170, 0
-  %179 = trunc i64 %169 to i32
-  %180 = getelementptr inbounds i8, ptr %1, i64 8
-  %181 = load ptr, ptr %180, align 8, !alias.scope !642, !noalias !645, !nonnull !4, !noundef !4
-  %182 = getelementptr inbounds { { ptr, [1 x i64] }, i32, i32, i8, [7 x i8] }, ptr %181, i64 %175
-  store ptr %178, ptr %182, align 8
-  %.sroa.4.0..sroa_idx.i143 = getelementptr inbounds i8, ptr %182, i64 8
-  store i64 %177, ptr %.sroa.4.0..sroa_idx.i143, align 8
-  %.sroa.5.0..sroa_idx.i144 = getelementptr inbounds i8, ptr %182, i64 16
-  store i32 %179, ptr %.sroa.5.0..sroa_idx.i144, align 8
-  %.sroa.6.0..sroa_idx.i145 = getelementptr inbounds i8, ptr %182, i64 20
-  store i32 %176, ptr %.sroa.6.0..sroa_idx.i145, align 4
-  %.sroa.7.0..sroa_idx.i146 = getelementptr inbounds i8, ptr %182, i64 24
+"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit148": ; preds = %.split120, %180
+  %181 = phi i64 [ %.pre.i.i147, %180 ], [ %177, %.split120 ]
+  %182 = trunc i64 %135 to i32
+  %183 = extractvalue { ptr, i64 } %176, 1
+  %184 = extractvalue { ptr, i64 } %176, 0
+  %185 = trunc i64 %175 to i32
+  %186 = getelementptr inbounds i8, ptr %1, i64 8
+  %187 = load ptr, ptr %186, align 8, !alias.scope !642, !noalias !645, !nonnull !4, !noundef !4
+  %188 = getelementptr inbounds { { ptr, [1 x i64] }, i32, i32, i8, [7 x i8] }, ptr %187, i64 %181
+  store ptr %184, ptr %188, align 8
+  %.sroa.4.0..sroa_idx.i143 = getelementptr inbounds i8, ptr %188, i64 8
+  store i64 %183, ptr %.sroa.4.0..sroa_idx.i143, align 8
+  %.sroa.5.0..sroa_idx.i144 = getelementptr inbounds i8, ptr %188, i64 16
+  store i32 %185, ptr %.sroa.5.0..sroa_idx.i144, align 8
+  %.sroa.6.0..sroa_idx.i145 = getelementptr inbounds i8, ptr %188, i64 20
+  store i32 %182, ptr %.sroa.6.0..sroa_idx.i145, align 4
+  %.sroa.7.0..sroa_idx.i146 = getelementptr inbounds i8, ptr %188, i64 24
   store i8 4, ptr %.sroa.7.0..sroa_idx.i146, align 8
-  %183 = load i64, ptr %134, align 8, !alias.scope !642, !noalias !645, !noundef !4
-  %184 = add i64 %183, 1
-  store i64 %184, ptr %134, align 8, !alias.scope !642, !noalias !645
-  %.not.i154 = icmp ult i64 %131, 4294967296
-  br i1 %.not.i154, label %185, label %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit149.thread
+  %189 = load i64, ptr %138, align 8, !alias.scope !642, !noalias !645, !noundef !4
+  %190 = add i64 %189, 1
+  store i64 %190, ptr %138, align 8, !alias.scope !642, !noalias !645
+  %.not.i154 = icmp ult i64 %135, 4294967296
+  br i1 %.not.i154, label %191, label %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit149.thread
 
-185:                                              ; preds = %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit148"
-  %186 = getelementptr inbounds i8, ptr %1, i64 48
-  %187 = load i8, ptr %186, align 8, !range !553, !alias.scope !647, !noundef !4
-  %188 = getelementptr inbounds i8, ptr %1, i64 24
-  %189 = load i64, ptr %133, align 8, !alias.scope !654, !noalias !661, !noundef !4
-  %190 = load i64, ptr %188, align 8, !alias.scope !664, !noalias !661, !noundef !4
-  %191 = sub i64 %190, %189
-  %192 = icmp ult i64 %191, 4
-  br i1 %192, label %193, label %_ZN5gimli5write6writer6Writer9write_u3217h828145f091d49137E.exit.i156
+191:                                              ; preds = %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit148"
+  %192 = getelementptr inbounds i8, ptr %1, i64 48
+  %193 = load i8, ptr %192, align 8, !range !553, !alias.scope !647, !noundef !4
+  %194 = getelementptr inbounds i8, ptr %1, i64 24
+  %195 = load i64, ptr %137, align 8, !alias.scope !654, !noalias !661, !noundef !4
+  %196 = load i64, ptr %194, align 8, !alias.scope !664, !noalias !661, !noundef !4
+  %197 = sub i64 %196, %195
+  %198 = icmp ult i64 %197, 4
+  br i1 %198, label %199, label %_ZN5gimli5write6writer6Writer9write_u3217h828145f091d49137E.exit.i156
 
-193:                                              ; preds = %185
-  %194 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %188, i64 noundef %189, i64 noundef 4), !noalias !661
-  %195 = extractvalue { i64, i64 } %194, 0
-  %196 = extractvalue { i64, i64 } %194, 1
-  tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %195, i64 %196), !noalias !661
-  %.pre.i.i.i.i35.i158 = load i64, ptr %133, align 8, !alias.scope !654, !noalias !661
+199:                                              ; preds = %191
+  %200 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %194, i64 noundef %195, i64 noundef 4), !noalias !661
+  %201 = extractvalue { i64, i64 } %200, 0
+  %202 = extractvalue { i64, i64 } %200, 1
+  tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %201, i64 %202), !noalias !661
+  %.pre.i.i.i.i35.i158 = load i64, ptr %137, align 8, !alias.scope !654, !noalias !661
   br label %_ZN5gimli5write6writer6Writer9write_u3217h828145f091d49137E.exit.i156
 
-_ZN5gimli5write6writer6Writer9write_u3217h828145f091d49137E.exit.i156: ; preds = %193, %185
-  %197 = phi i64 [ %189, %185 ], [ %.pre.i.i.i.i35.i158, %193 ]
-  %198 = trunc nuw i8 %187 to i1
-  %199 = tail call i32 @llvm.bswap.i32(i32 %176)
-  %storemerge.i.i34.i157 = select i1 %198, i32 %199, i32 %176
-  %200 = getelementptr inbounds i8, ptr %1, i64 32
-  %201 = load ptr, ptr %200, align 8, !alias.scope !654, !noalias !661, !nonnull !4, !noundef !4
-  %202 = getelementptr inbounds i8, ptr %201, i64 %197
-  store i32 %storemerge.i.i34.i157, ptr %202, align 1
-  br label %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit149.thread.sink.split
+_ZN5gimli5write6writer6Writer9write_u3217h828145f091d49137E.exit.i156: ; preds = %199, %191
+  %203 = phi i64 [ %195, %191 ], [ %.pre.i.i.i.i35.i158, %199 ]
+  %204 = trunc nuw i8 %193 to i1
+  %205 = tail call i32 @llvm.bswap.i32(i32 %182)
+  %storemerge.i.i34.i157 = select i1 %204, i32 %205, i32 %182
+  %206 = getelementptr inbounds i8, ptr %1, i64 32
+  %207 = load ptr, ptr %206, align 8, !alias.scope !654, !noalias !661, !nonnull !4, !noundef !4
+  %208 = getelementptr inbounds i8, ptr %207, i64 %203
+  store i32 %storemerge.i.i34.i157, ptr %208, align 1
+  %209 = load i64, ptr %137, align 8, !alias.scope !654, !noalias !661, !noundef !4
+  %210 = add i64 %209, 4
+  store i64 %210, ptr %137, align 8, !alias.scope !654, !noalias !661
+  br label %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit149.thread
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -9042,42 +9049,43 @@ _ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit: ; preds = %
   %30 = load ptr, ptr %17, align 8, !alias.scope !1606, !noalias !1603, !nonnull !4, !noundef !4
   %31 = getelementptr inbounds i8, ptr %30, i64 %29
   store i64 0, ptr %31, align 1
-  br label %46
+  %32 = load i64, ptr %7, align 8, !alias.scope !1606, !noalias !1603, !noundef !4
+  %33 = add i64 %32, 8
+  store i64 %33, ptr %7, align 8, !alias.scope !1606, !noalias !1603
+  br label %50
 
 .split:                                           ; preds = %3
-  %32 = getelementptr inbounds i8, ptr %1, i64 40
-  %33 = load i64, ptr %32, align 8, !noundef !4
-  %34 = getelementptr inbounds i8, ptr %1, i64 24
-  %35 = load i64, ptr %34, align 8, !alias.scope !1607, !noalias !1620, !noundef !4
-  %36 = sub i64 %35, %33
-  %37 = icmp ult i64 %36, 4
-  br i1 %37, label %38, label %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit38
+  %34 = getelementptr inbounds i8, ptr %1, i64 40
+  %35 = load i64, ptr %34, align 8, !noundef !4
+  %36 = getelementptr inbounds i8, ptr %1, i64 24
+  %37 = load i64, ptr %36, align 8, !alias.scope !1607, !noalias !1620, !noundef !4
+  %38 = sub i64 %37, %35
+  %39 = icmp ult i64 %38, 4
+  br i1 %39, label %40, label %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit38
 
-38:                                               ; preds = %.split
-  %39 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %34, i64 noundef %33, i64 noundef 4), !noalias !1620
-  %40 = extractvalue { i64, i64 } %39, 0
-  %41 = extractvalue { i64, i64 } %39, 1
-  tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %40, i64 %41), !noalias !1620
-  %.pre.i.i.i.i35.i = load i64, ptr %32, align 8, !alias.scope !1623, !noalias !1620
+40:                                               ; preds = %.split
+  %41 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %36, i64 noundef %35, i64 noundef 4), !noalias !1620
+  %42 = extractvalue { i64, i64 } %41, 0
+  %43 = extractvalue { i64, i64 } %41, 1
+  tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %42, i64 %43), !noalias !1620
+  %.pre.i.i.i.i35.i = load i64, ptr %34, align 8, !alias.scope !1623, !noalias !1620
   br label %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit38
 
-_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit38: ; preds = %.split, %38
-  %42 = phi i64 [ %33, %.split ], [ %.pre.i.i.i.i35.i, %38 ]
-  %43 = getelementptr inbounds i8, ptr %1, i64 32
-  %44 = load ptr, ptr %43, align 8, !alias.scope !1623, !noalias !1620, !nonnull !4, !noundef !4
-  %45 = getelementptr inbounds i8, ptr %44, i64 %42
-  store i32 0, ptr %45, align 1
-  br label %46
+_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit38: ; preds = %.split, %40
+  %44 = phi i64 [ %35, %.split ], [ %.pre.i.i.i.i35.i, %40 ]
+  %45 = getelementptr inbounds i8, ptr %1, i64 32
+  %46 = load ptr, ptr %45, align 8, !alias.scope !1623, !noalias !1620, !nonnull !4, !noundef !4
+  %47 = getelementptr inbounds i8, ptr %46, i64 %44
+  store i32 0, ptr %47, align 1
+  %48 = load i64, ptr %34, align 8, !alias.scope !1623, !noalias !1620, !noundef !4
+  %49 = add i64 %48, 4
+  store i64 %49, ptr %34, align 8, !alias.scope !1623, !noalias !1620
+  br label %50
 
-46:                                               ; preds = %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit38, %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit
-  %.sink = phi ptr [ %32, %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit38 ], [ %7, %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit ]
-  %.sink43 = phi i64 [ 4, %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit38 ], [ 8, %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit ]
-  %47 = phi i64 [ %33, %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit38 ], [ %21, %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit ]
-  %48 = load i64, ptr %.sink, align 8, !noalias !4, !noundef !4
-  %49 = add i64 %48, %.sink43
-  store i64 %49, ptr %.sink, align 8, !noalias !4
-  %50 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %47, ptr %50, align 8
+50:                                               ; preds = %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit38, %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit
+  %51 = phi i64 [ %35, %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit38 ], [ %21, %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit ]
+  %52 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %51, ptr %52, align 8
   store i32 0, ptr %0, align 8
   ret void
 }

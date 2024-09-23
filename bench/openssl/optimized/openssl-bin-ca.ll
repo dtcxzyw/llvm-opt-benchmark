@@ -2569,16 +2569,16 @@ if.then:                                          ; preds = %entry
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr nonnull align 1 %serial, i64 %call, i1 false)
   %0 = getelementptr i8, ptr %call1, i64 %call
   %arrayidx8 = getelementptr i8, ptr %0, i64 1
+  store i8 0, ptr %arrayidx8, align 1
   br label %if.end
 
 if.else:                                          ; preds = %entry
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call1, ptr nonnull align 1 %serial, i64 %call, i1 false)
   %arrayidx11 = getelementptr inbounds i8, ptr %call1, i64 %call
+  store i8 0, ptr %arrayidx11, align 1
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %arrayidx11.sink = phi ptr [ %arrayidx11, %if.else ], [ %arrayidx8, %if.then ]
-  store i8 0, ptr %arrayidx11.sink, align 1
   tail call void @make_uppercase(ptr noundef nonnull %call1) #12
   %db13 = getelementptr inbounds i8, ptr %db, i64 8
   %1 = load ptr, ptr %db13, align 8

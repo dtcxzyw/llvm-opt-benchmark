@@ -1614,9 +1614,9 @@ define linkonce_odr hidden void @_ZNSt3__127__tree_balance_after_insertB8ne19000
   store i8 %5, ptr %4, align 8
   br i1 %3, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2, %85
-  %.067 = phi ptr [ %13, %85 ], [ %1, %2 ]
-  %6 = getelementptr inbounds i8, ptr %.067, i64 16
+.lr.ph:                                           ; preds = %2, %109
+  %.061 = phi ptr [ %13, %109 ], [ %1, %2 ]
+  %6 = getelementptr inbounds i8, ptr %.061, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 24
   %9 = load i8, ptr %8, align 8
@@ -1628,175 +1628,222 @@ define linkonce_odr hidden void @_ZNSt3__127__tree_balance_after_insertB8ne19000
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %7, %14
-  br i1 %15, label %16, label %52
+  br i1 %15, label %16, label %64
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds i8, ptr %13, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not47 = icmp eq ptr %18, null
-  br i1 %.not47, label %23, label %19
+  br i1 %.not47, label %27, label %19
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds i8, ptr %18, i64 24
   %21 = load i8, ptr %20, align 8
   %22 = trunc i8 %21 to i1
-  br i1 %22, label %23, label %85
+  br i1 %22, label %27, label %23
 
-23:                                               ; preds = %19, %16
-  %24 = getelementptr inbounds i8, ptr %7, i64 16
-  %25 = load ptr, ptr %7, align 8
-  %26 = icmp eq ptr %.067, %25
-  br i1 %26, label %37, label %27
+23:                                               ; preds = %19
+  store i8 1, ptr %8, align 8
+  %24 = icmp eq ptr %13, %0
+  %25 = getelementptr inbounds i8, ptr %13, i64 24
+  %26 = zext i1 %24 to i8
+  store i8 %26, ptr %25, align 8
+  store i8 1, ptr %20, align 8
+  br label %109
 
-27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %7, i64 8
-  %29 = load ptr, ptr %28, align 8
-  %30 = load ptr, ptr %29, align 8
-  store ptr %30, ptr %28, align 8
-  %.not.i = icmp eq ptr %30, null
-  br i1 %.not.i, label %_ZNSt3__118__tree_left_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit, label %31
+27:                                               ; preds = %19, %16
+  %28 = getelementptr inbounds i8, ptr %7, i64 16
+  %29 = load ptr, ptr %7, align 8
+  %30 = icmp eq ptr %.061, %29
+  br i1 %30, label %45, label %31
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %30, i64 16
-  store ptr %7, ptr %32, align 8
-  %.pre74 = load ptr, ptr %24, align 8
-  br label %_ZNSt3__118__tree_left_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit
+  %32 = getelementptr inbounds i8, ptr %7, i64 8
+  %33 = load ptr, ptr %32, align 8
+  %34 = load ptr, ptr %33, align 8
+  store ptr %34, ptr %32, align 8
+  %.not.i = icmp eq ptr %34, null
+  br i1 %.not.i, label %37, label %35
 
-_ZNSt3__118__tree_left_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit: ; preds = %27, %31
-  %33 = phi ptr [ %13, %27 ], [ %.pre74, %31 ]
-  %34 = getelementptr inbounds i8, ptr %29, i64 16
-  store ptr %33, ptr %34, align 8
-  %35 = load ptr, ptr %33, align 8
-  %36 = icmp eq ptr %7, %35
-  %.sink.idx.i = select i1 %36, i64 0, i64 8
-  %.sink.i = getelementptr inbounds i8, ptr %33, i64 %.sink.idx.i
-  store ptr %29, ptr %.sink.i, align 8
-  store ptr %7, ptr %29, align 8
-  store ptr %29, ptr %24, align 8
-  %.pre75 = load ptr, ptr %34, align 8
+35:                                               ; preds = %31
+  %36 = getelementptr inbounds i8, ptr %34, i64 16
+  store ptr %7, ptr %36, align 8
+  %.pre68 = load ptr, ptr %28, align 8
   br label %37
 
-37:                                               ; preds = %_ZNSt3__118__tree_left_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit, %23
-  %38 = phi ptr [ %13, %23 ], [ %.pre75, %_ZNSt3__118__tree_left_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit ]
-  %39 = phi ptr [ %7, %23 ], [ %29, %_ZNSt3__118__tree_left_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit ]
-  %40 = getelementptr inbounds i8, ptr %39, i64 24
-  store i8 1, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %38, i64 24
-  store i8 0, ptr %41, align 8
-  %42 = load ptr, ptr %38, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 8
-  %44 = load ptr, ptr %43, align 8
-  store ptr %44, ptr %38, align 8
-  %.not.i48 = icmp eq ptr %44, null
-  br i1 %.not.i48, label %_ZNSt3__119__tree_right_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit, label %45
+37:                                               ; preds = %35, %31
+  %38 = phi ptr [ %.pre68, %35 ], [ %13, %31 ]
+  %39 = getelementptr inbounds i8, ptr %33, i64 16
+  store ptr %38, ptr %39, align 8
+  %40 = load ptr, ptr %38, align 8
+  %41 = icmp eq ptr %7, %40
+  br i1 %41, label %42, label %43
 
-45:                                               ; preds = %37
-  %46 = getelementptr inbounds i8, ptr %44, i64 16
-  store ptr %38, ptr %46, align 8
+42:                                               ; preds = %37
+  store ptr %33, ptr %38, align 8
+  br label %_ZNSt3__118__tree_left_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit
+
+43:                                               ; preds = %37
+  %44 = getelementptr inbounds i8, ptr %38, i64 8
+  store ptr %33, ptr %44, align 8
+  br label %_ZNSt3__118__tree_left_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit
+
+_ZNSt3__118__tree_left_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit: ; preds = %42, %43
+  store ptr %7, ptr %33, align 8
+  store ptr %33, ptr %28, align 8
+  %.pre69 = load ptr, ptr %39, align 8
+  br label %45
+
+45:                                               ; preds = %_ZNSt3__118__tree_left_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit, %27
+  %46 = phi ptr [ %13, %27 ], [ %.pre69, %_ZNSt3__118__tree_left_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit ]
+  %47 = phi ptr [ %7, %27 ], [ %33, %_ZNSt3__118__tree_left_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit ]
+  %48 = getelementptr inbounds i8, ptr %47, i64 24
+  store i8 1, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %46, i64 24
+  store i8 0, ptr %49, align 8
+  %50 = load ptr, ptr %46, align 8
+  %51 = getelementptr inbounds i8, ptr %50, i64 8
+  %52 = load ptr, ptr %51, align 8
+  store ptr %52, ptr %46, align 8
+  %.not.i48 = icmp eq ptr %52, null
+  br i1 %.not.i48, label %55, label %53
+
+53:                                               ; preds = %45
+  %54 = getelementptr inbounds i8, ptr %52, i64 16
+  store ptr %46, ptr %54, align 8
+  br label %55
+
+55:                                               ; preds = %53, %45
+  %56 = getelementptr inbounds i8, ptr %46, i64 16
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds i8, ptr %50, i64 16
+  store ptr %57, ptr %58, align 8
+  %59 = load ptr, ptr %57, align 8
+  %60 = icmp eq ptr %46, %59
+  br i1 %60, label %61, label %62
+
+61:                                               ; preds = %55
+  store ptr %50, ptr %57, align 8
   br label %_ZNSt3__119__tree_right_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit
 
-_ZNSt3__119__tree_right_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit: ; preds = %37, %45
-  %47 = getelementptr inbounds i8, ptr %38, i64 16
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %42, i64 16
-  store ptr %48, ptr %49, align 8
-  %50 = load ptr, ptr %48, align 8
-  %51 = icmp eq ptr %38, %50
-  %.sink.idx.i49 = select i1 %51, i64 0, i64 8
-  %.sink.i50 = getelementptr inbounds i8, ptr %48, i64 %.sink.idx.i49
-  store ptr %42, ptr %.sink.i50, align 8
-  store ptr %38, ptr %43, align 8
-  store ptr %42, ptr %47, align 8
+62:                                               ; preds = %55
+  %63 = getelementptr inbounds i8, ptr %57, i64 8
+  store ptr %50, ptr %63, align 8
+  br label %_ZNSt3__119__tree_right_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit
+
+_ZNSt3__119__tree_right_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit: ; preds = %61, %62
+  store ptr %46, ptr %51, align 8
+  store ptr %50, ptr %56, align 8
   br label %.critedge
 
-52:                                               ; preds = %11
+64:                                               ; preds = %11
   %.not46 = icmp eq ptr %14, null
-  br i1 %.not46, label %57, label %53
+  br i1 %.not46, label %73, label %65
 
-53:                                               ; preds = %52
-  %54 = getelementptr inbounds i8, ptr %14, i64 24
-  %55 = load i8, ptr %54, align 8
-  %56 = trunc i8 %55 to i1
-  br i1 %56, label %57, label %85
+65:                                               ; preds = %64
+  %66 = getelementptr inbounds i8, ptr %14, i64 24
+  %67 = load i8, ptr %66, align 8
+  %68 = trunc i8 %67 to i1
+  br i1 %68, label %73, label %69
 
-57:                                               ; preds = %53, %52
-  %58 = getelementptr inbounds i8, ptr %7, i64 16
-  %59 = load ptr, ptr %7, align 8
-  %60 = icmp eq ptr %.067, %59
-  br i1 %60, label %61, label %70
+69:                                               ; preds = %65
+  store i8 1, ptr %8, align 8
+  %70 = icmp eq ptr %13, %0
+  %71 = getelementptr inbounds i8, ptr %13, i64 24
+  %72 = zext i1 %70 to i8
+  store i8 %72, ptr %71, align 8
+  store i8 1, ptr %66, align 8
+  br label %109
 
-61:                                               ; preds = %57
-  %62 = getelementptr inbounds i8, ptr %59, i64 8
-  %63 = load ptr, ptr %62, align 8
-  store ptr %63, ptr %7, align 8
-  %.not.i51 = icmp eq ptr %63, null
-  br i1 %.not.i51, label %_ZNSt3__119__tree_right_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit54, label %64
+73:                                               ; preds = %65, %64
+  %74 = getelementptr inbounds i8, ptr %7, i64 16
+  %75 = load ptr, ptr %7, align 8
+  %76 = icmp eq ptr %.061, %75
+  br i1 %76, label %77, label %90
 
-64:                                               ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %63, i64 16
-  store ptr %7, ptr %65, align 8
-  %.pre = load ptr, ptr %58, align 8
-  br label %_ZNSt3__119__tree_right_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit54
+77:                                               ; preds = %73
+  %78 = getelementptr inbounds i8, ptr %75, i64 8
+  %79 = load ptr, ptr %78, align 8
+  store ptr %79, ptr %7, align 8
+  %.not.i49 = icmp eq ptr %79, null
+  br i1 %.not.i49, label %82, label %80
 
-_ZNSt3__119__tree_right_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit54: ; preds = %61, %64
-  %66 = phi ptr [ %13, %61 ], [ %.pre, %64 ]
-  %67 = getelementptr inbounds i8, ptr %59, i64 16
-  store ptr %66, ptr %67, align 8
-  %68 = load ptr, ptr %66, align 8
-  %69 = icmp eq ptr %7, %68
-  %.sink.idx.i52 = select i1 %69, i64 0, i64 8
-  %.sink.i53 = getelementptr inbounds i8, ptr %66, i64 %.sink.idx.i52
-  store ptr %59, ptr %.sink.i53, align 8
-  store ptr %7, ptr %62, align 8
-  store ptr %59, ptr %58, align 8
-  %.pre73 = load ptr, ptr %67, align 8
-  br label %70
+80:                                               ; preds = %77
+  %81 = getelementptr inbounds i8, ptr %79, i64 16
+  store ptr %7, ptr %81, align 8
+  %.pre = load ptr, ptr %74, align 8
+  br label %82
 
-70:                                               ; preds = %_ZNSt3__119__tree_right_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit54, %57
-  %71 = phi ptr [ %.pre73, %_ZNSt3__119__tree_right_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit54 ], [ %13, %57 ]
-  %72 = phi ptr [ %59, %_ZNSt3__119__tree_right_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit54 ], [ %7, %57 ]
-  %73 = getelementptr inbounds i8, ptr %72, i64 24
-  store i8 1, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %71, i64 24
-  store i8 0, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %71, i64 8
-  %76 = load ptr, ptr %75, align 8
-  %77 = load ptr, ptr %76, align 8
-  store ptr %77, ptr %75, align 8
-  %.not.i55 = icmp eq ptr %77, null
-  br i1 %.not.i55, label %_ZNSt3__118__tree_left_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit58, label %78
+82:                                               ; preds = %80, %77
+  %83 = phi ptr [ %.pre, %80 ], [ %13, %77 ]
+  %84 = getelementptr inbounds i8, ptr %75, i64 16
+  store ptr %83, ptr %84, align 8
+  %85 = load ptr, ptr %83, align 8
+  %86 = icmp eq ptr %7, %85
+  br i1 %86, label %87, label %88
 
-78:                                               ; preds = %70
-  %79 = getelementptr inbounds i8, ptr %77, i64 16
-  store ptr %71, ptr %79, align 8
-  br label %_ZNSt3__118__tree_left_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit58
+87:                                               ; preds = %82
+  store ptr %75, ptr %83, align 8
+  br label %_ZNSt3__119__tree_right_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit50
 
-_ZNSt3__118__tree_left_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit58: ; preds = %70, %78
-  %80 = getelementptr inbounds i8, ptr %71, i64 16
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %76, i64 16
-  store ptr %81, ptr %82, align 8
-  %83 = load ptr, ptr %81, align 8
-  %84 = icmp eq ptr %71, %83
-  %.sink.idx.i56 = select i1 %84, i64 0, i64 8
-  %.sink.i57 = getelementptr inbounds i8, ptr %81, i64 %.sink.idx.i56
-  store ptr %76, ptr %.sink.i57, align 8
-  store ptr %71, ptr %76, align 8
-  store ptr %76, ptr %80, align 8
+88:                                               ; preds = %82
+  %89 = getelementptr inbounds i8, ptr %83, i64 8
+  store ptr %75, ptr %89, align 8
+  br label %_ZNSt3__119__tree_right_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit50
+
+_ZNSt3__119__tree_right_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit50: ; preds = %87, %88
+  store ptr %7, ptr %78, align 8
+  store ptr %75, ptr %74, align 8
+  %.pre67 = load ptr, ptr %84, align 8
+  br label %90
+
+90:                                               ; preds = %_ZNSt3__119__tree_right_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit50, %73
+  %91 = phi ptr [ %.pre67, %_ZNSt3__119__tree_right_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit50 ], [ %13, %73 ]
+  %92 = phi ptr [ %75, %_ZNSt3__119__tree_right_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit50 ], [ %7, %73 ]
+  %93 = getelementptr inbounds i8, ptr %92, i64 24
+  store i8 1, ptr %93, align 8
+  %94 = getelementptr inbounds i8, ptr %91, i64 24
+  store i8 0, ptr %94, align 8
+  %95 = getelementptr inbounds i8, ptr %91, i64 8
+  %96 = load ptr, ptr %95, align 8
+  %97 = load ptr, ptr %96, align 8
+  store ptr %97, ptr %95, align 8
+  %.not.i51 = icmp eq ptr %97, null
+  br i1 %.not.i51, label %100, label %98
+
+98:                                               ; preds = %90
+  %99 = getelementptr inbounds i8, ptr %97, i64 16
+  store ptr %91, ptr %99, align 8
+  br label %100
+
+100:                                              ; preds = %98, %90
+  %101 = getelementptr inbounds i8, ptr %91, i64 16
+  %102 = load ptr, ptr %101, align 8
+  %103 = getelementptr inbounds i8, ptr %96, i64 16
+  store ptr %102, ptr %103, align 8
+  %104 = load ptr, ptr %102, align 8
+  %105 = icmp eq ptr %91, %104
+  br i1 %105, label %106, label %107
+
+106:                                              ; preds = %100
+  store ptr %96, ptr %102, align 8
+  br label %_ZNSt3__118__tree_left_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit52
+
+107:                                              ; preds = %100
+  %108 = getelementptr inbounds i8, ptr %102, i64 8
+  store ptr %96, ptr %108, align 8
+  br label %_ZNSt3__118__tree_left_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit52
+
+_ZNSt3__118__tree_left_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit52: ; preds = %106, %107
+  store ptr %91, ptr %96, align 8
+  store ptr %96, ptr %101, align 8
   br label %.critedge
 
-85:                                               ; preds = %53, %19
-  %.sink = phi ptr [ %20, %19 ], [ %54, %53 ]
-  store i8 1, ptr %8, align 8
-  %86 = icmp eq ptr %13, %0
-  %87 = getelementptr inbounds i8, ptr %13, i64 24
-  %88 = zext i1 %86 to i8
-  store i8 %88, ptr %87, align 8
-  store i8 1, ptr %.sink, align 8
+109:                                              ; preds = %69, %23
   %.not = icmp eq ptr %13, %0
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !27
 
-.critedge:                                        ; preds = %.lr.ph, %85, %2, %_ZNSt3__118__tree_left_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit58, %_ZNSt3__119__tree_right_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit
+.critedge:                                        ; preds = %.lr.ph, %109, %2, %_ZNSt3__118__tree_left_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit52, %_ZNSt3__119__tree_right_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit
   ret void
 }
 

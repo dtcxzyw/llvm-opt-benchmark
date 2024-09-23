@@ -6012,7 +6012,7 @@ define void @_ZN4pkpy7SStream9write_hexEhb(ptr nocapture noundef nonnull align 8
 
 32:                                               ; preds = %6
   %or.cond.not = icmp eq i8 %1, 0
-  br i1 %or.cond.not, label %96, label %33
+  br i1 %or.cond.not, label %95, label %33
 
 33:                                               ; preds = %.thread, %32
   %34 = load ptr, ptr @_ZN4pkpy12PK_HEX_TABLEE, align 8
@@ -6128,18 +6128,18 @@ _ZN4pkpy7SStreamlsEc.exit20:                      ; preds = %53, %62, %64, %69
   br label %.sink.split
 
 .sink.split:                                      ; preds = %90, %86, %84, %_ZN4pkpy7SStreamlsEc.exit20, %_ZN4pkpy7SStreamlsEc.exit15
-  %.sink33 = phi ptr [ %52, %_ZN4pkpy7SStreamlsEc.exit15 ], [ %72, %_ZN4pkpy7SStreamlsEc.exit20 ], [ %72, %84 ], [ %72, %86 ], [ %72, %90 ]
-  %.sink32 = phi i32 [ %51, %_ZN4pkpy7SStreamlsEc.exit15 ], [ %81, %_ZN4pkpy7SStreamlsEc.exit20 ], [ %81, %84 ], [ %.pre2.i.i23, %86 ], [ %.pre.i.i24, %90 ]
-  %.sink = phi i8 [ %37, %_ZN4pkpy7SStreamlsEc.exit15 ], [ %80, %_ZN4pkpy7SStreamlsEc.exit20 ], [ %80, %84 ], [ %80, %86 ], [ %80, %90 ]
-  %92 = load ptr, ptr %.sink33, align 8
-  %93 = add nsw i32 %.sink32, 1
-  store i32 %93, ptr %0, align 8
-  %94 = sext i32 %.sink32 to i64
-  %95 = getelementptr inbounds i8, ptr %92, i64 %94
-  store i8 %.sink, ptr %95, align 1
-  br label %96
+  %.sink32 = phi i32 [ %51, %_ZN4pkpy7SStreamlsEc.exit15 ], [ %.pre.i.i24, %90 ], [ %.pre2.i.i23, %86 ], [ %81, %84 ], [ %81, %_ZN4pkpy7SStreamlsEc.exit20 ]
+  %.sink28.in = phi ptr [ %52, %_ZN4pkpy7SStreamlsEc.exit15 ], [ %72, %90 ], [ %72, %86 ], [ %72, %84 ], [ %72, %_ZN4pkpy7SStreamlsEc.exit20 ]
+  %.sink = phi i8 [ %37, %_ZN4pkpy7SStreamlsEc.exit15 ], [ %80, %90 ], [ %80, %86 ], [ %80, %84 ], [ %80, %_ZN4pkpy7SStreamlsEc.exit20 ]
+  %.sink28 = load ptr, ptr %.sink28.in, align 8
+  %92 = add nsw i32 %.sink32, 1
+  store i32 %92, ptr %0, align 8
+  %93 = sext i32 %.sink32 to i64
+  %94 = getelementptr inbounds i8, ptr %.sink28, i64 %93
+  store i8 %.sink, ptr %94, align 1
+  br label %95
 
-96:                                               ; preds = %.sink.split, %32
+95:                                               ; preds = %.sink.split, %32
   ret void
 }
 

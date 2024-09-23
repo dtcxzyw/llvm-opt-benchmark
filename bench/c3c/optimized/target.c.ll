@@ -3663,127 +3663,139 @@ define internal fastcc void @x86_features_from_host(ptr noundef nonnull %0) unna
   br i1 %.not38, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
-  br label %18
+  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  br label %19
 
-18:                                               ; preds = %.lr.ph, %60
-  %.039 = phi ptr [ %16, %.lr.ph ], [ %61, %60 ]
-  %19 = load i8, ptr %.039, align 1
-  switch i8 %19, label %60 [
-    i8 45, label %20
-    i8 43, label %39
+19:                                               ; preds = %.lr.ph, %70
+  %.039 = phi ptr [ %16, %.lr.ph ], [ %71, %70 ]
+  %20 = load i8, ptr %.039, align 1
+  switch i8 %20, label %70 [
+    i8 45, label %21
+    i8 43, label %49
   ]
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %.039, i64 1
-  %22 = load i8, ptr %21, align 1
-  br label %23
+21:                                               ; preds = %19
+  %22 = getelementptr inbounds i8, ptr %.039, i64 1
+  %23 = load i8, ptr %22, align 1
+  br label %24
 
-23:                                               ; preds = %._crit_edge.i, %20
-  %indvars.iv21.i = phi i64 [ 0, %20 ], [ %indvars.iv.next22.i, %._crit_edge.i ]
-  %24 = getelementptr inbounds [104 x ptr], ptr @x86_feature_name, i64 0, i64 %indvars.iv21.i
-  %25 = load ptr, ptr %24, align 8
-  %26 = load i8, ptr %25, align 1
-  %.not16.i = icmp eq i8 %26, %22
+24:                                               ; preds = %._crit_edge.i, %21
+  %indvars.iv21.i = phi i64 [ 0, %21 ], [ %indvars.iv.next22.i, %._crit_edge.i ]
+  %25 = getelementptr inbounds [104 x ptr], ptr @x86_feature_name, i64 0, i64 %indvars.iv21.i
+  %26 = load ptr, ptr %25, align 8
+  %27 = load i8, ptr %26, align 1
+  %.not16.i = icmp eq i8 %27, %23
   br i1 %.not16.i, label %.lr.ph.i, label %._crit_edge.i
 
-27:                                               ; preds = %.lr.ph.i
+28:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %28 = getelementptr inbounds i8, ptr %21, i64 %indvars.iv.next.i
-  %29 = load i8, ptr %28, align 1
-  %30 = getelementptr inbounds i8, ptr %25, i64 %indvars.iv.next.i
-  %31 = load i8, ptr %30, align 1
-  %.not.i = icmp eq i8 %31, %29
+  %29 = getelementptr inbounds i8, ptr %22, i64 %indvars.iv.next.i
+  %30 = load i8, ptr %29, align 1
+  %31 = getelementptr inbounds i8, ptr %26, i64 %indvars.iv.next.i
+  %32 = load i8, ptr %31, align 1
+  %.not.i = icmp eq i8 %32, %30
   br i1 %.not.i, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %23, %27
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %27 ], [ 0, %23 ]
-  %32 = phi i8 [ %29, %27 ], [ %22, %23 ]
-  %33 = icmp eq i8 %32, 0
-  br i1 %33, label %x86features_remove_feature.exit, label %27
+.lr.ph.i:                                         ; preds = %24, %28
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %28 ], [ 0, %24 ]
+  %33 = phi i8 [ %30, %28 ], [ %23, %24 ]
+  %34 = icmp eq i8 %33, 0
+  br i1 %34, label %x86feature_from_string.exit, label %28
 
-._crit_edge.i:                                    ; preds = %27, %23
+._crit_edge.i:                                    ; preds = %28, %24
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next22.i, 104
-  br i1 %exitcond.not.i, label %x86feature_from_string.exit.thread, label %23, !llvm.loop !12
+  br i1 %exitcond.not.i, label %x86feature_from_string.exit.thread, label %24, !llvm.loop !12
 
 x86feature_from_string.exit.thread:               ; preds = %._crit_edge.i
-  %34 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.208, ptr noundef nonnull %21)
-  br label %60
+  %35 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.208, ptr noundef nonnull %22)
+  br label %70
 
-x86features_remove_feature.exit:                  ; preds = %.lr.ph.i
-  %35 = icmp ult i64 %indvars.iv21.i, 64
-  %36 = add nuw i64 %indvars.iv21.i, 4294967232
-  %.sink.i.idx = select i1 %35, i64 0, i64 8
-  %.sink.i = getelementptr inbounds i8, ptr %0, i64 %.sink.i.idx
-  %.pn.in.i = select i1 %35, i64 %indvars.iv21.i, i64 %36
-  %.pn.i = and i64 %.pn.in.i, 4294967295
-  %.sink7.in.i = shl nuw i64 1, %.pn.i
-  %.sink7.i = xor i64 %.sink7.in.i, -1
-  %37 = load i64, ptr %.sink.i, align 8
-  %38 = and i64 %37, %.sink7.i
-  store i64 %38, ptr %.sink.i, align 8
-  store ptr null, ptr %17, align 8
-  br label %60
+x86feature_from_string.exit:                      ; preds = %.lr.ph.i
+  %36 = icmp ult i64 %indvars.iv21.i, 64
+  br i1 %36, label %37, label %42
 
-39:                                               ; preds = %18
-  %40 = getelementptr inbounds i8, ptr %.039, i64 1
-  %41 = load i8, ptr %40, align 1
-  br label %42
+37:                                               ; preds = %x86feature_from_string.exit
+  %38 = shl nuw i64 1, %indvars.iv21.i
+  %39 = xor i64 %38, -1
+  %40 = load i64, ptr %0, align 8
+  %41 = and i64 %40, %39
+  store i64 %41, ptr %0, align 8
+  br label %x86features_remove_feature.exit
 
-42:                                               ; preds = %._crit_edge.i24, %39
-  %indvars.iv21.i22 = phi i64 [ 0, %39 ], [ %indvars.iv.next22.i25, %._crit_edge.i24 ]
-  %43 = getelementptr inbounds [104 x ptr], ptr @x86_feature_name, i64 0, i64 %indvars.iv21.i22
-  %44 = load ptr, ptr %43, align 8
-  %45 = load i8, ptr %44, align 1
-  %.not16.i23 = icmp eq i8 %45, %41
+42:                                               ; preds = %x86feature_from_string.exit
+  %43 = add nuw i64 %indvars.iv21.i, 4294967232
+  %44 = and i64 %43, 4294967295
+  %45 = shl nuw i64 1, %44
+  %46 = xor i64 %45, -1
+  %47 = load i64, ptr %17, align 8
+  %48 = and i64 %47, %46
+  store i64 %48, ptr %17, align 8
+  br label %x86features_remove_feature.exit
+
+x86features_remove_feature.exit:                  ; preds = %37, %42
+  store ptr null, ptr %18, align 8
+  br label %70
+
+49:                                               ; preds = %19
+  %50 = getelementptr inbounds i8, ptr %.039, i64 1
+  %51 = load i8, ptr %50, align 1
+  br label %52
+
+52:                                               ; preds = %._crit_edge.i24, %49
+  %indvars.iv21.i22 = phi i64 [ 0, %49 ], [ %indvars.iv.next22.i25, %._crit_edge.i24 ]
+  %53 = getelementptr inbounds [104 x ptr], ptr @x86_feature_name, i64 0, i64 %indvars.iv21.i22
+  %54 = load ptr, ptr %53, align 8
+  %55 = load i8, ptr %54, align 1
+  %.not16.i23 = icmp eq i8 %55, %51
   br i1 %.not16.i23, label %.lr.ph.i28, label %._crit_edge.i24
 
-46:                                               ; preds = %.lr.ph.i28
+56:                                               ; preds = %.lr.ph.i28
   %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i29, 1
-  %47 = getelementptr inbounds i8, ptr %40, i64 %indvars.iv.next.i30
-  %48 = load i8, ptr %47, align 1
-  %49 = getelementptr inbounds i8, ptr %44, i64 %indvars.iv.next.i30
-  %50 = load i8, ptr %49, align 1
-  %.not.i31 = icmp eq i8 %50, %48
+  %57 = getelementptr inbounds i8, ptr %50, i64 %indvars.iv.next.i30
+  %58 = load i8, ptr %57, align 1
+  %59 = getelementptr inbounds i8, ptr %54, i64 %indvars.iv.next.i30
+  %60 = load i8, ptr %59, align 1
+  %.not.i31 = icmp eq i8 %60, %58
   br i1 %.not.i31, label %.lr.ph.i28, label %._crit_edge.i24
 
-.lr.ph.i28:                                       ; preds = %42, %46
-  %indvars.iv.i29 = phi i64 [ %indvars.iv.next.i30, %46 ], [ 0, %42 ]
-  %51 = phi i8 [ %48, %46 ], [ %41, %42 ]
-  %52 = icmp eq i8 %51, 0
-  br i1 %52, label %x86feature_from_string.exit33, label %46
+.lr.ph.i28:                                       ; preds = %52, %56
+  %indvars.iv.i29 = phi i64 [ %indvars.iv.next.i30, %56 ], [ 0, %52 ]
+  %61 = phi i8 [ %58, %56 ], [ %51, %52 ]
+  %62 = icmp eq i8 %61, 0
+  br i1 %62, label %x86feature_from_string.exit33, label %56
 
-._crit_edge.i24:                                  ; preds = %46, %42
+._crit_edge.i24:                                  ; preds = %56, %52
   %indvars.iv.next22.i25 = add nuw nsw i64 %indvars.iv21.i22, 1
   %exitcond.not.i26 = icmp eq i64 %indvars.iv.next22.i25, 104
-  br i1 %exitcond.not.i26, label %x86feature_from_string.exit33.thread, label %42, !llvm.loop !12
+  br i1 %exitcond.not.i26, label %x86feature_from_string.exit33.thread, label %52, !llvm.loop !12
 
 x86feature_from_string.exit33.thread:             ; preds = %._crit_edge.i24
-  %53 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #18
-  %54 = icmp eq i64 %53, 5
-  br i1 %54, label %55, label %57
+  %63 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %50) #18
+  %64 = icmp eq i64 %63, 5
+  br i1 %64, label %65, label %67
 
-55:                                               ; preds = %x86feature_from_string.exit33.thread
-  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %40, ptr noundef nonnull dereferenceable(5) @.str.209, i64 5)
-  %56 = icmp eq i32 %bcmp, 0
-  br i1 %56, label %60, label %57
+65:                                               ; preds = %x86feature_from_string.exit33.thread
+  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %50, ptr noundef nonnull dereferenceable(5) @.str.209, i64 5)
+  %66 = icmp eq i32 %bcmp, 0
+  br i1 %66, label %70, label %67
 
-57:                                               ; preds = %55, %x86feature_from_string.exit33.thread
-  %58 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.208, ptr noundef nonnull %40)
-  br label %60
+67:                                               ; preds = %65, %x86feature_from_string.exit33.thread
+  %68 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.208, ptr noundef nonnull %50)
+  br label %70
 
 x86feature_from_string.exit33:                    ; preds = %.lr.ph.i28
-  %59 = trunc nuw nsw i64 %indvars.iv21.i22 to i32
-  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef %59)
-  br label %60
+  %69 = trunc nuw nsw i64 %indvars.iv21.i22 to i32
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef %69)
+  br label %70
 
-60:                                               ; preds = %18, %x86features_remove_feature.exit, %x86feature_from_string.exit33, %55, %57, %x86feature_from_string.exit.thread
-  %61 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.207) #17
-  %.not = icmp eq ptr %61, null
-  br i1 %.not, label %._crit_edge, label %18, !llvm.loop !13
+70:                                               ; preds = %19, %x86features_remove_feature.exit, %x86feature_from_string.exit33, %65, %67, %x86feature_from_string.exit.thread
+  %71 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.207) #17
+  %.not = icmp eq ptr %71, null
+  br i1 %.not, label %._crit_edge, label %19, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %60, %15
+._crit_edge:                                      ; preds = %70, %15
   tail call void @LLVMDisposeMessage(ptr noundef %2) #17
   ret void
 }
@@ -3798,74 +3810,85 @@ declare ptr @strtok(ptr noundef, ptr nocapture noundef readonly) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef range(i32 0, -2147483648) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %.sink.i.i28.i31 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %2
-  %.tr40 = phi i32 [ %1, %2 ], [ %.tr40.be, %tailrecurse.backedge ]
-  %4 = icmp ult i32 %.tr40, 64
-  %5 = add nsw i32 %.tr40, -64
-  %.sink.idx.i = select i1 %4, i64 0, i64 8
-  %.sink.i = getelementptr inbounds i8, ptr %0, i64 %.sink.idx.i
-  %.sink7.v.v.i = select i1 %4, i32 %.tr40, i32 %5
-  %.sink7.v.i = zext nneg i32 %.sink7.v.v.i to i64
-  %.sink7.i = shl nuw i64 1, %.sink7.v.i
-  %6 = load i64, ptr %.sink.i, align 8
-  %7 = or i64 %.sink7.i, %6
-  store i64 %7, ptr %.sink.i, align 8
+  %.tr28 = phi i32 [ %1, %2 ], [ %.tr28.be, %tailrecurse.backedge ]
+  %5 = icmp ult i32 %.tr28, 64
+  br i1 %5, label %6, label %11
+
+6:                                                ; preds = %tailrecurse
+  %7 = zext nneg i32 %.tr28 to i64
+  %8 = shl nuw i64 1, %7
+  %9 = load i64, ptr %0, align 8
+  %10 = or i64 %9, %8
+  store i64 %10, ptr %0, align 8
+  br label %x64features_add_feature_single.exit
+
+11:                                               ; preds = %tailrecurse
+  %12 = add nsw i32 %.tr28, -64
+  %13 = zext nneg i32 %12 to i64
+  %14 = shl nuw i64 1, %13
+  %15 = load i64, ptr %4, align 8
+  %16 = or i64 %15, %14
+  store i64 %16, ptr %4, align 8
+  br label %x64features_add_feature_single.exit
+
+x64features_add_feature_single.exit:              ; preds = %6, %11
   store ptr null, ptr %3, align 8
-  switch i32 %.tr40, label %33 [
-    i32 83, label %common.ret.sink.split.loopexit52
-    i32 49, label %common.ret.sink.split.loopexit52
-    i32 60, label %common.ret.sink.split.loopexit52
-    i32 1, label %common.ret.sink.split
-    i32 84, label %common.ret.sink.split
-    i32 77, label %common.ret.sink.split
-    i32 52, label %common.ret.sink.split
+  switch i32 %.tr28, label %59 [
+    i32 83, label %17
+    i32 49, label %17
+    i32 60, label %17
+    i32 1, label %20
+    i32 84, label %20
+    i32 77, label %20
+    i32 52, label %20
     i32 85, label %tailrecurse.backedge
-    i32 87, label %8
-    i32 88, label %8
-    i32 86, label %9
-    i32 7, label %10
-    i32 17, label %11
-    i32 8, label %12
-    i32 44, label %12
-    i32 45, label %12
-    i32 80, label %12
-    i32 92, label %13
-    i32 93, label %20
-    i32 101, label %common.ret.sink.split.loopexit
-    i32 102, label %common.ret.sink.split.loopexit
-    i32 103, label %common.ret.sink.split.loopexit
-    i32 14, label %23
-    i32 13, label %23
-    i32 15, label %23
-    i32 16, label %23
-    i32 20, label %23
-    i32 23, label %23
-    i32 19, label %23
-    i32 24, label %23
-    i32 26, label %23
-    i32 25, label %23
-    i32 46, label %24
-    i32 99, label %25
-    i32 2, label %26
-    i32 4, label %26
-    i32 5, label %26
-    i32 3, label %26
-    i32 31, label %27
-    i32 30, label %27
-    i32 27, label %27
-    i32 28, label %27
-    i32 29, label %27
-    i32 78, label %27
-    i32 81, label %27
-    i32 18, label %28
-    i32 97, label %29
-    i32 21, label %32
-    i32 22, label %32
-    i32 12, label %32
-    i32 11, label %32
+    i32 87, label %23
+    i32 88, label %23
+    i32 86, label %26
+    i32 7, label %27
+    i32 17, label %28
+    i32 8, label %29
+    i32 44, label %29
+    i32 45, label %29
+    i32 80, label %29
+    i32 92, label %30
+    i32 93, label %35
+    i32 101, label %40
+    i32 102, label %40
+    i32 103, label %40
+    i32 14, label %43
+    i32 13, label %43
+    i32 15, label %43
+    i32 16, label %43
+    i32 20, label %43
+    i32 23, label %43
+    i32 19, label %43
+    i32 24, label %43
+    i32 26, label %43
+    i32 25, label %43
+    i32 46, label %44
+    i32 99, label %47
+    i32 2, label %48
+    i32 4, label %48
+    i32 5, label %48
+    i32 3, label %48
+    i32 31, label %51
+    i32 30, label %51
+    i32 27, label %51
+    i32 28, label %51
+    i32 29, label %51
+    i32 78, label %51
+    i32 81, label %51
+    i32 18, label %52
+    i32 97, label %53
+    i32 21, label %58
+    i32 22, label %58
+    i32 12, label %58
+    i32 11, label %58
     i32 10, label %common.ret
     i32 9, label %common.ret
     i32 0, label %common.ret
@@ -3921,93 +3944,115 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
     i32 100, label %common.ret
   ]
 
-8:                                                ; preds = %tailrecurse, %tailrecurse
+17:                                               ; preds = %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit
+  %18 = load i64, ptr %4, align 8
+  %19 = or i64 %18, 262144
+  store i64 %19, ptr %4, align 8
   br label %common.ret.sink.split
 
-9:                                                ; preds = %tailrecurse
+20:                                               ; preds = %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit
+  %21 = load i64, ptr %4, align 8
+  %22 = or i64 %21, 786432
+  store i64 %22, ptr %4, align 8
+  br label %common.ret.sink.split
+
+23:                                               ; preds = %x64features_add_feature_single.exit, %x64features_add_feature_single.exit
+  %24 = load i64, ptr %4, align 8
+  %25 = or i64 %24, 1835008
+  store i64 %25, ptr %4, align 8
+  br label %common.ret.sink.split
+
+26:                                               ; preds = %x64features_add_feature_single.exit
   br label %tailrecurse.backedge
 
-tailrecurse.backedge:                             ; preds = %9, %10, %11, %12, %13, %23, %24, %25, %27, %28, %32, %tailrecurse
-  %.tr40.be = phi i32 [ 85, %9 ], [ 86, %10 ], [ 45, %11 ], [ 7, %12 ], [ 7, %13 ], [ 17, %23 ], [ 7, %24 ], [ 46, %25 ], [ 8, %27 ], [ 23, %28 ], [ 13, %32 ], [ 88, %tailrecurse ]
+tailrecurse.backedge:                             ; preds = %26, %27, %28, %29, %30, %43, %44, %47, %51, %52, %58, %x64features_add_feature_single.exit
+  %.tr28.be = phi i32 [ 85, %26 ], [ 86, %27 ], [ 45, %28 ], [ 7, %29 ], [ 7, %30 ], [ 17, %43 ], [ 7, %44 ], [ 46, %47 ], [ 8, %51 ], [ 23, %52 ], [ 13, %58 ], [ 88, %x64features_add_feature_single.exit ]
   br label %tailrecurse
 
-10:                                               ; preds = %tailrecurse
+27:                                               ; preds = %x64features_add_feature_single.exit
   br label %tailrecurse.backedge
 
-11:                                               ; preds = %tailrecurse
+28:                                               ; preds = %x64features_add_feature_single.exit
   tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 8)
   tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 44)
   br label %tailrecurse.backedge
 
-12:                                               ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
+29:                                               ; preds = %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit
   br label %tailrecurse.backedge
 
-13:                                               ; preds = %tailrecurse
-  %14 = load i64, ptr %0, align 8
-  %15 = or i64 %14, 2
-  store i64 %15, ptr %0, align 8
-  %16 = load i64, ptr %.sink.i.i28.i31, align 8
-  %17 = or i64 %16, 786432
-  store i64 %17, ptr %.sink.i.i28.i31, align 8
+30:                                               ; preds = %x64features_add_feature_single.exit
+  %31 = load i64, ptr %0, align 8
+  %32 = or i64 %31, 2
+  store i64 %32, ptr %0, align 8
+  %33 = load i64, ptr %4, align 8
+  %34 = or i64 %33, 786432
+  store i64 %34, ptr %4, align 8
   store ptr null, ptr %3, align 8
   br label %tailrecurse.backedge
 
-common.ret.sink.split.loopexit:                   ; preds = %tailrecurse, %tailrecurse, %tailrecurse
-  br label %common.ret.sink.split
-
-common.ret.sink.split.loopexit52:                 ; preds = %tailrecurse, %tailrecurse, %tailrecurse
-  br label %common.ret.sink.split
-
-common.ret.sink.split:                            ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %common.ret.sink.split.loopexit52, %common.ret.sink.split.loopexit, %20, %29, %26, %8
-  %.sink.i.i28.i31.sink51 = phi ptr [ %.sink.i.i28.i31, %8 ], [ %0, %26 ], [ %.sink.i.i28.i31, %29 ], [ %.sink.i.i28.i31, %20 ], [ %.sink.i.i28.i31, %common.ret.sink.split.loopexit ], [ %.sink.i.i28.i31, %common.ret.sink.split.loopexit52 ], [ %.sink.i.i28.i31, %tailrecurse ], [ %.sink.i.i28.i31, %tailrecurse ], [ %.sink.i.i28.i31, %tailrecurse ], [ %.sink.i.i28.i31, %tailrecurse ]
-  %.sink50 = phi i64 [ 1835008, %8 ], [ 64, %26 ], [ 786432, %29 ], [ 262144, %20 ], [ 68719476736, %common.ret.sink.split.loopexit ], [ 262144, %common.ret.sink.split.loopexit52 ], [ 786432, %tailrecurse ], [ 786432, %tailrecurse ], [ 786432, %tailrecurse ], [ 786432, %tailrecurse ]
-  %18 = load i64, ptr %.sink.i.i28.i31.sink51, align 8
-  %19 = or i64 %18, %.sink50
-  store i64 %19, ptr %.sink.i.i28.i31.sink51, align 8
+common.ret.sink.split:                            ; preds = %35, %53, %48, %40, %23, %20, %17
   store ptr null, ptr %3, align 8
   br label %common.ret
 
-common.ret:                                       ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %common.ret.sink.split
+common.ret:                                       ; preds = %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %common.ret.sink.split
   ret void
 
-20:                                               ; preds = %tailrecurse
+35:                                               ; preds = %x64features_add_feature_single.exit
   tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 7)
-  %21 = load i64, ptr %0, align 8
-  %22 = or i64 %21, 1152921504606846976
-  store i64 %22, ptr %0, align 8
+  %36 = load i64, ptr %0, align 8
+  %37 = or i64 %36, 1152921504606846976
+  store i64 %37, ptr %0, align 8
+  %38 = load i64, ptr %4, align 8
+  %39 = or i64 %38, 262144
+  store i64 %39, ptr %4, align 8
   br label %common.ret.sink.split
 
-23:                                               ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
-  br label %tailrecurse.backedge
-
-24:                                               ; preds = %tailrecurse
-  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 87)
-  br label %tailrecurse.backedge
-
-25:                                               ; preds = %tailrecurse
-  br label %tailrecurse.backedge
-
-26:                                               ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
+40:                                               ; preds = %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit
+  %41 = load i64, ptr %4, align 8
+  %42 = or i64 %41, 68719476736
+  store i64 %42, ptr %4, align 8
   br label %common.ret.sink.split
 
-27:                                               ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
+43:                                               ; preds = %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit
   br label %tailrecurse.backedge
 
-28:                                               ; preds = %tailrecurse
+44:                                               ; preds = %x64features_add_feature_single.exit
+  %45 = load i64, ptr %4, align 8
+  %46 = or i64 %45, 10223616
+  store i64 %46, ptr %4, align 8
+  store ptr null, ptr %3, align 8
+  br label %tailrecurse.backedge
+
+47:                                               ; preds = %x64features_add_feature_single.exit
+  br label %tailrecurse.backedge
+
+48:                                               ; preds = %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit
+  %49 = load i64, ptr %0, align 8
+  %50 = or i64 %49, 64
+  store i64 %50, ptr %0, align 8
+  br label %common.ret.sink.split
+
+51:                                               ; preds = %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit
+  br label %tailrecurse.backedge
+
+52:                                               ; preds = %x64features_add_feature_single.exit
   tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 13)
   tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 15)
   br label %tailrecurse.backedge
 
-29:                                               ; preds = %tailrecurse
-  %30 = load i64, ptr %0, align 8
-  %31 = or i64 %30, 4503599627370496
-  store i64 %31, ptr %0, align 8
+53:                                               ; preds = %x64features_add_feature_single.exit
+  %54 = load i64, ptr %0, align 8
+  %55 = or i64 %54, 4503599627370496
+  store i64 %55, ptr %0, align 8
+  %56 = load i64, ptr %4, align 8
+  %57 = or i64 %56, 786432
+  store i64 %57, ptr %4, align 8
   br label %common.ret.sink.split
 
-32:                                               ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
+58:                                               ; preds = %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit
   br label %tailrecurse.backedge
 
-33:                                               ; preds = %tailrecurse
+59:                                               ; preds = %x64features_add_feature_single.exit
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.x86_features_add_feature, ptr noundef nonnull @.str.18, i32 noundef 667) #16
   unreachable
 }

@@ -17,19 +17,22 @@ entry:
   %conv = sext i32 %pathCapacity to i64
   %call = tail call i64 @readlink(ptr noundef nonnull @.str, ptr noundef %pPath, i64 noundef %conv) #14
   %cmp.not = icmp eq i64 %call, -1
-  br i1 %cmp.not, label %return, label %if.then
+  br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
   %sub = add nsw i32 %pathCapacity, -1
   %conv1 = sext i32 %sub to i64
   %cond = tail call i64 @llvm.smin.i64(i64 %call, i64 %conv1)
   %arrayidx = getelementptr inbounds i8, ptr %pPath, i64 %cond
+  store i8 0, ptr %arrayidx, align 1
   br label %return
 
-return:                                           ; preds = %entry, %if.then
-  %pPath.sink = phi ptr [ %arrayidx, %if.then ], [ %pPath, %entry ]
-  %retval.0 = phi i64 [ %cond, %if.then ], [ 0, %entry ]
-  store i8 0, ptr %pPath.sink, align 1
+if.else:                                          ; preds = %entry
+  store i8 0, ptr %pPath, align 1
+  br label %return
+
+return:                                           ; preds = %if.else, %if.then
+  %retval.0 = phi i64 [ %cond, %if.then ], [ 0, %if.else ]
   ret i64 %retval.0
 }
 
@@ -42,10 +45,19 @@ entry:
   %path8 = alloca [1024 x i8], align 16
   %call.i = call i64 @readlink(ptr noundef nonnull @.str, ptr noundef nonnull %path8, i64 noundef 1024) #14
   %cmp.not.i = icmp eq i64 %call.i, -1
+  br i1 %cmp.not.i, label %if.else.i, label %if.then.i
+
+if.then.i:                                        ; preds = %entry
   %cond.i = tail call i64 @llvm.smin.i64(i64 %call.i, i64 1023)
-  %pPath.sink.i.idx = select i1 %cmp.not.i, i64 0, i64 %cond.i
-  %pPath.sink.i = getelementptr inbounds i8, ptr %path8, i64 %pPath.sink.i.idx
-  store i8 0, ptr %pPath.sink.i, align 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %path8, i64 %cond.i
+  store i8 0, ptr %arrayidx.i, align 1
+  br label %_ZN2EA4StdC21GetCurrentProcessPathEPcii.exit
+
+if.else.i:                                        ; preds = %entry
+  store i8 0, ptr %path8, align 16
+  br label %_ZN2EA4StdC21GetCurrentProcessPathEPcii.exit
+
+_ZN2EA4StdC21GetCurrentProcessPathEPcii.exit:     ; preds = %if.then.i, %if.else.i
   %conv = sext i32 %pathCapacity to i64
   %call2 = call noundef i32 @_ZN2EA4StdC7StrlcpyEPDsPKcmm(ptr noundef %pPath, ptr noundef nonnull %path8, i64 noundef %conv, i64 noundef -1)
   %cmp = icmp sgt i32 %call2, -1
@@ -53,11 +65,11 @@ entry:
   %or.cond = and i1 %cmp, %cmp3
   br i1 %or.cond, label %if.then, label %if.end
 
-if.then:                                          ; preds = %entry
+if.then:                                          ; preds = %_ZN2EA4StdC21GetCurrentProcessPathEPcii.exit
   %conv4 = zext nneg i32 %call2 to i64
   br label %return
 
-if.end:                                           ; preds = %entry
+if.end:                                           ; preds = %_ZN2EA4StdC21GetCurrentProcessPathEPcii.exit
   store i16 0, ptr %pPath, align 2
   br label %return
 
@@ -171,10 +183,19 @@ entry:
   %path8 = alloca [1024 x i8], align 16
   %call.i = call i64 @readlink(ptr noundef nonnull @.str, ptr noundef nonnull %path8, i64 noundef 1024) #14
   %cmp.not.i = icmp eq i64 %call.i, -1
+  br i1 %cmp.not.i, label %if.else.i, label %if.then.i
+
+if.then.i:                                        ; preds = %entry
   %cond.i = tail call i64 @llvm.smin.i64(i64 %call.i, i64 1023)
-  %pPath.sink.i.idx = select i1 %cmp.not.i, i64 0, i64 %cond.i
-  %pPath.sink.i = getelementptr inbounds i8, ptr %path8, i64 %pPath.sink.i.idx
-  store i8 0, ptr %pPath.sink.i, align 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %path8, i64 %cond.i
+  store i8 0, ptr %arrayidx.i, align 1
+  br label %_ZN2EA4StdC21GetCurrentProcessPathEPcii.exit
+
+if.else.i:                                        ; preds = %entry
+  store i8 0, ptr %path8, align 16
+  br label %_ZN2EA4StdC21GetCurrentProcessPathEPcii.exit
+
+_ZN2EA4StdC21GetCurrentProcessPathEPcii.exit:     ; preds = %if.then.i, %if.else.i
   %conv = sext i32 %pathCapacity to i64
   %call2 = call noundef i32 @_ZN2EA4StdC7StrlcpyEPDiPKcmm(ptr noundef %pPath, ptr noundef nonnull %path8, i64 noundef %conv, i64 noundef -1)
   %cmp = icmp sgt i32 %call2, -1
@@ -182,11 +203,11 @@ entry:
   %or.cond = and i1 %cmp, %cmp3
   br i1 %or.cond, label %if.then, label %if.end
 
-if.then:                                          ; preds = %entry
+if.then:                                          ; preds = %_ZN2EA4StdC21GetCurrentProcessPathEPcii.exit
   %conv4 = zext nneg i32 %call2 to i64
   br label %return
 
-if.end:                                           ; preds = %entry
+if.end:                                           ; preds = %_ZN2EA4StdC21GetCurrentProcessPathEPcii.exit
   store i32 0, ptr %pPath, align 4
   br label %return
 

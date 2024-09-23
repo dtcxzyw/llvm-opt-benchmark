@@ -6357,81 +6357,90 @@ define internal fastcc void @zend_mm_free_huge(ptr noundef %0, ptr noundef %1) u
   %.not53.i = icmp eq ptr %.0.i14.lcssa, null
   %12 = getelementptr inbounds i8, ptr %.051.i15.lcssa, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %.0.i14.lcssa, i64 16
-  %.sink = select i1 %.not53.i, ptr %7, ptr %14
-  store ptr %13, ptr %.sink, align 8
-  %15 = getelementptr inbounds i8, ptr %.051.i15.lcssa, i64 8
-  %16 = load i64, ptr %15, align 8
-  %17 = ptrtoint ptr %.051.i15.lcssa to i64
-  %18 = and i64 %17, 2097151
-  %19 = icmp eq i64 %18, 0
-  br i1 %19, label %20, label %21
+  br i1 %.not53.i, label %16, label %14
 
-20:                                               ; preds = %.lr.ph._crit_edge
+14:                                               ; preds = %.lr.ph._crit_edge
+  %15 = getelementptr inbounds i8, ptr %.0.i14.lcssa, i64 16
+  store ptr %13, ptr %15, align 8
+  br label %17
+
+16:                                               ; preds = %.lr.ph._crit_edge
+  store ptr %13, ptr %7, align 8
+  br label %17
+
+17:                                               ; preds = %16, %14
+  %18 = getelementptr inbounds i8, ptr %.051.i15.lcssa, i64 8
+  %19 = load i64, ptr %18, align 8
+  %20 = ptrtoint ptr %.051.i15.lcssa to i64
+  %21 = and i64 %20, 2097151
+  %22 = icmp eq i64 %21, 0
+  br i1 %22, label %23, label %24
+
+23:                                               ; preds = %17
   tail call fastcc void @zend_mm_free_huge(ptr noundef %0, ptr noundef nonnull %.051.i15.lcssa)
   br label %zend_mm_del_huge_block.exit
 
-21:                                               ; preds = %.lr.ph._crit_edge
-  %22 = and i64 %17, -2097152
-  %23 = inttoptr i64 %22 to ptr
-  %24 = lshr i64 %18, 12
-  %25 = trunc nuw nsw i64 %24 to i32
-  %26 = getelementptr inbounds i8, ptr %23, i64 520
-  %27 = getelementptr inbounds [512 x i32], ptr %26, i64 0, i64 %24
-  %28 = load i32, ptr %27, align 4
-  %29 = load ptr, ptr %23, align 2097152
-  %.not54.i = icmp eq ptr %29, %0
-  br i1 %.not54.i, label %31, label %30
+24:                                               ; preds = %17
+  %25 = and i64 %20, -2097152
+  %26 = inttoptr i64 %25 to ptr
+  %27 = lshr i64 %21, 12
+  %28 = trunc nuw nsw i64 %27 to i32
+  %29 = getelementptr inbounds i8, ptr %26, i64 520
+  %30 = getelementptr inbounds [512 x i32], ptr %29, i64 0, i64 %27
+  %31 = load i32, ptr %30, align 4
+  %32 = load ptr, ptr %26, align 2097152
+  %.not54.i = icmp eq ptr %32, %0
+  br i1 %.not54.i, label %34, label %33
 
-30:                                               ; preds = %21
+33:                                               ; preds = %24
   tail call fastcc void @zend_mm_panic() #38
   unreachable
 
-31:                                               ; preds = %21
-  %.not55.i = icmp sgt i32 %28, -1
-  br i1 %.not55.i, label %44, label %32
+34:                                               ; preds = %24
+  %.not55.i = icmp sgt i32 %31, -1
+  br i1 %.not55.i, label %47, label %35
 
-32:                                               ; preds = %31
-  %33 = and i32 %28, 31
-  %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds [30 x i32], ptr @bin_data_size, i64 0, i64 %34
-  %36 = load i32, ptr %35, align 4
-  %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds i8, ptr %0, i64 16
-  %39 = load i64, ptr %38, align 8
-  %40 = sub i64 %39, %37
-  store i64 %40, ptr %38, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 32
-  %42 = getelementptr inbounds [30 x ptr], ptr %41, i64 0, i64 %34
-  %43 = load ptr, ptr %42, align 8
-  store ptr %43, ptr %.051.i15.lcssa, align 8
-  store ptr %.051.i15.lcssa, ptr %42, align 8
+35:                                               ; preds = %34
+  %36 = and i32 %31, 31
+  %37 = zext nneg i32 %36 to i64
+  %38 = getelementptr inbounds [30 x i32], ptr @bin_data_size, i64 0, i64 %37
+  %39 = load i32, ptr %38, align 4
+  %40 = zext i32 %39 to i64
+  %41 = getelementptr inbounds i8, ptr %0, i64 16
+  %42 = load i64, ptr %41, align 8
+  %43 = sub i64 %42, %40
+  store i64 %43, ptr %41, align 8
+  %44 = getelementptr inbounds i8, ptr %0, i64 32
+  %45 = getelementptr inbounds [30 x ptr], ptr %44, i64 0, i64 %37
+  %46 = load ptr, ptr %45, align 8
+  store ptr %46, ptr %.051.i15.lcssa, align 8
+  store ptr %.051.i15.lcssa, ptr %45, align 8
   br label %zend_mm_del_huge_block.exit
 
-44:                                               ; preds = %31
-  %45 = and i64 %17, 4095
-  %.not56.i = icmp eq i64 %45, 0
-  br i1 %.not56.i, label %47, label %46
+47:                                               ; preds = %34
+  %48 = and i64 %20, 4095
+  %.not56.i = icmp eq i64 %48, 0
+  br i1 %.not56.i, label %50, label %49
 
-46:                                               ; preds = %44
+49:                                               ; preds = %47
   tail call fastcc void @zend_mm_panic() #38
   unreachable
 
-47:                                               ; preds = %44
-  %48 = and i32 %28, 1023
-  %49 = shl nuw nsw i32 %48, 12
-  %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr inbounds i8, ptr %0, i64 16
-  %52 = load i64, ptr %51, align 8
-  %53 = sub i64 %52, %50
-  store i64 %53, ptr %51, align 8
-  tail call fastcc void @zend_mm_free_pages(ptr noundef %0, ptr noundef nonnull %23, i32 noundef %25, i32 noundef %48)
+50:                                               ; preds = %47
+  %51 = and i32 %31, 1023
+  %52 = shl nuw nsw i32 %51, 12
+  %53 = zext nneg i32 %52 to i64
+  %54 = getelementptr inbounds i8, ptr %0, i64 16
+  %55 = load i64, ptr %54, align 8
+  %56 = sub i64 %55, %53
+  store i64 %56, ptr %54, align 8
+  tail call fastcc void @zend_mm_free_pages(ptr noundef %0, ptr noundef nonnull %26, i32 noundef %28, i32 noundef %51)
   br label %zend_mm_del_huge_block.exit
 
 .lr.ph23:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %.051.i1522 = phi ptr [ %.051.i, %.lr.ph ], [ %.051.i12, %.lr.ph.preheader ]
-  %54 = getelementptr inbounds i8, ptr %.051.i1522, i64 16
-  %.051.i = load ptr, ptr %54, align 8
+  %57 = getelementptr inbounds i8, ptr %.051.i1522, i64 16
+  %.051.i = load ptr, ptr %57, align 8
   %.not.i = icmp eq ptr %.051.i, null
   br i1 %.not.i, label %._crit_edge, label %.lr.ph
 
@@ -6439,40 +6448,40 @@ define internal fastcc void @zend_mm_free_huge(ptr noundef %0, ptr noundef %1) u
   tail call fastcc void @zend_mm_panic() #38
   unreachable
 
-zend_mm_del_huge_block.exit:                      ; preds = %20, %32, %47
-  %55 = getelementptr i8, ptr %0, i64 8
-  %.val = load ptr, ptr %55, align 8
+zend_mm_del_huge_block.exit:                      ; preds = %23, %35, %50
+  %58 = getelementptr i8, ptr %0, i64 8
+  %.val = load ptr, ptr %58, align 8
   %.not.i9 = icmp eq ptr %.val, null
-  br i1 %.not.i9, label %59, label %56
-
-56:                                               ; preds = %zend_mm_del_huge_block.exit
-  %57 = getelementptr inbounds i8, ptr %.val, i64 8
-  %58 = load ptr, ptr %57, align 8
-  tail call void %58(ptr noundef nonnull %.val, ptr noundef %1, i64 noundef %16) #39
-  br label %zend_mm_chunk_free.exit
+  br i1 %.not.i9, label %62, label %59
 
 59:                                               ; preds = %zend_mm_del_huge_block.exit
-  %60 = tail call i32 @munmap(ptr noundef %1, i64 noundef %16) #39
-  %.not.i.i = icmp eq i32 %60, 0
-  br i1 %.not.i.i, label %zend_mm_chunk_free.exit, label %61
-
-61:                                               ; preds = %59
-  %62 = load ptr, ptr @stderr, align 8
-  %63 = tail call ptr @__errno_location() #40
-  %64 = load i32, ptr %63, align 4
-  %65 = tail call ptr @strerror(i32 noundef %64) #39
-  %66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %62, ptr noundef nonnull @.str.4, i32 noundef %64, ptr noundef %65) #41
+  %60 = getelementptr inbounds i8, ptr %.val, i64 8
+  %61 = load ptr, ptr %60, align 8
+  tail call void %61(ptr noundef nonnull %.val, ptr noundef %1, i64 noundef %19) #39
   br label %zend_mm_chunk_free.exit
 
-zend_mm_chunk_free.exit:                          ; preds = %56, %59, %61
-  %67 = getelementptr inbounds i8, ptr %0, i64 272
-  %68 = load i64, ptr %67, align 8
-  %69 = sub i64 %68, %16
-  store i64 %69, ptr %67, align 8
-  %70 = getelementptr inbounds i8, ptr %0, i64 16
+62:                                               ; preds = %zend_mm_del_huge_block.exit
+  %63 = tail call i32 @munmap(ptr noundef %1, i64 noundef %19) #39
+  %.not.i.i = icmp eq i32 %63, 0
+  br i1 %.not.i.i, label %zend_mm_chunk_free.exit, label %64
+
+64:                                               ; preds = %62
+  %65 = load ptr, ptr @stderr, align 8
+  %66 = tail call ptr @__errno_location() #40
+  %67 = load i32, ptr %66, align 4
+  %68 = tail call ptr @strerror(i32 noundef %67) #39
+  %69 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef nonnull @.str.4, i32 noundef %67, ptr noundef %68) #41
+  br label %zend_mm_chunk_free.exit
+
+zend_mm_chunk_free.exit:                          ; preds = %59, %62, %64
+  %70 = getelementptr inbounds i8, ptr %0, i64 272
   %71 = load i64, ptr %70, align 8
-  %72 = sub i64 %71, %16
+  %72 = sub i64 %71, %19
   store i64 %72, ptr %70, align 8
+  %73 = getelementptr inbounds i8, ptr %0, i64 16
+  %74 = load i64, ptr %73, align 8
+  %75 = sub i64 %74, %19
+  store i64 %75, ptr %73, align 8
   ret void
 }
 

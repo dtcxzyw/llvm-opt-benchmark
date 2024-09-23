@@ -76,7 +76,7 @@ define internal range(i32 -1, 1) i32 @hwloc_opencl_discover(ptr nocapture nounde
   %18 = call i32 @hwloc_topology_get_type_filter(ptr noundef %17, i32 noundef 16, ptr noundef nonnull %8) #9
   %19 = load i32, ptr %8, align 4
   %20 = icmp eq i32 %19, 1
-  br i1 %20, label %193, label %21
+  br i1 %20, label %199, label %21
 
 21:                                               ; preds = %2
   %22 = call i32 @clGetPlatformIDs(i32 noundef 0, ptr noundef null, ptr noundef nonnull %9) #9
@@ -88,26 +88,26 @@ define internal range(i32 -1, 1) i32 @hwloc_opencl_discover(ptr nocapture nounde
 
 26:                                               ; preds = %21
   switch i32 %22, label %27 [
-    i32 -1001, label %193
-    i32 0, label %193
+    i32 -1001, label %199
+    i32 0, label %199
   ]
 
 27:                                               ; preds = %26
   %28 = call i32 @hwloc_hide_errors() #9
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %193
+  br i1 %29, label %30, label %199
 
 30:                                               ; preds = %27
   %31 = load ptr, ptr @stderr, align 8
   %32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.2, i32 noundef %22) #10
-  br label %193
+  br label %199
 
 33:                                               ; preds = %21
   %34 = zext i32 %24 to i64
   %35 = shl nuw nsw i64 %34, 3
   %36 = call noalias ptr @malloc(i64 noundef %35) #11
   %.not = icmp eq ptr %36, null
-  br i1 %.not, label %193, label %37
+  br i1 %.not, label %199, label %37
 
 37:                                               ; preds = %33
   %38 = call i32 @clGetPlatformIDs(i32 noundef %24, ptr noundef nonnull %36, ptr noundef nonnull %9) #9
@@ -128,16 +128,16 @@ define internal range(i32 -1, 1) i32 @hwloc_opencl_discover(ptr nocapture nounde
 
 48:                                               ; preds = %37
   call void @free(ptr noundef nonnull %36) #9
-  br label %193
+  br label %199
 
-49:                                               ; preds = %.lr.ph164, %186
-  %indvars.iv170 = phi i64 [ 0, %.lr.ph164 ], [ %indvars.iv.next171, %186 ]
-  %.088163 = phi i32 [ 0, %.lr.ph164 ], [ %.189, %186 ]
+49:                                               ; preds = %.lr.ph164, %192
+  %indvars.iv170 = phi i64 [ 0, %.lr.ph164 ], [ %indvars.iv.next171, %192 ]
+  %.088163 = phi i32 [ 0, %.lr.ph164 ], [ %.189, %192 ]
   %50 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv170
   %51 = load ptr, ptr %50, align 8
   %52 = call i32 @clGetDeviceIDs(ptr noundef %51, i64 noundef 4294967295, i32 noundef 0, ptr noundef null, ptr noundef nonnull %10) #9
   %.not96 = icmp eq i32 %52, 0
-  br i1 %.not96, label %53, label %186
+  br i1 %.not96, label %53, label %192
 
 53:                                               ; preds = %49
   %54 = load i32, ptr %10, align 4
@@ -145,7 +145,7 @@ define internal range(i32 -1, 1) i32 @hwloc_opencl_discover(ptr nocapture nounde
   %56 = shl nuw nsw i64 %55, 3
   %57 = call noalias ptr @malloc(i64 noundef %56) #11
   %.not97 = icmp eq ptr %57, null
-  br i1 %.not97, label %186, label %58
+  br i1 %.not97, label %192, label %58
 
 58:                                               ; preds = %53
   %59 = load ptr, ptr %50, align 8
@@ -153,16 +153,16 @@ define internal range(i32 -1, 1) i32 @hwloc_opencl_discover(ptr nocapture nounde
   %.not98 = icmp ne i32 %60, 0
   %61 = load i32, ptr %10, align 4
   %.not168 = icmp eq i32 %61, 0
-  %or.cond175 = select i1 %.not98, i1 true, i1 %.not168
-  br i1 %or.cond175, label %.sink.split, label %.lr.ph.preheader
+  %or.cond173 = select i1 %.not98, i1 true, i1 %.not168
+  br i1 %or.cond173, label %.sink.split, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %58
   %62 = trunc nuw i64 %indvars.iv170 to i32
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %182
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %182 ]
-  %.2160 = phi i32 [ %.088163, %.lr.ph.preheader ], [ %.3, %182 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %188
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %188 ]
+  %.2160 = phi i32 [ %.088163, %.lr.ph.preheader ], [ %.3, %188 ]
   store ptr null, ptr %11, align 8
   %63 = getelementptr inbounds ptr, ptr %57, i64 %indvars.iv
   %64 = load ptr, ptr %63, align 8
@@ -171,7 +171,7 @@ define internal range(i32 -1, 1) i32 @hwloc_opencl_discover(ptr nocapture nounde
   %67 = and i64 %66, -2
   store i64 %67, ptr %12, align 8
   %68 = icmp eq i64 %67, 2
-  br i1 %68, label %182, label %69
+  br i1 %68, label %188, label %69
 
 69:                                               ; preds = %.lr.ph
   %70 = call ptr @hwloc_alloc_setup_object(ptr noundef %17, i32 noundef 16, i32 noundef -1) #9
@@ -188,232 +188,239 @@ define internal range(i32 -1, 1) i32 @hwloc_opencl_discover(ptr nocapture nounde
   %78 = load i64, ptr %12, align 8
   %79 = and i64 %78, 4
   %.not99 = icmp eq i64 %79, 0
-  br i1 %.not99, label %83, label %80
+  br i1 %.not99, label %85, label %80
 
 80:                                               ; preds = %69
   %81 = getelementptr inbounds i8, ptr %70, i64 216
   %82 = call i32 @hwloc_modify_infos(ptr noundef nonnull %81, i64 noundef 1, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #9
-  br label %95
+  %83 = getelementptr inbounds i8, ptr %70, i64 40
+  %84 = load ptr, ptr %83, align 8
+  store i64 12, ptr %84, align 8
+  br label %102
 
-83:                                               ; preds = %69
-  %84 = and i64 %78, 8
-  %.not100 = icmp eq i64 %84, 0
-  br i1 %.not100, label %88, label %85
+85:                                               ; preds = %69
+  %86 = and i64 %78, 8
+  %.not100 = icmp eq i64 %86, 0
+  br i1 %.not100, label %92, label %87
 
-85:                                               ; preds = %83
-  %86 = getelementptr inbounds i8, ptr %70, i64 216
-  %87 = call i32 @hwloc_modify_infos(ptr noundef nonnull %86, i64 noundef 1, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.9) #9
-  br label %95
+87:                                               ; preds = %85
+  %88 = getelementptr inbounds i8, ptr %70, i64 216
+  %89 = call i32 @hwloc_modify_infos(ptr noundef nonnull %88, i64 noundef 1, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.9) #9
+  %90 = getelementptr inbounds i8, ptr %70, i64 40
+  %91 = load ptr, ptr %90, align 8
+  store i64 8, ptr %91, align 8
+  br label %102
 
-88:                                               ; preds = %83
-  %89 = and i64 %78, 16
-  %.not101 = icmp eq i64 %89, 0
-  %90 = getelementptr inbounds i8, ptr %70, i64 216
-  br i1 %.not101, label %93, label %91
+92:                                               ; preds = %85
+  %93 = and i64 %78, 16
+  %.not101 = icmp eq i64 %93, 0
+  %94 = getelementptr inbounds i8, ptr %70, i64 216
+  %95 = getelementptr inbounds i8, ptr %70, i64 40
+  br i1 %.not101, label %99, label %96
 
-91:                                               ; preds = %88
-  %92 = call i32 @hwloc_modify_infos(ptr noundef nonnull %90, i64 noundef 1, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.10) #9
-  br label %95
+96:                                               ; preds = %92
+  %97 = call i32 @hwloc_modify_infos(ptr noundef nonnull %94, i64 noundef 1, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.10) #9
+  %98 = load ptr, ptr %95, align 8
+  store i64 8, ptr %98, align 8
+  br label %102
 
-93:                                               ; preds = %88
-  %94 = call i32 @hwloc_modify_infos(ptr noundef nonnull %90, i64 noundef 1, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.11) #9
-  br label %95
+99:                                               ; preds = %92
+  %100 = call i32 @hwloc_modify_infos(ptr noundef nonnull %94, i64 noundef 1, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.11) #9
+  %101 = load ptr, ptr %95, align 8
+  store i64 8, ptr %101, align 8
+  br label %102
 
-95:                                               ; preds = %85, %93, %91, %80
-  %.sink = phi i64 [ 8, %85 ], [ 8, %93 ], [ 8, %91 ], [ 12, %80 ]
-  %.sink174 = getelementptr inbounds i8, ptr %70, i64 40
-  %96 = load ptr, ptr %.sink174, align 8
-  store i64 %.sink, ptr %96, align 8
+102:                                              ; preds = %87, %99, %96, %80
   store i8 0, ptr %15, align 16
-  %97 = load ptr, ptr %63, align 8
-  %98 = call i32 @clGetDeviceInfo(ptr noundef %97, i32 noundef 4140, i64 noundef 64, ptr noundef nonnull %15, ptr noundef null) #9
-  %99 = load i8, ptr %15, align 16
-  %.not102 = icmp eq i8 %99, 0
-  br i1 %.not102, label %103, label %100
+  %103 = load ptr, ptr %63, align 8
+  %104 = call i32 @clGetDeviceInfo(ptr noundef %103, i32 noundef 4140, i64 noundef 64, ptr noundef nonnull %15, ptr noundef null) #9
+  %105 = load i8, ptr %15, align 16
+  %.not102 = icmp eq i8 %105, 0
+  br i1 %.not102, label %109, label %106
 
-100:                                              ; preds = %95
-  %101 = getelementptr inbounds i8, ptr %70, i64 216
-  %102 = call i32 @hwloc_modify_infos(ptr noundef nonnull %101, i64 noundef 1, ptr noundef nonnull @.str.12, ptr noundef nonnull %15) #9
-  br label %103
+106:                                              ; preds = %102
+  %107 = getelementptr inbounds i8, ptr %70, i64 216
+  %108 = call i32 @hwloc_modify_infos(ptr noundef nonnull %107, i64 noundef 1, ptr noundef nonnull @.str.12, ptr noundef nonnull %15) #9
+  br label %109
 
-103:                                              ; preds = %100, %95
+109:                                              ; preds = %106, %102
   store i8 0, ptr %15, align 16
-  %104 = load ptr, ptr %63, align 8
-  %105 = call i32 @clGetDeviceInfo(ptr noundef %104, i32 noundef 16440, i64 noundef 64, ptr noundef nonnull %15, ptr noundef null) #9
-  %106 = icmp ne i32 %105, 0
-  %107 = load i8, ptr %15, align 16
-  %108 = icmp eq i8 %107, 0
-  %or.cond9 = select i1 %106, i1 true, i1 %108
-  br i1 %or.cond9, label %109, label %.thread
-
-109:                                              ; preds = %103
   %110 = load ptr, ptr %63, align 8
-  %111 = call i32 @clGetDeviceInfo(ptr noundef %110, i32 noundef 4139, i64 noundef 64, ptr noundef nonnull %15, ptr noundef null) #9
+  %111 = call i32 @clGetDeviceInfo(ptr noundef %110, i32 noundef 16440, i64 noundef 64, ptr noundef nonnull %15, ptr noundef null) #9
+  %112 = icmp ne i32 %111, 0
+  %113 = load i8, ptr %15, align 16
+  %114 = icmp eq i8 %113, 0
+  %or.cond9 = select i1 %112, i1 true, i1 %114
+  br i1 %or.cond9, label %115, label %.thread
+
+115:                                              ; preds = %109
+  %116 = load ptr, ptr %63, align 8
+  %117 = call i32 @clGetDeviceInfo(ptr noundef %116, i32 noundef 4139, i64 noundef 64, ptr noundef nonnull %15, ptr noundef null) #9
   %.pr = load i8, ptr %15, align 16
   %.not103 = icmp eq i8 %.pr, 0
-  br i1 %.not103, label %114, label %.thread
+  br i1 %.not103, label %120, label %.thread
 
-.thread:                                          ; preds = %103, %109
-  %112 = getelementptr inbounds i8, ptr %70, i64 216
-  %113 = call i32 @hwloc_modify_infos(ptr noundef nonnull %112, i64 noundef 1, ptr noundef nonnull @.str.13, ptr noundef nonnull %15) #9
-  br label %114
+.thread:                                          ; preds = %109, %115
+  %118 = getelementptr inbounds i8, ptr %70, i64 216
+  %119 = call i32 @hwloc_modify_infos(ptr noundef nonnull %118, i64 noundef 1, ptr noundef nonnull @.str.13, ptr noundef nonnull %15) #9
+  br label %120
 
-114:                                              ; preds = %.thread, %109
-  %115 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %15, i64 noundef 64, ptr noundef nonnull @.str.14, i32 noundef %62) #9
-  %116 = getelementptr inbounds i8, ptr %70, i64 216
-  %117 = call i32 @hwloc_modify_infos(ptr noundef nonnull %116, i64 noundef 1, ptr noundef nonnull @.str.15, ptr noundef nonnull %15) #9
+120:                                              ; preds = %.thread, %115
+  %121 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %15, i64 noundef 64, ptr noundef nonnull @.str.14, i32 noundef %62) #9
+  %122 = getelementptr inbounds i8, ptr %70, i64 216
+  %123 = call i32 @hwloc_modify_infos(ptr noundef nonnull %122, i64 noundef 1, ptr noundef nonnull @.str.15, ptr noundef nonnull %15) #9
   store i8 0, ptr %15, align 16
-  %118 = load ptr, ptr %63, align 8
-  %119 = call i32 @clGetDeviceInfo(ptr noundef %118, i32 noundef 4145, i64 noundef 8, ptr noundef nonnull %11, ptr noundef null) #9
-  %120 = icmp eq i32 %119, 0
-  br i1 %120, label %121, label %127
+  %124 = load ptr, ptr %63, align 8
+  %125 = call i32 @clGetDeviceInfo(ptr noundef %124, i32 noundef 4145, i64 noundef 8, ptr noundef nonnull %11, ptr noundef null) #9
+  %126 = icmp eq i32 %125, 0
+  br i1 %126, label %127, label %133
 
-121:                                              ; preds = %114
-  %122 = load ptr, ptr %11, align 8
-  %123 = call i32 @clGetPlatformInfo(ptr noundef %122, i32 noundef 2306, i64 noundef 64, ptr noundef nonnull %15, ptr noundef null) #9
-  %124 = load i8, ptr %15, align 16
-  %.not104 = icmp eq i8 %124, 0
-  br i1 %.not104, label %127, label %125
+127:                                              ; preds = %120
+  %128 = load ptr, ptr %11, align 8
+  %129 = call i32 @clGetPlatformInfo(ptr noundef %128, i32 noundef 2306, i64 noundef 64, ptr noundef nonnull %15, ptr noundef null) #9
+  %130 = load i8, ptr %15, align 16
+  %.not104 = icmp eq i8 %130, 0
+  br i1 %.not104, label %133, label %131
 
-125:                                              ; preds = %121
-  %126 = call i32 @hwloc_modify_infos(ptr noundef nonnull %116, i64 noundef 1, ptr noundef nonnull @.str.16, ptr noundef nonnull %15) #9
-  br label %127
+131:                                              ; preds = %127
+  %132 = call i32 @hwloc_modify_infos(ptr noundef nonnull %122, i64 noundef 1, ptr noundef nonnull @.str.16, ptr noundef nonnull %15) #9
+  br label %133
 
-127:                                              ; preds = %121, %125, %114
-  %128 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %15, i64 noundef 64, ptr noundef nonnull @.str.14, i32 noundef %71) #9
-  %129 = call i32 @hwloc_modify_infos(ptr noundef nonnull %116, i64 noundef 1, ptr noundef nonnull @.str.17, ptr noundef nonnull %15) #9
-  %130 = load ptr, ptr %63, align 8
-  %131 = call i32 @clGetDeviceInfo(ptr noundef %130, i32 noundef 4098, i64 noundef 4, ptr noundef nonnull %14, ptr noundef null) #9
-  %132 = load i32, ptr %14, align 4
-  %133 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %15, i64 noundef 64, ptr noundef nonnull @.str.14, i32 noundef %132) #9
-  %134 = call i32 @hwloc_modify_infos(ptr noundef nonnull %116, i64 noundef 1, ptr noundef nonnull @.str.18, ptr noundef nonnull %15) #9
-  %135 = load ptr, ptr %63, align 8
-  %136 = call i32 @clGetDeviceInfo(ptr noundef %135, i32 noundef 4127, i64 noundef 8, ptr noundef nonnull %13, ptr noundef null) #9
-  %137 = load i64, ptr %13, align 8
-  %138 = lshr i64 %137, 10
-  %139 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %15, i64 noundef 64, ptr noundef nonnull @.str.19, i64 noundef %138) #9
-  %140 = call i32 @hwloc_modify_infos(ptr noundef nonnull %116, i64 noundef 1, ptr noundef nonnull @.str.20, ptr noundef nonnull %15) #9
+133:                                              ; preds = %127, %131, %120
+  %134 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %15, i64 noundef 64, ptr noundef nonnull @.str.14, i32 noundef %71) #9
+  %135 = call i32 @hwloc_modify_infos(ptr noundef nonnull %122, i64 noundef 1, ptr noundef nonnull @.str.17, ptr noundef nonnull %15) #9
+  %136 = load ptr, ptr %63, align 8
+  %137 = call i32 @clGetDeviceInfo(ptr noundef %136, i32 noundef 4098, i64 noundef 4, ptr noundef nonnull %14, ptr noundef null) #9
+  %138 = load i32, ptr %14, align 4
+  %139 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %15, i64 noundef 64, ptr noundef nonnull @.str.14, i32 noundef %138) #9
+  %140 = call i32 @hwloc_modify_infos(ptr noundef nonnull %122, i64 noundef 1, ptr noundef nonnull @.str.18, ptr noundef nonnull %15) #9
   %141 = load ptr, ptr %63, align 8
+  %142 = call i32 @clGetDeviceInfo(ptr noundef %141, i32 noundef 4127, i64 noundef 8, ptr noundef nonnull %13, ptr noundef null) #9
+  %143 = load i64, ptr %13, align 8
+  %144 = lshr i64 %143, 10
+  %145 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %15, i64 noundef 64, ptr noundef nonnull @.str.19, i64 noundef %144) #9
+  %146 = call i32 @hwloc_modify_infos(ptr noundef nonnull %122, i64 noundef 1, ptr noundef nonnull @.str.20, ptr noundef nonnull %15) #9
+  %147 = load ptr, ptr %63, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %142 = call i32 @clGetDeviceInfo(ptr noundef %141, i32 noundef 16655, i64 noundef 16, ptr noundef nonnull %4, ptr noundef null) #9
-  %143 = icmp eq i32 %142, 0
-  br i1 %143, label %144, label %149
+  %148 = call i32 @clGetDeviceInfo(ptr noundef %147, i32 noundef 16655, i64 noundef 16, ptr noundef nonnull %4, ptr noundef null) #9
+  %149 = icmp eq i32 %148, 0
+  br i1 %149, label %150, label %155
 
-144:                                              ; preds = %127
-  %145 = load i32, ptr %4, align 4
-  %146 = load i32, ptr %45, align 4
-  %147 = load i32, ptr %46, align 4
-  %148 = load i32, ptr %47, align 4
-  br label %176
-
-149:                                              ; preds = %127
-  %150 = call i32 @clGetDeviceInfo(ptr noundef %141, i32 noundef 16439, i64 noundef 24, ptr noundef nonnull %3, ptr noundef null) #9
-  %151 = icmp eq i32 %150, 0
-  %152 = load i32, ptr %3, align 4
-  %153 = icmp eq i32 %152, 1
-  %or.cond.i = select i1 %151, i1 %153, i1 false
-  br i1 %or.cond.i, label %154, label %161
-
-154:                                              ; preds = %149
-  %155 = load i8, ptr %42, align 1
-  %156 = zext i8 %155 to i32
-  %157 = load i8, ptr %43, align 2
-  %158 = zext i8 %157 to i32
-  %159 = load i8, ptr %44, align 1
-  %160 = zext i8 %159 to i32
-  br label %176
-
-161:                                              ; preds = %149
-  %162 = call i32 @clGetDeviceInfo(ptr noundef %141, i32 noundef 16392, i64 noundef 4, ptr noundef nonnull %5, ptr noundef null) #9
-  %163 = icmp eq i32 %162, 0
-  br i1 %163, label %164, label %.thread144
-
-164:                                              ; preds = %161
-  %165 = call i32 @clGetDeviceInfo(ptr noundef %141, i32 noundef 16393, i64 noundef 4, ptr noundef nonnull %6, ptr noundef null) #9
-  %166 = icmp eq i32 %165, 0
-  br i1 %166, label %167, label %.thread144
-
-167:                                              ; preds = %164
-  %168 = call i32 @clGetDeviceInfo(ptr noundef %141, i32 noundef 16394, i64 noundef 4, ptr noundef nonnull %7, ptr noundef null) #9
-  %169 = icmp eq i32 %168, 0
-  %170 = load i32, ptr %7, align 4
-  %storemerge.i = select i1 %169, i32 %170, i32 0
-  %171 = load i32, ptr %5, align 4
-  %172 = and i32 %171, 255
-  %173 = load i32, ptr %6, align 4
-  %174 = lshr i32 %173, 3
-  %175 = and i32 %173, 7
-  br label %176
-
-.thread144:                                       ; preds = %161, %164
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  br label %178
-
-176:                                              ; preds = %144, %154, %167
-  %.5129.ph = phi i32 [ %storemerge.i, %167 ], [ 0, %154 ], [ %145, %144 ]
-  %.5123.ph = phi i32 [ %172, %167 ], [ %156, %154 ], [ %146, %144 ]
-  %.5.ph = phi i32 [ %174, %167 ], [ %158, %154 ], [ %147, %144 ]
-  %.4.ph = phi i32 [ %175, %167 ], [ %160, %154 ], [ %148, %144 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  %177 = call ptr @hwloc_pci_find_parent_by_busid(ptr noundef %17, i32 noundef %.5129.ph, i32 noundef %.5123.ph, i32 noundef %.5.ph, i32 noundef %.4.ph) #9
-  %.not105 = icmp eq ptr %177, null
-  br i1 %.not105, label %178, label %180
-
-178:                                              ; preds = %.thread144, %176
-  %179 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %17, i32 noundef 0, i32 noundef 0) #12
-  br label %180
-
-180:                                              ; preds = %178, %176
-  %.1 = phi ptr [ %177, %176 ], [ %179, %178 ]
-  call void @hwloc_insert_object_by_parent(ptr noundef %17, ptr noundef %.1, ptr noundef nonnull %70) #9
-  %181 = add i32 %.2160, 1
+150:                                              ; preds = %133
+  %151 = load i32, ptr %4, align 4
+  %152 = load i32, ptr %45, align 4
+  %153 = load i32, ptr %46, align 4
+  %154 = load i32, ptr %47, align 4
   br label %182
 
-182:                                              ; preds = %.lr.ph, %180
-  %.3 = phi i32 [ %.2160, %.lr.ph ], [ %181, %180 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %183 = load i32, ptr %10, align 4
-  %184 = zext i32 %183 to i64
-  %185 = icmp ult i64 %indvars.iv.next, %184
-  br i1 %185, label %.lr.ph, label %.sink.split, !llvm.loop !4
+155:                                              ; preds = %133
+  %156 = call i32 @clGetDeviceInfo(ptr noundef %147, i32 noundef 16439, i64 noundef 24, ptr noundef nonnull %3, ptr noundef null) #9
+  %157 = icmp eq i32 %156, 0
+  %158 = load i32, ptr %3, align 4
+  %159 = icmp eq i32 %158, 1
+  %or.cond.i = select i1 %157, i1 %159, i1 false
+  br i1 %or.cond.i, label %160, label %167
 
-.sink.split:                                      ; preds = %182, %58
-  %.189.ph = phi i32 [ %.088163, %58 ], [ %.3, %182 ]
-  call void @free(ptr noundef nonnull %57) #9
+160:                                              ; preds = %155
+  %161 = load i8, ptr %42, align 1
+  %162 = zext i8 %161 to i32
+  %163 = load i8, ptr %43, align 2
+  %164 = zext i8 %163 to i32
+  %165 = load i8, ptr %44, align 1
+  %166 = zext i8 %165 to i32
+  br label %182
+
+167:                                              ; preds = %155
+  %168 = call i32 @clGetDeviceInfo(ptr noundef %147, i32 noundef 16392, i64 noundef 4, ptr noundef nonnull %5, ptr noundef null) #9
+  %169 = icmp eq i32 %168, 0
+  br i1 %169, label %170, label %.thread144
+
+170:                                              ; preds = %167
+  %171 = call i32 @clGetDeviceInfo(ptr noundef %147, i32 noundef 16393, i64 noundef 4, ptr noundef nonnull %6, ptr noundef null) #9
+  %172 = icmp eq i32 %171, 0
+  br i1 %172, label %173, label %.thread144
+
+173:                                              ; preds = %170
+  %174 = call i32 @clGetDeviceInfo(ptr noundef %147, i32 noundef 16394, i64 noundef 4, ptr noundef nonnull %7, ptr noundef null) #9
+  %175 = icmp eq i32 %174, 0
+  %176 = load i32, ptr %7, align 4
+  %storemerge.i = select i1 %175, i32 %176, i32 0
+  %177 = load i32, ptr %5, align 4
+  %178 = and i32 %177, 255
+  %179 = load i32, ptr %6, align 4
+  %180 = lshr i32 %179, 3
+  %181 = and i32 %179, 7
+  br label %182
+
+.thread144:                                       ; preds = %167, %170
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  br label %184
+
+182:                                              ; preds = %150, %160, %173
+  %.5129.ph = phi i32 [ %storemerge.i, %173 ], [ 0, %160 ], [ %151, %150 ]
+  %.5123.ph = phi i32 [ %178, %173 ], [ %162, %160 ], [ %152, %150 ]
+  %.5.ph = phi i32 [ %180, %173 ], [ %164, %160 ], [ %153, %150 ]
+  %.4.ph = phi i32 [ %181, %173 ], [ %166, %160 ], [ %154, %150 ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  %183 = call ptr @hwloc_pci_find_parent_by_busid(ptr noundef %17, i32 noundef %.5129.ph, i32 noundef %.5123.ph, i32 noundef %.5.ph, i32 noundef %.4.ph) #9
+  %.not105 = icmp eq ptr %183, null
+  br i1 %.not105, label %184, label %186
+
+184:                                              ; preds = %.thread144, %182
+  %185 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %17, i32 noundef 0, i32 noundef 0) #12
   br label %186
 
-186:                                              ; preds = %.sink.split, %53, %49
+186:                                              ; preds = %184, %182
+  %.1 = phi ptr [ %183, %182 ], [ %185, %184 ]
+  call void @hwloc_insert_object_by_parent(ptr noundef %17, ptr noundef %.1, ptr noundef nonnull %70) #9
+  %187 = add i32 %.2160, 1
+  br label %188
+
+188:                                              ; preds = %.lr.ph, %186
+  %.3 = phi i32 [ %.2160, %.lr.ph ], [ %187, %186 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %189 = load i32, ptr %10, align 4
+  %190 = zext i32 %189 to i64
+  %191 = icmp ult i64 %indvars.iv.next, %190
+  br i1 %191, label %.lr.ph, label %.sink.split, !llvm.loop !4
+
+.sink.split:                                      ; preds = %188, %58
+  %.189.ph = phi i32 [ %.088163, %58 ], [ %.3, %188 ]
+  call void @free(ptr noundef nonnull %57) #9
+  br label %192
+
+192:                                              ; preds = %.sink.split, %53, %49
   %.189 = phi i32 [ %.088163, %49 ], [ %.088163, %53 ], [ %.189.ph, %.sink.split ]
   %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
-  %187 = load i32, ptr %9, align 4
-  %188 = zext i32 %187 to i64
-  %189 = icmp ult i64 %indvars.iv.next171, %188
-  br i1 %189, label %49, label %._crit_edge165, !llvm.loop !6
+  %193 = load i32, ptr %9, align 4
+  %194 = zext i32 %193 to i64
+  %195 = icmp ult i64 %indvars.iv.next171, %194
+  br i1 %195, label %49, label %._crit_edge165, !llvm.loop !6
 
-._crit_edge165:                                   ; preds = %186
+._crit_edge165:                                   ; preds = %192
   call void @free(ptr noundef %36) #9
   %.not95 = icmp eq i32 %.189, 0
-  br i1 %.not95, label %193, label %190
+  br i1 %.not95, label %199, label %196
 
-190:                                              ; preds = %._crit_edge165
-  %191 = call ptr @hwloc_topology_get_infos(ptr noundef %17) #9
-  %192 = call i32 @hwloc_modify_infos(ptr noundef %191, i64 noundef 1, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.6) #9
-  br label %193
+196:                                              ; preds = %._crit_edge165
+  %197 = call ptr @hwloc_topology_get_infos(ptr noundef %17) #9
+  %198 = call i32 @hwloc_modify_infos(ptr noundef %197, i64 noundef 1, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.6) #9
+  br label %199
 
-193:                                              ; preds = %._crit_edge165, %190, %33, %27, %30, %26, %26, %2, %48
-  %.086 = phi i32 [ -1, %48 ], [ 0, %2 ], [ -1, %26 ], [ -1, %26 ], [ -1, %30 ], [ -1, %27 ], [ -1, %33 ], [ 0, %190 ], [ 0, %._crit_edge165 ]
+199:                                              ; preds = %._crit_edge165, %196, %33, %27, %30, %26, %26, %2, %48
+  %.086 = phi i32 [ -1, %48 ], [ 0, %2 ], [ -1, %26 ], [ -1, %26 ], [ -1, %30 ], [ -1, %27 ], [ -1, %33 ], [ 0, %196 ], [ 0, %._crit_edge165 ]
   ret i32 %.086
 }
 

@@ -256,8 +256,8 @@ uv__queue_move.exit:                              ; preds = %if.end
   %3 = load ptr, ptr %prev4.i.i, align 8
   store ptr %3, ptr %prev.i4.i, align 8
   store ptr %async_handles, ptr %3, align 8
-  %.pre = load ptr, ptr %queue, align 8
   store ptr %queue, ptr %prev4.i.i, align 8
+  %.pre = load ptr, ptr %queue, align 8
   %cmp.i.not16 = icmp eq ptr %queue, %.pre
   br i1 %cmp.i.not16, label %while.end, label %while.body.lr.ph
 
@@ -376,8 +376,8 @@ uv__queue_move.exit:                              ; preds = %if.end
   %3 = load ptr, ptr %prev4.i.i, align 8
   store ptr %3, ptr %prev.i4.i, align 8
   store ptr %async_handles, ptr %3, align 8
-  %.pre = load ptr, ptr %queue, align 8
   store ptr %queue, ptr %prev4.i.i, align 8
+  %.pre = load ptr, ptr %queue, align 8
   %cmp.i.not17 = icmp eq ptr %queue, %.pre
   br i1 %cmp.i.not17, label %while.end, label %while.body.lr.ph
 
@@ -517,8 +517,8 @@ uv__queue_move.exit:                              ; preds = %for.end
   %4 = load ptr, ptr %prev4.i.i, align 8
   store ptr %4, ptr %prev.i4.i, align 8
   store ptr %async_handles, ptr %4, align 8
-  %.pre = load ptr, ptr %queue, align 8
   store ptr %queue, ptr %prev4.i.i, align 8
+  %.pre = load ptr, ptr %queue, align 8
   %cmp.i.not10 = icmp eq ptr %queue, %.pre
   br i1 %cmp.i.not10, label %while.end, label %while.body.lr.ph
 

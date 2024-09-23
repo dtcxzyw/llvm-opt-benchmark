@@ -512,8 +512,8 @@ uv__queue_move.exit.i:                            ; preds = %while.body
   %10 = load ptr, ptr %prev4.i.i.i, align 8
   store ptr %10, ptr %prev.i4.i.i, align 8
   store ptr %pending_queue, ptr %10, align 8
-  %.pre.i = load ptr, ptr %pq.i, align 8
   store ptr %pq.i, ptr %prev4.i.i.i, align 8
+  %.pre.i = load ptr, ptr %pq.i, align 8
   %cmp.i.not6.i = icmp eq ptr %pq.i, %.pre.i
   br i1 %cmp.i.not6.i, label %uv__run_pending.exit, label %while.body.i
 
@@ -610,8 +610,8 @@ for.body:                                         ; preds = %land.rhs23
   %29 = load ptr, ptr %prev4.i.i.i61, align 8
   store ptr %29, ptr %prev.i4.i.i, align 8
   store ptr %pending_queue, ptr %29, align 8
-  %.pre.i62 = load ptr, ptr %pq.i55, align 8
   store ptr %pq.i55, ptr %prev4.i.i.i61, align 8
+  %.pre.i62 = load ptr, ptr %pq.i55, align 8
   %cmp.i.not6.i63 = icmp eq ptr %pq.i55, %.pre.i62
   br i1 %cmp.i.not6.i63, label %uv__run_pending.exit69, label %while.body.i64
 

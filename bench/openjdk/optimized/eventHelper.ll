@@ -1289,7 +1289,7 @@ commandSize.exit:                                 ; preds = %3, %6
 ._crit_edge:                                      ; preds = %.lr.ph, %commandSize.exit
   tail call void @log_debugee_location(ptr noundef nonnull @.str.32, ptr noundef null, ptr noundef null, i64 noundef 0) #9
   %.b = load i1, ptr @enqueueCommand.vmDeathReported, align 1
-  br i1 %.b, label %30, label %22
+  br i1 %.b, label %33, label %22
 
 22:                                               ; preds = %._crit_edge
   %23 = load i32, ptr @currentQueueSize, align 4
@@ -1297,49 +1297,58 @@ commandSize.exit:                                 ; preds = %3, %6
   store i32 %24, ptr @currentQueueSize, align 4
   %25 = load ptr, ptr @commandQueue.0, align 8
   %26 = icmp eq ptr %25, null
-  %27 = load ptr, ptr @commandQueue.1, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
-  %.sink = select i1 %26, ptr @commandQueue.0, ptr %28
-  store ptr %0, ptr %.sink, align 8
+  br i1 %26, label %27, label %28
+
+27:                                               ; preds = %22
+  store ptr %0, ptr @commandQueue.0, align 8
+  br label %31
+
+28:                                               ; preds = %22
+  %29 = load ptr, ptr @commandQueue.1, align 8
+  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  store ptr %0, ptr %30, align 8
+  br label %31
+
+31:                                               ; preds = %28, %27
   store ptr %0, ptr @commandQueue.1, align 8
   %.not = icmp eq i8 %2, 0
-  br i1 %.not, label %30, label %29
+  br i1 %.not, label %33, label %32
 
-29:                                               ; preds = %22
+32:                                               ; preds = %31
   store i1 true, ptr @enqueueCommand.vmDeathReported, align 1
-  br label %30
+  br label %33
 
-30:                                               ; preds = %._crit_edge, %22, %29
-  %.0 = phi i8 [ %1, %29 ], [ %1, %22 ], [ 0, %._crit_edge ]
-  %31 = load ptr, ptr @commandQueueLock, align 8
-  tail call void @debugMonitorNotifyAll(ptr noundef %31) #9
-  %32 = load ptr, ptr @commandQueueLock, align 8
-  tail call void @debugMonitorExit(ptr noundef %32) #9
+33:                                               ; preds = %._crit_edge, %31, %32
+  %.0 = phi i8 [ %1, %32 ], [ %1, %31 ], [ 0, %._crit_edge ]
+  %34 = load ptr, ptr @commandQueueLock, align 8
+  tail call void @debugMonitorNotifyAll(ptr noundef %34) #9
+  %35 = load ptr, ptr @commandQueueLock, align 8
+  tail call void @debugMonitorExit(ptr noundef %35) #9
   %.not17 = icmp eq i8 %.0, 0
-  br i1 %.not17, label %39, label %33
+  br i1 %.not17, label %42, label %36
 
-33:                                               ; preds = %30
-  %34 = load ptr, ptr @commandCompleteLock, align 8
-  tail call void @debugMonitorEnter(ptr noundef %34) #9
-  %35 = load i8, ptr %11, align 4
-  %.not1819 = icmp eq i8 %35, 0
+36:                                               ; preds = %33
+  %37 = load ptr, ptr @commandCompleteLock, align 8
+  tail call void @debugMonitorEnter(ptr noundef %37) #9
+  %38 = load i8, ptr %11, align 4
+  %.not1819 = icmp eq i8 %38, 0
   br i1 %.not1819, label %.lr.ph21, label %freeCommand.exit
 
-.lr.ph21:                                         ; preds = %33, %.lr.ph21
+.lr.ph21:                                         ; preds = %36, %.lr.ph21
   tail call void @log_debugee_location(ptr noundef nonnull @.str.33, ptr noundef null, ptr noundef null, i64 noundef 0) #9
-  %36 = load ptr, ptr @commandCompleteLock, align 8
-  tail call void @debugMonitorWait(ptr noundef %36) #9
-  %37 = load i8, ptr %11, align 4
-  %.not18 = icmp eq i8 %37, 0
+  %39 = load ptr, ptr @commandCompleteLock, align 8
+  tail call void @debugMonitorWait(ptr noundef %39) #9
+  %40 = load i8, ptr %11, align 4
+  %.not18 = icmp eq i8 %40, 0
   br i1 %.not18, label %.lr.ph21, label %freeCommand.exit, !llvm.loop !13
 
-freeCommand.exit:                                 ; preds = %.lr.ph21, %33
+freeCommand.exit:                                 ; preds = %.lr.ph21, %36
   tail call void @jvmtiDeallocate(ptr noundef nonnull %0) #9
-  %38 = load ptr, ptr @commandCompleteLock, align 8
-  tail call void @debugMonitorExit(ptr noundef %38) #9
-  br label %39
+  %41 = load ptr, ptr @commandCompleteLock, align 8
+  tail call void @debugMonitorExit(ptr noundef %41) #9
+  br label %42
 
-39:                                               ; preds = %freeCommand.exit, %30
+42:                                               ; preds = %freeCommand.exit, %33
   ret void
 }
 

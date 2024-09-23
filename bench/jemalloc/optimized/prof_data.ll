@@ -654,274 +654,275 @@ do.body240.i:                                     ; preds = %land.lhs.true.i
   %81 = ptrtoint ptr %80 to i64
   %and289.i = and i64 %78, 1
   %or290.i = or i64 %and289.i, %81
+  %82 = inttoptr i64 %or290.i to ptr
+  store ptr %82, ptr %rbn_right_red281.i, align 8
+  %83 = load ptr, ptr %pathp.335.i, align 8
+  store ptr %83, ptr %tdata_link284.i, align 8
   br label %do.end327.i
 
 do.body302.i:                                     ; preds = %land.lhs.true.i, %if.then225.i
-  %82 = ptrtoint ptr %61 to i64
-  %or314.i = or i64 %82, 1
+  %84 = ptrtoint ptr %61 to i64
+  %or314.i = or i64 %84, 1
+  %85 = inttoptr i64 %or314.i to ptr
+  store ptr %85, ptr %rbn_right_red222.i, align 8
+  %86 = load ptr, ptr %pathp.335.i, align 8
+  store ptr %86, ptr %tdata_link230.i, align 8
   br label %do.end327.i
 
 do.end327.i:                                      ; preds = %do.body302.i, %do.body240.i
-  %or314.sink.i = phi i64 [ %or314.i, %do.body302.i ], [ %or290.i, %do.body240.i ]
-  %rbn_right_red222.lcssa.sink.i = phi ptr [ %rbn_right_red222.i, %do.body302.i ], [ %rbn_right_red281.i, %do.body240.i ]
-  %tdata_link230.sink.i = phi ptr [ %tdata_link230.i, %do.body302.i ], [ %tdata_link284.i, %do.body240.i ]
-  %tnode.0.i = phi ptr [ %60, %do.body302.i ], [ %79, %do.body240.i ]
-  %83 = inttoptr i64 %or314.sink.i to ptr
-  store ptr %83, ptr %rbn_right_red222.lcssa.sink.i, align 8
-  %84 = load ptr, ptr %pathp.335.i, align 8
-  store ptr %84, ptr %tdata_link230.sink.i, align 8
+  %tnode.0.i = phi ptr [ %79, %do.body240.i ], [ %60, %do.body302.i ]
   %arrayidx328.i = getelementptr inbounds i8, ptr %pathp.335.i, i64 -16
   %cmp329.i = getelementptr inbounds i8, ptr %pathp.335.i, i64 -8
-  %85 = load i32, ptr %cmp329.i, align 8
-  %cmp330.i = icmp slt i32 %85, 0
+  %87 = load i32, ptr %cmp329.i, align 8
+  %cmp330.i = icmp slt i32 %87, 0
   br i1 %cmp330.i, label %do.body333.i, label %do.body340.i
 
 do.body333.i:                                     ; preds = %do.end327.i
-  %86 = load ptr, ptr %arrayidx328.i, align 8
-  %tdata_link336.i = getelementptr inbounds i8, ptr %86, i64 24
+  %88 = load ptr, ptr %arrayidx328.i, align 8
+  %tdata_link336.i = getelementptr inbounds i8, ptr %88, i64 24
   store ptr %tnode.0.i, ptr %tdata_link336.i, align 8
   br label %tdata_tree_remove.exit
 
 do.body340.i:                                     ; preds = %do.end327.i
-  %87 = ptrtoint ptr %tnode.0.i to i64
-  %88 = load ptr, ptr %arrayidx328.i, align 8
-  %rbn_right_red344.i = getelementptr inbounds i8, ptr %88, i64 32
-  %89 = load ptr, ptr %rbn_right_red344.i, align 8
-  %90 = ptrtoint ptr %89 to i64
-  %and345.i = and i64 %90, 1
-  %or346.i = or i64 %and345.i, %87
-  %91 = inttoptr i64 %or346.i to ptr
-  store ptr %91, ptr %rbn_right_red344.i, align 8
+  %89 = ptrtoint ptr %tnode.0.i to i64
+  %90 = load ptr, ptr %arrayidx328.i, align 8
+  %rbn_right_red344.i = getelementptr inbounds i8, ptr %90, i64 32
+  %91 = load ptr, ptr %rbn_right_red344.i, align 8
+  %92 = ptrtoint ptr %91 to i64
+  %and345.i = and i64 %92, 1
+  %or346.i = or i64 %and345.i, %89
+  %93 = inttoptr i64 %or346.i to ptr
+  store ptr %93, ptr %rbn_right_red344.i, align 8
   br label %tdata_tree_remove.exit
 
 if.else355.i:                                     ; preds = %do.body213.i
   %tdata_link362.i = getelementptr inbounds i8, ptr %58, i64 24
-  %92 = load ptr, ptr %tdata_link362.i, align 8
-  %cmp364.not.i = icmp eq ptr %92, null
+  %94 = load ptr, ptr %tdata_link362.i, align 8
+  %cmp364.not.i = icmp eq ptr %94, null
   br i1 %cmp364.not.i, label %do.body469.i, label %land.lhs.true366.i
 
 land.lhs.true366.i:                               ; preds = %if.else355.i
-  %rbn_right_red368.i = getelementptr inbounds i8, ptr %92, i64 32
-  %93 = load ptr, ptr %rbn_right_red368.i, align 8
-  %94 = ptrtoint ptr %93 to i64
-  %and369.i = and i64 %94, 1
+  %rbn_right_red368.i = getelementptr inbounds i8, ptr %94, i64 32
+  %95 = load ptr, ptr %rbn_right_red368.i, align 8
+  %96 = ptrtoint ptr %95 to i64
+  %and369.i = and i64 %96, 1
   %tobool370.not.i = icmp eq i64 %and369.i, 0
   br i1 %tobool370.not.i, label %do.body469.i, label %do.body374.i
 
 do.body374.i:                                     ; preds = %land.lhs.true366.i
   %tdata_link362.i.le = getelementptr inbounds i8, ptr %58, i64 24
-  %rbn_right_red368.i.le = getelementptr inbounds i8, ptr %92, i64 32
-  %and377.i = and i64 %94, -2
-  %95 = inttoptr i64 %and377.i to ptr
-  store ptr %95, ptr %rbn_right_red368.i.le, align 8
-  %96 = load ptr, ptr %tdata_link362.i.le, align 8
-  %rbn_right_red386.i = getelementptr inbounds i8, ptr %96, i64 32
-  %97 = load ptr, ptr %rbn_right_red386.i, align 8
-  %98 = ptrtoint ptr %97 to i64
-  %and387.i = and i64 %98, -2
-  %99 = inttoptr i64 %and387.i to ptr
-  store ptr %99, ptr %tdata_link362.i.le, align 8
-  %100 = load ptr, ptr %rbn_right_red386.i, align 8
-  %101 = ptrtoint ptr %100 to i64
-  %and394.i = and i64 %101, 1
+  %rbn_right_red368.i.le = getelementptr inbounds i8, ptr %94, i64 32
+  %and377.i = and i64 %96, -2
+  %97 = inttoptr i64 %and377.i to ptr
+  store ptr %97, ptr %rbn_right_red368.i.le, align 8
+  %98 = load ptr, ptr %tdata_link362.i.le, align 8
+  %rbn_right_red386.i = getelementptr inbounds i8, ptr %98, i64 32
+  %99 = load ptr, ptr %rbn_right_red386.i, align 8
+  %100 = ptrtoint ptr %99 to i64
+  %and387.i = and i64 %100, -2
+  %101 = inttoptr i64 %and387.i to ptr
+  store ptr %101, ptr %tdata_link362.i.le, align 8
+  %102 = load ptr, ptr %rbn_right_red386.i, align 8
+  %103 = ptrtoint ptr %102 to i64
+  %and394.i = and i64 %103, 1
   %or395.i = or disjoint i64 %and394.i, %59
-  %102 = inttoptr i64 %or395.i to ptr
-  store ptr %102, ptr %rbn_right_red386.i, align 8
-  %103 = ptrtoint ptr %96 to i64
-  %104 = load ptr, ptr %pathp.335.i, align 8
-  %rbn_right_red403.i = getelementptr inbounds i8, ptr %104, i64 32
-  %105 = load ptr, ptr %rbn_right_red403.i, align 8
-  %106 = ptrtoint ptr %105 to i64
-  %and404.i = and i64 %106, 1
-  %or405.i = or i64 %and404.i, %103
-  %107 = inttoptr i64 %or405.i to ptr
-  store ptr %107, ptr %rbn_right_red403.i, align 8
-  %108 = load ptr, ptr %pathp.335.i, align 8
-  %rbn_right_red413.i = getelementptr inbounds i8, ptr %108, i64 32
-  %109 = load ptr, ptr %rbn_right_red413.i, align 8
-  %110 = ptrtoint ptr %109 to i64
-  %and414.i = and i64 %110, -2
-  %111 = inttoptr i64 %and414.i to ptr
-  %tdata_link416.i = getelementptr inbounds i8, ptr %111, i64 24
-  %112 = load ptr, ptr %tdata_link416.i, align 8
-  %113 = ptrtoint ptr %112 to i64
-  %and421.i = and i64 %110, 1
-  %or422.i = or i64 %and421.i, %113
-  %114 = inttoptr i64 %or422.i to ptr
-  store ptr %114, ptr %rbn_right_red413.i, align 8
-  %115 = load ptr, ptr %pathp.335.i, align 8
-  store ptr %115, ptr %tdata_link416.i, align 8
+  %104 = inttoptr i64 %or395.i to ptr
+  store ptr %104, ptr %rbn_right_red386.i, align 8
+  %105 = ptrtoint ptr %98 to i64
+  %106 = load ptr, ptr %pathp.335.i, align 8
+  %rbn_right_red403.i = getelementptr inbounds i8, ptr %106, i64 32
+  %107 = load ptr, ptr %rbn_right_red403.i, align 8
+  %108 = ptrtoint ptr %107 to i64
+  %and404.i = and i64 %108, 1
+  %or405.i = or i64 %and404.i, %105
+  %109 = inttoptr i64 %or405.i to ptr
+  store ptr %109, ptr %rbn_right_red403.i, align 8
+  %110 = load ptr, ptr %pathp.335.i, align 8
+  %rbn_right_red413.i = getelementptr inbounds i8, ptr %110, i64 32
+  %111 = load ptr, ptr %rbn_right_red413.i, align 8
+  %112 = ptrtoint ptr %111 to i64
+  %and414.i = and i64 %112, -2
+  %113 = inttoptr i64 %and414.i to ptr
+  %tdata_link416.i = getelementptr inbounds i8, ptr %113, i64 24
+  %114 = load ptr, ptr %tdata_link416.i, align 8
+  %115 = ptrtoint ptr %114 to i64
+  %and421.i = and i64 %112, 1
+  %or422.i = or i64 %and421.i, %115
+  %116 = inttoptr i64 %or422.i to ptr
+  store ptr %116, ptr %rbn_right_red413.i, align 8
+  %117 = load ptr, ptr %pathp.335.i, align 8
+  store ptr %117, ptr %tdata_link416.i, align 8
   %cmp434.i = icmp eq ptr %pathp.335.i, %path.i
   br i1 %cmp434.i, label %if.then436.i, label %if.else438.i
 
 if.then436.i:                                     ; preds = %do.body374.i
-  store ptr %111, ptr @tdatas, align 8
+  store ptr %113, ptr @tdatas, align 8
   br label %tdata_tree_remove.exit
 
 if.else438.i:                                     ; preds = %do.body374.i
   %arrayidx439.i = getelementptr inbounds i8, ptr %pathp.335.i, i64 -16
   %cmp440.i = getelementptr inbounds i8, ptr %pathp.335.i, i64 -8
-  %116 = load i32, ptr %cmp440.i, align 8
-  %cmp441.i = icmp slt i32 %116, 0
-  %117 = load ptr, ptr %arrayidx439.i, align 8
+  %118 = load i32, ptr %cmp440.i, align 8
+  %cmp441.i = icmp slt i32 %118, 0
+  %119 = load ptr, ptr %arrayidx439.i, align 8
   br i1 %cmp441.i, label %do.body444.i, label %do.body451.i
 
 do.body444.i:                                     ; preds = %if.else438.i
-  %tdata_link447.i = getelementptr inbounds i8, ptr %117, i64 24
-  store ptr %111, ptr %tdata_link447.i, align 8
+  %tdata_link447.i = getelementptr inbounds i8, ptr %119, i64 24
+  store ptr %113, ptr %tdata_link447.i, align 8
   br label %tdata_tree_remove.exit
 
 do.body451.i:                                     ; preds = %if.else438.i
-  %rbn_right_red455.i = getelementptr inbounds i8, ptr %117, i64 32
-  %118 = load ptr, ptr %rbn_right_red455.i, align 8
-  %119 = ptrtoint ptr %118 to i64
-  %and456.i = and i64 %119, 1
+  %rbn_right_red455.i = getelementptr inbounds i8, ptr %119, i64 32
+  %120 = load ptr, ptr %rbn_right_red455.i, align 8
+  %121 = ptrtoint ptr %120 to i64
+  %and456.i = and i64 %121, 1
   %or457.i = or disjoint i64 %and456.i, %and414.i
-  %120 = inttoptr i64 %or457.i to ptr
-  store ptr %120, ptr %rbn_right_red455.i, align 8
+  %122 = inttoptr i64 %or457.i to ptr
+  store ptr %122, ptr %rbn_right_red455.i, align 8
   br label %tdata_tree_remove.exit
 
 do.body469.i:                                     ; preds = %land.lhs.true366.i, %if.else355.i
   %or473.i = or disjoint i64 %59, 1
-  %121 = inttoptr i64 %or473.i to ptr
-  store ptr %121, ptr %rbn_right_red222.i, align 8
-  %122 = load ptr, ptr %pathp.335.i, align 8
-  %rbn_right_red481.i = getelementptr inbounds i8, ptr %122, i64 32
-  %123 = load ptr, ptr %rbn_right_red481.i, align 8
-  %124 = ptrtoint ptr %123 to i64
-  %and482.i = and i64 %124, -2
-  %125 = inttoptr i64 %and482.i to ptr
-  %tdata_link484.i = getelementptr inbounds i8, ptr %125, i64 24
-  %126 = load ptr, ptr %tdata_link484.i, align 8
-  %127 = ptrtoint ptr %126 to i64
-  %and489.i = and i64 %124, 1
-  %or490.i = or i64 %and489.i, %127
-  %128 = inttoptr i64 %or490.i to ptr
-  store ptr %128, ptr %rbn_right_red481.i, align 8
-  %129 = load ptr, ptr %pathp.335.i, align 8
-  store ptr %129, ptr %tdata_link484.i, align 8
-  store ptr %125, ptr %pathp.335.i, align 8
+  %123 = inttoptr i64 %or473.i to ptr
+  store ptr %123, ptr %rbn_right_red222.i, align 8
+  %124 = load ptr, ptr %pathp.335.i, align 8
+  %rbn_right_red481.i = getelementptr inbounds i8, ptr %124, i64 32
+  %125 = load ptr, ptr %rbn_right_red481.i, align 8
+  %126 = ptrtoint ptr %125 to i64
+  %and482.i = and i64 %126, -2
+  %127 = inttoptr i64 %and482.i to ptr
+  %tdata_link484.i = getelementptr inbounds i8, ptr %127, i64 24
+  %128 = load ptr, ptr %tdata_link484.i, align 8
+  %129 = ptrtoint ptr %128 to i64
+  %and489.i = and i64 %126, 1
+  %or490.i = or i64 %and489.i, %129
+  %130 = inttoptr i64 %or490.i to ptr
+  store ptr %130, ptr %rbn_right_red481.i, align 8
+  %131 = load ptr, ptr %pathp.335.i, align 8
+  store ptr %131, ptr %tdata_link484.i, align 8
+  store ptr %127, ptr %pathp.335.i, align 8
   br label %for.inc893.i
 
 do.body506.i:                                     ; preds = %do.end208.i
-  %130 = ptrtoint ptr %55 to i64
-  %131 = load ptr, ptr %pathp.335.i, align 8
-  %rbn_right_red511.i = getelementptr inbounds i8, ptr %131, i64 32
-  %132 = load ptr, ptr %rbn_right_red511.i, align 8
-  %133 = ptrtoint ptr %132 to i64
-  %and512.i = and i64 %133, 1
-  %or513.i = or i64 %and512.i, %130
-  %134 = inttoptr i64 %or513.i to ptr
-  store ptr %134, ptr %rbn_right_red511.i, align 8
-  %135 = load ptr, ptr %pathp.335.i, align 8
-  %tdata_link519.i = getelementptr inbounds i8, ptr %135, i64 24
-  %136 = load ptr, ptr %tdata_link519.i, align 8
-  %tdata_link521.i = getelementptr inbounds i8, ptr %136, i64 24
-  %rbn_right_red522.i = getelementptr inbounds i8, ptr %136, i64 32
-  %137 = load ptr, ptr %rbn_right_red522.i, align 8
-  %138 = ptrtoint ptr %137 to i64
-  %and523.i = and i64 %138, 1
+  %132 = ptrtoint ptr %55 to i64
+  %133 = load ptr, ptr %pathp.335.i, align 8
+  %rbn_right_red511.i = getelementptr inbounds i8, ptr %133, i64 32
+  %134 = load ptr, ptr %rbn_right_red511.i, align 8
+  %135 = ptrtoint ptr %134 to i64
+  %and512.i = and i64 %135, 1
+  %or513.i = or i64 %and512.i, %132
+  %136 = inttoptr i64 %or513.i to ptr
+  store ptr %136, ptr %rbn_right_red511.i, align 8
+  %137 = load ptr, ptr %pathp.335.i, align 8
+  %tdata_link519.i = getelementptr inbounds i8, ptr %137, i64 24
+  %138 = load ptr, ptr %tdata_link519.i, align 8
+  %tdata_link521.i = getelementptr inbounds i8, ptr %138, i64 24
+  %rbn_right_red522.i = getelementptr inbounds i8, ptr %138, i64 32
+  %139 = load ptr, ptr %rbn_right_red522.i, align 8
+  %140 = ptrtoint ptr %139 to i64
+  %and523.i = and i64 %140, 1
   %tobool524.not.i = icmp eq i64 %and523.i, 0
   br i1 %tobool524.not.i, label %if.else693.i, label %if.then525.i
 
 if.then525.i:                                     ; preds = %do.body506.i
-  %and529.i = and i64 %138, -2
-  %139 = inttoptr i64 %and529.i to ptr
-  %tdata_link530.i = getelementptr inbounds i8, ptr %139, i64 24
-  %140 = load ptr, ptr %tdata_link530.i, align 8
-  %cmp532.not.i = icmp eq ptr %140, null
+  %and529.i = and i64 %140, -2
+  %141 = inttoptr i64 %and529.i to ptr
+  %tdata_link530.i = getelementptr inbounds i8, ptr %141, i64 24
+  %142 = load ptr, ptr %tdata_link530.i, align 8
+  %cmp532.not.i = icmp eq ptr %142, null
   br i1 %cmp532.not.i, label %do.body622.i, label %land.lhs.true534.i
 
 land.lhs.true534.i:                               ; preds = %if.then525.i
-  %rbn_right_red536.i = getelementptr inbounds i8, ptr %140, i64 32
-  %141 = load ptr, ptr %rbn_right_red536.i, align 8
-  %142 = ptrtoint ptr %141 to i64
-  %and537.i = and i64 %142, 1
+  %rbn_right_red536.i = getelementptr inbounds i8, ptr %142, i64 32
+  %143 = load ptr, ptr %rbn_right_red536.i, align 8
+  %144 = ptrtoint ptr %143 to i64
+  %and537.i = and i64 %144, 1
   %tobool538.not.i = icmp eq i64 %and537.i, 0
   br i1 %tobool538.not.i, label %do.body622.i, label %do.body541.i
 
 do.body541.i:                                     ; preds = %land.lhs.true534.i
-  %and544.i = and i64 %142, -2
-  %143 = inttoptr i64 %and544.i to ptr
-  store ptr %143, ptr %rbn_right_red536.i, align 8
-  %144 = load ptr, ptr %pathp.335.i, align 8
-  %tdata_link550.i = getelementptr inbounds i8, ptr %144, i64 24
-  %145 = load ptr, ptr %tdata_link550.i, align 8
-  %rbn_right_red554.i = getelementptr inbounds i8, ptr %145, i64 32
-  %146 = load ptr, ptr %rbn_right_red554.i, align 8
-  %147 = ptrtoint ptr %146 to i64
-  %and555.i = and i64 %147, -2
-  %148 = inttoptr i64 %and555.i to ptr
-  store ptr %148, ptr %tdata_link550.i, align 8
-  %149 = load ptr, ptr %pathp.335.i, align 8
-  %150 = ptrtoint ptr %149 to i64
-  %151 = load ptr, ptr %rbn_right_red554.i, align 8
+  %and544.i = and i64 %144, -2
+  %145 = inttoptr i64 %and544.i to ptr
+  store ptr %145, ptr %rbn_right_red536.i, align 8
+  %146 = load ptr, ptr %pathp.335.i, align 8
+  %tdata_link550.i = getelementptr inbounds i8, ptr %146, i64 24
+  %147 = load ptr, ptr %tdata_link550.i, align 8
+  %rbn_right_red554.i = getelementptr inbounds i8, ptr %147, i64 32
+  %148 = load ptr, ptr %rbn_right_red554.i, align 8
+  %149 = ptrtoint ptr %148 to i64
+  %and555.i = and i64 %149, -2
+  %150 = inttoptr i64 %and555.i to ptr
+  store ptr %150, ptr %tdata_link550.i, align 8
+  %151 = load ptr, ptr %pathp.335.i, align 8
   %152 = ptrtoint ptr %151 to i64
-  %and564.i = and i64 %152, 1
-  %or565.i = or i64 %and564.i, %150
-  %153 = inttoptr i64 %or565.i to ptr
-  store ptr %153, ptr %rbn_right_red554.i, align 8
-  %154 = load ptr, ptr %pathp.335.i, align 8
-  %tdata_link572.i = getelementptr inbounds i8, ptr %154, i64 24
-  %155 = load ptr, ptr %tdata_link572.i, align 8
-  %rbn_right_red576.i = getelementptr inbounds i8, ptr %155, i64 32
-  %156 = load ptr, ptr %rbn_right_red576.i, align 8
-  %157 = ptrtoint ptr %156 to i64
-  %and577.i = and i64 %157, -2
-  %158 = inttoptr i64 %and577.i to ptr
-  store ptr %158, ptr %tdata_link572.i, align 8
-  %159 = load ptr, ptr %pathp.335.i, align 8
-  %160 = ptrtoint ptr %159 to i64
-  %161 = load ptr, ptr %rbn_right_red576.i, align 8
+  %153 = load ptr, ptr %rbn_right_red554.i, align 8
+  %154 = ptrtoint ptr %153 to i64
+  %and564.i = and i64 %154, 1
+  %or565.i = or i64 %and564.i, %152
+  %155 = inttoptr i64 %or565.i to ptr
+  store ptr %155, ptr %rbn_right_red554.i, align 8
+  %156 = load ptr, ptr %pathp.335.i, align 8
+  %tdata_link572.i = getelementptr inbounds i8, ptr %156, i64 24
+  %157 = load ptr, ptr %tdata_link572.i, align 8
+  %rbn_right_red576.i = getelementptr inbounds i8, ptr %157, i64 32
+  %158 = load ptr, ptr %rbn_right_red576.i, align 8
+  %159 = ptrtoint ptr %158 to i64
+  %and577.i = and i64 %159, -2
+  %160 = inttoptr i64 %and577.i to ptr
+  store ptr %160, ptr %tdata_link572.i, align 8
+  %161 = load ptr, ptr %pathp.335.i, align 8
   %162 = ptrtoint ptr %161 to i64
-  %and586.i = and i64 %162, 1
-  %or587.i = or i64 %and586.i, %160
-  %163 = inttoptr i64 %or587.i to ptr
-  store ptr %163, ptr %rbn_right_red576.i, align 8
-  %164 = ptrtoint ptr %155 to i64
-  %165 = load ptr, ptr %rbn_right_red554.i, align 8
-  %166 = ptrtoint ptr %165 to i64
-  %and595.i = and i64 %166, 1
-  %or596.i = or i64 %and595.i, %164
-  %167 = inttoptr i64 %or596.i to ptr
-  store ptr %167, ptr %rbn_right_red554.i, align 8
-  %and603.i = and i64 %164, -2
-  %168 = inttoptr i64 %and603.i to ptr
-  %tdata_link605.i = getelementptr inbounds i8, ptr %168, i64 24
-  %169 = load ptr, ptr %tdata_link605.i, align 8
-  %170 = ptrtoint ptr %169 to i64
+  %163 = load ptr, ptr %rbn_right_red576.i, align 8
+  %164 = ptrtoint ptr %163 to i64
+  %and586.i = and i64 %164, 1
+  %or587.i = or i64 %and586.i, %162
+  %165 = inttoptr i64 %or587.i to ptr
+  store ptr %165, ptr %rbn_right_red576.i, align 8
+  %166 = ptrtoint ptr %157 to i64
+  %167 = load ptr, ptr %rbn_right_red554.i, align 8
+  %168 = ptrtoint ptr %167 to i64
+  %and595.i = and i64 %168, 1
+  %or596.i = or i64 %and595.i, %166
+  %169 = inttoptr i64 %or596.i to ptr
+  store ptr %169, ptr %rbn_right_red554.i, align 8
+  %and603.i = and i64 %166, -2
+  %170 = inttoptr i64 %and603.i to ptr
+  %tdata_link605.i = getelementptr inbounds i8, ptr %170, i64 24
+  %171 = load ptr, ptr %tdata_link605.i, align 8
+  %172 = ptrtoint ptr %171 to i64
   %and609.i = and i64 %or596.i, 1
-  %or610.i = or i64 %and609.i, %170
-  %171 = inttoptr i64 %or610.i to ptr
-  store ptr %171, ptr %rbn_right_red554.i, align 8
-  store ptr %145, ptr %tdata_link605.i, align 8
+  %or610.i = or i64 %and609.i, %172
+  %173 = inttoptr i64 %or610.i to ptr
+  store ptr %173, ptr %rbn_right_red554.i, align 8
+  store ptr %147, ptr %tdata_link605.i, align 8
   br label %if.end658.i
 
 do.body622.i:                                     ; preds = %land.lhs.true534.i, %if.then525.i
-  %rbn_right_red624.i = getelementptr inbounds i8, ptr %139, i64 32
-  %172 = load ptr, ptr %rbn_right_red624.i, align 8
-  %173 = ptrtoint ptr %172 to i64
-  %or625.i = or i64 %173, 1
-  %174 = inttoptr i64 %or625.i to ptr
-  store ptr %174, ptr %rbn_right_red624.i, align 8
-  %175 = load ptr, ptr %pathp.335.i, align 8
-  %tdata_link631.i = getelementptr inbounds i8, ptr %175, i64 24
-  %176 = load ptr, ptr %tdata_link631.i, align 8
-  %rbn_right_red635.i = getelementptr inbounds i8, ptr %176, i64 32
-  %177 = load ptr, ptr %rbn_right_red635.i, align 8
-  %178 = ptrtoint ptr %177 to i64
-  %and636.i = and i64 %178, -2
-  %179 = inttoptr i64 %and636.i to ptr
-  store ptr %179, ptr %tdata_link631.i, align 8
-  %180 = load ptr, ptr %pathp.335.i, align 8
-  %181 = ptrtoint ptr %180 to i64
-  %and654.i = and i64 %181, -2
-  %182 = inttoptr i64 %and654.i to ptr
-  store ptr %182, ptr %rbn_right_red635.i, align 8
+  %rbn_right_red624.i = getelementptr inbounds i8, ptr %141, i64 32
+  %174 = load ptr, ptr %rbn_right_red624.i, align 8
+  %175 = ptrtoint ptr %174 to i64
+  %or625.i = or i64 %175, 1
+  %176 = inttoptr i64 %or625.i to ptr
+  store ptr %176, ptr %rbn_right_red624.i, align 8
+  %177 = load ptr, ptr %pathp.335.i, align 8
+  %tdata_link631.i = getelementptr inbounds i8, ptr %177, i64 24
+  %178 = load ptr, ptr %tdata_link631.i, align 8
+  %rbn_right_red635.i = getelementptr inbounds i8, ptr %178, i64 32
+  %179 = load ptr, ptr %rbn_right_red635.i, align 8
+  %180 = ptrtoint ptr %179 to i64
+  %and636.i = and i64 %180, -2
+  %181 = inttoptr i64 %and636.i to ptr
+  store ptr %181, ptr %tdata_link631.i, align 8
+  %182 = load ptr, ptr %pathp.335.i, align 8
+  %183 = ptrtoint ptr %182 to i64
+  %and654.i = and i64 %183, -2
+  %184 = inttoptr i64 %and654.i to ptr
+  store ptr %184, ptr %rbn_right_red635.i, align 8
   br label %if.end658.i
 
 if.end658.i:                                      ; preds = %do.body622.i, %do.body541.i
-  %tnode526.0.i = phi ptr [ %168, %do.body541.i ], [ %176, %do.body622.i ]
+  %tnode526.0.i = phi ptr [ %170, %do.body541.i ], [ %178, %do.body622.i ]
   %cmp660.i = icmp eq ptr %pathp.335.i, %path.i
   br i1 %cmp660.i, label %if.then662.i, label %if.else664.i
 
@@ -932,189 +933,189 @@ if.then662.i:                                     ; preds = %if.end658.i
 if.else664.i:                                     ; preds = %if.end658.i
   %arrayidx665.i = getelementptr inbounds i8, ptr %pathp.335.i, i64 -16
   %cmp666.i = getelementptr inbounds i8, ptr %pathp.335.i, i64 -8
-  %183 = load i32, ptr %cmp666.i, align 8
-  %cmp667.i = icmp slt i32 %183, 0
+  %185 = load i32, ptr %cmp666.i, align 8
+  %cmp667.i = icmp slt i32 %185, 0
   br i1 %cmp667.i, label %do.body670.i, label %do.body677.i
 
 do.body670.i:                                     ; preds = %if.else664.i
-  %184 = load ptr, ptr %arrayidx665.i, align 8
-  %tdata_link673.i = getelementptr inbounds i8, ptr %184, i64 24
+  %186 = load ptr, ptr %arrayidx665.i, align 8
+  %tdata_link673.i = getelementptr inbounds i8, ptr %186, i64 24
   store ptr %tnode526.0.i, ptr %tdata_link673.i, align 8
   br label %tdata_tree_remove.exit
 
 do.body677.i:                                     ; preds = %if.else664.i
-  %185 = ptrtoint ptr %tnode526.0.i to i64
-  %186 = load ptr, ptr %arrayidx665.i, align 8
-  %rbn_right_red681.i = getelementptr inbounds i8, ptr %186, i64 32
-  %187 = load ptr, ptr %rbn_right_red681.i, align 8
-  %188 = ptrtoint ptr %187 to i64
-  %and682.i = and i64 %188, 1
-  %or683.i = or i64 %and682.i, %185
-  %189 = inttoptr i64 %or683.i to ptr
-  store ptr %189, ptr %rbn_right_red681.i, align 8
+  %187 = ptrtoint ptr %tnode526.0.i to i64
+  %188 = load ptr, ptr %arrayidx665.i, align 8
+  %rbn_right_red681.i = getelementptr inbounds i8, ptr %188, i64 32
+  %189 = load ptr, ptr %rbn_right_red681.i, align 8
+  %190 = ptrtoint ptr %189 to i64
+  %and682.i = and i64 %190, 1
+  %or683.i = or i64 %and682.i, %187
+  %191 = inttoptr i64 %or683.i to ptr
+  store ptr %191, ptr %rbn_right_red681.i, align 8
   br label %tdata_tree_remove.exit
 
 if.else693.i:                                     ; preds = %do.body506.i
-  %rbn_right_red696.i = getelementptr inbounds i8, ptr %135, i64 32
-  %190 = load ptr, ptr %rbn_right_red696.i, align 8
-  %191 = ptrtoint ptr %190 to i64
-  %and697.i = and i64 %191, 1
+  %rbn_right_red696.i = getelementptr inbounds i8, ptr %137, i64 32
+  %192 = load ptr, ptr %rbn_right_red696.i, align 8
+  %193 = ptrtoint ptr %192 to i64
+  %and697.i = and i64 %193, 1
   %tobool698.not.i = icmp eq i64 %and697.i, 0
   br i1 %tobool698.not.i, label %if.else804.i, label %if.then699.i
 
 if.then699.i:                                     ; preds = %if.else693.i
-  %rbn_right_red696.i.le = getelementptr inbounds i8, ptr %135, i64 32
-  %192 = load ptr, ptr %tdata_link521.i, align 8
-  %cmp702.not.i = icmp eq ptr %192, null
+  %rbn_right_red696.i.le = getelementptr inbounds i8, ptr %137, i64 32
+  %194 = load ptr, ptr %tdata_link521.i, align 8
+  %cmp702.not.i = icmp eq ptr %194, null
   br i1 %cmp702.not.i, label %do.body787.i, label %land.lhs.true704.i
 
 land.lhs.true704.i:                               ; preds = %if.then699.i
-  %rbn_right_red706.i = getelementptr inbounds i8, ptr %192, i64 32
-  %193 = load ptr, ptr %rbn_right_red706.i, align 8
-  %194 = ptrtoint ptr %193 to i64
-  %and707.i = and i64 %194, 1
+  %rbn_right_red706.i = getelementptr inbounds i8, ptr %194, i64 32
+  %195 = load ptr, ptr %rbn_right_red706.i, align 8
+  %196 = ptrtoint ptr %195 to i64
+  %and707.i = and i64 %196, 1
   %tobool708.not.i = icmp eq i64 %and707.i, 0
   br i1 %tobool708.not.i, label %do.body787.i, label %do.body712.i
 
 do.body712.i:                                     ; preds = %land.lhs.true704.i
-  %and716.i = and i64 %191, -2
-  %195 = inttoptr i64 %and716.i to ptr
-  store ptr %195, ptr %rbn_right_red696.i.le, align 8
-  %196 = load ptr, ptr %rbn_right_red522.i, align 8
-  %197 = ptrtoint ptr %196 to i64
-  %or724.i = or i64 %197, 1
-  %198 = inttoptr i64 %or724.i to ptr
-  store ptr %198, ptr %rbn_right_red522.i, align 8
-  %199 = load ptr, ptr %rbn_right_red706.i, align 8
-  %200 = ptrtoint ptr %199 to i64
-  %and731.i = and i64 %200, -2
-  %201 = inttoptr i64 %and731.i to ptr
-  store ptr %201, ptr %rbn_right_red706.i, align 8
-  %202 = load ptr, ptr %pathp.335.i, align 8
-  %tdata_link737.i = getelementptr inbounds i8, ptr %202, i64 24
-  %203 = load ptr, ptr %tdata_link737.i, align 8
-  %rbn_right_red741.i = getelementptr inbounds i8, ptr %203, i64 32
-  %204 = load ptr, ptr %rbn_right_red741.i, align 8
-  %205 = ptrtoint ptr %204 to i64
-  %and742.i = and i64 %205, -2
-  %206 = inttoptr i64 %and742.i to ptr
-  store ptr %206, ptr %tdata_link737.i, align 8
-  %207 = load ptr, ptr %pathp.335.i, align 8
-  %208 = ptrtoint ptr %207 to i64
-  %209 = load ptr, ptr %rbn_right_red741.i, align 8
+  %and716.i = and i64 %193, -2
+  %197 = inttoptr i64 %and716.i to ptr
+  store ptr %197, ptr %rbn_right_red696.i.le, align 8
+  %198 = load ptr, ptr %rbn_right_red522.i, align 8
+  %199 = ptrtoint ptr %198 to i64
+  %or724.i = or i64 %199, 1
+  %200 = inttoptr i64 %or724.i to ptr
+  store ptr %200, ptr %rbn_right_red522.i, align 8
+  %201 = load ptr, ptr %rbn_right_red706.i, align 8
+  %202 = ptrtoint ptr %201 to i64
+  %and731.i = and i64 %202, -2
+  %203 = inttoptr i64 %and731.i to ptr
+  store ptr %203, ptr %rbn_right_red706.i, align 8
+  %204 = load ptr, ptr %pathp.335.i, align 8
+  %tdata_link737.i = getelementptr inbounds i8, ptr %204, i64 24
+  %205 = load ptr, ptr %tdata_link737.i, align 8
+  %rbn_right_red741.i = getelementptr inbounds i8, ptr %205, i64 32
+  %206 = load ptr, ptr %rbn_right_red741.i, align 8
+  %207 = ptrtoint ptr %206 to i64
+  %and742.i = and i64 %207, -2
+  %208 = inttoptr i64 %and742.i to ptr
+  store ptr %208, ptr %tdata_link737.i, align 8
+  %209 = load ptr, ptr %pathp.335.i, align 8
   %210 = ptrtoint ptr %209 to i64
-  %and751.i = and i64 %210, 1
-  %or752.i = or i64 %and751.i, %208
-  %211 = inttoptr i64 %or752.i to ptr
-  store ptr %211, ptr %rbn_right_red741.i, align 8
+  %211 = load ptr, ptr %rbn_right_red741.i, align 8
+  %212 = ptrtoint ptr %211 to i64
+  %and751.i = and i64 %212, 1
+  %or752.i = or i64 %and751.i, %210
+  %213 = inttoptr i64 %or752.i to ptr
+  store ptr %213, ptr %rbn_right_red741.i, align 8
   %arrayidx759.i = getelementptr inbounds i8, ptr %pathp.335.i, i64 -16
   %cmp760.i = getelementptr inbounds i8, ptr %pathp.335.i, i64 -8
-  %212 = load i32, ptr %cmp760.i, align 8
-  %cmp761.i = icmp slt i32 %212, 0
+  %214 = load i32, ptr %cmp760.i, align 8
+  %cmp761.i = icmp slt i32 %214, 0
   br i1 %cmp761.i, label %do.body764.i, label %do.body771.i
 
 do.body764.i:                                     ; preds = %do.body712.i
-  %213 = load ptr, ptr %arrayidx759.i, align 8
-  %tdata_link767.i = getelementptr inbounds i8, ptr %213, i64 24
-  store ptr %203, ptr %tdata_link767.i, align 8
+  %215 = load ptr, ptr %arrayidx759.i, align 8
+  %tdata_link767.i = getelementptr inbounds i8, ptr %215, i64 24
+  store ptr %205, ptr %tdata_link767.i, align 8
   br label %tdata_tree_remove.exit
 
 do.body771.i:                                     ; preds = %do.body712.i
-  %214 = ptrtoint ptr %203 to i64
-  %215 = load ptr, ptr %arrayidx759.i, align 8
-  %rbn_right_red775.i = getelementptr inbounds i8, ptr %215, i64 32
-  %216 = load ptr, ptr %rbn_right_red775.i, align 8
-  %217 = ptrtoint ptr %216 to i64
-  %and776.i = and i64 %217, 1
-  %or777.i = or i64 %and776.i, %214
-  %218 = inttoptr i64 %or777.i to ptr
-  store ptr %218, ptr %rbn_right_red775.i, align 8
+  %216 = ptrtoint ptr %205 to i64
+  %217 = load ptr, ptr %arrayidx759.i, align 8
+  %rbn_right_red775.i = getelementptr inbounds i8, ptr %217, i64 32
+  %218 = load ptr, ptr %rbn_right_red775.i, align 8
+  %219 = ptrtoint ptr %218 to i64
+  %and776.i = and i64 %219, 1
+  %or777.i = or i64 %and776.i, %216
+  %220 = inttoptr i64 %or777.i to ptr
+  store ptr %220, ptr %rbn_right_red775.i, align 8
   br label %tdata_tree_remove.exit
 
 do.body787.i:                                     ; preds = %land.lhs.true704.i, %if.then699.i
-  %or790.i = or disjoint i64 %138, 1
-  %219 = inttoptr i64 %or790.i to ptr
-  store ptr %219, ptr %rbn_right_red522.i, align 8
-  %220 = load ptr, ptr %pathp.335.i, align 8
-  %rbn_right_red797.i = getelementptr inbounds i8, ptr %220, i64 32
-  %221 = load ptr, ptr %rbn_right_red797.i, align 8
-  %222 = ptrtoint ptr %221 to i64
-  %and798.i = and i64 %222, -2
-  %223 = inttoptr i64 %and798.i to ptr
-  store ptr %223, ptr %rbn_right_red797.i, align 8
+  %or790.i = or disjoint i64 %140, 1
+  %221 = inttoptr i64 %or790.i to ptr
+  store ptr %221, ptr %rbn_right_red522.i, align 8
+  %222 = load ptr, ptr %pathp.335.i, align 8
+  %rbn_right_red797.i = getelementptr inbounds i8, ptr %222, i64 32
+  %223 = load ptr, ptr %rbn_right_red797.i, align 8
+  %224 = ptrtoint ptr %223 to i64
+  %and798.i = and i64 %224, -2
+  %225 = inttoptr i64 %and798.i to ptr
+  store ptr %225, ptr %rbn_right_red797.i, align 8
   br label %tdata_tree_remove.exit
 
 if.else804.i:                                     ; preds = %if.else693.i
-  %224 = load ptr, ptr %tdata_link521.i, align 8
-  %cmp808.not.i = icmp eq ptr %224, null
+  %226 = load ptr, ptr %tdata_link521.i, align 8
+  %cmp808.not.i = icmp eq ptr %226, null
   br i1 %cmp808.not.i, label %do.body882.i, label %land.lhs.true810.i
 
 land.lhs.true810.i:                               ; preds = %if.else804.i
-  %rbn_right_red812.i = getelementptr inbounds i8, ptr %224, i64 32
-  %225 = load ptr, ptr %rbn_right_red812.i, align 8
-  %226 = ptrtoint ptr %225 to i64
-  %and813.i = and i64 %226, 1
+  %rbn_right_red812.i = getelementptr inbounds i8, ptr %226, i64 32
+  %227 = load ptr, ptr %rbn_right_red812.i, align 8
+  %228 = ptrtoint ptr %227 to i64
+  %and813.i = and i64 %228, 1
   %tobool814.not.i = icmp eq i64 %and813.i, 0
   br i1 %tobool814.not.i, label %do.body882.i, label %do.body818.i
 
 do.body818.i:                                     ; preds = %land.lhs.true810.i
-  %rbn_right_red812.i.le = getelementptr inbounds i8, ptr %224, i64 32
-  %and821.i = and i64 %226, -2
-  %227 = inttoptr i64 %and821.i to ptr
-  store ptr %227, ptr %rbn_right_red812.i.le, align 8
-  %228 = load ptr, ptr %pathp.335.i, align 8
-  %tdata_link827.i = getelementptr inbounds i8, ptr %228, i64 24
-  %229 = load ptr, ptr %tdata_link827.i, align 8
-  %rbn_right_red831.i = getelementptr inbounds i8, ptr %229, i64 32
-  %230 = load ptr, ptr %rbn_right_red831.i, align 8
-  %231 = ptrtoint ptr %230 to i64
-  %and832.i = and i64 %231, -2
-  %232 = inttoptr i64 %and832.i to ptr
-  store ptr %232, ptr %tdata_link827.i, align 8
-  %233 = load ptr, ptr %pathp.335.i, align 8
-  %234 = ptrtoint ptr %233 to i64
-  %235 = load ptr, ptr %rbn_right_red831.i, align 8
+  %rbn_right_red812.i.le = getelementptr inbounds i8, ptr %226, i64 32
+  %and821.i = and i64 %228, -2
+  %229 = inttoptr i64 %and821.i to ptr
+  store ptr %229, ptr %rbn_right_red812.i.le, align 8
+  %230 = load ptr, ptr %pathp.335.i, align 8
+  %tdata_link827.i = getelementptr inbounds i8, ptr %230, i64 24
+  %231 = load ptr, ptr %tdata_link827.i, align 8
+  %rbn_right_red831.i = getelementptr inbounds i8, ptr %231, i64 32
+  %232 = load ptr, ptr %rbn_right_red831.i, align 8
+  %233 = ptrtoint ptr %232 to i64
+  %and832.i = and i64 %233, -2
+  %234 = inttoptr i64 %and832.i to ptr
+  store ptr %234, ptr %tdata_link827.i, align 8
+  %235 = load ptr, ptr %pathp.335.i, align 8
   %236 = ptrtoint ptr %235 to i64
-  %and841.i = and i64 %236, 1
-  %or842.i = or i64 %and841.i, %234
-  %237 = inttoptr i64 %or842.i to ptr
-  store ptr %237, ptr %rbn_right_red831.i, align 8
+  %237 = load ptr, ptr %rbn_right_red831.i, align 8
+  %238 = ptrtoint ptr %237 to i64
+  %and841.i = and i64 %238, 1
+  %or842.i = or i64 %and841.i, %236
+  %239 = inttoptr i64 %or842.i to ptr
+  store ptr %239, ptr %rbn_right_red831.i, align 8
   %cmp848.i = icmp eq ptr %pathp.335.i, %path.i
   br i1 %cmp848.i, label %if.then850.i, label %if.else852.i
 
 if.then850.i:                                     ; preds = %do.body818.i
-  store ptr %229, ptr @tdatas, align 8
+  store ptr %231, ptr @tdatas, align 8
   br label %tdata_tree_remove.exit
 
 if.else852.i:                                     ; preds = %do.body818.i
   %arrayidx853.i = getelementptr inbounds i8, ptr %pathp.335.i, i64 -16
   %cmp854.i = getelementptr inbounds i8, ptr %pathp.335.i, i64 -8
-  %238 = load i32, ptr %cmp854.i, align 8
-  %cmp855.i = icmp slt i32 %238, 0
+  %240 = load i32, ptr %cmp854.i, align 8
+  %cmp855.i = icmp slt i32 %240, 0
   br i1 %cmp855.i, label %do.body858.i, label %do.body865.i
 
 do.body858.i:                                     ; preds = %if.else852.i
-  %239 = load ptr, ptr %arrayidx853.i, align 8
-  %tdata_link861.i = getelementptr inbounds i8, ptr %239, i64 24
-  store ptr %229, ptr %tdata_link861.i, align 8
+  %241 = load ptr, ptr %arrayidx853.i, align 8
+  %tdata_link861.i = getelementptr inbounds i8, ptr %241, i64 24
+  store ptr %231, ptr %tdata_link861.i, align 8
   br label %tdata_tree_remove.exit
 
 do.body865.i:                                     ; preds = %if.else852.i
-  %240 = ptrtoint ptr %229 to i64
-  %241 = load ptr, ptr %arrayidx853.i, align 8
-  %rbn_right_red869.i = getelementptr inbounds i8, ptr %241, i64 32
-  %242 = load ptr, ptr %rbn_right_red869.i, align 8
-  %243 = ptrtoint ptr %242 to i64
-  %and870.i = and i64 %243, 1
-  %or871.i = or i64 %and870.i, %240
-  %244 = inttoptr i64 %or871.i to ptr
-  store ptr %244, ptr %rbn_right_red869.i, align 8
+  %242 = ptrtoint ptr %231 to i64
+  %243 = load ptr, ptr %arrayidx853.i, align 8
+  %rbn_right_red869.i = getelementptr inbounds i8, ptr %243, i64 32
+  %244 = load ptr, ptr %rbn_right_red869.i, align 8
+  %245 = ptrtoint ptr %244 to i64
+  %and870.i = and i64 %245, 1
+  %or871.i = or i64 %and870.i, %242
+  %246 = inttoptr i64 %or871.i to ptr
+  store ptr %246, ptr %rbn_right_red869.i, align 8
   br label %tdata_tree_remove.exit
 
 do.body882.i:                                     ; preds = %land.lhs.true810.i, %if.else804.i
-  %or885.i = or disjoint i64 %138, 1
-  %245 = inttoptr i64 %or885.i to ptr
-  store ptr %245, ptr %rbn_right_red522.i, align 8
+  %or885.i = or disjoint i64 %140, 1
+  %247 = inttoptr i64 %or885.i to ptr
+  store ptr %247, ptr %rbn_right_red522.i, align 8
   br label %for.inc893.i
 
 for.inc893.i:                                     ; preds = %do.body882.i, %do.body469.i
@@ -1123,8 +1124,8 @@ for.inc893.i:                                     ; preds = %do.body882.i, %do.b
   br i1 %cmp204.not.i, label %for.end895.i, label %do.end208.i, !llvm.loop !8
 
 for.end895.i:                                     ; preds = %for.inc893.i, %if.end199.i
-  %246 = load ptr, ptr %path.i, align 16
-  store ptr %246, ptr @tdatas, align 8
+  %248 = load ptr, ptr %path.i, align 16
+  store ptr %248, ptr @tdatas, align 8
   br label %tdata_tree_remove.exit
 
 tdata_tree_remove.exit:                           ; preds = %if.then143.i, %do.body151.i, %do.body158.i, %if.then178.i, %do.body191.i, %do.body333.i, %do.body340.i, %if.then436.i, %do.body444.i, %do.body451.i, %if.then662.i, %do.body670.i, %do.body677.i, %do.body764.i, %do.body771.i, %do.body787.i, %if.then850.i, %do.body858.i, %do.body865.i, %for.end895.i
@@ -1132,42 +1133,42 @@ tdata_tree_remove.exit:                           ; preds = %if.then143.i, %do.b
   %bt2tctx = getelementptr inbounds i8, ptr %tdata, i64 48
   call void @ckh_delete(ptr noundef %tsd, ptr noundef nonnull %bt2tctx) #11
   %cmp.i10 = icmp eq ptr %tsd, null
-  %247 = ptrtoint ptr %tdata to i64
+  %249 = ptrtoint ptr %tdata to i64
   br i1 %cmp.i10, label %if.then.i.i, label %if.end.i.i.split
 
 if.then.i.i:                                      ; preds = %tdata_tree_remove.exit
   call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i) #11
-  call fastcc void @rtree_read(ptr noalias align 8 %tmp.i, ptr noundef null, ptr noundef %rtree_ctx_fallback.i, i64 noundef %247)
-  %248 = load ptr, ptr %tmp.i, align 8
-  %.val124 = load i64, ptr %248, align 8
+  call fastcc void @rtree_read(ptr noalias align 8 %tmp.i, ptr noundef null, ptr noundef %rtree_ctx_fallback.i, i64 noundef %249)
+  %250 = load ptr, ptr %tmp.i, align 8
+  %.val124 = load i64, ptr %250, align 8
   %conv.i125 = and i64 %.val124, 4095
   %arrayidx.i127 = getelementptr inbounds [0 x %struct.atomic_p_t], ptr @arenas, i64 0, i64 %conv.i125
-  %249 = load atomic i64, ptr %arrayidx.i127 monotonic, align 8
+  %251 = load atomic i64, ptr %arrayidx.i127 monotonic, align 8
   call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i56) #11
-  %call1.i58120 = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef null, ptr noundef %rtree_ctx_fallback.i56, i64 noundef %247)
+  %call1.i58120 = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef null, ptr noundef %rtree_ctx_fallback.i56, i64 noundef %249)
   br label %emap_alloc_ctx_lookup.exit
 
 if.end.i.i.split:                                 ; preds = %tdata_tree_remove.exit
   %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i = getelementptr inbounds i8, ptr %tsd, i64 440
-  call fastcc void @rtree_read(ptr noalias align 8 %tmp.i, ptr noundef nonnull %tsd, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i, i64 noundef %247)
-  %250 = load ptr, ptr %tmp.i, align 8
-  %.val = load i64, ptr %250, align 8
+  call fastcc void @rtree_read(ptr noalias align 8 %tmp.i, ptr noundef nonnull %tsd, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i, i64 noundef %249)
+  %252 = load ptr, ptr %tmp.i, align 8
+  %.val = load i64, ptr %252, align 8
   %conv.i = and i64 %.val, 4095
   %arrayidx.i = getelementptr inbounds [0 x %struct.atomic_p_t], ptr @arenas, i64 0, i64 %conv.i
-  %251 = load atomic i64, ptr %arrayidx.i monotonic, align 8
-  %call1.i58121 = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef nonnull %tsd, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i, i64 noundef %247)
+  %253 = load atomic i64, ptr %arrayidx.i monotonic, align 8
+  %call1.i58121 = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef nonnull %tsd, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i, i64 noundef %249)
   br label %emap_alloc_ctx_lookup.exit
 
 emap_alloc_ctx_lookup.exit:                       ; preds = %if.end.i.i.split, %if.then.i.i
-  %.in = phi i64 [ %249, %if.then.i.i ], [ %251, %if.end.i.i.split ]
+  %.in = phi i64 [ %251, %if.then.i.i ], [ %253, %if.end.i.i.split ]
   %phi.call = phi { i64, i32 } [ %call1.i58120, %if.then.i.i ], [ %call1.i58121, %if.end.i.i.split ]
-  %252 = inttoptr i64 %.in to ptr
+  %254 = inttoptr i64 %.in to ptr
   %call1.i58.fca.0.extract = extractvalue { i64, i32 } %phi.call, 0
   %idxprom.i.i = and i64 %call1.i58.fca.0.extract, 4294967295
   %arrayidx.i.i = getelementptr inbounds [232 x i64], ptr @sz_index2size_tab, i64 0, i64 %idxprom.i.i
-  %253 = load i64, ptr %arrayidx.i.i, align 8
-  %internal.i = getelementptr inbounds i8, ptr %252, i64 72
-  %254 = atomicrmw sub ptr %internal.i, i64 %253 monotonic, align 8
+  %255 = load i64, ptr %arrayidx.i.i, align 8
+  %internal.i = getelementptr inbounds i8, ptr %254, i64 72
+  %256 = atomicrmw sub ptr %internal.i, i64 %255 monotonic, align 8
   call fastcc void @arena_dalloc_no_tcache(ptr noundef %tsd, ptr noundef nonnull %tdata)
   ret void
 }
@@ -1622,274 +1623,275 @@ do.body240.i.i:                                   ; preds = %land.lhs.true.i.i
   %100 = ptrtoint ptr %99 to i64
   %and289.i.i = and i64 %97, 1
   %or290.i.i = or i64 %and289.i.i, %100
+  %101 = inttoptr i64 %or290.i.i to ptr
+  store ptr %101, ptr %rbn_right_red281.i.i, align 8
+  %102 = load ptr, ptr %pathp.3282.i.i, align 8
+  store ptr %102, ptr %tctx_link284.i.i, align 8
   br label %do.end327.i.i
 
 do.body302.i.i:                                   ; preds = %land.lhs.true.i.i, %if.then225.i.i
-  %101 = ptrtoint ptr %80 to i64
-  %or314.i.i = or i64 %101, 1
+  %103 = ptrtoint ptr %80 to i64
+  %or314.i.i = or i64 %103, 1
+  %104 = inttoptr i64 %or314.i.i to ptr
+  store ptr %104, ptr %rbn_right_red222.i.i, align 8
+  %105 = load ptr, ptr %pathp.3282.i.i, align 8
+  store ptr %105, ptr %tctx_link230.i.i, align 8
   br label %do.end327.i.i
 
 do.end327.i.i:                                    ; preds = %do.body302.i.i, %do.body240.i.i
-  %or314.sink.i.i = phi i64 [ %or314.i.i, %do.body302.i.i ], [ %or290.i.i, %do.body240.i.i ]
-  %rbn_right_red222.lcssa.sink.i.i = phi ptr [ %rbn_right_red222.i.i, %do.body302.i.i ], [ %rbn_right_red281.i.i, %do.body240.i.i ]
-  %tctx_link230.sink.i.i = phi ptr [ %tctx_link230.i.i, %do.body302.i.i ], [ %tctx_link284.i.i, %do.body240.i.i ]
-  %tnode.0.i.i = phi ptr [ %79, %do.body302.i.i ], [ %98, %do.body240.i.i ]
-  %102 = inttoptr i64 %or314.sink.i.i to ptr
-  store ptr %102, ptr %rbn_right_red222.lcssa.sink.i.i, align 8
-  %103 = load ptr, ptr %pathp.3282.i.i, align 8
-  store ptr %103, ptr %tctx_link230.sink.i.i, align 8
+  %tnode.0.i.i = phi ptr [ %98, %do.body240.i.i ], [ %79, %do.body302.i.i ]
   %arrayidx328.i.i = getelementptr inbounds i8, ptr %pathp.3282.i.i, i64 -16
   %cmp329.i.i = getelementptr inbounds i8, ptr %pathp.3282.i.i, i64 -8
-  %104 = load i32, ptr %cmp329.i.i, align 8
-  %cmp330.i.i = icmp slt i32 %104, 0
+  %106 = load i32, ptr %cmp329.i.i, align 8
+  %cmp330.i.i = icmp slt i32 %106, 0
   br i1 %cmp330.i.i, label %do.body333.i.i, label %do.body340.i.i
 
 do.body333.i.i:                                   ; preds = %do.end327.i.i
-  %105 = load ptr, ptr %arrayidx328.i.i, align 8
-  %tctx_link336.i.i = getelementptr inbounds i8, ptr %105, i64 112
+  %107 = load ptr, ptr %arrayidx328.i.i, align 8
+  %tctx_link336.i.i = getelementptr inbounds i8, ptr %107, i64 112
   store ptr %tnode.0.i.i, ptr %tctx_link336.i.i, align 8
   br label %tctx_tree_remove.exit.i
 
 do.body340.i.i:                                   ; preds = %do.end327.i.i
-  %106 = ptrtoint ptr %tnode.0.i.i to i64
-  %107 = load ptr, ptr %arrayidx328.i.i, align 8
-  %rbn_right_red344.i.i = getelementptr inbounds i8, ptr %107, i64 120
-  %108 = load ptr, ptr %rbn_right_red344.i.i, align 8
-  %109 = ptrtoint ptr %108 to i64
-  %and345.i.i = and i64 %109, 1
-  %or346.i.i = or i64 %and345.i.i, %106
-  %110 = inttoptr i64 %or346.i.i to ptr
-  store ptr %110, ptr %rbn_right_red344.i.i, align 8
+  %108 = ptrtoint ptr %tnode.0.i.i to i64
+  %109 = load ptr, ptr %arrayidx328.i.i, align 8
+  %rbn_right_red344.i.i = getelementptr inbounds i8, ptr %109, i64 120
+  %110 = load ptr, ptr %rbn_right_red344.i.i, align 8
+  %111 = ptrtoint ptr %110 to i64
+  %and345.i.i = and i64 %111, 1
+  %or346.i.i = or i64 %and345.i.i, %108
+  %112 = inttoptr i64 %or346.i.i to ptr
+  store ptr %112, ptr %rbn_right_red344.i.i, align 8
   br label %tctx_tree_remove.exit.i
 
 if.else355.i.i:                                   ; preds = %do.body213.i.i
   %tctx_link362.i.i = getelementptr inbounds i8, ptr %77, i64 112
-  %111 = load ptr, ptr %tctx_link362.i.i, align 8
-  %cmp364.not.i.i = icmp eq ptr %111, null
+  %113 = load ptr, ptr %tctx_link362.i.i, align 8
+  %cmp364.not.i.i = icmp eq ptr %113, null
   br i1 %cmp364.not.i.i, label %do.body469.i.i, label %land.lhs.true366.i.i
 
 land.lhs.true366.i.i:                             ; preds = %if.else355.i.i
-  %rbn_right_red368.i.i = getelementptr inbounds i8, ptr %111, i64 120
-  %112 = load ptr, ptr %rbn_right_red368.i.i, align 8
-  %113 = ptrtoint ptr %112 to i64
-  %and369.i.i = and i64 %113, 1
+  %rbn_right_red368.i.i = getelementptr inbounds i8, ptr %113, i64 120
+  %114 = load ptr, ptr %rbn_right_red368.i.i, align 8
+  %115 = ptrtoint ptr %114 to i64
+  %and369.i.i = and i64 %115, 1
   %tobool370.not.i.i = icmp eq i64 %and369.i.i, 0
   br i1 %tobool370.not.i.i, label %do.body469.i.i, label %do.body374.i.i
 
 do.body374.i.i:                                   ; preds = %land.lhs.true366.i.i
   %tctx_link362.i.i.le = getelementptr inbounds i8, ptr %77, i64 112
-  %rbn_right_red368.i.i.le = getelementptr inbounds i8, ptr %111, i64 120
-  %and377.i.i = and i64 %113, -2
-  %114 = inttoptr i64 %and377.i.i to ptr
-  store ptr %114, ptr %rbn_right_red368.i.i.le, align 8
-  %115 = load ptr, ptr %tctx_link362.i.i.le, align 8
-  %rbn_right_red386.i.i = getelementptr inbounds i8, ptr %115, i64 120
-  %116 = load ptr, ptr %rbn_right_red386.i.i, align 8
-  %117 = ptrtoint ptr %116 to i64
-  %and387.i.i = and i64 %117, -2
-  %118 = inttoptr i64 %and387.i.i to ptr
-  store ptr %118, ptr %tctx_link362.i.i.le, align 8
-  %119 = load ptr, ptr %rbn_right_red386.i.i, align 8
-  %120 = ptrtoint ptr %119 to i64
-  %and394.i.i = and i64 %120, 1
+  %rbn_right_red368.i.i.le = getelementptr inbounds i8, ptr %113, i64 120
+  %and377.i.i = and i64 %115, -2
+  %116 = inttoptr i64 %and377.i.i to ptr
+  store ptr %116, ptr %rbn_right_red368.i.i.le, align 8
+  %117 = load ptr, ptr %tctx_link362.i.i.le, align 8
+  %rbn_right_red386.i.i = getelementptr inbounds i8, ptr %117, i64 120
+  %118 = load ptr, ptr %rbn_right_red386.i.i, align 8
+  %119 = ptrtoint ptr %118 to i64
+  %and387.i.i = and i64 %119, -2
+  %120 = inttoptr i64 %and387.i.i to ptr
+  store ptr %120, ptr %tctx_link362.i.i.le, align 8
+  %121 = load ptr, ptr %rbn_right_red386.i.i, align 8
+  %122 = ptrtoint ptr %121 to i64
+  %and394.i.i = and i64 %122, 1
   %or395.i.i = or disjoint i64 %and394.i.i, %78
-  %121 = inttoptr i64 %or395.i.i to ptr
-  store ptr %121, ptr %rbn_right_red386.i.i, align 8
-  %122 = ptrtoint ptr %115 to i64
-  %123 = load ptr, ptr %pathp.3282.i.i, align 8
-  %rbn_right_red403.i.i = getelementptr inbounds i8, ptr %123, i64 120
-  %124 = load ptr, ptr %rbn_right_red403.i.i, align 8
-  %125 = ptrtoint ptr %124 to i64
-  %and404.i.i = and i64 %125, 1
-  %or405.i.i = or i64 %and404.i.i, %122
-  %126 = inttoptr i64 %or405.i.i to ptr
-  store ptr %126, ptr %rbn_right_red403.i.i, align 8
-  %127 = load ptr, ptr %pathp.3282.i.i, align 8
-  %rbn_right_red413.i.i = getelementptr inbounds i8, ptr %127, i64 120
-  %128 = load ptr, ptr %rbn_right_red413.i.i, align 8
-  %129 = ptrtoint ptr %128 to i64
-  %and414.i.i = and i64 %129, -2
-  %130 = inttoptr i64 %and414.i.i to ptr
-  %tctx_link416.i.i = getelementptr inbounds i8, ptr %130, i64 112
-  %131 = load ptr, ptr %tctx_link416.i.i, align 8
-  %132 = ptrtoint ptr %131 to i64
-  %and421.i.i = and i64 %129, 1
-  %or422.i.i = or i64 %and421.i.i, %132
-  %133 = inttoptr i64 %or422.i.i to ptr
-  store ptr %133, ptr %rbn_right_red413.i.i, align 8
-  %134 = load ptr, ptr %pathp.3282.i.i, align 8
-  store ptr %134, ptr %tctx_link416.i.i, align 8
+  %123 = inttoptr i64 %or395.i.i to ptr
+  store ptr %123, ptr %rbn_right_red386.i.i, align 8
+  %124 = ptrtoint ptr %117 to i64
+  %125 = load ptr, ptr %pathp.3282.i.i, align 8
+  %rbn_right_red403.i.i = getelementptr inbounds i8, ptr %125, i64 120
+  %126 = load ptr, ptr %rbn_right_red403.i.i, align 8
+  %127 = ptrtoint ptr %126 to i64
+  %and404.i.i = and i64 %127, 1
+  %or405.i.i = or i64 %and404.i.i, %124
+  %128 = inttoptr i64 %or405.i.i to ptr
+  store ptr %128, ptr %rbn_right_red403.i.i, align 8
+  %129 = load ptr, ptr %pathp.3282.i.i, align 8
+  %rbn_right_red413.i.i = getelementptr inbounds i8, ptr %129, i64 120
+  %130 = load ptr, ptr %rbn_right_red413.i.i, align 8
+  %131 = ptrtoint ptr %130 to i64
+  %and414.i.i = and i64 %131, -2
+  %132 = inttoptr i64 %and414.i.i to ptr
+  %tctx_link416.i.i = getelementptr inbounds i8, ptr %132, i64 112
+  %133 = load ptr, ptr %tctx_link416.i.i, align 8
+  %134 = ptrtoint ptr %133 to i64
+  %and421.i.i = and i64 %131, 1
+  %or422.i.i = or i64 %and421.i.i, %134
+  %135 = inttoptr i64 %or422.i.i to ptr
+  store ptr %135, ptr %rbn_right_red413.i.i, align 8
+  %136 = load ptr, ptr %pathp.3282.i.i, align 8
+  store ptr %136, ptr %tctx_link416.i.i, align 8
   %cmp434.i.i = icmp eq ptr %pathp.3282.i.i, %path.i.i
   br i1 %cmp434.i.i, label %if.then436.i.i, label %if.else438.i.i
 
 if.then436.i.i:                                   ; preds = %do.body374.i.i
-  store ptr %130, ptr %tctxs.i, align 8
+  store ptr %132, ptr %tctxs.i, align 8
   br label %tctx_tree_remove.exit.i
 
 if.else438.i.i:                                   ; preds = %do.body374.i.i
   %arrayidx439.i.i = getelementptr inbounds i8, ptr %pathp.3282.i.i, i64 -16
   %cmp440.i.i = getelementptr inbounds i8, ptr %pathp.3282.i.i, i64 -8
-  %135 = load i32, ptr %cmp440.i.i, align 8
-  %cmp441.i.i = icmp slt i32 %135, 0
-  %136 = load ptr, ptr %arrayidx439.i.i, align 8
+  %137 = load i32, ptr %cmp440.i.i, align 8
+  %cmp441.i.i = icmp slt i32 %137, 0
+  %138 = load ptr, ptr %arrayidx439.i.i, align 8
   br i1 %cmp441.i.i, label %do.body444.i.i, label %do.body451.i.i
 
 do.body444.i.i:                                   ; preds = %if.else438.i.i
-  %tctx_link447.i.i = getelementptr inbounds i8, ptr %136, i64 112
-  store ptr %130, ptr %tctx_link447.i.i, align 8
+  %tctx_link447.i.i = getelementptr inbounds i8, ptr %138, i64 112
+  store ptr %132, ptr %tctx_link447.i.i, align 8
   br label %tctx_tree_remove.exit.i
 
 do.body451.i.i:                                   ; preds = %if.else438.i.i
-  %rbn_right_red455.i.i = getelementptr inbounds i8, ptr %136, i64 120
-  %137 = load ptr, ptr %rbn_right_red455.i.i, align 8
-  %138 = ptrtoint ptr %137 to i64
-  %and456.i.i = and i64 %138, 1
+  %rbn_right_red455.i.i = getelementptr inbounds i8, ptr %138, i64 120
+  %139 = load ptr, ptr %rbn_right_red455.i.i, align 8
+  %140 = ptrtoint ptr %139 to i64
+  %and456.i.i = and i64 %140, 1
   %or457.i.i = or disjoint i64 %and456.i.i, %and414.i.i
-  %139 = inttoptr i64 %or457.i.i to ptr
-  store ptr %139, ptr %rbn_right_red455.i.i, align 8
+  %141 = inttoptr i64 %or457.i.i to ptr
+  store ptr %141, ptr %rbn_right_red455.i.i, align 8
   br label %tctx_tree_remove.exit.i
 
 do.body469.i.i:                                   ; preds = %land.lhs.true366.i.i, %if.else355.i.i
   %or473.i.i = or disjoint i64 %78, 1
-  %140 = inttoptr i64 %or473.i.i to ptr
-  store ptr %140, ptr %rbn_right_red222.i.i, align 8
-  %141 = load ptr, ptr %pathp.3282.i.i, align 8
-  %rbn_right_red481.i.i = getelementptr inbounds i8, ptr %141, i64 120
-  %142 = load ptr, ptr %rbn_right_red481.i.i, align 8
-  %143 = ptrtoint ptr %142 to i64
-  %and482.i.i = and i64 %143, -2
-  %144 = inttoptr i64 %and482.i.i to ptr
-  %tctx_link484.i.i = getelementptr inbounds i8, ptr %144, i64 112
-  %145 = load ptr, ptr %tctx_link484.i.i, align 8
-  %146 = ptrtoint ptr %145 to i64
-  %and489.i.i = and i64 %143, 1
-  %or490.i.i = or i64 %and489.i.i, %146
-  %147 = inttoptr i64 %or490.i.i to ptr
-  store ptr %147, ptr %rbn_right_red481.i.i, align 8
-  %148 = load ptr, ptr %pathp.3282.i.i, align 8
-  store ptr %148, ptr %tctx_link484.i.i, align 8
-  store ptr %144, ptr %pathp.3282.i.i, align 8
+  %142 = inttoptr i64 %or473.i.i to ptr
+  store ptr %142, ptr %rbn_right_red222.i.i, align 8
+  %143 = load ptr, ptr %pathp.3282.i.i, align 8
+  %rbn_right_red481.i.i = getelementptr inbounds i8, ptr %143, i64 120
+  %144 = load ptr, ptr %rbn_right_red481.i.i, align 8
+  %145 = ptrtoint ptr %144 to i64
+  %and482.i.i = and i64 %145, -2
+  %146 = inttoptr i64 %and482.i.i to ptr
+  %tctx_link484.i.i = getelementptr inbounds i8, ptr %146, i64 112
+  %147 = load ptr, ptr %tctx_link484.i.i, align 8
+  %148 = ptrtoint ptr %147 to i64
+  %and489.i.i = and i64 %145, 1
+  %or490.i.i = or i64 %and489.i.i, %148
+  %149 = inttoptr i64 %or490.i.i to ptr
+  store ptr %149, ptr %rbn_right_red481.i.i, align 8
+  %150 = load ptr, ptr %pathp.3282.i.i, align 8
+  store ptr %150, ptr %tctx_link484.i.i, align 8
+  store ptr %146, ptr %pathp.3282.i.i, align 8
   br label %for.inc893.i.i
 
 do.body506.i.i:                                   ; preds = %do.end208.i.i
-  %149 = ptrtoint ptr %74 to i64
-  %150 = load ptr, ptr %pathp.3282.i.i, align 8
-  %rbn_right_red511.i.i = getelementptr inbounds i8, ptr %150, i64 120
-  %151 = load ptr, ptr %rbn_right_red511.i.i, align 8
-  %152 = ptrtoint ptr %151 to i64
-  %and512.i.i = and i64 %152, 1
-  %or513.i.i = or i64 %and512.i.i, %149
-  %153 = inttoptr i64 %or513.i.i to ptr
-  store ptr %153, ptr %rbn_right_red511.i.i, align 8
-  %154 = load ptr, ptr %pathp.3282.i.i, align 8
-  %tctx_link519.i.i = getelementptr inbounds i8, ptr %154, i64 112
-  %155 = load ptr, ptr %tctx_link519.i.i, align 8
-  %tctx_link521.i.i = getelementptr inbounds i8, ptr %155, i64 112
-  %rbn_right_red522.i.i = getelementptr inbounds i8, ptr %155, i64 120
-  %156 = load ptr, ptr %rbn_right_red522.i.i, align 8
-  %157 = ptrtoint ptr %156 to i64
-  %and523.i.i = and i64 %157, 1
+  %151 = ptrtoint ptr %74 to i64
+  %152 = load ptr, ptr %pathp.3282.i.i, align 8
+  %rbn_right_red511.i.i = getelementptr inbounds i8, ptr %152, i64 120
+  %153 = load ptr, ptr %rbn_right_red511.i.i, align 8
+  %154 = ptrtoint ptr %153 to i64
+  %and512.i.i = and i64 %154, 1
+  %or513.i.i = or i64 %and512.i.i, %151
+  %155 = inttoptr i64 %or513.i.i to ptr
+  store ptr %155, ptr %rbn_right_red511.i.i, align 8
+  %156 = load ptr, ptr %pathp.3282.i.i, align 8
+  %tctx_link519.i.i = getelementptr inbounds i8, ptr %156, i64 112
+  %157 = load ptr, ptr %tctx_link519.i.i, align 8
+  %tctx_link521.i.i = getelementptr inbounds i8, ptr %157, i64 112
+  %rbn_right_red522.i.i = getelementptr inbounds i8, ptr %157, i64 120
+  %158 = load ptr, ptr %rbn_right_red522.i.i, align 8
+  %159 = ptrtoint ptr %158 to i64
+  %and523.i.i = and i64 %159, 1
   %tobool524.not.i.i = icmp eq i64 %and523.i.i, 0
   br i1 %tobool524.not.i.i, label %if.else693.i.i, label %if.then525.i.i
 
 if.then525.i.i:                                   ; preds = %do.body506.i.i
-  %and529.i.i = and i64 %157, -2
-  %158 = inttoptr i64 %and529.i.i to ptr
-  %tctx_link530.i.i = getelementptr inbounds i8, ptr %158, i64 112
-  %159 = load ptr, ptr %tctx_link530.i.i, align 8
-  %cmp532.not.i.i = icmp eq ptr %159, null
+  %and529.i.i = and i64 %159, -2
+  %160 = inttoptr i64 %and529.i.i to ptr
+  %tctx_link530.i.i = getelementptr inbounds i8, ptr %160, i64 112
+  %161 = load ptr, ptr %tctx_link530.i.i, align 8
+  %cmp532.not.i.i = icmp eq ptr %161, null
   br i1 %cmp532.not.i.i, label %do.body622.i.i, label %land.lhs.true534.i.i
 
 land.lhs.true534.i.i:                             ; preds = %if.then525.i.i
-  %rbn_right_red536.i.i = getelementptr inbounds i8, ptr %159, i64 120
-  %160 = load ptr, ptr %rbn_right_red536.i.i, align 8
-  %161 = ptrtoint ptr %160 to i64
-  %and537.i.i = and i64 %161, 1
+  %rbn_right_red536.i.i = getelementptr inbounds i8, ptr %161, i64 120
+  %162 = load ptr, ptr %rbn_right_red536.i.i, align 8
+  %163 = ptrtoint ptr %162 to i64
+  %and537.i.i = and i64 %163, 1
   %tobool538.not.i.i = icmp eq i64 %and537.i.i, 0
   br i1 %tobool538.not.i.i, label %do.body622.i.i, label %do.body541.i.i
 
 do.body541.i.i:                                   ; preds = %land.lhs.true534.i.i
-  %and544.i.i = and i64 %161, -2
-  %162 = inttoptr i64 %and544.i.i to ptr
-  store ptr %162, ptr %rbn_right_red536.i.i, align 8
-  %163 = load ptr, ptr %pathp.3282.i.i, align 8
-  %tctx_link550.i.i = getelementptr inbounds i8, ptr %163, i64 112
-  %164 = load ptr, ptr %tctx_link550.i.i, align 8
-  %rbn_right_red554.i.i = getelementptr inbounds i8, ptr %164, i64 120
-  %165 = load ptr, ptr %rbn_right_red554.i.i, align 8
-  %166 = ptrtoint ptr %165 to i64
-  %and555.i.i = and i64 %166, -2
-  %167 = inttoptr i64 %and555.i.i to ptr
-  store ptr %167, ptr %tctx_link550.i.i, align 8
-  %168 = load ptr, ptr %pathp.3282.i.i, align 8
-  %169 = ptrtoint ptr %168 to i64
-  %170 = load ptr, ptr %rbn_right_red554.i.i, align 8
+  %and544.i.i = and i64 %163, -2
+  %164 = inttoptr i64 %and544.i.i to ptr
+  store ptr %164, ptr %rbn_right_red536.i.i, align 8
+  %165 = load ptr, ptr %pathp.3282.i.i, align 8
+  %tctx_link550.i.i = getelementptr inbounds i8, ptr %165, i64 112
+  %166 = load ptr, ptr %tctx_link550.i.i, align 8
+  %rbn_right_red554.i.i = getelementptr inbounds i8, ptr %166, i64 120
+  %167 = load ptr, ptr %rbn_right_red554.i.i, align 8
+  %168 = ptrtoint ptr %167 to i64
+  %and555.i.i = and i64 %168, -2
+  %169 = inttoptr i64 %and555.i.i to ptr
+  store ptr %169, ptr %tctx_link550.i.i, align 8
+  %170 = load ptr, ptr %pathp.3282.i.i, align 8
   %171 = ptrtoint ptr %170 to i64
-  %and564.i.i = and i64 %171, 1
-  %or565.i.i = or i64 %and564.i.i, %169
-  %172 = inttoptr i64 %or565.i.i to ptr
-  store ptr %172, ptr %rbn_right_red554.i.i, align 8
-  %173 = load ptr, ptr %pathp.3282.i.i, align 8
-  %tctx_link572.i.i = getelementptr inbounds i8, ptr %173, i64 112
-  %174 = load ptr, ptr %tctx_link572.i.i, align 8
-  %rbn_right_red576.i.i = getelementptr inbounds i8, ptr %174, i64 120
-  %175 = load ptr, ptr %rbn_right_red576.i.i, align 8
-  %176 = ptrtoint ptr %175 to i64
-  %and577.i.i = and i64 %176, -2
-  %177 = inttoptr i64 %and577.i.i to ptr
-  store ptr %177, ptr %tctx_link572.i.i, align 8
-  %178 = load ptr, ptr %pathp.3282.i.i, align 8
-  %179 = ptrtoint ptr %178 to i64
-  %180 = load ptr, ptr %rbn_right_red576.i.i, align 8
+  %172 = load ptr, ptr %rbn_right_red554.i.i, align 8
+  %173 = ptrtoint ptr %172 to i64
+  %and564.i.i = and i64 %173, 1
+  %or565.i.i = or i64 %and564.i.i, %171
+  %174 = inttoptr i64 %or565.i.i to ptr
+  store ptr %174, ptr %rbn_right_red554.i.i, align 8
+  %175 = load ptr, ptr %pathp.3282.i.i, align 8
+  %tctx_link572.i.i = getelementptr inbounds i8, ptr %175, i64 112
+  %176 = load ptr, ptr %tctx_link572.i.i, align 8
+  %rbn_right_red576.i.i = getelementptr inbounds i8, ptr %176, i64 120
+  %177 = load ptr, ptr %rbn_right_red576.i.i, align 8
+  %178 = ptrtoint ptr %177 to i64
+  %and577.i.i = and i64 %178, -2
+  %179 = inttoptr i64 %and577.i.i to ptr
+  store ptr %179, ptr %tctx_link572.i.i, align 8
+  %180 = load ptr, ptr %pathp.3282.i.i, align 8
   %181 = ptrtoint ptr %180 to i64
-  %and586.i.i = and i64 %181, 1
-  %or587.i.i = or i64 %and586.i.i, %179
-  %182 = inttoptr i64 %or587.i.i to ptr
-  store ptr %182, ptr %rbn_right_red576.i.i, align 8
-  %183 = ptrtoint ptr %174 to i64
-  %184 = load ptr, ptr %rbn_right_red554.i.i, align 8
-  %185 = ptrtoint ptr %184 to i64
-  %and595.i.i = and i64 %185, 1
-  %or596.i.i = or i64 %and595.i.i, %183
-  %186 = inttoptr i64 %or596.i.i to ptr
-  store ptr %186, ptr %rbn_right_red554.i.i, align 8
-  %and603.i.i = and i64 %183, -2
-  %187 = inttoptr i64 %and603.i.i to ptr
-  %tctx_link605.i.i = getelementptr inbounds i8, ptr %187, i64 112
-  %188 = load ptr, ptr %tctx_link605.i.i, align 8
-  %189 = ptrtoint ptr %188 to i64
+  %182 = load ptr, ptr %rbn_right_red576.i.i, align 8
+  %183 = ptrtoint ptr %182 to i64
+  %and586.i.i = and i64 %183, 1
+  %or587.i.i = or i64 %and586.i.i, %181
+  %184 = inttoptr i64 %or587.i.i to ptr
+  store ptr %184, ptr %rbn_right_red576.i.i, align 8
+  %185 = ptrtoint ptr %176 to i64
+  %186 = load ptr, ptr %rbn_right_red554.i.i, align 8
+  %187 = ptrtoint ptr %186 to i64
+  %and595.i.i = and i64 %187, 1
+  %or596.i.i = or i64 %and595.i.i, %185
+  %188 = inttoptr i64 %or596.i.i to ptr
+  store ptr %188, ptr %rbn_right_red554.i.i, align 8
+  %and603.i.i = and i64 %185, -2
+  %189 = inttoptr i64 %and603.i.i to ptr
+  %tctx_link605.i.i = getelementptr inbounds i8, ptr %189, i64 112
+  %190 = load ptr, ptr %tctx_link605.i.i, align 8
+  %191 = ptrtoint ptr %190 to i64
   %and609.i.i = and i64 %or596.i.i, 1
-  %or610.i.i = or i64 %and609.i.i, %189
-  %190 = inttoptr i64 %or610.i.i to ptr
-  store ptr %190, ptr %rbn_right_red554.i.i, align 8
-  store ptr %164, ptr %tctx_link605.i.i, align 8
+  %or610.i.i = or i64 %and609.i.i, %191
+  %192 = inttoptr i64 %or610.i.i to ptr
+  store ptr %192, ptr %rbn_right_red554.i.i, align 8
+  store ptr %166, ptr %tctx_link605.i.i, align 8
   br label %if.end658.i.i
 
 do.body622.i.i:                                   ; preds = %land.lhs.true534.i.i, %if.then525.i.i
-  %rbn_right_red624.i.i = getelementptr inbounds i8, ptr %158, i64 120
-  %191 = load ptr, ptr %rbn_right_red624.i.i, align 8
-  %192 = ptrtoint ptr %191 to i64
-  %or625.i.i = or i64 %192, 1
-  %193 = inttoptr i64 %or625.i.i to ptr
-  store ptr %193, ptr %rbn_right_red624.i.i, align 8
-  %194 = load ptr, ptr %pathp.3282.i.i, align 8
-  %tctx_link631.i.i = getelementptr inbounds i8, ptr %194, i64 112
-  %195 = load ptr, ptr %tctx_link631.i.i, align 8
-  %rbn_right_red635.i.i = getelementptr inbounds i8, ptr %195, i64 120
-  %196 = load ptr, ptr %rbn_right_red635.i.i, align 8
-  %197 = ptrtoint ptr %196 to i64
-  %and636.i.i = and i64 %197, -2
-  %198 = inttoptr i64 %and636.i.i to ptr
-  store ptr %198, ptr %tctx_link631.i.i, align 8
-  %199 = load ptr, ptr %pathp.3282.i.i, align 8
-  %200 = ptrtoint ptr %199 to i64
-  %and654.i.i = and i64 %200, -2
-  %201 = inttoptr i64 %and654.i.i to ptr
-  store ptr %201, ptr %rbn_right_red635.i.i, align 8
+  %rbn_right_red624.i.i = getelementptr inbounds i8, ptr %160, i64 120
+  %193 = load ptr, ptr %rbn_right_red624.i.i, align 8
+  %194 = ptrtoint ptr %193 to i64
+  %or625.i.i = or i64 %194, 1
+  %195 = inttoptr i64 %or625.i.i to ptr
+  store ptr %195, ptr %rbn_right_red624.i.i, align 8
+  %196 = load ptr, ptr %pathp.3282.i.i, align 8
+  %tctx_link631.i.i = getelementptr inbounds i8, ptr %196, i64 112
+  %197 = load ptr, ptr %tctx_link631.i.i, align 8
+  %rbn_right_red635.i.i = getelementptr inbounds i8, ptr %197, i64 120
+  %198 = load ptr, ptr %rbn_right_red635.i.i, align 8
+  %199 = ptrtoint ptr %198 to i64
+  %and636.i.i = and i64 %199, -2
+  %200 = inttoptr i64 %and636.i.i to ptr
+  store ptr %200, ptr %tctx_link631.i.i, align 8
+  %201 = load ptr, ptr %pathp.3282.i.i, align 8
+  %202 = ptrtoint ptr %201 to i64
+  %and654.i.i = and i64 %202, -2
+  %203 = inttoptr i64 %and654.i.i to ptr
+  store ptr %203, ptr %rbn_right_red635.i.i, align 8
   br label %if.end658.i.i
 
 if.end658.i.i:                                    ; preds = %do.body622.i.i, %do.body541.i.i
-  %tnode526.0.i.i = phi ptr [ %187, %do.body541.i.i ], [ %195, %do.body622.i.i ]
+  %tnode526.0.i.i = phi ptr [ %189, %do.body541.i.i ], [ %197, %do.body622.i.i ]
   %cmp660.i.i = icmp eq ptr %pathp.3282.i.i, %path.i.i
   br i1 %cmp660.i.i, label %if.then662.i.i, label %if.else664.i.i
 
@@ -1900,189 +1902,189 @@ if.then662.i.i:                                   ; preds = %if.end658.i.i
 if.else664.i.i:                                   ; preds = %if.end658.i.i
   %arrayidx665.i.i = getelementptr inbounds i8, ptr %pathp.3282.i.i, i64 -16
   %cmp666.i.i = getelementptr inbounds i8, ptr %pathp.3282.i.i, i64 -8
-  %202 = load i32, ptr %cmp666.i.i, align 8
-  %cmp667.i.i = icmp slt i32 %202, 0
+  %204 = load i32, ptr %cmp666.i.i, align 8
+  %cmp667.i.i = icmp slt i32 %204, 0
   br i1 %cmp667.i.i, label %do.body670.i.i, label %do.body677.i.i
 
 do.body670.i.i:                                   ; preds = %if.else664.i.i
-  %203 = load ptr, ptr %arrayidx665.i.i, align 8
-  %tctx_link673.i.i = getelementptr inbounds i8, ptr %203, i64 112
+  %205 = load ptr, ptr %arrayidx665.i.i, align 8
+  %tctx_link673.i.i = getelementptr inbounds i8, ptr %205, i64 112
   store ptr %tnode526.0.i.i, ptr %tctx_link673.i.i, align 8
   br label %tctx_tree_remove.exit.i
 
 do.body677.i.i:                                   ; preds = %if.else664.i.i
-  %204 = ptrtoint ptr %tnode526.0.i.i to i64
-  %205 = load ptr, ptr %arrayidx665.i.i, align 8
-  %rbn_right_red681.i.i = getelementptr inbounds i8, ptr %205, i64 120
-  %206 = load ptr, ptr %rbn_right_red681.i.i, align 8
-  %207 = ptrtoint ptr %206 to i64
-  %and682.i.i = and i64 %207, 1
-  %or683.i.i = or i64 %and682.i.i, %204
-  %208 = inttoptr i64 %or683.i.i to ptr
-  store ptr %208, ptr %rbn_right_red681.i.i, align 8
+  %206 = ptrtoint ptr %tnode526.0.i.i to i64
+  %207 = load ptr, ptr %arrayidx665.i.i, align 8
+  %rbn_right_red681.i.i = getelementptr inbounds i8, ptr %207, i64 120
+  %208 = load ptr, ptr %rbn_right_red681.i.i, align 8
+  %209 = ptrtoint ptr %208 to i64
+  %and682.i.i = and i64 %209, 1
+  %or683.i.i = or i64 %and682.i.i, %206
+  %210 = inttoptr i64 %or683.i.i to ptr
+  store ptr %210, ptr %rbn_right_red681.i.i, align 8
   br label %tctx_tree_remove.exit.i
 
 if.else693.i.i:                                   ; preds = %do.body506.i.i
-  %rbn_right_red696.i.i = getelementptr inbounds i8, ptr %154, i64 120
-  %209 = load ptr, ptr %rbn_right_red696.i.i, align 8
-  %210 = ptrtoint ptr %209 to i64
-  %and697.i.i = and i64 %210, 1
+  %rbn_right_red696.i.i = getelementptr inbounds i8, ptr %156, i64 120
+  %211 = load ptr, ptr %rbn_right_red696.i.i, align 8
+  %212 = ptrtoint ptr %211 to i64
+  %and697.i.i = and i64 %212, 1
   %tobool698.not.i.i = icmp eq i64 %and697.i.i, 0
   br i1 %tobool698.not.i.i, label %if.else804.i.i, label %if.then699.i.i
 
 if.then699.i.i:                                   ; preds = %if.else693.i.i
-  %rbn_right_red696.i.i.le = getelementptr inbounds i8, ptr %154, i64 120
-  %211 = load ptr, ptr %tctx_link521.i.i, align 8
-  %cmp702.not.i.i = icmp eq ptr %211, null
+  %rbn_right_red696.i.i.le = getelementptr inbounds i8, ptr %156, i64 120
+  %213 = load ptr, ptr %tctx_link521.i.i, align 8
+  %cmp702.not.i.i = icmp eq ptr %213, null
   br i1 %cmp702.not.i.i, label %do.body787.i.i, label %land.lhs.true704.i.i
 
 land.lhs.true704.i.i:                             ; preds = %if.then699.i.i
-  %rbn_right_red706.i.i = getelementptr inbounds i8, ptr %211, i64 120
-  %212 = load ptr, ptr %rbn_right_red706.i.i, align 8
-  %213 = ptrtoint ptr %212 to i64
-  %and707.i.i = and i64 %213, 1
+  %rbn_right_red706.i.i = getelementptr inbounds i8, ptr %213, i64 120
+  %214 = load ptr, ptr %rbn_right_red706.i.i, align 8
+  %215 = ptrtoint ptr %214 to i64
+  %and707.i.i = and i64 %215, 1
   %tobool708.not.i.i = icmp eq i64 %and707.i.i, 0
   br i1 %tobool708.not.i.i, label %do.body787.i.i, label %do.body712.i.i
 
 do.body712.i.i:                                   ; preds = %land.lhs.true704.i.i
-  %and716.i.i = and i64 %210, -2
-  %214 = inttoptr i64 %and716.i.i to ptr
-  store ptr %214, ptr %rbn_right_red696.i.i.le, align 8
-  %215 = load ptr, ptr %rbn_right_red522.i.i, align 8
-  %216 = ptrtoint ptr %215 to i64
-  %or724.i.i = or i64 %216, 1
-  %217 = inttoptr i64 %or724.i.i to ptr
-  store ptr %217, ptr %rbn_right_red522.i.i, align 8
-  %218 = load ptr, ptr %rbn_right_red706.i.i, align 8
-  %219 = ptrtoint ptr %218 to i64
-  %and731.i.i = and i64 %219, -2
-  %220 = inttoptr i64 %and731.i.i to ptr
-  store ptr %220, ptr %rbn_right_red706.i.i, align 8
-  %221 = load ptr, ptr %pathp.3282.i.i, align 8
-  %tctx_link737.i.i = getelementptr inbounds i8, ptr %221, i64 112
-  %222 = load ptr, ptr %tctx_link737.i.i, align 8
-  %rbn_right_red741.i.i = getelementptr inbounds i8, ptr %222, i64 120
-  %223 = load ptr, ptr %rbn_right_red741.i.i, align 8
-  %224 = ptrtoint ptr %223 to i64
-  %and742.i.i = and i64 %224, -2
-  %225 = inttoptr i64 %and742.i.i to ptr
-  store ptr %225, ptr %tctx_link737.i.i, align 8
-  %226 = load ptr, ptr %pathp.3282.i.i, align 8
-  %227 = ptrtoint ptr %226 to i64
-  %228 = load ptr, ptr %rbn_right_red741.i.i, align 8
+  %and716.i.i = and i64 %212, -2
+  %216 = inttoptr i64 %and716.i.i to ptr
+  store ptr %216, ptr %rbn_right_red696.i.i.le, align 8
+  %217 = load ptr, ptr %rbn_right_red522.i.i, align 8
+  %218 = ptrtoint ptr %217 to i64
+  %or724.i.i = or i64 %218, 1
+  %219 = inttoptr i64 %or724.i.i to ptr
+  store ptr %219, ptr %rbn_right_red522.i.i, align 8
+  %220 = load ptr, ptr %rbn_right_red706.i.i, align 8
+  %221 = ptrtoint ptr %220 to i64
+  %and731.i.i = and i64 %221, -2
+  %222 = inttoptr i64 %and731.i.i to ptr
+  store ptr %222, ptr %rbn_right_red706.i.i, align 8
+  %223 = load ptr, ptr %pathp.3282.i.i, align 8
+  %tctx_link737.i.i = getelementptr inbounds i8, ptr %223, i64 112
+  %224 = load ptr, ptr %tctx_link737.i.i, align 8
+  %rbn_right_red741.i.i = getelementptr inbounds i8, ptr %224, i64 120
+  %225 = load ptr, ptr %rbn_right_red741.i.i, align 8
+  %226 = ptrtoint ptr %225 to i64
+  %and742.i.i = and i64 %226, -2
+  %227 = inttoptr i64 %and742.i.i to ptr
+  store ptr %227, ptr %tctx_link737.i.i, align 8
+  %228 = load ptr, ptr %pathp.3282.i.i, align 8
   %229 = ptrtoint ptr %228 to i64
-  %and751.i.i = and i64 %229, 1
-  %or752.i.i = or i64 %and751.i.i, %227
-  %230 = inttoptr i64 %or752.i.i to ptr
-  store ptr %230, ptr %rbn_right_red741.i.i, align 8
+  %230 = load ptr, ptr %rbn_right_red741.i.i, align 8
+  %231 = ptrtoint ptr %230 to i64
+  %and751.i.i = and i64 %231, 1
+  %or752.i.i = or i64 %and751.i.i, %229
+  %232 = inttoptr i64 %or752.i.i to ptr
+  store ptr %232, ptr %rbn_right_red741.i.i, align 8
   %arrayidx759.i.i = getelementptr inbounds i8, ptr %pathp.3282.i.i, i64 -16
   %cmp760.i.i = getelementptr inbounds i8, ptr %pathp.3282.i.i, i64 -8
-  %231 = load i32, ptr %cmp760.i.i, align 8
-  %cmp761.i.i = icmp slt i32 %231, 0
+  %233 = load i32, ptr %cmp760.i.i, align 8
+  %cmp761.i.i = icmp slt i32 %233, 0
   br i1 %cmp761.i.i, label %do.body764.i.i, label %do.body771.i.i
 
 do.body764.i.i:                                   ; preds = %do.body712.i.i
-  %232 = load ptr, ptr %arrayidx759.i.i, align 8
-  %tctx_link767.i.i = getelementptr inbounds i8, ptr %232, i64 112
-  store ptr %222, ptr %tctx_link767.i.i, align 8
+  %234 = load ptr, ptr %arrayidx759.i.i, align 8
+  %tctx_link767.i.i = getelementptr inbounds i8, ptr %234, i64 112
+  store ptr %224, ptr %tctx_link767.i.i, align 8
   br label %tctx_tree_remove.exit.i
 
 do.body771.i.i:                                   ; preds = %do.body712.i.i
-  %233 = ptrtoint ptr %222 to i64
-  %234 = load ptr, ptr %arrayidx759.i.i, align 8
-  %rbn_right_red775.i.i = getelementptr inbounds i8, ptr %234, i64 120
-  %235 = load ptr, ptr %rbn_right_red775.i.i, align 8
-  %236 = ptrtoint ptr %235 to i64
-  %and776.i.i = and i64 %236, 1
-  %or777.i.i = or i64 %and776.i.i, %233
-  %237 = inttoptr i64 %or777.i.i to ptr
-  store ptr %237, ptr %rbn_right_red775.i.i, align 8
+  %235 = ptrtoint ptr %224 to i64
+  %236 = load ptr, ptr %arrayidx759.i.i, align 8
+  %rbn_right_red775.i.i = getelementptr inbounds i8, ptr %236, i64 120
+  %237 = load ptr, ptr %rbn_right_red775.i.i, align 8
+  %238 = ptrtoint ptr %237 to i64
+  %and776.i.i = and i64 %238, 1
+  %or777.i.i = or i64 %and776.i.i, %235
+  %239 = inttoptr i64 %or777.i.i to ptr
+  store ptr %239, ptr %rbn_right_red775.i.i, align 8
   br label %tctx_tree_remove.exit.i
 
 do.body787.i.i:                                   ; preds = %land.lhs.true704.i.i, %if.then699.i.i
-  %or790.i.i = or disjoint i64 %157, 1
-  %238 = inttoptr i64 %or790.i.i to ptr
-  store ptr %238, ptr %rbn_right_red522.i.i, align 8
-  %239 = load ptr, ptr %pathp.3282.i.i, align 8
-  %rbn_right_red797.i.i = getelementptr inbounds i8, ptr %239, i64 120
-  %240 = load ptr, ptr %rbn_right_red797.i.i, align 8
-  %241 = ptrtoint ptr %240 to i64
-  %and798.i.i = and i64 %241, -2
-  %242 = inttoptr i64 %and798.i.i to ptr
-  store ptr %242, ptr %rbn_right_red797.i.i, align 8
+  %or790.i.i = or disjoint i64 %159, 1
+  %240 = inttoptr i64 %or790.i.i to ptr
+  store ptr %240, ptr %rbn_right_red522.i.i, align 8
+  %241 = load ptr, ptr %pathp.3282.i.i, align 8
+  %rbn_right_red797.i.i = getelementptr inbounds i8, ptr %241, i64 120
+  %242 = load ptr, ptr %rbn_right_red797.i.i, align 8
+  %243 = ptrtoint ptr %242 to i64
+  %and798.i.i = and i64 %243, -2
+  %244 = inttoptr i64 %and798.i.i to ptr
+  store ptr %244, ptr %rbn_right_red797.i.i, align 8
   br label %tctx_tree_remove.exit.i
 
 if.else804.i.i:                                   ; preds = %if.else693.i.i
-  %243 = load ptr, ptr %tctx_link521.i.i, align 8
-  %cmp808.not.i.i = icmp eq ptr %243, null
+  %245 = load ptr, ptr %tctx_link521.i.i, align 8
+  %cmp808.not.i.i = icmp eq ptr %245, null
   br i1 %cmp808.not.i.i, label %do.body882.i.i, label %land.lhs.true810.i.i
 
 land.lhs.true810.i.i:                             ; preds = %if.else804.i.i
-  %rbn_right_red812.i.i = getelementptr inbounds i8, ptr %243, i64 120
-  %244 = load ptr, ptr %rbn_right_red812.i.i, align 8
-  %245 = ptrtoint ptr %244 to i64
-  %and813.i.i = and i64 %245, 1
+  %rbn_right_red812.i.i = getelementptr inbounds i8, ptr %245, i64 120
+  %246 = load ptr, ptr %rbn_right_red812.i.i, align 8
+  %247 = ptrtoint ptr %246 to i64
+  %and813.i.i = and i64 %247, 1
   %tobool814.not.i.i = icmp eq i64 %and813.i.i, 0
   br i1 %tobool814.not.i.i, label %do.body882.i.i, label %do.body818.i.i
 
 do.body818.i.i:                                   ; preds = %land.lhs.true810.i.i
-  %rbn_right_red812.i.i.le = getelementptr inbounds i8, ptr %243, i64 120
-  %and821.i.i = and i64 %245, -2
-  %246 = inttoptr i64 %and821.i.i to ptr
-  store ptr %246, ptr %rbn_right_red812.i.i.le, align 8
-  %247 = load ptr, ptr %pathp.3282.i.i, align 8
-  %tctx_link827.i.i = getelementptr inbounds i8, ptr %247, i64 112
-  %248 = load ptr, ptr %tctx_link827.i.i, align 8
-  %rbn_right_red831.i.i = getelementptr inbounds i8, ptr %248, i64 120
-  %249 = load ptr, ptr %rbn_right_red831.i.i, align 8
-  %250 = ptrtoint ptr %249 to i64
-  %and832.i.i = and i64 %250, -2
-  %251 = inttoptr i64 %and832.i.i to ptr
-  store ptr %251, ptr %tctx_link827.i.i, align 8
-  %252 = load ptr, ptr %pathp.3282.i.i, align 8
-  %253 = ptrtoint ptr %252 to i64
-  %254 = load ptr, ptr %rbn_right_red831.i.i, align 8
+  %rbn_right_red812.i.i.le = getelementptr inbounds i8, ptr %245, i64 120
+  %and821.i.i = and i64 %247, -2
+  %248 = inttoptr i64 %and821.i.i to ptr
+  store ptr %248, ptr %rbn_right_red812.i.i.le, align 8
+  %249 = load ptr, ptr %pathp.3282.i.i, align 8
+  %tctx_link827.i.i = getelementptr inbounds i8, ptr %249, i64 112
+  %250 = load ptr, ptr %tctx_link827.i.i, align 8
+  %rbn_right_red831.i.i = getelementptr inbounds i8, ptr %250, i64 120
+  %251 = load ptr, ptr %rbn_right_red831.i.i, align 8
+  %252 = ptrtoint ptr %251 to i64
+  %and832.i.i = and i64 %252, -2
+  %253 = inttoptr i64 %and832.i.i to ptr
+  store ptr %253, ptr %tctx_link827.i.i, align 8
+  %254 = load ptr, ptr %pathp.3282.i.i, align 8
   %255 = ptrtoint ptr %254 to i64
-  %and841.i.i = and i64 %255, 1
-  %or842.i.i = or i64 %and841.i.i, %253
-  %256 = inttoptr i64 %or842.i.i to ptr
-  store ptr %256, ptr %rbn_right_red831.i.i, align 8
+  %256 = load ptr, ptr %rbn_right_red831.i.i, align 8
+  %257 = ptrtoint ptr %256 to i64
+  %and841.i.i = and i64 %257, 1
+  %or842.i.i = or i64 %and841.i.i, %255
+  %258 = inttoptr i64 %or842.i.i to ptr
+  store ptr %258, ptr %rbn_right_red831.i.i, align 8
   %cmp848.i.i = icmp eq ptr %pathp.3282.i.i, %path.i.i
   br i1 %cmp848.i.i, label %if.then850.i.i, label %if.else852.i.i
 
 if.then850.i.i:                                   ; preds = %do.body818.i.i
-  store ptr %248, ptr %tctxs.i, align 8
+  store ptr %250, ptr %tctxs.i, align 8
   br label %tctx_tree_remove.exit.i
 
 if.else852.i.i:                                   ; preds = %do.body818.i.i
   %arrayidx853.i.i = getelementptr inbounds i8, ptr %pathp.3282.i.i, i64 -16
   %cmp854.i.i = getelementptr inbounds i8, ptr %pathp.3282.i.i, i64 -8
-  %257 = load i32, ptr %cmp854.i.i, align 8
-  %cmp855.i.i = icmp slt i32 %257, 0
+  %259 = load i32, ptr %cmp854.i.i, align 8
+  %cmp855.i.i = icmp slt i32 %259, 0
   br i1 %cmp855.i.i, label %do.body858.i.i, label %do.body865.i.i
 
 do.body858.i.i:                                   ; preds = %if.else852.i.i
-  %258 = load ptr, ptr %arrayidx853.i.i, align 8
-  %tctx_link861.i.i = getelementptr inbounds i8, ptr %258, i64 112
-  store ptr %248, ptr %tctx_link861.i.i, align 8
+  %260 = load ptr, ptr %arrayidx853.i.i, align 8
+  %tctx_link861.i.i = getelementptr inbounds i8, ptr %260, i64 112
+  store ptr %250, ptr %tctx_link861.i.i, align 8
   br label %tctx_tree_remove.exit.i
 
 do.body865.i.i:                                   ; preds = %if.else852.i.i
-  %259 = ptrtoint ptr %248 to i64
-  %260 = load ptr, ptr %arrayidx853.i.i, align 8
-  %rbn_right_red869.i.i = getelementptr inbounds i8, ptr %260, i64 120
-  %261 = load ptr, ptr %rbn_right_red869.i.i, align 8
-  %262 = ptrtoint ptr %261 to i64
-  %and870.i.i = and i64 %262, 1
-  %or871.i.i = or i64 %and870.i.i, %259
-  %263 = inttoptr i64 %or871.i.i to ptr
-  store ptr %263, ptr %rbn_right_red869.i.i, align 8
+  %261 = ptrtoint ptr %250 to i64
+  %262 = load ptr, ptr %arrayidx853.i.i, align 8
+  %rbn_right_red869.i.i = getelementptr inbounds i8, ptr %262, i64 120
+  %263 = load ptr, ptr %rbn_right_red869.i.i, align 8
+  %264 = ptrtoint ptr %263 to i64
+  %and870.i.i = and i64 %264, 1
+  %or871.i.i = or i64 %and870.i.i, %261
+  %265 = inttoptr i64 %or871.i.i to ptr
+  store ptr %265, ptr %rbn_right_red869.i.i, align 8
   br label %tctx_tree_remove.exit.i
 
 do.body882.i.i:                                   ; preds = %land.lhs.true810.i.i, %if.else804.i.i
-  %or885.i.i = or disjoint i64 %157, 1
-  %264 = inttoptr i64 %or885.i.i to ptr
-  store ptr %264, ptr %rbn_right_red522.i.i, align 8
+  %or885.i.i = or disjoint i64 %159, 1
+  %266 = inttoptr i64 %or885.i.i to ptr
+  store ptr %266, ptr %rbn_right_red522.i.i, align 8
   br label %for.inc893.i.i
 
 for.inc893.i.i:                                   ; preds = %do.body882.i.i, %do.body469.i.i
@@ -2091,14 +2093,14 @@ for.inc893.i.i:                                   ; preds = %do.body882.i.i, %do
   br i1 %cmp204.not.i.i, label %for.end895.i.i, label %do.end208.i.i, !llvm.loop !11
 
 for.end895.i.i:                                   ; preds = %for.inc893.i.i, %if.end199.i.i
-  %265 = load ptr, ptr %path.i.i, align 16
-  store ptr %265, ptr %tctxs.i, align 8
+  %267 = load ptr, ptr %path.i.i, align 16
+  store ptr %267, ptr %tctxs.i, align 8
   br label %tctx_tree_remove.exit.i
 
 tctx_tree_remove.exit.i:                          ; preds = %for.end895.i.i, %do.body865.i.i, %do.body858.i.i, %if.then850.i.i, %do.body787.i.i, %do.body771.i.i, %do.body764.i.i, %do.body677.i.i, %do.body670.i.i, %if.then662.i.i, %do.body451.i.i, %do.body444.i.i, %if.then436.i.i, %do.body340.i.i, %do.body333.i.i, %do.body191.i.i, %if.then178.i.i, %do.body158.i.i, %do.body151.i.i, %if.then143.i.i
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %path.i.i)
-  %266 = load i8, ptr @opt_prof_accum, align 1
-  %tobool.i.i = trunc i8 %266 to i1
+  %268 = load i8, ptr @opt_prof_accum, align 1
+  %tobool.i.i = trunc i8 %268 to i1
   br i1 %tobool.i.i, label %sw.epilog.i, label %if.end.i148.i
 
 if.end.i148.i:                                    ; preds = %tctx_tree_remove.exit.i
@@ -2108,8 +2110,8 @@ if.end.i148.i:                                    ; preds = %tctx_tree_remove.ex
 
 prof_gctx_should_destroy.exit.i:                  ; preds = %if.end.i148.i
   %nlimbo.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  %267 = load i32, ptr %nlimbo.i.i, align 8
-  %cmp.not.i149.i = icmp eq i32 %267, 0
+  %269 = load i32, ptr %nlimbo.i.i, align 8
+  %cmp.not.i149.i = icmp eq i32 %269, 0
   br i1 %cmp.not.i149.i, label %if.then25.i, label %sw.epilog.i
 
 if.then25.i:                                      ; preds = %prof_gctx_should_destroy.exit.i
@@ -2118,58 +2120,58 @@ if.then25.i:                                      ; preds = %prof_gctx_should_de
 
 sw.bb27.i:                                        ; preds = %malloc_mutex_lock.exit.i
   store i32 3, ptr %state.i, align 4
-  %268 = load ptr, ptr %4, align 8
-  %locked.i150.i = getelementptr inbounds i8, ptr %268, i64 64
+  %270 = load ptr, ptr %4, align 8
+  %locked.i150.i = getelementptr inbounds i8, ptr %270, i64 64
   store atomic i8 0, ptr %locked.i150.i monotonic, align 1
-  %lock.i151.i = getelementptr inbounds i8, ptr %268, i64 72
+  %lock.i151.i = getelementptr inbounds i8, ptr %270, i64 72
   %call1.i152.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i151.i) #11
   br label %prof_tctx_destroy.exit
 
 sw.epilog.i:                                      ; preds = %if.then25.i, %prof_gctx_should_destroy.exit.i, %if.end.i148.i, %tctx_tree_remove.exit.i
-  %269 = phi i1 [ false, %if.then25.i ], [ true, %prof_gctx_should_destroy.exit.i ], [ true, %tctx_tree_remove.exit.i ], [ true, %if.end.i148.i ]
-  %270 = load ptr, ptr %4, align 8
-  %locked.i153.i = getelementptr inbounds i8, ptr %270, i64 64
+  %271 = phi i1 [ false, %if.then25.i ], [ true, %prof_gctx_should_destroy.exit.i ], [ true, %tctx_tree_remove.exit.i ], [ true, %if.end.i148.i ]
+  %272 = load ptr, ptr %4, align 8
+  %locked.i153.i = getelementptr inbounds i8, ptr %272, i64 64
   store atomic i8 0, ptr %locked.i153.i monotonic, align 1
-  %lock.i154.i = getelementptr inbounds i8, ptr %270, i64 72
+  %lock.i154.i = getelementptr inbounds i8, ptr %272, i64 72
   %call1.i155.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i154.i) #11
-  call void @llvm.assume(i1 %269)
+  call void @llvm.assume(i1 %271)
   %cmp.i52.i = icmp eq ptr %tsd, null
-  %271 = ptrtoint ptr %tctx to i64
+  %273 = ptrtoint ptr %tctx to i64
   br i1 %cmp.i52.i, label %if.then.i.i.i, label %if.end.i.i.split.i
 
 if.then.i.i.i:                                    ; preds = %sw.epilog.i
   call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i.i) #11
-  call fastcc void @rtree_read(ptr noalias align 8 %tmp.i.i, ptr noundef null, ptr noundef %rtree_ctx_fallback.i.i, i64 noundef %271)
-  %272 = load ptr, ptr %tmp.i.i, align 8
-  %.val161.i = load i64, ptr %272, align 8
+  call fastcc void @rtree_read(ptr noalias align 8 %tmp.i.i, ptr noundef null, ptr noundef %rtree_ctx_fallback.i.i, i64 noundef %273)
+  %274 = load ptr, ptr %tmp.i.i, align 8
+  %.val161.i = load i64, ptr %274, align 8
   %conv.i162.i = and i64 %.val161.i, 4095
   %arrayidx.i164.i = getelementptr inbounds [0 x %struct.atomic_p_t], ptr @arenas, i64 0, i64 %conv.i162.i
-  %273 = load atomic i64, ptr %arrayidx.i164.i monotonic, align 8
+  %275 = load atomic i64, ptr %arrayidx.i164.i monotonic, align 8
   call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i98.i) #11
-  %call1.i100136.i = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef null, ptr noundef %rtree_ctx_fallback.i98.i, i64 noundef %271)
+  %call1.i100136.i = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef null, ptr noundef %rtree_ctx_fallback.i98.i, i64 noundef %273)
   br label %emap_alloc_ctx_lookup.exit.i
 
 if.end.i.i.split.i:                               ; preds = %sw.epilog.i
   %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i = getelementptr inbounds i8, ptr %tsd, i64 440
-  call fastcc void @rtree_read(ptr noalias align 8 %tmp.i.i, ptr noundef nonnull %tsd, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i, i64 noundef %271)
-  %274 = load ptr, ptr %tmp.i.i, align 8
-  %.val.i = load i64, ptr %274, align 8
+  call fastcc void @rtree_read(ptr noalias align 8 %tmp.i.i, ptr noundef nonnull %tsd, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i, i64 noundef %273)
+  %276 = load ptr, ptr %tmp.i.i, align 8
+  %.val.i = load i64, ptr %276, align 8
   %conv.i.i = and i64 %.val.i, 4095
   %arrayidx.i.i = getelementptr inbounds [0 x %struct.atomic_p_t], ptr @arenas, i64 0, i64 %conv.i.i
-  %275 = load atomic i64, ptr %arrayidx.i.i monotonic, align 8
-  %call1.i100137.i = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef nonnull %tsd, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i, i64 noundef %271)
+  %277 = load atomic i64, ptr %arrayidx.i.i monotonic, align 8
+  %call1.i100137.i = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef nonnull %tsd, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i, i64 noundef %273)
   br label %emap_alloc_ctx_lookup.exit.i
 
 emap_alloc_ctx_lookup.exit.i:                     ; preds = %if.end.i.i.split.i, %if.then.i.i.i
-  %.in.i = phi i64 [ %273, %if.then.i.i.i ], [ %275, %if.end.i.i.split.i ]
+  %.in.i = phi i64 [ %275, %if.then.i.i.i ], [ %277, %if.end.i.i.split.i ]
   %phi.call.i = phi { i64, i32 } [ %call1.i100136.i, %if.then.i.i.i ], [ %call1.i100137.i, %if.end.i.i.split.i ]
-  %276 = inttoptr i64 %.in.i to ptr
+  %278 = inttoptr i64 %.in.i to ptr
   %call1.i100.fca.0.extract.i = extractvalue { i64, i32 } %phi.call.i, 0
   %idxprom.i.i.i = and i64 %call1.i100.fca.0.extract.i, 4294967295
   %arrayidx.i.i.i = getelementptr inbounds [232 x i64], ptr @sz_index2size_tab, i64 0, i64 %idxprom.i.i.i
-  %277 = load i64, ptr %arrayidx.i.i.i, align 8
-  %internal.i.i = getelementptr inbounds i8, ptr %276, i64 72
-  %278 = atomicrmw sub ptr %internal.i.i, i64 %277 monotonic, align 8
+  %279 = load i64, ptr %arrayidx.i.i.i, align 8
+  %internal.i.i = getelementptr inbounds i8, ptr %278, i64 72
+  %280 = atomicrmw sub ptr %internal.i.i, i64 %279 monotonic, align 8
   call fastcc void @arena_dalloc_no_tcache(ptr noundef %tsd, ptr noundef nonnull %tctx)
   br label %prof_tctx_destroy.exit
 
@@ -2180,11 +2182,11 @@ prof_tctx_destroy.exit:                           ; preds = %sw.bb27.i, %emap_al
   br label %if.end
 
 if.else:                                          ; preds = %if.end2.i, %if.end.i, %entry, %prof_tctx_should_destroy.exit
-  %279 = load ptr, ptr %tctx, align 8
-  %280 = load ptr, ptr %279, align 8
-  %locked.i = getelementptr inbounds i8, ptr %280, i64 64
+  %281 = load ptr, ptr %tctx, align 8
+  %282 = load ptr, ptr %281, align 8
+  %locked.i = getelementptr inbounds i8, ptr %282, i64 64
   store atomic i8 0, ptr %locked.i monotonic, align 1
-  %lock.i = getelementptr inbounds i8, ptr %280, i64 72
+  %lock.i = getelementptr inbounds i8, ptr %282, i64 72
   %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i) #11
   br label %if.end
 

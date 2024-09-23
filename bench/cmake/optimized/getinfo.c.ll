@@ -67,7 +67,7 @@ declare void @Curl_ssl_free_certinfo(ptr noundef) local_unnamed_addr #1
 define dso_local range(i32 0, 49) i32 @Curl_getinfo(ptr noundef %0, i32 noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %355, label %4
+  br i1 %.not, label %372, label %4
 
 4:                                                ; preds = %2
   call void @llvm.va_start.p0(ptr nonnull %3)
@@ -79,8 +79,8 @@ define dso_local range(i32 0, 49) i32 @Curl_getinfo(ptr noundef %0, i32 noundef 
     i32 1, label %65
     i32 2, label %157
     i32 5, label %241
-    i32 3, label %306
-    i32 4, label %337
+    i32 3, label %323
+    i32 4, label %354
   ]
 
 8:                                                ; preds = %4
@@ -569,236 +569,249 @@ switch.lookup:                                    ; preds = %35
 257:                                              ; preds = %254
   switch i32 %1, label %getinfo_char.exit [
     i32 6291470, label %258
-    i32 6291463, label %260
-    i32 6291464, label %262
-    i32 6291465, label %264
-    i32 6291466, label %266
-    i32 6291471, label %268
-    i32 6291472, label %274
-    i32 6291506, label %280
-    i32 6291507, label %282
-    i32 6291508, label %284
-    i32 6291512, label %286
-    i32 6291509, label %288
-    i32 6291510, label %290
-    i32 6291521, label %292
-    i32 6291511, label %294
-    i32 6291513, label %296
-    i32 6291519, label %298
-    i32 6291520, label %300
+    i32 6291463, label %261
+    i32 6291464, label %264
+    i32 6291465, label %267
+    i32 6291466, label %270
+    i32 6291471, label %273
+    i32 6291472, label %280
+    i32 6291506, label %287
+    i32 6291507, label %290
+    i32 6291508, label %293
+    i32 6291512, label %296
+    i32 6291509, label %299
+    i32 6291510, label %302
+    i32 6291521, label %305
+    i32 6291511, label %308
+    i32 6291513, label %311
+    i32 6291519, label %314
+    i32 6291520, label %317
   ]
 
 258:                                              ; preds = %257
   %259 = getelementptr inbounds i8, ptr %0, i64 4968
-  br label %.sink.split.sink.split.i
-
-260:                                              ; preds = %257
-  %261 = getelementptr inbounds i8, ptr %0, i64 2704
-  br label %.sink.split.sink.split.i
-
-262:                                              ; preds = %257
-  %263 = getelementptr inbounds i8, ptr %0, i64 2696
-  br label %.sink.split.sink.split.i
-
-264:                                              ; preds = %257
-  %265 = getelementptr inbounds i8, ptr %0, i64 2736
-  br label %.sink.split.sink.split.i
-
-266:                                              ; preds = %257
-  %267 = getelementptr inbounds i8, ptr %0, i64 2744
-  br label %.sink.split.sink.split.i
-
-268:                                              ; preds = %257
-  %269 = getelementptr inbounds i8, ptr %0, i64 2724
-  %270 = load i32, ptr %269, align 4
-  %271 = and i32 %270, 64
-  %.not43.i = icmp eq i32 %271, 0
-  br i1 %.not43.i, label %.sink.split.i54, label %272
-
-272:                                              ; preds = %268
-  %273 = getelementptr inbounds i8, ptr %0, i64 2680
-  br label %.sink.split.sink.split.i
-
-274:                                              ; preds = %257
-  %275 = getelementptr inbounds i8, ptr %0, i64 2724
-  %276 = load i32, ptr %275, align 4
-  %277 = and i32 %276, 32
-  %.not42.i = icmp eq i32 %277, 0
-  br i1 %.not42.i, label %.sink.split.i54, label %278
-
-278:                                              ; preds = %274
-  %279 = getelementptr inbounds i8, ptr %0, i64 2688
-  br label %.sink.split.sink.split.i
-
-280:                                              ; preds = %257
-  %281 = getelementptr inbounds i8, ptr %0, i64 2728
-  br label %.sink.split.sink.split.i
-
-282:                                              ; preds = %257
-  %283 = getelementptr inbounds i8, ptr %0, i64 2760
-  br label %.sink.split.sink.split.i
-
-284:                                              ; preds = %257
-  %285 = getelementptr inbounds i8, ptr %0, i64 2768
-  br label %.sink.split.sink.split.i
-
-286:                                              ; preds = %257
-  %287 = getelementptr inbounds i8, ptr %0, i64 2776
-  br label %.sink.split.sink.split.i
-
-288:                                              ; preds = %257
-  %289 = getelementptr inbounds i8, ptr %0, i64 2784
-  br label %.sink.split.sink.split.i
-
-290:                                              ; preds = %257
-  %291 = getelementptr inbounds i8, ptr %0, i64 2792
-  br label %.sink.split.sink.split.i
-
-292:                                              ; preds = %257
-  %293 = getelementptr inbounds i8, ptr %0, i64 2752
-  br label %.sink.split.sink.split.i
-
-294:                                              ; preds = %257
-  %295 = getelementptr inbounds i8, ptr %0, i64 2800
-  br label %.sink.split.sink.split.i
-
-296:                                              ; preds = %257
-  %297 = getelementptr inbounds i8, ptr %0, i64 5024
-  br label %.sink.split.sink.split.i
-
-298:                                              ; preds = %257
-  %299 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %.sink.split.sink.split.i
-
-300:                                              ; preds = %257
-  %301 = getelementptr inbounds i8, ptr %0, i64 32
-  %302 = load ptr, ptr %301, align 8
-  %.not.i53 = icmp eq ptr %302, null
-  %303 = getelementptr inbounds i8, ptr %302, i64 40
-  %304 = getelementptr inbounds i8, ptr %0, i64 3104
-  %.in.i = select i1 %.not.i53, ptr %304, ptr %303
-  br label %.sink.split.sink.split.i
-
-.sink.split.sink.split.i:                         ; preds = %300, %298, %296, %294, %292, %290, %288, %286, %284, %282, %280, %278, %272, %266, %264, %262, %260, %258
-  %.sink44.i = phi ptr [ %279, %278 ], [ %273, %272 ], [ %.in.i, %300 ], [ %299, %298 ], [ %297, %296 ], [ %295, %294 ], [ %293, %292 ], [ %291, %290 ], [ %289, %288 ], [ %287, %286 ], [ %285, %284 ], [ %283, %282 ], [ %281, %280 ], [ %267, %266 ], [ %265, %264 ], [ %263, %262 ], [ %261, %260 ], [ %259, %258 ]
-  %305 = load i64, ptr %.sink44.i, align 8
+  %260 = load i64, ptr %259, align 8
   br label %.sink.split.i54
 
-.sink.split.i54:                                  ; preds = %.sink.split.sink.split.i, %274, %268
-  %.sink.i55 = phi i64 [ -1, %268 ], [ -1, %274 ], [ %305, %.sink.split.sink.split.i ]
+261:                                              ; preds = %257
+  %262 = getelementptr inbounds i8, ptr %0, i64 2704
+  %263 = load i64, ptr %262, align 8
+  br label %.sink.split.i54
+
+264:                                              ; preds = %257
+  %265 = getelementptr inbounds i8, ptr %0, i64 2696
+  %266 = load i64, ptr %265, align 8
+  br label %.sink.split.i54
+
+267:                                              ; preds = %257
+  %268 = getelementptr inbounds i8, ptr %0, i64 2736
+  %269 = load i64, ptr %268, align 8
+  br label %.sink.split.i54
+
+270:                                              ; preds = %257
+  %271 = getelementptr inbounds i8, ptr %0, i64 2744
+  %272 = load i64, ptr %271, align 8
+  br label %.sink.split.i54
+
+273:                                              ; preds = %257
+  %274 = getelementptr inbounds i8, ptr %0, i64 2724
+  %275 = load i32, ptr %274, align 4
+  %276 = and i32 %275, 64
+  %.not43.i = icmp eq i32 %276, 0
+  br i1 %.not43.i, label %.sink.split.i54, label %277
+
+277:                                              ; preds = %273
+  %278 = getelementptr inbounds i8, ptr %0, i64 2680
+  %279 = load i64, ptr %278, align 8
+  br label %.sink.split.i54
+
+280:                                              ; preds = %257
+  %281 = getelementptr inbounds i8, ptr %0, i64 2724
+  %282 = load i32, ptr %281, align 4
+  %283 = and i32 %282, 32
+  %.not42.i = icmp eq i32 %283, 0
+  br i1 %.not42.i, label %.sink.split.i54, label %284
+
+284:                                              ; preds = %280
+  %285 = getelementptr inbounds i8, ptr %0, i64 2688
+  %286 = load i64, ptr %285, align 8
+  br label %.sink.split.i54
+
+287:                                              ; preds = %257
+  %288 = getelementptr inbounds i8, ptr %0, i64 2728
+  %289 = load i64, ptr %288, align 8
+  br label %.sink.split.i54
+
+290:                                              ; preds = %257
+  %291 = getelementptr inbounds i8, ptr %0, i64 2760
+  %292 = load i64, ptr %291, align 8
+  br label %.sink.split.i54
+
+293:                                              ; preds = %257
+  %294 = getelementptr inbounds i8, ptr %0, i64 2768
+  %295 = load i64, ptr %294, align 8
+  br label %.sink.split.i54
+
+296:                                              ; preds = %257
+  %297 = getelementptr inbounds i8, ptr %0, i64 2776
+  %298 = load i64, ptr %297, align 8
+  br label %.sink.split.i54
+
+299:                                              ; preds = %257
+  %300 = getelementptr inbounds i8, ptr %0, i64 2784
+  %301 = load i64, ptr %300, align 8
+  br label %.sink.split.i54
+
+302:                                              ; preds = %257
+  %303 = getelementptr inbounds i8, ptr %0, i64 2792
+  %304 = load i64, ptr %303, align 8
+  br label %.sink.split.i54
+
+305:                                              ; preds = %257
+  %306 = getelementptr inbounds i8, ptr %0, i64 2752
+  %307 = load i64, ptr %306, align 8
+  br label %.sink.split.i54
+
+308:                                              ; preds = %257
+  %309 = getelementptr inbounds i8, ptr %0, i64 2800
+  %310 = load i64, ptr %309, align 8
+  br label %.sink.split.i54
+
+311:                                              ; preds = %257
+  %312 = getelementptr inbounds i8, ptr %0, i64 5024
+  %313 = load i64, ptr %312, align 8
+  br label %.sink.split.i54
+
+314:                                              ; preds = %257
+  %315 = getelementptr inbounds i8, ptr %0, i64 8
+  %316 = load i64, ptr %315, align 8
+  br label %.sink.split.i54
+
+317:                                              ; preds = %257
+  %318 = getelementptr inbounds i8, ptr %0, i64 32
+  %319 = load ptr, ptr %318, align 8
+  %.not.i53 = icmp eq ptr %319, null
+  %320 = getelementptr inbounds i8, ptr %319, i64 40
+  %321 = getelementptr inbounds i8, ptr %0, i64 3104
+  %.in.i = select i1 %.not.i53, ptr %321, ptr %320
+  %322 = load i64, ptr %.in.i, align 8
+  br label %.sink.split.i54
+
+.sink.split.i54:                                  ; preds = %317, %314, %311, %308, %305, %302, %299, %296, %293, %290, %287, %284, %280, %277, %273, %270, %267, %264, %261, %258
+  %.sink.i55 = phi i64 [ %260, %258 ], [ %263, %261 ], [ %266, %264 ], [ %269, %267 ], [ %272, %270 ], [ %289, %287 ], [ %292, %290 ], [ %295, %293 ], [ %298, %296 ], [ %301, %299 ], [ %304, %302 ], [ %307, %305 ], [ %310, %308 ], [ %313, %311 ], [ %316, %314 ], [ %322, %317 ], [ %279, %277 ], [ -1, %273 ], [ %286, %284 ], [ -1, %280 ]
   store i64 %.sink.i55, ptr %256, align 8
   br label %getinfo_char.exit
 
-306:                                              ; preds = %4
-  %307 = load i32, ptr %3, align 16
-  %308 = icmp ult i32 %307, 41
-  br i1 %308, label %309, label %315
+323:                                              ; preds = %4
+  %324 = load i32, ptr %3, align 16
+  %325 = icmp ult i32 %324, 41
+  br i1 %325, label %326, label %332
 
-309:                                              ; preds = %306
-  %310 = getelementptr inbounds i8, ptr %3, i64 16
-  %311 = load ptr, ptr %310, align 16
-  %312 = zext nneg i32 %307 to i64
-  %313 = getelementptr i8, ptr %311, i64 %312
-  %314 = add nuw nsw i32 %307, 8
-  store i32 %314, ptr %3, align 16
-  br label %319
+326:                                              ; preds = %323
+  %327 = getelementptr inbounds i8, ptr %3, i64 16
+  %328 = load ptr, ptr %327, align 16
+  %329 = zext nneg i32 %324 to i64
+  %330 = getelementptr i8, ptr %328, i64 %329
+  %331 = add nuw nsw i32 %324, 8
+  store i32 %331, ptr %3, align 16
+  br label %336
 
-315:                                              ; preds = %306
-  %316 = getelementptr inbounds i8, ptr %3, i64 8
-  %317 = load ptr, ptr %316, align 8
-  %318 = getelementptr i8, ptr %317, i64 8
-  store ptr %318, ptr %316, align 8
-  br label %319
+332:                                              ; preds = %323
+  %333 = getelementptr inbounds i8, ptr %3, i64 8
+  %334 = load ptr, ptr %333, align 8
+  %335 = getelementptr i8, ptr %334, i64 8
+  store ptr %335, ptr %333, align 8
+  br label %336
 
-319:                                              ; preds = %315, %309
-  %320 = phi ptr [ %313, %309 ], [ %317, %315 ]
-  %321 = load ptr, ptr %320, align 8
-  %.not43 = icmp eq ptr %321, null
-  br i1 %.not43, label %getinfo_char.exit, label %322
+336:                                              ; preds = %332, %326
+  %337 = phi ptr [ %330, %326 ], [ %334, %332 ]
+  %338 = load ptr, ptr %337, align 8
+  %.not43 = icmp eq ptr %338, null
+  br i1 %.not43, label %getinfo_char.exit, label %339
 
-322:                                              ; preds = %319
+339:                                              ; preds = %336
   switch i32 %1, label %getinfo_char.exit [
-    i32 4194331, label %323
-    i32 4194332, label %325
-    i32 4194338, label %327
-    i32 4194347, label %329
-    i32 4194349, label %329
+    i32 4194331, label %340
+    i32 4194332, label %342
+    i32 4194338, label %344
+    i32 4194347, label %346
+    i32 4194349, label %346
   ]
 
-323:                                              ; preds = %322
-  %324 = call ptr @Curl_ssl_engines_list(ptr noundef nonnull %0) #4
-  store ptr %324, ptr %321, align 8
+340:                                              ; preds = %339
+  %341 = call ptr @Curl_ssl_engines_list(ptr noundef nonnull %0) #4
+  store ptr %341, ptr %338, align 8
   br label %getinfo_char.exit
 
-325:                                              ; preds = %322
-  %326 = call ptr @Curl_cookie_list(ptr noundef nonnull %0) #4
-  store ptr %326, ptr %321, align 8
+342:                                              ; preds = %339
+  %343 = call ptr @Curl_cookie_list(ptr noundef nonnull %0) #4
+  store ptr %343, ptr %338, align 8
   br label %getinfo_char.exit
 
-327:                                              ; preds = %322
-  %328 = getelementptr inbounds i8, ptr %0, i64 5160
-  store ptr %328, ptr %321, align 8
+344:                                              ; preds = %339
+  %345 = getelementptr inbounds i8, ptr %0, i64 5160
+  store ptr %345, ptr %338, align 8
   br label %getinfo_char.exit
 
-329:                                              ; preds = %322, %322
-  %330 = getelementptr inbounds i8, ptr %0, i64 5184
-  %331 = getelementptr inbounds i8, ptr %0, i64 32
-  %332 = load ptr, ptr %331, align 8
-  store ptr %330, ptr %321, align 8
-  %333 = call i32 @Curl_ssl_backend() #4
-  store i32 %333, ptr %330, align 8
-  %334 = getelementptr inbounds i8, ptr %0, i64 5192
-  store ptr null, ptr %334, align 8
-  %.not.i57 = icmp eq ptr %332, null
-  %.not19.i = icmp eq i32 %333, 0
+346:                                              ; preds = %339, %339
+  %347 = getelementptr inbounds i8, ptr %0, i64 5184
+  %348 = getelementptr inbounds i8, ptr %0, i64 32
+  %349 = load ptr, ptr %348, align 8
+  store ptr %347, ptr %338, align 8
+  %350 = call i32 @Curl_ssl_backend() #4
+  store i32 %350, ptr %347, align 8
+  %351 = getelementptr inbounds i8, ptr %0, i64 5192
+  store ptr null, ptr %351, align 8
+  %.not.i57 = icmp eq ptr %349, null
+  %.not19.i = icmp eq i32 %350, 0
   %or.cond.i = select i1 %.not.i57, i1 true, i1 %.not19.i
-  br i1 %or.cond.i, label %getinfo_char.exit, label %335
+  br i1 %or.cond.i, label %getinfo_char.exit, label %352
 
-335:                                              ; preds = %329
-  %336 = call ptr @Curl_ssl_get_internals(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %1, i32 noundef 0) #4
-  store ptr %336, ptr %334, align 8
+352:                                              ; preds = %346
+  %353 = call ptr @Curl_ssl_get_internals(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %1, i32 noundef 0) #4
+  store ptr %353, ptr %351, align 8
   br label %getinfo_char.exit
 
-337:                                              ; preds = %4
-  %338 = load i32, ptr %3, align 16
-  %339 = icmp ult i32 %338, 41
-  br i1 %339, label %340, label %346
+354:                                              ; preds = %4
+  %355 = load i32, ptr %3, align 16
+  %356 = icmp ult i32 %355, 41
+  br i1 %356, label %357, label %363
 
-340:                                              ; preds = %337
-  %341 = getelementptr inbounds i8, ptr %3, i64 16
-  %342 = load ptr, ptr %341, align 16
-  %343 = zext nneg i32 %338 to i64
-  %344 = getelementptr i8, ptr %342, i64 %343
-  %345 = add nuw nsw i32 %338, 8
-  store i32 %345, ptr %3, align 16
-  br label %350
+357:                                              ; preds = %354
+  %358 = getelementptr inbounds i8, ptr %3, i64 16
+  %359 = load ptr, ptr %358, align 16
+  %360 = zext nneg i32 %355 to i64
+  %361 = getelementptr i8, ptr %359, i64 %360
+  %362 = add nuw nsw i32 %355, 8
+  store i32 %362, ptr %3, align 16
+  br label %367
 
-346:                                              ; preds = %337
-  %347 = getelementptr inbounds i8, ptr %3, i64 8
-  %348 = load ptr, ptr %347, align 8
-  %349 = getelementptr i8, ptr %348, i64 8
-  store ptr %349, ptr %347, align 8
-  br label %350
+363:                                              ; preds = %354
+  %364 = getelementptr inbounds i8, ptr %3, i64 8
+  %365 = load ptr, ptr %364, align 8
+  %366 = getelementptr i8, ptr %365, i64 8
+  store ptr %366, ptr %364, align 8
+  br label %367
 
-350:                                              ; preds = %346, %340
-  %351 = phi ptr [ %344, %340 ], [ %348, %346 ]
-  %352 = load ptr, ptr %351, align 8
-  %.not42 = icmp ne ptr %352, null
+367:                                              ; preds = %363, %357
+  %368 = phi ptr [ %361, %357 ], [ %365, %363 ]
+  %369 = load ptr, ptr %368, align 8
+  %.not42 = icmp ne ptr %369, null
   %cond.i = icmp eq i32 %1, 5242924
   %or.cond = and i1 %cond.i, %.not42
-  br i1 %or.cond, label %353, label %getinfo_char.exit
+  br i1 %or.cond, label %370, label %getinfo_char.exit
 
-353:                                              ; preds = %350
-  %354 = call i32 @Curl_getconnectinfo(ptr noundef nonnull %0, ptr noundef null) #4
-  store i32 %354, ptr %352, align 4
+370:                                              ; preds = %367
+  %371 = call i32 @Curl_getconnectinfo(ptr noundef nonnull %0, ptr noundef null) #4
+  store i32 %371, ptr %369, align 4
   br label %getinfo_char.exit
 
-getinfo_char.exit:                                ; preds = %353, %335, %329, %327, %325, %323, %322, %.sink.split.i54, %257, %.sink.split.i49, %173, %.sink.split.i48, %81, %.sink.split.i, %24, %4, %350, %319, %254, %170, %78, %21
-  %.0 = phi i32 [ 48, %4 ], [ 48, %350 ], [ 48, %319 ], [ 48, %254 ], [ 48, %170 ], [ 48, %78 ], [ 48, %21 ], [ 48, %24 ], [ 0, %.sink.split.i ], [ 48, %81 ], [ 0, %.sink.split.i48 ], [ 48, %173 ], [ 0, %.sink.split.i49 ], [ 48, %257 ], [ 0, %.sink.split.i54 ], [ 48, %322 ], [ 0, %329 ], [ 0, %335 ], [ 0, %327 ], [ 0, %325 ], [ 0, %323 ], [ 0, %353 ]
+getinfo_char.exit:                                ; preds = %370, %352, %346, %344, %342, %340, %339, %.sink.split.i54, %257, %.sink.split.i49, %173, %.sink.split.i48, %81, %.sink.split.i, %24, %4, %367, %336, %254, %170, %78, %21
+  %.0 = phi i32 [ 48, %4 ], [ 48, %367 ], [ 48, %336 ], [ 48, %254 ], [ 48, %170 ], [ 48, %78 ], [ 48, %21 ], [ 48, %24 ], [ 0, %.sink.split.i ], [ 48, %81 ], [ 0, %.sink.split.i48 ], [ 48, %173 ], [ 0, %.sink.split.i49 ], [ 48, %257 ], [ 0, %.sink.split.i54 ], [ 48, %339 ], [ 0, %346 ], [ 0, %352 ], [ 0, %344 ], [ 0, %342 ], [ 0, %340 ], [ 0, %370 ]
   call void @llvm.va_end.p0(ptr nonnull %3)
-  br label %355
+  br label %372
 
-355:                                              ; preds = %2, %getinfo_char.exit
+372:                                              ; preds = %2, %getinfo_char.exit
   %.028 = phi i32 [ %.0, %getinfo_char.exit ], [ 43, %2 ]
   ret i32 %.028
 }

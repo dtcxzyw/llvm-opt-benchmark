@@ -115,14 +115,23 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.else, %if.then
   %2 = phi ptr [ null, %if.else ], [ %.pre, %if.then ]
-  %tql_prev9 = getelementptr inbounds i8, ptr %s, i64 40
   store ptr %2, ptr %1, align 8
   %3 = load ptr, ptr @handlers, align 8
   store ptr %3, ptr %node, align 8
   %cmp17.not = icmp eq ptr %3, null
+  br i1 %cmp17.not, label %if.else22, label %if.then18
+
+if.then18:                                        ; preds = %if.end
   %tql_prev21 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink = select i1 %cmp17.not, ptr getelementptr inbounds (i8, ptr @handlers, i64 8), ptr %tql_prev21
-  store ptr %node, ptr %.sink, align 8
+  store ptr %node, ptr %tql_prev21, align 8
+  br label %if.end24
+
+if.else22:                                        ; preds = %if.end
+  store ptr %node, ptr getelementptr inbounds (i8, ptr @handlers, i64 8), align 8
+  br label %if.end24
+
+if.end24:                                         ; preds = %if.else22, %if.then18
+  %tql_prev9 = getelementptr inbounds i8, ptr %s, i64 40
   store ptr %s, ptr @handlers, align 8
   store ptr @handlers, ptr %tql_prev9, align 8
   tail call void @notifier_list_notify(ptr noundef nonnull @mouse_mode_notifiers, ptr noundef null) #12
@@ -1239,10 +1248,19 @@ do.body7:                                         ; preds = %do.end
   %cmp8.not = icmp eq ptr %2, null
   %tql_prev16 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %tql_prev16, align 8
-  %tql_prev17 = getelementptr inbounds i8, ptr %opaque, i64 8
+  br i1 %cmp8.not, label %if.else14, label %if.then9
+
+if.then9:                                         ; preds = %do.body7
   %tql_prev13 = getelementptr inbounds i8, ptr %2, i64 48
-  %tql_prev17.sink = select i1 %cmp8.not, ptr %tql_prev17, ptr %tql_prev13
-  store ptr %3, ptr %tql_prev17.sink, align 8
+  store ptr %3, ptr %tql_prev13, align 8
+  br label %if.end18
+
+if.else14:                                        ; preds = %do.body7
+  %tql_prev17 = getelementptr inbounds i8, ptr %opaque, i64 8
+  store ptr %3, ptr %tql_prev17, align 8
+  br label %if.end18
+
+if.end18:                                         ; preds = %if.else14, %if.then9
   %4 = load ptr, ptr %node, align 8
   store ptr %4, ptr %3, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %node, i8 0, i64 16, i1 false)
@@ -1254,12 +1272,12 @@ do.body7:                                         ; preds = %do.end
   %cmp28.not39 = icmp eq ptr %6, null
   br i1 %cmp28.not39, label %while.end, label %while.body.lr.ph
 
-while.body.lr.ph:                                 ; preds = %do.body7
+while.body.lr.ph:                                 ; preds = %if.end18
   %tql_prev46 = getelementptr inbounds i8, ptr %opaque, i64 8
   br label %while.body
 
-while.body:                                       ; preds = %while.body.lr.ph, %do.body33
-  %7 = phi ptr [ %6, %while.body.lr.ph ], [ %23, %do.body33 ]
+while.body:                                       ; preds = %while.body.lr.ph, %if.end47
+  %7 = phi ptr [ %6, %while.body.lr.ph ], [ %23, %if.end47 ]
   %8 = load i32, ptr %7, align 8
   switch i32 %8, label %do.body33 [
     i32 1, label %sw.bb
@@ -1345,9 +1363,18 @@ do.body33:                                        ; preds = %if.end.i, %land.lhs
   %cmp35.not = icmp eq ptr %19, null
   %tql_prev45 = getelementptr inbounds i8, ptr %7, i64 48
   %20 = load ptr, ptr %tql_prev45, align 8
+  br i1 %cmp35.not, label %if.else43, label %if.then37
+
+if.then37:                                        ; preds = %do.body33
   %tql_prev42 = getelementptr inbounds i8, ptr %19, i64 48
-  %tql_prev46.sink = select i1 %cmp35.not, ptr %tql_prev46, ptr %tql_prev42
-  store ptr %20, ptr %tql_prev46.sink, align 8
+  store ptr %20, ptr %tql_prev42, align 8
+  br label %if.end47
+
+if.else43:                                        ; preds = %do.body33
+  store ptr %20, ptr %tql_prev46, align 8
+  br label %if.end47
+
+if.end47:                                         ; preds = %if.else43, %if.then37
   %21 = load ptr, ptr %node34, align 8
   store ptr %21, ptr %20, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %node34, i8 0, i64 16, i1 false)
@@ -1359,7 +1386,7 @@ do.body33:                                        ; preds = %if.end.i, %land.lhs
   %cmp28.not = icmp eq ptr %23, null
   br i1 %cmp28.not, label %while.end, label %while.body, !llvm.loop !11
 
-while.end:                                        ; preds = %do.body33, %do.body7, %sw.bb
+while.end:                                        ; preds = %if.end47, %if.end18, %sw.bb
   ret void
 }
 
@@ -1825,21 +1852,30 @@ if.then.i:                                        ; preds = %if.end7
   %tql_prev4.i = getelementptr inbounds i8, ptr %4, i64 40
   store ptr %5, ptr %tql_prev4.i, align 8
   %.pre.i = load ptr, ptr %node.i, align 8
-  br label %qemu_input_handler_activate.exit
+  br label %if.end.i
 
 if.else.i:                                        ; preds = %if.end7
   store ptr %5, ptr getelementptr inbounds (i8, ptr @handlers, i64 8), align 8
-  br label %qemu_input_handler_activate.exit
+  br label %if.end.i
 
-qemu_input_handler_activate.exit:                 ; preds = %if.then.i, %if.else.i
+if.end.i:                                         ; preds = %if.else.i, %if.then.i
   %6 = phi ptr [ null, %if.else.i ], [ %.pre.i, %if.then.i ]
   store ptr %6, ptr %5, align 8
   %7 = load ptr, ptr @handlers, align 8
   store ptr %7, ptr %node.i, align 8
   %cmp17.not.i = icmp eq ptr %7, null
+  br i1 %cmp17.not.i, label %if.else22.i, label %if.then18.i
+
+if.then18.i:                                      ; preds = %if.end.i
   %tql_prev21.i = getelementptr inbounds i8, ptr %7, i64 40
-  %.sink.i = select i1 %cmp17.not.i, ptr getelementptr inbounds (i8, ptr @handlers, i64 8), ptr %tql_prev21.i
-  store ptr %node.i, ptr %.sink.i, align 8
+  store ptr %node.i, ptr %tql_prev21.i, align 8
+  br label %qemu_input_handler_activate.exit
+
+if.else22.i:                                      ; preds = %if.end.i
+  store ptr %node.i, ptr getelementptr inbounds (i8, ptr @handlers, i64 8), align 8
+  br label %qemu_input_handler_activate.exit
+
+qemu_input_handler_activate.exit:                 ; preds = %if.then18.i, %if.else22.i
   store ptr %s.012, ptr @handlers, align 8
   store ptr @handlers, ptr %tql_prev6.i, align 8
   tail call void @notifier_list_notify(ptr noundef nonnull @mouse_mode_notifiers, ptr noundef null) #12

@@ -1004,9 +1004,9 @@ define internal range(i32 -1, 1) i32 @_server_read(ptr nocapture noundef %0, ptr
   %201 = trunc i8 %200 to i1
   %202 = getelementptr inbounds i8, ptr %198, i64 8
   %203 = getelementptr inbounds i8, ptr %195, i64 256
-  %.sink106 = select i1 %201, ptr %203, ptr %202
-  %204 = load ptr, ptr %.sink106, align 8
-  tail call void @list_enqueue(ptr noundef %204, ptr noundef nonnull %191) #10
+  %.sink105.in = select i1 %201, ptr %203, ptr %202
+  %.sink105 = load ptr, ptr %.sink105.in, align 8
+  tail call void @list_enqueue(ptr noundef %.sink105, ptr noundef nonnull %191) #10
   store ptr null, ptr %9, align 8
   br label %.loopexit
 

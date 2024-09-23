@@ -2943,30 +2943,30 @@ declare noundef zeroext i1 @_ZN14CompilerOracle17should_not_inlineERK12methodHan
 define hidden noundef zeroext i1 @_ZN12DirectiveSet20parse_and_add_inlineEPcRPKc(ptr nocapture noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
   %4 = tail call noundef ptr @_ZN13InlineMatcher20parse_inline_patternEPcRPKc(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #14
   %.not = icmp ne ptr %4, null
-  br i1 %.not, label %5, label %11
+  br i1 %.not, label %5, label %_ZN12DirectiveSet13append_inlineEP13InlineMatcher.exit
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %_ZN12DirectiveSet13append_inlineEP13InlineMatcher.exit, label %.preheader.i
+  br i1 %7, label %8, label %.preheader.i
 
-.preheader.i:                                     ; preds = %5, %.preheader.i
-  %.0.i = phi ptr [ %9, %.preheader.i ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.0.i, i64 40
-  %9 = load ptr, ptr %8, align 8
-  %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %_ZN12DirectiveSet13append_inlineEP13InlineMatcher.exit.loopexit, label %.preheader.i, !llvm.loop !18
-
-_ZN12DirectiveSet13append_inlineEP13InlineMatcher.exit.loopexit: ; preds = %.preheader.i
-  %10 = getelementptr inbounds i8, ptr %.0.i, i64 40
+8:                                                ; preds = %5
+  store ptr %4, ptr %0, align 8
   br label %_ZN12DirectiveSet13append_inlineEP13InlineMatcher.exit
 
-_ZN12DirectiveSet13append_inlineEP13InlineMatcher.exit: ; preds = %_ZN12DirectiveSet13append_inlineEP13InlineMatcher.exit.loopexit, %5
-  %.sink.i = phi ptr [ %0, %5 ], [ %10, %_ZN12DirectiveSet13append_inlineEP13InlineMatcher.exit.loopexit ]
-  store ptr %4, ptr %.sink.i, align 8
-  br label %11
+.preheader.i:                                     ; preds = %5, %.preheader.i
+  %.0.i = phi ptr [ %10, %.preheader.i ], [ %6, %5 ]
+  %9 = getelementptr inbounds i8, ptr %.0.i, i64 40
+  %10 = load ptr, ptr %9, align 8
+  %.not.i = icmp eq ptr %10, null
+  br i1 %.not.i, label %11, label %.preheader.i, !llvm.loop !18
 
-11:                                               ; preds = %3, %_ZN12DirectiveSet13append_inlineEP13InlineMatcher.exit
+11:                                               ; preds = %.preheader.i
+  %12 = getelementptr inbounds i8, ptr %.0.i, i64 40
+  store ptr %4, ptr %12, align 8
+  br label %_ZN12DirectiveSet13append_inlineEP13InlineMatcher.exit
+
+_ZN12DirectiveSet13append_inlineEP13InlineMatcher.exit: ; preds = %11, %8, %3
   ret i1 %.not
 }
 
@@ -2976,22 +2976,25 @@ declare noundef ptr @_ZN13InlineMatcher20parse_inline_patternEPcRPKc(ptr noundef
 define hidden void @_ZN12DirectiveSet13append_inlineEP13InlineMatcher(ptr nocapture noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1) local_unnamed_addr #9 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %9, label %.preheader
+  br i1 %4, label %5, label %.preheader
+
+5:                                                ; preds = %2
+  store ptr %1, ptr %0, align 8
+  br label %10
 
 .preheader:                                       ; preds = %2, %.preheader
-  %.0 = phi ptr [ %6, %.preheader ], [ %3, %2 ]
-  %5 = getelementptr inbounds i8, ptr %.0, i64 40
-  %6 = load ptr, ptr %5, align 8
-  %.not = icmp eq ptr %6, null
-  br i1 %.not, label %7, label %.preheader, !llvm.loop !18
+  %.0 = phi ptr [ %7, %.preheader ], [ %3, %2 ]
+  %6 = getelementptr inbounds i8, ptr %.0, i64 40
+  %7 = load ptr, ptr %6, align 8
+  %.not = icmp eq ptr %7, null
+  br i1 %.not, label %8, label %.preheader, !llvm.loop !18
 
-7:                                                ; preds = %.preheader
-  %8 = getelementptr inbounds i8, ptr %.0, i64 40
-  br label %9
+8:                                                ; preds = %.preheader
+  %9 = getelementptr inbounds i8, ptr %.0, i64 40
+  store ptr %1, ptr %9, align 8
+  br label %10
 
-9:                                                ; preds = %2, %7
-  %.sink = phi ptr [ %8, %7 ], [ %0, %2 ]
-  store ptr %1, ptr %.sink, align 8
+10:                                               ; preds = %8, %5
   ret void
 }
 
@@ -3146,160 +3149,163 @@ define hidden noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef %0) local_un
   %59 = tail call noundef ptr @_ZN13InlineMatcher5cloneEv(ptr noundef nonnull align 8 dereferenceable(48) %.077) #14
   %60 = load ptr, ptr %2, align 8
   %61 = icmp eq ptr %60, null
-  br i1 %61, label %_ZN12DirectiveSet13append_inlineEP13InlineMatcher.exit, label %.preheader.i
+  br i1 %61, label %62, label %.preheader.i
 
-.preheader.i:                                     ; preds = %.lr.ph, %.preheader.i
-  %.0.i = phi ptr [ %63, %.preheader.i ], [ %60, %.lr.ph ]
-  %62 = getelementptr inbounds i8, ptr %.0.i, i64 40
-  %63 = load ptr, ptr %62, align 8
-  %.not.i = icmp eq ptr %63, null
-  br i1 %.not.i, label %_ZN12DirectiveSet13append_inlineEP13InlineMatcher.exit.loopexit, label %.preheader.i, !llvm.loop !18
-
-_ZN12DirectiveSet13append_inlineEP13InlineMatcher.exit.loopexit: ; preds = %.preheader.i
-  %64 = getelementptr inbounds i8, ptr %.0.i, i64 40
+62:                                               ; preds = %.lr.ph
+  store ptr %59, ptr %2, align 8
   br label %_ZN12DirectiveSet13append_inlineEP13InlineMatcher.exit
 
-_ZN12DirectiveSet13append_inlineEP13InlineMatcher.exit: ; preds = %_ZN12DirectiveSet13append_inlineEP13InlineMatcher.exit.loopexit, %.lr.ph
-  %.sink.i = phi ptr [ %2, %.lr.ph ], [ %64, %_ZN12DirectiveSet13append_inlineEP13InlineMatcher.exit.loopexit ]
-  store ptr %59, ptr %.sink.i, align 8
-  %65 = getelementptr inbounds i8, ptr %.077, i64 40
-  %.0 = load ptr, ptr %65, align 8
+.preheader.i:                                     ; preds = %.lr.ph, %.preheader.i
+  %.0.i = phi ptr [ %64, %.preheader.i ], [ %60, %.lr.ph ]
+  %63 = getelementptr inbounds i8, ptr %.0.i, i64 40
+  %64 = load ptr, ptr %63, align 8
+  %.not.i = icmp eq ptr %64, null
+  br i1 %.not.i, label %65, label %.preheader.i, !llvm.loop !18
+
+65:                                               ; preds = %.preheader.i
+  %66 = getelementptr inbounds i8, ptr %.0.i, i64 40
+  store ptr %59, ptr %66, align 8
+  br label %_ZN12DirectiveSet13append_inlineEP13InlineMatcher.exit
+
+_ZN12DirectiveSet13append_inlineEP13InlineMatcher.exit: ; preds = %62, %65
+  %67 = getelementptr inbounds i8, ptr %.077, i64 40
+  %.0 = load ptr, ptr %67, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %_ZN12DirectiveSet13append_inlineEP13InlineMatcher.exit, %1
-  %66 = getelementptr inbounds i8, ptr %0, i64 203
-  %67 = load i8, ptr %66, align 1
-  %68 = and i8 %67, 1
-  store i8 %68, ptr %6, align 1
-  %69 = getelementptr inbounds i8, ptr %0, i64 204
-  %70 = load i8, ptr %69, align 4
-  %71 = getelementptr inbounds i8, ptr %2, i64 204
-  %72 = and i8 %70, 1
-  store i8 %72, ptr %71, align 4
-  %73 = getelementptr inbounds i8, ptr %0, i64 205
-  %74 = load i8, ptr %73, align 1
-  %75 = getelementptr inbounds i8, ptr %2, i64 205
-  %76 = and i8 %74, 1
-  store i8 %76, ptr %75, align 1
-  %77 = getelementptr inbounds i8, ptr %0, i64 206
-  %78 = load i8, ptr %77, align 2
-  %79 = getelementptr inbounds i8, ptr %2, i64 206
-  %80 = and i8 %78, 1
-  store i8 %80, ptr %79, align 2
-  %81 = getelementptr inbounds i8, ptr %0, i64 207
-  %82 = load i8, ptr %81, align 1
-  %83 = and i8 %82, 1
-  store i8 %83, ptr %8, align 1
-  %84 = getelementptr inbounds i8, ptr %0, i64 208
-  %85 = load i64, ptr %84, align 8
-  store i64 %85, ptr %10, align 8
-  %86 = getelementptr inbounds i8, ptr %0, i64 216
+  %68 = getelementptr inbounds i8, ptr %0, i64 203
+  %69 = load i8, ptr %68, align 1
+  %70 = and i8 %69, 1
+  store i8 %70, ptr %6, align 1
+  %71 = getelementptr inbounds i8, ptr %0, i64 204
+  %72 = load i8, ptr %71, align 4
+  %73 = getelementptr inbounds i8, ptr %2, i64 204
+  %74 = and i8 %72, 1
+  store i8 %74, ptr %73, align 4
+  %75 = getelementptr inbounds i8, ptr %0, i64 205
+  %76 = load i8, ptr %75, align 1
+  %77 = getelementptr inbounds i8, ptr %2, i64 205
+  %78 = and i8 %76, 1
+  store i8 %78, ptr %77, align 1
+  %79 = getelementptr inbounds i8, ptr %0, i64 206
+  %80 = load i8, ptr %79, align 2
+  %81 = getelementptr inbounds i8, ptr %2, i64 206
+  %82 = and i8 %80, 1
+  store i8 %82, ptr %81, align 2
+  %83 = getelementptr inbounds i8, ptr %0, i64 207
+  %84 = load i8, ptr %83, align 1
+  %85 = and i8 %84, 1
+  store i8 %85, ptr %8, align 1
+  %86 = getelementptr inbounds i8, ptr %0, i64 208
   %87 = load i64, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %2, i64 216
-  store i64 %87, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %0, i64 224
-  %90 = load i8, ptr %89, align 8
-  %91 = and i8 %90, 1
-  store i8 %91, ptr %12, align 8
-  %92 = getelementptr inbounds i8, ptr %0, i64 225
-  %93 = load i8, ptr %92, align 1
-  %94 = and i8 %93, 1
-  store i8 %94, ptr %15, align 1
-  %95 = getelementptr inbounds i8, ptr %0, i64 226
-  %96 = load i8, ptr %95, align 2
-  %97 = and i8 %96, 1
-  store i8 %97, ptr %18, align 2
-  %98 = getelementptr inbounds i8, ptr %0, i64 227
-  %99 = load i8, ptr %98, align 1
-  %100 = and i8 %99, 1
-  store i8 %100, ptr %21, align 1
-  %101 = getelementptr inbounds i8, ptr %0, i64 228
-  %102 = load i8, ptr %101, align 4
-  %103 = and i8 %102, 1
-  store i8 %103, ptr %24, align 4
-  %104 = getelementptr inbounds i8, ptr %0, i64 229
-  %105 = load i8, ptr %104, align 1
-  %106 = and i8 %105, 1
-  store i8 %106, ptr %26, align 1
-  %107 = getelementptr inbounds i8, ptr %0, i64 230
-  %108 = load i8, ptr %107, align 2
-  %109 = and i8 %108, 1
-  store i8 %109, ptr %27, align 2
-  %110 = getelementptr inbounds i8, ptr %0, i64 231
-  %111 = load i8, ptr %110, align 1
-  %112 = and i8 %111, 1
-  store i8 %112, ptr %28, align 1
-  %113 = getelementptr inbounds i8, ptr %0, i64 232
-  %114 = load i8, ptr %113, align 8
-  %115 = and i8 %114, 1
-  store i8 %115, ptr %30, align 8
-  %116 = getelementptr inbounds i8, ptr %0, i64 240
-  %117 = load i64, ptr %116, align 8
-  store i64 %117, ptr %33, align 8
-  %118 = getelementptr inbounds i8, ptr %0, i64 264
-  %119 = load i8, ptr %118, align 8
-  %120 = and i8 %119, 1
-  store i8 %120, ptr %39, align 8
-  %121 = getelementptr inbounds i8, ptr %0, i64 265
-  %122 = load i8, ptr %121, align 1
-  %123 = and i8 %122, 1
-  store i8 %123, ptr %42, align 1
-  %124 = getelementptr inbounds i8, ptr %0, i64 266
-  %125 = load i8, ptr %124, align 2
-  %126 = and i8 %125, 1
-  store i8 %126, ptr %45, align 2
-  %127 = getelementptr inbounds i8, ptr %0, i64 267
-  %128 = load i8, ptr %127, align 1
-  %129 = and i8 %128, 1
-  store i8 %129, ptr %48, align 1
-  %130 = getelementptr inbounds i8, ptr %0, i64 268
-  %131 = load i8, ptr %130, align 4
-  %132 = and i8 %131, 1
-  store i8 %132, ptr %50, align 4
-  %133 = getelementptr inbounds i8, ptr %0, i64 269
-  %134 = load i8, ptr %133, align 1
-  %135 = and i8 %134, 1
-  store i8 %135, ptr %51, align 1
-  %136 = getelementptr inbounds i8, ptr %0, i64 270
-  %137 = load i8, ptr %136, align 2
-  %138 = and i8 %137, 1
-  store i8 %138, ptr %53, align 2
-  %139 = getelementptr inbounds i8, ptr %0, i64 272
-  %140 = load i64, ptr %139, align 8
-  store i64 %140, ptr %56, align 8
-  %141 = getelementptr inbounds i8, ptr %0, i64 193
-  %142 = load i8, ptr %141, align 1
-  %143 = trunc i8 %142 to i1
-  %144 = getelementptr inbounds i8, ptr %0, i64 248
-  %145 = load ptr, ptr %144, align 8
-  br i1 %143, label %146, label %148
+  store i64 %87, ptr %10, align 8
+  %88 = getelementptr inbounds i8, ptr %0, i64 216
+  %89 = load i64, ptr %88, align 8
+  %90 = getelementptr inbounds i8, ptr %2, i64 216
+  store i64 %89, ptr %90, align 8
+  %91 = getelementptr inbounds i8, ptr %0, i64 224
+  %92 = load i8, ptr %91, align 8
+  %93 = and i8 %92, 1
+  store i8 %93, ptr %12, align 8
+  %94 = getelementptr inbounds i8, ptr %0, i64 225
+  %95 = load i8, ptr %94, align 1
+  %96 = and i8 %95, 1
+  store i8 %96, ptr %15, align 1
+  %97 = getelementptr inbounds i8, ptr %0, i64 226
+  %98 = load i8, ptr %97, align 2
+  %99 = and i8 %98, 1
+  store i8 %99, ptr %18, align 2
+  %100 = getelementptr inbounds i8, ptr %0, i64 227
+  %101 = load i8, ptr %100, align 1
+  %102 = and i8 %101, 1
+  store i8 %102, ptr %21, align 1
+  %103 = getelementptr inbounds i8, ptr %0, i64 228
+  %104 = load i8, ptr %103, align 4
+  %105 = and i8 %104, 1
+  store i8 %105, ptr %24, align 4
+  %106 = getelementptr inbounds i8, ptr %0, i64 229
+  %107 = load i8, ptr %106, align 1
+  %108 = and i8 %107, 1
+  store i8 %108, ptr %26, align 1
+  %109 = getelementptr inbounds i8, ptr %0, i64 230
+  %110 = load i8, ptr %109, align 2
+  %111 = and i8 %110, 1
+  store i8 %111, ptr %27, align 2
+  %112 = getelementptr inbounds i8, ptr %0, i64 231
+  %113 = load i8, ptr %112, align 1
+  %114 = and i8 %113, 1
+  store i8 %114, ptr %28, align 1
+  %115 = getelementptr inbounds i8, ptr %0, i64 232
+  %116 = load i8, ptr %115, align 8
+  %117 = and i8 %116, 1
+  store i8 %117, ptr %30, align 8
+  %118 = getelementptr inbounds i8, ptr %0, i64 240
+  %119 = load i64, ptr %118, align 8
+  store i64 %119, ptr %33, align 8
+  %120 = getelementptr inbounds i8, ptr %0, i64 264
+  %121 = load i8, ptr %120, align 8
+  %122 = and i8 %121, 1
+  store i8 %122, ptr %39, align 8
+  %123 = getelementptr inbounds i8, ptr %0, i64 265
+  %124 = load i8, ptr %123, align 1
+  %125 = and i8 %124, 1
+  store i8 %125, ptr %42, align 1
+  %126 = getelementptr inbounds i8, ptr %0, i64 266
+  %127 = load i8, ptr %126, align 2
+  %128 = and i8 %127, 1
+  store i8 %128, ptr %45, align 2
+  %129 = getelementptr inbounds i8, ptr %0, i64 267
+  %130 = load i8, ptr %129, align 1
+  %131 = and i8 %130, 1
+  store i8 %131, ptr %48, align 1
+  %132 = getelementptr inbounds i8, ptr %0, i64 268
+  %133 = load i8, ptr %132, align 4
+  %134 = and i8 %133, 1
+  store i8 %134, ptr %50, align 4
+  %135 = getelementptr inbounds i8, ptr %0, i64 269
+  %136 = load i8, ptr %135, align 1
+  %137 = and i8 %136, 1
+  store i8 %137, ptr %51, align 1
+  %138 = getelementptr inbounds i8, ptr %0, i64 270
+  %139 = load i8, ptr %138, align 2
+  %140 = and i8 %139, 1
+  store i8 %140, ptr %53, align 2
+  %141 = getelementptr inbounds i8, ptr %0, i64 272
+  %142 = load i64, ptr %141, align 8
+  store i64 %142, ptr %56, align 8
+  %143 = getelementptr inbounds i8, ptr %0, i64 193
+  %144 = load i8, ptr %143, align 1
+  %145 = trunc i8 %144 to i1
+  %146 = getelementptr inbounds i8, ptr %0, i64 248
+  %147 = load ptr, ptr %146, align 8
+  br i1 %145, label %148, label %150
 
-146:                                              ; preds = %._crit_edge
-  %147 = tail call noundef ptr @_ZN2os16strdup_check_oomEPKc8MEMFLAGS(ptr noundef %145, i8 noundef zeroext 7) #14
-  br label %148
+148:                                              ; preds = %._crit_edge
+  %149 = tail call noundef ptr @_ZN2os16strdup_check_oomEPKc8MEMFLAGS(ptr noundef %147, i8 noundef zeroext 7) #14
+  br label %150
 
-148:                                              ; preds = %._crit_edge, %146
-  %storemerge = phi ptr [ %147, %146 ], [ %145, %._crit_edge ]
+150:                                              ; preds = %._crit_edge, %148
+  %storemerge = phi ptr [ %149, %148 ], [ %147, %._crit_edge ]
   store ptr %storemerge, ptr %35, align 8
-  %149 = getelementptr inbounds i8, ptr %0, i64 194
-  %150 = load i8, ptr %149, align 2
-  %151 = trunc i8 %150 to i1
-  %152 = getelementptr inbounds i8, ptr %0, i64 256
-  %153 = load ptr, ptr %152, align 8
-  br i1 %151, label %154, label %156
+  %151 = getelementptr inbounds i8, ptr %0, i64 194
+  %152 = load i8, ptr %151, align 2
+  %153 = trunc i8 %152 to i1
+  %154 = getelementptr inbounds i8, ptr %0, i64 256
+  %155 = load ptr, ptr %154, align 8
+  br i1 %153, label %156, label %158
 
-154:                                              ; preds = %148
-  %155 = tail call noundef ptr @_ZN2os16strdup_check_oomEPKc8MEMFLAGS(ptr noundef %153, i8 noundef zeroext 7) #14
-  br label %156
+156:                                              ; preds = %150
+  %157 = tail call noundef ptr @_ZN2os16strdup_check_oomEPKc8MEMFLAGS(ptr noundef %155, i8 noundef zeroext 7) #14
+  br label %158
 
-156:                                              ; preds = %148, %154
-  %storemerge74 = phi ptr [ %155, %154 ], [ %153, %148 ]
+158:                                              ; preds = %150, %156
+  %storemerge74 = phi ptr [ %157, %156 ], [ %155, %150 ]
   store ptr %storemerge74, ptr %37, align 8
-  %157 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(108) %3, ptr noundef nonnull align 8 dereferenceable(108) %157, i64 108, i1 false)
-  %158 = getelementptr inbounds i8, ptr %0, i64 128
-  tail call void @_ZN6BitMap8set_fromERKS_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %158) #14
+  %159 = getelementptr inbounds i8, ptr %0, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(108) %3, ptr noundef nonnull align 8 dereferenceable(108) %159, i64 108, i1 false)
+  %160 = getelementptr inbounds i8, ptr %0, i64 128
+  tail call void @_ZN6BitMap8set_fromERKS_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %160) #14
   ret ptr %2
 }
 

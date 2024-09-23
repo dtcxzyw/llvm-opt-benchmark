@@ -3577,7 +3577,12 @@ Py_XDECREF.exit.i.i:                              ; preds = %if.then1.i.i.i.i, %
   %data_stack.i.i.i = getelementptr inbounds i8, ptr %state.i, i64 176
   %17 = load ptr, ptr %data_stack.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %17, null
-  br i1 %tobool.not.i.i.i, label %return.sink.split.i, label %return.sink.split.sink.split.i
+  br i1 %tobool.not.i.i.i, label %return.sink.split.i, label %if.then.i6.i.i
+
+if.then.i6.i.i:                                   ; preds = %Py_XDECREF.exit.i.i
+  call void @PyMem_Free(ptr noundef nonnull %17) #14
+  store ptr null, ptr %data_stack.i.i.i, align 8
+  br label %return.sink.split.i
 
 if.end7.i:                                        ; preds = %sre_match.exit.i
   %call8.i = call fastcc ptr @pattern_new_match(ptr noundef %call.val.i, ptr noundef %self, ptr noundef nonnull %state.i, i64 noundef %retval.0.i.i)
@@ -3616,18 +3621,15 @@ Py_XDECREF.exit.i12.i:                            ; preds = %if.then1.i.i.i21.i,
   %data_stack.i.i13.i = getelementptr inbounds i8, ptr %state.i, i64 176
   %22 = load ptr, ptr %data_stack.i.i13.i, align 8
   %tobool.not.i.i14.i = icmp eq ptr %22, null
-  br i1 %tobool.not.i.i14.i, label %return.sink.split.i, label %return.sink.split.sink.split.i
+  br i1 %tobool.not.i.i14.i, label %return.sink.split.i, label %if.then.i6.i15.i
 
-return.sink.split.sink.split.i:                   ; preds = %Py_XDECREF.exit.i12.i, %Py_XDECREF.exit.i.i
-  %.sink.i = phi ptr [ %17, %Py_XDECREF.exit.i.i ], [ %22, %Py_XDECREF.exit.i12.i ]
-  %data_stack.i.i13.sink.i = phi ptr [ %data_stack.i.i.i, %Py_XDECREF.exit.i.i ], [ %data_stack.i.i13.i, %Py_XDECREF.exit.i12.i ]
-  %retval.0.ph.ph.i = phi ptr [ null, %Py_XDECREF.exit.i.i ], [ %call8.i, %Py_XDECREF.exit.i12.i ]
-  call void @PyMem_Free(ptr noundef nonnull %.sink.i) #14
-  store ptr null, ptr %data_stack.i.i13.sink.i, align 8
+if.then.i6.i15.i:                                 ; preds = %Py_XDECREF.exit.i12.i
+  call void @PyMem_Free(ptr noundef nonnull %22) #14
+  store ptr null, ptr %data_stack.i.i13.i, align 8
   br label %return.sink.split.i
 
-return.sink.split.i:                              ; preds = %return.sink.split.sink.split.i, %Py_XDECREF.exit.i12.i, %Py_XDECREF.exit.i.i
-  %retval.0.ph.i = phi ptr [ null, %Py_XDECREF.exit.i.i ], [ %call8.i, %Py_XDECREF.exit.i12.i ], [ %retval.0.ph.ph.i, %return.sink.split.sink.split.i ]
+return.sink.split.i:                              ; preds = %if.then.i6.i15.i, %Py_XDECREF.exit.i12.i, %if.then.i6.i.i, %Py_XDECREF.exit.i.i
+  %retval.0.ph.i = phi ptr [ null, %Py_XDECREF.exit.i.i ], [ null, %if.then.i6.i.i ], [ %call8.i, %Py_XDECREF.exit.i12.i ], [ %call8.i, %if.then.i6.i15.i ]
   %data_stack_size.i.i16.i = getelementptr inbounds i8, ptr %state.i, i64 184
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data_stack_size.i.i16.i, i8 0, i64 16, i1 false)
   %mark.i17.i = getelementptr inbounds i8, ptr %state.i, i64 168
@@ -3834,7 +3836,12 @@ Py_XDECREF.exit.i.i:                              ; preds = %if.then1.i.i.i.i, %
   %data_stack.i.i.i = getelementptr inbounds i8, ptr %state.i, i64 176
   %17 = load ptr, ptr %data_stack.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %17, null
-  br i1 %tobool.not.i.i.i, label %return.sink.split.i, label %return.sink.split.sink.split.i
+  br i1 %tobool.not.i.i.i, label %return.sink.split.i, label %if.then.i6.i.i
+
+if.then.i6.i.i:                                   ; preds = %Py_XDECREF.exit.i.i
+  call void @PyMem_Free(ptr noundef nonnull %17) #14
+  store ptr null, ptr %data_stack.i.i.i, align 8
+  br label %return.sink.split.i
 
 if.end7.i:                                        ; preds = %sre_match.exit.i
   %call8.i = call fastcc ptr @pattern_new_match(ptr noundef %call.val.i, ptr noundef %self, ptr noundef nonnull %state.i, i64 noundef %retval.0.i.i)
@@ -3873,18 +3880,15 @@ Py_XDECREF.exit.i12.i:                            ; preds = %if.then1.i.i.i21.i,
   %data_stack.i.i13.i = getelementptr inbounds i8, ptr %state.i, i64 176
   %22 = load ptr, ptr %data_stack.i.i13.i, align 8
   %tobool.not.i.i14.i = icmp eq ptr %22, null
-  br i1 %tobool.not.i.i14.i, label %return.sink.split.i, label %return.sink.split.sink.split.i
+  br i1 %tobool.not.i.i14.i, label %return.sink.split.i, label %if.then.i6.i15.i
 
-return.sink.split.sink.split.i:                   ; preds = %Py_XDECREF.exit.i12.i, %Py_XDECREF.exit.i.i
-  %.sink.i = phi ptr [ %17, %Py_XDECREF.exit.i.i ], [ %22, %Py_XDECREF.exit.i12.i ]
-  %data_stack.i.i13.sink.i = phi ptr [ %data_stack.i.i.i, %Py_XDECREF.exit.i.i ], [ %data_stack.i.i13.i, %Py_XDECREF.exit.i12.i ]
-  %retval.0.ph.ph.i = phi ptr [ null, %Py_XDECREF.exit.i.i ], [ %call8.i, %Py_XDECREF.exit.i12.i ]
-  call void @PyMem_Free(ptr noundef nonnull %.sink.i) #14
-  store ptr null, ptr %data_stack.i.i13.sink.i, align 8
+if.then.i6.i15.i:                                 ; preds = %Py_XDECREF.exit.i12.i
+  call void @PyMem_Free(ptr noundef nonnull %22) #14
+  store ptr null, ptr %data_stack.i.i13.i, align 8
   br label %return.sink.split.i
 
-return.sink.split.i:                              ; preds = %return.sink.split.sink.split.i, %Py_XDECREF.exit.i12.i, %Py_XDECREF.exit.i.i
-  %retval.0.ph.i = phi ptr [ null, %Py_XDECREF.exit.i.i ], [ %call8.i, %Py_XDECREF.exit.i12.i ], [ %retval.0.ph.ph.i, %return.sink.split.sink.split.i ]
+return.sink.split.i:                              ; preds = %if.then.i6.i15.i, %Py_XDECREF.exit.i12.i, %if.then.i6.i.i, %Py_XDECREF.exit.i.i
+  %retval.0.ph.i = phi ptr [ null, %Py_XDECREF.exit.i.i ], [ null, %if.then.i6.i.i ], [ %call8.i, %Py_XDECREF.exit.i12.i ], [ %call8.i, %if.then.i6.i15.i ]
   %data_stack_size.i.i16.i = getelementptr inbounds i8, ptr %state.i, i64 184
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data_stack_size.i.i16.i, i8 0, i64 16, i1 false)
   %mark.i17.i = getelementptr inbounds i8, ptr %state.i, i64 168
@@ -4066,7 +4070,12 @@ Py_XDECREF.exit.i.i:                              ; preds = %if.then1.i.i.i.i, %
   %data_stack.i.i.i = getelementptr inbounds i8, ptr %state.i, i64 176
   %15 = load ptr, ptr %data_stack.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %15, null
-  br i1 %tobool.not.i.i.i, label %return.sink.split.i, label %return.sink.split.sink.split.i
+  br i1 %tobool.not.i.i.i, label %return.sink.split.i, label %if.then.i6.i.i
+
+if.then.i6.i.i:                                   ; preds = %Py_XDECREF.exit.i.i
+  call void @PyMem_Free(ptr noundef nonnull %15) #14
+  store ptr null, ptr %data_stack.i.i.i, align 8
+  br label %return.sink.split.i
 
 if.end7.i:                                        ; preds = %if.end.i27
   %call8.i = call fastcc ptr @pattern_new_match(ptr noundef %call.val.i, ptr noundef %self, ptr noundef nonnull %state.i, i64 noundef %call3.i)
@@ -4105,18 +4114,15 @@ Py_XDECREF.exit.i11.i:                            ; preds = %if.then1.i.i.i20.i,
   %data_stack.i.i12.i = getelementptr inbounds i8, ptr %state.i, i64 176
   %20 = load ptr, ptr %data_stack.i.i12.i, align 8
   %tobool.not.i.i13.i = icmp eq ptr %20, null
-  br i1 %tobool.not.i.i13.i, label %return.sink.split.i, label %return.sink.split.sink.split.i
+  br i1 %tobool.not.i.i13.i, label %return.sink.split.i, label %if.then.i6.i14.i
 
-return.sink.split.sink.split.i:                   ; preds = %Py_XDECREF.exit.i11.i, %Py_XDECREF.exit.i.i
-  %.sink.i = phi ptr [ %15, %Py_XDECREF.exit.i.i ], [ %20, %Py_XDECREF.exit.i11.i ]
-  %data_stack.i.i12.sink.i = phi ptr [ %data_stack.i.i.i, %Py_XDECREF.exit.i.i ], [ %data_stack.i.i12.i, %Py_XDECREF.exit.i11.i ]
-  %retval.0.ph.ph.i = phi ptr [ null, %Py_XDECREF.exit.i.i ], [ %call8.i, %Py_XDECREF.exit.i11.i ]
-  call void @PyMem_Free(ptr noundef nonnull %.sink.i) #14
-  store ptr null, ptr %data_stack.i.i12.sink.i, align 8
+if.then.i6.i14.i:                                 ; preds = %Py_XDECREF.exit.i11.i
+  call void @PyMem_Free(ptr noundef nonnull %20) #14
+  store ptr null, ptr %data_stack.i.i12.i, align 8
   br label %return.sink.split.i
 
-return.sink.split.i:                              ; preds = %return.sink.split.sink.split.i, %Py_XDECREF.exit.i11.i, %Py_XDECREF.exit.i.i
-  %retval.0.ph.i = phi ptr [ null, %Py_XDECREF.exit.i.i ], [ %call8.i, %Py_XDECREF.exit.i11.i ], [ %retval.0.ph.ph.i, %return.sink.split.sink.split.i ]
+return.sink.split.i:                              ; preds = %if.then.i6.i14.i, %Py_XDECREF.exit.i11.i, %if.then.i6.i.i, %Py_XDECREF.exit.i.i
+  %retval.0.ph.i = phi ptr [ null, %Py_XDECREF.exit.i.i ], [ null, %if.then.i6.i.i ], [ %call8.i, %Py_XDECREF.exit.i11.i ], [ %call8.i, %if.then.i6.i14.i ]
   %data_stack_size.i.i15.i = getelementptr inbounds i8, ptr %state.i, i64 184
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data_stack_size.i.i15.i, i8 0, i64 16, i1 false)
   %mark.i16.i = getelementptr inbounds i8, ptr %state.i, i64 168
@@ -4922,7 +4928,12 @@ Py_XDECREF.exit.i.i:                              ; preds = %if.then1.i.i.i.i, %
   %data_stack.i.i.i = getelementptr inbounds i8, ptr %state.i, i64 176
   %11 = load ptr, ptr %data_stack.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %11, null
-  br i1 %tobool.not.i.i.i, label %_sre_SRE_Pattern_split_impl.exit.sink.split, label %_sre_SRE_Pattern_split_impl.exit.sink.split.sink.split
+  br i1 %tobool.not.i.i.i, label %_sre_SRE_Pattern_split_impl.exit.sink.split, label %if.then.i6.i.i
+
+if.then.i6.i.i:                                   ; preds = %Py_XDECREF.exit.i.i
+  call void @PyMem_Free(ptr noundef nonnull %11) #14
+  store ptr null, ptr %data_stack.i.i.i, align 8
+  br label %_sre_SRE_Pattern_split_impl.exit.sink.split
 
 if.end4.i:                                        ; preds = %if.end.i19
   %start.i = getelementptr inbounds i8, ptr %state.i, i64 16
@@ -5219,7 +5230,12 @@ Py_XDECREF.exit.i:                                ; preds = %if.then1.i.i.i, %if
   %data_stack.i.i = getelementptr inbounds i8, ptr %state.i, i64 176
   %44 = load ptr, ptr %data_stack.i.i, align 8
   %tobool.not.i.i24 = icmp eq ptr %44, null
-  br i1 %tobool.not.i.i24, label %_sre_SRE_Pattern_split_impl.exit.sink.split, label %_sre_SRE_Pattern_split_impl.exit.sink.split.sink.split
+  br i1 %tobool.not.i.i24, label %_sre_SRE_Pattern_split_impl.exit.sink.split, label %if.then.i6.i
+
+if.then.i6.i:                                     ; preds = %Py_XDECREF.exit.i
+  call void @PyMem_Free(ptr noundef nonnull %44) #14
+  store ptr null, ptr %data_stack.i.i, align 8
+  br label %_sre_SRE_Pattern_split_impl.exit.sink.split
 
 error.i:                                          ; preds = %Py_DECREF.exit101.i, %getslice.exit.i, %state_reset.exit.i, %Py_DECREF.exit92.i, %for.body.i, %Py_DECREF.exit83.i, %getslice.exit68.i, %if.end16.i
   %45 = load i64, ptr %call1.i, align 8
@@ -5273,18 +5289,15 @@ Py_XDECREF.exit.i77.i:                            ; preds = %if.then1.i.i.i86.i,
   %data_stack.i.i78.i = getelementptr inbounds i8, ptr %state.i, i64 176
   %51 = load ptr, ptr %data_stack.i.i78.i, align 8
   %tobool.not.i.i79.i = icmp eq ptr %51, null
-  br i1 %tobool.not.i.i79.i, label %_sre_SRE_Pattern_split_impl.exit.sink.split, label %_sre_SRE_Pattern_split_impl.exit.sink.split.sink.split
+  br i1 %tobool.not.i.i79.i, label %_sre_SRE_Pattern_split_impl.exit.sink.split, label %if.then.i6.i80.i
 
-_sre_SRE_Pattern_split_impl.exit.sink.split.sink.split: ; preds = %Py_XDECREF.exit.i77.i, %Py_XDECREF.exit.i, %Py_XDECREF.exit.i.i
-  %.sink = phi ptr [ %11, %Py_XDECREF.exit.i.i ], [ %44, %Py_XDECREF.exit.i ], [ %51, %Py_XDECREF.exit.i77.i ]
-  %data_stack.i.i78.i.sink = phi ptr [ %data_stack.i.i.i, %Py_XDECREF.exit.i.i ], [ %data_stack.i.i, %Py_XDECREF.exit.i ], [ %data_stack.i.i78.i, %Py_XDECREF.exit.i77.i ]
-  %retval.0.i.ph.ph = phi ptr [ null, %Py_XDECREF.exit.i.i ], [ %call1.i, %Py_XDECREF.exit.i ], [ null, %Py_XDECREF.exit.i77.i ]
-  call void @PyMem_Free(ptr noundef nonnull %.sink) #14
-  store ptr null, ptr %data_stack.i.i78.i.sink, align 8
+if.then.i6.i80.i:                                 ; preds = %Py_XDECREF.exit.i77.i
+  call void @PyMem_Free(ptr noundef nonnull %51) #14
+  store ptr null, ptr %data_stack.i.i78.i, align 8
   br label %_sre_SRE_Pattern_split_impl.exit.sink.split
 
-_sre_SRE_Pattern_split_impl.exit.sink.split:      ; preds = %_sre_SRE_Pattern_split_impl.exit.sink.split.sink.split, %Py_XDECREF.exit.i77.i, %Py_XDECREF.exit.i, %Py_XDECREF.exit.i.i
-  %retval.0.i.ph = phi ptr [ null, %Py_XDECREF.exit.i.i ], [ %call1.i, %Py_XDECREF.exit.i ], [ null, %Py_XDECREF.exit.i77.i ], [ %retval.0.i.ph.ph, %_sre_SRE_Pattern_split_impl.exit.sink.split.sink.split ]
+_sre_SRE_Pattern_split_impl.exit.sink.split:      ; preds = %Py_XDECREF.exit.i77.i, %if.then.i6.i80.i, %if.then.i6.i, %Py_XDECREF.exit.i, %Py_XDECREF.exit.i.i, %if.then.i6.i.i
+  %retval.0.i.ph = phi ptr [ null, %if.then.i6.i.i ], [ null, %Py_XDECREF.exit.i.i ], [ %call1.i, %Py_XDECREF.exit.i ], [ %call1.i, %if.then.i6.i ], [ null, %if.then.i6.i80.i ], [ null, %Py_XDECREF.exit.i77.i ]
   %data_stack_size.i.i.i = getelementptr inbounds i8, ptr %state.i, i64 184
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data_stack_size.i.i.i, i8 0, i64 16, i1 false)
   %mark.i.i = getelementptr inbounds i8, ptr %state.i, i64 168
@@ -6227,7 +6240,7 @@ do.end84:                                         ; preds = %if.end66, %land.lhs
   br label %indirectgoto.backedge
 
 indirectgoto.backedge:                            ; preds = %do.end84, %do.end115, %do.end147, %do.end192, %do.end224, %do.end254, %do.end279, %do.end312, %do.end343, %do.end374, %do.end404, %do.end435, %do.end466, %do.end496, %do.end530, %do.end564, %do.end597, %do.end618, %do.end1614, %do.end2845, %do.end2914, %do.end2983, %do.end3052, %do.end3080, %do.end3118, %do.end3139
-  %.sink.sink.be = phi i32 [ %18, %do.end84 ], [ %21, %do.end115 ], [ %24, %do.end147 ], [ %97, %do.end192 ], [ %100, %do.end224 ], [ %102, %do.end254 ], [ %103, %do.end279 ], [ %106, %do.end312 ], [ %110, %do.end343 ], [ %113, %do.end374 ], [ %116, %do.end404 ], [ %120, %do.end435 ], [ %123, %do.end466 ], [ %126, %do.end496 ], [ %130, %do.end530 ], [ %133, %do.end564 ], [ %136, %do.end597 ], [ %138, %do.end618 ], [ %277, %do.end1614 ], [ %470, %do.end2845 ], [ %484, %do.end2914 ], [ %493, %do.end2983 ], [ %505, %do.end3052 ], [ %509, %do.end3080 ], [ %515, %do.end3118 ], [ %516, %do.end3139 ]
+  %.sink.sink.be = phi i32 [ %18, %do.end84 ], [ %21, %do.end115 ], [ %24, %do.end147 ], [ %97, %do.end192 ], [ %100, %do.end224 ], [ %102, %do.end254 ], [ %103, %do.end279 ], [ %106, %do.end312 ], [ %110, %do.end343 ], [ %113, %do.end374 ], [ %116, %do.end404 ], [ %120, %do.end435 ], [ %123, %do.end466 ], [ %126, %do.end496 ], [ %130, %do.end530 ], [ %133, %do.end564 ], [ %136, %do.end597 ], [ %138, %do.end618 ], [ %278, %do.end1614 ], [ %470, %do.end2845 ], [ %484, %do.end2914 ], [ %493, %do.end2983 ], [ %505, %do.end3052 ], [ %509, %do.end3080 ], [ %515, %do.end3118 ], [ %516, %do.end3139 ]
   %ptr.0.be = phi ptr [ %ptr.0, %do.end84 ], [ %incdec.ptr101, %do.end115 ], [ %incdec.ptr133, %do.end147 ], [ %ptr.0, %do.end192 ], [ %incdec.ptr210, %do.end224 ], [ %incdec.ptr240, %do.end254 ], [ %incdec.ptr265, %do.end279 ], [ %incdec.ptr298, %do.end312 ], [ %incdec.ptr329, %do.end343 ], [ %incdec.ptr360, %do.end374 ], [ %incdec.ptr390, %do.end404 ], [ %incdec.ptr421, %do.end435 ], [ %incdec.ptr452, %do.end466 ], [ %incdec.ptr482, %do.end496 ], [ %incdec.ptr516, %do.end530 ], [ %incdec.ptr550, %do.end564 ], [ %incdec.ptr583, %do.end597 ], [ %ptr.0, %do.end618 ], [ %add.ptr1567, %do.end1614 ], [ %ptr.11.lcssa, %do.end2845 ], [ %ptr.12.lcssa, %do.end2914 ], [ %ptr.13.lcssa, %do.end2983 ], [ %ptr.14.lcssa, %do.end3052 ], [ %ptr.0, %do.end3080 ], [ %ptr.0, %do.end3118 ], [ %ptr.0, %do.end3139 ]
   %ctx.2.be = phi ptr [ %ctx.2, %do.end84 ], [ %ctx.2, %do.end115 ], [ %ctx.2, %do.end147 ], [ %ctx.2, %do.end192 ], [ %ctx.2, %do.end224 ], [ %ctx.2, %do.end254 ], [ %ctx.2, %do.end279 ], [ %ctx.2, %do.end312 ], [ %ctx.2, %do.end343 ], [ %ctx.2, %do.end374 ], [ %ctx.2, %do.end404 ], [ %ctx.2, %do.end435 ], [ %ctx.2, %do.end466 ], [ %ctx.2, %do.end496 ], [ %ctx.2, %do.end530 ], [ %ctx.2, %do.end564 ], [ %ctx.2, %do.end597 ], [ %ctx.2, %do.end618 ], [ %add.ptr1563, %do.end1614 ], [ %ctx.2, %do.end2845 ], [ %ctx.2, %do.end2914 ], [ %ctx.2, %do.end2983 ], [ %ctx.2, %do.end3052 ], [ %ctx.2, %do.end3080 ], [ %ctx.2, %do.end3118 ], [ %ctx.2, %do.end3139 ]
   %sigcount.2.be = phi i32 [ %inc73, %do.end84 ], [ %inc104, %do.end115 ], [ %inc136, %do.end147 ], [ %inc181, %do.end192 ], [ %inc213, %do.end224 ], [ %inc243, %do.end254 ], [ %inc268, %do.end279 ], [ %inc301, %do.end312 ], [ %inc332, %do.end343 ], [ %inc363, %do.end374 ], [ %inc393, %do.end404 ], [ %inc424, %do.end435 ], [ %inc455, %do.end466 ], [ %inc485, %do.end496 ], [ %inc519, %do.end530 ], [ %inc553, %do.end564 ], [ %inc586, %do.end597 ], [ %inc607, %do.end618 ], [ %inc1603, %do.end1614 ], [ %inc2834, %do.end2845 ], [ %inc2903, %do.end2914 ], [ %inc2972, %do.end2983 ], [ %inc3041, %do.end3052 ], [ %inc3069, %do.end3080 ], [ %inc3107, %do.end3118 ], [ %inc3128, %do.end3139 ]
@@ -7422,7 +7435,7 @@ if.end725:                                        ; preds = %if.end716, %if.end6
 entrance.backedge:                                ; preds = %if.end725, %if.end1001, %if.end1139, %if.end1411, %if.end1662, %if.end1748, %if.end1919, %if.end2040, %if.end2122, %if.end2241, %if.end2407, %if.end2491, %if.end2613, %if.end2735, %if.end3184, %if.end3325
   %ctx.0.be = phi ptr [ %add.ptr2493, %if.end2491 ], [ %add.ptr2615, %if.end2613 ], [ %add.ptr2737, %if.end2735 ], [ %add.ptr1413, %if.end1411 ], [ %add.ptr1003, %if.end1001 ], [ %add.ptr1141, %if.end1139 ], [ %add.ptr1664, %if.end1662 ], [ %add.ptr2124, %if.end2122 ], [ %add.ptr2243, %if.end2241 ], [ %add.ptr1750, %if.end1748 ], [ %add.ptr1921, %if.end1919 ], [ %add.ptr2042, %if.end2040 ], [ %add.ptr727, %if.end725 ], [ %add.ptr3327, %if.end3325 ], [ %add.ptr3186, %if.end3184 ], [ %add.ptr2409, %if.end2407 ]
   %sigcount.0.be = phi i32 [ %sigcount.11, %if.end2491 ], [ %sigcount.12, %if.end2613 ], [ %sigcount.2, %if.end2735 ], [ %sigcount.8, %if.end1411 ], [ %sigcount.5, %if.end1001 ], [ %sigcount.6, %if.end1139 ], [ %sigcount.2, %if.end1662 ], [ %sigcount.2, %if.end2122 ], [ %sigcount.2, %if.end2241 ], [ %sigcount.2, %if.end1748 ], [ %sigcount.2, %if.end1919 ], [ %sigcount.10, %if.end2040 ], [ %sigcount.3, %if.end725 ], [ %sigcount.2, %if.end3325 ], [ %sigcount.2, %if.end3184 ], [ %sigcount.1, %if.end2407 ]
-  %ctx_pos.0.be = phi i64 [ %419, %if.end2491 ], [ %438, %if.end2613 ], [ %450, %if.end2735 ], [ %251, %if.end1411 ], [ %196, %if.end1001 ], [ %213, %if.end1139 ], [ %283, %if.end1662 ], [ %357, %if.end2122 ], [ %379, %if.end2241 ], [ %295, %if.end1748 ], [ %326, %if.end1919 ], [ %346, %if.end2040 ], [ %153, %if.end725 ], [ %536, %if.end3325 ], [ %519, %if.end3184 ], [ %405, %if.end2407 ]
+  %ctx_pos.0.be = phi i64 [ %420, %if.end2491 ], [ %439, %if.end2613 ], [ %451, %if.end2735 ], [ %251, %if.end1411 ], [ %196, %if.end1001 ], [ %213, %if.end1139 ], [ %284, %if.end1662 ], [ %358, %if.end2122 ], [ %380, %if.end2241 ], [ %296, %if.end1748 ], [ %327, %if.end1919 ], [ %347, %if.end2040 ], [ %153, %if.end725 ], [ %536, %if.end3325 ], [ %519, %if.end3184 ], [ %406, %if.end2407 ]
   %pattern.addr.0.be = phi ptr [ %arrayidx2497, %if.end2491 ], [ %arrayidx2619, %if.end2613 ], [ %arrayidx2741, %if.end2735 ], [ %add.ptr1427, %if.end1411 ], [ %add.ptr1017, %if.end1001 ], [ %add.ptr1155, %if.end1139 ], [ %add.ptr1678, %if.end1662 ], [ %add.ptr2138, %if.end2122 ], [ %pattern.addr.2, %if.end2241 ], [ %add.ptr1764, %if.end1748 ], [ %add.ptr1935, %if.end1919 ], [ %pattern.addr.8, %if.end2040 ], [ %arrayidx674, %if.end725 ], [ %add.ptr3331, %if.end3325 ], [ %add.ptr3190, %if.end3184 ], [ %add.ptr2423, %if.end2407 ]
   br label %entrance
 
@@ -8072,27 +8085,17 @@ if.end1362:                                       ; preds = %if.end1353, %if.the
   %add.ptr1365 = getelementptr i8, ptr %245, i64 %246
   %247 = load ptr, ptr %mark3386, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr1365, ptr noundef nonnull align 8 dereferenceable(1) %247, i64 %mul1339, i1 false)
-  br label %while.cond1373.sink.split
-
-while.cond1373.sink.split:                        ; preds = %if.end1511, %if.end1362
-  %data_stack_base.sink2383 = phi ptr [ %data_stack_base, %if.end1362 ], [ %add.ptr1506, %if.end1511 ]
-  %mul1339.sink = phi i64 [ %mul1339, %if.end1362 ], [ 1, %if.end1511 ]
-  %ptr.7.ph = phi ptr [ %ptr.6, %if.end1362 ], [ %incdec.ptr1512, %if.end1511 ]
-  %ctx.16.ph = phi ptr [ %ctx.15, %if.end1362 ], [ %add.ptr1506, %if.end1511 ]
-  %sigcount.8.ph = phi i32 [ %sigcount.2, %if.end1362 ], [ %sigcount.1, %if.end1511 ]
-  %ctx_pos.6.ph = phi i64 [ %ctx_pos.1.ph, %if.end1362 ], [ %547, %if.end1511 ]
-  %pattern.addr.7.ph = phi ptr [ %pattern.addr.2, %if.end1362 ], [ %582, %if.end1511 ]
-  %248 = load i64, ptr %data_stack_base.sink2383, align 8
-  %add1368 = add i64 %248, %mul1339.sink
-  store i64 %add1368, ptr %data_stack_base.sink2383, align 8
+  %248 = load i64, ptr %data_stack_base, align 8
+  %add1368 = add i64 %248, %mul1339
+  store i64 %add1368, ptr %data_stack_base, align 8
   br label %while.cond1373
 
-while.cond1373:                                   ; preds = %while.cond1373.sink.split, %do.body1321
-  %ptr.7 = phi ptr [ %ptr.6, %do.body1321 ], [ %ptr.7.ph, %while.cond1373.sink.split ]
-  %ctx.16 = phi ptr [ %ctx.14, %do.body1321 ], [ %ctx.16.ph, %while.cond1373.sink.split ]
-  %sigcount.8 = phi i32 [ %sigcount.2, %do.body1321 ], [ %sigcount.8.ph, %while.cond1373.sink.split ]
-  %ctx_pos.6 = phi i64 [ %ctx_pos.1.ph, %do.body1321 ], [ %ctx_pos.6.ph, %while.cond1373.sink.split ]
-  %pattern.addr.7 = phi ptr [ %pattern.addr.2, %do.body1321 ], [ %pattern.addr.7.ph, %while.cond1373.sink.split ]
+while.cond1373:                                   ; preds = %do.body1321, %if.end1362, %if.end1511
+  %ptr.7 = phi ptr [ %ptr.6, %if.end1362 ], [ %ptr.6, %do.body1321 ], [ %incdec.ptr1512, %if.end1511 ]
+  %ctx.16 = phi ptr [ %ctx.15, %if.end1362 ], [ %ctx.14, %do.body1321 ], [ %add.ptr1506, %if.end1511 ]
+  %sigcount.8 = phi i32 [ %sigcount.2, %if.end1362 ], [ %sigcount.2, %do.body1321 ], [ %sigcount.1, %if.end1511 ]
+  %ctx_pos.6 = phi i64 [ %ctx_pos.1.ph, %if.end1362 ], [ %ctx_pos.1.ph, %do.body1321 ], [ %547, %if.end1511 ]
+  %pattern.addr.7 = phi ptr [ %pattern.addr.2, %if.end1362 ], [ %pattern.addr.2, %do.body1321 ], [ %582, %if.end1511 ]
   %arrayidx1374 = getelementptr i8, ptr %pattern.addr.7, i64 8
   %249 = load i32, ptr %arrayidx1374, align 4
   %cmp1376 = icmp eq i32 %249, -1
@@ -8133,12 +8136,12 @@ if.end1402:                                       ; preds = %if.then1395
   %cmp1403.not = icmp eq i64 %ctx_pos.6, -1
   %.pre2105 = load ptr, ptr %data_stack11, align 8
   %add.ptr1408 = getelementptr i8, ptr %.pre2105, i64 %ctx_pos.6
-  %spec.select2384 = select i1 %cmp1403.not, ptr %ctx.16, ptr %add.ptr1408
+  %spec.select2382 = select i1 %cmp1403.not, ptr %ctx.16, ptr %add.ptr1408
   br label %if.end1411
 
 if.end1411:                                       ; preds = %if.end1402, %while.body1385.if.end1411_crit_edge
   %253 = phi ptr [ %.pre2104, %while.body1385.if.end1411_crit_edge ], [ %.pre2105, %if.end1402 ]
-  %ctx.18 = phi ptr [ %ctx.16, %while.body1385.if.end1411_crit_edge ], [ %spec.select2384, %if.end1402 ]
+  %ctx.18 = phi ptr [ %ctx.16, %while.body1385.if.end1411_crit_edge ], [ %spec.select2382, %if.end1402 ]
   %add.ptr1413 = getelementptr i8, ptr %253, i64 %251
   %254 = load i64, ptr %data_stack_base, align 8
   %add1415 = add i64 %254, 56
@@ -8219,34 +8222,37 @@ do.body1504:                                      ; preds = %do.body1487
 
 if.end1511:                                       ; preds = %do.body1504
   %incdec.ptr1512 = getelementptr i8, ptr %583, i64 1
-  br label %while.cond1373.sink.split, !llvm.loop !22
+  %264 = load i64, ptr %add.ptr1506, align 8
+  %inc1514 = add i64 %264, 1
+  store i64 %inc1514, ptr %add.ptr1506, align 8
+  br label %while.cond1373, !llvm.loop !22
 
 while.end1515:                                    ; preds = %do.body1504, %lor.rhs1378
   %ctx.17 = phi ptr [ %ctx.16, %lor.rhs1378 ], [ %add.ptr1506, %do.body1504 ]
   %sigcount.9 = phi i32 [ %sigcount.8, %lor.rhs1378 ], [ %sigcount.1, %do.body1504 ]
-  %264 = load ptr, ptr %repeat3372, align 8
-  %tobool1517.not = icmp eq ptr %264, null
+  %265 = load ptr, ptr %repeat3372, align 8
+  %tobool1517.not = icmp eq ptr %265, null
   br i1 %tobool1517.not, label %exit, label %do.body1519
 
 do.body1519:                                      ; preds = %while.end1515
   %lastmark1520 = getelementptr inbounds i8, ptr %ctx.17, i64 16
-  %265 = load i32, ptr %lastmark1520, align 8
-  %cmp1521 = icmp sgt i32 %265, -1
+  %266 = load i32, ptr %lastmark1520, align 8
+  %cmp1521 = icmp sgt i32 %266, -1
   br i1 %cmp1521, label %if.then1523, label %exit
 
 if.then1523:                                      ; preds = %do.body1519
-  %add1526 = add nuw i32 %265, 1
+  %add1526 = add nuw i32 %266, 1
   %conv1527 = sext i32 %add1526 to i64
   %mul1528 = shl nsw i64 %conv1527, 3
-  %266 = load i64, ptr %data_stack_base, align 8
-  %sub1531 = sub i64 %266, %mul1528
+  %267 = load i64, ptr %data_stack_base, align 8
+  %sub1531 = sub i64 %267, %mul1528
   store i64 %sub1531, ptr %data_stack_base, align 8
   br label %exit
 
 TARGET_SRE_OP_POSSESSIVE_REPEAT_ONE:              ; preds = %indirectgoto
   %arrayidx1539 = getelementptr i8, ptr %pattern.addr.2, i64 4
-  %267 = load i32, ptr %arrayidx1539, align 4
-  %idx.ext1540 = zext i32 %267 to i64
+  %268 = load i32, ptr %arrayidx1539, align 4
+  %idx.ext1540 = zext i32 %268 to i64
   %add.ptr1541 = getelementptr i8, ptr %ptr.0, i64 %idx.ext1540
   %cmp1542 = icmp ugt ptr %add.ptr1541, %0
   br i1 %cmp1542, label %exit, label %if.end1547
@@ -8255,49 +8261,49 @@ if.end1547:                                       ; preds = %TARGET_SRE_OP_POSSE
   store ptr %ptr.0, ptr %state, align 8
   %add.ptr1549 = getelementptr i8, ptr %pattern.addr.2, i64 12
   %arrayidx1550 = getelementptr i8, ptr %pattern.addr.2, i64 8
-  %268 = load i32, ptr %arrayidx1550, align 4
-  %conv1551 = zext i32 %268 to i64
+  %269 = load i32, ptr %arrayidx1550, align 4
+  %conv1551 = zext i32 %269 to i64
   %call1552 = tail call fastcc i64 @sre_ucs1_count(ptr noundef nonnull %state, ptr noundef %add.ptr1549, i64 noundef %conv1551)
   %cmp1554 = icmp slt i64 %call1552, 0
   br i1 %cmp1554, label %return, label %do.body1561
 
 do.body1561:                                      ; preds = %if.end1547
-  %269 = load ptr, ptr %data_stack11, align 8
-  %add.ptr1563 = getelementptr i8, ptr %269, i64 %ctx_pos.1.ph
+  %270 = load ptr, ptr %data_stack11, align 8
+  %add.ptr1563 = getelementptr i8, ptr %270, i64 %ctx_pos.1.ph
   store i64 %call1552, ptr %add.ptr1563, align 8
   %add.ptr1567 = getelementptr i8, ptr %ptr.0, i64 %call1552
-  %270 = load i32, ptr %arrayidx1539, align 4
-  %conv1570 = zext i32 %270 to i64
+  %271 = load i32, ptr %arrayidx1539, align 4
+  %conv1570 = zext i32 %271 to i64
   %cmp1571 = icmp ult i64 %call1552, %conv1570
   br i1 %cmp1571, label %exit, label %if.end1576
 
 if.end1576:                                       ; preds = %do.body1561
-  %271 = load i32, ptr %pattern.addr.2, align 4
-  %idx.ext1578 = zext i32 %271 to i64
+  %272 = load i32, ptr %pattern.addr.2, align 4
+  %idx.ext1578 = zext i32 %272 to i64
   %add.ptr1579 = getelementptr i32, ptr %pattern.addr.2, i64 %idx.ext1578
-  %272 = load i32, ptr %add.ptr1579, align 4
-  %cmp1580 = icmp eq i32 %272, 1
+  %273 = load i32, ptr %add.ptr1579, align 4
+  %cmp1580 = icmp eq i32 %273, 1
   br i1 %cmp1580, label %land.lhs.true1582, label %do.body1602
 
 land.lhs.true1582:                                ; preds = %if.end1576
-  %273 = load ptr, ptr %end1, align 8
-  %cmp1584 = icmp eq ptr %add.ptr1567, %273
+  %274 = load ptr, ptr %end1, align 8
+  %cmp1584 = icmp eq ptr %add.ptr1567, %274
   br i1 %cmp1584, label %land.lhs.true1586, label %do.body1602
 
 land.lhs.true1586:                                ; preds = %land.lhs.true1582
   %toplevel1587 = getelementptr inbounds i8, ptr %add.ptr1563, i64 40
-  %274 = load i32, ptr %toplevel1587, align 8
-  %tobool1588.not = icmp eq i32 %274, 0
+  %275 = load i32, ptr %toplevel1587, align 8
+  %tobool1588.not = icmp eq i32 %275, 0
   br i1 %tobool1588.not, label %if.then1596, label %land.lhs.true1589
 
 land.lhs.true1589:                                ; preds = %land.lhs.true1586
-  %275 = load i32, ptr %must_advance1590, align 4
-  %tobool1591.not = icmp eq i32 %275, 0
+  %276 = load i32, ptr %must_advance1590, align 4
+  %tobool1591.not = icmp eq i32 %276, 0
   br i1 %tobool1591.not, label %if.then1596, label %land.lhs.true1592
 
 land.lhs.true1592:                                ; preds = %land.lhs.true1589
-  %276 = load ptr, ptr %start1593, align 8
-  %cmp1594 = icmp eq ptr %add.ptr1567, %276
+  %277 = load ptr, ptr %start1593, align 8
+  %cmp1594 = icmp eq ptr %add.ptr1567, %277
   br i1 %cmp1594, label %do.body1602, label %if.then1596
 
 if.then1596:                                      ; preds = %land.lhs.true1592, %land.lhs.true1589, %land.lhs.true1586
@@ -8320,7 +8326,7 @@ land.lhs.true1607.do.end1614_crit_edge:           ; preds = %land.lhs.true1607
   br label %do.end1614
 
 do.end1614:                                       ; preds = %land.lhs.true1607.do.end1614_crit_edge, %do.body1602
-  %277 = phi i32 [ %.pre2100, %land.lhs.true1607.do.end1614_crit_edge ], [ %272, %do.body1602 ]
+  %278 = phi i32 [ %.pre2100, %land.lhs.true1607.do.end1614_crit_edge ], [ %273, %do.body1602 ]
   %incdec.ptr1615 = getelementptr i8, ptr %add.ptr1579, i64 4
   br label %indirectgoto.backedge
 
@@ -8337,26 +8343,26 @@ if.then1623:                                      ; preds = %TARGET_SRE_OP_REPEA
 
 if.end1627:                                       ; preds = %TARGET_SRE_OP_REPEAT
   store i64 -1, ptr %call1619, align 8
-  %278 = load ptr, ptr %u1620, align 8
-  %pattern1631 = getelementptr inbounds i8, ptr %278, i64 8
+  %279 = load ptr, ptr %u1620, align 8
+  %pattern1631 = getelementptr inbounds i8, ptr %279, i64 8
   store ptr %pattern.addr.2, ptr %pattern1631, align 8
-  %279 = load ptr, ptr %repeat3372, align 8
-  %280 = load ptr, ptr %u1620, align 8
-  %prev = getelementptr inbounds i8, ptr %280, i64 24
-  store ptr %279, ptr %prev, align 8
+  %280 = load ptr, ptr %repeat3372, align 8
   %281 = load ptr, ptr %u1620, align 8
-  %last_ptr = getelementptr inbounds i8, ptr %281, i64 16
-  store ptr null, ptr %last_ptr, align 8
+  %prev = getelementptr inbounds i8, ptr %281, i64 24
+  store ptr %280, ptr %prev, align 8
   %282 = load ptr, ptr %u1620, align 8
-  store ptr %282, ptr %repeat3372, align 8
+  %last_ptr = getelementptr inbounds i8, ptr %282, i64 16
+  store ptr null, ptr %last_ptr, align 8
+  %283 = load ptr, ptr %u1620, align 8
+  store ptr %283, ptr %repeat3372, align 8
   store ptr %ptr.0, ptr %state, align 8
   %pattern1638 = getelementptr inbounds i8, ptr %ctx.2, i64 24
   store ptr %pattern.addr.2, ptr %pattern1638, align 8
   %ptr1639 = getelementptr inbounds i8, ptr %ctx.2, i64 32
   store ptr %ptr.0, ptr %ptr1639, align 8
-  %283 = load i64, ptr %data_stack_base, align 8
-  %284 = load i64, ptr %data_stack_size, align 8
-  %sub1643 = sub i64 %284, %283
+  %284 = load i64, ptr %data_stack_base, align 8
+  %285 = load i64, ptr %data_stack_size, align 8
+  %sub1643 = sub i64 %285, %284
   %cmp1644 = icmp ult i64 %sub1643, 56
   br i1 %cmp1644, label %if.then1646, label %if.end1627.if.end1662_crit_edge
 
@@ -8377,31 +8383,31 @@ if.end1653:                                       ; preds = %if.then1646
   %cmp1654.not = icmp eq i64 %ctx_pos.1.ph, -1
   %.pre2115 = load ptr, ptr %data_stack11, align 8
   %add.ptr1659 = getelementptr i8, ptr %.pre2115, i64 %ctx_pos.1.ph
-  %spec.select2385 = select i1 %cmp1654.not, ptr %ctx.2, ptr %add.ptr1659
+  %spec.select2383 = select i1 %cmp1654.not, ptr %ctx.2, ptr %add.ptr1659
   br label %if.end1662
 
 if.end1662:                                       ; preds = %if.end1653, %if.end1627.if.end1662_crit_edge
-  %285 = phi ptr [ %.pre2114, %if.end1627.if.end1662_crit_edge ], [ %.pre2115, %if.end1653 ]
-  %ctx.19 = phi ptr [ %ctx.2, %if.end1627.if.end1662_crit_edge ], [ %spec.select2385, %if.end1653 ]
-  %add.ptr1664 = getelementptr i8, ptr %285, i64 %283
-  %286 = load i64, ptr %data_stack_base, align 8
-  %add1666 = add i64 %286, 56
+  %286 = phi ptr [ %.pre2114, %if.end1627.if.end1662_crit_edge ], [ %.pre2115, %if.end1653 ]
+  %ctx.19 = phi ptr [ %ctx.2, %if.end1627.if.end1662_crit_edge ], [ %spec.select2383, %if.end1653 ]
+  %add.ptr1664 = getelementptr i8, ptr %286, i64 %284
+  %287 = load i64, ptr %data_stack_base, align 8
+  %add1666 = add i64 %287, 56
   store i64 %add1666, ptr %data_stack_base, align 8
-  %287 = load i32, ptr %pattern.addr.2, align 4
-  %idx.ext1669 = zext i32 %287 to i64
+  %288 = load i32, ptr %pattern.addr.2, align 4
+  %idx.ext1669 = zext i32 %288 to i64
   %add.ptr1670 = getelementptr i32, ptr %pattern.addr.2, i64 %idx.ext1669
   %pattern1671 = getelementptr inbounds i8, ptr %add.ptr1664, i64 24
   store ptr %add.ptr1670, ptr %pattern1671, align 8
   %toplevel1672 = getelementptr inbounds i8, ptr %ctx.19, i64 40
-  %288 = load i32, ptr %toplevel1672, align 8
+  %289 = load i32, ptr %toplevel1672, align 8
   %toplevel1673 = getelementptr inbounds i8, ptr %add.ptr1664, i64 40
-  store i32 %288, ptr %toplevel1673, align 8
+  store i32 %289, ptr %toplevel1673, align 8
   %jump1674 = getelementptr inbounds i8, ptr %add.ptr1664, i64 44
   store i32 7, ptr %jump1674, align 4
   %last_ctx_pos1675 = getelementptr inbounds i8, ptr %add.ptr1664, i64 48
   store i64 %ctx_pos.1.ph, ptr %last_ctx_pos1675, align 8
-  %289 = load i32, ptr %pattern.addr.2, align 4
-  %idx.ext1677 = zext i32 %289 to i64
+  %290 = load i32, ptr %pattern.addr.2, align 4
+  %idx.ext1677 = zext i32 %290 to i64
   %add.ptr1678 = getelementptr i32, ptr %pattern.addr.2, i64 %idx.ext1677
   br label %entrance.backedge
 
@@ -8409,35 +8415,35 @@ do.body1698:                                      ; preds = %sw.bb3453
   br label %exit
 
 TARGET_SRE_OP_MAX_UNTIL:                          ; preds = %indirectgoto
-  %290 = load ptr, ptr %repeat3372, align 8
+  %291 = load ptr, ptr %repeat3372, align 8
   %u1701 = getelementptr inbounds i8, ptr %ctx.2, i64 8
-  store ptr %290, ptr %u1701, align 8
-  %tobool1703.not = icmp eq ptr %290, null
+  store ptr %291, ptr %u1701, align 8
+  %tobool1703.not = icmp eq ptr %291, null
   br i1 %tobool1703.not, label %return, label %if.end1707
 
 if.end1707:                                       ; preds = %TARGET_SRE_OP_MAX_UNTIL
   store ptr %ptr.0, ptr %state, align 8
-  %291 = load ptr, ptr %u1701, align 8
-  %292 = load i64, ptr %291, align 8
-  %add1711 = add i64 %292, 1
+  %292 = load ptr, ptr %u1701, align 8
+  %293 = load i64, ptr %292, align 8
+  %add1711 = add i64 %293, 1
   store i64 %add1711, ptr %ctx.2, align 8
-  %pattern1715 = getelementptr inbounds i8, ptr %291, i64 8
-  %293 = load ptr, ptr %pattern1715, align 8
-  %arrayidx1716 = getelementptr i8, ptr %293, i64 4
-  %294 = load i32, ptr %arrayidx1716, align 4
-  %conv1717 = zext i32 %294 to i64
+  %pattern1715 = getelementptr inbounds i8, ptr %292, i64 8
+  %294 = load ptr, ptr %pattern1715, align 8
+  %arrayidx1716 = getelementptr i8, ptr %294, i64 4
+  %295 = load i32, ptr %arrayidx1716, align 4
+  %conv1717 = zext i32 %295 to i64
   %cmp1718 = icmp slt i64 %add1711, %conv1717
   br i1 %cmp1718, label %if.then1720, label %if.end1787
 
 if.then1720:                                      ; preds = %if.end1707
-  store i64 %add1711, ptr %291, align 8
+  store i64 %add1711, ptr %292, align 8
   %pattern1724 = getelementptr inbounds i8, ptr %ctx.2, i64 24
   store ptr %pattern.addr.2, ptr %pattern1724, align 8
   %ptr1725 = getelementptr inbounds i8, ptr %ctx.2, i64 32
   store ptr %ptr.0, ptr %ptr1725, align 8
-  %295 = load i64, ptr %data_stack_base, align 8
-  %296 = load i64, ptr %data_stack_size, align 8
-  %sub1729 = sub i64 %296, %295
+  %296 = load i64, ptr %data_stack_base, align 8
+  %297 = load i64, ptr %data_stack_size, align 8
+  %sub1729 = sub i64 %297, %296
   %cmp1730 = icmp ult i64 %sub1729, 56
   br i1 %cmp1730, label %if.then1732, label %if.then1720.if.end1748_crit_edge
 
@@ -8458,82 +8464,82 @@ if.end1739:                                       ; preds = %if.then1732
   %cmp1740.not = icmp eq i64 %ctx_pos.1.ph, -1
   %.pre2130 = load ptr, ptr %data_stack11, align 8
   %add.ptr1745 = getelementptr i8, ptr %.pre2130, i64 %ctx_pos.1.ph
-  %spec.select2386 = select i1 %cmp1740.not, ptr %ctx.2, ptr %add.ptr1745
+  %spec.select2384 = select i1 %cmp1740.not, ptr %ctx.2, ptr %add.ptr1745
   br label %if.end1748
 
 if.end1748:                                       ; preds = %if.end1739, %if.then1720.if.end1748_crit_edge
-  %297 = phi ptr [ %.pre2129, %if.then1720.if.end1748_crit_edge ], [ %.pre2130, %if.end1739 ]
-  %ctx.20 = phi ptr [ %ctx.2, %if.then1720.if.end1748_crit_edge ], [ %spec.select2386, %if.end1739 ]
-  %add.ptr1750 = getelementptr i8, ptr %297, i64 %295
-  %298 = load i64, ptr %data_stack_base, align 8
-  %add1752 = add i64 %298, 56
+  %298 = phi ptr [ %.pre2129, %if.then1720.if.end1748_crit_edge ], [ %.pre2130, %if.end1739 ]
+  %ctx.20 = phi ptr [ %ctx.2, %if.then1720.if.end1748_crit_edge ], [ %spec.select2384, %if.end1739 ]
+  %add.ptr1750 = getelementptr i8, ptr %298, i64 %296
+  %299 = load i64, ptr %data_stack_base, align 8
+  %add1752 = add i64 %299, 56
   store i64 %add1752, ptr %data_stack_base, align 8
   %u1754 = getelementptr inbounds i8, ptr %ctx.20, i64 8
-  %299 = load ptr, ptr %u1754, align 8
-  %pattern1755 = getelementptr inbounds i8, ptr %299, i64 8
-  %300 = load ptr, ptr %pattern1755, align 8
-  %add.ptr1756 = getelementptr i8, ptr %300, i64 12
+  %300 = load ptr, ptr %u1754, align 8
+  %pattern1755 = getelementptr inbounds i8, ptr %300, i64 8
+  %301 = load ptr, ptr %pattern1755, align 8
+  %add.ptr1756 = getelementptr i8, ptr %301, i64 12
   %pattern1757 = getelementptr inbounds i8, ptr %add.ptr1750, i64 24
   store ptr %add.ptr1756, ptr %pattern1757, align 8
   %toplevel1758 = getelementptr inbounds i8, ptr %ctx.20, i64 40
-  %301 = load i32, ptr %toplevel1758, align 8
+  %302 = load i32, ptr %toplevel1758, align 8
   %toplevel1759 = getelementptr inbounds i8, ptr %add.ptr1750, i64 40
-  store i32 %301, ptr %toplevel1759, align 8
+  store i32 %302, ptr %toplevel1759, align 8
   %jump1760 = getelementptr inbounds i8, ptr %add.ptr1750, i64 44
   store i32 1, ptr %jump1760, align 4
   %last_ctx_pos1761 = getelementptr inbounds i8, ptr %add.ptr1750, i64 48
   store i64 %ctx_pos.1.ph, ptr %last_ctx_pos1761, align 8
-  %302 = load ptr, ptr %u1754, align 8
-  %pattern1763 = getelementptr inbounds i8, ptr %302, i64 8
-  %303 = load ptr, ptr %pattern1763, align 8
-  %add.ptr1764 = getelementptr i8, ptr %303, i64 12
+  %303 = load ptr, ptr %u1754, align 8
+  %pattern1763 = getelementptr inbounds i8, ptr %303, i64 8
+  %304 = load ptr, ptr %pattern1763, align 8
+  %add.ptr1764 = getelementptr i8, ptr %304, i64 12
   br label %entrance.backedge
 
 if.end1779:                                       ; preds = %sw.bb3449
   %ptr1766 = getelementptr inbounds i8, ptr %add.ptr3443, i64 32
-  %304 = load ptr, ptr %ptr1766, align 8
-  %305 = load i64, ptr %add.ptr3443, align 8
-  %sub1781 = add i64 %305, -1
+  %305 = load ptr, ptr %ptr1766, align 8
+  %306 = load i64, ptr %add.ptr3443, align 8
+  %sub1781 = add i64 %306, -1
   %u1782 = getelementptr inbounds i8, ptr %add.ptr3443, i64 8
-  %306 = load ptr, ptr %u1782, align 8
-  store i64 %sub1781, ptr %306, align 8
-  store ptr %304, ptr %state, align 8
+  %307 = load ptr, ptr %u1782, align 8
+  store i64 %sub1781, ptr %307, align 8
+  store ptr %305, ptr %state, align 8
   br label %exit
 
 if.end1787:                                       ; preds = %if.end1707
-  %arrayidx1791 = getelementptr i8, ptr %293, i64 8
-  %307 = load i32, ptr %arrayidx1791, align 4
-  %conv1792 = zext i32 %307 to i64
+  %arrayidx1791 = getelementptr i8, ptr %294, i64 8
+  %308 = load i32, ptr %arrayidx1791, align 4
+  %conv1792 = zext i32 %308 to i64
   %cmp1793 = icmp ult i64 %add1711, %conv1792
-  %cmp1799 = icmp eq i32 %307, -1
+  %cmp1799 = icmp eq i32 %308, -1
   %or.cond1407 = or i1 %cmp1799, %cmp1793
   br i1 %or.cond1407, label %land.lhs.true1801, label %if.end2012
 
 land.lhs.true1801:                                ; preds = %if.end1787
-  %308 = load ptr, ptr %state, align 8
-  %last_ptr1804 = getelementptr inbounds i8, ptr %291, i64 16
-  %309 = load ptr, ptr %last_ptr1804, align 8
-  %cmp1805.not = icmp eq ptr %308, %309
+  %309 = load ptr, ptr %state, align 8
+  %last_ptr1804 = getelementptr inbounds i8, ptr %292, i64 16
+  %310 = load ptr, ptr %last_ptr1804, align 8
+  %cmp1805.not = icmp eq ptr %309, %310
   br i1 %cmp1805.not, label %if.end2012, label %if.then1807
 
 if.then1807:                                      ; preds = %land.lhs.true1801
-  store i64 %add1711, ptr %291, align 8
-  %310 = load i32, ptr %lastmark3400, align 4
+  store i64 %add1711, ptr %292, align 8
+  %311 = load i32, ptr %lastmark3400, align 4
   %lastmark1813 = getelementptr inbounds i8, ptr %ctx.2, i64 16
-  store i32 %310, ptr %lastmark1813, align 8
-  %311 = load i32, ptr %lastindex3402, align 8
+  store i32 %311, ptr %lastmark1813, align 8
+  %312 = load i32, ptr %lastindex3402, align 8
   %lastindex1815 = getelementptr inbounds i8, ptr %ctx.2, i64 20
-  store i32 %311, ptr %lastindex1815, align 4
-  %cmp1819 = icmp sgt i32 %310, -1
+  store i32 %312, ptr %lastindex1815, align 4
+  %cmp1819 = icmp sgt i32 %311, -1
   %.pre2124 = load i64, ptr %data_stack_base, align 8
   br i1 %cmp1819, label %if.then1821, label %do.body1860
 
 if.then1821:                                      ; preds = %if.then1807
-  %add1824 = add nuw i32 %310, 1
+  %add1824 = add nuw i32 %311, 1
   %conv1825 = sext i32 %add1824 to i64
   %mul1826 = shl nsw i64 %conv1825, 3
-  %312 = load i64, ptr %data_stack_size, align 8
-  %sub1830 = sub i64 %312, %.pre2124
+  %313 = load i64, ptr %data_stack_size, align 8
+  %sub1830 = sub i64 %313, %.pre2124
   %cmp1831 = icmp ugt i64 %mul1826, %sub1830
   br i1 %cmp1831, label %if.then1833, label %if.then1821.if.end1849_crit_edge
 
@@ -8554,26 +8560,26 @@ if.end1840:                                       ; preds = %if.then1833
   %cmp1841.not = icmp eq i64 %ctx_pos.1.ph, -1
   %.pre2123 = load ptr, ptr %data_stack11, align 8
   %add.ptr1846 = getelementptr i8, ptr %.pre2123, i64 %ctx_pos.1.ph
-  %spec.select2387 = select i1 %cmp1841.not, ptr %ctx.2, ptr %add.ptr1846
+  %spec.select2385 = select i1 %cmp1841.not, ptr %ctx.2, ptr %add.ptr1846
   br label %if.end1849
 
 if.end1849:                                       ; preds = %if.end1840, %if.then1821.if.end1849_crit_edge
-  %313 = phi ptr [ %.pre2122, %if.then1821.if.end1849_crit_edge ], [ %.pre2123, %if.end1840 ]
-  %ctx.22 = phi ptr [ %ctx.2, %if.then1821.if.end1849_crit_edge ], [ %spec.select2387, %if.end1840 ]
-  %314 = load i64, ptr %data_stack_base, align 8
-  %add.ptr1852 = getelementptr i8, ptr %313, i64 %314
-  %315 = load ptr, ptr %mark3386, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr1852, ptr noundef nonnull align 8 dereferenceable(1) %315, i64 %mul1826, i1 false)
-  %316 = load i64, ptr %data_stack_base, align 8
-  %add1855 = add i64 %316, %mul1826
+  %314 = phi ptr [ %.pre2122, %if.then1821.if.end1849_crit_edge ], [ %.pre2123, %if.end1840 ]
+  %ctx.22 = phi ptr [ %ctx.2, %if.then1821.if.end1849_crit_edge ], [ %spec.select2385, %if.end1840 ]
+  %315 = load i64, ptr %data_stack_base, align 8
+  %add.ptr1852 = getelementptr i8, ptr %314, i64 %315
+  %316 = load ptr, ptr %mark3386, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr1852, ptr noundef nonnull align 8 dereferenceable(1) %316, i64 %mul1826, i1 false)
+  %317 = load i64, ptr %data_stack_base, align 8
+  %add1855 = add i64 %317, %mul1826
   store i64 %add1855, ptr %data_stack_base, align 8
   br label %do.body1860
 
 do.body1860:                                      ; preds = %if.then1807, %if.end1849
-  %317 = phi i64 [ %add1855, %if.end1849 ], [ %.pre2124, %if.then1807 ]
+  %318 = phi i64 [ %add1855, %if.end1849 ], [ %.pre2124, %if.then1807 ]
   %ctx.23 = phi ptr [ %ctx.22, %if.end1849 ], [ %ctx.2, %if.then1807 ]
-  %318 = load i64, ptr %data_stack_size, align 8
-  %sub1863 = sub i64 %318, %317
+  %319 = load i64, ptr %data_stack_size, align 8
+  %sub1863 = sub i64 %319, %318
   %cmp1864 = icmp ult i64 %sub1863, 8
   br i1 %cmp1864, label %if.then1866, label %do.body1860.if.end1882_crit_edge
 
@@ -8594,33 +8600,33 @@ if.end1873:                                       ; preds = %if.then1866
   %cmp1874.not = icmp eq i64 %ctx_pos.1.ph, -1
   %.pre2126 = load ptr, ptr %data_stack11, align 8
   %add.ptr1879 = getelementptr i8, ptr %.pre2126, i64 %ctx_pos.1.ph
-  %spec.select2388 = select i1 %cmp1874.not, ptr %ctx.23, ptr %add.ptr1879
+  %spec.select2386 = select i1 %cmp1874.not, ptr %ctx.23, ptr %add.ptr1879
   br label %if.end1882
 
 if.end1882:                                       ; preds = %if.end1873, %do.body1860.if.end1882_crit_edge
-  %319 = phi ptr [ %.pre2125, %do.body1860.if.end1882_crit_edge ], [ %.pre2126, %if.end1873 ]
-  %ctx.24 = phi ptr [ %ctx.23, %do.body1860.if.end1882_crit_edge ], [ %spec.select2388, %if.end1873 ]
-  %320 = load i64, ptr %data_stack_base, align 8
-  %add.ptr1885 = getelementptr i8, ptr %319, i64 %320
+  %320 = phi ptr [ %.pre2125, %do.body1860.if.end1882_crit_edge ], [ %.pre2126, %if.end1873 ]
+  %ctx.24 = phi ptr [ %ctx.23, %do.body1860.if.end1882_crit_edge ], [ %spec.select2386, %if.end1873 ]
+  %321 = load i64, ptr %data_stack_base, align 8
+  %add.ptr1885 = getelementptr i8, ptr %320, i64 %321
   %u1886 = getelementptr inbounds i8, ptr %ctx.24, i64 8
-  %321 = load ptr, ptr %u1886, align 8
-  %last_ptr1887 = getelementptr inbounds i8, ptr %321, i64 16
-  %322 = load i64, ptr %last_ptr1887, align 8
-  store i64 %322, ptr %add.ptr1885, align 1
-  %323 = load i64, ptr %data_stack_base, align 8
-  %add1889 = add i64 %323, 8
+  %322 = load ptr, ptr %u1886, align 8
+  %last_ptr1887 = getelementptr inbounds i8, ptr %322, i64 16
+  %323 = load i64, ptr %last_ptr1887, align 8
+  store i64 %323, ptr %add.ptr1885, align 1
+  %324 = load i64, ptr %data_stack_base, align 8
+  %add1889 = add i64 %324, 8
   store i64 %add1889, ptr %data_stack_base, align 8
-  %324 = load ptr, ptr %state, align 8
-  %325 = load ptr, ptr %u1886, align 8
-  %last_ptr1894 = getelementptr inbounds i8, ptr %325, i64 16
-  store ptr %324, ptr %last_ptr1894, align 8
+  %325 = load ptr, ptr %state, align 8
+  %326 = load ptr, ptr %u1886, align 8
+  %last_ptr1894 = getelementptr inbounds i8, ptr %326, i64 16
+  store ptr %325, ptr %last_ptr1894, align 8
   %pattern1895 = getelementptr inbounds i8, ptr %ctx.24, i64 24
   store ptr %pattern.addr.2, ptr %pattern1895, align 8
   %ptr1896 = getelementptr inbounds i8, ptr %ctx.24, i64 32
   store ptr %ptr.0, ptr %ptr1896, align 8
-  %326 = load i64, ptr %data_stack_base, align 8
-  %327 = load i64, ptr %data_stack_size, align 8
-  %sub1900 = sub i64 %327, %326
+  %327 = load i64, ptr %data_stack_base, align 8
+  %328 = load i64, ptr %data_stack_size, align 8
+  %sub1900 = sub i64 %328, %327
   %cmp1901 = icmp ult i64 %sub1900, 56
   br i1 %cmp1901, label %if.then1903, label %if.end1882.if.end1919_crit_edge
 
@@ -8641,45 +8647,45 @@ if.end1910:                                       ; preds = %if.then1903
   %cmp1911.not = icmp eq i64 %ctx_pos.1.ph, -1
   %.pre2128 = load ptr, ptr %data_stack11, align 8
   %add.ptr1916 = getelementptr i8, ptr %.pre2128, i64 %ctx_pos.1.ph
-  %spec.select2389 = select i1 %cmp1911.not, ptr %ctx.24, ptr %add.ptr1916
+  %spec.select2387 = select i1 %cmp1911.not, ptr %ctx.24, ptr %add.ptr1916
   br label %if.end1919
 
 if.end1919:                                       ; preds = %if.end1910, %if.end1882.if.end1919_crit_edge
-  %328 = phi ptr [ %.pre2127, %if.end1882.if.end1919_crit_edge ], [ %.pre2128, %if.end1910 ]
-  %ctx.25 = phi ptr [ %ctx.24, %if.end1882.if.end1919_crit_edge ], [ %spec.select2389, %if.end1910 ]
-  %add.ptr1921 = getelementptr i8, ptr %328, i64 %326
-  %329 = load i64, ptr %data_stack_base, align 8
-  %add1923 = add i64 %329, 56
+  %329 = phi ptr [ %.pre2127, %if.end1882.if.end1919_crit_edge ], [ %.pre2128, %if.end1910 ]
+  %ctx.25 = phi ptr [ %ctx.24, %if.end1882.if.end1919_crit_edge ], [ %spec.select2387, %if.end1910 ]
+  %add.ptr1921 = getelementptr i8, ptr %329, i64 %327
+  %330 = load i64, ptr %data_stack_base, align 8
+  %add1923 = add i64 %330, 56
   store i64 %add1923, ptr %data_stack_base, align 8
   %u1925 = getelementptr inbounds i8, ptr %ctx.25, i64 8
-  %330 = load ptr, ptr %u1925, align 8
-  %pattern1926 = getelementptr inbounds i8, ptr %330, i64 8
-  %331 = load ptr, ptr %pattern1926, align 8
-  %add.ptr1927 = getelementptr i8, ptr %331, i64 12
+  %331 = load ptr, ptr %u1925, align 8
+  %pattern1926 = getelementptr inbounds i8, ptr %331, i64 8
+  %332 = load ptr, ptr %pattern1926, align 8
+  %add.ptr1927 = getelementptr i8, ptr %332, i64 12
   %pattern1928 = getelementptr inbounds i8, ptr %add.ptr1921, i64 24
   store ptr %add.ptr1927, ptr %pattern1928, align 8
   %toplevel1929 = getelementptr inbounds i8, ptr %ctx.25, i64 40
-  %332 = load i32, ptr %toplevel1929, align 8
+  %333 = load i32, ptr %toplevel1929, align 8
   %toplevel1930 = getelementptr inbounds i8, ptr %add.ptr1921, i64 40
-  store i32 %332, ptr %toplevel1930, align 8
+  store i32 %333, ptr %toplevel1930, align 8
   %jump1931 = getelementptr inbounds i8, ptr %add.ptr1921, i64 44
   store i32 2, ptr %jump1931, align 4
   %last_ctx_pos1932 = getelementptr inbounds i8, ptr %add.ptr1921, i64 48
   store i64 %ctx_pos.1.ph, ptr %last_ctx_pos1932, align 8
-  %333 = load ptr, ptr %u1925, align 8
-  %pattern1934 = getelementptr inbounds i8, ptr %333, i64 8
-  %334 = load ptr, ptr %pattern1934, align 8
-  %add.ptr1935 = getelementptr i8, ptr %334, i64 12
+  %334 = load ptr, ptr %u1925, align 8
+  %pattern1934 = getelementptr inbounds i8, ptr %334, i64 8
+  %335 = load ptr, ptr %pattern1934, align 8
+  %add.ptr1935 = getelementptr i8, ptr %335, i64 12
   br label %entrance.backedge
 
 do.body1952:                                      ; preds = %sw.bb
   %lastmark1953 = getelementptr inbounds i8, ptr %add.ptr3443, i64 16
-  %335 = load i32, ptr %lastmark1953, align 8
-  %cmp1954 = icmp sgt i32 %335, -1
+  %336 = load i32, ptr %lastmark1953, align 8
+  %cmp1954 = icmp sgt i32 %336, -1
   br i1 %cmp1954, label %if.then1956, label %exit
 
 if.then1956:                                      ; preds = %do.body1952
-  %add1959 = add nuw i32 %335, 1
+  %add1959 = add nuw i32 %336, 1
   %conv1960 = sext i32 %add1959 to i64
   %mul1961 = shl nsw i64 %conv1960, 3
   %sub1964 = sub i64 %sub1947, %mul1961
@@ -8689,57 +8695,57 @@ if.then1956:                                      ; preds = %do.body1952
 do.body1979:                                      ; preds = %sw.bb
   %u1940.le = getelementptr inbounds i8, ptr %add.ptr3443, i64 8
   %lastmark1980 = getelementptr inbounds i8, ptr %add.ptr3443, i64 16
-  %336 = load i32, ptr %lastmark1980, align 8
-  %cmp1981 = icmp sgt i32 %336, -1
+  %337 = load i32, ptr %lastmark1980, align 8
+  %cmp1981 = icmp sgt i32 %337, -1
   br i1 %cmp1981, label %if.then1983, label %do.body2001
 
 if.then1983:                                      ; preds = %do.body1979
-  %add1986 = add nuw i32 %336, 1
+  %add1986 = add nuw i32 %337, 1
   %conv1987 = sext i32 %add1986 to i64
   %mul1988 = shl nsw i64 %conv1987, 3
-  %337 = load ptr, ptr %mark3386, align 8
-  %338 = load ptr, ptr %data_stack11, align 8
-  %add.ptr1993 = getelementptr i8, ptr %338, i64 %sub1947
+  %338 = load ptr, ptr %mark3386, align 8
+  %339 = load ptr, ptr %data_stack11, align 8
+  %add.ptr1993 = getelementptr i8, ptr %339, i64 %sub1947
   %idx.neg1994 = sub nsw i64 0, %mul1988
   %add.ptr1995 = getelementptr i8, ptr %add.ptr1993, i64 %idx.neg1994
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %337, ptr noundef nonnull align 1 dereferenceable(1) %add.ptr1995, i64 %mul1988, i1 false)
-  %339 = load i64, ptr %data_stack_base, align 8
-  %sub1997 = sub i64 %339, %mul1988
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %338, ptr noundef nonnull align 1 dereferenceable(1) %add.ptr1995, i64 %mul1988, i1 false)
+  %340 = load i64, ptr %data_stack_base, align 8
+  %sub1997 = sub i64 %340, %mul1988
   store i64 %sub1997, ptr %data_stack_base, align 8
   %.pre2146 = load i32, ptr %lastmark1980, align 8
   br label %do.body2001
 
 do.body2001:                                      ; preds = %if.then1983, %do.body1979
-  %340 = phi i32 [ %.pre2146, %if.then1983 ], [ %336, %do.body1979 ]
-  store i32 %340, ptr %lastmark3400, align 4
+  %341 = phi i32 [ %.pre2146, %if.then1983 ], [ %337, %do.body1979 ]
+  store i32 %341, ptr %lastmark3400, align 4
   %lastindex2004 = getelementptr inbounds i8, ptr %add.ptr3443, i64 20
-  %341 = load i32, ptr %lastindex2004, align 4
-  store i32 %341, ptr %lastindex3402, align 8
-  %342 = load i64, ptr %add.ptr3443, align 8
-  %sub2008 = add i64 %342, -1
-  %343 = load ptr, ptr %u1940.le, align 8
-  store i64 %sub2008, ptr %343, align 8
+  %342 = load i32, ptr %lastindex2004, align 4
+  store i32 %342, ptr %lastindex3402, align 8
+  %343 = load i64, ptr %add.ptr3443, align 8
+  %sub2008 = add i64 %343, -1
+  %344 = load ptr, ptr %u1940.le, align 8
+  store i64 %sub2008, ptr %344, align 8
   store ptr %552, ptr %state, align 8
   %.pre2147 = load ptr, ptr %u1940.le, align 8
   br label %if.end2012
 
 if.end2012:                                       ; preds = %if.end1787, %do.body2001, %land.lhs.true1801
-  %344 = phi ptr [ %291, %land.lhs.true1801 ], [ %.pre2147, %do.body2001 ], [ %291, %if.end1787 ]
+  %345 = phi ptr [ %292, %land.lhs.true1801 ], [ %.pre2147, %do.body2001 ], [ %292, %if.end1787 ]
   %ptr.8 = phi ptr [ %ptr.0, %land.lhs.true1801 ], [ %552, %do.body2001 ], [ %ptr.0, %if.end1787 ]
   %ctx.21 = phi ptr [ %ctx.2, %land.lhs.true1801 ], [ %add.ptr3443, %do.body2001 ], [ %ctx.2, %if.end1787 ]
   %sigcount.10 = phi i32 [ %sigcount.2, %land.lhs.true1801 ], [ %sigcount.1, %do.body2001 ], [ %sigcount.2, %if.end1787 ]
   %ctx_pos.7 = phi i64 [ %ctx_pos.1.ph, %land.lhs.true1801 ], [ %547, %do.body2001 ], [ %ctx_pos.1.ph, %if.end1787 ]
   %pattern.addr.8 = phi ptr [ %pattern.addr.2, %land.lhs.true1801 ], [ %551, %do.body2001 ], [ %pattern.addr.2, %if.end1787 ]
-  %prev2014 = getelementptr inbounds i8, ptr %344, i64 24
-  %345 = load ptr, ptr %prev2014, align 8
-  store ptr %345, ptr %repeat3372, align 8
+  %prev2014 = getelementptr inbounds i8, ptr %345, i64 24
+  %346 = load ptr, ptr %prev2014, align 8
+  store ptr %346, ptr %repeat3372, align 8
   %pattern2016 = getelementptr inbounds i8, ptr %ctx.21, i64 24
   store ptr %pattern.addr.8, ptr %pattern2016, align 8
   %ptr2017 = getelementptr inbounds i8, ptr %ctx.21, i64 32
   store ptr %ptr.8, ptr %ptr2017, align 8
-  %346 = load i64, ptr %data_stack_base, align 8
-  %347 = load i64, ptr %data_stack_size, align 8
-  %sub2021 = sub i64 %347, %346
+  %347 = load i64, ptr %data_stack_base, align 8
+  %348 = load i64, ptr %data_stack_size, align 8
+  %sub2021 = sub i64 %348, %347
   %cmp2022 = icmp ult i64 %sub2021, 56
   br i1 %cmp2022, label %if.then2024, label %if.end2012.if.end2040_crit_edge
 
@@ -8748,26 +8754,26 @@ if.end2012.if.end2040_crit_edge:                  ; preds = %if.end2012
   br label %if.end2040
 
 if.then2024:                                      ; preds = %if.end2012
-  %add.i1479 = add i64 %346, 56
-  %cmp.i1481 = icmp slt i64 %347, %add.i1479
+  %add.i1479 = add i64 %347, 56
+  %cmp.i1481 = icmp slt i64 %348, %add.i1479
   %.pre2149.pre = load ptr, ptr %data_stack11, align 8
   br i1 %cmp.i1481, label %if.then.i1483, label %if.end2031
 
 if.then.i1483:                                    ; preds = %if.then2024
   %div.i1484 = sdiv i64 %add.i1479, 4
-  %add1.i1485 = add i64 %346, 1080
+  %add1.i1485 = add i64 %347, 1080
   %add2.i1486 = add i64 %add1.i1485, %div.i1484
   %call.i1488 = tail call ptr @PyMem_Realloc(ptr noundef %.pre2149.pre, i64 noundef %add2.i1486) #14
   %tobool.not.i1489 = icmp eq ptr %call.i1488, null
   br i1 %tobool.not.i1489, label %if.then3.i1491, label %if.end.i1490
 
 if.then3.i1491:                                   ; preds = %if.then.i1483
-  %348 = load ptr, ptr %data_stack11, align 8
-  %tobool.not.i.i1492 = icmp eq ptr %348, null
+  %349 = load ptr, ptr %data_stack11, align 8
+  %tobool.not.i.i1492 = icmp eq ptr %349, null
   br i1 %tobool.not.i.i1492, label %if.then2029, label %if.then.i.i1493
 
 if.then.i.i1493:                                  ; preds = %if.then3.i1491
-  tail call void @PyMem_Free(ptr noundef nonnull %348) #14
+  tail call void @PyMem_Free(ptr noundef nonnull %349) #14
   store ptr null, ptr %data_stack11, align 8
   br label %if.then2029
 
@@ -8784,22 +8790,22 @@ if.end2031:                                       ; preds = %if.end.i1490, %if.t
   %.pre2149 = phi ptr [ %call.i1488, %if.end.i1490 ], [ %.pre2149.pre, %if.then2024 ]
   %cmp2032.not = icmp eq i64 %ctx_pos.7, -1
   %add.ptr2037 = getelementptr i8, ptr %.pre2149, i64 %ctx_pos.7
-  %spec.select2390 = select i1 %cmp2032.not, ptr %ctx.21, ptr %add.ptr2037
+  %spec.select2388 = select i1 %cmp2032.not, ptr %ctx.21, ptr %add.ptr2037
   br label %if.end2040
 
 if.end2040:                                       ; preds = %if.end2031, %if.end2012.if.end2040_crit_edge
-  %349 = phi ptr [ %.pre2148, %if.end2012.if.end2040_crit_edge ], [ %.pre2149, %if.end2031 ]
-  %ctx.26 = phi ptr [ %ctx.21, %if.end2012.if.end2040_crit_edge ], [ %spec.select2390, %if.end2031 ]
-  %add.ptr2042 = getelementptr i8, ptr %349, i64 %346
-  %350 = load i64, ptr %data_stack_base, align 8
-  %add2044 = add i64 %350, 56
+  %350 = phi ptr [ %.pre2148, %if.end2012.if.end2040_crit_edge ], [ %.pre2149, %if.end2031 ]
+  %ctx.26 = phi ptr [ %ctx.21, %if.end2012.if.end2040_crit_edge ], [ %spec.select2388, %if.end2031 ]
+  %add.ptr2042 = getelementptr i8, ptr %350, i64 %347
+  %351 = load i64, ptr %data_stack_base, align 8
+  %add2044 = add i64 %351, 56
   store i64 %add2044, ptr %data_stack_base, align 8
   %pattern2046 = getelementptr inbounds i8, ptr %add.ptr2042, i64 24
   store ptr %pattern.addr.8, ptr %pattern2046, align 8
   %toplevel2047 = getelementptr inbounds i8, ptr %ctx.26, i64 40
-  %351 = load i32, ptr %toplevel2047, align 8
+  %352 = load i32, ptr %toplevel2047, align 8
   %toplevel2048 = getelementptr inbounds i8, ptr %add.ptr2042, i64 40
-  store i32 %351, ptr %toplevel2048, align 8
+  store i32 %352, ptr %toplevel2048, align 8
   %jump2049 = getelementptr inbounds i8, ptr %add.ptr2042, i64 44
   store i32 3, ptr %jump2049, align 4
   %last_ctx_pos2050 = getelementptr inbounds i8, ptr %add.ptr2042, i64 48
@@ -8811,35 +8817,35 @@ do.end2070:                                       ; preds = %sw.bb3445
   br label %exit
 
 TARGET_SRE_OP_MIN_UNTIL:                          ; preds = %indirectgoto
-  %352 = load ptr, ptr %repeat3372, align 8
+  %353 = load ptr, ptr %repeat3372, align 8
   %u2075 = getelementptr inbounds i8, ptr %ctx.2, i64 8
-  store ptr %352, ptr %u2075, align 8
-  %tobool2077.not = icmp eq ptr %352, null
+  store ptr %353, ptr %u2075, align 8
+  %tobool2077.not = icmp eq ptr %353, null
   br i1 %tobool2077.not, label %return, label %if.end2081
 
 if.end2081:                                       ; preds = %TARGET_SRE_OP_MIN_UNTIL
   store ptr %ptr.0, ptr %state, align 8
-  %353 = load ptr, ptr %u2075, align 8
-  %354 = load i64, ptr %353, align 8
-  %add2085 = add i64 %354, 1
+  %354 = load ptr, ptr %u2075, align 8
+  %355 = load i64, ptr %354, align 8
+  %add2085 = add i64 %355, 1
   store i64 %add2085, ptr %ctx.2, align 8
-  %pattern2089 = getelementptr inbounds i8, ptr %353, i64 8
-  %355 = load ptr, ptr %pattern2089, align 8
-  %arrayidx2090 = getelementptr i8, ptr %355, i64 4
-  %356 = load i32, ptr %arrayidx2090, align 4
-  %conv2091 = zext i32 %356 to i64
+  %pattern2089 = getelementptr inbounds i8, ptr %354, i64 8
+  %356 = load ptr, ptr %pattern2089, align 8
+  %arrayidx2090 = getelementptr i8, ptr %356, i64 4
+  %357 = load i32, ptr %arrayidx2090, align 4
+  %conv2091 = zext i32 %357 to i64
   %cmp2092 = icmp slt i64 %add2085, %conv2091
   br i1 %cmp2092, label %if.then2094, label %if.end2161
 
 if.then2094:                                      ; preds = %if.end2081
-  store i64 %add2085, ptr %353, align 8
+  store i64 %add2085, ptr %354, align 8
   %pattern2098 = getelementptr inbounds i8, ptr %ctx.2, i64 24
   store ptr %pattern.addr.2, ptr %pattern2098, align 8
   %ptr2099 = getelementptr inbounds i8, ptr %ctx.2, i64 32
   store ptr %ptr.0, ptr %ptr2099, align 8
-  %357 = load i64, ptr %data_stack_base, align 8
-  %358 = load i64, ptr %data_stack_size, align 8
-  %sub2103 = sub i64 %358, %357
+  %358 = load i64, ptr %data_stack_base, align 8
+  %359 = load i64, ptr %data_stack_size, align 8
+  %sub2103 = sub i64 %359, %358
   %cmp2104 = icmp ult i64 %sub2103, 56
   br i1 %cmp2104, label %if.then2106, label %if.then2094.if.end2122_crit_edge
 
@@ -8860,71 +8866,71 @@ if.end2113:                                       ; preds = %if.then2106
   %cmp2114.not = icmp eq i64 %ctx_pos.1.ph, -1
   %.pre2121 = load ptr, ptr %data_stack11, align 8
   %add.ptr2119 = getelementptr i8, ptr %.pre2121, i64 %ctx_pos.1.ph
-  %spec.select2391 = select i1 %cmp2114.not, ptr %ctx.2, ptr %add.ptr2119
+  %spec.select2389 = select i1 %cmp2114.not, ptr %ctx.2, ptr %add.ptr2119
   br label %if.end2122
 
 if.end2122:                                       ; preds = %if.end2113, %if.then2094.if.end2122_crit_edge
-  %359 = phi ptr [ %.pre2120, %if.then2094.if.end2122_crit_edge ], [ %.pre2121, %if.end2113 ]
-  %ctx.27 = phi ptr [ %ctx.2, %if.then2094.if.end2122_crit_edge ], [ %spec.select2391, %if.end2113 ]
-  %add.ptr2124 = getelementptr i8, ptr %359, i64 %357
-  %360 = load i64, ptr %data_stack_base, align 8
-  %add2126 = add i64 %360, 56
+  %360 = phi ptr [ %.pre2120, %if.then2094.if.end2122_crit_edge ], [ %.pre2121, %if.end2113 ]
+  %ctx.27 = phi ptr [ %ctx.2, %if.then2094.if.end2122_crit_edge ], [ %spec.select2389, %if.end2113 ]
+  %add.ptr2124 = getelementptr i8, ptr %360, i64 %358
+  %361 = load i64, ptr %data_stack_base, align 8
+  %add2126 = add i64 %361, 56
   store i64 %add2126, ptr %data_stack_base, align 8
   %u2128 = getelementptr inbounds i8, ptr %ctx.27, i64 8
-  %361 = load ptr, ptr %u2128, align 8
-  %pattern2129 = getelementptr inbounds i8, ptr %361, i64 8
-  %362 = load ptr, ptr %pattern2129, align 8
-  %add.ptr2130 = getelementptr i8, ptr %362, i64 12
+  %362 = load ptr, ptr %u2128, align 8
+  %pattern2129 = getelementptr inbounds i8, ptr %362, i64 8
+  %363 = load ptr, ptr %pattern2129, align 8
+  %add.ptr2130 = getelementptr i8, ptr %363, i64 12
   %pattern2131 = getelementptr inbounds i8, ptr %add.ptr2124, i64 24
   store ptr %add.ptr2130, ptr %pattern2131, align 8
   %toplevel2132 = getelementptr inbounds i8, ptr %ctx.27, i64 40
-  %363 = load i32, ptr %toplevel2132, align 8
+  %364 = load i32, ptr %toplevel2132, align 8
   %toplevel2133 = getelementptr inbounds i8, ptr %add.ptr2124, i64 40
-  store i32 %363, ptr %toplevel2133, align 8
+  store i32 %364, ptr %toplevel2133, align 8
   %jump2134 = getelementptr inbounds i8, ptr %add.ptr2124, i64 44
   store i32 4, ptr %jump2134, align 4
   %last_ctx_pos2135 = getelementptr inbounds i8, ptr %add.ptr2124, i64 48
   store i64 %ctx_pos.1.ph, ptr %last_ctx_pos2135, align 8
-  %364 = load ptr, ptr %u2128, align 8
-  %pattern2137 = getelementptr inbounds i8, ptr %364, i64 8
-  %365 = load ptr, ptr %pattern2137, align 8
-  %add.ptr2138 = getelementptr i8, ptr %365, i64 12
+  %365 = load ptr, ptr %u2128, align 8
+  %pattern2137 = getelementptr inbounds i8, ptr %365, i64 8
+  %366 = load ptr, ptr %pattern2137, align 8
+  %add.ptr2138 = getelementptr i8, ptr %366, i64 12
   br label %entrance.backedge
 
 if.end2153:                                       ; preds = %sw.bb3450
   %ptr2140 = getelementptr inbounds i8, ptr %add.ptr3443, i64 32
-  %366 = load ptr, ptr %ptr2140, align 8
-  %367 = load i64, ptr %add.ptr3443, align 8
-  %sub2155 = add i64 %367, -1
+  %367 = load ptr, ptr %ptr2140, align 8
+  %368 = load i64, ptr %add.ptr3443, align 8
+  %sub2155 = add i64 %368, -1
   %u2156 = getelementptr inbounds i8, ptr %add.ptr3443, i64 8
-  %368 = load ptr, ptr %u2156, align 8
-  store i64 %sub2155, ptr %368, align 8
-  store ptr %366, ptr %state, align 8
+  %369 = load ptr, ptr %u2156, align 8
+  store i64 %sub2155, ptr %369, align 8
+  store ptr %367, ptr %state, align 8
   br label %exit
 
 if.end2161:                                       ; preds = %if.end2081
-  %prev2163 = getelementptr inbounds i8, ptr %353, i64 24
-  %369 = load ptr, ptr %prev2163, align 8
-  store ptr %369, ptr %repeat3372, align 8
-  %370 = load i32, ptr %lastmark3400, align 4
+  %prev2163 = getelementptr inbounds i8, ptr %354, i64 24
+  %370 = load ptr, ptr %prev2163, align 8
+  store ptr %370, ptr %repeat3372, align 8
+  %371 = load i32, ptr %lastmark3400, align 4
   %lastmark2167 = getelementptr inbounds i8, ptr %ctx.2, i64 16
-  store i32 %370, ptr %lastmark2167, align 8
-  %371 = load i32, ptr %lastindex3402, align 8
+  store i32 %371, ptr %lastmark2167, align 8
+  %372 = load i32, ptr %lastindex3402, align 8
   %lastindex2169 = getelementptr inbounds i8, ptr %ctx.2, i64 20
-  store i32 %371, ptr %lastindex2169, align 4
-  %372 = load ptr, ptr %repeat3372, align 8
-  %tobool2172.not = icmp ne ptr %372, null
-  %cmp2176 = icmp sgt i32 %370, -1
+  store i32 %372, ptr %lastindex2169, align 4
+  %373 = load ptr, ptr %repeat3372, align 8
+  %tobool2172.not = icmp ne ptr %373, null
+  %cmp2176 = icmp sgt i32 %371, -1
   %or.cond1606 = select i1 %tobool2172.not, i1 %cmp2176, i1 false
   br i1 %or.cond1606, label %if.then2178, label %if.end2216
 
 if.then2178:                                      ; preds = %if.end2161
-  %add2181 = add nuw i32 %370, 1
+  %add2181 = add nuw i32 %371, 1
   %conv2182 = sext i32 %add2181 to i64
   %mul2183 = shl nsw i64 %conv2182, 3
-  %373 = load i64, ptr %data_stack_size, align 8
-  %374 = load i64, ptr %data_stack_base, align 8
-  %sub2187 = sub i64 %373, %374
+  %374 = load i64, ptr %data_stack_size, align 8
+  %375 = load i64, ptr %data_stack_base, align 8
+  %sub2187 = sub i64 %374, %375
   %cmp2188 = icmp ugt i64 %mul2183, %sub2187
   br i1 %cmp2188, label %if.then2190, label %if.then2178.if.end2206_crit_edge
 
@@ -8945,18 +8951,18 @@ if.end2197:                                       ; preds = %if.then2190
   %cmp2198.not = icmp eq i64 %ctx_pos.1.ph, -1
   %.pre2117 = load ptr, ptr %data_stack11, align 8
   %add.ptr2203 = getelementptr i8, ptr %.pre2117, i64 %ctx_pos.1.ph
-  %spec.select2392 = select i1 %cmp2198.not, ptr %ctx.2, ptr %add.ptr2203
+  %spec.select2390 = select i1 %cmp2198.not, ptr %ctx.2, ptr %add.ptr2203
   br label %if.end2206
 
 if.end2206:                                       ; preds = %if.end2197, %if.then2178.if.end2206_crit_edge
-  %375 = phi ptr [ %.pre2116, %if.then2178.if.end2206_crit_edge ], [ %.pre2117, %if.end2197 ]
-  %ctx.29 = phi ptr [ %ctx.2, %if.then2178.if.end2206_crit_edge ], [ %spec.select2392, %if.end2197 ]
-  %376 = load i64, ptr %data_stack_base, align 8
-  %add.ptr2209 = getelementptr i8, ptr %375, i64 %376
-  %377 = load ptr, ptr %mark3386, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr2209, ptr noundef nonnull align 8 dereferenceable(1) %377, i64 %mul2183, i1 false)
-  %378 = load i64, ptr %data_stack_base, align 8
-  %add2212 = add i64 %378, %mul2183
+  %376 = phi ptr [ %.pre2116, %if.then2178.if.end2206_crit_edge ], [ %.pre2117, %if.end2197 ]
+  %ctx.29 = phi ptr [ %ctx.2, %if.then2178.if.end2206_crit_edge ], [ %spec.select2390, %if.end2197 ]
+  %377 = load i64, ptr %data_stack_base, align 8
+  %add.ptr2209 = getelementptr i8, ptr %376, i64 %377
+  %378 = load ptr, ptr %mark3386, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr2209, ptr noundef nonnull align 8 dereferenceable(1) %378, i64 %mul2183, i1 false)
+  %379 = load i64, ptr %data_stack_base, align 8
+  %add2212 = add i64 %379, %mul2183
   store i64 %add2212, ptr %data_stack_base, align 8
   br label %if.end2216
 
@@ -8966,9 +8972,9 @@ if.end2216:                                       ; preds = %if.end2206, %if.end
   store ptr %pattern.addr.2, ptr %pattern2217, align 8
   %ptr2218 = getelementptr inbounds i8, ptr %ctx.28, i64 32
   store ptr %ptr.0, ptr %ptr2218, align 8
-  %379 = load i64, ptr %data_stack_base, align 8
-  %380 = load i64, ptr %data_stack_size, align 8
-  %sub2222 = sub i64 %380, %379
+  %380 = load i64, ptr %data_stack_base, align 8
+  %381 = load i64, ptr %data_stack_size, align 8
+  %sub2222 = sub i64 %381, %380
   %cmp2223 = icmp ult i64 %sub2222, 56
   br i1 %cmp2223, label %if.then2225, label %if.end2216.if.end2241_crit_edge
 
@@ -8989,22 +8995,22 @@ if.end2232:                                       ; preds = %if.then2225
   %cmp2233.not = icmp eq i64 %ctx_pos.1.ph, -1
   %.pre2119 = load ptr, ptr %data_stack11, align 8
   %add.ptr2238 = getelementptr i8, ptr %.pre2119, i64 %ctx_pos.1.ph
-  %spec.select2393 = select i1 %cmp2233.not, ptr %ctx.28, ptr %add.ptr2238
+  %spec.select2391 = select i1 %cmp2233.not, ptr %ctx.28, ptr %add.ptr2238
   br label %if.end2241
 
 if.end2241:                                       ; preds = %if.end2232, %if.end2216.if.end2241_crit_edge
-  %381 = phi ptr [ %.pre2118, %if.end2216.if.end2241_crit_edge ], [ %.pre2119, %if.end2232 ]
-  %ctx.30 = phi ptr [ %ctx.28, %if.end2216.if.end2241_crit_edge ], [ %spec.select2393, %if.end2232 ]
-  %add.ptr2243 = getelementptr i8, ptr %381, i64 %379
-  %382 = load i64, ptr %data_stack_base, align 8
-  %add2245 = add i64 %382, 56
+  %382 = phi ptr [ %.pre2118, %if.end2216.if.end2241_crit_edge ], [ %.pre2119, %if.end2232 ]
+  %ctx.30 = phi ptr [ %ctx.28, %if.end2216.if.end2241_crit_edge ], [ %spec.select2391, %if.end2232 ]
+  %add.ptr2243 = getelementptr i8, ptr %382, i64 %380
+  %383 = load i64, ptr %data_stack_base, align 8
+  %add2245 = add i64 %383, 56
   store i64 %add2245, ptr %data_stack_base, align 8
   %pattern2247 = getelementptr inbounds i8, ptr %add.ptr2243, i64 24
   store ptr %pattern.addr.2, ptr %pattern2247, align 8
   %toplevel2248 = getelementptr inbounds i8, ptr %ctx.30, i64 40
-  %383 = load i32, ptr %toplevel2248, align 8
+  %384 = load i32, ptr %toplevel2248, align 8
   %toplevel2249 = getelementptr inbounds i8, ptr %add.ptr2243, i64 40
-  store i32 %383, ptr %toplevel2249, align 8
+  store i32 %384, ptr %toplevel2249, align 8
   %jump2250 = getelementptr inbounds i8, ptr %add.ptr2243, i64 44
   store i32 5, ptr %jump2250, align 4
   %last_ctx_pos2251 = getelementptr inbounds i8, ptr %add.ptr2243, i64 48
@@ -9016,12 +9022,12 @@ if.then2258:                                      ; preds = %sw.bb3446
 
 do.body2261:                                      ; preds = %if.then2258
   %lastmark2262 = getelementptr inbounds i8, ptr %add.ptr3443, i64 16
-  %384 = load i32, ptr %lastmark2262, align 8
-  %cmp2263 = icmp sgt i32 %384, -1
+  %385 = load i32, ptr %lastmark2262, align 8
+  %cmp2263 = icmp sgt i32 %385, -1
   br i1 %cmp2263, label %if.then2265, label %exit
 
 if.then2265:                                      ; preds = %do.body2261
-  %add2268 = add nuw i32 %384, 1
+  %add2268 = add nuw i32 %385, 1
   %conv2269 = sext i32 %add2268 to i64
   %mul2270 = shl nsw i64 %conv2269, 3
   %sub2273 = sub i64 %sub3434, %mul2270
@@ -9033,55 +9039,55 @@ if.end2288:                                       ; preds = %sw.bb3446
 
 do.body2291:                                      ; preds = %if.end2288
   %lastmark2292 = getelementptr inbounds i8, ptr %add.ptr3443, i64 16
-  %385 = load i32, ptr %lastmark2292, align 8
-  %cmp2293 = icmp sgt i32 %385, -1
+  %386 = load i32, ptr %lastmark2292, align 8
+  %cmp2293 = icmp sgt i32 %386, -1
   br i1 %cmp2293, label %if.then2295, label %do.body2314
 
 if.then2295:                                      ; preds = %do.body2291
-  %add2298 = add nuw i32 %385, 1
+  %add2298 = add nuw i32 %386, 1
   %conv2299 = sext i32 %add2298 to i64
   %mul2300 = shl nsw i64 %conv2299, 3
-  %386 = load ptr, ptr %mark3386, align 8
+  %387 = load ptr, ptr %mark3386, align 8
   %add.ptr2305 = getelementptr i8, ptr %550, i64 %sub3434
   %idx.neg2306 = sub nsw i64 0, %mul2300
   %add.ptr2307 = getelementptr i8, ptr %add.ptr2305, i64 %idx.neg2306
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %386, ptr noundef nonnull align 1 dereferenceable(1) %add.ptr2307, i64 %mul2300, i1 false)
-  %387 = load i64, ptr %data_stack_base, align 8
-  %sub2309 = sub i64 %387, %mul2300
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %387, ptr noundef nonnull align 1 dereferenceable(1) %add.ptr2307, i64 %mul2300, i1 false)
+  %388 = load i64, ptr %data_stack_base, align 8
+  %sub2309 = sub i64 %388, %mul2300
   store i64 %sub2309, ptr %data_stack_base, align 8
   br label %do.body2314
 
 do.body2314:                                      ; preds = %if.end2288, %do.body2291, %if.then2295
   %lastmark2315 = getelementptr inbounds i8, ptr %add.ptr3443, i64 16
-  %388 = load i32, ptr %lastmark2315, align 8
-  store i32 %388, ptr %lastmark3400, align 4
+  %389 = load i32, ptr %lastmark2315, align 8
+  store i32 %389, ptr %lastmark3400, align 4
   %lastindex2317 = getelementptr inbounds i8, ptr %add.ptr3443, i64 20
-  %389 = load i32, ptr %lastindex2317, align 4
-  store i32 %389, ptr %lastindex3402, align 8
+  %390 = load i32, ptr %lastindex2317, align 4
+  store i32 %390, ptr %lastindex3402, align 8
   store ptr %559, ptr %state, align 8
-  %390 = load i64, ptr %add.ptr3443, align 8
-  %391 = load ptr, ptr %u2255, align 8
-  %pattern2323 = getelementptr inbounds i8, ptr %391, i64 8
-  %392 = load ptr, ptr %pattern2323, align 8
-  %arrayidx2324 = getelementptr i8, ptr %392, i64 8
-  %393 = load i32, ptr %arrayidx2324, align 4
-  %conv2325 = zext i32 %393 to i64
-  %cmp2326.not = icmp slt i64 %390, %conv2325
-  %cmp2332.not = icmp eq i32 %393, -1
+  %391 = load i64, ptr %add.ptr3443, align 8
+  %392 = load ptr, ptr %u2255, align 8
+  %pattern2323 = getelementptr inbounds i8, ptr %392, i64 8
+  %393 = load ptr, ptr %pattern2323, align 8
+  %arrayidx2324 = getelementptr i8, ptr %393, i64 8
+  %394 = load i32, ptr %arrayidx2324, align 4
+  %conv2325 = zext i32 %394 to i64
+  %cmp2326.not = icmp slt i64 %391, %conv2325
+  %cmp2332.not = icmp eq i32 %394, -1
   %or.cond1408 = or i1 %cmp2332.not, %cmp2326.not
   br i1 %or.cond1408, label %lor.lhs.false2334, label %exit
 
 lor.lhs.false2334:                                ; preds = %do.body2314
-  %last_ptr2337 = getelementptr inbounds i8, ptr %391, i64 16
-  %394 = load ptr, ptr %last_ptr2337, align 8
-  %cmp2338 = icmp eq ptr %559, %394
+  %last_ptr2337 = getelementptr inbounds i8, ptr %392, i64 16
+  %395 = load ptr, ptr %last_ptr2337, align 8
+  %cmp2338 = icmp eq ptr %559, %395
   br i1 %cmp2338, label %exit, label %if.end2343
 
 if.end2343:                                       ; preds = %lor.lhs.false2334
-  store i64 %390, ptr %391, align 8
-  %395 = load i64, ptr %data_stack_size, align 8
-  %396 = load i64, ptr %data_stack_base, align 8
-  %sub2351 = sub i64 %395, %396
+  store i64 %391, ptr %392, align 8
+  %396 = load i64, ptr %data_stack_size, align 8
+  %397 = load i64, ptr %data_stack_base, align 8
+  %sub2351 = sub i64 %396, %397
   %cmp2352 = icmp ult i64 %sub2351, 8
   br i1 %cmp2352, label %if.then2354, label %if.end2343.if.end2370_crit_edge
 
@@ -9099,35 +9105,35 @@ if.then2359:                                      ; preds = %if.then2354
   br label %return
 
 do.body2365:                                      ; preds = %if.then2354
-  %397 = load ptr, ptr %data_stack11, align 8
-  %add.ptr2367 = getelementptr i8, ptr %397, i64 %547
+  %398 = load ptr, ptr %data_stack11, align 8
+  %add.ptr2367 = getelementptr i8, ptr %398, i64 %547
   %.pre2143 = load i64, ptr %data_stack_base, align 8
   br label %if.end2370
 
 if.end2370:                                       ; preds = %if.end2343.if.end2370_crit_edge, %do.body2365
-  %398 = phi i64 [ %.pre2143, %do.body2365 ], [ %396, %if.end2343.if.end2370_crit_edge ]
-  %399 = phi ptr [ %397, %do.body2365 ], [ %.pre2142, %if.end2343.if.end2370_crit_edge ]
+  %399 = phi i64 [ %.pre2143, %do.body2365 ], [ %397, %if.end2343.if.end2370_crit_edge ]
+  %400 = phi ptr [ %398, %do.body2365 ], [ %.pre2142, %if.end2343.if.end2370_crit_edge ]
   %ctx.31 = phi ptr [ %add.ptr2367, %do.body2365 ], [ %add.ptr3443, %if.end2343.if.end2370_crit_edge ]
-  %add.ptr2373 = getelementptr i8, ptr %399, i64 %398
+  %add.ptr2373 = getelementptr i8, ptr %400, i64 %399
   %u2374 = getelementptr inbounds i8, ptr %ctx.31, i64 8
-  %400 = load ptr, ptr %u2374, align 8
-  %last_ptr2375 = getelementptr inbounds i8, ptr %400, i64 16
-  %401 = load i64, ptr %last_ptr2375, align 8
-  store i64 %401, ptr %add.ptr2373, align 1
-  %402 = load i64, ptr %data_stack_base, align 8
-  %add2377 = add i64 %402, 8
+  %401 = load ptr, ptr %u2374, align 8
+  %last_ptr2375 = getelementptr inbounds i8, ptr %401, i64 16
+  %402 = load i64, ptr %last_ptr2375, align 8
+  store i64 %402, ptr %add.ptr2373, align 1
+  %403 = load i64, ptr %data_stack_base, align 8
+  %add2377 = add i64 %403, 8
   store i64 %add2377, ptr %data_stack_base, align 8
-  %403 = load ptr, ptr %state, align 8
-  %404 = load ptr, ptr %u2374, align 8
-  %last_ptr2382 = getelementptr inbounds i8, ptr %404, i64 16
-  store ptr %403, ptr %last_ptr2382, align 8
+  %404 = load ptr, ptr %state, align 8
+  %405 = load ptr, ptr %u2374, align 8
+  %last_ptr2382 = getelementptr inbounds i8, ptr %405, i64 16
+  store ptr %404, ptr %last_ptr2382, align 8
   %pattern2383 = getelementptr inbounds i8, ptr %ctx.31, i64 24
   store ptr %558, ptr %pattern2383, align 8
   %ptr2384 = getelementptr inbounds i8, ptr %ctx.31, i64 32
   store ptr %559, ptr %ptr2384, align 8
-  %405 = load i64, ptr %data_stack_base, align 8
-  %406 = load i64, ptr %data_stack_size, align 8
-  %sub2388 = sub i64 %406, %405
+  %406 = load i64, ptr %data_stack_base, align 8
+  %407 = load i64, ptr %data_stack_size, align 8
+  %sub2388 = sub i64 %407, %406
   %cmp2389 = icmp ult i64 %sub2388, 56
   br i1 %cmp2389, label %if.then2391, label %if.end2370.if.end2407_crit_edge
 
@@ -9145,44 +9151,44 @@ if.then2396:                                      ; preds = %if.then2391
   br label %return
 
 do.body2402:                                      ; preds = %if.then2391
-  %407 = load ptr, ptr %data_stack11, align 8
-  %add.ptr2404 = getelementptr i8, ptr %407, i64 %547
+  %408 = load ptr, ptr %data_stack11, align 8
+  %add.ptr2404 = getelementptr i8, ptr %408, i64 %547
   %.pre2145 = load i64, ptr %data_stack_base, align 8
   br label %if.end2407
 
 if.end2407:                                       ; preds = %if.end2370.if.end2407_crit_edge, %do.body2402
-  %408 = phi i64 [ %.pre2145, %do.body2402 ], [ %405, %if.end2370.if.end2407_crit_edge ]
-  %409 = phi ptr [ %407, %do.body2402 ], [ %.pre2144, %if.end2370.if.end2407_crit_edge ]
+  %409 = phi i64 [ %.pre2145, %do.body2402 ], [ %406, %if.end2370.if.end2407_crit_edge ]
+  %410 = phi ptr [ %408, %do.body2402 ], [ %.pre2144, %if.end2370.if.end2407_crit_edge ]
   %ctx.32 = phi ptr [ %add.ptr2404, %do.body2402 ], [ %ctx.31, %if.end2370.if.end2407_crit_edge ]
-  %add.ptr2409 = getelementptr i8, ptr %409, i64 %405
-  %add2411 = add i64 %408, 56
+  %add.ptr2409 = getelementptr i8, ptr %410, i64 %406
+  %add2411 = add i64 %409, 56
   store i64 %add2411, ptr %data_stack_base, align 8
   %u2413 = getelementptr inbounds i8, ptr %ctx.32, i64 8
-  %410 = load ptr, ptr %u2413, align 8
-  %pattern2414 = getelementptr inbounds i8, ptr %410, i64 8
-  %411 = load ptr, ptr %pattern2414, align 8
-  %add.ptr2415 = getelementptr i8, ptr %411, i64 12
+  %411 = load ptr, ptr %u2413, align 8
+  %pattern2414 = getelementptr inbounds i8, ptr %411, i64 8
+  %412 = load ptr, ptr %pattern2414, align 8
+  %add.ptr2415 = getelementptr i8, ptr %412, i64 12
   %pattern2416 = getelementptr inbounds i8, ptr %add.ptr2409, i64 24
   store ptr %add.ptr2415, ptr %pattern2416, align 8
   %toplevel2417 = getelementptr inbounds i8, ptr %ctx.32, i64 40
-  %412 = load i32, ptr %toplevel2417, align 8
+  %413 = load i32, ptr %toplevel2417, align 8
   %toplevel2418 = getelementptr inbounds i8, ptr %add.ptr2409, i64 40
-  store i32 %412, ptr %toplevel2418, align 8
+  store i32 %413, ptr %toplevel2418, align 8
   %jump2419 = getelementptr inbounds i8, ptr %add.ptr2409, i64 44
   store i32 6, ptr %jump2419, align 4
   %last_ctx_pos2420 = getelementptr inbounds i8, ptr %add.ptr2409, i64 48
   store i64 %547, ptr %last_ctx_pos2420, align 8
-  %413 = load ptr, ptr %u2413, align 8
-  %pattern2422 = getelementptr inbounds i8, ptr %413, i64 8
-  %414 = load ptr, ptr %pattern2422, align 8
-  %add.ptr2423 = getelementptr i8, ptr %414, i64 12
+  %414 = load ptr, ptr %u2413, align 8
+  %pattern2422 = getelementptr inbounds i8, ptr %414, i64 8
+  %415 = load ptr, ptr %pattern2422, align 8
+  %add.ptr2423 = getelementptr i8, ptr %415, i64 12
   br label %entrance.backedge
 
 if.end2450:                                       ; preds = %sw.bb3447
-  %415 = load i64, ptr %add.ptr3443, align 8
-  %sub2452 = add i64 %415, -1
-  %416 = load ptr, ptr %u2428, align 8
-  store i64 %sub2452, ptr %416, align 8
+  %416 = load i64, ptr %add.ptr3443, align 8
+  %sub2452 = add i64 %416, -1
+  %417 = load ptr, ptr %u2428, align 8
+  store i64 %sub2452, ptr %417, align 8
   store ptr %562, ptr %state, align 8
   br label %exit
 
@@ -9192,16 +9198,16 @@ TARGET_SRE_OP_POSSESSIVE_REPEAT:                  ; preds = %indirectgoto
   br label %while.cond2460
 
 while.cond2460:                                   ; preds = %do.end2514, %TARGET_SRE_OP_POSSESSIVE_REPEAT
-  %417 = phi i64 [ 0, %TARGET_SRE_OP_POSSESSIVE_REPEAT ], [ %inc2516, %do.end2514 ]
+  %418 = phi i64 [ 0, %TARGET_SRE_OP_POSSESSIVE_REPEAT ], [ %inc2516, %do.end2514 ]
   %ptr.9 = phi ptr [ %ptr.0, %TARGET_SRE_OP_POSSESSIVE_REPEAT ], [ %569, %do.end2514 ]
   %ctx.33 = phi ptr [ %ctx.2, %TARGET_SRE_OP_POSSESSIVE_REPEAT ], [ %add.ptr3443, %do.end2514 ]
   %sigcount.11 = phi i32 [ %sigcount.2, %TARGET_SRE_OP_POSSESSIVE_REPEAT ], [ %sigcount.1, %do.end2514 ]
   %ctx_pos.8 = phi i64 [ %ctx_pos.1.ph, %TARGET_SRE_OP_POSSESSIVE_REPEAT ], [ %547, %do.end2514 ]
-  %pattern.addr.9 = phi ptr [ %pattern.addr.2, %TARGET_SRE_OP_POSSESSIVE_REPEAT ], [ %424, %do.end2514 ]
+  %pattern.addr.9 = phi ptr [ %pattern.addr.2, %TARGET_SRE_OP_POSSESSIVE_REPEAT ], [ %425, %do.end2514 ]
   %arrayidx2462 = getelementptr i8, ptr %pattern.addr.9, i64 4
-  %418 = load i32, ptr %arrayidx2462, align 4
-  %conv2463 = zext i32 %418 to i64
-  %cmp2464 = icmp slt i64 %417, %conv2463
+  %419 = load i32, ptr %arrayidx2462, align 4
+  %conv2463 = zext i32 %419 to i64
+  %cmp2464 = icmp slt i64 %418, %conv2463
   br i1 %cmp2464, label %while.body2466, label %while.cond2523
 
 while.body2466:                                   ; preds = %while.cond2460
@@ -9209,9 +9215,9 @@ while.body2466:                                   ; preds = %while.cond2460
   store ptr %pattern.addr.9, ptr %pattern2467, align 8
   %ptr2468 = getelementptr inbounds i8, ptr %ctx.33, i64 32
   store ptr %ptr.9, ptr %ptr2468, align 8
-  %419 = load i64, ptr %data_stack_base, align 8
-  %420 = load i64, ptr %data_stack_size, align 8
-  %sub2472 = sub i64 %420, %419
+  %420 = load i64, ptr %data_stack_base, align 8
+  %421 = load i64, ptr %data_stack_size, align 8
+  %sub2472 = sub i64 %421, %420
   %cmp2473 = icmp ult i64 %sub2472, 56
   br i1 %cmp2473, label %if.then2475, label %while.body2466.if.end2491_crit_edge
 
@@ -9220,26 +9226,26 @@ while.body2466.if.end2491_crit_edge:              ; preds = %while.body2466
   br label %if.end2491
 
 if.then2475:                                      ; preds = %while.body2466
-  %add.i1497 = add i64 %419, 56
-  %cmp.i1499 = icmp slt i64 %420, %add.i1497
+  %add.i1497 = add i64 %420, 56
+  %cmp.i1499 = icmp slt i64 %421, %add.i1497
   %.pre2138 = load ptr, ptr %data_stack11, align 8
   br i1 %cmp.i1499, label %if.then.i1501, label %if.end2491
 
 if.then.i1501:                                    ; preds = %if.then2475
   %div.i1502 = sdiv i64 %add.i1497, 4
-  %add1.i1503 = add i64 %419, 1080
+  %add1.i1503 = add i64 %420, 1080
   %add2.i1504 = add i64 %add1.i1503, %div.i1502
   %call.i1506 = tail call ptr @PyMem_Realloc(ptr noundef %.pre2138, i64 noundef %add2.i1504) #14
   %tobool.not.i1507 = icmp eq ptr %call.i1506, null
   br i1 %tobool.not.i1507, label %if.then3.i1509, label %if.end.i1508
 
 if.then3.i1509:                                   ; preds = %if.then.i1501
-  %421 = load ptr, ptr %data_stack11, align 8
-  %tobool.not.i.i1510 = icmp eq ptr %421, null
+  %422 = load ptr, ptr %data_stack11, align 8
+  %tobool.not.i.i1510 = icmp eq ptr %422, null
   br i1 %tobool.not.i.i1510, label %if.then2480, label %if.then.i.i1511
 
 if.then.i.i1511:                                  ; preds = %if.then3.i1509
-  tail call void @PyMem_Free(ptr noundef nonnull %421) #14
+  tail call void @PyMem_Free(ptr noundef nonnull %422) #14
   store ptr null, ptr %data_stack11, align 8
   br label %if.then2480
 
@@ -9254,10 +9260,10 @@ if.then2480:                                      ; preds = %if.then.i.i1511, %i
   br label %return
 
 if.end2491:                                       ; preds = %while.body2466.if.end2491_crit_edge, %if.then2475, %if.end.i1508
-  %422 = phi i64 [ %419, %while.body2466.if.end2491_crit_edge ], [ %419, %if.then2475 ], [ %.pre2139, %if.end.i1508 ]
-  %423 = phi ptr [ %.pre2137, %while.body2466.if.end2491_crit_edge ], [ %.pre2138, %if.then2475 ], [ %call.i1506, %if.end.i1508 ]
-  %add.ptr2493 = getelementptr i8, ptr %423, i64 %419
-  %add2495 = add i64 %422, 56
+  %423 = phi i64 [ %420, %while.body2466.if.end2491_crit_edge ], [ %420, %if.then2475 ], [ %.pre2139, %if.end.i1508 ]
+  %424 = phi ptr [ %.pre2137, %while.body2466.if.end2491_crit_edge ], [ %.pre2138, %if.then2475 ], [ %call.i1506, %if.end.i1508 ]
+  %add.ptr2493 = getelementptr i8, ptr %424, i64 %420
+  %add2495 = add i64 %423, 56
   store i64 %add2495, ptr %data_stack_base, align 8
   %arrayidx2497 = getelementptr i8, ptr %pattern.addr.9, i64 12
   %pattern2498 = getelementptr inbounds i8, ptr %add.ptr2493, i64 24
@@ -9272,9 +9278,9 @@ if.end2491:                                       ; preds = %while.body2466.if.e
 
 do.end2514:                                       ; preds = %sw.bb3451
   %pattern2503 = getelementptr inbounds i8, ptr %add.ptr3443, i64 24
-  %424 = load ptr, ptr %pattern2503, align 8
-  %425 = load i64, ptr %add.ptr3443, align 8
-  %inc2516 = add i64 %425, 1
+  %425 = load ptr, ptr %pattern2503, align 8
+  %426 = load i64, ptr %add.ptr3443, align 8
+  %inc2516 = add i64 %426, 1
   store i64 %inc2516, ptr %add.ptr3443, align 8
   br label %while.cond2460, !llvm.loop !23
 
@@ -9283,40 +9289,40 @@ if.else2517:                                      ; preds = %sw.bb3451
   br label %exit
 
 while.cond2523:                                   ; preds = %while.cond2460, %do.end2652
-  %426 = phi i64 [ %inc2654, %do.end2652 ], [ %417, %while.cond2460 ]
+  %427 = phi i64 [ %inc2654, %do.end2652 ], [ %418, %while.cond2460 ]
   %ptr.10 = phi ptr [ %571, %do.end2652 ], [ null, %while.cond2460 ]
   %ctx.34 = phi ptr [ %add.ptr3443, %do.end2652 ], [ %ctx.33, %while.cond2460 ]
   %sigcount.12 = phi i32 [ %sigcount.1, %do.end2652 ], [ %sigcount.11, %while.cond2460 ]
   %ctx_pos.9 = phi i64 [ %547, %do.end2652 ], [ %ctx_pos.8, %while.cond2460 ]
   %pattern.addr.10 = phi ptr [ %570, %do.end2652 ], [ %pattern.addr.9, %while.cond2460 ]
   %arrayidx2525 = getelementptr i8, ptr %pattern.addr.10, i64 8
-  %427 = load i32, ptr %arrayidx2525, align 4
-  %conv2526 = zext i32 %427 to i64
-  %cmp2527 = icmp sge i64 %426, %conv2526
-  %cmp2532 = icmp ne i32 %427, -1
-  %or.cond1409.not2399 = and i1 %cmp2532, %cmp2527
+  %428 = load i32, ptr %arrayidx2525, align 4
+  %conv2526 = zext i32 %428 to i64
+  %cmp2527 = icmp sge i64 %427, %conv2526
+  %cmp2532 = icmp ne i32 %428, -1
+  %or.cond1409.not2396 = and i1 %cmp2532, %cmp2527
   %.pre2099 = load ptr, ptr %state, align 8
   %cmp2536.not = icmp eq ptr %.pre2099, %ptr.10
-  %or.cond2394 = select i1 %or.cond1409.not2399, i1 true, i1 %cmp2536.not
-  br i1 %or.cond2394, label %while.end2686, label %do.body2540
+  %or.cond2392 = select i1 %or.cond1409.not2396, i1 true, i1 %cmp2536.not
+  br i1 %or.cond2392, label %while.end2686, label %do.body2540
 
 do.body2540:                                      ; preds = %while.cond2523
-  %428 = load i32, ptr %lastmark3400, align 4
+  %429 = load i32, ptr %lastmark3400, align 4
   %lastmark2542 = getelementptr inbounds i8, ptr %ctx.34, i64 16
-  store i32 %428, ptr %lastmark2542, align 8
-  %429 = load i32, ptr %lastindex3402, align 8
+  store i32 %429, ptr %lastmark2542, align 8
+  %430 = load i32, ptr %lastindex3402, align 8
   %lastindex2544 = getelementptr inbounds i8, ptr %ctx.34, i64 20
-  store i32 %429, ptr %lastindex2544, align 4
-  %cmp2548 = icmp sgt i32 %428, -1
+  store i32 %430, ptr %lastindex2544, align 4
+  %cmp2548 = icmp sgt i32 %429, -1
   br i1 %cmp2548, label %if.then2550, label %do.end2587
 
 if.then2550:                                      ; preds = %do.body2540
-  %add2553 = add nuw i32 %428, 1
+  %add2553 = add nuw i32 %429, 1
   %conv2554 = sext i32 %add2553 to i64
   %mul2555 = shl nsw i64 %conv2554, 3
-  %430 = load i64, ptr %data_stack_size, align 8
-  %431 = load i64, ptr %data_stack_base, align 8
-  %sub2559 = sub i64 %430, %431
+  %431 = load i64, ptr %data_stack_size, align 8
+  %432 = load i64, ptr %data_stack_base, align 8
+  %sub2559 = sub i64 %431, %432
   %cmp2560 = icmp ugt i64 %mul2555, %sub2559
   br i1 %cmp2560, label %if.then2562, label %if.then2550.if.end2578_crit_edge
 
@@ -9325,8 +9331,8 @@ if.then2550.if.end2578_crit_edge:                 ; preds = %if.then2550
   br label %if.end2578
 
 if.then2562:                                      ; preds = %if.then2550
-  %add.i1515 = add i64 %431, %mul2555
-  %cmp.i1517 = icmp slt i64 %430, %add.i1515
+  %add.i1515 = add i64 %432, %mul2555
+  %cmp.i1517 = icmp slt i64 %431, %add.i1515
   %.pre2095.pre = load ptr, ptr %data_stack11, align 8
   br i1 %cmp.i1517, label %if.then.i1519, label %if.end2569
 
@@ -9339,12 +9345,12 @@ if.then.i1519:                                    ; preds = %if.then2562
   br i1 %tobool.not.i1525, label %if.then3.i1527, label %if.end.i1526
 
 if.then3.i1527:                                   ; preds = %if.then.i1519
-  %432 = load ptr, ptr %data_stack11, align 8
-  %tobool.not.i.i1528 = icmp eq ptr %432, null
+  %433 = load ptr, ptr %data_stack11, align 8
+  %tobool.not.i.i1528 = icmp eq ptr %433, null
   br i1 %tobool.not.i.i1528, label %if.then2567, label %if.then.i.i1529
 
 if.then.i.i1529:                                  ; preds = %if.then3.i1527
-  tail call void @PyMem_Free(ptr noundef nonnull %432) #14
+  tail call void @PyMem_Free(ptr noundef nonnull %433) #14
   store ptr null, ptr %data_stack11, align 8
   br label %if.then2567
 
@@ -9361,31 +9367,31 @@ if.end2569:                                       ; preds = %if.end.i1526, %if.t
   %.pre2095 = phi ptr [ %call.i1524, %if.end.i1526 ], [ %.pre2095.pre, %if.then2562 ]
   %cmp2570.not = icmp eq i64 %ctx_pos.9, -1
   %add.ptr2575 = getelementptr i8, ptr %.pre2095, i64 %ctx_pos.9
-  %spec.select2395 = select i1 %cmp2570.not, ptr %ctx.34, ptr %add.ptr2575
+  %spec.select2393 = select i1 %cmp2570.not, ptr %ctx.34, ptr %add.ptr2575
   br label %if.end2578
 
 if.end2578:                                       ; preds = %if.end2569, %if.then2550.if.end2578_crit_edge
-  %433 = phi ptr [ %.pre2094, %if.then2550.if.end2578_crit_edge ], [ %.pre2095, %if.end2569 ]
-  %ctx.36 = phi ptr [ %ctx.34, %if.then2550.if.end2578_crit_edge ], [ %spec.select2395, %if.end2569 ]
-  %434 = load i64, ptr %data_stack_base, align 8
-  %add.ptr2581 = getelementptr i8, ptr %433, i64 %434
-  %435 = load ptr, ptr %mark3386, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr2581, ptr noundef nonnull align 8 dereferenceable(1) %435, i64 %mul2555, i1 false)
-  %436 = load i64, ptr %data_stack_base, align 8
-  %add2584 = add i64 %436, %mul2555
+  %434 = phi ptr [ %.pre2094, %if.then2550.if.end2578_crit_edge ], [ %.pre2095, %if.end2569 ]
+  %ctx.36 = phi ptr [ %ctx.34, %if.then2550.if.end2578_crit_edge ], [ %spec.select2393, %if.end2569 ]
+  %435 = load i64, ptr %data_stack_base, align 8
+  %add.ptr2581 = getelementptr i8, ptr %434, i64 %435
+  %436 = load ptr, ptr %mark3386, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr2581, ptr noundef nonnull align 8 dereferenceable(1) %436, i64 %mul2555, i1 false)
+  %437 = load i64, ptr %data_stack_base, align 8
+  %add2584 = add i64 %437, %mul2555
   store i64 %add2584, ptr %data_stack_base, align 8
   br label %do.end2587
 
 do.end2587:                                       ; preds = %do.body2540, %if.end2578
   %ctx.37 = phi ptr [ %ctx.36, %if.end2578 ], [ %ctx.34, %do.body2540 ]
-  %437 = load ptr, ptr %state, align 8
+  %438 = load ptr, ptr %state, align 8
   %pattern2589 = getelementptr inbounds i8, ptr %ctx.37, i64 24
   store ptr %pattern.addr.10, ptr %pattern2589, align 8
   %ptr2590 = getelementptr inbounds i8, ptr %ctx.37, i64 32
-  store ptr %437, ptr %ptr2590, align 8
-  %438 = load i64, ptr %data_stack_base, align 8
-  %439 = load i64, ptr %data_stack_size, align 8
-  %sub2594 = sub i64 %439, %438
+  store ptr %438, ptr %ptr2590, align 8
+  %439 = load i64, ptr %data_stack_base, align 8
+  %440 = load i64, ptr %data_stack_size, align 8
+  %sub2594 = sub i64 %440, %439
   %cmp2595 = icmp ult i64 %sub2594, 56
   br i1 %cmp2595, label %if.then2597, label %do.end2587.if.end2613_crit_edge
 
@@ -9394,26 +9400,26 @@ do.end2587.if.end2613_crit_edge:                  ; preds = %do.end2587
   br label %if.end2613
 
 if.then2597:                                      ; preds = %do.end2587
-  %add.i1533 = add i64 %438, 56
-  %cmp.i1535 = icmp slt i64 %439, %add.i1533
+  %add.i1533 = add i64 %439, 56
+  %cmp.i1535 = icmp slt i64 %440, %add.i1533
   %.pre2097 = load ptr, ptr %data_stack11, align 8
   br i1 %cmp.i1535, label %if.then.i1537, label %if.end2613
 
 if.then.i1537:                                    ; preds = %if.then2597
   %div.i1538 = sdiv i64 %add.i1533, 4
-  %add1.i1539 = add i64 %438, 1080
+  %add1.i1539 = add i64 %439, 1080
   %add2.i1540 = add i64 %add1.i1539, %div.i1538
   %call.i1542 = tail call ptr @PyMem_Realloc(ptr noundef %.pre2097, i64 noundef %add2.i1540) #14
   %tobool.not.i1543 = icmp eq ptr %call.i1542, null
   br i1 %tobool.not.i1543, label %if.then3.i1545, label %if.end.i1544
 
 if.then3.i1545:                                   ; preds = %if.then.i1537
-  %440 = load ptr, ptr %data_stack11, align 8
-  %tobool.not.i.i1546 = icmp eq ptr %440, null
+  %441 = load ptr, ptr %data_stack11, align 8
+  %tobool.not.i.i1546 = icmp eq ptr %441, null
   br i1 %tobool.not.i.i1546, label %if.then2602, label %if.then.i.i1547
 
 if.then.i.i1547:                                  ; preds = %if.then3.i1545
-  tail call void @PyMem_Free(ptr noundef nonnull %440) #14
+  tail call void @PyMem_Free(ptr noundef nonnull %441) #14
   store ptr null, ptr %data_stack11, align 8
   br label %if.then2602
 
@@ -9428,10 +9434,10 @@ if.then2602:                                      ; preds = %if.then.i.i1547, %i
   br label %return
 
 if.end2613:                                       ; preds = %do.end2587.if.end2613_crit_edge, %if.then2597, %if.end.i1544
-  %441 = phi i64 [ %438, %do.end2587.if.end2613_crit_edge ], [ %438, %if.then2597 ], [ %.pre2098, %if.end.i1544 ]
-  %442 = phi ptr [ %.pre2096, %do.end2587.if.end2613_crit_edge ], [ %.pre2097, %if.then2597 ], [ %call.i1542, %if.end.i1544 ]
-  %add.ptr2615 = getelementptr i8, ptr %442, i64 %438
-  %add2617 = add i64 %441, 56
+  %442 = phi i64 [ %439, %do.end2587.if.end2613_crit_edge ], [ %439, %if.then2597 ], [ %.pre2098, %if.end.i1544 ]
+  %443 = phi ptr [ %.pre2096, %do.end2587.if.end2613_crit_edge ], [ %.pre2097, %if.then2597 ], [ %call.i1542, %if.end.i1544 ]
+  %add.ptr2615 = getelementptr i8, ptr %443, i64 %439
+  %add2617 = add i64 %442, 56
   store i64 %add2617, ptr %data_stack_base, align 8
   %arrayidx2619 = getelementptr i8, ptr %pattern.addr.10, i64 12
   %pattern2620 = getelementptr inbounds i8, ptr %add.ptr2615, i64 24
@@ -9456,8 +9462,8 @@ if.then2633:                                      ; preds = %do.body2629
   br label %do.end2652
 
 do.end2652:                                       ; preds = %do.body2629, %if.then2633
-  %443 = load i64, ptr %add.ptr3443, align 8
-  %inc2654 = add i64 %443, 1
+  %444 = load i64, ptr %add.ptr3443, align 8
+  %inc2654 = add i64 %444, 1
   store i64 %inc2654, ptr %add.ptr3443, align 8
   br label %while.cond2523, !llvm.loop !24
 
@@ -9468,34 +9474,34 @@ if.then2660:                                      ; preds = %do.body2656
   %add2663 = add nuw i32 %572, 1
   %conv2664 = sext i32 %add2663 to i64
   %mul2665 = shl nsw i64 %conv2664, 3
-  %444 = load ptr, ptr %mark3386, align 8
+  %445 = load ptr, ptr %mark3386, align 8
   %add.ptr2670 = getelementptr i8, ptr %550, i64 %sub3434
   %idx.neg2671 = sub nsw i64 0, %mul2665
   %add.ptr2672 = getelementptr i8, ptr %add.ptr2670, i64 %idx.neg2671
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %444, ptr noundef nonnull align 1 dereferenceable(1) %add.ptr2672, i64 %mul2665, i1 false)
-  %445 = load i64, ptr %data_stack_base, align 8
-  %sub2674 = sub i64 %445, %mul2665
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %445, ptr noundef nonnull align 1 dereferenceable(1) %add.ptr2672, i64 %mul2665, i1 false)
+  %446 = load i64, ptr %data_stack_base, align 8
+  %sub2674 = sub i64 %446, %mul2665
   store i64 %sub2674, ptr %data_stack_base, align 8
   %.pre2093 = load i32, ptr %lastmark2657, align 8
   br label %do.body2678
 
 do.body2678:                                      ; preds = %if.then2660, %do.body2656
-  %446 = phi i32 [ %.pre2093, %if.then2660 ], [ %572, %do.body2656 ]
-  store i32 %446, ptr %lastmark3400, align 4
+  %447 = phi i32 [ %.pre2093, %if.then2660 ], [ %572, %do.body2656 ]
+  store i32 %447, ptr %lastmark3400, align 4
   %lastindex2681 = getelementptr inbounds i8, ptr %add.ptr3443, i64 20
-  %447 = load i32, ptr %lastindex2681, align 4
-  store i32 %447, ptr %lastindex3402, align 8
+  %448 = load i32, ptr %lastindex2681, align 4
+  store i32 %448, ptr %lastindex3402, align 8
   store ptr %571, ptr %state, align 8
   br label %while.end2686
 
 while.end2686:                                    ; preds = %while.cond2523, %do.body2678
-  %448 = phi ptr [ %571, %do.body2678 ], [ %.pre2099, %while.cond2523 ]
+  %449 = phi ptr [ %571, %do.body2678 ], [ %.pre2099, %while.cond2523 ]
   %ctx.35 = phi ptr [ %add.ptr3443, %do.body2678 ], [ %ctx.34, %while.cond2523 ]
   %sigcount.13 = phi i32 [ %sigcount.1, %do.body2678 ], [ %sigcount.12, %while.cond2523 ]
   %ctx_pos.10 = phi i64 [ %547, %do.body2678 ], [ %ctx_pos.9, %while.cond2523 ]
   %pattern.addr.11 = phi ptr [ %570, %do.body2678 ], [ %pattern.addr.10, %while.cond2523 ]
-  %449 = load i32, ptr %pattern.addr.11, align 4
-  %add2688 = add i32 %449, 1
+  %450 = load i32, ptr %pattern.addr.11, align 4
+  %add2688 = add i32 %450, 1
   %idx.ext2689 = zext i32 %add2688 to i64
   %add.ptr2690 = getelementptr i32, ptr %pattern.addr.11, i64 %idx.ext2689
   %inc2694 = add i32 %sigcount.13, 1
@@ -9514,9 +9520,9 @@ TARGET_SRE_OP_ATOMIC_GROUP:                       ; preds = %indirectgoto
   store ptr %pattern.addr.2, ptr %pattern2711, align 8
   %ptr2712 = getelementptr inbounds i8, ptr %ctx.2, i64 32
   store ptr %ptr.0, ptr %ptr2712, align 8
-  %450 = load i64, ptr %data_stack_base, align 8
-  %451 = load i64, ptr %data_stack_size, align 8
-  %sub2716 = sub i64 %451, %450
+  %451 = load i64, ptr %data_stack_base, align 8
+  %452 = load i64, ptr %data_stack_size, align 8
+  %sub2716 = sub i64 %452, %451
   %cmp2717 = icmp ult i64 %sub2716, 56
   br i1 %cmp2717, label %if.then2719, label %if.end2735
 
@@ -9534,10 +9540,10 @@ if.then2724:                                      ; preds = %if.then2719
   br label %return
 
 if.end2735:                                       ; preds = %if.then2719.if.end2735_crit_edge, %TARGET_SRE_OP_ATOMIC_GROUP
-  %452 = phi i64 [ %.pre2101, %if.then2719.if.end2735_crit_edge ], [ %450, %TARGET_SRE_OP_ATOMIC_GROUP ]
-  %453 = load ptr, ptr %data_stack11, align 8
-  %add.ptr2737 = getelementptr i8, ptr %453, i64 %450
-  %add2739 = add i64 %452, 56
+  %453 = phi i64 [ %.pre2101, %if.then2719.if.end2735_crit_edge ], [ %451, %TARGET_SRE_OP_ATOMIC_GROUP ]
+  %454 = load ptr, ptr %data_stack11, align 8
+  %add.ptr2737 = getelementptr i8, ptr %454, i64 %451
+  %add2739 = add i64 %453, 56
   store i64 %add2739, ptr %data_stack_base, align 8
   %arrayidx2741 = getelementptr i8, ptr %pattern.addr.2, i64 4
   %pattern2742 = getelementptr inbounds i8, ptr %add.ptr2737, i64 24
@@ -9552,17 +9558,17 @@ if.end2735:                                       ; preds = %if.then2719.if.end2
 
 if.then2759:                                      ; preds = %sw.bb3457
   %ptr2748 = getelementptr inbounds i8, ptr %add.ptr3443, i64 32
-  %454 = load ptr, ptr %ptr2748, align 8
-  store ptr %454, ptr %state, align 8
+  %455 = load ptr, ptr %ptr2748, align 8
+  store ptr %455, ptr %state, align 8
   br label %exit
 
 if.end2763:                                       ; preds = %sw.bb3457
   %pattern2747 = getelementptr inbounds i8, ptr %add.ptr3443, i64 24
-  %455 = load ptr, ptr %pattern2747, align 8
-  %456 = load i32, ptr %455, align 4
-  %idx.ext2765 = zext i32 %456 to i64
-  %add.ptr2766 = getelementptr i32, ptr %455, i64 %idx.ext2765
-  %457 = load ptr, ptr %state, align 8
+  %456 = load ptr, ptr %pattern2747, align 8
+  %457 = load i32, ptr %456, align 4
+  %idx.ext2765 = zext i32 %457 to i64
+  %add.ptr2766 = getelementptr i32, ptr %456, i64 %idx.ext2765
+  %458 = load ptr, ptr %state, align 8
   %inc2770 = add i32 %sigcount.1, 1
   %and2771 = and i32 %inc2770, 4095
   %cmp2772 = icmp eq i32 %and2771, 0
@@ -9573,14 +9579,14 @@ land.lhs.true2774:                                ; preds = %if.end2763
   %tobool2776.not = icmp eq i32 %call2775, 0
   br i1 %tobool2776.not, label %indirectgoto.preheader, label %return
 
-indirectgoto.preheader:                           ; preds = %land.lhs.true3414, %if.end3404, %land.lhs.true3223, %do.end3213, %land.lhs.true2774, %if.end2763, %land.lhs.true2698, %while.end2686, %land.lhs.true38, %do.body35
-  %pattern.addr.1.sink2397 = phi ptr [ %pattern.addr.1, %do.body35 ], [ %pattern.addr.1, %land.lhs.true38 ], [ %add.ptr2690, %while.end2686 ], [ %add.ptr2690, %land.lhs.true2698 ], [ %add.ptr2766, %if.end2763 ], [ %add.ptr2766, %land.lhs.true2774 ], [ %add.ptr3216, %do.end3213 ], [ %add.ptr3216, %land.lhs.true3223 ], [ %add.ptr3407, %if.end3404 ], [ %add.ptr3407, %land.lhs.true3414 ]
-  %ptr.0.ph = phi ptr [ %8, %do.body35 ], [ %8, %land.lhs.true38 ], [ %448, %while.end2686 ], [ %448, %land.lhs.true2698 ], [ %457, %if.end2763 ], [ %457, %land.lhs.true2774 ], [ %585, %do.end3213 ], [ %585, %land.lhs.true3223 ], [ %ptr.15, %if.end3404 ], [ %ptr.15, %land.lhs.true3414 ]
-  %ctx.2.ph = phi ptr [ %ctx.0, %do.body35 ], [ %ctx.0, %land.lhs.true38 ], [ %ctx.35, %while.end2686 ], [ %ctx.35, %land.lhs.true2698 ], [ %add.ptr3443, %if.end2763 ], [ %add.ptr3443, %land.lhs.true2774 ], [ %add.ptr3443, %do.end3213 ], [ %add.ptr3443, %land.lhs.true3223 ], [ %ctx.38, %if.end3404 ], [ %ctx.38, %land.lhs.true3414 ]
-  %sigcount.2.ph = phi i32 [ %inc, %do.body35 ], [ %inc, %land.lhs.true38 ], [ %inc2694, %while.end2686 ], [ %inc2694, %land.lhs.true2698 ], [ %inc2770, %if.end2763 ], [ %inc2770, %land.lhs.true2774 ], [ %inc3219, %do.end3213 ], [ %inc3219, %land.lhs.true3223 ], [ %inc3410, %if.end3404 ], [ %inc3410, %land.lhs.true3414 ]
-  %ctx_pos.1.ph = phi i64 [ %ctx_pos.0, %do.body35 ], [ %ctx_pos.0, %land.lhs.true38 ], [ %ctx_pos.10, %while.end2686 ], [ %ctx_pos.10, %land.lhs.true2698 ], [ %547, %if.end2763 ], [ %547, %land.lhs.true2774 ], [ %547, %do.end3213 ], [ %547, %land.lhs.true3223 ], [ %ctx_pos.11, %if.end3404 ], [ %ctx_pos.11, %land.lhs.true3414 ]
-  %incdec.ptr = getelementptr i8, ptr %pattern.addr.1.sink2397, i64 4
-  %458 = load i32, ptr %pattern.addr.1.sink2397, align 4
+indirectgoto.preheader:                           ; preds = %land.lhs.true2774, %if.end2763, %land.lhs.true2698, %while.end2686, %land.lhs.true38, %do.body35, %land.lhs.true3414, %if.end3404, %land.lhs.true3223, %do.end3213
+  %pattern.addr.1.sink = phi ptr [ %add.ptr3216, %do.end3213 ], [ %add.ptr3216, %land.lhs.true3223 ], [ %add.ptr3407, %if.end3404 ], [ %add.ptr3407, %land.lhs.true3414 ], [ %pattern.addr.1, %do.body35 ], [ %pattern.addr.1, %land.lhs.true38 ], [ %add.ptr2690, %while.end2686 ], [ %add.ptr2690, %land.lhs.true2698 ], [ %add.ptr2766, %if.end2763 ], [ %add.ptr2766, %land.lhs.true2774 ]
+  %ptr.0.ph = phi ptr [ %585, %do.end3213 ], [ %585, %land.lhs.true3223 ], [ %ptr.15, %if.end3404 ], [ %ptr.15, %land.lhs.true3414 ], [ %8, %do.body35 ], [ %8, %land.lhs.true38 ], [ %449, %while.end2686 ], [ %449, %land.lhs.true2698 ], [ %458, %if.end2763 ], [ %458, %land.lhs.true2774 ]
+  %ctx.2.ph = phi ptr [ %add.ptr3443, %do.end3213 ], [ %add.ptr3443, %land.lhs.true3223 ], [ %ctx.38, %if.end3404 ], [ %ctx.38, %land.lhs.true3414 ], [ %ctx.0, %do.body35 ], [ %ctx.0, %land.lhs.true38 ], [ %ctx.35, %while.end2686 ], [ %ctx.35, %land.lhs.true2698 ], [ %add.ptr3443, %if.end2763 ], [ %add.ptr3443, %land.lhs.true2774 ]
+  %sigcount.2.ph = phi i32 [ %inc3219, %do.end3213 ], [ %inc3219, %land.lhs.true3223 ], [ %inc3410, %if.end3404 ], [ %inc3410, %land.lhs.true3414 ], [ %inc, %do.body35 ], [ %inc, %land.lhs.true38 ], [ %inc2694, %while.end2686 ], [ %inc2694, %land.lhs.true2698 ], [ %inc2770, %if.end2763 ], [ %inc2770, %land.lhs.true2774 ]
+  %ctx_pos.1.ph = phi i64 [ %547, %do.end3213 ], [ %547, %land.lhs.true3223 ], [ %ctx_pos.11, %if.end3404 ], [ %ctx_pos.11, %land.lhs.true3414 ], [ %ctx_pos.0, %do.body35 ], [ %ctx_pos.0, %land.lhs.true38 ], [ %ctx_pos.10, %while.end2686 ], [ %ctx_pos.10, %land.lhs.true2698 ], [ %547, %if.end2763 ], [ %547, %land.lhs.true2774 ]
+  %incdec.ptr = getelementptr i8, ptr %pattern.addr.1.sink, i64 4
+  %.sink2394 = load i32, ptr %pattern.addr.1.sink, align 4
   br label %indirectgoto
 
 TARGET_SRE_OP_GROUPREF:                           ; preds = %indirectgoto
@@ -9691,7 +9697,7 @@ while.body2882:                                   ; preds = %while.body2882.preh
   %ptr.121844 = phi ptr [ %incdec.ptr2897, %if.end2895 ], [ %ptr.0, %while.body2882.preheader ]
   %p2860.01843 = phi ptr [ %incdec.ptr2896, %if.end2895 ], [ %474, %while.body2882.preheader ]
   %cmp2883.not = icmp ult ptr %ptr.121844, %0
-  br i1 %cmp2883.not, label %lor.lhs.false2885, label %exit.loopexit2623
+  br i1 %cmp2883.not, label %lor.lhs.false2885, label %exit.loopexit2620
 
 lor.lhs.false2885:                                ; preds = %while.body2882
   %480 = load i8, ptr %ptr.121844, align 1
@@ -9719,7 +9725,7 @@ cond.true.i1561:                                  ; preds = %sre_lower_ascii.exi
 sre_lower_ascii.exit1565:                         ; preds = %sre_lower_ascii.exit1557, %cond.true.i1561
   %cond.i1560.in = phi i8 [ %483, %cond.true.i1561 ], [ %482, %sre_lower_ascii.exit1557 ]
   %cmp2890.not = icmp eq i8 %cond.i1552.in, %cond.i1560.in
-  br i1 %cmp2890.not, label %if.end2895, label %exit.loopexit2623
+  br i1 %cmp2890.not, label %if.end2895, label %exit.loopexit2620
 
 if.end2895:                                       ; preds = %sre_lower_ascii.exit1565
   %incdec.ptr2896 = getelementptr i8, ptr %p2860.01843, i64 1
@@ -9776,7 +9782,7 @@ while.body2951:                                   ; preds = %while.cond2948.preh
   %ptr.131848 = phi ptr [ %incdec.ptr2966, %if.end2964 ], [ %ptr.0, %while.cond2948.preheader ]
   %p2929.01847 = phi ptr [ %incdec.ptr2965, %if.end2964 ], [ %488, %while.cond2948.preheader ]
   %cmp2952.not = icmp ult ptr %ptr.131848, %0
-  br i1 %cmp2952.not, label %lor.lhs.false2954, label %exit.loopexit2622
+  br i1 %cmp2952.not, label %lor.lhs.false2954, label %exit.loopexit2619
 
 lor.lhs.false2954:                                ; preds = %while.body2951
   %491 = load i8, ptr %ptr.131848, align 1
@@ -9786,7 +9792,7 @@ lor.lhs.false2954:                                ; preds = %while.body2951
   %conv2957 = zext i8 %492 to i32
   %call.i1567 = tail call i32 @_PyUnicode_ToLowercase(i32 noundef %conv2957) #14
   %cmp2959.not = icmp eq i32 %call.i1566, %call.i1567
-  br i1 %cmp2959.not, label %if.end2964, label %exit.loopexit2622
+  br i1 %cmp2959.not, label %if.end2964, label %exit.loopexit2619
 
 if.end2964:                                       ; preds = %lor.lhs.false2954
   %incdec.ptr2965 = getelementptr i8, ptr %p2929.01847, i64 1
@@ -9850,7 +9856,7 @@ while.body3020:                                   ; preds = %while.body3020.preh
   %ptr.141841 = phi ptr [ %incdec.ptr3035, %if.end3033 ], [ %ptr.0, %while.body3020.preheader ]
   %p2998.01840 = phi ptr [ %incdec.ptr3034, %if.end3033 ], [ %497, %while.body3020.preheader ]
   %cmp3021.not = icmp ult ptr %ptr.141841, %0
-  br i1 %cmp3021.not, label %lor.lhs.false3023, label %exit.loopexit2624
+  br i1 %cmp3021.not, label %lor.lhs.false3023, label %exit.loopexit2621
 
 lor.lhs.false3023:                                ; preds = %while.body3020
   %503 = load i8, ptr %ptr.141841, align 1
@@ -9860,7 +9866,7 @@ lor.lhs.false3023:                                ; preds = %while.body3020
   %conv3026 = zext i8 %504 to i32
   %call.i.i1577 = tail call i32 @tolower(i32 noundef %conv3026) #16
   %cmp3028.not = icmp eq i32 %call.i.i1572, %call.i.i1577
-  br i1 %cmp3028.not, label %if.end3033, label %exit.loopexit2624
+  br i1 %cmp3028.not, label %if.end3033, label %exit.loopexit2621
 
 if.end3033:                                       ; preds = %lor.lhs.false3023
   %incdec.ptr3034 = getelementptr i8, ptr %p2998.01840, i64 1
@@ -10091,12 +10097,12 @@ if.end3281:                                       ; preds = %if.then3274
   %cmp3282.not = icmp eq i64 %ctx_pos.1.ph, -1
   %.pre2134 = load ptr, ptr %data_stack11, align 8
   %add.ptr3287 = getelementptr i8, ptr %.pre2134, i64 %ctx_pos.1.ph
-  %spec.select2398 = select i1 %cmp3282.not, ptr %ctx.2, ptr %add.ptr3287
+  %spec.select2395 = select i1 %cmp3282.not, ptr %ctx.2, ptr %add.ptr3287
   br label %if.end3290
 
 if.end3290:                                       ; preds = %if.end3281, %if.then3262.if.end3290_crit_edge
   %532 = phi ptr [ %.pre2133, %if.then3262.if.end3290_crit_edge ], [ %.pre2134, %if.end3281 ]
-  %ctx.40 = phi ptr [ %ctx.2, %if.then3262.if.end3290_crit_edge ], [ %spec.select2398, %if.end3281 ]
+  %ctx.40 = phi ptr [ %ctx.2, %if.then3262.if.end3290_crit_edge ], [ %spec.select2395, %if.end3281 ]
   %533 = load i64, ptr %data_stack_base, align 8
   %add.ptr3293 = getelementptr i8, ptr %532, i64 %533
   %534 = load ptr, ptr %mark3386, align 8
@@ -10219,21 +10225,21 @@ land.lhs.true3414:                                ; preds = %if.end3404
 exit.loopexit:                                    ; preds = %while.body2815, %lor.lhs.false2818
   br label %exit
 
-exit.loopexit2622:                                ; preds = %while.body2951, %lor.lhs.false2954
+exit.loopexit2619:                                ; preds = %while.body2951, %lor.lhs.false2954
   br label %exit
 
-exit.loopexit2623:                                ; preds = %while.body2882, %sre_lower_ascii.exit1565
+exit.loopexit2620:                                ; preds = %while.body2882, %sre_lower_ascii.exit1565
   br label %exit
 
-exit.loopexit2624:                                ; preds = %while.body3020, %lor.lhs.false3023
+exit.loopexit2621:                                ; preds = %while.body3020, %lor.lhs.false3023
   br label %exit
 
-exit:                                             ; preds = %exit.loopexit2624, %exit.loopexit2623, %exit.loopexit2622, %exit.loopexit, %sw.bb36.i, %sw.bb93.i, %sw.bb162.i, %sw.bb220.i, %sw.bb279.i, %sw.bb326.i, %TARGET_SRE_OP_AT, %if.then3340, %do.body3344, %if.then3348, %lor.lhs.false2334, %do.body2314, %if.then2258, %do.body2261, %if.then2265, %if.then1956, %do.body1952, %while.end1515, %do.body1519, %if.then1523, %if.then1431, %do.body1435, %if.then1439, %while.end1224, %do.body1228, %for.end1086, %do.body1090, %do.body1246.sink.split, %if.then1159, %do.body1163, %if.then1167, %if.then1021, %do.body1025, %if.then1029, %if.then812, %do.body808, %for.end, %if.then741, %do.body745, %if.then749, %sre_ucs1_charset_loc_ignore.exit, %TARGET_SRE_OP_IN_LOC_IGNORE, %if.end.i1458, %lor.lhs.false537, %TARGET_SRE_OP_IN_UNI_IGNORE, %sre_lower_ascii.exit1453, %TARGET_SRE_OP_IN_IGNORE, %char_loc_ignore.exit1445, %TARGET_SRE_OP_NOT_LITERAL_LOC_IGNORE, %lor.lhs.false.i1438, %lor.lhs.false473, %lor.lhs.false442, %TARGET_SRE_OP_NOT_LITERAL_UNI_IGNORE, %sre_lower_ascii.exit1435, %TARGET_SRE_OP_NOT_LITERAL_IGNORE, %char_loc_ignore.exit, %TARGET_SRE_OP_LITERAL_LOC_IGNORE, %lor.lhs.false350, %TARGET_SRE_OP_LITERAL_UNI_IGNORE, %sre_lower_ascii.exit, %TARGET_SRE_OP_LITERAL_IGNORE, %lor.lhs.false286, %TARGET_SRE_OP_IN, %lor.lhs.false231, %TARGET_SRE_OP_ANY, %lor.lhs.false199, %TARGET_SRE_OP_CATEGORY, %land.lhs.true162, %land.lhs.true156, %lor.lhs.false122, %TARGET_SRE_OP_NOT_LITERAL, %lor.lhs.false, %TARGET_SRE_OP_LITERAL, %land.lhs.true.i, %lor.rhs15.i, %lor.rhs.i, %sw.bb.i, %sw.bb32.i, %cond.end88.i, %cond.end157.i, %cond.end215.i, %cond.end274.i, %cond.end321.i, %cond.end368.i, %indirectgoto, %sw.bb3458, %TARGET_SRE_OP_ASSERT, %if.else2997, %TARGET_SRE_OP_GROUPREF_LOC_IGNORE, %if.else2928, %TARGET_SRE_OP_GROUPREF_UNI_IGNORE, %if.else2859, %TARGET_SRE_OP_GROUPREF_IGNORE, %if.else2794, %TARGET_SRE_OP_GROUPREF, %sw.bb3447, %sw.bb3450, %sw.bb3445, %sw.bb3449, %sw.bb3453, %do.body1561, %TARGET_SRE_OP_POSSESSIVE_REPEAT_ONE, %do.body1278, %TARGET_SRE_OP_MIN_REPEAT_ONE, %do.body851, %TARGET_SRE_OP_REPEAT_ONE, %TARGET_SRE_OP_ANY_ALL, %sre_ucs1_at.exit, %if.then20, %if.then2759, %if.else2517, %if.end2450, %if.end2153, %do.end2070, %if.end1779, %do.body1698, %if.then1623, %if.then1596, %if.then1316, %if.then885, %if.end168
-  %ctx.1 = phi ptr [ %add.ptr1563, %if.then1596 ], [ %ctx.14, %if.then1316 ], [ %add.ptr853, %if.then885 ], [ %ctx.2, %if.then1623 ], [ %ctx.2, %if.end168 ], [ %add.ptr3443, %if.then2759 ], [ %add.ptr3443, %do.body1698 ], [ %add.ptr3443, %if.else2517 ], [ %add.ptr3443, %if.end2153 ], [ %add.ptr3443, %if.end1779 ], [ %add.ptr3443, %if.end2450 ], [ %add.ptr3443, %do.end2070 ], [ %ctx.0, %if.then20 ], [ %ctx.2, %sre_ucs1_at.exit ], [ %ctx.2, %TARGET_SRE_OP_ANY_ALL ], [ %ctx.2, %TARGET_SRE_OP_REPEAT_ONE ], [ %add.ptr853, %do.body851 ], [ %ctx.2, %TARGET_SRE_OP_MIN_REPEAT_ONE ], [ %add.ptr1280, %do.body1278 ], [ %ctx.2, %TARGET_SRE_OP_POSSESSIVE_REPEAT_ONE ], [ %add.ptr1563, %do.body1561 ], [ %add.ptr3443, %sw.bb3453 ], [ %add.ptr3443, %sw.bb3449 ], [ %add.ptr3443, %sw.bb3445 ], [ %add.ptr3443, %sw.bb3450 ], [ %add.ptr3443, %sw.bb3447 ], [ %ctx.2, %TARGET_SRE_OP_GROUPREF ], [ %ctx.2, %if.else2794 ], [ %ctx.2, %TARGET_SRE_OP_GROUPREF_IGNORE ], [ %ctx.2, %if.else2859 ], [ %ctx.2, %TARGET_SRE_OP_GROUPREF_UNI_IGNORE ], [ %ctx.2, %if.else2928 ], [ %ctx.2, %TARGET_SRE_OP_GROUPREF_LOC_IGNORE ], [ %ctx.2, %if.else2997 ], [ %ctx.2, %TARGET_SRE_OP_ASSERT ], [ %add.ptr3443, %sw.bb3458 ], [ %ctx.2, %indirectgoto ], [ %ctx.2, %cond.end368.i ], [ %ctx.2, %cond.end321.i ], [ %ctx.2, %cond.end274.i ], [ %ctx.2, %cond.end215.i ], [ %ctx.2, %cond.end157.i ], [ %ctx.2, %cond.end88.i ], [ %ctx.2, %sw.bb32.i ], [ %ctx.2, %sw.bb.i ], [ %ctx.2, %lor.rhs.i ], [ %ctx.2, %lor.rhs15.i ], [ %ctx.2, %land.lhs.true.i ], [ %ctx.2, %TARGET_SRE_OP_LITERAL ], [ %ctx.2, %lor.lhs.false ], [ %ctx.2, %TARGET_SRE_OP_NOT_LITERAL ], [ %ctx.2, %lor.lhs.false122 ], [ %ctx.2, %land.lhs.true156 ], [ %ctx.2, %land.lhs.true162 ], [ %ctx.2, %TARGET_SRE_OP_CATEGORY ], [ %ctx.2, %lor.lhs.false199 ], [ %ctx.2, %TARGET_SRE_OP_ANY ], [ %ctx.2, %lor.lhs.false231 ], [ %ctx.2, %TARGET_SRE_OP_IN ], [ %ctx.2, %lor.lhs.false286 ], [ %ctx.2, %TARGET_SRE_OP_LITERAL_IGNORE ], [ %ctx.2, %sre_lower_ascii.exit ], [ %ctx.2, %TARGET_SRE_OP_LITERAL_UNI_IGNORE ], [ %ctx.2, %lor.lhs.false350 ], [ %ctx.2, %TARGET_SRE_OP_LITERAL_LOC_IGNORE ], [ %ctx.2, %char_loc_ignore.exit ], [ %ctx.2, %TARGET_SRE_OP_NOT_LITERAL_IGNORE ], [ %ctx.2, %sre_lower_ascii.exit1435 ], [ %ctx.2, %TARGET_SRE_OP_NOT_LITERAL_UNI_IGNORE ], [ %ctx.2, %lor.lhs.false442 ], [ %ctx.2, %lor.lhs.false473 ], [ %ctx.2, %lor.lhs.false.i1438 ], [ %ctx.2, %TARGET_SRE_OP_NOT_LITERAL_LOC_IGNORE ], [ %ctx.2, %char_loc_ignore.exit1445 ], [ %ctx.2, %TARGET_SRE_OP_IN_IGNORE ], [ %ctx.2, %sre_lower_ascii.exit1453 ], [ %ctx.2, %TARGET_SRE_OP_IN_UNI_IGNORE ], [ %ctx.2, %lor.lhs.false537 ], [ %ctx.2, %if.end.i1458 ], [ %ctx.2, %TARGET_SRE_OP_IN_LOC_IGNORE ], [ %ctx.2, %sre_ucs1_charset_loc_ignore.exit ], [ %add.ptr3443, %if.then749 ], [ %add.ptr3443, %do.body745 ], [ %add.ptr3443, %if.then741 ], [ %ctx.4, %for.end ], [ %ctx.4, %do.body808 ], [ %ctx.4, %if.then812 ], [ %add.ptr3443, %if.then1029 ], [ %add.ptr3443, %do.body1025 ], [ %add.ptr3443, %if.then1021 ], [ %add.ptr3443, %if.then1167 ], [ %add.ptr3443, %do.body1163 ], [ %add.ptr3443, %if.then1159 ], [ %ctx.9, %do.body1090 ], [ %ctx.9, %for.end1086 ], [ %ctx.11, %do.body1228 ], [ %ctx.11, %while.end1224 ], [ %ctx.13.ph, %do.body1246.sink.split ], [ %add.ptr3443, %if.then1439 ], [ %add.ptr3443, %do.body1435 ], [ %add.ptr3443, %if.then1431 ], [ %ctx.17, %if.then1523 ], [ %ctx.17, %do.body1519 ], [ %ctx.17, %while.end1515 ], [ %add.ptr3443, %do.body1952 ], [ %add.ptr3443, %if.then1956 ], [ %add.ptr3443, %if.then2265 ], [ %add.ptr3443, %do.body2261 ], [ %add.ptr3443, %if.then2258 ], [ %add.ptr3443, %do.body2314 ], [ %add.ptr3443, %lor.lhs.false2334 ], [ %add.ptr3443, %if.then3348 ], [ %add.ptr3443, %do.body3344 ], [ %add.ptr3443, %if.then3340 ], [ %ctx.2, %TARGET_SRE_OP_AT ], [ %ctx.2, %sw.bb326.i ], [ %ctx.2, %sw.bb279.i ], [ %ctx.2, %sw.bb220.i ], [ %ctx.2, %sw.bb162.i ], [ %ctx.2, %sw.bb93.i ], [ %ctx.2, %sw.bb36.i ], [ %ctx.2, %exit.loopexit ], [ %ctx.2, %exit.loopexit2622 ], [ %ctx.2, %exit.loopexit2623 ], [ %ctx.2, %exit.loopexit2624 ]
-  %sigcount.1 = phi i32 [ %sigcount.2, %if.then1596 ], [ %sigcount.2, %if.then1316 ], [ %sigcount.2, %if.then885 ], [ %sigcount.2, %if.then1623 ], [ %sigcount.2, %if.end168 ], [ %sigcount.1, %if.then2759 ], [ %sigcount.1, %do.body1698 ], [ %sigcount.1, %if.else2517 ], [ %sigcount.1, %if.end2153 ], [ %sigcount.1, %if.end1779 ], [ %sigcount.1, %if.end2450 ], [ %sigcount.1, %do.end2070 ], [ %sigcount.0, %if.then20 ], [ %sigcount.2, %sre_ucs1_at.exit ], [ %sigcount.2, %TARGET_SRE_OP_ANY_ALL ], [ %sigcount.2, %TARGET_SRE_OP_REPEAT_ONE ], [ %sigcount.2, %do.body851 ], [ %sigcount.2, %TARGET_SRE_OP_MIN_REPEAT_ONE ], [ %sigcount.2, %do.body1278 ], [ %sigcount.2, %TARGET_SRE_OP_POSSESSIVE_REPEAT_ONE ], [ %sigcount.2, %do.body1561 ], [ %sigcount.1, %sw.bb3453 ], [ %sigcount.1, %sw.bb3449 ], [ %sigcount.1, %sw.bb3445 ], [ %sigcount.1, %sw.bb3450 ], [ %sigcount.1, %sw.bb3447 ], [ %sigcount.2, %TARGET_SRE_OP_GROUPREF ], [ %sigcount.2, %if.else2794 ], [ %sigcount.2, %TARGET_SRE_OP_GROUPREF_IGNORE ], [ %sigcount.2, %if.else2859 ], [ %sigcount.2, %TARGET_SRE_OP_GROUPREF_UNI_IGNORE ], [ %sigcount.2, %if.else2928 ], [ %sigcount.2, %TARGET_SRE_OP_GROUPREF_LOC_IGNORE ], [ %sigcount.2, %if.else2997 ], [ %sigcount.2, %TARGET_SRE_OP_ASSERT ], [ %sigcount.1, %sw.bb3458 ], [ %sigcount.2, %indirectgoto ], [ %sigcount.2, %cond.end368.i ], [ %sigcount.2, %cond.end321.i ], [ %sigcount.2, %cond.end274.i ], [ %sigcount.2, %cond.end215.i ], [ %sigcount.2, %cond.end157.i ], [ %sigcount.2, %cond.end88.i ], [ %sigcount.2, %sw.bb32.i ], [ %sigcount.2, %sw.bb.i ], [ %sigcount.2, %lor.rhs.i ], [ %sigcount.2, %lor.rhs15.i ], [ %sigcount.2, %land.lhs.true.i ], [ %sigcount.2, %TARGET_SRE_OP_LITERAL ], [ %sigcount.2, %lor.lhs.false ], [ %sigcount.2, %TARGET_SRE_OP_NOT_LITERAL ], [ %sigcount.2, %lor.lhs.false122 ], [ %sigcount.2, %land.lhs.true156 ], [ %sigcount.2, %land.lhs.true162 ], [ %sigcount.2, %TARGET_SRE_OP_CATEGORY ], [ %sigcount.2, %lor.lhs.false199 ], [ %sigcount.2, %TARGET_SRE_OP_ANY ], [ %sigcount.2, %lor.lhs.false231 ], [ %sigcount.2, %TARGET_SRE_OP_IN ], [ %sigcount.2, %lor.lhs.false286 ], [ %sigcount.2, %TARGET_SRE_OP_LITERAL_IGNORE ], [ %sigcount.2, %sre_lower_ascii.exit ], [ %sigcount.2, %TARGET_SRE_OP_LITERAL_UNI_IGNORE ], [ %sigcount.2, %lor.lhs.false350 ], [ %sigcount.2, %TARGET_SRE_OP_LITERAL_LOC_IGNORE ], [ %sigcount.2, %char_loc_ignore.exit ], [ %sigcount.2, %TARGET_SRE_OP_NOT_LITERAL_IGNORE ], [ %sigcount.2, %sre_lower_ascii.exit1435 ], [ %sigcount.2, %TARGET_SRE_OP_NOT_LITERAL_UNI_IGNORE ], [ %sigcount.2, %lor.lhs.false442 ], [ %sigcount.2, %lor.lhs.false473 ], [ %sigcount.2, %lor.lhs.false.i1438 ], [ %sigcount.2, %TARGET_SRE_OP_NOT_LITERAL_LOC_IGNORE ], [ %sigcount.2, %char_loc_ignore.exit1445 ], [ %sigcount.2, %TARGET_SRE_OP_IN_IGNORE ], [ %sigcount.2, %sre_lower_ascii.exit1453 ], [ %sigcount.2, %TARGET_SRE_OP_IN_UNI_IGNORE ], [ %sigcount.2, %lor.lhs.false537 ], [ %sigcount.2, %if.end.i1458 ], [ %sigcount.2, %TARGET_SRE_OP_IN_LOC_IGNORE ], [ %sigcount.2, %sre_ucs1_charset_loc_ignore.exit ], [ %sigcount.1, %if.then749 ], [ %sigcount.1, %do.body745 ], [ %sigcount.1, %if.then741 ], [ %sigcount.3, %for.end ], [ %sigcount.3, %do.body808 ], [ %sigcount.3, %if.then812 ], [ %sigcount.1, %if.then1029 ], [ %sigcount.1, %do.body1025 ], [ %sigcount.1, %if.then1021 ], [ %sigcount.1, %if.then1167 ], [ %sigcount.1, %do.body1163 ], [ %sigcount.1, %if.then1159 ], [ %sigcount.5, %do.body1090 ], [ %sigcount.5, %for.end1086 ], [ %sigcount.6, %do.body1228 ], [ %sigcount.6, %while.end1224 ], [ %sigcount.7.ph, %do.body1246.sink.split ], [ %sigcount.1, %if.then1439 ], [ %sigcount.1, %do.body1435 ], [ %sigcount.1, %if.then1431 ], [ %sigcount.9, %if.then1523 ], [ %sigcount.9, %do.body1519 ], [ %sigcount.9, %while.end1515 ], [ %sigcount.1, %do.body1952 ], [ %sigcount.1, %if.then1956 ], [ %sigcount.1, %if.then2265 ], [ %sigcount.1, %do.body2261 ], [ %sigcount.1, %if.then2258 ], [ %sigcount.1, %do.body2314 ], [ %sigcount.1, %lor.lhs.false2334 ], [ %sigcount.1, %if.then3348 ], [ %sigcount.1, %do.body3344 ], [ %sigcount.1, %if.then3340 ], [ %sigcount.2, %TARGET_SRE_OP_AT ], [ %sigcount.2, %sw.bb326.i ], [ %sigcount.2, %sw.bb279.i ], [ %sigcount.2, %sw.bb220.i ], [ %sigcount.2, %sw.bb162.i ], [ %sigcount.2, %sw.bb93.i ], [ %sigcount.2, %sw.bb36.i ], [ %sigcount.2, %exit.loopexit ], [ %sigcount.2, %exit.loopexit2622 ], [ %sigcount.2, %exit.loopexit2623 ], [ %sigcount.2, %exit.loopexit2624 ]
-  %tobool3339.not = phi i1 [ false, %if.then1596 ], [ false, %if.then1316 ], [ false, %if.then885 ], [ true, %if.then1623 ], [ false, %if.end168 ], [ true, %if.then2759 ], [ true, %do.body1698 ], [ true, %if.else2517 ], [ true, %if.end2153 ], [ true, %if.end1779 ], [ true, %if.end2450 ], [ true, %do.end2070 ], [ true, %if.then20 ], [ true, %sre_ucs1_at.exit ], [ true, %TARGET_SRE_OP_ANY_ALL ], [ true, %TARGET_SRE_OP_REPEAT_ONE ], [ true, %do.body851 ], [ true, %TARGET_SRE_OP_MIN_REPEAT_ONE ], [ true, %do.body1278 ], [ true, %TARGET_SRE_OP_POSSESSIVE_REPEAT_ONE ], [ true, %do.body1561 ], [ false, %sw.bb3453 ], [ false, %sw.bb3449 ], [ false, %sw.bb3445 ], [ false, %sw.bb3450 ], [ false, %sw.bb3447 ], [ true, %TARGET_SRE_OP_GROUPREF ], [ true, %if.else2794 ], [ true, %TARGET_SRE_OP_GROUPREF_IGNORE ], [ true, %if.else2859 ], [ true, %TARGET_SRE_OP_GROUPREF_UNI_IGNORE ], [ true, %if.else2928 ], [ true, %TARGET_SRE_OP_GROUPREF_LOC_IGNORE ], [ true, %if.else2997 ], [ true, %TARGET_SRE_OP_ASSERT ], [ true, %sw.bb3458 ], [ true, %indirectgoto ], [ true, %cond.end368.i ], [ true, %cond.end321.i ], [ true, %cond.end274.i ], [ true, %cond.end215.i ], [ true, %cond.end157.i ], [ true, %cond.end88.i ], [ true, %sw.bb32.i ], [ true, %sw.bb.i ], [ true, %lor.rhs.i ], [ true, %lor.rhs15.i ], [ true, %land.lhs.true.i ], [ true, %TARGET_SRE_OP_LITERAL ], [ true, %lor.lhs.false ], [ true, %TARGET_SRE_OP_NOT_LITERAL ], [ true, %lor.lhs.false122 ], [ true, %land.lhs.true156 ], [ true, %land.lhs.true162 ], [ true, %TARGET_SRE_OP_CATEGORY ], [ true, %lor.lhs.false199 ], [ true, %TARGET_SRE_OP_ANY ], [ true, %lor.lhs.false231 ], [ true, %TARGET_SRE_OP_IN ], [ true, %lor.lhs.false286 ], [ true, %TARGET_SRE_OP_LITERAL_IGNORE ], [ true, %sre_lower_ascii.exit ], [ true, %TARGET_SRE_OP_LITERAL_UNI_IGNORE ], [ true, %lor.lhs.false350 ], [ true, %TARGET_SRE_OP_LITERAL_LOC_IGNORE ], [ true, %char_loc_ignore.exit ], [ true, %TARGET_SRE_OP_NOT_LITERAL_IGNORE ], [ true, %sre_lower_ascii.exit1435 ], [ true, %TARGET_SRE_OP_NOT_LITERAL_UNI_IGNORE ], [ true, %lor.lhs.false442 ], [ true, %lor.lhs.false473 ], [ true, %lor.lhs.false.i1438 ], [ true, %TARGET_SRE_OP_NOT_LITERAL_LOC_IGNORE ], [ true, %char_loc_ignore.exit1445 ], [ true, %TARGET_SRE_OP_IN_IGNORE ], [ true, %sre_lower_ascii.exit1453 ], [ true, %TARGET_SRE_OP_IN_UNI_IGNORE ], [ true, %lor.lhs.false537 ], [ true, %if.end.i1458 ], [ true, %TARGET_SRE_OP_IN_LOC_IGNORE ], [ true, %sre_ucs1_charset_loc_ignore.exit ], [ false, %if.then749 ], [ false, %do.body745 ], [ false, %if.then741 ], [ true, %for.end ], [ true, %do.body808 ], [ true, %if.then812 ], [ false, %if.then1029 ], [ false, %do.body1025 ], [ false, %if.then1021 ], [ false, %if.then1167 ], [ false, %do.body1163 ], [ false, %if.then1159 ], [ true, %do.body1090 ], [ true, %for.end1086 ], [ true, %do.body1228 ], [ true, %while.end1224 ], [ true, %do.body1246.sink.split ], [ false, %if.then1439 ], [ false, %do.body1435 ], [ false, %if.then1431 ], [ true, %if.then1523 ], [ true, %do.body1519 ], [ true, %while.end1515 ], [ false, %do.body1952 ], [ false, %if.then1956 ], [ false, %if.then2265 ], [ false, %do.body2261 ], [ false, %if.then2258 ], [ true, %do.body2314 ], [ true, %lor.lhs.false2334 ], [ true, %if.then3348 ], [ true, %do.body3344 ], [ true, %if.then3340 ], [ true, %TARGET_SRE_OP_AT ], [ true, %sw.bb326.i ], [ true, %sw.bb279.i ], [ true, %sw.bb220.i ], [ true, %sw.bb162.i ], [ true, %sw.bb93.i ], [ true, %sw.bb36.i ], [ true, %exit.loopexit ], [ true, %exit.loopexit2622 ], [ true, %exit.loopexit2623 ], [ true, %exit.loopexit2624 ]
-  %cmp2064 = phi i1 [ true, %if.then1596 ], [ true, %if.then1316 ], [ true, %if.then885 ], [ false, %if.then1623 ], [ true, %if.end168 ], [ false, %if.then2759 ], [ false, %do.body1698 ], [ false, %if.else2517 ], [ false, %if.end2153 ], [ false, %if.end1779 ], [ false, %if.end2450 ], [ false, %do.end2070 ], [ false, %if.then20 ], [ false, %sre_ucs1_at.exit ], [ false, %TARGET_SRE_OP_ANY_ALL ], [ false, %TARGET_SRE_OP_REPEAT_ONE ], [ false, %do.body851 ], [ false, %TARGET_SRE_OP_MIN_REPEAT_ONE ], [ false, %do.body1278 ], [ false, %TARGET_SRE_OP_POSSESSIVE_REPEAT_ONE ], [ false, %do.body1561 ], [ true, %sw.bb3453 ], [ true, %sw.bb3449 ], [ true, %sw.bb3445 ], [ true, %sw.bb3450 ], [ true, %sw.bb3447 ], [ false, %TARGET_SRE_OP_GROUPREF ], [ false, %if.else2794 ], [ false, %TARGET_SRE_OP_GROUPREF_IGNORE ], [ false, %if.else2859 ], [ false, %TARGET_SRE_OP_GROUPREF_UNI_IGNORE ], [ false, %if.else2928 ], [ false, %TARGET_SRE_OP_GROUPREF_LOC_IGNORE ], [ false, %if.else2997 ], [ false, %TARGET_SRE_OP_ASSERT ], [ false, %sw.bb3458 ], [ false, %indirectgoto ], [ false, %cond.end368.i ], [ false, %cond.end321.i ], [ false, %cond.end274.i ], [ false, %cond.end215.i ], [ false, %cond.end157.i ], [ false, %cond.end88.i ], [ false, %sw.bb32.i ], [ false, %sw.bb.i ], [ false, %lor.rhs.i ], [ false, %lor.rhs15.i ], [ false, %land.lhs.true.i ], [ false, %TARGET_SRE_OP_LITERAL ], [ false, %lor.lhs.false ], [ false, %TARGET_SRE_OP_NOT_LITERAL ], [ false, %lor.lhs.false122 ], [ false, %land.lhs.true156 ], [ false, %land.lhs.true162 ], [ false, %TARGET_SRE_OP_CATEGORY ], [ false, %lor.lhs.false199 ], [ false, %TARGET_SRE_OP_ANY ], [ false, %lor.lhs.false231 ], [ false, %TARGET_SRE_OP_IN ], [ false, %lor.lhs.false286 ], [ false, %TARGET_SRE_OP_LITERAL_IGNORE ], [ false, %sre_lower_ascii.exit ], [ false, %TARGET_SRE_OP_LITERAL_UNI_IGNORE ], [ false, %lor.lhs.false350 ], [ false, %TARGET_SRE_OP_LITERAL_LOC_IGNORE ], [ false, %char_loc_ignore.exit ], [ false, %TARGET_SRE_OP_NOT_LITERAL_IGNORE ], [ false, %sre_lower_ascii.exit1435 ], [ false, %TARGET_SRE_OP_NOT_LITERAL_UNI_IGNORE ], [ false, %lor.lhs.false442 ], [ false, %lor.lhs.false473 ], [ false, %lor.lhs.false.i1438 ], [ false, %TARGET_SRE_OP_NOT_LITERAL_LOC_IGNORE ], [ false, %char_loc_ignore.exit1445 ], [ false, %TARGET_SRE_OP_IN_IGNORE ], [ false, %sre_lower_ascii.exit1453 ], [ false, %TARGET_SRE_OP_IN_UNI_IGNORE ], [ false, %lor.lhs.false537 ], [ false, %if.end.i1458 ], [ false, %TARGET_SRE_OP_IN_LOC_IGNORE ], [ false, %sre_ucs1_charset_loc_ignore.exit ], [ true, %if.then749 ], [ true, %do.body745 ], [ true, %if.then741 ], [ false, %for.end ], [ false, %do.body808 ], [ false, %if.then812 ], [ true, %if.then1029 ], [ true, %do.body1025 ], [ true, %if.then1021 ], [ true, %if.then1167 ], [ true, %do.body1163 ], [ true, %if.then1159 ], [ false, %do.body1090 ], [ false, %for.end1086 ], [ false, %do.body1228 ], [ false, %while.end1224 ], [ false, %do.body1246.sink.split ], [ true, %if.then1439 ], [ true, %do.body1435 ], [ true, %if.then1431 ], [ false, %if.then1523 ], [ false, %do.body1519 ], [ false, %while.end1515 ], [ true, %do.body1952 ], [ true, %if.then1956 ], [ true, %if.then2265 ], [ true, %do.body2261 ], [ true, %if.then2258 ], [ false, %do.body2314 ], [ false, %lor.lhs.false2334 ], [ false, %if.then3348 ], [ false, %do.body3344 ], [ false, %if.then3340 ], [ false, %TARGET_SRE_OP_AT ], [ false, %sw.bb326.i ], [ false, %sw.bb279.i ], [ false, %sw.bb220.i ], [ false, %sw.bb162.i ], [ false, %sw.bb93.i ], [ false, %sw.bb36.i ], [ false, %exit.loopexit ], [ false, %exit.loopexit2622 ], [ false, %exit.loopexit2623 ], [ false, %exit.loopexit2624 ]
-  %ret.0 = phi i64 [ 1, %if.then1596 ], [ 1, %if.then1316 ], [ 1, %if.then885 ], [ 0, %if.then1623 ], [ 1, %if.end168 ], [ 0, %if.then2759 ], [ 0, %do.body1698 ], [ 0, %if.else2517 ], [ 0, %if.end2153 ], [ 0, %if.end1779 ], [ 0, %if.end2450 ], [ 0, %do.end2070 ], [ 0, %if.then20 ], [ 0, %sre_ucs1_at.exit ], [ 0, %TARGET_SRE_OP_ANY_ALL ], [ 0, %TARGET_SRE_OP_REPEAT_ONE ], [ 0, %do.body851 ], [ 0, %TARGET_SRE_OP_MIN_REPEAT_ONE ], [ 0, %do.body1278 ], [ 0, %TARGET_SRE_OP_POSSESSIVE_REPEAT_ONE ], [ 0, %do.body1561 ], [ 1, %sw.bb3453 ], [ 1, %sw.bb3449 ], [ 1, %sw.bb3445 ], [ 1, %sw.bb3450 ], [ 1, %sw.bb3447 ], [ 0, %TARGET_SRE_OP_GROUPREF ], [ 0, %if.else2794 ], [ 0, %TARGET_SRE_OP_GROUPREF_IGNORE ], [ 0, %if.else2859 ], [ 0, %TARGET_SRE_OP_GROUPREF_UNI_IGNORE ], [ 0, %if.else2928 ], [ 0, %TARGET_SRE_OP_GROUPREF_LOC_IGNORE ], [ 0, %if.else2997 ], [ 0, %TARGET_SRE_OP_ASSERT ], [ 0, %sw.bb3458 ], [ 0, %indirectgoto ], [ 0, %cond.end368.i ], [ 0, %cond.end321.i ], [ 0, %cond.end274.i ], [ 0, %cond.end215.i ], [ 0, %cond.end157.i ], [ 0, %cond.end88.i ], [ 0, %sw.bb32.i ], [ 0, %sw.bb.i ], [ 0, %lor.rhs.i ], [ 0, %lor.rhs15.i ], [ 0, %land.lhs.true.i ], [ 0, %TARGET_SRE_OP_LITERAL ], [ 0, %lor.lhs.false ], [ 0, %TARGET_SRE_OP_NOT_LITERAL ], [ 0, %lor.lhs.false122 ], [ 0, %land.lhs.true156 ], [ 0, %land.lhs.true162 ], [ 0, %TARGET_SRE_OP_CATEGORY ], [ 0, %lor.lhs.false199 ], [ 0, %TARGET_SRE_OP_ANY ], [ 0, %lor.lhs.false231 ], [ 0, %TARGET_SRE_OP_IN ], [ 0, %lor.lhs.false286 ], [ 0, %TARGET_SRE_OP_LITERAL_IGNORE ], [ 0, %sre_lower_ascii.exit ], [ 0, %TARGET_SRE_OP_LITERAL_UNI_IGNORE ], [ 0, %lor.lhs.false350 ], [ 0, %TARGET_SRE_OP_LITERAL_LOC_IGNORE ], [ 0, %char_loc_ignore.exit ], [ 0, %TARGET_SRE_OP_NOT_LITERAL_IGNORE ], [ 0, %sre_lower_ascii.exit1435 ], [ 0, %TARGET_SRE_OP_NOT_LITERAL_UNI_IGNORE ], [ 0, %lor.lhs.false442 ], [ 0, %lor.lhs.false473 ], [ 0, %lor.lhs.false.i1438 ], [ 0, %TARGET_SRE_OP_NOT_LITERAL_LOC_IGNORE ], [ 0, %char_loc_ignore.exit1445 ], [ 0, %TARGET_SRE_OP_IN_IGNORE ], [ 0, %sre_lower_ascii.exit1453 ], [ 0, %TARGET_SRE_OP_IN_UNI_IGNORE ], [ 0, %lor.lhs.false537 ], [ 0, %if.end.i1458 ], [ 0, %TARGET_SRE_OP_IN_LOC_IGNORE ], [ 0, %sre_ucs1_charset_loc_ignore.exit ], [ 1, %if.then749 ], [ 1, %do.body745 ], [ 1, %if.then741 ], [ 0, %for.end ], [ 0, %do.body808 ], [ 0, %if.then812 ], [ 1, %if.then1029 ], [ 1, %do.body1025 ], [ 1, %if.then1021 ], [ 1, %if.then1167 ], [ 1, %do.body1163 ], [ 1, %if.then1159 ], [ 0, %do.body1090 ], [ 0, %for.end1086 ], [ 0, %do.body1228 ], [ 0, %while.end1224 ], [ 0, %do.body1246.sink.split ], [ 1, %if.then1439 ], [ 1, %do.body1435 ], [ 1, %if.then1431 ], [ 0, %if.then1523 ], [ 0, %do.body1519 ], [ 0, %while.end1515 ], [ 1, %do.body1952 ], [ 1, %if.then1956 ], [ 1, %if.then2265 ], [ 1, %do.body2261 ], [ 1, %if.then2258 ], [ 0, %do.body2314 ], [ 0, %lor.lhs.false2334 ], [ 0, %if.then3348 ], [ 0, %do.body3344 ], [ 0, %if.then3340 ], [ 0, %TARGET_SRE_OP_AT ], [ 0, %sw.bb326.i ], [ 0, %sw.bb279.i ], [ 0, %sw.bb220.i ], [ 0, %sw.bb162.i ], [ 0, %sw.bb93.i ], [ 0, %sw.bb36.i ], [ 0, %exit.loopexit ], [ 0, %exit.loopexit2622 ], [ 0, %exit.loopexit2623 ], [ 0, %exit.loopexit2624 ]
+exit:                                             ; preds = %exit.loopexit2621, %exit.loopexit2620, %exit.loopexit2619, %exit.loopexit, %sw.bb36.i, %sw.bb93.i, %sw.bb162.i, %sw.bb220.i, %sw.bb279.i, %sw.bb326.i, %TARGET_SRE_OP_AT, %if.then3340, %do.body3344, %if.then3348, %lor.lhs.false2334, %do.body2314, %if.then2258, %do.body2261, %if.then2265, %if.then1956, %do.body1952, %while.end1515, %do.body1519, %if.then1523, %if.then1431, %do.body1435, %if.then1439, %while.end1224, %do.body1228, %for.end1086, %do.body1090, %do.body1246.sink.split, %if.then1159, %do.body1163, %if.then1167, %if.then1021, %do.body1025, %if.then1029, %if.then812, %do.body808, %for.end, %if.then741, %do.body745, %if.then749, %sre_ucs1_charset_loc_ignore.exit, %TARGET_SRE_OP_IN_LOC_IGNORE, %if.end.i1458, %lor.lhs.false537, %TARGET_SRE_OP_IN_UNI_IGNORE, %sre_lower_ascii.exit1453, %TARGET_SRE_OP_IN_IGNORE, %char_loc_ignore.exit1445, %TARGET_SRE_OP_NOT_LITERAL_LOC_IGNORE, %lor.lhs.false.i1438, %lor.lhs.false473, %lor.lhs.false442, %TARGET_SRE_OP_NOT_LITERAL_UNI_IGNORE, %sre_lower_ascii.exit1435, %TARGET_SRE_OP_NOT_LITERAL_IGNORE, %char_loc_ignore.exit, %TARGET_SRE_OP_LITERAL_LOC_IGNORE, %lor.lhs.false350, %TARGET_SRE_OP_LITERAL_UNI_IGNORE, %sre_lower_ascii.exit, %TARGET_SRE_OP_LITERAL_IGNORE, %lor.lhs.false286, %TARGET_SRE_OP_IN, %lor.lhs.false231, %TARGET_SRE_OP_ANY, %lor.lhs.false199, %TARGET_SRE_OP_CATEGORY, %land.lhs.true162, %land.lhs.true156, %lor.lhs.false122, %TARGET_SRE_OP_NOT_LITERAL, %lor.lhs.false, %TARGET_SRE_OP_LITERAL, %land.lhs.true.i, %lor.rhs15.i, %lor.rhs.i, %sw.bb.i, %sw.bb32.i, %cond.end88.i, %cond.end157.i, %cond.end215.i, %cond.end274.i, %cond.end321.i, %cond.end368.i, %indirectgoto, %sw.bb3458, %TARGET_SRE_OP_ASSERT, %if.else2997, %TARGET_SRE_OP_GROUPREF_LOC_IGNORE, %if.else2928, %TARGET_SRE_OP_GROUPREF_UNI_IGNORE, %if.else2859, %TARGET_SRE_OP_GROUPREF_IGNORE, %if.else2794, %TARGET_SRE_OP_GROUPREF, %sw.bb3447, %sw.bb3450, %sw.bb3445, %sw.bb3449, %sw.bb3453, %do.body1561, %TARGET_SRE_OP_POSSESSIVE_REPEAT_ONE, %do.body1278, %TARGET_SRE_OP_MIN_REPEAT_ONE, %do.body851, %TARGET_SRE_OP_REPEAT_ONE, %TARGET_SRE_OP_ANY_ALL, %sre_ucs1_at.exit, %if.then20, %if.then2759, %if.else2517, %if.end2450, %if.end2153, %do.end2070, %if.end1779, %do.body1698, %if.then1623, %if.then1596, %if.then1316, %if.then885, %if.end168
+  %ctx.1 = phi ptr [ %add.ptr1563, %if.then1596 ], [ %ctx.14, %if.then1316 ], [ %add.ptr853, %if.then885 ], [ %ctx.2, %if.then1623 ], [ %ctx.2, %if.end168 ], [ %add.ptr3443, %if.then2759 ], [ %add.ptr3443, %do.body1698 ], [ %add.ptr3443, %if.else2517 ], [ %add.ptr3443, %if.end2153 ], [ %add.ptr3443, %if.end1779 ], [ %add.ptr3443, %if.end2450 ], [ %add.ptr3443, %do.end2070 ], [ %ctx.0, %if.then20 ], [ %ctx.2, %sre_ucs1_at.exit ], [ %ctx.2, %TARGET_SRE_OP_ANY_ALL ], [ %ctx.2, %TARGET_SRE_OP_REPEAT_ONE ], [ %add.ptr853, %do.body851 ], [ %ctx.2, %TARGET_SRE_OP_MIN_REPEAT_ONE ], [ %add.ptr1280, %do.body1278 ], [ %ctx.2, %TARGET_SRE_OP_POSSESSIVE_REPEAT_ONE ], [ %add.ptr1563, %do.body1561 ], [ %add.ptr3443, %sw.bb3453 ], [ %add.ptr3443, %sw.bb3449 ], [ %add.ptr3443, %sw.bb3445 ], [ %add.ptr3443, %sw.bb3450 ], [ %add.ptr3443, %sw.bb3447 ], [ %ctx.2, %TARGET_SRE_OP_GROUPREF ], [ %ctx.2, %if.else2794 ], [ %ctx.2, %TARGET_SRE_OP_GROUPREF_IGNORE ], [ %ctx.2, %if.else2859 ], [ %ctx.2, %TARGET_SRE_OP_GROUPREF_UNI_IGNORE ], [ %ctx.2, %if.else2928 ], [ %ctx.2, %TARGET_SRE_OP_GROUPREF_LOC_IGNORE ], [ %ctx.2, %if.else2997 ], [ %ctx.2, %TARGET_SRE_OP_ASSERT ], [ %add.ptr3443, %sw.bb3458 ], [ %ctx.2, %indirectgoto ], [ %ctx.2, %cond.end368.i ], [ %ctx.2, %cond.end321.i ], [ %ctx.2, %cond.end274.i ], [ %ctx.2, %cond.end215.i ], [ %ctx.2, %cond.end157.i ], [ %ctx.2, %cond.end88.i ], [ %ctx.2, %sw.bb32.i ], [ %ctx.2, %sw.bb.i ], [ %ctx.2, %lor.rhs.i ], [ %ctx.2, %lor.rhs15.i ], [ %ctx.2, %land.lhs.true.i ], [ %ctx.2, %TARGET_SRE_OP_LITERAL ], [ %ctx.2, %lor.lhs.false ], [ %ctx.2, %TARGET_SRE_OP_NOT_LITERAL ], [ %ctx.2, %lor.lhs.false122 ], [ %ctx.2, %land.lhs.true156 ], [ %ctx.2, %land.lhs.true162 ], [ %ctx.2, %TARGET_SRE_OP_CATEGORY ], [ %ctx.2, %lor.lhs.false199 ], [ %ctx.2, %TARGET_SRE_OP_ANY ], [ %ctx.2, %lor.lhs.false231 ], [ %ctx.2, %TARGET_SRE_OP_IN ], [ %ctx.2, %lor.lhs.false286 ], [ %ctx.2, %TARGET_SRE_OP_LITERAL_IGNORE ], [ %ctx.2, %sre_lower_ascii.exit ], [ %ctx.2, %TARGET_SRE_OP_LITERAL_UNI_IGNORE ], [ %ctx.2, %lor.lhs.false350 ], [ %ctx.2, %TARGET_SRE_OP_LITERAL_LOC_IGNORE ], [ %ctx.2, %char_loc_ignore.exit ], [ %ctx.2, %TARGET_SRE_OP_NOT_LITERAL_IGNORE ], [ %ctx.2, %sre_lower_ascii.exit1435 ], [ %ctx.2, %TARGET_SRE_OP_NOT_LITERAL_UNI_IGNORE ], [ %ctx.2, %lor.lhs.false442 ], [ %ctx.2, %lor.lhs.false473 ], [ %ctx.2, %lor.lhs.false.i1438 ], [ %ctx.2, %TARGET_SRE_OP_NOT_LITERAL_LOC_IGNORE ], [ %ctx.2, %char_loc_ignore.exit1445 ], [ %ctx.2, %TARGET_SRE_OP_IN_IGNORE ], [ %ctx.2, %sre_lower_ascii.exit1453 ], [ %ctx.2, %TARGET_SRE_OP_IN_UNI_IGNORE ], [ %ctx.2, %lor.lhs.false537 ], [ %ctx.2, %if.end.i1458 ], [ %ctx.2, %TARGET_SRE_OP_IN_LOC_IGNORE ], [ %ctx.2, %sre_ucs1_charset_loc_ignore.exit ], [ %add.ptr3443, %if.then749 ], [ %add.ptr3443, %do.body745 ], [ %add.ptr3443, %if.then741 ], [ %ctx.4, %for.end ], [ %ctx.4, %do.body808 ], [ %ctx.4, %if.then812 ], [ %add.ptr3443, %if.then1029 ], [ %add.ptr3443, %do.body1025 ], [ %add.ptr3443, %if.then1021 ], [ %add.ptr3443, %if.then1167 ], [ %add.ptr3443, %do.body1163 ], [ %add.ptr3443, %if.then1159 ], [ %ctx.9, %do.body1090 ], [ %ctx.9, %for.end1086 ], [ %ctx.11, %do.body1228 ], [ %ctx.11, %while.end1224 ], [ %ctx.13.ph, %do.body1246.sink.split ], [ %add.ptr3443, %if.then1439 ], [ %add.ptr3443, %do.body1435 ], [ %add.ptr3443, %if.then1431 ], [ %ctx.17, %if.then1523 ], [ %ctx.17, %do.body1519 ], [ %ctx.17, %while.end1515 ], [ %add.ptr3443, %do.body1952 ], [ %add.ptr3443, %if.then1956 ], [ %add.ptr3443, %if.then2265 ], [ %add.ptr3443, %do.body2261 ], [ %add.ptr3443, %if.then2258 ], [ %add.ptr3443, %do.body2314 ], [ %add.ptr3443, %lor.lhs.false2334 ], [ %add.ptr3443, %if.then3348 ], [ %add.ptr3443, %do.body3344 ], [ %add.ptr3443, %if.then3340 ], [ %ctx.2, %TARGET_SRE_OP_AT ], [ %ctx.2, %sw.bb326.i ], [ %ctx.2, %sw.bb279.i ], [ %ctx.2, %sw.bb220.i ], [ %ctx.2, %sw.bb162.i ], [ %ctx.2, %sw.bb93.i ], [ %ctx.2, %sw.bb36.i ], [ %ctx.2, %exit.loopexit ], [ %ctx.2, %exit.loopexit2619 ], [ %ctx.2, %exit.loopexit2620 ], [ %ctx.2, %exit.loopexit2621 ]
+  %sigcount.1 = phi i32 [ %sigcount.2, %if.then1596 ], [ %sigcount.2, %if.then1316 ], [ %sigcount.2, %if.then885 ], [ %sigcount.2, %if.then1623 ], [ %sigcount.2, %if.end168 ], [ %sigcount.1, %if.then2759 ], [ %sigcount.1, %do.body1698 ], [ %sigcount.1, %if.else2517 ], [ %sigcount.1, %if.end2153 ], [ %sigcount.1, %if.end1779 ], [ %sigcount.1, %if.end2450 ], [ %sigcount.1, %do.end2070 ], [ %sigcount.0, %if.then20 ], [ %sigcount.2, %sre_ucs1_at.exit ], [ %sigcount.2, %TARGET_SRE_OP_ANY_ALL ], [ %sigcount.2, %TARGET_SRE_OP_REPEAT_ONE ], [ %sigcount.2, %do.body851 ], [ %sigcount.2, %TARGET_SRE_OP_MIN_REPEAT_ONE ], [ %sigcount.2, %do.body1278 ], [ %sigcount.2, %TARGET_SRE_OP_POSSESSIVE_REPEAT_ONE ], [ %sigcount.2, %do.body1561 ], [ %sigcount.1, %sw.bb3453 ], [ %sigcount.1, %sw.bb3449 ], [ %sigcount.1, %sw.bb3445 ], [ %sigcount.1, %sw.bb3450 ], [ %sigcount.1, %sw.bb3447 ], [ %sigcount.2, %TARGET_SRE_OP_GROUPREF ], [ %sigcount.2, %if.else2794 ], [ %sigcount.2, %TARGET_SRE_OP_GROUPREF_IGNORE ], [ %sigcount.2, %if.else2859 ], [ %sigcount.2, %TARGET_SRE_OP_GROUPREF_UNI_IGNORE ], [ %sigcount.2, %if.else2928 ], [ %sigcount.2, %TARGET_SRE_OP_GROUPREF_LOC_IGNORE ], [ %sigcount.2, %if.else2997 ], [ %sigcount.2, %TARGET_SRE_OP_ASSERT ], [ %sigcount.1, %sw.bb3458 ], [ %sigcount.2, %indirectgoto ], [ %sigcount.2, %cond.end368.i ], [ %sigcount.2, %cond.end321.i ], [ %sigcount.2, %cond.end274.i ], [ %sigcount.2, %cond.end215.i ], [ %sigcount.2, %cond.end157.i ], [ %sigcount.2, %cond.end88.i ], [ %sigcount.2, %sw.bb32.i ], [ %sigcount.2, %sw.bb.i ], [ %sigcount.2, %lor.rhs.i ], [ %sigcount.2, %lor.rhs15.i ], [ %sigcount.2, %land.lhs.true.i ], [ %sigcount.2, %TARGET_SRE_OP_LITERAL ], [ %sigcount.2, %lor.lhs.false ], [ %sigcount.2, %TARGET_SRE_OP_NOT_LITERAL ], [ %sigcount.2, %lor.lhs.false122 ], [ %sigcount.2, %land.lhs.true156 ], [ %sigcount.2, %land.lhs.true162 ], [ %sigcount.2, %TARGET_SRE_OP_CATEGORY ], [ %sigcount.2, %lor.lhs.false199 ], [ %sigcount.2, %TARGET_SRE_OP_ANY ], [ %sigcount.2, %lor.lhs.false231 ], [ %sigcount.2, %TARGET_SRE_OP_IN ], [ %sigcount.2, %lor.lhs.false286 ], [ %sigcount.2, %TARGET_SRE_OP_LITERAL_IGNORE ], [ %sigcount.2, %sre_lower_ascii.exit ], [ %sigcount.2, %TARGET_SRE_OP_LITERAL_UNI_IGNORE ], [ %sigcount.2, %lor.lhs.false350 ], [ %sigcount.2, %TARGET_SRE_OP_LITERAL_LOC_IGNORE ], [ %sigcount.2, %char_loc_ignore.exit ], [ %sigcount.2, %TARGET_SRE_OP_NOT_LITERAL_IGNORE ], [ %sigcount.2, %sre_lower_ascii.exit1435 ], [ %sigcount.2, %TARGET_SRE_OP_NOT_LITERAL_UNI_IGNORE ], [ %sigcount.2, %lor.lhs.false442 ], [ %sigcount.2, %lor.lhs.false473 ], [ %sigcount.2, %lor.lhs.false.i1438 ], [ %sigcount.2, %TARGET_SRE_OP_NOT_LITERAL_LOC_IGNORE ], [ %sigcount.2, %char_loc_ignore.exit1445 ], [ %sigcount.2, %TARGET_SRE_OP_IN_IGNORE ], [ %sigcount.2, %sre_lower_ascii.exit1453 ], [ %sigcount.2, %TARGET_SRE_OP_IN_UNI_IGNORE ], [ %sigcount.2, %lor.lhs.false537 ], [ %sigcount.2, %if.end.i1458 ], [ %sigcount.2, %TARGET_SRE_OP_IN_LOC_IGNORE ], [ %sigcount.2, %sre_ucs1_charset_loc_ignore.exit ], [ %sigcount.1, %if.then749 ], [ %sigcount.1, %do.body745 ], [ %sigcount.1, %if.then741 ], [ %sigcount.3, %for.end ], [ %sigcount.3, %do.body808 ], [ %sigcount.3, %if.then812 ], [ %sigcount.1, %if.then1029 ], [ %sigcount.1, %do.body1025 ], [ %sigcount.1, %if.then1021 ], [ %sigcount.1, %if.then1167 ], [ %sigcount.1, %do.body1163 ], [ %sigcount.1, %if.then1159 ], [ %sigcount.5, %do.body1090 ], [ %sigcount.5, %for.end1086 ], [ %sigcount.6, %do.body1228 ], [ %sigcount.6, %while.end1224 ], [ %sigcount.7.ph, %do.body1246.sink.split ], [ %sigcount.1, %if.then1439 ], [ %sigcount.1, %do.body1435 ], [ %sigcount.1, %if.then1431 ], [ %sigcount.9, %if.then1523 ], [ %sigcount.9, %do.body1519 ], [ %sigcount.9, %while.end1515 ], [ %sigcount.1, %do.body1952 ], [ %sigcount.1, %if.then1956 ], [ %sigcount.1, %if.then2265 ], [ %sigcount.1, %do.body2261 ], [ %sigcount.1, %if.then2258 ], [ %sigcount.1, %do.body2314 ], [ %sigcount.1, %lor.lhs.false2334 ], [ %sigcount.1, %if.then3348 ], [ %sigcount.1, %do.body3344 ], [ %sigcount.1, %if.then3340 ], [ %sigcount.2, %TARGET_SRE_OP_AT ], [ %sigcount.2, %sw.bb326.i ], [ %sigcount.2, %sw.bb279.i ], [ %sigcount.2, %sw.bb220.i ], [ %sigcount.2, %sw.bb162.i ], [ %sigcount.2, %sw.bb93.i ], [ %sigcount.2, %sw.bb36.i ], [ %sigcount.2, %exit.loopexit ], [ %sigcount.2, %exit.loopexit2619 ], [ %sigcount.2, %exit.loopexit2620 ], [ %sigcount.2, %exit.loopexit2621 ]
+  %tobool3339.not = phi i1 [ false, %if.then1596 ], [ false, %if.then1316 ], [ false, %if.then885 ], [ true, %if.then1623 ], [ false, %if.end168 ], [ true, %if.then2759 ], [ true, %do.body1698 ], [ true, %if.else2517 ], [ true, %if.end2153 ], [ true, %if.end1779 ], [ true, %if.end2450 ], [ true, %do.end2070 ], [ true, %if.then20 ], [ true, %sre_ucs1_at.exit ], [ true, %TARGET_SRE_OP_ANY_ALL ], [ true, %TARGET_SRE_OP_REPEAT_ONE ], [ true, %do.body851 ], [ true, %TARGET_SRE_OP_MIN_REPEAT_ONE ], [ true, %do.body1278 ], [ true, %TARGET_SRE_OP_POSSESSIVE_REPEAT_ONE ], [ true, %do.body1561 ], [ false, %sw.bb3453 ], [ false, %sw.bb3449 ], [ false, %sw.bb3445 ], [ false, %sw.bb3450 ], [ false, %sw.bb3447 ], [ true, %TARGET_SRE_OP_GROUPREF ], [ true, %if.else2794 ], [ true, %TARGET_SRE_OP_GROUPREF_IGNORE ], [ true, %if.else2859 ], [ true, %TARGET_SRE_OP_GROUPREF_UNI_IGNORE ], [ true, %if.else2928 ], [ true, %TARGET_SRE_OP_GROUPREF_LOC_IGNORE ], [ true, %if.else2997 ], [ true, %TARGET_SRE_OP_ASSERT ], [ true, %sw.bb3458 ], [ true, %indirectgoto ], [ true, %cond.end368.i ], [ true, %cond.end321.i ], [ true, %cond.end274.i ], [ true, %cond.end215.i ], [ true, %cond.end157.i ], [ true, %cond.end88.i ], [ true, %sw.bb32.i ], [ true, %sw.bb.i ], [ true, %lor.rhs.i ], [ true, %lor.rhs15.i ], [ true, %land.lhs.true.i ], [ true, %TARGET_SRE_OP_LITERAL ], [ true, %lor.lhs.false ], [ true, %TARGET_SRE_OP_NOT_LITERAL ], [ true, %lor.lhs.false122 ], [ true, %land.lhs.true156 ], [ true, %land.lhs.true162 ], [ true, %TARGET_SRE_OP_CATEGORY ], [ true, %lor.lhs.false199 ], [ true, %TARGET_SRE_OP_ANY ], [ true, %lor.lhs.false231 ], [ true, %TARGET_SRE_OP_IN ], [ true, %lor.lhs.false286 ], [ true, %TARGET_SRE_OP_LITERAL_IGNORE ], [ true, %sre_lower_ascii.exit ], [ true, %TARGET_SRE_OP_LITERAL_UNI_IGNORE ], [ true, %lor.lhs.false350 ], [ true, %TARGET_SRE_OP_LITERAL_LOC_IGNORE ], [ true, %char_loc_ignore.exit ], [ true, %TARGET_SRE_OP_NOT_LITERAL_IGNORE ], [ true, %sre_lower_ascii.exit1435 ], [ true, %TARGET_SRE_OP_NOT_LITERAL_UNI_IGNORE ], [ true, %lor.lhs.false442 ], [ true, %lor.lhs.false473 ], [ true, %lor.lhs.false.i1438 ], [ true, %TARGET_SRE_OP_NOT_LITERAL_LOC_IGNORE ], [ true, %char_loc_ignore.exit1445 ], [ true, %TARGET_SRE_OP_IN_IGNORE ], [ true, %sre_lower_ascii.exit1453 ], [ true, %TARGET_SRE_OP_IN_UNI_IGNORE ], [ true, %lor.lhs.false537 ], [ true, %if.end.i1458 ], [ true, %TARGET_SRE_OP_IN_LOC_IGNORE ], [ true, %sre_ucs1_charset_loc_ignore.exit ], [ false, %if.then749 ], [ false, %do.body745 ], [ false, %if.then741 ], [ true, %for.end ], [ true, %do.body808 ], [ true, %if.then812 ], [ false, %if.then1029 ], [ false, %do.body1025 ], [ false, %if.then1021 ], [ false, %if.then1167 ], [ false, %do.body1163 ], [ false, %if.then1159 ], [ true, %do.body1090 ], [ true, %for.end1086 ], [ true, %do.body1228 ], [ true, %while.end1224 ], [ true, %do.body1246.sink.split ], [ false, %if.then1439 ], [ false, %do.body1435 ], [ false, %if.then1431 ], [ true, %if.then1523 ], [ true, %do.body1519 ], [ true, %while.end1515 ], [ false, %do.body1952 ], [ false, %if.then1956 ], [ false, %if.then2265 ], [ false, %do.body2261 ], [ false, %if.then2258 ], [ true, %do.body2314 ], [ true, %lor.lhs.false2334 ], [ true, %if.then3348 ], [ true, %do.body3344 ], [ true, %if.then3340 ], [ true, %TARGET_SRE_OP_AT ], [ true, %sw.bb326.i ], [ true, %sw.bb279.i ], [ true, %sw.bb220.i ], [ true, %sw.bb162.i ], [ true, %sw.bb93.i ], [ true, %sw.bb36.i ], [ true, %exit.loopexit ], [ true, %exit.loopexit2619 ], [ true, %exit.loopexit2620 ], [ true, %exit.loopexit2621 ]
+  %cmp2064 = phi i1 [ true, %if.then1596 ], [ true, %if.then1316 ], [ true, %if.then885 ], [ false, %if.then1623 ], [ true, %if.end168 ], [ false, %if.then2759 ], [ false, %do.body1698 ], [ false, %if.else2517 ], [ false, %if.end2153 ], [ false, %if.end1779 ], [ false, %if.end2450 ], [ false, %do.end2070 ], [ false, %if.then20 ], [ false, %sre_ucs1_at.exit ], [ false, %TARGET_SRE_OP_ANY_ALL ], [ false, %TARGET_SRE_OP_REPEAT_ONE ], [ false, %do.body851 ], [ false, %TARGET_SRE_OP_MIN_REPEAT_ONE ], [ false, %do.body1278 ], [ false, %TARGET_SRE_OP_POSSESSIVE_REPEAT_ONE ], [ false, %do.body1561 ], [ true, %sw.bb3453 ], [ true, %sw.bb3449 ], [ true, %sw.bb3445 ], [ true, %sw.bb3450 ], [ true, %sw.bb3447 ], [ false, %TARGET_SRE_OP_GROUPREF ], [ false, %if.else2794 ], [ false, %TARGET_SRE_OP_GROUPREF_IGNORE ], [ false, %if.else2859 ], [ false, %TARGET_SRE_OP_GROUPREF_UNI_IGNORE ], [ false, %if.else2928 ], [ false, %TARGET_SRE_OP_GROUPREF_LOC_IGNORE ], [ false, %if.else2997 ], [ false, %TARGET_SRE_OP_ASSERT ], [ false, %sw.bb3458 ], [ false, %indirectgoto ], [ false, %cond.end368.i ], [ false, %cond.end321.i ], [ false, %cond.end274.i ], [ false, %cond.end215.i ], [ false, %cond.end157.i ], [ false, %cond.end88.i ], [ false, %sw.bb32.i ], [ false, %sw.bb.i ], [ false, %lor.rhs.i ], [ false, %lor.rhs15.i ], [ false, %land.lhs.true.i ], [ false, %TARGET_SRE_OP_LITERAL ], [ false, %lor.lhs.false ], [ false, %TARGET_SRE_OP_NOT_LITERAL ], [ false, %lor.lhs.false122 ], [ false, %land.lhs.true156 ], [ false, %land.lhs.true162 ], [ false, %TARGET_SRE_OP_CATEGORY ], [ false, %lor.lhs.false199 ], [ false, %TARGET_SRE_OP_ANY ], [ false, %lor.lhs.false231 ], [ false, %TARGET_SRE_OP_IN ], [ false, %lor.lhs.false286 ], [ false, %TARGET_SRE_OP_LITERAL_IGNORE ], [ false, %sre_lower_ascii.exit ], [ false, %TARGET_SRE_OP_LITERAL_UNI_IGNORE ], [ false, %lor.lhs.false350 ], [ false, %TARGET_SRE_OP_LITERAL_LOC_IGNORE ], [ false, %char_loc_ignore.exit ], [ false, %TARGET_SRE_OP_NOT_LITERAL_IGNORE ], [ false, %sre_lower_ascii.exit1435 ], [ false, %TARGET_SRE_OP_NOT_LITERAL_UNI_IGNORE ], [ false, %lor.lhs.false442 ], [ false, %lor.lhs.false473 ], [ false, %lor.lhs.false.i1438 ], [ false, %TARGET_SRE_OP_NOT_LITERAL_LOC_IGNORE ], [ false, %char_loc_ignore.exit1445 ], [ false, %TARGET_SRE_OP_IN_IGNORE ], [ false, %sre_lower_ascii.exit1453 ], [ false, %TARGET_SRE_OP_IN_UNI_IGNORE ], [ false, %lor.lhs.false537 ], [ false, %if.end.i1458 ], [ false, %TARGET_SRE_OP_IN_LOC_IGNORE ], [ false, %sre_ucs1_charset_loc_ignore.exit ], [ true, %if.then749 ], [ true, %do.body745 ], [ true, %if.then741 ], [ false, %for.end ], [ false, %do.body808 ], [ false, %if.then812 ], [ true, %if.then1029 ], [ true, %do.body1025 ], [ true, %if.then1021 ], [ true, %if.then1167 ], [ true, %do.body1163 ], [ true, %if.then1159 ], [ false, %do.body1090 ], [ false, %for.end1086 ], [ false, %do.body1228 ], [ false, %while.end1224 ], [ false, %do.body1246.sink.split ], [ true, %if.then1439 ], [ true, %do.body1435 ], [ true, %if.then1431 ], [ false, %if.then1523 ], [ false, %do.body1519 ], [ false, %while.end1515 ], [ true, %do.body1952 ], [ true, %if.then1956 ], [ true, %if.then2265 ], [ true, %do.body2261 ], [ true, %if.then2258 ], [ false, %do.body2314 ], [ false, %lor.lhs.false2334 ], [ false, %if.then3348 ], [ false, %do.body3344 ], [ false, %if.then3340 ], [ false, %TARGET_SRE_OP_AT ], [ false, %sw.bb326.i ], [ false, %sw.bb279.i ], [ false, %sw.bb220.i ], [ false, %sw.bb162.i ], [ false, %sw.bb93.i ], [ false, %sw.bb36.i ], [ false, %exit.loopexit ], [ false, %exit.loopexit2619 ], [ false, %exit.loopexit2620 ], [ false, %exit.loopexit2621 ]
+  %ret.0 = phi i64 [ 1, %if.then1596 ], [ 1, %if.then1316 ], [ 1, %if.then885 ], [ 0, %if.then1623 ], [ 1, %if.end168 ], [ 0, %if.then2759 ], [ 0, %do.body1698 ], [ 0, %if.else2517 ], [ 0, %if.end2153 ], [ 0, %if.end1779 ], [ 0, %if.end2450 ], [ 0, %do.end2070 ], [ 0, %if.then20 ], [ 0, %sre_ucs1_at.exit ], [ 0, %TARGET_SRE_OP_ANY_ALL ], [ 0, %TARGET_SRE_OP_REPEAT_ONE ], [ 0, %do.body851 ], [ 0, %TARGET_SRE_OP_MIN_REPEAT_ONE ], [ 0, %do.body1278 ], [ 0, %TARGET_SRE_OP_POSSESSIVE_REPEAT_ONE ], [ 0, %do.body1561 ], [ 1, %sw.bb3453 ], [ 1, %sw.bb3449 ], [ 1, %sw.bb3445 ], [ 1, %sw.bb3450 ], [ 1, %sw.bb3447 ], [ 0, %TARGET_SRE_OP_GROUPREF ], [ 0, %if.else2794 ], [ 0, %TARGET_SRE_OP_GROUPREF_IGNORE ], [ 0, %if.else2859 ], [ 0, %TARGET_SRE_OP_GROUPREF_UNI_IGNORE ], [ 0, %if.else2928 ], [ 0, %TARGET_SRE_OP_GROUPREF_LOC_IGNORE ], [ 0, %if.else2997 ], [ 0, %TARGET_SRE_OP_ASSERT ], [ 0, %sw.bb3458 ], [ 0, %indirectgoto ], [ 0, %cond.end368.i ], [ 0, %cond.end321.i ], [ 0, %cond.end274.i ], [ 0, %cond.end215.i ], [ 0, %cond.end157.i ], [ 0, %cond.end88.i ], [ 0, %sw.bb32.i ], [ 0, %sw.bb.i ], [ 0, %lor.rhs.i ], [ 0, %lor.rhs15.i ], [ 0, %land.lhs.true.i ], [ 0, %TARGET_SRE_OP_LITERAL ], [ 0, %lor.lhs.false ], [ 0, %TARGET_SRE_OP_NOT_LITERAL ], [ 0, %lor.lhs.false122 ], [ 0, %land.lhs.true156 ], [ 0, %land.lhs.true162 ], [ 0, %TARGET_SRE_OP_CATEGORY ], [ 0, %lor.lhs.false199 ], [ 0, %TARGET_SRE_OP_ANY ], [ 0, %lor.lhs.false231 ], [ 0, %TARGET_SRE_OP_IN ], [ 0, %lor.lhs.false286 ], [ 0, %TARGET_SRE_OP_LITERAL_IGNORE ], [ 0, %sre_lower_ascii.exit ], [ 0, %TARGET_SRE_OP_LITERAL_UNI_IGNORE ], [ 0, %lor.lhs.false350 ], [ 0, %TARGET_SRE_OP_LITERAL_LOC_IGNORE ], [ 0, %char_loc_ignore.exit ], [ 0, %TARGET_SRE_OP_NOT_LITERAL_IGNORE ], [ 0, %sre_lower_ascii.exit1435 ], [ 0, %TARGET_SRE_OP_NOT_LITERAL_UNI_IGNORE ], [ 0, %lor.lhs.false442 ], [ 0, %lor.lhs.false473 ], [ 0, %lor.lhs.false.i1438 ], [ 0, %TARGET_SRE_OP_NOT_LITERAL_LOC_IGNORE ], [ 0, %char_loc_ignore.exit1445 ], [ 0, %TARGET_SRE_OP_IN_IGNORE ], [ 0, %sre_lower_ascii.exit1453 ], [ 0, %TARGET_SRE_OP_IN_UNI_IGNORE ], [ 0, %lor.lhs.false537 ], [ 0, %if.end.i1458 ], [ 0, %TARGET_SRE_OP_IN_LOC_IGNORE ], [ 0, %sre_ucs1_charset_loc_ignore.exit ], [ 1, %if.then749 ], [ 1, %do.body745 ], [ 1, %if.then741 ], [ 0, %for.end ], [ 0, %do.body808 ], [ 0, %if.then812 ], [ 1, %if.then1029 ], [ 1, %do.body1025 ], [ 1, %if.then1021 ], [ 1, %if.then1167 ], [ 1, %do.body1163 ], [ 1, %if.then1159 ], [ 0, %do.body1090 ], [ 0, %for.end1086 ], [ 0, %do.body1228 ], [ 0, %while.end1224 ], [ 0, %do.body1246.sink.split ], [ 1, %if.then1439 ], [ 1, %do.body1435 ], [ 1, %if.then1431 ], [ 0, %if.then1523 ], [ 0, %do.body1519 ], [ 0, %while.end1515 ], [ 1, %do.body1952 ], [ 1, %if.then1956 ], [ 1, %if.then2265 ], [ 1, %do.body2261 ], [ 1, %if.then2258 ], [ 0, %do.body2314 ], [ 0, %lor.lhs.false2334 ], [ 0, %if.then3348 ], [ 0, %do.body3344 ], [ 0, %if.then3340 ], [ 0, %TARGET_SRE_OP_AT ], [ 0, %sw.bb326.i ], [ 0, %sw.bb279.i ], [ 0, %sw.bb220.i ], [ 0, %sw.bb162.i ], [ 0, %sw.bb93.i ], [ 0, %sw.bb36.i ], [ 0, %exit.loopexit ], [ 0, %exit.loopexit2619 ], [ 0, %exit.loopexit2620 ], [ 0, %exit.loopexit2621 ]
   %last_ctx_pos3430 = getelementptr inbounds i8, ptr %ctx.1, i64 48
   %547 = load i64, ptr %last_ctx_pos3430, align 8
   %jump3431 = getelementptr inbounds i8, ptr %ctx.1, i64 44
@@ -10411,7 +10417,7 @@ return:                                           ; preds = %do.body3441, %indir
   ret i64 %retval.0
 
 indirectgoto:                                     ; preds = %indirectgoto.backedge, %indirectgoto.preheader
-  %.sink.sink = phi i32 [ %458, %indirectgoto.preheader ], [ %.sink.sink.be, %indirectgoto.backedge ]
+  %.sink.sink = phi i32 [ %.sink2394, %indirectgoto.preheader ], [ %.sink.sink.be, %indirectgoto.backedge ]
   %ptr.0 = phi ptr [ %ptr.0.ph, %indirectgoto.preheader ], [ %ptr.0.be, %indirectgoto.backedge ]
   %ctx.2 = phi ptr [ %ctx.2.ph, %indirectgoto.preheader ], [ %ctx.2.be, %indirectgoto.backedge ]
   %sigcount.2 = phi i32 [ %sigcount.2.ph, %indirectgoto.preheader ], [ %sigcount.2.be, %indirectgoto.backedge ]
@@ -10603,7 +10609,7 @@ do.end84:                                         ; preds = %if.end66, %land.lhs
   br label %indirectgoto.backedge
 
 indirectgoto.backedge:                            ; preds = %do.end84, %do.end115, %do.end147, %do.end192, %do.end224, %do.end254, %do.end279, %do.end312, %do.end343, %do.end374, %do.end404, %do.end435, %do.end466, %do.end496, %do.end530, %do.end564, %do.end597, %do.end618, %do.end1616, %do.end2847, %do.end2916, %do.end2985, %do.end3054, %do.end3082, %do.end3120, %do.end3141
-  %.sink.sink.be = phi i32 [ %18, %do.end84 ], [ %21, %do.end115 ], [ %24, %do.end147 ], [ %97, %do.end192 ], [ %100, %do.end224 ], [ %102, %do.end254 ], [ %103, %do.end279 ], [ %106, %do.end312 ], [ %110, %do.end343 ], [ %113, %do.end374 ], [ %116, %do.end404 ], [ %120, %do.end435 ], [ %123, %do.end466 ], [ %126, %do.end496 ], [ %130, %do.end530 ], [ %133, %do.end564 ], [ %136, %do.end597 ], [ %138, %do.end618 ], [ %277, %do.end1616 ], [ %464, %do.end2847 ], [ %475, %do.end2916 ], [ %484, %do.end2985 ], [ %493, %do.end3054 ], [ %497, %do.end3082 ], [ %503, %do.end3120 ], [ %504, %do.end3141 ]
+  %.sink.sink.be = phi i32 [ %18, %do.end84 ], [ %21, %do.end115 ], [ %24, %do.end147 ], [ %97, %do.end192 ], [ %100, %do.end224 ], [ %102, %do.end254 ], [ %103, %do.end279 ], [ %106, %do.end312 ], [ %110, %do.end343 ], [ %113, %do.end374 ], [ %116, %do.end404 ], [ %120, %do.end435 ], [ %123, %do.end466 ], [ %126, %do.end496 ], [ %130, %do.end530 ], [ %133, %do.end564 ], [ %136, %do.end597 ], [ %138, %do.end618 ], [ %278, %do.end1616 ], [ %464, %do.end2847 ], [ %475, %do.end2916 ], [ %484, %do.end2985 ], [ %493, %do.end3054 ], [ %497, %do.end3082 ], [ %503, %do.end3120 ], [ %504, %do.end3141 ]
   %ptr.0.be = phi ptr [ %ptr.0, %do.end84 ], [ %incdec.ptr101, %do.end115 ], [ %incdec.ptr133, %do.end147 ], [ %ptr.0, %do.end192 ], [ %incdec.ptr210, %do.end224 ], [ %incdec.ptr240, %do.end254 ], [ %incdec.ptr265, %do.end279 ], [ %incdec.ptr298, %do.end312 ], [ %incdec.ptr329, %do.end343 ], [ %incdec.ptr360, %do.end374 ], [ %incdec.ptr390, %do.end404 ], [ %incdec.ptr421, %do.end435 ], [ %incdec.ptr452, %do.end466 ], [ %incdec.ptr482, %do.end496 ], [ %incdec.ptr516, %do.end530 ], [ %incdec.ptr550, %do.end564 ], [ %incdec.ptr583, %do.end597 ], [ %ptr.0, %do.end618 ], [ %add.ptr1569, %do.end1616 ], [ %ptr.11.lcssa, %do.end2847 ], [ %ptr.12.lcssa, %do.end2916 ], [ %ptr.13.lcssa, %do.end2985 ], [ %ptr.14.lcssa, %do.end3054 ], [ %ptr.0, %do.end3082 ], [ %ptr.0, %do.end3120 ], [ %ptr.0, %do.end3141 ]
   %ctx.2.be = phi ptr [ %ctx.2, %do.end84 ], [ %ctx.2, %do.end115 ], [ %ctx.2, %do.end147 ], [ %ctx.2, %do.end192 ], [ %ctx.2, %do.end224 ], [ %ctx.2, %do.end254 ], [ %ctx.2, %do.end279 ], [ %ctx.2, %do.end312 ], [ %ctx.2, %do.end343 ], [ %ctx.2, %do.end374 ], [ %ctx.2, %do.end404 ], [ %ctx.2, %do.end435 ], [ %ctx.2, %do.end466 ], [ %ctx.2, %do.end496 ], [ %ctx.2, %do.end530 ], [ %ctx.2, %do.end564 ], [ %ctx.2, %do.end597 ], [ %ctx.2, %do.end618 ], [ %add.ptr1565, %do.end1616 ], [ %ctx.2, %do.end2847 ], [ %ctx.2, %do.end2916 ], [ %ctx.2, %do.end2985 ], [ %ctx.2, %do.end3054 ], [ %ctx.2, %do.end3082 ], [ %ctx.2, %do.end3120 ], [ %ctx.2, %do.end3141 ]
   %sigcount.2.be = phi i32 [ %inc73, %do.end84 ], [ %inc104, %do.end115 ], [ %inc136, %do.end147 ], [ %inc181, %do.end192 ], [ %inc213, %do.end224 ], [ %inc243, %do.end254 ], [ %inc268, %do.end279 ], [ %inc301, %do.end312 ], [ %inc332, %do.end343 ], [ %inc363, %do.end374 ], [ %inc393, %do.end404 ], [ %inc424, %do.end435 ], [ %inc455, %do.end466 ], [ %inc485, %do.end496 ], [ %inc519, %do.end530 ], [ %inc553, %do.end564 ], [ %inc586, %do.end597 ], [ %inc607, %do.end618 ], [ %inc1605, %do.end1616 ], [ %inc2836, %do.end2847 ], [ %inc2905, %do.end2916 ], [ %inc2974, %do.end2985 ], [ %inc3043, %do.end3054 ], [ %inc3071, %do.end3082 ], [ %inc3109, %do.end3120 ], [ %inc3130, %do.end3141 ]
@@ -11838,7 +11844,7 @@ if.end725:                                        ; preds = %if.end716, %if.end6
 entrance.backedge:                                ; preds = %if.end725, %if.end1002, %if.end1140, %if.end1413, %if.end1664, %if.end1750, %if.end1921, %if.end2042, %if.end2124, %if.end2243, %if.end2409, %if.end2493, %if.end2615, %if.end2737, %if.end3187, %if.end3329
   %ctx.0.be = phi ptr [ %add.ptr2495, %if.end2493 ], [ %add.ptr2617, %if.end2615 ], [ %add.ptr2739, %if.end2737 ], [ %add.ptr1415, %if.end1413 ], [ %add.ptr1004, %if.end1002 ], [ %add.ptr1142, %if.end1140 ], [ %add.ptr1666, %if.end1664 ], [ %add.ptr2126, %if.end2124 ], [ %add.ptr2245, %if.end2243 ], [ %add.ptr1752, %if.end1750 ], [ %add.ptr1923, %if.end1921 ], [ %add.ptr2044, %if.end2042 ], [ %add.ptr727, %if.end725 ], [ %add.ptr3331, %if.end3329 ], [ %add.ptr3189, %if.end3187 ], [ %add.ptr2411, %if.end2409 ]
   %sigcount.0.be = phi i32 [ %sigcount.11, %if.end2493 ], [ %sigcount.12, %if.end2615 ], [ %sigcount.2, %if.end2737 ], [ %sigcount.8, %if.end1413 ], [ %sigcount.5, %if.end1002 ], [ %sigcount.6, %if.end1140 ], [ %sigcount.2, %if.end1664 ], [ %sigcount.2, %if.end2124 ], [ %sigcount.2, %if.end2243 ], [ %sigcount.2, %if.end1750 ], [ %sigcount.2, %if.end1921 ], [ %sigcount.10, %if.end2042 ], [ %sigcount.3, %if.end725 ], [ %sigcount.2, %if.end3329 ], [ %sigcount.2, %if.end3187 ], [ %sigcount.1, %if.end2409 ]
-  %ctx_pos.0.be = phi i64 [ %419, %if.end2493 ], [ %436, %if.end2615 ], [ %447, %if.end2737 ], [ %251, %if.end1413 ], [ %196, %if.end1002 ], [ %213, %if.end1140 ], [ %283, %if.end1664 ], [ %357, %if.end2124 ], [ %379, %if.end2243 ], [ %295, %if.end1750 ], [ %326, %if.end1921 ], [ %346, %if.end2042 ], [ %153, %if.end725 ], [ %524, %if.end3329 ], [ %507, %if.end3187 ], [ %405, %if.end2409 ]
+  %ctx_pos.0.be = phi i64 [ %420, %if.end2493 ], [ %437, %if.end2615 ], [ %448, %if.end2737 ], [ %251, %if.end1413 ], [ %196, %if.end1002 ], [ %213, %if.end1140 ], [ %284, %if.end1664 ], [ %358, %if.end2124 ], [ %380, %if.end2243 ], [ %296, %if.end1750 ], [ %327, %if.end1921 ], [ %347, %if.end2042 ], [ %153, %if.end725 ], [ %524, %if.end3329 ], [ %507, %if.end3187 ], [ %406, %if.end2409 ]
   %pattern.addr.0.be = phi ptr [ %arrayidx2499, %if.end2493 ], [ %arrayidx2621, %if.end2615 ], [ %arrayidx2743, %if.end2737 ], [ %add.ptr1429, %if.end1413 ], [ %add.ptr1018, %if.end1002 ], [ %add.ptr1156, %if.end1140 ], [ %add.ptr1680, %if.end1664 ], [ %add.ptr2140, %if.end2124 ], [ %pattern.addr.2, %if.end2243 ], [ %add.ptr1766, %if.end1750 ], [ %add.ptr1937, %if.end1921 ], [ %pattern.addr.8, %if.end2042 ], [ %arrayidx674, %if.end725 ], [ %add.ptr3335, %if.end3329 ], [ %add.ptr3193, %if.end3187 ], [ %add.ptr2425, %if.end2409 ]
   br label %entrance
 
@@ -12490,27 +12496,17 @@ if.end1364:                                       ; preds = %if.end1355, %if.the
   %add.ptr1367 = getelementptr i8, ptr %245, i64 %246
   %247 = load ptr, ptr %mark3001, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr1367, ptr noundef nonnull align 8 dereferenceable(1) %247, i64 %mul1341, i1 false)
-  br label %while.cond1375.sink.split
-
-while.cond1375.sink.split:                        ; preds = %if.end1513, %if.end1364
-  %data_stack_base.sink2313 = phi ptr [ %data_stack_base, %if.end1364 ], [ %add.ptr1508, %if.end1513 ]
-  %mul1341.sink = phi i64 [ %mul1341, %if.end1364 ], [ 1, %if.end1513 ]
-  %ptr.7.ph = phi ptr [ %ptr.6, %if.end1364 ], [ %incdec.ptr1514, %if.end1513 ]
-  %ctx.16.ph = phi ptr [ %ctx.15, %if.end1364 ], [ %add.ptr1508, %if.end1513 ]
-  %sigcount.8.ph = phi i32 [ %sigcount.2, %if.end1364 ], [ %sigcount.1, %if.end1513 ]
-  %ctx_pos.6.ph = phi i64 [ %ctx_pos.1.ph, %if.end1364 ], [ %535, %if.end1513 ]
-  %pattern.addr.7.ph = phi ptr [ %pattern.addr.2, %if.end1364 ], [ %570, %if.end1513 ]
-  %248 = load i64, ptr %data_stack_base.sink2313, align 8
-  %add1370 = add i64 %248, %mul1341.sink
-  store i64 %add1370, ptr %data_stack_base.sink2313, align 8
+  %248 = load i64, ptr %data_stack_base, align 8
+  %add1370 = add i64 %248, %mul1341
+  store i64 %add1370, ptr %data_stack_base, align 8
   br label %while.cond1375
 
-while.cond1375:                                   ; preds = %while.cond1375.sink.split, %do.body1323
-  %ptr.7 = phi ptr [ %ptr.6, %do.body1323 ], [ %ptr.7.ph, %while.cond1375.sink.split ]
-  %ctx.16 = phi ptr [ %ctx.14, %do.body1323 ], [ %ctx.16.ph, %while.cond1375.sink.split ]
-  %sigcount.8 = phi i32 [ %sigcount.2, %do.body1323 ], [ %sigcount.8.ph, %while.cond1375.sink.split ]
-  %ctx_pos.6 = phi i64 [ %ctx_pos.1.ph, %do.body1323 ], [ %ctx_pos.6.ph, %while.cond1375.sink.split ]
-  %pattern.addr.7 = phi ptr [ %pattern.addr.2, %do.body1323 ], [ %pattern.addr.7.ph, %while.cond1375.sink.split ]
+while.cond1375:                                   ; preds = %do.body1323, %if.end1364, %if.end1513
+  %ptr.7 = phi ptr [ %ptr.6, %if.end1364 ], [ %ptr.6, %do.body1323 ], [ %incdec.ptr1514, %if.end1513 ]
+  %ctx.16 = phi ptr [ %ctx.15, %if.end1364 ], [ %ctx.14, %do.body1323 ], [ %add.ptr1508, %if.end1513 ]
+  %sigcount.8 = phi i32 [ %sigcount.2, %if.end1364 ], [ %sigcount.2, %do.body1323 ], [ %sigcount.1, %if.end1513 ]
+  %ctx_pos.6 = phi i64 [ %ctx_pos.1.ph, %if.end1364 ], [ %ctx_pos.1.ph, %do.body1323 ], [ %535, %if.end1513 ]
+  %pattern.addr.7 = phi ptr [ %pattern.addr.2, %if.end1364 ], [ %pattern.addr.2, %do.body1323 ], [ %570, %if.end1513 ]
   %arrayidx1376 = getelementptr i8, ptr %pattern.addr.7, i64 8
   %249 = load i32, ptr %arrayidx1376, align 4
   %cmp1378 = icmp eq i32 %249, -1
@@ -12551,12 +12547,12 @@ if.end1404:                                       ; preds = %if.then1397
   %cmp1405.not = icmp eq i64 %ctx_pos.6, -1
   %.pre2058 = load ptr, ptr %data_stack11, align 8
   %add.ptr1410 = getelementptr i8, ptr %.pre2058, i64 %ctx_pos.6
-  %spec.select2314 = select i1 %cmp1405.not, ptr %ctx.16, ptr %add.ptr1410
+  %spec.select2312 = select i1 %cmp1405.not, ptr %ctx.16, ptr %add.ptr1410
   br label %if.end1413
 
 if.end1413:                                       ; preds = %if.end1404, %while.body1387.if.end1413_crit_edge
   %253 = phi ptr [ %.pre2057, %while.body1387.if.end1413_crit_edge ], [ %.pre2058, %if.end1404 ]
-  %ctx.18 = phi ptr [ %ctx.16, %while.body1387.if.end1413_crit_edge ], [ %spec.select2314, %if.end1404 ]
+  %ctx.18 = phi ptr [ %ctx.16, %while.body1387.if.end1413_crit_edge ], [ %spec.select2312, %if.end1404 ]
   %add.ptr1415 = getelementptr i8, ptr %253, i64 %251
   %254 = load i64, ptr %data_stack_base, align 8
   %add1417 = add i64 %254, 56
@@ -12637,34 +12633,37 @@ do.body1506:                                      ; preds = %do.body1489
 
 if.end1513:                                       ; preds = %do.body1506
   %incdec.ptr1514 = getelementptr i8, ptr %571, i64 2
-  br label %while.cond1375.sink.split, !llvm.loop !33
+  %264 = load i64, ptr %add.ptr1508, align 8
+  %inc1516 = add i64 %264, 1
+  store i64 %inc1516, ptr %add.ptr1508, align 8
+  br label %while.cond1375, !llvm.loop !33
 
 while.end1517:                                    ; preds = %do.body1506, %lor.rhs1380
   %ctx.17 = phi ptr [ %ctx.16, %lor.rhs1380 ], [ %add.ptr1508, %do.body1506 ]
   %sigcount.9 = phi i32 [ %sigcount.8, %lor.rhs1380 ], [ %sigcount.1, %do.body1506 ]
-  %264 = load ptr, ptr %repeat1329, align 8
-  %tobool1519.not = icmp eq ptr %264, null
+  %265 = load ptr, ptr %repeat1329, align 8
+  %tobool1519.not = icmp eq ptr %265, null
   br i1 %tobool1519.not, label %exit, label %do.body1521
 
 do.body1521:                                      ; preds = %while.end1517
   %lastmark1522 = getelementptr inbounds i8, ptr %ctx.17, i64 16
-  %265 = load i32, ptr %lastmark1522, align 8
-  %cmp1523 = icmp sgt i32 %265, -1
+  %266 = load i32, ptr %lastmark1522, align 8
+  %cmp1523 = icmp sgt i32 %266, -1
   br i1 %cmp1523, label %if.then1525, label %exit
 
 if.then1525:                                      ; preds = %do.body1521
-  %add1528 = add nuw i32 %265, 1
+  %add1528 = add nuw i32 %266, 1
   %conv1529 = sext i32 %add1528 to i64
   %mul1530 = shl nsw i64 %conv1529, 3
-  %266 = load i64, ptr %data_stack_base, align 8
-  %sub1533 = sub i64 %266, %mul1530
+  %267 = load i64, ptr %data_stack_base, align 8
+  %sub1533 = sub i64 %267, %mul1530
   store i64 %sub1533, ptr %data_stack_base, align 8
   br label %exit
 
 TARGET_SRE_OP_POSSESSIVE_REPEAT_ONE:              ; preds = %indirectgoto
   %arrayidx1541 = getelementptr i8, ptr %pattern.addr.2, i64 4
-  %267 = load i32, ptr %arrayidx1541, align 4
-  %idx.ext1542 = zext i32 %267 to i64
+  %268 = load i32, ptr %arrayidx1541, align 4
+  %idx.ext1542 = zext i32 %268 to i64
   %add.ptr1543 = getelementptr i16, ptr %ptr.0, i64 %idx.ext1542
   %cmp1544 = icmp ugt ptr %add.ptr1543, %0
   br i1 %cmp1544, label %exit, label %if.end1549
@@ -12673,49 +12672,49 @@ if.end1549:                                       ; preds = %TARGET_SRE_OP_POSSE
   store ptr %ptr.0, ptr %state, align 8
   %add.ptr1551 = getelementptr i8, ptr %pattern.addr.2, i64 12
   %arrayidx1552 = getelementptr i8, ptr %pattern.addr.2, i64 8
-  %268 = load i32, ptr %arrayidx1552, align 4
-  %conv1553 = zext i32 %268 to i64
+  %269 = load i32, ptr %arrayidx1552, align 4
+  %conv1553 = zext i32 %269 to i64
   %call1554 = tail call fastcc i64 @sre_ucs2_count(ptr noundef nonnull %state, ptr noundef %add.ptr1551, i64 noundef %conv1553)
   %cmp1556 = icmp slt i64 %call1554, 0
   br i1 %cmp1556, label %return, label %do.body1563
 
 do.body1563:                                      ; preds = %if.end1549
-  %269 = load ptr, ptr %data_stack11, align 8
-  %add.ptr1565 = getelementptr i8, ptr %269, i64 %ctx_pos.1.ph
+  %270 = load ptr, ptr %data_stack11, align 8
+  %add.ptr1565 = getelementptr i8, ptr %270, i64 %ctx_pos.1.ph
   store i64 %call1554, ptr %add.ptr1565, align 8
   %add.ptr1569 = getelementptr i16, ptr %ptr.0, i64 %call1554
-  %270 = load i32, ptr %arrayidx1541, align 4
-  %conv1572 = zext i32 %270 to i64
+  %271 = load i32, ptr %arrayidx1541, align 4
+  %conv1572 = zext i32 %271 to i64
   %cmp1573 = icmp ult i64 %call1554, %conv1572
   br i1 %cmp1573, label %exit, label %if.end1578
 
 if.end1578:                                       ; preds = %do.body1563
-  %271 = load i32, ptr %pattern.addr.2, align 4
-  %idx.ext1580 = zext i32 %271 to i64
+  %272 = load i32, ptr %pattern.addr.2, align 4
+  %idx.ext1580 = zext i32 %272 to i64
   %add.ptr1581 = getelementptr i32, ptr %pattern.addr.2, i64 %idx.ext1580
-  %272 = load i32, ptr %add.ptr1581, align 4
-  %cmp1582 = icmp eq i32 %272, 1
+  %273 = load i32, ptr %add.ptr1581, align 4
+  %cmp1582 = icmp eq i32 %273, 1
   br i1 %cmp1582, label %land.lhs.true1584, label %do.body1604
 
 land.lhs.true1584:                                ; preds = %if.end1578
-  %273 = load ptr, ptr %end1, align 8
-  %cmp1586 = icmp eq ptr %add.ptr1569, %273
+  %274 = load ptr, ptr %end1, align 8
+  %cmp1586 = icmp eq ptr %add.ptr1569, %274
   br i1 %cmp1586, label %land.lhs.true1588, label %do.body1604
 
 land.lhs.true1588:                                ; preds = %land.lhs.true1584
   %toplevel1589 = getelementptr inbounds i8, ptr %add.ptr1565, i64 40
-  %274 = load i32, ptr %toplevel1589, align 8
-  %tobool1590.not = icmp eq i32 %274, 0
+  %275 = load i32, ptr %toplevel1589, align 8
+  %tobool1590.not = icmp eq i32 %275, 0
   br i1 %tobool1590.not, label %if.then1598, label %land.lhs.true1591
 
 land.lhs.true1591:                                ; preds = %land.lhs.true1588
-  %275 = load i32, ptr %must_advance1592, align 4
-  %tobool1593.not = icmp eq i32 %275, 0
+  %276 = load i32, ptr %must_advance1592, align 4
+  %tobool1593.not = icmp eq i32 %276, 0
   br i1 %tobool1593.not, label %if.then1598, label %land.lhs.true1594
 
 land.lhs.true1594:                                ; preds = %land.lhs.true1591
-  %276 = load ptr, ptr %start1595, align 8
-  %cmp1596 = icmp eq ptr %add.ptr1569, %276
+  %277 = load ptr, ptr %start1595, align 8
+  %cmp1596 = icmp eq ptr %add.ptr1569, %277
   br i1 %cmp1596, label %do.body1604, label %if.then1598
 
 if.then1598:                                      ; preds = %land.lhs.true1594, %land.lhs.true1591, %land.lhs.true1588
@@ -12738,7 +12737,7 @@ land.lhs.true1609.do.end1616_crit_edge:           ; preds = %land.lhs.true1609
   br label %do.end1616
 
 do.end1616:                                       ; preds = %land.lhs.true1609.do.end1616_crit_edge, %do.body1604
-  %277 = phi i32 [ %.pre2028, %land.lhs.true1609.do.end1616_crit_edge ], [ %272, %do.body1604 ]
+  %278 = phi i32 [ %.pre2028, %land.lhs.true1609.do.end1616_crit_edge ], [ %273, %do.body1604 ]
   %incdec.ptr1617 = getelementptr i8, ptr %add.ptr1581, i64 4
   br label %indirectgoto.backedge
 
@@ -12755,26 +12754,26 @@ if.then1625:                                      ; preds = %TARGET_SRE_OP_REPEA
 
 if.end1629:                                       ; preds = %TARGET_SRE_OP_REPEAT
   store i64 -1, ptr %call1621, align 8
-  %278 = load ptr, ptr %u1622, align 8
-  %pattern1633 = getelementptr inbounds i8, ptr %278, i64 8
+  %279 = load ptr, ptr %u1622, align 8
+  %pattern1633 = getelementptr inbounds i8, ptr %279, i64 8
   store ptr %pattern.addr.2, ptr %pattern1633, align 8
-  %279 = load ptr, ptr %repeat1329, align 8
-  %280 = load ptr, ptr %u1622, align 8
-  %prev = getelementptr inbounds i8, ptr %280, i64 24
-  store ptr %279, ptr %prev, align 8
+  %280 = load ptr, ptr %repeat1329, align 8
   %281 = load ptr, ptr %u1622, align 8
-  %last_ptr = getelementptr inbounds i8, ptr %281, i64 16
-  store ptr null, ptr %last_ptr, align 8
+  %prev = getelementptr inbounds i8, ptr %281, i64 24
+  store ptr %280, ptr %prev, align 8
   %282 = load ptr, ptr %u1622, align 8
-  store ptr %282, ptr %repeat1329, align 8
+  %last_ptr = getelementptr inbounds i8, ptr %282, i64 16
+  store ptr null, ptr %last_ptr, align 8
+  %283 = load ptr, ptr %u1622, align 8
+  store ptr %283, ptr %repeat1329, align 8
   store ptr %ptr.0, ptr %state, align 8
   %pattern1640 = getelementptr inbounds i8, ptr %ctx.2, i64 24
   store ptr %pattern.addr.2, ptr %pattern1640, align 8
   %ptr1641 = getelementptr inbounds i8, ptr %ctx.2, i64 32
   store ptr %ptr.0, ptr %ptr1641, align 8
-  %283 = load i64, ptr %data_stack_base, align 8
-  %284 = load i64, ptr %data_stack_size, align 8
-  %sub1645 = sub i64 %284, %283
+  %284 = load i64, ptr %data_stack_base, align 8
+  %285 = load i64, ptr %data_stack_size, align 8
+  %sub1645 = sub i64 %285, %284
   %cmp1646 = icmp ult i64 %sub1645, 56
   br i1 %cmp1646, label %if.then1648, label %if.end1629.if.end1664_crit_edge
 
@@ -12795,31 +12794,31 @@ if.end1655:                                       ; preds = %if.then1648
   %cmp1656.not = icmp eq i64 %ctx_pos.1.ph, -1
   %.pre2035 = load ptr, ptr %data_stack11, align 8
   %add.ptr1661 = getelementptr i8, ptr %.pre2035, i64 %ctx_pos.1.ph
-  %spec.select2315 = select i1 %cmp1656.not, ptr %ctx.2, ptr %add.ptr1661
+  %spec.select2313 = select i1 %cmp1656.not, ptr %ctx.2, ptr %add.ptr1661
   br label %if.end1664
 
 if.end1664:                                       ; preds = %if.end1655, %if.end1629.if.end1664_crit_edge
-  %285 = phi ptr [ %.pre2034, %if.end1629.if.end1664_crit_edge ], [ %.pre2035, %if.end1655 ]
-  %ctx.19 = phi ptr [ %ctx.2, %if.end1629.if.end1664_crit_edge ], [ %spec.select2315, %if.end1655 ]
-  %add.ptr1666 = getelementptr i8, ptr %285, i64 %283
-  %286 = load i64, ptr %data_stack_base, align 8
-  %add1668 = add i64 %286, 56
+  %286 = phi ptr [ %.pre2034, %if.end1629.if.end1664_crit_edge ], [ %.pre2035, %if.end1655 ]
+  %ctx.19 = phi ptr [ %ctx.2, %if.end1629.if.end1664_crit_edge ], [ %spec.select2313, %if.end1655 ]
+  %add.ptr1666 = getelementptr i8, ptr %286, i64 %284
+  %287 = load i64, ptr %data_stack_base, align 8
+  %add1668 = add i64 %287, 56
   store i64 %add1668, ptr %data_stack_base, align 8
-  %287 = load i32, ptr %pattern.addr.2, align 4
-  %idx.ext1671 = zext i32 %287 to i64
+  %288 = load i32, ptr %pattern.addr.2, align 4
+  %idx.ext1671 = zext i32 %288 to i64
   %add.ptr1672 = getelementptr i32, ptr %pattern.addr.2, i64 %idx.ext1671
   %pattern1673 = getelementptr inbounds i8, ptr %add.ptr1666, i64 24
   store ptr %add.ptr1672, ptr %pattern1673, align 8
   %toplevel1674 = getelementptr inbounds i8, ptr %ctx.19, i64 40
-  %288 = load i32, ptr %toplevel1674, align 8
+  %289 = load i32, ptr %toplevel1674, align 8
   %toplevel1675 = getelementptr inbounds i8, ptr %add.ptr1666, i64 40
-  store i32 %288, ptr %toplevel1675, align 8
+  store i32 %289, ptr %toplevel1675, align 8
   %jump1676 = getelementptr inbounds i8, ptr %add.ptr1666, i64 44
   store i32 7, ptr %jump1676, align 4
   %last_ctx_pos1677 = getelementptr inbounds i8, ptr %add.ptr1666, i64 48
   store i64 %ctx_pos.1.ph, ptr %last_ctx_pos1677, align 8
-  %289 = load i32, ptr %pattern.addr.2, align 4
-  %idx.ext1679 = zext i32 %289 to i64
+  %290 = load i32, ptr %pattern.addr.2, align 4
+  %idx.ext1679 = zext i32 %290 to i64
   %add.ptr1680 = getelementptr i32, ptr %pattern.addr.2, i64 %idx.ext1679
   br label %entrance.backedge
 
@@ -12827,35 +12826,35 @@ do.body1700:                                      ; preds = %sw.bb3457
   br label %exit
 
 TARGET_SRE_OP_MAX_UNTIL:                          ; preds = %indirectgoto
-  %290 = load ptr, ptr %repeat1329, align 8
+  %291 = load ptr, ptr %repeat1329, align 8
   %u1703 = getelementptr inbounds i8, ptr %ctx.2, i64 8
-  store ptr %290, ptr %u1703, align 8
-  %tobool1705.not = icmp eq ptr %290, null
+  store ptr %291, ptr %u1703, align 8
+  %tobool1705.not = icmp eq ptr %291, null
   br i1 %tobool1705.not, label %return, label %if.end1709
 
 if.end1709:                                       ; preds = %TARGET_SRE_OP_MAX_UNTIL
   store ptr %ptr.0, ptr %state, align 8
-  %291 = load ptr, ptr %u1703, align 8
-  %292 = load i64, ptr %291, align 8
-  %add1713 = add i64 %292, 1
+  %292 = load ptr, ptr %u1703, align 8
+  %293 = load i64, ptr %292, align 8
+  %add1713 = add i64 %293, 1
   store i64 %add1713, ptr %ctx.2, align 8
-  %pattern1717 = getelementptr inbounds i8, ptr %291, i64 8
-  %293 = load ptr, ptr %pattern1717, align 8
-  %arrayidx1718 = getelementptr i8, ptr %293, i64 4
-  %294 = load i32, ptr %arrayidx1718, align 4
-  %conv1719 = zext i32 %294 to i64
+  %pattern1717 = getelementptr inbounds i8, ptr %292, i64 8
+  %294 = load ptr, ptr %pattern1717, align 8
+  %arrayidx1718 = getelementptr i8, ptr %294, i64 4
+  %295 = load i32, ptr %arrayidx1718, align 4
+  %conv1719 = zext i32 %295 to i64
   %cmp1720 = icmp slt i64 %add1713, %conv1719
   br i1 %cmp1720, label %if.then1722, label %if.end1789
 
 if.then1722:                                      ; preds = %if.end1709
-  store i64 %add1713, ptr %291, align 8
+  store i64 %add1713, ptr %292, align 8
   %pattern1726 = getelementptr inbounds i8, ptr %ctx.2, i64 24
   store ptr %pattern.addr.2, ptr %pattern1726, align 8
   %ptr1727 = getelementptr inbounds i8, ptr %ctx.2, i64 32
   store ptr %ptr.0, ptr %ptr1727, align 8
-  %295 = load i64, ptr %data_stack_base, align 8
-  %296 = load i64, ptr %data_stack_size, align 8
-  %sub1731 = sub i64 %296, %295
+  %296 = load i64, ptr %data_stack_base, align 8
+  %297 = load i64, ptr %data_stack_size, align 8
+  %sub1731 = sub i64 %297, %296
   %cmp1732 = icmp ult i64 %sub1731, 56
   br i1 %cmp1732, label %if.then1734, label %if.then1722.if.end1750_crit_edge
 
@@ -12876,82 +12875,82 @@ if.end1741:                                       ; preds = %if.then1734
   %cmp1742.not = icmp eq i64 %ctx_pos.1.ph, -1
   %.pre2050 = load ptr, ptr %data_stack11, align 8
   %add.ptr1747 = getelementptr i8, ptr %.pre2050, i64 %ctx_pos.1.ph
-  %spec.select2316 = select i1 %cmp1742.not, ptr %ctx.2, ptr %add.ptr1747
+  %spec.select2314 = select i1 %cmp1742.not, ptr %ctx.2, ptr %add.ptr1747
   br label %if.end1750
 
 if.end1750:                                       ; preds = %if.end1741, %if.then1722.if.end1750_crit_edge
-  %297 = phi ptr [ %.pre2049, %if.then1722.if.end1750_crit_edge ], [ %.pre2050, %if.end1741 ]
-  %ctx.20 = phi ptr [ %ctx.2, %if.then1722.if.end1750_crit_edge ], [ %spec.select2316, %if.end1741 ]
-  %add.ptr1752 = getelementptr i8, ptr %297, i64 %295
-  %298 = load i64, ptr %data_stack_base, align 8
-  %add1754 = add i64 %298, 56
+  %298 = phi ptr [ %.pre2049, %if.then1722.if.end1750_crit_edge ], [ %.pre2050, %if.end1741 ]
+  %ctx.20 = phi ptr [ %ctx.2, %if.then1722.if.end1750_crit_edge ], [ %spec.select2314, %if.end1741 ]
+  %add.ptr1752 = getelementptr i8, ptr %298, i64 %296
+  %299 = load i64, ptr %data_stack_base, align 8
+  %add1754 = add i64 %299, 56
   store i64 %add1754, ptr %data_stack_base, align 8
   %u1756 = getelementptr inbounds i8, ptr %ctx.20, i64 8
-  %299 = load ptr, ptr %u1756, align 8
-  %pattern1757 = getelementptr inbounds i8, ptr %299, i64 8
-  %300 = load ptr, ptr %pattern1757, align 8
-  %add.ptr1758 = getelementptr i8, ptr %300, i64 12
+  %300 = load ptr, ptr %u1756, align 8
+  %pattern1757 = getelementptr inbounds i8, ptr %300, i64 8
+  %301 = load ptr, ptr %pattern1757, align 8
+  %add.ptr1758 = getelementptr i8, ptr %301, i64 12
   %pattern1759 = getelementptr inbounds i8, ptr %add.ptr1752, i64 24
   store ptr %add.ptr1758, ptr %pattern1759, align 8
   %toplevel1760 = getelementptr inbounds i8, ptr %ctx.20, i64 40
-  %301 = load i32, ptr %toplevel1760, align 8
+  %302 = load i32, ptr %toplevel1760, align 8
   %toplevel1761 = getelementptr inbounds i8, ptr %add.ptr1752, i64 40
-  store i32 %301, ptr %toplevel1761, align 8
+  store i32 %302, ptr %toplevel1761, align 8
   %jump1762 = getelementptr inbounds i8, ptr %add.ptr1752, i64 44
   store i32 1, ptr %jump1762, align 4
   %last_ctx_pos1763 = getelementptr inbounds i8, ptr %add.ptr1752, i64 48
   store i64 %ctx_pos.1.ph, ptr %last_ctx_pos1763, align 8
-  %302 = load ptr, ptr %u1756, align 8
-  %pattern1765 = getelementptr inbounds i8, ptr %302, i64 8
-  %303 = load ptr, ptr %pattern1765, align 8
-  %add.ptr1766 = getelementptr i8, ptr %303, i64 12
+  %303 = load ptr, ptr %u1756, align 8
+  %pattern1765 = getelementptr inbounds i8, ptr %303, i64 8
+  %304 = load ptr, ptr %pattern1765, align 8
+  %add.ptr1766 = getelementptr i8, ptr %304, i64 12
   br label %entrance.backedge
 
 if.end1781:                                       ; preds = %sw.bb3453
   %ptr1768 = getelementptr inbounds i8, ptr %add.ptr3447, i64 32
-  %304 = load ptr, ptr %ptr1768, align 8
-  %305 = load i64, ptr %add.ptr3447, align 8
-  %sub1783 = add i64 %305, -1
+  %305 = load ptr, ptr %ptr1768, align 8
+  %306 = load i64, ptr %add.ptr3447, align 8
+  %sub1783 = add i64 %306, -1
   %u1784 = getelementptr inbounds i8, ptr %add.ptr3447, i64 8
-  %306 = load ptr, ptr %u1784, align 8
-  store i64 %sub1783, ptr %306, align 8
-  store ptr %304, ptr %state, align 8
+  %307 = load ptr, ptr %u1784, align 8
+  store i64 %sub1783, ptr %307, align 8
+  store ptr %305, ptr %state, align 8
   br label %exit
 
 if.end1789:                                       ; preds = %if.end1709
-  %arrayidx1793 = getelementptr i8, ptr %293, i64 8
-  %307 = load i32, ptr %arrayidx1793, align 4
-  %conv1794 = zext i32 %307 to i64
+  %arrayidx1793 = getelementptr i8, ptr %294, i64 8
+  %308 = load i32, ptr %arrayidx1793, align 4
+  %conv1794 = zext i32 %308 to i64
   %cmp1795 = icmp ult i64 %add1713, %conv1794
-  %cmp1801 = icmp eq i32 %307, -1
+  %cmp1801 = icmp eq i32 %308, -1
   %or.cond1406 = or i1 %cmp1801, %cmp1795
   br i1 %or.cond1406, label %land.lhs.true1803, label %if.end2014
 
 land.lhs.true1803:                                ; preds = %if.end1789
-  %308 = load ptr, ptr %state, align 8
-  %last_ptr1806 = getelementptr inbounds i8, ptr %291, i64 16
-  %309 = load ptr, ptr %last_ptr1806, align 8
-  %cmp1807.not = icmp eq ptr %308, %309
+  %309 = load ptr, ptr %state, align 8
+  %last_ptr1806 = getelementptr inbounds i8, ptr %292, i64 16
+  %310 = load ptr, ptr %last_ptr1806, align 8
+  %cmp1807.not = icmp eq ptr %309, %310
   br i1 %cmp1807.not, label %if.end2014, label %if.then1809
 
 if.then1809:                                      ; preds = %land.lhs.true1803
-  store i64 %add1713, ptr %291, align 8
-  %310 = load i32, ptr %lastmark2993, align 4
+  store i64 %add1713, ptr %292, align 8
+  %311 = load i32, ptr %lastmark2993, align 4
   %lastmark1815 = getelementptr inbounds i8, ptr %ctx.2, i64 16
-  store i32 %310, ptr %lastmark1815, align 8
-  %311 = load i32, ptr %lastindex, align 8
+  store i32 %311, ptr %lastmark1815, align 8
+  %312 = load i32, ptr %lastindex, align 8
   %lastindex1817 = getelementptr inbounds i8, ptr %ctx.2, i64 20
-  store i32 %311, ptr %lastindex1817, align 4
-  %cmp1821 = icmp sgt i32 %310, -1
+  store i32 %312, ptr %lastindex1817, align 4
+  %cmp1821 = icmp sgt i32 %311, -1
   %.pre2044 = load i64, ptr %data_stack_base, align 8
   br i1 %cmp1821, label %if.then1823, label %do.body1862
 
 if.then1823:                                      ; preds = %if.then1809
-  %add1826 = add nuw i32 %310, 1
+  %add1826 = add nuw i32 %311, 1
   %conv1827 = sext i32 %add1826 to i64
   %mul1828 = shl nsw i64 %conv1827, 3
-  %312 = load i64, ptr %data_stack_size, align 8
-  %sub1832 = sub i64 %312, %.pre2044
+  %313 = load i64, ptr %data_stack_size, align 8
+  %sub1832 = sub i64 %313, %.pre2044
   %cmp1833 = icmp ugt i64 %mul1828, %sub1832
   br i1 %cmp1833, label %if.then1835, label %if.then1823.if.end1851_crit_edge
 
@@ -12972,26 +12971,26 @@ if.end1842:                                       ; preds = %if.then1835
   %cmp1843.not = icmp eq i64 %ctx_pos.1.ph, -1
   %.pre2043 = load ptr, ptr %data_stack11, align 8
   %add.ptr1848 = getelementptr i8, ptr %.pre2043, i64 %ctx_pos.1.ph
-  %spec.select2317 = select i1 %cmp1843.not, ptr %ctx.2, ptr %add.ptr1848
+  %spec.select2315 = select i1 %cmp1843.not, ptr %ctx.2, ptr %add.ptr1848
   br label %if.end1851
 
 if.end1851:                                       ; preds = %if.end1842, %if.then1823.if.end1851_crit_edge
-  %313 = phi ptr [ %.pre2042, %if.then1823.if.end1851_crit_edge ], [ %.pre2043, %if.end1842 ]
-  %ctx.22 = phi ptr [ %ctx.2, %if.then1823.if.end1851_crit_edge ], [ %spec.select2317, %if.end1842 ]
-  %314 = load i64, ptr %data_stack_base, align 8
-  %add.ptr1854 = getelementptr i8, ptr %313, i64 %314
-  %315 = load ptr, ptr %mark3001, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr1854, ptr noundef nonnull align 8 dereferenceable(1) %315, i64 %mul1828, i1 false)
-  %316 = load i64, ptr %data_stack_base, align 8
-  %add1857 = add i64 %316, %mul1828
+  %314 = phi ptr [ %.pre2042, %if.then1823.if.end1851_crit_edge ], [ %.pre2043, %if.end1842 ]
+  %ctx.22 = phi ptr [ %ctx.2, %if.then1823.if.end1851_crit_edge ], [ %spec.select2315, %if.end1842 ]
+  %315 = load i64, ptr %data_stack_base, align 8
+  %add.ptr1854 = getelementptr i8, ptr %314, i64 %315
+  %316 = load ptr, ptr %mark3001, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr1854, ptr noundef nonnull align 8 dereferenceable(1) %316, i64 %mul1828, i1 false)
+  %317 = load i64, ptr %data_stack_base, align 8
+  %add1857 = add i64 %317, %mul1828
   store i64 %add1857, ptr %data_stack_base, align 8
   br label %do.body1862
 
 do.body1862:                                      ; preds = %if.then1809, %if.end1851
-  %317 = phi i64 [ %add1857, %if.end1851 ], [ %.pre2044, %if.then1809 ]
+  %318 = phi i64 [ %add1857, %if.end1851 ], [ %.pre2044, %if.then1809 ]
   %ctx.23 = phi ptr [ %ctx.22, %if.end1851 ], [ %ctx.2, %if.then1809 ]
-  %318 = load i64, ptr %data_stack_size, align 8
-  %sub1865 = sub i64 %318, %317
+  %319 = load i64, ptr %data_stack_size, align 8
+  %sub1865 = sub i64 %319, %318
   %cmp1866 = icmp ult i64 %sub1865, 8
   br i1 %cmp1866, label %if.then1868, label %do.body1862.if.end1884_crit_edge
 
@@ -13012,33 +13011,33 @@ if.end1875:                                       ; preds = %if.then1868
   %cmp1876.not = icmp eq i64 %ctx_pos.1.ph, -1
   %.pre2046 = load ptr, ptr %data_stack11, align 8
   %add.ptr1881 = getelementptr i8, ptr %.pre2046, i64 %ctx_pos.1.ph
-  %spec.select2318 = select i1 %cmp1876.not, ptr %ctx.23, ptr %add.ptr1881
+  %spec.select2316 = select i1 %cmp1876.not, ptr %ctx.23, ptr %add.ptr1881
   br label %if.end1884
 
 if.end1884:                                       ; preds = %if.end1875, %do.body1862.if.end1884_crit_edge
-  %319 = phi ptr [ %.pre2045, %do.body1862.if.end1884_crit_edge ], [ %.pre2046, %if.end1875 ]
-  %ctx.24 = phi ptr [ %ctx.23, %do.body1862.if.end1884_crit_edge ], [ %spec.select2318, %if.end1875 ]
-  %320 = load i64, ptr %data_stack_base, align 8
-  %add.ptr1887 = getelementptr i8, ptr %319, i64 %320
+  %320 = phi ptr [ %.pre2045, %do.body1862.if.end1884_crit_edge ], [ %.pre2046, %if.end1875 ]
+  %ctx.24 = phi ptr [ %ctx.23, %do.body1862.if.end1884_crit_edge ], [ %spec.select2316, %if.end1875 ]
+  %321 = load i64, ptr %data_stack_base, align 8
+  %add.ptr1887 = getelementptr i8, ptr %320, i64 %321
   %u1888 = getelementptr inbounds i8, ptr %ctx.24, i64 8
-  %321 = load ptr, ptr %u1888, align 8
-  %last_ptr1889 = getelementptr inbounds i8, ptr %321, i64 16
-  %322 = load i64, ptr %last_ptr1889, align 8
-  store i64 %322, ptr %add.ptr1887, align 1
-  %323 = load i64, ptr %data_stack_base, align 8
-  %add1891 = add i64 %323, 8
+  %322 = load ptr, ptr %u1888, align 8
+  %last_ptr1889 = getelementptr inbounds i8, ptr %322, i64 16
+  %323 = load i64, ptr %last_ptr1889, align 8
+  store i64 %323, ptr %add.ptr1887, align 1
+  %324 = load i64, ptr %data_stack_base, align 8
+  %add1891 = add i64 %324, 8
   store i64 %add1891, ptr %data_stack_base, align 8
-  %324 = load ptr, ptr %state, align 8
-  %325 = load ptr, ptr %u1888, align 8
-  %last_ptr1896 = getelementptr inbounds i8, ptr %325, i64 16
-  store ptr %324, ptr %last_ptr1896, align 8
+  %325 = load ptr, ptr %state, align 8
+  %326 = load ptr, ptr %u1888, align 8
+  %last_ptr1896 = getelementptr inbounds i8, ptr %326, i64 16
+  store ptr %325, ptr %last_ptr1896, align 8
   %pattern1897 = getelementptr inbounds i8, ptr %ctx.24, i64 24
   store ptr %pattern.addr.2, ptr %pattern1897, align 8
   %ptr1898 = getelementptr inbounds i8, ptr %ctx.24, i64 32
   store ptr %ptr.0, ptr %ptr1898, align 8
-  %326 = load i64, ptr %data_stack_base, align 8
-  %327 = load i64, ptr %data_stack_size, align 8
-  %sub1902 = sub i64 %327, %326
+  %327 = load i64, ptr %data_stack_base, align 8
+  %328 = load i64, ptr %data_stack_size, align 8
+  %sub1902 = sub i64 %328, %327
   %cmp1903 = icmp ult i64 %sub1902, 56
   br i1 %cmp1903, label %if.then1905, label %if.end1884.if.end1921_crit_edge
 
@@ -13059,45 +13058,45 @@ if.end1912:                                       ; preds = %if.then1905
   %cmp1913.not = icmp eq i64 %ctx_pos.1.ph, -1
   %.pre2048 = load ptr, ptr %data_stack11, align 8
   %add.ptr1918 = getelementptr i8, ptr %.pre2048, i64 %ctx_pos.1.ph
-  %spec.select2319 = select i1 %cmp1913.not, ptr %ctx.24, ptr %add.ptr1918
+  %spec.select2317 = select i1 %cmp1913.not, ptr %ctx.24, ptr %add.ptr1918
   br label %if.end1921
 
 if.end1921:                                       ; preds = %if.end1912, %if.end1884.if.end1921_crit_edge
-  %328 = phi ptr [ %.pre2047, %if.end1884.if.end1921_crit_edge ], [ %.pre2048, %if.end1912 ]
-  %ctx.25 = phi ptr [ %ctx.24, %if.end1884.if.end1921_crit_edge ], [ %spec.select2319, %if.end1912 ]
-  %add.ptr1923 = getelementptr i8, ptr %328, i64 %326
-  %329 = load i64, ptr %data_stack_base, align 8
-  %add1925 = add i64 %329, 56
+  %329 = phi ptr [ %.pre2047, %if.end1884.if.end1921_crit_edge ], [ %.pre2048, %if.end1912 ]
+  %ctx.25 = phi ptr [ %ctx.24, %if.end1884.if.end1921_crit_edge ], [ %spec.select2317, %if.end1912 ]
+  %add.ptr1923 = getelementptr i8, ptr %329, i64 %327
+  %330 = load i64, ptr %data_stack_base, align 8
+  %add1925 = add i64 %330, 56
   store i64 %add1925, ptr %data_stack_base, align 8
   %u1927 = getelementptr inbounds i8, ptr %ctx.25, i64 8
-  %330 = load ptr, ptr %u1927, align 8
-  %pattern1928 = getelementptr inbounds i8, ptr %330, i64 8
-  %331 = load ptr, ptr %pattern1928, align 8
-  %add.ptr1929 = getelementptr i8, ptr %331, i64 12
+  %331 = load ptr, ptr %u1927, align 8
+  %pattern1928 = getelementptr inbounds i8, ptr %331, i64 8
+  %332 = load ptr, ptr %pattern1928, align 8
+  %add.ptr1929 = getelementptr i8, ptr %332, i64 12
   %pattern1930 = getelementptr inbounds i8, ptr %add.ptr1923, i64 24
   store ptr %add.ptr1929, ptr %pattern1930, align 8
   %toplevel1931 = getelementptr inbounds i8, ptr %ctx.25, i64 40
-  %332 = load i32, ptr %toplevel1931, align 8
+  %333 = load i32, ptr %toplevel1931, align 8
   %toplevel1932 = getelementptr inbounds i8, ptr %add.ptr1923, i64 40
-  store i32 %332, ptr %toplevel1932, align 8
+  store i32 %333, ptr %toplevel1932, align 8
   %jump1933 = getelementptr inbounds i8, ptr %add.ptr1923, i64 44
   store i32 2, ptr %jump1933, align 4
   %last_ctx_pos1934 = getelementptr inbounds i8, ptr %add.ptr1923, i64 48
   store i64 %ctx_pos.1.ph, ptr %last_ctx_pos1934, align 8
-  %333 = load ptr, ptr %u1927, align 8
-  %pattern1936 = getelementptr inbounds i8, ptr %333, i64 8
-  %334 = load ptr, ptr %pattern1936, align 8
-  %add.ptr1937 = getelementptr i8, ptr %334, i64 12
+  %334 = load ptr, ptr %u1927, align 8
+  %pattern1936 = getelementptr inbounds i8, ptr %334, i64 8
+  %335 = load ptr, ptr %pattern1936, align 8
+  %add.ptr1937 = getelementptr i8, ptr %335, i64 12
   br label %entrance.backedge
 
 do.body1954:                                      ; preds = %sw.bb
   %lastmark1955 = getelementptr inbounds i8, ptr %add.ptr3447, i64 16
-  %335 = load i32, ptr %lastmark1955, align 8
-  %cmp1956 = icmp sgt i32 %335, -1
+  %336 = load i32, ptr %lastmark1955, align 8
+  %cmp1956 = icmp sgt i32 %336, -1
   br i1 %cmp1956, label %if.then1958, label %exit
 
 if.then1958:                                      ; preds = %do.body1954
-  %add1961 = add nuw i32 %335, 1
+  %add1961 = add nuw i32 %336, 1
   %conv1962 = sext i32 %add1961 to i64
   %mul1963 = shl nsw i64 %conv1962, 3
   %sub1966 = sub i64 %sub1949, %mul1963
@@ -13107,57 +13106,57 @@ if.then1958:                                      ; preds = %do.body1954
 do.body1981:                                      ; preds = %sw.bb
   %u1942.le = getelementptr inbounds i8, ptr %add.ptr3447, i64 8
   %lastmark1982 = getelementptr inbounds i8, ptr %add.ptr3447, i64 16
-  %336 = load i32, ptr %lastmark1982, align 8
-  %cmp1983 = icmp sgt i32 %336, -1
+  %337 = load i32, ptr %lastmark1982, align 8
+  %cmp1983 = icmp sgt i32 %337, -1
   br i1 %cmp1983, label %if.then1985, label %do.body2003
 
 if.then1985:                                      ; preds = %do.body1981
-  %add1988 = add nuw i32 %336, 1
+  %add1988 = add nuw i32 %337, 1
   %conv1989 = sext i32 %add1988 to i64
   %mul1990 = shl nsw i64 %conv1989, 3
-  %337 = load ptr, ptr %mark3001, align 8
-  %338 = load ptr, ptr %data_stack11, align 8
-  %add.ptr1995 = getelementptr i8, ptr %338, i64 %sub1949
+  %338 = load ptr, ptr %mark3001, align 8
+  %339 = load ptr, ptr %data_stack11, align 8
+  %add.ptr1995 = getelementptr i8, ptr %339, i64 %sub1949
   %idx.neg1996 = sub nsw i64 0, %mul1990
   %add.ptr1997 = getelementptr i8, ptr %add.ptr1995, i64 %idx.neg1996
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %337, ptr noundef nonnull align 1 dereferenceable(1) %add.ptr1997, i64 %mul1990, i1 false)
-  %339 = load i64, ptr %data_stack_base, align 8
-  %sub1999 = sub i64 %339, %mul1990
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %338, ptr noundef nonnull align 1 dereferenceable(1) %add.ptr1997, i64 %mul1990, i1 false)
+  %340 = load i64, ptr %data_stack_base, align 8
+  %sub1999 = sub i64 %340, %mul1990
   store i64 %sub1999, ptr %data_stack_base, align 8
   %.pre2077 = load i32, ptr %lastmark1982, align 8
   br label %do.body2003
 
 do.body2003:                                      ; preds = %if.then1985, %do.body1981
-  %340 = phi i32 [ %.pre2077, %if.then1985 ], [ %336, %do.body1981 ]
-  store i32 %340, ptr %lastmark2993, align 4
+  %341 = phi i32 [ %.pre2077, %if.then1985 ], [ %337, %do.body1981 ]
+  store i32 %341, ptr %lastmark2993, align 4
   %lastindex2006 = getelementptr inbounds i8, ptr %add.ptr3447, i64 20
-  %341 = load i32, ptr %lastindex2006, align 4
-  store i32 %341, ptr %lastindex, align 8
-  %342 = load i64, ptr %add.ptr3447, align 8
-  %sub2010 = add i64 %342, -1
-  %343 = load ptr, ptr %u1942.le, align 8
-  store i64 %sub2010, ptr %343, align 8
+  %342 = load i32, ptr %lastindex2006, align 4
+  store i32 %342, ptr %lastindex, align 8
+  %343 = load i64, ptr %add.ptr3447, align 8
+  %sub2010 = add i64 %343, -1
+  %344 = load ptr, ptr %u1942.le, align 8
+  store i64 %sub2010, ptr %344, align 8
   store ptr %540, ptr %state, align 8
   %.pre2078 = load ptr, ptr %u1942.le, align 8
   br label %if.end2014
 
 if.end2014:                                       ; preds = %if.end1789, %do.body2003, %land.lhs.true1803
-  %344 = phi ptr [ %291, %land.lhs.true1803 ], [ %.pre2078, %do.body2003 ], [ %291, %if.end1789 ]
+  %345 = phi ptr [ %292, %land.lhs.true1803 ], [ %.pre2078, %do.body2003 ], [ %292, %if.end1789 ]
   %ptr.8 = phi ptr [ %ptr.0, %land.lhs.true1803 ], [ %540, %do.body2003 ], [ %ptr.0, %if.end1789 ]
   %ctx.21 = phi ptr [ %ctx.2, %land.lhs.true1803 ], [ %add.ptr3447, %do.body2003 ], [ %ctx.2, %if.end1789 ]
   %sigcount.10 = phi i32 [ %sigcount.2, %land.lhs.true1803 ], [ %sigcount.1, %do.body2003 ], [ %sigcount.2, %if.end1789 ]
   %ctx_pos.7 = phi i64 [ %ctx_pos.1.ph, %land.lhs.true1803 ], [ %535, %do.body2003 ], [ %ctx_pos.1.ph, %if.end1789 ]
   %pattern.addr.8 = phi ptr [ %pattern.addr.2, %land.lhs.true1803 ], [ %539, %do.body2003 ], [ %pattern.addr.2, %if.end1789 ]
-  %prev2016 = getelementptr inbounds i8, ptr %344, i64 24
-  %345 = load ptr, ptr %prev2016, align 8
-  store ptr %345, ptr %repeat1329, align 8
+  %prev2016 = getelementptr inbounds i8, ptr %345, i64 24
+  %346 = load ptr, ptr %prev2016, align 8
+  store ptr %346, ptr %repeat1329, align 8
   %pattern2018 = getelementptr inbounds i8, ptr %ctx.21, i64 24
   store ptr %pattern.addr.8, ptr %pattern2018, align 8
   %ptr2019 = getelementptr inbounds i8, ptr %ctx.21, i64 32
   store ptr %ptr.8, ptr %ptr2019, align 8
-  %346 = load i64, ptr %data_stack_base, align 8
-  %347 = load i64, ptr %data_stack_size, align 8
-  %sub2023 = sub i64 %347, %346
+  %347 = load i64, ptr %data_stack_base, align 8
+  %348 = load i64, ptr %data_stack_size, align 8
+  %sub2023 = sub i64 %348, %347
   %cmp2024 = icmp ult i64 %sub2023, 56
   br i1 %cmp2024, label %if.then2026, label %if.end2014.if.end2042_crit_edge
 
@@ -13166,26 +13165,26 @@ if.end2014.if.end2042_crit_edge:                  ; preds = %if.end2014
   br label %if.end2042
 
 if.then2026:                                      ; preds = %if.end2014
-  %add.i1483 = add i64 %346, 56
-  %cmp.i1485 = icmp slt i64 %347, %add.i1483
+  %add.i1483 = add i64 %347, 56
+  %cmp.i1485 = icmp slt i64 %348, %add.i1483
   %.pre2080.pre = load ptr, ptr %data_stack11, align 8
   br i1 %cmp.i1485, label %if.then.i1487, label %if.end2033
 
 if.then.i1487:                                    ; preds = %if.then2026
   %div.i1488 = sdiv i64 %add.i1483, 4
-  %add1.i1489 = add i64 %346, 1080
+  %add1.i1489 = add i64 %347, 1080
   %add2.i1490 = add i64 %add1.i1489, %div.i1488
   %call.i1492 = tail call ptr @PyMem_Realloc(ptr noundef %.pre2080.pre, i64 noundef %add2.i1490) #14
   %tobool.not.i1493 = icmp eq ptr %call.i1492, null
   br i1 %tobool.not.i1493, label %if.then3.i1495, label %if.end.i1494
 
 if.then3.i1495:                                   ; preds = %if.then.i1487
-  %348 = load ptr, ptr %data_stack11, align 8
-  %tobool.not.i.i1496 = icmp eq ptr %348, null
+  %349 = load ptr, ptr %data_stack11, align 8
+  %tobool.not.i.i1496 = icmp eq ptr %349, null
   br i1 %tobool.not.i.i1496, label %if.then2031, label %if.then.i.i1497
 
 if.then.i.i1497:                                  ; preds = %if.then3.i1495
-  tail call void @PyMem_Free(ptr noundef nonnull %348) #14
+  tail call void @PyMem_Free(ptr noundef nonnull %349) #14
   store ptr null, ptr %data_stack11, align 8
   br label %if.then2031
 
@@ -13202,22 +13201,22 @@ if.end2033:                                       ; preds = %if.end.i1494, %if.t
   %.pre2080 = phi ptr [ %call.i1492, %if.end.i1494 ], [ %.pre2080.pre, %if.then2026 ]
   %cmp2034.not = icmp eq i64 %ctx_pos.7, -1
   %add.ptr2039 = getelementptr i8, ptr %.pre2080, i64 %ctx_pos.7
-  %spec.select2320 = select i1 %cmp2034.not, ptr %ctx.21, ptr %add.ptr2039
+  %spec.select2318 = select i1 %cmp2034.not, ptr %ctx.21, ptr %add.ptr2039
   br label %if.end2042
 
 if.end2042:                                       ; preds = %if.end2033, %if.end2014.if.end2042_crit_edge
-  %349 = phi ptr [ %.pre2079, %if.end2014.if.end2042_crit_edge ], [ %.pre2080, %if.end2033 ]
-  %ctx.26 = phi ptr [ %ctx.21, %if.end2014.if.end2042_crit_edge ], [ %spec.select2320, %if.end2033 ]
-  %add.ptr2044 = getelementptr i8, ptr %349, i64 %346
-  %350 = load i64, ptr %data_stack_base, align 8
-  %add2046 = add i64 %350, 56
+  %350 = phi ptr [ %.pre2079, %if.end2014.if.end2042_crit_edge ], [ %.pre2080, %if.end2033 ]
+  %ctx.26 = phi ptr [ %ctx.21, %if.end2014.if.end2042_crit_edge ], [ %spec.select2318, %if.end2033 ]
+  %add.ptr2044 = getelementptr i8, ptr %350, i64 %347
+  %351 = load i64, ptr %data_stack_base, align 8
+  %add2046 = add i64 %351, 56
   store i64 %add2046, ptr %data_stack_base, align 8
   %pattern2048 = getelementptr inbounds i8, ptr %add.ptr2044, i64 24
   store ptr %pattern.addr.8, ptr %pattern2048, align 8
   %toplevel2049 = getelementptr inbounds i8, ptr %ctx.26, i64 40
-  %351 = load i32, ptr %toplevel2049, align 8
+  %352 = load i32, ptr %toplevel2049, align 8
   %toplevel2050 = getelementptr inbounds i8, ptr %add.ptr2044, i64 40
-  store i32 %351, ptr %toplevel2050, align 8
+  store i32 %352, ptr %toplevel2050, align 8
   %jump2051 = getelementptr inbounds i8, ptr %add.ptr2044, i64 44
   store i32 3, ptr %jump2051, align 4
   %last_ctx_pos2052 = getelementptr inbounds i8, ptr %add.ptr2044, i64 48
@@ -13229,35 +13228,35 @@ do.end2072:                                       ; preds = %sw.bb3449
   br label %exit
 
 TARGET_SRE_OP_MIN_UNTIL:                          ; preds = %indirectgoto
-  %352 = load ptr, ptr %repeat1329, align 8
+  %353 = load ptr, ptr %repeat1329, align 8
   %u2077 = getelementptr inbounds i8, ptr %ctx.2, i64 8
-  store ptr %352, ptr %u2077, align 8
-  %tobool2079.not = icmp eq ptr %352, null
+  store ptr %353, ptr %u2077, align 8
+  %tobool2079.not = icmp eq ptr %353, null
   br i1 %tobool2079.not, label %return, label %if.end2083
 
 if.end2083:                                       ; preds = %TARGET_SRE_OP_MIN_UNTIL
   store ptr %ptr.0, ptr %state, align 8
-  %353 = load ptr, ptr %u2077, align 8
-  %354 = load i64, ptr %353, align 8
-  %add2087 = add i64 %354, 1
+  %354 = load ptr, ptr %u2077, align 8
+  %355 = load i64, ptr %354, align 8
+  %add2087 = add i64 %355, 1
   store i64 %add2087, ptr %ctx.2, align 8
-  %pattern2091 = getelementptr inbounds i8, ptr %353, i64 8
-  %355 = load ptr, ptr %pattern2091, align 8
-  %arrayidx2092 = getelementptr i8, ptr %355, i64 4
-  %356 = load i32, ptr %arrayidx2092, align 4
-  %conv2093 = zext i32 %356 to i64
+  %pattern2091 = getelementptr inbounds i8, ptr %354, i64 8
+  %356 = load ptr, ptr %pattern2091, align 8
+  %arrayidx2092 = getelementptr i8, ptr %356, i64 4
+  %357 = load i32, ptr %arrayidx2092, align 4
+  %conv2093 = zext i32 %357 to i64
   %cmp2094 = icmp slt i64 %add2087, %conv2093
   br i1 %cmp2094, label %if.then2096, label %if.end2163
 
 if.then2096:                                      ; preds = %if.end2083
-  store i64 %add2087, ptr %353, align 8
+  store i64 %add2087, ptr %354, align 8
   %pattern2100 = getelementptr inbounds i8, ptr %ctx.2, i64 24
   store ptr %pattern.addr.2, ptr %pattern2100, align 8
   %ptr2101 = getelementptr inbounds i8, ptr %ctx.2, i64 32
   store ptr %ptr.0, ptr %ptr2101, align 8
-  %357 = load i64, ptr %data_stack_base, align 8
-  %358 = load i64, ptr %data_stack_size, align 8
-  %sub2105 = sub i64 %358, %357
+  %358 = load i64, ptr %data_stack_base, align 8
+  %359 = load i64, ptr %data_stack_size, align 8
+  %sub2105 = sub i64 %359, %358
   %cmp2106 = icmp ult i64 %sub2105, 56
   br i1 %cmp2106, label %if.then2108, label %if.then2096.if.end2124_crit_edge
 
@@ -13278,71 +13277,71 @@ if.end2115:                                       ; preds = %if.then2108
   %cmp2116.not = icmp eq i64 %ctx_pos.1.ph, -1
   %.pre2041 = load ptr, ptr %data_stack11, align 8
   %add.ptr2121 = getelementptr i8, ptr %.pre2041, i64 %ctx_pos.1.ph
-  %spec.select2321 = select i1 %cmp2116.not, ptr %ctx.2, ptr %add.ptr2121
+  %spec.select2319 = select i1 %cmp2116.not, ptr %ctx.2, ptr %add.ptr2121
   br label %if.end2124
 
 if.end2124:                                       ; preds = %if.end2115, %if.then2096.if.end2124_crit_edge
-  %359 = phi ptr [ %.pre2040, %if.then2096.if.end2124_crit_edge ], [ %.pre2041, %if.end2115 ]
-  %ctx.27 = phi ptr [ %ctx.2, %if.then2096.if.end2124_crit_edge ], [ %spec.select2321, %if.end2115 ]
-  %add.ptr2126 = getelementptr i8, ptr %359, i64 %357
-  %360 = load i64, ptr %data_stack_base, align 8
-  %add2128 = add i64 %360, 56
+  %360 = phi ptr [ %.pre2040, %if.then2096.if.end2124_crit_edge ], [ %.pre2041, %if.end2115 ]
+  %ctx.27 = phi ptr [ %ctx.2, %if.then2096.if.end2124_crit_edge ], [ %spec.select2319, %if.end2115 ]
+  %add.ptr2126 = getelementptr i8, ptr %360, i64 %358
+  %361 = load i64, ptr %data_stack_base, align 8
+  %add2128 = add i64 %361, 56
   store i64 %add2128, ptr %data_stack_base, align 8
   %u2130 = getelementptr inbounds i8, ptr %ctx.27, i64 8
-  %361 = load ptr, ptr %u2130, align 8
-  %pattern2131 = getelementptr inbounds i8, ptr %361, i64 8
-  %362 = load ptr, ptr %pattern2131, align 8
-  %add.ptr2132 = getelementptr i8, ptr %362, i64 12
+  %362 = load ptr, ptr %u2130, align 8
+  %pattern2131 = getelementptr inbounds i8, ptr %362, i64 8
+  %363 = load ptr, ptr %pattern2131, align 8
+  %add.ptr2132 = getelementptr i8, ptr %363, i64 12
   %pattern2133 = getelementptr inbounds i8, ptr %add.ptr2126, i64 24
   store ptr %add.ptr2132, ptr %pattern2133, align 8
   %toplevel2134 = getelementptr inbounds i8, ptr %ctx.27, i64 40
-  %363 = load i32, ptr %toplevel2134, align 8
+  %364 = load i32, ptr %toplevel2134, align 8
   %toplevel2135 = getelementptr inbounds i8, ptr %add.ptr2126, i64 40
-  store i32 %363, ptr %toplevel2135, align 8
+  store i32 %364, ptr %toplevel2135, align 8
   %jump2136 = getelementptr inbounds i8, ptr %add.ptr2126, i64 44
   store i32 4, ptr %jump2136, align 4
   %last_ctx_pos2137 = getelementptr inbounds i8, ptr %add.ptr2126, i64 48
   store i64 %ctx_pos.1.ph, ptr %last_ctx_pos2137, align 8
-  %364 = load ptr, ptr %u2130, align 8
-  %pattern2139 = getelementptr inbounds i8, ptr %364, i64 8
-  %365 = load ptr, ptr %pattern2139, align 8
-  %add.ptr2140 = getelementptr i8, ptr %365, i64 12
+  %365 = load ptr, ptr %u2130, align 8
+  %pattern2139 = getelementptr inbounds i8, ptr %365, i64 8
+  %366 = load ptr, ptr %pattern2139, align 8
+  %add.ptr2140 = getelementptr i8, ptr %366, i64 12
   br label %entrance.backedge
 
 if.end2155:                                       ; preds = %sw.bb3454
   %ptr2142 = getelementptr inbounds i8, ptr %add.ptr3447, i64 32
-  %366 = load ptr, ptr %ptr2142, align 8
-  %367 = load i64, ptr %add.ptr3447, align 8
-  %sub2157 = add i64 %367, -1
+  %367 = load ptr, ptr %ptr2142, align 8
+  %368 = load i64, ptr %add.ptr3447, align 8
+  %sub2157 = add i64 %368, -1
   %u2158 = getelementptr inbounds i8, ptr %add.ptr3447, i64 8
-  %368 = load ptr, ptr %u2158, align 8
-  store i64 %sub2157, ptr %368, align 8
-  store ptr %366, ptr %state, align 8
+  %369 = load ptr, ptr %u2158, align 8
+  store i64 %sub2157, ptr %369, align 8
+  store ptr %367, ptr %state, align 8
   br label %exit
 
 if.end2163:                                       ; preds = %if.end2083
-  %prev2165 = getelementptr inbounds i8, ptr %353, i64 24
-  %369 = load ptr, ptr %prev2165, align 8
-  store ptr %369, ptr %repeat1329, align 8
-  %370 = load i32, ptr %lastmark2993, align 4
+  %prev2165 = getelementptr inbounds i8, ptr %354, i64 24
+  %370 = load ptr, ptr %prev2165, align 8
+  store ptr %370, ptr %repeat1329, align 8
+  %371 = load i32, ptr %lastmark2993, align 4
   %lastmark2169 = getelementptr inbounds i8, ptr %ctx.2, i64 16
-  store i32 %370, ptr %lastmark2169, align 8
-  %371 = load i32, ptr %lastindex, align 8
+  store i32 %371, ptr %lastmark2169, align 8
+  %372 = load i32, ptr %lastindex, align 8
   %lastindex2171 = getelementptr inbounds i8, ptr %ctx.2, i64 20
-  store i32 %371, ptr %lastindex2171, align 4
-  %372 = load ptr, ptr %repeat1329, align 8
-  %tobool2174.not = icmp ne ptr %372, null
-  %cmp2178 = icmp sgt i32 %370, -1
+  store i32 %372, ptr %lastindex2171, align 4
+  %373 = load ptr, ptr %repeat1329, align 8
+  %tobool2174.not = icmp ne ptr %373, null
+  %cmp2178 = icmp sgt i32 %371, -1
   %or.cond1551 = select i1 %tobool2174.not, i1 %cmp2178, i1 false
   br i1 %or.cond1551, label %if.then2180, label %if.end2218
 
 if.then2180:                                      ; preds = %if.end2163
-  %add2183 = add nuw i32 %370, 1
+  %add2183 = add nuw i32 %371, 1
   %conv2184 = sext i32 %add2183 to i64
   %mul2185 = shl nsw i64 %conv2184, 3
-  %373 = load i64, ptr %data_stack_size, align 8
-  %374 = load i64, ptr %data_stack_base, align 8
-  %sub2189 = sub i64 %373, %374
+  %374 = load i64, ptr %data_stack_size, align 8
+  %375 = load i64, ptr %data_stack_base, align 8
+  %sub2189 = sub i64 %374, %375
   %cmp2190 = icmp ugt i64 %mul2185, %sub2189
   br i1 %cmp2190, label %if.then2192, label %if.then2180.if.end2208_crit_edge
 
@@ -13363,18 +13362,18 @@ if.end2199:                                       ; preds = %if.then2192
   %cmp2200.not = icmp eq i64 %ctx_pos.1.ph, -1
   %.pre2037 = load ptr, ptr %data_stack11, align 8
   %add.ptr2205 = getelementptr i8, ptr %.pre2037, i64 %ctx_pos.1.ph
-  %spec.select2322 = select i1 %cmp2200.not, ptr %ctx.2, ptr %add.ptr2205
+  %spec.select2320 = select i1 %cmp2200.not, ptr %ctx.2, ptr %add.ptr2205
   br label %if.end2208
 
 if.end2208:                                       ; preds = %if.end2199, %if.then2180.if.end2208_crit_edge
-  %375 = phi ptr [ %.pre2036, %if.then2180.if.end2208_crit_edge ], [ %.pre2037, %if.end2199 ]
-  %ctx.29 = phi ptr [ %ctx.2, %if.then2180.if.end2208_crit_edge ], [ %spec.select2322, %if.end2199 ]
-  %376 = load i64, ptr %data_stack_base, align 8
-  %add.ptr2211 = getelementptr i8, ptr %375, i64 %376
-  %377 = load ptr, ptr %mark3001, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr2211, ptr noundef nonnull align 8 dereferenceable(1) %377, i64 %mul2185, i1 false)
-  %378 = load i64, ptr %data_stack_base, align 8
-  %add2214 = add i64 %378, %mul2185
+  %376 = phi ptr [ %.pre2036, %if.then2180.if.end2208_crit_edge ], [ %.pre2037, %if.end2199 ]
+  %ctx.29 = phi ptr [ %ctx.2, %if.then2180.if.end2208_crit_edge ], [ %spec.select2320, %if.end2199 ]
+  %377 = load i64, ptr %data_stack_base, align 8
+  %add.ptr2211 = getelementptr i8, ptr %376, i64 %377
+  %378 = load ptr, ptr %mark3001, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr2211, ptr noundef nonnull align 8 dereferenceable(1) %378, i64 %mul2185, i1 false)
+  %379 = load i64, ptr %data_stack_base, align 8
+  %add2214 = add i64 %379, %mul2185
   store i64 %add2214, ptr %data_stack_base, align 8
   br label %if.end2218
 
@@ -13384,9 +13383,9 @@ if.end2218:                                       ; preds = %if.end2208, %if.end
   store ptr %pattern.addr.2, ptr %pattern2219, align 8
   %ptr2220 = getelementptr inbounds i8, ptr %ctx.28, i64 32
   store ptr %ptr.0, ptr %ptr2220, align 8
-  %379 = load i64, ptr %data_stack_base, align 8
-  %380 = load i64, ptr %data_stack_size, align 8
-  %sub2224 = sub i64 %380, %379
+  %380 = load i64, ptr %data_stack_base, align 8
+  %381 = load i64, ptr %data_stack_size, align 8
+  %sub2224 = sub i64 %381, %380
   %cmp2225 = icmp ult i64 %sub2224, 56
   br i1 %cmp2225, label %if.then2227, label %if.end2218.if.end2243_crit_edge
 
@@ -13407,22 +13406,22 @@ if.end2234:                                       ; preds = %if.then2227
   %cmp2235.not = icmp eq i64 %ctx_pos.1.ph, -1
   %.pre2039 = load ptr, ptr %data_stack11, align 8
   %add.ptr2240 = getelementptr i8, ptr %.pre2039, i64 %ctx_pos.1.ph
-  %spec.select2323 = select i1 %cmp2235.not, ptr %ctx.28, ptr %add.ptr2240
+  %spec.select2321 = select i1 %cmp2235.not, ptr %ctx.28, ptr %add.ptr2240
   br label %if.end2243
 
 if.end2243:                                       ; preds = %if.end2234, %if.end2218.if.end2243_crit_edge
-  %381 = phi ptr [ %.pre2038, %if.end2218.if.end2243_crit_edge ], [ %.pre2039, %if.end2234 ]
-  %ctx.30 = phi ptr [ %ctx.28, %if.end2218.if.end2243_crit_edge ], [ %spec.select2323, %if.end2234 ]
-  %add.ptr2245 = getelementptr i8, ptr %381, i64 %379
-  %382 = load i64, ptr %data_stack_base, align 8
-  %add2247 = add i64 %382, 56
+  %382 = phi ptr [ %.pre2038, %if.end2218.if.end2243_crit_edge ], [ %.pre2039, %if.end2234 ]
+  %ctx.30 = phi ptr [ %ctx.28, %if.end2218.if.end2243_crit_edge ], [ %spec.select2321, %if.end2234 ]
+  %add.ptr2245 = getelementptr i8, ptr %382, i64 %380
+  %383 = load i64, ptr %data_stack_base, align 8
+  %add2247 = add i64 %383, 56
   store i64 %add2247, ptr %data_stack_base, align 8
   %pattern2249 = getelementptr inbounds i8, ptr %add.ptr2245, i64 24
   store ptr %pattern.addr.2, ptr %pattern2249, align 8
   %toplevel2250 = getelementptr inbounds i8, ptr %ctx.30, i64 40
-  %383 = load i32, ptr %toplevel2250, align 8
+  %384 = load i32, ptr %toplevel2250, align 8
   %toplevel2251 = getelementptr inbounds i8, ptr %add.ptr2245, i64 40
-  store i32 %383, ptr %toplevel2251, align 8
+  store i32 %384, ptr %toplevel2251, align 8
   %jump2252 = getelementptr inbounds i8, ptr %add.ptr2245, i64 44
   store i32 5, ptr %jump2252, align 4
   %last_ctx_pos2253 = getelementptr inbounds i8, ptr %add.ptr2245, i64 48
@@ -13434,12 +13433,12 @@ if.then2260:                                      ; preds = %sw.bb3450
 
 do.body2263:                                      ; preds = %if.then2260
   %lastmark2264 = getelementptr inbounds i8, ptr %add.ptr3447, i64 16
-  %384 = load i32, ptr %lastmark2264, align 8
-  %cmp2265 = icmp sgt i32 %384, -1
+  %385 = load i32, ptr %lastmark2264, align 8
+  %cmp2265 = icmp sgt i32 %385, -1
   br i1 %cmp2265, label %if.then2267, label %exit
 
 if.then2267:                                      ; preds = %do.body2263
-  %add2270 = add nuw i32 %384, 1
+  %add2270 = add nuw i32 %385, 1
   %conv2271 = sext i32 %add2270 to i64
   %mul2272 = shl nsw i64 %conv2271, 3
   %sub2275 = sub i64 %sub3438, %mul2272
@@ -13451,55 +13450,55 @@ if.end2290:                                       ; preds = %sw.bb3450
 
 do.body2293:                                      ; preds = %if.end2290
   %lastmark2294 = getelementptr inbounds i8, ptr %add.ptr3447, i64 16
-  %385 = load i32, ptr %lastmark2294, align 8
-  %cmp2295 = icmp sgt i32 %385, -1
+  %386 = load i32, ptr %lastmark2294, align 8
+  %cmp2295 = icmp sgt i32 %386, -1
   br i1 %cmp2295, label %if.then2297, label %do.body2316
 
 if.then2297:                                      ; preds = %do.body2293
-  %add2300 = add nuw i32 %385, 1
+  %add2300 = add nuw i32 %386, 1
   %conv2301 = sext i32 %add2300 to i64
   %mul2302 = shl nsw i64 %conv2301, 3
-  %386 = load ptr, ptr %mark3001, align 8
+  %387 = load ptr, ptr %mark3001, align 8
   %add.ptr2307 = getelementptr i8, ptr %538, i64 %sub3438
   %idx.neg2308 = sub nsw i64 0, %mul2302
   %add.ptr2309 = getelementptr i8, ptr %add.ptr2307, i64 %idx.neg2308
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %386, ptr noundef nonnull align 1 dereferenceable(1) %add.ptr2309, i64 %mul2302, i1 false)
-  %387 = load i64, ptr %data_stack_base, align 8
-  %sub2311 = sub i64 %387, %mul2302
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %387, ptr noundef nonnull align 1 dereferenceable(1) %add.ptr2309, i64 %mul2302, i1 false)
+  %388 = load i64, ptr %data_stack_base, align 8
+  %sub2311 = sub i64 %388, %mul2302
   store i64 %sub2311, ptr %data_stack_base, align 8
   br label %do.body2316
 
 do.body2316:                                      ; preds = %if.end2290, %do.body2293, %if.then2297
   %lastmark2317 = getelementptr inbounds i8, ptr %add.ptr3447, i64 16
-  %388 = load i32, ptr %lastmark2317, align 8
-  store i32 %388, ptr %lastmark2993, align 4
+  %389 = load i32, ptr %lastmark2317, align 8
+  store i32 %389, ptr %lastmark2993, align 4
   %lastindex2319 = getelementptr inbounds i8, ptr %add.ptr3447, i64 20
-  %389 = load i32, ptr %lastindex2319, align 4
-  store i32 %389, ptr %lastindex, align 8
+  %390 = load i32, ptr %lastindex2319, align 4
+  store i32 %390, ptr %lastindex, align 8
   store ptr %547, ptr %state, align 8
-  %390 = load i64, ptr %add.ptr3447, align 8
-  %391 = load ptr, ptr %u2257, align 8
-  %pattern2325 = getelementptr inbounds i8, ptr %391, i64 8
-  %392 = load ptr, ptr %pattern2325, align 8
-  %arrayidx2326 = getelementptr i8, ptr %392, i64 8
-  %393 = load i32, ptr %arrayidx2326, align 4
-  %conv2327 = zext i32 %393 to i64
-  %cmp2328.not = icmp slt i64 %390, %conv2327
-  %cmp2334.not = icmp eq i32 %393, -1
+  %391 = load i64, ptr %add.ptr3447, align 8
+  %392 = load ptr, ptr %u2257, align 8
+  %pattern2325 = getelementptr inbounds i8, ptr %392, i64 8
+  %393 = load ptr, ptr %pattern2325, align 8
+  %arrayidx2326 = getelementptr i8, ptr %393, i64 8
+  %394 = load i32, ptr %arrayidx2326, align 4
+  %conv2327 = zext i32 %394 to i64
+  %cmp2328.not = icmp slt i64 %391, %conv2327
+  %cmp2334.not = icmp eq i32 %394, -1
   %or.cond1407 = or i1 %cmp2334.not, %cmp2328.not
   br i1 %or.cond1407, label %lor.lhs.false2336, label %exit
 
 lor.lhs.false2336:                                ; preds = %do.body2316
-  %last_ptr2339 = getelementptr inbounds i8, ptr %391, i64 16
-  %394 = load ptr, ptr %last_ptr2339, align 8
-  %cmp2340 = icmp eq ptr %547, %394
+  %last_ptr2339 = getelementptr inbounds i8, ptr %392, i64 16
+  %395 = load ptr, ptr %last_ptr2339, align 8
+  %cmp2340 = icmp eq ptr %547, %395
   br i1 %cmp2340, label %exit, label %if.end2345
 
 if.end2345:                                       ; preds = %lor.lhs.false2336
-  store i64 %390, ptr %391, align 8
-  %395 = load i64, ptr %data_stack_size, align 8
-  %396 = load i64, ptr %data_stack_base, align 8
-  %sub2353 = sub i64 %395, %396
+  store i64 %391, ptr %392, align 8
+  %396 = load i64, ptr %data_stack_size, align 8
+  %397 = load i64, ptr %data_stack_base, align 8
+  %sub2353 = sub i64 %396, %397
   %cmp2354 = icmp ult i64 %sub2353, 8
   br i1 %cmp2354, label %if.then2356, label %if.end2345.if.end2372_crit_edge
 
@@ -13517,35 +13516,35 @@ if.then2361:                                      ; preds = %if.then2356
   br label %return
 
 do.body2367:                                      ; preds = %if.then2356
-  %397 = load ptr, ptr %data_stack11, align 8
-  %add.ptr2369 = getelementptr i8, ptr %397, i64 %535
+  %398 = load ptr, ptr %data_stack11, align 8
+  %add.ptr2369 = getelementptr i8, ptr %398, i64 %535
   %.pre2074 = load i64, ptr %data_stack_base, align 8
   br label %if.end2372
 
 if.end2372:                                       ; preds = %if.end2345.if.end2372_crit_edge, %do.body2367
-  %398 = phi i64 [ %.pre2074, %do.body2367 ], [ %396, %if.end2345.if.end2372_crit_edge ]
-  %399 = phi ptr [ %397, %do.body2367 ], [ %.pre2073, %if.end2345.if.end2372_crit_edge ]
+  %399 = phi i64 [ %.pre2074, %do.body2367 ], [ %397, %if.end2345.if.end2372_crit_edge ]
+  %400 = phi ptr [ %398, %do.body2367 ], [ %.pre2073, %if.end2345.if.end2372_crit_edge ]
   %ctx.31 = phi ptr [ %add.ptr2369, %do.body2367 ], [ %add.ptr3447, %if.end2345.if.end2372_crit_edge ]
-  %add.ptr2375 = getelementptr i8, ptr %399, i64 %398
+  %add.ptr2375 = getelementptr i8, ptr %400, i64 %399
   %u2376 = getelementptr inbounds i8, ptr %ctx.31, i64 8
-  %400 = load ptr, ptr %u2376, align 8
-  %last_ptr2377 = getelementptr inbounds i8, ptr %400, i64 16
-  %401 = load i64, ptr %last_ptr2377, align 8
-  store i64 %401, ptr %add.ptr2375, align 1
-  %402 = load i64, ptr %data_stack_base, align 8
-  %add2379 = add i64 %402, 8
+  %401 = load ptr, ptr %u2376, align 8
+  %last_ptr2377 = getelementptr inbounds i8, ptr %401, i64 16
+  %402 = load i64, ptr %last_ptr2377, align 8
+  store i64 %402, ptr %add.ptr2375, align 1
+  %403 = load i64, ptr %data_stack_base, align 8
+  %add2379 = add i64 %403, 8
   store i64 %add2379, ptr %data_stack_base, align 8
-  %403 = load ptr, ptr %state, align 8
-  %404 = load ptr, ptr %u2376, align 8
-  %last_ptr2384 = getelementptr inbounds i8, ptr %404, i64 16
-  store ptr %403, ptr %last_ptr2384, align 8
+  %404 = load ptr, ptr %state, align 8
+  %405 = load ptr, ptr %u2376, align 8
+  %last_ptr2384 = getelementptr inbounds i8, ptr %405, i64 16
+  store ptr %404, ptr %last_ptr2384, align 8
   %pattern2385 = getelementptr inbounds i8, ptr %ctx.31, i64 24
   store ptr %546, ptr %pattern2385, align 8
   %ptr2386 = getelementptr inbounds i8, ptr %ctx.31, i64 32
   store ptr %547, ptr %ptr2386, align 8
-  %405 = load i64, ptr %data_stack_base, align 8
-  %406 = load i64, ptr %data_stack_size, align 8
-  %sub2390 = sub i64 %406, %405
+  %406 = load i64, ptr %data_stack_base, align 8
+  %407 = load i64, ptr %data_stack_size, align 8
+  %sub2390 = sub i64 %407, %406
   %cmp2391 = icmp ult i64 %sub2390, 56
   br i1 %cmp2391, label %if.then2393, label %if.end2372.if.end2409_crit_edge
 
@@ -13563,44 +13562,44 @@ if.then2398:                                      ; preds = %if.then2393
   br label %return
 
 do.body2404:                                      ; preds = %if.then2393
-  %407 = load ptr, ptr %data_stack11, align 8
-  %add.ptr2406 = getelementptr i8, ptr %407, i64 %535
+  %408 = load ptr, ptr %data_stack11, align 8
+  %add.ptr2406 = getelementptr i8, ptr %408, i64 %535
   %.pre2076 = load i64, ptr %data_stack_base, align 8
   br label %if.end2409
 
 if.end2409:                                       ; preds = %if.end2372.if.end2409_crit_edge, %do.body2404
-  %408 = phi i64 [ %.pre2076, %do.body2404 ], [ %405, %if.end2372.if.end2409_crit_edge ]
-  %409 = phi ptr [ %407, %do.body2404 ], [ %.pre2075, %if.end2372.if.end2409_crit_edge ]
+  %409 = phi i64 [ %.pre2076, %do.body2404 ], [ %406, %if.end2372.if.end2409_crit_edge ]
+  %410 = phi ptr [ %408, %do.body2404 ], [ %.pre2075, %if.end2372.if.end2409_crit_edge ]
   %ctx.32 = phi ptr [ %add.ptr2406, %do.body2404 ], [ %ctx.31, %if.end2372.if.end2409_crit_edge ]
-  %add.ptr2411 = getelementptr i8, ptr %409, i64 %405
-  %add2413 = add i64 %408, 56
+  %add.ptr2411 = getelementptr i8, ptr %410, i64 %406
+  %add2413 = add i64 %409, 56
   store i64 %add2413, ptr %data_stack_base, align 8
   %u2415 = getelementptr inbounds i8, ptr %ctx.32, i64 8
-  %410 = load ptr, ptr %u2415, align 8
-  %pattern2416 = getelementptr inbounds i8, ptr %410, i64 8
-  %411 = load ptr, ptr %pattern2416, align 8
-  %add.ptr2417 = getelementptr i8, ptr %411, i64 12
+  %411 = load ptr, ptr %u2415, align 8
+  %pattern2416 = getelementptr inbounds i8, ptr %411, i64 8
+  %412 = load ptr, ptr %pattern2416, align 8
+  %add.ptr2417 = getelementptr i8, ptr %412, i64 12
   %pattern2418 = getelementptr inbounds i8, ptr %add.ptr2411, i64 24
   store ptr %add.ptr2417, ptr %pattern2418, align 8
   %toplevel2419 = getelementptr inbounds i8, ptr %ctx.32, i64 40
-  %412 = load i32, ptr %toplevel2419, align 8
+  %413 = load i32, ptr %toplevel2419, align 8
   %toplevel2420 = getelementptr inbounds i8, ptr %add.ptr2411, i64 40
-  store i32 %412, ptr %toplevel2420, align 8
+  store i32 %413, ptr %toplevel2420, align 8
   %jump2421 = getelementptr inbounds i8, ptr %add.ptr2411, i64 44
   store i32 6, ptr %jump2421, align 4
   %last_ctx_pos2422 = getelementptr inbounds i8, ptr %add.ptr2411, i64 48
   store i64 %535, ptr %last_ctx_pos2422, align 8
-  %413 = load ptr, ptr %u2415, align 8
-  %pattern2424 = getelementptr inbounds i8, ptr %413, i64 8
-  %414 = load ptr, ptr %pattern2424, align 8
-  %add.ptr2425 = getelementptr i8, ptr %414, i64 12
+  %414 = load ptr, ptr %u2415, align 8
+  %pattern2424 = getelementptr inbounds i8, ptr %414, i64 8
+  %415 = load ptr, ptr %pattern2424, align 8
+  %add.ptr2425 = getelementptr i8, ptr %415, i64 12
   br label %entrance.backedge
 
 if.end2452:                                       ; preds = %sw.bb3451
-  %415 = load i64, ptr %add.ptr3447, align 8
-  %sub2454 = add i64 %415, -1
-  %416 = load ptr, ptr %u2430, align 8
-  store i64 %sub2454, ptr %416, align 8
+  %416 = load i64, ptr %add.ptr3447, align 8
+  %sub2454 = add i64 %416, -1
+  %417 = load ptr, ptr %u2430, align 8
+  store i64 %sub2454, ptr %417, align 8
   store ptr %550, ptr %state, align 8
   br label %exit
 
@@ -13610,16 +13609,16 @@ TARGET_SRE_OP_POSSESSIVE_REPEAT:                  ; preds = %indirectgoto
   br label %while.cond2462
 
 while.cond2462:                                   ; preds = %do.end2516, %TARGET_SRE_OP_POSSESSIVE_REPEAT
-  %417 = phi i64 [ 0, %TARGET_SRE_OP_POSSESSIVE_REPEAT ], [ %inc2518, %do.end2516 ]
+  %418 = phi i64 [ 0, %TARGET_SRE_OP_POSSESSIVE_REPEAT ], [ %inc2518, %do.end2516 ]
   %ptr.9 = phi ptr [ %ptr.0, %TARGET_SRE_OP_POSSESSIVE_REPEAT ], [ %557, %do.end2516 ]
   %ctx.33 = phi ptr [ %ctx.2, %TARGET_SRE_OP_POSSESSIVE_REPEAT ], [ %add.ptr3447, %do.end2516 ]
   %sigcount.11 = phi i32 [ %sigcount.2, %TARGET_SRE_OP_POSSESSIVE_REPEAT ], [ %sigcount.1, %do.end2516 ]
   %ctx_pos.8 = phi i64 [ %ctx_pos.1.ph, %TARGET_SRE_OP_POSSESSIVE_REPEAT ], [ %535, %do.end2516 ]
-  %pattern.addr.9 = phi ptr [ %pattern.addr.2, %TARGET_SRE_OP_POSSESSIVE_REPEAT ], [ %423, %do.end2516 ]
+  %pattern.addr.9 = phi ptr [ %pattern.addr.2, %TARGET_SRE_OP_POSSESSIVE_REPEAT ], [ %424, %do.end2516 ]
   %arrayidx2464 = getelementptr i8, ptr %pattern.addr.9, i64 4
-  %418 = load i32, ptr %arrayidx2464, align 4
-  %conv2465 = zext i32 %418 to i64
-  %cmp2466 = icmp slt i64 %417, %conv2465
+  %419 = load i32, ptr %arrayidx2464, align 4
+  %conv2465 = zext i32 %419 to i64
+  %cmp2466 = icmp slt i64 %418, %conv2465
   br i1 %cmp2466, label %while.body2468, label %while.cond2525
 
 while.body2468:                                   ; preds = %while.cond2462
@@ -13627,9 +13626,9 @@ while.body2468:                                   ; preds = %while.cond2462
   store ptr %pattern.addr.9, ptr %pattern2469, align 8
   %ptr2470 = getelementptr inbounds i8, ptr %ctx.33, i64 32
   store ptr %ptr.9, ptr %ptr2470, align 8
-  %419 = load i64, ptr %data_stack_base, align 8
-  %420 = load i64, ptr %data_stack_size, align 8
-  %sub2474 = sub i64 %420, %419
+  %420 = load i64, ptr %data_stack_base, align 8
+  %421 = load i64, ptr %data_stack_size, align 8
+  %sub2474 = sub i64 %421, %420
   %cmp2475 = icmp ult i64 %sub2474, 56
   br i1 %cmp2475, label %if.then2477, label %if.end2493
 
@@ -13647,10 +13646,10 @@ if.then2482:                                      ; preds = %if.then2477
   br label %return
 
 if.end2493:                                       ; preds = %if.then2477.if.end2493_crit_edge, %while.body2468
-  %421 = phi i64 [ %.pre2070, %if.then2477.if.end2493_crit_edge ], [ %419, %while.body2468 ]
-  %422 = load ptr, ptr %data_stack11, align 8
-  %add.ptr2495 = getelementptr i8, ptr %422, i64 %419
-  %add2497 = add i64 %421, 56
+  %422 = phi i64 [ %.pre2070, %if.then2477.if.end2493_crit_edge ], [ %420, %while.body2468 ]
+  %423 = load ptr, ptr %data_stack11, align 8
+  %add.ptr2495 = getelementptr i8, ptr %423, i64 %420
+  %add2497 = add i64 %422, 56
   store i64 %add2497, ptr %data_stack_base, align 8
   %arrayidx2499 = getelementptr i8, ptr %pattern.addr.9, i64 12
   %pattern2500 = getelementptr inbounds i8, ptr %add.ptr2495, i64 24
@@ -13665,9 +13664,9 @@ if.end2493:                                       ; preds = %if.then2477.if.end2
 
 do.end2516:                                       ; preds = %sw.bb3455
   %pattern2505 = getelementptr inbounds i8, ptr %add.ptr3447, i64 24
-  %423 = load ptr, ptr %pattern2505, align 8
-  %424 = load i64, ptr %add.ptr3447, align 8
-  %inc2518 = add i64 %424, 1
+  %424 = load ptr, ptr %pattern2505, align 8
+  %425 = load i64, ptr %add.ptr3447, align 8
+  %inc2518 = add i64 %425, 1
   store i64 %inc2518, ptr %add.ptr3447, align 8
   br label %while.cond2462, !llvm.loop !34
 
@@ -13676,40 +13675,40 @@ if.else2519:                                      ; preds = %sw.bb3455
   br label %exit
 
 while.cond2525:                                   ; preds = %while.cond2462, %do.end2654
-  %425 = phi i64 [ %inc2656, %do.end2654 ], [ %417, %while.cond2462 ]
+  %426 = phi i64 [ %inc2656, %do.end2654 ], [ %418, %while.cond2462 ]
   %ptr.10 = phi ptr [ %559, %do.end2654 ], [ null, %while.cond2462 ]
   %ctx.34 = phi ptr [ %add.ptr3447, %do.end2654 ], [ %ctx.33, %while.cond2462 ]
   %sigcount.12 = phi i32 [ %sigcount.1, %do.end2654 ], [ %sigcount.11, %while.cond2462 ]
   %ctx_pos.9 = phi i64 [ %535, %do.end2654 ], [ %ctx_pos.8, %while.cond2462 ]
   %pattern.addr.10 = phi ptr [ %558, %do.end2654 ], [ %pattern.addr.9, %while.cond2462 ]
   %arrayidx2527 = getelementptr i8, ptr %pattern.addr.10, i64 8
-  %426 = load i32, ptr %arrayidx2527, align 4
-  %conv2528 = zext i32 %426 to i64
-  %cmp2529 = icmp sge i64 %425, %conv2528
-  %cmp2534 = icmp ne i32 %426, -1
-  %or.cond1408.not2329 = and i1 %cmp2534, %cmp2529
+  %427 = load i32, ptr %arrayidx2527, align 4
+  %conv2528 = zext i32 %427 to i64
+  %cmp2529 = icmp sge i64 %426, %conv2528
+  %cmp2534 = icmp ne i32 %427, -1
+  %or.cond1408.not2326 = and i1 %cmp2534, %cmp2529
   %.pre2069 = load ptr, ptr %state, align 8
   %cmp2538.not = icmp eq ptr %.pre2069, %ptr.10
-  %or.cond2324 = select i1 %or.cond1408.not2329, i1 true, i1 %cmp2538.not
-  br i1 %or.cond2324, label %while.end2688, label %do.body2542
+  %or.cond2322 = select i1 %or.cond1408.not2326, i1 true, i1 %cmp2538.not
+  br i1 %or.cond2322, label %while.end2688, label %do.body2542
 
 do.body2542:                                      ; preds = %while.cond2525
-  %427 = load i32, ptr %lastmark2993, align 4
+  %428 = load i32, ptr %lastmark2993, align 4
   %lastmark2544 = getelementptr inbounds i8, ptr %ctx.34, i64 16
-  store i32 %427, ptr %lastmark2544, align 8
-  %428 = load i32, ptr %lastindex, align 8
+  store i32 %428, ptr %lastmark2544, align 8
+  %429 = load i32, ptr %lastindex, align 8
   %lastindex2546 = getelementptr inbounds i8, ptr %ctx.34, i64 20
-  store i32 %428, ptr %lastindex2546, align 4
-  %cmp2550 = icmp sgt i32 %427, -1
+  store i32 %429, ptr %lastindex2546, align 4
+  %cmp2550 = icmp sgt i32 %428, -1
   br i1 %cmp2550, label %if.then2552, label %do.end2589
 
 if.then2552:                                      ; preds = %do.body2542
-  %add2555 = add nuw i32 %427, 1
+  %add2555 = add nuw i32 %428, 1
   %conv2556 = sext i32 %add2555 to i64
   %mul2557 = shl nsw i64 %conv2556, 3
-  %429 = load i64, ptr %data_stack_size, align 8
-  %430 = load i64, ptr %data_stack_base, align 8
-  %sub2561 = sub i64 %429, %430
+  %430 = load i64, ptr %data_stack_size, align 8
+  %431 = load i64, ptr %data_stack_base, align 8
+  %sub2561 = sub i64 %430, %431
   %cmp2562 = icmp ugt i64 %mul2557, %sub2561
   br i1 %cmp2562, label %if.then2564, label %if.then2552.if.end2580_crit_edge
 
@@ -13730,31 +13729,31 @@ if.end2571:                                       ; preds = %if.then2564
   %cmp2572.not = icmp eq i64 %ctx_pos.9, -1
   %.pre2067 = load ptr, ptr %data_stack11, align 8
   %add.ptr2577 = getelementptr i8, ptr %.pre2067, i64 %ctx_pos.9
-  %spec.select2325 = select i1 %cmp2572.not, ptr %ctx.34, ptr %add.ptr2577
+  %spec.select2323 = select i1 %cmp2572.not, ptr %ctx.34, ptr %add.ptr2577
   br label %if.end2580
 
 if.end2580:                                       ; preds = %if.end2571, %if.then2552.if.end2580_crit_edge
-  %431 = phi ptr [ %.pre2066, %if.then2552.if.end2580_crit_edge ], [ %.pre2067, %if.end2571 ]
-  %ctx.36 = phi ptr [ %ctx.34, %if.then2552.if.end2580_crit_edge ], [ %spec.select2325, %if.end2571 ]
-  %432 = load i64, ptr %data_stack_base, align 8
-  %add.ptr2583 = getelementptr i8, ptr %431, i64 %432
-  %433 = load ptr, ptr %mark3001, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr2583, ptr noundef nonnull align 8 dereferenceable(1) %433, i64 %mul2557, i1 false)
-  %434 = load i64, ptr %data_stack_base, align 8
-  %add2586 = add i64 %434, %mul2557
+  %432 = phi ptr [ %.pre2066, %if.then2552.if.end2580_crit_edge ], [ %.pre2067, %if.end2571 ]
+  %ctx.36 = phi ptr [ %ctx.34, %if.then2552.if.end2580_crit_edge ], [ %spec.select2323, %if.end2571 ]
+  %433 = load i64, ptr %data_stack_base, align 8
+  %add.ptr2583 = getelementptr i8, ptr %432, i64 %433
+  %434 = load ptr, ptr %mark3001, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr2583, ptr noundef nonnull align 8 dereferenceable(1) %434, i64 %mul2557, i1 false)
+  %435 = load i64, ptr %data_stack_base, align 8
+  %add2586 = add i64 %435, %mul2557
   store i64 %add2586, ptr %data_stack_base, align 8
   br label %do.end2589
 
 do.end2589:                                       ; preds = %do.body2542, %if.end2580
   %ctx.37 = phi ptr [ %ctx.36, %if.end2580 ], [ %ctx.34, %do.body2542 ]
-  %435 = load ptr, ptr %state, align 8
+  %436 = load ptr, ptr %state, align 8
   %pattern2591 = getelementptr inbounds i8, ptr %ctx.37, i64 24
   store ptr %pattern.addr.10, ptr %pattern2591, align 8
   %ptr2592 = getelementptr inbounds i8, ptr %ctx.37, i64 32
-  store ptr %435, ptr %ptr2592, align 8
-  %436 = load i64, ptr %data_stack_base, align 8
-  %437 = load i64, ptr %data_stack_size, align 8
-  %sub2596 = sub i64 %437, %436
+  store ptr %436, ptr %ptr2592, align 8
+  %437 = load i64, ptr %data_stack_base, align 8
+  %438 = load i64, ptr %data_stack_size, align 8
+  %sub2596 = sub i64 %438, %437
   %cmp2597 = icmp ult i64 %sub2596, 56
   br i1 %cmp2597, label %if.then2599, label %if.end2615
 
@@ -13772,10 +13771,10 @@ if.then2604:                                      ; preds = %if.then2599
   br label %return
 
 if.end2615:                                       ; preds = %if.then2599.if.end2615_crit_edge, %do.end2589
-  %438 = phi i64 [ %.pre2068, %if.then2599.if.end2615_crit_edge ], [ %436, %do.end2589 ]
-  %439 = load ptr, ptr %data_stack11, align 8
-  %add.ptr2617 = getelementptr i8, ptr %439, i64 %436
-  %add2619 = add i64 %438, 56
+  %439 = phi i64 [ %.pre2068, %if.then2599.if.end2615_crit_edge ], [ %437, %do.end2589 ]
+  %440 = load ptr, ptr %data_stack11, align 8
+  %add.ptr2617 = getelementptr i8, ptr %440, i64 %437
+  %add2619 = add i64 %439, 56
   store i64 %add2619, ptr %data_stack_base, align 8
   %arrayidx2621 = getelementptr i8, ptr %pattern.addr.10, i64 12
   %pattern2622 = getelementptr inbounds i8, ptr %add.ptr2617, i64 24
@@ -13800,8 +13799,8 @@ if.then2635:                                      ; preds = %do.body2631
   br label %do.end2654
 
 do.end2654:                                       ; preds = %do.body2631, %if.then2635
-  %440 = load i64, ptr %add.ptr3447, align 8
-  %inc2656 = add i64 %440, 1
+  %441 = load i64, ptr %add.ptr3447, align 8
+  %inc2656 = add i64 %441, 1
   store i64 %inc2656, ptr %add.ptr3447, align 8
   br label %while.cond2525, !llvm.loop !35
 
@@ -13812,34 +13811,34 @@ if.then2662:                                      ; preds = %do.body2658
   %add2665 = add nuw i32 %560, 1
   %conv2666 = sext i32 %add2665 to i64
   %mul2667 = shl nsw i64 %conv2666, 3
-  %441 = load ptr, ptr %mark3001, align 8
+  %442 = load ptr, ptr %mark3001, align 8
   %add.ptr2672 = getelementptr i8, ptr %538, i64 %sub3438
   %idx.neg2673 = sub nsw i64 0, %mul2667
   %add.ptr2674 = getelementptr i8, ptr %add.ptr2672, i64 %idx.neg2673
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %441, ptr noundef nonnull align 1 dereferenceable(1) %add.ptr2674, i64 %mul2667, i1 false)
-  %442 = load i64, ptr %data_stack_base, align 8
-  %sub2676 = sub i64 %442, %mul2667
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %442, ptr noundef nonnull align 1 dereferenceable(1) %add.ptr2674, i64 %mul2667, i1 false)
+  %443 = load i64, ptr %data_stack_base, align 8
+  %sub2676 = sub i64 %443, %mul2667
   store i64 %sub2676, ptr %data_stack_base, align 8
   %.pre2065 = load i32, ptr %lastmark2659, align 8
   br label %do.body2680
 
 do.body2680:                                      ; preds = %if.then2662, %do.body2658
-  %443 = phi i32 [ %.pre2065, %if.then2662 ], [ %560, %do.body2658 ]
-  store i32 %443, ptr %lastmark2993, align 4
+  %444 = phi i32 [ %.pre2065, %if.then2662 ], [ %560, %do.body2658 ]
+  store i32 %444, ptr %lastmark2993, align 4
   %lastindex2683 = getelementptr inbounds i8, ptr %add.ptr3447, i64 20
-  %444 = load i32, ptr %lastindex2683, align 4
-  store i32 %444, ptr %lastindex, align 8
+  %445 = load i32, ptr %lastindex2683, align 4
+  store i32 %445, ptr %lastindex, align 8
   store ptr %559, ptr %state, align 8
   br label %while.end2688
 
 while.end2688:                                    ; preds = %while.cond2525, %do.body2680
-  %445 = phi ptr [ %559, %do.body2680 ], [ %.pre2069, %while.cond2525 ]
+  %446 = phi ptr [ %559, %do.body2680 ], [ %.pre2069, %while.cond2525 ]
   %ctx.35 = phi ptr [ %add.ptr3447, %do.body2680 ], [ %ctx.34, %while.cond2525 ]
   %sigcount.13 = phi i32 [ %sigcount.1, %do.body2680 ], [ %sigcount.12, %while.cond2525 ]
   %ctx_pos.10 = phi i64 [ %535, %do.body2680 ], [ %ctx_pos.9, %while.cond2525 ]
   %pattern.addr.11 = phi ptr [ %558, %do.body2680 ], [ %pattern.addr.10, %while.cond2525 ]
-  %446 = load i32, ptr %pattern.addr.11, align 4
-  %add2690 = add i32 %446, 1
+  %447 = load i32, ptr %pattern.addr.11, align 4
+  %add2690 = add i32 %447, 1
   %idx.ext2691 = zext i32 %add2690 to i64
   %add.ptr2692 = getelementptr i32, ptr %pattern.addr.11, i64 %idx.ext2691
   %inc2696 = add i32 %sigcount.13, 1
@@ -13858,9 +13857,9 @@ TARGET_SRE_OP_ATOMIC_GROUP:                       ; preds = %indirectgoto
   store ptr %pattern.addr.2, ptr %pattern2713, align 8
   %ptr2714 = getelementptr inbounds i8, ptr %ctx.2, i64 32
   store ptr %ptr.0, ptr %ptr2714, align 8
-  %447 = load i64, ptr %data_stack_base, align 8
-  %448 = load i64, ptr %data_stack_size, align 8
-  %sub2718 = sub i64 %448, %447
+  %448 = load i64, ptr %data_stack_base, align 8
+  %449 = load i64, ptr %data_stack_size, align 8
+  %sub2718 = sub i64 %449, %448
   %cmp2719 = icmp ult i64 %sub2718, 56
   br i1 %cmp2719, label %if.then2721, label %if.end2737
 
@@ -13878,10 +13877,10 @@ if.then2726:                                      ; preds = %if.then2721
   br label %return
 
 if.end2737:                                       ; preds = %if.then2721.if.end2737_crit_edge, %TARGET_SRE_OP_ATOMIC_GROUP
-  %449 = phi i64 [ %.pre2029, %if.then2721.if.end2737_crit_edge ], [ %447, %TARGET_SRE_OP_ATOMIC_GROUP ]
-  %450 = load ptr, ptr %data_stack11, align 8
-  %add.ptr2739 = getelementptr i8, ptr %450, i64 %447
-  %add2741 = add i64 %449, 56
+  %450 = phi i64 [ %.pre2029, %if.then2721.if.end2737_crit_edge ], [ %448, %TARGET_SRE_OP_ATOMIC_GROUP ]
+  %451 = load ptr, ptr %data_stack11, align 8
+  %add.ptr2739 = getelementptr i8, ptr %451, i64 %448
+  %add2741 = add i64 %450, 56
   store i64 %add2741, ptr %data_stack_base, align 8
   %arrayidx2743 = getelementptr i8, ptr %pattern.addr.2, i64 4
   %pattern2744 = getelementptr inbounds i8, ptr %add.ptr2739, i64 24
@@ -13896,17 +13895,17 @@ if.end2737:                                       ; preds = %if.then2721.if.end2
 
 if.then2761:                                      ; preds = %sw.bb3461
   %ptr2750 = getelementptr inbounds i8, ptr %add.ptr3447, i64 32
-  %451 = load ptr, ptr %ptr2750, align 8
-  store ptr %451, ptr %state, align 8
+  %452 = load ptr, ptr %ptr2750, align 8
+  store ptr %452, ptr %state, align 8
   br label %exit
 
 if.end2765:                                       ; preds = %sw.bb3461
   %pattern2749 = getelementptr inbounds i8, ptr %add.ptr3447, i64 24
-  %452 = load ptr, ptr %pattern2749, align 8
-  %453 = load i32, ptr %452, align 4
-  %idx.ext2767 = zext i32 %453 to i64
-  %add.ptr2768 = getelementptr i32, ptr %452, i64 %idx.ext2767
-  %454 = load ptr, ptr %state, align 8
+  %453 = load ptr, ptr %pattern2749, align 8
+  %454 = load i32, ptr %453, align 4
+  %idx.ext2767 = zext i32 %454 to i64
+  %add.ptr2768 = getelementptr i32, ptr %453, i64 %idx.ext2767
+  %455 = load ptr, ptr %state, align 8
   %inc2772 = add i32 %sigcount.1, 1
   %and2773 = and i32 %inc2772, 4095
   %cmp2774 = icmp eq i32 %and2773, 0
@@ -13917,14 +13916,14 @@ land.lhs.true2776:                                ; preds = %if.end2765
   %tobool2778.not = icmp eq i32 %call2777, 0
   br i1 %tobool2778.not, label %indirectgoto.preheader, label %return
 
-indirectgoto.preheader:                           ; preds = %land.lhs.true3418, %if.end3408, %land.lhs.true3226, %do.end3216, %land.lhs.true2776, %if.end2765, %land.lhs.true2700, %while.end2688, %land.lhs.true38, %do.body35
-  %pattern.addr.1.sink2327 = phi ptr [ %pattern.addr.1, %do.body35 ], [ %pattern.addr.1, %land.lhs.true38 ], [ %add.ptr2692, %while.end2688 ], [ %add.ptr2692, %land.lhs.true2700 ], [ %add.ptr2768, %if.end2765 ], [ %add.ptr2768, %land.lhs.true2776 ], [ %add.ptr3219, %do.end3216 ], [ %add.ptr3219, %land.lhs.true3226 ], [ %add.ptr3411, %if.end3408 ], [ %add.ptr3411, %land.lhs.true3418 ]
-  %ptr.0.ph = phi ptr [ %8, %do.body35 ], [ %8, %land.lhs.true38 ], [ %445, %while.end2688 ], [ %445, %land.lhs.true2700 ], [ %454, %if.end2765 ], [ %454, %land.lhs.true2776 ], [ %573, %do.end3216 ], [ %573, %land.lhs.true3226 ], [ %ptr.15, %if.end3408 ], [ %ptr.15, %land.lhs.true3418 ]
-  %ctx.2.ph = phi ptr [ %ctx.0, %do.body35 ], [ %ctx.0, %land.lhs.true38 ], [ %ctx.35, %while.end2688 ], [ %ctx.35, %land.lhs.true2700 ], [ %add.ptr3447, %if.end2765 ], [ %add.ptr3447, %land.lhs.true2776 ], [ %add.ptr3447, %do.end3216 ], [ %add.ptr3447, %land.lhs.true3226 ], [ %ctx.38, %if.end3408 ], [ %ctx.38, %land.lhs.true3418 ]
-  %sigcount.2.ph = phi i32 [ %inc, %do.body35 ], [ %inc, %land.lhs.true38 ], [ %inc2696, %while.end2688 ], [ %inc2696, %land.lhs.true2700 ], [ %inc2772, %if.end2765 ], [ %inc2772, %land.lhs.true2776 ], [ %inc3222, %do.end3216 ], [ %inc3222, %land.lhs.true3226 ], [ %inc3414, %if.end3408 ], [ %inc3414, %land.lhs.true3418 ]
-  %ctx_pos.1.ph = phi i64 [ %ctx_pos.0, %do.body35 ], [ %ctx_pos.0, %land.lhs.true38 ], [ %ctx_pos.10, %while.end2688 ], [ %ctx_pos.10, %land.lhs.true2700 ], [ %535, %if.end2765 ], [ %535, %land.lhs.true2776 ], [ %535, %do.end3216 ], [ %535, %land.lhs.true3226 ], [ %ctx_pos.11, %if.end3408 ], [ %ctx_pos.11, %land.lhs.true3418 ]
-  %incdec.ptr = getelementptr i8, ptr %pattern.addr.1.sink2327, i64 4
-  %455 = load i32, ptr %pattern.addr.1.sink2327, align 4
+indirectgoto.preheader:                           ; preds = %land.lhs.true2776, %if.end2765, %land.lhs.true2700, %while.end2688, %land.lhs.true38, %do.body35, %land.lhs.true3418, %if.end3408, %land.lhs.true3226, %do.end3216
+  %pattern.addr.1.sink = phi ptr [ %add.ptr3219, %do.end3216 ], [ %add.ptr3219, %land.lhs.true3226 ], [ %add.ptr3411, %if.end3408 ], [ %add.ptr3411, %land.lhs.true3418 ], [ %pattern.addr.1, %do.body35 ], [ %pattern.addr.1, %land.lhs.true38 ], [ %add.ptr2692, %while.end2688 ], [ %add.ptr2692, %land.lhs.true2700 ], [ %add.ptr2768, %if.end2765 ], [ %add.ptr2768, %land.lhs.true2776 ]
+  %ptr.0.ph = phi ptr [ %573, %do.end3216 ], [ %573, %land.lhs.true3226 ], [ %ptr.15, %if.end3408 ], [ %ptr.15, %land.lhs.true3418 ], [ %8, %do.body35 ], [ %8, %land.lhs.true38 ], [ %446, %while.end2688 ], [ %446, %land.lhs.true2700 ], [ %455, %if.end2765 ], [ %455, %land.lhs.true2776 ]
+  %ctx.2.ph = phi ptr [ %add.ptr3447, %do.end3216 ], [ %add.ptr3447, %land.lhs.true3226 ], [ %ctx.38, %if.end3408 ], [ %ctx.38, %land.lhs.true3418 ], [ %ctx.0, %do.body35 ], [ %ctx.0, %land.lhs.true38 ], [ %ctx.35, %while.end2688 ], [ %ctx.35, %land.lhs.true2700 ], [ %add.ptr3447, %if.end2765 ], [ %add.ptr3447, %land.lhs.true2776 ]
+  %sigcount.2.ph = phi i32 [ %inc3222, %do.end3216 ], [ %inc3222, %land.lhs.true3226 ], [ %inc3414, %if.end3408 ], [ %inc3414, %land.lhs.true3418 ], [ %inc, %do.body35 ], [ %inc, %land.lhs.true38 ], [ %inc2696, %while.end2688 ], [ %inc2696, %land.lhs.true2700 ], [ %inc2772, %if.end2765 ], [ %inc2772, %land.lhs.true2776 ]
+  %ctx_pos.1.ph = phi i64 [ %535, %do.end3216 ], [ %535, %land.lhs.true3226 ], [ %ctx_pos.11, %if.end3408 ], [ %ctx_pos.11, %land.lhs.true3418 ], [ %ctx_pos.0, %do.body35 ], [ %ctx_pos.0, %land.lhs.true38 ], [ %ctx_pos.10, %while.end2688 ], [ %ctx_pos.10, %land.lhs.true2700 ], [ %535, %if.end2765 ], [ %535, %land.lhs.true2776 ]
+  %incdec.ptr = getelementptr i8, ptr %pattern.addr.1.sink, i64 4
+  %.sink2324 = load i32, ptr %pattern.addr.1.sink, align 4
   br label %indirectgoto
 
 TARGET_SRE_OP_GROUPREF:                           ; preds = %indirectgoto
@@ -14021,7 +14020,7 @@ while.body2884:                                   ; preds = %while.cond2881.preh
   %ptr.121789 = phi ptr [ %incdec.ptr2899, %if.end2897 ], [ %ptr.0, %while.cond2881.preheader ]
   %p2862.01788 = phi ptr [ %incdec.ptr2898, %if.end2897 ], [ %468, %while.cond2881.preheader ]
   %cmp2885.not = icmp ult ptr %ptr.121789, %0
-  br i1 %cmp2885.not, label %lor.lhs.false2887, label %exit.loopexit2553
+  br i1 %cmp2885.not, label %lor.lhs.false2887, label %exit.loopexit2550
 
 lor.lhs.false2887:                                ; preds = %while.body2884
   %471 = load i16, ptr %ptr.121789, align 2
@@ -14053,7 +14052,7 @@ cond.true.i1511:                                  ; preds = %sre_lower_ascii.exi
 sre_lower_ascii.exit1515:                         ; preds = %sre_lower_ascii.exit1507, %cond.true.i1511
   %cond.i1510 = phi i32 [ %conv1.i1514, %cond.true.i1511 ], [ %conv2890, %sre_lower_ascii.exit1507 ]
   %cmp2892.not = icmp eq i32 %cond.i1502, %cond.i1510
-  br i1 %cmp2892.not, label %if.end2897, label %exit.loopexit2553
+  br i1 %cmp2892.not, label %if.end2897, label %exit.loopexit2550
 
 if.end2897:                                       ; preds = %sre_lower_ascii.exit1515
   %incdec.ptr2898 = getelementptr i8, ptr %p2862.01788, i64 2
@@ -14110,7 +14109,7 @@ while.body2953:                                   ; preds = %while.cond2950.preh
   %ptr.131793 = phi ptr [ %incdec.ptr2968, %if.end2966 ], [ %ptr.0, %while.cond2950.preheader ]
   %p2931.01792 = phi ptr [ %incdec.ptr2967, %if.end2966 ], [ %479, %while.cond2950.preheader ]
   %cmp2954.not = icmp ult ptr %ptr.131793, %0
-  br i1 %cmp2954.not, label %lor.lhs.false2956, label %exit.loopexit2552
+  br i1 %cmp2954.not, label %lor.lhs.false2956, label %exit.loopexit2549
 
 lor.lhs.false2956:                                ; preds = %while.body2953
   %482 = load i16, ptr %ptr.131793, align 2
@@ -14120,7 +14119,7 @@ lor.lhs.false2956:                                ; preds = %while.body2953
   %conv2959 = zext i16 %483 to i32
   %call.i1517 = tail call i32 @_PyUnicode_ToLowercase(i32 noundef %conv2959) #14
   %cmp2961.not = icmp eq i32 %call.i1516, %call.i1517
-  br i1 %cmp2961.not, label %if.end2966, label %exit.loopexit2552
+  br i1 %cmp2961.not, label %if.end2966, label %exit.loopexit2549
 
 if.end2966:                                       ; preds = %lor.lhs.false2956
   %incdec.ptr2967 = getelementptr i8, ptr %p2931.01792, i64 2
@@ -14177,7 +14176,7 @@ while.body3022:                                   ; preds = %while.cond3019.preh
   %ptr.141786 = phi ptr [ %incdec.ptr3037, %if.end3035 ], [ %ptr.0, %while.cond3019.preheader ]
   %p3000.01785 = phi ptr [ %incdec.ptr3036, %if.end3035 ], [ %488, %while.cond3019.preheader ]
   %cmp3023.not = icmp ult ptr %ptr.141786, %0
-  br i1 %cmp3023.not, label %lor.lhs.false3025, label %exit.loopexit2554
+  br i1 %cmp3023.not, label %lor.lhs.false3025, label %exit.loopexit2551
 
 lor.lhs.false3025:                                ; preds = %while.body3022
   %491 = load i16, ptr %ptr.141786, align 2
@@ -14203,7 +14202,7 @@ cond.true.i1526:                                  ; preds = %sre_lower_locale.ex
 sre_lower_locale.exit1528:                        ; preds = %sre_lower_locale.exit, %cond.true.i1526
   %cond.i1525 = phi i32 [ %call.i.i1527, %cond.true.i1526 ], [ %conv3028, %sre_lower_locale.exit ]
   %cmp3030.not = icmp eq i32 %cond.i1520, %cond.i1525
-  br i1 %cmp3030.not, label %if.end3035, label %exit.loopexit2554
+  br i1 %cmp3030.not, label %if.end3035, label %exit.loopexit2551
 
 if.end3035:                                       ; preds = %sre_lower_locale.exit1528
   %incdec.ptr3036 = getelementptr i8, ptr %p3000.01785, i64 2
@@ -14436,12 +14435,12 @@ if.end3285:                                       ; preds = %if.then3278
   %cmp3286.not = icmp eq i64 %ctx_pos.1.ph, -1
   %.pre2054 = load ptr, ptr %data_stack11, align 8
   %add.ptr3291 = getelementptr i8, ptr %.pre2054, i64 %ctx_pos.1.ph
-  %spec.select2328 = select i1 %cmp3286.not, ptr %ctx.2, ptr %add.ptr3291
+  %spec.select2325 = select i1 %cmp3286.not, ptr %ctx.2, ptr %add.ptr3291
   br label %if.end3294
 
 if.end3294:                                       ; preds = %if.end3285, %if.then3266.if.end3294_crit_edge
   %520 = phi ptr [ %.pre2053, %if.then3266.if.end3294_crit_edge ], [ %.pre2054, %if.end3285 ]
-  %ctx.40 = phi ptr [ %ctx.2, %if.then3266.if.end3294_crit_edge ], [ %spec.select2328, %if.end3285 ]
+  %ctx.40 = phi ptr [ %ctx.2, %if.then3266.if.end3294_crit_edge ], [ %spec.select2325, %if.end3285 ]
   %521 = load i64, ptr %data_stack_base, align 8
   %add.ptr3297 = getelementptr i8, ptr %520, i64 %521
   %522 = load ptr, ptr %mark3001, align 8
@@ -14564,21 +14563,21 @@ land.lhs.true3418:                                ; preds = %if.end3408
 exit.loopexit:                                    ; preds = %while.body2817, %lor.lhs.false2820
   br label %exit
 
-exit.loopexit2552:                                ; preds = %while.body2953, %lor.lhs.false2956
+exit.loopexit2549:                                ; preds = %while.body2953, %lor.lhs.false2956
   br label %exit
 
-exit.loopexit2553:                                ; preds = %while.body2884, %sre_lower_ascii.exit1515
+exit.loopexit2550:                                ; preds = %while.body2884, %sre_lower_ascii.exit1515
   br label %exit
 
-exit.loopexit2554:                                ; preds = %while.body3022, %sre_lower_locale.exit1528
+exit.loopexit2551:                                ; preds = %while.body3022, %sre_lower_locale.exit1528
   br label %exit
 
-exit:                                             ; preds = %exit.loopexit2554, %exit.loopexit2553, %exit.loopexit2552, %exit.loopexit, %sw.bb36.i, %sw.bb93.i, %sw.bb162.i, %sw.bb220.i, %sw.bb279.i, %sw.bb326.i, %TARGET_SRE_OP_AT, %if.then3344, %do.body3348, %if.then3352, %lor.lhs.false2336, %do.body2316, %if.then2260, %do.body2263, %if.then2267, %if.then1958, %do.body1954, %while.end1517, %do.body1521, %if.then1525, %if.then1433, %do.body1437, %if.then1441, %while.end1225, %do.body1229, %for.end1087, %do.body1091, %do.body1247.sink.split, %if.then1160, %do.body1164, %if.then1168, %if.then1022, %do.body1026, %if.then1030, %if.then812, %do.body808, %for.end, %if.then741, %do.body745, %if.then749, %sre_ucs2_charset_loc_ignore.exit, %TARGET_SRE_OP_IN_LOC_IGNORE, %sre_upper_locale.exit.i1463, %lor.lhs.false537, %TARGET_SRE_OP_IN_UNI_IGNORE, %sre_lower_ascii.exit1456, %TARGET_SRE_OP_IN_IGNORE, %char_loc_ignore.exit1448, %TARGET_SRE_OP_NOT_LITERAL_LOC_IGNORE, %sre_lower_locale.exit.i1443, %lor.lhs.false473, %lor.lhs.false442, %TARGET_SRE_OP_NOT_LITERAL_UNI_IGNORE, %sre_lower_ascii.exit1434, %TARGET_SRE_OP_NOT_LITERAL_IGNORE, %char_loc_ignore.exit, %TARGET_SRE_OP_LITERAL_LOC_IGNORE, %lor.lhs.false350, %TARGET_SRE_OP_LITERAL_UNI_IGNORE, %sre_lower_ascii.exit, %TARGET_SRE_OP_LITERAL_IGNORE, %lor.lhs.false286, %TARGET_SRE_OP_IN, %lor.lhs.false231, %TARGET_SRE_OP_ANY, %lor.lhs.false199, %TARGET_SRE_OP_CATEGORY, %land.lhs.true162, %land.lhs.true156, %lor.lhs.false122, %TARGET_SRE_OP_NOT_LITERAL, %lor.lhs.false, %TARGET_SRE_OP_LITERAL, %land.lhs.true.i, %lor.rhs15.i, %lor.rhs.i, %sw.bb.i, %sw.bb32.i, %cond.end88.i, %cond.end157.i, %cond.end215.i, %cond.end274.i, %cond.end321.i, %cond.end368.i, %indirectgoto, %sw.bb3462, %TARGET_SRE_OP_ASSERT, %if.else2999, %TARGET_SRE_OP_GROUPREF_LOC_IGNORE, %if.else2930, %TARGET_SRE_OP_GROUPREF_UNI_IGNORE, %if.else2861, %TARGET_SRE_OP_GROUPREF_IGNORE, %if.else2796, %TARGET_SRE_OP_GROUPREF, %sw.bb3451, %sw.bb3454, %sw.bb3449, %sw.bb3453, %sw.bb3457, %do.body1563, %TARGET_SRE_OP_POSSESSIVE_REPEAT_ONE, %do.body1280, %TARGET_SRE_OP_MIN_REPEAT_ONE, %do.body852, %TARGET_SRE_OP_REPEAT_ONE, %TARGET_SRE_OP_ANY_ALL, %sre_ucs2_at.exit, %land.lhs.true, %if.then2761, %if.else2519, %if.end2452, %if.end2155, %do.end2072, %if.end1781, %do.body1700, %if.then1625, %if.then1598, %if.then1318, %if.then886, %if.end168
-  %ctx.1 = phi ptr [ %add.ptr1565, %if.then1598 ], [ %ctx.14, %if.then1318 ], [ %add.ptr854, %if.then886 ], [ %ctx.2, %if.then1625 ], [ %ctx.2, %if.end168 ], [ %add.ptr3447, %if.then2761 ], [ %add.ptr3447, %do.body1700 ], [ %add.ptr3447, %if.else2519 ], [ %add.ptr3447, %if.end2155 ], [ %add.ptr3447, %if.end1781 ], [ %add.ptr3447, %if.end2452 ], [ %add.ptr3447, %do.end2072 ], [ %ctx.0, %land.lhs.true ], [ %ctx.2, %sre_ucs2_at.exit ], [ %ctx.2, %TARGET_SRE_OP_ANY_ALL ], [ %ctx.2, %TARGET_SRE_OP_REPEAT_ONE ], [ %add.ptr854, %do.body852 ], [ %ctx.2, %TARGET_SRE_OP_MIN_REPEAT_ONE ], [ %add.ptr1282, %do.body1280 ], [ %ctx.2, %TARGET_SRE_OP_POSSESSIVE_REPEAT_ONE ], [ %add.ptr1565, %do.body1563 ], [ %add.ptr3447, %sw.bb3457 ], [ %add.ptr3447, %sw.bb3453 ], [ %add.ptr3447, %sw.bb3449 ], [ %add.ptr3447, %sw.bb3454 ], [ %add.ptr3447, %sw.bb3451 ], [ %ctx.2, %TARGET_SRE_OP_GROUPREF ], [ %ctx.2, %if.else2796 ], [ %ctx.2, %TARGET_SRE_OP_GROUPREF_IGNORE ], [ %ctx.2, %if.else2861 ], [ %ctx.2, %TARGET_SRE_OP_GROUPREF_UNI_IGNORE ], [ %ctx.2, %if.else2930 ], [ %ctx.2, %TARGET_SRE_OP_GROUPREF_LOC_IGNORE ], [ %ctx.2, %if.else2999 ], [ %ctx.2, %TARGET_SRE_OP_ASSERT ], [ %add.ptr3447, %sw.bb3462 ], [ %ctx.2, %indirectgoto ], [ %ctx.2, %cond.end368.i ], [ %ctx.2, %cond.end321.i ], [ %ctx.2, %cond.end274.i ], [ %ctx.2, %cond.end215.i ], [ %ctx.2, %cond.end157.i ], [ %ctx.2, %cond.end88.i ], [ %ctx.2, %sw.bb32.i ], [ %ctx.2, %sw.bb.i ], [ %ctx.2, %lor.rhs.i ], [ %ctx.2, %lor.rhs15.i ], [ %ctx.2, %land.lhs.true.i ], [ %ctx.2, %TARGET_SRE_OP_LITERAL ], [ %ctx.2, %lor.lhs.false ], [ %ctx.2, %TARGET_SRE_OP_NOT_LITERAL ], [ %ctx.2, %lor.lhs.false122 ], [ %ctx.2, %land.lhs.true156 ], [ %ctx.2, %land.lhs.true162 ], [ %ctx.2, %TARGET_SRE_OP_CATEGORY ], [ %ctx.2, %lor.lhs.false199 ], [ %ctx.2, %TARGET_SRE_OP_ANY ], [ %ctx.2, %lor.lhs.false231 ], [ %ctx.2, %TARGET_SRE_OP_IN ], [ %ctx.2, %lor.lhs.false286 ], [ %ctx.2, %TARGET_SRE_OP_LITERAL_IGNORE ], [ %ctx.2, %sre_lower_ascii.exit ], [ %ctx.2, %TARGET_SRE_OP_LITERAL_UNI_IGNORE ], [ %ctx.2, %lor.lhs.false350 ], [ %ctx.2, %TARGET_SRE_OP_LITERAL_LOC_IGNORE ], [ %ctx.2, %char_loc_ignore.exit ], [ %ctx.2, %TARGET_SRE_OP_NOT_LITERAL_IGNORE ], [ %ctx.2, %sre_lower_ascii.exit1434 ], [ %ctx.2, %TARGET_SRE_OP_NOT_LITERAL_UNI_IGNORE ], [ %ctx.2, %lor.lhs.false442 ], [ %ctx.2, %lor.lhs.false473 ], [ %ctx.2, %sre_lower_locale.exit.i1443 ], [ %ctx.2, %TARGET_SRE_OP_NOT_LITERAL_LOC_IGNORE ], [ %ctx.2, %char_loc_ignore.exit1448 ], [ %ctx.2, %TARGET_SRE_OP_IN_IGNORE ], [ %ctx.2, %sre_lower_ascii.exit1456 ], [ %ctx.2, %TARGET_SRE_OP_IN_UNI_IGNORE ], [ %ctx.2, %lor.lhs.false537 ], [ %ctx.2, %sre_upper_locale.exit.i1463 ], [ %ctx.2, %TARGET_SRE_OP_IN_LOC_IGNORE ], [ %ctx.2, %sre_ucs2_charset_loc_ignore.exit ], [ %add.ptr3447, %if.then749 ], [ %add.ptr3447, %do.body745 ], [ %add.ptr3447, %if.then741 ], [ %ctx.4, %for.end ], [ %ctx.4, %do.body808 ], [ %ctx.4, %if.then812 ], [ %add.ptr3447, %if.then1030 ], [ %add.ptr3447, %do.body1026 ], [ %add.ptr3447, %if.then1022 ], [ %add.ptr3447, %if.then1168 ], [ %add.ptr3447, %do.body1164 ], [ %add.ptr3447, %if.then1160 ], [ %ctx.9, %do.body1091 ], [ %ctx.9, %for.end1087 ], [ %ctx.11, %do.body1229 ], [ %ctx.11, %while.end1225 ], [ %ctx.13.ph, %do.body1247.sink.split ], [ %add.ptr3447, %if.then1441 ], [ %add.ptr3447, %do.body1437 ], [ %add.ptr3447, %if.then1433 ], [ %ctx.17, %if.then1525 ], [ %ctx.17, %do.body1521 ], [ %ctx.17, %while.end1517 ], [ %add.ptr3447, %do.body1954 ], [ %add.ptr3447, %if.then1958 ], [ %add.ptr3447, %if.then2267 ], [ %add.ptr3447, %do.body2263 ], [ %add.ptr3447, %if.then2260 ], [ %add.ptr3447, %do.body2316 ], [ %add.ptr3447, %lor.lhs.false2336 ], [ %add.ptr3447, %if.then3352 ], [ %add.ptr3447, %do.body3348 ], [ %add.ptr3447, %if.then3344 ], [ %ctx.2, %TARGET_SRE_OP_AT ], [ %ctx.2, %sw.bb326.i ], [ %ctx.2, %sw.bb279.i ], [ %ctx.2, %sw.bb220.i ], [ %ctx.2, %sw.bb162.i ], [ %ctx.2, %sw.bb93.i ], [ %ctx.2, %sw.bb36.i ], [ %ctx.2, %exit.loopexit ], [ %ctx.2, %exit.loopexit2552 ], [ %ctx.2, %exit.loopexit2553 ], [ %ctx.2, %exit.loopexit2554 ]
-  %sigcount.1 = phi i32 [ %sigcount.2, %if.then1598 ], [ %sigcount.2, %if.then1318 ], [ %sigcount.2, %if.then886 ], [ %sigcount.2, %if.then1625 ], [ %sigcount.2, %if.end168 ], [ %sigcount.1, %if.then2761 ], [ %sigcount.1, %do.body1700 ], [ %sigcount.1, %if.else2519 ], [ %sigcount.1, %if.end2155 ], [ %sigcount.1, %if.end1781 ], [ %sigcount.1, %if.end2452 ], [ %sigcount.1, %do.end2072 ], [ %sigcount.0, %land.lhs.true ], [ %sigcount.2, %sre_ucs2_at.exit ], [ %sigcount.2, %TARGET_SRE_OP_ANY_ALL ], [ %sigcount.2, %TARGET_SRE_OP_REPEAT_ONE ], [ %sigcount.2, %do.body852 ], [ %sigcount.2, %TARGET_SRE_OP_MIN_REPEAT_ONE ], [ %sigcount.2, %do.body1280 ], [ %sigcount.2, %TARGET_SRE_OP_POSSESSIVE_REPEAT_ONE ], [ %sigcount.2, %do.body1563 ], [ %sigcount.1, %sw.bb3457 ], [ %sigcount.1, %sw.bb3453 ], [ %sigcount.1, %sw.bb3449 ], [ %sigcount.1, %sw.bb3454 ], [ %sigcount.1, %sw.bb3451 ], [ %sigcount.2, %TARGET_SRE_OP_GROUPREF ], [ %sigcount.2, %if.else2796 ], [ %sigcount.2, %TARGET_SRE_OP_GROUPREF_IGNORE ], [ %sigcount.2, %if.else2861 ], [ %sigcount.2, %TARGET_SRE_OP_GROUPREF_UNI_IGNORE ], [ %sigcount.2, %if.else2930 ], [ %sigcount.2, %TARGET_SRE_OP_GROUPREF_LOC_IGNORE ], [ %sigcount.2, %if.else2999 ], [ %sigcount.2, %TARGET_SRE_OP_ASSERT ], [ %sigcount.1, %sw.bb3462 ], [ %sigcount.2, %indirectgoto ], [ %sigcount.2, %cond.end368.i ], [ %sigcount.2, %cond.end321.i ], [ %sigcount.2, %cond.end274.i ], [ %sigcount.2, %cond.end215.i ], [ %sigcount.2, %cond.end157.i ], [ %sigcount.2, %cond.end88.i ], [ %sigcount.2, %sw.bb32.i ], [ %sigcount.2, %sw.bb.i ], [ %sigcount.2, %lor.rhs.i ], [ %sigcount.2, %lor.rhs15.i ], [ %sigcount.2, %land.lhs.true.i ], [ %sigcount.2, %TARGET_SRE_OP_LITERAL ], [ %sigcount.2, %lor.lhs.false ], [ %sigcount.2, %TARGET_SRE_OP_NOT_LITERAL ], [ %sigcount.2, %lor.lhs.false122 ], [ %sigcount.2, %land.lhs.true156 ], [ %sigcount.2, %land.lhs.true162 ], [ %sigcount.2, %TARGET_SRE_OP_CATEGORY ], [ %sigcount.2, %lor.lhs.false199 ], [ %sigcount.2, %TARGET_SRE_OP_ANY ], [ %sigcount.2, %lor.lhs.false231 ], [ %sigcount.2, %TARGET_SRE_OP_IN ], [ %sigcount.2, %lor.lhs.false286 ], [ %sigcount.2, %TARGET_SRE_OP_LITERAL_IGNORE ], [ %sigcount.2, %sre_lower_ascii.exit ], [ %sigcount.2, %TARGET_SRE_OP_LITERAL_UNI_IGNORE ], [ %sigcount.2, %lor.lhs.false350 ], [ %sigcount.2, %TARGET_SRE_OP_LITERAL_LOC_IGNORE ], [ %sigcount.2, %char_loc_ignore.exit ], [ %sigcount.2, %TARGET_SRE_OP_NOT_LITERAL_IGNORE ], [ %sigcount.2, %sre_lower_ascii.exit1434 ], [ %sigcount.2, %TARGET_SRE_OP_NOT_LITERAL_UNI_IGNORE ], [ %sigcount.2, %lor.lhs.false442 ], [ %sigcount.2, %lor.lhs.false473 ], [ %sigcount.2, %sre_lower_locale.exit.i1443 ], [ %sigcount.2, %TARGET_SRE_OP_NOT_LITERAL_LOC_IGNORE ], [ %sigcount.2, %char_loc_ignore.exit1448 ], [ %sigcount.2, %TARGET_SRE_OP_IN_IGNORE ], [ %sigcount.2, %sre_lower_ascii.exit1456 ], [ %sigcount.2, %TARGET_SRE_OP_IN_UNI_IGNORE ], [ %sigcount.2, %lor.lhs.false537 ], [ %sigcount.2, %sre_upper_locale.exit.i1463 ], [ %sigcount.2, %TARGET_SRE_OP_IN_LOC_IGNORE ], [ %sigcount.2, %sre_ucs2_charset_loc_ignore.exit ], [ %sigcount.1, %if.then749 ], [ %sigcount.1, %do.body745 ], [ %sigcount.1, %if.then741 ], [ %sigcount.3, %for.end ], [ %sigcount.3, %do.body808 ], [ %sigcount.3, %if.then812 ], [ %sigcount.1, %if.then1030 ], [ %sigcount.1, %do.body1026 ], [ %sigcount.1, %if.then1022 ], [ %sigcount.1, %if.then1168 ], [ %sigcount.1, %do.body1164 ], [ %sigcount.1, %if.then1160 ], [ %sigcount.5, %do.body1091 ], [ %sigcount.5, %for.end1087 ], [ %sigcount.6, %do.body1229 ], [ %sigcount.6, %while.end1225 ], [ %sigcount.7.ph, %do.body1247.sink.split ], [ %sigcount.1, %if.then1441 ], [ %sigcount.1, %do.body1437 ], [ %sigcount.1, %if.then1433 ], [ %sigcount.9, %if.then1525 ], [ %sigcount.9, %do.body1521 ], [ %sigcount.9, %while.end1517 ], [ %sigcount.1, %do.body1954 ], [ %sigcount.1, %if.then1958 ], [ %sigcount.1, %if.then2267 ], [ %sigcount.1, %do.body2263 ], [ %sigcount.1, %if.then2260 ], [ %sigcount.1, %do.body2316 ], [ %sigcount.1, %lor.lhs.false2336 ], [ %sigcount.1, %if.then3352 ], [ %sigcount.1, %do.body3348 ], [ %sigcount.1, %if.then3344 ], [ %sigcount.2, %TARGET_SRE_OP_AT ], [ %sigcount.2, %sw.bb326.i ], [ %sigcount.2, %sw.bb279.i ], [ %sigcount.2, %sw.bb220.i ], [ %sigcount.2, %sw.bb162.i ], [ %sigcount.2, %sw.bb93.i ], [ %sigcount.2, %sw.bb36.i ], [ %sigcount.2, %exit.loopexit ], [ %sigcount.2, %exit.loopexit2552 ], [ %sigcount.2, %exit.loopexit2553 ], [ %sigcount.2, %exit.loopexit2554 ]
-  %tobool3343.not = phi i1 [ false, %if.then1598 ], [ false, %if.then1318 ], [ false, %if.then886 ], [ true, %if.then1625 ], [ false, %if.end168 ], [ true, %if.then2761 ], [ true, %do.body1700 ], [ true, %if.else2519 ], [ true, %if.end2155 ], [ true, %if.end1781 ], [ true, %if.end2452 ], [ true, %do.end2072 ], [ true, %land.lhs.true ], [ true, %sre_ucs2_at.exit ], [ true, %TARGET_SRE_OP_ANY_ALL ], [ true, %TARGET_SRE_OP_REPEAT_ONE ], [ true, %do.body852 ], [ true, %TARGET_SRE_OP_MIN_REPEAT_ONE ], [ true, %do.body1280 ], [ true, %TARGET_SRE_OP_POSSESSIVE_REPEAT_ONE ], [ true, %do.body1563 ], [ false, %sw.bb3457 ], [ false, %sw.bb3453 ], [ false, %sw.bb3449 ], [ false, %sw.bb3454 ], [ false, %sw.bb3451 ], [ true, %TARGET_SRE_OP_GROUPREF ], [ true, %if.else2796 ], [ true, %TARGET_SRE_OP_GROUPREF_IGNORE ], [ true, %if.else2861 ], [ true, %TARGET_SRE_OP_GROUPREF_UNI_IGNORE ], [ true, %if.else2930 ], [ true, %TARGET_SRE_OP_GROUPREF_LOC_IGNORE ], [ true, %if.else2999 ], [ true, %TARGET_SRE_OP_ASSERT ], [ true, %sw.bb3462 ], [ true, %indirectgoto ], [ true, %cond.end368.i ], [ true, %cond.end321.i ], [ true, %cond.end274.i ], [ true, %cond.end215.i ], [ true, %cond.end157.i ], [ true, %cond.end88.i ], [ true, %sw.bb32.i ], [ true, %sw.bb.i ], [ true, %lor.rhs.i ], [ true, %lor.rhs15.i ], [ true, %land.lhs.true.i ], [ true, %TARGET_SRE_OP_LITERAL ], [ true, %lor.lhs.false ], [ true, %TARGET_SRE_OP_NOT_LITERAL ], [ true, %lor.lhs.false122 ], [ true, %land.lhs.true156 ], [ true, %land.lhs.true162 ], [ true, %TARGET_SRE_OP_CATEGORY ], [ true, %lor.lhs.false199 ], [ true, %TARGET_SRE_OP_ANY ], [ true, %lor.lhs.false231 ], [ true, %TARGET_SRE_OP_IN ], [ true, %lor.lhs.false286 ], [ true, %TARGET_SRE_OP_LITERAL_IGNORE ], [ true, %sre_lower_ascii.exit ], [ true, %TARGET_SRE_OP_LITERAL_UNI_IGNORE ], [ true, %lor.lhs.false350 ], [ true, %TARGET_SRE_OP_LITERAL_LOC_IGNORE ], [ true, %char_loc_ignore.exit ], [ true, %TARGET_SRE_OP_NOT_LITERAL_IGNORE ], [ true, %sre_lower_ascii.exit1434 ], [ true, %TARGET_SRE_OP_NOT_LITERAL_UNI_IGNORE ], [ true, %lor.lhs.false442 ], [ true, %lor.lhs.false473 ], [ true, %sre_lower_locale.exit.i1443 ], [ true, %TARGET_SRE_OP_NOT_LITERAL_LOC_IGNORE ], [ true, %char_loc_ignore.exit1448 ], [ true, %TARGET_SRE_OP_IN_IGNORE ], [ true, %sre_lower_ascii.exit1456 ], [ true, %TARGET_SRE_OP_IN_UNI_IGNORE ], [ true, %lor.lhs.false537 ], [ true, %sre_upper_locale.exit.i1463 ], [ true, %TARGET_SRE_OP_IN_LOC_IGNORE ], [ true, %sre_ucs2_charset_loc_ignore.exit ], [ false, %if.then749 ], [ false, %do.body745 ], [ false, %if.then741 ], [ true, %for.end ], [ true, %do.body808 ], [ true, %if.then812 ], [ false, %if.then1030 ], [ false, %do.body1026 ], [ false, %if.then1022 ], [ false, %if.then1168 ], [ false, %do.body1164 ], [ false, %if.then1160 ], [ true, %do.body1091 ], [ true, %for.end1087 ], [ true, %do.body1229 ], [ true, %while.end1225 ], [ true, %do.body1247.sink.split ], [ false, %if.then1441 ], [ false, %do.body1437 ], [ false, %if.then1433 ], [ true, %if.then1525 ], [ true, %do.body1521 ], [ true, %while.end1517 ], [ false, %do.body1954 ], [ false, %if.then1958 ], [ false, %if.then2267 ], [ false, %do.body2263 ], [ false, %if.then2260 ], [ true, %do.body2316 ], [ true, %lor.lhs.false2336 ], [ true, %if.then3352 ], [ true, %do.body3348 ], [ true, %if.then3344 ], [ true, %TARGET_SRE_OP_AT ], [ true, %sw.bb326.i ], [ true, %sw.bb279.i ], [ true, %sw.bb220.i ], [ true, %sw.bb162.i ], [ true, %sw.bb93.i ], [ true, %sw.bb36.i ], [ true, %exit.loopexit ], [ true, %exit.loopexit2552 ], [ true, %exit.loopexit2553 ], [ true, %exit.loopexit2554 ]
-  %cmp2066 = phi i1 [ true, %if.then1598 ], [ true, %if.then1318 ], [ true, %if.then886 ], [ false, %if.then1625 ], [ true, %if.end168 ], [ false, %if.then2761 ], [ false, %do.body1700 ], [ false, %if.else2519 ], [ false, %if.end2155 ], [ false, %if.end1781 ], [ false, %if.end2452 ], [ false, %do.end2072 ], [ false, %land.lhs.true ], [ false, %sre_ucs2_at.exit ], [ false, %TARGET_SRE_OP_ANY_ALL ], [ false, %TARGET_SRE_OP_REPEAT_ONE ], [ false, %do.body852 ], [ false, %TARGET_SRE_OP_MIN_REPEAT_ONE ], [ false, %do.body1280 ], [ false, %TARGET_SRE_OP_POSSESSIVE_REPEAT_ONE ], [ false, %do.body1563 ], [ true, %sw.bb3457 ], [ true, %sw.bb3453 ], [ true, %sw.bb3449 ], [ true, %sw.bb3454 ], [ true, %sw.bb3451 ], [ false, %TARGET_SRE_OP_GROUPREF ], [ false, %if.else2796 ], [ false, %TARGET_SRE_OP_GROUPREF_IGNORE ], [ false, %if.else2861 ], [ false, %TARGET_SRE_OP_GROUPREF_UNI_IGNORE ], [ false, %if.else2930 ], [ false, %TARGET_SRE_OP_GROUPREF_LOC_IGNORE ], [ false, %if.else2999 ], [ false, %TARGET_SRE_OP_ASSERT ], [ false, %sw.bb3462 ], [ false, %indirectgoto ], [ false, %cond.end368.i ], [ false, %cond.end321.i ], [ false, %cond.end274.i ], [ false, %cond.end215.i ], [ false, %cond.end157.i ], [ false, %cond.end88.i ], [ false, %sw.bb32.i ], [ false, %sw.bb.i ], [ false, %lor.rhs.i ], [ false, %lor.rhs15.i ], [ false, %land.lhs.true.i ], [ false, %TARGET_SRE_OP_LITERAL ], [ false, %lor.lhs.false ], [ false, %TARGET_SRE_OP_NOT_LITERAL ], [ false, %lor.lhs.false122 ], [ false, %land.lhs.true156 ], [ false, %land.lhs.true162 ], [ false, %TARGET_SRE_OP_CATEGORY ], [ false, %lor.lhs.false199 ], [ false, %TARGET_SRE_OP_ANY ], [ false, %lor.lhs.false231 ], [ false, %TARGET_SRE_OP_IN ], [ false, %lor.lhs.false286 ], [ false, %TARGET_SRE_OP_LITERAL_IGNORE ], [ false, %sre_lower_ascii.exit ], [ false, %TARGET_SRE_OP_LITERAL_UNI_IGNORE ], [ false, %lor.lhs.false350 ], [ false, %TARGET_SRE_OP_LITERAL_LOC_IGNORE ], [ false, %char_loc_ignore.exit ], [ false, %TARGET_SRE_OP_NOT_LITERAL_IGNORE ], [ false, %sre_lower_ascii.exit1434 ], [ false, %TARGET_SRE_OP_NOT_LITERAL_UNI_IGNORE ], [ false, %lor.lhs.false442 ], [ false, %lor.lhs.false473 ], [ false, %sre_lower_locale.exit.i1443 ], [ false, %TARGET_SRE_OP_NOT_LITERAL_LOC_IGNORE ], [ false, %char_loc_ignore.exit1448 ], [ false, %TARGET_SRE_OP_IN_IGNORE ], [ false, %sre_lower_ascii.exit1456 ], [ false, %TARGET_SRE_OP_IN_UNI_IGNORE ], [ false, %lor.lhs.false537 ], [ false, %sre_upper_locale.exit.i1463 ], [ false, %TARGET_SRE_OP_IN_LOC_IGNORE ], [ false, %sre_ucs2_charset_loc_ignore.exit ], [ true, %if.then749 ], [ true, %do.body745 ], [ true, %if.then741 ], [ false, %for.end ], [ false, %do.body808 ], [ false, %if.then812 ], [ true, %if.then1030 ], [ true, %do.body1026 ], [ true, %if.then1022 ], [ true, %if.then1168 ], [ true, %do.body1164 ], [ true, %if.then1160 ], [ false, %do.body1091 ], [ false, %for.end1087 ], [ false, %do.body1229 ], [ false, %while.end1225 ], [ false, %do.body1247.sink.split ], [ true, %if.then1441 ], [ true, %do.body1437 ], [ true, %if.then1433 ], [ false, %if.then1525 ], [ false, %do.body1521 ], [ false, %while.end1517 ], [ true, %do.body1954 ], [ true, %if.then1958 ], [ true, %if.then2267 ], [ true, %do.body2263 ], [ true, %if.then2260 ], [ false, %do.body2316 ], [ false, %lor.lhs.false2336 ], [ false, %if.then3352 ], [ false, %do.body3348 ], [ false, %if.then3344 ], [ false, %TARGET_SRE_OP_AT ], [ false, %sw.bb326.i ], [ false, %sw.bb279.i ], [ false, %sw.bb220.i ], [ false, %sw.bb162.i ], [ false, %sw.bb93.i ], [ false, %sw.bb36.i ], [ false, %exit.loopexit ], [ false, %exit.loopexit2552 ], [ false, %exit.loopexit2553 ], [ false, %exit.loopexit2554 ]
-  %ret.0 = phi i64 [ 1, %if.then1598 ], [ 1, %if.then1318 ], [ 1, %if.then886 ], [ 0, %if.then1625 ], [ 1, %if.end168 ], [ 0, %if.then2761 ], [ 0, %do.body1700 ], [ 0, %if.else2519 ], [ 0, %if.end2155 ], [ 0, %if.end1781 ], [ 0, %if.end2452 ], [ 0, %do.end2072 ], [ 0, %land.lhs.true ], [ 0, %sre_ucs2_at.exit ], [ 0, %TARGET_SRE_OP_ANY_ALL ], [ 0, %TARGET_SRE_OP_REPEAT_ONE ], [ 0, %do.body852 ], [ 0, %TARGET_SRE_OP_MIN_REPEAT_ONE ], [ 0, %do.body1280 ], [ 0, %TARGET_SRE_OP_POSSESSIVE_REPEAT_ONE ], [ 0, %do.body1563 ], [ 1, %sw.bb3457 ], [ 1, %sw.bb3453 ], [ 1, %sw.bb3449 ], [ 1, %sw.bb3454 ], [ 1, %sw.bb3451 ], [ 0, %TARGET_SRE_OP_GROUPREF ], [ 0, %if.else2796 ], [ 0, %TARGET_SRE_OP_GROUPREF_IGNORE ], [ 0, %if.else2861 ], [ 0, %TARGET_SRE_OP_GROUPREF_UNI_IGNORE ], [ 0, %if.else2930 ], [ 0, %TARGET_SRE_OP_GROUPREF_LOC_IGNORE ], [ 0, %if.else2999 ], [ 0, %TARGET_SRE_OP_ASSERT ], [ 0, %sw.bb3462 ], [ 0, %indirectgoto ], [ 0, %cond.end368.i ], [ 0, %cond.end321.i ], [ 0, %cond.end274.i ], [ 0, %cond.end215.i ], [ 0, %cond.end157.i ], [ 0, %cond.end88.i ], [ 0, %sw.bb32.i ], [ 0, %sw.bb.i ], [ 0, %lor.rhs.i ], [ 0, %lor.rhs15.i ], [ 0, %land.lhs.true.i ], [ 0, %TARGET_SRE_OP_LITERAL ], [ 0, %lor.lhs.false ], [ 0, %TARGET_SRE_OP_NOT_LITERAL ], [ 0, %lor.lhs.false122 ], [ 0, %land.lhs.true156 ], [ 0, %land.lhs.true162 ], [ 0, %TARGET_SRE_OP_CATEGORY ], [ 0, %lor.lhs.false199 ], [ 0, %TARGET_SRE_OP_ANY ], [ 0, %lor.lhs.false231 ], [ 0, %TARGET_SRE_OP_IN ], [ 0, %lor.lhs.false286 ], [ 0, %TARGET_SRE_OP_LITERAL_IGNORE ], [ 0, %sre_lower_ascii.exit ], [ 0, %TARGET_SRE_OP_LITERAL_UNI_IGNORE ], [ 0, %lor.lhs.false350 ], [ 0, %TARGET_SRE_OP_LITERAL_LOC_IGNORE ], [ 0, %char_loc_ignore.exit ], [ 0, %TARGET_SRE_OP_NOT_LITERAL_IGNORE ], [ 0, %sre_lower_ascii.exit1434 ], [ 0, %TARGET_SRE_OP_NOT_LITERAL_UNI_IGNORE ], [ 0, %lor.lhs.false442 ], [ 0, %lor.lhs.false473 ], [ 0, %sre_lower_locale.exit.i1443 ], [ 0, %TARGET_SRE_OP_NOT_LITERAL_LOC_IGNORE ], [ 0, %char_loc_ignore.exit1448 ], [ 0, %TARGET_SRE_OP_IN_IGNORE ], [ 0, %sre_lower_ascii.exit1456 ], [ 0, %TARGET_SRE_OP_IN_UNI_IGNORE ], [ 0, %lor.lhs.false537 ], [ 0, %sre_upper_locale.exit.i1463 ], [ 0, %TARGET_SRE_OP_IN_LOC_IGNORE ], [ 0, %sre_ucs2_charset_loc_ignore.exit ], [ 1, %if.then749 ], [ 1, %do.body745 ], [ 1, %if.then741 ], [ 0, %for.end ], [ 0, %do.body808 ], [ 0, %if.then812 ], [ 1, %if.then1030 ], [ 1, %do.body1026 ], [ 1, %if.then1022 ], [ 1, %if.then1168 ], [ 1, %do.body1164 ], [ 1, %if.then1160 ], [ 0, %do.body1091 ], [ 0, %for.end1087 ], [ 0, %do.body1229 ], [ 0, %while.end1225 ], [ 0, %do.body1247.sink.split ], [ 1, %if.then1441 ], [ 1, %do.body1437 ], [ 1, %if.then1433 ], [ 0, %if.then1525 ], [ 0, %do.body1521 ], [ 0, %while.end1517 ], [ 1, %do.body1954 ], [ 1, %if.then1958 ], [ 1, %if.then2267 ], [ 1, %do.body2263 ], [ 1, %if.then2260 ], [ 0, %do.body2316 ], [ 0, %lor.lhs.false2336 ], [ 0, %if.then3352 ], [ 0, %do.body3348 ], [ 0, %if.then3344 ], [ 0, %TARGET_SRE_OP_AT ], [ 0, %sw.bb326.i ], [ 0, %sw.bb279.i ], [ 0, %sw.bb220.i ], [ 0, %sw.bb162.i ], [ 0, %sw.bb93.i ], [ 0, %sw.bb36.i ], [ 0, %exit.loopexit ], [ 0, %exit.loopexit2552 ], [ 0, %exit.loopexit2553 ], [ 0, %exit.loopexit2554 ]
+exit:                                             ; preds = %exit.loopexit2551, %exit.loopexit2550, %exit.loopexit2549, %exit.loopexit, %sw.bb36.i, %sw.bb93.i, %sw.bb162.i, %sw.bb220.i, %sw.bb279.i, %sw.bb326.i, %TARGET_SRE_OP_AT, %if.then3344, %do.body3348, %if.then3352, %lor.lhs.false2336, %do.body2316, %if.then2260, %do.body2263, %if.then2267, %if.then1958, %do.body1954, %while.end1517, %do.body1521, %if.then1525, %if.then1433, %do.body1437, %if.then1441, %while.end1225, %do.body1229, %for.end1087, %do.body1091, %do.body1247.sink.split, %if.then1160, %do.body1164, %if.then1168, %if.then1022, %do.body1026, %if.then1030, %if.then812, %do.body808, %for.end, %if.then741, %do.body745, %if.then749, %sre_ucs2_charset_loc_ignore.exit, %TARGET_SRE_OP_IN_LOC_IGNORE, %sre_upper_locale.exit.i1463, %lor.lhs.false537, %TARGET_SRE_OP_IN_UNI_IGNORE, %sre_lower_ascii.exit1456, %TARGET_SRE_OP_IN_IGNORE, %char_loc_ignore.exit1448, %TARGET_SRE_OP_NOT_LITERAL_LOC_IGNORE, %sre_lower_locale.exit.i1443, %lor.lhs.false473, %lor.lhs.false442, %TARGET_SRE_OP_NOT_LITERAL_UNI_IGNORE, %sre_lower_ascii.exit1434, %TARGET_SRE_OP_NOT_LITERAL_IGNORE, %char_loc_ignore.exit, %TARGET_SRE_OP_LITERAL_LOC_IGNORE, %lor.lhs.false350, %TARGET_SRE_OP_LITERAL_UNI_IGNORE, %sre_lower_ascii.exit, %TARGET_SRE_OP_LITERAL_IGNORE, %lor.lhs.false286, %TARGET_SRE_OP_IN, %lor.lhs.false231, %TARGET_SRE_OP_ANY, %lor.lhs.false199, %TARGET_SRE_OP_CATEGORY, %land.lhs.true162, %land.lhs.true156, %lor.lhs.false122, %TARGET_SRE_OP_NOT_LITERAL, %lor.lhs.false, %TARGET_SRE_OP_LITERAL, %land.lhs.true.i, %lor.rhs15.i, %lor.rhs.i, %sw.bb.i, %sw.bb32.i, %cond.end88.i, %cond.end157.i, %cond.end215.i, %cond.end274.i, %cond.end321.i, %cond.end368.i, %indirectgoto, %sw.bb3462, %TARGET_SRE_OP_ASSERT, %if.else2999, %TARGET_SRE_OP_GROUPREF_LOC_IGNORE, %if.else2930, %TARGET_SRE_OP_GROUPREF_UNI_IGNORE, %if.else2861, %TARGET_SRE_OP_GROUPREF_IGNORE, %if.else2796, %TARGET_SRE_OP_GROUPREF, %sw.bb3451, %sw.bb3454, %sw.bb3449, %sw.bb3453, %sw.bb3457, %do.body1563, %TARGET_SRE_OP_POSSESSIVE_REPEAT_ONE, %do.body1280, %TARGET_SRE_OP_MIN_REPEAT_ONE, %do.body852, %TARGET_SRE_OP_REPEAT_ONE, %TARGET_SRE_OP_ANY_ALL, %sre_ucs2_at.exit, %land.lhs.true, %if.then2761, %if.else2519, %if.end2452, %if.end2155, %do.end2072, %if.end1781, %do.body1700, %if.then1625, %if.then1598, %if.then1318, %if.then886, %if.end168
+  %ctx.1 = phi ptr [ %add.ptr1565, %if.then1598 ], [ %ctx.14, %if.then1318 ], [ %add.ptr854, %if.then886 ], [ %ctx.2, %if.then1625 ], [ %ctx.2, %if.end168 ], [ %add.ptr3447, %if.then2761 ], [ %add.ptr3447, %do.body1700 ], [ %add.ptr3447, %if.else2519 ], [ %add.ptr3447, %if.end2155 ], [ %add.ptr3447, %if.end1781 ], [ %add.ptr3447, %if.end2452 ], [ %add.ptr3447, %do.end2072 ], [ %ctx.0, %land.lhs.true ], [ %ctx.2, %sre_ucs2_at.exit ], [ %ctx.2, %TARGET_SRE_OP_ANY_ALL ], [ %ctx.2, %TARGET_SRE_OP_REPEAT_ONE ], [ %add.ptr854, %do.body852 ], [ %ctx.2, %TARGET_SRE_OP_MIN_REPEAT_ONE ], [ %add.ptr1282, %do.body1280 ], [ %ctx.2, %TARGET_SRE_OP_POSSESSIVE_REPEAT_ONE ], [ %add.ptr1565, %do.body1563 ], [ %add.ptr3447, %sw.bb3457 ], [ %add.ptr3447, %sw.bb3453 ], [ %add.ptr3447, %sw.bb3449 ], [ %add.ptr3447, %sw.bb3454 ], [ %add.ptr3447, %sw.bb3451 ], [ %ctx.2, %TARGET_SRE_OP_GROUPREF ], [ %ctx.2, %if.else2796 ], [ %ctx.2, %TARGET_SRE_OP_GROUPREF_IGNORE ], [ %ctx.2, %if.else2861 ], [ %ctx.2, %TARGET_SRE_OP_GROUPREF_UNI_IGNORE ], [ %ctx.2, %if.else2930 ], [ %ctx.2, %TARGET_SRE_OP_GROUPREF_LOC_IGNORE ], [ %ctx.2, %if.else2999 ], [ %ctx.2, %TARGET_SRE_OP_ASSERT ], [ %add.ptr3447, %sw.bb3462 ], [ %ctx.2, %indirectgoto ], [ %ctx.2, %cond.end368.i ], [ %ctx.2, %cond.end321.i ], [ %ctx.2, %cond.end274.i ], [ %ctx.2, %cond.end215.i ], [ %ctx.2, %cond.end157.i ], [ %ctx.2, %cond.end88.i ], [ %ctx.2, %sw.bb32.i ], [ %ctx.2, %sw.bb.i ], [ %ctx.2, %lor.rhs.i ], [ %ctx.2, %lor.rhs15.i ], [ %ctx.2, %land.lhs.true.i ], [ %ctx.2, %TARGET_SRE_OP_LITERAL ], [ %ctx.2, %lor.lhs.false ], [ %ctx.2, %TARGET_SRE_OP_NOT_LITERAL ], [ %ctx.2, %lor.lhs.false122 ], [ %ctx.2, %land.lhs.true156 ], [ %ctx.2, %land.lhs.true162 ], [ %ctx.2, %TARGET_SRE_OP_CATEGORY ], [ %ctx.2, %lor.lhs.false199 ], [ %ctx.2, %TARGET_SRE_OP_ANY ], [ %ctx.2, %lor.lhs.false231 ], [ %ctx.2, %TARGET_SRE_OP_IN ], [ %ctx.2, %lor.lhs.false286 ], [ %ctx.2, %TARGET_SRE_OP_LITERAL_IGNORE ], [ %ctx.2, %sre_lower_ascii.exit ], [ %ctx.2, %TARGET_SRE_OP_LITERAL_UNI_IGNORE ], [ %ctx.2, %lor.lhs.false350 ], [ %ctx.2, %TARGET_SRE_OP_LITERAL_LOC_IGNORE ], [ %ctx.2, %char_loc_ignore.exit ], [ %ctx.2, %TARGET_SRE_OP_NOT_LITERAL_IGNORE ], [ %ctx.2, %sre_lower_ascii.exit1434 ], [ %ctx.2, %TARGET_SRE_OP_NOT_LITERAL_UNI_IGNORE ], [ %ctx.2, %lor.lhs.false442 ], [ %ctx.2, %lor.lhs.false473 ], [ %ctx.2, %sre_lower_locale.exit.i1443 ], [ %ctx.2, %TARGET_SRE_OP_NOT_LITERAL_LOC_IGNORE ], [ %ctx.2, %char_loc_ignore.exit1448 ], [ %ctx.2, %TARGET_SRE_OP_IN_IGNORE ], [ %ctx.2, %sre_lower_ascii.exit1456 ], [ %ctx.2, %TARGET_SRE_OP_IN_UNI_IGNORE ], [ %ctx.2, %lor.lhs.false537 ], [ %ctx.2, %sre_upper_locale.exit.i1463 ], [ %ctx.2, %TARGET_SRE_OP_IN_LOC_IGNORE ], [ %ctx.2, %sre_ucs2_charset_loc_ignore.exit ], [ %add.ptr3447, %if.then749 ], [ %add.ptr3447, %do.body745 ], [ %add.ptr3447, %if.then741 ], [ %ctx.4, %for.end ], [ %ctx.4, %do.body808 ], [ %ctx.4, %if.then812 ], [ %add.ptr3447, %if.then1030 ], [ %add.ptr3447, %do.body1026 ], [ %add.ptr3447, %if.then1022 ], [ %add.ptr3447, %if.then1168 ], [ %add.ptr3447, %do.body1164 ], [ %add.ptr3447, %if.then1160 ], [ %ctx.9, %do.body1091 ], [ %ctx.9, %for.end1087 ], [ %ctx.11, %do.body1229 ], [ %ctx.11, %while.end1225 ], [ %ctx.13.ph, %do.body1247.sink.split ], [ %add.ptr3447, %if.then1441 ], [ %add.ptr3447, %do.body1437 ], [ %add.ptr3447, %if.then1433 ], [ %ctx.17, %if.then1525 ], [ %ctx.17, %do.body1521 ], [ %ctx.17, %while.end1517 ], [ %add.ptr3447, %do.body1954 ], [ %add.ptr3447, %if.then1958 ], [ %add.ptr3447, %if.then2267 ], [ %add.ptr3447, %do.body2263 ], [ %add.ptr3447, %if.then2260 ], [ %add.ptr3447, %do.body2316 ], [ %add.ptr3447, %lor.lhs.false2336 ], [ %add.ptr3447, %if.then3352 ], [ %add.ptr3447, %do.body3348 ], [ %add.ptr3447, %if.then3344 ], [ %ctx.2, %TARGET_SRE_OP_AT ], [ %ctx.2, %sw.bb326.i ], [ %ctx.2, %sw.bb279.i ], [ %ctx.2, %sw.bb220.i ], [ %ctx.2, %sw.bb162.i ], [ %ctx.2, %sw.bb93.i ], [ %ctx.2, %sw.bb36.i ], [ %ctx.2, %exit.loopexit ], [ %ctx.2, %exit.loopexit2549 ], [ %ctx.2, %exit.loopexit2550 ], [ %ctx.2, %exit.loopexit2551 ]
+  %sigcount.1 = phi i32 [ %sigcount.2, %if.then1598 ], [ %sigcount.2, %if.then1318 ], [ %sigcount.2, %if.then886 ], [ %sigcount.2, %if.then1625 ], [ %sigcount.2, %if.end168 ], [ %sigcount.1, %if.then2761 ], [ %sigcount.1, %do.body1700 ], [ %sigcount.1, %if.else2519 ], [ %sigcount.1, %if.end2155 ], [ %sigcount.1, %if.end1781 ], [ %sigcount.1, %if.end2452 ], [ %sigcount.1, %do.end2072 ], [ %sigcount.0, %land.lhs.true ], [ %sigcount.2, %sre_ucs2_at.exit ], [ %sigcount.2, %TARGET_SRE_OP_ANY_ALL ], [ %sigcount.2, %TARGET_SRE_OP_REPEAT_ONE ], [ %sigcount.2, %do.body852 ], [ %sigcount.2, %TARGET_SRE_OP_MIN_REPEAT_ONE ], [ %sigcount.2, %do.body1280 ], [ %sigcount.2, %TARGET_SRE_OP_POSSESSIVE_REPEAT_ONE ], [ %sigcount.2, %do.body1563 ], [ %sigcount.1, %sw.bb3457 ], [ %sigcount.1, %sw.bb3453 ], [ %sigcount.1, %sw.bb3449 ], [ %sigcount.1, %sw.bb3454 ], [ %sigcount.1, %sw.bb3451 ], [ %sigcount.2, %TARGET_SRE_OP_GROUPREF ], [ %sigcount.2, %if.else2796 ], [ %sigcount.2, %TARGET_SRE_OP_GROUPREF_IGNORE ], [ %sigcount.2, %if.else2861 ], [ %sigcount.2, %TARGET_SRE_OP_GROUPREF_UNI_IGNORE ], [ %sigcount.2, %if.else2930 ], [ %sigcount.2, %TARGET_SRE_OP_GROUPREF_LOC_IGNORE ], [ %sigcount.2, %if.else2999 ], [ %sigcount.2, %TARGET_SRE_OP_ASSERT ], [ %sigcount.1, %sw.bb3462 ], [ %sigcount.2, %indirectgoto ], [ %sigcount.2, %cond.end368.i ], [ %sigcount.2, %cond.end321.i ], [ %sigcount.2, %cond.end274.i ], [ %sigcount.2, %cond.end215.i ], [ %sigcount.2, %cond.end157.i ], [ %sigcount.2, %cond.end88.i ], [ %sigcount.2, %sw.bb32.i ], [ %sigcount.2, %sw.bb.i ], [ %sigcount.2, %lor.rhs.i ], [ %sigcount.2, %lor.rhs15.i ], [ %sigcount.2, %land.lhs.true.i ], [ %sigcount.2, %TARGET_SRE_OP_LITERAL ], [ %sigcount.2, %lor.lhs.false ], [ %sigcount.2, %TARGET_SRE_OP_NOT_LITERAL ], [ %sigcount.2, %lor.lhs.false122 ], [ %sigcount.2, %land.lhs.true156 ], [ %sigcount.2, %land.lhs.true162 ], [ %sigcount.2, %TARGET_SRE_OP_CATEGORY ], [ %sigcount.2, %lor.lhs.false199 ], [ %sigcount.2, %TARGET_SRE_OP_ANY ], [ %sigcount.2, %lor.lhs.false231 ], [ %sigcount.2, %TARGET_SRE_OP_IN ], [ %sigcount.2, %lor.lhs.false286 ], [ %sigcount.2, %TARGET_SRE_OP_LITERAL_IGNORE ], [ %sigcount.2, %sre_lower_ascii.exit ], [ %sigcount.2, %TARGET_SRE_OP_LITERAL_UNI_IGNORE ], [ %sigcount.2, %lor.lhs.false350 ], [ %sigcount.2, %TARGET_SRE_OP_LITERAL_LOC_IGNORE ], [ %sigcount.2, %char_loc_ignore.exit ], [ %sigcount.2, %TARGET_SRE_OP_NOT_LITERAL_IGNORE ], [ %sigcount.2, %sre_lower_ascii.exit1434 ], [ %sigcount.2, %TARGET_SRE_OP_NOT_LITERAL_UNI_IGNORE ], [ %sigcount.2, %lor.lhs.false442 ], [ %sigcount.2, %lor.lhs.false473 ], [ %sigcount.2, %sre_lower_locale.exit.i1443 ], [ %sigcount.2, %TARGET_SRE_OP_NOT_LITERAL_LOC_IGNORE ], [ %sigcount.2, %char_loc_ignore.exit1448 ], [ %sigcount.2, %TARGET_SRE_OP_IN_IGNORE ], [ %sigcount.2, %sre_lower_ascii.exit1456 ], [ %sigcount.2, %TARGET_SRE_OP_IN_UNI_IGNORE ], [ %sigcount.2, %lor.lhs.false537 ], [ %sigcount.2, %sre_upper_locale.exit.i1463 ], [ %sigcount.2, %TARGET_SRE_OP_IN_LOC_IGNORE ], [ %sigcount.2, %sre_ucs2_charset_loc_ignore.exit ], [ %sigcount.1, %if.then749 ], [ %sigcount.1, %do.body745 ], [ %sigcount.1, %if.then741 ], [ %sigcount.3, %for.end ], [ %sigcount.3, %do.body808 ], [ %sigcount.3, %if.then812 ], [ %sigcount.1, %if.then1030 ], [ %sigcount.1, %do.body1026 ], [ %sigcount.1, %if.then1022 ], [ %sigcount.1, %if.then1168 ], [ %sigcount.1, %do.body1164 ], [ %sigcount.1, %if.then1160 ], [ %sigcount.5, %do.body1091 ], [ %sigcount.5, %for.end1087 ], [ %sigcount.6, %do.body1229 ], [ %sigcount.6, %while.end1225 ], [ %sigcount.7.ph, %do.body1247.sink.split ], [ %sigcount.1, %if.then1441 ], [ %sigcount.1, %do.body1437 ], [ %sigcount.1, %if.then1433 ], [ %sigcount.9, %if.then1525 ], [ %sigcount.9, %do.body1521 ], [ %sigcount.9, %while.end1517 ], [ %sigcount.1, %do.body1954 ], [ %sigcount.1, %if.then1958 ], [ %sigcount.1, %if.then2267 ], [ %sigcount.1, %do.body2263 ], [ %sigcount.1, %if.then2260 ], [ %sigcount.1, %do.body2316 ], [ %sigcount.1, %lor.lhs.false2336 ], [ %sigcount.1, %if.then3352 ], [ %sigcount.1, %do.body3348 ], [ %sigcount.1, %if.then3344 ], [ %sigcount.2, %TARGET_SRE_OP_AT ], [ %sigcount.2, %sw.bb326.i ], [ %sigcount.2, %sw.bb279.i ], [ %sigcount.2, %sw.bb220.i ], [ %sigcount.2, %sw.bb162.i ], [ %sigcount.2, %sw.bb93.i ], [ %sigcount.2, %sw.bb36.i ], [ %sigcount.2, %exit.loopexit ], [ %sigcount.2, %exit.loopexit2549 ], [ %sigcount.2, %exit.loopexit2550 ], [ %sigcount.2, %exit.loopexit2551 ]
+  %tobool3343.not = phi i1 [ false, %if.then1598 ], [ false, %if.then1318 ], [ false, %if.then886 ], [ true, %if.then1625 ], [ false, %if.end168 ], [ true, %if.then2761 ], [ true, %do.body1700 ], [ true, %if.else2519 ], [ true, %if.end2155 ], [ true, %if.end1781 ], [ true, %if.end2452 ], [ true, %do.end2072 ], [ true, %land.lhs.true ], [ true, %sre_ucs2_at.exit ], [ true, %TARGET_SRE_OP_ANY_ALL ], [ true, %TARGET_SRE_OP_REPEAT_ONE ], [ true, %do.body852 ], [ true, %TARGET_SRE_OP_MIN_REPEAT_ONE ], [ true, %do.body1280 ], [ true, %TARGET_SRE_OP_POSSESSIVE_REPEAT_ONE ], [ true, %do.body1563 ], [ false, %sw.bb3457 ], [ false, %sw.bb3453 ], [ false, %sw.bb3449 ], [ false, %sw.bb3454 ], [ false, %sw.bb3451 ], [ true, %TARGET_SRE_OP_GROUPREF ], [ true, %if.else2796 ], [ true, %TARGET_SRE_OP_GROUPREF_IGNORE ], [ true, %if.else2861 ], [ true, %TARGET_SRE_OP_GROUPREF_UNI_IGNORE ], [ true, %if.else2930 ], [ true, %TARGET_SRE_OP_GROUPREF_LOC_IGNORE ], [ true, %if.else2999 ], [ true, %TARGET_SRE_OP_ASSERT ], [ true, %sw.bb3462 ], [ true, %indirectgoto ], [ true, %cond.end368.i ], [ true, %cond.end321.i ], [ true, %cond.end274.i ], [ true, %cond.end215.i ], [ true, %cond.end157.i ], [ true, %cond.end88.i ], [ true, %sw.bb32.i ], [ true, %sw.bb.i ], [ true, %lor.rhs.i ], [ true, %lor.rhs15.i ], [ true, %land.lhs.true.i ], [ true, %TARGET_SRE_OP_LITERAL ], [ true, %lor.lhs.false ], [ true, %TARGET_SRE_OP_NOT_LITERAL ], [ true, %lor.lhs.false122 ], [ true, %land.lhs.true156 ], [ true, %land.lhs.true162 ], [ true, %TARGET_SRE_OP_CATEGORY ], [ true, %lor.lhs.false199 ], [ true, %TARGET_SRE_OP_ANY ], [ true, %lor.lhs.false231 ], [ true, %TARGET_SRE_OP_IN ], [ true, %lor.lhs.false286 ], [ true, %TARGET_SRE_OP_LITERAL_IGNORE ], [ true, %sre_lower_ascii.exit ], [ true, %TARGET_SRE_OP_LITERAL_UNI_IGNORE ], [ true, %lor.lhs.false350 ], [ true, %TARGET_SRE_OP_LITERAL_LOC_IGNORE ], [ true, %char_loc_ignore.exit ], [ true, %TARGET_SRE_OP_NOT_LITERAL_IGNORE ], [ true, %sre_lower_ascii.exit1434 ], [ true, %TARGET_SRE_OP_NOT_LITERAL_UNI_IGNORE ], [ true, %lor.lhs.false442 ], [ true, %lor.lhs.false473 ], [ true, %sre_lower_locale.exit.i1443 ], [ true, %TARGET_SRE_OP_NOT_LITERAL_LOC_IGNORE ], [ true, %char_loc_ignore.exit1448 ], [ true, %TARGET_SRE_OP_IN_IGNORE ], [ true, %sre_lower_ascii.exit1456 ], [ true, %TARGET_SRE_OP_IN_UNI_IGNORE ], [ true, %lor.lhs.false537 ], [ true, %sre_upper_locale.exit.i1463 ], [ true, %TARGET_SRE_OP_IN_LOC_IGNORE ], [ true, %sre_ucs2_charset_loc_ignore.exit ], [ false, %if.then749 ], [ false, %do.body745 ], [ false, %if.then741 ], [ true, %for.end ], [ true, %do.body808 ], [ true, %if.then812 ], [ false, %if.then1030 ], [ false, %do.body1026 ], [ false, %if.then1022 ], [ false, %if.then1168 ], [ false, %do.body1164 ], [ false, %if.then1160 ], [ true, %do.body1091 ], [ true, %for.end1087 ], [ true, %do.body1229 ], [ true, %while.end1225 ], [ true, %do.body1247.sink.split ], [ false, %if.then1441 ], [ false, %do.body1437 ], [ false, %if.then1433 ], [ true, %if.then1525 ], [ true, %do.body1521 ], [ true, %while.end1517 ], [ false, %do.body1954 ], [ false, %if.then1958 ], [ false, %if.then2267 ], [ false, %do.body2263 ], [ false, %if.then2260 ], [ true, %do.body2316 ], [ true, %lor.lhs.false2336 ], [ true, %if.then3352 ], [ true, %do.body3348 ], [ true, %if.then3344 ], [ true, %TARGET_SRE_OP_AT ], [ true, %sw.bb326.i ], [ true, %sw.bb279.i ], [ true, %sw.bb220.i ], [ true, %sw.bb162.i ], [ true, %sw.bb93.i ], [ true, %sw.bb36.i ], [ true, %exit.loopexit ], [ true, %exit.loopexit2549 ], [ true, %exit.loopexit2550 ], [ true, %exit.loopexit2551 ]
+  %cmp2066 = phi i1 [ true, %if.then1598 ], [ true, %if.then1318 ], [ true, %if.then886 ], [ false, %if.then1625 ], [ true, %if.end168 ], [ false, %if.then2761 ], [ false, %do.body1700 ], [ false, %if.else2519 ], [ false, %if.end2155 ], [ false, %if.end1781 ], [ false, %if.end2452 ], [ false, %do.end2072 ], [ false, %land.lhs.true ], [ false, %sre_ucs2_at.exit ], [ false, %TARGET_SRE_OP_ANY_ALL ], [ false, %TARGET_SRE_OP_REPEAT_ONE ], [ false, %do.body852 ], [ false, %TARGET_SRE_OP_MIN_REPEAT_ONE ], [ false, %do.body1280 ], [ false, %TARGET_SRE_OP_POSSESSIVE_REPEAT_ONE ], [ false, %do.body1563 ], [ true, %sw.bb3457 ], [ true, %sw.bb3453 ], [ true, %sw.bb3449 ], [ true, %sw.bb3454 ], [ true, %sw.bb3451 ], [ false, %TARGET_SRE_OP_GROUPREF ], [ false, %if.else2796 ], [ false, %TARGET_SRE_OP_GROUPREF_IGNORE ], [ false, %if.else2861 ], [ false, %TARGET_SRE_OP_GROUPREF_UNI_IGNORE ], [ false, %if.else2930 ], [ false, %TARGET_SRE_OP_GROUPREF_LOC_IGNORE ], [ false, %if.else2999 ], [ false, %TARGET_SRE_OP_ASSERT ], [ false, %sw.bb3462 ], [ false, %indirectgoto ], [ false, %cond.end368.i ], [ false, %cond.end321.i ], [ false, %cond.end274.i ], [ false, %cond.end215.i ], [ false, %cond.end157.i ], [ false, %cond.end88.i ], [ false, %sw.bb32.i ], [ false, %sw.bb.i ], [ false, %lor.rhs.i ], [ false, %lor.rhs15.i ], [ false, %land.lhs.true.i ], [ false, %TARGET_SRE_OP_LITERAL ], [ false, %lor.lhs.false ], [ false, %TARGET_SRE_OP_NOT_LITERAL ], [ false, %lor.lhs.false122 ], [ false, %land.lhs.true156 ], [ false, %land.lhs.true162 ], [ false, %TARGET_SRE_OP_CATEGORY ], [ false, %lor.lhs.false199 ], [ false, %TARGET_SRE_OP_ANY ], [ false, %lor.lhs.false231 ], [ false, %TARGET_SRE_OP_IN ], [ false, %lor.lhs.false286 ], [ false, %TARGET_SRE_OP_LITERAL_IGNORE ], [ false, %sre_lower_ascii.exit ], [ false, %TARGET_SRE_OP_LITERAL_UNI_IGNORE ], [ false, %lor.lhs.false350 ], [ false, %TARGET_SRE_OP_LITERAL_LOC_IGNORE ], [ false, %char_loc_ignore.exit ], [ false, %TARGET_SRE_OP_NOT_LITERAL_IGNORE ], [ false, %sre_lower_ascii.exit1434 ], [ false, %TARGET_SRE_OP_NOT_LITERAL_UNI_IGNORE ], [ false, %lor.lhs.false442 ], [ false, %lor.lhs.false473 ], [ false, %sre_lower_locale.exit.i1443 ], [ false, %TARGET_SRE_OP_NOT_LITERAL_LOC_IGNORE ], [ false, %char_loc_ignore.exit1448 ], [ false, %TARGET_SRE_OP_IN_IGNORE ], [ false, %sre_lower_ascii.exit1456 ], [ false, %TARGET_SRE_OP_IN_UNI_IGNORE ], [ false, %lor.lhs.false537 ], [ false, %sre_upper_locale.exit.i1463 ], [ false, %TARGET_SRE_OP_IN_LOC_IGNORE ], [ false, %sre_ucs2_charset_loc_ignore.exit ], [ true, %if.then749 ], [ true, %do.body745 ], [ true, %if.then741 ], [ false, %for.end ], [ false, %do.body808 ], [ false, %if.then812 ], [ true, %if.then1030 ], [ true, %do.body1026 ], [ true, %if.then1022 ], [ true, %if.then1168 ], [ true, %do.body1164 ], [ true, %if.then1160 ], [ false, %do.body1091 ], [ false, %for.end1087 ], [ false, %do.body1229 ], [ false, %while.end1225 ], [ false, %do.body1247.sink.split ], [ true, %if.then1441 ], [ true, %do.body1437 ], [ true, %if.then1433 ], [ false, %if.then1525 ], [ false, %do.body1521 ], [ false, %while.end1517 ], [ true, %do.body1954 ], [ true, %if.then1958 ], [ true, %if.then2267 ], [ true, %do.body2263 ], [ true, %if.then2260 ], [ false, %do.body2316 ], [ false, %lor.lhs.false2336 ], [ false, %if.then3352 ], [ false, %do.body3348 ], [ false, %if.then3344 ], [ false, %TARGET_SRE_OP_AT ], [ false, %sw.bb326.i ], [ false, %sw.bb279.i ], [ false, %sw.bb220.i ], [ false, %sw.bb162.i ], [ false, %sw.bb93.i ], [ false, %sw.bb36.i ], [ false, %exit.loopexit ], [ false, %exit.loopexit2549 ], [ false, %exit.loopexit2550 ], [ false, %exit.loopexit2551 ]
+  %ret.0 = phi i64 [ 1, %if.then1598 ], [ 1, %if.then1318 ], [ 1, %if.then886 ], [ 0, %if.then1625 ], [ 1, %if.end168 ], [ 0, %if.then2761 ], [ 0, %do.body1700 ], [ 0, %if.else2519 ], [ 0, %if.end2155 ], [ 0, %if.end1781 ], [ 0, %if.end2452 ], [ 0, %do.end2072 ], [ 0, %land.lhs.true ], [ 0, %sre_ucs2_at.exit ], [ 0, %TARGET_SRE_OP_ANY_ALL ], [ 0, %TARGET_SRE_OP_REPEAT_ONE ], [ 0, %do.body852 ], [ 0, %TARGET_SRE_OP_MIN_REPEAT_ONE ], [ 0, %do.body1280 ], [ 0, %TARGET_SRE_OP_POSSESSIVE_REPEAT_ONE ], [ 0, %do.body1563 ], [ 1, %sw.bb3457 ], [ 1, %sw.bb3453 ], [ 1, %sw.bb3449 ], [ 1, %sw.bb3454 ], [ 1, %sw.bb3451 ], [ 0, %TARGET_SRE_OP_GROUPREF ], [ 0, %if.else2796 ], [ 0, %TARGET_SRE_OP_GROUPREF_IGNORE ], [ 0, %if.else2861 ], [ 0, %TARGET_SRE_OP_GROUPREF_UNI_IGNORE ], [ 0, %if.else2930 ], [ 0, %TARGET_SRE_OP_GROUPREF_LOC_IGNORE ], [ 0, %if.else2999 ], [ 0, %TARGET_SRE_OP_ASSERT ], [ 0, %sw.bb3462 ], [ 0, %indirectgoto ], [ 0, %cond.end368.i ], [ 0, %cond.end321.i ], [ 0, %cond.end274.i ], [ 0, %cond.end215.i ], [ 0, %cond.end157.i ], [ 0, %cond.end88.i ], [ 0, %sw.bb32.i ], [ 0, %sw.bb.i ], [ 0, %lor.rhs.i ], [ 0, %lor.rhs15.i ], [ 0, %land.lhs.true.i ], [ 0, %TARGET_SRE_OP_LITERAL ], [ 0, %lor.lhs.false ], [ 0, %TARGET_SRE_OP_NOT_LITERAL ], [ 0, %lor.lhs.false122 ], [ 0, %land.lhs.true156 ], [ 0, %land.lhs.true162 ], [ 0, %TARGET_SRE_OP_CATEGORY ], [ 0, %lor.lhs.false199 ], [ 0, %TARGET_SRE_OP_ANY ], [ 0, %lor.lhs.false231 ], [ 0, %TARGET_SRE_OP_IN ], [ 0, %lor.lhs.false286 ], [ 0, %TARGET_SRE_OP_LITERAL_IGNORE ], [ 0, %sre_lower_ascii.exit ], [ 0, %TARGET_SRE_OP_LITERAL_UNI_IGNORE ], [ 0, %lor.lhs.false350 ], [ 0, %TARGET_SRE_OP_LITERAL_LOC_IGNORE ], [ 0, %char_loc_ignore.exit ], [ 0, %TARGET_SRE_OP_NOT_LITERAL_IGNORE ], [ 0, %sre_lower_ascii.exit1434 ], [ 0, %TARGET_SRE_OP_NOT_LITERAL_UNI_IGNORE ], [ 0, %lor.lhs.false442 ], [ 0, %lor.lhs.false473 ], [ 0, %sre_lower_locale.exit.i1443 ], [ 0, %TARGET_SRE_OP_NOT_LITERAL_LOC_IGNORE ], [ 0, %char_loc_ignore.exit1448 ], [ 0, %TARGET_SRE_OP_IN_IGNORE ], [ 0, %sre_lower_ascii.exit1456 ], [ 0, %TARGET_SRE_OP_IN_UNI_IGNORE ], [ 0, %lor.lhs.false537 ], [ 0, %sre_upper_locale.exit.i1463 ], [ 0, %TARGET_SRE_OP_IN_LOC_IGNORE ], [ 0, %sre_ucs2_charset_loc_ignore.exit ], [ 1, %if.then749 ], [ 1, %do.body745 ], [ 1, %if.then741 ], [ 0, %for.end ], [ 0, %do.body808 ], [ 0, %if.then812 ], [ 1, %if.then1030 ], [ 1, %do.body1026 ], [ 1, %if.then1022 ], [ 1, %if.then1168 ], [ 1, %do.body1164 ], [ 1, %if.then1160 ], [ 0, %do.body1091 ], [ 0, %for.end1087 ], [ 0, %do.body1229 ], [ 0, %while.end1225 ], [ 0, %do.body1247.sink.split ], [ 1, %if.then1441 ], [ 1, %do.body1437 ], [ 1, %if.then1433 ], [ 0, %if.then1525 ], [ 0, %do.body1521 ], [ 0, %while.end1517 ], [ 1, %do.body1954 ], [ 1, %if.then1958 ], [ 1, %if.then2267 ], [ 1, %do.body2263 ], [ 1, %if.then2260 ], [ 0, %do.body2316 ], [ 0, %lor.lhs.false2336 ], [ 0, %if.then3352 ], [ 0, %do.body3348 ], [ 0, %if.then3344 ], [ 0, %TARGET_SRE_OP_AT ], [ 0, %sw.bb326.i ], [ 0, %sw.bb279.i ], [ 0, %sw.bb220.i ], [ 0, %sw.bb162.i ], [ 0, %sw.bb93.i ], [ 0, %sw.bb36.i ], [ 0, %exit.loopexit ], [ 0, %exit.loopexit2549 ], [ 0, %exit.loopexit2550 ], [ 0, %exit.loopexit2551 ]
   %last_ctx_pos3434 = getelementptr inbounds i8, ptr %ctx.1, i64 48
   %535 = load i64, ptr %last_ctx_pos3434, align 8
   %jump3435 = getelementptr inbounds i8, ptr %ctx.1, i64 44
@@ -14756,7 +14755,7 @@ return:                                           ; preds = %do.body3445, %indir
   ret i64 %retval.0
 
 indirectgoto:                                     ; preds = %indirectgoto.backedge, %indirectgoto.preheader
-  %.sink.sink = phi i32 [ %455, %indirectgoto.preheader ], [ %.sink.sink.be, %indirectgoto.backedge ]
+  %.sink.sink = phi i32 [ %.sink2324, %indirectgoto.preheader ], [ %.sink.sink.be, %indirectgoto.backedge ]
   %ptr.0 = phi ptr [ %ptr.0.ph, %indirectgoto.preheader ], [ %ptr.0.be, %indirectgoto.backedge ]
   %ctx.2 = phi ptr [ %ctx.2.ph, %indirectgoto.preheader ], [ %ctx.2.be, %indirectgoto.backedge ]
   %sigcount.2 = phi i32 [ %sigcount.2.ph, %indirectgoto.preheader ], [ %sigcount.2.be, %indirectgoto.backedge ]
@@ -14948,7 +14947,7 @@ do.end84:                                         ; preds = %if.end66, %land.lhs
   br label %indirectgoto.backedge
 
 indirectgoto.backedge:                            ; preds = %do.end84, %do.end114, %do.end145, %do.end190, %do.end221, %do.end250, %do.end275, %do.end307, %do.end337, %do.end367, %do.end396, %do.end426, %do.end456, %do.end485, %do.end518, %do.end551, %do.end583, %do.end604, %do.end1599, %do.end2828, %do.end2895, %do.end2962, %do.end3029, %do.end3057, %do.end3095, %do.end3116
-  %.sink.sink.be = phi i32 [ %18, %do.end84 ], [ %21, %do.end114 ], [ %24, %do.end145 ], [ %101, %do.end190 ], [ %104, %do.end221 ], [ %106, %do.end250 ], [ %107, %do.end275 ], [ %110, %do.end307 ], [ %114, %do.end337 ], [ %117, %do.end367 ], [ %120, %do.end396 ], [ %124, %do.end426 ], [ %127, %do.end456 ], [ %130, %do.end485 ], [ %134, %do.end518 ], [ %137, %do.end551 ], [ %140, %do.end583 ], [ %142, %do.end604 ], [ %281, %do.end1599 ], [ %468, %do.end2828 ], [ %479, %do.end2895 ], [ %488, %do.end2962 ], [ %497, %do.end3029 ], [ %501, %do.end3057 ], [ %507, %do.end3095 ], [ %508, %do.end3116 ]
+  %.sink.sink.be = phi i32 [ %18, %do.end84 ], [ %21, %do.end114 ], [ %24, %do.end145 ], [ %101, %do.end190 ], [ %104, %do.end221 ], [ %106, %do.end250 ], [ %107, %do.end275 ], [ %110, %do.end307 ], [ %114, %do.end337 ], [ %117, %do.end367 ], [ %120, %do.end396 ], [ %124, %do.end426 ], [ %127, %do.end456 ], [ %130, %do.end485 ], [ %134, %do.end518 ], [ %137, %do.end551 ], [ %140, %do.end583 ], [ %142, %do.end604 ], [ %282, %do.end1599 ], [ %468, %do.end2828 ], [ %479, %do.end2895 ], [ %488, %do.end2962 ], [ %497, %do.end3029 ], [ %501, %do.end3057 ], [ %507, %do.end3095 ], [ %508, %do.end3116 ]
   %ptr.0.be = phi ptr [ %ptr.0, %do.end84 ], [ %incdec.ptr100, %do.end114 ], [ %incdec.ptr131, %do.end145 ], [ %ptr.0, %do.end190 ], [ %incdec.ptr207, %do.end221 ], [ %incdec.ptr236, %do.end250 ], [ %incdec.ptr261, %do.end275 ], [ %incdec.ptr293, %do.end307 ], [ %incdec.ptr323, %do.end337 ], [ %incdec.ptr353, %do.end367 ], [ %incdec.ptr382, %do.end396 ], [ %incdec.ptr412, %do.end426 ], [ %incdec.ptr442, %do.end456 ], [ %incdec.ptr471, %do.end485 ], [ %incdec.ptr504, %do.end518 ], [ %incdec.ptr537, %do.end551 ], [ %incdec.ptr569, %do.end583 ], [ %ptr.0, %do.end604 ], [ %add.ptr1552, %do.end1599 ], [ %ptr.11.lcssa, %do.end2828 ], [ %ptr.12.lcssa, %do.end2895 ], [ %ptr.13.lcssa, %do.end2962 ], [ %ptr.14.lcssa, %do.end3029 ], [ %ptr.0, %do.end3057 ], [ %ptr.0, %do.end3095 ], [ %ptr.0, %do.end3116 ]
   %ctx.2.be = phi ptr [ %ctx.2, %do.end84 ], [ %ctx.2, %do.end114 ], [ %ctx.2, %do.end145 ], [ %ctx.2, %do.end190 ], [ %ctx.2, %do.end221 ], [ %ctx.2, %do.end250 ], [ %ctx.2, %do.end275 ], [ %ctx.2, %do.end307 ], [ %ctx.2, %do.end337 ], [ %ctx.2, %do.end367 ], [ %ctx.2, %do.end396 ], [ %ctx.2, %do.end426 ], [ %ctx.2, %do.end456 ], [ %ctx.2, %do.end485 ], [ %ctx.2, %do.end518 ], [ %ctx.2, %do.end551 ], [ %ctx.2, %do.end583 ], [ %ctx.2, %do.end604 ], [ %add.ptr1548, %do.end1599 ], [ %ctx.2, %do.end2828 ], [ %ctx.2, %do.end2895 ], [ %ctx.2, %do.end2962 ], [ %ctx.2, %do.end3029 ], [ %ctx.2, %do.end3057 ], [ %ctx.2, %do.end3095 ], [ %ctx.2, %do.end3116 ]
   %sigcount.2.be = phi i32 [ %inc73, %do.end84 ], [ %inc103, %do.end114 ], [ %inc134, %do.end145 ], [ %inc179, %do.end190 ], [ %inc210, %do.end221 ], [ %inc239, %do.end250 ], [ %inc264, %do.end275 ], [ %inc296, %do.end307 ], [ %inc326, %do.end337 ], [ %inc356, %do.end367 ], [ %inc385, %do.end396 ], [ %inc415, %do.end426 ], [ %inc445, %do.end456 ], [ %inc474, %do.end485 ], [ %inc507, %do.end518 ], [ %inc540, %do.end551 ], [ %inc572, %do.end583 ], [ %inc593, %do.end604 ], [ %inc1588, %do.end1599 ], [ %inc2817, %do.end2828 ], [ %inc2884, %do.end2895 ], [ %inc2951, %do.end2962 ], [ %inc3018, %do.end3029 ], [ %inc3046, %do.end3057 ], [ %inc3084, %do.end3095 ], [ %inc3105, %do.end3116 ]
@@ -16168,7 +16167,7 @@ if.end709:                                        ; preds = %if.end700, %if.end6
 entrance.backedge:                                ; preds = %if.end709, %if.end985, %if.end1123, %if.end1396, %if.end1647, %if.end1733, %if.end1904, %if.end2025, %if.end2107, %if.end2226, %if.end2392, %if.end2476, %if.end2598, %if.end2720, %if.end3162, %if.end3304
   %ctx.0.be = phi ptr [ %add.ptr2478, %if.end2476 ], [ %add.ptr2600, %if.end2598 ], [ %add.ptr2722, %if.end2720 ], [ %add.ptr1398, %if.end1396 ], [ %add.ptr987, %if.end985 ], [ %add.ptr1125, %if.end1123 ], [ %add.ptr1649, %if.end1647 ], [ %add.ptr2109, %if.end2107 ], [ %add.ptr2228, %if.end2226 ], [ %add.ptr1735, %if.end1733 ], [ %add.ptr1906, %if.end1904 ], [ %add.ptr2027, %if.end2025 ], [ %add.ptr711, %if.end709 ], [ %add.ptr3306, %if.end3304 ], [ %add.ptr3164, %if.end3162 ], [ %add.ptr2394, %if.end2392 ]
   %sigcount.0.be = phi i32 [ %sigcount.11, %if.end2476 ], [ %sigcount.12, %if.end2598 ], [ %sigcount.2, %if.end2720 ], [ %sigcount.8, %if.end1396 ], [ %sigcount.5, %if.end985 ], [ %sigcount.6, %if.end1123 ], [ %sigcount.2, %if.end1647 ], [ %sigcount.2, %if.end2107 ], [ %sigcount.2, %if.end2226 ], [ %sigcount.2, %if.end1733 ], [ %sigcount.2, %if.end1904 ], [ %sigcount.10, %if.end2025 ], [ %sigcount.3, %if.end709 ], [ %sigcount.2, %if.end3304 ], [ %sigcount.2, %if.end3162 ], [ %sigcount.1, %if.end2392 ]
-  %ctx_pos.0.be = phi i64 [ %423, %if.end2476 ], [ %440, %if.end2598 ], [ %451, %if.end2720 ], [ %255, %if.end1396 ], [ %200, %if.end985 ], [ %217, %if.end1123 ], [ %287, %if.end1647 ], [ %361, %if.end2107 ], [ %383, %if.end2226 ], [ %299, %if.end1733 ], [ %330, %if.end1904 ], [ %350, %if.end2025 ], [ %157, %if.end709 ], [ %528, %if.end3304 ], [ %511, %if.end3162 ], [ %409, %if.end2392 ]
+  %ctx_pos.0.be = phi i64 [ %424, %if.end2476 ], [ %441, %if.end2598 ], [ %452, %if.end2720 ], [ %255, %if.end1396 ], [ %200, %if.end985 ], [ %217, %if.end1123 ], [ %288, %if.end1647 ], [ %362, %if.end2107 ], [ %384, %if.end2226 ], [ %300, %if.end1733 ], [ %331, %if.end1904 ], [ %351, %if.end2025 ], [ %157, %if.end709 ], [ %528, %if.end3304 ], [ %511, %if.end3162 ], [ %410, %if.end2392 ]
   %pattern.addr.0.be = phi ptr [ %arrayidx2482, %if.end2476 ], [ %arrayidx2604, %if.end2598 ], [ %arrayidx2726, %if.end2720 ], [ %add.ptr1412, %if.end1396 ], [ %add.ptr1001, %if.end985 ], [ %add.ptr1139, %if.end1123 ], [ %add.ptr1663, %if.end1647 ], [ %add.ptr2123, %if.end2107 ], [ %pattern.addr.2, %if.end2226 ], [ %add.ptr1749, %if.end1733 ], [ %add.ptr1920, %if.end1904 ], [ %pattern.addr.8, %if.end2025 ], [ %arrayidx660, %if.end709 ], [ %add.ptr3310, %if.end3304 ], [ %add.ptr3168, %if.end3162 ], [ %add.ptr2408, %if.end2392 ]
   br label %entrance
 
@@ -16819,27 +16818,17 @@ if.end1347:                                       ; preds = %if.end1338, %if.the
   %add.ptr1350 = getelementptr i8, ptr %249, i64 %250
   %251 = load ptr, ptr %mark2978, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr1350, ptr noundef nonnull align 8 dereferenceable(1) %251, i64 %mul1324, i1 false)
-  br label %while.cond1358.sink.split
-
-while.cond1358.sink.split:                        ; preds = %if.end1496, %if.end1347
-  %data_stack_base.sink2313 = phi ptr [ %data_stack_base, %if.end1347 ], [ %add.ptr1491, %if.end1496 ]
-  %mul1324.sink = phi i64 [ %mul1324, %if.end1347 ], [ 1, %if.end1496 ]
-  %ptr.7.ph = phi ptr [ %ptr.6, %if.end1347 ], [ %incdec.ptr1497, %if.end1496 ]
-  %ctx.16.ph = phi ptr [ %ctx.15, %if.end1347 ], [ %add.ptr1491, %if.end1496 ]
-  %sigcount.8.ph = phi i32 [ %sigcount.2, %if.end1347 ], [ %sigcount.1, %if.end1496 ]
-  %ctx_pos.6.ph = phi i64 [ %ctx_pos.1.ph, %if.end1347 ], [ %539, %if.end1496 ]
-  %pattern.addr.7.ph = phi ptr [ %pattern.addr.2, %if.end1347 ], [ %574, %if.end1496 ]
-  %252 = load i64, ptr %data_stack_base.sink2313, align 8
-  %add1353 = add i64 %252, %mul1324.sink
-  store i64 %add1353, ptr %data_stack_base.sink2313, align 8
+  %252 = load i64, ptr %data_stack_base, align 8
+  %add1353 = add i64 %252, %mul1324
+  store i64 %add1353, ptr %data_stack_base, align 8
   br label %while.cond1358
 
-while.cond1358:                                   ; preds = %while.cond1358.sink.split, %do.body1306
-  %ptr.7 = phi ptr [ %ptr.6, %do.body1306 ], [ %ptr.7.ph, %while.cond1358.sink.split ]
-  %ctx.16 = phi ptr [ %ctx.14, %do.body1306 ], [ %ctx.16.ph, %while.cond1358.sink.split ]
-  %sigcount.8 = phi i32 [ %sigcount.2, %do.body1306 ], [ %sigcount.8.ph, %while.cond1358.sink.split ]
-  %ctx_pos.6 = phi i64 [ %ctx_pos.1.ph, %do.body1306 ], [ %ctx_pos.6.ph, %while.cond1358.sink.split ]
-  %pattern.addr.7 = phi ptr [ %pattern.addr.2, %do.body1306 ], [ %pattern.addr.7.ph, %while.cond1358.sink.split ]
+while.cond1358:                                   ; preds = %do.body1306, %if.end1347, %if.end1496
+  %ptr.7 = phi ptr [ %ptr.6, %if.end1347 ], [ %ptr.6, %do.body1306 ], [ %incdec.ptr1497, %if.end1496 ]
+  %ctx.16 = phi ptr [ %ctx.15, %if.end1347 ], [ %ctx.14, %do.body1306 ], [ %add.ptr1491, %if.end1496 ]
+  %sigcount.8 = phi i32 [ %sigcount.2, %if.end1347 ], [ %sigcount.2, %do.body1306 ], [ %sigcount.1, %if.end1496 ]
+  %ctx_pos.6 = phi i64 [ %ctx_pos.1.ph, %if.end1347 ], [ %ctx_pos.1.ph, %do.body1306 ], [ %539, %if.end1496 ]
+  %pattern.addr.7 = phi ptr [ %pattern.addr.2, %if.end1347 ], [ %pattern.addr.2, %do.body1306 ], [ %574, %if.end1496 ]
   %arrayidx1359 = getelementptr i8, ptr %pattern.addr.7, i64 8
   %253 = load i32, ptr %arrayidx1359, align 4
   %cmp1361 = icmp eq i32 %253, -1
@@ -16880,12 +16869,12 @@ if.end1387:                                       ; preds = %if.then1380
   %cmp1388.not = icmp eq i64 %ctx_pos.6, -1
   %.pre2058 = load ptr, ptr %data_stack11, align 8
   %add.ptr1393 = getelementptr i8, ptr %.pre2058, i64 %ctx_pos.6
-  %spec.select2314 = select i1 %cmp1388.not, ptr %ctx.16, ptr %add.ptr1393
+  %spec.select2312 = select i1 %cmp1388.not, ptr %ctx.16, ptr %add.ptr1393
   br label %if.end1396
 
 if.end1396:                                       ; preds = %if.end1387, %while.body1370.if.end1396_crit_edge
   %257 = phi ptr [ %.pre2057, %while.body1370.if.end1396_crit_edge ], [ %.pre2058, %if.end1387 ]
-  %ctx.18 = phi ptr [ %ctx.16, %while.body1370.if.end1396_crit_edge ], [ %spec.select2314, %if.end1387 ]
+  %ctx.18 = phi ptr [ %ctx.16, %while.body1370.if.end1396_crit_edge ], [ %spec.select2312, %if.end1387 ]
   %add.ptr1398 = getelementptr i8, ptr %257, i64 %255
   %258 = load i64, ptr %data_stack_base, align 8
   %add1400 = add i64 %258, 56
@@ -16966,34 +16955,37 @@ do.body1489:                                      ; preds = %do.body1472
 
 if.end1496:                                       ; preds = %do.body1489
   %incdec.ptr1497 = getelementptr i8, ptr %575, i64 4
-  br label %while.cond1358.sink.split, !llvm.loop !44
+  %268 = load i64, ptr %add.ptr1491, align 8
+  %inc1499 = add i64 %268, 1
+  store i64 %inc1499, ptr %add.ptr1491, align 8
+  br label %while.cond1358, !llvm.loop !44
 
 while.end1500:                                    ; preds = %do.body1489, %lor.rhs1363
   %ctx.17 = phi ptr [ %ctx.16, %lor.rhs1363 ], [ %add.ptr1491, %do.body1489 ]
   %sigcount.9 = phi i32 [ %sigcount.8, %lor.rhs1363 ], [ %sigcount.1, %do.body1489 ]
-  %268 = load ptr, ptr %repeat1312, align 8
-  %tobool1502.not = icmp eq ptr %268, null
+  %269 = load ptr, ptr %repeat1312, align 8
+  %tobool1502.not = icmp eq ptr %269, null
   br i1 %tobool1502.not, label %exit, label %do.body1504
 
 do.body1504:                                      ; preds = %while.end1500
   %lastmark1505 = getelementptr inbounds i8, ptr %ctx.17, i64 16
-  %269 = load i32, ptr %lastmark1505, align 8
-  %cmp1506 = icmp sgt i32 %269, -1
+  %270 = load i32, ptr %lastmark1505, align 8
+  %cmp1506 = icmp sgt i32 %270, -1
   br i1 %cmp1506, label %if.then1508, label %exit
 
 if.then1508:                                      ; preds = %do.body1504
-  %add1511 = add nuw i32 %269, 1
+  %add1511 = add nuw i32 %270, 1
   %conv1512 = sext i32 %add1511 to i64
   %mul1513 = shl nsw i64 %conv1512, 3
-  %270 = load i64, ptr %data_stack_base, align 8
-  %sub1516 = sub i64 %270, %mul1513
+  %271 = load i64, ptr %data_stack_base, align 8
+  %sub1516 = sub i64 %271, %mul1513
   store i64 %sub1516, ptr %data_stack_base, align 8
   br label %exit
 
 TARGET_SRE_OP_POSSESSIVE_REPEAT_ONE:              ; preds = %indirectgoto
   %arrayidx1524 = getelementptr i8, ptr %pattern.addr.2, i64 4
-  %271 = load i32, ptr %arrayidx1524, align 4
-  %idx.ext1525 = zext i32 %271 to i64
+  %272 = load i32, ptr %arrayidx1524, align 4
+  %idx.ext1525 = zext i32 %272 to i64
   %add.ptr1526 = getelementptr i32, ptr %ptr.0, i64 %idx.ext1525
   %cmp1527 = icmp ugt ptr %add.ptr1526, %0
   br i1 %cmp1527, label %exit, label %if.end1532
@@ -17002,49 +16994,49 @@ if.end1532:                                       ; preds = %TARGET_SRE_OP_POSSE
   store ptr %ptr.0, ptr %state, align 8
   %add.ptr1534 = getelementptr i8, ptr %pattern.addr.2, i64 12
   %arrayidx1535 = getelementptr i8, ptr %pattern.addr.2, i64 8
-  %272 = load i32, ptr %arrayidx1535, align 4
-  %conv1536 = zext i32 %272 to i64
+  %273 = load i32, ptr %arrayidx1535, align 4
+  %conv1536 = zext i32 %273 to i64
   %call1537 = tail call fastcc i64 @sre_ucs4_count(ptr noundef nonnull %state, ptr noundef %add.ptr1534, i64 noundef %conv1536)
   %cmp1539 = icmp slt i64 %call1537, 0
   br i1 %cmp1539, label %return, label %do.body1546
 
 do.body1546:                                      ; preds = %if.end1532
-  %273 = load ptr, ptr %data_stack11, align 8
-  %add.ptr1548 = getelementptr i8, ptr %273, i64 %ctx_pos.1.ph
+  %274 = load ptr, ptr %data_stack11, align 8
+  %add.ptr1548 = getelementptr i8, ptr %274, i64 %ctx_pos.1.ph
   store i64 %call1537, ptr %add.ptr1548, align 8
   %add.ptr1552 = getelementptr i32, ptr %ptr.0, i64 %call1537
-  %274 = load i32, ptr %arrayidx1524, align 4
-  %conv1555 = zext i32 %274 to i64
+  %275 = load i32, ptr %arrayidx1524, align 4
+  %conv1555 = zext i32 %275 to i64
   %cmp1556 = icmp ult i64 %call1537, %conv1555
   br i1 %cmp1556, label %exit, label %if.end1561
 
 if.end1561:                                       ; preds = %do.body1546
-  %275 = load i32, ptr %pattern.addr.2, align 4
-  %idx.ext1563 = zext i32 %275 to i64
+  %276 = load i32, ptr %pattern.addr.2, align 4
+  %idx.ext1563 = zext i32 %276 to i64
   %add.ptr1564 = getelementptr i32, ptr %pattern.addr.2, i64 %idx.ext1563
-  %276 = load i32, ptr %add.ptr1564, align 4
-  %cmp1565 = icmp eq i32 %276, 1
+  %277 = load i32, ptr %add.ptr1564, align 4
+  %cmp1565 = icmp eq i32 %277, 1
   br i1 %cmp1565, label %land.lhs.true1567, label %do.body1587
 
 land.lhs.true1567:                                ; preds = %if.end1561
-  %277 = load ptr, ptr %end1, align 8
-  %cmp1569 = icmp eq ptr %add.ptr1552, %277
+  %278 = load ptr, ptr %end1, align 8
+  %cmp1569 = icmp eq ptr %add.ptr1552, %278
   br i1 %cmp1569, label %land.lhs.true1571, label %do.body1587
 
 land.lhs.true1571:                                ; preds = %land.lhs.true1567
   %toplevel1572 = getelementptr inbounds i8, ptr %add.ptr1548, i64 40
-  %278 = load i32, ptr %toplevel1572, align 8
-  %tobool1573.not = icmp eq i32 %278, 0
+  %279 = load i32, ptr %toplevel1572, align 8
+  %tobool1573.not = icmp eq i32 %279, 0
   br i1 %tobool1573.not, label %if.then1581, label %land.lhs.true1574
 
 land.lhs.true1574:                                ; preds = %land.lhs.true1571
-  %279 = load i32, ptr %must_advance1575, align 4
-  %tobool1576.not = icmp eq i32 %279, 0
+  %280 = load i32, ptr %must_advance1575, align 4
+  %tobool1576.not = icmp eq i32 %280, 0
   br i1 %tobool1576.not, label %if.then1581, label %land.lhs.true1577
 
 land.lhs.true1577:                                ; preds = %land.lhs.true1574
-  %280 = load ptr, ptr %start1578, align 8
-  %cmp1579 = icmp eq ptr %add.ptr1552, %280
+  %281 = load ptr, ptr %start1578, align 8
+  %cmp1579 = icmp eq ptr %add.ptr1552, %281
   br i1 %cmp1579, label %do.body1587, label %if.then1581
 
 if.then1581:                                      ; preds = %land.lhs.true1577, %land.lhs.true1574, %land.lhs.true1571
@@ -17067,7 +17059,7 @@ land.lhs.true1592.do.end1599_crit_edge:           ; preds = %land.lhs.true1592
   br label %do.end1599
 
 do.end1599:                                       ; preds = %land.lhs.true1592.do.end1599_crit_edge, %do.body1587
-  %281 = phi i32 [ %.pre2028, %land.lhs.true1592.do.end1599_crit_edge ], [ %276, %do.body1587 ]
+  %282 = phi i32 [ %.pre2028, %land.lhs.true1592.do.end1599_crit_edge ], [ %277, %do.body1587 ]
   %incdec.ptr1600 = getelementptr i8, ptr %add.ptr1564, i64 4
   br label %indirectgoto.backedge
 
@@ -17084,26 +17076,26 @@ if.then1608:                                      ; preds = %TARGET_SRE_OP_REPEA
 
 if.end1612:                                       ; preds = %TARGET_SRE_OP_REPEAT
   store i64 -1, ptr %call1604, align 8
-  %282 = load ptr, ptr %u1605, align 8
-  %pattern1616 = getelementptr inbounds i8, ptr %282, i64 8
+  %283 = load ptr, ptr %u1605, align 8
+  %pattern1616 = getelementptr inbounds i8, ptr %283, i64 8
   store ptr %pattern.addr.2, ptr %pattern1616, align 8
-  %283 = load ptr, ptr %repeat1312, align 8
-  %284 = load ptr, ptr %u1605, align 8
-  %prev = getelementptr inbounds i8, ptr %284, i64 24
-  store ptr %283, ptr %prev, align 8
+  %284 = load ptr, ptr %repeat1312, align 8
   %285 = load ptr, ptr %u1605, align 8
-  %last_ptr = getelementptr inbounds i8, ptr %285, i64 16
-  store ptr null, ptr %last_ptr, align 8
+  %prev = getelementptr inbounds i8, ptr %285, i64 24
+  store ptr %284, ptr %prev, align 8
   %286 = load ptr, ptr %u1605, align 8
-  store ptr %286, ptr %repeat1312, align 8
+  %last_ptr = getelementptr inbounds i8, ptr %286, i64 16
+  store ptr null, ptr %last_ptr, align 8
+  %287 = load ptr, ptr %u1605, align 8
+  store ptr %287, ptr %repeat1312, align 8
   store ptr %ptr.0, ptr %state, align 8
   %pattern1623 = getelementptr inbounds i8, ptr %ctx.2, i64 24
   store ptr %pattern.addr.2, ptr %pattern1623, align 8
   %ptr1624 = getelementptr inbounds i8, ptr %ctx.2, i64 32
   store ptr %ptr.0, ptr %ptr1624, align 8
-  %287 = load i64, ptr %data_stack_base, align 8
-  %288 = load i64, ptr %data_stack_size, align 8
-  %sub1628 = sub i64 %288, %287
+  %288 = load i64, ptr %data_stack_base, align 8
+  %289 = load i64, ptr %data_stack_size, align 8
+  %sub1628 = sub i64 %289, %288
   %cmp1629 = icmp ult i64 %sub1628, 56
   br i1 %cmp1629, label %if.then1631, label %if.end1612.if.end1647_crit_edge
 
@@ -17124,31 +17116,31 @@ if.end1638:                                       ; preds = %if.then1631
   %cmp1639.not = icmp eq i64 %ctx_pos.1.ph, -1
   %.pre2035 = load ptr, ptr %data_stack11, align 8
   %add.ptr1644 = getelementptr i8, ptr %.pre2035, i64 %ctx_pos.1.ph
-  %spec.select2315 = select i1 %cmp1639.not, ptr %ctx.2, ptr %add.ptr1644
+  %spec.select2313 = select i1 %cmp1639.not, ptr %ctx.2, ptr %add.ptr1644
   br label %if.end1647
 
 if.end1647:                                       ; preds = %if.end1638, %if.end1612.if.end1647_crit_edge
-  %289 = phi ptr [ %.pre2034, %if.end1612.if.end1647_crit_edge ], [ %.pre2035, %if.end1638 ]
-  %ctx.19 = phi ptr [ %ctx.2, %if.end1612.if.end1647_crit_edge ], [ %spec.select2315, %if.end1638 ]
-  %add.ptr1649 = getelementptr i8, ptr %289, i64 %287
-  %290 = load i64, ptr %data_stack_base, align 8
-  %add1651 = add i64 %290, 56
+  %290 = phi ptr [ %.pre2034, %if.end1612.if.end1647_crit_edge ], [ %.pre2035, %if.end1638 ]
+  %ctx.19 = phi ptr [ %ctx.2, %if.end1612.if.end1647_crit_edge ], [ %spec.select2313, %if.end1638 ]
+  %add.ptr1649 = getelementptr i8, ptr %290, i64 %288
+  %291 = load i64, ptr %data_stack_base, align 8
+  %add1651 = add i64 %291, 56
   store i64 %add1651, ptr %data_stack_base, align 8
-  %291 = load i32, ptr %pattern.addr.2, align 4
-  %idx.ext1654 = zext i32 %291 to i64
+  %292 = load i32, ptr %pattern.addr.2, align 4
+  %idx.ext1654 = zext i32 %292 to i64
   %add.ptr1655 = getelementptr i32, ptr %pattern.addr.2, i64 %idx.ext1654
   %pattern1656 = getelementptr inbounds i8, ptr %add.ptr1649, i64 24
   store ptr %add.ptr1655, ptr %pattern1656, align 8
   %toplevel1657 = getelementptr inbounds i8, ptr %ctx.19, i64 40
-  %292 = load i32, ptr %toplevel1657, align 8
+  %293 = load i32, ptr %toplevel1657, align 8
   %toplevel1658 = getelementptr inbounds i8, ptr %add.ptr1649, i64 40
-  store i32 %292, ptr %toplevel1658, align 8
+  store i32 %293, ptr %toplevel1658, align 8
   %jump1659 = getelementptr inbounds i8, ptr %add.ptr1649, i64 44
   store i32 7, ptr %jump1659, align 4
   %last_ctx_pos1660 = getelementptr inbounds i8, ptr %add.ptr1649, i64 48
   store i64 %ctx_pos.1.ph, ptr %last_ctx_pos1660, align 8
-  %293 = load i32, ptr %pattern.addr.2, align 4
-  %idx.ext1662 = zext i32 %293 to i64
+  %294 = load i32, ptr %pattern.addr.2, align 4
+  %idx.ext1662 = zext i32 %294 to i64
   %add.ptr1663 = getelementptr i32, ptr %pattern.addr.2, i64 %idx.ext1662
   br label %entrance.backedge
 
@@ -17156,35 +17148,35 @@ do.body1683:                                      ; preds = %sw.bb3432
   br label %exit
 
 TARGET_SRE_OP_MAX_UNTIL:                          ; preds = %indirectgoto
-  %294 = load ptr, ptr %repeat1312, align 8
+  %295 = load ptr, ptr %repeat1312, align 8
   %u1686 = getelementptr inbounds i8, ptr %ctx.2, i64 8
-  store ptr %294, ptr %u1686, align 8
-  %tobool1688.not = icmp eq ptr %294, null
+  store ptr %295, ptr %u1686, align 8
+  %tobool1688.not = icmp eq ptr %295, null
   br i1 %tobool1688.not, label %return, label %if.end1692
 
 if.end1692:                                       ; preds = %TARGET_SRE_OP_MAX_UNTIL
   store ptr %ptr.0, ptr %state, align 8
-  %295 = load ptr, ptr %u1686, align 8
-  %296 = load i64, ptr %295, align 8
-  %add1696 = add i64 %296, 1
+  %296 = load ptr, ptr %u1686, align 8
+  %297 = load i64, ptr %296, align 8
+  %add1696 = add i64 %297, 1
   store i64 %add1696, ptr %ctx.2, align 8
-  %pattern1700 = getelementptr inbounds i8, ptr %295, i64 8
-  %297 = load ptr, ptr %pattern1700, align 8
-  %arrayidx1701 = getelementptr i8, ptr %297, i64 4
-  %298 = load i32, ptr %arrayidx1701, align 4
-  %conv1702 = zext i32 %298 to i64
+  %pattern1700 = getelementptr inbounds i8, ptr %296, i64 8
+  %298 = load ptr, ptr %pattern1700, align 8
+  %arrayidx1701 = getelementptr i8, ptr %298, i64 4
+  %299 = load i32, ptr %arrayidx1701, align 4
+  %conv1702 = zext i32 %299 to i64
   %cmp1703 = icmp slt i64 %add1696, %conv1702
   br i1 %cmp1703, label %if.then1705, label %if.end1772
 
 if.then1705:                                      ; preds = %if.end1692
-  store i64 %add1696, ptr %295, align 8
+  store i64 %add1696, ptr %296, align 8
   %pattern1709 = getelementptr inbounds i8, ptr %ctx.2, i64 24
   store ptr %pattern.addr.2, ptr %pattern1709, align 8
   %ptr1710 = getelementptr inbounds i8, ptr %ctx.2, i64 32
   store ptr %ptr.0, ptr %ptr1710, align 8
-  %299 = load i64, ptr %data_stack_base, align 8
-  %300 = load i64, ptr %data_stack_size, align 8
-  %sub1714 = sub i64 %300, %299
+  %300 = load i64, ptr %data_stack_base, align 8
+  %301 = load i64, ptr %data_stack_size, align 8
+  %sub1714 = sub i64 %301, %300
   %cmp1715 = icmp ult i64 %sub1714, 56
   br i1 %cmp1715, label %if.then1717, label %if.then1705.if.end1733_crit_edge
 
@@ -17205,82 +17197,82 @@ if.end1724:                                       ; preds = %if.then1717
   %cmp1725.not = icmp eq i64 %ctx_pos.1.ph, -1
   %.pre2050 = load ptr, ptr %data_stack11, align 8
   %add.ptr1730 = getelementptr i8, ptr %.pre2050, i64 %ctx_pos.1.ph
-  %spec.select2316 = select i1 %cmp1725.not, ptr %ctx.2, ptr %add.ptr1730
+  %spec.select2314 = select i1 %cmp1725.not, ptr %ctx.2, ptr %add.ptr1730
   br label %if.end1733
 
 if.end1733:                                       ; preds = %if.end1724, %if.then1705.if.end1733_crit_edge
-  %301 = phi ptr [ %.pre2049, %if.then1705.if.end1733_crit_edge ], [ %.pre2050, %if.end1724 ]
-  %ctx.20 = phi ptr [ %ctx.2, %if.then1705.if.end1733_crit_edge ], [ %spec.select2316, %if.end1724 ]
-  %add.ptr1735 = getelementptr i8, ptr %301, i64 %299
-  %302 = load i64, ptr %data_stack_base, align 8
-  %add1737 = add i64 %302, 56
+  %302 = phi ptr [ %.pre2049, %if.then1705.if.end1733_crit_edge ], [ %.pre2050, %if.end1724 ]
+  %ctx.20 = phi ptr [ %ctx.2, %if.then1705.if.end1733_crit_edge ], [ %spec.select2314, %if.end1724 ]
+  %add.ptr1735 = getelementptr i8, ptr %302, i64 %300
+  %303 = load i64, ptr %data_stack_base, align 8
+  %add1737 = add i64 %303, 56
   store i64 %add1737, ptr %data_stack_base, align 8
   %u1739 = getelementptr inbounds i8, ptr %ctx.20, i64 8
-  %303 = load ptr, ptr %u1739, align 8
-  %pattern1740 = getelementptr inbounds i8, ptr %303, i64 8
-  %304 = load ptr, ptr %pattern1740, align 8
-  %add.ptr1741 = getelementptr i8, ptr %304, i64 12
+  %304 = load ptr, ptr %u1739, align 8
+  %pattern1740 = getelementptr inbounds i8, ptr %304, i64 8
+  %305 = load ptr, ptr %pattern1740, align 8
+  %add.ptr1741 = getelementptr i8, ptr %305, i64 12
   %pattern1742 = getelementptr inbounds i8, ptr %add.ptr1735, i64 24
   store ptr %add.ptr1741, ptr %pattern1742, align 8
   %toplevel1743 = getelementptr inbounds i8, ptr %ctx.20, i64 40
-  %305 = load i32, ptr %toplevel1743, align 8
+  %306 = load i32, ptr %toplevel1743, align 8
   %toplevel1744 = getelementptr inbounds i8, ptr %add.ptr1735, i64 40
-  store i32 %305, ptr %toplevel1744, align 8
+  store i32 %306, ptr %toplevel1744, align 8
   %jump1745 = getelementptr inbounds i8, ptr %add.ptr1735, i64 44
   store i32 1, ptr %jump1745, align 4
   %last_ctx_pos1746 = getelementptr inbounds i8, ptr %add.ptr1735, i64 48
   store i64 %ctx_pos.1.ph, ptr %last_ctx_pos1746, align 8
-  %306 = load ptr, ptr %u1739, align 8
-  %pattern1748 = getelementptr inbounds i8, ptr %306, i64 8
-  %307 = load ptr, ptr %pattern1748, align 8
-  %add.ptr1749 = getelementptr i8, ptr %307, i64 12
+  %307 = load ptr, ptr %u1739, align 8
+  %pattern1748 = getelementptr inbounds i8, ptr %307, i64 8
+  %308 = load ptr, ptr %pattern1748, align 8
+  %add.ptr1749 = getelementptr i8, ptr %308, i64 12
   br label %entrance.backedge
 
 if.end1764:                                       ; preds = %sw.bb3428
   %ptr1751 = getelementptr inbounds i8, ptr %add.ptr3422, i64 32
-  %308 = load ptr, ptr %ptr1751, align 8
-  %309 = load i64, ptr %add.ptr3422, align 8
-  %sub1766 = add i64 %309, -1
+  %309 = load ptr, ptr %ptr1751, align 8
+  %310 = load i64, ptr %add.ptr3422, align 8
+  %sub1766 = add i64 %310, -1
   %u1767 = getelementptr inbounds i8, ptr %add.ptr3422, i64 8
-  %310 = load ptr, ptr %u1767, align 8
-  store i64 %sub1766, ptr %310, align 8
-  store ptr %308, ptr %state, align 8
+  %311 = load ptr, ptr %u1767, align 8
+  store i64 %sub1766, ptr %311, align 8
+  store ptr %309, ptr %state, align 8
   br label %exit
 
 if.end1772:                                       ; preds = %if.end1692
-  %arrayidx1776 = getelementptr i8, ptr %297, i64 8
-  %311 = load i32, ptr %arrayidx1776, align 4
-  %conv1777 = zext i32 %311 to i64
+  %arrayidx1776 = getelementptr i8, ptr %298, i64 8
+  %312 = load i32, ptr %arrayidx1776, align 4
+  %conv1777 = zext i32 %312 to i64
   %cmp1778 = icmp ult i64 %add1696, %conv1777
-  %cmp1784 = icmp eq i32 %311, -1
+  %cmp1784 = icmp eq i32 %312, -1
   %or.cond1406 = or i1 %cmp1784, %cmp1778
   br i1 %or.cond1406, label %land.lhs.true1786, label %if.end1997
 
 land.lhs.true1786:                                ; preds = %if.end1772
-  %312 = load ptr, ptr %state, align 8
-  %last_ptr1789 = getelementptr inbounds i8, ptr %295, i64 16
-  %313 = load ptr, ptr %last_ptr1789, align 8
-  %cmp1790.not = icmp eq ptr %312, %313
+  %313 = load ptr, ptr %state, align 8
+  %last_ptr1789 = getelementptr inbounds i8, ptr %296, i64 16
+  %314 = load ptr, ptr %last_ptr1789, align 8
+  %cmp1790.not = icmp eq ptr %313, %314
   br i1 %cmp1790.not, label %if.end1997, label %if.then1792
 
 if.then1792:                                      ; preds = %land.lhs.true1786
-  store i64 %add1696, ptr %295, align 8
-  %314 = load i32, ptr %lastmark2970, align 4
+  store i64 %add1696, ptr %296, align 8
+  %315 = load i32, ptr %lastmark2970, align 4
   %lastmark1798 = getelementptr inbounds i8, ptr %ctx.2, i64 16
-  store i32 %314, ptr %lastmark1798, align 8
-  %315 = load i32, ptr %lastindex, align 8
+  store i32 %315, ptr %lastmark1798, align 8
+  %316 = load i32, ptr %lastindex, align 8
   %lastindex1800 = getelementptr inbounds i8, ptr %ctx.2, i64 20
-  store i32 %315, ptr %lastindex1800, align 4
-  %cmp1804 = icmp sgt i32 %314, -1
+  store i32 %316, ptr %lastindex1800, align 4
+  %cmp1804 = icmp sgt i32 %315, -1
   %.pre2044 = load i64, ptr %data_stack_base, align 8
   br i1 %cmp1804, label %if.then1806, label %do.body1845
 
 if.then1806:                                      ; preds = %if.then1792
-  %add1809 = add nuw i32 %314, 1
+  %add1809 = add nuw i32 %315, 1
   %conv1810 = sext i32 %add1809 to i64
   %mul1811 = shl nsw i64 %conv1810, 3
-  %316 = load i64, ptr %data_stack_size, align 8
-  %sub1815 = sub i64 %316, %.pre2044
+  %317 = load i64, ptr %data_stack_size, align 8
+  %sub1815 = sub i64 %317, %.pre2044
   %cmp1816 = icmp ugt i64 %mul1811, %sub1815
   br i1 %cmp1816, label %if.then1818, label %if.then1806.if.end1834_crit_edge
 
@@ -17301,26 +17293,26 @@ if.end1825:                                       ; preds = %if.then1818
   %cmp1826.not = icmp eq i64 %ctx_pos.1.ph, -1
   %.pre2043 = load ptr, ptr %data_stack11, align 8
   %add.ptr1831 = getelementptr i8, ptr %.pre2043, i64 %ctx_pos.1.ph
-  %spec.select2317 = select i1 %cmp1826.not, ptr %ctx.2, ptr %add.ptr1831
+  %spec.select2315 = select i1 %cmp1826.not, ptr %ctx.2, ptr %add.ptr1831
   br label %if.end1834
 
 if.end1834:                                       ; preds = %if.end1825, %if.then1806.if.end1834_crit_edge
-  %317 = phi ptr [ %.pre2042, %if.then1806.if.end1834_crit_edge ], [ %.pre2043, %if.end1825 ]
-  %ctx.22 = phi ptr [ %ctx.2, %if.then1806.if.end1834_crit_edge ], [ %spec.select2317, %if.end1825 ]
-  %318 = load i64, ptr %data_stack_base, align 8
-  %add.ptr1837 = getelementptr i8, ptr %317, i64 %318
-  %319 = load ptr, ptr %mark2978, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr1837, ptr noundef nonnull align 8 dereferenceable(1) %319, i64 %mul1811, i1 false)
-  %320 = load i64, ptr %data_stack_base, align 8
-  %add1840 = add i64 %320, %mul1811
+  %318 = phi ptr [ %.pre2042, %if.then1806.if.end1834_crit_edge ], [ %.pre2043, %if.end1825 ]
+  %ctx.22 = phi ptr [ %ctx.2, %if.then1806.if.end1834_crit_edge ], [ %spec.select2315, %if.end1825 ]
+  %319 = load i64, ptr %data_stack_base, align 8
+  %add.ptr1837 = getelementptr i8, ptr %318, i64 %319
+  %320 = load ptr, ptr %mark2978, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr1837, ptr noundef nonnull align 8 dereferenceable(1) %320, i64 %mul1811, i1 false)
+  %321 = load i64, ptr %data_stack_base, align 8
+  %add1840 = add i64 %321, %mul1811
   store i64 %add1840, ptr %data_stack_base, align 8
   br label %do.body1845
 
 do.body1845:                                      ; preds = %if.then1792, %if.end1834
-  %321 = phi i64 [ %add1840, %if.end1834 ], [ %.pre2044, %if.then1792 ]
+  %322 = phi i64 [ %add1840, %if.end1834 ], [ %.pre2044, %if.then1792 ]
   %ctx.23 = phi ptr [ %ctx.22, %if.end1834 ], [ %ctx.2, %if.then1792 ]
-  %322 = load i64, ptr %data_stack_size, align 8
-  %sub1848 = sub i64 %322, %321
+  %323 = load i64, ptr %data_stack_size, align 8
+  %sub1848 = sub i64 %323, %322
   %cmp1849 = icmp ult i64 %sub1848, 8
   br i1 %cmp1849, label %if.then1851, label %do.body1845.if.end1867_crit_edge
 
@@ -17341,33 +17333,33 @@ if.end1858:                                       ; preds = %if.then1851
   %cmp1859.not = icmp eq i64 %ctx_pos.1.ph, -1
   %.pre2046 = load ptr, ptr %data_stack11, align 8
   %add.ptr1864 = getelementptr i8, ptr %.pre2046, i64 %ctx_pos.1.ph
-  %spec.select2318 = select i1 %cmp1859.not, ptr %ctx.23, ptr %add.ptr1864
+  %spec.select2316 = select i1 %cmp1859.not, ptr %ctx.23, ptr %add.ptr1864
   br label %if.end1867
 
 if.end1867:                                       ; preds = %if.end1858, %do.body1845.if.end1867_crit_edge
-  %323 = phi ptr [ %.pre2045, %do.body1845.if.end1867_crit_edge ], [ %.pre2046, %if.end1858 ]
-  %ctx.24 = phi ptr [ %ctx.23, %do.body1845.if.end1867_crit_edge ], [ %spec.select2318, %if.end1858 ]
-  %324 = load i64, ptr %data_stack_base, align 8
-  %add.ptr1870 = getelementptr i8, ptr %323, i64 %324
+  %324 = phi ptr [ %.pre2045, %do.body1845.if.end1867_crit_edge ], [ %.pre2046, %if.end1858 ]
+  %ctx.24 = phi ptr [ %ctx.23, %do.body1845.if.end1867_crit_edge ], [ %spec.select2316, %if.end1858 ]
+  %325 = load i64, ptr %data_stack_base, align 8
+  %add.ptr1870 = getelementptr i8, ptr %324, i64 %325
   %u1871 = getelementptr inbounds i8, ptr %ctx.24, i64 8
-  %325 = load ptr, ptr %u1871, align 8
-  %last_ptr1872 = getelementptr inbounds i8, ptr %325, i64 16
-  %326 = load i64, ptr %last_ptr1872, align 8
-  store i64 %326, ptr %add.ptr1870, align 1
-  %327 = load i64, ptr %data_stack_base, align 8
-  %add1874 = add i64 %327, 8
+  %326 = load ptr, ptr %u1871, align 8
+  %last_ptr1872 = getelementptr inbounds i8, ptr %326, i64 16
+  %327 = load i64, ptr %last_ptr1872, align 8
+  store i64 %327, ptr %add.ptr1870, align 1
+  %328 = load i64, ptr %data_stack_base, align 8
+  %add1874 = add i64 %328, 8
   store i64 %add1874, ptr %data_stack_base, align 8
-  %328 = load ptr, ptr %state, align 8
-  %329 = load ptr, ptr %u1871, align 8
-  %last_ptr1879 = getelementptr inbounds i8, ptr %329, i64 16
-  store ptr %328, ptr %last_ptr1879, align 8
+  %329 = load ptr, ptr %state, align 8
+  %330 = load ptr, ptr %u1871, align 8
+  %last_ptr1879 = getelementptr inbounds i8, ptr %330, i64 16
+  store ptr %329, ptr %last_ptr1879, align 8
   %pattern1880 = getelementptr inbounds i8, ptr %ctx.24, i64 24
   store ptr %pattern.addr.2, ptr %pattern1880, align 8
   %ptr1881 = getelementptr inbounds i8, ptr %ctx.24, i64 32
   store ptr %ptr.0, ptr %ptr1881, align 8
-  %330 = load i64, ptr %data_stack_base, align 8
-  %331 = load i64, ptr %data_stack_size, align 8
-  %sub1885 = sub i64 %331, %330
+  %331 = load i64, ptr %data_stack_base, align 8
+  %332 = load i64, ptr %data_stack_size, align 8
+  %sub1885 = sub i64 %332, %331
   %cmp1886 = icmp ult i64 %sub1885, 56
   br i1 %cmp1886, label %if.then1888, label %if.end1867.if.end1904_crit_edge
 
@@ -17388,45 +17380,45 @@ if.end1895:                                       ; preds = %if.then1888
   %cmp1896.not = icmp eq i64 %ctx_pos.1.ph, -1
   %.pre2048 = load ptr, ptr %data_stack11, align 8
   %add.ptr1901 = getelementptr i8, ptr %.pre2048, i64 %ctx_pos.1.ph
-  %spec.select2319 = select i1 %cmp1896.not, ptr %ctx.24, ptr %add.ptr1901
+  %spec.select2317 = select i1 %cmp1896.not, ptr %ctx.24, ptr %add.ptr1901
   br label %if.end1904
 
 if.end1904:                                       ; preds = %if.end1895, %if.end1867.if.end1904_crit_edge
-  %332 = phi ptr [ %.pre2047, %if.end1867.if.end1904_crit_edge ], [ %.pre2048, %if.end1895 ]
-  %ctx.25 = phi ptr [ %ctx.24, %if.end1867.if.end1904_crit_edge ], [ %spec.select2319, %if.end1895 ]
-  %add.ptr1906 = getelementptr i8, ptr %332, i64 %330
-  %333 = load i64, ptr %data_stack_base, align 8
-  %add1908 = add i64 %333, 56
+  %333 = phi ptr [ %.pre2047, %if.end1867.if.end1904_crit_edge ], [ %.pre2048, %if.end1895 ]
+  %ctx.25 = phi ptr [ %ctx.24, %if.end1867.if.end1904_crit_edge ], [ %spec.select2317, %if.end1895 ]
+  %add.ptr1906 = getelementptr i8, ptr %333, i64 %331
+  %334 = load i64, ptr %data_stack_base, align 8
+  %add1908 = add i64 %334, 56
   store i64 %add1908, ptr %data_stack_base, align 8
   %u1910 = getelementptr inbounds i8, ptr %ctx.25, i64 8
-  %334 = load ptr, ptr %u1910, align 8
-  %pattern1911 = getelementptr inbounds i8, ptr %334, i64 8
-  %335 = load ptr, ptr %pattern1911, align 8
-  %add.ptr1912 = getelementptr i8, ptr %335, i64 12
+  %335 = load ptr, ptr %u1910, align 8
+  %pattern1911 = getelementptr inbounds i8, ptr %335, i64 8
+  %336 = load ptr, ptr %pattern1911, align 8
+  %add.ptr1912 = getelementptr i8, ptr %336, i64 12
   %pattern1913 = getelementptr inbounds i8, ptr %add.ptr1906, i64 24
   store ptr %add.ptr1912, ptr %pattern1913, align 8
   %toplevel1914 = getelementptr inbounds i8, ptr %ctx.25, i64 40
-  %336 = load i32, ptr %toplevel1914, align 8
+  %337 = load i32, ptr %toplevel1914, align 8
   %toplevel1915 = getelementptr inbounds i8, ptr %add.ptr1906, i64 40
-  store i32 %336, ptr %toplevel1915, align 8
+  store i32 %337, ptr %toplevel1915, align 8
   %jump1916 = getelementptr inbounds i8, ptr %add.ptr1906, i64 44
   store i32 2, ptr %jump1916, align 4
   %last_ctx_pos1917 = getelementptr inbounds i8, ptr %add.ptr1906, i64 48
   store i64 %ctx_pos.1.ph, ptr %last_ctx_pos1917, align 8
-  %337 = load ptr, ptr %u1910, align 8
-  %pattern1919 = getelementptr inbounds i8, ptr %337, i64 8
-  %338 = load ptr, ptr %pattern1919, align 8
-  %add.ptr1920 = getelementptr i8, ptr %338, i64 12
+  %338 = load ptr, ptr %u1910, align 8
+  %pattern1919 = getelementptr inbounds i8, ptr %338, i64 8
+  %339 = load ptr, ptr %pattern1919, align 8
+  %add.ptr1920 = getelementptr i8, ptr %339, i64 12
   br label %entrance.backedge
 
 do.body1937:                                      ; preds = %sw.bb
   %lastmark1938 = getelementptr inbounds i8, ptr %add.ptr3422, i64 16
-  %339 = load i32, ptr %lastmark1938, align 8
-  %cmp1939 = icmp sgt i32 %339, -1
+  %340 = load i32, ptr %lastmark1938, align 8
+  %cmp1939 = icmp sgt i32 %340, -1
   br i1 %cmp1939, label %if.then1941, label %exit
 
 if.then1941:                                      ; preds = %do.body1937
-  %add1944 = add nuw i32 %339, 1
+  %add1944 = add nuw i32 %340, 1
   %conv1945 = sext i32 %add1944 to i64
   %mul1946 = shl nsw i64 %conv1945, 3
   %sub1949 = sub i64 %sub1932, %mul1946
@@ -17436,57 +17428,57 @@ if.then1941:                                      ; preds = %do.body1937
 do.body1964:                                      ; preds = %sw.bb
   %u1925.le = getelementptr inbounds i8, ptr %add.ptr3422, i64 8
   %lastmark1965 = getelementptr inbounds i8, ptr %add.ptr3422, i64 16
-  %340 = load i32, ptr %lastmark1965, align 8
-  %cmp1966 = icmp sgt i32 %340, -1
+  %341 = load i32, ptr %lastmark1965, align 8
+  %cmp1966 = icmp sgt i32 %341, -1
   br i1 %cmp1966, label %if.then1968, label %do.body1986
 
 if.then1968:                                      ; preds = %do.body1964
-  %add1971 = add nuw i32 %340, 1
+  %add1971 = add nuw i32 %341, 1
   %conv1972 = sext i32 %add1971 to i64
   %mul1973 = shl nsw i64 %conv1972, 3
-  %341 = load ptr, ptr %mark2978, align 8
-  %342 = load ptr, ptr %data_stack11, align 8
-  %add.ptr1978 = getelementptr i8, ptr %342, i64 %sub1932
+  %342 = load ptr, ptr %mark2978, align 8
+  %343 = load ptr, ptr %data_stack11, align 8
+  %add.ptr1978 = getelementptr i8, ptr %343, i64 %sub1932
   %idx.neg1979 = sub nsw i64 0, %mul1973
   %add.ptr1980 = getelementptr i8, ptr %add.ptr1978, i64 %idx.neg1979
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %341, ptr noundef nonnull align 1 dereferenceable(1) %add.ptr1980, i64 %mul1973, i1 false)
-  %343 = load i64, ptr %data_stack_base, align 8
-  %sub1982 = sub i64 %343, %mul1973
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %342, ptr noundef nonnull align 1 dereferenceable(1) %add.ptr1980, i64 %mul1973, i1 false)
+  %344 = load i64, ptr %data_stack_base, align 8
+  %sub1982 = sub i64 %344, %mul1973
   store i64 %sub1982, ptr %data_stack_base, align 8
   %.pre2077 = load i32, ptr %lastmark1965, align 8
   br label %do.body1986
 
 do.body1986:                                      ; preds = %if.then1968, %do.body1964
-  %344 = phi i32 [ %.pre2077, %if.then1968 ], [ %340, %do.body1964 ]
-  store i32 %344, ptr %lastmark2970, align 4
+  %345 = phi i32 [ %.pre2077, %if.then1968 ], [ %341, %do.body1964 ]
+  store i32 %345, ptr %lastmark2970, align 4
   %lastindex1989 = getelementptr inbounds i8, ptr %add.ptr3422, i64 20
-  %345 = load i32, ptr %lastindex1989, align 4
-  store i32 %345, ptr %lastindex, align 8
-  %346 = load i64, ptr %add.ptr3422, align 8
-  %sub1993 = add i64 %346, -1
-  %347 = load ptr, ptr %u1925.le, align 8
-  store i64 %sub1993, ptr %347, align 8
+  %346 = load i32, ptr %lastindex1989, align 4
+  store i32 %346, ptr %lastindex, align 8
+  %347 = load i64, ptr %add.ptr3422, align 8
+  %sub1993 = add i64 %347, -1
+  %348 = load ptr, ptr %u1925.le, align 8
+  store i64 %sub1993, ptr %348, align 8
   store ptr %544, ptr %state, align 8
   %.pre2078 = load ptr, ptr %u1925.le, align 8
   br label %if.end1997
 
 if.end1997:                                       ; preds = %if.end1772, %do.body1986, %land.lhs.true1786
-  %348 = phi ptr [ %295, %land.lhs.true1786 ], [ %.pre2078, %do.body1986 ], [ %295, %if.end1772 ]
+  %349 = phi ptr [ %296, %land.lhs.true1786 ], [ %.pre2078, %do.body1986 ], [ %296, %if.end1772 ]
   %ptr.8 = phi ptr [ %ptr.0, %land.lhs.true1786 ], [ %544, %do.body1986 ], [ %ptr.0, %if.end1772 ]
   %ctx.21 = phi ptr [ %ctx.2, %land.lhs.true1786 ], [ %add.ptr3422, %do.body1986 ], [ %ctx.2, %if.end1772 ]
   %sigcount.10 = phi i32 [ %sigcount.2, %land.lhs.true1786 ], [ %sigcount.1, %do.body1986 ], [ %sigcount.2, %if.end1772 ]
   %ctx_pos.7 = phi i64 [ %ctx_pos.1.ph, %land.lhs.true1786 ], [ %539, %do.body1986 ], [ %ctx_pos.1.ph, %if.end1772 ]
   %pattern.addr.8 = phi ptr [ %pattern.addr.2, %land.lhs.true1786 ], [ %543, %do.body1986 ], [ %pattern.addr.2, %if.end1772 ]
-  %prev1999 = getelementptr inbounds i8, ptr %348, i64 24
-  %349 = load ptr, ptr %prev1999, align 8
-  store ptr %349, ptr %repeat1312, align 8
+  %prev1999 = getelementptr inbounds i8, ptr %349, i64 24
+  %350 = load ptr, ptr %prev1999, align 8
+  store ptr %350, ptr %repeat1312, align 8
   %pattern2001 = getelementptr inbounds i8, ptr %ctx.21, i64 24
   store ptr %pattern.addr.8, ptr %pattern2001, align 8
   %ptr2002 = getelementptr inbounds i8, ptr %ctx.21, i64 32
   store ptr %ptr.8, ptr %ptr2002, align 8
-  %350 = load i64, ptr %data_stack_base, align 8
-  %351 = load i64, ptr %data_stack_size, align 8
-  %sub2006 = sub i64 %351, %350
+  %351 = load i64, ptr %data_stack_base, align 8
+  %352 = load i64, ptr %data_stack_size, align 8
+  %sub2006 = sub i64 %352, %351
   %cmp2007 = icmp ult i64 %sub2006, 56
   br i1 %cmp2007, label %if.then2009, label %if.end1997.if.end2025_crit_edge
 
@@ -17495,26 +17487,26 @@ if.end1997.if.end2025_crit_edge:                  ; preds = %if.end1997
   br label %if.end2025
 
 if.then2009:                                      ; preds = %if.end1997
-  %add.i1483 = add i64 %350, 56
-  %cmp.i1485 = icmp slt i64 %351, %add.i1483
+  %add.i1483 = add i64 %351, 56
+  %cmp.i1485 = icmp slt i64 %352, %add.i1483
   %.pre2080.pre = load ptr, ptr %data_stack11, align 8
   br i1 %cmp.i1485, label %if.then.i1487, label %if.end2016
 
 if.then.i1487:                                    ; preds = %if.then2009
   %div.i1488 = sdiv i64 %add.i1483, 4
-  %add1.i1489 = add i64 %350, 1080
+  %add1.i1489 = add i64 %351, 1080
   %add2.i1490 = add i64 %add1.i1489, %div.i1488
   %call.i1492 = tail call ptr @PyMem_Realloc(ptr noundef %.pre2080.pre, i64 noundef %add2.i1490) #14
   %tobool.not.i1493 = icmp eq ptr %call.i1492, null
   br i1 %tobool.not.i1493, label %if.then3.i1495, label %if.end.i1494
 
 if.then3.i1495:                                   ; preds = %if.then.i1487
-  %352 = load ptr, ptr %data_stack11, align 8
-  %tobool.not.i.i1496 = icmp eq ptr %352, null
+  %353 = load ptr, ptr %data_stack11, align 8
+  %tobool.not.i.i1496 = icmp eq ptr %353, null
   br i1 %tobool.not.i.i1496, label %if.then2014, label %if.then.i.i1497
 
 if.then.i.i1497:                                  ; preds = %if.then3.i1495
-  tail call void @PyMem_Free(ptr noundef nonnull %352) #14
+  tail call void @PyMem_Free(ptr noundef nonnull %353) #14
   store ptr null, ptr %data_stack11, align 8
   br label %if.then2014
 
@@ -17531,22 +17523,22 @@ if.end2016:                                       ; preds = %if.end.i1494, %if.t
   %.pre2080 = phi ptr [ %call.i1492, %if.end.i1494 ], [ %.pre2080.pre, %if.then2009 ]
   %cmp2017.not = icmp eq i64 %ctx_pos.7, -1
   %add.ptr2022 = getelementptr i8, ptr %.pre2080, i64 %ctx_pos.7
-  %spec.select2320 = select i1 %cmp2017.not, ptr %ctx.21, ptr %add.ptr2022
+  %spec.select2318 = select i1 %cmp2017.not, ptr %ctx.21, ptr %add.ptr2022
   br label %if.end2025
 
 if.end2025:                                       ; preds = %if.end2016, %if.end1997.if.end2025_crit_edge
-  %353 = phi ptr [ %.pre2079, %if.end1997.if.end2025_crit_edge ], [ %.pre2080, %if.end2016 ]
-  %ctx.26 = phi ptr [ %ctx.21, %if.end1997.if.end2025_crit_edge ], [ %spec.select2320, %if.end2016 ]
-  %add.ptr2027 = getelementptr i8, ptr %353, i64 %350
-  %354 = load i64, ptr %data_stack_base, align 8
-  %add2029 = add i64 %354, 56
+  %354 = phi ptr [ %.pre2079, %if.end1997.if.end2025_crit_edge ], [ %.pre2080, %if.end2016 ]
+  %ctx.26 = phi ptr [ %ctx.21, %if.end1997.if.end2025_crit_edge ], [ %spec.select2318, %if.end2016 ]
+  %add.ptr2027 = getelementptr i8, ptr %354, i64 %351
+  %355 = load i64, ptr %data_stack_base, align 8
+  %add2029 = add i64 %355, 56
   store i64 %add2029, ptr %data_stack_base, align 8
   %pattern2031 = getelementptr inbounds i8, ptr %add.ptr2027, i64 24
   store ptr %pattern.addr.8, ptr %pattern2031, align 8
   %toplevel2032 = getelementptr inbounds i8, ptr %ctx.26, i64 40
-  %355 = load i32, ptr %toplevel2032, align 8
+  %356 = load i32, ptr %toplevel2032, align 8
   %toplevel2033 = getelementptr inbounds i8, ptr %add.ptr2027, i64 40
-  store i32 %355, ptr %toplevel2033, align 8
+  store i32 %356, ptr %toplevel2033, align 8
   %jump2034 = getelementptr inbounds i8, ptr %add.ptr2027, i64 44
   store i32 3, ptr %jump2034, align 4
   %last_ctx_pos2035 = getelementptr inbounds i8, ptr %add.ptr2027, i64 48
@@ -17558,35 +17550,35 @@ do.end2055:                                       ; preds = %sw.bb3424
   br label %exit
 
 TARGET_SRE_OP_MIN_UNTIL:                          ; preds = %indirectgoto
-  %356 = load ptr, ptr %repeat1312, align 8
+  %357 = load ptr, ptr %repeat1312, align 8
   %u2060 = getelementptr inbounds i8, ptr %ctx.2, i64 8
-  store ptr %356, ptr %u2060, align 8
-  %tobool2062.not = icmp eq ptr %356, null
+  store ptr %357, ptr %u2060, align 8
+  %tobool2062.not = icmp eq ptr %357, null
   br i1 %tobool2062.not, label %return, label %if.end2066
 
 if.end2066:                                       ; preds = %TARGET_SRE_OP_MIN_UNTIL
   store ptr %ptr.0, ptr %state, align 8
-  %357 = load ptr, ptr %u2060, align 8
-  %358 = load i64, ptr %357, align 8
-  %add2070 = add i64 %358, 1
+  %358 = load ptr, ptr %u2060, align 8
+  %359 = load i64, ptr %358, align 8
+  %add2070 = add i64 %359, 1
   store i64 %add2070, ptr %ctx.2, align 8
-  %pattern2074 = getelementptr inbounds i8, ptr %357, i64 8
-  %359 = load ptr, ptr %pattern2074, align 8
-  %arrayidx2075 = getelementptr i8, ptr %359, i64 4
-  %360 = load i32, ptr %arrayidx2075, align 4
-  %conv2076 = zext i32 %360 to i64
+  %pattern2074 = getelementptr inbounds i8, ptr %358, i64 8
+  %360 = load ptr, ptr %pattern2074, align 8
+  %arrayidx2075 = getelementptr i8, ptr %360, i64 4
+  %361 = load i32, ptr %arrayidx2075, align 4
+  %conv2076 = zext i32 %361 to i64
   %cmp2077 = icmp slt i64 %add2070, %conv2076
   br i1 %cmp2077, label %if.then2079, label %if.end2146
 
 if.then2079:                                      ; preds = %if.end2066
-  store i64 %add2070, ptr %357, align 8
+  store i64 %add2070, ptr %358, align 8
   %pattern2083 = getelementptr inbounds i8, ptr %ctx.2, i64 24
   store ptr %pattern.addr.2, ptr %pattern2083, align 8
   %ptr2084 = getelementptr inbounds i8, ptr %ctx.2, i64 32
   store ptr %ptr.0, ptr %ptr2084, align 8
-  %361 = load i64, ptr %data_stack_base, align 8
-  %362 = load i64, ptr %data_stack_size, align 8
-  %sub2088 = sub i64 %362, %361
+  %362 = load i64, ptr %data_stack_base, align 8
+  %363 = load i64, ptr %data_stack_size, align 8
+  %sub2088 = sub i64 %363, %362
   %cmp2089 = icmp ult i64 %sub2088, 56
   br i1 %cmp2089, label %if.then2091, label %if.then2079.if.end2107_crit_edge
 
@@ -17607,71 +17599,71 @@ if.end2098:                                       ; preds = %if.then2091
   %cmp2099.not = icmp eq i64 %ctx_pos.1.ph, -1
   %.pre2041 = load ptr, ptr %data_stack11, align 8
   %add.ptr2104 = getelementptr i8, ptr %.pre2041, i64 %ctx_pos.1.ph
-  %spec.select2321 = select i1 %cmp2099.not, ptr %ctx.2, ptr %add.ptr2104
+  %spec.select2319 = select i1 %cmp2099.not, ptr %ctx.2, ptr %add.ptr2104
   br label %if.end2107
 
 if.end2107:                                       ; preds = %if.end2098, %if.then2079.if.end2107_crit_edge
-  %363 = phi ptr [ %.pre2040, %if.then2079.if.end2107_crit_edge ], [ %.pre2041, %if.end2098 ]
-  %ctx.27 = phi ptr [ %ctx.2, %if.then2079.if.end2107_crit_edge ], [ %spec.select2321, %if.end2098 ]
-  %add.ptr2109 = getelementptr i8, ptr %363, i64 %361
-  %364 = load i64, ptr %data_stack_base, align 8
-  %add2111 = add i64 %364, 56
+  %364 = phi ptr [ %.pre2040, %if.then2079.if.end2107_crit_edge ], [ %.pre2041, %if.end2098 ]
+  %ctx.27 = phi ptr [ %ctx.2, %if.then2079.if.end2107_crit_edge ], [ %spec.select2319, %if.end2098 ]
+  %add.ptr2109 = getelementptr i8, ptr %364, i64 %362
+  %365 = load i64, ptr %data_stack_base, align 8
+  %add2111 = add i64 %365, 56
   store i64 %add2111, ptr %data_stack_base, align 8
   %u2113 = getelementptr inbounds i8, ptr %ctx.27, i64 8
-  %365 = load ptr, ptr %u2113, align 8
-  %pattern2114 = getelementptr inbounds i8, ptr %365, i64 8
-  %366 = load ptr, ptr %pattern2114, align 8
-  %add.ptr2115 = getelementptr i8, ptr %366, i64 12
+  %366 = load ptr, ptr %u2113, align 8
+  %pattern2114 = getelementptr inbounds i8, ptr %366, i64 8
+  %367 = load ptr, ptr %pattern2114, align 8
+  %add.ptr2115 = getelementptr i8, ptr %367, i64 12
   %pattern2116 = getelementptr inbounds i8, ptr %add.ptr2109, i64 24
   store ptr %add.ptr2115, ptr %pattern2116, align 8
   %toplevel2117 = getelementptr inbounds i8, ptr %ctx.27, i64 40
-  %367 = load i32, ptr %toplevel2117, align 8
+  %368 = load i32, ptr %toplevel2117, align 8
   %toplevel2118 = getelementptr inbounds i8, ptr %add.ptr2109, i64 40
-  store i32 %367, ptr %toplevel2118, align 8
+  store i32 %368, ptr %toplevel2118, align 8
   %jump2119 = getelementptr inbounds i8, ptr %add.ptr2109, i64 44
   store i32 4, ptr %jump2119, align 4
   %last_ctx_pos2120 = getelementptr inbounds i8, ptr %add.ptr2109, i64 48
   store i64 %ctx_pos.1.ph, ptr %last_ctx_pos2120, align 8
-  %368 = load ptr, ptr %u2113, align 8
-  %pattern2122 = getelementptr inbounds i8, ptr %368, i64 8
-  %369 = load ptr, ptr %pattern2122, align 8
-  %add.ptr2123 = getelementptr i8, ptr %369, i64 12
+  %369 = load ptr, ptr %u2113, align 8
+  %pattern2122 = getelementptr inbounds i8, ptr %369, i64 8
+  %370 = load ptr, ptr %pattern2122, align 8
+  %add.ptr2123 = getelementptr i8, ptr %370, i64 12
   br label %entrance.backedge
 
 if.end2138:                                       ; preds = %sw.bb3429
   %ptr2125 = getelementptr inbounds i8, ptr %add.ptr3422, i64 32
-  %370 = load ptr, ptr %ptr2125, align 8
-  %371 = load i64, ptr %add.ptr3422, align 8
-  %sub2140 = add i64 %371, -1
+  %371 = load ptr, ptr %ptr2125, align 8
+  %372 = load i64, ptr %add.ptr3422, align 8
+  %sub2140 = add i64 %372, -1
   %u2141 = getelementptr inbounds i8, ptr %add.ptr3422, i64 8
-  %372 = load ptr, ptr %u2141, align 8
-  store i64 %sub2140, ptr %372, align 8
-  store ptr %370, ptr %state, align 8
+  %373 = load ptr, ptr %u2141, align 8
+  store i64 %sub2140, ptr %373, align 8
+  store ptr %371, ptr %state, align 8
   br label %exit
 
 if.end2146:                                       ; preds = %if.end2066
-  %prev2148 = getelementptr inbounds i8, ptr %357, i64 24
-  %373 = load ptr, ptr %prev2148, align 8
-  store ptr %373, ptr %repeat1312, align 8
-  %374 = load i32, ptr %lastmark2970, align 4
+  %prev2148 = getelementptr inbounds i8, ptr %358, i64 24
+  %374 = load ptr, ptr %prev2148, align 8
+  store ptr %374, ptr %repeat1312, align 8
+  %375 = load i32, ptr %lastmark2970, align 4
   %lastmark2152 = getelementptr inbounds i8, ptr %ctx.2, i64 16
-  store i32 %374, ptr %lastmark2152, align 8
-  %375 = load i32, ptr %lastindex, align 8
+  store i32 %375, ptr %lastmark2152, align 8
+  %376 = load i32, ptr %lastindex, align 8
   %lastindex2154 = getelementptr inbounds i8, ptr %ctx.2, i64 20
-  store i32 %375, ptr %lastindex2154, align 4
-  %376 = load ptr, ptr %repeat1312, align 8
-  %tobool2157.not = icmp ne ptr %376, null
-  %cmp2161 = icmp sgt i32 %374, -1
+  store i32 %376, ptr %lastindex2154, align 4
+  %377 = load ptr, ptr %repeat1312, align 8
+  %tobool2157.not = icmp ne ptr %377, null
+  %cmp2161 = icmp sgt i32 %375, -1
   %or.cond1551 = select i1 %tobool2157.not, i1 %cmp2161, i1 false
   br i1 %or.cond1551, label %if.then2163, label %if.end2201
 
 if.then2163:                                      ; preds = %if.end2146
-  %add2166 = add nuw i32 %374, 1
+  %add2166 = add nuw i32 %375, 1
   %conv2167 = sext i32 %add2166 to i64
   %mul2168 = shl nsw i64 %conv2167, 3
-  %377 = load i64, ptr %data_stack_size, align 8
-  %378 = load i64, ptr %data_stack_base, align 8
-  %sub2172 = sub i64 %377, %378
+  %378 = load i64, ptr %data_stack_size, align 8
+  %379 = load i64, ptr %data_stack_base, align 8
+  %sub2172 = sub i64 %378, %379
   %cmp2173 = icmp ugt i64 %mul2168, %sub2172
   br i1 %cmp2173, label %if.then2175, label %if.then2163.if.end2191_crit_edge
 
@@ -17692,18 +17684,18 @@ if.end2182:                                       ; preds = %if.then2175
   %cmp2183.not = icmp eq i64 %ctx_pos.1.ph, -1
   %.pre2037 = load ptr, ptr %data_stack11, align 8
   %add.ptr2188 = getelementptr i8, ptr %.pre2037, i64 %ctx_pos.1.ph
-  %spec.select2322 = select i1 %cmp2183.not, ptr %ctx.2, ptr %add.ptr2188
+  %spec.select2320 = select i1 %cmp2183.not, ptr %ctx.2, ptr %add.ptr2188
   br label %if.end2191
 
 if.end2191:                                       ; preds = %if.end2182, %if.then2163.if.end2191_crit_edge
-  %379 = phi ptr [ %.pre2036, %if.then2163.if.end2191_crit_edge ], [ %.pre2037, %if.end2182 ]
-  %ctx.29 = phi ptr [ %ctx.2, %if.then2163.if.end2191_crit_edge ], [ %spec.select2322, %if.end2182 ]
-  %380 = load i64, ptr %data_stack_base, align 8
-  %add.ptr2194 = getelementptr i8, ptr %379, i64 %380
-  %381 = load ptr, ptr %mark2978, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr2194, ptr noundef nonnull align 8 dereferenceable(1) %381, i64 %mul2168, i1 false)
-  %382 = load i64, ptr %data_stack_base, align 8
-  %add2197 = add i64 %382, %mul2168
+  %380 = phi ptr [ %.pre2036, %if.then2163.if.end2191_crit_edge ], [ %.pre2037, %if.end2182 ]
+  %ctx.29 = phi ptr [ %ctx.2, %if.then2163.if.end2191_crit_edge ], [ %spec.select2320, %if.end2182 ]
+  %381 = load i64, ptr %data_stack_base, align 8
+  %add.ptr2194 = getelementptr i8, ptr %380, i64 %381
+  %382 = load ptr, ptr %mark2978, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr2194, ptr noundef nonnull align 8 dereferenceable(1) %382, i64 %mul2168, i1 false)
+  %383 = load i64, ptr %data_stack_base, align 8
+  %add2197 = add i64 %383, %mul2168
   store i64 %add2197, ptr %data_stack_base, align 8
   br label %if.end2201
 
@@ -17713,9 +17705,9 @@ if.end2201:                                       ; preds = %if.end2191, %if.end
   store ptr %pattern.addr.2, ptr %pattern2202, align 8
   %ptr2203 = getelementptr inbounds i8, ptr %ctx.28, i64 32
   store ptr %ptr.0, ptr %ptr2203, align 8
-  %383 = load i64, ptr %data_stack_base, align 8
-  %384 = load i64, ptr %data_stack_size, align 8
-  %sub2207 = sub i64 %384, %383
+  %384 = load i64, ptr %data_stack_base, align 8
+  %385 = load i64, ptr %data_stack_size, align 8
+  %sub2207 = sub i64 %385, %384
   %cmp2208 = icmp ult i64 %sub2207, 56
   br i1 %cmp2208, label %if.then2210, label %if.end2201.if.end2226_crit_edge
 
@@ -17736,22 +17728,22 @@ if.end2217:                                       ; preds = %if.then2210
   %cmp2218.not = icmp eq i64 %ctx_pos.1.ph, -1
   %.pre2039 = load ptr, ptr %data_stack11, align 8
   %add.ptr2223 = getelementptr i8, ptr %.pre2039, i64 %ctx_pos.1.ph
-  %spec.select2323 = select i1 %cmp2218.not, ptr %ctx.28, ptr %add.ptr2223
+  %spec.select2321 = select i1 %cmp2218.not, ptr %ctx.28, ptr %add.ptr2223
   br label %if.end2226
 
 if.end2226:                                       ; preds = %if.end2217, %if.end2201.if.end2226_crit_edge
-  %385 = phi ptr [ %.pre2038, %if.end2201.if.end2226_crit_edge ], [ %.pre2039, %if.end2217 ]
-  %ctx.30 = phi ptr [ %ctx.28, %if.end2201.if.end2226_crit_edge ], [ %spec.select2323, %if.end2217 ]
-  %add.ptr2228 = getelementptr i8, ptr %385, i64 %383
-  %386 = load i64, ptr %data_stack_base, align 8
-  %add2230 = add i64 %386, 56
+  %386 = phi ptr [ %.pre2038, %if.end2201.if.end2226_crit_edge ], [ %.pre2039, %if.end2217 ]
+  %ctx.30 = phi ptr [ %ctx.28, %if.end2201.if.end2226_crit_edge ], [ %spec.select2321, %if.end2217 ]
+  %add.ptr2228 = getelementptr i8, ptr %386, i64 %384
+  %387 = load i64, ptr %data_stack_base, align 8
+  %add2230 = add i64 %387, 56
   store i64 %add2230, ptr %data_stack_base, align 8
   %pattern2232 = getelementptr inbounds i8, ptr %add.ptr2228, i64 24
   store ptr %pattern.addr.2, ptr %pattern2232, align 8
   %toplevel2233 = getelementptr inbounds i8, ptr %ctx.30, i64 40
-  %387 = load i32, ptr %toplevel2233, align 8
+  %388 = load i32, ptr %toplevel2233, align 8
   %toplevel2234 = getelementptr inbounds i8, ptr %add.ptr2228, i64 40
-  store i32 %387, ptr %toplevel2234, align 8
+  store i32 %388, ptr %toplevel2234, align 8
   %jump2235 = getelementptr inbounds i8, ptr %add.ptr2228, i64 44
   store i32 5, ptr %jump2235, align 4
   %last_ctx_pos2236 = getelementptr inbounds i8, ptr %add.ptr2228, i64 48
@@ -17763,12 +17755,12 @@ if.then2243:                                      ; preds = %sw.bb3425
 
 do.body2246:                                      ; preds = %if.then2243
   %lastmark2247 = getelementptr inbounds i8, ptr %add.ptr3422, i64 16
-  %388 = load i32, ptr %lastmark2247, align 8
-  %cmp2248 = icmp sgt i32 %388, -1
+  %389 = load i32, ptr %lastmark2247, align 8
+  %cmp2248 = icmp sgt i32 %389, -1
   br i1 %cmp2248, label %if.then2250, label %exit
 
 if.then2250:                                      ; preds = %do.body2246
-  %add2253 = add nuw i32 %388, 1
+  %add2253 = add nuw i32 %389, 1
   %conv2254 = sext i32 %add2253 to i64
   %mul2255 = shl nsw i64 %conv2254, 3
   %sub2258 = sub i64 %sub3413, %mul2255
@@ -17780,55 +17772,55 @@ if.end2273:                                       ; preds = %sw.bb3425
 
 do.body2276:                                      ; preds = %if.end2273
   %lastmark2277 = getelementptr inbounds i8, ptr %add.ptr3422, i64 16
-  %389 = load i32, ptr %lastmark2277, align 8
-  %cmp2278 = icmp sgt i32 %389, -1
+  %390 = load i32, ptr %lastmark2277, align 8
+  %cmp2278 = icmp sgt i32 %390, -1
   br i1 %cmp2278, label %if.then2280, label %do.body2299
 
 if.then2280:                                      ; preds = %do.body2276
-  %add2283 = add nuw i32 %389, 1
+  %add2283 = add nuw i32 %390, 1
   %conv2284 = sext i32 %add2283 to i64
   %mul2285 = shl nsw i64 %conv2284, 3
-  %390 = load ptr, ptr %mark2978, align 8
+  %391 = load ptr, ptr %mark2978, align 8
   %add.ptr2290 = getelementptr i8, ptr %542, i64 %sub3413
   %idx.neg2291 = sub nsw i64 0, %mul2285
   %add.ptr2292 = getelementptr i8, ptr %add.ptr2290, i64 %idx.neg2291
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %390, ptr noundef nonnull align 1 dereferenceable(1) %add.ptr2292, i64 %mul2285, i1 false)
-  %391 = load i64, ptr %data_stack_base, align 8
-  %sub2294 = sub i64 %391, %mul2285
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %391, ptr noundef nonnull align 1 dereferenceable(1) %add.ptr2292, i64 %mul2285, i1 false)
+  %392 = load i64, ptr %data_stack_base, align 8
+  %sub2294 = sub i64 %392, %mul2285
   store i64 %sub2294, ptr %data_stack_base, align 8
   br label %do.body2299
 
 do.body2299:                                      ; preds = %if.end2273, %do.body2276, %if.then2280
   %lastmark2300 = getelementptr inbounds i8, ptr %add.ptr3422, i64 16
-  %392 = load i32, ptr %lastmark2300, align 8
-  store i32 %392, ptr %lastmark2970, align 4
+  %393 = load i32, ptr %lastmark2300, align 8
+  store i32 %393, ptr %lastmark2970, align 4
   %lastindex2302 = getelementptr inbounds i8, ptr %add.ptr3422, i64 20
-  %393 = load i32, ptr %lastindex2302, align 4
-  store i32 %393, ptr %lastindex, align 8
+  %394 = load i32, ptr %lastindex2302, align 4
+  store i32 %394, ptr %lastindex, align 8
   store ptr %551, ptr %state, align 8
-  %394 = load i64, ptr %add.ptr3422, align 8
-  %395 = load ptr, ptr %u2240, align 8
-  %pattern2308 = getelementptr inbounds i8, ptr %395, i64 8
-  %396 = load ptr, ptr %pattern2308, align 8
-  %arrayidx2309 = getelementptr i8, ptr %396, i64 8
-  %397 = load i32, ptr %arrayidx2309, align 4
-  %conv2310 = zext i32 %397 to i64
-  %cmp2311.not = icmp slt i64 %394, %conv2310
-  %cmp2317.not = icmp eq i32 %397, -1
+  %395 = load i64, ptr %add.ptr3422, align 8
+  %396 = load ptr, ptr %u2240, align 8
+  %pattern2308 = getelementptr inbounds i8, ptr %396, i64 8
+  %397 = load ptr, ptr %pattern2308, align 8
+  %arrayidx2309 = getelementptr i8, ptr %397, i64 8
+  %398 = load i32, ptr %arrayidx2309, align 4
+  %conv2310 = zext i32 %398 to i64
+  %cmp2311.not = icmp slt i64 %395, %conv2310
+  %cmp2317.not = icmp eq i32 %398, -1
   %or.cond1407 = or i1 %cmp2317.not, %cmp2311.not
   br i1 %or.cond1407, label %lor.lhs.false2319, label %exit
 
 lor.lhs.false2319:                                ; preds = %do.body2299
-  %last_ptr2322 = getelementptr inbounds i8, ptr %395, i64 16
-  %398 = load ptr, ptr %last_ptr2322, align 8
-  %cmp2323 = icmp eq ptr %551, %398
+  %last_ptr2322 = getelementptr inbounds i8, ptr %396, i64 16
+  %399 = load ptr, ptr %last_ptr2322, align 8
+  %cmp2323 = icmp eq ptr %551, %399
   br i1 %cmp2323, label %exit, label %if.end2328
 
 if.end2328:                                       ; preds = %lor.lhs.false2319
-  store i64 %394, ptr %395, align 8
-  %399 = load i64, ptr %data_stack_size, align 8
-  %400 = load i64, ptr %data_stack_base, align 8
-  %sub2336 = sub i64 %399, %400
+  store i64 %395, ptr %396, align 8
+  %400 = load i64, ptr %data_stack_size, align 8
+  %401 = load i64, ptr %data_stack_base, align 8
+  %sub2336 = sub i64 %400, %401
   %cmp2337 = icmp ult i64 %sub2336, 8
   br i1 %cmp2337, label %if.then2339, label %if.end2328.if.end2355_crit_edge
 
@@ -17846,35 +17838,35 @@ if.then2344:                                      ; preds = %if.then2339
   br label %return
 
 do.body2350:                                      ; preds = %if.then2339
-  %401 = load ptr, ptr %data_stack11, align 8
-  %add.ptr2352 = getelementptr i8, ptr %401, i64 %539
+  %402 = load ptr, ptr %data_stack11, align 8
+  %add.ptr2352 = getelementptr i8, ptr %402, i64 %539
   %.pre2074 = load i64, ptr %data_stack_base, align 8
   br label %if.end2355
 
 if.end2355:                                       ; preds = %if.end2328.if.end2355_crit_edge, %do.body2350
-  %402 = phi i64 [ %.pre2074, %do.body2350 ], [ %400, %if.end2328.if.end2355_crit_edge ]
-  %403 = phi ptr [ %401, %do.body2350 ], [ %.pre2073, %if.end2328.if.end2355_crit_edge ]
+  %403 = phi i64 [ %.pre2074, %do.body2350 ], [ %401, %if.end2328.if.end2355_crit_edge ]
+  %404 = phi ptr [ %402, %do.body2350 ], [ %.pre2073, %if.end2328.if.end2355_crit_edge ]
   %ctx.31 = phi ptr [ %add.ptr2352, %do.body2350 ], [ %add.ptr3422, %if.end2328.if.end2355_crit_edge ]
-  %add.ptr2358 = getelementptr i8, ptr %403, i64 %402
+  %add.ptr2358 = getelementptr i8, ptr %404, i64 %403
   %u2359 = getelementptr inbounds i8, ptr %ctx.31, i64 8
-  %404 = load ptr, ptr %u2359, align 8
-  %last_ptr2360 = getelementptr inbounds i8, ptr %404, i64 16
-  %405 = load i64, ptr %last_ptr2360, align 8
-  store i64 %405, ptr %add.ptr2358, align 1
-  %406 = load i64, ptr %data_stack_base, align 8
-  %add2362 = add i64 %406, 8
+  %405 = load ptr, ptr %u2359, align 8
+  %last_ptr2360 = getelementptr inbounds i8, ptr %405, i64 16
+  %406 = load i64, ptr %last_ptr2360, align 8
+  store i64 %406, ptr %add.ptr2358, align 1
+  %407 = load i64, ptr %data_stack_base, align 8
+  %add2362 = add i64 %407, 8
   store i64 %add2362, ptr %data_stack_base, align 8
-  %407 = load ptr, ptr %state, align 8
-  %408 = load ptr, ptr %u2359, align 8
-  %last_ptr2367 = getelementptr inbounds i8, ptr %408, i64 16
-  store ptr %407, ptr %last_ptr2367, align 8
+  %408 = load ptr, ptr %state, align 8
+  %409 = load ptr, ptr %u2359, align 8
+  %last_ptr2367 = getelementptr inbounds i8, ptr %409, i64 16
+  store ptr %408, ptr %last_ptr2367, align 8
   %pattern2368 = getelementptr inbounds i8, ptr %ctx.31, i64 24
   store ptr %550, ptr %pattern2368, align 8
   %ptr2369 = getelementptr inbounds i8, ptr %ctx.31, i64 32
   store ptr %551, ptr %ptr2369, align 8
-  %409 = load i64, ptr %data_stack_base, align 8
-  %410 = load i64, ptr %data_stack_size, align 8
-  %sub2373 = sub i64 %410, %409
+  %410 = load i64, ptr %data_stack_base, align 8
+  %411 = load i64, ptr %data_stack_size, align 8
+  %sub2373 = sub i64 %411, %410
   %cmp2374 = icmp ult i64 %sub2373, 56
   br i1 %cmp2374, label %if.then2376, label %if.end2355.if.end2392_crit_edge
 
@@ -17892,44 +17884,44 @@ if.then2381:                                      ; preds = %if.then2376
   br label %return
 
 do.body2387:                                      ; preds = %if.then2376
-  %411 = load ptr, ptr %data_stack11, align 8
-  %add.ptr2389 = getelementptr i8, ptr %411, i64 %539
+  %412 = load ptr, ptr %data_stack11, align 8
+  %add.ptr2389 = getelementptr i8, ptr %412, i64 %539
   %.pre2076 = load i64, ptr %data_stack_base, align 8
   br label %if.end2392
 
 if.end2392:                                       ; preds = %if.end2355.if.end2392_crit_edge, %do.body2387
-  %412 = phi i64 [ %.pre2076, %do.body2387 ], [ %409, %if.end2355.if.end2392_crit_edge ]
-  %413 = phi ptr [ %411, %do.body2387 ], [ %.pre2075, %if.end2355.if.end2392_crit_edge ]
+  %413 = phi i64 [ %.pre2076, %do.body2387 ], [ %410, %if.end2355.if.end2392_crit_edge ]
+  %414 = phi ptr [ %412, %do.body2387 ], [ %.pre2075, %if.end2355.if.end2392_crit_edge ]
   %ctx.32 = phi ptr [ %add.ptr2389, %do.body2387 ], [ %ctx.31, %if.end2355.if.end2392_crit_edge ]
-  %add.ptr2394 = getelementptr i8, ptr %413, i64 %409
-  %add2396 = add i64 %412, 56
+  %add.ptr2394 = getelementptr i8, ptr %414, i64 %410
+  %add2396 = add i64 %413, 56
   store i64 %add2396, ptr %data_stack_base, align 8
   %u2398 = getelementptr inbounds i8, ptr %ctx.32, i64 8
-  %414 = load ptr, ptr %u2398, align 8
-  %pattern2399 = getelementptr inbounds i8, ptr %414, i64 8
-  %415 = load ptr, ptr %pattern2399, align 8
-  %add.ptr2400 = getelementptr i8, ptr %415, i64 12
+  %415 = load ptr, ptr %u2398, align 8
+  %pattern2399 = getelementptr inbounds i8, ptr %415, i64 8
+  %416 = load ptr, ptr %pattern2399, align 8
+  %add.ptr2400 = getelementptr i8, ptr %416, i64 12
   %pattern2401 = getelementptr inbounds i8, ptr %add.ptr2394, i64 24
   store ptr %add.ptr2400, ptr %pattern2401, align 8
   %toplevel2402 = getelementptr inbounds i8, ptr %ctx.32, i64 40
-  %416 = load i32, ptr %toplevel2402, align 8
+  %417 = load i32, ptr %toplevel2402, align 8
   %toplevel2403 = getelementptr inbounds i8, ptr %add.ptr2394, i64 40
-  store i32 %416, ptr %toplevel2403, align 8
+  store i32 %417, ptr %toplevel2403, align 8
   %jump2404 = getelementptr inbounds i8, ptr %add.ptr2394, i64 44
   store i32 6, ptr %jump2404, align 4
   %last_ctx_pos2405 = getelementptr inbounds i8, ptr %add.ptr2394, i64 48
   store i64 %539, ptr %last_ctx_pos2405, align 8
-  %417 = load ptr, ptr %u2398, align 8
-  %pattern2407 = getelementptr inbounds i8, ptr %417, i64 8
-  %418 = load ptr, ptr %pattern2407, align 8
-  %add.ptr2408 = getelementptr i8, ptr %418, i64 12
+  %418 = load ptr, ptr %u2398, align 8
+  %pattern2407 = getelementptr inbounds i8, ptr %418, i64 8
+  %419 = load ptr, ptr %pattern2407, align 8
+  %add.ptr2408 = getelementptr i8, ptr %419, i64 12
   br label %entrance.backedge
 
 if.end2435:                                       ; preds = %sw.bb3426
-  %419 = load i64, ptr %add.ptr3422, align 8
-  %sub2437 = add i64 %419, -1
-  %420 = load ptr, ptr %u2413, align 8
-  store i64 %sub2437, ptr %420, align 8
+  %420 = load i64, ptr %add.ptr3422, align 8
+  %sub2437 = add i64 %420, -1
+  %421 = load ptr, ptr %u2413, align 8
+  store i64 %sub2437, ptr %421, align 8
   store ptr %554, ptr %state, align 8
   br label %exit
 
@@ -17939,16 +17931,16 @@ TARGET_SRE_OP_POSSESSIVE_REPEAT:                  ; preds = %indirectgoto
   br label %while.cond2445
 
 while.cond2445:                                   ; preds = %do.end2499, %TARGET_SRE_OP_POSSESSIVE_REPEAT
-  %421 = phi i64 [ 0, %TARGET_SRE_OP_POSSESSIVE_REPEAT ], [ %inc2501, %do.end2499 ]
+  %422 = phi i64 [ 0, %TARGET_SRE_OP_POSSESSIVE_REPEAT ], [ %inc2501, %do.end2499 ]
   %ptr.9 = phi ptr [ %ptr.0, %TARGET_SRE_OP_POSSESSIVE_REPEAT ], [ %561, %do.end2499 ]
   %ctx.33 = phi ptr [ %ctx.2, %TARGET_SRE_OP_POSSESSIVE_REPEAT ], [ %add.ptr3422, %do.end2499 ]
   %sigcount.11 = phi i32 [ %sigcount.2, %TARGET_SRE_OP_POSSESSIVE_REPEAT ], [ %sigcount.1, %do.end2499 ]
   %ctx_pos.8 = phi i64 [ %ctx_pos.1.ph, %TARGET_SRE_OP_POSSESSIVE_REPEAT ], [ %539, %do.end2499 ]
-  %pattern.addr.9 = phi ptr [ %pattern.addr.2, %TARGET_SRE_OP_POSSESSIVE_REPEAT ], [ %427, %do.end2499 ]
+  %pattern.addr.9 = phi ptr [ %pattern.addr.2, %TARGET_SRE_OP_POSSESSIVE_REPEAT ], [ %428, %do.end2499 ]
   %arrayidx2447 = getelementptr i8, ptr %pattern.addr.9, i64 4
-  %422 = load i32, ptr %arrayidx2447, align 4
-  %conv2448 = zext i32 %422 to i64
-  %cmp2449 = icmp slt i64 %421, %conv2448
+  %423 = load i32, ptr %arrayidx2447, align 4
+  %conv2448 = zext i32 %423 to i64
+  %cmp2449 = icmp slt i64 %422, %conv2448
   br i1 %cmp2449, label %while.body2451, label %while.cond2508
 
 while.body2451:                                   ; preds = %while.cond2445
@@ -17956,9 +17948,9 @@ while.body2451:                                   ; preds = %while.cond2445
   store ptr %pattern.addr.9, ptr %pattern2452, align 8
   %ptr2453 = getelementptr inbounds i8, ptr %ctx.33, i64 32
   store ptr %ptr.9, ptr %ptr2453, align 8
-  %423 = load i64, ptr %data_stack_base, align 8
-  %424 = load i64, ptr %data_stack_size, align 8
-  %sub2457 = sub i64 %424, %423
+  %424 = load i64, ptr %data_stack_base, align 8
+  %425 = load i64, ptr %data_stack_size, align 8
+  %sub2457 = sub i64 %425, %424
   %cmp2458 = icmp ult i64 %sub2457, 56
   br i1 %cmp2458, label %if.then2460, label %if.end2476
 
@@ -17976,10 +17968,10 @@ if.then2465:                                      ; preds = %if.then2460
   br label %return
 
 if.end2476:                                       ; preds = %if.then2460.if.end2476_crit_edge, %while.body2451
-  %425 = phi i64 [ %.pre2070, %if.then2460.if.end2476_crit_edge ], [ %423, %while.body2451 ]
-  %426 = load ptr, ptr %data_stack11, align 8
-  %add.ptr2478 = getelementptr i8, ptr %426, i64 %423
-  %add2480 = add i64 %425, 56
+  %426 = phi i64 [ %.pre2070, %if.then2460.if.end2476_crit_edge ], [ %424, %while.body2451 ]
+  %427 = load ptr, ptr %data_stack11, align 8
+  %add.ptr2478 = getelementptr i8, ptr %427, i64 %424
+  %add2480 = add i64 %426, 56
   store i64 %add2480, ptr %data_stack_base, align 8
   %arrayidx2482 = getelementptr i8, ptr %pattern.addr.9, i64 12
   %pattern2483 = getelementptr inbounds i8, ptr %add.ptr2478, i64 24
@@ -17994,9 +17986,9 @@ if.end2476:                                       ; preds = %if.then2460.if.end2
 
 do.end2499:                                       ; preds = %sw.bb3430
   %pattern2488 = getelementptr inbounds i8, ptr %add.ptr3422, i64 24
-  %427 = load ptr, ptr %pattern2488, align 8
-  %428 = load i64, ptr %add.ptr3422, align 8
-  %inc2501 = add i64 %428, 1
+  %428 = load ptr, ptr %pattern2488, align 8
+  %429 = load i64, ptr %add.ptr3422, align 8
+  %inc2501 = add i64 %429, 1
   store i64 %inc2501, ptr %add.ptr3422, align 8
   br label %while.cond2445, !llvm.loop !45
 
@@ -18005,40 +17997,40 @@ if.else2502:                                      ; preds = %sw.bb3430
   br label %exit
 
 while.cond2508:                                   ; preds = %while.cond2445, %do.end2637
-  %429 = phi i64 [ %inc2639, %do.end2637 ], [ %421, %while.cond2445 ]
+  %430 = phi i64 [ %inc2639, %do.end2637 ], [ %422, %while.cond2445 ]
   %ptr.10 = phi ptr [ %563, %do.end2637 ], [ null, %while.cond2445 ]
   %ctx.34 = phi ptr [ %add.ptr3422, %do.end2637 ], [ %ctx.33, %while.cond2445 ]
   %sigcount.12 = phi i32 [ %sigcount.1, %do.end2637 ], [ %sigcount.11, %while.cond2445 ]
   %ctx_pos.9 = phi i64 [ %539, %do.end2637 ], [ %ctx_pos.8, %while.cond2445 ]
   %pattern.addr.10 = phi ptr [ %562, %do.end2637 ], [ %pattern.addr.9, %while.cond2445 ]
   %arrayidx2510 = getelementptr i8, ptr %pattern.addr.10, i64 8
-  %430 = load i32, ptr %arrayidx2510, align 4
-  %conv2511 = zext i32 %430 to i64
-  %cmp2512 = icmp sge i64 %429, %conv2511
-  %cmp2517 = icmp ne i32 %430, -1
-  %or.cond1408.not2329 = and i1 %cmp2517, %cmp2512
+  %431 = load i32, ptr %arrayidx2510, align 4
+  %conv2511 = zext i32 %431 to i64
+  %cmp2512 = icmp sge i64 %430, %conv2511
+  %cmp2517 = icmp ne i32 %431, -1
+  %or.cond1408.not2326 = and i1 %cmp2517, %cmp2512
   %.pre2069 = load ptr, ptr %state, align 8
   %cmp2521.not = icmp eq ptr %.pre2069, %ptr.10
-  %or.cond2324 = select i1 %or.cond1408.not2329, i1 true, i1 %cmp2521.not
-  br i1 %or.cond2324, label %while.end2671, label %do.body2525
+  %or.cond2322 = select i1 %or.cond1408.not2326, i1 true, i1 %cmp2521.not
+  br i1 %or.cond2322, label %while.end2671, label %do.body2525
 
 do.body2525:                                      ; preds = %while.cond2508
-  %431 = load i32, ptr %lastmark2970, align 4
+  %432 = load i32, ptr %lastmark2970, align 4
   %lastmark2527 = getelementptr inbounds i8, ptr %ctx.34, i64 16
-  store i32 %431, ptr %lastmark2527, align 8
-  %432 = load i32, ptr %lastindex, align 8
+  store i32 %432, ptr %lastmark2527, align 8
+  %433 = load i32, ptr %lastindex, align 8
   %lastindex2529 = getelementptr inbounds i8, ptr %ctx.34, i64 20
-  store i32 %432, ptr %lastindex2529, align 4
-  %cmp2533 = icmp sgt i32 %431, -1
+  store i32 %433, ptr %lastindex2529, align 4
+  %cmp2533 = icmp sgt i32 %432, -1
   br i1 %cmp2533, label %if.then2535, label %do.end2572
 
 if.then2535:                                      ; preds = %do.body2525
-  %add2538 = add nuw i32 %431, 1
+  %add2538 = add nuw i32 %432, 1
   %conv2539 = sext i32 %add2538 to i64
   %mul2540 = shl nsw i64 %conv2539, 3
-  %433 = load i64, ptr %data_stack_size, align 8
-  %434 = load i64, ptr %data_stack_base, align 8
-  %sub2544 = sub i64 %433, %434
+  %434 = load i64, ptr %data_stack_size, align 8
+  %435 = load i64, ptr %data_stack_base, align 8
+  %sub2544 = sub i64 %434, %435
   %cmp2545 = icmp ugt i64 %mul2540, %sub2544
   br i1 %cmp2545, label %if.then2547, label %if.then2535.if.end2563_crit_edge
 
@@ -18059,31 +18051,31 @@ if.end2554:                                       ; preds = %if.then2547
   %cmp2555.not = icmp eq i64 %ctx_pos.9, -1
   %.pre2067 = load ptr, ptr %data_stack11, align 8
   %add.ptr2560 = getelementptr i8, ptr %.pre2067, i64 %ctx_pos.9
-  %spec.select2325 = select i1 %cmp2555.not, ptr %ctx.34, ptr %add.ptr2560
+  %spec.select2323 = select i1 %cmp2555.not, ptr %ctx.34, ptr %add.ptr2560
   br label %if.end2563
 
 if.end2563:                                       ; preds = %if.end2554, %if.then2535.if.end2563_crit_edge
-  %435 = phi ptr [ %.pre2066, %if.then2535.if.end2563_crit_edge ], [ %.pre2067, %if.end2554 ]
-  %ctx.36 = phi ptr [ %ctx.34, %if.then2535.if.end2563_crit_edge ], [ %spec.select2325, %if.end2554 ]
-  %436 = load i64, ptr %data_stack_base, align 8
-  %add.ptr2566 = getelementptr i8, ptr %435, i64 %436
-  %437 = load ptr, ptr %mark2978, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr2566, ptr noundef nonnull align 8 dereferenceable(1) %437, i64 %mul2540, i1 false)
-  %438 = load i64, ptr %data_stack_base, align 8
-  %add2569 = add i64 %438, %mul2540
+  %436 = phi ptr [ %.pre2066, %if.then2535.if.end2563_crit_edge ], [ %.pre2067, %if.end2554 ]
+  %ctx.36 = phi ptr [ %ctx.34, %if.then2535.if.end2563_crit_edge ], [ %spec.select2323, %if.end2554 ]
+  %437 = load i64, ptr %data_stack_base, align 8
+  %add.ptr2566 = getelementptr i8, ptr %436, i64 %437
+  %438 = load ptr, ptr %mark2978, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr2566, ptr noundef nonnull align 8 dereferenceable(1) %438, i64 %mul2540, i1 false)
+  %439 = load i64, ptr %data_stack_base, align 8
+  %add2569 = add i64 %439, %mul2540
   store i64 %add2569, ptr %data_stack_base, align 8
   br label %do.end2572
 
 do.end2572:                                       ; preds = %do.body2525, %if.end2563
   %ctx.37 = phi ptr [ %ctx.36, %if.end2563 ], [ %ctx.34, %do.body2525 ]
-  %439 = load ptr, ptr %state, align 8
+  %440 = load ptr, ptr %state, align 8
   %pattern2574 = getelementptr inbounds i8, ptr %ctx.37, i64 24
   store ptr %pattern.addr.10, ptr %pattern2574, align 8
   %ptr2575 = getelementptr inbounds i8, ptr %ctx.37, i64 32
-  store ptr %439, ptr %ptr2575, align 8
-  %440 = load i64, ptr %data_stack_base, align 8
-  %441 = load i64, ptr %data_stack_size, align 8
-  %sub2579 = sub i64 %441, %440
+  store ptr %440, ptr %ptr2575, align 8
+  %441 = load i64, ptr %data_stack_base, align 8
+  %442 = load i64, ptr %data_stack_size, align 8
+  %sub2579 = sub i64 %442, %441
   %cmp2580 = icmp ult i64 %sub2579, 56
   br i1 %cmp2580, label %if.then2582, label %if.end2598
 
@@ -18101,10 +18093,10 @@ if.then2587:                                      ; preds = %if.then2582
   br label %return
 
 if.end2598:                                       ; preds = %if.then2582.if.end2598_crit_edge, %do.end2572
-  %442 = phi i64 [ %.pre2068, %if.then2582.if.end2598_crit_edge ], [ %440, %do.end2572 ]
-  %443 = load ptr, ptr %data_stack11, align 8
-  %add.ptr2600 = getelementptr i8, ptr %443, i64 %440
-  %add2602 = add i64 %442, 56
+  %443 = phi i64 [ %.pre2068, %if.then2582.if.end2598_crit_edge ], [ %441, %do.end2572 ]
+  %444 = load ptr, ptr %data_stack11, align 8
+  %add.ptr2600 = getelementptr i8, ptr %444, i64 %441
+  %add2602 = add i64 %443, 56
   store i64 %add2602, ptr %data_stack_base, align 8
   %arrayidx2604 = getelementptr i8, ptr %pattern.addr.10, i64 12
   %pattern2605 = getelementptr inbounds i8, ptr %add.ptr2600, i64 24
@@ -18129,8 +18121,8 @@ if.then2618:                                      ; preds = %do.body2614
   br label %do.end2637
 
 do.end2637:                                       ; preds = %do.body2614, %if.then2618
-  %444 = load i64, ptr %add.ptr3422, align 8
-  %inc2639 = add i64 %444, 1
+  %445 = load i64, ptr %add.ptr3422, align 8
+  %inc2639 = add i64 %445, 1
   store i64 %inc2639, ptr %add.ptr3422, align 8
   br label %while.cond2508, !llvm.loop !46
 
@@ -18141,34 +18133,34 @@ if.then2645:                                      ; preds = %do.body2641
   %add2648 = add nuw i32 %564, 1
   %conv2649 = sext i32 %add2648 to i64
   %mul2650 = shl nsw i64 %conv2649, 3
-  %445 = load ptr, ptr %mark2978, align 8
+  %446 = load ptr, ptr %mark2978, align 8
   %add.ptr2655 = getelementptr i8, ptr %542, i64 %sub3413
   %idx.neg2656 = sub nsw i64 0, %mul2650
   %add.ptr2657 = getelementptr i8, ptr %add.ptr2655, i64 %idx.neg2656
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %445, ptr noundef nonnull align 1 dereferenceable(1) %add.ptr2657, i64 %mul2650, i1 false)
-  %446 = load i64, ptr %data_stack_base, align 8
-  %sub2659 = sub i64 %446, %mul2650
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %446, ptr noundef nonnull align 1 dereferenceable(1) %add.ptr2657, i64 %mul2650, i1 false)
+  %447 = load i64, ptr %data_stack_base, align 8
+  %sub2659 = sub i64 %447, %mul2650
   store i64 %sub2659, ptr %data_stack_base, align 8
   %.pre2065 = load i32, ptr %lastmark2642, align 8
   br label %do.body2663
 
 do.body2663:                                      ; preds = %if.then2645, %do.body2641
-  %447 = phi i32 [ %.pre2065, %if.then2645 ], [ %564, %do.body2641 ]
-  store i32 %447, ptr %lastmark2970, align 4
+  %448 = phi i32 [ %.pre2065, %if.then2645 ], [ %564, %do.body2641 ]
+  store i32 %448, ptr %lastmark2970, align 4
   %lastindex2666 = getelementptr inbounds i8, ptr %add.ptr3422, i64 20
-  %448 = load i32, ptr %lastindex2666, align 4
-  store i32 %448, ptr %lastindex, align 8
+  %449 = load i32, ptr %lastindex2666, align 4
+  store i32 %449, ptr %lastindex, align 8
   store ptr %563, ptr %state, align 8
   br label %while.end2671
 
 while.end2671:                                    ; preds = %while.cond2508, %do.body2663
-  %449 = phi ptr [ %563, %do.body2663 ], [ %.pre2069, %while.cond2508 ]
+  %450 = phi ptr [ %563, %do.body2663 ], [ %.pre2069, %while.cond2508 ]
   %ctx.35 = phi ptr [ %add.ptr3422, %do.body2663 ], [ %ctx.34, %while.cond2508 ]
   %sigcount.13 = phi i32 [ %sigcount.1, %do.body2663 ], [ %sigcount.12, %while.cond2508 ]
   %ctx_pos.10 = phi i64 [ %539, %do.body2663 ], [ %ctx_pos.9, %while.cond2508 ]
   %pattern.addr.11 = phi ptr [ %562, %do.body2663 ], [ %pattern.addr.10, %while.cond2508 ]
-  %450 = load i32, ptr %pattern.addr.11, align 4
-  %add2673 = add i32 %450, 1
+  %451 = load i32, ptr %pattern.addr.11, align 4
+  %add2673 = add i32 %451, 1
   %idx.ext2674 = zext i32 %add2673 to i64
   %add.ptr2675 = getelementptr i32, ptr %pattern.addr.11, i64 %idx.ext2674
   %inc2679 = add i32 %sigcount.13, 1
@@ -18187,9 +18179,9 @@ TARGET_SRE_OP_ATOMIC_GROUP:                       ; preds = %indirectgoto
   store ptr %pattern.addr.2, ptr %pattern2696, align 8
   %ptr2697 = getelementptr inbounds i8, ptr %ctx.2, i64 32
   store ptr %ptr.0, ptr %ptr2697, align 8
-  %451 = load i64, ptr %data_stack_base, align 8
-  %452 = load i64, ptr %data_stack_size, align 8
-  %sub2701 = sub i64 %452, %451
+  %452 = load i64, ptr %data_stack_base, align 8
+  %453 = load i64, ptr %data_stack_size, align 8
+  %sub2701 = sub i64 %453, %452
   %cmp2702 = icmp ult i64 %sub2701, 56
   br i1 %cmp2702, label %if.then2704, label %if.end2720
 
@@ -18207,10 +18199,10 @@ if.then2709:                                      ; preds = %if.then2704
   br label %return
 
 if.end2720:                                       ; preds = %if.then2704.if.end2720_crit_edge, %TARGET_SRE_OP_ATOMIC_GROUP
-  %453 = phi i64 [ %.pre2029, %if.then2704.if.end2720_crit_edge ], [ %451, %TARGET_SRE_OP_ATOMIC_GROUP ]
-  %454 = load ptr, ptr %data_stack11, align 8
-  %add.ptr2722 = getelementptr i8, ptr %454, i64 %451
-  %add2724 = add i64 %453, 56
+  %454 = phi i64 [ %.pre2029, %if.then2704.if.end2720_crit_edge ], [ %452, %TARGET_SRE_OP_ATOMIC_GROUP ]
+  %455 = load ptr, ptr %data_stack11, align 8
+  %add.ptr2722 = getelementptr i8, ptr %455, i64 %452
+  %add2724 = add i64 %454, 56
   store i64 %add2724, ptr %data_stack_base, align 8
   %arrayidx2726 = getelementptr i8, ptr %pattern.addr.2, i64 4
   %pattern2727 = getelementptr inbounds i8, ptr %add.ptr2722, i64 24
@@ -18225,17 +18217,17 @@ if.end2720:                                       ; preds = %if.then2704.if.end2
 
 if.then2744:                                      ; preds = %sw.bb3436
   %ptr2733 = getelementptr inbounds i8, ptr %add.ptr3422, i64 32
-  %455 = load ptr, ptr %ptr2733, align 8
-  store ptr %455, ptr %state, align 8
+  %456 = load ptr, ptr %ptr2733, align 8
+  store ptr %456, ptr %state, align 8
   br label %exit
 
 if.end2748:                                       ; preds = %sw.bb3436
   %pattern2732 = getelementptr inbounds i8, ptr %add.ptr3422, i64 24
-  %456 = load ptr, ptr %pattern2732, align 8
-  %457 = load i32, ptr %456, align 4
-  %idx.ext2750 = zext i32 %457 to i64
-  %add.ptr2751 = getelementptr i32, ptr %456, i64 %idx.ext2750
-  %458 = load ptr, ptr %state, align 8
+  %457 = load ptr, ptr %pattern2732, align 8
+  %458 = load i32, ptr %457, align 4
+  %idx.ext2750 = zext i32 %458 to i64
+  %add.ptr2751 = getelementptr i32, ptr %457, i64 %idx.ext2750
+  %459 = load ptr, ptr %state, align 8
   %inc2755 = add i32 %sigcount.1, 1
   %and2756 = and i32 %inc2755, 4095
   %cmp2757 = icmp eq i32 %and2756, 0
@@ -18246,14 +18238,14 @@ land.lhs.true2759:                                ; preds = %if.end2748
   %tobool2761.not = icmp eq i32 %call2760, 0
   br i1 %tobool2761.not, label %indirectgoto.preheader, label %return
 
-indirectgoto.preheader:                           ; preds = %land.lhs.true3393, %if.end3383, %land.lhs.true3201, %do.end3191, %land.lhs.true2759, %if.end2748, %land.lhs.true2683, %while.end2671, %land.lhs.true38, %do.body35
-  %pattern.addr.1.sink2327 = phi ptr [ %pattern.addr.1, %do.body35 ], [ %pattern.addr.1, %land.lhs.true38 ], [ %add.ptr2675, %while.end2671 ], [ %add.ptr2675, %land.lhs.true2683 ], [ %add.ptr2751, %if.end2748 ], [ %add.ptr2751, %land.lhs.true2759 ], [ %add.ptr3194, %do.end3191 ], [ %add.ptr3194, %land.lhs.true3201 ], [ %add.ptr3386, %if.end3383 ], [ %add.ptr3386, %land.lhs.true3393 ]
-  %ptr.0.ph = phi ptr [ %8, %do.body35 ], [ %8, %land.lhs.true38 ], [ %449, %while.end2671 ], [ %449, %land.lhs.true2683 ], [ %458, %if.end2748 ], [ %458, %land.lhs.true2759 ], [ %577, %do.end3191 ], [ %577, %land.lhs.true3201 ], [ %ptr.15, %if.end3383 ], [ %ptr.15, %land.lhs.true3393 ]
-  %ctx.2.ph = phi ptr [ %ctx.0, %do.body35 ], [ %ctx.0, %land.lhs.true38 ], [ %ctx.35, %while.end2671 ], [ %ctx.35, %land.lhs.true2683 ], [ %add.ptr3422, %if.end2748 ], [ %add.ptr3422, %land.lhs.true2759 ], [ %add.ptr3422, %do.end3191 ], [ %add.ptr3422, %land.lhs.true3201 ], [ %ctx.38, %if.end3383 ], [ %ctx.38, %land.lhs.true3393 ]
-  %sigcount.2.ph = phi i32 [ %inc, %do.body35 ], [ %inc, %land.lhs.true38 ], [ %inc2679, %while.end2671 ], [ %inc2679, %land.lhs.true2683 ], [ %inc2755, %if.end2748 ], [ %inc2755, %land.lhs.true2759 ], [ %inc3197, %do.end3191 ], [ %inc3197, %land.lhs.true3201 ], [ %inc3389, %if.end3383 ], [ %inc3389, %land.lhs.true3393 ]
-  %ctx_pos.1.ph = phi i64 [ %ctx_pos.0, %do.body35 ], [ %ctx_pos.0, %land.lhs.true38 ], [ %ctx_pos.10, %while.end2671 ], [ %ctx_pos.10, %land.lhs.true2683 ], [ %539, %if.end2748 ], [ %539, %land.lhs.true2759 ], [ %539, %do.end3191 ], [ %539, %land.lhs.true3201 ], [ %ctx_pos.11, %if.end3383 ], [ %ctx_pos.11, %land.lhs.true3393 ]
-  %incdec.ptr = getelementptr i8, ptr %pattern.addr.1.sink2327, i64 4
-  %459 = load i32, ptr %pattern.addr.1.sink2327, align 4
+indirectgoto.preheader:                           ; preds = %land.lhs.true2759, %if.end2748, %land.lhs.true2683, %while.end2671, %land.lhs.true38, %do.body35, %land.lhs.true3393, %if.end3383, %land.lhs.true3201, %do.end3191
+  %pattern.addr.1.sink = phi ptr [ %add.ptr3194, %do.end3191 ], [ %add.ptr3194, %land.lhs.true3201 ], [ %add.ptr3386, %if.end3383 ], [ %add.ptr3386, %land.lhs.true3393 ], [ %pattern.addr.1, %do.body35 ], [ %pattern.addr.1, %land.lhs.true38 ], [ %add.ptr2675, %while.end2671 ], [ %add.ptr2675, %land.lhs.true2683 ], [ %add.ptr2751, %if.end2748 ], [ %add.ptr2751, %land.lhs.true2759 ]
+  %ptr.0.ph = phi ptr [ %577, %do.end3191 ], [ %577, %land.lhs.true3201 ], [ %ptr.15, %if.end3383 ], [ %ptr.15, %land.lhs.true3393 ], [ %8, %do.body35 ], [ %8, %land.lhs.true38 ], [ %450, %while.end2671 ], [ %450, %land.lhs.true2683 ], [ %459, %if.end2748 ], [ %459, %land.lhs.true2759 ]
+  %ctx.2.ph = phi ptr [ %add.ptr3422, %do.end3191 ], [ %add.ptr3422, %land.lhs.true3201 ], [ %ctx.38, %if.end3383 ], [ %ctx.38, %land.lhs.true3393 ], [ %ctx.0, %do.body35 ], [ %ctx.0, %land.lhs.true38 ], [ %ctx.35, %while.end2671 ], [ %ctx.35, %land.lhs.true2683 ], [ %add.ptr3422, %if.end2748 ], [ %add.ptr3422, %land.lhs.true2759 ]
+  %sigcount.2.ph = phi i32 [ %inc3197, %do.end3191 ], [ %inc3197, %land.lhs.true3201 ], [ %inc3389, %if.end3383 ], [ %inc3389, %land.lhs.true3393 ], [ %inc, %do.body35 ], [ %inc, %land.lhs.true38 ], [ %inc2679, %while.end2671 ], [ %inc2679, %land.lhs.true2683 ], [ %inc2755, %if.end2748 ], [ %inc2755, %land.lhs.true2759 ]
+  %ctx_pos.1.ph = phi i64 [ %539, %do.end3191 ], [ %539, %land.lhs.true3201 ], [ %ctx_pos.11, %if.end3383 ], [ %ctx_pos.11, %land.lhs.true3393 ], [ %ctx_pos.0, %do.body35 ], [ %ctx_pos.0, %land.lhs.true38 ], [ %ctx_pos.10, %while.end2671 ], [ %ctx_pos.10, %land.lhs.true2683 ], [ %539, %if.end2748 ], [ %539, %land.lhs.true2759 ]
+  %incdec.ptr = getelementptr i8, ptr %pattern.addr.1.sink, i64 4
+  %.sink2324 = load i32, ptr %pattern.addr.1.sink, align 4
   br label %indirectgoto
 
 TARGET_SRE_OP_GROUPREF:                           ; preds = %indirectgoto
@@ -18350,7 +18342,7 @@ while.body2865:                                   ; preds = %while.cond2862.preh
   %ptr.121789 = phi ptr [ %incdec.ptr2878, %if.end2876 ], [ %ptr.0, %while.cond2862.preheader ]
   %p2843.01788 = phi ptr [ %incdec.ptr2877, %if.end2876 ], [ %472, %while.cond2862.preheader ]
   %cmp2866.not = icmp ult ptr %ptr.121789, %0
-  br i1 %cmp2866.not, label %lor.lhs.false2868, label %exit.loopexit2553
+  br i1 %cmp2866.not, label %lor.lhs.false2868, label %exit.loopexit2550
 
 lor.lhs.false2868:                                ; preds = %while.body2865
   %475 = load i32, ptr %ptr.121789, align 4
@@ -18380,7 +18372,7 @@ cond.true.i1511:                                  ; preds = %sre_lower_ascii.exi
 sre_lower_ascii.exit1515:                         ; preds = %sre_lower_ascii.exit1507, %cond.true.i1511
   %cond.i1510 = phi i32 [ %conv1.i1514, %cond.true.i1511 ], [ %477, %sre_lower_ascii.exit1507 ]
   %cmp2871.not = icmp eq i32 %cond.i1502, %cond.i1510
-  br i1 %cmp2871.not, label %if.end2876, label %exit.loopexit2553
+  br i1 %cmp2871.not, label %if.end2876, label %exit.loopexit2550
 
 if.end2876:                                       ; preds = %sre_lower_ascii.exit1515
   %incdec.ptr2877 = getelementptr i8, ptr %p2843.01788, i64 4
@@ -18437,7 +18429,7 @@ while.body2932:                                   ; preds = %while.cond2929.preh
   %ptr.131793 = phi ptr [ %incdec.ptr2945, %if.end2943 ], [ %ptr.0, %while.cond2929.preheader ]
   %p2910.01792 = phi ptr [ %incdec.ptr2944, %if.end2943 ], [ %483, %while.cond2929.preheader ]
   %cmp2933.not = icmp ult ptr %ptr.131793, %0
-  br i1 %cmp2933.not, label %lor.lhs.false2935, label %exit.loopexit2552
+  br i1 %cmp2933.not, label %lor.lhs.false2935, label %exit.loopexit2549
 
 lor.lhs.false2935:                                ; preds = %while.body2932
   %486 = load i32, ptr %ptr.131793, align 4
@@ -18445,7 +18437,7 @@ lor.lhs.false2935:                                ; preds = %while.body2932
   %487 = load i32, ptr %p2910.01792, align 4
   %call.i1517 = tail call i32 @_PyUnicode_ToLowercase(i32 noundef %487) #14
   %cmp2938.not = icmp eq i32 %call.i1516, %call.i1517
-  br i1 %cmp2938.not, label %if.end2943, label %exit.loopexit2552
+  br i1 %cmp2938.not, label %if.end2943, label %exit.loopexit2549
 
 if.end2943:                                       ; preds = %lor.lhs.false2935
   %incdec.ptr2944 = getelementptr i8, ptr %p2910.01792, i64 4
@@ -18502,7 +18494,7 @@ while.body2999:                                   ; preds = %while.cond2996.preh
   %ptr.141786 = phi ptr [ %incdec.ptr3012, %if.end3010 ], [ %ptr.0, %while.cond2996.preheader ]
   %p2977.01785 = phi ptr [ %incdec.ptr3011, %if.end3010 ], [ %492, %while.cond2996.preheader ]
   %cmp3000.not = icmp ult ptr %ptr.141786, %0
-  br i1 %cmp3000.not, label %lor.lhs.false3002, label %exit.loopexit2554
+  br i1 %cmp3000.not, label %lor.lhs.false3002, label %exit.loopexit2551
 
 lor.lhs.false3002:                                ; preds = %while.body2999
   %495 = load i32, ptr %ptr.141786, align 4
@@ -18526,7 +18518,7 @@ cond.true.i1526:                                  ; preds = %sre_lower_locale.ex
 sre_lower_locale.exit1528:                        ; preds = %sre_lower_locale.exit, %cond.true.i1526
   %cond.i1525 = phi i32 [ %call.i.i1527, %cond.true.i1526 ], [ %496, %sre_lower_locale.exit ]
   %cmp3005.not = icmp eq i32 %cond.i1520, %cond.i1525
-  br i1 %cmp3005.not, label %if.end3010, label %exit.loopexit2554
+  br i1 %cmp3005.not, label %if.end3010, label %exit.loopexit2551
 
 if.end3010:                                       ; preds = %sre_lower_locale.exit1528
   %incdec.ptr3011 = getelementptr i8, ptr %p2977.01785, i64 4
@@ -18759,12 +18751,12 @@ if.end3260:                                       ; preds = %if.then3253
   %cmp3261.not = icmp eq i64 %ctx_pos.1.ph, -1
   %.pre2054 = load ptr, ptr %data_stack11, align 8
   %add.ptr3266 = getelementptr i8, ptr %.pre2054, i64 %ctx_pos.1.ph
-  %spec.select2328 = select i1 %cmp3261.not, ptr %ctx.2, ptr %add.ptr3266
+  %spec.select2325 = select i1 %cmp3261.not, ptr %ctx.2, ptr %add.ptr3266
   br label %if.end3269
 
 if.end3269:                                       ; preds = %if.end3260, %if.then3241.if.end3269_crit_edge
   %524 = phi ptr [ %.pre2053, %if.then3241.if.end3269_crit_edge ], [ %.pre2054, %if.end3260 ]
-  %ctx.40 = phi ptr [ %ctx.2, %if.then3241.if.end3269_crit_edge ], [ %spec.select2328, %if.end3260 ]
+  %ctx.40 = phi ptr [ %ctx.2, %if.then3241.if.end3269_crit_edge ], [ %spec.select2325, %if.end3260 ]
   %525 = load i64, ptr %data_stack_base, align 8
   %add.ptr3272 = getelementptr i8, ptr %524, i64 %525
   %526 = load ptr, ptr %mark2978, align 8
@@ -18887,21 +18879,21 @@ land.lhs.true3393:                                ; preds = %if.end3383
 exit.loopexit:                                    ; preds = %while.body2800, %lor.lhs.false2803
   br label %exit
 
-exit.loopexit2552:                                ; preds = %while.body2932, %lor.lhs.false2935
+exit.loopexit2549:                                ; preds = %while.body2932, %lor.lhs.false2935
   br label %exit
 
-exit.loopexit2553:                                ; preds = %while.body2865, %sre_lower_ascii.exit1515
+exit.loopexit2550:                                ; preds = %while.body2865, %sre_lower_ascii.exit1515
   br label %exit
 
-exit.loopexit2554:                                ; preds = %while.body2999, %sre_lower_locale.exit1528
+exit.loopexit2551:                                ; preds = %while.body2999, %sre_lower_locale.exit1528
   br label %exit
 
-exit:                                             ; preds = %exit.loopexit2554, %exit.loopexit2553, %exit.loopexit2552, %exit.loopexit, %sw.bb33.i, %sw.bb84.i, %sw.bb147.i, %sw.bb199.i, %sw.bb252.i, %sw.bb295.i, %TARGET_SRE_OP_AT, %if.then3319, %do.body3323, %if.then3327, %lor.lhs.false2319, %do.body2299, %if.then2243, %do.body2246, %if.then2250, %if.then1941, %do.body1937, %while.end1500, %do.body1504, %if.then1508, %if.then1416, %do.body1420, %if.then1424, %while.end1208, %do.body1212, %for.end1070, %do.body1074, %do.body1230.sink.split, %if.then1143, %do.body1147, %if.then1151, %if.then1005, %do.body1009, %if.then1013, %if.then796, %do.body792, %for.end, %if.then725, %do.body729, %if.then733, %sre_ucs4_charset_loc_ignore.exit, %TARGET_SRE_OP_IN_LOC_IGNORE, %sre_upper_locale.exit.i1463, %lor.lhs.false525, %TARGET_SRE_OP_IN_UNI_IGNORE, %sre_lower_ascii.exit1456, %TARGET_SRE_OP_IN_IGNORE, %char_loc_ignore.exit1448, %TARGET_SRE_OP_NOT_LITERAL_LOC_IGNORE, %sre_lower_locale.exit.i1443, %lor.lhs.false463, %lor.lhs.false433, %TARGET_SRE_OP_NOT_LITERAL_UNI_IGNORE, %sre_lower_ascii.exit1434, %TARGET_SRE_OP_NOT_LITERAL_IGNORE, %char_loc_ignore.exit, %TARGET_SRE_OP_LITERAL_LOC_IGNORE, %lor.lhs.false344, %TARGET_SRE_OP_LITERAL_UNI_IGNORE, %sre_lower_ascii.exit, %TARGET_SRE_OP_LITERAL_IGNORE, %lor.lhs.false282, %TARGET_SRE_OP_IN, %lor.lhs.false228, %TARGET_SRE_OP_ANY, %lor.lhs.false197, %TARGET_SRE_OP_CATEGORY, %land.lhs.true160, %land.lhs.true154, %lor.lhs.false121, %TARGET_SRE_OP_NOT_LITERAL, %lor.lhs.false, %TARGET_SRE_OP_LITERAL, %land.lhs.true.i, %lor.rhs13.i, %lor.rhs.i, %sw.bb.i, %sw.bb29.i, %cond.end79.i, %cond.end142.i, %cond.end194.i, %cond.end247.i, %cond.end290.i, %cond.end333.i, %indirectgoto, %sw.bb3437, %TARGET_SRE_OP_ASSERT, %if.else2976, %TARGET_SRE_OP_GROUPREF_LOC_IGNORE, %if.else2909, %TARGET_SRE_OP_GROUPREF_UNI_IGNORE, %if.else2842, %TARGET_SRE_OP_GROUPREF_IGNORE, %if.else2779, %TARGET_SRE_OP_GROUPREF, %sw.bb3426, %sw.bb3429, %sw.bb3424, %sw.bb3428, %sw.bb3432, %do.body1546, %TARGET_SRE_OP_POSSESSIVE_REPEAT_ONE, %do.body1263, %TARGET_SRE_OP_MIN_REPEAT_ONE, %do.body836, %TARGET_SRE_OP_REPEAT_ONE, %TARGET_SRE_OP_ANY_ALL, %sre_ucs4_at.exit, %land.lhs.true, %if.then2744, %if.else2502, %if.end2435, %if.end2138, %do.end2055, %if.end1764, %do.body1683, %if.then1608, %if.then1581, %if.then1301, %if.then870, %if.end166
-  %ctx.1 = phi ptr [ %add.ptr1548, %if.then1581 ], [ %ctx.14, %if.then1301 ], [ %add.ptr838, %if.then870 ], [ %ctx.2, %if.then1608 ], [ %ctx.2, %if.end166 ], [ %add.ptr3422, %if.then2744 ], [ %add.ptr3422, %do.body1683 ], [ %add.ptr3422, %if.else2502 ], [ %add.ptr3422, %if.end2138 ], [ %add.ptr3422, %if.end1764 ], [ %add.ptr3422, %if.end2435 ], [ %add.ptr3422, %do.end2055 ], [ %ctx.0, %land.lhs.true ], [ %ctx.2, %sre_ucs4_at.exit ], [ %ctx.2, %TARGET_SRE_OP_ANY_ALL ], [ %ctx.2, %TARGET_SRE_OP_REPEAT_ONE ], [ %add.ptr838, %do.body836 ], [ %ctx.2, %TARGET_SRE_OP_MIN_REPEAT_ONE ], [ %add.ptr1265, %do.body1263 ], [ %ctx.2, %TARGET_SRE_OP_POSSESSIVE_REPEAT_ONE ], [ %add.ptr1548, %do.body1546 ], [ %add.ptr3422, %sw.bb3432 ], [ %add.ptr3422, %sw.bb3428 ], [ %add.ptr3422, %sw.bb3424 ], [ %add.ptr3422, %sw.bb3429 ], [ %add.ptr3422, %sw.bb3426 ], [ %ctx.2, %TARGET_SRE_OP_GROUPREF ], [ %ctx.2, %if.else2779 ], [ %ctx.2, %TARGET_SRE_OP_GROUPREF_IGNORE ], [ %ctx.2, %if.else2842 ], [ %ctx.2, %TARGET_SRE_OP_GROUPREF_UNI_IGNORE ], [ %ctx.2, %if.else2909 ], [ %ctx.2, %TARGET_SRE_OP_GROUPREF_LOC_IGNORE ], [ %ctx.2, %if.else2976 ], [ %ctx.2, %TARGET_SRE_OP_ASSERT ], [ %add.ptr3422, %sw.bb3437 ], [ %ctx.2, %indirectgoto ], [ %ctx.2, %cond.end333.i ], [ %ctx.2, %cond.end290.i ], [ %ctx.2, %cond.end247.i ], [ %ctx.2, %cond.end194.i ], [ %ctx.2, %cond.end142.i ], [ %ctx.2, %cond.end79.i ], [ %ctx.2, %sw.bb29.i ], [ %ctx.2, %sw.bb.i ], [ %ctx.2, %lor.rhs.i ], [ %ctx.2, %lor.rhs13.i ], [ %ctx.2, %land.lhs.true.i ], [ %ctx.2, %TARGET_SRE_OP_LITERAL ], [ %ctx.2, %lor.lhs.false ], [ %ctx.2, %TARGET_SRE_OP_NOT_LITERAL ], [ %ctx.2, %lor.lhs.false121 ], [ %ctx.2, %land.lhs.true154 ], [ %ctx.2, %land.lhs.true160 ], [ %ctx.2, %TARGET_SRE_OP_CATEGORY ], [ %ctx.2, %lor.lhs.false197 ], [ %ctx.2, %TARGET_SRE_OP_ANY ], [ %ctx.2, %lor.lhs.false228 ], [ %ctx.2, %TARGET_SRE_OP_IN ], [ %ctx.2, %lor.lhs.false282 ], [ %ctx.2, %TARGET_SRE_OP_LITERAL_IGNORE ], [ %ctx.2, %sre_lower_ascii.exit ], [ %ctx.2, %TARGET_SRE_OP_LITERAL_UNI_IGNORE ], [ %ctx.2, %lor.lhs.false344 ], [ %ctx.2, %TARGET_SRE_OP_LITERAL_LOC_IGNORE ], [ %ctx.2, %char_loc_ignore.exit ], [ %ctx.2, %TARGET_SRE_OP_NOT_LITERAL_IGNORE ], [ %ctx.2, %sre_lower_ascii.exit1434 ], [ %ctx.2, %TARGET_SRE_OP_NOT_LITERAL_UNI_IGNORE ], [ %ctx.2, %lor.lhs.false433 ], [ %ctx.2, %lor.lhs.false463 ], [ %ctx.2, %sre_lower_locale.exit.i1443 ], [ %ctx.2, %TARGET_SRE_OP_NOT_LITERAL_LOC_IGNORE ], [ %ctx.2, %char_loc_ignore.exit1448 ], [ %ctx.2, %TARGET_SRE_OP_IN_IGNORE ], [ %ctx.2, %sre_lower_ascii.exit1456 ], [ %ctx.2, %TARGET_SRE_OP_IN_UNI_IGNORE ], [ %ctx.2, %lor.lhs.false525 ], [ %ctx.2, %sre_upper_locale.exit.i1463 ], [ %ctx.2, %TARGET_SRE_OP_IN_LOC_IGNORE ], [ %ctx.2, %sre_ucs4_charset_loc_ignore.exit ], [ %add.ptr3422, %if.then733 ], [ %add.ptr3422, %do.body729 ], [ %add.ptr3422, %if.then725 ], [ %ctx.4, %for.end ], [ %ctx.4, %do.body792 ], [ %ctx.4, %if.then796 ], [ %add.ptr3422, %if.then1013 ], [ %add.ptr3422, %do.body1009 ], [ %add.ptr3422, %if.then1005 ], [ %add.ptr3422, %if.then1151 ], [ %add.ptr3422, %do.body1147 ], [ %add.ptr3422, %if.then1143 ], [ %ctx.9, %do.body1074 ], [ %ctx.9, %for.end1070 ], [ %ctx.11, %do.body1212 ], [ %ctx.11, %while.end1208 ], [ %ctx.13.ph, %do.body1230.sink.split ], [ %add.ptr3422, %if.then1424 ], [ %add.ptr3422, %do.body1420 ], [ %add.ptr3422, %if.then1416 ], [ %ctx.17, %if.then1508 ], [ %ctx.17, %do.body1504 ], [ %ctx.17, %while.end1500 ], [ %add.ptr3422, %do.body1937 ], [ %add.ptr3422, %if.then1941 ], [ %add.ptr3422, %if.then2250 ], [ %add.ptr3422, %do.body2246 ], [ %add.ptr3422, %if.then2243 ], [ %add.ptr3422, %do.body2299 ], [ %add.ptr3422, %lor.lhs.false2319 ], [ %add.ptr3422, %if.then3327 ], [ %add.ptr3422, %do.body3323 ], [ %add.ptr3422, %if.then3319 ], [ %ctx.2, %TARGET_SRE_OP_AT ], [ %ctx.2, %sw.bb295.i ], [ %ctx.2, %sw.bb252.i ], [ %ctx.2, %sw.bb199.i ], [ %ctx.2, %sw.bb147.i ], [ %ctx.2, %sw.bb84.i ], [ %ctx.2, %sw.bb33.i ], [ %ctx.2, %exit.loopexit ], [ %ctx.2, %exit.loopexit2552 ], [ %ctx.2, %exit.loopexit2553 ], [ %ctx.2, %exit.loopexit2554 ]
-  %sigcount.1 = phi i32 [ %sigcount.2, %if.then1581 ], [ %sigcount.2, %if.then1301 ], [ %sigcount.2, %if.then870 ], [ %sigcount.2, %if.then1608 ], [ %sigcount.2, %if.end166 ], [ %sigcount.1, %if.then2744 ], [ %sigcount.1, %do.body1683 ], [ %sigcount.1, %if.else2502 ], [ %sigcount.1, %if.end2138 ], [ %sigcount.1, %if.end1764 ], [ %sigcount.1, %if.end2435 ], [ %sigcount.1, %do.end2055 ], [ %sigcount.0, %land.lhs.true ], [ %sigcount.2, %sre_ucs4_at.exit ], [ %sigcount.2, %TARGET_SRE_OP_ANY_ALL ], [ %sigcount.2, %TARGET_SRE_OP_REPEAT_ONE ], [ %sigcount.2, %do.body836 ], [ %sigcount.2, %TARGET_SRE_OP_MIN_REPEAT_ONE ], [ %sigcount.2, %do.body1263 ], [ %sigcount.2, %TARGET_SRE_OP_POSSESSIVE_REPEAT_ONE ], [ %sigcount.2, %do.body1546 ], [ %sigcount.1, %sw.bb3432 ], [ %sigcount.1, %sw.bb3428 ], [ %sigcount.1, %sw.bb3424 ], [ %sigcount.1, %sw.bb3429 ], [ %sigcount.1, %sw.bb3426 ], [ %sigcount.2, %TARGET_SRE_OP_GROUPREF ], [ %sigcount.2, %if.else2779 ], [ %sigcount.2, %TARGET_SRE_OP_GROUPREF_IGNORE ], [ %sigcount.2, %if.else2842 ], [ %sigcount.2, %TARGET_SRE_OP_GROUPREF_UNI_IGNORE ], [ %sigcount.2, %if.else2909 ], [ %sigcount.2, %TARGET_SRE_OP_GROUPREF_LOC_IGNORE ], [ %sigcount.2, %if.else2976 ], [ %sigcount.2, %TARGET_SRE_OP_ASSERT ], [ %sigcount.1, %sw.bb3437 ], [ %sigcount.2, %indirectgoto ], [ %sigcount.2, %cond.end333.i ], [ %sigcount.2, %cond.end290.i ], [ %sigcount.2, %cond.end247.i ], [ %sigcount.2, %cond.end194.i ], [ %sigcount.2, %cond.end142.i ], [ %sigcount.2, %cond.end79.i ], [ %sigcount.2, %sw.bb29.i ], [ %sigcount.2, %sw.bb.i ], [ %sigcount.2, %lor.rhs.i ], [ %sigcount.2, %lor.rhs13.i ], [ %sigcount.2, %land.lhs.true.i ], [ %sigcount.2, %TARGET_SRE_OP_LITERAL ], [ %sigcount.2, %lor.lhs.false ], [ %sigcount.2, %TARGET_SRE_OP_NOT_LITERAL ], [ %sigcount.2, %lor.lhs.false121 ], [ %sigcount.2, %land.lhs.true154 ], [ %sigcount.2, %land.lhs.true160 ], [ %sigcount.2, %TARGET_SRE_OP_CATEGORY ], [ %sigcount.2, %lor.lhs.false197 ], [ %sigcount.2, %TARGET_SRE_OP_ANY ], [ %sigcount.2, %lor.lhs.false228 ], [ %sigcount.2, %TARGET_SRE_OP_IN ], [ %sigcount.2, %lor.lhs.false282 ], [ %sigcount.2, %TARGET_SRE_OP_LITERAL_IGNORE ], [ %sigcount.2, %sre_lower_ascii.exit ], [ %sigcount.2, %TARGET_SRE_OP_LITERAL_UNI_IGNORE ], [ %sigcount.2, %lor.lhs.false344 ], [ %sigcount.2, %TARGET_SRE_OP_LITERAL_LOC_IGNORE ], [ %sigcount.2, %char_loc_ignore.exit ], [ %sigcount.2, %TARGET_SRE_OP_NOT_LITERAL_IGNORE ], [ %sigcount.2, %sre_lower_ascii.exit1434 ], [ %sigcount.2, %TARGET_SRE_OP_NOT_LITERAL_UNI_IGNORE ], [ %sigcount.2, %lor.lhs.false433 ], [ %sigcount.2, %lor.lhs.false463 ], [ %sigcount.2, %sre_lower_locale.exit.i1443 ], [ %sigcount.2, %TARGET_SRE_OP_NOT_LITERAL_LOC_IGNORE ], [ %sigcount.2, %char_loc_ignore.exit1448 ], [ %sigcount.2, %TARGET_SRE_OP_IN_IGNORE ], [ %sigcount.2, %sre_lower_ascii.exit1456 ], [ %sigcount.2, %TARGET_SRE_OP_IN_UNI_IGNORE ], [ %sigcount.2, %lor.lhs.false525 ], [ %sigcount.2, %sre_upper_locale.exit.i1463 ], [ %sigcount.2, %TARGET_SRE_OP_IN_LOC_IGNORE ], [ %sigcount.2, %sre_ucs4_charset_loc_ignore.exit ], [ %sigcount.1, %if.then733 ], [ %sigcount.1, %do.body729 ], [ %sigcount.1, %if.then725 ], [ %sigcount.3, %for.end ], [ %sigcount.3, %do.body792 ], [ %sigcount.3, %if.then796 ], [ %sigcount.1, %if.then1013 ], [ %sigcount.1, %do.body1009 ], [ %sigcount.1, %if.then1005 ], [ %sigcount.1, %if.then1151 ], [ %sigcount.1, %do.body1147 ], [ %sigcount.1, %if.then1143 ], [ %sigcount.5, %do.body1074 ], [ %sigcount.5, %for.end1070 ], [ %sigcount.6, %do.body1212 ], [ %sigcount.6, %while.end1208 ], [ %sigcount.7.ph, %do.body1230.sink.split ], [ %sigcount.1, %if.then1424 ], [ %sigcount.1, %do.body1420 ], [ %sigcount.1, %if.then1416 ], [ %sigcount.9, %if.then1508 ], [ %sigcount.9, %do.body1504 ], [ %sigcount.9, %while.end1500 ], [ %sigcount.1, %do.body1937 ], [ %sigcount.1, %if.then1941 ], [ %sigcount.1, %if.then2250 ], [ %sigcount.1, %do.body2246 ], [ %sigcount.1, %if.then2243 ], [ %sigcount.1, %do.body2299 ], [ %sigcount.1, %lor.lhs.false2319 ], [ %sigcount.1, %if.then3327 ], [ %sigcount.1, %do.body3323 ], [ %sigcount.1, %if.then3319 ], [ %sigcount.2, %TARGET_SRE_OP_AT ], [ %sigcount.2, %sw.bb295.i ], [ %sigcount.2, %sw.bb252.i ], [ %sigcount.2, %sw.bb199.i ], [ %sigcount.2, %sw.bb147.i ], [ %sigcount.2, %sw.bb84.i ], [ %sigcount.2, %sw.bb33.i ], [ %sigcount.2, %exit.loopexit ], [ %sigcount.2, %exit.loopexit2552 ], [ %sigcount.2, %exit.loopexit2553 ], [ %sigcount.2, %exit.loopexit2554 ]
-  %tobool3318.not = phi i1 [ false, %if.then1581 ], [ false, %if.then1301 ], [ false, %if.then870 ], [ true, %if.then1608 ], [ false, %if.end166 ], [ true, %if.then2744 ], [ true, %do.body1683 ], [ true, %if.else2502 ], [ true, %if.end2138 ], [ true, %if.end1764 ], [ true, %if.end2435 ], [ true, %do.end2055 ], [ true, %land.lhs.true ], [ true, %sre_ucs4_at.exit ], [ true, %TARGET_SRE_OP_ANY_ALL ], [ true, %TARGET_SRE_OP_REPEAT_ONE ], [ true, %do.body836 ], [ true, %TARGET_SRE_OP_MIN_REPEAT_ONE ], [ true, %do.body1263 ], [ true, %TARGET_SRE_OP_POSSESSIVE_REPEAT_ONE ], [ true, %do.body1546 ], [ false, %sw.bb3432 ], [ false, %sw.bb3428 ], [ false, %sw.bb3424 ], [ false, %sw.bb3429 ], [ false, %sw.bb3426 ], [ true, %TARGET_SRE_OP_GROUPREF ], [ true, %if.else2779 ], [ true, %TARGET_SRE_OP_GROUPREF_IGNORE ], [ true, %if.else2842 ], [ true, %TARGET_SRE_OP_GROUPREF_UNI_IGNORE ], [ true, %if.else2909 ], [ true, %TARGET_SRE_OP_GROUPREF_LOC_IGNORE ], [ true, %if.else2976 ], [ true, %TARGET_SRE_OP_ASSERT ], [ true, %sw.bb3437 ], [ true, %indirectgoto ], [ true, %cond.end333.i ], [ true, %cond.end290.i ], [ true, %cond.end247.i ], [ true, %cond.end194.i ], [ true, %cond.end142.i ], [ true, %cond.end79.i ], [ true, %sw.bb29.i ], [ true, %sw.bb.i ], [ true, %lor.rhs.i ], [ true, %lor.rhs13.i ], [ true, %land.lhs.true.i ], [ true, %TARGET_SRE_OP_LITERAL ], [ true, %lor.lhs.false ], [ true, %TARGET_SRE_OP_NOT_LITERAL ], [ true, %lor.lhs.false121 ], [ true, %land.lhs.true154 ], [ true, %land.lhs.true160 ], [ true, %TARGET_SRE_OP_CATEGORY ], [ true, %lor.lhs.false197 ], [ true, %TARGET_SRE_OP_ANY ], [ true, %lor.lhs.false228 ], [ true, %TARGET_SRE_OP_IN ], [ true, %lor.lhs.false282 ], [ true, %TARGET_SRE_OP_LITERAL_IGNORE ], [ true, %sre_lower_ascii.exit ], [ true, %TARGET_SRE_OP_LITERAL_UNI_IGNORE ], [ true, %lor.lhs.false344 ], [ true, %TARGET_SRE_OP_LITERAL_LOC_IGNORE ], [ true, %char_loc_ignore.exit ], [ true, %TARGET_SRE_OP_NOT_LITERAL_IGNORE ], [ true, %sre_lower_ascii.exit1434 ], [ true, %TARGET_SRE_OP_NOT_LITERAL_UNI_IGNORE ], [ true, %lor.lhs.false433 ], [ true, %lor.lhs.false463 ], [ true, %sre_lower_locale.exit.i1443 ], [ true, %TARGET_SRE_OP_NOT_LITERAL_LOC_IGNORE ], [ true, %char_loc_ignore.exit1448 ], [ true, %TARGET_SRE_OP_IN_IGNORE ], [ true, %sre_lower_ascii.exit1456 ], [ true, %TARGET_SRE_OP_IN_UNI_IGNORE ], [ true, %lor.lhs.false525 ], [ true, %sre_upper_locale.exit.i1463 ], [ true, %TARGET_SRE_OP_IN_LOC_IGNORE ], [ true, %sre_ucs4_charset_loc_ignore.exit ], [ false, %if.then733 ], [ false, %do.body729 ], [ false, %if.then725 ], [ true, %for.end ], [ true, %do.body792 ], [ true, %if.then796 ], [ false, %if.then1013 ], [ false, %do.body1009 ], [ false, %if.then1005 ], [ false, %if.then1151 ], [ false, %do.body1147 ], [ false, %if.then1143 ], [ true, %do.body1074 ], [ true, %for.end1070 ], [ true, %do.body1212 ], [ true, %while.end1208 ], [ true, %do.body1230.sink.split ], [ false, %if.then1424 ], [ false, %do.body1420 ], [ false, %if.then1416 ], [ true, %if.then1508 ], [ true, %do.body1504 ], [ true, %while.end1500 ], [ false, %do.body1937 ], [ false, %if.then1941 ], [ false, %if.then2250 ], [ false, %do.body2246 ], [ false, %if.then2243 ], [ true, %do.body2299 ], [ true, %lor.lhs.false2319 ], [ true, %if.then3327 ], [ true, %do.body3323 ], [ true, %if.then3319 ], [ true, %TARGET_SRE_OP_AT ], [ true, %sw.bb295.i ], [ true, %sw.bb252.i ], [ true, %sw.bb199.i ], [ true, %sw.bb147.i ], [ true, %sw.bb84.i ], [ true, %sw.bb33.i ], [ true, %exit.loopexit ], [ true, %exit.loopexit2552 ], [ true, %exit.loopexit2553 ], [ true, %exit.loopexit2554 ]
-  %cmp2049 = phi i1 [ true, %if.then1581 ], [ true, %if.then1301 ], [ true, %if.then870 ], [ false, %if.then1608 ], [ true, %if.end166 ], [ false, %if.then2744 ], [ false, %do.body1683 ], [ false, %if.else2502 ], [ false, %if.end2138 ], [ false, %if.end1764 ], [ false, %if.end2435 ], [ false, %do.end2055 ], [ false, %land.lhs.true ], [ false, %sre_ucs4_at.exit ], [ false, %TARGET_SRE_OP_ANY_ALL ], [ false, %TARGET_SRE_OP_REPEAT_ONE ], [ false, %do.body836 ], [ false, %TARGET_SRE_OP_MIN_REPEAT_ONE ], [ false, %do.body1263 ], [ false, %TARGET_SRE_OP_POSSESSIVE_REPEAT_ONE ], [ false, %do.body1546 ], [ true, %sw.bb3432 ], [ true, %sw.bb3428 ], [ true, %sw.bb3424 ], [ true, %sw.bb3429 ], [ true, %sw.bb3426 ], [ false, %TARGET_SRE_OP_GROUPREF ], [ false, %if.else2779 ], [ false, %TARGET_SRE_OP_GROUPREF_IGNORE ], [ false, %if.else2842 ], [ false, %TARGET_SRE_OP_GROUPREF_UNI_IGNORE ], [ false, %if.else2909 ], [ false, %TARGET_SRE_OP_GROUPREF_LOC_IGNORE ], [ false, %if.else2976 ], [ false, %TARGET_SRE_OP_ASSERT ], [ false, %sw.bb3437 ], [ false, %indirectgoto ], [ false, %cond.end333.i ], [ false, %cond.end290.i ], [ false, %cond.end247.i ], [ false, %cond.end194.i ], [ false, %cond.end142.i ], [ false, %cond.end79.i ], [ false, %sw.bb29.i ], [ false, %sw.bb.i ], [ false, %lor.rhs.i ], [ false, %lor.rhs13.i ], [ false, %land.lhs.true.i ], [ false, %TARGET_SRE_OP_LITERAL ], [ false, %lor.lhs.false ], [ false, %TARGET_SRE_OP_NOT_LITERAL ], [ false, %lor.lhs.false121 ], [ false, %land.lhs.true154 ], [ false, %land.lhs.true160 ], [ false, %TARGET_SRE_OP_CATEGORY ], [ false, %lor.lhs.false197 ], [ false, %TARGET_SRE_OP_ANY ], [ false, %lor.lhs.false228 ], [ false, %TARGET_SRE_OP_IN ], [ false, %lor.lhs.false282 ], [ false, %TARGET_SRE_OP_LITERAL_IGNORE ], [ false, %sre_lower_ascii.exit ], [ false, %TARGET_SRE_OP_LITERAL_UNI_IGNORE ], [ false, %lor.lhs.false344 ], [ false, %TARGET_SRE_OP_LITERAL_LOC_IGNORE ], [ false, %char_loc_ignore.exit ], [ false, %TARGET_SRE_OP_NOT_LITERAL_IGNORE ], [ false, %sre_lower_ascii.exit1434 ], [ false, %TARGET_SRE_OP_NOT_LITERAL_UNI_IGNORE ], [ false, %lor.lhs.false433 ], [ false, %lor.lhs.false463 ], [ false, %sre_lower_locale.exit.i1443 ], [ false, %TARGET_SRE_OP_NOT_LITERAL_LOC_IGNORE ], [ false, %char_loc_ignore.exit1448 ], [ false, %TARGET_SRE_OP_IN_IGNORE ], [ false, %sre_lower_ascii.exit1456 ], [ false, %TARGET_SRE_OP_IN_UNI_IGNORE ], [ false, %lor.lhs.false525 ], [ false, %sre_upper_locale.exit.i1463 ], [ false, %TARGET_SRE_OP_IN_LOC_IGNORE ], [ false, %sre_ucs4_charset_loc_ignore.exit ], [ true, %if.then733 ], [ true, %do.body729 ], [ true, %if.then725 ], [ false, %for.end ], [ false, %do.body792 ], [ false, %if.then796 ], [ true, %if.then1013 ], [ true, %do.body1009 ], [ true, %if.then1005 ], [ true, %if.then1151 ], [ true, %do.body1147 ], [ true, %if.then1143 ], [ false, %do.body1074 ], [ false, %for.end1070 ], [ false, %do.body1212 ], [ false, %while.end1208 ], [ false, %do.body1230.sink.split ], [ true, %if.then1424 ], [ true, %do.body1420 ], [ true, %if.then1416 ], [ false, %if.then1508 ], [ false, %do.body1504 ], [ false, %while.end1500 ], [ true, %do.body1937 ], [ true, %if.then1941 ], [ true, %if.then2250 ], [ true, %do.body2246 ], [ true, %if.then2243 ], [ false, %do.body2299 ], [ false, %lor.lhs.false2319 ], [ false, %if.then3327 ], [ false, %do.body3323 ], [ false, %if.then3319 ], [ false, %TARGET_SRE_OP_AT ], [ false, %sw.bb295.i ], [ false, %sw.bb252.i ], [ false, %sw.bb199.i ], [ false, %sw.bb147.i ], [ false, %sw.bb84.i ], [ false, %sw.bb33.i ], [ false, %exit.loopexit ], [ false, %exit.loopexit2552 ], [ false, %exit.loopexit2553 ], [ false, %exit.loopexit2554 ]
-  %ret.0 = phi i64 [ 1, %if.then1581 ], [ 1, %if.then1301 ], [ 1, %if.then870 ], [ 0, %if.then1608 ], [ 1, %if.end166 ], [ 0, %if.then2744 ], [ 0, %do.body1683 ], [ 0, %if.else2502 ], [ 0, %if.end2138 ], [ 0, %if.end1764 ], [ 0, %if.end2435 ], [ 0, %do.end2055 ], [ 0, %land.lhs.true ], [ 0, %sre_ucs4_at.exit ], [ 0, %TARGET_SRE_OP_ANY_ALL ], [ 0, %TARGET_SRE_OP_REPEAT_ONE ], [ 0, %do.body836 ], [ 0, %TARGET_SRE_OP_MIN_REPEAT_ONE ], [ 0, %do.body1263 ], [ 0, %TARGET_SRE_OP_POSSESSIVE_REPEAT_ONE ], [ 0, %do.body1546 ], [ 1, %sw.bb3432 ], [ 1, %sw.bb3428 ], [ 1, %sw.bb3424 ], [ 1, %sw.bb3429 ], [ 1, %sw.bb3426 ], [ 0, %TARGET_SRE_OP_GROUPREF ], [ 0, %if.else2779 ], [ 0, %TARGET_SRE_OP_GROUPREF_IGNORE ], [ 0, %if.else2842 ], [ 0, %TARGET_SRE_OP_GROUPREF_UNI_IGNORE ], [ 0, %if.else2909 ], [ 0, %TARGET_SRE_OP_GROUPREF_LOC_IGNORE ], [ 0, %if.else2976 ], [ 0, %TARGET_SRE_OP_ASSERT ], [ 0, %sw.bb3437 ], [ 0, %indirectgoto ], [ 0, %cond.end333.i ], [ 0, %cond.end290.i ], [ 0, %cond.end247.i ], [ 0, %cond.end194.i ], [ 0, %cond.end142.i ], [ 0, %cond.end79.i ], [ 0, %sw.bb29.i ], [ 0, %sw.bb.i ], [ 0, %lor.rhs.i ], [ 0, %lor.rhs13.i ], [ 0, %land.lhs.true.i ], [ 0, %TARGET_SRE_OP_LITERAL ], [ 0, %lor.lhs.false ], [ 0, %TARGET_SRE_OP_NOT_LITERAL ], [ 0, %lor.lhs.false121 ], [ 0, %land.lhs.true154 ], [ 0, %land.lhs.true160 ], [ 0, %TARGET_SRE_OP_CATEGORY ], [ 0, %lor.lhs.false197 ], [ 0, %TARGET_SRE_OP_ANY ], [ 0, %lor.lhs.false228 ], [ 0, %TARGET_SRE_OP_IN ], [ 0, %lor.lhs.false282 ], [ 0, %TARGET_SRE_OP_LITERAL_IGNORE ], [ 0, %sre_lower_ascii.exit ], [ 0, %TARGET_SRE_OP_LITERAL_UNI_IGNORE ], [ 0, %lor.lhs.false344 ], [ 0, %TARGET_SRE_OP_LITERAL_LOC_IGNORE ], [ 0, %char_loc_ignore.exit ], [ 0, %TARGET_SRE_OP_NOT_LITERAL_IGNORE ], [ 0, %sre_lower_ascii.exit1434 ], [ 0, %TARGET_SRE_OP_NOT_LITERAL_UNI_IGNORE ], [ 0, %lor.lhs.false433 ], [ 0, %lor.lhs.false463 ], [ 0, %sre_lower_locale.exit.i1443 ], [ 0, %TARGET_SRE_OP_NOT_LITERAL_LOC_IGNORE ], [ 0, %char_loc_ignore.exit1448 ], [ 0, %TARGET_SRE_OP_IN_IGNORE ], [ 0, %sre_lower_ascii.exit1456 ], [ 0, %TARGET_SRE_OP_IN_UNI_IGNORE ], [ 0, %lor.lhs.false525 ], [ 0, %sre_upper_locale.exit.i1463 ], [ 0, %TARGET_SRE_OP_IN_LOC_IGNORE ], [ 0, %sre_ucs4_charset_loc_ignore.exit ], [ 1, %if.then733 ], [ 1, %do.body729 ], [ 1, %if.then725 ], [ 0, %for.end ], [ 0, %do.body792 ], [ 0, %if.then796 ], [ 1, %if.then1013 ], [ 1, %do.body1009 ], [ 1, %if.then1005 ], [ 1, %if.then1151 ], [ 1, %do.body1147 ], [ 1, %if.then1143 ], [ 0, %do.body1074 ], [ 0, %for.end1070 ], [ 0, %do.body1212 ], [ 0, %while.end1208 ], [ 0, %do.body1230.sink.split ], [ 1, %if.then1424 ], [ 1, %do.body1420 ], [ 1, %if.then1416 ], [ 0, %if.then1508 ], [ 0, %do.body1504 ], [ 0, %while.end1500 ], [ 1, %do.body1937 ], [ 1, %if.then1941 ], [ 1, %if.then2250 ], [ 1, %do.body2246 ], [ 1, %if.then2243 ], [ 0, %do.body2299 ], [ 0, %lor.lhs.false2319 ], [ 0, %if.then3327 ], [ 0, %do.body3323 ], [ 0, %if.then3319 ], [ 0, %TARGET_SRE_OP_AT ], [ 0, %sw.bb295.i ], [ 0, %sw.bb252.i ], [ 0, %sw.bb199.i ], [ 0, %sw.bb147.i ], [ 0, %sw.bb84.i ], [ 0, %sw.bb33.i ], [ 0, %exit.loopexit ], [ 0, %exit.loopexit2552 ], [ 0, %exit.loopexit2553 ], [ 0, %exit.loopexit2554 ]
+exit:                                             ; preds = %exit.loopexit2551, %exit.loopexit2550, %exit.loopexit2549, %exit.loopexit, %sw.bb33.i, %sw.bb84.i, %sw.bb147.i, %sw.bb199.i, %sw.bb252.i, %sw.bb295.i, %TARGET_SRE_OP_AT, %if.then3319, %do.body3323, %if.then3327, %lor.lhs.false2319, %do.body2299, %if.then2243, %do.body2246, %if.then2250, %if.then1941, %do.body1937, %while.end1500, %do.body1504, %if.then1508, %if.then1416, %do.body1420, %if.then1424, %while.end1208, %do.body1212, %for.end1070, %do.body1074, %do.body1230.sink.split, %if.then1143, %do.body1147, %if.then1151, %if.then1005, %do.body1009, %if.then1013, %if.then796, %do.body792, %for.end, %if.then725, %do.body729, %if.then733, %sre_ucs4_charset_loc_ignore.exit, %TARGET_SRE_OP_IN_LOC_IGNORE, %sre_upper_locale.exit.i1463, %lor.lhs.false525, %TARGET_SRE_OP_IN_UNI_IGNORE, %sre_lower_ascii.exit1456, %TARGET_SRE_OP_IN_IGNORE, %char_loc_ignore.exit1448, %TARGET_SRE_OP_NOT_LITERAL_LOC_IGNORE, %sre_lower_locale.exit.i1443, %lor.lhs.false463, %lor.lhs.false433, %TARGET_SRE_OP_NOT_LITERAL_UNI_IGNORE, %sre_lower_ascii.exit1434, %TARGET_SRE_OP_NOT_LITERAL_IGNORE, %char_loc_ignore.exit, %TARGET_SRE_OP_LITERAL_LOC_IGNORE, %lor.lhs.false344, %TARGET_SRE_OP_LITERAL_UNI_IGNORE, %sre_lower_ascii.exit, %TARGET_SRE_OP_LITERAL_IGNORE, %lor.lhs.false282, %TARGET_SRE_OP_IN, %lor.lhs.false228, %TARGET_SRE_OP_ANY, %lor.lhs.false197, %TARGET_SRE_OP_CATEGORY, %land.lhs.true160, %land.lhs.true154, %lor.lhs.false121, %TARGET_SRE_OP_NOT_LITERAL, %lor.lhs.false, %TARGET_SRE_OP_LITERAL, %land.lhs.true.i, %lor.rhs13.i, %lor.rhs.i, %sw.bb.i, %sw.bb29.i, %cond.end79.i, %cond.end142.i, %cond.end194.i, %cond.end247.i, %cond.end290.i, %cond.end333.i, %indirectgoto, %sw.bb3437, %TARGET_SRE_OP_ASSERT, %if.else2976, %TARGET_SRE_OP_GROUPREF_LOC_IGNORE, %if.else2909, %TARGET_SRE_OP_GROUPREF_UNI_IGNORE, %if.else2842, %TARGET_SRE_OP_GROUPREF_IGNORE, %if.else2779, %TARGET_SRE_OP_GROUPREF, %sw.bb3426, %sw.bb3429, %sw.bb3424, %sw.bb3428, %sw.bb3432, %do.body1546, %TARGET_SRE_OP_POSSESSIVE_REPEAT_ONE, %do.body1263, %TARGET_SRE_OP_MIN_REPEAT_ONE, %do.body836, %TARGET_SRE_OP_REPEAT_ONE, %TARGET_SRE_OP_ANY_ALL, %sre_ucs4_at.exit, %land.lhs.true, %if.then2744, %if.else2502, %if.end2435, %if.end2138, %do.end2055, %if.end1764, %do.body1683, %if.then1608, %if.then1581, %if.then1301, %if.then870, %if.end166
+  %ctx.1 = phi ptr [ %add.ptr1548, %if.then1581 ], [ %ctx.14, %if.then1301 ], [ %add.ptr838, %if.then870 ], [ %ctx.2, %if.then1608 ], [ %ctx.2, %if.end166 ], [ %add.ptr3422, %if.then2744 ], [ %add.ptr3422, %do.body1683 ], [ %add.ptr3422, %if.else2502 ], [ %add.ptr3422, %if.end2138 ], [ %add.ptr3422, %if.end1764 ], [ %add.ptr3422, %if.end2435 ], [ %add.ptr3422, %do.end2055 ], [ %ctx.0, %land.lhs.true ], [ %ctx.2, %sre_ucs4_at.exit ], [ %ctx.2, %TARGET_SRE_OP_ANY_ALL ], [ %ctx.2, %TARGET_SRE_OP_REPEAT_ONE ], [ %add.ptr838, %do.body836 ], [ %ctx.2, %TARGET_SRE_OP_MIN_REPEAT_ONE ], [ %add.ptr1265, %do.body1263 ], [ %ctx.2, %TARGET_SRE_OP_POSSESSIVE_REPEAT_ONE ], [ %add.ptr1548, %do.body1546 ], [ %add.ptr3422, %sw.bb3432 ], [ %add.ptr3422, %sw.bb3428 ], [ %add.ptr3422, %sw.bb3424 ], [ %add.ptr3422, %sw.bb3429 ], [ %add.ptr3422, %sw.bb3426 ], [ %ctx.2, %TARGET_SRE_OP_GROUPREF ], [ %ctx.2, %if.else2779 ], [ %ctx.2, %TARGET_SRE_OP_GROUPREF_IGNORE ], [ %ctx.2, %if.else2842 ], [ %ctx.2, %TARGET_SRE_OP_GROUPREF_UNI_IGNORE ], [ %ctx.2, %if.else2909 ], [ %ctx.2, %TARGET_SRE_OP_GROUPREF_LOC_IGNORE ], [ %ctx.2, %if.else2976 ], [ %ctx.2, %TARGET_SRE_OP_ASSERT ], [ %add.ptr3422, %sw.bb3437 ], [ %ctx.2, %indirectgoto ], [ %ctx.2, %cond.end333.i ], [ %ctx.2, %cond.end290.i ], [ %ctx.2, %cond.end247.i ], [ %ctx.2, %cond.end194.i ], [ %ctx.2, %cond.end142.i ], [ %ctx.2, %cond.end79.i ], [ %ctx.2, %sw.bb29.i ], [ %ctx.2, %sw.bb.i ], [ %ctx.2, %lor.rhs.i ], [ %ctx.2, %lor.rhs13.i ], [ %ctx.2, %land.lhs.true.i ], [ %ctx.2, %TARGET_SRE_OP_LITERAL ], [ %ctx.2, %lor.lhs.false ], [ %ctx.2, %TARGET_SRE_OP_NOT_LITERAL ], [ %ctx.2, %lor.lhs.false121 ], [ %ctx.2, %land.lhs.true154 ], [ %ctx.2, %land.lhs.true160 ], [ %ctx.2, %TARGET_SRE_OP_CATEGORY ], [ %ctx.2, %lor.lhs.false197 ], [ %ctx.2, %TARGET_SRE_OP_ANY ], [ %ctx.2, %lor.lhs.false228 ], [ %ctx.2, %TARGET_SRE_OP_IN ], [ %ctx.2, %lor.lhs.false282 ], [ %ctx.2, %TARGET_SRE_OP_LITERAL_IGNORE ], [ %ctx.2, %sre_lower_ascii.exit ], [ %ctx.2, %TARGET_SRE_OP_LITERAL_UNI_IGNORE ], [ %ctx.2, %lor.lhs.false344 ], [ %ctx.2, %TARGET_SRE_OP_LITERAL_LOC_IGNORE ], [ %ctx.2, %char_loc_ignore.exit ], [ %ctx.2, %TARGET_SRE_OP_NOT_LITERAL_IGNORE ], [ %ctx.2, %sre_lower_ascii.exit1434 ], [ %ctx.2, %TARGET_SRE_OP_NOT_LITERAL_UNI_IGNORE ], [ %ctx.2, %lor.lhs.false433 ], [ %ctx.2, %lor.lhs.false463 ], [ %ctx.2, %sre_lower_locale.exit.i1443 ], [ %ctx.2, %TARGET_SRE_OP_NOT_LITERAL_LOC_IGNORE ], [ %ctx.2, %char_loc_ignore.exit1448 ], [ %ctx.2, %TARGET_SRE_OP_IN_IGNORE ], [ %ctx.2, %sre_lower_ascii.exit1456 ], [ %ctx.2, %TARGET_SRE_OP_IN_UNI_IGNORE ], [ %ctx.2, %lor.lhs.false525 ], [ %ctx.2, %sre_upper_locale.exit.i1463 ], [ %ctx.2, %TARGET_SRE_OP_IN_LOC_IGNORE ], [ %ctx.2, %sre_ucs4_charset_loc_ignore.exit ], [ %add.ptr3422, %if.then733 ], [ %add.ptr3422, %do.body729 ], [ %add.ptr3422, %if.then725 ], [ %ctx.4, %for.end ], [ %ctx.4, %do.body792 ], [ %ctx.4, %if.then796 ], [ %add.ptr3422, %if.then1013 ], [ %add.ptr3422, %do.body1009 ], [ %add.ptr3422, %if.then1005 ], [ %add.ptr3422, %if.then1151 ], [ %add.ptr3422, %do.body1147 ], [ %add.ptr3422, %if.then1143 ], [ %ctx.9, %do.body1074 ], [ %ctx.9, %for.end1070 ], [ %ctx.11, %do.body1212 ], [ %ctx.11, %while.end1208 ], [ %ctx.13.ph, %do.body1230.sink.split ], [ %add.ptr3422, %if.then1424 ], [ %add.ptr3422, %do.body1420 ], [ %add.ptr3422, %if.then1416 ], [ %ctx.17, %if.then1508 ], [ %ctx.17, %do.body1504 ], [ %ctx.17, %while.end1500 ], [ %add.ptr3422, %do.body1937 ], [ %add.ptr3422, %if.then1941 ], [ %add.ptr3422, %if.then2250 ], [ %add.ptr3422, %do.body2246 ], [ %add.ptr3422, %if.then2243 ], [ %add.ptr3422, %do.body2299 ], [ %add.ptr3422, %lor.lhs.false2319 ], [ %add.ptr3422, %if.then3327 ], [ %add.ptr3422, %do.body3323 ], [ %add.ptr3422, %if.then3319 ], [ %ctx.2, %TARGET_SRE_OP_AT ], [ %ctx.2, %sw.bb295.i ], [ %ctx.2, %sw.bb252.i ], [ %ctx.2, %sw.bb199.i ], [ %ctx.2, %sw.bb147.i ], [ %ctx.2, %sw.bb84.i ], [ %ctx.2, %sw.bb33.i ], [ %ctx.2, %exit.loopexit ], [ %ctx.2, %exit.loopexit2549 ], [ %ctx.2, %exit.loopexit2550 ], [ %ctx.2, %exit.loopexit2551 ]
+  %sigcount.1 = phi i32 [ %sigcount.2, %if.then1581 ], [ %sigcount.2, %if.then1301 ], [ %sigcount.2, %if.then870 ], [ %sigcount.2, %if.then1608 ], [ %sigcount.2, %if.end166 ], [ %sigcount.1, %if.then2744 ], [ %sigcount.1, %do.body1683 ], [ %sigcount.1, %if.else2502 ], [ %sigcount.1, %if.end2138 ], [ %sigcount.1, %if.end1764 ], [ %sigcount.1, %if.end2435 ], [ %sigcount.1, %do.end2055 ], [ %sigcount.0, %land.lhs.true ], [ %sigcount.2, %sre_ucs4_at.exit ], [ %sigcount.2, %TARGET_SRE_OP_ANY_ALL ], [ %sigcount.2, %TARGET_SRE_OP_REPEAT_ONE ], [ %sigcount.2, %do.body836 ], [ %sigcount.2, %TARGET_SRE_OP_MIN_REPEAT_ONE ], [ %sigcount.2, %do.body1263 ], [ %sigcount.2, %TARGET_SRE_OP_POSSESSIVE_REPEAT_ONE ], [ %sigcount.2, %do.body1546 ], [ %sigcount.1, %sw.bb3432 ], [ %sigcount.1, %sw.bb3428 ], [ %sigcount.1, %sw.bb3424 ], [ %sigcount.1, %sw.bb3429 ], [ %sigcount.1, %sw.bb3426 ], [ %sigcount.2, %TARGET_SRE_OP_GROUPREF ], [ %sigcount.2, %if.else2779 ], [ %sigcount.2, %TARGET_SRE_OP_GROUPREF_IGNORE ], [ %sigcount.2, %if.else2842 ], [ %sigcount.2, %TARGET_SRE_OP_GROUPREF_UNI_IGNORE ], [ %sigcount.2, %if.else2909 ], [ %sigcount.2, %TARGET_SRE_OP_GROUPREF_LOC_IGNORE ], [ %sigcount.2, %if.else2976 ], [ %sigcount.2, %TARGET_SRE_OP_ASSERT ], [ %sigcount.1, %sw.bb3437 ], [ %sigcount.2, %indirectgoto ], [ %sigcount.2, %cond.end333.i ], [ %sigcount.2, %cond.end290.i ], [ %sigcount.2, %cond.end247.i ], [ %sigcount.2, %cond.end194.i ], [ %sigcount.2, %cond.end142.i ], [ %sigcount.2, %cond.end79.i ], [ %sigcount.2, %sw.bb29.i ], [ %sigcount.2, %sw.bb.i ], [ %sigcount.2, %lor.rhs.i ], [ %sigcount.2, %lor.rhs13.i ], [ %sigcount.2, %land.lhs.true.i ], [ %sigcount.2, %TARGET_SRE_OP_LITERAL ], [ %sigcount.2, %lor.lhs.false ], [ %sigcount.2, %TARGET_SRE_OP_NOT_LITERAL ], [ %sigcount.2, %lor.lhs.false121 ], [ %sigcount.2, %land.lhs.true154 ], [ %sigcount.2, %land.lhs.true160 ], [ %sigcount.2, %TARGET_SRE_OP_CATEGORY ], [ %sigcount.2, %lor.lhs.false197 ], [ %sigcount.2, %TARGET_SRE_OP_ANY ], [ %sigcount.2, %lor.lhs.false228 ], [ %sigcount.2, %TARGET_SRE_OP_IN ], [ %sigcount.2, %lor.lhs.false282 ], [ %sigcount.2, %TARGET_SRE_OP_LITERAL_IGNORE ], [ %sigcount.2, %sre_lower_ascii.exit ], [ %sigcount.2, %TARGET_SRE_OP_LITERAL_UNI_IGNORE ], [ %sigcount.2, %lor.lhs.false344 ], [ %sigcount.2, %TARGET_SRE_OP_LITERAL_LOC_IGNORE ], [ %sigcount.2, %char_loc_ignore.exit ], [ %sigcount.2, %TARGET_SRE_OP_NOT_LITERAL_IGNORE ], [ %sigcount.2, %sre_lower_ascii.exit1434 ], [ %sigcount.2, %TARGET_SRE_OP_NOT_LITERAL_UNI_IGNORE ], [ %sigcount.2, %lor.lhs.false433 ], [ %sigcount.2, %lor.lhs.false463 ], [ %sigcount.2, %sre_lower_locale.exit.i1443 ], [ %sigcount.2, %TARGET_SRE_OP_NOT_LITERAL_LOC_IGNORE ], [ %sigcount.2, %char_loc_ignore.exit1448 ], [ %sigcount.2, %TARGET_SRE_OP_IN_IGNORE ], [ %sigcount.2, %sre_lower_ascii.exit1456 ], [ %sigcount.2, %TARGET_SRE_OP_IN_UNI_IGNORE ], [ %sigcount.2, %lor.lhs.false525 ], [ %sigcount.2, %sre_upper_locale.exit.i1463 ], [ %sigcount.2, %TARGET_SRE_OP_IN_LOC_IGNORE ], [ %sigcount.2, %sre_ucs4_charset_loc_ignore.exit ], [ %sigcount.1, %if.then733 ], [ %sigcount.1, %do.body729 ], [ %sigcount.1, %if.then725 ], [ %sigcount.3, %for.end ], [ %sigcount.3, %do.body792 ], [ %sigcount.3, %if.then796 ], [ %sigcount.1, %if.then1013 ], [ %sigcount.1, %do.body1009 ], [ %sigcount.1, %if.then1005 ], [ %sigcount.1, %if.then1151 ], [ %sigcount.1, %do.body1147 ], [ %sigcount.1, %if.then1143 ], [ %sigcount.5, %do.body1074 ], [ %sigcount.5, %for.end1070 ], [ %sigcount.6, %do.body1212 ], [ %sigcount.6, %while.end1208 ], [ %sigcount.7.ph, %do.body1230.sink.split ], [ %sigcount.1, %if.then1424 ], [ %sigcount.1, %do.body1420 ], [ %sigcount.1, %if.then1416 ], [ %sigcount.9, %if.then1508 ], [ %sigcount.9, %do.body1504 ], [ %sigcount.9, %while.end1500 ], [ %sigcount.1, %do.body1937 ], [ %sigcount.1, %if.then1941 ], [ %sigcount.1, %if.then2250 ], [ %sigcount.1, %do.body2246 ], [ %sigcount.1, %if.then2243 ], [ %sigcount.1, %do.body2299 ], [ %sigcount.1, %lor.lhs.false2319 ], [ %sigcount.1, %if.then3327 ], [ %sigcount.1, %do.body3323 ], [ %sigcount.1, %if.then3319 ], [ %sigcount.2, %TARGET_SRE_OP_AT ], [ %sigcount.2, %sw.bb295.i ], [ %sigcount.2, %sw.bb252.i ], [ %sigcount.2, %sw.bb199.i ], [ %sigcount.2, %sw.bb147.i ], [ %sigcount.2, %sw.bb84.i ], [ %sigcount.2, %sw.bb33.i ], [ %sigcount.2, %exit.loopexit ], [ %sigcount.2, %exit.loopexit2549 ], [ %sigcount.2, %exit.loopexit2550 ], [ %sigcount.2, %exit.loopexit2551 ]
+  %tobool3318.not = phi i1 [ false, %if.then1581 ], [ false, %if.then1301 ], [ false, %if.then870 ], [ true, %if.then1608 ], [ false, %if.end166 ], [ true, %if.then2744 ], [ true, %do.body1683 ], [ true, %if.else2502 ], [ true, %if.end2138 ], [ true, %if.end1764 ], [ true, %if.end2435 ], [ true, %do.end2055 ], [ true, %land.lhs.true ], [ true, %sre_ucs4_at.exit ], [ true, %TARGET_SRE_OP_ANY_ALL ], [ true, %TARGET_SRE_OP_REPEAT_ONE ], [ true, %do.body836 ], [ true, %TARGET_SRE_OP_MIN_REPEAT_ONE ], [ true, %do.body1263 ], [ true, %TARGET_SRE_OP_POSSESSIVE_REPEAT_ONE ], [ true, %do.body1546 ], [ false, %sw.bb3432 ], [ false, %sw.bb3428 ], [ false, %sw.bb3424 ], [ false, %sw.bb3429 ], [ false, %sw.bb3426 ], [ true, %TARGET_SRE_OP_GROUPREF ], [ true, %if.else2779 ], [ true, %TARGET_SRE_OP_GROUPREF_IGNORE ], [ true, %if.else2842 ], [ true, %TARGET_SRE_OP_GROUPREF_UNI_IGNORE ], [ true, %if.else2909 ], [ true, %TARGET_SRE_OP_GROUPREF_LOC_IGNORE ], [ true, %if.else2976 ], [ true, %TARGET_SRE_OP_ASSERT ], [ true, %sw.bb3437 ], [ true, %indirectgoto ], [ true, %cond.end333.i ], [ true, %cond.end290.i ], [ true, %cond.end247.i ], [ true, %cond.end194.i ], [ true, %cond.end142.i ], [ true, %cond.end79.i ], [ true, %sw.bb29.i ], [ true, %sw.bb.i ], [ true, %lor.rhs.i ], [ true, %lor.rhs13.i ], [ true, %land.lhs.true.i ], [ true, %TARGET_SRE_OP_LITERAL ], [ true, %lor.lhs.false ], [ true, %TARGET_SRE_OP_NOT_LITERAL ], [ true, %lor.lhs.false121 ], [ true, %land.lhs.true154 ], [ true, %land.lhs.true160 ], [ true, %TARGET_SRE_OP_CATEGORY ], [ true, %lor.lhs.false197 ], [ true, %TARGET_SRE_OP_ANY ], [ true, %lor.lhs.false228 ], [ true, %TARGET_SRE_OP_IN ], [ true, %lor.lhs.false282 ], [ true, %TARGET_SRE_OP_LITERAL_IGNORE ], [ true, %sre_lower_ascii.exit ], [ true, %TARGET_SRE_OP_LITERAL_UNI_IGNORE ], [ true, %lor.lhs.false344 ], [ true, %TARGET_SRE_OP_LITERAL_LOC_IGNORE ], [ true, %char_loc_ignore.exit ], [ true, %TARGET_SRE_OP_NOT_LITERAL_IGNORE ], [ true, %sre_lower_ascii.exit1434 ], [ true, %TARGET_SRE_OP_NOT_LITERAL_UNI_IGNORE ], [ true, %lor.lhs.false433 ], [ true, %lor.lhs.false463 ], [ true, %sre_lower_locale.exit.i1443 ], [ true, %TARGET_SRE_OP_NOT_LITERAL_LOC_IGNORE ], [ true, %char_loc_ignore.exit1448 ], [ true, %TARGET_SRE_OP_IN_IGNORE ], [ true, %sre_lower_ascii.exit1456 ], [ true, %TARGET_SRE_OP_IN_UNI_IGNORE ], [ true, %lor.lhs.false525 ], [ true, %sre_upper_locale.exit.i1463 ], [ true, %TARGET_SRE_OP_IN_LOC_IGNORE ], [ true, %sre_ucs4_charset_loc_ignore.exit ], [ false, %if.then733 ], [ false, %do.body729 ], [ false, %if.then725 ], [ true, %for.end ], [ true, %do.body792 ], [ true, %if.then796 ], [ false, %if.then1013 ], [ false, %do.body1009 ], [ false, %if.then1005 ], [ false, %if.then1151 ], [ false, %do.body1147 ], [ false, %if.then1143 ], [ true, %do.body1074 ], [ true, %for.end1070 ], [ true, %do.body1212 ], [ true, %while.end1208 ], [ true, %do.body1230.sink.split ], [ false, %if.then1424 ], [ false, %do.body1420 ], [ false, %if.then1416 ], [ true, %if.then1508 ], [ true, %do.body1504 ], [ true, %while.end1500 ], [ false, %do.body1937 ], [ false, %if.then1941 ], [ false, %if.then2250 ], [ false, %do.body2246 ], [ false, %if.then2243 ], [ true, %do.body2299 ], [ true, %lor.lhs.false2319 ], [ true, %if.then3327 ], [ true, %do.body3323 ], [ true, %if.then3319 ], [ true, %TARGET_SRE_OP_AT ], [ true, %sw.bb295.i ], [ true, %sw.bb252.i ], [ true, %sw.bb199.i ], [ true, %sw.bb147.i ], [ true, %sw.bb84.i ], [ true, %sw.bb33.i ], [ true, %exit.loopexit ], [ true, %exit.loopexit2549 ], [ true, %exit.loopexit2550 ], [ true, %exit.loopexit2551 ]
+  %cmp2049 = phi i1 [ true, %if.then1581 ], [ true, %if.then1301 ], [ true, %if.then870 ], [ false, %if.then1608 ], [ true, %if.end166 ], [ false, %if.then2744 ], [ false, %do.body1683 ], [ false, %if.else2502 ], [ false, %if.end2138 ], [ false, %if.end1764 ], [ false, %if.end2435 ], [ false, %do.end2055 ], [ false, %land.lhs.true ], [ false, %sre_ucs4_at.exit ], [ false, %TARGET_SRE_OP_ANY_ALL ], [ false, %TARGET_SRE_OP_REPEAT_ONE ], [ false, %do.body836 ], [ false, %TARGET_SRE_OP_MIN_REPEAT_ONE ], [ false, %do.body1263 ], [ false, %TARGET_SRE_OP_POSSESSIVE_REPEAT_ONE ], [ false, %do.body1546 ], [ true, %sw.bb3432 ], [ true, %sw.bb3428 ], [ true, %sw.bb3424 ], [ true, %sw.bb3429 ], [ true, %sw.bb3426 ], [ false, %TARGET_SRE_OP_GROUPREF ], [ false, %if.else2779 ], [ false, %TARGET_SRE_OP_GROUPREF_IGNORE ], [ false, %if.else2842 ], [ false, %TARGET_SRE_OP_GROUPREF_UNI_IGNORE ], [ false, %if.else2909 ], [ false, %TARGET_SRE_OP_GROUPREF_LOC_IGNORE ], [ false, %if.else2976 ], [ false, %TARGET_SRE_OP_ASSERT ], [ false, %sw.bb3437 ], [ false, %indirectgoto ], [ false, %cond.end333.i ], [ false, %cond.end290.i ], [ false, %cond.end247.i ], [ false, %cond.end194.i ], [ false, %cond.end142.i ], [ false, %cond.end79.i ], [ false, %sw.bb29.i ], [ false, %sw.bb.i ], [ false, %lor.rhs.i ], [ false, %lor.rhs13.i ], [ false, %land.lhs.true.i ], [ false, %TARGET_SRE_OP_LITERAL ], [ false, %lor.lhs.false ], [ false, %TARGET_SRE_OP_NOT_LITERAL ], [ false, %lor.lhs.false121 ], [ false, %land.lhs.true154 ], [ false, %land.lhs.true160 ], [ false, %TARGET_SRE_OP_CATEGORY ], [ false, %lor.lhs.false197 ], [ false, %TARGET_SRE_OP_ANY ], [ false, %lor.lhs.false228 ], [ false, %TARGET_SRE_OP_IN ], [ false, %lor.lhs.false282 ], [ false, %TARGET_SRE_OP_LITERAL_IGNORE ], [ false, %sre_lower_ascii.exit ], [ false, %TARGET_SRE_OP_LITERAL_UNI_IGNORE ], [ false, %lor.lhs.false344 ], [ false, %TARGET_SRE_OP_LITERAL_LOC_IGNORE ], [ false, %char_loc_ignore.exit ], [ false, %TARGET_SRE_OP_NOT_LITERAL_IGNORE ], [ false, %sre_lower_ascii.exit1434 ], [ false, %TARGET_SRE_OP_NOT_LITERAL_UNI_IGNORE ], [ false, %lor.lhs.false433 ], [ false, %lor.lhs.false463 ], [ false, %sre_lower_locale.exit.i1443 ], [ false, %TARGET_SRE_OP_NOT_LITERAL_LOC_IGNORE ], [ false, %char_loc_ignore.exit1448 ], [ false, %TARGET_SRE_OP_IN_IGNORE ], [ false, %sre_lower_ascii.exit1456 ], [ false, %TARGET_SRE_OP_IN_UNI_IGNORE ], [ false, %lor.lhs.false525 ], [ false, %sre_upper_locale.exit.i1463 ], [ false, %TARGET_SRE_OP_IN_LOC_IGNORE ], [ false, %sre_ucs4_charset_loc_ignore.exit ], [ true, %if.then733 ], [ true, %do.body729 ], [ true, %if.then725 ], [ false, %for.end ], [ false, %do.body792 ], [ false, %if.then796 ], [ true, %if.then1013 ], [ true, %do.body1009 ], [ true, %if.then1005 ], [ true, %if.then1151 ], [ true, %do.body1147 ], [ true, %if.then1143 ], [ false, %do.body1074 ], [ false, %for.end1070 ], [ false, %do.body1212 ], [ false, %while.end1208 ], [ false, %do.body1230.sink.split ], [ true, %if.then1424 ], [ true, %do.body1420 ], [ true, %if.then1416 ], [ false, %if.then1508 ], [ false, %do.body1504 ], [ false, %while.end1500 ], [ true, %do.body1937 ], [ true, %if.then1941 ], [ true, %if.then2250 ], [ true, %do.body2246 ], [ true, %if.then2243 ], [ false, %do.body2299 ], [ false, %lor.lhs.false2319 ], [ false, %if.then3327 ], [ false, %do.body3323 ], [ false, %if.then3319 ], [ false, %TARGET_SRE_OP_AT ], [ false, %sw.bb295.i ], [ false, %sw.bb252.i ], [ false, %sw.bb199.i ], [ false, %sw.bb147.i ], [ false, %sw.bb84.i ], [ false, %sw.bb33.i ], [ false, %exit.loopexit ], [ false, %exit.loopexit2549 ], [ false, %exit.loopexit2550 ], [ false, %exit.loopexit2551 ]
+  %ret.0 = phi i64 [ 1, %if.then1581 ], [ 1, %if.then1301 ], [ 1, %if.then870 ], [ 0, %if.then1608 ], [ 1, %if.end166 ], [ 0, %if.then2744 ], [ 0, %do.body1683 ], [ 0, %if.else2502 ], [ 0, %if.end2138 ], [ 0, %if.end1764 ], [ 0, %if.end2435 ], [ 0, %do.end2055 ], [ 0, %land.lhs.true ], [ 0, %sre_ucs4_at.exit ], [ 0, %TARGET_SRE_OP_ANY_ALL ], [ 0, %TARGET_SRE_OP_REPEAT_ONE ], [ 0, %do.body836 ], [ 0, %TARGET_SRE_OP_MIN_REPEAT_ONE ], [ 0, %do.body1263 ], [ 0, %TARGET_SRE_OP_POSSESSIVE_REPEAT_ONE ], [ 0, %do.body1546 ], [ 1, %sw.bb3432 ], [ 1, %sw.bb3428 ], [ 1, %sw.bb3424 ], [ 1, %sw.bb3429 ], [ 1, %sw.bb3426 ], [ 0, %TARGET_SRE_OP_GROUPREF ], [ 0, %if.else2779 ], [ 0, %TARGET_SRE_OP_GROUPREF_IGNORE ], [ 0, %if.else2842 ], [ 0, %TARGET_SRE_OP_GROUPREF_UNI_IGNORE ], [ 0, %if.else2909 ], [ 0, %TARGET_SRE_OP_GROUPREF_LOC_IGNORE ], [ 0, %if.else2976 ], [ 0, %TARGET_SRE_OP_ASSERT ], [ 0, %sw.bb3437 ], [ 0, %indirectgoto ], [ 0, %cond.end333.i ], [ 0, %cond.end290.i ], [ 0, %cond.end247.i ], [ 0, %cond.end194.i ], [ 0, %cond.end142.i ], [ 0, %cond.end79.i ], [ 0, %sw.bb29.i ], [ 0, %sw.bb.i ], [ 0, %lor.rhs.i ], [ 0, %lor.rhs13.i ], [ 0, %land.lhs.true.i ], [ 0, %TARGET_SRE_OP_LITERAL ], [ 0, %lor.lhs.false ], [ 0, %TARGET_SRE_OP_NOT_LITERAL ], [ 0, %lor.lhs.false121 ], [ 0, %land.lhs.true154 ], [ 0, %land.lhs.true160 ], [ 0, %TARGET_SRE_OP_CATEGORY ], [ 0, %lor.lhs.false197 ], [ 0, %TARGET_SRE_OP_ANY ], [ 0, %lor.lhs.false228 ], [ 0, %TARGET_SRE_OP_IN ], [ 0, %lor.lhs.false282 ], [ 0, %TARGET_SRE_OP_LITERAL_IGNORE ], [ 0, %sre_lower_ascii.exit ], [ 0, %TARGET_SRE_OP_LITERAL_UNI_IGNORE ], [ 0, %lor.lhs.false344 ], [ 0, %TARGET_SRE_OP_LITERAL_LOC_IGNORE ], [ 0, %char_loc_ignore.exit ], [ 0, %TARGET_SRE_OP_NOT_LITERAL_IGNORE ], [ 0, %sre_lower_ascii.exit1434 ], [ 0, %TARGET_SRE_OP_NOT_LITERAL_UNI_IGNORE ], [ 0, %lor.lhs.false433 ], [ 0, %lor.lhs.false463 ], [ 0, %sre_lower_locale.exit.i1443 ], [ 0, %TARGET_SRE_OP_NOT_LITERAL_LOC_IGNORE ], [ 0, %char_loc_ignore.exit1448 ], [ 0, %TARGET_SRE_OP_IN_IGNORE ], [ 0, %sre_lower_ascii.exit1456 ], [ 0, %TARGET_SRE_OP_IN_UNI_IGNORE ], [ 0, %lor.lhs.false525 ], [ 0, %sre_upper_locale.exit.i1463 ], [ 0, %TARGET_SRE_OP_IN_LOC_IGNORE ], [ 0, %sre_ucs4_charset_loc_ignore.exit ], [ 1, %if.then733 ], [ 1, %do.body729 ], [ 1, %if.then725 ], [ 0, %for.end ], [ 0, %do.body792 ], [ 0, %if.then796 ], [ 1, %if.then1013 ], [ 1, %do.body1009 ], [ 1, %if.then1005 ], [ 1, %if.then1151 ], [ 1, %do.body1147 ], [ 1, %if.then1143 ], [ 0, %do.body1074 ], [ 0, %for.end1070 ], [ 0, %do.body1212 ], [ 0, %while.end1208 ], [ 0, %do.body1230.sink.split ], [ 1, %if.then1424 ], [ 1, %do.body1420 ], [ 1, %if.then1416 ], [ 0, %if.then1508 ], [ 0, %do.body1504 ], [ 0, %while.end1500 ], [ 1, %do.body1937 ], [ 1, %if.then1941 ], [ 1, %if.then2250 ], [ 1, %do.body2246 ], [ 1, %if.then2243 ], [ 0, %do.body2299 ], [ 0, %lor.lhs.false2319 ], [ 0, %if.then3327 ], [ 0, %do.body3323 ], [ 0, %if.then3319 ], [ 0, %TARGET_SRE_OP_AT ], [ 0, %sw.bb295.i ], [ 0, %sw.bb252.i ], [ 0, %sw.bb199.i ], [ 0, %sw.bb147.i ], [ 0, %sw.bb84.i ], [ 0, %sw.bb33.i ], [ 0, %exit.loopexit ], [ 0, %exit.loopexit2549 ], [ 0, %exit.loopexit2550 ], [ 0, %exit.loopexit2551 ]
   %last_ctx_pos3409 = getelementptr inbounds i8, ptr %ctx.1, i64 48
   %539 = load i64, ptr %last_ctx_pos3409, align 8
   %jump3410 = getelementptr inbounds i8, ptr %ctx.1, i64 44
@@ -19079,7 +19071,7 @@ return:                                           ; preds = %do.body3420, %indir
   ret i64 %retval.0
 
 indirectgoto:                                     ; preds = %indirectgoto.backedge, %indirectgoto.preheader
-  %.sink.sink = phi i32 [ %459, %indirectgoto.preheader ], [ %.sink.sink.be, %indirectgoto.backedge ]
+  %.sink.sink = phi i32 [ %.sink2324, %indirectgoto.preheader ], [ %.sink.sink.be, %indirectgoto.backedge ]
   %ptr.0 = phi ptr [ %ptr.0.ph, %indirectgoto.preheader ], [ %ptr.0.be, %indirectgoto.backedge ]
   %ctx.2 = phi ptr [ %ctx.2.ph, %indirectgoto.preheader ], [ %ctx.2.be, %indirectgoto.backedge ]
   %sigcount.2 = phi i32 [ %sigcount.2.ph, %indirectgoto.preheader ], [ %sigcount.2.be, %indirectgoto.backedge ]

@@ -1572,20 +1572,20 @@ if.then8:                                         ; preds = %for.end
   %multi_pack_index10 = getelementptr inbounds i8, ptr %2, i64 112
   %3 = load ptr, ptr %multi_pack_index10, align 8
   %tobool11.not = icmp eq ptr %3, null
-  br i1 %tobool11.not, label %return.sink.split, label %if.then12
+  br i1 %tobool11.not, label %if.else, label %if.then12
 
 if.then12:                                        ; preds = %if.then8
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %call6, align 8
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.then8, %if.then12
-  %.sink = phi ptr [ %3, %if.then12 ], [ %multi_pack_index10, %if.then8 ]
-  store ptr %call6, ptr %.sink, align 8
+  store ptr %call6, ptr %3, align 8
   br label %return
 
-return:                                           ; preds = %for.body, %return.sink.split, %for.end, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 0, %for.end ], [ 1, %return.sink.split ], [ 1, %for.body ]
+if.else:                                          ; preds = %if.then8
+  store ptr %call6, ptr %multi_pack_index10, align 8
+  br label %return
+
+return:                                           ; preds = %for.body, %for.end, %if.then12, %if.else, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ 1, %if.else ], [ 1, %if.then12 ], [ 0, %for.end ], [ 1, %for.body ]
   ret i32 %retval.0
 }
 
@@ -2083,15 +2083,18 @@ for.end191:                                       ; preds = %for.inc189, %if.end
   %num_objects192 = getelementptr inbounds i8, ptr %oldest.0.lcssa, i64 72
   %62 = load i32, ptr %num_objects192, align 8
   %tobool193.not = icmp eq i32 %62, 0
-  br i1 %tobool193.not, label %if.end200.thread, label %if.end200
+  br i1 %tobool193.not, label %if.then194, label %if.end200
+
+if.then194:                                       ; preds = %for.end191
+  store i32 -1, ptr %preferred_pack_idx160, align 8
+  br label %if.end200.thread
 
 if.else197:                                       ; preds = %if.else152
   %preferred_pack_idx198 = getelementptr inbounds i8, ptr %ctx, i64 88
+  store i32 -1, ptr %preferred_pack_idx198, align 8
   br label %if.end200.thread
 
-if.end200.thread:                                 ; preds = %for.end191, %if.else197
-  %preferred_pack_idx198.sink = phi ptr [ %preferred_pack_idx198, %if.else197 ], [ %preferred_pack_idx160, %for.end191 ]
-  store i32 -1, ptr %preferred_pack_idx198.sink, align 8
+if.end200.thread:                                 ; preds = %if.else197, %if.then194
   %.pre421435 = load ptr, ptr %ctx, align 8
   br label %if.end219
 

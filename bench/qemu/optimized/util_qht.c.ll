@@ -911,7 +911,7 @@ entry:
   br label %do.body.i
 
 do.body.i:                                        ; preds = %for.end.i, %entry
-  %b.0.i = phi ptr [ %call, %entry ], [ %16, %for.end.i ]
+  %b.0.i = phi ptr [ %call, %entry ], [ %17, %for.end.i ]
   %pointers.i = getelementptr inbounds i8, ptr %b.0.i, i64 24
   br label %for.body.i
 
@@ -934,7 +934,7 @@ do.end.i:                                         ; preds = %if.end.i
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !15
   fence release
   %cmp.i.i.i = icmp eq i64 %indvars.iv.i, 3
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end5.i.i.i
+  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %qht_entry_is_last.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %do.end.i
   %next.i.i.i = getelementptr inbounds i8, ptr %b.0.i, i64 56
@@ -944,39 +944,41 @@ if.then.i.i.i:                                    ; preds = %do.end.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i
   %pointers.i.i.i = getelementptr inbounds i8, ptr %2, i64 24
-  br label %qht_entry_is_last.exit.i.i
+  %3 = load ptr, ptr %pointers.i.i.i, align 8
+  %cmp4.i.i.i = icmp eq ptr %3, null
+  br i1 %cmp4.i.i.i, label %while.end.i.i, label %do.body13.i.i.preheader
 
-if.end5.i.i.i:                                    ; preds = %do.end.i
+do.body13.i.i.preheader:                          ; preds = %qht_entry_is_last.exit.i.i, %if.end.i.i.i
+  br label %do.body13.i.i
+
+qht_entry_is_last.exit.i.i:                       ; preds = %do.end.i
   %add.i.i.i = add nuw i64 %indvars.iv.i, 1
   %idxprom.i.i.i = and i64 %add.i.i.i, 4294967295
   %arrayidx7.i.i.i = getelementptr [4 x ptr], ptr %pointers.i, i64 0, i64 %idxprom.i.i.i
-  br label %qht_entry_is_last.exit.i.i
+  %4 = load ptr, ptr %arrayidx7.i.i.i, align 8
+  %cmp8.i.i.i = icmp eq ptr %4, null
+  br i1 %cmp8.i.i.i, label %while.end.i.i, label %do.body13.i.i.preheader
 
-qht_entry_is_last.exit.i.i:                       ; preds = %if.end5.i.i.i, %if.end.i.i.i
-  %arrayidx7.sink.i.i.i = phi ptr [ %arrayidx7.i.i.i, %if.end5.i.i.i ], [ %pointers.i.i.i, %if.end.i.i.i ]
-  %3 = load ptr, ptr %arrayidx7.sink.i.i.i, align 8
-  %cmp8.i.i.i = icmp eq ptr %3, null
-  br i1 %cmp8.i.i.i, label %while.end.i.i, label %do.body13.i.i
-
-while.end.i.i:                                    ; preds = %qht_entry_is_last.exit.i.i, %if.then.i.i.i
+while.end.i.i:                                    ; preds = %qht_entry_is_last.exit.i.i, %if.end.i.i.i, %if.then.i.i.i
   %hashes.i.i = getelementptr inbounds i8, ptr %b.0.i, i64 8
   %idxprom.i.i = and i64 %indvars.iv.i, 4294967295
   %arrayidx.i.i = getelementptr [4 x i32], ptr %hashes.i.i, i64 0, i64 %idxprom.i.i
   store atomic i32 0, ptr %arrayidx.i.i monotonic, align 4
   %arrayidx10.i.i = getelementptr [4 x ptr], ptr %pointers.i, i64 0, i64 %idxprom.i.i
+  store atomic i64 0, ptr %arrayidx10.i.i monotonic, align 8
   br label %qht_bucket_remove_entry.exit.i
 
-do.body13.i.i:                                    ; preds = %qht_entry_is_last.exit.i.i, %for.end.i.i
-  %prev.0.i.i = phi ptr [ %b.0.i.i, %for.end.i.i ], [ null, %qht_entry_is_last.exit.i.i ]
-  %b.0.i.i = phi ptr [ %11, %for.end.i.i ], [ %b.0.i, %qht_entry_is_last.exit.i.i ]
+do.body13.i.i:                                    ; preds = %do.body13.i.i.preheader, %for.end.i.i
+  %prev.0.i.i = phi ptr [ %b.0.i.i, %for.end.i.i ], [ null, %do.body13.i.i.preheader ]
+  %b.0.i.i = phi ptr [ %12, %for.end.i.i ], [ %b.0.i, %do.body13.i.i.preheader ]
   %pointers14.i.i = getelementptr inbounds i8, ptr %b.0.i.i, i64 24
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %do.body13.i.i
   %indvars.iv.i.i = phi i64 [ 0, %do.body13.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %arrayidx16.i.i = getelementptr [4 x ptr], ptr %pointers14.i.i, i64 0, i64 %indvars.iv.i.i
-  %4 = load ptr, ptr %arrayidx16.i.i, align 8
-  %tobool.not.i.i = icmp eq ptr %4, null
+  %5 = load ptr, ptr %arrayidx16.i.i, align 8
+  %tobool.not.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i, label %if.end18.i.i, label %for.inc.i.i
 
 if.end18.i.i:                                     ; preds = %for.body.i.i
@@ -991,14 +993,15 @@ if.then20.i.i:                                    ; preds = %if.end18.i.i
   %hashes14.i.i.i = getelementptr inbounds i8, ptr %b.0.i.i, i64 8
   %idxprom15.i.i.i = and i64 %sub.i.i, 4294967295
   %arrayidx16.i.i.i = getelementptr [4 x i32], ptr %hashes14.i.i.i, i64 0, i64 %idxprom15.i.i.i
-  %5 = load i32, ptr %arrayidx16.i.i.i, align 4
-  store atomic i32 %5, ptr %arrayidx13.i.i.i monotonic, align 4
+  %6 = load i32, ptr %arrayidx16.i.i.i, align 4
+  store atomic i32 %6, ptr %arrayidx13.i.i.i monotonic, align 4
   %arrayidx26.i.i.i = getelementptr [4 x ptr], ptr %pointers.i, i64 0, i64 %idxprom12.i.i.i
   %arrayidx30.i.i.i = getelementptr [4 x ptr], ptr %pointers14.i.i, i64 0, i64 %idxprom15.i.i.i
-  %6 = load ptr, ptr %arrayidx30.i.i.i, align 8
-  %7 = ptrtoint ptr %6 to i64
-  store atomic i64 %7, ptr %arrayidx26.i.i.i monotonic, align 8
+  %7 = load ptr, ptr %arrayidx30.i.i.i, align 8
+  %8 = ptrtoint ptr %7 to i64
+  store atomic i64 %8, ptr %arrayidx26.i.i.i monotonic, align 8
   store atomic i32 0, ptr %arrayidx16.i.i.i monotonic, align 4
+  store atomic i64 0, ptr %arrayidx30.i.i.i monotonic, align 8
   br label %qht_bucket_remove_entry.exit.i
 
 do.end23.i.i:                                     ; preds = %if.end18.i.i
@@ -1006,14 +1009,15 @@ do.end23.i.i:                                     ; preds = %if.end18.i.i
   %idxprom12.i22.i.i = and i64 %indvars.iv.i, 4294967295
   %arrayidx13.i23.i.i = getelementptr [4 x i32], ptr %hashes.i21.i.i, i64 0, i64 %idxprom12.i22.i.i
   %arrayidx16.i25.i.i = getelementptr i8, ptr %prev.0.i.i, i64 20
-  %8 = load i32, ptr %arrayidx16.i25.i.i, align 4
-  store atomic i32 %8, ptr %arrayidx13.i23.i.i monotonic, align 4
+  %9 = load i32, ptr %arrayidx16.i25.i.i, align 4
+  store atomic i32 %9, ptr %arrayidx13.i23.i.i monotonic, align 4
   %arrayidx26.i27.i.i = getelementptr [4 x ptr], ptr %pointers.i, i64 0, i64 %idxprom12.i22.i.i
   %arrayidx30.i29.i.i = getelementptr i8, ptr %prev.0.i.i, i64 48
-  %9 = load ptr, ptr %arrayidx30.i29.i.i, align 8
-  %10 = ptrtoint ptr %9 to i64
-  store atomic i64 %10, ptr %arrayidx26.i27.i.i monotonic, align 8
+  %10 = load ptr, ptr %arrayidx30.i29.i.i, align 8
+  %11 = ptrtoint ptr %10 to i64
+  store atomic i64 %11, ptr %arrayidx26.i27.i.i monotonic, align 8
   store atomic i32 0, ptr %arrayidx16.i25.i.i monotonic, align 4
+  store atomic i64 0, ptr %arrayidx30.i29.i.i monotonic, align 8
   br label %qht_bucket_remove_entry.exit.i
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
@@ -1023,8 +1027,8 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
 
 for.end.i.i:                                      ; preds = %for.inc.i.i
   %next.i.i = getelementptr inbounds i8, ptr %b.0.i.i, i64 56
-  %11 = load ptr, ptr %next.i.i, align 8
-  %tobool24.not.i.i = icmp eq ptr %11, null
+  %12 = load ptr, ptr %next.i.i, align 8
+  %tobool24.not.i.i = icmp eq ptr %12, null
   br i1 %tobool24.not.i.i, label %do.end25.i.i, label %do.body13.i.i, !llvm.loop !32
 
 do.end25.i.i:                                     ; preds = %for.end.i.i
@@ -1032,23 +1036,22 @@ do.end25.i.i:                                     ; preds = %for.end.i.i
   %idxprom12.i31.i.i = and i64 %indvars.iv.i, 4294967295
   %arrayidx13.i32.i.i = getelementptr [4 x i32], ptr %hashes.i30.i.i, i64 0, i64 %idxprom12.i31.i.i
   %arrayidx16.i34.i.i = getelementptr i8, ptr %b.0.i.i, i64 20
-  %12 = load i32, ptr %arrayidx16.i34.i.i, align 4
-  store atomic i32 %12, ptr %arrayidx13.i32.i.i monotonic, align 4
+  %13 = load i32, ptr %arrayidx16.i34.i.i, align 4
+  store atomic i32 %13, ptr %arrayidx13.i32.i.i monotonic, align 4
   %arrayidx26.i36.i.i = getelementptr [4 x ptr], ptr %pointers.i, i64 0, i64 %idxprom12.i31.i.i
   %arrayidx30.i38.i.i = getelementptr i8, ptr %b.0.i.i, i64 48
-  %13 = load ptr, ptr %arrayidx30.i38.i.i, align 8
-  %14 = ptrtoint ptr %13 to i64
-  store atomic i64 %14, ptr %arrayidx26.i36.i.i monotonic, align 8
+  %14 = load ptr, ptr %arrayidx30.i38.i.i, align 8
+  %15 = ptrtoint ptr %14 to i64
+  store atomic i64 %15, ptr %arrayidx26.i36.i.i monotonic, align 8
   store atomic i32 0, ptr %arrayidx16.i34.i.i monotonic, align 4
+  store atomic i64 0, ptr %arrayidx30.i38.i.i monotonic, align 8
   br label %qht_bucket_remove_entry.exit.i
 
 qht_bucket_remove_entry.exit.i:                   ; preds = %do.end25.i.i, %do.end23.i.i, %if.then20.i.i, %while.end.i.i
-  %arrayidx30.i38.sink.i.i = phi ptr [ %arrayidx30.i38.i.i, %do.end25.i.i ], [ %arrayidx30.i29.i.i, %do.end23.i.i ], [ %arrayidx30.i.i.i, %if.then20.i.i ], [ %arrayidx10.i.i, %while.end.i.i ]
-  store atomic i64 0, ptr %arrayidx30.i38.sink.i.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !18
   fence release
-  %15 = load i32, ptr %sequence.i, align 4
-  %add.i11.i = add i32 %15, 1
+  %16 = load i32, ptr %sequence.i, align 4
+  %add.i11.i = add i32 %16, 1
   store atomic i32 %add.i11.i, ptr %sequence.i monotonic, align 4
   br label %qht_remove__locked.exit
 
@@ -1059,8 +1062,8 @@ for.inc.i:                                        ; preds = %if.end.i
 
 for.end.i:                                        ; preds = %for.inc.i
   %next.i = getelementptr inbounds i8, ptr %b.0.i, i64 56
-  %16 = load ptr, ptr %next.i, align 8
-  %tobool13.not.i = icmp eq ptr %16, null
+  %17 = load ptr, ptr %next.i, align 8
+  %tobool13.not.i = icmp eq ptr %17, null
   br i1 %tobool13.not.i, label %qht_remove__locked.exit, label %do.body.i, !llvm.loop !34
 
 qht_remove__locked.exit:                          ; preds = %for.end.i, %for.body.i, %qht_bucket_remove_entry.exit.i
@@ -1737,7 +1740,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %qh
   br label %do.body.i
 
 do.body.i:                                        ; preds = %for.end.i, %for.body
-  %b.0.i = phi ptr [ %arrayidx, %for.body ], [ %19, %for.end.i ]
+  %b.0.i = phi ptr [ %arrayidx, %for.body ], [ %24, %for.end.i ]
   %pointers.i = getelementptr inbounds i8, ptr %b.0.i, i64 24
   %hashes12.i = getelementptr inbounds i8, ptr %b.0.i, i64 8
   %next.i.i.i = getelementptr inbounds i8, ptr %b.0.i, i64 56
@@ -1779,40 +1782,46 @@ if.then15.i:                                      ; preds = %sw.bb7.i
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !15
   fence release
   %cmp.i.i.i = icmp eq i32 %i.029.i, 3
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end5.i.i.i
+  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %qht_entry_is_last.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then15.i
   %9 = load ptr, ptr %next.i.i.i, align 8
   %cmp1.i.i.i = icmp eq ptr %9, null
-  br i1 %cmp1.i.i.i, label %qht_bucket_remove_entry.exit.i, label %if.end.i.i.i
+  br i1 %cmp1.i.i.i, label %while.end.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i
   %pointers.i.i.i = getelementptr inbounds i8, ptr %9, i64 24
-  br label %qht_entry_is_last.exit.i.i
+  %10 = load ptr, ptr %pointers.i.i.i, align 8
+  %cmp4.i.i.i = icmp eq ptr %10, null
+  br i1 %cmp4.i.i.i, label %while.end.i.i, label %do.body13.i.i.preheader
 
-if.end5.i.i.i:                                    ; preds = %if.then15.i
+do.body13.i.i.preheader:                          ; preds = %qht_entry_is_last.exit.i.i, %if.end.i.i.i
+  br label %do.body13.i.i
+
+qht_entry_is_last.exit.i.i:                       ; preds = %if.then15.i
   %add.i.i.i = add nsw i32 %i.029.i, 1
   %idxprom.i.i.i = sext i32 %add.i.i.i to i64
   %arrayidx7.i.i.i = getelementptr [4 x ptr], ptr %pointers.i, i64 0, i64 %idxprom.i.i.i
-  br label %qht_entry_is_last.exit.i.i
+  %11 = load ptr, ptr %arrayidx7.i.i.i, align 8
+  %cmp8.i.i.i = icmp eq ptr %11, null
+  br i1 %cmp8.i.i.i, label %while.end.i.i, label %do.body13.i.i.preheader
 
-qht_entry_is_last.exit.i.i:                       ; preds = %if.end5.i.i.i, %if.end.i.i.i
-  %arrayidx7.sink.i.i.i = phi ptr [ %arrayidx7.i.i.i, %if.end5.i.i.i ], [ %pointers.i.i.i, %if.end.i.i.i ]
-  %10 = load ptr, ptr %arrayidx7.sink.i.i.i, align 8
-  %cmp8.i.i.i = icmp eq ptr %10, null
-  br i1 %cmp8.i.i.i, label %qht_bucket_remove_entry.exit.i, label %do.body13.i.i
+while.end.i.i:                                    ; preds = %qht_entry_is_last.exit.i.i, %if.end.i.i.i, %if.then.i.i.i
+  store atomic i32 0, ptr %arrayidx14.i monotonic, align 4
+  store atomic i64 0, ptr %arrayidx.i monotonic, align 8
+  br label %qht_bucket_remove_entry.exit.i
 
-do.body13.i.i:                                    ; preds = %qht_entry_is_last.exit.i.i, %for.end.i.i
-  %prev.0.i.i = phi ptr [ %b.0.i.i, %for.end.i.i ], [ null, %qht_entry_is_last.exit.i.i ]
-  %b.0.i.i = phi ptr [ %14, %for.end.i.i ], [ %b.0.i, %qht_entry_is_last.exit.i.i ]
+do.body13.i.i:                                    ; preds = %do.body13.i.i.preheader, %for.end.i.i
+  %prev.0.i.i = phi ptr [ %b.0.i.i, %for.end.i.i ], [ null, %do.body13.i.i.preheader ]
+  %b.0.i.i = phi ptr [ %19, %for.end.i.i ], [ %b.0.i, %do.body13.i.i.preheader ]
   %pointers14.i.i = getelementptr inbounds i8, ptr %b.0.i.i, i64 24
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %do.body13.i.i
   %indvars.iv.i.i = phi i64 [ 0, %do.body13.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %arrayidx16.i.i = getelementptr [4 x ptr], ptr %pointers14.i.i, i64 0, i64 %indvars.iv.i.i
-  %11 = load ptr, ptr %arrayidx16.i.i, align 8
-  %tobool.not.i.i = icmp eq ptr %11, null
+  %12 = load ptr, ptr %arrayidx16.i.i, align 8
+  %tobool.not.i.i = icmp eq ptr %12, null
   br i1 %tobool.not.i.i, label %if.end18.i.i, label %for.inc.i.i
 
 if.end18.i.i:                                     ; preds = %for.body.i.i
@@ -1824,17 +1833,27 @@ if.then20.i.i:                                    ; preds = %if.end18.i.i
   %hashes14.i.i.i = getelementptr inbounds i8, ptr %b.0.i.i, i64 8
   %idxprom15.i.i.i = and i64 %sub.i.i, 4294967295
   %arrayidx16.i.i.i = getelementptr [4 x i32], ptr %hashes14.i.i.i, i64 0, i64 %idxprom15.i.i.i
-  %12 = load i32, ptr %arrayidx16.i.i.i, align 4
-  store atomic i32 %12, ptr %arrayidx14.i monotonic, align 4
+  %13 = load i32, ptr %arrayidx16.i.i.i, align 4
+  store atomic i32 %13, ptr %arrayidx14.i monotonic, align 4
   %arrayidx30.i.i.i = getelementptr [4 x ptr], ptr %pointers14.i.i, i64 0, i64 %idxprom15.i.i.i
-  br label %qht_bucket_remove_entry.exit.sink.split.i
+  %14 = load ptr, ptr %arrayidx30.i.i.i, align 8
+  %15 = ptrtoint ptr %14 to i64
+  store atomic i64 %15, ptr %arrayidx.i monotonic, align 8
+  store atomic i32 0, ptr %arrayidx16.i.i.i monotonic, align 4
+  store atomic i64 0, ptr %arrayidx30.i.i.i monotonic, align 8
+  br label %qht_bucket_remove_entry.exit.i
 
 do.end23.i.i:                                     ; preds = %if.end18.i.i
   %arrayidx16.i25.i.i = getelementptr i8, ptr %prev.0.i.i, i64 20
-  %13 = load i32, ptr %arrayidx16.i25.i.i, align 4
-  store atomic i32 %13, ptr %arrayidx14.i monotonic, align 4
+  %16 = load i32, ptr %arrayidx16.i25.i.i, align 4
+  store atomic i32 %16, ptr %arrayidx14.i monotonic, align 4
   %arrayidx30.i29.i.i = getelementptr i8, ptr %prev.0.i.i, i64 48
-  br label %qht_bucket_remove_entry.exit.sink.split.i
+  %17 = load ptr, ptr %arrayidx30.i29.i.i, align 8
+  %18 = ptrtoint ptr %17 to i64
+  store atomic i64 %18, ptr %arrayidx.i monotonic, align 8
+  store atomic i32 0, ptr %arrayidx16.i25.i.i monotonic, align 4
+  store atomic i64 0, ptr %arrayidx30.i29.i.i monotonic, align 8
+  br label %qht_bucket_remove_entry.exit.i
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -1843,34 +1862,27 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
 
 for.end.i.i:                                      ; preds = %for.inc.i.i
   %next.i.i = getelementptr inbounds i8, ptr %b.0.i.i, i64 56
-  %14 = load ptr, ptr %next.i.i, align 8
-  %tobool24.not.i.i = icmp eq ptr %14, null
+  %19 = load ptr, ptr %next.i.i, align 8
+  %tobool24.not.i.i = icmp eq ptr %19, null
   br i1 %tobool24.not.i.i, label %do.end25.i.i, label %do.body13.i.i, !llvm.loop !32
 
 do.end25.i.i:                                     ; preds = %for.end.i.i
   %arrayidx16.i34.i.i = getelementptr i8, ptr %b.0.i.i, i64 20
-  %15 = load i32, ptr %arrayidx16.i34.i.i, align 4
-  store atomic i32 %15, ptr %arrayidx14.i monotonic, align 4
+  %20 = load i32, ptr %arrayidx16.i34.i.i, align 4
+  store atomic i32 %20, ptr %arrayidx14.i monotonic, align 4
   %arrayidx30.i38.i.i = getelementptr i8, ptr %b.0.i.i, i64 48
-  br label %qht_bucket_remove_entry.exit.sink.split.i
-
-qht_bucket_remove_entry.exit.sink.split.i:        ; preds = %do.end25.i.i, %do.end23.i.i, %if.then20.i.i
-  %arrayidx30.i.i.sink.i = phi ptr [ %arrayidx30.i.i.i, %if.then20.i.i ], [ %arrayidx30.i29.i.i, %do.end23.i.i ], [ %arrayidx30.i38.i.i, %do.end25.i.i ]
-  %arrayidx14.sink.ph.i = phi ptr [ %arrayidx16.i.i.i, %if.then20.i.i ], [ %arrayidx16.i25.i.i, %do.end23.i.i ], [ %arrayidx16.i34.i.i, %do.end25.i.i ]
-  %16 = load ptr, ptr %arrayidx30.i.i.sink.i, align 8
-  %17 = ptrtoint ptr %16 to i64
-  store atomic i64 %17, ptr %arrayidx.i monotonic, align 8
+  %21 = load ptr, ptr %arrayidx30.i38.i.i, align 8
+  %22 = ptrtoint ptr %21 to i64
+  store atomic i64 %22, ptr %arrayidx.i monotonic, align 8
+  store atomic i32 0, ptr %arrayidx16.i34.i.i monotonic, align 4
+  store atomic i64 0, ptr %arrayidx30.i38.i.i monotonic, align 8
   br label %qht_bucket_remove_entry.exit.i
 
-qht_bucket_remove_entry.exit.i:                   ; preds = %qht_bucket_remove_entry.exit.sink.split.i, %qht_entry_is_last.exit.i.i, %if.then.i.i.i
-  %arrayidx14.sink.i = phi ptr [ %arrayidx14.i, %qht_entry_is_last.exit.i.i ], [ %arrayidx14.i, %if.then.i.i.i ], [ %arrayidx14.sink.ph.i, %qht_bucket_remove_entry.exit.sink.split.i ]
-  %arrayidx30.i38.sink.i.i = phi ptr [ %arrayidx.i, %qht_entry_is_last.exit.i.i ], [ %arrayidx.i, %if.then.i.i.i ], [ %arrayidx30.i.i.sink.i, %qht_bucket_remove_entry.exit.sink.split.i ]
-  store atomic i32 0, ptr %arrayidx14.sink.i monotonic, align 4
-  store atomic i64 0, ptr %arrayidx30.i38.sink.i.i monotonic, align 8
+qht_bucket_remove_entry.exit.i:                   ; preds = %do.end25.i.i, %do.end23.i.i, %if.then20.i.i, %while.end.i.i
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !18
   fence release
-  %18 = load i32, ptr %sequence.i, align 4
-  %add.i23.i = add i32 %18, 1
+  %23 = load i32, ptr %sequence.i, align 4
+  %add.i23.i = add i32 %23, 1
   store atomic i32 %add.i23.i, ptr %sequence.i monotonic, align 4
   %dec.i = add i32 %i.029.i, -1
   br label %for.inc.i
@@ -1886,14 +1898,14 @@ for.inc.i:                                        ; preds = %qht_bucket_remove_e
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !42
 
 for.end.i:                                        ; preds = %for.inc.i
-  %19 = load ptr, ptr %next.i.i.i, align 8
-  %tobool.not.i = icmp eq ptr %19, null
+  %24 = load ptr, ptr %next.i.i.i, align 8
+  %tobool.not.i = icmp eq ptr %24, null
   br i1 %tobool.not.i, label %qht_bucket_iter.exit, label %do.body.i, !llvm.loop !43
 
 qht_bucket_iter.exit:                             ; preds = %for.end.i, %for.body.i
   %inc = add nuw i64 %i.010, 1
-  %20 = load i64, ptr %n_buckets, align 8
-  %cmp = icmp ult i64 %inc, %20
+  %25 = load i64, ptr %n_buckets, align 8
+  %cmp = icmp ult i64 %inc, %25
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !44
 
 for.end:                                          ; preds = %qht_bucket_iter.exit, %entry

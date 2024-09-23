@@ -904,29 +904,31 @@ for.body.lr.ph:                                   ; preds = %entry
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %for.body
 
-for.cond:                                         ; preds = %for.body
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !4
-
-for.body:                                         ; preds = %for.body.lr.ph, %for.cond
-  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
+for.body:                                         ; preds = %for.body.lr.ph, %for.inc
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %arrayidx.i = getelementptr inbounds %"struct.icu_75::StandardPluralRanges::StandardPluralRangeTriple", ptr %1, i64 %indvars.iv
   %2 = load i32, ptr %arrayidx.i, align 4
   %cmp3 = icmp eq i32 %2, %first
+  br i1 %cmp3, label %land.lhs.true, label %for.inc
+
+land.lhs.true:                                    ; preds = %for.body
   %second4 = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %3 = load i32, ptr %second4, align 4
   %cmp5 = icmp eq i32 %3, %second
-  %or.cond = select i1 %cmp3, i1 %cmp5, i1 false
-  br i1 %or.cond, label %if.then, label %for.cond
+  br i1 %cmp5, label %if.then, label %for.inc
 
-if.then:                                          ; preds = %for.body
+if.then:                                          ; preds = %land.lhs.true
   %result = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %4 = load i32, ptr %result, align 4
   br label %return
 
-return:                                           ; preds = %for.cond, %entry, %if.then
-  %retval.0 = phi i32 [ %4, %if.then ], [ 5, %entry ], [ 5, %for.cond ]
+for.inc:                                          ; preds = %for.body, %land.lhs.true
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !4
+
+return:                                           ; preds = %for.inc, %entry, %if.then
+  %retval.0 = phi i32 [ %4, %if.then ], [ 5, %entry ], [ 5, %for.inc ]
   ret i32 %retval.0
 }
 

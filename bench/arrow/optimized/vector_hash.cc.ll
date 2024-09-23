@@ -22329,7 +22329,11 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %sw.bb2
   %2 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq i64 %2, 4294967297
   %3 = trunc i64 %2 to i32
-  br i1 %cmp.i.i.i.i.i.i.i.i.i, label %return.sink.split.sink.split, label %if.end.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i
+
+if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i.i.i.i
+  store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i.i.i, align 8
+  br label %return.sink.split.sink.split
 
 if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i.i.i
   %4 = load i8, ptr @__libc_single_threaded, align 1
@@ -22386,7 +22390,11 @@ if.then.i.i.i.i.i.i.i.i14:                        ; preds = %sw.bb3
   %11 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i.i.i15 acquire, align 8
   %cmp.i.i.i.i.i.i.i.i.i16 = icmp eq i64 %11, 4294967297
   %12 = trunc i64 %11 to i32
-  br i1 %cmp.i.i.i.i.i.i.i.i.i16, label %return.sink.split.sink.split, label %if.end.i.i.i.i.i.i.i.i.i17
+  br i1 %cmp.i.i.i.i.i.i.i.i.i16, label %if.then.i.i.i.i.i.i.i.i.i39, label %if.end.i.i.i.i.i.i.i.i.i17
+
+if.then.i.i.i.i.i.i.i.i.i39:                      ; preds = %if.then.i.i.i.i.i.i.i.i14
+  store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i.i.i15, align 8
+  br label %return.sink.split.sink.split
 
 if.end.i.i.i.i.i.i.i.i.i17:                       ; preds = %if.then.i.i.i.i.i.i.i.i14
   %13 = load i8, ptr @__libc_single_threaded, align 1
@@ -22443,7 +22451,11 @@ if.then.i.i.i.i.i.i.i.i45:                        ; preds = %sw.bb4
   %20 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i.i.i46 acquire, align 8
   %cmp.i.i.i.i.i.i.i.i.i47 = icmp eq i64 %20, 4294967297
   %21 = trunc i64 %20 to i32
-  br i1 %cmp.i.i.i.i.i.i.i.i.i47, label %return.sink.split.sink.split, label %if.end.i.i.i.i.i.i.i.i.i48
+  br i1 %cmp.i.i.i.i.i.i.i.i.i47, label %if.then.i.i.i.i.i.i.i.i.i70, label %if.end.i.i.i.i.i.i.i.i.i48
+
+if.then.i.i.i.i.i.i.i.i.i70:                      ; preds = %if.then.i.i.i.i.i.i.i.i45
+  store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i.i.i46, align 8
+  br label %return.sink.split.sink.split
 
 if.end.i.i.i.i.i.i.i.i.i48:                       ; preds = %if.then.i.i.i.i.i.i.i.i45
   %22 = load i8, ptr @__libc_single_threaded, align 1
@@ -22500,7 +22512,11 @@ if.then.i.i.i.i.i.i.i.i76:                        ; preds = %sw.bb5
   %29 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i.i.i77 acquire, align 8
   %cmp.i.i.i.i.i.i.i.i.i78 = icmp eq i64 %29, 4294967297
   %30 = trunc i64 %29 to i32
-  br i1 %cmp.i.i.i.i.i.i.i.i.i78, label %return.sink.split.sink.split, label %if.end.i.i.i.i.i.i.i.i.i79
+  br i1 %cmp.i.i.i.i.i.i.i.i.i78, label %if.then.i.i.i.i.i.i.i.i.i101, label %if.end.i.i.i.i.i.i.i.i.i79
+
+if.then.i.i.i.i.i.i.i.i.i101:                     ; preds = %if.then.i.i.i.i.i.i.i.i76
+  store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i.i.i77, align 8
+  br label %return.sink.split.sink.split
 
 if.end.i.i.i.i.i.i.i.i.i79:                       ; preds = %if.then.i.i.i.i.i.i.i.i76
   %31 = load i8, ptr @__libc_single_threaded, align 1
@@ -22557,7 +22573,11 @@ if.then.i.i.i.i.i.i.i.i107:                       ; preds = %sw.bb6
   %38 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i.i.i108 acquire, align 8
   %cmp.i.i.i.i.i.i.i.i.i109 = icmp eq i64 %38, 4294967297
   %39 = trunc i64 %38 to i32
-  br i1 %cmp.i.i.i.i.i.i.i.i.i109, label %return.sink.split.sink.split, label %if.end.i.i.i.i.i.i.i.i.i110
+  br i1 %cmp.i.i.i.i.i.i.i.i.i109, label %if.then.i.i.i.i.i.i.i.i.i132, label %if.end.i.i.i.i.i.i.i.i.i110
+
+if.then.i.i.i.i.i.i.i.i.i132:                     ; preds = %if.then.i.i.i.i.i.i.i.i107
+  store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i.i.i108, align 8
+  br label %return.sink.split.sink.split
 
 if.end.i.i.i.i.i.i.i.i.i110:                      ; preds = %if.then.i.i.i.i.i.i.i.i107
   %40 = load i8, ptr @__libc_single_threaded, align 1
@@ -22606,10 +22626,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i124: ; 
 sw.default:                                       ; preds = %entry
   unreachable
 
-return.sink.split.sink.split:                     ; preds = %if.then.i.i.i.i.i.i.i.i107, %if.then.i.i.i.i.i.i.i.i76, %if.then.i.i.i.i.i.i.i.i45, %if.then.i.i.i.i.i.i.i.i14, %if.then.i.i.i.i.i.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i108.sink = phi ptr [ %_M_use_count.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i ], [ %_M_use_count.i.i.i.i.i.i.i.i.i15, %if.then.i.i.i.i.i.i.i.i14 ], [ %_M_use_count.i.i.i.i.i.i.i.i.i46, %if.then.i.i.i.i.i.i.i.i45 ], [ %_M_use_count.i.i.i.i.i.i.i.i.i77, %if.then.i.i.i.i.i.i.i.i76 ], [ %_M_use_count.i.i.i.i.i.i.i.i.i108, %if.then.i.i.i.i.i.i.i.i107 ]
-  %.sink140 = phi ptr [ %1, %if.then.i.i.i.i.i.i.i.i ], [ %10, %if.then.i.i.i.i.i.i.i.i14 ], [ %19, %if.then.i.i.i.i.i.i.i.i45 ], [ %28, %if.then.i.i.i.i.i.i.i.i76 ], [ %37, %if.then.i.i.i.i.i.i.i.i107 ]
-  store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i.i.i108.sink, align 8
+return.sink.split.sink.split:                     ; preds = %if.then.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i39, %if.then.i.i.i.i.i.i.i.i.i70, %if.then.i.i.i.i.i.i.i.i.i101, %if.then.i.i.i.i.i.i.i.i.i132
+  %.sink140 = phi ptr [ %37, %if.then.i.i.i.i.i.i.i.i.i132 ], [ %28, %if.then.i.i.i.i.i.i.i.i.i101 ], [ %19, %if.then.i.i.i.i.i.i.i.i.i70 ], [ %10, %if.then.i.i.i.i.i.i.i.i.i39 ], [ %1, %if.then.i.i.i.i.i.i.i.i.i ]
   %_M_weak_count.i.i.i.i.i.i.i.i.i133 = getelementptr inbounds i8, ptr %.sink140, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i.i.i133, align 4
   %vtable.i.i.i.i.i.i.i.i.i134 = load ptr, ptr %.sink140, align 8
@@ -36011,12 +36029,12 @@ do.end6:                                          ; preds = %nrvo.skipdtor.threa
   store i64 %inc4.i.i.i, ptr %bit_length_.i.i.i, align 8
   %length_.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %17 = load i64, ptr %length_.i.i, align 8
-  %inc4.i2.i.i = add nsw i64 %17, 1
-  store i64 %inc4.i2.i.i, ptr %length_.i.i, align 8
+  %inc.i1.i = add nsw i64 %17, 1
+  store i64 %inc.i1.i, ptr %length_.i.i, align 8
   %length_3.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %18 = load i64, ptr %length_3.i.i, align 8
-  %inc4.i1.i = add nsw i64 %18, 1
-  store i64 %inc4.i1.i, ptr %length_3.i.i, align 8
+  %inc4.i2.i = add nsw i64 %18, 1
+  store i64 %inc4.i2.i, ptr %length_3.i.i, align 8
   store ptr null, ptr %agg.result, align 8, !alias.scope !511
   br label %return
 
@@ -49293,8 +49311,8 @@ do.end6:                                          ; preds = %nrvo.skipdtor.threa
   store i64 %inc4.i.i, ptr %bit_length_.i.i, align 8
   %length_.i = getelementptr inbounds i8, ptr %this, i64 104
   %14 = load i64, ptr %length_.i, align 8
-  %inc4.i2.i = add nsw i64 %14, 1
-  store i64 %inc4.i2.i, ptr %length_.i, align 8
+  %inc.i = add nsw i64 %14, 1
+  store i64 %inc.i, ptr %length_.i, align 8
   %length_3.i = getelementptr inbounds i8, ptr %this, i64 96
   %15 = load i64, ptr %length_3.i, align 8
   %inc4.i = add nsw i64 %15, 1
@@ -49579,8 +49597,8 @@ _ZN5arrow6StatusD2Ev.exit97:                      ; preds = %_ZN5arrow6StatusD2E
   br i1 %cmp.i98, label %for.cond.preheader, label %return
 
 for.cond.preheader:                               ; preds = %_ZN5arrow6StatusD2Ev.exit97
-  %cmp157 = icmp sgt i64 %length, 0
-  br i1 %cmp157, label %for.body.lr.ph, label %for.end
+  %cmp156 = icmp sgt i64 %length, 0
+  br i1 %cmp156, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %tobool.not = icmp eq ptr %0, null
@@ -49591,17 +49609,17 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %bit_length_.i.i.i143 = getelementptr inbounds i8, ptr %this, i64 80
   %false_count_.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %length_.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %length_3.i.i150 = getelementptr inbounds i8, ptr %this, i64 96
+  %length_3.i.i149 = getelementptr inbounds i8, ptr %this, i64 96
   %data_.i.i.i = getelementptr inbounds i8, ptr %this, i64 224
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.0158 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %i.0157 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   br i1 %tobool.not, label %if.then36, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body
   %11 = load i64, ptr %offset.i, align 8
-  %add33 = add i64 %i.0158, %offset
+  %add33 = add i64 %i.0157, %offset
   %add34 = add i64 %add33, %11
   %shr.i = lshr i64 %add34, 3
   %arrayidx.i136 = getelementptr inbounds i8, ptr %0, i64 %shr.i
@@ -49615,7 +49633,7 @@ lor.lhs.false:                                    ; preds = %for.body
   br i1 %tobool.i.not, label %if.else, label %if.then36
 
 if.then36:                                        ; preds = %lor.lhs.false, %for.body
-  %arrayidx38 = getelementptr i32, ptr %4, i64 %i.0158
+  %arrayidx38 = getelementptr i32, ptr %4, i64 %i.0157
   %16 = load i32, ptr %arrayidx38, align 4
   %arrayidx41 = getelementptr i8, ptr %arrayidx38, i64 4
   %17 = load i32, ptr %arrayidx41, align 4
@@ -49649,47 +49667,51 @@ if.then36:                                        ; preds = %lor.lhs.false, %for
   %28 = load i8, ptr %arrayidx5.i.i.i.i, align 1
   %xor105.i.i.i.i = or i8 %28, %27
   store i8 %xor105.i.i.i.i, ptr %arrayidx.i.i.i.i, align 1
+  %29 = load i64, ptr %bit_length_.i.i.i143, align 8
+  %inc4.i2.i.i = add nsw i64 %29, 1
+  store i64 %inc4.i2.i.i, ptr %bit_length_.i.i.i143, align 8
+  %30 = load i64, ptr %length_.i.i, align 8
+  %inc4.i.i = add nsw i64 %30, 1
+  store i64 %inc4.i.i, ptr %length_.i.i, align 8
   br label %for.inc
 
 if.else:                                          ; preds = %lor.lhs.false
-  %29 = load i64, ptr %size_.i.i.i, align 8
-  %conv.i138 = trunc i64 %29 to i32
-  %30 = load ptr, ptr %data_.i.i.i139, align 8
-  %31 = load i64, ptr %size_.i.i1.i, align 8
-  %add.ptr.i.i.i140 = getelementptr inbounds i8, ptr %30, i64 %31
+  %31 = load i64, ptr %size_.i.i.i, align 8
+  %conv.i138 = trunc i64 %31 to i32
+  %32 = load ptr, ptr %data_.i.i.i139, align 8
+  %33 = load i64, ptr %size_.i.i1.i, align 8
+  %add.ptr.i.i.i140 = getelementptr inbounds i8, ptr %32, i64 %33
   store i32 %conv.i138, ptr %add.ptr.i.i.i140, align 1
-  %32 = load i64, ptr %size_.i.i1.i, align 8
-  %add.i.i.i141 = add nsw i64 %32, 4
+  %34 = load i64, ptr %size_.i.i1.i, align 8
+  %add.i.i.i141 = add nsw i64 %34, 4
   store i64 %add.i.i.i141, ptr %size_.i.i1.i, align 8
-  %33 = load ptr, ptr %data_.i.i.i.i.i142, align 8
-  %34 = load i64, ptr %bit_length_.i.i.i143, align 8
-  %div.i.i.i.i144 = sdiv i64 %34, 8
-  %arrayidx.i.i.i.i145 = getelementptr inbounds i8, ptr %33, i64 %div.i.i.i.i144
-  %35 = load i8, ptr %arrayidx.i.i.i.i145, align 1
-  %rem.i.i.i.i146 = srem i64 %34, 8
+  %35 = load ptr, ptr %data_.i.i.i.i.i142, align 8
+  %36 = load i64, ptr %bit_length_.i.i.i143, align 8
+  %div.i.i.i.i144 = sdiv i64 %36, 8
+  %arrayidx.i.i.i.i145 = getelementptr inbounds i8, ptr %35, i64 %div.i.i.i.i144
+  %37 = load i8, ptr %arrayidx.i.i.i.i145, align 1
+  %rem.i.i.i.i146 = srem i64 %36, 8
   %arrayidx5.i.i.i.i147 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i.i146
-  %36 = load i8, ptr %arrayidx5.i.i.i.i147, align 1
-  %37 = xor i8 %36, -1
-  %xor105.i.i.i.i148 = and i8 %35, %37
+  %38 = load i8, ptr %arrayidx5.i.i.i.i147, align 1
+  %39 = xor i8 %38, -1
+  %xor105.i.i.i.i148 = and i8 %37, %39
   store i8 %xor105.i.i.i.i148, ptr %arrayidx.i.i.i.i145, align 1
-  %38 = load i64, ptr %false_count_.i.i.i, align 8
-  %inc.i.i.i = add nsw i64 %38, 1
+  %40 = load i64, ptr %false_count_.i.i.i, align 8
+  %inc.i.i.i = add nsw i64 %40, 1
   store i64 %inc.i.i.i, ptr %false_count_.i.i.i, align 8
-  %39 = load i64, ptr %bit_length_.i.i.i143, align 8
-  %inc4.i.i.i = add nsw i64 %39, 1
+  %41 = load i64, ptr %bit_length_.i.i.i143, align 8
+  %inc4.i.i.i = add nsw i64 %41, 1
   store i64 %inc4.i.i.i, ptr %bit_length_.i.i.i143, align 8
+  %42 = load i64, ptr %length_.i.i, align 8
+  %inc.i.i = add nsw i64 %42, 1
+  store i64 %inc.i.i, ptr %length_.i.i, align 8
+  %43 = load i64, ptr %length_3.i.i149, align 8
+  %inc4.i.i150 = add nsw i64 %43, 1
+  store i64 %inc4.i.i150, ptr %length_3.i.i149, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then36, %if.else
-  %bit_length_.i.i.i143.sink160 = phi ptr [ %bit_length_.i.i.i143, %if.then36 ], [ %length_.i.i, %if.else ]
-  %length_.i.i.sink159 = phi ptr [ %length_.i.i, %if.then36 ], [ %length_3.i.i150, %if.else ]
-  %40 = load i64, ptr %bit_length_.i.i.i143.sink160, align 8
-  %inc4.i2.i.i = add nsw i64 %40, 1
-  store i64 %inc4.i2.i.i, ptr %bit_length_.i.i.i143.sink160, align 8
-  %41 = load i64, ptr %length_.i.i.sink159, align 8
-  %inc4.i.i = add nsw i64 %41, 1
-  store i64 %inc4.i.i, ptr %length_.i.i.sink159, align 8
-  %inc = add nuw nsw i64 %i.0158, 1
+  %inc = add nuw nsw i64 %i.0157, 1
   %exitcond.not = icmp eq i64 %inc, %length
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !1230
 
@@ -52309,8 +52331,8 @@ _ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE10AppendNullEv.exit.thread.i.i: ; 
   store i64 %inc4.i.i.i.i.i, ptr %bit_length_.i.i.i.i.i, align 8, !noalias !1332
   %length_.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 200
   %24 = load i64, ptr %length_.i.i.i.i, align 8, !noalias !1332
-  %inc4.i2.i.i.i.i = add nsw i64 %24, 1
-  store i64 %inc4.i2.i.i.i.i, ptr %length_.i.i.i.i, align 8, !noalias !1332
+  %inc.i.i.i.i = add nsw i64 %24, 1
+  store i64 %inc.i.i.i.i, ptr %length_.i.i.i.i, align 8, !noalias !1332
   %length_3.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 192
   %25 = load i64, ptr %length_3.i.i.i.i, align 8, !noalias !1332
   %inc4.i.i.i.i = add nsw i64 %25, 1
@@ -55126,8 +55148,8 @@ do.end6:                                          ; preds = %nrvo.skipdtor.threa
   store i64 %inc4.i.i, ptr %bit_length_.i.i, align 8
   %length_.i = getelementptr inbounds i8, ptr %this, i64 104
   %14 = load i64, ptr %length_.i, align 8
-  %inc4.i2.i = add nsw i64 %14, 1
-  store i64 %inc4.i2.i, ptr %length_.i, align 8
+  %inc.i = add nsw i64 %14, 1
+  store i64 %inc.i, ptr %length_.i, align 8
   %length_3.i = getelementptr inbounds i8, ptr %this, i64 96
   %15 = load i64, ptr %length_3.i, align 8
   %inc4.i = add nsw i64 %15, 1
@@ -55404,8 +55426,8 @@ _ZN5arrow6StatusD2Ev.exit97:                      ; preds = %_ZN5arrow6StatusD2E
   br i1 %cmp.i98, label %for.cond.preheader, label %return
 
 for.cond.preheader:                               ; preds = %_ZN5arrow6StatusD2Ev.exit97
-  %cmp155 = icmp sgt i64 %length, 0
-  br i1 %cmp155, label %for.body.lr.ph, label %for.end
+  %cmp154 = icmp sgt i64 %length, 0
+  br i1 %cmp154, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %tobool.not = icmp eq ptr %0, null
@@ -55416,13 +55438,13 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %bit_length_.i.i.i141 = getelementptr inbounds i8, ptr %this, i64 80
   %false_count_.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %length_.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %length_3.i.i148 = getelementptr inbounds i8, ptr %this, i64 96
+  %length_3.i.i147 = getelementptr inbounds i8, ptr %this, i64 96
   %data_.i.i.i = getelementptr inbounds i8, ptr %this, i64 224
   br i1 %tobool.not, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
-  %i.0156.us = phi i64 [ %inc.us, %for.body.us ], [ 0, %for.body.lr.ph ]
-  %arrayidx37.us = getelementptr i64, ptr %4, i64 %i.0156.us
+  %i.0155.us = phi i64 [ %inc.us, %for.body.us ], [ 0, %for.body.lr.ph ]
+  %arrayidx37.us = getelementptr i64, ptr %4, i64 %i.0155.us
   %11 = load i64, ptr %arrayidx37.us, align 8
   %arrayidx40.us = getelementptr i8, ptr %arrayidx37.us, i64 8
   %12 = load i64, ptr %arrayidx40.us, align 8
@@ -55459,14 +55481,14 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %25 = load i64, ptr %length_.i.i, align 8
   %inc4.i.i.us = add nsw i64 %25, 1
   store i64 %inc4.i.i.us, ptr %length_.i.i, align 8
-  %inc.us = add nuw nsw i64 %i.0156.us, 1
-  %exitcond158.not = icmp eq i64 %inc.us, %length
-  br i1 %exitcond158.not, label %for.end, label %for.body.us, !llvm.loop !1672
+  %inc.us = add nuw nsw i64 %i.0155.us, 1
+  %exitcond157.not = icmp eq i64 %inc.us, %length
+  br i1 %exitcond157.not, label %for.end, label %for.body.us, !llvm.loop !1672
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.0156 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.lr.ph ]
+  %i.0155 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.lr.ph ]
   %26 = load i64, ptr %offset.i, align 8
-  %add32 = add i64 %i.0156, %offset
+  %add32 = add i64 %i.0155, %offset
   %add33 = add i64 %add32, %26
   %shr.i = lshr i64 %add33, 3
   %arrayidx.i136 = getelementptr inbounds i8, ptr %0, i64 %shr.i
@@ -55480,7 +55502,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool.i.not, label %if.else, label %if.then35
 
 if.then35:                                        ; preds = %for.body
-  %arrayidx37 = getelementptr i64, ptr %4, i64 %i.0156
+  %arrayidx37 = getelementptr i64, ptr %4, i64 %i.0155
   %31 = load i64, ptr %arrayidx37, align 8
   %arrayidx40 = getelementptr i8, ptr %arrayidx37, i64 8
   %32 = load i64, ptr %arrayidx40, align 8
@@ -55511,46 +55533,50 @@ if.then35:                                        ; preds = %for.body
   %43 = load i8, ptr %arrayidx5.i.i.i.i, align 1
   %xor105.i.i.i.i = or i8 %43, %42
   store i8 %xor105.i.i.i.i, ptr %arrayidx.i.i.i.i, align 1
+  %44 = load i64, ptr %bit_length_.i.i.i141, align 8
+  %inc4.i2.i.i = add nsw i64 %44, 1
+  store i64 %inc4.i2.i.i, ptr %bit_length_.i.i.i141, align 8
+  %45 = load i64, ptr %length_.i.i, align 8
+  %inc4.i.i = add nsw i64 %45, 1
+  store i64 %inc4.i.i, ptr %length_.i.i, align 8
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
-  %44 = load i64, ptr %size_.i.i.i, align 8
-  %45 = load ptr, ptr %data_.i.i.i137, align 8
-  %46 = load i64, ptr %size_.i.i1.i, align 8
-  %add.ptr.i.i.i138 = getelementptr inbounds i8, ptr %45, i64 %46
-  store i64 %44, ptr %add.ptr.i.i.i138, align 1
-  %47 = load i64, ptr %size_.i.i1.i, align 8
-  %add.i.i.i139 = add nsw i64 %47, 8
+  %46 = load i64, ptr %size_.i.i.i, align 8
+  %47 = load ptr, ptr %data_.i.i.i137, align 8
+  %48 = load i64, ptr %size_.i.i1.i, align 8
+  %add.ptr.i.i.i138 = getelementptr inbounds i8, ptr %47, i64 %48
+  store i64 %46, ptr %add.ptr.i.i.i138, align 1
+  %49 = load i64, ptr %size_.i.i1.i, align 8
+  %add.i.i.i139 = add nsw i64 %49, 8
   store i64 %add.i.i.i139, ptr %size_.i.i1.i, align 8
-  %48 = load ptr, ptr %data_.i.i.i.i.i140, align 8
-  %49 = load i64, ptr %bit_length_.i.i.i141, align 8
-  %div.i.i.i.i142 = sdiv i64 %49, 8
-  %arrayidx.i.i.i.i143 = getelementptr inbounds i8, ptr %48, i64 %div.i.i.i.i142
-  %50 = load i8, ptr %arrayidx.i.i.i.i143, align 1
-  %rem.i.i.i.i144 = srem i64 %49, 8
+  %50 = load ptr, ptr %data_.i.i.i.i.i140, align 8
+  %51 = load i64, ptr %bit_length_.i.i.i141, align 8
+  %div.i.i.i.i142 = sdiv i64 %51, 8
+  %arrayidx.i.i.i.i143 = getelementptr inbounds i8, ptr %50, i64 %div.i.i.i.i142
+  %52 = load i8, ptr %arrayidx.i.i.i.i143, align 1
+  %rem.i.i.i.i144 = srem i64 %51, 8
   %arrayidx5.i.i.i.i145 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i.i144
-  %51 = load i8, ptr %arrayidx5.i.i.i.i145, align 1
-  %52 = xor i8 %51, -1
-  %xor105.i.i.i.i146 = and i8 %50, %52
+  %53 = load i8, ptr %arrayidx5.i.i.i.i145, align 1
+  %54 = xor i8 %53, -1
+  %xor105.i.i.i.i146 = and i8 %52, %54
   store i8 %xor105.i.i.i.i146, ptr %arrayidx.i.i.i.i143, align 1
-  %53 = load i64, ptr %false_count_.i.i.i, align 8
-  %inc.i.i.i = add nsw i64 %53, 1
+  %55 = load i64, ptr %false_count_.i.i.i, align 8
+  %inc.i.i.i = add nsw i64 %55, 1
   store i64 %inc.i.i.i, ptr %false_count_.i.i.i, align 8
-  %54 = load i64, ptr %bit_length_.i.i.i141, align 8
-  %inc4.i.i.i = add nsw i64 %54, 1
+  %56 = load i64, ptr %bit_length_.i.i.i141, align 8
+  %inc4.i.i.i = add nsw i64 %56, 1
   store i64 %inc4.i.i.i, ptr %bit_length_.i.i.i141, align 8
+  %57 = load i64, ptr %length_.i.i, align 8
+  %inc.i.i = add nsw i64 %57, 1
+  store i64 %inc.i.i, ptr %length_.i.i, align 8
+  %58 = load i64, ptr %length_3.i.i147, align 8
+  %inc4.i.i148 = add nsw i64 %58, 1
+  store i64 %inc4.i.i148, ptr %length_3.i.i147, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then35, %if.else
-  %bit_length_.i.i.i141.sink161 = phi ptr [ %bit_length_.i.i.i141, %if.then35 ], [ %length_.i.i, %if.else ]
-  %length_.i.i.sink160 = phi ptr [ %length_.i.i, %if.then35 ], [ %length_3.i.i148, %if.else ]
-  %55 = load i64, ptr %bit_length_.i.i.i141.sink161, align 8
-  %inc4.i2.i.i = add nsw i64 %55, 1
-  store i64 %inc4.i2.i.i, ptr %bit_length_.i.i.i141.sink161, align 8
-  %56 = load i64, ptr %length_.i.i.sink160, align 8
-  %inc4.i.i = add nsw i64 %56, 1
-  store i64 %inc4.i.i, ptr %length_.i.i.sink160, align 8
-  %inc = add nuw nsw i64 %i.0156, 1
+  %inc = add nuw nsw i64 %i.0155, 1
   %exitcond.not = icmp eq i64 %inc, %length
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !1672
 
@@ -57847,8 +57873,8 @@ _ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE10AppendNullEv.exit.thread.i.
   store i64 %inc4.i.i.i.i.i, ptr %bit_length_.i.i.i.i.i, align 8, !noalias !1773
   %length_.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 200
   %24 = load i64, ptr %length_.i.i.i.i, align 8, !noalias !1773
-  %inc4.i2.i.i.i.i = add nsw i64 %24, 1
-  store i64 %inc4.i2.i.i.i.i, ptr %length_.i.i.i.i, align 8, !noalias !1773
+  %inc.i.i.i.i = add nsw i64 %24, 1
+  store i64 %inc.i.i.i.i, ptr %length_.i.i.i.i, align 8, !noalias !1773
   %length_3.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 192
   %25 = load i64, ptr %length_3.i.i.i.i, align 8, !noalias !1773
   %inc4.i.i.i.i = add nsw i64 %25, 1
@@ -60253,8 +60279,8 @@ _ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE10AppendNullEv.exit.thread.i.i: ; 
   store i64 %inc4.i.i.i.i.i, ptr %bit_length_.i.i.i.i.i, align 8, !noalias !1967
   %length_.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val.0.val.104.val, i64 200
   %16 = load i64, ptr %length_.i.i.i.i, align 8, !noalias !1967
-  %inc4.i2.i.i.i.i = add nsw i64 %16, 1
-  store i64 %inc4.i2.i.i.i.i, ptr %length_.i.i.i.i, align 8, !noalias !1967
+  %inc.i.i.i.i = add nsw i64 %16, 1
+  store i64 %inc.i.i.i.i, ptr %length_.i.i.i.i, align 8, !noalias !1967
   %length_3.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val.0.val.104.val, i64 192
   %17 = load i64, ptr %length_3.i.i.i.i, align 8, !noalias !1967
   %inc4.i.i.i.i = add nsw i64 %17, 1
@@ -61949,8 +61975,8 @@ _ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE10AppendNullEv.exit.thread.i.i: ; 
   store i64 %inc4.i.i.i.i.i, ptr %bit_length_.i.i.i.i.i, align 8, !noalias !2080
   %length_.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 200
   %24 = load i64, ptr %length_.i.i.i.i, align 8, !noalias !2080
-  %inc4.i2.i.i.i.i = add nsw i64 %24, 1
-  store i64 %inc4.i2.i.i.i.i, ptr %length_.i.i.i.i, align 8, !noalias !2080
+  %inc.i.i.i.i = add nsw i64 %24, 1
+  store i64 %inc.i.i.i.i, ptr %length_.i.i.i.i, align 8, !noalias !2080
   %length_3.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 192
   %25 = load i64, ptr %length_3.i.i.i.i, align 8, !noalias !2080
   %inc4.i.i.i.i = add nsw i64 %25, 1
@@ -72023,8 +72049,8 @@ do.end6:                                          ; preds = %nrvo.skipdtor.threa
   store i64 %inc4.i.i, ptr %bit_length_.i.i, align 8
   %length_.i = getelementptr inbounds i8, ptr %this, i64 104
   %13 = load i64, ptr %length_.i, align 8
-  %inc4.i2.i = add nsw i64 %13, 1
-  store i64 %inc4.i2.i, ptr %length_.i, align 8
+  %inc.i = add nsw i64 %13, 1
+  store i64 %inc.i, ptr %length_.i, align 8
   %length_3.i = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load i64, ptr %length_3.i, align 8
   %inc4.i = add nsw i64 %14, 1
@@ -79483,8 +79509,8 @@ _ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE10AppendNullEv.exit.thread.i.i: ; 
   store i64 %inc4.i.i.i.i.i, ptr %bit_length_.i.i.i.i.i, align 8, !noalias !3089
   %length_.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 200
   %24 = load i64, ptr %length_.i.i.i.i, align 8, !noalias !3089
-  %inc4.i2.i.i.i.i = add nsw i64 %24, 1
-  store i64 %inc4.i2.i.i.i.i, ptr %length_.i.i.i.i, align 8, !noalias !3089
+  %inc.i.i.i.i = add nsw i64 %24, 1
+  store i64 %inc.i.i.i.i, ptr %length_.i.i.i.i, align 8, !noalias !3089
   %length_3.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 192
   %25 = load i64, ptr %length_3.i.i.i.i, align 8, !noalias !3089
   %inc4.i.i.i.i = add nsw i64 %25, 1
@@ -79588,8 +79614,8 @@ if.else.i.i:                                      ; preds = %entry
   %conv.i.i5.i.i = sext i32 %8 to i64
   %arrayidx.i.i.i.i.i = getelementptr inbounds i64, ptr %on_found.val.val.i.i, i64 %conv.i.i5.i.i
   %38 = load i64, ptr %arrayidx.i.i.i.i.i, align 8, !noalias !3073
-  %inc.i.i.i.i = add nsw i64 %38, 1
-  store i64 %inc.i.i.i.i, ptr %arrayidx.i.i.i.i.i, align 8, !noalias !3073
+  %inc.i.i6.i.i = add nsw i64 %38, 1
+  store i64 %inc.i.i6.i.i, ptr %arrayidx.i.i.i.i.i, align 8, !noalias !3073
   br label %_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10BinaryTypeENS2_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv.exit
 
 lpad.i:                                           ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i, %call2.i.noexc.i, %if.then.i.i
@@ -80683,8 +80709,8 @@ _ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE10AppendNullEv.exit.thread.i.
   store i64 %inc4.i.i.i.i.i, ptr %bit_length_.i.i.i.i.i, align 8, !noalias !3189
   %length_.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 200
   %24 = load i64, ptr %length_.i.i.i.i, align 8, !noalias !3189
-  %inc4.i2.i.i.i.i = add nsw i64 %24, 1
-  store i64 %inc4.i2.i.i.i.i, ptr %length_.i.i.i.i, align 8, !noalias !3189
+  %inc.i.i.i.i = add nsw i64 %24, 1
+  store i64 %inc.i.i.i.i, ptr %length_.i.i.i.i, align 8, !noalias !3189
   %length_3.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 192
   %25 = load i64, ptr %length_3.i.i.i.i, align 8, !noalias !3189
   %inc4.i.i.i.i = add nsw i64 %25, 1
@@ -80788,8 +80814,8 @@ if.else.i.i:                                      ; preds = %entry
   %conv.i.i.i.i = sext i32 %8 to i64
   %arrayidx.i.i.i.i.i = getelementptr inbounds i64, ptr %on_found.val.val.i.i, i64 %conv.i.i.i.i
   %38 = load i64, ptr %arrayidx.i.i.i.i.i, align 8, !noalias !3173
-  %inc.i.i.i.i = add nsw i64 %38, 1
-  store i64 %inc.i.i.i.i, ptr %arrayidx.i.i.i.i.i, align 8, !noalias !3173
+  %inc.i.i5.i.i = add nsw i64 %38, 1
+  store i64 %inc.i.i5.i.i, ptr %arrayidx.i.i.i.i.i, align 8, !noalias !3173
   br label %_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_15LargeBinaryTypeENS2_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv.exit
 
 lpad.i:                                           ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i, %call2.i.noexc.i, %if.then.i.i
@@ -81878,8 +81904,8 @@ _ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE10AppendNullEv.exit.thread.i.i: ; 
   store i64 %inc4.i.i.i.i.i, ptr %bit_length_.i.i.i.i.i, align 8, !noalias !3289
   %length_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 200
   %17 = load i64, ptr %length_.i.i.i.i, align 8, !noalias !3289
-  %inc4.i2.i.i.i.i = add nsw i64 %17, 1
-  store i64 %inc4.i2.i.i.i.i, ptr %length_.i.i.i.i, align 8, !noalias !3289
+  %inc.i.i.i.i = add nsw i64 %17, 1
+  store i64 %inc.i.i.i.i, ptr %length_.i.i.i.i, align 8, !noalias !3289
   %length_3.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 192
   %18 = load i64, ptr %length_3.i.i.i.i, align 8, !noalias !3289
   %inc4.i.i.i.i = add nsw i64 %18, 1
@@ -81983,8 +82009,8 @@ if.else.i.i:                                      ; preds = %entry
   %conv.i.i5.i.i = sext i32 %1 to i64
   %arrayidx.i.i.i.i.i = getelementptr inbounds i64, ptr %on_found.val.val.i.i, i64 %conv.i.i5.i.i
   %31 = load i64, ptr %arrayidx.i.i.i.i.i, align 8, !noalias !3273
-  %inc.i.i.i.i = add nsw i64 %31, 1
-  store i64 %inc.i.i.i.i, ptr %arrayidx.i.i.i.i.i, align 8, !noalias !3273
+  %inc.i.i6.i.i = add nsw i64 %31, 1
+  store i64 %inc.i.i6.i.i, ptr %arrayidx.i.i.i.i.i, align 8, !noalias !3273
   br label %_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_14BinaryViewTypeENS2_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv.exit
 
 lpad.i:                                           ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i, %call2.i.noexc.i, %if.then.i.i
@@ -83061,8 +83087,8 @@ _ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE10AppendNullEv.exit.thread.i.i: ; 
   store i64 %inc4.i.i.i.i.i, ptr %bit_length_.i.i.i.i.i, align 8, !noalias !3386
   %length_.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 200
   %24 = load i64, ptr %length_.i.i.i.i, align 8, !noalias !3386
-  %inc4.i2.i.i.i.i = add nsw i64 %24, 1
-  store i64 %inc4.i2.i.i.i.i, ptr %length_.i.i.i.i, align 8, !noalias !3386
+  %inc.i.i.i.i = add nsw i64 %24, 1
+  store i64 %inc.i.i.i.i, ptr %length_.i.i.i.i, align 8, !noalias !3386
   %length_3.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 192
   %25 = load i64, ptr %length_3.i.i.i.i, align 8, !noalias !3386
   %inc4.i.i.i.i = add nsw i64 %25, 1
@@ -83166,8 +83192,8 @@ if.else.i.i:                                      ; preds = %entry
   %conv.i.i5.i.i = sext i32 %8 to i64
   %arrayidx.i.i.i.i.i = getelementptr inbounds i64, ptr %on_found.val.val.i.i, i64 %conv.i.i5.i.i
   %38 = load i64, ptr %arrayidx.i.i.i.i.i, align 8, !noalias !3370
-  %inc.i.i.i.i = add nsw i64 %38, 1
-  store i64 %inc.i.i.i.i, ptr %arrayidx.i.i.i.i.i, align 8, !noalias !3370
+  %inc.i.i6.i.i = add nsw i64 %38, 1
+  store i64 %inc.i.i6.i.i, ptr %arrayidx.i.i.i.i.i, align 8, !noalias !3370
   br label %_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_19FixedSizeBinaryTypeENS2_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv.exit
 
 lpad.i:                                           ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i, %call2.i.noexc.i, %if.then.i.i
@@ -88578,8 +88604,8 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %entry
 
 for.cond.preheader.i:                             ; preds = %_ZN5arrow6StatusD2Ev.exit.i, %_ZN5arrow6StatusD2Ev.exit.thread.i
   %4 = load i64, ptr %length.i, align 8, !noalias !3674
-  %cmp46.i = icmp sgt i64 %4, 0
-  br i1 %cmp46.i, label %for.body.lr.ph.i, label %for.end.i
+  %cmp47.i = icmp sgt i64 %4, 0
+  br i1 %cmp47.i, label %for.body.lr.ph.i, label %for.end.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %null_encoding_behavior.i.i = getelementptr inbounds i8, ptr %this, i64 344
@@ -88587,14 +88613,14 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
   %bit_length_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 192
   %false_count_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 200
   %length_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 216
-  %data_.i.i.i11.i.i = getelementptr inbounds i8, ptr %this, i64 296
-  %size_.i.i.i12.i.i = getelementptr inbounds i8, ptr %this, i64 312
+  %data_.i.i.i10.i.i = getelementptr inbounds i8, ptr %this, i64 296
+  %size_.i.i.i11.i.i = getelementptr inbounds i8, ptr %this, i64 312
   %seen_null_.i = getelementptr inbounds i8, ptr %this, i64 80
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
-  %i.047.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.inc.i ]
-  %cmp8.i = icmp eq i64 %i.047.i, 0
+  %i.048.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.inc.i ]
+  %cmp8.i = icmp eq i64 %i.048.i, 0
   br i1 %cmp8.i, label %if.then9.i, label %if.else.i
 
 if.then9.i:                                       ; preds = %for.body.i
@@ -88619,65 +88645,68 @@ if.then.i.i40.i:                                  ; preds = %if.then9.i
   %inc.i.i.i.i.i.i = add nsw i64 %11, 1
   store i64 %inc.i.i.i.i.i.i, ptr %false_count_.i.i.i.i.i, align 8, !noalias !3674
   %12 = load i64, ptr %bit_length_.i.i.i.i.i, align 8, !noalias !3674
-  %inc4.i.i.i.i.i.i = add nsw i64 %12, 1
-  store i64 %inc4.i.i.i.i.i.i, ptr %bit_length_.i.i.i.i.i, align 8, !noalias !3674
+  %13 = load i64, ptr %length_.i.i.i.i, align 8, !noalias !3674
+  %inc.i.i.i.i.i = add nsw i64 %13, 1
+  store i64 %inc.i.i.i.i.i, ptr %length_.i.i.i.i, align 8, !noalias !3674
   br label %for.inc.i
 
 if.else.i.i.i:                                    ; preds = %if.then9.i
   %xor105.i.i.i.i7.i.i.i = or i8 %9, %8
   store i8 %xor105.i.i.i.i7.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i, align 1, !noalias !3674
+  %14 = load i64, ptr %bit_length_.i.i.i.i.i, align 8, !noalias !3674
   br label %for.inc.i
 
 if.else.i:                                        ; preds = %for.body.i
-  %13 = load i32, ptr %null_encoding_behavior.i.i, align 8, !noalias !3674
-  %cmp.i41.i = icmp eq i32 %13, 1
-  %14 = load ptr, ptr %data_.i.i.i.i.i.i.i, align 8, !noalias !3674
-  %15 = load i64, ptr %bit_length_.i.i.i.i.i, align 8, !noalias !3674
-  %div.i.i.i.i.i.i = sdiv i64 %15, 8
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 %div.i.i.i.i.i.i
-  %16 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1, !noalias !3674
-  %rem.i.i.i.i.i.i = srem i64 %15, 8
+  %15 = load i32, ptr %null_encoding_behavior.i.i, align 8, !noalias !3674
+  %cmp.i41.i = icmp eq i32 %15, 1
+  %16 = load ptr, ptr %data_.i.i.i.i.i.i.i, align 8, !noalias !3674
+  %17 = load i64, ptr %bit_length_.i.i.i.i.i, align 8, !noalias !3674
+  %div.i.i.i.i.i.i = sdiv i64 %17, 8
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 %div.i.i.i.i.i.i
+  %18 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1, !noalias !3674
+  %rem.i.i.i.i.i.i = srem i64 %17, 8
   %arrayidx5.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i.i.i.i
-  %17 = load i8, ptr %arrayidx5.i.i.i.i.i.i, align 1, !noalias !3674
+  %19 = load i8, ptr %arrayidx5.i.i.i.i.i.i, align 1, !noalias !3674
   br i1 %cmp.i41.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.else.i
-  %18 = xor i8 %17, -1
-  %xor105.i.i.i.i.i.i = and i8 %16, %18
+  %20 = xor i8 %19, -1
+  %xor105.i.i.i.i.i.i = and i8 %18, %20
   store i8 %xor105.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i, align 1, !noalias !3674
-  %19 = load i64, ptr %false_count_.i.i.i.i.i, align 8, !noalias !3674
-  %inc.i.i.i.i.i = add nsw i64 %19, 1
-  store i64 %inc.i.i.i.i.i, ptr %false_count_.i.i.i.i.i, align 8, !noalias !3674
-  %20 = load i64, ptr %bit_length_.i.i.i.i.i, align 8, !noalias !3674
-  %inc4.i.i.i.i.i = add nsw i64 %20, 1
-  store i64 %inc4.i.i.i.i.i, ptr %bit_length_.i.i.i.i.i, align 8, !noalias !3674
+  %21 = load i64, ptr %false_count_.i.i.i.i.i, align 8, !noalias !3674
+  %inc.i.i.i.i42.i = add nsw i64 %21, 1
+  store i64 %inc.i.i.i.i42.i, ptr %false_count_.i.i.i.i.i, align 8, !noalias !3674
+  %22 = load i64, ptr %bit_length_.i.i.i.i.i, align 8, !noalias !3674
+  %23 = load i64, ptr %length_.i.i.i.i, align 8, !noalias !3674
+  %inc.i.i.i.i = add nsw i64 %23, 1
+  store i64 %inc.i.i.i.i, ptr %length_.i.i.i.i, align 8, !noalias !3674
   br label %for.inc.i
 
 if.else.i.i:                                      ; preds = %if.else.i
-  %xor105.i.i.i.i7.i.i = or i8 %17, %16
+  %xor105.i.i.i.i7.i.i = or i8 %19, %18
   store i8 %xor105.i.i.i.i7.i.i, ptr %arrayidx.i.i.i.i.i.i, align 1, !noalias !3674
+  %24 = load i64, ptr %bit_length_.i.i.i.i.i, align 8, !noalias !3674
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.else.i.i, %if.then.i.i, %if.else.i.i.i, %if.then.i.i40.i
-  %bit_length_.i.i.i.sink20.i.i.sink50.i = phi ptr [ %bit_length_.i.i.i.i.i, %if.else.i.i.i ], [ %length_.i.i.i.i, %if.then.i.i40.i ], [ %bit_length_.i.i.i.i.i, %if.else.i.i ], [ %length_.i.i.i.i, %if.then.i.i ]
-  %.sink.i.i.sink.i = phi i64 [ 128, %if.else.i.i.i ], [ 120, %if.then.i.i40.i ], [ 128, %if.else.i.i ], [ 120, %if.then.i.i ]
-  %21 = load i64, ptr %bit_length_.i.i.i.sink20.i.i.sink50.i, align 8, !noalias !3674
-  %inc4.i2.i.i8.i.i.i = add nsw i64 %21, 1
-  store i64 %inc4.i2.i.i8.i.i.i, ptr %bit_length_.i.i.i.sink20.i.i.sink50.i, align 8, !noalias !3674
-  %length_3.i.i9.i.i.i = getelementptr inbounds i8, ptr %action_.i, i64 %.sink.i.i.sink.i
-  %22 = load i64, ptr %length_3.i.i9.i.i.i, align 8, !noalias !3674
-  %inc4.i.i10.i.i.i = add nsw i64 %22, 1
-  store i64 %inc4.i.i10.i.i.i, ptr %length_3.i.i9.i.i.i, align 8, !noalias !3674
-  %23 = load ptr, ptr %data_.i.i.i11.i.i, align 8, !noalias !3674
-  %24 = load i64, ptr %size_.i.i.i12.i.i, align 8, !noalias !3674
-  %add.ptr.i.i.i13.i.i.i = getelementptr inbounds i8, ptr %23, i64 %24
-  store i32 0, ptr %add.ptr.i.i.i13.i.i.i, align 1, !noalias !3674
-  %storemerge.in.i = load i64, ptr %size_.i.i.i12.i.i, align 8, !noalias !3674
+  %inc4.i2.i.i.i.sink.in.i.sink.i = phi i64 [ %12, %if.then.i.i40.i ], [ %14, %if.else.i.i.i ], [ %22, %if.then.i.i ], [ %24, %if.else.i.i ]
+  %.sink.i.i.sink.i = phi i64 [ 120, %if.then.i.i40.i ], [ 128, %if.else.i.i.i ], [ 120, %if.then.i.i ], [ 128, %if.else.i.i ]
+  %inc4.i2.i.i.i.sink.i.i = add nsw i64 %inc4.i2.i.i.i.sink.in.i.sink.i, 1
+  store i64 %inc4.i2.i.i.i.sink.i.i, ptr %bit_length_.i.i.i.i.i, align 8, !noalias !3674
+  %length_3.i.i8.i.i.i = getelementptr inbounds i8, ptr %action_.i, i64 %.sink.i.i.sink.i
+  %25 = load i64, ptr %length_3.i.i8.i.i.i, align 8, !noalias !3674
+  %inc4.i.i9.i.i.i = add nsw i64 %25, 1
+  store i64 %inc4.i.i9.i.i.i, ptr %length_3.i.i8.i.i.i, align 8, !noalias !3674
+  %26 = load ptr, ptr %data_.i.i.i10.i.i, align 8, !noalias !3674
+  %27 = load i64, ptr %size_.i.i.i11.i.i, align 8, !noalias !3674
+  %add.ptr.i.i.i12.i.i.i = getelementptr inbounds i8, ptr %26, i64 %27
+  store i32 0, ptr %add.ptr.i.i.i12.i.i.i, align 1, !noalias !3674
+  %storemerge.in.i = load i64, ptr %size_.i.i.i11.i.i, align 8, !noalias !3674
   %storemerge.i = add nsw i64 %storemerge.in.i, 4
-  store i64 %storemerge.i, ptr %size_.i.i.i12.i.i, align 8, !noalias !3674
-  %inc.i = add nuw nsw i64 %i.047.i, 1
-  %25 = load i64, ptr %length.i, align 8, !noalias !3674
-  %cmp.i = icmp slt i64 %inc.i, %25
+  store i64 %storemerge.i, ptr %size_.i.i.i11.i.i, align 8, !noalias !3674
+  %inc.i = add nuw nsw i64 %i.048.i, 1
+  %28 = load i64, ptr %length.i, align 8, !noalias !3674
+  %cmp.i = icmp slt i64 %inc.i, %28
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !3688
 
 for.end.i:                                        ; preds = %for.inc.i, %for.cond.preheader.i
@@ -89078,8 +89107,8 @@ do.end6:                                          ; preds = %nrvo.skipdtor.threa
   store i64 %inc4.i.i, ptr %bit_length_.i.i, align 8
   %length_.i = getelementptr inbounds i8, ptr %this, i64 104
   %13 = load i64, ptr %length_.i, align 8
-  %inc4.i2.i = add nsw i64 %13, 1
-  store i64 %inc4.i2.i, ptr %length_.i, align 8
+  %inc.i = add nsw i64 %13, 1
+  store i64 %inc.i, ptr %length_.i, align 8
   %length_3.i = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load i64, ptr %length_3.i, align 8
   %inc4.i = add nsw i64 %14, 1
@@ -91293,6 +91322,7 @@ _ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_11BooleanTypeENS
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_11BooleanTypeENS2_16DictEncodeActionEbLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture %this.0.val) unnamed_addr #3 align 2 {
 entry:
+  %action_ = getelementptr inbounds i8, ptr %this.0.val, i64 80
   %0 = getelementptr i8, ptr %this.0.val, i64 336
   %action_.val = load i32, ptr %0, align 8
   %cmp.i = icmp eq i32 %action_.val, 0
@@ -91304,7 +91334,7 @@ if.then:                                          ; preds = %entry
   %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load i32, ptr %arrayidx.i.i, align 8
   %cmp.i1 = icmp eq i32 %2, -1
-  br i1 %cmp.i1, label %if.then.i, label %if.else.i.i.i
+  br i1 %cmp.i1, label %if.then.i, label %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_11BooleanTypeENS2_16DictEncodeActionEbLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE_clEi.exit.i
 
 if.then.i:                                        ; preds = %if.then
   %vtable.i = load ptr, ptr %1, align 8
@@ -91371,85 +91401,110 @@ if.then.i.i.i5.i:                                 ; preds = %_ZNSt6vectorIbSaIbE
   %inc.i.i.i.i.i.i.i = add nsw i64 %13, 1
   store i64 %inc.i.i.i.i.i.i.i, ptr %false_count_.i.i.i.i.i.i.i, align 8
   %14 = load i64, ptr %bit_length_.i.i.i.i.i.i.i, align 8
-  %inc4.i.i.i.i.i.i.i = add nsw i64 %14, 1
-  store i64 %inc4.i.i.i.i.i.i.i, ptr %bit_length_.i.i.i.i.i.i.i, align 8
   %length_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 208
-  br label %if.end
+  %15 = load i64, ptr %length_.i.i.i.i.i.i, align 8
+  %inc.i.i.i.i.i.i = add nsw i64 %15, 1
+  store i64 %inc.i.i.i.i.i.i, ptr %length_.i.i.i.i.i.i, align 8
+  br label %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_11BooleanTypeENS2_16DictEncodeActionEbLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i
 
 if.else.i.i.i.i:                                  ; preds = %_ZNSt6vectorIbSaIbEE9push_backEb.exit.i
   %xor105.i.i.i.i7.i.i.i.i = or i8 %11, %10
   store i8 %xor105.i.i.i.i7.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i.i, align 1
+  %16 = load i64, ptr %bit_length_.i.i.i.i.i.i.i, align 8
+  br label %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_11BooleanTypeENS2_16DictEncodeActionEbLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i
+
+_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_11BooleanTypeENS2_16DictEncodeActionEbLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i: ; preds = %if.else.i.i.i.i, %if.then.i.i.i5.i
+  %inc4.i2.i.i.i.sink.in.i.i.i = phi i64 [ %14, %if.then.i.i.i5.i ], [ %16, %if.else.i.i.i.i ]
+  %.sink.i.i.i.i = phi i64 [ 120, %if.then.i.i.i5.i ], [ 128, %if.else.i.i.i.i ]
+  %index.sink.i.i.i.i = phi i32 [ 0, %if.then.i.i.i5.i ], [ %call2.i, %if.else.i.i.i.i ]
+  %inc4.i2.i.i.i.sink.i.i.i = add nsw i64 %inc4.i2.i.i.i.sink.in.i.i.i, 1
+  store i64 %inc4.i2.i.i.i.sink.i.i.i, ptr %bit_length_.i.i.i.i.i.i.i, align 8
+  %length_3.i.i8.i.i.i.i = getelementptr inbounds i8, ptr %action_, i64 %.sink.i.i.i.i
+  %17 = load i64, ptr %length_3.i.i8.i.i.i.i, align 8
+  %inc4.i.i9.i.i.i.i = add nsw i64 %17, 1
+  store i64 %inc4.i.i9.i.i.i.i, ptr %length_3.i.i8.i.i.i.i, align 8
   br label %if.end
 
-if.else.i.i.i:                                    ; preds = %if.then
+_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_11BooleanTypeENS2_16DictEncodeActionEbLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE_clEi.exit.i: ; preds = %if.then
   %bit_length_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 184
-  %15 = load i64, ptr %bit_length_.i.i.i.i.i.i, align 8
-  %rem.i.i.i.i.i.i.i = srem i64 %15, 8
+  %18 = load i64, ptr %bit_length_.i.i.i.i.i.i, align 8
+  %rem.i.i.i.i.i.i.i = srem i64 %18, 8
   %arrayidx5.i.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i.i.i.i.i
-  %16 = load i8, ptr %arrayidx5.i.i.i.i.i.i.i, align 1
+  %19 = load i8, ptr %arrayidx5.i.i.i.i.i.i.i, align 1
   %data_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 152
-  %17 = load ptr, ptr %data_.i.i.i.i.i.i.i.i, align 8
-  %div.i.i.i.i.i.i.i = sdiv i64 %15, 8
-  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 %div.i.i.i.i.i.i.i
-  %18 = load i8, ptr %arrayidx.i.i.i.i.i.i.i, align 1
-  %xor105.i.i.i.i7.i.i.i = or i8 %16, %18
+  %20 = load ptr, ptr %data_.i.i.i.i.i.i.i.i, align 8
+  %div.i.i.i.i.i.i.i = sdiv i64 %18, 8
+  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %20, i64 %div.i.i.i.i.i.i.i
+  %21 = load i8, ptr %arrayidx.i.i.i.i.i.i.i, align 1
+  %xor105.i.i.i.i7.i.i.i = or i8 %19, %21
   store i8 %xor105.i.i.i.i7.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i, align 1
+  %22 = load i64, ptr %bit_length_.i.i.i.i.i.i, align 8
+  %inc4.i2.i.i.i.sink.i.i = add nsw i64 %22, 1
+  store i64 %inc4.i2.i.i.i.sink.i.i, ptr %bit_length_.i.i.i.i.i.i, align 8
+  %length_3.i.i8.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 208
+  %23 = load i64, ptr %length_3.i.i8.i.i.i, align 8
+  %inc4.i.i9.i.i.i = add nsw i64 %23, 1
+  store i64 %inc4.i.i9.i.i.i, ptr %length_3.i.i8.i.i.i, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %cmp.i.i = icmp eq i32 %action_.val, 1
   %data_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 152
-  %19 = load ptr, ptr %data_.i.i.i.i.i.i.i, align 8
+  %24 = load ptr, ptr %data_.i.i.i.i.i.i.i, align 8
   %bit_length_.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 184
-  %20 = load i64, ptr %bit_length_.i.i.i.i.i, align 8
-  %div.i.i.i.i.i.i = sdiv i64 %20, 8
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 %div.i.i.i.i.i.i
-  %21 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1
-  %rem.i.i.i.i.i.i = srem i64 %20, 8
+  %25 = load i64, ptr %bit_length_.i.i.i.i.i, align 8
+  %div.i.i.i.i.i.i = sdiv i64 %25, 8
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 %div.i.i.i.i.i.i
+  %26 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1
+  %rem.i.i.i.i.i.i = srem i64 %25, 8
   %arrayidx5.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i.i.i.i
-  %22 = load i8, ptr %arrayidx5.i.i.i.i.i.i, align 1
+  %27 = load i8, ptr %arrayidx5.i.i.i.i.i.i, align 1
   br i1 %cmp.i.i, label %if.then.i.i3, label %if.else.i.i2
 
 if.then.i.i3:                                     ; preds = %if.else
-  %23 = xor i8 %22, -1
-  %xor105.i.i.i.i.i.i = and i8 %21, %23
+  %28 = xor i8 %27, -1
+  %xor105.i.i.i.i.i.i = and i8 %26, %28
   store i8 %xor105.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i, align 1
   %false_count_.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 192
-  %24 = load i64, ptr %false_count_.i.i.i.i.i, align 8
-  %inc.i.i.i.i.i = add nsw i64 %24, 1
-  store i64 %inc.i.i.i.i.i, ptr %false_count_.i.i.i.i.i, align 8
-  %25 = load i64, ptr %bit_length_.i.i.i.i.i, align 8
-  %inc4.i.i.i.i.i = add nsw i64 %25, 1
-  store i64 %inc4.i.i.i.i.i, ptr %bit_length_.i.i.i.i.i, align 8
+  %29 = load i64, ptr %false_count_.i.i.i.i.i, align 8
+  %inc.i.i.i.i.i4 = add nsw i64 %29, 1
+  store i64 %inc.i.i.i.i.i4, ptr %false_count_.i.i.i.i.i, align 8
+  %30 = load i64, ptr %bit_length_.i.i.i.i.i, align 8
   %length_.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 208
-  br label %if.end
+  %31 = load i64, ptr %length_.i.i.i.i, align 8
+  %inc.i.i.i.i5 = add nsw i64 %31, 1
+  store i64 %inc.i.i.i.i5, ptr %length_.i.i.i.i, align 8
+  br label %_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit
 
 if.else.i.i2:                                     ; preds = %if.else
-  %xor105.i.i.i.i7.i.i = or i8 %22, %21
+  %xor105.i.i.i.i7.i.i = or i8 %27, %26
   store i8 %xor105.i.i.i.i7.i.i, ptr %arrayidx.i.i.i.i.i.i, align 1
+  %32 = load i64, ptr %bit_length_.i.i.i.i.i, align 8
+  br label %_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit
+
+_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit: ; preds = %if.then.i.i3, %if.else.i.i2
+  %inc4.i2.i.i.i.sink.in.i = phi i64 [ %30, %if.then.i.i3 ], [ %32, %if.else.i.i2 ]
+  %.sink.i.i = phi i64 [ 120, %if.then.i.i3 ], [ 128, %if.else.i.i2 ]
+  %index.sink.i.i = phi i32 [ 0, %if.then.i.i3 ], [ -1, %if.else.i.i2 ]
+  %inc4.i2.i.i.i.sink.i = add nsw i64 %inc4.i2.i.i.i.sink.in.i, 1
+  store i64 %inc4.i2.i.i.i.sink.i, ptr %bit_length_.i.i.i.i.i, align 8
+  %length_3.i.i8.i.i = getelementptr inbounds i8, ptr %action_, i64 %.sink.i.i
+  %33 = load i64, ptr %length_3.i.i8.i.i, align 8
+  %inc4.i.i9.i.i = add nsw i64 %33, 1
+  store i64 %inc4.i.i9.i.i, ptr %length_3.i.i8.i.i, align 8
   br label %if.end
 
-if.end:                                           ; preds = %if.else.i.i2, %if.then.i.i3, %if.else.i.i.i, %if.else.i.i.i.i, %if.then.i.i.i5.i
-  %bit_length_.i.i.i.sink20.i.i.sink5 = phi ptr [ %length_.i.i.i.i.i.i, %if.then.i.i.i5.i ], [ %bit_length_.i.i.i.i.i.i.i, %if.else.i.i.i.i ], [ %bit_length_.i.i.i.i.i.i, %if.else.i.i.i ], [ %bit_length_.i.i.i.i.i, %if.else.i.i2 ], [ %length_.i.i.i.i, %if.then.i.i3 ]
-  %.sink.i.i.sink = phi i64 [ 120, %if.then.i.i.i5.i ], [ 128, %if.else.i.i.i.i ], [ 128, %if.else.i.i.i ], [ 128, %if.else.i.i2 ], [ 120, %if.then.i.i3 ]
-  %index.sink.i.i.sink = phi i32 [ 0, %if.then.i.i.i5.i ], [ %call2.i, %if.else.i.i.i.i ], [ %2, %if.else.i.i.i ], [ -1, %if.else.i.i2 ], [ 0, %if.then.i.i3 ]
-  %action_ = getelementptr inbounds i8, ptr %this.0.val, i64 80
-  %26 = load i64, ptr %bit_length_.i.i.i.sink20.i.i.sink5, align 8
-  %inc4.i2.i.i8.i.i = add nsw i64 %26, 1
-  store i64 %inc4.i2.i.i8.i.i, ptr %bit_length_.i.i.i.sink20.i.i.sink5, align 8
-  %length_3.i.i9.i.i = getelementptr inbounds i8, ptr %action_, i64 %.sink.i.i.sink
-  %27 = load i64, ptr %length_3.i.i9.i.i, align 8
-  %inc4.i.i10.i.i = add nsw i64 %27, 1
-  store i64 %inc4.i.i10.i.i, ptr %length_3.i.i9.i.i, align 8
-  %data_.i.i.i11.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 288
-  %28 = load ptr, ptr %data_.i.i.i11.i.i, align 8
-  %size_.i.i.i12.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 304
-  %29 = load i64, ptr %size_.i.i.i12.i.i, align 8
-  %add.ptr.i.i.i13.i.i = getelementptr inbounds i8, ptr %28, i64 %29
-  store i32 %index.sink.i.i.sink, ptr %add.ptr.i.i.i13.i.i, align 1
-  %30 = load i64, ptr %size_.i.i.i12.i.i, align 8
-  %add.i.i.i14.i.i = add nsw i64 %30, 4
-  store i64 %add.i.i.i14.i.i, ptr %size_.i.i.i12.i.i, align 8
+if.end:                                           ; preds = %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_11BooleanTypeENS2_16DictEncodeActionEbLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE_clEi.exit.i, %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_11BooleanTypeENS2_16DictEncodeActionEbLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i, %_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit
+  %index.sink.i.i.sink = phi i32 [ %index.sink.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit ], [ %2, %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_11BooleanTypeENS2_16DictEncodeActionEbLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE_clEi.exit.i ], [ %index.sink.i.i.i.i, %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_11BooleanTypeENS2_16DictEncodeActionEbLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i ]
+  %data_.i.i.i10.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 288
+  %34 = load ptr, ptr %data_.i.i.i10.i.i, align 8
+  %size_.i.i.i11.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 304
+  %35 = load i64, ptr %size_.i.i.i11.i.i, align 8
+  %add.ptr.i.i.i12.i.i = getelementptr inbounds i8, ptr %34, i64 %35
+  store i32 %index.sink.i.i.sink, ptr %add.ptr.i.i.i12.i.i, align 1
+  %36 = load i64, ptr %size_.i.i.i11.i.i, align 8
+  %add.i.i.i13.i.i = add nsw i64 %36, 4
+  store i64 %add.i.i.i13.i.i, ptr %size_.i.i.i11.i.i, align 8
   store ptr null, ptr %agg.result, align 8, !alias.scope !3872
   ret void
 }
@@ -92281,6 +92336,7 @@ _ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_9UInt8TypeENS2_1
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_9UInt8TypeENS2_16DictEncodeActionEhLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture %this.0.val) unnamed_addr #3 align 2 {
 entry:
+  %action_ = getelementptr inbounds i8, ptr %this.0.val, i64 80
   %0 = getelementptr i8, ptr %this.0.val, i64 336
   %action_.val = load i32, ptr %0, align 8
   %cmp.i = icmp eq i32 %action_.val, 0
@@ -92292,7 +92348,7 @@ if.then:                                          ; preds = %entry
   %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 1032
   %2 = load i32, ptr %arrayidx.i.i, align 8
   %cmp.i1 = icmp eq i32 %2, -1
-  br i1 %cmp.i1, label %if.then.i, label %if.else.i.i4.i
+  br i1 %cmp.i1, label %if.then.i, label %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_9UInt8TypeENS2_16DictEncodeActionEhLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE_clEi.exit.i
 
 if.then.i:                                        ; preds = %if.then
   %vtable.i = load ptr, ptr %1, align 8
@@ -92391,85 +92447,110 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt6vectorIhSaIhE
   %inc.i.i.i.i.i.i.i = add nsw i64 %15, 1
   store i64 %inc.i.i.i.i.i.i.i, ptr %false_count_.i.i.i.i.i.i.i, align 8
   %16 = load i64, ptr %bit_length_.i.i.i.i.i.i.i, align 8
-  %inc4.i.i.i.i.i.i.i = add nsw i64 %16, 1
-  store i64 %inc4.i.i.i.i.i.i.i, ptr %bit_length_.i.i.i.i.i.i.i, align 8
   %length_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 208
-  br label %if.end
+  %17 = load i64, ptr %length_.i.i.i.i.i.i, align 8
+  %inc.i.i.i.i.i.i = add nsw i64 %17, 1
+  store i64 %inc.i.i.i.i.i.i, ptr %length_.i.i.i.i.i.i, align 8
+  br label %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_9UInt8TypeENS2_16DictEncodeActionEhLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i
 
 if.else.i.i.i.i:                                  ; preds = %_ZNSt6vectorIhSaIhEE9push_backEOh.exit.i
   %xor105.i.i.i.i7.i.i.i.i = or i8 %13, %12
   store i8 %xor105.i.i.i.i7.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i.i, align 1
+  %18 = load i64, ptr %bit_length_.i.i.i.i.i.i.i, align 8
+  br label %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_9UInt8TypeENS2_16DictEncodeActionEhLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i
+
+_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_9UInt8TypeENS2_16DictEncodeActionEhLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i: ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
+  %inc4.i2.i.i.i.sink.in.i.i.i = phi i64 [ %16, %if.then.i.i.i.i ], [ %18, %if.else.i.i.i.i ]
+  %.sink.i.i.i.i = phi i64 [ 120, %if.then.i.i.i.i ], [ 128, %if.else.i.i.i.i ]
+  %index.sink.i.i.i.i = phi i32 [ 0, %if.then.i.i.i.i ], [ %call2.i, %if.else.i.i.i.i ]
+  %inc4.i2.i.i.i.sink.i.i.i = add nsw i64 %inc4.i2.i.i.i.sink.in.i.i.i, 1
+  store i64 %inc4.i2.i.i.i.sink.i.i.i, ptr %bit_length_.i.i.i.i.i.i.i, align 8
+  %length_3.i.i8.i.i.i.i = getelementptr inbounds i8, ptr %action_, i64 %.sink.i.i.i.i
+  %19 = load i64, ptr %length_3.i.i8.i.i.i.i, align 8
+  %inc4.i.i9.i.i.i.i = add nsw i64 %19, 1
+  store i64 %inc4.i.i9.i.i.i.i, ptr %length_3.i.i8.i.i.i.i, align 8
   br label %if.end
 
-if.else.i.i4.i:                                   ; preds = %if.then
+_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_9UInt8TypeENS2_16DictEncodeActionEhLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE_clEi.exit.i: ; preds = %if.then
   %bit_length_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 184
-  %17 = load i64, ptr %bit_length_.i.i.i.i.i.i, align 8
-  %rem.i.i.i.i.i.i.i = srem i64 %17, 8
+  %20 = load i64, ptr %bit_length_.i.i.i.i.i.i, align 8
+  %rem.i.i.i.i.i.i.i = srem i64 %20, 8
   %arrayidx5.i.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i.i.i.i.i
-  %18 = load i8, ptr %arrayidx5.i.i.i.i.i.i.i, align 1
+  %21 = load i8, ptr %arrayidx5.i.i.i.i.i.i.i, align 1
   %data_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 152
-  %19 = load ptr, ptr %data_.i.i.i.i.i.i.i.i, align 8
-  %div.i.i.i.i.i.i.i = sdiv i64 %17, 8
-  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 %div.i.i.i.i.i.i.i
-  %20 = load i8, ptr %arrayidx.i.i.i.i.i.i.i, align 1
-  %xor105.i.i.i.i7.i.i.i = or i8 %18, %20
+  %22 = load ptr, ptr %data_.i.i.i.i.i.i.i.i, align 8
+  %div.i.i.i.i.i.i.i = sdiv i64 %20, 8
+  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 %div.i.i.i.i.i.i.i
+  %23 = load i8, ptr %arrayidx.i.i.i.i.i.i.i, align 1
+  %xor105.i.i.i.i7.i.i.i = or i8 %21, %23
   store i8 %xor105.i.i.i.i7.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i, align 1
+  %24 = load i64, ptr %bit_length_.i.i.i.i.i.i, align 8
+  %inc4.i2.i.i.i.sink.i.i = add nsw i64 %24, 1
+  store i64 %inc4.i2.i.i.i.sink.i.i, ptr %bit_length_.i.i.i.i.i.i, align 8
+  %length_3.i.i8.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 208
+  %25 = load i64, ptr %length_3.i.i8.i.i.i, align 8
+  %inc4.i.i9.i.i.i = add nsw i64 %25, 1
+  store i64 %inc4.i.i9.i.i.i, ptr %length_3.i.i8.i.i.i, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %cmp.i.i = icmp eq i32 %action_.val, 1
   %data_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 152
-  %21 = load ptr, ptr %data_.i.i.i.i.i.i.i, align 8
+  %26 = load ptr, ptr %data_.i.i.i.i.i.i.i, align 8
   %bit_length_.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 184
-  %22 = load i64, ptr %bit_length_.i.i.i.i.i, align 8
-  %div.i.i.i.i.i.i = sdiv i64 %22, 8
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 %div.i.i.i.i.i.i
-  %23 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1
-  %rem.i.i.i.i.i.i = srem i64 %22, 8
+  %27 = load i64, ptr %bit_length_.i.i.i.i.i, align 8
+  %div.i.i.i.i.i.i = sdiv i64 %27, 8
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 %div.i.i.i.i.i.i
+  %28 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1
+  %rem.i.i.i.i.i.i = srem i64 %27, 8
   %arrayidx5.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i.i.i.i
-  %24 = load i8, ptr %arrayidx5.i.i.i.i.i.i, align 1
+  %29 = load i8, ptr %arrayidx5.i.i.i.i.i.i, align 1
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.else
-  %25 = xor i8 %24, -1
-  %xor105.i.i.i.i.i.i = and i8 %23, %25
+  %30 = xor i8 %29, -1
+  %xor105.i.i.i.i.i.i = and i8 %28, %30
   store i8 %xor105.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i, align 1
   %false_count_.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 192
-  %26 = load i64, ptr %false_count_.i.i.i.i.i, align 8
-  %inc.i.i.i.i.i = add nsw i64 %26, 1
-  store i64 %inc.i.i.i.i.i, ptr %false_count_.i.i.i.i.i, align 8
-  %27 = load i64, ptr %bit_length_.i.i.i.i.i, align 8
-  %inc4.i.i.i.i.i = add nsw i64 %27, 1
-  store i64 %inc4.i.i.i.i.i, ptr %bit_length_.i.i.i.i.i, align 8
+  %31 = load i64, ptr %false_count_.i.i.i.i.i, align 8
+  %inc.i.i.i.i.i2 = add nsw i64 %31, 1
+  store i64 %inc.i.i.i.i.i2, ptr %false_count_.i.i.i.i.i, align 8
+  %32 = load i64, ptr %bit_length_.i.i.i.i.i, align 8
   %length_.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 208
-  br label %if.end
+  %33 = load i64, ptr %length_.i.i.i.i, align 8
+  %inc.i.i.i.i = add nsw i64 %33, 1
+  store i64 %inc.i.i.i.i, ptr %length_.i.i.i.i, align 8
+  br label %_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit
 
 if.else.i.i:                                      ; preds = %if.else
-  %xor105.i.i.i.i7.i.i = or i8 %24, %23
+  %xor105.i.i.i.i7.i.i = or i8 %29, %28
   store i8 %xor105.i.i.i.i7.i.i, ptr %arrayidx.i.i.i.i.i.i, align 1
+  %34 = load i64, ptr %bit_length_.i.i.i.i.i, align 8
+  br label %_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit
+
+_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit: ; preds = %if.then.i.i, %if.else.i.i
+  %inc4.i2.i.i.i.sink.in.i = phi i64 [ %32, %if.then.i.i ], [ %34, %if.else.i.i ]
+  %.sink.i.i = phi i64 [ 120, %if.then.i.i ], [ 128, %if.else.i.i ]
+  %index.sink.i.i = phi i32 [ 0, %if.then.i.i ], [ -1, %if.else.i.i ]
+  %inc4.i2.i.i.i.sink.i = add nsw i64 %inc4.i2.i.i.i.sink.in.i, 1
+  store i64 %inc4.i2.i.i.i.sink.i, ptr %bit_length_.i.i.i.i.i, align 8
+  %length_3.i.i8.i.i = getelementptr inbounds i8, ptr %action_, i64 %.sink.i.i
+  %35 = load i64, ptr %length_3.i.i8.i.i, align 8
+  %inc4.i.i9.i.i = add nsw i64 %35, 1
+  store i64 %inc4.i.i9.i.i, ptr %length_3.i.i8.i.i, align 8
   br label %if.end
 
-if.end:                                           ; preds = %if.else.i.i, %if.then.i.i, %if.else.i.i4.i, %if.else.i.i.i.i, %if.then.i.i.i.i
-  %bit_length_.i.i.i.sink20.i.i.sink5 = phi ptr [ %length_.i.i.i.i.i.i, %if.then.i.i.i.i ], [ %bit_length_.i.i.i.i.i.i.i, %if.else.i.i.i.i ], [ %bit_length_.i.i.i.i.i.i, %if.else.i.i4.i ], [ %bit_length_.i.i.i.i.i, %if.else.i.i ], [ %length_.i.i.i.i, %if.then.i.i ]
-  %.sink.i.i.sink = phi i64 [ 120, %if.then.i.i.i.i ], [ 128, %if.else.i.i.i.i ], [ 128, %if.else.i.i4.i ], [ 128, %if.else.i.i ], [ 120, %if.then.i.i ]
-  %index.sink.i.i.sink = phi i32 [ 0, %if.then.i.i.i.i ], [ %call2.i, %if.else.i.i.i.i ], [ %2, %if.else.i.i4.i ], [ -1, %if.else.i.i ], [ 0, %if.then.i.i ]
-  %action_ = getelementptr inbounds i8, ptr %this.0.val, i64 80
-  %28 = load i64, ptr %bit_length_.i.i.i.sink20.i.i.sink5, align 8
-  %inc4.i2.i.i8.i.i = add nsw i64 %28, 1
-  store i64 %inc4.i2.i.i8.i.i, ptr %bit_length_.i.i.i.sink20.i.i.sink5, align 8
-  %length_3.i.i9.i.i = getelementptr inbounds i8, ptr %action_, i64 %.sink.i.i.sink
-  %29 = load i64, ptr %length_3.i.i9.i.i, align 8
-  %inc4.i.i10.i.i = add nsw i64 %29, 1
-  store i64 %inc4.i.i10.i.i, ptr %length_3.i.i9.i.i, align 8
-  %data_.i.i.i11.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 288
-  %30 = load ptr, ptr %data_.i.i.i11.i.i, align 8
-  %size_.i.i.i12.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 304
-  %31 = load i64, ptr %size_.i.i.i12.i.i, align 8
-  %add.ptr.i.i.i13.i.i = getelementptr inbounds i8, ptr %30, i64 %31
-  store i32 %index.sink.i.i.sink, ptr %add.ptr.i.i.i13.i.i, align 1
-  %32 = load i64, ptr %size_.i.i.i12.i.i, align 8
-  %add.i.i.i14.i.i = add nsw i64 %32, 4
-  store i64 %add.i.i.i14.i.i, ptr %size_.i.i.i12.i.i, align 8
+if.end:                                           ; preds = %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_9UInt8TypeENS2_16DictEncodeActionEhLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE_clEi.exit.i, %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_9UInt8TypeENS2_16DictEncodeActionEhLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i, %_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit
+  %index.sink.i.i.sink = phi i32 [ %index.sink.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit ], [ %2, %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_9UInt8TypeENS2_16DictEncodeActionEhLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE_clEi.exit.i ], [ %index.sink.i.i.i.i, %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_9UInt8TypeENS2_16DictEncodeActionEhLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i ]
+  %data_.i.i.i10.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 288
+  %36 = load ptr, ptr %data_.i.i.i10.i.i, align 8
+  %size_.i.i.i11.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 304
+  %37 = load i64, ptr %size_.i.i.i11.i.i, align 8
+  %add.ptr.i.i.i12.i.i = getelementptr inbounds i8, ptr %36, i64 %37
+  store i32 %index.sink.i.i.sink, ptr %add.ptr.i.i.i12.i.i, align 1
+  %38 = load i64, ptr %size_.i.i.i11.i.i, align 8
+  %add.i.i.i13.i.i = add nsw i64 %38, 4
+  store i64 %add.i.i.i13.i.i, ptr %size_.i.i.i11.i.i, align 8
   store ptr null, ptr %agg.result, align 8, !alias.scope !3948
   ret void
 }
@@ -93295,6 +93376,7 @@ _ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt16TypeENS2
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt16TypeENS2_16DictEncodeActionEtLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture %this.0.val) unnamed_addr #3 align 2 {
 entry:
+  %action_ = getelementptr inbounds i8, ptr %this.0.val, i64 80
   %0 = getelementptr i8, ptr %this.0.val, i64 336
   %action_.val = load i32, ptr %0, align 8
   %cmp.i = icmp eq i32 %action_.val, 0
@@ -93306,9 +93388,9 @@ if.then:                                          ; preds = %entry
   %null_index_.i.i = getelementptr inbounds i8, ptr %1, i64 96
   %2 = load i32, ptr %null_index_.i.i, align 8
   %cmp.not.i = icmp eq i32 %2, -1
-  br i1 %cmp.not.i, label %if.else.i, label %if.else.i.i.i
+  br i1 %cmp.not.i, label %if.else.i, label %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt16TypeENS2_16DictEncodeActionEtLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE_clEi.exit.i
 
-if.else.i.i.i:                                    ; preds = %if.then
+_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt16TypeENS2_16DictEncodeActionEtLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE_clEi.exit.i: ; preds = %if.then
   %bit_length_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 184
   %3 = load i64, ptr %bit_length_.i.i.i.i.i.i, align 8
   %rem.i.i.i.i.i.i.i = srem i64 %3, 8
@@ -93321,101 +93403,126 @@ if.else.i.i.i:                                    ; preds = %if.then
   %6 = load i8, ptr %arrayidx.i.i.i.i.i.i.i, align 1
   %xor105.i.i.i.i7.i.i.i = or i8 %4, %6
   store i8 %xor105.i.i.i.i7.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i, align 1
+  %7 = load i64, ptr %bit_length_.i.i.i.i.i.i, align 8
+  %inc4.i2.i.i.i.sink.i.i = add nsw i64 %7, 1
+  store i64 %inc4.i2.i.i.i.sink.i.i, ptr %bit_length_.i.i.i.i.i.i, align 8
+  %length_3.i.i8.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 208
+  %8 = load i64, ptr %length_3.i.i8.i.i.i, align 8
+  %inc4.i.i9.i.i.i = add nsw i64 %8, 1
+  store i64 %inc4.i.i9.i.i.i, ptr %length_3.i.i8.i.i.i, align 8
   br label %if.end
 
 if.else.i:                                        ; preds = %if.then
   %vtable.i = load ptr, ptr %1, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
-  %7 = load ptr, ptr %vfn.i, align 8
-  %call2.i = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(100) %1)
+  %9 = load ptr, ptr %vfn.i, align 8
+  %call2.i = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(100) %1)
   store i32 %call2.i, ptr %null_index_.i.i, align 8
-  %8 = load i32, ptr %0, align 8
-  %cmp.i.i.i.i = icmp eq i32 %8, 1
+  %10 = load i32, ptr %0, align 8
+  %cmp.i.i.i.i = icmp eq i32 %10, 1
   %data_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 152
-  %9 = load ptr, ptr %data_.i.i.i.i.i.i.i.i.i, align 8
+  %11 = load ptr, ptr %data_.i.i.i.i.i.i.i.i.i, align 8
   %bit_length_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 184
-  %10 = load i64, ptr %bit_length_.i.i.i.i.i.i.i, align 8
-  %div.i.i.i.i.i.i.i.i = sdiv i64 %10, 8
-  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 %div.i.i.i.i.i.i.i.i
-  %11 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i, align 1
-  %rem.i.i.i.i.i.i.i.i = srem i64 %10, 8
+  %12 = load i64, ptr %bit_length_.i.i.i.i.i.i.i, align 8
+  %div.i.i.i.i.i.i.i.i = sdiv i64 %12, 8
+  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 %div.i.i.i.i.i.i.i.i
+  %13 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i, align 1
+  %rem.i.i.i.i.i.i.i.i = srem i64 %12, 8
   %arrayidx5.i.i.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i.i.i.i.i.i
-  %12 = load i8, ptr %arrayidx5.i.i.i.i.i.i.i.i, align 1
+  %14 = load i8, ptr %arrayidx5.i.i.i.i.i.i.i.i, align 1
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.else.i
-  %13 = xor i8 %12, -1
-  %xor105.i.i.i.i.i.i.i.i = and i8 %11, %13
+  %15 = xor i8 %14, -1
+  %xor105.i.i.i.i.i.i.i.i = and i8 %13, %15
   store i8 %xor105.i.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i.i, align 1
   %false_count_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 192
-  %14 = load i64, ptr %false_count_.i.i.i.i.i.i.i, align 8
-  %inc.i.i.i.i.i.i.i = add nsw i64 %14, 1
+  %16 = load i64, ptr %false_count_.i.i.i.i.i.i.i, align 8
+  %inc.i.i.i.i.i.i.i = add nsw i64 %16, 1
   store i64 %inc.i.i.i.i.i.i.i, ptr %false_count_.i.i.i.i.i.i.i, align 8
-  %15 = load i64, ptr %bit_length_.i.i.i.i.i.i.i, align 8
-  %inc4.i.i.i.i.i.i.i = add nsw i64 %15, 1
-  store i64 %inc4.i.i.i.i.i.i.i, ptr %bit_length_.i.i.i.i.i.i.i, align 8
+  %17 = load i64, ptr %bit_length_.i.i.i.i.i.i.i, align 8
   %length_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 208
-  br label %if.end
+  %18 = load i64, ptr %length_.i.i.i.i.i.i, align 8
+  %inc.i.i.i.i.i5.i = add nsw i64 %18, 1
+  store i64 %inc.i.i.i.i.i5.i, ptr %length_.i.i.i.i.i.i, align 8
+  br label %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt16TypeENS2_16DictEncodeActionEtLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i
 
 if.else.i.i.i.i:                                  ; preds = %if.else.i
-  %xor105.i.i.i.i7.i.i.i.i = or i8 %12, %11
+  %xor105.i.i.i.i7.i.i.i.i = or i8 %14, %13
   store i8 %xor105.i.i.i.i7.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i.i, align 1
+  %19 = load i64, ptr %bit_length_.i.i.i.i.i.i.i, align 8
+  br label %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt16TypeENS2_16DictEncodeActionEtLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i
+
+_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt16TypeENS2_16DictEncodeActionEtLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i: ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
+  %inc4.i2.i.i.i.sink.in.i.i.i = phi i64 [ %17, %if.then.i.i.i.i ], [ %19, %if.else.i.i.i.i ]
+  %.sink.i.i.i.i = phi i64 [ 120, %if.then.i.i.i.i ], [ 128, %if.else.i.i.i.i ]
+  %index.sink.i.i.i.i = phi i32 [ 0, %if.then.i.i.i.i ], [ %call2.i, %if.else.i.i.i.i ]
+  %inc4.i2.i.i.i.sink.i.i.i = add nsw i64 %inc4.i2.i.i.i.sink.in.i.i.i, 1
+  store i64 %inc4.i2.i.i.i.sink.i.i.i, ptr %bit_length_.i.i.i.i.i.i.i, align 8
+  %length_3.i.i8.i.i.i.i = getelementptr inbounds i8, ptr %action_, i64 %.sink.i.i.i.i
+  %20 = load i64, ptr %length_3.i.i8.i.i.i.i, align 8
+  %inc4.i.i9.i.i.i.i = add nsw i64 %20, 1
+  store i64 %inc4.i.i9.i.i.i.i, ptr %length_3.i.i8.i.i.i.i, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %cmp.i.i = icmp eq i32 %action_.val, 1
   %data_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 152
-  %16 = load ptr, ptr %data_.i.i.i.i.i.i.i, align 8
+  %21 = load ptr, ptr %data_.i.i.i.i.i.i.i, align 8
   %bit_length_.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 184
-  %17 = load i64, ptr %bit_length_.i.i.i.i.i, align 8
-  %div.i.i.i.i.i.i = sdiv i64 %17, 8
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 %div.i.i.i.i.i.i
-  %18 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1
-  %rem.i.i.i.i.i.i = srem i64 %17, 8
+  %22 = load i64, ptr %bit_length_.i.i.i.i.i, align 8
+  %div.i.i.i.i.i.i = sdiv i64 %22, 8
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 %div.i.i.i.i.i.i
+  %23 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1
+  %rem.i.i.i.i.i.i = srem i64 %22, 8
   %arrayidx5.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i.i.i.i
-  %19 = load i8, ptr %arrayidx5.i.i.i.i.i.i, align 1
+  %24 = load i8, ptr %arrayidx5.i.i.i.i.i.i, align 1
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.else
-  %20 = xor i8 %19, -1
-  %xor105.i.i.i.i.i.i = and i8 %18, %20
+  %25 = xor i8 %24, -1
+  %xor105.i.i.i.i.i.i = and i8 %23, %25
   store i8 %xor105.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i, align 1
   %false_count_.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 192
-  %21 = load i64, ptr %false_count_.i.i.i.i.i, align 8
-  %inc.i.i.i.i.i = add nsw i64 %21, 1
-  store i64 %inc.i.i.i.i.i, ptr %false_count_.i.i.i.i.i, align 8
-  %22 = load i64, ptr %bit_length_.i.i.i.i.i, align 8
-  %inc4.i.i.i.i.i = add nsw i64 %22, 1
-  store i64 %inc4.i.i.i.i.i, ptr %bit_length_.i.i.i.i.i, align 8
+  %26 = load i64, ptr %false_count_.i.i.i.i.i, align 8
+  %inc.i.i.i.i.i1 = add nsw i64 %26, 1
+  store i64 %inc.i.i.i.i.i1, ptr %false_count_.i.i.i.i.i, align 8
+  %27 = load i64, ptr %bit_length_.i.i.i.i.i, align 8
   %length_.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 208
-  br label %if.end
+  %28 = load i64, ptr %length_.i.i.i.i, align 8
+  %inc.i.i.i.i = add nsw i64 %28, 1
+  store i64 %inc.i.i.i.i, ptr %length_.i.i.i.i, align 8
+  br label %_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit
 
 if.else.i.i:                                      ; preds = %if.else
-  %xor105.i.i.i.i7.i.i = or i8 %19, %18
+  %xor105.i.i.i.i7.i.i = or i8 %24, %23
   store i8 %xor105.i.i.i.i7.i.i, ptr %arrayidx.i.i.i.i.i.i, align 1
+  %29 = load i64, ptr %bit_length_.i.i.i.i.i, align 8
+  br label %_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit
+
+_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit: ; preds = %if.then.i.i, %if.else.i.i
+  %inc4.i2.i.i.i.sink.in.i = phi i64 [ %27, %if.then.i.i ], [ %29, %if.else.i.i ]
+  %.sink.i.i = phi i64 [ 120, %if.then.i.i ], [ 128, %if.else.i.i ]
+  %index.sink.i.i = phi i32 [ 0, %if.then.i.i ], [ -1, %if.else.i.i ]
+  %inc4.i2.i.i.i.sink.i = add nsw i64 %inc4.i2.i.i.i.sink.in.i, 1
+  store i64 %inc4.i2.i.i.i.sink.i, ptr %bit_length_.i.i.i.i.i, align 8
+  %length_3.i.i8.i.i = getelementptr inbounds i8, ptr %action_, i64 %.sink.i.i
+  %30 = load i64, ptr %length_3.i.i8.i.i, align 8
+  %inc4.i.i9.i.i = add nsw i64 %30, 1
+  store i64 %inc4.i.i9.i.i, ptr %length_3.i.i8.i.i, align 8
   br label %if.end
 
-if.end:                                           ; preds = %if.else.i.i, %if.then.i.i, %if.else.i.i.i.i, %if.then.i.i.i.i, %if.else.i.i.i
-  %bit_length_.i.i.i.sink20.i.i.sink5 = phi ptr [ %bit_length_.i.i.i.i.i.i, %if.else.i.i.i ], [ %length_.i.i.i.i.i.i, %if.then.i.i.i.i ], [ %bit_length_.i.i.i.i.i.i.i, %if.else.i.i.i.i ], [ %bit_length_.i.i.i.i.i, %if.else.i.i ], [ %length_.i.i.i.i, %if.then.i.i ]
-  %.sink.i.i.sink = phi i64 [ 128, %if.else.i.i.i ], [ 120, %if.then.i.i.i.i ], [ 128, %if.else.i.i.i.i ], [ 128, %if.else.i.i ], [ 120, %if.then.i.i ]
-  %index.sink.i.i.sink = phi i32 [ %2, %if.else.i.i.i ], [ 0, %if.then.i.i.i.i ], [ %call2.i, %if.else.i.i.i.i ], [ -1, %if.else.i.i ], [ 0, %if.then.i.i ]
-  %action_ = getelementptr inbounds i8, ptr %this.0.val, i64 80
-  %23 = load i64, ptr %bit_length_.i.i.i.sink20.i.i.sink5, align 8
-  %inc4.i2.i.i8.i.i = add nsw i64 %23, 1
-  store i64 %inc4.i2.i.i8.i.i, ptr %bit_length_.i.i.i.sink20.i.i.sink5, align 8
-  %length_3.i.i9.i.i = getelementptr inbounds i8, ptr %action_, i64 %.sink.i.i.sink
-  %24 = load i64, ptr %length_3.i.i9.i.i, align 8
-  %inc4.i.i10.i.i = add nsw i64 %24, 1
-  store i64 %inc4.i.i10.i.i, ptr %length_3.i.i9.i.i, align 8
-  %data_.i.i.i11.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 288
-  %25 = load ptr, ptr %data_.i.i.i11.i.i, align 8
-  %size_.i.i.i12.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 304
-  %26 = load i64, ptr %size_.i.i.i12.i.i, align 8
-  %add.ptr.i.i.i13.i.i = getelementptr inbounds i8, ptr %25, i64 %26
-  store i32 %index.sink.i.i.sink, ptr %add.ptr.i.i.i13.i.i, align 1
-  %27 = load i64, ptr %size_.i.i.i12.i.i, align 8
-  %add.i.i.i14.i.i = add nsw i64 %27, 4
-  store i64 %add.i.i.i14.i.i, ptr %size_.i.i.i12.i.i, align 8
+if.end:                                           ; preds = %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt16TypeENS2_16DictEncodeActionEtLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i, %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt16TypeENS2_16DictEncodeActionEtLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE_clEi.exit.i, %_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit
+  %index.sink.i.i.sink = phi i32 [ %index.sink.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit ], [ %index.sink.i.i.i.i, %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt16TypeENS2_16DictEncodeActionEtLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i ], [ %2, %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt16TypeENS2_16DictEncodeActionEtLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE_clEi.exit.i ]
+  %data_.i.i.i10.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 288
+  %31 = load ptr, ptr %data_.i.i.i10.i.i, align 8
+  %size_.i.i.i11.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 304
+  %32 = load i64, ptr %size_.i.i.i11.i.i, align 8
+  %add.ptr.i.i.i12.i.i = getelementptr inbounds i8, ptr %31, i64 %32
+  store i32 %index.sink.i.i.sink, ptr %add.ptr.i.i.i12.i.i, align 1
+  %33 = load i64, ptr %size_.i.i.i11.i.i, align 8
+  %add.i.i.i13.i.i = add nsw i64 %33, 4
+  store i64 %add.i.i.i13.i.i, ptr %size_.i.i.i11.i.i, align 8
   store ptr null, ptr %agg.result, align 8, !alias.scope !4034
   ret void
 }
@@ -94241,6 +94348,7 @@ _ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt32TypeENS2
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt32TypeENS2_16DictEncodeActionEjLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture %this.0.val) unnamed_addr #3 align 2 {
 entry:
+  %action_ = getelementptr inbounds i8, ptr %this.0.val, i64 80
   %0 = getelementptr i8, ptr %this.0.val, i64 336
   %action_.val = load i32, ptr %0, align 8
   %cmp.i = icmp eq i32 %action_.val, 0
@@ -94252,9 +94360,9 @@ if.then:                                          ; preds = %entry
   %null_index_.i.i = getelementptr inbounds i8, ptr %1, i64 96
   %2 = load i32, ptr %null_index_.i.i, align 8
   %cmp.not.i = icmp eq i32 %2, -1
-  br i1 %cmp.not.i, label %if.else.i, label %if.else.i.i.i
+  br i1 %cmp.not.i, label %if.else.i, label %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt32TypeENS2_16DictEncodeActionEjLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE_clEi.exit.i
 
-if.else.i.i.i:                                    ; preds = %if.then
+_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt32TypeENS2_16DictEncodeActionEjLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE_clEi.exit.i: ; preds = %if.then
   %bit_length_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 184
   %3 = load i64, ptr %bit_length_.i.i.i.i.i.i, align 8
   %rem.i.i.i.i.i.i.i = srem i64 %3, 8
@@ -94267,101 +94375,126 @@ if.else.i.i.i:                                    ; preds = %if.then
   %6 = load i8, ptr %arrayidx.i.i.i.i.i.i.i, align 1
   %xor105.i.i.i.i7.i.i.i = or i8 %4, %6
   store i8 %xor105.i.i.i.i7.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i, align 1
+  %7 = load i64, ptr %bit_length_.i.i.i.i.i.i, align 8
+  %inc4.i2.i.i.i.sink.i.i = add nsw i64 %7, 1
+  store i64 %inc4.i2.i.i.i.sink.i.i, ptr %bit_length_.i.i.i.i.i.i, align 8
+  %length_3.i.i8.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 208
+  %8 = load i64, ptr %length_3.i.i8.i.i.i, align 8
+  %inc4.i.i9.i.i.i = add nsw i64 %8, 1
+  store i64 %inc4.i.i9.i.i.i, ptr %length_3.i.i8.i.i.i, align 8
   br label %if.end
 
 if.else.i:                                        ; preds = %if.then
   %vtable.i = load ptr, ptr %1, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
-  %7 = load ptr, ptr %vfn.i, align 8
-  %call2.i = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(100) %1)
+  %9 = load ptr, ptr %vfn.i, align 8
+  %call2.i = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(100) %1)
   store i32 %call2.i, ptr %null_index_.i.i, align 8
-  %8 = load i32, ptr %0, align 8
-  %cmp.i.i.i.i = icmp eq i32 %8, 1
+  %10 = load i32, ptr %0, align 8
+  %cmp.i.i.i.i = icmp eq i32 %10, 1
   %data_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 152
-  %9 = load ptr, ptr %data_.i.i.i.i.i.i.i.i.i, align 8
+  %11 = load ptr, ptr %data_.i.i.i.i.i.i.i.i.i, align 8
   %bit_length_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 184
-  %10 = load i64, ptr %bit_length_.i.i.i.i.i.i.i, align 8
-  %div.i.i.i.i.i.i.i.i = sdiv i64 %10, 8
-  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 %div.i.i.i.i.i.i.i.i
-  %11 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i, align 1
-  %rem.i.i.i.i.i.i.i.i = srem i64 %10, 8
+  %12 = load i64, ptr %bit_length_.i.i.i.i.i.i.i, align 8
+  %div.i.i.i.i.i.i.i.i = sdiv i64 %12, 8
+  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 %div.i.i.i.i.i.i.i.i
+  %13 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i, align 1
+  %rem.i.i.i.i.i.i.i.i = srem i64 %12, 8
   %arrayidx5.i.i.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i.i.i.i.i.i
-  %12 = load i8, ptr %arrayidx5.i.i.i.i.i.i.i.i, align 1
+  %14 = load i8, ptr %arrayidx5.i.i.i.i.i.i.i.i, align 1
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.else.i
-  %13 = xor i8 %12, -1
-  %xor105.i.i.i.i.i.i.i.i = and i8 %11, %13
+  %15 = xor i8 %14, -1
+  %xor105.i.i.i.i.i.i.i.i = and i8 %13, %15
   store i8 %xor105.i.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i.i, align 1
   %false_count_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 192
-  %14 = load i64, ptr %false_count_.i.i.i.i.i.i.i, align 8
-  %inc.i.i.i.i.i.i.i = add nsw i64 %14, 1
+  %16 = load i64, ptr %false_count_.i.i.i.i.i.i.i, align 8
+  %inc.i.i.i.i.i.i.i = add nsw i64 %16, 1
   store i64 %inc.i.i.i.i.i.i.i, ptr %false_count_.i.i.i.i.i.i.i, align 8
-  %15 = load i64, ptr %bit_length_.i.i.i.i.i.i.i, align 8
-  %inc4.i.i.i.i.i.i.i = add nsw i64 %15, 1
-  store i64 %inc4.i.i.i.i.i.i.i, ptr %bit_length_.i.i.i.i.i.i.i, align 8
+  %17 = load i64, ptr %bit_length_.i.i.i.i.i.i.i, align 8
   %length_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 208
-  br label %if.end
+  %18 = load i64, ptr %length_.i.i.i.i.i.i, align 8
+  %inc.i.i.i.i.i5.i = add nsw i64 %18, 1
+  store i64 %inc.i.i.i.i.i5.i, ptr %length_.i.i.i.i.i.i, align 8
+  br label %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt32TypeENS2_16DictEncodeActionEjLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i
 
 if.else.i.i.i.i:                                  ; preds = %if.else.i
-  %xor105.i.i.i.i7.i.i.i.i = or i8 %12, %11
+  %xor105.i.i.i.i7.i.i.i.i = or i8 %14, %13
   store i8 %xor105.i.i.i.i7.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i.i, align 1
+  %19 = load i64, ptr %bit_length_.i.i.i.i.i.i.i, align 8
+  br label %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt32TypeENS2_16DictEncodeActionEjLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i
+
+_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt32TypeENS2_16DictEncodeActionEjLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i: ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
+  %inc4.i2.i.i.i.sink.in.i.i.i = phi i64 [ %17, %if.then.i.i.i.i ], [ %19, %if.else.i.i.i.i ]
+  %.sink.i.i.i.i = phi i64 [ 120, %if.then.i.i.i.i ], [ 128, %if.else.i.i.i.i ]
+  %index.sink.i.i.i.i = phi i32 [ 0, %if.then.i.i.i.i ], [ %call2.i, %if.else.i.i.i.i ]
+  %inc4.i2.i.i.i.sink.i.i.i = add nsw i64 %inc4.i2.i.i.i.sink.in.i.i.i, 1
+  store i64 %inc4.i2.i.i.i.sink.i.i.i, ptr %bit_length_.i.i.i.i.i.i.i, align 8
+  %length_3.i.i8.i.i.i.i = getelementptr inbounds i8, ptr %action_, i64 %.sink.i.i.i.i
+  %20 = load i64, ptr %length_3.i.i8.i.i.i.i, align 8
+  %inc4.i.i9.i.i.i.i = add nsw i64 %20, 1
+  store i64 %inc4.i.i9.i.i.i.i, ptr %length_3.i.i8.i.i.i.i, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %cmp.i.i = icmp eq i32 %action_.val, 1
   %data_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 152
-  %16 = load ptr, ptr %data_.i.i.i.i.i.i.i, align 8
+  %21 = load ptr, ptr %data_.i.i.i.i.i.i.i, align 8
   %bit_length_.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 184
-  %17 = load i64, ptr %bit_length_.i.i.i.i.i, align 8
-  %div.i.i.i.i.i.i = sdiv i64 %17, 8
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 %div.i.i.i.i.i.i
-  %18 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1
-  %rem.i.i.i.i.i.i = srem i64 %17, 8
+  %22 = load i64, ptr %bit_length_.i.i.i.i.i, align 8
+  %div.i.i.i.i.i.i = sdiv i64 %22, 8
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 %div.i.i.i.i.i.i
+  %23 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1
+  %rem.i.i.i.i.i.i = srem i64 %22, 8
   %arrayidx5.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i.i.i.i
-  %19 = load i8, ptr %arrayidx5.i.i.i.i.i.i, align 1
+  %24 = load i8, ptr %arrayidx5.i.i.i.i.i.i, align 1
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.else
-  %20 = xor i8 %19, -1
-  %xor105.i.i.i.i.i.i = and i8 %18, %20
+  %25 = xor i8 %24, -1
+  %xor105.i.i.i.i.i.i = and i8 %23, %25
   store i8 %xor105.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i, align 1
   %false_count_.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 192
-  %21 = load i64, ptr %false_count_.i.i.i.i.i, align 8
-  %inc.i.i.i.i.i = add nsw i64 %21, 1
-  store i64 %inc.i.i.i.i.i, ptr %false_count_.i.i.i.i.i, align 8
-  %22 = load i64, ptr %bit_length_.i.i.i.i.i, align 8
-  %inc4.i.i.i.i.i = add nsw i64 %22, 1
-  store i64 %inc4.i.i.i.i.i, ptr %bit_length_.i.i.i.i.i, align 8
+  %26 = load i64, ptr %false_count_.i.i.i.i.i, align 8
+  %inc.i.i.i.i.i1 = add nsw i64 %26, 1
+  store i64 %inc.i.i.i.i.i1, ptr %false_count_.i.i.i.i.i, align 8
+  %27 = load i64, ptr %bit_length_.i.i.i.i.i, align 8
   %length_.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 208
-  br label %if.end
+  %28 = load i64, ptr %length_.i.i.i.i, align 8
+  %inc.i.i.i.i = add nsw i64 %28, 1
+  store i64 %inc.i.i.i.i, ptr %length_.i.i.i.i, align 8
+  br label %_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit
 
 if.else.i.i:                                      ; preds = %if.else
-  %xor105.i.i.i.i7.i.i = or i8 %19, %18
+  %xor105.i.i.i.i7.i.i = or i8 %24, %23
   store i8 %xor105.i.i.i.i7.i.i, ptr %arrayidx.i.i.i.i.i.i, align 1
+  %29 = load i64, ptr %bit_length_.i.i.i.i.i, align 8
+  br label %_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit
+
+_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit: ; preds = %if.then.i.i, %if.else.i.i
+  %inc4.i2.i.i.i.sink.in.i = phi i64 [ %27, %if.then.i.i ], [ %29, %if.else.i.i ]
+  %.sink.i.i = phi i64 [ 120, %if.then.i.i ], [ 128, %if.else.i.i ]
+  %index.sink.i.i = phi i32 [ 0, %if.then.i.i ], [ -1, %if.else.i.i ]
+  %inc4.i2.i.i.i.sink.i = add nsw i64 %inc4.i2.i.i.i.sink.in.i, 1
+  store i64 %inc4.i2.i.i.i.sink.i, ptr %bit_length_.i.i.i.i.i, align 8
+  %length_3.i.i8.i.i = getelementptr inbounds i8, ptr %action_, i64 %.sink.i.i
+  %30 = load i64, ptr %length_3.i.i8.i.i, align 8
+  %inc4.i.i9.i.i = add nsw i64 %30, 1
+  store i64 %inc4.i.i9.i.i, ptr %length_3.i.i8.i.i, align 8
   br label %if.end
 
-if.end:                                           ; preds = %if.else.i.i, %if.then.i.i, %if.else.i.i.i.i, %if.then.i.i.i.i, %if.else.i.i.i
-  %bit_length_.i.i.i.sink20.i.i.sink5 = phi ptr [ %bit_length_.i.i.i.i.i.i, %if.else.i.i.i ], [ %length_.i.i.i.i.i.i, %if.then.i.i.i.i ], [ %bit_length_.i.i.i.i.i.i.i, %if.else.i.i.i.i ], [ %bit_length_.i.i.i.i.i, %if.else.i.i ], [ %length_.i.i.i.i, %if.then.i.i ]
-  %.sink.i.i.sink = phi i64 [ 128, %if.else.i.i.i ], [ 120, %if.then.i.i.i.i ], [ 128, %if.else.i.i.i.i ], [ 128, %if.else.i.i ], [ 120, %if.then.i.i ]
-  %index.sink.i.i.sink = phi i32 [ %2, %if.else.i.i.i ], [ 0, %if.then.i.i.i.i ], [ %call2.i, %if.else.i.i.i.i ], [ -1, %if.else.i.i ], [ 0, %if.then.i.i ]
-  %action_ = getelementptr inbounds i8, ptr %this.0.val, i64 80
-  %23 = load i64, ptr %bit_length_.i.i.i.sink20.i.i.sink5, align 8
-  %inc4.i2.i.i8.i.i = add nsw i64 %23, 1
-  store i64 %inc4.i2.i.i8.i.i, ptr %bit_length_.i.i.i.sink20.i.i.sink5, align 8
-  %length_3.i.i9.i.i = getelementptr inbounds i8, ptr %action_, i64 %.sink.i.i.sink
-  %24 = load i64, ptr %length_3.i.i9.i.i, align 8
-  %inc4.i.i10.i.i = add nsw i64 %24, 1
-  store i64 %inc4.i.i10.i.i, ptr %length_3.i.i9.i.i, align 8
-  %data_.i.i.i11.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 288
-  %25 = load ptr, ptr %data_.i.i.i11.i.i, align 8
-  %size_.i.i.i12.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 304
-  %26 = load i64, ptr %size_.i.i.i12.i.i, align 8
-  %add.ptr.i.i.i13.i.i = getelementptr inbounds i8, ptr %25, i64 %26
-  store i32 %index.sink.i.i.sink, ptr %add.ptr.i.i.i13.i.i, align 1
-  %27 = load i64, ptr %size_.i.i.i12.i.i, align 8
-  %add.i.i.i14.i.i = add nsw i64 %27, 4
-  store i64 %add.i.i.i14.i.i, ptr %size_.i.i.i12.i.i, align 8
+if.end:                                           ; preds = %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt32TypeENS2_16DictEncodeActionEjLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i, %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt32TypeENS2_16DictEncodeActionEjLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE_clEi.exit.i, %_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit
+  %index.sink.i.i.sink = phi i32 [ %index.sink.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit ], [ %index.sink.i.i.i.i, %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt32TypeENS2_16DictEncodeActionEjLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i ], [ %2, %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt32TypeENS2_16DictEncodeActionEjLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE_clEi.exit.i ]
+  %data_.i.i.i10.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 288
+  %31 = load ptr, ptr %data_.i.i.i10.i.i, align 8
+  %size_.i.i.i11.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 304
+  %32 = load i64, ptr %size_.i.i.i11.i.i, align 8
+  %add.ptr.i.i.i12.i.i = getelementptr inbounds i8, ptr %31, i64 %32
+  store i32 %index.sink.i.i.sink, ptr %add.ptr.i.i.i12.i.i, align 1
+  %33 = load i64, ptr %size_.i.i.i11.i.i, align 8
+  %add.i.i.i13.i.i = add nsw i64 %33, 4
+  store i64 %add.i.i.i13.i.i, ptr %size_.i.i.i11.i.i, align 8
   store ptr null, ptr %agg.result, align 8, !alias.scope !4120
   ret void
 }
@@ -95185,6 +95318,7 @@ _ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt64TypeENS2
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt64TypeENS2_16DictEncodeActionEmLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture %this.0.val) unnamed_addr #3 align 2 {
 entry:
+  %action_ = getelementptr inbounds i8, ptr %this.0.val, i64 80
   %0 = getelementptr i8, ptr %this.0.val, i64 336
   %action_.val = load i32, ptr %0, align 8
   %cmp.i = icmp eq i32 %action_.val, 0
@@ -95196,9 +95330,9 @@ if.then:                                          ; preds = %entry
   %null_index_.i.i = getelementptr inbounds i8, ptr %1, i64 96
   %2 = load i32, ptr %null_index_.i.i, align 8
   %cmp.not.i = icmp eq i32 %2, -1
-  br i1 %cmp.not.i, label %if.else.i, label %if.else.i.i.i
+  br i1 %cmp.not.i, label %if.else.i, label %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt64TypeENS2_16DictEncodeActionEmLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE_clEi.exit.i
 
-if.else.i.i.i:                                    ; preds = %if.then
+_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt64TypeENS2_16DictEncodeActionEmLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE_clEi.exit.i: ; preds = %if.then
   %bit_length_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 184
   %3 = load i64, ptr %bit_length_.i.i.i.i.i.i, align 8
   %rem.i.i.i.i.i.i.i = srem i64 %3, 8
@@ -95211,101 +95345,126 @@ if.else.i.i.i:                                    ; preds = %if.then
   %6 = load i8, ptr %arrayidx.i.i.i.i.i.i.i, align 1
   %xor105.i.i.i.i7.i.i.i = or i8 %4, %6
   store i8 %xor105.i.i.i.i7.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i, align 1
+  %7 = load i64, ptr %bit_length_.i.i.i.i.i.i, align 8
+  %inc4.i2.i.i.i.sink.i.i = add nsw i64 %7, 1
+  store i64 %inc4.i2.i.i.i.sink.i.i, ptr %bit_length_.i.i.i.i.i.i, align 8
+  %length_3.i.i8.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 208
+  %8 = load i64, ptr %length_3.i.i8.i.i.i, align 8
+  %inc4.i.i9.i.i.i = add nsw i64 %8, 1
+  store i64 %inc4.i.i9.i.i.i, ptr %length_3.i.i8.i.i.i, align 8
   br label %if.end
 
 if.else.i:                                        ; preds = %if.then
   %vtable.i = load ptr, ptr %1, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
-  %7 = load ptr, ptr %vfn.i, align 8
-  %call2.i = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(100) %1)
+  %9 = load ptr, ptr %vfn.i, align 8
+  %call2.i = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(100) %1)
   store i32 %call2.i, ptr %null_index_.i.i, align 8
-  %8 = load i32, ptr %0, align 8
-  %cmp.i.i.i.i = icmp eq i32 %8, 1
+  %10 = load i32, ptr %0, align 8
+  %cmp.i.i.i.i = icmp eq i32 %10, 1
   %data_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 152
-  %9 = load ptr, ptr %data_.i.i.i.i.i.i.i.i.i, align 8
+  %11 = load ptr, ptr %data_.i.i.i.i.i.i.i.i.i, align 8
   %bit_length_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 184
-  %10 = load i64, ptr %bit_length_.i.i.i.i.i.i.i, align 8
-  %div.i.i.i.i.i.i.i.i = sdiv i64 %10, 8
-  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 %div.i.i.i.i.i.i.i.i
-  %11 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i, align 1
-  %rem.i.i.i.i.i.i.i.i = srem i64 %10, 8
+  %12 = load i64, ptr %bit_length_.i.i.i.i.i.i.i, align 8
+  %div.i.i.i.i.i.i.i.i = sdiv i64 %12, 8
+  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 %div.i.i.i.i.i.i.i.i
+  %13 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i, align 1
+  %rem.i.i.i.i.i.i.i.i = srem i64 %12, 8
   %arrayidx5.i.i.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i.i.i.i.i.i
-  %12 = load i8, ptr %arrayidx5.i.i.i.i.i.i.i.i, align 1
+  %14 = load i8, ptr %arrayidx5.i.i.i.i.i.i.i.i, align 1
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.else.i
-  %13 = xor i8 %12, -1
-  %xor105.i.i.i.i.i.i.i.i = and i8 %11, %13
+  %15 = xor i8 %14, -1
+  %xor105.i.i.i.i.i.i.i.i = and i8 %13, %15
   store i8 %xor105.i.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i.i, align 1
   %false_count_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 192
-  %14 = load i64, ptr %false_count_.i.i.i.i.i.i.i, align 8
-  %inc.i.i.i.i.i.i.i = add nsw i64 %14, 1
+  %16 = load i64, ptr %false_count_.i.i.i.i.i.i.i, align 8
+  %inc.i.i.i.i.i.i.i = add nsw i64 %16, 1
   store i64 %inc.i.i.i.i.i.i.i, ptr %false_count_.i.i.i.i.i.i.i, align 8
-  %15 = load i64, ptr %bit_length_.i.i.i.i.i.i.i, align 8
-  %inc4.i.i.i.i.i.i.i = add nsw i64 %15, 1
-  store i64 %inc4.i.i.i.i.i.i.i, ptr %bit_length_.i.i.i.i.i.i.i, align 8
+  %17 = load i64, ptr %bit_length_.i.i.i.i.i.i.i, align 8
   %length_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 208
-  br label %if.end
+  %18 = load i64, ptr %length_.i.i.i.i.i.i, align 8
+  %inc.i.i.i.i.i5.i = add nsw i64 %18, 1
+  store i64 %inc.i.i.i.i.i5.i, ptr %length_.i.i.i.i.i.i, align 8
+  br label %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt64TypeENS2_16DictEncodeActionEmLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i
 
 if.else.i.i.i.i:                                  ; preds = %if.else.i
-  %xor105.i.i.i.i7.i.i.i.i = or i8 %12, %11
+  %xor105.i.i.i.i7.i.i.i.i = or i8 %14, %13
   store i8 %xor105.i.i.i.i7.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i.i, align 1
+  %19 = load i64, ptr %bit_length_.i.i.i.i.i.i.i, align 8
+  br label %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt64TypeENS2_16DictEncodeActionEmLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i
+
+_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt64TypeENS2_16DictEncodeActionEmLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i: ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
+  %inc4.i2.i.i.i.sink.in.i.i.i = phi i64 [ %17, %if.then.i.i.i.i ], [ %19, %if.else.i.i.i.i ]
+  %.sink.i.i.i.i = phi i64 [ 120, %if.then.i.i.i.i ], [ 128, %if.else.i.i.i.i ]
+  %index.sink.i.i.i.i = phi i32 [ 0, %if.then.i.i.i.i ], [ %call2.i, %if.else.i.i.i.i ]
+  %inc4.i2.i.i.i.sink.i.i.i = add nsw i64 %inc4.i2.i.i.i.sink.in.i.i.i, 1
+  store i64 %inc4.i2.i.i.i.sink.i.i.i, ptr %bit_length_.i.i.i.i.i.i.i, align 8
+  %length_3.i.i8.i.i.i.i = getelementptr inbounds i8, ptr %action_, i64 %.sink.i.i.i.i
+  %20 = load i64, ptr %length_3.i.i8.i.i.i.i, align 8
+  %inc4.i.i9.i.i.i.i = add nsw i64 %20, 1
+  store i64 %inc4.i.i9.i.i.i.i, ptr %length_3.i.i8.i.i.i.i, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %cmp.i.i = icmp eq i32 %action_.val, 1
   %data_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 152
-  %16 = load ptr, ptr %data_.i.i.i.i.i.i.i, align 8
+  %21 = load ptr, ptr %data_.i.i.i.i.i.i.i, align 8
   %bit_length_.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 184
-  %17 = load i64, ptr %bit_length_.i.i.i.i.i, align 8
-  %div.i.i.i.i.i.i = sdiv i64 %17, 8
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 %div.i.i.i.i.i.i
-  %18 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1
-  %rem.i.i.i.i.i.i = srem i64 %17, 8
+  %22 = load i64, ptr %bit_length_.i.i.i.i.i, align 8
+  %div.i.i.i.i.i.i = sdiv i64 %22, 8
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 %div.i.i.i.i.i.i
+  %23 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1
+  %rem.i.i.i.i.i.i = srem i64 %22, 8
   %arrayidx5.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i.i.i.i
-  %19 = load i8, ptr %arrayidx5.i.i.i.i.i.i, align 1
+  %24 = load i8, ptr %arrayidx5.i.i.i.i.i.i, align 1
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.else
-  %20 = xor i8 %19, -1
-  %xor105.i.i.i.i.i.i = and i8 %18, %20
+  %25 = xor i8 %24, -1
+  %xor105.i.i.i.i.i.i = and i8 %23, %25
   store i8 %xor105.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i, align 1
   %false_count_.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 192
-  %21 = load i64, ptr %false_count_.i.i.i.i.i, align 8
-  %inc.i.i.i.i.i = add nsw i64 %21, 1
-  store i64 %inc.i.i.i.i.i, ptr %false_count_.i.i.i.i.i, align 8
-  %22 = load i64, ptr %bit_length_.i.i.i.i.i, align 8
-  %inc4.i.i.i.i.i = add nsw i64 %22, 1
-  store i64 %inc4.i.i.i.i.i, ptr %bit_length_.i.i.i.i.i, align 8
+  %26 = load i64, ptr %false_count_.i.i.i.i.i, align 8
+  %inc.i.i.i.i.i1 = add nsw i64 %26, 1
+  store i64 %inc.i.i.i.i.i1, ptr %false_count_.i.i.i.i.i, align 8
+  %27 = load i64, ptr %bit_length_.i.i.i.i.i, align 8
   %length_.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 208
-  br label %if.end
+  %28 = load i64, ptr %length_.i.i.i.i, align 8
+  %inc.i.i.i.i = add nsw i64 %28, 1
+  store i64 %inc.i.i.i.i, ptr %length_.i.i.i.i, align 8
+  br label %_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit
 
 if.else.i.i:                                      ; preds = %if.else
-  %xor105.i.i.i.i7.i.i = or i8 %19, %18
+  %xor105.i.i.i.i7.i.i = or i8 %24, %23
   store i8 %xor105.i.i.i.i7.i.i, ptr %arrayidx.i.i.i.i.i.i, align 1
+  %29 = load i64, ptr %bit_length_.i.i.i.i.i, align 8
+  br label %_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit
+
+_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit: ; preds = %if.then.i.i, %if.else.i.i
+  %inc4.i2.i.i.i.sink.in.i = phi i64 [ %27, %if.then.i.i ], [ %29, %if.else.i.i ]
+  %.sink.i.i = phi i64 [ 120, %if.then.i.i ], [ 128, %if.else.i.i ]
+  %index.sink.i.i = phi i32 [ 0, %if.then.i.i ], [ -1, %if.else.i.i ]
+  %inc4.i2.i.i.i.sink.i = add nsw i64 %inc4.i2.i.i.i.sink.in.i, 1
+  store i64 %inc4.i2.i.i.i.sink.i, ptr %bit_length_.i.i.i.i.i, align 8
+  %length_3.i.i8.i.i = getelementptr inbounds i8, ptr %action_, i64 %.sink.i.i
+  %30 = load i64, ptr %length_3.i.i8.i.i, align 8
+  %inc4.i.i9.i.i = add nsw i64 %30, 1
+  store i64 %inc4.i.i9.i.i, ptr %length_3.i.i8.i.i, align 8
   br label %if.end
 
-if.end:                                           ; preds = %if.else.i.i, %if.then.i.i, %if.else.i.i.i.i, %if.then.i.i.i.i, %if.else.i.i.i
-  %bit_length_.i.i.i.sink20.i.i.sink5 = phi ptr [ %bit_length_.i.i.i.i.i.i, %if.else.i.i.i ], [ %length_.i.i.i.i.i.i, %if.then.i.i.i.i ], [ %bit_length_.i.i.i.i.i.i.i, %if.else.i.i.i.i ], [ %bit_length_.i.i.i.i.i, %if.else.i.i ], [ %length_.i.i.i.i, %if.then.i.i ]
-  %.sink.i.i.sink = phi i64 [ 128, %if.else.i.i.i ], [ 120, %if.then.i.i.i.i ], [ 128, %if.else.i.i.i.i ], [ 128, %if.else.i.i ], [ 120, %if.then.i.i ]
-  %index.sink.i.i.sink = phi i32 [ %2, %if.else.i.i.i ], [ 0, %if.then.i.i.i.i ], [ %call2.i, %if.else.i.i.i.i ], [ -1, %if.else.i.i ], [ 0, %if.then.i.i ]
-  %action_ = getelementptr inbounds i8, ptr %this.0.val, i64 80
-  %23 = load i64, ptr %bit_length_.i.i.i.sink20.i.i.sink5, align 8
-  %inc4.i2.i.i8.i.i = add nsw i64 %23, 1
-  store i64 %inc4.i2.i.i8.i.i, ptr %bit_length_.i.i.i.sink20.i.i.sink5, align 8
-  %length_3.i.i9.i.i = getelementptr inbounds i8, ptr %action_, i64 %.sink.i.i.sink
-  %24 = load i64, ptr %length_3.i.i9.i.i, align 8
-  %inc4.i.i10.i.i = add nsw i64 %24, 1
-  store i64 %inc4.i.i10.i.i, ptr %length_3.i.i9.i.i, align 8
-  %data_.i.i.i11.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 288
-  %25 = load ptr, ptr %data_.i.i.i11.i.i, align 8
-  %size_.i.i.i12.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 304
-  %26 = load i64, ptr %size_.i.i.i12.i.i, align 8
-  %add.ptr.i.i.i13.i.i = getelementptr inbounds i8, ptr %25, i64 %26
-  store i32 %index.sink.i.i.sink, ptr %add.ptr.i.i.i13.i.i, align 1
-  %27 = load i64, ptr %size_.i.i.i12.i.i, align 8
-  %add.i.i.i14.i.i = add nsw i64 %27, 4
-  store i64 %add.i.i.i14.i.i, ptr %size_.i.i.i12.i.i, align 8
+if.end:                                           ; preds = %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt64TypeENS2_16DictEncodeActionEmLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i, %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt64TypeENS2_16DictEncodeActionEmLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE_clEi.exit.i, %_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit
+  %index.sink.i.i.sink = phi i32 [ %index.sink.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit ], [ %index.sink.i.i.i.i, %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt64TypeENS2_16DictEncodeActionEmLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i ], [ %2, %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt64TypeENS2_16DictEncodeActionEmLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE_clEi.exit.i ]
+  %data_.i.i.i10.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 288
+  %31 = load ptr, ptr %data_.i.i.i10.i.i, align 8
+  %size_.i.i.i11.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 304
+  %32 = load i64, ptr %size_.i.i.i11.i.i, align 8
+  %add.ptr.i.i.i12.i.i = getelementptr inbounds i8, ptr %31, i64 %32
+  store i32 %index.sink.i.i.sink, ptr %add.ptr.i.i.i12.i.i, align 1
+  %33 = load i64, ptr %size_.i.i.i11.i.i, align 8
+  %add.i.i.i13.i.i = add nsw i64 %33, 4
+  store i64 %add.i.i.i13.i.i, ptr %size_.i.i.i11.i.i, align 8
   store ptr null, ptr %agg.result, align 8, !alias.scope !4206
   ret void
 }
@@ -96258,6 +96417,7 @@ entry:
   %6 = load ptr, ptr %5, align 8
   %.val = load ptr, ptr %6, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4303)
+  %action_.i = getelementptr inbounds i8, ptr %.val, i64 80
   %7 = getelementptr i8, ptr %.val, i64 336
   %action_.val.i = load i32, ptr %7, align 8, !noalias !4303
   %cmp.i.i = icmp eq i32 %action_.val.i, 0
@@ -96269,7 +96429,7 @@ if.then.i:                                        ; preds = %entry
   %null_index_.i.i.i = getelementptr inbounds i8, ptr %8, i64 352
   %9 = load i32, ptr %null_index_.i.i.i, align 8, !noalias !4303
   %cmp.i1.i = icmp eq i32 %9, -1
-  br i1 %cmp.i1.i, label %if.then.i.i, label %if.else.i.i.i.i
+  br i1 %cmp.i1.i, label %if.then.i.i, label %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10BinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE_clEi.exit.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %vtable.i.i = load ptr, ptr %8, align 8, !noalias !4303
@@ -96340,8 +96500,8 @@ _ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE10AppendNullEv.exit.thread.i.i: ; 
   store i64 %inc4.i.i.i.i.i, ptr %bit_length_.i.i.i.i.i, align 8, !noalias !4314
   %length_.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 200
   %25 = load i64, ptr %length_.i.i.i.i, align 8, !noalias !4314
-  %inc4.i2.i.i.i.i = add nsw i64 %25, 1
-  store i64 %inc4.i2.i.i.i.i, ptr %length_.i.i.i.i, align 8, !noalias !4314
+  %inc.i.i.i.i = add nsw i64 %25, 1
+  store i64 %inc.i.i.i.i, ptr %length_.i.i.i.i, align 8, !noalias !4314
   %length_3.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 192
   %26 = load i64, ptr %length_3.i.i.i.i, align 8, !noalias !4314
   %inc4.i.i.i.i = add nsw i64 %26, 1
@@ -96454,85 +96614,110 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN5arrow6StatusD2E
   %inc.i.i.i.i.i.i.i.i = add nsw i64 %44, 1
   store i64 %inc.i.i.i.i.i.i.i.i, ptr %false_count_.i.i.i.i.i.i.i.i, align 8, !noalias !4303
   %45 = load i64, ptr %bit_length_.i.i.i.i.i.i.i.i, align 8, !noalias !4303
-  %inc4.i.i.i.i.i.i.i.i = add nsw i64 %45, 1
-  store i64 %inc4.i.i.i.i.i.i.i.i, ptr %bit_length_.i.i.i.i.i.i.i.i, align 8, !noalias !4303
   %length_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val, i64 208
-  br label %_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10BinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv.exit
+  %46 = load i64, ptr %length_.i.i.i.i.i.i.i, align 8, !noalias !4303
+  %inc.i.i.i.i.i.i.i = add nsw i64 %46, 1
+  store i64 %inc.i.i.i.i.i.i.i, ptr %length_.i.i.i.i.i.i.i, align 8, !noalias !4303
+  br label %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10BinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i
   %xor105.i.i.i.i7.i.i.i.i.i = or i8 %42, %41
   store i8 %xor105.i.i.i.i7.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i.i.i, align 1, !noalias !4303
+  %47 = load i64, ptr %bit_length_.i.i.i.i.i.i.i.i, align 8, !noalias !4303
+  br label %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10BinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i.i
+
+_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10BinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i.i: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
+  %inc4.i2.i.i.i.sink.in.i.i.i.i = phi i64 [ %45, %if.then.i.i.i.i.i ], [ %47, %if.else.i.i.i.i.i ]
+  %.sink.i.i.i.i.i = phi i64 [ 120, %if.then.i.i.i.i.i ], [ 128, %if.else.i.i.i.i.i ]
+  %index.sink.i.i.i.i.i = phi i32 [ 0, %if.then.i.i.i.i.i ], [ %call2.i.i, %if.else.i.i.i.i.i ]
+  %inc4.i2.i.i.i.sink.i.i.i.i = add nsw i64 %inc4.i2.i.i.i.sink.in.i.i.i.i, 1
+  store i64 %inc4.i2.i.i.i.sink.i.i.i.i, ptr %bit_length_.i.i.i.i.i.i.i.i, align 8, !noalias !4303
+  %length_3.i.i8.i.i.i.i.i = getelementptr inbounds i8, ptr %action_.i, i64 %.sink.i.i.i.i.i
+  %48 = load i64, ptr %length_3.i.i8.i.i.i.i.i, align 8, !noalias !4303
+  %inc4.i.i9.i.i.i.i.i = add nsw i64 %48, 1
+  store i64 %inc4.i.i9.i.i.i.i.i, ptr %length_3.i.i8.i.i.i.i.i, align 8, !noalias !4303
   br label %_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10BinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv.exit
 
-if.else.i.i.i.i:                                  ; preds = %if.then.i
+_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10BinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE_clEi.exit.i.i: ; preds = %if.then.i
   %bit_length_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val, i64 184
-  %46 = load i64, ptr %bit_length_.i.i.i.i.i.i.i, align 8, !noalias !4303
-  %rem.i.i.i.i.i.i.i.i = srem i64 %46, 8
+  %49 = load i64, ptr %bit_length_.i.i.i.i.i.i.i, align 8, !noalias !4303
+  %rem.i.i.i.i.i.i.i.i = srem i64 %49, 8
   %arrayidx5.i.i.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i.i.i.i.i.i
-  %47 = load i8, ptr %arrayidx5.i.i.i.i.i.i.i.i, align 1, !noalias !4303
+  %50 = load i8, ptr %arrayidx5.i.i.i.i.i.i.i.i, align 1, !noalias !4303
   %data_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val, i64 152
-  %48 = load ptr, ptr %data_.i.i.i.i.i.i.i.i.i, align 8, !noalias !4303
-  %div.i.i.i.i.i.i.i.i = sdiv i64 %46, 8
-  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %48, i64 %div.i.i.i.i.i.i.i.i
-  %49 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i, align 1, !noalias !4303
-  %xor105.i.i.i.i7.i.i.i.i = or i8 %49, %47
+  %51 = load ptr, ptr %data_.i.i.i.i.i.i.i.i.i, align 8, !noalias !4303
+  %div.i.i.i.i.i.i.i.i = sdiv i64 %49, 8
+  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %51, i64 %div.i.i.i.i.i.i.i.i
+  %52 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i, align 1, !noalias !4303
+  %xor105.i.i.i.i7.i.i.i.i = or i8 %52, %50
   store i8 %xor105.i.i.i.i7.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i.i, align 1, !noalias !4303
+  %53 = load i64, ptr %bit_length_.i.i.i.i.i.i.i, align 8, !noalias !4303
+  %inc4.i2.i.i.i.sink.i.i.i = add nsw i64 %53, 1
+  store i64 %inc4.i2.i.i.i.sink.i.i.i, ptr %bit_length_.i.i.i.i.i.i.i, align 8, !noalias !4303
+  %length_3.i.i8.i.i.i.i = getelementptr inbounds i8, ptr %.val, i64 208
+  %54 = load i64, ptr %length_3.i.i8.i.i.i.i, align 8, !noalias !4303
+  %inc4.i.i9.i.i.i.i = add nsw i64 %54, 1
+  store i64 %inc4.i.i9.i.i.i.i, ptr %length_3.i.i8.i.i.i.i, align 8, !noalias !4303
   br label %_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10BinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv.exit
 
 if.else.i:                                        ; preds = %entry
   %cmp.i.i.i = icmp eq i32 %action_.val.i, 1
   %data_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val, i64 152
-  %50 = load ptr, ptr %data_.i.i.i.i.i.i.i.i, align 8, !noalias !4303
+  %55 = load ptr, ptr %data_.i.i.i.i.i.i.i.i, align 8, !noalias !4303
   %bit_length_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val, i64 184
-  %51 = load i64, ptr %bit_length_.i.i.i.i.i.i, align 8, !noalias !4303
-  %div.i.i.i.i.i.i.i = sdiv i64 %51, 8
-  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %50, i64 %div.i.i.i.i.i.i.i
-  %52 = load i8, ptr %arrayidx.i.i.i.i.i.i.i, align 1, !noalias !4303
-  %rem.i.i.i.i.i.i.i = srem i64 %51, 8
+  %56 = load i64, ptr %bit_length_.i.i.i.i.i.i, align 8, !noalias !4303
+  %div.i.i.i.i.i.i.i = sdiv i64 %56, 8
+  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %55, i64 %div.i.i.i.i.i.i.i
+  %57 = load i8, ptr %arrayidx.i.i.i.i.i.i.i, align 1, !noalias !4303
+  %rem.i.i.i.i.i.i.i = srem i64 %56, 8
   %arrayidx5.i.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i.i.i.i.i
-  %53 = load i8, ptr %arrayidx5.i.i.i.i.i.i.i, align 1, !noalias !4303
+  %58 = load i8, ptr %arrayidx5.i.i.i.i.i.i.i, align 1, !noalias !4303
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else.i
-  %54 = xor i8 %53, -1
-  %xor105.i.i.i.i.i.i.i = and i8 %52, %54
+  %59 = xor i8 %58, -1
+  %xor105.i.i.i.i.i.i.i = and i8 %57, %59
   store i8 %xor105.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i, align 1, !noalias !4303
   %false_count_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val, i64 192
-  %55 = load i64, ptr %false_count_.i.i.i.i.i.i, align 8, !noalias !4303
-  %inc.i.i.i.i.i.i = add nsw i64 %55, 1
-  store i64 %inc.i.i.i.i.i.i, ptr %false_count_.i.i.i.i.i.i, align 8, !noalias !4303
-  %56 = load i64, ptr %bit_length_.i.i.i.i.i.i, align 8, !noalias !4303
-  %inc4.i.i.i.i.i.i = add nsw i64 %56, 1
-  store i64 %inc4.i.i.i.i.i.i, ptr %bit_length_.i.i.i.i.i.i, align 8, !noalias !4303
+  %60 = load i64, ptr %false_count_.i.i.i.i.i.i, align 8, !noalias !4303
+  %inc.i.i.i.i.i2.i = add nsw i64 %60, 1
+  store i64 %inc.i.i.i.i.i2.i, ptr %false_count_.i.i.i.i.i.i, align 8, !noalias !4303
+  %61 = load i64, ptr %bit_length_.i.i.i.i.i.i, align 8, !noalias !4303
   %length_.i.i.i.i.i = getelementptr inbounds i8, ptr %.val, i64 208
-  br label %_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10BinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv.exit
+  %62 = load i64, ptr %length_.i.i.i.i.i, align 8, !noalias !4303
+  %inc.i.i.i.i3.i = add nsw i64 %62, 1
+  store i64 %inc.i.i.i.i3.i, ptr %length_.i.i.i.i.i, align 8, !noalias !4303
+  br label %_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.else.i
-  %xor105.i.i.i.i7.i.i.i = or i8 %53, %52
+  %xor105.i.i.i.i7.i.i.i = or i8 %58, %57
   store i8 %xor105.i.i.i.i7.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i, align 1, !noalias !4303
+  %63 = load i64, ptr %bit_length_.i.i.i.i.i.i, align 8, !noalias !4303
+  br label %_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit.i
+
+_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit.i: ; preds = %if.else.i.i.i, %if.then.i.i.i
+  %inc4.i2.i.i.i.sink.in.i.i = phi i64 [ %61, %if.then.i.i.i ], [ %63, %if.else.i.i.i ]
+  %.sink.i.i.i = phi i64 [ 120, %if.then.i.i.i ], [ 128, %if.else.i.i.i ]
+  %index.sink.i.i.i = phi i32 [ 0, %if.then.i.i.i ], [ -1, %if.else.i.i.i ]
+  %inc4.i2.i.i.i.sink.i.i = add nsw i64 %inc4.i2.i.i.i.sink.in.i.i, 1
+  store i64 %inc4.i2.i.i.i.sink.i.i, ptr %bit_length_.i.i.i.i.i.i, align 8, !noalias !4303
+  %length_3.i.i8.i.i.i = getelementptr inbounds i8, ptr %action_.i, i64 %.sink.i.i.i
+  %64 = load i64, ptr %length_3.i.i8.i.i.i, align 8, !noalias !4303
+  %inc4.i.i9.i.i.i = add nsw i64 %64, 1
+  store i64 %inc4.i.i9.i.i.i, ptr %length_3.i.i8.i.i.i, align 8, !noalias !4303
   br label %_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10BinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv.exit
 
-_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10BinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv.exit: ; preds = %if.then.i.i.i.i.i, %if.else.i.i.i.i.i, %if.else.i.i.i.i, %if.then.i.i.i, %if.else.i.i.i
-  %bit_length_.i.i.i.sink20.i.i.sink5.i = phi ptr [ %length_.i.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %bit_length_.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i ], [ %bit_length_.i.i.i.i.i.i.i, %if.else.i.i.i.i ], [ %bit_length_.i.i.i.i.i.i, %if.else.i.i.i ], [ %length_.i.i.i.i.i, %if.then.i.i.i ]
-  %.sink.i.i.sink.i = phi i64 [ 120, %if.then.i.i.i.i.i ], [ 128, %if.else.i.i.i.i.i ], [ 128, %if.else.i.i.i.i ], [ 128, %if.else.i.i.i ], [ 120, %if.then.i.i.i ]
-  %index.sink.i.i.sink.i = phi i32 [ 0, %if.then.i.i.i.i.i ], [ %call2.i.i, %if.else.i.i.i.i.i ], [ %9, %if.else.i.i.i.i ], [ -1, %if.else.i.i.i ], [ 0, %if.then.i.i.i ]
-  %action_.i = getelementptr inbounds i8, ptr %.val, i64 80
-  %57 = load i64, ptr %bit_length_.i.i.i.sink20.i.i.sink5.i, align 8, !noalias !4303
-  %inc4.i2.i.i8.i.i.i = add nsw i64 %57, 1
-  store i64 %inc4.i2.i.i8.i.i.i, ptr %bit_length_.i.i.i.sink20.i.i.sink5.i, align 8, !noalias !4303
-  %length_3.i.i9.i.i.i = getelementptr inbounds i8, ptr %action_.i, i64 %.sink.i.i.sink.i
-  %58 = load i64, ptr %length_3.i.i9.i.i.i, align 8, !noalias !4303
-  %inc4.i.i10.i.i.i = add nsw i64 %58, 1
-  store i64 %inc4.i.i10.i.i.i, ptr %length_3.i.i9.i.i.i, align 8, !noalias !4303
-  %data_.i.i.i11.i.i.i = getelementptr inbounds i8, ptr %.val, i64 288
-  %59 = load ptr, ptr %data_.i.i.i11.i.i.i, align 8, !noalias !4303
-  %size_.i.i.i12.i.i.i = getelementptr inbounds i8, ptr %.val, i64 304
-  %60 = load i64, ptr %size_.i.i.i12.i.i.i, align 8, !noalias !4303
-  %add.ptr.i.i.i13.i.i.i = getelementptr inbounds i8, ptr %59, i64 %60
-  store i32 %index.sink.i.i.sink.i, ptr %add.ptr.i.i.i13.i.i.i, align 1, !noalias !4303
-  %61 = load i64, ptr %size_.i.i.i12.i.i.i, align 8, !noalias !4303
-  %add.i.i.i14.i.i.i = add nsw i64 %61, 4
-  store i64 %add.i.i.i14.i.i.i, ptr %size_.i.i.i12.i.i.i, align 8, !noalias !4303
+_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10BinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv.exit: ; preds = %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10BinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i.i, %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10BinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE_clEi.exit.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit.i
+  %index.sink.i.i.sink.i = phi i32 [ %index.sink.i.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit.i ], [ %9, %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10BinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE_clEi.exit.i.i ], [ %index.sink.i.i.i.i.i, %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10BinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i.i ]
+  %data_.i.i.i10.i.i.i = getelementptr inbounds i8, ptr %.val, i64 288
+  %65 = load ptr, ptr %data_.i.i.i10.i.i.i, align 8, !noalias !4303
+  %size_.i.i.i11.i.i.i = getelementptr inbounds i8, ptr %.val, i64 304
+  %66 = load i64, ptr %size_.i.i.i11.i.i.i, align 8, !noalias !4303
+  %add.ptr.i.i.i12.i.i.i = getelementptr inbounds i8, ptr %65, i64 %66
+  store i32 %index.sink.i.i.sink.i, ptr %add.ptr.i.i.i12.i.i.i, align 1, !noalias !4303
+  %67 = load i64, ptr %size_.i.i.i11.i.i.i, align 8, !noalias !4303
+  %add.i.i.i13.i.i.i = add nsw i64 %67, 4
+  store i64 %add.i.i.i13.i.i.i, ptr %size_.i.i.i11.i.i.i, align 8, !noalias !4303
   store ptr null, ptr %agg.result, align 8, !alias.scope !4317
   ret void
 }
@@ -97473,6 +97658,7 @@ entry:
   %6 = load ptr, ptr %5, align 8
   %.val = load ptr, ptr %6, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4414)
+  %action_.i = getelementptr inbounds i8, ptr %.val, i64 80
   %7 = getelementptr i8, ptr %.val, i64 336
   %action_.val.i = load i32, ptr %7, align 8, !noalias !4414
   %cmp.i.i = icmp eq i32 %action_.val.i, 0
@@ -97484,7 +97670,7 @@ if.then.i:                                        ; preds = %entry
   %null_index_.i.i.i = getelementptr inbounds i8, ptr %8, i64 352
   %9 = load i32, ptr %null_index_.i.i.i, align 8, !noalias !4414
   %cmp.i1.i = icmp eq i32 %9, -1
-  br i1 %cmp.i1.i, label %if.then.i.i, label %if.else.i.i.i.i
+  br i1 %cmp.i1.i, label %if.then.i.i, label %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_15LargeBinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE_clEi.exit.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %vtable.i.i = load ptr, ptr %8, align 8, !noalias !4414
@@ -97554,8 +97740,8 @@ _ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE10AppendNullEv.exit.thread.i.
   store i64 %inc4.i.i.i.i.i, ptr %bit_length_.i.i.i.i.i, align 8, !noalias !4425
   %length_.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 200
   %25 = load i64, ptr %length_.i.i.i.i, align 8, !noalias !4425
-  %inc4.i2.i.i.i.i = add nsw i64 %25, 1
-  store i64 %inc4.i2.i.i.i.i, ptr %length_.i.i.i.i, align 8, !noalias !4425
+  %inc.i.i.i.i = add nsw i64 %25, 1
+  store i64 %inc.i.i.i.i, ptr %length_.i.i.i.i, align 8, !noalias !4425
   %length_3.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 192
   %26 = load i64, ptr %length_3.i.i.i.i, align 8, !noalias !4425
   %inc4.i.i.i.i = add nsw i64 %26, 1
@@ -97668,85 +97854,110 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN5arrow6StatusD2E
   %inc.i.i.i.i.i.i.i.i = add nsw i64 %44, 1
   store i64 %inc.i.i.i.i.i.i.i.i, ptr %false_count_.i.i.i.i.i.i.i.i, align 8, !noalias !4414
   %45 = load i64, ptr %bit_length_.i.i.i.i.i.i.i.i, align 8, !noalias !4414
-  %inc4.i.i.i.i.i.i.i.i = add nsw i64 %45, 1
-  store i64 %inc4.i.i.i.i.i.i.i.i, ptr %bit_length_.i.i.i.i.i.i.i.i, align 8, !noalias !4414
   %length_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val, i64 208
-  br label %_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_15LargeBinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv.exit
+  %46 = load i64, ptr %length_.i.i.i.i.i.i.i, align 8, !noalias !4414
+  %inc.i.i.i.i.i.i.i = add nsw i64 %46, 1
+  store i64 %inc.i.i.i.i.i.i.i, ptr %length_.i.i.i.i.i.i.i, align 8, !noalias !4414
+  br label %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_15LargeBinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i
   %xor105.i.i.i.i7.i.i.i.i.i = or i8 %42, %41
   store i8 %xor105.i.i.i.i7.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i.i.i, align 1, !noalias !4414
+  %47 = load i64, ptr %bit_length_.i.i.i.i.i.i.i.i, align 8, !noalias !4414
+  br label %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_15LargeBinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i.i
+
+_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_15LargeBinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i.i: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
+  %inc4.i2.i.i.i.sink.in.i.i.i.i = phi i64 [ %45, %if.then.i.i.i.i.i ], [ %47, %if.else.i.i.i.i.i ]
+  %.sink.i.i.i.i.i = phi i64 [ 120, %if.then.i.i.i.i.i ], [ 128, %if.else.i.i.i.i.i ]
+  %index.sink.i.i.i.i.i = phi i32 [ 0, %if.then.i.i.i.i.i ], [ %call2.i.i, %if.else.i.i.i.i.i ]
+  %inc4.i2.i.i.i.sink.i.i.i.i = add nsw i64 %inc4.i2.i.i.i.sink.in.i.i.i.i, 1
+  store i64 %inc4.i2.i.i.i.sink.i.i.i.i, ptr %bit_length_.i.i.i.i.i.i.i.i, align 8, !noalias !4414
+  %length_3.i.i8.i.i.i.i.i = getelementptr inbounds i8, ptr %action_.i, i64 %.sink.i.i.i.i.i
+  %48 = load i64, ptr %length_3.i.i8.i.i.i.i.i, align 8, !noalias !4414
+  %inc4.i.i9.i.i.i.i.i = add nsw i64 %48, 1
+  store i64 %inc4.i.i9.i.i.i.i.i, ptr %length_3.i.i8.i.i.i.i.i, align 8, !noalias !4414
   br label %_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_15LargeBinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv.exit
 
-if.else.i.i.i.i:                                  ; preds = %if.then.i
+_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_15LargeBinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE_clEi.exit.i.i: ; preds = %if.then.i
   %bit_length_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val, i64 184
-  %46 = load i64, ptr %bit_length_.i.i.i.i.i.i.i, align 8, !noalias !4414
-  %rem.i.i.i.i.i.i.i.i = srem i64 %46, 8
+  %49 = load i64, ptr %bit_length_.i.i.i.i.i.i.i, align 8, !noalias !4414
+  %rem.i.i.i.i.i.i.i.i = srem i64 %49, 8
   %arrayidx5.i.i.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i.i.i.i.i.i
-  %47 = load i8, ptr %arrayidx5.i.i.i.i.i.i.i.i, align 1, !noalias !4414
+  %50 = load i8, ptr %arrayidx5.i.i.i.i.i.i.i.i, align 1, !noalias !4414
   %data_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val, i64 152
-  %48 = load ptr, ptr %data_.i.i.i.i.i.i.i.i.i, align 8, !noalias !4414
-  %div.i.i.i.i.i.i.i.i = sdiv i64 %46, 8
-  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %48, i64 %div.i.i.i.i.i.i.i.i
-  %49 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i, align 1, !noalias !4414
-  %xor105.i.i.i.i7.i.i.i.i = or i8 %49, %47
+  %51 = load ptr, ptr %data_.i.i.i.i.i.i.i.i.i, align 8, !noalias !4414
+  %div.i.i.i.i.i.i.i.i = sdiv i64 %49, 8
+  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %51, i64 %div.i.i.i.i.i.i.i.i
+  %52 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i, align 1, !noalias !4414
+  %xor105.i.i.i.i7.i.i.i.i = or i8 %52, %50
   store i8 %xor105.i.i.i.i7.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i.i, align 1, !noalias !4414
+  %53 = load i64, ptr %bit_length_.i.i.i.i.i.i.i, align 8, !noalias !4414
+  %inc4.i2.i.i.i.sink.i.i.i = add nsw i64 %53, 1
+  store i64 %inc4.i2.i.i.i.sink.i.i.i, ptr %bit_length_.i.i.i.i.i.i.i, align 8, !noalias !4414
+  %length_3.i.i8.i.i.i.i = getelementptr inbounds i8, ptr %.val, i64 208
+  %54 = load i64, ptr %length_3.i.i8.i.i.i.i, align 8, !noalias !4414
+  %inc4.i.i9.i.i.i.i = add nsw i64 %54, 1
+  store i64 %inc4.i.i9.i.i.i.i, ptr %length_3.i.i8.i.i.i.i, align 8, !noalias !4414
   br label %_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_15LargeBinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv.exit
 
 if.else.i:                                        ; preds = %entry
   %cmp.i.i.i = icmp eq i32 %action_.val.i, 1
   %data_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val, i64 152
-  %50 = load ptr, ptr %data_.i.i.i.i.i.i.i.i, align 8, !noalias !4414
+  %55 = load ptr, ptr %data_.i.i.i.i.i.i.i.i, align 8, !noalias !4414
   %bit_length_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val, i64 184
-  %51 = load i64, ptr %bit_length_.i.i.i.i.i.i, align 8, !noalias !4414
-  %div.i.i.i.i.i.i.i = sdiv i64 %51, 8
-  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %50, i64 %div.i.i.i.i.i.i.i
-  %52 = load i8, ptr %arrayidx.i.i.i.i.i.i.i, align 1, !noalias !4414
-  %rem.i.i.i.i.i.i.i = srem i64 %51, 8
+  %56 = load i64, ptr %bit_length_.i.i.i.i.i.i, align 8, !noalias !4414
+  %div.i.i.i.i.i.i.i = sdiv i64 %56, 8
+  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %55, i64 %div.i.i.i.i.i.i.i
+  %57 = load i8, ptr %arrayidx.i.i.i.i.i.i.i, align 1, !noalias !4414
+  %rem.i.i.i.i.i.i.i = srem i64 %56, 8
   %arrayidx5.i.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i.i.i.i.i
-  %53 = load i8, ptr %arrayidx5.i.i.i.i.i.i.i, align 1, !noalias !4414
+  %58 = load i8, ptr %arrayidx5.i.i.i.i.i.i.i, align 1, !noalias !4414
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else.i
-  %54 = xor i8 %53, -1
-  %xor105.i.i.i.i.i.i.i = and i8 %52, %54
+  %59 = xor i8 %58, -1
+  %xor105.i.i.i.i.i.i.i = and i8 %57, %59
   store i8 %xor105.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i, align 1, !noalias !4414
   %false_count_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val, i64 192
-  %55 = load i64, ptr %false_count_.i.i.i.i.i.i, align 8, !noalias !4414
-  %inc.i.i.i.i.i.i = add nsw i64 %55, 1
-  store i64 %inc.i.i.i.i.i.i, ptr %false_count_.i.i.i.i.i.i, align 8, !noalias !4414
-  %56 = load i64, ptr %bit_length_.i.i.i.i.i.i, align 8, !noalias !4414
-  %inc4.i.i.i.i.i.i = add nsw i64 %56, 1
-  store i64 %inc4.i.i.i.i.i.i, ptr %bit_length_.i.i.i.i.i.i, align 8, !noalias !4414
+  %60 = load i64, ptr %false_count_.i.i.i.i.i.i, align 8, !noalias !4414
+  %inc.i.i.i.i.i2.i = add nsw i64 %60, 1
+  store i64 %inc.i.i.i.i.i2.i, ptr %false_count_.i.i.i.i.i.i, align 8, !noalias !4414
+  %61 = load i64, ptr %bit_length_.i.i.i.i.i.i, align 8, !noalias !4414
   %length_.i.i.i.i.i = getelementptr inbounds i8, ptr %.val, i64 208
-  br label %_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_15LargeBinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv.exit
+  %62 = load i64, ptr %length_.i.i.i.i.i, align 8, !noalias !4414
+  %inc.i.i.i.i3.i = add nsw i64 %62, 1
+  store i64 %inc.i.i.i.i3.i, ptr %length_.i.i.i.i.i, align 8, !noalias !4414
+  br label %_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.else.i
-  %xor105.i.i.i.i7.i.i.i = or i8 %53, %52
+  %xor105.i.i.i.i7.i.i.i = or i8 %58, %57
   store i8 %xor105.i.i.i.i7.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i, align 1, !noalias !4414
+  %63 = load i64, ptr %bit_length_.i.i.i.i.i.i, align 8, !noalias !4414
+  br label %_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit.i
+
+_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit.i: ; preds = %if.else.i.i.i, %if.then.i.i.i
+  %inc4.i2.i.i.i.sink.in.i.i = phi i64 [ %61, %if.then.i.i.i ], [ %63, %if.else.i.i.i ]
+  %.sink.i.i.i = phi i64 [ 120, %if.then.i.i.i ], [ 128, %if.else.i.i.i ]
+  %index.sink.i.i.i = phi i32 [ 0, %if.then.i.i.i ], [ -1, %if.else.i.i.i ]
+  %inc4.i2.i.i.i.sink.i.i = add nsw i64 %inc4.i2.i.i.i.sink.in.i.i, 1
+  store i64 %inc4.i2.i.i.i.sink.i.i, ptr %bit_length_.i.i.i.i.i.i, align 8, !noalias !4414
+  %length_3.i.i8.i.i.i = getelementptr inbounds i8, ptr %action_.i, i64 %.sink.i.i.i
+  %64 = load i64, ptr %length_3.i.i8.i.i.i, align 8, !noalias !4414
+  %inc4.i.i9.i.i.i = add nsw i64 %64, 1
+  store i64 %inc4.i.i9.i.i.i, ptr %length_3.i.i8.i.i.i, align 8, !noalias !4414
   br label %_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_15LargeBinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv.exit
 
-_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_15LargeBinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv.exit: ; preds = %if.then.i.i.i.i.i, %if.else.i.i.i.i.i, %if.else.i.i.i.i, %if.then.i.i.i, %if.else.i.i.i
-  %bit_length_.i.i.i.sink20.i.i.sink5.i = phi ptr [ %length_.i.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %bit_length_.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i ], [ %bit_length_.i.i.i.i.i.i.i, %if.else.i.i.i.i ], [ %bit_length_.i.i.i.i.i.i, %if.else.i.i.i ], [ %length_.i.i.i.i.i, %if.then.i.i.i ]
-  %.sink.i.i.sink.i = phi i64 [ 120, %if.then.i.i.i.i.i ], [ 128, %if.else.i.i.i.i.i ], [ 128, %if.else.i.i.i.i ], [ 128, %if.else.i.i.i ], [ 120, %if.then.i.i.i ]
-  %index.sink.i.i.sink.i = phi i32 [ 0, %if.then.i.i.i.i.i ], [ %call2.i.i, %if.else.i.i.i.i.i ], [ %9, %if.else.i.i.i.i ], [ -1, %if.else.i.i.i ], [ 0, %if.then.i.i.i ]
-  %action_.i = getelementptr inbounds i8, ptr %.val, i64 80
-  %57 = load i64, ptr %bit_length_.i.i.i.sink20.i.i.sink5.i, align 8, !noalias !4414
-  %inc4.i2.i.i8.i.i.i = add nsw i64 %57, 1
-  store i64 %inc4.i2.i.i8.i.i.i, ptr %bit_length_.i.i.i.sink20.i.i.sink5.i, align 8, !noalias !4414
-  %length_3.i.i9.i.i.i = getelementptr inbounds i8, ptr %action_.i, i64 %.sink.i.i.sink.i
-  %58 = load i64, ptr %length_3.i.i9.i.i.i, align 8, !noalias !4414
-  %inc4.i.i10.i.i.i = add nsw i64 %58, 1
-  store i64 %inc4.i.i10.i.i.i, ptr %length_3.i.i9.i.i.i, align 8, !noalias !4414
-  %data_.i.i.i11.i.i.i = getelementptr inbounds i8, ptr %.val, i64 288
-  %59 = load ptr, ptr %data_.i.i.i11.i.i.i, align 8, !noalias !4414
-  %size_.i.i.i12.i.i.i = getelementptr inbounds i8, ptr %.val, i64 304
-  %60 = load i64, ptr %size_.i.i.i12.i.i.i, align 8, !noalias !4414
-  %add.ptr.i.i.i13.i.i.i = getelementptr inbounds i8, ptr %59, i64 %60
-  store i32 %index.sink.i.i.sink.i, ptr %add.ptr.i.i.i13.i.i.i, align 1, !noalias !4414
-  %61 = load i64, ptr %size_.i.i.i12.i.i.i, align 8, !noalias !4414
-  %add.i.i.i14.i.i.i = add nsw i64 %61, 4
-  store i64 %add.i.i.i14.i.i.i, ptr %size_.i.i.i12.i.i.i, align 8, !noalias !4414
+_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_15LargeBinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv.exit: ; preds = %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_15LargeBinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i.i, %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_15LargeBinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE_clEi.exit.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit.i
+  %index.sink.i.i.sink.i = phi i32 [ %index.sink.i.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit.i ], [ %9, %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_15LargeBinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE_clEi.exit.i.i ], [ %index.sink.i.i.i.i.i, %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_15LargeBinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i.i ]
+  %data_.i.i.i10.i.i.i = getelementptr inbounds i8, ptr %.val, i64 288
+  %65 = load ptr, ptr %data_.i.i.i10.i.i.i, align 8, !noalias !4414
+  %size_.i.i.i11.i.i.i = getelementptr inbounds i8, ptr %.val, i64 304
+  %66 = load i64, ptr %size_.i.i.i11.i.i.i, align 8, !noalias !4414
+  %add.ptr.i.i.i12.i.i.i = getelementptr inbounds i8, ptr %65, i64 %66
+  store i32 %index.sink.i.i.sink.i, ptr %add.ptr.i.i.i12.i.i.i, align 1, !noalias !4414
+  %67 = load i64, ptr %size_.i.i.i11.i.i.i, align 8, !noalias !4414
+  %add.i.i.i13.i.i.i = add nsw i64 %67, 4
+  store i64 %add.i.i.i13.i.i.i, ptr %size_.i.i.i11.i.i.i, align 8, !noalias !4414
   store ptr null, ptr %agg.result, align 8, !alias.scope !4428
   ret void
 }
@@ -98681,6 +98892,7 @@ define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Bi
 entry:
   %ref.tmp.i.i.i = alloca %"class.arrow::Status", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4525)
+  %action_.i = getelementptr inbounds i8, ptr %this.0.val.0.val, i64 80
   %0 = getelementptr i8, ptr %this.0.val.0.val, i64 336
   %action_.val.i = load i32, ptr %0, align 8, !noalias !4525
   %cmp.i.i = icmp eq i32 %action_.val.i, 0
@@ -98692,7 +98904,7 @@ if.then.i:                                        ; preds = %entry
   %null_index_.i.i.i = getelementptr inbounds i8, ptr %1, i64 352
   %2 = load i32, ptr %null_index_.i.i.i, align 8, !noalias !4525
   %cmp.i1.i = icmp eq i32 %2, -1
-  br i1 %cmp.i1.i, label %if.then.i.i, label %if.else.i.i.i.i
+  br i1 %cmp.i1.i, label %if.then.i.i, label %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_14BinaryViewTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE_clEi.exit.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %vtable.i.i = load ptr, ptr %1, align 8, !noalias !4525
@@ -98763,8 +98975,8 @@ _ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE10AppendNullEv.exit.thread.i.i: ; 
   store i64 %inc4.i.i.i.i.i, ptr %bit_length_.i.i.i.i.i, align 8, !noalias !4536
   %length_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 200
   %18 = load i64, ptr %length_.i.i.i.i, align 8, !noalias !4536
-  %inc4.i2.i.i.i.i = add nsw i64 %18, 1
-  store i64 %inc4.i2.i.i.i.i, ptr %length_.i.i.i.i, align 8, !noalias !4536
+  %inc.i.i.i.i = add nsw i64 %18, 1
+  store i64 %inc.i.i.i.i, ptr %length_.i.i.i.i, align 8, !noalias !4536
   %length_3.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 192
   %19 = load i64, ptr %length_3.i.i.i.i, align 8, !noalias !4536
   %inc4.i.i.i.i = add nsw i64 %19, 1
@@ -98877,85 +99089,110 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN5arrow6StatusD2E
   %inc.i.i.i.i.i.i.i.i = add nsw i64 %37, 1
   store i64 %inc.i.i.i.i.i.i.i.i, ptr %false_count_.i.i.i.i.i.i.i.i, align 8, !noalias !4525
   %38 = load i64, ptr %bit_length_.i.i.i.i.i.i.i.i, align 8, !noalias !4525
-  %inc4.i.i.i.i.i.i.i.i = add nsw i64 %38, 1
-  store i64 %inc4.i.i.i.i.i.i.i.i, ptr %bit_length_.i.i.i.i.i.i.i.i, align 8, !noalias !4525
   %length_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val.0.val, i64 208
-  br label %_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_14BinaryViewTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv.exit
+  %39 = load i64, ptr %length_.i.i.i.i.i.i.i, align 8, !noalias !4525
+  %inc.i.i.i.i.i.i.i = add nsw i64 %39, 1
+  store i64 %inc.i.i.i.i.i.i.i, ptr %length_.i.i.i.i.i.i.i, align 8, !noalias !4525
+  br label %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_14BinaryViewTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i
   %xor105.i.i.i.i7.i.i.i.i.i = or i8 %35, %34
   store i8 %xor105.i.i.i.i7.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i.i.i, align 1, !noalias !4525
+  %40 = load i64, ptr %bit_length_.i.i.i.i.i.i.i.i, align 8, !noalias !4525
+  br label %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_14BinaryViewTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i.i
+
+_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_14BinaryViewTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i.i: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
+  %inc4.i2.i.i.i.sink.in.i.i.i.i = phi i64 [ %38, %if.then.i.i.i.i.i ], [ %40, %if.else.i.i.i.i.i ]
+  %.sink.i.i.i.i.i = phi i64 [ 120, %if.then.i.i.i.i.i ], [ 128, %if.else.i.i.i.i.i ]
+  %index.sink.i.i.i.i.i = phi i32 [ 0, %if.then.i.i.i.i.i ], [ %call2.i.i, %if.else.i.i.i.i.i ]
+  %inc4.i2.i.i.i.sink.i.i.i.i = add nsw i64 %inc4.i2.i.i.i.sink.in.i.i.i.i, 1
+  store i64 %inc4.i2.i.i.i.sink.i.i.i.i, ptr %bit_length_.i.i.i.i.i.i.i.i, align 8, !noalias !4525
+  %length_3.i.i8.i.i.i.i.i = getelementptr inbounds i8, ptr %action_.i, i64 %.sink.i.i.i.i.i
+  %41 = load i64, ptr %length_3.i.i8.i.i.i.i.i, align 8, !noalias !4525
+  %inc4.i.i9.i.i.i.i.i = add nsw i64 %41, 1
+  store i64 %inc4.i.i9.i.i.i.i.i, ptr %length_3.i.i8.i.i.i.i.i, align 8, !noalias !4525
   br label %_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_14BinaryViewTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv.exit
 
-if.else.i.i.i.i:                                  ; preds = %if.then.i
+_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_14BinaryViewTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE_clEi.exit.i.i: ; preds = %if.then.i
   %bit_length_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val.0.val, i64 184
-  %39 = load i64, ptr %bit_length_.i.i.i.i.i.i.i, align 8, !noalias !4525
-  %rem.i.i.i.i.i.i.i.i = srem i64 %39, 8
+  %42 = load i64, ptr %bit_length_.i.i.i.i.i.i.i, align 8, !noalias !4525
+  %rem.i.i.i.i.i.i.i.i = srem i64 %42, 8
   %arrayidx5.i.i.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i.i.i.i.i.i
-  %40 = load i8, ptr %arrayidx5.i.i.i.i.i.i.i.i, align 1, !noalias !4525
+  %43 = load i8, ptr %arrayidx5.i.i.i.i.i.i.i.i, align 1, !noalias !4525
   %data_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val.0.val, i64 152
-  %41 = load ptr, ptr %data_.i.i.i.i.i.i.i.i.i, align 8, !noalias !4525
-  %div.i.i.i.i.i.i.i.i = sdiv i64 %39, 8
-  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %41, i64 %div.i.i.i.i.i.i.i.i
-  %42 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i, align 1, !noalias !4525
-  %xor105.i.i.i.i7.i.i.i.i = or i8 %42, %40
+  %44 = load ptr, ptr %data_.i.i.i.i.i.i.i.i.i, align 8, !noalias !4525
+  %div.i.i.i.i.i.i.i.i = sdiv i64 %42, 8
+  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %44, i64 %div.i.i.i.i.i.i.i.i
+  %45 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i, align 1, !noalias !4525
+  %xor105.i.i.i.i7.i.i.i.i = or i8 %45, %43
   store i8 %xor105.i.i.i.i7.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i.i, align 1, !noalias !4525
+  %46 = load i64, ptr %bit_length_.i.i.i.i.i.i.i, align 8, !noalias !4525
+  %inc4.i2.i.i.i.sink.i.i.i = add nsw i64 %46, 1
+  store i64 %inc4.i2.i.i.i.sink.i.i.i, ptr %bit_length_.i.i.i.i.i.i.i, align 8, !noalias !4525
+  %length_3.i.i8.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val.0.val, i64 208
+  %47 = load i64, ptr %length_3.i.i8.i.i.i.i, align 8, !noalias !4525
+  %inc4.i.i9.i.i.i.i = add nsw i64 %47, 1
+  store i64 %inc4.i.i9.i.i.i.i, ptr %length_3.i.i8.i.i.i.i, align 8, !noalias !4525
   br label %_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_14BinaryViewTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv.exit
 
 if.else.i:                                        ; preds = %entry
   %cmp.i.i.i = icmp eq i32 %action_.val.i, 1
   %data_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val.0.val, i64 152
-  %43 = load ptr, ptr %data_.i.i.i.i.i.i.i.i, align 8, !noalias !4525
+  %48 = load ptr, ptr %data_.i.i.i.i.i.i.i.i, align 8, !noalias !4525
   %bit_length_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val.0.val, i64 184
-  %44 = load i64, ptr %bit_length_.i.i.i.i.i.i, align 8, !noalias !4525
-  %div.i.i.i.i.i.i.i = sdiv i64 %44, 8
-  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %43, i64 %div.i.i.i.i.i.i.i
-  %45 = load i8, ptr %arrayidx.i.i.i.i.i.i.i, align 1, !noalias !4525
-  %rem.i.i.i.i.i.i.i = srem i64 %44, 8
+  %49 = load i64, ptr %bit_length_.i.i.i.i.i.i, align 8, !noalias !4525
+  %div.i.i.i.i.i.i.i = sdiv i64 %49, 8
+  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %48, i64 %div.i.i.i.i.i.i.i
+  %50 = load i8, ptr %arrayidx.i.i.i.i.i.i.i, align 1, !noalias !4525
+  %rem.i.i.i.i.i.i.i = srem i64 %49, 8
   %arrayidx5.i.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i.i.i.i.i
-  %46 = load i8, ptr %arrayidx5.i.i.i.i.i.i.i, align 1, !noalias !4525
+  %51 = load i8, ptr %arrayidx5.i.i.i.i.i.i.i, align 1, !noalias !4525
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else.i
-  %47 = xor i8 %46, -1
-  %xor105.i.i.i.i.i.i.i = and i8 %45, %47
+  %52 = xor i8 %51, -1
+  %xor105.i.i.i.i.i.i.i = and i8 %50, %52
   store i8 %xor105.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i, align 1, !noalias !4525
   %false_count_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val.0.val, i64 192
-  %48 = load i64, ptr %false_count_.i.i.i.i.i.i, align 8, !noalias !4525
-  %inc.i.i.i.i.i.i = add nsw i64 %48, 1
-  store i64 %inc.i.i.i.i.i.i, ptr %false_count_.i.i.i.i.i.i, align 8, !noalias !4525
-  %49 = load i64, ptr %bit_length_.i.i.i.i.i.i, align 8, !noalias !4525
-  %inc4.i.i.i.i.i.i = add nsw i64 %49, 1
-  store i64 %inc4.i.i.i.i.i.i, ptr %bit_length_.i.i.i.i.i.i, align 8, !noalias !4525
+  %53 = load i64, ptr %false_count_.i.i.i.i.i.i, align 8, !noalias !4525
+  %inc.i.i.i.i.i2.i = add nsw i64 %53, 1
+  store i64 %inc.i.i.i.i.i2.i, ptr %false_count_.i.i.i.i.i.i, align 8, !noalias !4525
+  %54 = load i64, ptr %bit_length_.i.i.i.i.i.i, align 8, !noalias !4525
   %length_.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val.0.val, i64 208
-  br label %_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_14BinaryViewTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv.exit
+  %55 = load i64, ptr %length_.i.i.i.i.i, align 8, !noalias !4525
+  %inc.i.i.i.i3.i = add nsw i64 %55, 1
+  store i64 %inc.i.i.i.i3.i, ptr %length_.i.i.i.i.i, align 8, !noalias !4525
+  br label %_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.else.i
-  %xor105.i.i.i.i7.i.i.i = or i8 %46, %45
+  %xor105.i.i.i.i7.i.i.i = or i8 %51, %50
   store i8 %xor105.i.i.i.i7.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i, align 1, !noalias !4525
+  %56 = load i64, ptr %bit_length_.i.i.i.i.i.i, align 8, !noalias !4525
+  br label %_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit.i
+
+_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit.i: ; preds = %if.else.i.i.i, %if.then.i.i.i
+  %inc4.i2.i.i.i.sink.in.i.i = phi i64 [ %54, %if.then.i.i.i ], [ %56, %if.else.i.i.i ]
+  %.sink.i.i.i = phi i64 [ 120, %if.then.i.i.i ], [ 128, %if.else.i.i.i ]
+  %index.sink.i.i.i = phi i32 [ 0, %if.then.i.i.i ], [ -1, %if.else.i.i.i ]
+  %inc4.i2.i.i.i.sink.i.i = add nsw i64 %inc4.i2.i.i.i.sink.in.i.i, 1
+  store i64 %inc4.i2.i.i.i.sink.i.i, ptr %bit_length_.i.i.i.i.i.i, align 8, !noalias !4525
+  %length_3.i.i8.i.i.i = getelementptr inbounds i8, ptr %action_.i, i64 %.sink.i.i.i
+  %57 = load i64, ptr %length_3.i.i8.i.i.i, align 8, !noalias !4525
+  %inc4.i.i9.i.i.i = add nsw i64 %57, 1
+  store i64 %inc4.i.i9.i.i.i, ptr %length_3.i.i8.i.i.i, align 8, !noalias !4525
   br label %_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_14BinaryViewTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv.exit
 
-_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_14BinaryViewTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv.exit: ; preds = %if.then.i.i.i.i.i, %if.else.i.i.i.i.i, %if.else.i.i.i.i, %if.then.i.i.i, %if.else.i.i.i
-  %bit_length_.i.i.i.sink20.i.i.sink5.i = phi ptr [ %length_.i.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %bit_length_.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i ], [ %bit_length_.i.i.i.i.i.i.i, %if.else.i.i.i.i ], [ %bit_length_.i.i.i.i.i.i, %if.else.i.i.i ], [ %length_.i.i.i.i.i, %if.then.i.i.i ]
-  %.sink.i.i.sink.i = phi i64 [ 120, %if.then.i.i.i.i.i ], [ 128, %if.else.i.i.i.i.i ], [ 128, %if.else.i.i.i.i ], [ 128, %if.else.i.i.i ], [ 120, %if.then.i.i.i ]
-  %index.sink.i.i.sink.i = phi i32 [ 0, %if.then.i.i.i.i.i ], [ %call2.i.i, %if.else.i.i.i.i.i ], [ %2, %if.else.i.i.i.i ], [ -1, %if.else.i.i.i ], [ 0, %if.then.i.i.i ]
-  %action_.i = getelementptr inbounds i8, ptr %this.0.val.0.val, i64 80
-  %50 = load i64, ptr %bit_length_.i.i.i.sink20.i.i.sink5.i, align 8, !noalias !4525
-  %inc4.i2.i.i8.i.i.i = add nsw i64 %50, 1
-  store i64 %inc4.i2.i.i8.i.i.i, ptr %bit_length_.i.i.i.sink20.i.i.sink5.i, align 8, !noalias !4525
-  %length_3.i.i9.i.i.i = getelementptr inbounds i8, ptr %action_.i, i64 %.sink.i.i.sink.i
-  %51 = load i64, ptr %length_3.i.i9.i.i.i, align 8, !noalias !4525
-  %inc4.i.i10.i.i.i = add nsw i64 %51, 1
-  store i64 %inc4.i.i10.i.i.i, ptr %length_3.i.i9.i.i.i, align 8, !noalias !4525
-  %data_.i.i.i11.i.i.i = getelementptr inbounds i8, ptr %this.0.val.0.val, i64 288
-  %52 = load ptr, ptr %data_.i.i.i11.i.i.i, align 8, !noalias !4525
-  %size_.i.i.i12.i.i.i = getelementptr inbounds i8, ptr %this.0.val.0.val, i64 304
-  %53 = load i64, ptr %size_.i.i.i12.i.i.i, align 8, !noalias !4525
-  %add.ptr.i.i.i13.i.i.i = getelementptr inbounds i8, ptr %52, i64 %53
-  store i32 %index.sink.i.i.sink.i, ptr %add.ptr.i.i.i13.i.i.i, align 1, !noalias !4525
-  %54 = load i64, ptr %size_.i.i.i12.i.i.i, align 8, !noalias !4525
-  %add.i.i.i14.i.i.i = add nsw i64 %54, 4
-  store i64 %add.i.i.i14.i.i.i, ptr %size_.i.i.i12.i.i.i, align 8, !noalias !4525
+_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_14BinaryViewTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv.exit: ; preds = %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_14BinaryViewTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i.i, %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_14BinaryViewTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE_clEi.exit.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit.i
+  %index.sink.i.i.sink.i = phi i32 [ %index.sink.i.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit.i ], [ %2, %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_14BinaryViewTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE_clEi.exit.i.i ], [ %index.sink.i.i.i.i.i, %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_14BinaryViewTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i.i ]
+  %data_.i.i.i10.i.i.i = getelementptr inbounds i8, ptr %this.0.val.0.val, i64 288
+  %58 = load ptr, ptr %data_.i.i.i10.i.i.i, align 8, !noalias !4525
+  %size_.i.i.i11.i.i.i = getelementptr inbounds i8, ptr %this.0.val.0.val, i64 304
+  %59 = load i64, ptr %size_.i.i.i11.i.i.i, align 8, !noalias !4525
+  %add.ptr.i.i.i12.i.i.i = getelementptr inbounds i8, ptr %58, i64 %59
+  store i32 %index.sink.i.i.sink.i, ptr %add.ptr.i.i.i12.i.i.i, align 1, !noalias !4525
+  %60 = load i64, ptr %size_.i.i.i11.i.i.i, align 8, !noalias !4525
+  %add.i.i.i13.i.i.i = add nsw i64 %60, 4
+  store i64 %add.i.i.i13.i.i.i, ptr %size_.i.i.i11.i.i.i, align 8, !noalias !4525
   store ptr null, ptr %agg.result, align 8, !alias.scope !4539
   ret void
 }
@@ -99878,6 +100115,7 @@ entry:
   %6 = load ptr, ptr %5, align 8
   %.val = load ptr, ptr %6, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4633)
+  %action_.i = getelementptr inbounds i8, ptr %.val, i64 80
   %7 = getelementptr i8, ptr %.val, i64 336
   %action_.val.i = load i32, ptr %7, align 8, !noalias !4633
   %cmp.i.i = icmp eq i32 %action_.val.i, 0
@@ -99889,7 +100127,7 @@ if.then.i:                                        ; preds = %entry
   %null_index_.i.i.i = getelementptr inbounds i8, ptr %8, i64 352
   %9 = load i32, ptr %null_index_.i.i.i, align 8, !noalias !4633
   %cmp.i1.i = icmp eq i32 %9, -1
-  br i1 %cmp.i1.i, label %if.then.i.i, label %if.else.i.i.i.i
+  br i1 %cmp.i1.i, label %if.then.i.i, label %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_19FixedSizeBinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE_clEi.exit.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %vtable.i.i = load ptr, ptr %8, align 8, !noalias !4633
@@ -99960,8 +100198,8 @@ _ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE10AppendNullEv.exit.thread.i.i: ; 
   store i64 %inc4.i.i.i.i.i, ptr %bit_length_.i.i.i.i.i, align 8, !noalias !4644
   %length_.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 200
   %25 = load i64, ptr %length_.i.i.i.i, align 8, !noalias !4644
-  %inc4.i2.i.i.i.i = add nsw i64 %25, 1
-  store i64 %inc4.i2.i.i.i.i, ptr %length_.i.i.i.i, align 8, !noalias !4644
+  %inc.i.i.i.i = add nsw i64 %25, 1
+  store i64 %inc.i.i.i.i, ptr %length_.i.i.i.i, align 8, !noalias !4644
   %length_3.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 192
   %26 = load i64, ptr %length_3.i.i.i.i, align 8, !noalias !4644
   %inc4.i.i.i.i = add nsw i64 %26, 1
@@ -100074,85 +100312,110 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN5arrow6StatusD2E
   %inc.i.i.i.i.i.i.i.i = add nsw i64 %44, 1
   store i64 %inc.i.i.i.i.i.i.i.i, ptr %false_count_.i.i.i.i.i.i.i.i, align 8, !noalias !4633
   %45 = load i64, ptr %bit_length_.i.i.i.i.i.i.i.i, align 8, !noalias !4633
-  %inc4.i.i.i.i.i.i.i.i = add nsw i64 %45, 1
-  store i64 %inc4.i.i.i.i.i.i.i.i, ptr %bit_length_.i.i.i.i.i.i.i.i, align 8, !noalias !4633
   %length_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val, i64 208
-  br label %_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_19FixedSizeBinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv.exit
+  %46 = load i64, ptr %length_.i.i.i.i.i.i.i, align 8, !noalias !4633
+  %inc.i.i.i.i.i.i.i = add nsw i64 %46, 1
+  store i64 %inc.i.i.i.i.i.i.i, ptr %length_.i.i.i.i.i.i.i, align 8, !noalias !4633
+  br label %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_19FixedSizeBinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i
   %xor105.i.i.i.i7.i.i.i.i.i = or i8 %42, %41
   store i8 %xor105.i.i.i.i7.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i.i.i, align 1, !noalias !4633
+  %47 = load i64, ptr %bit_length_.i.i.i.i.i.i.i.i, align 8, !noalias !4633
+  br label %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_19FixedSizeBinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i.i
+
+_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_19FixedSizeBinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i.i: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
+  %inc4.i2.i.i.i.sink.in.i.i.i.i = phi i64 [ %45, %if.then.i.i.i.i.i ], [ %47, %if.else.i.i.i.i.i ]
+  %.sink.i.i.i.i.i = phi i64 [ 120, %if.then.i.i.i.i.i ], [ 128, %if.else.i.i.i.i.i ]
+  %index.sink.i.i.i.i.i = phi i32 [ 0, %if.then.i.i.i.i.i ], [ %call2.i.i, %if.else.i.i.i.i.i ]
+  %inc4.i2.i.i.i.sink.i.i.i.i = add nsw i64 %inc4.i2.i.i.i.sink.in.i.i.i.i, 1
+  store i64 %inc4.i2.i.i.i.sink.i.i.i.i, ptr %bit_length_.i.i.i.i.i.i.i.i, align 8, !noalias !4633
+  %length_3.i.i8.i.i.i.i.i = getelementptr inbounds i8, ptr %action_.i, i64 %.sink.i.i.i.i.i
+  %48 = load i64, ptr %length_3.i.i8.i.i.i.i.i, align 8, !noalias !4633
+  %inc4.i.i9.i.i.i.i.i = add nsw i64 %48, 1
+  store i64 %inc4.i.i9.i.i.i.i.i, ptr %length_3.i.i8.i.i.i.i.i, align 8, !noalias !4633
   br label %_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_19FixedSizeBinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv.exit
 
-if.else.i.i.i.i:                                  ; preds = %if.then.i
+_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_19FixedSizeBinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE_clEi.exit.i.i: ; preds = %if.then.i
   %bit_length_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val, i64 184
-  %46 = load i64, ptr %bit_length_.i.i.i.i.i.i.i, align 8, !noalias !4633
-  %rem.i.i.i.i.i.i.i.i = srem i64 %46, 8
+  %49 = load i64, ptr %bit_length_.i.i.i.i.i.i.i, align 8, !noalias !4633
+  %rem.i.i.i.i.i.i.i.i = srem i64 %49, 8
   %arrayidx5.i.i.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i.i.i.i.i.i
-  %47 = load i8, ptr %arrayidx5.i.i.i.i.i.i.i.i, align 1, !noalias !4633
+  %50 = load i8, ptr %arrayidx5.i.i.i.i.i.i.i.i, align 1, !noalias !4633
   %data_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val, i64 152
-  %48 = load ptr, ptr %data_.i.i.i.i.i.i.i.i.i, align 8, !noalias !4633
-  %div.i.i.i.i.i.i.i.i = sdiv i64 %46, 8
-  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %48, i64 %div.i.i.i.i.i.i.i.i
-  %49 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i, align 1, !noalias !4633
-  %xor105.i.i.i.i7.i.i.i.i = or i8 %49, %47
+  %51 = load ptr, ptr %data_.i.i.i.i.i.i.i.i.i, align 8, !noalias !4633
+  %div.i.i.i.i.i.i.i.i = sdiv i64 %49, 8
+  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %51, i64 %div.i.i.i.i.i.i.i.i
+  %52 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i, align 1, !noalias !4633
+  %xor105.i.i.i.i7.i.i.i.i = or i8 %52, %50
   store i8 %xor105.i.i.i.i7.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i.i, align 1, !noalias !4633
+  %53 = load i64, ptr %bit_length_.i.i.i.i.i.i.i, align 8, !noalias !4633
+  %inc4.i2.i.i.i.sink.i.i.i = add nsw i64 %53, 1
+  store i64 %inc4.i2.i.i.i.sink.i.i.i, ptr %bit_length_.i.i.i.i.i.i.i, align 8, !noalias !4633
+  %length_3.i.i8.i.i.i.i = getelementptr inbounds i8, ptr %.val, i64 208
+  %54 = load i64, ptr %length_3.i.i8.i.i.i.i, align 8, !noalias !4633
+  %inc4.i.i9.i.i.i.i = add nsw i64 %54, 1
+  store i64 %inc4.i.i9.i.i.i.i, ptr %length_3.i.i8.i.i.i.i, align 8, !noalias !4633
   br label %_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_19FixedSizeBinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv.exit
 
 if.else.i:                                        ; preds = %entry
   %cmp.i.i.i = icmp eq i32 %action_.val.i, 1
   %data_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val, i64 152
-  %50 = load ptr, ptr %data_.i.i.i.i.i.i.i.i, align 8, !noalias !4633
+  %55 = load ptr, ptr %data_.i.i.i.i.i.i.i.i, align 8, !noalias !4633
   %bit_length_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val, i64 184
-  %51 = load i64, ptr %bit_length_.i.i.i.i.i.i, align 8, !noalias !4633
-  %div.i.i.i.i.i.i.i = sdiv i64 %51, 8
-  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %50, i64 %div.i.i.i.i.i.i.i
-  %52 = load i8, ptr %arrayidx.i.i.i.i.i.i.i, align 1, !noalias !4633
-  %rem.i.i.i.i.i.i.i = srem i64 %51, 8
+  %56 = load i64, ptr %bit_length_.i.i.i.i.i.i, align 8, !noalias !4633
+  %div.i.i.i.i.i.i.i = sdiv i64 %56, 8
+  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %55, i64 %div.i.i.i.i.i.i.i
+  %57 = load i8, ptr %arrayidx.i.i.i.i.i.i.i, align 1, !noalias !4633
+  %rem.i.i.i.i.i.i.i = srem i64 %56, 8
   %arrayidx5.i.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i.i.i.i.i
-  %53 = load i8, ptr %arrayidx5.i.i.i.i.i.i.i, align 1, !noalias !4633
+  %58 = load i8, ptr %arrayidx5.i.i.i.i.i.i.i, align 1, !noalias !4633
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else.i
-  %54 = xor i8 %53, -1
-  %xor105.i.i.i.i.i.i.i = and i8 %52, %54
+  %59 = xor i8 %58, -1
+  %xor105.i.i.i.i.i.i.i = and i8 %57, %59
   store i8 %xor105.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i, align 1, !noalias !4633
   %false_count_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val, i64 192
-  %55 = load i64, ptr %false_count_.i.i.i.i.i.i, align 8, !noalias !4633
-  %inc.i.i.i.i.i.i = add nsw i64 %55, 1
-  store i64 %inc.i.i.i.i.i.i, ptr %false_count_.i.i.i.i.i.i, align 8, !noalias !4633
-  %56 = load i64, ptr %bit_length_.i.i.i.i.i.i, align 8, !noalias !4633
-  %inc4.i.i.i.i.i.i = add nsw i64 %56, 1
-  store i64 %inc4.i.i.i.i.i.i, ptr %bit_length_.i.i.i.i.i.i, align 8, !noalias !4633
+  %60 = load i64, ptr %false_count_.i.i.i.i.i.i, align 8, !noalias !4633
+  %inc.i.i.i.i.i2.i = add nsw i64 %60, 1
+  store i64 %inc.i.i.i.i.i2.i, ptr %false_count_.i.i.i.i.i.i, align 8, !noalias !4633
+  %61 = load i64, ptr %bit_length_.i.i.i.i.i.i, align 8, !noalias !4633
   %length_.i.i.i.i.i = getelementptr inbounds i8, ptr %.val, i64 208
-  br label %_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_19FixedSizeBinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv.exit
+  %62 = load i64, ptr %length_.i.i.i.i.i, align 8, !noalias !4633
+  %inc.i.i.i.i3.i = add nsw i64 %62, 1
+  store i64 %inc.i.i.i.i3.i, ptr %length_.i.i.i.i.i, align 8, !noalias !4633
+  br label %_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.else.i
-  %xor105.i.i.i.i7.i.i.i = or i8 %53, %52
+  %xor105.i.i.i.i7.i.i.i = or i8 %58, %57
   store i8 %xor105.i.i.i.i7.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i, align 1, !noalias !4633
+  %63 = load i64, ptr %bit_length_.i.i.i.i.i.i, align 8, !noalias !4633
+  br label %_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit.i
+
+_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit.i: ; preds = %if.else.i.i.i, %if.then.i.i.i
+  %inc4.i2.i.i.i.sink.in.i.i = phi i64 [ %61, %if.then.i.i.i ], [ %63, %if.else.i.i.i ]
+  %.sink.i.i.i = phi i64 [ 120, %if.then.i.i.i ], [ 128, %if.else.i.i.i ]
+  %index.sink.i.i.i = phi i32 [ 0, %if.then.i.i.i ], [ -1, %if.else.i.i.i ]
+  %inc4.i2.i.i.i.sink.i.i = add nsw i64 %inc4.i2.i.i.i.sink.in.i.i, 1
+  store i64 %inc4.i2.i.i.i.sink.i.i, ptr %bit_length_.i.i.i.i.i.i, align 8, !noalias !4633
+  %length_3.i.i8.i.i.i = getelementptr inbounds i8, ptr %action_.i, i64 %.sink.i.i.i
+  %64 = load i64, ptr %length_3.i.i8.i.i.i, align 8, !noalias !4633
+  %inc4.i.i9.i.i.i = add nsw i64 %64, 1
+  store i64 %inc4.i.i9.i.i.i, ptr %length_3.i.i8.i.i.i, align 8, !noalias !4633
   br label %_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_19FixedSizeBinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv.exit
 
-_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_19FixedSizeBinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv.exit: ; preds = %if.then.i.i.i.i.i, %if.else.i.i.i.i.i, %if.else.i.i.i.i, %if.then.i.i.i, %if.else.i.i.i
-  %bit_length_.i.i.i.sink20.i.i.sink5.i = phi ptr [ %length_.i.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %bit_length_.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i ], [ %bit_length_.i.i.i.i.i.i.i, %if.else.i.i.i.i ], [ %bit_length_.i.i.i.i.i.i, %if.else.i.i.i ], [ %length_.i.i.i.i.i, %if.then.i.i.i ]
-  %.sink.i.i.sink.i = phi i64 [ 120, %if.then.i.i.i.i.i ], [ 128, %if.else.i.i.i.i.i ], [ 128, %if.else.i.i.i.i ], [ 128, %if.else.i.i.i ], [ 120, %if.then.i.i.i ]
-  %index.sink.i.i.sink.i = phi i32 [ 0, %if.then.i.i.i.i.i ], [ %call2.i.i, %if.else.i.i.i.i.i ], [ %9, %if.else.i.i.i.i ], [ -1, %if.else.i.i.i ], [ 0, %if.then.i.i.i ]
-  %action_.i = getelementptr inbounds i8, ptr %.val, i64 80
-  %57 = load i64, ptr %bit_length_.i.i.i.sink20.i.i.sink5.i, align 8, !noalias !4633
-  %inc4.i2.i.i8.i.i.i = add nsw i64 %57, 1
-  store i64 %inc4.i2.i.i8.i.i.i, ptr %bit_length_.i.i.i.sink20.i.i.sink5.i, align 8, !noalias !4633
-  %length_3.i.i9.i.i.i = getelementptr inbounds i8, ptr %action_.i, i64 %.sink.i.i.sink.i
-  %58 = load i64, ptr %length_3.i.i9.i.i.i, align 8, !noalias !4633
-  %inc4.i.i10.i.i.i = add nsw i64 %58, 1
-  store i64 %inc4.i.i10.i.i.i, ptr %length_3.i.i9.i.i.i, align 8, !noalias !4633
-  %data_.i.i.i11.i.i.i = getelementptr inbounds i8, ptr %.val, i64 288
-  %59 = load ptr, ptr %data_.i.i.i11.i.i.i, align 8, !noalias !4633
-  %size_.i.i.i12.i.i.i = getelementptr inbounds i8, ptr %.val, i64 304
-  %60 = load i64, ptr %size_.i.i.i12.i.i.i, align 8, !noalias !4633
-  %add.ptr.i.i.i13.i.i.i = getelementptr inbounds i8, ptr %59, i64 %60
-  store i32 %index.sink.i.i.sink.i, ptr %add.ptr.i.i.i13.i.i.i, align 1, !noalias !4633
-  %61 = load i64, ptr %size_.i.i.i12.i.i.i, align 8, !noalias !4633
-  %add.i.i.i14.i.i.i = add nsw i64 %61, 4
-  store i64 %add.i.i.i14.i.i.i, ptr %size_.i.i.i12.i.i.i, align 8, !noalias !4633
+_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_19FixedSizeBinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv.exit: ; preds = %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_19FixedSizeBinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i.i, %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_19FixedSizeBinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE_clEi.exit.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit.i
+  %index.sink.i.i.sink.i = phi i32 [ %index.sink.i.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit.i ], [ %9, %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_19FixedSizeBinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE_clEi.exit.i.i ], [ %index.sink.i.i.i.i.i, %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_19FixedSizeBinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i.i ]
+  %data_.i.i.i10.i.i.i = getelementptr inbounds i8, ptr %.val, i64 288
+  %65 = load ptr, ptr %data_.i.i.i10.i.i.i, align 8, !noalias !4633
+  %size_.i.i.i11.i.i.i = getelementptr inbounds i8, ptr %.val, i64 304
+  %66 = load i64, ptr %size_.i.i.i11.i.i.i, align 8, !noalias !4633
+  %add.ptr.i.i.i12.i.i.i = getelementptr inbounds i8, ptr %65, i64 %66
+  store i32 %index.sink.i.i.sink.i, ptr %add.ptr.i.i.i12.i.i.i, align 1, !noalias !4633
+  %67 = load i64, ptr %size_.i.i.i11.i.i.i, align 8, !noalias !4633
+  %add.i.i.i13.i.i.i = add nsw i64 %67, 4
+  store i64 %add.i.i.i13.i.i.i, ptr %size_.i.i.i11.i.i.i, align 8, !noalias !4633
   store ptr null, ptr %agg.result, align 8, !alias.scope !4647
   ret void
 }
@@ -100987,6 +101250,7 @@ _ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_24MonthDayNanoIn
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_24MonthDayNanoIntervalTypeENS2_16DictEncodeActionENS4_13MonthDayNanosELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture %this.0.val) unnamed_addr #3 align 2 {
 entry:
+  %action_ = getelementptr inbounds i8, ptr %this.0.val, i64 80
   %0 = getelementptr i8, ptr %this.0.val, i64 336
   %action_.val = load i32, ptr %0, align 8
   %cmp.i = icmp eq i32 %action_.val, 0
@@ -100998,9 +101262,9 @@ if.then:                                          ; preds = %entry
   %null_index_.i.i = getelementptr inbounds i8, ptr %1, i64 96
   %2 = load i32, ptr %null_index_.i.i, align 8
   %cmp.not.i = icmp eq i32 %2, -1
-  br i1 %cmp.not.i, label %if.else.i, label %if.else.i.i.i
+  br i1 %cmp.not.i, label %if.else.i, label %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_24MonthDayNanoIntervalTypeENS2_16DictEncodeActionENS4_13MonthDayNanosELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE_clEi.exit.i
 
-if.else.i.i.i:                                    ; preds = %if.then
+_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_24MonthDayNanoIntervalTypeENS2_16DictEncodeActionENS4_13MonthDayNanosELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE_clEi.exit.i: ; preds = %if.then
   %bit_length_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 184
   %3 = load i64, ptr %bit_length_.i.i.i.i.i.i, align 8
   %rem.i.i.i.i.i.i.i = srem i64 %3, 8
@@ -101013,101 +101277,126 @@ if.else.i.i.i:                                    ; preds = %if.then
   %6 = load i8, ptr %arrayidx.i.i.i.i.i.i.i, align 1
   %xor105.i.i.i.i7.i.i.i = or i8 %4, %6
   store i8 %xor105.i.i.i.i7.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i, align 1
+  %7 = load i64, ptr %bit_length_.i.i.i.i.i.i, align 8
+  %inc4.i2.i.i.i.sink.i.i = add nsw i64 %7, 1
+  store i64 %inc4.i2.i.i.i.sink.i.i, ptr %bit_length_.i.i.i.i.i.i, align 8
+  %length_3.i.i8.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 208
+  %8 = load i64, ptr %length_3.i.i8.i.i.i, align 8
+  %inc4.i.i9.i.i.i = add nsw i64 %8, 1
+  store i64 %inc4.i.i9.i.i.i, ptr %length_3.i.i8.i.i.i, align 8
   br label %if.end
 
 if.else.i:                                        ; preds = %if.then
   %vtable.i = load ptr, ptr %1, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
-  %7 = load ptr, ptr %vfn.i, align 8
-  %call2.i = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(100) %1)
+  %9 = load ptr, ptr %vfn.i, align 8
+  %call2.i = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(100) %1)
   store i32 %call2.i, ptr %null_index_.i.i, align 8
-  %8 = load i32, ptr %0, align 8
-  %cmp.i.i.i.i = icmp eq i32 %8, 1
+  %10 = load i32, ptr %0, align 8
+  %cmp.i.i.i.i = icmp eq i32 %10, 1
   %data_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 152
-  %9 = load ptr, ptr %data_.i.i.i.i.i.i.i.i.i, align 8
+  %11 = load ptr, ptr %data_.i.i.i.i.i.i.i.i.i, align 8
   %bit_length_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 184
-  %10 = load i64, ptr %bit_length_.i.i.i.i.i.i.i, align 8
-  %div.i.i.i.i.i.i.i.i = sdiv i64 %10, 8
-  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 %div.i.i.i.i.i.i.i.i
-  %11 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i, align 1
-  %rem.i.i.i.i.i.i.i.i = srem i64 %10, 8
+  %12 = load i64, ptr %bit_length_.i.i.i.i.i.i.i, align 8
+  %div.i.i.i.i.i.i.i.i = sdiv i64 %12, 8
+  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 %div.i.i.i.i.i.i.i.i
+  %13 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i, align 1
+  %rem.i.i.i.i.i.i.i.i = srem i64 %12, 8
   %arrayidx5.i.i.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i.i.i.i.i.i
-  %12 = load i8, ptr %arrayidx5.i.i.i.i.i.i.i.i, align 1
+  %14 = load i8, ptr %arrayidx5.i.i.i.i.i.i.i.i, align 1
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.else.i
-  %13 = xor i8 %12, -1
-  %xor105.i.i.i.i.i.i.i.i = and i8 %11, %13
+  %15 = xor i8 %14, -1
+  %xor105.i.i.i.i.i.i.i.i = and i8 %13, %15
   store i8 %xor105.i.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i.i, align 1
   %false_count_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 192
-  %14 = load i64, ptr %false_count_.i.i.i.i.i.i.i, align 8
-  %inc.i.i.i.i.i.i.i = add nsw i64 %14, 1
+  %16 = load i64, ptr %false_count_.i.i.i.i.i.i.i, align 8
+  %inc.i.i.i.i.i.i.i = add nsw i64 %16, 1
   store i64 %inc.i.i.i.i.i.i.i, ptr %false_count_.i.i.i.i.i.i.i, align 8
-  %15 = load i64, ptr %bit_length_.i.i.i.i.i.i.i, align 8
-  %inc4.i.i.i.i.i.i.i = add nsw i64 %15, 1
-  store i64 %inc4.i.i.i.i.i.i.i, ptr %bit_length_.i.i.i.i.i.i.i, align 8
+  %17 = load i64, ptr %bit_length_.i.i.i.i.i.i.i, align 8
   %length_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 208
-  br label %if.end
+  %18 = load i64, ptr %length_.i.i.i.i.i.i, align 8
+  %inc.i.i.i.i.i5.i = add nsw i64 %18, 1
+  store i64 %inc.i.i.i.i.i5.i, ptr %length_.i.i.i.i.i.i, align 8
+  br label %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_24MonthDayNanoIntervalTypeENS2_16DictEncodeActionENS4_13MonthDayNanosELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i
 
 if.else.i.i.i.i:                                  ; preds = %if.else.i
-  %xor105.i.i.i.i7.i.i.i.i = or i8 %12, %11
+  %xor105.i.i.i.i7.i.i.i.i = or i8 %14, %13
   store i8 %xor105.i.i.i.i7.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i.i, align 1
+  %19 = load i64, ptr %bit_length_.i.i.i.i.i.i.i, align 8
+  br label %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_24MonthDayNanoIntervalTypeENS2_16DictEncodeActionENS4_13MonthDayNanosELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i
+
+_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_24MonthDayNanoIntervalTypeENS2_16DictEncodeActionENS4_13MonthDayNanosELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i: ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
+  %inc4.i2.i.i.i.sink.in.i.i.i = phi i64 [ %17, %if.then.i.i.i.i ], [ %19, %if.else.i.i.i.i ]
+  %.sink.i.i.i.i = phi i64 [ 120, %if.then.i.i.i.i ], [ 128, %if.else.i.i.i.i ]
+  %index.sink.i.i.i.i = phi i32 [ 0, %if.then.i.i.i.i ], [ %call2.i, %if.else.i.i.i.i ]
+  %inc4.i2.i.i.i.sink.i.i.i = add nsw i64 %inc4.i2.i.i.i.sink.in.i.i.i, 1
+  store i64 %inc4.i2.i.i.i.sink.i.i.i, ptr %bit_length_.i.i.i.i.i.i.i, align 8
+  %length_3.i.i8.i.i.i.i = getelementptr inbounds i8, ptr %action_, i64 %.sink.i.i.i.i
+  %20 = load i64, ptr %length_3.i.i8.i.i.i.i, align 8
+  %inc4.i.i9.i.i.i.i = add nsw i64 %20, 1
+  store i64 %inc4.i.i9.i.i.i.i, ptr %length_3.i.i8.i.i.i.i, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %cmp.i.i = icmp eq i32 %action_.val, 1
   %data_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 152
-  %16 = load ptr, ptr %data_.i.i.i.i.i.i.i, align 8
+  %21 = load ptr, ptr %data_.i.i.i.i.i.i.i, align 8
   %bit_length_.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 184
-  %17 = load i64, ptr %bit_length_.i.i.i.i.i, align 8
-  %div.i.i.i.i.i.i = sdiv i64 %17, 8
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 %div.i.i.i.i.i.i
-  %18 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1
-  %rem.i.i.i.i.i.i = srem i64 %17, 8
+  %22 = load i64, ptr %bit_length_.i.i.i.i.i, align 8
+  %div.i.i.i.i.i.i = sdiv i64 %22, 8
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 %div.i.i.i.i.i.i
+  %23 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1
+  %rem.i.i.i.i.i.i = srem i64 %22, 8
   %arrayidx5.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i.i.i.i
-  %19 = load i8, ptr %arrayidx5.i.i.i.i.i.i, align 1
+  %24 = load i8, ptr %arrayidx5.i.i.i.i.i.i, align 1
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.else
-  %20 = xor i8 %19, -1
-  %xor105.i.i.i.i.i.i = and i8 %18, %20
+  %25 = xor i8 %24, -1
+  %xor105.i.i.i.i.i.i = and i8 %23, %25
   store i8 %xor105.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i, align 1
   %false_count_.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 192
-  %21 = load i64, ptr %false_count_.i.i.i.i.i, align 8
-  %inc.i.i.i.i.i = add nsw i64 %21, 1
-  store i64 %inc.i.i.i.i.i, ptr %false_count_.i.i.i.i.i, align 8
-  %22 = load i64, ptr %bit_length_.i.i.i.i.i, align 8
-  %inc4.i.i.i.i.i = add nsw i64 %22, 1
-  store i64 %inc4.i.i.i.i.i, ptr %bit_length_.i.i.i.i.i, align 8
+  %26 = load i64, ptr %false_count_.i.i.i.i.i, align 8
+  %inc.i.i.i.i.i1 = add nsw i64 %26, 1
+  store i64 %inc.i.i.i.i.i1, ptr %false_count_.i.i.i.i.i, align 8
+  %27 = load i64, ptr %bit_length_.i.i.i.i.i, align 8
   %length_.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 208
-  br label %if.end
+  %28 = load i64, ptr %length_.i.i.i.i, align 8
+  %inc.i.i.i.i = add nsw i64 %28, 1
+  store i64 %inc.i.i.i.i, ptr %length_.i.i.i.i, align 8
+  br label %_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit
 
 if.else.i.i:                                      ; preds = %if.else
-  %xor105.i.i.i.i7.i.i = or i8 %19, %18
+  %xor105.i.i.i.i7.i.i = or i8 %24, %23
   store i8 %xor105.i.i.i.i7.i.i, ptr %arrayidx.i.i.i.i.i.i, align 1
+  %29 = load i64, ptr %bit_length_.i.i.i.i.i, align 8
+  br label %_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit
+
+_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit: ; preds = %if.then.i.i, %if.else.i.i
+  %inc4.i2.i.i.i.sink.in.i = phi i64 [ %27, %if.then.i.i ], [ %29, %if.else.i.i ]
+  %.sink.i.i = phi i64 [ 120, %if.then.i.i ], [ 128, %if.else.i.i ]
+  %index.sink.i.i = phi i32 [ 0, %if.then.i.i ], [ -1, %if.else.i.i ]
+  %inc4.i2.i.i.i.sink.i = add nsw i64 %inc4.i2.i.i.i.sink.in.i, 1
+  store i64 %inc4.i2.i.i.i.sink.i, ptr %bit_length_.i.i.i.i.i, align 8
+  %length_3.i.i8.i.i = getelementptr inbounds i8, ptr %action_, i64 %.sink.i.i
+  %30 = load i64, ptr %length_3.i.i8.i.i, align 8
+  %inc4.i.i9.i.i = add nsw i64 %30, 1
+  store i64 %inc4.i.i9.i.i, ptr %length_3.i.i8.i.i, align 8
   br label %if.end
 
-if.end:                                           ; preds = %if.else.i.i, %if.then.i.i, %if.else.i.i.i.i, %if.then.i.i.i.i, %if.else.i.i.i
-  %bit_length_.i.i.i.sink20.i.i.sink5 = phi ptr [ %bit_length_.i.i.i.i.i.i, %if.else.i.i.i ], [ %length_.i.i.i.i.i.i, %if.then.i.i.i.i ], [ %bit_length_.i.i.i.i.i.i.i, %if.else.i.i.i.i ], [ %bit_length_.i.i.i.i.i, %if.else.i.i ], [ %length_.i.i.i.i, %if.then.i.i ]
-  %.sink.i.i.sink = phi i64 [ 128, %if.else.i.i.i ], [ 120, %if.then.i.i.i.i ], [ 128, %if.else.i.i.i.i ], [ 128, %if.else.i.i ], [ 120, %if.then.i.i ]
-  %index.sink.i.i.sink = phi i32 [ %2, %if.else.i.i.i ], [ 0, %if.then.i.i.i.i ], [ %call2.i, %if.else.i.i.i.i ], [ -1, %if.else.i.i ], [ 0, %if.then.i.i ]
-  %action_ = getelementptr inbounds i8, ptr %this.0.val, i64 80
-  %23 = load i64, ptr %bit_length_.i.i.i.sink20.i.i.sink5, align 8
-  %inc4.i2.i.i8.i.i = add nsw i64 %23, 1
-  store i64 %inc4.i2.i.i8.i.i, ptr %bit_length_.i.i.i.sink20.i.i.sink5, align 8
-  %length_3.i.i9.i.i = getelementptr inbounds i8, ptr %action_, i64 %.sink.i.i.sink
-  %24 = load i64, ptr %length_3.i.i9.i.i, align 8
-  %inc4.i.i10.i.i = add nsw i64 %24, 1
-  store i64 %inc4.i.i10.i.i, ptr %length_3.i.i9.i.i, align 8
-  %data_.i.i.i11.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 288
-  %25 = load ptr, ptr %data_.i.i.i11.i.i, align 8
-  %size_.i.i.i12.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 304
-  %26 = load i64, ptr %size_.i.i.i12.i.i, align 8
-  %add.ptr.i.i.i13.i.i = getelementptr inbounds i8, ptr %25, i64 %26
-  store i32 %index.sink.i.i.sink, ptr %add.ptr.i.i.i13.i.i, align 1
-  %27 = load i64, ptr %size_.i.i.i12.i.i, align 8
-  %add.i.i.i14.i.i = add nsw i64 %27, 4
-  store i64 %add.i.i.i14.i.i, ptr %size_.i.i.i12.i.i, align 8
+if.end:                                           ; preds = %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_24MonthDayNanoIntervalTypeENS2_16DictEncodeActionENS4_13MonthDayNanosELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i, %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_24MonthDayNanoIntervalTypeENS2_16DictEncodeActionENS4_13MonthDayNanosELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE_clEi.exit.i, %_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit
+  %index.sink.i.i.sink = phi i32 [ %index.sink.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeAction19ObserveNullNotFoundIiEEvT_.exit ], [ %index.sink.i.i.i.i, %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_24MonthDayNanoIntervalTypeENS2_16DictEncodeActionENS4_13MonthDayNanosELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE0_clEi.exit.i ], [ %2, %_ZZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_24MonthDayNanoIntervalTypeENS2_16DictEncodeActionENS4_13MonthDayNanosELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEvENKUliE_clEi.exit.i ]
+  %data_.i.i.i10.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 288
+  %31 = load ptr, ptr %data_.i.i.i10.i.i, align 8
+  %size_.i.i.i11.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 304
+  %32 = load i64, ptr %size_.i.i.i11.i.i, align 8
+  %add.ptr.i.i.i12.i.i = getelementptr inbounds i8, ptr %31, i64 %32
+  store i32 %index.sink.i.i.sink, ptr %add.ptr.i.i.i12.i.i, align 1
+  %33 = load i64, ptr %size_.i.i.i11.i.i, align 8
+  %add.i.i.i13.i.i = add nsw i64 %33, 4
+  store i64 %add.i.i.i13.i.i, ptr %size_.i.i.i11.i.i, align 8
   store ptr null, ptr %agg.result, align 8, !alias.scope !4733
   ret void
 }

@@ -177,7 +177,7 @@ define hidden noundef ptr @_Z19luaT_objtypenamestrP9lua_StatePK10lua_TValue(ptr 
   %4 = load i32, ptr %3, align 4
   switch i32 %4, label %.thread [
     i32 8, label %5
-    i32 2, label %21
+    i32 2, label %23
   ]
 
 5:                                                ; preds = %2
@@ -202,59 +202,63 @@ define hidden noundef ptr @_Z19luaT_objtypenamestrP9lua_StatePK10lua_TValue(ptr 
   %18 = getelementptr inbounds i8, ptr %17, i64 12
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, 5
-  br i1 %20, label %.sink.split, label %45
+  br i1 %20, label %21, label %49
 
-21:                                               ; preds = %2
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
-  %23 = load i32, ptr %22, align 8
-  %24 = icmp ult i32 %23, 128
-  br i1 %24, label %25, label %45
+21:                                               ; preds = %12
+  %22 = load ptr, ptr %17, align 8
+  br label %57
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %0, i64 24
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 5464
-  %29 = zext nneg i32 %23 to i64
-  %30 = getelementptr inbounds [128 x ptr], ptr %28, i64 0, i64 %29
-  %31 = load ptr, ptr %30, align 8
-  %.not30 = icmp eq ptr %31, null
-  br i1 %.not30, label %45, label %53
+23:                                               ; preds = %2
+  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = load i32, ptr %24, align 8
+  %26 = icmp ult i32 %25, 128
+  br i1 %26, label %27, label %49
+
+27:                                               ; preds = %23
+  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %29, i64 5464
+  %31 = zext nneg i32 %25 to i64
+  %32 = getelementptr inbounds [128 x ptr], ptr %30, i64 0, i64 %31
+  %33 = load ptr, ptr %32, align 8
+  %.not30 = icmp eq ptr %33, null
+  br i1 %.not30, label %49, label %57
 
 .thread:                                          ; preds = %2, %5, %9
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 2856
-  %35 = sext i32 %4 to i64
-  %36 = getelementptr inbounds [11 x ptr], ptr %34, i64 0, i64 %35
-  %37 = load ptr, ptr %36, align 8
-  %.not29 = icmp eq ptr %37, null
-  br i1 %.not29, label %45, label %38
+  %34 = getelementptr inbounds i8, ptr %0, i64 24
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 2856
+  %37 = sext i32 %4 to i64
+  %38 = getelementptr inbounds [11 x ptr], ptr %36, i64 0, i64 %37
+  %39 = load ptr, ptr %38, align 8
+  %.not29 = icmp eq ptr %39, null
+  br i1 %.not29, label %49, label %40
 
-38:                                               ; preds = %.thread
-  %39 = getelementptr inbounds i8, ptr %33, i64 3184
-  %40 = load ptr, ptr %39, align 8
-  %41 = tail call noundef ptr @_Z11luaH_getstrP5TableP7TString(ptr noundef nonnull %37, ptr noundef %40)
-  %42 = getelementptr inbounds i8, ptr %41, i64 12
-  %43 = load i32, ptr %42, align 4
-  %44 = icmp eq i32 %43, 5
-  br i1 %44, label %.sink.split, label %45
+40:                                               ; preds = %.thread
+  %41 = getelementptr inbounds i8, ptr %35, i64 3184
+  %42 = load ptr, ptr %41, align 8
+  %43 = tail call noundef ptr @_Z11luaH_getstrP5TableP7TString(ptr noundef nonnull %39, ptr noundef %42)
+  %44 = getelementptr inbounds i8, ptr %43, i64 12
+  %45 = load i32, ptr %44, align 4
+  %46 = icmp eq i32 %45, 5
+  br i1 %46, label %47, label %49
 
-45:                                               ; preds = %25, %21, %38, %.thread, %12
-  %46 = getelementptr inbounds i8, ptr %0, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 2944
-  %49 = load i32, ptr %3, align 4
-  %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds [11 x ptr], ptr %48, i64 0, i64 %50
-  br label %.sink.split
+47:                                               ; preds = %40
+  %48 = load ptr, ptr %43, align 8
+  br label %57
 
-.sink.split:                                      ; preds = %38, %12, %45
-  %.sink = phi ptr [ %51, %45 ], [ %17, %12 ], [ %41, %38 ]
-  %52 = load ptr, ptr %.sink, align 8
-  br label %53
+49:                                               ; preds = %27, %23, %40, %.thread, %12
+  %50 = getelementptr inbounds i8, ptr %0, i64 24
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 2944
+  %53 = load i32, ptr %3, align 4
+  %54 = sext i32 %53 to i64
+  %55 = getelementptr inbounds [11 x ptr], ptr %52, i64 0, i64 %54
+  %56 = load ptr, ptr %55, align 8
+  br label %57
 
-53:                                               ; preds = %.sink.split, %25
-  %.0 = phi ptr [ %31, %25 ], [ %52, %.sink.split ]
+57:                                               ; preds = %27, %49, %47, %21
+  %.0 = phi ptr [ %22, %21 ], [ %56, %49 ], [ %48, %47 ], [ %33, %27 ]
   ret ptr %.0
 }
 
@@ -264,7 +268,7 @@ define hidden noundef nonnull ptr @_Z16luaT_objtypenameP9lua_StatePK10lua_TValue
   %4 = load i32, ptr %3, align 4
   switch i32 %4, label %.thread.i [
     i32 8, label %5
-    i32 2, label %21
+    i32 2, label %23
   ]
 
 5:                                                ; preds = %2
@@ -289,61 +293,65 @@ define hidden noundef nonnull ptr @_Z16luaT_objtypenameP9lua_StatePK10lua_TValue
   %18 = getelementptr inbounds i8, ptr %17, i64 12
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, 5
-  br i1 %20, label %.sink.split.i, label %45
+  br i1 %20, label %21, label %49
 
-21:                                               ; preds = %2
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
-  %23 = load i32, ptr %22, align 8
-  %24 = icmp ult i32 %23, 128
-  br i1 %24, label %25, label %45
-
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %0, i64 24
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 5464
-  %29 = zext nneg i32 %23 to i64
-  %30 = getelementptr inbounds [128 x ptr], ptr %28, i64 0, i64 %29
-  %31 = load ptr, ptr %30, align 8
-  %.not30.i = icmp eq ptr %31, null
-  br i1 %.not30.i, label %45, label %_Z19luaT_objtypenamestrP9lua_StatePK10lua_TValue.exit
-
-.thread.i:                                        ; preds = %9, %5, %2
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 2856
-  %35 = sext i32 %4 to i64
-  %36 = getelementptr inbounds [11 x ptr], ptr %34, i64 0, i64 %35
-  %37 = load ptr, ptr %36, align 8
-  %.not29.i = icmp eq ptr %37, null
-  br i1 %.not29.i, label %45, label %38
-
-38:                                               ; preds = %.thread.i
-  %39 = getelementptr inbounds i8, ptr %33, i64 3184
-  %40 = load ptr, ptr %39, align 8
-  %41 = tail call noundef ptr @_Z11luaH_getstrP5TableP7TString(ptr noundef nonnull %37, ptr noundef %40)
-  %42 = getelementptr inbounds i8, ptr %41, i64 12
-  %43 = load i32, ptr %42, align 4
-  %44 = icmp eq i32 %43, 5
-  br i1 %44, label %.sink.split.i, label %45
-
-45:                                               ; preds = %38, %.thread.i, %25, %21, %12
-  %46 = getelementptr inbounds i8, ptr %0, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 2944
-  %49 = load i32, ptr %3, align 4
-  %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds [11 x ptr], ptr %48, i64 0, i64 %50
-  br label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %45, %38, %12
-  %.sink.i = phi ptr [ %51, %45 ], [ %17, %12 ], [ %41, %38 ]
-  %52 = load ptr, ptr %.sink.i, align 8
+21:                                               ; preds = %12
+  %22 = load ptr, ptr %17, align 8
   br label %_Z19luaT_objtypenamestrP9lua_StatePK10lua_TValue.exit
 
-_Z19luaT_objtypenamestrP9lua_StatePK10lua_TValue.exit: ; preds = %25, %.sink.split.i
-  %.0.i = phi ptr [ %31, %25 ], [ %52, %.sink.split.i ]
-  %53 = getelementptr inbounds i8, ptr %.0.i, i64 24
-  ret ptr %53
+23:                                               ; preds = %2
+  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = load i32, ptr %24, align 8
+  %26 = icmp ult i32 %25, 128
+  br i1 %26, label %27, label %49
+
+27:                                               ; preds = %23
+  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %29, i64 5464
+  %31 = zext nneg i32 %25 to i64
+  %32 = getelementptr inbounds [128 x ptr], ptr %30, i64 0, i64 %31
+  %33 = load ptr, ptr %32, align 8
+  %.not30.i = icmp eq ptr %33, null
+  br i1 %.not30.i, label %49, label %_Z19luaT_objtypenamestrP9lua_StatePK10lua_TValue.exit
+
+.thread.i:                                        ; preds = %9, %5, %2
+  %34 = getelementptr inbounds i8, ptr %0, i64 24
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 2856
+  %37 = sext i32 %4 to i64
+  %38 = getelementptr inbounds [11 x ptr], ptr %36, i64 0, i64 %37
+  %39 = load ptr, ptr %38, align 8
+  %.not29.i = icmp eq ptr %39, null
+  br i1 %.not29.i, label %49, label %40
+
+40:                                               ; preds = %.thread.i
+  %41 = getelementptr inbounds i8, ptr %35, i64 3184
+  %42 = load ptr, ptr %41, align 8
+  %43 = tail call noundef ptr @_Z11luaH_getstrP5TableP7TString(ptr noundef nonnull %39, ptr noundef %42)
+  %44 = getelementptr inbounds i8, ptr %43, i64 12
+  %45 = load i32, ptr %44, align 4
+  %46 = icmp eq i32 %45, 5
+  br i1 %46, label %47, label %49
+
+47:                                               ; preds = %40
+  %48 = load ptr, ptr %43, align 8
+  br label %_Z19luaT_objtypenamestrP9lua_StatePK10lua_TValue.exit
+
+49:                                               ; preds = %40, %.thread.i, %27, %23, %12
+  %50 = getelementptr inbounds i8, ptr %0, i64 24
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 2944
+  %53 = load i32, ptr %3, align 4
+  %54 = sext i32 %53 to i64
+  %55 = getelementptr inbounds [11 x ptr], ptr %52, i64 0, i64 %54
+  %56 = load ptr, ptr %55, align 8
+  br label %_Z19luaT_objtypenamestrP9lua_StatePK10lua_TValue.exit
+
+_Z19luaT_objtypenamestrP9lua_StatePK10lua_TValue.exit: ; preds = %21, %27, %47, %49
+  %.0.i = phi ptr [ %22, %21 ], [ %56, %49 ], [ %48, %47 ], [ %33, %27 ]
+  %57 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  ret ptr %57
 }
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

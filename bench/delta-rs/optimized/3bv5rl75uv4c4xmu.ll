@@ -367,16 +367,11 @@ define hidden void @"_ZN4core3ptr156drop_in_place$LT$aws_smithy_runtime..client.
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i8, ptr %3, align 8, !range !83, !noundef !10
   switch i8 %4, label %common.ret [
-    i8 4, label %163
+    i8 4, label %164
     i8 3, label %5
   ]
 
-common.ret.sink.split:                            ; preds = %"_ZN4core3ptr177drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..finally_attempt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h03faea749052ef02E.exit.i", %183, %"_ZN4core3ptr173drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..try_attempt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h0d3bedfa5d11c55fE.exit.i", %156
-  %.sink = phi ptr [ %147, %156 ], [ %147, %"_ZN4core3ptr173drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..try_attempt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h0d3bedfa5d11c55fE.exit.i" ], [ %176, %183 ], [ %176, %"_ZN4core3ptr177drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..finally_attempt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h03faea749052ef02E.exit.i" ]
-  store i8 0, ptr %.sink, align 8
-  br label %common.ret
-
-common.ret:                                       ; preds = %common.ret.sink.split, %163, %5, %1
+common.ret:                                       ; preds = %184, %164, %156, %5, %1
   ret void
 
 5:                                                ; preds = %1
@@ -801,7 +796,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %147 = getelementptr inbounds i8, ptr %0, i64 112
   %148 = load i8, ptr %147, align 8, !range !184, !noundef !10
   %149 = trunc nuw i8 %148 to i1
-  br i1 %149, label %156, label %common.ret.sink.split
+  br i1 %149, label %157, label %156
 
 .body.i:                                          ; preds = %154, %144, %.body.i.i, %83, %29, %11
   %.pn.i = phi { ptr, i32 } [ %145, %144 ], [ %12, %11 ], [ %155, %154 ], [ %.pn2.pn.i.i, %.body.i.i ], [ %30, %29 ], [ %.pn4.i.i.i, %83 ]
@@ -810,105 +805,113 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %151 = getelementptr inbounds i8, ptr %0, i64 112
   %152 = load i8, ptr %151, align 8, !range !184, !noundef !10
   %153 = trunc nuw i8 %152 to i1
-  br i1 %153, label %160, label %common.resume
+  br i1 %153, label %161, label %common.resume
 
 154:                                              ; preds = %.noexc7.i, %89, %.noexc.i, %36
   %155 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
-156:                                              ; preds = %"_ZN4core3ptr173drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..try_attempt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h0d3bedfa5d11c55fE.exit.i"
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h3a6e5deac0d783d3E"(ptr noalias noundef align 8 dereferenceable(40) %6)
-          to label %common.ret.sink.split unwind label %158
+156:                                              ; preds = %157, %"_ZN4core3ptr173drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..try_attempt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h0d3bedfa5d11c55fE.exit.i"
+  store i8 0, ptr %147, align 8
+  br label %common.ret
 
-common.resume:                                    ; preds = %.body.i2, %184, %186, %.body.i, %158, %160
-  %common.resume.op = phi { ptr, i32 } [ %159, %158 ], [ %.pn.i, %160 ], [ %.pn.i, %.body.i ], [ %185, %184 ], [ %.pn.i3, %186 ], [ %.pn.i3, %.body.i2 ]
-  %157 = getelementptr inbounds i8, ptr %0, i64 112
-  store i8 0, ptr %157, align 8
+157:                                              ; preds = %"_ZN4core3ptr173drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..try_attempt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h0d3bedfa5d11c55fE.exit.i"
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h3a6e5deac0d783d3E"(ptr noalias noundef align 8 dereferenceable(40) %6)
+          to label %156 unwind label %159
+
+common.resume:                                    ; preds = %.body.i2, %186, %188, %.body.i, %159, %161
+  %common.resume.op = phi { ptr, i32 } [ %160, %159 ], [ %.pn.i, %161 ], [ %.pn.i, %.body.i ], [ %187, %186 ], [ %.pn.i3, %188 ], [ %.pn.i3, %.body.i2 ]
+  %158 = getelementptr inbounds i8, ptr %0, i64 112
+  store i8 0, ptr %158, align 8
   resume { ptr, i32 } %common.resume.op
 
-158:                                              ; preds = %156
-  %159 = landingpad { ptr, i32 }
+159:                                              ; preds = %157
+  %160 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-160:                                              ; preds = %.body.i
+161:                                              ; preds = %.body.i
   invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h3a6e5deac0d783d3E"(ptr noalias noundef align 8 dereferenceable(40) %6) #14
-          to label %common.resume unwind label %161
+          to label %common.resume unwind label %162
 
-161:                                              ; preds = %160
-  %162 = landingpad { ptr, i32 }
+162:                                              ; preds = %161
+  %163 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #15
   unreachable
 
-163:                                              ; preds = %1
-  %164 = getelementptr inbounds i8, ptr %0, i64 48
-  %165 = getelementptr inbounds i8, ptr %0, i64 114
-  %166 = load i8, ptr %165, align 2, !range !83, !noundef !10
-  switch i8 %166, label %common.ret [
+164:                                              ; preds = %1
+  %165 = getelementptr inbounds i8, ptr %0, i64 48
+  %166 = getelementptr inbounds i8, ptr %0, i64 114
+  %167 = load i8, ptr %166, align 2, !range !83, !noundef !10
+  switch i8 %167, label %common.ret [
     i8 4, label %"_ZN4core3ptr177drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..finally_attempt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h03faea749052ef02E.exit.i"
-    i8 3, label %167
+    i8 3, label %168
   ]
 
-167:                                              ; preds = %163
-  %168 = getelementptr inbounds i8, ptr %0, i64 120
-  invoke void @"_ZN7tracing10instrument1_94_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$tracing..instrument..Instrumented$LT$T$GT$$GT$4drop12__drop_inner17ha6fd78ca844eb738E"(ptr noundef nonnull align 8 %168)
-          to label %"_ZN7tracing10instrument1_94_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$tracing..instrument..Instrumented$LT$T$GT$$GT$4drop17h8c901f3fbecf96d4E.llvm.13640993958878838948.exit.i.i" unwind label %169
+168:                                              ; preds = %164
+  %169 = getelementptr inbounds i8, ptr %0, i64 120
+  invoke void @"_ZN7tracing10instrument1_94_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$tracing..instrument..Instrumented$LT$T$GT$$GT$4drop12__drop_inner17ha6fd78ca844eb738E"(ptr noundef nonnull align 8 %169)
+          to label %"_ZN7tracing10instrument1_94_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$tracing..instrument..Instrumented$LT$T$GT$$GT$4drop17h8c901f3fbecf96d4E.llvm.13640993958878838948.exit.i.i" unwind label %170
 
-169:                                              ; preds = %167
-  %170 = landingpad { ptr, i32 }
+170:                                              ; preds = %168
+  %171 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h3a6e5deac0d783d3E.llvm.13640993958878838948"(ptr noalias noundef nonnull align 8 dereferenceable(40) %168) #14
-          to label %.body.i2 unwind label %171
+  invoke void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h3a6e5deac0d783d3E.llvm.13640993958878838948"(ptr noalias noundef nonnull align 8 dereferenceable(40) %169) #14
+          to label %.body.i2 unwind label %172
 
-"_ZN7tracing10instrument1_94_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$tracing..instrument..Instrumented$LT$T$GT$$GT$4drop17h8c901f3fbecf96d4E.llvm.13640993958878838948.exit.i.i": ; preds = %167
-  invoke void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h3a6e5deac0d783d3E.llvm.13640993958878838948"(ptr noalias noundef nonnull align 8 dereferenceable(40) %168)
-          to label %"_ZN4core3ptr177drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..finally_attempt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h03faea749052ef02E.exit.i" unwind label %173
+"_ZN7tracing10instrument1_94_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$tracing..instrument..Instrumented$LT$T$GT$$GT$4drop17h8c901f3fbecf96d4E.llvm.13640993958878838948.exit.i.i": ; preds = %168
+  invoke void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h3a6e5deac0d783d3E.llvm.13640993958878838948"(ptr noalias noundef nonnull align 8 dereferenceable(40) %169)
+          to label %"_ZN4core3ptr177drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..finally_attempt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h03faea749052ef02E.exit.i" unwind label %174
 
-171:                                              ; preds = %169
-  %172 = landingpad { ptr, i32 }
+172:                                              ; preds = %170
+  %173 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #15
   unreachable
 
-173:                                              ; preds = %"_ZN7tracing10instrument1_94_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$tracing..instrument..Instrumented$LT$T$GT$$GT$4drop17h8c901f3fbecf96d4E.llvm.13640993958878838948.exit.i.i"
-  %174 = landingpad { ptr, i32 }
+174:                                              ; preds = %"_ZN7tracing10instrument1_94_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$tracing..instrument..Instrumented$LT$T$GT$$GT$4drop17h8c901f3fbecf96d4E.llvm.13640993958878838948.exit.i.i"
+  %175 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i2
 
-"_ZN4core3ptr177drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..finally_attempt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h03faea749052ef02E.exit.i": ; preds = %"_ZN7tracing10instrument1_94_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$tracing..instrument..Instrumented$LT$T$GT$$GT$4drop17h8c901f3fbecf96d4E.llvm.13640993958878838948.exit.i.i", %163
-  %175 = getelementptr inbounds i8, ptr %0, i64 113
-  store i8 0, ptr %175, align 1
-  %176 = getelementptr inbounds i8, ptr %0, i64 112
-  %177 = load i8, ptr %176, align 8, !range !184, !noundef !10
-  %178 = trunc nuw i8 %177 to i1
-  br i1 %178, label %183, label %common.ret.sink.split
+"_ZN4core3ptr177drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..finally_attempt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h03faea749052ef02E.exit.i": ; preds = %"_ZN7tracing10instrument1_94_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$tracing..instrument..Instrumented$LT$T$GT$$GT$4drop17h8c901f3fbecf96d4E.llvm.13640993958878838948.exit.i.i", %164
+  %176 = getelementptr inbounds i8, ptr %0, i64 113
+  store i8 0, ptr %176, align 1
+  %177 = getelementptr inbounds i8, ptr %0, i64 112
+  %178 = load i8, ptr %177, align 8, !range !184, !noundef !10
+  %179 = trunc nuw i8 %178 to i1
+  br i1 %179, label %185, label %184
 
-.body.i2:                                         ; preds = %173, %169
-  %.pn.i3 = phi { ptr, i32 } [ %174, %173 ], [ %170, %169 ]
-  %179 = getelementptr inbounds i8, ptr %0, i64 113
-  store i8 0, ptr %179, align 1
-  %180 = getelementptr inbounds i8, ptr %0, i64 112
-  %181 = load i8, ptr %180, align 8, !range !184, !noundef !10
-  %182 = trunc nuw i8 %181 to i1
-  br i1 %182, label %186, label %common.resume
+.body.i2:                                         ; preds = %174, %170
+  %.pn.i3 = phi { ptr, i32 } [ %175, %174 ], [ %171, %170 ]
+  %180 = getelementptr inbounds i8, ptr %0, i64 113
+  store i8 0, ptr %180, align 1
+  %181 = getelementptr inbounds i8, ptr %0, i64 112
+  %182 = load i8, ptr %181, align 8, !range !184, !noundef !10
+  %183 = trunc nuw i8 %182 to i1
+  br i1 %183, label %188, label %common.resume
 
-183:                                              ; preds = %"_ZN4core3ptr177drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..finally_attempt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h03faea749052ef02E.exit.i"
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h3a6e5deac0d783d3E"(ptr noalias noundef align 8 dereferenceable(40) %164)
-          to label %common.ret.sink.split unwind label %184
+184:                                              ; preds = %185, %"_ZN4core3ptr177drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..finally_attempt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h03faea749052ef02E.exit.i"
+  store i8 0, ptr %177, align 8
+  br label %common.ret
 
-184:                                              ; preds = %183
-  %185 = landingpad { ptr, i32 }
+185:                                              ; preds = %"_ZN4core3ptr177drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..finally_attempt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h03faea749052ef02E.exit.i"
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h3a6e5deac0d783d3E"(ptr noalias noundef align 8 dereferenceable(40) %165)
+          to label %184 unwind label %186
+
+186:                                              ; preds = %185
+  %187 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-186:                                              ; preds = %.body.i2
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h3a6e5deac0d783d3E"(ptr noalias noundef align 8 dereferenceable(40) %164) #14
-          to label %common.resume unwind label %187
+188:                                              ; preds = %.body.i2
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h3a6e5deac0d783d3E"(ptr noalias noundef align 8 dereferenceable(40) %165) #14
+          to label %common.resume unwind label %189
 
-187:                                              ; preds = %186
-  %188 = landingpad { ptr, i32 }
+189:                                              ; preds = %188
+  %190 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #15
   unreachable
@@ -921,10 +924,10 @@ define hidden void @"_ZN4core3ptr172drop_in_place$LT$aws_smithy_runtime..client.
   switch i8 %3, label %common.ret [
     i8 0, label %common.ret.sink.split
     i8 3, label %4
-    i8 4, label %142
+    i8 4, label %143
   ]
 
-common.ret.sink.split:                            ; preds = %4, %142, %"_ZN4core3ptr98drop_in_place$LT$aws_smithy_runtime..client..orchestrator..try_op..$u7b$$u7b$closure$u7d$$u7d$$GT$17hae70d15a34dad6c4E.exit.sink.split", %1
+common.ret.sink.split:                            ; preds = %4, %136, %143, %163, %1
   tail call void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..context..InterceptorContext$GT$17hd3aef6b208ff83afE"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %0)
   br label %common.ret
 
@@ -1309,7 +1312,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %129 = getelementptr inbounds i8, ptr %0, i64 1160
   %130 = load i8, ptr %129, align 8, !range !184, !noundef !10
   %131 = trunc nuw i8 %130 to i1
-  br i1 %131, label %136, label %"_ZN4core3ptr98drop_in_place$LT$aws_smithy_runtime..client..orchestrator..try_op..$u7b$$u7b$closure$u7d$$u7d$$GT$17hae70d15a34dad6c4E.exit.sink.split"
+  br i1 %131, label %137, label %136
 
 .body.i:                                          ; preds = %126, %.body20.i.i, %.body.i.i, %10
   %.pn.i = phi { ptr, i32 } [ %127, %126 ], [ %11, %10 ], [ %.pn2.i.i, %.body20.i.i ], [ %eh.lpad-body.i.i, %.body.i.i ]
@@ -1318,115 +1321,118 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %133 = getelementptr inbounds i8, ptr %0, i64 1160
   %134 = load i8, ptr %133, align 8, !range !184, !noundef !10
   %135 = trunc nuw i8 %134 to i1
-  br i1 %135, label %139, label %.body
+  br i1 %135, label %140, label %.body
 
-136:                                              ; preds = %"_ZN4core3ptr168drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..try_op..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h23cc887923d08082E.exit.i"
+136:                                              ; preds = %137, %"_ZN4core3ptr168drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..try_op..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h23cc887923d08082E.exit.i"
+  store i8 0, ptr %129, align 8
+  br label %common.ret.sink.split
+
+137:                                              ; preds = %"_ZN4core3ptr168drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..try_op..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h23cc887923d08082E.exit.i"
   invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h3a6e5deac0d783d3E"(ptr noalias noundef align 8 dereferenceable(40) %5)
-          to label %"_ZN4core3ptr98drop_in_place$LT$aws_smithy_runtime..client..orchestrator..try_op..$u7b$$u7b$closure$u7d$$u7d$$GT$17hae70d15a34dad6c4E.exit.sink.split" unwind label %137
+          to label %136 unwind label %138
 
-137:                                              ; preds = %136
-  %138 = landingpad { ptr, i32 }
+138:                                              ; preds = %137
+  %139 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-139:                                              ; preds = %.body.i
+140:                                              ; preds = %.body.i
   invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h3a6e5deac0d783d3E"(ptr noalias noundef align 8 dereferenceable(40) %5) #14
-          to label %.body unwind label %140
+          to label %.body unwind label %141
 
-140:                                              ; preds = %139
-  %141 = landingpad { ptr, i32 }
+141:                                              ; preds = %140
+  %142 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #15
   unreachable
 
-142:                                              ; preds = %1
-  %143 = getelementptr inbounds i8, ptr %0, i64 1096
-  %144 = getelementptr inbounds i8, ptr %0, i64 1162
-  %145 = load i8, ptr %144, align 2, !range !83, !noundef !10
-  switch i8 %145, label %common.ret.sink.split [
+143:                                              ; preds = %1
+  %144 = getelementptr inbounds i8, ptr %0, i64 1096
+  %145 = getelementptr inbounds i8, ptr %0, i64 1162
+  %146 = load i8, ptr %145, align 2, !range !83, !noundef !10
+  switch i8 %146, label %common.ret.sink.split [
     i8 4, label %"_ZN4core3ptr172drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..finally_op..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hb7530da7f1ea4623E.exit.i"
-    i8 3, label %146
+    i8 3, label %147
   ]
 
-146:                                              ; preds = %142
-  %147 = getelementptr inbounds i8, ptr %0, i64 1168
-  invoke void @"_ZN7tracing10instrument1_94_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$tracing..instrument..Instrumented$LT$T$GT$$GT$4drop12__drop_inner17hd60125fd3388c632E"(ptr noundef nonnull align 8 %147)
-          to label %"_ZN7tracing10instrument1_94_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$tracing..instrument..Instrumented$LT$T$GT$$GT$4drop17h7cec3be7e016daf3E.llvm.13640993958878838948.exit.i.i" unwind label %148
+147:                                              ; preds = %143
+  %148 = getelementptr inbounds i8, ptr %0, i64 1168
+  invoke void @"_ZN7tracing10instrument1_94_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$tracing..instrument..Instrumented$LT$T$GT$$GT$4drop12__drop_inner17hd60125fd3388c632E"(ptr noundef nonnull align 8 %148)
+          to label %"_ZN7tracing10instrument1_94_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$tracing..instrument..Instrumented$LT$T$GT$$GT$4drop17h7cec3be7e016daf3E.llvm.13640993958878838948.exit.i.i" unwind label %149
 
-148:                                              ; preds = %146
-  %149 = landingpad { ptr, i32 }
+149:                                              ; preds = %147
+  %150 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h3a6e5deac0d783d3E.llvm.13640993958878838948"(ptr noalias noundef nonnull align 8 dereferenceable(40) %147) #14
-          to label %.body.i4 unwind label %150
+  invoke void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h3a6e5deac0d783d3E.llvm.13640993958878838948"(ptr noalias noundef nonnull align 8 dereferenceable(40) %148) #14
+          to label %.body.i4 unwind label %151
 
-"_ZN7tracing10instrument1_94_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$tracing..instrument..Instrumented$LT$T$GT$$GT$4drop17h7cec3be7e016daf3E.llvm.13640993958878838948.exit.i.i": ; preds = %146
-  invoke void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h3a6e5deac0d783d3E.llvm.13640993958878838948"(ptr noalias noundef nonnull align 8 dereferenceable(40) %147)
-          to label %"_ZN4core3ptr172drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..finally_op..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hb7530da7f1ea4623E.exit.i" unwind label %152
+"_ZN7tracing10instrument1_94_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$tracing..instrument..Instrumented$LT$T$GT$$GT$4drop17h7cec3be7e016daf3E.llvm.13640993958878838948.exit.i.i": ; preds = %147
+  invoke void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h3a6e5deac0d783d3E.llvm.13640993958878838948"(ptr noalias noundef nonnull align 8 dereferenceable(40) %148)
+          to label %"_ZN4core3ptr172drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..finally_op..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hb7530da7f1ea4623E.exit.i" unwind label %153
 
-150:                                              ; preds = %148
-  %151 = landingpad { ptr, i32 }
+151:                                              ; preds = %149
+  %152 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #15
   unreachable
 
-152:                                              ; preds = %"_ZN7tracing10instrument1_94_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$tracing..instrument..Instrumented$LT$T$GT$$GT$4drop17h7cec3be7e016daf3E.llvm.13640993958878838948.exit.i.i"
-  %153 = landingpad { ptr, i32 }
+153:                                              ; preds = %"_ZN7tracing10instrument1_94_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$tracing..instrument..Instrumented$LT$T$GT$$GT$4drop17h7cec3be7e016daf3E.llvm.13640993958878838948.exit.i.i"
+  %154 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i4
 
-"_ZN4core3ptr172drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..finally_op..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hb7530da7f1ea4623E.exit.i": ; preds = %"_ZN7tracing10instrument1_94_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$tracing..instrument..Instrumented$LT$T$GT$$GT$4drop17h7cec3be7e016daf3E.llvm.13640993958878838948.exit.i.i", %142
-  %154 = getelementptr inbounds i8, ptr %0, i64 1161
-  store i8 0, ptr %154, align 1
-  %155 = getelementptr inbounds i8, ptr %0, i64 1160
-  %156 = load i8, ptr %155, align 8, !range !184, !noundef !10
-  %157 = trunc nuw i8 %156 to i1
-  br i1 %157, label %162, label %"_ZN4core3ptr98drop_in_place$LT$aws_smithy_runtime..client..orchestrator..try_op..$u7b$$u7b$closure$u7d$$u7d$$GT$17hae70d15a34dad6c4E.exit.sink.split"
+"_ZN4core3ptr172drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..finally_op..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hb7530da7f1ea4623E.exit.i": ; preds = %"_ZN7tracing10instrument1_94_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$tracing..instrument..Instrumented$LT$T$GT$$GT$4drop17h7cec3be7e016daf3E.llvm.13640993958878838948.exit.i.i", %143
+  %155 = getelementptr inbounds i8, ptr %0, i64 1161
+  store i8 0, ptr %155, align 1
+  %156 = getelementptr inbounds i8, ptr %0, i64 1160
+  %157 = load i8, ptr %156, align 8, !range !184, !noundef !10
+  %158 = trunc nuw i8 %157 to i1
+  br i1 %158, label %164, label %163
 
-.body.i4:                                         ; preds = %152, %148
-  %.pn.i5 = phi { ptr, i32 } [ %153, %152 ], [ %149, %148 ]
-  %158 = getelementptr inbounds i8, ptr %0, i64 1161
-  store i8 0, ptr %158, align 1
-  %159 = getelementptr inbounds i8, ptr %0, i64 1160
-  %160 = load i8, ptr %159, align 8, !range !184, !noundef !10
-  %161 = trunc nuw i8 %160 to i1
-  br i1 %161, label %165, label %.body
+.body.i4:                                         ; preds = %153, %149
+  %.pn.i5 = phi { ptr, i32 } [ %154, %153 ], [ %150, %149 ]
+  %159 = getelementptr inbounds i8, ptr %0, i64 1161
+  store i8 0, ptr %159, align 1
+  %160 = getelementptr inbounds i8, ptr %0, i64 1160
+  %161 = load i8, ptr %160, align 8, !range !184, !noundef !10
+  %162 = trunc nuw i8 %161 to i1
+  br i1 %162, label %167, label %.body
 
-162:                                              ; preds = %"_ZN4core3ptr172drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..finally_op..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hb7530da7f1ea4623E.exit.i"
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h3a6e5deac0d783d3E"(ptr noalias noundef align 8 dereferenceable(40) %143)
-          to label %"_ZN4core3ptr98drop_in_place$LT$aws_smithy_runtime..client..orchestrator..try_op..$u7b$$u7b$closure$u7d$$u7d$$GT$17hae70d15a34dad6c4E.exit.sink.split" unwind label %163
+163:                                              ; preds = %164, %"_ZN4core3ptr172drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..finally_op..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hb7530da7f1ea4623E.exit.i"
+  store i8 0, ptr %156, align 8
+  br label %common.ret.sink.split
 
-163:                                              ; preds = %162
-  %164 = landingpad { ptr, i32 }
+164:                                              ; preds = %"_ZN4core3ptr172drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..finally_op..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hb7530da7f1ea4623E.exit.i"
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h3a6e5deac0d783d3E"(ptr noalias noundef align 8 dereferenceable(40) %144)
+          to label %163 unwind label %165
+
+165:                                              ; preds = %164
+  %166 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-165:                                              ; preds = %.body.i4
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h3a6e5deac0d783d3E"(ptr noalias noundef align 8 dereferenceable(40) %143) #14
-          to label %.body unwind label %166
+167:                                              ; preds = %.body.i4
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h3a6e5deac0d783d3E"(ptr noalias noundef align 8 dereferenceable(40) %144) #14
+          to label %.body unwind label %168
 
-166:                                              ; preds = %165
-  %167 = landingpad { ptr, i32 }
+168:                                              ; preds = %167
+  %169 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #15
   unreachable
 
-168:                                              ; preds = %.body
+170:                                              ; preds = %.body
   resume { ptr, i32 } %.pn
 
-"_ZN4core3ptr98drop_in_place$LT$aws_smithy_runtime..client..orchestrator..try_op..$u7b$$u7b$closure$u7d$$u7d$$GT$17hae70d15a34dad6c4E.exit.sink.split": ; preds = %"_ZN4core3ptr172drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..finally_op..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hb7530da7f1ea4623E.exit.i", %162, %"_ZN4core3ptr168drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..try_op..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h23cc887923d08082E.exit.i", %136
-  %.sink = phi ptr [ %129, %136 ], [ %129, %"_ZN4core3ptr168drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..try_op..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h23cc887923d08082E.exit.i" ], [ %155, %162 ], [ %155, %"_ZN4core3ptr172drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..finally_op..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hb7530da7f1ea4623E.exit.i" ]
-  store i8 0, ptr %.sink, align 8
-  br label %common.ret.sink.split
-
-.body:                                            ; preds = %.body.i4, %163, %165, %.body.i, %137, %139
-  %.pn = phi { ptr, i32 } [ %138, %137 ], [ %.pn.i, %139 ], [ %.pn.i, %.body.i ], [ %164, %163 ], [ %.pn.i5, %165 ], [ %.pn.i5, %.body.i4 ]
-  %169 = getelementptr inbounds i8, ptr %0, i64 1160
-  store i8 0, ptr %169, align 8
+.body:                                            ; preds = %.body.i4, %165, %167, %.body.i, %138, %140
+  %.pn = phi { ptr, i32 } [ %139, %138 ], [ %.pn.i, %140 ], [ %.pn.i, %.body.i ], [ %166, %165 ], [ %.pn.i5, %167 ], [ %.pn.i5, %.body.i4 ]
+  %171 = getelementptr inbounds i8, ptr %0, i64 1160
+  store i8 0, ptr %171, align 8
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..context..InterceptorContext$GT$17hd3aef6b208ff83afE"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %0) #14
-          to label %168 unwind label %170
+          to label %170 unwind label %172
 
-170:                                              ; preds = %.body
-  %171 = landingpad { ptr, i32 }
+172:                                              ; preds = %.body
+  %173 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #15
   unreachable

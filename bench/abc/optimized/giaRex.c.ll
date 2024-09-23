@@ -1207,7 +1207,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 %166, ptr %118, align 4
   %167 = sext i32 %165 to i64
   %168 = getelementptr inbounds i32, ptr %164, i64 %167
-  br label %.sink.split
+  store i32 %139, ptr %168, align 4
+  br label %189
 
 169:                                              ; preds = %136
   %170 = load ptr, ptr %121, align 8
@@ -1235,16 +1236,11 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %187 = getelementptr inbounds i32, ptr %.val205, i64 %186
   store i32 %185, ptr %187, align 4
   %188 = getelementptr inbounds i32, ptr %.val205, i64 %176
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %Vec_IntPush.exit, %180
-  %.sink = phi ptr [ %188, %180 ], [ %168, %Vec_IntPush.exit ]
-  %.0172.ph = phi i32 [ %184, %180 ], [ %139, %Vec_IntPush.exit ]
-  store i32 %139, ptr %.sink, align 4
+  store i32 %139, ptr %188, align 4
   br label %189
 
-189:                                              ; preds = %.sink.split, %169, %136
-  %.0172 = phi i32 [ %139, %136 ], [ %175, %169 ], [ %.0172.ph, %.sink.split ]
+189:                                              ; preds = %169, %136, %180, %Vec_IntPush.exit
+  %.0172 = phi i32 [ %139, %Vec_IntPush.exit ], [ %184, %180 ], [ %139, %136 ], [ %175, %169 ]
   %190 = icmp ult i64 %indvars.iv333, %135
   %191 = add nuw nsw i64 %indvars.iv333, 1
   br i1 %190, label %192, label %._crit_edge366

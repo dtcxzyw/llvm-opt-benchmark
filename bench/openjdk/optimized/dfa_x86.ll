@@ -103499,7 +103499,8 @@ define hidden void @_ZN5State13_sub_Op_AbsVBEPK4Node(ptr nocapture noundef nonnu
   %26 = getelementptr inbounds i8, ptr %0, i64 460
   store i32 %25, ptr %26, align 4
   %27 = getelementptr inbounds i8, ptr %0, i64 1490
-  br label %._crit_edge.thread.sink.split
+  store i16 731, ptr %27, align 2
+  br label %._crit_edge.thread
 
 ._crit_edge:                                      ; preds = %9
   %28 = getelementptr inbounds i8, ptr %4, i64 456
@@ -103542,14 +103543,10 @@ define hidden void @_ZN5State13_sub_Op_AbsVBEPK4Node(ptr nocapture noundef nonnu
   %.pre-phi22 = phi i32 [ %.pre21, %._crit_edge20 ], [ %47, %44 ]
   %50 = getelementptr inbounds i8, ptr %0, i64 460
   store i32 %.pre-phi22, ptr %50, align 4
-  br label %._crit_edge.thread.sink.split
-
-._crit_edge.thread.sink.split:                    ; preds = %49, %16
-  %.sink = phi ptr [ %27, %16 ], [ %40, %49 ]
-  store i16 731, ptr %.sink, align 2
+  store i16 731, ptr %40, align 2
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %._crit_edge.thread.sink.split, %5, %12, %2, %44
+._crit_edge.thread:                               ; preds = %5, %12, %16, %2, %44, %49
   ret void
 }
 
@@ -103595,7 +103592,8 @@ define hidden void @_ZN5State13_sub_Op_AbsVSEPK4Node(ptr nocapture noundef nonnu
   %26 = getelementptr inbounds i8, ptr %0, i64 460
   store i32 %25, ptr %26, align 4
   %27 = getelementptr inbounds i8, ptr %0, i64 1490
-  br label %._crit_edge.thread.sink.split
+  store i16 731, ptr %27, align 2
+  br label %._crit_edge.thread
 
 ._crit_edge:                                      ; preds = %9
   %28 = getelementptr inbounds i8, ptr %4, i64 456
@@ -103638,14 +103636,10 @@ define hidden void @_ZN5State13_sub_Op_AbsVSEPK4Node(ptr nocapture noundef nonnu
   %.pre-phi22 = phi i32 [ %.pre21, %._crit_edge20 ], [ %47, %44 ]
   %50 = getelementptr inbounds i8, ptr %0, i64 460
   store i32 %.pre-phi22, ptr %50, align 4
-  br label %._crit_edge.thread.sink.split
-
-._crit_edge.thread.sink.split:                    ; preds = %49, %16
-  %.sink = phi ptr [ %27, %16 ], [ %40, %49 ]
-  store i16 731, ptr %.sink, align 2
+  store i16 731, ptr %40, align 2
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %._crit_edge.thread.sink.split, %5, %12, %2, %44
+._crit_edge.thread:                               ; preds = %5, %12, %16, %2, %44, %49
   ret void
 }
 
@@ -103691,7 +103685,8 @@ define hidden void @_ZN5State13_sub_Op_AbsVIEPK4Node(ptr nocapture noundef nonnu
   %26 = getelementptr inbounds i8, ptr %0, i64 460
   store i32 %25, ptr %26, align 4
   %27 = getelementptr inbounds i8, ptr %0, i64 1490
-  br label %._crit_edge.thread.sink.split
+  store i16 731, ptr %27, align 2
+  br label %._crit_edge.thread
 
 ._crit_edge:                                      ; preds = %9
   %28 = getelementptr inbounds i8, ptr %4, i64 456
@@ -103734,14 +103729,10 @@ define hidden void @_ZN5State13_sub_Op_AbsVIEPK4Node(ptr nocapture noundef nonnu
   %.pre-phi22 = phi i32 [ %.pre21, %._crit_edge20 ], [ %47, %44 ]
   %50 = getelementptr inbounds i8, ptr %0, i64 460
   store i32 %.pre-phi22, ptr %50, align 4
-  br label %._crit_edge.thread.sink.split
-
-._crit_edge.thread.sink.split:                    ; preds = %49, %16
-  %.sink = phi ptr [ %27, %16 ], [ %40, %49 ]
-  store i16 731, ptr %.sink, align 2
+  store i16 731, ptr %40, align 2
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %._crit_edge.thread.sink.split, %5, %12, %2, %44
+._crit_edge.thread:                               ; preds = %5, %12, %16, %2, %44, %49
   ret void
 }
 
@@ -103787,7 +103778,8 @@ define hidden void @_ZN5State13_sub_Op_AbsVLEPK4Node(ptr nocapture noundef nonnu
   %26 = getelementptr inbounds i8, ptr %0, i64 460
   store i32 %25, ptr %26, align 4
   %27 = getelementptr inbounds i8, ptr %0, i64 1490
-  br label %._crit_edge.thread.sink.split
+  store i16 731, ptr %27, align 2
+  br label %._crit_edge.thread
 
 ._crit_edge:                                      ; preds = %9
   %28 = getelementptr inbounds i8, ptr %4, i64 456
@@ -103830,14 +103822,10 @@ define hidden void @_ZN5State13_sub_Op_AbsVLEPK4Node(ptr nocapture noundef nonnu
   %.pre-phi22 = phi i32 [ %.pre21, %._crit_edge20 ], [ %47, %44 ]
   %50 = getelementptr inbounds i8, ptr %0, i64 460
   store i32 %.pre-phi22, ptr %50, align 4
-  br label %._crit_edge.thread.sink.split
-
-._crit_edge.thread.sink.split:                    ; preds = %49, %16
-  %.sink = phi ptr [ %27, %16 ], [ %40, %49 ]
-  store i16 731, ptr %.sink, align 2
+  store i16 731, ptr %40, align 2
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %._crit_edge.thread.sink.split, %5, %12, %2, %44
+._crit_edge.thread:                               ; preds = %5, %12, %16, %2, %44, %49
   ret void
 }
 
@@ -104171,7 +104159,8 @@ define hidden void @_ZN5State14_sub_Op_SqrtVDEPK4Node(ptr nocapture noundef nonn
   %24 = getelementptr inbounds i8, ptr %0, i64 460
   store i32 %23, ptr %24, align 4
   %25 = getelementptr inbounds i8, ptr %0, i64 1490
-  br label %.thread43.sink.split
+  store i16 731, ptr %25, align 2
+  br label %.thread43
 
 ._crit_edge:                                      ; preds = %5
   %not..not14 = xor i1 %.not14, true
@@ -104234,20 +104223,15 @@ define hidden void @_ZN5State14_sub_Op_SqrtVDEPK4Node(ptr nocapture noundef nonn
   %.pre-phi = phi i32 [ %.pre37, %._crit_edge36 ], [ %56, %53 ]
   %59 = getelementptr inbounds i8, ptr %0, i64 460
   store i32 %.pre-phi, ptr %59, align 4
-  br label %.thread43.sink.split
+  store i16 731, ptr %49, align 2
+  br label %.thread43
 
 60:                                               ; preds = %29
   %.not19 = icmp eq ptr %.pr.pre, null
   br i1 %.not19, label %.thread32, label %.thread43
 
-.thread43.sink.split:                             ; preds = %58, %14
-  %.sink = phi ptr [ %25, %14 ], [ %49, %58 ]
-  %.pr46.ph = phi ptr [ %4, %14 ], [ %.pr.pre, %58 ]
-  store i16 731, ptr %.sink, align 2
-  br label %.thread43
-
-.thread43:                                        ; preds = %.thread43.sink.split, %10, %._crit_edge, %53, %60
-  %.pr46 = phi ptr [ %.pr.pre, %60 ], [ %4, %._crit_edge ], [ %.pr.pre, %53 ], [ %4, %10 ], [ %.pr46.ph, %.thread43.sink.split ]
+.thread43:                                        ; preds = %10, %14, %._crit_edge, %58, %53, %60
+  %.pr46 = phi ptr [ %.pr.pre, %60 ], [ %4, %._crit_edge ], [ %.pr.pre, %58 ], [ %.pr.pre, %53 ], [ %4, %14 ], [ %4, %10 ]
   %61 = getelementptr inbounds i8, ptr %0, i64 1912
   %62 = getelementptr inbounds i8, ptr %.pr46, i64 1488
   %63 = load i16, ptr %62, align 4
@@ -104346,7 +104330,8 @@ define hidden void @_ZN5State14_sub_Op_SqrtVFEPK4Node(ptr nocapture noundef nonn
   %24 = getelementptr inbounds i8, ptr %0, i64 460
   store i32 %23, ptr %24, align 4
   %25 = getelementptr inbounds i8, ptr %0, i64 1490
-  br label %.thread43.sink.split
+  store i16 731, ptr %25, align 2
+  br label %.thread43
 
 ._crit_edge:                                      ; preds = %5
   %not..not14 = xor i1 %.not14, true
@@ -104409,20 +104394,15 @@ define hidden void @_ZN5State14_sub_Op_SqrtVFEPK4Node(ptr nocapture noundef nonn
   %.pre-phi = phi i32 [ %.pre37, %._crit_edge36 ], [ %56, %53 ]
   %59 = getelementptr inbounds i8, ptr %0, i64 460
   store i32 %.pre-phi, ptr %59, align 4
-  br label %.thread43.sink.split
+  store i16 731, ptr %49, align 2
+  br label %.thread43
 
 60:                                               ; preds = %29
   %.not19 = icmp eq ptr %.pr.pre, null
   br i1 %.not19, label %.thread32, label %.thread43
 
-.thread43.sink.split:                             ; preds = %58, %14
-  %.sink = phi ptr [ %25, %14 ], [ %49, %58 ]
-  %.pr46.ph = phi ptr [ %4, %14 ], [ %.pr.pre, %58 ]
-  store i16 731, ptr %.sink, align 2
-  br label %.thread43
-
-.thread43:                                        ; preds = %.thread43.sink.split, %10, %._crit_edge, %53, %60
-  %.pr46 = phi ptr [ %.pr.pre, %60 ], [ %4, %._crit_edge ], [ %.pr.pre, %53 ], [ %4, %10 ], [ %.pr46.ph, %.thread43.sink.split ]
+.thread43:                                        ; preds = %10, %14, %._crit_edge, %58, %53, %60
+  %.pr46 = phi ptr [ %.pr.pre, %60 ], [ %4, %._crit_edge ], [ %.pr.pre, %58 ], [ %.pr.pre, %53 ], [ %4, %14 ], [ %4, %10 ]
   %61 = getelementptr inbounds i8, ptr %0, i64 1912
   %62 = getelementptr inbounds i8, ptr %.pr46, i64 1488
   %63 = load i16, ptr %62, align 4

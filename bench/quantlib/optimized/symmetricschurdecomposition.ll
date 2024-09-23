@@ -1749,14 +1749,17 @@ lpad.i:                                           ; preds = %while.cond.i
           cleanup
   %7 = load ptr, ptr %second.i9.i, align 8, !tbaa !50
   %tobool.not.i.i.i.i25.i = icmp eq ptr %7, null
-  br i1 %tobool.not.i.i.i.i25.i, label %common.resume, label %common.resume.sink.split
+  br i1 %tobool.not.i.i.i.i25.i, label %common.resume, label %if.then.i.i.i.i26.i
 
-common.resume.sink.split:                         ; preds = %lpad.i, %lpad.i9
-  %_M_end_of_storage.i.i.i.i.i9.i.sink = phi ptr [ %_M_end_of_storage.i.i.i.i.i9.i, %lpad.i9 ], [ %_M_end_of_storage.i.i.i.i.i13.i, %lpad.i ]
-  %.sink22 = phi ptr [ %27, %lpad.i9 ], [ %7, %lpad.i ]
-  %common.resume.op.ph = phi { ptr, i32 } [ %26, %lpad.i9 ], [ %6, %lpad.i ]
-  %8 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i9.i.sink, align 8, !tbaa !51
-  %sub.ptr.lhs.cast.i.i.i24.i = ptrtoint ptr %8 to i64
+if.then.i.i.i.i26.i:                              ; preds = %lpad.i
+  %8 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i13.i, align 8, !tbaa !51
+  br label %common.resume.sink.split
+
+common.resume.sink.split:                         ; preds = %if.then.i.i.i.i26.i, %if.then.i.i.i.i22.i
+  %.sink23 = phi ptr [ %28, %if.then.i.i.i.i22.i ], [ %8, %if.then.i.i.i.i26.i ]
+  %.sink22 = phi ptr [ %27, %if.then.i.i.i.i22.i ], [ %7, %if.then.i.i.i.i26.i ]
+  %common.resume.op.ph = phi { ptr, i32 } [ %26, %if.then.i.i.i.i22.i ], [ %6, %if.then.i.i.i.i26.i ]
+  %sub.ptr.lhs.cast.i.i.i24.i = ptrtoint ptr %.sink23 to i64
   %sub.ptr.rhs.cast.i.i.i25.i = ptrtoint ptr %.sink22 to i64
   %sub.ptr.sub.i.i.i26.i = sub i64 %sub.ptr.lhs.cast.i.i.i24.i, %sub.ptr.rhs.cast.i.i.i25.i
   call void @_ZdlPvm(ptr noundef nonnull %.sink22, i64 noundef %sub.ptr.sub.i.i.i26.i) #21
@@ -1886,7 +1889,11 @@ lpad.i9:                                          ; preds = %if.then
           cleanup
   %27 = load ptr, ptr %second.i5.i, align 8, !tbaa !50
   %tobool.not.i.i.i.i21.i = icmp eq ptr %27, null
-  br i1 %tobool.not.i.i.i.i21.i, label %common.resume, label %common.resume.sink.split
+  br i1 %tobool.not.i.i.i.i21.i, label %common.resume, label %if.then.i.i.i.i22.i
+
+if.then.i.i.i.i22.i:                              ; preds = %lpad.i9
+  %28 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i9.i, align 8, !tbaa !51
+  br label %common.resume.sink.split
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES3_IS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterISt7greaterIvEEEEvT_SG_SG_RT0_.exit: ; preds = %invoke.cont.i10, %if.then.i.i.i.i.i12
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp7.i)

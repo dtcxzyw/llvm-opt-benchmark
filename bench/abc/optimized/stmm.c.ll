@@ -1426,7 +1426,7 @@ define range(i32 0, 2) i32 @stmm_foreach(ptr nocapture noundef %0, ptr nocapture
   br label %10
 
 10:                                               ; preds = %.lr.ph30, %._crit_edge
-  %11 = phi i32 [ %5, %.lr.ph30 ], [ %29, %._crit_edge ]
+  %11 = phi i32 [ %5, %.lr.ph30 ], [ %30, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %.lr.ph30 ], [ %indvars.iv.next, %._crit_edge ]
   %12 = load ptr, ptr %7, align 8
   %13 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv
@@ -1434,55 +1434,52 @@ define range(i32 0, 2) i32 @stmm_foreach(ptr nocapture noundef %0, ptr nocapture
   %.not25 = icmp eq ptr %14, null
   br i1 %.not25, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %10, %28
-  %.02127 = phi ptr [ %.1, %28 ], [ %13, %10 ]
-  %.02226 = phi ptr [ %.123, %28 ], [ %14, %10 ]
+.lr.ph:                                           ; preds = %10, %29
+  %.02127 = phi ptr [ %.1, %29 ], [ %13, %10 ]
+  %.02226 = phi ptr [ %.123, %29 ], [ %14, %10 ]
   %15 = load ptr, ptr %.02226, align 8
   %16 = getelementptr inbounds i8, ptr %.02226, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 %1(ptr noundef %15, ptr noundef %17, ptr noundef %2) #13
-  switch i32 %18, label %28 [
+  switch i32 %18, label %29 [
     i32 0, label %19
     i32 1, label %.loopexit
-    i32 2, label %21
+    i32 2, label %22
   ]
 
 19:                                               ; preds = %.lr.ph
   %20 = getelementptr inbounds i8, ptr %.02226, i64 16
-  br label %.sink.split
+  %21 = load ptr, ptr %20, align 8
+  br label %29
 
-21:                                               ; preds = %.lr.ph
-  %22 = getelementptr inbounds i8, ptr %.02226, i64 16
-  %23 = load ptr, ptr %22, align 8
-  store ptr %23, ptr %.02127, align 8
-  %24 = load i32, ptr %8, align 4
-  %25 = add nsw i32 %24, -1
-  store i32 %25, ptr %8, align 4
-  %26 = load ptr, ptr %9, align 8
-  tail call void @Extra_MmFixedEntryRecycle(ptr noundef %26, ptr noundef nonnull %.02226) #13
-  br label %.sink.split
+22:                                               ; preds = %.lr.ph
+  %23 = getelementptr inbounds i8, ptr %.02226, i64 16
+  %24 = load ptr, ptr %23, align 8
+  store ptr %24, ptr %.02127, align 8
+  %25 = load i32, ptr %8, align 4
+  %26 = add nsw i32 %25, -1
+  store i32 %26, ptr %8, align 4
+  %27 = load ptr, ptr %9, align 8
+  tail call void @Extra_MmFixedEntryRecycle(ptr noundef %27, ptr noundef nonnull %.02226) #13
+  %28 = load ptr, ptr %.02127, align 8
+  br label %29
 
-.sink.split:                                      ; preds = %19, %21
-  %.02127.sink = phi ptr [ %.02127, %21 ], [ %20, %19 ]
-  %27 = load ptr, ptr %.02127.sink, align 8
-  br label %28
-
-28:                                               ; preds = %.sink.split, %.lr.ph
-  %.123 = phi ptr [ %.02226, %.lr.ph ], [ %27, %.sink.split ]
-  %.1 = phi ptr [ %.02127, %.lr.ph ], [ %.02127.sink, %.sink.split ]
+29:                                               ; preds = %22, %19, %.lr.ph
+  %.123 = phi ptr [ %.02226, %.lr.ph ], [ %28, %22 ], [ %21, %19 ]
+  %.1 = phi ptr [ %.02127, %.lr.ph ], [ %.02127, %22 ], [ %20, %19 ]
   %.not = icmp eq ptr %.123, null
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !18
 
-._crit_edge.loopexit:                             ; preds = %28
+._crit_edge.loopexit:                             ; preds = %29
   %.pre = load i32, ptr %4, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %10
-  %29 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %11, %10 ]
+  %30 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %11, %10 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %30 = sext i32 %29 to i64
-  %31 = icmp slt i64 %indvars.iv.next, %30
-  br i1 %31, label %10, label %.loopexit, !llvm.loop !19
+  %31 = sext i32 %30 to i64
+  %32 = icmp slt i64 %indvars.iv.next, %31
+  br i1 %32, label %10, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %._crit_edge, %.lr.ph, %3
   %.020 = phi i32 [ 1, %3 ], [ 0, %.lr.ph ], [ 1, %._crit_edge ]

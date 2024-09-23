@@ -895,8 +895,8 @@ if.then10:                                        ; preds = %if.end
   %narrow = select i1 %3, i32 %switch.tableidx51, i32 1
   %type.0.i32 = zext nneg i32 %narrow to i64
   %_ZL11MONTH_START._ZL16LEAP_MONTH_START = select i1 %cmp1.i.not, ptr @_ZL11MONTH_START, ptr @_ZL16LEAP_MONTH_START
-  %arrayidx22 = getelementptr inbounds [14 x [3 x i16]], ptr %_ZL11MONTH_START._ZL16LEAP_MONTH_START, i64 0, i64 %idxprom18, i64 %type.0.i32
-  %4 = load i16, ptr %arrayidx22, align 2
+  %arrayidx16 = getelementptr inbounds [14 x [3 x i16]], ptr %_ZL11MONTH_START._ZL16LEAP_MONTH_START, i64 0, i64 %idxprom18, i64 %type.0.i32
+  %4 = load i16, ptr %arrayidx16, align 2
   %conv = sext i16 %4 to i32
   %add17 = add nsw i32 %call7, %conv
   br label %if.end26

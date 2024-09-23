@@ -2504,7 +2504,7 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_noscript
   %6 = load i8, ptr %5, align 2
   %7 = and i8 %6, 1
   %8 = icmp eq i8 %7, 0
-  br i1 %8, label %9, label %15
+  br i1 %8, label %9, label %16
 
 9:                                                ; preds = %2
   %10 = tail call i32 @lxb_html_tree_active_formatting_reconstruct_elements(ptr noundef nonnull %0) #4
@@ -2516,28 +2516,28 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_noscript
 12:                                               ; preds = %9
   %13 = tail call ptr @lxb_html_tree_insert_foreign_element(ptr noundef nonnull %0, ptr noundef %1, i64 noundef 2) #4
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %lxb_html_tree_insertion_mode_in_body_anything_else.exit.sink.split.sink.split, label %lxb_html_tree_insertion_mode_in_body_anything_else.exit
+  br i1 %14, label %15, label %lxb_html_tree_insertion_mode_in_body_anything_else.exit
 
-15:                                               ; preds = %2
-  %16 = tail call ptr @lxb_html_tree_generic_rawtext_parsing(ptr noundef nonnull %0, ptr noundef %1) #4
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %18, label %lxb_html_tree_insertion_mode_in_body_anything_else.exit
-
-18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 112
-  br label %lxb_html_tree_insertion_mode_in_body_anything_else.exit.sink.split.sink.split
-
-lxb_html_tree_insertion_mode_in_body_anything_else.exit.sink.split.sink.split: ; preds = %12, %18
-  %.sink = phi ptr [ %19, %18 ], [ %11, %12 ]
-  store i32 2, ptr %.sink, align 8
+15:                                               ; preds = %12
+  store i32 2, ptr %11, align 8
   br label %lxb_html_tree_insertion_mode_in_body_anything_else.exit.sink.split
 
-lxb_html_tree_insertion_mode_in_body_anything_else.exit.sink.split: ; preds = %lxb_html_tree_insertion_mode_in_body_anything_else.exit.sink.split.sink.split, %9
-  %20 = tail call zeroext i1 @lxb_html_tree_process_abort(ptr noundef nonnull %0) #4
+16:                                               ; preds = %2
+  %17 = tail call ptr @lxb_html_tree_generic_rawtext_parsing(ptr noundef nonnull %0, ptr noundef %1) #4
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %19, label %lxb_html_tree_insertion_mode_in_body_anything_else.exit
+
+19:                                               ; preds = %16
+  %20 = getelementptr inbounds i8, ptr %0, i64 112
+  store i32 2, ptr %20, align 8
+  br label %lxb_html_tree_insertion_mode_in_body_anything_else.exit.sink.split
+
+lxb_html_tree_insertion_mode_in_body_anything_else.exit.sink.split: ; preds = %9, %15, %19
+  %21 = tail call zeroext i1 @lxb_html_tree_process_abort(ptr noundef nonnull %0) #4
   br label %lxb_html_tree_insertion_mode_in_body_anything_else.exit
 
-lxb_html_tree_insertion_mode_in_body_anything_else.exit: ; preds = %lxb_html_tree_insertion_mode_in_body_anything_else.exit.sink.split, %12, %15
-  %.0 = phi i1 [ true, %15 ], [ true, %12 ], [ %20, %lxb_html_tree_insertion_mode_in_body_anything_else.exit.sink.split ]
+lxb_html_tree_insertion_mode_in_body_anything_else.exit: ; preds = %lxb_html_tree_insertion_mode_in_body_anything_else.exit.sink.split, %12, %16
+  %.0 = phi i1 [ true, %16 ], [ true, %12 ], [ %21, %lxb_html_tree_insertion_mode_in_body_anything_else.exit.sink.split ]
   ret i1 %.0
 }
 

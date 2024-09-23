@@ -110,43 +110,45 @@ define internal range(i32 -400, 4) i32 @code_to_mbclen(i32 noundef %0) #3 {
 define internal i32 @code_to_mbc(i32 noundef %0, ptr noundef %1) #2 {
   %3 = and i32 %0, 16711680
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %8, label %4
+  br i1 %.not, label %11, label %4
 
 4:                                                ; preds = %2
   %5 = lshr i32 %0, 16
   %6 = trunc i32 %5 to i8
   %7 = getelementptr inbounds i8, ptr %1, i64 1
   store i8 %6, ptr %1, align 1
-  br label %.sink.split
+  %8 = lshr i32 %0, 8
+  %9 = trunc i32 %8 to i8
+  %10 = getelementptr inbounds i8, ptr %1, i64 2
+  store i8 %9, ptr %7, align 1
+  br label %17
 
-8:                                                ; preds = %2
-  %9 = and i32 %0, 65280
-  %.not18 = icmp eq i32 %9, 0
-  br i1 %.not18, label %13, label %.sink.split
+11:                                               ; preds = %2
+  %12 = and i32 %0, 65280
+  %.not18 = icmp eq i32 %12, 0
+  br i1 %.not18, label %17, label %13
 
-.sink.split:                                      ; preds = %8, %4
-  %.sink21 = phi i64 [ 2, %4 ], [ 1, %8 ]
-  %.sink20 = phi ptr [ %7, %4 ], [ %1, %8 ]
-  %10 = lshr i32 %0, 8
-  %11 = trunc i32 %10 to i8
-  %12 = getelementptr inbounds i8, ptr %1, i64 %.sink21
-  store i8 %11, ptr %.sink20, align 1
-  br label %13
+13:                                               ; preds = %11
+  %14 = lshr i32 %0, 8
+  %15 = trunc i32 %14 to i8
+  %16 = getelementptr inbounds i8, ptr %1, i64 1
+  store i8 %15, ptr %1, align 1
+  br label %17
 
-13:                                               ; preds = %.sink.split, %8
-  %.0 = phi ptr [ %1, %8 ], [ %12, %.sink.split ]
-  %14 = trunc i32 %0 to i8
-  %15 = getelementptr inbounds i8, ptr %.0, i64 1
-  store i8 %14, ptr %.0, align 1
-  %16 = load ptr, ptr @OnigEncodingEUC_JP, align 8
-  %17 = tail call i32 %16(ptr noundef %1) #7
-  %18 = sext i32 %17 to i64
-  %19 = ptrtoint ptr %15 to i64
-  %20 = ptrtoint ptr %1 to i64
-  %21 = sub i64 %19, %20
-  %.not19 = icmp eq i64 %21, %18
-  %22 = trunc nsw i64 %21 to i32
-  %.016 = select i1 %.not19, i32 %22, i32 -400
+17:                                               ; preds = %11, %13, %4
+  %.0 = phi ptr [ %10, %4 ], [ %16, %13 ], [ %1, %11 ]
+  %18 = trunc i32 %0 to i8
+  %19 = getelementptr inbounds i8, ptr %.0, i64 1
+  store i8 %18, ptr %.0, align 1
+  %20 = load ptr, ptr @OnigEncodingEUC_JP, align 8
+  %21 = tail call i32 %20(ptr noundef %1) #7
+  %22 = sext i32 %21 to i64
+  %23 = ptrtoint ptr %19 to i64
+  %24 = ptrtoint ptr %1 to i64
+  %25 = sub i64 %23, %24
+  %.not19 = icmp eq i64 %25, %22
+  %26 = trunc nsw i64 %25 to i32
+  %.016 = select i1 %.not19, i32 %26, i32 -400
   ret i32 %.016
 }
 

@@ -533,7 +533,7 @@ tailrecurse:                                      ; preds = %58
   %145 = load i32, ptr %144, align 4
   %146 = add i32 %145, 1
   store i32 %146, ptr %144, align 4
-  br i1 %115, label %165, label %147
+  br i1 %115, label %167, label %147
 
 147:                                              ; preds = %140
   %148 = xor i64 %131, 1
@@ -562,80 +562,85 @@ tailrecurse:                                      ; preds = %58
   store i32 %164, ptr %162, align 4
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %120) #3
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %137) #3
-  br label %189
+  %165 = load i32, ptr %162, align 4
+  %166 = add i32 %165, -1
+  store i32 %166, ptr %162, align 4
+  br label %195
 
-165:                                              ; preds = %140
-  %166 = icmp eq ptr %120, %137
-  br i1 %166, label %167, label %170
+167:                                              ; preds = %140
+  %168 = icmp eq ptr %120, %137
+  br i1 %168, label %169, label %174
 
-167:                                              ; preds = %165
-  %168 = load i32, ptr %134, align 4
-  %169 = add i32 %168, -1
-  store i32 %169, ptr %134, align 4
-  br label %189
+169:                                              ; preds = %167
+  %170 = load i32, ptr %134, align 4
+  %171 = add i32 %170, -1
+  store i32 %171, ptr %134, align 4
+  %172 = load i32, ptr %144, align 4
+  %173 = add i32 %172, -1
+  store i32 %173, ptr %144, align 4
+  br label %195
 
-170:                                              ; preds = %165
-  %171 = and i64 %131, 1
-  %.not210 = icmp eq i64 %171, 0
-  br i1 %.not210, label %182, label %172
+174:                                              ; preds = %167
+  %175 = and i64 %131, 1
+  %.not210 = icmp eq i64 %175, 0
+  br i1 %.not210, label %186, label %176
 
-172:                                              ; preds = %170
-  %173 = xor i64 %141, 1
-  %174 = inttoptr i64 %173 to ptr
-  %175 = tail call ptr @cuddUniqueInter(ptr noundef nonnull %0, i32 noundef %.0181, ptr noundef nonnull %133, ptr noundef %174) #3
-  %176 = icmp eq ptr %175, null
-  br i1 %176, label %177, label %178
+176:                                              ; preds = %174
+  %177 = xor i64 %141, 1
+  %178 = inttoptr i64 %177 to ptr
+  %179 = tail call ptr @cuddUniqueInter(ptr noundef nonnull %0, i32 noundef %.0181, ptr noundef nonnull %133, ptr noundef %178) #3
+  %180 = icmp eq ptr %179, null
+  br i1 %180, label %181, label %182
 
-177:                                              ; preds = %172
+181:                                              ; preds = %176
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %120) #3
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %137) #3
   br label %.loopexit
 
-178:                                              ; preds = %172
-  %179 = ptrtoint ptr %175 to i64
-  %180 = xor i64 %179, 1
-  %181 = inttoptr i64 %180 to ptr
-  br label %186
+182:                                              ; preds = %176
+  %183 = ptrtoint ptr %179 to i64
+  %184 = xor i64 %183, 1
+  %185 = inttoptr i64 %184 to ptr
+  br label %190
 
-182:                                              ; preds = %170
-  %183 = tail call ptr @cuddUniqueInter(ptr noundef nonnull %0, i32 noundef %.0181, ptr noundef nonnull %120, ptr noundef nonnull %137) #3
-  %184 = icmp eq ptr %183, null
-  br i1 %184, label %185, label %186
+186:                                              ; preds = %174
+  %187 = tail call ptr @cuddUniqueInter(ptr noundef nonnull %0, i32 noundef %.0181, ptr noundef nonnull %120, ptr noundef nonnull %137) #3
+  %188 = icmp eq ptr %187, null
+  br i1 %188, label %189, label %190
 
-185:                                              ; preds = %182
+189:                                              ; preds = %186
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %120) #3
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %137) #3
   br label %.loopexit
 
-186:                                              ; preds = %182, %178
-  %.1 = phi ptr [ %181, %178 ], [ %183, %182 ]
-  %187 = load i32, ptr %144, align 4
-  %188 = add i32 %187, -1
-  store i32 %188, ptr %144, align 4
-  br label %189
+190:                                              ; preds = %186, %182
+  %.1 = phi ptr [ %185, %182 ], [ %187, %186 ]
+  %191 = load i32, ptr %144, align 4
+  %192 = add i32 %191, -1
+  store i32 %192, ptr %144, align 4
+  %193 = load i32, ptr %134, align 4
+  %194 = add i32 %193, -1
+  store i32 %194, ptr %134, align 4
+  br label %195
 
-189:                                              ; preds = %167, %186, %156
-  %.sink = phi ptr [ %144, %167 ], [ %134, %186 ], [ %162, %156 ]
-  %.0188 = phi ptr [ %120, %167 ], [ %.1, %186 ], [ %159, %156 ]
-  %190 = load i32, ptr %.sink, align 4
-  %191 = add i32 %190, -1
-  store i32 %191, ptr %.sink, align 4
-  %192 = load i32, ptr %86, align 4
-  %.not211 = icmp eq i32 %192, 1
-  br i1 %.not211, label %193, label %196
+195:                                              ; preds = %169, %190, %156
+  %.0188 = phi ptr [ %159, %156 ], [ %120, %169 ], [ %.1, %190 ]
+  %196 = load i32, ptr %86, align 4
+  %.not211 = icmp eq i32 %196, 1
+  br i1 %.not211, label %197, label %200
 
-193:                                              ; preds = %189
-  %194 = getelementptr inbounds i8, ptr %50, i64 4
-  %195 = load i32, ptr %194, align 4
-  %.not212 = icmp eq i32 %195, 1
-  br i1 %.not212, label %.loopexit, label %196
+197:                                              ; preds = %195
+  %198 = getelementptr inbounds i8, ptr %50, i64 4
+  %199 = load i32, ptr %198, align 4
+  %.not212 = icmp eq i32 %199, 1
+  br i1 %.not212, label %.loopexit, label %200
 
-196:                                              ; preds = %193, %189
+200:                                              ; preds = %197, %195
   tail call void @cuddCacheInsert(ptr noundef nonnull %0, i64 noundef %18, ptr noundef %spec.select221, ptr noundef %spec.select, ptr noundef nonnull %.tr226277, ptr noundef %.0188) #3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %tailrecurse, %20, %56, %6, %193, %196, %126, %129, %119, %185, %177, %155, %139, %38, %34, %31, %27
-  %.0 = phi ptr [ %28, %27 ], [ %32, %31 ], [ %35, %34 ], [ %41, %38 ], [ null, %139 ], [ null, %155 ], [ null, %177 ], [ null, %185 ], [ null, %119 ], [ %22, %129 ], [ %22, %126 ], [ %.0188, %196 ], [ %.0188, %193 ], [ %11, %6 ], [ %79, %tailrecurse ], [ %22, %20 ], [ %57, %56 ]
+.loopexit:                                        ; preds = %tailrecurse, %20, %56, %6, %197, %200, %126, %129, %119, %189, %181, %155, %139, %38, %34, %31, %27
+  %.0 = phi ptr [ %28, %27 ], [ %32, %31 ], [ %35, %34 ], [ %41, %38 ], [ null, %139 ], [ null, %155 ], [ null, %181 ], [ null, %189 ], [ null, %119 ], [ %22, %129 ], [ %22, %126 ], [ %.0188, %200 ], [ %.0188, %197 ], [ %11, %6 ], [ %79, %tailrecurse ], [ %22, %20 ], [ %57, %56 ]
   ret ptr %.0
 }
 

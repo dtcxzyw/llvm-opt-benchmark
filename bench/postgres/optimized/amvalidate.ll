@@ -83,15 +83,15 @@ define dso_local ptr @identify_opfamily_groups(ptr nocapture noundef readonly %0
   br label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %.outer, %.lr.ph.lr.ph.lr.ph
-  %45 = phi i1 [ %41, %.lr.ph.lr.ph.lr.ph ], [ %184, %.outer ]
-  %46 = phi i1 [ %40, %.lr.ph.lr.ph.lr.ph ], [ %183, %.outer ]
+  %45 = phi i1 [ %41, %.lr.ph.lr.ph.lr.ph ], [ %183, %.outer ]
+  %46 = phi i1 [ %40, %.lr.ph.lr.ph.lr.ph ], [ %182, %.outer ]
   %.1.ph257 = phi i32 [ %.0, %.lr.ph.lr.ph.lr.ph ], [ %.us-phi118334, %.outer ]
   %.176.ph256 = phi i32 [ %.075, %.lr.ph.lr.ph.lr.ph ], [ %.176.ph95243, %.outer ]
   %.179.ph255 = phi ptr [ %.078, %.lr.ph.lr.ph.lr.ph ], [ %.us-phi117333, %.outer ]
   %.182.ph254 = phi ptr [ %.081, %.lr.ph.lr.ph.lr.ph ], [ %.182.ph93240, %.outer ]
   %.084.ph253 = phi ptr [ null, %.lr.ph.lr.ph.lr.ph ], [ %.sink419, %.outer ]
-  %.085.ph248 = phi ptr [ null, %.lr.ph.lr.ph.lr.ph ], [ %182, %.outer ]
-  %.not421 = icmp eq ptr %.084.ph253, null
+  %.085.ph248 = phi ptr [ null, %.lr.ph.lr.ph.lr.ph ], [ %181, %.outer ]
+  %.not420 = icmp eq ptr %.084.ph253, null
   %47 = getelementptr inbounds i8, ptr %.084.ph253, i64 4
   %48 = getelementptr inbounds i8, ptr %.084.ph253, i64 16
   %49 = getelementptr inbounds i8, ptr %.084.ph253, i64 8
@@ -107,7 +107,7 @@ define dso_local ptr @identify_opfamily_groups(ptr nocapture noundef readonly %0
   %.lcssa157.fr = freeze i1 %51
   %52 = getelementptr inbounds i8, ptr %.182.ph93240, i64 8
   %53 = getelementptr inbounds i8, ptr %.182.ph93240, i64 12
-  br i1 %.not421, label %.split114.us, label %.lr.ph.split
+  br i1 %.not420, label %.split114.us, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.lcssa157.fr, label %.lr.ph.split.split.us.split.us.preheader, label %.lr.ph.split.split.split
@@ -349,18 +349,18 @@ define dso_local ptr @identify_opfamily_groups(ptr nocapture noundef readonly %0
   br label %.outer
 
 .outer:                                           ; preds = %175, %173
-  %.sink420 = phi ptr [ %178, %175 ], [ %53, %173 ]
   %.sink419 = phi ptr [ %176, %175 ], [ %174, %173 ]
+  %.sink.in = phi ptr [ %178, %175 ], [ %53, %173 ]
   %.us-phi118334 = phi i32 [ %.us-phi118335, %175 ], [ %.us-phi118336348, %173 ]
   %.us-phi117333 = phi ptr [ %.us-phi117332, %175 ], [ %.us-phi117331350, %173 ]
-  %179 = load i32, ptr %.sink420, align 4
-  %180 = getelementptr inbounds i8, ptr %.sink419, i64 4
-  store i32 %179, ptr %180, align 4
-  %181 = getelementptr inbounds i8, ptr %.sink419, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %181, i8 0, i64 16, i1 false)
-  %182 = tail call ptr @lappend(ptr noundef %.085.ph248, ptr noundef nonnull %.sink419) #7
-  %183 = icmp ne ptr %.182.ph93240, null
-  %184 = icmp ne ptr %.us-phi117333, null
+  %.sink = load i32, ptr %.sink.in, align 4
+  %179 = getelementptr inbounds i8, ptr %.sink419, i64 4
+  store i32 %.sink, ptr %179, align 4
+  %180 = getelementptr inbounds i8, ptr %.sink419, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %180, i8 0, i64 16, i1 false)
+  %181 = tail call ptr @lappend(ptr noundef %.085.ph248, ptr noundef nonnull %.sink419) #7
+  %182 = icmp ne ptr %.182.ph93240, null
+  %183 = icmp ne ptr %.us-phi117333, null
   br label %.lr.ph.lr.ph
 
 .outer92._crit_edge:                              ; preds = %.outer92, %141, %144, %39

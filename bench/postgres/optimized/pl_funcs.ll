@@ -643,11 +643,11 @@ define hidden void @plpgsql_free_function_memory(ptr nocapture noundef %0) local
   %8 = getelementptr ptr, ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %9, align 4
-  switch i32 %10, label %30 [
+  switch i32 %10, label %34 [
     i32 0, label %11
     i32 4, label %11
     i32 1, label %free_expr.exit23
-    i32 2, label %24
+    i32 2, label %26
     i32 3, label %free_expr.exit23
   ]
 
@@ -678,147 +678,150 @@ free_expr.exit:                                   ; preds = %11, %14, %17
   %22 = getelementptr inbounds i8, ptr %20, i64 16
   %23 = load ptr, ptr %22, align 8
   %.not5.i22 = icmp eq ptr %23, null
-  br i1 %.not5.i22, label %free_expr.exit23, label %free_expr.exit23.sink.split
+  br i1 %.not5.i22, label %free_expr.exit23, label %24
 
-24:                                               ; preds = %6
-  %25 = getelementptr inbounds i8, ptr %9, i64 24
-  %26 = load ptr, ptr %25, align 8
-  %.not.i24 = icmp eq ptr %26, null
-  br i1 %.not.i24, label %free_expr.exit23, label %27
+24:                                               ; preds = %21
+  %25 = tail call i32 @SPI_freeplan(ptr noundef nonnull %23) #16
+  store ptr null, ptr %22, align 8
+  br label %free_expr.exit23
 
-27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %26, i64 16
-  %29 = load ptr, ptr %28, align 8
-  %.not5.i25 = icmp eq ptr %29, null
-  br i1 %.not5.i25, label %free_expr.exit23, label %free_expr.exit23.sink.split
+26:                                               ; preds = %6
+  %27 = getelementptr inbounds i8, ptr %9, i64 24
+  %28 = load ptr, ptr %27, align 8
+  %.not.i24 = icmp eq ptr %28, null
+  br i1 %.not.i24, label %free_expr.exit23, label %29
 
-30:                                               ; preds = %6
-  %31 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.46) #17
-  tail call void @llvm.assume(i1 %31)
-  %32 = load i32, ptr %9, align 4
-  %33 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.47, i32 noundef %32) #16
+29:                                               ; preds = %26
+  %30 = getelementptr inbounds i8, ptr %28, i64 16
+  %31 = load ptr, ptr %30, align 8
+  %.not5.i25 = icmp eq ptr %31, null
+  br i1 %.not5.i25, label %free_expr.exit23, label %32
+
+32:                                               ; preds = %29
+  %33 = tail call i32 @SPI_freeplan(ptr noundef nonnull %31) #16
+  store ptr null, ptr %30, align 8
+  br label %free_expr.exit23
+
+34:                                               ; preds = %6
+  %35 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.46) #17
+  tail call void @llvm.assume(i1 %35)
+  %36 = load i32, ptr %9, align 4
+  %37 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.47, i32 noundef %36) #16
   tail call void @errfinish(ptr noundef nonnull @.str.48, i32 noundef 762, ptr noundef nonnull @__func__.plpgsql_free_function_memory) #16
   unreachable
 
-free_expr.exit23.sink.split:                      ; preds = %27, %21
-  %.sink34 = phi ptr [ %23, %21 ], [ %29, %27 ]
-  %.sink = phi ptr [ %22, %21 ], [ %28, %27 ]
-  %34 = tail call i32 @SPI_freeplan(ptr noundef nonnull %.sink34) #16
-  store ptr null, ptr %.sink, align 8
-  br label %free_expr.exit23
-
-free_expr.exit23:                                 ; preds = %free_expr.exit23.sink.split, %27, %24, %21, %free_expr.exit, %6, %6
+free_expr.exit23:                                 ; preds = %32, %29, %26, %24, %21, %free_expr.exit, %6, %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %35 = load i32, ptr %2, align 4
-  %36 = sext i32 %35 to i64
-  %37 = icmp slt i64 %indvars.iv.next, %36
-  br i1 %37, label %6, label %._crit_edge, !llvm.loop !11
+  %38 = load i32, ptr %2, align 4
+  %39 = sext i32 %38 to i64
+  %40 = icmp slt i64 %indvars.iv.next, %39
+  br i1 %40, label %6, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %free_expr.exit23, %1
   store i32 0, ptr %2, align 4
-  %38 = getelementptr inbounds i8, ptr %0, i64 520
-  %39 = load ptr, ptr %38, align 8
-  %.not = icmp eq ptr %39, null
-  br i1 %.not, label %free_block.exit, label %40
-
-40:                                               ; preds = %._crit_edge
-  %41 = getelementptr inbounds i8, ptr %39, i64 24
+  %41 = getelementptr inbounds i8, ptr %0, i64 520
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 4
-  %.not.i.i = icmp eq ptr %42, null
+  %.not = icmp eq ptr %42, null
+  br i1 %.not, label %free_block.exit, label %43
+
+43:                                               ; preds = %._crit_edge
+  %44 = getelementptr inbounds i8, ptr %42, i64 24
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 4
+  %.not.i.i = icmp eq ptr %45, null
   br i1 %.not.i.i, label %free_stmts.exit.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %42, i64 16
-  %45 = load i32, ptr %43, align 4
-  %46 = icmp sgt i32 %45, 0
-  br i1 %46, label %.lr.ph31.i, label %free_stmts.exit.i
+.lr.ph.i:                                         ; preds = %43
+  %47 = getelementptr inbounds i8, ptr %45, i64 16
+  %48 = load i32, ptr %46, align 4
+  %49 = icmp sgt i32 %48, 0
+  br i1 %49, label %.lr.ph31.i, label %free_stmts.exit.i
 
 .lr.ph31.i:                                       ; preds = %.lr.ph.i, %.lr.ph31.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph31.i ], [ 0, %.lr.ph.i ]
-  %47 = load ptr, ptr %44, align 8
-  %48 = getelementptr %union.ListCell, ptr %47, i64 %indvars.iv.i
-  %49 = load ptr, ptr %48, align 8
-  tail call fastcc void @free_stmt(ptr noundef %49)
+  %50 = load ptr, ptr %47, align 8
+  %51 = getelementptr %union.ListCell, ptr %50, i64 %indvars.iv.i
+  %52 = load ptr, ptr %51, align 8
+  tail call fastcc void @free_stmt(ptr noundef %52)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %50 = load i32, ptr %43, align 4
-  %51 = sext i32 %50 to i64
-  %52 = icmp slt i64 %indvars.iv.next.i, %51
-  br i1 %52, label %.lr.ph31.i, label %free_stmts.exit.i
+  %53 = load i32, ptr %46, align 4
+  %54 = sext i32 %53 to i64
+  %55 = icmp slt i64 %indvars.iv.next.i, %54
+  br i1 %55, label %.lr.ph31.i, label %free_stmts.exit.i
 
-free_stmts.exit.i:                                ; preds = %.lr.ph31.i, %.lr.ph.i, %40
-  %53 = getelementptr inbounds i8, ptr %39, i64 48
-  %54 = load ptr, ptr %53, align 8
-  %.not.i27 = icmp eq ptr %54, null
-  br i1 %.not.i27, label %free_block.exit, label %55
-
-55:                                               ; preds = %free_stmts.exit.i
-  %56 = getelementptr inbounds i8, ptr %54, i64 8
+free_stmts.exit.i:                                ; preds = %.lr.ph31.i, %.lr.ph.i, %43
+  %56 = getelementptr inbounds i8, ptr %42, i64 48
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 4
-  %.not11.i = icmp eq ptr %57, null
+  %.not.i27 = icmp eq ptr %57, null
+  br i1 %.not.i27, label %free_block.exit, label %58
+
+58:                                               ; preds = %free_stmts.exit.i
+  %59 = getelementptr inbounds i8, ptr %57, i64 8
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 4
+  %.not11.i = icmp eq ptr %60, null
   br i1 %.not11.i, label %free_block.exit, label %.lr.ph38.i
 
-.lr.ph38.i:                                       ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %57, i64 16
-  %60 = load i32, ptr %58, align 4
-  %61 = icmp sgt i32 %60, 0
-  br i1 %61, label %.lr.ph43.i, label %free_block.exit
+.lr.ph38.i:                                       ; preds = %58
+  %62 = getelementptr inbounds i8, ptr %60, i64 16
+  %63 = load i32, ptr %61, align 4
+  %64 = icmp sgt i32 %63, 0
+  br i1 %64, label %.lr.ph43.i, label %free_block.exit
 
 .lr.ph43.i:                                       ; preds = %.lr.ph38.i, %free_stmts.exit17.i
-  %62 = phi i32 [ %78, %free_stmts.exit17.i ], [ %60, %.lr.ph38.i ]
+  %65 = phi i32 [ %81, %free_stmts.exit17.i ], [ %63, %.lr.ph38.i ]
   %indvars.iv48.i = phi i64 [ %indvars.iv.next49.i, %free_stmts.exit17.i ], [ 0, %.lr.ph38.i ]
-  %63 = load ptr, ptr %59, align 8
-  %64 = getelementptr %union.ListCell, ptr %63, i64 %indvars.iv48.i
-  %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 16
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 4
-  %.not.i14.i = icmp eq ptr %67, null
+  %66 = load ptr, ptr %62, align 8
+  %67 = getelementptr %union.ListCell, ptr %66, i64 %indvars.iv48.i
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds i8, ptr %68, i64 16
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds i8, ptr %70, i64 4
+  %.not.i14.i = icmp eq ptr %70, null
   br i1 %.not.i14.i, label %free_stmts.exit17.i, label %.lr.ph33.i
 
 .lr.ph33.i:                                       ; preds = %.lr.ph43.i
-  %69 = getelementptr inbounds i8, ptr %67, i64 16
-  %70 = load i32, ptr %68, align 4
-  %71 = icmp sgt i32 %70, 0
-  br i1 %71, label %.lr.ph36.i, label %free_stmts.exit17.i
+  %72 = getelementptr inbounds i8, ptr %70, i64 16
+  %73 = load i32, ptr %71, align 4
+  %74 = icmp sgt i32 %73, 0
+  br i1 %74, label %.lr.ph36.i, label %free_stmts.exit17.i
 
 .lr.ph36.i:                                       ; preds = %.lr.ph33.i, %.lr.ph36.i
   %indvars.iv45.i = phi i64 [ %indvars.iv.next46.i, %.lr.ph36.i ], [ 0, %.lr.ph33.i ]
-  %72 = load ptr, ptr %69, align 8
-  %73 = getelementptr %union.ListCell, ptr %72, i64 %indvars.iv45.i
-  %74 = load ptr, ptr %73, align 8
-  tail call fastcc void @free_stmt(ptr noundef %74)
+  %75 = load ptr, ptr %72, align 8
+  %76 = getelementptr %union.ListCell, ptr %75, i64 %indvars.iv45.i
+  %77 = load ptr, ptr %76, align 8
+  tail call fastcc void @free_stmt(ptr noundef %77)
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
-  %75 = load i32, ptr %68, align 4
-  %76 = sext i32 %75 to i64
-  %77 = icmp slt i64 %indvars.iv.next46.i, %76
-  br i1 %77, label %.lr.ph36.i, label %free_stmts.exit17.loopexit.i
+  %78 = load i32, ptr %71, align 4
+  %79 = sext i32 %78 to i64
+  %80 = icmp slt i64 %indvars.iv.next46.i, %79
+  br i1 %80, label %.lr.ph36.i, label %free_stmts.exit17.loopexit.i
 
 free_stmts.exit17.loopexit.i:                     ; preds = %.lr.ph36.i
-  %.pre.i = load i32, ptr %58, align 4
+  %.pre.i = load i32, ptr %61, align 4
   br label %free_stmts.exit17.i
 
 free_stmts.exit17.i:                              ; preds = %free_stmts.exit17.loopexit.i, %.lr.ph33.i, %.lr.ph43.i
-  %78 = phi i32 [ %.pre.i, %free_stmts.exit17.loopexit.i ], [ %62, %.lr.ph33.i ], [ %62, %.lr.ph43.i ]
+  %81 = phi i32 [ %.pre.i, %free_stmts.exit17.loopexit.i ], [ %65, %.lr.ph33.i ], [ %65, %.lr.ph43.i ]
   %indvars.iv.next49.i = add nuw nsw i64 %indvars.iv48.i, 1
-  %79 = sext i32 %78 to i64
-  %80 = icmp slt i64 %indvars.iv.next49.i, %79
-  br i1 %80, label %.lr.ph43.i, label %free_block.exit
+  %82 = sext i32 %81 to i64
+  %83 = icmp slt i64 %indvars.iv.next49.i, %82
+  br i1 %83, label %.lr.ph43.i, label %free_block.exit
 
-free_block.exit:                                  ; preds = %free_stmts.exit17.i, %.lr.ph38.i, %55, %free_stmts.exit.i, %._crit_edge
-  store ptr null, ptr %38, align 8
-  %81 = getelementptr inbounds i8, ptr %0, i64 40
-  %82 = load ptr, ptr %81, align 8
-  %.not20 = icmp eq ptr %82, null
-  br i1 %.not20, label %84, label %83
+free_block.exit:                                  ; preds = %free_stmts.exit17.i, %.lr.ph38.i, %58, %free_stmts.exit.i, %._crit_edge
+  store ptr null, ptr %41, align 8
+  %84 = getelementptr inbounds i8, ptr %0, i64 40
+  %85 = load ptr, ptr %84, align 8
+  %.not20 = icmp eq ptr %85, null
+  br i1 %.not20, label %87, label %86
 
-83:                                               ; preds = %free_block.exit
-  tail call void @MemoryContextDelete(ptr noundef nonnull %82) #16
-  br label %84
+86:                                               ; preds = %free_block.exit
+  tail call void @MemoryContextDelete(ptr noundef nonnull %85) #16
+  br label %87
 
-84:                                               ; preds = %83, %free_block.exit
-  store ptr null, ptr %81, align 8
+87:                                               ; preds = %86, %free_block.exit
+  store ptr null, ptr %84, align 8
   ret void
 }
 
@@ -1234,32 +1237,32 @@ declare i32 @SPI_freeplan(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @free_stmt(ptr nocapture noundef readonly %0) unnamed_addr #1 {
   %2 = load i32, ptr %0, align 4
-  switch i32 %2, label %510 [
+  switch i32 %2, label %532 [
     i32 0, label %3
     i32 1, label %44
-    i32 2, label %49
-    i32 3, label %112
-    i32 4, label %163
-    i32 5, label %176
-    i32 6, label %196
-    i32 7, label %230
-    i32 8, label %248
-    i32 9, label %266
-    i32 10, label %286
-    i32 11, label %291
-    i32 12, label %296
-    i32 13, label %301
-    i32 14, label %334
-    i32 15, label %373
-    i32 16, label %386
-    i32 17, label %391
-    i32 18, label %417
+    i32 2, label %51
+    i32 3, label %114
+    i32 4, label %165
+    i32 5, label %178
+    i32 6, label %198
+    i32 7, label %232
+    i32 8, label %252
+    i32 9, label %272
+    i32 10, label %292
+    i32 11, label %299
+    i32 12, label %306
+    i32 13, label %313
+    i32 14, label %346
+    i32 15, label %385
+    i32 16, label %400
+    i32 17, label %407
+    i32 18, label %433
     i32 19, label %free_block.exit
-    i32 20, label %455
-    i32 21, label %495
+    i32 20, label %471
+    i32 21, label %511
     i32 22, label %free_block.exit
-    i32 23, label %500
-    i32 24, label %505
+    i32 23, label %518
+    i32 24, label %525
     i32 25, label %free_block.exit
     i32 26, label %free_block.exit
   ]
@@ -1359,1029 +1362,1077 @@ free_stmts.exit17.i:                              ; preds = %free_stmts.exit17.i
   %47 = getelementptr inbounds i8, ptr %.val, i64 16
   %48 = load ptr, ptr %47, align 8
   %.not5.i.i = icmp eq ptr %48, null
-  br i1 %.not5.i.i, label %free_block.exit, label %free_block.exit.sink.split
+  br i1 %.not5.i.i, label %free_block.exit, label %49
 
-49:                                               ; preds = %1
-  %50 = getelementptr inbounds i8, ptr %0, i64 16
-  %51 = load ptr, ptr %50, align 8
-  %.not.i113 = icmp eq ptr %51, null
-  br i1 %.not.i113, label %free_expr.exit115, label %52
+49:                                               ; preds = %46
+  %50 = tail call i32 @SPI_freeplan(ptr noundef nonnull %48) #16
+  store ptr null, ptr %47, align 8
+  br label %free_block.exit
 
-52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %51, i64 16
-  %54 = load ptr, ptr %53, align 8
-  %.not5.i114 = icmp eq ptr %54, null
-  br i1 %.not5.i114, label %free_expr.exit115, label %55
+51:                                               ; preds = %1
+  %52 = getelementptr inbounds i8, ptr %0, i64 16
+  %53 = load ptr, ptr %52, align 8
+  %.not.i113 = icmp eq ptr %53, null
+  br i1 %.not.i113, label %free_expr.exit115, label %54
 
-55:                                               ; preds = %52
-  %56 = tail call i32 @SPI_freeplan(ptr noundef nonnull %54) #16
-  store ptr null, ptr %53, align 8
+54:                                               ; preds = %51
+  %55 = getelementptr inbounds i8, ptr %53, i64 16
+  %56 = load ptr, ptr %55, align 8
+  %.not5.i114 = icmp eq ptr %56, null
+  br i1 %.not5.i114, label %free_expr.exit115, label %57
+
+57:                                               ; preds = %54
+  %58 = tail call i32 @SPI_freeplan(ptr noundef nonnull %56) #16
+  store ptr null, ptr %55, align 8
   br label %free_expr.exit115
 
-free_expr.exit115:                                ; preds = %49, %52, %55
-  %57 = getelementptr inbounds i8, ptr %0, i64 24
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 4
-  %.not.i109 = icmp eq ptr %58, null
+free_expr.exit115:                                ; preds = %51, %54, %57
+  %59 = getelementptr inbounds i8, ptr %0, i64 24
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 4
+  %.not.i109 = icmp eq ptr %60, null
   br i1 %.not.i109, label %free_stmts.exit112, label %.lr.ph332
 
 .lr.ph332:                                        ; preds = %free_expr.exit115
-  %60 = getelementptr inbounds i8, ptr %58, i64 16
-  %61 = load i32, ptr %59, align 4
-  %62 = icmp sgt i32 %61, 0
-  br i1 %62, label %.lr.ph335, label %free_stmts.exit112
+  %62 = getelementptr inbounds i8, ptr %60, i64 16
+  %63 = load i32, ptr %61, align 4
+  %64 = icmp sgt i32 %63, 0
+  br i1 %64, label %.lr.ph335, label %free_stmts.exit112
 
 .lr.ph335:                                        ; preds = %.lr.ph332, %.lr.ph335
   %indvars.iv412 = phi i64 [ %indvars.iv.next413, %.lr.ph335 ], [ 0, %.lr.ph332 ]
-  %63 = load ptr, ptr %60, align 8
-  %64 = getelementptr %union.ListCell, ptr %63, i64 %indvars.iv412
-  %65 = load ptr, ptr %64, align 8
-  tail call fastcc void @free_stmt(ptr noundef %65)
+  %65 = load ptr, ptr %62, align 8
+  %66 = getelementptr %union.ListCell, ptr %65, i64 %indvars.iv412
+  %67 = load ptr, ptr %66, align 8
+  tail call fastcc void @free_stmt(ptr noundef %67)
   %indvars.iv.next413 = add nuw nsw i64 %indvars.iv412, 1
-  %66 = load i32, ptr %59, align 4
-  %67 = sext i32 %66 to i64
-  %68 = icmp slt i64 %indvars.iv.next413, %67
-  br i1 %68, label %.lr.ph335, label %free_stmts.exit112
+  %68 = load i32, ptr %61, align 4
+  %69 = sext i32 %68 to i64
+  %70 = icmp slt i64 %indvars.iv.next413, %69
+  br i1 %70, label %.lr.ph335, label %free_stmts.exit112
 
 free_stmts.exit112:                               ; preds = %.lr.ph335, %.lr.ph332, %free_expr.exit115
-  %69 = getelementptr inbounds i8, ptr %0, i64 32
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 4
-  %.not.i38 = icmp eq ptr %70, null
+  %71 = getelementptr inbounds i8, ptr %0, i64 32
+  %72 = load ptr, ptr %71, align 8
+  %73 = getelementptr inbounds i8, ptr %72, i64 4
+  %.not.i38 = icmp eq ptr %72, null
   br i1 %.not.i38, label %free_if.exit, label %.lr.ph342
 
 .lr.ph342:                                        ; preds = %free_stmts.exit112
-  %72 = getelementptr inbounds i8, ptr %70, i64 16
-  %73 = load i32, ptr %71, align 4
-  %74 = icmp sgt i32 %73, 0
-  br i1 %74, label %.lr.ph347, label %free_if.exit
+  %74 = getelementptr inbounds i8, ptr %72, i64 16
+  %75 = load i32, ptr %73, align 4
+  %76 = icmp sgt i32 %75, 0
+  br i1 %76, label %.lr.ph347, label %free_if.exit
 
 .lr.ph347:                                        ; preds = %.lr.ph342, %free_stmts.exit106
   %indvars.iv418 = phi i64 [ %indvars.iv.next419, %free_stmts.exit106 ], [ 0, %.lr.ph342 ]
-  %75 = load ptr, ptr %72, align 8
-  %76 = getelementptr %union.ListCell, ptr %75, i64 %indvars.iv418
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 8
+  %77 = load ptr, ptr %74, align 8
+  %78 = getelementptr %union.ListCell, ptr %77, i64 %indvars.iv418
   %79 = load ptr, ptr %78, align 8
-  %.not.i107 = icmp eq ptr %79, null
-  br i1 %.not.i107, label %free_expr.exit, label %80
+  %80 = getelementptr inbounds i8, ptr %79, i64 8
+  %81 = load ptr, ptr %80, align 8
+  %.not.i107 = icmp eq ptr %81, null
+  br i1 %.not.i107, label %free_expr.exit, label %82
 
-80:                                               ; preds = %.lr.ph347
-  %81 = getelementptr inbounds i8, ptr %79, i64 16
-  %82 = load ptr, ptr %81, align 8
-  %.not5.i = icmp eq ptr %82, null
-  br i1 %.not5.i, label %free_expr.exit, label %83
+82:                                               ; preds = %.lr.ph347
+  %83 = getelementptr inbounds i8, ptr %81, i64 16
+  %84 = load ptr, ptr %83, align 8
+  %.not5.i = icmp eq ptr %84, null
+  br i1 %.not5.i, label %free_expr.exit, label %85
 
-83:                                               ; preds = %80
-  %84 = tail call i32 @SPI_freeplan(ptr noundef nonnull %82) #16
-  store ptr null, ptr %81, align 8
+85:                                               ; preds = %82
+  %86 = tail call i32 @SPI_freeplan(ptr noundef nonnull %84) #16
+  store ptr null, ptr %83, align 8
   br label %free_expr.exit
 
-free_expr.exit:                                   ; preds = %.lr.ph347, %80, %83
-  %85 = getelementptr inbounds i8, ptr %77, i64 16
-  %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 4
-  %.not.i103 = icmp eq ptr %86, null
+free_expr.exit:                                   ; preds = %.lr.ph347, %82, %85
+  %87 = getelementptr inbounds i8, ptr %79, i64 16
+  %88 = load ptr, ptr %87, align 8
+  %89 = getelementptr inbounds i8, ptr %88, i64 4
+  %.not.i103 = icmp eq ptr %88, null
   br i1 %.not.i103, label %free_stmts.exit106, label %.lr.ph337
 
 .lr.ph337:                                        ; preds = %free_expr.exit
-  %88 = getelementptr inbounds i8, ptr %86, i64 16
-  %89 = load i32, ptr %87, align 4
-  %90 = icmp sgt i32 %89, 0
-  br i1 %90, label %.lr.ph340, label %free_stmts.exit106
+  %90 = getelementptr inbounds i8, ptr %88, i64 16
+  %91 = load i32, ptr %89, align 4
+  %92 = icmp sgt i32 %91, 0
+  br i1 %92, label %.lr.ph340, label %free_stmts.exit106
 
 .lr.ph340:                                        ; preds = %.lr.ph337, %.lr.ph340
   %indvars.iv415 = phi i64 [ %indvars.iv.next416, %.lr.ph340 ], [ 0, %.lr.ph337 ]
-  %91 = load ptr, ptr %88, align 8
-  %92 = getelementptr %union.ListCell, ptr %91, i64 %indvars.iv415
-  %93 = load ptr, ptr %92, align 8
-  tail call fastcc void @free_stmt(ptr noundef %93)
+  %93 = load ptr, ptr %90, align 8
+  %94 = getelementptr %union.ListCell, ptr %93, i64 %indvars.iv415
+  %95 = load ptr, ptr %94, align 8
+  tail call fastcc void @free_stmt(ptr noundef %95)
   %indvars.iv.next416 = add nuw nsw i64 %indvars.iv415, 1
-  %94 = load i32, ptr %87, align 4
-  %95 = sext i32 %94 to i64
-  %96 = icmp slt i64 %indvars.iv.next416, %95
-  br i1 %96, label %.lr.ph340, label %free_stmts.exit106
+  %96 = load i32, ptr %89, align 4
+  %97 = sext i32 %96 to i64
+  %98 = icmp slt i64 %indvars.iv.next416, %97
+  br i1 %98, label %.lr.ph340, label %free_stmts.exit106
 
 free_stmts.exit106:                               ; preds = %.lr.ph340, %.lr.ph337, %free_expr.exit
   %indvars.iv.next419 = add nuw nsw i64 %indvars.iv418, 1
-  %97 = load i32, ptr %71, align 4
-  %98 = sext i32 %97 to i64
-  %99 = icmp slt i64 %indvars.iv.next419, %98
-  br i1 %99, label %.lr.ph347, label %free_if.exit
+  %99 = load i32, ptr %73, align 4
+  %100 = sext i32 %99 to i64
+  %101 = icmp slt i64 %indvars.iv.next419, %100
+  br i1 %101, label %.lr.ph347, label %free_if.exit
 
 free_if.exit:                                     ; preds = %free_stmts.exit106, %.lr.ph342, %free_stmts.exit112
-  %100 = getelementptr inbounds i8, ptr %0, i64 40
-  %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 4
-  %.not.i100 = icmp eq ptr %101, null
+  %102 = getelementptr inbounds i8, ptr %0, i64 40
+  %103 = load ptr, ptr %102, align 8
+  %104 = getelementptr inbounds i8, ptr %103, i64 4
+  %.not.i100 = icmp eq ptr %103, null
   br i1 %.not.i100, label %free_block.exit, label %.lr.ph349
 
 .lr.ph349:                                        ; preds = %free_if.exit
-  %103 = getelementptr inbounds i8, ptr %101, i64 16
-  %104 = load i32, ptr %102, align 4
-  %105 = icmp sgt i32 %104, 0
-  br i1 %105, label %.lr.ph352, label %free_block.exit
+  %105 = getelementptr inbounds i8, ptr %103, i64 16
+  %106 = load i32, ptr %104, align 4
+  %107 = icmp sgt i32 %106, 0
+  br i1 %107, label %.lr.ph352, label %free_block.exit
 
 .lr.ph352:                                        ; preds = %.lr.ph349, %.lr.ph352
   %indvars.iv421 = phi i64 [ %indvars.iv.next422, %.lr.ph352 ], [ 0, %.lr.ph349 ]
-  %106 = load ptr, ptr %103, align 8
-  %107 = getelementptr %union.ListCell, ptr %106, i64 %indvars.iv421
-  %108 = load ptr, ptr %107, align 8
-  tail call fastcc void @free_stmt(ptr noundef %108)
+  %108 = load ptr, ptr %105, align 8
+  %109 = getelementptr %union.ListCell, ptr %108, i64 %indvars.iv421
+  %110 = load ptr, ptr %109, align 8
+  tail call fastcc void @free_stmt(ptr noundef %110)
   %indvars.iv.next422 = add nuw nsw i64 %indvars.iv421, 1
-  %109 = load i32, ptr %102, align 4
-  %110 = sext i32 %109 to i64
-  %111 = icmp slt i64 %indvars.iv.next422, %110
-  br i1 %111, label %.lr.ph352, label %free_block.exit
+  %111 = load i32, ptr %104, align 4
+  %112 = sext i32 %111 to i64
+  %113 = icmp slt i64 %indvars.iv.next422, %112
+  br i1 %113, label %.lr.ph352, label %free_block.exit
 
-112:                                              ; preds = %1
-  %113 = getelementptr inbounds i8, ptr %0, i64 16
-  %114 = load ptr, ptr %113, align 8
-  %.not.i129 = icmp eq ptr %114, null
-  br i1 %.not.i129, label %free_expr.exit131, label %115
+114:                                              ; preds = %1
+  %115 = getelementptr inbounds i8, ptr %0, i64 16
+  %116 = load ptr, ptr %115, align 8
+  %.not.i129 = icmp eq ptr %116, null
+  br i1 %.not.i129, label %free_expr.exit131, label %117
 
-115:                                              ; preds = %112
-  %116 = getelementptr inbounds i8, ptr %114, i64 16
-  %117 = load ptr, ptr %116, align 8
-  %.not5.i130 = icmp eq ptr %117, null
-  br i1 %.not5.i130, label %free_expr.exit131, label %118
+117:                                              ; preds = %114
+  %118 = getelementptr inbounds i8, ptr %116, i64 16
+  %119 = load ptr, ptr %118, align 8
+  %.not5.i130 = icmp eq ptr %119, null
+  br i1 %.not5.i130, label %free_expr.exit131, label %120
 
-118:                                              ; preds = %115
-  %119 = tail call i32 @SPI_freeplan(ptr noundef nonnull %117) #16
-  store ptr null, ptr %116, align 8
+120:                                              ; preds = %117
+  %121 = tail call i32 @SPI_freeplan(ptr noundef nonnull %119) #16
+  store ptr null, ptr %118, align 8
   br label %free_expr.exit131
 
-free_expr.exit131:                                ; preds = %112, %115, %118
-  %120 = getelementptr inbounds i8, ptr %0, i64 32
-  %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 4
-  %.not.i42 = icmp eq ptr %121, null
+free_expr.exit131:                                ; preds = %114, %117, %120
+  %122 = getelementptr inbounds i8, ptr %0, i64 32
+  %123 = load ptr, ptr %122, align 8
+  %124 = getelementptr inbounds i8, ptr %123, i64 4
+  %.not.i42 = icmp eq ptr %123, null
   br i1 %.not.i42, label %free_case.exit, label %.lr.ph320
 
 .lr.ph320:                                        ; preds = %free_expr.exit131
-  %123 = getelementptr inbounds i8, ptr %121, i64 16
-  %124 = load i32, ptr %122, align 4
-  %125 = icmp sgt i32 %124, 0
-  br i1 %125, label %.lr.ph325, label %free_case.exit
+  %125 = getelementptr inbounds i8, ptr %123, i64 16
+  %126 = load i32, ptr %124, align 4
+  %127 = icmp sgt i32 %126, 0
+  br i1 %127, label %.lr.ph325, label %free_case.exit
 
 .lr.ph325:                                        ; preds = %.lr.ph320, %free_stmts.exit125
   %indvars.iv406 = phi i64 [ %indvars.iv.next407, %free_stmts.exit125 ], [ 0, %.lr.ph320 ]
-  %126 = load ptr, ptr %123, align 8
-  %127 = getelementptr %union.ListCell, ptr %126, i64 %indvars.iv406
-  %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 8
+  %128 = load ptr, ptr %125, align 8
+  %129 = getelementptr %union.ListCell, ptr %128, i64 %indvars.iv406
   %130 = load ptr, ptr %129, align 8
-  %.not.i126 = icmp eq ptr %130, null
-  br i1 %.not.i126, label %free_expr.exit128, label %131
+  %131 = getelementptr inbounds i8, ptr %130, i64 8
+  %132 = load ptr, ptr %131, align 8
+  %.not.i126 = icmp eq ptr %132, null
+  br i1 %.not.i126, label %free_expr.exit128, label %133
 
-131:                                              ; preds = %.lr.ph325
-  %132 = getelementptr inbounds i8, ptr %130, i64 16
-  %133 = load ptr, ptr %132, align 8
-  %.not5.i127 = icmp eq ptr %133, null
-  br i1 %.not5.i127, label %free_expr.exit128, label %134
+133:                                              ; preds = %.lr.ph325
+  %134 = getelementptr inbounds i8, ptr %132, i64 16
+  %135 = load ptr, ptr %134, align 8
+  %.not5.i127 = icmp eq ptr %135, null
+  br i1 %.not5.i127, label %free_expr.exit128, label %136
 
-134:                                              ; preds = %131
-  %135 = tail call i32 @SPI_freeplan(ptr noundef nonnull %133) #16
-  store ptr null, ptr %132, align 8
+136:                                              ; preds = %133
+  %137 = tail call i32 @SPI_freeplan(ptr noundef nonnull %135) #16
+  store ptr null, ptr %134, align 8
   br label %free_expr.exit128
 
-free_expr.exit128:                                ; preds = %.lr.ph325, %131, %134
-  %136 = getelementptr inbounds i8, ptr %128, i64 16
-  %137 = load ptr, ptr %136, align 8
-  %138 = getelementptr inbounds i8, ptr %137, i64 4
-  %.not.i122 = icmp eq ptr %137, null
+free_expr.exit128:                                ; preds = %.lr.ph325, %133, %136
+  %138 = getelementptr inbounds i8, ptr %130, i64 16
+  %139 = load ptr, ptr %138, align 8
+  %140 = getelementptr inbounds i8, ptr %139, i64 4
+  %.not.i122 = icmp eq ptr %139, null
   br i1 %.not.i122, label %free_stmts.exit125, label %.lr.ph315
 
 .lr.ph315:                                        ; preds = %free_expr.exit128
-  %139 = getelementptr inbounds i8, ptr %137, i64 16
-  %140 = load i32, ptr %138, align 4
-  %141 = icmp sgt i32 %140, 0
-  br i1 %141, label %.lr.ph318, label %free_stmts.exit125
+  %141 = getelementptr inbounds i8, ptr %139, i64 16
+  %142 = load i32, ptr %140, align 4
+  %143 = icmp sgt i32 %142, 0
+  br i1 %143, label %.lr.ph318, label %free_stmts.exit125
 
 .lr.ph318:                                        ; preds = %.lr.ph315, %.lr.ph318
   %indvars.iv403 = phi i64 [ %indvars.iv.next404, %.lr.ph318 ], [ 0, %.lr.ph315 ]
-  %142 = load ptr, ptr %139, align 8
-  %143 = getelementptr %union.ListCell, ptr %142, i64 %indvars.iv403
-  %144 = load ptr, ptr %143, align 8
-  tail call fastcc void @free_stmt(ptr noundef %144)
+  %144 = load ptr, ptr %141, align 8
+  %145 = getelementptr %union.ListCell, ptr %144, i64 %indvars.iv403
+  %146 = load ptr, ptr %145, align 8
+  tail call fastcc void @free_stmt(ptr noundef %146)
   %indvars.iv.next404 = add nuw nsw i64 %indvars.iv403, 1
-  %145 = load i32, ptr %138, align 4
-  %146 = sext i32 %145 to i64
-  %147 = icmp slt i64 %indvars.iv.next404, %146
-  br i1 %147, label %.lr.ph318, label %free_stmts.exit125
+  %147 = load i32, ptr %140, align 4
+  %148 = sext i32 %147 to i64
+  %149 = icmp slt i64 %indvars.iv.next404, %148
+  br i1 %149, label %.lr.ph318, label %free_stmts.exit125
 
 free_stmts.exit125:                               ; preds = %.lr.ph318, %.lr.ph315, %free_expr.exit128
   %indvars.iv.next407 = add nuw nsw i64 %indvars.iv406, 1
-  %148 = load i32, ptr %122, align 4
-  %149 = sext i32 %148 to i64
-  %150 = icmp slt i64 %indvars.iv.next407, %149
-  br i1 %150, label %.lr.ph325, label %free_case.exit
+  %150 = load i32, ptr %124, align 4
+  %151 = sext i32 %150 to i64
+  %152 = icmp slt i64 %indvars.iv.next407, %151
+  br i1 %152, label %.lr.ph325, label %free_case.exit
 
 free_case.exit:                                   ; preds = %free_stmts.exit125, %.lr.ph320, %free_expr.exit131
-  %151 = getelementptr inbounds i8, ptr %0, i64 48
-  %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds i8, ptr %152, i64 4
-  %.not.i117 = icmp eq ptr %152, null
+  %153 = getelementptr inbounds i8, ptr %0, i64 48
+  %154 = load ptr, ptr %153, align 8
+  %155 = getelementptr inbounds i8, ptr %154, i64 4
+  %.not.i117 = icmp eq ptr %154, null
   br i1 %.not.i117, label %free_block.exit, label %.lr.ph327
 
 .lr.ph327:                                        ; preds = %free_case.exit
-  %154 = getelementptr inbounds i8, ptr %152, i64 16
-  %155 = load i32, ptr %153, align 4
-  %156 = icmp sgt i32 %155, 0
-  br i1 %156, label %.lr.ph330, label %free_block.exit
+  %156 = getelementptr inbounds i8, ptr %154, i64 16
+  %157 = load i32, ptr %155, align 4
+  %158 = icmp sgt i32 %157, 0
+  br i1 %158, label %.lr.ph330, label %free_block.exit
 
 .lr.ph330:                                        ; preds = %.lr.ph327, %.lr.ph330
   %indvars.iv409 = phi i64 [ %indvars.iv.next410, %.lr.ph330 ], [ 0, %.lr.ph327 ]
-  %157 = load ptr, ptr %154, align 8
-  %158 = getelementptr %union.ListCell, ptr %157, i64 %indvars.iv409
-  %159 = load ptr, ptr %158, align 8
-  tail call fastcc void @free_stmt(ptr noundef %159)
+  %159 = load ptr, ptr %156, align 8
+  %160 = getelementptr %union.ListCell, ptr %159, i64 %indvars.iv409
+  %161 = load ptr, ptr %160, align 8
+  tail call fastcc void @free_stmt(ptr noundef %161)
   %indvars.iv.next410 = add nuw nsw i64 %indvars.iv409, 1
-  %160 = load i32, ptr %153, align 4
-  %161 = sext i32 %160 to i64
-  %162 = icmp slt i64 %indvars.iv.next410, %161
-  br i1 %162, label %.lr.ph330, label %free_block.exit
+  %162 = load i32, ptr %155, align 4
+  %163 = sext i32 %162 to i64
+  %164 = icmp slt i64 %indvars.iv.next410, %163
+  br i1 %164, label %.lr.ph330, label %free_block.exit
 
-163:                                              ; preds = %1
-  %164 = getelementptr inbounds i8, ptr %0, i64 24
-  %165 = load ptr, ptr %164, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 4
-  %.not.i133 = icmp eq ptr %165, null
+165:                                              ; preds = %1
+  %166 = getelementptr inbounds i8, ptr %0, i64 24
+  %167 = load ptr, ptr %166, align 8
+  %168 = getelementptr inbounds i8, ptr %167, i64 4
+  %.not.i133 = icmp eq ptr %167, null
   br i1 %.not.i133, label %free_block.exit, label %.lr.ph310
 
-.lr.ph310:                                        ; preds = %163
-  %167 = getelementptr inbounds i8, ptr %165, i64 16
-  %168 = load i32, ptr %166, align 4
-  %169 = icmp sgt i32 %168, 0
-  br i1 %169, label %.lr.ph313, label %free_block.exit
+.lr.ph310:                                        ; preds = %165
+  %169 = getelementptr inbounds i8, ptr %167, i64 16
+  %170 = load i32, ptr %168, align 4
+  %171 = icmp sgt i32 %170, 0
+  br i1 %171, label %.lr.ph313, label %free_block.exit
 
 .lr.ph313:                                        ; preds = %.lr.ph310, %.lr.ph313
   %indvars.iv400 = phi i64 [ %indvars.iv.next401, %.lr.ph313 ], [ 0, %.lr.ph310 ]
-  %170 = load ptr, ptr %167, align 8
-  %171 = getelementptr %union.ListCell, ptr %170, i64 %indvars.iv400
-  %172 = load ptr, ptr %171, align 8
-  tail call fastcc void @free_stmt(ptr noundef %172)
+  %172 = load ptr, ptr %169, align 8
+  %173 = getelementptr %union.ListCell, ptr %172, i64 %indvars.iv400
+  %174 = load ptr, ptr %173, align 8
+  tail call fastcc void @free_stmt(ptr noundef %174)
   %indvars.iv.next401 = add nuw nsw i64 %indvars.iv400, 1
-  %173 = load i32, ptr %166, align 4
-  %174 = sext i32 %173 to i64
-  %175 = icmp slt i64 %indvars.iv.next401, %174
-  br i1 %175, label %.lr.ph313, label %free_block.exit
+  %175 = load i32, ptr %168, align 4
+  %176 = sext i32 %175 to i64
+  %177 = icmp slt i64 %indvars.iv.next401, %176
+  br i1 %177, label %.lr.ph313, label %free_block.exit
 
-176:                                              ; preds = %1
-  %177 = getelementptr inbounds i8, ptr %0, i64 24
-  %178 = load ptr, ptr %177, align 8
-  %.not.i142 = icmp eq ptr %178, null
-  br i1 %.not.i142, label %free_expr.exit144, label %179
+178:                                              ; preds = %1
+  %179 = getelementptr inbounds i8, ptr %0, i64 24
+  %180 = load ptr, ptr %179, align 8
+  %.not.i142 = icmp eq ptr %180, null
+  br i1 %.not.i142, label %free_expr.exit144, label %181
 
-179:                                              ; preds = %176
-  %180 = getelementptr inbounds i8, ptr %178, i64 16
-  %181 = load ptr, ptr %180, align 8
-  %.not5.i143 = icmp eq ptr %181, null
-  br i1 %.not5.i143, label %free_expr.exit144, label %182
+181:                                              ; preds = %178
+  %182 = getelementptr inbounds i8, ptr %180, i64 16
+  %183 = load ptr, ptr %182, align 8
+  %.not5.i143 = icmp eq ptr %183, null
+  br i1 %.not5.i143, label %free_expr.exit144, label %184
 
-182:                                              ; preds = %179
-  %183 = tail call i32 @SPI_freeplan(ptr noundef nonnull %181) #16
-  store ptr null, ptr %180, align 8
+184:                                              ; preds = %181
+  %185 = tail call i32 @SPI_freeplan(ptr noundef nonnull %183) #16
+  store ptr null, ptr %182, align 8
   br label %free_expr.exit144
 
-free_expr.exit144:                                ; preds = %176, %179, %182
-  %184 = getelementptr inbounds i8, ptr %0, i64 32
-  %185 = load ptr, ptr %184, align 8
-  %186 = getelementptr inbounds i8, ptr %185, i64 4
-  %.not.i138 = icmp eq ptr %185, null
+free_expr.exit144:                                ; preds = %178, %181, %184
+  %186 = getelementptr inbounds i8, ptr %0, i64 32
+  %187 = load ptr, ptr %186, align 8
+  %188 = getelementptr inbounds i8, ptr %187, i64 4
+  %.not.i138 = icmp eq ptr %187, null
   br i1 %.not.i138, label %free_block.exit, label %.lr.ph305
 
 .lr.ph305:                                        ; preds = %free_expr.exit144
-  %187 = getelementptr inbounds i8, ptr %185, i64 16
-  %188 = load i32, ptr %186, align 4
-  %189 = icmp sgt i32 %188, 0
-  br i1 %189, label %.lr.ph308, label %free_block.exit
+  %189 = getelementptr inbounds i8, ptr %187, i64 16
+  %190 = load i32, ptr %188, align 4
+  %191 = icmp sgt i32 %190, 0
+  br i1 %191, label %.lr.ph308, label %free_block.exit
 
 .lr.ph308:                                        ; preds = %.lr.ph305, %.lr.ph308
   %indvars.iv397 = phi i64 [ %indvars.iv.next398, %.lr.ph308 ], [ 0, %.lr.ph305 ]
-  %190 = load ptr, ptr %187, align 8
-  %191 = getelementptr %union.ListCell, ptr %190, i64 %indvars.iv397
-  %192 = load ptr, ptr %191, align 8
-  tail call fastcc void @free_stmt(ptr noundef %192)
+  %192 = load ptr, ptr %189, align 8
+  %193 = getelementptr %union.ListCell, ptr %192, i64 %indvars.iv397
+  %194 = load ptr, ptr %193, align 8
+  tail call fastcc void @free_stmt(ptr noundef %194)
   %indvars.iv.next398 = add nuw nsw i64 %indvars.iv397, 1
-  %193 = load i32, ptr %186, align 4
-  %194 = sext i32 %193 to i64
-  %195 = icmp slt i64 %indvars.iv.next398, %194
-  br i1 %195, label %.lr.ph308, label %free_block.exit
+  %195 = load i32, ptr %188, align 4
+  %196 = sext i32 %195 to i64
+  %197 = icmp slt i64 %indvars.iv.next398, %196
+  br i1 %197, label %.lr.ph308, label %free_block.exit
 
-196:                                              ; preds = %1
-  %197 = getelementptr inbounds i8, ptr %0, i64 32
-  %198 = load ptr, ptr %197, align 8
-  %.not.i156 = icmp eq ptr %198, null
-  br i1 %.not.i156, label %free_expr.exit158, label %199
+198:                                              ; preds = %1
+  %199 = getelementptr inbounds i8, ptr %0, i64 32
+  %200 = load ptr, ptr %199, align 8
+  %.not.i156 = icmp eq ptr %200, null
+  br i1 %.not.i156, label %free_expr.exit158, label %201
 
-199:                                              ; preds = %196
-  %200 = getelementptr inbounds i8, ptr %198, i64 16
-  %201 = load ptr, ptr %200, align 8
-  %.not5.i157 = icmp eq ptr %201, null
-  br i1 %.not5.i157, label %free_expr.exit158, label %202
+201:                                              ; preds = %198
+  %202 = getelementptr inbounds i8, ptr %200, i64 16
+  %203 = load ptr, ptr %202, align 8
+  %.not5.i157 = icmp eq ptr %203, null
+  br i1 %.not5.i157, label %free_expr.exit158, label %204
 
-202:                                              ; preds = %199
-  %203 = tail call i32 @SPI_freeplan(ptr noundef nonnull %201) #16
-  store ptr null, ptr %200, align 8
+204:                                              ; preds = %201
+  %205 = tail call i32 @SPI_freeplan(ptr noundef nonnull %203) #16
+  store ptr null, ptr %202, align 8
   br label %free_expr.exit158
 
-free_expr.exit158:                                ; preds = %196, %199, %202
-  %204 = getelementptr inbounds i8, ptr %0, i64 40
-  %205 = load ptr, ptr %204, align 8
-  %.not.i153 = icmp eq ptr %205, null
-  br i1 %.not.i153, label %free_expr.exit155, label %206
+free_expr.exit158:                                ; preds = %198, %201, %204
+  %206 = getelementptr inbounds i8, ptr %0, i64 40
+  %207 = load ptr, ptr %206, align 8
+  %.not.i153 = icmp eq ptr %207, null
+  br i1 %.not.i153, label %free_expr.exit155, label %208
 
-206:                                              ; preds = %free_expr.exit158
-  %207 = getelementptr inbounds i8, ptr %205, i64 16
-  %208 = load ptr, ptr %207, align 8
-  %.not5.i154 = icmp eq ptr %208, null
-  br i1 %.not5.i154, label %free_expr.exit155, label %209
+208:                                              ; preds = %free_expr.exit158
+  %209 = getelementptr inbounds i8, ptr %207, i64 16
+  %210 = load ptr, ptr %209, align 8
+  %.not5.i154 = icmp eq ptr %210, null
+  br i1 %.not5.i154, label %free_expr.exit155, label %211
 
-209:                                              ; preds = %206
-  %210 = tail call i32 @SPI_freeplan(ptr noundef nonnull %208) #16
-  store ptr null, ptr %207, align 8
+211:                                              ; preds = %208
+  %212 = tail call i32 @SPI_freeplan(ptr noundef nonnull %210) #16
+  store ptr null, ptr %209, align 8
   br label %free_expr.exit155
 
-free_expr.exit155:                                ; preds = %free_expr.exit158, %206, %209
-  %211 = getelementptr inbounds i8, ptr %0, i64 48
-  %212 = load ptr, ptr %211, align 8
-  %.not.i150 = icmp eq ptr %212, null
-  br i1 %.not.i150, label %free_expr.exit152, label %213
+free_expr.exit155:                                ; preds = %free_expr.exit158, %208, %211
+  %213 = getelementptr inbounds i8, ptr %0, i64 48
+  %214 = load ptr, ptr %213, align 8
+  %.not.i150 = icmp eq ptr %214, null
+  br i1 %.not.i150, label %free_expr.exit152, label %215
 
-213:                                              ; preds = %free_expr.exit155
-  %214 = getelementptr inbounds i8, ptr %212, i64 16
-  %215 = load ptr, ptr %214, align 8
-  %.not5.i151 = icmp eq ptr %215, null
-  br i1 %.not5.i151, label %free_expr.exit152, label %216
+215:                                              ; preds = %free_expr.exit155
+  %216 = getelementptr inbounds i8, ptr %214, i64 16
+  %217 = load ptr, ptr %216, align 8
+  %.not5.i151 = icmp eq ptr %217, null
+  br i1 %.not5.i151, label %free_expr.exit152, label %218
 
-216:                                              ; preds = %213
-  %217 = tail call i32 @SPI_freeplan(ptr noundef nonnull %215) #16
-  store ptr null, ptr %214, align 8
+218:                                              ; preds = %215
+  %219 = tail call i32 @SPI_freeplan(ptr noundef nonnull %217) #16
+  store ptr null, ptr %216, align 8
   br label %free_expr.exit152
 
-free_expr.exit152:                                ; preds = %free_expr.exit155, %213, %216
-  %218 = getelementptr inbounds i8, ptr %0, i64 64
-  %219 = load ptr, ptr %218, align 8
-  %220 = getelementptr inbounds i8, ptr %219, i64 4
-  %.not.i146 = icmp eq ptr %219, null
+free_expr.exit152:                                ; preds = %free_expr.exit155, %215, %218
+  %220 = getelementptr inbounds i8, ptr %0, i64 64
+  %221 = load ptr, ptr %220, align 8
+  %222 = getelementptr inbounds i8, ptr %221, i64 4
+  %.not.i146 = icmp eq ptr %221, null
   br i1 %.not.i146, label %free_block.exit, label %.lr.ph300
 
 .lr.ph300:                                        ; preds = %free_expr.exit152
-  %221 = getelementptr inbounds i8, ptr %219, i64 16
-  %222 = load i32, ptr %220, align 4
-  %223 = icmp sgt i32 %222, 0
-  br i1 %223, label %.lr.ph303, label %free_block.exit
+  %223 = getelementptr inbounds i8, ptr %221, i64 16
+  %224 = load i32, ptr %222, align 4
+  %225 = icmp sgt i32 %224, 0
+  br i1 %225, label %.lr.ph303, label %free_block.exit
 
 .lr.ph303:                                        ; preds = %.lr.ph300, %.lr.ph303
   %indvars.iv394 = phi i64 [ %indvars.iv.next395, %.lr.ph303 ], [ 0, %.lr.ph300 ]
-  %224 = load ptr, ptr %221, align 8
-  %225 = getelementptr %union.ListCell, ptr %224, i64 %indvars.iv394
-  %226 = load ptr, ptr %225, align 8
-  tail call fastcc void @free_stmt(ptr noundef %226)
+  %226 = load ptr, ptr %223, align 8
+  %227 = getelementptr %union.ListCell, ptr %226, i64 %indvars.iv394
+  %228 = load ptr, ptr %227, align 8
+  tail call fastcc void @free_stmt(ptr noundef %228)
   %indvars.iv.next395 = add nuw nsw i64 %indvars.iv394, 1
-  %227 = load i32, ptr %220, align 4
-  %228 = sext i32 %227 to i64
-  %229 = icmp slt i64 %indvars.iv.next395, %228
-  br i1 %229, label %.lr.ph303, label %free_block.exit
+  %229 = load i32, ptr %222, align 4
+  %230 = sext i32 %229 to i64
+  %231 = icmp slt i64 %indvars.iv.next395, %230
+  br i1 %231, label %.lr.ph303, label %free_block.exit
 
-230:                                              ; preds = %1
-  %231 = getelementptr inbounds i8, ptr %0, i64 32
-  %232 = load ptr, ptr %231, align 8
-  %233 = getelementptr inbounds i8, ptr %232, i64 4
-  %.not.i163 = icmp eq ptr %232, null
+232:                                              ; preds = %1
+  %233 = getelementptr inbounds i8, ptr %0, i64 32
+  %234 = load ptr, ptr %233, align 8
+  %235 = getelementptr inbounds i8, ptr %234, i64 4
+  %.not.i163 = icmp eq ptr %234, null
   br i1 %.not.i163, label %free_stmts.exit166, label %.lr.ph295
 
-.lr.ph295:                                        ; preds = %230
-  %234 = getelementptr inbounds i8, ptr %232, i64 16
-  %235 = load i32, ptr %233, align 4
-  %236 = icmp sgt i32 %235, 0
-  br i1 %236, label %.lr.ph298, label %free_stmts.exit166
+.lr.ph295:                                        ; preds = %232
+  %236 = getelementptr inbounds i8, ptr %234, i64 16
+  %237 = load i32, ptr %235, align 4
+  %238 = icmp sgt i32 %237, 0
+  br i1 %238, label %.lr.ph298, label %free_stmts.exit166
 
 .lr.ph298:                                        ; preds = %.lr.ph295, %.lr.ph298
   %indvars.iv391 = phi i64 [ %indvars.iv.next392, %.lr.ph298 ], [ 0, %.lr.ph295 ]
-  %237 = load ptr, ptr %234, align 8
-  %238 = getelementptr %union.ListCell, ptr %237, i64 %indvars.iv391
-  %239 = load ptr, ptr %238, align 8
-  tail call fastcc void @free_stmt(ptr noundef %239)
+  %239 = load ptr, ptr %236, align 8
+  %240 = getelementptr %union.ListCell, ptr %239, i64 %indvars.iv391
+  %241 = load ptr, ptr %240, align 8
+  tail call fastcc void @free_stmt(ptr noundef %241)
   %indvars.iv.next392 = add nuw nsw i64 %indvars.iv391, 1
-  %240 = load i32, ptr %233, align 4
-  %241 = sext i32 %240 to i64
-  %242 = icmp slt i64 %indvars.iv.next392, %241
-  br i1 %242, label %.lr.ph298, label %free_stmts.exit166
+  %242 = load i32, ptr %235, align 4
+  %243 = sext i32 %242 to i64
+  %244 = icmp slt i64 %indvars.iv.next392, %243
+  br i1 %244, label %.lr.ph298, label %free_stmts.exit166
 
-free_stmts.exit166:                               ; preds = %.lr.ph298, %.lr.ph295, %230
-  %243 = getelementptr inbounds i8, ptr %0, i64 40
-  %244 = load ptr, ptr %243, align 8
-  %.not.i159 = icmp eq ptr %244, null
-  br i1 %.not.i159, label %free_block.exit, label %245
+free_stmts.exit166:                               ; preds = %.lr.ph298, %.lr.ph295, %232
+  %245 = getelementptr inbounds i8, ptr %0, i64 40
+  %246 = load ptr, ptr %245, align 8
+  %.not.i159 = icmp eq ptr %246, null
+  br i1 %.not.i159, label %free_block.exit, label %247
 
-245:                                              ; preds = %free_stmts.exit166
-  %246 = getelementptr inbounds i8, ptr %244, i64 16
-  %247 = load ptr, ptr %246, align 8
-  %.not5.i160 = icmp eq ptr %247, null
-  br i1 %.not5.i160, label %free_block.exit, label %free_block.exit.sink.split
+247:                                              ; preds = %free_stmts.exit166
+  %248 = getelementptr inbounds i8, ptr %246, i64 16
+  %249 = load ptr, ptr %248, align 8
+  %.not5.i160 = icmp eq ptr %249, null
+  br i1 %.not5.i160, label %free_block.exit, label %250
 
-248:                                              ; preds = %1
-  %249 = getelementptr inbounds i8, ptr %0, i64 32
-  %250 = load ptr, ptr %249, align 8
-  %251 = getelementptr inbounds i8, ptr %250, i64 4
-  %.not.i171 = icmp eq ptr %250, null
+250:                                              ; preds = %247
+  %251 = tail call i32 @SPI_freeplan(ptr noundef nonnull %249) #16
+  store ptr null, ptr %248, align 8
+  br label %free_block.exit
+
+252:                                              ; preds = %1
+  %253 = getelementptr inbounds i8, ptr %0, i64 32
+  %254 = load ptr, ptr %253, align 8
+  %255 = getelementptr inbounds i8, ptr %254, i64 4
+  %.not.i171 = icmp eq ptr %254, null
   br i1 %.not.i171, label %free_stmts.exit174, label %.lr.ph290
 
-.lr.ph290:                                        ; preds = %248
-  %252 = getelementptr inbounds i8, ptr %250, i64 16
-  %253 = load i32, ptr %251, align 4
-  %254 = icmp sgt i32 %253, 0
-  br i1 %254, label %.lr.ph293, label %free_stmts.exit174
+.lr.ph290:                                        ; preds = %252
+  %256 = getelementptr inbounds i8, ptr %254, i64 16
+  %257 = load i32, ptr %255, align 4
+  %258 = icmp sgt i32 %257, 0
+  br i1 %258, label %.lr.ph293, label %free_stmts.exit174
 
 .lr.ph293:                                        ; preds = %.lr.ph290, %.lr.ph293
   %indvars.iv388 = phi i64 [ %indvars.iv.next389, %.lr.ph293 ], [ 0, %.lr.ph290 ]
-  %255 = load ptr, ptr %252, align 8
-  %256 = getelementptr %union.ListCell, ptr %255, i64 %indvars.iv388
-  %257 = load ptr, ptr %256, align 8
-  tail call fastcc void @free_stmt(ptr noundef %257)
+  %259 = load ptr, ptr %256, align 8
+  %260 = getelementptr %union.ListCell, ptr %259, i64 %indvars.iv388
+  %261 = load ptr, ptr %260, align 8
+  tail call fastcc void @free_stmt(ptr noundef %261)
   %indvars.iv.next389 = add nuw nsw i64 %indvars.iv388, 1
-  %258 = load i32, ptr %251, align 4
-  %259 = sext i32 %258 to i64
-  %260 = icmp slt i64 %indvars.iv.next389, %259
-  br i1 %260, label %.lr.ph293, label %free_stmts.exit174
+  %262 = load i32, ptr %255, align 4
+  %263 = sext i32 %262 to i64
+  %264 = icmp slt i64 %indvars.iv.next389, %263
+  br i1 %264, label %.lr.ph293, label %free_stmts.exit174
 
-free_stmts.exit174:                               ; preds = %.lr.ph293, %.lr.ph290, %248
-  %261 = getelementptr inbounds i8, ptr %0, i64 48
-  %262 = load ptr, ptr %261, align 8
-  %.not.i167 = icmp eq ptr %262, null
-  br i1 %.not.i167, label %free_block.exit, label %263
+free_stmts.exit174:                               ; preds = %.lr.ph293, %.lr.ph290, %252
+  %265 = getelementptr inbounds i8, ptr %0, i64 48
+  %266 = load ptr, ptr %265, align 8
+  %.not.i167 = icmp eq ptr %266, null
+  br i1 %.not.i167, label %free_block.exit, label %267
 
-263:                                              ; preds = %free_stmts.exit174
-  %264 = getelementptr inbounds i8, ptr %262, i64 16
-  %265 = load ptr, ptr %264, align 8
-  %.not5.i168 = icmp eq ptr %265, null
-  br i1 %.not5.i168, label %free_block.exit, label %free_block.exit.sink.split
+267:                                              ; preds = %free_stmts.exit174
+  %268 = getelementptr inbounds i8, ptr %266, i64 16
+  %269 = load ptr, ptr %268, align 8
+  %.not5.i168 = icmp eq ptr %269, null
+  br i1 %.not5.i168, label %free_block.exit, label %270
 
-266:                                              ; preds = %1
-  %267 = getelementptr inbounds i8, ptr %0, i64 32
-  %268 = load ptr, ptr %267, align 8
-  %.not.i180 = icmp eq ptr %268, null
-  br i1 %.not.i180, label %free_expr.exit182, label %269
+270:                                              ; preds = %267
+  %271 = tail call i32 @SPI_freeplan(ptr noundef nonnull %269) #16
+  store ptr null, ptr %268, align 8
+  br label %free_block.exit
 
-269:                                              ; preds = %266
-  %270 = getelementptr inbounds i8, ptr %268, i64 16
-  %271 = load ptr, ptr %270, align 8
-  %.not5.i181 = icmp eq ptr %271, null
-  br i1 %.not5.i181, label %free_expr.exit182, label %272
+272:                                              ; preds = %1
+  %273 = getelementptr inbounds i8, ptr %0, i64 32
+  %274 = load ptr, ptr %273, align 8
+  %.not.i180 = icmp eq ptr %274, null
+  br i1 %.not.i180, label %free_expr.exit182, label %275
 
-272:                                              ; preds = %269
-  %273 = tail call i32 @SPI_freeplan(ptr noundef nonnull %271) #16
-  store ptr null, ptr %270, align 8
+275:                                              ; preds = %272
+  %276 = getelementptr inbounds i8, ptr %274, i64 16
+  %277 = load ptr, ptr %276, align 8
+  %.not5.i181 = icmp eq ptr %277, null
+  br i1 %.not5.i181, label %free_expr.exit182, label %278
+
+278:                                              ; preds = %275
+  %279 = tail call i32 @SPI_freeplan(ptr noundef nonnull %277) #16
+  store ptr null, ptr %276, align 8
   br label %free_expr.exit182
 
-free_expr.exit182:                                ; preds = %266, %269, %272
-  %274 = getelementptr inbounds i8, ptr %0, i64 40
-  %275 = load ptr, ptr %274, align 8
-  %276 = getelementptr inbounds i8, ptr %275, i64 4
-  %.not.i176 = icmp eq ptr %275, null
+free_expr.exit182:                                ; preds = %272, %275, %278
+  %280 = getelementptr inbounds i8, ptr %0, i64 40
+  %281 = load ptr, ptr %280, align 8
+  %282 = getelementptr inbounds i8, ptr %281, i64 4
+  %.not.i176 = icmp eq ptr %281, null
   br i1 %.not.i176, label %free_block.exit, label %.lr.ph285
 
 .lr.ph285:                                        ; preds = %free_expr.exit182
-  %277 = getelementptr inbounds i8, ptr %275, i64 16
-  %278 = load i32, ptr %276, align 4
-  %279 = icmp sgt i32 %278, 0
-  br i1 %279, label %.lr.ph288, label %free_block.exit
+  %283 = getelementptr inbounds i8, ptr %281, i64 16
+  %284 = load i32, ptr %282, align 4
+  %285 = icmp sgt i32 %284, 0
+  br i1 %285, label %.lr.ph288, label %free_block.exit
 
 .lr.ph288:                                        ; preds = %.lr.ph285, %.lr.ph288
   %indvars.iv385 = phi i64 [ %indvars.iv.next386, %.lr.ph288 ], [ 0, %.lr.ph285 ]
-  %280 = load ptr, ptr %277, align 8
-  %281 = getelementptr %union.ListCell, ptr %280, i64 %indvars.iv385
-  %282 = load ptr, ptr %281, align 8
-  tail call fastcc void @free_stmt(ptr noundef %282)
+  %286 = load ptr, ptr %283, align 8
+  %287 = getelementptr %union.ListCell, ptr %286, i64 %indvars.iv385
+  %288 = load ptr, ptr %287, align 8
+  tail call fastcc void @free_stmt(ptr noundef %288)
   %indvars.iv.next386 = add nuw nsw i64 %indvars.iv385, 1
-  %283 = load i32, ptr %276, align 4
-  %284 = sext i32 %283 to i64
-  %285 = icmp slt i64 %indvars.iv.next386, %284
-  br i1 %285, label %.lr.ph288, label %free_block.exit
+  %289 = load i32, ptr %282, align 4
+  %290 = sext i32 %289 to i64
+  %291 = icmp slt i64 %indvars.iv.next386, %290
+  br i1 %291, label %.lr.ph288, label %free_block.exit
 
-286:                                              ; preds = %1
-  %287 = getelementptr i8, ptr %0, i64 24
-  %.val29 = load ptr, ptr %287, align 8
+292:                                              ; preds = %1
+  %293 = getelementptr i8, ptr %0, i64 24
+  %.val29 = load ptr, ptr %293, align 8
   %.not.i.i45 = icmp eq ptr %.val29, null
-  br i1 %.not.i.i45, label %free_block.exit, label %288
+  br i1 %.not.i.i45, label %free_block.exit, label %294
 
-288:                                              ; preds = %286
-  %289 = getelementptr inbounds i8, ptr %.val29, i64 16
-  %290 = load ptr, ptr %289, align 8
-  %.not5.i.i46 = icmp eq ptr %290, null
-  br i1 %.not5.i.i46, label %free_block.exit, label %free_block.exit.sink.split
+294:                                              ; preds = %292
+  %295 = getelementptr inbounds i8, ptr %.val29, i64 16
+  %296 = load ptr, ptr %295, align 8
+  %.not5.i.i46 = icmp eq ptr %296, null
+  br i1 %.not5.i.i46, label %free_block.exit, label %297
 
-291:                                              ; preds = %1
-  %292 = getelementptr i8, ptr %0, i64 16
-  %.val30 = load ptr, ptr %292, align 8
+297:                                              ; preds = %294
+  %298 = tail call i32 @SPI_freeplan(ptr noundef nonnull %296) #16
+  store ptr null, ptr %295, align 8
+  br label %free_block.exit
+
+299:                                              ; preds = %1
+  %300 = getelementptr i8, ptr %0, i64 16
+  %.val30 = load ptr, ptr %300, align 8
   %.not.i.i47 = icmp eq ptr %.val30, null
-  br i1 %.not.i.i47, label %free_block.exit, label %293
+  br i1 %.not.i.i47, label %free_block.exit, label %301
 
-293:                                              ; preds = %291
-  %294 = getelementptr inbounds i8, ptr %.val30, i64 16
-  %295 = load ptr, ptr %294, align 8
-  %.not5.i.i48 = icmp eq ptr %295, null
-  br i1 %.not5.i.i48, label %free_block.exit, label %free_block.exit.sink.split
-
-296:                                              ; preds = %1
-  %297 = getelementptr i8, ptr %0, i64 16
-  %.val31 = load ptr, ptr %297, align 8
-  %.not.i.i49 = icmp eq ptr %.val31, null
-  br i1 %.not.i.i49, label %free_block.exit, label %298
-
-298:                                              ; preds = %296
-  %299 = getelementptr inbounds i8, ptr %.val31, i64 16
-  %300 = load ptr, ptr %299, align 8
-  %.not5.i.i50 = icmp eq ptr %300, null
-  br i1 %.not5.i.i50, label %free_block.exit, label %free_block.exit.sink.split
-
-301:                                              ; preds = %1
-  %302 = getelementptr inbounds i8, ptr %0, i64 16
+301:                                              ; preds = %299
+  %302 = getelementptr inbounds i8, ptr %.val30, i64 16
   %303 = load ptr, ptr %302, align 8
-  %.not.i.i51 = icmp eq ptr %303, null
-  br i1 %.not.i.i51, label %free_expr.exit.i, label %304
+  %.not5.i.i48 = icmp eq ptr %303, null
+  br i1 %.not5.i.i48, label %free_block.exit, label %304
 
 304:                                              ; preds = %301
-  %305 = getelementptr inbounds i8, ptr %303, i64 16
-  %306 = load ptr, ptr %305, align 8
-  %.not5.i.i52 = icmp eq ptr %306, null
-  br i1 %.not5.i.i52, label %free_expr.exit.i, label %307
+  %305 = tail call i32 @SPI_freeplan(ptr noundef nonnull %303) #16
+  store ptr null, ptr %302, align 8
+  br label %free_block.exit
 
-307:                                              ; preds = %304
-  %308 = tail call i32 @SPI_freeplan(ptr noundef nonnull %306) #16
-  store ptr null, ptr %305, align 8
+306:                                              ; preds = %1
+  %307 = getelementptr i8, ptr %0, i64 16
+  %.val31 = load ptr, ptr %307, align 8
+  %.not.i.i49 = icmp eq ptr %.val31, null
+  br i1 %.not.i.i49, label %free_block.exit, label %308
+
+308:                                              ; preds = %306
+  %309 = getelementptr inbounds i8, ptr %.val31, i64 16
+  %310 = load ptr, ptr %309, align 8
+  %.not5.i.i50 = icmp eq ptr %310, null
+  br i1 %.not5.i.i50, label %free_block.exit, label %311
+
+311:                                              ; preds = %308
+  %312 = tail call i32 @SPI_freeplan(ptr noundef nonnull %310) #16
+  store ptr null, ptr %309, align 8
+  br label %free_block.exit
+
+313:                                              ; preds = %1
+  %314 = getelementptr inbounds i8, ptr %0, i64 16
+  %315 = load ptr, ptr %314, align 8
+  %.not.i.i51 = icmp eq ptr %315, null
+  br i1 %.not.i.i51, label %free_expr.exit.i, label %316
+
+316:                                              ; preds = %313
+  %317 = getelementptr inbounds i8, ptr %315, i64 16
+  %318 = load ptr, ptr %317, align 8
+  %.not5.i.i52 = icmp eq ptr %318, null
+  br i1 %.not5.i.i52, label %free_expr.exit.i, label %319
+
+319:                                              ; preds = %316
+  %320 = tail call i32 @SPI_freeplan(ptr noundef nonnull %318) #16
+  store ptr null, ptr %317, align 8
   br label %free_expr.exit.i
 
-free_expr.exit.i:                                 ; preds = %307, %304, %301
-  %309 = getelementptr inbounds i8, ptr %0, i64 24
-  %310 = load ptr, ptr %309, align 8
-  %.not.i10.i = icmp eq ptr %310, null
-  br i1 %.not.i10.i, label %free_expr.exit12.i, label %311
+free_expr.exit.i:                                 ; preds = %319, %316, %313
+  %321 = getelementptr inbounds i8, ptr %0, i64 24
+  %322 = load ptr, ptr %321, align 8
+  %.not.i10.i = icmp eq ptr %322, null
+  br i1 %.not.i10.i, label %free_expr.exit12.i, label %323
 
-311:                                              ; preds = %free_expr.exit.i
-  %312 = getelementptr inbounds i8, ptr %310, i64 16
-  %313 = load ptr, ptr %312, align 8
-  %.not5.i11.i = icmp eq ptr %313, null
-  br i1 %.not5.i11.i, label %free_expr.exit12.i, label %314
+323:                                              ; preds = %free_expr.exit.i
+  %324 = getelementptr inbounds i8, ptr %322, i64 16
+  %325 = load ptr, ptr %324, align 8
+  %.not5.i11.i = icmp eq ptr %325, null
+  br i1 %.not5.i11.i, label %free_expr.exit12.i, label %326
 
-314:                                              ; preds = %311
-  %315 = tail call i32 @SPI_freeplan(ptr noundef nonnull %313) #16
-  store ptr null, ptr %312, align 8
+326:                                              ; preds = %323
+  %327 = tail call i32 @SPI_freeplan(ptr noundef nonnull %325) #16
+  store ptr null, ptr %324, align 8
   br label %free_expr.exit12.i
 
-free_expr.exit12.i:                               ; preds = %314, %311, %free_expr.exit.i
-  %316 = getelementptr inbounds i8, ptr %0, i64 32
-  %317 = load ptr, ptr %316, align 8
-  %318 = getelementptr inbounds i8, ptr %317, i64 4
-  %.not.i53 = icmp eq ptr %317, null
+free_expr.exit12.i:                               ; preds = %326, %323, %free_expr.exit.i
+  %328 = getelementptr inbounds i8, ptr %0, i64 32
+  %329 = load ptr, ptr %328, align 8
+  %330 = getelementptr inbounds i8, ptr %329, i64 4
+  %.not.i53 = icmp eq ptr %329, null
   br i1 %.not.i53, label %free_block.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %free_expr.exit12.i
-  %319 = getelementptr inbounds i8, ptr %317, i64 16
-  %320 = load i32, ptr %318, align 4
-  %321 = icmp sgt i32 %320, 0
-  br i1 %321, label %.lr.ph21.i, label %free_block.exit
-
-.lr.ph21.i:                                       ; preds = %.lr.ph.i, %free_expr.exit15.i
-  %322 = phi i32 [ %331, %free_expr.exit15.i ], [ %320, %.lr.ph.i ]
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %free_expr.exit15.i ], [ 0, %.lr.ph.i ]
-  %323 = load ptr, ptr %319, align 8
-  %324 = getelementptr %union.ListCell, ptr %323, i64 %indvars.iv.i
-  %325 = load ptr, ptr %324, align 8
-  %.not.i13.i = icmp eq ptr %325, null
-  br i1 %.not.i13.i, label %free_expr.exit15.i, label %326
-
-326:                                              ; preds = %.lr.ph21.i
-  %327 = getelementptr inbounds i8, ptr %325, i64 16
-  %328 = load ptr, ptr %327, align 8
-  %.not5.i14.i = icmp eq ptr %328, null
-  br i1 %.not5.i14.i, label %free_expr.exit15.i, label %329
-
-329:                                              ; preds = %326
-  %330 = tail call i32 @SPI_freeplan(ptr noundef nonnull %328) #16
-  store ptr null, ptr %327, align 8
-  %.pre.i = load i32, ptr %318, align 4
-  br label %free_expr.exit15.i
-
-free_expr.exit15.i:                               ; preds = %329, %326, %.lr.ph21.i
-  %331 = phi i32 [ %322, %.lr.ph21.i ], [ %322, %326 ], [ %.pre.i, %329 ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %332 = sext i32 %331 to i64
-  %333 = icmp slt i64 %indvars.iv.next.i, %332
+  %331 = getelementptr inbounds i8, ptr %329, i64 16
+  %332 = load i32, ptr %330, align 4
+  %333 = icmp sgt i32 %332, 0
   br i1 %333, label %.lr.ph21.i, label %free_block.exit
 
-334:                                              ; preds = %1
-  %335 = getelementptr inbounds i8, ptr %0, i64 32
-  %336 = load ptr, ptr %335, align 8
-  %337 = getelementptr inbounds i8, ptr %336, i64 4
-  %.not.i54 = icmp eq ptr %336, null
+.lr.ph21.i:                                       ; preds = %.lr.ph.i, %free_expr.exit15.i
+  %334 = phi i32 [ %343, %free_expr.exit15.i ], [ %332, %.lr.ph.i ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %free_expr.exit15.i ], [ 0, %.lr.ph.i ]
+  %335 = load ptr, ptr %331, align 8
+  %336 = getelementptr %union.ListCell, ptr %335, i64 %indvars.iv.i
+  %337 = load ptr, ptr %336, align 8
+  %.not.i13.i = icmp eq ptr %337, null
+  br i1 %.not.i13.i, label %free_expr.exit15.i, label %338
+
+338:                                              ; preds = %.lr.ph21.i
+  %339 = getelementptr inbounds i8, ptr %337, i64 16
+  %340 = load ptr, ptr %339, align 8
+  %.not5.i14.i = icmp eq ptr %340, null
+  br i1 %.not5.i14.i, label %free_expr.exit15.i, label %341
+
+341:                                              ; preds = %338
+  %342 = tail call i32 @SPI_freeplan(ptr noundef nonnull %340) #16
+  store ptr null, ptr %339, align 8
+  %.pre.i = load i32, ptr %330, align 4
+  br label %free_expr.exit15.i
+
+free_expr.exit15.i:                               ; preds = %341, %338, %.lr.ph21.i
+  %343 = phi i32 [ %334, %.lr.ph21.i ], [ %334, %338 ], [ %.pre.i, %341 ]
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %344 = sext i32 %343 to i64
+  %345 = icmp slt i64 %indvars.iv.next.i, %344
+  br i1 %345, label %.lr.ph21.i, label %free_block.exit
+
+346:                                              ; preds = %1
+  %347 = getelementptr inbounds i8, ptr %0, i64 32
+  %348 = load ptr, ptr %347, align 8
+  %349 = getelementptr inbounds i8, ptr %348, i64 4
+  %.not.i54 = icmp eq ptr %348, null
   br i1 %.not.i54, label %._crit_edge.i, label %.lr.ph.i55
 
-.lr.ph.i55:                                       ; preds = %334
-  %338 = getelementptr inbounds i8, ptr %336, i64 16
-  %339 = load i32, ptr %337, align 4
-  %340 = icmp sgt i32 %339, 0
-  br i1 %340, label %.lr.ph32.i, label %._crit_edge.i
-
-.lr.ph32.i:                                       ; preds = %.lr.ph.i55, %free_expr.exit.i60
-  %341 = phi i32 [ %350, %free_expr.exit.i60 ], [ %339, %.lr.ph.i55 ]
-  %indvars.iv.i56 = phi i64 [ %indvars.iv.next.i61, %free_expr.exit.i60 ], [ 0, %.lr.ph.i55 ]
-  %342 = load ptr, ptr %338, align 8
-  %343 = getelementptr %union.ListCell, ptr %342, i64 %indvars.iv.i56
-  %344 = load ptr, ptr %343, align 8
-  %.not.i.i57 = icmp eq ptr %344, null
-  br i1 %.not.i.i57, label %free_expr.exit.i60, label %345
-
-345:                                              ; preds = %.lr.ph32.i
-  %346 = getelementptr inbounds i8, ptr %344, i64 16
-  %347 = load ptr, ptr %346, align 8
-  %.not5.i.i58 = icmp eq ptr %347, null
-  br i1 %.not5.i.i58, label %free_expr.exit.i60, label %348
-
-348:                                              ; preds = %345
-  %349 = tail call i32 @SPI_freeplan(ptr noundef nonnull %347) #16
-  store ptr null, ptr %346, align 8
-  %.pre.i59 = load i32, ptr %337, align 4
-  br label %free_expr.exit.i60
-
-free_expr.exit.i60:                               ; preds = %348, %345, %.lr.ph32.i
-  %350 = phi i32 [ %341, %.lr.ph32.i ], [ %341, %345 ], [ %.pre.i59, %348 ]
-  %indvars.iv.next.i61 = add nuw nsw i64 %indvars.iv.i56, 1
-  %351 = sext i32 %350 to i64
-  %352 = icmp slt i64 %indvars.iv.next.i61, %351
+.lr.ph.i55:                                       ; preds = %346
+  %350 = getelementptr inbounds i8, ptr %348, i64 16
+  %351 = load i32, ptr %349, align 4
+  %352 = icmp sgt i32 %351, 0
   br i1 %352, label %.lr.ph32.i, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %free_expr.exit.i60, %.lr.ph.i55, %334
-  %353 = getelementptr inbounds i8, ptr %0, i64 40
-  %354 = load ptr, ptr %353, align 8
-  %355 = getelementptr inbounds i8, ptr %354, i64 4
-  %.not18.i = icmp eq ptr %354, null
+.lr.ph32.i:                                       ; preds = %.lr.ph.i55, %free_expr.exit.i60
+  %353 = phi i32 [ %362, %free_expr.exit.i60 ], [ %351, %.lr.ph.i55 ]
+  %indvars.iv.i56 = phi i64 [ %indvars.iv.next.i61, %free_expr.exit.i60 ], [ 0, %.lr.ph.i55 ]
+  %354 = load ptr, ptr %350, align 8
+  %355 = getelementptr %union.ListCell, ptr %354, i64 %indvars.iv.i56
+  %356 = load ptr, ptr %355, align 8
+  %.not.i.i57 = icmp eq ptr %356, null
+  br i1 %.not.i.i57, label %free_expr.exit.i60, label %357
+
+357:                                              ; preds = %.lr.ph32.i
+  %358 = getelementptr inbounds i8, ptr %356, i64 16
+  %359 = load ptr, ptr %358, align 8
+  %.not5.i.i58 = icmp eq ptr %359, null
+  br i1 %.not5.i.i58, label %free_expr.exit.i60, label %360
+
+360:                                              ; preds = %357
+  %361 = tail call i32 @SPI_freeplan(ptr noundef nonnull %359) #16
+  store ptr null, ptr %358, align 8
+  %.pre.i59 = load i32, ptr %349, align 4
+  br label %free_expr.exit.i60
+
+free_expr.exit.i60:                               ; preds = %360, %357, %.lr.ph32.i
+  %362 = phi i32 [ %353, %.lr.ph32.i ], [ %353, %357 ], [ %.pre.i59, %360 ]
+  %indvars.iv.next.i61 = add nuw nsw i64 %indvars.iv.i56, 1
+  %363 = sext i32 %362 to i64
+  %364 = icmp slt i64 %indvars.iv.next.i61, %363
+  br i1 %364, label %.lr.ph32.i, label %._crit_edge.i
+
+._crit_edge.i:                                    ; preds = %free_expr.exit.i60, %.lr.ph.i55, %346
+  %365 = getelementptr inbounds i8, ptr %0, i64 40
+  %366 = load ptr, ptr %365, align 8
+  %367 = getelementptr inbounds i8, ptr %366, i64 4
+  %.not18.i = icmp eq ptr %366, null
   br i1 %.not18.i, label %free_block.exit, label %.lr.ph35.i
 
 .lr.ph35.i:                                       ; preds = %._crit_edge.i
-  %356 = getelementptr inbounds i8, ptr %354, i64 16
-  %357 = load i32, ptr %355, align 4
-  %358 = icmp sgt i32 %357, 0
-  br i1 %358, label %.lr.ph39.i, label %free_block.exit
+  %368 = getelementptr inbounds i8, ptr %366, i64 16
+  %369 = load i32, ptr %367, align 4
+  %370 = icmp sgt i32 %369, 0
+  br i1 %370, label %.lr.ph39.i, label %free_block.exit
 
 .lr.ph39.i:                                       ; preds = %.lr.ph35.i, %free_expr.exit22.i
-  %359 = phi i32 [ %370, %free_expr.exit22.i ], [ %357, %.lr.ph35.i ]
+  %371 = phi i32 [ %382, %free_expr.exit22.i ], [ %369, %.lr.ph35.i ]
   %indvars.iv41.i = phi i64 [ %indvars.iv.next42.i, %free_expr.exit22.i ], [ 0, %.lr.ph35.i ]
-  %360 = load ptr, ptr %356, align 8
-  %361 = getelementptr %union.ListCell, ptr %360, i64 %indvars.iv41.i
-  %362 = load ptr, ptr %361, align 8
-  %363 = getelementptr inbounds i8, ptr %362, i64 8
-  %364 = load ptr, ptr %363, align 8
-  %.not.i20.i = icmp eq ptr %364, null
-  br i1 %.not.i20.i, label %free_expr.exit22.i, label %365
+  %372 = load ptr, ptr %368, align 8
+  %373 = getelementptr %union.ListCell, ptr %372, i64 %indvars.iv41.i
+  %374 = load ptr, ptr %373, align 8
+  %375 = getelementptr inbounds i8, ptr %374, i64 8
+  %376 = load ptr, ptr %375, align 8
+  %.not.i20.i = icmp eq ptr %376, null
+  br i1 %.not.i20.i, label %free_expr.exit22.i, label %377
 
-365:                                              ; preds = %.lr.ph39.i
-  %366 = getelementptr inbounds i8, ptr %364, i64 16
-  %367 = load ptr, ptr %366, align 8
-  %.not5.i21.i = icmp eq ptr %367, null
-  br i1 %.not5.i21.i, label %free_expr.exit22.i, label %368
+377:                                              ; preds = %.lr.ph39.i
+  %378 = getelementptr inbounds i8, ptr %376, i64 16
+  %379 = load ptr, ptr %378, align 8
+  %.not5.i21.i = icmp eq ptr %379, null
+  br i1 %.not5.i21.i, label %free_expr.exit22.i, label %380
 
-368:                                              ; preds = %365
-  %369 = tail call i32 @SPI_freeplan(ptr noundef nonnull %367) #16
-  store ptr null, ptr %366, align 8
-  %.pre44.i = load i32, ptr %355, align 4
+380:                                              ; preds = %377
+  %381 = tail call i32 @SPI_freeplan(ptr noundef nonnull %379) #16
+  store ptr null, ptr %378, align 8
+  %.pre44.i = load i32, ptr %367, align 4
   br label %free_expr.exit22.i
 
-free_expr.exit22.i:                               ; preds = %368, %365, %.lr.ph39.i
-  %370 = phi i32 [ %359, %.lr.ph39.i ], [ %359, %365 ], [ %.pre44.i, %368 ]
+free_expr.exit22.i:                               ; preds = %380, %377, %.lr.ph39.i
+  %382 = phi i32 [ %371, %.lr.ph39.i ], [ %371, %377 ], [ %.pre44.i, %380 ]
   %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
-  %371 = sext i32 %370 to i64
-  %372 = icmp slt i64 %indvars.iv.next42.i, %371
-  br i1 %372, label %.lr.ph39.i, label %free_block.exit
+  %383 = sext i32 %382 to i64
+  %384 = icmp slt i64 %indvars.iv.next42.i, %383
+  br i1 %384, label %.lr.ph39.i, label %free_block.exit
 
-373:                                              ; preds = %1
-  %374 = getelementptr inbounds i8, ptr %0, i64 16
-  %375 = load ptr, ptr %374, align 8
-  %.not.i.i62 = icmp eq ptr %375, null
-  br i1 %.not.i.i62, label %free_expr.exit.i64, label %376
+385:                                              ; preds = %1
+  %386 = getelementptr inbounds i8, ptr %0, i64 16
+  %387 = load ptr, ptr %386, align 8
+  %.not.i.i62 = icmp eq ptr %387, null
+  br i1 %.not.i.i62, label %free_expr.exit.i64, label %388
 
-376:                                              ; preds = %373
-  %377 = getelementptr inbounds i8, ptr %375, i64 16
-  %378 = load ptr, ptr %377, align 8
-  %.not5.i.i63 = icmp eq ptr %378, null
-  br i1 %.not5.i.i63, label %free_expr.exit.i64, label %379
+388:                                              ; preds = %385
+  %389 = getelementptr inbounds i8, ptr %387, i64 16
+  %390 = load ptr, ptr %389, align 8
+  %.not5.i.i63 = icmp eq ptr %390, null
+  br i1 %.not5.i.i63, label %free_expr.exit.i64, label %391
 
-379:                                              ; preds = %376
-  %380 = tail call i32 @SPI_freeplan(ptr noundef nonnull %378) #16
-  store ptr null, ptr %377, align 8
+391:                                              ; preds = %388
+  %392 = tail call i32 @SPI_freeplan(ptr noundef nonnull %390) #16
+  store ptr null, ptr %389, align 8
   br label %free_expr.exit.i64
 
-free_expr.exit.i64:                               ; preds = %379, %376, %373
-  %381 = getelementptr inbounds i8, ptr %0, i64 24
-  %382 = load ptr, ptr %381, align 8
-  %.not.i2.i = icmp eq ptr %382, null
-  br i1 %.not.i2.i, label %free_block.exit, label %383
+free_expr.exit.i64:                               ; preds = %391, %388, %385
+  %393 = getelementptr inbounds i8, ptr %0, i64 24
+  %394 = load ptr, ptr %393, align 8
+  %.not.i2.i = icmp eq ptr %394, null
+  br i1 %.not.i2.i, label %free_block.exit, label %395
 
-383:                                              ; preds = %free_expr.exit.i64
-  %384 = getelementptr inbounds i8, ptr %382, i64 16
-  %385 = load ptr, ptr %384, align 8
-  %.not5.i3.i = icmp eq ptr %385, null
-  br i1 %.not5.i3.i, label %free_block.exit, label %free_block.exit.sink.split
+395:                                              ; preds = %free_expr.exit.i64
+  %396 = getelementptr inbounds i8, ptr %394, i64 16
+  %397 = load ptr, ptr %396, align 8
+  %.not5.i3.i = icmp eq ptr %397, null
+  br i1 %.not5.i3.i, label %free_block.exit, label %398
 
-386:                                              ; preds = %1
-  %387 = getelementptr i8, ptr %0, i64 16
-  %.val32 = load ptr, ptr %387, align 8
+398:                                              ; preds = %395
+  %399 = tail call i32 @SPI_freeplan(ptr noundef nonnull %397) #16
+  store ptr null, ptr %396, align 8
+  br label %free_block.exit
+
+400:                                              ; preds = %1
+  %401 = getelementptr i8, ptr %0, i64 16
+  %.val32 = load ptr, ptr %401, align 8
   %.not.i.i65 = icmp eq ptr %.val32, null
-  br i1 %.not.i.i65, label %free_block.exit, label %388
+  br i1 %.not.i.i65, label %free_block.exit, label %402
 
-388:                                              ; preds = %386
-  %389 = getelementptr inbounds i8, ptr %.val32, i64 16
-  %390 = load ptr, ptr %389, align 8
-  %.not5.i.i66 = icmp eq ptr %390, null
-  br i1 %.not5.i.i66, label %free_block.exit, label %free_block.exit.sink.split
+402:                                              ; preds = %400
+  %403 = getelementptr inbounds i8, ptr %.val32, i64 16
+  %404 = load ptr, ptr %403, align 8
+  %.not5.i.i66 = icmp eq ptr %404, null
+  br i1 %.not5.i.i66, label %free_block.exit, label %405
 
-391:                                              ; preds = %1
-  %392 = getelementptr inbounds i8, ptr %0, i64 16
-  %393 = load ptr, ptr %392, align 8
-  %.not.i.i68 = icmp eq ptr %393, null
-  br i1 %.not.i.i68, label %free_expr.exit.i70, label %394
+405:                                              ; preds = %402
+  %406 = tail call i32 @SPI_freeplan(ptr noundef nonnull %404) #16
+  store ptr null, ptr %403, align 8
+  br label %free_block.exit
 
-394:                                              ; preds = %391
-  %395 = getelementptr inbounds i8, ptr %393, i64 16
-  %396 = load ptr, ptr %395, align 8
-  %.not5.i.i69 = icmp eq ptr %396, null
-  br i1 %.not5.i.i69, label %free_expr.exit.i70, label %397
+407:                                              ; preds = %1
+  %408 = getelementptr inbounds i8, ptr %0, i64 16
+  %409 = load ptr, ptr %408, align 8
+  %.not.i.i68 = icmp eq ptr %409, null
+  br i1 %.not.i.i68, label %free_expr.exit.i70, label %410
 
-397:                                              ; preds = %394
-  %398 = tail call i32 @SPI_freeplan(ptr noundef nonnull %396) #16
-  store ptr null, ptr %395, align 8
+410:                                              ; preds = %407
+  %411 = getelementptr inbounds i8, ptr %409, i64 16
+  %412 = load ptr, ptr %411, align 8
+  %.not5.i.i69 = icmp eq ptr %412, null
+  br i1 %.not5.i.i69, label %free_expr.exit.i70, label %413
+
+413:                                              ; preds = %410
+  %414 = tail call i32 @SPI_freeplan(ptr noundef nonnull %412) #16
+  store ptr null, ptr %411, align 8
   br label %free_expr.exit.i70
 
-free_expr.exit.i70:                               ; preds = %397, %394, %391
-  %399 = getelementptr inbounds i8, ptr %0, i64 40
-  %400 = load ptr, ptr %399, align 8
-  %401 = getelementptr inbounds i8, ptr %400, i64 4
-  %.not.i71 = icmp eq ptr %400, null
+free_expr.exit.i70:                               ; preds = %413, %410, %407
+  %415 = getelementptr inbounds i8, ptr %0, i64 40
+  %416 = load ptr, ptr %415, align 8
+  %417 = getelementptr inbounds i8, ptr %416, i64 4
+  %.not.i71 = icmp eq ptr %416, null
   br i1 %.not.i71, label %free_block.exit, label %.lr.ph.i72
 
 .lr.ph.i72:                                       ; preds = %free_expr.exit.i70
-  %402 = getelementptr inbounds i8, ptr %400, i64 16
-  %403 = load i32, ptr %401, align 4
-  %404 = icmp sgt i32 %403, 0
-  br i1 %404, label %.lr.ph17.i, label %free_block.exit
+  %418 = getelementptr inbounds i8, ptr %416, i64 16
+  %419 = load i32, ptr %417, align 4
+  %420 = icmp sgt i32 %419, 0
+  br i1 %420, label %.lr.ph17.i, label %free_block.exit
 
 .lr.ph17.i:                                       ; preds = %.lr.ph.i72, %free_expr.exit11.i
-  %405 = phi i32 [ %414, %free_expr.exit11.i ], [ %403, %.lr.ph.i72 ]
+  %421 = phi i32 [ %430, %free_expr.exit11.i ], [ %419, %.lr.ph.i72 ]
   %indvars.iv.i74 = phi i64 [ %indvars.iv.next.i76, %free_expr.exit11.i ], [ 0, %.lr.ph.i72 ]
-  %406 = load ptr, ptr %402, align 8
-  %407 = getelementptr %union.ListCell, ptr %406, i64 %indvars.iv.i74
-  %408 = load ptr, ptr %407, align 8
-  %.not.i9.i = icmp eq ptr %408, null
-  br i1 %.not.i9.i, label %free_expr.exit11.i, label %409
+  %422 = load ptr, ptr %418, align 8
+  %423 = getelementptr %union.ListCell, ptr %422, i64 %indvars.iv.i74
+  %424 = load ptr, ptr %423, align 8
+  %.not.i9.i = icmp eq ptr %424, null
+  br i1 %.not.i9.i, label %free_expr.exit11.i, label %425
 
-409:                                              ; preds = %.lr.ph17.i
-  %410 = getelementptr inbounds i8, ptr %408, i64 16
-  %411 = load ptr, ptr %410, align 8
-  %.not5.i10.i = icmp eq ptr %411, null
-  br i1 %.not5.i10.i, label %free_expr.exit11.i, label %412
+425:                                              ; preds = %.lr.ph17.i
+  %426 = getelementptr inbounds i8, ptr %424, i64 16
+  %427 = load ptr, ptr %426, align 8
+  %.not5.i10.i = icmp eq ptr %427, null
+  br i1 %.not5.i10.i, label %free_expr.exit11.i, label %428
 
-412:                                              ; preds = %409
-  %413 = tail call i32 @SPI_freeplan(ptr noundef nonnull %411) #16
-  store ptr null, ptr %410, align 8
-  %.pre.i75 = load i32, ptr %401, align 4
+428:                                              ; preds = %425
+  %429 = tail call i32 @SPI_freeplan(ptr noundef nonnull %427) #16
+  store ptr null, ptr %426, align 8
+  %.pre.i75 = load i32, ptr %417, align 4
   br label %free_expr.exit11.i
 
-free_expr.exit11.i:                               ; preds = %412, %409, %.lr.ph17.i
-  %414 = phi i32 [ %405, %.lr.ph17.i ], [ %405, %409 ], [ %.pre.i75, %412 ]
+free_expr.exit11.i:                               ; preds = %428, %425, %.lr.ph17.i
+  %430 = phi i32 [ %421, %.lr.ph17.i ], [ %421, %425 ], [ %.pre.i75, %428 ]
   %indvars.iv.next.i76 = add nuw nsw i64 %indvars.iv.i74, 1
-  %415 = sext i32 %414 to i64
-  %416 = icmp slt i64 %indvars.iv.next.i76, %415
-  br i1 %416, label %.lr.ph17.i, label %free_block.exit
+  %431 = sext i32 %430 to i64
+  %432 = icmp slt i64 %indvars.iv.next.i76, %431
+  br i1 %432, label %.lr.ph17.i, label %free_block.exit
 
-417:                                              ; preds = %1
-  %418 = getelementptr inbounds i8, ptr %0, i64 32
-  %419 = load ptr, ptr %418, align 8
-  %420 = getelementptr inbounds i8, ptr %419, i64 4
-  %.not.i190 = icmp eq ptr %419, null
+433:                                              ; preds = %1
+  %434 = getelementptr inbounds i8, ptr %0, i64 32
+  %435 = load ptr, ptr %434, align 8
+  %436 = getelementptr inbounds i8, ptr %435, i64 4
+  %.not.i190 = icmp eq ptr %435, null
   br i1 %.not.i190, label %free_stmts.exit193, label %.lr.ph
 
-.lr.ph:                                           ; preds = %417
-  %421 = getelementptr inbounds i8, ptr %419, i64 16
-  %422 = load i32, ptr %420, align 4
-  %423 = icmp sgt i32 %422, 0
-  br i1 %423, label %.lr.ph278, label %free_stmts.exit193
+.lr.ph:                                           ; preds = %433
+  %437 = getelementptr inbounds i8, ptr %435, i64 16
+  %438 = load i32, ptr %436, align 4
+  %439 = icmp sgt i32 %438, 0
+  br i1 %439, label %.lr.ph278, label %free_stmts.exit193
 
 .lr.ph278:                                        ; preds = %.lr.ph, %.lr.ph278
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph278 ], [ 0, %.lr.ph ]
-  %424 = load ptr, ptr %421, align 8
-  %425 = getelementptr %union.ListCell, ptr %424, i64 %indvars.iv
-  %426 = load ptr, ptr %425, align 8
-  tail call fastcc void @free_stmt(ptr noundef %426)
+  %440 = load ptr, ptr %437, align 8
+  %441 = getelementptr %union.ListCell, ptr %440, i64 %indvars.iv
+  %442 = load ptr, ptr %441, align 8
+  tail call fastcc void @free_stmt(ptr noundef %442)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %427 = load i32, ptr %420, align 4
-  %428 = sext i32 %427 to i64
-  %429 = icmp slt i64 %indvars.iv.next, %428
-  br i1 %429, label %.lr.ph278, label %free_stmts.exit193
+  %443 = load i32, ptr %436, align 4
+  %444 = sext i32 %443 to i64
+  %445 = icmp slt i64 %indvars.iv.next, %444
+  br i1 %445, label %.lr.ph278, label %free_stmts.exit193
 
-free_stmts.exit193:                               ; preds = %.lr.ph278, %.lr.ph, %417
-  %430 = getelementptr inbounds i8, ptr %0, i64 40
-  %431 = load ptr, ptr %430, align 8
-  %.not.i186 = icmp eq ptr %431, null
-  br i1 %.not.i186, label %free_expr.exit188, label %432
+free_stmts.exit193:                               ; preds = %.lr.ph278, %.lr.ph, %433
+  %446 = getelementptr inbounds i8, ptr %0, i64 40
+  %447 = load ptr, ptr %446, align 8
+  %.not.i186 = icmp eq ptr %447, null
+  br i1 %.not.i186, label %free_expr.exit188, label %448
 
-432:                                              ; preds = %free_stmts.exit193
-  %433 = getelementptr inbounds i8, ptr %431, i64 16
-  %434 = load ptr, ptr %433, align 8
-  %.not5.i187 = icmp eq ptr %434, null
-  br i1 %.not5.i187, label %free_expr.exit188, label %435
+448:                                              ; preds = %free_stmts.exit193
+  %449 = getelementptr inbounds i8, ptr %447, i64 16
+  %450 = load ptr, ptr %449, align 8
+  %.not5.i187 = icmp eq ptr %450, null
+  br i1 %.not5.i187, label %free_expr.exit188, label %451
 
-435:                                              ; preds = %432
-  %436 = tail call i32 @SPI_freeplan(ptr noundef nonnull %434) #16
-  store ptr null, ptr %433, align 8
+451:                                              ; preds = %448
+  %452 = tail call i32 @SPI_freeplan(ptr noundef nonnull %450) #16
+  store ptr null, ptr %449, align 8
   br label %free_expr.exit188
 
-free_expr.exit188:                                ; preds = %free_stmts.exit193, %432, %435
-  %437 = getelementptr inbounds i8, ptr %0, i64 48
-  %438 = load ptr, ptr %437, align 8
-  %439 = getelementptr inbounds i8, ptr %438, i64 4
-  %.not.i78 = icmp eq ptr %438, null
+free_expr.exit188:                                ; preds = %free_stmts.exit193, %448, %451
+  %453 = getelementptr inbounds i8, ptr %0, i64 48
+  %454 = load ptr, ptr %453, align 8
+  %455 = getelementptr inbounds i8, ptr %454, i64 4
+  %.not.i78 = icmp eq ptr %454, null
   br i1 %.not.i78, label %free_block.exit, label %.lr.ph280
 
 .lr.ph280:                                        ; preds = %free_expr.exit188
-  %440 = getelementptr inbounds i8, ptr %438, i64 16
-  %441 = load i32, ptr %439, align 4
-  %442 = icmp sgt i32 %441, 0
-  br i1 %442, label %.lr.ph283, label %free_block.exit
+  %456 = getelementptr inbounds i8, ptr %454, i64 16
+  %457 = load i32, ptr %455, align 4
+  %458 = icmp sgt i32 %457, 0
+  br i1 %458, label %.lr.ph283, label %free_block.exit
 
 .lr.ph283:                                        ; preds = %.lr.ph280, %free_expr.exit185
-  %443 = phi i32 [ %452, %free_expr.exit185 ], [ %441, %.lr.ph280 ]
+  %459 = phi i32 [ %468, %free_expr.exit185 ], [ %457, %.lr.ph280 ]
   %indvars.iv382 = phi i64 [ %indvars.iv.next383, %free_expr.exit185 ], [ 0, %.lr.ph280 ]
-  %444 = load ptr, ptr %440, align 8
-  %445 = getelementptr %union.ListCell, ptr %444, i64 %indvars.iv382
-  %446 = load ptr, ptr %445, align 8
-  %.not.i183 = icmp eq ptr %446, null
-  br i1 %.not.i183, label %free_expr.exit185, label %447
+  %460 = load ptr, ptr %456, align 8
+  %461 = getelementptr %union.ListCell, ptr %460, i64 %indvars.iv382
+  %462 = load ptr, ptr %461, align 8
+  %.not.i183 = icmp eq ptr %462, null
+  br i1 %.not.i183, label %free_expr.exit185, label %463
 
-447:                                              ; preds = %.lr.ph283
-  %448 = getelementptr inbounds i8, ptr %446, i64 16
-  %449 = load ptr, ptr %448, align 8
-  %.not5.i184 = icmp eq ptr %449, null
-  br i1 %.not5.i184, label %free_expr.exit185, label %450
+463:                                              ; preds = %.lr.ph283
+  %464 = getelementptr inbounds i8, ptr %462, i64 16
+  %465 = load ptr, ptr %464, align 8
+  %.not5.i184 = icmp eq ptr %465, null
+  br i1 %.not5.i184, label %free_expr.exit185, label %466
 
-450:                                              ; preds = %447
-  %451 = tail call i32 @SPI_freeplan(ptr noundef nonnull %449) #16
-  store ptr null, ptr %448, align 8
-  %.pre = load i32, ptr %439, align 4
+466:                                              ; preds = %463
+  %467 = tail call i32 @SPI_freeplan(ptr noundef nonnull %465) #16
+  store ptr null, ptr %464, align 8
+  %.pre = load i32, ptr %455, align 4
   br label %free_expr.exit185
 
-free_expr.exit185:                                ; preds = %.lr.ph283, %447, %450
-  %452 = phi i32 [ %443, %.lr.ph283 ], [ %443, %447 ], [ %.pre, %450 ]
+free_expr.exit185:                                ; preds = %.lr.ph283, %463, %466
+  %468 = phi i32 [ %459, %.lr.ph283 ], [ %459, %463 ], [ %.pre, %466 ]
   %indvars.iv.next383 = add nuw nsw i64 %indvars.iv382, 1
-  %453 = sext i32 %452 to i64
-  %454 = icmp slt i64 %indvars.iv.next383, %453
-  br i1 %454, label %.lr.ph283, label %free_block.exit
+  %469 = sext i32 %468 to i64
+  %470 = icmp slt i64 %indvars.iv.next383, %469
+  br i1 %470, label %.lr.ph283, label %free_block.exit
 
-455:                                              ; preds = %1
-  %456 = getelementptr inbounds i8, ptr %0, i64 24
-  %457 = load ptr, ptr %456, align 8
-  %.not.i.i80 = icmp eq ptr %457, null
-  br i1 %.not.i.i80, label %free_expr.exit.i82, label %458
+471:                                              ; preds = %1
+  %472 = getelementptr inbounds i8, ptr %0, i64 24
+  %473 = load ptr, ptr %472, align 8
+  %.not.i.i80 = icmp eq ptr %473, null
+  br i1 %.not.i.i80, label %free_expr.exit.i82, label %474
 
-458:                                              ; preds = %455
-  %459 = getelementptr inbounds i8, ptr %457, i64 16
-  %460 = load ptr, ptr %459, align 8
-  %.not5.i.i81 = icmp eq ptr %460, null
-  br i1 %.not5.i.i81, label %free_expr.exit.i82, label %461
+474:                                              ; preds = %471
+  %475 = getelementptr inbounds i8, ptr %473, i64 16
+  %476 = load ptr, ptr %475, align 8
+  %.not5.i.i81 = icmp eq ptr %476, null
+  br i1 %.not5.i.i81, label %free_expr.exit.i82, label %477
 
-461:                                              ; preds = %458
-  %462 = tail call i32 @SPI_freeplan(ptr noundef nonnull %460) #16
-  store ptr null, ptr %459, align 8
+477:                                              ; preds = %474
+  %478 = tail call i32 @SPI_freeplan(ptr noundef nonnull %476) #16
+  store ptr null, ptr %475, align 8
   br label %free_expr.exit.i82
 
-free_expr.exit.i82:                               ; preds = %461, %458, %455
-  %463 = getelementptr inbounds i8, ptr %0, i64 32
-  %464 = load ptr, ptr %463, align 8
-  %.not.i11.i = icmp eq ptr %464, null
-  br i1 %.not.i11.i, label %free_expr.exit13.i, label %465
+free_expr.exit.i82:                               ; preds = %477, %474, %471
+  %479 = getelementptr inbounds i8, ptr %0, i64 32
+  %480 = load ptr, ptr %479, align 8
+  %.not.i11.i = icmp eq ptr %480, null
+  br i1 %.not.i11.i, label %free_expr.exit13.i, label %481
 
-465:                                              ; preds = %free_expr.exit.i82
-  %466 = getelementptr inbounds i8, ptr %464, i64 16
-  %467 = load ptr, ptr %466, align 8
-  %.not5.i12.i = icmp eq ptr %467, null
-  br i1 %.not5.i12.i, label %free_expr.exit13.i, label %468
+481:                                              ; preds = %free_expr.exit.i82
+  %482 = getelementptr inbounds i8, ptr %480, i64 16
+  %483 = load ptr, ptr %482, align 8
+  %.not5.i12.i = icmp eq ptr %483, null
+  br i1 %.not5.i12.i, label %free_expr.exit13.i, label %484
 
-468:                                              ; preds = %465
-  %469 = tail call i32 @SPI_freeplan(ptr noundef nonnull %467) #16
-  store ptr null, ptr %466, align 8
+484:                                              ; preds = %481
+  %485 = tail call i32 @SPI_freeplan(ptr noundef nonnull %483) #16
+  store ptr null, ptr %482, align 8
   br label %free_expr.exit13.i
 
-free_expr.exit13.i:                               ; preds = %468, %465, %free_expr.exit.i82
-  %470 = getelementptr inbounds i8, ptr %0, i64 40
-  %471 = load ptr, ptr %470, align 8
-  %.not.i14.i83 = icmp eq ptr %471, null
-  br i1 %.not.i14.i83, label %free_expr.exit16.i, label %472
+free_expr.exit13.i:                               ; preds = %484, %481, %free_expr.exit.i82
+  %486 = getelementptr inbounds i8, ptr %0, i64 40
+  %487 = load ptr, ptr %486, align 8
+  %.not.i14.i83 = icmp eq ptr %487, null
+  br i1 %.not.i14.i83, label %free_expr.exit16.i, label %488
 
-472:                                              ; preds = %free_expr.exit13.i
-  %473 = getelementptr inbounds i8, ptr %471, i64 16
-  %474 = load ptr, ptr %473, align 8
-  %.not5.i15.i = icmp eq ptr %474, null
-  br i1 %.not5.i15.i, label %free_expr.exit16.i, label %475
+488:                                              ; preds = %free_expr.exit13.i
+  %489 = getelementptr inbounds i8, ptr %487, i64 16
+  %490 = load ptr, ptr %489, align 8
+  %.not5.i15.i = icmp eq ptr %490, null
+  br i1 %.not5.i15.i, label %free_expr.exit16.i, label %491
 
-475:                                              ; preds = %472
-  %476 = tail call i32 @SPI_freeplan(ptr noundef nonnull %474) #16
-  store ptr null, ptr %473, align 8
+491:                                              ; preds = %488
+  %492 = tail call i32 @SPI_freeplan(ptr noundef nonnull %490) #16
+  store ptr null, ptr %489, align 8
   br label %free_expr.exit16.i
 
-free_expr.exit16.i:                               ; preds = %475, %472, %free_expr.exit13.i
-  %477 = getelementptr inbounds i8, ptr %0, i64 48
-  %478 = load ptr, ptr %477, align 8
-  %479 = getelementptr inbounds i8, ptr %478, i64 4
-  %.not.i84 = icmp eq ptr %478, null
+free_expr.exit16.i:                               ; preds = %491, %488, %free_expr.exit13.i
+  %493 = getelementptr inbounds i8, ptr %0, i64 48
+  %494 = load ptr, ptr %493, align 8
+  %495 = getelementptr inbounds i8, ptr %494, i64 4
+  %.not.i84 = icmp eq ptr %494, null
   br i1 %.not.i84, label %free_block.exit, label %.lr.ph.i85
 
 .lr.ph.i85:                                       ; preds = %free_expr.exit16.i
-  %480 = getelementptr inbounds i8, ptr %478, i64 16
-  %481 = load i32, ptr %479, align 4
-  %482 = icmp sgt i32 %481, 0
-  br i1 %482, label %.lr.ph25.i, label %free_block.exit
+  %496 = getelementptr inbounds i8, ptr %494, i64 16
+  %497 = load i32, ptr %495, align 4
+  %498 = icmp sgt i32 %497, 0
+  br i1 %498, label %.lr.ph25.i, label %free_block.exit
 
 .lr.ph25.i:                                       ; preds = %.lr.ph.i85, %free_expr.exit19.i
-  %483 = phi i32 [ %492, %free_expr.exit19.i ], [ %481, %.lr.ph.i85 ]
+  %499 = phi i32 [ %508, %free_expr.exit19.i ], [ %497, %.lr.ph.i85 ]
   %indvars.iv.i87 = phi i64 [ %indvars.iv.next.i89, %free_expr.exit19.i ], [ 0, %.lr.ph.i85 ]
-  %484 = load ptr, ptr %480, align 8
-  %485 = getelementptr %union.ListCell, ptr %484, i64 %indvars.iv.i87
-  %486 = load ptr, ptr %485, align 8
-  %.not.i17.i = icmp eq ptr %486, null
-  br i1 %.not.i17.i, label %free_expr.exit19.i, label %487
+  %500 = load ptr, ptr %496, align 8
+  %501 = getelementptr %union.ListCell, ptr %500, i64 %indvars.iv.i87
+  %502 = load ptr, ptr %501, align 8
+  %.not.i17.i = icmp eq ptr %502, null
+  br i1 %.not.i17.i, label %free_expr.exit19.i, label %503
 
-487:                                              ; preds = %.lr.ph25.i
-  %488 = getelementptr inbounds i8, ptr %486, i64 16
-  %489 = load ptr, ptr %488, align 8
-  %.not5.i18.i = icmp eq ptr %489, null
-  br i1 %.not5.i18.i, label %free_expr.exit19.i, label %490
+503:                                              ; preds = %.lr.ph25.i
+  %504 = getelementptr inbounds i8, ptr %502, i64 16
+  %505 = load ptr, ptr %504, align 8
+  %.not5.i18.i = icmp eq ptr %505, null
+  br i1 %.not5.i18.i, label %free_expr.exit19.i, label %506
 
-490:                                              ; preds = %487
-  %491 = tail call i32 @SPI_freeplan(ptr noundef nonnull %489) #16
-  store ptr null, ptr %488, align 8
-  %.pre.i88 = load i32, ptr %479, align 4
+506:                                              ; preds = %503
+  %507 = tail call i32 @SPI_freeplan(ptr noundef nonnull %505) #16
+  store ptr null, ptr %504, align 8
+  %.pre.i88 = load i32, ptr %495, align 4
   br label %free_expr.exit19.i
 
-free_expr.exit19.i:                               ; preds = %490, %487, %.lr.ph25.i
-  %492 = phi i32 [ %483, %.lr.ph25.i ], [ %483, %487 ], [ %.pre.i88, %490 ]
+free_expr.exit19.i:                               ; preds = %506, %503, %.lr.ph25.i
+  %508 = phi i32 [ %499, %.lr.ph25.i ], [ %499, %503 ], [ %.pre.i88, %506 ]
   %indvars.iv.next.i89 = add nuw nsw i64 %indvars.iv.i87, 1
-  %493 = sext i32 %492 to i64
-  %494 = icmp slt i64 %indvars.iv.next.i89, %493
-  br i1 %494, label %.lr.ph25.i, label %free_block.exit
+  %509 = sext i32 %508 to i64
+  %510 = icmp slt i64 %indvars.iv.next.i89, %509
+  br i1 %510, label %.lr.ph25.i, label %free_block.exit
 
-495:                                              ; preds = %1
-  %496 = getelementptr i8, ptr %0, i64 40
-  %.val33 = load ptr, ptr %496, align 8
+511:                                              ; preds = %1
+  %512 = getelementptr i8, ptr %0, i64 40
+  %.val33 = load ptr, ptr %512, align 8
   %.not.i.i90 = icmp eq ptr %.val33, null
-  br i1 %.not.i.i90, label %free_block.exit, label %497
+  br i1 %.not.i.i90, label %free_block.exit, label %513
 
-497:                                              ; preds = %495
-  %498 = getelementptr inbounds i8, ptr %.val33, i64 16
-  %499 = load ptr, ptr %498, align 8
-  %.not5.i.i91 = icmp eq ptr %499, null
-  br i1 %.not5.i.i91, label %free_block.exit, label %free_block.exit.sink.split
+513:                                              ; preds = %511
+  %514 = getelementptr inbounds i8, ptr %.val33, i64 16
+  %515 = load ptr, ptr %514, align 8
+  %.not5.i.i91 = icmp eq ptr %515, null
+  br i1 %.not5.i.i91, label %free_block.exit, label %516
 
-500:                                              ; preds = %1
-  %501 = getelementptr i8, ptr %0, i64 16
-  %.val34 = load ptr, ptr %501, align 8
+516:                                              ; preds = %513
+  %517 = tail call i32 @SPI_freeplan(ptr noundef nonnull %515) #16
+  store ptr null, ptr %514, align 8
+  br label %free_block.exit
+
+518:                                              ; preds = %1
+  %519 = getelementptr i8, ptr %0, i64 16
+  %.val34 = load ptr, ptr %519, align 8
   %.not.i.i93 = icmp eq ptr %.val34, null
-  br i1 %.not.i.i93, label %free_block.exit, label %502
+  br i1 %.not.i.i93, label %free_block.exit, label %520
 
-502:                                              ; preds = %500
-  %503 = getelementptr inbounds i8, ptr %.val34, i64 16
-  %504 = load ptr, ptr %503, align 8
-  %.not5.i.i94 = icmp eq ptr %504, null
-  br i1 %.not5.i.i94, label %free_block.exit, label %free_block.exit.sink.split
+520:                                              ; preds = %518
+  %521 = getelementptr inbounds i8, ptr %.val34, i64 16
+  %522 = load ptr, ptr %521, align 8
+  %.not5.i.i94 = icmp eq ptr %522, null
+  br i1 %.not5.i.i94, label %free_block.exit, label %523
 
-505:                                              ; preds = %1
-  %506 = getelementptr i8, ptr %0, i64 16
-  %.val35 = load ptr, ptr %506, align 8
+523:                                              ; preds = %520
+  %524 = tail call i32 @SPI_freeplan(ptr noundef nonnull %522) #16
+  store ptr null, ptr %521, align 8
+  br label %free_block.exit
+
+525:                                              ; preds = %1
+  %526 = getelementptr i8, ptr %0, i64 16
+  %.val35 = load ptr, ptr %526, align 8
   %.not.i.i96 = icmp eq ptr %.val35, null
-  br i1 %.not.i.i96, label %free_block.exit, label %507
+  br i1 %.not.i.i96, label %free_block.exit, label %527
 
-507:                                              ; preds = %505
-  %508 = getelementptr inbounds i8, ptr %.val35, i64 16
-  %509 = load ptr, ptr %508, align 8
-  %.not5.i.i97 = icmp eq ptr %509, null
-  br i1 %.not5.i.i97, label %free_block.exit, label %free_block.exit.sink.split
+527:                                              ; preds = %525
+  %528 = getelementptr inbounds i8, ptr %.val35, i64 16
+  %529 = load ptr, ptr %528, align 8
+  %.not5.i.i97 = icmp eq ptr %529, null
+  br i1 %.not5.i.i97, label %free_block.exit, label %530
 
-510:                                              ; preds = %1
-  %511 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.46) #17
-  tail call void @llvm.assume(i1 %511)
-  %512 = load i32, ptr %0, align 4
-  %513 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.68, i32 noundef %512) #16
+530:                                              ; preds = %527
+  %531 = tail call i32 @SPI_freeplan(ptr noundef nonnull %529) #16
+  store ptr null, ptr %528, align 8
+  br label %free_block.exit
+
+532:                                              ; preds = %1
+  %533 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.46) #17
+  tail call void @llvm.assume(i1 %533)
+  %534 = load i32, ptr %0, align 4
+  %535 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.68, i32 noundef %534) #16
   tail call void @errfinish(ptr noundef nonnull @.str.48, i32 noundef 463, ptr noundef nonnull @__func__.free_stmt) #16
   unreachable
 
-free_block.exit.sink.split:                       ; preds = %507, %502, %497, %388, %383, %298, %293, %288, %263, %245, %46
-  %.sink445 = phi ptr [ %48, %46 ], [ %247, %245 ], [ %265, %263 ], [ %290, %288 ], [ %295, %293 ], [ %300, %298 ], [ %385, %383 ], [ %390, %388 ], [ %499, %497 ], [ %504, %502 ], [ %509, %507 ]
-  %.sink = phi ptr [ %47, %46 ], [ %246, %245 ], [ %264, %263 ], [ %289, %288 ], [ %294, %293 ], [ %299, %298 ], [ %384, %383 ], [ %389, %388 ], [ %498, %497 ], [ %503, %502 ], [ %508, %507 ]
-  %514 = tail call i32 @SPI_freeplan(ptr noundef nonnull %.sink445) #16
-  store ptr null, ptr %.sink, align 8
-  br label %free_block.exit
-
-free_block.exit:                                  ; preds = %free_expr.exit19.i, %free_expr.exit185, %free_expr.exit11.i, %free_expr.exit22.i, %free_expr.exit15.i, %.lr.ph288, %.lr.ph303, %.lr.ph308, %.lr.ph313, %.lr.ph330, %.lr.ph352, %free_stmts.exit17.i, %free_block.exit.sink.split, %free_expr.exit188, %.lr.ph280, %free_expr.exit182, %.lr.ph285, %free_expr.exit152, %.lr.ph300, %free_expr.exit144, %.lr.ph305, %163, %.lr.ph310, %free_case.exit, %.lr.ph327, %free_if.exit, %.lr.ph349, %18, %.lr.ph364, %1, %1, %507, %505, %502, %500, %1, %497, %495, %.lr.ph.i85, %free_expr.exit16.i, %1, %.lr.ph.i72, %free_expr.exit.i70, %388, %386, %383, %free_expr.exit.i64, %.lr.ph35.i, %._crit_edge.i, %.lr.ph.i, %free_expr.exit12.i, %298, %296, %293, %291, %288, %286, %263, %free_stmts.exit174, %245, %free_stmts.exit166, %46, %44, %free_stmts.exit.i
+free_block.exit:                                  ; preds = %free_expr.exit19.i, %free_expr.exit185, %free_expr.exit11.i, %free_expr.exit22.i, %free_expr.exit15.i, %.lr.ph288, %.lr.ph303, %.lr.ph308, %.lr.ph313, %.lr.ph330, %.lr.ph352, %free_stmts.exit17.i, %free_expr.exit188, %.lr.ph280, %free_expr.exit182, %.lr.ph285, %free_expr.exit152, %.lr.ph300, %free_expr.exit144, %.lr.ph305, %165, %.lr.ph310, %free_case.exit, %.lr.ph327, %free_if.exit, %.lr.ph349, %18, %.lr.ph364, %1, %1, %530, %527, %525, %523, %520, %518, %1, %516, %513, %511, %.lr.ph.i85, %free_expr.exit16.i, %1, %.lr.ph.i72, %free_expr.exit.i70, %405, %402, %400, %398, %395, %free_expr.exit.i64, %.lr.ph35.i, %._crit_edge.i, %.lr.ph.i, %free_expr.exit12.i, %311, %308, %306, %304, %301, %299, %297, %294, %292, %270, %267, %free_stmts.exit174, %250, %247, %free_stmts.exit166, %49, %46, %44, %free_stmts.exit.i
   ret void
 }
 

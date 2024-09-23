@@ -8275,14 +8275,14 @@ _ZN4llvm5ErrorD2Ev.exit58:                        ; preds = %10, %_ZN4llvm8Expec
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %72, %73
-  %.sink6.i = phi ptr [ %74, %73 ], [ %71, %72 ]
-  %.sroa.0.0.copyload1.i = load ptr, ptr %.sink6.i, align 8
-  %.sroa.5.0..sroa_idx2.i = getelementptr inbounds i8, ptr %.sink6.i, i64 8
+  %.sink.i = phi ptr [ %74, %73 ], [ %71, %72 ]
+  %.sroa.0.0.ph.i = load ptr, ptr %.sink.i, align 8
+  %.sroa.5.0..sroa_idx2.i = getelementptr inbounds i8, ptr %.sink.i, i64 8
   %.sroa.5.0.copyload3.i = load i64, ptr %.sroa.5.0..sroa_idx2.i, align 8
   br label %"_ZZN4llvm8coverage15CoverageMapping4loadENS_8ArrayRefINS_9StringRefEEES3_RNS_3vfs10FileSystemES4_S3_PKNS_6object14BuildIDFetcherEbENK3$_0clEm.exit"
 
 "_ZZN4llvm8coverage15CoverageMapping4loadENS_8ArrayRefINS_9StringRefEEES3_RNS_3vfs10FileSystemES4_S3_PKNS_6object14BuildIDFetcherEbENK3$_0clEm.exit": ; preds = %72, %.sink.split.i
-  %.sroa.0.0.i = phi ptr [ null, %72 ], [ %.sroa.0.0.copyload1.i, %.sink.split.i ]
+  %.sroa.0.0.i = phi ptr [ null, %72 ], [ %.sroa.0.0.ph.i, %.sink.split.i ]
   %.sroa.5.0.i = phi i64 [ %70, %72 ], [ %.sroa.5.0.copyload3.i, %.sink.split.i ]
   call void @_ZN4llvm8coverage15CoverageMapping12loadFromFileENS_9StringRefES2_S2_RNS_22IndexedInstrProfReaderERS1_RbPNS_15SmallVectorImplINS_11SmallVectorIhLj10EEEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %24, ptr %.sroa.025.0.copyload, i64 %.sroa.226.0.copyload, ptr %.sroa.0.0.i, i64 %.sroa.5.0.i, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %7, ptr noundef nonnull align 8 dereferenceable(484) %65, ptr noundef nonnull align 8 dereferenceable(96) %66, ptr noundef nonnull align 1 dereferenceable(1) %22, ptr noundef nonnull %23)
   %75 = load ptr, ptr %24, align 8
@@ -14537,7 +14537,8 @@ _ZN4llvm15SmallVectorImplImE12assignRemoteEOS1_.exit: ; preds = %8, %13
   store i32 %19, ptr %20, align 4
   store ptr %6, ptr %1, align 8
   store i32 0, ptr %18, align 4
-  br label %.sink.split
+  store i32 0, ptr %15, align 8
+  br label %53
 
 21:                                               ; preds = %4
   %22 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #28
@@ -14566,7 +14567,8 @@ _ZSt4moveIPmS0_ET0_T_S2_S1_.exit:                 ; preds = %29, %26, %24
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %22) #28
   %31 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #28
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
+  store i32 0, ptr %32, align 8
+  br label %53
 
 33:                                               ; preds = %21
   %34 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
@@ -14613,14 +14615,10 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.ex
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %22) #28
   %51 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #28
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %_ZN4llvm15SmallVectorImplImE12assignRemoteEOS1_.exit, %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.exit
-  %.sink = phi ptr [ %52, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.exit ], [ %32, %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit ], [ %15, %_ZN4llvm15SmallVectorImplImE12assignRemoteEOS1_.exit ]
-  store i32 0, ptr %.sink, align 8
+  store i32 0, ptr %52, align 8
   br label %53
 
-53:                                               ; preds = %.sink.split, %2
+53:                                               ; preds = %2, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.exit, %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit, %_ZN4llvm15SmallVectorImplImE12assignRemoteEOS1_.exit
   ret ptr %0
 }
 
@@ -15624,7 +15622,8 @@ _ZN4llvm15SmallVectorImplIPKNS_8coverage20CounterMappingRegionEE12assignRemoteEO
   store i32 %19, ptr %20, align 4
   store ptr %6, ptr %1, align 8
   store i32 0, ptr %18, align 4
-  br label %.sink.split
+  store i32 0, ptr %15, align 8
+  br label %53
 
 21:                                               ; preds = %4
   %22 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #28
@@ -15653,7 +15652,8 @@ _ZSt4moveIPPKN4llvm8coverage20CounterMappingRegionES5_ET0_T_S7_S6_.exit: ; preds
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %22) #28
   %31 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #28
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
+  store i32 0, ptr %32, align 8
+  br label %53
 
 33:                                               ; preds = %21
   %34 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
@@ -15700,14 +15700,10 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_8coverage20CounterMappingRegionELb1EE18un
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %22) #28
   %51 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #28
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %_ZN4llvm15SmallVectorImplIPKNS_8coverage20CounterMappingRegionEE12assignRemoteEOS5_.exit, %_ZSt4moveIPPKN4llvm8coverage20CounterMappingRegionES5_ET0_T_S7_S6_.exit, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_8coverage20CounterMappingRegionELb1EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit
-  %.sink = phi ptr [ %52, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_8coverage20CounterMappingRegionELb1EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit ], [ %32, %_ZSt4moveIPPKN4llvm8coverage20CounterMappingRegionES5_ET0_T_S7_S6_.exit ], [ %15, %_ZN4llvm15SmallVectorImplIPKNS_8coverage20CounterMappingRegionEE12assignRemoteEOS5_.exit ]
-  store i32 0, ptr %.sink, align 8
+  store i32 0, ptr %52, align 8
   br label %53
 
-53:                                               ; preds = %.sink.split, %2
+53:                                               ; preds = %2, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_8coverage20CounterMappingRegionELb1EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit, %_ZSt4moveIPPKN4llvm8coverage20CounterMappingRegionES5_ET0_T_S7_S6_.exit, %_ZN4llvm15SmallVectorImplIPKNS_8coverage20CounterMappingRegionEE12assignRemoteEOS5_.exit
   ret ptr %0
 }
 
@@ -23236,152 +23232,182 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit22: ; p
   %54 = icmp ult i32 %52, %53
   br i1 %54, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit22.thread, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit22.thread29
 
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit22.thread: ; preds = %44, %36, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit.thread, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit22
+  %55 = getelementptr inbounds i8, ptr %0, i64 12
+  %56 = load i32, ptr %55, align 4
+  store i32 %8, ptr %55, align 4
+  store i32 %56, ptr %7, align 4
+  br label %135
+
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit22.thread29: ; preds = %50, %42, %34, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit22
-  %55 = icmp slt i32 %6, %32
-  br i1 %55, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit22.thread, label %56
+  %57 = icmp slt i32 %6, %32
+  br i1 %57, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit23.thread, label %58
 
-56:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit22.thread29
-  %57 = icmp slt i32 %32, %6
-  br i1 %57, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit23.thread31, label %58
+58:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit22.thread29
+  %59 = icmp slt i32 %32, %6
+  br i1 %59, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit23.thread31, label %60
 
-58:                                               ; preds = %56
-  %59 = getelementptr inbounds i8, ptr %1, i64 8
-  %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %3, i64 8
+60:                                               ; preds = %58
+  %61 = getelementptr inbounds i8, ptr %1, i64 8
   %62 = load i32, ptr %61, align 4
-  %63 = icmp ult i32 %60, %62
-  br i1 %63, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit22.thread, label %64
+  %63 = getelementptr inbounds i8, ptr %3, i64 8
+  %64 = load i32, ptr %63, align 4
+  %65 = icmp ult i32 %62, %64
+  br i1 %65, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit23.thread, label %66
 
-64:                                               ; preds = %58
-  %65 = icmp ult i32 %62, %60
-  br i1 %65, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit23.thread31, label %66
+66:                                               ; preds = %60
+  %67 = icmp ult i32 %64, %62
+  br i1 %67, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit23.thread31, label %68
 
-66:                                               ; preds = %64
-  %67 = getelementptr inbounds i8, ptr %1, i64 4
-  %68 = load i32, ptr %67, align 4
-  %69 = getelementptr inbounds i8, ptr %3, i64 4
+68:                                               ; preds = %66
+  %69 = getelementptr inbounds i8, ptr %1, i64 4
   %70 = load i32, ptr %69, align 4
-  %71 = icmp slt i32 %68, %70
-  br i1 %71, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit22.thread, label %72
+  %71 = getelementptr inbounds i8, ptr %3, i64 4
+  %72 = load i32, ptr %71, align 4
+  %73 = icmp slt i32 %70, %72
+  br i1 %73, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit23.thread, label %74
 
-72:                                               ; preds = %66
-  %73 = icmp slt i32 %70, %68
-  br i1 %73, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit23.thread31, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit23
+74:                                               ; preds = %68
+  %75 = icmp slt i32 %72, %70
+  br i1 %75, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit23.thread31, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit23
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit23: ; preds = %72
-  %74 = load i32, ptr %1, align 4
-  %75 = load i32, ptr %3, align 4
-  %76 = icmp ult i32 %74, %75
-  br i1 %76, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit22.thread, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit23.thread31
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit23: ; preds = %74
+  %76 = load i32, ptr %1, align 4
+  %77 = load i32, ptr %3, align 4
+  %78 = icmp ult i32 %76, %77
+  br i1 %78, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit23.thread, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit23.thread31
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit23.thread31: ; preds = %72, %64, %56, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit23
-  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit22.thread
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit23.thread: ; preds = %68, %60, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit22.thread29, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit23
+  %79 = getelementptr inbounds i8, ptr %0, i64 12
+  %80 = load i32, ptr %79, align 4
+  store i32 %32, ptr %79, align 4
+  store i32 %80, ptr %31, align 4
+  br label %135
+
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit23.thread31: ; preds = %74, %66, %58, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit23
+  %81 = getelementptr inbounds i8, ptr %0, i64 12
+  %82 = load i32, ptr %81, align 4
+  store i32 %6, ptr %81, align 4
+  store i32 %82, ptr %5, align 4
+  br label %135
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit.thread27: ; preds = %26, %18, %10, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit
-  %77 = getelementptr inbounds i8, ptr %3, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp slt i32 %6, %78
-  br i1 %79, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit22.thread, label %80
-
-80:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit.thread27
-  %81 = icmp slt i32 %78, %6
-  br i1 %81, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit24.thread33, label %82
-
-82:                                               ; preds = %80
-  %83 = getelementptr inbounds i8, ptr %1, i64 8
+  %83 = getelementptr inbounds i8, ptr %3, i64 12
   %84 = load i32, ptr %83, align 4
-  %85 = getelementptr inbounds i8, ptr %3, i64 8
-  %86 = load i32, ptr %85, align 4
-  %87 = icmp ult i32 %84, %86
-  br i1 %87, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit22.thread, label %88
+  %85 = icmp slt i32 %6, %84
+  br i1 %85, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit24.thread, label %86
 
-88:                                               ; preds = %82
-  %89 = icmp ult i32 %86, %84
-  br i1 %89, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit24.thread33, label %90
+86:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit.thread27
+  %87 = icmp slt i32 %84, %6
+  br i1 %87, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit24.thread33, label %88
 
-90:                                               ; preds = %88
-  %91 = getelementptr inbounds i8, ptr %1, i64 4
+88:                                               ; preds = %86
+  %89 = getelementptr inbounds i8, ptr %1, i64 8
+  %90 = load i32, ptr %89, align 4
+  %91 = getelementptr inbounds i8, ptr %3, i64 8
   %92 = load i32, ptr %91, align 4
-  %93 = getelementptr inbounds i8, ptr %3, i64 4
-  %94 = load i32, ptr %93, align 4
-  %95 = icmp slt i32 %92, %94
-  br i1 %95, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit22.thread, label %96
+  %93 = icmp ult i32 %90, %92
+  br i1 %93, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit24.thread, label %94
 
-96:                                               ; preds = %90
-  %97 = icmp slt i32 %94, %92
-  br i1 %97, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit24.thread33, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit24
+94:                                               ; preds = %88
+  %95 = icmp ult i32 %92, %90
+  br i1 %95, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit24.thread33, label %96
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit24: ; preds = %96
-  %98 = load i32, ptr %1, align 4
-  %99 = load i32, ptr %3, align 4
-  %100 = icmp ult i32 %98, %99
-  br i1 %100, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit22.thread, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit24.thread33
+96:                                               ; preds = %94
+  %97 = getelementptr inbounds i8, ptr %1, i64 4
+  %98 = load i32, ptr %97, align 4
+  %99 = getelementptr inbounds i8, ptr %3, i64 4
+  %100 = load i32, ptr %99, align 4
+  %101 = icmp slt i32 %98, %100
+  br i1 %101, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit24.thread, label %102
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit24.thread33: ; preds = %96, %88, %80, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit24
-  %101 = icmp slt i32 %8, %78
-  br i1 %101, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit22.thread, label %102
+102:                                              ; preds = %96
+  %103 = icmp slt i32 %100, %98
+  br i1 %103, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit24.thread33, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit24
 
-102:                                              ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit24.thread33
-  %103 = icmp slt i32 %78, %8
-  br i1 %103, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit25.thread35, label %104
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit24: ; preds = %102
+  %104 = load i32, ptr %1, align 4
+  %105 = load i32, ptr %3, align 4
+  %106 = icmp ult i32 %104, %105
+  br i1 %106, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit24.thread, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit24.thread33
 
-104:                                              ; preds = %102
-  %105 = getelementptr inbounds i8, ptr %2, i64 8
-  %106 = load i32, ptr %105, align 4
-  %107 = getelementptr inbounds i8, ptr %3, i64 8
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit24.thread: ; preds = %96, %88, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit.thread27, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit24
+  %107 = getelementptr inbounds i8, ptr %0, i64 12
   %108 = load i32, ptr %107, align 4
-  %109 = icmp ult i32 %106, %108
-  br i1 %109, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit22.thread, label %110
+  store i32 %6, ptr %107, align 4
+  store i32 %108, ptr %5, align 4
+  br label %135
 
-110:                                              ; preds = %104
-  %111 = icmp ult i32 %108, %106
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit24.thread33: ; preds = %102, %94, %86, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit24
+  %109 = icmp slt i32 %8, %84
+  br i1 %109, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit25.thread, label %110
+
+110:                                              ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit24.thread33
+  %111 = icmp slt i32 %84, %8
   br i1 %111, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit25.thread35, label %112
 
 112:                                              ; preds = %110
-  %113 = getelementptr inbounds i8, ptr %2, i64 4
+  %113 = getelementptr inbounds i8, ptr %2, i64 8
   %114 = load i32, ptr %113, align 4
-  %115 = getelementptr inbounds i8, ptr %3, i64 4
+  %115 = getelementptr inbounds i8, ptr %3, i64 8
   %116 = load i32, ptr %115, align 4
-  %117 = icmp slt i32 %114, %116
-  br i1 %117, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit22.thread, label %118
+  %117 = icmp ult i32 %114, %116
+  br i1 %117, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit25.thread, label %118
 
 118:                                              ; preds = %112
-  %119 = icmp slt i32 %116, %114
-  br i1 %119, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit25.thread35, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit25
+  %119 = icmp ult i32 %116, %114
+  br i1 %119, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit25.thread35, label %120
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit25: ; preds = %118
-  %120 = load i32, ptr %2, align 4
-  %121 = load i32, ptr %3, align 4
-  %122 = icmp ult i32 %120, %121
-  br i1 %122, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit22.thread, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit25.thread35
-
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit25.thread35: ; preds = %118, %110, %102, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit25
-  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit22.thread
-
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit22.thread: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit25, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit24.thread33, %104, %112, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit24, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit.thread27, %82, %90, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit23, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit22.thread29, %58, %66, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit22, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit.thread, %36, %44, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit25.thread35, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit23.thread31
-  %.sink53 = phi i32 [ %8, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit25.thread35 ], [ %6, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit23.thread31 ], [ %8, %44 ], [ %8, %36 ], [ %8, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit.thread ], [ %8, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit22 ], [ %32, %66 ], [ %32, %58 ], [ %32, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit22.thread29 ], [ %32, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit23 ], [ %6, %90 ], [ %6, %82 ], [ %6, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit.thread27 ], [ %6, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit24 ], [ %78, %112 ], [ %78, %104 ], [ %78, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit24.thread33 ], [ %78, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit25 ]
-  %.sink52 = phi ptr [ %7, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit25.thread35 ], [ %5, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit23.thread31 ], [ %7, %44 ], [ %7, %36 ], [ %7, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit.thread ], [ %7, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit22 ], [ %31, %66 ], [ %31, %58 ], [ %31, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit22.thread29 ], [ %31, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit23 ], [ %5, %90 ], [ %5, %82 ], [ %5, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit.thread27 ], [ %5, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit24 ], [ %77, %112 ], [ %77, %104 ], [ %77, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit24.thread33 ], [ %77, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit25 ]
-  %.sink50 = phi ptr [ %2, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit25.thread35 ], [ %1, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit23.thread31 ], [ %2, %44 ], [ %2, %36 ], [ %2, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit.thread ], [ %2, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit22 ], [ %3, %66 ], [ %3, %58 ], [ %3, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit22.thread29 ], [ %3, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit23 ], [ %1, %90 ], [ %1, %82 ], [ %1, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit.thread27 ], [ %1, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit24 ], [ %3, %112 ], [ %3, %104 ], [ %3, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit24.thread33 ], [ %3, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit25 ]
-  %123 = getelementptr inbounds i8, ptr %0, i64 12
+120:                                              ; preds = %118
+  %121 = getelementptr inbounds i8, ptr %2, i64 4
+  %122 = load i32, ptr %121, align 4
+  %123 = getelementptr inbounds i8, ptr %3, i64 4
   %124 = load i32, ptr %123, align 4
-  store i32 %.sink53, ptr %123, align 4
-  store i32 %124, ptr %.sink52, align 4
-  %125 = getelementptr inbounds i8, ptr %0, i64 8
-  %126 = getelementptr inbounds i8, ptr %.sink50, i64 8
-  %127 = load i32, ptr %125, align 4
-  %128 = load i32, ptr %126, align 4
-  store i32 %128, ptr %125, align 4
-  store i32 %127, ptr %126, align 4
-  %129 = getelementptr inbounds i8, ptr %0, i64 4
-  %130 = getelementptr inbounds i8, ptr %.sink50, i64 4
-  %131 = load i32, ptr %129, align 4
-  %132 = load i32, ptr %130, align 4
-  store i32 %132, ptr %129, align 4
-  store i32 %131, ptr %130, align 4
-  %133 = load i32, ptr %0, align 4
-  %134 = load i32, ptr %.sink50, align 4
-  store i32 %134, ptr %0, align 4
-  store i32 %133, ptr %.sink50, align 4
+  %125 = icmp slt i32 %122, %124
+  br i1 %125, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit25.thread, label %126
+
+126:                                              ; preds = %120
+  %127 = icmp slt i32 %124, %122
+  br i1 %127, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit25.thread35, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit25
+
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit25: ; preds = %126
+  %128 = load i32, ptr %2, align 4
+  %129 = load i32, ptr %3, align 4
+  %130 = icmp ult i32 %128, %129
+  br i1 %130, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit25.thread, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit25.thread35
+
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit25.thread: ; preds = %120, %112, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit24.thread33, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit25
+  %131 = getelementptr inbounds i8, ptr %0, i64 12
+  %132 = load i32, ptr %131, align 4
+  store i32 %84, ptr %131, align 4
+  store i32 %132, ptr %83, align 4
+  br label %135
+
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit25.thread35: ; preds = %126, %118, %110, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit25
+  %133 = getelementptr inbounds i8, ptr %0, i64 12
+  %134 = load i32, ptr %133, align 4
+  store i32 %8, ptr %133, align 4
+  store i32 %134, ptr %7, align 4
+  br label %135
+
+135:                                              ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit24.thread, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit25.thread35, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit25.thread, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit22.thread, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit23.thread31, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit23.thread
+  %.sink50 = phi ptr [ %1, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit24.thread ], [ %2, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit25.thread35 ], [ %3, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit25.thread ], [ %2, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit22.thread ], [ %1, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit23.thread31 ], [ %3, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit23.thread ]
+  %136 = getelementptr inbounds i8, ptr %0, i64 8
+  %137 = getelementptr inbounds i8, ptr %.sink50, i64 8
+  %138 = load i32, ptr %136, align 4
+  %139 = load i32, ptr %137, align 4
+  store i32 %139, ptr %136, align 4
+  store i32 %138, ptr %137, align 4
+  %140 = getelementptr inbounds i8, ptr %0, i64 4
+  %141 = getelementptr inbounds i8, ptr %.sink50, i64 4
+  %142 = load i32, ptr %140, align 4
+  %143 = load i32, ptr %141, align 4
+  store i32 %143, ptr %140, align 4
+  store i32 %142, ptr %141, align 4
+  %144 = load i32, ptr %0, align 4
+  %145 = load i32, ptr %.sink50, align 4
+  store i32 %145, ptr %0, align 4
+  store i32 %144, ptr %.sink50, align 4
   ret void
 }
 
@@ -25326,7 +25352,8 @@ _ZN4llvm15SmallVectorImplIjE12assignRemoteEOS1_.exit: ; preds = %8, %13
   store i32 %19, ptr %20, align 4
   store ptr %6, ptr %1, align 8
   store i32 0, ptr %18, align 4
-  br label %.sink.split
+  store i32 0, ptr %15, align 8
+  br label %53
 
 21:                                               ; preds = %4
   %22 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #28
@@ -25355,7 +25382,8 @@ _ZSt4moveIPjS0_ET0_T_S2_S1_.exit:                 ; preds = %29, %26, %24
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %22) #28
   %31 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #28
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
+  store i32 0, ptr %32, align 8
+  br label %53
 
 33:                                               ; preds = %21
   %34 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
@@ -25402,14 +25430,10 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE18uninitialized_moveIPjS3_EEvT_S4_T0_.ex
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %22) #28
   %51 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #28
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %_ZN4llvm15SmallVectorImplIjE12assignRemoteEOS1_.exit, %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE18uninitialized_moveIPjS3_EEvT_S4_T0_.exit
-  %.sink = phi ptr [ %52, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE18uninitialized_moveIPjS3_EEvT_S4_T0_.exit ], [ %32, %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit ], [ %15, %_ZN4llvm15SmallVectorImplIjE12assignRemoteEOS1_.exit ]
-  store i32 0, ptr %.sink, align 8
+  store i32 0, ptr %52, align 8
   br label %53
 
-53:                                               ; preds = %.sink.split, %2
+53:                                               ; preds = %2, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE18uninitialized_moveIPjS3_EEvT_S4_T0_.exit, %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit, %_ZN4llvm15SmallVectorImplIjE12assignRemoteEOS1_.exit
   ret ptr %0
 }
 

@@ -1093,22 +1093,25 @@ define hidden noundef i32 @hb_unicode_decompose_compatibility(ptr noundef %0, i3
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i32 %5(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr noundef %7)
   %9 = icmp eq i32 %8, 1
-  br i1 %9, label %10, label %13
+  br i1 %9, label %10, label %14
 
 10:                                               ; preds = %3
   %11 = load i32, ptr %2, align 4
   %12 = icmp eq i32 %1, %11
-  br i1 %12, label %_ZN18hb_unicode_funcs_t23decompose_compatibilityEjPj.exit, label %13
+  br i1 %12, label %13, label %14
 
-13:                                               ; preds = %10, %3
-  %14 = zext i32 %8 to i64
-  %15 = getelementptr inbounds i32, ptr %2, i64 %14
+13:                                               ; preds = %10
+  store i32 0, ptr %2, align 4
   br label %_ZN18hb_unicode_funcs_t23decompose_compatibilityEjPj.exit
 
-_ZN18hb_unicode_funcs_t23decompose_compatibilityEjPj.exit: ; preds = %10, %13
-  %.sink.i = phi ptr [ %15, %13 ], [ %2, %10 ]
-  %.0.i = phi i32 [ %8, %13 ], [ 0, %10 ]
-  store i32 0, ptr %.sink.i, align 4
+14:                                               ; preds = %10, %3
+  %15 = zext i32 %8 to i64
+  %16 = getelementptr inbounds i32, ptr %2, i64 %15
+  store i32 0, ptr %16, align 4
+  br label %_ZN18hb_unicode_funcs_t23decompose_compatibilityEjPj.exit
+
+_ZN18hb_unicode_funcs_t23decompose_compatibilityEjPj.exit: ; preds = %13, %14
+  %.0.i = phi i32 [ 0, %13 ], [ %8, %14 ]
   ret i32 %.0.i
 }
 

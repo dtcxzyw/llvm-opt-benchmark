@@ -6039,7 +6039,7 @@ define linkonce_odr dso_local void @_ZN4Luau7Printer17visualizeTypeListERKNS_11A
   br label %31
 
 31:                                               ; preds = %28, %26
-  br i1 %2, label %32, label %62
+  br i1 %2, label %32, label %61
 
 32:                                               ; preds = %31
   %33 = getelementptr inbounds i8, ptr %0, i64 8
@@ -6094,15 +6094,15 @@ define linkonce_odr dso_local void @_ZN4Luau7Printer17visualizeTypeListERKNS_11A
   br label %.sink.split
 
 .sink.split:                                      ; preds = %._crit_edge, %52, %10, %32
-  %.sink45 = phi ptr [ %33, %32 ], [ %11, %10 ], [ %35, %52 ], [ %35, %._crit_edge ]
-  %58 = load ptr, ptr %.sink45, align 8
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 72
-  %61 = load ptr, ptr %60, align 8
-  tail call void %61(ptr noundef nonnull align 8 dereferenceable(8) %58, i64 1, ptr nonnull @.str.96)
-  br label %62
+  %.sink44.in = phi ptr [ %33, %32 ], [ %11, %10 ], [ %35, %52 ], [ %35, %._crit_edge ]
+  %.sink44 = load ptr, ptr %.sink44.in, align 8
+  %58 = load ptr, ptr %.sink44, align 8
+  %59 = getelementptr inbounds i8, ptr %58, i64 72
+  %60 = load ptr, ptr %59, align 8
+  tail call void %60(ptr noundef nonnull align 8 dereferenceable(8) %.sink44, i64 1, ptr nonnull @.str.96)
+  br label %61
 
-62:                                               ; preds = %.sink.split, %31
+61:                                               ; preds = %.sink.split, %31
   ret void
 }
 

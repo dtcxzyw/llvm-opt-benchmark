@@ -3114,13 +3114,13 @@ define hidden void @_ZN2cv8obsensor17V4L2StreamChannel9grabFrameEv(ptr noundef n
 71:                                               ; preds = %66, %59, %56
   %72 = landingpad { ptr, i32 }
           cleanup
-  br label %190
+  br label %191
 
 73:                                               ; preds = %68
   %74 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #22
-  br label %190
+  br label %191
 
 75:                                               ; preds = %52, %70
   %76 = getelementptr inbounds i8, ptr %0, i64 216
@@ -3134,7 +3134,8 @@ define hidden void @_ZN2cv8obsensor17V4L2StreamChannel9grabFrameEv(ptr noundef n
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %75
   %79 = getelementptr inbounds i8, ptr %0, i64 208
-  br label %_ZNSt11unique_lockISt5mutexED2Ev.exit64
+  store i32 0, ptr %79, align 8
+  br label %188
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %.backedge
   %80 = load i32, ptr %15, align 8
@@ -3185,13 +3186,13 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %75
 103:                                              ; preds = %99, %92, %90
   %104 = landingpad { ptr, i32 }
           cleanup
-  br label %190
+  br label %191
 
 105:                                              ; preds = %101
   %106 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #22
-  br label %190
+  br label %191
 
 .backedge.sink.split:                             ; preds = %101, %179, %129
   %.sink83 = phi ptr [ %11, %129 ], [ %14, %179 ], [ %9, %101 ]
@@ -3254,13 +3255,13 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %75
 131:                                              ; preds = %127, %120, %118
   %132 = landingpad { ptr, i32 }
           cleanup
-  br label %190
+  br label %191
 
 133:                                              ; preds = %129
   %134 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #22
-  br label %190
+  br label %191
 
 135:                                              ; preds = %108
   %136 = load i32, ptr %30, align 8
@@ -3368,13 +3369,13 @@ _ZNKSt8functionIFvPN2cv8obsensor5FrameEEEclES3_.exit: ; preds = %155
 181:                                              ; preds = %177, %170, %168
   %182 = landingpad { ptr, i32 }
           cleanup
-  br label %190
+  br label %191
 
 183:                                              ; preds = %179
   %184 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #22
-  br label %190
+  br label %191
 
 ._crit_edge:                                      ; preds = %.backedge, %.preheader
   %185 = getelementptr inbounds i8, ptr %0, i64 216
@@ -3386,19 +3387,21 @@ _ZNKSt8functionIFvPN2cv8obsensor5FrameEEEclES3_.exit: ; preds = %155
   call void @_ZSt20__throw_system_errori(i32 noundef %186) #28
   unreachable
 
-_ZNSt11unique_lockISt5mutexED2Ev.exit64:          ; preds = %._crit_edge, %_ZNSt11unique_lockISt5mutexED2Ev.exit
-  %.sink86 = phi ptr [ %79, %_ZNSt11unique_lockISt5mutexED2Ev.exit ], [ %30, %._crit_edge ]
-  %.sink84 = phi ptr [ %76, %_ZNSt11unique_lockISt5mutexED2Ev.exit ], [ %185, %._crit_edge ]
-  store i32 0, ptr %.sink86, align 8
-  %188 = getelementptr inbounds i8, ptr %0, i64 256
-  call void @_ZNSt18condition_variable10notify_allEv(ptr noundef nonnull align 8 dereferenceable(48) %188) #22
-  %189 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %.sink84) #22
+_ZNSt11unique_lockISt5mutexED2Ev.exit64:          ; preds = %._crit_edge
+  store i32 0, ptr %30, align 8
+  br label %188
+
+188:                                              ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit64, %_ZNSt11unique_lockISt5mutexED2Ev.exit
+  %.sink84 = phi ptr [ %185, %_ZNSt11unique_lockISt5mutexED2Ev.exit64 ], [ %76, %_ZNSt11unique_lockISt5mutexED2Ev.exit ]
+  %189 = getelementptr inbounds i8, ptr %0, i64 256
+  call void @_ZNSt18condition_variable10notify_allEv(ptr noundef nonnull align 8 dereferenceable(48) %189) #22
+  %190 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %.sink84) #22
   ret void
 
-190:                                              ; preds = %181, %183, %131, %133, %103, %105, %71, %73
-  %.sink87 = phi ptr [ %6, %73 ], [ %6, %71 ], [ %8, %105 ], [ %8, %103 ], [ %10, %133 ], [ %10, %131 ], [ %13, %183 ], [ %13, %181 ]
+191:                                              ; preds = %181, %183, %131, %133, %103, %105, %71, %73
+  %.sink86 = phi ptr [ %6, %73 ], [ %6, %71 ], [ %8, %105 ], [ %8, %103 ], [ %10, %133 ], [ %10, %131 ], [ %13, %183 ], [ %13, %181 ]
   %.pn53.pn = phi { ptr, i32 } [ %74, %73 ], [ %72, %71 ], [ %106, %105 ], [ %104, %103 ], [ %134, %133 ], [ %132, %131 ], [ %184, %183 ], [ %182, %181 ]
-  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %.sink87) #22
+  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %.sink86) #22
   resume { ptr, i32 } %.pn53.pn
 }
 

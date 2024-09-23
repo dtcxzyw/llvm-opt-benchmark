@@ -2074,7 +2074,11 @@ define dso_local void @_ZN11V3LinkLevel11timescalingERKSt6vectorIP13AstNodeModul
   %.sroa.0.0.copyload.i37.us = load i8, ptr getelementptr inbounds (i8, ptr @v3Global, i64 1023), align 1
   %30 = icmp eq i8 %.sroa.0.0.copyload.i37.us, 18
   %.phi.trans.insert70 = getelementptr inbounds i8, ptr %29, i64 253
-  br i1 %30, label %31, label %.sink.split
+  br i1 %30, label %31, label %.thread
+
+.thread:                                          ; preds = %.lr.ph.split.us
+  store i8 %spec.store.select, ptr %.phi.trans.insert70, align 1
+  br label %34
 
 31:                                               ; preds = %.lr.ph.split.us
   %.sroa.0.0.copyload.i38.us.pre = load i8, ptr %.phi.trans.insert70, align 1
@@ -2083,14 +2087,10 @@ define dso_local void @_ZN11V3LinkLevel11timescalingERKSt6vectorIP13AstNodeModul
 
 .critedge2.us:                                    ; preds = %31
   %33 = getelementptr inbounds i8, ptr %29, i64 253
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %.lr.ph.split.us, %.critedge2.us
-  %.phi.trans.insert70.sink = phi ptr [ %33, %.critedge2.us ], [ %.phi.trans.insert70, %.lr.ph.split.us ]
-  store i8 %spec.store.select, ptr %.phi.trans.insert70.sink, align 1
+  store i8 %spec.store.select, ptr %33, align 1
   br label %34
 
-34:                                               ; preds = %.sink.split, %31
+34:                                               ; preds = %.thread, %.critedge2.us, %31
   %35 = getelementptr inbounds i8, ptr %.sroa.048.064.us, i64 8
   %.not60.us = icmp eq ptr %35, %27
   br i1 %.not60.us, label %._crit_edge, label %.lr.ph.split.us
@@ -7722,22 +7722,18 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
-  br label %.sink.split
+  store ptr %.031, ptr %24, align 8
+  br label %28
 
 25:                                               ; preds = %.lr.ph
   %26 = load ptr, ptr %19, align 8
   store ptr %26, ptr %.031, align 8
   %27 = load ptr, ptr %18, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %25, %23
-  %.sink = phi ptr [ %24, %23 ], [ %27, %25 ]
-  %.1.ph = phi i64 [ %17, %23 ], [ %.02530, %25 ]
-  store ptr %.031, ptr %.sink, align 8
+  store ptr %.031, ptr %27, align 8
   br label %28
 
-28:                                               ; preds = %.sink.split, %20
-  %.1 = phi i64 [ %17, %20 ], [ %.1.ph, %.sink.split ]
+28:                                               ; preds = %20, %23, %25
+  %.1 = phi i64 [ %.02530, %25 ], [ %17, %23 ], [ %17, %20 ]
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !64
 

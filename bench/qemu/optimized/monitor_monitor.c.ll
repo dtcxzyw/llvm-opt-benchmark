@@ -1156,9 +1156,18 @@ do.body1:                                         ; preds = %entry
   %entry2 = getelementptr inbounds i8, ptr %mon, i64 72
   store ptr %2, ptr %entry2, align 8
   %cmp.not = icmp eq ptr %2, null
+  br i1 %cmp.not, label %if.else, label %if.then3
+
+if.then3:                                         ; preds = %do.body1
   %tql_prev = getelementptr inbounds i8, ptr %2, i64 80
-  %tql_prev.sink = select i1 %cmp.not, ptr getelementptr inbounds (i8, ptr @mon_list, i64 8), ptr %tql_prev
-  store ptr %entry2, ptr %tql_prev.sink, align 8
+  store ptr %entry2, ptr %tql_prev, align 8
+  br label %if.end10.thread
+
+if.else:                                          ; preds = %do.body1
+  store ptr %entry2, ptr getelementptr inbounds (i8, ptr @mon_list, i64 8), align 8
+  br label %if.end10.thread
+
+if.end10.thread:                                  ; preds = %if.then3, %if.else
   store ptr %mon, ptr @mon_list, align 8
   %tql_prev8 = getelementptr inbounds i8, ptr %mon, i64 80
   store ptr @mon_list, ptr %tql_prev8, align 8
@@ -1199,7 +1208,7 @@ monitor_data_destroy.exit:                        ; preds = %if.then.i, %if.else
   tail call void @g_free(ptr noundef nonnull %mon) #13
   br label %if.end13
 
-if.end13:                                         ; preds = %do.body1, %monitor_data_destroy.exit, %if.end10
+if.end13:                                         ; preds = %if.end10.thread, %monitor_data_destroy.exit, %if.end10
   ret void
 }
 

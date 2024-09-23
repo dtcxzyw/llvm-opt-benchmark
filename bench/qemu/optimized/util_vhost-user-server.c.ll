@@ -979,17 +979,26 @@ if.end8:                                          ; preds = %land.rhs.i
   %cmp10.not = icmp eq ptr %2, null
   %tql_prev18 = getelementptr inbounds i8, ptr %vu_fd_watch.06.i, i64 40
   %3 = load ptr, ptr %tql_prev18, align 8
-  %tql_prev19 = getelementptr i8, ptr %vu_dev, i64 1488
+  br i1 %cmp10.not, label %if.else16, label %if.then11
+
+if.then11:                                        ; preds = %if.end8
   %tql_prev15 = getelementptr inbounds i8, ptr %2, i64 40
-  %tql_prev19.sink = select i1 %cmp10.not, ptr %tql_prev19, ptr %tql_prev15
-  store ptr %3, ptr %tql_prev19.sink, align 8
+  store ptr %3, ptr %tql_prev15, align 8
+  br label %if.end20
+
+if.else16:                                        ; preds = %if.end8
+  %tql_prev19 = getelementptr i8, ptr %vu_dev, i64 1488
+  store ptr %3, ptr %tql_prev19, align 8
+  br label %if.end20
+
+if.end20:                                         ; preds = %if.else16, %if.then11
   %4 = load ptr, ptr %next, align 8
   store ptr %4, ptr %3, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next, i8 0, i64 16, i1 false)
   tail call void @g_free(ptr noundef nonnull %vu_fd_watch.06.i) #9
   br label %return
 
-return:                                           ; preds = %for.inc.i, %do.end5, %if.end8
+return:                                           ; preds = %for.inc.i, %do.end5, %if.end20
   ret void
 }
 

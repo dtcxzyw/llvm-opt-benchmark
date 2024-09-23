@@ -14536,7 +14536,8 @@ _ZN4llvm15SmallVectorImplINS_15IntervalMapImpl4Path5EntryEE12assignRemoteEOS4_.e
   store i32 %19, ptr %20, align 4
   store ptr %6, ptr %1, align 8
   store i32 0, ptr %18, align 4
-  br label %.sink.split
+  store i32 0, ptr %15, align 8
+  br label %53
 
 21:                                               ; preds = %4
   %22 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #17
@@ -14565,7 +14566,8 @@ _ZSt4moveIPN4llvm15IntervalMapImpl4Path5EntryES4_ET0_T_S6_S5_.exit: ; preds = %2
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %22) #17
   %31 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #17
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
+  store i32 0, ptr %32, align 8
+  br label %53
 
 33:                                               ; preds = %21
   %34 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
@@ -14612,14 +14614,10 @@ _ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl4Path5EntryELb1EE18uniniti
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %22) #17
   %51 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #17
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %_ZN4llvm15SmallVectorImplINS_15IntervalMapImpl4Path5EntryEE12assignRemoteEOS4_.exit, %_ZSt4moveIPN4llvm15IntervalMapImpl4Path5EntryES4_ET0_T_S6_S5_.exit, %_ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl4Path5EntryELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit
-  %.sink = phi ptr [ %52, %_ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl4Path5EntryELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit ], [ %32, %_ZSt4moveIPN4llvm15IntervalMapImpl4Path5EntryES4_ET0_T_S6_S5_.exit ], [ %15, %_ZN4llvm15SmallVectorImplINS_15IntervalMapImpl4Path5EntryEE12assignRemoteEOS4_.exit ]
-  store i32 0, ptr %.sink, align 8
+  store i32 0, ptr %52, align 8
   br label %53
 
-53:                                               ; preds = %.sink.split, %2
+53:                                               ; preds = %2, %_ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl4Path5EntryELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit, %_ZSt4moveIPN4llvm15IntervalMapImpl4Path5EntryES4_ET0_T_S6_S5_.exit, %_ZN4llvm15SmallVectorImplINS_15IntervalMapImpl4Path5EntryEE12assignRemoteEOS4_.exit
   ret ptr %0
 }
 
@@ -19405,10 +19403,10 @@ define linkonce_odr noundef zeroext i1 @_ZN4llvm11IntervalMapINS_9SlotIndexEjLj9
   %17 = getelementptr inbounds i8, ptr %16, i64 -8
   %18 = load i32, ptr %17, align 8
   %.not = icmp ult i32 %10, %18
-  br i1 %.not32, label %19, label %33
+  br i1 %.not32, label %19, label %34
 
 19:                                               ; preds = %3
-  br i1 %.not, label %20, label %59
+  br i1 %.not, label %20, label %62
 
 20:                                               ; preds = %19
   %21 = load ptr, ptr %4, align 8
@@ -19421,56 +19419,59 @@ define linkonce_odr noundef zeroext i1 @_ZN4llvm11IntervalMapINS_9SlotIndexEjLj9
   %28 = getelementptr inbounds [9 x i32], ptr %26, i64 0, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, %2
-  br i1 %30, label %31, label %59
+  br i1 %30, label %31, label %62
 
 31:                                               ; preds = %20
   %32 = getelementptr inbounds [9 x %"struct.std::pair"], ptr %25, i64 0, i64 %27
-  br label %.sink.split
+  %.sroa.0.0.copyload.i = load i64, ptr %32, align 8
+  %33 = icmp eq i64 %1, %.sroa.0.0.copyload.i
+  br label %62
 
-33:                                               ; preds = %3
-  br i1 %.not, label %34, label %47
+34:                                               ; preds = %3
+  br i1 %.not, label %35, label %49
 
-34:                                               ; preds = %33
-  %35 = load ptr, ptr %4, align 8
-  %36 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
-  %37 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %35, i64 %36
-  %38 = getelementptr inbounds i8, ptr %37, i64 -16
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 144
-  %41 = zext i32 %10 to i64
-  %42 = getelementptr inbounds [9 x i32], ptr %40, i64 0, i64 %41
-  %43 = load i32, ptr %42, align 4
-  %44 = icmp eq i32 %43, %2
-  br i1 %44, label %45, label %59
+35:                                               ; preds = %34
+  %36 = load ptr, ptr %4, align 8
+  %37 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
+  %38 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %36, i64 %37
+  %39 = getelementptr inbounds i8, ptr %38, i64 -16
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 144
+  %42 = zext i32 %10 to i64
+  %43 = getelementptr inbounds [9 x i32], ptr %41, i64 0, i64 %42
+  %44 = load i32, ptr %43, align 4
+  %45 = icmp eq i32 %44, %2
+  br i1 %45, label %46, label %62
 
-45:                                               ; preds = %34
-  %46 = getelementptr inbounds [9 x %"struct.std::pair"], ptr %39, i64 0, i64 %41
-  br label %.sink.split
+46:                                               ; preds = %35
+  %47 = getelementptr inbounds [9 x %"struct.std::pair"], ptr %40, i64 0, i64 %42
+  %.sroa.0.0.copyload.i24 = load i64, ptr %47, align 8
+  %48 = icmp eq i64 %1, %.sroa.0.0.copyload.i24
+  br label %62
 
-47:                                               ; preds = %33
-  %48 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
-  %49 = trunc i64 %48 to i32
-  %50 = add i32 %49, -1
-  %51 = tail call i64 @_ZNK4llvm15IntervalMapImpl4Path15getRightSiblingEj(ptr noundef nonnull align 8 dereferenceable(80) %4, i32 noundef %50) #17
-  %.not33 = icmp eq i64 %51, 0
-  br i1 %.not33, label %59, label %52
+49:                                               ; preds = %34
+  %50 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
+  %51 = trunc i64 %50 to i32
+  %52 = add i32 %51, -1
+  %53 = tail call i64 @_ZNK4llvm15IntervalMapImpl4Path15getRightSiblingEj(ptr noundef nonnull align 8 dereferenceable(80) %4, i32 noundef %52) #17
+  %.not33 = icmp eq i64 %53, 0
+  br i1 %.not33, label %62, label %54
 
-52:                                               ; preds = %47
-  %53 = and i64 %51, -64
-  %54 = inttoptr i64 %53 to ptr
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 144
-  %56 = load i32, ptr %55, align 16
-  %57 = icmp eq i32 %56, %2
-  br i1 %57, label %.sink.split, label %59
+54:                                               ; preds = %49
+  %55 = and i64 %53, -64
+  %56 = inttoptr i64 %55 to ptr
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 144
+  %58 = load i32, ptr %57, align 16
+  %59 = icmp eq i32 %58, %2
+  br i1 %59, label %60, label %62
 
-.sink.split:                                      ; preds = %52, %31, %45
-  %.sink = phi ptr [ %46, %45 ], [ %32, %31 ], [ %54, %52 ]
-  %.sroa.0.0.copyload.i26 = load i64, ptr %.sink, align 8
-  %58 = icmp eq i64 %1, %.sroa.0.0.copyload.i26
-  br label %59
+60:                                               ; preds = %54
+  %.sroa.0.0.copyload.i26 = load i64, ptr %56, align 64
+  %61 = icmp eq i64 %1, %.sroa.0.0.copyload.i26
+  br label %62
 
-59:                                               ; preds = %.sink.split, %47, %52, %34, %20, %19
-  %.0 = phi i1 [ false, %19 ], [ false, %20 ], [ false, %34 ], [ false, %52 ], [ false, %47 ], [ %58, %.sink.split ]
+62:                                               ; preds = %49, %54, %60, %35, %46, %20, %31, %19
+  %.0 = phi i1 [ false, %19 ], [ false, %20 ], [ %33, %31 ], [ false, %35 ], [ %48, %46 ], [ false, %54 ], [ %61, %60 ], [ false, %49 ]
   ret i1 %.0
 }
 

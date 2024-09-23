@@ -1229,18 +1229,18 @@ define noundef i32 @_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_(ptr nocapture 
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %44, label %5
+  br i1 %.not, label %46, label %5
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %1, align 8
   %.not14 = icmp eq i32 %6, 0
-  br i1 %.not14, label %7, label %44
+  br i1 %.not14, label %7, label %46
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds i8, ptr %4, i64 60
   %9 = load i32, ptr %8, align 4
   %10 = icmp sgt i32 %9, 2
-  br i1 %10, label %11, label %44
+  br i1 %10, label %11, label %46
 
 11:                                               ; preds = %7
   store i32 1, ptr %1, align 8
@@ -1286,32 +1286,32 @@ _ZL12tMPI_Set_reqP8envelopeP9tmpi_req_.exit:      ; preds = %27, %29, %.sink.spl
   store i64 %.sink.i, ptr %33, align 8
   %34 = load i32, ptr %24, align 8
   %.not15 = icmp eq i32 %34, 0
-  br i1 %.not15, label %38, label %35
+  br i1 %.not15, label %40, label %35
 
 35:                                               ; preds = %_ZL12tMPI_Set_reqP8envelopeP9tmpi_req_.exit
   %36 = getelementptr inbounds i8, ptr %4, i64 176
   %37 = load ptr, ptr %36, align 8
-  br label %.sink.split
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds i8, ptr %4, i64 136
+  store ptr %38, ptr %39, align 8
+  store ptr %4, ptr %37, align 8
+  br label %46
 
-38:                                               ; preds = %_ZL12tMPI_Set_reqP8envelopeP9tmpi_req_.exit
-  %39 = getelementptr inbounds i8, ptr %0, i64 208
-  %40 = getelementptr inbounds i8, ptr %4, i64 168
-  %41 = getelementptr inbounds i8, ptr %4, i64 128
-  store ptr null, ptr %41, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false)
-  br label %.sink.split
+40:                                               ; preds = %_ZL12tMPI_Set_reqP8envelopeP9tmpi_req_.exit
+  %41 = getelementptr inbounds i8, ptr %0, i64 208
+  %42 = getelementptr inbounds i8, ptr %4, i64 168
+  %43 = getelementptr inbounds i8, ptr %4, i64 128
+  store ptr null, ptr %43, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
+  %44 = load ptr, ptr %41, align 8
+  %45 = getelementptr inbounds i8, ptr %4, i64 136
+  store ptr %44, ptr %45, align 8
+  store ptr %4, ptr %41, align 8
+  br label %46
 
-.sink.split:                                      ; preds = %35, %38
-  %.sink18 = phi ptr [ %39, %38 ], [ %37, %35 ]
-  %42 = load ptr, ptr %.sink18, align 8
-  %43 = getelementptr inbounds i8, ptr %4, i64 136
-  store ptr %42, ptr %43, align 8
-  store ptr %4, ptr %.sink18, align 8
-  br label %44
-
-44:                                               ; preds = %.sink.split, %7, %5, %2
-  %45 = load i32, ptr %1, align 8
-  ret i32 %45
+46:                                               ; preds = %7, %40, %35, %5, %2
+  %47 = load i32, ptr %1, align 8
+  ret i32 %47
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1325,90 +1325,89 @@ define void @_Z16tMPI_Wait_singleP11tmpi_threadP9tmpi_req_(ptr noundef %0, ptr n
   %9 = getelementptr inbounds i8, ptr %0, i64 208
   br label %10
 
-10:                                               ; preds = %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit.thread6, %2
+10:                                               ; preds = %47, %2
   %11 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %11, null
-  %.pr.pre4 = load i32, ptr %1, align 8
   br i1 %.not.i, label %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit, label %12
 
 12:                                               ; preds = %10
-  %.not14.i = icmp eq i32 %.pr.pre4, 0
-  br i1 %.not14.i, label %13, label %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit.thread
+  %13 = load i32, ptr %1, align 8
+  %.not14.i = icmp eq i32 %13, 0
+  br i1 %.not14.i, label %14, label %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit.thread
 
-13:                                               ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %11, i64 60
-  %15 = load i32, ptr %14, align 4
-  %16 = icmp sgt i32 %15, 2
-  br i1 %16, label %17, label %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit.thread6
+14:                                               ; preds = %12
+  %15 = getelementptr inbounds i8, ptr %11, i64 60
+  %16 = load i32, ptr %15, align 4
+  %17 = icmp sgt i32 %16, 2
+  br i1 %17, label %18, label %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit
 
-17:                                               ; preds = %13
+18:                                               ; preds = %14
   store i32 1, ptr %1, align 8
-  %18 = getelementptr inbounds i8, ptr %11, i64 124
-  %19 = load i32, ptr %18, align 4
-  store i32 %19, ptr %4, align 4
-  %20 = getelementptr inbounds i8, ptr %11, i64 16
-  %21 = load ptr, ptr %20, align 8
-  store ptr %21, ptr %5, align 8
-  %22 = getelementptr inbounds i8, ptr %11, i64 8
-  %23 = load ptr, ptr %22, align 8
-  store ptr %23, ptr %6, align 8
-  %24 = load i32, ptr %11, align 8
-  store i32 %24, ptr %7, align 8
-  %25 = load i32, ptr %18, align 4
-  store i32 %25, ptr %4, align 4
-  %26 = getelementptr inbounds i8, ptr %11, i64 144
-  %27 = load i32, ptr %26, align 8
-  %.not.i.i = icmp eq i32 %27, 0
-  %28 = load i32, ptr %14, align 4
-  br i1 %.not.i.i, label %31, label %29
+  %19 = getelementptr inbounds i8, ptr %11, i64 124
+  %20 = load i32, ptr %19, align 4
+  store i32 %20, ptr %4, align 4
+  %21 = getelementptr inbounds i8, ptr %11, i64 16
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr %5, align 8
+  %23 = getelementptr inbounds i8, ptr %11, i64 8
+  %24 = load ptr, ptr %23, align 8
+  store ptr %24, ptr %6, align 8
+  %25 = load i32, ptr %11, align 8
+  store i32 %25, ptr %7, align 8
+  %26 = load i32, ptr %19, align 4
+  store i32 %26, ptr %4, align 4
+  %27 = getelementptr inbounds i8, ptr %11, i64 144
+  %28 = load i32, ptr %27, align 8
+  %.not.i.i = icmp eq i32 %28, 0
+  %29 = load i32, ptr %15, align 4
+  br i1 %.not.i.i, label %32, label %30
 
-29:                                               ; preds = %17
-  %30 = icmp sgt i32 %28, 0
-  br i1 %30, label %.sink.split.i.i, label %_ZL12tMPI_Set_reqP8envelopeP9tmpi_req_.exit.i
+30:                                               ; preds = %18
+  %31 = icmp sgt i32 %29, 0
+  br i1 %31, label %.sink.split.i.i, label %_ZL12tMPI_Set_reqP8envelopeP9tmpi_req_.exit.i
 
-31:                                               ; preds = %17
-  %32 = icmp eq i32 %28, 3
-  br i1 %32, label %.sink.split.i.i, label %_ZL12tMPI_Set_reqP8envelopeP9tmpi_req_.exit.i
+32:                                               ; preds = %18
+  %33 = icmp eq i32 %29, 3
+  br i1 %33, label %.sink.split.i.i, label %_ZL12tMPI_Set_reqP8envelopeP9tmpi_req_.exit.i
 
-.sink.split.i.i:                                  ; preds = %31, %29
-  %33 = getelementptr inbounds i8, ptr %11, i64 40
-  %34 = load i64, ptr %33, align 8
+.sink.split.i.i:                                  ; preds = %32, %30
+  %34 = getelementptr inbounds i8, ptr %11, i64 40
+  %35 = load i64, ptr %34, align 8
   br label %_ZL12tMPI_Set_reqP8envelopeP9tmpi_req_.exit.i
 
-_ZL12tMPI_Set_reqP8envelopeP9tmpi_req_.exit.i:    ; preds = %.sink.split.i.i, %31, %29
-  %.sink.i.i = phi i64 [ 0, %29 ], [ 0, %31 ], [ %34, %.sink.split.i.i ]
+_ZL12tMPI_Set_reqP8envelopeP9tmpi_req_.exit.i:    ; preds = %.sink.split.i.i, %32, %30
+  %.sink.i.i = phi i64 [ 0, %30 ], [ 0, %32 ], [ %35, %.sink.split.i.i ]
   store i64 %.sink.i.i, ptr %8, align 8
-  %35 = load i32, ptr %26, align 8
-  %.not15.i = icmp eq i32 %35, 0
-  br i1 %.not15.i, label %39, label %36
+  %36 = load i32, ptr %27, align 8
+  %.not15.i = icmp eq i32 %36, 0
+  br i1 %.not15.i, label %42, label %37
 
-36:                                               ; preds = %_ZL12tMPI_Set_reqP8envelopeP9tmpi_req_.exit.i
-  %37 = getelementptr inbounds i8, ptr %11, i64 176
-  %38 = load ptr, ptr %37, align 8
-  br label %.sink.split.i
-
-39:                                               ; preds = %_ZL12tMPI_Set_reqP8envelopeP9tmpi_req_.exit.i
-  %40 = getelementptr inbounds i8, ptr %11, i64 168
-  %41 = getelementptr inbounds i8, ptr %11, i64 128
-  store ptr null, ptr %41, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false)
-  br label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %39, %36
-  %.sink18.i = phi ptr [ %9, %39 ], [ %38, %36 ]
-  %42 = load ptr, ptr %.sink18.i, align 8
-  %43 = getelementptr inbounds i8, ptr %11, i64 136
-  store ptr %42, ptr %43, align 8
-  store ptr %11, ptr %.sink18.i, align 8
-  %.pr.pre = load i32, ptr %1, align 8
+37:                                               ; preds = %_ZL12tMPI_Set_reqP8envelopeP9tmpi_req_.exit.i
+  %38 = getelementptr inbounds i8, ptr %11, i64 176
+  %39 = load ptr, ptr %38, align 8
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %11, i64 136
+  store ptr %40, ptr %41, align 8
+  store ptr %11, ptr %39, align 8
   br label %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit
 
-_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit: ; preds = %10, %.sink.split.i
-  %.pr = phi i32 [ %.pr.pre4, %10 ], [ %.pr.pre, %.sink.split.i ]
-  %.not = icmp eq i32 %.pr, 0
-  br i1 %.not, label %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit.thread6, label %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit.thread
+42:                                               ; preds = %_ZL12tMPI_Set_reqP8envelopeP9tmpi_req_.exit.i
+  %43 = getelementptr inbounds i8, ptr %11, i64 168
+  %44 = getelementptr inbounds i8, ptr %11, i64 128
+  store ptr null, ptr %44, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false)
+  %45 = load ptr, ptr %9, align 8
+  %46 = getelementptr inbounds i8, ptr %11, i64 136
+  store ptr %45, ptr %46, align 8
+  store ptr %11, ptr %9, align 8
+  br label %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit
 
-_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit.thread6: ; preds = %13, %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit
+_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit: ; preds = %10, %14, %37, %42
+  %.pr = load i32, ptr %1, align 8
+  %.not = icmp eq i32 %.pr, 0
+  br i1 %.not, label %47, label %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit.thread
+
+47:                                               ; preds = %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit
   tail call void @_Z26tMPI_Wait_process_incomingP11tmpi_thread(ptr noundef %0)
   br label %10, !llvm.loop !18
 
@@ -1433,136 +1432,135 @@ define noundef range(i32 0, 2) i32 @_Z15tMPI_Test_multiP11tmpi_threadP9tmpi_req_
   %6 = getelementptr inbounds i8, ptr %0, i64 208
   br label %7
 
-7:                                                ; preds = %.lr.ph, %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit.thread31
-  %.028 = phi i32 [ 1, %.lr.ph ], [ %.1, %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit.thread31 ]
-  %.01627 = phi ptr [ %1, %.lr.ph ], [ %57, %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit.thread31 ]
+7:                                                ; preds = %.lr.ph, %59
+  %.028 = phi i32 [ 1, %.lr.ph ], [ %.1, %59 ]
+  %.01627 = phi ptr [ %1, %.lr.ph ], [ %61, %59 ]
   %8 = getelementptr inbounds i8, ptr %.01627, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
-  %.pr.pre29 = load i32, ptr %.01627, align 8
   br i1 %.not.i, label %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit, label %10
 
 10:                                               ; preds = %7
-  %.not14.i = icmp eq i32 %.pr.pre29, 0
-  br i1 %.not14.i, label %11, label %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit.thread
+  %11 = load i32, ptr %.01627, align 8
+  %.not14.i = icmp eq i32 %11, 0
+  br i1 %.not14.i, label %12, label %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit.thread
 
-11:                                               ; preds = %10
-  %12 = getelementptr inbounds i8, ptr %9, i64 60
-  %13 = load i32, ptr %12, align 4
-  %14 = icmp sgt i32 %13, 2
-  br i1 %14, label %15, label %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit.thread31
+12:                                               ; preds = %10
+  %13 = getelementptr inbounds i8, ptr %9, i64 60
+  %14 = load i32, ptr %13, align 4
+  %15 = icmp sgt i32 %14, 2
+  br i1 %15, label %16, label %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit
 
-15:                                               ; preds = %11
+16:                                               ; preds = %12
   store i32 1, ptr %.01627, align 8
-  %16 = getelementptr inbounds i8, ptr %9, i64 124
-  %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %.01627, i64 36
-  store i32 %17, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %9, i64 16
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %.01627, i64 16
-  store ptr %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %9, i64 8
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %.01627, i64 24
-  store ptr %23, ptr %24, align 8
-  %25 = load i32, ptr %9, align 8
-  %26 = getelementptr inbounds i8, ptr %.01627, i64 32
-  store i32 %25, ptr %26, align 8
-  %27 = load i32, ptr %16, align 4
-  store i32 %27, ptr %18, align 4
-  %28 = getelementptr inbounds i8, ptr %9, i64 144
-  %29 = load i32, ptr %28, align 8
-  %.not.i.i = icmp eq i32 %29, 0
-  %30 = load i32, ptr %12, align 4
-  br i1 %.not.i.i, label %33, label %31
+  %17 = getelementptr inbounds i8, ptr %9, i64 124
+  %18 = load i32, ptr %17, align 4
+  %19 = getelementptr inbounds i8, ptr %.01627, i64 36
+  store i32 %18, ptr %19, align 4
+  %20 = getelementptr inbounds i8, ptr %9, i64 16
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %.01627, i64 16
+  store ptr %21, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %9, i64 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %.01627, i64 24
+  store ptr %24, ptr %25, align 8
+  %26 = load i32, ptr %9, align 8
+  %27 = getelementptr inbounds i8, ptr %.01627, i64 32
+  store i32 %26, ptr %27, align 8
+  %28 = load i32, ptr %17, align 4
+  store i32 %28, ptr %19, align 4
+  %29 = getelementptr inbounds i8, ptr %9, i64 144
+  %30 = load i32, ptr %29, align 8
+  %.not.i.i = icmp eq i32 %30, 0
+  %31 = load i32, ptr %13, align 4
+  br i1 %.not.i.i, label %34, label %32
 
-31:                                               ; preds = %15
-  %32 = icmp sgt i32 %30, 0
-  br i1 %32, label %.sink.split.i.i, label %_ZL12tMPI_Set_reqP8envelopeP9tmpi_req_.exit.i
+32:                                               ; preds = %16
+  %33 = icmp sgt i32 %31, 0
+  br i1 %33, label %.sink.split.i.i, label %_ZL12tMPI_Set_reqP8envelopeP9tmpi_req_.exit.i
 
-33:                                               ; preds = %15
-  %34 = icmp eq i32 %30, 3
-  br i1 %34, label %.sink.split.i.i, label %_ZL12tMPI_Set_reqP8envelopeP9tmpi_req_.exit.i
+34:                                               ; preds = %16
+  %35 = icmp eq i32 %31, 3
+  br i1 %35, label %.sink.split.i.i, label %_ZL12tMPI_Set_reqP8envelopeP9tmpi_req_.exit.i
 
-.sink.split.i.i:                                  ; preds = %33, %31
-  %35 = getelementptr inbounds i8, ptr %9, i64 40
-  %36 = load i64, ptr %35, align 8
+.sink.split.i.i:                                  ; preds = %34, %32
+  %36 = getelementptr inbounds i8, ptr %9, i64 40
+  %37 = load i64, ptr %36, align 8
   br label %_ZL12tMPI_Set_reqP8envelopeP9tmpi_req_.exit.i
 
-_ZL12tMPI_Set_reqP8envelopeP9tmpi_req_.exit.i:    ; preds = %.sink.split.i.i, %33, %31
-  %.sink.i.i = phi i64 [ 0, %31 ], [ 0, %33 ], [ %36, %.sink.split.i.i ]
-  %37 = getelementptr inbounds i8, ptr %.01627, i64 40
-  store i64 %.sink.i.i, ptr %37, align 8
-  %38 = load i32, ptr %28, align 8
-  %.not15.i = icmp eq i32 %38, 0
-  br i1 %.not15.i, label %42, label %39
+_ZL12tMPI_Set_reqP8envelopeP9tmpi_req_.exit.i:    ; preds = %.sink.split.i.i, %34, %32
+  %.sink.i.i = phi i64 [ 0, %32 ], [ 0, %34 ], [ %37, %.sink.split.i.i ]
+  %38 = getelementptr inbounds i8, ptr %.01627, i64 40
+  store i64 %.sink.i.i, ptr %38, align 8
+  %39 = load i32, ptr %29, align 8
+  %.not15.i = icmp eq i32 %39, 0
+  br i1 %.not15.i, label %45, label %40
 
-39:                                               ; preds = %_ZL12tMPI_Set_reqP8envelopeP9tmpi_req_.exit.i
-  %40 = getelementptr inbounds i8, ptr %9, i64 176
-  %41 = load ptr, ptr %40, align 8
-  br label %.sink.split.i
-
-42:                                               ; preds = %_ZL12tMPI_Set_reqP8envelopeP9tmpi_req_.exit.i
-  %43 = getelementptr inbounds i8, ptr %9, i64 168
-  %44 = getelementptr inbounds i8, ptr %9, i64 128
-  store ptr null, ptr %44, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false)
-  br label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %42, %39
-  %.sink18.i = phi ptr [ %6, %42 ], [ %41, %39 ]
-  %45 = load ptr, ptr %.sink18.i, align 8
-  %46 = getelementptr inbounds i8, ptr %9, i64 136
-  store ptr %45, ptr %46, align 8
-  store ptr %9, ptr %.sink18.i, align 8
-  %.pr.pre = load i32, ptr %.01627, align 8
+40:                                               ; preds = %_ZL12tMPI_Set_reqP8envelopeP9tmpi_req_.exit.i
+  %41 = getelementptr inbounds i8, ptr %9, i64 176
+  %42 = load ptr, ptr %41, align 8
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds i8, ptr %9, i64 136
+  store ptr %43, ptr %44, align 8
+  store ptr %9, ptr %42, align 8
   br label %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit
 
-_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit: ; preds = %7, %.sink.split.i
-  %.pr = phi i32 [ %.pr.pre29, %7 ], [ %.pr.pre, %.sink.split.i ]
+45:                                               ; preds = %_ZL12tMPI_Set_reqP8envelopeP9tmpi_req_.exit.i
+  %46 = getelementptr inbounds i8, ptr %9, i64 168
+  %47 = getelementptr inbounds i8, ptr %9, i64 128
+  store ptr null, ptr %47, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, i8 0, i64 16, i1 false)
+  %48 = load ptr, ptr %6, align 8
+  %49 = getelementptr inbounds i8, ptr %9, i64 136
+  store ptr %48, ptr %49, align 8
+  store ptr %9, ptr %6, align 8
+  br label %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit
+
+_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit: ; preds = %7, %12, %40, %45
+  %.pr = load i32, ptr %.01627, align 8
   %.not22 = icmp eq i32 %.pr, 0
-  br i1 %.not22, label %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit.thread31, label %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit.thread
+  br i1 %.not22, label %59, label %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit.thread
 
 _Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit.thread: ; preds = %10, %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit
-  %47 = getelementptr inbounds i8, ptr %.01627, i64 64
-  %48 = load ptr, ptr %47, align 8
-  %.not23 = icmp eq ptr %48, null
+  %50 = getelementptr inbounds i8, ptr %.01627, i64 64
+  %51 = load ptr, ptr %50, align 8
+  %.not23 = icmp eq ptr %51, null
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.01627, i64 56
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br i1 %.not23, label %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit.thread._crit_edge, label %49
+  br i1 %.not23, label %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit.thread._crit_edge, label %52
 
-49:                                               ; preds = %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit.thread
-  %50 = getelementptr inbounds i8, ptr %48, i64 56
-  store ptr %.pre, ptr %50, align 8
+52:                                               ; preds = %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit.thread
+  %53 = getelementptr inbounds i8, ptr %51, i64 56
+  store ptr %.pre, ptr %53, align 8
   br label %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit.thread._crit_edge
 
-_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit.thread._crit_edge: ; preds = %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit.thread, %49
+_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit.thread._crit_edge: ; preds = %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit.thread, %52
   %.not24 = icmp eq ptr %.pre, null
-  br i1 %.not24, label %54, label %51
+  br i1 %.not24, label %57, label %54
 
-51:                                               ; preds = %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit.thread._crit_edge
-  %52 = load ptr, ptr %47, align 8
-  %53 = getelementptr inbounds i8, ptr %.pre, i64 64
-  store ptr %52, ptr %53, align 8
-  br label %54
+54:                                               ; preds = %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit.thread._crit_edge
+  %55 = load ptr, ptr %50, align 8
+  %56 = getelementptr inbounds i8, ptr %.pre, i64 64
+  store ptr %55, ptr %56, align 8
+  br label %57
 
-54:                                               ; preds = %51, %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit.thread._crit_edge
-  br i1 %.not, label %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit.thread31, label %55
+57:                                               ; preds = %54, %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit.thread._crit_edge
+  br i1 %.not, label %59, label %58
 
-55:                                               ; preds = %54
+58:                                               ; preds = %57
   store i32 1, ptr %2, align 4
-  br label %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit.thread31
+  br label %59
 
-_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit.thread31: ; preds = %11, %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit, %54, %55
-  %.1 = phi i32 [ %.028, %55 ], [ %.028, %54 ], [ 0, %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit ], [ 0, %11 ]
-  %56 = getelementptr inbounds i8, ptr %.01627, i64 56
-  %57 = load ptr, ptr %56, align 8
-  %.not21 = icmp eq ptr %57, null
+59:                                               ; preds = %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit, %57, %58
+  %.1 = phi i32 [ %.028, %58 ], [ %.028, %57 ], [ 0, %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit ]
+  %60 = getelementptr inbounds i8, ptr %.01627, i64 56
+  %61 = load ptr, ptr %60, align 8
+  %.not21 = icmp eq ptr %61, null
   br i1 %.not21, label %._crit_edge, label %7, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit.thread31, %5
-  %.0.lcssa = phi i32 [ 1, %5 ], [ %.1, %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit.thread31 ]
+._crit_edge:                                      ; preds = %59, %5
+  %.0.lcssa = phi i32 [ 1, %5 ], [ %.1, %59 ]
   ret i32 %.0.lcssa
 }
 

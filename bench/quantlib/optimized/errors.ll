@@ -1247,6 +1247,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %if
   %_M_string_length.i13.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 %13, ptr %_M_string_length.i13.i, align 8, !tbaa !13
   store ptr %10, ptr %call3.i.i, align 8, !tbaa !10
+  store i64 0, ptr %_M_string_length.i12.i, align 8, !tbaa !13
+  store i8 0, ptr %10, align 8, !tbaa !12
   br label %cleanup9
 
 if.end7:                                          ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit14, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit
@@ -1289,13 +1291,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit29: ; preds = %
   %_M_string_length.i13.i24 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 %20, ptr %_M_string_length.i13.i24, align 8, !tbaa !13
   store ptr %17, ptr %call.i.i, align 8, !tbaa !10
+  store i64 0, ptr %_M_string_length.i12.i23, align 8, !tbaa !13
+  store i8 0, ptr %17, align 8, !tbaa !12
   br label %cleanup9
 
 cleanup9:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit29
-  %_M_string_length.i12.i.sink = phi ptr [ %_M_string_length.i12.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit ], [ %_M_string_length.i12.i23, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit29 ]
-  %.sink = phi ptr [ %10, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit ], [ %17, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit29 ]
-  store i64 0, ptr %_M_string_length.i12.i.sink, align 8, !tbaa !13
-  store i8 0, ptr %.sink, align 1, !tbaa !12
   ret void
 }
 

@@ -2487,13 +2487,13 @@ define range(i32 -5, 1) i32 @ompi_instance_get_nth_pset(ptr nocapture noundef re
   %11 = icmp ule i64 %.pre-phi22, %.pre23
   %12 = icmp slt i32 %1, 0
   %or.cond = or i1 %12, %11
-  br i1 %or.cond, label %39, label %13
+  br i1 %or.cond, label %38, label %13
 
 13:                                               ; preds = %10
   %14 = load i32, ptr %2, align 4
   %15 = icmp eq i32 %14, 0
   %16 = icmp ult i32 %1, 3
-  br i1 %15, label %17, label %25
+  br i1 %15, label %17, label %24
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr @ompi_mpi_instance_pmix_psets, align 8
@@ -2501,36 +2501,36 @@ define range(i32 -5, 1) i32 @ompi_instance_get_nth_pset(ptr nocapture noundef re
   %20 = getelementptr ptr, ptr %18, i64 %19
   %21 = getelementptr i8, ptr %20, i64 -24
   %22 = getelementptr inbounds [3 x ptr], ptr @ompi_instance_builtin_psets, i64 0, i64 %.pre23
-  %.sink24 = select i1 %16, ptr %22, ptr %21
-  %23 = load ptr, ptr %.sink24, align 8
-  %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #15
-  %storemerge.in = trunc i64 %24 to i32
+  %.sink.in = select i1 %16, ptr %22, ptr %21
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink) #15
+  %storemerge.in = trunc i64 %23 to i32
   %storemerge = add i32 %storemerge.in, 1
   store i32 %storemerge, ptr %2, align 4
-  br label %39
+  br label %38
 
-25:                                               ; preds = %13
-  br i1 %16, label %26, label %31
+24:                                               ; preds = %13
+  br i1 %16, label %25, label %30
 
-26:                                               ; preds = %25
-  %27 = getelementptr inbounds [3 x ptr], ptr @ompi_instance_builtin_psets, i64 0, i64 %.pre23
-  %28 = load ptr, ptr %27, align 8
-  %29 = sext i32 %14 to i64
-  %30 = tail call ptr @strncpy(ptr noundef %3, ptr noundef %28, i64 noundef %29) #13
-  br label %39
+25:                                               ; preds = %24
+  %26 = getelementptr inbounds [3 x ptr], ptr @ompi_instance_builtin_psets, i64 0, i64 %.pre23
+  %27 = load ptr, ptr %26, align 8
+  %28 = sext i32 %14 to i64
+  %29 = tail call ptr @strncpy(ptr noundef %3, ptr noundef %27, i64 noundef %28) #13
+  br label %38
 
-31:                                               ; preds = %25
-  %32 = load ptr, ptr @ompi_mpi_instance_pmix_psets, align 8
-  %33 = zext nneg i32 %1 to i64
-  %34 = getelementptr ptr, ptr %32, i64 %33
-  %35 = getelementptr i8, ptr %34, i64 -24
-  %36 = load ptr, ptr %35, align 8
-  %37 = sext i32 %14 to i64
-  %38 = tail call ptr @strncpy(ptr noundef %3, ptr noundef %36, i64 noundef %37) #13
-  br label %39
+30:                                               ; preds = %24
+  %31 = load ptr, ptr @ompi_mpi_instance_pmix_psets, align 8
+  %32 = zext nneg i32 %1 to i64
+  %33 = getelementptr ptr, ptr %31, i64 %32
+  %34 = getelementptr i8, ptr %33, i64 -24
+  %35 = load ptr, ptr %34, align 8
+  %36 = sext i32 %14 to i64
+  %37 = tail call ptr @strncpy(ptr noundef %3, ptr noundef %35, i64 noundef %36) #13
+  br label %38
 
-39:                                               ; preds = %26, %31, %10, %17
-  %.0 = phi i32 [ 0, %17 ], [ -5, %10 ], [ 0, %31 ], [ 0, %26 ]
+38:                                               ; preds = %25, %30, %10, %17
+  %.0 = phi i32 [ 0, %17 ], [ -5, %10 ], [ 0, %30 ], [ 0, %25 ]
   ret i32 %.0
 }
 

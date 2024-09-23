@@ -570,13 +570,13 @@ if.else:                                          ; preds = %if.then
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end, %if.else
-  %keydata11.sink = phi ptr [ %keydata11, %if.else ], [ %constructed_obj, %if.end ]
-  %6 = load ptr, ptr %keydata11.sink, align 8
-  store ptr %6, ptr %obj, align 8
+  %.sink.in = phi ptr [ %keydata11, %if.else ], [ %constructed_obj, %if.end ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  store ptr %.sink, ptr %obj, align 8
   br label %return
 
 return:                                           ; preds = %return.sink.split, %entry, %if.then5
-  %retval.0 = phi ptr [ null, %if.then5 ], [ %0, %entry ], [ %6, %return.sink.split ]
+  %retval.0 = phi ptr [ null, %if.then5 ], [ %0, %entry ], [ %.sink, %return.sink.split ]
   ret ptr %retval.0
 }
 

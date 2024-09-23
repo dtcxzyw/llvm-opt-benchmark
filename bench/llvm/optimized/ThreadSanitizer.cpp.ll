@@ -3091,6 +3091,7 @@ _ZNK4llvm17TargetLibraryInfo11getAttrListEPNS_11LLVMContextENS_8ArrayRefIjEEbbNS
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %417, i64 8
   store i32 3, ptr %.sroa.3.0..sroa_idx, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %417, i64 12
+  store i32 4, ptr %.sroa.4.0..sroa_idx, align 4
   br label %427
 
 .critedge:                                        ; preds = %.loopexit.i
@@ -3109,15 +3110,14 @@ _ZNK4llvm17TargetLibraryInfo11getAttrListEPNS_11LLVMContextENS_8ArrayRefIjEEbbNS
   %426 = getelementptr inbounds i8, ptr %425, i64 8
   store i32 3, ptr %425, align 4
   %.sroa.2400.0..sroa_idx = getelementptr inbounds i8, ptr %425, i64 4
+  store i32 4, ptr %.sroa.2400.0..sroa_idx, align 4
   br label %427
 
 427:                                              ; preds = %.critedge, %_ZNK4llvm17TargetLibraryInfo11getAttrListEPNS_11LLVMContextENS_8ArrayRefIjEEbbNS_13AttributeListE.exit
-  %.sroa.2400.0..sroa_idx.sink = phi ptr [ %.sroa.2400.0..sroa_idx, %.critedge ], [ %.sroa.4.0..sroa_idx, %_ZNK4llvm17TargetLibraryInfo11getAttrListEPNS_11LLVMContextENS_8ArrayRefIjEEbbNS_13AttributeListE.exit ]
   %.sroa.0403.1484 = phi ptr [ %425, %.critedge ], [ %417, %_ZNK4llvm17TargetLibraryInfo11getAttrListEPNS_11LLVMContextENS_8ArrayRefIjEEbbNS_13AttributeListE.exit ]
   %.sroa.6.1482 = phi ptr [ %426, %.critedge ], [ %418, %_ZNK4llvm17TargetLibraryInfo11getAttrListEPNS_11LLVMContextENS_8ArrayRefIjEEbbNS_13AttributeListE.exit ]
   %.sroa.11.1461478 = phi ptr [ %424, %.critedge ], [ %416, %_ZNK4llvm17TargetLibraryInfo11getAttrListEPNS_11LLVMContextENS_8ArrayRefIjEEbbNS_13AttributeListE.exit ]
   %.sroa.0411.1465474 = phi ptr [ %423, %.critedge ], [ %415, %_ZNK4llvm17TargetLibraryInfo11getAttrListEPNS_11LLVMContextENS_8ArrayRefIjEEbbNS_13AttributeListE.exit ]
-  store i32 4, ptr %.sroa.2400.0..sroa_idx.sink, align 4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %17)
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13get_allocatorEv(ptr dead_on_unwind nonnull writable sret(%"class.std::allocator") align 1 %17, ptr noundef nonnull align 8 dereferenceable(32) %51) #17, !noalias !68

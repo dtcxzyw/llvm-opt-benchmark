@@ -5874,12 +5874,12 @@ _ZNK2cv4Mat_INS_7Point3_IfEEEclEi.exit:           ; preds = %1
   br label %72
 
 _ZNK2cv4Mat_INS_7Point3_IfEEEclEi.exit.thread:    ; preds = %36, %27, %_ZNK2cv4Mat_INS_7Point3_IfEEEclEi.exit.thread27
-  %.sink = phi ptr [ %22, %_ZNK2cv4Mat_INS_7Point3_IfEEEclEi.exit.thread27 ], [ %50, %36 ], [ %35, %27 ]
+  %.sink29 = phi ptr [ %22, %_ZNK2cv4Mat_INS_7Point3_IfEEEclEi.exit.thread27 ], [ %50, %36 ], [ %35, %27 ]
   %61 = phi ptr [ %20, %_ZNK2cv4Mat_INS_7Point3_IfEEEclEi.exit.thread27 ], [ %42, %36 ], [ %29, %27 ]
-  %62 = load float, ptr %.sink, align 4
-  %63 = getelementptr inbounds i8, ptr %.sink, i64 4
+  %62 = load float, ptr %.sink29, align 4
+  %63 = getelementptr inbounds i8, ptr %.sink29, i64 4
   %64 = load float, ptr %63, align 4
-  %65 = getelementptr inbounds i8, ptr %.sink, i64 8
+  %65 = getelementptr inbounds i8, ptr %.sink29, i64 8
   %66 = load float, ptr %65, align 4
   %67 = load i32, ptr %9, align 4
   %68 = getelementptr inbounds i8, ptr %0, i64 208

@@ -3797,17 +3797,17 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %Vec_IntStartFull.ex
   br i1 %256, label %232, label %.critedge15, !llvm.loop !45
 
 .critedge15:                                      ; preds = %232, %193, %._crit_edge, %186
-  %.sink = phi ptr [ %189, %186 ], [ %192, %._crit_edge ], [ %192, %193 ], [ %192, %232 ]
+  %.val4.i201.sink.in = phi ptr [ %189, %186 ], [ %192, %._crit_edge ], [ %192, %193 ], [ %192, %232 ]
   %.str.25.sink.sink = phi ptr [ @.str.11, %186 ], [ @.str.25, %._crit_edge ], [ @.str.14, %193 ], [ @.str.25, %232 ]
+  %.val4.i201.sink = load i32, ptr %.val4.i201.sink.in, align 8
   %.val3.i200.sink = load ptr, ptr %181, align 8
-  %.val4.i201 = load i32, ptr %.sink, align 8
   %257 = getelementptr i8, ptr %.val3.i200.sink, i64 264
   %.val3.val.i202 = load ptr, ptr %257, align 8
   %258 = getelementptr i8, ptr %.val3.val.i202, i64 16
   %.val3.val.val.i203 = load ptr, ptr %258, align 8
   %259 = getelementptr i8, ptr %.val3.val.val.i203, i64 8
   %.val3.val.val.val.i204 = load ptr, ptr %259, align 8
-  %260 = sext i32 %.val4.i201 to i64
+  %260 = sext i32 %.val4.i201.sink to i64
   %261 = getelementptr inbounds ptr, ptr %.val3.val.val.val.i204, i64 %260
   %262 = load ptr, ptr %261, align 8
   %263 = load float, ptr %262, align 4

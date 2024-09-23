@@ -156,6 +156,7 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
 62:                                               ; preds = %55, %53
   %.15 = phi ptr [ %56, %55 ], [ %40, %53 ]
   %63 = getelementptr inbounds i8, ptr %.15, i64 24
+  store i8 0, ptr %63, align 1
   br label %metaphone.exit
 
 64:                                               ; preds = %.lr.ph.i
@@ -2873,13 +2874,12 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   %.7 = phi ptr [ %.6, %.critedge.i ], [ %1573, %1570 ], [ %1582, %1592 ], [ %1582, %1579 ]
   %1597 = getelementptr inbounds i8, ptr %.7, i64 24
   %1598 = getelementptr inbounds [1 x i8], ptr %1597, i64 0, i64 %.13699.lcssa.i
+  store i8 0, ptr %1598, align 1
   br label %metaphone.exit
 
 metaphone.exit:                                   ; preds = %62, %1596
   %.16 = phi ptr [ %.15, %62 ], [ %.7, %1596 ]
-  %.sink4066.i = phi ptr [ %63, %62 ], [ %1598, %1596 ]
   %.13699.lcssa.sink.i = phi i64 [ 0, %62 ], [ %.13699.lcssa.i, %1596 ]
-  store i8 0, ptr %.sink4066.i, align 1
   %1599 = getelementptr inbounds i8, ptr %.16, i64 16
   store i64 %.13699.lcssa.sink.i, ptr %1599, align 8
   store ptr %.16, ptr %1, align 8

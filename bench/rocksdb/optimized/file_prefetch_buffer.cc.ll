@@ -2268,15 +2268,15 @@ terminate.lpad.i.i:                               ; preds = %if.then.i12.i
 _ZN7rocksdb18FilePrefetchBuffer23DestroyAndClearIOHandleEj.exit: ; preds = %.noexc38, %invoke.cont.i.i
   %39 = phi ptr [ %.pre.i, %invoke.cont.i.i ], [ %35, %.noexc38 ]
   %async_read_in_progress_.i = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %39, i64 %conv19, i32 3
+  store i8 0, ptr %async_read_in_progress_.i, align 8
   br label %if.end37
 
 if.else:                                          ; preds = %land.lhs.true23, %if.end16
   %async_read_in_progress_36 = getelementptr inbounds i8, ptr %add.ptr.i32, i64 56
+  store i8 0, ptr %async_read_in_progress_36, align 8
   br label %if.end37
 
 if.end37:                                         ; preds = %_ZN7rocksdb18FilePrefetchBuffer23DestroyAndClearIOHandleEj.exit, %if.else
-  %async_read_in_progress_.i.sink = phi ptr [ %async_read_in_progress_.i, %_ZN7rocksdb18FilePrefetchBuffer23DestroyAndClearIOHandleEj.exit ], [ %async_read_in_progress_36, %if.else ]
-  store i8 0, ptr %async_read_in_progress_.i.sink, align 8
   %conv39 = zext i32 %xor to i64
   %40 = load ptr, ptr %this, align 8
   %add.ptr.i40 = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %40, i64 %conv39
@@ -2331,15 +2331,15 @@ terminate.lpad.i.i61:                             ; preds = %if.then.i12.i59
 _ZN7rocksdb18FilePrefetchBuffer23DestroyAndClearIOHandleEj.exit66: ; preds = %.noexc65, %invoke.cont.i.i62
   %49 = phi ptr [ %.pre.i63, %invoke.cont.i.i62 ], [ %45, %.noexc65 ]
   %async_read_in_progress_.i64 = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %49, i64 %conv39, i32 3
+  store i8 0, ptr %async_read_in_progress_.i64, align 8
   br label %if.end56
 
 if.else51:                                        ; preds = %land.lhs.true43, %if.end37
   %async_read_in_progress_55 = getelementptr inbounds i8, ptr %add.ptr.i40, i64 56
+  store i8 0, ptr %async_read_in_progress_55, align 8
   br label %if.end56
 
 if.end56:                                         ; preds = %_ZN7rocksdb18FilePrefetchBuffer23DestroyAndClearIOHandleEj.exit66, %if.else51
-  %async_read_in_progress_.i64.sink = phi ptr [ %async_read_in_progress_.i64, %_ZN7rocksdb18FilePrefetchBuffer23DestroyAndClearIOHandleEj.exit66 ], [ %async_read_in_progress_55, %if.else51 ]
-  store i8 0, ptr %async_read_in_progress_.i64.sink, align 8
   %50 = load ptr, ptr %handles, align 8
   %tobool.not.i.i.i69 = icmp eq ptr %50, null
   br i1 %tobool.not.i.i.i69, label %_ZNSt6vectorIPvSaIS0_EED2Ev.exit, label %if.then.i.i.i70

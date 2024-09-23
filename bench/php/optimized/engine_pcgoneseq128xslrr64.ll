@@ -322,7 +322,7 @@ define hidden void @zim_Random_Engine_PcgOneseq128XslRr64___construct(ptr nounde
   %.075158 = phi i32 [ 0, %.thread150 ], [ 29, %19 ]
   %.076157 = phi i32 [ 1, %.thread150 ], [ 9, %19 ]
   call void @zend_wrong_parameter_error(i32 noundef %.076157, i32 noundef %.073160, ptr noundef null, i32 noundef %.075158, ptr noundef %.074159) #7
-  br label %60
+  br label %61
 
 .thread164:                                       ; preds = %13, %11
   %21 = call i32 @php_random_bytes(ptr noundef nonnull %5, i64 noundef 16, i1 noundef zeroext true) #7
@@ -335,7 +335,7 @@ define hidden void @zim_Random_Engine_PcgOneseq128XslRr64___construct(ptr nounde
   %26 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %27 = icmp ne ptr %26, null
   call void @llvm.assume(i1 %27)
-  br label %60
+  br label %61
 
 28:                                               ; preds = %.thread164
   %29 = load i128, ptr %5, align 16
@@ -360,7 +360,7 @@ define hidden void @zim_Random_Engine_PcgOneseq128XslRr64___construct(ptr nounde
   %.sroa.0.0.insert.ext.i20.i = and i128 %.sroa.02.0.insert.insert.i21.i15.i, 18446744073709551615
   %.sroa.0.0.insert.insert.i21.i = or disjoint i128 %.sroa.2.0.insert.shift.i19.i, %.sroa.0.0.insert.ext.i20.i
   store i128 %.sroa.0.0.insert.insert.i21.i, ptr %.sroa.1.0.copyload, align 16
-  br label %60
+  br label %61
 
 .thread162thread-pre-split:                       ; preds = %19
   %.pr = load ptr, ptr %3, align 8
@@ -427,32 +427,32 @@ define hidden void @zim_Random_Engine_PcgOneseq128XslRr64___construct(ptr nounde
   %.sroa.0.0.insert.ext.i20.i99 = and i128 %.sroa.02.0.insert.insert.i21.i15.i94, 18446744073709551615
   %.sroa.0.0.insert.insert.i21.i100 = or disjoint i128 %.sroa.2.0.insert.shift.i19.i98, %.sroa.0.0.insert.ext.i20.i99
   store i128 %.sroa.0.0.insert.insert.i21.i100, ptr %.sroa.1.0.copyload, align 16
-  br label %60
+  br label %61
 
 55:                                               ; preds = %34
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.1) #7
   %56 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %57 = icmp ne ptr %56, null
   call void @llvm.assume(i1 %57)
-  br label %60
+  br label %61
 
 .thread162.thread:                                ; preds = %.thread162, %13
-  %.sink = phi ptr [ %14, %13 ], [ %4, %.thread162 ]
-  %.pre = load i64, ptr %.sink, align 8
-  %.sroa.0.0.insert.ext.i13.i103 = zext i64 %.pre to i128
-  %58 = mul i128 %.sroa.0.0.insert.ext.i13.i103, 47026247687942121848144207491837523525
-  %.sroa.02.0.insert.insert.i21.i15.i111 = add i128 %58, -21102577299880832445404573290446240358
-  %59 = lshr i128 %.sroa.02.0.insert.insert.i21.i15.i111, 64
-  %.tr.i.i16.i112 = trunc nuw i128 %59 to i64
+  %.in = phi ptr [ %14, %13 ], [ %4, %.thread162 ]
+  %58 = load i64, ptr %.in, align 8
+  %.sroa.0.0.insert.ext.i13.i103 = zext i64 %58 to i128
+  %59 = mul i128 %.sroa.0.0.insert.ext.i13.i103, 47026247687942121848144207491837523525
+  %.sroa.02.0.insert.insert.i21.i15.i111 = add i128 %59, -21102577299880832445404573290446240358
+  %60 = lshr i128 %.sroa.02.0.insert.insert.i21.i15.i111, 64
+  %.tr.i.i16.i112 = trunc nuw i128 %60 to i64
   %.narrow.i.i17.i113 = add i64 %.tr.i.i16.i112, 6364136223846793005
   %.sroa.2.0.insert.ext.i18.i114 = zext i64 %.narrow.i.i17.i113 to i128
   %.sroa.2.0.insert.shift.i19.i115 = shl nuw i128 %.sroa.2.0.insert.ext.i18.i114, 64
   %.sroa.0.0.insert.ext.i20.i116 = and i128 %.sroa.02.0.insert.insert.i21.i15.i111, 18446744073709551615
   %.sroa.0.0.insert.insert.i21.i117 = or disjoint i128 %.sroa.2.0.insert.shift.i19.i115, %.sroa.0.0.insert.ext.i20.i116
   store i128 %.sroa.0.0.insert.insert.i21.i117, ptr %.sroa.1.0.copyload, align 16
-  br label %60
+  br label %61
 
-60:                                               ; preds = %51, %.thread162.thread, %55, %28, %23, %.thread172
+61:                                               ; preds = %51, %.thread162.thread, %55, %28, %23, %.thread172
   ret void
 }
 

@@ -472,24 +472,24 @@ tear_down.exit16:                                 ; preds = %lor.lhs.false
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %tear_down.exit16, %if.end8.thread
-  %cmp_ctx.i.sink = phi ptr [ %cmp_ctx.i, %if.end8.thread ], [ %4, %tear_down.exit16 ]
+  %.sink.in = phi ptr [ %cmp_ctx.i, %if.end8.thread ], [ %4, %tear_down.exit16 ]
   %retval.0.ph = phi i32 [ 0, %if.end8.thread ], [ %call1.i, %tear_down.exit16 ]
-  %5 = load ptr, ptr %cmp_ctx.i.sink, align 8
-  tail call void @OSSL_CMP_CTX_free(ptr noundef %5) #5
-  %6 = load ptr, ptr %msg, align 8
-  tail call void @OSSL_CMP_MSG_free(ptr noundef %6) #5
+  %.sink = load ptr, ptr %.sink.in, align 8
+  tail call void @OSSL_CMP_CTX_free(ptr noundef %.sink) #5
+  %5 = load ptr, ptr %msg, align 8
+  tail call void @OSSL_CMP_MSG_free(ptr noundef %5) #5
   %si.i = getelementptr inbounds i8, ptr %call, i64 24
-  %7 = load ptr, ptr %si.i, align 8
-  tail call void @OSSL_CMP_PKISI_free(ptr noundef %7) #5
+  %6 = load ptr, ptr %si.i, align 8
+  tail call void @OSSL_CMP_PKISI_free(ptr noundef %6) #5
   %mem.i = getelementptr inbounds i8, ptr %call, i64 40
-  %8 = load ptr, ptr %mem.i, align 8
-  tail call void @CRYPTO_free(ptr noundef %8, ptr noundef nonnull @.str.14, i32 noundef 46) #5
+  %7 = load ptr, ptr %mem.i, align 8
+  tail call void @CRYPTO_free(ptr noundef %7, ptr noundef nonnull @.str.14, i32 noundef 46) #5
   %certs.i = getelementptr inbounds i8, ptr %call, i64 64
-  %9 = load ptr, ptr %certs.i, align 8
-  tail call void @OPENSSL_sk_free(ptr noundef %9) #5
+  %8 = load ptr, ptr %certs.i, align 8
+  tail call void @OPENSSL_sk_free(ptr noundef %8) #5
   %chain.i = getelementptr inbounds i8, ptr %call, i64 72
-  %10 = load ptr, ptr %chain.i, align 8
-  tail call void @OPENSSL_sk_free(ptr noundef %10) #5
+  %9 = load ptr, ptr %chain.i, align 8
+  tail call void @OPENSSL_sk_free(ptr noundef %9) #5
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 50) #5
   br label %return
 
@@ -541,22 +541,22 @@ tear_down.exit16:                                 ; preds = %lor.lhs.false
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %tear_down.exit16, %if.end8.thread
-  %msg.i.sink = phi ptr [ %msg.i, %if.end8.thread ], [ %msg, %tear_down.exit16 ]
+  %.sink.in = phi ptr [ %msg.i, %if.end8.thread ], [ %msg, %tear_down.exit16 ]
   %retval.0.ph = phi i32 [ 0, %if.end8.thread ], [ %call12, %tear_down.exit16 ]
-  %6 = load ptr, ptr %msg.i.sink, align 8
-  tail call void @OSSL_CMP_MSG_free(ptr noundef %6) #5
+  %.sink = load ptr, ptr %.sink.in, align 8
+  tail call void @OSSL_CMP_MSG_free(ptr noundef %.sink) #5
   %si.i = getelementptr inbounds i8, ptr %call, i64 24
-  %7 = load ptr, ptr %si.i, align 8
-  tail call void @OSSL_CMP_PKISI_free(ptr noundef %7) #5
+  %6 = load ptr, ptr %si.i, align 8
+  tail call void @OSSL_CMP_PKISI_free(ptr noundef %6) #5
   %mem.i = getelementptr inbounds i8, ptr %call, i64 40
-  %8 = load ptr, ptr %mem.i, align 8
-  tail call void @CRYPTO_free(ptr noundef %8, ptr noundef nonnull @.str.14, i32 noundef 46) #5
+  %7 = load ptr, ptr %mem.i, align 8
+  tail call void @CRYPTO_free(ptr noundef %7, ptr noundef nonnull @.str.14, i32 noundef 46) #5
   %certs.i = getelementptr inbounds i8, ptr %call, i64 64
-  %9 = load ptr, ptr %certs.i, align 8
-  tail call void @OPENSSL_sk_free(ptr noundef %9) #5
+  %8 = load ptr, ptr %certs.i, align 8
+  tail call void @OPENSSL_sk_free(ptr noundef %8) #5
   %chain.i = getelementptr inbounds i8, ptr %call, i64 72
-  %10 = load ptr, ptr %chain.i, align 8
-  tail call void @OPENSSL_sk_free(ptr noundef %10) #5
+  %9 = load ptr, ptr %chain.i, align 8
+  tail call void @OPENSSL_sk_free(ptr noundef %9) #5
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 50) #5
   br label %return
 
@@ -608,22 +608,22 @@ tear_down.exit16:                                 ; preds = %lor.lhs.false
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %tear_down.exit16, %if.end8.thread
-  %msg.i.sink = phi ptr [ %msg.i, %if.end8.thread ], [ %msg, %tear_down.exit16 ]
+  %.sink.in = phi ptr [ %msg.i, %if.end8.thread ], [ %msg, %tear_down.exit16 ]
   %retval.0.ph = phi i32 [ 0, %if.end8.thread ], [ %call12, %tear_down.exit16 ]
-  %6 = load ptr, ptr %msg.i.sink, align 8
-  tail call void @OSSL_CMP_MSG_free(ptr noundef %6) #5
+  %.sink = load ptr, ptr %.sink.in, align 8
+  tail call void @OSSL_CMP_MSG_free(ptr noundef %.sink) #5
   %si.i = getelementptr inbounds i8, ptr %call, i64 24
-  %7 = load ptr, ptr %si.i, align 8
-  tail call void @OSSL_CMP_PKISI_free(ptr noundef %7) #5
+  %6 = load ptr, ptr %si.i, align 8
+  tail call void @OSSL_CMP_PKISI_free(ptr noundef %6) #5
   %mem.i = getelementptr inbounds i8, ptr %call, i64 40
-  %8 = load ptr, ptr %mem.i, align 8
-  tail call void @CRYPTO_free(ptr noundef %8, ptr noundef nonnull @.str.14, i32 noundef 46) #5
+  %7 = load ptr, ptr %mem.i, align 8
+  tail call void @CRYPTO_free(ptr noundef %7, ptr noundef nonnull @.str.14, i32 noundef 46) #5
   %certs.i = getelementptr inbounds i8, ptr %call, i64 64
-  %9 = load ptr, ptr %certs.i, align 8
-  tail call void @OPENSSL_sk_free(ptr noundef %9) #5
+  %8 = load ptr, ptr %certs.i, align 8
+  tail call void @OPENSSL_sk_free(ptr noundef %8) #5
   %chain.i = getelementptr inbounds i8, ptr %call, i64 72
-  %10 = load ptr, ptr %chain.i, align 8
-  tail call void @OPENSSL_sk_free(ptr noundef %10) #5
+  %9 = load ptr, ptr %chain.i, align 8
+  tail call void @OPENSSL_sk_free(ptr noundef %9) #5
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 50) #5
   br label %return
 
@@ -695,22 +695,22 @@ tear_down.exit17:                                 ; preds = %if.then11, %land.rh
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %tear_down.exit17, %if.end8.thread
-  %msg.i.sink = phi ptr [ %msg.i, %if.end8.thread ], [ %msg, %tear_down.exit17 ]
+  %.sink.in = phi ptr [ %msg.i, %if.end8.thread ], [ %msg, %tear_down.exit17 ]
   %retval.0.ph = phi i32 [ 0, %if.end8.thread ], [ %land.ext.i, %tear_down.exit17 ]
-  %10 = load ptr, ptr %msg.i.sink, align 8
-  call void @OSSL_CMP_MSG_free(ptr noundef %10) #5
+  %.sink = load ptr, ptr %.sink.in, align 8
+  call void @OSSL_CMP_MSG_free(ptr noundef %.sink) #5
   %si.i = getelementptr inbounds i8, ptr %call, i64 24
-  %11 = load ptr, ptr %si.i, align 8
-  call void @OSSL_CMP_PKISI_free(ptr noundef %11) #5
+  %10 = load ptr, ptr %si.i, align 8
+  call void @OSSL_CMP_PKISI_free(ptr noundef %10) #5
   %mem.i = getelementptr inbounds i8, ptr %call, i64 40
-  %12 = load ptr, ptr %mem.i, align 8
-  call void @CRYPTO_free(ptr noundef %12, ptr noundef nonnull @.str.14, i32 noundef 46) #5
+  %11 = load ptr, ptr %mem.i, align 8
+  call void @CRYPTO_free(ptr noundef %11, ptr noundef nonnull @.str.14, i32 noundef 46) #5
   %certs.i = getelementptr inbounds i8, ptr %call, i64 64
-  %13 = load ptr, ptr %certs.i, align 8
-  call void @OPENSSL_sk_free(ptr noundef %13) #5
+  %12 = load ptr, ptr %certs.i, align 8
+  call void @OPENSSL_sk_free(ptr noundef %12) #5
   %chain.i = getelementptr inbounds i8, ptr %call, i64 72
-  %14 = load ptr, ptr %chain.i, align 8
-  call void @OPENSSL_sk_free(ptr noundef %14) #5
+  %13 = load ptr, ptr %chain.i, align 8
+  call void @OPENSSL_sk_free(ptr noundef %13) #5
   call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 50) #5
   br label %return
 
@@ -778,24 +778,24 @@ tear_down.exit20:                                 ; preds = %lor.lhs.false14
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %tear_down.exit20, %if.end22.thread
-  %cmp_ctx.i.sink = phi ptr [ %cmp_ctx.i, %if.end22.thread ], [ %cmp_ctx, %tear_down.exit20 ]
+  %.sink.in = phi ptr [ %cmp_ctx.i, %if.end22.thread ], [ %cmp_ctx, %tear_down.exit20 ]
   %retval.0.ph = phi i32 [ 0, %if.end22.thread ], [ %call1.i, %tear_down.exit20 ]
-  %7 = load ptr, ptr %cmp_ctx.i.sink, align 8
-  tail call void @OSSL_CMP_CTX_free(ptr noundef %7) #5
-  %8 = load ptr, ptr %msg, align 8
-  tail call void @OSSL_CMP_MSG_free(ptr noundef %8) #5
+  %.sink = load ptr, ptr %.sink.in, align 8
+  tail call void @OSSL_CMP_CTX_free(ptr noundef %.sink) #5
+  %7 = load ptr, ptr %msg, align 8
+  tail call void @OSSL_CMP_MSG_free(ptr noundef %7) #5
   %si.i = getelementptr inbounds i8, ptr %call, i64 24
-  %9 = load ptr, ptr %si.i, align 8
-  tail call void @OSSL_CMP_PKISI_free(ptr noundef %9) #5
+  %8 = load ptr, ptr %si.i, align 8
+  tail call void @OSSL_CMP_PKISI_free(ptr noundef %8) #5
   %mem.i = getelementptr inbounds i8, ptr %call, i64 40
-  %10 = load ptr, ptr %mem.i, align 8
-  tail call void @CRYPTO_free(ptr noundef %10, ptr noundef nonnull @.str.14, i32 noundef 46) #5
+  %9 = load ptr, ptr %mem.i, align 8
+  tail call void @CRYPTO_free(ptr noundef %9, ptr noundef nonnull @.str.14, i32 noundef 46) #5
   %certs.i = getelementptr inbounds i8, ptr %call, i64 64
-  %11 = load ptr, ptr %certs.i, align 8
-  tail call void @OPENSSL_sk_free(ptr noundef %11) #5
+  %10 = load ptr, ptr %certs.i, align 8
+  tail call void @OPENSSL_sk_free(ptr noundef %10) #5
   %chain.i = getelementptr inbounds i8, ptr %call, i64 72
-  %12 = load ptr, ptr %chain.i, align 8
-  tail call void @OPENSSL_sk_free(ptr noundef %12) #5
+  %11 = load ptr, ptr %chain.i, align 8
+  tail call void @OPENSSL_sk_free(ptr noundef %11) #5
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 50) #5
   br label %return
 
@@ -865,24 +865,24 @@ tear_down.exit20:                                 ; preds = %lor.lhs.false14
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %tear_down.exit20, %if.end22.thread
-  %cmp_ctx.i.sink = phi ptr [ %cmp_ctx.i, %if.end22.thread ], [ %cmp_ctx, %tear_down.exit20 ]
+  %.sink.in = phi ptr [ %cmp_ctx.i, %if.end22.thread ], [ %cmp_ctx, %tear_down.exit20 ]
   %retval.0.ph = phi i32 [ 0, %if.end22.thread ], [ %call1.i, %tear_down.exit20 ]
-  %9 = load ptr, ptr %cmp_ctx.i.sink, align 8
-  tail call void @OSSL_CMP_CTX_free(ptr noundef %9) #5
-  %10 = load ptr, ptr %msg, align 8
-  tail call void @OSSL_CMP_MSG_free(ptr noundef %10) #5
+  %.sink = load ptr, ptr %.sink.in, align 8
+  tail call void @OSSL_CMP_CTX_free(ptr noundef %.sink) #5
+  %9 = load ptr, ptr %msg, align 8
+  tail call void @OSSL_CMP_MSG_free(ptr noundef %9) #5
   %si.i = getelementptr inbounds i8, ptr %call, i64 24
-  %11 = load ptr, ptr %si.i, align 8
-  tail call void @OSSL_CMP_PKISI_free(ptr noundef %11) #5
+  %10 = load ptr, ptr %si.i, align 8
+  tail call void @OSSL_CMP_PKISI_free(ptr noundef %10) #5
   %mem.i = getelementptr inbounds i8, ptr %call, i64 40
-  %12 = load ptr, ptr %mem.i, align 8
-  tail call void @CRYPTO_free(ptr noundef %12, ptr noundef nonnull @.str.14, i32 noundef 46) #5
+  %11 = load ptr, ptr %mem.i, align 8
+  tail call void @CRYPTO_free(ptr noundef %11, ptr noundef nonnull @.str.14, i32 noundef 46) #5
   %certs.i = getelementptr inbounds i8, ptr %call, i64 64
-  %13 = load ptr, ptr %certs.i, align 8
-  tail call void @OPENSSL_sk_free(ptr noundef %13) #5
+  %12 = load ptr, ptr %certs.i, align 8
+  tail call void @OPENSSL_sk_free(ptr noundef %12) #5
   %chain.i = getelementptr inbounds i8, ptr %call, i64 72
-  %14 = load ptr, ptr %chain.i, align 8
-  tail call void @OPENSSL_sk_free(ptr noundef %14) #5
+  %13 = load ptr, ptr %chain.i, align 8
+  tail call void @OPENSSL_sk_free(ptr noundef %13) #5
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 50) #5
   br label %return
 
@@ -1023,24 +1023,24 @@ tear_down.exit18:                                 ; preds = %lor.lhs.false
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %tear_down.exit18, %if.end8.thread
-  %cmp_ctx.i.sink = phi ptr [ %cmp_ctx.i, %if.end8.thread ], [ %cmp_ctx, %tear_down.exit18 ]
+  %.sink.in = phi ptr [ %cmp_ctx.i, %if.end8.thread ], [ %cmp_ctx, %tear_down.exit18 ]
   %retval.0.ph = phi i32 [ 0, %if.end8.thread ], [ %call1.i, %tear_down.exit18 ]
-  %5 = load ptr, ptr %cmp_ctx.i.sink, align 8
-  tail call void @OSSL_CMP_CTX_free(ptr noundef %5) #5
-  %6 = load ptr, ptr %msg, align 8
-  tail call void @OSSL_CMP_MSG_free(ptr noundef %6) #5
+  %.sink = load ptr, ptr %.sink.in, align 8
+  tail call void @OSSL_CMP_CTX_free(ptr noundef %.sink) #5
+  %5 = load ptr, ptr %msg, align 8
+  tail call void @OSSL_CMP_MSG_free(ptr noundef %5) #5
   %si.i = getelementptr inbounds i8, ptr %call, i64 24
-  %7 = load ptr, ptr %si.i, align 8
-  tail call void @OSSL_CMP_PKISI_free(ptr noundef %7) #5
+  %6 = load ptr, ptr %si.i, align 8
+  tail call void @OSSL_CMP_PKISI_free(ptr noundef %6) #5
   %mem.i = getelementptr inbounds i8, ptr %call, i64 40
-  %8 = load ptr, ptr %mem.i, align 8
-  tail call void @CRYPTO_free(ptr noundef %8, ptr noundef nonnull @.str.14, i32 noundef 46) #5
+  %7 = load ptr, ptr %mem.i, align 8
+  tail call void @CRYPTO_free(ptr noundef %7, ptr noundef nonnull @.str.14, i32 noundef 46) #5
   %certs.i = getelementptr inbounds i8, ptr %call, i64 64
-  %9 = load ptr, ptr %certs.i, align 8
-  tail call void @OPENSSL_sk_free(ptr noundef %9) #5
+  %8 = load ptr, ptr %certs.i, align 8
+  tail call void @OPENSSL_sk_free(ptr noundef %8) #5
   %chain.i = getelementptr inbounds i8, ptr %call, i64 72
-  %10 = load ptr, ptr %chain.i, align 8
-  tail call void @OPENSSL_sk_free(ptr noundef %10) #5
+  %9 = load ptr, ptr %chain.i, align 8
+  tail call void @OPENSSL_sk_free(ptr noundef %9) #5
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 50) #5
   br label %return
 
@@ -1090,24 +1090,24 @@ tear_down.exit18:                                 ; preds = %lor.lhs.false
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %tear_down.exit18, %if.end8.thread
-  %cmp_ctx.i.sink = phi ptr [ %cmp_ctx.i, %if.end8.thread ], [ %cmp_ctx, %tear_down.exit18 ]
+  %.sink.in = phi ptr [ %cmp_ctx.i, %if.end8.thread ], [ %cmp_ctx, %tear_down.exit18 ]
   %retval.0.ph = phi i32 [ 0, %if.end8.thread ], [ %call1.i, %tear_down.exit18 ]
-  %5 = load ptr, ptr %cmp_ctx.i.sink, align 8
-  tail call void @OSSL_CMP_CTX_free(ptr noundef %5) #5
-  %6 = load ptr, ptr %msg, align 8
-  tail call void @OSSL_CMP_MSG_free(ptr noundef %6) #5
+  %.sink = load ptr, ptr %.sink.in, align 8
+  tail call void @OSSL_CMP_CTX_free(ptr noundef %.sink) #5
+  %5 = load ptr, ptr %msg, align 8
+  tail call void @OSSL_CMP_MSG_free(ptr noundef %5) #5
   %si.i = getelementptr inbounds i8, ptr %call, i64 24
-  %7 = load ptr, ptr %si.i, align 8
-  tail call void @OSSL_CMP_PKISI_free(ptr noundef %7) #5
+  %6 = load ptr, ptr %si.i, align 8
+  tail call void @OSSL_CMP_PKISI_free(ptr noundef %6) #5
   %mem.i = getelementptr inbounds i8, ptr %call, i64 40
-  %8 = load ptr, ptr %mem.i, align 8
-  tail call void @CRYPTO_free(ptr noundef %8, ptr noundef nonnull @.str.14, i32 noundef 46) #5
+  %7 = load ptr, ptr %mem.i, align 8
+  tail call void @CRYPTO_free(ptr noundef %7, ptr noundef nonnull @.str.14, i32 noundef 46) #5
   %certs.i = getelementptr inbounds i8, ptr %call, i64 64
-  %9 = load ptr, ptr %certs.i, align 8
-  tail call void @OPENSSL_sk_free(ptr noundef %9) #5
+  %8 = load ptr, ptr %certs.i, align 8
+  tail call void @OPENSSL_sk_free(ptr noundef %8) #5
   %chain.i = getelementptr inbounds i8, ptr %call, i64 72
-  %10 = load ptr, ptr %chain.i, align 8
-  tail call void @OPENSSL_sk_free(ptr noundef %10) #5
+  %9 = load ptr, ptr %chain.i, align 8
+  tail call void @OPENSSL_sk_free(ptr noundef %9) #5
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 50) #5
   br label %return
 
@@ -1402,10 +1402,10 @@ tear_down.exit20:                                 ; preds = %lor.lhs.false14
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %tear_down.exit20, %if.end24.thread
-  %chain.i.sink = phi ptr [ %chain.i, %if.end24.thread ], [ %chain, %tear_down.exit20 ]
+  %.sink.in = phi ptr [ %chain.i, %if.end24.thread ], [ %chain, %tear_down.exit20 ]
   %retval.0.ph = phi i32 [ 0, %if.end24.thread ], [ %call28, %tear_down.exit20 ]
-  %15 = load ptr, ptr %chain.i.sink, align 8
-  tail call void @OPENSSL_sk_free(ptr noundef %15) #5
+  %.sink = load ptr, ptr %.sink.in, align 8
+  tail call void @OPENSSL_sk_free(ptr noundef %.sink) #5
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 50) #5
   br label %return
 
@@ -1521,10 +1521,10 @@ tear_down.exit22:                                 ; preds = %lor.lhs.false32
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %tear_down.exit22, %if.end42.thread
-  %chain.i.sink = phi ptr [ %chain.i, %if.end42.thread ], [ %chain, %tear_down.exit22 ]
+  %.sink.in = phi ptr [ %chain.i, %if.end42.thread ], [ %chain, %tear_down.exit22 ]
   %retval.0.ph = phi i32 [ 0, %if.end42.thread ], [ %call46, %tear_down.exit22 ]
-  %19 = load ptr, ptr %chain.i.sink, align 8
-  tail call void @OPENSSL_sk_free(ptr noundef %19) #5
+  %.sink = load ptr, ptr %.sink.in, align 8
+  tail call void @OPENSSL_sk_free(ptr noundef %.sink) #5
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 50) #5
   br label %return
 
@@ -1630,10 +1630,10 @@ tear_down.exit21:                                 ; preds = %lor.lhs.false23
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %tear_down.exit21, %if.end33.thread
-  %chain.i.sink = phi ptr [ %chain.i, %if.end33.thread ], [ %chain, %tear_down.exit21 ]
+  %.sink.in = phi ptr [ %chain.i, %if.end33.thread ], [ %chain, %tear_down.exit21 ]
   %retval.0.ph = phi i32 [ 0, %if.end33.thread ], [ %call37, %tear_down.exit21 ]
-  %17 = load ptr, ptr %chain.i.sink, align 8
-  tail call void @OPENSSL_sk_free(ptr noundef %17) #5
+  %.sink = load ptr, ptr %.sink.in, align 8
+  tail call void @OPENSSL_sk_free(ptr noundef %.sink) #5
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 50) #5
   br label %return
 
@@ -1719,10 +1719,10 @@ tear_down.exit19:                                 ; preds = %lor.lhs.false6
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %tear_down.exit19, %if.end15.thread
-  %chain.i.sink = phi ptr [ %chain.i, %if.end15.thread ], [ %chain, %tear_down.exit19 ]
+  %.sink.in = phi ptr [ %chain.i, %if.end15.thread ], [ %chain, %tear_down.exit19 ]
   %retval.0.ph = phi i32 [ 0, %if.end15.thread ], [ %call19, %tear_down.exit19 ]
-  %13 = load ptr, ptr %chain.i.sink, align 8
-  tail call void @OPENSSL_sk_free(ptr noundef %13) #5
+  %.sink = load ptr, ptr %.sink.in, align 8
+  tail call void @OPENSSL_sk_free(ptr noundef %.sink) #5
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 50) #5
   br label %return
 
@@ -1822,10 +1822,10 @@ tear_down.exit21:                                 ; preds = %lor.lhs.false26
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %tear_down.exit21, %if.end33.thread
-  %chain.i.sink = phi ptr [ %chain.i, %if.end33.thread ], [ %chain, %tear_down.exit21 ]
+  %.sink.in = phi ptr [ %chain.i, %if.end33.thread ], [ %chain, %tear_down.exit21 ]
   %retval.0.ph = phi i32 [ 0, %if.end33.thread ], [ %call36, %tear_down.exit21 ]
-  %19 = load ptr, ptr %chain.i.sink, align 8
-  tail call void @OPENSSL_sk_free(ptr noundef %19) #5
+  %.sink = load ptr, ptr %.sink.in, align 8
+  tail call void @OPENSSL_sk_free(ptr noundef %.sink) #5
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 50) #5
   br label %return
 
@@ -2159,24 +2159,24 @@ tear_down.exit22:                                 ; preds = %lor.lhs.false13
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %tear_down.exit22, %if.end19.thread
-  %cmp_ctx.i.sink = phi ptr [ %cmp_ctx.i, %if.end19.thread ], [ %cmp_ctx, %tear_down.exit22 ]
+  %.sink.in = phi ptr [ %cmp_ctx.i, %if.end19.thread ], [ %cmp_ctx, %tear_down.exit22 ]
   %retval.0.ph = phi i32 [ 0, %if.end19.thread ], [ %call1.i, %tear_down.exit22 ]
-  %9 = load ptr, ptr %cmp_ctx.i.sink, align 8
-  tail call void @OSSL_CMP_CTX_free(ptr noundef %9) #5
-  %10 = load ptr, ptr %msg, align 8
-  tail call void @OSSL_CMP_MSG_free(ptr noundef %10) #5
+  %.sink = load ptr, ptr %.sink.in, align 8
+  tail call void @OSSL_CMP_CTX_free(ptr noundef %.sink) #5
+  %9 = load ptr, ptr %msg, align 8
+  tail call void @OSSL_CMP_MSG_free(ptr noundef %9) #5
   %si.i = getelementptr inbounds i8, ptr %call, i64 24
-  %11 = load ptr, ptr %si.i, align 8
-  tail call void @OSSL_CMP_PKISI_free(ptr noundef %11) #5
+  %10 = load ptr, ptr %si.i, align 8
+  tail call void @OSSL_CMP_PKISI_free(ptr noundef %10) #5
   %mem.i = getelementptr inbounds i8, ptr %call, i64 40
-  %12 = load ptr, ptr %mem.i, align 8
-  tail call void @CRYPTO_free(ptr noundef %12, ptr noundef nonnull @.str.14, i32 noundef 46) #5
+  %11 = load ptr, ptr %mem.i, align 8
+  tail call void @CRYPTO_free(ptr noundef %11, ptr noundef nonnull @.str.14, i32 noundef 46) #5
   %certs.i = getelementptr inbounds i8, ptr %call, i64 64
-  %13 = load ptr, ptr %certs.i, align 8
-  tail call void @OPENSSL_sk_free(ptr noundef %13) #5
+  %12 = load ptr, ptr %certs.i, align 8
+  tail call void @OPENSSL_sk_free(ptr noundef %12) #5
   %chain.i = getelementptr inbounds i8, ptr %call, i64 72
-  %14 = load ptr, ptr %chain.i, align 8
-  tail call void @OPENSSL_sk_free(ptr noundef %14) #5
+  %13 = load ptr, ptr %chain.i, align 8
+  tail call void @OPENSSL_sk_free(ptr noundef %13) #5
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 50) #5
   br label %return
 

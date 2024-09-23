@@ -2298,7 +2298,8 @@ define dso_local noundef range(i32 0, 2) i32 @xhci_alloc_virt_device(ptr noundef
 
 .thread:                                          ; preds = %58, %39
   %59 = getelementptr inbounds i8, ptr %27, i64 16
-  br label %.sink.split
+  store ptr null, ptr %59, align 8
+  br label %138
 
 60:                                               ; preds = %45
   %61 = getelementptr inbounds i8, ptr %27, i64 16
@@ -2346,7 +2347,8 @@ define dso_local noundef range(i32 0, 2) i32 @xhci_alloc_virt_device(ptr noundef
 
 .thread8:                                         ; preds = %88, %71
   %89 = getelementptr inbounds i8, ptr %27, i64 24
-  br label %.sink.split
+  store ptr null, ptr %89, align 8
+  br label %138
 
 90:                                               ; preds = %77
   %91 = getelementptr inbounds i8, ptr %27, i64 24
@@ -2435,14 +2437,8 @@ define dso_local noundef range(i32 0, 2) i32 @xhci_alloc_virt_device(ptr noundef
   store ptr %27, ptr %9, align 8
   br label %161
 
-.sink.split:                                      ; preds = %.thread, %.thread8
-  %.sink = phi ptr [ %89, %.thread8 ], [ %59, %.thread ]
-  %.ph = phi ptr [ %61, %.thread8 ], [ %59, %.thread ]
-  store ptr null, ptr %.sink, align 8
-  br label %138
-
-138:                                              ; preds = %.sink.split, %105
-  %139 = phi ptr [ %61, %105 ], [ %.ph, %.sink.split ]
+138:                                              ; preds = %.thread8, %.thread, %105
+  %139 = phi ptr [ %59, %.thread ], [ %61, %105 ], [ %61, %.thread8 ]
   %140 = getelementptr inbounds i8, ptr %27, i64 24
   %141 = load ptr, ptr %140, align 8
   %142 = icmp eq ptr %141, null

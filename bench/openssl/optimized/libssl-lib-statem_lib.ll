@@ -1114,16 +1114,16 @@ if.else25:                                        ; preds = %if.end
   br i1 %tobool28.not, label %return, label %if.end31
 
 if.end31:                                         ; preds = %if.else25, %if.then22
-  %hashlen.sink = phi ptr [ %cert_verify_hash_len, %if.then22 ], [ %hashlen, %if.else25 ]
-  %.pre = load i64, ptr %hashlen.sink, align 8
+  %.in = phi ptr [ %cert_verify_hash_len, %if.then22 ], [ %hashlen, %if.else25 ]
+  %7 = load i64, ptr %.in, align 8
   store ptr %tls13tbs, ptr %hdata, align 8
-  %add = add i64 %.pre, 98
+  %add = add i64 %7, 98
   br label %if.end37
 
 if.else32:                                        ; preds = %land.lhs.true, %entry
   %handshake_buffer = getelementptr inbounds i8, ptr %s, i64 352
-  %7 = load ptr, ptr %handshake_buffer, align 8
-  %call33 = tail call i64 @BIO_ctrl(ptr noundef %7, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %hdata) #11
+  %8 = load ptr, ptr %handshake_buffer, align 8
+  %call33 = tail call i64 @BIO_ctrl(ptr noundef %8, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %hdata) #11
   %cmp34 = icmp slt i64 %call33, 1
   br i1 %cmp34, label %if.then35, label %if.end37
 
@@ -5658,33 +5658,31 @@ if.then3:                                         ; preds = %ssl_has_cert_type.e
   %3 = load ptr, ptr %pkeys, align 8
   %idxprom = zext nneg i32 %idx to i64
   %privatekey = getelementptr inbounds %struct.cert_pkey_st, ptr %3, i64 %idxprom, i32 1
-  br label %return.sink.split
+  %4 = load ptr, ptr %privatekey, align 8
+  %cmp4 = icmp ne ptr %4, null
+  br label %return
 
 if.end6:                                          ; preds = %if.end, %ssl_has_cert_type.exit
   %cert7 = getelementptr inbounds i8, ptr %s, i64 2048
-  %4 = load ptr, ptr %cert7, align 8
-  %pkeys8 = getelementptr inbounds i8, ptr %4, i64 32
-  %5 = load ptr, ptr %pkeys8, align 8
+  %5 = load ptr, ptr %cert7, align 8
+  %pkeys8 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = load ptr, ptr %pkeys8, align 8
   %idxprom9 = zext nneg i32 %idx to i64
-  %arrayidx10 = getelementptr inbounds %struct.cert_pkey_st, ptr %5, i64 %idxprom9
-  %6 = load ptr, ptr %arrayidx10, align 8
-  %cmp11.not = icmp eq ptr %6, null
+  %arrayidx10 = getelementptr inbounds %struct.cert_pkey_st, ptr %6, i64 %idxprom9
+  %7 = load ptr, ptr %arrayidx10, align 8
+  %cmp11.not = icmp eq ptr %7, null
   br i1 %cmp11.not, label %return, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end6
   %privatekey17 = getelementptr inbounds i8, ptr %arrayidx10, i64 8
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.then3, %land.rhs
-  %privatekey17.sink = phi ptr [ %privatekey17, %land.rhs ], [ %privatekey, %if.then3 ]
-  %7 = load ptr, ptr %privatekey17.sink, align 8
-  %cmp18 = icmp ne ptr %7, null
-  %8 = zext i1 %cmp18 to i32
+  %8 = load ptr, ptr %privatekey17, align 8
+  %cmp18 = icmp ne ptr %8, null
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.end6, %entry, %lor.lhs.false
-  %retval.0.shrunk = phi i32 [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %if.end6 ], [ %8, %return.sink.split ]
-  ret i32 %retval.0.shrunk
+return:                                           ; preds = %if.end6, %land.rhs, %entry, %lor.lhs.false, %if.then3
+  %retval.0.shrunk = phi i1 [ %cmp4, %if.then3 ], [ false, %lor.lhs.false ], [ false, %entry ], [ false, %if.end6 ], [ %cmp18, %land.rhs ]
+  %retval.0 = zext i1 %retval.0.shrunk to i32
+  ret i32 %retval.0
 }
 
 declare i32 @ssl_get_EC_curve_nid(ptr noundef) local_unnamed_addr #2

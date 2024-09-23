@@ -681,9 +681,8 @@ if.end:                                           ; preds = %if.then, %entry
   %cmp = icmp eq i32 %3, 0
   %y = getelementptr inbounds i8, ptr %call8, i64 4
   %y10 = getelementptr inbounds i8, ptr %call8, i64 12
-  %y.val = load i32, ptr %y, align 4
-  %y10.val = load i32, ptr %y10, align 4
-  %cond = select i1 %cmp, i32 %y.val, i32 %y10.val
+  %cond.in = select i1 %cmp, ptr %y, ptr %y10
+  %cond = load i32, ptr %cond.in, align 4
   %4 = load ptr, ptr %_data, align 8
   %currentScanLine = getelementptr inbounds i8, ptr %4, i64 120
   store i32 %cond, ptr %currentScanLine, align 8

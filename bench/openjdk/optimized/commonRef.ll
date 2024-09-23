@@ -683,7 +683,7 @@ isStrong.exit.thread:                             ; preds = %findNodeByID.exit, 
   %37 = load ptr, ptr %36, align 8
   %38 = tail call ptr %35(ptr noundef nonnull %0, ptr noundef %37) #5
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %40, label %66
+  br i1 %39, label %40, label %69
 
 40:                                               ; preds = %32
   %41 = load i64, ptr %.03.i, align 8
@@ -709,66 +709,68 @@ isStrong.exit.thread:                             ; preds = %findNodeByID.exit, 
 .lr.ph.i21:                                       ; preds = %.lr.ph
   %54 = load i64, ptr %.019.i, align 8
   %55 = icmp eq i64 %41, %54
-  br i1 %55, label %60, label %.lr.ph, !llvm.loop !12
+  br i1 %55, label %62, label %.lr.ph, !llvm.loop !12
 
 56:                                               ; preds = %.lr.ph.i21.preheader
   %57 = getelementptr inbounds i8, ptr %.01925.i, i64 24
   store i32 0, ptr %57, align 8
-  %58 = load ptr, ptr %48, align 8
-  %59 = getelementptr inbounds ptr, ptr %58, i64 %50
-  br label %63
+  %58 = getelementptr inbounds i8, ptr %.01925.i, i64 16
+  %59 = load ptr, ptr %58, align 8
+  %60 = load ptr, ptr %48, align 8
+  %61 = getelementptr inbounds ptr, ptr %60, i64 %50
+  store ptr %59, ptr %61, align 8
+  br label %67
 
-60:                                               ; preds = %.lr.ph.i21
-  %61 = getelementptr inbounds i8, ptr %.019.i, i64 24
-  store i32 0, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %.01928.i30, i64 16
-  br label %63
+62:                                               ; preds = %.lr.ph.i21
+  %63 = getelementptr inbounds i8, ptr %.019.i, i64 24
+  store i32 0, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %.019.i, i64 16
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds i8, ptr %.01928.i30, i64 16
+  store ptr %65, ptr %66, align 8
+  br label %67
 
-63:                                               ; preds = %60, %56
-  %.01928.i.lcssa38 = phi ptr [ %.019.i, %60 ], [ %.01925.i, %56 ]
-  %.sink.i = phi ptr [ %62, %60 ], [ %59, %56 ]
-  %.in = getelementptr inbounds i8, ptr %.01928.i.lcssa38, i64 16
-  %64 = load ptr, ptr %.in, align 8
-  store ptr %64, ptr %.sink.i, align 8
+67:                                               ; preds = %62, %56
+  %.01928.i.lcssa38 = phi ptr [ %.019.i, %62 ], [ %.01925.i, %56 ]
   tail call fastcc void @deleteNode(ptr noundef nonnull %0, ptr noundef %.01928.i.lcssa38)
   br label %deleteNodeByID.exit
 
 .lr.ph:                                           ; preds = %.lr.ph.i21.preheader, %.lr.ph.i21
   %.01928.i30 = phi ptr [ %.019.i, %.lr.ph.i21 ], [ %.01925.i, %.lr.ph.i21.preheader ]
-  %65 = getelementptr inbounds i8, ptr %.01928.i30, i64 16
-  %.019.i = load ptr, ptr %65, align 8
+  %68 = getelementptr inbounds i8, ptr %.01928.i30, i64 16
+  %.019.i = load ptr, ptr %68, align 8
   %.not.i22 = icmp eq ptr %.019.i, null
   br i1 %.not.i22, label %deleteNodeByID.exit, label %.lr.ph.i21, !llvm.loop !12
 
-66:                                               ; preds = %32
-  %67 = load ptr, ptr %36, align 8
-  call void @saveGlobalRef(ptr noundef nonnull %0, ptr noundef %67, ptr noundef nonnull %3) #5
-  %68 = load ptr, ptr @gdata, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 528
-  %70 = load i32, ptr %69, align 8
-  %71 = and i32 %70, 2
-  %.not19 = icmp eq i32 %71, 0
-  br i1 %.not19, label %73, label %72
+69:                                               ; preds = %32
+  %70 = load ptr, ptr %36, align 8
+  call void @saveGlobalRef(ptr noundef nonnull %0, ptr noundef %70, ptr noundef nonnull %3) #5
+  %71 = load ptr, ptr @gdata, align 8
+  %72 = getelementptr inbounds i8, ptr %71, i64 528
+  %73 = load i32, ptr %72, align 8
+  %74 = and i32 %73, 2
+  %.not19 = icmp eq i32 %74, 0
+  br i1 %.not19, label %76, label %75
 
-72:                                               ; preds = %66
+75:                                               ; preds = %69
   call void @log_message_begin(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 503) #5
   call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.5) #5
-  br label %73
+  br label %76
 
-73:                                               ; preds = %66, %72
-  %74 = load ptr, ptr %0, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 184
-  %76 = load ptr, ptr %75, align 8
-  call void %76(ptr noundef nonnull %0, ptr noundef nonnull %38) #5
+76:                                               ; preds = %69, %75
+  %77 = load ptr, ptr %0, align 8
+  %78 = getelementptr inbounds i8, ptr %77, i64 184
+  %79 = load ptr, ptr %78, align 8
+  call void %79(ptr noundef nonnull %0, ptr noundef nonnull %38) #5
   br label %deleteNodeByID.exit
 
-deleteNodeByID.exit:                              ; preds = %19, %.lr.ph, %2, %63, %40, %isStrong.exit.thread, %73
-  %77 = load ptr, ptr @gdata, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 536
-  %79 = load ptr, ptr %78, align 8
-  call void @debugMonitorExit(ptr noundef %79) #5
-  %80 = load ptr, ptr %3, align 8
-  ret ptr %80
+deleteNodeByID.exit:                              ; preds = %19, %.lr.ph, %2, %67, %40, %isStrong.exit.thread, %76
+  %80 = load ptr, ptr @gdata, align 8
+  %81 = getelementptr inbounds i8, ptr %80, i64 536
+  %82 = load ptr, ptr %81, align 8
+  call void @debugMonitorExit(ptr noundef %82) #5
+  %83 = load ptr, ptr %3, align 8
+  ret ptr %83
 }
 
 declare void @saveGlobalRef(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -843,15 +845,15 @@ define internal fastcc void @deleteNodeByID(ptr noundef %0, i64 noundef %1, i32 
   %34 = getelementptr inbounds i8, ptr %33, i64 560
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds ptr, ptr %35, i64 %12
+  store ptr %31, ptr %36, align 8
   br label %39
 
 37:                                               ; preds = %28
   %38 = getelementptr inbounds i8, ptr %.027.lcssa, i64 16
+  store ptr %31, ptr %38, align 8
   br label %39
 
 39:                                               ; preds = %37, %32
-  %.sink = phi ptr [ %38, %37 ], [ %36, %32 ]
-  store ptr %31, ptr %.sink, align 8
   tail call fastcc void @deleteNode(ptr noundef %0, ptr noundef %.01928.lcssa)
   br label %.loopexit
 
@@ -886,7 +888,7 @@ declare void @tossGlobalRef(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 206) i32 @commonRef_pin(i64 noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq i64 %0, 0
-  br i1 %2, label %50, label %3
+  br i1 %2, label %53, label %3
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr @gdata, align 8
@@ -947,47 +949,49 @@ findNodeByID.exit:                                ; preds = %.lr.ph.i
 .lr.ph.i14:                                       ; preds = %.lr.ph
   %35 = load i64, ptr %.019.i, align 8
   %36 = icmp eq i64 %0, %35
-  br i1 %36, label %41, label %.lr.ph, !llvm.loop !12
+  br i1 %36, label %43, label %.lr.ph, !llvm.loop !12
 
 37:                                               ; preds = %.lr.ph.i14.preheader
   %38 = getelementptr inbounds i8, ptr %.01925.i, i64 24
   store i32 0, ptr %38, align 8
-  %39 = load ptr, ptr %29, align 8
-  %40 = getelementptr inbounds ptr, ptr %39, i64 %31
-  br label %44
+  %39 = getelementptr inbounds i8, ptr %.01925.i, i64 16
+  %40 = load ptr, ptr %39, align 8
+  %41 = load ptr, ptr %29, align 8
+  %42 = getelementptr inbounds ptr, ptr %41, i64 %31
+  store ptr %40, ptr %42, align 8
+  br label %48
 
-41:                                               ; preds = %.lr.ph.i14
-  %42 = getelementptr inbounds i8, ptr %.019.i, i64 24
-  store i32 0, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %.01928.i21, i64 16
-  br label %44
+43:                                               ; preds = %.lr.ph.i14
+  %44 = getelementptr inbounds i8, ptr %.019.i, i64 24
+  store i32 0, ptr %44, align 8
+  %45 = getelementptr inbounds i8, ptr %.019.i, i64 16
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds i8, ptr %.01928.i21, i64 16
+  store ptr %46, ptr %47, align 8
+  br label %48
 
-44:                                               ; preds = %41, %37
-  %.01928.i.lcssa30 = phi ptr [ %.019.i, %41 ], [ %.01925.i, %37 ]
-  %.sink.i = phi ptr [ %43, %41 ], [ %40, %37 ]
-  %.in = getelementptr inbounds i8, ptr %.01928.i.lcssa30, i64 16
-  %45 = load ptr, ptr %.in, align 8
-  store ptr %45, ptr %.sink.i, align 8
+48:                                               ; preds = %43, %37
+  %.01928.i.lcssa30 = phi ptr [ %.019.i, %43 ], [ %.01925.i, %37 ]
   tail call fastcc void @deleteNode(ptr noundef %7, ptr noundef %.01928.i.lcssa30)
   %.pre = load ptr, ptr @gdata, align 8
   br label %deleteNodeByID.exit
 
 .lr.ph:                                           ; preds = %.lr.ph.i14.preheader, %.lr.ph.i14
   %.01928.i21 = phi ptr [ %.019.i, %.lr.ph.i14 ], [ %.01925.i, %.lr.ph.i14.preheader ]
-  %46 = getelementptr inbounds i8, ptr %.01928.i21, i64 16
-  %.019.i = load ptr, ptr %46, align 8
+  %49 = getelementptr inbounds i8, ptr %.01928.i21, i64 16
+  %.019.i = load ptr, ptr %49, align 8
   %.not.i15 = icmp eq ptr %.019.i, null
   br i1 %.not.i15, label %deleteNodeByID.exit, label %.lr.ph.i14, !llvm.loop !12
 
-deleteNodeByID.exit:                              ; preds = %20, %.lr.ph, %3, %44, %24, %findNodeByID.exit
-  %47 = phi ptr [ %.pre27, %findNodeByID.exit ], [ %.pre27, %24 ], [ %.pre, %44 ], [ %9, %3 ], [ %.pre27, %.lr.ph ], [ %9, %20 ]
-  %.011 = phi i32 [ 0, %findNodeByID.exit ], [ 205, %24 ], [ 205, %44 ], [ 205, %3 ], [ 205, %.lr.ph ], [ 205, %20 ]
-  %48 = getelementptr inbounds i8, ptr %47, i64 536
-  %49 = load ptr, ptr %48, align 8
-  tail call void @debugMonitorExit(ptr noundef %49) #5
-  br label %50
+deleteNodeByID.exit:                              ; preds = %20, %.lr.ph, %3, %48, %24, %findNodeByID.exit
+  %50 = phi ptr [ %.pre27, %findNodeByID.exit ], [ %.pre27, %24 ], [ %.pre, %48 ], [ %9, %3 ], [ %.pre27, %.lr.ph ], [ %9, %20 ]
+  %.011 = phi i32 [ 0, %findNodeByID.exit ], [ 205, %24 ], [ 205, %48 ], [ 205, %3 ], [ 205, %.lr.ph ], [ 205, %20 ]
+  %51 = getelementptr inbounds i8, ptr %50, i64 536
+  %52 = load ptr, ptr %51, align 8
+  tail call void @debugMonitorExit(ptr noundef %52) #5
+  br label %53
 
-50:                                               ; preds = %1, %deleteNodeByID.exit
+53:                                               ; preds = %1, %deleteNodeByID.exit
   %.0 = phi i32 [ %.011, %deleteNodeByID.exit ], [ 0, %1 ]
   ret i32 %.0
 }
@@ -1365,15 +1369,15 @@ strengthenNode.exit.thread:                       ; preds = %37, %40, %strengthe
   %62 = getelementptr inbounds i8, ptr %61, i64 560
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds ptr, ptr %63, i64 %indvars.iv
+  store ptr %59, ptr %64, align 8
   br label %67
 
 65:                                               ; preds = %strengthenNode.exit.thread
   %66 = getelementptr inbounds i8, ptr %.01726, i64 16
+  store ptr %59, ptr %66, align 8
   br label %67
 
 67:                                               ; preds = %65, %60
-  %.sink = phi ptr [ %66, %65 ], [ %64, %60 ]
-  store ptr %59, ptr %.sink, align 8
   %68 = load ptr, ptr @gdata, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 528
   %70 = load i32, ptr %69, align 8
@@ -1739,15 +1743,15 @@ isStrong.exit:                                    ; preds = %.lr.ph
   %28 = getelementptr inbounds i8, ptr %27, i64 560
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv
+  store ptr %25, ptr %30, align 8
   br label %33
 
 31:                                               ; preds = %22
   %32 = getelementptr inbounds i8, ptr %.01826, i64 16
+  store ptr %25, ptr %32, align 8
   br label %33
 
 33:                                               ; preds = %31, %26
-  %.sink = phi ptr [ %32, %31 ], [ %30, %26 ]
-  store ptr %25, ptr %.sink, align 8
   %34 = load ptr, ptr @gdata, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 528
   %36 = load i32, ptr %35, align 8

@@ -822,7 +822,7 @@ _ZN5clang15ObjCMessageExpr18initArgsAndSelLocsEN4llvm8ArrayRefIPNS_4ExprEEENS2_I
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN5clang15ObjCMessageExpr6CreateERKNS_10ASTContextENS_8QualTypeENS_13ExprValueKindENS_14SourceLocationES6_bS4_NS_8SelectorEN4llvm8ArrayRefIS6_EEPNS_14ObjCMethodDeclENS9_IPNS_4ExprEEES6_b(ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %1, i32 noundef %2, i32 %3, i32 %4, i1 noundef zeroext %5, i64 %6, i64 %7, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef.356") align 8 %8, ptr noundef %9, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef") align 8 %10, i32 %11, i1 noundef zeroext %12) local_unnamed_addr #0 align 2 {
-  br i1 %12, label %14, label %34
+  br i1 %12, label %14, label %36
 
 14:                                               ; preds = %13
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -847,71 +847,77 @@ define dso_local noundef ptr @_ZN5clang15ObjCMessageExpr6CreateERKNS_10ASTContex
   %.not.i.i.i.i = icmp ugt i64 %29, %32
   %.not14.i.i.i.i = icmp eq ptr %25, null
   %or.cond.i.i.i.i = or i1 %.not14.i.i.i.i, %.not.i.i.i.i
-  br i1 %or.cond.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit
+  br i1 %or.cond.i.i.i.i, label %.critedge.i.i.i.i, label %33
+
+33:                                               ; preds = %14
+  %34 = inttoptr i64 %29 to ptr
+  store ptr %34, ptr %21, align 8
+  br label %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit
 
 .critedge.i.i.i.i:                                ; preds = %14
-  %33 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %21, i64 noundef %20, i64 noundef %20, i8 3)
+  %35 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %21, i64 noundef %20, i64 noundef %20, i8 3)
   br label %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit.thread
 
-34:                                               ; preds = %13
+36:                                               ; preds = %13
   %.sroa.09.0.copyload = load ptr, ptr %10, align 8
   %.sroa.210.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
   %.sroa.210.0.copyload = load i64, ptr %.sroa.210.0..sroa_idx, align 8
   %.sroa.07.0.copyload = load ptr, ptr %8, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
-  %35 = tail call noundef i32 @_ZN5clang23hasStandardSelectorLocsENS_8SelectorEN4llvm8ArrayRefINS_14SourceLocationEEENS2_IPNS_4ExprEEES3_(i64 %7, ptr %.sroa.07.0.copyload, i64 %.sroa.2.0.copyload, ptr %.sroa.09.0.copyload, i64 %.sroa.210.0.copyload, i32 %11) #13
-  %36 = icmp eq i32 %35, 0
-  %37 = shl i64 %.sroa.2.0.copyload, 2
-  %38 = and i64 %37, 17179869180
-  %39 = shl i64 %.sroa.210.0.copyload, 3
-  %40 = add i64 %39, 8
-  %41 = and i64 %40, 34359738360
-  %42 = select i1 %36, i64 %38, i64 0
-  %43 = add nuw nsw i64 %41, 40
-  %44 = add nuw nsw i64 %43, %42
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 2224
-  %47 = load i64, ptr %46, align 8
-  %48 = add i64 %44, %47
-  store i64 %48, ptr %46, align 8
-  %49 = load ptr, ptr %45, align 8
-  %50 = ptrtoint ptr %49 to i64
-  %51 = add i64 %50, 7
-  %52 = and i64 %51, -8
-  %53 = add i64 %52, %44
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 2152
-  %55 = load ptr, ptr %54, align 8
-  %56 = ptrtoint ptr %55 to i64
-  %.not.i.i.i.i.i = icmp ugt i64 %53, %56
-  %.not14.i.i.i.i.i = icmp eq ptr %49, null
+  %37 = tail call noundef i32 @_ZN5clang23hasStandardSelectorLocsENS_8SelectorEN4llvm8ArrayRefINS_14SourceLocationEEENS2_IPNS_4ExprEEES3_(i64 %7, ptr %.sroa.07.0.copyload, i64 %.sroa.2.0.copyload, ptr %.sroa.09.0.copyload, i64 %.sroa.210.0.copyload, i32 %11) #13
+  %38 = icmp eq i32 %37, 0
+  %39 = shl i64 %.sroa.2.0.copyload, 2
+  %40 = and i64 %39, 17179869180
+  %41 = shl i64 %.sroa.210.0.copyload, 3
+  %42 = add i64 %41, 8
+  %43 = and i64 %42, 34359738360
+  %44 = select i1 %38, i64 %40, i64 0
+  %45 = add nuw nsw i64 %43, 40
+  %46 = add nuw nsw i64 %45, %44
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 2144
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 2224
+  %49 = load i64, ptr %48, align 8
+  %50 = add i64 %46, %49
+  store i64 %50, ptr %48, align 8
+  %51 = load ptr, ptr %47, align 8
+  %52 = ptrtoint ptr %51 to i64
+  %53 = add i64 %52, 7
+  %54 = and i64 %53, -8
+  %55 = add i64 %54, %46
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 2152
+  %57 = load ptr, ptr %56, align 8
+  %58 = ptrtoint ptr %57 to i64
+  %.not.i.i.i.i.i = icmp ugt i64 %55, %58
+  %.not14.i.i.i.i.i = icmp eq ptr %51, null
   %or.cond.i.i.i.i.i = or i1 %.not14.i.i.i.i.i, %.not.i.i.i.i.i
-  br i1 %or.cond.i.i.i.i.i, label %.critedge.i.i.i.i.i, label %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit
+  br i1 %or.cond.i.i.i.i.i, label %.critedge.i.i.i.i.i, label %59
 
-.critedge.i.i.i.i.i:                              ; preds = %34
-  %57 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %45, i64 noundef %44, i64 noundef %44, i8 3)
+59:                                               ; preds = %36
+  %60 = inttoptr i64 %55 to ptr
+  store ptr %60, ptr %47, align 8
+  br label %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit
+
+.critedge.i.i.i.i.i:                              ; preds = %36
+  %61 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %47, i64 noundef %46, i64 noundef %46, i8 3)
   br label %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit.thread
 
-_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit: ; preds = %34, %14
-  %.sink32 = phi i64 [ %29, %14 ], [ %53, %34 ]
-  %.sink31 = phi ptr [ %21, %14 ], [ %45, %34 ]
-  %.026 = phi i32 [ 0, %14 ], [ %35, %34 ]
-  %.0.in = phi i64 [ %28, %14 ], [ %52, %34 ]
-  %58 = inttoptr i64 %.sink32 to ptr
-  store ptr %58, ptr %.sink31, align 8
+_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit: ; preds = %59, %33
+  %.026 = phi i32 [ 0, %33 ], [ %37, %59 ]
+  %.0.in = phi i64 [ %28, %33 ], [ %54, %59 ]
   %.0 = inttoptr i64 %.0.in to ptr
-  %59 = icmp eq i64 %.0.in, 0
-  br i1 %59, label %60, label %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit.thread
+  %62 = icmp eq i64 %.0.in, 0
+  br i1 %62, label %63, label %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit.thread
 
 _ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit.thread: ; preds = %.critedge.i.i.i.i.i, %.critedge.i.i.i.i, %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit
-  %.030 = phi ptr [ %.0, %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit ], [ %57, %.critedge.i.i.i.i.i ], [ %33, %.critedge.i.i.i.i ]
-  %.02629 = phi i32 [ %.026, %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit ], [ %35, %.critedge.i.i.i.i.i ], [ 0, %.critedge.i.i.i.i ]
+  %.030 = phi ptr [ %.0, %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit ], [ %61, %.critedge.i.i.i.i.i ], [ %35, %.critedge.i.i.i.i ]
+  %.02629 = phi i32 [ %.026, %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit ], [ %37, %.critedge.i.i.i.i.i ], [ 0, %.critedge.i.i.i.i ]
   tail call void @_ZN5clang15ObjCMessageExprC1ENS_8QualTypeENS_13ExprValueKindENS_14SourceLocationES3_bS1_NS_8SelectorEN4llvm8ArrayRefIS3_EENS_21SelectorLocationsKindEPNS_14ObjCMethodDeclENS6_IPNS_4ExprEEES3_b(ptr noundef nonnull align 8 dereferenceable(40) %.030, i64 %1, i32 noundef %2, i32 %3, i32 %4, i1 noundef zeroext %5, i64 %6, i64 %7, ptr noundef nonnull byval(%"class.llvm::ArrayRef.356") align 8 %8, i32 noundef %.02629, ptr noundef %9, ptr noundef nonnull byval(%"class.llvm::ArrayRef") align 8 %10, i32 %11, i1 noundef zeroext %12) #13
-  br label %60
+  br label %63
 
-60:                                               ; preds = %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit.thread, %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit
-  %61 = phi ptr [ %.030, %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit.thread ], [ null, %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit ]
-  ret ptr %61
+63:                                               ; preds = %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit.thread, %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit
+  %64 = phi ptr [ %.030, %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit.thread ], [ null, %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit ]
+  ret ptr %64
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1004,7 +1010,7 @@ _ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit: ; preds = %31, %.cri
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN5clang15ObjCMessageExpr6CreateERKNS_10ASTContextENS_8QualTypeENS_13ExprValueKindENS_14SourceLocationEPNS_14TypeSourceInfoENS_8SelectorEN4llvm8ArrayRefIS6_EEPNS_14ObjCMethodDeclENSB_IPNS_4ExprEEES6_b(ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %1, i32 noundef %2, i32 %3, ptr noundef %4, i64 %5, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef.356") align 8 %6, ptr noundef %7, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef") align 8 %8, i32 %9, i1 noundef zeroext %10) local_unnamed_addr #0 align 2 {
-  br i1 %10, label %12, label %32
+  br i1 %10, label %12, label %34
 
 12:                                               ; preds = %11
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -1029,76 +1035,82 @@ define dso_local noundef ptr @_ZN5clang15ObjCMessageExpr6CreateERKNS_10ASTContex
   %.not.i.i.i.i = icmp ugt i64 %27, %30
   %.not14.i.i.i.i = icmp eq ptr %23, null
   %or.cond.i.i.i.i = or i1 %.not14.i.i.i.i, %.not.i.i.i.i
-  br i1 %or.cond.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit
+  br i1 %or.cond.i.i.i.i, label %.critedge.i.i.i.i, label %31
+
+31:                                               ; preds = %12
+  %32 = inttoptr i64 %27 to ptr
+  store ptr %32, ptr %19, align 8
+  br label %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit
 
 .critedge.i.i.i.i:                                ; preds = %12
-  %31 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %19, i64 noundef %18, i64 noundef %18, i8 3)
+  %33 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %19, i64 noundef %18, i64 noundef %18, i8 3)
   br label %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit.thread
 
-32:                                               ; preds = %11
+34:                                               ; preds = %11
   %.sroa.07.0.copyload = load ptr, ptr %8, align 8
   %.sroa.28.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   %.sroa.28.0.copyload = load i64, ptr %.sroa.28.0..sroa_idx, align 8
   %.sroa.05.0.copyload = load ptr, ptr %6, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
-  %33 = tail call noundef i32 @_ZN5clang23hasStandardSelectorLocsENS_8SelectorEN4llvm8ArrayRefINS_14SourceLocationEEENS2_IPNS_4ExprEEES3_(i64 %5, ptr %.sroa.05.0.copyload, i64 %.sroa.2.0.copyload, ptr %.sroa.07.0.copyload, i64 %.sroa.28.0.copyload, i32 %9) #13
-  %34 = icmp eq i32 %33, 0
-  %35 = shl i64 %.sroa.2.0.copyload, 2
-  %36 = and i64 %35, 17179869180
-  %37 = shl i64 %.sroa.28.0.copyload, 3
-  %38 = add i64 %37, 8
-  %39 = and i64 %38, 34359738360
-  %40 = select i1 %34, i64 %36, i64 0
-  %41 = add nuw nsw i64 %39, 40
-  %42 = add nuw nsw i64 %41, %40
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 2224
-  %45 = load i64, ptr %44, align 8
-  %46 = add i64 %42, %45
-  store i64 %46, ptr %44, align 8
-  %47 = load ptr, ptr %43, align 8
-  %48 = ptrtoint ptr %47 to i64
-  %49 = add i64 %48, 7
-  %50 = and i64 %49, -8
-  %51 = add i64 %50, %42
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 2152
-  %53 = load ptr, ptr %52, align 8
-  %54 = ptrtoint ptr %53 to i64
-  %.not.i.i.i.i.i = icmp ugt i64 %51, %54
-  %.not14.i.i.i.i.i = icmp eq ptr %47, null
+  %35 = tail call noundef i32 @_ZN5clang23hasStandardSelectorLocsENS_8SelectorEN4llvm8ArrayRefINS_14SourceLocationEEENS2_IPNS_4ExprEEES3_(i64 %5, ptr %.sroa.05.0.copyload, i64 %.sroa.2.0.copyload, ptr %.sroa.07.0.copyload, i64 %.sroa.28.0.copyload, i32 %9) #13
+  %36 = icmp eq i32 %35, 0
+  %37 = shl i64 %.sroa.2.0.copyload, 2
+  %38 = and i64 %37, 17179869180
+  %39 = shl i64 %.sroa.28.0.copyload, 3
+  %40 = add i64 %39, 8
+  %41 = and i64 %40, 34359738360
+  %42 = select i1 %36, i64 %38, i64 0
+  %43 = add nuw nsw i64 %41, 40
+  %44 = add nuw nsw i64 %43, %42
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 2144
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 2224
+  %47 = load i64, ptr %46, align 8
+  %48 = add i64 %44, %47
+  store i64 %48, ptr %46, align 8
+  %49 = load ptr, ptr %45, align 8
+  %50 = ptrtoint ptr %49 to i64
+  %51 = add i64 %50, 7
+  %52 = and i64 %51, -8
+  %53 = add i64 %52, %44
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 2152
+  %55 = load ptr, ptr %54, align 8
+  %56 = ptrtoint ptr %55 to i64
+  %.not.i.i.i.i.i = icmp ugt i64 %53, %56
+  %.not14.i.i.i.i.i = icmp eq ptr %49, null
   %or.cond.i.i.i.i.i = or i1 %.not14.i.i.i.i.i, %.not.i.i.i.i.i
-  br i1 %or.cond.i.i.i.i.i, label %.critedge.i.i.i.i.i, label %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit
+  br i1 %or.cond.i.i.i.i.i, label %.critedge.i.i.i.i.i, label %57
 
-.critedge.i.i.i.i.i:                              ; preds = %32
-  %55 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %43, i64 noundef %42, i64 noundef %42, i8 3)
+57:                                               ; preds = %34
+  %58 = inttoptr i64 %53 to ptr
+  store ptr %58, ptr %45, align 8
+  br label %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit
+
+.critedge.i.i.i.i.i:                              ; preds = %34
+  %59 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %45, i64 noundef %44, i64 noundef %44, i8 3)
   br label %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit.thread
 
-_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit: ; preds = %32, %12
-  %.sink28 = phi i64 [ %27, %12 ], [ %51, %32 ]
-  %.sink27 = phi ptr [ %19, %12 ], [ %43, %32 ]
-  %.022 = phi i32 [ 0, %12 ], [ %33, %32 ]
-  %.0.in = phi i64 [ %26, %12 ], [ %50, %32 ]
-  %56 = inttoptr i64 %.sink28 to ptr
-  store ptr %56, ptr %.sink27, align 8
+_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit: ; preds = %57, %31
+  %.022 = phi i32 [ 0, %31 ], [ %35, %57 ]
+  %.0.in = phi i64 [ %26, %31 ], [ %52, %57 ]
   %.0 = inttoptr i64 %.0.in to ptr
-  %57 = icmp eq i64 %.0.in, 0
-  br i1 %57, label %58, label %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit.thread
+  %60 = icmp eq i64 %.0.in, 0
+  br i1 %60, label %61, label %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit.thread
 
 _ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit.thread: ; preds = %.critedge.i.i.i.i.i, %.critedge.i.i.i.i, %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit
-  %.026 = phi ptr [ %.0, %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit ], [ %55, %.critedge.i.i.i.i.i ], [ %31, %.critedge.i.i.i.i ]
-  %.02225 = phi i32 [ %.022, %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit ], [ %33, %.critedge.i.i.i.i.i ], [ 0, %.critedge.i.i.i.i ]
+  %.026 = phi ptr [ %.0, %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit ], [ %59, %.critedge.i.i.i.i.i ], [ %33, %.critedge.i.i.i.i ]
+  %.02225 = phi i32 [ %.022, %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit ], [ %35, %.critedge.i.i.i.i.i ], [ 0, %.critedge.i.i.i.i ]
   tail call void @_ZN5clang15ObjCMessageExprC1ENS_8QualTypeENS_13ExprValueKindENS_14SourceLocationEPNS_14TypeSourceInfoENS_8SelectorEN4llvm8ArrayRefIS3_EENS_21SelectorLocationsKindEPNS_14ObjCMethodDeclENS8_IPNS_4ExprEEES3_b(ptr noundef nonnull align 8 dereferenceable(40) %.026, i64 %1, i32 noundef %2, i32 %3, ptr noundef %4, i64 %5, ptr noundef nonnull byval(%"class.llvm::ArrayRef.356") align 8 %6, i32 noundef %.02225, ptr noundef %7, ptr noundef nonnull byval(%"class.llvm::ArrayRef") align 8 %8, i32 %9, i1 noundef zeroext %10) #13
-  br label %58
+  br label %61
 
-58:                                               ; preds = %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit.thread, %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit
-  %59 = phi ptr [ %.026, %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit.thread ], [ null, %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit ]
-  ret ptr %59
+61:                                               ; preds = %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit.thread, %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit
+  %62 = phi ptr [ %.026, %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit.thread ], [ null, %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit ]
+  ret ptr %62
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN5clang15ObjCMessageExpr6CreateERKNS_10ASTContextENS_8QualTypeENS_13ExprValueKindENS_14SourceLocationEPNS_4ExprENS_8SelectorEN4llvm8ArrayRefIS6_EEPNS_14ObjCMethodDeclENSB_IS8_EES6_b(ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %1, i32 noundef %2, i32 %3, ptr noundef %4, i64 %5, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef.356") align 8 %6, ptr noundef %7, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef") align 8 %8, i32 %9, i1 noundef zeroext %10) local_unnamed_addr #0 align 2 {
-  br i1 %10, label %12, label %32
+  br i1 %10, label %12, label %34
 
 12:                                               ; preds = %11
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -1123,71 +1135,77 @@ define dso_local noundef ptr @_ZN5clang15ObjCMessageExpr6CreateERKNS_10ASTContex
   %.not.i.i.i.i = icmp ugt i64 %27, %30
   %.not14.i.i.i.i = icmp eq ptr %23, null
   %or.cond.i.i.i.i = or i1 %.not14.i.i.i.i, %.not.i.i.i.i
-  br i1 %or.cond.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit
+  br i1 %or.cond.i.i.i.i, label %.critedge.i.i.i.i, label %31
+
+31:                                               ; preds = %12
+  %32 = inttoptr i64 %27 to ptr
+  store ptr %32, ptr %19, align 8
+  br label %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit
 
 .critedge.i.i.i.i:                                ; preds = %12
-  %31 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %19, i64 noundef %18, i64 noundef %18, i8 3)
+  %33 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %19, i64 noundef %18, i64 noundef %18, i8 3)
   br label %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit.thread
 
-32:                                               ; preds = %11
+34:                                               ; preds = %11
   %.sroa.07.0.copyload = load ptr, ptr %8, align 8
   %.sroa.28.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   %.sroa.28.0.copyload = load i64, ptr %.sroa.28.0..sroa_idx, align 8
   %.sroa.05.0.copyload = load ptr, ptr %6, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
-  %33 = tail call noundef i32 @_ZN5clang23hasStandardSelectorLocsENS_8SelectorEN4llvm8ArrayRefINS_14SourceLocationEEENS2_IPNS_4ExprEEES3_(i64 %5, ptr %.sroa.05.0.copyload, i64 %.sroa.2.0.copyload, ptr %.sroa.07.0.copyload, i64 %.sroa.28.0.copyload, i32 %9) #13
-  %34 = icmp eq i32 %33, 0
-  %35 = shl i64 %.sroa.2.0.copyload, 2
-  %36 = and i64 %35, 17179869180
-  %37 = shl i64 %.sroa.28.0.copyload, 3
-  %38 = add i64 %37, 8
-  %39 = and i64 %38, 34359738360
-  %40 = select i1 %34, i64 %36, i64 0
-  %41 = add nuw nsw i64 %39, 40
-  %42 = add nuw nsw i64 %41, %40
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 2224
-  %45 = load i64, ptr %44, align 8
-  %46 = add i64 %42, %45
-  store i64 %46, ptr %44, align 8
-  %47 = load ptr, ptr %43, align 8
-  %48 = ptrtoint ptr %47 to i64
-  %49 = add i64 %48, 7
-  %50 = and i64 %49, -8
-  %51 = add i64 %50, %42
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 2152
-  %53 = load ptr, ptr %52, align 8
-  %54 = ptrtoint ptr %53 to i64
-  %.not.i.i.i.i.i = icmp ugt i64 %51, %54
-  %.not14.i.i.i.i.i = icmp eq ptr %47, null
+  %35 = tail call noundef i32 @_ZN5clang23hasStandardSelectorLocsENS_8SelectorEN4llvm8ArrayRefINS_14SourceLocationEEENS2_IPNS_4ExprEEES3_(i64 %5, ptr %.sroa.05.0.copyload, i64 %.sroa.2.0.copyload, ptr %.sroa.07.0.copyload, i64 %.sroa.28.0.copyload, i32 %9) #13
+  %36 = icmp eq i32 %35, 0
+  %37 = shl i64 %.sroa.2.0.copyload, 2
+  %38 = and i64 %37, 17179869180
+  %39 = shl i64 %.sroa.28.0.copyload, 3
+  %40 = add i64 %39, 8
+  %41 = and i64 %40, 34359738360
+  %42 = select i1 %36, i64 %38, i64 0
+  %43 = add nuw nsw i64 %41, 40
+  %44 = add nuw nsw i64 %43, %42
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 2144
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 2224
+  %47 = load i64, ptr %46, align 8
+  %48 = add i64 %44, %47
+  store i64 %48, ptr %46, align 8
+  %49 = load ptr, ptr %45, align 8
+  %50 = ptrtoint ptr %49 to i64
+  %51 = add i64 %50, 7
+  %52 = and i64 %51, -8
+  %53 = add i64 %52, %44
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 2152
+  %55 = load ptr, ptr %54, align 8
+  %56 = ptrtoint ptr %55 to i64
+  %.not.i.i.i.i.i = icmp ugt i64 %53, %56
+  %.not14.i.i.i.i.i = icmp eq ptr %49, null
   %or.cond.i.i.i.i.i = or i1 %.not14.i.i.i.i.i, %.not.i.i.i.i.i
-  br i1 %or.cond.i.i.i.i.i, label %.critedge.i.i.i.i.i, label %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit
+  br i1 %or.cond.i.i.i.i.i, label %.critedge.i.i.i.i.i, label %57
 
-.critedge.i.i.i.i.i:                              ; preds = %32
-  %55 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %43, i64 noundef %42, i64 noundef %42, i8 3)
+57:                                               ; preds = %34
+  %58 = inttoptr i64 %53 to ptr
+  store ptr %58, ptr %45, align 8
+  br label %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit
+
+.critedge.i.i.i.i.i:                              ; preds = %34
+  %59 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %45, i64 noundef %44, i64 noundef %44, i8 3)
   br label %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit.thread
 
-_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit: ; preds = %32, %12
-  %.sink28 = phi i64 [ %27, %12 ], [ %51, %32 ]
-  %.sink27 = phi ptr [ %19, %12 ], [ %43, %32 ]
-  %.022 = phi i32 [ 0, %12 ], [ %33, %32 ]
-  %.0.in = phi i64 [ %26, %12 ], [ %50, %32 ]
-  %56 = inttoptr i64 %.sink28 to ptr
-  store ptr %56, ptr %.sink27, align 8
+_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit: ; preds = %57, %31
+  %.022 = phi i32 [ 0, %31 ], [ %35, %57 ]
+  %.0.in = phi i64 [ %26, %31 ], [ %52, %57 ]
   %.0 = inttoptr i64 %.0.in to ptr
-  %57 = icmp eq i64 %.0.in, 0
-  br i1 %57, label %58, label %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit.thread
+  %60 = icmp eq i64 %.0.in, 0
+  br i1 %60, label %61, label %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit.thread
 
 _ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit.thread: ; preds = %.critedge.i.i.i.i.i, %.critedge.i.i.i.i, %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit
-  %.026 = phi ptr [ %.0, %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit ], [ %55, %.critedge.i.i.i.i.i ], [ %31, %.critedge.i.i.i.i ]
-  %.02225 = phi i32 [ %.022, %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit ], [ %33, %.critedge.i.i.i.i.i ], [ 0, %.critedge.i.i.i.i ]
+  %.026 = phi ptr [ %.0, %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit ], [ %59, %.critedge.i.i.i.i.i ], [ %33, %.critedge.i.i.i.i ]
+  %.02225 = phi i32 [ %.022, %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit ], [ %35, %.critedge.i.i.i.i.i ], [ 0, %.critedge.i.i.i.i ]
   tail call void @_ZN5clang15ObjCMessageExprC1ENS_8QualTypeENS_13ExprValueKindENS_14SourceLocationEPNS_4ExprENS_8SelectorEN4llvm8ArrayRefIS3_EENS_21SelectorLocationsKindEPNS_14ObjCMethodDeclENS8_IS5_EES3_b(ptr noundef nonnull align 8 dereferenceable(40) %.026, i64 %1, i32 noundef %2, i32 %3, ptr noundef %4, i64 %5, ptr noundef nonnull byval(%"class.llvm::ArrayRef.356") align 8 %6, i32 noundef %.02225, ptr noundef %7, ptr noundef nonnull byval(%"class.llvm::ArrayRef") align 8 %8, i32 %9, i1 noundef zeroext %10) #13
-  br label %58
+  br label %61
 
-58:                                               ; preds = %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit.thread, %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit
-  %59 = phi ptr [ %.026, %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit.thread ], [ null, %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit ]
-  ret ptr %59
+61:                                               ; preds = %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit.thread, %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit
+  %62 = phi ptr [ %.026, %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit.thread ], [ null, %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit ]
+  ret ptr %62
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

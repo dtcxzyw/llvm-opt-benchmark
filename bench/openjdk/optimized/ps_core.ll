@@ -1088,10 +1088,7 @@ define internal range(i32 -1, 2) i32 @core_cmp_mapping(ptr nocapture noundef rea
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = icmp eq i64 %6, %8
-  %10 = icmp ult i64 %6, %8
-  %11 = select i1 %10, i32 -1, i32 1
-  %.0 = select i1 %9, i32 0, i32 %11
+  %.0 = tail call i32 @llvm.ucmp.i32.i64(i64 %6, i64 %8)
   ret i32 %.0
 }
 
@@ -1304,6 +1301,9 @@ define internal fastcc range(i32 0, 2) i32 @read_lib_segments(ptr noundef nonnul
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13

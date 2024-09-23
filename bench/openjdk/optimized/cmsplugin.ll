@@ -1082,55 +1082,52 @@ define hidden void @cmsUnregisterPluginsTHR(ptr noundef %0) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = icmp ugt i32 %1, 15
-  br i1 %3, label %4, label %5
+  br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
   tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %0, i32 noundef 3, ptr noundef nonnull @.str.4) #12
-  br label %.sink.split
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @globalContext, i64 16), align 8
+  br label %21
 
-5:                                                ; preds = %2
-  %6 = icmp eq ptr %0, null
-  br i1 %6, label %_cmsGetContext.exit, label %7
+6:                                                ; preds = %2
+  %7 = icmp eq ptr %0, null
+  br i1 %7, label %_cmsGetContext.exit, label %8
 
-7:                                                ; preds = %5
-  %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @_cmsContextPoolHeadMutex) #12
-  br label %9
+8:                                                ; preds = %6
+  %9 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @_cmsContextPoolHeadMutex) #12
+  br label %10
 
-9:                                                ; preds = %10, %7
-  %.0.in.i = phi ptr [ @_cmsContextPoolHead, %7 ], [ %.0.i, %10 ]
+10:                                               ; preds = %11, %8
+  %.0.in.i = phi ptr [ @_cmsContextPoolHead, %8 ], [ %.0.i, %11 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %.sink.split.i, label %10
+  br i1 %.not.i, label %.sink.split.i, label %11
 
-10:                                               ; preds = %9
-  %11 = icmp eq ptr %0, %.0.i
-  br i1 %11, label %.sink.split.i, label %9, !llvm.loop !10
+11:                                               ; preds = %10
+  %12 = icmp eq ptr %0, %.0.i
+  br i1 %12, label %.sink.split.i, label %10, !llvm.loop !10
 
-.sink.split.i:                                    ; preds = %10, %9
-  %.08.ph.i = phi ptr [ %.0.i, %10 ], [ @globalContext, %9 ]
-  %12 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @_cmsContextPoolHeadMutex) #12
+.sink.split.i:                                    ; preds = %11, %10
+  %.08.ph.i = phi ptr [ %.0.i, %11 ], [ @globalContext, %10 ]
+  %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @_cmsContextPoolHeadMutex) #12
   br label %_cmsGetContext.exit
 
-_cmsGetContext.exit:                              ; preds = %5, %.sink.split.i
-  %.08.i = phi ptr [ @globalContext, %5 ], [ %.08.ph.i, %.sink.split.i ]
-  %13 = getelementptr inbounds i8, ptr %.08.i, i64 16
-  %14 = zext nneg i32 %1 to i64
-  %15 = getelementptr inbounds [16 x ptr], ptr %13, i64 0, i64 %14
-  %16 = load ptr, ptr %15, align 8
-  %.not = icmp eq ptr %16, null
-  br i1 %.not, label %17, label %20
+_cmsGetContext.exit:                              ; preds = %6, %.sink.split.i
+  %.08.i = phi ptr [ @globalContext, %6 ], [ %.08.ph.i, %.sink.split.i ]
+  %14 = getelementptr inbounds i8, ptr %.08.i, i64 16
+  %15 = zext nneg i32 %1 to i64
+  %16 = getelementptr inbounds [16 x ptr], ptr %14, i64 0, i64 %15
+  %17 = load ptr, ptr %16, align 8
+  %.not = icmp eq ptr %17, null
+  br i1 %.not, label %18, label %21
 
-17:                                               ; preds = %_cmsGetContext.exit
-  %18 = getelementptr inbounds [16 x ptr], ptr getelementptr inbounds (i8, ptr @globalContext, i64 16), i64 0, i64 %14
-  br label %.sink.split
+18:                                               ; preds = %_cmsGetContext.exit
+  %19 = getelementptr inbounds [16 x ptr], ptr getelementptr inbounds (i8, ptr @globalContext, i64 16), i64 0, i64 %15
+  %20 = load ptr, ptr %19, align 8
+  br label %21
 
-.sink.split:                                      ; preds = %4, %17
-  %.sink = phi ptr [ %18, %17 ], [ getelementptr inbounds (i8, ptr @globalContext, i64 16), %4 ]
-  %19 = load ptr, ptr %.sink, align 8
-  br label %20
-
-20:                                               ; preds = %.sink.split, %_cmsGetContext.exit
-  %.0 = phi ptr [ %16, %_cmsGetContext.exit ], [ %19, %.sink.split ]
+21:                                               ; preds = %_cmsGetContext.exit, %18, %4
+  %.0 = phi ptr [ %5, %4 ], [ %20, %18 ], [ %17, %_cmsGetContext.exit ]
   ret ptr %.0
 }
 

@@ -8872,9 +8872,9 @@ if.else:                                          ; preds = %entry
   br label %cleanup
 
 cleanup:                                          ; preds = %if.else, %if.then
-  %retval.sink = phi ptr [ %retval, %if.else ], [ %incdec.ptr.i, %if.then ]
-  %.pre = load i64, ptr %retval.sink, align 8
-  ret i64 %.pre
+  %.in = phi ptr [ %retval, %if.else ], [ %incdec.ptr.i, %if.then ]
+  %1 = load i64, ptr %.in, align 8
+  ret i64 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

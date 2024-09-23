@@ -358,69 +358,76 @@ switch.lookup:                                    ; preds = %.thread
   %.0.i = phi ptr [ %28, %26 ], [ %24, %.thread41 ]
   switch i32 %0, label %add_service_name.exit [
     i32 2, label %32
-    i32 3, label %38
-    i32 1, label %34
-    i32 4, label %36
+    i32 3, label %34
+    i32 1, label %35
+    i32 4, label %37
   ]
 
 32:                                               ; preds = %31
   %33 = getelementptr inbounds i8, ptr %.0.i, i64 8
-  br label %38
+  store ptr %.144, ptr %33, align 8
+  br label %39
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %.0.i, i64 16
-  br label %38
+  store ptr %.144, ptr %.0.i, align 8
+  br label %39
 
-36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %.0.i, i64 24
-  br label %38
+35:                                               ; preds = %31
+  %36 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  store ptr %.144, ptr %36, align 8
+  br label %39
 
-38:                                               ; preds = %36, %34, %32, %31
-  %.sink.i = phi ptr [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %.0.i, %31 ]
-  store ptr %.144, ptr %.sink.i, align 8
+37:                                               ; preds = %31
+  %38 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  store ptr %.144, ptr %38, align 8
+  br label %39
+
+39:                                               ; preds = %37, %35, %34, %32
   store i1 true, ptr @new_resolved_objects, align 4
   br label %add_service_name.exit
 
-add_service_name.exit:                            ; preds = %.thread, %switch.lookup, %38, %31, %20
-  %.027 = phi ptr [ %8, %20 ], [ %.0.i, %31 ], [ %.0.i, %38 ], [ %8, %switch.lookup ], [ %8, %.thread ]
+add_service_name.exit:                            ; preds = %.thread, %switch.lookup, %39, %31, %20
+  %.027 = phi ptr [ %8, %20 ], [ %.0.i, %31 ], [ %.0.i, %39 ], [ %8, %switch.lookup ], [ %8, %.thread ]
   %.not31 = icmp eq ptr %2, null
-  br i1 %.not31, label %40, label %39
+  br i1 %.not31, label %41, label %40
 
-39:                                               ; preds = %add_service_name.exit
+40:                                               ; preds = %add_service_name.exit
   store ptr %.027, ptr %2, align 8
-  br label %40
+  br label %41
 
-40:                                               ; preds = %39, %add_service_name.exit
-  %41 = icmp eq ptr %.027, null
-  br i1 %41, label %50, label %42
+41:                                               ; preds = %40, %add_service_name.exit
+  %42 = icmp eq ptr %.027, null
+  br i1 %42, label %55, label %43
 
-42:                                               ; preds = %40
-  switch i32 %0, label %50 [
-    i32 3, label %.sink.split
-    i32 2, label %43
-    i32 1, label %45
-    i32 4, label %47
+43:                                               ; preds = %41
+  switch i32 %0, label %55 [
+    i32 3, label %44
+    i32 2, label %46
+    i32 1, label %49
+    i32 4, label %52
   ]
 
-43:                                               ; preds = %42
-  %44 = getelementptr inbounds i8, ptr %.027, i64 8
-  br label %.sink.split
+44:                                               ; preds = %43
+  %45 = load ptr, ptr %.027, align 8
+  br label %55
 
-45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %.027, i64 16
-  br label %.sink.split
+46:                                               ; preds = %43
+  %47 = getelementptr inbounds i8, ptr %.027, i64 8
+  %48 = load ptr, ptr %47, align 8
+  br label %55
 
-47:                                               ; preds = %42
-  %48 = getelementptr inbounds i8, ptr %.027, i64 24
-  br label %.sink.split
+49:                                               ; preds = %43
+  %50 = getelementptr inbounds i8, ptr %.027, i64 16
+  %51 = load ptr, ptr %50, align 8
+  br label %55
 
-.sink.split:                                      ; preds = %42, %43, %45, %47
-  %.sink = phi ptr [ %48, %47 ], [ %46, %45 ], [ %44, %43 ], [ %.027, %42 ]
-  %49 = load ptr, ptr %.sink, align 8
-  br label %50
+52:                                               ; preds = %43
+  %53 = getelementptr inbounds i8, ptr %.027, i64 24
+  %54 = load ptr, ptr %53, align 8
+  br label %55
 
-50:                                               ; preds = %.sink.split, %42, %40
-  %.024 = phi ptr [ null, %40 ], [ null, %42 ], [ %49, %.sink.split ]
+55:                                               ; preds = %43, %41, %52, %49, %46, %44
+  %.024 = phi ptr [ %54, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %44 ], [ null, %41 ], [ null, %43 ]
   ret ptr %.024
 }
 

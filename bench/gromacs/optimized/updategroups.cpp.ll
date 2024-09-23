@@ -4620,7 +4620,8 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
 20:                                               ; preds = %.lr.ph
   %21 = load ptr, ptr %.05469, align 8
   store ptr %21, ptr %.072, align 8
-  br label %.sink.split
+  store ptr %.072, ptr %.05469, align 8
+  br label %44
 
 22:                                               ; preds = %.lr.ph
   %23 = trunc nuw i8 %.05568 to i1
@@ -4662,24 +4663,19 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
 
 39:                                               ; preds = %36
   %40 = getelementptr inbounds ptr, ptr %.0.i, i64 %.05271
-  br label %.sink.split
+  store ptr %.072, ptr %40, align 8
+  br label %44
 
 41:                                               ; preds = %33
   %42 = load ptr, ptr %35, align 8
   store ptr %42, ptr %.072, align 8
   %43 = load ptr, ptr %34, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %20, %41, %39
-  %.sink = phi ptr [ %40, %39 ], [ %43, %41 ], [ %.05469, %20 ]
-  %.156.ph = phi i8 [ %.2, %39 ], [ %.2, %41 ], [ 1, %20 ]
-  %.1.ph = phi i64 [ %18, %39 ], [ %.05271, %41 ], [ %.05271, %20 ]
-  store ptr %.072, ptr %.sink, align 8
+  store ptr %.072, ptr %43, align 8
   br label %44
 
-44:                                               ; preds = %.sink.split, %36
-  %.156 = phi i8 [ %.2, %36 ], [ %.156.ph, %.sink.split ]
-  %.1 = phi i64 [ %18, %36 ], [ %.1.ph, %.sink.split ]
+44:                                               ; preds = %36, %39, %41, %20
+  %.156 = phi i8 [ 1, %20 ], [ %.2, %41 ], [ %.2, %39 ], [ %.2, %36 ]
+  %.1 = phi i64 [ %.05271, %20 ], [ %.05271, %41 ], [ %18, %39 ], [ %18, %36 ]
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !67
 

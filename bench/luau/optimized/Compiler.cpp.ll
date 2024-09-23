@@ -18851,16 +18851,16 @@ _ZN4Luau8Compiler17getConstantNumberEPNS_7AstExprE.exit77.thread: ; preds = %91,
   %123 = load ptr, ptr %0, align 8
   %124 = load i32, ptr %10, align 4
   %125 = icmp ult i32 %124, 7
-  br i1 %125, label %switch.lookup114, label %_ZN4Luau8Compiler16getBinaryOpArithENS_13AstExprBinary2OpEb.exit79
+  br i1 %125, label %switch.lookup113, label %_ZN4Luau8Compiler16getBinaryOpArithENS_13AstExprBinary2OpEb.exit79
 
-switch.lookup114:                                 ; preds = %122
+switch.lookup113:                                 ; preds = %122
   %126 = zext nneg i32 %124 to i64
-  %switch.gep115 = getelementptr inbounds [7 x i32], ptr @switch.table._ZN4Luau8Compiler17compileExprBinaryEPNS_13AstExprBinaryEhb.2, i64 0, i64 %126
-  %switch.load116 = load i32, ptr %switch.gep115, align 4
+  %switch.gep114 = getelementptr inbounds [7 x i32], ptr @switch.table._ZN4Luau8Compiler17compileExprBinaryEPNS_13AstExprBinaryEhb.2, i64 0, i64 %126
+  %switch.load115 = load i32, ptr %switch.gep114, align 4
   br label %_ZN4Luau8Compiler16getBinaryOpArithENS_13AstExprBinary2OpEb.exit79
 
-_ZN4Luau8Compiler16getBinaryOpArithENS_13AstExprBinary2OpEb.exit79: ; preds = %switch.lookup114, %122
-  %.0.i78 = phi i32 [ 0, %122 ], [ %switch.load116, %switch.lookup114 ]
+_ZN4Luau8Compiler16getBinaryOpArithENS_13AstExprBinary2OpEb.exit79: ; preds = %switch.lookup113, %122
+  %.0.i78 = phi i32 [ 0, %122 ], [ %switch.load115, %switch.lookup113 ]
   invoke void @_ZN4Luau15BytecodeBuilder7emitABCE10LuauOpcodehhh(ptr noundef nonnull align 8 dereferenceable(840) %123, i32 noundef %.0.i78, i8 noundef zeroext %2, i8 noundef zeroext %118, i8 noundef zeroext %121)
           to label %127 unwind label %64
 
@@ -18876,9 +18876,9 @@ _ZN4Luau8Compiler16getBinaryOpArithENS_13AstExprBinary2OpEb.exit79: ; preds = %s
           to label %.invoke107 unwind label %64
 
 .invoke107:                                       ; preds = %130, %113, %61
-  %.sink108 = phi ptr [ %52, %61 ], [ %13, %113 ], [ %13, %130 ]
   %.sink = phi i8 [ %54, %61 ], [ %106, %113 ], [ %121, %130 ]
-  %133 = load ptr, ptr %.sink108, align 8
+  %.in = phi ptr [ %52, %61 ], [ %13, %113 ], [ %13, %130 ]
+  %133 = load ptr, ptr %.in, align 8
   %134 = zext i8 %.sink to i32
   invoke void @_ZN4Luau8Compiler24hintTemporaryExprRegTypeEPNS_7AstExprEi16LuauBytecodeTypei(ptr noundef nonnull align 8 dereferenceable(1200) %0, ptr noundef %133, i32 noundef %134, i32 noundef 2, i32 noundef 1)
           to label %_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit86 unwind label %64
@@ -19036,9 +19036,9 @@ _ZN4Luau8Compiler15compileExprTempEPNS_7AstExprEh.exit: ; preds = %.lr.ph
   br i1 %207, label %_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit86, label %.invoke
 
 .invoke:                                          ; preds = %.noexc87, %.noexc75, %.noexc
-  %.sink109 = phi ptr [ %14, %.noexc ], [ %69, %.noexc75 ], [ %1, %.noexc87 ]
+  %.sink108 = phi ptr [ %14, %.noexc ], [ %69, %.noexc75 ], [ %1, %.noexc87 ]
   %208 = phi ptr [ @.str.82, %.noexc ], [ @.str.82, %.noexc75 ], [ @.str.91, %.noexc87 ]
-  %209 = getelementptr inbounds i8, ptr %.sink109, i64 12
+  %209 = getelementptr inbounds i8, ptr %.sink108, i64 12
   invoke void (ptr, ptr, ...) @_ZN4Luau12CompileError5raiseERKNS_8LocationEPKcz(ptr noundef nonnull align 4 dereferenceable(16) %209, ptr noundef nonnull %208) #26
           to label %.cont unwind label %64
 

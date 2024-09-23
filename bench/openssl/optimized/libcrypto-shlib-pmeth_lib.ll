@@ -991,7 +991,8 @@ if.then75:                                        ; preds = %if.end70
   %op71 = getelementptr inbounds i8, ptr %call3, i64 40
   %14 = load ptr, ptr %op71, align 8
   tail call void @EVP_KEYEXCH_free(ptr noundef %14) #10
-  br label %err.sink.split
+  store ptr null, ptr %op71, align 8
+  br label %err
 
 if.then100:                                       ; preds = %if.end26, %if.end26, %if.end26, %if.end26, %if.end26
   %op101 = getelementptr inbounds i8, ptr %pctx, i64 40
@@ -1043,7 +1044,8 @@ if.then154:                                       ; preds = %if.end149
   %op150 = getelementptr inbounds i8, ptr %call3, i64 40
   %20 = load ptr, ptr %op150, align 8
   tail call void @EVP_SIGNATURE_free(ptr noundef %20) #10
-  br label %err.sink.split
+  store ptr null, ptr %op150, align 8
+  br label %err
 
 if.then169:                                       ; preds = %if.end26, %if.end26
   %op170 = getelementptr inbounds i8, ptr %pctx, i64 40
@@ -1095,7 +1097,8 @@ if.then223:                                       ; preds = %if.end218
   %op219 = getelementptr inbounds i8, ptr %call3, i64 40
   %26 = load ptr, ptr %op219, align 8
   tail call void @EVP_ASYM_CIPHER_free(ptr noundef %26) #10
-  br label %err.sink.split
+  store ptr null, ptr %op219, align 8
+  br label %err
 
 if.then238:                                       ; preds = %if.end26, %if.end26
   %op239 = getelementptr inbounds i8, ptr %pctx, i64 40
@@ -1147,7 +1150,8 @@ if.then292:                                       ; preds = %if.end287
   %op288 = getelementptr inbounds i8, ptr %call3, i64 40
   %32 = load ptr, ptr %op288, align 8
   tail call void @EVP_KEM_free(ptr noundef %32) #10
-  br label %err.sink.split
+  store ptr null, ptr %op288, align 8
+  br label %err
 
 if.end312:                                        ; preds = %if.end26, %if.end115, %if.end253, %if.end184, %if.end43
   %pmeth = getelementptr inbounds i8, ptr %pctx, i64 120
@@ -1213,12 +1217,7 @@ if.else347:                                       ; preds = %if.end321
   %cmp350 = icmp sgt i32 %call349, 0
   br i1 %cmp350, label %return, label %err
 
-err.sink.split:                                   ; preds = %if.then75, %if.then154, %if.then223, %if.then292
-  %op288.sink = phi ptr [ %op288, %if.then292 ], [ %op219, %if.then223 ], [ %op150, %if.then154 ], [ %op71, %if.then75 ]
-  store ptr null, ptr %op288.sink, align 8
-  br label %err
-
-err:                                              ; preds = %err.sink.split, %if.end26, %if.end26, %if.then327, %if.else347, %if.end339, %if.then331, %if.then258, %if.then242, %if.then189, %if.then173, %if.then120, %if.then104, %if.then46, %if.then32, %if.then18
+err:                                              ; preds = %if.end26, %if.end26, %if.then327, %if.else347, %if.end339, %if.then331, %if.then258, %if.then242, %if.then189, %if.then173, %if.then120, %if.then104, %if.then46, %if.then32, %if.then18, %if.then292, %if.then223, %if.then154, %if.then75
   %pmeth355 = getelementptr inbounds i8, ptr %call3, i64 120
   store ptr null, ptr %pmeth355, align 8
   call void @EVP_PKEY_CTX_free(ptr noundef nonnull %call3)
@@ -1752,71 +1751,86 @@ land.lhs.true2:                                   ; preds = %land.lhs.true
 
 if.then:                                          ; preds = %land.lhs.true2
   %call = tail call ptr @EVP_KEYEXCH_get0_provider(ptr noundef nonnull %1) #10
-  br label %return.sink.split
+  %call8 = tail call ptr @ossl_provider_ctx(ptr noundef %call) #10
+  %3 = load ptr, ptr %op, align 8
+  %gettable_ctx_params11 = getelementptr inbounds i8, ptr %3, i64 112
+  %4 = load ptr, ptr %gettable_ctx_params11, align 8
+  %algctx = getelementptr inbounds i8, ptr %ctx, i64 48
+  %5 = load ptr, ptr %algctx, align 8
+  %call13 = tail call ptr %4(ptr noundef %5, ptr noundef %call8) #10
+  br label %return
 
 land.lhs.true27:                                  ; preds = %entry, %entry, %entry, %entry, %entry
   %op28 = getelementptr inbounds i8, ptr %ctx, i64 40
-  %3 = load ptr, ptr %op28, align 8
-  %cmp29.not = icmp eq ptr %3, null
+  %6 = load ptr, ptr %op28, align 8
+  %cmp29.not = icmp eq ptr %6, null
   br i1 %cmp29.not, label %return, label %land.lhs.true30
 
 land.lhs.true30:                                  ; preds = %land.lhs.true27
-  %gettable_ctx_params33 = getelementptr inbounds i8, ptr %3, i64 184
-  %4 = load ptr, ptr %gettable_ctx_params33, align 8
-  %cmp34.not = icmp eq ptr %4, null
+  %gettable_ctx_params33 = getelementptr inbounds i8, ptr %6, i64 184
+  %7 = load ptr, ptr %gettable_ctx_params33, align 8
+  %cmp34.not = icmp eq ptr %7, null
   br i1 %cmp34.not, label %return, label %if.then35
 
 if.then35:                                        ; preds = %land.lhs.true30
-  %call38 = tail call ptr @EVP_SIGNATURE_get0_provider(ptr noundef nonnull %3) #10
-  br label %return.sink.split
+  %call38 = tail call ptr @EVP_SIGNATURE_get0_provider(ptr noundef nonnull %6) #10
+  %call39 = tail call ptr @ossl_provider_ctx(ptr noundef %call38) #10
+  %8 = load ptr, ptr %op28, align 8
+  %gettable_ctx_params42 = getelementptr inbounds i8, ptr %8, i64 184
+  %9 = load ptr, ptr %gettable_ctx_params42, align 8
+  %algctx44 = getelementptr inbounds i8, ptr %ctx, i64 48
+  %10 = load ptr, ptr %algctx44, align 8
+  %call45 = tail call ptr %9(ptr noundef %10, ptr noundef %call39) #10
+  br label %return
 
 land.lhs.true52:                                  ; preds = %entry, %entry
   %op53 = getelementptr inbounds i8, ptr %ctx, i64 40
-  %5 = load ptr, ptr %op53, align 8
-  %cmp54.not = icmp eq ptr %5, null
+  %11 = load ptr, ptr %op53, align 8
+  %cmp54.not = icmp eq ptr %11, null
   br i1 %cmp54.not, label %return, label %land.lhs.true55
 
 land.lhs.true55:                                  ; preds = %land.lhs.true52
-  %gettable_ctx_params58 = getelementptr inbounds i8, ptr %5, i64 104
-  %6 = load ptr, ptr %gettable_ctx_params58, align 8
-  %cmp59.not = icmp eq ptr %6, null
+  %gettable_ctx_params58 = getelementptr inbounds i8, ptr %11, i64 104
+  %12 = load ptr, ptr %gettable_ctx_params58, align 8
+  %cmp59.not = icmp eq ptr %12, null
   br i1 %cmp59.not, label %return, label %if.then60
 
 if.then60:                                        ; preds = %land.lhs.true55
-  %call63 = tail call ptr @EVP_ASYM_CIPHER_get0_provider(ptr noundef nonnull %5) #10
-  br label %return.sink.split
+  %call63 = tail call ptr @EVP_ASYM_CIPHER_get0_provider(ptr noundef nonnull %11) #10
+  %call64 = tail call ptr @ossl_provider_ctx(ptr noundef %call63) #10
+  %13 = load ptr, ptr %op53, align 8
+  %gettable_ctx_params67 = getelementptr inbounds i8, ptr %13, i64 104
+  %14 = load ptr, ptr %gettable_ctx_params67, align 8
+  %algctx69 = getelementptr inbounds i8, ptr %ctx, i64 48
+  %15 = load ptr, ptr %algctx69, align 8
+  %call70 = tail call ptr %14(ptr noundef %15, ptr noundef %call64) #10
+  br label %return
 
 land.lhs.true77:                                  ; preds = %entry, %entry
   %op78 = getelementptr inbounds i8, ptr %ctx, i64 40
-  %7 = load ptr, ptr %op78, align 8
-  %cmp79.not = icmp eq ptr %7, null
+  %16 = load ptr, ptr %op78, align 8
+  %cmp79.not = icmp eq ptr %16, null
   br i1 %cmp79.not, label %return, label %land.lhs.true80
 
 land.lhs.true80:                                  ; preds = %land.lhs.true77
-  %gettable_ctx_params83 = getelementptr inbounds i8, ptr %7, i64 104
-  %8 = load ptr, ptr %gettable_ctx_params83, align 8
-  %cmp84.not = icmp eq ptr %8, null
+  %gettable_ctx_params83 = getelementptr inbounds i8, ptr %16, i64 104
+  %17 = load ptr, ptr %gettable_ctx_params83, align 8
+  %cmp84.not = icmp eq ptr %17, null
   br i1 %cmp84.not, label %return, label %if.then85
 
 if.then85:                                        ; preds = %land.lhs.true80
-  %call88 = tail call ptr @EVP_KEM_get0_provider(ptr noundef nonnull %7) #10
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.then, %if.then35, %if.then60, %if.then85
-  %call88.sink = phi ptr [ %call88, %if.then85 ], [ %call63, %if.then60 ], [ %call38, %if.then35 ], [ %call, %if.then ]
-  %op78.sink = phi ptr [ %op78, %if.then85 ], [ %op53, %if.then60 ], [ %op28, %if.then35 ], [ %op, %if.then ]
-  %.sink40 = phi i64 [ 104, %if.then85 ], [ 104, %if.then60 ], [ 184, %if.then35 ], [ 112, %if.then ]
-  %call89 = tail call ptr @ossl_provider_ctx(ptr noundef %call88.sink) #10
-  %9 = load ptr, ptr %op78.sink, align 8
-  %gettable_ctx_params92 = getelementptr inbounds i8, ptr %9, i64 %.sink40
-  %10 = load ptr, ptr %gettable_ctx_params92, align 8
+  %call88 = tail call ptr @EVP_KEM_get0_provider(ptr noundef nonnull %16) #10
+  %call89 = tail call ptr @ossl_provider_ctx(ptr noundef %call88) #10
+  %18 = load ptr, ptr %op78, align 8
+  %gettable_ctx_params92 = getelementptr inbounds i8, ptr %18, i64 104
+  %19 = load ptr, ptr %gettable_ctx_params92, align 8
   %algctx94 = getelementptr inbounds i8, ptr %ctx, i64 48
-  %11 = load ptr, ptr %algctx94, align 8
-  %call95 = tail call ptr %10(ptr noundef %11, ptr noundef %call89) #10
+  %20 = load ptr, ptr %algctx94, align 8
+  %call95 = tail call ptr %19(ptr noundef %20, ptr noundef %call89) #10
   br label %return
 
-return:                                           ; preds = %return.sink.split, %land.lhs.true52, %land.lhs.true55, %land.lhs.true27, %land.lhs.true30, %entry, %land.lhs.true, %land.lhs.true2, %land.lhs.true77, %land.lhs.true80
-  %retval.0 = phi ptr [ null, %land.lhs.true80 ], [ null, %land.lhs.true77 ], [ null, %land.lhs.true2 ], [ null, %land.lhs.true ], [ null, %entry ], [ null, %land.lhs.true30 ], [ null, %land.lhs.true27 ], [ null, %land.lhs.true55 ], [ null, %land.lhs.true52 ], [ %call95, %return.sink.split ]
+return:                                           ; preds = %land.lhs.true52, %land.lhs.true55, %land.lhs.true27, %land.lhs.true30, %entry, %land.lhs.true, %land.lhs.true2, %land.lhs.true77, %land.lhs.true80, %if.then85, %if.then60, %if.then35, %if.then
+  %retval.0 = phi ptr [ %call13, %if.then ], [ %call45, %if.then35 ], [ %call70, %if.then60 ], [ %call95, %if.then85 ], [ null, %land.lhs.true80 ], [ null, %land.lhs.true77 ], [ null, %land.lhs.true2 ], [ null, %land.lhs.true ], [ null, %entry ], [ null, %land.lhs.true30 ], [ null, %land.lhs.true27 ], [ null, %land.lhs.true55 ], [ null, %land.lhs.true52 ]
   ret ptr %retval.0
 }
 
@@ -1863,88 +1877,109 @@ land.lhs.true2:                                   ; preds = %land.lhs.true
 
 if.then:                                          ; preds = %land.lhs.true2
   %call = tail call ptr @EVP_KEYEXCH_get0_provider(ptr noundef nonnull %1) #10
-  br label %return.sink.split
+  %call8 = tail call ptr @ossl_provider_ctx(ptr noundef %call) #10
+  %3 = load ptr, ptr %op, align 8
+  %settable_ctx_params11 = getelementptr inbounds i8, ptr %3, i64 96
+  %4 = load ptr, ptr %settable_ctx_params11, align 8
+  %algctx = getelementptr inbounds i8, ptr %ctx, i64 48
+  %5 = load ptr, ptr %algctx, align 8
+  %call13 = tail call ptr %4(ptr noundef %5, ptr noundef %call8) #10
+  br label %return
 
 land.lhs.true27:                                  ; preds = %entry, %entry, %entry, %entry, %entry
   %op28 = getelementptr inbounds i8, ptr %ctx, i64 40
-  %3 = load ptr, ptr %op28, align 8
-  %cmp29.not = icmp eq ptr %3, null
+  %6 = load ptr, ptr %op28, align 8
+  %cmp29.not = icmp eq ptr %6, null
   br i1 %cmp29.not, label %return, label %land.lhs.true30
 
 land.lhs.true30:                                  ; preds = %land.lhs.true27
-  %settable_ctx_params33 = getelementptr inbounds i8, ptr %3, i64 200
-  %4 = load ptr, ptr %settable_ctx_params33, align 8
-  %cmp34.not = icmp eq ptr %4, null
+  %settable_ctx_params33 = getelementptr inbounds i8, ptr %6, i64 200
+  %7 = load ptr, ptr %settable_ctx_params33, align 8
+  %cmp34.not = icmp eq ptr %7, null
   br i1 %cmp34.not, label %return, label %if.then35
 
 if.then35:                                        ; preds = %land.lhs.true30
-  %call38 = tail call ptr @EVP_SIGNATURE_get0_provider(ptr noundef nonnull %3) #10
-  br label %return.sink.split
+  %call38 = tail call ptr @EVP_SIGNATURE_get0_provider(ptr noundef nonnull %6) #10
+  %call39 = tail call ptr @ossl_provider_ctx(ptr noundef %call38) #10
+  %8 = load ptr, ptr %op28, align 8
+  %settable_ctx_params42 = getelementptr inbounds i8, ptr %8, i64 200
+  %9 = load ptr, ptr %settable_ctx_params42, align 8
+  %algctx44 = getelementptr inbounds i8, ptr %ctx, i64 48
+  %10 = load ptr, ptr %algctx44, align 8
+  %call45 = tail call ptr %9(ptr noundef %10, ptr noundef %call39) #10
+  br label %return
 
 land.lhs.true52:                                  ; preds = %entry, %entry
   %op53 = getelementptr inbounds i8, ptr %ctx, i64 40
-  %5 = load ptr, ptr %op53, align 8
-  %cmp54.not = icmp eq ptr %5, null
+  %11 = load ptr, ptr %op53, align 8
+  %cmp54.not = icmp eq ptr %11, null
   br i1 %cmp54.not, label %return, label %land.lhs.true55
 
 land.lhs.true55:                                  ; preds = %land.lhs.true52
-  %settable_ctx_params58 = getelementptr inbounds i8, ptr %5, i64 120
-  %6 = load ptr, ptr %settable_ctx_params58, align 8
-  %cmp59.not = icmp eq ptr %6, null
+  %settable_ctx_params58 = getelementptr inbounds i8, ptr %11, i64 120
+  %12 = load ptr, ptr %settable_ctx_params58, align 8
+  %cmp59.not = icmp eq ptr %12, null
   br i1 %cmp59.not, label %return, label %if.then60
 
 if.then60:                                        ; preds = %land.lhs.true55
-  %call63 = tail call ptr @EVP_ASYM_CIPHER_get0_provider(ptr noundef nonnull %5) #10
-  br label %return.sink.split
+  %call63 = tail call ptr @EVP_ASYM_CIPHER_get0_provider(ptr noundef nonnull %11) #10
+  %call64 = tail call ptr @ossl_provider_ctx(ptr noundef %call63) #10
+  %13 = load ptr, ptr %op53, align 8
+  %settable_ctx_params67 = getelementptr inbounds i8, ptr %13, i64 120
+  %14 = load ptr, ptr %settable_ctx_params67, align 8
+  %algctx69 = getelementptr inbounds i8, ptr %ctx, i64 48
+  %15 = load ptr, ptr %algctx69, align 8
+  %call70 = tail call ptr %14(ptr noundef %15, ptr noundef %call64) #10
+  br label %return
 
 land.lhs.true77:                                  ; preds = %entry, %entry
   %keymgmt = getelementptr inbounds i8, ptr %ctx, i64 32
-  %7 = load ptr, ptr %keymgmt, align 8
-  %cmp78.not = icmp eq ptr %7, null
+  %16 = load ptr, ptr %keymgmt, align 8
+  %cmp78.not = icmp eq ptr %16, null
   br i1 %cmp78.not, label %return, label %land.lhs.true79
 
 land.lhs.true79:                                  ; preds = %land.lhs.true77
-  %gen_settable_params = getelementptr inbounds i8, ptr %7, i64 112
-  %8 = load ptr, ptr %gen_settable_params, align 8
-  %cmp81.not = icmp eq ptr %8, null
+  %gen_settable_params = getelementptr inbounds i8, ptr %16, i64 112
+  %17 = load ptr, ptr %gen_settable_params, align 8
+  %cmp81.not = icmp eq ptr %17, null
   br i1 %cmp81.not, label %return, label %if.then82
 
 if.then82:                                        ; preds = %land.lhs.true79
-  %call84 = tail call ptr @EVP_KEYMGMT_get0_provider(ptr noundef nonnull %7) #10
-  br label %return.sink.split
+  %call84 = tail call ptr @EVP_KEYMGMT_get0_provider(ptr noundef nonnull %16) #10
+  %call85 = tail call ptr @ossl_provider_ctx(ptr noundef %call84) #10
+  %18 = load ptr, ptr %keymgmt, align 8
+  %gen_settable_params87 = getelementptr inbounds i8, ptr %18, i64 112
+  %19 = load ptr, ptr %gen_settable_params87, align 8
+  %op88 = getelementptr inbounds i8, ptr %ctx, i64 40
+  %20 = load ptr, ptr %op88, align 8
+  %call89 = tail call ptr %19(ptr noundef %20, ptr noundef %call85) #10
+  br label %return
 
 land.lhs.true96:                                  ; preds = %entry, %entry
   %op97 = getelementptr inbounds i8, ptr %ctx, i64 40
-  %9 = load ptr, ptr %op97, align 8
-  %cmp98.not = icmp eq ptr %9, null
+  %21 = load ptr, ptr %op97, align 8
+  %cmp98.not = icmp eq ptr %21, null
   br i1 %cmp98.not, label %return, label %land.lhs.true99
 
 land.lhs.true99:                                  ; preds = %land.lhs.true96
-  %settable_ctx_params102 = getelementptr inbounds i8, ptr %9, i64 120
-  %10 = load ptr, ptr %settable_ctx_params102, align 8
-  %cmp103.not = icmp eq ptr %10, null
+  %settable_ctx_params102 = getelementptr inbounds i8, ptr %21, i64 120
+  %22 = load ptr, ptr %settable_ctx_params102, align 8
+  %cmp103.not = icmp eq ptr %22, null
   br i1 %cmp103.not, label %return, label %if.then104
 
 if.then104:                                       ; preds = %land.lhs.true99
-  %call107 = tail call ptr @EVP_KEM_get0_provider(ptr noundef nonnull %9) #10
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.then, %if.then35, %if.then60, %if.then82, %if.then104
-  %call107.sink = phi ptr [ %call107, %if.then104 ], [ %call84, %if.then82 ], [ %call63, %if.then60 ], [ %call38, %if.then35 ], [ %call, %if.then ]
-  %op97.sink = phi ptr [ %op97, %if.then104 ], [ %keymgmt, %if.then82 ], [ %op53, %if.then60 ], [ %op28, %if.then35 ], [ %op, %if.then ]
-  %.sink51 = phi i64 [ 120, %if.then104 ], [ 112, %if.then82 ], [ 120, %if.then60 ], [ 200, %if.then35 ], [ 96, %if.then ]
-  %.sink = phi i64 [ 48, %if.then104 ], [ 40, %if.then82 ], [ 48, %if.then60 ], [ 48, %if.then35 ], [ 48, %if.then ]
-  %call108 = tail call ptr @ossl_provider_ctx(ptr noundef %call107.sink) #10
-  %11 = load ptr, ptr %op97.sink, align 8
-  %settable_ctx_params111 = getelementptr inbounds i8, ptr %11, i64 %.sink51
-  %12 = load ptr, ptr %settable_ctx_params111, align 8
-  %algctx113 = getelementptr inbounds i8, ptr %ctx, i64 %.sink
-  %13 = load ptr, ptr %algctx113, align 8
-  %call114 = tail call ptr %12(ptr noundef %13, ptr noundef %call108) #10
+  %call107 = tail call ptr @EVP_KEM_get0_provider(ptr noundef nonnull %21) #10
+  %call108 = tail call ptr @ossl_provider_ctx(ptr noundef %call107) #10
+  %23 = load ptr, ptr %op97, align 8
+  %settable_ctx_params111 = getelementptr inbounds i8, ptr %23, i64 120
+  %24 = load ptr, ptr %settable_ctx_params111, align 8
+  %algctx113 = getelementptr inbounds i8, ptr %ctx, i64 48
+  %25 = load ptr, ptr %algctx113, align 8
+  %call114 = tail call ptr %24(ptr noundef %25, ptr noundef %call108) #10
   br label %return
 
-return:                                           ; preds = %return.sink.split, %land.lhs.true77, %land.lhs.true79, %land.lhs.true52, %land.lhs.true55, %land.lhs.true27, %land.lhs.true30, %entry, %land.lhs.true2, %land.lhs.true, %land.lhs.true96, %land.lhs.true99
-  %retval.0 = phi ptr [ null, %land.lhs.true99 ], [ null, %land.lhs.true96 ], [ null, %land.lhs.true ], [ null, %land.lhs.true2 ], [ null, %entry ], [ null, %land.lhs.true30 ], [ null, %land.lhs.true27 ], [ null, %land.lhs.true55 ], [ null, %land.lhs.true52 ], [ null, %land.lhs.true79 ], [ null, %land.lhs.true77 ], [ %call114, %return.sink.split ]
+return:                                           ; preds = %land.lhs.true77, %land.lhs.true79, %land.lhs.true52, %land.lhs.true55, %land.lhs.true27, %land.lhs.true30, %entry, %land.lhs.true2, %land.lhs.true, %land.lhs.true96, %land.lhs.true99, %if.then104, %if.then82, %if.then60, %if.then35, %if.then
+  %retval.0 = phi ptr [ %call13, %if.then ], [ %call45, %if.then35 ], [ %call70, %if.then60 ], [ %call89, %if.then82 ], [ %call114, %if.then104 ], [ null, %land.lhs.true99 ], [ null, %land.lhs.true96 ], [ null, %land.lhs.true ], [ null, %land.lhs.true2 ], [ null, %entry ], [ null, %land.lhs.true30 ], [ null, %land.lhs.true27 ], [ null, %land.lhs.true55 ], [ null, %land.lhs.true52 ], [ null, %land.lhs.true79 ], [ null, %land.lhs.true77 ]
   ret ptr %retval.0
 }
 

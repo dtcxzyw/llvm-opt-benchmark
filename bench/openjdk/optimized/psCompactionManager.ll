@@ -1027,8 +1027,8 @@ define linkonce_odr hidden void @_ZN20ParCompactionManager27publish_and_drain_oo
   %3 = alloca %class.PCIterateMarkAndPushClosure, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 704
   %5 = load ptr, ptr %4, align 8
-  %.not23 = icmp eq ptr %5, null
-  br i1 %.not23, label %_ZN17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE12pop_overflowERS1_.exit.preheader, label %.lr.ph
+  %.not22 = icmp eq ptr %5, null
+  br i1 %.not22, label %_ZN17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE12pop_overflowERS1_.exit.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 648
@@ -1053,10 +1053,10 @@ _ZN17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE12pop_overflowERS1_.exit.p
   %22 = load volatile i32, ptr %20, align 8
   %23 = sub i32 %21, %22
   %24 = and i32 %23, 131071
-  %.not.i.not24 = icmp eq i32 %24, 0
-  br i1 %.not.i.not24, label %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE9pop_localERS1_j.exit.thread16, label %.lr.ph25
+  %.not.i.not23 = icmp eq i32 %24, 0
+  br i1 %.not.i.not23, label %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE9pop_localERS1_j.exit.thread15, label %.lr.ph24
 
-.lr.ph25:                                         ; preds = %_ZN17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE12pop_overflowERS1_.exit.preheader
+.lr.ph24:                                         ; preds = %_ZN17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE12pop_overflowERS1_.exit.preheader
   %25 = getelementptr inbounds i8, ptr %0, i64 392
   %26 = getelementptr inbounds i8, ptr %2, i64 8
   %27 = getelementptr inbounds i8, ptr %2, i64 16
@@ -1116,8 +1116,8 @@ _ZN5StackIP7oopDescL8MEMFLAGS5EE11pop_segmentEv.exit.i.i: ; preds = %48, %44
   %59 = load volatile i32, ptr %14, align 8
   %60 = sub i32 %58, %59
   %61 = and i32 %60, 131070
-  %.not21 = icmp eq i32 %61, 131070
-  br i1 %.not21, label %_ZN17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE21try_push_to_taskqueueES1_.exit, label %_ZN17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE21try_push_to_taskqueueES1_.exit.thread
+  %.not20 = icmp eq i32 %61, 131070
+  br i1 %.not20, label %_ZN17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE21try_push_to_taskqueueES1_.exit, label %_ZN17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE21try_push_to_taskqueueES1_.exit.thread
 
 _ZN17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE21try_push_to_taskqueueES1_.exit.thread: ; preds = %57
   %62 = load ptr, ptr %15, align 8
@@ -1199,8 +1199,8 @@ _ZN20ParCompactionManager15follow_contentsEP7oopDesc.exit: ; preds = %91, %92, %
   %.not = icmp eq ptr %98, null
   br i1 %.not, label %_ZN17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE12pop_overflowERS1_.exit.preheader, label %29, !llvm.loop !17
 
-99:                                               ; preds = %.lr.ph25, %_ZN20ParCompactionManager15follow_contentsEP7oopDesc.exit8
-  %100 = phi i32 [ %21, %.lr.ph25 ], [ %149, %_ZN20ParCompactionManager15follow_contentsEP7oopDesc.exit8 ]
+99:                                               ; preds = %.lr.ph24, %_ZN20ParCompactionManager15follow_contentsEP7oopDesc.exit7
+  %100 = phi i32 [ %21, %.lr.ph24 ], [ %149, %_ZN20ParCompactionManager15follow_contentsEP7oopDesc.exit7 ]
   %101 = add i32 %100, 131071
   %102 = and i32 %101, 131071
   store volatile i32 %102, ptr %19, align 8
@@ -1231,18 +1231,18 @@ _ZN20ParCompactionManager15follow_contentsEP7oopDesc.exit: ; preds = %91, %92, %
 114:                                              ; preds = %110
   %115 = call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.sroa.08.0.insert.insert11.i.i, i64 %111, ptr nonnull %20) #12, !srcloc !10
   %116 = icmp eq i64 %115, %111
-  br i1 %116, label %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE9pop_localERS1_j.exit.thread19, label %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE9pop_localERS1_j.exit
+  br i1 %116, label %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE9pop_localERS1_j.exit.thread18, label %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE9pop_localERS1_j.exit
 
-_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE9pop_localERS1_j.exit.thread19: ; preds = %114
+_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE9pop_localERS1_j.exit.thread18: ; preds = %114
   %117 = load volatile i32, ptr %20, align 8
   br label %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE9pop_localERS1_j.exit.thread
 
 _ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE9pop_localERS1_j.exit: ; preds = %110, %114
   store volatile i64 %.sroa.08.0.insert.insert11.i.i, ptr %20, align 8
   %118 = load volatile i32, ptr %20, align 8
-  br label %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE9pop_localERS1_j.exit.thread16
+  br label %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE9pop_localERS1_j.exit.thread15
 
-_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE9pop_localERS1_j.exit.thread: ; preds = %99, %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE9pop_localERS1_j.exit.thread19
+_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE9pop_localERS1_j.exit.thread: ; preds = %99, %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE9pop_localERS1_j.exit.thread18
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   %119 = load ptr, ptr @_ZN17PSParallelCompact14_ref_processorE, align 8
   store ptr %119, ptr %26, align 8
@@ -1252,9 +1252,9 @@ _ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE9pop_localERS1_j.exit.threa
   %120 = load i8, ptr @UseCompressedClassPointers, align 1
   %121 = trunc i8 %120 to i1
   %122 = getelementptr inbounds i8, ptr %106, i64 8
-  br i1 %121, label %_ZNK7oopDesc11is_objArrayEv.exit.i7, label %_ZNK7oopDesc11is_objArrayEv.exit.thread.i2
+  br i1 %121, label %_ZNK7oopDesc11is_objArrayEv.exit.i6, label %_ZNK7oopDesc11is_objArrayEv.exit.thread.i1
 
-_ZNK7oopDesc11is_objArrayEv.exit.i7:              ; preds = %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE9pop_localERS1_j.exit.thread
+_ZNK7oopDesc11is_objArrayEv.exit.i6:              ; preds = %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE9pop_localERS1_j.exit.thread
   %123 = load i32, ptr %122, align 8
   %124 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
   %125 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
@@ -1267,51 +1267,51 @@ _ZNK7oopDesc11is_objArrayEv.exit.i7:              ; preds = %_ZN16GenericTaskQue
   %132 = getelementptr inbounds i8, ptr %131, i64 12
   %133 = load i32, ptr %132, align 4
   %134 = icmp eq i32 %133, 6
-  br i1 %134, label %_ZNK7oopDesc5klassEv.exit.i5, label %_ZN7oopDesc11oop_iterateI27PCIterateMarkAndPushClosureEEvPT_.exit.i3
+  br i1 %134, label %_ZNK7oopDesc5klassEv.exit.i4, label %_ZN7oopDesc11oop_iterateI27PCIterateMarkAndPushClosureEEvPT_.exit.i2
 
-_ZNK7oopDesc11is_objArrayEv.exit.thread.i2:       ; preds = %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE9pop_localERS1_j.exit.thread
+_ZNK7oopDesc11is_objArrayEv.exit.thread.i1:       ; preds = %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE9pop_localERS1_j.exit.thread
   %135 = load ptr, ptr %122, align 8
   %136 = getelementptr inbounds i8, ptr %135, i64 12
   %137 = load i32, ptr %136, align 4
   %138 = icmp eq i32 %137, 6
-  br i1 %138, label %_ZNK7oopDesc5klassEv.exit.i5, label %_ZN7oopDesc11oop_iterateI27PCIterateMarkAndPushClosureEEvPT_.exit.i3
+  br i1 %138, label %_ZNK7oopDesc5klassEv.exit.i4, label %_ZN7oopDesc11oop_iterateI27PCIterateMarkAndPushClosureEEvPT_.exit.i2
 
-_ZNK7oopDesc5klassEv.exit.i5:                     ; preds = %_ZNK7oopDesc11is_objArrayEv.exit.thread.i2, %_ZNK7oopDesc11is_objArrayEv.exit.i7
-  %.0.i.i6 = phi ptr [ %131, %_ZNK7oopDesc11is_objArrayEv.exit.i7 ], [ %135, %_ZNK7oopDesc11is_objArrayEv.exit.thread.i2 ]
-  %139 = getelementptr inbounds i8, ptr %.0.i.i6, i64 152
+_ZNK7oopDesc5klassEv.exit.i4:                     ; preds = %_ZNK7oopDesc11is_objArrayEv.exit.thread.i1, %_ZNK7oopDesc11is_objArrayEv.exit.i6
+  %.0.i.i5 = phi ptr [ %131, %_ZNK7oopDesc11is_objArrayEv.exit.i6 ], [ %135, %_ZNK7oopDesc11is_objArrayEv.exit.thread.i1 ]
+  %139 = getelementptr inbounds i8, ptr %.0.i.i5, i64 152
   %140 = load ptr, ptr %139, align 8
   call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %140, ptr noundef nonnull %2, i32 noundef 4, i1 noundef zeroext false) #12
   %141 = load i8, ptr @UseCompressedOops, align 1
   %142 = trunc i8 %141 to i1
   br i1 %142, label %143, label %144
 
-143:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i5
+143:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i4
   call void @_Z24follow_array_specializedI9narrowOopEvP15objArrayOopDesciP20ParCompactionManager(ptr noundef nonnull %106, i32 noundef 0, ptr noundef nonnull %0)
-  br label %_ZN20ParCompactionManager15follow_contentsEP7oopDesc.exit8
+  br label %_ZN20ParCompactionManager15follow_contentsEP7oopDesc.exit7
 
-144:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i5
+144:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i4
   call void @_Z24follow_array_specializedIP7oopDescEvP15objArrayOopDesciP20ParCompactionManager(ptr noundef nonnull %106, i32 noundef 0, ptr noundef nonnull %0)
-  br label %_ZN20ParCompactionManager15follow_contentsEP7oopDesc.exit8
+  br label %_ZN20ParCompactionManager15follow_contentsEP7oopDesc.exit7
 
-_ZN7oopDesc11oop_iterateI27PCIterateMarkAndPushClosureEEvPT_.exit.i3: ; preds = %_ZNK7oopDesc11is_objArrayEv.exit.thread.i2, %_ZNK7oopDesc11is_objArrayEv.exit.i7
-  %145 = phi i32 [ %133, %_ZNK7oopDesc11is_objArrayEv.exit.i7 ], [ %137, %_ZNK7oopDesc11is_objArrayEv.exit.thread.i2 ]
-  %.0.i.i5.i4 = phi ptr [ %131, %_ZNK7oopDesc11is_objArrayEv.exit.i7 ], [ %135, %_ZNK7oopDesc11is_objArrayEv.exit.thread.i2 ]
+_ZN7oopDesc11oop_iterateI27PCIterateMarkAndPushClosureEEvPT_.exit.i2: ; preds = %_ZNK7oopDesc11is_objArrayEv.exit.thread.i1, %_ZNK7oopDesc11is_objArrayEv.exit.i6
+  %145 = phi i32 [ %133, %_ZNK7oopDesc11is_objArrayEv.exit.i6 ], [ %137, %_ZNK7oopDesc11is_objArrayEv.exit.thread.i1 ]
+  %.0.i.i5.i3 = phi ptr [ %131, %_ZNK7oopDesc11is_objArrayEv.exit.i6 ], [ %135, %_ZNK7oopDesc11is_objArrayEv.exit.thread.i1 ]
   %146 = sext i32 %145 to i64
   %147 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI27PCIterateMarkAndPushClosureE6_tableE, i64 0, i64 %146
   %148 = load ptr, ptr %147, align 8
-  call void %148(ptr noundef nonnull %2, ptr noundef nonnull %106, ptr noundef nonnull %.0.i.i5.i4) #12
-  br label %_ZN20ParCompactionManager15follow_contentsEP7oopDesc.exit8
+  call void %148(ptr noundef nonnull %2, ptr noundef nonnull %106, ptr noundef nonnull %.0.i.i5.i3) #12
+  br label %_ZN20ParCompactionManager15follow_contentsEP7oopDesc.exit7
 
-_ZN20ParCompactionManager15follow_contentsEP7oopDesc.exit8: ; preds = %143, %144, %_ZN7oopDesc11oop_iterateI27PCIterateMarkAndPushClosureEEvPT_.exit.i3
+_ZN20ParCompactionManager15follow_contentsEP7oopDesc.exit7: ; preds = %143, %144, %_ZN7oopDesc11oop_iterateI27PCIterateMarkAndPushClosureEEvPT_.exit.i2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   %149 = load volatile i32, ptr %19, align 8
   %150 = load volatile i32, ptr %20, align 8
   %151 = sub i32 %149, %150
   %152 = and i32 %151, 131071
   %.not.i.not = icmp eq i32 %152, 0
-  br i1 %.not.i.not, label %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE9pop_localERS1_j.exit.thread16, label %99, !llvm.loop !18
+  br i1 %.not.i.not, label %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE9pop_localERS1_j.exit.thread15, label %99, !llvm.loop !18
 
-_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE9pop_localERS1_j.exit.thread16: ; preds = %_ZN20ParCompactionManager15follow_contentsEP7oopDesc.exit8, %_ZN17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE12pop_overflowERS1_.exit.preheader, %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE9pop_localERS1_j.exit
+_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE9pop_localERS1_j.exit.thread15: ; preds = %_ZN20ParCompactionManager15follow_contentsEP7oopDesc.exit7, %_ZN17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE12pop_overflowERS1_.exit.preheader, %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE9pop_localERS1_j.exit
   ret void
 }
 
@@ -3169,10 +3169,10 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_proc
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(16) %2) #12
-  switch i32 %8, label %55 [
+  switch i32 %8, label %58 [
     i32 0, label %9
-    i32 1, label %39
-    i32 2, label %49
+    i32 1, label %40
+    i32 2, label %51
   ]
 
 9:                                                ; preds = %4
@@ -3226,45 +3226,46 @@ _ZN16InstanceRefKlass12try_discoverI9narrowOop27PCIterateMarkAndPushClosureEEbP7
   %36 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
   %37 = sext i32 %36 to i64
   %38 = add nsw i64 %.pre-phi.i, %37
-  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryI9narrowOop27PCIterateMarkAndPushClosure14AlwaysContainsEEvP7oopDesc13ReferenceTypePT0_RT1_.exit.sink.split
+  %39 = inttoptr i64 %38 to ptr
+  %.val.i.i8.i = load ptr, ptr %35, align 8
+  tail call void @_ZN20ParCompactionManager13mark_and_pushI9narrowOopEEvPT_(ptr noundef nonnull align 8 dereferenceable(2200) %.val.i.i8.i, ptr noundef %39)
+  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryI9narrowOop27PCIterateMarkAndPushClosure14AlwaysContainsEEvP7oopDesc13ReferenceTypePT0_RT1_.exit
 
-39:                                               ; preds = %4
-  %40 = load i32, ptr @_ZN23java_lang_ref_Reference16_referent_offsetE, align 4
-  %41 = ptrtoint ptr %1 to i64
-  %42 = sext i32 %40 to i64
-  %43 = add nsw i64 %42, %41
-  %44 = inttoptr i64 %43 to ptr
-  %45 = getelementptr i8, ptr %2, i64 24
-  %.val.i.i.i14 = load ptr, ptr %45, align 8
-  tail call void @_ZN20ParCompactionManager13mark_and_pushI9narrowOopEEvPT_(ptr noundef nonnull align 8 dereferenceable(2200) %.val.i.i.i14, ptr noundef %44)
-  %46 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
-  %47 = sext i32 %46 to i64
-  %48 = add nsw i64 %47, %41
-  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryI9narrowOop27PCIterateMarkAndPushClosure14AlwaysContainsEEvP7oopDesc13ReferenceTypePT0_RT1_.exit.sink.split
+40:                                               ; preds = %4
+  %41 = load i32, ptr @_ZN23java_lang_ref_Reference16_referent_offsetE, align 4
+  %42 = ptrtoint ptr %1 to i64
+  %43 = sext i32 %41 to i64
+  %44 = add nsw i64 %43, %42
+  %45 = inttoptr i64 %44 to ptr
+  %46 = getelementptr i8, ptr %2, i64 24
+  %.val.i.i.i14 = load ptr, ptr %46, align 8
+  tail call void @_ZN20ParCompactionManager13mark_and_pushI9narrowOopEEvPT_(ptr noundef nonnull align 8 dereferenceable(2200) %.val.i.i.i14, ptr noundef %45)
+  %47 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
+  %48 = sext i32 %47 to i64
+  %49 = add nsw i64 %48, %42
+  %50 = inttoptr i64 %49 to ptr
+  %.val.i.i6.i = load ptr, ptr %46, align 8
+  tail call void @_ZN20ParCompactionManager13mark_and_pushI9narrowOopEEvPT_(ptr noundef nonnull align 8 dereferenceable(2200) %.val.i.i6.i, ptr noundef %50)
+  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryI9narrowOop27PCIterateMarkAndPushClosure14AlwaysContainsEEvP7oopDesc13ReferenceTypePT0_RT1_.exit
 
-49:                                               ; preds = %4
-  %50 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
-  %51 = ptrtoint ptr %1 to i64
-  %52 = sext i32 %50 to i64
-  %53 = add nsw i64 %52, %51
-  %54 = getelementptr i8, ptr %2, i64 24
-  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryI9narrowOop27PCIterateMarkAndPushClosure14AlwaysContainsEEvP7oopDesc13ReferenceTypePT0_RT1_.exit.sink.split
+51:                                               ; preds = %4
+  %52 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
+  %53 = ptrtoint ptr %1 to i64
+  %54 = sext i32 %52 to i64
+  %55 = add nsw i64 %54, %53
+  %56 = inttoptr i64 %55 to ptr
+  %57 = getelementptr i8, ptr %2, i64 24
+  %.val.i.i.i15 = load ptr, ptr %57, align 8
+  tail call void @_ZN20ParCompactionManager13mark_and_pushI9narrowOopEEvPT_(ptr noundef nonnull align 8 dereferenceable(2200) %.val.i.i.i15, ptr noundef %56)
+  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryI9narrowOop27PCIterateMarkAndPushClosure14AlwaysContainsEEvP7oopDesc13ReferenceTypePT0_RT1_.exit
 
-55:                                               ; preds = %4
-  %56 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %56, align 1
+58:                                               ; preds = %4
+  %59 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %59, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.13, i32 noundef 122) #13
   unreachable
 
-_ZN16InstanceRefKlass25oop_oop_iterate_discoveryI9narrowOop27PCIterateMarkAndPushClosure14AlwaysContainsEEvP7oopDesc13ReferenceTypePT0_RT1_.exit.sink.split: ; preds = %39, %49, %_ZN16InstanceRefKlass12try_discoverI9narrowOop27PCIterateMarkAndPushClosureEEbP7oopDesc13ReferenceTypePT0_.exit.thread.i
-  %.sink16 = phi ptr [ %35, %_ZN16InstanceRefKlass12try_discoverI9narrowOop27PCIterateMarkAndPushClosureEEbP7oopDesc13ReferenceTypePT0_.exit.thread.i ], [ %54, %49 ], [ %45, %39 ]
-  %.sink.in = phi i64 [ %38, %_ZN16InstanceRefKlass12try_discoverI9narrowOop27PCIterateMarkAndPushClosureEEbP7oopDesc13ReferenceTypePT0_.exit.thread.i ], [ %53, %49 ], [ %48, %39 ]
-  %.sink = inttoptr i64 %.sink.in to ptr
-  %.val.i.i8.i = load ptr, ptr %.sink16, align 8
-  tail call void @_ZN20ParCompactionManager13mark_and_pushI9narrowOopEEvPT_(ptr noundef nonnull align 8 dereferenceable(2200) %.val.i.i8.i, ptr noundef %.sink)
-  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryI9narrowOop27PCIterateMarkAndPushClosure14AlwaysContainsEEvP7oopDesc13ReferenceTypePT0_RT1_.exit
-
-_ZN16InstanceRefKlass25oop_oop_iterate_discoveryI9narrowOop27PCIterateMarkAndPushClosure14AlwaysContainsEEvP7oopDesc13ReferenceTypePT0_RT1_.exit: ; preds = %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryI9narrowOop27PCIterateMarkAndPushClosure14AlwaysContainsEEvP7oopDesc13ReferenceTypePT0_RT1_.exit.sink.split, %_ZN16InstanceRefKlass12try_discoverI9narrowOop27PCIterateMarkAndPushClosureEEbP7oopDesc13ReferenceTypePT0_.exit.i
+_ZN16InstanceRefKlass25oop_oop_iterate_discoveryI9narrowOop27PCIterateMarkAndPushClosure14AlwaysContainsEEvP7oopDesc13ReferenceTypePT0_RT1_.exit: ; preds = %_ZN16InstanceRefKlass12try_discoverI9narrowOop27PCIterateMarkAndPushClosureEEbP7oopDesc13ReferenceTypePT0_.exit.thread.i, %_ZN16InstanceRefKlass12try_discoverI9narrowOop27PCIterateMarkAndPushClosureEEbP7oopDesc13ReferenceTypePT0_.exit.i, %51, %40
   ret void
 }
 
@@ -4743,10 +4744,10 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_proc
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(16) %2) #12
-  switch i32 %8, label %55 [
+  switch i32 %8, label %58 [
     i32 0, label %9
-    i32 1, label %39
-    i32 2, label %49
+    i32 1, label %40
+    i32 2, label %51
   ]
 
 9:                                                ; preds = %4
@@ -4800,45 +4801,46 @@ _ZN16InstanceRefKlass12try_discoverIP7oopDesc27PCIterateMarkAndPushClosureEEbS2_
   %36 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
   %37 = sext i32 %36 to i64
   %38 = add nsw i64 %.pre-phi.i, %37
-  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc27PCIterateMarkAndPushClosure14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit.sink.split
+  %39 = inttoptr i64 %38 to ptr
+  %.val.i.i8.i = load ptr, ptr %35, align 8
+  tail call void @_ZN20ParCompactionManager13mark_and_pushIP7oopDescEEvPT_(ptr noundef nonnull align 8 dereferenceable(2200) %.val.i.i8.i, ptr noundef %39)
+  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc27PCIterateMarkAndPushClosure14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit
 
-39:                                               ; preds = %4
-  %40 = load i32, ptr @_ZN23java_lang_ref_Reference16_referent_offsetE, align 4
-  %41 = ptrtoint ptr %1 to i64
-  %42 = sext i32 %40 to i64
-  %43 = add nsw i64 %42, %41
-  %44 = inttoptr i64 %43 to ptr
-  %45 = getelementptr i8, ptr %2, i64 24
-  %.val.i.i.i14 = load ptr, ptr %45, align 8
-  tail call void @_ZN20ParCompactionManager13mark_and_pushIP7oopDescEEvPT_(ptr noundef nonnull align 8 dereferenceable(2200) %.val.i.i.i14, ptr noundef %44)
-  %46 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
-  %47 = sext i32 %46 to i64
-  %48 = add nsw i64 %47, %41
-  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc27PCIterateMarkAndPushClosure14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit.sink.split
+40:                                               ; preds = %4
+  %41 = load i32, ptr @_ZN23java_lang_ref_Reference16_referent_offsetE, align 4
+  %42 = ptrtoint ptr %1 to i64
+  %43 = sext i32 %41 to i64
+  %44 = add nsw i64 %43, %42
+  %45 = inttoptr i64 %44 to ptr
+  %46 = getelementptr i8, ptr %2, i64 24
+  %.val.i.i.i14 = load ptr, ptr %46, align 8
+  tail call void @_ZN20ParCompactionManager13mark_and_pushIP7oopDescEEvPT_(ptr noundef nonnull align 8 dereferenceable(2200) %.val.i.i.i14, ptr noundef %45)
+  %47 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
+  %48 = sext i32 %47 to i64
+  %49 = add nsw i64 %48, %42
+  %50 = inttoptr i64 %49 to ptr
+  %.val.i.i6.i = load ptr, ptr %46, align 8
+  tail call void @_ZN20ParCompactionManager13mark_and_pushIP7oopDescEEvPT_(ptr noundef nonnull align 8 dereferenceable(2200) %.val.i.i6.i, ptr noundef %50)
+  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc27PCIterateMarkAndPushClosure14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit
 
-49:                                               ; preds = %4
-  %50 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
-  %51 = ptrtoint ptr %1 to i64
-  %52 = sext i32 %50 to i64
-  %53 = add nsw i64 %52, %51
-  %54 = getelementptr i8, ptr %2, i64 24
-  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc27PCIterateMarkAndPushClosure14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit.sink.split
+51:                                               ; preds = %4
+  %52 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
+  %53 = ptrtoint ptr %1 to i64
+  %54 = sext i32 %52 to i64
+  %55 = add nsw i64 %54, %53
+  %56 = inttoptr i64 %55 to ptr
+  %57 = getelementptr i8, ptr %2, i64 24
+  %.val.i.i.i15 = load ptr, ptr %57, align 8
+  tail call void @_ZN20ParCompactionManager13mark_and_pushIP7oopDescEEvPT_(ptr noundef nonnull align 8 dereferenceable(2200) %.val.i.i.i15, ptr noundef %56)
+  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc27PCIterateMarkAndPushClosure14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit
 
-55:                                               ; preds = %4
-  %56 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %56, align 1
+58:                                               ; preds = %4
+  %59 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %59, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.13, i32 noundef 122) #13
   unreachable
 
-_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc27PCIterateMarkAndPushClosure14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit.sink.split: ; preds = %39, %49, %_ZN16InstanceRefKlass12try_discoverIP7oopDesc27PCIterateMarkAndPushClosureEEbS2_13ReferenceTypePT0_.exit.thread.i
-  %.sink16 = phi ptr [ %35, %_ZN16InstanceRefKlass12try_discoverIP7oopDesc27PCIterateMarkAndPushClosureEEbS2_13ReferenceTypePT0_.exit.thread.i ], [ %54, %49 ], [ %45, %39 ]
-  %.sink.in = phi i64 [ %38, %_ZN16InstanceRefKlass12try_discoverIP7oopDesc27PCIterateMarkAndPushClosureEEbS2_13ReferenceTypePT0_.exit.thread.i ], [ %53, %49 ], [ %48, %39 ]
-  %.sink = inttoptr i64 %.sink.in to ptr
-  %.val.i.i8.i = load ptr, ptr %.sink16, align 8
-  tail call void @_ZN20ParCompactionManager13mark_and_pushIP7oopDescEEvPT_(ptr noundef nonnull align 8 dereferenceable(2200) %.val.i.i8.i, ptr noundef %.sink)
-  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc27PCIterateMarkAndPushClosure14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit
-
-_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc27PCIterateMarkAndPushClosure14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit: ; preds = %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc27PCIterateMarkAndPushClosure14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit.sink.split, %_ZN16InstanceRefKlass12try_discoverIP7oopDesc27PCIterateMarkAndPushClosureEEbS2_13ReferenceTypePT0_.exit.i
+_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc27PCIterateMarkAndPushClosure14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit: ; preds = %_ZN16InstanceRefKlass12try_discoverIP7oopDesc27PCIterateMarkAndPushClosureEEbS2_13ReferenceTypePT0_.exit.thread.i, %_ZN16InstanceRefKlass12try_discoverIP7oopDesc27PCIterateMarkAndPushClosureEEbS2_13ReferenceTypePT0_.exit.i, %51, %40
   ret void
 }
 

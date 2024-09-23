@@ -508,15 +508,15 @@ ExecHashGetBucketAndBatch.exit.i.i.i:             ; preds = %259, %.lr.ph.i37.i
   store i64 %293, ptr %290, align 8
   %294 = load ptr, ptr %172, align 8
   %295 = getelementptr inbounds i8, ptr %294, i64 24
+  store ptr %286, ptr %295, align 8
   br label %297
 
 296:                                              ; preds = %283
   store ptr null, ptr %290, align 8
+  store ptr %286, ptr %172, align 8
   br label %297
 
 297:                                              ; preds = %296, %291
-  %.sink.i.i.i.i = phi ptr [ %172, %296 ], [ %295, %291 ]
-  store ptr %286, ptr %.sink.i.i.i.i, align 8
   %298 = getelementptr i8, ptr %286, i64 32
   br label %dense_alloc.exit.i.i.i
 
@@ -1812,15 +1812,15 @@ ExecHashGetBucketAndBatch.exit:                   ; preds = %3, %12
   store i64 %47, ptr %44, align 8
   %48 = load ptr, ptr %42, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 24
+  store ptr %39, ptr %49, align 8
   br label %51
 
 50:                                               ; preds = %35
   store ptr null, ptr %44, align 8
+  store ptr %39, ptr %42, align 8
   br label %51
 
 51:                                               ; preds = %50, %45
-  %.sink.i = phi ptr [ %42, %50 ], [ %49, %45 ]
-  store ptr %39, ptr %.sink.i, align 8
   %52 = getelementptr i8, ptr %39, i64 32
   br label %dense_alloc.exit
 
@@ -2168,15 +2168,15 @@ ExecHashGetBucketAndBatch.exit:                   ; preds = %63, %76
   store i64 %100, ptr %97, align 8
   %101 = load ptr, ptr %52, align 8
   %102 = getelementptr inbounds i8, ptr %101, i64 24
+  store ptr %93, ptr %102, align 8
   br label %104
 
 103:                                              ; preds = %90
   store ptr null, ptr %97, align 8
+  store ptr %93, ptr %52, align 8
   br label %104
 
 104:                                              ; preds = %103, %98
-  %.sink.i = phi ptr [ %52, %103 ], [ %102, %98 ]
-  store ptr %93, ptr %.sink.i, align 8
   %105 = getelementptr i8, ptr %93, i64 32
   br label %dense_alloc.exit
 

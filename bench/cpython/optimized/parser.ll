@@ -241,7 +241,9 @@ if.end25.i:                                       ; preds = %land.lhs.true.i, %i
 file_rule.exit:                                   ; preds = %if.end.i, %if.then14.i, %land.lhs.true17.i, %if.then20.i, %if.end25.i
   %retval.0.i = phi ptr [ null, %if.then20.i ], [ null, %if.end.i ], [ null, %land.lhs.true17.i ], [ %call15.i, %if.then14.i ], [ null, %if.end25.i ]
   %5 = load i32, ptr %level.i, align 8
-  br label %if.end17.sink.split
+  %dec28.i = add i32 %5, -1
+  store i32 %dec28.i, ptr %level.i, align 8
+  br label %if.end17
 
 if.then3:                                         ; preds = %entry
   %level.i11 = getelementptr inbounds i8, ptr %p, i64 144
@@ -263,7 +265,7 @@ if.end.i14:                                       ; preds = %if.then.i22, %if.th
 
 if.then1.i:                                       ; preds = %if.end.i14
   %8 = load i32, ptr %level.i11, align 8
-  br label %if.end17.sink.split
+  br label %interactive_rule.exit
 
 if.end3.i18:                                      ; preds = %if.end.i14
   %mark.i19 = getelementptr inbounds i8, ptr %p, i64 16
@@ -424,17 +426,17 @@ if.then11.i:                                      ; preds = %if.then94.i.i, %CHE
 
 if.then11.done_crit_edge.i:                       ; preds = %if.then11.i
   %.pre17.i = load i32, ptr %level.i11, align 8
-  br label %if.end17.sink.split
+  br label %interactive_rule.exit
 
 land.lhs.true.i21:                                ; preds = %if.then11.i
   %call14.i = tail call ptr @PyErr_Occurred() #4
   %tobool15.not.i = icmp eq ptr %call14.i, null
   %.pre18.i = load i32, ptr %level.i11, align 8
-  br i1 %tobool15.not.i, label %if.end17.sink.split, label %if.then16.i
+  br i1 %tobool15.not.i, label %interactive_rule.exit, label %if.then16.i
 
 if.then16.i:                                      ; preds = %land.lhs.true.i21
   store i32 1, ptr %error_indicator.i15, align 8
-  br label %if.end17.sink.split
+  br label %interactive_rule.exit
 
 if.end21.sink.split.i:                            ; preds = %land.lhs.true97.i.i, %land.lhs.true76.i.i, %land.lhs.true31.i.i, %land.lhs.true.i.i
   store i32 1, ptr %error_indicator.i15, align 8
@@ -444,7 +446,14 @@ if.end21.i:                                       ; preds = %if.end21.sink.split
   %27 = load i32, ptr %level.i11, align 8
   %dec108.i15.i = add i32 %27, -1
   store i32 %9, ptr %mark.i19, align 8
-  br label %if.end17.sink.split
+  br label %interactive_rule.exit
+
+interactive_rule.exit:                            ; preds = %if.then1.i, %if.then11.done_crit_edge.i, %land.lhs.true.i21, %if.then16.i, %if.end21.i
+  %.sink.i = phi i32 [ %.pre18.i, %if.then16.i ], [ %8, %if.then1.i ], [ %.pre18.i, %land.lhs.true.i21 ], [ %.pre17.i, %if.then11.done_crit_edge.i ], [ %dec108.i15.i, %if.end21.i ]
+  %retval.0.i17 = phi ptr [ null, %if.then16.i ], [ null, %if.then1.i ], [ null, %land.lhs.true.i21 ], [ %call12.i20, %if.then11.done_crit_edge.i ], [ null, %if.end21.i ]
+  %dec24.i = add i32 %.sink.i, -1
+  store i32 %dec24.i, ptr %level.i11, align 8
+  br label %if.end17
 
 if.then8:                                         ; preds = %entry
   %level.i23 = getelementptr inbounds i8, ptr %p, i64 144
@@ -614,7 +623,9 @@ if.end27.i:                                       ; preds = %land.lhs.true13.i, 
 eval_rule.exit:                                   ; preds = %if.end.i26, %if.then16.i43, %land.lhs.true19.i, %if.then22.i, %if.end27.i
   %retval.0.i29 = phi ptr [ null, %if.then22.i ], [ null, %if.end.i26 ], [ null, %land.lhs.true19.i ], [ %call17.i, %if.then16.i43 ], [ null, %if.end27.i ]
   %42 = load i32, ptr %level.i23, align 8
-  br label %if.end17.sink.split
+  %dec30.i = add i32 %42, -1
+  store i32 %dec30.i, ptr %level.i23, align 8
+  br label %if.end17
 
 if.then13:                                        ; preds = %entry
   %level.i46 = getelementptr inbounds i8, ptr %p, i64 144
@@ -1552,18 +1563,12 @@ if.end40.i:                                       ; preds = %if.end40.sink.split
 func_type_rule.exit:                              ; preds = %if.end.i49, %if.then29.i, %land.lhs.true32.i, %if.then35.i, %if.end40.i
   %retval.0.i52 = phi ptr [ null, %if.then35.i ], [ null, %if.end.i49 ], [ null, %land.lhs.true32.i ], [ %call30.i, %if.then29.i ], [ null, %if.end40.i ]
   %100 = load i32, ptr %level.i46, align 8
-  br label %if.end17.sink.split
-
-if.end17.sink.split:                              ; preds = %if.end21.i, %if.then16.i, %land.lhs.true.i21, %if.then11.done_crit_edge.i, %if.then1.i, %file_rule.exit, %eval_rule.exit, %func_type_rule.exit
-  %.sink.i.sink = phi i32 [ %100, %func_type_rule.exit ], [ %42, %eval_rule.exit ], [ %5, %file_rule.exit ], [ %.pre18.i, %if.then16.i ], [ %8, %if.then1.i ], [ %.pre18.i, %land.lhs.true.i21 ], [ %.pre17.i, %if.then11.done_crit_edge.i ], [ %dec108.i15.i, %if.end21.i ]
-  %level.i11.sink = phi ptr [ %level.i46, %func_type_rule.exit ], [ %level.i23, %eval_rule.exit ], [ %level.i, %file_rule.exit ], [ %level.i11, %if.then16.i ], [ %level.i11, %if.then1.i ], [ %level.i11, %land.lhs.true.i21 ], [ %level.i11, %if.then11.done_crit_edge.i ], [ %level.i11, %if.end21.i ]
-  %result.0.ph = phi ptr [ %retval.0.i52, %func_type_rule.exit ], [ %retval.0.i29, %eval_rule.exit ], [ %retval.0.i, %file_rule.exit ], [ null, %if.then16.i ], [ null, %if.then1.i ], [ null, %land.lhs.true.i21 ], [ %call12.i20, %if.then11.done_crit_edge.i ], [ null, %if.end21.i ]
-  %dec24.i = add i32 %.sink.i.sink, -1
-  store i32 %dec24.i, ptr %level.i11.sink, align 8
+  %dec43.i = add i32 %100, -1
+  store i32 %dec43.i, ptr %level.i46, align 8
   br label %if.end17
 
-if.end17:                                         ; preds = %if.end17.sink.split, %entry
-  %result.0 = phi ptr [ null, %entry ], [ %result.0.ph, %if.end17.sink.split ]
+if.end17:                                         ; preds = %entry, %interactive_rule.exit, %func_type_rule.exit, %eval_rule.exit, %file_rule.exit
+  %result.0 = phi ptr [ %retval.0.i, %file_rule.exit ], [ %retval.0.i17, %interactive_rule.exit ], [ %retval.0.i29, %eval_rule.exit ], [ %retval.0.i52, %func_type_rule.exit ], [ null, %entry ]
   ret ptr %result.0
 }
 

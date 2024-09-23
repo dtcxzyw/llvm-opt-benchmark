@@ -238,8 +238,11 @@ if.then39:                                        ; preds = %while.end
   %idxprom65 = zext nneg i8 %48 to i64
   %arrayidx66 = getelementptr inbounds i8, ptr %_ZL21base64_url_safe_chars._ZL23base64_url_unsafe_chars, i64 %idxprom65
   %49 = load i8, ptr %arrayidx66, align 4
+  %incdec.ptr67 = getelementptr inbounds i8, ptr %current.0.lcssa, i64 3
   store i8 %49, ptr %incdec.ptr59, align 1
-  br label %do.body.sink.split
+  %incdec.ptr68 = getelementptr inbounds i8, ptr %current.0.lcssa, i64 4
+  store i8 61, ptr %incdec.ptr67, align 1
+  br label %do.body
 
 if.then70:                                        ; preds = %while.end
   %arrayidx71 = getelementptr inbounds i8, ptr %vdata, i64 %i.0.lcssa
@@ -258,17 +261,14 @@ if.then70:                                        ; preds = %while.end
   %56 = load i8, ptr %arrayidx83, align 16
   %incdec.ptr84 = getelementptr inbounds i8, ptr %current.0.lcssa, i64 2
   store i8 %56, ptr %incdec.ptr77, align 1
+  %incdec.ptr85 = getelementptr inbounds i8, ptr %current.0.lcssa, i64 3
   store i8 61, ptr %incdec.ptr84, align 1
-  br label %do.body.sink.split
-
-do.body.sink.split:                               ; preds = %if.then70, %if.then39
-  %incdec.ptr67.sink = getelementptr inbounds i8, ptr %current.0.lcssa, i64 3
-  %incdec.ptr68 = getelementptr inbounds i8, ptr %current.0.lcssa, i64 4
-  store i8 61, ptr %incdec.ptr67.sink, align 1
+  %incdec.ptr86 = getelementptr inbounds i8, ptr %current.0.lcssa, i64 4
+  store i8 61, ptr %incdec.ptr85, align 1
   br label %do.body
 
-do.body:                                          ; preds = %do.body.sink.split, %while.end
-  %current.2 = phi ptr [ %current.0.lcssa, %while.end ], [ %incdec.ptr68, %do.body.sink.split ]
+do.body:                                          ; preds = %while.end, %if.then39, %if.then70
+  %current.2 = phi ptr [ %incdec.ptr68, %if.then39 ], [ %incdec.ptr86, %if.then70 ], [ %current.0.lcssa, %while.end ]
   %cmp89.not = icmp ult ptr %current.2, %result
   br i1 %cmp89.not, label %if.then91, label %do.body93
 

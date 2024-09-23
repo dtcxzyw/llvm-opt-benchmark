@@ -231,7 +231,11 @@ define internal fastcc void @read_pages(ptr noundef %0) unnamed_addr #0 align 16
   %37 = add i64 %36, %35
   store i64 %37, ptr %29, align 8
   %38 = icmp eq i32 %32, %33
-  br i1 %38, label %.loopexit.sink.split, label %39
+  br i1 %38, label %.thread, label %39
+
+.thread:                                          ; preds = %31
+  store i32 0, ptr %24, align 4
+  br label %.loopexit
 
 39:                                               ; preds = %31
   %40 = load ptr, ptr %3, align 8
@@ -332,7 +336,11 @@ define internal fastcc void @read_pages(ptr noundef %0) unnamed_addr #0 align 16
   %95 = add i64 %94, %93
   store i64 %95, ptr %21, align 8
   %96 = icmp eq i32 %90, %91
-  br i1 %96, label %.loopexit.sink.split, label %97
+  br i1 %96, label %.thread11, label %97
+
+.thread11:                                        ; preds = %89
+  store i32 0, ptr %16, align 4
+  br label %.loopexit
 
 97:                                               ; preds = %89
   %98 = load ptr, ptr %3, align 8
@@ -375,12 +383,7 @@ define internal fastcc void @read_pages(ptr noundef %0) unnamed_addr #0 align 16
   %122 = icmp ugt i32 %120, %121
   br i1 %122, label %.loopexit12, label %89, !prof !18, !llvm.loop !20
 
-.loopexit.sink.split:                             ; preds = %31, %89
-  %.sink = phi ptr [ %16, %89 ], [ %24, %31 ]
-  store i32 0, ptr %.sink, align 4
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %49, %107, %.loopexit.sink.split
+.loopexit:                                        ; preds = %49, %107, %.thread11, %.thread
   call void @blk_finish_plug(ptr noundef nonnull %2) #6
   store i8 0, ptr %11, align 8
   %123 = load i32, ptr %7, align 8

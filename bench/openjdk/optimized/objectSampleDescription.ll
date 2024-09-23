@@ -912,7 +912,8 @@ define hidden void @_ZN23ObjectSampleDescription16write_class_nameEv(ptr nocaptu
 .critedge.thread.i.i:                             ; preds = %29, %.critedge.i.i, %.preheader.i.i
   %.pre11.i.i = phi i64 [ 98, %29 ], [ %.pre.i.i, %.critedge.i.i ], [ %16, %.preheader.i.i ]
   %33 = getelementptr inbounds [100 x i8], ptr %14, i64 0, i64 %.pre11.i.i
-  br label %_ZN23ObjectSampleDescription10write_textEPKc.exit.sink.split
+  store i8 0, ptr %33, align 1
+  br label %_ZN23ObjectSampleDescription10write_textEPKc.exit
 
 34:                                               ; preds = %1
   %35 = getelementptr inbounds i8, ptr %5, i64 12
@@ -1024,14 +1025,10 @@ _ZN23ObjectSampleDescription10write_textEPKc.exit19: ; preds = %44, %.critedge.t
 .critedge.thread.i.i26:                           ; preds = %77, %.critedge.i.i24, %.preheader.i.i20
   %.pre11.i.i27 = phi i64 [ 98, %77 ], [ %.pre.i.i25, %.critedge.i.i24 ], [ %64, %.preheader.i.i20 ]
   %81 = getelementptr inbounds [100 x i8], ptr %45, i64 0, i64 %.pre11.i.i27
-  br label %_ZN23ObjectSampleDescription10write_textEPKc.exit.sink.split
-
-_ZN23ObjectSampleDescription10write_textEPKc.exit.sink.split: ; preds = %.critedge.thread.i.i, %.critedge.thread.i.i26
-  %.sink = phi ptr [ %81, %.critedge.thread.i.i26 ], [ %33, %.critedge.thread.i.i ]
-  store i8 0, ptr %.sink, align 1
+  store i8 0, ptr %81, align 1
   br label %_ZN23ObjectSampleDescription10write_textEPKc.exit
 
-_ZN23ObjectSampleDescription10write_textEPKc.exit: ; preds = %_ZN23ObjectSampleDescription10write_textEPKc.exit.sink.split, %_ZN23ObjectSampleDescription10write_textEPKc.exit19, %10, %41, %38, %7, %34
+_ZN23ObjectSampleDescription10write_textEPKc.exit: ; preds = %.critedge.thread.i.i26, %_ZN23ObjectSampleDescription10write_textEPKc.exit19, %.critedge.thread.i.i, %10, %41, %38, %7, %34
   ret void
 }
 

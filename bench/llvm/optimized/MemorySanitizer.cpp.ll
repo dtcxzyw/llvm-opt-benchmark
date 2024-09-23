@@ -4386,7 +4386,8 @@ _ZN4llvm15SmallVectorImplINS_12DebugCounter5ChunkEE12assignRemoteEOS3_.exit: ; p
   store i32 %19, ptr %20, align 4
   store ptr %6, ptr %1, align 8
   store i32 0, ptr %18, align 4
-  br label %.sink.split
+  store i32 0, ptr %15, align 8
+  br label %53
 
 21:                                               ; preds = %4
   %22 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #23
@@ -4415,7 +4416,8 @@ _ZSt4moveIPN4llvm12DebugCounter5ChunkES3_ET0_T_S5_S4_.exit: ; preds = %29, %26, 
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %22) #23
   %31 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #23
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
+  store i32 0, ptr %32, align 8
+  br label %53
 
 33:                                               ; preds = %21
   %34 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
@@ -4462,14 +4464,10 @@ _ZN4llvm23SmallVectorTemplateBaseINS_12DebugCounter5ChunkELb1EE18uninitialized_m
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %22) #23
   %51 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #23
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %_ZN4llvm15SmallVectorImplINS_12DebugCounter5ChunkEE12assignRemoteEOS3_.exit, %_ZSt4moveIPN4llvm12DebugCounter5ChunkES3_ET0_T_S5_S4_.exit, %_ZN4llvm23SmallVectorTemplateBaseINS_12DebugCounter5ChunkELb1EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit
-  %.sink = phi ptr [ %52, %_ZN4llvm23SmallVectorTemplateBaseINS_12DebugCounter5ChunkELb1EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit ], [ %32, %_ZSt4moveIPN4llvm12DebugCounter5ChunkES3_ET0_T_S5_S4_.exit ], [ %15, %_ZN4llvm15SmallVectorImplINS_12DebugCounter5ChunkEE12assignRemoteEOS3_.exit ]
-  store i32 0, ptr %.sink, align 8
+  store i32 0, ptr %52, align 8
   br label %53
 
-53:                                               ; preds = %.sink.split, %2
+53:                                               ; preds = %2, %_ZN4llvm23SmallVectorTemplateBaseINS_12DebugCounter5ChunkELb1EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit, %_ZSt4moveIPN4llvm12DebugCounter5ChunkES3_ET0_T_S5_S4_.exit, %_ZN4llvm15SmallVectorImplINS_12DebugCounter5ChunkEE12assignRemoteEOS3_.exit
   ret ptr %0
 }
 
@@ -15313,16 +15311,16 @@ define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_122MemorySanitizerVisitor29
   %41 = getelementptr inbounds i8, ptr %35, i64 48
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %40, %38, %36, %5
-  %.sink15.i = phi ptr [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ %35, %5 ]
+.sink.split.i:                                    ; preds = %5, %40, %38, %36
   %.sink.i = phi i64 [ 56, %40 ], [ 40, %38 ], [ 24, %36 ], [ 8, %5 ]
-  %.sroa.0.0.copyload8.i = load ptr, ptr %.sink15.i, align 8
+  %.sroa.0.0.ph.in.i = phi ptr [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ %35, %5 ]
+  %.sroa.0.0.ph.i = load ptr, ptr %.sroa.0.0.ph.in.i, align 8
   %.sroa.6.0..sroa_idx13.i = getelementptr inbounds i8, ptr %35, i64 %.sink.i
   %.sroa.6.0.copyload14.i = load ptr, ptr %.sroa.6.0..sroa_idx13.i, align 8
   br label %_ZN12_GLOBAL__N_115MemorySanitizer28getKmsanShadowOriginAccessFnEbi.exit
 
 _ZN12_GLOBAL__N_115MemorySanitizer28getKmsanShadowOriginAccessFnEbi.exit: ; preds = %5, %.sink.split.i
-  %.sroa.0.0.i = phi ptr [ null, %5 ], [ %.sroa.0.0.copyload8.i, %.sink.split.i ]
+  %.sroa.0.0.i = phi ptr [ null, %5 ], [ %.sroa.0.0.ph.i, %.sink.split.i ]
   %.sroa.6.0.i = phi ptr [ null, %5 ], [ %.sroa.6.0.copyload14.i, %.sink.split.i ]
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %43 = load ptr, ptr %42, align 8

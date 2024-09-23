@@ -91,7 +91,7 @@ define dso_local void @archive_entry_linkresolver_set_strategy(ptr nocapture nou
 ; Function Attrs: nounwind uwtable
 define dso_local void @archive_entry_linkresolver_free(ptr noundef %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %56, label %.split5
+  br i1 %2, label %58, label %.split5
 
 .split5:                                          ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -122,12 +122,12 @@ define dso_local void @archive_entry_linkresolver_free(ptr noundef %0) local_unn
   %15 = load ptr, ptr %0, align 8
   br label %.lr.ph63.split.split.i
 
-.lr.ph63.split.split.i:                           ; preds = %24, %.lr.ph63.i
-  %.059.i = phi i64 [ %25, %24 ], [ 0, %.lr.ph63.i ]
+.lr.ph63.split.split.i:                           ; preds = %25, %.lr.ph63.i
+  %.059.i = phi i64 [ %26, %25 ], [ 0, %.lr.ph63.i ]
   %16 = getelementptr inbounds ptr, ptr %15, i64 %.059.i
   %.02942.i = load ptr, ptr %16, align 8
   %.not3443.i = icmp eq ptr %.02942.i, null
-  br i1 %.not3443.i, label %24, label %.split.us.i
+  br i1 %.not3443.i, label %25, label %.split.us.i
 
 .split.us.i:                                      ; preds = %.lr.ph63.split.split.i
   %17 = load ptr, ptr %.02942.i, align 8
@@ -145,111 +145,117 @@ define dso_local void @archive_entry_linkresolver_free(ptr noundef %0) local_unn
 .split.us._crit_edge.i:                           ; preds = %18, %.split.us.i
   %20 = phi ptr [ %.pre, %18 ], [ null, %.split.us.i ]
   %.not37.i = icmp eq ptr %.pre.i, null
-  br i1 %.not37.i, label %21, label %.split.lr.ph
+  br i1 %.not37.i, label %22, label %21
 
 21:                                               ; preds = %.split.us._crit_edge.i
-  %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds ptr, ptr %22, i64 %.059.i
+  store ptr %20, ptr %.pre.i, align 8
   br label %.split.lr.ph
 
-24:                                               ; preds = %.lr.ph63.split.split.i
-  %25 = add nuw i64 %.059.i, 1
-  %exitcond.not.i = icmp eq i64 %25, %14
+22:                                               ; preds = %.split.us._crit_edge.i
+  %23 = load ptr, ptr %0, align 8
+  %24 = getelementptr inbounds ptr, ptr %23, i64 %.059.i
+  store ptr %20, ptr %24, align 8
+  br label %.split.lr.ph
+
+25:                                               ; preds = %.lr.ph63.split.split.i
+  %26 = add nuw i64 %.059.i, 1
+  %exitcond.not.i = icmp eq i64 %26, %14
   br i1 %exitcond.not.i, label %._crit_edge, label %.lr.ph63.split.split.i, !llvm.loop !5
 
-.split.lr.ph:                                     ; preds = %21, %.split.us._crit_edge.i
-  %.sink.i = phi ptr [ %23, %21 ], [ %.pre.i, %.split.us._crit_edge.i ]
-  store ptr %20, ptr %.sink.i, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
-  %27 = load i64, ptr %26, align 8
-  %28 = add i64 %27, -1
-  store i64 %28, ptr %26, align 8
+.split.lr.ph:                                     ; preds = %22, %21
+  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = load i64, ptr %27, align 8
+  %29 = add i64 %28, -1
+  store i64 %29, ptr %27, align 8
   store ptr %.02942.i, ptr %3, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds i8, ptr %0, i64 16
   br label %.split
 
-.split:                                           ; preds = %next_entry.exit22, %.split.lr.ph
-  %phi.call28 = phi ptr [ %.02942.i, %.split.lr.ph ], [ %.02942.i11, %next_entry.exit22 ]
-  %30 = getelementptr inbounds i8, ptr %phi.call28, i64 24
-  %31 = load ptr, ptr %30, align 8
-  tail call void @archive_entry_free(ptr noundef %31) #7
-  %32 = load ptr, ptr %3, align 8
-  %.not.i6 = icmp eq ptr %32, null
-  br i1 %.not.i6, label %40, label %33
+.split:                                           ; preds = %next_entry.exit21, %.split.lr.ph
+  %phi.call27 = phi ptr [ %.02942.i, %.split.lr.ph ], [ %.02942.i11, %next_entry.exit21 ]
+  %31 = getelementptr inbounds i8, ptr %phi.call27, i64 24
+  %32 = load ptr, ptr %31, align 8
+  tail call void @archive_entry_free(ptr noundef %32) #7
+  %33 = load ptr, ptr %3, align 8
+  %.not.i6 = icmp eq ptr %33, null
+  br i1 %.not.i6, label %41, label %34
 
-33:                                               ; preds = %.split
-  %34 = getelementptr inbounds i8, ptr %32, i64 16
-  %35 = load ptr, ptr %34, align 8
-  tail call void @archive_entry_free(ptr noundef %35) #7
-  %36 = load ptr, ptr %3, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 24
-  %38 = load ptr, ptr %37, align 8
-  tail call void @archive_entry_free(ptr noundef %38) #7
-  %39 = load ptr, ptr %3, align 8
-  tail call void @free(ptr noundef %39) #7
+34:                                               ; preds = %.split
+  %35 = getelementptr inbounds i8, ptr %33, i64 16
+  %36 = load ptr, ptr %35, align 8
+  tail call void @archive_entry_free(ptr noundef %36) #7
+  %37 = load ptr, ptr %3, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 24
+  %39 = load ptr, ptr %38, align 8
+  tail call void @archive_entry_free(ptr noundef %39) #7
+  %40 = load ptr, ptr %3, align 8
+  tail call void @free(ptr noundef %40) #7
   store ptr null, ptr %3, align 8
-  br label %40
+  br label %41
 
-40:                                               ; preds = %33, %.split
-  %41 = load i64, ptr %13, align 8
-  %.not88.i7 = icmp eq i64 %41, 0
+41:                                               ; preds = %34, %.split
+  %42 = load i64, ptr %13, align 8
+  %.not88.i7 = icmp eq i64 %42, 0
   br i1 %.not88.i7, label %._crit_edge, label %.lr.ph63.i8
 
-.lr.ph63.i8:                                      ; preds = %40
-  %42 = load ptr, ptr %0, align 8
+.lr.ph63.i8:                                      ; preds = %41
+  %43 = load ptr, ptr %0, align 8
   br label %.lr.ph63.split.split.i9
 
-.lr.ph63.split.split.i9:                          ; preds = %51, %.lr.ph63.i8
-  %.059.i10 = phi i64 [ %52, %51 ], [ 0, %.lr.ph63.i8 ]
-  %43 = getelementptr inbounds ptr, ptr %42, i64 %.059.i10
-  %.02942.i11 = load ptr, ptr %43, align 8
+.lr.ph63.split.split.i9:                          ; preds = %53, %.lr.ph63.i8
+  %.059.i10 = phi i64 [ %54, %53 ], [ 0, %.lr.ph63.i8 ]
+  %44 = getelementptr inbounds ptr, ptr %43, i64 %.059.i10
+  %.02942.i11 = load ptr, ptr %44, align 8
   %.not3443.i12 = icmp eq ptr %.02942.i11, null
-  br i1 %.not3443.i12, label %51, label %.split.us.i13
+  br i1 %.not3443.i12, label %53, label %.split.us.i13
 
 .split.us.i13:                                    ; preds = %.lr.ph63.split.split.i9
-  %44 = load ptr, ptr %.02942.i11, align 8
-  %.not36.i14 = icmp eq ptr %44, null
+  %45 = load ptr, ptr %.02942.i11, align 8
+  %.not36.i14 = icmp eq ptr %45, null
   %.phi.trans.insert.i15 = getelementptr inbounds i8, ptr %.02942.i11, i64 8
   %.pre.i16 = load ptr, ptr %.phi.trans.insert.i15, align 8
-  br i1 %.not36.i14, label %.split.us._crit_edge.i17, label %45
+  br i1 %.not36.i14, label %.split.us._crit_edge.i17, label %46
 
-45:                                               ; preds = %.split.us.i13
-  %46 = getelementptr inbounds i8, ptr %44, i64 8
-  store ptr %.pre.i16, ptr %46, align 8
-  %.pre33 = load ptr, ptr %.02942.i11, align 8
+46:                                               ; preds = %.split.us.i13
+  %47 = getelementptr inbounds i8, ptr %45, i64 8
+  store ptr %.pre.i16, ptr %47, align 8
+  %.pre32 = load ptr, ptr %.02942.i11, align 8
   br label %.split.us._crit_edge.i17
 
-.split.us._crit_edge.i17:                         ; preds = %45, %.split.us.i13
-  %47 = phi ptr [ %.pre33, %45 ], [ null, %.split.us.i13 ]
+.split.us._crit_edge.i17:                         ; preds = %46, %.split.us.i13
+  %48 = phi ptr [ %.pre32, %46 ], [ null, %.split.us.i13 ]
   %.not37.i18 = icmp eq ptr %.pre.i16, null
-  br i1 %.not37.i18, label %48, label %next_entry.exit22
+  br i1 %.not37.i18, label %50, label %49
 
-48:                                               ; preds = %.split.us._crit_edge.i17
-  %49 = load ptr, ptr %0, align 8
-  %50 = getelementptr inbounds ptr, ptr %49, i64 %.059.i10
-  br label %next_entry.exit22
+49:                                               ; preds = %.split.us._crit_edge.i17
+  store ptr %48, ptr %.pre.i16, align 8
+  br label %next_entry.exit21
 
-51:                                               ; preds = %.lr.ph63.split.split.i9
-  %52 = add nuw i64 %.059.i10, 1
-  %exitcond.not.i21 = icmp eq i64 %52, %41
-  br i1 %exitcond.not.i21, label %._crit_edge, label %.lr.ph63.split.split.i9, !llvm.loop !5
+50:                                               ; preds = %.split.us._crit_edge.i17
+  %51 = load ptr, ptr %0, align 8
+  %52 = getelementptr inbounds ptr, ptr %51, i64 %.059.i10
+  store ptr %48, ptr %52, align 8
+  br label %next_entry.exit21
 
-next_entry.exit22:                                ; preds = %.split.us._crit_edge.i17, %48
-  %.sink.i19 = phi ptr [ %50, %48 ], [ %.pre.i16, %.split.us._crit_edge.i17 ]
-  store ptr %47, ptr %.sink.i19, align 8
-  %53 = load i64, ptr %29, align 8
-  %54 = add i64 %53, -1
-  store i64 %54, ptr %29, align 8
+53:                                               ; preds = %.lr.ph63.split.split.i9
+  %54 = add nuw i64 %.059.i10, 1
+  %exitcond.not.i20 = icmp eq i64 %54, %42
+  br i1 %exitcond.not.i20, label %._crit_edge, label %.lr.ph63.split.split.i9, !llvm.loop !5
+
+next_entry.exit21:                                ; preds = %49, %50
+  %55 = load i64, ptr %30, align 8
+  %56 = add i64 %55, -1
+  store i64 %56, ptr %30, align 8
   store ptr %.02942.i11, ptr %3, align 8
   br label %.split, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %24, %40, %51, %12
-  %55 = load ptr, ptr %0, align 8
-  tail call void @free(ptr noundef %55) #7
+._crit_edge:                                      ; preds = %25, %41, %53, %12
+  %57 = load ptr, ptr %0, align 8
+  tail call void @free(ptr noundef %57) #7
   tail call void @free(ptr noundef %0) #7
-  br label %56
+  br label %58
 
-56:                                               ; preds = %1, %._crit_edge
+58:                                               ; preds = %1, %._crit_edge
   ret void
 }
 
@@ -340,12 +346,12 @@ define internal fastcc noundef ptr @next_entry(ptr nocapture noundef %0, i32 nou
   %.not34.us.us = icmp eq ptr %.029.us.us, null
   br i1 %.not34.us.us, label %._crit_edge.split.us.us, label %.lr.ph.us79, !llvm.loop !8
 
-.lr.ph63.split.split:                             ; preds = %.lr.ph63.split, %42
-  %.059 = phi i64 [ %43, %42 ], [ 0, %.lr.ph63.split ]
+.lr.ph63.split.split:                             ; preds = %.lr.ph63.split, %43
+  %.059 = phi i64 [ %44, %43 ], [ 0, %.lr.ph63.split ]
   %30 = getelementptr inbounds ptr, ptr %15, i64 %.059
   %.02942 = load ptr, ptr %30, align 8
   %.not3443 = icmp eq ptr %.02942, null
-  br i1 %.not3443, label %42, label %.split.us
+  br i1 %.not3443, label %43, label %.split.us
 
 .split.us:                                        ; preds = %.lr.ph63.split.split, %.lr.ph.us79, %.lr.ph.us
   %.us-phi = phi i64 [ %.059.us, %.lr.ph.us ], [ %.059.us76, %.lr.ph.us79 ], [ %.059, %.lr.ph63.split.split ]
@@ -364,30 +370,33 @@ define internal fastcc noundef ptr @next_entry(ptr nocapture noundef %0, i32 nou
 .split.us._crit_edge:                             ; preds = %.split.us, %32
   %.not37 = icmp eq ptr %.pre, null
   %34 = load ptr, ptr %.us-phi45, align 8
-  br i1 %.not37, label %35, label %38
+  br i1 %.not37, label %36, label %35
 
 35:                                               ; preds = %.split.us._crit_edge
-  %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %.us-phi
-  br label %38
+  store ptr %34, ptr %.pre, align 8
+  br label %39
 
-38:                                               ; preds = %.split.us._crit_edge, %35
-  %.sink = phi ptr [ %37, %35 ], [ %.pre, %.split.us._crit_edge ]
-  store ptr %34, ptr %.sink, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
-  %40 = load i64, ptr %39, align 8
-  %41 = add i64 %40, -1
-  store i64 %41, ptr %39, align 8
+36:                                               ; preds = %.split.us._crit_edge
+  %37 = load ptr, ptr %0, align 8
+  %38 = getelementptr inbounds ptr, ptr %37, i64 %.us-phi
+  store ptr %34, ptr %38, align 8
+  br label %39
+
+39:                                               ; preds = %36, %35
+  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  %41 = load i64, ptr %40, align 8
+  %42 = add i64 %41, -1
+  store i64 %42, ptr %40, align 8
   store ptr %.us-phi45, ptr %3, align 8
   br label %.loopexit
 
-42:                                               ; preds = %.lr.ph63.split.split
-  %43 = add nuw i64 %.059, 1
-  %exitcond.not = icmp eq i64 %43, %14
+43:                                               ; preds = %.lr.ph63.split.split
+  %44 = add nuw i64 %.059, 1
+  %exitcond.not = icmp eq i64 %44, %14
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph63.split.split, !llvm.loop !5
 
-.loopexit:                                        ; preds = %42, %._crit_edge.split.us.us, %._crit_edge.split.split.us68, %.lr.ph63.split.us, %12, %38
-  %.030 = phi ptr [ %.us-phi45, %38 ], [ null, %12 ], [ null, %.lr.ph63.split.us ], [ null, %._crit_edge.split.split.us68 ], [ null, %._crit_edge.split.us.us ], [ null, %42 ]
+.loopexit:                                        ; preds = %43, %._crit_edge.split.us.us, %._crit_edge.split.split.us68, %.lr.ph63.split.us, %12, %39
+  %.030 = phi ptr [ %.us-phi45, %39 ], [ null, %12 ], [ null, %.lr.ph63.split.us ], [ null, %._crit_edge.split.split.us68 ], [ null, %._crit_edge.split.us.us ], [ null, %43 ]
   ret ptr %.030
 }
 

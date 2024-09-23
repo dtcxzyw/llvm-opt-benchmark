@@ -2117,7 +2117,7 @@ sw.bb:                                            ; preds = %entry
 strbuf_avail.exit.i:                              ; preds = %sw.bb
   %.neg.i = add i64 %2, 1
   %tobool.not.i = icmp eq i64 %1, %.neg.i
-  br i1 %tobool.not.i, label %if.then.thread.i, label %return.sink.split
+  br i1 %tobool.not.i, label %if.then.thread.i, label %strbuf_addch.exit
 
 if.then.i:                                        ; preds = %sw.bb
   %cmp2.i.i = icmp ugt i64 %2, -3
@@ -2139,7 +2139,7 @@ if.then4.i.i:                                     ; preds = %if.then.i
 do.body.i.i:                                      ; preds = %if.then4.i.i, %if.then.thread.i
   %add8.i.i = add nuw i64 %2, 2
   %cmp10.i.i = icmp ugt i64 %add8.i.i, %1
-  br i1 %cmp10.i.i, label %do.end.i.i, label %return.sink.split
+  br i1 %cmp10.i.i, label %do.end.i.i, label %strbuf_addch.exit
 
 do.end.i.i:                                       ; preds = %do.body.i.i
   %3 = mul i64 %1, 3
@@ -2151,30 +2151,44 @@ do.end.i.i:                                       ; preds = %do.body.i.i
   %4 = load ptr, ptr %buf29.i.i, align 8
   %call31.i.i = tail call ptr @xrealloc(ptr noundef %4, i64 noundef %add8.div20.i.i) #23
   store ptr %call31.i.i, ptr %buf29.i.i, align 8
-  br i1 %tobool.not.i.i, label %if.then35.i.i, label %return.sink.split
+  br i1 %tobool.not.i.i, label %if.then35.i.i, label %strbuf_addch.exit
 
 if.then35.i.i:                                    ; preds = %do.end.i.i
   store i8 0, ptr %call31.i.i, align 1
-  br label %return.sink.split
+  br label %strbuf_addch.exit
+
+strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i, %do.body.i.i, %do.end.i.i, %if.then35.i.i
+  %buf.i = getelementptr inbounds i8, ptr %sb, i64 16
+  %5 = load ptr, ptr %buf.i, align 8
+  %6 = load i64, ptr %len.i7.i, align 8
+  %inc.i = add i64 %6, 1
+  store i64 %inc.i, ptr %len.i7.i, align 8
+  %arrayidx.i = getelementptr inbounds i8, ptr %5, i64 %6
+  store i8 10, ptr %arrayidx.i, align 1
+  %7 = load ptr, ptr %buf.i, align 8
+  %8 = load i64, ptr %len.i7.i, align 8
+  %arrayidx3.i = getelementptr inbounds i8, ptr %7, i64 %8
+  store i8 0, ptr %arrayidx3.i, align 1
+  br label %return
 
 sw.bb1:                                           ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %placeholder, i64 1
-  %5 = load i8, ptr %add.ptr, align 1
-  %idxprom.i.i = zext i8 %5 to i64
+  %9 = load i8, ptr %add.ptr, align 1
+  %idxprom.i.i = zext i8 %9 to i64
   %arrayidx.i.i = getelementptr inbounds [256 x i8], ptr @hexval_table, i64 0, i64 %idxprom.i.i
-  %6 = load i8, ptr %arrayidx.i.i, align 1
-  %conv.i.i = sext i8 %6 to i32
-  %tobool.not.i4 = icmp ult i8 %6, 16
+  %10 = load i8, ptr %arrayidx.i.i, align 1
+  %conv.i.i = sext i8 %10 to i32
+  %tobool.not.i4 = icmp ult i8 %10, 16
   br i1 %tobool.not.i4, label %cond.false.i, label %hex2chr.exit
 
 cond.false.i:                                     ; preds = %sw.bb1
   %shl.i = shl nuw nsw i32 %conv.i.i, 4
   %arrayidx1.i = getelementptr inbounds i8, ptr %placeholder, i64 2
-  %7 = load i8, ptr %arrayidx1.i, align 1
-  %idxprom.i4.i = zext i8 %7 to i64
+  %11 = load i8, ptr %arrayidx1.i, align 1
+  %idxprom.i4.i = zext i8 %11 to i64
   %arrayidx.i5.i = getelementptr inbounds [256 x i8], ptr @hexval_table, i64 0, i64 %idxprom.i4.i
-  %8 = load i8, ptr %arrayidx.i5.i, align 1
-  %conv.i6.i = sext i8 %8 to i32
+  %12 = load i8, ptr %arrayidx.i5.i, align 1
+  %conv.i6.i = sext i8 %12 to i32
   %or.i = or i32 %shl.i, %conv.i6.i
   br label %hex2chr.exit
 
@@ -2184,23 +2198,23 @@ hex2chr.exit:                                     ; preds = %sw.bb1, %cond.false
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %hex2chr.exit
-  %9 = load i64, ptr %sb, align 8
-  %tobool.not.i.i5 = icmp eq i64 %9, 0
+  %13 = load i64, ptr %sb, align 8
+  %tobool.not.i.i5 = icmp eq i64 %13, 0
   %len.i7.i6 = getelementptr inbounds i8, ptr %sb, i64 8
-  %10 = load i64, ptr %len.i7.i6, align 8
+  %14 = load i64, ptr %len.i7.i6, align 8
   br i1 %tobool.not.i.i5, label %if.then.i28, label %strbuf_avail.exit.i7
 
 strbuf_avail.exit.i7:                             ; preds = %if.end
-  %.neg.i8 = add i64 %10, 1
-  %tobool.not.i9 = icmp eq i64 %9, %.neg.i8
+  %.neg.i8 = add i64 %14, 1
+  %tobool.not.i9 = icmp eq i64 %13, %.neg.i8
   br i1 %tobool.not.i9, label %if.then.thread.i15, label %strbuf_addch.exit32
 
 if.then.i28:                                      ; preds = %if.end
-  %cmp2.i.i29 = icmp ugt i64 %10, -3
+  %cmp2.i.i29 = icmp ugt i64 %14, -3
   br i1 %cmp2.i.i29, label %if.then.i.i27, label %if.then4.i.i30
 
 if.then.thread.i15:                               ; preds = %strbuf_avail.exit.i7
-  %cmp2.i11.i16 = icmp ugt i64 %10, -3
+  %cmp2.i11.i16 = icmp ugt i64 %14, -3
   br i1 %cmp2.i11.i16, label %if.then.i.i27, label %do.body.i.i17
 
 if.then.i.i27:                                    ; preds = %if.then.thread.i15, %if.then.i28
@@ -2213,19 +2227,19 @@ if.then4.i.i30:                                   ; preds = %if.then.i28
   br label %do.body.i.i17
 
 do.body.i.i17:                                    ; preds = %if.then4.i.i30, %if.then.thread.i15
-  %add8.i.i18 = add nuw i64 %10, 2
-  %cmp10.i.i19 = icmp ugt i64 %add8.i.i18, %9
+  %add8.i.i18 = add nuw i64 %14, 2
+  %cmp10.i.i19 = icmp ugt i64 %add8.i.i18, %13
   br i1 %cmp10.i.i19, label %do.end.i.i20, label %strbuf_addch.exit32
 
 do.end.i.i20:                                     ; preds = %do.body.i.i17
-  %11 = mul i64 %9, 3
-  %mul.i.i21 = add i64 %11, 48
+  %15 = mul i64 %13, 3
+  %mul.i.i21 = add i64 %15, 48
   %div20.i.i22 = lshr i64 %mul.i.i21, 1
   %add8.div20.i.i23 = tail call i64 @llvm.umax.i64(i64 %div20.i.i22, i64 %add8.i.i18)
   store i64 %add8.div20.i.i23, ptr %sb, align 8
   %buf29.i.i24 = getelementptr inbounds i8, ptr %sb, i64 16
-  %12 = load ptr, ptr %buf29.i.i24, align 8
-  %call31.i.i25 = tail call ptr @xrealloc(ptr noundef %12, i64 noundef %add8.div20.i.i23) #23
+  %16 = load ptr, ptr %buf29.i.i24, align 8
+  %call31.i.i25 = tail call ptr @xrealloc(ptr noundef %16, i64 noundef %add8.div20.i.i23) #23
   store ptr %call31.i.i25, ptr %buf29.i.i24, align 8
   br i1 %tobool.not.i.i5, label %if.then35.i.i26, label %strbuf_addch.exit32
 
@@ -2235,27 +2249,21 @@ if.then35.i.i26:                                  ; preds = %do.end.i.i20
 
 strbuf_addch.exit32:                              ; preds = %strbuf_avail.exit.i7, %do.body.i.i17, %do.end.i.i20, %if.then35.i.i26
   %conv.i = trunc i32 %cond.i to i8
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.then35.i.i, %do.end.i.i, %do.body.i.i, %strbuf_avail.exit.i, %strbuf_addch.exit32
-  %len.i7.i6.sink37 = phi ptr [ %len.i7.i6, %strbuf_addch.exit32 ], [ %len.i7.i, %strbuf_avail.exit.i ], [ %len.i7.i, %do.body.i.i ], [ %len.i7.i, %do.end.i.i ], [ %len.i7.i, %if.then35.i.i ]
-  %conv.i.sink = phi i8 [ %conv.i, %strbuf_addch.exit32 ], [ 10, %strbuf_avail.exit.i ], [ 10, %do.body.i.i ], [ 10, %do.end.i.i ], [ 10, %if.then35.i.i ]
-  %retval.0.ph = phi i64 [ 3, %strbuf_addch.exit32 ], [ 1, %strbuf_avail.exit.i ], [ 1, %do.body.i.i ], [ 1, %do.end.i.i ], [ 1, %if.then35.i.i ]
   %buf.i10 = getelementptr inbounds i8, ptr %sb, i64 16
-  %13 = load ptr, ptr %buf.i10, align 8
-  %14 = load i64, ptr %len.i7.i6.sink37, align 8
-  %inc.i12 = add i64 %14, 1
-  store i64 %inc.i12, ptr %len.i7.i6.sink37, align 8
-  %arrayidx.i13 = getelementptr inbounds i8, ptr %13, i64 %14
-  store i8 %conv.i.sink, ptr %arrayidx.i13, align 1
-  %15 = load ptr, ptr %buf.i10, align 8
-  %16 = load i64, ptr %len.i7.i6.sink37, align 8
-  %arrayidx3.i14 = getelementptr inbounds i8, ptr %15, i64 %16
+  %17 = load ptr, ptr %buf.i10, align 8
+  %18 = load i64, ptr %len.i7.i6, align 8
+  %inc.i12 = add i64 %18, 1
+  store i64 %inc.i12, ptr %len.i7.i6, align 8
+  %arrayidx.i13 = getelementptr inbounds i8, ptr %17, i64 %18
+  store i8 %conv.i, ptr %arrayidx.i13, align 1
+  %19 = load ptr, ptr %buf.i10, align 8
+  %20 = load i64, ptr %len.i7.i6, align 8
+  %arrayidx3.i14 = getelementptr inbounds i8, ptr %19, i64 %20
   store i8 0, ptr %arrayidx3.i14, align 1
   br label %return
 
-return:                                           ; preds = %return.sink.split, %entry, %hex2chr.exit
-  %retval.0 = phi i64 [ 0, %hex2chr.exit ], [ 0, %entry ], [ %retval.0.ph, %return.sink.split ]
+return:                                           ; preds = %entry, %hex2chr.exit, %strbuf_addch.exit32, %strbuf_addch.exit
+  %retval.0 = phi i64 [ 3, %strbuf_addch.exit32 ], [ 1, %strbuf_addch.exit ], [ 0, %hex2chr.exit ], [ 0, %entry ]
   ret i64 %retval.0
 }
 

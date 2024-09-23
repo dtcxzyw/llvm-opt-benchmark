@@ -295,7 +295,8 @@ if.then25:                                        ; preds = %cond.false9
   store ptr %18, ptr %samep27, align 8
   %samen29 = getelementptr inbounds i8, ptr %18, i64 16
   store ptr %node, ptr %samen29, align 8
-  br label %return.sink.split
+  store ptr %node, ptr %samep, align 8
+  br label %return
 
 if.then34:                                        ; preds = %if.end
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %node, i8 0, i64 16, i1 false)
@@ -339,16 +340,11 @@ if.end76:                                         ; preds = %if.then65, %if.else
   %samen78 = getelementptr inbounds i8, ptr %node, i64 16
   store ptr %node, ptr %samen78, align 8
   %samep79 = getelementptr inbounds i8, ptr %node, i64 24
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.then25, %if.end76
-  %samep79.sink = phi ptr [ %samep79, %if.end76 ], [ %samep, %if.then25 ]
-  %retval.0.ph = phi ptr [ %node, %if.end76 ], [ %t.addr.1.i, %if.then25 ]
-  store ptr %node, ptr %samep79.sink, align 8
+  store ptr %node, ptr %samep79, align 8
   br label %return
 
-return:                                           ; preds = %return.sink.split, %entry
-  %retval.0 = phi ptr [ %t, %entry ], [ %retval.0.ph, %return.sink.split ]
+return:                                           ; preds = %entry, %if.end76, %if.then25
+  %retval.0 = phi ptr [ %t.addr.1.i, %if.then25 ], [ %node, %if.end76 ], [ %t, %entry ]
   ret ptr %retval.0
 }
 

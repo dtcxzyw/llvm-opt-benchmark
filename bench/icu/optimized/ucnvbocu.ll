@@ -587,15 +587,15 @@ while.cond50.preheader.loopexit:                  ; preds = %if.end48, %if.then2
   %nextSourceIndex.4.ph.ph = phi i32 [ %nextSourceIndex.2295, %if.else36 ], [ %nextSourceIndex.2295, %if.then28 ], [ %nextSourceIndex.3, %if.end48 ]
   br label %while.cond50.preheader
 
-while.cond50.preheader:                           ; preds = %while.cond50.preheader.loopexit, %fastSingle, %if.end176
-  %target.4.ph = phi ptr [ %target.8, %if.end176 ], [ %target.1, %fastSingle ], [ %target.4.ph.ph, %while.cond50.preheader.loopexit ]
-  %offsets.4.ph = phi ptr [ %incdec.ptr168, %if.end176 ], [ %offsets.1, %fastSingle ], [ %offsets.4.ph.ph, %while.cond50.preheader.loopexit ]
-  %prev.5.ph = phi i32 [ %cond151168, %if.end176 ], [ %prev.1, %fastSingle ], [ %prev.5.ph.ph, %while.cond50.preheader.loopexit ]
-  %count.3.ph = phi i32 [ %count.4, %if.end176 ], [ %spec.select, %fastSingle ], [ %count.3.ph.ph, %while.cond50.preheader.loopexit ]
-  %diff.1.ph = phi i32 [ %diff.2, %if.end176 ], [ %conv14, %fastSingle ], [ %conv14, %while.cond50.preheader.loopexit ]
-  %byteIndex.2.ph = phi i8 [ %byteIndex.3, %if.end176 ], [ %byteIndex.1, %fastSingle ], [ %byteIndex.1, %while.cond50.preheader.loopexit ]
-  %source.3.ph = phi ptr [ %source.4, %if.end176 ], [ %source.1, %fastSingle ], [ %source.3.ph.ph, %while.cond50.preheader.loopexit ]
-  %nextSourceIndex.4.ph = phi i32 [ %nextSourceIndex.5, %if.end176 ], [ %nextSourceIndex.1, %fastSingle ], [ %nextSourceIndex.4.ph.ph, %while.cond50.preheader.loopexit ]
+while.cond50.preheader:                           ; preds = %while.cond50.preheader.loopexit, %if.then153, %if.then163, %fastSingle
+  %target.4.ph = phi ptr [ %target.1, %fastSingle ], [ %incdec.ptr155, %if.then153 ], [ %incdec.ptr166, %if.then163 ], [ %target.4.ph.ph, %while.cond50.preheader.loopexit ]
+  %offsets.4.ph = phi ptr [ %offsets.1, %fastSingle ], [ %incdec.ptr156, %if.then153 ], [ %incdec.ptr168, %if.then163 ], [ %offsets.4.ph.ph, %while.cond50.preheader.loopexit ]
+  %prev.5.ph = phi i32 [ %prev.1, %fastSingle ], [ %cond151169, %if.then153 ], [ %add149, %if.then163 ], [ %prev.5.ph.ph, %while.cond50.preheader.loopexit ]
+  %count.3.ph = phi i32 [ %spec.select, %fastSingle ], [ %count.4, %if.then153 ], [ %count.4, %if.then163 ], [ %count.3.ph.ph, %while.cond50.preheader.loopexit ]
+  %diff.1.ph = phi i32 [ %conv14, %fastSingle ], [ %diff.2, %if.then153 ], [ %diff.2, %if.then163 ], [ %conv14, %while.cond50.preheader.loopexit ]
+  %byteIndex.2.ph = phi i8 [ %byteIndex.1, %fastSingle ], [ %byteIndex.3, %if.then153 ], [ %byteIndex.3, %if.then163 ], [ %byteIndex.1, %while.cond50.preheader.loopexit ]
+  %source.3.ph = phi ptr [ %source.1, %fastSingle ], [ %source.4, %if.then153 ], [ %source.4, %if.then163 ], [ %source.3.ph.ph, %while.cond50.preheader.loopexit ]
+  %nextSourceIndex.4.ph = phi i32 [ %nextSourceIndex.1, %fastSingle ], [ %nextSourceIndex.5, %if.then153 ], [ %nextSourceIndex.5, %if.then163 ], [ %nextSourceIndex.4.ph.ph, %while.cond50.preheader.loopexit ]
   %cmp53.not279 = icmp ult ptr %target.4.ph, %4
   %cmp53.not.fr280 = freeze i1 %cmp53.not279
   br i1 %cmp53.not.fr280, label %while.cond50.outer.split.us, label %while.cond50
@@ -882,7 +882,9 @@ if.then153:                                       ; preds = %cond.false, %if.els
   %conv154 = trunc nuw i32 %c.0 to i16
   %incdec.ptr155 = getelementptr inbounds i8, ptr %target.5, i64 2
   store i16 %conv154, ptr %target.5, align 2
-  br label %if.end176
+  %incdec.ptr156 = getelementptr inbounds i8, ptr %offsets.5, i64 4
+  store i32 %sourceIndex.2, ptr %offsets.5, align 4
+  br label %while.cond50.preheader, !llvm.loop !9
 
 if.else157:                                       ; preds = %cond.end
   %shr158 = lshr i32 %c.0, 10
@@ -901,7 +903,9 @@ if.then163:                                       ; preds = %if.else157
   store i16 %conv165, ptr %incdec.ptr161, align 2
   %incdec.ptr167 = getelementptr inbounds i8, ptr %offsets.5, i64 4
   store i32 %sourceIndex.2, ptr %offsets.5, align 4
-  br label %if.end176
+  %incdec.ptr168 = getelementptr inbounds i8, ptr %offsets.5, i64 8
+  store i32 %sourceIndex.2, ptr %incdec.ptr167, align 4
+  br label %while.cond50.preheader, !llvm.loop !9
 
 if.else169:                                       ; preds = %if.else157
   %incdec.ptr170 = getelementptr inbounds i8, ptr %offsets.5, i64 4
@@ -913,19 +917,10 @@ if.else169:                                       ; preds = %if.else157
   store i16 %conv173, ptr %UCharErrorBuffer, align 8
   br label %endloop.sink.split.sink.split
 
-if.end176:                                        ; preds = %if.then163, %if.then153
-  %.sink = phi i64 [ 8, %if.then163 ], [ 4, %if.then153 ]
-  %incdec.ptr167.sink = phi ptr [ %incdec.ptr167, %if.then163 ], [ %offsets.5, %if.then153 ]
-  %cond151168 = phi i32 [ %add149, %if.then163 ], [ %cond151169, %if.then153 ]
-  %target.8 = phi ptr [ %incdec.ptr166, %if.then163 ], [ %incdec.ptr155, %if.then153 ]
-  %incdec.ptr168 = getelementptr inbounds i8, ptr %offsets.5, i64 %.sink
-  store i32 %sourceIndex.2, ptr %incdec.ptr167.sink, align 4
-  br label %while.cond50.preheader, !llvm.loop !9
-
 endloop.sink.split.sink.split:                    ; preds = %if.then106, %if.else169
-  %.sink397 = phi i64 [ 93, %if.else169 ], [ 66, %if.then106 ]
-  %.sink396 = phi i8 [ 1, %if.else169 ], [ %20, %if.then106 ]
-  %.sink395.ph = phi i32 [ 15, %if.else169 ], [ 12, %if.then106 ]
+  %.sink396 = phi i64 [ 93, %if.else169 ], [ 66, %if.then106 ]
+  %.sink395 = phi i8 [ 1, %if.else169 ], [ %20, %if.then106 ]
+  %.sink.ph = phi i32 [ 15, %if.else169 ], [ 12, %if.then106 ]
   %target.7.ph.ph = phi ptr [ %incdec.ptr161, %if.else169 ], [ %target.4.ph171281, %if.then106 ]
   %offsets.7.ph.ph = phi ptr [ %incdec.ptr170, %if.else169 ], [ %offsets.4.ph172282, %if.then106 ]
   %prev.7.ph.ph = phi i32 [ %add149, %if.else169 ], [ %prev.5.us, %if.then106 ]
@@ -933,12 +928,12 @@ endloop.sink.split.sink.split:                    ; preds = %if.then106, %if.els
   %diff.6.ph.ph = phi i32 [ %diff.2, %if.else169 ], [ %diff.3, %if.then106 ]
   %byteIndex.6.ph.ph = phi i8 [ %byteIndex.3, %if.else169 ], [ 2, %if.then106 ]
   %source.7.ph.ph = phi ptr [ %source.4, %if.else169 ], [ %incdec.ptr100, %if.then106 ]
-  %UCharErrorBufferLength = getelementptr inbounds i8, ptr %0, i64 %.sink397
-  store i8 %.sink396, ptr %UCharErrorBufferLength, align 1
+  %UCharErrorBufferLength = getelementptr inbounds i8, ptr %0, i64 %.sink396
+  store i8 %.sink395, ptr %UCharErrorBufferLength, align 1
   br label %endloop.sink.split
 
 endloop.sink.split:                               ; preds = %_ZL20decodeBocu1TrailByteii.exit159, %endloop.sink.split.sink.split, %if.then135, %while.cond50
-  %.sink395 = phi i32 [ 15, %while.cond50 ], [ 12, %if.then135 ], [ %.sink395.ph, %endloop.sink.split.sink.split ], [ 12, %_ZL20decodeBocu1TrailByteii.exit159 ]
+  %.sink = phi i32 [ 15, %while.cond50 ], [ 12, %if.then135 ], [ %.sink.ph, %endloop.sink.split.sink.split ], [ 12, %_ZL20decodeBocu1TrailByteii.exit159 ]
   %target.7.ph = phi ptr [ %target.4.ph171.lcssa274, %while.cond50 ], [ %target.0, %if.then135 ], [ %target.7.ph.ph, %endloop.sink.split.sink.split ], [ %target.0, %_ZL20decodeBocu1TrailByteii.exit159 ]
   %offsets.7.ph = phi ptr [ %offsets.4.ph172.lcssa269, %while.cond50 ], [ %offsets.0, %if.then135 ], [ %offsets.7.ph.ph, %endloop.sink.split.sink.split ], [ %offsets.0, %_ZL20decodeBocu1TrailByteii.exit159 ]
   %prev.7.ph = phi i32 [ %prev.5.ph173.lcssa, %while.cond50 ], [ %prev.0, %if.then135 ], [ %prev.7.ph.ph, %endloop.sink.split.sink.split ], [ %prev.0, %_ZL20decodeBocu1TrailByteii.exit159 ]
@@ -946,7 +941,7 @@ endloop.sink.split:                               ; preds = %_ZL20decodeBocu1Tra
   %diff.6.ph = phi i32 [ %diff.1.ph, %while.cond50 ], [ %add132, %if.then135 ], [ %diff.6.ph.ph, %endloop.sink.split.sink.split ], [ %diff.5, %_ZL20decodeBocu1TrailByteii.exit159 ]
   %byteIndex.6.ph = phi i8 [ %byteIndex.2.ph, %while.cond50 ], [ 0, %if.then135 ], [ %byteIndex.6.ph.ph, %endloop.sink.split.sink.split ], [ %inc125, %_ZL20decodeBocu1TrailByteii.exit159 ]
   %source.7.ph = phi ptr [ %source.3.ph177.lcssa, %while.cond50 ], [ %incdec.ptr124, %if.then135 ], [ %source.7.ph.ph, %endloop.sink.split.sink.split ], [ %incdec.ptr124, %_ZL20decodeBocu1TrailByteii.exit159 ]
-  store i32 %.sink395, ptr %pErrorCode, align 4
+  store i32 %.sink, ptr %pErrorCode, align 4
   br label %endloop
 
 endloop:                                          ; preds = %for.cond, %while.cond50.us, %endloop.sink.split, %while.cond50

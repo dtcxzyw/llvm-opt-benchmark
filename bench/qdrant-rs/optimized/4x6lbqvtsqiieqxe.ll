@@ -128,25 +128,25 @@ define { ptr, i64 } @_ZN6common5panic12downcast_str17ha4c46e5ff8048777E(ptr noal
   %.val9 = load ptr, ptr %5, align 8
   %8 = tail call noundef i128 %.val9(ptr noundef nonnull align 1 %2)
   %.not11 = icmp eq i128 %8, -111687601007990281605975228945546934375
-  br i1 %.not11, label %15, label %12
+  br i1 %.not11, label %14, label %11
 
-.sink.split:                                      ; preds = %1, %15
-  %.sink = phi ptr [ %16, %15 ], [ %2, %1 ]
-  %.sink12 = phi i64 [ 16, %15 ], [ 8, %1 ]
-  %9 = load ptr, ptr %.sink, align 8, !nonnull !7, !noundef !7
-  %10 = getelementptr inbounds i8, ptr %2, i64 %.sink12
-  %11 = load i64, ptr %10, align 8, !noundef !7
-  br label %12
+.sink.split:                                      ; preds = %1, %14
+  %.sink12 = phi i64 [ 16, %14 ], [ 8, %1 ]
+  %.sroa.0.0.ph.in = phi ptr [ %15, %14 ], [ %2, %1 ]
+  %.sroa.0.0.ph = load ptr, ptr %.sroa.0.0.ph.in, align 8, !nonnull !7, !noundef !7
+  %9 = getelementptr inbounds i8, ptr %2, i64 %.sink12
+  %10 = load i64, ptr %9, align 8, !noundef !7
+  br label %11
 
-12:                                               ; preds = %.sink.split, %7
-  %.sroa.4.0 = phi i64 [ undef, %7 ], [ %11, %.sink.split ]
-  %.sroa.0.0 = phi ptr [ null, %7 ], [ %9, %.sink.split ]
-  %13 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %14 = insertvalue { ptr, i64 } %13, i64 %.sroa.4.0, 1
-  ret { ptr, i64 } %14
+11:                                               ; preds = %.sink.split, %7
+  %.sroa.4.0 = phi i64 [ undef, %7 ], [ %10, %.sink.split ]
+  %.sroa.0.0 = phi ptr [ null, %7 ], [ %.sroa.0.0.ph, %.sink.split ]
+  %12 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %13 = insertvalue { ptr, i64 } %12, i64 %.sroa.4.0, 1
+  ret { ptr, i64 } %13
 
-15:                                               ; preds = %7
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+14:                                               ; preds = %7
+  %15 = getelementptr inbounds i8, ptr %2, i64 8
   br label %.sink.split
 }
 

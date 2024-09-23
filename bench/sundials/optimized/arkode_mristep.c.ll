@@ -3565,7 +3565,7 @@ define range(i32 -22, 1) i32 @mriStepInnerStepper_AllocVecs(ptr noundef %0, i32 
   %20 = getelementptr inbounds i8, ptr %0, i64 36
   %21 = load i32, ptr %20, align 4
   %22 = icmp slt i32 %21, %1
-  br i1 %22, label %23, label %48
+  br i1 %22, label %23, label %49
 
 23:                                               ; preds = %14
   %.not38 = icmp eq i32 %21, 0
@@ -3590,7 +3590,7 @@ define range(i32 -22, 1) i32 @mriStepInnerStepper_AllocVecs(ptr noundef %0, i32 
   %34 = getelementptr inbounds i8, ptr %0, i64 104
   %35 = call i32 @arkAllocVecArray(i32 noundef %31, ptr noundef nonnull %2, ptr noundef nonnull %32, i64 noundef %30, ptr noundef nonnull %33, i64 noundef %29, ptr noundef nonnull %34) #12
   %.not39 = icmp eq i32 %35, 0
-  br i1 %.not39, label %36, label %46
+  br i1 %.not39, label %36, label %47
 
 36:                                               ; preds = %28
   %37 = load i32, ptr %20, align 4
@@ -3611,94 +3611,102 @@ define range(i32 -22, 1) i32 @mriStepInnerStepper_AllocVecs(ptr noundef %0, i32 
   %44 = getelementptr inbounds i8, ptr %0, i64 64
   %45 = load ptr, ptr %44, align 8
   %.not16.i = icmp eq ptr %45, null
-  br i1 %.not16.i, label %mriStepInnerStepper_FreeVecs.exit, label %mriStepInnerStepper_FreeVecs.exit.sink.split
+  br i1 %.not16.i, label %mriStepInnerStepper_FreeVecs.exit, label %46
 
-46:                                               ; preds = %28
-  %47 = load i32, ptr %19, align 8
-  store i32 %47, ptr %20, align 4
-  br label %48
-
-48:                                               ; preds = %46, %14
-  %49 = phi i32 [ %47, %46 ], [ %21, %14 ]
-  %50 = getelementptr inbounds i8, ptr %0, i64 72
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %51, null
-  br i1 %52, label %53, label %69
-
-53:                                               ; preds = %48
-  %54 = add nsw i32 %1, 1
-  %55 = sext i32 %54 to i64
-  %56 = call noalias ptr @calloc(i64 noundef %55, i64 noundef 8) #13
-  store ptr %56, ptr %50, align 8
-  %57 = icmp eq ptr %56, null
-  br i1 %57, label %58, label %69
-
-58:                                               ; preds = %53
-  %59 = getelementptr inbounds i8, ptr %0, i64 24
-  %60 = load i64, ptr %17, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 96
-  %62 = load i64, ptr %18, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 104
-  call void @arkFreeVecArray(i32 noundef %49, ptr noundef nonnull %59, i64 noundef %60, ptr noundef nonnull %61, i64 noundef %62, ptr noundef nonnull %63) #12
-  %64 = load ptr, ptr %50, align 8
-  %.not.i40 = icmp eq ptr %64, null
-  br i1 %.not.i40, label %66, label %65
-
-65:                                               ; preds = %58
-  call void @free(ptr noundef nonnull %64) #12
-  store ptr null, ptr %50, align 8
-  br label %66
-
-66:                                               ; preds = %65, %58
-  %67 = getelementptr inbounds i8, ptr %0, i64 64
-  %68 = load ptr, ptr %67, align 8
-  %.not16.i41 = icmp eq ptr %68, null
-  br i1 %.not16.i41, label %mriStepInnerStepper_FreeVecs.exit, label %mriStepInnerStepper_FreeVecs.exit.sink.split
-
-69:                                               ; preds = %53, %48
-  %70 = getelementptr inbounds i8, ptr %0, i64 64
-  %71 = load ptr, ptr %70, align 8
-  %72 = icmp eq ptr %71, null
-  br i1 %72, label %73, label %mriStepInnerStepper_FreeVecs.exit
-
-73:                                               ; preds = %69
-  %74 = add nsw i32 %1, 1
-  %75 = sext i32 %74 to i64
-  %76 = call noalias ptr @calloc(i64 noundef %75, i64 noundef 8) #13
-  store ptr %76, ptr %70, align 8
-  %77 = icmp eq ptr %76, null
-  br i1 %77, label %78, label %mriStepInnerStepper_FreeVecs.exit
-
-78:                                               ; preds = %73
-  %79 = getelementptr inbounds i8, ptr %0, i64 24
-  %80 = load i64, ptr %17, align 8
-  %81 = getelementptr inbounds i8, ptr %0, i64 96
-  %82 = load i64, ptr %18, align 8
-  %83 = getelementptr inbounds i8, ptr %0, i64 104
-  call void @arkFreeVecArray(i32 noundef %49, ptr noundef nonnull %79, i64 noundef %80, ptr noundef nonnull %81, i64 noundef %82, ptr noundef nonnull %83) #12
-  %84 = load ptr, ptr %50, align 8
-  %.not.i44 = icmp eq ptr %84, null
-  br i1 %.not.i44, label %86, label %85
-
-85:                                               ; preds = %78
-  call void @free(ptr noundef nonnull %84) #12
-  store ptr null, ptr %50, align 8
-  br label %86
-
-86:                                               ; preds = %85, %78
-  %87 = load ptr, ptr %70, align 8
-  %.not16.i45 = icmp eq ptr %87, null
-  br i1 %.not16.i45, label %mriStepInnerStepper_FreeVecs.exit, label %mriStepInnerStepper_FreeVecs.exit.sink.split
-
-mriStepInnerStepper_FreeVecs.exit.sink.split:     ; preds = %86, %66, %43
-  %.sink52 = phi ptr [ %45, %43 ], [ %68, %66 ], [ %87, %86 ]
-  %.sink = phi ptr [ %44, %43 ], [ %67, %66 ], [ %70, %86 ]
-  call void @free(ptr noundef nonnull %.sink52) #12
-  store ptr null, ptr %.sink, align 8
+46:                                               ; preds = %43
+  call void @free(ptr noundef nonnull %45) #12
+  store ptr null, ptr %44, align 8
   br label %mriStepInnerStepper_FreeVecs.exit
 
-mriStepInnerStepper_FreeVecs.exit:                ; preds = %mriStepInnerStepper_FreeVecs.exit.sink.split, %86, %66, %43, %69, %73, %3
-  %.0 = phi i32 [ -22, %3 ], [ 0, %73 ], [ 0, %69 ], [ -20, %43 ], [ -20, %66 ], [ -20, %86 ], [ -20, %mriStepInnerStepper_FreeVecs.exit.sink.split ]
+47:                                               ; preds = %28
+  %48 = load i32, ptr %19, align 8
+  store i32 %48, ptr %20, align 4
+  br label %49
+
+49:                                               ; preds = %47, %14
+  %50 = phi i32 [ %48, %47 ], [ %21, %14 ]
+  %51 = getelementptr inbounds i8, ptr %0, i64 72
+  %52 = load ptr, ptr %51, align 8
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %54, label %71
+
+54:                                               ; preds = %49
+  %55 = add nsw i32 %1, 1
+  %56 = sext i32 %55 to i64
+  %57 = call noalias ptr @calloc(i64 noundef %56, i64 noundef 8) #13
+  store ptr %57, ptr %51, align 8
+  %58 = icmp eq ptr %57, null
+  br i1 %58, label %59, label %71
+
+59:                                               ; preds = %54
+  %60 = getelementptr inbounds i8, ptr %0, i64 24
+  %61 = load i64, ptr %17, align 8
+  %62 = getelementptr inbounds i8, ptr %0, i64 96
+  %63 = load i64, ptr %18, align 8
+  %64 = getelementptr inbounds i8, ptr %0, i64 104
+  call void @arkFreeVecArray(i32 noundef %50, ptr noundef nonnull %60, i64 noundef %61, ptr noundef nonnull %62, i64 noundef %63, ptr noundef nonnull %64) #12
+  %65 = load ptr, ptr %51, align 8
+  %.not.i40 = icmp eq ptr %65, null
+  br i1 %.not.i40, label %67, label %66
+
+66:                                               ; preds = %59
+  call void @free(ptr noundef nonnull %65) #12
+  store ptr null, ptr %51, align 8
+  br label %67
+
+67:                                               ; preds = %66, %59
+  %68 = getelementptr inbounds i8, ptr %0, i64 64
+  %69 = load ptr, ptr %68, align 8
+  %.not16.i41 = icmp eq ptr %69, null
+  br i1 %.not16.i41, label %mriStepInnerStepper_FreeVecs.exit, label %70
+
+70:                                               ; preds = %67
+  call void @free(ptr noundef nonnull %69) #12
+  store ptr null, ptr %68, align 8
+  br label %mriStepInnerStepper_FreeVecs.exit
+
+71:                                               ; preds = %54, %49
+  %72 = getelementptr inbounds i8, ptr %0, i64 64
+  %73 = load ptr, ptr %72, align 8
+  %74 = icmp eq ptr %73, null
+  br i1 %74, label %75, label %mriStepInnerStepper_FreeVecs.exit
+
+75:                                               ; preds = %71
+  %76 = add nsw i32 %1, 1
+  %77 = sext i32 %76 to i64
+  %78 = call noalias ptr @calloc(i64 noundef %77, i64 noundef 8) #13
+  store ptr %78, ptr %72, align 8
+  %79 = icmp eq ptr %78, null
+  br i1 %79, label %80, label %mriStepInnerStepper_FreeVecs.exit
+
+80:                                               ; preds = %75
+  %81 = getelementptr inbounds i8, ptr %0, i64 24
+  %82 = load i64, ptr %17, align 8
+  %83 = getelementptr inbounds i8, ptr %0, i64 96
+  %84 = load i64, ptr %18, align 8
+  %85 = getelementptr inbounds i8, ptr %0, i64 104
+  call void @arkFreeVecArray(i32 noundef %50, ptr noundef nonnull %81, i64 noundef %82, ptr noundef nonnull %83, i64 noundef %84, ptr noundef nonnull %85) #12
+  %86 = load ptr, ptr %51, align 8
+  %.not.i44 = icmp eq ptr %86, null
+  br i1 %.not.i44, label %88, label %87
+
+87:                                               ; preds = %80
+  call void @free(ptr noundef nonnull %86) #12
+  store ptr null, ptr %51, align 8
+  br label %88
+
+88:                                               ; preds = %87, %80
+  %89 = load ptr, ptr %72, align 8
+  %.not16.i45 = icmp eq ptr %89, null
+  br i1 %.not16.i45, label %mriStepInnerStepper_FreeVecs.exit, label %90
+
+90:                                               ; preds = %88
+  call void @free(ptr noundef nonnull %89) #12
+  store ptr null, ptr %72, align 8
+  br label %mriStepInnerStepper_FreeVecs.exit
+
+mriStepInnerStepper_FreeVecs.exit:                ; preds = %90, %88, %70, %67, %46, %43, %71, %75, %3
+  %.0 = phi i32 [ -22, %3 ], [ 0, %75 ], [ 0, %71 ], [ -20, %43 ], [ -20, %46 ], [ -20, %67 ], [ -20, %70 ], [ -20, %88 ], [ -20, %90 ]
   ret i32 %.0
 }
 

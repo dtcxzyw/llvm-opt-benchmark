@@ -343,7 +343,12 @@ if.then:                                          ; preds = %entry
   %range_limit = getelementptr inbounds i8, ptr %v, i64 264
   %2 = load i64, ptr %range_limit, align 8
   %cmp3 = icmp slt i64 %1, %2
-  br i1 %cmp3, label %sw.epilog.sink.split, label %if.end13
+  br i1 %cmp3, label %if.then4, label %if.end13
+
+if.then4:                                         ; preds = %if.then
+  %inc = add nsw i64 %1, 1
+  store i64 %inc, ptr %range_next, align 8
+  br label %sw.epilog
 
 if.else:                                          ; preds = %entry
   %range_next6 = getelementptr inbounds i8, ptr %v, i64 256
@@ -351,7 +356,12 @@ if.else:                                          ; preds = %entry
   %range_limit7 = getelementptr inbounds i8, ptr %v, i64 264
   %4 = load i64, ptr %range_limit7, align 8
   %cmp8 = icmp ult i64 %3, %4
-  br i1 %cmp8, label %sw.epilog.sink.split, label %if.end13
+  br i1 %cmp8, label %if.then9, label %if.end13
+
+if.then9:                                         ; preds = %if.else
+  %inc11 = add nuw i64 %3, 1
+  store i64 %inc11, ptr %range_next6, align 8
+  br label %sw.epilog
 
 if.end13:                                         ; preds = %if.else, %if.then
   store i32 1, ptr %list_mode, align 8
@@ -379,14 +389,7 @@ sw.default:                                       ; preds = %entry
   tail call void @abort() #8
   unreachable
 
-sw.epilog.sink.split:                             ; preds = %if.else, %if.then
-  %.sink = phi i64 [ %1, %if.then ], [ %3, %if.else ]
-  %range_next6.sink = phi ptr [ %range_next, %if.then ], [ %range_next6, %if.else ]
-  %inc11 = add i64 %.sink, 1
-  store i64 %inc11, ptr %range_next6.sink, align 8
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %sw.epilog.sink.split, %sw.bb15
+sw.epilog:                                        ; preds = %sw.bb15, %if.then9, %if.then4
   %call24 = tail call noalias ptr @g_malloc0(i64 noundef %size) #9
   store ptr %call24, ptr %tail, align 8
   br label %return

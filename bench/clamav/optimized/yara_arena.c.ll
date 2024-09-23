@@ -897,7 +897,7 @@ define range(i32 0, 2) i32 @yr_arena_write_data(ptr nocapture noundef %0, ptr no
   %10 = load i64, ptr %9, align 8
   %11 = sub i64 %8, %10
   %12 = icmp ugt i64 %2, %11
-  br i1 %12, label %13, label %21
+  br i1 %12, label %13, label %22
 
 13:                                               ; preds = %4
   %14 = tail call i32 @yr_arena_reserve_memory(ptr noundef nonnull %0, i64 noundef %2)
@@ -911,30 +911,30 @@ yr_arena_allocate_memory.exit.thread:             ; preds = %13
   %18 = getelementptr inbounds i8, ptr %15, i64 24
   %19 = load i64, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %17, i64 %19
-  br label %25
+  %21 = add i64 %19, %2
+  store i64 %21, ptr %18, align 8
+  br label %27
 
-21:                                               ; preds = %4
-  %22 = getelementptr inbounds i8, ptr %6, i64 8
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 %10
-  br label %25
+22:                                               ; preds = %4
+  %23 = getelementptr inbounds i8, ptr %6, i64 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 %10
+  %26 = add i64 %10, %2
+  store i64 %26, ptr %9, align 8
+  br label %27
 
-25:                                               ; preds = %yr_arena_allocate_memory.exit.thread, %21
-  %.sink25 = phi i64 [ %19, %yr_arena_allocate_memory.exit.thread ], [ %10, %21 ]
-  %.sink24 = phi ptr [ %18, %yr_arena_allocate_memory.exit.thread ], [ %9, %21 ]
-  %.020 = phi ptr [ %20, %yr_arena_allocate_memory.exit.thread ], [ %24, %21 ]
-  %26 = add i64 %.sink25, %2
-  store i64 %26, ptr %.sink24, align 8
+27:                                               ; preds = %yr_arena_allocate_memory.exit.thread, %22
+  %.020 = phi ptr [ %25, %22 ], [ %20, %yr_arena_allocate_memory.exit.thread ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.020, ptr align 1 %1, i64 %2, i1 false)
   %.not18 = icmp eq ptr %3, null
-  br i1 %.not18, label %yr_arena_allocate_memory.exit, label %27
+  br i1 %.not18, label %yr_arena_allocate_memory.exit, label %28
 
-27:                                               ; preds = %25
+28:                                               ; preds = %27
   store ptr %.020, ptr %3, align 8
   br label %yr_arena_allocate_memory.exit
 
-yr_arena_allocate_memory.exit:                    ; preds = %13, %25, %27
-  %.0 = phi i32 [ 0, %27 ], [ 0, %25 ], [ 1, %13 ]
+yr_arena_allocate_memory.exit:                    ; preds = %13, %27, %28
+  %.0 = phi i32 [ 0, %28 ], [ 0, %27 ], [ 1, %13 ]
   ret i32 %.0
 }
 
@@ -950,7 +950,7 @@ define range(i32 0, 2) i32 @yr_arena_write_string(ptr nocapture noundef %0, ptr 
   %11 = load i64, ptr %10, align 8
   %12 = sub i64 %9, %11
   %13 = icmp ugt i64 %5, %12
-  br i1 %13, label %14, label %22
+  br i1 %13, label %14, label %23
 
 14:                                               ; preds = %3
   %15 = tail call i32 @yr_arena_reserve_memory(ptr noundef nonnull %0, i64 noundef %5)
@@ -964,30 +964,30 @@ yr_arena_allocate_memory.exit.thread.i:           ; preds = %14
   %19 = getelementptr inbounds i8, ptr %16, i64 24
   %20 = load i64, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %18, i64 %20
-  br label %26
+  %22 = add i64 %20, %5
+  store i64 %22, ptr %19, align 8
+  br label %28
 
-22:                                               ; preds = %3
-  %23 = getelementptr inbounds i8, ptr %7, i64 8
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 %11
-  br label %26
+23:                                               ; preds = %3
+  %24 = getelementptr inbounds i8, ptr %7, i64 8
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 %11
+  %27 = add i64 %11, %5
+  store i64 %27, ptr %10, align 8
+  br label %28
 
-26:                                               ; preds = %22, %yr_arena_allocate_memory.exit.thread.i
-  %.sink25.i = phi i64 [ %20, %yr_arena_allocate_memory.exit.thread.i ], [ %11, %22 ]
-  %.sink24.i = phi ptr [ %19, %yr_arena_allocate_memory.exit.thread.i ], [ %10, %22 ]
-  %.020.i = phi ptr [ %21, %yr_arena_allocate_memory.exit.thread.i ], [ %25, %22 ]
-  %27 = add i64 %.sink25.i, %5
-  store i64 %27, ptr %.sink24.i, align 8
+28:                                               ; preds = %23, %yr_arena_allocate_memory.exit.thread.i
+  %.020.i = phi ptr [ %26, %23 ], [ %21, %yr_arena_allocate_memory.exit.thread.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.020.i, ptr readonly align 1 %1, i64 %5, i1 false)
   %.not18.i = icmp eq ptr %2, null
-  br i1 %.not18.i, label %yr_arena_write_data.exit, label %28
+  br i1 %.not18.i, label %yr_arena_write_data.exit, label %29
 
-28:                                               ; preds = %26
+29:                                               ; preds = %28
   store ptr %.020.i, ptr %2, align 8
   br label %yr_arena_write_data.exit
 
-yr_arena_write_data.exit:                         ; preds = %14, %26, %28
-  %.0.i = phi i32 [ 0, %28 ], [ 0, %26 ], [ 1, %14 ]
+yr_arena_write_data.exit:                         ; preds = %14, %28, %29
+  %.0.i = phi i32 [ 0, %29 ], [ 0, %28 ], [ 1, %14 ]
   ret i32 %.0.i
 }
 

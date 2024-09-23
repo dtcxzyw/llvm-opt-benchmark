@@ -217,7 +217,9 @@ define hidden void @proto_register_FiveCoLegacy() local_unnamed_addr #0 {
   %.sroa.66.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 32
   store ptr %2, ptr %.sroa.66.0..sroa_idx, align 16
   %.sroa.77.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 40
+  %.sroa.99.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.77.0..sroa_idx, i8 0, i64 16, i1 false)
+  store i32 -1, ptr %.sroa.99.0..sroa_idx, align 8
   br label %16
 
 13:                                               ; preds = %.preheader
@@ -229,13 +231,13 @@ define hidden void @proto_register_FiveCoLegacy() local_unnamed_addr #0 {
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 16
   store ptr %7, ptr %.sroa.3.0..sroa_idx, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 24
+  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4.0..sroa_idx, i8 0, i64 32, i1 false)
+  store i32 -1, ptr %.sroa.9.0..sroa_idx, align 8
   br label %16
 
 16:                                               ; preds = %8, %13
   %.sink40 = phi ptr [ %12, %8 ], [ %15, %13 ]
-  %.sroa.99.0..sroa_idx.sink = getelementptr inbounds i8, ptr %.sink40, i64 56
-  store i32 -1, ptr %.sroa.99.0..sroa_idx.sink, align 8
   %.sroa.1010.0..sroa_idx = getelementptr inbounds i8, ptr %.sink40, i64 60
   store i32 0, ptr %.sroa.1010.0..sroa_idx, align 4
   %.sroa.1111.0..sroa_idx = getelementptr inbounds i8, ptr %.sink40, i64 64

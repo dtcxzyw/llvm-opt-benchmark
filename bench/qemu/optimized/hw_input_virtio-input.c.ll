@@ -541,23 +541,32 @@ land.rhs.lr.ph:                                   ; preds = %entry
   %tql_prev9 = getelementptr inbounds i8, ptr %call.i, i64 536
   br label %land.rhs
 
-land.rhs:                                         ; preds = %land.rhs.lr.ph, %land.rhs
-  %cfg.015 = phi ptr [ %0, %land.rhs.lr.ph ], [ %1, %land.rhs ]
+land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end
+  %cfg.015 = phi ptr [ %0, %land.rhs.lr.ph ], [ %1, %if.end ]
   %node = getelementptr inbounds i8, ptr %cfg.015, i64 136
   %1 = load ptr, ptr %node, align 8
   %cmp.not = icmp eq ptr %1, null
   %tql_prev7 = getelementptr inbounds i8, ptr %cfg.015, i64 144
   %2 = load ptr, ptr %tql_prev7, align 8
+  br i1 %cmp.not, label %if.else, label %if.then
+
+if.then:                                          ; preds = %land.rhs
   %tql_prev5 = getelementptr inbounds i8, ptr %1, i64 144
-  %tql_prev9.sink = select i1 %cmp.not, ptr %tql_prev9, ptr %tql_prev5
-  store ptr %2, ptr %tql_prev9.sink, align 8
+  store ptr %2, ptr %tql_prev5, align 8
+  br label %if.end
+
+if.else:                                          ; preds = %land.rhs
+  store ptr %2, ptr %tql_prev9, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then
   %3 = load ptr, ptr %node, align 8
   store ptr %3, ptr %2, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %node, i8 0, i64 16, i1 false)
   tail call void @g_free(ptr noundef nonnull %cfg.015) #11
   br i1 %cmp.not, label %for.end, label %land.rhs, !llvm.loop !11
 
-for.end:                                          ; preds = %land.rhs, %entry
+for.end:                                          ; preds = %if.end, %entry
   %queue = getelementptr inbounds i8, ptr %call.i, i64 568
   %4 = load ptr, ptr %queue, align 8
   tail call void @g_free(ptr noundef %4) #11

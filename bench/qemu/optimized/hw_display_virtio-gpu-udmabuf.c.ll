@@ -301,14 +301,14 @@ if.end:                                           ; preds = %if.then3.i, %if.end
 define dso_local range(i32 -22, 1) i32 @virtio_gpu_update_dmabuf(ptr noundef %g, i32 noundef %scanout_id, ptr nocapture noundef readonly %res, ptr nocapture noundef readonly %fb, ptr nocapture noundef readonly %r) local_unnamed_addr #0 {
 entry:
   %scanout1 = getelementptr inbounds i8, ptr %g, i64 864
+  %idxprom = zext i32 %scanout_id to i64
+  %arrayidx = getelementptr [16 x %struct.virtio_gpu_scanout], ptr %scanout1, i64 0, i64 %idxprom
   %dmabuf_fd.i = getelementptr inbounds i8, ptr %res, i64 72
   %0 = load i32, ptr %dmabuf_fd.i, align 8
   %cmp.i = icmp slt i32 %0, 0
-  br i1 %cmp.i, label %return, label %if.end
+  br i1 %cmp.i, label %return, label %if.end.i
 
-if.end:                                           ; preds = %entry
-  %idxprom = zext i32 %scanout_id to i64
-  %arrayidx = getelementptr [16 x %struct.virtio_gpu_scanout], ptr %scanout1, i64 0, i64 %idxprom
+if.end.i:                                         ; preds = %entry
   %call.i = tail call noalias dereferenceable_or_null(96) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 96) #13
   %width.i = getelementptr inbounds i8, ptr %r, i64 8
   %1 = load i32, ptr %width.i, align 4
@@ -354,10 +354,19 @@ if.end:                                           ; preds = %entry
   %next.i = getelementptr inbounds i8, ptr %call.i, i64 80
   store ptr %10, ptr %next.i, align 8
   %cmp22.not.i = icmp eq ptr %10, null
-  %tql_prev31.i = getelementptr inbounds i8, ptr %g, i64 3152
+  br i1 %cmp22.not.i, label %if.else.i, label %if.then23.i
+
+if.then23.i:                                      ; preds = %if.end.i
   %tql_prev.i = getelementptr inbounds i8, ptr %10, i64 88
-  %tql_prev31.sink.i = select i1 %cmp22.not.i, ptr %tql_prev31.i, ptr %tql_prev.i
-  store ptr %next.i, ptr %tql_prev31.sink.i, align 8
+  store ptr %next.i, ptr %tql_prev.i, align 8
+  br label %if.end
+
+if.else.i:                                        ; preds = %if.end.i
+  %tql_prev31.i = getelementptr inbounds i8, ptr %g, i64 3152
+  store ptr %next.i, ptr %tql_prev31.i, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.else.i, %if.then23.i
   store ptr %call.i, ptr %dmabuf21.i, align 8
   %tql_prev38.i = getelementptr inbounds i8, ptr %call.i, i64 88
   store ptr %dmabuf21.i, ptr %tql_prev38.i, align 8
@@ -384,17 +393,27 @@ if.then19:                                        ; preds = %if.end
   %cmp.not.i = icmp eq ptr %16, null
   %tql_prev7.i = getelementptr inbounds i8, ptr %11, i64 88
   %17 = load ptr, ptr %tql_prev7.i, align 8
+  br i1 %cmp.not.i, label %if.else.i18, label %if.then.i
+
+if.then.i:                                        ; preds = %if.then19
   %tql_prev5.i = getelementptr inbounds i8, ptr %16, i64 88
-  %tql_prev9.sink.i = select i1 %cmp.not.i, ptr %tql_prev31.i, ptr %tql_prev5.i
-  store ptr %17, ptr %tql_prev9.sink.i, align 8
+  store ptr %17, ptr %tql_prev5.i, align 8
+  br label %virtio_gpu_free_dmabuf.exit
+
+if.else.i18:                                      ; preds = %if.then19
+  %tql_prev9.i = getelementptr inbounds i8, ptr %g, i64 3152
+  store ptr %17, ptr %tql_prev9.i, align 8
+  br label %virtio_gpu_free_dmabuf.exit
+
+virtio_gpu_free_dmabuf.exit:                      ; preds = %if.then.i, %if.else.i18
   %18 = load ptr, ptr %next.i16, align 8
   store ptr %18, ptr %17, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i16, i8 0, i64 16, i1 false)
   tail call void @g_free(ptr noundef nonnull %11) #9
   br label %return
 
-return:                                           ; preds = %entry, %if.end, %if.then19
-  %retval.0 = phi i32 [ 0, %if.then19 ], [ 0, %if.end ], [ -22, %entry ]
+return:                                           ; preds = %entry, %if.end, %virtio_gpu_free_dmabuf.exit
+  %retval.0 = phi i32 [ 0, %virtio_gpu_free_dmabuf.exit ], [ 0, %if.end ], [ -22, %entry ]
   ret i32 %retval.0
 }
 

@@ -6016,40 +6016,49 @@ _ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit: ; preds = %.critedge.i.thread
   %31 = getelementptr inbounds i8, ptr %25, i64 64
   store ptr %30, ptr %31, align 8
   %.not17 = icmp eq ptr %.016.lcssa, null
-  %32 = getelementptr inbounds i8, ptr %.016.lcssa, i64 56
-  %.sink = select i1 %.not17, ptr %3, ptr %32
-  store ptr %25, ptr %.sink, align 8
-  %33 = load i32, ptr %26, align 8
-  %34 = and i32 %33, 512
-  %.not.i.i.i = icmp eq i32 %34, 0
-  br i1 %.not.i.i.i, label %_ZN2cv8tinyxml212XMLAttribute7SetNameEPKc.exit, label %35
+  br i1 %.not17, label %34, label %32
 
-35:                                               ; preds = %.critedge
-  %36 = load ptr, ptr %27, align 8
-  %37 = icmp eq ptr %36, null
-  br i1 %37, label %_ZN2cv8tinyxml212XMLAttribute7SetNameEPKc.exit, label %38
+32:                                               ; preds = %.critedge
+  %33 = getelementptr inbounds i8, ptr %.016.lcssa, i64 56
+  store ptr %25, ptr %33, align 8
+  br label %35
+
+34:                                               ; preds = %.critedge
+  store ptr %25, ptr %3, align 8
+  br label %35
+
+35:                                               ; preds = %34, %32
+  %36 = load i32, ptr %26, align 8
+  %37 = and i32 %36, 512
+  %.not.i.i.i = icmp eq i32 %37, 0
+  br i1 %.not.i.i.i, label %_ZN2cv8tinyxml212XMLAttribute7SetNameEPKc.exit, label %38
 
 38:                                               ; preds = %35
-  tail call void @_ZdaPv(ptr noundef nonnull %36) #23
+  %39 = load ptr, ptr %27, align 8
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %_ZN2cv8tinyxml212XMLAttribute7SetNameEPKc.exit, label %41
+
+41:                                               ; preds = %38
+  tail call void @_ZdaPv(ptr noundef nonnull %39) #23
   br label %_ZN2cv8tinyxml212XMLAttribute7SetNameEPKc.exit
 
-_ZN2cv8tinyxml212XMLAttribute7SetNameEPKc.exit:   ; preds = %.critedge, %35, %38
+_ZN2cv8tinyxml212XMLAttribute7SetNameEPKc.exit:   ; preds = %35, %38, %41
   store i32 0, ptr %26, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
-  %39 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #26
-  %40 = add i64 %39, 1
-  %41 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %40) #27
-  store ptr %41, ptr %27, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %41, ptr readonly align 1 %1, i64 %40, i1 false)
-  %42 = getelementptr inbounds i8, ptr %41, i64 %39
-  %43 = getelementptr inbounds i8, ptr %25, i64 24
-  store ptr %42, ptr %43, align 8
+  %42 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #26
+  %43 = add i64 %42, 1
+  %44 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %43) #27
+  store ptr %44, ptr %27, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %44, ptr readonly align 1 %1, i64 %43, i1 false)
+  %45 = getelementptr inbounds i8, ptr %44, i64 %42
+  %46 = getelementptr inbounds i8, ptr %25, i64 24
+  store ptr %45, ptr %46, align 8
   store i32 512, ptr %26, align 8
-  %44 = load ptr, ptr %31, align 8
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 40
-  %47 = load ptr, ptr %46, align 8
-  tail call void %47(ptr noundef nonnull align 8 dereferenceable(8) %44)
+  %47 = load ptr, ptr %31, align 8
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %48, i64 40
+  %50 = load ptr, ptr %49, align 8
+  tail call void %50(ptr noundef nonnull align 8 dereferenceable(8) %47)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge.thread.i, %.critedge.i, %.critedge.i.thread, %.lr.ph, %_ZN2cv8tinyxml212XMLAttribute7SetNameEPKc.exit
@@ -6228,27 +6237,36 @@ define hidden void @_ZN2cv8tinyxml210XMLElement15DeleteAttributeEPKc(ptr nocaptu
   %.not16 = icmp eq ptr %.027.lcssa, null
   %25 = getelementptr inbounds i8, ptr %.01528.lcssa, i64 56
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %.027.lcssa, i64 56
-  %.sink = select i1 %.not16, ptr %3, ptr %27
-  store ptr %26, ptr %.sink, align 8
-  %28 = getelementptr inbounds i8, ptr %.01528.lcssa, i64 64
-  %29 = load ptr, ptr %28, align 8
-  %30 = load ptr, ptr %.01528.lcssa, align 8
-  %31 = load ptr, ptr %30, align 8
-  tail call void %31(ptr noundef nonnull align 8 dereferenceable(72) %.01528.lcssa) #24
-  %32 = load ptr, ptr %29, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 32
+  br i1 %.not16, label %29, label %27
+
+27:                                               ; preds = %.lr.ph._crit_edge
+  %28 = getelementptr inbounds i8, ptr %.027.lcssa, i64 56
+  store ptr %26, ptr %28, align 8
+  br label %30
+
+29:                                               ; preds = %.lr.ph._crit_edge
+  store ptr %26, ptr %3, align 8
+  br label %30
+
+30:                                               ; preds = %27, %29
+  %31 = getelementptr inbounds i8, ptr %.01528.lcssa, i64 64
+  %32 = load ptr, ptr %31, align 8
+  %33 = load ptr, ptr %.01528.lcssa, align 8
   %34 = load ptr, ptr %33, align 8
-  tail call void %34(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull %.01528.lcssa)
+  tail call void %34(ptr noundef nonnull align 8 dereferenceable(72) %.01528.lcssa) #24
+  %35 = load ptr, ptr %32, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 32
+  %37 = load ptr, ptr %36, align 8
+  tail call void %37(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull %.01528.lcssa)
   br label %.loopexit
 
 _ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit: ; preds = %.critedge.i.thread, %.critedge.thread.i
-  %35 = getelementptr inbounds i8, ptr %.0152841, i64 56
-  %.015 = load ptr, ptr %35, align 8
+  %38 = getelementptr inbounds i8, ptr %.0152841, i64 56
+  %.015 = load ptr, ptr %38, align 8
   %.not = icmp eq ptr %.015, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !30
 
-.loopexit:                                        ; preds = %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit, %2, %.lr.ph._crit_edge
+.loopexit:                                        ; preds = %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit, %2, %30
   ret void
 }
 
@@ -6262,9 +6280,9 @@ define hidden noundef ptr @_ZN2cv8tinyxml210XMLElement15ParseAttributesEPc(ptr n
   %4 = getelementptr inbounds i8, ptr %0, i64 96
   br label %5
 
-5:                                                ; preds = %_ZNK2cv8tinyxml210XMLElement9AttributeEPKcS3_.exit.thread, %.lr.ph
-  %.03575 = phi ptr [ %1, %.lr.ph ], [ %36, %_ZNK2cv8tinyxml210XMLElement9AttributeEPKcS3_.exit.thread ]
-  %.03674 = phi ptr [ null, %.lr.ph ], [ %22, %_ZNK2cv8tinyxml210XMLElement9AttributeEPKcS3_.exit.thread ]
+5:                                                ; preds = %.backedge, %.lr.ph
+  %.03575 = phi ptr [ %1, %.lr.ph ], [ %36, %.backedge ]
+  %.03674 = phi ptr [ null, %.lr.ph ], [ %22, %.backedge ]
   %6 = load i8, ptr %.03575, align 1
   %.not5.i = icmp sgt i8 %6, -1
   br i1 %.not5.i, label %.lr.ph.i, label %_ZN2cv8tinyxml27XMLUtil15IsNameStartCharEh.exit.thread
@@ -6309,8 +6327,8 @@ switch.early.test:                                ; preds = %_ZN2cv8tinyxml27XML
   switch i8 %.pr, label %.thread57 [
     i8 95, label %_ZN2cv8tinyxml27XMLUtil15IsNameStartCharEh.exit.thread
     i8 58, label %_ZN2cv8tinyxml27XMLUtil15IsNameStartCharEh.exit.thread
-    i8 47, label %72
-    i8 62, label %79
+    i8 47, label %74
+    i8 62, label %81
   ]
 
 _ZN2cv8tinyxml27XMLUtil15IsNameStartCharEh.exit.thread: ; preds = %9, %switch.early.test, %switch.early.test, %_ZN2cv8tinyxml27XMLUtil15IsNameStartCharEh.exit, %5
@@ -6425,39 +6443,48 @@ _ZNK2cv8tinyxml210XMLElement9AttributeEPKcS3_.exit: ; preds = %.lr.ph.i.i, %.cri
 
 _ZNK2cv8tinyxml210XMLElement9AttributeEPKcS3_.exit.thread: ; preds = %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.i.i, %37, %_ZNK2cv8tinyxml210XMLElement9AttributeEPKcS3_.exit
   %.not44 = icmp eq ptr %.03674, null
-  %71 = getelementptr inbounds i8, ptr %.03674, i64 56
-  %.sink = select i1 %.not44, ptr %4, ptr %71
-  store ptr %22, ptr %.sink, align 8
+  br i1 %.not44, label %73, label %71
+
+71:                                               ; preds = %_ZNK2cv8tinyxml210XMLElement9AttributeEPKcS3_.exit.thread
+  %72 = getelementptr inbounds i8, ptr %.03674, i64 56
+  store ptr %22, ptr %72, align 8
+  br label %.backedge
+
+73:                                               ; preds = %_ZNK2cv8tinyxml210XMLElement9AttributeEPKcS3_.exit.thread
+  store ptr %22, ptr %4, align 8
+  br label %.backedge
+
+.backedge:                                        ; preds = %73, %71
   br label %5
 
-72:                                               ; preds = %switch.early.test
-  %73 = getelementptr inbounds i8, ptr %.06.i, i64 1
-  %74 = load i8, ptr %73, align 1
-  %75 = icmp eq i8 %74, 62
-  br i1 %75, label %76, label %.thread57
+74:                                               ; preds = %switch.early.test
+  %75 = getelementptr inbounds i8, ptr %.06.i, i64 1
+  %76 = load i8, ptr %75, align 1
+  %77 = icmp eq i8 %76, 62
+  br i1 %77, label %78, label %.thread57
 
-76:                                               ; preds = %72
-  %77 = getelementptr inbounds i8, ptr %0, i64 88
-  store i32 1, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %.06.i, i64 2
+78:                                               ; preds = %74
+  %79 = getelementptr inbounds i8, ptr %0, i64 88
+  store i32 1, ptr %79, align 8
+  %80 = getelementptr inbounds i8, ptr %.06.i, i64 2
   br label %.loopexit
 
-79:                                               ; preds = %switch.early.test
-  %80 = getelementptr inbounds i8, ptr %.06.i, i64 1
+81:                                               ; preds = %switch.early.test
+  %82 = getelementptr inbounds i8, ptr %.06.i, i64 1
   br label %.loopexit
 
-.thread57:                                        ; preds = %switch.early.test, %72
-  %81 = load ptr, ptr %3, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 92
-  store i32 7, ptr %82, align 4
-  %83 = getelementptr inbounds i8, ptr %81, i64 104
-  store ptr %1, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %81, i64 112
-  store ptr %.06.i, ptr %84, align 8
+.thread57:                                        ; preds = %switch.early.test, %74
+  %83 = load ptr, ptr %3, align 8
+  %84 = getelementptr inbounds i8, ptr %83, i64 92
+  store i32 7, ptr %84, align 4
+  %85 = getelementptr inbounds i8, ptr %83, i64 104
+  store ptr %1, ptr %85, align 8
+  %86 = getelementptr inbounds i8, ptr %83, i64 112
+  store ptr %.06.i, ptr %86, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %2, %79, %.thread57, %76, %59, %12
-  %.0 = phi ptr [ null, %59 ], [ %78, %76 ], [ null, %.thread57 ], [ null, %12 ], [ %80, %79 ], [ null, %2 ]
+.loopexit:                                        ; preds = %2, %81, %.thread57, %78, %59, %12
+  %.0 = phi ptr [ null, %59 ], [ %80, %78 ], [ null, %.thread57 ], [ null, %12 ], [ %82, %81 ], [ null, %2 ]
   ret ptr %.0
 }
 

@@ -2034,7 +2034,7 @@ select.unfold76._crit_edge:                       ; preds = %select.unfold76, %2
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noalias ptr @Bbl_ManTruthToSop(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #17 {
+define noalias noundef ptr @Bbl_ManTruthToSop(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #17 {
   %3 = shl nuw i32 1, %1
   %.not = icmp eq i32 %1, 31
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph.preheader
@@ -2088,7 +2088,8 @@ define noalias ptr @Bbl_ManTruthToSop(ptr nocapture noundef readonly %0, i32 nou
   store i8 %23, ptr %22, align 1
   %25 = getelementptr inbounds i8, ptr %.045.lcssa, i64 3
   store i8 10, ptr %24, align 1
-  br label %._crit_edge61
+  store i8 0, ptr %25, align 1
+  br label %63
 
 .lr.ph60:                                         ; preds = %._crit_edge
   %26 = add nsw i32 %1, 3
@@ -2169,10 +2170,13 @@ define noalias ptr @Bbl_ManTruthToSop(ptr nocapture noundef readonly %0, i32 nou
   %exitcond74.not = icmp eq i32 %62, %smax76
   br i1 %exitcond74.not, label %._crit_edge61, label %.lr.ph60.split, !llvm.loop !21
 
-._crit_edge61:                                    ; preds = %61, %45, %._crit_edge67
-  %.146.lcssa.sink = phi ptr [ %25, %._crit_edge67 ], [ %.2.us, %45 ], [ %.2, %61 ]
-  %.044 = phi ptr [ %18, %._crit_edge67 ], [ %30, %45 ], [ %30, %61 ]
-  store i8 0, ptr %.146.lcssa.sink, align 1
+._crit_edge61:                                    ; preds = %61, %45
+  %.146.lcssa = phi ptr [ %.2.us, %45 ], [ %.2, %61 ]
+  store i8 0, ptr %.146.lcssa, align 1
+  br label %63
+
+63:                                               ; preds = %._crit_edge61, %._crit_edge67
+  %.044 = phi ptr [ %18, %._crit_edge67 ], [ %30, %._crit_edge61 ]
   ret ptr %.044
 }
 

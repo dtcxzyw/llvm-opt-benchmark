@@ -2256,16 +2256,16 @@ do.body:                                          ; preds = %audio_del.exit, %if
 
 if.then3:                                         ; preds = %do.body
   %tql_prev7 = getelementptr inbounds i8, ptr %14, i64 66296
+  store ptr %15, ptr %tql_prev7, align 8
   br label %if.end12
 
 if.else:                                          ; preds = %do.body
   %16 = load ptr, ptr %vd, align 8
   %tql_prev11 = getelementptr inbounds i8, ptr %16, i64 8
+  store ptr %15, ptr %tql_prev11, align 8
   br label %if.end12
 
 if.end12:                                         ; preds = %if.else, %if.then3
-  %tql_prev11.sink = phi ptr [ %tql_prev11, %if.else ], [ %tql_prev7, %if.then3 ]
-  store ptr %15, ptr %tql_prev11.sink, align 8
   %17 = load ptr, ptr %next, align 8
   store ptr %17, ptr %15, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next, i8 0, i64 16, i1 false)
@@ -10615,7 +10615,15 @@ if.then2.i:                                       ; preds = %if.end.i
   %ioc_tag.i = getelementptr inbounds i8, ptr %opaque, i64 24
   %15 = load i32, ptr %ioc_tag.i, align 8
   %cmp3.not.i = icmp eq i32 %15, 0
-  br i1 %cmp3.not.i, label %sw.epilog.sink.split.sink.split, label %sw.epilog.sink.split.sink.split.sink.split
+  br i1 %cmp3.not.i, label %if.end6.i, label %if.then4.i
+
+if.then4.i:                                       ; preds = %if.then2.i
+  %call.i = call i32 @g_source_remove(i32 noundef %15) #25
+  br label %if.end6.i
+
+if.end6.i:                                        ; preds = %if.then4.i, %if.then2.i
+  store i32 0, ptr %ioc_tag.i, align 8
+  br label %sw.epilog.sink.split
 
 sw.bb1:                                           ; preds = %if.end
   %ioc2 = getelementptr inbounds i8, ptr %opaque, i64 16
@@ -10700,23 +10708,18 @@ if.then2.i49:                                     ; preds = %if.end.i46
   %ioc_tag.i50 = getelementptr inbounds i8, ptr %opaque, i64 24
   %30 = load i32, ptr %ioc_tag.i50, align 8
   %cmp3.not.i51 = icmp eq i32 %30, 0
-  br i1 %cmp3.not.i51, label %sw.epilog.sink.split.sink.split, label %sw.epilog.sink.split.sink.split.sink.split
+  br i1 %cmp3.not.i51, label %if.end6.i54, label %if.then4.i52
 
-sw.epilog.sink.split.sink.split.sink.split:       ; preds = %if.then2.i49, %if.then2.i
-  %.sink = phi i32 [ %15, %if.then2.i ], [ %30, %if.then2.i49 ]
-  %ioc_tag.i50.sink.ph = phi ptr [ %ioc_tag.i, %if.then2.i ], [ %ioc_tag.i50, %if.then2.i49 ]
-  %output_mutex.i33.sink.ph.ph = phi ptr [ %output_mutex.i, %if.then2.i ], [ %output_mutex.i33, %if.then2.i49 ]
-  %call.i53 = call i32 @g_source_remove(i32 noundef %.sink) #25
-  br label %sw.epilog.sink.split.sink.split
+if.then4.i52:                                     ; preds = %if.then2.i49
+  %call.i53 = call i32 @g_source_remove(i32 noundef %30) #25
+  br label %if.end6.i54
 
-sw.epilog.sink.split.sink.split:                  ; preds = %sw.epilog.sink.split.sink.split.sink.split, %if.then2.i49, %if.then2.i
-  %ioc_tag.i50.sink = phi ptr [ %ioc_tag.i, %if.then2.i ], [ %ioc_tag.i50, %if.then2.i49 ], [ %ioc_tag.i50.sink.ph, %sw.epilog.sink.split.sink.split.sink.split ]
-  %output_mutex.i33.sink.ph = phi ptr [ %output_mutex.i, %if.then2.i ], [ %output_mutex.i33, %if.then2.i49 ], [ %output_mutex.i33.sink.ph.ph, %sw.epilog.sink.split.sink.split.sink.split ]
-  store i32 0, ptr %ioc_tag.i50.sink, align 8
+if.end6.i54:                                      ; preds = %if.then4.i52, %if.then2.i49
+  store i32 0, ptr %ioc_tag.i50, align 8
   br label %sw.epilog.sink.split
 
-sw.epilog.sink.split:                             ; preds = %sw.epilog.sink.split.sink.split, %if.end.i46, %if.end.i
-  %output_mutex.i33.sink = phi ptr [ %output_mutex.i, %if.end.i ], [ %output_mutex.i33, %if.end.i46 ], [ %output_mutex.i33.sink.ph, %sw.epilog.sink.split.sink.split ]
+sw.epilog.sink.split:                             ; preds = %if.end6.i54, %if.end.i46, %if.end6.i, %if.end.i
+  %output_mutex.i33.sink = phi ptr [ %output_mutex.i, %if.end.i ], [ %output_mutex.i, %if.end6.i ], [ %output_mutex.i33, %if.end.i46 ], [ %output_mutex.i33, %if.end6.i54 ]
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %output_mutex.i33.sink, ptr noundef nonnull @.str.68, i32 noundef 65) #25
   br label %sw.epilog
 

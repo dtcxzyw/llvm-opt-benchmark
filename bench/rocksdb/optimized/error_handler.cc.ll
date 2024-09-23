@@ -3251,7 +3251,8 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %invoke.cont4, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
   store ptr null, ptr %state_.i.i, align 8
   %recovery_in_prog_ = getelementptr inbounds i8, ptr %this, i64 153
-  br label %cleanup126.sink.split
+  store i8 0, ptr %recovery_in_prog_, align 1
+  br label %cleanup126
 
 lpad.loopexit:                                    ; preds = %_ZN7rocksdb8IOStatusD2Ev.exit
   %lpad.loopexit86 = landingpad { ptr, i32 }
@@ -3345,7 +3346,8 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 
 _ZN7rocksdb6StatusD2Ev.exit17:                    ; preds = %invoke.cont17, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i16
   store ptr null, ptr %state_.i.i13, align 8
-  br label %cleanup126.sink.split
+  store i8 0, ptr %recovery_in_prog_88, align 1
+  br label %cleanup126
 
 lpad16:                                           ; preds = %invoke.cont14
   %14 = landingpad { ptr, i32 }
@@ -3596,12 +3598,7 @@ _ZN7rocksdb6StatusD2Ev.exit81:                    ; preds = %lpad117, %_ZNKSt14d
   store ptr null, ptr %state_.i78, align 8
   br label %ehcleanup
 
-cleanup126.sink.split:                            ; preds = %_ZN7rocksdb6StatusD2Ev.exit, %_ZN7rocksdb6StatusD2Ev.exit17
-  %recovery_in_prog_88.sink = phi ptr [ %recovery_in_prog_88, %_ZN7rocksdb6StatusD2Ev.exit17 ], [ %recovery_in_prog_, %_ZN7rocksdb6StatusD2Ev.exit ]
-  store i8 0, ptr %recovery_in_prog_88.sink, align 1
-  br label %cleanup126
-
-cleanup126:                                       ; preds = %_ZN7rocksdb6StatusD2Ev.exit64, %cleanup126.sink.split, %if.then.i73, %_ZN7rocksdb6StatusD2Ev.exit70
+cleanup126:                                       ; preds = %_ZN7rocksdb6StatusD2Ev.exit64, %if.then.i73, %_ZN7rocksdb6StatusD2Ev.exit70, %_ZN7rocksdb6StatusD2Ev.exit17, %_ZN7rocksdb6StatusD2Ev.exit
   invoke void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
           to label %_ZN7rocksdb21InstrumentedMutexLockD2Ev.exit unwind label %terminate.lpad.i
 

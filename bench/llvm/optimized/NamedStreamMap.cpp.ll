@@ -3642,12 +3642,12 @@ _ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit: ; pred
   %71 = load i32, ptr %48, align 8
   %72 = icmp ne i32 %71, 0
   %.not3.i = select i1 %70, i1 true, i1 %72
-  %.pre.pre42 = load ptr, ptr %0, align 8
+  %.pre.pre37 = load ptr, ptr %0, align 8
   br i1 %.not3.i, label %73, label %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit.thread.loopexit
 
 73:                                               ; preds = %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit
   %74 = zext i32 %71 to i64
-  %75 = getelementptr inbounds %"struct.std::pair", ptr %.pre.pre42, i64 %74
+  %75 = getelementptr inbounds %"struct.std::pair", ptr %.pre.pre37, i64 %74
   %76 = load i32, ptr %75, align 4
   %77 = load ptr, ptr %1, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 96
@@ -3687,21 +3687,21 @@ _ZNK4llvm3pdb20NamedStreamMapTraits21storageKeyToLookupKeyEj.exit._ZNK4llvm15Spa
   br label %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit.thread.loopexit
 
 _ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit.thread.loopexit: ; preds = %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit, %_ZNK4llvm3pdb20NamedStreamMapTraits21storageKeyToLookupKeyEj.exit._ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit.thread.loopexit_crit_edge
-  %.pre = phi ptr [ %.pre.pre, %_ZNK4llvm3pdb20NamedStreamMapTraits21storageKeyToLookupKeyEj.exit._ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit.thread.loopexit_crit_edge ], [ %.pre.pre42, %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit ]
-  %.pre35 = load ptr, ptr %18, align 8
-  %.pre36 = load ptr, ptr %5, align 8
-  %.pre37 = load ptr, ptr %41, align 8
+  %.pre = phi ptr [ %.pre.pre, %_ZNK4llvm3pdb20NamedStreamMapTraits21storageKeyToLookupKeyEj.exit._ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit.thread.loopexit_crit_edge ], [ %.pre.pre37, %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit ]
+  %.pre32 = load ptr, ptr %18, align 8
+  %.pre33 = load ptr, ptr %5, align 8
+  %.pre34 = load ptr, ptr %41, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.pre38 = load ptr, ptr %.phi.trans.insert, align 8
-  %.pre39 = load ptr, ptr %8, align 8
+  %.pre35 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre36 = load ptr, ptr %8, align 8
   br label %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit.thread
 
 _ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit.thread: ; preds = %_ZNK4llvm15SparseBitVectorILj128EE5beginEv.exit.thread, %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit.thread.loopexit
-  %94 = phi ptr [ %.pre39, %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit.thread.loopexit ], [ %.sroa.02.05.i.i, %_ZNK4llvm15SparseBitVectorILj128EE5beginEv.exit.thread ]
-  %95 = phi ptr [ %.pre38, %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit.thread.loopexit ], [ %45, %_ZNK4llvm15SparseBitVectorILj128EE5beginEv.exit.thread ]
-  %96 = phi ptr [ %.pre37, %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit.thread.loopexit ], [ %45, %_ZNK4llvm15SparseBitVectorILj128EE5beginEv.exit.thread ]
-  %97 = phi ptr [ %.pre36, %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit.thread.loopexit ], [ %44, %_ZNK4llvm15SparseBitVectorILj128EE5beginEv.exit.thread ]
-  %98 = phi ptr [ %.pre35, %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit.thread.loopexit ], [ %19, %_ZNK4llvm15SparseBitVectorILj128EE5beginEv.exit.thread ]
+  %94 = phi ptr [ %.pre36, %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit.thread.loopexit ], [ %.sroa.02.05.i.i, %_ZNK4llvm15SparseBitVectorILj128EE5beginEv.exit.thread ]
+  %95 = phi ptr [ %.pre35, %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit.thread.loopexit ], [ %45, %_ZNK4llvm15SparseBitVectorILj128EE5beginEv.exit.thread ]
+  %96 = phi ptr [ %.pre34, %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit.thread.loopexit ], [ %45, %_ZNK4llvm15SparseBitVectorILj128EE5beginEv.exit.thread ]
+  %97 = phi ptr [ %.pre33, %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit.thread.loopexit ], [ %44, %_ZNK4llvm15SparseBitVectorILj128EE5beginEv.exit.thread ]
+  %98 = phi ptr [ %.pre32, %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit.thread.loopexit ], [ %19, %_ZNK4llvm15SparseBitVectorILj128EE5beginEv.exit.thread ]
   %99 = phi ptr [ %.pre, %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit.thread.loopexit ], [ %20, %_ZNK4llvm15SparseBitVectorILj128EE5beginEv.exit.thread ]
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %101 = load ptr, ptr %100, align 8
@@ -3727,24 +3727,25 @@ _ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit.thread:
 
 110:                                              ; preds = %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit.thread
   store ptr %4, ptr %103, align 8
+  store ptr %4, ptr %4, align 8
   br label %_ZNSt7__cxx114listIN4llvm22SparseBitVectorElementILj128EEESaIS3_EE5clearEv.exit.i.i.i.i
 
 111:                                              ; preds = %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit.thread
   store ptr %4, ptr %105, align 8
   %112 = getelementptr inbounds nuw i8, ptr %94, i64 8
+  store ptr %4, ptr %112, align 8
   br label %_ZNSt7__cxx114listIN4llvm22SparseBitVectorElementILj128EEESaIS3_EE5clearEv.exit.i.i.i.i
 
 _ZNSt7__cxx114listIN4llvm22SparseBitVectorElementILj128EEESaIS3_EE5clearEv.exit.i.i.i.i: ; preds = %111, %110
-  %.sink.i = phi ptr [ %112, %111 ], [ %4, %110 ]
-  %113 = phi ptr [ %94, %111 ], [ %4, %110 ]
-  store ptr %4, ptr %.sink.i, align 8
+  %113 = phi ptr [ %4, %110 ], [ %94, %111 ]
   %114 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %113, ptr %114, align 8
   store ptr %8, ptr %104, align 8
   store ptr %8, ptr %8, align 8
+  store i64 0, ptr %107, align 8
   %115 = load ptr, ptr %32, align 8
   %116 = icmp eq ptr %115, %32
-  br i1 %116, label %_ZNSt7__cxx114listIN4llvm22SparseBitVectorElementILj128EEESaIS3_EE5clearEv.exit.i.i.i8.i, label %_ZN4llvm15SparseBitVectorILj128EEaSEOS1_.exit.i.thread
+  br i1 %116, label %_ZNSt7__cxx114listIN4llvm22SparseBitVectorElementILj128EEESaIS3_EE5clearEv.exit.i.i.i9.i, label %_ZN4llvm15SparseBitVectorILj128EEaSEOS1_.exit.i.thread
 
 _ZN4llvm15SparseBitVectorILj128EEaSEOS1_.exit.i.thread: ; preds = %_ZNSt7__cxx114listIN4llvm22SparseBitVectorElementILj128EEESaIS3_EE5clearEv.exit.i.i.i.i
   store ptr %115, ptr %8, align 8
@@ -3756,22 +3757,21 @@ _ZN4llvm15SparseBitVectorILj128EEaSEOS1_.exit.i.thread: ; preds = %_ZNSt7__cxx11
   store ptr %8, ptr %119, align 8
   %120 = load i64, ptr %34, align 8
   store i64 %120, ptr %107, align 8
-  %.pre40 = load ptr, ptr %8, align 8
-  br label %_ZNSt7__cxx114listIN4llvm22SparseBitVectorElementILj128EEESaIS3_EE5clearEv.exit.i.i.i8.i
+  %.pre.i4.i = load ptr, ptr %8, align 8
+  br label %_ZNSt7__cxx114listIN4llvm22SparseBitVectorElementILj128EEESaIS3_EE5clearEv.exit.i.i.i9.i
 
-_ZNSt7__cxx114listIN4llvm22SparseBitVectorElementILj128EEESaIS3_EE5clearEv.exit.i.i.i8.i: ; preds = %_ZNSt7__cxx114listIN4llvm22SparseBitVectorElementILj128EEESaIS3_EE5clearEv.exit.i.i.i.i, %_ZN4llvm15SparseBitVectorILj128EEaSEOS1_.exit.i.thread
-  %.sink55 = phi ptr [ %34, %_ZN4llvm15SparseBitVectorILj128EEaSEOS1_.exit.i.thread ], [ %107, %_ZNSt7__cxx114listIN4llvm22SparseBitVectorElementILj128EEESaIS3_EE5clearEv.exit.i.i.i.i ]
-  %.sink53 = phi ptr [ %.pre40, %_ZN4llvm15SparseBitVectorILj128EEaSEOS1_.exit.i.thread ], [ %8, %_ZNSt7__cxx114listIN4llvm22SparseBitVectorElementILj128EEESaIS3_EE5clearEv.exit.i.i.i.i ]
-  store i64 0, ptr %.sink55, align 8
+_ZNSt7__cxx114listIN4llvm22SparseBitVectorElementILj128EEESaIS3_EE5clearEv.exit.i.i.i9.i: ; preds = %_ZNSt7__cxx114listIN4llvm22SparseBitVectorElementILj128EEESaIS3_EE5clearEv.exit.i.i.i.i, %_ZN4llvm15SparseBitVectorILj128EEaSEOS1_.exit.i.thread
+  %.sink = phi ptr [ %.pre.i4.i, %_ZN4llvm15SparseBitVectorILj128EEaSEOS1_.exit.i.thread ], [ %8, %_ZNSt7__cxx114listIN4llvm22SparseBitVectorElementILj128EEESaIS3_EE5clearEv.exit.i.i.i.i ]
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %.sink53, ptr %121, align 8
+  store ptr %.sink, ptr %121, align 8
   store ptr %32, ptr %33, align 8
   store ptr %32, ptr %32, align 8
+  store i64 0, ptr %34, align 8
   %122 = load ptr, ptr %4, align 8
   %123 = icmp eq ptr %122, %4
-  br i1 %123, label %_ZSt4swapIN4llvm15SparseBitVectorILj128EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit, label %_ZN4llvm15SparseBitVectorILj128EEaSEOS1_.exit10.thread.i
+  br i1 %123, label %_ZSt4swapIN4llvm15SparseBitVectorILj128EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit, label %_ZN4llvm15SparseBitVectorILj128EEaSEOS1_.exit11.thread.i
 
-_ZN4llvm15SparseBitVectorILj128EEaSEOS1_.exit10.thread.i: ; preds = %_ZNSt7__cxx114listIN4llvm22SparseBitVectorElementILj128EEESaIS3_EE5clearEv.exit.i.i.i8.i
+_ZN4llvm15SparseBitVectorILj128EEaSEOS1_.exit11.thread.i: ; preds = %_ZNSt7__cxx114listIN4llvm22SparseBitVectorElementILj128EEESaIS3_EE5clearEv.exit.i.i.i9.i
   store ptr %122, ptr %32, align 8
   %124 = load ptr, ptr %103, align 8
   store ptr %124, ptr %33, align 8
@@ -3780,14 +3780,13 @@ _ZN4llvm15SparseBitVectorILj128EEaSEOS1_.exit10.thread.i: ; preds = %_ZNSt7__cxx
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
   store ptr %32, ptr %126, align 8
   %127 = load i64, ptr %106, align 8
-  %.pre.i = load ptr, ptr %32, align 8
+  store i64 %127, ptr %34, align 8
+  %.pre.i10.i = load ptr, ptr %32, align 8
   br label %_ZSt4swapIN4llvm15SparseBitVectorILj128EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit
 
-_ZSt4swapIN4llvm15SparseBitVectorILj128EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit: ; preds = %_ZNSt7__cxx114listIN4llvm22SparseBitVectorElementILj128EEESaIS3_EE5clearEv.exit.i.i.i8.i, %_ZN4llvm15SparseBitVectorILj128EEaSEOS1_.exit10.thread.i
-  %.sink = phi i64 [ %127, %_ZN4llvm15SparseBitVectorILj128EEaSEOS1_.exit10.thread.i ], [ 0, %_ZNSt7__cxx114listIN4llvm22SparseBitVectorElementILj128EEESaIS3_EE5clearEv.exit.i.i.i8.i ]
-  %.sink13.i = phi ptr [ %.pre.i, %_ZN4llvm15SparseBitVectorILj128EEaSEOS1_.exit10.thread.i ], [ %32, %_ZNSt7__cxx114listIN4llvm22SparseBitVectorElementILj128EEESaIS3_EE5clearEv.exit.i.i.i8.i ]
-  store i64 %.sink, ptr %34, align 8
-  store ptr %.sink13.i, ptr %35, align 8
+_ZSt4swapIN4llvm15SparseBitVectorILj128EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit: ; preds = %_ZNSt7__cxx114listIN4llvm22SparseBitVectorElementILj128EEESaIS3_EE5clearEv.exit.i.i.i9.i, %_ZN4llvm15SparseBitVectorILj128EEaSEOS1_.exit11.thread.i
+  %.sink.i = phi ptr [ %.pre.i10.i, %_ZN4llvm15SparseBitVectorILj128EEaSEOS1_.exit11.thread.i ], [ %32, %_ZNSt7__cxx114listIN4llvm22SparseBitVectorElementILj128EEESaIS3_EE5clearEv.exit.i.i.i9.i ]
+  store ptr %.sink.i, ptr %35, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
@@ -3806,24 +3805,25 @@ _ZSt4swapIN4llvm15SparseBitVectorILj128EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt
 
 137:                                              ; preds = %_ZSt4swapIN4llvm15SparseBitVectorILj128EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit
   store ptr %3, ptr %130, align 8
+  store ptr %3, ptr %3, align 8
   br label %_ZNSt7__cxx114listIN4llvm22SparseBitVectorElementILj128EEESaIS3_EE5clearEv.exit.i.i.i.i10
 
 138:                                              ; preds = %_ZSt4swapIN4llvm15SparseBitVectorILj128EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit
   store ptr %3, ptr %132, align 8
   %139 = getelementptr inbounds nuw i8, ptr %129, i64 8
+  store ptr %3, ptr %139, align 8
   br label %_ZNSt7__cxx114listIN4llvm22SparseBitVectorElementILj128EEESaIS3_EE5clearEv.exit.i.i.i.i10
 
 _ZNSt7__cxx114listIN4llvm22SparseBitVectorElementILj128EEESaIS3_EE5clearEv.exit.i.i.i.i10: ; preds = %138, %137
-  %.sink.i11 = phi ptr [ %139, %138 ], [ %3, %137 ]
-  %140 = phi ptr [ %129, %138 ], [ %3, %137 ]
-  store ptr %3, ptr %.sink.i11, align 8
+  %140 = phi ptr [ %3, %137 ], [ %129, %138 ]
   %141 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %140, ptr %141, align 8
   store ptr %128, ptr %131, align 8
   store ptr %128, ptr %128, align 8
+  store i64 0, ptr %134, align 8
   %142 = load ptr, ptr %36, align 8
   %143 = icmp eq ptr %142, %36
-  br i1 %143, label %_ZN4llvm15SparseBitVectorILj128EEaSEOS1_.exit.i12, label %_ZN4llvm15SparseBitVectorILj128EEaSEOS1_.exit.i12.thread
+  br i1 %143, label %_ZNSt7__cxx114listIN4llvm22SparseBitVectorElementILj128EEESaIS3_EE5clearEv.exit.i.i.i9.i17, label %_ZN4llvm15SparseBitVectorILj128EEaSEOS1_.exit.i12.thread
 
 _ZN4llvm15SparseBitVectorILj128EEaSEOS1_.exit.i12.thread: ; preds = %_ZNSt7__cxx114listIN4llvm22SparseBitVectorElementILj128EEESaIS3_EE5clearEv.exit.i.i.i.i10
   store ptr %142, ptr %128, align 8
@@ -3835,30 +3835,26 @@ _ZN4llvm15SparseBitVectorILj128EEaSEOS1_.exit.i12.thread: ; preds = %_ZNSt7__cxx
   store ptr %128, ptr %146, align 8
   %147 = load i64, ptr %38, align 8
   store i64 %147, ptr %134, align 8
-  %.pre41 = load ptr, ptr %128, align 8
-  br label %_ZNSt7__cxx114listIN4llvm22SparseBitVectorElementILj128EEESaIS3_EE5clearEv.exit.i.i.i8.i18
+  %.pre.i4.i11 = load ptr, ptr %128, align 8
+  br label %_ZNSt7__cxx114listIN4llvm22SparseBitVectorElementILj128EEESaIS3_EE5clearEv.exit.i.i.i9.i17
 
-_ZN4llvm15SparseBitVectorILj128EEaSEOS1_.exit.i12: ; preds = %_ZNSt7__cxx114listIN4llvm22SparseBitVectorElementILj128EEESaIS3_EE5clearEv.exit.i.i.i.i10
-  store i64 0, ptr %134, align 8
-  br label %_ZNSt7__cxx114listIN4llvm22SparseBitVectorElementILj128EEESaIS3_EE5clearEv.exit.i.i.i8.i18
-
-_ZNSt7__cxx114listIN4llvm22SparseBitVectorElementILj128EEESaIS3_EE5clearEv.exit.i.i.i8.i18: ; preds = %_ZN4llvm15SparseBitVectorILj128EEaSEOS1_.exit.i12, %_ZN4llvm15SparseBitVectorILj128EEaSEOS1_.exit.i12.thread
-  %.sink56 = phi ptr [ %128, %_ZN4llvm15SparseBitVectorILj128EEaSEOS1_.exit.i12 ], [ %.pre41, %_ZN4llvm15SparseBitVectorILj128EEaSEOS1_.exit.i12.thread ]
+_ZNSt7__cxx114listIN4llvm22SparseBitVectorElementILj128EEESaIS3_EE5clearEv.exit.i.i.i9.i17: ; preds = %_ZNSt7__cxx114listIN4llvm22SparseBitVectorElementILj128EEESaIS3_EE5clearEv.exit.i.i.i.i10, %_ZN4llvm15SparseBitVectorILj128EEaSEOS1_.exit.i12.thread
+  %.sink46 = phi ptr [ %.pre.i4.i11, %_ZN4llvm15SparseBitVectorILj128EEaSEOS1_.exit.i12.thread ], [ %128, %_ZNSt7__cxx114listIN4llvm22SparseBitVectorElementILj128EEESaIS3_EE5clearEv.exit.i.i.i.i10 ]
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %.sink56, ptr %148, align 8
+  store ptr %.sink46, ptr %148, align 8
   store ptr %36, ptr %37, align 8
   store ptr %36, ptr %36, align 8
+  store i64 0, ptr %38, align 8
   %149 = load ptr, ptr %3, align 8
   %150 = icmp eq ptr %149, %3
-  br i1 %150, label %_ZSt4swapIN4llvm15SparseBitVectorILj128EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit23.thread, label %_ZSt4swapIN4llvm15SparseBitVectorILj128EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit23
+  br i1 %150, label %_ZSt4swapIN4llvm15SparseBitVectorILj128EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit21.thread, label %_ZSt4swapIN4llvm15SparseBitVectorILj128EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit21
 
-_ZSt4swapIN4llvm15SparseBitVectorILj128EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit23.thread: ; preds = %_ZNSt7__cxx114listIN4llvm22SparseBitVectorElementILj128EEESaIS3_EE5clearEv.exit.i.i.i8.i18
-  store i64 0, ptr %38, align 8
+_ZSt4swapIN4llvm15SparseBitVectorILj128EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit21.thread: ; preds = %_ZNSt7__cxx114listIN4llvm22SparseBitVectorElementILj128EEESaIS3_EE5clearEv.exit.i.i.i9.i17
   store ptr %36, ptr %39, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   br label %_ZN4llvm15SparseBitVectorILj128EED2Ev.exit.i
 
-_ZSt4swapIN4llvm15SparseBitVectorILj128EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit23: ; preds = %_ZNSt7__cxx114listIN4llvm22SparseBitVectorElementILj128EEESaIS3_EE5clearEv.exit.i.i.i8.i18
+_ZSt4swapIN4llvm15SparseBitVectorILj128EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit21: ; preds = %_ZNSt7__cxx114listIN4llvm22SparseBitVectorElementILj128EEESaIS3_EE5clearEv.exit.i.i.i9.i17
   store ptr %149, ptr %36, align 8
   %151 = load ptr, ptr %130, align 8
   store ptr %151, ptr %37, align 8
@@ -3867,21 +3863,21 @@ _ZSt4swapIN4llvm15SparseBitVectorILj128EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
   store ptr %36, ptr %153, align 8
   %154 = load i64, ptr %133, align 8
-  %.pre.i20 = load ptr, ptr %36, align 8
   store i64 %154, ptr %38, align 8
-  store ptr %.pre.i20, ptr %39, align 8
+  %.pre.i10.i19 = load ptr, ptr %36, align 8
+  store ptr %.pre.i10.i19, ptr %39, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  %.not8.i.i.i.i.i = icmp eq ptr %.pre.i20, %36
+  %.not8.i.i.i.i.i = icmp eq ptr %.pre.i10.i19, %36
   br i1 %.not8.i.i.i.i.i, label %_ZN4llvm15SparseBitVectorILj128EED2Ev.exit.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %_ZSt4swapIN4llvm15SparseBitVectorILj128EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit23, %.lr.ph.i.i.i.i.i
-  %.09.i.i.i.i.i = phi ptr [ %155, %.lr.ph.i.i.i.i.i ], [ %.pre.i20, %_ZSt4swapIN4llvm15SparseBitVectorILj128EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit23 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %_ZSt4swapIN4llvm15SparseBitVectorILj128EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit21, %.lr.ph.i.i.i.i.i
+  %.09.i.i.i.i.i = phi ptr [ %155, %.lr.ph.i.i.i.i.i ], [ %.pre.i10.i19, %_ZSt4swapIN4llvm15SparseBitVectorILj128EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit21 ]
   %155 = load ptr, ptr %.09.i.i.i.i.i, align 8
   call void @_ZdlPvm(ptr noundef %.09.i.i.i.i.i, i64 noundef 40) #21
   %.not.i.i.i.i.i = icmp eq ptr %155, %36
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm15SparseBitVectorILj128EED2Ev.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !107
 
-_ZN4llvm15SparseBitVectorILj128EED2Ev.exit.i:     ; preds = %.lr.ph.i.i.i.i.i, %_ZSt4swapIN4llvm15SparseBitVectorILj128EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit23.thread, %_ZSt4swapIN4llvm15SparseBitVectorILj128EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit23
+_ZN4llvm15SparseBitVectorILj128EED2Ev.exit.i:     ; preds = %.lr.ph.i.i.i.i.i, %_ZSt4swapIN4llvm15SparseBitVectorILj128EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit21.thread, %_ZSt4swapIN4llvm15SparseBitVectorILj128EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit21
   %156 = load ptr, ptr %32, align 8
   %.not8.i.i.i.i1.i = icmp eq ptr %156, %32
   br i1 %.not8.i.i.i.i1.i, label %_ZN4llvm15SparseBitVectorILj128EED2Ev.exit5.i, label %.lr.ph.i.i.i.i2.i
@@ -3895,8 +3891,8 @@ _ZN4llvm15SparseBitVectorILj128EED2Ev.exit.i:     ; preds = %.lr.ph.i.i.i.i.i, %
 
 _ZN4llvm15SparseBitVectorILj128EED2Ev.exit5.i:    ; preds = %.lr.ph.i.i.i.i2.i, %_ZN4llvm15SparseBitVectorILj128EED2Ev.exit.i
   %158 = load ptr, ptr %5, align 8
-  %.not.i.i.i.i24 = icmp eq ptr %158, null
-  br i1 %.not.i.i.i.i24, label %_ZN4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEED2Ev.exit, label %159
+  %.not.i.i.i.i22 = icmp eq ptr %158, null
+  br i1 %.not.i.i.i.i22, label %_ZN4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEED2Ev.exit, label %159
 
 159:                                              ; preds = %_ZN4llvm15SparseBitVectorILj128EED2Ev.exit5.i
   %160 = load ptr, ptr %102, align 8

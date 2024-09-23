@@ -2384,10 +2384,10 @@ if.end.thread.i:                                  ; preds = %if.end11
   %tobool.not21.i = icmp eq i32 %and20.i, 0
   br i1 %tobool.not21.i, label %if.end10.i, label %if.then17.i
 
-if.end10.i:                                       ; preds = %if.end.thread.i, %if.end.i13
+if.end10.i:                                       ; preds = %if.end.i13, %if.end.thread.i
   %.sink.i = phi ptr [ %4, %if.end.thread.i ], [ %5, %if.end.i13 ]
-  %or.i = or i32 %3, 18
-  store i32 %or.i, ptr %flags, align 8
+  %storemerge = or i32 %3, 18
+  store i32 %storemerge, ptr %flags, align 8
   call void %.sink.i(ptr noundef nonnull %ac, i32 noundef 0) #15
   %6 = load i32, ptr %flags, align 8
   %and13.i = and i32 %6, -17
@@ -2619,34 +2619,34 @@ refreshTimeout.exit:                              ; preds = %if.then.i18, %land.
   %addWrite = getelementptr inbounds i8, ptr %ac, i64 328
   %21 = load ptr, ptr %addWrite, align 8
   %tobool3.not = icmp eq ptr %21, null
-  br i1 %tobool3.not, label %do.body20, label %do.body20.sink.split
+  br i1 %tobool3.not, label %do.body20, label %if.then4
+
+if.then4:                                         ; preds = %refreshTimeout.exit
+  %22 = load ptr, ptr %ev17.i, align 8
+  call void %21(ptr noundef %22) #15
+  br label %do.body20
 
 do.body9:                                         ; preds = %if.else
   %delWrite = getelementptr inbounds i8, ptr %ac, i64 336
-  %22 = load ptr, ptr %delWrite, align 8
-  %tobool11.not = icmp eq ptr %22, null
+  %23 = load ptr, ptr %delWrite, align 8
+  %tobool11.not = icmp eq ptr %23, null
   br i1 %tobool11.not, label %do.body20, label %if.then12
 
 if.then12:                                        ; preds = %do.body9
   %ev10 = getelementptr inbounds i8, ptr %ac, i64 304
-  br label %do.body20.sink.split
-
-do.body20.sink.split:                             ; preds = %refreshTimeout.exit, %if.then12
-  %ev17.i.sink = phi ptr [ %ev10, %if.then12 ], [ %ev17.i, %refreshTimeout.exit ]
-  %.sink47 = phi ptr [ %22, %if.then12 ], [ %21, %refreshTimeout.exit ]
-  %23 = load ptr, ptr %ev17.i.sink, align 8
-  call void %.sink47(ptr noundef %23) #15
+  %24 = load ptr, ptr %ev10, align 8
+  call void %23(ptr noundef %24) #15
   br label %do.body20
 
-do.body20:                                        ; preds = %do.body20.sink.split, %refreshTimeout.exit, %do.body9
+do.body20:                                        ; preds = %refreshTimeout.exit, %if.then4, %do.body9, %if.then12
   %flags.i20 = getelementptr inbounds i8, ptr %ac, i64 144
-  %24 = load i32, ptr %flags.i20, align 8
-  %and.i21 = and i32 %24, 2
+  %25 = load i32, ptr %flags.i20, align 8
+  %and.i21 = and i32 %25, 2
   %tobool.not.i22 = icmp eq i32 %and.i21, 0
   %ev17.i23 = getelementptr inbounds i8, ptr %ac, i64 304
   %scheduleTimer18.i24 = getelementptr inbounds i8, ptr %ac, i64 352
-  %25 = load ptr, ptr %scheduleTimer18.i24, align 8
-  %tobool19.not.i25 = icmp eq ptr %25, null
+  %26 = load ptr, ptr %scheduleTimer18.i24, align 8
+  %tobool19.not.i25 = icmp eq ptr %26, null
   br i1 %tobool.not.i22, label %if.else.i36, label %if.then.i26
 
 if.then.i26:                                      ; preds = %do.body20
@@ -2654,22 +2654,22 @@ if.then.i26:                                      ; preds = %do.body20
 
 land.lhs.true.i27:                                ; preds = %if.then.i26
   %command_timeout.i28 = getelementptr inbounds i8, ptr %ac, i64 184
-  %26 = load ptr, ptr %command_timeout.i28, align 8
-  %tobool3.not.i29 = icmp eq ptr %26, null
+  %27 = load ptr, ptr %command_timeout.i28, align 8
+  %tobool3.not.i29 = icmp eq ptr %27, null
   br i1 %tobool3.not.i29, label %refreshTimeout.exit46, label %land.lhs.true4.i30
 
 land.lhs.true4.i30:                               ; preds = %land.lhs.true.i27
-  %27 = load i64, ptr %26, align 8
-  %tobool7.not.i31 = icmp eq i64 %27, 0
-  %tv_usec.i32 = getelementptr inbounds i8, ptr %26, i64 8
-  %28 = load i64, ptr %tv_usec.i32, align 8
-  %tobool10.not.i33 = icmp eq i64 %28, 0
+  %28 = load i64, ptr %27, align 8
+  %tobool7.not.i31 = icmp eq i64 %28, 0
+  %tv_usec.i32 = getelementptr inbounds i8, ptr %27, i64 8
+  %29 = load i64, ptr %tv_usec.i32, align 8
+  %tobool10.not.i33 = icmp eq i64 %29, 0
   %or.cond.i34 = select i1 %tobool7.not.i31, i1 %tobool10.not.i33, i1 false
   br i1 %or.cond.i34, label %refreshTimeout.exit46, label %if.then11.i35
 
 if.then11.i35:                                    ; preds = %land.lhs.true4.i30
-  %29 = load ptr, ptr %ev17.i23, align 8
-  call void %25(ptr noundef %29, i64 %27, i64 %28) #15
+  %30 = load ptr, ptr %ev17.i23, align 8
+  call void %26(ptr noundef %30, i64 %28, i64 %29) #15
   br label %refreshTimeout.exit46
 
 if.else.i36:                                      ; preds = %do.body20
@@ -2677,33 +2677,33 @@ if.else.i36:                                      ; preds = %do.body20
 
 land.lhs.true20.i37:                              ; preds = %if.else.i36
   %connect_timeout.i38 = getelementptr inbounds i8, ptr %ac, i64 176
-  %30 = load ptr, ptr %connect_timeout.i38, align 8
-  %tobool22.not.i39 = icmp eq ptr %30, null
+  %31 = load ptr, ptr %connect_timeout.i38, align 8
+  %tobool22.not.i39 = icmp eq ptr %31, null
   br i1 %tobool22.not.i39, label %refreshTimeout.exit46, label %land.lhs.true23.i40
 
 land.lhs.true23.i40:                              ; preds = %land.lhs.true20.i37
-  %31 = load i64, ptr %30, align 8
-  %tobool27.not.i41 = icmp eq i64 %31, 0
-  %tv_usec31.i42 = getelementptr inbounds i8, ptr %30, i64 8
-  %32 = load i64, ptr %tv_usec31.i42, align 8
-  %tobool32.not.i43 = icmp eq i64 %32, 0
+  %32 = load i64, ptr %31, align 8
+  %tobool27.not.i41 = icmp eq i64 %32, 0
+  %tv_usec31.i42 = getelementptr inbounds i8, ptr %31, i64 8
+  %33 = load i64, ptr %tv_usec31.i42, align 8
+  %tobool32.not.i43 = icmp eq i64 %33, 0
   %or.cond18.i44 = select i1 %tobool27.not.i41, i1 %tobool32.not.i43, i1 false
   br i1 %or.cond18.i44, label %refreshTimeout.exit46, label %if.then33.i45
 
 if.then33.i45:                                    ; preds = %land.lhs.true23.i40
-  %33 = load ptr, ptr %ev17.i23, align 8
-  call void %25(ptr noundef %33, i64 %31, i64 %32) #15
+  %34 = load ptr, ptr %ev17.i23, align 8
+  call void %26(ptr noundef %34, i64 %32, i64 %33) #15
   br label %refreshTimeout.exit46
 
 refreshTimeout.exit46:                            ; preds = %if.then.i26, %land.lhs.true.i27, %land.lhs.true4.i30, %if.then11.i35, %if.else.i36, %land.lhs.true20.i37, %land.lhs.true23.i40, %if.then33.i45
   %addRead = getelementptr inbounds i8, ptr %ac, i64 312
-  %34 = load ptr, ptr %addRead, align 8
-  %tobool22.not = icmp eq ptr %34, null
+  %35 = load ptr, ptr %addRead, align 8
+  %tobool22.not = icmp eq ptr %35, null
   br i1 %tobool22.not, label %if.end30, label %if.then23
 
 if.then23:                                        ; preds = %refreshTimeout.exit46
-  %35 = load ptr, ptr %ev17.i23, align 8
-  call void %34(ptr noundef %35) #15
+  %36 = load ptr, ptr %ev17.i23, align 8
+  call void %35(ptr noundef %36) #15
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then12.i, %if.end7.i, %if.then23, %refreshTimeout.exit46
@@ -2826,10 +2826,10 @@ if.end.thread.i:                                  ; preds = %if.then27
   %tobool.not21.i = icmp eq i32 %and20.i, 0
   br i1 %tobool.not21.i, label %if.end10.i, label %if.then17.i
 
-if.end10.i:                                       ; preds = %if.end.thread.i, %if.end.i14
+if.end10.i:                                       ; preds = %if.end.i14, %if.end.thread.i
   %.sink.i = phi ptr [ %9, %if.end.thread.i ], [ %10, %if.end.i14 ]
-  %or.i = or disjoint i32 %8, 16
-  store i32 %or.i, ptr %flags2, align 8
+  %storemerge = or disjoint i32 %8, 16
+  store i32 %storemerge, ptr %flags2, align 8
   tail call void %.sink.i(ptr noundef nonnull %ac, i32 noundef -1) #15
   %11 = load i32, ptr %flags2, align 8
   %and13.i = and i32 %11, -17
@@ -2847,8 +2847,8 @@ if.else19.i:                                      ; preds = %if.end.i14
 if.end28:                                         ; preds = %if.else19.i, %if.then17.i, %if.end10.i, %land.lhs.true.i, %if.end23
   %replies29 = getelementptr inbounds i8, ptr %ac, i64 384
   %12 = load ptr, ptr %replies29, align 8
-  %cmp.not.i38 = icmp eq ptr %12, null
-  br i1 %cmp.not.i38, label %__redisAsyncCopyError.exit.i, label %if.then.i.lr.ph
+  %cmp.not.i39 = icmp eq ptr %12, null
+  br i1 %cmp.not.i39, label %__redisAsyncCopyError.exit.i, label %if.then.i.lr.ph
 
 if.then.i.lr.ph:                                  ; preds = %if.end28
   %tail.i = getelementptr inbounds i8, ptr %ac, i64 392
@@ -2869,8 +2869,8 @@ if.then3.i:                                       ; preds = %if.then.i
 while.body:                                       ; preds = %if.then.i, %if.then3.i
   %cb.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 8
   %cb.sroa.1.0.copyload = load ptr, ptr %cb.sroa.1.0..sroa_idx, align 8
-  %cb.sroa.331.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 24
-  %cb.sroa.331.0.copyload = load ptr, ptr %cb.sroa.331.0..sroa_idx, align 8
+  %cb.sroa.332.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 24
+  %cb.sroa.332.0.copyload = load ptr, ptr %cb.sroa.332.0..sroa_idx, align 8
   %16 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   tail call void %16(ptr noundef nonnull %13) #15
   %cmp.not.i17 = icmp eq ptr %cb.sroa.1.0.copyload, null
@@ -2880,7 +2880,7 @@ if.then.i18:                                      ; preds = %while.body
   %17 = load i32, ptr %flags2, align 8
   %or.i20 = or i32 %17, 16
   store i32 %or.i20, ptr %flags2, align 8
-  tail call void %cb.sroa.1.0.copyload(ptr noundef nonnull %ac, ptr noundef null, ptr noundef %cb.sroa.331.0.copyload) #15
+  tail call void %cb.sroa.1.0.copyload(ptr noundef nonnull %ac, ptr noundef null, ptr noundef %cb.sroa.332.0.copyload) #15
   %18 = load i32, ptr %flags2, align 8
   %and.i21 = and i32 %18, -17
   store i32 %and.i21, ptr %flags2, align 8
@@ -2899,31 +2899,31 @@ __redisAsyncCopyError.exit.i:                     ; preds = %__redisRunCallback.
   %errstr3.i.i = getelementptr inbounds i8, ptr %ac, i64 280
   store ptr %errstr.i.i, ptr %errstr3.i.i, align 8
   %cmp.i23 = icmp eq i32 %20, 0
-  br i1 %cmp.i23, label %do.body.i, label %if.else.i
+  br i1 %cmp.i23, label %do.body.i, label %if.else.i24
 
-if.else.i:                                        ; preds = %__redisAsyncCopyError.exit.i
+if.else.i24:                                      ; preds = %__redisAsyncCopyError.exit.i
   %21 = load i32, ptr %flags2, align 8
-  %or.i25 = or i32 %21, 4
-  store i32 %or.i25, ptr %flags2, align 8
+  %or.i26 = or i32 %21, 4
+  store i32 %or.i26, ptr %flags2, align 8
   br label %do.body.i
 
-do.body.i:                                        ; preds = %__redisAsyncCopyError.exit.i, %if.else.i
+do.body.i:                                        ; preds = %__redisAsyncCopyError.exit.i, %if.else.i24
   %cleanup.i = getelementptr inbounds i8, ptr %ac, i64 344
   %22 = load ptr, ptr %cleanup.i, align 8
-  %tobool.not.i26 = icmp eq ptr %22, null
-  br i1 %tobool.not.i26, label %if.end7.i, label %if.then3.i27
+  %tobool.not.i27 = icmp eq ptr %22, null
+  br i1 %tobool.not.i27, label %if.end7.i, label %if.then3.i28
 
-if.then3.i27:                                     ; preds = %do.body.i
+if.then3.i28:                                     ; preds = %do.body.i
   %ev.i = getelementptr inbounds i8, ptr %ac, i64 304
   %23 = load ptr, ptr %ev.i, align 8
   tail call void %22(ptr noundef %23) #15
   br label %if.end7.i
 
-if.end7.i:                                        ; preds = %if.then3.i27, %do.body.i
+if.end7.i:                                        ; preds = %if.then3.i28, %do.body.i
   store ptr null, ptr %cleanup.i, align 8
   %24 = load i32, ptr %flags2, align 8
-  %and.i28 = and i32 %24, 512
-  %tobool11.not.i = icmp eq i32 %and.i28, 0
+  %and.i29 = and i32 %24, 512
+  %tobool11.not.i = icmp eq i32 %and.i29, 0
   br i1 %tobool11.not.i, label %if.then12.i, label %return
 
 if.then12.i:                                      ; preds = %if.end7.i
@@ -4296,25 +4296,32 @@ if.end.i:                                         ; preds = %land.lhs.true.i
   %2 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %2, 16
   %tobool.not.i = icmp eq i32 %and.i, 0
-  br i1 %tobool.not.i, label %if.end10.i, label %if.else19.i
+  br i1 %tobool.not.i, label %if.else.i, label %if.else19.i
 
 if.end.thread.i:                                  ; preds = %entry
   %flags19.i = getelementptr inbounds i8, ptr %ac, i64 144
   %3 = load i32, ptr %flags19.i, align 8
   %and20.i = and i32 %3, 16
   %tobool.not21.i = icmp eq i32 %and20.i, 0
-  br i1 %tobool.not21.i, label %if.end10.i, label %if.then17.i
+  br i1 %tobool.not21.i, label %if.then7.i, label %if.then17.i
 
-if.end10.i:                                       ; preds = %if.end.thread.i, %if.end.i
-  %.sink27.i = phi i32 [ %3, %if.end.thread.i ], [ %2, %if.end.i ]
-  %flags.sink.i = phi ptr [ %flags19.i, %if.end.thread.i ], [ %flags.i, %if.end.i ]
-  %.sink.i = phi ptr [ %0, %if.end.thread.i ], [ %1, %if.end.i ]
-  %or.i = or disjoint i32 %.sink27.i, 16
-  store i32 %or.i, ptr %flags.sink.i, align 8
+if.then7.i:                                       ; preds = %if.end.thread.i
+  %or24.i = or disjoint i32 %3, 16
+  store i32 %or24.i, ptr %flags19.i, align 8
+  br label %if.end10.i
+
+if.else.i:                                        ; preds = %if.end.i
+  %or.i = or disjoint i32 %2, 16
+  store i32 %or.i, ptr %flags.i, align 8
+  br label %if.end10.i
+
+if.end10.i:                                       ; preds = %if.else.i, %if.then7.i
+  %.sink.i = phi ptr [ %1, %if.else.i ], [ %0, %if.then7.i ]
+  %flags2225.i = phi ptr [ %flags.i, %if.else.i ], [ %flags19.i, %if.then7.i ]
   tail call void %.sink.i(ptr noundef nonnull %ac, i32 noundef -1) #15
-  %4 = load i32, ptr %flags.sink.i, align 8
+  %4 = load i32, ptr %flags2225.i, align 8
   %and13.i = and i32 %4, -17
-  store i32 %and13.i, ptr %flags.sink.i, align 8
+  store i32 %and13.i, ptr %flags2225.i, align 8
   br label %__redisAsyncCopyError.exit.i
 
 if.then17.i:                                      ; preds = %if.end.thread.i
@@ -4334,7 +4341,7 @@ __redisAsyncCopyError.exit.i:                     ; preds = %land.lhs.true.i, %i
   %errstr3.i.i = getelementptr inbounds i8, ptr %ac, i64 280
   store ptr %errstr.i.i, ptr %errstr3.i.i, align 8
   %cmp.i2 = icmp eq i32 %5, 0
-  br i1 %cmp.i2, label %if.then.i, label %if.else.i
+  br i1 %cmp.i2, label %if.then.i, label %if.else.i3
 
 if.then.i:                                        ; preds = %__redisAsyncCopyError.exit.i
   %replies.i = getelementptr inbounds i8, ptr %ac, i64 384
@@ -4359,18 +4366,18 @@ if.end.i10.i:                                     ; preds = %if.then3.i.i, %if.t
   tail call void %9(ptr noundef nonnull %6) #15
   br label %do.body.i
 
-if.else.i:                                        ; preds = %__redisAsyncCopyError.exit.i
-  %flags.i3 = getelementptr inbounds i8, ptr %ac, i64 144
-  %10 = load i32, ptr %flags.i3, align 8
-  %or.i4 = or i32 %10, 4
-  store i32 %or.i4, ptr %flags.i3, align 8
+if.else.i3:                                       ; preds = %__redisAsyncCopyError.exit.i
+  %flags.i4 = getelementptr inbounds i8, ptr %ac, i64 144
+  %10 = load i32, ptr %flags.i4, align 8
+  %or.i5 = or i32 %10, 4
+  store i32 %or.i5, ptr %flags.i4, align 8
   br label %do.body.i
 
-do.body.i:                                        ; preds = %if.else.i, %if.end.i10.i, %if.then.i
+do.body.i:                                        ; preds = %if.else.i3, %if.end.i10.i, %if.then.i
   %cleanup.i = getelementptr inbounds i8, ptr %ac, i64 344
   %11 = load ptr, ptr %cleanup.i, align 8
-  %tobool.not.i5 = icmp eq ptr %11, null
-  br i1 %tobool.not.i5, label %if.end7.i, label %if.then3.i
+  %tobool.not.i6 = icmp eq ptr %11, null
+  br i1 %tobool.not.i6, label %if.end7.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %do.body.i
   %ev.i = getelementptr inbounds i8, ptr %ac, i64 304
@@ -4382,8 +4389,8 @@ if.end7.i:                                        ; preds = %if.then3.i, %do.bod
   store ptr null, ptr %cleanup.i, align 8
   %flags10.i = getelementptr inbounds i8, ptr %ac, i64 144
   %13 = load i32, ptr %flags10.i, align 8
-  %and.i6 = and i32 %13, 512
-  %tobool11.not.i = icmp eq i32 %and.i6, 0
+  %and.i7 = and i32 %13, 512
+  %tobool11.not.i = icmp eq i32 %and.i7, 0
   br i1 %tobool11.not.i, label %if.then12.i, label %__redisAsyncDisconnect.exit
 
 if.then12.i:                                      ; preds = %if.end7.i

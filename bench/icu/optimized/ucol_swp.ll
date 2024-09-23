@@ -618,17 +618,18 @@ for.body:                                         ; preds = %for.body.preheader,
 
 if.then27:                                        ; preds = %for.cond18.preheader
   %arrayidx28 = getelementptr inbounds i8, ptr %indexes, i64 76
-  br label %if.end36.sink.split
+  %5 = load i32, ptr %arrayidx28, align 4
+  br label %if.end36
 
 if.else:                                          ; preds = %for.cond.preheader, %for.cond18.preheader
-  %5 = sext i32 %call4 to i64
-  %6 = shl nsw i64 %5, 2
-  %scevgep = getelementptr i8, ptr %indexes, i64 %6
-  %7 = sub i32 19, %call4
-  %8 = zext i32 %7 to i64
-  %9 = shl nuw nsw i64 %8, 2
-  %10 = add nuw nsw i64 %9, 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 -1, i64 %10, i1 false)
+  %6 = sext i32 %call4 to i64
+  %7 = shl nsw i64 %6, 2
+  %scevgep = getelementptr i8, ptr %indexes, i64 %7
+  %8 = sub i32 19, %call4
+  %9 = zext i32 %8 to i64
+  %10 = shl nuw nsw i64 %9, 2
+  %11 = add nuw nsw i64 %10, 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 -1, i64 %11, i1 false)
   %cmp29 = icmp sgt i32 %call4, 5
   br i1 %cmp29, label %if.then30, label %if.end36
 
@@ -636,15 +637,11 @@ if.then30:                                        ; preds = %if.else
   %sub = add nsw i32 %call4, -1
   %idxprom31 = zext nneg i32 %sub to i64
   %arrayidx32 = getelementptr inbounds [20 x i32], ptr %indexes, i64 0, i64 %idxprom31
-  br label %if.end36.sink.split
-
-if.end36.sink.split:                              ; preds = %if.then27, %if.then30
-  %arrayidx32.sink = phi ptr [ %arrayidx32, %if.then30 ], [ %arrayidx28, %if.then27 ]
-  %11 = load i32, ptr %arrayidx32.sink, align 4
+  %12 = load i32, ptr %arrayidx32, align 4
   br label %if.end36
 
-if.end36:                                         ; preds = %if.end36.sink.split, %if.else
-  %size.0 = phi i32 [ %mul, %if.else ], [ %11, %if.end36.sink.split ]
+if.end36:                                         ; preds = %if.else, %if.then30, %if.then27
+  %size.0 = phi i32 [ %5, %if.then27 ], [ %12, %if.then30 ], [ %mul, %if.else ]
   %cmp37 = icmp slt i32 %length, 0
   br i1 %cmp37, label %return, label %if.end39
 
@@ -667,35 +664,35 @@ do.body:                                          ; preds = %if.end42
 
 if.end45:                                         ; preds = %do.body, %if.end42
   %swapArray32 = getelementptr inbounds i8, ptr %ds, i64 56
-  %12 = load ptr, ptr %swapArray32, align 8
-  %call47 = tail call noundef i32 %12(ptr noundef %ds, ptr noundef nonnull %inData, i32 noundef %mul, ptr noundef %outData, ptr noundef nonnull %errorCode)
+  %13 = load ptr, ptr %swapArray32, align 8
+  %call47 = tail call noundef i32 %13(ptr noundef %ds, ptr noundef nonnull %inData, i32 noundef %mul, ptr noundef %outData, ptr noundef nonnull %errorCode)
   %arrayidx49 = getelementptr inbounds i8, ptr %indexes, i64 20
-  %13 = load i32, ptr %arrayidx49, align 4
+  %14 = load i32, ptr %arrayidx49, align 4
   %arrayidx51 = getelementptr inbounds i8, ptr %indexes, i64 24
-  %14 = load i32, ptr %arrayidx51, align 8
-  %sub52 = sub nsw i32 %14, %13
+  %15 = load i32, ptr %arrayidx51, align 8
+  %sub52 = sub nsw i32 %15, %14
   %cmp53 = icmp sgt i32 %sub52, 0
   br i1 %cmp53, label %if.then54, label %if.end59
 
 if.then54:                                        ; preds = %if.end45
-  %15 = load ptr, ptr %swapArray32, align 8
-  %idx.ext = sext i32 %13 to i64
+  %16 = load ptr, ptr %swapArray32, align 8
+  %idx.ext = sext i32 %14 to i64
   %add.ptr = getelementptr inbounds i8, ptr %inData, i64 %idx.ext
   %add.ptr57 = getelementptr inbounds i8, ptr %outData, i64 %idx.ext
-  %call58 = tail call noundef i32 %15(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr, i32 noundef %sub52, ptr noundef %add.ptr57, ptr noundef nonnull %errorCode)
+  %call58 = tail call noundef i32 %16(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr, i32 noundef %sub52, ptr noundef %add.ptr57, ptr noundef nonnull %errorCode)
   br label %if.end59
 
 if.end59:                                         ; preds = %if.then54, %if.end45
   %arrayidx61 = getelementptr inbounds i8, ptr %indexes, i64 28
-  %16 = load i32, ptr %arrayidx61, align 4
+  %17 = load i32, ptr %arrayidx61, align 4
   %arrayidx64 = getelementptr inbounds i8, ptr %indexes, i64 32
-  %17 = load i32, ptr %arrayidx64, align 16
-  %sub65 = sub nsw i32 %17, %16
+  %18 = load i32, ptr %arrayidx64, align 16
+  %sub65 = sub nsw i32 %18, %17
   %cmp66 = icmp sgt i32 %sub65, 0
   br i1 %cmp66, label %if.then67, label %if.end73
 
 if.then67:                                        ; preds = %if.end59
-  %idx.ext68 = sext i32 %16 to i64
+  %idx.ext68 = sext i32 %17 to i64
   %add.ptr69 = getelementptr inbounds i8, ptr %inData, i64 %idx.ext68
   %add.ptr71 = getelementptr inbounds i8, ptr %outData, i64 %idx.ext68
   %call72 = tail call i32 @utrie2_swap_75(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr69, i32 noundef %sub65, ptr noundef %add.ptr71, ptr noundef nonnull %errorCode)
@@ -703,8 +700,8 @@ if.then67:                                        ; preds = %if.end59
 
 if.end73:                                         ; preds = %if.then67, %if.end59
   %arrayidx78 = getelementptr inbounds i8, ptr %indexes, i64 36
-  %18 = load i32, ptr %arrayidx78, align 4
-  %sub79 = sub nsw i32 %18, %17
+  %19 = load i32, ptr %arrayidx78, align 4
+  %sub79 = sub nsw i32 %19, %18
   %cmp80 = icmp sgt i32 %sub79, 0
   br i1 %cmp80, label %if.then81, label %if.end82
 
@@ -714,24 +711,24 @@ if.then81:                                        ; preds = %if.end73
 
 if.end82:                                         ; preds = %if.end73
   %arrayidx87 = getelementptr inbounds i8, ptr %indexes, i64 40
-  %19 = load i32, ptr %arrayidx87, align 8
-  %sub88 = sub nsw i32 %19, %18
+  %20 = load i32, ptr %arrayidx87, align 8
+  %sub88 = sub nsw i32 %20, %19
   %cmp89 = icmp sgt i32 %sub88, 0
   br i1 %cmp89, label %if.then90, label %if.end96
 
 if.then90:                                        ; preds = %if.end82
   %swapArray64 = getelementptr inbounds i8, ptr %ds, i64 64
-  %20 = load ptr, ptr %swapArray64, align 8
-  %idx.ext91 = sext i32 %18 to i64
+  %21 = load ptr, ptr %swapArray64, align 8
+  %idx.ext91 = sext i32 %19 to i64
   %add.ptr92 = getelementptr inbounds i8, ptr %inData, i64 %idx.ext91
   %add.ptr94 = getelementptr inbounds i8, ptr %outData, i64 %idx.ext91
-  %call95 = tail call noundef i32 %20(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr92, i32 noundef %sub88, ptr noundef %add.ptr94, ptr noundef nonnull %errorCode)
+  %call95 = tail call noundef i32 %21(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr92, i32 noundef %sub88, ptr noundef %add.ptr94, ptr noundef nonnull %errorCode)
   br label %if.end96
 
 if.end96:                                         ; preds = %if.then90, %if.end82
   %arrayidx101 = getelementptr inbounds i8, ptr %indexes, i64 44
-  %21 = load i32, ptr %arrayidx101, align 4
-  %sub102 = sub nsw i32 %21, %19
+  %22 = load i32, ptr %arrayidx101, align 4
+  %sub102 = sub nsw i32 %22, %20
   %cmp103 = icmp sgt i32 %sub102, 0
   br i1 %cmp103, label %if.then104, label %if.end105
 
@@ -741,104 +738,104 @@ if.then104:                                       ; preds = %if.end96
 
 if.end105:                                        ; preds = %if.end96
   %arrayidx110 = getelementptr inbounds i8, ptr %indexes, i64 48
-  %22 = load i32, ptr %arrayidx110, align 16
-  %sub111 = sub nsw i32 %22, %21
+  %23 = load i32, ptr %arrayidx110, align 16
+  %sub111 = sub nsw i32 %23, %22
   %cmp112 = icmp sgt i32 %sub111, 0
   br i1 %cmp112, label %if.then113, label %if.end120
 
 if.then113:                                       ; preds = %if.end105
-  %23 = load ptr, ptr %swapArray32, align 8
-  %idx.ext115 = sext i32 %21 to i64
+  %24 = load ptr, ptr %swapArray32, align 8
+  %idx.ext115 = sext i32 %22 to i64
   %add.ptr116 = getelementptr inbounds i8, ptr %inData, i64 %idx.ext115
   %add.ptr118 = getelementptr inbounds i8, ptr %outData, i64 %idx.ext115
-  %call119 = tail call noundef i32 %23(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr116, i32 noundef %sub111, ptr noundef %add.ptr118, ptr noundef nonnull %errorCode)
+  %call119 = tail call noundef i32 %24(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr116, i32 noundef %sub111, ptr noundef %add.ptr118, ptr noundef nonnull %errorCode)
   br label %if.end120
 
 if.end120:                                        ; preds = %if.then113, %if.end105
   %arrayidx125 = getelementptr inbounds i8, ptr %indexes, i64 52
-  %24 = load i32, ptr %arrayidx125, align 4
-  %sub126 = sub nsw i32 %24, %22
+  %25 = load i32, ptr %arrayidx125, align 4
+  %sub126 = sub nsw i32 %25, %23
   %cmp127 = icmp sgt i32 %sub126, 0
   br i1 %cmp127, label %if.then128, label %if.end135
 
 if.then128:                                       ; preds = %if.end120
-  %25 = load ptr, ptr %swapArray32, align 8
-  %idx.ext130 = sext i32 %22 to i64
+  %26 = load ptr, ptr %swapArray32, align 8
+  %idx.ext130 = sext i32 %23 to i64
   %add.ptr131 = getelementptr inbounds i8, ptr %inData, i64 %idx.ext130
   %add.ptr133 = getelementptr inbounds i8, ptr %outData, i64 %idx.ext130
-  %call134 = tail call noundef i32 %25(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr131, i32 noundef %sub126, ptr noundef %add.ptr133, ptr noundef nonnull %errorCode)
+  %call134 = tail call noundef i32 %26(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr131, i32 noundef %sub126, ptr noundef %add.ptr133, ptr noundef nonnull %errorCode)
   br label %if.end135
 
 if.end135:                                        ; preds = %if.then128, %if.end120
   %arrayidx140 = getelementptr inbounds i8, ptr %indexes, i64 56
-  %26 = load i32, ptr %arrayidx140, align 8
-  %sub141 = sub nsw i32 %26, %24
+  %27 = load i32, ptr %arrayidx140, align 8
+  %sub141 = sub nsw i32 %27, %25
   %cmp142 = icmp sgt i32 %sub141, 0
   br i1 %cmp142, label %if.then143, label %if.end149
 
 if.then143:                                       ; preds = %if.end135
   %swapArray16 = getelementptr inbounds i8, ptr %ds, i64 48
-  %27 = load ptr, ptr %swapArray16, align 8
-  %idx.ext144 = sext i32 %24 to i64
+  %28 = load ptr, ptr %swapArray16, align 8
+  %idx.ext144 = sext i32 %25 to i64
   %add.ptr145 = getelementptr inbounds i8, ptr %inData, i64 %idx.ext144
   %add.ptr147 = getelementptr inbounds i8, ptr %outData, i64 %idx.ext144
-  %call148 = tail call noundef i32 %27(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr145, i32 noundef %sub141, ptr noundef %add.ptr147, ptr noundef nonnull %errorCode)
+  %call148 = tail call noundef i32 %28(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr145, i32 noundef %sub141, ptr noundef %add.ptr147, ptr noundef nonnull %errorCode)
   br label %if.end149
 
 if.end149:                                        ; preds = %if.then143, %if.end135
   %arrayidx154 = getelementptr inbounds i8, ptr %indexes, i64 60
-  %28 = load i32, ptr %arrayidx154, align 4
-  %sub155 = sub nsw i32 %28, %26
+  %29 = load i32, ptr %arrayidx154, align 4
+  %sub155 = sub nsw i32 %29, %27
   %cmp156 = icmp sgt i32 %sub155, 0
   br i1 %cmp156, label %if.then157, label %if.end164
 
 if.then157:                                       ; preds = %if.end149
   %swapArray16158 = getelementptr inbounds i8, ptr %ds, i64 48
-  %29 = load ptr, ptr %swapArray16158, align 8
-  %idx.ext159 = sext i32 %26 to i64
+  %30 = load ptr, ptr %swapArray16158, align 8
+  %idx.ext159 = sext i32 %27 to i64
   %add.ptr160 = getelementptr inbounds i8, ptr %inData, i64 %idx.ext159
   %add.ptr162 = getelementptr inbounds i8, ptr %outData, i64 %idx.ext159
-  %call163 = tail call noundef i32 %29(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr160, i32 noundef %sub155, ptr noundef %add.ptr162, ptr noundef nonnull %errorCode)
+  %call163 = tail call noundef i32 %30(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr160, i32 noundef %sub155, ptr noundef %add.ptr162, ptr noundef nonnull %errorCode)
   br label %if.end164
 
 if.end164:                                        ; preds = %if.then157, %if.end149
   %arrayidx169 = getelementptr inbounds i8, ptr %indexes, i64 64
-  %30 = load i32, ptr %arrayidx169, align 16
-  %sub170 = sub nsw i32 %30, %28
+  %31 = load i32, ptr %arrayidx169, align 16
+  %sub170 = sub nsw i32 %31, %29
   %cmp171 = icmp sgt i32 %sub170, 0
   br i1 %cmp171, label %if.then172, label %if.end179
 
 if.then172:                                       ; preds = %if.end164
   %swapArray16173 = getelementptr inbounds i8, ptr %ds, i64 48
-  %31 = load ptr, ptr %swapArray16173, align 8
-  %idx.ext174 = sext i32 %28 to i64
+  %32 = load ptr, ptr %swapArray16173, align 8
+  %idx.ext174 = sext i32 %29 to i64
   %add.ptr175 = getelementptr inbounds i8, ptr %inData, i64 %idx.ext174
   %add.ptr177 = getelementptr inbounds i8, ptr %outData, i64 %idx.ext174
-  %call178 = tail call noundef i32 %31(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr175, i32 noundef %sub170, ptr noundef %add.ptr177, ptr noundef nonnull %errorCode)
+  %call178 = tail call noundef i32 %32(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr175, i32 noundef %sub170, ptr noundef %add.ptr177, ptr noundef nonnull %errorCode)
   br label %if.end179
 
 if.end179:                                        ; preds = %if.then172, %if.end164
   %arrayidx184 = getelementptr inbounds i8, ptr %indexes, i64 68
-  %32 = load i32, ptr %arrayidx184, align 4
-  %sub185 = sub nsw i32 %32, %30
+  %33 = load i32, ptr %arrayidx184, align 4
+  %sub185 = sub nsw i32 %33, %31
   %cmp186 = icmp sgt i32 %sub185, 0
   br i1 %cmp186, label %if.then187, label %if.end194
 
 if.then187:                                       ; preds = %if.end179
   %swapArray16188 = getelementptr inbounds i8, ptr %ds, i64 48
-  %33 = load ptr, ptr %swapArray16188, align 8
-  %idx.ext189 = sext i32 %30 to i64
+  %34 = load ptr, ptr %swapArray16188, align 8
+  %idx.ext189 = sext i32 %31 to i64
   %add.ptr190 = getelementptr inbounds i8, ptr %inData, i64 %idx.ext189
   %add.ptr192 = getelementptr inbounds i8, ptr %outData, i64 %idx.ext189
-  %call193 = tail call noundef i32 %33(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr190, i32 noundef %sub185, ptr noundef %add.ptr192, ptr noundef nonnull %errorCode)
+  %call193 = tail call noundef i32 %34(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr190, i32 noundef %sub185, ptr noundef %add.ptr192, ptr noundef nonnull %errorCode)
   br label %if.end194
 
 if.end194:                                        ; preds = %if.then187, %if.end179
   %arrayidx196 = getelementptr inbounds i8, ptr %indexes, i64 72
-  %34 = load i32, ptr %arrayidx196, align 8
+  %35 = load i32, ptr %arrayidx196, align 8
   %arrayidx199 = getelementptr inbounds i8, ptr %indexes, i64 76
-  %35 = load i32, ptr %arrayidx199, align 4
-  %sub200 = sub nsw i32 %35, %34
+  %36 = load i32, ptr %arrayidx199, align 4
+  %sub200 = sub nsw i32 %36, %35
   %cmp201 = icmp sgt i32 %sub200, 0
   br i1 %cmp201, label %if.then202, label %return
 

@@ -1100,6 +1100,7 @@ put_child.exit:                                   ; preds = %101, %105
 
 108:                                              ; preds = %put_child.exit
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !28
+  store volatile ptr %46, ptr %20, align 8
   br label %170
 
 109:                                              ; preds = %put_child.exit
@@ -1199,11 +1200,10 @@ put_child.exit:                                   ; preds = %101, %105
 
 put_child.exit19:                                 ; preds = %164, %169
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !27
+  store volatile ptr %46, ptr %115, align 8
   br label %170
 
 170:                                              ; preds = %108, %put_child.exit19
-  %.sink = phi ptr [ %20, %108 ], [ %115, %put_child.exit19 ]
-  store volatile ptr %46, ptr %.sink, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !29
   %171 = getelementptr i8, ptr %29, i64 -8
   store volatile ptr %46, ptr %171, align 8
@@ -1240,6 +1240,7 @@ put_child.exit19:                                 ; preds = %164, %169
 189:                                              ; preds = %.loopexit
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !28
   %190 = getelementptr inbounds i8, ptr %174, i64 8
+  store volatile ptr %12, ptr %190, align 8
   br label %252
 
 191:                                              ; preds = %.loopexit
@@ -1339,11 +1340,10 @@ put_child.exit19:                                 ; preds = %164, %169
 
 put_child.exit22:                                 ; preds = %247, %251
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !27
+  store volatile ptr %12, ptr %198, align 8
   br label %252
 
 252:                                              ; preds = %put_child.exit22, %189
-  %.sink52 = phi ptr [ %198, %put_child.exit22 ], [ %190, %189 ]
-  store volatile ptr %12, ptr %.sink52, align 8
   %253 = load i8, ptr %186, align 4
   %254 = icmp ult i8 %253, 32
   br i1 %254, label %.preheader, label %.thread
@@ -1373,7 +1373,7 @@ put_child.exit22:                                 ; preds = %247, %251
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !32
   %266 = load ptr, ptr %265, align 8
   store volatile ptr %2, ptr %266, align 8
-  br label %.sink.split
+  br label %305
 
 267:                                              ; preds = %260
   %268 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1433,11 +1433,11 @@ put_child.exit22:                                 ; preds = %247, %251
   store volatile ptr %2, ptr %297, align 8
   %299 = load ptr, ptr %2, align 8
   %300 = icmp eq ptr %299, null
-  br i1 %300, label %306, label %301
+  br i1 %300, label %308, label %301
 
 301:                                              ; preds = %.thread28
   %302 = getelementptr inbounds i8, ptr %299, i64 8
-  br label %.sink.split
+  br label %305
 
 .thread26:                                        ; preds = %272, %294
   store ptr %269, ptr %2, align 8
@@ -1446,50 +1446,51 @@ put_child.exit22:                                 ; preds = %247, %251
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !35
   store volatile ptr %2, ptr %268, align 8
   %304 = getelementptr inbounds i8, ptr %269, i64 8
-  br label %.sink.split
+  br label %305
+
+305:                                              ; preds = %.thread26, %301, %262
+  %306 = phi ptr [ %304, %.thread26 ], [ %302, %301 ], [ %263, %262 ]
+  store volatile ptr %2, ptr %306, align 8
+  br label %308
 
 .critedge:                                        ; preds = %267
   store ptr null, ptr %2, align 8
-  %305 = getelementptr inbounds i8, ptr %2, i64 8
-  store volatile ptr %268, ptr %305, align 8
+  %307 = getelementptr inbounds i8, ptr %2, i64 8
+  store volatile ptr %268, ptr %307, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !35
-  br label %.sink.split
+  store volatile ptr %2, ptr %268, align 8
+  br label %308
 
-.sink.split:                                      ; preds = %262, %301, %.thread26, %.critedge
-  %.sink53 = phi ptr [ %268, %.critedge ], [ %304, %.thread26 ], [ %302, %301 ], [ %263, %262 ]
-  store volatile ptr %2, ptr %.sink53, align 8
-  br label %306
+308:                                              ; preds = %.critedge, %305, %.thread28
+  %309 = getelementptr inbounds i8, ptr %1, i64 6
+  %310 = load i8, ptr %309, align 2
+  %311 = getelementptr inbounds i8, ptr %2, i64 27
+  %312 = load i8, ptr %311, align 1
+  %313 = icmp ult i8 %310, %312
+  br i1 %313, label %314, label %.thread
 
-306:                                              ; preds = %.sink.split, %.thread28
-  %307 = getelementptr inbounds i8, ptr %1, i64 6
-  %308 = load i8, ptr %307, align 2
-  %309 = getelementptr inbounds i8, ptr %2, i64 27
-  %310 = load i8, ptr %309, align 1
-  %311 = icmp ult i8 %308, %310
-  br i1 %311, label %312, label %.thread
+314:                                              ; preds = %308
+  store i8 %312, ptr %309, align 2
+  %315 = load i8, ptr %311, align 1
+  %316 = getelementptr inbounds i8, ptr %0, i64 6
+  %317 = load i8, ptr %316, align 2
+  %318 = icmp ult i8 %317, %315
+  br i1 %318, label %.preheader32, label %.thread
 
-312:                                              ; preds = %306
-  store i8 %310, ptr %307, align 2
-  %313 = load i8, ptr %309, align 1
-  %314 = getelementptr inbounds i8, ptr %0, i64 6
-  %315 = load i8, ptr %314, align 2
-  %316 = icmp ult i8 %315, %313
-  br i1 %316, label %.preheader32, label %.thread
+.preheader32:                                     ; preds = %314, %.preheader32
+  %319 = phi ptr [ %323, %.preheader32 ], [ %316, %314 ]
+  %320 = phi ptr [ %322, %.preheader32 ], [ %0, %314 ]
+  store i8 %315, ptr %319, align 2
+  %321 = getelementptr i8, ptr %320, i64 -8
+  %322 = load ptr, ptr %321, align 8
+  %323 = getelementptr inbounds i8, ptr %322, i64 6
+  %324 = load i8, ptr %323, align 2
+  %325 = icmp ult i8 %324, %315
+  br i1 %325, label %.preheader32, label %.thread, !llvm.loop !30
 
-.preheader32:                                     ; preds = %312, %.preheader32
-  %317 = phi ptr [ %321, %.preheader32 ], [ %314, %312 ]
-  %318 = phi ptr [ %320, %.preheader32 ], [ %0, %312 ]
-  store i8 %313, ptr %317, align 2
-  %319 = getelementptr i8, ptr %318, i64 -8
-  %320 = load ptr, ptr %319, align 8
-  %321 = getelementptr inbounds i8, ptr %320, i64 6
-  %322 = load i8, ptr %321, align 2
-  %323 = icmp ult i8 %322, %313
-  br i1 %323, label %.preheader32, label %.thread, !llvm.loop !30
-
-.thread:                                          ; preds = %.preheader32, %.preheader, %7, %312, %306, %.thread23, %252
-  %324 = phi i32 [ 0, %306 ], [ -12, %.thread23 ], [ 0, %252 ], [ 0, %312 ], [ -12, %7 ], [ 0, %.preheader ], [ 0, %.preheader32 ]
-  ret i32 %324
+.thread:                                          ; preds = %.preheader32, %.preheader, %7, %314, %308, %.thread23, %252
+  %326 = phi i32 [ 0, %308 ], [ -12, %.thread23 ], [ 0, %252 ], [ 0, %314 ], [ -12, %7 ], [ 0, %.preheader ], [ 0, %.preheader32 ]
+  ret i32 %326
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -7455,6 +7456,7 @@ define internal fastcc ptr @replace(ptr noundef %0, ptr noundef nonnull %1) unna
 10:                                               ; preds = %2
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !28
   %11 = getelementptr inbounds i8, ptr %5, i64 8
+  store volatile ptr %1, ptr %11, align 8
   br label %78
 
 12:                                               ; preds = %2
@@ -7559,11 +7561,10 @@ define internal fastcc ptr @replace(ptr noundef %0, ptr noundef nonnull %1) unna
 
 put_child.exit:                                   ; preds = %71, %77
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !27
+  store volatile ptr %1, ptr %20, align 8
   br label %78
 
 78:                                               ; preds = %put_child.exit, %10
-  %.sink = phi ptr [ %20, %put_child.exit ], [ %11, %10 ]
-  store volatile ptr %1, ptr %.sink, align 8
   tail call fastcc void @update_children(ptr noundef %1)
   %79 = icmp eq ptr %3, null
   br i1 %79, label %.loopexit7, label %.preheader6

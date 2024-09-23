@@ -4266,71 +4266,73 @@ define dso_local void @_ZN4Luau7CodeGen16killUnusedBlocksERNS0_10IrFunctionE(ptr
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   br label %10
 
-10:                                               ; preds = %.lr.ph, %33
-  %11 = phi ptr [ %4, %.lr.ph ], [ %34, %33 ]
-  %12 = phi ptr [ %3, %.lr.ph ], [ %35, %33 ]
-  %13 = phi i64 [ 1, %.lr.ph ], [ %37, %33 ]
-  %.011 = phi i32 [ 1, %.lr.ph ], [ %36, %33 ]
+10:                                               ; preds = %.lr.ph, %34
+  %11 = phi ptr [ %4, %.lr.ph ], [ %35, %34 ]
+  %12 = phi ptr [ %3, %.lr.ph ], [ %36, %34 ]
+  %13 = phi i64 [ 1, %.lr.ph ], [ %38, %34 ]
+  %.09 = phi i32 [ 1, %.lr.ph ], [ %37, %34 ]
   %14 = getelementptr inbounds %"struct.Luau::CodeGen::IrBlock", ptr %11, i64 %13
   %15 = load i8, ptr %14, align 4
-  %.not = icmp ne i8 %15, 4
-  %16 = getelementptr inbounds i8, ptr %14, i64 2
-  %17 = load i16, ptr %16, align 2
-  %18 = icmp eq i16 %17, 0
-  %or.cond = select i1 %.not, i1 %18, i1 false
-  br i1 %or.cond, label %19, label %33
+  %.not = icmp eq i8 %15, 4
+  br i1 %.not, label %34, label %16
 
-19:                                               ; preds = %10
+16:                                               ; preds = %10
+  %17 = getelementptr inbounds i8, ptr %14, i64 2
+  %18 = load i16, ptr %17, align 2
+  %19 = icmp eq i16 %18, 0
+  br i1 %19, label %20, label %34
+
+20:                                               ; preds = %16
   store i8 4, ptr %14, align 4
-  %20 = getelementptr inbounds i8, ptr %14, i64 4
-  %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %14, i64 8
-  %23 = load i32, ptr %22, align 4
-  %.not.i6.i = icmp slt i32 %23, %21
+  %21 = getelementptr inbounds i8, ptr %14, i64 4
+  %22 = load i32, ptr %21, align 4
+  %23 = getelementptr inbounds i8, ptr %14, i64 8
+  %24 = load i32, ptr %23, align 4
+  %.not.i6.i = icmp slt i32 %24, %22
   br i1 %.not.i6.i, label %_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %19
-  %24 = sext i32 %23 to i64
-  %25 = sext i32 %21 to i64
-  br label %26
+.lr.ph.i:                                         ; preds = %20
+  %25 = sext i32 %24 to i64
+  %26 = sext i32 %22 to i64
+  br label %27
 
-26:                                               ; preds = %32, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %24, %.lr.ph.i ], [ %indvars.iv.next.i, %32 ]
-  %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %"struct.Luau::CodeGen::IrInst", ptr %27, i64 %indvars.iv.i
-  %29 = load i8, ptr %28, align 4
-  %30 = icmp eq i8 %29, 0
-  br i1 %30, label %32, label %31
+27:                                               ; preds = %33, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %25, %.lr.ph.i ], [ %indvars.iv.next.i, %33 ]
+  %28 = load ptr, ptr %9, align 8
+  %29 = getelementptr inbounds %"struct.Luau::CodeGen::IrInst", ptr %28, i64 %indvars.iv.i
+  %30 = load i8, ptr %29, align 4
+  %31 = icmp eq i8 %30, 0
+  br i1 %31, label %33, label %32
 
-31:                                               ; preds = %26
-  tail call void @_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(616) %0, ptr noundef nonnull align 4 dereferenceable(43) %28)
-  br label %32
-
-32:                                               ; preds = %31, %26
-  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %.not.i.not.i = icmp sgt i64 %indvars.iv.i, %25
-  br i1 %.not.i.not.i, label %26, label %_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit, !llvm.loop !5
-
-_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit: ; preds = %32, %19
-  store i32 -1, ptr %20, align 4
-  store i32 -1, ptr %22, align 4
-  %.pre = load ptr, ptr %2, align 8
-  %.pre12 = load ptr, ptr %0, align 8
+32:                                               ; preds = %27
+  tail call void @_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(616) %0, ptr noundef nonnull align 4 dereferenceable(43) %29)
   br label %33
 
-33:                                               ; preds = %10, %_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit
-  %34 = phi ptr [ %11, %10 ], [ %.pre12, %_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit ]
-  %35 = phi ptr [ %12, %10 ], [ %.pre, %_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit ]
-  %36 = add i32 %.011, 1
-  %37 = zext i32 %36 to i64
-  %38 = ptrtoint ptr %35 to i64
-  %39 = ptrtoint ptr %34 to i64
-  %40 = sub i64 %38, %39
-  %41 = ashr exact i64 %40, 5
-  %42 = icmp ugt i64 %41, %37
-  br i1 %42, label %10, label %._crit_edge, !llvm.loop !7
+33:                                               ; preds = %32, %27
+  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
+  %.not.i.not.i = icmp sgt i64 %indvars.iv.i, %26
+  br i1 %.not.i.not.i, label %27, label %_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit, !llvm.loop !5
 
-._crit_edge:                                      ; preds = %33, %1
+_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit: ; preds = %33, %20
+  store i32 -1, ptr %21, align 4
+  store i32 -1, ptr %23, align 4
+  %.pre = load ptr, ptr %2, align 8
+  %.pre10 = load ptr, ptr %0, align 8
+  br label %34
+
+34:                                               ; preds = %10, %16, %_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit
+  %35 = phi ptr [ %11, %10 ], [ %11, %16 ], [ %.pre10, %_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit ]
+  %36 = phi ptr [ %12, %10 ], [ %12, %16 ], [ %.pre, %_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit ]
+  %37 = add i32 %.09, 1
+  %38 = zext i32 %37 to i64
+  %39 = ptrtoint ptr %36 to i64
+  %40 = ptrtoint ptr %35 to i64
+  %41 = sub i64 %39, %40
+  %42 = ashr exact i64 %41, 5
+  %43 = icmp ugt i64 %42, %38
+  br i1 %43, label %10, label %._crit_edge, !llvm.loop !7
+
+._crit_edge:                                      ; preds = %34, %1
   ret void
 }
 

@@ -2056,11 +2056,12 @@ define hidden void @_ZN5ceres8internal20TrustRegionMinimizer36ComputeCandidatePo
 28:                                               ; preds = %25, %23, %21
   %29 = landingpad { ptr, i32 }
           cleanup
-  br label %54
+  br label %55
 
 30:                                               ; preds = %27, %17
   %31 = getelementptr inbounds i8, ptr %0, i64 752
-  br label %.sink.split
+  store double 0x7FEFFFFFFFFFFFFF, ptr %31, align 8
+  br label %54
 
 32:                                               ; preds = %1
   %33 = load ptr, ptr %5, align 8
@@ -2073,13 +2074,13 @@ define hidden void @_ZN5ceres8internal20TrustRegionMinimizer36ComputeCandidatePo
   %38 = load ptr, ptr %37, align 8
   %39 = call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 1 dereferenceable(2) %2, ptr noundef %34, ptr noundef nonnull %35, ptr noundef null, ptr noundef null, ptr noundef null)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2)
-  br i1 %39, label %53, label %40
+  br i1 %39, label %54, label %40
 
 40:                                               ; preds = %32
   %41 = getelementptr inbounds i8, ptr %0, i64 408
   %42 = load i8, ptr %41, align 8
   %43 = trunc i8 %42 to i1
-  br i1 %43, label %44, label %.sink.split
+  br i1 %43, label %44, label %53
 
 44:                                               ; preds = %40
   call void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull @.str, i32 noundef 785, i32 noundef 1)
@@ -2096,25 +2097,24 @@ define hidden void @_ZN5ceres8internal20TrustRegionMinimizer36ComputeCandidatePo
 
 50:                                               ; preds = %48
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #22
-  br label %.sink.split
+  br label %53
 
 51:                                               ; preds = %48, %46, %44
   %52 = landingpad { ptr, i32 }
           cleanup
+  br label %55
+
+53:                                               ; preds = %50, %40
+  store double 0x7FEFFFFFFFFFFFFF, ptr %35, align 8
   br label %54
 
-.sink.split:                                      ; preds = %40, %50, %30
-  %.sink = phi ptr [ %31, %30 ], [ %35, %50 ], [ %35, %40 ]
-  store double 0x7FEFFFFFFFFFFFFF, ptr %.sink, align 8
-  br label %53
-
-53:                                               ; preds = %.sink.split, %32
+54:                                               ; preds = %53, %32, %30
   ret void
 
-54:                                               ; preds = %51, %28
-  %.sink4 = phi ptr [ %4, %51 ], [ %3, %28 ]
+55:                                               ; preds = %51, %28
+  %.sink = phi ptr [ %4, %51 ], [ %3, %28 ]
   %.pn = phi { ptr, i32 } [ %52, %51 ], [ %29, %28 ]
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink4) #22
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink) #22
   resume { ptr, i32 } %.pn
 }
 

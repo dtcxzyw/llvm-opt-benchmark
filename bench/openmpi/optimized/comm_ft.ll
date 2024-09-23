@@ -1330,43 +1330,41 @@ declare void @ompi_comm_request_start(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define zeroext i1 @ompi_comm_is_proc_active(ptr nocapture noundef readonly %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #4 {
-  switch i32 %1, label %6 [
+  switch i32 %1, label %7 [
     i32 -1, label %4
-    i32 -2, label %19
+    i32 -2, label %20
   ]
 
 4:                                                ; preds = %3
   %5 = getelementptr i8, ptr %0, i64 360
-  br label %.sink.split
+  %.val = load i8, ptr %5, align 8
+  %6 = trunc i8 %.val to i1
+  br label %20
 
-6:                                                ; preds = %3
+7:                                                ; preds = %3
   %.in.v = select i1 %2, i64 256, i64 248
   %.in = getelementptr inbounds i8, ptr %0, i64 %.in.v
-  %7 = load ptr, ptr %.in, align 8
-  %8 = getelementptr i8, ptr %7, i64 32
-  %.val11 = load ptr, ptr %8, align 8
-  %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds ptr, ptr %.val11, i64 %9
-  %11 = load ptr, ptr %10, align 8
-  %12 = ptrtoint ptr %11 to i64
-  %13 = and i64 %12, 1
-  %.not.i.i = icmp ne i64 %13, 0
-  %14 = icmp eq ptr %11, null
-  %15 = or i1 %14, %.not.i.i
-  br i1 %15, label %19, label %16
+  %8 = load ptr, ptr %.in, align 8
+  %9 = getelementptr i8, ptr %8, i64 32
+  %.val11 = load ptr, ptr %9, align 8
+  %10 = sext i32 %1 to i64
+  %11 = getelementptr inbounds ptr, ptr %.val11, i64 %10
+  %12 = load ptr, ptr %11, align 8
+  %13 = ptrtoint ptr %12 to i64
+  %14 = and i64 %13, 1
+  %.not.i.i = icmp ne i64 %14, 0
+  %15 = icmp eq ptr %12, null
+  %16 = or i1 %15, %.not.i.i
+  br i1 %16, label %20, label %17
 
-16:                                               ; preds = %6
-  %17 = getelementptr i8, ptr %11, i64 64
-  br label %.sink.split
+17:                                               ; preds = %7
+  %18 = getelementptr i8, ptr %12, i64 64
+  %.val12 = load i8, ptr %18, align 8
+  %19 = trunc i8 %.val12 to i1
+  br label %20
 
-.sink.split:                                      ; preds = %4, %16
-  %.sink = phi ptr [ %17, %16 ], [ %5, %4 ]
-  %.val12 = load i8, ptr %.sink, align 8
-  %18 = trunc i8 %.val12 to i1
-  br label %19
-
-19:                                               ; preds = %.sink.split, %6, %3
-  %.0 = phi i1 [ true, %3 ], [ true, %6 ], [ %18, %.sink.split ]
+20:                                               ; preds = %17, %7, %3, %4
+  %.0 = phi i1 [ %6, %4 ], [ true, %3 ], [ %19, %17 ], [ true, %7 ]
   ret i1 %.0
 }
 

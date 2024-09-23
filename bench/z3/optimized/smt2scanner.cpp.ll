@@ -712,7 +712,7 @@ _ZN6vectorIcLb0EjE9push_backERKc.exit:            ; preds = %lor.lhs.false.i, %i
 if.else:                                          ; preds = %while.body
   %11 = load ptr, ptr %m_string, align 8
   %cmp.i4 = icmp eq ptr %11, null
-  br i1 %cmp.i4, label %return.sink.split.sink.split, label %lor.lhs.false.i5
+  br i1 %cmp.i4, label %if.then.i13, label %lor.lhs.false.i5
 
 lor.lhs.false.i5:                                 ; preds = %if.else
   %arrayidx.i6 = getelementptr inbounds i8, ptr %11, i64 -4
@@ -720,49 +720,66 @@ lor.lhs.false.i5:                                 ; preds = %if.else
   %arrayidx4.i7 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load i32, ptr %arrayidx4.i7, align 4
   %cmp5.i8 = icmp eq i32 %12, %13
-  br i1 %cmp5.i8, label %return.sink.split.sink.split, label %return.sink.split
+  br i1 %cmp5.i8, label %if.then.i13, label %_ZN6vectorIcLb0EjE9push_backEOc.exit
+
+if.then.i13:                                      ; preds = %lor.lhs.false.i5, %if.else
+  tail call void @_ZN6vectorIcLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_string)
+  %.pre.i14 = load ptr, ptr %m_string, align 8
+  %arrayidx8.phi.trans.insert.i15 = getelementptr inbounds i8, ptr %.pre.i14, i64 -4
+  %.pre1.i16 = load i32, ptr %arrayidx8.phi.trans.insert.i15, align 4
+  br label %_ZN6vectorIcLb0EjE9push_backEOc.exit
+
+_ZN6vectorIcLb0EjE9push_backEOc.exit:             ; preds = %lor.lhs.false.i5, %if.then.i13
+  %14 = phi i32 [ %.pre1.i16, %if.then.i13 ], [ %12, %lor.lhs.false.i5 ]
+  %15 = phi ptr [ %.pre.i14, %if.then.i13 ], [ %11, %lor.lhs.false.i5 ]
+  %idx.ext.i9 = zext i32 %14 to i64
+  %add.ptr.i10 = getelementptr inbounds i8, ptr %15, i64 %idx.ext.i9
+  store i8 0, ptr %add.ptr.i10, align 1
+  br label %return.sink.split
 
 while.end:                                        ; preds = %_ZN6vectorIcLb0EjE9push_backERKc.exit, %entry
   %m_string13 = getelementptr inbounds i8, ptr %this, i64 1368
-  %14 = load ptr, ptr %m_string13, align 8
-  %cmp.i17 = icmp eq ptr %14, null
+  %16 = load ptr, ptr %m_string13, align 8
+  %cmp.i17 = icmp eq ptr %16, null
   br i1 %cmp.i17, label %return, label %_ZNK6vectorIcLb0EjE5emptyEv.exit
 
 _ZNK6vectorIcLb0EjE5emptyEv.exit:                 ; preds = %while.end
-  %arrayidx.i18 = getelementptr inbounds i8, ptr %14, i64 -4
-  %15 = load i32, ptr %arrayidx.i18, align 4
-  %cmp3.i = icmp eq i32 %15, 0
+  %arrayidx.i18 = getelementptr inbounds i8, ptr %16, i64 -4
+  %17 = load i32, ptr %arrayidx.i18, align 4
+  %cmp3.i = icmp eq i32 %17, 0
   br i1 %cmp3.i, label %return, label %lor.lhs.false.i20
 
 lor.lhs.false.i20:                                ; preds = %_ZNK6vectorIcLb0EjE5emptyEv.exit
-  %arrayidx4.i22 = getelementptr inbounds i8, ptr %14, i64 -8
-  %16 = load i32, ptr %arrayidx4.i22, align 4
-  %cmp5.i23 = icmp eq i32 %15, %16
-  br i1 %cmp5.i23, label %return.sink.split.sink.split, label %return.sink.split
+  %arrayidx4.i22 = getelementptr inbounds i8, ptr %16, i64 -8
+  %18 = load i32, ptr %arrayidx4.i22, align 4
+  %cmp5.i23 = icmp eq i32 %17, %18
+  br i1 %cmp5.i23, label %if.then.i28, label %_ZN6vectorIcLb0EjE9push_backEOc.exit32
 
-return.sink.split.sink.split:                     ; preds = %lor.lhs.false.i20, %if.else, %lor.lhs.false.i5
-  %m_string13.sink37 = phi ptr [ %m_string, %lor.lhs.false.i5 ], [ %m_string, %if.else ], [ %m_string13, %lor.lhs.false.i20 ]
-  tail call void @_ZN6vectorIcLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_string13.sink37)
-  %.pre.i29 = load ptr, ptr %m_string13.sink37, align 8
+if.then.i28:                                      ; preds = %lor.lhs.false.i20
+  tail call void @_ZN6vectorIcLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_string13)
+  %.pre.i29 = load ptr, ptr %m_string13, align 8
   %arrayidx8.phi.trans.insert.i30 = getelementptr inbounds i8, ptr %.pre.i29, i64 -4
   %.pre1.i31 = load i32, ptr %arrayidx8.phi.trans.insert.i30, align 4
+  br label %_ZN6vectorIcLb0EjE9push_backEOc.exit32
+
+_ZN6vectorIcLb0EjE9push_backEOc.exit32:           ; preds = %lor.lhs.false.i20, %if.then.i28
+  %19 = phi i32 [ %.pre1.i31, %if.then.i28 ], [ %17, %lor.lhs.false.i20 ]
+  %20 = phi ptr [ %.pre.i29, %if.then.i28 ], [ %16, %lor.lhs.false.i20 ]
+  %idx.ext.i24 = zext i32 %19 to i64
+  %add.ptr.i25 = getelementptr inbounds i8, ptr %20, i64 %idx.ext.i24
+  store i8 0, ptr %add.ptr.i25, align 1
   br label %return.sink.split
 
-return.sink.split:                                ; preds = %return.sink.split.sink.split, %lor.lhs.false.i20, %lor.lhs.false.i5
-  %.sink36 = phi i32 [ %12, %lor.lhs.false.i5 ], [ %15, %lor.lhs.false.i20 ], [ %.pre1.i31, %return.sink.split.sink.split ]
-  %.sink = phi ptr [ %11, %lor.lhs.false.i5 ], [ %14, %lor.lhs.false.i20 ], [ %.pre.i29, %return.sink.split.sink.split ]
-  %m_string13.sink35 = phi ptr [ %m_string, %lor.lhs.false.i5 ], [ %m_string13, %lor.lhs.false.i20 ], [ %m_string13.sink37, %return.sink.split.sink.split ]
-  %idx.ext.i24 = zext i32 %.sink36 to i64
-  %add.ptr.i25 = getelementptr inbounds i8, ptr %.sink, i64 %idx.ext.i24
-  store i8 0, ptr %add.ptr.i25, align 1
-  %17 = load ptr, ptr %m_string13.sink35, align 8
-  %arrayidx10.i26 = getelementptr inbounds i8, ptr %17, i64 -4
-  %18 = load i32, ptr %arrayidx10.i26, align 4
-  %inc.i27 = add i32 %18, 1
-  store i32 %inc.i27, ptr %arrayidx10.i26, align 4
-  %19 = load ptr, ptr %m_string13.sink35, align 8
+return.sink.split:                                ; preds = %_ZN6vectorIcLb0EjE9push_backEOc.exit, %_ZN6vectorIcLb0EjE9push_backEOc.exit32
+  %.sink36.in = phi ptr [ %m_string, %_ZN6vectorIcLb0EjE9push_backEOc.exit ], [ %m_string13, %_ZN6vectorIcLb0EjE9push_backEOc.exit32 ]
+  %.sink36 = load ptr, ptr %.sink36.in, align 8
+  %arrayidx10.i11 = getelementptr inbounds i8, ptr %.sink36, i64 -4
+  %21 = load i32, ptr %arrayidx10.i11, align 4
+  %inc.i12 = add i32 %21, 1
+  store i32 %inc.i12, ptr %arrayidx10.i11, align 4
+  %.sink = load ptr, ptr %.sink36.in, align 8
   %m_id21 = getelementptr inbounds i8, ptr %this, i64 32
-  %call22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6symbolaSEPKc(ptr noundef nonnull align 8 dereferenceable(8) %m_id21, ptr noundef %19)
+  %call22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6symbolaSEPKc(ptr noundef nonnull align 8 dereferenceable(8) %m_id21, ptr noundef %.sink)
   br label %return
 
 return:                                           ; preds = %return.sink.split, %while.end, %_ZNK6vectorIcLb0EjE5emptyEv.exit

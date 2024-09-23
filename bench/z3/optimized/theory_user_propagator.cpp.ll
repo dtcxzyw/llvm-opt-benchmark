@@ -4395,13 +4395,13 @@ _ZNK6vectorIPN3smt6theoryELb0EjE3getEjRKS2_.exit.then.i.i43: ; preds = %_ZNK6vec
   br label %if.end21
 
 if.end21:                                         ; preds = %_ZNK6vectorIPN3smt6theoryELb0EjE3getEjRKS2_.exit.then.i.i43, %_ZNK6vectorIPN3smt6theoryELb0EjE3getEjRKS2_.exit.then.i.i
-  %arrayidx.i.i.i45.sink = phi ptr [ %arrayidx.i.i.i45, %_ZNK6vectorIPN3smt6theoryELb0EjE3getEjRKS2_.exit.then.i.i43 ], [ %arrayidx.i.i.i, %_ZNK6vectorIPN3smt6theoryELb0EjE3getEjRKS2_.exit.then.i.i ]
-  %.then.val.i.i46 = load ptr, ptr %arrayidx.i.i.i45.sink, align 8
-  %tobool.not = icmp eq ptr %.then.val.i.i46, null
+  %th.0.in = phi ptr [ %arrayidx.i.i.i, %_ZNK6vectorIPN3smt6theoryELb0EjE3getEjRKS2_.exit.then.i.i ], [ %arrayidx.i.i.i45, %_ZNK6vectorIPN3smt6theoryELb0EjE3getEjRKS2_.exit.then.i.i43 ]
+  %th.0 = load ptr, ptr %th.0.in, align 8
+  %tobool.not = icmp eq ptr %th.0, null
   br i1 %tobool.not, label %if.end59, label %land.lhs.true27
 
 land.lhs.true27:                                  ; preds = %if.end21
-  %m_id.i48 = getelementptr inbounds i8, ptr %.then.val.i.i46, i64 8
+  %m_id.i48 = getelementptr inbounds i8, ptr %th.0, i64 8
   %21 = load i32, ptr %m_id.i48, align 8
   %22 = load i32, ptr %bv, align 8
   %cmp30.not = icmp eq i32 %21, %22
@@ -4411,7 +4411,7 @@ if.then34:                                        ; preds = %land.lhs.true27
   %23 = load i32, ptr %var, align 4
   %m_id.i49 = getelementptr inbounds i8, ptr %this, i64 8
   %24 = load i32, ptr %m_id.i49, align 8
-  %call36 = call { ptr, i32 } @_ZNK3smt9theory_bv18get_bv_with_theoryEji(ptr noundef nonnull align 8 dereferenceable(1048) %.then.val.i.i46, i32 noundef %23, i32 noundef %24)
+  %call36 = call { ptr, i32 } @_ZNK3smt9theory_bv18get_bv_with_theoryEji(ptr noundef nonnull align 8 dereferenceable(1048) %th.0, i32 noundef %23, i32 noundef %24)
   %25 = extractvalue { ptr, i32 } %call36, 0
   %tobool37.not = icmp eq ptr %25, null
   br i1 %tobool37.not, label %if.end59, label %if.end39

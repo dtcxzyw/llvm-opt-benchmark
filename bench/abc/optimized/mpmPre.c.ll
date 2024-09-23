@@ -3238,62 +3238,59 @@ define i32 @Ifd_ManFindDsd_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: read, inaccessiblemem: none) uwtable
 define noundef nonnull ptr @Ifd_ManComputeMatches(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
   %2 = alloca [16 x i32], align 16
   %3 = load i8, ptr %0, align 1
   %.not25 = icmp eq i8 %3, 0
   br i1 %.not25, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %19
-  %indvars.iv = phi i64 [ %indvars.iv.next, %19 ], [ 0, %1 ]
-  %.027 = phi i32 [ %.1, %19 ], [ 0, %1 ]
+.lr.ph:                                           ; preds = %1, %20
+  %indvars.iv = phi i64 [ %indvars.iv.next, %20 ], [ 0, %1 ]
+  %.027 = phi i32 [ %.1, %20 ], [ 0, %1 ]
   %4 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
   %5 = getelementptr inbounds [100 x i32], ptr @Ifd_ManComputeMatches.pMatches, i64 0, i64 %indvars.iv
   store i32 0, ptr %5, align 4
   %6 = load i8, ptr %4, align 1
-  switch i8 %6, label %19 [
+  switch i8 %6, label %20 [
     i8 40, label %7
     i8 91, label %7
     i8 60, label %7
     i8 123, label %7
-    i8 41, label %11
-    i8 93, label %11
-    i8 62, label %11
-    i8 125, label %11
+    i8 41, label %12
+    i8 93, label %12
+    i8 62, label %12
+    i8 125, label %12
   ]
 
 7:                                                ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %8 = add nsw i32 %.027, 1
   %9 = sext i32 %.027 to i64
   %10 = getelementptr inbounds [16 x i32], ptr %2, i64 0, i64 %9
-  br label %.sink.split
+  %11 = trunc nuw nsw i64 %indvars.iv to i32
+  store i32 %11, ptr %10, align 4
+  br label %20
 
-11:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  %12 = add nsw i32 %.027, -1
-  %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds [16 x i32], ptr %2, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
-  %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds [100 x i32], ptr @Ifd_ManComputeMatches.pMatches, i64 0, i64 %16
-  br label %.sink.split
+12:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
+  %13 = add nsw i32 %.027, -1
+  %14 = sext i32 %13 to i64
+  %15 = getelementptr inbounds [16 x i32], ptr %2, i64 0, i64 %14
+  %16 = load i32, ptr %15, align 4
+  %17 = sext i32 %16 to i64
+  %18 = getelementptr inbounds [100 x i32], ptr @Ifd_ManComputeMatches.pMatches, i64 0, i64 %17
+  %19 = trunc nuw nsw i64 %indvars.iv to i32
+  store i32 %19, ptr %18, align 4
+  br label %20
 
-.sink.split:                                      ; preds = %11, %7
-  %.sink29 = phi ptr [ %10, %7 ], [ %17, %11 ]
-  %.1.ph = phi i32 [ %8, %7 ], [ %12, %11 ]
-  %18 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %18, ptr %.sink29, align 4
-  br label %19
-
-19:                                               ; preds = %.sink.split, %.lr.ph
-  %.1 = phi i32 [ %.027, %.lr.ph ], [ %.1.ph, %.sink.split ]
+20:                                               ; preds = %.lr.ph, %7, %12
+  %.1 = phi i32 [ %8, %7 ], [ %13, %12 ], [ %.027, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %20 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.next
-  %21 = load i8, ptr %20, align 1
-  %.not = icmp eq i8 %21, 0
+  %21 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.next
+  %22 = load i8, ptr %21, align 1
+  %.not = icmp eq i8 %22, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
-._crit_edge:                                      ; preds = %19, %1
+._crit_edge:                                      ; preds = %20, %1
   ret ptr @Ifd_ManComputeMatches.pMatches
 }
 
@@ -3312,13 +3309,13 @@ define i32 @Ifd_ManFindDsd(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4
   %7 = getelementptr inbounds i8, ptr %1, i64 1
   %8 = load i8, ptr %7, align 1
   %9 = icmp eq i8 %8, 0
-  br i1 %9, label %33, label %.thread.thread
+  br i1 %9, label %34, label %.thread.thread
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %1, i64 1
   %12 = load i8, ptr %11, align 1
   %13 = icmp eq i8 %12, 0
-  br i1 %13, label %33, label %.thread.thread
+  br i1 %13, label %34, label %.thread.thread
 
 .thread.thread:                                   ; preds = %6, %10
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
@@ -3332,61 +3329,58 @@ define i32 @Ifd_ManFindDsd(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4
 .lr.ph.i.preheader:                               ; preds = %.thread.thread, %.thread
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %29
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %29 ], [ 0, %.lr.ph.i.preheader ]
-  %.027.i = phi i32 [ %.1.i, %29 ], [ 0, %.lr.ph.i.preheader ]
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %30
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %30 ], [ 0, %.lr.ph.i.preheader ]
+  %.027.i = phi i32 [ %.1.i, %30 ], [ 0, %.lr.ph.i.preheader ]
   %14 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
   %15 = getelementptr inbounds [100 x i32], ptr @Ifd_ManComputeMatches.pMatches, i64 0, i64 %indvars.iv.i
   store i32 0, ptr %15, align 4
   %16 = load i8, ptr %14, align 1
-  switch i8 %16, label %29 [
+  switch i8 %16, label %30 [
     i8 40, label %17
     i8 91, label %17
     i8 60, label %17
     i8 123, label %17
-    i8 41, label %21
-    i8 93, label %21
-    i8 62, label %21
-    i8 125, label %21
+    i8 41, label %22
+    i8 93, label %22
+    i8 62, label %22
+    i8 125, label %22
   ]
 
 17:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
   %18 = add nsw i32 %.027.i, 1
   %19 = sext i32 %.027.i to i64
   %20 = getelementptr inbounds [16 x i32], ptr %3, i64 0, i64 %19
-  br label %.sink.split.i
+  %21 = trunc nuw nsw i64 %indvars.iv.i to i32
+  store i32 %21, ptr %20, align 4
+  br label %30
 
-21:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
-  %22 = add nsw i32 %.027.i, -1
-  %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds [16 x i32], ptr %3, i64 0, i64 %23
-  %25 = load i32, ptr %24, align 4
-  %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds [100 x i32], ptr @Ifd_ManComputeMatches.pMatches, i64 0, i64 %26
-  br label %.sink.split.i
+22:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
+  %23 = add nsw i32 %.027.i, -1
+  %24 = sext i32 %23 to i64
+  %25 = getelementptr inbounds [16 x i32], ptr %3, i64 0, i64 %24
+  %26 = load i32, ptr %25, align 4
+  %27 = sext i32 %26 to i64
+  %28 = getelementptr inbounds [100 x i32], ptr @Ifd_ManComputeMatches.pMatches, i64 0, i64 %27
+  %29 = trunc nuw nsw i64 %indvars.iv.i to i32
+  store i32 %29, ptr %28, align 4
+  br label %30
 
-.sink.split.i:                                    ; preds = %21, %17
-  %.sink29.i = phi ptr [ %20, %17 ], [ %27, %21 ]
-  %.1.ph.i = phi i32 [ %18, %17 ], [ %22, %21 ]
-  %28 = trunc nuw nsw i64 %indvars.iv.i to i32
-  store i32 %28, ptr %.sink29.i, align 4
-  br label %29
-
-29:                                               ; preds = %.sink.split.i, %.lr.ph.i
-  %.1.i = phi i32 [ %.027.i, %.lr.ph.i ], [ %.1.ph.i, %.sink.split.i ]
+30:                                               ; preds = %22, %17, %.lr.ph.i
+  %.1.i = phi i32 [ %18, %17 ], [ %23, %22 ], [ %.027.i, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %30 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.next.i
-  %31 = load i8, ptr %30, align 1
-  %.not.i = icmp eq i8 %31, 0
+  %31 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.next.i
+  %32 = load i8, ptr %31, align 1
+  %.not.i = icmp eq i8 %32, 0
   br i1 %.not.i, label %Ifd_ManComputeMatches.exit, label %.lr.ph.i, !llvm.loop !23
 
-Ifd_ManComputeMatches.exit:                       ; preds = %29, %.thread
+Ifd_ManComputeMatches.exit:                       ; preds = %30, %.thread
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
-  %32 = call i32 @Ifd_ManFindDsd_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %4, ptr noundef nonnull @Ifd_ManComputeMatches.pMatches)
-  br label %33
+  %33 = call i32 @Ifd_ManFindDsd_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %4, ptr noundef nonnull @Ifd_ManComputeMatches.pMatches)
+  br label %34
 
-33:                                               ; preds = %10, %6, %Ifd_ManComputeMatches.exit
-  %.0 = phi i32 [ %32, %Ifd_ManComputeMatches.exit ], [ 0, %6 ], [ 1, %10 ]
+34:                                               ; preds = %10, %6, %Ifd_ManComputeMatches.exit
+  %.0 = phi i32 [ %33, %Ifd_ManComputeMatches.exit ], [ 0, %6 ], [ 1, %10 ]
   ret i32 %.0
 }
 
@@ -5704,7 +5698,7 @@ attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #9 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree norecurse nosync nounwind memory(write, argmem: read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

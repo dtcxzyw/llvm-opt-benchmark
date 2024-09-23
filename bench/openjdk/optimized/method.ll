@@ -8577,9 +8577,18 @@ _ZN6Method19get_method_countersEP6Thread.exit.thread.i.i.us: ; preds = %_ZN6Meth
 
 _ZN14BreakpointInfo5clearEP6Method.exit.us:       ; preds = %_ZN6Method19get_method_countersEP6Thread.exit.thread.i.i.us, %_ZN6Method19get_method_countersEP6Thread.exit.i.i.us
   %.not22.us = icmp eq ptr %.02024.us, null
-  %44 = getelementptr inbounds i8, ptr %.02024.us, i64 16
-  %.sink = select i1 %.not22.us, ptr %9, ptr %44
-  store ptr %17, ptr %.sink, align 8
+  br i1 %.not22.us, label %46, label %44
+
+44:                                               ; preds = %_ZN14BreakpointInfo5clearEP6Method.exit.us
+  %45 = getelementptr inbounds i8, ptr %.02024.us, i64 16
+  store ptr %17, ptr %45, align 8
+  br label %._crit_edge.split.us
+
+46:                                               ; preds = %_ZN14BreakpointInfo5clearEP6Method.exit.us
+  store ptr %17, ptr %9, align 8
+  br label %._crit_edge.split.us
+
+._crit_edge.split.us:                             ; preds = %46, %44
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %.025.us) #24
   br label %._crit_edge26
 
@@ -8588,68 +8597,77 @@ _ZN14BreakpointInfo5matchEPK6Methodi.exit.thread.us: ; preds = %_ZN14BreakpointI
   br i1 %.not.us, label %._crit_edge26, label %.lr.ph.split.us, !llvm.loop !28
 
 .lr.ph.split.split:                               ; preds = %.lr.ph, %_ZN14BreakpointInfo5matchEPK6Methodi.exit.thread
-  %.025 = phi ptr [ %46, %_ZN14BreakpointInfo5matchEPK6Methodi.exit.thread ], [ %10, %.lr.ph ]
+  %.025 = phi ptr [ %48, %_ZN14BreakpointInfo5matchEPK6Methodi.exit.thread ], [ %10, %.lr.ph ]
   %.02024 = phi ptr [ %.1, %_ZN14BreakpointInfo5matchEPK6Methodi.exit.thread ], [ null, %.lr.ph ]
-  %45 = getelementptr inbounds i8, ptr %.025, i64 16
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %.025, i64 8
-  %48 = load i16, ptr %47, align 8
-  %49 = load ptr, ptr %3, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 36
-  %51 = load i16, ptr %50, align 4
-  %52 = icmp eq i16 %48, %51
-  br i1 %52, label %_ZN14BreakpointInfo5matchEPK6Method.exit, label %_ZN14BreakpointInfo5matchEPK6Methodi.exit.thread
+  %47 = getelementptr inbounds i8, ptr %.025, i64 16
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %.025, i64 8
+  %50 = load i16, ptr %49, align 8
+  %51 = load ptr, ptr %3, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 36
+  %53 = load i16, ptr %52, align 4
+  %54 = icmp eq i16 %50, %53
+  br i1 %54, label %_ZN14BreakpointInfo5matchEPK6Method.exit, label %_ZN14BreakpointInfo5matchEPK6Methodi.exit.thread
 
 _ZN14BreakpointInfo5matchEPK6Method.exit:         ; preds = %.lr.ph.split.split
-  %53 = getelementptr inbounds i8, ptr %.025, i64 10
-  %54 = load i16, ptr %53, align 2
-  %55 = getelementptr inbounds i8, ptr %49, i64 38
+  %55 = getelementptr inbounds i8, ptr %.025, i64 10
   %56 = load i16, ptr %55, align 2
-  %57 = icmp eq i16 %54, %56
-  br i1 %57, label %58, label %_ZN14BreakpointInfo5matchEPK6Methodi.exit.thread
+  %57 = getelementptr inbounds i8, ptr %51, i64 38
+  %58 = load i16, ptr %57, align 2
+  %59 = icmp eq i16 %56, %58
+  br i1 %59, label %60, label %_ZN14BreakpointInfo5matchEPK6Methodi.exit.thread
 
-58:                                               ; preds = %_ZN14BreakpointInfo5matchEPK6Method.exit
-  %59 = load i32, ptr %.025, align 8
-  %60 = trunc i32 %59 to i8
-  %61 = getelementptr inbounds i8, ptr %.025, i64 4
-  %62 = load i32, ptr %61, align 4
-  %63 = getelementptr inbounds i8, ptr %49, i64 56
-  %64 = sext i32 %62 to i64
-  %65 = getelementptr inbounds i8, ptr %63, i64 %64
-  store i8 %60, ptr %65, align 1
-  %66 = load ptr, ptr %12, align 8
-  %67 = icmp eq ptr %66, null
-  br i1 %67, label %_ZN6Method19get_method_countersEP6Thread.exit.i.i, label %_ZN6Method19get_method_countersEP6Thread.exit.thread.i.i
+60:                                               ; preds = %_ZN14BreakpointInfo5matchEPK6Method.exit
+  %61 = load i32, ptr %.025, align 8
+  %62 = trunc i32 %61 to i8
+  %63 = getelementptr inbounds i8, ptr %.025, i64 4
+  %64 = load i32, ptr %63, align 4
+  %65 = getelementptr inbounds i8, ptr %51, i64 56
+  %66 = sext i32 %64 to i64
+  %67 = getelementptr inbounds i8, ptr %65, i64 %66
+  store i8 %62, ptr %67, align 1
+  %68 = load ptr, ptr %12, align 8
+  %69 = icmp eq ptr %68, null
+  br i1 %69, label %_ZN6Method19get_method_countersEP6Thread.exit.i.i, label %_ZN6Method19get_method_countersEP6Thread.exit.thread.i.i
 
-_ZN6Method19get_method_countersEP6Thread.exit.i.i: ; preds = %58
-  %68 = load ptr, ptr %13, align 8
-  %69 = tail call noundef ptr @_ZN6Method21build_method_countersEP6ThreadPS_(ptr noundef %68, ptr noundef nonnull %0)
+_ZN6Method19get_method_countersEP6Thread.exit.i.i: ; preds = %60
+  %70 = load ptr, ptr %13, align 8
+  %71 = tail call noundef ptr @_ZN6Method21build_method_countersEP6ThreadPS_(ptr noundef %70, ptr noundef nonnull %0)
   %.pre.i.i.i = load ptr, ptr %12, align 8
   %.not.i.i = icmp eq ptr %.pre.i.i.i, null
   br i1 %.not.i.i, label %_ZN14BreakpointInfo5clearEP6Method.exit, label %_ZN6Method19get_method_countersEP6Thread.exit.thread.i.i
 
-_ZN6Method19get_method_countersEP6Thread.exit.thread.i.i: ; preds = %_ZN6Method19get_method_countersEP6Thread.exit.i.i, %58
-  %70 = phi ptr [ %.pre.i.i.i, %_ZN6Method19get_method_countersEP6Thread.exit.i.i ], [ %66, %58 ]
-  %71 = getelementptr inbounds i8, ptr %70, i64 42
-  %72 = load i16, ptr %71, align 2
-  %73 = add i16 %72, -1
-  store i16 %73, ptr %71, align 2
+_ZN6Method19get_method_countersEP6Thread.exit.thread.i.i: ; preds = %_ZN6Method19get_method_countersEP6Thread.exit.i.i, %60
+  %72 = phi ptr [ %.pre.i.i.i, %_ZN6Method19get_method_countersEP6Thread.exit.i.i ], [ %68, %60 ]
+  %73 = getelementptr inbounds i8, ptr %72, i64 42
+  %74 = load i16, ptr %73, align 2
+  %75 = add i16 %74, -1
+  store i16 %75, ptr %73, align 2
   br label %_ZN14BreakpointInfo5clearEP6Method.exit
 
 _ZN14BreakpointInfo5clearEP6Method.exit:          ; preds = %_ZN6Method19get_method_countersEP6Thread.exit.i.i, %_ZN6Method19get_method_countersEP6Thread.exit.thread.i.i
   %.not22 = icmp eq ptr %.02024, null
-  %74 = getelementptr inbounds i8, ptr %.02024, i64 16
-  %.sink35 = select i1 %.not22, ptr %9, ptr %74
-  store ptr %46, ptr %.sink35, align 8
+  br i1 %.not22, label %78, label %76
+
+76:                                               ; preds = %_ZN14BreakpointInfo5clearEP6Method.exit
+  %77 = getelementptr inbounds i8, ptr %.02024, i64 16
+  store ptr %48, ptr %77, align 8
+  br label %79
+
+78:                                               ; preds = %_ZN14BreakpointInfo5clearEP6Method.exit
+  store ptr %48, ptr %9, align 8
+  br label %79
+
+79:                                               ; preds = %76, %78
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %.025) #24
   br label %_ZN14BreakpointInfo5matchEPK6Methodi.exit.thread
 
-_ZN14BreakpointInfo5matchEPK6Methodi.exit.thread: ; preds = %_ZN14BreakpointInfo5clearEP6Method.exit, %.lr.ph.split.split, %_ZN14BreakpointInfo5matchEPK6Method.exit
-  %.1 = phi ptr [ %.02024, %_ZN14BreakpointInfo5clearEP6Method.exit ], [ %.025, %_ZN14BreakpointInfo5matchEPK6Method.exit ], [ %.025, %.lr.ph.split.split ]
-  %.not = icmp eq ptr %46, null
+_ZN14BreakpointInfo5matchEPK6Methodi.exit.thread: ; preds = %79, %.lr.ph.split.split, %_ZN14BreakpointInfo5matchEPK6Method.exit
+  %.1 = phi ptr [ %.02024, %79 ], [ %.025, %_ZN14BreakpointInfo5matchEPK6Method.exit ], [ %.025, %.lr.ph.split.split ]
+  %.not = icmp eq ptr %48, null
   br i1 %.not, label %._crit_edge26, label %.lr.ph.split.split, !llvm.loop !28
 
-._crit_edge26:                                    ; preds = %_ZN14BreakpointInfo5matchEPK6Methodi.exit.thread, %_ZN14BreakpointInfo5matchEPK6Methodi.exit.thread.us, %_ZN14BreakpointInfo5clearEP6Method.exit.us, %2
+._crit_edge26:                                    ; preds = %_ZN14BreakpointInfo5matchEPK6Methodi.exit.thread, %_ZN14BreakpointInfo5matchEPK6Methodi.exit.thread.us, %._crit_edge.split.us, %2
   ret void
 }
 
@@ -8722,14 +8740,23 @@ _ZN6Method19get_method_countersEP6Thread.exit.thread.i.i.i: ; preds = %_ZN6Metho
 
 _ZN14BreakpointInfo5clearEP6Method.exit.i:        ; preds = %_ZN6Method19get_method_countersEP6Thread.exit.thread.i.i.i, %_ZN6Method19get_method_countersEP6Thread.exit.i.i.i
   %.not22.i = icmp eq ptr %.02024.i, null
-  %41 = getelementptr inbounds i8, ptr %.02024.i, i64 16
-  %.sink35.i = select i1 %.not22.i, ptr %8, ptr %41
-  store ptr %13, ptr %.sink35.i, align 8
+  br i1 %.not22.i, label %43, label %41
+
+41:                                               ; preds = %_ZN14BreakpointInfo5clearEP6Method.exit.i
+  %42 = getelementptr inbounds i8, ptr %.02024.i, i64 16
+  store ptr %13, ptr %42, align 8
+  br label %44
+
+43:                                               ; preds = %_ZN14BreakpointInfo5clearEP6Method.exit.i
+  store ptr %13, ptr %8, align 8
+  br label %44
+
+44:                                               ; preds = %43, %41
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %.025.i) #24
   br label %_ZN14BreakpointInfo5matchEPK6Methodi.exit.thread.i
 
-_ZN14BreakpointInfo5matchEPK6Methodi.exit.thread.i: ; preds = %_ZN14BreakpointInfo5clearEP6Method.exit.i, %_ZN14BreakpointInfo5matchEPK6Method.exit.i, %.lr.ph.split.split.i
-  %.1.i = phi ptr [ %.02024.i, %_ZN14BreakpointInfo5clearEP6Method.exit.i ], [ %.025.i, %_ZN14BreakpointInfo5matchEPK6Method.exit.i ], [ %.025.i, %.lr.ph.split.split.i ]
+_ZN14BreakpointInfo5matchEPK6Methodi.exit.thread.i: ; preds = %44, %_ZN14BreakpointInfo5matchEPK6Method.exit.i, %.lr.ph.split.split.i
+  %.1.i = phi ptr [ %.02024.i, %44 ], [ %.025.i, %_ZN14BreakpointInfo5matchEPK6Method.exit.i ], [ %.025.i, %.lr.ph.split.split.i ]
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %_ZL13clear_matchesP6Methodi.exit, label %.lr.ph.split.split.i, !llvm.loop !28
 

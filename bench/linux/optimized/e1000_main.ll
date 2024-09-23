@@ -1411,8 +1411,8 @@ define dso_local noundef range(i32 -12, 1) i32 @e1000_setup_all_tx_resources(ptr
   %10 = getelementptr inbounds i8, ptr %0, i64 1144
   br label %11
 
-11:                                               ; preds = %97, %5
-  %12 = phi i64 [ 0, %5 ], [ %103, %97 ]
+11:                                               ; preds = %96, %5
+  %12 = phi i64 [ 0, %5 ], [ %102, %96 ]
   %13 = load ptr, ptr %6, align 8
   %14 = getelementptr %struct.e1000_tx_ring, ptr %13, i64 %12
   %15 = load ptr, ptr %7, align 8
@@ -1444,7 +1444,7 @@ define dso_local noundef range(i32 -12, 1) i32 @e1000_setup_all_tx_resources(ptr
 34:                                               ; preds = %23
   %35 = load i32, ptr %26, align 8
   %36 = load i32, ptr %8, align 8
-  switch i32 %36, label %97 [
+  switch i32 %36, label %96 [
     i32 6, label %37
     i32 9, label %37
     i32 8, label %37
@@ -1457,7 +1457,7 @@ define dso_local noundef range(i32 -12, 1) i32 @e1000_setup_all_tx_resources(ptr
   %41 = add i64 %40, %38
   %42 = xor i64 %41, %39
   %43 = icmp ult i64 %42, 65536
-  br i1 %43, label %97, label %44
+  br i1 %43, label %96, label %44
 
 44:                                               ; preds = %37
   %45 = load i64, ptr %31, align 8
@@ -1518,80 +1518,80 @@ define dso_local noundef range(i32 -12, 1) i32 @e1000_setup_all_tx_resources(ptr
   tail call void @dma_free_attrs(ptr noundef %29, i64 noundef %55, ptr noundef nonnull %32, i64 noundef %45, i64 noundef 0) #16
   %.pre76 = load ptr, ptr %14, align 8
   %.pre77 = load i32, ptr %26, align 8
-  br label %97
+  br label %96
 
 73:                                               ; preds = %51
   tail call void @dma_free_attrs(ptr noundef %29, i64 noundef %55, ptr noundef nonnull %32, i64 noundef %45, i64 noundef 0) #16
   br label %.loopexit6.sink.split
 
 .loopexit6.sink.split:                            ; preds = %23, %71, %64, %73
-  %.sink114 = getelementptr inbounds i8, ptr %14, i64 32
-  %74 = load ptr, ptr %.sink114, align 8
-  tail call void @vfree(ptr noundef %74) #16
+  %.sink.in = getelementptr inbounds i8, ptr %14, i64 32
+  %.sink = load ptr, ptr %.sink.in, align 8
+  tail call void @vfree(ptr noundef %.sink) #16
   br label %.loopexit6
 
 .loopexit6:                                       ; preds = %11, %.loopexit6.sink.split
-  %75 = trunc i64 %12 to i32
-  %76 = load i32, ptr %9, align 8
-  %77 = and i32 %76, 2
-  %78 = icmp eq i32 %77, 0
-  br i1 %78, label %81, label %79
+  %74 = trunc i64 %12 to i32
+  %75 = load i32, ptr %9, align 8
+  %76 = and i32 %75, 2
+  %77 = icmp eq i32 %76, 0
+  br i1 %77, label %80, label %78
 
-79:                                               ; preds = %.loopexit6
-  %80 = load ptr, ptr %10, align 8
-  tail call void (ptr, ptr, ...) @netdev_err(ptr noundef %80, ptr noundef nonnull @.str.2, i32 noundef %75) #15
-  br label %81
+78:                                               ; preds = %.loopexit6
+  %79 = load ptr, ptr %10, align 8
+  tail call void (ptr, ptr, ...) @netdev_err(ptr noundef %79, ptr noundef nonnull @.str.2, i32 noundef %74) #15
+  br label %80
 
-81:                                               ; preds = %79, %.loopexit6
-  %82 = add i32 %75, -1
-  %83 = icmp sgt i32 %82, -1
-  br i1 %83, label %.preheader.preheader, label %.loopexit
+80:                                               ; preds = %78, %.loopexit6
+  %81 = add i32 %74, -1
+  %82 = icmp sgt i32 %81, -1
+  br i1 %82, label %.preheader.preheader, label %.loopexit
 
-.preheader.preheader:                             ; preds = %81
-  %84 = zext nneg i32 %82 to i64
+.preheader.preheader:                             ; preds = %80
+  %83 = zext nneg i32 %81 to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %indvars.iv = phi i64 [ %84, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
-  %85 = load ptr, ptr %6, align 8
-  %86 = getelementptr %struct.e1000_tx_ring, ptr %85, i64 %indvars.iv
-  %87 = load ptr, ptr %7, align 8
-  tail call fastcc void @e1000_clean_tx_ring(ptr noundef %0, ptr noundef %86)
-  %88 = getelementptr inbounds i8, ptr %86, i64 32
-  %89 = load ptr, ptr %88, align 8
-  tail call void @vfree(ptr noundef %89) #16
-  store ptr null, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %87, i64 184
-  %91 = getelementptr inbounds i8, ptr %86, i64 16
-  %92 = load i32, ptr %91, align 8
-  %93 = zext i32 %92 to i64
-  %94 = load ptr, ptr %86, align 8
-  %95 = getelementptr inbounds i8, ptr %86, i64 8
-  %96 = load i64, ptr %95, align 8
-  tail call void @dma_free_attrs(ptr noundef %90, i64 noundef %93, ptr noundef %94, i64 noundef %96, i64 noundef 0) #16
-  store ptr null, ptr %86, align 8
+  %indvars.iv = phi i64 [ %83, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
+  %84 = load ptr, ptr %6, align 8
+  %85 = getelementptr %struct.e1000_tx_ring, ptr %84, i64 %indvars.iv
+  %86 = load ptr, ptr %7, align 8
+  tail call fastcc void @e1000_clean_tx_ring(ptr noundef %0, ptr noundef %85)
+  %87 = getelementptr inbounds i8, ptr %85, i64 32
+  %88 = load ptr, ptr %87, align 8
+  tail call void @vfree(ptr noundef %88) #16
+  store ptr null, ptr %87, align 8
+  %89 = getelementptr inbounds i8, ptr %86, i64 184
+  %90 = getelementptr inbounds i8, ptr %85, i64 16
+  %91 = load i32, ptr %90, align 8
+  %92 = zext i32 %91 to i64
+  %93 = load ptr, ptr %85, align 8
+  %94 = getelementptr inbounds i8, ptr %85, i64 8
+  %95 = load i64, ptr %94, align 8
+  tail call void @dma_free_attrs(ptr noundef %89, i64 noundef %92, ptr noundef %93, i64 noundef %95, i64 noundef 0) #16
+  store ptr null, ptr %85, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv, 0
   br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !29
 
-97:                                               ; preds = %.thread4, %37, %34
-  %98 = phi i32 [ %.pre77, %.thread4 ], [ %35, %37 ], [ %35, %34 ]
-  %99 = phi ptr [ %.pre76, %.thread4 ], [ %32, %37 ], [ %32, %34 ]
-  %100 = zext i32 %98 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %99, i8 0, i64 %100, i1 false)
-  %101 = getelementptr inbounds i8, ptr %14, i64 24
-  store i32 0, ptr %101, align 8
-  %102 = getelementptr inbounds i8, ptr %14, i64 28
-  store i32 0, ptr %102, align 4
-  %103 = add nuw nsw i64 %12, 1
-  %104 = load i32, ptr %2, align 8
-  %105 = sext i32 %104 to i64
-  %106 = icmp slt i64 %103, %105
-  br i1 %106, label %11, label %.loopexit, !llvm.loop !30
+96:                                               ; preds = %.thread4, %37, %34
+  %97 = phi i32 [ %.pre77, %.thread4 ], [ %35, %37 ], [ %35, %34 ]
+  %98 = phi ptr [ %.pre76, %.thread4 ], [ %32, %37 ], [ %32, %34 ]
+  %99 = zext i32 %97 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %98, i8 0, i64 %99, i1 false)
+  %100 = getelementptr inbounds i8, ptr %14, i64 24
+  store i32 0, ptr %100, align 8
+  %101 = getelementptr inbounds i8, ptr %14, i64 28
+  store i32 0, ptr %101, align 4
+  %102 = add nuw nsw i64 %12, 1
+  %103 = load i32, ptr %2, align 8
+  %104 = sext i32 %103 to i64
+  %105 = icmp slt i64 %102, %104
+  br i1 %105, label %11, label %.loopexit, !llvm.loop !30
 
-.loopexit:                                        ; preds = %97, %.preheader, %81, %1
-  %107 = phi i32 [ -12, %81 ], [ 0, %1 ], [ -12, %.preheader ], [ 0, %97 ]
-  ret i32 %107
+.loopexit:                                        ; preds = %96, %.preheader, %80, %1
+  %106 = phi i32 [ -12, %80 ], [ 0, %1 ], [ -12, %.preheader ], [ 0, %96 ]
+  ret i32 %106
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

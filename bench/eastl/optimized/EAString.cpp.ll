@@ -12733,7 +12733,11 @@ if.end37:                                         ; preds = %if.end33, %if.end23
 
 if.then39:                                        ; preds = %if.end37
   %cmp40.not = icmp ult i32 %nPositionResult.0, %nResultCapacity
-  br i1 %cmp40.not, label %if.end51, label %return.sink.split
+  br i1 %cmp40.not, label %if.end51, label %if.then41
+
+if.then41:                                        ; preds = %if.then39
+  store i16 0, ptr %pResult, align 2
+  br label %return
 
 if.end51:                                         ; preds = %if.then39
   %inc52 = add nuw nsw i32 %nPositionResult.0, 1
@@ -12772,7 +12776,8 @@ if.then63:                                        ; preds = %for.body
   %22 = and i64 %indvars.iv, 4294967295
   %23 = getelementptr i16, ptr %pResult, i64 %22
   %arrayidx72 = getelementptr i8, ptr %23, i64 -2
-  br label %return.sink.split
+  store i16 0, ptr %arrayidx72, align 2
+  br label %return
 
 if.end73:                                         ; preds = %for.body
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
@@ -12836,7 +12841,8 @@ if.then104:                                       ; preds = %if.then102
   %30 = zext nneg i32 %nPositionResult.2 to i64
   %31 = getelementptr i16, ptr %pResult, i64 %30
   %arrayidx113 = getelementptr i8, ptr %31, i64 -2
-  br label %return.sink.split
+  store i16 0, ptr %arrayidx113, align 2
+  br label %return
 
 if.end114:                                        ; preds = %if.then102
   %inc115 = add nsw i32 %nPositionResult.2, 1
@@ -12862,7 +12868,8 @@ if.then124:                                       ; preds = %for.body122
   %33 = zext nneg i32 %nResultCapacity to i64
   %34 = getelementptr i16, ptr %pResult, i64 %33
   %arrayidx133 = getelementptr i8, ptr %34, i64 -2
-  br label %return.sink.split
+  store i16 0, ptr %arrayidx133, align 2
+  br label %return
 
 if.end134:                                        ; preds = %for.body122
   %indvars.iv.next157 = add nsw i64 %indvars.iv156, 1
@@ -12953,21 +12960,17 @@ if.then190:                                       ; preds = %if.end188
   %43 = zext nneg i32 %nPositionResult.4 to i64
   %44 = getelementptr i16, ptr %pResult, i64 %43
   %arrayidx199 = getelementptr i8, ptr %44, i64 -2
-  br label %return.sink.split
+  store i16 0, ptr %arrayidx199, align 2
+  br label %return
 
 if.end200:                                        ; preds = %if.end188
   %idxprom201 = sext i32 %nPositionResult.4 to i64
   %arrayidx202 = getelementptr inbounds i16, ptr %pResult, i64 %idxprom201
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.then39, %if.then63, %if.then104, %if.then124, %if.then190, %if.end200
-  %arrayidx202.sink = phi ptr [ %arrayidx202, %if.end200 ], [ %arrayidx199, %if.then190 ], [ %arrayidx133, %if.then124 ], [ %arrayidx113, %if.then104 ], [ %arrayidx72, %if.then63 ], [ %pResult, %if.then39 ]
-  %retval.0.ph = phi ptr [ %pResult, %if.end200 ], [ null, %if.then190 ], [ null, %if.then124 ], [ null, %if.then104 ], [ null, %if.then63 ], [ null, %if.then39 ]
-  store i16 0, ptr %arrayidx202.sink, align 2
+  store i16 0, ptr %arrayidx202, align 2
   br label %return
 
-return:                                           ; preds = %while.body172, %land.rhs166, %do.body12.i.i, %return.sink.split, %if.then153, %while.end, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ null, %while.end ], [ null, %if.then153 ], [ %retval.0.ph, %return.sink.split ], [ %pResult, %do.body12.i.i ], [ null, %land.rhs166 ], [ null, %while.body172 ]
+return:                                           ; preds = %while.body172, %land.rhs166, %do.body12.i.i, %if.then153, %while.end, %entry, %if.end200, %if.then190, %if.then124, %if.then104, %if.then63, %if.then41
+  %retval.0 = phi ptr [ null, %if.then41 ], [ null, %if.then63 ], [ null, %if.then104 ], [ null, %if.then124 ], [ null, %if.then190 ], [ %pResult, %if.end200 ], [ null, %entry ], [ null, %while.end ], [ null, %if.then153 ], [ %pResult, %do.body12.i.i ], [ null, %land.rhs166 ], [ null, %while.body172 ]
   ret ptr %retval.0
 }
 
@@ -13097,7 +13100,11 @@ if.end37:                                         ; preds = %if.end33, %if.end23
 
 if.then39:                                        ; preds = %if.end37
   %cmp40.not = icmp ult i32 %nPositionResult.0, %nResultCapacity
-  br i1 %cmp40.not, label %if.end51, label %return.sink.split
+  br i1 %cmp40.not, label %if.end51, label %if.then41
+
+if.then41:                                        ; preds = %if.then39
+  store i32 0, ptr %pResult, align 4
+  br label %return
 
 if.end51:                                         ; preds = %if.then39
   %inc52 = add nuw nsw i32 %nPositionResult.0, 1
@@ -13136,7 +13143,8 @@ if.then63:                                        ; preds = %for.body
   %13 = and i64 %indvars.iv, 4294967295
   %14 = getelementptr i32, ptr %pResult, i64 %13
   %arrayidx72 = getelementptr i8, ptr %14, i64 -4
-  br label %return.sink.split
+  store i32 0, ptr %arrayidx72, align 4
+  br label %return
 
 if.end73:                                         ; preds = %for.body
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
@@ -13200,7 +13208,8 @@ if.then104:                                       ; preds = %if.then102
   %21 = zext nneg i32 %nPositionResult.2 to i64
   %22 = getelementptr i32, ptr %pResult, i64 %21
   %arrayidx113 = getelementptr i8, ptr %22, i64 -4
-  br label %return.sink.split
+  store i32 0, ptr %arrayidx113, align 4
+  br label %return
 
 if.end114:                                        ; preds = %if.then102
   %inc115 = add nsw i32 %nPositionResult.2, 1
@@ -13226,7 +13235,8 @@ if.then124:                                       ; preds = %for.body122
   %24 = zext nneg i32 %nResultCapacity to i64
   %25 = getelementptr i32, ptr %pResult, i64 %24
   %arrayidx133 = getelementptr i8, ptr %25, i64 -4
-  br label %return.sink.split
+  store i32 0, ptr %arrayidx133, align 4
+  br label %return
 
 if.end134:                                        ; preds = %for.body122
   %indvars.iv.next150 = add nsw i64 %indvars.iv149, 1
@@ -13317,21 +13327,17 @@ if.then189:                                       ; preds = %if.end187
   %34 = zext nneg i32 %nPositionResult.4 to i64
   %35 = getelementptr i32, ptr %pResult, i64 %34
   %arrayidx198 = getelementptr i8, ptr %35, i64 -4
-  br label %return.sink.split
+  store i32 0, ptr %arrayidx198, align 4
+  br label %return
 
 if.end199:                                        ; preds = %if.end187
   %idxprom200 = sext i32 %nPositionResult.4 to i64
   %arrayidx201 = getelementptr inbounds i32, ptr %pResult, i64 %idxprom200
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.then39, %if.then63, %if.then104, %if.then124, %if.then189, %if.end199
-  %arrayidx201.sink = phi ptr [ %arrayidx201, %if.end199 ], [ %arrayidx198, %if.then189 ], [ %arrayidx133, %if.then124 ], [ %arrayidx113, %if.then104 ], [ %arrayidx72, %if.then63 ], [ %pResult, %if.then39 ]
-  %retval.0.ph = phi ptr [ %pResult, %if.end199 ], [ null, %if.then189 ], [ null, %if.then124 ], [ null, %if.then104 ], [ null, %if.then63 ], [ null, %if.then39 ]
-  store i32 0, ptr %arrayidx201.sink, align 4
+  store i32 0, ptr %arrayidx201, align 4
   br label %return
 
-return:                                           ; preds = %while.body171, %land.rhs166, %do.body10.i.i, %return.sink.split, %if.then153, %while.end, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ null, %while.end ], [ null, %if.then153 ], [ %retval.0.ph, %return.sink.split ], [ %pResult, %do.body10.i.i ], [ null, %land.rhs166 ], [ null, %while.body171 ]
+return:                                           ; preds = %while.body171, %land.rhs166, %do.body10.i.i, %if.then153, %while.end, %entry, %if.end199, %if.then189, %if.then124, %if.then104, %if.then63, %if.then41
+  %retval.0 = phi ptr [ null, %if.then41 ], [ null, %if.then63 ], [ null, %if.then104 ], [ null, %if.then124 ], [ null, %if.then189 ], [ %pResult, %if.end199 ], [ null, %entry ], [ null, %while.end ], [ null, %if.then153 ], [ %pResult, %do.body10.i.i ], [ null, %land.rhs166 ], [ null, %while.body171 ]
   ret ptr %retval.0
 }
 

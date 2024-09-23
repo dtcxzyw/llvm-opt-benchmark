@@ -342,38 +342,35 @@ entry:
 
 _ZNKR5folly8OptionalIN8proxygen5HTTP39ErrorCodeEEdeEv.exit: ; preds = %entry
   %http3ErrorCode_ = getelementptr inbounds i8, ptr %this, i64 56
-  br label %return.sink.split
+  %1 = load i64, ptr %http3ErrorCode_, align 8
+  br label %return
 
 if.end:                                           ; preds = %entry
   %httpStatusCode_.i.i = getelementptr inbounds i8, ptr %this, i64 52
-  %1 = load i32, ptr %httpStatusCode_.i.i, align 4
-  %cmp.i.not.i = icmp eq i32 %1, 0
+  %2 = load i32, ptr %httpStatusCode_.i.i, align 4
+  %cmp.i.not.i = icmp eq i32 %2, 0
   br i1 %cmp.i.not.i, label %if.else.i, label %return
 
 if.else.i:                                        ; preds = %if.end
   %hasValue.i.i.i1 = getelementptr inbounds i8, ptr %this, i64 73
-  %2 = load i8, ptr %hasValue.i.i.i1, align 1
-  %tobool.i.i.i2 = trunc i8 %2 to i1
+  %3 = load i8, ptr %hasValue.i.i.i1, align 1
+  %tobool.i.i.i2 = trunc i8 %3 to i1
   br i1 %tobool.i.i.i2, label %_ZNK8proxygen13HTTPException18getCodecStatusCodeEv.exit.i, label %return
 
 _ZNK8proxygen13HTTPException18getCodecStatusCodeEv.exit.i: ; preds = %if.else.i
   %codecStatusCode_.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  %3 = load i8, ptr %codecStatusCode_.i.i, align 8
-  %4 = icmp ult i8 %3, 12
-  br i1 %4, label %switch.lookup, label %return
+  %4 = load i8, ptr %codecStatusCode_.i.i, align 8
+  %5 = icmp ult i8 %4, 12
+  br i1 %5, label %switch.lookup, label %return
 
 switch.lookup:                                    ; preds = %_ZNK8proxygen13HTTPException18getCodecStatusCodeEv.exit.i
-  %5 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds [12 x i64], ptr @switch.table._ZN8proxygenlsERSoRKNS_13HTTPExceptionE, i64 0, i64 %5
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %_ZNKR5folly8OptionalIN8proxygen5HTTP39ErrorCodeEEdeEv.exit, %switch.lookup
-  %switch.gep.sink = phi ptr [ %switch.gep, %switch.lookup ], [ %http3ErrorCode_, %_ZNKR5folly8OptionalIN8proxygen5HTTP39ErrorCodeEEdeEv.exit ]
-  %switch.load = load i64, ptr %switch.gep.sink, align 8
+  %6 = zext nneg i8 %4 to i64
+  %switch.gep = getelementptr inbounds [12 x i64], ptr @switch.table._ZN8proxygenlsERSoRKNS_13HTTPExceptionE, i64 0, i64 %6
+  %switch.load = load i64, ptr %switch.gep, align 8
   br label %return
 
-return:                                           ; preds = %return.sink.split, %_ZNK8proxygen13HTTPException18getCodecStatusCodeEv.exit.i, %if.else.i, %if.end
-  %retval.0 = phi i64 [ 256, %if.end ], [ 257, %if.else.i ], [ 257, %_ZNK8proxygen13HTTPException18getCodecStatusCodeEv.exit.i ], [ %switch.load, %return.sink.split ]
+return:                                           ; preds = %_ZNK8proxygen13HTTPException18getCodecStatusCodeEv.exit.i, %switch.lookup, %if.else.i, %if.end, %_ZNKR5folly8OptionalIN8proxygen5HTTP39ErrorCodeEEdeEv.exit
+  %retval.0 = phi i64 [ %1, %_ZNKR5folly8OptionalIN8proxygen5HTTP39ErrorCodeEEdeEv.exit ], [ 256, %if.end ], [ 257, %if.else.i ], [ %switch.load, %switch.lookup ], [ 257, %_ZNK8proxygen13HTTPException18getCodecStatusCodeEv.exit.i ]
   ret i64 %retval.0
 }
 
@@ -454,36 +451,33 @@ if.then:                                          ; preds = %cond.end
 
 _ZNKR5folly8OptionalIN8proxygen5HTTP39ErrorCodeEEdeEv.exit.i: ; preds = %if.then
   %http3ErrorCode_.i = getelementptr inbounds i8, ptr %ex, i64 56
-  br label %_ZNK8proxygen13HTTPException17getHttp3ErrorCodeEv.exit.sink.split
+  %8 = load i64, ptr %http3ErrorCode_.i, align 8
+  br label %_ZNK8proxygen13HTTPException17getHttp3ErrorCodeEv.exit
 
 if.end.i:                                         ; preds = %if.then
-  %8 = load i32, ptr %httpStatusCode_.i, align 4
-  %cmp.i.not.i.i = icmp eq i32 %8, 0
+  %9 = load i32, ptr %httpStatusCode_.i, align 4
+  %cmp.i.not.i.i = icmp eq i32 %9, 0
   br i1 %cmp.i.not.i.i, label %if.else.i.i, label %_ZNK8proxygen13HTTPException17getHttp3ErrorCodeEv.exit
 
 if.else.i.i:                                      ; preds = %if.end.i
-  %9 = load i8, ptr %hasValue.i.i, align 1
-  %tobool.i.i.i2.i = trunc i8 %9 to i1
+  %10 = load i8, ptr %hasValue.i.i, align 1
+  %tobool.i.i.i2.i = trunc i8 %10 to i1
   br i1 %tobool.i.i.i2.i, label %_ZNK8proxygen13HTTPException18getCodecStatusCodeEv.exit.i.i, label %_ZNK8proxygen13HTTPException17getHttp3ErrorCodeEv.exit
 
 _ZNK8proxygen13HTTPException18getCodecStatusCodeEv.exit.i.i: ; preds = %if.else.i.i
   %codecStatusCode_.i.i.i = getelementptr inbounds i8, ptr %ex, i64 72
-  %10 = load i8, ptr %codecStatusCode_.i.i.i, align 8
-  %11 = icmp ult i8 %10, 12
-  br i1 %11, label %switch.lookup, label %_ZNK8proxygen13HTTPException17getHttp3ErrorCodeEv.exit
+  %11 = load i8, ptr %codecStatusCode_.i.i.i, align 8
+  %12 = icmp ult i8 %11, 12
+  br i1 %12, label %switch.lookup, label %_ZNK8proxygen13HTTPException17getHttp3ErrorCodeEv.exit
 
 switch.lookup:                                    ; preds = %_ZNK8proxygen13HTTPException18getCodecStatusCodeEv.exit.i.i
-  %12 = zext nneg i8 %10 to i64
-  %switch.gep = getelementptr inbounds [12 x i64], ptr @switch.table._ZN8proxygenlsERSoRKNS_13HTTPExceptionE, i64 0, i64 %12
-  br label %_ZNK8proxygen13HTTPException17getHttp3ErrorCodeEv.exit.sink.split
-
-_ZNK8proxygen13HTTPException17getHttp3ErrorCodeEv.exit.sink.split: ; preds = %_ZNKR5folly8OptionalIN8proxygen5HTTP39ErrorCodeEEdeEv.exit.i, %switch.lookup
-  %switch.gep.sink = phi ptr [ %switch.gep, %switch.lookup ], [ %http3ErrorCode_.i, %_ZNKR5folly8OptionalIN8proxygen5HTTP39ErrorCodeEEdeEv.exit.i ]
-  %switch.load = load i64, ptr %switch.gep.sink, align 8
+  %13 = zext nneg i8 %11 to i64
+  %switch.gep = getelementptr inbounds [12 x i64], ptr @switch.table._ZN8proxygenlsERSoRKNS_13HTTPExceptionE, i64 0, i64 %13
+  %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK8proxygen13HTTPException17getHttp3ErrorCodeEv.exit
 
-_ZNK8proxygen13HTTPException17getHttp3ErrorCodeEv.exit: ; preds = %_ZNK8proxygen13HTTPException17getHttp3ErrorCodeEv.exit.sink.split, %_ZNK8proxygen13HTTPException18getCodecStatusCodeEv.exit.i.i, %if.end.i, %if.else.i.i
-  %retval.0.i = phi i64 [ 256, %if.end.i ], [ 257, %if.else.i.i ], [ 257, %_ZNK8proxygen13HTTPException18getCodecStatusCodeEv.exit.i.i ], [ %switch.load, %_ZNK8proxygen13HTTPException17getHttp3ErrorCodeEv.exit.sink.split ]
+_ZNK8proxygen13HTTPException17getHttp3ErrorCodeEv.exit: ; preds = %_ZNK8proxygen13HTTPException18getCodecStatusCodeEv.exit.i.i, %switch.lookup, %_ZNKR5folly8OptionalIN8proxygen5HTTP39ErrorCodeEEdeEv.exit.i, %if.end.i, %if.else.i.i
+  %retval.0.i = phi i64 [ %8, %_ZNKR5folly8OptionalIN8proxygen5HTTP39ErrorCodeEEdeEv.exit.i ], [ 256, %if.end.i ], [ 257, %if.else.i.i ], [ %switch.load, %switch.lookup ], [ 257, %_ZNK8proxygen13HTTPException18getCodecStatusCodeEv.exit.i.i ]
   call void @_ZN8proxygen8toStringB5cxx11ENS_5HTTP39ErrorCodeE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, i64 noundef %retval.0.i)
   %call21 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call19, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -493,10 +487,10 @@ invoke.cont:                                      ; preds = %_ZNK8proxygen13HTTP
   br label %if.end
 
 lpad:                                             ; preds = %_ZNK8proxygen13HTTPException17getHttp3ErrorCodeEv.exit
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #9
-  resume { ptr, i32 } %13
+  resume { ptr, i32 } %14
 
 if.end:                                           ; preds = %invoke.cont, %cond.end
   ret ptr %os

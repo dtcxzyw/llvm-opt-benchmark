@@ -2001,7 +2001,7 @@ if.then:                                          ; preds = %entry
   %buffer_len_.i.i = getelementptr inbounds i8, ptr %output, i64 16
   %1 = load i32, ptr %buffer_len_.i.i, align 8
   %cmp.i.i = icmp slt i32 %0, %1
-  br i1 %cmp.i.i, label %if.end39.sink.split, label %if.end.i.i
+  br i1 %cmp.i.i, label %return.sink.split.i.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then
   %cmp.i.i.i = icmp eq i32 %1, 0
@@ -2016,7 +2016,27 @@ do.body.i.i.i:                                    ; preds = %if.end.i.i, %if.end
 if.end.i.i.i:                                     ; preds = %do.body.i.i.i
   %mul.i.i.i = shl nsw i32 %new_len.0.i.i.i, 1
   %cmp5.i.not.i.i = icmp sgt i32 %mul.i.i.i, %1
-  br i1 %cmp5.i.not.i.i, label %if.end39.sink.split.sink.split, label %do.body.i.i.i, !llvm.loop !7
+  br i1 %cmp5.i.not.i.i, label %if.end5.i.i, label %do.body.i.i.i, !llvm.loop !7
+
+if.end5.i.i:                                      ; preds = %if.end.i.i.i
+  %vtable.i.i.i = load ptr, ptr %output, align 8
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %2 = load ptr, ptr %vfn.i.i.i, align 8
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i.i)
+  %3 = load i32, ptr %cur_len_.i.i, align 4
+  br label %return.sink.split.i.i
+
+return.sink.split.i.i:                            ; preds = %if.end5.i.i, %if.then
+  %.sink2.i.i = phi i32 [ %3, %if.end5.i.i ], [ %0, %if.then ]
+  %.sink.in.i.i = getelementptr inbounds i8, ptr %output, i64 8
+  %.sink.i.i = load ptr, ptr %.sink.in.i.i, align 8
+  %idxprom8.i.i = sext i32 %.sink2.i.i to i64
+  %arrayidx9.i.i = getelementptr inbounds i8, ptr %.sink.i.i, i64 %idxprom8.i.i
+  store i8 %conv, ptr %arrayidx9.i.i, align 1
+  %4 = load i32, ptr %cur_len_.i.i, align 4
+  %inc11.i.i = add nsw i32 %4, 1
+  store i32 %inc11.i.i, ptr %cur_len_.i.i, align 4
+  br label %if.end39
 
 if.else:                                          ; preds = %entry
   %cmp1 = icmp ult i32 %char_value, 2048
@@ -2024,18 +2044,18 @@ if.else:                                          ; preds = %entry
 
 if.then2:                                         ; preds = %if.else
   %shr = lshr i32 %char_value, 6
-  %2 = trunc nuw i32 %shr to i8
-  %conv3 = or disjoint i8 %2, -64
+  %5 = trunc nuw i32 %shr to i8
+  %conv3 = or disjoint i8 %5, -64
   %cur_len_.i.i23 = getelementptr inbounds i8, ptr %output, i64 20
-  %3 = load i32, ptr %cur_len_.i.i23, align 4
+  %6 = load i32, ptr %cur_len_.i.i23, align 4
   %buffer_len_.i.i24 = getelementptr inbounds i8, ptr %output, i64 16
-  %4 = load i32, ptr %buffer_len_.i.i24, align 8
-  %cmp.i.i25 = icmp slt i32 %3, %4
+  %7 = load i32, ptr %buffer_len_.i.i24, align 8
+  %cmp.i.i25 = icmp slt i32 %6, %7
   br i1 %cmp.i.i25, label %return.sink.split.i.i38, label %if.end.i.i26
 
 if.end.i.i26:                                     ; preds = %if.then2
-  %cmp.i.i.i27 = icmp eq i32 %4, 0
-  %spec.select271 = select i1 %cmp.i.i.i27, i32 16, i32 %4
+  %cmp.i.i.i27 = icmp eq i32 %7, 0
+  %spec.select271 = select i1 %cmp.i.i.i27, i32 16, i32 %7
   br label %do.body.i.i.i29
 
 do.body.i.i.i29:                                  ; preds = %if.end.i.i26, %if.end.i.i.i32
@@ -2045,42 +2065,42 @@ do.body.i.i.i29:                                  ; preds = %if.end.i.i26, %if.e
 
 if.end.i.i.i32:                                   ; preds = %do.body.i.i.i29
   %mul.i.i.i33 = shl nsw i32 %new_len.0.i.i.i30, 1
-  %cmp5.i.not.i.i34 = icmp sgt i32 %mul.i.i.i33, %4
+  %cmp5.i.not.i.i34 = icmp sgt i32 %mul.i.i.i33, %7
   br i1 %cmp5.i.not.i.i34, label %if.end5.i.i35, label %do.body.i.i.i29, !llvm.loop !7
 
 if.end5.i.i35:                                    ; preds = %if.end.i.i.i32
   %vtable.i.i.i36 = load ptr, ptr %output, align 8
   %vfn.i.i.i37 = getelementptr inbounds i8, ptr %vtable.i.i.i36, i64 16
-  %5 = load ptr, ptr %vfn.i.i.i37, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i.i33)
-  %6 = load i32, ptr %cur_len_.i.i23, align 4
+  %8 = load ptr, ptr %vfn.i.i.i37, align 8
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i.i33)
+  %9 = load i32, ptr %cur_len_.i.i23, align 4
   br label %return.sink.split.i.i38
 
 return.sink.split.i.i38:                          ; preds = %if.end5.i.i35, %if.then2
-  %.sink2.i.i39 = phi i32 [ %6, %if.end5.i.i35 ], [ %3, %if.then2 ]
+  %.sink2.i.i39 = phi i32 [ %9, %if.end5.i.i35 ], [ %6, %if.then2 ]
   %.sink.in.i.i40 = getelementptr inbounds i8, ptr %output, i64 8
   %.sink.i.i41 = load ptr, ptr %.sink.in.i.i40, align 8
   %idxprom8.i.i42 = sext i32 %.sink2.i.i39 to i64
   %arrayidx9.i.i43 = getelementptr inbounds i8, ptr %.sink.i.i41, i64 %idxprom8.i.i42
   store i8 %conv3, ptr %arrayidx9.i.i43, align 1
-  %7 = load i32, ptr %cur_len_.i.i23, align 4
-  %inc11.i.i44 = add nsw i32 %7, 1
+  %10 = load i32, ptr %cur_len_.i.i23, align 4
+  %inc11.i.i44 = add nsw i32 %10, 1
   store i32 %inc11.i.i44, ptr %cur_len_.i.i23, align 4
   %.pre258 = load i32, ptr %buffer_len_.i.i24, align 8
   br label %_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE.exit45
 
 _ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE.exit45: ; preds = %do.body.i.i.i29, %return.sink.split.i.i38
-  %8 = phi i32 [ %.pre258, %return.sink.split.i.i38 ], [ %4, %do.body.i.i.i29 ]
-  %9 = phi i32 [ %inc11.i.i44, %return.sink.split.i.i38 ], [ %3, %do.body.i.i.i29 ]
-  %10 = trunc i32 %char_value to i8
-  %11 = and i8 %10, 63
-  %conv5 = or disjoint i8 %11, -128
-  %cmp.i.i48 = icmp slt i32 %9, %8
-  br i1 %cmp.i.i48, label %if.end39.sink.split, label %if.end.i.i49
+  %11 = phi i32 [ %.pre258, %return.sink.split.i.i38 ], [ %7, %do.body.i.i.i29 ]
+  %12 = phi i32 [ %inc11.i.i44, %return.sink.split.i.i38 ], [ %6, %do.body.i.i.i29 ]
+  %13 = trunc i32 %char_value to i8
+  %14 = and i8 %13, 63
+  %conv5 = or disjoint i8 %14, -128
+  %cmp.i.i48 = icmp slt i32 %12, %11
+  br i1 %cmp.i.i48, label %return.sink.split.i.i61, label %if.end.i.i49
 
 if.end.i.i49:                                     ; preds = %_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE.exit45
-  %cmp.i.i.i50 = icmp eq i32 %8, 0
-  %spec.select272 = select i1 %cmp.i.i.i50, i32 16, i32 %8
+  %cmp.i.i.i50 = icmp eq i32 %11, 0
+  %spec.select272 = select i1 %cmp.i.i.i50, i32 16, i32 %11
   br label %do.body.i.i.i52
 
 do.body.i.i.i52:                                  ; preds = %if.end.i.i49, %if.end.i.i.i55
@@ -2090,8 +2110,28 @@ do.body.i.i.i52:                                  ; preds = %if.end.i.i49, %if.e
 
 if.end.i.i.i55:                                   ; preds = %do.body.i.i.i52
   %mul.i.i.i56 = shl nsw i32 %new_len.0.i.i.i53, 1
-  %cmp5.i.not.i.i57 = icmp sgt i32 %mul.i.i.i56, %8
-  br i1 %cmp5.i.not.i.i57, label %if.end39.sink.split.sink.split, label %do.body.i.i.i52, !llvm.loop !7
+  %cmp5.i.not.i.i57 = icmp sgt i32 %mul.i.i.i56, %11
+  br i1 %cmp5.i.not.i.i57, label %if.end5.i.i58, label %do.body.i.i.i52, !llvm.loop !7
+
+if.end5.i.i58:                                    ; preds = %if.end.i.i.i55
+  %vtable.i.i.i59 = load ptr, ptr %output, align 8
+  %vfn.i.i.i60 = getelementptr inbounds i8, ptr %vtable.i.i.i59, i64 16
+  %15 = load ptr, ptr %vfn.i.i.i60, align 8
+  tail call void %15(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i.i56)
+  %16 = load i32, ptr %cur_len_.i.i23, align 4
+  br label %return.sink.split.i.i61
+
+return.sink.split.i.i61:                          ; preds = %if.end5.i.i58, %_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE.exit45
+  %.sink2.i.i62 = phi i32 [ %16, %if.end5.i.i58 ], [ %12, %_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE.exit45 ]
+  %.sink.in.i.i63 = getelementptr inbounds i8, ptr %output, i64 8
+  %.sink.i.i64 = load ptr, ptr %.sink.in.i.i63, align 8
+  %idxprom8.i.i65 = sext i32 %.sink2.i.i62 to i64
+  %arrayidx9.i.i66 = getelementptr inbounds i8, ptr %.sink.i.i64, i64 %idxprom8.i.i65
+  store i8 %conv5, ptr %arrayidx9.i.i66, align 1
+  %17 = load i32, ptr %cur_len_.i.i23, align 4
+  %inc11.i.i67 = add nsw i32 %17, 1
+  store i32 %inc11.i.i67, ptr %cur_len_.i.i23, align 4
+  br label %if.end39
 
 if.else6:                                         ; preds = %if.else
   %cmp7 = icmp ult i32 %char_value, 65536
@@ -2099,18 +2139,18 @@ if.else6:                                         ; preds = %if.else
 
 if.then8:                                         ; preds = %if.else6
   %shr9 = lshr i32 %char_value, 12
-  %12 = trunc nuw i32 %shr9 to i8
-  %conv11 = or disjoint i8 %12, -32
+  %18 = trunc nuw i32 %shr9 to i8
+  %conv11 = or disjoint i8 %18, -32
   %cur_len_.i.i69 = getelementptr inbounds i8, ptr %output, i64 20
-  %13 = load i32, ptr %cur_len_.i.i69, align 4
+  %19 = load i32, ptr %cur_len_.i.i69, align 4
   %buffer_len_.i.i70 = getelementptr inbounds i8, ptr %output, i64 16
-  %14 = load i32, ptr %buffer_len_.i.i70, align 8
-  %cmp.i.i71 = icmp slt i32 %13, %14
+  %20 = load i32, ptr %buffer_len_.i.i70, align 8
+  %cmp.i.i71 = icmp slt i32 %19, %20
   br i1 %cmp.i.i71, label %return.sink.split.i.i84, label %if.end.i.i72
 
 if.end.i.i72:                                     ; preds = %if.then8
-  %cmp.i.i.i73 = icmp eq i32 %14, 0
-  %spec.select273 = select i1 %cmp.i.i.i73, i32 16, i32 %14
+  %cmp.i.i.i73 = icmp eq i32 %20, 0
+  %spec.select273 = select i1 %cmp.i.i.i73, i32 16, i32 %20
   br label %do.body.i.i.i75
 
 do.body.i.i.i75:                                  ; preds = %if.end.i.i72, %if.end.i.i.i78
@@ -2120,43 +2160,43 @@ do.body.i.i.i75:                                  ; preds = %if.end.i.i72, %if.e
 
 if.end.i.i.i78:                                   ; preds = %do.body.i.i.i75
   %mul.i.i.i79 = shl nsw i32 %new_len.0.i.i.i76, 1
-  %cmp5.i.not.i.i80 = icmp sgt i32 %mul.i.i.i79, %14
+  %cmp5.i.not.i.i80 = icmp sgt i32 %mul.i.i.i79, %20
   br i1 %cmp5.i.not.i.i80, label %if.end5.i.i81, label %do.body.i.i.i75, !llvm.loop !7
 
 if.end5.i.i81:                                    ; preds = %if.end.i.i.i78
   %vtable.i.i.i82 = load ptr, ptr %output, align 8
   %vfn.i.i.i83 = getelementptr inbounds i8, ptr %vtable.i.i.i82, i64 16
-  %15 = load ptr, ptr %vfn.i.i.i83, align 8
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i.i79)
-  %16 = load i32, ptr %cur_len_.i.i69, align 4
+  %21 = load ptr, ptr %vfn.i.i.i83, align 8
+  tail call void %21(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i.i79)
+  %22 = load i32, ptr %cur_len_.i.i69, align 4
   br label %return.sink.split.i.i84
 
 return.sink.split.i.i84:                          ; preds = %if.end5.i.i81, %if.then8
-  %.sink2.i.i85 = phi i32 [ %16, %if.end5.i.i81 ], [ %13, %if.then8 ]
+  %.sink2.i.i85 = phi i32 [ %22, %if.end5.i.i81 ], [ %19, %if.then8 ]
   %.sink.in.i.i86 = getelementptr inbounds i8, ptr %output, i64 8
   %.sink.i.i87 = load ptr, ptr %.sink.in.i.i86, align 8
   %idxprom8.i.i88 = sext i32 %.sink2.i.i85 to i64
   %arrayidx9.i.i89 = getelementptr inbounds i8, ptr %.sink.i.i87, i64 %idxprom8.i.i88
   store i8 %conv11, ptr %arrayidx9.i.i89, align 1
-  %17 = load i32, ptr %cur_len_.i.i69, align 4
-  %inc11.i.i90 = add nsw i32 %17, 1
+  %23 = load i32, ptr %cur_len_.i.i69, align 4
+  %inc11.i.i90 = add nsw i32 %23, 1
   store i32 %inc11.i.i90, ptr %cur_len_.i.i69, align 4
   %.pre256 = load i32, ptr %buffer_len_.i.i70, align 8
   br label %_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE.exit91
 
 _ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE.exit91: ; preds = %do.body.i.i.i75, %return.sink.split.i.i84
-  %18 = phi i32 [ %.pre256, %return.sink.split.i.i84 ], [ %14, %do.body.i.i.i75 ]
-  %19 = phi i32 [ %inc11.i.i90, %return.sink.split.i.i84 ], [ %13, %do.body.i.i.i75 ]
+  %24 = phi i32 [ %.pre256, %return.sink.split.i.i84 ], [ %20, %do.body.i.i.i75 ]
+  %25 = phi i32 [ %inc11.i.i90, %return.sink.split.i.i84 ], [ %19, %do.body.i.i.i75 ]
   %shr12 = lshr i32 %char_value, 6
-  %20 = trunc i32 %shr12 to i8
-  %21 = and i8 %20, 63
-  %conv15 = or disjoint i8 %21, -128
-  %cmp.i.i94 = icmp slt i32 %19, %18
+  %26 = trunc i32 %shr12 to i8
+  %27 = and i8 %26, 63
+  %conv15 = or disjoint i8 %27, -128
+  %cmp.i.i94 = icmp slt i32 %25, %24
   br i1 %cmp.i.i94, label %return.sink.split.i.i107, label %if.end.i.i95
 
 if.end.i.i95:                                     ; preds = %_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE.exit91
-  %cmp.i.i.i96 = icmp eq i32 %18, 0
-  %spec.select274 = select i1 %cmp.i.i.i96, i32 16, i32 %18
+  %cmp.i.i.i96 = icmp eq i32 %24, 0
+  %spec.select274 = select i1 %cmp.i.i.i96, i32 16, i32 %24
   br label %do.body.i.i.i98
 
 do.body.i.i.i98:                                  ; preds = %if.end.i.i95, %if.end.i.i.i101
@@ -2166,42 +2206,42 @@ do.body.i.i.i98:                                  ; preds = %if.end.i.i95, %if.e
 
 if.end.i.i.i101:                                  ; preds = %do.body.i.i.i98
   %mul.i.i.i102 = shl nsw i32 %new_len.0.i.i.i99, 1
-  %cmp5.i.not.i.i103 = icmp sgt i32 %mul.i.i.i102, %18
+  %cmp5.i.not.i.i103 = icmp sgt i32 %mul.i.i.i102, %24
   br i1 %cmp5.i.not.i.i103, label %if.end5.i.i104, label %do.body.i.i.i98, !llvm.loop !7
 
 if.end5.i.i104:                                   ; preds = %if.end.i.i.i101
   %vtable.i.i.i105 = load ptr, ptr %output, align 8
   %vfn.i.i.i106 = getelementptr inbounds i8, ptr %vtable.i.i.i105, i64 16
-  %22 = load ptr, ptr %vfn.i.i.i106, align 8
-  tail call void %22(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i.i102)
-  %23 = load i32, ptr %cur_len_.i.i69, align 4
+  %28 = load ptr, ptr %vfn.i.i.i106, align 8
+  tail call void %28(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i.i102)
+  %29 = load i32, ptr %cur_len_.i.i69, align 4
   br label %return.sink.split.i.i107
 
 return.sink.split.i.i107:                         ; preds = %if.end5.i.i104, %_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE.exit91
-  %.sink2.i.i108 = phi i32 [ %23, %if.end5.i.i104 ], [ %19, %_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE.exit91 ]
+  %.sink2.i.i108 = phi i32 [ %29, %if.end5.i.i104 ], [ %25, %_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE.exit91 ]
   %.sink.in.i.i109 = getelementptr inbounds i8, ptr %output, i64 8
   %.sink.i.i110 = load ptr, ptr %.sink.in.i.i109, align 8
   %idxprom8.i.i111 = sext i32 %.sink2.i.i108 to i64
   %arrayidx9.i.i112 = getelementptr inbounds i8, ptr %.sink.i.i110, i64 %idxprom8.i.i111
   store i8 %conv15, ptr %arrayidx9.i.i112, align 1
-  %24 = load i32, ptr %cur_len_.i.i69, align 4
-  %inc11.i.i113 = add nsw i32 %24, 1
+  %30 = load i32, ptr %cur_len_.i.i69, align 4
+  %inc11.i.i113 = add nsw i32 %30, 1
   store i32 %inc11.i.i113, ptr %cur_len_.i.i69, align 4
   %.pre257 = load i32, ptr %buffer_len_.i.i70, align 8
   br label %_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE.exit114
 
 _ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE.exit114: ; preds = %do.body.i.i.i98, %return.sink.split.i.i107
-  %25 = phi i32 [ %.pre257, %return.sink.split.i.i107 ], [ %18, %do.body.i.i.i98 ]
-  %26 = phi i32 [ %inc11.i.i113, %return.sink.split.i.i107 ], [ %19, %do.body.i.i.i98 ]
-  %27 = trunc i32 %char_value to i8
-  %28 = and i8 %27, 63
-  %conv18 = or disjoint i8 %28, -128
-  %cmp.i.i117 = icmp slt i32 %26, %25
-  br i1 %cmp.i.i117, label %if.end39.sink.split, label %if.end.i.i118
+  %31 = phi i32 [ %.pre257, %return.sink.split.i.i107 ], [ %24, %do.body.i.i.i98 ]
+  %32 = phi i32 [ %inc11.i.i113, %return.sink.split.i.i107 ], [ %25, %do.body.i.i.i98 ]
+  %33 = trunc i32 %char_value to i8
+  %34 = and i8 %33, 63
+  %conv18 = or disjoint i8 %34, -128
+  %cmp.i.i117 = icmp slt i32 %32, %31
+  br i1 %cmp.i.i117, label %return.sink.split.i.i130, label %if.end.i.i118
 
 if.end.i.i118:                                    ; preds = %_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE.exit114
-  %cmp.i.i.i119 = icmp eq i32 %25, 0
-  %spec.select275 = select i1 %cmp.i.i.i119, i32 16, i32 %25
+  %cmp.i.i.i119 = icmp eq i32 %31, 0
+  %spec.select275 = select i1 %cmp.i.i.i119, i32 16, i32 %31
   br label %do.body.i.i.i121
 
 do.body.i.i.i121:                                 ; preds = %if.end.i.i118, %if.end.i.i.i124
@@ -2211,8 +2251,28 @@ do.body.i.i.i121:                                 ; preds = %if.end.i.i118, %if.
 
 if.end.i.i.i124:                                  ; preds = %do.body.i.i.i121
   %mul.i.i.i125 = shl nsw i32 %new_len.0.i.i.i122, 1
-  %cmp5.i.not.i.i126 = icmp sgt i32 %mul.i.i.i125, %25
-  br i1 %cmp5.i.not.i.i126, label %if.end39.sink.split.sink.split, label %do.body.i.i.i121, !llvm.loop !7
+  %cmp5.i.not.i.i126 = icmp sgt i32 %mul.i.i.i125, %31
+  br i1 %cmp5.i.not.i.i126, label %if.end5.i.i127, label %do.body.i.i.i121, !llvm.loop !7
+
+if.end5.i.i127:                                   ; preds = %if.end.i.i.i124
+  %vtable.i.i.i128 = load ptr, ptr %output, align 8
+  %vfn.i.i.i129 = getelementptr inbounds i8, ptr %vtable.i.i.i128, i64 16
+  %35 = load ptr, ptr %vfn.i.i.i129, align 8
+  tail call void %35(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i.i125)
+  %36 = load i32, ptr %cur_len_.i.i69, align 4
+  br label %return.sink.split.i.i130
+
+return.sink.split.i.i130:                         ; preds = %if.end5.i.i127, %_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE.exit114
+  %.sink2.i.i131 = phi i32 [ %36, %if.end5.i.i127 ], [ %32, %_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE.exit114 ]
+  %.sink.in.i.i132 = getelementptr inbounds i8, ptr %output, i64 8
+  %.sink.i.i133 = load ptr, ptr %.sink.in.i.i132, align 8
+  %idxprom8.i.i134 = sext i32 %.sink2.i.i131 to i64
+  %arrayidx9.i.i135 = getelementptr inbounds i8, ptr %.sink.i.i133, i64 %idxprom8.i.i134
+  store i8 %conv18, ptr %arrayidx9.i.i135, align 1
+  %37 = load i32, ptr %cur_len_.i.i69, align 4
+  %inc11.i.i136 = add nsw i32 %37, 1
+  store i32 %inc11.i.i136, ptr %cur_len_.i.i69, align 4
+  br label %if.end39
 
 if.else19:                                        ; preds = %if.else6
   %cmp20 = icmp ult i32 %char_value, 1114112
@@ -2220,18 +2280,18 @@ if.else19:                                        ; preds = %if.else6
 
 if.then21:                                        ; preds = %if.else19
   %shr22 = lshr i32 %char_value, 18
-  %29 = trunc nuw i32 %shr22 to i8
-  %conv24 = or disjoint i8 %29, -16
+  %38 = trunc nuw i32 %shr22 to i8
+  %conv24 = or disjoint i8 %38, -16
   %cur_len_.i.i138 = getelementptr inbounds i8, ptr %output, i64 20
-  %30 = load i32, ptr %cur_len_.i.i138, align 4
+  %39 = load i32, ptr %cur_len_.i.i138, align 4
   %buffer_len_.i.i139 = getelementptr inbounds i8, ptr %output, i64 16
-  %31 = load i32, ptr %buffer_len_.i.i139, align 8
-  %cmp.i.i140 = icmp slt i32 %30, %31
+  %40 = load i32, ptr %buffer_len_.i.i139, align 8
+  %cmp.i.i140 = icmp slt i32 %39, %40
   br i1 %cmp.i.i140, label %return.sink.split.i.i153, label %if.end.i.i141
 
 if.end.i.i141:                                    ; preds = %if.then21
-  %cmp.i.i.i142 = icmp eq i32 %31, 0
-  %spec.select276 = select i1 %cmp.i.i.i142, i32 16, i32 %31
+  %cmp.i.i.i142 = icmp eq i32 %40, 0
+  %spec.select276 = select i1 %cmp.i.i.i142, i32 16, i32 %40
   br label %do.body.i.i.i144
 
 do.body.i.i.i144:                                 ; preds = %if.end.i.i141, %if.end.i.i.i147
@@ -2241,43 +2301,43 @@ do.body.i.i.i144:                                 ; preds = %if.end.i.i141, %if.
 
 if.end.i.i.i147:                                  ; preds = %do.body.i.i.i144
   %mul.i.i.i148 = shl nsw i32 %new_len.0.i.i.i145, 1
-  %cmp5.i.not.i.i149 = icmp sgt i32 %mul.i.i.i148, %31
+  %cmp5.i.not.i.i149 = icmp sgt i32 %mul.i.i.i148, %40
   br i1 %cmp5.i.not.i.i149, label %if.end5.i.i150, label %do.body.i.i.i144, !llvm.loop !7
 
 if.end5.i.i150:                                   ; preds = %if.end.i.i.i147
   %vtable.i.i.i151 = load ptr, ptr %output, align 8
   %vfn.i.i.i152 = getelementptr inbounds i8, ptr %vtable.i.i.i151, i64 16
-  %32 = load ptr, ptr %vfn.i.i.i152, align 8
-  tail call void %32(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i.i148)
-  %33 = load i32, ptr %cur_len_.i.i138, align 4
+  %41 = load ptr, ptr %vfn.i.i.i152, align 8
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i.i148)
+  %42 = load i32, ptr %cur_len_.i.i138, align 4
   br label %return.sink.split.i.i153
 
 return.sink.split.i.i153:                         ; preds = %if.end5.i.i150, %if.then21
-  %.sink2.i.i154 = phi i32 [ %33, %if.end5.i.i150 ], [ %30, %if.then21 ]
+  %.sink2.i.i154 = phi i32 [ %42, %if.end5.i.i150 ], [ %39, %if.then21 ]
   %.sink.in.i.i155 = getelementptr inbounds i8, ptr %output, i64 8
   %.sink.i.i156 = load ptr, ptr %.sink.in.i.i155, align 8
   %idxprom8.i.i157 = sext i32 %.sink2.i.i154 to i64
   %arrayidx9.i.i158 = getelementptr inbounds i8, ptr %.sink.i.i156, i64 %idxprom8.i.i157
   store i8 %conv24, ptr %arrayidx9.i.i158, align 1
-  %34 = load i32, ptr %cur_len_.i.i138, align 4
-  %inc11.i.i159 = add nsw i32 %34, 1
+  %43 = load i32, ptr %cur_len_.i.i138, align 4
+  %inc11.i.i159 = add nsw i32 %43, 1
   store i32 %inc11.i.i159, ptr %cur_len_.i.i138, align 4
   %.pre = load i32, ptr %buffer_len_.i.i139, align 8
   br label %_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE.exit160
 
 _ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE.exit160: ; preds = %do.body.i.i.i144, %return.sink.split.i.i153
-  %35 = phi i32 [ %.pre, %return.sink.split.i.i153 ], [ %31, %do.body.i.i.i144 ]
-  %36 = phi i32 [ %inc11.i.i159, %return.sink.split.i.i153 ], [ %30, %do.body.i.i.i144 ]
+  %44 = phi i32 [ %.pre, %return.sink.split.i.i153 ], [ %40, %do.body.i.i.i144 ]
+  %45 = phi i32 [ %inc11.i.i159, %return.sink.split.i.i153 ], [ %39, %do.body.i.i.i144 ]
   %shr25 = lshr i32 %char_value, 12
-  %37 = trunc i32 %shr25 to i8
-  %38 = and i8 %37, 63
-  %conv28 = or disjoint i8 %38, -128
-  %cmp.i.i163 = icmp slt i32 %36, %35
+  %46 = trunc i32 %shr25 to i8
+  %47 = and i8 %46, 63
+  %conv28 = or disjoint i8 %47, -128
+  %cmp.i.i163 = icmp slt i32 %45, %44
   br i1 %cmp.i.i163, label %return.sink.split.i.i176, label %if.end.i.i164
 
 if.end.i.i164:                                    ; preds = %_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE.exit160
-  %cmp.i.i.i165 = icmp eq i32 %35, 0
-  %spec.select277 = select i1 %cmp.i.i.i165, i32 16, i32 %35
+  %cmp.i.i.i165 = icmp eq i32 %44, 0
+  %spec.select277 = select i1 %cmp.i.i.i165, i32 16, i32 %44
   br label %do.body.i.i.i167
 
 do.body.i.i.i167:                                 ; preds = %if.end.i.i164, %if.end.i.i.i170
@@ -2287,43 +2347,43 @@ do.body.i.i.i167:                                 ; preds = %if.end.i.i164, %if.
 
 if.end.i.i.i170:                                  ; preds = %do.body.i.i.i167
   %mul.i.i.i171 = shl nsw i32 %new_len.0.i.i.i168, 1
-  %cmp5.i.not.i.i172 = icmp sgt i32 %mul.i.i.i171, %35
+  %cmp5.i.not.i.i172 = icmp sgt i32 %mul.i.i.i171, %44
   br i1 %cmp5.i.not.i.i172, label %if.end5.i.i173, label %do.body.i.i.i167, !llvm.loop !7
 
 if.end5.i.i173:                                   ; preds = %if.end.i.i.i170
   %vtable.i.i.i174 = load ptr, ptr %output, align 8
   %vfn.i.i.i175 = getelementptr inbounds i8, ptr %vtable.i.i.i174, i64 16
-  %39 = load ptr, ptr %vfn.i.i.i175, align 8
-  tail call void %39(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i.i171)
-  %40 = load i32, ptr %cur_len_.i.i138, align 4
+  %48 = load ptr, ptr %vfn.i.i.i175, align 8
+  tail call void %48(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i.i171)
+  %49 = load i32, ptr %cur_len_.i.i138, align 4
   br label %return.sink.split.i.i176
 
 return.sink.split.i.i176:                         ; preds = %if.end5.i.i173, %_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE.exit160
-  %.sink2.i.i177 = phi i32 [ %40, %if.end5.i.i173 ], [ %36, %_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE.exit160 ]
+  %.sink2.i.i177 = phi i32 [ %49, %if.end5.i.i173 ], [ %45, %_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE.exit160 ]
   %.sink.in.i.i178 = getelementptr inbounds i8, ptr %output, i64 8
   %.sink.i.i179 = load ptr, ptr %.sink.in.i.i178, align 8
   %idxprom8.i.i180 = sext i32 %.sink2.i.i177 to i64
   %arrayidx9.i.i181 = getelementptr inbounds i8, ptr %.sink.i.i179, i64 %idxprom8.i.i180
   store i8 %conv28, ptr %arrayidx9.i.i181, align 1
-  %41 = load i32, ptr %cur_len_.i.i138, align 4
-  %inc11.i.i182 = add nsw i32 %41, 1
+  %50 = load i32, ptr %cur_len_.i.i138, align 4
+  %inc11.i.i182 = add nsw i32 %50, 1
   store i32 %inc11.i.i182, ptr %cur_len_.i.i138, align 4
   %.pre254 = load i32, ptr %buffer_len_.i.i139, align 8
   br label %_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE.exit183
 
 _ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE.exit183: ; preds = %do.body.i.i.i167, %return.sink.split.i.i176
-  %42 = phi i32 [ %.pre254, %return.sink.split.i.i176 ], [ %35, %do.body.i.i.i167 ]
-  %43 = phi i32 [ %inc11.i.i182, %return.sink.split.i.i176 ], [ %36, %do.body.i.i.i167 ]
+  %51 = phi i32 [ %.pre254, %return.sink.split.i.i176 ], [ %44, %do.body.i.i.i167 ]
+  %52 = phi i32 [ %inc11.i.i182, %return.sink.split.i.i176 ], [ %45, %do.body.i.i.i167 ]
   %shr29 = lshr i32 %char_value, 6
-  %44 = trunc i32 %shr29 to i8
-  %45 = and i8 %44, 63
-  %conv32 = or disjoint i8 %45, -128
-  %cmp.i.i186 = icmp slt i32 %43, %42
+  %53 = trunc i32 %shr29 to i8
+  %54 = and i8 %53, 63
+  %conv32 = or disjoint i8 %54, -128
+  %cmp.i.i186 = icmp slt i32 %52, %51
   br i1 %cmp.i.i186, label %return.sink.split.i.i199, label %if.end.i.i187
 
 if.end.i.i187:                                    ; preds = %_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE.exit183
-  %cmp.i.i.i188 = icmp eq i32 %42, 0
-  %spec.select278 = select i1 %cmp.i.i.i188, i32 16, i32 %42
+  %cmp.i.i.i188 = icmp eq i32 %51, 0
+  %spec.select278 = select i1 %cmp.i.i.i188, i32 16, i32 %51
   br label %do.body.i.i.i190
 
 do.body.i.i.i190:                                 ; preds = %if.end.i.i187, %if.end.i.i.i193
@@ -2333,42 +2393,42 @@ do.body.i.i.i190:                                 ; preds = %if.end.i.i187, %if.
 
 if.end.i.i.i193:                                  ; preds = %do.body.i.i.i190
   %mul.i.i.i194 = shl nsw i32 %new_len.0.i.i.i191, 1
-  %cmp5.i.not.i.i195 = icmp sgt i32 %mul.i.i.i194, %42
+  %cmp5.i.not.i.i195 = icmp sgt i32 %mul.i.i.i194, %51
   br i1 %cmp5.i.not.i.i195, label %if.end5.i.i196, label %do.body.i.i.i190, !llvm.loop !7
 
 if.end5.i.i196:                                   ; preds = %if.end.i.i.i193
   %vtable.i.i.i197 = load ptr, ptr %output, align 8
   %vfn.i.i.i198 = getelementptr inbounds i8, ptr %vtable.i.i.i197, i64 16
-  %46 = load ptr, ptr %vfn.i.i.i198, align 8
-  tail call void %46(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i.i194)
-  %47 = load i32, ptr %cur_len_.i.i138, align 4
+  %55 = load ptr, ptr %vfn.i.i.i198, align 8
+  tail call void %55(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i.i194)
+  %56 = load i32, ptr %cur_len_.i.i138, align 4
   br label %return.sink.split.i.i199
 
 return.sink.split.i.i199:                         ; preds = %if.end5.i.i196, %_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE.exit183
-  %.sink2.i.i200 = phi i32 [ %47, %if.end5.i.i196 ], [ %43, %_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE.exit183 ]
+  %.sink2.i.i200 = phi i32 [ %56, %if.end5.i.i196 ], [ %52, %_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE.exit183 ]
   %.sink.in.i.i201 = getelementptr inbounds i8, ptr %output, i64 8
   %.sink.i.i202 = load ptr, ptr %.sink.in.i.i201, align 8
   %idxprom8.i.i203 = sext i32 %.sink2.i.i200 to i64
   %arrayidx9.i.i204 = getelementptr inbounds i8, ptr %.sink.i.i202, i64 %idxprom8.i.i203
   store i8 %conv32, ptr %arrayidx9.i.i204, align 1
-  %48 = load i32, ptr %cur_len_.i.i138, align 4
-  %inc11.i.i205 = add nsw i32 %48, 1
+  %57 = load i32, ptr %cur_len_.i.i138, align 4
+  %inc11.i.i205 = add nsw i32 %57, 1
   store i32 %inc11.i.i205, ptr %cur_len_.i.i138, align 4
   %.pre255 = load i32, ptr %buffer_len_.i.i139, align 8
   br label %_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE.exit206
 
 _ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE.exit206: ; preds = %do.body.i.i.i190, %return.sink.split.i.i199
-  %49 = phi i32 [ %.pre255, %return.sink.split.i.i199 ], [ %42, %do.body.i.i.i190 ]
-  %50 = phi i32 [ %inc11.i.i205, %return.sink.split.i.i199 ], [ %43, %do.body.i.i.i190 ]
-  %51 = trunc i32 %char_value to i8
-  %52 = and i8 %51, 63
-  %conv35 = or disjoint i8 %52, -128
-  %cmp.i.i209 = icmp slt i32 %50, %49
-  br i1 %cmp.i.i209, label %if.end39.sink.split, label %if.end.i.i210
+  %58 = phi i32 [ %.pre255, %return.sink.split.i.i199 ], [ %51, %do.body.i.i.i190 ]
+  %59 = phi i32 [ %inc11.i.i205, %return.sink.split.i.i199 ], [ %52, %do.body.i.i.i190 ]
+  %60 = trunc i32 %char_value to i8
+  %61 = and i8 %60, 63
+  %conv35 = or disjoint i8 %61, -128
+  %cmp.i.i209 = icmp slt i32 %59, %58
+  br i1 %cmp.i.i209, label %return.sink.split.i.i222, label %if.end.i.i210
 
 if.end.i.i210:                                    ; preds = %_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE.exit206
-  %cmp.i.i.i211 = icmp eq i32 %49, 0
-  %spec.select279 = select i1 %cmp.i.i.i211, i32 16, i32 %49
+  %cmp.i.i.i211 = icmp eq i32 %58, 0
+  %spec.select279 = select i1 %cmp.i.i.i211, i32 16, i32 %58
   br label %do.body.i.i.i213
 
 do.body.i.i.i213:                                 ; preds = %if.end.i.i210, %if.end.i.i.i216
@@ -2378,35 +2438,30 @@ do.body.i.i.i213:                                 ; preds = %if.end.i.i210, %if.
 
 if.end.i.i.i216:                                  ; preds = %do.body.i.i.i213
   %mul.i.i.i217 = shl nsw i32 %new_len.0.i.i.i214, 1
-  %cmp5.i.not.i.i218 = icmp sgt i32 %mul.i.i.i217, %49
-  br i1 %cmp5.i.not.i.i218, label %if.end39.sink.split.sink.split, label %do.body.i.i.i213, !llvm.loop !7
+  %cmp5.i.not.i.i218 = icmp sgt i32 %mul.i.i.i217, %58
+  br i1 %cmp5.i.not.i.i218, label %if.end5.i.i219, label %do.body.i.i.i213, !llvm.loop !7
 
-if.end39.sink.split.sink.split:                   ; preds = %if.end.i.i.i216, %if.end.i.i.i124, %if.end.i.i.i55, %if.end.i.i.i
-  %mul.i.i.i217.lcssa.sink = phi i32 [ %mul.i.i.i, %if.end.i.i.i ], [ %mul.i.i.i56, %if.end.i.i.i55 ], [ %mul.i.i.i125, %if.end.i.i.i124 ], [ %mul.i.i.i217, %if.end.i.i.i216 ]
-  %cur_len_.i.i138.sink = phi ptr [ %cur_len_.i.i, %if.end.i.i.i ], [ %cur_len_.i.i23, %if.end.i.i.i55 ], [ %cur_len_.i.i69, %if.end.i.i.i124 ], [ %cur_len_.i.i138, %if.end.i.i.i216 ]
-  %conv35.sink.ph = phi i8 [ %conv, %if.end.i.i.i ], [ %conv5, %if.end.i.i.i55 ], [ %conv18, %if.end.i.i.i124 ], [ %conv35, %if.end.i.i.i216 ]
+if.end5.i.i219:                                   ; preds = %if.end.i.i.i216
   %vtable.i.i.i220 = load ptr, ptr %output, align 8
   %vfn.i.i.i221 = getelementptr inbounds i8, ptr %vtable.i.i.i220, i64 16
-  %53 = load ptr, ptr %vfn.i.i.i221, align 8
-  tail call void %53(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i.i217.lcssa.sink)
-  %54 = load i32, ptr %cur_len_.i.i138.sink, align 4
-  br label %if.end39.sink.split
+  %62 = load ptr, ptr %vfn.i.i.i221, align 8
+  tail call void %62(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i.i217)
+  %63 = load i32, ptr %cur_len_.i.i138, align 4
+  br label %return.sink.split.i.i222
 
-if.end39.sink.split:                              ; preds = %if.end39.sink.split.sink.split, %_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE.exit206, %_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE.exit114, %_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE.exit45, %if.then
-  %.sink2.i.i223.sink = phi i32 [ %0, %if.then ], [ %9, %_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE.exit45 ], [ %26, %_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE.exit114 ], [ %50, %_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE.exit206 ], [ %54, %if.end39.sink.split.sink.split ]
-  %conv35.sink = phi i8 [ %conv, %if.then ], [ %conv5, %_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE.exit45 ], [ %conv18, %_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE.exit114 ], [ %conv35, %_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE.exit206 ], [ %conv35.sink.ph, %if.end39.sink.split.sink.split ]
-  %cur_len_.i.i138.sink280 = phi ptr [ %cur_len_.i.i, %if.then ], [ %cur_len_.i.i23, %_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE.exit45 ], [ %cur_len_.i.i69, %_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE.exit114 ], [ %cur_len_.i.i138, %_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE.exit206 ], [ %cur_len_.i.i138.sink, %if.end39.sink.split.sink.split ]
+return.sink.split.i.i222:                         ; preds = %if.end5.i.i219, %_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE.exit206
+  %.sink2.i.i223 = phi i32 [ %63, %if.end5.i.i219 ], [ %59, %_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE.exit206 ]
   %.sink.in.i.i224 = getelementptr inbounds i8, ptr %output, i64 8
   %.sink.i.i225 = load ptr, ptr %.sink.in.i.i224, align 8
-  %idxprom8.i.i226 = sext i32 %.sink2.i.i223.sink to i64
+  %idxprom8.i.i226 = sext i32 %.sink2.i.i223 to i64
   %arrayidx9.i.i227 = getelementptr inbounds i8, ptr %.sink.i.i225, i64 %idxprom8.i.i226
-  store i8 %conv35.sink, ptr %arrayidx9.i.i227, align 1
-  %55 = load i32, ptr %cur_len_.i.i138.sink280, align 4
-  %inc11.i.i228 = add nsw i32 %55, 1
-  store i32 %inc11.i.i228, ptr %cur_len_.i.i138.sink280, align 4
+  store i8 %conv35, ptr %arrayidx9.i.i227, align 1
+  %64 = load i32, ptr %cur_len_.i.i138, align 4
+  %inc11.i.i228 = add nsw i32 %64, 1
+  store i32 %inc11.i.i228, ptr %cur_len_.i.i138, align 4
   br label %if.end39
 
-if.end39:                                         ; preds = %do.body.i.i.i213, %do.body.i.i.i121, %do.body.i.i.i52, %do.body.i.i.i, %if.end39.sink.split, %if.else19
+if.end39:                                         ; preds = %do.body.i.i.i213, %do.body.i.i.i121, %do.body.i.i.i52, %do.body.i.i.i, %return.sink.split.i.i222, %return.sink.split.i.i130, %return.sink.split.i.i61, %return.sink.split.i.i, %if.else19
   ret void
 }
 

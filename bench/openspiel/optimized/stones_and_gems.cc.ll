@@ -503,7 +503,7 @@ $_ZTIPFSt10shared_ptrIKN10open_spiel4GameEERKSt3mapINSt7__cxx1112basic_stringIcS
 @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_112kElWallSteelE = internal unnamed_addr global %"struct.open_spiel::stones_and_gems::Element" zeroinitializer, align 4
 @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_114kElWallMagicOnE = internal unnamed_addr global %"struct.open_spiel::stones_and_gems::Element" zeroinitializer, align 8
 @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElWallMagicDormantE = internal unnamed_addr global %"struct.open_spiel::stones_and_gems::Element" zeroinitializer, align 8
-@_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElWallMagicExpiredE = internal unnamed_addr global %"struct.open_spiel::stones_and_gems::Element" zeroinitializer, align 4
+@_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElWallMagicExpiredE = internal unnamed_addr global %"struct.open_spiel::stones_and_gems::Element" zeroinitializer, align 8
 @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElExplosionDiamondE = internal unnamed_addr global %"struct.open_spiel::stones_and_gems::Element" zeroinitializer, align 4
 @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElExplosionBoulderE = internal unnamed_addr global %"struct.open_spiel::stones_and_gems::Element" zeroinitializer, align 4
 @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_117kElExplosionEmptyE = internal unnamed_addr global %"struct.open_spiel::stones_and_gems::Element" zeroinitializer, align 4
@@ -2106,6 +2106,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   store ptr null, ptr %18, align 8
   store ptr %21, ptr %25, align 8
   store ptr %21, ptr %28, align 8
+  store i64 0, ptr %32, align 8
   br label %_ZN10open_spiel13GameParameterC2EOS0_.exit
 
 35:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -2117,11 +2118,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %38 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %17, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 128
+  store i64 0, ptr %39, align 8
   br label %_ZN10open_spiel13GameParameterC2EOS0_.exit
 
 _ZN10open_spiel13GameParameterC2EOS0_.exit:       ; preds = %20, %35
-  %.sink.i.i.i.i.i = phi ptr [ %39, %35 ], [ %32, %20 ]
-  store i64 0, ptr %.sink.i.i.i.i.i, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %42 = load i32, ptr %41, align 8
@@ -2260,6 +2260,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   store ptr null, ptr %18, align 8
   store ptr %21, ptr %25, align 8
   store ptr %21, ptr %28, align 8
+  store i64 0, ptr %32, align 8
   br label %_ZN10open_spiel13GameParameterC2EOS0_.exit
 
 35:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -2271,11 +2272,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %38 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %17, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 128
+  store i64 0, ptr %39, align 8
   br label %_ZN10open_spiel13GameParameterC2EOS0_.exit
 
 _ZN10open_spiel13GameParameterC2EOS0_.exit:       ; preds = %20, %35
-  %.sink.i.i.i.i.i = phi ptr [ %39, %35 ], [ %32, %20 ]
-  store i64 0, ptr %.sink.i.i.i.i.i, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %42 = load i32, ptr %41, align 8
@@ -2358,6 +2358,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   store ptr null, ptr %18, align 8
   store ptr %21, ptr %25, align 8
   store ptr %21, ptr %28, align 8
+  store i64 0, ptr %32, align 8
   br label %_ZN10open_spiel13GameParameterC2EOS0_.exit
 
 35:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -2369,11 +2370,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %38 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %17, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 128
+  store i64 0, ptr %39, align 8
   br label %_ZN10open_spiel13GameParameterC2EOS0_.exit
 
 _ZN10open_spiel13GameParameterC2EOS0_.exit:       ; preds = %20, %35
-  %.sink.i.i.i.i.i = phi ptr [ %39, %35 ], [ %32, %20 ]
-  store i64 0, ptr %.sink.i.i.i.i.i, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %42 = load i32, ptr %41, align 8
@@ -2512,6 +2512,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   store ptr null, ptr %18, align 8
   store ptr %21, ptr %25, align 8
   store ptr %21, ptr %28, align 8
+  store i64 0, ptr %32, align 8
   br label %_ZN10open_spiel13GameParameterC2EOS0_.exit
 
 35:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -2523,11 +2524,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %38 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %17, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 128
+  store i64 0, ptr %39, align 8
   br label %_ZN10open_spiel13GameParameterC2EOS0_.exit
 
 _ZN10open_spiel13GameParameterC2EOS0_.exit:       ; preds = %20, %35
-  %.sink.i.i.i.i.i = phi ptr [ %39, %35 ], [ %32, %20 ]
-  store i64 0, ptr %.sink.i.i.i.i.i, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %42 = load i32, ptr %41, align 8
@@ -2610,6 +2610,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   store ptr null, ptr %18, align 8
   store ptr %21, ptr %25, align 8
   store ptr %21, ptr %28, align 8
+  store i64 0, ptr %32, align 8
   br label %_ZN10open_spiel13GameParameterC2EOS0_.exit
 
 35:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -2621,11 +2622,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %38 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %17, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 128
+  store i64 0, ptr %39, align 8
   br label %_ZN10open_spiel13GameParameterC2EOS0_.exit
 
 _ZN10open_spiel13GameParameterC2EOS0_.exit:       ; preds = %20, %35
-  %.sink.i.i.i.i.i = phi ptr [ %39, %35 ], [ %32, %20 ]
-  store i64 0, ptr %.sink.i.i.i.i.i, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %42 = load i32, ptr %41, align 8
@@ -2708,6 +2708,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   store ptr null, ptr %18, align 8
   store ptr %21, ptr %25, align 8
   store ptr %21, ptr %28, align 8
+  store i64 0, ptr %32, align 8
   br label %_ZN10open_spiel13GameParameterC2EOS0_.exit
 
 35:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -2719,11 +2720,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %38 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %17, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 128
+  store i64 0, ptr %39, align 8
   br label %_ZN10open_spiel13GameParameterC2EOS0_.exit
 
 _ZN10open_spiel13GameParameterC2EOS0_.exit:       ; preds = %20, %35
-  %.sink.i.i.i.i.i = phi ptr [ %39, %35 ], [ %32, %20 ]
-  store i64 0, ptr %.sink.i.i.i.i.i, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %42 = load i32, ptr %41, align 8
@@ -9962,50 +9962,78 @@ define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState15UpdateMagicWall
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %4 = load i8, ptr %3, align 4
   %5 = trunc i8 %4 to i1
-  br i1 %5, label %6, label %11
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  br i1 %5, label %7, label %19
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %8 = sext i32 %1 to i64
-  %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds i32, ptr %9, i64 %8
-  br label %19
+7:                                                ; preds = %2
+  %.sroa.03.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_114kElWallMagicOnE, align 8
+  %.sroa.24.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_114kElWallMagicOnE, i64 8), align 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %9 = sext i32 %1 to i64
+  %10 = load ptr, ptr %8, align 8
+  %11 = getelementptr inbounds i32, ptr %10, i64 %9
+  %12 = load i32, ptr %11, align 4
+  %13 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 0)
+  %14 = sext i32 %13 to i64
+  %15 = load ptr, ptr %6, align 8
+  %16 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %15, i64 %14
+  store i64 %.sroa.03.0.copyload, ptr %16, align 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %16, i64 8
+  %.sroa.2.0.extract.trunc.i = trunc i64 %.sroa.24.0.copyload to i48
+  store i48 %.sroa.2.0.extract.trunc.i, ptr %.sroa.2.0..sroa_idx.i, align 4
+  %17 = load ptr, ptr %8, align 8
+  %18 = getelementptr inbounds i32, ptr %17, i64 %14
+  store i32 %12, ptr %18, align 4
+  br label %42
 
-11:                                               ; preds = %2
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %13 = load i32, ptr %12, align 8
-  %14 = icmp sgt i32 %13, 0
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %16 = sext i32 %1 to i64
-  %17 = load ptr, ptr %15, align 8
-  %18 = getelementptr inbounds i32, ptr %17, i64 %16
-  %_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElWallMagicDormantE._ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElWallMagicExpiredE = select i1 %14, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElWallMagicDormantE, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElWallMagicExpiredE
-  %. = select i1 %14, ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElWallMagicDormantE, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElWallMagicExpiredE, i64 8)
-  br label %19
+19:                                               ; preds = %2
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %21 = load i32, ptr %20, align 8
+  %22 = icmp sgt i32 %21, 0
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %24 = sext i32 %1 to i64
+  %25 = load ptr, ptr %23, align 8
+  %26 = getelementptr inbounds i32, ptr %25, i64 %24
+  %27 = load i32, ptr %26, align 4
+  br i1 %22, label %28, label %35
 
-19:                                               ; preds = %11, %6
-  %.sroa.01.0.copyload.sink.in = phi ptr [ @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_114kElWallMagicOnE, %6 ], [ %_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElWallMagicDormantE._ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElWallMagicExpiredE, %11 ]
-  %.sroa.22.0.copyload.sink.in = phi ptr [ getelementptr inbounds (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_114kElWallMagicOnE, i64 8), %6 ], [ %., %11 ]
-  %.sink20 = phi ptr [ %7, %6 ], [ %15, %11 ]
-  %.sink16.in = phi ptr [ %10, %6 ], [ %18, %11 ]
-  %.sink16 = load i32, ptr %.sink16.in, align 4
-  %.sroa.22.0.copyload.sink = load i64, ptr %.sroa.22.0.copyload.sink.in, align 4
-  %.sroa.01.0.copyload.sink = load i64, ptr %.sroa.01.0.copyload.sink.in, align 4
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %21 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 0)
-  %22 = sext i32 %21 to i64
-  %23 = load ptr, ptr %20, align 8
-  %24 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %23, i64 %22
-  store i64 %.sroa.01.0.copyload.sink, ptr %24, align 4
-  %.sroa.2.0..sroa_idx.i10 = getelementptr inbounds i8, ptr %24, i64 8
-  %.sroa.2.0.extract.trunc.i11 = trunc i64 %.sroa.22.0.copyload.sink to i48
+28:                                               ; preds = %19
+  %.sroa.01.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElWallMagicDormantE, align 8
+  %.sroa.22.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElWallMagicDormantE, i64 8), align 8
+  %29 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 0)
+  %30 = sext i32 %29 to i64
+  %31 = load ptr, ptr %6, align 8
+  %32 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %31, i64 %30
+  store i64 %.sroa.01.0.copyload, ptr %32, align 4
+  %.sroa.2.0..sroa_idx.i10 = getelementptr inbounds i8, ptr %32, i64 8
+  %.sroa.2.0.extract.trunc.i11 = trunc i64 %.sroa.22.0.copyload to i48
   store i48 %.sroa.2.0.extract.trunc.i11, ptr %.sroa.2.0..sroa_idx.i10, align 4
-  %25 = load ptr, ptr %.sink20, align 8
-  %26 = getelementptr inbounds i32, ptr %25, i64 %22
-  store i32 %.sink16, ptr %26, align 4
-  %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %27, i64 %22, i32 4
-  store i8 1, ptr %28, align 1
+  %33 = load ptr, ptr %23, align 8
+  %34 = getelementptr inbounds i32, ptr %33, i64 %30
+  store i32 %27, ptr %34, align 4
+  br label %42
+
+35:                                               ; preds = %19
+  %.sroa.0.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElWallMagicExpiredE, align 8
+  %.sroa.2.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElWallMagicExpiredE, i64 8), align 8
+  %36 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 0)
+  %37 = sext i32 %36 to i64
+  %38 = load ptr, ptr %6, align 8
+  %39 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %38, i64 %37
+  store i64 %.sroa.0.0.copyload, ptr %39, align 4
+  %.sroa.2.0..sroa_idx.i12 = getelementptr inbounds i8, ptr %39, i64 8
+  %.sroa.2.0.extract.trunc.i13 = trunc i64 %.sroa.2.0.copyload to i48
+  store i48 %.sroa.2.0.extract.trunc.i13, ptr %.sroa.2.0..sroa_idx.i12, align 4
+  %40 = load ptr, ptr %23, align 8
+  %41 = getelementptr inbounds i32, ptr %40, i64 %37
+  store i32 %27, ptr %41, align 4
+  br label %42
+
+42:                                               ; preds = %28, %35, %7
+  %.sink15 = phi i64 [ %30, %28 ], [ %37, %35 ], [ %14, %7 ]
+  %43 = load ptr, ptr %6, align 8
+  %44 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %43, i64 %.sink15, i32 4
+  store i8 1, ptr %44, align 1
   ret void
 }
 
@@ -10523,7 +10551,7 @@ _ZN10open_spiel15stones_and_gems12_GLOBAL__N_18IsOrangeERKNS0_7ElementE.exit.thr
 101:                                              ; preds = %89
   %102 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElWallMagicDormantE, align 8
   %103 = icmp eq i32 %20, %102
-  %104 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElWallMagicExpiredE, align 4
+  %104 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElWallMagicExpiredE, align 8
   %105 = icmp eq i32 %20, %104
   %or.cond.i54 = select i1 %103, i1 true, i1 %105
   %106 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_114kElWallMagicOnE, align 8
@@ -26822,9 +26850,9 @@ define internal void @_GLOBAL__sub_I_stones_and_gems.cc() #27 section ".text.sta
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElWallMagicDormantE, i64 8), align 8
   store i8 81, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElWallMagicDormantE, i64 12), align 4
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElWallMagicDormantE, i64 13), align 1
-  store i32 22, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElWallMagicExpiredE, align 4
+  store i32 22, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElWallMagicExpiredE, align 8
   store i32 12, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElWallMagicExpiredE, i64 4), align 4
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElWallMagicExpiredE, i64 8), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElWallMagicExpiredE, i64 8), align 8
   store i8 81, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElWallMagicExpiredE, i64 12), align 4
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElWallMagicExpiredE, i64 13), align 1
   store i32 24, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElExplosionDiamondE, align 4
@@ -27040,7 +27068,7 @@ define internal void @_GLOBAL__sub_I_stones_and_gems.cc() #27 section ".text.sta
   %100 = getelementptr inbounds i8, ptr %50, i64 460
   store i32 22, ptr %100, align 4
   %101 = getelementptr inbounds i8, ptr %50, i64 464
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %101, ptr noundef nonnull align 4 dereferenceable(16) @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElWallMagicExpiredE, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElWallMagicExpiredE, i64 16, i1 false)
   %102 = getelementptr inbounds i8, ptr %50, i64 480
   store i32 23, ptr %102, align 4
   %103 = getelementptr inbounds i8, ptr %50, i64 484

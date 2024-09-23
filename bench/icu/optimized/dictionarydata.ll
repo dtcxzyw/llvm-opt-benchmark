@@ -411,21 +411,19 @@ if.else.i.i:                                      ; preds = %cond.true.i
 if.then2.i.i:                                     ; preds = %if.else.i.i
   %sub.i.i = shl nuw nsw i32 %and2.i, 16
   %shl.i.i = add nsw i32 %sub.i.i, -1073741824
-  br label %if.end9.sink.split.i.i
+  %7 = load i16, ptr %incdec.ptr.i, align 2
+  %conv.i.i = zext i16 %7 to i32
+  %or.i.i = or disjoint i32 %shl.i.i, %conv.i.i
+  br label %invoke.cont19
 
 if.else3.i.i:                                     ; preds = %if.else.i.i
-  %7 = load i16, ptr %incdec.ptr.i, align 2
-  %conv4.i.i = zext i16 %7 to i32
+  %8 = load i16, ptr %incdec.ptr.i, align 2
+  %conv4.i.i = zext i16 %8 to i32
   %shl5.i.i = shl nuw i32 %conv4.i.i, 16
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %5, i64 4
-  br label %if.end9.sink.split.i.i
-
-if.end9.sink.split.i.i:                           ; preds = %if.else3.i.i, %if.then2.i.i
-  %pos.sink.i.i = phi ptr [ %incdec.ptr.i, %if.then2.i.i ], [ %arrayidx6.i.i, %if.else3.i.i ]
-  %shl.sink.i.i = phi i32 [ %shl.i.i, %if.then2.i.i ], [ %shl5.i.i, %if.else3.i.i ]
-  %8 = load i16, ptr %pos.sink.i.i, align 2
-  %conv.i.i = zext i16 %8 to i32
-  %or.i.i = or disjoint i32 %shl.sink.i.i, %conv.i.i
+  %9 = load i16, ptr %arrayidx6.i.i, align 2
+  %conv7.i.i = zext i16 %9 to i32
+  %or8.i.i = or disjoint i32 %shl5.i.i, %conv7.i.i
   br label %invoke.cont19
 
 cond.false.i:                                     ; preds = %if.then16
@@ -445,23 +443,23 @@ if.then2.i9.i:                                    ; preds = %if.else.i6.i
   %and.i.i = shl nuw nsw i32 %conv.i, 10
   %sub3.i.i = and i32 %and.i.i, 33488896
   %shl.i10.i = add nsw i32 %sub3.i.i, -16842752
-  %9 = load i16, ptr %incdec.ptr.i, align 2
-  %conv.i11.i = zext i16 %9 to i32
+  %10 = load i16, ptr %incdec.ptr.i, align 2
+  %conv.i11.i = zext i16 %10 to i32
   %or.i12.i = or disjoint i32 %shl.i10.i, %conv.i11.i
   br label %invoke.cont19
 
 if.else4.i.i:                                     ; preds = %if.else.i6.i
-  %10 = load i16, ptr %incdec.ptr.i, align 2
-  %conv5.i.i = zext i16 %10 to i32
+  %11 = load i16, ptr %incdec.ptr.i, align 2
+  %conv5.i.i = zext i16 %11 to i32
   %shl6.i.i = shl nuw i32 %conv5.i.i, 16
   %arrayidx7.i.i = getelementptr inbounds i8, ptr %5, i64 4
-  %11 = load i16, ptr %arrayidx7.i.i, align 2
-  %conv8.i.i = zext i16 %11 to i32
+  %12 = load i16, ptr %arrayidx7.i.i, align 2
+  %conv8.i.i = zext i16 %12 to i32
   %or9.i.i = or disjoint i32 %shl6.i.i, %conv8.i.i
   br label %invoke.cont19
 
-invoke.cont19:                                    ; preds = %if.else4.i.i, %if.then2.i9.i, %if.then.i.i, %if.end9.sink.split.i.i, %cond.true.i
-  %cond.i = phi i32 [ %and2.i, %cond.true.i ], [ %or.i.i, %if.end9.sink.split.i.i ], [ %sub.i13.i, %if.then.i.i ], [ %or.i12.i, %if.then2.i9.i ], [ %or9.i.i, %if.else4.i.i ]
+invoke.cont19:                                    ; preds = %if.else4.i.i, %if.then2.i9.i, %if.then.i.i, %if.else3.i.i, %if.then2.i.i, %cond.true.i
+  %cond.i = phi i32 [ %or.i.i, %if.then2.i.i ], [ %or8.i.i, %if.else3.i.i ], [ %and2.i, %cond.true.i ], [ %sub.i13.i, %if.then.i.i ], [ %or.i12.i, %if.then2.i9.i ], [ %or9.i.i, %if.else4.i.i ]
   %idxprom = sext i32 %wordCount.0 to i64
   %arrayidx = getelementptr inbounds i32, ptr %values, i64 %idxprom
   store i32 %cond.i, ptr %arrayidx, align 4

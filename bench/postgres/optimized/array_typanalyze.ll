@@ -259,6 +259,7 @@ define internal void @compute_array_stats(ptr noundef %0, ptr noundef %1, i32 no
   %83 = load i32, ptr %82, align 8
   %84 = add i32 %83, 1
   store i32 %84, ptr %82, align 8
+  store i32 %.0228271, ptr %78, align 8
   br label %96
 
 85:                                               ; preds = %70
@@ -275,11 +276,10 @@ define internal void @compute_array_stats(ptr noundef %0, ptr noundef %1, i32 no
   %94 = getelementptr inbounds i8, ptr %74, i64 12
   store i32 %93, ptr %94, align 4
   %95 = getelementptr inbounds i8, ptr %74, i64 16
+  store i32 %.0228271, ptr %95, align 8
   br label %96
 
 96:                                               ; preds = %85, %81
-  %.sink = phi ptr [ %95, %85 ], [ %78, %81 ]
-  store i32 %.0228271, ptr %.sink, align 8
   %97 = add i64 %.2231266, 1
   %98 = srem i64 %97, %44
   %99 = icmp eq i64 %98, 0
@@ -372,8 +372,8 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
   br label %140
 
 140:                                              ; preds = %._crit_edge, %137
-  %.sink330 = phi i32 [ %139, %137 ], [ 1, %._crit_edge ]
-  store i32 %.sink330, ptr %136, align 4
+  %.sink = phi i32 [ %139, %137 ], [ 1, %._crit_edge ]
+  store i32 %.sink, ptr %136, align 4
   %141 = ptrtoint ptr %57 to i64
   %.not255 = icmp eq i64 %48, %141
   br i1 %.not255, label %143, label %142

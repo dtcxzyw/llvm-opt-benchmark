@@ -1686,9 +1686,9 @@ sw.default:                                       ; preds = %retry
   br label %retry
 
 return.sink.split:                                ; preds = %retry, %sw.bb
-  %func.addr.0.lcssa43.sink45 = phi ptr [ %f, %sw.bb ], [ %func.addr.0, %retry ]
-  %18 = load ptr, ptr %func.addr.0.lcssa43.sink45, align 8
-  %call3 = tail call fastcc i32 @precallC(ptr noundef %L, ptr noundef nonnull %func.addr.0, i32 noundef %nresults, ptr noundef %18)
+  %.sink.in = phi ptr [ %f, %sw.bb ], [ %func.addr.0, %retry ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %call3 = tail call fastcc i32 @precallC(ptr noundef %L, ptr noundef nonnull %func.addr.0, i32 noundef %nresults, ptr noundef %.sink)
   br label %return
 
 return:                                           ; preds = %for.body, %return.sink.split, %prepCallInfo.exit

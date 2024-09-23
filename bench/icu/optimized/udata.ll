@@ -610,10 +610,10 @@ if.else24:                                        ; preds = %if.end15
           to label %if.end34 unwind label %lpad4
 
 if.end34:                                         ; preds = %if.else24, %if.end15
-  %itemPath.sink = phi ptr [ %this, %if.end15 ], [ %itemPath, %if.else24 ]
-  %9 = load ptr, ptr %itemPath.sink, align 8
+  %.sink.in = phi ptr [ %this, %if.end15 ], [ %itemPath, %if.else24 ]
+  %.sink = load ptr, ptr %.sink.in, align 8
   %nextPath33 = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr %9, ptr %nextPath33, align 8
+  store ptr %.sink, ptr %nextPath33, align 8
   %cmp35.not = icmp eq ptr %inSuffix, null
   br i1 %cmp35.not, label %if.else39, label %if.then36
 

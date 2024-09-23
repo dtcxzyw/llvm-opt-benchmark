@@ -2622,16 +2622,16 @@ do.body:                                          ; preds = %trace_pci_nvme_enqu
 
 if.then17:                                        ; preds = %do.body
   %tql_prev21 = getelementptr inbounds i8, ptr %24, i64 200
+  store ptr %25, ptr %tql_prev21, align 8
   br label %if.end27
 
 if.else22:                                        ; preds = %do.body
   %26 = load ptr, ptr %req, align 8
   %tql_prev26 = getelementptr inbounds i8, ptr %26, i64 104
+  store ptr %25, ptr %tql_prev26, align 8
   br label %if.end27
 
 if.end27:                                         ; preds = %if.else22, %if.then17
-  %tql_prev26.sink = phi ptr [ %tql_prev26, %if.else22 ], [ %tql_prev21, %if.then17 ]
-  store ptr %25, ptr %tql_prev26.sink, align 8
   %27 = load ptr, ptr %entry14, align 8
   %tql_prev30 = getelementptr inbounds i8, ptr %req, i64 200
   store ptr %27, ptr %25, align 8
@@ -3527,43 +3527,87 @@ if.then.i14:                                      ; preds = %sw.bb12
   %zone.val.i = load i8, ptr %0, align 1
   %12 = lshr i8 %zone.val.i, 4
   switch i8 %12, label %nvme_assign_zone_state.exit [
-    i8 3, label %if.end96.sink.split.i
+    i8 3, label %do.body.i
     i8 2, label %do.body22.i
     i8 4, label %do.body47.i
     i8 14, label %do.body72.i
   ]
 
+do.body.i:                                        ; preds = %if.then.i14
+  %13 = load ptr, ptr %entry1.i, align 8
+  %cmp3.not.i = icmp eq ptr %13, null
+  br i1 %cmp3.not.i, label %if.else.i15, label %if.then4.i
+
+if.then4.i:                                       ; preds = %do.body.i
+  %tql_prev9.i = getelementptr inbounds i8, ptr %13, i64 80
+  store ptr %11, ptr %tql_prev9.i, align 8
+  br label %if.end96.sink.split.i
+
+if.else.i15:                                      ; preds = %do.body.i
+  %tql_prev12.i = getelementptr inbounds i8, ptr %ns, i64 8552
+  store ptr %11, ptr %tql_prev12.i, align 8
+  br label %if.end96.sink.split.i
+
 do.body22.i:                                      ; preds = %if.then.i14
+  %14 = load ptr, ptr %entry1.i, align 8
+  %cmp24.not.i = icmp eq ptr %14, null
+  br i1 %cmp24.not.i, label %if.else31.i, label %if.then25.i
+
+if.then25.i:                                      ; preds = %do.body22.i
+  %tql_prev30.i = getelementptr inbounds i8, ptr %14, i64 80
+  store ptr %11, ptr %tql_prev30.i, align 8
+  br label %if.end96.sink.split.i
+
+if.else31.i:                                      ; preds = %do.body22.i
+  %tql_prev34.i = getelementptr inbounds i8, ptr %ns, i64 8568
+  store ptr %11, ptr %tql_prev34.i, align 8
   br label %if.end96.sink.split.i
 
 do.body47.i:                                      ; preds = %if.then.i14
+  %15 = load ptr, ptr %entry1.i, align 8
+  %cmp49.not.i = icmp eq ptr %15, null
+  br i1 %cmp49.not.i, label %if.else56.i, label %if.then50.i
+
+if.then50.i:                                      ; preds = %do.body47.i
+  %tql_prev55.i = getelementptr inbounds i8, ptr %15, i64 80
+  store ptr %11, ptr %tql_prev55.i, align 8
+  br label %if.end96.sink.split.i
+
+if.else56.i:                                      ; preds = %do.body47.i
+  %tql_prev59.i = getelementptr inbounds i8, ptr %ns, i64 8584
+  store ptr %11, ptr %tql_prev59.i, align 8
   br label %if.end96.sink.split.i
 
 do.body72.i:                                      ; preds = %if.then.i14
+  %16 = load ptr, ptr %entry1.i, align 8
+  %cmp74.not.i = icmp eq ptr %16, null
+  br i1 %cmp74.not.i, label %if.else81.i, label %if.then75.i
+
+if.then75.i:                                      ; preds = %do.body72.i
+  %tql_prev80.i = getelementptr inbounds i8, ptr %16, i64 80
+  store ptr %11, ptr %tql_prev80.i, align 8
   br label %if.end96.sink.split.i
 
-if.end96.sink.split.i:                            ; preds = %do.body72.i, %do.body47.i, %do.body22.i, %if.then.i14
-  %.sink77.i = phi i64 [ 8600, %do.body72.i ], [ 8584, %do.body47.i ], [ 8568, %do.body22.i ], [ 8552, %if.then.i14 ]
-  %13 = load ptr, ptr %entry1.i, align 8
-  %cmp74.not.i = icmp eq ptr %13, null
-  %tql_prev84.i = getelementptr inbounds i8, ptr %ns, i64 %.sink77.i
-  %tql_prev80.i = getelementptr inbounds i8, ptr %13, i64 80
-  %tql_prev84.sink.i = select i1 %cmp74.not.i, ptr %tql_prev84.i, ptr %tql_prev80.i
-  store ptr %11, ptr %tql_prev84.sink.i, align 8
-  %14 = load ptr, ptr %entry1.i, align 8
-  %15 = load ptr, ptr %tql_prev.i, align 8
-  store ptr %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %zone, i64 80
-  store i64 0, ptr %16, align 8
+if.else81.i:                                      ; preds = %do.body72.i
+  %tql_prev84.i = getelementptr inbounds i8, ptr %ns, i64 8600
+  store ptr %11, ptr %tql_prev84.i, align 8
+  br label %if.end96.sink.split.i
+
+if.end96.sink.split.i:                            ; preds = %if.else81.i, %if.then75.i, %if.else56.i, %if.then50.i, %if.else31.i, %if.then25.i, %if.else.i15, %if.then4.i
+  %17 = load ptr, ptr %entry1.i, align 8
+  %18 = load ptr, ptr %tql_prev.i, align 8
+  store ptr %17, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %zone, i64 80
+  store i64 0, ptr %19, align 8
   br label %nvme_assign_zone_state.exit
 
 nvme_assign_zone_state.exit:                      ; preds = %sw.bb12, %if.then.i14, %if.end96.sink.split.i
   store i8 -32, ptr %0, align 1
   store ptr null, ptr %entry1.i, align 8
   %tql_prev143.i = getelementptr inbounds i8, ptr %ns, i64 8600
-  %17 = load ptr, ptr %tql_prev143.i, align 8
-  store ptr %17, ptr %tql_prev.i, align 8
-  store ptr %zone, ptr %17, align 8
+  %20 = load ptr, ptr %tql_prev143.i, align 8
+  store ptr %20, ptr %tql_prev.i, align 8
+  store ptr %zone, ptr %20, align 8
   store ptr %entry1.i, ptr %tql_prev143.i, align 8
   br label %return
 
@@ -3989,9 +4033,18 @@ do.body:                                          ; preds = %if.end
   %cmp.not = icmp eq ptr %8, null
   %tql_prev19 = getelementptr inbounds i8, ptr %event.082, i64 8
   %24 = load ptr, ptr %tql_prev19, align 8
+  br i1 %cmp.not, label %if.else, label %if.then13
+
+if.then13:                                        ; preds = %do.body
   %tql_prev17 = getelementptr inbounds i8, ptr %8, i64 8
-  %tql_prev21.sink = select i1 %cmp.not, ptr %tql_prev21, ptr %tql_prev17
-  store ptr %24, ptr %tql_prev21.sink, align 8
+  store ptr %24, ptr %tql_prev17, align 8
+  br label %if.end22
+
+if.else:                                          ; preds = %do.body
+  store ptr %24, ptr %tql_prev21, align 8
+  br label %if.end22
+
+if.end22:                                         ; preds = %if.else, %if.then13
   %25 = load ptr, ptr %event.082, align 8
   store ptr %25, ptr %24, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %event.082, i8 0, i64 16, i1 false)
@@ -4035,7 +4088,7 @@ do.body:                                          ; preds = %if.end
   %or.cond.i.i66 = select i1 %tobool.i.i64, i1 %tobool4.i.i65, i1 false
   br i1 %or.cond.i.i66, label %land.lhs.true5.i.i67, label %trace_pci_nvme_aer_post_cqe.exit
 
-land.lhs.true5.i.i67:                             ; preds = %do.body
+land.lhs.true5.i.i67:                             ; preds = %if.end22
   %41 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i68 = and i32 %41, 32768
   %cmp.i.not.i.i69 = icmp eq i32 %and.i.i.i68, 0
@@ -4064,7 +4117,7 @@ if.else.i.i72:                                    ; preds = %if.then.i.i70
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.67, i32 noundef %conv14.i.i73, i32 noundef %conv15.i.i, i32 noundef %conv16.i.i) #19
   br label %trace_pci_nvme_aer_post_cqe.exit
 
-trace_pci_nvme_aer_post_cqe.exit:                 ; preds = %do.body, %land.lhs.true5.i.i67, %if.then8.i.i74, %if.else.i.i72
+trace_pci_nvme_aer_post_cqe.exit:                 ; preds = %if.end22, %land.lhs.true5.i.i67, %if.then8.i.i74, %if.else.i.i72
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i63)
   tail call fastcc void @nvme_enqueue_req_completion(ptr noundef nonnull %admin_cq, ptr noundef nonnull %32)
   br label %for.inc
@@ -8216,15 +8269,24 @@ for.inc28:                                        ; preds = %for.body19, %if.the
   %cmp18 = icmp ult i32 %inc29, %add17
   br i1 %cmp18, label %for.body19, label %while.cond.preheader, !llvm.loop !20
 
-while.body:                                       ; preds = %while.body.lr.ph, %while.body
-  %11 = phi ptr [ %6, %while.body.lr.ph ], [ %15, %while.body ]
+while.body:                                       ; preds = %while.body.lr.ph, %if.end44
+  %11 = phi ptr [ %6, %while.body.lr.ph ], [ %15, %if.end44 ]
   %12 = load ptr, ptr %11, align 8
   %cmp34.not = icmp eq ptr %12, null
   %tql_prev41 = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load ptr, ptr %tql_prev41, align 8
+  br i1 %cmp34.not, label %if.else, label %if.then35
+
+if.then35:                                        ; preds = %while.body
   %tql_prev39 = getelementptr inbounds i8, ptr %12, i64 8
-  %tql_prev43.sink = select i1 %cmp34.not, ptr %tql_prev43, ptr %tql_prev39
-  store ptr %13, ptr %tql_prev43.sink, align 8
+  store ptr %13, ptr %tql_prev39, align 8
+  br label %if.end44
+
+if.else:                                          ; preds = %while.body
+  store ptr %13, ptr %tql_prev43, align 8
+  br label %if.end44
+
+if.end44:                                         ; preds = %if.else, %if.then35
   %14 = load ptr, ptr %11, align 8
   store ptr %14, ptr %13, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
@@ -8233,7 +8295,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %cmp31.not = icmp eq ptr %15, null
   br i1 %cmp31.not, label %while.end, label %while.body, !llvm.loop !21
 
-while.end:                                        ; preds = %while.body, %while.cond.preheader
+while.end:                                        ; preds = %if.end44, %while.cond.preheader
   %sriov_max_vfs = getelementptr inbounds i8, ptr %n, i64 7287
   %16 = load i8, ptr %sriov_max_vfs, align 1
   %tobool54.not = icmp eq i8 %16, 0
@@ -9253,9 +9315,18 @@ do.body:                                          ; preds = %if.end5
   %cmp27.not = icmp eq ptr %38, null
   %tql_prev35 = getelementptr inbounds i8, ptr %req.086, i64 200
   %39 = load ptr, ptr %tql_prev35, align 8
+  br i1 %cmp27.not, label %if.else, label %if.then29
+
+if.then29:                                        ; preds = %do.body
   %tql_prev33 = getelementptr inbounds i8, ptr %38, i64 200
-  %tql_prev37.sink = select i1 %cmp27.not, ptr %tql_prev37, ptr %tql_prev33
-  store ptr %39, ptr %tql_prev37.sink, align 8
+  store ptr %39, ptr %tql_prev33, align 8
+  br label %if.end38
+
+if.else:                                          ; preds = %do.body
+  store ptr %39, ptr %tql_prev37, align 8
+  br label %if.end38
+
+if.end38:                                         ; preds = %if.else, %if.then29
   %40 = load ptr, ptr %entry1, align 8
   %tql_prev41 = getelementptr inbounds i8, ptr %req.086, i64 200
   store ptr %40, ptr %39, align 8
@@ -9267,7 +9338,7 @@ do.body:                                          ; preds = %if.end5
   %cmp.not.i = icmp ult i32 %inc.i, %42
   br i1 %cmp.not.i, label %nvme_inc_cq_tail.exit, label %if.then.i
 
-if.then.i:                                        ; preds = %do.body
+if.then.i:                                        ; preds = %if.end38
   store i32 0, ptr %tail, align 4
   %43 = load i8, ptr %phase, align 8
   %tobool.not.i = icmp eq i8 %43, 0
@@ -9275,7 +9346,7 @@ if.then.i:                                        ; preds = %do.body
   store i8 %conv.i, ptr %phase, align 8
   br label %nvme_inc_cq_tail.exit
 
-nvme_inc_cq_tail.exit:                            ; preds = %do.body, %if.then.i
+nvme_inc_cq_tail.exit:                            ; preds = %if.end38, %if.then.i
   %sg = getelementptr inbounds i8, ptr %req.086, i64 144
   %44 = load i32, ptr %sg, align 8
   %and.i = and i32 %44, 1
@@ -9733,10 +9804,10 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %5 = getelementptr i8, ptr %opaque, i64 12
   %6 = getelementptr i8, ptr %opaque, i64 16
-  %opaque.val699 = load i32, ptr %5, align 4
-  %opaque.val43700 = load i32, ptr %6, align 8
-  %cmp.i.not701 = icmp eq i32 %opaque.val699, %opaque.val43700
-  br i1 %cmp.i.not701, label %while.end, label %lor.rhs.lr.ph
+  %opaque.val701 = load i32, ptr %5, align 4
+  %opaque.val43702 = load i32, ptr %6, align 8
+  %cmp.i.not703 = icmp eq i32 %opaque.val701, %opaque.val43702
+  br i1 %cmp.i.not703, label %while.end, label %lor.rhs.lr.ph
 
 lor.rhs.lr.ph:                                    ; preds = %if.end
   %req_list = getelementptr inbounds i8, ptr %opaque, i64 80
@@ -9831,14 +9902,14 @@ lor.rhs.lr.ph:                                    ; preds = %if.end
   br label %lor.rhs
 
 lor.rhs:                                          ; preds = %lor.rhs.lr.ph, %if.end61
-  %opaque.val702 = phi i32 [ %opaque.val699, %lor.rhs.lr.ph ], [ %opaque.val, %if.end61 ]
+  %opaque.val704 = phi i32 [ %opaque.val701, %lor.rhs.lr.ph ], [ %opaque.val, %if.end61 ]
   %9 = load ptr, ptr %req_list, align 8
   %cmp.not = icmp eq ptr %9, null
   br i1 %cmp.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %lor.rhs
   %10 = load i64, ptr %dma_addr, align 8
-  %shl = shl i32 %opaque.val702, 6
+  %shl = shl i32 %opaque.val704, 6
   %conv4 = zext i32 %shl to i64
   %add = add i64 %10, %conv4
   %call5 = call fastcc i32 @nvme_addr_read(ptr noundef nonnull %0, i64 noundef %add, ptr noundef nonnull %cmd, i32 noundef 64)
@@ -9930,9 +10001,18 @@ if.end8:                                          ; preds = %while.body
   %cmp11.not = icmp eq ptr %26, null
   %tql_prev19 = getelementptr inbounds i8, ptr %25, i64 200
   %27 = load ptr, ptr %tql_prev19, align 8
+  br i1 %cmp11.not, label %if.else, label %if.then13
+
+if.then13:                                        ; preds = %if.end8
   %tql_prev17 = getelementptr inbounds i8, ptr %26, i64 200
-  %tql_prev21.sink = select i1 %cmp11.not, ptr %tql_prev21, ptr %tql_prev17
-  store ptr %27, ptr %tql_prev21.sink, align 8
+  store ptr %27, ptr %tql_prev17, align 8
+  br label %if.end22
+
+if.else:                                          ; preds = %if.end8
+  store ptr %27, ptr %tql_prev21, align 8
+  br label %if.end22
+
+if.end22:                                         ; preds = %if.else, %if.then13
   %28 = load ptr, ptr %entry10, align 8
   %tql_prev25 = getelementptr inbounds i8, ptr %25, i64 200
   store ptr %28, ptr %27, align 8
@@ -9954,7 +10034,7 @@ if.end8:                                          ; preds = %while.body
   %tobool46.not = icmp eq i16 %31, 0
   br i1 %tobool46.not, label %nvme_cid.exit.i, label %cond.true
 
-cond.true:                                        ; preds = %if.end8
+cond.true:                                        ; preds = %if.end22
   %nsid1.i = getelementptr inbounds i8, ptr %25, i64 60
   %32 = load i32, ptr %nsid1.i, align 4
   %req.val.i = load ptr, ptr %25, align 8
@@ -10247,7 +10327,7 @@ sw.default.i:                                     ; preds = %if.end38.i
   call void @__assert_fail(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.1, i32 noundef 4483, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_io_cmd) #20
   unreachable
 
-nvme_cid.exit.i:                                  ; preds = %if.end8
+nvme_cid.exit.i:                                  ; preds = %if.end22
   %62 = zext i16 %30 to i32
   %req.val.i63 = load ptr, ptr %25, align 8
   %63 = getelementptr i8, ptr %req.val.i63, i64 8
@@ -10542,9 +10622,9 @@ while.body.i:                                     ; preds = %trace_pci_nvme_del_
   %aiocb.i667 = getelementptr inbounds i8, ptr %100, i64 16
   %101 = load ptr, ptr %aiocb.i667, align 8
   %tobool11.not.i668 = icmp eq ptr %101, null
-  br i1 %tobool11.not.i668, label %if.else.i679, label %if.end13.i669
+  br i1 %tobool11.not.i668, label %if.else.i681, label %if.end13.i669
 
-if.else.i679:                                     ; preds = %while.body.i
+if.else.i681:                                     ; preds = %while.body.i
   call void @__assert_fail(ptr noundef nonnull @.str.312, ptr noundef nonnull @.str.1, i32 noundef 4594, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_del_sq) #20
   unreachable
 
@@ -10577,10 +10657,19 @@ if.then23.i:                                      ; preds = %nvme_check_cqid.exi
   %cmp29.not.i677 = icmp eq ptr %107, null
   %tql_prev38.i = getelementptr inbounds i8, ptr %98, i64 120
   %108 = load ptr, ptr %tql_prev38.i, align 8
-  %tql_prev39.i = getelementptr inbounds i8, ptr %106, i64 88
+  br i1 %cmp29.not.i677, label %if.else36.i, label %if.then31.i
+
+if.then31.i:                                      ; preds = %if.then23.i
   %tql_prev35.i = getelementptr inbounds i8, ptr %107, i64 120
-  %tql_prev39.sink.i = select i1 %cmp29.not.i677, ptr %tql_prev39.i, ptr %tql_prev35.i
-  store ptr %108, ptr %tql_prev39.sink.i, align 8
+  store ptr %108, ptr %tql_prev35.i, align 8
+  br label %if.end40.i678
+
+if.else36.i:                                      ; preds = %if.then23.i
+  %tql_prev39.i = getelementptr inbounds i8, ptr %106, i64 88
+  store ptr %108, ptr %tql_prev39.i, align 8
+  br label %if.end40.i678
+
+if.end40.i678:                                    ; preds = %if.else36.i, %if.then31.i
   %109 = load ptr, ptr %entry28.i, align 8
   store ptr %109, ptr %108, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %entry28.i, i8 0, i64 16, i1 false)
@@ -10590,26 +10679,35 @@ if.then23.i:                                      ; preds = %nvme_check_cqid.exi
   %tobool49.not6.i = icmp eq ptr %110, null
   br i1 %tobool49.not6.i, label %if.end95.i, label %land.rhs.lr.ph.i
 
-land.rhs.lr.ph.i:                                 ; preds = %if.then23.i
+land.rhs.lr.ph.i:                                 ; preds = %if.end40.i678
   %tql_prev69.i = getelementptr inbounds i8, ptr %106, i64 104
   %tql_prev84.i = getelementptr inbounds i8, ptr %98, i64 88
   br label %land.rhs.i
 
-land.rhs.i:                                       ; preds = %for.inc.i678, %land.rhs.lr.ph.i
-  %r.07.i = phi ptr [ %110, %land.rhs.lr.ph.i ], [ %111, %for.inc.i678 ]
+land.rhs.i:                                       ; preds = %for.inc.i679, %land.rhs.lr.ph.i
+  %r.07.i = phi ptr [ %110, %land.rhs.lr.ph.i ], [ %111, %for.inc.i679 ]
   %entry50.i = getelementptr inbounds i8, ptr %r.07.i, i64 192
   %111 = load ptr, ptr %entry50.i, align 8
   %112 = load ptr, ptr %r.07.i, align 8
   %cmp52.i = icmp eq ptr %112, %98
-  br i1 %cmp52.i, label %do.body55.i, label %for.inc.i678
+  br i1 %cmp52.i, label %do.body55.i, label %for.inc.i679
 
 do.body55.i:                                      ; preds = %land.rhs.i
   %cmp57.not.i = icmp eq ptr %111, null
   %tql_prev67.i = getelementptr inbounds i8, ptr %r.07.i, i64 200
   %113 = load ptr, ptr %tql_prev67.i, align 8
+  br i1 %cmp57.not.i, label %if.else65.i, label %if.then59.i
+
+if.then59.i:                                      ; preds = %do.body55.i
   %tql_prev64.i = getelementptr inbounds i8, ptr %111, i64 200
-  %tql_prev69.sink.i = select i1 %cmp57.not.i, ptr %tql_prev69.i, ptr %tql_prev64.i
-  store ptr %113, ptr %tql_prev69.sink.i, align 8
+  store ptr %113, ptr %tql_prev64.i, align 8
+  br label %if.end70.i680
+
+if.else65.i:                                      ; preds = %do.body55.i
+  store ptr %113, ptr %tql_prev69.i, align 8
+  br label %if.end70.i680
+
+if.end70.i680:                                    ; preds = %if.else65.i, %if.then59.i
   %114 = load ptr, ptr %entry50.i, align 8
   store ptr %114, ptr %113, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %entry50.i, i8 0, i64 16, i1 false)
@@ -10617,13 +10715,13 @@ do.body55.i:                                      ; preds = %land.rhs.i
   store ptr %115, ptr %tql_prev67.i, align 8
   store ptr %r.07.i, ptr %115, align 8
   store ptr %entry50.i, ptr %tql_prev84.i, align 8
-  br label %for.inc.i678
+  br label %for.inc.i679
 
-for.inc.i678:                                     ; preds = %do.body55.i, %land.rhs.i
+for.inc.i679:                                     ; preds = %if.end70.i680, %land.rhs.i
   %tobool49.not.i = icmp eq ptr %111, null
   br i1 %tobool49.not.i, label %if.end95.i, label %land.rhs.i, !llvm.loop !27
 
-if.end95.i:                                       ; preds = %for.inc.i678, %if.then23.i, %nvme_check_cqid.exit.i675, %if.end20.i671
+if.end95.i:                                       ; preds = %for.inc.i679, %if.end40.i678, %nvme_check_cqid.exit.i675, %if.end20.i671
   call fastcc void @nvme_free_sq(ptr noundef %98, ptr noundef %0)
   br label %if.then55
 
@@ -13560,9 +13658,9 @@ cond.end:                                         ; preds = %if.end30.i.i, %if.e
   br i1 %cmp53.not, label %if.end57, label %if.then55
 
 if.then55:                                        ; preds = %for.cond.i.i.i, %for.inc198.i, %for.inc137.us.i, %for.inc137.i, %for.inc.i374, %out.i, %sw.bb47.i, %trace_pci_nvme_dbbuf_config.exit.i, %if.end7.i.i, %if.end.i26.i, %sw.bb20.i, %sw.bb.i199, %if.end13.i.i202, %if.end3.i.i, %if.end.i22.i, %if.end.i196, %trace_pci_nvme_virt_mngmt.exit.i, %sw.bb22.i, %sw.bb24.i, %trace_pci_nvme_aer_aerl_exceeded.exit.i, %if.end.i94.i, %if.then80.i, %if.end153.i, %sw.bb163.i, %sw.bb.i375, %lor.lhs.false.i, %if.then110.i, %if.end103.i, %sw.bb201.i, %if.end50.i, %sw.bb167.i, %if.end143.i, %lor.lhs.false147.i, %sw.bb140.i, %if.end57.i, %if.end44.i, %if.then39.i, %nvme_ns.exit.i357, %if.then22.i, %if.end.i353, %land.lhs.true.i351, %sw.bb165.i, %if.then204.i, %sw.bb208.i, %sw.default210.i, %trace_pci_nvme_identify_ctrl.exit.i.i, %if.end.i.i70.i, %trace_pci_nvme_identify_pri_ctrl_cap.exit.i.i, %if.end.i.i.i, %sw.bb.i432, %sw.bb4.i, %sw.bb6.i, %sw.bb8.i, %nvme_identify_sec_ctrl_list.exit.i, %sw.bb14.i, %sw.bb16.i, %nvme_identify_ctrl_csi.exit.i, %sw.bb22.i417, %sw.bb24.i415, %sw.bb26.i, %sw.bb28.i, %nvme_identify_ns_descr_list.exit.i, %nvme_identify_cmd_set.exit.i, %trace_pci_nvme_err_invalid_identify_cns.exit.i, %if.end104.i466, %if.then100.i, %if.then87.i, %if.then76.i, %if.then63.i, %trace_pci_nvme_err_invalid_create_cq_size.exit.i, %trace_pci_nvme_err_invalid_create_cq_cqid.exit.i, %trace_pci_nvme_err_invalid_create_cq_entry_size.exit.i, %trace_pci_nvme_del_cq.exit.i, %trace_pci_nvme_err_invalid_del_cq_notempty.exit.i, %trace_pci_nvme_err_invalid_del_cq_cqid.exit.i, %nvme_check_mdts.exit.i, %sw.bb27.i, %sw.bb.i554, %sw.bb32.i553, %sw.bb35.i552, %sw.bb38.i551, %sw.bb41.i550, %sw.bb44.i549, %sw.bb47.i547, %sw.bb50.i546, %sw.bb53.i544, %sw.bb56.i543, %nvme_cid.exit71.i, %if.end70.i, %if.then66.i, %if.then53.i617, %if.then42.i, %trace_pci_nvme_err_invalid_create_sq_sqid.exit.i, %trace_pci_nvme_err_invalid_create_sq_cqid.exit.i, %if.end95.i, %trace_pci_nvme_err_invalid_del_sq.exit.i, %if.end20.i, %nvme_check_sqid.exit.i.i, %sw.bb35.i, %if.end13.i, %if.end.i73, %trace_pci_nvme_err_invalid_admin_opc.exit.i, %nvme_get_feature.exit, %nvme_ns_attachment.exit, %nvme_directive_receive.exit, %if.end14.i, %out.i.i, %if.end32.i, %nvme_ns.exit.i, %trace_pci_nvme_io_cmd.exit.i, %trace_pci_nvme_err_invalid_opc.exit.i, %sw.bb60.i, %sw.bb62.i, %sw.bb64.i, %cond.end
-  %cond.in682 = phi i16 [ %cond.in, %cond.end ], [ %status.0.i, %out.i ], [ 16386, %sw.bb47.i ], [ 0, %trace_pci_nvme_dbbuf_config.exit.i ], [ 16674, %if.end7.i.i ], [ 16673, %if.end.i26.i ], [ 16671, %sw.bb20.i ], [ 16671, %sw.bb.i199 ], [ 16674, %if.end13.i.i202 ], [ 16673, %if.end3.i.i ], [ 16672, %if.end.i22.i ], [ 16386, %if.end.i196 ], [ 16674, %trace_pci_nvme_virt_mngmt.exit.i ], [ %call23.i, %sw.bb22.i ], [ %call25.i, %sw.bb24.i ], [ 261, %trace_pci_nvme_aer_aerl_exceeded.exit.i ], [ 0, %if.end.i94.i ], [ 0, %if.then80.i ], [ 0, %if.end153.i ], [ 0, %sw.bb163.i ], [ 0, %sw.bb.i375 ], [ 0, %lor.lhs.false.i ], [ 0, %if.then110.i ], [ 0, %if.end103.i ], [ 0, %sw.bb201.i ], [ 16396, %if.end50.i ], [ %call169.i, %sw.bb167.i ], [ 16386, %if.end143.i ], [ 16386, %lor.lhs.false147.i ], [ 16396, %sw.bb140.i ], [ 16386, %if.end57.i ], [ 16654, %if.end44.i ], [ %..i, %if.then39.i ], [ 16386, %nvme_ns.exit.i357 ], [ 16395, %if.then22.i ], [ 16386, %if.end.i353 ], [ 16653, %land.lhs.true.i351 ], [ %call166.i, %sw.bb165.i ], [ 16427, %if.then204.i ], [ %call209.i, %sw.bb208.i ], [ 16654, %sw.default210.i ], [ %call.i.i67.i, %trace_pci_nvme_identify_ctrl.exit.i.i ], [ %call2.i.i71.i, %if.end.i.i70.i ], [ %call.i.i.i, %trace_pci_nvme_identify_pri_ctrl_cap.exit.i.i ], [ %call2.i.i.i, %if.end.i.i.i ], [ %call3.i, %sw.bb.i432 ], [ %call5.i, %sw.bb4.i ], [ %call7.i, %sw.bb6.i ], [ %call9.i, %sw.bb8.i ], [ %retval.0.i.i47.i, %nvme_identify_sec_ctrl_list.exit.i ], [ %call15.i423, %sw.bb14.i ], [ %call17.i, %sw.bb16.i ], [ %retval.0.i90.i, %nvme_identify_ctrl_csi.exit.i ], [ %call23.i418, %sw.bb22.i417 ], [ %call25.i416, %sw.bb24.i415 ], [ %call27.i, %sw.bb26.i ], [ %call29.i, %sw.bb28.i ], [ %retval.0.i110.i, %nvme_identify_ns_descr_list.exit.i ], [ %retval.0.i.i135.i, %nvme_identify_cmd_set.exit.i ], [ 16386, %trace_pci_nvme_err_invalid_identify_cns.exit.i ], [ 0, %if.end104.i466 ], [ 16386, %if.then100.i ], [ 16648, %if.then87.i ], [ 16648, %if.then76.i ], [ 16403, %if.then63.i ], [ 16642, %trace_pci_nvme_err_invalid_create_cq_size.exit.i ], [ 16641, %trace_pci_nvme_err_invalid_create_cq_cqid.exit.i ], [ 16642, %trace_pci_nvme_err_invalid_create_cq_entry_size.exit.i ], [ 0, %trace_pci_nvme_del_cq.exit.i ], [ 268, %trace_pci_nvme_err_invalid_del_cq_notempty.exit.i ], [ 16640, %trace_pci_nvme_err_invalid_del_cq_cqid.exit.i ], [ 16386, %nvme_check_mdts.exit.i ], [ 16386, %sw.bb27.i ], [ %call31.i, %sw.bb.i554 ], [ %call34.i, %sw.bb32.i553 ], [ %call37.i, %sw.bb35.i552 ], [ %call40.i, %sw.bb38.i551 ], [ %call43.i, %sw.bb41.i550 ], [ %call46.i, %sw.bb44.i549 ], [ %call49.i548, %sw.bb47.i547 ], [ %call52.i, %sw.bb50.i546 ], [ %call55.i545, %sw.bb53.i544 ], [ %call58.i, %sw.bb56.i543 ], [ 16386, %nvme_cid.exit71.i ], [ 0, %if.end70.i ], [ 16386, %if.then66.i ], [ 16403, %if.then53.i617 ], [ 16642, %if.then42.i ], [ 16641, %trace_pci_nvme_err_invalid_create_sq_sqid.exit.i ], [ 16640, %trace_pci_nvme_err_invalid_create_sq_cqid.exit.i ], [ 0, %if.end95.i ], [ 16641, %trace_pci_nvme_err_invalid_del_sq.exit.i ], [ 16386, %if.end20.i ], [ %spec.select.i.i, %nvme_check_sqid.exit.i.i ], [ 16386, %sw.bb35.i ], [ 2, %if.end13.i ], [ 16386, %if.end.i73 ], [ 16385, %trace_pci_nvme_err_invalid_admin_opc.exit.i ], [ %retval.0.i303, %nvme_get_feature.exit ], [ %retval.0.i225, %nvme_ns_attachment.exit ], [ %retval.0.i133, %nvme_directive_receive.exit ], [ 16386, %if.end14.i ], [ %status.0.i.i, %out.i.i ], [ 2, %if.end32.i ], [ 16386, %nvme_ns.exit.i ], [ 16395, %trace_pci_nvme_io_cmd.exit.i ], [ 16385, %trace_pci_nvme_err_invalid_opc.exit.i ], [ %call61.i, %sw.bb60.i ], [ %call63.i, %sw.bb62.i ], [ %call65.i, %sw.bb64.i ], [ 0, %for.inc.i374 ], [ 0, %for.inc137.i ], [ 0, %for.inc137.us.i ], [ 0, %for.inc198.i ], [ 16671, %for.cond.i.i.i ]
+  %cond.in684 = phi i16 [ %cond.in, %cond.end ], [ %status.0.i, %out.i ], [ 16386, %sw.bb47.i ], [ 0, %trace_pci_nvme_dbbuf_config.exit.i ], [ 16674, %if.end7.i.i ], [ 16673, %if.end.i26.i ], [ 16671, %sw.bb20.i ], [ 16671, %sw.bb.i199 ], [ 16674, %if.end13.i.i202 ], [ 16673, %if.end3.i.i ], [ 16672, %if.end.i22.i ], [ 16386, %if.end.i196 ], [ 16674, %trace_pci_nvme_virt_mngmt.exit.i ], [ %call23.i, %sw.bb22.i ], [ %call25.i, %sw.bb24.i ], [ 261, %trace_pci_nvme_aer_aerl_exceeded.exit.i ], [ 0, %if.end.i94.i ], [ 0, %if.then80.i ], [ 0, %if.end153.i ], [ 0, %sw.bb163.i ], [ 0, %sw.bb.i375 ], [ 0, %lor.lhs.false.i ], [ 0, %if.then110.i ], [ 0, %if.end103.i ], [ 0, %sw.bb201.i ], [ 16396, %if.end50.i ], [ %call169.i, %sw.bb167.i ], [ 16386, %if.end143.i ], [ 16386, %lor.lhs.false147.i ], [ 16396, %sw.bb140.i ], [ 16386, %if.end57.i ], [ 16654, %if.end44.i ], [ %..i, %if.then39.i ], [ 16386, %nvme_ns.exit.i357 ], [ 16395, %if.then22.i ], [ 16386, %if.end.i353 ], [ 16653, %land.lhs.true.i351 ], [ %call166.i, %sw.bb165.i ], [ 16427, %if.then204.i ], [ %call209.i, %sw.bb208.i ], [ 16654, %sw.default210.i ], [ %call.i.i67.i, %trace_pci_nvme_identify_ctrl.exit.i.i ], [ %call2.i.i71.i, %if.end.i.i70.i ], [ %call.i.i.i, %trace_pci_nvme_identify_pri_ctrl_cap.exit.i.i ], [ %call2.i.i.i, %if.end.i.i.i ], [ %call3.i, %sw.bb.i432 ], [ %call5.i, %sw.bb4.i ], [ %call7.i, %sw.bb6.i ], [ %call9.i, %sw.bb8.i ], [ %retval.0.i.i47.i, %nvme_identify_sec_ctrl_list.exit.i ], [ %call15.i423, %sw.bb14.i ], [ %call17.i, %sw.bb16.i ], [ %retval.0.i90.i, %nvme_identify_ctrl_csi.exit.i ], [ %call23.i418, %sw.bb22.i417 ], [ %call25.i416, %sw.bb24.i415 ], [ %call27.i, %sw.bb26.i ], [ %call29.i, %sw.bb28.i ], [ %retval.0.i110.i, %nvme_identify_ns_descr_list.exit.i ], [ %retval.0.i.i135.i, %nvme_identify_cmd_set.exit.i ], [ 16386, %trace_pci_nvme_err_invalid_identify_cns.exit.i ], [ 0, %if.end104.i466 ], [ 16386, %if.then100.i ], [ 16648, %if.then87.i ], [ 16648, %if.then76.i ], [ 16403, %if.then63.i ], [ 16642, %trace_pci_nvme_err_invalid_create_cq_size.exit.i ], [ 16641, %trace_pci_nvme_err_invalid_create_cq_cqid.exit.i ], [ 16642, %trace_pci_nvme_err_invalid_create_cq_entry_size.exit.i ], [ 0, %trace_pci_nvme_del_cq.exit.i ], [ 268, %trace_pci_nvme_err_invalid_del_cq_notempty.exit.i ], [ 16640, %trace_pci_nvme_err_invalid_del_cq_cqid.exit.i ], [ 16386, %nvme_check_mdts.exit.i ], [ 16386, %sw.bb27.i ], [ %call31.i, %sw.bb.i554 ], [ %call34.i, %sw.bb32.i553 ], [ %call37.i, %sw.bb35.i552 ], [ %call40.i, %sw.bb38.i551 ], [ %call43.i, %sw.bb41.i550 ], [ %call46.i, %sw.bb44.i549 ], [ %call49.i548, %sw.bb47.i547 ], [ %call52.i, %sw.bb50.i546 ], [ %call55.i545, %sw.bb53.i544 ], [ %call58.i, %sw.bb56.i543 ], [ 16386, %nvme_cid.exit71.i ], [ 0, %if.end70.i ], [ 16386, %if.then66.i ], [ 16403, %if.then53.i617 ], [ 16642, %if.then42.i ], [ 16641, %trace_pci_nvme_err_invalid_create_sq_sqid.exit.i ], [ 16640, %trace_pci_nvme_err_invalid_create_sq_cqid.exit.i ], [ 0, %if.end95.i ], [ 16641, %trace_pci_nvme_err_invalid_del_sq.exit.i ], [ 16386, %if.end20.i ], [ %spec.select.i.i, %nvme_check_sqid.exit.i.i ], [ 16386, %sw.bb35.i ], [ 2, %if.end13.i ], [ 16386, %if.end.i73 ], [ 16385, %trace_pci_nvme_err_invalid_admin_opc.exit.i ], [ %retval.0.i303, %nvme_get_feature.exit ], [ %retval.0.i225, %nvme_ns_attachment.exit ], [ %retval.0.i133, %nvme_directive_receive.exit ], [ 16386, %if.end14.i ], [ %status.0.i.i, %out.i.i ], [ 2, %if.end32.i ], [ 16386, %nvme_ns.exit.i ], [ 16395, %trace_pci_nvme_io_cmd.exit.i ], [ 16385, %trace_pci_nvme_err_invalid_opc.exit.i ], [ %call61.i, %sw.bb60.i ], [ %call63.i, %sw.bb62.i ], [ %call65.i, %sw.bb64.i ], [ 0, %for.inc.i374 ], [ 0, %for.inc137.i ], [ 0, %for.inc137.us.i ], [ 0, %for.inc198.i ], [ 16671, %for.cond.i.i.i ]
   %status56 = getelementptr inbounds i8, ptr %25, i64 24
-  store i16 %cond.in682, ptr %status56, align 8
+  store i16 %cond.in684, ptr %status56, align 8
   call fastcc void @nvme_enqueue_req_completion(ptr noundef %3, ptr noundef %25)
   br label %if.end57
 
@@ -17923,17 +18021,26 @@ do.body.i:                                        ; preds = %if.then.i
   %cmp6.not.i = icmp eq ptr %6, null
   %tql_prev13.i = getelementptr inbounds i8, ptr %5, i64 80
   %7 = load ptr, ptr %tql_prev13.i, align 8
-  %tql_prev15.i = getelementptr inbounds i8, ptr %ns, i64 8568
+  br i1 %cmp6.not.i, label %if.else.i, label %if.then7.i
+
+if.then7.i:                                       ; preds = %do.body.i
   %tql_prev11.i = getelementptr inbounds i8, ptr %6, i64 80
-  %tql_prev15.sink.i = select i1 %cmp6.not.i, ptr %tql_prev15.i, ptr %tql_prev11.i
-  store ptr %7, ptr %tql_prev15.sink.i, align 8
+  store ptr %7, ptr %tql_prev11.i, align 8
+  br label %if.end.i
+
+if.else.i:                                        ; preds = %do.body.i
+  %tql_prev15.i = getelementptr inbounds i8, ptr %ns, i64 8568
+  store ptr %7, ptr %tql_prev15.i, align 8
+  br label %if.end.i
+
+if.end.i:                                         ; preds = %if.else.i, %if.then7.i
   %8 = load ptr, ptr %entry5.i, align 8
   store ptr %8, ptr %7, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %entry5.i, i8 0, i64 16, i1 false)
   %call.i = tail call fastcc zeroext i16 @nvme_zrm_close(ptr noundef nonnull %ns, ptr noundef nonnull %5)
   br label %if.end
 
-if.end:                                           ; preds = %do.body.i, %if.then.i, %land.lhs.true.i, %if.then, %sw.bb1
+if.end:                                           ; preds = %if.end.i, %if.then.i, %land.lhs.true.i, %if.then, %sw.bb1
   %tobool2.not = icmp ugt i32 %flags, 1
   %cond = zext i1 %tobool2.not to i32
   %call3 = tail call fastcc zeroext i16 @nvme_zns_check_resources(ptr noundef %ns, i32 noundef %act.0, i32 noundef 1, i32 noundef %cond)
@@ -17947,19 +18054,19 @@ if.then8:                                         ; preds = %if.end6
   %nr_active_zones.i = getelementptr inbounds i8, ptr %ns, i64 8652
   %9 = load i32, ptr %nr_active_zones.i, align 4
   %cmp.i15 = icmp sgt i32 %9, -1
-  br i1 %cmp.i15, label %if.end.i, label %if.else.i
+  br i1 %cmp.i15, label %if.end.i17, label %if.else.i16
 
-if.else.i:                                        ; preds = %if.then8
+if.else.i16:                                      ; preds = %if.then8
   tail call void @__assert_fail(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.39, i32 noundef 347, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_aor_inc_active) #20
   unreachable
 
-if.end.i:                                         ; preds = %if.then8
+if.end.i17:                                       ; preds = %if.then8
   %max_active_zones.i = getelementptr inbounds i8, ptr %ns, i64 8728
   %10 = load i32, ptr %max_active_zones.i, align 8
-  %tobool.not.i16 = icmp eq i32 %10, 0
-  br i1 %tobool.not.i16, label %if.end9, label %if.then1.i
+  %tobool.not.i18 = icmp eq i32 %10, 0
+  br i1 %tobool.not.i18, label %if.end9, label %if.then1.i
 
-if.then1.i:                                       ; preds = %if.end.i
+if.then1.i:                                       ; preds = %if.end.i17
   %inc.i = add nuw i32 %9, 1
   store i32 %inc.i, ptr %nr_active_zones.i, align 4
   %cmp6.not.not.i = icmp ult i32 %9, %10
@@ -17969,33 +18076,33 @@ if.else8.i:                                       ; preds = %if.then1.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.223, ptr noundef nonnull @.str.39, i32 noundef 350, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_aor_inc_active) #20
   unreachable
 
-if.end9:                                          ; preds = %if.then1.i, %if.end.i, %if.end6
-  %nr_open_zones.i17 = getelementptr inbounds i8, ptr %ns, i64 8648
-  %11 = load i32, ptr %nr_open_zones.i17, align 8
-  %cmp.i18 = icmp sgt i32 %11, -1
-  br i1 %cmp.i18, label %if.end.i20, label %if.else.i19
+if.end9:                                          ; preds = %if.then1.i, %if.end.i17, %if.end6
+  %nr_open_zones.i19 = getelementptr inbounds i8, ptr %ns, i64 8648
+  %11 = load i32, ptr %nr_open_zones.i19, align 8
+  %cmp.i20 = icmp sgt i32 %11, -1
+  br i1 %cmp.i20, label %if.end.i22, label %if.else.i21
 
-if.else.i19:                                      ; preds = %if.end9
+if.else.i21:                                      ; preds = %if.end9
   tail call void @__assert_fail(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.39, i32 noundef 329, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_aor_inc_open) #20
   unreachable
 
-if.end.i20:                                       ; preds = %if.end9
-  %max_open_zones.i21 = getelementptr inbounds i8, ptr %ns, i64 8732
-  %12 = load i32, ptr %max_open_zones.i21, align 4
-  %tobool.not.i22 = icmp eq i32 %12, 0
-  br i1 %tobool.not.i22, label %nvme_aor_inc_open.exit, label %if.then1.i23
+if.end.i22:                                       ; preds = %if.end9
+  %max_open_zones.i23 = getelementptr inbounds i8, ptr %ns, i64 8732
+  %12 = load i32, ptr %max_open_zones.i23, align 4
+  %tobool.not.i24 = icmp eq i32 %12, 0
+  br i1 %tobool.not.i24, label %nvme_aor_inc_open.exit, label %if.then1.i25
 
-if.then1.i23:                                     ; preds = %if.end.i20
-  %inc.i24 = add nuw i32 %11, 1
-  store i32 %inc.i24, ptr %nr_open_zones.i17, align 8
-  %cmp6.not.not.i25 = icmp ult i32 %11, %12
-  br i1 %cmp6.not.not.i25, label %nvme_aor_inc_open.exit, label %if.else8.i26
+if.then1.i25:                                     ; preds = %if.end.i22
+  %inc.i26 = add nuw i32 %11, 1
+  store i32 %inc.i26, ptr %nr_open_zones.i19, align 8
+  %cmp6.not.not.i27 = icmp ult i32 %11, %12
+  br i1 %cmp6.not.not.i27, label %nvme_aor_inc_open.exit, label %if.else8.i28
 
-if.else8.i26:                                     ; preds = %if.then1.i23
+if.else8.i28:                                     ; preds = %if.then1.i25
   tail call void @__assert_fail(ptr noundef nonnull @.str.224, ptr noundef nonnull @.str.39, i32 noundef 332, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_aor_inc_open) #20
   unreachable
 
-nvme_aor_inc_open.exit:                           ; preds = %if.end.i20, %if.then1.i23
+nvme_aor_inc_open.exit:                           ; preds = %if.end.i22, %if.then1.i25
   %and10 = and i32 %flags, 1
   %tobool11.not = icmp eq i32 %and10, 0
   br i1 %tobool11.not, label %if.end18, label %if.then12
@@ -18005,121 +18112,209 @@ if.then12:                                        ; preds = %nvme_aor_inc_open.e
   %tql_prev.i = getelementptr inbounds i8, ptr %zone, i64 80
   %13 = load ptr, ptr %tql_prev.i, align 8
   %cmp.not.i = icmp eq ptr %13, null
-  br i1 %cmp.not.i, label %nvme_assign_zone_state.exit, label %if.then.i27
+  br i1 %cmp.not.i, label %nvme_assign_zone_state.exit, label %if.then.i29
 
-if.then.i27:                                      ; preds = %if.then12
+if.then.i29:                                      ; preds = %if.then12
   %zone.val.i = load i8, ptr %0, align 1
   %14 = lshr i8 %zone.val.i, 4
   switch i8 %14, label %nvme_assign_zone_state.exit [
-    i8 3, label %if.end96.sink.split.i
+    i8 3, label %do.body.i30
     i8 2, label %do.body22.i
     i8 4, label %do.body47.i
     i8 14, label %do.body72.i
   ]
 
-do.body22.i:                                      ; preds = %if.then.i27
-  br label %if.end96.sink.split.i
-
-do.body47.i:                                      ; preds = %if.then.i27
-  br label %if.end96.sink.split.i
-
-do.body72.i:                                      ; preds = %if.then.i27
-  br label %if.end96.sink.split.i
-
-if.end96.sink.split.i:                            ; preds = %do.body72.i, %do.body47.i, %do.body22.i, %if.then.i27
-  %.sink77.i = phi i64 [ 8600, %do.body72.i ], [ 8584, %do.body47.i ], [ 8568, %do.body22.i ], [ 8552, %if.then.i27 ]
+do.body.i30:                                      ; preds = %if.then.i29
   %15 = load ptr, ptr %entry1.i, align 8
-  %cmp74.not.i = icmp eq ptr %15, null
-  %tql_prev84.i = getelementptr inbounds i8, ptr %ns, i64 %.sink77.i
-  %tql_prev80.i = getelementptr inbounds i8, ptr %15, i64 80
-  %tql_prev84.sink.i = select i1 %cmp74.not.i, ptr %tql_prev84.i, ptr %tql_prev80.i
-  store ptr %13, ptr %tql_prev84.sink.i, align 8
+  %cmp3.not.i = icmp eq ptr %15, null
+  br i1 %cmp3.not.i, label %if.else.i31, label %if.then4.i
+
+if.then4.i:                                       ; preds = %do.body.i30
+  %tql_prev9.i = getelementptr inbounds i8, ptr %15, i64 80
+  store ptr %13, ptr %tql_prev9.i, align 8
+  br label %if.end96.sink.split.i
+
+if.else.i31:                                      ; preds = %do.body.i30
+  %tql_prev12.i = getelementptr inbounds i8, ptr %ns, i64 8552
+  store ptr %13, ptr %tql_prev12.i, align 8
+  br label %if.end96.sink.split.i
+
+do.body22.i:                                      ; preds = %if.then.i29
   %16 = load ptr, ptr %entry1.i, align 8
-  %17 = load ptr, ptr %tql_prev.i, align 8
-  store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %zone, i64 80
-  store i64 0, ptr %18, align 8
+  %cmp24.not.i = icmp eq ptr %16, null
+  br i1 %cmp24.not.i, label %if.else31.i, label %if.then25.i
+
+if.then25.i:                                      ; preds = %do.body22.i
+  %tql_prev30.i = getelementptr inbounds i8, ptr %16, i64 80
+  store ptr %13, ptr %tql_prev30.i, align 8
+  br label %if.end96.sink.split.i
+
+if.else31.i:                                      ; preds = %do.body22.i
+  %tql_prev34.i = getelementptr inbounds i8, ptr %ns, i64 8568
+  store ptr %13, ptr %tql_prev34.i, align 8
+  br label %if.end96.sink.split.i
+
+do.body47.i:                                      ; preds = %if.then.i29
+  %17 = load ptr, ptr %entry1.i, align 8
+  %cmp49.not.i = icmp eq ptr %17, null
+  br i1 %cmp49.not.i, label %if.else56.i, label %if.then50.i
+
+if.then50.i:                                      ; preds = %do.body47.i
+  %tql_prev55.i = getelementptr inbounds i8, ptr %17, i64 80
+  store ptr %13, ptr %tql_prev55.i, align 8
+  br label %if.end96.sink.split.i
+
+if.else56.i:                                      ; preds = %do.body47.i
+  %tql_prev59.i = getelementptr inbounds i8, ptr %ns, i64 8584
+  store ptr %13, ptr %tql_prev59.i, align 8
+  br label %if.end96.sink.split.i
+
+do.body72.i:                                      ; preds = %if.then.i29
+  %18 = load ptr, ptr %entry1.i, align 8
+  %cmp74.not.i = icmp eq ptr %18, null
+  br i1 %cmp74.not.i, label %if.else81.i, label %if.then75.i
+
+if.then75.i:                                      ; preds = %do.body72.i
+  %tql_prev80.i = getelementptr inbounds i8, ptr %18, i64 80
+  store ptr %13, ptr %tql_prev80.i, align 8
+  br label %if.end96.sink.split.i
+
+if.else81.i:                                      ; preds = %do.body72.i
+  %tql_prev84.i = getelementptr inbounds i8, ptr %ns, i64 8600
+  store ptr %13, ptr %tql_prev84.i, align 8
+  br label %if.end96.sink.split.i
+
+if.end96.sink.split.i:                            ; preds = %if.else81.i, %if.then75.i, %if.else56.i, %if.then50.i, %if.else31.i, %if.then25.i, %if.else.i31, %if.then4.i
+  %19 = load ptr, ptr %entry1.i, align 8
+  %20 = load ptr, ptr %tql_prev.i, align 8
+  store ptr %19, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %zone, i64 80
+  store i64 0, ptr %21, align 8
   br label %nvme_assign_zone_state.exit
 
-nvme_assign_zone_state.exit:                      ; preds = %if.then12, %if.then.i27, %if.end96.sink.split.i
+nvme_assign_zone_state.exit:                      ; preds = %if.then12, %if.then.i29, %if.end96.sink.split.i
   store i8 32, ptr %0, align 1
   store ptr null, ptr %entry1.i, align 8
   %tql_prev115.i = getelementptr inbounds i8, ptr %ns, i64 8568
-  %19 = load ptr, ptr %tql_prev115.i, align 8
-  store ptr %19, ptr %tql_prev.i, align 8
-  store ptr %zone, ptr %19, align 8
+  %22 = load ptr, ptr %tql_prev115.i, align 8
+  store ptr %22, ptr %tql_prev.i, align 8
+  store ptr %zone, ptr %22, align 8
   store ptr %entry1.i, ptr %tql_prev115.i, align 8
   br label %return
 
 sw.bb14:                                          ; preds = %entry
   %.pre = and i32 %flags, 1
-  %20 = icmp eq i32 %.pre, 0
-  br i1 %20, label %if.end18, label %return
+  %23 = icmp eq i32 %.pre, 0
+  br i1 %23, label %if.end18, label %return
 
 if.end18:                                         ; preds = %nvme_aor_inc_open.exit, %sw.bb14
-  %entry1.i28 = getelementptr inbounds i8, ptr %zone, i64 72
-  %tql_prev.i29 = getelementptr inbounds i8, ptr %zone, i64 80
-  %21 = load ptr, ptr %tql_prev.i29, align 8
-  %cmp.not.i30 = icmp eq ptr %21, null
-  br i1 %cmp.not.i30, label %nvme_assign_zone_state.exit43, label %if.then.i31
+  %entry1.i32 = getelementptr inbounds i8, ptr %zone, i64 72
+  %tql_prev.i33 = getelementptr inbounds i8, ptr %zone, i64 80
+  %24 = load ptr, ptr %tql_prev.i33, align 8
+  %cmp.not.i34 = icmp eq ptr %24, null
+  br i1 %cmp.not.i34, label %nvme_assign_zone_state.exit63, label %if.then.i35
 
-if.then.i31:                                      ; preds = %if.end18
-  %zone.val.i32 = load i8, ptr %0, align 1
-  %22 = lshr i8 %zone.val.i32, 4
-  switch i8 %22, label %nvme_assign_zone_state.exit43 [
-    i8 3, label %if.end96.sink.split.i34
-    i8 2, label %do.body22.i42
-    i8 4, label %do.body47.i41
-    i8 14, label %do.body72.i33
+if.then.i35:                                      ; preds = %if.end18
+  %zone.val.i36 = load i8, ptr %0, align 1
+  %25 = lshr i8 %zone.val.i36, 4
+  switch i8 %25, label %nvme_assign_zone_state.exit63 [
+    i8 3, label %do.body.i57
+    i8 2, label %do.body22.i51
+    i8 4, label %do.body47.i45
+    i8 14, label %do.body72.i37
   ]
 
-do.body22.i42:                                    ; preds = %if.then.i31
-  br label %if.end96.sink.split.i34
+do.body.i57:                                      ; preds = %if.then.i35
+  %26 = load ptr, ptr %entry1.i32, align 8
+  %cmp3.not.i58 = icmp eq ptr %26, null
+  br i1 %cmp3.not.i58, label %if.else.i61, label %if.then4.i59
 
-do.body47.i41:                                    ; preds = %if.then.i31
-  br label %if.end96.sink.split.i34
+if.then4.i59:                                     ; preds = %do.body.i57
+  %tql_prev9.i60 = getelementptr inbounds i8, ptr %26, i64 80
+  store ptr %24, ptr %tql_prev9.i60, align 8
+  br label %if.end96.sink.split.i41
 
-do.body72.i33:                                    ; preds = %if.then.i31
-  br label %if.end96.sink.split.i34
+if.else.i61:                                      ; preds = %do.body.i57
+  %tql_prev12.i62 = getelementptr inbounds i8, ptr %ns, i64 8552
+  store ptr %24, ptr %tql_prev12.i62, align 8
+  br label %if.end96.sink.split.i41
 
-if.end96.sink.split.i34:                          ; preds = %do.body72.i33, %do.body47.i41, %do.body22.i42, %if.then.i31
-  %.sink77.i35 = phi i64 [ 8600, %do.body72.i33 ], [ 8584, %do.body47.i41 ], [ 8568, %do.body22.i42 ], [ 8552, %if.then.i31 ]
-  %23 = load ptr, ptr %entry1.i28, align 8
-  %cmp74.not.i36 = icmp eq ptr %23, null
-  %tql_prev84.i37 = getelementptr inbounds i8, ptr %ns, i64 %.sink77.i35
-  %tql_prev80.i38 = getelementptr inbounds i8, ptr %23, i64 80
-  %tql_prev84.sink.i39 = select i1 %cmp74.not.i36, ptr %tql_prev84.i37, ptr %tql_prev80.i38
-  store ptr %21, ptr %tql_prev84.sink.i39, align 8
-  %24 = load ptr, ptr %entry1.i28, align 8
-  %25 = load ptr, ptr %tql_prev.i29, align 8
-  store ptr %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %zone, i64 80
-  store i64 0, ptr %26, align 8
-  br label %nvme_assign_zone_state.exit43
+do.body22.i51:                                    ; preds = %if.then.i35
+  %27 = load ptr, ptr %entry1.i32, align 8
+  %cmp24.not.i52 = icmp eq ptr %27, null
+  br i1 %cmp24.not.i52, label %if.else31.i55, label %if.then25.i53
 
-nvme_assign_zone_state.exit43:                    ; preds = %if.end18, %if.then.i31, %if.end96.sink.split.i34
+if.then25.i53:                                    ; preds = %do.body22.i51
+  %tql_prev30.i54 = getelementptr inbounds i8, ptr %27, i64 80
+  store ptr %24, ptr %tql_prev30.i54, align 8
+  br label %if.end96.sink.split.i41
+
+if.else31.i55:                                    ; preds = %do.body22.i51
+  %tql_prev34.i56 = getelementptr inbounds i8, ptr %ns, i64 8568
+  store ptr %24, ptr %tql_prev34.i56, align 8
+  br label %if.end96.sink.split.i41
+
+do.body47.i45:                                    ; preds = %if.then.i35
+  %28 = load ptr, ptr %entry1.i32, align 8
+  %cmp49.not.i46 = icmp eq ptr %28, null
+  br i1 %cmp49.not.i46, label %if.else56.i49, label %if.then50.i47
+
+if.then50.i47:                                    ; preds = %do.body47.i45
+  %tql_prev55.i48 = getelementptr inbounds i8, ptr %28, i64 80
+  store ptr %24, ptr %tql_prev55.i48, align 8
+  br label %if.end96.sink.split.i41
+
+if.else56.i49:                                    ; preds = %do.body47.i45
+  %tql_prev59.i50 = getelementptr inbounds i8, ptr %ns, i64 8584
+  store ptr %24, ptr %tql_prev59.i50, align 8
+  br label %if.end96.sink.split.i41
+
+do.body72.i37:                                    ; preds = %if.then.i35
+  %29 = load ptr, ptr %entry1.i32, align 8
+  %cmp74.not.i38 = icmp eq ptr %29, null
+  br i1 %cmp74.not.i38, label %if.else81.i43, label %if.then75.i39
+
+if.then75.i39:                                    ; preds = %do.body72.i37
+  %tql_prev80.i40 = getelementptr inbounds i8, ptr %29, i64 80
+  store ptr %24, ptr %tql_prev80.i40, align 8
+  br label %if.end96.sink.split.i41
+
+if.else81.i43:                                    ; preds = %do.body72.i37
+  %tql_prev84.i44 = getelementptr inbounds i8, ptr %ns, i64 8600
+  store ptr %24, ptr %tql_prev84.i44, align 8
+  br label %if.end96.sink.split.i41
+
+if.end96.sink.split.i41:                          ; preds = %if.else81.i43, %if.then75.i39, %if.else56.i49, %if.then50.i47, %if.else31.i55, %if.then25.i53, %if.else.i61, %if.then4.i59
+  %30 = load ptr, ptr %entry1.i32, align 8
+  %31 = load ptr, ptr %tql_prev.i33, align 8
+  store ptr %30, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %zone, i64 80
+  store i64 0, ptr %32, align 8
+  br label %nvme_assign_zone_state.exit63
+
+nvme_assign_zone_state.exit63:                    ; preds = %if.end18, %if.then.i35, %if.end96.sink.split.i41
   store i8 48, ptr %0, align 1
-  store ptr null, ptr %entry1.i28, align 8
+  store ptr null, ptr %entry1.i32, align 8
   %tql_prev101.i = getelementptr inbounds i8, ptr %ns, i64 8552
-  %27 = load ptr, ptr %tql_prev101.i, align 8
-  store ptr %27, ptr %tql_prev.i29, align 8
-  store ptr %zone, ptr %27, align 8
-  store ptr %entry1.i28, ptr %tql_prev101.i, align 8
+  %33 = load ptr, ptr %tql_prev101.i, align 8
+  store ptr %33, ptr %tql_prev.i33, align 8
+  store ptr %zone, ptr %33, align 8
+  store ptr %entry1.i32, ptr %tql_prev101.i, align 8
   br label %sw.bb19
 
-sw.bb19:                                          ; preds = %nvme_assign_zone_state.exit43, %entry
+sw.bb19:                                          ; preds = %nvme_assign_zone_state.exit63, %entry
   %tobool21.not = icmp ult i32 %flags, 2
   br i1 %tobool21.not, label %return, label %if.then22
 
 if.then22:                                        ; preds = %sw.bb19
   %numzrwa = getelementptr inbounds i8, ptr %ns, i64 8504
-  %28 = load i32, ptr %numzrwa, align 4
-  %dec = add i32 %28, -1
+  %34 = load i32, ptr %numzrwa, align 4
+  %dec = add i32 %34, -1
   store i32 %dec, ptr %numzrwa, align 4
   %za = getelementptr inbounds i8, ptr %zone, i64 2
-  %29 = load i8, ptr %za, align 2
-  %30 = or i8 %29, 8
-  store i8 %30, ptr %za, align 2
+  %35 = load i8, ptr %za, align 2
+  %36 = or i8 %35, 8
+  store i8 %36, ptr %za, align 2
   br label %return
 
 return:                                           ; preds = %entry, %sw.bb19, %if.then22, %sw.bb14, %if.end, %nvme_assign_zone_state.exit
@@ -18295,43 +18490,87 @@ if.then.i3:                                       ; preds = %nvme_aor_dec_open.e
   %zone.val.i = load i8, ptr %0, align 1
   %5 = lshr i8 %zone.val.i, 4
   switch i8 %5, label %nvme_assign_zone_state.exit [
-    i8 3, label %if.end96.sink.split.i
+    i8 3, label %do.body.i
     i8 2, label %do.body22.i
     i8 4, label %do.body47.i
     i8 14, label %do.body72.i
   ]
 
+do.body.i:                                        ; preds = %if.then.i3
+  %6 = load ptr, ptr %entry1.i, align 8
+  %cmp3.not.i = icmp eq ptr %6, null
+  br i1 %cmp3.not.i, label %if.else.i4, label %if.then4.i
+
+if.then4.i:                                       ; preds = %do.body.i
+  %tql_prev9.i = getelementptr inbounds i8, ptr %6, i64 80
+  store ptr %4, ptr %tql_prev9.i, align 8
+  br label %if.end96.sink.split.i
+
+if.else.i4:                                       ; preds = %do.body.i
+  %tql_prev12.i = getelementptr inbounds i8, ptr %ns, i64 8552
+  store ptr %4, ptr %tql_prev12.i, align 8
+  br label %if.end96.sink.split.i
+
 do.body22.i:                                      ; preds = %if.then.i3
+  %7 = load ptr, ptr %entry1.i, align 8
+  %cmp24.not.i = icmp eq ptr %7, null
+  br i1 %cmp24.not.i, label %if.else31.i, label %if.then25.i
+
+if.then25.i:                                      ; preds = %do.body22.i
+  %tql_prev30.i = getelementptr inbounds i8, ptr %7, i64 80
+  store ptr %4, ptr %tql_prev30.i, align 8
+  br label %if.end96.sink.split.i
+
+if.else31.i:                                      ; preds = %do.body22.i
+  %tql_prev34.i = getelementptr inbounds i8, ptr %ns, i64 8568
+  store ptr %4, ptr %tql_prev34.i, align 8
   br label %if.end96.sink.split.i
 
 do.body47.i:                                      ; preds = %if.then.i3
+  %8 = load ptr, ptr %entry1.i, align 8
+  %cmp49.not.i = icmp eq ptr %8, null
+  br i1 %cmp49.not.i, label %if.else56.i, label %if.then50.i
+
+if.then50.i:                                      ; preds = %do.body47.i
+  %tql_prev55.i = getelementptr inbounds i8, ptr %8, i64 80
+  store ptr %4, ptr %tql_prev55.i, align 8
+  br label %if.end96.sink.split.i
+
+if.else56.i:                                      ; preds = %do.body47.i
+  %tql_prev59.i = getelementptr inbounds i8, ptr %ns, i64 8584
+  store ptr %4, ptr %tql_prev59.i, align 8
   br label %if.end96.sink.split.i
 
 do.body72.i:                                      ; preds = %if.then.i3
+  %9 = load ptr, ptr %entry1.i, align 8
+  %cmp74.not.i = icmp eq ptr %9, null
+  br i1 %cmp74.not.i, label %if.else81.i, label %if.then75.i
+
+if.then75.i:                                      ; preds = %do.body72.i
+  %tql_prev80.i = getelementptr inbounds i8, ptr %9, i64 80
+  store ptr %4, ptr %tql_prev80.i, align 8
   br label %if.end96.sink.split.i
 
-if.end96.sink.split.i:                            ; preds = %do.body72.i, %do.body47.i, %do.body22.i, %if.then.i3
-  %.sink77.i = phi i64 [ 8600, %do.body72.i ], [ 8584, %do.body47.i ], [ 8568, %do.body22.i ], [ 8552, %if.then.i3 ]
-  %6 = load ptr, ptr %entry1.i, align 8
-  %cmp74.not.i = icmp eq ptr %6, null
-  %tql_prev84.i = getelementptr inbounds i8, ptr %ns, i64 %.sink77.i
-  %tql_prev80.i = getelementptr inbounds i8, ptr %6, i64 80
-  %tql_prev84.sink.i = select i1 %cmp74.not.i, ptr %tql_prev84.i, ptr %tql_prev80.i
-  store ptr %4, ptr %tql_prev84.sink.i, align 8
-  %7 = load ptr, ptr %entry1.i, align 8
-  %8 = load ptr, ptr %tql_prev.i, align 8
-  store ptr %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %zone, i64 80
-  store i64 0, ptr %9, align 8
+if.else81.i:                                      ; preds = %do.body72.i
+  %tql_prev84.i = getelementptr inbounds i8, ptr %ns, i64 8600
+  store ptr %4, ptr %tql_prev84.i, align 8
+  br label %if.end96.sink.split.i
+
+if.end96.sink.split.i:                            ; preds = %if.else81.i, %if.then75.i, %if.else56.i, %if.then50.i, %if.else31.i, %if.then25.i, %if.else.i4, %if.then4.i
+  %10 = load ptr, ptr %entry1.i, align 8
+  %11 = load ptr, ptr %tql_prev.i, align 8
+  store ptr %10, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %zone, i64 80
+  store i64 0, ptr %12, align 8
   br label %nvme_assign_zone_state.exit
 
 nvme_assign_zone_state.exit:                      ; preds = %nvme_aor_dec_open.exit, %if.then.i3, %if.end96.sink.split.i
   store i8 64, ptr %0, align 1
   store ptr null, ptr %entry1.i, align 8
   %tql_prev129.i = getelementptr inbounds i8, ptr %ns, i64 8584
-  %10 = load ptr, ptr %tql_prev129.i, align 8
-  store ptr %10, ptr %tql_prev.i, align 8
-  store ptr %zone, ptr %10, align 8
+  %13 = load ptr, ptr %tql_prev129.i, align 8
+  store ptr %13, ptr %tql_prev.i, align 8
+  store ptr %zone, ptr %13, align 8
   store ptr %entry1.i, ptr %tql_prev129.i, align 8
   br label %return
 
@@ -21469,32 +21708,76 @@ if.then.i17.i:                                    ; preds = %sw.bb6.i
   %zone.val.i.i = load i8, ptr %4, align 1
   %17 = lshr i8 %zone.val.i.i, 4
   switch i8 %17, label %nvme_assign_zone_state.exit.i [
-    i8 3, label %if.end96.sink.split.i.i
+    i8 3, label %do.body.i.i
     i8 2, label %do.body22.i.i
     i8 4, label %do.body47.i.i
     i8 14, label %do.body72.i.i
   ]
 
+do.body.i.i:                                      ; preds = %if.then.i17.i
+  %18 = load ptr, ptr %entry1.i.i, align 8
+  %cmp3.not.i.i = icmp eq ptr %18, null
+  br i1 %cmp3.not.i.i, label %if.else.i18.i, label %if.then4.i.i
+
+if.then4.i.i:                                     ; preds = %do.body.i.i
+  %tql_prev9.i.i = getelementptr inbounds i8, ptr %18, i64 80
+  store ptr %16, ptr %tql_prev9.i.i, align 8
+  br label %if.end96.sink.split.i.i
+
+if.else.i18.i:                                    ; preds = %do.body.i.i
+  %tql_prev12.i.i = getelementptr inbounds i8, ptr %1, i64 8552
+  store ptr %16, ptr %tql_prev12.i.i, align 8
+  br label %if.end96.sink.split.i.i
+
 do.body22.i.i:                                    ; preds = %if.then.i17.i
+  %19 = load ptr, ptr %entry1.i.i, align 8
+  %cmp24.not.i.i = icmp eq ptr %19, null
+  br i1 %cmp24.not.i.i, label %if.else31.i.i, label %if.then25.i.i
+
+if.then25.i.i:                                    ; preds = %do.body22.i.i
+  %tql_prev30.i.i = getelementptr inbounds i8, ptr %19, i64 80
+  store ptr %16, ptr %tql_prev30.i.i, align 8
+  br label %if.end96.sink.split.i.i
+
+if.else31.i.i:                                    ; preds = %do.body22.i.i
+  %tql_prev34.i.i = getelementptr inbounds i8, ptr %1, i64 8568
+  store ptr %16, ptr %tql_prev34.i.i, align 8
   br label %if.end96.sink.split.i.i
 
 do.body47.i.i:                                    ; preds = %if.then.i17.i
+  %20 = load ptr, ptr %entry1.i.i, align 8
+  %cmp49.not.i.i = icmp eq ptr %20, null
+  br i1 %cmp49.not.i.i, label %if.else56.i.i, label %if.then50.i.i
+
+if.then50.i.i:                                    ; preds = %do.body47.i.i
+  %tql_prev55.i.i = getelementptr inbounds i8, ptr %20, i64 80
+  store ptr %16, ptr %tql_prev55.i.i, align 8
+  br label %if.end96.sink.split.i.i
+
+if.else56.i.i:                                    ; preds = %do.body47.i.i
+  %tql_prev59.i.i = getelementptr inbounds i8, ptr %1, i64 8584
+  store ptr %16, ptr %tql_prev59.i.i, align 8
   br label %if.end96.sink.split.i.i
 
 do.body72.i.i:                                    ; preds = %if.then.i17.i
+  %21 = load ptr, ptr %entry1.i.i, align 8
+  %cmp74.not.i.i = icmp eq ptr %21, null
+  br i1 %cmp74.not.i.i, label %if.else81.i.i, label %if.then75.i.i
+
+if.then75.i.i:                                    ; preds = %do.body72.i.i
+  %tql_prev80.i.i = getelementptr inbounds i8, ptr %21, i64 80
+  store ptr %16, ptr %tql_prev80.i.i, align 8
   br label %if.end96.sink.split.i.i
 
-if.end96.sink.split.i.i:                          ; preds = %do.body72.i.i, %do.body47.i.i, %do.body22.i.i, %if.then.i17.i
-  %.sink77.i.i = phi i64 [ 8600, %do.body72.i.i ], [ 8584, %do.body47.i.i ], [ 8568, %do.body22.i.i ], [ 8552, %if.then.i17.i ]
-  %18 = load ptr, ptr %entry1.i.i, align 8
-  %cmp74.not.i.i = icmp eq ptr %18, null
-  %tql_prev84.i.i = getelementptr inbounds i8, ptr %1, i64 %.sink77.i.i
-  %tql_prev80.i.i = getelementptr inbounds i8, ptr %18, i64 80
-  %tql_prev84.sink.i.i = select i1 %cmp74.not.i.i, ptr %tql_prev84.i.i, ptr %tql_prev80.i.i
-  store ptr %16, ptr %tql_prev84.sink.i.i, align 8
-  %19 = load ptr, ptr %entry1.i.i, align 8
-  %20 = load ptr, ptr %tql_prev.i.i, align 8
-  store ptr %19, ptr %20, align 8
+if.else81.i.i:                                    ; preds = %do.body72.i.i
+  %tql_prev84.i.i = getelementptr inbounds i8, ptr %1, i64 8600
+  store ptr %16, ptr %tql_prev84.i.i, align 8
+  br label %if.end96.sink.split.i.i
+
+if.end96.sink.split.i.i:                          ; preds = %if.else81.i.i, %if.then75.i.i, %if.else56.i.i, %if.then50.i.i, %if.else31.i.i, %if.then25.i.i, %if.else.i18.i, %if.then4.i.i
+  %22 = load ptr, ptr %entry1.i.i, align 8
+  %23 = load ptr, ptr %tql_prev.i.i, align 8
+  store ptr %22, ptr %23, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %entry1.i.i, i8 0, i64 16, i1 false)
   br label %nvme_assign_zone_state.exit.i
 
@@ -21506,16 +21789,16 @@ nvme_assign_zone_state.exit.i:                    ; preds = %if.end96.sink.split
 
 nvme_zrm_reset.exit:                              ; preds = %if.then8, %nvme_assign_zone_state.exit.i
   %all = getelementptr inbounds i8, ptr %opaque, i64 60
-  %21 = load i8, ptr %all, align 4
-  %tobool10 = trunc i8 %21 to i1
+  %24 = load i8, ptr %all, align 4
+  %tobool10 = trunc i8 %24 to i1
   br i1 %tobool10, label %if.end13, label %done
 
 if.end13:                                         ; preds = %nvme_zrm_reset.exit, %if.end7
   %idx = getelementptr inbounds i8, ptr %opaque, i64 64
   %num_zones = getelementptr inbounds i8, ptr %1, i64 8608
-  %22 = load i32, ptr %idx, align 8
-  %23 = load i32, ptr %num_zones, align 8
-  %cmp1433 = icmp ult i32 %22, %23
+  %25 = load i32, ptr %idx, align 8
+  %26 = load i32, ptr %num_zones, align 8
+  %cmp1433 = icmp ult i32 %25, %26
   br i1 %cmp1433, label %while.body.lr.ph, label %done
 
 while.body.lr.ph:                                 ; preds = %if.end13
@@ -21524,16 +21807,16 @@ while.body.lr.ph:                                 ; preds = %if.end13
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
-  %24 = phi i32 [ %22, %while.body.lr.ph ], [ %inc, %while.cond.backedge ]
-  %25 = load ptr, ptr %zone_array, align 8
-  %inc = add nuw i32 %24, 1
+  %27 = phi i32 [ %25, %while.body.lr.ph ], [ %inc, %while.cond.backedge ]
+  %28 = load ptr, ptr %zone_array, align 8
+  %inc = add nuw i32 %27, 1
   store i32 %inc, ptr %idx, align 8
-  %idxprom = sext i32 %24 to i64
-  %arrayidx = getelementptr %struct.NvmeZone, ptr %25, i64 %idxprom
-  %26 = getelementptr i8, ptr %arrayidx, i64 1
-  %arrayidx.val = load i8, ptr %26, align 1
-  %27 = lshr i8 %arrayidx.val, 4
-  switch i8 %27, label %while.cond.backedge [
+  %idxprom = sext i32 %27 to i64
+  %arrayidx = getelementptr %struct.NvmeZone, ptr %28, i64 %idxprom
+  %29 = getelementptr i8, ptr %arrayidx, i64 1
+  %arrayidx.val = load i8, ptr %29, align 1
+  %30 = lshr i8 %arrayidx.val, 4
+  switch i8 %30, label %while.cond.backedge [
     i8 1, label %sw.bb
     i8 3, label %sw.bb22
     i8 2, label %sw.bb22
@@ -21542,64 +21825,64 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   ]
 
 sw.bb:                                            ; preds = %while.body
-  %28 = load i8, ptr %all18, align 4
-  %tobool19 = trunc i8 %28 to i1
+  %31 = load i8, ptr %all18, align 4
+  %tobool19 = trunc i8 %31 to i1
   br i1 %tobool19, label %while.cond.backedge, label %done
 
 while.cond.backedge:                              ; preds = %sw.bb, %while.body
-  %29 = load i32, ptr %num_zones, align 8
-  %cmp14 = icmp ult i32 %inc, %29
+  %32 = load i32, ptr %num_zones, align 8
+  %cmp14 = icmp ult i32 %inc, %32
   br i1 %cmp14, label %while.body, label %done, !llvm.loop !56
 
 sw.bb22:                                          ; preds = %while.body, %while.body, %while.body, %while.body
   store ptr %arrayidx, ptr %zone, align 8
   %zslba = getelementptr inbounds i8, ptr %arrayidx, i64 16
-  %30 = load i64, ptr %zslba, align 8
+  %33 = load i64, ptr %zslba, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
-  %31 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i = icmp ne i32 %31, 0
-  %32 = load i16, ptr @_TRACE_PCI_NVME_ZNS_ZONE_RESET_DSTATE, align 2
-  %tobool4.i.i = icmp ne i16 %32, 0
+  %34 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i = icmp ne i32 %34, 0
+  %35 = load i16, ptr @_TRACE_PCI_NVME_ZNS_ZONE_RESET_DSTATE, align 2
+  %tobool4.i.i = icmp ne i16 %35, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_pci_nvme_zns_zone_reset.exit
 
 land.lhs.true5.i.i:                               ; preds = %sw.bb22
-  %33 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i = and i32 %33, 32768
+  %36 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i = and i32 %36, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %trace_pci_nvme_zns_zone_reset.exit, label %if.then.i.i29
 
 if.then.i.i29:                                    ; preds = %land.lhs.true5.i.i
-  %34 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i = trunc i8 %34 to i1
+  %37 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i = trunc i8 %37 to i1
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i30
 
 if.then8.i.i:                                     ; preds = %if.then.i.i29
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
   %call10.i.i = tail call i32 @qemu_get_thread_id() #19
-  %35 = load i64, ptr %_now.i.i, align 8
+  %38 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %36 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.276, i32 noundef %call10.i.i, i64 noundef %35, i64 noundef %36, i64 noundef %30) #19
+  %39 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.276, i32 noundef %call10.i.i, i64 noundef %38, i64 noundef %39, i64 noundef %33) #19
   br label %trace_pci_nvme_zns_zone_reset.exit
 
 if.else.i.i30:                                    ; preds = %if.then.i.i29
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.277, i64 noundef %30) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.277, i64 noundef %33) #19
   br label %trace_pci_nvme_zns_zone_reset.exit
 
 trace_pci_nvme_zns_zone_reset.exit:               ; preds = %sw.bb22, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i30
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %blkconf = getelementptr inbounds i8, ptr %1, i64 160
-  %37 = load ptr, ptr %blkconf, align 8
-  %38 = load i64, ptr %zslba, align 8
-  %39 = getelementptr i8, ptr %1, i64 8466
-  %.val28 = load i8, ptr %39, align 2
+  %40 = load ptr, ptr %blkconf, align 8
+  %41 = load i64, ptr %zslba, align 8
+  %42 = getelementptr i8, ptr %1, i64 8466
+  %.val28 = load i8, ptr %42, align 2
   %sh_prom.i = zext nneg i8 %.val28 to i64
-  %shl.i = shl i64 %38, %sh_prom.i
+  %shl.i = shl i64 %41, %sh_prom.i
   %zone_size = getelementptr inbounds i8, ptr %1, i64 8616
-  %40 = load i64, ptr %zone_size, align 8
-  %shl.i32 = shl i64 %40, %sh_prom.i
-  %call28 = tail call ptr @blk_aio_pwrite_zeroes(ptr noundef %37, i64 noundef %shl.i, i64 noundef %shl.i32, i32 noundef 4, ptr noundef nonnull @nvme_zone_reset_epilogue_cb, ptr noundef nonnull %opaque) #19
+  %43 = load i64, ptr %zone_size, align 8
+  %shl.i32 = shl i64 %43, %sh_prom.i
+  %call28 = tail call ptr @blk_aio_pwrite_zeroes(ptr noundef %40, i64 noundef %shl.i, i64 noundef %shl.i32, i32 noundef 4, ptr noundef nonnull @nvme_zone_reset_epilogue_cb, ptr noundef nonnull %opaque) #19
   %aiocb = getelementptr inbounds i8, ptr %opaque, i64 40
   store ptr %call28, ptr %aiocb, align 8
   br label %return
@@ -21608,11 +21891,11 @@ done:                                             ; preds = %sw.bb, %while.cond.
   %aiocb29 = getelementptr inbounds i8, ptr %opaque, i64 40
   store ptr null, ptr %aiocb29, align 8
   %cb = getelementptr inbounds i8, ptr %opaque, i64 16
-  %41 = load ptr, ptr %cb, align 8
+  %44 = load ptr, ptr %cb, align 8
   %opaque31 = getelementptr inbounds i8, ptr %opaque, i64 24
-  %42 = load ptr, ptr %opaque31, align 8
-  %43 = load i32, ptr %ret3, align 8
-  tail call void %41(ptr noundef %42, i32 noundef %43) #19
+  %45 = load ptr, ptr %opaque31, align 8
+  %46 = load i32, ptr %ret3, align 8
+  tail call void %44(ptr noundef %45, i32 noundef %46) #19
   tail call void @qemu_aio_unref(ptr noundef nonnull %opaque) #19
   br label %return
 
@@ -21640,32 +21923,76 @@ if.then.i:                                        ; preds = %sw.bb
   %zone.val.i = load i8, ptr %1, align 1
   %2 = lshr i8 %zone.val.i, 4
   switch i8 %2, label %nvme_assign_zone_state.exit [
-    i8 3, label %if.end96.sink.split.i
+    i8 3, label %do.body.i
     i8 2, label %do.body22.i
     i8 4, label %do.body47.i
     i8 14, label %do.body72.i
   ]
 
+do.body.i:                                        ; preds = %if.then.i
+  %3 = load ptr, ptr %entry1.i, align 8
+  %cmp3.not.i = icmp eq ptr %3, null
+  br i1 %cmp3.not.i, label %if.else.i, label %if.then4.i
+
+if.then4.i:                                       ; preds = %do.body.i
+  %tql_prev9.i = getelementptr inbounds i8, ptr %3, i64 80
+  store ptr %0, ptr %tql_prev9.i, align 8
+  br label %if.end96.sink.split.i
+
+if.else.i:                                        ; preds = %do.body.i
+  %tql_prev12.i = getelementptr inbounds i8, ptr %ns, i64 8552
+  store ptr %0, ptr %tql_prev12.i, align 8
+  br label %if.end96.sink.split.i
+
 do.body22.i:                                      ; preds = %if.then.i
+  %4 = load ptr, ptr %entry1.i, align 8
+  %cmp24.not.i = icmp eq ptr %4, null
+  br i1 %cmp24.not.i, label %if.else31.i, label %if.then25.i
+
+if.then25.i:                                      ; preds = %do.body22.i
+  %tql_prev30.i = getelementptr inbounds i8, ptr %4, i64 80
+  store ptr %0, ptr %tql_prev30.i, align 8
+  br label %if.end96.sink.split.i
+
+if.else31.i:                                      ; preds = %do.body22.i
+  %tql_prev34.i = getelementptr inbounds i8, ptr %ns, i64 8568
+  store ptr %0, ptr %tql_prev34.i, align 8
   br label %if.end96.sink.split.i
 
 do.body47.i:                                      ; preds = %if.then.i
+  %5 = load ptr, ptr %entry1.i, align 8
+  %cmp49.not.i = icmp eq ptr %5, null
+  br i1 %cmp49.not.i, label %if.else56.i, label %if.then50.i
+
+if.then50.i:                                      ; preds = %do.body47.i
+  %tql_prev55.i = getelementptr inbounds i8, ptr %5, i64 80
+  store ptr %0, ptr %tql_prev55.i, align 8
+  br label %if.end96.sink.split.i
+
+if.else56.i:                                      ; preds = %do.body47.i
+  %tql_prev59.i = getelementptr inbounds i8, ptr %ns, i64 8584
+  store ptr %0, ptr %tql_prev59.i, align 8
   br label %if.end96.sink.split.i
 
 do.body72.i:                                      ; preds = %if.then.i
+  %6 = load ptr, ptr %entry1.i, align 8
+  %cmp74.not.i = icmp eq ptr %6, null
+  br i1 %cmp74.not.i, label %if.else81.i, label %if.then75.i
+
+if.then75.i:                                      ; preds = %do.body72.i
+  %tql_prev80.i = getelementptr inbounds i8, ptr %6, i64 80
+  store ptr %0, ptr %tql_prev80.i, align 8
   br label %if.end96.sink.split.i
 
-if.end96.sink.split.i:                            ; preds = %do.body72.i, %do.body47.i, %do.body22.i, %if.then.i
-  %.sink77.i = phi i64 [ 8600, %do.body72.i ], [ 8584, %do.body47.i ], [ 8568, %do.body22.i ], [ 8552, %if.then.i ]
-  %3 = load ptr, ptr %entry1.i, align 8
-  %cmp74.not.i = icmp eq ptr %3, null
-  %tql_prev84.i = getelementptr inbounds i8, ptr %ns, i64 %.sink77.i
-  %tql_prev80.i = getelementptr inbounds i8, ptr %3, i64 80
-  %tql_prev84.sink.i = select i1 %cmp74.not.i, ptr %tql_prev84.i, ptr %tql_prev80.i
-  store ptr %0, ptr %tql_prev84.sink.i, align 8
-  %4 = load ptr, ptr %entry1.i, align 8
-  %5 = load ptr, ptr %tql_prev.i, align 8
-  store ptr %4, ptr %5, align 8
+if.else81.i:                                      ; preds = %do.body72.i
+  %tql_prev84.i = getelementptr inbounds i8, ptr %ns, i64 8600
+  store ptr %0, ptr %tql_prev84.i, align 8
+  br label %if.end96.sink.split.i
+
+if.end96.sink.split.i:                            ; preds = %if.else81.i, %if.then75.i, %if.else56.i, %if.then50.i, %if.else31.i, %if.then25.i, %if.else.i, %if.then4.i
+  %7 = load ptr, ptr %entry1.i, align 8
+  %8 = load ptr, ptr %tql_prev.i, align 8
+  store ptr %7, ptr %8, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %entry1.i, i8 0, i64 16, i1 false)
   br label %nvme_assign_zone_state.exit
 
@@ -21780,43 +22107,87 @@ if.then.i:                                        ; preds = %nvme_aor_inc_active
   %zone.val.i = load i8, ptr %0, align 1
   %6 = lshr i8 %zone.val.i, 4
   switch i8 %6, label %nvme_assign_zone_state.exit [
-    i8 3, label %if.end96.sink.split.i
+    i8 3, label %do.body.i
     i8 2, label %do.body22.i
     i8 4, label %do.body47.i
     i8 14, label %do.body72.i
   ]
 
+do.body.i:                                        ; preds = %if.then.i
+  %7 = load ptr, ptr %entry1.i, align 8
+  %cmp3.not.i = icmp eq ptr %7, null
+  br i1 %cmp3.not.i, label %if.else.i6, label %if.then4.i
+
+if.then4.i:                                       ; preds = %do.body.i
+  %tql_prev9.i = getelementptr inbounds i8, ptr %7, i64 80
+  store ptr %5, ptr %tql_prev9.i, align 8
+  br label %if.end96.sink.split.i
+
+if.else.i6:                                       ; preds = %do.body.i
+  %tql_prev12.i = getelementptr inbounds i8, ptr %ns, i64 8552
+  store ptr %5, ptr %tql_prev12.i, align 8
+  br label %if.end96.sink.split.i
+
 do.body22.i:                                      ; preds = %if.then.i
+  %8 = load ptr, ptr %entry1.i, align 8
+  %cmp24.not.i = icmp eq ptr %8, null
+  br i1 %cmp24.not.i, label %if.else31.i, label %if.then25.i
+
+if.then25.i:                                      ; preds = %do.body22.i
+  %tql_prev30.i = getelementptr inbounds i8, ptr %8, i64 80
+  store ptr %5, ptr %tql_prev30.i, align 8
+  br label %if.end96.sink.split.i
+
+if.else31.i:                                      ; preds = %do.body22.i
+  %tql_prev34.i = getelementptr inbounds i8, ptr %ns, i64 8568
+  store ptr %5, ptr %tql_prev34.i, align 8
   br label %if.end96.sink.split.i
 
 do.body47.i:                                      ; preds = %if.then.i
+  %9 = load ptr, ptr %entry1.i, align 8
+  %cmp49.not.i = icmp eq ptr %9, null
+  br i1 %cmp49.not.i, label %if.else56.i, label %if.then50.i
+
+if.then50.i:                                      ; preds = %do.body47.i
+  %tql_prev55.i = getelementptr inbounds i8, ptr %9, i64 80
+  store ptr %5, ptr %tql_prev55.i, align 8
+  br label %if.end96.sink.split.i
+
+if.else56.i:                                      ; preds = %do.body47.i
+  %tql_prev59.i = getelementptr inbounds i8, ptr %ns, i64 8584
+  store ptr %5, ptr %tql_prev59.i, align 8
   br label %if.end96.sink.split.i
 
 do.body72.i:                                      ; preds = %if.then.i
+  %10 = load ptr, ptr %entry1.i, align 8
+  %cmp74.not.i = icmp eq ptr %10, null
+  br i1 %cmp74.not.i, label %if.else81.i, label %if.then75.i
+
+if.then75.i:                                      ; preds = %do.body72.i
+  %tql_prev80.i = getelementptr inbounds i8, ptr %10, i64 80
+  store ptr %5, ptr %tql_prev80.i, align 8
   br label %if.end96.sink.split.i
 
-if.end96.sink.split.i:                            ; preds = %do.body72.i, %do.body47.i, %do.body22.i, %if.then.i
-  %.sink77.i = phi i64 [ 8600, %do.body72.i ], [ 8584, %do.body47.i ], [ 8568, %do.body22.i ], [ 8552, %if.then.i ]
-  %7 = load ptr, ptr %entry1.i, align 8
-  %cmp74.not.i = icmp eq ptr %7, null
-  %tql_prev84.i = getelementptr inbounds i8, ptr %ns, i64 %.sink77.i
-  %tql_prev80.i = getelementptr inbounds i8, ptr %7, i64 80
-  %tql_prev84.sink.i = select i1 %cmp74.not.i, ptr %tql_prev84.i, ptr %tql_prev80.i
-  store ptr %5, ptr %tql_prev84.sink.i, align 8
-  %8 = load ptr, ptr %entry1.i, align 8
-  %9 = load ptr, ptr %tql_prev.i, align 8
-  store ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %zone, i64 80
-  store i64 0, ptr %10, align 8
+if.else81.i:                                      ; preds = %do.body72.i
+  %tql_prev84.i = getelementptr inbounds i8, ptr %ns, i64 8600
+  store ptr %5, ptr %tql_prev84.i, align 8
+  br label %if.end96.sink.split.i
+
+if.end96.sink.split.i:                            ; preds = %if.else81.i, %if.then75.i, %if.else56.i, %if.then50.i, %if.else31.i, %if.then25.i, %if.else.i6, %if.then4.i
+  %11 = load ptr, ptr %entry1.i, align 8
+  %12 = load ptr, ptr %tql_prev.i, align 8
+  store ptr %11, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %zone, i64 80
+  store i64 0, ptr %13, align 8
   br label %nvme_assign_zone_state.exit
 
 nvme_assign_zone_state.exit:                      ; preds = %nvme_aor_inc_active.exit, %if.then.i, %if.end96.sink.split.i
   store i8 64, ptr %0, align 1
   store ptr null, ptr %entry1.i, align 8
   %tql_prev129.i = getelementptr inbounds i8, ptr %ns, i64 8584
-  %11 = load ptr, ptr %tql_prev129.i, align 8
-  store ptr %11, ptr %tql_prev.i, align 8
-  store ptr %zone, ptr %11, align 8
+  %14 = load ptr, ptr %tql_prev129.i, align 8
+  store ptr %14, ptr %tql_prev.i, align 8
+  store ptr %zone, ptr %14, align 8
   store ptr %entry1.i, ptr %tql_prev129.i, align 8
   br label %return
 

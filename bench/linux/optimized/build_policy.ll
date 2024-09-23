@@ -4001,114 +4001,124 @@ define internal fastcc void @cpudl_heapify(ptr nocapture noundef readonly %0, i3
   %43 = getelementptr %struct.cpudl_item, ptr %39, i64 %42, i32 2
   store i32 %21, ptr %43, align 4
   %44 = icmp ult i32 %22, 2
-  br i1 %44, label %split.sink.split, label %20, !llvm.loop !143
+  br i1 %44, label %._crit_edge6, label %20, !llvm.loop !143
 
-._crit_edge:                                      ; preds = %2, %6
-  %45 = getelementptr inbounds i8, ptr %0, i64 16
-  %46 = sext i32 %1 to i64
-  %47 = getelementptr %struct.cpudl_item, ptr %5, i64 %46
-  %48 = getelementptr inbounds i8, ptr %47, i64 8
-  %49 = load i32, ptr %48, align 8
-  %50 = load i64, ptr %47, align 8
-  %51 = shl i32 %1, 1
-  %52 = or disjoint i32 %51, 1
-  %53 = getelementptr inbounds i8, ptr %0, i64 4
-  %54 = load i32, ptr %53, align 4
-  %55 = icmp slt i32 %52, %54
-  br i1 %55, label %.preheader, label %111
-
-.preheader:                                       ; preds = %._crit_edge, %86
-  %56 = phi i32 [ %.pre5, %86 ], [ %54, %._crit_edge ]
-  %57 = phi i32 [ %84, %86 ], [ %1, %._crit_edge ]
-  %58 = shl i32 %57, 1
-  %59 = or disjoint i32 %58, 1
-  %60 = add i32 %58, 2
-  %61 = icmp slt i32 %59, %56
-  br i1 %61, label %62, label %71
-
-62:                                               ; preds = %.preheader
-  %63 = load ptr, ptr %45, align 8
-  %64 = sext i32 %59 to i64
-  %65 = getelementptr %struct.cpudl_item, ptr %63, i64 %64
-  %66 = load i64, ptr %65, align 8
-  %67 = sub i64 %50, %66
-  %68 = icmp slt i64 %67, 0
-  %69 = select i1 %68, i32 %59, i32 %57
-  %70 = select i1 %68, i64 %66, i64 %50
-  br label %71
-
-71:                                               ; preds = %62, %.preheader
-  %72 = phi i32 [ %57, %.preheader ], [ %69, %62 ]
-  %73 = phi i64 [ %50, %.preheader ], [ %70, %62 ]
-  %74 = icmp slt i32 %60, %56
-  br i1 %74, label %75, label %83
-
-75:                                               ; preds = %71
-  %76 = load ptr, ptr %45, align 8
-  %77 = sext i32 %60 to i64
-  %78 = getelementptr %struct.cpudl_item, ptr %76, i64 %77
-  %79 = load i64, ptr %78, align 8
-  %80 = sub i64 %73, %79
-  %81 = icmp slt i64 %80, 0
-  %82 = select i1 %81, i32 %60, i32 %72
-  br label %83
-
-83:                                               ; preds = %75, %71
-  %84 = phi i32 [ %72, %71 ], [ %82, %75 ]
-  %85 = icmp eq i32 %84, %57
-  br i1 %85, label %split.sink.split, label %86
-
-86:                                               ; preds = %83
-  %87 = load ptr, ptr %45, align 8
-  %88 = sext i32 %84 to i64
-  %89 = getelementptr %struct.cpudl_item, ptr %87, i64 %88, i32 1
-  %90 = load i32, ptr %89, align 8
-  %91 = sext i32 %57 to i64
-  %92 = getelementptr %struct.cpudl_item, ptr %87, i64 %91, i32 1
-  store i32 %90, ptr %92, align 8
-  %93 = load ptr, ptr %45, align 8
-  %94 = getelementptr %struct.cpudl_item, ptr %93, i64 %88
-  %95 = load i64, ptr %94, align 8
-  %96 = getelementptr %struct.cpudl_item, ptr %93, i64 %91
-  store i64 %95, ptr %96, align 8
-  %97 = load ptr, ptr %45, align 8
-  %98 = getelementptr %struct.cpudl_item, ptr %97, i64 %91, i32 1
-  %99 = load i32, ptr %98, align 8
-  %100 = sext i32 %99 to i64
-  %101 = getelementptr %struct.cpudl_item, ptr %97, i64 %100, i32 2
-  store i32 %57, ptr %101, align 4
-  %.pre5 = load i32, ptr %53, align 4
-  br label %.preheader
-
-split.sink.split:                                 ; preds = %83, %30
-  %.sink22 = phi ptr [ %4, %30 ], [ %45, %83 ]
-  %.lcssa11.sink.ph = phi i32 [ 0, %30 ], [ %57, %83 ]
-  %.sink18.ph = phi i32 [ %19, %30 ], [ %49, %83 ]
-  %.sink.ph = phi i64 [ %14, %30 ], [ %50, %83 ]
-  %.pre7 = load ptr, ptr %.sink22, align 8
+._crit_edge6:                                     ; preds = %30
+  %.pre7 = load ptr, ptr %4, align 8
   br label %split
 
-split:                                            ; preds = %20, %split.sink.split
-  %.lcssa11.sink = phi i32 [ %.lcssa11.sink.ph, %split.sink.split ], [ %21, %20 ]
-  %.sink20 = phi ptr [ %.pre7, %split.sink.split ], [ %24, %20 ]
-  %.sink18 = phi i32 [ %.sink18.ph, %split.sink.split ], [ %19, %20 ]
-  %.sink17 = phi ptr [ %.sink22, %split.sink.split ], [ %4, %20 ]
-  %.sink = phi i64 [ %.sink.ph, %split.sink.split ], [ %14, %20 ]
-  %102 = sext i32 %.lcssa11.sink to i64
-  %103 = getelementptr %struct.cpudl_item, ptr %.sink20, i64 %102, i32 1
-  store i32 %.sink18, ptr %103, align 8
-  %104 = load ptr, ptr %.sink17, align 8
-  %105 = getelementptr %struct.cpudl_item, ptr %104, i64 %102
-  store i64 %.sink, ptr %105, align 8
-  %106 = load ptr, ptr %.sink17, align 8
-  %107 = getelementptr %struct.cpudl_item, ptr %106, i64 %102, i32 1
-  %108 = load i32, ptr %107, align 8
-  %109 = sext i32 %108 to i64
-  %110 = getelementptr %struct.cpudl_item, ptr %106, i64 %109, i32 2
-  store i32 %.lcssa11.sink, ptr %110, align 4
-  br label %111
+split:                                            ; preds = %20, %._crit_edge6
+  %45 = phi ptr [ %.pre7, %._crit_edge6 ], [ %24, %20 ]
+  %46 = phi i32 [ 0, %._crit_edge6 ], [ %21, %20 ]
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr %struct.cpudl_item, ptr %45, i64 %47, i32 1
+  store i32 %19, ptr %48, align 8
+  %49 = load ptr, ptr %4, align 8
+  %50 = getelementptr %struct.cpudl_item, ptr %49, i64 %47
+  store i64 %14, ptr %50, align 8
+  %51 = load ptr, ptr %4, align 8
+  %52 = getelementptr %struct.cpudl_item, ptr %51, i64 %47, i32 1
+  br label %117
 
-111:                                              ; preds = %split, %._crit_edge
+._crit_edge:                                      ; preds = %2, %6
+  %53 = getelementptr inbounds i8, ptr %0, i64 16
+  %54 = sext i32 %1 to i64
+  %55 = getelementptr %struct.cpudl_item, ptr %5, i64 %54
+  %56 = getelementptr inbounds i8, ptr %55, i64 8
+  %57 = load i32, ptr %56, align 8
+  %58 = load i64, ptr %55, align 8
+  %59 = shl i32 %1, 1
+  %60 = or disjoint i32 %59, 1
+  %61 = getelementptr inbounds i8, ptr %0, i64 4
+  %62 = load i32, ptr %61, align 4
+  %63 = icmp slt i32 %60, %62
+  br i1 %63, label %.preheader, label %124
+
+.preheader:                                       ; preds = %._crit_edge, %95
+  %64 = phi i32 [ %.pre5, %95 ], [ %62, %._crit_edge ]
+  %65 = phi i32 [ %92, %95 ], [ %1, %._crit_edge ]
+  %66 = shl i32 %65, 1
+  %67 = or disjoint i32 %66, 1
+  %68 = add i32 %66, 2
+  %69 = icmp slt i32 %67, %64
+  br i1 %69, label %70, label %79
+
+70:                                               ; preds = %.preheader
+  %71 = load ptr, ptr %53, align 8
+  %72 = sext i32 %67 to i64
+  %73 = getelementptr %struct.cpudl_item, ptr %71, i64 %72
+  %74 = load i64, ptr %73, align 8
+  %75 = sub i64 %58, %74
+  %76 = icmp slt i64 %75, 0
+  %77 = select i1 %76, i32 %67, i32 %65
+  %78 = select i1 %76, i64 %74, i64 %58
+  br label %79
+
+79:                                               ; preds = %70, %.preheader
+  %80 = phi i32 [ %65, %.preheader ], [ %77, %70 ]
+  %81 = phi i64 [ %58, %.preheader ], [ %78, %70 ]
+  %82 = icmp slt i32 %68, %64
+  br i1 %82, label %83, label %91
+
+83:                                               ; preds = %79
+  %84 = load ptr, ptr %53, align 8
+  %85 = sext i32 %68 to i64
+  %86 = getelementptr %struct.cpudl_item, ptr %84, i64 %85
+  %87 = load i64, ptr %86, align 8
+  %88 = sub i64 %81, %87
+  %89 = icmp slt i64 %88, 0
+  %90 = select i1 %89, i32 %68, i32 %80
+  br label %91
+
+91:                                               ; preds = %83, %79
+  %92 = phi i32 [ %80, %79 ], [ %90, %83 ]
+  %93 = icmp eq i32 %92, %65
+  %94 = load ptr, ptr %53, align 8
+  br i1 %93, label %110, label %95
+
+95:                                               ; preds = %91
+  %96 = sext i32 %92 to i64
+  %97 = getelementptr %struct.cpudl_item, ptr %94, i64 %96, i32 1
+  %98 = load i32, ptr %97, align 8
+  %99 = sext i32 %65 to i64
+  %100 = getelementptr %struct.cpudl_item, ptr %94, i64 %99, i32 1
+  store i32 %98, ptr %100, align 8
+  %101 = load ptr, ptr %53, align 8
+  %102 = getelementptr %struct.cpudl_item, ptr %101, i64 %96
+  %103 = load i64, ptr %102, align 8
+  %104 = getelementptr %struct.cpudl_item, ptr %101, i64 %99
+  store i64 %103, ptr %104, align 8
+  %105 = load ptr, ptr %53, align 8
+  %106 = getelementptr %struct.cpudl_item, ptr %105, i64 %99, i32 1
+  %107 = load i32, ptr %106, align 8
+  %108 = sext i32 %107 to i64
+  %109 = getelementptr %struct.cpudl_item, ptr %105, i64 %108, i32 2
+  store i32 %65, ptr %109, align 4
+  %.pre5 = load i32, ptr %61, align 4
+  br label %.preheader
+
+110:                                              ; preds = %91
+  %111 = sext i32 %65 to i64
+  %112 = getelementptr %struct.cpudl_item, ptr %94, i64 %111, i32 1
+  store i32 %57, ptr %112, align 8
+  %113 = load ptr, ptr %53, align 8
+  %114 = getelementptr %struct.cpudl_item, ptr %113, i64 %111
+  store i64 %58, ptr %114, align 8
+  %115 = load ptr, ptr %53, align 8
+  %116 = getelementptr %struct.cpudl_item, ptr %115, i64 %111, i32 1
+  br label %117
+
+117:                                              ; preds = %110, %split
+  %118 = phi ptr [ %116, %110 ], [ %52, %split ]
+  %119 = phi ptr [ %115, %110 ], [ %51, %split ]
+  %120 = phi i32 [ %65, %110 ], [ %46, %split ]
+  %121 = load i32, ptr %118, align 8
+  %122 = sext i32 %121 to i64
+  %123 = getelementptr %struct.cpudl_item, ptr %119, i64 %122, i32 2
+  store i32 %120, ptr %123, align 4
+  br label %124
+
+124:                                              ; preds = %117, %._crit_edge
   ret void
 }
 
@@ -12826,7 +12836,8 @@ define internal fastcc void @enqueue_pushable_dl_task(ptr noundef %0, ptr nounde
   store i64 %35, ptr %3, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 1176
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false)
-  br label %.sink.split
+  store ptr %3, ptr %34, align 8
+  br label %43
 
 .split10.us:                                      ; preds = %19
   %37 = getelementptr inbounds i8, ptr %20, i64 %.v
@@ -12841,14 +12852,10 @@ define internal fastcc void @enqueue_pushable_dl_task(ptr noundef %0, ptr nounde
 
 42:                                               ; preds = %8
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %42, %.split10.us.thread
-  %.sink = phi ptr [ %34, %.split10.us.thread ], [ %9, %42 ]
-  store ptr %3, ptr %.sink, align 8
+  store ptr %3, ptr %9, align 8
   br label %43
 
-43:                                               ; preds = %.sink.split, %.split10.us
+43:                                               ; preds = %.split10.us.thread, %42, %.split10.us
   %44 = getelementptr inbounds i8, ptr %0, i64 2256
   store ptr %3, ptr %44, align 8
   tail call void @rb_insert_color(ptr noundef %3, ptr noundef %9) #29

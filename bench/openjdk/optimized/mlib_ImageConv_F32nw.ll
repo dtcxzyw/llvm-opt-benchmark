@@ -251,7 +251,8 @@ define hidden range(i32 0, 2) i32 @mlib_convMxNnw_f32(ptr nocapture noundef read
   %132 = load float, ptr %131, align 4
   %133 = fadd float %132, %129
   store float %133, ptr %.2307.lcssa.us.us.us.i, align 4
-  br label %.loopexit.us.us.us.sink.split.i
+  store float 0.000000e+00, ptr %131, align 4
+  br label %.loopexit.us.us.us.i
 
 .lr.ph36.us.us.us.i:                              ; preds = %.preheader2.us.us.us.i, %.lr.ph36.us.us.us.i
   %indvars.iv117.i = phi i64 [ %indvars.iv.next118.i, %.lr.ph36.us.us.us.i ], [ 0, %.preheader2.us.us.us.i ]
@@ -309,7 +310,8 @@ define hidden range(i32 0, 2) i32 @mlib_convMxNnw_f32(ptr nocapture noundef read
   %162 = load float, ptr %161, align 4
   %163 = fadd float %159, %162
   store float %163, ptr %.1306.lcssa.us.us.us.i, align 4
-  br label %.loopexit.us.us.us.sink.split.i
+  store float 0.000000e+00, ptr %161, align 4
+  br label %.loopexit.us.us.us.i
 
 164:                                              ; preds = %._crit_edge17.us.us.us.i
   %165 = load float, ptr %105, align 4
@@ -377,14 +379,10 @@ define hidden range(i32 0, 2) i32 @mlib_convMxNnw_f32(ptr nocapture noundef read
   %198 = load float, ptr %197, align 4
   %199 = fadd float %195, %198
   store float %199, ptr %.0305.lcssa.us.us.us.i, align 4
-  br label %.loopexit.us.us.us.sink.split.i
-
-.loopexit.us.us.us.sink.split.i:                  ; preds = %190, %155, %126
-  %.sink.i = phi ptr [ %197, %190 ], [ %161, %155 ], [ %131, %126 ]
-  store float 0.000000e+00, ptr %.sink.i, align 4
+  store float 0.000000e+00, ptr %197, align 4
   br label %.loopexit.us.us.us.i
 
-.loopexit.us.us.us.i:                             ; preds = %.lr.ph62.us.us.us.i, %.preheader.us.us.us.i, %.loopexit.us.us.us.sink.split.i, %._crit_edge52.us.us.us.i, %._crit_edge37.us.us.us.i, %._crit_edge25.us.us.us.i
+.loopexit.us.us.us.i:                             ; preds = %.lr.ph62.us.us.us.i, %.preheader.us.us.us.i, %190, %._crit_edge52.us.us.us.i, %155, %._crit_edge37.us.us.us.i, %126, %._crit_edge25.us.us.us.i
   %200 = getelementptr inbounds float, ptr %.031063.us.us.us.i, i64 %63
   %201 = getelementptr inbounds float, ptr %.030964.us.us.us.i, i64 %63
   %202 = add nuw nsw i32 %.030466.us.us.us.i, 1

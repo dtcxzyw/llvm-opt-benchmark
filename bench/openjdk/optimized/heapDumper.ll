@@ -1362,7 +1362,7 @@ define hidden void @_ZN10DumpWriter5flushEv(ptr noundef nonnull align 8 derefere
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 0
-  br i1 %4, label %53, label %5
+  br i1 %4, label %52, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 64
@@ -1372,7 +1372,7 @@ define hidden void @_ZN10DumpWriter5flushEv(ptr noundef nonnull align 8 derefere
 
 8:                                                ; preds = %5
   store i64 0, ptr %2, align 8
-  br label %53
+  br label %52
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %0, i64 48
@@ -1432,25 +1432,25 @@ _ZN10DumpWriter11do_compressEv.exit:              ; preds = %22
 
 .thread:                                          ; preds = %_ZN10DumpWriter11do_compressEv.exit, %_ZN10DumpWriter11do_compressEv.exit.thread
   store i64 0, ptr %2, align 8
-  br label %53
+  br label %52
 
 47:                                               ; preds = %38, %13
-  %.sink = phi ptr [ %33, %38 ], [ %2, %13 ]
+  %.sink9.in = phi ptr [ %33, %38 ], [ %2, %13 ]
   %.0 = phi ptr [ %46, %38 ], [ %21, %13 ]
-  %48 = load i64, ptr %.sink, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 56
-  %50 = load i64, ptr %49, align 8
-  %51 = add i64 %50, %48
-  store i64 %51, ptr %49, align 8
+  %.sink9 = load i64, ptr %.sink9.in, align 8
+  %48 = getelementptr inbounds i8, ptr %0, i64 56
+  %49 = load i64, ptr %48, align 8
+  %50 = add i64 %49, %.sink9
+  store i64 %50, ptr %48, align 8
   store i64 0, ptr %2, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %53, label %52
+  br i1 %.not, label %52, label %51
 
-52:                                               ; preds = %47
+51:                                               ; preds = %47
   store ptr %.0, ptr %6, align 8
-  br label %53
+  br label %52
 
-53:                                               ; preds = %.thread, %1, %52, %47, %8
+52:                                               ; preds = %.thread, %1, %51, %47, %8
   ret void
 }
 

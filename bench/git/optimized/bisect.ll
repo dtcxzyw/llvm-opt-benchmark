@@ -1241,22 +1241,22 @@ if.end37.i:                                       ; preds = %if.end28.i, %if.end
   %is_first_run.1100.i = phi i32 [ %is_first_run.1.i, %if.end28.i ], [ 0, %if.end21.i ]
   switch i32 %call3.i.i, label %if.else42.i [
     i32 125, label %if.end44.i
-    i32 0, label %if.end44.sink.split.i
+    i32 0, label %if.then41.i
   ]
 
-if.else42.i:                                      ; preds = %if.end37.i
-  br label %if.end44.sink.split.i
-
-if.end44.sink.split.i:                            ; preds = %if.else42.i, %if.end37.i
-  %terms.sink.i = phi ptr [ %term_bad.i, %if.else42.i ], [ %terms, %if.end37.i ]
-  %11 = load ptr, ptr %terms.sink.i, align 8
+if.then41.i:                                      ; preds = %if.end37.i
+  %11 = load ptr, ptr %terms, align 8
   br label %if.end44.i
 
-if.end44.i:                                       ; preds = %if.end44.sink.split.i, %if.end37.i
-  %.sink.i = phi ptr [ @.str.6, %if.end37.i ], [ %11, %if.end44.sink.split.i ]
+if.else42.i:                                      ; preds = %if.end37.i
+  %12 = load ptr, ptr %term_bad.i, align 8
+  br label %if.end44.i
+
+if.end44.i:                                       ; preds = %if.else42.i, %if.then41.i, %if.end37.i
+  %.sink.i = phi ptr [ %11, %if.then41.i ], [ %12, %if.else42.i ], [ @.str.6, %if.end37.i ]
   store ptr %.sink.i, ptr %new_state.i, align 8
-  %12 = load ptr, ptr @git_path_bisect_run.ret, align 8
-  %tobool.not.i44.i = icmp eq ptr %12, null
+  %13 = load ptr, ptr @git_path_bisect_run.ret, align 8
+  %tobool.not.i44.i = icmp eq ptr %13, null
   br i1 %tobool.not.i44.i, label %if.then.i.i, label %git_path_bisect_run.exit.i
 
 if.then.i.i:                                      ; preds = %if.end44.i
@@ -1265,14 +1265,14 @@ if.then.i.i:                                      ; preds = %if.end44.i
   br label %git_path_bisect_run.exit.i
 
 git_path_bisect_run.exit.i:                       ; preds = %if.then.i.i, %if.end44.i
-  %13 = phi ptr [ %call.i46.i, %if.then.i.i ], [ %12, %if.end44.i ]
-  %call46.i = call i32 (ptr, i32, ...) @open64(ptr noundef %13, i32 noundef 577, i32 noundef 438) #17
+  %14 = phi ptr [ %call.i46.i, %if.then.i.i ], [ %13, %if.end44.i ]
+  %call46.i = call i32 (ptr, i32, ...) @open64(ptr noundef %14, i32 noundef 577, i32 noundef 438) #17
   %cmp47.i = icmp slt i32 %call46.i, 0
   br i1 %cmp47.i, label %if.then48.i, label %if.end53.i
 
 if.then48.i:                                      ; preds = %git_path_bisect_run.exit.i
-  %14 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i48.i = icmp eq i32 %14, 0
+  %15 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i48.i = icmp eq i32 %15, 0
   br i1 %tobool1.not.i48.i, label %_.exit52.i, label %if.end3.i49.i
 
 if.end3.i49.i:                                    ; preds = %if.then48.i
@@ -1281,8 +1281,8 @@ if.end3.i49.i:                                    ; preds = %if.then48.i
 
 _.exit52.i:                                       ; preds = %if.end3.i49.i, %if.then48.i
   %retval.0.i51.i = phi ptr [ %call.i50.i, %if.end3.i49.i ], [ @.str.126, %if.then48.i ]
-  %15 = load ptr, ptr @git_path_bisect_run.ret, align 8
-  %tobool.not.i53.i = icmp eq ptr %15, null
+  %16 = load ptr, ptr @git_path_bisect_run.ret, align 8
+  %tobool.not.i53.i = icmp eq ptr %16, null
   br i1 %tobool.not.i53.i, label %if.then.i55.i, label %git_path_bisect_run.exit57.i
 
 if.then.i55.i:                                    ; preds = %_.exit52.i
@@ -1291,23 +1291,23 @@ if.then.i55.i:                                    ; preds = %_.exit52.i
   br label %git_path_bisect_run.exit57.i
 
 git_path_bisect_run.exit57.i:                     ; preds = %if.then.i55.i, %_.exit52.i
-  %16 = phi ptr [ %call.i56.i, %if.then.i55.i ], [ %15, %_.exit52.i ]
-  %call51.i = call i32 (ptr, ...) @error_errno(ptr noundef %retval.0.i51.i, ptr noundef %16) #17
+  %17 = phi ptr [ %call.i56.i, %if.then.i55.i ], [ %16, %_.exit52.i ]
+  %call51.i = call i32 (ptr, ...) @error_errno(ptr noundef %retval.0.i51.i, ptr noundef %17) #17
   br label %while.end.i
 
 if.end53.i:                                       ; preds = %git_path_bisect_run.exit.i
-  %17 = load ptr, ptr @stdout, align 8
-  %call54.i = call i32 @fflush(ptr noundef %17)
+  %18 = load ptr, ptr @stdout, align 8
+  %call54.i = call i32 @fflush(ptr noundef %18)
   %call55.i = call i32 @dup(i32 noundef 1) #17
   %call56.i = call i32 @dup2(i32 noundef %call46.i, i32 noundef 1) #17
   %call57.i = call fastcc i32 @bisect_state(ptr noundef %terms, i32 noundef 1, ptr noundef nonnull %new_state.i)
-  %18 = load ptr, ptr @stdout, align 8
-  %call58.i = call i32 @fflush(ptr noundef %18)
+  %19 = load ptr, ptr @stdout, align 8
+  %call58.i = call i32 @fflush(ptr noundef %19)
   %call59.i = call i32 @dup2(i32 noundef %call55.i, i32 noundef 1) #17
   %call60.i = call i32 @close(i32 noundef %call55.i) #17
   %call61.i = call i32 @close(i32 noundef %call46.i) #17
-  %19 = load ptr, ptr @git_path_bisect_run.ret, align 8
-  %tobool.not.i58.i = icmp eq ptr %19, null
+  %20 = load ptr, ptr @git_path_bisect_run.ret, align 8
+  %tobool.not.i58.i = icmp eq ptr %20, null
   br i1 %tobool.not.i58.i, label %if.then.i60.i, label %git_path_bisect_run.exit62.i
 
 if.then.i60.i:                                    ; preds = %if.end53.i
@@ -1316,14 +1316,14 @@ if.then.i60.i:                                    ; preds = %if.end53.i
   br label %git_path_bisect_run.exit62.i
 
 git_path_bisect_run.exit62.i:                     ; preds = %if.then.i60.i, %if.end53.i
-  %20 = phi ptr [ %call.i61.i, %if.then.i60.i ], [ %19, %if.end53.i ]
-  %call.i63.i = call i32 (ptr, i32, ...) @open64(ptr noundef %20, i32 noundef 0) #17
+  %21 = phi ptr [ %call.i61.i, %if.then.i60.i ], [ %20, %if.end53.i ]
+  %call.i63.i = call i32 (ptr, i32, ...) @open64(ptr noundef %21, i32 noundef 0) #17
   %cmp.i.i = icmp slt i32 %call.i63.i, 0
   br i1 %cmp.i.i, label %if.then.i66.i, label %if.end.i64.i
 
 if.then.i66.i:                                    ; preds = %git_path_bisect_run.exit62.i
-  %21 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i.i67.i = icmp eq i32 %21, 0
+  %22 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i.i67.i = icmp eq i32 %22, 0
   br i1 %tobool1.not.i.i67.i, label %_.exit.i.i, label %if.end3.i.i68.i
 
 if.end3.i.i68.i:                                  ; preds = %if.then.i66.i
@@ -1332,7 +1332,7 @@ if.end3.i.i68.i:                                  ; preds = %if.then.i66.i
 
 _.exit.i.i:                                       ; preds = %if.end3.i.i68.i, %if.then.i66.i
   %retval.0.i.i70.i = phi ptr [ %call.i.i69.i, %if.end3.i.i68.i ], [ @.str.133, %if.then.i66.i ]
-  %call2.i71.i = call i32 (ptr, ...) @error_errno(ptr noundef %retval.0.i.i70.i, ptr noundef %20) #17
+  %call2.i71.i = call i32 (ptr, ...) @error_errno(ptr noundef %retval.0.i.i70.i, ptr noundef %21) #17
   br label %print_file_to_stdout.exit.i
 
 if.end.i64.i:                                     ; preds = %git_path_bisect_run.exit62.i
@@ -1341,8 +1341,8 @@ if.end.i64.i:                                     ; preds = %git_path_bisect_run
   br i1 %cmp5.i.i, label %if.then6.i.i, label %if.end10.i.i
 
 if.then6.i.i:                                     ; preds = %if.end.i64.i
-  %22 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i5.i.i = icmp eq i32 %22, 0
+  %23 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i5.i.i = icmp eq i32 %23, 0
   br i1 %tobool1.not.i5.i.i, label %_.exit9.i.i, label %if.end3.i6.i.i
 
 if.end3.i6.i.i:                                   ; preds = %if.then6.i.i
@@ -1351,7 +1351,7 @@ if.end3.i6.i.i:                                   ; preds = %if.then6.i.i
 
 _.exit9.i.i:                                      ; preds = %if.end3.i6.i.i, %if.then6.i.i
   %retval.0.i8.i.i = phi ptr [ %call.i7.i.i, %if.end3.i6.i.i ], [ @.str.134, %if.then6.i.i ]
-  %call8.i.i = call i32 (ptr, ...) @error_errno(ptr noundef %retval.0.i8.i.i, ptr noundef %20) #17
+  %call8.i.i = call i32 (ptr, ...) @error_errno(ptr noundef %retval.0.i8.i.i, ptr noundef %21) #17
   br label %if.end10.i.i
 
 if.end10.i.i:                                     ; preds = %_.exit9.i.i, %if.end.i64.i
@@ -1367,8 +1367,8 @@ print_file_to_stdout.exit.i:                      ; preds = %if.end10.i.i, %_.ex
   ]
 
 if.then65.i:                                      ; preds = %print_file_to_stdout.exit.i
-  %23 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i73.i = icmp eq i32 %23, 0
+  %24 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i73.i = icmp eq i32 %24, 0
   br i1 %tobool1.not.i73.i, label %_.exit77.i, label %if.end3.i74.i
 
 if.end3.i74.i:                                    ; preds = %if.then65.i
@@ -1381,8 +1381,8 @@ _.exit77.i:                                       ; preds = %if.end3.i74.i, %if.
   br label %while.end.i
 
 if.then71.i:                                      ; preds = %print_file_to_stdout.exit.i
-  %24 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i79.i = icmp eq i32 %24, 0
+  %25 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i79.i = icmp eq i32 %25, 0
   br i1 %tobool1.not.i79.i, label %_.exit83.i, label %if.end3.i80.i
 
 if.end3.i80.i:                                    ; preds = %if.then71.i
@@ -1395,8 +1395,8 @@ _.exit83.i:                                       ; preds = %if.end3.i80.i, %if.
   br label %while.end.i
 
 if.then76.i:                                      ; preds = %print_file_to_stdout.exit.i
-  %25 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i85.i = icmp eq i32 %25, 0
+  %26 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i85.i = icmp eq i32 %26, 0
   br i1 %tobool1.not.i85.i, label %_.exit89.i, label %if.end3.i86.i
 
 if.end3.i86.i:                                    ; preds = %if.then76.i
@@ -1409,8 +1409,8 @@ _.exit89.i:                                       ; preds = %if.end3.i86.i, %if.
   br label %while.end.i
 
 if.then81.i:                                      ; preds = %print_file_to_stdout.exit.i
-  %26 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i91.i = icmp eq i32 %26, 0
+  %27 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i91.i = icmp eq i32 %27, 0
   br i1 %tobool1.not.i91.i, label %_.exit95.i, label %if.end3.i92.i
 
 if.end3.i92.i:                                    ; preds = %if.then81.i
@@ -1431,11 +1431,11 @@ bisect_run.exit:                                  ; preds = %if.end, %while.end.
   %retval.0.i3 = phi i32 [ %res.0.i, %while.end.i ], [ -1, %if.end ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %command.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %new_state.i)
-  %27 = load ptr, ptr %terms, align 8
-  call void @free(ptr noundef %27) #17
-  %term_bad.i4 = getelementptr inbounds i8, ptr %terms, i64 8
-  %28 = load ptr, ptr %term_bad.i4, align 8
+  %28 = load ptr, ptr %terms, align 8
   call void @free(ptr noundef %28) #17
+  %term_bad.i4 = getelementptr inbounds i8, ptr %terms, i64 8
+  %29 = load ptr, ptr %term_bad.i4, align 8
+  call void @free(ptr noundef %29) #17
   br label %return
 
 return:                                           ; preds = %bisect_run.exit, %_.exit
@@ -2470,12 +2470,12 @@ for.end102:                                       ; preds = %for.inc100, %for.bo
 for.body110:                                      ; preds = %for.end102, %for.body110
   %indvars.iv262 = phi i64 [ %indvars.iv.next263, %for.body110 ], [ 0, %for.end102 ]
   %tobool111.not220 = phi i64 [ 0, %for.body110 ], [ 8, %for.end102 ]
-  %term_bad116.terms = getelementptr inbounds i8, ptr %terms, i64 %tobool111.not220
-  %34 = load ptr, ptr %term_bad116.terms, align 8
-  %call114 = call ptr @string_list_append(ptr noundef nonnull %states, ptr noundef %34) #17
+  %spec.select301 = getelementptr inbounds i8, ptr %terms, i64 %tobool111.not220
+  %.sink = load ptr, ptr %spec.select301, align 8
+  %call114 = call ptr @string_list_append(ptr noundef nonnull %states, ptr noundef %.sink) #17
   %indvars.iv.next263 = add nuw nsw i64 %indvars.iv262, 1
-  %35 = load i64, ptr %nr, align 8
-  %cmp108 = icmp ugt i64 %35, %indvars.iv.next263
+  %34 = load i64, ptr %nr, align 8
+  %cmp108 = icmp ugt i64 %34, %indvars.iv.next263
   br i1 %cmp108, label %for.body110, label %for.end121, !llvm.loop !15
 
 for.end121:                                       ; preds = %for.body110, %for.end102
@@ -2484,14 +2484,14 @@ for.end121:                                       ; preds = %for.body110, %for.e
   br i1 %tobool123.not, label %if.then124, label %if.end132
 
 if.then124:                                       ; preds = %for.end121
-  %36 = load ptr, ptr @the_repository, align 8
-  %call125 = call i32 @repo_get_oid(ptr noundef %36, ptr noundef nonnull @.str.44, ptr noundef nonnull %head_oid) #17
+  %35 = load ptr, ptr @the_repository, align 8
+  %call125 = call i32 @repo_get_oid(ptr noundef %35, ptr noundef nonnull @.str.44, ptr noundef nonnull %head_oid) #17
   %tobool126.not = icmp eq i32 %call125, 0
   br i1 %tobool126.not, label %if.end132, label %if.then127
 
 if.then127:                                       ; preds = %if.then124
-  %37 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i90 = icmp eq i32 %37, 0
+  %36 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i90 = icmp eq i32 %36, 0
   br i1 %tobool1.not.i90, label %_.exit94, label %if.end3.i91
 
 if.end3.i91:                                      ; preds = %if.then127
@@ -2504,8 +2504,8 @@ _.exit94:                                         ; preds = %if.then127, %if.end
   br label %return
 
 if.end132:                                        ; preds = %if.then124, %for.end121
-  %38 = load ptr, ptr @git_path_bisect_start.ret, align 8
-  %tobool.not.i95 = icmp eq ptr %38, null
+  %37 = load ptr, ptr @git_path_bisect_start.ret, align 8
+  %tobool.not.i95 = icmp eq ptr %37, null
   br i1 %tobool.not.i95, label %if.then.i96, label %git_path_bisect_start.exit
 
 if.then.i96:                                      ; preds = %if.end132
@@ -2514,14 +2514,14 @@ if.then.i96:                                      ; preds = %if.end132
   br label %git_path_bisect_start.exit
 
 git_path_bisect_start.exit:                       ; preds = %if.end132, %if.then.i96
-  %39 = phi ptr [ %call.i97, %if.then.i96 ], [ %38, %if.end132 ]
-  %call134 = call i32 @is_empty_or_missing_file(ptr noundef %39) #17
+  %38 = phi ptr [ %call.i97, %if.then.i96 ], [ %37, %if.end132 ]
+  %call134 = call i32 @is_empty_or_missing_file(ptr noundef %38) #17
   %tobool135.not = icmp eq i32 %call134, 0
   br i1 %tobool135.not, label %if.then136, label %if.else150
 
 if.then136:                                       ; preds = %git_path_bisect_start.exit
-  %40 = load ptr, ptr @git_path_bisect_start.ret, align 8
-  %tobool.not.i98 = icmp eq ptr %40, null
+  %39 = load ptr, ptr @git_path_bisect_start.ret, align 8
+  %tobool.not.i98 = icmp eq ptr %39, null
   br i1 %tobool.not.i98, label %if.then.i99, label %git_path_bisect_start.exit101
 
 if.then.i99:                                      ; preds = %if.then136
@@ -2530,8 +2530,8 @@ if.then.i99:                                      ; preds = %if.then136
   br label %git_path_bisect_start.exit101
 
 git_path_bisect_start.exit101:                    ; preds = %if.then136, %if.then.i99
-  %41 = phi ptr [ %call.i100, %if.then.i99 ], [ %40, %if.then136 ]
-  %call138 = call i64 @strbuf_read_file(ptr noundef nonnull %start_head, ptr noundef %41, i64 noundef 0) #17
+  %40 = phi ptr [ %call.i100, %if.then.i99 ], [ %39, %if.then136 ]
+  %call138 = call i64 @strbuf_read_file(ptr noundef nonnull %start_head, ptr noundef %40, i64 noundef 0) #17
   call void @strbuf_trim(ptr noundef nonnull %start_head) #17
   %tobool139.not = icmp eq i32 %no_checkout.1197, 0
   br i1 %tobool139.not, label %if.then140, label %if.end170
@@ -2541,16 +2541,26 @@ if.then140:                                       ; preds = %git_path_bisect_sta
   %git_cmd = getelementptr inbounds i8, ptr %cmd, i64 104
   store i16 8, ptr %git_cmd, align 8
   %buf = getelementptr inbounds i8, ptr %start_head, i64 16
-  %42 = load ptr, ptr %buf, align 8
-  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %cmd, ptr noundef nonnull @.str.19, ptr noundef %42, ptr noundef nonnull @.str.21, ptr noundef null) #17
+  %41 = load ptr, ptr %buf, align 8
+  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %cmd, ptr noundef nonnull @.str.19, ptr noundef %41, ptr noundef nonnull @.str.21, ptr noundef null) #17
   %call141 = call i32 @run_command(ptr noundef nonnull %cmd) #17
   %tobool142.not = icmp eq i32 %call141, 0
   br i1 %tobool142.not, label %if.end170, label %if.then143
 
 if.then143:                                       ; preds = %if.then140
-  %43 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i102 = icmp eq i32 %43, 0
-  br i1 %tobool1.not.i102, label %return.critedge.sink.split, label %return.critedge.sink.split.sink.split
+  %42 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i102 = icmp eq i32 %42, 0
+  br i1 %tobool1.not.i102, label %_.exit106, label %if.end3.i103
+
+if.end3.i103:                                     ; preds = %if.then143
+  %call.i104 = call ptr @gettext(ptr noundef nonnull @.str.46) #17
+  br label %_.exit106
+
+_.exit106:                                        ; preds = %if.then143, %if.end3.i103
+  %retval.0.i105 = phi ptr [ %call.i104, %if.end3.i103 ], [ @.str.46, %if.then143 ]
+  %43 = load ptr, ptr %buf, align 8
+  %call146 = call i32 (ptr, ...) @error(ptr noundef %retval.0.i105, ptr noundef %43) #17
+  br label %return.critedge
 
 if.else150:                                       ; preds = %git_path_bisect_start.exit
   %44 = load ptr, ptr @the_repository, align 8
@@ -2676,7 +2686,17 @@ if.then182:                                       ; preds = %if.end180
 if.then187:                                       ; preds = %if.then182
   %57 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i131 = icmp eq i32 %57, 0
-  br i1 %tobool1.not.i131, label %return.critedge.sink.split, label %return.critedge.sink.split.sink.split
+  br i1 %tobool1.not.i131, label %_.exit135, label %if.end3.i132
+
+if.end3.i132:                                     ; preds = %if.then187
+  %call.i133 = call ptr @gettext(ptr noundef nonnull @.str.50) #17
+  br label %_.exit135
+
+_.exit135:                                        ; preds = %if.then187, %if.end3.i132
+  %retval.0.i134 = phi ptr [ %call.i133, %if.end3.i132 ], [ @.str.50, %if.then187 ]
+  %58 = load ptr, ptr %buf176, align 8
+  %call190 = call i32 (ptr, ...) @error(ptr noundef %retval.0.i134, ptr noundef %58) #17
+  br label %return.critedge
 
 if.end192:                                        ; preds = %if.then182
   %call193 = call i32 @update_ref(ptr noundef null, ptr noundef nonnull @.str.18, ptr noundef nonnull %oid, ptr noundef null, i32 noundef 0, i32 noundef 0) #17
@@ -2695,8 +2715,8 @@ if.then200:                                       ; preds = %if.end197
   br label %if.end201
 
 if.end201:                                        ; preds = %if.then200, %if.end197
-  %58 = load ptr, ptr @git_path_bisect_names.ret, align 8
-  %tobool.not.i136 = icmp eq ptr %58, null
+  %59 = load ptr, ptr @git_path_bisect_names.ret, align 8
+  %tobool.not.i136 = icmp eq ptr %59, null
   br i1 %tobool.not.i136, label %if.then.i137, label %git_path_bisect_names.exit
 
 if.then.i137:                                     ; preds = %if.end201
@@ -2705,30 +2725,30 @@ if.then.i137:                                     ; preds = %if.end201
   br label %git_path_bisect_names.exit
 
 git_path_bisect_names.exit:                       ; preds = %if.end201, %if.then.i137
-  %59 = phi ptr [ %call.i138, %if.then.i137 ], [ %58, %if.end201 ]
+  %60 = phi ptr [ %call.i138, %if.then.i137 ], [ %59, %if.end201 ]
   %buf203 = getelementptr inbounds i8, ptr %bisect_names, i64 16
-  %60 = load ptr, ptr %buf203, align 8
-  call void (ptr, ptr, ...) @write_file(ptr noundef %59, ptr noundef nonnull @.str.30, ptr noundef %60) #17
+  %61 = load ptr, ptr %buf203, align 8
+  call void (ptr, ptr, ...) @write_file(ptr noundef %60, ptr noundef nonnull @.str.30, ptr noundef %61) #17
   %nr206 = getelementptr inbounds i8, ptr %states, i64 8
-  %61 = load i64, ptr %nr206, align 8
-  %cmp207221.not = icmp eq i64 %61, 0
+  %62 = load i64, ptr %nr206, align 8
+  %cmp207221.not = icmp eq i64 %62, 0
   br i1 %cmp207221.not, label %for.end222, label %for.body209
 
 for.cond204:                                      ; preds = %for.body209
   %indvars.iv.next267 = add nuw nsw i64 %indvars.iv266, 1
-  %62 = load i64, ptr %nr206, align 8
-  %cmp207 = icmp ugt i64 %62, %indvars.iv.next267
+  %63 = load i64, ptr %nr206, align 8
+  %cmp207 = icmp ugt i64 %63, %indvars.iv.next267
   br i1 %cmp207, label %for.body209, label %for.end222, !llvm.loop !16
 
 for.body209:                                      ; preds = %git_path_bisect_names.exit, %for.cond204
   %indvars.iv266 = phi i64 [ %indvars.iv.next267, %for.cond204 ], [ 0, %git_path_bisect_names.exit ]
-  %63 = load ptr, ptr %states, align 8
-  %arrayidx211 = getelementptr inbounds %struct.string_list_item, ptr %63, i64 %indvars.iv266
-  %64 = load ptr, ptr %arrayidx211, align 8
-  %65 = load ptr, ptr %revs, align 8
-  %arrayidx214 = getelementptr inbounds %struct.string_list_item, ptr %65, i64 %indvars.iv266
-  %66 = load ptr, ptr %arrayidx214, align 8
-  %call216 = call fastcc i32 @bisect_write(ptr noundef %64, ptr noundef %66, ptr noundef %terms, i32 noundef 1)
+  %64 = load ptr, ptr %states, align 8
+  %arrayidx211 = getelementptr inbounds %struct.string_list_item, ptr %64, i64 %indvars.iv266
+  %65 = load ptr, ptr %arrayidx211, align 8
+  %66 = load ptr, ptr %revs, align 8
+  %arrayidx214 = getelementptr inbounds %struct.string_list_item, ptr %66, i64 %indvars.iv266
+  %67 = load ptr, ptr %arrayidx214, align 8
+  %call216 = call fastcc i32 @bisect_write(ptr noundef %65, ptr noundef %67, ptr noundef %terms, i32 noundef 1)
   %tobool217.not = icmp eq i32 %call216, 0
   br i1 %tobool217.not, label %for.cond204, label %return.critedge
 
@@ -2739,16 +2759,16 @@ for.end222:                                       ; preds = %for.cond204, %git_p
 
 land.lhs.true224:                                 ; preds = %for.end222
   %term_bad225 = getelementptr inbounds i8, ptr %terms, i64 8
-  %67 = load ptr, ptr %term_bad225, align 8
-  %68 = load ptr, ptr %terms, align 8
-  %call227 = call fastcc i32 @write_terms(ptr noundef %67, ptr noundef %68)
+  %68 = load ptr, ptr %term_bad225, align 8
+  %69 = load ptr, ptr %terms, align 8
+  %call227 = call fastcc i32 @write_terms(ptr noundef %68, ptr noundef %69)
   %tobool228.not = icmp eq i32 %call227, 0
   br i1 %tobool228.not, label %if.end230, label %return.critedge
 
 if.end230:                                        ; preds = %land.lhs.true224, %for.end222
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %orig_args.i)
-  %69 = load ptr, ptr @git_path_bisect_log.ret, align 8
-  %tobool.not.i.i = icmp eq ptr %69, null
+  %70 = load ptr, ptr @git_path_bisect_log.ret, align 8
+  %tobool.not.i.i = icmp eq ptr %70, null
   br i1 %tobool.not.i.i, label %if.then.i.i, label %git_path_bisect_log.exit.i
 
 if.then.i.i:                                      ; preds = %if.end230
@@ -2757,22 +2777,22 @@ if.then.i.i:                                      ; preds = %if.end230
   br label %git_path_bisect_log.exit.i
 
 git_path_bisect_log.exit.i:                       ; preds = %if.then.i.i, %if.end230
-  %70 = phi ptr [ %call.i.i, %if.then.i.i ], [ %69, %if.end230 ]
-  %call1.i297 = call ptr @git_fopen(ptr noundef %70, ptr noundef nonnull @.str.59) #17
+  %71 = phi ptr [ %call.i.i, %if.then.i.i ], [ %70, %if.end230 ]
+  %call1.i297 = call ptr @git_fopen(ptr noundef %71, ptr noundef nonnull @.str.59) #17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %orig_args.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.get_terms.str, i64 24, i1 false)
   %tobool.not.i = icmp eq ptr %call1.i297, null
-  br i1 %tobool.not.i, label %return.critedge301, label %if.end.i
+  br i1 %tobool.not.i, label %return.critedge302, label %if.end.i
 
 if.end.i:                                         ; preds = %git_path_bisect_log.exit.i
   %call2.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call1.i297, ptr noundef nonnull @.str.79)
   %cmp.i298 = icmp slt i32 %call2.i, 1
-  br i1 %cmp.i298, label %return.critedge302, label %if.end4.i
+  br i1 %cmp.i298, label %return.critedge303, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i
   call void @sq_quote_argv(ptr noundef nonnull %orig_args.i, ptr noundef %argv) #17
   %buf.i299 = getelementptr inbounds i8, ptr %orig_args.i, i64 16
-  %71 = load ptr, ptr %buf.i299, align 8
-  %call5.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call1.i297, ptr noundef nonnull @.str.30, ptr noundef %71)
+  %72 = load ptr, ptr %buf.i299, align 8
+  %call5.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call1.i297, ptr noundef nonnull @.str.30, ptr noundef %72)
   %cmp6.i = icmp sgt i32 %call5.i, 0
   %call9.i = call i32 @fclose(ptr noundef nonnull %call1.i297)
   call void @strbuf_release(ptr noundef nonnull %orig_args.i) #17
@@ -2804,27 +2824,14 @@ if.then241:                                       ; preds = %bisect_auto_next.ex
   %call242 = call i32 @bisect_clean_state() #17
   br label %return
 
-return.critedge.sink.split.sink.split:            ; preds = %if.then187, %if.then143
-  %.str.50.sink = phi ptr [ @.str.46, %if.then143 ], [ @.str.50, %if.then187 ]
-  %buf.sink.ph = phi ptr [ %buf, %if.then143 ], [ %buf176, %if.then187 ]
-  %call.i133 = call ptr @gettext(ptr noundef nonnull %.str.50.sink) #17
-  br label %return.critedge.sink.split
-
-return.critedge.sink.split:                       ; preds = %return.critedge.sink.split.sink.split, %if.then187, %if.then143
-  %buf.sink = phi ptr [ %buf, %if.then143 ], [ %buf176, %if.then187 ], [ %buf.sink.ph, %return.critedge.sink.split.sink.split ]
-  %retval.0.i105.sink = phi ptr [ @.str.46, %if.then143 ], [ @.str.50, %if.then187 ], [ %call.i133, %return.critedge.sink.split.sink.split ]
-  %72 = load ptr, ptr %buf.sink, align 8
-  %call146 = call i32 (ptr, ...) @error(ptr noundef %retval.0.i105.sink, ptr noundef %72) #17
-  br label %return.critedge
-
-return.critedge:                                  ; preds = %for.body209, %return.critedge.sink.split, %land.lhs.true224, %if.end192
+return.critedge:                                  ; preds = %for.body209, %land.lhs.true224, %if.end192, %_.exit106, %_.exit135
   call void @string_list_clear(ptr noundef nonnull %revs, i32 noundef 0) #17
   call void @string_list_clear(ptr noundef nonnull %states, i32 noundef 0) #17
   call void @strbuf_release(ptr noundef nonnull %start_head) #17
   call void @strbuf_release(ptr noundef nonnull %bisect_names) #17
   br label %return
 
-return.critedge301:                               ; preds = %git_path_bisect_log.exit.i
+return.critedge302:                               ; preds = %git_path_bisect_log.exit.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %orig_args.i)
   call void @string_list_clear(ptr noundef nonnull %revs, i32 noundef 0) #17
   call void @string_list_clear(ptr noundef nonnull %states, i32 noundef 0) #17
@@ -2832,7 +2839,7 @@ return.critedge301:                               ; preds = %git_path_bisect_log
   call void @strbuf_release(ptr noundef nonnull %bisect_names) #17
   br label %return
 
-return.critedge302:                               ; preds = %if.end.i
+return.critedge303:                               ; preds = %if.end.i
   %call9.i.c = call i32 @fclose(ptr noundef nonnull %call1.i297)
   call void @strbuf_release(ptr noundef nonnull %orig_args.i) #17
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %orig_args.i)
@@ -2842,8 +2849,8 @@ return.critedge302:                               ; preds = %if.end.i
   call void @strbuf_release(ptr noundef nonnull %bisect_names) #17
   br label %return
 
-return:                                           ; preds = %return.critedge302, %return.critedge301, %bisect_auto_next.exit, %bisect_auto_next.exit, %bisect_auto_next.exit, %return.critedge, %bisect_auto_next.exit.thread, %if.then241, %if.end4.i, %if.end170, %_.exit123, %_.exit94, %_.exit89, %_.exit64, %_.exit
-  %retval.0 = phi i32 [ -1, %_.exit89 ], [ -1, %_.exit123 ], [ -1, %_.exit94 ], [ -1, %_.exit64 ], [ -1, %_.exit ], [ -1, %if.end170 ], [ -1, %if.end4.i ], [ %call1.i, %if.then241 ], [ 0, %bisect_auto_next.exit.thread ], [ %call1.i, %bisect_auto_next.exit ], [ %call1.i, %bisect_auto_next.exit ], [ -1, %return.critedge ], [ %call1.i, %bisect_auto_next.exit ], [ -1, %return.critedge301 ], [ -1, %return.critedge302 ]
+return:                                           ; preds = %return.critedge303, %return.critedge302, %bisect_auto_next.exit, %bisect_auto_next.exit, %bisect_auto_next.exit, %return.critedge, %bisect_auto_next.exit.thread, %if.then241, %if.end4.i, %if.end170, %_.exit123, %_.exit94, %_.exit89, %_.exit64, %_.exit
+  %retval.0 = phi i32 [ -1, %_.exit89 ], [ -1, %_.exit123 ], [ -1, %_.exit94 ], [ -1, %_.exit64 ], [ -1, %_.exit ], [ -1, %if.end170 ], [ -1, %if.end4.i ], [ %call1.i, %if.then241 ], [ 0, %bisect_auto_next.exit.thread ], [ %call1.i, %bisect_auto_next.exit ], [ %call1.i, %bisect_auto_next.exit ], [ -1, %return.critedge ], [ %call1.i, %bisect_auto_next.exit ], [ -1, %return.critedge302 ], [ -1, %return.critedge303 ]
   ret i32 %retval.0
 }
 

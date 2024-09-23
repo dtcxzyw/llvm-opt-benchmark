@@ -118042,11 +118042,6 @@ split:                                            ; preds = %59, %"_ZN71_$LT$htt
   %.not.i.i.i = icmp eq i64 %.066.i.i, %159
   br i1 %.not.i.i.i, label %_ZN4http6header3map18remove_extra_value17h9f5872b2bbfdf0deE.exit.i.i, label %169
 
-.sink.split.i.i.i:                                ; preds = %197, %195
-  %.sink.i.i.i = phi ptr [ %199, %197 ], [ %196, %195 ]
-  store i64 %.066.i.i, ptr %.sink.i.i.i, align 8, !noalias !20113
-  br label %_ZN4http6header3map18remove_extra_value17h9f5872b2bbfdf0deE.exit.i.i
-
 169:                                              ; preds = %168
   %170 = icmp ult i64 %.066.i.i, %159
   br i1 %170, label %171, label %.invoke.i.i.i, !prof !1810
@@ -118074,8 +118069,8 @@ split:                                            ; preds = %59, %"_ZN71_$LT$htt
   br i1 %trunc120.i.i.i, label %183, label %.invoke148.i.i.i
 
 183:                                              ; preds = %185, %180
-  %.sink151.i.i.i = phi ptr [ %186, %185 ], [ %181, %180 ]
-  %184 = getelementptr inbounds i8, ptr %.sink151.i.i.i, i64 8
+  %.sink150.i.i.i = phi ptr [ %186, %185 ], [ %181, %180 ]
+  %184 = getelementptr inbounds i8, ptr %.sink150.i.i.i, i64 8
   store i64 %.066.i.i, ptr %184, align 8, !noalias !20113
   %trunc121.i.i.i = trunc nuw i64 %172 to i1
   br i1 %trunc121.i.i.i, label %189, label %187
@@ -118109,13 +118104,15 @@ split:                                            ; preds = %59, %"_ZN71_$LT$htt
 
 195:                                              ; preds = %191
   %196 = getelementptr inbounds i8, ptr %192, i64 16
-  br label %.sink.split.i.i.i
+  store i64 %.066.i.i, ptr %196, align 8, !noalias !20113
+  br label %_ZN4http6header3map18remove_extra_value17h9f5872b2bbfdf0deE.exit.i.i
 
 197:                                              ; preds = %189
   %198 = getelementptr inbounds [0 x { { i64, [1 x i64] }, { i64, [1 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] } }], ptr %88, i64 0, i64 %173
   store i64 1, ptr %198, align 8, !noalias !20113
   %199 = getelementptr inbounds i8, ptr %198, i64 8
-  br label %.sink.split.i.i.i
+  store i64 %.066.i.i, ptr %199, align 8, !noalias !20113
+  br label %_ZN4http6header3map18remove_extra_value17h9f5872b2bbfdf0deE.exit.i.i
 
 .invoke.i.i.i:                                    ; preds = %189, %187, %178, %176, %169
   %200 = phi i64 [ %.066.i.i, %169 ], [ %175, %176 ], [ %175, %178 ], [ %173, %187 ], [ %173, %189 ]
@@ -118133,7 +118130,7 @@ split:                                            ; preds = %59, %"_ZN71_$LT$htt
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #52, !noalias !20113
   unreachable
 
-_ZN4http6header3map18remove_extra_value17h9f5872b2bbfdf0deE.exit.i.i: ; preds = %.sink.split.i.i.i, %168
+_ZN4http6header3map18remove_extra_value17h9f5872b2bbfdf0deE.exit.i.i: ; preds = %197, %195, %168
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !20136
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !20113
   %205 = load i64, ptr %94, align 8, !range !432, !noalias !20110, !noundef !12

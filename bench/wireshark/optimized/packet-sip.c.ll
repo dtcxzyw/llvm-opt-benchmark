@@ -1738,7 +1738,7 @@ define internal range(i32 0, 2) i32 @sip_stat_packet(ptr nocapture noundef reado
   br i1 %23, label %.lr.ph, label %.thread, !llvm.loop !8
 
 24:                                               ; preds = %5
-  br i1 %7, label %92, label %.thread116
+  br i1 %7, label %93, label %.thread116
 
 .thread116:                                       ; preds = %8, %24
   %25 = getelementptr inbounds i8, ptr %3, i64 8
@@ -1811,7 +1811,7 @@ define internal range(i32 0, 2) i32 @sip_stat_packet(ptr nocapture noundef reado
   %59 = getelementptr inbounds i8, ptr %3, i64 16
   %60 = load i32, ptr %59, align 8
   %.not96 = icmp eq i32 %60, 0
-  br i1 %.not96, label %92, label %61
+  br i1 %.not96, label %93, label %61
 
 61:                                               ; preds = %58
   %62 = tail call ptr @stat_tap_get_field_data(ptr noundef nonnull %.084101, i32 noundef %.085100, i32 noundef 3) #15
@@ -1837,7 +1837,8 @@ define internal range(i32 0, 2) i32 @sip_stat_packet(ptr nocapture noundef reado
   %77 = getelementptr inbounds i8, ptr %63, i64 8
   store double %67, ptr %77, align 8
   %78 = getelementptr inbounds i8, ptr %64, i64 8
-  br label %.sink.split
+  store double %67, ptr %78, align 8
+  br label %92
 
 79:                                               ; preds = %61
   %80 = load double, ptr %75, align 8
@@ -1858,21 +1859,20 @@ define internal range(i32 0, 2) i32 @sip_stat_packet(ptr nocapture noundef reado
   %88 = getelementptr inbounds i8, ptr %64, i64 8
   %89 = load double, ptr %88, align 8
   %90 = fcmp ogt double %67, %89
-  br i1 %90, label %.sink.split, label %91
+  br i1 %90, label %91, label %92
 
-.sink.split:                                      ; preds = %83, %76
-  %.sink = phi ptr [ %78, %76 ], [ %88, %83 ]
-  store double %67, ptr %.sink, align 8
-  br label %91
+91:                                               ; preds = %83
+  store double %67, ptr %88, align 8
+  br label %92
 
-91:                                               ; preds = %.sink.split, %83
+92:                                               ; preds = %83, %91, %76
   tail call void @stat_tap_set_field_data(ptr noundef nonnull %.084101, i32 noundef %.085100, i32 noundef 3, ptr noundef nonnull %62) #15
   tail call void @stat_tap_set_field_data(ptr noundef nonnull %.084101, i32 noundef %.085100, i32 noundef 4, ptr noundef nonnull %63) #15
   tail call void @stat_tap_set_field_data(ptr noundef nonnull %.084101, i32 noundef %.085100, i32 noundef 5, ptr noundef nonnull %64) #15
-  br label %92
+  br label %93
 
-92:                                               ; preds = %91, %58, %24
-  %.0 = phi i32 [ 0, %24 ], [ 1, %58 ], [ 1, %91 ]
+93:                                               ; preds = %92, %58, %24
+  %.0 = phi i32 [ 0, %24 ], [ 1, %58 ], [ 1, %92 ]
   ret i32 %.0
 }
 
@@ -8553,11 +8553,13 @@ copy_address_wmem.exit118:                        ; preds = %copy_address_wmem.e
 
 .thread140:                                       ; preds = %.thread.thread
   %161 = getelementptr inbounds i8, ptr %.093122153, i64 4
-  br label %.sink.split
+  store i32 1, ptr %161, align 4
+  br label %165
 
 .thread147:                                       ; preds = %126, %130, %135, %137
   store i32 %4, ptr %.093, align 8
-  br label %.sink.split
+  store i32 1, ptr %127, align 4
+  br label %165
 
 162:                                              ; preds = %137
   %163 = getelementptr inbounds i8, ptr %.093, i64 36
@@ -8567,14 +8569,8 @@ copy_address_wmem.exit118:                        ; preds = %copy_address_wmem.e
   %.not114 = icmp eq i32 %164, 0
   br i1 %.not114, label %165, label %191
 
-.sink.split:                                      ; preds = %.thread140, %.thread147
-  %.sink167 = phi ptr [ %127, %.thread147 ], [ %161, %.thread140 ]
-  %.093122127138145.ph = phi ptr [ %.093, %.thread147 ], [ %.093122153, %.thread140 ]
-  store i32 1, ptr %.sink167, align 4
-  br label %165
-
-165:                                              ; preds = %.sink.split, %162
-  %.093122127138145 = phi ptr [ %.093, %162 ], [ %.093122127138145.ph, %.sink.split ]
+165:                                              ; preds = %.thread147, %.thread140, %162
+  %.093122127138145 = phi ptr [ %.093122153, %.thread140 ], [ %.093, %162 ], [ %.093, %.thread147 ]
   %166 = getelementptr inbounds i8, ptr %0, i64 20
   %167 = load i32, ptr %166, align 4
   %168 = getelementptr inbounds i8, ptr %.093122127138145, i64 36

@@ -693,6 +693,7 @@ invoke.cont16:                                    ; preds = %invoke.cont13
 
 if.then18:                                        ; preds = %invoke.cont16
   %valid_ = getelementptr inbounds i8, ptr %this, i64 96
+  store i8 0, ptr %valid_, align 8
   br label %cleanup.sink.split
 
 lpad:                                             ; preds = %invoke.cont25, %if.end, %invoke.cont13, %invoke.cont4, %invoke.cont, %if.then
@@ -725,7 +726,11 @@ invoke.cont27:                                    ; preds = %invoke.cont25
   store i8 1, ptr %valid_29, align 8
   %11 = load i64, ptr %time_, align 8
   %cmp31 = icmp ugt i64 %11, %end_time
-  br i1 %cmp31, label %cleanup.sink.split, label %if.end39
+  br i1 %cmp31, label %if.then32, label %if.end39
+
+if.then32:                                        ; preds = %invoke.cont27
+  store i8 0, ptr %valid_29, align 8
+  br label %cleanup.sink.split
 
 if.end39:                                         ; preds = %invoke.cont27
   %12 = getelementptr inbounds i8, ptr %new_stats_map, i64 8
@@ -935,9 +940,7 @@ terminate.lpad.i.i:                               ; preds = %_ZNSt3mapINSt7__cxx
   call void @__clang_call_terminate(ptr %48) #21
   unreachable
 
-cleanup.sink.split:                               ; preds = %invoke.cont27, %if.then18
-  %valid_29.sink = phi ptr [ %valid_, %if.then18 ], [ %valid_29, %invoke.cont27 ]
-  store i8 0, ptr %valid_29.sink, align 8
+cleanup.sink.split:                               ; preds = %if.then18, %if.then32
   %vtable36 = load ptr, ptr %call5, align 8
   %vfn37 = getelementptr inbounds i8, ptr %vtable36, i64 8
   %49 = load ptr, ptr %vfn37, align 8

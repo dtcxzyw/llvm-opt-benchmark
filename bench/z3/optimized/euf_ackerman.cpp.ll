@@ -515,7 +515,8 @@ if.then.i14:                                      ; preds = %if.end
   store ptr %2, ptr %m_queue, align 8
   store ptr %2, ptr %2, align 8
   %m_prev.i = getelementptr inbounds i8, ptr %2, i64 8
-  br label %if.end12.sink.split.i
+  store ptr %2, ptr %m_prev.i, align 8
+  br label %_ZN8dll_baseIN3euf8ackerman9inferenceEE13push_to_frontERPS2_S4_.exit
 
 if.else.i:                                        ; preds = %if.end
   %cmp.not.i = icmp eq ptr %11, %2
@@ -540,14 +541,10 @@ if.then1.i:                                       ; preds = %if.else.i
   store ptr %18, ptr %2, align 8
   %m_prev11.i = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %2, ptr %m_prev11.i, align 8
-  br label %if.end12.sink.split.i
-
-if.end12.sink.split.i:                            ; preds = %if.then1.i, %if.then.i14
-  %list.sink.i = phi ptr [ %m_queue, %if.then1.i ], [ %m_prev.i, %if.then.i14 ]
-  store ptr %2, ptr %list.sink.i, align 8
+  store ptr %2, ptr %m_queue, align 8
   br label %_ZN8dll_baseIN3euf8ackerman9inferenceEE13push_to_frontERPS2_S4_.exit
 
-_ZN8dll_baseIN3euf8ackerman9inferenceEE13push_to_frontERPS2_S4_.exit: ; preds = %if.else.i, %if.end12.sink.split.i
+_ZN8dll_baseIN3euf8ackerman9inferenceEE13push_to_frontERPS2_S4_.exit: ; preds = %if.then.i14, %if.else.i, %if.then1.i
   ret void
 }
 

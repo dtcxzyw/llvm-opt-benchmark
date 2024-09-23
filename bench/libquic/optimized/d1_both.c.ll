@@ -1466,12 +1466,15 @@ if.then11:                                        ; preds = %if.end
   %sub3.i = xor i8 %notmask1.i, -1
   %and.i = and i8 %notmask.i, %sub3.i
   %arrayidx = getelementptr inbounds i8, ptr %1, i64 %shr
-  br label %if.end47.sink.split
+  %4 = load i8, ptr %arrayidx, align 1
+  %or34 = or i8 %4, %and.i
+  store i8 %or34, ptr %arrayidx, align 1
+  br label %if.end47
 
 if.else:                                          ; preds = %if.end
   %arrayidx23 = getelementptr inbounds i8, ptr %1, i64 %shr
-  %4 = load i8, ptr %arrayidx23, align 1
-  %or2532 = or i8 %4, %notmask.i
+  %5 = load i8, ptr %arrayidx23, align 1
+  %or2532 = or i8 %5, %notmask.i
   store i8 %or2532, ptr %arrayidx23, align 1
   %i.051 = add nuw nsw i64 %shr, 1
   %cmp2952 = icmp ult i64 %i.051, %shr8
@@ -1479,8 +1482,8 @@ if.else:                                          ; preds = %if.end
 
 for.body:                                         ; preds = %if.else, %for.body
   %i.053 = phi i64 [ %i.0, %for.body ], [ %i.051, %if.else ]
-  %5 = load ptr, ptr %reassembly, align 8
-  %arrayidx32 = getelementptr inbounds i8, ptr %5, i64 %i.053
+  %6 = load ptr, ptr %reassembly, align 8
+  %arrayidx32 = getelementptr inbounds i8, ptr %6, i64 %i.053
   store i8 -1, ptr %arrayidx32, align 1
   %i.0 = add nuw nsw i64 %i.053, 1
   %exitcond.not = icmp eq i64 %i.0, %shr8
@@ -1495,19 +1498,14 @@ if.then36:                                        ; preds = %for.end
   %sh_prom1.i40 = trunc nuw nsw i64 %and33 to i8
   %notmask1.i41 = shl nsw i8 -1, %sh_prom1.i40
   %sub3.i42 = xor i8 %notmask1.i41, -1
-  %6 = load ptr, ptr %reassembly, align 8
-  %arrayidx42 = getelementptr inbounds i8, ptr %6, i64 %shr8
-  br label %if.end47.sink.split
-
-if.end47.sink.split:                              ; preds = %if.then11, %if.then36
-  %arrayidx42.sink57 = phi ptr [ %arrayidx42, %if.then36 ], [ %arrayidx, %if.then11 ]
-  %sub3.i42.sink = phi i8 [ %sub3.i42, %if.then36 ], [ %and.i, %if.then11 ]
-  %7 = load i8, ptr %arrayidx42.sink57, align 1
-  %or4433 = or i8 %7, %sub3.i42.sink
-  store i8 %or4433, ptr %arrayidx42.sink57, align 1
+  %7 = load ptr, ptr %reassembly, align 8
+  %arrayidx42 = getelementptr inbounds i8, ptr %7, i64 %shr8
+  %8 = load i8, ptr %arrayidx42, align 1
+  %or4433 = or i8 %8, %sub3.i42
+  store i8 %or4433, ptr %arrayidx42, align 1
   br label %if.end47
 
-if.end47:                                         ; preds = %if.end47.sink.split, %for.end
+if.end47:                                         ; preds = %for.end, %if.then36, %if.then11
   %shr49 = lshr i64 %conv, 3
   %cmp5054.not = icmp ult i32 %0, 8
   %.pre.pre = load ptr, ptr %reassembly, align 8
@@ -1521,8 +1519,8 @@ for.cond48:                                       ; preds = %for.body52
 for.body52:                                       ; preds = %if.end47, %for.cond48
   %i.155 = phi i64 [ %inc61, %for.cond48 ], [ 0, %if.end47 ]
   %arrayidx54 = getelementptr inbounds i8, ptr %.pre.pre, i64 %i.155
-  %8 = load i8, ptr %arrayidx54, align 1
-  %cmp56.not = icmp eq i8 %8, -1
+  %9 = load i8, ptr %arrayidx54, align 1
+  %cmp56.not = icmp eq i8 %9, -1
   br i1 %cmp56.not, label %for.cond48, label %return
 
 for.end62:                                        ; preds = %for.cond48, %if.end47
@@ -1532,11 +1530,11 @@ for.end62:                                        ; preds = %for.cond48, %if.end
 
 land.lhs.true:                                    ; preds = %for.end62
   %arrayidx68 = getelementptr inbounds i8, ptr %.pre.pre, i64 %shr49
-  %9 = load i8, ptr %arrayidx68, align 1
+  %10 = load i8, ptr %arrayidx68, align 1
   %sh_prom1.i45 = trunc nuw nsw i64 %and63 to i8
   %notmask1.i46 = shl nsw i8 -1, %sh_prom1.i45
-  %10 = xor i8 %9, %notmask1.i46
-  %cmp73.not = icmp eq i8 %10, -1
+  %11 = xor i8 %10, %notmask1.i46
+  %cmp73.not = icmp eq i8 %11, -1
   br i1 %cmp73.not, label %if.end76, label %return
 
 if.end76:                                         ; preds = %land.lhs.true, %for.end62

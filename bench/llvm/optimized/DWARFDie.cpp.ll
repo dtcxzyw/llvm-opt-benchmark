@@ -1778,60 +1778,64 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %15, %_ZNSt10unique_
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %.pre = load i8, ptr %7, align 8
-  %.pre21 = load ptr, ptr %6, align 8
+  %.pre19 = load ptr, ptr %6, align 8
   br label %.loopexit
 
 19:                                               ; preds = %2
   %20 = load ptr, ptr %6, align 8
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %22 = load ptr, ptr %21, align 8
-  %.not1617 = icmp eq ptr %20, %22
-  br i1 %.not1617, label %.loopexit, label %.lr.ph
+  %.not1415 = icmp eq ptr %20, %22
+  br i1 %.not1415, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %19, %.lr.ph
-  %.sroa.011.018 = phi ptr [ %27, %.lr.ph ], [ %20, %19 ]
-  %23 = load i64, ptr %.sroa.011.018, align 8
-  %.not = icmp ule i64 %23, %1
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.011.018, i64 8
-  %25 = load i64, ptr %24, align 8
-  %26 = icmp ult i64 %1, %25
-  %or.cond = select i1 %.not, i1 %26, i1 false
-  %27 = getelementptr inbounds i8, ptr %.sroa.011.018, i64 24
-  %.not16 = icmp eq ptr %27, %22
-  %or.cond22 = select i1 %or.cond, i1 true, i1 %.not16
-  br i1 %or.cond22, label %.loopexit, label %.lr.ph
+.lr.ph:                                           ; preds = %19, %28
+  %.sroa.09.016 = phi ptr [ %29, %28 ], [ %20, %19 ]
+  %23 = load i64, ptr %.sroa.09.016, align 8
+  %.not = icmp ugt i64 %23, %1
+  br i1 %.not, label %28, label %24
 
-.loopexit:                                        ; preds = %.lr.ph, %19, %_ZN4llvm5ErrorD2Ev.exit
-  %28 = phi ptr [ %.pre21, %_ZN4llvm5ErrorD2Ev.exit ], [ %20, %19 ], [ %20, %.lr.ph ]
-  %29 = phi i8 [ %.pre, %_ZN4llvm5ErrorD2Ev.exit ], [ %8, %19 ], [ %8, %.lr.ph ]
-  %.0 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit ], [ false, %19 ], [ %or.cond, %.lr.ph ]
-  %30 = trunc i8 %29 to i1
-  %.not.i.i = icmp eq ptr %28, null
-  br i1 %30, label %38, label %31
+24:                                               ; preds = %.lr.ph
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.09.016, i64 8
+  %26 = load i64, ptr %25, align 8
+  %27 = icmp ult i64 %1, %26
+  br i1 %27, label %.loopexit, label %28
 
-31:                                               ; preds = %.loopexit
-  br i1 %.not.i.i, label %_ZN4llvm8ExpectedISt6vectorINS_17DWARFAddressRangeESaIS2_EEED2Ev.exit, label %32
+28:                                               ; preds = %.lr.ph, %24
+  %29 = getelementptr inbounds i8, ptr %.sroa.09.016, i64 24
+  %.not14 = icmp eq ptr %29, %22
+  br i1 %.not14, label %.loopexit, label %.lr.ph
 
-32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %34 = load ptr, ptr %33, align 8
-  %35 = ptrtoint ptr %34 to i64
-  %36 = ptrtoint ptr %28 to i64
-  %37 = sub i64 %35, %36
-  call void @_ZdlPvm(ptr noundef nonnull %28, i64 noundef %37) #21
+.loopexit:                                        ; preds = %24, %28, %19, %_ZN4llvm5ErrorD2Ev.exit
+  %30 = phi ptr [ %.pre19, %_ZN4llvm5ErrorD2Ev.exit ], [ %20, %19 ], [ %20, %28 ], [ %20, %24 ]
+  %31 = phi i8 [ %.pre, %_ZN4llvm5ErrorD2Ev.exit ], [ %8, %19 ], [ %8, %28 ], [ %8, %24 ]
+  %.0 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit ], [ false, %19 ], [ true, %24 ], [ false, %28 ]
+  %32 = trunc i8 %31 to i1
+  %.not.i.i = icmp eq ptr %30, null
+  br i1 %32, label %40, label %33
+
+33:                                               ; preds = %.loopexit
+  br i1 %.not.i.i, label %_ZN4llvm8ExpectedISt6vectorINS_17DWARFAddressRangeESaIS2_EEED2Ev.exit, label %34
+
+34:                                               ; preds = %33
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %36 = load ptr, ptr %35, align 8
+  %37 = ptrtoint ptr %36 to i64
+  %38 = ptrtoint ptr %30 to i64
+  %39 = sub i64 %37, %38
+  call void @_ZdlPvm(ptr noundef nonnull %30, i64 noundef %39) #21
   br label %_ZN4llvm8ExpectedISt6vectorINS_17DWARFAddressRangeESaIS2_EEED2Ev.exit
 
-38:                                               ; preds = %.loopexit
+40:                                               ; preds = %.loopexit
   br i1 %.not.i.i, label %_ZN4llvm8ExpectedISt6vectorINS_17DWARFAddressRangeESaIS2_EEED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i
 
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %38
-  %39 = load ptr, ptr %28, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
-  %41 = load ptr, ptr %40, align 8
-  call void %41(ptr noundef nonnull align 8 dereferenceable(8) %28) #19
+_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %40
+  %41 = load ptr, ptr %30, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 8
+  %43 = load ptr, ptr %42, align 8
+  call void %43(ptr noundef nonnull align 8 dereferenceable(8) %30) #19
   br label %_ZN4llvm8ExpectedISt6vectorINS_17DWARFAddressRangeESaIS2_EEED2Ev.exit
 
-_ZN4llvm8ExpectedISt6vectorINS_17DWARFAddressRangeESaIS2_EEED2Ev.exit: ; preds = %38, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %31, %32
+_ZN4llvm8ExpectedISt6vectorINS_17DWARFAddressRangeESaIS2_EEED2Ev.exit: ; preds = %40, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %33, %34
   ret i1 %.0
 }
 

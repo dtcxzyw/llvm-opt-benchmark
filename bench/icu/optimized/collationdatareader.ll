@@ -596,7 +596,8 @@ if.end41:                                         ; preds = %lor.lhs.false36
 
 if.then43:                                        ; preds = %if.end41
   %arrayidx44 = getelementptr inbounds i8, ptr %inBytes.addr.0463476, i64 76
-  br label %if.end51.sink.split
+  %5 = load i32, ptr %arrayidx44, align 4
+  br label %if.end51
 
 if.else:                                          ; preds = %if.end41
   %cmp45 = icmp ugt i32 %4, 5
@@ -606,15 +607,11 @@ if.then46:                                        ; preds = %if.else
   %sub47 = add nsw i32 %4, -1
   %idxprom = zext nneg i32 %sub47 to i64
   %arrayidx48 = getelementptr inbounds i32, ptr %inBytes.addr.0463476, i64 %idxprom
-  br label %if.end51.sink.split
-
-if.end51.sink.split:                              ; preds = %if.then43, %if.then46
-  %arrayidx48.sink = phi ptr [ %arrayidx48, %if.then46 ], [ %arrayidx44, %if.then43 ]
-  %5 = load i32, ptr %arrayidx48.sink, align 4
+  %6 = load i32, ptr %arrayidx48, align 4
   br label %if.end51
 
-if.end51:                                         ; preds = %if.end51.sink.split, %if.else
-  %length.0 = phi i32 [ 0, %if.else ], [ %5, %if.end51.sink.split ]
+if.end51:                                         ; preds = %if.else, %if.then46, %if.then43
+  %length.0 = phi i32 [ %5, %if.then43 ], [ %6, %if.then46 ], [ 0, %if.else ]
   %cmp54 = icmp slt i32 %inLength.addr.0462477, %length.0
   %or.cond342 = select i1 %cmp30478, i1 %cmp54, i1 false
   br i1 %or.cond342, label %if.then55, label %if.end56
@@ -628,29 +625,29 @@ if.end56:                                         ; preds = %if.end51
 
 cond.false:                                       ; preds = %if.end56
   %data = getelementptr inbounds i8, ptr %base, i64 24
-  %6 = load ptr, ptr %data, align 8
+  %7 = load ptr, ptr %data, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end56, %cond.false
-  %cond = phi ptr [ %6, %cond.false ], [ null, %if.end56 ]
+  %cond = phi ptr [ %7, %cond.false ], [ null, %if.end56 ]
   %cmp.i344 = icmp ugt i32 %4, 5
   br i1 %cmp.i344, label %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit, label %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit349
 
 _ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit:     ; preds = %cond.end
   %arrayidx.i = getelementptr inbounds i8, ptr %inBytes.addr.0463476, i64 20
-  %7 = load i32, ptr %arrayidx.i, align 4
+  %8 = load i32, ptr %arrayidx.i, align 4
   %cmp.i345.not = icmp eq i32 %4, 6
   br i1 %cmp.i345.not, label %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit349, label %cond.true.i347
 
 cond.true.i347:                                   ; preds = %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit
   %arrayidx.i348 = getelementptr inbounds i8, ptr %inBytes.addr.0463476, i64 24
-  %8 = load i32, ptr %arrayidx.i348, align 4
+  %9 = load i32, ptr %arrayidx.i348, align 4
   br label %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit349
 
 _ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit349:  ; preds = %cond.end, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit, %cond.true.i347
   %cmp.i345499 = phi i1 [ true, %cond.true.i347 ], [ false, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit ], [ false, %cond.end ]
-  %cond.i498 = phi i32 [ %7, %cond.true.i347 ], [ %7, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit ], [ -1, %cond.end ]
-  %cond.i346 = phi i32 [ %8, %cond.true.i347 ], [ -1, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit ], [ -1, %cond.end ]
+  %cond.i498 = phi i32 [ %8, %cond.true.i347 ], [ %8, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit ], [ -1, %cond.end ]
+  %cond.i346 = phi i32 [ %9, %cond.true.i347 ], [ -1, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit ], [ -1, %cond.end ]
   %sub60 = sub nsw i32 %cond.i346, %cond.i498
   %cmp61 = icmp sgt i32 %sub60, 3
   br i1 %cmp61, label %if.then62, label %if.end80
@@ -667,17 +664,17 @@ land.rhs.preheader:                               ; preds = %if.then62
   %idx.ext66 = sext i32 %cond.i498 to i64
   %add.ptr67 = getelementptr inbounds i8, ptr %inBytes.addr.0463476, i64 %idx.ext66
   %div332 = lshr i32 %sub60, 2
-  %9 = zext nneg i32 %div332 to i64
+  %10 = zext nneg i32 %div332 to i64
   %wide.trip.count = zext nneg i32 %div332 to i64
-  %10 = getelementptr i32, ptr %add.ptr67, i64 %9
+  %11 = getelementptr i32, ptr %add.ptr67, i64 %10
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %while.body
   %indvars.iv = phi i64 [ 0, %land.rhs.preheader ], [ %indvars.iv.next, %while.body ]
-  %11 = xor i64 %indvars.iv, -1
-  %arrayidx72 = getelementptr i32, ptr %10, i64 %11
-  %12 = load i32, ptr %arrayidx72, align 4
-  %cmp73.not = icmp ult i32 %12, 65536
+  %12 = xor i64 %indvars.iv, -1
+  %arrayidx72 = getelementptr i32, ptr %11, i64 %12
+  %13 = load i32, ptr %arrayidx72, align 4
+  %cmp73.not = icmp ult i32 %13, 65536
   br i1 %cmp73.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %land.rhs
@@ -686,12 +683,12 @@ while.body:                                       ; preds = %land.rhs
   br i1 %exitcond.not, label %if.then75, label %land.rhs, !llvm.loop !4
 
 while.end:                                        ; preds = %land.rhs
-  %13 = trunc nuw nsw i64 %indvars.iv to i32
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
   %cmp74.not = icmp eq i64 %indvars.iv, 0
   br i1 %cmp74.not, label %if.end80, label %if.then75
 
 if.then75:                                        ; preds = %while.body, %while.end
-  %reorderRangesLength.1480 = phi i32 [ %13, %while.end ], [ %div332, %while.body ]
+  %reorderRangesLength.1480 = phi i32 [ %14, %while.end ], [ %div332, %while.body ]
   %sub76 = sub nsw i32 %div332, %reorderRangesLength.1480
   %idx.ext77 = sext i32 %sub76 to i64
   %add.ptr78 = getelementptr inbounds i32, ptr %add.ptr67, i64 %idx.ext77
@@ -706,21 +703,21 @@ if.end80:                                         ; preds = %while.end, %if.then
 
 cond.true.i352:                                   ; preds = %if.end80
   %arrayidx.i353 = getelementptr inbounds i8, ptr %inBytes.addr.0463476, i64 24
-  %14 = load i32, ptr %arrayidx.i353, align 4
+  %15 = load i32, ptr %arrayidx.i353, align 4
   br label %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit354
 
 _ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit354:  ; preds = %if.end80, %cond.true.i352
-  %cond.i351 = phi i32 [ %14, %cond.true.i352 ], [ -1, %if.end80 ]
+  %cond.i351 = phi i32 [ %15, %cond.true.i352 ], [ -1, %if.end80 ]
   %cmp.i355 = icmp sgt i32 %4, 7
   br i1 %cmp.i355, label %cond.true.i357, label %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit359
 
 cond.true.i357:                                   ; preds = %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit354
   %arrayidx.i358 = getelementptr inbounds i8, ptr %inBytes.addr.0463476, i64 28
-  %15 = load i32, ptr %arrayidx.i358, align 4
+  %16 = load i32, ptr %arrayidx.i358, align 4
   br label %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit359
 
 _ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit359:  ; preds = %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit354, %cond.true.i357
-  %cond.i356 = phi i32 [ %15, %cond.true.i357 ], [ -1, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit354 ]
+  %cond.i356 = phi i32 [ %16, %cond.true.i357 ], [ -1, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit354 ]
   %sub84 = sub nsw i32 %cond.i356, %cond.i351
   %cmp85 = icmp sgt i32 %sub84, 255
   br i1 %cmp85, label %if.then86, label %if.end93
@@ -745,11 +742,11 @@ if.end93:                                         ; preds = %_ZN6icu_7512_GLOBAL
 
 land.lhs.true95:                                  ; preds = %if.end93
   %numericPrimary = getelementptr inbounds i8, ptr %cond, i64 56
-  %16 = load i32, ptr %numericPrimary, align 8
+  %17 = load i32, ptr %numericPrimary, align 8
   %arrayidx96 = getelementptr inbounds i8, ptr %inBytes.addr.0463476, i64 4
-  %17 = load i32, ptr %arrayidx96, align 4
-  %and97 = and i32 %17, -16777216
-  %cmp98.not = icmp eq i32 %16, %and97
+  %18 = load i32, ptr %arrayidx96, align 4
+  %and97 = and i32 %18, -16777216
+  %cmp98.not = icmp eq i32 %17, %and97
   br i1 %cmp98.not, label %if.end100, label %if.then99
 
 if.then99:                                        ; preds = %land.lhs.true95
@@ -761,18 +758,18 @@ if.end100:                                        ; preds = %land.lhs.true95, %i
 
 _ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit364:  ; preds = %if.end100
   %arrayidx.i363 = getelementptr inbounds i8, ptr %inBytes.addr.0463476, i64 28
-  %18 = load i32, ptr %arrayidx.i363, align 4
+  %19 = load i32, ptr %arrayidx.i363, align 4
   %cmp.i365.not = icmp eq i32 %4, 8
   br i1 %cmp.i365.not, label %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit369, label %cond.true.i367
 
 cond.true.i367:                                   ; preds = %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit364
   %arrayidx.i368 = getelementptr inbounds i8, ptr %inBytes.addr.0463476, i64 32
-  %19 = load i32, ptr %arrayidx.i368, align 4
+  %20 = load i32, ptr %arrayidx.i368, align 4
   br label %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit369
 
 _ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit369:  ; preds = %if.end100, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit364, %cond.true.i367
-  %cond.i361502 = phi i32 [ %18, %cond.true.i367 ], [ %18, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit364 ], [ -1, %if.end100 ]
-  %cond.i366 = phi i32 [ %19, %cond.true.i367 ], [ -1, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit364 ], [ -1, %if.end100 ]
+  %cond.i361502 = phi i32 [ %19, %cond.true.i367 ], [ %19, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit364 ], [ -1, %if.end100 ]
+  %cond.i366 = phi i32 [ %20, %cond.true.i367 ], [ -1, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit364 ], [ -1, %if.end100 ]
   %sub105 = sub nsw i32 %cond.i366, %cond.i361502
   %cmp106 = icmp sgt i32 %sub105, 7
   br i1 %cmp106, label %if.then107, label %if.else124
@@ -784,22 +781,22 @@ if.then107:                                       ; preds = %_ZN6icu_7512_GLOBAL
 
 if.end111:                                        ; preds = %if.then107
   %ownedData = getelementptr inbounds i8, ptr %tailoring, i64 336
-  %20 = load ptr, ptr %ownedData, align 8
-  %base112 = getelementptr inbounds i8, ptr %20, i64 32
+  %21 = load ptr, ptr %ownedData, align 8
+  %base112 = getelementptr inbounds i8, ptr %21, i64 32
   store ptr %cond, ptr %base112, align 8
   %arrayidx113 = getelementptr inbounds i8, ptr %inBytes.addr.0463476, i64 4
-  %21 = load i32, ptr %arrayidx113, align 4
-  %and114 = and i32 %21, -16777216
-  %numericPrimary115 = getelementptr inbounds i8, ptr %20, i64 56
+  %22 = load i32, ptr %arrayidx113, align 4
+  %and114 = and i32 %22, -16777216
+  %numericPrimary115 = getelementptr inbounds i8, ptr %21, i64 56
   store i32 %and114, ptr %numericPrimary115, align 8
   %idx.ext116 = sext i32 %cond.i361502 to i64
   %add.ptr117 = getelementptr inbounds i8, ptr %inBytes.addr.0463476, i64 %idx.ext116
   %call118 = tail call ptr @utrie2_openFromSerialized_75(i32 noundef 1, ptr noundef nonnull %add.ptr117, i32 noundef %sub105, ptr noundef null, ptr noundef nonnull %errorCode)
   %trie = getelementptr inbounds i8, ptr %tailoring, i64 368
   store ptr %call118, ptr %trie, align 8
-  store ptr %call118, ptr %20, align 8
-  %22 = load i32, ptr %errorCode, align 4
-  %cmp.i370 = icmp slt i32 %22, 1
+  store ptr %call118, ptr %21, align 8
+  %23 = load i32, ptr %errorCode, align 4
+  %cmp.i370 = icmp slt i32 %23, 1
   br i1 %cmp.i370, label %if.end130, label %return
 
 if.else124:                                       ; preds = %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit369
@@ -815,24 +812,24 @@ if.else128:                                       ; preds = %if.else124
   br label %return
 
 if.end130:                                        ; preds = %if.end111, %if.then126
-  %data101.0 = phi ptr [ %20, %if.end111 ], [ null, %if.then126 ]
+  %data101.0 = phi ptr [ %21, %if.end111 ], [ null, %if.then126 ]
   %cmp.i372 = icmp sgt i32 %4, 9
   br i1 %cmp.i372, label %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit376, label %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit381
 
 _ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit376:  ; preds = %if.end130
   %arrayidx.i375 = getelementptr inbounds i8, ptr %inBytes.addr.0463476, i64 36
-  %23 = load i32, ptr %arrayidx.i375, align 4
+  %24 = load i32, ptr %arrayidx.i375, align 4
   %cmp.i377.not = icmp eq i32 %4, 10
   br i1 %cmp.i377.not, label %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit381, label %cond.true.i379
 
 cond.true.i379:                                   ; preds = %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit376
   %arrayidx.i380 = getelementptr inbounds i8, ptr %inBytes.addr.0463476, i64 40
-  %24 = load i32, ptr %arrayidx.i380, align 4
+  %25 = load i32, ptr %arrayidx.i380, align 4
   br label %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit381
 
 _ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit381:  ; preds = %if.end130, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit376, %cond.true.i379
-  %cond.i373505 = phi i32 [ %23, %cond.true.i379 ], [ %23, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit376 ], [ -1, %if.end130 ]
-  %cond.i378 = phi i32 [ %24, %cond.true.i379 ], [ -1, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit376 ], [ -1, %if.end130 ]
+  %cond.i373505 = phi i32 [ %24, %cond.true.i379 ], [ %24, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit376 ], [ -1, %if.end130 ]
+  %cond.i378 = phi i32 [ %25, %cond.true.i379 ], [ -1, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit376 ], [ -1, %if.end130 ]
   %sub134 = sub nsw i32 %cond.i378, %cond.i373505
   %cmp135 = icmp sgt i32 %sub134, 7
   br i1 %cmp135, label %if.then136, label %if.end143
@@ -861,19 +858,19 @@ if.end143:                                        ; preds = %if.end139, %_ZN6icu
 
 _ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit386:  ; preds = %if.end143
   %arrayidx.i385 = getelementptr inbounds i8, ptr %inBytes.addr.0463476, i64 44
-  %25 = load i32, ptr %arrayidx.i385, align 4
+  %26 = load i32, ptr %arrayidx.i385, align 4
   %cmp.i387.not = icmp eq i32 %4, 12
   br i1 %cmp.i387.not, label %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit391, label %cond.true.i389
 
 cond.true.i389:                                   ; preds = %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit386
   %arrayidx.i390 = getelementptr inbounds i8, ptr %inBytes.addr.0463476, i64 48
-  %26 = load i32, ptr %arrayidx.i390, align 4
+  %27 = load i32, ptr %arrayidx.i390, align 4
   br label %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit391
 
 _ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit391:  ; preds = %if.end143, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit386, %cond.true.i389
   %cmp.i387509 = phi i1 [ true, %cond.true.i389 ], [ false, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit386 ], [ false, %if.end143 ]
-  %cond.i383508 = phi i32 [ %25, %cond.true.i389 ], [ %25, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit386 ], [ -1, %if.end143 ]
-  %cond.i388 = phi i32 [ %26, %cond.true.i389 ], [ -1, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit386 ], [ -1, %if.end143 ]
+  %cond.i383508 = phi i32 [ %26, %cond.true.i389 ], [ %26, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit386 ], [ -1, %if.end143 ]
+  %cond.i388 = phi i32 [ %27, %cond.true.i389 ], [ -1, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit386 ], [ -1, %if.end143 ]
   %sub147 = sub nsw i32 %cond.i388, %cond.i383508
   %cmp148 = icmp sgt i32 %sub147, 3
   br i1 %cmp148, label %if.then149, label %if.end156
@@ -902,8 +899,8 @@ if.end156:                                        ; preds = %if.end152, %_ZN6icu
 
 _ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit396:  ; preds = %if.end156
   %arrayidx.i395 = getelementptr inbounds i8, ptr %inBytes.addr.0463476, i64 16
-  %27 = load i32, ptr %arrayidx.i395, align 4
-  %cmp158 = icmp sgt i32 %27, -1
+  %28 = load i32, ptr %arrayidx.i395, align 4
+  %cmp158 = icmp sgt i32 %28, -1
   br i1 %cmp158, label %if.then159, label %if.else169
 
 if.then159:                                       ; preds = %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit396
@@ -912,8 +909,8 @@ if.then159:                                       ; preds = %_ZN6icu_7512_GLOBAL
 
 lor.lhs.false161:                                 ; preds = %if.then159
   %ce32s162 = getelementptr inbounds i8, ptr %data101.0, i64 8
-  %28 = load ptr, ptr %ce32s162, align 8
-  %cmp163 = icmp eq ptr %28, null
+  %29 = load ptr, ptr %ce32s162, align 8
+  %cmp163 = icmp eq ptr %29, null
   br i1 %cmp163, label %if.then164, label %if.end165
 
 if.then164:                                       ; preds = %lor.lhs.false161, %if.then159
@@ -921,8 +918,8 @@ if.then164:                                       ; preds = %lor.lhs.false161, %
   br label %return
 
 if.end165:                                        ; preds = %lor.lhs.false161
-  %idx.ext167 = zext nneg i32 %27 to i64
-  %add.ptr168 = getelementptr inbounds i32, ptr %28, i64 %idx.ext167
+  %idx.ext167 = zext nneg i32 %28 to i64
+  %add.ptr168 = getelementptr inbounds i32, ptr %29, i64 %idx.ext167
   br label %if.end180.sink.split
 
 if.else169:                                       ; preds = %if.end156, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit396
@@ -934,7 +931,7 @@ if.else172:                                       ; preds = %if.else169
 
 if.then174:                                       ; preds = %if.else172
   %jamoCE32s175 = getelementptr inbounds i8, ptr %cond, i64 40
-  %29 = load ptr, ptr %jamoCE32s175, align 8
+  %30 = load ptr, ptr %jamoCE32s175, align 8
   br label %if.end180.sink.split
 
 if.else177:                                       ; preds = %if.else172
@@ -942,7 +939,7 @@ if.else177:                                       ; preds = %if.else172
   br label %return
 
 if.end180.sink.split:                             ; preds = %if.end165, %if.then174
-  %.sink = phi ptr [ %29, %if.then174 ], [ %add.ptr168, %if.end165 ]
+  %.sink = phi ptr [ %30, %if.then174 ], [ %add.ptr168, %if.end165 ]
   %jamoCE32s176 = getelementptr inbounds i8, ptr %data101.0, i64 40
   store ptr %.sink, ptr %jamoCE32s176, align 8
   br label %if.end180
@@ -952,21 +949,21 @@ if.end180:                                        ; preds = %if.end180.sink.spli
 
 cond.true.i399:                                   ; preds = %if.end180
   %arrayidx.i400 = getelementptr inbounds i8, ptr %inBytes.addr.0463476, i64 48
-  %30 = load i32, ptr %arrayidx.i400, align 4
+  %31 = load i32, ptr %arrayidx.i400, align 4
   br label %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit401
 
 _ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit401:  ; preds = %if.end180, %cond.true.i399
-  %cond.i398 = phi i32 [ %30, %cond.true.i399 ], [ -1, %if.end180 ]
+  %cond.i398 = phi i32 [ %31, %cond.true.i399 ], [ -1, %if.end180 ]
   %cmp.i402 = icmp sgt i32 %4, 13
   br i1 %cmp.i402, label %cond.true.i404, label %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit406
 
 cond.true.i404:                                   ; preds = %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit401
   %arrayidx.i405 = getelementptr inbounds i8, ptr %inBytes.addr.0463476, i64 52
-  %31 = load i32, ptr %arrayidx.i405, align 4
+  %32 = load i32, ptr %arrayidx.i405, align 4
   br label %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit406
 
 _ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit406:  ; preds = %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit401, %cond.true.i404
-  %cond.i403 = phi i32 [ %31, %cond.true.i404 ], [ -1, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit401 ]
+  %cond.i403 = phi i32 [ %32, %cond.true.i404 ], [ -1, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit401 ]
   %sub184 = sub nsw i32 %cond.i403, %cond.i398
   %cmp185 = icmp sgt i32 %sub184, 3
   br i1 %cmp185, label %if.then186, label %if.end205
@@ -990,8 +987,8 @@ if.end192:                                        ; preds = %if.then186
   %rootElementsLength = getelementptr inbounds i8, ptr %data101.0, i64 136
   store i32 %div187335, ptr %rootElementsLength, align 8
   %arrayidx196 = getelementptr inbounds i8, ptr %add.ptr194, i64 12
-  %32 = load i32, ptr %arrayidx196, align 4
-  %cmp197.not = icmp eq i32 %32, 83887360
+  %33 = load i32, ptr %arrayidx196, align 4
+  %cmp197.not = icmp eq i32 %33, 83887360
   br i1 %cmp197.not, label %if.end199, label %if.then198
 
 if.then198:                                       ; preds = %if.end192
@@ -1000,8 +997,8 @@ if.then198:                                       ; preds = %if.end192
 
 if.end199:                                        ; preds = %if.end192
   %arrayidx201 = getelementptr inbounds i8, ptr %add.ptr194, i64 16
-  %33 = load i32, ptr %arrayidx201, align 4
-  %cmp202 = icmp ult i32 %33, 1157627904
+  %34 = load i32, ptr %arrayidx201, align 4
+  %cmp202 = icmp ult i32 %34, 1157627904
   br i1 %cmp202, label %if.then203, label %if.end205
 
 if.then203:                                       ; preds = %if.end199
@@ -1013,19 +1010,19 @@ if.end205:                                        ; preds = %if.end199, %_ZN6icu
 
 _ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit411:  ; preds = %if.end205
   %arrayidx.i410 = getelementptr inbounds i8, ptr %inBytes.addr.0463476, i64 52
-  %34 = load i32, ptr %arrayidx.i410, align 4
+  %35 = load i32, ptr %arrayidx.i410, align 4
   %cmp.i412.not = icmp eq i32 %4, 14
   br i1 %cmp.i412.not, label %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit416, label %cond.true.i414
 
 cond.true.i414:                                   ; preds = %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit411
   %arrayidx.i415 = getelementptr inbounds i8, ptr %inBytes.addr.0463476, i64 56
-  %35 = load i32, ptr %arrayidx.i415, align 4
+  %36 = load i32, ptr %arrayidx.i415, align 4
   br label %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit416
 
 _ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit416:  ; preds = %if.end205, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit411, %cond.true.i414
   %cmp.i412513 = phi i1 [ true, %cond.true.i414 ], [ false, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit411 ], [ false, %if.end205 ]
-  %cond.i408512 = phi i32 [ %34, %cond.true.i414 ], [ %34, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit411 ], [ -1, %if.end205 ]
-  %cond.i413 = phi i32 [ %35, %cond.true.i414 ], [ -1, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit411 ], [ -1, %if.end205 ]
+  %cond.i408512 = phi i32 [ %35, %cond.true.i414 ], [ %35, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit411 ], [ -1, %if.end205 ]
+  %cond.i413 = phi i32 [ %36, %cond.true.i414 ], [ -1, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit411 ], [ -1, %if.end205 ]
   %sub209 = sub nsw i32 %cond.i413, %cond.i408512
   %cmp210 = icmp sgt i32 %sub209, 1
   br i1 %cmp210, label %if.then211, label %if.end218
@@ -1053,21 +1050,21 @@ if.end218:                                        ; preds = %if.end214, %_ZN6icu
 
 cond.true.i419:                                   ; preds = %if.end218
   %arrayidx.i420 = getelementptr inbounds i8, ptr %inBytes.addr.0463476, i64 56
-  %36 = load i32, ptr %arrayidx.i420, align 4
+  %37 = load i32, ptr %arrayidx.i420, align 4
   br label %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit421
 
 _ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit421:  ; preds = %if.end218, %cond.true.i419
-  %cond.i418 = phi i32 [ %36, %cond.true.i419 ], [ -1, %if.end218 ]
+  %cond.i418 = phi i32 [ %37, %cond.true.i419 ], [ -1, %if.end218 ]
   %cmp.i422 = icmp sgt i32 %4, 15
   br i1 %cmp.i422, label %cond.true.i424, label %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit426
 
 cond.true.i424:                                   ; preds = %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit421
   %arrayidx.i425 = getelementptr inbounds i8, ptr %inBytes.addr.0463476, i64 60
-  %37 = load i32, ptr %arrayidx.i425, align 4
+  %38 = load i32, ptr %arrayidx.i425, align 4
   br label %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit426
 
 _ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit426:  ; preds = %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit421, %cond.true.i424
-  %cond.i423 = phi i32 [ %37, %cond.true.i424 ], [ -1, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit421 ]
+  %cond.i423 = phi i32 [ %38, %cond.true.i424 ], [ -1, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit421 ]
   %sub222 = sub nsw i32 %cond.i423, %cond.i418
   %cmp223 = icmp sgt i32 %sub222, 1
   %cmp225 = icmp eq ptr %data101.0, null
@@ -1100,22 +1097,22 @@ if.then233:                                       ; preds = %if.then229
   br label %return
 
 lpad:                                             ; preds = %new.notnull
-  %38 = landingpad { ptr, i32 }
+  %39 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call230) #11
-  resume { ptr, i32 } %38
+  resume { ptr, i32 } %39
 
 if.else234:                                       ; preds = %new.notnull
   %unsafeBackwardSet = getelementptr inbounds i8, ptr %tailoring, i64 376
   store ptr %call230, ptr %unsafeBackwardSet, align 8
-  %39 = load i32, ptr %errorCode, align 4
-  %cmp.i427 = icmp slt i32 %39, 1
+  %40 = load i32, ptr %errorCode, align 4
+  %cmp.i427 = icmp slt i32 %40, 1
   br i1 %cmp.i427, label %if.end248, label %return
 
 if.else240:                                       ; preds = %if.end227
   %unsafeBackwardSet241 = getelementptr inbounds i8, ptr %cond, i64 80
-  %40 = load ptr, ptr %unsafeBackwardSet241, align 8
-  %call242 = tail call noundef ptr @_ZNK6icu_7510UnicodeSet13cloneAsThawedEv(ptr noundef nonnull align 8 dereferenceable(200) %40)
+  %41 = load ptr, ptr %unsafeBackwardSet241, align 8
+  %call242 = tail call noundef ptr @_ZNK6icu_7510UnicodeSet13cloneAsThawedEv(ptr noundef nonnull align 8 dereferenceable(200) %41)
   %unsafeBackwardSet243 = getelementptr inbounds i8, ptr %tailoring, i64 376
   store ptr %call242, ptr %unsafeBackwardSet243, align 8
   %cmp245 = icmp eq ptr %call242, null
@@ -1153,10 +1150,10 @@ for.cond262.preheader:                            ; preds = %for.body, %if.end25
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %i.0484 = phi i32 [ 0, %for.body.lr.ph ], [ %inc261, %for.body ]
   %call258 = call signext i8 @uset_getSerializedRange_75(ptr noundef nonnull %sset, i32 noundef %i.0484, ptr noundef nonnull %start, ptr noundef nonnull %end)
-  %41 = load ptr, ptr %unsafeBackwardSet259, align 8
-  %42 = load i32, ptr %start, align 4
-  %43 = load i32, ptr %end, align 4
-  %call260 = call noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet3addEii(ptr noundef nonnull align 8 dereferenceable(200) %41, i32 noundef %42, i32 noundef %43)
+  %42 = load ptr, ptr %unsafeBackwardSet259, align 8
+  %43 = load i32, ptr %start, align 4
+  %44 = load i32, ptr %end, align 4
+  %call260 = call noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet3addEii(ptr noundef nonnull align 8 dereferenceable(200) %42, i32 noundef %43, i32 noundef %44)
   %inc261 = add nuw nsw i32 %i.0484, 1
   %exitcond491.not = icmp eq i32 %inc261, %call256
   br i1 %exitcond491.not, label %for.cond262.preheader, label %for.body, !llvm.loop !6
@@ -1164,15 +1161,15 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 for.body265:                                      ; preds = %for.cond262.preheader, %for.inc275
   %indvars.iv492 = phi i32 [ 55296, %for.cond262.preheader ], [ %indvars.iv.next493, %for.inc275 ]
   %c.0485 = phi i32 [ 65536, %for.cond262.preheader ], [ %add277, %for.inc275 ]
-  %44 = load ptr, ptr %unsafeBackwardSet266, align 8
+  %45 = load ptr, ptr %unsafeBackwardSet266, align 8
   %add267 = or disjoint i32 %c.0485, 1023
-  %call268 = call noundef signext i8 @_ZNK6icu_7510UnicodeSet12containsNoneEii(ptr noundef nonnull align 8 dereferenceable(200) %44, i32 noundef %c.0485, i32 noundef %add267)
+  %call268 = call noundef signext i8 @_ZNK6icu_7510UnicodeSet12containsNoneEii(ptr noundef nonnull align 8 dereferenceable(200) %45, i32 noundef %c.0485, i32 noundef %add267)
   %tobool269.not = icmp eq i8 %call268, 0
   br i1 %tobool269.not, label %if.then270, label %for.inc275
 
 if.then270:                                       ; preds = %for.body265
-  %45 = load ptr, ptr %unsafeBackwardSet266, align 8
-  %call273 = call noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet3addEi(ptr noundef nonnull align 8 dereferenceable(200) %45, i32 noundef %indvars.iv492)
+  %46 = load ptr, ptr %unsafeBackwardSet266, align 8
+  %call273 = call noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet3addEi(ptr noundef nonnull align 8 dereferenceable(200) %46, i32 noundef %indvars.iv492)
   br label %for.inc275
 
 for.inc275:                                       ; preds = %for.body265, %if.then270
@@ -1182,8 +1179,8 @@ for.inc275:                                       ; preds = %for.body265, %if.th
   br i1 %exitcond495.not, label %for.end278, label %for.body265, !llvm.loop !7
 
 for.end278:                                       ; preds = %for.inc275
-  %46 = load ptr, ptr %unsafeBackwardSet266, align 8
-  %call280 = call noundef ptr @_ZN6icu_7510UnicodeSet6freezeEv(ptr noundef nonnull align 8 dereferenceable(200) %46)
+  %47 = load ptr, ptr %unsafeBackwardSet266, align 8
+  %call280 = call noundef ptr @_ZN6icu_7510UnicodeSet6freezeEv(ptr noundef nonnull align 8 dereferenceable(200) %47)
   br label %if.then296
 
 if.else283:                                       ; preds = %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit426
@@ -1201,10 +1198,10 @@ if.else291:                                       ; preds = %if.else286
   br label %return
 
 if.then296:                                       ; preds = %if.then288, %for.end278
-  %unsafeBackwardSet289.sink = phi ptr [ %unsafeBackwardSet289, %if.then288 ], [ %unsafeBackwardSet266, %for.end278 ]
-  %47 = load ptr, ptr %unsafeBackwardSet289.sink, align 8
+  %.sink522.in = phi ptr [ %unsafeBackwardSet289, %if.then288 ], [ %unsafeBackwardSet266, %for.end278 ]
+  %.sink522 = load ptr, ptr %.sink522.in, align 8
   %unsafeBackwardSet290 = getelementptr inbounds i8, ptr %data101.0, i64 80
-  store ptr %47, ptr %unsafeBackwardSet290, align 8
+  store ptr %.sink522, ptr %unsafeBackwardSet290, align 8
   %fastLatinTable = getelementptr inbounds i8, ptr %data101.0, i64 88
   store ptr null, ptr %fastLatinTable, align 8
   %fastLatinTableLength = getelementptr inbounds i8, ptr %data101.0, i64 96

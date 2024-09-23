@@ -9157,17 +9157,17 @@ define noundef zeroext i1 @"_ZN82_$LT$actix_web..http..header..encoding..Encodin
   %3 = load i64, ptr %0, align 8, !range !1154, !noundef !12
   %4 = icmp eq i64 %3, -9223372036854775808
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = load i8, ptr %5, align 8, !range !92
-  %7 = zext nneg i8 %6 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @"switch.table._ZN82_$LT$actix_web..http..header..encoding..Encoding$u20$as$u20$core..fmt..Display$GT$3fmt17hb6e4f3bea8f5c405E", i64 0, i64 %7
-  %8 = zext nneg i8 %6 to i64
-  %switch.gep5 = getelementptr inbounds [5 x i64], ptr @"switch.table._ZN82_$LT$actix_web..http..header..encoding..Encoding$u20$as$u20$core..fmt..Display$GT$3fmt17hb6e4f3bea8f5c405E.12", i64 0, i64 %8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %switch.gep5.sink = select i1 %4, ptr %switch.gep5, ptr %9
+  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = load i8, ptr %5, align 8, !range !92
+  %8 = zext nneg i8 %7 to i64
+  %switch.gep = getelementptr inbounds [5 x ptr], ptr @"switch.table._ZN82_$LT$actix_web..http..header..encoding..Encoding$u20$as$u20$core..fmt..Display$GT$3fmt17hb6e4f3bea8f5c405E", i64 0, i64 %8
+  %9 = zext nneg i8 %7 to i64
+  %switch.gep5 = getelementptr inbounds [5 x i64], ptr @"switch.table._ZN82_$LT$actix_web..http..header..encoding..Encoding$u20$as$u20$core..fmt..Display$GT$3fmt17hb6e4f3bea8f5c405E.12", i64 0, i64 %9
   %.sroa.0.0.in = select i1 %4, ptr %switch.gep, ptr %5
+  %.sroa.7.0.in = select i1 %4, ptr %switch.gep5, ptr %6
+  %.sroa.7.0 = load i64, ptr %.sroa.7.0.in, align 8
   %.sroa.0.0 = load ptr, ptr %.sroa.0.0.in, align 8
-  %switch.load6 = load i64, ptr %switch.gep5.sink, align 8
-  %10 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0, i64 noundef %switch.load6)
+  %10 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0, i64 noundef %.sroa.7.0)
   ret i1 %10
 }
 

@@ -3050,10 +3050,10 @@ define internal fastcc void @"_ZN4core3ptr187drop_in_place$LT$tokio..runtime..ta
   %7 = select i1 %4, i64 %6, i64 0
   switch i64 %7, label %"_ZN4core3ptr146drop_in_place$LT$sqlx_core..pool..connection..PoolConnection$LT$sqlx_sqlite..database..Sqlite$GT$..return_to_pool..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcdb4bda764124233E.exit" [
     i64 0, label %8
-    i64 1, label %288
+    i64 1, label %289
   ]
 
-"_ZN4core3ptr146drop_in_place$LT$sqlx_core..pool..connection..PoolConnection$LT$sqlx_sqlite..database..Sqlite$GT$..return_to_pool..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcdb4bda764124233E.exit": ; preds = %"_ZN4core3ptr137drop_in_place$LT$tokio..util..sync_wrapper..SyncWrapper$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h1de7700957d52035E.llvm.6910714394678848989.exit.i.i.i", %292, %288, %272, %"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$sqlx_core..pool..connection..Floating$LT$sqlx_sqlite..database..Sqlite$C$sqlx_core..pool..connection..Live$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$GT$$GT$17hd5bf9b8ad7376604E.exit.i", %common.ret.sink.split.i, %8, %1
+"_ZN4core3ptr146drop_in_place$LT$sqlx_core..pool..connection..PoolConnection$LT$sqlx_sqlite..database..Sqlite$GT$..return_to_pool..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcdb4bda764124233E.exit": ; preds = %"_ZN4core3ptr137drop_in_place$LT$tokio..util..sync_wrapper..SyncWrapper$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h1de7700957d52035E.llvm.6910714394678848989.exit.i.i.i", %293, %289, %273, %"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$sqlx_core..pool..connection..Floating$LT$sqlx_sqlite..database..Sqlite$C$sqlx_core..pool..connection..Live$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$GT$$GT$17hd5bf9b8ad7376604E.exit.i", %common.ret.sink.split.i, %8, %1
   ret void
 
 8:                                                ; preds = %1
@@ -3062,11 +3062,11 @@ define internal fastcc void @"_ZN4core3ptr187drop_in_place$LT$tokio..runtime..ta
   switch i8 %10, label %"_ZN4core3ptr146drop_in_place$LT$sqlx_core..pool..connection..PoolConnection$LT$sqlx_sqlite..database..Sqlite$GT$..return_to_pool..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcdb4bda764124233E.exit" [
     i8 0, label %11
     i8 3, label %14
-    i8 4, label %91
+    i8 4, label %92
   ]
 
-common.ret.sink.split.i:                          ; preds = %272, %"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$sqlx_core..pool..connection..Floating$LT$sqlx_sqlite..database..Sqlite$C$sqlx_core..pool..connection..Live$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$GT$$GT$17hd5bf9b8ad7376604E.exit.i"
-  %.sink.i = phi ptr [ %258, %"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$sqlx_core..pool..connection..Floating$LT$sqlx_sqlite..database..Sqlite$C$sqlx_core..pool..connection..Live$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$GT$$GT$17hd5bf9b8ad7376604E.exit.i" ], [ %273, %272 ]
+common.ret.sink.split.i:                          ; preds = %273, %"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$sqlx_core..pool..connection..Floating$LT$sqlx_sqlite..database..Sqlite$C$sqlx_core..pool..connection..Live$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$GT$$GT$17hd5bf9b8ad7376604E.exit.i"
+  %.sink.i = phi ptr [ %259, %"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$sqlx_core..pool..connection..Floating$LT$sqlx_sqlite..database..Sqlite$C$sqlx_core..pool..connection..Live$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$GT$$GT$17hd5bf9b8ad7376604E.exit.i" ], [ %274, %273 ]
   fence acquire
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h427c2fd12098275dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %.sink.i)
   br label %"_ZN4core3ptr146drop_in_place$LT$sqlx_core..pool..connection..PoolConnection$LT$sqlx_sqlite..database..Sqlite$GT$..return_to_pool..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcdb4bda764124233E.exit"
@@ -3077,7 +3077,7 @@ common.ret.sink.split.i:                          ; preds = %272, %"_ZN4core3ptr
 
 13:                                               ; preds = %11
   invoke void @"_ZN4core3ptr168drop_in_place$LT$sqlx_core..pool..connection..Floating$LT$sqlx_sqlite..database..Sqlite$C$sqlx_core..pool..connection..Live$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$GT$17h195306e944ddc502E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0)
-          to label %"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$sqlx_core..pool..connection..Floating$LT$sqlx_sqlite..database..Sqlite$C$sqlx_core..pool..connection..Live$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$GT$$GT$17hd5bf9b8ad7376604E.exit.i" unwind label %255
+          to label %"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$sqlx_core..pool..connection..Floating$LT$sqlx_sqlite..database..Sqlite$C$sqlx_core..pool..connection..Live$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$GT$$GT$17hd5bf9b8ad7376604E.exit.i" unwind label %256
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds i8, ptr %0, i64 328
@@ -3096,7 +3096,7 @@ common.ret.sink.split.i:                          ; preds = %272, %"_ZN4core3ptr
 17:                                               ; preds = %14
   %18 = getelementptr inbounds i8, ptr %0, i64 88
   invoke void @"_ZN4core3ptr168drop_in_place$LT$sqlx_core..pool..connection..Floating$LT$sqlx_sqlite..database..Sqlite$C$sqlx_core..pool..connection..Live$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$GT$17h195306e944ddc502E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %18)
-          to label %"_ZN4core3ptr213drop_in_place$LT$sqlx_core..pool..connection..Floating$LT$sqlx_sqlite..database..Sqlite$C$sqlx_core..pool..connection..Live$LT$sqlx_sqlite..database..Sqlite$GT$$GT$..return_to_pool..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6a83479287a54847E.exit.i" unwind label %264
+          to label %"_ZN4core3ptr213drop_in_place$LT$sqlx_core..pool..connection..Floating$LT$sqlx_sqlite..database..Sqlite$C$sqlx_core..pool..connection..Live$LT$sqlx_sqlite..database..Sqlite$GT$$GT$..return_to_pool..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6a83479287a54847E.exit.i" unwind label %265
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds i8, ptr %0, i64 336
@@ -3186,14 +3186,14 @@ common.ret.sink.split.i:                          ; preds = %272, %"_ZN4core3ptr
   %51 = getelementptr inbounds i8, ptr %0, i64 330
   %52 = load i8, ptr %51, align 2, !range !55, !noundef !9
   %53 = trunc nuw i8 %52 to i1
-  br i1 %53, label %83, label %"_ZN4core3ptr213drop_in_place$LT$sqlx_core..pool..connection..Floating$LT$sqlx_sqlite..database..Sqlite$C$sqlx_core..pool..connection..Live$LT$sqlx_sqlite..database..Sqlite$GT$$GT$..return_to_pool..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6a83479287a54847E.exit.sink.split.i"
+  br i1 %53, label %84, label %83
 
 .body.i.i:                                        ; preds = %.body8.i.i, %68, %63, %61, %59, %57, %49, %29
   %.pn.pn.i.i = phi { ptr, i32 } [ %.pn.i.i, %.body8.i.i ], [ %58, %57 ], [ %50, %49 ], [ %69, %68 ], [ %64, %63 ], [ %62, %61 ], [ %60, %59 ], [ %30, %29 ]
   %54 = getelementptr inbounds i8, ptr %0, i64 330
   %55 = load i8, ptr %54, align 2, !range !55, !noundef !9
   %56 = trunc nuw i8 %55 to i1
-  br i1 %56, label %89, label %85
+  br i1 %56, label %90, label %86
 
 57:                                               ; preds = %21
   %58 = landingpad { ptr, i32 }
@@ -3227,7 +3227,7 @@ common.ret.sink.split.i:                          ; preds = %272, %"_ZN4core3ptr
           cleanup
   br label %.body.i.i
 
-70:                                               ; preds = %89, %76, %63
+70:                                               ; preds = %90, %76, %63
   %71 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #36
@@ -3266,603 +3266,603 @@ common.ret.sink.split.i:                          ; preds = %272, %"_ZN4core3ptr
           cleanup
   br label %.body8.i.i
 
-83:                                               ; preds = %"_ZN4core3ptr211drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bool$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h5decb9f8ff01ba13E.exit.i.i"
-  %84 = getelementptr inbounds i8, ptr %0, i64 160
-  invoke void @"_ZN4core3ptr168drop_in_place$LT$sqlx_core..pool..connection..Floating$LT$sqlx_sqlite..database..Sqlite$C$sqlx_core..pool..connection..Live$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$GT$17h195306e944ddc502E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %84)
-          to label %"_ZN4core3ptr213drop_in_place$LT$sqlx_core..pool..connection..Floating$LT$sqlx_sqlite..database..Sqlite$C$sqlx_core..pool..connection..Live$LT$sqlx_sqlite..database..Sqlite$GT$$GT$..return_to_pool..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6a83479287a54847E.exit.sink.split.i" unwind label %87
+83:                                               ; preds = %84, %"_ZN4core3ptr211drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bool$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h5decb9f8ff01ba13E.exit.i.i"
+  store i8 0, ptr %51, align 2
+  br label %"_ZN4core3ptr213drop_in_place$LT$sqlx_core..pool..connection..Floating$LT$sqlx_sqlite..database..Sqlite$C$sqlx_core..pool..connection..Live$LT$sqlx_sqlite..database..Sqlite$GT$$GT$..return_to_pool..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6a83479287a54847E.exit.i"
 
-85:                                               ; preds = %89, %87, %.body.i.i
-  %.pn5.i.i = phi { ptr, i32 } [ %88, %87 ], [ %.pn.pn.i.i, %89 ], [ %.pn.pn.i.i, %.body.i.i ]
-  %86 = getelementptr inbounds i8, ptr %0, i64 330
-  store i8 0, ptr %86, align 2
+84:                                               ; preds = %"_ZN4core3ptr211drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bool$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h5decb9f8ff01ba13E.exit.i.i"
+  %85 = getelementptr inbounds i8, ptr %0, i64 160
+  invoke void @"_ZN4core3ptr168drop_in_place$LT$sqlx_core..pool..connection..Floating$LT$sqlx_sqlite..database..Sqlite$C$sqlx_core..pool..connection..Live$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$GT$17h195306e944ddc502E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %85)
+          to label %83 unwind label %88
+
+86:                                               ; preds = %90, %88, %.body.i.i
+  %.pn5.i.i = phi { ptr, i32 } [ %89, %88 ], [ %.pn.pn.i.i, %90 ], [ %.pn.pn.i.i, %.body.i.i ]
+  %87 = getelementptr inbounds i8, ptr %0, i64 330
+  store i8 0, ptr %87, align 2
   br label %.body.i
 
-87:                                               ; preds = %83
-  %88 = landingpad { ptr, i32 }
+88:                                               ; preds = %84
+  %89 = landingpad { ptr, i32 }
           cleanup
-  br label %85
+  br label %86
 
-89:                                               ; preds = %.body.i.i
-  %90 = getelementptr inbounds i8, ptr %0, i64 160
-  invoke void @"_ZN4core3ptr168drop_in_place$LT$sqlx_core..pool..connection..Floating$LT$sqlx_sqlite..database..Sqlite$C$sqlx_core..pool..connection..Live$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$GT$17h195306e944ddc502E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %90) #35
-          to label %85 unwind label %70
+90:                                               ; preds = %.body.i.i
+  %91 = getelementptr inbounds i8, ptr %0, i64 160
+  invoke void @"_ZN4core3ptr168drop_in_place$LT$sqlx_core..pool..connection..Floating$LT$sqlx_sqlite..database..Sqlite$C$sqlx_core..pool..connection..Live$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$GT$17h195306e944ddc502E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %91) #35
+          to label %86 unwind label %70
 
-91:                                               ; preds = %8
-  %92 = getelementptr inbounds i8, ptr %0, i64 608
-  %93 = load i8, ptr %92, align 8, !range !26, !noundef !9
-  %cond.i.i = icmp eq i8 %93, 3
-  br i1 %cond.i.i, label %94, label %"_ZN4core3ptr213drop_in_place$LT$sqlx_core..pool..connection..Floating$LT$sqlx_sqlite..database..Sqlite$C$sqlx_core..pool..connection..Live$LT$sqlx_sqlite..database..Sqlite$GT$$GT$..return_to_pool..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6a83479287a54847E.exit.i"
+92:                                               ; preds = %8
+  %93 = getelementptr inbounds i8, ptr %0, i64 608
+  %94 = load i8, ptr %93, align 8, !range !26, !noundef !9
+  %cond.i.i = icmp eq i8 %94, 3
+  br i1 %cond.i.i, label %95, label %"_ZN4core3ptr213drop_in_place$LT$sqlx_core..pool..connection..Floating$LT$sqlx_sqlite..database..Sqlite$C$sqlx_core..pool..connection..Live$LT$sqlx_sqlite..database..Sqlite$GT$$GT$..return_to_pool..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6a83479287a54847E.exit.i"
 
-94:                                               ; preds = %91
-  %95 = getelementptr inbounds i8, ptr %0, i64 600
-  %96 = load i8, ptr %95, align 8, !range !26, !noundef !9
-  %cond.i.i.i = icmp eq i8 %96, 3
-  br i1 %cond.i.i.i, label %97, label %"_ZN4core3ptr213drop_in_place$LT$sqlx_core..pool..connection..Floating$LT$sqlx_sqlite..database..Sqlite$C$sqlx_core..pool..connection..Live$LT$sqlx_sqlite..database..Sqlite$GT$$GT$..return_to_pool..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6a83479287a54847E.exit.i"
+95:                                               ; preds = %92
+  %96 = getelementptr inbounds i8, ptr %0, i64 600
+  %97 = load i8, ptr %96, align 8, !range !26, !noundef !9
+  %cond.i.i.i = icmp eq i8 %97, 3
+  br i1 %cond.i.i.i, label %98, label %"_ZN4core3ptr213drop_in_place$LT$sqlx_core..pool..connection..Floating$LT$sqlx_sqlite..database..Sqlite$C$sqlx_core..pool..connection..Live$LT$sqlx_sqlite..database..Sqlite$GT$$GT$..return_to_pool..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6a83479287a54847E.exit.i"
 
-97:                                               ; preds = %94
-  %98 = getelementptr inbounds i8, ptr %0, i64 424
-  %99 = load i8, ptr %98, align 8, !range !762, !noundef !9
-  switch i8 %99, label %"_ZN4core3ptr129drop_in_place$LT$sqlx_core..pool..inner..PoolInner$LT$sqlx_sqlite..database..Sqlite$GT$..connect..$u7b$$u7b$closure$u7d$$u7d$$GT$17he7a4ff6e596749d3E.exit.i.i.i" [
-    i8 0, label %100
-    i8 3, label %119
-    i8 4, label %151
-    i8 5, label %161
-    i8 6, label %171
+98:                                               ; preds = %95
+  %99 = getelementptr inbounds i8, ptr %0, i64 424
+  %100 = load i8, ptr %99, align 8, !range !762, !noundef !9
+  switch i8 %100, label %"_ZN4core3ptr129drop_in_place$LT$sqlx_core..pool..inner..PoolInner$LT$sqlx_sqlite..database..Sqlite$GT$..connect..$u7b$$u7b$closure$u7d$$u7d$$GT$17he7a4ff6e596749d3E.exit.i.i.i" [
+    i8 0, label %101
+    i8 3, label %120
+    i8 4, label %152
+    i8 5, label %162
+    i8 6, label %172
   ]
 
-100:                                              ; preds = %97
-  %101 = getelementptr inbounds i8, ptr %0, i64 184
+101:                                              ; preds = %98
+  %102 = getelementptr inbounds i8, ptr %0, i64 184
   tail call void @llvm.experimental.noalias.scope.decl(metadata !763)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !766)
-  %102 = getelementptr inbounds i8, ptr %0, i64 192
-  %103 = load i8, ptr %102, align 8, !range !55, !alias.scope !769, !noundef !9
-  %104 = trunc nuw i8 %103 to i1
-  br i1 %104, label %"_ZN94_$LT$sqlx_core..pool..inner..DecrementSizeGuard$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h00802c3541957413E.llvm.6910714394678848989.exit.i.i.i.i.i", label %105
+  %103 = getelementptr inbounds i8, ptr %0, i64 192
+  %104 = load i8, ptr %103, align 8, !range !55, !alias.scope !769, !noundef !9
+  %105 = trunc nuw i8 %104 to i1
+  br i1 %105, label %"_ZN94_$LT$sqlx_core..pool..inner..DecrementSizeGuard$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h00802c3541957413E.llvm.6910714394678848989.exit.i.i.i.i.i", label %106
 
-105:                                              ; preds = %100
-  %106 = load ptr, ptr %101, align 8, !alias.scope !769, !nonnull !9, !noundef !9
-  %107 = getelementptr inbounds i8, ptr %106, i64 712
-  %108 = atomicrmw sub ptr %107, i32 1 acq_rel, align 4, !noalias !769
-  %109 = load ptr, ptr %101, align 8, !alias.scope !769, !nonnull !9, !noundef !9
-  %110 = getelementptr inbounds i8, ptr %109, i64 536
-  invoke void @_ZN9sqlx_core4sync14AsyncSemaphore7release17h7bc10d384cbf6dc4E(ptr noundef nonnull align 8 %110, i64 noundef 1)
-          to label %"_ZN94_$LT$sqlx_core..pool..inner..DecrementSizeGuard$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h00802c3541957413E.llvm.6910714394678848989.exit.i.i.i.i.i" unwind label %111, !noalias !763
+106:                                              ; preds = %101
+  %107 = load ptr, ptr %102, align 8, !alias.scope !769, !nonnull !9, !noundef !9
+  %108 = getelementptr inbounds i8, ptr %107, i64 712
+  %109 = atomicrmw sub ptr %108, i32 1 acq_rel, align 4, !noalias !769
+  %110 = load ptr, ptr %102, align 8, !alias.scope !769, !nonnull !9, !noundef !9
+  %111 = getelementptr inbounds i8, ptr %110, i64 536
+  invoke void @_ZN9sqlx_core4sync14AsyncSemaphore7release17h7bc10d384cbf6dc4E(ptr noundef nonnull align 8 %111, i64 noundef 1)
+          to label %"_ZN94_$LT$sqlx_core..pool..inner..DecrementSizeGuard$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h00802c3541957413E.llvm.6910714394678848989.exit.i.i.i.i.i" unwind label %112, !noalias !763
 
-111:                                              ; preds = %105
-  %112 = landingpad { ptr, i32 }
+112:                                              ; preds = %106
+  %113 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr115drop_in_place$LT$alloc..sync..Arc$LT$sqlx_core..pool..inner..PoolInner$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$GT$17h6ab9501924939c6cE.llvm.6910714394678848989"(ptr noalias noundef nonnull align 8 dereferenceable(8) %101) #35
-          to label %.body.i.i.i unwind label %117
+  invoke void @"_ZN4core3ptr115drop_in_place$LT$alloc..sync..Arc$LT$sqlx_core..pool..inner..PoolInner$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$GT$17h6ab9501924939c6cE.llvm.6910714394678848989"(ptr noalias noundef nonnull align 8 dereferenceable(8) %102) #35
+          to label %.body.i.i.i unwind label %118
 
-"_ZN94_$LT$sqlx_core..pool..inner..DecrementSizeGuard$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h00802c3541957413E.llvm.6910714394678848989.exit.i.i.i.i.i": ; preds = %105, %100
+"_ZN94_$LT$sqlx_core..pool..inner..DecrementSizeGuard$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h00802c3541957413E.llvm.6910714394678848989.exit.i.i.i.i.i": ; preds = %106, %101
   tail call void @llvm.experimental.noalias.scope.decl(metadata !770)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !773)
-  %113 = load ptr, ptr %101, align 8, !alias.scope !776, !nonnull !9, !noundef !9
-  %114 = atomicrmw sub ptr %113, i64 1 release, align 8, !noalias !776
-  %115 = icmp eq i64 %114, 1
-  br i1 %115, label %116, label %"_ZN4core3ptr129drop_in_place$LT$sqlx_core..pool..inner..PoolInner$LT$sqlx_sqlite..database..Sqlite$GT$..connect..$u7b$$u7b$closure$u7d$$u7d$$GT$17he7a4ff6e596749d3E.exit.i.i.i"
+  %114 = load ptr, ptr %102, align 8, !alias.scope !776, !nonnull !9, !noundef !9
+  %115 = atomicrmw sub ptr %114, i64 1 release, align 8, !noalias !776
+  %116 = icmp eq i64 %115, 1
+  br i1 %116, label %117, label %"_ZN4core3ptr129drop_in_place$LT$sqlx_core..pool..inner..PoolInner$LT$sqlx_sqlite..database..Sqlite$GT$..connect..$u7b$$u7b$closure$u7d$$u7d$$GT$17he7a4ff6e596749d3E.exit.i.i.i"
 
-116:                                              ; preds = %"_ZN94_$LT$sqlx_core..pool..inner..DecrementSizeGuard$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h00802c3541957413E.llvm.6910714394678848989.exit.i.i.i.i.i"
+117:                                              ; preds = %"_ZN94_$LT$sqlx_core..pool..inner..DecrementSizeGuard$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h00802c3541957413E.llvm.6910714394678848989.exit.i.i.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h427c2fd12098275dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %101)
-          to label %"_ZN4core3ptr129drop_in_place$LT$sqlx_core..pool..inner..PoolInner$LT$sqlx_sqlite..database..Sqlite$GT$..connect..$u7b$$u7b$closure$u7d$$u7d$$GT$17he7a4ff6e596749d3E.exit.i.i.i" unwind label %249
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h427c2fd12098275dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %102)
+          to label %"_ZN4core3ptr129drop_in_place$LT$sqlx_core..pool..inner..PoolInner$LT$sqlx_sqlite..database..Sqlite$GT$..connect..$u7b$$u7b$closure$u7d$$u7d$$GT$17he7a4ff6e596749d3E.exit.i.i.i" unwind label %250
 
-117:                                              ; preds = %111
-  %118 = landingpad { ptr, i32 }
+118:                                              ; preds = %112
+  %119 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #36
   unreachable
 
-119:                                              ; preds = %97
-  %120 = getelementptr inbounds i8, ptr %0, i64 592
-  %121 = load i8, ptr %120, align 8, !range !26, !noundef !9
-  switch i8 %121, label %"_ZN4core3ptr307drop_in_place$LT$sqlx_core..rt..timeout$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h928661ad3f435cfdE.exit.i.i.i.i" [
-    i8 0, label %122
-    i8 3, label %132
+120:                                              ; preds = %98
+  %121 = getelementptr inbounds i8, ptr %0, i64 592
+  %122 = load i8, ptr %121, align 8, !range !26, !noundef !9
+  switch i8 %122, label %"_ZN4core3ptr307drop_in_place$LT$sqlx_core..rt..timeout$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h928661ad3f435cfdE.exit.i.i.i.i" [
+    i8 0, label %123
+    i8 3, label %133
   ]
 
-122:                                              ; preds = %119
-  %123 = getelementptr inbounds i8, ptr %0, i64 448
+123:                                              ; preds = %120
+  %124 = getelementptr inbounds i8, ptr %0, i64 448
   tail call void @llvm.experimental.noalias.scope.decl(metadata !777)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !780)
-  %124 = load ptr, ptr %123, align 8, !alias.scope !783, !noundef !9
-  %125 = getelementptr inbounds i8, ptr %0, i64 456
-  %126 = load ptr, ptr %125, align 8, !alias.scope !783, !nonnull !9, !align !37, !noundef !9
-  %127 = load ptr, ptr %126, align 8, !invariant.load !9, !noalias !783, !nonnull !9
-  invoke void %127(ptr noundef nonnull align 1 %124)
-          to label %"_ZN4core3ptr248drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hff59ef6ab02e4ebeE.exit.i.i.i.i.i" unwind label %128, !noalias !783
+  %125 = load ptr, ptr %124, align 8, !alias.scope !783, !noundef !9
+  %126 = getelementptr inbounds i8, ptr %0, i64 456
+  %127 = load ptr, ptr %126, align 8, !alias.scope !783, !nonnull !9, !align !37, !noundef !9
+  %128 = load ptr, ptr %127, align 8, !invariant.load !9, !noalias !783, !nonnull !9
+  invoke void %128(ptr noundef nonnull align 1 %125)
+          to label %"_ZN4core3ptr248drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hff59ef6ab02e4ebeE.exit.i.i.i.i.i" unwind label %129, !noalias !783
 
-128:                                              ; preds = %122
-  %129 = landingpad { ptr, i32 }
+129:                                              ; preds = %123
+  %130 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7d70e7a01da92bbeE.llvm.6910714394678848989"(ptr noalias noundef nonnull align 8 dereferenceable(16) %123) #35
-          to label %.body.i.i.i.i unwind label %130
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7d70e7a01da92bbeE.llvm.6910714394678848989"(ptr noalias noundef nonnull align 8 dereferenceable(16) %124) #35
+          to label %.body.i.i.i.i unwind label %131
 
-130:                                              ; preds = %128
-  %131 = landingpad { ptr, i32 }
+131:                                              ; preds = %129
+  %132 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #36
   unreachable
 
-"_ZN4core3ptr248drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hff59ef6ab02e4ebeE.exit.i.i.i.i.i": ; preds = %122
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7d70e7a01da92bbeE.llvm.6910714394678848989"(ptr noalias noundef nonnull align 8 dereferenceable(16) %123)
-          to label %"_ZN4core3ptr307drop_in_place$LT$sqlx_core..rt..timeout$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h928661ad3f435cfdE.exit.i.i.i.i" unwind label %176
+"_ZN4core3ptr248drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hff59ef6ab02e4ebeE.exit.i.i.i.i.i": ; preds = %123
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7d70e7a01da92bbeE.llvm.6910714394678848989"(ptr noalias noundef nonnull align 8 dereferenceable(16) %124)
+          to label %"_ZN4core3ptr307drop_in_place$LT$sqlx_core..rt..timeout$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h928661ad3f435cfdE.exit.i.i.i.i" unwind label %177
 
-132:                                              ; preds = %119
-  %133 = getelementptr inbounds i8, ptr %0, i64 464
-  %134 = getelementptr inbounds i8, ptr %0, i64 576
+133:                                              ; preds = %120
+  %134 = getelementptr inbounds i8, ptr %0, i64 464
+  %135 = getelementptr inbounds i8, ptr %0, i64 576
   tail call void @llvm.experimental.noalias.scope.decl(metadata !784)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !787)
-  %135 = load ptr, ptr %134, align 8, !alias.scope !790, !noundef !9
-  %136 = getelementptr inbounds i8, ptr %0, i64 584
-  %137 = load ptr, ptr %136, align 8, !alias.scope !790, !nonnull !9, !align !37, !noundef !9
-  %138 = load ptr, ptr %137, align 8, !invariant.load !9, !noalias !790, !nonnull !9
-  invoke void %138(ptr noundef nonnull align 1 %135)
-          to label %"_ZN4core3ptr226drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h077edbae6233b2f9E.llvm.6910714394678848989.exit.i.i.i.i.i.i.i" unwind label %139, !noalias !790
+  %136 = load ptr, ptr %135, align 8, !alias.scope !790, !noundef !9
+  %137 = getelementptr inbounds i8, ptr %0, i64 584
+  %138 = load ptr, ptr %137, align 8, !alias.scope !790, !nonnull !9, !align !37, !noundef !9
+  %139 = load ptr, ptr %138, align 8, !invariant.load !9, !noalias !790, !nonnull !9
+  invoke void %139(ptr noundef nonnull align 1 %136)
+          to label %"_ZN4core3ptr226drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h077edbae6233b2f9E.llvm.6910714394678848989.exit.i.i.i.i.i.i.i" unwind label %140, !noalias !790
 
-139:                                              ; preds = %132
-  %140 = landingpad { ptr, i32 }
+140:                                              ; preds = %133
+  %141 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7d70e7a01da92bbeE.llvm.6910714394678848989"(ptr noalias noundef nonnull align 8 dereferenceable(16) %134) #35
-          to label %.body.i.i.i.i.i.i unwind label %141
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7d70e7a01da92bbeE.llvm.6910714394678848989"(ptr noalias noundef nonnull align 8 dereferenceable(16) %135) #35
+          to label %.body.i.i.i.i.i.i unwind label %142
 
-141:                                              ; preds = %139
-  %142 = landingpad { ptr, i32 }
+142:                                              ; preds = %140
+  %143 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #36
   unreachable
 
-"_ZN4core3ptr226drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h077edbae6233b2f9E.llvm.6910714394678848989.exit.i.i.i.i.i.i.i": ; preds = %132
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7d70e7a01da92bbeE.llvm.6910714394678848989"(ptr noalias noundef nonnull align 8 dereferenceable(16) %134)
-          to label %"_ZN4core3ptr248drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hff59ef6ab02e4ebeE.exit.i.i.i.i.i.i" unwind label %143
+"_ZN4core3ptr226drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h077edbae6233b2f9E.llvm.6910714394678848989.exit.i.i.i.i.i.i.i": ; preds = %133
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7d70e7a01da92bbeE.llvm.6910714394678848989"(ptr noalias noundef nonnull align 8 dereferenceable(16) %135)
+          to label %"_ZN4core3ptr248drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hff59ef6ab02e4ebeE.exit.i.i.i.i.i.i" unwind label %144
 
-143:                                              ; preds = %"_ZN4core3ptr226drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h077edbae6233b2f9E.llvm.6910714394678848989.exit.i.i.i.i.i.i.i"
-  %144 = landingpad { ptr, i32 }
+144:                                              ; preds = %"_ZN4core3ptr226drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h077edbae6233b2f9E.llvm.6910714394678848989.exit.i.i.i.i.i.i.i"
+  %145 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i.i.i.i.i
 
-.body.i.i.i.i.i.i:                                ; preds = %143, %139
-  %eh.lpad-body.i.i.i.i.i.i = phi { ptr, i32 } [ %144, %143 ], [ %140, %139 ]
-  invoke void @"_ZN4core3ptr46drop_in_place$LT$tokio..time..sleep..Sleep$GT$17h71515d774bb61c92E"(ptr noundef nonnull align 8 %133) #35
-          to label %.body.i.i.i.i.i unwind label %145
+.body.i.i.i.i.i.i:                                ; preds = %144, %140
+  %eh.lpad-body.i.i.i.i.i.i = phi { ptr, i32 } [ %145, %144 ], [ %141, %140 ]
+  invoke void @"_ZN4core3ptr46drop_in_place$LT$tokio..time..sleep..Sleep$GT$17h71515d774bb61c92E"(ptr noundef nonnull align 8 %134) #35
+          to label %.body.i.i.i.i.i unwind label %146
 
 "_ZN4core3ptr248drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hff59ef6ab02e4ebeE.exit.i.i.i.i.i.i": ; preds = %"_ZN4core3ptr226drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h077edbae6233b2f9E.llvm.6910714394678848989.exit.i.i.i.i.i.i.i"
-  invoke void @"_ZN4core3ptr60drop_in_place$LT$tokio..runtime..time..entry..TimerEntry$GT$17h420fa6b2a692fdedE.llvm.6910714394678848989"(ptr noundef nonnull align 8 %133)
-          to label %"_ZN4core3ptr285drop_in_place$LT$tokio..time..timeout..Timeout$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$17hdc6e251448e6fec1E.exit.i.i.i.i.i" unwind label %147
+  invoke void @"_ZN4core3ptr60drop_in_place$LT$tokio..runtime..time..entry..TimerEntry$GT$17h420fa6b2a692fdedE.llvm.6910714394678848989"(ptr noundef nonnull align 8 %134)
+          to label %"_ZN4core3ptr285drop_in_place$LT$tokio..time..timeout..Timeout$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$17hdc6e251448e6fec1E.exit.i.i.i.i.i" unwind label %148
 
-145:                                              ; preds = %.body.i.i.i.i.i.i
-  %146 = landingpad { ptr, i32 }
+146:                                              ; preds = %.body.i.i.i.i.i.i
+  %147 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #36
   unreachable
 
-147:                                              ; preds = %"_ZN4core3ptr248drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hff59ef6ab02e4ebeE.exit.i.i.i.i.i.i"
-  %148 = landingpad { ptr, i32 }
+148:                                              ; preds = %"_ZN4core3ptr248drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hff59ef6ab02e4ebeE.exit.i.i.i.i.i.i"
+  %149 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i.i.i.i
 
-.body.i.i.i.i.i:                                  ; preds = %147, %.body.i.i.i.i.i.i
-  %eh.lpad-body.i.i.i.i.i = phi { ptr, i32 } [ %148, %147 ], [ %eh.lpad-body.i.i.i.i.i.i, %.body.i.i.i.i.i.i ]
-  %149 = getelementptr inbounds i8, ptr %0, i64 593
-  store i8 0, ptr %149, align 1
+.body.i.i.i.i.i:                                  ; preds = %148, %.body.i.i.i.i.i.i
+  %eh.lpad-body.i.i.i.i.i = phi { ptr, i32 } [ %149, %148 ], [ %eh.lpad-body.i.i.i.i.i.i, %.body.i.i.i.i.i.i ]
+  %150 = getelementptr inbounds i8, ptr %0, i64 593
+  store i8 0, ptr %150, align 1
   br label %.body.i.i.i.i
 
 "_ZN4core3ptr285drop_in_place$LT$tokio..time..timeout..Timeout$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$17hdc6e251448e6fec1E.exit.i.i.i.i.i": ; preds = %"_ZN4core3ptr248drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hff59ef6ab02e4ebeE.exit.i.i.i.i.i.i"
-  %150 = getelementptr inbounds i8, ptr %0, i64 593
-  store i8 0, ptr %150, align 1
+  %151 = getelementptr inbounds i8, ptr %0, i64 593
+  store i8 0, ptr %151, align 1
   br label %"_ZN4core3ptr307drop_in_place$LT$sqlx_core..rt..timeout$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h928661ad3f435cfdE.exit.i.i.i.i"
 
-151:                                              ; preds = %97
-  %152 = getelementptr inbounds i8, ptr %0, i64 432
+152:                                              ; preds = %98
+  %153 = getelementptr inbounds i8, ptr %0, i64 432
   tail call void @llvm.experimental.noalias.scope.decl(metadata !791)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !794)
-  %153 = load ptr, ptr %152, align 8, !alias.scope !797, !noundef !9
-  %154 = getelementptr inbounds i8, ptr %0, i64 440
-  %155 = load ptr, ptr %154, align 8, !alias.scope !797, !nonnull !9, !align !37, !noundef !9
-  %156 = load ptr, ptr %155, align 8, !invariant.load !9, !noalias !797, !nonnull !9
-  invoke void %156(ptr noundef nonnull align 1 %153)
-          to label %"_ZN4core3ptr193drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h1f16783208f8feaeE.llvm.6910714394678848989.exit.i.i.i.i.i" unwind label %157, !noalias !797
+  %154 = load ptr, ptr %153, align 8, !alias.scope !797, !noundef !9
+  %155 = getelementptr inbounds i8, ptr %0, i64 440
+  %156 = load ptr, ptr %155, align 8, !alias.scope !797, !nonnull !9, !align !37, !noundef !9
+  %157 = load ptr, ptr %156, align 8, !invariant.load !9, !noalias !797, !nonnull !9
+  invoke void %157(ptr noundef nonnull align 1 %154)
+          to label %"_ZN4core3ptr193drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h1f16783208f8feaeE.llvm.6910714394678848989.exit.i.i.i.i.i" unwind label %158, !noalias !797
 
-157:                                              ; preds = %151
-  %158 = landingpad { ptr, i32 }
+158:                                              ; preds = %152
+  %159 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdba87ae952080671E.llvm.6910714394678848989"(ptr noalias noundef nonnull align 8 dereferenceable(16) %152) #35
-          to label %.body12.i.i.i.i unwind label %159
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdba87ae952080671E.llvm.6910714394678848989"(ptr noalias noundef nonnull align 8 dereferenceable(16) %153) #35
+          to label %.body12.i.i.i.i unwind label %160
 
-159:                                              ; preds = %157
-  %160 = landingpad { ptr, i32 }
+160:                                              ; preds = %158
+  %161 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #36
   unreachable
 
-"_ZN4core3ptr193drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h1f16783208f8feaeE.llvm.6910714394678848989.exit.i.i.i.i.i": ; preds = %151
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdba87ae952080671E.llvm.6910714394678848989"(ptr noalias noundef nonnull align 8 dereferenceable(16) %152)
-          to label %"_ZN4core3ptr215drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h201b5a0a6b45a70cE.exit.i.i.i.i" unwind label %186
+"_ZN4core3ptr193drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h1f16783208f8feaeE.llvm.6910714394678848989.exit.i.i.i.i.i": ; preds = %152
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdba87ae952080671E.llvm.6910714394678848989"(ptr noalias noundef nonnull align 8 dereferenceable(16) %153)
+          to label %"_ZN4core3ptr215drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h201b5a0a6b45a70cE.exit.i.i.i.i" unwind label %187
 
-161:                                              ; preds = %97
-  %162 = getelementptr inbounds i8, ptr %0, i64 432
+162:                                              ; preds = %98
+  %163 = getelementptr inbounds i8, ptr %0, i64 432
   tail call void @llvm.experimental.noalias.scope.decl(metadata !798)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !801)
-  %163 = load ptr, ptr %162, align 8, !alias.scope !804, !noundef !9
-  %164 = getelementptr inbounds i8, ptr %0, i64 440
-  %165 = load ptr, ptr %164, align 8, !alias.scope !804, !nonnull !9, !align !37, !noundef !9
-  %166 = load ptr, ptr %165, align 8, !invariant.load !9, !noalias !804, !nonnull !9
-  invoke void %166(ptr noundef nonnull align 1 %163)
-          to label %"_ZN4core3ptr193drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h1f16783208f8feaeE.llvm.6910714394678848989.exit.i15.i.i.i.i" unwind label %167, !noalias !804
+  %164 = load ptr, ptr %163, align 8, !alias.scope !804, !noundef !9
+  %165 = getelementptr inbounds i8, ptr %0, i64 440
+  %166 = load ptr, ptr %165, align 8, !alias.scope !804, !nonnull !9, !align !37, !noundef !9
+  %167 = load ptr, ptr %166, align 8, !invariant.load !9, !noalias !804, !nonnull !9
+  invoke void %167(ptr noundef nonnull align 1 %164)
+          to label %"_ZN4core3ptr193drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h1f16783208f8feaeE.llvm.6910714394678848989.exit.i15.i.i.i.i" unwind label %168, !noalias !804
 
-167:                                              ; preds = %161
-  %168 = landingpad { ptr, i32 }
+168:                                              ; preds = %162
+  %169 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdba87ae952080671E.llvm.6910714394678848989"(ptr noalias noundef nonnull align 8 dereferenceable(16) %162) #35
-          to label %.body16.i.i.i.i unwind label %169
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdba87ae952080671E.llvm.6910714394678848989"(ptr noalias noundef nonnull align 8 dereferenceable(16) %163) #35
+          to label %.body16.i.i.i.i unwind label %170
 
-169:                                              ; preds = %167
-  %170 = landingpad { ptr, i32 }
+170:                                              ; preds = %168
+  %171 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #36
   unreachable
 
-"_ZN4core3ptr193drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h1f16783208f8feaeE.llvm.6910714394678848989.exit.i15.i.i.i.i": ; preds = %161
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdba87ae952080671E.llvm.6910714394678848989"(ptr noalias noundef nonnull align 8 dereferenceable(16) %162)
-          to label %"_ZN4core3ptr215drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h201b5a0a6b45a70cE.exit19.i.i.i.i" unwind label %194
+"_ZN4core3ptr193drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h1f16783208f8feaeE.llvm.6910714394678848989.exit.i15.i.i.i.i": ; preds = %162
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdba87ae952080671E.llvm.6910714394678848989"(ptr noalias noundef nonnull align 8 dereferenceable(16) %163)
+          to label %"_ZN4core3ptr215drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h201b5a0a6b45a70cE.exit19.i.i.i.i" unwind label %195
 
-171:                                              ; preds = %97
-  %172 = getelementptr inbounds i8, ptr %0, i64 560
-  %173 = load i8, ptr %172, align 8, !range !26, !noundef !9
-  %cond.i.i.i.i.i = icmp eq i8 %173, 3
-  br i1 %cond.i.i.i.i.i, label %174, label %"_ZN4core3ptr70drop_in_place$LT$sqlx_core..rt..sleep..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5506181a9e579d2aE.exit.i.i.i.i"
+172:                                              ; preds = %98
+  %173 = getelementptr inbounds i8, ptr %0, i64 560
+  %174 = load i8, ptr %173, align 8, !range !26, !noundef !9
+  %cond.i.i.i.i.i = icmp eq i8 %174, 3
+  br i1 %cond.i.i.i.i.i, label %175, label %"_ZN4core3ptr70drop_in_place$LT$sqlx_core..rt..sleep..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5506181a9e579d2aE.exit.i.i.i.i"
 
-174:                                              ; preds = %171
-  %175 = getelementptr inbounds i8, ptr %0, i64 448
-  invoke void @"_ZN4core3ptr60drop_in_place$LT$tokio..runtime..time..entry..TimerEntry$GT$17h420fa6b2a692fdedE.llvm.6910714394678848989"(ptr noundef nonnull align 8 %175)
-          to label %"_ZN4core3ptr70drop_in_place$LT$sqlx_core..rt..sleep..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5506181a9e579d2aE.exit.i.i.i.i" unwind label %221
+175:                                              ; preds = %172
+  %176 = getelementptr inbounds i8, ptr %0, i64 448
+  invoke void @"_ZN4core3ptr60drop_in_place$LT$tokio..runtime..time..entry..TimerEntry$GT$17h420fa6b2a692fdedE.llvm.6910714394678848989"(ptr noundef nonnull align 8 %176)
+          to label %"_ZN4core3ptr70drop_in_place$LT$sqlx_core..rt..sleep..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5506181a9e579d2aE.exit.i.i.i.i" unwind label %222
 
-176:                                              ; preds = %"_ZN4core3ptr248drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hff59ef6ab02e4ebeE.exit.i.i.i.i.i"
-  %177 = landingpad { ptr, i32 }
+177:                                              ; preds = %"_ZN4core3ptr248drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hff59ef6ab02e4ebeE.exit.i.i.i.i.i"
+  %178 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i.i.i
 
-"_ZN4core3ptr307drop_in_place$LT$sqlx_core..rt..timeout$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h928661ad3f435cfdE.exit.i.i.i.i": ; preds = %208, %"_ZN4core3ptr62drop_in_place$LT$sqlx_sqlite..connection..SqliteConnection$GT$17h046f4ab48d52b47cE.exit.i.i.i.i", %"_ZN4core3ptr285drop_in_place$LT$tokio..time..timeout..Timeout$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$17hdc6e251448e6fec1E.exit.i.i.i.i.i", %"_ZN4core3ptr248drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hff59ef6ab02e4ebeE.exit.i.i.i.i.i", %119
-  %178 = getelementptr inbounds i8, ptr %0, i64 426
-  store i8 0, ptr %178, align 2
-  %179 = getelementptr inbounds i8, ptr %0, i64 425
-  store i8 0, ptr %179, align 1
-  %180 = getelementptr inbounds i8, ptr %0, i64 429
+"_ZN4core3ptr307drop_in_place$LT$sqlx_core..rt..timeout$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h928661ad3f435cfdE.exit.i.i.i.i": ; preds = %209, %"_ZN4core3ptr62drop_in_place$LT$sqlx_sqlite..connection..SqliteConnection$GT$17h046f4ab48d52b47cE.exit.i.i.i.i", %"_ZN4core3ptr285drop_in_place$LT$tokio..time..timeout..Timeout$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$17hdc6e251448e6fec1E.exit.i.i.i.i.i", %"_ZN4core3ptr248drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hff59ef6ab02e4ebeE.exit.i.i.i.i.i", %120
+  %179 = getelementptr inbounds i8, ptr %0, i64 426
+  store i8 0, ptr %179, align 2
+  %180 = getelementptr inbounds i8, ptr %0, i64 425
   store i8 0, ptr %180, align 1
-  %181 = getelementptr inbounds i8, ptr %0, i64 430
-  store i8 0, ptr %181, align 2
+  %181 = getelementptr inbounds i8, ptr %0, i64 429
+  store i8 0, ptr %181, align 1
+  %182 = getelementptr inbounds i8, ptr %0, i64 430
+  store i8 0, ptr %182, align 2
   br label %"_ZN4core3ptr70drop_in_place$LT$sqlx_core..rt..sleep..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5506181a9e579d2aE.exit.i.i.i.i"
 
-.body.i.i.i.i:                                    ; preds = %204, %176, %.body.i.i.i.i.i, %128
-  %.pn2.pn.i.i.i.i = phi { ptr, i32 } [ %.pn2.i.i.i.i, %204 ], [ %177, %176 ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %129, %128 ]
-  %182 = getelementptr inbounds i8, ptr %0, i64 426
-  store i8 0, ptr %182, align 2
-  %183 = getelementptr inbounds i8, ptr %0, i64 425
-  store i8 0, ptr %183, align 1
-  %184 = getelementptr inbounds i8, ptr %0, i64 429
+.body.i.i.i.i:                                    ; preds = %205, %177, %.body.i.i.i.i.i, %129
+  %.pn2.pn.i.i.i.i = phi { ptr, i32 } [ %.pn2.i.i.i.i, %205 ], [ %178, %177 ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %130, %129 ]
+  %183 = getelementptr inbounds i8, ptr %0, i64 426
+  store i8 0, ptr %183, align 2
+  %184 = getelementptr inbounds i8, ptr %0, i64 425
   store i8 0, ptr %184, align 1
-  %185 = getelementptr inbounds i8, ptr %0, i64 430
-  store i8 0, ptr %185, align 2
-  br label %219
+  %185 = getelementptr inbounds i8, ptr %0, i64 429
+  store i8 0, ptr %185, align 1
+  %186 = getelementptr inbounds i8, ptr %0, i64 430
+  store i8 0, ptr %186, align 2
+  br label %220
 
-186:                                              ; preds = %"_ZN4core3ptr193drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h1f16783208f8feaeE.llvm.6910714394678848989.exit.i.i.i.i.i"
-  %187 = landingpad { ptr, i32 }
+187:                                              ; preds = %"_ZN4core3ptr193drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h1f16783208f8feaeE.llvm.6910714394678848989.exit.i.i.i.i.i"
+  %188 = landingpad { ptr, i32 }
           cleanup
   br label %.body12.i.i.i.i
 
 "_ZN4core3ptr215drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h201b5a0a6b45a70cE.exit.i.i.i.i": ; preds = %"_ZN4core3ptr215drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h201b5a0a6b45a70cE.exit19.i.i.i.i", %"_ZN4core3ptr193drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h1f16783208f8feaeE.llvm.6910714394678848989.exit.i.i.i.i.i"
-  %188 = getelementptr inbounds i8, ptr %0, i64 428
-  %189 = load i8, ptr %188, align 4, !range !55, !noundef !9
-  %190 = trunc nuw i8 %189 to i1
-  br i1 %190, label %202, label %"_ZN4core3ptr62drop_in_place$LT$sqlx_sqlite..connection..SqliteConnection$GT$17h046f4ab48d52b47cE.exit.i.i.i.i"
+  %189 = getelementptr inbounds i8, ptr %0, i64 428
+  %190 = load i8, ptr %189, align 4, !range !55, !noundef !9
+  %191 = trunc nuw i8 %190 to i1
+  br i1 %191, label %203, label %"_ZN4core3ptr62drop_in_place$LT$sqlx_sqlite..connection..SqliteConnection$GT$17h046f4ab48d52b47cE.exit.i.i.i.i"
 
-.body12.i.i.i.i:                                  ; preds = %198, %.body16.i.i.i.i, %186, %157
-  %.pn.i.i.i.i = phi { ptr, i32 } [ %199, %198 ], [ %eh.lpad-body17.i.i.i.i, %.body16.i.i.i.i ], [ %187, %186 ], [ %158, %157 ]
-  %191 = getelementptr inbounds i8, ptr %0, i64 428
-  %192 = load i8, ptr %191, align 4, !range !55, !noundef !9
-  %193 = trunc nuw i8 %192 to i1
-  br i1 %193, label %217, label %204
+.body12.i.i.i.i:                                  ; preds = %199, %.body16.i.i.i.i, %187, %158
+  %.pn.i.i.i.i = phi { ptr, i32 } [ %200, %199 ], [ %eh.lpad-body17.i.i.i.i, %.body16.i.i.i.i ], [ %188, %187 ], [ %159, %158 ]
+  %192 = getelementptr inbounds i8, ptr %0, i64 428
+  %193 = load i8, ptr %192, align 4, !range !55, !noundef !9
+  %194 = trunc nuw i8 %193 to i1
+  br i1 %194, label %218, label %205
 
-194:                                              ; preds = %"_ZN4core3ptr193drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h1f16783208f8feaeE.llvm.6910714394678848989.exit.i15.i.i.i.i"
-  %195 = landingpad { ptr, i32 }
+195:                                              ; preds = %"_ZN4core3ptr193drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h1f16783208f8feaeE.llvm.6910714394678848989.exit.i15.i.i.i.i"
+  %196 = landingpad { ptr, i32 }
           cleanup
   br label %.body16.i.i.i.i
 
-.body16.i.i.i.i:                                  ; preds = %194, %167
-  %eh.lpad-body17.i.i.i.i = phi { ptr, i32 } [ %195, %194 ], [ %168, %167 ]
-  %196 = getelementptr inbounds i8, ptr %0, i64 448
-  invoke fastcc void @"_ZN4core3ptr44drop_in_place$LT$sqlx_core..error..Error$GT$17hc8eff5e5d3391631E"(ptr noalias noundef align 8 dereferenceable(48) %196) #35
-          to label %.body12.i.i.i.i unwind label %215
+.body16.i.i.i.i:                                  ; preds = %195, %168
+  %eh.lpad-body17.i.i.i.i = phi { ptr, i32 } [ %196, %195 ], [ %169, %168 ]
+  %197 = getelementptr inbounds i8, ptr %0, i64 448
+  invoke fastcc void @"_ZN4core3ptr44drop_in_place$LT$sqlx_core..error..Error$GT$17hc8eff5e5d3391631E"(ptr noalias noundef align 8 dereferenceable(48) %197) #35
+          to label %.body12.i.i.i.i unwind label %216
 
 "_ZN4core3ptr215drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h201b5a0a6b45a70cE.exit19.i.i.i.i": ; preds = %"_ZN4core3ptr193drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h1f16783208f8feaeE.llvm.6910714394678848989.exit.i15.i.i.i.i"
-  %197 = getelementptr inbounds i8, ptr %0, i64 448
-  invoke fastcc void @"_ZN4core3ptr44drop_in_place$LT$sqlx_core..error..Error$GT$17hc8eff5e5d3391631E"(ptr noalias noundef align 8 dereferenceable(48) %197)
-          to label %"_ZN4core3ptr215drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h201b5a0a6b45a70cE.exit.i.i.i.i" unwind label %198
+  %198 = getelementptr inbounds i8, ptr %0, i64 448
+  invoke fastcc void @"_ZN4core3ptr44drop_in_place$LT$sqlx_core..error..Error$GT$17hc8eff5e5d3391631E"(ptr noalias noundef align 8 dereferenceable(48) %198)
+          to label %"_ZN4core3ptr215drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h201b5a0a6b45a70cE.exit.i.i.i.i" unwind label %199
 
-198:                                              ; preds = %"_ZN4core3ptr215drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h201b5a0a6b45a70cE.exit19.i.i.i.i"
-  %199 = landingpad { ptr, i32 }
+199:                                              ; preds = %"_ZN4core3ptr215drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h201b5a0a6b45a70cE.exit19.i.i.i.i"
+  %200 = landingpad { ptr, i32 }
           cleanup
   br label %.body12.i.i.i.i
 
-"_ZN4core3ptr62drop_in_place$LT$sqlx_sqlite..connection..SqliteConnection$GT$17h046f4ab48d52b47cE.exit.i.i.i.i": ; preds = %202, %"_ZN4core3ptr215drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h201b5a0a6b45a70cE.exit.i.i.i.i"
-  store i8 0, ptr %188, align 4
-  %200 = getelementptr inbounds i8, ptr %0, i64 288
-  %201 = load i64, ptr %200, align 8, !range !805, !noundef !9
-  %.not.i.i.i.i = icmp eq i64 %201, 17
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr307drop_in_place$LT$sqlx_core..rt..timeout$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h928661ad3f435cfdE.exit.i.i.i.i", label %208
+"_ZN4core3ptr62drop_in_place$LT$sqlx_sqlite..connection..SqliteConnection$GT$17h046f4ab48d52b47cE.exit.i.i.i.i": ; preds = %203, %"_ZN4core3ptr215drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h201b5a0a6b45a70cE.exit.i.i.i.i"
+  store i8 0, ptr %189, align 4
+  %201 = getelementptr inbounds i8, ptr %0, i64 288
+  %202 = load i64, ptr %201, align 8, !range !805, !noundef !9
+  %.not.i.i.i.i = icmp eq i64 %202, 17
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr307drop_in_place$LT$sqlx_core..rt..timeout$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h928661ad3f435cfdE.exit.i.i.i.i", label %209
 
-202:                                              ; preds = %"_ZN4core3ptr215drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h201b5a0a6b45a70cE.exit.i.i.i.i"
-  %203 = getelementptr inbounds i8, ptr %0, i64 344
-  invoke void @"_ZN4core3ptr70drop_in_place$LT$sqlx_sqlite..connection..worker..ConnectionWorker$GT$17hab5869e62232b254E.llvm.6910714394678848989"(ptr noalias noundef nonnull align 8 dereferenceable(24) %203)
-          to label %"_ZN4core3ptr62drop_in_place$LT$sqlx_sqlite..connection..SqliteConnection$GT$17h046f4ab48d52b47cE.exit.i.i.i.i" unwind label %206
+203:                                              ; preds = %"_ZN4core3ptr215drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h201b5a0a6b45a70cE.exit.i.i.i.i"
+  %204 = getelementptr inbounds i8, ptr %0, i64 344
+  invoke void @"_ZN4core3ptr70drop_in_place$LT$sqlx_sqlite..connection..worker..ConnectionWorker$GT$17hab5869e62232b254E.llvm.6910714394678848989"(ptr noalias noundef nonnull align 8 dereferenceable(24) %204)
+          to label %"_ZN4core3ptr62drop_in_place$LT$sqlx_sqlite..connection..SqliteConnection$GT$17h046f4ab48d52b47cE.exit.i.i.i.i" unwind label %207
 
-204:                                              ; preds = %217, %206, %.body12.i.i.i.i
-  %.pn2.i.i.i.i = phi { ptr, i32 } [ %207, %206 ], [ %.pn.i.i.i.i, %217 ], [ %.pn.i.i.i.i, %.body12.i.i.i.i ]
-  %205 = getelementptr inbounds i8, ptr %0, i64 428
-  store i8 0, ptr %205, align 4
+205:                                              ; preds = %218, %207, %.body12.i.i.i.i
+  %.pn2.i.i.i.i = phi { ptr, i32 } [ %208, %207 ], [ %.pn.i.i.i.i, %218 ], [ %.pn.i.i.i.i, %.body12.i.i.i.i ]
+  %206 = getelementptr inbounds i8, ptr %0, i64 428
+  store i8 0, ptr %206, align 4
   br label %.body.i.i.i.i
 
-206:                                              ; preds = %202
-  %207 = landingpad { ptr, i32 }
+207:                                              ; preds = %203
+  %208 = landingpad { ptr, i32 }
           cleanup
-  br label %204
+  br label %205
 
-208:                                              ; preds = %"_ZN4core3ptr62drop_in_place$LT$sqlx_sqlite..connection..SqliteConnection$GT$17h046f4ab48d52b47cE.exit.i.i.i.i"
-  %209 = getelementptr inbounds i8, ptr %0, i64 426
-  store i8 0, ptr %209, align 2
+209:                                              ; preds = %"_ZN4core3ptr62drop_in_place$LT$sqlx_sqlite..connection..SqliteConnection$GT$17h046f4ab48d52b47cE.exit.i.i.i.i"
+  %210 = getelementptr inbounds i8, ptr %0, i64 426
+  store i8 0, ptr %210, align 2
   br label %"_ZN4core3ptr307drop_in_place$LT$sqlx_core..rt..timeout$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h928661ad3f435cfdE.exit.i.i.i.i"
 
-"_ZN4core3ptr70drop_in_place$LT$sqlx_core..rt..sleep..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5506181a9e579d2aE.exit.i.i.i.i": ; preds = %"_ZN4core3ptr307drop_in_place$LT$sqlx_core..rt..timeout$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h928661ad3f435cfdE.exit.i.i.i.i", %174, %171
-  %210 = getelementptr inbounds i8, ptr %0, i64 280
+"_ZN4core3ptr70drop_in_place$LT$sqlx_core..rt..sleep..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5506181a9e579d2aE.exit.i.i.i.i": ; preds = %"_ZN4core3ptr307drop_in_place$LT$sqlx_core..rt..timeout$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h928661ad3f435cfdE.exit.i.i.i.i", %175, %172
+  %211 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @llvm.experimental.noalias.scope.decl(metadata !806)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !809)
-  %211 = load ptr, ptr %210, align 8, !alias.scope !812, !nonnull !9, !noundef !9
-  %212 = atomicrmw sub ptr %211, i64 1 release, align 8, !noalias !812
-  %213 = icmp eq i64 %212, 1
-  br i1 %213, label %214, label %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$sqlx_sqlite..options..SqliteConnectOptions$GT$$GT$17hfe1271a83ab51756E.exit.i.i.i.i"
+  %212 = load ptr, ptr %211, align 8, !alias.scope !812, !nonnull !9, !noundef !9
+  %213 = atomicrmw sub ptr %212, i64 1 release, align 8, !noalias !812
+  %214 = icmp eq i64 %213, 1
+  br i1 %214, label %215, label %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$sqlx_sqlite..options..SqliteConnectOptions$GT$$GT$17hfe1271a83ab51756E.exit.i.i.i.i"
 
-214:                                              ; preds = %"_ZN4core3ptr70drop_in_place$LT$sqlx_core..rt..sleep..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5506181a9e579d2aE.exit.i.i.i.i"
+215:                                              ; preds = %"_ZN4core3ptr70drop_in_place$LT$sqlx_core..rt..sleep..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5506181a9e579d2aE.exit.i.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17ha6153dbf967c394aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %210)
-          to label %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$sqlx_sqlite..options..SqliteConnectOptions$GT$$GT$17hfe1271a83ab51756E.exit.i.i.i.i" unwind label %225
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17ha6153dbf967c394aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %211)
+          to label %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$sqlx_sqlite..options..SqliteConnectOptions$GT$$GT$17hfe1271a83ab51756E.exit.i.i.i.i" unwind label %226
 
-215:                                              ; preds = %223, %219, %217, %.body16.i.i.i.i
-  %216 = landingpad { ptr, i32 }
+216:                                              ; preds = %224, %220, %218, %.body16.i.i.i.i
+  %217 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #36
   unreachable
 
-217:                                              ; preds = %.body12.i.i.i.i
-  %218 = getelementptr inbounds i8, ptr %0, i64 336
-  invoke void @"_ZN4core3ptr62drop_in_place$LT$sqlx_sqlite..connection..SqliteConnection$GT$17h046f4ab48d52b47cE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %218) #35
-          to label %204 unwind label %215
+218:                                              ; preds = %.body12.i.i.i.i
+  %219 = getelementptr inbounds i8, ptr %0, i64 336
+  invoke void @"_ZN4core3ptr62drop_in_place$LT$sqlx_sqlite..connection..SqliteConnection$GT$17h046f4ab48d52b47cE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %219) #35
+          to label %205 unwind label %216
 
-219:                                              ; preds = %221, %.body.i.i.i.i
-  %.pn5.i.i.i.i = phi { ptr, i32 } [ %222, %221 ], [ %.pn2.pn.i.i.i.i, %.body.i.i.i.i ]
-  %220 = getelementptr inbounds i8, ptr %0, i64 280
-  invoke fastcc void @"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$sqlx_sqlite..options..SqliteConnectOptions$GT$$GT$17hfe1271a83ab51756E"(ptr noalias noundef align 8 dereferenceable(8) %220) #35
-          to label %223 unwind label %215
+220:                                              ; preds = %222, %.body.i.i.i.i
+  %.pn5.i.i.i.i = phi { ptr, i32 } [ %223, %222 ], [ %.pn2.pn.i.i.i.i, %.body.i.i.i.i ]
+  %221 = getelementptr inbounds i8, ptr %0, i64 280
+  invoke fastcc void @"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$sqlx_sqlite..options..SqliteConnectOptions$GT$$GT$17hfe1271a83ab51756E"(ptr noalias noundef align 8 dereferenceable(8) %221) #35
+          to label %224 unwind label %216
 
-221:                                              ; preds = %174
-  %222 = landingpad { ptr, i32 }
+222:                                              ; preds = %175
+  %223 = landingpad { ptr, i32 }
           cleanup
-  br label %219
+  br label %220
 
-223:                                              ; preds = %225, %219
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %226, %225 ], [ %.pn5.i.i.i.i, %219 ]
-  %224 = getelementptr inbounds i8, ptr %0, i64 232
-  invoke void @"_ZN4core3ptr100drop_in_place$LT$sqlx_core..pool..inner..DecrementSizeGuard$LT$sqlx_sqlite..database..Sqlite$GT$$GT$17h9147a6e54fd37ab2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %224) #35
-          to label %.body25.i.i.i.i unwind label %215
+224:                                              ; preds = %226, %220
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %227, %226 ], [ %.pn5.i.i.i.i, %220 ]
+  %225 = getelementptr inbounds i8, ptr %0, i64 232
+  invoke void @"_ZN4core3ptr100drop_in_place$LT$sqlx_core..pool..inner..DecrementSizeGuard$LT$sqlx_sqlite..database..Sqlite$GT$$GT$17h9147a6e54fd37ab2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %225) #35
+          to label %.body25.i.i.i.i unwind label %216
 
-225:                                              ; preds = %214
-  %226 = landingpad { ptr, i32 }
+226:                                              ; preds = %215
+  %227 = landingpad { ptr, i32 }
           cleanup
-  br label %223
+  br label %224
 
-"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$sqlx_sqlite..options..SqliteConnectOptions$GT$$GT$17hfe1271a83ab51756E.exit.i.i.i.i": ; preds = %214, %"_ZN4core3ptr70drop_in_place$LT$sqlx_core..rt..sleep..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5506181a9e579d2aE.exit.i.i.i.i"
-  %227 = getelementptr inbounds i8, ptr %0, i64 232
+"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$sqlx_sqlite..options..SqliteConnectOptions$GT$$GT$17hfe1271a83ab51756E.exit.i.i.i.i": ; preds = %215, %"_ZN4core3ptr70drop_in_place$LT$sqlx_core..rt..sleep..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5506181a9e579d2aE.exit.i.i.i.i"
+  %228 = getelementptr inbounds i8, ptr %0, i64 232
   tail call void @llvm.experimental.noalias.scope.decl(metadata !813)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !816)
-  %228 = getelementptr inbounds i8, ptr %0, i64 240
-  %229 = load i8, ptr %228, align 8, !range !55, !alias.scope !819, !noundef !9
-  %230 = trunc nuw i8 %229 to i1
-  br i1 %230, label %"_ZN94_$LT$sqlx_core..pool..inner..DecrementSizeGuard$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h00802c3541957413E.llvm.6910714394678848989.exit.i23.i.i.i.i", label %231
+  %229 = getelementptr inbounds i8, ptr %0, i64 240
+  %230 = load i8, ptr %229, align 8, !range !55, !alias.scope !819, !noundef !9
+  %231 = trunc nuw i8 %230 to i1
+  br i1 %231, label %"_ZN94_$LT$sqlx_core..pool..inner..DecrementSizeGuard$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h00802c3541957413E.llvm.6910714394678848989.exit.i23.i.i.i.i", label %232
 
-231:                                              ; preds = %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$sqlx_sqlite..options..SqliteConnectOptions$GT$$GT$17hfe1271a83ab51756E.exit.i.i.i.i"
-  %232 = load ptr, ptr %227, align 8, !alias.scope !819, !nonnull !9, !noundef !9
-  %233 = getelementptr inbounds i8, ptr %232, i64 712
-  %234 = atomicrmw sub ptr %233, i32 1 acq_rel, align 4, !noalias !819
-  %235 = load ptr, ptr %227, align 8, !alias.scope !819, !nonnull !9, !noundef !9
-  %236 = getelementptr inbounds i8, ptr %235, i64 536
-  invoke void @_ZN9sqlx_core4sync14AsyncSemaphore7release17h7bc10d384cbf6dc4E(ptr noundef nonnull align 8 %236, i64 noundef 1)
-          to label %"_ZN94_$LT$sqlx_core..pool..inner..DecrementSizeGuard$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h00802c3541957413E.llvm.6910714394678848989.exit.i23.i.i.i.i" unwind label %237, !noalias !813
+232:                                              ; preds = %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$sqlx_sqlite..options..SqliteConnectOptions$GT$$GT$17hfe1271a83ab51756E.exit.i.i.i.i"
+  %233 = load ptr, ptr %228, align 8, !alias.scope !819, !nonnull !9, !noundef !9
+  %234 = getelementptr inbounds i8, ptr %233, i64 712
+  %235 = atomicrmw sub ptr %234, i32 1 acq_rel, align 4, !noalias !819
+  %236 = load ptr, ptr %228, align 8, !alias.scope !819, !nonnull !9, !noundef !9
+  %237 = getelementptr inbounds i8, ptr %236, i64 536
+  invoke void @_ZN9sqlx_core4sync14AsyncSemaphore7release17h7bc10d384cbf6dc4E(ptr noundef nonnull align 8 %237, i64 noundef 1)
+          to label %"_ZN94_$LT$sqlx_core..pool..inner..DecrementSizeGuard$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h00802c3541957413E.llvm.6910714394678848989.exit.i23.i.i.i.i" unwind label %238, !noalias !813
 
-237:                                              ; preds = %231
-  %238 = landingpad { ptr, i32 }
+238:                                              ; preds = %232
+  %239 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr115drop_in_place$LT$alloc..sync..Arc$LT$sqlx_core..pool..inner..PoolInner$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$GT$17h6ab9501924939c6cE.llvm.6910714394678848989"(ptr noalias noundef nonnull align 8 dereferenceable(8) %227) #35
-          to label %.body25.i.i.i.i unwind label %243
+  invoke void @"_ZN4core3ptr115drop_in_place$LT$alloc..sync..Arc$LT$sqlx_core..pool..inner..PoolInner$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$GT$17h6ab9501924939c6cE.llvm.6910714394678848989"(ptr noalias noundef nonnull align 8 dereferenceable(8) %228) #35
+          to label %.body25.i.i.i.i unwind label %244
 
-"_ZN94_$LT$sqlx_core..pool..inner..DecrementSizeGuard$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h00802c3541957413E.llvm.6910714394678848989.exit.i23.i.i.i.i": ; preds = %231, %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$sqlx_sqlite..options..SqliteConnectOptions$GT$$GT$17hfe1271a83ab51756E.exit.i.i.i.i"
+"_ZN94_$LT$sqlx_core..pool..inner..DecrementSizeGuard$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h00802c3541957413E.llvm.6910714394678848989.exit.i23.i.i.i.i": ; preds = %232, %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$sqlx_sqlite..options..SqliteConnectOptions$GT$$GT$17hfe1271a83ab51756E.exit.i.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !820)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !823)
-  %239 = load ptr, ptr %227, align 8, !alias.scope !826, !nonnull !9, !noundef !9
-  %240 = atomicrmw sub ptr %239, i64 1 release, align 8, !noalias !826
-  %241 = icmp eq i64 %240, 1
-  br i1 %241, label %242, label %"_ZN4core3ptr100drop_in_place$LT$sqlx_core..pool..inner..DecrementSizeGuard$LT$sqlx_sqlite..database..Sqlite$GT$$GT$17h9147a6e54fd37ab2E.exit27.i.i.i.i"
+  %240 = load ptr, ptr %228, align 8, !alias.scope !826, !nonnull !9, !noundef !9
+  %241 = atomicrmw sub ptr %240, i64 1 release, align 8, !noalias !826
+  %242 = icmp eq i64 %241, 1
+  br i1 %242, label %243, label %"_ZN4core3ptr100drop_in_place$LT$sqlx_core..pool..inner..DecrementSizeGuard$LT$sqlx_sqlite..database..Sqlite$GT$$GT$17h9147a6e54fd37ab2E.exit27.i.i.i.i"
 
-242:                                              ; preds = %"_ZN94_$LT$sqlx_core..pool..inner..DecrementSizeGuard$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h00802c3541957413E.llvm.6910714394678848989.exit.i23.i.i.i.i"
+243:                                              ; preds = %"_ZN94_$LT$sqlx_core..pool..inner..DecrementSizeGuard$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h00802c3541957413E.llvm.6910714394678848989.exit.i23.i.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h427c2fd12098275dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %227)
-          to label %"_ZN4core3ptr100drop_in_place$LT$sqlx_core..pool..inner..DecrementSizeGuard$LT$sqlx_sqlite..database..Sqlite$GT$$GT$17h9147a6e54fd37ab2E.exit27.i.i.i.i" unwind label %246
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h427c2fd12098275dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %228)
+          to label %"_ZN4core3ptr100drop_in_place$LT$sqlx_core..pool..inner..DecrementSizeGuard$LT$sqlx_sqlite..database..Sqlite$GT$$GT$17h9147a6e54fd37ab2E.exit27.i.i.i.i" unwind label %247
 
-243:                                              ; preds = %237
-  %244 = landingpad { ptr, i32 }
+244:                                              ; preds = %238
+  %245 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #36
   unreachable
 
-.body25.i.i.i.i:                                  ; preds = %246, %237, %223
-  %.pn9.i.i.i.i = phi { ptr, i32 } [ %.pn7.i.i.i.i, %223 ], [ %247, %246 ], [ %238, %237 ]
-  %245 = getelementptr inbounds i8, ptr %0, i64 427
-  store i8 0, ptr %245, align 1
+.body25.i.i.i.i:                                  ; preds = %247, %238, %224
+  %.pn9.i.i.i.i = phi { ptr, i32 } [ %.pn7.i.i.i.i, %224 ], [ %248, %247 ], [ %239, %238 ]
+  %246 = getelementptr inbounds i8, ptr %0, i64 427
+  store i8 0, ptr %246, align 1
   br label %.body.i.i.i
 
-246:                                              ; preds = %242
-  %247 = landingpad { ptr, i32 }
+247:                                              ; preds = %243
+  %248 = landingpad { ptr, i32 }
           cleanup
   br label %.body25.i.i.i.i
 
-"_ZN4core3ptr100drop_in_place$LT$sqlx_core..pool..inner..DecrementSizeGuard$LT$sqlx_sqlite..database..Sqlite$GT$$GT$17h9147a6e54fd37ab2E.exit27.i.i.i.i": ; preds = %242, %"_ZN94_$LT$sqlx_core..pool..inner..DecrementSizeGuard$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h00802c3541957413E.llvm.6910714394678848989.exit.i23.i.i.i.i"
-  %248 = getelementptr inbounds i8, ptr %0, i64 427
-  store i8 0, ptr %248, align 1
+"_ZN4core3ptr100drop_in_place$LT$sqlx_core..pool..inner..DecrementSizeGuard$LT$sqlx_sqlite..database..Sqlite$GT$$GT$17h9147a6e54fd37ab2E.exit27.i.i.i.i": ; preds = %243, %"_ZN94_$LT$sqlx_core..pool..inner..DecrementSizeGuard$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h00802c3541957413E.llvm.6910714394678848989.exit.i23.i.i.i.i"
+  %249 = getelementptr inbounds i8, ptr %0, i64 427
+  store i8 0, ptr %249, align 1
   br label %"_ZN4core3ptr129drop_in_place$LT$sqlx_core..pool..inner..PoolInner$LT$sqlx_sqlite..database..Sqlite$GT$..connect..$u7b$$u7b$closure$u7d$$u7d$$GT$17he7a4ff6e596749d3E.exit.i.i.i"
 
-249:                                              ; preds = %116
-  %250 = landingpad { ptr, i32 }
+250:                                              ; preds = %117
+  %251 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i.i
 
-.body.i.i.i:                                      ; preds = %249, %.body25.i.i.i.i, %111
-  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %250, %249 ], [ %.pn9.i.i.i.i, %.body25.i.i.i.i ], [ %112, %111 ]
-  %251 = getelementptr inbounds i8, ptr %0, i64 601
-  store i8 0, ptr %251, align 1
-  %252 = getelementptr inbounds i8, ptr %0, i64 602
-  store i8 0, ptr %252, align 2
+.body.i.i.i:                                      ; preds = %250, %.body25.i.i.i.i, %112
+  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %251, %250 ], [ %.pn9.i.i.i.i, %.body25.i.i.i.i ], [ %113, %112 ]
+  %252 = getelementptr inbounds i8, ptr %0, i64 601
+  store i8 0, ptr %252, align 1
+  %253 = getelementptr inbounds i8, ptr %0, i64 602
+  store i8 0, ptr %253, align 2
   br label %.body.i
 
-"_ZN4core3ptr129drop_in_place$LT$sqlx_core..pool..inner..PoolInner$LT$sqlx_sqlite..database..Sqlite$GT$..connect..$u7b$$u7b$closure$u7d$$u7d$$GT$17he7a4ff6e596749d3E.exit.i.i.i": ; preds = %"_ZN4core3ptr100drop_in_place$LT$sqlx_core..pool..inner..DecrementSizeGuard$LT$sqlx_sqlite..database..Sqlite$GT$$GT$17h9147a6e54fd37ab2E.exit27.i.i.i.i", %116, %"_ZN94_$LT$sqlx_core..pool..inner..DecrementSizeGuard$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h00802c3541957413E.llvm.6910714394678848989.exit.i.i.i.i.i", %97
-  %253 = getelementptr inbounds i8, ptr %0, i64 601
-  store i8 0, ptr %253, align 1
-  %254 = getelementptr inbounds i8, ptr %0, i64 602
-  br label %"_ZN4core3ptr213drop_in_place$LT$sqlx_core..pool..connection..Floating$LT$sqlx_sqlite..database..Sqlite$C$sqlx_core..pool..connection..Live$LT$sqlx_sqlite..database..Sqlite$GT$$GT$..return_to_pool..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6a83479287a54847E.exit.sink.split.i"
-
-255:                                              ; preds = %13
-  %256 = landingpad { ptr, i32 }
-          cleanup
-  %257 = getelementptr inbounds i8, ptr %0, i64 72
-  invoke fastcc void @"_ZN4core3ptr115drop_in_place$LT$alloc..sync..Arc$LT$sqlx_core..pool..inner..PoolInner$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$GT$17h6ab9501924939c6cE"(ptr noalias noundef align 8 dereferenceable(8) %257) #35
-          to label %common.resume unwind label %262
-
-"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$sqlx_core..pool..connection..Floating$LT$sqlx_sqlite..database..Sqlite$C$sqlx_core..pool..connection..Live$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$GT$$GT$17hd5bf9b8ad7376604E.exit.i": ; preds = %13, %11
-  %258 = getelementptr inbounds i8, ptr %0, i64 72
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !827)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !830)
-  %259 = load ptr, ptr %258, align 8, !alias.scope !833, !nonnull !9, !noundef !9
-  %260 = atomicrmw sub ptr %259, i64 1 release, align 8, !noalias !833
-  %261 = icmp eq i64 %260, 1
-  br i1 %261, label %common.ret.sink.split.i, label %"_ZN4core3ptr146drop_in_place$LT$sqlx_core..pool..connection..PoolConnection$LT$sqlx_sqlite..database..Sqlite$GT$..return_to_pool..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcdb4bda764124233E.exit"
-
-common.resume:                                    ; preds = %300, %255, %278, %285
-  %common.resume.op = phi { ptr, i32 } [ %279, %278 ], [ %.pn.i, %285 ], [ %256, %255 ], [ %301, %300 ]
-  resume { ptr, i32 } %common.resume.op
-
-262:                                              ; preds = %287, %285, %278, %255
-  %263 = landingpad { ptr, i32 }
-          filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #36
-  unreachable
-
-264:                                              ; preds = %17
-  %265 = landingpad { ptr, i32 }
-          cleanup
-  br label %.body.i
-
-"_ZN4core3ptr213drop_in_place$LT$sqlx_core..pool..connection..Floating$LT$sqlx_sqlite..database..Sqlite$C$sqlx_core..pool..connection..Live$LT$sqlx_sqlite..database..Sqlite$GT$$GT$..return_to_pool..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6a83479287a54847E.exit.sink.split.i": ; preds = %"_ZN4core3ptr129drop_in_place$LT$sqlx_core..pool..inner..PoolInner$LT$sqlx_sqlite..database..Sqlite$GT$..connect..$u7b$$u7b$closure$u7d$$u7d$$GT$17he7a4ff6e596749d3E.exit.i.i.i", %83, %"_ZN4core3ptr211drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bool$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h5decb9f8ff01ba13E.exit.i.i"
-  %.sink9.i = phi ptr [ %254, %"_ZN4core3ptr129drop_in_place$LT$sqlx_core..pool..inner..PoolInner$LT$sqlx_sqlite..database..Sqlite$GT$..connect..$u7b$$u7b$closure$u7d$$u7d$$GT$17he7a4ff6e596749d3E.exit.i.i.i" ], [ %51, %83 ], [ %51, %"_ZN4core3ptr211drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bool$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h5decb9f8ff01ba13E.exit.i.i" ]
-  store i8 0, ptr %.sink9.i, align 2
+"_ZN4core3ptr129drop_in_place$LT$sqlx_core..pool..inner..PoolInner$LT$sqlx_sqlite..database..Sqlite$GT$..connect..$u7b$$u7b$closure$u7d$$u7d$$GT$17he7a4ff6e596749d3E.exit.i.i.i": ; preds = %"_ZN4core3ptr100drop_in_place$LT$sqlx_core..pool..inner..DecrementSizeGuard$LT$sqlx_sqlite..database..Sqlite$GT$$GT$17h9147a6e54fd37ab2E.exit27.i.i.i.i", %117, %"_ZN94_$LT$sqlx_core..pool..inner..DecrementSizeGuard$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h00802c3541957413E.llvm.6910714394678848989.exit.i.i.i.i.i", %98
+  %254 = getelementptr inbounds i8, ptr %0, i64 601
+  store i8 0, ptr %254, align 1
+  %255 = getelementptr inbounds i8, ptr %0, i64 602
+  store i8 0, ptr %255, align 2
   br label %"_ZN4core3ptr213drop_in_place$LT$sqlx_core..pool..connection..Floating$LT$sqlx_sqlite..database..Sqlite$C$sqlx_core..pool..connection..Live$LT$sqlx_sqlite..database..Sqlite$GT$$GT$..return_to_pool..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6a83479287a54847E.exit.i"
 
-"_ZN4core3ptr213drop_in_place$LT$sqlx_core..pool..connection..Floating$LT$sqlx_sqlite..database..Sqlite$C$sqlx_core..pool..connection..Live$LT$sqlx_sqlite..database..Sqlite$GT$$GT$..return_to_pool..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6a83479287a54847E.exit.i": ; preds = %"_ZN4core3ptr213drop_in_place$LT$sqlx_core..pool..connection..Floating$LT$sqlx_sqlite..database..Sqlite$C$sqlx_core..pool..connection..Live$LT$sqlx_sqlite..database..Sqlite$GT$$GT$..return_to_pool..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6a83479287a54847E.exit.sink.split.i", %94, %91, %17, %14
-  %266 = load i32, ptr %0, align 8, !range !834, !noundef !9
-  %.not2.i = icmp eq i32 %266, 3
-  br i1 %.not2.i, label %272, label %268
-
-.body.i:                                          ; preds = %264, %.body.i.i.i, %85
-  %.pn.i = phi { ptr, i32 } [ %265, %264 ], [ %.pn5.i.i, %85 ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ]
-  %267 = load i32, ptr %0, align 8, !range !834, !noundef !9
-  %.not.i = icmp eq i32 %267, 3
-  br i1 %.not.i, label %285, label %281
-
-268:                                              ; preds = %"_ZN4core3ptr213drop_in_place$LT$sqlx_core..pool..connection..Floating$LT$sqlx_sqlite..database..Sqlite$C$sqlx_core..pool..connection..Live$LT$sqlx_sqlite..database..Sqlite$GT$$GT$..return_to_pool..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6a83479287a54847E.exit.i"
-  %269 = getelementptr inbounds i8, ptr %0, i64 81
-  %270 = load i8, ptr %269, align 1, !range !55, !noundef !9
-  %271 = trunc nuw i8 %270 to i1
-  br i1 %271, label %277, label %272
-
-272:                                              ; preds = %277, %268, %"_ZN4core3ptr213drop_in_place$LT$sqlx_core..pool..connection..Floating$LT$sqlx_sqlite..database..Sqlite$C$sqlx_core..pool..connection..Live$LT$sqlx_sqlite..database..Sqlite$GT$$GT$..return_to_pool..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6a83479287a54847E.exit.i"
-  %273 = getelementptr inbounds i8, ptr %0, i64 72
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !835)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !838)
-  %274 = load ptr, ptr %273, align 8, !alias.scope !841, !nonnull !9, !noundef !9
-  %275 = atomicrmw sub ptr %274, i64 1 release, align 8, !noalias !841
-  %276 = icmp eq i64 %275, 1
-  br i1 %276, label %common.ret.sink.split.i, label %"_ZN4core3ptr146drop_in_place$LT$sqlx_core..pool..connection..PoolConnection$LT$sqlx_sqlite..database..Sqlite$GT$..return_to_pool..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcdb4bda764124233E.exit"
-
-277:                                              ; preds = %268
-  invoke void @"_ZN4core3ptr168drop_in_place$LT$sqlx_core..pool..connection..Floating$LT$sqlx_sqlite..database..Sqlite$C$sqlx_core..pool..connection..Live$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$GT$17h195306e944ddc502E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0)
-          to label %272 unwind label %278
-
-278:                                              ; preds = %277
-  %279 = landingpad { ptr, i32 }
+256:                                              ; preds = %13
+  %257 = landingpad { ptr, i32 }
           cleanup
-  %280 = getelementptr inbounds i8, ptr %0, i64 72
-  invoke fastcc void @"_ZN4core3ptr115drop_in_place$LT$alloc..sync..Arc$LT$sqlx_core..pool..inner..PoolInner$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$GT$17h6ab9501924939c6cE"(ptr noalias noundef align 8 dereferenceable(8) %280) #35
-          to label %common.resume unwind label %262
+  %258 = getelementptr inbounds i8, ptr %0, i64 72
+  invoke fastcc void @"_ZN4core3ptr115drop_in_place$LT$alloc..sync..Arc$LT$sqlx_core..pool..inner..PoolInner$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$GT$17h6ab9501924939c6cE"(ptr noalias noundef align 8 dereferenceable(8) %258) #35
+          to label %common.resume unwind label %263
 
-281:                                              ; preds = %.body.i
-  %282 = getelementptr inbounds i8, ptr %0, i64 81
-  %283 = load i8, ptr %282, align 1, !range !55, !noundef !9
-  %284 = trunc nuw i8 %283 to i1
-  br i1 %284, label %287, label %285
+"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$sqlx_core..pool..connection..Floating$LT$sqlx_sqlite..database..Sqlite$C$sqlx_core..pool..connection..Live$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$GT$$GT$17hd5bf9b8ad7376604E.exit.i": ; preds = %13, %11
+  %259 = getelementptr inbounds i8, ptr %0, i64 72
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !827)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !830)
+  %260 = load ptr, ptr %259, align 8, !alias.scope !833, !nonnull !9, !noundef !9
+  %261 = atomicrmw sub ptr %260, i64 1 release, align 8, !noalias !833
+  %262 = icmp eq i64 %261, 1
+  br i1 %262, label %common.ret.sink.split.i, label %"_ZN4core3ptr146drop_in_place$LT$sqlx_core..pool..connection..PoolConnection$LT$sqlx_sqlite..database..Sqlite$GT$..return_to_pool..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcdb4bda764124233E.exit"
 
-285:                                              ; preds = %287, %281, %.body.i
-  %286 = getelementptr inbounds i8, ptr %0, i64 72
-  invoke fastcc void @"_ZN4core3ptr115drop_in_place$LT$alloc..sync..Arc$LT$sqlx_core..pool..inner..PoolInner$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$GT$17h6ab9501924939c6cE"(ptr noalias noundef align 8 dereferenceable(8) %286) #35
-          to label %common.resume unwind label %262
+common.resume:                                    ; preds = %301, %256, %279, %286
+  %common.resume.op = phi { ptr, i32 } [ %280, %279 ], [ %.pn.i, %286 ], [ %257, %256 ], [ %302, %301 ]
+  resume { ptr, i32 } %common.resume.op
 
-287:                                              ; preds = %281
-  invoke void @"_ZN4core3ptr168drop_in_place$LT$sqlx_core..pool..connection..Floating$LT$sqlx_sqlite..database..Sqlite$C$sqlx_core..pool..connection..Live$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$GT$17h195306e944ddc502E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0) #35
-          to label %285 unwind label %262
-
-288:                                              ; preds = %1
-  %289 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !842)
-  %290 = load i64, ptr %289, align 8, !range !364, !alias.scope !842, !noundef !9
-  %291 = icmp eq i64 %290, 0
-  br i1 %291, label %"_ZN4core3ptr146drop_in_place$LT$sqlx_core..pool..connection..PoolConnection$LT$sqlx_sqlite..database..Sqlite$GT$..return_to_pool..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcdb4bda764124233E.exit", label %292
-
-292:                                              ; preds = %288
-  %293 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !845)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !848)
-  %294 = load ptr, ptr %293, align 8, !alias.scope !851, !noundef !9
-  %295 = icmp eq ptr %294, null
-  br i1 %295, label %"_ZN4core3ptr146drop_in_place$LT$sqlx_core..pool..connection..PoolConnection$LT$sqlx_sqlite..database..Sqlite$GT$..return_to_pool..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcdb4bda764124233E.exit", label %296
-
-296:                                              ; preds = %292
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !852)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !855)
-  %297 = getelementptr inbounds i8, ptr %0, i64 24
-  %298 = load ptr, ptr %297, align 8, !alias.scope !858, !nonnull !9, !align !37, !noundef !9
-  %299 = load ptr, ptr %298, align 8, !invariant.load !9, !noalias !858, !nonnull !9
-  invoke void %299(ptr noundef nonnull align 1 %294)
-          to label %"_ZN4core3ptr137drop_in_place$LT$tokio..util..sync_wrapper..SyncWrapper$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h1de7700957d52035E.llvm.6910714394678848989.exit.i.i.i" unwind label %300, !noalias !858
-
-300:                                              ; preds = %296
-  %301 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2762db915a5c7254E.llvm.6910714394678848989"(ptr noalias noundef nonnull align 8 dereferenceable(16) %293) #35
-          to label %common.resume unwind label %302
-
-302:                                              ; preds = %300
-  %303 = landingpad { ptr, i32 }
+263:                                              ; preds = %288, %286, %279, %256
+  %264 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #36
   unreachable
 
-"_ZN4core3ptr137drop_in_place$LT$tokio..util..sync_wrapper..SyncWrapper$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h1de7700957d52035E.llvm.6910714394678848989.exit.i.i.i": ; preds = %296
-  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2762db915a5c7254E.llvm.6910714394678848989"(ptr noalias noundef nonnull align 8 dereferenceable(16) %293)
+265:                                              ; preds = %17
+  %266 = landingpad { ptr, i32 }
+          cleanup
+  br label %.body.i
+
+"_ZN4core3ptr213drop_in_place$LT$sqlx_core..pool..connection..Floating$LT$sqlx_sqlite..database..Sqlite$C$sqlx_core..pool..connection..Live$LT$sqlx_sqlite..database..Sqlite$GT$$GT$..return_to_pool..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6a83479287a54847E.exit.i": ; preds = %"_ZN4core3ptr129drop_in_place$LT$sqlx_core..pool..inner..PoolInner$LT$sqlx_sqlite..database..Sqlite$GT$..connect..$u7b$$u7b$closure$u7d$$u7d$$GT$17he7a4ff6e596749d3E.exit.i.i.i", %95, %92, %83, %17, %14
+  %267 = load i32, ptr %0, align 8, !range !834, !noundef !9
+  %.not2.i = icmp eq i32 %267, 3
+  br i1 %.not2.i, label %273, label %269
+
+.body.i:                                          ; preds = %265, %.body.i.i.i, %86
+  %.pn.i = phi { ptr, i32 } [ %266, %265 ], [ %.pn5.i.i, %86 ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ]
+  %268 = load i32, ptr %0, align 8, !range !834, !noundef !9
+  %.not.i = icmp eq i32 %268, 3
+  br i1 %.not.i, label %286, label %282
+
+269:                                              ; preds = %"_ZN4core3ptr213drop_in_place$LT$sqlx_core..pool..connection..Floating$LT$sqlx_sqlite..database..Sqlite$C$sqlx_core..pool..connection..Live$LT$sqlx_sqlite..database..Sqlite$GT$$GT$..return_to_pool..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6a83479287a54847E.exit.i"
+  %270 = getelementptr inbounds i8, ptr %0, i64 81
+  %271 = load i8, ptr %270, align 1, !range !55, !noundef !9
+  %272 = trunc nuw i8 %271 to i1
+  br i1 %272, label %278, label %273
+
+273:                                              ; preds = %278, %269, %"_ZN4core3ptr213drop_in_place$LT$sqlx_core..pool..connection..Floating$LT$sqlx_sqlite..database..Sqlite$C$sqlx_core..pool..connection..Live$LT$sqlx_sqlite..database..Sqlite$GT$$GT$..return_to_pool..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6a83479287a54847E.exit.i"
+  %274 = getelementptr inbounds i8, ptr %0, i64 72
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !835)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !838)
+  %275 = load ptr, ptr %274, align 8, !alias.scope !841, !nonnull !9, !noundef !9
+  %276 = atomicrmw sub ptr %275, i64 1 release, align 8, !noalias !841
+  %277 = icmp eq i64 %276, 1
+  br i1 %277, label %common.ret.sink.split.i, label %"_ZN4core3ptr146drop_in_place$LT$sqlx_core..pool..connection..PoolConnection$LT$sqlx_sqlite..database..Sqlite$GT$..return_to_pool..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcdb4bda764124233E.exit"
+
+278:                                              ; preds = %269
+  invoke void @"_ZN4core3ptr168drop_in_place$LT$sqlx_core..pool..connection..Floating$LT$sqlx_sqlite..database..Sqlite$C$sqlx_core..pool..connection..Live$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$GT$17h195306e944ddc502E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0)
+          to label %273 unwind label %279
+
+279:                                              ; preds = %278
+  %280 = landingpad { ptr, i32 }
+          cleanup
+  %281 = getelementptr inbounds i8, ptr %0, i64 72
+  invoke fastcc void @"_ZN4core3ptr115drop_in_place$LT$alloc..sync..Arc$LT$sqlx_core..pool..inner..PoolInner$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$GT$17h6ab9501924939c6cE"(ptr noalias noundef align 8 dereferenceable(8) %281) #35
+          to label %common.resume unwind label %263
+
+282:                                              ; preds = %.body.i
+  %283 = getelementptr inbounds i8, ptr %0, i64 81
+  %284 = load i8, ptr %283, align 1, !range !55, !noundef !9
+  %285 = trunc nuw i8 %284 to i1
+  br i1 %285, label %288, label %286
+
+286:                                              ; preds = %288, %282, %.body.i
+  %287 = getelementptr inbounds i8, ptr %0, i64 72
+  invoke fastcc void @"_ZN4core3ptr115drop_in_place$LT$alloc..sync..Arc$LT$sqlx_core..pool..inner..PoolInner$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$GT$17h6ab9501924939c6cE"(ptr noalias noundef align 8 dereferenceable(8) %287) #35
+          to label %common.resume unwind label %263
+
+288:                                              ; preds = %282
+  invoke void @"_ZN4core3ptr168drop_in_place$LT$sqlx_core..pool..connection..Floating$LT$sqlx_sqlite..database..Sqlite$C$sqlx_core..pool..connection..Live$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$GT$17h195306e944ddc502E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0) #35
+          to label %286 unwind label %263
+
+289:                                              ; preds = %1
+  %290 = getelementptr inbounds i8, ptr %0, i64 8
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !842)
+  %291 = load i64, ptr %290, align 8, !range !364, !alias.scope !842, !noundef !9
+  %292 = icmp eq i64 %291, 0
+  br i1 %292, label %"_ZN4core3ptr146drop_in_place$LT$sqlx_core..pool..connection..PoolConnection$LT$sqlx_sqlite..database..Sqlite$GT$..return_to_pool..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcdb4bda764124233E.exit", label %293
+
+293:                                              ; preds = %289
+  %294 = getelementptr inbounds i8, ptr %0, i64 16
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !845)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !848)
+  %295 = load ptr, ptr %294, align 8, !alias.scope !851, !noundef !9
+  %296 = icmp eq ptr %295, null
+  br i1 %296, label %"_ZN4core3ptr146drop_in_place$LT$sqlx_core..pool..connection..PoolConnection$LT$sqlx_sqlite..database..Sqlite$GT$..return_to_pool..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcdb4bda764124233E.exit", label %297
+
+297:                                              ; preds = %293
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !852)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !855)
+  %298 = getelementptr inbounds i8, ptr %0, i64 24
+  %299 = load ptr, ptr %298, align 8, !alias.scope !858, !nonnull !9, !align !37, !noundef !9
+  %300 = load ptr, ptr %299, align 8, !invariant.load !9, !noalias !858, !nonnull !9
+  invoke void %300(ptr noundef nonnull align 1 %295)
+          to label %"_ZN4core3ptr137drop_in_place$LT$tokio..util..sync_wrapper..SyncWrapper$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h1de7700957d52035E.llvm.6910714394678848989.exit.i.i.i" unwind label %301, !noalias !858
+
+301:                                              ; preds = %297
+  %302 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2762db915a5c7254E.llvm.6910714394678848989"(ptr noalias noundef nonnull align 8 dereferenceable(16) %294) #35
+          to label %common.resume unwind label %303
+
+303:                                              ; preds = %301
+  %304 = landingpad { ptr, i32 }
+          filter [0 x ptr] zeroinitializer
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #36
+  unreachable
+
+"_ZN4core3ptr137drop_in_place$LT$tokio..util..sync_wrapper..SyncWrapper$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h1de7700957d52035E.llvm.6910714394678848989.exit.i.i.i": ; preds = %297
+  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2762db915a5c7254E.llvm.6910714394678848989"(ptr noalias noundef nonnull align 8 dereferenceable(16) %294)
   br label %"_ZN4core3ptr146drop_in_place$LT$sqlx_core..pool..connection..PoolConnection$LT$sqlx_sqlite..database..Sqlite$GT$..return_to_pool..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcdb4bda764124233E.exit"
 }
 

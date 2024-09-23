@@ -16152,23 +16152,32 @@ return:                                           ; preds = %if.end, %entry, %if
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i64 @_ZN7rocksdb19MaxFileSizeForLevelERKNS_16MutableCFOptionsEiNS_15CompactionStyleEib(ptr nocapture noundef nonnull readonly align 8 dereferenceable(560) %cf_options, i32 noundef %level, i8 noundef signext %compaction_style, i32 noundef %base_level, i1 noundef zeroext %level_compaction_dynamic_level_bytes) local_unnamed_addr #11 {
 entry:
-  br i1 %level_compaction_dynamic_level_bytes, label %lor.lhs.false, label %return
+  br i1 %level_compaction_dynamic_level_bytes, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
   %cmp = icmp slt i32 %level, %base_level
   %cmp2 = icmp ne i8 %compaction_style, 0
   %or.cond = or i1 %cmp2, %cmp
-  %sub = select i1 %or.cond, i32 0, i32 %base_level
-  %spec.select = sub nsw i32 %level, %sub
+  br i1 %or.cond, label %if.then, label %if.else
+
+if.then:                                          ; preds = %lor.lhs.false, %entry
+  %max_file_size = getelementptr inbounds i8, ptr %cf_options, i64 536
+  %conv3 = sext i32 %level to i64
+  %0 = load ptr, ptr %max_file_size, align 8
+  %add.ptr.i = getelementptr inbounds i64, ptr %0, i64 %conv3
   br label %return
 
-return:                                           ; preds = %lor.lhs.false, %entry
-  %sub.sink = phi i32 [ %level, %entry ], [ %spec.select, %lor.lhs.false ]
-  %max_file_size4.sink = getelementptr inbounds i8, ptr %cf_options, i64 536
-  %conv5 = sext i32 %sub.sink to i64
-  %0 = load ptr, ptr %max_file_size4.sink, align 8
-  %add.ptr.i5 = getelementptr inbounds i64, ptr %0, i64 %conv5
-  %retval.0 = load i64, ptr %add.ptr.i5, align 8
+if.else:                                          ; preds = %lor.lhs.false
+  %max_file_size4 = getelementptr inbounds i8, ptr %cf_options, i64 536
+  %sub = sub nsw i32 %level, %base_level
+  %conv5 = sext i32 %sub to i64
+  %1 = load ptr, ptr %max_file_size4, align 8
+  %add.ptr.i5 = getelementptr inbounds i64, ptr %1, i64 %conv5
+  br label %return
+
+return:                                           ; preds = %if.else, %if.then
+  %retval.0.in = phi ptr [ %add.ptr.i, %if.then ], [ %add.ptr.i5, %if.else ]
+  %retval.0 = load i64, ptr %retval.0.in, align 8
   ret i64 %retval.0
 }
 
@@ -20522,7 +20531,8 @@ if.then2.i:                                       ; preds = %if.end.i
   %6 = load i32, ptr %opt_info, align 8
   %idx.ext.i.i.i = sext i32 %6 to i64
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this_ptr, i64 %idx.ext.i.i.i
-  br label %return.sink.split.i
+  %7 = load ptr, ptr %add.ptr.i.i.i, align 8
+  br label %_ZNK7rocksdb14OptionTypeInfo12AsRawPointerINS_12ConfigurableEEEPKT_PKv.exit
 
 if.else.i:                                        ; preds = %if.end.i
   %and.i.i.i6.i = and i32 %5, 1024
@@ -20530,26 +20540,30 @@ if.else.i:                                        ; preds = %if.end.i
   br i1 %cmp.i.i7.not.i, label %if.else10.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.else.i
-  %7 = load i32, ptr %opt_info, align 8
-  %idx.ext.i.i8.i = sext i32 %7 to i64
+  %8 = load i32, ptr %opt_info, align 8
+  %idx.ext.i.i8.i = sext i32 %8 to i64
   %add.ptr.i.i9.i = getelementptr inbounds i8, ptr %this_ptr, i64 %idx.ext.i.i8.i
-  br label %return.sink.split.i
+  %9 = load ptr, ptr %add.ptr.i.i9.i, align 8
+  br label %_ZNK7rocksdb14OptionTypeInfo12AsRawPointerINS_12ConfigurableEEEPKT_PKv.exit
 
 if.else10.i:                                      ; preds = %if.else.i
   %and.i.i.i11.i = and i32 %5, 512
   %cmp.i.i12.not.i = icmp eq i32 %and.i.i.i11.i, 0
-  %8 = load i32, ptr %opt_info, align 8
-  %idx.ext.i.i15.i = sext i32 %8 to i64
+  %10 = load i32, ptr %opt_info, align 8
+  %idx.ext.i.i15.i = sext i32 %10 to i64
   %add.ptr.i.i16.i = getelementptr inbounds i8, ptr %this_ptr, i64 %idx.ext.i.i15.i
-  br i1 %cmp.i.i12.not.i, label %if.end57, label %return.sink.split.i
+  br i1 %cmp.i.i12.not.i, label %_ZNK7rocksdb14OptionTypeInfo12AsRawPointerINS_12ConfigurableEEEPKT_PKv.exit, label %if.then12.i
 
-return.sink.split.i:                              ; preds = %if.else10.i, %if.then6.i, %if.then2.i
-  %add.ptr.i.i16.sink.i = phi ptr [ %add.ptr.i.i9.i, %if.then6.i ], [ %add.ptr.i.i.i, %if.then2.i ], [ %add.ptr.i.i16.i, %if.else10.i ]
-  %9 = load ptr, ptr %add.ptr.i.i16.sink.i, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %if.then33, label %if.end57
+if.then12.i:                                      ; preds = %if.else10.i
+  %11 = load ptr, ptr %add.ptr.i.i16.i, align 8
+  br label %_ZNK7rocksdb14OptionTypeInfo12AsRawPointerINS_12ConfigurableEEEPKT_PKv.exit
 
-if.then33:                                        ; preds = %if.then30, %return.sink.split.i
+_ZNK7rocksdb14OptionTypeInfo12AsRawPointerINS_12ConfigurableEEEPKT_PKv.exit: ; preds = %if.then2.i, %if.then6.i, %if.else10.i, %if.then12.i
+  %retval.0.i = phi ptr [ %7, %if.then2.i ], [ %9, %if.then6.i ], [ %11, %if.then12.i ], [ %add.ptr.i.i16.i, %if.else10.i ]
+  %cmp32 = icmp eq ptr %retval.0.i, null
+  br i1 %cmp32, label %if.then33, label %if.end57
+
+if.then33:                                        ; preds = %if.then30, %_ZNK7rocksdb14OptionTypeInfo12AsRawPointerINS_12ConfigurableEEEPKT_PKv.exit
   %call.i21 = tail call ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(32) %opt_name)
   %cmp.i22.not = icmp eq ptr %call.i21, null
   br i1 %cmp.i22.not, label %if.end57, label %land.lhs.true46
@@ -20567,8 +20581,8 @@ if.then53:                                        ; preds = %land.rhs
   %call54 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %mismatch, ptr noundef nonnull align 8 dereferenceable(32) %opt_name)
   br label %if.end57
 
-if.end57:                                         ; preds = %if.end18, %if.else10.i, %land.lhs.true, %return.sink.split.i, %land.lhs.true46, %if.then33, %if.then53, %land.rhs, %land.lhs.true27, %land.lhs.true25
-  %equals.2 = phi i1 [ true, %land.lhs.true46 ], [ false, %if.then53 ], [ true, %land.rhs ], [ true, %if.then33 ], [ true, %return.sink.split.i ], [ true, %land.lhs.true27 ], [ true, %land.lhs.true25 ], [ false, %land.lhs.true ], [ true, %if.else10.i ], [ false, %if.end18 ]
+if.end57:                                         ; preds = %if.end18, %land.lhs.true, %_ZNK7rocksdb14OptionTypeInfo12AsRawPointerINS_12ConfigurableEEEPKT_PKv.exit, %land.lhs.true46, %if.then33, %if.then53, %land.rhs, %land.lhs.true27, %land.lhs.true25
+  %equals.2 = phi i1 [ true, %land.lhs.true46 ], [ false, %if.then53 ], [ true, %land.rhs ], [ true, %if.then33 ], [ true, %_ZNK7rocksdb14OptionTypeInfo12AsRawPointerINS_12ConfigurableEEEPKT_PKv.exit ], [ true, %land.lhs.true27 ], [ true, %land.lhs.true25 ], [ false, %land.lhs.true ], [ false, %if.end18 ]
   ret i1 %equals.2
 }
 
@@ -24094,22 +24108,18 @@ if.then:                                          ; preds = %while.body
 
 if.then15:                                        ; preds = %if.then
   %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
-  br label %if.end22.sink.split
+  store ptr %__p.022, ptr %arrayidx16, align 8
+  br label %if.end22
 
 if.else:                                          ; preds = %while.body
   %6 = load ptr, ptr %3, align 8
   store ptr %6, ptr %__p.022, align 8
   %7 = load ptr, ptr %arrayidx, align 8
-  br label %if.end22.sink.split
-
-if.end22.sink.split:                              ; preds = %if.else, %if.then15
-  %arrayidx16.sink = phi ptr [ %arrayidx16, %if.then15 ], [ %7, %if.else ]
-  %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then15 ], [ %__bbegin_bkt.021, %if.else ]
-  store ptr %__p.022, ptr %arrayidx16.sink, align 8
+  store ptr %__p.022, ptr %7, align 8
   br label %if.end22
 
-if.end22:                                         ; preds = %if.end22.sink.split, %if.then
-  %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then ], [ %__bbegin_bkt.1.ph, %if.end22.sink.split ]
+if.end22:                                         ; preds = %if.then, %if.then15, %if.else
+  %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.021, %if.else ], [ %rem.i.i, %if.then15 ], [ %rem.i.i, %if.then ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !67
 

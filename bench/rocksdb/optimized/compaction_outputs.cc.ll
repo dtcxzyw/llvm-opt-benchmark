@@ -3559,36 +3559,39 @@ if.then218:                                       ; preds = %land.end217
   %127 = load i64, ptr %num_range_del_drop_obsolete, align 8
   %inc220 = add nsw i64 %127, 1
   store i64 %inc220, ptr %num_range_del_drop_obsolete, align 8
-  br label %cleanup.sink.split
+  %128 = load i64, ptr %num_record_drop_obsolete, align 8
+  %inc222 = add nsw i64 %128, 1
+  store i64 %inc222, ptr %num_record_drop_obsolete, align 8
+  br label %cleanup
 
 invoke.cont227:                                   ; preds = %land.end217, %if.end206
-  %128 = load ptr, ptr %builder_, align 8
+  %129 = load ptr, ptr %builder_, align 8
   %call.i.i318 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %kv) #18
   %call2.i.i319 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %kv) #18
   store ptr %call.i.i318, ptr %ref.tmp225, align 8
   store i64 %call2.i.i319, ptr %51, align 8
-  %vtable229 = load ptr, ptr %128, align 8
+  %vtable229 = load ptr, ptr %129, align 8
   %vfn230 = getelementptr inbounds i8, ptr %vtable229, i64 16
-  %129 = load ptr, ptr %vfn230, align 8
-  invoke void %129(ptr noundef nonnull align 8 dereferenceable(8) %128, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp225, ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i)
+  %130 = load ptr, ptr %vfn230, align 8
+  invoke void %130(ptr noundef nonnull align 8 dereferenceable(8) %129, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp225, ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i)
           to label %invoke.cont231 unwind label %lpad138
 
 invoke.cont231:                                   ; preds = %invoke.cont227
-  %130 = load i64, ptr %seq_.i, align 8
-  invoke void @_ZN7rocksdb12FileMetaData24UpdateBoundariesForRangeERKNS_11InternalKeyES3_mRKNS_21InternalKeyComparatorE(ptr noundef nonnull align 8 dereferenceable(305) %add.ptr.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %tombstone_start, ptr noundef nonnull align 8 dereferenceable(32) %tombstone_end, i64 noundef %130, ptr noundef nonnull align 8 dereferenceable(16) %icmp)
+  %131 = load i64, ptr %seq_.i, align 8
+  invoke void @_ZN7rocksdb12FileMetaData24UpdateBoundariesForRangeERKNS_11InternalKeyES3_mRKNS_21InternalKeyComparatorE(ptr noundef nonnull align 8 dereferenceable(305) %add.ptr.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %tombstone_start, ptr noundef nonnull align 8 dereferenceable(32) %tombstone_end, i64 noundef %131, ptr noundef nonnull align 8 dereferenceable(16) %icmp)
           to label %invoke.cont233 unwind label %lpad138
 
 invoke.cont233:                                   ; preds = %invoke.cont231
   br i1 %bottommost_level, label %cleanup, label %if.then235
 
 if.then235:                                       ; preds = %invoke.cont233
-  %131 = load i64, ptr %size_.i99, align 8
-  %cmp.i323 = icmp eq i64 %131, 0
-  %132 = load ptr, ptr %it, align 8
-  %pos_.i337 = getelementptr inbounds i8, ptr %132, i64 136
-  %133 = load ptr, ptr %pos_.i337, align 8
-  %retval.sroa.0.0.copyload.i338 = load ptr, ptr %133, align 8
-  %retval.sroa.2.0.start_key.sroa_idx.i339 = getelementptr inbounds i8, ptr %133, i64 8
+  %132 = load i64, ptr %size_.i99, align 8
+  %cmp.i323 = icmp eq i64 %132, 0
+  %133 = load ptr, ptr %it, align 8
+  %pos_.i337 = getelementptr inbounds i8, ptr %133, i64 136
+  %134 = load ptr, ptr %pos_.i337, align 8
+  %retval.sroa.0.0.copyload.i338 = load ptr, ptr %134, align 8
+  %retval.sroa.2.0.start_key.sroa_idx.i339 = getelementptr inbounds i8, ptr %134, i64 8
   %retval.sroa.2.0.copyload.i340 = load i64, ptr %retval.sroa.2.0.start_key.sroa_idx.i339, align 8
   br i1 %cmp.i323, label %if.then253.critedge, label %lor.rhs238
 
@@ -3597,17 +3600,17 @@ lor.rhs238:                                       ; preds = %if.then235
   store i64 %retval.sroa.2.0.copyload.i340, ptr %52, align 8
   %vtable.i326 = load ptr, ptr %1, align 8
   %vfn.i327 = getelementptr inbounds i8, ptr %vtable.i326, i64 208
-  %134 = load ptr, ptr %vfn.i327, align 8
-  %call.i328329 = invoke noundef i32 %134(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %last_tombstone_start_user_key, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp239, i1 noundef zeroext true)
+  %135 = load ptr, ptr %vfn.i327, align 8
+  %call.i328329 = invoke noundef i32 %135(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %last_tombstone_start_user_key, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp239, i1 noundef zeroext true)
           to label %invoke.cont243 unwind label %lpad138
 
 invoke.cont243:                                   ; preds = %lor.rhs238
   %cmp245 = icmp slt i32 %call.i328329, 0
-  %135 = load ptr, ptr %it, align 8
-  %pos_.i331 = getelementptr inbounds i8, ptr %135, i64 136
-  %136 = load ptr, ptr %pos_.i331, align 8
-  %retval.sroa.0.0.copyload.i332 = load ptr, ptr %136, align 8
-  %retval.sroa.2.0.start_key.sroa_idx.i333 = getelementptr inbounds i8, ptr %136, i64 8
+  %136 = load ptr, ptr %it, align 8
+  %pos_.i331 = getelementptr inbounds i8, ptr %136, i64 136
+  %137 = load ptr, ptr %pos_.i331, align 8
+  %retval.sroa.0.0.copyload.i332 = load ptr, ptr %137, align 8
+  %retval.sroa.2.0.start_key.sroa_idx.i333 = getelementptr inbounds i8, ptr %137, i64 8
   %retval.sroa.2.0.copyload.i334 = load i64, ptr %retval.sroa.2.0.start_key.sroa_idx.i333, align 8
   store ptr %retval.sroa.0.0.copyload.i332, ptr %last_tombstone_start_user_key, align 8
   store i64 %retval.sroa.2.0.copyload.i334, ptr %size_.i99, align 8
@@ -3631,8 +3634,8 @@ invoke.cont258:                                   ; preds = %if.then253.critedge
   store i64 %sub.i.i350, ptr %54, align 8
   %vtable.i353 = load ptr, ptr %1, align 8
   %vfn.i354 = getelementptr inbounds i8, ptr %vtable.i353, i64 208
-  %137 = load ptr, ptr %vfn.i354, align 8
-  %call.i355356 = invoke noundef i32 %137(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp254, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp257, i1 noundef zeroext true)
+  %138 = load ptr, ptr %vfn.i354, align 8
+  %call.i355356 = invoke noundef i32 %138(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp254, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp257, i1 noundef zeroext true)
           to label %invoke.cont260 unwind label %lpad138
 
 invoke.cont260:                                   ; preds = %invoke.cont258
@@ -3643,11 +3646,11 @@ invoke.cont276:                                   ; preds = %invoke.cont260
   store i8 0, ptr %approx_opts, align 8
   store i8 1, ptr %include_files.i, align 1
   store double 1.000000e-01, ptr %files_size_error_margin.i, align 8
-  %138 = load ptr, ptr %this, align 8
-  %input_version_.i = getelementptr inbounds i8, ptr %138, i64 1472
-  %139 = load ptr, ptr %input_version_.i, align 16
-  %vset_.i = getelementptr inbounds i8, ptr %139, i64 4176
-  %140 = load ptr, ptr %vset_.i, align 16
+  %139 = load ptr, ptr %this, align 8
+  %input_version_.i = getelementptr inbounds i8, ptr %139, i64 1472
+  %140 = load ptr, ptr %input_version_.i, align 16
+  %vset_.i = getelementptr inbounds i8, ptr %140, i64 4176
+  %141 = load ptr, ptr %vset_.i, align 16
   %call.i.i359 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %tombstone_start) #18
   %call2.i.i360 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %tombstone_start) #18
   store ptr %call.i.i359, ptr %ref.tmp272, align 8
@@ -3656,29 +3659,27 @@ invoke.cont276:                                   ; preds = %invoke.cont260
   %call2.i.i364 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %tombstone_end) #18
   store ptr %call.i.i363, ptr %ref.tmp275, align 8
   store i64 %call2.i.i364, ptr %56, align 8
-  %141 = load ptr, ptr %this, align 8
-  %output_level_.i = getelementptr inbounds i8, ptr %141, i64 12
-  %142 = load i32, ptr %output_level_.i, align 4
-  %add = add nsw i32 %142, 1
-  %call282 = invoke noundef i64 @_ZN7rocksdb10VersionSet15ApproximateSizeERKNS_24SizeApproximationOptionsERKNS_11ReadOptionsEPNS_7VersionERKNS_5SliceESB_iiNS_17TableReaderCallerE(ptr noundef nonnull align 8 dereferenceable(752) %140, ptr noundef nonnull align 8 dereferenceable(16) %approx_opts, ptr noundef nonnull align 8 dereferenceable(154) %read_options, ptr noundef nonnull %139, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp272, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp275, i32 noundef %add, i32 noundef -1, i8 noundef signext 10)
-          to label %cleanup.sink.split unwind label %lpad138
+  %142 = load ptr, ptr %this, align 8
+  %output_level_.i = getelementptr inbounds i8, ptr %142, i64 12
+  %143 = load i32, ptr %output_level_.i, align 4
+  %add = add nsw i32 %143, 1
+  %call282 = invoke noundef i64 @_ZN7rocksdb10VersionSet15ApproximateSizeERKNS_24SizeApproximationOptionsERKNS_11ReadOptionsEPNS_7VersionERKNS_5SliceESB_iiNS_17TableReaderCallerE(ptr noundef nonnull align 8 dereferenceable(752) %141, ptr noundef nonnull align 8 dereferenceable(16) %approx_opts, ptr noundef nonnull align 8 dereferenceable(154) %read_options, ptr noundef nonnull %140, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp272, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp275, i32 noundef %add, i32 noundef -1, i8 noundef signext 10)
+          to label %invoke.cont281 unwind label %lpad138
 
-cleanup.sink.split:                               ; preds = %invoke.cont276, %if.then218
-  %compensated_range_deletion_size.sink467 = phi ptr [ %num_record_drop_obsolete, %if.then218 ], [ %compensated_range_deletion_size, %invoke.cont276 ]
-  %call282.sink = phi i64 [ 1, %if.then218 ], [ %call282, %invoke.cont276 ]
-  %143 = load i64, ptr %compensated_range_deletion_size.sink467, align 8
-  %add283 = add i64 %143, %call282.sink
-  store i64 %add283, ptr %compensated_range_deletion_size.sink467, align 8
+invoke.cont281:                                   ; preds = %invoke.cont276
+  %144 = load i64, ptr %compensated_range_deletion_size, align 8
+  %add283 = add i64 %144, %call282
+  store i64 %add283, ptr %compensated_range_deletion_size, align 8
   br label %cleanup
 
-cleanup:                                          ; preds = %cleanup.sink.split, %if.then.i204, %invoke.cont233, %invoke.cont260, %invoke.cont243, %invoke.cont177
-  %144 = phi i1 [ true, %invoke.cont177 ], [ false, %invoke.cont243 ], [ false, %invoke.cont260 ], [ false, %invoke.cont233 ], [ true, %if.then.i204 ], [ false, %cleanup.sink.split ]
+cleanup:                                          ; preds = %if.then.i204, %invoke.cont233, %invoke.cont260, %invoke.cont281, %invoke.cont243, %invoke.cont177, %if.then218
+  %145 = phi i1 [ false, %if.then218 ], [ true, %invoke.cont177 ], [ false, %invoke.cont243 ], [ false, %invoke.cont281 ], [ false, %invoke.cont260 ], [ false, %invoke.cont233 ], [ true, %if.then.i204 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %tombstone_start) #18
   br label %cleanup287
 
 cleanup287:                                       ; preds = %invoke.cont107.thread, %invoke.cont107, %cleanup, %if.then131
   %reached_lower_bound.1 = phi i1 [ true, %if.then131 ], [ true, %cleanup ], [ %reached_lower_bound.0, %invoke.cont107 ], [ %reached_lower_bound.0, %invoke.cont107.thread ]
-  %cleanup.dest.slot.0 = phi i1 [ false, %if.then131 ], [ %144, %cleanup ], [ false, %invoke.cont107 ], [ false, %invoke.cont107.thread ]
+  %cleanup.dest.slot.0 = phi i1 [ false, %if.then131 ], [ %145, %cleanup ], [ false, %invoke.cont107 ], [ false, %invoke.cont107.thread ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %tombstone_end) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %kv) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pinned_end_key_.i) #18
@@ -3686,11 +3687,11 @@ cleanup287:                                       ; preds = %invoke.cont107.thre
   br i1 %cleanup.dest.slot.0, label %invoke.cont297, label %for.inc
 
 for.inc:                                          ; preds = %cleanup287
-  %145 = load ptr, ptr %it, align 8
-  %vtable294 = load ptr, ptr %145, align 8
+  %146 = load ptr, ptr %it, align 8
+  %vtable294 = load ptr, ptr %146, align 8
   %vfn295 = getelementptr inbounds i8, ptr %vtable294, i64 64
-  %146 = load ptr, ptr %vfn295, align 8
-  invoke void %146(ptr noundef nonnull align 8 dereferenceable(200) %145)
+  %147 = load ptr, ptr %vfn295, align 8
+  invoke void %147(ptr noundef nonnull align 8 dereferenceable(200) %146)
           to label %for.cond unwind label %lpad86.loopexit, !llvm.loop !25
 
 ehcleanup:                                        ; preds = %lpad164, %lpad138
@@ -3716,32 +3717,32 @@ invoke.cont297:                                   ; preds = %invoke.cont91, %cle
   store ptr null, ptr %state_.i.i369, align 8, !alias.scope !26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !26
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %read_options, i64 136
-  %147 = load ptr, ptr %_M_manager.i.i.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %147, null
+  %148 = load ptr, ptr %_M_manager.i.i.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %148, null
   br i1 %tobool.not.i.i.i, label %_ZN7rocksdb11ReadOptionsD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont297
   %table_filter.i = getelementptr inbounds i8, ptr %read_options, i64 120
-  %call.i.i.i = invoke noundef zeroext i1 %147(ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %148(ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, i32 noundef 3)
           to label %_ZN7rocksdb11ReadOptionsD2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
-  %148 = landingpad { ptr, i32 }
+  %149 = landingpad { ptr, i32 }
           catch ptr null
-  %149 = extractvalue { ptr, i32 } %148, 0
-  call void @__clang_call_terminate(ptr %149) #19
+  %150 = extractvalue { ptr, i32 } %149, 0
+  call void @__clang_call_terminate(ptr %150) #19
   unreachable
 
 _ZN7rocksdb11ReadOptionsD2Ev.exit:                ; preds = %invoke.cont297, %if.then.i.i.i
-  %150 = load ptr, ptr %it, align 8
-  %cmp.not.i = icmp eq ptr %150, null
+  %151 = load ptr, ptr %it, align 8
+  %cmp.not.i = icmp eq ptr %151, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN7rocksdb32FragmentedRangeTombstoneIteratorESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN7rocksdb32FragmentedRangeTombstoneIteratorEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN7rocksdb32FragmentedRangeTombstoneIteratorEEclEPS1_.exit.i: ; preds = %_ZN7rocksdb11ReadOptionsD2Ev.exit
-  %vtable.i.i370 = load ptr, ptr %150, align 8
+  %vtable.i.i370 = load ptr, ptr %151, align 8
   %vfn.i.i371 = getelementptr inbounds i8, ptr %vtable.i.i370, i64 8
-  %151 = load ptr, ptr %vfn.i.i371, align 8
-  call void %151(ptr noundef nonnull align 8 dereferenceable(200) %150) #18
+  %152 = load ptr, ptr %vfn.i.i371, align 8
+  call void %152(ptr noundef nonnull align 8 dereferenceable(200) %151) #18
   br label %_ZNSt10unique_ptrIN7rocksdb32FragmentedRangeTombstoneIteratorESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN7rocksdb32FragmentedRangeTombstoneIteratorESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN7rocksdb11ReadOptionsD2Ev.exit, %_ZNKSt14default_deleteIN7rocksdb32FragmentedRangeTombstoneIteratorEEclEPS1_.exit.i
@@ -3751,33 +3752,33 @@ _ZNSt10unique_ptrIN7rocksdb32FragmentedRangeTombstoneIteratorESt14default_delete
 ehcleanup299:                                     ; preds = %lpad86.loopexit, %lpad86.loopexit.split-lp, %ehcleanup292
   %.pn50 = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup292 ], [ %lpad.loopexit, %lpad86.loopexit ], [ %lpad.loopexit.split-lp, %lpad86.loopexit.split-lp ]
   %_M_manager.i.i.i372 = getelementptr inbounds i8, ptr %read_options, i64 136
-  %152 = load ptr, ptr %_M_manager.i.i.i372, align 8
-  %tobool.not.i.i.i373 = icmp eq ptr %152, null
+  %153 = load ptr, ptr %_M_manager.i.i.i372, align 8
+  %tobool.not.i.i.i373 = icmp eq ptr %153, null
   br i1 %tobool.not.i.i.i373, label %ehcleanup301, label %if.then.i.i.i374
 
 if.then.i.i.i374:                                 ; preds = %ehcleanup299
   %table_filter.i375 = getelementptr inbounds i8, ptr %read_options, i64 120
-  %call.i.i.i376 = invoke noundef zeroext i1 %152(ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i375, ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i375, i32 noundef 3)
+  %call.i.i.i376 = invoke noundef zeroext i1 %153(ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i375, ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i375, i32 noundef 3)
           to label %ehcleanup301 unwind label %terminate.lpad.i.i.i377
 
 terminate.lpad.i.i.i377:                          ; preds = %if.then.i.i.i374
-  %153 = landingpad { ptr, i32 }
+  %154 = landingpad { ptr, i32 }
           catch ptr null
-  %154 = extractvalue { ptr, i32 } %153, 0
-  call void @__clang_call_terminate(ptr %154) #19
+  %155 = extractvalue { ptr, i32 } %154, 0
+  call void @__clang_call_terminate(ptr %155) #19
   unreachable
 
 ehcleanup301:                                     ; preds = %if.then.i.i.i374, %ehcleanup299, %lpad80
   %.pn50.pn = phi { ptr, i32 } [ %72, %lpad80 ], [ %.pn50, %ehcleanup299 ], [ %.pn50, %if.then.i.i.i374 ]
-  %155 = load ptr, ptr %it, align 8
-  %cmp.not.i379 = icmp eq ptr %155, null
+  %156 = load ptr, ptr %it, align 8
+  %cmp.not.i379 = icmp eq ptr %156, null
   br i1 %cmp.not.i379, label %_ZNSt10unique_ptrIN7rocksdb32FragmentedRangeTombstoneIteratorESt14default_deleteIS1_EED2Ev.exit383, label %_ZNKSt14default_deleteIN7rocksdb32FragmentedRangeTombstoneIteratorEEclEPS1_.exit.i380
 
 _ZNKSt14default_deleteIN7rocksdb32FragmentedRangeTombstoneIteratorEEclEPS1_.exit.i380: ; preds = %ehcleanup301
-  %vtable.i.i381 = load ptr, ptr %155, align 8
+  %vtable.i.i381 = load ptr, ptr %156, align 8
   %vfn.i.i382 = getelementptr inbounds i8, ptr %vtable.i.i381, i64 8
-  %156 = load ptr, ptr %vfn.i.i382, align 8
-  call void %156(ptr noundef nonnull align 8 dereferenceable(200) %155) #18
+  %157 = load ptr, ptr %vfn.i.i382, align 8
+  call void %157(ptr noundef nonnull align 8 dereferenceable(200) %156) #18
   br label %_ZNSt10unique_ptrIN7rocksdb32FragmentedRangeTombstoneIteratorESt14default_deleteIS1_EED2Ev.exit383
 
 _ZNSt10unique_ptrIN7rocksdb32FragmentedRangeTombstoneIteratorESt14default_deleteIS1_EED2Ev.exit383: ; preds = %ehcleanup301, %_ZNKSt14default_deleteIN7rocksdb32FragmentedRangeTombstoneIteratorEEclEPS1_.exit.i380

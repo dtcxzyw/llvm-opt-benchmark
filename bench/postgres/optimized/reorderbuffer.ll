@@ -363,15 +363,15 @@ ReorderBufferChangeSize.exit.thread:              ; preds = %48, %36, %30, %22, 
 ReorderBufferChangeMemoryUpdate.exit:             ; preds = %ReorderBufferChangeSize.exit.thread, %ReorderBufferChangeSize.exit, %3
   %67 = getelementptr inbounds i8, ptr %1, i64 8
   %68 = load i32, ptr %67, align 8
-  switch i32 %68, label %102 [
+  switch i32 %68, label %104 [
     i32 0, label %69
     i32 1, label %69
     i32 2, label %69
     i32 8, label %69
     i32 3, label %77
-    i32 4, label %85
-    i32 5, label %89
-    i32 11, label %98
+    i32 4, label %86
+    i32 5, label %91
+    i32 11, label %100
   ]
 
 69:                                               ; preds = %ReorderBufferChangeMemoryUpdate.exit, %ReorderBufferChangeMemoryUpdate.exit, %ReorderBufferChangeMemoryUpdate.exit, %ReorderBufferChangeMemoryUpdate.exit
@@ -389,11 +389,12 @@ ReorderBufferChangeMemoryUpdate.exit:             ; preds = %ReorderBufferChange
   %74 = getelementptr inbounds i8, ptr %1, i64 48
   %75 = load ptr, ptr %74, align 8
   %.not39 = icmp eq ptr %75, null
-  br i1 %.not39, label %102, label %76
+  br i1 %.not39, label %104, label %76
 
 76:                                               ; preds = %73
   tail call void @pfree(ptr noundef nonnull %75) #18
-  br label %.sink.split
+  store ptr null, ptr %74, align 8
+  br label %104
 
 77:                                               ; preds = %ReorderBufferChangeMemoryUpdate.exit
   %78 = getelementptr inbounds i8, ptr %1, i64 32
@@ -410,58 +411,66 @@ ReorderBufferChangeMemoryUpdate.exit:             ; preds = %ReorderBufferChange
   %82 = getelementptr inbounds i8, ptr %1, i64 48
   %83 = load ptr, ptr %82, align 8
   %.not37 = icmp eq ptr %83, null
-  br i1 %.not37, label %.sink.split, label %84
+  br i1 %.not37, label %85, label %84
 
 84:                                               ; preds = %81
   tail call void @pfree(ptr noundef nonnull %83) #18
-  br label %.sink.split
+  br label %85
 
-85:                                               ; preds = %ReorderBufferChangeMemoryUpdate.exit
-  %86 = getelementptr inbounds i8, ptr %1, i64 40
-  %87 = load ptr, ptr %86, align 8
-  %.not35 = icmp eq ptr %87, null
-  br i1 %.not35, label %.sink.split, label %88
+85:                                               ; preds = %84, %81
+  store ptr null, ptr %82, align 8
+  br label %104
 
-88:                                               ; preds = %85
-  tail call void @pfree(ptr noundef nonnull %87) #18
-  br label %.sink.split
+86:                                               ; preds = %ReorderBufferChangeMemoryUpdate.exit
+  %87 = getelementptr inbounds i8, ptr %1, i64 40
+  %88 = load ptr, ptr %87, align 8
+  %.not35 = icmp eq ptr %88, null
+  br i1 %.not35, label %90, label %89
 
-89:                                               ; preds = %ReorderBufferChangeMemoryUpdate.exit
-  %90 = getelementptr inbounds i8, ptr %1, i64 32
-  %91 = load ptr, ptr %90, align 8
-  %.not34 = icmp eq ptr %91, null
-  br i1 %.not34, label %102, label %92
+89:                                               ; preds = %86
+  tail call void @pfree(ptr noundef nonnull %88) #18
+  br label %90
 
-92:                                               ; preds = %89
-  %93 = getelementptr inbounds i8, ptr %91, i64 46
-  %94 = load i8, ptr %93, align 2
-  %95 = trunc i8 %94 to i1
-  br i1 %95, label %96, label %97
+90:                                               ; preds = %89, %86
+  store ptr null, ptr %87, align 8
+  br label %104
 
-96:                                               ; preds = %92
-  tail call void @pfree(ptr noundef nonnull %91) #18
-  br label %.sink.split
+91:                                               ; preds = %ReorderBufferChangeMemoryUpdate.exit
+  %92 = getelementptr inbounds i8, ptr %1, i64 32
+  %93 = load ptr, ptr %92, align 8
+  %.not34 = icmp eq ptr %93, null
+  br i1 %.not34, label %104, label %94
 
-97:                                               ; preds = %92
-  tail call void @SnapBuildSnapDecRefcount(ptr noundef nonnull %91) #18
-  br label %.sink.split
+94:                                               ; preds = %91
+  %95 = getelementptr inbounds i8, ptr %93, i64 46
+  %96 = load i8, ptr %95, align 2
+  %97 = trunc i8 %96 to i1
+  br i1 %97, label %98, label %99
 
-98:                                               ; preds = %ReorderBufferChangeMemoryUpdate.exit
-  %99 = getelementptr inbounds i8, ptr %1, i64 48
-  %100 = load ptr, ptr %99, align 8
-  %.not = icmp eq ptr %100, null
-  br i1 %.not, label %102, label %101
+98:                                               ; preds = %94
+  tail call void @pfree(ptr noundef nonnull %93) #18
+  br label %ReorderBufferFreeSnap.exit
 
-101:                                              ; preds = %98
-  tail call void @pfree(ptr noundef nonnull %100) #18
-  br label %.sink.split
+99:                                               ; preds = %94
+  tail call void @SnapBuildSnapDecRefcount(ptr noundef nonnull %93) #18
+  br label %ReorderBufferFreeSnap.exit
 
-.sink.split:                                      ; preds = %97, %96, %85, %88, %81, %84, %76, %101
-  %.sink = phi ptr [ %99, %101 ], [ %74, %76 ], [ %82, %84 ], [ %82, %81 ], [ %86, %88 ], [ %86, %85 ], [ %90, %96 ], [ %90, %97 ]
-  store ptr null, ptr %.sink, align 8
-  br label %102
+ReorderBufferFreeSnap.exit:                       ; preds = %98, %99
+  store ptr null, ptr %92, align 8
+  br label %104
 
-102:                                              ; preds = %.sink.split, %98, %89, %73, %ReorderBufferChangeMemoryUpdate.exit
+100:                                              ; preds = %ReorderBufferChangeMemoryUpdate.exit
+  %101 = getelementptr inbounds i8, ptr %1, i64 48
+  %102 = load ptr, ptr %101, align 8
+  %.not = icmp eq ptr %102, null
+  br i1 %.not, label %104, label %103
+
+103:                                              ; preds = %100
+  tail call void @pfree(ptr noundef nonnull %102) #18
+  store ptr null, ptr %101, align 8
+  br label %104
+
+104:                                              ; preds = %100, %103, %91, %ReorderBufferFreeSnap.exit, %73, %76, %90, %85, %ReorderBufferChangeMemoryUpdate.exit
   tail call void @pfree(ptr noundef nonnull %1) #18
   ret void
 }

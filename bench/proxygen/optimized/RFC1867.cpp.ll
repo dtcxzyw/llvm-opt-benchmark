@@ -2300,7 +2300,8 @@ lpad12:                                           ; preds = %invoke.cont13, %inv
 
 if.end:                                           ; preds = %invoke.cont15, %if.then
   %state_ = getelementptr inbounds i8, ptr %this, i64 48
-  br label %cleanup.sink.split
+  store i32 5, ptr %state_, align 8
+  br label %cleanup
 
 if.else:                                          ; preds = %_ZNSt8functionIFvN5folly5RangeIPKcEES4_EED2Ev.exit
   %state_19 = getelementptr inbounds i8, ptr %this, i64 48
@@ -2393,7 +2394,8 @@ invoke.cont47:                                    ; preds = %invoke.cont45
 
 invoke.cont49:                                    ; preds = %invoke.cont47
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp44) #20
-  br label %cleanup.sink.split
+  store i32 5, ptr %state_19, align 8
+  br label %cleanup
 
 lpad29:                                           ; preds = %invoke.cont24
   %26 = landingpad { ptr, i32 }
@@ -2414,12 +2416,7 @@ lpad46:                                           ; preds = %invoke.cont47, %inv
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp44) #20
   br label %ehcleanup
 
-cleanup.sink.split:                               ; preds = %if.end, %invoke.cont49
-  %state_19.sink = phi ptr [ %state_19, %invoke.cont49 ], [ %state_, %if.end ]
-  store i32 5, ptr %state_19.sink, align 8
-  br label %cleanup
-
-cleanup:                                          ; preds = %cleanup.sink.split, %if.else, %if.then.i.i.i, %cleanup.done37
+cleanup:                                          ; preds = %if.else, %if.then.i.i.i, %invoke.cont49, %cleanup.done37, %if.end
   %29 = load i8, ptr %hasValue.i.i, align 8
   %tobool.i.i.i19 = trunc i8 %29 to i1
   br i1 %tobool.i.i.i19, label %if.then.i.i.i21, label %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit22

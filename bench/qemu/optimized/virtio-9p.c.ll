@@ -445,7 +445,8 @@ entry:
 
 if.then:                                          ; preds = %entry
   %pdev = getelementptr inbounds i8, ptr %object, i64 72
-  br label %return.sink.split
+  %0 = load ptr, ptr %pdev, align 8
+  br label %return
 
 if.end:                                           ; preds = %entry
   %v9p = getelementptr inbounds i8, ptr %object, i64 152
@@ -456,21 +457,20 @@ if.end:                                           ; preds = %entry
 if.end.i:                                         ; preds = %if.end
   %call1.i = tail call i32 @g_strcmp0(ptr noundef %interface, ptr noundef nonnull @.str.20) #11
   %tobool2.not.i = icmp eq i32 %call1.i, 0
-  br i1 %tobool2.not.i, label %return.sink.split, label %if.end4.i
+  br i1 %tobool2.not.i, label %if.then3.i, label %if.end4.i
+
+if.then3.i:                                       ; preds = %if.end.i
+  %1 = load ptr, ptr %v9p, align 8
+  br label %return
 
 if.end4.i:                                        ; preds = %if.end.i
-  %0 = load ptr, ptr @stderr, align 8
-  %call5.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.25, ptr noundef %interface) #14
+  %2 = load ptr, ptr @stderr, align 8
+  %call5.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.25, ptr noundef %interface) #14
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 127, ptr noundef nonnull @__func__.virtio_9p_get_driver, ptr noundef null) #10
   unreachable
 
-return.sink.split:                                ; preds = %if.end.i, %if.then
-  %v9p.sink = phi ptr [ %pdev, %if.then ], [ %v9p, %if.end.i ]
-  %1 = load ptr, ptr %v9p.sink, align 8
-  br label %return
-
-return:                                           ; preds = %return.sink.split, %if.end
-  %retval.0 = phi ptr [ %v9p, %if.end ], [ %1, %return.sink.split ]
+return:                                           ; preds = %if.then3.i, %if.end, %if.then
+  %retval.0 = phi ptr [ %0, %if.then ], [ %1, %if.then3.i ], [ %v9p, %if.end ]
   ret ptr %retval.0
 }
 

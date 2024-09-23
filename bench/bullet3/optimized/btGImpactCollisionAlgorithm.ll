@@ -2745,23 +2745,21 @@ while.body45.lr.ph:                               ; preds = %invoke.cont37
   %m_index.i = getelementptr inbounds i8, ptr %ob0, i64 44
   %m_resultOut = getelementptr inbounds i8, ptr %this, i64 32
   %21 = sext i32 %20 to i64
-  %m_triface1.m_triface0 = select i1 %swapped, ptr %m_triface1, ptr %m_triface0
   br label %while.body45
 
-while.body45:                                     ; preds = %while.body45.lr.ph, %if.end99
-  %indvars.iv = phi i64 [ %21, %while.body45.lr.ph ], [ %indvars.iv.next, %if.end99 ]
+while.body45:                                     ; preds = %while.body45.lr.ph, %if.end114
+  %indvars.iv = phi i64 [ %21, %while.body45.lr.ph ], [ %indvars.iv.next, %if.end114 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %22 = load ptr, ptr %m_data.i.i60, align 8
   %arrayidx.i = getelementptr inbounds i32, ptr %22, i64 %indvars.iv.next
   %23 = load i32, ptr %arrayidx.i, align 4
-  store i32 %23, ptr %m_triface1.m_triface0, align 8
-  %24 = load ptr, ptr %m_current_retriever.i65, align 8
-  %vtable.i66 = load ptr, ptr %24, align 8
-  %25 = load ptr, ptr %vtable.i66, align 8
-  %call.i6768 = invoke noundef ptr %25(ptr noundef nonnull align 8 dereferenceable(16) %24, i32 noundef %23)
-          to label %invoke.cont56 unwind label %lpad36.loopexit
+  br i1 %swapped, label %if.then49, label %if.else50
 
-lpad36.loopexit:                                  ; preds = %if.then58, %if.then95, %if.else97, %while.body45
+if.then49:                                        ; preds = %while.body45
+  store i32 %23, ptr %m_triface1, align 8
+  br label %if.end51
+
+lpad36.loopexit:                                  ; preds = %if.then58, %if.then95, %if.else97, %if.end51
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %lpad36
@@ -2777,7 +2775,18 @@ lpad36:                                           ; preds = %lpad36.loopexit.spl
   call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %m_trishape.i) #15
   br label %ehcleanup
 
-invoke.cont56:                                    ; preds = %while.body45
+if.else50:                                        ; preds = %while.body45
+  store i32 %23, ptr %m_triface0, align 8
+  br label %if.end51
+
+if.end51:                                         ; preds = %if.else50, %if.then49
+  %24 = load ptr, ptr %m_current_retriever.i65, align 8
+  %vtable.i66 = load ptr, ptr %24, align 8
+  %25 = load ptr, ptr %vtable.i66, align 8
+  %call.i6768 = invoke noundef ptr %25(ptr noundef nonnull align 8 dereferenceable(16) %24, i32 noundef %23)
+          to label %invoke.cont56 unwind label %lpad36.loopexit
+
+invoke.cont56:                                    ; preds = %if.end51
   br i1 %call38, label %if.then58, label %if.end66
 
 if.then58:                                        ; preds = %invoke.cont56
@@ -2805,17 +2814,20 @@ if.end66:                                         ; preds = %if.then58, %invoke.
   %m_collisionObject.i82 = getelementptr inbounds i8, ptr %32, i64 16
   %33 = load ptr, ptr %m_collisionObject.i82, align 8
   %cmp80 = icmp eq ptr %33, %27
-  br i1 %cmp80, label %if.end93, label %if.else87
+  br i1 %cmp80, label %if.then81, label %if.else87
+
+if.then81:                                        ; preds = %if.end66
+  store ptr %ob0, ptr %m_body0Wrap.i, align 8
+  br label %if.end93
 
 if.else87:                                        ; preds = %if.end66
   %m_body1Wrap.i = getelementptr inbounds i8, ptr %31, i64 24
   %34 = load ptr, ptr %m_body1Wrap.i, align 8
+  store ptr %ob0, ptr %m_body1Wrap.i, align 8
   br label %if.end93
 
-if.end93:                                         ; preds = %if.end66, %if.else87
-  %m_body1Wrap.i.sink = phi ptr [ %m_body1Wrap.i, %if.else87 ], [ %m_body0Wrap.i, %if.end66 ]
-  %prevObj.0 = phi ptr [ %34, %if.else87 ], [ %32, %if.end66 ]
-  store ptr %ob0, ptr %m_body1Wrap.i.sink, align 8
+if.end93:                                         ; preds = %if.else87, %if.then81
+  %prevObj.0 = phi ptr [ %32, %if.then81 ], [ %34, %if.else87 ]
   br i1 %swapped, label %if.then95, label %if.else97
 
 if.then95:                                        ; preds = %if.end93
@@ -2834,13 +2846,22 @@ if.end99:                                         ; preds = %if.else97, %if.then
   %37 = load ptr, ptr %m_collisionObject.i88, align 8
   %38 = load ptr, ptr %m_collisionObject.i80, align 8
   %cmp107 = icmp eq ptr %37, %38
+  br i1 %cmp107, label %if.then108, label %if.else111
+
+if.then108:                                       ; preds = %if.end99
+  store ptr %prevObj.0, ptr %m_body0Wrap.i87, align 8
+  br label %if.end114
+
+if.else111:                                       ; preds = %if.end99
   %m_body1Wrap.i91 = getelementptr inbounds i8, ptr %35, i64 24
-  %m_body1Wrap.i91.sink = select i1 %cmp107, ptr %m_body0Wrap.i87, ptr %m_body1Wrap.i91
-  store ptr %prevObj.0, ptr %m_body1Wrap.i91.sink, align 8
+  store ptr %prevObj.0, ptr %m_body1Wrap.i91, align 8
+  br label %if.end114
+
+if.end114:                                        ; preds = %if.else111, %if.then108
   %tobool44.not = icmp eq i64 %indvars.iv.next, 0
   br i1 %tobool44.not, label %while.end115, label %while.body45, !llvm.loop !36
 
-while.end115:                                     ; preds = %if.end99, %invoke.cont37
+while.end115:                                     ; preds = %if.end114, %invoke.cont37
   %vtable116 = load ptr, ptr %shape0, align 8
   %vfn117 = getelementptr inbounds i8, ptr %vtable116, i64 232
   %39 = load ptr, ptr %vfn117, align 8
@@ -3197,52 +3218,64 @@ if.then23:                                        ; preds = %if.then21
   call void %88(ptr noundef nonnull align 8 dereferenceable(52) %85, i32 noundef %86, i32 noundef %87)
   %89 = load ptr, ptr %m_manifoldPtr.i.i.i50, align 8
   %cmp.i.i39 = icmp eq ptr %89, null
-  br i1 %cmp.i.i39, label %if.end28.sink.split.sink.split, label %if.end28.sink.split
+  br i1 %cmp.i.i39, label %if.then.i.i40, label %if.end28.sink.split
+
+if.then.i.i40:                                    ; preds = %if.then23
+  %90 = load ptr, ptr %m_collisionObject.i1.i.i57, align 8
+  %91 = load ptr, ptr %m_collisionObject.i.i.i56, align 8
+  %92 = load ptr, ptr %m_dispatcher.i.i.i58, align 8
+  %vtable.i.i.i = load ptr, ptr %92, align 8
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
+  %93 = load ptr, ptr %vfn.i.i.i, align 8
+  %call.i.i.i = call noundef ptr %93(ptr noundef nonnull align 8 dereferenceable(8) %92, ptr noundef %90, ptr noundef %91)
+  br label %if.end28.sink.split.sink.split
 
 if.else:                                          ; preds = %if.then21
-  %90 = load ptr, ptr %m_resultOut.i41, align 8
-  %91 = load i32, ptr %m_part0.i42, align 4
-  %92 = load i32, ptr %m_triface0.i43, align 8
-  %vtable.i44 = load ptr, ptr %90, align 8
-  %vfn.i45 = getelementptr inbounds i8, ptr %vtable.i44, i64 16
-  %93 = load ptr, ptr %vfn.i45, align 8
-  call void %93(ptr noundef nonnull align 8 dereferenceable(52) %90, i32 noundef %91, i32 noundef %92)
   %94 = load ptr, ptr %m_resultOut.i41, align 8
-  %95 = load i32, ptr %m_part1.i46, align 4
-  %96 = load i32, ptr %m_triface1.i47, align 8
-  %vtable3.i48 = load ptr, ptr %94, align 8
-  %vfn4.i49 = getelementptr inbounds i8, ptr %vtable3.i48, i64 24
-  %97 = load ptr, ptr %vfn4.i49, align 8
+  %95 = load i32, ptr %m_part0.i42, align 4
+  %96 = load i32, ptr %m_triface0.i43, align 8
+  %vtable.i44 = load ptr, ptr %94, align 8
+  %vfn.i45 = getelementptr inbounds i8, ptr %vtable.i44, i64 16
+  %97 = load ptr, ptr %vfn.i45, align 8
   call void %97(ptr noundef nonnull align 8 dereferenceable(52) %94, i32 noundef %95, i32 noundef %96)
-  %98 = load ptr, ptr %m_manifoldPtr.i.i.i50, align 8
-  %cmp.i.i51 = icmp eq ptr %98, null
-  br i1 %cmp.i.i51, label %if.end28.sink.split.sink.split, label %if.end28.sink.split
+  %98 = load ptr, ptr %m_resultOut.i41, align 8
+  %99 = load i32, ptr %m_part1.i46, align 4
+  %100 = load i32, ptr %m_triface1.i47, align 8
+  %vtable3.i48 = load ptr, ptr %98, align 8
+  %vfn4.i49 = getelementptr inbounds i8, ptr %vtable3.i48, i64 24
+  %101 = load ptr, ptr %vfn4.i49, align 8
+  call void %101(ptr noundef nonnull align 8 dereferenceable(52) %98, i32 noundef %99, i32 noundef %100)
+  %102 = load ptr, ptr %m_manifoldPtr.i.i.i50, align 8
+  %cmp.i.i51 = icmp eq ptr %102, null
+  br i1 %cmp.i.i51, label %if.then.i.i55, label %if.end28.sink.split
 
-if.end28.sink.split.sink.split:                   ; preds = %if.else, %if.then23
-  %m_collisionObject.i.i.i56.sink = phi ptr [ %m_collisionObject.i1.i.i57, %if.then23 ], [ %m_collisionObject.i.i.i56, %if.else ]
-  %m_collisionObject.i1.i.i57.sink = phi ptr [ %m_collisionObject.i.i.i56, %if.then23 ], [ %m_collisionObject.i1.i.i57, %if.else ]
-  %ref.tmp24.sink.ph = phi ptr [ %ref.tmp24, %if.then23 ], [ %plane, %if.else ]
-  %99 = load ptr, ptr %m_collisionObject.i.i.i56.sink, align 8
-  %100 = load ptr, ptr %m_collisionObject.i1.i.i57.sink, align 8
-  %101 = load ptr, ptr %m_dispatcher.i.i.i58, align 8
-  %vtable.i.i.i59 = load ptr, ptr %101, align 8
+if.then.i.i55:                                    ; preds = %if.else
+  %103 = load ptr, ptr %m_collisionObject.i.i.i56, align 8
+  %104 = load ptr, ptr %m_collisionObject.i1.i.i57, align 8
+  %105 = load ptr, ptr %m_dispatcher.i.i.i58, align 8
+  %vtable.i.i.i59 = load ptr, ptr %105, align 8
   %vfn.i.i.i60 = getelementptr inbounds i8, ptr %vtable.i.i.i59, i64 24
-  %102 = load ptr, ptr %vfn.i.i.i60, align 8
-  %call.i.i.i61 = call noundef ptr %102(ptr noundef nonnull align 8 dereferenceable(8) %101, ptr noundef %99, ptr noundef %100)
-  store ptr %call.i.i.i61, ptr %m_manifoldPtr.i.i.i50, align 8
+  %106 = load ptr, ptr %vfn.i.i.i60, align 8
+  %call.i.i.i61 = call noundef ptr %106(ptr noundef nonnull align 8 dereferenceable(8) %105, ptr noundef %103, ptr noundef %104)
+  br label %if.end28.sink.split.sink.split
+
+if.end28.sink.split.sink.split:                   ; preds = %if.then.i.i40, %if.then.i.i55
+  %call.i.i.i61.sink = phi ptr [ %call.i.i.i61, %if.then.i.i55 ], [ %call.i.i.i, %if.then.i.i40 ]
+  %ref.tmp24.sink.ph = phi ptr [ %plane, %if.then.i.i55 ], [ %ref.tmp24, %if.then.i.i40 ]
+  store ptr %call.i.i.i61.sink, ptr %m_manifoldPtr.i.i.i50, align 8
   br label %if.end28.sink.split
 
 if.end28.sink.split:                              ; preds = %if.end28.sink.split.sink.split, %if.else, %if.then23
-  %.sink = phi ptr [ %89, %if.then23 ], [ %98, %if.else ], [ %call.i.i.i61, %if.end28.sink.split.sink.split ]
+  %.sink = phi ptr [ %89, %if.then23 ], [ %102, %if.else ], [ %call.i.i.i61.sink, %if.end28.sink.split.sink.split ]
   %ref.tmp24.sink = phi ptr [ %ref.tmp24, %if.then23 ], [ %plane, %if.else ], [ %ref.tmp24.sink.ph, %if.end28.sink.split.sink.split ]
-  %103 = load ptr, ptr %m_resultOut.i41, align 8
-  %m_manifoldPtr.i4.i.i = getelementptr inbounds i8, ptr %103, i64 8
+  %107 = load ptr, ptr %m_resultOut.i41, align 8
+  %m_manifoldPtr.i4.i.i = getelementptr inbounds i8, ptr %107, i64 8
   store ptr %.sink, ptr %m_manifoldPtr.i4.i.i, align 8
-  %104 = load ptr, ptr %m_resultOut.i41, align 8
-  %vtable6.i = load ptr, ptr %104, align 8
+  %108 = load ptr, ptr %m_resultOut.i41, align 8
+  %vtable6.i = load ptr, ptr %108, align 8
   %vfn7.i = getelementptr inbounds i8, ptr %vtable6.i, i64 32
-  %105 = load ptr, ptr %vfn7.i, align 8
-  call void %105(ptr noundef nonnull align 8 dereferenceable(52) %104, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp24.sink, ptr noundef nonnull align 4 dereferenceable(16) %vertex, float noundef %sub19)
+  %109 = load ptr, ptr %vfn7.i, align 8
+  call void %109(ptr noundef nonnull align 8 dereferenceable(52) %108, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp24.sink, ptr noundef nonnull align 4 dereferenceable(16) %vertex, float noundef %sub19)
   br label %if.end28
 
 if.end28:                                         ; preds = %if.end28.sink.split, %_ZNK22btGImpactMeshShapePart9getVertexEiR9btVector3.exit
@@ -3252,8 +3285,8 @@ if.end28:                                         ; preds = %if.end28.sink.split
 while.end:                                        ; preds = %if.end28, %if.end
   %vtable29 = load ptr, ptr %shape0, align 8
   %vfn30 = getelementptr inbounds i8, ptr %vtable29, i64 232
-  %106 = load ptr, ptr %vfn30, align 8
-  call void %106(ptr noundef nonnull align 8 dereferenceable(280) %shape0)
+  %110 = load ptr, ptr %vfn30, align 8
+  call void %110(ptr noundef nonnull align 8 dereferenceable(280) %shape0)
   br label %return
 
 return:                                           ; preds = %entry, %while.end
@@ -3321,8 +3354,8 @@ while.body.lr.ph:                                 ; preds = %entry
   %2 = sext i32 %1 to i64
   br label %while.body
 
-while.body:                                       ; preds = %while.body.lr.ph, %if.end
-  %indvars.iv = phi i64 [ %2, %while.body.lr.ph ], [ %indvars.iv.next, %if.end ]
+while.body:                                       ; preds = %while.body.lr.ph, %if.end25
+  %indvars.iv = phi i64 [ %2, %while.body.lr.ph ], [ %indvars.iv.next, %if.end25 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %3 = load ptr, ptr %m_data.i.i, align 8
   %m_childShape.i = getelementptr inbounds %struct.btCompoundShapeChild, ptr %3, i64 %indvars.iv.next, i32 1
@@ -3423,17 +3456,20 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %m_collisionObject.i15 = getelementptr inbounds i8, ptr %44, i64 16
   %45 = load ptr, ptr %m_collisionObject.i15, align 8
   %cmp = icmp eq ptr %45, %41
-  br i1 %cmp, label %if.end, label %if.else
+  br i1 %cmp, label %if.then, label %if.else
+
+if.then:                                          ; preds = %while.body
+  store ptr %ob1, ptr %m_body0Wrap.i, align 8
+  br label %if.end
 
 if.else:                                          ; preds = %while.body
   %m_body1Wrap.i = getelementptr inbounds i8, ptr %43, i64 24
   %46 = load ptr, ptr %m_body1Wrap.i, align 8
+  store ptr %ob1, ptr %m_body1Wrap.i, align 8
   br label %if.end
 
-if.end:                                           ; preds = %while.body, %if.else
-  %m_body1Wrap.i.sink = phi ptr [ %m_body1Wrap.i, %if.else ], [ %m_body0Wrap.i, %while.body ]
-  %tmp.0 = phi ptr [ %46, %if.else ], [ %44, %while.body ]
-  store ptr %ob1, ptr %m_body1Wrap.i.sink, align 8
+if.end:                                           ; preds = %if.else, %if.then
+  %tmp.0 = phi ptr [ %44, %if.then ], [ %46, %if.else ]
   call void @_ZN27btGImpactCollisionAlgorithm16gimpact_vs_shapeEPK24btCollisionObjectWrapperS2_PK23btGImpactShapeInterfacePK16btCollisionShapeb(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %body0Wrap, ptr noundef nonnull %ob1, ptr noundef %shape0, ptr noundef %4, i1 noundef zeroext %swapped)
   %47 = load ptr, ptr %m_resultOut, align 8
   %m_body0Wrap.i20 = getelementptr inbounds i8, ptr %47, i64 16
@@ -3442,13 +3478,22 @@ if.end:                                           ; preds = %while.body, %if.els
   %49 = load ptr, ptr %m_collisionObject.i21, align 8
   %50 = load ptr, ptr %m_collisionObject.i13, align 8
   %cmp20 = icmp eq ptr %49, %50
+  br i1 %cmp20, label %if.then21, label %if.else23
+
+if.then21:                                        ; preds = %if.end
+  store ptr %tmp.0, ptr %m_body0Wrap.i20, align 8
+  br label %if.end25
+
+if.else23:                                        ; preds = %if.end
   %m_body1Wrap.i24 = getelementptr inbounds i8, ptr %47, i64 24
-  %m_body1Wrap.i24.sink = select i1 %cmp20, ptr %m_body0Wrap.i20, ptr %m_body1Wrap.i24
-  store ptr %tmp.0, ptr %m_body1Wrap.i24.sink, align 8
+  store ptr %tmp.0, ptr %m_body1Wrap.i24, align 8
+  br label %if.end25
+
+if.end25:                                         ; preds = %if.else23, %if.then21
   %tobool.not = icmp eq i64 %indvars.iv.next, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !44
 
-while.end:                                        ; preds = %if.end, %entry
+while.end:                                        ; preds = %if.end25, %entry
   ret void
 }
 
@@ -4973,7 +5018,7 @@ entry:
   %m_collisionObject.i10 = getelementptr inbounds i8, ptr %9, i64 16
   %10 = load ptr, ptr %m_collisionObject.i10, align 8
   %cmp = icmp eq ptr %10, %5
-  br i1 %cmp, label %if.end36, label %if.else28
+  br i1 %cmp, label %if.then20, label %if.else28
 
 lpad:                                             ; preds = %if.end36
   %11 = landingpad { ptr, i32 }
@@ -4981,15 +5026,18 @@ lpad:                                             ; preds = %if.end36
   call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %tri1) #15
   resume { ptr, i32 } %11
 
+if.then20:                                        ; preds = %entry
+  store ptr %ob1Wrap, ptr %m_body0Wrap.i, align 8
+  br label %if.end36
+
 if.else28:                                        ; preds = %entry
   %m_body1Wrap.i = getelementptr inbounds i8, ptr %8, i64 24
   %12 = load ptr, ptr %m_body1Wrap.i, align 8
+  store ptr %ob1Wrap, ptr %m_body1Wrap.i, align 8
   br label %if.end36
 
-if.end36:                                         ; preds = %entry, %if.else28
-  %m_body1Wrap.i.sink = phi ptr [ %m_body1Wrap.i, %if.else28 ], [ %m_body0Wrap.i, %entry ]
-  %tmp.0 = phi ptr [ %12, %if.else28 ], [ %9, %entry ]
-  store ptr %ob1Wrap, ptr %m_body1Wrap.i.sink, align 8
+if.end36:                                         ; preds = %if.else28, %if.then20
+  %tmp.0 = phi ptr [ %9, %if.then20 ], [ %12, %if.else28 ]
   %13 = load ptr, ptr %algorithm14, align 8
   %body0Wrap = getelementptr inbounds i8, ptr %this, i64 16
   %14 = load ptr, ptr %body0Wrap, align 8
@@ -5010,9 +5058,18 @@ invoke.cont40:                                    ; preds = %if.end36
   %20 = load ptr, ptr %m_collisionObject.i21, align 8
   %21 = load ptr, ptr %m_collisionObject.i8, align 8
   %cmp47 = icmp eq ptr %20, %21
+  br i1 %cmp47, label %if.then48, label %if.else52
+
+if.then48:                                        ; preds = %invoke.cont40
+  store ptr %tmp.0, ptr %m_body0Wrap.i20, align 8
+  br label %if.end56
+
+if.else52:                                        ; preds = %invoke.cont40
   %m_body1Wrap.i26 = getelementptr inbounds i8, ptr %18, i64 24
-  %m_body1Wrap.i26.sink = select i1 %cmp47, ptr %m_body0Wrap.i20, ptr %m_body1Wrap.i26
-  store ptr %tmp.0, ptr %m_body1Wrap.i26.sink, align 8
+  store ptr %tmp.0, ptr %m_body1Wrap.i26, align 8
+  br label %if.end56
+
+if.end56:                                         ; preds = %if.else52, %if.then48
   call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %tri1) #15
   ret void
 }

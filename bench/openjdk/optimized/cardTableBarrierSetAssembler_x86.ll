@@ -164,7 +164,7 @@ define hidden void @_ZN28CardTableBarrierSetAssembler11store_checkEP14MacroAssem
   %28 = ptrtoint ptr %27 to i64
   %29 = add i64 %28, 2147483648
   %30 = icmp ult i64 %29, 4294967296
-  br i1 %30, label %31, label %41
+  br i1 %30, label %31, label %42
 
 31:                                               ; preds = %4
   %32 = trunc i64 %28 to i32
@@ -186,100 +186,100 @@ define hidden void @_ZN28CardTableBarrierSetAssembler11store_checkEP14MacroAssem
   %40 = getelementptr inbounds i8, ptr %6, i64 40
   store i32 0, ptr %40, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %5, ptr noundef nonnull align 8 dereferenceable(21) %6, i64 21, i1 false)
-  br label %67
+  %41 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  call void %41(ptr noundef nonnull align 8 dereferenceable(20) %38, ptr noundef nonnull align 8 dereferenceable(40) %23) #5
+  br label %69
 
-41:                                               ; preds = %4
+42:                                               ; preds = %4
   call void @_ZN14AddressLiteralC1EPhN9relocInfo9relocTypeE(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef %27, i32 noundef 0) #5
   store i32 -1, ptr %8, align 8
-  %42 = getelementptr inbounds i8, ptr %8, i64 4
-  store i32 %2, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 -1, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %8, i64 12
-  %45 = getelementptr inbounds i8, ptr %8, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %44, i8 0, i64 9, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %8, i64 32
-  store ptr null, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %8, i64 40
-  store i32 0, ptr %47, align 8
-  %48 = load ptr, ptr %7, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 16
-  %50 = load ptr, ptr %49, align 8
-  call void %50(ptr noundef nonnull align 8 dereferenceable(20) %7, ptr noundef nonnull align 8 dereferenceable(40) %11) #5
-  %51 = getelementptr inbounds i8, ptr %11, i64 40
-  %52 = getelementptr inbounds i8, ptr %7, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %52, i64 16, i1 false)
+  %43 = getelementptr inbounds i8, ptr %8, i64 4
+  store i32 %2, ptr %43, align 4
+  %44 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 -1, ptr %44, align 8
+  %45 = getelementptr inbounds i8, ptr %8, i64 12
+  %46 = getelementptr inbounds i8, ptr %8, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %45, i8 0, i64 9, i1 false)
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %8, i64 32
+  store ptr null, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %8, i64 40
+  store i32 0, ptr %48, align 8
+  %49 = load ptr, ptr %7, align 8
+  %50 = getelementptr inbounds i8, ptr %49, i64 16
+  %51 = load ptr, ptr %50, align 8
+  call void %51(ptr noundef nonnull align 8 dereferenceable(20) %7, ptr noundef nonnull align 8 dereferenceable(40) %11) #5
+  %52 = getelementptr inbounds i8, ptr %11, i64 40
+  %53 = getelementptr inbounds i8, ptr %7, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %53, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %12, ptr noundef nonnull align 8 dereferenceable(21) %8, i64 21, i1 false)
-  %53 = getelementptr inbounds i8, ptr %12, i64 24
-  %54 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
-  call void %54(ptr noundef nonnull align 8 dereferenceable(20) %45, ptr noundef nonnull align 8 dereferenceable(40) %53) #5
-  %55 = load ptr, ptr %11, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 16
-  %57 = load ptr, ptr %56, align 8
-  call void %57(ptr noundef nonnull align 8 dereferenceable(20) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #5
-  %58 = getelementptr inbounds i8, ptr %10, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull align 8 dereferenceable(16) %51, i64 16, i1 false)
-  %59 = getelementptr inbounds i8, ptr %10, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %59, ptr noundef nonnull align 8 dereferenceable(21) %12, i64 21, i1 false)
-  %60 = getelementptr inbounds i8, ptr %10, i64 80
-  %61 = load ptr, ptr %53, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 16
-  %63 = load ptr, ptr %62, align 8
-  call void %63(ptr noundef nonnull align 8 dereferenceable(20) %53, ptr noundef nonnull align 8 dereferenceable(40) %60) #5
+  %54 = getelementptr inbounds i8, ptr %12, i64 24
+  %55 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  call void %55(ptr noundef nonnull align 8 dereferenceable(20) %46, ptr noundef nonnull align 8 dereferenceable(40) %54) #5
+  %56 = load ptr, ptr %11, align 8
+  %57 = getelementptr inbounds i8, ptr %56, i64 16
+  %58 = load ptr, ptr %57, align 8
+  call void %58(ptr noundef nonnull align 8 dereferenceable(20) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #5
+  %59 = getelementptr inbounds i8, ptr %10, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(16) %52, i64 16, i1 false)
+  %60 = getelementptr inbounds i8, ptr %10, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %60, ptr noundef nonnull align 8 dereferenceable(21) %12, i64 21, i1 false)
+  %61 = getelementptr inbounds i8, ptr %10, i64 80
+  %62 = load ptr, ptr %54, align 8
+  %63 = getelementptr inbounds i8, ptr %62, i64 16
+  %64 = load ptr, ptr %63, align 8
+  call void %64(ptr noundef nonnull align 8 dereferenceable(20) %54, ptr noundef nonnull align 8 dereferenceable(40) %61) #5
   call void @_ZN14MacroAssembler10as_AddressE12ArrayAddress8Register(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %9, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %10, i32 10) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %5, ptr noundef nonnull align 8 dereferenceable(21) %9, i64 21, i1 false)
-  %64 = getelementptr inbounds i8, ptr %9, i64 24
-  %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 16
-  br label %67
+  %65 = getelementptr inbounds i8, ptr %9, i64 24
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr inbounds i8, ptr %66, i64 16
+  %68 = load ptr, ptr %67, align 8
+  call void %68(ptr noundef nonnull align 8 dereferenceable(20) %65, ptr noundef nonnull align 8 dereferenceable(40) %23) #5
+  br label %69
 
-67:                                               ; preds = %41, %31
-  %.sink24 = phi ptr [ %66, %41 ], [ getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), %31 ]
-  %.sink = phi ptr [ %64, %41 ], [ %38, %31 ]
-  %68 = load ptr, ptr %.sink24, align 8
-  call void %68(ptr noundef nonnull align 8 dereferenceable(20) %.sink, ptr noundef nonnull align 8 dereferenceable(40) %23) #5
-  %69 = load i8, ptr @UseCondCardMark, align 1
-  %70 = trunc i8 %69 to i1
-  br i1 %70, label %71, label %83
+69:                                               ; preds = %42, %31
+  %70 = load i8, ptr @UseCondCardMark, align 1
+  %71 = trunc i8 %70 to i1
+  br i1 %71, label %72, label %84
 
-71:                                               ; preds = %67
+72:                                               ; preds = %69
   store i32 -1, ptr %13, align 8
-  %72 = getelementptr inbounds i8, ptr %13, i64 20
-  store i32 0, ptr %72, align 4
-  %73 = getelementptr inbounds i8, ptr %13, i64 24
-  store ptr null, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %13, i64 32
-  store i8 0, ptr %74, align 8
+  %73 = getelementptr inbounds i8, ptr %13, i64 20
+  store i32 0, ptr %73, align 4
+  %74 = getelementptr inbounds i8, ptr %13, i64 24
+  store ptr null, ptr %74, align 8
+  %75 = getelementptr inbounds i8, ptr %13, i64 32
+  store i8 0, ptr %75, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %14, ptr noundef nonnull align 8 dereferenceable(21) %5, i64 21, i1 false)
-  %75 = getelementptr inbounds i8, ptr %14, i64 24
-  %76 = load ptr, ptr %23, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 16
-  %78 = load ptr, ptr %77, align 8
-  call void %78(ptr noundef nonnull align 8 dereferenceable(20) %23, ptr noundef nonnull align 8 dereferenceable(40) %75) #5
+  %76 = getelementptr inbounds i8, ptr %14, i64 24
+  %77 = load ptr, ptr %23, align 8
+  %78 = getelementptr inbounds i8, ptr %77, i64 16
+  %79 = load ptr, ptr %78, align 8
+  call void %79(ptr noundef nonnull align 8 dereferenceable(20) %23, ptr noundef nonnull align 8 dereferenceable(40) %76) #5
   call void @_ZN9Assembler4cmpbE7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %14, i32 noundef 0) #5
   call void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(33) %13, ptr noundef nonnull @.str, i32 noundef 122) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %15, ptr noundef nonnull align 8 dereferenceable(21) %5, i64 21, i1 false)
-  %79 = getelementptr inbounds i8, ptr %15, i64 24
-  %80 = load ptr, ptr %23, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 16
-  %82 = load ptr, ptr %81, align 8
-  call void %82(ptr noundef nonnull align 8 dereferenceable(20) %23, ptr noundef nonnull align 8 dereferenceable(40) %79) #5
+  %80 = getelementptr inbounds i8, ptr %15, i64 24
+  %81 = load ptr, ptr %23, align 8
+  %82 = getelementptr inbounds i8, ptr %81, i64 16
+  %83 = load ptr, ptr %82, align 8
+  call void %83(ptr noundef nonnull align 8 dereferenceable(20) %23, ptr noundef nonnull align 8 dereferenceable(40) %80) #5
   call void @_ZN9Assembler4movbE7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %15, i32 noundef 0) #5
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(33) %13) #5
-  br label %88
+  br label %89
 
-83:                                               ; preds = %67
+84:                                               ; preds = %69
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %16, ptr noundef nonnull align 8 dereferenceable(21) %5, i64 21, i1 false)
-  %84 = getelementptr inbounds i8, ptr %16, i64 24
-  %85 = load ptr, ptr %23, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 16
-  %87 = load ptr, ptr %86, align 8
-  call void %87(ptr noundef nonnull align 8 dereferenceable(20) %23, ptr noundef nonnull align 8 dereferenceable(40) %84) #5
+  %85 = getelementptr inbounds i8, ptr %16, i64 24
+  %86 = load ptr, ptr %23, align 8
+  %87 = getelementptr inbounds i8, ptr %86, i64 16
+  %88 = load ptr, ptr %87, align 8
+  call void %88(ptr noundef nonnull align 8 dereferenceable(20) %23, ptr noundef nonnull align 8 dereferenceable(40) %85) #5
   call void @_ZN9Assembler4movbE7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %16, i32 noundef 0) #5
-  br label %88
+  br label %89
 
-88:                                               ; preds = %83, %71
+89:                                               ; preds = %84, %72
   ret void
 }
 

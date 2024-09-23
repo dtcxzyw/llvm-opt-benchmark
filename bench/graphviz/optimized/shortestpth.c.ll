@@ -25,7 +25,7 @@ define noalias noundef ptr @makePath(double %0, double %1, i32 noundef %2, ptr n
   %20 = sext i32 %17 to i64
   %21 = getelementptr inbounds i32, ptr %16, i64 %20
   store i32 -1, ptr %21, align 4
-  br label %73
+  br label %80
 
 22:                                               ; preds = %9
   %23 = getelementptr inbounds i8, ptr %8, i64 40
@@ -74,56 +74,68 @@ define noalias noundef ptr @makePath(double %0, double %1, i32 noundef %2, ptr n
   %45 = fcmp oeq double %43, 0xC1DFFFFFFFC00000
   %storemerge.us.i = select i1 %45, double 0.000000e+00, double %44
   store double %storemerge.us.i, ptr %42, align 8
-  br label %46
+  %46 = getelementptr inbounds ptr, ptr %24, i64 %41
+  br label %47
 
-46:                                               ; preds = %68, %.lr.ph63.us.i
-  %indvars.iv73.i = phi i64 [ 0, %.lr.ph63.us.i ], [ %indvars.iv.next74.i, %68 ]
-  %.161.us.i = phi i32 [ -1, %.lr.ph63.us.i ], [ %.2.us.i, %68 ]
-  %47 = getelementptr inbounds double, ptr %36, i64 %indvars.iv73.i
-  %48 = load double, ptr %47, align 8
-  %49 = fcmp olt double %48, 0.000000e+00
-  br i1 %49, label %50, label %68
+47:                                               ; preds = %75, %.lr.ph63.us.i
+  %indvars.iv73.i = phi i64 [ 0, %.lr.ph63.us.i ], [ %indvars.iv.next74.i, %75 ]
+  %.161.us.i = phi i32 [ -1, %.lr.ph63.us.i ], [ %.2.us.i, %75 ]
+  %48 = getelementptr inbounds double, ptr %36, i64 %indvars.iv73.i
+  %49 = load double, ptr %48, align 8
+  %50 = fcmp olt double %49, 0.000000e+00
+  br i1 %50, label %51, label %75
 
-50:                                               ; preds = %46
-  %.sink80.v.i = tail call i64 @llvm.smax.i64(i64 %indvars.iv73.i, i64 %41)
-  %.sink80.i = getelementptr inbounds ptr, ptr %24, i64 %.sink80.v.i
-  %.sink79.i = tail call i64 @llvm.smin.i64(i64 %indvars.iv73.i, i64 %41)
-  %51 = load ptr, ptr %.sink80.i, align 8
-  %52 = getelementptr inbounds double, ptr %51, i64 %.sink79.i
-  %.0.us.i = load double, ptr %52, align 8
-  %53 = load double, ptr %42, align 8
-  %54 = fadd double %.0.us.i, %53
-  %55 = fneg double %54
-  %56 = fcmp une double %.0.us.i, 0.000000e+00
-  %57 = fcmp olt double %48, %55
-  %or.cond.us.i = select i1 %56, i1 %57, i1 false
-  br i1 %or.cond.us.i, label %58, label %60
+51:                                               ; preds = %47
+  %.not58.us.i = icmp sgt i64 %indvars.iv73.i, %41
+  br i1 %.not58.us.i, label %55, label %52
 
-58:                                               ; preds = %50
-  store double %55, ptr %47, align 8
-  %59 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv73.i
-  store i32 %.05365.us.i, ptr %59, align 4
-  br label %60
+52:                                               ; preds = %51
+  %53 = load ptr, ptr %46, align 8
+  %54 = getelementptr inbounds double, ptr %53, i64 %indvars.iv73.i
+  br label %59
 
-60:                                               ; preds = %58, %50
-  %61 = phi double [ %55, %58 ], [ %48, %50 ]
-  %62 = sext i32 %.161.us.i to i64
-  %63 = getelementptr inbounds double, ptr %36, i64 %62
-  %64 = load double, ptr %63, align 8
-  %65 = fcmp ogt double %61, %64
-  br i1 %65, label %66, label %68
+55:                                               ; preds = %51
+  %56 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv73.i
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds double, ptr %57, i64 %41
+  br label %59
 
-66:                                               ; preds = %60
-  %67 = trunc nuw nsw i64 %indvars.iv73.i to i32
-  br label %68
+59:                                               ; preds = %55, %52
+  %.0.in.us.i = phi ptr [ %54, %52 ], [ %58, %55 ]
+  %.0.us.i = load double, ptr %.0.in.us.i, align 8
+  %60 = load double, ptr %42, align 8
+  %61 = fadd double %.0.us.i, %60
+  %62 = fneg double %61
+  %63 = fcmp une double %.0.us.i, 0.000000e+00
+  %64 = fcmp olt double %49, %62
+  %or.cond.us.i = select i1 %63, i1 %64, i1 false
+  br i1 %or.cond.us.i, label %65, label %67
 
-68:                                               ; preds = %66, %60, %46
-  %.2.us.i = phi i32 [ %67, %66 ], [ %.161.us.i, %60 ], [ %.161.us.i, %46 ]
+65:                                               ; preds = %59
+  store double %62, ptr %48, align 8
+  %66 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv73.i
+  store i32 %.05365.us.i, ptr %66, align 4
+  br label %67
+
+67:                                               ; preds = %65, %59
+  %68 = phi double [ %62, %65 ], [ %49, %59 ]
+  %69 = sext i32 %.161.us.i to i64
+  %70 = getelementptr inbounds double, ptr %36, i64 %69
+  %71 = load double, ptr %70, align 8
+  %72 = fcmp ogt double %68, %71
+  br i1 %72, label %73, label %75
+
+73:                                               ; preds = %67
+  %74 = trunc nuw nsw i64 %indvars.iv73.i to i32
+  br label %75
+
+75:                                               ; preds = %73, %67, %47
+  %.2.us.i = phi i32 [ %74, %73 ], [ %.161.us.i, %67 ], [ %.161.us.i, %47 ]
   %indvars.iv.next74.i = add nuw nsw i64 %indvars.iv73.i, 1
   %exitcond77.not.i = icmp eq i64 %indvars.iv.next74.i, %38
-  br i1 %exitcond77.not.i, label %..loopexit_crit_edge.us.i, label %46
+  br i1 %exitcond77.not.i, label %..loopexit_crit_edge.us.i, label %47
 
-..loopexit_crit_edge.us.i:                        ; preds = %68
+..loopexit_crit_edge.us.i:                        ; preds = %75
   %.not.us.i = icmp eq i32 %.2.us.i, %11
   br i1 %.not.us.i, label %shortestPath.exit, label %.lr.ph63.us.i
 
@@ -133,19 +145,19 @@ define noalias noundef ptr @makePath(double %0, double %1, i32 noundef %2, ptr n
 
 .loopexit.i:                                      ; preds = %.loopexit.i, %.loopexit.preheader.i
   %.05365.i = phi i64 [ -1, %.loopexit.i ], [ %28, %.loopexit.preheader.i ]
-  %69 = getelementptr inbounds double, ptr %36, i64 %.05365.i
-  %70 = load double, ptr %69, align 8
-  %71 = fneg double %70
-  %72 = fcmp oeq double %70, 0xC1DFFFFFFFC00000
-  %storemerge.i = select i1 %72, double 0.000000e+00, double %71
-  store double %storemerge.i, ptr %69, align 8
+  %76 = getelementptr inbounds double, ptr %36, i64 %.05365.i
+  %77 = load double, ptr %76, align 8
+  %78 = fneg double %77
+  %79 = fcmp oeq double %77, 0xC1DFFFFFFFC00000
+  %storemerge.i = select i1 %79, double 0.000000e+00, double %78
+  store double %storemerge.i, ptr %76, align 8
   br label %.loopexit.i
 
 shortestPath.exit:                                ; preds = %..loopexit_crit_edge.us.i
   tail call void @free(ptr noundef nonnull %35) #10
-  br label %73
+  br label %80
 
-73:                                               ; preds = %shortestPath.exit, %13
+80:                                               ; preds = %shortestPath.exit, %13
   %.0 = phi ptr [ %16, %13 ], [ %32, %shortestPath.exit ]
   ret ptr %.0
 }
@@ -212,12 +224,6 @@ declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #8
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

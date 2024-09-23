@@ -2440,7 +2440,7 @@ define dso_local void @thermal_cooling_device_update(ptr noundef %0) #1 align 16
   %3 = icmp eq ptr %0, null
   %4 = icmp ugt ptr %0, inttoptr (i64 -4096 to ptr)
   %5 = or i1 %3, %4
-  br i1 %5, label %57, label %6
+  br i1 %5, label %59, label %6
 
 6:                                                ; preds = %1
   store i64 0, ptr %2, align 8, !annotation !13
@@ -2457,7 +2457,7 @@ define dso_local void @thermal_cooling_device_update(ptr noundef %0) #1 align 16
   br i1 %13, label %7, label %14, !llvm.loop !47
 
 14:                                               ; preds = %7
-  br i1 %10, label %15, label %56
+  br i1 %10, label %15, label %58
 
 15:                                               ; preds = %14
   %16 = getelementptr inbounds i8, ptr %0, i64 792
@@ -2468,7 +2468,7 @@ define dso_local void @thermal_cooling_device_update(ptr noundef %0) #1 align 16
   %20 = getelementptr inbounds i8, ptr %0, i64 16
   %21 = tail call i32 %19(ptr noundef %0, ptr noundef %20) #20
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %55
+  br i1 %22, label %23, label %57
 
 23:                                               ; preds = %15
   tail call void @thermal_cooling_device_stats_reinit(ptr noundef %0) #20
@@ -2477,69 +2477,72 @@ define dso_local void @thermal_cooling_device_update(ptr noundef %0) #1 align 16
   %26 = icmp eq ptr %25, %24
   br i1 %26, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %23, %48
-  %27 = phi ptr [ %49, %48 ], [ %25, %23 ]
+.preheader:                                       ; preds = %23, %50
+  %27 = phi ptr [ %51, %50 ], [ %25, %23 ]
   %28 = getelementptr i8, ptr %27, i64 -152
   %29 = load i64, ptr %28, align 8
   %30 = load i64, ptr %20, align 8
   %31 = icmp eq i64 %29, %30
-  br i1 %31, label %48, label %32
+  br i1 %31, label %50, label %32
 
 32:                                               ; preds = %.preheader
   %33 = icmp ult i64 %29, %30
-  br i1 %33, label %34, label %38
+  br i1 %33, label %34, label %39
 
 34:                                               ; preds = %32
   %35 = getelementptr i8, ptr %27, i64 20
   %36 = load i8, ptr %35, align 4, !range !21, !noundef !22
   %37 = icmp eq i8 %36, 0
-  br i1 %37, label %48, label %.sink.split
+  br i1 %37, label %50, label %38
 
-38:                                               ; preds = %32
+38:                                               ; preds = %34
   store i64 %30, ptr %28, align 8
-  %39 = getelementptr i8, ptr %27, i64 -144
-  %40 = load i64, ptr %39, align 8
-  %41 = icmp ugt i64 %40, %30
-  br i1 %41, label %42, label %43
+  br label %50
 
-42:                                               ; preds = %38
-  store i64 %30, ptr %39, align 8
-  br label %43
+39:                                               ; preds = %32
+  store i64 %30, ptr %28, align 8
+  %40 = getelementptr i8, ptr %27, i64 -144
+  %41 = load i64, ptr %40, align 8
+  %42 = icmp ugt i64 %41, %30
+  br i1 %42, label %43, label %44
 
-43:                                               ; preds = %42, %38
-  %44 = getelementptr i8, ptr %27, i64 -136
-  %45 = load i64, ptr %44, align 8
-  %46 = icmp ne i64 %45, -1
-  %47 = icmp ugt i64 %45, %30
-  %or.cond = and i1 %46, %47
-  br i1 %or.cond, label %.sink.split, label %48
+43:                                               ; preds = %39
+  store i64 %30, ptr %40, align 8
+  br label %44
 
-.sink.split:                                      ; preds = %43, %34
-  %.sink = phi ptr [ %28, %34 ], [ %44, %43 ]
-  store i64 %30, ptr %.sink, align 8
-  br label %48
+44:                                               ; preds = %43, %39
+  %45 = getelementptr i8, ptr %27, i64 -136
+  %46 = load i64, ptr %45, align 8
+  %47 = icmp ne i64 %46, -1
+  %48 = icmp ugt i64 %46, %30
+  %or.cond = and i1 %47, %48
+  br i1 %or.cond, label %49, label %50
 
-48:                                               ; preds = %.sink.split, %43, %34, %.preheader
-  %49 = load ptr, ptr %27, align 8
-  %50 = icmp eq ptr %49, %24
-  br i1 %50, label %.loopexit, label %.preheader, !llvm.loop !49
+49:                                               ; preds = %44
+  store i64 %30, ptr %45, align 8
+  br label %50
 
-.loopexit:                                        ; preds = %48, %23
-  %51 = load ptr, ptr %17, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 8
-  %53 = load ptr, ptr %52, align 8
-  %54 = call i32 %53(ptr noundef %0, ptr noundef nonnull %2) #20
-  br label %55
+50:                                               ; preds = %49, %44, %38, %34, %.preheader
+  %51 = load ptr, ptr %27, align 8
+  %52 = icmp eq ptr %51, %24
+  br i1 %52, label %.loopexit, label %.preheader, !llvm.loop !49
 
-55:                                               ; preds = %.loopexit, %15
-  call void @mutex_unlock(ptr noundef %16) #20
-  br label %56
-
-56:                                               ; preds = %55, %14
-  call void @mutex_unlock(ptr noundef nonnull @thermal_list_lock) #20
+.loopexit:                                        ; preds = %50, %23
+  %53 = load ptr, ptr %17, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 8
+  %55 = load ptr, ptr %54, align 8
+  %56 = call i32 %55(ptr noundef %0, ptr noundef nonnull %2) #20
   br label %57
 
-57:                                               ; preds = %56, %1
+57:                                               ; preds = %.loopexit, %15
+  call void @mutex_unlock(ptr noundef %16) #20
+  br label %58
+
+58:                                               ; preds = %57, %14
+  call void @mutex_unlock(ptr noundef nonnull @thermal_list_lock) #20
+  br label %59
+
+59:                                               ; preds = %58, %1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #20
   ret void
 }

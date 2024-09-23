@@ -9391,7 +9391,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__7JsValueC1Eb(ptr noundef nonn
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3pxr9rapidjson4UTF8IcE6EncodeINS0_13GenericReaderIS2_S2_NS0_12CrtAllocatorEE11StackStreamIcEEEEvRT_j(ptr noundef nonnull align 8 dereferenceable(12) %0, i32 noundef %1) local_unnamed_addr #3 comdat align 2 {
   %3 = icmp ult i32 %1, 128
-  br i1 %3, label %4, label %46
+  br i1 %3, label %4, label %48
 
 4:                                                ; preds = %2
   %5 = trunc nuw nsw i32 %1 to i8
@@ -9468,720 +9468,728 @@ _ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit: ; preds
   store ptr %44, ptr %9, align 8
   store i8 %5, ptr %43, align 1
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %440
+  %46 = load i32, ptr %45, align 8
+  %47 = add i32 %46, 1
+  store i32 %47, ptr %45, align 8
+  br label %448
 
-46:                                               ; preds = %2
-  %47 = icmp ult i32 %1, 2048
-  br i1 %47, label %48, label %136
+48:                                               ; preds = %2
+  %49 = icmp ult i32 %1, 2048
+  br i1 %49, label %50, label %140
 
-48:                                               ; preds = %46
-  %49 = lshr i32 %1, 6
-  %50 = trunc nuw i32 %49 to i8
-  %51 = or disjoint i8 %50, -64
-  %52 = load ptr, ptr %0, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 32
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %52, i64 24
+50:                                               ; preds = %48
+  %51 = lshr i32 %1, 6
+  %52 = trunc nuw i32 %51 to i8
+  %53 = or disjoint i8 %52, -64
+  %54 = load ptr, ptr %0, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %56 = load ptr, ptr %55, align 8
-  %57 = ptrtoint ptr %54 to i64
-  %58 = ptrtoint ptr %56 to i64
-  %59 = sub i64 %57, %58
-  %60 = icmp slt i64 %59, 1
-  br i1 %60, label %61, label %88
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 24
+  %58 = load ptr, ptr %57, align 8
+  %59 = ptrtoint ptr %56 to i64
+  %60 = ptrtoint ptr %58 to i64
+  %61 = sub i64 %59, %60
+  %62 = icmp slt i64 %61, 1
+  br i1 %62, label %63, label %90
 
-61:                                               ; preds = %48
-  %62 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  %63 = load ptr, ptr %62, align 8
-  %64 = icmp eq ptr %63, null
-  br i1 %64, label %65, label %73
+63:                                               ; preds = %50
+  %64 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  %65 = load ptr, ptr %64, align 8
+  %66 = icmp eq ptr %65, null
+  br i1 %66, label %67, label %75
 
-65:                                               ; preds = %61
-  %66 = load ptr, ptr %52, align 8
-  %.not.i136 = icmp eq ptr %66, null
-  br i1 %.not.i136, label %67, label %70
+67:                                               ; preds = %63
+  %68 = load ptr, ptr %54, align 8
+  %.not.i136 = icmp eq ptr %68, null
+  br i1 %.not.i136, label %69, label %72
 
-67:                                               ; preds = %65
-  %68 = tail call noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #26
-  store ptr %68, ptr %52, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  store ptr %68, ptr %69, align 8
-  br label %70
+69:                                               ; preds = %67
+  %70 = tail call noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #26
+  store ptr %70, ptr %54, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  store ptr %70, ptr %71, align 8
+  br label %72
 
-70:                                               ; preds = %67, %65
-  %71 = getelementptr inbounds nuw i8, ptr %52, i64 40
-  %72 = load i64, ptr %71, align 8
-  br label %79
+72:                                               ; preds = %69, %67
+  %73 = getelementptr inbounds nuw i8, ptr %54, i64 40
+  %74 = load i64, ptr %73, align 8
+  br label %81
 
-73:                                               ; preds = %61
-  %74 = ptrtoint ptr %63 to i64
-  %75 = sub i64 %57, %74
-  %76 = add i64 %75, 1
-  %77 = lshr i64 %76, 1
-  %78 = add i64 %77, %75
-  br label %79
+75:                                               ; preds = %63
+  %76 = ptrtoint ptr %65 to i64
+  %77 = sub i64 %59, %76
+  %78 = add i64 %77, 1
+  %79 = lshr i64 %78, 1
+  %80 = add i64 %79, %77
+  br label %81
 
-79:                                               ; preds = %73, %70
-  %.pre-phi.i132 = phi i64 [ %74, %73 ], [ 0, %70 ]
-  %.0.i133 = phi i64 [ %78, %73 ], [ %72, %70 ]
-  %80 = sub i64 %58, %.pre-phi.i132
-  %81 = add i64 %80, 1
-  %spec.select.i134 = tail call i64 @llvm.umax.i64(i64 %.0.i133, i64 %81)
-  %82 = icmp eq i64 %spec.select.i134, 0
-  br i1 %82, label %83, label %84
+81:                                               ; preds = %75, %72
+  %.pre-phi.i132 = phi i64 [ %76, %75 ], [ 0, %72 ]
+  %.0.i133 = phi i64 [ %80, %75 ], [ %74, %72 ]
+  %82 = sub i64 %60, %.pre-phi.i132
+  %83 = add i64 %82, 1
+  %spec.select.i134 = tail call i64 @llvm.umax.i64(i64 %.0.i133, i64 %83)
+  %84 = icmp eq i64 %spec.select.i134, 0
+  br i1 %84, label %85, label %86
 
-83:                                               ; preds = %79
-  tail call void @free(ptr noundef %63) #24
+85:                                               ; preds = %81
+  tail call void @free(ptr noundef %65) #24
   br label %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit137
 
-84:                                               ; preds = %79
-  %85 = tail call ptr @realloc(ptr noundef %63, i64 noundef %spec.select.i134) #29
+86:                                               ; preds = %81
+  %87 = tail call ptr @realloc(ptr noundef %65, i64 noundef %spec.select.i134) #29
   br label %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit137
 
-_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit137: ; preds = %83, %84
-  %.0.i.i.i135 = phi ptr [ null, %83 ], [ %85, %84 ]
-  store ptr %.0.i.i.i135, ptr %62, align 8
-  %86 = getelementptr inbounds i8, ptr %.0.i.i.i135, i64 %80
-  %87 = getelementptr inbounds i8, ptr %.0.i.i.i135, i64 %spec.select.i134
-  store ptr %87, ptr %53, align 8
-  br label %88
+_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit137: ; preds = %85, %86
+  %.0.i.i.i135 = phi ptr [ null, %85 ], [ %87, %86 ]
+  store ptr %.0.i.i.i135, ptr %64, align 8
+  %88 = getelementptr inbounds i8, ptr %.0.i.i.i135, i64 %82
+  %89 = getelementptr inbounds i8, ptr %.0.i.i.i135, i64 %spec.select.i134
+  store ptr %89, ptr %55, align 8
+  br label %90
 
-88:                                               ; preds = %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit137, %48
-  %89 = phi ptr [ %86, %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit137 ], [ %56, %48 ]
-  %90 = getelementptr inbounds i8, ptr %89, i64 1
-  store ptr %90, ptr %55, align 8
-  store i8 %51, ptr %89, align 1
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %92 = load i32, ptr %91, align 8
-  %93 = add i32 %92, 1
-  store i32 %93, ptr %91, align 8
-  %94 = trunc i32 %1 to i8
-  %95 = and i8 %94, 63
-  %96 = or disjoint i8 %95, -128
-  %97 = load ptr, ptr %0, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 32
-  %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %97, i64 24
+90:                                               ; preds = %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit137, %50
+  %91 = phi ptr [ %88, %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit137 ], [ %58, %50 ]
+  %92 = getelementptr inbounds i8, ptr %91, i64 1
+  store ptr %92, ptr %57, align 8
+  store i8 %53, ptr %91, align 1
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %94 = load i32, ptr %93, align 8
+  %95 = add i32 %94, 1
+  store i32 %95, ptr %93, align 8
+  %96 = trunc i32 %1 to i8
+  %97 = and i8 %96, 63
+  %98 = or disjoint i8 %97, -128
+  %99 = load ptr, ptr %0, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 32
   %101 = load ptr, ptr %100, align 8
-  %102 = ptrtoint ptr %99 to i64
-  %103 = ptrtoint ptr %101 to i64
-  %104 = sub i64 %102, %103
-  %105 = icmp slt i64 %104, 1
-  br i1 %105, label %106, label %133
+  %102 = getelementptr inbounds nuw i8, ptr %99, i64 24
+  %103 = load ptr, ptr %102, align 8
+  %104 = ptrtoint ptr %101 to i64
+  %105 = ptrtoint ptr %103 to i64
+  %106 = sub i64 %104, %105
+  %107 = icmp slt i64 %106, 1
+  br i1 %107, label %108, label %135
 
-106:                                              ; preds = %88
-  %107 = getelementptr inbounds nuw i8, ptr %97, i64 16
-  %108 = load ptr, ptr %107, align 8
-  %109 = icmp eq ptr %108, null
-  br i1 %109, label %110, label %118
+108:                                              ; preds = %90
+  %109 = getelementptr inbounds nuw i8, ptr %99, i64 16
+  %110 = load ptr, ptr %109, align 8
+  %111 = icmp eq ptr %110, null
+  br i1 %111, label %112, label %120
 
-110:                                              ; preds = %106
-  %111 = load ptr, ptr %97, align 8
-  %.not.i142 = icmp eq ptr %111, null
-  br i1 %.not.i142, label %112, label %115
+112:                                              ; preds = %108
+  %113 = load ptr, ptr %99, align 8
+  %.not.i142 = icmp eq ptr %113, null
+  br i1 %.not.i142, label %114, label %117
 
-112:                                              ; preds = %110
-  %113 = tail call noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #26
-  store ptr %113, ptr %97, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  store ptr %113, ptr %114, align 8
-  br label %115
+114:                                              ; preds = %112
+  %115 = tail call noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #26
+  store ptr %115, ptr %99, align 8
+  %116 = getelementptr inbounds nuw i8, ptr %99, i64 8
+  store ptr %115, ptr %116, align 8
+  br label %117
 
-115:                                              ; preds = %112, %110
-  %116 = getelementptr inbounds nuw i8, ptr %97, i64 40
-  %117 = load i64, ptr %116, align 8
-  br label %124
+117:                                              ; preds = %114, %112
+  %118 = getelementptr inbounds nuw i8, ptr %99, i64 40
+  %119 = load i64, ptr %118, align 8
+  br label %126
 
-118:                                              ; preds = %106
-  %119 = ptrtoint ptr %108 to i64
-  %120 = sub i64 %102, %119
-  %121 = add i64 %120, 1
-  %122 = lshr i64 %121, 1
-  %123 = add i64 %122, %120
-  br label %124
+120:                                              ; preds = %108
+  %121 = ptrtoint ptr %110 to i64
+  %122 = sub i64 %104, %121
+  %123 = add i64 %122, 1
+  %124 = lshr i64 %123, 1
+  %125 = add i64 %124, %122
+  br label %126
 
-124:                                              ; preds = %118, %115
-  %.pre-phi.i138 = phi i64 [ %119, %118 ], [ 0, %115 ]
-  %.0.i139 = phi i64 [ %123, %118 ], [ %117, %115 ]
-  %125 = sub i64 %103, %.pre-phi.i138
-  %126 = add i64 %125, 1
-  %spec.select.i140 = tail call i64 @llvm.umax.i64(i64 %.0.i139, i64 %126)
-  %127 = icmp eq i64 %spec.select.i140, 0
-  br i1 %127, label %128, label %129
+126:                                              ; preds = %120, %117
+  %.pre-phi.i138 = phi i64 [ %121, %120 ], [ 0, %117 ]
+  %.0.i139 = phi i64 [ %125, %120 ], [ %119, %117 ]
+  %127 = sub i64 %105, %.pre-phi.i138
+  %128 = add i64 %127, 1
+  %spec.select.i140 = tail call i64 @llvm.umax.i64(i64 %.0.i139, i64 %128)
+  %129 = icmp eq i64 %spec.select.i140, 0
+  br i1 %129, label %130, label %131
 
-128:                                              ; preds = %124
-  tail call void @free(ptr noundef %108) #24
+130:                                              ; preds = %126
+  tail call void @free(ptr noundef %110) #24
   br label %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit143
 
-129:                                              ; preds = %124
-  %130 = tail call ptr @realloc(ptr noundef %108, i64 noundef %spec.select.i140) #29
+131:                                              ; preds = %126
+  %132 = tail call ptr @realloc(ptr noundef %110, i64 noundef %spec.select.i140) #29
   br label %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit143
 
-_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit143: ; preds = %128, %129
-  %.0.i.i.i141 = phi ptr [ null, %128 ], [ %130, %129 ]
-  store ptr %.0.i.i.i141, ptr %107, align 8
-  %131 = getelementptr inbounds i8, ptr %.0.i.i.i141, i64 %125
-  %132 = getelementptr inbounds i8, ptr %.0.i.i.i141, i64 %spec.select.i140
-  store ptr %132, ptr %98, align 8
-  br label %133
+_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit143: ; preds = %130, %131
+  %.0.i.i.i141 = phi ptr [ null, %130 ], [ %132, %131 ]
+  store ptr %.0.i.i.i141, ptr %109, align 8
+  %133 = getelementptr inbounds i8, ptr %.0.i.i.i141, i64 %127
+  %134 = getelementptr inbounds i8, ptr %.0.i.i.i141, i64 %spec.select.i140
+  store ptr %134, ptr %100, align 8
+  br label %135
 
-133:                                              ; preds = %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit143, %88
-  %134 = phi ptr [ %131, %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit143 ], [ %101, %88 ]
-  %135 = getelementptr inbounds i8, ptr %134, i64 1
-  store ptr %135, ptr %100, align 8
-  store i8 %96, ptr %134, align 1
-  br label %440
+135:                                              ; preds = %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit143, %90
+  %136 = phi ptr [ %133, %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit143 ], [ %103, %90 ]
+  %137 = getelementptr inbounds i8, ptr %136, i64 1
+  store ptr %137, ptr %102, align 8
+  store i8 %98, ptr %136, align 1
+  %138 = load i32, ptr %93, align 8
+  %139 = add i32 %138, 1
+  store i32 %139, ptr %93, align 8
+  br label %448
 
-136:                                              ; preds = %46
-  %137 = icmp ult i32 %1, 65536
-  %138 = load ptr, ptr %0, align 8
-  %139 = getelementptr inbounds nuw i8, ptr %138, i64 32
-  %140 = load ptr, ptr %139, align 8
-  %141 = getelementptr inbounds nuw i8, ptr %138, i64 24
-  %142 = load ptr, ptr %141, align 8
-  %143 = ptrtoint ptr %140 to i64
-  %144 = ptrtoint ptr %142 to i64
-  %145 = sub i64 %143, %144
-  %146 = icmp slt i64 %145, 1
-  br i1 %137, label %147, label %271
+140:                                              ; preds = %48
+  %141 = icmp ult i32 %1, 65536
+  %142 = load ptr, ptr %0, align 8
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 32
+  %144 = load ptr, ptr %143, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %142, i64 24
+  %146 = load ptr, ptr %145, align 8
+  %147 = ptrtoint ptr %144 to i64
+  %148 = ptrtoint ptr %146 to i64
+  %149 = sub i64 %147, %148
+  %150 = icmp slt i64 %149, 1
+  br i1 %141, label %151, label %277
 
-147:                                              ; preds = %136
-  %148 = lshr i32 %1, 12
-  %149 = trunc nuw i32 %148 to i8
-  %150 = or disjoint i8 %149, -32
-  br i1 %146, label %151, label %178
-
-151:                                              ; preds = %147
-  %152 = getelementptr inbounds nuw i8, ptr %138, i64 16
-  %153 = load ptr, ptr %152, align 8
-  %154 = icmp eq ptr %153, null
-  br i1 %154, label %155, label %163
+151:                                              ; preds = %140
+  %152 = lshr i32 %1, 12
+  %153 = trunc nuw i32 %152 to i8
+  %154 = or disjoint i8 %153, -32
+  br i1 %150, label %155, label %182
 
 155:                                              ; preds = %151
-  %156 = load ptr, ptr %138, align 8
-  %.not.i148 = icmp eq ptr %156, null
-  br i1 %.not.i148, label %157, label %160
+  %156 = getelementptr inbounds nuw i8, ptr %142, i64 16
+  %157 = load ptr, ptr %156, align 8
+  %158 = icmp eq ptr %157, null
+  br i1 %158, label %159, label %167
 
-157:                                              ; preds = %155
-  %158 = tail call noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #26
-  store ptr %158, ptr %138, align 8
-  %159 = getelementptr inbounds nuw i8, ptr %138, i64 8
-  store ptr %158, ptr %159, align 8
-  br label %160
+159:                                              ; preds = %155
+  %160 = load ptr, ptr %142, align 8
+  %.not.i148 = icmp eq ptr %160, null
+  br i1 %.not.i148, label %161, label %164
 
-160:                                              ; preds = %157, %155
-  %161 = getelementptr inbounds nuw i8, ptr %138, i64 40
-  %162 = load i64, ptr %161, align 8
-  br label %169
+161:                                              ; preds = %159
+  %162 = tail call noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #26
+  store ptr %162, ptr %142, align 8
+  %163 = getelementptr inbounds nuw i8, ptr %142, i64 8
+  store ptr %162, ptr %163, align 8
+  br label %164
 
-163:                                              ; preds = %151
-  %164 = ptrtoint ptr %153 to i64
-  %165 = sub i64 %143, %164
-  %166 = add i64 %165, 1
-  %167 = lshr i64 %166, 1
-  %168 = add i64 %167, %165
-  br label %169
+164:                                              ; preds = %161, %159
+  %165 = getelementptr inbounds nuw i8, ptr %142, i64 40
+  %166 = load i64, ptr %165, align 8
+  br label %173
 
-169:                                              ; preds = %163, %160
-  %.pre-phi.i144 = phi i64 [ %164, %163 ], [ 0, %160 ]
-  %.0.i145 = phi i64 [ %168, %163 ], [ %162, %160 ]
-  %170 = sub i64 %144, %.pre-phi.i144
-  %171 = add i64 %170, 1
-  %spec.select.i146 = tail call i64 @llvm.umax.i64(i64 %.0.i145, i64 %171)
-  %172 = icmp eq i64 %spec.select.i146, 0
-  br i1 %172, label %173, label %174
+167:                                              ; preds = %155
+  %168 = ptrtoint ptr %157 to i64
+  %169 = sub i64 %147, %168
+  %170 = add i64 %169, 1
+  %171 = lshr i64 %170, 1
+  %172 = add i64 %171, %169
+  br label %173
 
-173:                                              ; preds = %169
-  tail call void @free(ptr noundef %153) #24
+173:                                              ; preds = %167, %164
+  %.pre-phi.i144 = phi i64 [ %168, %167 ], [ 0, %164 ]
+  %.0.i145 = phi i64 [ %172, %167 ], [ %166, %164 ]
+  %174 = sub i64 %148, %.pre-phi.i144
+  %175 = add i64 %174, 1
+  %spec.select.i146 = tail call i64 @llvm.umax.i64(i64 %.0.i145, i64 %175)
+  %176 = icmp eq i64 %spec.select.i146, 0
+  br i1 %176, label %177, label %178
+
+177:                                              ; preds = %173
+  tail call void @free(ptr noundef %157) #24
   br label %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit149
 
-174:                                              ; preds = %169
-  %175 = tail call ptr @realloc(ptr noundef %153, i64 noundef %spec.select.i146) #29
+178:                                              ; preds = %173
+  %179 = tail call ptr @realloc(ptr noundef %157, i64 noundef %spec.select.i146) #29
   br label %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit149
 
-_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit149: ; preds = %173, %174
-  %.0.i.i.i147 = phi ptr [ null, %173 ], [ %175, %174 ]
-  store ptr %.0.i.i.i147, ptr %152, align 8
-  %176 = getelementptr inbounds i8, ptr %.0.i.i.i147, i64 %170
-  %177 = getelementptr inbounds i8, ptr %.0.i.i.i147, i64 %spec.select.i146
-  store ptr %177, ptr %139, align 8
-  br label %178
+_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit149: ; preds = %177, %178
+  %.0.i.i.i147 = phi ptr [ null, %177 ], [ %179, %178 ]
+  store ptr %.0.i.i.i147, ptr %156, align 8
+  %180 = getelementptr inbounds i8, ptr %.0.i.i.i147, i64 %174
+  %181 = getelementptr inbounds i8, ptr %.0.i.i.i147, i64 %spec.select.i146
+  store ptr %181, ptr %143, align 8
+  br label %182
 
-178:                                              ; preds = %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit149, %147
-  %179 = phi ptr [ %176, %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit149 ], [ %142, %147 ]
-  %180 = getelementptr inbounds i8, ptr %179, i64 1
-  store ptr %180, ptr %141, align 8
-  store i8 %150, ptr %179, align 1
-  %181 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %182 = load i32, ptr %181, align 8
-  %183 = add i32 %182, 1
-  store i32 %183, ptr %181, align 8
-  %184 = lshr i32 %1, 6
-  %185 = trunc i32 %184 to i8
-  %186 = and i8 %185, 63
-  %187 = or disjoint i8 %186, -128
-  %188 = load ptr, ptr %0, align 8
-  %189 = getelementptr inbounds nuw i8, ptr %188, i64 32
-  %190 = load ptr, ptr %189, align 8
-  %191 = getelementptr inbounds nuw i8, ptr %188, i64 24
-  %192 = load ptr, ptr %191, align 8
-  %193 = ptrtoint ptr %190 to i64
-  %194 = ptrtoint ptr %192 to i64
-  %195 = sub i64 %193, %194
-  %196 = icmp slt i64 %195, 1
-  br i1 %196, label %197, label %224
+182:                                              ; preds = %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit149, %151
+  %183 = phi ptr [ %180, %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit149 ], [ %146, %151 ]
+  %184 = getelementptr inbounds i8, ptr %183, i64 1
+  store ptr %184, ptr %145, align 8
+  store i8 %154, ptr %183, align 1
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %186 = load i32, ptr %185, align 8
+  %187 = add i32 %186, 1
+  store i32 %187, ptr %185, align 8
+  %188 = lshr i32 %1, 6
+  %189 = trunc i32 %188 to i8
+  %190 = and i8 %189, 63
+  %191 = or disjoint i8 %190, -128
+  %192 = load ptr, ptr %0, align 8
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 32
+  %194 = load ptr, ptr %193, align 8
+  %195 = getelementptr inbounds nuw i8, ptr %192, i64 24
+  %196 = load ptr, ptr %195, align 8
+  %197 = ptrtoint ptr %194 to i64
+  %198 = ptrtoint ptr %196 to i64
+  %199 = sub i64 %197, %198
+  %200 = icmp slt i64 %199, 1
+  br i1 %200, label %201, label %228
 
-197:                                              ; preds = %178
-  %198 = getelementptr inbounds nuw i8, ptr %188, i64 16
-  %199 = load ptr, ptr %198, align 8
-  %200 = icmp eq ptr %199, null
-  br i1 %200, label %201, label %209
+201:                                              ; preds = %182
+  %202 = getelementptr inbounds nuw i8, ptr %192, i64 16
+  %203 = load ptr, ptr %202, align 8
+  %204 = icmp eq ptr %203, null
+  br i1 %204, label %205, label %213
 
-201:                                              ; preds = %197
-  %202 = load ptr, ptr %188, align 8
-  %.not.i154 = icmp eq ptr %202, null
-  br i1 %.not.i154, label %203, label %206
+205:                                              ; preds = %201
+  %206 = load ptr, ptr %192, align 8
+  %.not.i154 = icmp eq ptr %206, null
+  br i1 %.not.i154, label %207, label %210
 
-203:                                              ; preds = %201
-  %204 = tail call noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #26
-  store ptr %204, ptr %188, align 8
-  %205 = getelementptr inbounds nuw i8, ptr %188, i64 8
-  store ptr %204, ptr %205, align 8
-  br label %206
+207:                                              ; preds = %205
+  %208 = tail call noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #26
+  store ptr %208, ptr %192, align 8
+  %209 = getelementptr inbounds nuw i8, ptr %192, i64 8
+  store ptr %208, ptr %209, align 8
+  br label %210
 
-206:                                              ; preds = %203, %201
-  %207 = getelementptr inbounds nuw i8, ptr %188, i64 40
-  %208 = load i64, ptr %207, align 8
-  br label %215
+210:                                              ; preds = %207, %205
+  %211 = getelementptr inbounds nuw i8, ptr %192, i64 40
+  %212 = load i64, ptr %211, align 8
+  br label %219
 
-209:                                              ; preds = %197
-  %210 = ptrtoint ptr %199 to i64
-  %211 = sub i64 %193, %210
-  %212 = add i64 %211, 1
-  %213 = lshr i64 %212, 1
-  %214 = add i64 %213, %211
-  br label %215
+213:                                              ; preds = %201
+  %214 = ptrtoint ptr %203 to i64
+  %215 = sub i64 %197, %214
+  %216 = add i64 %215, 1
+  %217 = lshr i64 %216, 1
+  %218 = add i64 %217, %215
+  br label %219
 
-215:                                              ; preds = %209, %206
-  %.pre-phi.i150 = phi i64 [ %210, %209 ], [ 0, %206 ]
-  %.0.i151 = phi i64 [ %214, %209 ], [ %208, %206 ]
-  %216 = sub i64 %194, %.pre-phi.i150
-  %217 = add i64 %216, 1
-  %spec.select.i152 = tail call i64 @llvm.umax.i64(i64 %.0.i151, i64 %217)
-  %218 = icmp eq i64 %spec.select.i152, 0
-  br i1 %218, label %219, label %220
+219:                                              ; preds = %213, %210
+  %.pre-phi.i150 = phi i64 [ %214, %213 ], [ 0, %210 ]
+  %.0.i151 = phi i64 [ %218, %213 ], [ %212, %210 ]
+  %220 = sub i64 %198, %.pre-phi.i150
+  %221 = add i64 %220, 1
+  %spec.select.i152 = tail call i64 @llvm.umax.i64(i64 %.0.i151, i64 %221)
+  %222 = icmp eq i64 %spec.select.i152, 0
+  br i1 %222, label %223, label %224
 
-219:                                              ; preds = %215
-  tail call void @free(ptr noundef %199) #24
+223:                                              ; preds = %219
+  tail call void @free(ptr noundef %203) #24
   br label %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit155
 
-220:                                              ; preds = %215
-  %221 = tail call ptr @realloc(ptr noundef %199, i64 noundef %spec.select.i152) #29
+224:                                              ; preds = %219
+  %225 = tail call ptr @realloc(ptr noundef %203, i64 noundef %spec.select.i152) #29
   br label %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit155
 
-_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit155: ; preds = %219, %220
-  %.0.i.i.i153 = phi ptr [ null, %219 ], [ %221, %220 ]
-  store ptr %.0.i.i.i153, ptr %198, align 8
-  %222 = getelementptr inbounds i8, ptr %.0.i.i.i153, i64 %216
-  %223 = getelementptr inbounds i8, ptr %.0.i.i.i153, i64 %spec.select.i152
-  store ptr %223, ptr %189, align 8
-  br label %224
+_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit155: ; preds = %223, %224
+  %.0.i.i.i153 = phi ptr [ null, %223 ], [ %225, %224 ]
+  store ptr %.0.i.i.i153, ptr %202, align 8
+  %226 = getelementptr inbounds i8, ptr %.0.i.i.i153, i64 %220
+  %227 = getelementptr inbounds i8, ptr %.0.i.i.i153, i64 %spec.select.i152
+  store ptr %227, ptr %193, align 8
+  br label %228
 
-224:                                              ; preds = %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit155, %178
-  %225 = phi ptr [ %222, %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit155 ], [ %192, %178 ]
-  %226 = getelementptr inbounds i8, ptr %225, i64 1
-  store ptr %226, ptr %191, align 8
-  store i8 %187, ptr %225, align 1
-  %227 = load i32, ptr %181, align 8
-  %228 = add i32 %227, 1
-  store i32 %228, ptr %181, align 8
-  %229 = trunc i32 %1 to i8
-  %230 = and i8 %229, 63
-  %231 = or disjoint i8 %230, -128
-  %232 = load ptr, ptr %0, align 8
-  %233 = getelementptr inbounds nuw i8, ptr %232, i64 32
-  %234 = load ptr, ptr %233, align 8
-  %235 = getelementptr inbounds nuw i8, ptr %232, i64 24
-  %236 = load ptr, ptr %235, align 8
-  %237 = ptrtoint ptr %234 to i64
-  %238 = ptrtoint ptr %236 to i64
-  %239 = sub i64 %237, %238
-  %240 = icmp slt i64 %239, 1
-  br i1 %240, label %241, label %268
+228:                                              ; preds = %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit155, %182
+  %229 = phi ptr [ %226, %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit155 ], [ %196, %182 ]
+  %230 = getelementptr inbounds i8, ptr %229, i64 1
+  store ptr %230, ptr %195, align 8
+  store i8 %191, ptr %229, align 1
+  %231 = load i32, ptr %185, align 8
+  %232 = add i32 %231, 1
+  store i32 %232, ptr %185, align 8
+  %233 = trunc i32 %1 to i8
+  %234 = and i8 %233, 63
+  %235 = or disjoint i8 %234, -128
+  %236 = load ptr, ptr %0, align 8
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 32
+  %238 = load ptr, ptr %237, align 8
+  %239 = getelementptr inbounds nuw i8, ptr %236, i64 24
+  %240 = load ptr, ptr %239, align 8
+  %241 = ptrtoint ptr %238 to i64
+  %242 = ptrtoint ptr %240 to i64
+  %243 = sub i64 %241, %242
+  %244 = icmp slt i64 %243, 1
+  br i1 %244, label %245, label %272
 
-241:                                              ; preds = %224
-  %242 = getelementptr inbounds nuw i8, ptr %232, i64 16
-  %243 = load ptr, ptr %242, align 8
-  %244 = icmp eq ptr %243, null
-  br i1 %244, label %245, label %253
+245:                                              ; preds = %228
+  %246 = getelementptr inbounds nuw i8, ptr %236, i64 16
+  %247 = load ptr, ptr %246, align 8
+  %248 = icmp eq ptr %247, null
+  br i1 %248, label %249, label %257
 
-245:                                              ; preds = %241
-  %246 = load ptr, ptr %232, align 8
-  %.not.i160 = icmp eq ptr %246, null
-  br i1 %.not.i160, label %247, label %250
+249:                                              ; preds = %245
+  %250 = load ptr, ptr %236, align 8
+  %.not.i160 = icmp eq ptr %250, null
+  br i1 %.not.i160, label %251, label %254
 
-247:                                              ; preds = %245
-  %248 = tail call noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #26
-  store ptr %248, ptr %232, align 8
-  %249 = getelementptr inbounds nuw i8, ptr %232, i64 8
-  store ptr %248, ptr %249, align 8
-  br label %250
+251:                                              ; preds = %249
+  %252 = tail call noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #26
+  store ptr %252, ptr %236, align 8
+  %253 = getelementptr inbounds nuw i8, ptr %236, i64 8
+  store ptr %252, ptr %253, align 8
+  br label %254
 
-250:                                              ; preds = %247, %245
-  %251 = getelementptr inbounds nuw i8, ptr %232, i64 40
-  %252 = load i64, ptr %251, align 8
-  br label %259
+254:                                              ; preds = %251, %249
+  %255 = getelementptr inbounds nuw i8, ptr %236, i64 40
+  %256 = load i64, ptr %255, align 8
+  br label %263
 
-253:                                              ; preds = %241
-  %254 = ptrtoint ptr %243 to i64
-  %255 = sub i64 %237, %254
-  %256 = add i64 %255, 1
-  %257 = lshr i64 %256, 1
-  %258 = add i64 %257, %255
-  br label %259
+257:                                              ; preds = %245
+  %258 = ptrtoint ptr %247 to i64
+  %259 = sub i64 %241, %258
+  %260 = add i64 %259, 1
+  %261 = lshr i64 %260, 1
+  %262 = add i64 %261, %259
+  br label %263
 
-259:                                              ; preds = %253, %250
-  %.pre-phi.i156 = phi i64 [ %254, %253 ], [ 0, %250 ]
-  %.0.i157 = phi i64 [ %258, %253 ], [ %252, %250 ]
-  %260 = sub i64 %238, %.pre-phi.i156
-  %261 = add i64 %260, 1
-  %spec.select.i158 = tail call i64 @llvm.umax.i64(i64 %.0.i157, i64 %261)
-  %262 = icmp eq i64 %spec.select.i158, 0
-  br i1 %262, label %263, label %264
+263:                                              ; preds = %257, %254
+  %.pre-phi.i156 = phi i64 [ %258, %257 ], [ 0, %254 ]
+  %.0.i157 = phi i64 [ %262, %257 ], [ %256, %254 ]
+  %264 = sub i64 %242, %.pre-phi.i156
+  %265 = add i64 %264, 1
+  %spec.select.i158 = tail call i64 @llvm.umax.i64(i64 %.0.i157, i64 %265)
+  %266 = icmp eq i64 %spec.select.i158, 0
+  br i1 %266, label %267, label %268
 
-263:                                              ; preds = %259
-  tail call void @free(ptr noundef %243) #24
+267:                                              ; preds = %263
+  tail call void @free(ptr noundef %247) #24
   br label %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit161
 
-264:                                              ; preds = %259
-  %265 = tail call ptr @realloc(ptr noundef %243, i64 noundef %spec.select.i158) #29
+268:                                              ; preds = %263
+  %269 = tail call ptr @realloc(ptr noundef %247, i64 noundef %spec.select.i158) #29
   br label %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit161
 
-_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit161: ; preds = %263, %264
-  %.0.i.i.i159 = phi ptr [ null, %263 ], [ %265, %264 ]
-  store ptr %.0.i.i.i159, ptr %242, align 8
-  %266 = getelementptr inbounds i8, ptr %.0.i.i.i159, i64 %260
-  %267 = getelementptr inbounds i8, ptr %.0.i.i.i159, i64 %spec.select.i158
-  store ptr %267, ptr %233, align 8
-  br label %268
+_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit161: ; preds = %267, %268
+  %.0.i.i.i159 = phi ptr [ null, %267 ], [ %269, %268 ]
+  store ptr %.0.i.i.i159, ptr %246, align 8
+  %270 = getelementptr inbounds i8, ptr %.0.i.i.i159, i64 %264
+  %271 = getelementptr inbounds i8, ptr %.0.i.i.i159, i64 %spec.select.i158
+  store ptr %271, ptr %237, align 8
+  br label %272
 
-268:                                              ; preds = %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit161, %224
-  %269 = phi ptr [ %266, %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit161 ], [ %236, %224 ]
-  %270 = getelementptr inbounds i8, ptr %269, i64 1
-  store ptr %270, ptr %235, align 8
-  store i8 %231, ptr %269, align 1
-  br label %440
+272:                                              ; preds = %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit161, %228
+  %273 = phi ptr [ %270, %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit161 ], [ %240, %228 ]
+  %274 = getelementptr inbounds i8, ptr %273, i64 1
+  store ptr %274, ptr %239, align 8
+  store i8 %235, ptr %273, align 1
+  %275 = load i32, ptr %185, align 8
+  %276 = add i32 %275, 1
+  store i32 %276, ptr %185, align 8
+  br label %448
 
-271:                                              ; preds = %136
-  %272 = lshr i32 %1, 18
-  %273 = trunc i32 %272 to i8
-  %274 = or i8 %273, -16
-  br i1 %146, label %275, label %302
+277:                                              ; preds = %140
+  %278 = lshr i32 %1, 18
+  %279 = trunc i32 %278 to i8
+  %280 = or i8 %279, -16
+  br i1 %150, label %281, label %308
 
-275:                                              ; preds = %271
-  %276 = getelementptr inbounds nuw i8, ptr %138, i64 16
-  %277 = load ptr, ptr %276, align 8
-  %278 = icmp eq ptr %277, null
-  br i1 %278, label %279, label %287
+281:                                              ; preds = %277
+  %282 = getelementptr inbounds nuw i8, ptr %142, i64 16
+  %283 = load ptr, ptr %282, align 8
+  %284 = icmp eq ptr %283, null
+  br i1 %284, label %285, label %293
 
-279:                                              ; preds = %275
-  %280 = load ptr, ptr %138, align 8
-  %.not.i166 = icmp eq ptr %280, null
-  br i1 %.not.i166, label %281, label %284
+285:                                              ; preds = %281
+  %286 = load ptr, ptr %142, align 8
+  %.not.i166 = icmp eq ptr %286, null
+  br i1 %.not.i166, label %287, label %290
 
-281:                                              ; preds = %279
-  %282 = tail call noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #26
-  store ptr %282, ptr %138, align 8
-  %283 = getelementptr inbounds nuw i8, ptr %138, i64 8
-  store ptr %282, ptr %283, align 8
-  br label %284
+287:                                              ; preds = %285
+  %288 = tail call noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #26
+  store ptr %288, ptr %142, align 8
+  %289 = getelementptr inbounds nuw i8, ptr %142, i64 8
+  store ptr %288, ptr %289, align 8
+  br label %290
 
-284:                                              ; preds = %281, %279
-  %285 = getelementptr inbounds nuw i8, ptr %138, i64 40
-  %286 = load i64, ptr %285, align 8
-  br label %293
+290:                                              ; preds = %287, %285
+  %291 = getelementptr inbounds nuw i8, ptr %142, i64 40
+  %292 = load i64, ptr %291, align 8
+  br label %299
 
-287:                                              ; preds = %275
-  %288 = ptrtoint ptr %277 to i64
-  %289 = sub i64 %143, %288
-  %290 = add i64 %289, 1
-  %291 = lshr i64 %290, 1
-  %292 = add i64 %291, %289
-  br label %293
+293:                                              ; preds = %281
+  %294 = ptrtoint ptr %283 to i64
+  %295 = sub i64 %147, %294
+  %296 = add i64 %295, 1
+  %297 = lshr i64 %296, 1
+  %298 = add i64 %297, %295
+  br label %299
 
-293:                                              ; preds = %287, %284
-  %.pre-phi.i162 = phi i64 [ %288, %287 ], [ 0, %284 ]
-  %.0.i163 = phi i64 [ %292, %287 ], [ %286, %284 ]
-  %294 = sub i64 %144, %.pre-phi.i162
-  %295 = add i64 %294, 1
-  %spec.select.i164 = tail call i64 @llvm.umax.i64(i64 %.0.i163, i64 %295)
-  %296 = icmp eq i64 %spec.select.i164, 0
-  br i1 %296, label %297, label %298
+299:                                              ; preds = %293, %290
+  %.pre-phi.i162 = phi i64 [ %294, %293 ], [ 0, %290 ]
+  %.0.i163 = phi i64 [ %298, %293 ], [ %292, %290 ]
+  %300 = sub i64 %148, %.pre-phi.i162
+  %301 = add i64 %300, 1
+  %spec.select.i164 = tail call i64 @llvm.umax.i64(i64 %.0.i163, i64 %301)
+  %302 = icmp eq i64 %spec.select.i164, 0
+  br i1 %302, label %303, label %304
 
-297:                                              ; preds = %293
-  tail call void @free(ptr noundef %277) #24
+303:                                              ; preds = %299
+  tail call void @free(ptr noundef %283) #24
   br label %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit167
 
-298:                                              ; preds = %293
-  %299 = tail call ptr @realloc(ptr noundef %277, i64 noundef %spec.select.i164) #29
+304:                                              ; preds = %299
+  %305 = tail call ptr @realloc(ptr noundef %283, i64 noundef %spec.select.i164) #29
   br label %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit167
 
-_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit167: ; preds = %297, %298
-  %.0.i.i.i165 = phi ptr [ null, %297 ], [ %299, %298 ]
-  store ptr %.0.i.i.i165, ptr %276, align 8
-  %300 = getelementptr inbounds i8, ptr %.0.i.i.i165, i64 %294
-  %301 = getelementptr inbounds i8, ptr %.0.i.i.i165, i64 %spec.select.i164
-  store ptr %301, ptr %139, align 8
-  br label %302
+_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit167: ; preds = %303, %304
+  %.0.i.i.i165 = phi ptr [ null, %303 ], [ %305, %304 ]
+  store ptr %.0.i.i.i165, ptr %282, align 8
+  %306 = getelementptr inbounds i8, ptr %.0.i.i.i165, i64 %300
+  %307 = getelementptr inbounds i8, ptr %.0.i.i.i165, i64 %spec.select.i164
+  store ptr %307, ptr %143, align 8
+  br label %308
 
-302:                                              ; preds = %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit167, %271
-  %303 = phi ptr [ %300, %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit167 ], [ %142, %271 ]
-  %304 = getelementptr inbounds i8, ptr %303, i64 1
-  store ptr %304, ptr %141, align 8
-  store i8 %274, ptr %303, align 1
-  %305 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %306 = load i32, ptr %305, align 8
-  %307 = add i32 %306, 1
-  store i32 %307, ptr %305, align 8
-  %308 = lshr i32 %1, 12
-  %309 = trunc i32 %308 to i8
-  %310 = and i8 %309, 63
-  %311 = or disjoint i8 %310, -128
-  %312 = load ptr, ptr %0, align 8
-  %313 = getelementptr inbounds nuw i8, ptr %312, i64 32
-  %314 = load ptr, ptr %313, align 8
-  %315 = getelementptr inbounds nuw i8, ptr %312, i64 24
-  %316 = load ptr, ptr %315, align 8
-  %317 = ptrtoint ptr %314 to i64
-  %318 = ptrtoint ptr %316 to i64
-  %319 = sub i64 %317, %318
-  %320 = icmp slt i64 %319, 1
-  br i1 %320, label %321, label %348
+308:                                              ; preds = %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit167, %277
+  %309 = phi ptr [ %306, %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit167 ], [ %146, %277 ]
+  %310 = getelementptr inbounds i8, ptr %309, i64 1
+  store ptr %310, ptr %145, align 8
+  store i8 %280, ptr %309, align 1
+  %311 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %312 = load i32, ptr %311, align 8
+  %313 = add i32 %312, 1
+  store i32 %313, ptr %311, align 8
+  %314 = lshr i32 %1, 12
+  %315 = trunc i32 %314 to i8
+  %316 = and i8 %315, 63
+  %317 = or disjoint i8 %316, -128
+  %318 = load ptr, ptr %0, align 8
+  %319 = getelementptr inbounds nuw i8, ptr %318, i64 32
+  %320 = load ptr, ptr %319, align 8
+  %321 = getelementptr inbounds nuw i8, ptr %318, i64 24
+  %322 = load ptr, ptr %321, align 8
+  %323 = ptrtoint ptr %320 to i64
+  %324 = ptrtoint ptr %322 to i64
+  %325 = sub i64 %323, %324
+  %326 = icmp slt i64 %325, 1
+  br i1 %326, label %327, label %354
 
-321:                                              ; preds = %302
-  %322 = getelementptr inbounds nuw i8, ptr %312, i64 16
-  %323 = load ptr, ptr %322, align 8
-  %324 = icmp eq ptr %323, null
-  br i1 %324, label %325, label %333
+327:                                              ; preds = %308
+  %328 = getelementptr inbounds nuw i8, ptr %318, i64 16
+  %329 = load ptr, ptr %328, align 8
+  %330 = icmp eq ptr %329, null
+  br i1 %330, label %331, label %339
 
-325:                                              ; preds = %321
-  %326 = load ptr, ptr %312, align 8
-  %.not.i172 = icmp eq ptr %326, null
-  br i1 %.not.i172, label %327, label %330
+331:                                              ; preds = %327
+  %332 = load ptr, ptr %318, align 8
+  %.not.i172 = icmp eq ptr %332, null
+  br i1 %.not.i172, label %333, label %336
 
-327:                                              ; preds = %325
-  %328 = tail call noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #26
-  store ptr %328, ptr %312, align 8
-  %329 = getelementptr inbounds nuw i8, ptr %312, i64 8
-  store ptr %328, ptr %329, align 8
-  br label %330
+333:                                              ; preds = %331
+  %334 = tail call noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #26
+  store ptr %334, ptr %318, align 8
+  %335 = getelementptr inbounds nuw i8, ptr %318, i64 8
+  store ptr %334, ptr %335, align 8
+  br label %336
 
-330:                                              ; preds = %327, %325
-  %331 = getelementptr inbounds nuw i8, ptr %312, i64 40
-  %332 = load i64, ptr %331, align 8
-  br label %339
+336:                                              ; preds = %333, %331
+  %337 = getelementptr inbounds nuw i8, ptr %318, i64 40
+  %338 = load i64, ptr %337, align 8
+  br label %345
 
-333:                                              ; preds = %321
-  %334 = ptrtoint ptr %323 to i64
-  %335 = sub i64 %317, %334
-  %336 = add i64 %335, 1
-  %337 = lshr i64 %336, 1
-  %338 = add i64 %337, %335
-  br label %339
+339:                                              ; preds = %327
+  %340 = ptrtoint ptr %329 to i64
+  %341 = sub i64 %323, %340
+  %342 = add i64 %341, 1
+  %343 = lshr i64 %342, 1
+  %344 = add i64 %343, %341
+  br label %345
 
-339:                                              ; preds = %333, %330
-  %.pre-phi.i168 = phi i64 [ %334, %333 ], [ 0, %330 ]
-  %.0.i169 = phi i64 [ %338, %333 ], [ %332, %330 ]
-  %340 = sub i64 %318, %.pre-phi.i168
-  %341 = add i64 %340, 1
-  %spec.select.i170 = tail call i64 @llvm.umax.i64(i64 %.0.i169, i64 %341)
-  %342 = icmp eq i64 %spec.select.i170, 0
-  br i1 %342, label %343, label %344
+345:                                              ; preds = %339, %336
+  %.pre-phi.i168 = phi i64 [ %340, %339 ], [ 0, %336 ]
+  %.0.i169 = phi i64 [ %344, %339 ], [ %338, %336 ]
+  %346 = sub i64 %324, %.pre-phi.i168
+  %347 = add i64 %346, 1
+  %spec.select.i170 = tail call i64 @llvm.umax.i64(i64 %.0.i169, i64 %347)
+  %348 = icmp eq i64 %spec.select.i170, 0
+  br i1 %348, label %349, label %350
 
-343:                                              ; preds = %339
-  tail call void @free(ptr noundef %323) #24
+349:                                              ; preds = %345
+  tail call void @free(ptr noundef %329) #24
   br label %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit173
 
-344:                                              ; preds = %339
-  %345 = tail call ptr @realloc(ptr noundef %323, i64 noundef %spec.select.i170) #29
+350:                                              ; preds = %345
+  %351 = tail call ptr @realloc(ptr noundef %329, i64 noundef %spec.select.i170) #29
   br label %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit173
 
-_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit173: ; preds = %343, %344
-  %.0.i.i.i171 = phi ptr [ null, %343 ], [ %345, %344 ]
-  store ptr %.0.i.i.i171, ptr %322, align 8
-  %346 = getelementptr inbounds i8, ptr %.0.i.i.i171, i64 %340
-  %347 = getelementptr inbounds i8, ptr %.0.i.i.i171, i64 %spec.select.i170
-  store ptr %347, ptr %313, align 8
-  br label %348
+_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit173: ; preds = %349, %350
+  %.0.i.i.i171 = phi ptr [ null, %349 ], [ %351, %350 ]
+  store ptr %.0.i.i.i171, ptr %328, align 8
+  %352 = getelementptr inbounds i8, ptr %.0.i.i.i171, i64 %346
+  %353 = getelementptr inbounds i8, ptr %.0.i.i.i171, i64 %spec.select.i170
+  store ptr %353, ptr %319, align 8
+  br label %354
 
-348:                                              ; preds = %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit173, %302
-  %349 = phi ptr [ %346, %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit173 ], [ %316, %302 ]
-  %350 = getelementptr inbounds i8, ptr %349, i64 1
-  store ptr %350, ptr %315, align 8
-  store i8 %311, ptr %349, align 1
-  %351 = load i32, ptr %305, align 8
-  %352 = add i32 %351, 1
-  store i32 %352, ptr %305, align 8
-  %353 = lshr i32 %1, 6
-  %354 = trunc i32 %353 to i8
-  %355 = and i8 %354, 63
-  %356 = or disjoint i8 %355, -128
-  %357 = load ptr, ptr %0, align 8
-  %358 = getelementptr inbounds nuw i8, ptr %357, i64 32
-  %359 = load ptr, ptr %358, align 8
-  %360 = getelementptr inbounds nuw i8, ptr %357, i64 24
-  %361 = load ptr, ptr %360, align 8
-  %362 = ptrtoint ptr %359 to i64
-  %363 = ptrtoint ptr %361 to i64
-  %364 = sub i64 %362, %363
-  %365 = icmp slt i64 %364, 1
-  br i1 %365, label %366, label %393
+354:                                              ; preds = %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit173, %308
+  %355 = phi ptr [ %352, %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit173 ], [ %322, %308 ]
+  %356 = getelementptr inbounds i8, ptr %355, i64 1
+  store ptr %356, ptr %321, align 8
+  store i8 %317, ptr %355, align 1
+  %357 = load i32, ptr %311, align 8
+  %358 = add i32 %357, 1
+  store i32 %358, ptr %311, align 8
+  %359 = lshr i32 %1, 6
+  %360 = trunc i32 %359 to i8
+  %361 = and i8 %360, 63
+  %362 = or disjoint i8 %361, -128
+  %363 = load ptr, ptr %0, align 8
+  %364 = getelementptr inbounds nuw i8, ptr %363, i64 32
+  %365 = load ptr, ptr %364, align 8
+  %366 = getelementptr inbounds nuw i8, ptr %363, i64 24
+  %367 = load ptr, ptr %366, align 8
+  %368 = ptrtoint ptr %365 to i64
+  %369 = ptrtoint ptr %367 to i64
+  %370 = sub i64 %368, %369
+  %371 = icmp slt i64 %370, 1
+  br i1 %371, label %372, label %399
 
-366:                                              ; preds = %348
-  %367 = getelementptr inbounds nuw i8, ptr %357, i64 16
-  %368 = load ptr, ptr %367, align 8
-  %369 = icmp eq ptr %368, null
-  br i1 %369, label %370, label %378
+372:                                              ; preds = %354
+  %373 = getelementptr inbounds nuw i8, ptr %363, i64 16
+  %374 = load ptr, ptr %373, align 8
+  %375 = icmp eq ptr %374, null
+  br i1 %375, label %376, label %384
 
-370:                                              ; preds = %366
-  %371 = load ptr, ptr %357, align 8
-  %.not.i178 = icmp eq ptr %371, null
-  br i1 %.not.i178, label %372, label %375
+376:                                              ; preds = %372
+  %377 = load ptr, ptr %363, align 8
+  %.not.i178 = icmp eq ptr %377, null
+  br i1 %.not.i178, label %378, label %381
 
-372:                                              ; preds = %370
-  %373 = tail call noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #26
-  store ptr %373, ptr %357, align 8
-  %374 = getelementptr inbounds nuw i8, ptr %357, i64 8
-  store ptr %373, ptr %374, align 8
-  br label %375
+378:                                              ; preds = %376
+  %379 = tail call noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #26
+  store ptr %379, ptr %363, align 8
+  %380 = getelementptr inbounds nuw i8, ptr %363, i64 8
+  store ptr %379, ptr %380, align 8
+  br label %381
 
-375:                                              ; preds = %372, %370
-  %376 = getelementptr inbounds nuw i8, ptr %357, i64 40
-  %377 = load i64, ptr %376, align 8
-  br label %384
+381:                                              ; preds = %378, %376
+  %382 = getelementptr inbounds nuw i8, ptr %363, i64 40
+  %383 = load i64, ptr %382, align 8
+  br label %390
 
-378:                                              ; preds = %366
-  %379 = ptrtoint ptr %368 to i64
-  %380 = sub i64 %362, %379
-  %381 = add i64 %380, 1
-  %382 = lshr i64 %381, 1
-  %383 = add i64 %382, %380
-  br label %384
+384:                                              ; preds = %372
+  %385 = ptrtoint ptr %374 to i64
+  %386 = sub i64 %368, %385
+  %387 = add i64 %386, 1
+  %388 = lshr i64 %387, 1
+  %389 = add i64 %388, %386
+  br label %390
 
-384:                                              ; preds = %378, %375
-  %.pre-phi.i174 = phi i64 [ %379, %378 ], [ 0, %375 ]
-  %.0.i175 = phi i64 [ %383, %378 ], [ %377, %375 ]
-  %385 = sub i64 %363, %.pre-phi.i174
-  %386 = add i64 %385, 1
-  %spec.select.i176 = tail call i64 @llvm.umax.i64(i64 %.0.i175, i64 %386)
-  %387 = icmp eq i64 %spec.select.i176, 0
-  br i1 %387, label %388, label %389
+390:                                              ; preds = %384, %381
+  %.pre-phi.i174 = phi i64 [ %385, %384 ], [ 0, %381 ]
+  %.0.i175 = phi i64 [ %389, %384 ], [ %383, %381 ]
+  %391 = sub i64 %369, %.pre-phi.i174
+  %392 = add i64 %391, 1
+  %spec.select.i176 = tail call i64 @llvm.umax.i64(i64 %.0.i175, i64 %392)
+  %393 = icmp eq i64 %spec.select.i176, 0
+  br i1 %393, label %394, label %395
 
-388:                                              ; preds = %384
-  tail call void @free(ptr noundef %368) #24
+394:                                              ; preds = %390
+  tail call void @free(ptr noundef %374) #24
   br label %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit179
 
-389:                                              ; preds = %384
-  %390 = tail call ptr @realloc(ptr noundef %368, i64 noundef %spec.select.i176) #29
+395:                                              ; preds = %390
+  %396 = tail call ptr @realloc(ptr noundef %374, i64 noundef %spec.select.i176) #29
   br label %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit179
 
-_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit179: ; preds = %388, %389
-  %.0.i.i.i177 = phi ptr [ null, %388 ], [ %390, %389 ]
-  store ptr %.0.i.i.i177, ptr %367, align 8
-  %391 = getelementptr inbounds i8, ptr %.0.i.i.i177, i64 %385
-  %392 = getelementptr inbounds i8, ptr %.0.i.i.i177, i64 %spec.select.i176
-  store ptr %392, ptr %358, align 8
-  br label %393
+_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit179: ; preds = %394, %395
+  %.0.i.i.i177 = phi ptr [ null, %394 ], [ %396, %395 ]
+  store ptr %.0.i.i.i177, ptr %373, align 8
+  %397 = getelementptr inbounds i8, ptr %.0.i.i.i177, i64 %391
+  %398 = getelementptr inbounds i8, ptr %.0.i.i.i177, i64 %spec.select.i176
+  store ptr %398, ptr %364, align 8
+  br label %399
 
-393:                                              ; preds = %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit179, %348
-  %394 = phi ptr [ %391, %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit179 ], [ %361, %348 ]
-  %395 = getelementptr inbounds i8, ptr %394, i64 1
-  store ptr %395, ptr %360, align 8
-  store i8 %356, ptr %394, align 1
-  %396 = load i32, ptr %305, align 8
-  %397 = add i32 %396, 1
-  store i32 %397, ptr %305, align 8
-  %398 = trunc i32 %1 to i8
-  %399 = and i8 %398, 63
-  %400 = or disjoint i8 %399, -128
-  %401 = load ptr, ptr %0, align 8
-  %402 = getelementptr inbounds nuw i8, ptr %401, i64 32
-  %403 = load ptr, ptr %402, align 8
-  %404 = getelementptr inbounds nuw i8, ptr %401, i64 24
-  %405 = load ptr, ptr %404, align 8
-  %406 = ptrtoint ptr %403 to i64
-  %407 = ptrtoint ptr %405 to i64
-  %408 = sub i64 %406, %407
-  %409 = icmp slt i64 %408, 1
-  br i1 %409, label %410, label %437
+399:                                              ; preds = %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit179, %354
+  %400 = phi ptr [ %397, %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit179 ], [ %367, %354 ]
+  %401 = getelementptr inbounds i8, ptr %400, i64 1
+  store ptr %401, ptr %366, align 8
+  store i8 %362, ptr %400, align 1
+  %402 = load i32, ptr %311, align 8
+  %403 = add i32 %402, 1
+  store i32 %403, ptr %311, align 8
+  %404 = trunc i32 %1 to i8
+  %405 = and i8 %404, 63
+  %406 = or disjoint i8 %405, -128
+  %407 = load ptr, ptr %0, align 8
+  %408 = getelementptr inbounds nuw i8, ptr %407, i64 32
+  %409 = load ptr, ptr %408, align 8
+  %410 = getelementptr inbounds nuw i8, ptr %407, i64 24
+  %411 = load ptr, ptr %410, align 8
+  %412 = ptrtoint ptr %409 to i64
+  %413 = ptrtoint ptr %411 to i64
+  %414 = sub i64 %412, %413
+  %415 = icmp slt i64 %414, 1
+  br i1 %415, label %416, label %443
 
-410:                                              ; preds = %393
-  %411 = getelementptr inbounds nuw i8, ptr %401, i64 16
-  %412 = load ptr, ptr %411, align 8
-  %413 = icmp eq ptr %412, null
-  br i1 %413, label %414, label %422
+416:                                              ; preds = %399
+  %417 = getelementptr inbounds nuw i8, ptr %407, i64 16
+  %418 = load ptr, ptr %417, align 8
+  %419 = icmp eq ptr %418, null
+  br i1 %419, label %420, label %428
 
-414:                                              ; preds = %410
-  %415 = load ptr, ptr %401, align 8
-  %.not.i184 = icmp eq ptr %415, null
-  br i1 %.not.i184, label %416, label %419
+420:                                              ; preds = %416
+  %421 = load ptr, ptr %407, align 8
+  %.not.i184 = icmp eq ptr %421, null
+  br i1 %.not.i184, label %422, label %425
 
-416:                                              ; preds = %414
-  %417 = tail call noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #26
-  store ptr %417, ptr %401, align 8
-  %418 = getelementptr inbounds nuw i8, ptr %401, i64 8
-  store ptr %417, ptr %418, align 8
-  br label %419
+422:                                              ; preds = %420
+  %423 = tail call noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #26
+  store ptr %423, ptr %407, align 8
+  %424 = getelementptr inbounds nuw i8, ptr %407, i64 8
+  store ptr %423, ptr %424, align 8
+  br label %425
 
-419:                                              ; preds = %416, %414
-  %420 = getelementptr inbounds nuw i8, ptr %401, i64 40
-  %421 = load i64, ptr %420, align 8
-  br label %428
+425:                                              ; preds = %422, %420
+  %426 = getelementptr inbounds nuw i8, ptr %407, i64 40
+  %427 = load i64, ptr %426, align 8
+  br label %434
 
-422:                                              ; preds = %410
-  %423 = ptrtoint ptr %412 to i64
-  %424 = sub i64 %406, %423
-  %425 = add i64 %424, 1
-  %426 = lshr i64 %425, 1
-  %427 = add i64 %426, %424
-  br label %428
+428:                                              ; preds = %416
+  %429 = ptrtoint ptr %418 to i64
+  %430 = sub i64 %412, %429
+  %431 = add i64 %430, 1
+  %432 = lshr i64 %431, 1
+  %433 = add i64 %432, %430
+  br label %434
 
-428:                                              ; preds = %422, %419
-  %.pre-phi.i180 = phi i64 [ %423, %422 ], [ 0, %419 ]
-  %.0.i181 = phi i64 [ %427, %422 ], [ %421, %419 ]
-  %429 = sub i64 %407, %.pre-phi.i180
-  %430 = add i64 %429, 1
-  %spec.select.i182 = tail call i64 @llvm.umax.i64(i64 %.0.i181, i64 %430)
-  %431 = icmp eq i64 %spec.select.i182, 0
-  br i1 %431, label %432, label %433
+434:                                              ; preds = %428, %425
+  %.pre-phi.i180 = phi i64 [ %429, %428 ], [ 0, %425 ]
+  %.0.i181 = phi i64 [ %433, %428 ], [ %427, %425 ]
+  %435 = sub i64 %413, %.pre-phi.i180
+  %436 = add i64 %435, 1
+  %spec.select.i182 = tail call i64 @llvm.umax.i64(i64 %.0.i181, i64 %436)
+  %437 = icmp eq i64 %spec.select.i182, 0
+  br i1 %437, label %438, label %439
 
-432:                                              ; preds = %428
-  tail call void @free(ptr noundef %412) #24
+438:                                              ; preds = %434
+  tail call void @free(ptr noundef %418) #24
   br label %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit185
 
-433:                                              ; preds = %428
-  %434 = tail call ptr @realloc(ptr noundef %412, i64 noundef %spec.select.i182) #29
+439:                                              ; preds = %434
+  %440 = tail call ptr @realloc(ptr noundef %418, i64 noundef %spec.select.i182) #29
   br label %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit185
 
-_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit185: ; preds = %432, %433
-  %.0.i.i.i183 = phi ptr [ null, %432 ], [ %434, %433 ]
-  store ptr %.0.i.i.i183, ptr %411, align 8
-  %435 = getelementptr inbounds i8, ptr %.0.i.i.i183, i64 %429
-  %436 = getelementptr inbounds i8, ptr %.0.i.i.i183, i64 %spec.select.i182
-  store ptr %436, ptr %402, align 8
-  br label %437
+_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit185: ; preds = %438, %439
+  %.0.i.i.i183 = phi ptr [ null, %438 ], [ %440, %439 ]
+  store ptr %.0.i.i.i183, ptr %417, align 8
+  %441 = getelementptr inbounds i8, ptr %.0.i.i.i183, i64 %435
+  %442 = getelementptr inbounds i8, ptr %.0.i.i.i183, i64 %spec.select.i182
+  store ptr %442, ptr %408, align 8
+  br label %443
 
-437:                                              ; preds = %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit185, %393
-  %438 = phi ptr [ %435, %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit185 ], [ %405, %393 ]
-  %439 = getelementptr inbounds i8, ptr %438, i64 1
-  store ptr %439, ptr %404, align 8
-  store i8 %400, ptr %438, align 1
-  br label %440
+443:                                              ; preds = %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit185, %399
+  %444 = phi ptr [ %441, %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit185 ], [ %411, %399 ]
+  %445 = getelementptr inbounds i8, ptr %444, i64 1
+  store ptr %445, ptr %410, align 8
+  store i8 %406, ptr %444, align 1
+  %446 = load i32, ptr %311, align 8
+  %447 = add i32 %446, 1
+  store i32 %447, ptr %311, align 8
+  br label %448
 
-440:                                              ; preds = %133, %437, %268, %42
-  %.sink = phi ptr [ %91, %133 ], [ %305, %437 ], [ %181, %268 ], [ %45, %42 ]
-  %441 = load i32, ptr %.sink, align 8
-  %442 = add i32 %441, 1
-  store i32 %442, ptr %.sink, align 8
+448:                                              ; preds = %135, %443, %272, %42
   ret void
 }
 
@@ -13350,7 +13358,8 @@ _ZN3pxr9rapidjson8internal10BigInteger11ParseUint64IcEEmPKT_S6_.exit: ; preds = 
 
 17:                                               ; preds = %_ZN3pxr9rapidjson8internal10BigInteger11ParseUint64IcEEmPKT_S6_.exit
   store i64 %.06.lcssa.i, ptr %0, align 8
-  br label %_ZN3pxr9rapidjson8internal10BigIntegerpLEm.exit.sink.split
+  store i64 1, ptr %11, align 8
+  br label %_ZN3pxr9rapidjson8internal10BigIntegerpLEm.exit
 
 18:                                               ; preds = %_ZN3pxr9rapidjson8internal10BigInteger11ParseUint64IcEEmPKT_S6_.exit
   %19 = ptrtoint ptr %2 to i64
@@ -13475,14 +13484,10 @@ _ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit:  ; preds = %18, %61
   %78 = add i64 %.lcssa13.i, 1
   store i64 %78, ptr %25, align 8
   %79 = getelementptr inbounds [416 x i64], ptr %24, i64 0, i64 %.lcssa13.i
-  br label %_ZN3pxr9rapidjson8internal10BigIntegerpLEm.exit.sink.split
-
-_ZN3pxr9rapidjson8internal10BigIntegerpLEm.exit.sink.split: ; preds = %17, %77
-  %.sink = phi ptr [ %79, %77 ], [ %11, %17 ]
-  store i64 1, ptr %.sink, align 8
+  store i64 1, ptr %79, align 8
   br label %_ZN3pxr9rapidjson8internal10BigIntegerpLEm.exit
 
-_ZN3pxr9rapidjson8internal10BigIntegerpLEm.exit:  ; preds = %.lr.ph.i10, %_ZN3pxr9rapidjson8internal10BigIntegerpLEm.exit.sink.split, %._crit_edge.i12
+_ZN3pxr9rapidjson8internal10BigIntegerpLEm.exit:  ; preds = %.lr.ph.i10, %77, %._crit_edge.i12, %17
   ret void
 }
 

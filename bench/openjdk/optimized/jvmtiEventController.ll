@@ -2588,61 +2588,66 @@ _ZNK6HandleclEv.exit14:                           ; preds = %53
 
 _ZNK6HandleclEv.exit14.thread:                    ; preds = %53, %_ZNK6HandleclEv.exit14
   %59 = getelementptr inbounds i8, ptr %0, i64 384
-  br label %.sink.split
+  %60 = load i64, ptr %59, align 8
+  %61 = add nsw i32 %3, -47
+  %62 = zext nneg i32 %61 to i64
+  %63 = shl nuw i64 1, %62
+  %64 = or i64 %60, %63
+  %65 = xor i64 %63, -1
+  %66 = and i64 %60, %65
+  %.0.i.i16 = select i1 %4, i64 %64, i64 %66
+  store i64 %.0.i.i16, ptr %59, align 8
+  br label %88
 
 _ZN16JvmtiThreadState22state_for_while_lockedEP10JavaThreadP7oopDesc.exit: ; preds = %.thread30, %_ZNK6HandleclEv.exit
   %phi.call = phi ptr [ %52, %_ZNK6HandleclEv.exit ], [ %58, %.thread30 ]
   %.not = icmp eq ptr %phi.call, null
-  br i1 %.not, label %81, label %_ZN16JvmtiThreadState22state_for_while_lockedEP10JavaThreadP7oopDesc.exit.thread
+  br i1 %.not, label %88, label %_ZN16JvmtiThreadState22state_for_while_lockedEP10JavaThreadP7oopDesc.exit.thread
 
 _ZN16JvmtiThreadState22state_for_while_lockedEP10JavaThreadP7oopDesc.exit.thread: ; preds = %.thread, %_ZN16JvmtiThreadState22state_for_while_lockedEP10JavaThreadP7oopDesc.exit
   %phi.call36 = phi ptr [ %phi.call, %_ZN16JvmtiThreadState22state_for_while_lockedEP10JavaThreadP7oopDesc.exit ], [ %56, %.thread ]
-  %60 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 844
-  %63 = load volatile i32, ptr %62, align 4
-  %64 = add nsw i32 %63, 1
-  store volatile i32 %64, ptr %62, align 4
-  %65 = getelementptr inbounds i8, ptr %phi.call36, i64 88
-  %.08.i = load ptr, ptr %65, align 8
+  %67 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds i8, ptr %68, i64 844
+  %70 = load volatile i32, ptr %69, align 4
+  %71 = add nsw i32 %70, 1
+  store volatile i32 %71, ptr %69, align 4
+  %72 = getelementptr inbounds i8, ptr %phi.call36, i64 88
+  %.08.i = load ptr, ptr %72, align 8
   %.not9.i = icmp eq ptr %.08.i, null
   br i1 %.not9.i, label %_ZN16JvmtiThreadState16env_thread_stateEP12JvmtiEnvBase.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %_ZN16JvmtiThreadState22state_for_while_lockedEP10JavaThreadP7oopDesc.exit.thread, %69
-  %.010.i = phi ptr [ %.0.i17, %69 ], [ %.08.i, %_ZN16JvmtiThreadState22state_for_while_lockedEP10JavaThreadP7oopDesc.exit.thread ]
-  %66 = getelementptr inbounds i8, ptr %.010.i, i64 8
-  %67 = load ptr, ptr %66, align 8
-  %68 = icmp eq ptr %67, %0
-  br i1 %68, label %_ZN16JvmtiThreadState16env_thread_stateEP12JvmtiEnvBase.exit, label %69
+.lr.ph.i:                                         ; preds = %_ZN16JvmtiThreadState22state_for_while_lockedEP10JavaThreadP7oopDesc.exit.thread, %76
+  %.010.i = phi ptr [ %.0.i17, %76 ], [ %.08.i, %_ZN16JvmtiThreadState22state_for_while_lockedEP10JavaThreadP7oopDesc.exit.thread ]
+  %73 = getelementptr inbounds i8, ptr %.010.i, i64 8
+  %74 = load ptr, ptr %73, align 8
+  %75 = icmp eq ptr %74, %0
+  br i1 %75, label %_ZN16JvmtiThreadState16env_thread_stateEP12JvmtiEnvBase.exit, label %76
 
-69:                                               ; preds = %.lr.ph.i
-  %70 = getelementptr inbounds i8, ptr %.010.i, i64 16
-  %.0.i17 = load ptr, ptr %70, align 8
+76:                                               ; preds = %.lr.ph.i
+  %77 = getelementptr inbounds i8, ptr %.010.i, i64 16
+  %.0.i17 = load ptr, ptr %77, align 8
   %.not.i18 = icmp eq ptr %.0.i17, null
   br i1 %.not.i18, label %_ZN16JvmtiThreadState16env_thread_stateEP12JvmtiEnvBase.exit, label %.lr.ph.i, !llvm.loop !21
 
-_ZN16JvmtiThreadState16env_thread_stateEP12JvmtiEnvBase.exit: ; preds = %.lr.ph.i, %69, %_ZN16JvmtiThreadState22state_for_while_lockedEP10JavaThreadP7oopDesc.exit.thread
-  %.0.lcssa.i = phi ptr [ null, %_ZN16JvmtiThreadState22state_for_while_lockedEP10JavaThreadP7oopDesc.exit.thread ], [ %.010.i, %.lr.ph.i ], [ null, %69 ]
-  %71 = load volatile i32, ptr %62, align 4
-  %72 = add nsw i32 %71, -1
-  store volatile i32 %72, ptr %62, align 4
-  %73 = getelementptr inbounds i8, ptr %.0.lcssa.i, i64 40
-  br label %.sink.split
+_ZN16JvmtiThreadState16env_thread_stateEP12JvmtiEnvBase.exit: ; preds = %.lr.ph.i, %76, %_ZN16JvmtiThreadState22state_for_while_lockedEP10JavaThreadP7oopDesc.exit.thread
+  %.0.lcssa.i = phi ptr [ null, %_ZN16JvmtiThreadState22state_for_while_lockedEP10JavaThreadP7oopDesc.exit.thread ], [ %.010.i, %.lr.ph.i ], [ null, %76 ]
+  %78 = load volatile i32, ptr %69, align 4
+  %79 = add nsw i32 %78, -1
+  store volatile i32 %79, ptr %69, align 4
+  %80 = getelementptr inbounds i8, ptr %.0.lcssa.i, i64 40
+  %81 = load i64, ptr %80, align 8
+  %82 = add nsw i32 %3, -47
+  %83 = zext nneg i32 %82 to i64
+  %84 = shl nuw i64 1, %83
+  %85 = or i64 %81, %84
+  %86 = xor i64 %84, -1
+  %87 = and i64 %81, %86
+  %.0.i.i19 = select i1 %4, i64 %85, i64 %87
+  store i64 %.0.i.i19, ptr %80, align 8
+  br label %88
 
-.sink.split:                                      ; preds = %_ZNK6HandleclEv.exit14.thread, %_ZN16JvmtiThreadState16env_thread_stateEP12JvmtiEnvBase.exit
-  %.sink47 = phi ptr [ %73, %_ZN16JvmtiThreadState16env_thread_stateEP12JvmtiEnvBase.exit ], [ %59, %_ZNK6HandleclEv.exit14.thread ]
-  %74 = load i64, ptr %.sink47, align 8
-  %75 = add nsw i32 %3, -47
-  %76 = zext nneg i32 %75 to i64
-  %77 = shl nuw i64 1, %76
-  %78 = or i64 %74, %77
-  %79 = xor i64 %77, -1
-  %80 = and i64 %74, %79
-  %.0.i.i19 = select i1 %4, i64 %78, i64 %80
-  store i64 %.0.i.i19, ptr %.sink47, align 8
-  br label %81
-
-81:                                               ; preds = %.sink.split, %_ZN16JvmtiThreadState22state_for_while_lockedEP10JavaThreadP7oopDesc.exit
+88:                                               ; preds = %_ZN16JvmtiThreadState22state_for_while_lockedEP10JavaThreadP7oopDesc.exit, %_ZN16JvmtiThreadState16env_thread_stateEP12JvmtiEnvBase.exit, %_ZNK6HandleclEv.exit14.thread
   tail call void @_ZN27JvmtiEventControllerPrivate17recompute_enabledEv()
   ret void
 }

@@ -295,6 +295,7 @@ define dso_local void @uv__work_done(ptr noundef %0) local_unnamed_addr #0 {
 7:                                                ; preds = %1
   store ptr %2, ptr %2, align 16
   %8 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %2, ptr %8, align 8
   br label %15
 
 9:                                                ; preds = %1
@@ -308,11 +309,10 @@ define dso_local void @uv__work_done(ptr noundef %0) local_unnamed_addr #0 {
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %10, align 8
   store ptr %4, ptr %14, align 8
+  store ptr %2, ptr %13, align 8
   br label %15
 
 15:                                               ; preds = %7, %9
-  %.sink = phi ptr [ %8, %7 ], [ %13, %9 ]
-  store ptr %2, ptr %.sink, align 8
   call void @uv_mutex_unlock(ptr noundef nonnull %3) #9
   %16 = load ptr, ptr %2, align 16
   %.not22 = icmp eq ptr %2, %16

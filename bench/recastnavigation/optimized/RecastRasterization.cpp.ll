@@ -221,7 +221,8 @@ define internal fastcc noundef zeroext i1 @_ZL7addSpanR13rcHeightfieldiitthi(ptr
   %94 = getelementptr inbounds i8, ptr %.057.lcssa, i64 8
   %95 = load ptr, ptr %94, align 8
   store ptr %95, ptr %35, align 8
-  br label %_ZL9allocSpanR13rcHeightfield.exit.sink.split
+  store ptr %26, ptr %94, align 8
+  br label %_ZL9allocSpanR13rcHeightfield.exit
 
 ._crit_edge.thread:                               ; preds = %24, %._crit_edge
   %96 = load ptr, ptr %39, align 8
@@ -230,15 +231,11 @@ define internal fastcc noundef zeroext i1 @_ZL7addSpanR13rcHeightfieldiitthi(ptr
   store ptr %98, ptr %35, align 8
   %99 = load ptr, ptr %39, align 8
   %100 = getelementptr inbounds ptr, ptr %99, i64 %41
-  br label %_ZL9allocSpanR13rcHeightfield.exit.sink.split
-
-_ZL9allocSpanR13rcHeightfield.exit.sink.split:    ; preds = %._crit_edge.thread, %93
-  %.sink = phi ptr [ %94, %93 ], [ %100, %._crit_edge.thread ]
-  store ptr %26, ptr %.sink, align 8
+  store ptr %26, ptr %100, align 8
   br label %_ZL9allocSpanR13rcHeightfield.exit
 
-_ZL9allocSpanR13rcHeightfield.exit:               ; preds = %_ZL9allocSpanR13rcHeightfield.exit.sink.split, %15
-  %101 = phi i1 [ false, %15 ], [ true, %_ZL9allocSpanR13rcHeightfield.exit.sink.split ]
+_ZL9allocSpanR13rcHeightfield.exit:               ; preds = %15, %93, %._crit_edge.thread
+  %101 = phi i1 [ true, %93 ], [ true, %._crit_edge.thread ], [ false, %15 ]
   ret i1 %101
 }
 

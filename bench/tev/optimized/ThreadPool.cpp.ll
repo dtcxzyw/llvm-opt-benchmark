@@ -1502,7 +1502,7 @@ declare void @_ZNSt3__15mutex4lockEv(ptr noundef nonnull align 8 dereferenceable
 define linkonce_odr hidden void @_ZNSt3__110__pop_heapB8ne190000INS_17_ClassicAlgPolicyEN3tev10ThreadPool10QueuedTask10ComparatorENS_11__wrap_iterIPS4_EEEEvT1_S9_RT0_NS_15iterator_traitsIS9_E15difference_typeE(ptr %0, ptr %1, ptr noundef nonnull align 1 dereferenceable(1) %2, i64 noundef %3) local_unnamed_addr #1 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.tev::ThreadPool::QueuedTask", align 16
   %6 = icmp sgt i64 %3, 1
-  br i1 %6, label %7, label %_ZN3tev10ThreadPool10QueuedTaskD2Ev.exit27
+  br i1 %6, label %7, label %_ZN3tev10ThreadPool10QueuedTaskD2Ev.exit21
 
 7:                                                ; preds = %4
   %8 = load i32, ptr %0, align 16
@@ -1515,7 +1515,8 @@ define linkonce_odr hidden void @_ZNSt3__110__pop_heapB8ne190000INS_17_ClassicAl
 
 13:                                               ; preds = %7
   %14 = getelementptr inbounds i8, ptr %5, i64 48
-  br label %.sink.split.i.i.i
+  store ptr null, ptr %14, align 16
+  br label %_ZN3tev10ThreadPool10QueuedTaskC2EOS1_.exit
 
 15:                                               ; preds = %7
   %16 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1533,11 +1534,7 @@ define linkonce_odr hidden void @_ZNSt3__110__pop_heapB8ne190000INS_17_ClassicAl
 
 23:                                               ; preds = %15
   store ptr %11, ptr %18, align 16
-  br label %.sink.split.i.i.i
-
-.sink.split.i.i.i:                                ; preds = %23, %13
-  %.sink.i.i.i = phi ptr [ %10, %23 ], [ %14, %13 ]
-  store ptr null, ptr %.sink.i.i.i, align 16
+  store ptr null, ptr %10, align 16
   br label %_ZN3tev10ThreadPool10QueuedTaskC2EOS1_.exit
 
 24:                                               ; preds = %19
@@ -1547,7 +1544,7 @@ define linkonce_odr hidden void @_ZNSt3__110__pop_heapB8ne190000INS_17_ClassicAl
   call void @__clang_call_terminate(ptr %26) #19
   unreachable
 
-_ZN3tev10ThreadPool10QueuedTaskC2EOS1_.exit:      ; preds = %19, %.sink.split.i.i.i
+_ZN3tev10ThreadPool10QueuedTaskC2EOS1_.exit:      ; preds = %13, %19, %23
   %27 = add nsw i64 %3, -2
   %28 = lshr i64 %27, 1
   br label %29
@@ -1606,261 +1603,263 @@ _ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i.i: ; preds =
   %52 = getelementptr inbounds i8, ptr %.sroa.09.1.i, i64 48
   %53 = load ptr, ptr %52, align 16
   %54 = icmp eq ptr %53, null
-  br i1 %54, label %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EOS3_.exit.sink.split.i.i.i, label %55
+  br i1 %54, label %55, label %56
 
 55:                                               ; preds = %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i.i
-  %56 = icmp eq ptr %53, %44
-  br i1 %56, label %57, label %62
-
-57:                                               ; preds = %55
-  store ptr %43, ptr %45, align 16
-  %58 = load ptr, ptr %52, align 16
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 24
-  %61 = load ptr, ptr %60, align 8
-  invoke void %61(ptr noundef nonnull align 8 dereferenceable(8) %58, ptr noundef nonnull %43)
-          to label %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit.i unwind label %63
-
-62:                                               ; preds = %55
-  store ptr %53, ptr %45, align 16
-  br label %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EOS3_.exit.sink.split.i.i.i
-
-_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EOS3_.exit.sink.split.i.i.i: ; preds = %62, %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i.i
-  %.sink.i.i.i8 = phi ptr [ %52, %62 ], [ %45, %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i.i ]
-  store ptr null, ptr %.sink.i.i.i8, align 16
+  store ptr null, ptr %45, align 16
   br label %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit.i
 
-63:                                               ; preds = %57
-  %64 = landingpad { ptr, i32 }
+56:                                               ; preds = %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i.i
+  %57 = icmp eq ptr %53, %44
+  br i1 %57, label %58, label %63
+
+58:                                               ; preds = %56
+  store ptr %43, ptr %45, align 16
+  %59 = load ptr, ptr %52, align 16
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 24
+  %62 = load ptr, ptr %61, align 8
+  invoke void %62(ptr noundef nonnull align 8 dereferenceable(8) %59, ptr noundef nonnull %43)
+          to label %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit.i unwind label %64
+
+63:                                               ; preds = %56
+  store ptr %53, ptr %45, align 16
+  store ptr null, ptr %52, align 16
+  br label %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit.i
+
+64:                                               ; preds = %58
+  %65 = landingpad { ptr, i32 }
           catch ptr null
-  %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #19
+  %66 = extractvalue { ptr, i32 } %65, 0
+  call void @__clang_call_terminate(ptr %66) #19
   unreachable
 
-_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit.i:    ; preds = %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EOS3_.exit.sink.split.i.i.i, %57
-  %66 = icmp sgt i64 %.1.i, %28
-  br i1 %66, label %_ZNSt3__117__floyd_sift_downB8ne190000INS_17_ClassicAlgPolicyERN3tev10ThreadPool10QueuedTask10ComparatorENS_11__wrap_iterIPS4_EEEET1_SA_OT0_NS_15iterator_traitsISA_E15difference_typeE.exit, label %29, !llvm.loop !11
+_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit.i:    ; preds = %63, %58, %55
+  %67 = icmp sgt i64 %.1.i, %28
+  br i1 %67, label %_ZNSt3__117__floyd_sift_downB8ne190000INS_17_ClassicAlgPolicyERN3tev10ThreadPool10QueuedTask10ComparatorENS_11__wrap_iterIPS4_EEEET1_SA_OT0_NS_15iterator_traitsISA_E15difference_typeE.exit, label %29, !llvm.loop !11
 
 _ZNSt3__117__floyd_sift_downB8ne190000INS_17_ClassicAlgPolicyERN3tev10ThreadPool10QueuedTask10ComparatorENS_11__wrap_iterIPS4_EEEET1_SA_OT0_NS_15iterator_traitsISA_E15difference_typeE.exit: ; preds = %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit.i
-  %67 = getelementptr inbounds i8, ptr %1, i64 -64
-  %68 = icmp eq ptr %.sroa.09.1.i, %67
-  br i1 %68, label %69, label %99
+  %68 = getelementptr inbounds i8, ptr %1, i64 -64
+  %69 = icmp eq ptr %.sroa.09.1.i, %68
+  br i1 %69, label %70, label %101
 
-69:                                               ; preds = %_ZNSt3__117__floyd_sift_downB8ne190000INS_17_ClassicAlgPolicyERN3tev10ThreadPool10QueuedTask10ComparatorENS_11__wrap_iterIPS4_EEEET1_SA_OT0_NS_15iterator_traitsISA_E15difference_typeE.exit
-  %70 = load i32, ptr %5, align 16
-  store i32 %70, ptr %.sroa.09.1.i, align 16
-  %71 = load ptr, ptr %52, align 16
+70:                                               ; preds = %_ZNSt3__117__floyd_sift_downB8ne190000INS_17_ClassicAlgPolicyERN3tev10ThreadPool10QueuedTask10ComparatorENS_11__wrap_iterIPS4_EEEET1_SA_OT0_NS_15iterator_traitsISA_E15difference_typeE.exit
+  %71 = load i32, ptr %5, align 16
+  store i32 %71, ptr %.sroa.09.1.i, align 16
+  %72 = load ptr, ptr %52, align 16
   store ptr null, ptr %52, align 16
-  %72 = icmp eq ptr %71, %44
-  br i1 %72, label %.sink.split.i.i.i.i, label %73
+  %73 = icmp eq ptr %72, %44
+  br i1 %73, label %.sink.split.i.i.i.i, label %74
 
-73:                                               ; preds = %69
-  %.not.i.i.i.i = icmp eq ptr %71, null
+74:                                               ; preds = %70
+  %.not.i.i.i.i = icmp eq ptr %72, null
   br i1 %.not.i.i.i.i, label %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i, label %.sink.split.i.i.i.i
 
-.sink.split.i.i.i.i:                              ; preds = %73, %69
-  %.sink6.i.i.i.i = phi i64 [ 32, %69 ], [ 40, %73 ]
-  %74 = load ptr, ptr %71, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 %.sink6.i.i.i.i
-  %76 = load ptr, ptr %75, align 8
-  call void %76(ptr noundef nonnull align 8 dereferenceable(8) %71) #15
+.sink.split.i.i.i.i:                              ; preds = %74, %70
+  %.sink6.i.i.i.i = phi i64 [ 32, %70 ], [ 40, %74 ]
+  %75 = load ptr, ptr %72, align 8
+  %76 = getelementptr inbounds i8, ptr %75, i64 %.sink6.i.i.i.i
+  %77 = load ptr, ptr %76, align 8
+  call void %77(ptr noundef nonnull align 8 dereferenceable(8) %72) #15
   br label %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i
 
-_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i: ; preds = %.sink.split.i.i.i.i, %73
-  %77 = getelementptr inbounds i8, ptr %5, i64 48
-  %78 = load ptr, ptr %77, align 16
-  %79 = icmp eq ptr %78, null
-  br i1 %79, label %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EOS3_.exit.sink.split.i.i, label %80
+_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i: ; preds = %.sink.split.i.i.i.i, %74
+  %78 = getelementptr inbounds i8, ptr %5, i64 48
+  %79 = load ptr, ptr %78, align 16
+  %80 = icmp eq ptr %79, null
+  br i1 %80, label %81, label %82
 
-80:                                               ; preds = %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i
-  %81 = icmp eq ptr %78, %9
-  br i1 %81, label %82, label %87
-
-82:                                               ; preds = %80
-  store ptr %44, ptr %52, align 16
-  %83 = load ptr, ptr %77, align 16
-  %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 24
-  %86 = load ptr, ptr %85, align 8
-  invoke void %86(ptr noundef nonnull align 8 dereferenceable(8) %83, ptr noundef nonnull %44)
-          to label %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit unwind label %88
-
-87:                                               ; preds = %80
-  store ptr %78, ptr %52, align 16
-  br label %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EOS3_.exit.sink.split.i.i
-
-_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EOS3_.exit.sink.split.i.i: ; preds = %87, %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i
-  %.sink.i.i = phi ptr [ %77, %87 ], [ %52, %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i ]
-  store ptr null, ptr %.sink.i.i, align 16
+81:                                               ; preds = %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i
+  store ptr null, ptr %52, align 16
   br label %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit
 
-88:                                               ; preds = %82
-  %89 = landingpad { ptr, i32 }
+82:                                               ; preds = %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i
+  %83 = icmp eq ptr %79, %9
+  br i1 %83, label %84, label %89
+
+84:                                               ; preds = %82
+  store ptr %44, ptr %52, align 16
+  %85 = load ptr, ptr %78, align 16
+  %86 = load ptr, ptr %85, align 8
+  %87 = getelementptr inbounds i8, ptr %86, i64 24
+  %88 = load ptr, ptr %87, align 8
+  invoke void %88(ptr noundef nonnull align 8 dereferenceable(8) %85, ptr noundef nonnull %44)
+          to label %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit unwind label %90
+
+89:                                               ; preds = %82
+  store ptr %79, ptr %52, align 16
+  store ptr null, ptr %78, align 16
+  br label %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit
+
+90:                                               ; preds = %84
+  %91 = landingpad { ptr, i32 }
           catch ptr null
-  %90 = extractvalue { ptr, i32 } %89, 0
-  call void @__clang_call_terminate(ptr %90) #19
+  %92 = extractvalue { ptr, i32 } %91, 0
+  call void @__clang_call_terminate(ptr %92) #19
   unreachable
 
-91:                                               ; preds = %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit23
-  %92 = landingpad { ptr, i32 }
+93:                                               ; preds = %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit17
+  %94 = landingpad { ptr, i32 }
           cleanup
-  %93 = load ptr, ptr %130, align 16
-  %94 = icmp eq ptr %93, %9
-  br i1 %94, label %.sink.split.i.i.i9, label %95
+  %95 = load ptr, ptr %132, align 16
+  %96 = icmp eq ptr %95, %9
+  br i1 %96, label %.sink.split.i.i.i, label %97
 
-95:                                               ; preds = %91
-  %.not.i.i.i = icmp eq ptr %93, null
-  br i1 %.not.i.i.i, label %_ZN3tev10ThreadPool10QueuedTaskD2Ev.exit, label %.sink.split.i.i.i9
+97:                                               ; preds = %93
+  %.not.i.i.i = icmp eq ptr %95, null
+  br i1 %.not.i.i.i, label %_ZN3tev10ThreadPool10QueuedTaskD2Ev.exit, label %.sink.split.i.i.i
 
-.sink.split.i.i.i9:                               ; preds = %95, %91
-  %.sink2.i.i.i = phi i64 [ 32, %91 ], [ 40, %95 ]
-  %96 = load ptr, ptr %93, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 %.sink2.i.i.i
-  %98 = load ptr, ptr %97, align 8
-  call void %98(ptr noundef nonnull align 8 dereferenceable(8) %93) #15
+.sink.split.i.i.i:                                ; preds = %97, %93
+  %.sink2.i.i.i = phi i64 [ 32, %93 ], [ 40, %97 ]
+  %98 = load ptr, ptr %95, align 8
+  %99 = getelementptr inbounds i8, ptr %98, i64 %.sink2.i.i.i
+  %100 = load ptr, ptr %99, align 8
+  call void %100(ptr noundef nonnull align 8 dereferenceable(8) %95) #15
   br label %_ZN3tev10ThreadPool10QueuedTaskD2Ev.exit
 
-_ZN3tev10ThreadPool10QueuedTaskD2Ev.exit:         ; preds = %95, %.sink.split.i.i.i9
-  resume { ptr, i32 } %92
+_ZN3tev10ThreadPool10QueuedTaskD2Ev.exit:         ; preds = %97, %.sink.split.i.i.i
+  resume { ptr, i32 } %94
 
-99:                                               ; preds = %_ZNSt3__117__floyd_sift_downB8ne190000INS_17_ClassicAlgPolicyERN3tev10ThreadPool10QueuedTask10ComparatorENS_11__wrap_iterIPS4_EEEET1_SA_OT0_NS_15iterator_traitsISA_E15difference_typeE.exit
-  %100 = load i32, ptr %67, align 16
-  store i32 %100, ptr %.sroa.09.1.i, align 16
-  %101 = getelementptr inbounds i8, ptr %1, i64 -48
-  %102 = load ptr, ptr %52, align 16
+101:                                              ; preds = %_ZNSt3__117__floyd_sift_downB8ne190000INS_17_ClassicAlgPolicyERN3tev10ThreadPool10QueuedTask10ComparatorENS_11__wrap_iterIPS4_EEEET1_SA_OT0_NS_15iterator_traitsISA_E15difference_typeE.exit
+  %102 = load i32, ptr %68, align 16
+  store i32 %102, ptr %.sroa.09.1.i, align 16
+  %103 = getelementptr inbounds i8, ptr %1, i64 -48
+  %104 = load ptr, ptr %52, align 16
   store ptr null, ptr %52, align 16
-  %103 = icmp eq ptr %102, %44
-  br i1 %103, label %.sink.split.i.i.i.i11, label %104
+  %105 = icmp eq ptr %104, %44
+  br i1 %105, label %.sink.split.i.i.i.i9, label %106
 
-104:                                              ; preds = %99
-  %.not.i.i.i.i10 = icmp eq ptr %102, null
-  br i1 %.not.i.i.i.i10, label %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i13, label %.sink.split.i.i.i.i11
+106:                                              ; preds = %101
+  %.not.i.i.i.i8 = icmp eq ptr %104, null
+  br i1 %.not.i.i.i.i8, label %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i11, label %.sink.split.i.i.i.i9
 
-.sink.split.i.i.i.i11:                            ; preds = %104, %99
-  %.sink6.i.i.i.i12 = phi i64 [ 32, %99 ], [ 40, %104 ]
-  %105 = load ptr, ptr %102, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 %.sink6.i.i.i.i12
-  %107 = load ptr, ptr %106, align 8
-  call void %107(ptr noundef nonnull align 8 dereferenceable(8) %102) #15
-  br label %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i13
+.sink.split.i.i.i.i9:                             ; preds = %106, %101
+  %.sink6.i.i.i.i10 = phi i64 [ 32, %101 ], [ 40, %106 ]
+  %107 = load ptr, ptr %104, align 8
+  %108 = getelementptr inbounds i8, ptr %107, i64 %.sink6.i.i.i.i10
+  %109 = load ptr, ptr %108, align 8
+  call void %109(ptr noundef nonnull align 8 dereferenceable(8) %104) #15
+  br label %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i11
 
-_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i13: ; preds = %.sink.split.i.i.i.i11, %104
-  %108 = getelementptr inbounds i8, ptr %1, i64 -16
-  %109 = load ptr, ptr %108, align 16
-  %110 = icmp eq ptr %109, null
-  br i1 %110, label %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EOS3_.exit.sink.split.i.i14, label %111
+_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i11: ; preds = %.sink.split.i.i.i.i9, %106
+  %110 = getelementptr inbounds i8, ptr %1, i64 -16
+  %111 = load ptr, ptr %110, align 16
+  %112 = icmp eq ptr %111, null
+  br i1 %112, label %113, label %114
 
-111:                                              ; preds = %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i13
-  %112 = icmp eq ptr %109, %101
-  br i1 %112, label %113, label %118
+113:                                              ; preds = %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i11
+  store ptr null, ptr %52, align 16
+  br label %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit12
 
-113:                                              ; preds = %111
+114:                                              ; preds = %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i11
+  %115 = icmp eq ptr %111, %103
+  br i1 %115, label %116, label %.thread
+
+116:                                              ; preds = %114
   store ptr %44, ptr %52, align 16
-  %114 = load ptr, ptr %108, align 16
-  %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 24
-  %117 = load ptr, ptr %116, align 8
-  invoke void %117(ptr noundef nonnull align 8 dereferenceable(8) %114, ptr noundef nonnull %44)
-          to label %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit16 unwind label %119
+  %117 = load ptr, ptr %110, align 16
+  %118 = load ptr, ptr %117, align 8
+  %119 = getelementptr inbounds i8, ptr %118, i64 24
+  %120 = load ptr, ptr %119, align 8
+  invoke void %120(ptr noundef nonnull align 8 dereferenceable(8) %117, ptr noundef nonnull %44)
+          to label %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit12 unwind label %121
 
-118:                                              ; preds = %111
-  store ptr %109, ptr %52, align 16
-  br label %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EOS3_.exit.sink.split.i.i14
-
-_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EOS3_.exit.sink.split.i.i14: ; preds = %118, %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i13
-  %.sink.i.i15 = phi ptr [ %108, %118 ], [ %52, %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i13 ]
-  store ptr null, ptr %.sink.i.i15, align 16
-  br label %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit16
-
-119:                                              ; preds = %113
-  %120 = landingpad { ptr, i32 }
+121:                                              ; preds = %116
+  %122 = landingpad { ptr, i32 }
           catch ptr null
-  %121 = extractvalue { ptr, i32 } %120, 0
-  call void @__clang_call_terminate(ptr %121) #19
+  %123 = extractvalue { ptr, i32 } %122, 0
+  call void @__clang_call_terminate(ptr %123) #19
   unreachable
 
-_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit16:    ; preds = %113, %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EOS3_.exit.sink.split.i.i14
-  %122 = getelementptr inbounds i8, ptr %.sroa.09.1.i, i64 64
-  %123 = load i32, ptr %5, align 16
-  store i32 %123, ptr %67, align 16
-  %124 = load ptr, ptr %108, align 16
-  store ptr null, ptr %108, align 16
-  %125 = icmp eq ptr %124, %101
-  br i1 %125, label %.sink.split.i.i.i.i18, label %126
+_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit12:    ; preds = %113, %116
+  %.pr = load ptr, ptr %110, align 16
+  %124 = load i32, ptr %5, align 16
+  store i32 %124, ptr %68, align 16
+  store ptr null, ptr %110, align 16
+  %125 = icmp eq ptr %.pr, %103
+  br i1 %125, label %.sink.split.i.i.i.i14, label %127
 
-126:                                              ; preds = %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit16
-  %.not.i.i.i.i17 = icmp eq ptr %124, null
-  br i1 %.not.i.i.i.i17, label %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i20, label %.sink.split.i.i.i.i18
+.thread:                                          ; preds = %114
+  store ptr %111, ptr %52, align 16
+  %126 = load i32, ptr %5, align 16
+  store i32 %126, ptr %68, align 16
+  store ptr null, ptr %110, align 16
+  br label %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i16
 
-.sink.split.i.i.i.i18:                            ; preds = %126, %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit16
-  %.sink6.i.i.i.i19 = phi i64 [ 32, %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit16 ], [ 40, %126 ]
-  %127 = load ptr, ptr %124, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 %.sink6.i.i.i.i19
-  %129 = load ptr, ptr %128, align 8
-  call void %129(ptr noundef nonnull align 8 dereferenceable(8) %124) #15
-  br label %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i20
+127:                                              ; preds = %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit12
+  %.not.i.i.i.i13 = icmp eq ptr %.pr, null
+  br i1 %.not.i.i.i.i13, label %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i16, label %.sink.split.i.i.i.i14
 
-_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i20: ; preds = %.sink.split.i.i.i.i18, %126
-  %130 = getelementptr inbounds i8, ptr %5, i64 48
-  %131 = load ptr, ptr %130, align 16
-  %132 = icmp eq ptr %131, null
-  br i1 %132, label %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EOS3_.exit.sink.split.i.i21, label %133
+.sink.split.i.i.i.i14:                            ; preds = %127, %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit12
+  %.sink6.i.i.i.i15 = phi i64 [ 32, %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit12 ], [ 40, %127 ]
+  %128 = load ptr, ptr %.pr, align 8
+  %129 = getelementptr inbounds i8, ptr %128, i64 %.sink6.i.i.i.i15
+  %130 = load ptr, ptr %129, align 8
+  call void %130(ptr noundef nonnull align 8 dereferenceable(8) %.pr) #15
+  br label %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i16
 
-133:                                              ; preds = %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i20
-  %134 = icmp eq ptr %131, %9
-  br i1 %134, label %135, label %139
+_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i16: ; preds = %.thread, %.sink.split.i.i.i.i14, %127
+  %131 = getelementptr inbounds i8, ptr %.sroa.09.1.i, i64 64
+  %132 = getelementptr inbounds i8, ptr %5, i64 48
+  %133 = load ptr, ptr %132, align 16
+  %134 = icmp eq ptr %133, null
+  br i1 %134, label %135, label %136
 
-135:                                              ; preds = %133
-  store ptr %101, ptr %108, align 16
-  %136 = load ptr, ptr %131, align 8
-  %137 = getelementptr inbounds i8, ptr %136, i64 24
-  %138 = load ptr, ptr %137, align 8
-  invoke void %138(ptr noundef nonnull align 8 dereferenceable(8) %131, ptr noundef nonnull %101)
-          to label %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit23 unwind label %140
+135:                                              ; preds = %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i16
+  store ptr null, ptr %110, align 16
+  br label %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit17
 
-139:                                              ; preds = %133
-  store ptr %131, ptr %108, align 16
-  br label %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EOS3_.exit.sink.split.i.i21
+136:                                              ; preds = %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i16
+  %137 = icmp eq ptr %133, %9
+  br i1 %137, label %138, label %142
 
-_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EOS3_.exit.sink.split.i.i21: ; preds = %139, %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i20
-  %.sink.i.i22 = phi ptr [ %130, %139 ], [ %108, %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i20 ]
-  store ptr null, ptr %.sink.i.i22, align 16
-  br label %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit23
+138:                                              ; preds = %136
+  store ptr %103, ptr %110, align 16
+  %139 = load ptr, ptr %133, align 8
+  %140 = getelementptr inbounds i8, ptr %139, i64 24
+  %141 = load ptr, ptr %140, align 8
+  invoke void %141(ptr noundef nonnull align 8 dereferenceable(8) %133, ptr noundef nonnull %103)
+          to label %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit17 unwind label %143
 
-140:                                              ; preds = %135
-  %141 = landingpad { ptr, i32 }
+142:                                              ; preds = %136
+  store ptr %133, ptr %110, align 16
+  store ptr null, ptr %132, align 16
+  br label %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit17
+
+143:                                              ; preds = %138
+  %144 = landingpad { ptr, i32 }
           catch ptr null
-  %142 = extractvalue { ptr, i32 } %141, 0
-  call void @__clang_call_terminate(ptr %142) #19
+  %145 = extractvalue { ptr, i32 } %144, 0
+  call void @__clang_call_terminate(ptr %145) #19
   unreachable
 
-_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit23:    ; preds = %135, %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EOS3_.exit.sink.split.i.i21
-  %143 = ptrtoint ptr %122 to i64
-  %144 = ptrtoint ptr %0 to i64
-  %145 = sub i64 %143, %144
-  %146 = ashr exact i64 %145, 6
-  invoke void @_ZNSt3__19__sift_upB8ne190000INS_17_ClassicAlgPolicyERN3tev10ThreadPool10QueuedTask10ComparatorENS_11__wrap_iterIPS4_EEEEvT1_SA_OT0_NS_15iterator_traitsISA_E15difference_typeE(ptr nonnull %0, ptr nonnull %122, ptr noundef nonnull align 1 dereferenceable(1) %2, i64 noundef %146)
-          to label %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit unwind label %91
+_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit17:    ; preds = %135, %138, %142
+  %146 = ptrtoint ptr %131 to i64
+  %147 = ptrtoint ptr %0 to i64
+  %148 = sub i64 %146, %147
+  %149 = ashr exact i64 %148, 6
+  invoke void @_ZNSt3__19__sift_upB8ne190000INS_17_ClassicAlgPolicyERN3tev10ThreadPool10QueuedTask10ComparatorENS_11__wrap_iterIPS4_EEEEvT1_SA_OT0_NS_15iterator_traitsISA_E15difference_typeE(ptr nonnull %0, ptr nonnull %131, ptr noundef nonnull align 1 dereferenceable(1) %2, i64 noundef %149)
+          to label %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit unwind label %93
 
-_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit:      ; preds = %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EOS3_.exit.sink.split.i.i, %82, %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit23
-  %147 = getelementptr inbounds i8, ptr %5, i64 48
-  %148 = load ptr, ptr %147, align 16
-  %149 = icmp eq ptr %148, %9
-  br i1 %149, label %.sink.split.i.i.i25, label %150
+_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit:      ; preds = %89, %84, %81, %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit17
+  %150 = getelementptr inbounds i8, ptr %5, i64 48
+  %151 = load ptr, ptr %150, align 16
+  %152 = icmp eq ptr %151, %9
+  br i1 %152, label %.sink.split.i.i.i19, label %153
 
-150:                                              ; preds = %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit
-  %.not.i.i.i24 = icmp eq ptr %148, null
-  br i1 %.not.i.i.i24, label %_ZN3tev10ThreadPool10QueuedTaskD2Ev.exit27, label %.sink.split.i.i.i25
+153:                                              ; preds = %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit
+  %.not.i.i.i18 = icmp eq ptr %151, null
+  br i1 %.not.i.i.i18, label %_ZN3tev10ThreadPool10QueuedTaskD2Ev.exit21, label %.sink.split.i.i.i19
 
-.sink.split.i.i.i25:                              ; preds = %150, %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit
-  %.sink2.i.i.i26 = phi i64 [ 32, %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit ], [ 40, %150 ]
-  %151 = load ptr, ptr %148, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 %.sink2.i.i.i26
-  %153 = load ptr, ptr %152, align 8
-  call void %153(ptr noundef nonnull align 8 dereferenceable(8) %148) #15
-  br label %_ZN3tev10ThreadPool10QueuedTaskD2Ev.exit27
+.sink.split.i.i.i19:                              ; preds = %153, %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit
+  %.sink2.i.i.i20 = phi i64 [ 32, %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit ], [ 40, %153 ]
+  %154 = load ptr, ptr %151, align 8
+  %155 = getelementptr inbounds i8, ptr %154, i64 %.sink2.i.i.i20
+  %156 = load ptr, ptr %155, align 8
+  call void %156(ptr noundef nonnull align 8 dereferenceable(8) %151) #15
+  br label %_ZN3tev10ThreadPool10QueuedTaskD2Ev.exit21
 
-_ZN3tev10ThreadPool10QueuedTaskD2Ev.exit27:       ; preds = %.sink.split.i.i.i25, %150, %4
+_ZN3tev10ThreadPool10QueuedTaskD2Ev.exit21:       ; preds = %.sink.split.i.i.i19, %153, %4
   ret void
 }
 
@@ -1868,7 +1867,7 @@ _ZN3tev10ThreadPool10QueuedTaskD2Ev.exit27:       ; preds = %.sink.split.i.i.i25
 define linkonce_odr hidden void @_ZNSt3__19__sift_upB8ne190000INS_17_ClassicAlgPolicyERN3tev10ThreadPool10QueuedTask10ComparatorENS_11__wrap_iterIPS4_EEEEvT1_SA_OT0_NS_15iterator_traitsISA_E15difference_typeE(ptr %0, ptr %1, ptr noundef nonnull align 1 dereferenceable(1) %2, i64 noundef %3) local_unnamed_addr #1 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.tev::ThreadPool::QueuedTask", align 16
   %6 = icmp sgt i64 %3, 1
-  br i1 %6, label %7, label %_ZN3tev10ThreadPool10QueuedTaskD2Ev.exit21
+  br i1 %6, label %7, label %_ZN3tev10ThreadPool10QueuedTaskD2Ev.exit18
 
 7:                                                ; preds = %4
   %8 = add nsw i64 %3, -2
@@ -1878,7 +1877,7 @@ define linkonce_odr hidden void @_ZNSt3__19__sift_upB8ne190000INS_17_ClassicAlgP
   %12 = load i32, ptr %10, align 16
   %13 = load i32, ptr %11, align 16
   %14 = icmp slt i32 %12, %13
-  br i1 %14, label %15, label %_ZN3tev10ThreadPool10QueuedTaskD2Ev.exit21
+  br i1 %14, label %15, label %_ZN3tev10ThreadPool10QueuedTaskD2Ev.exit18
 
 15:                                               ; preds = %7
   store i32 %13, ptr %5, align 16
@@ -1890,7 +1889,8 @@ define linkonce_odr hidden void @_ZNSt3__19__sift_upB8ne190000INS_17_ClassicAlgP
 
 20:                                               ; preds = %15
   %21 = getelementptr inbounds i8, ptr %5, i64 48
-  br label %.sink.split.i.i.i
+  store ptr null, ptr %21, align 16
+  br label %_ZN3tev10ThreadPool10QueuedTaskC2EOS1_.exit
 
 22:                                               ; preds = %15
   %23 = getelementptr inbounds i8, ptr %1, i64 -48
@@ -1908,11 +1908,7 @@ define linkonce_odr hidden void @_ZNSt3__19__sift_upB8ne190000INS_17_ClassicAlgP
 
 30:                                               ; preds = %22
   store ptr %18, ptr %25, align 16
-  br label %.sink.split.i.i.i
-
-.sink.split.i.i.i:                                ; preds = %30, %20
-  %.sink.i.i.i = phi ptr [ %17, %30 ], [ %21, %20 ]
-  store ptr null, ptr %.sink.i.i.i, align 16
+  store ptr null, ptr %17, align 16
   br label %_ZN3tev10ThreadPool10QueuedTaskC2EOS1_.exit
 
 31:                                               ; preds = %26
@@ -1922,19 +1918,19 @@ define linkonce_odr hidden void @_ZNSt3__19__sift_upB8ne190000INS_17_ClassicAlgP
   call void @__clang_call_terminate(ptr %33) #19
   unreachable
 
-_ZN3tev10ThreadPool10QueuedTaskC2EOS1_.exit:      ; preds = %26, %.sink.split.i.i.i
+_ZN3tev10ThreadPool10QueuedTaskC2EOS1_.exit:      ; preds = %20, %26, %30
   %.pre = load i32, ptr %10, align 16
   br label %34
 
-34:                                               ; preds = %_ZN3tev10ThreadPool10QueuedTaskC2EOS1_.exit, %60
-  %35 = phi i32 [ %.pre, %_ZN3tev10ThreadPool10QueuedTaskC2EOS1_.exit ], [ %64, %60 ]
-  %.sroa.024.0 = phi ptr [ %11, %_ZN3tev10ThreadPool10QueuedTaskC2EOS1_.exit ], [ %.sroa.0.0, %60 ]
-  %.sroa.0.0 = phi ptr [ %10, %_ZN3tev10ThreadPool10QueuedTaskC2EOS1_.exit ], [ %63, %60 ]
-  %.0 = phi i64 [ %9, %_ZN3tev10ThreadPool10QueuedTaskC2EOS1_.exit ], [ %62, %60 ]
-  store i32 %35, ptr %.sroa.024.0, align 16
-  %36 = getelementptr inbounds i8, ptr %.sroa.024.0, i64 16
+34:                                               ; preds = %_ZN3tev10ThreadPool10QueuedTaskC2EOS1_.exit, %61
+  %35 = phi i32 [ %.pre, %_ZN3tev10ThreadPool10QueuedTaskC2EOS1_.exit ], [ %65, %61 ]
+  %.sroa.021.0 = phi ptr [ %11, %_ZN3tev10ThreadPool10QueuedTaskC2EOS1_.exit ], [ %.sroa.0.0, %61 ]
+  %.sroa.0.0 = phi ptr [ %10, %_ZN3tev10ThreadPool10QueuedTaskC2EOS1_.exit ], [ %64, %61 ]
+  %.0 = phi i64 [ %9, %_ZN3tev10ThreadPool10QueuedTaskC2EOS1_.exit ], [ %63, %61 ]
+  store i32 %35, ptr %.sroa.021.0, align 16
+  %36 = getelementptr inbounds i8, ptr %.sroa.021.0, i64 16
   %37 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 16
-  %38 = getelementptr inbounds i8, ptr %.sroa.024.0, i64 48
+  %38 = getelementptr inbounds i8, ptr %.sroa.021.0, i64 48
   %39 = load ptr, ptr %38, align 16
   store ptr null, ptr %38, align 16
   %40 = icmp eq ptr %39, %36
@@ -1956,121 +1952,120 @@ _ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i: ; preds = %
   %45 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 48
   %46 = load ptr, ptr %45, align 16
   %47 = icmp eq ptr %46, null
-  br i1 %47, label %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EOS3_.exit.sink.split.i.i, label %48
+  br i1 %47, label %48, label %49
 
 48:                                               ; preds = %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i
-  %49 = icmp eq ptr %46, %37
-  br i1 %49, label %50, label %55
-
-50:                                               ; preds = %48
-  store ptr %36, ptr %38, align 16
-  %51 = load ptr, ptr %45, align 16
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 24
-  %54 = load ptr, ptr %53, align 8
-  invoke void %54(ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef nonnull %36)
-          to label %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit unwind label %56
-
-55:                                               ; preds = %48
-  store ptr %46, ptr %38, align 16
-  br label %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EOS3_.exit.sink.split.i.i
-
-_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EOS3_.exit.sink.split.i.i: ; preds = %55, %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i
-  %.sink.i.i = phi ptr [ %45, %55 ], [ %38, %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i ]
-  store ptr null, ptr %.sink.i.i, align 16
+  store ptr null, ptr %38, align 16
   br label %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit
 
-56:                                               ; preds = %50
-  %57 = landingpad { ptr, i32 }
+49:                                               ; preds = %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i
+  %50 = icmp eq ptr %46, %37
+  br i1 %50, label %51, label %56
+
+51:                                               ; preds = %49
+  store ptr %36, ptr %38, align 16
+  %52 = load ptr, ptr %45, align 16
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 24
+  %55 = load ptr, ptr %54, align 8
+  invoke void %55(ptr noundef nonnull align 8 dereferenceable(8) %52, ptr noundef nonnull %36)
+          to label %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit unwind label %57
+
+56:                                               ; preds = %49
+  store ptr %46, ptr %38, align 16
+  store ptr null, ptr %45, align 16
+  br label %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit
+
+57:                                               ; preds = %51
+  %58 = landingpad { ptr, i32 }
           catch ptr null
-  %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #19
+  %59 = extractvalue { ptr, i32 } %58, 0
+  call void @__clang_call_terminate(ptr %59) #19
   unreachable
 
-_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit:      ; preds = %50, %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EOS3_.exit.sink.split.i.i
-  %59 = icmp eq i64 %.0, 0
-  %.pre39 = load i32, ptr %5, align 16
-  br i1 %59, label %66, label %60
+_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit:      ; preds = %48, %51, %56
+  %60 = icmp eq i64 %.0, 0
+  %.pre37 = load i32, ptr %5, align 16
+  br i1 %60, label %67, label %61
 
-60:                                               ; preds = %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit
-  %61 = add nsw i64 %.0, -1
-  %62 = lshr i64 %61, 1
-  %63 = getelementptr inbounds %"struct.tev::ThreadPool::QueuedTask", ptr %0, i64 %62
-  %64 = load i32, ptr %63, align 16
-  %65 = icmp slt i32 %64, %.pre39
-  br i1 %65, label %34, label %66, !llvm.loop !12
+61:                                               ; preds = %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit
+  %62 = add nsw i64 %.0, -1
+  %63 = lshr i64 %62, 1
+  %64 = getelementptr inbounds %"struct.tev::ThreadPool::QueuedTask", ptr %0, i64 %63
+  %65 = load i32, ptr %64, align 16
+  %66 = icmp slt i32 %65, %.pre37
+  br i1 %66, label %34, label %67, !llvm.loop !12
 
-66:                                               ; preds = %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit, %60
-  store i32 %.pre39, ptr %.sroa.0.0, align 16
-  %67 = load ptr, ptr %45, align 16
+67:                                               ; preds = %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit, %61
+  store i32 %.pre37, ptr %.sroa.0.0, align 16
+  %68 = load ptr, ptr %45, align 16
   store ptr null, ptr %45, align 16
-  %68 = icmp eq ptr %67, %37
-  br i1 %68, label %.sink.split.i.i.i.i12, label %69
+  %69 = icmp eq ptr %68, %37
+  br i1 %69, label %.sink.split.i.i.i.i11, label %70
 
-69:                                               ; preds = %66
-  %.not.i.i.i.i11 = icmp eq ptr %67, null
-  br i1 %.not.i.i.i.i11, label %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i14, label %.sink.split.i.i.i.i12
+70:                                               ; preds = %67
+  %.not.i.i.i.i10 = icmp eq ptr %68, null
+  br i1 %.not.i.i.i.i10, label %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i13, label %.sink.split.i.i.i.i11
 
-.sink.split.i.i.i.i12:                            ; preds = %69, %66
-  %.sink6.i.i.i.i13 = phi i64 [ 32, %66 ], [ 40, %69 ]
-  %70 = load ptr, ptr %67, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 %.sink6.i.i.i.i13
-  %72 = load ptr, ptr %71, align 8
-  call void %72(ptr noundef nonnull align 8 dereferenceable(8) %67) #15
-  br label %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i14
+.sink.split.i.i.i.i11:                            ; preds = %70, %67
+  %.sink6.i.i.i.i12 = phi i64 [ 32, %67 ], [ 40, %70 ]
+  %71 = load ptr, ptr %68, align 8
+  %72 = getelementptr inbounds i8, ptr %71, i64 %.sink6.i.i.i.i12
+  %73 = load ptr, ptr %72, align 8
+  call void %73(ptr noundef nonnull align 8 dereferenceable(8) %68) #15
+  br label %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i13
 
-_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i14: ; preds = %.sink.split.i.i.i.i12, %69
-  %73 = getelementptr inbounds i8, ptr %5, i64 48
-  %74 = load ptr, ptr %73, align 16
-  %75 = icmp eq ptr %74, null
-  br i1 %75, label %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EOS3_.exit.sink.split.i.i15, label %76
+_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i13: ; preds = %.sink.split.i.i.i.i11, %70
+  %74 = getelementptr inbounds i8, ptr %5, i64 48
+  %75 = load ptr, ptr %74, align 16
+  %76 = icmp eq ptr %75, null
+  br i1 %76, label %.thread38, label %77
 
-76:                                               ; preds = %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i14
-  %77 = icmp eq ptr %74, %16
-  br i1 %77, label %78, label %82
+.thread38:                                        ; preds = %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i13
+  store ptr null, ptr %45, align 16
+  br label %_ZN3tev10ThreadPool10QueuedTaskD2Ev.exit18
 
-78:                                               ; preds = %76
+77:                                               ; preds = %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i13
+  %78 = icmp eq ptr %75, %16
+  br i1 %78, label %79, label %.thread
+
+79:                                               ; preds = %77
   store ptr %37, ptr %45, align 16
-  %79 = load ptr, ptr %74, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 24
-  %81 = load ptr, ptr %80, align 8
-  invoke void %81(ptr noundef nonnull align 8 dereferenceable(8) %74, ptr noundef nonnull %37)
-          to label %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit17 unwind label %83
+  %80 = load ptr, ptr %75, align 8
+  %81 = getelementptr inbounds i8, ptr %80, i64 24
+  %82 = load ptr, ptr %81, align 8
+  invoke void %82(ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef nonnull %37)
+          to label %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit14 unwind label %83
 
-82:                                               ; preds = %76
-  store ptr %74, ptr %45, align 16
-  br label %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EOS3_.exit.sink.split.i.i15
-
-_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EOS3_.exit.sink.split.i.i15: ; preds = %82, %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i14
-  %.sink.i.i16 = phi ptr [ %73, %82 ], [ %45, %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i14 ]
-  store ptr null, ptr %.sink.i.i16, align 16
-  br label %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit17
-
-83:                                               ; preds = %78
+83:                                               ; preds = %79
   %84 = landingpad { ptr, i32 }
           catch ptr null
   %85 = extractvalue { ptr, i32 } %84, 0
   call void @__clang_call_terminate(ptr %85) #19
   unreachable
 
-_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit17:    ; preds = %78, %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EOS3_.exit.sink.split.i.i15
-  %86 = load ptr, ptr %73, align 16
-  %87 = icmp eq ptr %86, %16
-  br i1 %87, label %.sink.split.i.i.i19, label %88
+_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit14:    ; preds = %79
+  %.pr = load ptr, ptr %74, align 16
+  %86 = icmp eq ptr %.pr, %16
+  br i1 %86, label %.sink.split.i.i.i16, label %87
 
-88:                                               ; preds = %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit17
-  %.not.i.i.i18 = icmp eq ptr %86, null
-  br i1 %.not.i.i.i18, label %_ZN3tev10ThreadPool10QueuedTaskD2Ev.exit21, label %.sink.split.i.i.i19
+.thread:                                          ; preds = %77
+  store ptr %75, ptr %45, align 16
+  br label %_ZN3tev10ThreadPool10QueuedTaskD2Ev.exit18
 
-.sink.split.i.i.i19:                              ; preds = %88, %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit17
-  %.sink2.i.i.i20 = phi i64 [ 32, %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit17 ], [ 40, %88 ]
-  %89 = load ptr, ptr %86, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 %.sink2.i.i.i20
-  %91 = load ptr, ptr %90, align 8
-  call void %91(ptr noundef nonnull align 8 dereferenceable(8) %86) #15
-  br label %_ZN3tev10ThreadPool10QueuedTaskD2Ev.exit21
+87:                                               ; preds = %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit14
+  %.not.i.i.i15 = icmp eq ptr %.pr, null
+  br i1 %.not.i.i.i15, label %_ZN3tev10ThreadPool10QueuedTaskD2Ev.exit18, label %.sink.split.i.i.i16
 
-_ZN3tev10ThreadPool10QueuedTaskD2Ev.exit21:       ; preds = %.sink.split.i.i.i19, %88, %7, %4
+.sink.split.i.i.i16:                              ; preds = %87, %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit14
+  %.sink2.i.i.i17 = phi i64 [ 32, %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit14 ], [ 40, %87 ]
+  %88 = load ptr, ptr %.pr, align 8
+  %89 = getelementptr inbounds i8, ptr %88, i64 %.sink2.i.i.i17
+  %90 = load ptr, ptr %89, align 8
+  call void %90(ptr noundef nonnull align 8 dereferenceable(8) %.pr) #15
+  br label %_ZN3tev10ThreadPool10QueuedTaskD2Ev.exit18
+
+_ZN3tev10ThreadPool10QueuedTaskD2Ev.exit18:       ; preds = %.thread38, %.sink.split.i.i.i16, %87, %.thread, %7, %4
   ret void
 }
 

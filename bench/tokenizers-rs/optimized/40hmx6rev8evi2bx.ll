@@ -686,7 +686,7 @@ define hidden void @"_ZN102_$LT$rayon..iter..extend..ListVecFolder$LT$T$GT$$u20$
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3), !noalias !92
   %36 = getelementptr inbounds i8, ptr %25, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false)
-  store ptr %25, ptr %5, align 8, !noalias !100
+  store ptr %25, ptr %5, align 8, !alias.scope !96, !noalias !100
   store ptr %25, ptr %6, align 8, !alias.scope !96, !noalias !100
   store i64 1, ptr %7, align 8, !alias.scope !96, !noalias !100
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)

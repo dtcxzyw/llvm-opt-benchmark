@@ -673,9 +673,18 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %cmp2.not = icmp eq ptr %2, null
   %tql_prev8 = getelementptr inbounds i8, ptr %1, i64 256
   %3 = load ptr, ptr %tql_prev8, align 8
+  br i1 %cmp2.not, label %if.else, label %if.then
+
+if.then:                                          ; preds = %while.body
   %tql_prev6 = getelementptr inbounds i8, ptr %2, i64 256
-  %tql_prev10.sink = select i1 %cmp2.not, ptr %tql_prev10, ptr %tql_prev6
-  store ptr %3, ptr %tql_prev10.sink, align 8
+  store ptr %3, ptr %tql_prev6, align 8
+  br label %if.end
+
+if.else:                                          ; preds = %while.body
+  store ptr %3, ptr %tql_prev10, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then
   %4 = load ptr, ptr %next, align 8
   store ptr %4, ptr %3, align 8
   %cmp19 = getelementptr inbounds i8, ptr %1, i64 216
@@ -702,7 +711,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %or.cond.i.i.i = select i1 %tobool.i.i.i, i1 %tobool4.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %land.lhs.true5.i.i.i, label %pvscsi_cmp_ring_put.exit
 
-land.lhs.true5.i.i.i:                             ; preds = %while.body
+land.lhs.true5.i.i.i:                             ; preds = %if.end
   %13 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i.i = and i32 %13, 32768
   %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -725,7 +734,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i.i
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.87, i64 noundef %add.i.i) #9
   br label %pvscsi_cmp_ring_put.exit
 
-pvscsi_cmp_ring_put.exit:                         ; preds = %while.body, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
+pvscsi_cmp_ring_put.exit:                         ; preds = %if.end, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
   tail call void @cpu_physical_memory_rw(i64 noundef %add.i.i, ptr noundef nonnull %cmp19, i64 noundef 32, i1 noundef zeroext true) #9
   tail call void @g_free(ptr noundef nonnull %1) #9
@@ -3271,10 +3280,19 @@ if.end6:                                          ; preds = %if.then3, %trace_pv
   %cmp8.not = icmp eq ptr %11, null
   %tql_prev16 = getelementptr inbounds i8, ptr %r, i64 256
   %12 = load ptr, ptr %tql_prev16, align 8
-  %tql_prev17 = getelementptr inbounds i8, ptr %s, i64 3040
+  br i1 %cmp8.not, label %if.else14, label %if.then9
+
+if.then9:                                         ; preds = %if.end6
   %tql_prev13 = getelementptr inbounds i8, ptr %11, i64 256
-  %tql_prev17.sink = select i1 %cmp8.not, ptr %tql_prev17, ptr %tql_prev13
-  store ptr %12, ptr %tql_prev17.sink, align 8
+  store ptr %12, ptr %tql_prev13, align 8
+  br label %if.end18
+
+if.else14:                                        ; preds = %if.end6
+  %tql_prev17 = getelementptr inbounds i8, ptr %s, i64 3040
+  store ptr %12, ptr %tql_prev17, align 8
+  br label %if.end18
+
+if.end18:                                         ; preds = %if.else14, %if.then9
   %13 = load ptr, ptr %next, align 8
   %tql_prev21 = getelementptr inbounds i8, ptr %r, i64 256
   store ptr %13, ptr %12, align 8
@@ -3289,13 +3307,13 @@ if.end6:                                          ; preds = %if.then3, %trace_pv
   %cmp.i = icmp eq ptr %15, null
   br i1 %cmp.i, label %pvscsi_schedule_completion_processing.exit, label %if.then.i
 
-if.then.i:                                        ; preds = %if.end6
+if.then.i:                                        ; preds = %if.end18
   %completion_worker.i = getelementptr inbounds i8, ptr %s, i64 3024
   %16 = load ptr, ptr %completion_worker.i, align 16
   tail call void @qemu_bh_schedule(ptr noundef %16) #9
   br label %pvscsi_schedule_completion_processing.exit
 
-pvscsi_schedule_completion_processing.exit:       ; preds = %if.end6, %if.then.i
+pvscsi_schedule_completion_processing.exit:       ; preds = %if.end18, %if.then.i
   ret void
 }
 

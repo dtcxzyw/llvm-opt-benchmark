@@ -15109,11 +15109,11 @@ define internal fastcc noundef ptr @_ZL20skip_over_field_namePKcbj(ptr noundef %
   %18 = getelementptr inbounds i8, ptr %6, i64 8
   br label %19
 
-19:                                               ; preds = %.lr.ph, %49
-  %.05691 = phi ptr [ %0, %.lr.ph ], [ %.157, %49 ]
-  %.05890 = phi i8 [ 0, %.lr.ph ], [ %.159, %49 ]
-  %20 = phi i1 [ false, %.lr.ph ], [ true, %49 ]
-  %21 = phi i1 [ true, %.lr.ph ], [ false, %49 ]
+19:                                               ; preds = %.lr.ph, %48
+  %.05691 = phi ptr [ %0, %.lr.ph ], [ %.157, %48 ]
+  %.05890 = phi i8 [ 0, %.lr.ph ], [ %.159, %48 ]
+  %20 = phi i1 [ false, %.lr.ph ], [ true, %48 ]
+  %21 = phi i1 [ true, %.lr.ph ], [ false, %48 ]
   %22 = load i8, ptr %.05691, align 1
   %.fr71 = freeze i8 %22
   %23 = sext i8 %.fr71 to i32
@@ -15126,19 +15126,19 @@ define internal fastcc noundef ptr @_ZL20skip_over_field_namePKcbj(ptr noundef %
   %28 = and i32 %23, 65503
   %29 = add nsw i32 %28, -65
   %or.cond72 = icmp ult i32 %29, 26
-  br i1 %or.cond72, label %49, label %switch.early.test
+  br i1 %or.cond72, label %48, label %switch.early.test
 
 switch.early.test:                                ; preds = %26
   switch i32 %24, label %30 [
-    i32 95, label %49
-    i32 36, label %49
+    i32 95, label %48
+    i32 36, label %48
   ]
 
 30:                                               ; preds = %switch.early.test
   %31 = add nsw i32 %24, -48
   %32 = icmp ult i32 %31, 10
   %or.cond17 = and i1 %20, %32
-  br i1 %or.cond17, label %49, label %33
+  br i1 %or.cond17, label %48, label %33
 
 33:                                               ; preds = %30
   %34 = icmp eq i32 %24, 47
@@ -15147,7 +15147,7 @@ switch.early.test:                                ; preds = %26
 
 35:                                               ; preds = %33
   %.not65 = icmp eq i8 %.05890, 0
-  br i1 %.not65, label %49, label %.loopexit73
+  br i1 %.not65, label %48, label %.loopexit73
 
 36:                                               ; preds = %19
   %37 = call noundef ptr @_ZN4UTF814next_characterEPKcPi(ptr noundef nonnull %.05691, ptr noundef nonnull %4) #23
@@ -15166,45 +15166,45 @@ switch.early.test:                                ; preds = %26
   %40 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 816), align 8
   %41 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6864), align 8
   %. = select i1 %21, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3632), ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3640)
-  %42 = load ptr, ptr %., align 8
-  call void @_ZN9JavaCalls11call_staticEP9JavaValueP5KlassP6SymbolS5_P17JavaCallArgumentsP10JavaThread(ptr noundef nonnull %6, ptr noundef %40, ptr noundef %42, ptr noundef %41, ptr noundef nonnull %7, ptr noundef %38) #23
-  %43 = getelementptr inbounds i8, ptr %38, i64 8
-  %44 = load ptr, ptr %43, align 8
-  %.not69 = icmp eq ptr %44, null
-  br i1 %.not69, label %45, label %.thread67
+  %.sink = load ptr, ptr %., align 8
+  call void @_ZN9JavaCalls11call_staticEP9JavaValueP5KlassP6SymbolS5_P17JavaCallArgumentsP10JavaThread(ptr noundef nonnull %6, ptr noundef %40, ptr noundef %.sink, ptr noundef %41, ptr noundef nonnull %7, ptr noundef %38) #23
+  %42 = getelementptr inbounds i8, ptr %38, i64 8
+  %43 = load ptr, ptr %42, align 8
+  %.not69 = icmp eq ptr %43, null
+  br i1 %.not69, label %44, label %.thread67
 
 .thread67:                                        ; preds = %36
   call void @_ZN12ThreadShadow23clear_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(28) %38) #23
   call void @_ZN13ExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #23
   br label %.loopexit73
 
-45:                                               ; preds = %36
-  %46 = load i32, ptr %18, align 8
-  %47 = and i32 %46, 255
-  %.not63 = icmp eq i32 %47, 0
+44:                                               ; preds = %36
+  %45 = load i32, ptr %18, align 8
+  %46 = and i32 %45, 255
+  %.not63 = icmp eq i32 %46, 0
   call void @_ZN13ExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #23
-  br i1 %.not63, label %.loopexit, label %49
+  br i1 %.not63, label %.loopexit, label %48
 
-.loopexit:                                        ; preds = %33, %45
-  %48 = select i1 %21, ptr null, ptr %.05691
+.loopexit:                                        ; preds = %33, %44
+  %47 = select i1 %21, ptr null, ptr %.05691
   br label %.loopexit73
 
-49:                                               ; preds = %45, %35, %26, %30, %switch.early.test, %switch.early.test
-  %50 = phi i1 [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %30 ], [ false, %26 ], [ true, %35 ], [ false, %45 ]
-  %.159 = phi i8 [ 0, %switch.early.test ], [ 0, %switch.early.test ], [ 0, %30 ], [ 0, %26 ], [ 1, %35 ], [ 0, %45 ]
-  %.157 = phi ptr [ %27, %switch.early.test ], [ %27, %switch.early.test ], [ %27, %30 ], [ %27, %26 ], [ %27, %35 ], [ %37, %45 ]
+48:                                               ; preds = %44, %35, %26, %30, %switch.early.test, %switch.early.test
+  %49 = phi i1 [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %30 ], [ false, %26 ], [ true, %35 ], [ false, %44 ]
+  %.159 = phi i8 [ 0, %switch.early.test ], [ 0, %switch.early.test ], [ 0, %30 ], [ 0, %26 ], [ 1, %35 ], [ 0, %44 ]
+  %.157 = phi ptr [ %27, %switch.early.test ], [ %27, %switch.early.test ], [ %27, %30 ], [ %27, %26 ], [ %27, %35 ], [ %37, %44 ]
   %.not = icmp eq ptr %.157, %9
   br i1 %.not, label %._crit_edge, label %19, !llvm.loop !65
 
-._crit_edge:                                      ; preds = %49, %3
-  %.058.lcssa = phi i1 [ false, %3 ], [ %50, %49 ]
-  %.056.lcssa = phi ptr [ %0, %3 ], [ %.157, %49 ]
+._crit_edge:                                      ; preds = %48, %3
+  %.058.lcssa = phi i1 [ false, %3 ], [ %49, %48 ]
+  %.056.lcssa = phi ptr [ %0, %3 ], [ %.157, %48 ]
   %or.cond22 = or i1 %.not89, %.058.lcssa
-  %51 = select i1 %or.cond22, ptr null, ptr %.056.lcssa
+  %50 = select i1 %or.cond22, ptr null, ptr %.056.lcssa
   br label %.loopexit73
 
 .loopexit73:                                      ; preds = %35, %.thread67, %._crit_edge, %.loopexit
-  %.2 = phi ptr [ %48, %.loopexit ], [ %51, %._crit_edge ], [ null, %.thread67 ], [ null, %35 ]
+  %.2 = phi ptr [ %47, %.loopexit ], [ %50, %._crit_edge ], [ null, %.thread67 ], [ null, %35 ]
   ret ptr %.2
 }
 

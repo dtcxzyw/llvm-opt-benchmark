@@ -464,18 +464,18 @@ define internal i32 @pg_wchar2euc_with_len(ptr nocapture noundef readonly %0, pt
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %3, %22
-  %.046 = phi i32 [ %25, %22 ], [ 0, %3 ]
-  %.03245 = phi i32 [ %27, %22 ], [ %2, %3 ]
-  %.03344 = phi ptr [ %24, %22 ], [ %1, %3 ]
-  %.03543 = phi ptr [ %26, %22 ], [ %0, %3 ]
+.lr.ph:                                           ; preds = %3, %45
+  %.046 = phi i32 [ %46, %45 ], [ 0, %3 ]
+  %.03245 = phi i32 [ %48, %45 ], [ %2, %3 ]
+  %.03344 = phi ptr [ %.134, %45 ], [ %1, %3 ]
+  %.03543 = phi ptr [ %47, %45 ], [ %0, %3 ]
   %5 = load i32, ptr %.03543, align 4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %.critedge, label %6
 
 6:                                                ; preds = %.lr.ph
   %.not40 = icmp ult i32 %5, 16777216
-  br i1 %.not40, label %12, label %7
+  br i1 %.not40, label %22, label %7
 
 7:                                                ; preds = %6
   %8 = lshr i32 %5, 24
@@ -483,60 +483,74 @@ define internal i32 @pg_wchar2euc_with_len(ptr nocapture noundef readonly %0, pt
   %10 = getelementptr i8, ptr %.03344, i64 1
   store i8 %9, ptr %.03344, align 1
   %11 = load i32, ptr %.03543, align 4
-  br label %.sink.split.sink.split
+  %12 = lshr i32 %11, 16
+  %13 = trunc i32 %12 to i8
+  %14 = getelementptr i8, ptr %.03344, i64 2
+  store i8 %13, ptr %10, align 1
+  %15 = load i32, ptr %.03543, align 4
+  %16 = lshr i32 %15, 8
+  %17 = trunc i32 %16 to i8
+  %18 = getelementptr i8, ptr %.03344, i64 3
+  store i8 %17, ptr %14, align 1
+  %19 = load i32, ptr %.03543, align 4
+  %20 = trunc i32 %19 to i8
+  %21 = getelementptr i8, ptr %.03344, i64 4
+  store i8 %20, ptr %18, align 1
+  br label %45
 
-12:                                               ; preds = %6
+22:                                               ; preds = %6
   %.not41 = icmp ult i32 %5, 65536
-  br i1 %.not41, label %13, label %.sink.split.sink.split
+  br i1 %.not41, label %34, label %23
 
-13:                                               ; preds = %12
+23:                                               ; preds = %22
+  %24 = lshr i32 %5, 16
+  %25 = trunc nuw i32 %24 to i8
+  %26 = getelementptr i8, ptr %.03344, i64 1
+  store i8 %25, ptr %.03344, align 1
+  %27 = load i32, ptr %.03543, align 4
+  %28 = lshr i32 %27, 8
+  %29 = trunc i32 %28 to i8
+  %30 = getelementptr i8, ptr %.03344, i64 2
+  store i8 %29, ptr %26, align 1
+  %31 = load i32, ptr %.03543, align 4
+  %32 = trunc i32 %31 to i8
+  %33 = getelementptr i8, ptr %.03344, i64 3
+  store i8 %32, ptr %30, align 1
+  br label %45
+
+34:                                               ; preds = %22
   %.not42 = icmp ult i32 %5, 256
-  br i1 %.not42, label %22, label %.sink.split
+  br i1 %.not42, label %42, label %35
 
-.sink.split.sink.split:                           ; preds = %12, %7
-  %.sink64 = phi i32 [ %11, %7 ], [ %5, %12 ]
-  %.sink62 = phi i64 [ 2, %7 ], [ 1, %12 ]
-  %.sink61 = phi ptr [ %10, %7 ], [ %.03344, %12 ]
-  %.sink57.ph = phi i64 [ 3, %7 ], [ 2, %12 ]
-  %.sink53.ph.ph = phi i64 [ 4, %7 ], [ 3, %12 ]
-  %.sink.ph.ph = phi i32 [ 4, %7 ], [ 3, %12 ]
-  %14 = lshr i32 %.sink64, 16
-  %15 = trunc i32 %14 to i8
-  %16 = getelementptr i8, ptr %.03344, i64 %.sink62
-  store i8 %15, ptr %.sink61, align 1
-  %17 = load i32, ptr %.03543, align 4
-  br label %.sink.split
+35:                                               ; preds = %34
+  %36 = lshr i32 %5, 8
+  %37 = trunc nuw i32 %36 to i8
+  %38 = getelementptr i8, ptr %.03344, i64 1
+  store i8 %37, ptr %.03344, align 1
+  %39 = load i32, ptr %.03543, align 4
+  %40 = trunc i32 %39 to i8
+  %41 = getelementptr i8, ptr %.03344, i64 2
+  store i8 %40, ptr %38, align 1
+  br label %45
 
-.sink.split:                                      ; preds = %.sink.split.sink.split, %13
-  %.sink59 = phi i32 [ %5, %13 ], [ %17, %.sink.split.sink.split ]
-  %.sink57 = phi i64 [ 1, %13 ], [ %.sink57.ph, %.sink.split.sink.split ]
-  %.sink56 = phi ptr [ %.03344, %13 ], [ %16, %.sink.split.sink.split ]
-  %.sink53.ph = phi i64 [ 2, %13 ], [ %.sink53.ph.ph, %.sink.split.sink.split ]
-  %.sink.ph = phi i32 [ 2, %13 ], [ %.sink.ph.ph, %.sink.split.sink.split ]
-  %18 = lshr i32 %.sink59, 8
-  %19 = trunc i32 %18 to i8
-  %20 = getelementptr i8, ptr %.03344, i64 %.sink57
-  store i8 %19, ptr %.sink56, align 1
-  %21 = load i32, ptr %.03543, align 4
-  br label %22
+42:                                               ; preds = %34
+  %43 = trunc nuw i32 %5 to i8
+  %44 = getelementptr i8, ptr %.03344, i64 1
+  store i8 %43, ptr %.03344, align 1
+  br label %45
 
-22:                                               ; preds = %.sink.split, %13
-  %.sink54 = phi i32 [ %5, %13 ], [ %21, %.sink.split ]
-  %.sink53 = phi i64 [ 1, %13 ], [ %.sink53.ph, %.sink.split ]
-  %.sink52 = phi ptr [ %.03344, %13 ], [ %20, %.sink.split ]
-  %.sink = phi i32 [ 1, %13 ], [ %.sink.ph, %.sink.split ]
-  %23 = trunc i32 %.sink54 to i8
-  %24 = getelementptr i8, ptr %.03344, i64 %.sink53
-  store i8 %23, ptr %.sink52, align 1
-  %25 = add i32 %.046, %.sink
-  %26 = getelementptr i8, ptr %.03543, i64 4
-  %27 = add nsw i32 %.03245, -1
-  %28 = icmp sgt i32 %.03245, 1
-  br i1 %28, label %.lr.ph, label %.critedge, !llvm.loop !9
+45:                                               ; preds = %23, %42, %35, %7
+  %.sink = phi i32 [ 3, %23 ], [ 1, %42 ], [ 2, %35 ], [ 4, %7 ]
+  %.134 = phi ptr [ %33, %23 ], [ %44, %42 ], [ %41, %35 ], [ %21, %7 ]
+  %46 = add i32 %.046, %.sink
+  %47 = getelementptr i8, ptr %.03543, i64 4
+  %48 = add nsw i32 %.03245, -1
+  %49 = icmp sgt i32 %.03245, 1
+  br i1 %49, label %.lr.ph, label %.critedge, !llvm.loop !9
 
-.critedge:                                        ; preds = %.lr.ph, %22, %3
-  %.033.lcssa = phi ptr [ %1, %3 ], [ %24, %22 ], [ %.03344, %.lr.ph ]
-  %.0.lcssa = phi i32 [ 0, %3 ], [ %25, %22 ], [ %.046, %.lr.ph ]
+.critedge:                                        ; preds = %.lr.ph, %45, %3
+  %.033.lcssa = phi ptr [ %1, %3 ], [ %.134, %45 ], [ %.03344, %.lr.ph ]
+  %.0.lcssa = phi i32 [ 0, %3 ], [ %46, %45 ], [ %.046, %.lr.ph ]
   store i8 0, ptr %.033.lcssa, align 1
   ret i32 %.0.lcssa
 }
@@ -738,11 +752,11 @@ define internal i32 @pg_euccn2wchar_with_len(ptr nocapture noundef readonly %0, 
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %3, %36
-  %.044 = phi i32 [ %39, %36 ], [ 0, %3 ]
-  %.03643 = phi i32 [ %37, %36 ], [ %2, %3 ]
-  %.03742 = phi ptr [ %38, %36 ], [ %1, %3 ]
-  %.03841 = phi ptr [ %.139, %36 ], [ %0, %3 ]
+.lr.ph:                                           ; preds = %3, %44
+  %.044 = phi i32 [ %47, %44 ], [ 0, %3 ]
+  %.03643 = phi i32 [ %45, %44 ], [ %2, %3 ]
+  %.03742 = phi ptr [ %46, %44 ], [ %1, %3 ]
+  %.03841 = phi ptr [ %.139, %44 ], [ %0, %3 ]
   %5 = load i8, ptr %.03841, align 1
   %6 = zext i8 %5 to i32
   %.not = icmp eq i8 %5, 0
@@ -752,7 +766,7 @@ define internal i32 @pg_euccn2wchar_with_len(ptr nocapture noundef readonly %0, 
   %8 = icmp eq i8 %5, -114
   %9 = icmp ugt i32 %.03643, 2
   %or.cond = and i1 %9, %8
-  br i1 %or.cond, label %10, label %17
+  br i1 %or.cond, label %10, label %21
 
 10:                                               ; preds = %7
   %11 = getelementptr i8, ptr %.03841, i64 1
@@ -761,59 +775,62 @@ define internal i32 @pg_euccn2wchar_with_len(ptr nocapture noundef readonly %0, 
   %14 = zext i8 %13 to i32
   %15 = shl nuw nsw i32 %14, 8
   %16 = or disjoint i32 %15, 9306112
-  br label %.sink.split
+  store i32 %16, ptr %.03742, align 4
+  %17 = getelementptr i8, ptr %.03841, i64 3
+  %18 = load i8, ptr %12, align 1
+  %19 = zext i8 %18 to i32
+  %20 = or disjoint i32 %16, %19
+  br label %44
 
-17:                                               ; preds = %7
-  %18 = icmp eq i8 %5, -113
-  %or.cond3 = and i1 %9, %18
-  br i1 %or.cond3, label %19, label %26
+21:                                               ; preds = %7
+  %22 = icmp eq i8 %5, -113
+  %or.cond3 = and i1 %9, %22
+  br i1 %or.cond3, label %23, label %34
 
-19:                                               ; preds = %17
-  %20 = getelementptr i8, ptr %.03841, i64 1
-  %21 = getelementptr i8, ptr %.03841, i64 2
-  %22 = load i8, ptr %20, align 1
-  %23 = zext i8 %22 to i32
-  %24 = shl nuw nsw i32 %23, 8
-  %25 = or disjoint i32 %24, 9371648
-  br label %.sink.split
+23:                                               ; preds = %21
+  %24 = getelementptr i8, ptr %.03841, i64 1
+  %25 = getelementptr i8, ptr %.03841, i64 2
+  %26 = load i8, ptr %24, align 1
+  %27 = zext i8 %26 to i32
+  %28 = shl nuw nsw i32 %27, 8
+  %29 = or disjoint i32 %28, 9371648
+  store i32 %29, ptr %.03742, align 4
+  %30 = getelementptr i8, ptr %.03841, i64 3
+  %31 = load i8, ptr %25, align 1
+  %32 = zext i8 %31 to i32
+  %33 = or disjoint i32 %29, %32
+  br label %44
 
-26:                                               ; preds = %17
-  %27 = icmp slt i8 %5, 0
-  %28 = icmp ne i32 %.03643, 1
-  %or.cond5 = and i1 %28, %27
-  %29 = getelementptr i8, ptr %.03841, i64 1
-  br i1 %or.cond5, label %30, label %36
+34:                                               ; preds = %21
+  %35 = icmp slt i8 %5, 0
+  %36 = icmp ne i32 %.03643, 1
+  %or.cond5 = and i1 %36, %35
+  %37 = getelementptr i8, ptr %.03841, i64 1
+  br i1 %or.cond5, label %38, label %44
 
-30:                                               ; preds = %26
-  %31 = shl nuw nsw i32 %6, 8
-  br label %.sink.split
+38:                                               ; preds = %34
+  %39 = shl nuw nsw i32 %6, 8
+  store i32 %39, ptr %.03742, align 4
+  %40 = getelementptr i8, ptr %.03841, i64 2
+  %41 = load i8, ptr %37, align 1
+  %42 = zext i8 %41 to i32
+  %43 = or disjoint i32 %39, %42
+  br label %44
 
-.sink.split:                                      ; preds = %10, %30, %19
-  %.sink55 = phi i32 [ %25, %19 ], [ %31, %30 ], [ %16, %10 ]
-  %.sink54 = phi i64 [ 3, %19 ], [ 2, %30 ], [ 3, %10 ]
-  %.sink53 = phi ptr [ %21, %19 ], [ %29, %30 ], [ %12, %10 ]
-  %.sink.ph = phi i32 [ -3, %19 ], [ -2, %30 ], [ -3, %10 ]
-  store i32 %.sink55, ptr %.03742, align 4
-  %32 = getelementptr i8, ptr %.03841, i64 %.sink54
-  %33 = load i8, ptr %.sink53, align 1
-  %34 = zext i8 %33 to i32
-  %35 = or disjoint i32 %.sink55, %34
-  br label %36
-
-36:                                               ; preds = %.sink.split, %26
-  %.sink49 = phi i32 [ %6, %26 ], [ %35, %.sink.split ]
-  %.sink = phi i32 [ -1, %26 ], [ %.sink.ph, %.sink.split ]
-  %.139 = phi ptr [ %29, %26 ], [ %32, %.sink.split ]
+44:                                               ; preds = %34, %23, %38, %10
+  %.sink49 = phi i32 [ %33, %23 ], [ %43, %38 ], [ %20, %10 ], [ %6, %34 ]
+  %.sink = phi i32 [ -3, %23 ], [ -2, %38 ], [ -3, %10 ], [ -1, %34 ]
+  %.139 = phi ptr [ %30, %23 ], [ %40, %38 ], [ %17, %10 ], [ %37, %34 ]
   store i32 %.sink49, ptr %.03742, align 4
-  %37 = add nsw i32 %.03643, %.sink
-  %38 = getelementptr i8, ptr %.03742, i64 4
-  %39 = add i32 %.044, 1
-  %40 = icmp sgt i32 %37, 0
-  br i1 %40, label %.lr.ph, label %.critedge, !llvm.loop !11
+  %45 = add nsw i32 %.03643, %.sink
+  %46 = getelementptr i8, ptr %.03742, i64 4
+  %47 = add i32 %.044, 1
+  %48 = icmp sgt i32 %45, 0
+  br i1 %48, label %.lr.ph, label %.critedge, !llvm.loop !11
 
-.critedge:                                        ; preds = %.lr.ph, %36, %3
-  %.037.lcssa = phi ptr [ %1, %3 ], [ %38, %36 ], [ %.03742, %.lr.ph ]
-  %.0.lcssa = phi i32 [ 0, %3 ], [ %39, %36 ], [ %.044, %.lr.ph ]
+.critedge:                                        ; preds = %.lr.ph, %44, %3
+  %.037.lcssa = phi ptr [ %1, %3 ], [ %46, %44 ], [ %.03742, %.lr.ph ]
+  %.0.lcssa = phi i32 [ 0, %3 ], [ %47, %44 ], [ %.044, %.lr.ph ]
   store i32 0, ptr %.037.lcssa, align 4
   ret i32 %.0.lcssa
 }
@@ -1047,11 +1064,11 @@ define internal i32 @pg_euctw2wchar_with_len(ptr nocapture noundef readonly %0, 
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %3, %42
-  %.046 = phi i32 [ %45, %42 ], [ 0, %3 ]
-  %.03845 = phi i32 [ %43, %42 ], [ %2, %3 ]
-  %.03944 = phi ptr [ %44, %42 ], [ %1, %3 ]
-  %.04043 = phi ptr [ %.141, %42 ], [ %0, %3 ]
+.lr.ph:                                           ; preds = %3, %50
+  %.046 = phi i32 [ %53, %50 ], [ 0, %3 ]
+  %.03845 = phi i32 [ %51, %50 ], [ %2, %3 ]
+  %.03944 = phi ptr [ %52, %50 ], [ %1, %3 ]
+  %.04043 = phi ptr [ %.141, %50 ], [ %0, %3 ]
   %5 = load i8, ptr %.04043, align 1
   %6 = zext i8 %5 to i32
   %.not = icmp eq i8 %5, 0
@@ -1061,7 +1078,7 @@ define internal i32 @pg_euctw2wchar_with_len(ptr nocapture noundef readonly %0, 
   %8 = icmp eq i8 %5, -114
   %9 = icmp ugt i32 %.03845, 3
   %or.cond = and i1 %9, %8
-  br i1 %or.cond, label %10, label %22
+  br i1 %or.cond, label %10, label %26
 
 10:                                               ; preds = %7
   %11 = getelementptr i8, ptr %.04043, i64 1
@@ -1076,60 +1093,63 @@ define internal i32 @pg_euctw2wchar_with_len(ptr nocapture noundef readonly %0, 
   %19 = zext i8 %18 to i32
   %20 = shl nuw nsw i32 %19, 8
   %21 = or disjoint i32 %20, %16
-  br label %.sink.split
+  store i32 %21, ptr %.03944, align 4
+  %22 = getelementptr i8, ptr %.04043, i64 4
+  %23 = load i8, ptr %17, align 1
+  %24 = zext i8 %23 to i32
+  %25 = or disjoint i32 %21, %24
+  br label %50
 
-22:                                               ; preds = %7
-  %23 = icmp eq i8 %5, -113
-  %24 = icmp ugt i32 %.03845, 2
-  %or.cond3 = and i1 %24, %23
-  br i1 %or.cond3, label %25, label %32
+26:                                               ; preds = %7
+  %27 = icmp eq i8 %5, -113
+  %28 = icmp ugt i32 %.03845, 2
+  %or.cond3 = and i1 %28, %27
+  br i1 %or.cond3, label %29, label %40
 
-25:                                               ; preds = %22
-  %26 = getelementptr i8, ptr %.04043, i64 1
-  %27 = getelementptr i8, ptr %.04043, i64 2
-  %28 = load i8, ptr %26, align 1
-  %29 = zext i8 %28 to i32
-  %30 = shl nuw nsw i32 %29, 8
-  %31 = or disjoint i32 %30, 9371648
-  br label %.sink.split
+29:                                               ; preds = %26
+  %30 = getelementptr i8, ptr %.04043, i64 1
+  %31 = getelementptr i8, ptr %.04043, i64 2
+  %32 = load i8, ptr %30, align 1
+  %33 = zext i8 %32 to i32
+  %34 = shl nuw nsw i32 %33, 8
+  %35 = or disjoint i32 %34, 9371648
+  store i32 %35, ptr %.03944, align 4
+  %36 = getelementptr i8, ptr %.04043, i64 3
+  %37 = load i8, ptr %31, align 1
+  %38 = zext i8 %37 to i32
+  %39 = or disjoint i32 %35, %38
+  br label %50
 
-32:                                               ; preds = %22
-  %33 = icmp slt i8 %5, 0
-  %34 = icmp ne i32 %.03845, 1
-  %or.cond5 = and i1 %34, %33
-  %35 = getelementptr i8, ptr %.04043, i64 1
-  br i1 %or.cond5, label %36, label %42
+40:                                               ; preds = %26
+  %41 = icmp slt i8 %5, 0
+  %42 = icmp ne i32 %.03845, 1
+  %or.cond5 = and i1 %42, %41
+  %43 = getelementptr i8, ptr %.04043, i64 1
+  br i1 %or.cond5, label %44, label %50
 
-36:                                               ; preds = %32
-  %37 = shl nuw nsw i32 %6, 8
-  br label %.sink.split
+44:                                               ; preds = %40
+  %45 = shl nuw nsw i32 %6, 8
+  store i32 %45, ptr %.03944, align 4
+  %46 = getelementptr i8, ptr %.04043, i64 2
+  %47 = load i8, ptr %43, align 1
+  %48 = zext i8 %47 to i32
+  %49 = or disjoint i32 %45, %48
+  br label %50
 
-.sink.split:                                      ; preds = %10, %36, %25
-  %.sink57 = phi i32 [ %31, %25 ], [ %37, %36 ], [ %21, %10 ]
-  %.sink56 = phi i64 [ 3, %25 ], [ 2, %36 ], [ 4, %10 ]
-  %.sink55 = phi ptr [ %27, %25 ], [ %35, %36 ], [ %17, %10 ]
-  %.sink.ph = phi i32 [ -3, %25 ], [ -2, %36 ], [ -4, %10 ]
-  store i32 %.sink57, ptr %.03944, align 4
-  %38 = getelementptr i8, ptr %.04043, i64 %.sink56
-  %39 = load i8, ptr %.sink55, align 1
-  %40 = zext i8 %39 to i32
-  %41 = or disjoint i32 %.sink57, %40
-  br label %42
-
-42:                                               ; preds = %.sink.split, %32
-  %.sink51 = phi i32 [ %6, %32 ], [ %41, %.sink.split ]
-  %.sink = phi i32 [ -1, %32 ], [ %.sink.ph, %.sink.split ]
-  %.141 = phi ptr [ %35, %32 ], [ %38, %.sink.split ]
+50:                                               ; preds = %40, %29, %44, %10
+  %.sink51 = phi i32 [ %39, %29 ], [ %49, %44 ], [ %25, %10 ], [ %6, %40 ]
+  %.sink = phi i32 [ -3, %29 ], [ -2, %44 ], [ -4, %10 ], [ -1, %40 ]
+  %.141 = phi ptr [ %36, %29 ], [ %46, %44 ], [ %22, %10 ], [ %43, %40 ]
   store i32 %.sink51, ptr %.03944, align 4
-  %43 = add nsw i32 %.03845, %.sink
-  %44 = getelementptr i8, ptr %.03944, i64 4
-  %45 = add i32 %.046, 1
-  %46 = icmp sgt i32 %43, 0
-  br i1 %46, label %.lr.ph, label %.critedge, !llvm.loop !13
+  %51 = add nsw i32 %.03845, %.sink
+  %52 = getelementptr i8, ptr %.03944, i64 4
+  %53 = add i32 %.046, 1
+  %54 = icmp sgt i32 %51, 0
+  br i1 %54, label %.lr.ph, label %.critedge, !llvm.loop !13
 
-.critedge:                                        ; preds = %.lr.ph, %42, %3
-  %.039.lcssa = phi ptr [ %1, %3 ], [ %44, %42 ], [ %.03944, %.lr.ph ]
-  %.0.lcssa = phi i32 [ 0, %3 ], [ %45, %42 ], [ %.046, %.lr.ph ]
+.critedge:                                        ; preds = %.lr.ph, %50, %3
+  %.039.lcssa = phi ptr [ %1, %3 ], [ %52, %50 ], [ %.03944, %.lr.ph ]
+  %.0.lcssa = phi i32 [ 0, %3 ], [ %53, %50 ], [ %.046, %.lr.ph ]
   store i32 0, ptr %.039.lcssa, align 4
   ret i32 %.0.lcssa
 }
@@ -2043,11 +2063,11 @@ define internal i32 @pg_wchar2mule_with_len(ptr nocapture noundef readonly %0, p
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %3, %51
-  %.086 = phi ptr [ %55, %51 ], [ %0, %3 ]
-  %.07885 = phi i32 [ %54, %51 ], [ 0, %3 ]
-  %.07984 = phi i32 [ %56, %51 ], [ %2, %3 ]
-  %.08083 = phi ptr [ %53, %51 ], [ %1, %3 ]
+.lr.ph:                                           ; preds = %3, %71
+  %.086 = phi ptr [ %73, %71 ], [ %0, %3 ]
+  %.07885 = phi i32 [ %72, %71 ], [ 0, %3 ]
+  %.07984 = phi i32 [ %74, %71 ], [ %2, %3 ]
+  %.08083 = phi ptr [ %.181, %71 ], [ %1, %3 ]
   %5 = load i32, ptr %.086, align 4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %.critedge, label %6
@@ -2058,111 +2078,129 @@ define internal i32 @pg_wchar2mule_with_len(ptr nocapture noundef readonly %0, p
   %9 = and i32 %7, 255
   %10 = add nsw i32 %9, -129
   %or.cond = icmp ult i32 %10, 13
-  br i1 %or.cond, label %11, label %13
+  br i1 %or.cond, label %11, label %16
 
 11:                                               ; preds = %6
   %12 = getelementptr i8, ptr %.08083, i64 1
   store i8 %8, ptr %.08083, align 1
-  br label %.sink.split
+  %13 = load i32, ptr %.086, align 4
+  %14 = trunc i32 %13 to i8
+  %15 = getelementptr i8, ptr %.08083, i64 2
+  store i8 %14, ptr %12, align 1
+  br label %71
 
-13:                                               ; preds = %6
-  %14 = add nsw i32 %9, -144
-  %or.cond5 = icmp ult i32 %14, 10
-  br i1 %or.cond5, label %15, label %21
+16:                                               ; preds = %6
+  %17 = add nsw i32 %9, -144
+  %or.cond5 = icmp ult i32 %17, 10
+  br i1 %or.cond5, label %18, label %27
 
-15:                                               ; preds = %13
-  %16 = getelementptr i8, ptr %.08083, i64 1
+18:                                               ; preds = %16
+  %19 = getelementptr i8, ptr %.08083, i64 1
   store i8 %8, ptr %.08083, align 1
-  %17 = load i32, ptr %.086, align 4
-  %18 = lshr i32 %17, 8
-  %19 = trunc i32 %18 to i8
-  %20 = getelementptr i8, ptr %.08083, i64 2
-  store i8 %19, ptr %16, align 1
-  br label %.sink.split
+  %20 = load i32, ptr %.086, align 4
+  %21 = lshr i32 %20, 8
+  %22 = trunc i32 %21 to i8
+  %23 = getelementptr i8, ptr %.08083, i64 2
+  store i8 %22, ptr %19, align 1
+  %24 = load i32, ptr %.086, align 4
+  %25 = trunc i32 %24 to i8
+  %26 = getelementptr i8, ptr %.08083, i64 3
+  store i8 %25, ptr %23, align 1
+  br label %71
 
-21:                                               ; preds = %13
-  %22 = add nsw i32 %9, -160
-  %or.cond8 = icmp ult i32 %22, 64
-  br i1 %or.cond8, label %23, label %26
+27:                                               ; preds = %16
+  %28 = add nsw i32 %9, -160
+  %or.cond8 = icmp ult i32 %28, 64
+  br i1 %or.cond8, label %29, label %35
 
-23:                                               ; preds = %21
-  %24 = getelementptr i8, ptr %.08083, i64 1
+29:                                               ; preds = %27
+  %30 = getelementptr i8, ptr %.08083, i64 1
   store i8 -102, ptr %.08083, align 1
-  %25 = getelementptr i8, ptr %.08083, i64 2
-  store i8 %8, ptr %24, align 1
-  br label %.sink.split
+  %31 = getelementptr i8, ptr %.08083, i64 2
+  store i8 %8, ptr %30, align 1
+  %32 = load i32, ptr %.086, align 4
+  %33 = trunc i32 %32 to i8
+  %34 = getelementptr i8, ptr %.08083, i64 3
+  store i8 %33, ptr %31, align 1
+  br label %71
 
-26:                                               ; preds = %21
-  %27 = and i32 %5, 15728640
-  %or.cond11 = icmp eq i32 %27, 14680064
-  br i1 %or.cond11, label %28, label %31
+35:                                               ; preds = %27
+  %36 = and i32 %5, 15728640
+  %or.cond11 = icmp eq i32 %36, 14680064
+  br i1 %or.cond11, label %37, label %43
 
-28:                                               ; preds = %26
-  %29 = getelementptr i8, ptr %.08083, i64 1
+37:                                               ; preds = %35
+  %38 = getelementptr i8, ptr %.08083, i64 1
   store i8 -101, ptr %.08083, align 1
-  %30 = getelementptr i8, ptr %.08083, i64 2
-  store i8 %8, ptr %29, align 1
-  br label %.sink.split
+  %39 = getelementptr i8, ptr %.08083, i64 2
+  store i8 %8, ptr %38, align 1
+  %40 = load i32, ptr %.086, align 4
+  %41 = trunc i32 %40 to i8
+  %42 = getelementptr i8, ptr %.08083, i64 3
+  store i8 %41, ptr %39, align 1
+  br label %71
 
-31:                                               ; preds = %26
-  %32 = add nsw i32 %9, -240
-  %or.cond14 = icmp ult i32 %32, 5
-  br i1 %or.cond14, label %33, label %40
+43:                                               ; preds = %35
+  %44 = add nsw i32 %9, -240
+  %or.cond14 = icmp ult i32 %44, 5
+  br i1 %or.cond14, label %45, label %55
 
-33:                                               ; preds = %31
-  %34 = getelementptr i8, ptr %.08083, i64 1
+45:                                               ; preds = %43
+  %46 = getelementptr i8, ptr %.08083, i64 1
   store i8 -100, ptr %.08083, align 1
-  %35 = getelementptr i8, ptr %.08083, i64 2
-  store i8 %8, ptr %34, align 1
-  %36 = load i32, ptr %.086, align 4
-  %37 = lshr i32 %36, 8
-  %38 = trunc i32 %37 to i8
-  %39 = getelementptr i8, ptr %.08083, i64 3
-  store i8 %38, ptr %35, align 1
-  br label %.sink.split
+  %47 = getelementptr i8, ptr %.08083, i64 2
+  store i8 %8, ptr %46, align 1
+  %48 = load i32, ptr %.086, align 4
+  %49 = lshr i32 %48, 8
+  %50 = trunc i32 %49 to i8
+  %51 = getelementptr i8, ptr %.08083, i64 3
+  store i8 %50, ptr %47, align 1
+  %52 = load i32, ptr %.086, align 4
+  %53 = trunc i32 %52 to i8
+  %54 = getelementptr i8, ptr %.08083, i64 4
+  store i8 %53, ptr %51, align 1
+  br label %71
 
-40:                                               ; preds = %31
-  %41 = icmp ugt i32 %9, 244
-  %42 = icmp ne i32 %9, 255
-  %or.cond17 = and i1 %41, %42
-  br i1 %or.cond17, label %43, label %51
+55:                                               ; preds = %43
+  %56 = icmp ugt i32 %9, 244
+  %57 = icmp ne i32 %9, 255
+  %or.cond17 = and i1 %56, %57
+  br i1 %or.cond17, label %58, label %68
 
-43:                                               ; preds = %40
-  %44 = getelementptr i8, ptr %.08083, i64 1
+58:                                               ; preds = %55
+  %59 = getelementptr i8, ptr %.08083, i64 1
   store i8 -99, ptr %.08083, align 1
-  %45 = getelementptr i8, ptr %.08083, i64 2
-  store i8 %8, ptr %44, align 1
-  %46 = load i32, ptr %.086, align 4
-  %47 = lshr i32 %46, 8
-  %48 = trunc i32 %47 to i8
-  %49 = getelementptr i8, ptr %.08083, i64 3
-  store i8 %48, ptr %45, align 1
-  br label %.sink.split
+  %60 = getelementptr i8, ptr %.08083, i64 2
+  store i8 %8, ptr %59, align 1
+  %61 = load i32, ptr %.086, align 4
+  %62 = lshr i32 %61, 8
+  %63 = trunc i32 %62 to i8
+  %64 = getelementptr i8, ptr %.08083, i64 3
+  store i8 %63, ptr %60, align 1
+  %65 = load i32, ptr %.086, align 4
+  %66 = trunc i32 %65 to i8
+  %67 = getelementptr i8, ptr %.08083, i64 4
+  store i8 %66, ptr %64, align 1
+  br label %71
 
-.sink.split:                                      ; preds = %11, %23, %33, %43, %28, %15
-  %.sink93.ph = phi i64 [ 2, %11 ], [ 3, %23 ], [ 4, %33 ], [ 4, %43 ], [ 3, %28 ], [ 3, %15 ]
-  %.sink92.ph = phi ptr [ %12, %11 ], [ %25, %23 ], [ %39, %33 ], [ %49, %43 ], [ %30, %28 ], [ %20, %15 ]
-  %.sink.ph = phi i32 [ 2, %11 ], [ 3, %23 ], [ 4, %33 ], [ 4, %43 ], [ 3, %28 ], [ 3, %15 ]
-  %50 = load i32, ptr %.086, align 4
-  br label %51
+68:                                               ; preds = %55
+  %69 = trunc i32 %5 to i8
+  %70 = getelementptr i8, ptr %.08083, i64 1
+  store i8 %69, ptr %.08083, align 1
+  br label %71
 
-51:                                               ; preds = %.sink.split, %40
-  %.sink94 = phi i32 [ %5, %40 ], [ %50, %.sink.split ]
-  %.sink93 = phi i64 [ 1, %40 ], [ %.sink93.ph, %.sink.split ]
-  %.sink92 = phi ptr [ %.08083, %40 ], [ %.sink92.ph, %.sink.split ]
-  %.sink = phi i32 [ 1, %40 ], [ %.sink.ph, %.sink.split ]
-  %52 = trunc i32 %.sink94 to i8
-  %53 = getelementptr i8, ptr %.08083, i64 %.sink93
-  store i8 %52, ptr %.sink92, align 1
-  %54 = add i32 %.07885, %.sink
-  %55 = getelementptr i8, ptr %.086, i64 4
-  %56 = add nsw i32 %.07984, -1
-  %57 = icmp sgt i32 %.07984, 1
-  br i1 %57, label %.lr.ph, label %.critedge, !llvm.loop !24
+71:                                               ; preds = %18, %37, %58, %68, %45, %29, %11
+  %.sink = phi i32 [ 3, %18 ], [ 3, %37 ], [ 4, %58 ], [ 1, %68 ], [ 4, %45 ], [ 3, %29 ], [ 2, %11 ]
+  %.181 = phi ptr [ %26, %18 ], [ %42, %37 ], [ %67, %58 ], [ %70, %68 ], [ %54, %45 ], [ %34, %29 ], [ %15, %11 ]
+  %72 = add i32 %.07885, %.sink
+  %73 = getelementptr i8, ptr %.086, i64 4
+  %74 = add nsw i32 %.07984, -1
+  %75 = icmp sgt i32 %.07984, 1
+  br i1 %75, label %.lr.ph, label %.critedge, !llvm.loop !24
 
-.critedge:                                        ; preds = %.lr.ph, %51, %3
-  %.080.lcssa = phi ptr [ %1, %3 ], [ %53, %51 ], [ %.08083, %.lr.ph ]
-  %.078.lcssa = phi i32 [ 0, %3 ], [ %54, %51 ], [ %.07885, %.lr.ph ]
+.critedge:                                        ; preds = %.lr.ph, %71, %3
+  %.080.lcssa = phi ptr [ %1, %3 ], [ %.181, %71 ], [ %.08083, %.lr.ph ]
+  %.078.lcssa = phi i32 [ 0, %3 ], [ %72, %71 ], [ %.07885, %.lr.ph ]
   store i8 0, ptr %.080.lcssa, align 1
   ret i32 %.078.lcssa
 }

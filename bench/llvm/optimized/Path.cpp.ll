@@ -4598,83 +4598,81 @@ define dso_local { i32, ptr } @_ZN4llvm3sys2fs21createUniqueDirectoryERKNS_5Twin
   tail call void @llvm.experimental.noalias.scope.decl(metadata !75)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i8, ptr %5, align 8, !noalias !78
-  switch i8 %6, label %7 [
+  switch i8 %6, label %8 [
     i8 0, label %_ZN4llvmplERKNS_5TwineES2_.exit
-    i8 1, label %_ZN4llvmplERKNS_5TwineES2_.exit.sink.split
+    i8 1, label %7
   ]
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 33
-  %9 = load i8, ptr %8, align 1, !noalias !78
-  %10 = icmp eq i8 %9, 1
+  store ptr @.str.7, ptr %4, align 8
+  br label %_ZN4llvmplERKNS_5TwineES2_.exit
+
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 33
+  %10 = load i8, ptr %9, align 1, !noalias !78
+  %11 = icmp eq i8 %10, 1
   %.sroa.05.0.copyload.i.i = load ptr, ptr %0, align 8, !noalias !78
   %.sroa.36.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %.sroa.36.0.copyload.i.i = load i64, ptr %.sroa.36.0..sroa_idx.i.i, align 8, !noalias !78
-  %.014.i.i = select i1 %10, i8 %6, i8 2
-  %.sroa.05.0.i.i = select i1 %10, ptr %.sroa.05.0.copyload.i.i, ptr %0
-  %.sroa.36.0.i.i = select i1 %10, i64 %.sroa.36.0.copyload.i.i, i64 undef
+  %.014.i.i = select i1 %11, i8 %6, i8 2
+  %.sroa.05.0.i.i = select i1 %11, ptr %.sroa.05.0.copyload.i.i, ptr %0
+  %.sroa.36.0.i.i = select i1 %11, i64 %.sroa.36.0.copyload.i.i, i64 undef
   store ptr %.sroa.05.0.i.i, ptr %4, align 8, !alias.scope !78
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %.sroa.36.0.i.i, ptr %.sroa.23.0..sroa_idx.i.i.i, align 8, !alias.scope !78
-  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  br label %_ZN4llvmplERKNS_5TwineES2_.exit.sink.split
-
-_ZN4llvmplERKNS_5TwineES2_.exit.sink.split:       ; preds = %2, %7
-  %.sink7 = phi ptr [ %11, %7 ], [ %4, %2 ]
-  %.sink5.ph = phi i8 [ %.014.i.i, %7 ], [ 3, %2 ]
-  %.sink.ph = phi i8 [ 3, %7 ], [ %6, %2 ]
-  store ptr @.str.7, ptr %.sink7, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr @.str.7, ptr %12, align 8, !alias.scope !78
   br label %_ZN4llvmplERKNS_5TwineES2_.exit
 
-_ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit.sink.split, %2
-  %.sink5 = phi i8 [ %6, %2 ], [ %.sink5.ph, %_ZN4llvmplERKNS_5TwineES2_.exit.sink.split ]
-  %.sink = phi i8 [ 1, %2 ], [ %.sink.ph, %_ZN4llvmplERKNS_5TwineES2_.exit.sink.split ]
-  %12 = getelementptr inbounds i8, ptr %4, i64 32
-  store i8 %.sink5, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 33
-  store i8 %.sink, ptr %13, align 1
+_ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %2, %7, %8
+  %.sink5 = phi i8 [ 3, %7 ], [ %.014.i.i, %8 ], [ %6, %2 ]
+  %.sink = phi i8 [ 1, %7 ], [ 3, %8 ], [ 1, %2 ]
+  %13 = getelementptr inbounds i8, ptr %4, i64 32
+  store i8 %.sink5, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %4, i64 33
+  store i8 %.sink, ptr %14, align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #33
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 33
+  %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #33
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 33
   br label %.split.us75.i
 
-.split.us75.i:                                    ; preds = %22, %_ZN4llvmplERKNS_5TwineES2_.exit
-  %.062.us76.i = phi i32 [ 128, %_ZN4llvmplERKNS_5TwineES2_.exit ], [ %28, %22 ]
+.split.us75.i:                                    ; preds = %23, %_ZN4llvmplERKNS_5TwineES2_.exit
+  %.062.us76.i = phi i32 [ 128, %_ZN4llvmplERKNS_5TwineES2_.exit ], [ %29, %23 ]
   call void @_ZN4llvm3sys2fs16createUniquePathERKNS_5TwineERNS_15SmallVectorImplIcEEb(ptr noundef nonnull align 8 dereferenceable(34) %4, ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext true)
-  %17 = load ptr, ptr %1, align 8
-  store i8 1, ptr %15, align 8
-  store i8 1, ptr %16, align 1
-  %18 = load i8, ptr %17, align 1
-  %.not.i23.us.i = icmp eq i8 %18, 0
-  br i1 %.not.i23.us.i, label %_ZN4llvm5TwineC2EPKc.exit25.us.i, label %19
+  %18 = load ptr, ptr %1, align 8
+  store i8 1, ptr %16, align 8
+  store i8 1, ptr %17, align 1
+  %19 = load i8, ptr %18, align 1
+  %.not.i23.us.i = icmp eq i8 %19, 0
+  br i1 %.not.i23.us.i, label %_ZN4llvm5TwineC2EPKc.exit25.us.i, label %20
 
-19:                                               ; preds = %.split.us75.i
-  store ptr %17, ptr %3, align 8
+20:                                               ; preds = %.split.us75.i
+  store ptr %18, ptr %3, align 8
   br label %_ZN4llvm5TwineC2EPKc.exit25.us.i
 
-_ZN4llvm5TwineC2EPKc.exit25.us.i:                 ; preds = %19, %.split.us75.i
-  %storemerge.i24.us.i = phi i8 [ 3, %19 ], [ 1, %.split.us75.i ]
-  store i8 %storemerge.i24.us.i, ptr %15, align 8
-  %20 = call { i32, ptr } @_ZN4llvm3sys2fs16create_directoryERKNS_5TwineEbNS1_5permsE(ptr noundef nonnull align 8 dereferenceable(34) %3, i1 noundef zeroext false, i32 noundef 504)
-  %21 = extractvalue { i32, ptr } %20, 0
-  %.not.us.i = icmp eq i32 %21, 0
-  br i1 %.not.us.i, label %_ZL18createUniqueEntityRKN4llvm5TwineERiRNS_15SmallVectorImplIcEEb8FSEntityNS_3sys2fs9OpenFlagsEj.exit, label %22
+_ZN4llvm5TwineC2EPKc.exit25.us.i:                 ; preds = %20, %.split.us75.i
+  %storemerge.i24.us.i = phi i8 [ 3, %20 ], [ 1, %.split.us75.i ]
+  store i8 %storemerge.i24.us.i, ptr %16, align 8
+  %21 = call { i32, ptr } @_ZN4llvm3sys2fs16create_directoryERKNS_5TwineEbNS1_5permsE(ptr noundef nonnull align 8 dereferenceable(34) %3, i1 noundef zeroext false, i32 noundef 504)
+  %22 = extractvalue { i32, ptr } %21, 0
+  %.not.us.i = icmp eq i32 %22, 0
+  br i1 %.not.us.i, label %_ZL18createUniqueEntityRKN4llvm5TwineERiRNS_15SmallVectorImplIcEEb8FSEntityNS_3sys2fs9OpenFlagsEj.exit, label %23
 
-22:                                               ; preds = %_ZN4llvm5TwineC2EPKc.exit25.us.i
-  %23 = extractvalue { i32, ptr } %20, 1
-  %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #33
-  %25 = icmp eq ptr %23, %24
-  %26 = icmp eq i32 %21, 17
-  %27 = and i1 %26, %25
-  %28 = add nsw i32 %.062.us76.i, -1
-  %29 = icmp ugt i32 %.062.us76.i, 1
-  %or.cond = select i1 %27, i1 %29, i1 false
+23:                                               ; preds = %_ZN4llvm5TwineC2EPKc.exit25.us.i
+  %24 = extractvalue { i32, ptr } %21, 1
+  %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #33
+  %26 = icmp eq ptr %24, %25
+  %27 = icmp eq i32 %22, 17
+  %28 = and i1 %27, %26
+  %29 = add nsw i32 %.062.us76.i, -1
+  %30 = icmp ugt i32 %.062.us76.i, 1
+  %or.cond = select i1 %28, i1 %30, i1 false
   br i1 %or.cond, label %.split.us75.i, label %_ZL18createUniqueEntityRKN4llvm5TwineERiRNS_15SmallVectorImplIcEEb8FSEntityNS_3sys2fs9OpenFlagsEj.exit, !llvm.loop !57
 
-_ZL18createUniqueEntityRKN4llvm5TwineERiRNS_15SmallVectorImplIcEEb8FSEntityNS_3sys2fs9OpenFlagsEj.exit: ; preds = %_ZN4llvm5TwineC2EPKc.exit25.us.i, %22
-  %.us-phi65.i = phi ptr [ %23, %22 ], [ %14, %_ZN4llvm5TwineC2EPKc.exit25.us.i ]
-  %.fca.1.insert.i = insertvalue { i32, ptr } %20, ptr %.us-phi65.i, 1
+_ZL18createUniqueEntityRKN4llvm5TwineERiRNS_15SmallVectorImplIcEEb8FSEntityNS_3sys2fs9OpenFlagsEj.exit: ; preds = %_ZN4llvm5TwineC2EPKc.exit25.us.i, %23
+  %.us-phi65.i = phi ptr [ %24, %23 ], [ %15, %_ZN4llvm5TwineC2EPKc.exit25.us.i ]
+  %.fca.1.insert.i = insertvalue { i32, ptr } %21, ptr %.us-phi65.i, 1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   ret { i32, ptr } %.fca.1.insert.i
 }

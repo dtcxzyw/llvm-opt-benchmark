@@ -4699,10 +4699,10 @@ define void @_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel19getVertexEdgeValues
   br label %303
 
 303:                                              ; preds = %252, %249, %290, %292
-  %.in.sink = phi ptr [ %291, %290 ], [ %302, %292 ], [ %256, %252 ], [ %251, %249 ]
-  %304 = load i32, ptr %.in.sink, align 4
-  %305 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
-  store i32 %304, ptr %305, align 4
+  %.sink162.in = phi ptr [ %291, %290 ], [ %302, %292 ], [ %256, %252 ], [ %251, %249 ]
+  %.sink162 = load i32, ptr %.sink162.in, align 4
+  %304 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  store i32 %.sink162, ptr %304, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !43

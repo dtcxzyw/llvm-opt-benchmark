@@ -5525,7 +5525,7 @@ define hidden noundef ptr @_ZN12JVMCIRuntime14select_runtimeEP10JavaThreadPS_Pi(
 define hidden noundef ptr @_ZN12JVMCIRuntime24select_or_create_runtimeEP10JavaThread(ptr noundef %0) local_unnamed_addr #0 align 2 {
   %2 = load i32, ptr @JVMCIThreadsPerNativeLibraryRuntime, align 4
   %3 = icmp eq i32 %2, 0
-  br i1 %3, label %4, label %15
+  br i1 %3, label %4, label %16
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr @_ZN5JVMCI18_compiler_runtimesE, align 8
@@ -5536,7 +5536,7 @@ define hidden noundef ptr @_ZN12JVMCIRuntime24select_or_create_runtimeEP10JavaTh
   %6 = getelementptr inbounds i8, ptr %5, i64 88
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, -1
-  br i1 %8, label %.lr.ph, label %_ZN12JVMCIRuntime14select_runtimeEP10JavaThreadPS_Pi.exit
+  br i1 %8, label %.lr.ph, label %._crit_edge
 
 9:                                                ; preds = %4
   %10 = load ptr, ptr @g_assert_poison, align 8
@@ -5549,69 +5549,75 @@ define hidden noundef ptr @_ZN12JVMCIRuntime24select_or_create_runtimeEP10JavaTh
   %12 = tail call noundef zeroext i1 @_ZN7Monitor4waitEm(ptr noundef nonnull align 8 dereferenceable(104) %11, i64 noundef 0) #16
   %13 = load i32, ptr %6, align 8
   %14 = icmp eq i32 %13, -1
-  br i1 %14, label %.lr.ph, label %_ZN12JVMCIRuntime14select_runtimeEP10JavaThreadPS_Pi.exit, !llvm.loop !40
+  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !40
 
-15:                                               ; preds = %1
-  %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 64
-  %18 = load ptr, ptr %17, align 8
-  %19 = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(888) %0) #16
+._crit_edge:                                      ; preds = %.lr.ph, %.preheader
+  %.lcssa = phi i32 [ %7, %.preheader ], [ %13, %.lr.ph ]
+  %15 = add nuw nsw i32 %.lcssa, 1
+  store i32 %15, ptr %6, align 8
+  br label %_ZN12JVMCIRuntime14select_runtimeEP10JavaThreadPS_Pi.exit
+
+16:                                               ; preds = %1
+  %17 = load ptr, ptr %0, align 8
+  %18 = getelementptr inbounds i8, ptr %17, i64 64
+  %19 = load ptr, ptr %18, align 8
+  %20 = tail call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(888) %0) #16
   %.01729.i = load ptr, ptr @_ZN5JVMCI18_compiler_runtimesE, align 8
   %.not30.i = icmp eq ptr %.01729.i, null
   br i1 %.not30.i, label %.loopexit, label %.lr.ph.split.us.split.i.preheader
 
-.lr.ph.split.us.split.i.preheader:                ; preds = %15
+.lr.ph.split.us.split.i.preheader:                ; preds = %16
   %.old.us.i = load i32, ptr @JVMCIThreadsPerNativeLibraryRuntime, align 4
   br label %.lr.ph.split.us.split.i
 
-.lr.ph.split.us.split.i:                          ; preds = %.lr.ph.split.us.split.i.preheader, %30
-  %20 = phi i32 [ %21, %30 ], [ 0, %.lr.ph.split.us.split.i.preheader ]
-  %.01731.us.i = phi ptr [ %.017.us.i, %30 ], [ %.01729.i, %.lr.ph.split.us.split.i.preheader ]
-  %21 = add nuw nsw i32 %20, 1
-  %22 = getelementptr inbounds i8, ptr %.01731.us.i, i64 92
-  %23 = load i8, ptr %22, align 4
-  %24 = trunc i8 %23 to i1
-  %25 = xor i1 %19, %24
-  br i1 %25, label %30, label %26
+.lr.ph.split.us.split.i:                          ; preds = %.lr.ph.split.us.split.i.preheader, %31
+  %21 = phi i32 [ %22, %31 ], [ 0, %.lr.ph.split.us.split.i.preheader ]
+  %.01731.us.i = phi ptr [ %.017.us.i, %31 ], [ %.01729.i, %.lr.ph.split.us.split.i.preheader ]
+  %22 = add nuw nsw i32 %21, 1
+  %23 = getelementptr inbounds i8, ptr %.01731.us.i, i64 92
+  %24 = load i8, ptr %23, align 4
+  %25 = trunc i8 %24 to i1
+  %26 = xor i1 %20, %25
+  br i1 %26, label %31, label %27
 
-26:                                               ; preds = %.lr.ph.split.us.split.i
-  %27 = getelementptr inbounds i8, ptr %.01731.us.i, i64 88
-  %28 = load i32, ptr %27, align 8
-  %29 = icmp ne i32 %28, -1
-  %.old23.us.i = icmp slt i32 %28, %.old.us.i
-  %or.cond50.i = select i1 %29, i1 %.old23.us.i, i1 false
-  br i1 %or.cond50.i, label %.split.us.i, label %30
+27:                                               ; preds = %.lr.ph.split.us.split.i
+  %28 = getelementptr inbounds i8, ptr %.01731.us.i, i64 88
+  %29 = load i32, ptr %28, align 8
+  %30 = icmp ne i32 %29, -1
+  %.old23.us.i = icmp slt i32 %29, %.old.us.i
+  %or.cond50.i = select i1 %30, i1 %.old23.us.i, i1 false
+  br i1 %or.cond50.i, label %.split.us.i, label %31
 
-30:                                               ; preds = %26, %.lr.ph.split.us.split.i
-  %31 = getelementptr inbounds i8, ptr %.01731.us.i, i64 48
-  %.017.us.i = load ptr, ptr %31, align 8
+31:                                               ; preds = %27, %.lr.ph.split.us.split.i
+  %32 = getelementptr inbounds i8, ptr %.01731.us.i, i64 48
+  %.017.us.i = load ptr, ptr %32, align 8
   %.not.us.i = icmp eq ptr %.017.us.i, null
   br i1 %.not.us.i, label %.loopexit, label %.lr.ph.split.us.split.i, !llvm.loop !39
 
-.split.us.i:                                      ; preds = %26
-  %32 = getelementptr inbounds i8, ptr %.01731.us.i, i64 88
+.split.us.i:                                      ; preds = %27
+  %33 = getelementptr inbounds i8, ptr %.01731.us.i, i64 88
+  %34 = add nuw nsw i32 %29, 1
+  store i32 %34, ptr %33, align 8
   br label %_ZN12JVMCIRuntime14select_runtimeEP10JavaThreadPS_Pi.exit
 
-.loopexit:                                        ; preds = %30, %15
-  %.014.ph = phi i32 [ 0, %15 ], [ %21, %30 ]
-  %33 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 96, i8 noundef zeroext 8, i32 noundef 0) #16
-  %34 = load ptr, ptr @_ZN5JVMCI18_compiler_runtimesE, align 8
-  %35 = load ptr, ptr %0, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 64
-  %37 = load ptr, ptr %36, align 8
-  %38 = tail call noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(888) %0) #16
-  tail call void @_ZN12JVMCIRuntimeC2EPS_ib(ptr noundef nonnull align 8 dereferenceable(93) %33, ptr noundef %34, i32 noundef %.014.ph, i1 noundef zeroext %38)
-  store ptr %33, ptr @_ZN5JVMCI18_compiler_runtimesE, align 8
-  %39 = getelementptr inbounds i8, ptr %33, i64 88
-  %40 = load i32, ptr %39, align 8
+.loopexit:                                        ; preds = %31, %16
+  %.014.ph = phi i32 [ 0, %16 ], [ %22, %31 ]
+  %35 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 96, i8 noundef zeroext 8, i32 noundef 0) #16
+  %36 = load ptr, ptr @_ZN5JVMCI18_compiler_runtimesE, align 8
+  %37 = load ptr, ptr %0, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 64
+  %39 = load ptr, ptr %38, align 8
+  %40 = tail call noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(888) %0) #16
+  tail call void @_ZN12JVMCIRuntimeC2EPS_ib(ptr noundef nonnull align 8 dereferenceable(93) %35, ptr noundef %36, i32 noundef %.014.ph, i1 noundef zeroext %40)
+  store ptr %35, ptr @_ZN5JVMCI18_compiler_runtimesE, align 8
+  %41 = getelementptr inbounds i8, ptr %35, i64 88
+  %42 = load i32, ptr %41, align 8
+  %43 = add nsw i32 %42, 1
+  store i32 %43, ptr %41, align 8
   br label %_ZN12JVMCIRuntime14select_runtimeEP10JavaThreadPS_Pi.exit
 
-_ZN12JVMCIRuntime14select_runtimeEP10JavaThreadPS_Pi.exit: ; preds = %.lr.ph, %.preheader, %.split.us.i, %.loopexit
-  %.lcssa.sink = phi i32 [ %28, %.split.us.i ], [ %40, %.loopexit ], [ %7, %.preheader ], [ %13, %.lr.ph ]
-  %.sink38 = phi ptr [ %32, %.split.us.i ], [ %39, %.loopexit ], [ %6, %.preheader ], [ %6, %.lr.ph ]
-  %.1 = phi ptr [ %.01731.us.i, %.split.us.i ], [ %33, %.loopexit ], [ %5, %.preheader ], [ %5, %.lr.ph ]
-  %41 = add nsw i32 %.lcssa.sink, 1
-  store i32 %41, ptr %.sink38, align 8
+_ZN12JVMCIRuntime14select_runtimeEP10JavaThreadPS_Pi.exit: ; preds = %._crit_edge, %.split.us.i, %.loopexit
+  %.1 = phi ptr [ %35, %.loopexit ], [ %5, %._crit_edge ], [ %.01731.us.i, %.split.us.i ]
   ret ptr %.1
 }
 

@@ -2483,7 +2483,7 @@ define void @rec_reset_vlists(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph38:                                         ; preds = %.lr.ph38.preheader, %furthestnode.exit31
   %indvars.iv41 = phi i64 [ %23, %.lr.ph38.preheader ], [ %indvars.iv.next42, %furthestnode.exit31 ]
-  %24 = phi ptr [ %15, %.lr.ph38.preheader ], [ %177, %furthestnode.exit31 ]
+  %24 = phi ptr [ %15, %.lr.ph38.preheader ], [ %173, %furthestnode.exit31 ]
   %25 = getelementptr inbounds i8, ptr %24, i64 392
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv41
@@ -2496,9 +2496,9 @@ define void @rec_reset_vlists(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %33, label %neighbor.exit.us.i, label %furthestnode.exit
 
 neighbor.exit.us.i:                               ; preds = %.lr.ph38, %is_a_vnode_of_an_edge_of.exit.us.i
-  %34 = phi i32 [ %80, %is_a_vnode_of_an_edge_of.exit.us.i ], [ %32, %.lr.ph38 ]
-  %35 = phi ptr [ %78, %is_a_vnode_of_an_edge_of.exit.us.i ], [ %30, %.lr.ph38 ]
-  %.0.us18.i = phi ptr [ %.1.us.i, %is_a_vnode_of_an_edge_of.exit.us.i ], [ %28, %.lr.ph38 ]
+  %34 = phi i32 [ %79, %is_a_vnode_of_an_edge_of.exit.us.i ], [ %32, %.lr.ph38 ]
+  %35 = phi ptr [ %77, %is_a_vnode_of_an_edge_of.exit.us.i ], [ %30, %.lr.ph38 ]
+  %.0.us20.i = phi ptr [ %.1.us.i, %is_a_vnode_of_an_edge_of.exit.us.i ], [ %28, %.lr.ph38 ]
   %36 = load ptr, ptr @Root, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
@@ -2512,235 +2512,235 @@ neighbor.exit.us.i:                               ; preds = %.lr.ph38, %is_a_vno
   %46 = zext nneg i32 %34 to i64
   %47 = getelementptr ptr, ptr %45, i64 %46
   %48 = getelementptr i8, ptr %47, i64 -8
-  %49 = load ptr, ptr %48, align 8
-  %.not.us.i = icmp eq ptr %49, null
-  br i1 %.not.us.i, label %furthestnode.exit.loopexit, label %50
+  %.0.i.us.i = load ptr, ptr %48, align 8
+  %.not.us.i = icmp eq ptr %.0.i.us.i, null
+  br i1 %.not.us.i, label %furthestnode.exit.loopexit, label %49
 
-50:                                               ; preds = %neighbor.exit.us.i
-  %51 = getelementptr inbounds i8, ptr %49, i64 16
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 216
-  %54 = load i8, ptr %53, align 8
-  %55 = icmp eq i8 %54, 0
-  br i1 %55, label %is_a_normal_node_of.exit.us.i, label %is_a_normal_node_of.exit.thread.us.i
+49:                                               ; preds = %neighbor.exit.us.i
+  %50 = getelementptr inbounds i8, ptr %.0.i.us.i, i64 16
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 216
+  %53 = load i8, ptr %52, align 8
+  %54 = icmp eq i8 %53, 0
+  br i1 %54, label %is_a_normal_node_of.exit.us.i, label %is_a_normal_node_of.exit.thread.us.i
 
-is_a_normal_node_of.exit.us.i:                    ; preds = %50
-  %56 = tail call i32 @agcontains(ptr noundef %0, ptr noundef nonnull %49) #23
-  %.not15.us.i = icmp eq i32 %56, 0
-  %.pre29.i = load ptr, ptr %51, align 8
+is_a_normal_node_of.exit.us.i:                    ; preds = %49
+  %55 = tail call i32 @agcontains(ptr noundef %0, ptr noundef nonnull %.0.i.us.i) #23
+  %.not15.us.i = icmp eq i32 %55, 0
+  %.pre31.i = load ptr, ptr %50, align 8
   br i1 %.not15.us.i, label %is_a_normal_node_of.exit.us.is_a_normal_node_of.exit.thread.us_crit_edge.i, label %is_a_vnode_of_an_edge_of.exit.us.i
 
 is_a_normal_node_of.exit.us.is_a_normal_node_of.exit.thread.us_crit_edge.i: ; preds = %is_a_normal_node_of.exit.us.i
-  %.phi.trans.insert26.i = getelementptr inbounds i8, ptr %.pre29.i, i64 216
-  %.pre27.i = load i8, ptr %.phi.trans.insert26.i, align 8
+  %.phi.trans.insert28.i = getelementptr inbounds i8, ptr %.pre31.i, i64 216
+  %.pre29.i = load i8, ptr %.phi.trans.insert28.i, align 8
   br label %is_a_normal_node_of.exit.thread.us.i
 
-is_a_normal_node_of.exit.thread.us.i:             ; preds = %is_a_normal_node_of.exit.us.is_a_normal_node_of.exit.thread.us_crit_edge.i, %50
-  %57 = phi i8 [ %.pre27.i, %is_a_normal_node_of.exit.us.is_a_normal_node_of.exit.thread.us_crit_edge.i ], [ %54, %50 ]
-  %.val.us.i = phi ptr [ %.pre29.i, %is_a_normal_node_of.exit.us.is_a_normal_node_of.exit.thread.us_crit_edge.i ], [ %52, %50 ]
-  %58 = icmp eq i8 %57, 1
-  br i1 %58, label %59, label %is_a_vnode_of_an_edge_of.exit.us.i
+is_a_normal_node_of.exit.thread.us.i:             ; preds = %is_a_normal_node_of.exit.us.is_a_normal_node_of.exit.thread.us_crit_edge.i, %49
+  %56 = phi i8 [ %.pre29.i, %is_a_normal_node_of.exit.us.is_a_normal_node_of.exit.thread.us_crit_edge.i ], [ %53, %49 ]
+  %.val.us.i = phi ptr [ %.pre31.i, %is_a_normal_node_of.exit.us.is_a_normal_node_of.exit.thread.us_crit_edge.i ], [ %51, %49 ]
+  %57 = icmp eq i8 %56, 1
+  br i1 %57, label %58, label %is_a_vnode_of_an_edge_of.exit.us.i
 
-59:                                               ; preds = %is_a_normal_node_of.exit.thread.us.i
-  %60 = getelementptr inbounds i8, ptr %.val.us.i, i64 264
-  %61 = load i64, ptr %60, align 8
-  %62 = icmp eq i64 %61, 1
-  br i1 %62, label %63, label %is_a_vnode_of_an_edge_of.exit.us.i
+58:                                               ; preds = %is_a_normal_node_of.exit.thread.us.i
+  %59 = getelementptr inbounds i8, ptr %.val.us.i, i64 264
+  %60 = load i64, ptr %59, align 8
+  %61 = icmp eq i64 %60, 1
+  br i1 %61, label %62, label %is_a_vnode_of_an_edge_of.exit.us.i
 
-63:                                               ; preds = %59
-  %64 = getelementptr inbounds i8, ptr %.val.us.i, i64 280
-  %65 = load i64, ptr %64, align 8
-  %66 = icmp eq i64 %65, 1
-  br i1 %66, label %67, label %is_a_vnode_of_an_edge_of.exit.us.i
+62:                                               ; preds = %58
+  %63 = getelementptr inbounds i8, ptr %.val.us.i, i64 280
+  %64 = load i64, ptr %63, align 8
+  %65 = icmp eq i64 %64, 1
+  br i1 %65, label %66, label %is_a_vnode_of_an_edge_of.exit.us.i
 
-67:                                               ; preds = %63
-  %68 = getelementptr inbounds i8, ptr %.val.us.i, i64 272
-  %69 = load ptr, ptr %68, align 8
-  br label %70
+66:                                               ; preds = %62
+  %67 = getelementptr inbounds i8, ptr %.val.us.i, i64 272
+  %68 = load ptr, ptr %67, align 8
+  br label %69
 
-70:                                               ; preds = %70, %67
-  %.0.in.i.us.i = phi ptr [ %69, %67 ], [ %75, %70 ]
+69:                                               ; preds = %69, %66
+  %.0.in.i.us.i = phi ptr [ %68, %66 ], [ %74, %69 ]
   %.0.i11.us.i = load ptr, ptr %.0.in.i.us.i, align 8
-  %71 = getelementptr inbounds i8, ptr %.0.i11.us.i, i64 16
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 152
-  %74 = load i8, ptr %73, align 8
-  %.not.i.us.i = icmp eq i8 %74, 0
-  %75 = getelementptr inbounds i8, ptr %72, i64 160
-  br i1 %.not.i.us.i, label %76, label %70
+  %70 = getelementptr inbounds i8, ptr %.0.i11.us.i, i64 16
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %71, i64 152
+  %73 = load i8, ptr %72, align 8
+  %.not.i.us.i = icmp eq i8 %73, 0
+  %74 = getelementptr inbounds i8, ptr %71, i64 160
+  br i1 %.not.i.us.i, label %75, label %69
 
-76:                                               ; preds = %70
-  %77 = tail call i32 @agcontains(ptr noundef %0, ptr noundef nonnull %.0.i11.us.i) #23
-  %.not10.i.us.i = icmp eq i32 %77, 0
-  %spec.select.us.i = select i1 %.not10.i.us.i, ptr %.0.us18.i, ptr %49
-  %.pre28.i = load ptr, ptr %51, align 8
+75:                                               ; preds = %69
+  %76 = tail call i32 @agcontains(ptr noundef %0, ptr noundef nonnull %.0.i11.us.i) #23
+  %.not10.i.us.i = icmp eq i32 %76, 0
+  %spec.select.us.i = select i1 %.not10.i.us.i, ptr %.0.us20.i, ptr %.0.i.us.i
+  %.pre30.i = load ptr, ptr %50, align 8
   br label %is_a_vnode_of_an_edge_of.exit.us.i
 
-is_a_vnode_of_an_edge_of.exit.us.i:               ; preds = %76, %63, %59, %is_a_normal_node_of.exit.thread.us.i, %is_a_normal_node_of.exit.us.i
-  %78 = phi ptr [ %.pre29.i, %is_a_normal_node_of.exit.us.i ], [ %.val.us.i, %is_a_normal_node_of.exit.thread.us.i ], [ %.val.us.i, %59 ], [ %.val.us.i, %63 ], [ %.pre28.i, %76 ]
-  %.1.us.i = phi ptr [ %49, %is_a_normal_node_of.exit.us.i ], [ %.0.us18.i, %is_a_normal_node_of.exit.thread.us.i ], [ %.0.us18.i, %59 ], [ %.0.us18.i, %63 ], [ %spec.select.us.i, %76 ]
-  %79 = getelementptr inbounds i8, ptr %78, i64 364
-  %80 = load i32, ptr %79, align 4
-  %81 = icmp sgt i32 %80, 0
-  br i1 %81, label %neighbor.exit.us.i, label %furthestnode.exit.loopexit
+is_a_vnode_of_an_edge_of.exit.us.i:               ; preds = %75, %62, %58, %is_a_normal_node_of.exit.thread.us.i, %is_a_normal_node_of.exit.us.i
+  %77 = phi ptr [ %.pre31.i, %is_a_normal_node_of.exit.us.i ], [ %.val.us.i, %is_a_normal_node_of.exit.thread.us.i ], [ %.val.us.i, %58 ], [ %.val.us.i, %62 ], [ %.pre30.i, %75 ]
+  %.1.us.i = phi ptr [ %.0.i.us.i, %is_a_normal_node_of.exit.us.i ], [ %.0.us20.i, %is_a_normal_node_of.exit.thread.us.i ], [ %.0.us20.i, %58 ], [ %.0.us20.i, %62 ], [ %spec.select.us.i, %75 ]
+  %78 = getelementptr inbounds i8, ptr %77, i64 364
+  %79 = load i32, ptr %78, align 4
+  %80 = icmp sgt i32 %79, 0
+  br i1 %80, label %neighbor.exit.us.i, label %furthestnode.exit.loopexit
 
 furthestnode.exit.loopexit:                       ; preds = %is_a_vnode_of_an_edge_of.exit.us.i, %neighbor.exit.us.i
-  %.us-phi.i.ph = phi ptr [ %.0.us18.i, %neighbor.exit.us.i ], [ %.1.us.i, %is_a_vnode_of_an_edge_of.exit.us.i ]
+  %.us-phi.i.ph = phi ptr [ %.0.us20.i, %neighbor.exit.us.i ], [ %.1.us.i, %is_a_vnode_of_an_edge_of.exit.us.i ]
   %.pre = load ptr, ptr %29, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 364
   %.pre44 = load i32, ptr %.phi.trans.insert, align 4
   br label %furthestnode.exit
 
 furthestnode.exit:                                ; preds = %furthestnode.exit.loopexit, %.lr.ph38
-  %82 = phi i32 [ %32, %.lr.ph38 ], [ %.pre44, %furthestnode.exit.loopexit ]
-  %83 = phi ptr [ %30, %.lr.ph38 ], [ %.pre, %furthestnode.exit.loopexit ]
+  %81 = phi i32 [ %32, %.lr.ph38 ], [ %.pre44, %furthestnode.exit.loopexit ]
+  %82 = phi ptr [ %30, %.lr.ph38 ], [ %.pre, %furthestnode.exit.loopexit ]
   %.us-phi.i = phi ptr [ %28, %.lr.ph38 ], [ %.us-phi.i.ph, %furthestnode.exit.loopexit ]
-  %84 = load ptr, ptr @Root, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 16
-  %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 264
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %83, i64 360
-  %90 = load i32, ptr %89, align 8
-  %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds %struct.rank_t, ptr %88, i64 %91, i32 1
-  %93 = load ptr, ptr %92, align 8
-  %94 = sext i32 %82 to i64
-  %95 = getelementptr ptr, ptr %93, i64 %94
-  %96 = getelementptr i8, ptr %95, i64 8
-  %97 = load ptr, ptr %96, align 8
-  %.not16.i = icmp eq ptr %97, null
-  br i1 %.not16.i, label %furthestnode.exit31, label %.lr.ph.i
+  %83 = load ptr, ptr @Root, align 8
+  %84 = getelementptr inbounds i8, ptr %83, i64 16
+  %85 = load ptr, ptr %84, align 8
+  %86 = getelementptr inbounds i8, ptr %85, i64 264
+  %87 = load ptr, ptr %86, align 8
+  %88 = getelementptr inbounds i8, ptr %82, i64 360
+  %89 = load i32, ptr %88, align 8
+  %90 = sext i32 %89 to i64
+  %91 = getelementptr inbounds %struct.rank_t, ptr %87, i64 %90, i32 1
+  %92 = load ptr, ptr %91, align 8
+  %93 = sext i32 %81 to i64
+  %94 = getelementptr ptr, ptr %92, i64 %93
+  %95 = getelementptr i8, ptr %94, i64 8
+  %.0.i16.i = load ptr, ptr %95, align 8
+  %.not17.i = icmp eq ptr %.0.i16.i, null
+  br i1 %.not17.i, label %furthestnode.exit31, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %furthestnode.exit, %is_a_vnode_of_an_edge_of.exit.i
-  %98 = phi ptr [ %142, %is_a_vnode_of_an_edge_of.exit.i ], [ %97, %furthestnode.exit ]
-  %.017.i = phi ptr [ %.1.i, %is_a_vnode_of_an_edge_of.exit.i ], [ %28, %furthestnode.exit ]
-  %99 = getelementptr inbounds i8, ptr %98, i64 16
-  %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 216
-  %102 = load i8, ptr %101, align 8
-  %103 = icmp eq i8 %102, 0
-  br i1 %103, label %is_a_normal_node_of.exit.i, label %is_a_normal_node_of.exit.thread.i
+  %.0.i19.i = phi ptr [ %.0.i.i, %is_a_vnode_of_an_edge_of.exit.i ], [ %.0.i16.i, %furthestnode.exit ]
+  %.018.i = phi ptr [ %.1.i, %is_a_vnode_of_an_edge_of.exit.i ], [ %28, %furthestnode.exit ]
+  %96 = getelementptr inbounds i8, ptr %.0.i19.i, i64 16
+  %97 = load ptr, ptr %96, align 8
+  %98 = getelementptr inbounds i8, ptr %97, i64 216
+  %99 = load i8, ptr %98, align 8
+  %100 = icmp eq i8 %99, 0
+  br i1 %100, label %is_a_normal_node_of.exit.i, label %is_a_normal_node_of.exit.thread.i
 
 is_a_normal_node_of.exit.i:                       ; preds = %.lr.ph.i
-  %104 = tail call i32 @agcontains(ptr noundef %0, ptr noundef nonnull %98) #23
-  %.not15.i = icmp eq i32 %104, 0
-  %.pre24.i = load ptr, ptr %99, align 8
+  %101 = tail call i32 @agcontains(ptr noundef %0, ptr noundef nonnull %.0.i19.i) #23
+  %.not15.i = icmp eq i32 %101, 0
+  %.pre26.i = load ptr, ptr %96, align 8
   br i1 %.not15.i, label %is_a_normal_node_of.exit.is_a_normal_node_of.exit.thread_crit_edge.i, label %is_a_vnode_of_an_edge_of.exit.i
 
 is_a_normal_node_of.exit.is_a_normal_node_of.exit.thread_crit_edge.i: ; preds = %is_a_normal_node_of.exit.i
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre24.i, i64 216
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre26.i, i64 216
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8
   br label %is_a_normal_node_of.exit.thread.i
 
 is_a_normal_node_of.exit.thread.i:                ; preds = %is_a_normal_node_of.exit.is_a_normal_node_of.exit.thread_crit_edge.i, %.lr.ph.i
-  %105 = phi i8 [ %.pre.i, %is_a_normal_node_of.exit.is_a_normal_node_of.exit.thread_crit_edge.i ], [ %102, %.lr.ph.i ]
-  %.val.i = phi ptr [ %.pre24.i, %is_a_normal_node_of.exit.is_a_normal_node_of.exit.thread_crit_edge.i ], [ %100, %.lr.ph.i ]
-  %106 = icmp eq i8 %105, 1
-  br i1 %106, label %107, label %is_a_vnode_of_an_edge_of.exit.i
+  %102 = phi i8 [ %.pre.i, %is_a_normal_node_of.exit.is_a_normal_node_of.exit.thread_crit_edge.i ], [ %99, %.lr.ph.i ]
+  %.val.i = phi ptr [ %.pre26.i, %is_a_normal_node_of.exit.is_a_normal_node_of.exit.thread_crit_edge.i ], [ %97, %.lr.ph.i ]
+  %103 = icmp eq i8 %102, 1
+  br i1 %103, label %104, label %is_a_vnode_of_an_edge_of.exit.i
 
-107:                                              ; preds = %is_a_normal_node_of.exit.thread.i
-  %108 = getelementptr inbounds i8, ptr %.val.i, i64 264
-  %109 = load i64, ptr %108, align 8
-  %110 = icmp eq i64 %109, 1
-  br i1 %110, label %111, label %is_a_vnode_of_an_edge_of.exit.i
+104:                                              ; preds = %is_a_normal_node_of.exit.thread.i
+  %105 = getelementptr inbounds i8, ptr %.val.i, i64 264
+  %106 = load i64, ptr %105, align 8
+  %107 = icmp eq i64 %106, 1
+  br i1 %107, label %108, label %is_a_vnode_of_an_edge_of.exit.i
 
-111:                                              ; preds = %107
-  %112 = getelementptr inbounds i8, ptr %.val.i, i64 280
-  %113 = load i64, ptr %112, align 8
-  %114 = icmp eq i64 %113, 1
-  br i1 %114, label %115, label %is_a_vnode_of_an_edge_of.exit.i
+108:                                              ; preds = %104
+  %109 = getelementptr inbounds i8, ptr %.val.i, i64 280
+  %110 = load i64, ptr %109, align 8
+  %111 = icmp eq i64 %110, 1
+  br i1 %111, label %112, label %is_a_vnode_of_an_edge_of.exit.i
 
-115:                                              ; preds = %111
-  %116 = getelementptr inbounds i8, ptr %.val.i, i64 272
-  %117 = load ptr, ptr %116, align 8
-  br label %118
+112:                                              ; preds = %108
+  %113 = getelementptr inbounds i8, ptr %.val.i, i64 272
+  %114 = load ptr, ptr %113, align 8
+  br label %115
 
-118:                                              ; preds = %118, %115
-  %.0.in.i.i = phi ptr [ %117, %115 ], [ %123, %118 ]
+115:                                              ; preds = %115, %112
+  %.0.in.i.i = phi ptr [ %114, %112 ], [ %120, %115 ]
   %.0.i11.i = load ptr, ptr %.0.in.i.i, align 8
-  %119 = getelementptr inbounds i8, ptr %.0.i11.i, i64 16
-  %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 152
-  %122 = load i8, ptr %121, align 8
-  %.not.i.i = icmp eq i8 %122, 0
-  %123 = getelementptr inbounds i8, ptr %120, i64 160
-  br i1 %.not.i.i, label %124, label %118
+  %116 = getelementptr inbounds i8, ptr %.0.i11.i, i64 16
+  %117 = load ptr, ptr %116, align 8
+  %118 = getelementptr inbounds i8, ptr %117, i64 152
+  %119 = load i8, ptr %118, align 8
+  %.not.i.i = icmp eq i8 %119, 0
+  %120 = getelementptr inbounds i8, ptr %117, i64 160
+  br i1 %.not.i.i, label %121, label %115
 
-124:                                              ; preds = %118
-  %125 = tail call i32 @agcontains(ptr noundef %0, ptr noundef nonnull %.0.i11.i) #23
-  %.not10.i.i = icmp eq i32 %125, 0
-  %spec.select.i = select i1 %.not10.i.i, ptr %.017.i, ptr %98
-  %.pre23.i = load ptr, ptr %99, align 8
+121:                                              ; preds = %115
+  %122 = tail call i32 @agcontains(ptr noundef %0, ptr noundef nonnull %.0.i11.i) #23
+  %.not10.i.i = icmp eq i32 %122, 0
+  %spec.select.i = select i1 %.not10.i.i, ptr %.018.i, ptr %.0.i19.i
+  %.pre25.i = load ptr, ptr %96, align 8
   br label %is_a_vnode_of_an_edge_of.exit.i
 
-is_a_vnode_of_an_edge_of.exit.i:                  ; preds = %124, %111, %107, %is_a_normal_node_of.exit.thread.i, %is_a_normal_node_of.exit.i
-  %126 = phi ptr [ %.pre24.i, %is_a_normal_node_of.exit.i ], [ %.val.i, %is_a_normal_node_of.exit.thread.i ], [ %.val.i, %107 ], [ %.val.i, %111 ], [ %.pre23.i, %124 ]
-  %.1.i = phi ptr [ %98, %is_a_normal_node_of.exit.i ], [ %.017.i, %is_a_normal_node_of.exit.thread.i ], [ %.017.i, %107 ], [ %.017.i, %111 ], [ %spec.select.i, %124 ]
-  %127 = load ptr, ptr @Root, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 16
-  %129 = load ptr, ptr %128, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 264
-  %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds i8, ptr %126, i64 360
-  %133 = load i32, ptr %132, align 8
-  %134 = sext i32 %133 to i64
-  %135 = getelementptr inbounds %struct.rank_t, ptr %131, i64 %134, i32 1
-  %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr inbounds i8, ptr %126, i64 364
-  %138 = load i32, ptr %137, align 4
-  %139 = sext i32 %138 to i64
-  %140 = getelementptr ptr, ptr %136, i64 %139
-  %141 = getelementptr i8, ptr %140, i64 8
-  %142 = load ptr, ptr %141, align 8
-  %.not.i = icmp eq ptr %142, null
+is_a_vnode_of_an_edge_of.exit.i:                  ; preds = %121, %108, %104, %is_a_normal_node_of.exit.thread.i, %is_a_normal_node_of.exit.i
+  %123 = phi ptr [ %.pre26.i, %is_a_normal_node_of.exit.i ], [ %.val.i, %is_a_normal_node_of.exit.thread.i ], [ %.val.i, %104 ], [ %.val.i, %108 ], [ %.pre25.i, %121 ]
+  %.1.i = phi ptr [ %.0.i19.i, %is_a_normal_node_of.exit.i ], [ %.018.i, %is_a_normal_node_of.exit.thread.i ], [ %.018.i, %104 ], [ %.018.i, %108 ], [ %spec.select.i, %121 ]
+  %124 = load ptr, ptr @Root, align 8
+  %125 = getelementptr inbounds i8, ptr %124, i64 16
+  %126 = load ptr, ptr %125, align 8
+  %127 = getelementptr inbounds i8, ptr %126, i64 264
+  %128 = load ptr, ptr %127, align 8
+  %129 = getelementptr inbounds i8, ptr %123, i64 360
+  %130 = load i32, ptr %129, align 8
+  %131 = sext i32 %130 to i64
+  %132 = getelementptr inbounds %struct.rank_t, ptr %128, i64 %131, i32 1
+  %133 = load ptr, ptr %132, align 8
+  %134 = getelementptr inbounds i8, ptr %123, i64 364
+  %135 = load i32, ptr %134, align 4
+  %136 = sext i32 %135 to i64
+  %137 = getelementptr ptr, ptr %133, i64 %136
+  %138 = getelementptr i8, ptr %137, i64 8
+  %.0.i.i = load ptr, ptr %138, align 8
+  %.not.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.i, label %furthestnode.exit31, label %.lr.ph.i
 
 furthestnode.exit31:                              ; preds = %is_a_vnode_of_an_edge_of.exit.i, %furthestnode.exit
   %.us-phi.i30 = phi ptr [ %28, %furthestnode.exit ], [ %.1.i, %is_a_vnode_of_an_edge_of.exit.i ]
-  %143 = load ptr, ptr %2, align 8
-  %144 = getelementptr inbounds i8, ptr %143, i64 392
+  %139 = load ptr, ptr %2, align 8
+  %140 = getelementptr inbounds i8, ptr %139, i64 392
+  %141 = load ptr, ptr %140, align 8
+  %142 = getelementptr inbounds ptr, ptr %141, i64 %indvars.iv41
+  store ptr %.us-phi.i, ptr %142, align 8
+  %143 = tail call ptr @dot_root(ptr noundef %0) #23
+  %144 = getelementptr inbounds i8, ptr %143, i64 16
   %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds ptr, ptr %145, i64 %indvars.iv41
-  store ptr %.us-phi.i, ptr %146, align 8
-  %147 = tail call ptr @dot_root(ptr noundef %0) #23
-  %148 = getelementptr inbounds i8, ptr %147, i64 16
+  %146 = getelementptr inbounds i8, ptr %145, i64 264
+  %147 = load ptr, ptr %146, align 8
+  %148 = getelementptr inbounds %struct.rank_t, ptr %147, i64 %indvars.iv41, i32 1
   %149 = load ptr, ptr %148, align 8
-  %150 = getelementptr inbounds i8, ptr %149, i64 264
+  %150 = getelementptr inbounds i8, ptr %.us-phi.i, i64 16
   %151 = load ptr, ptr %150, align 8
-  %152 = getelementptr inbounds %struct.rank_t, ptr %151, i64 %indvars.iv41, i32 1
-  %153 = load ptr, ptr %152, align 8
-  %154 = getelementptr inbounds i8, ptr %.us-phi.i, i64 16
-  %155 = load ptr, ptr %154, align 8
-  %156 = getelementptr inbounds i8, ptr %155, i64 364
-  %157 = load i32, ptr %156, align 4
-  %158 = sext i32 %157 to i64
-  %159 = getelementptr inbounds ptr, ptr %153, i64 %158
-  %160 = load ptr, ptr %2, align 8
-  %161 = getelementptr inbounds i8, ptr %160, i64 264
-  %162 = load ptr, ptr %161, align 8
-  %163 = getelementptr inbounds %struct.rank_t, ptr %162, i64 %indvars.iv41, i32 1
-  store ptr %159, ptr %163, align 8
-  %164 = getelementptr inbounds i8, ptr %.us-phi.i30, i64 16
-  %165 = load ptr, ptr %164, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 364
-  %167 = load i32, ptr %166, align 4
-  %168 = load ptr, ptr %154, align 8
-  %169 = getelementptr inbounds i8, ptr %168, i64 364
-  %170 = load i32, ptr %169, align 4
-  %171 = add i32 %167, 1
-  %172 = sub i32 %171, %170
-  %173 = load ptr, ptr %2, align 8
-  %174 = getelementptr inbounds i8, ptr %173, i64 264
-  %175 = load ptr, ptr %174, align 8
-  %176 = getelementptr inbounds %struct.rank_t, ptr %175, i64 %indvars.iv41
-  store i32 %172, ptr %176, align 8
+  %152 = getelementptr inbounds i8, ptr %151, i64 364
+  %153 = load i32, ptr %152, align 4
+  %154 = sext i32 %153 to i64
+  %155 = getelementptr inbounds ptr, ptr %149, i64 %154
+  %156 = load ptr, ptr %2, align 8
+  %157 = getelementptr inbounds i8, ptr %156, i64 264
+  %158 = load ptr, ptr %157, align 8
+  %159 = getelementptr inbounds %struct.rank_t, ptr %158, i64 %indvars.iv41, i32 1
+  store ptr %155, ptr %159, align 8
+  %160 = getelementptr inbounds i8, ptr %.us-phi.i30, i64 16
+  %161 = load ptr, ptr %160, align 8
+  %162 = getelementptr inbounds i8, ptr %161, i64 364
+  %163 = load i32, ptr %162, align 4
+  %164 = load ptr, ptr %150, align 8
+  %165 = getelementptr inbounds i8, ptr %164, i64 364
+  %166 = load i32, ptr %165, align 4
+  %167 = add i32 %163, 1
+  %168 = sub i32 %167, %166
+  %169 = load ptr, ptr %2, align 8
+  %170 = getelementptr inbounds i8, ptr %169, i64 264
+  %171 = load ptr, ptr %170, align 8
+  %172 = getelementptr inbounds %struct.rank_t, ptr %171, i64 %indvars.iv41
+  store i32 %168, ptr %172, align 8
   %indvars.iv.next42 = add nsw i64 %indvars.iv41, 1
-  %177 = load ptr, ptr %2, align 8
-  %178 = getelementptr inbounds i8, ptr %177, i64 348
-  %179 = load i32, ptr %178, align 4
-  %180 = sext i32 %179 to i64
-  %.not29.not = icmp slt i64 %indvars.iv41, %180
+  %173 = load ptr, ptr %2, align 8
+  %174 = getelementptr inbounds i8, ptr %173, i64 348
+  %175 = load i32, ptr %174, align 4
+  %176 = sext i32 %175 to i64
+  %.not29.not = icmp slt i64 %indvars.iv41, %176
   br i1 %.not29.not, label %.lr.ph38, label %.loopexit
 
 .loopexit:                                        ; preds = %furthestnode.exit31, %18, %._crit_edge

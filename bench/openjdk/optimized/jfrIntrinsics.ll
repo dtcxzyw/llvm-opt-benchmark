@@ -44,7 +44,7 @@ define hidden noundef ptr @_ZN19JfrIntrinsicSupport16write_checkpointEP10JavaThr
   %2 = tail call noundef zeroext i16 @_ZN14JfrThreadLocal13vthread_epochEPK10JavaThread(ptr noundef %0) #4
   %3 = load i16, ptr @_ZN15JfrTraceIdEpoch11_generationE, align 2
   %4 = icmp eq i16 %2, %3
-  br i1 %4, label %5, label %20
+  br i1 %4, label %5, label %21
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 1092
@@ -76,53 +76,61 @@ _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i: ; pred
   %18 = load volatile i32, ptr %17, align 8
   %19 = and i32 %18, 12
   %.not.i.i.i = icmp eq i32 %19, 0
-  br i1 %.not.i.i.i, label %_ZN18ThreadInVMfromJavaD2Ev.exit, label %_ZN18ThreadInVMfromJavaD2Ev.exit.sink.split
+  br i1 %.not.i.i.i, label %_ZN18ThreadInVMfromJavaD2Ev.exit, label %20
 
-20:                                               ; preds = %1
-  %21 = tail call noundef i64 @_ZN14JfrThreadLocal10vthread_idEPK6Thread(ptr noundef %0) #4
-  %22 = getelementptr inbounds i8, ptr %0, i64 1092
-  store volatile i32 6, ptr %22, align 4
-  %23 = load i16, ptr @_ZN15JfrTraceIdEpoch11_generationE, align 2
-  tail call void @_ZN14JfrThreadLocal17set_vthread_epochEPK10JavaThreadmt(ptr noundef %0, i64 noundef %21, i16 noundef zeroext %23) #4
-  %24 = tail call noundef ptr @_ZN18JfrJavaEventWriter12event_writerEP10JavaThread(ptr noundef %0) #4
-  %25 = getelementptr inbounds i8, ptr %0, i64 1224
-  %26 = load i32, ptr %25, align 8
-  %27 = icmp eq i32 %26, 2
-  br i1 %27, label %28, label %29
-
-28:                                               ; preds = %20
-  tail call void @_ZN13StackOverflow33enable_stack_yellow_reserved_zoneEv(ptr noundef nonnull align 8 dereferenceable(56) %25) #4
-  br label %29
-
-29:                                               ; preds = %28, %20
-  %30 = getelementptr inbounds i8, ptr %0, i64 1096
-  %31 = load volatile i64, ptr %30, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !6
-  %32 = and i64 %31, 1
-  %.not.i.i.i.i10 = icmp eq i64 %32, 0
-  br i1 %.not.i.i.i.i10, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i11, label %33
-
-33:                                               ; preds = %29
-  tail call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %0, i1 noundef zeroext true, i1 noundef zeroext true) #4
-  br label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i11
-
-_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i11: ; preds = %33, %29
-  %34 = getelementptr inbounds i8, ptr %0, i64 1088
-  %35 = load volatile i32, ptr %34, align 8
-  %36 = and i32 %35, 12
-  %.not.i.i.i12 = icmp eq i32 %36, 0
-  br i1 %.not.i.i.i12, label %_ZN18ThreadInVMfromJavaD2Ev.exit, label %_ZN18ThreadInVMfromJavaD2Ev.exit.sink.split
-
-_ZN18ThreadInVMfromJavaD2Ev.exit.sink.split:      ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i11, %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i
-  %.sink.ph = phi ptr [ %6, %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i ], [ %22, %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i11 ]
-  %.0.ph = phi ptr [ %7, %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i ], [ %24, %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i11 ]
+20:                                               ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i
   tail call void @_ZN10JavaThread37handle_special_runtime_exit_conditionEv(ptr noundef nonnull align 8 dereferenceable(1800) %0) #4
   br label %_ZN18ThreadInVMfromJavaD2Ev.exit
 
-_ZN18ThreadInVMfromJavaD2Ev.exit:                 ; preds = %_ZN18ThreadInVMfromJavaD2Ev.exit.sink.split, %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i11, %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i
-  %.sink = phi ptr [ %6, %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i ], [ %22, %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i11 ], [ %.sink.ph, %_ZN18ThreadInVMfromJavaD2Ev.exit.sink.split ]
-  %.0 = phi ptr [ %7, %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i ], [ %24, %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i11 ], [ %.0.ph, %_ZN18ThreadInVMfromJavaD2Ev.exit.sink.split ]
-  store volatile i32 8, ptr %.sink, align 4
+_ZN18ThreadInVMfromJavaD2Ev.exit:                 ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i, %20
+  store volatile i32 8, ptr %6, align 4
+  br label %39
+
+21:                                               ; preds = %1
+  %22 = tail call noundef i64 @_ZN14JfrThreadLocal10vthread_idEPK6Thread(ptr noundef %0) #4
+  %23 = getelementptr inbounds i8, ptr %0, i64 1092
+  store volatile i32 6, ptr %23, align 4
+  %24 = load i16, ptr @_ZN15JfrTraceIdEpoch11_generationE, align 2
+  tail call void @_ZN14JfrThreadLocal17set_vthread_epochEPK10JavaThreadmt(ptr noundef %0, i64 noundef %22, i16 noundef zeroext %24) #4
+  %25 = tail call noundef ptr @_ZN18JfrJavaEventWriter12event_writerEP10JavaThread(ptr noundef %0) #4
+  %26 = getelementptr inbounds i8, ptr %0, i64 1224
+  %27 = load i32, ptr %26, align 8
+  %28 = icmp eq i32 %27, 2
+  br i1 %28, label %29, label %30
+
+29:                                               ; preds = %21
+  tail call void @_ZN13StackOverflow33enable_stack_yellow_reserved_zoneEv(ptr noundef nonnull align 8 dereferenceable(56) %26) #4
+  br label %30
+
+30:                                               ; preds = %29, %21
+  %31 = getelementptr inbounds i8, ptr %0, i64 1096
+  %32 = load volatile i64, ptr %31, align 8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !6
+  %33 = and i64 %32, 1
+  %.not.i.i.i.i10 = icmp eq i64 %33, 0
+  br i1 %.not.i.i.i.i10, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i11, label %34
+
+34:                                               ; preds = %30
+  tail call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %0, i1 noundef zeroext true, i1 noundef zeroext true) #4
+  br label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i11
+
+_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i11: ; preds = %34, %30
+  %35 = getelementptr inbounds i8, ptr %0, i64 1088
+  %36 = load volatile i32, ptr %35, align 8
+  %37 = and i32 %36, 12
+  %.not.i.i.i12 = icmp eq i32 %37, 0
+  br i1 %.not.i.i.i12, label %_ZN18ThreadInVMfromJavaD2Ev.exit14, label %38
+
+38:                                               ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i11
+  tail call void @_ZN10JavaThread37handle_special_runtime_exit_conditionEv(ptr noundef nonnull align 8 dereferenceable(1800) %0) #4
+  br label %_ZN18ThreadInVMfromJavaD2Ev.exit14
+
+_ZN18ThreadInVMfromJavaD2Ev.exit14:               ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i11, %38
+  store volatile i32 8, ptr %23, align 4
+  br label %39
+
+39:                                               ; preds = %_ZN18ThreadInVMfromJavaD2Ev.exit14, %_ZN18ThreadInVMfromJavaD2Ev.exit
+  %.0 = phi ptr [ %7, %_ZN18ThreadInVMfromJavaD2Ev.exit ], [ %25, %_ZN18ThreadInVMfromJavaD2Ev.exit14 ]
   ret ptr %.0
 }
 

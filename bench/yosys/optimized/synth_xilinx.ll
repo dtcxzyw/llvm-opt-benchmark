@@ -1232,8 +1232,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %338
 
 338:                                              ; preds = %.thread88, %336
-  %.sink95 = phi ptr [ %327, %.thread88 ], [ %331, %336 ]
-  %339 = load i32, ptr %.sink95, align 8
+  %.in = phi ptr [ %331, %336 ], [ %327, %.thread88 ]
+  %339 = load i32, ptr %.in, align 8
   %.not65 = icmp ne i32 %339, 0
   %340 = icmp slt i32 %339, 2
   %or.cond70 = and i1 %.not65, %340

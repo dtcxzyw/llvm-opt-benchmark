@@ -18541,22 +18541,18 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_PS2_IS
 
 115:                                              ; preds = %112
   %116 = getelementptr inbounds ptr, ptr %.0.i.i.i.i.i.i.i, i64 %.02531.i.i.i.i.i.i
-  br label %.sink.split.i.i.i.i.i.i
+  store ptr %.032.i.i.i.i.i.i, ptr %116, align 8
+  br label %120
 
 117:                                              ; preds = %.lr.ph.i.i.i.i.i.i
   %118 = load ptr, ptr %111, align 8
   store ptr %118, ptr %.032.i.i.i.i.i.i, align 8
   %119 = load ptr, ptr %110, align 8
-  br label %.sink.split.i.i.i.i.i.i
-
-.sink.split.i.i.i.i.i.i:                          ; preds = %117, %115
-  %.sink.i.i.i.i.i.i = phi ptr [ %116, %115 ], [ %119, %117 ]
-  %.1.ph.i.i.i.i.i.i = phi i64 [ %109, %115 ], [ %.02531.i.i.i.i.i.i, %117 ]
-  store ptr %.032.i.i.i.i.i.i, ptr %.sink.i.i.i.i.i.i, align 8
+  store ptr %.032.i.i.i.i.i.i, ptr %119, align 8
   br label %120
 
-120:                                              ; preds = %.sink.split.i.i.i.i.i.i, %112
-  %.1.i.i.i.i.i.i = phi i64 [ %109, %112 ], [ %.1.ph.i.i.i.i.i.i, %.sink.split.i.i.i.i.i.i ]
+120:                                              ; preds = %117, %115, %112
+  %.1.i.i.i.i.i.i = phi i64 [ %.02531.i.i.i.i.i.i, %117 ], [ %109, %115 ], [ %109, %112 ]
   %.not.i.i.i.i.i.i = icmp eq ptr %.0.val.i.i.i.i.i.i, null
   br i1 %.not.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !188
 
@@ -21285,22 +21281,18 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_12
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds ptr, ptr %.0.i.i.i, i64 %.02531.i.i
-  br label %.sink.split.i.i
+  store ptr %.032.i.i, ptr %35, align 8
+  br label %39
 
 36:                                               ; preds = %.lr.ph.i.i
   %37 = load ptr, ptr %30, align 8
   store ptr %37, ptr %.032.i.i, align 8
   %38 = load ptr, ptr %29, align 8
-  br label %.sink.split.i.i
-
-.sink.split.i.i:                                  ; preds = %36, %34
-  %.sink.i.i = phi ptr [ %35, %34 ], [ %38, %36 ]
-  %.1.ph.i.i = phi i64 [ %28, %34 ], [ %.02531.i.i, %36 ]
-  store ptr %.032.i.i, ptr %.sink.i.i, align 8
+  store ptr %.032.i.i, ptr %38, align 8
   br label %39
 
-39:                                               ; preds = %.sink.split.i.i, %31
-  %.1.i.i = phi i64 [ %28, %31 ], [ %.1.ph.i.i, %.sink.split.i.i ]
+39:                                               ; preds = %36, %34, %31
+  %.1.i.i = phi i64 [ %.02531.i.i, %36 ], [ %28, %34 ], [ %28, %31 ]
   %.not.i.i = icmp eq ptr %.0.val.i.i, null
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !197
 
@@ -25494,913 +25486,932 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
   %33 = getelementptr inbounds i8, ptr %6, i64 16
   %34 = getelementptr inbounds i8, ptr %7, i64 8
   %35 = getelementptr inbounds i8, ptr %7, i64 16
-  %36 = getelementptr inbounds i8, ptr %12, i64 8
-  %37 = getelementptr inbounds i8, ptr %12, i64 16
-  %38 = getelementptr inbounds i8, ptr %13, i64 8
-  %39 = getelementptr inbounds i8, ptr %13, i64 16
-  %40 = getelementptr inbounds i8, ptr %10, i64 8
-  %41 = getelementptr inbounds i8, ptr %10, i64 16
-  %42 = getelementptr inbounds i8, ptr %11, i64 8
-  %43 = getelementptr inbounds i8, ptr %11, i64 16
-  %.sink37.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %44 = icmp eq i64 %2, 0
-  br i1 %44, label %._crit_edge, label %.lr.ph147
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %37 = getelementptr inbounds i8, ptr %0, i64 24
+  %38 = getelementptr inbounds i8, ptr %12, i64 8
+  %39 = getelementptr inbounds i8, ptr %12, i64 16
+  %40 = getelementptr inbounds i8, ptr %13, i64 8
+  %41 = getelementptr inbounds i8, ptr %13, i64 16
+  %42 = getelementptr inbounds i8, ptr %10, i64 8
+  %43 = getelementptr inbounds i8, ptr %10, i64 16
+  %44 = getelementptr inbounds i8, ptr %11, i64 8
+  %45 = getelementptr inbounds i8, ptr %11, i64 16
+  %46 = icmp eq i64 %2, 0
+  br i1 %46, label %._crit_edge, label %.lr.ph148
 
-45:                                               ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEESF_SF_SF_SI_.exit
-  %46 = icmp eq i64 %254, 0
-  br i1 %46, label %._crit_edge, label %.lr.ph147, !llvm.loop !241
+47:                                               ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEESF_SF_SF_SI_.exit
+  %48 = icmp eq i64 %256, 0
+  br i1 %48, label %._crit_edge, label %.lr.ph148, !llvm.loop !241
 
-._crit_edge:                                      ; preds = %45, %.lr.ph
-  %.lcssa143 = phi i64 [ %21, %.lr.ph ], [ %404, %45 ]
-  %.lcssa = phi i64 [ %20, %.lr.ph ], [ %403, %45 ]
-  %storemerge55.lcssa = phi ptr [ %1, %.lr.ph ], [ %.sroa.047.1.i.i, %45 ]
+._crit_edge:                                      ; preds = %47, %.lr.ph
+  %.lcssa144 = phi i64 [ %21, %.lr.ph ], [ %419, %47 ]
+  %.lcssa = phi i64 [ %20, %.lr.ph ], [ %418, %47 ]
+  %storemerge55.lcssa = phi ptr [ %1, %.lr.ph ], [ %.sroa.047.1.i.i, %47 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
-  %47 = add nsw i64 %.lcssa143, -2
-  %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %50 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  br label %51
+  %49 = add nsw i64 %.lcssa144, -2
+  %50 = lshr i64 %49, 1
+  %51 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  br label %53
 
-51:                                               ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEED2Ev.exit17.i.i.i, %._crit_edge
-  %.010.i.i.i = phi i64 [ %48, %._crit_edge ], [ %92, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEED2Ev.exit17.i.i.i ]
-  %52 = getelementptr inbounds %"class.std::shared_ptr.341", ptr %0, i64 %.010.i.i.i
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
+53:                                               ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEED2Ev.exit17.i.i.i, %._crit_edge
+  %.010.i.i.i = phi i64 [ %50, %._crit_edge ], [ %94, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEED2Ev.exit17.i.i.i ]
+  %54 = getelementptr inbounds %"class.std::shared_ptr.341", ptr %0, i64 %.010.i.i.i
   %55 = load ptr, ptr %54, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, i8 0, i64 16, i1 false)
-  store ptr %53, ptr %17, align 8
-  store ptr null, ptr %49, align 8
-  store ptr %55, ptr %50, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  %57 = load ptr, ptr %56, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, i8 0, i64 16, i1 false)
+  store ptr %55, ptr %17, align 8
+  store ptr null, ptr %51, align 8
+  store ptr %57, ptr %52, align 8
   store ptr null, ptr %16, align 8
-  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SI_SI_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa143, ptr noundef %17)
-          to label %56 unwind label %128
+  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SI_SI_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa144, ptr noundef %17)
+          to label %58 unwind label %130
 
-56:                                               ; preds = %51
-  %57 = load ptr, ptr %50, align 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %57, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEED2Ev.exit.i.i.i, label %58
+58:                                               ; preds = %53
+  %59 = load ptr, ptr %52, align 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %59, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEED2Ev.exit.i.i.i, label %60
 
-58:                                               ; preds = %56
-  %59 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %60 = load atomic i64, ptr %59 acquire, align 8
-  %61 = icmp eq i64 %60, 4294967297
-  %62 = trunc i64 %60 to i32
-  br i1 %61, label %63, label %68
+60:                                               ; preds = %58
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %62 = load atomic i64, ptr %61 acquire, align 8
+  %63 = icmp eq i64 %62, 4294967297
+  %64 = trunc i64 %62 to i32
+  br i1 %63, label %65, label %70
 
-63:                                               ; preds = %58
-  store i32 0, ptr %59, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %57, i64 12
-  store i32 0, ptr %64, align 4
-  %65 = load ptr, ptr %57, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 16
-  %67 = load ptr, ptr %66, align 8
-  call void %67(ptr noundef nonnull align 8 dereferenceable(16) %57) #22
+65:                                               ; preds = %60
+  store i32 0, ptr %61, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %59, i64 12
+  store i32 0, ptr %66, align 4
+  %67 = load ptr, ptr %59, align 8
+  %68 = getelementptr inbounds i8, ptr %67, i64 16
+  %69 = load ptr, ptr %68, align 8
+  call void %69(ptr noundef nonnull align 8 dereferenceable(16) %59) #22
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i
 
-68:                                               ; preds = %58
-  %69 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i = icmp eq i8 %69, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %72, label %70
+70:                                               ; preds = %60
+  %71 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i = icmp eq i8 %71, 0
+  br i1 %.not.i.i.i.i.i.i.i, label %74, label %72
 
-70:                                               ; preds = %68
-  %71 = add nsw i32 %62, -1
-  store i32 %71, ptr %59, align 4
-  br label %74
+72:                                               ; preds = %70
+  %73 = add nsw i32 %64, -1
+  store i32 %73, ptr %61, align 4
+  br label %76
 
-72:                                               ; preds = %68
-  %73 = atomicrmw volatile add ptr %59, i32 -1 acq_rel, align 4
-  br label %74
+74:                                               ; preds = %70
+  %75 = atomicrmw volatile add ptr %61, i32 -1 acq_rel, align 4
+  br label %76
 
-74:                                               ; preds = %72, %70
-  %.0.i.i.i.i.i.i.i = phi i32 [ %62, %70 ], [ %73, %72 ]
-  %75 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %75, label %76, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEED2Ev.exit.i.i.i
+76:                                               ; preds = %74, %72
+  %.0.i.i.i.i.i.i.i = phi i32 [ %64, %72 ], [ %75, %74 ]
+  %77 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
+  br i1 %77, label %78, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEED2Ev.exit.i.i.i
 
-76:                                               ; preds = %74
-  %77 = load ptr, ptr %57, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 16
-  %79 = load ptr, ptr %78, align 8
-  call void %79(ptr noundef nonnull align 8 dereferenceable(16) %57) #22
-  %80 = getelementptr inbounds nuw i8, ptr %57, i64 12
-  %81 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %81, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %85, label %82
+78:                                               ; preds = %76
+  %79 = load ptr, ptr %59, align 8
+  %80 = getelementptr inbounds i8, ptr %79, i64 16
+  %81 = load ptr, ptr %80, align 8
+  call void %81(ptr noundef nonnull align 8 dereferenceable(16) %59) #22
+  %82 = getelementptr inbounds nuw i8, ptr %59, i64 12
+  %83 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %83, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %87, label %84
 
-82:                                               ; preds = %76
-  %83 = load i32, ptr %80, align 4
-  %84 = add nsw i32 %83, -1
-  store i32 %84, ptr %80, align 4
-  br label %87
+84:                                               ; preds = %78
+  %85 = load i32, ptr %82, align 4
+  %86 = add nsw i32 %85, -1
+  store i32 %86, ptr %82, align 4
+  br label %89
 
-85:                                               ; preds = %76
-  %86 = atomicrmw volatile add ptr %80, i32 -1 acq_rel, align 4
-  br label %87
+87:                                               ; preds = %78
+  %88 = atomicrmw volatile add ptr %82, i32 -1 acq_rel, align 4
+  br label %89
 
-87:                                               ; preds = %85, %82
-  %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %83, %82 ], [ %86, %85 ]
-  %88 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %88, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEED2Ev.exit.i.i.i
+89:                                               ; preds = %87, %84
+  %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %85, %84 ], [ %88, %87 ]
+  %90 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
+  br i1 %90, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEED2Ev.exit.i.i.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i: ; preds = %87, %63
-  %89 = load ptr, ptr %57, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 24
-  %91 = load ptr, ptr %90, align 8
-  call void %91(ptr noundef nonnull align 8 dereferenceable(16) %57) #22
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i: ; preds = %89, %65
+  %91 = load ptr, ptr %59, align 8
+  %92 = getelementptr inbounds i8, ptr %91, i64 24
+  %93 = load ptr, ptr %92, align 8
+  call void %93(ptr noundef nonnull align 8 dereferenceable(16) %59) #22
   br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEED2Ev.exit.i.i.i
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEED2Ev.exit.i.i.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, %87, %74, %56
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEED2Ev.exit.i.i.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, %89, %76, %58
   %.not.i.i.i = icmp eq i64 %.010.i.i.i, 0
-  %92 = add nsw i64 %.010.i.i.i, -1
-  %93 = load ptr, ptr %49, align 8
-  %.not.i.i.i11.i.i.i = icmp eq ptr %93, null
-  br i1 %.not.i.i.i11.i.i.i, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEED2Ev.exit17.i.i.i, label %94
+  %94 = add nsw i64 %.010.i.i.i, -1
+  %95 = load ptr, ptr %51, align 8
+  %.not.i.i.i11.i.i.i = icmp eq ptr %95, null
+  br i1 %.not.i.i.i11.i.i.i, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEED2Ev.exit17.i.i.i, label %96
 
-94:                                               ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEED2Ev.exit.i.i.i
-  %95 = getelementptr inbounds nuw i8, ptr %93, i64 8
-  %96 = load atomic i64, ptr %95 acquire, align 8
-  %97 = icmp eq i64 %96, 4294967297
-  %98 = trunc i64 %96 to i32
-  br i1 %97, label %99, label %104
+96:                                               ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEED2Ev.exit.i.i.i
+  %97 = getelementptr inbounds nuw i8, ptr %95, i64 8
+  %98 = load atomic i64, ptr %97 acquire, align 8
+  %99 = icmp eq i64 %98, 4294967297
+  %100 = trunc i64 %98 to i32
+  br i1 %99, label %101, label %106
 
-99:                                               ; preds = %94
-  store i32 0, ptr %95, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %93, i64 12
-  store i32 0, ptr %100, align 4
-  %101 = load ptr, ptr %93, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 16
-  %103 = load ptr, ptr %102, align 8
-  call void %103(ptr noundef nonnull align 8 dereferenceable(16) %93) #22
+101:                                              ; preds = %96
+  store i32 0, ptr %97, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %95, i64 12
+  store i32 0, ptr %102, align 4
+  %103 = load ptr, ptr %95, align 8
+  %104 = getelementptr inbounds i8, ptr %103, i64 16
+  %105 = load ptr, ptr %104, align 8
+  call void %105(ptr noundef nonnull align 8 dereferenceable(16) %95) #22
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i16.i.i.i
 
-104:                                              ; preds = %94
-  %105 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i12.i.i.i = icmp eq i8 %105, 0
-  br i1 %.not.i.i.i.i12.i.i.i, label %108, label %106
+106:                                              ; preds = %96
+  %107 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i12.i.i.i = icmp eq i8 %107, 0
+  br i1 %.not.i.i.i.i12.i.i.i, label %110, label %108
 
-106:                                              ; preds = %104
-  %107 = add nsw i32 %98, -1
-  store i32 %107, ptr %95, align 4
-  br label %110
+108:                                              ; preds = %106
+  %109 = add nsw i32 %100, -1
+  store i32 %109, ptr %97, align 4
+  br label %112
 
-108:                                              ; preds = %104
-  %109 = atomicrmw volatile add ptr %95, i32 -1 acq_rel, align 4
-  br label %110
+110:                                              ; preds = %106
+  %111 = atomicrmw volatile add ptr %97, i32 -1 acq_rel, align 4
+  br label %112
 
-110:                                              ; preds = %108, %106
-  %.0.i.i.i.i13.i.i.i = phi i32 [ %98, %106 ], [ %109, %108 ]
-  %111 = icmp eq i32 %.0.i.i.i.i13.i.i.i, 1
-  br i1 %111, label %112, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEED2Ev.exit17.i.i.i
+112:                                              ; preds = %110, %108
+  %.0.i.i.i.i13.i.i.i = phi i32 [ %100, %108 ], [ %111, %110 ]
+  %113 = icmp eq i32 %.0.i.i.i.i13.i.i.i, 1
+  br i1 %113, label %114, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEED2Ev.exit17.i.i.i
 
-112:                                              ; preds = %110
-  %113 = load ptr, ptr %93, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 16
-  %115 = load ptr, ptr %114, align 8
-  call void %115(ptr noundef nonnull align 8 dereferenceable(16) %93) #22
-  %116 = getelementptr inbounds nuw i8, ptr %93, i64 12
-  %117 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i14.i.i.i = icmp eq i8 %117, 0
-  br i1 %.not.i.i.i.i.i.i14.i.i.i, label %121, label %118
+114:                                              ; preds = %112
+  %115 = load ptr, ptr %95, align 8
+  %116 = getelementptr inbounds i8, ptr %115, i64 16
+  %117 = load ptr, ptr %116, align 8
+  call void %117(ptr noundef nonnull align 8 dereferenceable(16) %95) #22
+  %118 = getelementptr inbounds nuw i8, ptr %95, i64 12
+  %119 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i14.i.i.i = icmp eq i8 %119, 0
+  br i1 %.not.i.i.i.i.i.i14.i.i.i, label %123, label %120
 
-118:                                              ; preds = %112
-  %119 = load i32, ptr %116, align 4
-  %120 = add nsw i32 %119, -1
-  store i32 %120, ptr %116, align 4
-  br label %123
+120:                                              ; preds = %114
+  %121 = load i32, ptr %118, align 4
+  %122 = add nsw i32 %121, -1
+  store i32 %122, ptr %118, align 4
+  br label %125
 
-121:                                              ; preds = %112
-  %122 = atomicrmw volatile add ptr %116, i32 -1 acq_rel, align 4
-  br label %123
+123:                                              ; preds = %114
+  %124 = atomicrmw volatile add ptr %118, i32 -1 acq_rel, align 4
+  br label %125
 
-123:                                              ; preds = %121, %118
-  %.0.i.i.i.i.i.i15.i.i.i = phi i32 [ %119, %118 ], [ %122, %121 ]
-  %124 = icmp eq i32 %.0.i.i.i.i.i.i15.i.i.i, 1
-  br i1 %124, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i16.i.i.i, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEED2Ev.exit17.i.i.i
+125:                                              ; preds = %123, %120
+  %.0.i.i.i.i.i.i15.i.i.i = phi i32 [ %121, %120 ], [ %124, %123 ]
+  %126 = icmp eq i32 %.0.i.i.i.i.i.i15.i.i.i, 1
+  br i1 %126, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i16.i.i.i, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEED2Ev.exit17.i.i.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i16.i.i.i: ; preds = %123, %99
-  %125 = load ptr, ptr %93, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 24
-  %127 = load ptr, ptr %126, align 8
-  call void %127(ptr noundef nonnull align 8 dereferenceable(16) %93) #22
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i16.i.i.i: ; preds = %125, %101
+  %127 = load ptr, ptr %95, align 8
+  %128 = getelementptr inbounds i8, ptr %127, i64 24
+  %129 = load ptr, ptr %128, align 8
+  call void %129(ptr noundef nonnull align 8 dereferenceable(16) %95) #22
   br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEED2Ev.exit17.i.i.i
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEED2Ev.exit17.i.i.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i16.i.i.i, %123, %110, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEED2Ev.exit.i.i.i
-  br i1 %.not.i.i.i, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_RSI_.exit.i.i, label %51
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEED2Ev.exit17.i.i.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i16.i.i.i, %125, %112, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEED2Ev.exit.i.i.i
+  br i1 %.not.i.i.i, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_RSI_.exit.i.i, label %53
 
-common.resume:                                    ; preds = %250, %128
-  %.sink115 = phi ptr [ %5, %250 ], [ %17, %128 ]
-  %.sink = phi ptr [ %4, %250 ], [ %16, %128 ]
-  %common.resume.op = phi { ptr, i32 } [ %251, %250 ], [ %129, %128 ]
+common.resume:                                    ; preds = %252, %130
+  %.sink115 = phi ptr [ %5, %252 ], [ %17, %130 ]
+  %.sink = phi ptr [ %4, %252 ], [ %16, %130 ]
+  %common.resume.op = phi { ptr, i32 } [ %253, %252 ], [ %131, %130 ]
   call void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink115) #22
   call void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #22
   resume { ptr, i32 } %common.resume.op
 
-128:                                              ; preds = %51
-  %129 = landingpad { ptr, i32 }
+130:                                              ; preds = %53
+  %131 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_RSI_.exit.i.i: ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEED2Ev.exit17.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
-  %130 = icmp sgt i64 %.lcssa, 16
-  br i1 %130, label %.lr.ph.i9.i.preheader, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SF_SI_.exit
+  %132 = icmp sgt i64 %.lcssa, 16
+  br i1 %132, label %.lr.ph.i9.i.preheader, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SF_SI_.exit
 
 .lr.ph.i9.i.preheader:                            ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_RSI_.exit.i.i
-  %131 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %132 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %.lr.ph.i9.i
 
 .lr.ph.i9.i:                                      ; preds = %.lr.ph.i9.i.preheader, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SF_RSI_.exit
-  %.sroa.0.03.i.i = phi ptr [ %133, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SF_RSI_.exit ], [ %storemerge55.lcssa, %.lr.ph.i9.i.preheader ]
-  %133 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -16
+  %.sroa.0.03.i.i = phi ptr [ %135, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SF_RSI_.exit ], [ %storemerge55.lcssa, %.lr.ph.i9.i.preheader ]
+  %135 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %134 = load ptr, ptr %133, align 8
-  store ptr %134, ptr %4, align 8
-  %135 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -8
   %136 = load ptr, ptr %135, align 8
+  store ptr %136, ptr %4, align 8
+  %137 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -8
+  %138 = load ptr, ptr %137, align 8
+  store ptr null, ptr %137, align 8
+  store ptr %138, ptr %133, align 8
   store ptr null, ptr %135, align 8
-  store ptr %136, ptr %131, align 8
-  store ptr null, ptr %133, align 8
-  %137 = load ptr, ptr %0, align 8
-  %138 = load ptr, ptr %.sink37.i.i, align 8
+  %139 = load ptr, ptr %0, align 8
+  %140 = load ptr, ptr %36, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  store ptr %137, ptr %133, align 8
-  %139 = load ptr, ptr %135, align 8
-  store ptr %138, ptr %135, align 8
-  %.not.i.i.i.i.i18 = icmp eq ptr %139, null
-  br i1 %.not.i.i.i.i.i18, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEEaSEOS2_.exit.i, label %140
+  store ptr %139, ptr %135, align 8
+  %141 = load ptr, ptr %137, align 8
+  store ptr %140, ptr %137, align 8
+  %.not.i.i.i.i.i18 = icmp eq ptr %141, null
+  br i1 %.not.i.i.i.i.i18, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEEaSEOS2_.exit.i, label %142
 
-140:                                              ; preds = %.lr.ph.i9.i
-  %141 = getelementptr inbounds nuw i8, ptr %139, i64 8
-  %142 = load atomic i64, ptr %141 acquire, align 8
-  %143 = icmp eq i64 %142, 4294967297
-  %144 = trunc i64 %142 to i32
-  br i1 %143, label %145, label %150
+142:                                              ; preds = %.lr.ph.i9.i
+  %143 = getelementptr inbounds nuw i8, ptr %141, i64 8
+  %144 = load atomic i64, ptr %143 acquire, align 8
+  %145 = icmp eq i64 %144, 4294967297
+  %146 = trunc i64 %144 to i32
+  br i1 %145, label %147, label %152
 
-145:                                              ; preds = %140
-  store i32 0, ptr %141, align 8
-  %146 = getelementptr inbounds nuw i8, ptr %139, i64 12
-  store i32 0, ptr %146, align 4
-  %147 = load ptr, ptr %139, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 16
-  %149 = load ptr, ptr %148, align 8
-  call void %149(ptr noundef nonnull align 8 dereferenceable(16) %139) #22
+147:                                              ; preds = %142
+  store i32 0, ptr %143, align 8
+  %148 = getelementptr inbounds nuw i8, ptr %141, i64 12
+  store i32 0, ptr %148, align 4
+  %149 = load ptr, ptr %141, align 8
+  %150 = getelementptr inbounds i8, ptr %149, i64 16
+  %151 = load ptr, ptr %150, align 8
+  call void %151(ptr noundef nonnull align 8 dereferenceable(16) %141) #22
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
 
-150:                                              ; preds = %140
-  %151 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i19 = icmp eq i8 %151, 0
-  br i1 %.not.i.i.i.i.i.i19, label %154, label %152
+152:                                              ; preds = %142
+  %153 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i19 = icmp eq i8 %153, 0
+  br i1 %.not.i.i.i.i.i.i19, label %156, label %154
 
-152:                                              ; preds = %150
-  %153 = add nsw i32 %144, -1
-  store i32 %153, ptr %141, align 4
-  br label %156
+154:                                              ; preds = %152
+  %155 = add nsw i32 %146, -1
+  store i32 %155, ptr %143, align 4
+  br label %158
 
-154:                                              ; preds = %150
-  %155 = atomicrmw volatile add ptr %141, i32 -1 acq_rel, align 4
-  br label %156
+156:                                              ; preds = %152
+  %157 = atomicrmw volatile add ptr %143, i32 -1 acq_rel, align 4
+  br label %158
 
-156:                                              ; preds = %154, %152
-  %.0.i.i.i.i.i.i = phi i32 [ %144, %152 ], [ %155, %154 ]
-  %157 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %157, label %158, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEEaSEOS2_.exit.i
+158:                                              ; preds = %156, %154
+  %.0.i.i.i.i.i.i = phi i32 [ %146, %154 ], [ %157, %156 ]
+  %159 = icmp eq i32 %.0.i.i.i.i.i.i, 1
+  br i1 %159, label %160, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEEaSEOS2_.exit.i
 
-158:                                              ; preds = %156
-  %159 = load ptr, ptr %139, align 8
-  %160 = getelementptr inbounds i8, ptr %159, i64 16
-  %161 = load ptr, ptr %160, align 8
-  call void %161(ptr noundef nonnull align 8 dereferenceable(16) %139) #22
-  %162 = getelementptr inbounds nuw i8, ptr %139, i64 12
-  %163 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i.i = icmp eq i8 %163, 0
-  br i1 %.not.i.i.i.i.i.i.i.i, label %167, label %164
+160:                                              ; preds = %158
+  %161 = load ptr, ptr %141, align 8
+  %162 = getelementptr inbounds i8, ptr %161, i64 16
+  %163 = load ptr, ptr %162, align 8
+  call void %163(ptr noundef nonnull align 8 dereferenceable(16) %141) #22
+  %164 = getelementptr inbounds nuw i8, ptr %141, i64 12
+  %165 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i.i = icmp eq i8 %165, 0
+  br i1 %.not.i.i.i.i.i.i.i.i, label %169, label %166
 
-164:                                              ; preds = %158
-  %165 = load i32, ptr %162, align 4
-  %166 = add nsw i32 %165, -1
-  store i32 %166, ptr %162, align 4
-  br label %169
+166:                                              ; preds = %160
+  %167 = load i32, ptr %164, align 4
+  %168 = add nsw i32 %167, -1
+  store i32 %168, ptr %164, align 4
+  br label %171
 
-167:                                              ; preds = %158
-  %168 = atomicrmw volatile add ptr %162, i32 -1 acq_rel, align 4
-  br label %169
+169:                                              ; preds = %160
+  %170 = atomicrmw volatile add ptr %164, i32 -1 acq_rel, align 4
+  br label %171
 
-169:                                              ; preds = %167, %164
-  %.0.i.i.i.i.i.i.i.i = phi i32 [ %165, %164 ], [ %168, %167 ]
-  %170 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
-  br i1 %170, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEEaSEOS2_.exit.i
+171:                                              ; preds = %169, %166
+  %.0.i.i.i.i.i.i.i.i = phi i32 [ %167, %166 ], [ %170, %169 ]
+  %172 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
+  br i1 %172, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEEaSEOS2_.exit.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i: ; preds = %169, %145
-  %171 = load ptr, ptr %139, align 8
-  %172 = getelementptr inbounds i8, ptr %171, i64 24
-  %173 = load ptr, ptr %172, align 8
-  call void %173(ptr noundef nonnull align 8 dereferenceable(16) %139) #22
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i: ; preds = %171, %147
+  %173 = load ptr, ptr %141, align 8
+  %174 = getelementptr inbounds i8, ptr %173, i64 24
+  %175 = load ptr, ptr %174, align 8
+  call void %175(ptr noundef nonnull align 8 dereferenceable(16) %141) #22
   br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEEaSEOS2_.exit.i
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEEaSEOS2_.exit.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, %169, %156, %.lr.ph.i9.i
-  %174 = ptrtoint ptr %133 to i64
-  %175 = sub i64 %174, %18
-  %176 = ashr exact i64 %175, 4
-  %177 = load ptr, ptr %4, align 8
-  store ptr %177, ptr %5, align 8
-  %178 = load ptr, ptr %131, align 8
-  store ptr null, ptr %131, align 8
-  store ptr %178, ptr %132, align 8
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEEaSEOS2_.exit.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, %171, %158, %.lr.ph.i9.i
+  %176 = ptrtoint ptr %135 to i64
+  %177 = sub i64 %176, %18
+  %178 = ashr exact i64 %177, 4
+  %179 = load ptr, ptr %4, align 8
+  store ptr %179, ptr %5, align 8
+  %180 = load ptr, ptr %133, align 8
+  store ptr null, ptr %133, align 8
+  store ptr %180, ptr %134, align 8
   store ptr null, ptr %4, align 8
-  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SI_SI_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %176, ptr noundef %5)
-          to label %179 unwind label %250
+  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SI_SI_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %178, ptr noundef %5)
+          to label %181 unwind label %252
 
-179:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEEaSEOS2_.exit.i
-  %180 = load ptr, ptr %132, align 8
-  %.not.i.i.i.i20 = icmp eq ptr %180, null
-  br i1 %.not.i.i.i.i20, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEED2Ev.exit.i, label %181
+181:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEEaSEOS2_.exit.i
+  %182 = load ptr, ptr %134, align 8
+  %.not.i.i.i.i20 = icmp eq ptr %182, null
+  br i1 %.not.i.i.i.i20, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEED2Ev.exit.i, label %183
 
-181:                                              ; preds = %179
-  %182 = getelementptr inbounds nuw i8, ptr %180, i64 8
-  %183 = load atomic i64, ptr %182 acquire, align 8
-  %184 = icmp eq i64 %183, 4294967297
-  %185 = trunc i64 %183 to i32
-  br i1 %184, label %186, label %191
+183:                                              ; preds = %181
+  %184 = getelementptr inbounds nuw i8, ptr %182, i64 8
+  %185 = load atomic i64, ptr %184 acquire, align 8
+  %186 = icmp eq i64 %185, 4294967297
+  %187 = trunc i64 %185 to i32
+  br i1 %186, label %188, label %193
 
-186:                                              ; preds = %181
-  store i32 0, ptr %182, align 8
-  %187 = getelementptr inbounds nuw i8, ptr %180, i64 12
-  store i32 0, ptr %187, align 4
-  %188 = load ptr, ptr %180, align 8
-  %189 = getelementptr inbounds i8, ptr %188, i64 16
-  %190 = load ptr, ptr %189, align 8
-  call void %190(ptr noundef nonnull align 8 dereferenceable(16) %180) #22
+188:                                              ; preds = %183
+  store i32 0, ptr %184, align 8
+  %189 = getelementptr inbounds nuw i8, ptr %182, i64 12
+  store i32 0, ptr %189, align 4
+  %190 = load ptr, ptr %182, align 8
+  %191 = getelementptr inbounds i8, ptr %190, i64 16
+  %192 = load ptr, ptr %191, align 8
+  call void %192(ptr noundef nonnull align 8 dereferenceable(16) %182) #22
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
 
-191:                                              ; preds = %181
-  %192 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i3.i = icmp eq i8 %192, 0
-  br i1 %.not.i.i.i.i3.i, label %195, label %193
+193:                                              ; preds = %183
+  %194 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i3.i = icmp eq i8 %194, 0
+  br i1 %.not.i.i.i.i3.i, label %197, label %195
 
-193:                                              ; preds = %191
-  %194 = add nsw i32 %185, -1
-  store i32 %194, ptr %182, align 4
-  br label %197
+195:                                              ; preds = %193
+  %196 = add nsw i32 %187, -1
+  store i32 %196, ptr %184, align 4
+  br label %199
 
-195:                                              ; preds = %191
-  %196 = atomicrmw volatile add ptr %182, i32 -1 acq_rel, align 4
-  br label %197
+197:                                              ; preds = %193
+  %198 = atomicrmw volatile add ptr %184, i32 -1 acq_rel, align 4
+  br label %199
 
-197:                                              ; preds = %195, %193
-  %.0.i.i.i.i.i = phi i32 [ %185, %193 ], [ %196, %195 ]
-  %198 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %198, label %199, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEED2Ev.exit.i
+199:                                              ; preds = %197, %195
+  %.0.i.i.i.i.i = phi i32 [ %187, %195 ], [ %198, %197 ]
+  %200 = icmp eq i32 %.0.i.i.i.i.i, 1
+  br i1 %200, label %201, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEED2Ev.exit.i
 
-199:                                              ; preds = %197
-  %200 = load ptr, ptr %180, align 8
-  %201 = getelementptr inbounds i8, ptr %200, i64 16
-  %202 = load ptr, ptr %201, align 8
-  call void %202(ptr noundef nonnull align 8 dereferenceable(16) %180) #22
-  %203 = getelementptr inbounds nuw i8, ptr %180, i64 12
-  %204 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i21 = icmp eq i8 %204, 0
-  br i1 %.not.i.i.i.i.i.i.i21, label %208, label %205
+201:                                              ; preds = %199
+  %202 = load ptr, ptr %182, align 8
+  %203 = getelementptr inbounds i8, ptr %202, i64 16
+  %204 = load ptr, ptr %203, align 8
+  call void %204(ptr noundef nonnull align 8 dereferenceable(16) %182) #22
+  %205 = getelementptr inbounds nuw i8, ptr %182, i64 12
+  %206 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i21 = icmp eq i8 %206, 0
+  br i1 %.not.i.i.i.i.i.i.i21, label %210, label %207
 
-205:                                              ; preds = %199
-  %206 = load i32, ptr %203, align 4
-  %207 = add nsw i32 %206, -1
-  store i32 %207, ptr %203, align 4
-  br label %210
+207:                                              ; preds = %201
+  %208 = load i32, ptr %205, align 4
+  %209 = add nsw i32 %208, -1
+  store i32 %209, ptr %205, align 4
+  br label %212
 
-208:                                              ; preds = %199
-  %209 = atomicrmw volatile add ptr %203, i32 -1 acq_rel, align 4
-  br label %210
+210:                                              ; preds = %201
+  %211 = atomicrmw volatile add ptr %205, i32 -1 acq_rel, align 4
+  br label %212
 
-210:                                              ; preds = %208, %205
-  %.0.i.i.i.i.i.i.i22 = phi i32 [ %206, %205 ], [ %209, %208 ]
-  %211 = icmp eq i32 %.0.i.i.i.i.i.i.i22, 1
-  br i1 %211, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEED2Ev.exit.i
+212:                                              ; preds = %210, %207
+  %.0.i.i.i.i.i.i.i22 = phi i32 [ %208, %207 ], [ %211, %210 ]
+  %213 = icmp eq i32 %.0.i.i.i.i.i.i.i22, 1
+  br i1 %213, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEED2Ev.exit.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %210, %186
-  %212 = load ptr, ptr %180, align 8
-  %213 = getelementptr inbounds i8, ptr %212, i64 24
-  %214 = load ptr, ptr %213, align 8
-  call void %214(ptr noundef nonnull align 8 dereferenceable(16) %180) #22
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %212, %188
+  %214 = load ptr, ptr %182, align 8
+  %215 = getelementptr inbounds i8, ptr %214, i64 24
+  %216 = load ptr, ptr %215, align 8
+  call void %216(ptr noundef nonnull align 8 dereferenceable(16) %182) #22
   br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEED2Ev.exit.i
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEED2Ev.exit.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, %210, %197, %179
-  %215 = load ptr, ptr %131, align 8
-  %.not.i.i.i4.i = icmp eq ptr %215, null
-  br i1 %.not.i.i.i4.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SF_RSI_.exit, label %216
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEED2Ev.exit.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, %212, %199, %181
+  %217 = load ptr, ptr %133, align 8
+  %.not.i.i.i4.i = icmp eq ptr %217, null
+  br i1 %.not.i.i.i4.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SF_RSI_.exit, label %218
 
-216:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEED2Ev.exit.i
-  %217 = getelementptr inbounds nuw i8, ptr %215, i64 8
-  %218 = load atomic i64, ptr %217 acquire, align 8
-  %219 = icmp eq i64 %218, 4294967297
-  %220 = trunc i64 %218 to i32
-  br i1 %219, label %221, label %226
+218:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEED2Ev.exit.i
+  %219 = getelementptr inbounds nuw i8, ptr %217, i64 8
+  %220 = load atomic i64, ptr %219 acquire, align 8
+  %221 = icmp eq i64 %220, 4294967297
+  %222 = trunc i64 %220 to i32
+  br i1 %221, label %223, label %228
 
-221:                                              ; preds = %216
-  store i32 0, ptr %217, align 8
-  %222 = getelementptr inbounds nuw i8, ptr %215, i64 12
-  store i32 0, ptr %222, align 4
-  %223 = load ptr, ptr %215, align 8
-  %224 = getelementptr inbounds i8, ptr %223, i64 16
-  %225 = load ptr, ptr %224, align 8
-  call void %225(ptr noundef nonnull align 8 dereferenceable(16) %215) #22
+223:                                              ; preds = %218
+  store i32 0, ptr %219, align 8
+  %224 = getelementptr inbounds nuw i8, ptr %217, i64 12
+  store i32 0, ptr %224, align 4
+  %225 = load ptr, ptr %217, align 8
+  %226 = getelementptr inbounds i8, ptr %225, i64 16
+  %227 = load ptr, ptr %226, align 8
+  call void %227(ptr noundef nonnull align 8 dereferenceable(16) %217) #22
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i9.i
 
-226:                                              ; preds = %216
-  %227 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i5.i = icmp eq i8 %227, 0
-  br i1 %.not.i.i.i.i5.i, label %230, label %228
+228:                                              ; preds = %218
+  %229 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i5.i = icmp eq i8 %229, 0
+  br i1 %.not.i.i.i.i5.i, label %232, label %230
 
-228:                                              ; preds = %226
-  %229 = add nsw i32 %220, -1
-  store i32 %229, ptr %217, align 4
-  br label %232
+230:                                              ; preds = %228
+  %231 = add nsw i32 %222, -1
+  store i32 %231, ptr %219, align 4
+  br label %234
 
-230:                                              ; preds = %226
-  %231 = atomicrmw volatile add ptr %217, i32 -1 acq_rel, align 4
-  br label %232
+232:                                              ; preds = %228
+  %233 = atomicrmw volatile add ptr %219, i32 -1 acq_rel, align 4
+  br label %234
 
-232:                                              ; preds = %230, %228
-  %.0.i.i.i.i6.i = phi i32 [ %220, %228 ], [ %231, %230 ]
-  %233 = icmp eq i32 %.0.i.i.i.i6.i, 1
-  br i1 %233, label %234, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SF_RSI_.exit
+234:                                              ; preds = %232, %230
+  %.0.i.i.i.i6.i = phi i32 [ %222, %230 ], [ %233, %232 ]
+  %235 = icmp eq i32 %.0.i.i.i.i6.i, 1
+  br i1 %235, label %236, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SF_RSI_.exit
 
-234:                                              ; preds = %232
-  %235 = load ptr, ptr %215, align 8
-  %236 = getelementptr inbounds i8, ptr %235, i64 16
-  %237 = load ptr, ptr %236, align 8
-  call void %237(ptr noundef nonnull align 8 dereferenceable(16) %215) #22
-  %238 = getelementptr inbounds nuw i8, ptr %215, i64 12
-  %239 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i7.i = icmp eq i8 %239, 0
-  br i1 %.not.i.i.i.i.i.i7.i, label %243, label %240
+236:                                              ; preds = %234
+  %237 = load ptr, ptr %217, align 8
+  %238 = getelementptr inbounds i8, ptr %237, i64 16
+  %239 = load ptr, ptr %238, align 8
+  call void %239(ptr noundef nonnull align 8 dereferenceable(16) %217) #22
+  %240 = getelementptr inbounds nuw i8, ptr %217, i64 12
+  %241 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i7.i = icmp eq i8 %241, 0
+  br i1 %.not.i.i.i.i.i.i7.i, label %245, label %242
 
-240:                                              ; preds = %234
-  %241 = load i32, ptr %238, align 4
-  %242 = add nsw i32 %241, -1
-  store i32 %242, ptr %238, align 4
-  br label %245
+242:                                              ; preds = %236
+  %243 = load i32, ptr %240, align 4
+  %244 = add nsw i32 %243, -1
+  store i32 %244, ptr %240, align 4
+  br label %247
 
-243:                                              ; preds = %234
-  %244 = atomicrmw volatile add ptr %238, i32 -1 acq_rel, align 4
-  br label %245
+245:                                              ; preds = %236
+  %246 = atomicrmw volatile add ptr %240, i32 -1 acq_rel, align 4
+  br label %247
 
-245:                                              ; preds = %243, %240
-  %.0.i.i.i.i.i.i8.i = phi i32 [ %241, %240 ], [ %244, %243 ]
-  %246 = icmp eq i32 %.0.i.i.i.i.i.i8.i, 1
-  br i1 %246, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i9.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SF_RSI_.exit
+247:                                              ; preds = %245, %242
+  %.0.i.i.i.i.i.i8.i = phi i32 [ %243, %242 ], [ %246, %245 ]
+  %248 = icmp eq i32 %.0.i.i.i.i.i.i8.i, 1
+  br i1 %248, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i9.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SF_RSI_.exit
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i9.i: ; preds = %245, %221
-  %247 = load ptr, ptr %215, align 8
-  %248 = getelementptr inbounds i8, ptr %247, i64 24
-  %249 = load ptr, ptr %248, align 8
-  call void %249(ptr noundef nonnull align 8 dereferenceable(16) %215) #22
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i9.i: ; preds = %247, %223
+  %249 = load ptr, ptr %217, align 8
+  %250 = getelementptr inbounds i8, ptr %249, i64 24
+  %251 = load ptr, ptr %250, align 8
+  call void %251(ptr noundef nonnull align 8 dereferenceable(16) %217) #22
   br label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SF_RSI_.exit
 
-250:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEEaSEOS2_.exit.i
-  %251 = landingpad { ptr, i32 }
+252:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEEaSEOS2_.exit.i
+  %253 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SF_RSI_.exit: ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEED2Ev.exit.i, %232, %245, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i9.i
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SF_RSI_.exit: ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEED2Ev.exit.i, %234, %247, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i9.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %252 = icmp sgt i64 %175, 16
-  br i1 %252, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SF_SI_.exit, !llvm.loop !242
+  %254 = icmp sgt i64 %177, 16
+  br i1 %254, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SF_SI_.exit, !llvm.loop !242
 
-.lr.ph147:                                        ; preds = %.lr.ph, %45
-  %storemerge55146 = phi ptr [ %.sroa.047.1.i.i, %45 ], [ %1, %.lr.ph ]
-  %.056145 = phi i64 [ %254, %45 ], [ %2, %.lr.ph ]
-  %253 = phi i64 [ %404, %45 ], [ %21, %.lr.ph ]
-  %254 = add nsw i64 %.056145, -1
-  %255 = lshr i64 %253, 1
-  %256 = getelementptr inbounds %"class.std::shared_ptr.341", ptr %0, i64 %255
-  %257 = getelementptr inbounds i8, ptr %storemerge55146, i64 -16
+.lr.ph148:                                        ; preds = %.lr.ph, %47
+  %storemerge55147 = phi ptr [ %.sroa.047.1.i.i, %47 ], [ %1, %.lr.ph ]
+  %.056146 = phi i64 [ %256, %47 ], [ %2, %.lr.ph ]
+  %255 = phi i64 [ %419, %47 ], [ %21, %.lr.ph ]
+  %256 = add nsw i64 %.056146, -1
+  %257 = lshr i64 %255, 1
+  %258 = getelementptr inbounds %"class.std::shared_ptr.341", ptr %0, i64 %257
+  %259 = getelementptr inbounds i8, ptr %storemerge55147, i64 -16
   %.val.i.i.i = load ptr, ptr %23, align 8
-  %.val1.i.i.i = load ptr, ptr %256, align 8
+  %.val1.i.i.i = load ptr, ptr %258, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
-  %258 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 104
-  %259 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 184
-  %260 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 144
-  store ptr %260, ptr %14, align 8, !alias.scope !243
-  store ptr %259, ptr %24, align 8, !alias.scope !243
-  store ptr %258, ptr %25, align 8, !alias.scope !243
-  %261 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i, i64 104
-  %262 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i, i64 184
-  %263 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i, i64 144
-  store ptr %263, ptr %15, align 8, !alias.scope !246
-  store ptr %262, ptr %26, align 8, !alias.scope !246
-  store ptr %261, ptr %27, align 8, !alias.scope !246
-  %264 = call noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %15)
+  %260 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 104
+  %261 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 184
+  %262 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 144
+  store ptr %262, ptr %14, align 8, !alias.scope !243
+  store ptr %261, ptr %24, align 8, !alias.scope !243
+  store ptr %260, ptr %25, align 8, !alias.scope !243
+  %263 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i, i64 104
+  %264 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i, i64 184
+  %265 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i, i64 144
+  store ptr %265, ptr %15, align 8, !alias.scope !246
+  store ptr %264, ptr %26, align 8, !alias.scope !246
+  store ptr %263, ptr %27, align 8, !alias.scope !246
+  %266 = call noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %15)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
-  %.val1.i27.i.i = load ptr, ptr %257, align 8
-  %265 = getelementptr inbounds nuw i8, ptr %.val1.i27.i.i, i64 104
-  %266 = getelementptr inbounds nuw i8, ptr %.val1.i27.i.i, i64 184
-  %267 = getelementptr inbounds nuw i8, ptr %.val1.i27.i.i, i64 144
-  br i1 %264, label %268, label %289
+  %.val1.i27.i.i = load ptr, ptr %259, align 8
+  %267 = getelementptr inbounds nuw i8, ptr %.val1.i27.i.i, i64 104
+  %268 = getelementptr inbounds nuw i8, ptr %.val1.i27.i.i, i64 184
+  %269 = getelementptr inbounds nuw i8, ptr %.val1.i27.i.i, i64 144
+  br i1 %266, label %270, label %299
 
-268:                                              ; preds = %.lr.ph147
-  %.val.i26.i.i = load ptr, ptr %256, align 8
+270:                                              ; preds = %.lr.ph148
+  %.val.i26.i.i = load ptr, ptr %258, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
-  %269 = getelementptr inbounds nuw i8, ptr %.val.i26.i.i, i64 104
-  %270 = getelementptr inbounds nuw i8, ptr %.val.i26.i.i, i64 184
-  %271 = getelementptr inbounds nuw i8, ptr %.val.i26.i.i, i64 144
-  store ptr %271, ptr %12, align 8, !alias.scope !249
-  store ptr %270, ptr %36, align 8, !alias.scope !249
-  store ptr %269, ptr %37, align 8, !alias.scope !249
-  store ptr %267, ptr %13, align 8, !alias.scope !252
-  store ptr %266, ptr %38, align 8, !alias.scope !252
-  store ptr %265, ptr %39, align 8, !alias.scope !252
-  %272 = call noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  %271 = getelementptr inbounds nuw i8, ptr %.val.i26.i.i, i64 104
+  %272 = getelementptr inbounds nuw i8, ptr %.val.i26.i.i, i64 184
+  %273 = getelementptr inbounds nuw i8, ptr %.val.i26.i.i, i64 144
+  store ptr %273, ptr %12, align 8, !alias.scope !249
+  store ptr %272, ptr %38, align 8, !alias.scope !249
+  store ptr %271, ptr %39, align 8, !alias.scope !249
+  store ptr %269, ptr %13, align 8, !alias.scope !252
+  store ptr %268, ptr %40, align 8, !alias.scope !252
+  store ptr %267, ptr %41, align 8, !alias.scope !252
+  %274 = call noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %13)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
-  br i1 %272, label %273, label %276
+  br i1 %274, label %275, label %281
 
-273:                                              ; preds = %268
-  %274 = load ptr, ptr %0, align 8
-  %275 = load ptr, ptr %256, align 8
-  store ptr %275, ptr %0, align 8
-  store ptr %274, ptr %256, align 8
+275:                                              ; preds = %270
+  %276 = load ptr, ptr %0, align 8
+  %277 = load ptr, ptr %258, align 8
+  store ptr %277, ptr %0, align 8
+  store ptr %276, ptr %258, align 8
+  %278 = getelementptr inbounds nuw i8, ptr %258, i64 8
+  %279 = load ptr, ptr %278, align 8
+  %280 = load ptr, ptr %36, align 8
+  store ptr %280, ptr %278, align 8
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SF_SF_SI_.exit.i
 
-276:                                              ; preds = %268
+281:                                              ; preds = %270
   %.val.i28.i.i = load ptr, ptr %23, align 8
-  %.val1.i29.i.i = load ptr, ptr %257, align 8
+  %.val1.i29.i.i = load ptr, ptr %259, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
-  %277 = getelementptr inbounds nuw i8, ptr %.val.i28.i.i, i64 104
-  %278 = getelementptr inbounds nuw i8, ptr %.val.i28.i.i, i64 184
-  %279 = getelementptr inbounds nuw i8, ptr %.val.i28.i.i, i64 144
-  store ptr %279, ptr %10, align 8, !alias.scope !255
-  store ptr %278, ptr %40, align 8, !alias.scope !255
-  store ptr %277, ptr %41, align 8, !alias.scope !255
-  %280 = getelementptr inbounds nuw i8, ptr %.val1.i29.i.i, i64 104
-  %281 = getelementptr inbounds nuw i8, ptr %.val1.i29.i.i, i64 184
-  %282 = getelementptr inbounds nuw i8, ptr %.val1.i29.i.i, i64 144
-  store ptr %282, ptr %11, align 8, !alias.scope !258
-  store ptr %281, ptr %42, align 8, !alias.scope !258
-  store ptr %280, ptr %43, align 8, !alias.scope !258
-  %283 = call noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  %282 = getelementptr inbounds nuw i8, ptr %.val.i28.i.i, i64 104
+  %283 = getelementptr inbounds nuw i8, ptr %.val.i28.i.i, i64 184
+  %284 = getelementptr inbounds nuw i8, ptr %.val.i28.i.i, i64 144
+  store ptr %284, ptr %10, align 8, !alias.scope !255
+  store ptr %283, ptr %42, align 8, !alias.scope !255
+  store ptr %282, ptr %43, align 8, !alias.scope !255
+  %285 = getelementptr inbounds nuw i8, ptr %.val1.i29.i.i, i64 104
+  %286 = getelementptr inbounds nuw i8, ptr %.val1.i29.i.i, i64 184
+  %287 = getelementptr inbounds nuw i8, ptr %.val1.i29.i.i, i64 144
+  store ptr %287, ptr %11, align 8, !alias.scope !258
+  store ptr %286, ptr %44, align 8, !alias.scope !258
+  store ptr %285, ptr %45, align 8, !alias.scope !258
+  %288 = call noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %11)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
-  %284 = load ptr, ptr %0, align 8
-  br i1 %283, label %285, label %287
+  %289 = load ptr, ptr %0, align 8
+  br i1 %288, label %290, label %295
 
-285:                                              ; preds = %276
-  %286 = load ptr, ptr %257, align 8
-  store ptr %286, ptr %0, align 8
-  store ptr %284, ptr %257, align 8
+290:                                              ; preds = %281
+  %291 = load ptr, ptr %259, align 8
+  store ptr %291, ptr %0, align 8
+  store ptr %289, ptr %259, align 8
+  %292 = getelementptr inbounds i8, ptr %storemerge55147, i64 -8
+  %293 = load ptr, ptr %292, align 8
+  %294 = load ptr, ptr %36, align 8
+  store ptr %294, ptr %292, align 8
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SF_SF_SI_.exit.i
 
-287:                                              ; preds = %276
-  %288 = load ptr, ptr %23, align 8
-  store ptr %288, ptr %0, align 8
-  store ptr %284, ptr %23, align 8
+295:                                              ; preds = %281
+  %296 = load ptr, ptr %23, align 8
+  store ptr %296, ptr %0, align 8
+  store ptr %289, ptr %23, align 8
+  %297 = load ptr, ptr %37, align 8
+  %298 = load ptr, ptr %36, align 8
+  store ptr %298, ptr %37, align 8
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SF_SF_SI_.exit.i
 
-289:                                              ; preds = %.lr.ph147
+299:                                              ; preds = %.lr.ph148
   %.val.i30.i.i = load ptr, ptr %23, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
-  %290 = getelementptr inbounds nuw i8, ptr %.val.i30.i.i, i64 104
-  %291 = getelementptr inbounds nuw i8, ptr %.val.i30.i.i, i64 184
-  %292 = getelementptr inbounds nuw i8, ptr %.val.i30.i.i, i64 144
-  store ptr %292, ptr %8, align 8, !alias.scope !261
-  store ptr %291, ptr %28, align 8, !alias.scope !261
-  store ptr %290, ptr %29, align 8, !alias.scope !261
-  store ptr %267, ptr %9, align 8, !alias.scope !264
-  store ptr %266, ptr %30, align 8, !alias.scope !264
-  store ptr %265, ptr %31, align 8, !alias.scope !264
-  %293 = call noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9)
+  %300 = getelementptr inbounds nuw i8, ptr %.val.i30.i.i, i64 104
+  %301 = getelementptr inbounds nuw i8, ptr %.val.i30.i.i, i64 184
+  %302 = getelementptr inbounds nuw i8, ptr %.val.i30.i.i, i64 144
+  store ptr %302, ptr %8, align 8, !alias.scope !261
+  store ptr %301, ptr %28, align 8, !alias.scope !261
+  store ptr %300, ptr %29, align 8, !alias.scope !261
+  store ptr %269, ptr %9, align 8, !alias.scope !264
+  store ptr %268, ptr %30, align 8, !alias.scope !264
+  store ptr %267, ptr %31, align 8, !alias.scope !264
+  %303 = call noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
-  br i1 %293, label %294, label %297
+  br i1 %303, label %304, label %309
 
-294:                                              ; preds = %289
-  %295 = load ptr, ptr %0, align 8
-  %296 = load ptr, ptr %23, align 8
-  store ptr %296, ptr %0, align 8
-  store ptr %295, ptr %23, align 8
+304:                                              ; preds = %299
+  %305 = load ptr, ptr %0, align 8
+  %306 = load ptr, ptr %23, align 8
+  store ptr %306, ptr %0, align 8
+  store ptr %305, ptr %23, align 8
+  %307 = load ptr, ptr %37, align 8
+  %308 = load ptr, ptr %36, align 8
+  store ptr %308, ptr %37, align 8
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SF_SF_SI_.exit.i
 
-297:                                              ; preds = %289
-  %.val.i32.i.i = load ptr, ptr %256, align 8
-  %.val1.i33.i.i = load ptr, ptr %257, align 8
+309:                                              ; preds = %299
+  %.val.i32.i.i = load ptr, ptr %258, align 8
+  %.val1.i33.i.i = load ptr, ptr %259, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  %298 = getelementptr inbounds nuw i8, ptr %.val.i32.i.i, i64 104
-  %299 = getelementptr inbounds nuw i8, ptr %.val.i32.i.i, i64 184
-  %300 = getelementptr inbounds nuw i8, ptr %.val.i32.i.i, i64 144
-  store ptr %300, ptr %6, align 8, !alias.scope !267
-  store ptr %299, ptr %32, align 8, !alias.scope !267
-  store ptr %298, ptr %33, align 8, !alias.scope !267
-  %301 = getelementptr inbounds nuw i8, ptr %.val1.i33.i.i, i64 104
-  %302 = getelementptr inbounds nuw i8, ptr %.val1.i33.i.i, i64 184
-  %303 = getelementptr inbounds nuw i8, ptr %.val1.i33.i.i, i64 144
-  store ptr %303, ptr %7, align 8, !alias.scope !270
-  store ptr %302, ptr %34, align 8, !alias.scope !270
-  store ptr %301, ptr %35, align 8, !alias.scope !270
-  %304 = call noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7)
+  %310 = getelementptr inbounds nuw i8, ptr %.val.i32.i.i, i64 104
+  %311 = getelementptr inbounds nuw i8, ptr %.val.i32.i.i, i64 184
+  %312 = getelementptr inbounds nuw i8, ptr %.val.i32.i.i, i64 144
+  store ptr %312, ptr %6, align 8, !alias.scope !267
+  store ptr %311, ptr %32, align 8, !alias.scope !267
+  store ptr %310, ptr %33, align 8, !alias.scope !267
+  %313 = getelementptr inbounds nuw i8, ptr %.val1.i33.i.i, i64 104
+  %314 = getelementptr inbounds nuw i8, ptr %.val1.i33.i.i, i64 184
+  %315 = getelementptr inbounds nuw i8, ptr %.val1.i33.i.i, i64 144
+  store ptr %315, ptr %7, align 8, !alias.scope !270
+  store ptr %314, ptr %34, align 8, !alias.scope !270
+  store ptr %313, ptr %35, align 8, !alias.scope !270
+  %316 = call noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  %305 = load ptr, ptr %0, align 8
-  br i1 %304, label %306, label %308
+  %317 = load ptr, ptr %0, align 8
+  br i1 %316, label %318, label %323
 
-306:                                              ; preds = %297
-  %307 = load ptr, ptr %257, align 8
-  store ptr %307, ptr %0, align 8
-  store ptr %305, ptr %257, align 8
+318:                                              ; preds = %309
+  %319 = load ptr, ptr %259, align 8
+  store ptr %319, ptr %0, align 8
+  store ptr %317, ptr %259, align 8
+  %320 = getelementptr inbounds i8, ptr %storemerge55147, i64 -8
+  %321 = load ptr, ptr %320, align 8
+  %322 = load ptr, ptr %36, align 8
+  store ptr %322, ptr %320, align 8
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SF_SF_SI_.exit.i
 
-308:                                              ; preds = %297
-  %309 = load ptr, ptr %256, align 8
-  store ptr %309, ptr %0, align 8
-  store ptr %305, ptr %256, align 8
+323:                                              ; preds = %309
+  %324 = load ptr, ptr %258, align 8
+  store ptr %324, ptr %0, align 8
+  store ptr %317, ptr %258, align 8
+  %325 = getelementptr inbounds nuw i8, ptr %258, i64 8
+  %326 = load ptr, ptr %325, align 8
+  %327 = load ptr, ptr %36, align 8
+  store ptr %327, ptr %325, align 8
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SF_SF_SI_.exit.i
 
-_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SF_SF_SI_.exit.i: ; preds = %308, %306, %294, %287, %285, %273
-  %.sink.i.i = phi ptr [ %23, %294 ], [ %256, %308 ], [ %257, %306 ], [ %256, %273 ], [ %23, %287 ], [ %257, %285 ]
-  %310 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
-  %311 = load ptr, ptr %310, align 8
-  %312 = load ptr, ptr %.sink37.i.i, align 8
-  store ptr %312, ptr %310, align 8
-  store ptr %311, ptr %.sink37.i.i, align 8
-  br label %313
+_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SF_SF_SI_.exit.i: ; preds = %323, %318, %304, %295, %290, %275
+  %.sink116 = phi ptr [ %326, %323 ], [ %321, %318 ], [ %307, %304 ], [ %297, %295 ], [ %293, %290 ], [ %279, %275 ]
+  store ptr %.sink116, ptr %36, align 8
+  br label %328
 
-313:                                              ; preds = %394, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SF_SF_SI_.exit.i
-  %.sroa.047.0.i.i = phi ptr [ %23, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SF_SF_SI_.exit.i ], [ %401, %394 ]
-  %.sroa.0.0.i.i = phi ptr [ %storemerge55146, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SF_SF_SI_.exit.i ], [ %.sroa.0.1.i.i, %394 ]
-  br label %314
+328:                                              ; preds = %409, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SF_SF_SI_.exit.i
+  %.sroa.047.0.i.i = phi ptr [ %23, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SF_SF_SI_.exit.i ], [ %416, %409 ]
+  %.sroa.0.0.i.i = phi ptr [ %storemerge55147, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SF_SF_SI_.exit.i ], [ %.sroa.0.1.i.i, %409 ]
+  br label %329
 
-314:                                              ; preds = %353, %313
-  %.sroa.047.1.i.i = phi ptr [ %.sroa.047.0.i.i, %313 ], [ %354, %353 ]
+329:                                              ; preds = %368, %328
+  %.sroa.047.1.i.i = phi ptr [ %.sroa.047.0.i.i, %328 ], [ %369, %368 ]
   %.val.i.i13.i = load ptr, ptr %.sroa.047.1.i.i, align 8
   %.val1.i.i14.i = load ptr, ptr %0, align 8
-  %315 = getelementptr inbounds nuw i8, ptr %.val.i.i13.i, i64 104
-  %316 = getelementptr inbounds nuw i8, ptr %.val.i.i13.i, i64 184
-  %317 = getelementptr inbounds nuw i8, ptr %.val.i.i13.i, i64 144
-  %318 = getelementptr inbounds nuw i8, ptr %.val1.i.i14.i, i64 104
-  %319 = getelementptr inbounds nuw i8, ptr %.val1.i.i14.i, i64 184
-  %320 = getelementptr inbounds nuw i8, ptr %.val1.i.i14.i, i64 144
-  %.0.copyload.i.i.i.i.i = load i64, ptr %315, align 4
-  %.0.copyload.i6.i.i.i.i = load i64, ptr %318, align 4
-  %321 = icmp eq i64 %.0.copyload.i.i.i.i.i, %.0.copyload.i6.i.i.i.i
-  br i1 %321, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i.i.i, label %322
+  %330 = getelementptr inbounds nuw i8, ptr %.val.i.i13.i, i64 104
+  %331 = getelementptr inbounds nuw i8, ptr %.val.i.i13.i, i64 184
+  %332 = getelementptr inbounds nuw i8, ptr %.val.i.i13.i, i64 144
+  %333 = getelementptr inbounds nuw i8, ptr %.val1.i.i14.i, i64 104
+  %334 = getelementptr inbounds nuw i8, ptr %.val1.i.i14.i, i64 184
+  %335 = getelementptr inbounds nuw i8, ptr %.val1.i.i14.i, i64 144
+  %.0.copyload.i.i.i.i.i = load i64, ptr %330, align 4
+  %.0.copyload.i6.i.i.i.i = load i64, ptr %333, align 4
+  %336 = icmp eq i64 %.0.copyload.i.i.i.i.i, %.0.copyload.i6.i.i.i.i
+  br i1 %336, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i.i.i, label %337
 
-322:                                              ; preds = %314
-  %323 = and i64 %.0.copyload.i.i.i.i.i, 4294967295
-  %.not.i.i.i.i = icmp eq i64 %323, 0
-  %324 = and i64 %.0.copyload.i6.i.i.i.i, 4294967295
-  %.not.i.i.i16 = icmp eq i64 %324, 0
-  br i1 %.not.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i, label %325
+337:                                              ; preds = %329
+  %338 = and i64 %.0.copyload.i.i.i.i.i, 4294967295
+  %.not.i.i.i.i = icmp eq i64 %338, 0
+  %339 = and i64 %.0.copyload.i6.i.i.i.i, 4294967295
+  %.not.i.i.i16 = icmp eq i64 %339, 0
+  br i1 %.not.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i, label %340
 
-325:                                              ; preds = %322
-  br i1 %.not.i.i.i16, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i, label %326
+340:                                              ; preds = %337
+  br i1 %.not.i.i.i16, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i, label %341
 
-326:                                              ; preds = %325
-  %327 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %315, ptr noundef nonnull align 4 dereferenceable(8) %318)
-  br i1 %327, label %353, label %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i
+341:                                              ; preds = %340
+  %342 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %330, ptr noundef nonnull align 4 dereferenceable(8) %333)
+  br i1 %342, label %368, label %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i
 
-._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i: ; preds = %326
-  %.0.copyload.i.i6.pre.i.i.i = load i64, ptr %318, align 4
-  %.0.copyload.i6.i7.pre.i.i.i = load i64, ptr %315, align 4
+._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i: ; preds = %341
+  %.0.copyload.i.i6.pre.i.i.i = load i64, ptr %333, align 4
+  %.0.copyload.i6.i7.pre.i.i.i = load i64, ptr %330, align 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i: ; preds = %322
-  br i1 %.not.i.i.i16, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i, label %353
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i: ; preds = %337
+  br i1 %.not.i.i.i16, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i, label %368
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i, %325
-  %.0.copyload.i6.i7.i.i.i = phi i64 [ %.0.copyload.i6.i7.pre.i.i.i, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i ], [ %.0.copyload.i.i.i.i.i, %325 ], [ %.0.copyload.i.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i ]
-  %.0.copyload.i.i6.i.i.i = phi i64 [ %.0.copyload.i.i6.pre.i.i.i, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i ], [ %.0.copyload.i6.i.i.i.i, %325 ], [ %.0.copyload.i6.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i ]
-  %328 = icmp eq i64 %.0.copyload.i.i6.i.i.i, %.0.copyload.i6.i7.i.i.i
-  br i1 %328, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i.i.i, label %329
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i, %340
+  %.0.copyload.i6.i7.i.i.i = phi i64 [ %.0.copyload.i6.i7.pre.i.i.i, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i ], [ %.0.copyload.i.i.i.i.i, %340 ], [ %.0.copyload.i.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i ]
+  %.0.copyload.i.i6.i.i.i = phi i64 [ %.0.copyload.i.i6.pre.i.i.i, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i ], [ %.0.copyload.i6.i.i.i.i, %340 ], [ %.0.copyload.i6.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i ]
+  %343 = icmp eq i64 %.0.copyload.i.i6.i.i.i, %.0.copyload.i6.i7.i.i.i
+  br i1 %343, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i.i.i, label %344
 
-329:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i
-  %330 = and i64 %.0.copyload.i.i6.i.i.i, 4294967295
-  %.not.i8.i.i.i = icmp eq i64 %330, 0
-  %331 = and i64 %.0.copyload.i6.i7.i.i.i, 4294967295
-  %.not14.i.i.i = icmp eq i64 %331, 0
-  br i1 %.not.i8.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i.i.i, label %332
+344:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i
+  %345 = and i64 %.0.copyload.i.i6.i.i.i, 4294967295
+  %.not.i8.i.i.i = icmp eq i64 %345, 0
+  %346 = and i64 %.0.copyload.i6.i7.i.i.i, 4294967295
+  %.not14.i.i.i = icmp eq i64 %346, 0
+  br i1 %.not.i8.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i.i.i, label %347
 
-332:                                              ; preds = %329
-  br i1 %.not14.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i.i.i, label %333
+347:                                              ; preds = %344
+  br i1 %.not14.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i.i.i, label %348
 
-333:                                              ; preds = %332
-  %334 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %318, ptr noundef nonnull align 4 dereferenceable(8) %315)
-  br i1 %334, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i.preheader, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i.i.i
+348:                                              ; preds = %347
+  %349 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %333, ptr noundef nonnull align 4 dereferenceable(8) %330)
+  br i1 %349, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i.preheader, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i.i.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i.i.i: ; preds = %329
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i.i.i: ; preds = %344
   br i1 %.not14.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i.i.i, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i.preheader
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i.i.i, %333, %332, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i, %314
-  %335 = load i32, ptr %316, align 4
-  %336 = load i32, ptr %319, align 4
-  %337 = icmp slt i32 %335, %336
-  br i1 %337, label %353, label %338
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i.i.i, %348, %347, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i, %329
+  %350 = load i32, ptr %331, align 4
+  %351 = load i32, ptr %334, align 4
+  %352 = icmp slt i32 %350, %351
+  br i1 %352, label %368, label %353
 
-338:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i.i.i
-  %339 = icmp slt i32 %336, %335
-  br i1 %339, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i.preheader, label %340
+353:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i.i.i
+  %354 = icmp slt i32 %351, %350
+  br i1 %354, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i.preheader, label %355
 
-340:                                              ; preds = %338
-  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %317, align 4
-  %.0.copyload.i6.i.i.i.i.i.i = load i64, ptr %320, align 4
-  %341 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i, %.0.copyload.i6.i.i.i.i.i.i
-  br i1 %341, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i.i.i, label %342
+355:                                              ; preds = %353
+  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %332, align 4
+  %.0.copyload.i6.i.i.i.i.i.i = load i64, ptr %335, align 4
+  %356 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i, %.0.copyload.i6.i.i.i.i.i.i
+  br i1 %356, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i.i.i, label %357
 
-342:                                              ; preds = %340
-  %343 = and i64 %.0.copyload.i.i.i.i.i.i.i, 4294967295
-  %.not.i.i.i.i.i.i17 = icmp eq i64 %343, 0
-  %344 = and i64 %.0.copyload.i6.i.i.i.i.i.i, 4294967295
-  %.not.i.i.i.i.i = icmp eq i64 %344, 0
-  br i1 %.not.i.i.i.i.i.i17, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i.i.i, label %345
+357:                                              ; preds = %355
+  %358 = and i64 %.0.copyload.i.i.i.i.i.i.i, 4294967295
+  %.not.i.i.i.i.i.i17 = icmp eq i64 %358, 0
+  %359 = and i64 %.0.copyload.i6.i.i.i.i.i.i, 4294967295
+  %.not.i.i.i.i.i = icmp eq i64 %359, 0
+  br i1 %.not.i.i.i.i.i.i17, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i.i.i, label %360
 
-345:                                              ; preds = %342
-  br i1 %.not.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i.i.i, label %346
+360:                                              ; preds = %357
+  br i1 %.not.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i.i.i, label %361
 
-346:                                              ; preds = %345
-  %347 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %317, ptr noundef nonnull align 4 dereferenceable(8) %320)
-  br i1 %347, label %353, label %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i.i.i
+361:                                              ; preds = %360
+  %362 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %332, ptr noundef nonnull align 4 dereferenceable(8) %335)
+  br i1 %362, label %368, label %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i.i.i
 
-._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i.i.i: ; preds = %346
-  %.0.copyload.i.i6.pre.i.i.i.i.i = load i64, ptr %320, align 4
-  %.0.copyload.i6.i7.pre.i.i.i.i.i = load i64, ptr %317, align 4
+._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i.i.i: ; preds = %361
+  %.0.copyload.i.i6.pre.i.i.i.i.i = load i64, ptr %335, align 4
+  %.0.copyload.i6.i7.pre.i.i.i.i.i = load i64, ptr %332, align 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i.i.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i.i.i: ; preds = %342
-  br i1 %.not.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i.i.i, label %353
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i.i.i: ; preds = %357
+  br i1 %.not.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i.i.i, label %368
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i.i.i, %345, %340, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i.i.i
-  %.0.copyload.i6.i7.i.i.i.i.i = phi i64 [ %.0.copyload.i6.i7.pre.i.i.i.i.i, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i.i.i ], [ %.0.copyload.i.i.i.i.i.i.i, %340 ], [ %.0.copyload.i.i.i.i.i.i.i, %345 ], [ %.0.copyload.i.i.i.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i.i.i ]
-  %.0.copyload.i.i6.i.i.i.i.i = phi i64 [ %.0.copyload.i.i6.pre.i.i.i.i.i, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i.i.i ], [ %.0.copyload.i6.i.i.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i.i.i ], [ %.0.copyload.i6.i.i.i.i.i.i, %345 ], [ %.0.copyload.i.i.i.i.i.i.i, %340 ]
-  %348 = icmp eq i64 %.0.copyload.i.i6.i.i.i.i.i, %.0.copyload.i6.i7.i.i.i.i.i
-  %349 = and i64 %.0.copyload.i.i6.i.i.i.i.i, 4294967295
-  %.not.i8.i.i.i.i.i = icmp eq i64 %349, 0
-  %or.cond.i.i.i.i.i = or i1 %348, %.not.i8.i.i.i.i.i
-  %350 = and i64 %.0.copyload.i6.i7.i.i.i.i.i, 4294967295
-  %.not7.i9.i.i.i.i.i = icmp eq i64 %350, 0
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i.i.i, %360, %355, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i.i.i
+  %.0.copyload.i6.i7.i.i.i.i.i = phi i64 [ %.0.copyload.i6.i7.pre.i.i.i.i.i, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i.i.i ], [ %.0.copyload.i.i.i.i.i.i.i, %355 ], [ %.0.copyload.i.i.i.i.i.i.i, %360 ], [ %.0.copyload.i.i.i.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i.i.i ]
+  %.0.copyload.i.i6.i.i.i.i.i = phi i64 [ %.0.copyload.i.i6.pre.i.i.i.i.i, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i.i.i ], [ %.0.copyload.i6.i.i.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i.i.i ], [ %.0.copyload.i6.i.i.i.i.i.i, %360 ], [ %.0.copyload.i.i.i.i.i.i.i, %355 ]
+  %363 = icmp eq i64 %.0.copyload.i.i6.i.i.i.i.i, %.0.copyload.i6.i7.i.i.i.i.i
+  %364 = and i64 %.0.copyload.i.i6.i.i.i.i.i, 4294967295
+  %.not.i8.i.i.i.i.i = icmp eq i64 %364, 0
+  %or.cond.i.i.i.i.i = or i1 %363, %.not.i8.i.i.i.i.i
+  %365 = and i64 %.0.copyload.i6.i7.i.i.i.i.i, 4294967295
+  %.not7.i9.i.i.i.i.i = icmp eq i64 %365, 0
   %or.cond14.i.i.i.i.i = or i1 %.not7.i9.i.i.i.i.i, %or.cond.i.i.i.i.i
-  br i1 %or.cond14.i.i.i.i.i, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i.preheader, label %351
+  br i1 %or.cond14.i.i.i.i.i, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i.preheader, label %366
 
-_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i.preheader: ; preds = %338, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i.i.i, %333, %351, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i.i.i
+_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i.preheader: ; preds = %353, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i.i.i, %348, %366, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i.i.i
   br label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i
 
-351:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i.i.i
-  %352 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %320, ptr noundef nonnull align 4 dereferenceable(8) %317)
+366:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i.i.i
+  %367 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %335, ptr noundef nonnull align 4 dereferenceable(8) %332)
   br label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i.preheader
 
-353:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i.i.i, %346, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i, %326
-  %354 = getelementptr inbounds i8, ptr %.sroa.047.1.i.i, i64 16
-  br label %314, !llvm.loop !273
+368:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i.i.i, %361, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i, %341
+  %369 = getelementptr inbounds i8, ptr %.sroa.047.1.i.i, i64 16
+  br label %329, !llvm.loop !273
 
 _ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i: ; preds = %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i.backedge, %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i.preheader
   %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.0.i.i, %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i.preheader ], [ %.sroa.0.1.i.i, %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i.backedge ]
   %.sroa.0.1.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -16
   %.val.i8.i.i = load ptr, ptr %0, align 8
   %.val1.i9.i.i = load ptr, ptr %.sroa.0.1.i.i, align 8
-  %355 = getelementptr inbounds nuw i8, ptr %.val.i8.i.i, i64 104
-  %356 = getelementptr inbounds nuw i8, ptr %.val.i8.i.i, i64 184
-  %357 = getelementptr inbounds nuw i8, ptr %.val.i8.i.i, i64 144
-  %358 = getelementptr inbounds nuw i8, ptr %.val1.i9.i.i, i64 104
-  %359 = getelementptr inbounds nuw i8, ptr %.val1.i9.i.i, i64 184
-  %360 = getelementptr inbounds nuw i8, ptr %.val1.i9.i.i, i64 144
-  %.0.copyload.i.i.i10.i.i = load i64, ptr %355, align 4
-  %.0.copyload.i6.i.i11.i.i = load i64, ptr %358, align 4
-  %361 = icmp eq i64 %.0.copyload.i.i.i10.i.i, %.0.copyload.i6.i.i11.i.i
-  br i1 %361, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i24.i.i, label %362
+  %370 = getelementptr inbounds nuw i8, ptr %.val.i8.i.i, i64 104
+  %371 = getelementptr inbounds nuw i8, ptr %.val.i8.i.i, i64 184
+  %372 = getelementptr inbounds nuw i8, ptr %.val.i8.i.i, i64 144
+  %373 = getelementptr inbounds nuw i8, ptr %.val1.i9.i.i, i64 104
+  %374 = getelementptr inbounds nuw i8, ptr %.val1.i9.i.i, i64 184
+  %375 = getelementptr inbounds nuw i8, ptr %.val1.i9.i.i, i64 144
+  %.0.copyload.i.i.i10.i.i = load i64, ptr %370, align 4
+  %.0.copyload.i6.i.i11.i.i = load i64, ptr %373, align 4
+  %376 = icmp eq i64 %.0.copyload.i.i.i10.i.i, %.0.copyload.i6.i.i11.i.i
+  br i1 %376, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i24.i.i, label %377
 
-362:                                              ; preds = %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i
-  %363 = and i64 %.0.copyload.i.i.i10.i.i, 4294967295
-  %.not.i.i12.i.i = icmp eq i64 %363, 0
-  %364 = and i64 %.0.copyload.i6.i.i11.i.i, 4294967295
-  %.not.i13.i.i = icmp eq i64 %364, 0
-  br i1 %.not.i.i12.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i43.i.i, label %365
+377:                                              ; preds = %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i
+  %378 = and i64 %.0.copyload.i.i.i10.i.i, 4294967295
+  %.not.i.i12.i.i = icmp eq i64 %378, 0
+  %379 = and i64 %.0.copyload.i6.i.i11.i.i, 4294967295
+  %.not.i13.i.i = icmp eq i64 %379, 0
+  br i1 %.not.i.i12.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i43.i.i, label %380
 
-365:                                              ; preds = %362
-  br i1 %.not.i13.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i19.i.i, label %366
+380:                                              ; preds = %377
+  br i1 %.not.i13.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i19.i.i, label %381
 
-366:                                              ; preds = %365
-  %367 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %355, ptr noundef nonnull align 4 dereferenceable(8) %358)
-  br i1 %367, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i.backedge, label %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i14.i.i
+381:                                              ; preds = %380
+  %382 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %370, ptr noundef nonnull align 4 dereferenceable(8) %373)
+  br i1 %382, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i.backedge, label %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i14.i.i
 
-._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i14.i.i: ; preds = %366
-  %.0.copyload.i.i6.pre.i17.i.i = load i64, ptr %358, align 4
-  %.0.copyload.i6.i7.pre.i18.i.i = load i64, ptr %355, align 4
+._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i14.i.i: ; preds = %381
+  %.0.copyload.i.i6.pre.i17.i.i = load i64, ptr %373, align 4
+  %.0.copyload.i6.i7.pre.i18.i.i = load i64, ptr %370, align 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i19.i.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i43.i.i: ; preds = %362
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i43.i.i: ; preds = %377
   br i1 %.not.i13.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i19.i.i, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i.backedge
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i19.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i43.i.i, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i14.i.i, %365
-  %.0.copyload.i6.i7.i20.i.i = phi i64 [ %.0.copyload.i6.i7.pre.i18.i.i, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i14.i.i ], [ %.0.copyload.i.i.i10.i.i, %365 ], [ %.0.copyload.i.i.i10.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i43.i.i ]
-  %.0.copyload.i.i6.i21.i.i = phi i64 [ %.0.copyload.i.i6.pre.i17.i.i, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i14.i.i ], [ %.0.copyload.i6.i.i11.i.i, %365 ], [ %.0.copyload.i6.i.i11.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i43.i.i ]
-  %368 = icmp eq i64 %.0.copyload.i.i6.i21.i.i, %.0.copyload.i6.i7.i20.i.i
-  br i1 %368, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i24.i.i, label %369
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i19.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i43.i.i, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i14.i.i, %380
+  %.0.copyload.i6.i7.i20.i.i = phi i64 [ %.0.copyload.i6.i7.pre.i18.i.i, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i14.i.i ], [ %.0.copyload.i.i.i10.i.i, %380 ], [ %.0.copyload.i.i.i10.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i43.i.i ]
+  %.0.copyload.i.i6.i21.i.i = phi i64 [ %.0.copyload.i.i6.pre.i17.i.i, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i14.i.i ], [ %.0.copyload.i6.i.i11.i.i, %380 ], [ %.0.copyload.i6.i.i11.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i43.i.i ]
+  %383 = icmp eq i64 %.0.copyload.i.i6.i21.i.i, %.0.copyload.i6.i7.i20.i.i
+  br i1 %383, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i24.i.i, label %384
 
-369:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i19.i.i
-  %370 = and i64 %.0.copyload.i.i6.i21.i.i, 4294967295
-  %.not.i8.i22.i.i = icmp eq i64 %370, 0
-  %371 = and i64 %.0.copyload.i6.i7.i20.i.i, 4294967295
-  %.not14.i23.i.i = icmp eq i64 %371, 0
-  br i1 %.not.i8.i22.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i42.i.i, label %372
+384:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i19.i.i
+  %385 = and i64 %.0.copyload.i.i6.i21.i.i, 4294967295
+  %.not.i8.i22.i.i = icmp eq i64 %385, 0
+  %386 = and i64 %.0.copyload.i6.i7.i20.i.i, 4294967295
+  %.not14.i23.i.i = icmp eq i64 %386, 0
+  br i1 %.not.i8.i22.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i42.i.i, label %387
 
-372:                                              ; preds = %369
-  br i1 %.not14.i23.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i24.i.i, label %373
+387:                                              ; preds = %384
+  br i1 %.not14.i23.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i24.i.i, label %388
 
-373:                                              ; preds = %372
-  %374 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %358, ptr noundef nonnull align 4 dereferenceable(8) %355)
-  br i1 %374, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit44.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i24.i.i
+388:                                              ; preds = %387
+  %389 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %373, ptr noundef nonnull align 4 dereferenceable(8) %370)
+  br i1 %389, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit44.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i24.i.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i42.i.i: ; preds = %369
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i42.i.i: ; preds = %384
   br i1 %.not14.i23.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i24.i.i, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit44.i.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i24.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i42.i.i, %373, %372, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i19.i.i, %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i
-  %375 = load i32, ptr %356, align 4
-  %376 = load i32, ptr %359, align 4
-  %377 = icmp slt i32 %375, %376
-  br i1 %377, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i.backedge, label %378
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i24.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i42.i.i, %388, %387, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i19.i.i, %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i
+  %390 = load i32, ptr %371, align 4
+  %391 = load i32, ptr %374, align 4
+  %392 = icmp slt i32 %390, %391
+  br i1 %392, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i.backedge, label %393
 
-378:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i24.i.i
-  %379 = icmp slt i32 %376, %375
-  br i1 %379, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit44.i.i, label %380
+393:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i24.i.i
+  %394 = icmp slt i32 %391, %390
+  br i1 %394, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit44.i.i, label %395
 
-380:                                              ; preds = %378
-  %.0.copyload.i.i.i.i.i25.i.i = load i64, ptr %357, align 4
-  %.0.copyload.i6.i.i.i.i26.i.i = load i64, ptr %360, align 4
-  %381 = icmp eq i64 %.0.copyload.i.i.i.i.i25.i.i, %.0.copyload.i6.i.i.i.i26.i.i
-  br i1 %381, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i34.i.i, label %382
+395:                                              ; preds = %393
+  %.0.copyload.i.i.i.i.i25.i.i = load i64, ptr %372, align 4
+  %.0.copyload.i6.i.i.i.i26.i.i = load i64, ptr %375, align 4
+  %396 = icmp eq i64 %.0.copyload.i.i.i.i.i25.i.i, %.0.copyload.i6.i.i.i.i26.i.i
+  br i1 %396, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i34.i.i, label %397
 
-382:                                              ; preds = %380
-  %383 = and i64 %.0.copyload.i.i.i.i.i25.i.i, 4294967295
-  %.not.i.i.i.i27.i.i = icmp eq i64 %383, 0
-  %384 = and i64 %.0.copyload.i6.i.i.i.i26.i.i, 4294967295
-  %.not.i.i.i28.i.i = icmp eq i64 %384, 0
-  br i1 %.not.i.i.i.i27.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i41.i.i, label %385
+397:                                              ; preds = %395
+  %398 = and i64 %.0.copyload.i.i.i.i.i25.i.i, 4294967295
+  %.not.i.i.i.i27.i.i = icmp eq i64 %398, 0
+  %399 = and i64 %.0.copyload.i6.i.i.i.i26.i.i, 4294967295
+  %.not.i.i.i28.i.i = icmp eq i64 %399, 0
+  br i1 %.not.i.i.i.i27.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i41.i.i, label %400
 
-385:                                              ; preds = %382
-  br i1 %.not.i.i.i28.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i34.i.i, label %386
+400:                                              ; preds = %397
+  br i1 %.not.i.i.i28.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i34.i.i, label %401
 
-386:                                              ; preds = %385
-  %387 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %357, ptr noundef nonnull align 4 dereferenceable(8) %360)
-  br i1 %387, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i.backedge, label %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i29.i.i
+401:                                              ; preds = %400
+  %402 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %372, ptr noundef nonnull align 4 dereferenceable(8) %375)
+  br i1 %402, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i.backedge, label %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i29.i.i
 
-._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i29.i.i: ; preds = %386
-  %.0.copyload.i.i6.pre.i.i.i32.i.i = load i64, ptr %360, align 4
-  %.0.copyload.i6.i7.pre.i.i.i33.i.i = load i64, ptr %357, align 4
+._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i29.i.i: ; preds = %401
+  %.0.copyload.i.i6.pre.i.i.i32.i.i = load i64, ptr %375, align 4
+  %.0.copyload.i6.i7.pre.i.i.i33.i.i = load i64, ptr %372, align 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i34.i.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i41.i.i: ; preds = %382
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i41.i.i: ; preds = %397
   br i1 %.not.i.i.i28.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i34.i.i, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i.backedge
 
-_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i.backedge: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i41.i.i, %386, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i24.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i43.i.i, %366
+_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i.backedge: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i41.i.i, %401, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i24.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i43.i.i, %381
   br label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i, !llvm.loop !274
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i34.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i41.i.i, %385, %380, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i29.i.i
-  %.0.copyload.i6.i7.i.i.i35.i.i = phi i64 [ %.0.copyload.i6.i7.pre.i.i.i33.i.i, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i29.i.i ], [ %.0.copyload.i.i.i.i.i25.i.i, %380 ], [ %.0.copyload.i.i.i.i.i25.i.i, %385 ], [ %.0.copyload.i.i.i.i.i25.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i41.i.i ]
-  %.0.copyload.i.i6.i.i.i36.i.i = phi i64 [ %.0.copyload.i.i6.pre.i.i.i32.i.i, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i29.i.i ], [ %.0.copyload.i6.i.i.i.i26.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i41.i.i ], [ %.0.copyload.i6.i.i.i.i26.i.i, %385 ], [ %.0.copyload.i.i.i.i.i25.i.i, %380 ]
-  %388 = icmp eq i64 %.0.copyload.i.i6.i.i.i36.i.i, %.0.copyload.i6.i7.i.i.i35.i.i
-  %389 = and i64 %.0.copyload.i.i6.i.i.i36.i.i, 4294967295
-  %.not.i8.i.i.i37.i.i = icmp eq i64 %389, 0
-  %or.cond.i.i.i38.i.i = or i1 %388, %.not.i8.i.i.i37.i.i
-  %390 = and i64 %.0.copyload.i6.i7.i.i.i35.i.i, 4294967295
-  %.not7.i9.i.i.i39.i.i = icmp eq i64 %390, 0
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i34.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i41.i.i, %400, %395, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i29.i.i
+  %.0.copyload.i6.i7.i.i.i35.i.i = phi i64 [ %.0.copyload.i6.i7.pre.i.i.i33.i.i, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i29.i.i ], [ %.0.copyload.i.i.i.i.i25.i.i, %395 ], [ %.0.copyload.i.i.i.i.i25.i.i, %400 ], [ %.0.copyload.i.i.i.i.i25.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i41.i.i ]
+  %.0.copyload.i.i6.i.i.i36.i.i = phi i64 [ %.0.copyload.i.i6.pre.i.i.i32.i.i, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i29.i.i ], [ %.0.copyload.i6.i.i.i.i26.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i41.i.i ], [ %.0.copyload.i6.i.i.i.i26.i.i, %400 ], [ %.0.copyload.i.i.i.i.i25.i.i, %395 ]
+  %403 = icmp eq i64 %.0.copyload.i.i6.i.i.i36.i.i, %.0.copyload.i6.i7.i.i.i35.i.i
+  %404 = and i64 %.0.copyload.i.i6.i.i.i36.i.i, 4294967295
+  %.not.i8.i.i.i37.i.i = icmp eq i64 %404, 0
+  %or.cond.i.i.i38.i.i = or i1 %403, %.not.i8.i.i.i37.i.i
+  %405 = and i64 %.0.copyload.i6.i7.i.i.i35.i.i, 4294967295
+  %.not7.i9.i.i.i39.i.i = icmp eq i64 %405, 0
   %or.cond14.i.i.i40.i.i = or i1 %.not7.i9.i.i.i39.i.i, %or.cond.i.i.i38.i.i
-  br i1 %or.cond14.i.i.i40.i.i, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit44.i.i, label %391
+  br i1 %or.cond14.i.i.i40.i.i, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit44.i.i, label %406
 
-391:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i34.i.i
-  %392 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %360, ptr noundef nonnull align 4 dereferenceable(8) %357)
+406:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i34.i.i
+  %407 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %375, ptr noundef nonnull align 4 dereferenceable(8) %372)
   br label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit44.i.i
 
-_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit44.i.i: ; preds = %378, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i42.i.i, %373, %391, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i34.i.i
-  %393 = icmp ult ptr %.sroa.047.1.i.i, %.sroa.0.1.i.i
-  br i1 %393, label %394, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEESF_SF_SF_SI_.exit
+_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit44.i.i: ; preds = %393, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i42.i.i, %388, %406, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i34.i.i
+  %408 = icmp ult ptr %.sroa.047.1.i.i, %.sroa.0.1.i.i
+  br i1 %408, label %409, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEESF_SF_SF_SI_.exit
 
-394:                                              ; preds = %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit44.i.i
-  %395 = load ptr, ptr %.sroa.047.1.i.i, align 8
-  %396 = load ptr, ptr %.sroa.0.1.i.i, align 8
-  store ptr %396, ptr %.sroa.047.1.i.i, align 8
-  store ptr %395, ptr %.sroa.0.1.i.i, align 8
-  %397 = getelementptr inbounds nuw i8, ptr %.sroa.047.1.i.i, i64 8
-  %398 = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -8
-  %399 = load ptr, ptr %398, align 8
-  %400 = load ptr, ptr %397, align 8
-  store ptr %400, ptr %398, align 8
-  store ptr %399, ptr %397, align 8
-  %401 = getelementptr inbounds i8, ptr %.sroa.047.1.i.i, i64 16
-  br label %313, !llvm.loop !275
+409:                                              ; preds = %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit44.i.i
+  %410 = load ptr, ptr %.sroa.047.1.i.i, align 8
+  %411 = load ptr, ptr %.sroa.0.1.i.i, align 8
+  store ptr %411, ptr %.sroa.047.1.i.i, align 8
+  store ptr %410, ptr %.sroa.0.1.i.i, align 8
+  %412 = getelementptr inbounds nuw i8, ptr %.sroa.047.1.i.i, i64 8
+  %413 = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -8
+  %414 = load ptr, ptr %413, align 8
+  %415 = load ptr, ptr %412, align 8
+  store ptr %415, ptr %413, align 8
+  store ptr %414, ptr %412, align 8
+  %416 = getelementptr inbounds i8, ptr %.sroa.047.1.i.i, i64 16
+  br label %328, !llvm.loop !275
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEESF_SF_SF_SI_.exit: ; preds = %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit44.i.i
-  call fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SI_T1_(ptr nonnull %.sroa.047.1.i.i, ptr %storemerge55146, i64 noundef %254)
-  %402 = ptrtoint ptr %.sroa.047.1.i.i to i64
-  %403 = sub i64 %402, %18
-  %404 = ashr exact i64 %403, 4
-  %405 = icmp sgt i64 %404, 16
-  br i1 %405, label %45, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SF_SI_.exit, !llvm.loop !241
+  call fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SI_T1_(ptr nonnull %.sroa.047.1.i.i, ptr %storemerge55147, i64 noundef %256)
+  %417 = ptrtoint ptr %.sroa.047.1.i.i to i64
+  %418 = sub i64 %417, %18
+  %419 = ashr exact i64 %418, 4
+  %420 = icmp sgt i64 %419, 16
+  br i1 %420, label %47, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SF_SI_.exit, !llvm.loop !241
 
 _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SF_SI_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEESF_SF_SF_SI_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SF_RSI_.exit, %3, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_RSI_.exit.i.i
   ret void
@@ -32387,22 +32398,18 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_SaIS1_ENSt8__de
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
-  br label %.sink.split
+  store ptr %.031, ptr %24, align 8
+  br label %28
 
 25:                                               ; preds = %.lr.ph
   %26 = load ptr, ptr %19, align 8
   store ptr %26, ptr %.031, align 8
   %27 = load ptr, ptr %18, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %25, %23
-  %.sink = phi ptr [ %24, %23 ], [ %27, %25 ]
-  %.1.ph = phi i64 [ %17, %23 ], [ %.02530, %25 ]
-  store ptr %.031, ptr %.sink, align 8
+  store ptr %.031, ptr %27, align 8
   br label %28
 
-28:                                               ; preds = %.sink.split, %20
-  %.1 = phi i64 [ %17, %20 ], [ %.1.ph, %.sink.split ]
+28:                                               ; preds = %20, %23, %25
+  %.1 = phi i64 [ %.02530, %25 ], [ %17, %23 ], [ %17, %20 ]
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !376
 

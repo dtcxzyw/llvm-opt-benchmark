@@ -2447,8 +2447,8 @@ define void @Saig_ManWindowCreatePis(ptr noundef %0, ptr nocapture noundef reado
   %12 = getelementptr i8, ptr %1, i64 256
   br label %13
 
-13:                                               ; preds = %.lr.ph, %68
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %68 ]
+13:                                               ; preds = %.lr.ph, %69
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %69 ]
   %.val50 = load ptr, ptr %7, align 8
   %14 = getelementptr inbounds ptr, ptr %.val50, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
@@ -2487,87 +2487,95 @@ Saig_ObjIsLo.exit:                                ; preds = %13
   %30 = getelementptr i8, ptr %29, i64 32
   %.val49 = load i32, ptr %30, align 8
   %.not = icmp eq i32 %.val49, %.val46.pre73
-  br i1 %.not, label %68, label %31
+  br i1 %.not, label %69, label %31
 
 31:                                               ; preds = %18
   %32 = getelementptr inbounds i8, ptr %29, i64 40
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %.sink.split, label %68
+  br i1 %34, label %Aig_ObjRepr.exit, label %69
+
+Aig_ObjRepr.exit:                                 ; preds = %31
+  %35 = tail call ptr @Aig_ObjCreateCi(ptr noundef %0) #18
+  store ptr %35, ptr %32, align 8
+  br label %.sink.split
 
 Saig_ObjIsLo.exit.thread:                         ; preds = %.Saig_ObjIsLo.exit.thread_crit_edge, %Saig_ObjIsLo.exit
   %.val46 = phi i32 [ %.val46.pre, %.Saig_ObjIsLo.exit.thread_crit_edge ], [ %.val46.pre73, %Saig_ObjIsLo.exit ]
-  %35 = getelementptr i8, ptr %15, i64 8
-  %.val51 = load ptr, ptr %35, align 8
-  %36 = ptrtoint ptr %.val51 to i64
-  %37 = and i64 %36, -2
-  %38 = inttoptr i64 %37 to ptr
-  %39 = getelementptr i8, ptr %38, i64 32
-  %.val47 = load i32, ptr %39, align 8
+  %36 = getelementptr i8, ptr %15, i64 8
+  %.val51 = load ptr, ptr %36, align 8
+  %37 = ptrtoint ptr %.val51 to i64
+  %38 = and i64 %37, -2
+  %39 = inttoptr i64 %38 to ptr
+  %40 = getelementptr i8, ptr %39, i64 32
+  %.val47 = load i32, ptr %40, align 8
   %.not67 = icmp eq i32 %.val47, %.val46
-  br i1 %.not67, label %51, label %40
+  br i1 %.not67, label %52, label %41
 
-40:                                               ; preds = %Saig_ObjIsLo.exit.thread
-  %41 = getelementptr inbounds i8, ptr %38, i64 40
-  %42 = load ptr, ptr %41, align 8
-  %43 = icmp eq ptr %42, null
-  br i1 %43, label %Aig_ObjRepr.exit62, label %51
+41:                                               ; preds = %Saig_ObjIsLo.exit.thread
+  %42 = getelementptr inbounds i8, ptr %39, i64 40
+  %43 = load ptr, ptr %42, align 8
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %Aig_ObjRepr.exit62, label %52
 
-Aig_ObjRepr.exit62:                               ; preds = %40
-  %44 = tail call ptr @Aig_ObjCreateCi(ptr noundef %0) #18
-  store ptr %44, ptr %41, align 8
+Aig_ObjRepr.exit62:                               ; preds = %41
+  %45 = tail call ptr @Aig_ObjCreateCi(ptr noundef %0) #18
+  store ptr %45, ptr %42, align 8
   %.val57 = load ptr, ptr %12, align 8, !nonnull !23, !noundef !23
-  %45 = getelementptr inbounds i8, ptr %38, i64 36
-  %46 = load i32, ptr %45, align 4
-  %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds ptr, ptr %.val57, i64 %47
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 40
-  store ptr %44, ptr %50, align 8
+  %46 = getelementptr inbounds i8, ptr %39, i64 36
+  %47 = load i32, ptr %46, align 4
+  %48 = sext i32 %47 to i64
+  %49 = getelementptr inbounds ptr, ptr %.val57, i64 %48
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds i8, ptr %50, i64 40
+  store ptr %45, ptr %51, align 8
   %.val.pre = load i32, ptr %11, align 8
-  br label %51
+  br label %52
 
-51:                                               ; preds = %Aig_ObjRepr.exit62, %40, %Saig_ObjIsLo.exit.thread
-  %.val = phi i32 [ %.val46, %Saig_ObjIsLo.exit.thread ], [ %.val.pre, %Aig_ObjRepr.exit62 ], [ %.val46, %40 ]
-  %52 = getelementptr i8, ptr %15, i64 16
-  %.val54 = load ptr, ptr %52, align 8
-  %53 = ptrtoint ptr %.val54 to i64
-  %54 = and i64 %53, -2
-  %55 = inttoptr i64 %54 to ptr
-  %56 = getelementptr i8, ptr %55, i64 32
-  %.val45 = load i32, ptr %56, align 8
+52:                                               ; preds = %Aig_ObjRepr.exit62, %41, %Saig_ObjIsLo.exit.thread
+  %.val = phi i32 [ %.val46, %Saig_ObjIsLo.exit.thread ], [ %.val.pre, %Aig_ObjRepr.exit62 ], [ %.val46, %41 ]
+  %53 = getelementptr i8, ptr %15, i64 16
+  %.val54 = load ptr, ptr %53, align 8
+  %54 = ptrtoint ptr %.val54 to i64
+  %55 = and i64 %54, -2
+  %56 = inttoptr i64 %55 to ptr
+  %57 = getelementptr i8, ptr %56, i64 32
+  %.val45 = load i32, ptr %57, align 8
   %.not68 = icmp eq i32 %.val45, %.val
-  br i1 %.not68, label %68, label %57
+  br i1 %.not68, label %69, label %58
 
-57:                                               ; preds = %51
-  %58 = getelementptr inbounds i8, ptr %55, i64 40
-  %59 = load ptr, ptr %58, align 8
-  %60 = icmp eq ptr %59, null
-  br i1 %60, label %.sink.split, label %68
+58:                                               ; preds = %52
+  %59 = getelementptr inbounds i8, ptr %56, i64 40
+  %60 = load ptr, ptr %59, align 8
+  %61 = icmp eq ptr %60, null
+  br i1 %61, label %Aig_ObjRepr.exit64, label %69
 
-.sink.split:                                      ; preds = %57, %31
-  %.sink84 = phi ptr [ %32, %31 ], [ %58, %57 ]
-  %.sink82 = phi ptr [ %29, %31 ], [ %55, %57 ]
-  %61 = tail call ptr @Aig_ObjCreateCi(ptr noundef %0) #18
-  store ptr %61, ptr %.sink84, align 8
+Aig_ObjRepr.exit64:                               ; preds = %58
+  %62 = tail call ptr @Aig_ObjCreateCi(ptr noundef %0) #18
+  store ptr %62, ptr %59, align 8
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %Aig_ObjRepr.exit64, %Aig_ObjRepr.exit
+  %.sink82 = phi ptr [ %29, %Aig_ObjRepr.exit ], [ %56, %Aig_ObjRepr.exit64 ]
+  %.sink = phi ptr [ %35, %Aig_ObjRepr.exit ], [ %62, %Aig_ObjRepr.exit64 ]
   %.val58 = load ptr, ptr %12, align 8, !nonnull !23, !noundef !23
-  %62 = getelementptr inbounds i8, ptr %.sink82, i64 36
-  %63 = load i32, ptr %62, align 4
-  %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds ptr, ptr %.val58, i64 %64
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 40
-  store ptr %61, ptr %67, align 8
-  br label %68
+  %63 = getelementptr inbounds i8, ptr %.sink82, i64 36
+  %64 = load i32, ptr %63, align 4
+  %65 = sext i32 %64 to i64
+  %66 = getelementptr inbounds ptr, ptr %.val58, i64 %65
+  %67 = load ptr, ptr %66, align 8
+  %68 = getelementptr inbounds i8, ptr %67, i64 40
+  store ptr %.sink, ptr %68, align 8
+  br label %69
 
-68:                                               ; preds = %.sink.split, %31, %18, %57, %51
+69:                                               ; preds = %.sink.split, %31, %18, %58, %52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val55 = load i32, ptr %5, align 4
-  %69 = sext i32 %.val55 to i64
-  %70 = icmp slt i64 %indvars.iv.next, %69
-  br i1 %70, label %13, label %.critedge, !llvm.loop !24
+  %70 = sext i32 %.val55 to i64
+  %71 = icmp slt i64 %indvars.iv.next, %70
+  br i1 %71, label %13, label %.critedge, !llvm.loop !24
 
-.critedge:                                        ; preds = %68, %4
+.critedge:                                        ; preds = %69, %4
   ret void
 }
 

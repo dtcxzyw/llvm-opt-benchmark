@@ -15071,7 +15071,8 @@ define internal fastcc i32 @mb_find_extent(ptr nocapture noundef readonly %0, i3
   %53 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 0, ptr %53, align 4
   %54 = getelementptr inbounds i8, ptr %3, i64 8
-  br label %.sink.split
+  store i32 0, ptr %54, align 4
+  br label %243
 
 55:                                               ; preds = %39
   %56 = load ptr, ptr %23, align 8
@@ -15370,15 +15371,11 @@ mb_find_order_for_block.exit7:                    ; preds = %199, %213
   tail call void (ptr, i32, ptr, i32, i64, i64, ptr, ...) @__ext4_grp_locked_error(ptr noundef nonnull @__func__.mb_find_extent, i32 noundef 2030, ptr noundef %237, i32 noundef %238, i64 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.84, i32 noundef %227, i32 noundef %226, i32 noundef %2, i32 noundef %239, i32 noundef %240, i32 noundef %241, i32 noundef %242) #16
   store i32 0, ptr %111, align 4
   store i32 0, ptr %112, align 4
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %51, %236
-  %.sink = phi ptr [ %114, %236 ], [ %54, %51 ]
-  store i32 0, ptr %.sink, align 4
+  store i32 0, ptr %114, align 4
   br label %243
 
-243:                                              ; preds = %.sink.split, %.thread
-  %244 = phi i32 [ %224, %.thread ], [ 0, %.sink.split ]
+243:                                              ; preds = %.thread, %236, %51
+  %244 = phi i32 [ 0, %51 ], [ 0, %236 ], [ %224, %.thread ]
   ret i32 %244
 }
 

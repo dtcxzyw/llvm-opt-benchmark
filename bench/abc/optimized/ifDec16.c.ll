@@ -1608,6 +1608,7 @@ If_CluHashKey.exit172:                            ; preds = %.preheader22.i156, 
   store ptr %206, ptr %180, align 8
   %214 = load ptr, ptr %23, align 8
   %215 = getelementptr inbounds ptr, ptr %214, i64 %204
+  store ptr %180, ptr %215, align 8
   br label %221
 
 .preheader:                                       ; preds = %208, %217
@@ -1624,11 +1625,10 @@ If_CluHashKey.exit172:                            ; preds = %.preheader22.i156, 
 
 .critedge2:                                       ; preds = %.preheader, %217
   store ptr %216, ptr %180, align 8
+  store ptr %180, ptr %.0124, align 8
   br label %221
 
 221:                                              ; preds = %213, %.critedge2
-  %.sink = phi ptr [ %215, %213 ], [ %.0124, %.critedge2 ]
-  store ptr %180, ptr %.sink, align 8
   %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next217, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %178, !llvm.loop !37

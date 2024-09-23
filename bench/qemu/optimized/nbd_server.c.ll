@@ -391,10 +391,19 @@ do.body:                                          ; preds = %if.end5
   %cmp8.not = icmp eq ptr %7, null
   %tql_prev16 = getelementptr inbounds i8, ptr %client, i64 136
   %8 = load ptr, ptr %tql_prev16, align 8
-  %tql_prev18 = getelementptr inbounds i8, ptr %6, i64 96
+  br i1 %cmp8.not, label %if.else14, label %if.then9
+
+if.then9:                                         ; preds = %do.body
   %tql_prev13 = getelementptr inbounds i8, ptr %7, i64 136
-  %tql_prev18.sink = select i1 %cmp8.not, ptr %tql_prev18, ptr %tql_prev13
-  store ptr %8, ptr %tql_prev18.sink, align 8
+  store ptr %8, ptr %tql_prev13, align 8
+  br label %if.end19
+
+if.else14:                                        ; preds = %do.body
+  %tql_prev18 = getelementptr inbounds i8, ptr %6, i64 96
+  store ptr %8, ptr %tql_prev18, align 8
+  br label %if.end19
+
+if.end19:                                         ; preds = %if.else14, %if.then9
   %9 = load ptr, ptr %next, align 8
   store ptr %9, ptr %8, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next, i8 0, i64 16, i1 false)
@@ -402,7 +411,7 @@ do.body:                                          ; preds = %if.end5
   tail call void @blk_exp_unref(ptr noundef %10) #20
   br label %if.end29
 
-if.end29:                                         ; preds = %do.body, %if.end5
+if.end29:                                         ; preds = %if.end19, %if.end5
   %bitmaps = getelementptr inbounds i8, ptr %client, i64 184
   %11 = load ptr, ptr %bitmaps, align 8
   tail call void @g_free(ptr noundef %11) #20

@@ -12795,10 +12795,10 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_proc
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
-  switch i32 %8, label %78 [
+  switch i32 %8, label %93 [
     i32 0, label %9
-    i32 1, label %49
-    i32 2, label %69
+    i32 1, label %54
+    i32 2, label %79
   ]
 
 9:                                                ; preds = %4
@@ -12861,60 +12861,67 @@ _ZN16InstanceRefKlass12try_discoverI9narrowOop19PointsToOopsCheckerEEbP7oopDesc1
   %46 = inttoptr i64 %45 to ptr
   %47 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286822EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %48 = tail call noundef ptr %47(ptr noundef %46) #20
-  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryI9narrowOop19PointsToOopsChecker14AlwaysContainsEEvP7oopDesc13ReferenceTypePT0_RT1_.exit.sink.split
+  %49 = icmp ne ptr %48, null
+  %50 = load i8, ptr %38, align 8
+  %51 = and i8 %50, 1
+  %52 = zext i1 %49 to i8
+  %53 = or i8 %51, %52
+  store i8 %53, ptr %38, align 8
+  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryI9narrowOop19PointsToOopsChecker14AlwaysContainsEEvP7oopDesc13ReferenceTypePT0_RT1_.exit
 
-49:                                               ; preds = %4
-  %50 = load i32, ptr @_ZN23java_lang_ref_Reference16_referent_offsetE, align 4
-  %51 = ptrtoint ptr %1 to i64
-  %52 = sext i32 %50 to i64
-  %53 = add nsw i64 %52, %51
-  %54 = inttoptr i64 %53 to ptr
-  %55 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286822EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
-  %56 = tail call noundef ptr %55(ptr noundef %54) #20
-  %57 = icmp ne ptr %56, null
-  %58 = getelementptr inbounds i8, ptr %2, i64 16
-  %59 = load i8, ptr %58, align 8
-  %60 = and i8 %59, 1
-  %61 = zext i1 %57 to i8
-  %62 = or i8 %60, %61
-  store i8 %62, ptr %58, align 8
-  %63 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
-  %64 = sext i32 %63 to i64
-  %65 = add nsw i64 %64, %51
-  %66 = inttoptr i64 %65 to ptr
-  %67 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286822EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
-  %68 = tail call noundef ptr %67(ptr noundef %66) #20
-  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryI9narrowOop19PointsToOopsChecker14AlwaysContainsEEvP7oopDesc13ReferenceTypePT0_RT1_.exit.sink.split
+54:                                               ; preds = %4
+  %55 = load i32, ptr @_ZN23java_lang_ref_Reference16_referent_offsetE, align 4
+  %56 = ptrtoint ptr %1 to i64
+  %57 = sext i32 %55 to i64
+  %58 = add nsw i64 %57, %56
+  %59 = inttoptr i64 %58 to ptr
+  %60 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286822EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
+  %61 = tail call noundef ptr %60(ptr noundef %59) #20
+  %62 = icmp ne ptr %61, null
+  %63 = getelementptr inbounds i8, ptr %2, i64 16
+  %64 = load i8, ptr %63, align 8
+  %65 = and i8 %64, 1
+  %66 = zext i1 %62 to i8
+  %67 = or i8 %65, %66
+  store i8 %67, ptr %63, align 8
+  %68 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
+  %69 = sext i32 %68 to i64
+  %70 = add nsw i64 %69, %56
+  %71 = inttoptr i64 %70 to ptr
+  %72 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286822EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
+  %73 = tail call noundef ptr %72(ptr noundef %71) #20
+  %74 = icmp ne ptr %73, null
+  %75 = load i8, ptr %63, align 8
+  %76 = and i8 %75, 1
+  %77 = zext i1 %74 to i8
+  %78 = or i8 %76, %77
+  store i8 %78, ptr %63, align 8
+  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryI9narrowOop19PointsToOopsChecker14AlwaysContainsEEvP7oopDesc13ReferenceTypePT0_RT1_.exit
 
-69:                                               ; preds = %4
-  %70 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
-  %71 = ptrtoint ptr %1 to i64
-  %72 = sext i32 %70 to i64
-  %73 = add nsw i64 %72, %71
-  %74 = inttoptr i64 %73 to ptr
-  %75 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286822EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
-  %76 = tail call noundef ptr %75(ptr noundef %74) #20
-  %77 = getelementptr inbounds i8, ptr %2, i64 16
-  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryI9narrowOop19PointsToOopsChecker14AlwaysContainsEEvP7oopDesc13ReferenceTypePT0_RT1_.exit.sink.split
+79:                                               ; preds = %4
+  %80 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
+  %81 = ptrtoint ptr %1 to i64
+  %82 = sext i32 %80 to i64
+  %83 = add nsw i64 %82, %81
+  %84 = inttoptr i64 %83 to ptr
+  %85 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286822EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
+  %86 = tail call noundef ptr %85(ptr noundef %84) #20
+  %87 = icmp ne ptr %86, null
+  %88 = getelementptr inbounds i8, ptr %2, i64 16
+  %89 = load i8, ptr %88, align 8
+  %90 = and i8 %89, 1
+  %91 = zext i1 %87 to i8
+  %92 = or i8 %90, %91
+  store i8 %92, ptr %88, align 8
+  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryI9narrowOop19PointsToOopsChecker14AlwaysContainsEEvP7oopDesc13ReferenceTypePT0_RT1_.exit
 
-78:                                               ; preds = %4
-  %79 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %79, align 1
+93:                                               ; preds = %4
+  %94 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %94, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.117, i32 noundef 122) #21
   unreachable
 
-_ZN16InstanceRefKlass25oop_oop_iterate_discoveryI9narrowOop19PointsToOopsChecker14AlwaysContainsEEvP7oopDesc13ReferenceTypePT0_RT1_.exit.sink.split: ; preds = %49, %69, %_ZN16InstanceRefKlass12try_discoverI9narrowOop19PointsToOopsCheckerEEbP7oopDesc13ReferenceTypePT0_.exit.thread.i
-  %.sink18 = phi ptr [ %38, %_ZN16InstanceRefKlass12try_discoverI9narrowOop19PointsToOopsCheckerEEbP7oopDesc13ReferenceTypePT0_.exit.thread.i ], [ %77, %69 ], [ %58, %49 ]
-  %.sink.in = phi ptr [ %48, %_ZN16InstanceRefKlass12try_discoverI9narrowOop19PointsToOopsCheckerEEbP7oopDesc13ReferenceTypePT0_.exit.thread.i ], [ %76, %69 ], [ %68, %49 ]
-  %.sink = icmp ne ptr %.sink.in, null
-  %80 = load i8, ptr %.sink18, align 8
-  %81 = and i8 %80, 1
-  %82 = zext i1 %.sink to i8
-  %83 = or i8 %81, %82
-  store i8 %83, ptr %.sink18, align 8
-  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryI9narrowOop19PointsToOopsChecker14AlwaysContainsEEvP7oopDesc13ReferenceTypePT0_RT1_.exit
-
-_ZN16InstanceRefKlass25oop_oop_iterate_discoveryI9narrowOop19PointsToOopsChecker14AlwaysContainsEEvP7oopDesc13ReferenceTypePT0_RT1_.exit: ; preds = %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryI9narrowOop19PointsToOopsChecker14AlwaysContainsEEvP7oopDesc13ReferenceTypePT0_RT1_.exit.sink.split, %_ZN16InstanceRefKlass12try_discoverI9narrowOop19PointsToOopsCheckerEEbP7oopDesc13ReferenceTypePT0_.exit.i
+_ZN16InstanceRefKlass25oop_oop_iterate_discoveryI9narrowOop19PointsToOopsChecker14AlwaysContainsEEvP7oopDesc13ReferenceTypePT0_RT1_.exit: ; preds = %_ZN16InstanceRefKlass12try_discoverI9narrowOop19PointsToOopsCheckerEEbP7oopDesc13ReferenceTypePT0_.exit.thread.i, %_ZN16InstanceRefKlass12try_discoverI9narrowOop19PointsToOopsCheckerEEbP7oopDesc13ReferenceTypePT0_.exit.i, %79, %54
   ret void
 }
 
@@ -13784,10 +13791,10 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_proc
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
-  switch i32 %8, label %78 [
+  switch i32 %8, label %93 [
     i32 0, label %9
-    i32 1, label %49
-    i32 2, label %69
+    i32 1, label %54
+    i32 2, label %79
   ]
 
 9:                                                ; preds = %4
@@ -13850,60 +13857,67 @@ _ZN16InstanceRefKlass12try_discoverIP7oopDesc19PointsToOopsCheckerEEbS2_13Refere
   %46 = inttoptr i64 %45 to ptr
   %47 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286788EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %48 = tail call noundef ptr %47(ptr noundef %46) #20
-  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc19PointsToOopsChecker14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit.sink.split
+  %49 = icmp ne ptr %48, null
+  %50 = load i8, ptr %38, align 8
+  %51 = and i8 %50, 1
+  %52 = zext i1 %49 to i8
+  %53 = or i8 %51, %52
+  store i8 %53, ptr %38, align 8
+  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc19PointsToOopsChecker14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit
 
-49:                                               ; preds = %4
-  %50 = load i32, ptr @_ZN23java_lang_ref_Reference16_referent_offsetE, align 4
-  %51 = ptrtoint ptr %1 to i64
-  %52 = sext i32 %50 to i64
-  %53 = add nsw i64 %52, %51
-  %54 = inttoptr i64 %53 to ptr
-  %55 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286788EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
-  %56 = tail call noundef ptr %55(ptr noundef %54) #20
-  %57 = icmp ne ptr %56, null
-  %58 = getelementptr inbounds i8, ptr %2, i64 16
-  %59 = load i8, ptr %58, align 8
-  %60 = and i8 %59, 1
-  %61 = zext i1 %57 to i8
-  %62 = or i8 %60, %61
-  store i8 %62, ptr %58, align 8
-  %63 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
-  %64 = sext i32 %63 to i64
-  %65 = add nsw i64 %64, %51
-  %66 = inttoptr i64 %65 to ptr
-  %67 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286788EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
-  %68 = tail call noundef ptr %67(ptr noundef %66) #20
-  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc19PointsToOopsChecker14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit.sink.split
+54:                                               ; preds = %4
+  %55 = load i32, ptr @_ZN23java_lang_ref_Reference16_referent_offsetE, align 4
+  %56 = ptrtoint ptr %1 to i64
+  %57 = sext i32 %55 to i64
+  %58 = add nsw i64 %57, %56
+  %59 = inttoptr i64 %58 to ptr
+  %60 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286788EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
+  %61 = tail call noundef ptr %60(ptr noundef %59) #20
+  %62 = icmp ne ptr %61, null
+  %63 = getelementptr inbounds i8, ptr %2, i64 16
+  %64 = load i8, ptr %63, align 8
+  %65 = and i8 %64, 1
+  %66 = zext i1 %62 to i8
+  %67 = or i8 %65, %66
+  store i8 %67, ptr %63, align 8
+  %68 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
+  %69 = sext i32 %68 to i64
+  %70 = add nsw i64 %69, %56
+  %71 = inttoptr i64 %70 to ptr
+  %72 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286788EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
+  %73 = tail call noundef ptr %72(ptr noundef %71) #20
+  %74 = icmp ne ptr %73, null
+  %75 = load i8, ptr %63, align 8
+  %76 = and i8 %75, 1
+  %77 = zext i1 %74 to i8
+  %78 = or i8 %76, %77
+  store i8 %78, ptr %63, align 8
+  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc19PointsToOopsChecker14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit
 
-69:                                               ; preds = %4
-  %70 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
-  %71 = ptrtoint ptr %1 to i64
-  %72 = sext i32 %70 to i64
-  %73 = add nsw i64 %72, %71
-  %74 = inttoptr i64 %73 to ptr
-  %75 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286788EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
-  %76 = tail call noundef ptr %75(ptr noundef %74) #20
-  %77 = getelementptr inbounds i8, ptr %2, i64 16
-  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc19PointsToOopsChecker14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit.sink.split
+79:                                               ; preds = %4
+  %80 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
+  %81 = ptrtoint ptr %1 to i64
+  %82 = sext i32 %80 to i64
+  %83 = add nsw i64 %82, %81
+  %84 = inttoptr i64 %83 to ptr
+  %85 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286788EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
+  %86 = tail call noundef ptr %85(ptr noundef %84) #20
+  %87 = icmp ne ptr %86, null
+  %88 = getelementptr inbounds i8, ptr %2, i64 16
+  %89 = load i8, ptr %88, align 8
+  %90 = and i8 %89, 1
+  %91 = zext i1 %87 to i8
+  %92 = or i8 %90, %91
+  store i8 %92, ptr %88, align 8
+  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc19PointsToOopsChecker14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit
 
-78:                                               ; preds = %4
-  %79 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %79, align 1
+93:                                               ; preds = %4
+  %94 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %94, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.117, i32 noundef 122) #21
   unreachable
 
-_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc19PointsToOopsChecker14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit.sink.split: ; preds = %49, %69, %_ZN16InstanceRefKlass12try_discoverIP7oopDesc19PointsToOopsCheckerEEbS2_13ReferenceTypePT0_.exit.thread.i
-  %.sink18 = phi ptr [ %38, %_ZN16InstanceRefKlass12try_discoverIP7oopDesc19PointsToOopsCheckerEEbS2_13ReferenceTypePT0_.exit.thread.i ], [ %77, %69 ], [ %58, %49 ]
-  %.sink.in = phi ptr [ %48, %_ZN16InstanceRefKlass12try_discoverIP7oopDesc19PointsToOopsCheckerEEbS2_13ReferenceTypePT0_.exit.thread.i ], [ %76, %69 ], [ %68, %49 ]
-  %.sink = icmp ne ptr %.sink.in, null
-  %80 = load i8, ptr %.sink18, align 8
-  %81 = and i8 %80, 1
-  %82 = zext i1 %.sink to i8
-  %83 = or i8 %81, %82
-  store i8 %83, ptr %.sink18, align 8
-  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc19PointsToOopsChecker14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit
-
-_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc19PointsToOopsChecker14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit: ; preds = %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc19PointsToOopsChecker14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit.sink.split, %_ZN16InstanceRefKlass12try_discoverIP7oopDesc19PointsToOopsCheckerEEbS2_13ReferenceTypePT0_.exit.i
+_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc19PointsToOopsChecker14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit: ; preds = %_ZN16InstanceRefKlass12try_discoverIP7oopDesc19PointsToOopsCheckerEEbS2_13ReferenceTypePT0_.exit.thread.i, %_ZN16InstanceRefKlass12try_discoverIP7oopDesc19PointsToOopsCheckerEEbS2_13ReferenceTypePT0_.exit.i, %79, %54
   ret void
 }
 

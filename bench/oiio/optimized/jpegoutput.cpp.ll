@@ -2923,6 +2923,7 @@ if.then.i.i:                                      ; preds = %if.then
 
 _ZN18OpenImageIO_v2_6_09JpgOutput4initEv.exit:    ; preds = %if.then, %if.then.i.i
   %m_outsize.i.i = getelementptr inbounds i8, ptr %this, i64 1048
+  store i64 0, ptr %m_outsize.i.i, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -3134,17 +3135,19 @@ if.end50:                                         ; preds = %if.then46, %if.end4
   %m_outbuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 1040
   %29 = load ptr, ptr %m_outbuffer.i.i13, align 8
   %tobool.not.i.i14 = icmp eq ptr %29, null
-  br i1 %tobool.not.i.i14, label %return, label %if.then.i.i15
+  br i1 %tobool.not.i.i14, label %_ZN18OpenImageIO_v2_6_09JpgOutput4initEv.exit17, label %if.then.i.i15
 
 if.then.i.i15:                                    ; preds = %if.end50
   call void @free(ptr noundef nonnull %29) #23
   store ptr null, ptr %m_outbuffer.i.i13, align 8
+  br label %_ZN18OpenImageIO_v2_6_09JpgOutput4initEv.exit17
+
+_ZN18OpenImageIO_v2_6_09JpgOutput4initEv.exit17:  ; preds = %if.end50, %if.then.i.i15
+  store i64 0, ptr %m_outsize, align 8
   br label %return
 
-return:                                           ; preds = %if.then.i.i15, %if.end50, %_ZN18OpenImageIO_v2_6_09JpgOutput4initEv.exit
-  %m_outsize.sink = phi ptr [ %m_outsize.i.i, %_ZN18OpenImageIO_v2_6_09JpgOutput4initEv.exit ], [ %m_outsize, %if.end50 ], [ %m_outsize, %if.then.i.i15 ]
-  %retval.0 = phi i1 [ true, %_ZN18OpenImageIO_v2_6_09JpgOutput4initEv.exit ], [ %ok.0, %if.end50 ], [ %ok.0, %if.then.i.i15 ]
-  store i64 0, ptr %m_outsize.sink, align 8
+return:                                           ; preds = %_ZN18OpenImageIO_v2_6_09JpgOutput4initEv.exit17, %_ZN18OpenImageIO_v2_6_09JpgOutput4initEv.exit
+  %retval.0 = phi i1 [ %ok.0, %_ZN18OpenImageIO_v2_6_09JpgOutput4initEv.exit17 ], [ true, %_ZN18OpenImageIO_v2_6_09JpgOutput4initEv.exit ]
   ret i1 %retval.0
 
 eh.resume:                                        ; preds = %lpad25, %lpad.body

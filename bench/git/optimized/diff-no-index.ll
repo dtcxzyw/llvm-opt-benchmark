@@ -39,7 +39,7 @@ entry:
   %st.i = alloca %struct.stat, align 8
   %no_index = alloca i32, align 4
   %paths.sroa.0 = alloca ptr, align 16
-  %paths.sroa.5 = alloca ptr, align 8
+  %paths.sroa.3 = alloca ptr, align 8
   %to_free.sroa.0 = alloca ptr, align 16
   %to_free.sroa.3 = alloca ptr, align 8
   %replacement = alloca %struct.strbuf, align 8
@@ -98,7 +98,7 @@ do.body:                                          ; preds = %entry
 
 for.body.us:                                      ; preds = %do.body, %for.body.tail.us
   %cmp13.us = phi i1 [ false, %for.body.tail.us ], [ true, %do.body ]
-  %indvars.iv57.sroa.phi = phi ptr [ %paths.sroa.5, %for.body.tail.us ], [ %paths.sroa.0, %do.body ]
+  %indvars.iv57.sroa.phi = phi ptr [ %paths.sroa.3, %for.body.tail.us ], [ %paths.sroa.0, %do.body ]
   %indvars.iv57 = phi i64 [ 1, %for.body.tail.us ], [ 0, %do.body ]
   %arrayidx.us = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv57
   %3 = load ptr, ptr %arrayidx.us, align 8
@@ -121,7 +121,7 @@ for.body.tail.us:                                 ; preds = %sub_1.us, %for.body
 for.body:                                         ; preds = %do.body, %if.end23
   %cmp13 = phi i1 [ false, %if.end23 ], [ true, %do.body ]
   %indvars.iv.sroa.phi = phi ptr [ %to_free.sroa.3, %if.end23 ], [ %to_free.sroa.0, %do.body ]
-  %indvars.iv.sroa.phi68 = phi ptr [ %paths.sroa.5, %if.end23 ], [ %paths.sroa.0, %do.body ]
+  %indvars.iv.sroa.phi68 = phi ptr [ %paths.sroa.3, %if.end23 ], [ %paths.sroa.0, %do.body ]
   %indvars.iv = phi i64 [ 1, %if.end23 ], [ 0, %do.body ]
   %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv
   %9 = load ptr, ptr %arrayidx, align 8
@@ -147,12 +147,12 @@ if.end23:                                         ; preds = %for.body.tail, %if.
 
 for.end:                                          ; preds = %if.end23, %for.body.tail.us
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %st.i)
-  %paths.sroa.0.0.paths.sroa.0.0.71 = load ptr, ptr %paths.sroa.0, align 16
-  %cmp.not.i = icmp eq ptr %paths.sroa.0.0.paths.sroa.0.0.71, @file_from_standard_input
+  %paths.sroa.0.0.paths.sroa.0.0. = load ptr, ptr %paths.sroa.0, align 16
+  %cmp.not.i = icmp eq ptr %paths.sroa.0.0.paths.sroa.0.0., @file_from_standard_input
   br i1 %cmp.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.end
-  %call.i33 = call i32 @stat64(ptr noundef %paths.sroa.0.0.paths.sroa.0.0.71, ptr noundef nonnull %st.i) #12
+  %call.i33 = call i32 @stat64(ptr noundef %paths.sroa.0.0.paths.sroa.0.0., ptr noundef nonnull %st.i) #12
   %tobool.not.i = icmp eq i32 %call.i33, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
 
@@ -168,12 +168,12 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 if.end.i:                                         ; preds = %if.then.i, %land.lhs.true.i, %for.end
   %isdir0.0.i = phi i32 [ 0, %land.lhs.true.i ], [ %conv.i, %if.then.i ], [ 0, %for.end ]
   %ispipe0.0.i = phi i1 [ false, %land.lhs.true.i ], [ %cmp5.i, %if.then.i ], [ false, %for.end ]
-  %paths.sroa.5.0.paths.sroa.5.8. = load ptr, ptr %paths.sroa.5, align 8
-  %cmp8.not.i = icmp eq ptr %paths.sroa.5.0.paths.sroa.5.8., @file_from_standard_input
+  %paths.sroa.3.0.paths.sroa.3.8. = load ptr, ptr %paths.sroa.3, align 8
+  %cmp8.not.i = icmp eq ptr %paths.sroa.3.0.paths.sroa.3.8., @file_from_standard_input
   br i1 %cmp8.not.i, label %lor.lhs.false.i.thread, label %land.lhs.true10.i
 
 land.lhs.true10.i:                                ; preds = %if.end.i
-  %call12.i = call i32 @stat64(ptr noundef %paths.sroa.5.0.paths.sroa.5.8., ptr noundef nonnull %st.i) #12
+  %call12.i = call i32 @stat64(ptr noundef %paths.sroa.3.0.paths.sroa.3.8., ptr noundef nonnull %st.i) #12
   %tobool13.not.i = icmp eq i32 %call12.i, 0
   br i1 %tobool13.not.i, label %if.end23.i, label %lor.lhs.false.i
 
@@ -225,27 +225,26 @@ if.end46.thread.i:                                ; preds = %if.end36.i
   br i1 %cmp4732.i, label %fixup_paths.exit, label %if.then52.i
 
 if.then52.i:                                      ; preds = %if.end46.thread.i
-  call fastcc void @append_basename(ptr noundef %replacement, ptr noundef %paths.sroa.0.0.paths.sroa.0.0.71, ptr noundef %paths.sroa.5.0.paths.sroa.5.8.)
-  br label %if.end60.sink.split.i
-
-if.else.i:                                        ; preds = %if.end46.i
-  call fastcc void @append_basename(ptr noundef %replacement, ptr noundef %paths.sroa.5.0.paths.sroa.5.8., ptr noundef %paths.sroa.0.0.paths.sroa.0.0.71)
-  br label %if.end60.sink.split.i
-
-if.end60.sink.split.i:                            ; preds = %if.else.i, %if.then52.i
-  %arrayidx7.sink.i = phi ptr [ %paths.sroa.5, %if.else.i ], [ %paths.sroa.0, %if.then52.i ]
-  %buf58.i = getelementptr inbounds i8, ptr %replacement, i64 16
-  %16 = load ptr, ptr %buf58.i, align 8
-  store ptr %16, ptr %arrayidx7.sink.i, align 8
+  call fastcc void @append_basename(ptr noundef %replacement, ptr noundef %paths.sroa.0.0.paths.sroa.0.0., ptr noundef %paths.sroa.3.0.paths.sroa.3.8.)
+  %buf.i = getelementptr inbounds i8, ptr %replacement, i64 16
+  %16 = load ptr, ptr %buf.i, align 8
   br label %fixup_paths.exit
 
-fixup_paths.exit:                                 ; preds = %lor.lhs.false.i.thread, %if.end46.i, %if.end46.thread.i, %if.end60.sink.split.i
+if.else.i:                                        ; preds = %if.end46.i
+  call fastcc void @append_basename(ptr noundef %replacement, ptr noundef %paths.sroa.3.0.paths.sroa.3.8., ptr noundef %paths.sroa.0.0.paths.sroa.0.0.)
+  %buf58.i = getelementptr inbounds i8, ptr %replacement, i64 16
+  %17 = load ptr, ptr %buf58.i, align 8
+  br label %fixup_paths.exit
+
+fixup_paths.exit:                                 ; preds = %lor.lhs.false.i.thread, %if.end46.i, %if.end46.thread.i, %if.then52.i, %if.else.i
+  %18 = phi ptr [ @file_from_standard_input, %lor.lhs.false.i.thread ], [ %paths.sroa.3.0.paths.sroa.3.8., %if.end46.i ], [ %paths.sroa.3.0.paths.sroa.3.8., %if.end46.thread.i ], [ %paths.sroa.3.0.paths.sroa.3.8., %if.then52.i ], [ %17, %if.else.i ]
+  %19 = phi ptr [ %paths.sroa.0.0.paths.sroa.0.0., %lor.lhs.false.i.thread ], [ %paths.sroa.0.0.paths.sroa.0.0., %if.end46.i ], [ %paths.sroa.0.0.paths.sroa.0.0., %if.end46.thread.i ], [ %16, %if.then52.i ], [ %paths.sroa.0.0.paths.sroa.0.0., %if.else.i ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %st.i)
   %skip_stat_unmatch = getelementptr inbounds i8, ptr %revs, i64 1748
   store i32 1, ptr %skip_stat_unmatch, align 4
   %output_format = getelementptr inbounds i8, ptr %revs, i64 1756
-  %17 = load i32, ptr %output_format, align 4
-  %tobool29.not = icmp eq i32 %17, 0
+  %20 = load i32, ptr %output_format, align 4
+  %tobool29.not = icmp eq i32 %20, 0
   br i1 %tobool29.not, label %if.then30, label %if.end33
 
 if.then30:                                        ; preds = %fixup_paths.exit
@@ -265,9 +264,7 @@ if.end33:                                         ; preds = %if.then30, %fixup_p
   call void @setup_diff_pager(ptr noundef nonnull %diffopt) #12
   %exit_with_status = getelementptr inbounds i8, ptr %revs, i64 1628
   store i32 1, ptr %exit_with_status, align 4
-  %paths.sroa.0.0.paths.sroa.0.0. = load ptr, ptr %paths.sroa.0, align 16
-  %paths.sroa.5.0.paths.sroa.5.8.72 = load ptr, ptr %paths.sroa.5, align 8
-  %call48 = call fastcc i32 @queue_diff(ptr noundef nonnull %diffopt, ptr noundef %paths.sroa.0.0.paths.sroa.0.0., ptr noundef %paths.sroa.5.0.paths.sroa.5.8.72, i32 noundef 0)
+  %call48 = call fastcc i32 @queue_diff(ptr noundef nonnull %diffopt, ptr noundef %19, ptr noundef %18, i32 noundef 0)
   %tobool49.not = icmp eq i32 %call48, 0
   br i1 %tobool49.not, label %if.end51, label %out
 

@@ -190,7 +190,7 @@ define internal fastcc noundef zeroext i1 @deallocate_one(i32 noundef %0, i32 no
 38:                                               ; preds = %35
   %39 = load ptr, ptr %4, align 8
   tail call void @ecpg_raise(i32 noundef %0, i32 noundef -230, ptr noundef nonnull @.str, ptr noundef %39) #11
-  br label %51
+  br label %54
 
 40:                                               ; preds = %.thread, %35
   %41 = getelementptr inbounds i8, ptr %4, i64 16
@@ -205,15 +205,24 @@ define internal fastcc noundef zeroext i1 @deallocate_one(i32 noundef %0, i32 no
   %.not36 = icmp eq ptr %3, null
   %47 = getelementptr inbounds i8, ptr %4, i64 24
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %2, i64 32
-  %50 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink = select i1 %.not36, ptr %49, ptr %50
-  store ptr %48, ptr %.sink, align 8
-  tail call void @ecpg_free(ptr noundef nonnull %4) #11
-  br label %51
+  br i1 %.not36, label %51, label %49
 
-51:                                               ; preds = %40, %38
-  %or.cond339 = phi i1 [ true, %40 ], [ false, %38 ]
+49:                                               ; preds = %40
+  %50 = getelementptr inbounds i8, ptr %3, i64 24
+  store ptr %48, ptr %50, align 8
+  br label %53
+
+51:                                               ; preds = %40
+  %52 = getelementptr inbounds i8, ptr %2, i64 32
+  store ptr %48, ptr %52, align 8
+  br label %53
+
+53:                                               ; preds = %51, %49
+  tail call void @ecpg_free(ptr noundef nonnull %4) #11
+  br label %54
+
+54:                                               ; preds = %53, %38
+  %or.cond339 = phi i1 [ true, %53 ], [ false, %38 ]
   ret i1 %or.cond339
 }
 

@@ -708,7 +708,7 @@ define range(i32 -29, 1) i32 @arkStep_Init(ptr noundef %0, i32 noundef %1) #0 {
   br label %arkStep_AccessStepMem.exit.thread
 
 arkStep_AccessStepMem.exit:                       ; preds = %5
-  switch i32 %1, label %219 [
+  switch i32 %1, label %215 [
     i32 1, label %arkStep_AccessStepMem.exit.thread
     i32 0, label %10
   ]
@@ -779,451 +779,451 @@ arkStep_AccessStepMem.exit:                       ; preds = %5
   br label %41
 
 41:                                               ; preds = %35, %38
-  %.sink211 = phi ptr [ %40, %38 ], [ %37, %35 ]
-  %.sink205 = phi ptr [ %39, %38 ], [ %36, %35 ]
-  %42 = load i32, ptr %.sink211, align 8
+  %.sink215 = phi ptr [ %40, %38 ], [ %37, %35 ]
+  %.pn.in = phi ptr [ %39, %38 ], [ %36, %35 ]
+  %42 = load i32, ptr %.sink215, align 8
   %43 = getelementptr inbounds i8, ptr %0, i64 448
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 92
   store i32 %42, ptr %45, align 4
   %46 = getelementptr inbounds i8, ptr %7, i64 88
   store i32 %42, ptr %46, align 8
-  %47 = load ptr, ptr %.sink205, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 4
-  %49 = load i32, ptr %48, align 4
-  %50 = load ptr, ptr %43, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 88
-  store i32 %49, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %7, i64 92
-  store i32 %49, ptr %52, align 4
-  %53 = load i32, ptr %13, align 8
-  %.not49 = icmp eq i32 %53, 0
-  %54 = icmp eq i32 %49, 0
-  %or.cond = select i1 %.not49, i1 %54, i1 false
-  br i1 %or.cond, label %55, label %56
+  %.pn = load ptr, ptr %.pn.in, align 8
+  %.sink.in = getelementptr inbounds i8, ptr %.pn, i64 4
+  %.sink = load i32, ptr %.sink.in, align 4
+  %.sink202 = load ptr, ptr %43, align 8
+  %47 = getelementptr inbounds i8, ptr %.sink202, i64 88
+  store i32 %.sink, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %7, i64 92
+  store i32 %.sink, ptr %48, align 4
+  %49 = load i32, ptr %13, align 8
+  %.not49 = icmp eq i32 %49, 0
+  %50 = icmp eq i32 %.sink, 0
+  %or.cond = select i1 %.not49, i1 %50, i1 false
+  br i1 %or.cond, label %51, label %52
 
-55:                                               ; preds = %41
+51:                                               ; preds = %41
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 1207, ptr noundef nonnull @__func__.arkStep_Init, ptr noundef nonnull @.str, ptr noundef nonnull @.str.47) #12
   br label %arkStep_AccessStepMem.exit.thread
 
-56:                                               ; preds = %41
-  %57 = getelementptr inbounds i8, ptr %0, i64 640
-  %58 = load i32, ptr %57, align 8
-  %.not50 = icmp eq i32 %58, 0
-  br i1 %.not50, label %65, label %59
+52:                                               ; preds = %41
+  %53 = getelementptr inbounds i8, ptr %0, i64 640
+  %54 = load i32, ptr %53, align 8
+  %.not50 = icmp eq i32 %54, 0
+  br i1 %.not50, label %61, label %55
 
-59:                                               ; preds = %56
-  %60 = load i32, ptr %11, align 4
-  %.not51 = icmp eq i32 %60, 0
-  br i1 %.not51, label %65, label %61
+55:                                               ; preds = %52
+  %56 = load i32, ptr %11, align 4
+  %.not51 = icmp eq i32 %56, 0
+  br i1 %.not51, label %61, label %57
 
-61:                                               ; preds = %59
-  %62 = getelementptr inbounds i8, ptr %7, i64 32
-  %63 = load i32, ptr %62, align 8
-  %.not52 = icmp eq i32 %63, 0
-  br i1 %.not52, label %65, label %64
+57:                                               ; preds = %55
+  %58 = getelementptr inbounds i8, ptr %7, i64 32
+  %59 = load i32, ptr %58, align 8
+  %.not52 = icmp eq i32 %59, 0
+  br i1 %.not52, label %61, label %60
 
-64:                                               ; preds = %61
+60:                                               ; preds = %57
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 1215, ptr noundef nonnull @__func__.arkStep_Init, ptr noundef nonnull @.str, ptr noundef nonnull @.str.48) #12
   br label %arkStep_AccessStepMem.exit.thread
 
-65:                                               ; preds = %61, %59, %56
-  %66 = getelementptr inbounds i8, ptr %7, i64 24
-  %67 = load i32, ptr %66, align 8
-  %.not53 = icmp eq i32 %67, 0
-  br i1 %.not53, label %92, label %68
+61:                                               ; preds = %57, %55, %52
+  %62 = getelementptr inbounds i8, ptr %7, i64 24
+  %63 = load i32, ptr %62, align 8
+  %.not53 = icmp eq i32 %63, 0
+  br i1 %.not53, label %88, label %64
 
-68:                                               ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %7, i64 40
-  %70 = load ptr, ptr %69, align 8
-  %71 = icmp eq ptr %70, null
-  %72 = getelementptr inbounds i8, ptr %7, i64 100
-  %73 = load i32, ptr %72, align 4
-  br i1 %71, label %74, label %._crit_edge185
+64:                                               ; preds = %61
+  %65 = getelementptr inbounds i8, ptr %7, i64 40
+  %66 = load ptr, ptr %65, align 8
+  %67 = icmp eq ptr %66, null
+  %68 = getelementptr inbounds i8, ptr %7, i64 100
+  %69 = load i32, ptr %68, align 4
+  br i1 %67, label %70, label %._crit_edge185
 
-74:                                               ; preds = %68
-  %75 = sext i32 %73 to i64
-  %76 = tail call noalias ptr @calloc(i64 noundef %75, i64 noundef 8) #13
-  store ptr %76, ptr %69, align 8
+70:                                               ; preds = %64
+  %71 = sext i32 %69 to i64
+  %72 = tail call noalias ptr @calloc(i64 noundef %71, i64 noundef 8) #13
+  store ptr %72, ptr %65, align 8
   br label %._crit_edge185
 
-._crit_edge185:                                   ; preds = %68, %74
-  %77 = getelementptr inbounds i8, ptr %7, i64 100
-  %78 = icmp sgt i32 %73, 0
-  br i1 %78, label %.lr.ph, label %.._crit_edge_crit_edge
+._crit_edge185:                                   ; preds = %64, %70
+  %73 = getelementptr inbounds i8, ptr %7, i64 100
+  %74 = icmp sgt i32 %69, 0
+  br i1 %74, label %.lr.ph, label %.._crit_edge_crit_edge
 
 .._crit_edge_crit_edge:                           ; preds = %._crit_edge185
-  %.pre195 = sext i32 %73 to i64
+  %.pre195 = sext i32 %69 to i64
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %._crit_edge185
-  %79 = getelementptr inbounds i8, ptr %0, i64 240
-  br label %84
+  %75 = getelementptr inbounds i8, ptr %0, i64 240
+  br label %80
 
-80:                                               ; preds = %84
+76:                                               ; preds = %80
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %81 = load i32, ptr %77, align 4
-  %82 = sext i32 %81 to i64
-  %83 = icmp slt i64 %indvars.iv.next, %82
-  br i1 %83, label %84, label %._crit_edge
+  %77 = load i32, ptr %73, align 4
+  %78 = sext i32 %77 to i64
+  %79 = icmp slt i64 %indvars.iv.next, %78
+  br i1 %79, label %80, label %._crit_edge
 
-84:                                               ; preds = %.lr.ph, %80
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %80 ]
-  %85 = load ptr, ptr %79, align 8
-  %86 = load ptr, ptr %69, align 8
-  %87 = getelementptr inbounds ptr, ptr %86, i64 %indvars.iv
-  %88 = tail call i32 @arkAllocVec(ptr noundef nonnull %0, ptr noundef %85, ptr noundef %87) #12
-  %.not77 = icmp eq i32 %88, 0
-  br i1 %.not77, label %arkStep_AccessStepMem.exit.thread, label %80
+80:                                               ; preds = %.lr.ph, %76
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %76 ]
+  %81 = load ptr, ptr %75, align 8
+  %82 = load ptr, ptr %65, align 8
+  %83 = getelementptr inbounds ptr, ptr %82, i64 %indvars.iv
+  %84 = tail call i32 @arkAllocVec(ptr noundef nonnull %0, ptr noundef %81, ptr noundef %83) #12
+  %.not77 = icmp eq i32 %84, 0
+  br i1 %.not77, label %arkStep_AccessStepMem.exit.thread, label %76
 
-._crit_edge:                                      ; preds = %80, %.._crit_edge_crit_edge
-  %.pre-phi196 = phi i64 [ %.pre195, %.._crit_edge_crit_edge ], [ %82, %80 ]
-  %89 = getelementptr inbounds i8, ptr %0, i64 552
-  %90 = load i64, ptr %89, align 8
-  %91 = add nsw i64 %90, %.pre-phi196
-  store i64 %91, ptr %89, align 8
-  br label %92
+._crit_edge:                                      ; preds = %76, %.._crit_edge_crit_edge
+  %.pre-phi196 = phi i64 [ %.pre195, %.._crit_edge_crit_edge ], [ %78, %76 ]
+  %85 = getelementptr inbounds i8, ptr %0, i64 552
+  %86 = load i64, ptr %85, align 8
+  %87 = add nsw i64 %86, %.pre-phi196
+  store i64 %87, ptr %85, align 8
+  br label %88
 
-92:                                               ; preds = %._crit_edge, %65
-  %93 = load i32, ptr %11, align 4
-  %.not54 = icmp eq i32 %93, 0
-  br i1 %.not54, label %118, label %94
+88:                                               ; preds = %._crit_edge, %61
+  %89 = load i32, ptr %11, align 4
+  %.not54 = icmp eq i32 %89, 0
+  br i1 %.not54, label %114, label %90
 
-94:                                               ; preds = %92
-  %95 = getelementptr inbounds i8, ptr %7, i64 48
-  %96 = load ptr, ptr %95, align 8
-  %97 = icmp eq ptr %96, null
-  %98 = getelementptr inbounds i8, ptr %7, i64 100
-  %99 = load i32, ptr %98, align 4
-  br i1 %97, label %100, label %._crit_edge186
+90:                                               ; preds = %88
+  %91 = getelementptr inbounds i8, ptr %7, i64 48
+  %92 = load ptr, ptr %91, align 8
+  %93 = icmp eq ptr %92, null
+  %94 = getelementptr inbounds i8, ptr %7, i64 100
+  %95 = load i32, ptr %94, align 4
+  br i1 %93, label %96, label %._crit_edge186
 
-100:                                              ; preds = %94
-  %101 = sext i32 %99 to i64
-  %102 = tail call noalias ptr @calloc(i64 noundef %101, i64 noundef 8) #13
-  store ptr %102, ptr %95, align 8
+96:                                               ; preds = %90
+  %97 = sext i32 %95 to i64
+  %98 = tail call noalias ptr @calloc(i64 noundef %97, i64 noundef 8) #13
+  store ptr %98, ptr %91, align 8
   br label %._crit_edge186
 
-._crit_edge186:                                   ; preds = %94, %100
-  %103 = getelementptr inbounds i8, ptr %7, i64 100
-  %104 = icmp sgt i32 %99, 0
-  br i1 %104, label %.lr.ph165, label %.._crit_edge166_crit_edge
+._crit_edge186:                                   ; preds = %90, %96
+  %99 = getelementptr inbounds i8, ptr %7, i64 100
+  %100 = icmp sgt i32 %95, 0
+  br i1 %100, label %.lr.ph165, label %.._crit_edge166_crit_edge
 
 .._crit_edge166_crit_edge:                        ; preds = %._crit_edge186
-  %.pre193 = sext i32 %99 to i64
+  %.pre193 = sext i32 %95 to i64
   br label %._crit_edge166
 
 .lr.ph165:                                        ; preds = %._crit_edge186
-  %105 = getelementptr inbounds i8, ptr %0, i64 240
-  br label %110
+  %101 = getelementptr inbounds i8, ptr %0, i64 240
+  br label %106
 
-106:                                              ; preds = %110
+102:                                              ; preds = %106
   %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
-  %107 = load i32, ptr %103, align 4
-  %108 = sext i32 %107 to i64
-  %109 = icmp slt i64 %indvars.iv.next180, %108
-  br i1 %109, label %110, label %._crit_edge166
+  %103 = load i32, ptr %99, align 4
+  %104 = sext i32 %103 to i64
+  %105 = icmp slt i64 %indvars.iv.next180, %104
+  br i1 %105, label %106, label %._crit_edge166
 
-110:                                              ; preds = %.lr.ph165, %106
-  %indvars.iv179 = phi i64 [ 0, %.lr.ph165 ], [ %indvars.iv.next180, %106 ]
-  %111 = load ptr, ptr %105, align 8
-  %112 = load ptr, ptr %95, align 8
-  %113 = getelementptr inbounds ptr, ptr %112, i64 %indvars.iv179
-  %114 = tail call i32 @arkAllocVec(ptr noundef nonnull %0, ptr noundef %111, ptr noundef %113) #12
-  %.not76 = icmp eq i32 %114, 0
-  br i1 %.not76, label %arkStep_AccessStepMem.exit.thread, label %106
+106:                                              ; preds = %.lr.ph165, %102
+  %indvars.iv179 = phi i64 [ 0, %.lr.ph165 ], [ %indvars.iv.next180, %102 ]
+  %107 = load ptr, ptr %101, align 8
+  %108 = load ptr, ptr %91, align 8
+  %109 = getelementptr inbounds ptr, ptr %108, i64 %indvars.iv179
+  %110 = tail call i32 @arkAllocVec(ptr noundef nonnull %0, ptr noundef %107, ptr noundef %109) #12
+  %.not76 = icmp eq i32 %110, 0
+  br i1 %.not76, label %arkStep_AccessStepMem.exit.thread, label %102
 
-._crit_edge166:                                   ; preds = %106, %.._crit_edge166_crit_edge
-  %.pre-phi194 = phi i64 [ %.pre193, %.._crit_edge166_crit_edge ], [ %108, %106 ]
-  %115 = getelementptr inbounds i8, ptr %0, i64 552
-  %116 = load i64, ptr %115, align 8
-  %117 = add nsw i64 %116, %.pre-phi194
-  store i64 %117, ptr %115, align 8
-  br label %118
+._crit_edge166:                                   ; preds = %102, %.._crit_edge166_crit_edge
+  %.pre-phi194 = phi i64 [ %.pre193, %.._crit_edge166_crit_edge ], [ %104, %102 ]
+  %111 = getelementptr inbounds i8, ptr %0, i64 552
+  %112 = load i64, ptr %111, align 8
+  %113 = add nsw i64 %112, %.pre-phi194
+  store i64 %113, ptr %111, align 8
+  br label %114
 
-118:                                              ; preds = %._crit_edge166, %92
-  %119 = load i32, ptr %57, align 8
-  %.not55 = icmp eq i32 %119, 0
-  br i1 %.not55, label %150, label %120
+114:                                              ; preds = %._crit_edge166, %88
+  %115 = load i32, ptr %53, align 8
+  %.not55 = icmp eq i32 %115, 0
+  br i1 %.not55, label %146, label %116
 
-120:                                              ; preds = %118
-  %121 = load i32, ptr %11, align 4
-  %.not56 = icmp eq i32 %121, 0
-  br i1 %.not56, label %122, label %126
+116:                                              ; preds = %114
+  %117 = load i32, ptr %11, align 4
+  %.not56 = icmp eq i32 %117, 0
+  br i1 %.not56, label %118, label %122
 
-122:                                              ; preds = %120
-  %123 = getelementptr inbounds i8, ptr %7, i64 368
-  %124 = load i32, ptr %123, align 8
-  %125 = icmp eq i32 %124, 1
-  br i1 %125, label %126, label %150
+118:                                              ; preds = %116
+  %119 = getelementptr inbounds i8, ptr %7, i64 368
+  %120 = load i32, ptr %119, align 8
+  %121 = icmp eq i32 %120, 1
+  br i1 %121, label %122, label %146
 
-126:                                              ; preds = %122, %120
-  %127 = getelementptr inbounds i8, ptr %7, i64 56
-  %128 = load ptr, ptr %127, align 8
-  %129 = icmp eq ptr %128, null
-  %130 = getelementptr inbounds i8, ptr %7, i64 100
-  %131 = load i32, ptr %130, align 4
-  br i1 %129, label %132, label %._crit_edge189
+122:                                              ; preds = %118, %116
+  %123 = getelementptr inbounds i8, ptr %7, i64 56
+  %124 = load ptr, ptr %123, align 8
+  %125 = icmp eq ptr %124, null
+  %126 = getelementptr inbounds i8, ptr %7, i64 100
+  %127 = load i32, ptr %126, align 4
+  br i1 %125, label %128, label %._crit_edge189
 
-132:                                              ; preds = %126
-  %133 = sext i32 %131 to i64
-  %134 = tail call noalias ptr @calloc(i64 noundef %133, i64 noundef 8) #13
-  store ptr %134, ptr %127, align 8
+128:                                              ; preds = %122
+  %129 = sext i32 %127 to i64
+  %130 = tail call noalias ptr @calloc(i64 noundef %129, i64 noundef 8) #13
+  store ptr %130, ptr %123, align 8
   br label %._crit_edge189
 
-._crit_edge189:                                   ; preds = %126, %132
-  %135 = getelementptr inbounds i8, ptr %7, i64 100
-  %136 = icmp sgt i32 %131, 0
-  br i1 %136, label %.lr.ph170, label %.._crit_edge171_crit_edge
+._crit_edge189:                                   ; preds = %122, %128
+  %131 = getelementptr inbounds i8, ptr %7, i64 100
+  %132 = icmp sgt i32 %127, 0
+  br i1 %132, label %.lr.ph170, label %.._crit_edge171_crit_edge
 
 .._crit_edge171_crit_edge:                        ; preds = %._crit_edge189
-  %.pre192 = sext i32 %131 to i64
+  %.pre192 = sext i32 %127 to i64
   br label %._crit_edge171
 
 .lr.ph170:                                        ; preds = %._crit_edge189
-  %137 = getelementptr inbounds i8, ptr %0, i64 240
-  br label %142
+  %133 = getelementptr inbounds i8, ptr %0, i64 240
+  br label %138
 
-138:                                              ; preds = %142
+134:                                              ; preds = %138
   %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
-  %139 = load i32, ptr %135, align 4
-  %140 = sext i32 %139 to i64
-  %141 = icmp slt i64 %indvars.iv.next183, %140
-  br i1 %141, label %142, label %._crit_edge171
+  %135 = load i32, ptr %131, align 4
+  %136 = sext i32 %135 to i64
+  %137 = icmp slt i64 %indvars.iv.next183, %136
+  br i1 %137, label %138, label %._crit_edge171
 
-142:                                              ; preds = %.lr.ph170, %138
-  %indvars.iv182 = phi i64 [ 0, %.lr.ph170 ], [ %indvars.iv.next183, %138 ]
-  %143 = load ptr, ptr %137, align 8
-  %144 = load ptr, ptr %127, align 8
-  %145 = getelementptr inbounds ptr, ptr %144, i64 %indvars.iv182
-  %146 = tail call i32 @arkAllocVec(ptr noundef nonnull %0, ptr noundef %143, ptr noundef %145) #12
-  %.not75 = icmp eq i32 %146, 0
-  br i1 %.not75, label %arkStep_AccessStepMem.exit.thread, label %138
+138:                                              ; preds = %.lr.ph170, %134
+  %indvars.iv182 = phi i64 [ 0, %.lr.ph170 ], [ %indvars.iv.next183, %134 ]
+  %139 = load ptr, ptr %133, align 8
+  %140 = load ptr, ptr %123, align 8
+  %141 = getelementptr inbounds ptr, ptr %140, i64 %indvars.iv182
+  %142 = tail call i32 @arkAllocVec(ptr noundef nonnull %0, ptr noundef %139, ptr noundef %141) #12
+  %.not75 = icmp eq i32 %142, 0
+  br i1 %.not75, label %arkStep_AccessStepMem.exit.thread, label %134
 
-._crit_edge171:                                   ; preds = %138, %.._crit_edge171_crit_edge
-  %.pre-phi = phi i64 [ %.pre192, %.._crit_edge171_crit_edge ], [ %140, %138 ]
-  %147 = getelementptr inbounds i8, ptr %0, i64 552
-  %148 = load i64, ptr %147, align 8
-  %149 = add nsw i64 %148, %.pre-phi
-  store i64 %149, ptr %147, align 8
-  br label %150
+._crit_edge171:                                   ; preds = %134, %.._crit_edge171_crit_edge
+  %.pre-phi = phi i64 [ %.pre192, %.._crit_edge171_crit_edge ], [ %136, %134 ]
+  %143 = getelementptr inbounds i8, ptr %0, i64 552
+  %144 = load i64, ptr %143, align 8
+  %145 = add nsw i64 %144, %.pre-phi
+  store i64 %145, ptr %143, align 8
+  br label %146
 
-150:                                              ; preds = %._crit_edge171, %122, %118
-  %151 = getelementptr inbounds i8, ptr %7, i64 100
-  %152 = load i32, ptr %151, align 4
-  %153 = shl nsw i32 %152, 1
-  %154 = add nsw i32 %153, 2
-  %155 = getelementptr inbounds i8, ptr %7, i64 472
-  %156 = load i32, ptr %155, align 8
-  %157 = add nsw i32 %154, %156
-  %158 = getelementptr inbounds i8, ptr %7, i64 432
-  store i32 %157, ptr %158, align 8
-  %159 = getelementptr inbounds i8, ptr %7, i64 416
-  %160 = load ptr, ptr %159, align 8
+146:                                              ; preds = %._crit_edge171, %118, %114
+  %147 = getelementptr inbounds i8, ptr %7, i64 100
+  %148 = load i32, ptr %147, align 4
+  %149 = shl nsw i32 %148, 1
+  %150 = add nsw i32 %149, 2
+  %151 = getelementptr inbounds i8, ptr %7, i64 472
+  %152 = load i32, ptr %151, align 8
+  %153 = add nsw i32 %150, %152
+  %154 = getelementptr inbounds i8, ptr %7, i64 432
+  store i32 %153, ptr %154, align 8
+  %155 = getelementptr inbounds i8, ptr %7, i64 416
+  %156 = load ptr, ptr %155, align 8
+  %157 = icmp eq ptr %156, null
+  br i1 %157, label %158, label %166
+
+158:                                              ; preds = %146
+  %159 = sext i32 %153 to i64
+  %160 = tail call noalias ptr @calloc(i64 noundef %159, i64 noundef 8) #13
+  store ptr %160, ptr %155, align 8
   %161 = icmp eq ptr %160, null
-  br i1 %161, label %162, label %170
+  br i1 %161, label %arkStep_AccessStepMem.exit.thread, label %162
 
-162:                                              ; preds = %150
-  %163 = sext i32 %157 to i64
-  %164 = tail call noalias ptr @calloc(i64 noundef %163, i64 noundef 8) #13
-  store ptr %164, ptr %159, align 8
-  %165 = icmp eq ptr %164, null
-  br i1 %165, label %arkStep_AccessStepMem.exit.thread, label %166
+162:                                              ; preds = %158
+  %163 = getelementptr inbounds i8, ptr %0, i64 544
+  %164 = load i64, ptr %163, align 8
+  %165 = add nsw i64 %164, %159
+  store i64 %165, ptr %163, align 8
+  br label %166
 
-166:                                              ; preds = %162
-  %167 = getelementptr inbounds i8, ptr %0, i64 544
-  %168 = load i64, ptr %167, align 8
-  %169 = add nsw i64 %168, %163
-  store i64 %169, ptr %167, align 8
-  br label %170
+166:                                              ; preds = %162, %146
+  %167 = getelementptr inbounds i8, ptr %7, i64 424
+  %168 = load ptr, ptr %167, align 8
+  %169 = icmp eq ptr %168, null
+  br i1 %169, label %170, label %179
 
-170:                                              ; preds = %166, %150
-  %171 = getelementptr inbounds i8, ptr %7, i64 424
-  %172 = load ptr, ptr %171, align 8
-  %173 = icmp eq ptr %172, null
-  br i1 %173, label %174, label %183
+170:                                              ; preds = %166
+  %171 = load i32, ptr %154, align 8
+  %172 = sext i32 %171 to i64
+  %173 = tail call noalias ptr @calloc(i64 noundef %172, i64 noundef 8) #13
+  store ptr %173, ptr %167, align 8
+  %174 = icmp eq ptr %173, null
+  br i1 %174, label %arkStep_AccessStepMem.exit.thread, label %175
 
-174:                                              ; preds = %170
-  %175 = load i32, ptr %158, align 8
-  %176 = sext i32 %175 to i64
-  %177 = tail call noalias ptr @calloc(i64 noundef %176, i64 noundef 8) #13
-  store ptr %177, ptr %171, align 8
-  %178 = icmp eq ptr %177, null
-  br i1 %178, label %arkStep_AccessStepMem.exit.thread, label %179
+175:                                              ; preds = %170
+  %176 = getelementptr inbounds i8, ptr %0, i64 552
+  %177 = load i64, ptr %176, align 8
+  %178 = add nsw i64 %177, %172
+  store i64 %178, ptr %176, align 8
+  br label %179
 
-179:                                              ; preds = %174
-  %180 = getelementptr inbounds i8, ptr %0, i64 552
-  %181 = load i64, ptr %180, align 8
-  %182 = add nsw i64 %181, %176
-  store i64 %182, ptr %180, align 8
-  br label %183
+179:                                              ; preds = %175, %166
+  %180 = getelementptr inbounds i8, ptr %7, i64 436
+  %181 = load i32, ptr %180, align 4
+  %.not57 = icmp eq i32 %181, 0
+  br i1 %.not57, label %182, label %185
 
-183:                                              ; preds = %179, %170
-  %184 = getelementptr inbounds i8, ptr %7, i64 436
-  %185 = load i32, ptr %184, align 4
-  %.not57 = icmp eq i32 %185, 0
-  br i1 %.not57, label %186, label %189
+182:                                              ; preds = %179
+  %183 = getelementptr inbounds i8, ptr %7, i64 440
+  %184 = load i32, ptr %183, align 8
+  %.not58 = icmp eq i32 %184, 0
+  br i1 %.not58, label %205, label %185
 
-186:                                              ; preds = %183
-  %187 = getelementptr inbounds i8, ptr %7, i64 440
-  %188 = load i32, ptr %187, align 8
-  %.not58 = icmp eq i32 %188, 0
-  br i1 %.not58, label %209, label %189
+185:                                              ; preds = %182, %179
+  %186 = getelementptr inbounds i8, ptr %7, i64 480
+  %187 = load ptr, ptr %186, align 8
+  %.not59 = icmp eq ptr %187, null
+  br i1 %.not59, label %188, label %195
 
-189:                                              ; preds = %186, %183
-  %190 = getelementptr inbounds i8, ptr %7, i64 480
-  %191 = load ptr, ptr %190, align 8
-  %.not59 = icmp eq ptr %191, null
-  br i1 %.not59, label %192, label %199
+188:                                              ; preds = %185
+  %189 = load i32, ptr %147, align 4
+  %190 = sext i32 %189 to i64
+  %191 = tail call noalias ptr @calloc(i64 noundef %190, i64 noundef 8) #13
+  store ptr %191, ptr %186, align 8
+  %192 = getelementptr inbounds i8, ptr %0, i64 544
+  %193 = load i64, ptr %192, align 8
+  %194 = add nsw i64 %193, %190
+  store i64 %194, ptr %192, align 8
+  br label %195
 
-192:                                              ; preds = %189
-  %193 = load i32, ptr %151, align 4
-  %194 = sext i32 %193 to i64
-  %195 = tail call noalias ptr @calloc(i64 noundef %194, i64 noundef 8) #13
-  store ptr %195, ptr %190, align 8
-  %196 = getelementptr inbounds i8, ptr %0, i64 544
-  %197 = load i64, ptr %196, align 8
-  %198 = add nsw i64 %197, %194
-  store i64 %198, ptr %196, align 8
-  br label %199
+195:                                              ; preds = %188, %185
+  %196 = getelementptr inbounds i8, ptr %7, i64 488
+  %197 = load ptr, ptr %196, align 8
+  %.not60 = icmp eq ptr %197, null
+  br i1 %.not60, label %198, label %205
 
-199:                                              ; preds = %192, %189
-  %200 = getelementptr inbounds i8, ptr %7, i64 488
-  %201 = load ptr, ptr %200, align 8
-  %.not60 = icmp eq ptr %201, null
-  br i1 %.not60, label %202, label %209
+198:                                              ; preds = %195
+  %199 = load i32, ptr %147, align 4
+  %200 = sext i32 %199 to i64
+  %201 = tail call noalias ptr @calloc(i64 noundef %200, i64 noundef 8) #13
+  store ptr %201, ptr %196, align 8
+  %202 = getelementptr inbounds i8, ptr %0, i64 544
+  %203 = load i64, ptr %202, align 8
+  %204 = add nsw i64 %203, %200
+  store i64 %204, ptr %202, align 8
+  br label %205
 
-202:                                              ; preds = %199
-  %203 = load i32, ptr %151, align 4
-  %204 = sext i32 %203 to i64
-  %205 = tail call noalias ptr @calloc(i64 noundef %204, i64 noundef 8) #13
-  store ptr %205, ptr %200, align 8
-  %206 = getelementptr inbounds i8, ptr %0, i64 544
-  %207 = load i64, ptr %206, align 8
-  %208 = add nsw i64 %207, %204
-  store i64 %208, ptr %206, align 8
-  br label %209
+205:                                              ; preds = %195, %198, %182
+  %206 = getelementptr inbounds i8, ptr %0, i64 336
+  %207 = load ptr, ptr %206, align 8
+  %.not61 = icmp eq ptr %207, null
+  br i1 %.not61, label %215, label %208
 
-209:                                              ; preds = %199, %202, %186
-  %210 = getelementptr inbounds i8, ptr %0, i64 336
-  %211 = load ptr, ptr %210, align 8
-  %.not61 = icmp eq ptr %211, null
-  br i1 %.not61, label %219, label %212
+208:                                              ; preds = %205
+  %209 = getelementptr inbounds i8, ptr %7, i64 88
+  %210 = load i32, ptr %209, align 8
+  %211 = icmp sgt i32 %210, 1
+  %. = zext i1 %211 to i32
+  %212 = sub nsw i32 %., %210
+  %213 = tail call i32 @arkInterpSetDegree(ptr noundef nonnull %0, ptr noundef nonnull %207, i32 noundef %212) #12
+  %.not62 = icmp eq i32 %213, 0
+  br i1 %.not62, label %215, label %214
 
-212:                                              ; preds = %209
-  %213 = getelementptr inbounds i8, ptr %7, i64 88
-  %214 = load i32, ptr %213, align 8
-  %215 = icmp sgt i32 %214, 1
-  %. = zext i1 %215 to i32
-  %216 = sub nsw i32 %., %214
-  %217 = tail call i32 @arkInterpSetDegree(ptr noundef nonnull %0, ptr noundef nonnull %211, i32 noundef %216) #12
-  %.not62 = icmp eq i32 %217, 0
-  br i1 %.not62, label %219, label %218
-
-218:                                              ; preds = %212
+214:                                              ; preds = %208
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 1330, ptr noundef nonnull @__func__.arkStep_Init, ptr noundef nonnull @.str, ptr noundef nonnull @.str.49) #12
   br label %arkStep_AccessStepMem.exit.thread
 
-219:                                              ; preds = %arkStep_AccessStepMem.exit, %209, %212
-  %220 = getelementptr inbounds i8, ptr %0, i64 224
-  store ptr @arkStep_TakeStep_Z, ptr %220, align 8
-  %221 = getelementptr inbounds i8, ptr %7, i64 368
-  %222 = load i32, ptr %221, align 8
-  %.not63 = icmp eq i32 %222, 0
-  br i1 %.not63, label %252, label %223
+215:                                              ; preds = %arkStep_AccessStepMem.exit, %205, %208
+  %216 = getelementptr inbounds i8, ptr %0, i64 224
+  store ptr @arkStep_TakeStep_Z, ptr %216, align 8
+  %217 = getelementptr inbounds i8, ptr %7, i64 368
+  %218 = load i32, ptr %217, align 8
+  %.not63 = icmp eq i32 %218, 0
+  br i1 %.not63, label %248, label %219
 
-223:                                              ; preds = %219
-  %224 = getelementptr inbounds i8, ptr %7, i64 304
-  %225 = load ptr, ptr %224, align 8
-  %.not64 = icmp eq ptr %225, null
-  br i1 %.not64, label %232, label %226
+219:                                              ; preds = %215
+  %220 = getelementptr inbounds i8, ptr %7, i64 304
+  %221 = load ptr, ptr %220, align 8
+  %.not64 = icmp eq ptr %221, null
+  br i1 %.not64, label %228, label %222
 
-226:                                              ; preds = %223
-  %227 = getelementptr inbounds i8, ptr %7, i64 312
-  %228 = load i32, ptr %227, align 8
-  %229 = getelementptr inbounds i8, ptr %7, i64 372
-  %230 = load i32, ptr %229, align 4
-  %.not65 = icmp eq i32 %228, %230
-  br i1 %.not65, label %232, label %231
+222:                                              ; preds = %219
+  %223 = getelementptr inbounds i8, ptr %7, i64 312
+  %224 = load i32, ptr %223, align 8
+  %225 = getelementptr inbounds i8, ptr %7, i64 372
+  %226 = load i32, ptr %225, align 4
+  %.not65 = icmp eq i32 %224, %226
+  br i1 %.not65, label %228, label %227
 
-231:                                              ; preds = %226
+227:                                              ; preds = %222
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 1347, ptr noundef nonnull @__func__.arkStep_Init, ptr noundef nonnull @.str, ptr noundef nonnull @.str.50) #12
   br label %arkStep_AccessStepMem.exit.thread
 
-232:                                              ; preds = %226, %223
-  %233 = getelementptr inbounds i8, ptr %7, i64 320
-  %234 = load ptr, ptr %233, align 8
-  %.not67 = icmp eq ptr %234, null
-  br i1 %.not67, label %238, label %235
+228:                                              ; preds = %222, %219
+  %229 = getelementptr inbounds i8, ptr %7, i64 320
+  %230 = load ptr, ptr %229, align 8
+  %.not67 = icmp eq ptr %230, null
+  br i1 %.not67, label %234, label %231
 
-235:                                              ; preds = %232
-  %236 = tail call i32 %234(ptr noundef nonnull %0) #12
-  %.not68 = icmp eq i32 %236, 0
-  br i1 %.not68, label %238, label %237
+231:                                              ; preds = %228
+  %232 = tail call i32 %230(ptr noundef nonnull %0) #12
+  %.not68 = icmp eq i32 %232, 0
+  br i1 %.not68, label %234, label %233
 
-237:                                              ; preds = %235
+233:                                              ; preds = %231
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -14, i32 noundef 1362, ptr noundef nonnull @__func__.arkStep_Init, ptr noundef nonnull @.str, ptr noundef nonnull @.str.51) #12
   br label %arkStep_AccessStepMem.exit.thread
 
-238:                                              ; preds = %235, %232
-  %239 = getelementptr inbounds i8, ptr %7, i64 328
-  %240 = load ptr, ptr %239, align 8
-  %.not69 = icmp eq ptr %240, null
-  br i1 %.not69, label %252, label %241
+234:                                              ; preds = %231, %228
+  %235 = getelementptr inbounds i8, ptr %7, i64 328
+  %236 = load ptr, ptr %235, align 8
+  %.not69 = icmp eq ptr %236, null
+  br i1 %.not69, label %248, label %237
 
-241:                                              ; preds = %238
-  %242 = getelementptr inbounds i8, ptr %0, i64 424
-  %243 = load double, ptr %242, align 8
-  %244 = getelementptr inbounds i8, ptr %0, i64 296
+237:                                              ; preds = %234
+  %238 = getelementptr inbounds i8, ptr %0, i64 424
+  %239 = load double, ptr %238, align 8
+  %240 = getelementptr inbounds i8, ptr %0, i64 296
+  %241 = load ptr, ptr %240, align 8
+  %242 = getelementptr inbounds i8, ptr %0, i64 304
+  %243 = load ptr, ptr %242, align 8
+  %244 = getelementptr inbounds i8, ptr %0, i64 312
   %245 = load ptr, ptr %244, align 8
-  %246 = getelementptr inbounds i8, ptr %0, i64 304
-  %247 = load ptr, ptr %246, align 8
-  %248 = getelementptr inbounds i8, ptr %0, i64 312
-  %249 = load ptr, ptr %248, align 8
-  %250 = tail call i32 %240(ptr noundef nonnull %0, double noundef %243, ptr noundef %245, ptr noundef %247, ptr noundef %249) #12
-  %.not70 = icmp eq i32 %250, 0
-  br i1 %.not70, label %252, label %251
+  %246 = tail call i32 %236(ptr noundef nonnull %0, double noundef %239, ptr noundef %241, ptr noundef %243, ptr noundef %245) #12
+  %.not70 = icmp eq i32 %246, 0
+  br i1 %.not70, label %248, label %247
 
-251:                                              ; preds = %241
+247:                                              ; preds = %237
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -15, i32 noundef 1375, ptr noundef nonnull @__func__.arkStep_Init, ptr noundef nonnull @.str, ptr noundef nonnull @.str.52) #12
   br label %arkStep_AccessStepMem.exit.thread
 
-252:                                              ; preds = %219, %238, %241
-  %253 = getelementptr inbounds i8, ptr %7, i64 272
-  %254 = load ptr, ptr %253, align 8
-  %.not71 = icmp eq ptr %254, null
-  br i1 %.not71, label %258, label %255
+248:                                              ; preds = %215, %234, %237
+  %249 = getelementptr inbounds i8, ptr %7, i64 272
+  %250 = load ptr, ptr %249, align 8
+  %.not71 = icmp eq ptr %250, null
+  br i1 %.not71, label %254, label %251
 
-255:                                              ; preds = %252
-  %256 = tail call i32 %254(ptr noundef nonnull %0) #12
-  %.not72 = icmp eq i32 %256, 0
-  br i1 %.not72, label %258, label %257
+251:                                              ; preds = %248
+  %252 = tail call i32 %250(ptr noundef nonnull %0) #12
+  %.not72 = icmp eq i32 %252, 0
+  br i1 %.not72, label %254, label %253
 
-257:                                              ; preds = %255
+253:                                              ; preds = %251
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -5, i32 noundef 1388, ptr noundef nonnull @__func__.arkStep_Init, ptr noundef nonnull @.str, ptr noundef nonnull @.str.53) #12
   br label %arkStep_AccessStepMem.exit.thread
 
-258:                                              ; preds = %255, %252
-  %259 = getelementptr inbounds i8, ptr %7, i64 128
-  %260 = load ptr, ptr %259, align 8
-  %.not73 = icmp eq ptr %260, null
-  br i1 %.not73, label %264, label %261
+254:                                              ; preds = %251, %248
+  %255 = getelementptr inbounds i8, ptr %7, i64 128
+  %256 = load ptr, ptr %255, align 8
+  %.not73 = icmp eq ptr %256, null
+  br i1 %.not73, label %260, label %257
 
-261:                                              ; preds = %258
-  %262 = tail call i32 @arkStep_NlsInit(ptr noundef nonnull %0) #12
-  %.not74 = icmp eq i32 %262, 0
-  br i1 %.not74, label %264, label %263
+257:                                              ; preds = %254
+  %258 = tail call i32 @arkStep_NlsInit(ptr noundef nonnull %0) #12
+  %.not74 = icmp eq i32 %258, 0
+  br i1 %.not74, label %260, label %259
 
-263:                                              ; preds = %261
+259:                                              ; preds = %257
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -29, i32 noundef 1400, ptr noundef nonnull @__func__.arkStep_Init, ptr noundef nonnull @.str, ptr noundef nonnull @.str.54) #12
   br label %arkStep_AccessStepMem.exit.thread
 
-264:                                              ; preds = %261, %258
-  %265 = getelementptr inbounds i8, ptr %0, i64 628
-  store i32 1, ptr %265, align 4
+260:                                              ; preds = %257, %254
+  %261 = getelementptr inbounds i8, ptr %0, i64 628
+  store i32 1, ptr %261, align 4
   br label %arkStep_AccessStepMem.exit.thread
 
-arkStep_AccessStepMem.exit.thread:                ; preds = %84, %110, %142, %9, %4, %174, %162, %arkStep_AccessStepMem.exit, %264, %263, %257, %251, %237, %231, %218, %64, %55, %34, %31
-  %.027 = phi i32 [ -22, %31 ], [ -22, %34 ], [ -22, %64 ], [ -22, %218 ], [ -22, %231 ], [ -14, %237 ], [ -15, %251 ], [ -5, %257 ], [ -29, %263 ], [ 0, %264 ], [ -22, %55 ], [ 0, %arkStep_AccessStepMem.exit ], [ -20, %162 ], [ -20, %174 ], [ -21, %4 ], [ -21, %9 ], [ -20, %142 ], [ -20, %110 ], [ -20, %84 ]
+arkStep_AccessStepMem.exit.thread:                ; preds = %80, %106, %138, %9, %4, %170, %158, %arkStep_AccessStepMem.exit, %260, %259, %253, %247, %233, %227, %214, %60, %51, %34, %31
+  %.027 = phi i32 [ -22, %31 ], [ -22, %34 ], [ -22, %60 ], [ -22, %214 ], [ -22, %227 ], [ -14, %233 ], [ -15, %247 ], [ -5, %253 ], [ -29, %259 ], [ 0, %260 ], [ -22, %51 ], [ 0, %arkStep_AccessStepMem.exit ], [ -20, %158 ], [ -20, %170 ], [ -21, %4 ], [ -21, %9 ], [ -20, %138 ], [ -20, %106 ], [ -20, %80 ]
   ret i32 %.027
 }
 
@@ -2163,8 +2163,8 @@ arkStep_AccessStepMem.exit:                       ; preds = %6
   %127 = zext nneg i32 %.077186 to i64
   br label %128
 
-128:                                              ; preds = %.lr.ph, %282
-  %indvars.iv = phi i64 [ %127, %.lr.ph ], [ %indvars.iv.next, %282 ]
+128:                                              ; preds = %.lr.ph, %292
+  %indvars.iv = phi i64 [ %127, %.lr.ph ], [ %indvars.iv.next, %292 ]
   %129 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %129, ptr %97, align 8
   %130 = load i32, ptr %11, align 4
@@ -2315,12 +2315,12 @@ arkStep_AccessStepMem.exit:                       ; preds = %6
   br i1 %.not122, label %.thread198, label %209
 
 209:                                              ; preds = %207
-  br i1 %147, label %210, label %218
+  br i1 %147, label %210, label %236
 
 210:                                              ; preds = %209
   %211 = load i32, ptr %104, align 8
   %212 = icmp eq i32 %211, 1
-  br i1 %212, label %213, label %.thread198.sink.split
+  br i1 %212, label %213, label %227
 
 213:                                              ; preds = %210
   %214 = load ptr, ptr %124, align 8
@@ -2328,143 +2328,154 @@ arkStep_AccessStepMem.exit:                       ; preds = %6
   %216 = load ptr, ptr %106, align 8
   %217 = tail call i32 %214(ptr noundef nonnull %0, ptr noundef %215, ptr noundef %216) #12
   %.not123 = icmp eq i32 %217, 0
-  br i1 %.not123, label %.thread198.sink.split, label %arkStep_AccessStepMem.exit.thread
+  br i1 %.not123, label %218, label %arkStep_AccessStepMem.exit.thread
 
-218:                                              ; preds = %209
-  %219 = load ptr, ptr %119, align 8
-  %220 = load double, ptr %102, align 8
-  %221 = load ptr, ptr %113, align 8
-  %222 = load ptr, ptr %120, align 8
-  %223 = getelementptr inbounds ptr, ptr %222, i64 %indvars.iv
-  %224 = load ptr, ptr %223, align 8
-  %225 = load ptr, ptr %116, align 8
-  %226 = tail call i32 %219(double noundef %220, ptr noundef %221, ptr noundef %224, ptr noundef %225) #12
-  %227 = load i64, ptr %121, align 8
-  %228 = add nsw i64 %227, 1
-  store i64 %228, ptr %121, align 8
-  %229 = icmp slt i32 %226, 0
-  br i1 %229, label %arkStep_AccessStepMem.exit.thread, label %230
-
-230:                                              ; preds = %218
-  %.not124 = icmp eq i32 %226, 0
-  br i1 %.not124, label %.thread198, label %arkStep_AccessStepMem.exit.thread
-
-.thread198.sink.split:                            ; preds = %210, %213
-  %.sink226 = phi ptr [ %106, %213 ], [ %123, %210 ]
-  %231 = load double, ptr %122, align 8
-  %232 = fdiv double 1.000000e+00, %231
-  %233 = load ptr, ptr %.sink226, align 8
-  %234 = fdiv double -1.000000e+00, %231
-  %235 = load ptr, ptr %110, align 8
-  %236 = load ptr, ptr %120, align 8
-  %237 = getelementptr inbounds ptr, ptr %236, i64 %indvars.iv
-  %238 = load ptr, ptr %237, align 8
-  tail call void @N_VLinearSum(double noundef %232, ptr noundef %233, double noundef %234, ptr noundef %235, ptr noundef %238) #12
+218:                                              ; preds = %213
+  %219 = load double, ptr %122, align 8
+  %220 = fdiv double 1.000000e+00, %219
+  %221 = load ptr, ptr %106, align 8
+  %222 = fdiv double -1.000000e+00, %219
+  %223 = load ptr, ptr %110, align 8
+  %224 = load ptr, ptr %120, align 8
+  %225 = getelementptr inbounds ptr, ptr %224, i64 %indvars.iv
+  %226 = load ptr, ptr %225, align 8
+  tail call void @N_VLinearSum(double noundef %220, ptr noundef %221, double noundef %222, ptr noundef %223, ptr noundef %226) #12
   br label %.thread198
 
-.thread198:                                       ; preds = %.thread198.sink.split, %230, %207
-  %239 = load i32, ptr %58, align 8
-  %.not125 = icmp eq i32 %239, 0
-  br i1 %.not125, label %260, label %240
+227:                                              ; preds = %210
+  %228 = load double, ptr %122, align 8
+  %229 = fdiv double 1.000000e+00, %228
+  %230 = load ptr, ptr %123, align 8
+  %231 = fdiv double -1.000000e+00, %228
+  %232 = load ptr, ptr %110, align 8
+  %233 = load ptr, ptr %120, align 8
+  %234 = getelementptr inbounds ptr, ptr %233, i64 %indvars.iv
+  %235 = load ptr, ptr %234, align 8
+  tail call void @N_VLinearSum(double noundef %229, ptr noundef %230, double noundef %231, ptr noundef %232, ptr noundef %235) #12
+  br label %.thread198
 
-240:                                              ; preds = %.thread198
-  %241 = load ptr, ptr %8, align 8
-  %242 = load double, ptr %100, align 8
-  %243 = load ptr, ptr %103, align 8
-  %244 = getelementptr inbounds i8, ptr %243, i64 24
-  %245 = load ptr, ptr %244, align 8
-  %246 = getelementptr inbounds double, ptr %245, i64 %indvars.iv
-  %247 = load double, ptr %246, align 8
-  %248 = load double, ptr %101, align 8
-  %249 = tail call double @llvm.fmuladd.f64(double %247, double %248, double %242)
-  %250 = load ptr, ptr %113, align 8
-  %251 = load ptr, ptr %125, align 8
-  %252 = getelementptr inbounds ptr, ptr %251, i64 %indvars.iv
-  %253 = load ptr, ptr %252, align 8
-  %254 = load ptr, ptr %116, align 8
-  %255 = tail call i32 %241(double noundef %249, ptr noundef %250, ptr noundef %253, ptr noundef %254) #12
-  %256 = load i64, ptr %126, align 8
-  %257 = add nsw i64 %256, 1
-  store i64 %257, ptr %126, align 8
-  %258 = icmp slt i32 %255, 0
-  br i1 %258, label %arkStep_AccessStepMem.exit.thread, label %259
+236:                                              ; preds = %209
+  %237 = load ptr, ptr %119, align 8
+  %238 = load double, ptr %102, align 8
+  %239 = load ptr, ptr %113, align 8
+  %240 = load ptr, ptr %120, align 8
+  %241 = getelementptr inbounds ptr, ptr %240, i64 %indvars.iv
+  %242 = load ptr, ptr %241, align 8
+  %243 = load ptr, ptr %116, align 8
+  %244 = tail call i32 %237(double noundef %238, ptr noundef %239, ptr noundef %242, ptr noundef %243) #12
+  %245 = load i64, ptr %121, align 8
+  %246 = add nsw i64 %245, 1
+  store i64 %246, ptr %121, align 8
+  %247 = icmp slt i32 %244, 0
+  br i1 %247, label %arkStep_AccessStepMem.exit.thread, label %248
 
-259:                                              ; preds = %240
-  %.not126 = icmp eq i32 %255, 0
-  br i1 %.not126, label %260, label %arkStep_AccessStepMem.exit.thread
+248:                                              ; preds = %236
+  %.not124 = icmp eq i32 %244, 0
+  br i1 %.not124, label %.thread198, label %arkStep_AccessStepMem.exit.thread
 
-260:                                              ; preds = %259, %.thread198
-  %261 = load i32, ptr %104, align 8
-  %262 = icmp eq i32 %261, 2
-  br i1 %262, label %263, label %282
+.thread198:                                       ; preds = %218, %227, %248, %207
+  %249 = load i32, ptr %58, align 8
+  %.not125 = icmp eq i32 %249, 0
+  br i1 %.not125, label %270, label %250
 
-263:                                              ; preds = %260
-  %264 = load i32, ptr %11, align 4
-  %265 = icmp eq i32 %264, 0
-  %or.cond3 = select i1 %265, i1 true, i1 %147
-  br i1 %or.cond3, label %273, label %266
+250:                                              ; preds = %.thread198
+  %251 = load ptr, ptr %8, align 8
+  %252 = load double, ptr %100, align 8
+  %253 = load ptr, ptr %103, align 8
+  %254 = getelementptr inbounds i8, ptr %253, i64 24
+  %255 = load ptr, ptr %254, align 8
+  %256 = getelementptr inbounds double, ptr %255, i64 %indvars.iv
+  %257 = load double, ptr %256, align 8
+  %258 = load double, ptr %101, align 8
+  %259 = tail call double @llvm.fmuladd.f64(double %257, double %258, double %252)
+  %260 = load ptr, ptr %113, align 8
+  %261 = load ptr, ptr %125, align 8
+  %262 = getelementptr inbounds ptr, ptr %261, i64 %indvars.iv
+  %263 = load ptr, ptr %262, align 8
+  %264 = load ptr, ptr %116, align 8
+  %265 = tail call i32 %251(double noundef %259, ptr noundef %260, ptr noundef %263, ptr noundef %264) #12
+  %266 = load i64, ptr %126, align 8
+  %267 = add nsw i64 %266, 1
+  store i64 %267, ptr %126, align 8
+  %268 = icmp slt i32 %265, 0
+  br i1 %268, label %arkStep_AccessStepMem.exit.thread, label %269
 
-266:                                              ; preds = %263
-  %267 = load ptr, ptr %109, align 8
-  %268 = load ptr, ptr %120, align 8
-  %269 = getelementptr inbounds ptr, ptr %268, i64 %indvars.iv
-  %270 = load ptr, ptr %269, align 8
-  %271 = load double, ptr %111, align 8
-  %272 = tail call i32 %267(ptr noundef nonnull %0, ptr noundef %270, double noundef %271) #12
-  store i32 %272, ptr %2, align 4
-  %.not127 = icmp eq i32 %272, 0
-  br i1 %.not127, label %273, label %arkStep_AccessStepMem.exit.thread
+269:                                              ; preds = %250
+  %.not126 = icmp eq i32 %265, 0
+  br i1 %.not126, label %270, label %arkStep_AccessStepMem.exit.thread
 
-273:                                              ; preds = %266, %263
-  %274 = load i32, ptr %58, align 8
-  %.not128 = icmp eq i32 %274, 0
-  br i1 %.not128, label %282, label %275
+270:                                              ; preds = %269, %.thread198
+  %271 = load i32, ptr %104, align 8
+  %272 = icmp eq i32 %271, 2
+  br i1 %272, label %273, label %292
 
-275:                                              ; preds = %273
-  %276 = load ptr, ptr %109, align 8
-  %277 = load ptr, ptr %125, align 8
-  %278 = getelementptr inbounds ptr, ptr %277, i64 %indvars.iv
-  %279 = load ptr, ptr %278, align 8
-  %280 = load double, ptr %111, align 8
-  %281 = tail call i32 %276(ptr noundef nonnull %0, ptr noundef %279, double noundef %280) #12
-  store i32 %281, ptr %2, align 4
-  %.not129 = icmp eq i32 %281, 0
-  br i1 %.not129, label %282, label %arkStep_AccessStepMem.exit.thread
+273:                                              ; preds = %270
+  %274 = load i32, ptr %11, align 4
+  %275 = icmp eq i32 %274, 0
+  %or.cond3 = select i1 %275, i1 true, i1 %147
+  br i1 %or.cond3, label %283, label %276
 
-282:                                              ; preds = %260, %275, %273
+276:                                              ; preds = %273
+  %277 = load ptr, ptr %109, align 8
+  %278 = load ptr, ptr %120, align 8
+  %279 = getelementptr inbounds ptr, ptr %278, i64 %indvars.iv
+  %280 = load ptr, ptr %279, align 8
+  %281 = load double, ptr %111, align 8
+  %282 = tail call i32 %277(ptr noundef nonnull %0, ptr noundef %280, double noundef %281) #12
+  store i32 %282, ptr %2, align 4
+  %.not127 = icmp eq i32 %282, 0
+  br i1 %.not127, label %283, label %arkStep_AccessStepMem.exit.thread
+
+283:                                              ; preds = %276, %273
+  %284 = load i32, ptr %58, align 8
+  %.not128 = icmp eq i32 %284, 0
+  br i1 %.not128, label %292, label %285
+
+285:                                              ; preds = %283
+  %286 = load ptr, ptr %109, align 8
+  %287 = load ptr, ptr %125, align 8
+  %288 = getelementptr inbounds ptr, ptr %287, i64 %indvars.iv
+  %289 = load ptr, ptr %288, align 8
+  %290 = load double, ptr %111, align 8
+  %291 = tail call i32 %286(ptr noundef nonnull %0, ptr noundef %289, double noundef %290) #12
+  store i32 %291, ptr %2, align 4
+  %.not129 = icmp eq i32 %291, 0
+  br i1 %.not129, label %292, label %arkStep_AccessStepMem.exit.thread
+
+292:                                              ; preds = %270, %285, %283
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %283 = load i32, ptr %94, align 4
-  %284 = trunc nuw i64 %indvars.iv.next to i32
-  %285 = icmp sgt i32 %283, %284
-  br i1 %285, label %128, label %._crit_edge
+  %293 = load i32, ptr %94, align 4
+  %294 = trunc nuw i64 %indvars.iv.next to i32
+  %295 = icmp sgt i32 %293, %294
+  br i1 %295, label %128, label %._crit_edge
 
-._crit_edge:                                      ; preds = %282, %93
-  %286 = getelementptr inbounds i8, ptr %8, i64 368
-  %287 = load i32, ptr %286, align 8
-  %288 = icmp eq i32 %287, 1
-  br i1 %288, label %289, label %291
+._crit_edge:                                      ; preds = %292, %93
+  %296 = getelementptr inbounds i8, ptr %8, i64 368
+  %297 = load i32, ptr %296, align 8
+  %298 = icmp eq i32 %297, 1
+  br i1 %298, label %299, label %301
 
-289:                                              ; preds = %._crit_edge
-  %290 = tail call i32 @arkStep_ComputeSolutions_MassFixed(ptr noundef nonnull %0, ptr noundef %1)
-  br label %293
+299:                                              ; preds = %._crit_edge
+  %300 = tail call i32 @arkStep_ComputeSolutions_MassFixed(ptr noundef nonnull %0, ptr noundef %1)
+  br label %303
 
-291:                                              ; preds = %._crit_edge
-  %292 = tail call i32 @arkStep_ComputeSolutions(ptr noundef nonnull %0, ptr noundef %1)
-  br label %293
+301:                                              ; preds = %._crit_edge
+  %302 = tail call i32 @arkStep_ComputeSolutions(ptr noundef nonnull %0, ptr noundef %1)
+  br label %303
 
-293:                                              ; preds = %291, %289
-  %storemerge = phi i32 [ %292, %291 ], [ %290, %289 ]
+303:                                              ; preds = %301, %299
+  %storemerge = phi i32 [ %302, %301 ], [ %300, %299 ]
   store i32 %storemerge, ptr %2, align 4
-  %294 = icmp slt i32 %storemerge, 0
-  br i1 %294, label %arkStep_AccessStepMem.exit.thread, label %295
+  %304 = icmp slt i32 %storemerge, 0
+  br i1 %304, label %arkStep_AccessStepMem.exit.thread, label %305
 
-295:                                              ; preds = %293
+305:                                              ; preds = %303
   %.not109 = icmp eq i32 %storemerge, 0
   %. = select i1 %.not109, i32 0, i32 5
   br label %arkStep_AccessStepMem.exit.thread
 
-arkStep_AccessStepMem.exit.thread:                ; preds = %.thread191, %275, %266, %259, %240, %230, %218, %213, %196, %185, %180, %177, %176, %170, %165, %159, %10, %5, %295, %293, %79, %32, %26
-  %.0 = phi i32 [ -30, %26 ], [ -31, %32 ], [ -8, %79 ], [ %storemerge, %293 ], [ %., %295 ], [ -21, %5 ], [ -21, %10 ], [ %179, %.thread191 ], [ 5, %275 ], [ 5, %266 ], [ -11, %259 ], [ -8, %240 ], [ -11, %230 ], [ -8, %218 ], [ -18, %213 ], [ -38, %196 ], [ 5, %185 ], [ 5, %180 ], [ %178, %177 ], [ 5, %176 ], [ -39, %170 ], [ %167, %165 ], [ -15, %159 ]
+arkStep_AccessStepMem.exit.thread:                ; preds = %.thread191, %285, %276, %269, %250, %248, %236, %213, %196, %185, %180, %177, %176, %170, %165, %159, %10, %5, %305, %303, %79, %32, %26
+  %.0 = phi i32 [ -30, %26 ], [ -31, %32 ], [ -8, %79 ], [ %storemerge, %303 ], [ %., %305 ], [ -21, %5 ], [ -21, %10 ], [ %179, %.thread191 ], [ 5, %285 ], [ 5, %276 ], [ -11, %269 ], [ -8, %250 ], [ -11, %248 ], [ -8, %236 ], [ -18, %213 ], [ -38, %196 ], [ 5, %185 ], [ 5, %180 ], [ %178, %177 ], [ 5, %176 ], [ -39, %170 ], [ %167, %165 ], [ -15, %159 ]
   ret i32 %.0
 }
 

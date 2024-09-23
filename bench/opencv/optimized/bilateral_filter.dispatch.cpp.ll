@@ -2503,7 +2503,8 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %.noexc, %68
 
 318:                                              ; preds = %317, %315
   store ptr %38, ptr %4, align 8
-  br label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit.sink.split
+  store i64 264, ptr %39, align 8
+  br label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit
 
 319:                                              ; preds = %44
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #16
@@ -3132,14 +3133,10 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit497:          ; preds = %.noexc496, %327
 
 722:                                              ; preds = %721, %719
   store ptr %26, ptr %7, align 8
-  br label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit.sink.split
-
-_ZN2cv10AutoBufferIfLm264EED2Ev.exit.sink.split:  ; preds = %318, %722
-  %.sink = phi ptr [ %27, %722 ], [ %39, %318 ]
-  store i64 264, ptr %.sink, align 8
+  store i64 264, ptr %27, align 8
   br label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit
 
-_ZN2cv10AutoBufferIfLm264EED2Ev.exit:             ; preds = %_ZN2cv10AutoBufferIfLm264EED2Ev.exit.sink.split, %._crit_edge532, %._crit_edge549
+_ZN2cv10AutoBufferIfLm264EED2Ev.exit:             ; preds = %722, %._crit_edge532, %318, %._crit_edge549
   %indvars.iv.next596 = add nsw i64 %indvars.iv595, 1
   %723 = load i32, ptr %10, align 4
   %724 = sext i32 %723 to i64

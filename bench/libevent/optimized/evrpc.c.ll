@@ -76,20 +76,29 @@ while.body:                                       ; preds = %entry, %while.body
   %cmp.not = icmp eq ptr %4, null
   br i1 %cmp.not, label %while.cond1.preheader, label %while.body, !llvm.loop !4
 
-while.cond22.preheader:                           ; preds = %do.body5, %while.cond1.preheader
+while.cond22.preheader:                           ; preds = %if.end, %while.cond1.preheader
   %5 = load ptr, ptr %base, align 8
   %cmp25.not38 = icmp eq ptr %5, null
   br i1 %cmp25.not38, label %while.cond31.preheader, label %for.cond.i.i.preheader
 
-do.body5:                                         ; preds = %do.body5.lr.ph, %do.body5
-  %6 = phi ptr [ %1, %do.body5.lr.ph ], [ %10, %do.body5 ]
+do.body5:                                         ; preds = %do.body5.lr.ph, %if.end
+  %6 = phi ptr [ %1, %do.body5.lr.ph ], [ %10, %if.end ]
   %7 = load ptr, ptr %6, align 8
   %cmp6.not = icmp eq ptr %7, null
   %tqe_prev13 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %tqe_prev13, align 8
+  br i1 %cmp6.not, label %if.else, label %if.then
+
+if.then:                                          ; preds = %do.body5
   %tqe_prev11 = getelementptr inbounds i8, ptr %7, i64 8
-  %tqh_last.sink = select i1 %cmp6.not, ptr %tqh_last, ptr %tqe_prev11
-  store ptr %8, ptr %tqh_last.sink, align 8
+  store ptr %8, ptr %tqe_prev11, align 8
+  br label %if.end
+
+if.else:                                          ; preds = %do.body5
+  store ptr %8, ptr %tqh_last, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then
   %9 = load ptr, ptr %6, align 8
   store ptr %9, ptr %8, align 8
   tail call void @event_mm_free_(ptr noundef nonnull %6) #11
@@ -190,14 +199,24 @@ for.body:                                         ; preds = %for.cond
   br i1 %cmp1, label %do.body, label %for.cond, !llvm.loop !10
 
 do.body:                                          ; preds = %for.body
+  %uri.le = getelementptr inbounds i8, ptr %rpc.0, i64 16
   %1 = load ptr, ptr %rpc.0, align 8
   %cmp7.not = icmp eq ptr %1, null
   %tqe_prev15 = getelementptr inbounds i8, ptr %rpc.0, i64 8
   %2 = load ptr, ptr %tqe_prev15, align 8
-  %tqh_last = getelementptr inbounds i8, ptr %base, i64 64
+  br i1 %cmp7.not, label %if.else, label %if.then8
+
+if.then8:                                         ; preds = %do.body
   %tqe_prev13 = getelementptr inbounds i8, ptr %1, i64 8
-  %tqh_last.sink = select i1 %cmp7.not, ptr %tqh_last, ptr %tqe_prev13
-  store ptr %2, ptr %tqh_last.sink, align 8
+  store ptr %2, ptr %tqe_prev13, align 8
+  br label %if.end17
+
+if.else:                                          ; preds = %do.body
+  %tqh_last = getelementptr inbounds i8, ptr %base, i64 64
+  store ptr %2, ptr %tqh_last, align 8
+  br label %if.end17
+
+if.end17:                                         ; preds = %if.else, %if.then8
   %3 = load ptr, ptr %rpc.0, align 8
   store ptr %3, ptr %2, align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #12
@@ -206,12 +225,11 @@ do.body:                                          ; preds = %for.body
   %cmp.i = icmp eq ptr %call2.i, null
   br i1 %cmp.i, label %if.then.i, label %evrpc_construct_uri.exit
 
-if.then.i:                                        ; preds = %do.body
+if.then.i:                                        ; preds = %if.end17
   tail call void (i32, ptr, ...) @event_err(i32 noundef 1, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.evrpc_construct_uri, ptr noundef %name) #13
   unreachable
 
-evrpc_construct_uri.exit:                         ; preds = %do.body
-  %uri.le = getelementptr inbounds i8, ptr %rpc.0, i64 16
+evrpc_construct_uri.exit:                         ; preds = %if.end17
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %call2.i, ptr noundef nonnull align 1 dereferenceable(6) @.str.1, i64 6, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %call2.i, i64 6
   %call3.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #12
@@ -535,17 +553,30 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %1, align 8
   %cmp.not11.i.i = icmp eq ptr %2, null
-  br i1 %cmp.not11.i.i, label %evrpc_hook_context_free_.exit, label %do.body2.i.i
+  br i1 %cmp.not11.i.i, label %evrpc_hook_context_free_.exit, label %do.body2.lr.ph.i.i
 
-do.body2.i.i:                                     ; preds = %if.then, %do.body2.i.i
-  %3 = phi ptr [ %9, %do.body2.i.i ], [ %2, %if.then ]
+do.body2.lr.ph.i.i:                               ; preds = %if.then
+  %tqh_last.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  br label %do.body2.i.i
+
+do.body2.i.i:                                     ; preds = %if.end.i.i, %do.body2.lr.ph.i.i
+  %3 = phi ptr [ %2, %do.body2.lr.ph.i.i ], [ %9, %if.end.i.i ]
   %4 = load ptr, ptr %3, align 8
   %cmp3.not.i.i = icmp eq ptr %4, null
   %tqe_prev10.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %tqe_prev10.i.i, align 8
-  %tqh_last.sink.v.i.i = select i1 %cmp3.not.i.i, ptr %1, ptr %4
-  %tqh_last.sink.i.i = getelementptr inbounds i8, ptr %tqh_last.sink.v.i.i, i64 8
-  store ptr %5, ptr %tqh_last.sink.i.i, align 8
+  br i1 %cmp3.not.i.i, label %if.else.i.i, label %if.then.i.i
+
+if.then.i.i:                                      ; preds = %do.body2.i.i
+  %tqe_prev8.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %5, ptr %tqe_prev8.i.i, align 8
+  br label %if.end.i.i
+
+if.else.i.i:                                      ; preds = %do.body2.i.i
+  store ptr %5, ptr %tqh_last.i.i, align 8
+  br label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %if.else.i.i, %if.then.i.i
   %6 = load ptr, ptr %3, align 8
   store ptr %6, ptr %5, align 8
   %key.i.i = getelementptr inbounds i8, ptr %3, i64 16
@@ -559,7 +590,7 @@ do.body2.i.i:                                     ; preds = %if.then, %do.body2.
   %cmp.not.i.i = icmp eq ptr %9, null
   br i1 %cmp.not.i.i, label %evrpc_hook_context_free_.exit, label %do.body2.i.i, !llvm.loop !11
 
-evrpc_hook_context_free_.exit:                    ; preds = %do.body2.i.i, %if.then
+evrpc_hook_context_free_.exit:                    ; preds = %if.end.i.i, %if.then
   tail call void @event_mm_free_(ptr noundef nonnull %1) #11
   br label %if.end
 
@@ -835,7 +866,7 @@ do.body.lr.ph:                                    ; preds = %entry
   %tqh_last = getelementptr inbounds i8, ptr %pool, i64 88
   br label %do.body
 
-while.cond14.preheader:                           ; preds = %do.body, %entry
+while.cond14.preheader:                           ; preds = %if.end, %entry
   %pause_requests = getelementptr inbounds i8, ptr %pool, i64 32
   %1 = load ptr, ptr %pause_requests, align 8
   %cmp16.not53 = icmp eq ptr %1, null
@@ -845,16 +876,25 @@ do.body18.lr.ph:                                  ; preds = %while.cond14.prehea
   %tqh_last34 = getelementptr inbounds i8, ptr %pool, i64 40
   br label %do.body18
 
-do.body:                                          ; preds = %do.body.lr.ph, %do.body
-  %2 = phi ptr [ %0, %do.body.lr.ph ], [ %6, %do.body ]
+do.body:                                          ; preds = %do.body.lr.ph, %if.end
+  %2 = phi ptr [ %0, %do.body.lr.ph ], [ %6, %if.end ]
   %next = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %next, align 8
   %cmp1.not = icmp eq ptr %3, null
   %tqe_prev8 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load ptr, ptr %tqe_prev8, align 8
+  br i1 %cmp1.not, label %if.else, label %if.then
+
+if.then:                                          ; preds = %do.body
   %tqe_prev6 = getelementptr inbounds i8, ptr %3, i64 16
-  %tqh_last.sink = select i1 %cmp1.not, ptr %tqh_last, ptr %tqe_prev6
-  store ptr %4, ptr %tqh_last.sink, align 8
+  store ptr %4, ptr %tqe_prev6, align 8
+  br label %if.end
+
+if.else:                                          ; preds = %do.body
+  store ptr %4, ptr %tqh_last, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then
   %5 = load ptr, ptr %next, align 8
   store ptr %5, ptr %4, align 8
   tail call fastcc void @evrpc_request_wrapper_free(ptr noundef nonnull %2)
@@ -862,7 +902,7 @@ do.body:                                          ; preds = %do.body.lr.ph, %do.
   %cmp.not = icmp eq ptr %6, null
   br i1 %cmp.not, label %while.cond14.preheader, label %do.body, !llvm.loop !12
 
-while.cond42.preheader:                           ; preds = %do.body18, %while.cond14.preheader
+while.cond42.preheader:                           ; preds = %if.end35, %while.cond14.preheader
   %connections = getelementptr inbounds i8, ptr %pool, i64 56
   %7 = load ptr, ptr %connections, align 8
   %cmp44.not54 = icmp eq ptr %7, null
@@ -872,15 +912,24 @@ do.body46.lr.ph:                                  ; preds = %while.cond42.prehea
   %tqh_last61 = getelementptr inbounds i8, ptr %pool, i64 64
   br label %do.body46
 
-do.body18:                                        ; preds = %do.body18.lr.ph, %do.body18
-  %8 = phi ptr [ %1, %do.body18.lr.ph ], [ %12, %do.body18 ]
+do.body18:                                        ; preds = %do.body18.lr.ph, %if.end35
+  %8 = phi ptr [ %1, %do.body18.lr.ph ], [ %12, %if.end35 ]
   %9 = load ptr, ptr %8, align 8
   %cmp21.not = icmp eq ptr %9, null
   %tqe_prev31 = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load ptr, ptr %tqe_prev31, align 8
+  br i1 %cmp21.not, label %if.else29, label %if.then22
+
+if.then22:                                        ; preds = %do.body18
   %tqe_prev28 = getelementptr inbounds i8, ptr %9, i64 8
-  %tqh_last34.sink = select i1 %cmp21.not, ptr %tqh_last34, ptr %tqe_prev28
-  store ptr %10, ptr %tqh_last34.sink, align 8
+  store ptr %10, ptr %tqe_prev28, align 8
+  br label %if.end35
+
+if.else29:                                        ; preds = %do.body18
+  store ptr %10, ptr %tqh_last34, align 8
+  br label %if.end35
+
+if.end35:                                         ; preds = %if.else29, %if.then22
   %11 = load ptr, ptr %8, align 8
   store ptr %11, ptr %10, align 8
   tail call void @event_mm_free_(ptr noundef nonnull %8) #11
@@ -888,20 +937,29 @@ do.body18:                                        ; preds = %do.body18.lr.ph, %d
   %cmp16.not = icmp eq ptr %12, null
   br i1 %cmp16.not, label %while.cond42.preheader, label %do.body18, !llvm.loop !13
 
-while.cond69.preheader:                           ; preds = %do.body46, %while.cond42.preheader
+while.cond69.preheader:                           ; preds = %if.end62, %while.cond42.preheader
   %13 = load ptr, ptr %pool, align 8
   %cmp72.not56 = icmp eq ptr %13, null
   br i1 %cmp72.not56, label %while.cond77.preheader, label %for.cond.i.i.preheader
 
-do.body46:                                        ; preds = %do.body46.lr.ph, %do.body46
-  %14 = phi ptr [ %7, %do.body46.lr.ph ], [ %18, %do.body46 ]
+do.body46:                                        ; preds = %do.body46.lr.ph, %if.end62
+  %14 = phi ptr [ %7, %do.body46.lr.ph ], [ %18, %if.end62 ]
   %15 = load ptr, ptr %14, align 8
   %cmp49.not = icmp eq ptr %15, null
   %tqe_prev59 = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load ptr, ptr %tqe_prev59, align 8
+  br i1 %cmp49.not, label %if.else57, label %if.then50
+
+if.then50:                                        ; preds = %do.body46
   %tqe_prev56 = getelementptr inbounds i8, ptr %15, i64 8
-  %tqh_last61.sink = select i1 %cmp49.not, ptr %tqh_last61, ptr %tqe_prev56
-  store ptr %16, ptr %tqh_last61.sink, align 8
+  store ptr %16, ptr %tqe_prev56, align 8
+  br label %if.end62
+
+if.else57:                                        ; preds = %do.body46
+  store ptr %16, ptr %tqh_last61, align 8
+  br label %if.end62
+
+if.end62:                                         ; preds = %if.else57, %if.then50
   %17 = load ptr, ptr %14, align 8
   store ptr %17, ptr %16, align 8
   tail call void @evhttp_connection_free(ptr noundef nonnull %14) #11
@@ -992,17 +1050,30 @@ entry:
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %0, align 8
   %cmp.not11.i.i = icmp eq ptr %1, null
-  br i1 %cmp.not11.i.i, label %evrpc_hook_context_free_.exit, label %do.body2.i.i
+  br i1 %cmp.not11.i.i, label %evrpc_hook_context_free_.exit, label %do.body2.lr.ph.i.i
 
-do.body2.i.i:                                     ; preds = %if.then, %do.body2.i.i
-  %2 = phi ptr [ %8, %do.body2.i.i ], [ %1, %if.then ]
+do.body2.lr.ph.i.i:                               ; preds = %if.then
+  %tqh_last.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  br label %do.body2.i.i
+
+do.body2.i.i:                                     ; preds = %if.end.i.i, %do.body2.lr.ph.i.i
+  %2 = phi ptr [ %1, %do.body2.lr.ph.i.i ], [ %8, %if.end.i.i ]
   %3 = load ptr, ptr %2, align 8
   %cmp3.not.i.i = icmp eq ptr %3, null
   %tqe_prev10.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %tqe_prev10.i.i, align 8
-  %tqh_last.sink.v.i.i = select i1 %cmp3.not.i.i, ptr %0, ptr %3
-  %tqh_last.sink.i.i = getelementptr inbounds i8, ptr %tqh_last.sink.v.i.i, i64 8
-  store ptr %4, ptr %tqh_last.sink.i.i, align 8
+  br i1 %cmp3.not.i.i, label %if.else.i.i, label %if.then.i.i
+
+if.then.i.i:                                      ; preds = %do.body2.i.i
+  %tqe_prev8.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %4, ptr %tqe_prev8.i.i, align 8
+  br label %if.end.i.i
+
+if.else.i.i:                                      ; preds = %do.body2.i.i
+  store ptr %4, ptr %tqh_last.i.i, align 8
+  br label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %if.else.i.i, %if.then.i.i
   %5 = load ptr, ptr %2, align 8
   store ptr %5, ptr %4, align 8
   %key.i.i = getelementptr inbounds i8, ptr %2, i64 16
@@ -1016,7 +1087,7 @@ do.body2.i.i:                                     ; preds = %if.then, %do.body2.
   %cmp.not.i.i = icmp eq ptr %8, null
   br i1 %cmp.not.i.i, label %evrpc_hook_context_free_.exit, label %do.body2.i.i, !llvm.loop !11
 
-evrpc_hook_context_free_.exit:                    ; preds = %do.body2.i.i, %if.then
+evrpc_hook_context_free_.exit:                    ; preds = %if.end.i.i, %if.then
   tail call void @event_mm_free_(ptr noundef nonnull %0) #11
   br label %if.end
 
@@ -1074,16 +1145,25 @@ if.then14:                                        ; preds = %if.end12
   %cmp20.not = icmp eq ptr %5, null
   %tqe_prev29 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %tqe_prev29, align 8
-  %tqh_last31 = getelementptr inbounds i8, ptr %pool, i64 88
+  br i1 %cmp20.not, label %if.else, label %if.then21
+
+if.then21:                                        ; preds = %if.then14
   %tqe_prev27 = getelementptr inbounds i8, ptr %5, i64 16
-  %tqh_last31.sink = select i1 %cmp20.not, ptr %tqh_last31, ptr %tqe_prev27
-  store ptr %6, ptr %tqh_last31.sink, align 8
+  store ptr %6, ptr %tqe_prev27, align 8
+  br label %if.end32
+
+if.else:                                          ; preds = %if.then14
+  %tqh_last31 = getelementptr inbounds i8, ptr %pool, i64 88
+  store ptr %6, ptr %tqh_last31, align 8
+  br label %if.end32
+
+if.end32:                                         ; preds = %if.else, %if.then21
   %7 = load ptr, ptr %next18, align 8
   store ptr %7, ptr %6, align 8
   tail call fastcc void @evrpc_schedule_request(ptr noundef nonnull %connection, ptr noundef %4)
   br label %if.end38
 
-if.end38:                                         ; preds = %if.then14, %if.end12
+if.end38:                                         ; preds = %if.end32, %if.end12
   ret void
 }
 
@@ -1207,10 +1287,19 @@ entry:
   %cmp.not = icmp eq ptr %0, null
   %tqe_prev7 = getelementptr inbounds i8, ptr %connection, i64 8
   %1 = load ptr, ptr %tqe_prev7, align 8
-  %tqh_last = getelementptr inbounds i8, ptr %pool, i64 64
+  br i1 %cmp.not, label %if.else, label %if.then
+
+if.then:                                          ; preds = %entry
   %tqe_prev5 = getelementptr inbounds i8, ptr %0, i64 8
-  %tqh_last.sink = select i1 %cmp.not, ptr %tqh_last, ptr %tqe_prev5
-  store ptr %1, ptr %tqh_last.sink, align 8
+  store ptr %1, ptr %tqe_prev5, align 8
+  br label %if.end
+
+if.else:                                          ; preds = %entry
+  %tqh_last = getelementptr inbounds i8, ptr %pool, i64 64
+  store ptr %1, ptr %tqh_last, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then
   %2 = load ptr, ptr %connection, align 8
   store ptr %2, ptr %1, align 8
   ret void
@@ -1263,17 +1352,26 @@ if.end5:                                          ; preds = %for.body
   %cmp9.not = icmp eq ptr %2, null
   %tqe_prev17 = getelementptr inbounds i8, ptr %pause.0, i64 8
   %3 = load ptr, ptr %tqe_prev17, align 8
-  %tqh_last = getelementptr inbounds i8, ptr %vbase, i64 40
+  br i1 %cmp9.not, label %if.else, label %if.then10
+
+if.then10:                                        ; preds = %if.end5
   %tqe_prev15 = getelementptr inbounds i8, ptr %2, i64 8
-  %tqh_last.sink = select i1 %cmp9.not, ptr %tqh_last, ptr %tqe_prev15
-  store ptr %3, ptr %tqh_last.sink, align 8
+  store ptr %3, ptr %tqe_prev15, align 8
+  br label %if.end18
+
+if.else:                                          ; preds = %if.end5
+  %tqh_last = getelementptr inbounds i8, ptr %vbase, i64 40
+  store ptr %3, ptr %tqh_last, align 8
+  br label %if.end18
+
+if.end18:                                         ; preds = %if.else, %if.then10
   %4 = load ptr, ptr %pause.0, align 8
   store ptr %4, ptr %3, align 8
   tail call void @event_mm_free_(ptr noundef nonnull %pause.0) #11
   br label %return
 
-return:                                           ; preds = %for.cond, %if.end5
-  %retval.0 = phi i32 [ 0, %if.end5 ], [ -1, %for.cond ]
+return:                                           ; preds = %for.cond, %if.end18
+  %retval.0 = phi i32 [ 0, %if.end18 ], [ -1, %for.cond ]
   ret i32 %retval.0
 }
 
@@ -1321,15 +1419,24 @@ do.body.i:                                        ; preds = %for.body.i.i
   %cmp3.not.i = icmp eq ptr %5, null
   %tqe_prev11.i = getelementptr inbounds i8, ptr %3, i64 16
   %6 = load ptr, ptr %tqe_prev11.i, align 8
+  br i1 %cmp3.not.i, label %if.else.i, label %if.then4.i
+
+if.then4.i:                                       ; preds = %do.body.i
   %tqe_prev9.i = getelementptr inbounds i8, ptr %5, i64 16
-  %tqh_last.sink.i = select i1 %cmp3.not.i, ptr %tqh_last, ptr %tqe_prev9.i
-  store ptr %6, ptr %tqh_last.sink.i, align 8
+  store ptr %6, ptr %tqe_prev9.i, align 8
+  br label %if.end13.i
+
+if.else.i:                                        ; preds = %do.body.i
+  store ptr %6, ptr %tqh_last, align 8
+  br label %if.end13.i
+
+if.end13.i:                                       ; preds = %if.else.i, %if.then4.i
   %7 = load ptr, ptr %next.i, align 8
   store ptr %7, ptr %6, align 8
   tail call fastcc void @evrpc_schedule_request(ptr noundef nonnull %connection.0.i.i, ptr noundef %3)
   br label %evrpc_pool_schedule.exit
 
-evrpc_pool_schedule.exit:                         ; preds = %for.cond.i.i, %entry, %do.body.i
+evrpc_pool_schedule.exit:                         ; preds = %for.cond.i.i, %entry, %if.end13.i
   ret i32 0
 }
 
@@ -1565,9 +1672,18 @@ do.body.i.i:                                      ; preds = %for.body.i.i.i
   %cmp3.not.i.i = icmp eq ptr %5, null
   %tqe_prev11.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %6 = load ptr, ptr %tqe_prev11.i.i, align 8
+  br i1 %cmp3.not.i.i, label %if.else.i.i, label %if.then4.i.i
+
+if.then4.i.i:                                     ; preds = %do.body.i.i
   %tqe_prev9.i.i = getelementptr inbounds i8, ptr %5, i64 16
-  %tqh_last.sink.i.i = select i1 %cmp3.not.i.i, ptr %tqh_last.i, ptr %tqe_prev9.i.i
-  store ptr %6, ptr %tqh_last.sink.i.i, align 8
+  store ptr %6, ptr %tqe_prev9.i.i, align 8
+  br label %if.end13.i.i
+
+if.else.i.i:                                      ; preds = %do.body.i.i
+  store ptr %6, ptr %tqh_last.i, align 8
+  br label %if.end13.i.i
+
+if.end13.i.i:                                     ; preds = %if.else.i.i, %if.then4.i.i
   %7 = load ptr, ptr %next.i.i, align 8
   store ptr %7, ptr %6, align 8
   tail call fastcc void @evrpc_schedule_request(ptr noundef nonnull %connection.0.i.i.i, ptr noundef %3)
@@ -1579,8 +1695,8 @@ error:                                            ; preds = %if.then5.i, %entry
   call void %cb(ptr noundef nonnull %status, ptr noundef %request, ptr noundef %reply, ptr noundef %cb_arg) #11
   br label %return
 
-return:                                           ; preds = %for.cond.i.i.i, %do.body.i.i, %if.end, %error
-  %retval.0 = phi i32 [ -1, %error ], [ 0, %if.end ], [ 0, %do.body.i.i ], [ 0, %for.cond.i.i.i ]
+return:                                           ; preds = %for.cond.i.i.i, %if.end13.i.i, %if.end, %error
+  %retval.0 = phi i32 [ -1, %error ], [ 0, %if.end ], [ 0, %if.end13.i.i ], [ 0, %for.cond.i.i.i ]
   ret i32 %retval.0
 }
 
@@ -1989,16 +2105,25 @@ do.body.i:                                        ; preds = %for.body.i.i
   %cmp3.not.i = icmp eq ptr %13, null
   %tqe_prev11.i = getelementptr inbounds i8, ptr %11, i64 16
   %14 = load ptr, ptr %tqe_prev11.i, align 8
-  %tqh_last.i = getelementptr inbounds i8, ptr %1, i64 88
+  br i1 %cmp3.not.i, label %if.else.i, label %if.then4.i
+
+if.then4.i:                                       ; preds = %do.body.i
   %tqe_prev9.i = getelementptr inbounds i8, ptr %13, i64 16
-  %tqh_last.sink.i = select i1 %cmp3.not.i, ptr %tqh_last.i, ptr %tqe_prev9.i
-  store ptr %14, ptr %tqh_last.sink.i, align 8
+  store ptr %14, ptr %tqe_prev9.i, align 8
+  br label %if.end13.i
+
+if.else.i:                                        ; preds = %do.body.i
+  %tqh_last.i = getelementptr inbounds i8, ptr %1, i64 88
+  store ptr %14, ptr %tqh_last.i, align 8
+  br label %if.end13.i
+
+if.end13.i:                                       ; preds = %if.else.i, %if.then4.i
   %15 = load ptr, ptr %next.i, align 8
   store ptr %15, ptr %14, align 8
   call fastcc void @evrpc_schedule_request(ptr noundef nonnull %connection.0.i.i, ptr noundef %11)
   br label %evrpc_pool_schedule.exit
 
-evrpc_pool_schedule.exit:                         ; preds = %for.cond.i.i, %if.end20, %do.body.i
+evrpc_pool_schedule.exit:                         ; preds = %for.cond.i.i, %if.end20, %if.end13.i
   ret void
 }
 

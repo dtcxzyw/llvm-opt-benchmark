@@ -1631,33 +1631,33 @@ is_null_oid.exit36.i:                             ; preds = %if.end.i.i.i27.i, %
 if.then11.i:                                      ; preds = %is_null_oid.exit36.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %upstream, ptr noundef nonnull readonly align 4 dereferenceable(32) %rebase_fork_point, i64 32, i1 false)
   %algo.i40.i.phi.trans.insert = getelementptr inbounds i8, ptr %118, i64 32
-  %.pre224 = load i32, ptr %algo.i40.i.phi.trans.insert, align 4
+  %.pre = load i32, ptr %algo.i40.i.phi.trans.insert, align 4
   br label %get_rebase_newbase_and_upstream.exit
 
 if.else.i192:                                     ; preds = %is_null_oid.exit36.i, %oideq.exit.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %upstream, ptr noundef nonnull readonly align 4 dereferenceable(32) %118, i64 32, i1 false)
   %algo.i38.i = getelementptr inbounds i8, ptr %118, i64 32
-  %.pre = load i32, ptr %algo.i38.i, align 4
+  %.sink.i.pre = load i32, ptr %algo.i38.i, align 4
   br label %get_rebase_newbase_and_upstream.exit
 
 get_rebase_newbase_and_upstream.exit:             ; preds = %if.then11.i, %if.else.i192
-  %142 = phi i32 [ %.pre, %if.else.i192 ], [ %.pre224, %if.then11.i ]
-  %143 = phi i32 [ %.pre, %if.else.i192 ], [ %138, %if.then11.i ]
+  %142 = phi i32 [ %.sink.i.pre, %if.else.i192 ], [ %.pre, %if.then11.i ]
+  %.sink.i = phi i32 [ %.sink.i.pre, %if.else.i192 ], [ %138, %if.then11.i ]
   %algo3.i39.i = getelementptr inbounds i8, ptr %upstream, i64 32
-  store i32 %143, ptr %algo3.i39.i, align 4
+  store i32 %.sink.i, ptr %algo3.i39.i, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %newbase, ptr noundef nonnull readonly align 4 dereferenceable(32) %118, i64 32, i1 false)
   %algo3.i41.i = getelementptr inbounds i8, ptr %newbase, i64 32
   store i32 %142, ptr %algo3.i41.i, align 4
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %oct_merge_base.i)
-  %144 = load i32, ptr @recurse_submodules, align 4
-  switch i32 %144, label %if.end152 [
+  %143 = load i32, ptr @recurse_submodules, align 4
+  switch i32 %143, label %if.end152 [
     i32 -1, label %land.lhs.true147
     i32 2, label %land.lhs.true147
   ]
 
 land.lhs.true147:                                 ; preds = %get_rebase_newbase_and_upstream.exit, %get_rebase_newbase_and_upstream.exit
-  %145 = load ptr, ptr @the_repository, align 8
-  %call148 = call i32 @submodule_touches_in_range(ptr noundef %145, ptr noundef nonnull %upstream, ptr noundef nonnull %curr_head) #17
+  %144 = load ptr, ptr @the_repository, align 8
+  %call148 = call i32 @submodule_touches_in_range(ptr noundef %144, ptr noundef nonnull %upstream, ptr noundef nonnull %curr_head) #17
   %tobool149.not = icmp eq i32 %call148, 0
   br i1 %tobool149.not, label %if.end152, label %if.then150
 
@@ -1684,8 +1684,8 @@ if.end157:                                        ; preds = %if.else, %if.then15
   br i1 %tobool158.not, label %land.lhs.true159, label %cleanup
 
 land.lhs.true159:                                 ; preds = %if.end157
-  %146 = load i32, ptr @recurse_submodules, align 4
-  switch i32 %146, label %cleanup [
+  %145 = load i32, ptr @recurse_submodules, align 4
+  switch i32 %145, label %cleanup [
     i32 -1, label %if.then163
     i32 2, label %if.then163
   ]
@@ -1700,8 +1700,8 @@ if.else166:                                       ; preds = %if.end140.thread, %
   br i1 %tobool168.not, label %land.lhs.true169, label %cleanup
 
 land.lhs.true169:                                 ; preds = %if.else166
-  %147 = load i32, ptr @recurse_submodules, align 4
-  switch i32 %147, label %cleanup [
+  %146 = load i32, ptr @recurse_submodules, align 4
+  switch i32 %146, label %cleanup [
     i32 -1, label %if.then173
     i32 2, label %if.then173
   ]

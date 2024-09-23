@@ -3022,7 +3022,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_29SdfDataTokens_StaticTo
   %101 = and i64 %100, 3
   %102 = icmp eq i64 %101, 3
   %or.cond.i.i = or i1 %.not.i.i21, %102
-  br i1 %or.cond.i.i, label %.sink.split, label %103
+  br i1 %or.cond.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit, label %103
 
 103:                                              ; preds = %97
   %104 = and i64 %100, -8
@@ -3030,7 +3030,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_29SdfDataTokens_StaticTo
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 32
   %107 = load ptr, ptr %106, align 8
   invoke void %107(ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %.sink.split unwind label %108
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %108
 
 108:                                              ; preds = %103
   %109 = landingpad { ptr, i32 }
@@ -3038,6 +3038,10 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_29SdfDataTokens_StaticTo
   %110 = extractvalue { ptr, i32 } %109, 0
   call void @__clang_call_terminate(ptr %110) #29
   unreachable
+
+_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %97, %103
+  store ptr null, ptr %98, align 8
+  br label %152
 
 111:                                              ; preds = %116, %76, %152, %137, %96
   %112 = landingpad { ptr, i32 }
@@ -3113,7 +3117,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28SdfFieldKeys_StaticTok
   %142 = and i64 %141, 3
   %143 = icmp eq i64 %142, 3
   %or.cond.i.i27 = or i1 %.not.i.i26, %143
-  br i1 %or.cond.i.i27, label %.sink.split, label %144
+  br i1 %or.cond.i.i27, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit28, label %144
 
 144:                                              ; preds = %138
   %145 = and i64 %141, -8
@@ -3121,7 +3125,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28SdfFieldKeys_StaticTok
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 32
   %148 = load ptr, ptr %147, align 8
   invoke void %148(ptr noundef nonnull align 8 dereferenceable(8) %8)
-          to label %.sink.split unwind label %149
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit28 unwind label %149
 
 149:                                              ; preds = %144
   %150 = landingpad { ptr, i32 }
@@ -3130,12 +3134,11 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28SdfFieldKeys_StaticTok
   call void @__clang_call_terminate(ptr %151) #29
   unreachable
 
-.sink.split:                                      ; preds = %144, %138, %103, %97
-  %.sink = phi ptr [ %98, %97 ], [ %98, %103 ], [ %139, %138 ], [ %139, %144 ]
-  store ptr null, ptr %.sink, align 8
+_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit28: ; preds = %138, %144
+  store ptr null, ptr %139, align 8
   br label %152
 
-152:                                              ; preds = %.sink.split, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28SdfFieldKeys_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit
+152:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28SdfFieldKeys_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit28, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit
   %153 = load ptr, ptr %3, align 8
   %154 = getelementptr inbounds i8, ptr %153, i64 8
   %155 = load ptr, ptr %154, align 8
@@ -9137,72 +9140,99 @@ declare noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_Less
 define linkonce_odr void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_17Usd_CrateDataImpl4SaveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlRKS3_SL_E_EEEvT_SO_SO_SO_T0_(ptr %0, ptr %1, ptr %2, ptr %3) local_unnamed_addr #3 comdat {
   %5 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 1
   %6 = call noundef zeroext i1 @_ZZN32pxrInternal_v0_24__pxrReserved__17Usd_CrateDataImpl4SaveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlRKNS_7SdfPathESB_E_clESB_SB_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %2)
-  br i1 %6, label %7, label %19
+  br i1 %6, label %7, label %30
 
 7:                                                ; preds = %4
   %8 = call noundef zeroext i1 @_ZZN32pxrInternal_v0_24__pxrReserved__17Usd_CrateDataImpl4SaveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlRKNS_7SdfPathESB_E_clESB_SB_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(8) %3)
-  br i1 %8, label %9, label %12
+  br i1 %8, label %9, label %16
 
 9:                                                ; preds = %7
   %10 = load i32, ptr %0, align 4
   %11 = load i32, ptr %2, align 4
   store i32 %11, ptr %0, align 4
   store i32 %10, ptr %2, align 4
-  br label %31
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %14 = load i32, ptr %12, align 4
+  %15 = load i32, ptr %13, align 4
+  store i32 %15, ptr %12, align 4
+  store i32 %14, ptr %13, align 4
+  br label %53
 
-12:                                               ; preds = %7
-  %13 = call noundef zeroext i1 @_ZZN32pxrInternal_v0_24__pxrReserved__17Usd_CrateDataImpl4SaveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlRKNS_7SdfPathESB_E_clESB_SB_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %3)
-  %14 = load i32, ptr %0, align 4
-  br i1 %13, label %15, label %17
+16:                                               ; preds = %7
+  %17 = call noundef zeroext i1 @_ZZN32pxrInternal_v0_24__pxrReserved__17Usd_CrateDataImpl4SaveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlRKNS_7SdfPathESB_E_clESB_SB_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %3)
+  %18 = load i32, ptr %0, align 4
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  br i1 %17, label %20, label %25
 
-15:                                               ; preds = %12
-  %16 = load i32, ptr %3, align 4
-  store i32 %16, ptr %0, align 4
-  store i32 %14, ptr %3, align 4
-  br label %31
+20:                                               ; preds = %16
+  %21 = load i32, ptr %3, align 4
+  store i32 %21, ptr %0, align 4
+  store i32 %18, ptr %3, align 4
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %23 = load i32, ptr %19, align 4
+  %24 = load i32, ptr %22, align 4
+  store i32 %24, ptr %19, align 4
+  store i32 %23, ptr %22, align 4
+  br label %53
 
-17:                                               ; preds = %12
-  %18 = load i32, ptr %1, align 4
-  store i32 %18, ptr %0, align 4
-  store i32 %14, ptr %1, align 4
-  br label %31
+25:                                               ; preds = %16
+  %26 = load i32, ptr %1, align 4
+  store i32 %26, ptr %0, align 4
+  store i32 %18, ptr %1, align 4
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %28 = load i32, ptr %19, align 4
+  %29 = load i32, ptr %27, align 4
+  store i32 %29, ptr %19, align 4
+  store i32 %28, ptr %27, align 4
+  br label %53
 
-19:                                               ; preds = %4
-  %20 = call noundef zeroext i1 @_ZZN32pxrInternal_v0_24__pxrReserved__17Usd_CrateDataImpl4SaveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlRKNS_7SdfPathESB_E_clESB_SB_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %3)
-  br i1 %20, label %21, label %24
+30:                                               ; preds = %4
+  %31 = call noundef zeroext i1 @_ZZN32pxrInternal_v0_24__pxrReserved__17Usd_CrateDataImpl4SaveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlRKNS_7SdfPathESB_E_clESB_SB_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %3)
+  br i1 %31, label %32, label %39
 
-21:                                               ; preds = %19
-  %22 = load i32, ptr %0, align 4
-  %23 = load i32, ptr %1, align 4
-  store i32 %23, ptr %0, align 4
-  store i32 %22, ptr %1, align 4
-  br label %31
+32:                                               ; preds = %30
+  %33 = load i32, ptr %0, align 4
+  %34 = load i32, ptr %1, align 4
+  store i32 %34, ptr %0, align 4
+  store i32 %33, ptr %1, align 4
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %37 = load i32, ptr %35, align 4
+  %38 = load i32, ptr %36, align 4
+  store i32 %38, ptr %35, align 4
+  store i32 %37, ptr %36, align 4
+  br label %53
 
-24:                                               ; preds = %19
-  %25 = call noundef zeroext i1 @_ZZN32pxrInternal_v0_24__pxrReserved__17Usd_CrateDataImpl4SaveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlRKNS_7SdfPathESB_E_clESB_SB_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(8) %3)
-  %26 = load i32, ptr %0, align 4
-  br i1 %25, label %27, label %29
+39:                                               ; preds = %30
+  %40 = call noundef zeroext i1 @_ZZN32pxrInternal_v0_24__pxrReserved__17Usd_CrateDataImpl4SaveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlRKNS_7SdfPathESB_E_clESB_SB_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(8) %3)
+  %41 = load i32, ptr %0, align 4
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  br i1 %40, label %43, label %48
 
-27:                                               ; preds = %24
-  %28 = load i32, ptr %3, align 4
-  store i32 %28, ptr %0, align 4
-  store i32 %26, ptr %3, align 4
-  br label %31
+43:                                               ; preds = %39
+  %44 = load i32, ptr %3, align 4
+  store i32 %44, ptr %0, align 4
+  store i32 %41, ptr %3, align 4
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %46 = load i32, ptr %42, align 4
+  %47 = load i32, ptr %45, align 4
+  store i32 %47, ptr %42, align 4
+  store i32 %46, ptr %45, align 4
+  br label %53
 
-29:                                               ; preds = %24
-  %30 = load i32, ptr %2, align 4
-  store i32 %30, ptr %0, align 4
-  store i32 %26, ptr %2, align 4
-  br label %31
+48:                                               ; preds = %39
+  %49 = load i32, ptr %2, align 4
+  store i32 %49, ptr %0, align 4
+  store i32 %41, ptr %2, align 4
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %51 = load i32, ptr %42, align 4
+  %52 = load i32, ptr %50, align 4
+  store i32 %52, ptr %42, align 4
+  store i32 %51, ptr %50, align 4
+  br label %53
 
-31:                                               ; preds = %21, %29, %27, %9, %17, %15
-  %.sink = phi ptr [ %1, %21 ], [ %2, %29 ], [ %3, %27 ], [ %2, %9 ], [ %1, %17 ], [ %3, %15 ]
-  %.sink30 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %32 = getelementptr inbounds nuw i8, ptr %.sink, i64 4
-  %33 = load i32, ptr %.sink30, align 4
-  %34 = load i32, ptr %32, align 4
-  store i32 %34, ptr %.sink30, align 4
-  store i32 %33, ptr %32, align 4
+53:                                               ; preds = %32, %48, %43, %9, %25, %20
   ret void
 }
 
@@ -12795,22 +12825,18 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__13Usd_CrateFile13FieldSetIn
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
-  br label %.sink.split
+  store ptr %.031, ptr %24, align 8
+  br label %28
 
 25:                                               ; preds = %.lr.ph
   %26 = load ptr, ptr %19, align 8
   store ptr %26, ptr %.031, align 8
   %27 = load ptr, ptr %18, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %25, %23
-  %.sink = phi ptr [ %24, %23 ], [ %27, %25 ]
-  %.1.ph = phi i64 [ %17, %23 ], [ %.02530, %25 ]
-  store ptr %.031, ptr %.sink, align 8
+  store ptr %.031, ptr %27, align 8
   br label %28
 
-28:                                               ; preds = %.sink.split, %20
-  %.1 = phi i64 [ %17, %20 ], [ %.1.ph, %.sink.split ]
+28:                                               ; preds = %20, %23, %25
+  %.1 = phi i64 [ %.02530, %25 ], [ %17, %23 ], [ %17, %20 ]
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !107
 

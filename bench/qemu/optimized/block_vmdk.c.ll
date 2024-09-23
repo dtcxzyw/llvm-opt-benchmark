@@ -3584,9 +3584,9 @@ if.end10:                                         ; preds = %if.end, %for.end
   br label %if.end12
 
 if.end12:                                         ; preds = %entry, %if.end10
-  %value.sink = phi ptr [ %value, %if.end10 ], [ %opaque, %entry ]
-  %2 = load ptr, ptr %value.sink, align 8
-  %call11 = tail call ptr @bdrv_co_open_blockdev_ref(ptr noundef %2, ptr noundef %errp) #15
+  %.sink.in = phi ptr [ %value, %if.end10 ], [ %opaque, %entry ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %call11 = tail call ptr @bdrv_co_open_blockdev_ref(ptr noundef %.sink, ptr noundef %errp) #15
   %tobool13.not = icmp eq ptr %call11, null
   br i1 %tobool13.not, label %return, label %if.end15
 

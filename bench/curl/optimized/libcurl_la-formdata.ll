@@ -1146,6 +1146,7 @@ if.then18.i.i:                                    ; preds = %if.then7.i.i
   %144 = load ptr, ptr %more.i248.i, align 8
   %more19.i.i = getelementptr inbounds i8, ptr %call5.i.i, i64 72
   store ptr %144, ptr %more19.i.i, align 8
+  store ptr %call5.i.i, ptr %more.i248.i, align 8
   br label %if.end629.i
 
 if.else21.i.i:                                    ; preds = %if.then7.i.i
@@ -1153,11 +1154,10 @@ if.else21.i.i:                                    ; preds = %if.then7.i.i
   %tobool22.not.i.i = icmp eq ptr %145, null
   %httppost..i.i = select i1 %tobool22.not.i.i, ptr %httppost, ptr %145
   store ptr %call5.i.i, ptr %httppost..i.i, align 8
+  store ptr %call5.i.i, ptr %last_post, align 8
   br label %if.end629.i
 
 if.end629.i:                                      ; preds = %if.else21.i.i, %if.then18.i.i
-  %more.sink.i.i = phi ptr [ %more.i248.i, %if.then18.i.i ], [ %last_post, %if.else21.i.i ]
-  store ptr %call5.i.i, ptr %more.sink.i.i, align 8
   %146 = load ptr, ptr %contenttype621.i, align 8
   %tobool631.not.i = icmp eq ptr %146, null
   %spec.select.i = select i1 %tobool631.not.i, ptr %prevtype.0290.i, ptr %146

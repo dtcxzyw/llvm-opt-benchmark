@@ -805,7 +805,7 @@ After_End_Of_Data.exit:                           ; preds = %14, %16
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @Display_Or_Erase_Field(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %97, label %3
+  br i1 %.not, label %98, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds i8, ptr %0, i64 80
@@ -839,14 +839,14 @@ define internal fastcc range(i32 -1, 1) i32 @Display_Or_Erase_Field(ptr noundef 
   %25 = sext i16 %24 to i32
   %26 = tail call ptr @derwin(ptr noundef %13, i32 noundef %16, i32 noundef %19, i32 noundef %22, i32 noundef %25) #13
   %.not43 = icmp eq ptr %26, null
-  br i1 %.not43, label %97, label %27
+  br i1 %.not43, label %98, label %27
 
 27:                                               ; preds = %12
   %28 = getelementptr inbounds i8, ptr %0, i64 48
   %29 = load i32, ptr %28, align 8
   %30 = and i32 %29, 1
   %.not44 = icmp eq i32 %30, 0
-  br i1 %.not44, label %38, label %31
+  br i1 %.not44, label %39, label %31
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds i8, ptr %0, i64 36
@@ -856,127 +856,124 @@ define internal fastcc range(i32 -1, 1) i32 @Display_Or_Erase_Field(ptr noundef 
   %36 = or i32 %35, %33
   tail call void @wbkgdset(ptr noundef nonnull %26, i32 noundef %36) #13
   %37 = getelementptr inbounds i8, ptr %0, i64 40
-  br label %.sink.split
+  %38 = load i32, ptr %37, align 8
+  br label %43
 
-38:                                               ; preds = %27
+39:                                               ; preds = %27
   %.not45 = icmp eq ptr %13, null
-  br i1 %.not45, label %42, label %39
+  br i1 %.not45, label %43, label %40
 
-39:                                               ; preds = %38
-  %40 = getelementptr inbounds i8, ptr %13, i64 16
-  br label %.sink.split
+40:                                               ; preds = %39
+  %41 = getelementptr inbounds i8, ptr %13, i64 16
+  %42 = load i32, ptr %41, align 8
+  br label %43
 
-.sink.split:                                      ; preds = %31, %39
-  %.sink49 = phi ptr [ %40, %39 ], [ %37, %31 ]
-  %41 = load i32, ptr %.sink49, align 8
-  br label %42
+43:                                               ; preds = %40, %39, %31
+  %.sink = phi i32 [ %38, %31 ], [ %42, %40 ], [ 0, %39 ]
+  %44 = tail call i32 @wattrset(ptr noundef nonnull %26, i32 noundef %.sink) #13
+  %45 = tail call i32 @werase(ptr noundef nonnull %26) #13
+  br i1 %1, label %96, label %46
 
-42:                                               ; preds = %.sink.split, %38
-  %.sink = phi i32 [ 0, %38 ], [ %41, %.sink.split ]
-  %43 = tail call i32 @wattrset(ptr noundef nonnull %26, i32 noundef %.sink) #13
-  %44 = tail call i32 @werase(ptr noundef nonnull %26) #13
-  br i1 %1, label %95, label %45
+46:                                               ; preds = %43
+  %47 = load i32, ptr %28, align 8
+  %48 = and i32 %47, 4
+  %.not46 = icmp eq i32 %48, 0
+  br i1 %.not46, label %Buffer_To_Window.exit, label %49
 
-45:                                               ; preds = %42
-  %46 = load i32, ptr %28, align 8
-  %47 = and i32 %46, 4
-  %.not46 = icmp eq i32 %47, 0
-  br i1 %.not46, label %Buffer_To_Window.exit, label %48
+49:                                               ; preds = %46
+  %50 = getelementptr inbounds i8, ptr %0, i64 30
+  %51 = load i16, ptr %50, align 2
+  %.not47 = icmp eq i16 %51, 0
+  br i1 %.not47, label %.thread.i, label %52
 
-48:                                               ; preds = %45
-  %49 = getelementptr inbounds i8, ptr %0, i64 30
-  %50 = load i16, ptr %49, align 2
-  %.not47 = icmp eq i16 %50, 0
-  br i1 %.not47, label %.thread.i, label %51
+52:                                               ; preds = %49
+  %53 = load i16, ptr %14, align 2
+  %54 = sext i16 %53 to i32
+  %55 = getelementptr inbounds i8, ptr %0, i64 24
+  %56 = load i32, ptr %55, align 8
+  %57 = add nsw i32 %56, %54
+  %58 = icmp eq i32 %57, 1
+  br i1 %58, label %59, label %.thread.i
 
-51:                                               ; preds = %48
-  %52 = load i16, ptr %14, align 2
-  %53 = sext i16 %52 to i32
-  %54 = getelementptr inbounds i8, ptr %0, i64 24
-  %55 = load i32, ptr %54, align 8
-  %56 = add nsw i32 %55, %53
-  %57 = icmp eq i32 %56, 1
-  br i1 %57, label %58, label %.thread.i
+59:                                               ; preds = %52
+  %60 = getelementptr inbounds i8, ptr %0, i64 16
+  %61 = load i32, ptr %60, align 8
+  %62 = load i16, ptr %17, align 4
+  %63 = sext i16 %62 to i32
+  %64 = icmp ne i32 %61, %63
+  %65 = and i32 %47, 512
+  %.not48 = icmp eq i32 %65, 0
+  %or.cond = or i1 %.not48, %64
+  br i1 %or.cond, label %.thread.i, label %66
 
-58:                                               ; preds = %51
-  %59 = getelementptr inbounds i8, ptr %0, i64 16
-  %60 = load i32, ptr %59, align 8
-  %61 = load i16, ptr %17, align 4
-  %62 = sext i16 %61 to i32
-  %63 = icmp ne i32 %60, %62
-  %64 = and i32 %46, 512
-  %.not48 = icmp eq i32 %64, 0
-  %or.cond = or i1 %.not48, %63
-  br i1 %or.cond, label %.thread.i, label %65
-
-65:                                               ; preds = %58
+66:                                               ; preds = %59
   tail call fastcc void @Perform_Justification(ptr noundef %0, ptr noundef nonnull %26)
   br label %Buffer_To_Window.exit
 
-.thread.i:                                        ; preds = %48, %51, %58
-  %66 = getelementptr inbounds i8, ptr %26, i64 4
-  %67 = load i16, ptr %66, align 4
-  %68 = sext i16 %67 to i32
-  %69 = getelementptr inbounds i8, ptr %26, i64 6
-  %70 = load i16, ptr %69, align 2
-  %71 = sext i16 %70 to i64
-  %72 = add nsw i64 %71, 1
-  %73 = icmp sgt i16 %67, -1
-  br i1 %73, label %.lr.ph.preheader.i, label %Buffer_To_Window.exit
+.thread.i:                                        ; preds = %49, %52, %59
+  %67 = getelementptr inbounds i8, ptr %26, i64 4
+  %68 = load i16, ptr %67, align 4
+  %69 = sext i16 %68 to i32
+  %70 = getelementptr inbounds i8, ptr %26, i64 6
+  %71 = load i16, ptr %70, align 2
+  %72 = sext i16 %71 to i64
+  %73 = add nsw i64 %72, 1
+  %74 = icmp sgt i16 %68, -1
+  br i1 %74, label %.lr.ph.preheader.i, label %Buffer_To_Window.exit
 
 .lr.ph.preheader.i:                               ; preds = %.thread.i
-  %74 = getelementptr inbounds i8, ptr %0, i64 104
-  %75 = load ptr, ptr %74, align 8
+  %75 = getelementptr inbounds i8, ptr %0, i64 104
+  %76 = load ptr, ptr %75, align 8
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %91, %.lr.ph.preheader.i
-  %.021.i = phi ptr [ %76, %91 ], [ %75, %.lr.ph.preheader.i ]
-  %.01720.i = phi i32 [ %92, %91 ], [ 0, %.lr.ph.preheader.i ]
-  %76 = getelementptr inbounds i8, ptr %.021.i, i64 %72
-  br label %77
+.lr.ph.i:                                         ; preds = %92, %.lr.ph.preheader.i
+  %.021.i = phi ptr [ %77, %92 ], [ %76, %.lr.ph.preheader.i ]
+  %.01720.i = phi i32 [ %93, %92 ], [ 0, %.lr.ph.preheader.i ]
+  %77 = getelementptr inbounds i8, ptr %.021.i, i64 %73
+  br label %78
 
-77:                                               ; preds = %79, %.lr.ph.i
-  %.0.i.i = phi ptr [ %76, %.lr.ph.i ], [ %80, %79 ]
-  %78 = icmp ugt ptr %.0.i.i, %.021.i
-  br i1 %78, label %79, label %After_End_Of_Data.exit.i
+78:                                               ; preds = %80, %.lr.ph.i
+  %.0.i.i = phi ptr [ %77, %.lr.ph.i ], [ %81, %80 ]
+  %79 = icmp ugt ptr %.0.i.i, %.021.i
+  br i1 %79, label %80, label %After_End_Of_Data.exit.i
 
-79:                                               ; preds = %77
-  %80 = getelementptr inbounds i8, ptr %.0.i.i, i64 -1
-  %81 = load i8, ptr %80, align 1
-  %82 = icmp eq i8 %81, 32
-  br i1 %82, label %77, label %After_End_Of_Data.exit.i, !llvm.loop !12
+80:                                               ; preds = %78
+  %81 = getelementptr inbounds i8, ptr %.0.i.i, i64 -1
+  %82 = load i8, ptr %81, align 1
+  %83 = icmp eq i8 %82, 32
+  br i1 %83, label %78, label %After_End_Of_Data.exit.i, !llvm.loop !12
 
-After_End_Of_Data.exit.i:                         ; preds = %79, %77
-  %83 = ptrtoint ptr %.0.i.i to i64
-  %84 = ptrtoint ptr %.021.i to i64
-  %85 = sub i64 %83, %84
-  %86 = trunc i64 %85 to i32
-  %87 = icmp sgt i32 %86, 0
-  br i1 %87, label %88, label %91
+After_End_Of_Data.exit.i:                         ; preds = %80, %78
+  %84 = ptrtoint ptr %.0.i.i to i64
+  %85 = ptrtoint ptr %.021.i to i64
+  %86 = sub i64 %84, %85
+  %87 = trunc i64 %86 to i32
+  %88 = icmp sgt i32 %87, 0
+  br i1 %88, label %89, label %92
 
-88:                                               ; preds = %After_End_Of_Data.exit.i
-  %89 = tail call i32 @wmove(ptr noundef nonnull %26, i32 noundef %.01720.i, i32 noundef 0) #13
-  %90 = tail call i32 @waddnstr(ptr noundef nonnull %26, ptr noundef %.021.i, i32 noundef %86) #13
-  br label %91
+89:                                               ; preds = %After_End_Of_Data.exit.i
+  %90 = tail call i32 @wmove(ptr noundef nonnull %26, i32 noundef %.01720.i, i32 noundef 0) #13
+  %91 = tail call i32 @waddnstr(ptr noundef nonnull %26, ptr noundef %.021.i, i32 noundef %87) #13
+  br label %92
 
-91:                                               ; preds = %88, %After_End_Of_Data.exit.i
-  %92 = add nuw nsw i32 %.01720.i, 1
-  %exitcond.not.i = icmp eq i32 %.01720.i, %68
+92:                                               ; preds = %89, %After_End_Of_Data.exit.i
+  %93 = add nuw nsw i32 %.01720.i, 1
+  %exitcond.not.i = icmp eq i32 %.01720.i, %69
   br i1 %exitcond.not.i, label %Buffer_To_Window.exit, label %.lr.ph.i, !llvm.loop !13
 
-Buffer_To_Window.exit:                            ; preds = %91, %.thread.i, %65, %45
-  %93 = load i16, ptr %0, align 8
-  %94 = and i16 %93, -3
-  store i16 %94, ptr %0, align 8
-  br label %95
+Buffer_To_Window.exit:                            ; preds = %92, %.thread.i, %66, %46
+  %94 = load i16, ptr %0, align 8
+  %95 = and i16 %94, -3
+  store i16 %95, ptr %0, align 8
+  br label %96
 
-95:                                               ; preds = %Buffer_To_Window.exit, %42
+96:                                               ; preds = %Buffer_To_Window.exit, %43
   tail call void @wsyncup(ptr noundef nonnull %26) #13
-  %96 = tail call i32 @delwin(ptr noundef nonnull %26) #13
-  br label %97
+  %97 = tail call i32 @delwin(ptr noundef nonnull %26) #13
+  br label %98
 
-97:                                               ; preds = %12, %2, %95
-  %.0 = phi i32 [ 0, %95 ], [ -1, %2 ], [ -1, %12 ]
+98:                                               ; preds = %12, %2, %96
+  %.0 = phi i32 [ 0, %96 ], [ -1, %2 ], [ -1, %12 ]
   ret i32 %.0
 }
 

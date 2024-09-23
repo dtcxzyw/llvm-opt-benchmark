@@ -148,7 +148,7 @@ define hidden i32 @mlib_ImageAffine_alltypes(ptr noundef %0, ptr noundef %1, ptr
   %.val = load i32, ptr %1, align 8
   %.val96 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %.val, %.val96
-  br i1 %.not, label %10, label %110
+  br i1 %.not, label %10, label %109
 
 10:                                               ; preds = %5
   %11 = getelementptr i8, ptr %1, i64 4
@@ -158,7 +158,7 @@ define hidden i32 @mlib_ImageAffine_alltypes(ptr noundef %0, ptr noundef %1, ptr
   %.not88 = icmp eq i32 %.val98, %.val99
   %13 = icmp ult i32 %3, 4
   %or.cond = and i1 %.not88, %13
-  br i1 %or.cond, label %switch.lookup, label %110
+  br i1 %or.cond, label %switch.lookup, label %109
 
 switch.lookup:                                    ; preds = %10
   %14 = zext nneg i32 %3 to i64
@@ -173,11 +173,11 @@ switch.lookup:                                    ; preds = %10
   store i32 %3, ptr %17, align 16
   %18 = call i32 @mlib_AffineEdges(ptr noundef nonnull %6, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %7, i32 noundef 600, i32 noundef %switch.load, i32 noundef %switch.load, i32 noundef %switch.load113, i32 noundef %switch.load113, i32 noundef %4, ptr noundef %2, i32 noundef 16, i32 noundef 16) #2
   %.not89 = icmp eq i32 %18, 0
-  br i1 %.not89, label %19, label %110
+  br i1 %.not89, label %19, label %109
 
 19:                                               ; preds = %switch.lookup
   %20 = load ptr, ptr %16, align 8
-  switch i32 %.val, label %110 [
+  switch i32 %.val, label %109 [
     i32 1, label %26
     i32 2, label %21
     i32 3, label %22
@@ -279,96 +279,96 @@ switch.lookup:                                    ; preds = %10
   br label %78
 
 78:                                               ; preds = %72, %66, %._crit_edge
-  %.sink110 = phi ptr [ %77, %72 ], [ %71, %66 ], [ %65, %._crit_edge ]
-  %79 = load ptr, ptr %.sink110, align 8
-  %80 = call i32 %79(ptr noundef nonnull %6) #2
-  %.not90 = icmp eq i32 %80, 0
-  br i1 %.not90, label %.thread, label %81
+  %.sink.in = phi ptr [ %77, %72 ], [ %71, %66 ], [ %65, %._crit_edge ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %79 = call i32 %.sink(ptr noundef nonnull %6) #2
+  %.not90 = icmp eq i32 %79, 0
+  br i1 %.not90, label %.thread, label %80
 
-81:                                               ; preds = %78
-  %82 = getelementptr inbounds i8, ptr %6, i64 16
-  %83 = load ptr, ptr %82, align 16
-  %.not91 = icmp eq ptr %83, null
-  br i1 %.not91, label %110, label %.sink.split
+80:                                               ; preds = %78
+  %81 = getelementptr inbounds i8, ptr %6, i64 16
+  %82 = load ptr, ptr %81, align 16
+  %.not91 = icmp eq ptr %82, null
+  br i1 %.not91, label %109, label %.sink.split
 
 default.unreachable:                              ; preds = %26
   unreachable
 
 .thread:                                          ; preds = %78
-  %84 = icmp ne i32 %3, 0
-  %85 = and i32 %4, -9
-  %86 = icmp ne i32 %85, 0
-  %or.cond3 = and i1 %84, %86
-  br i1 %or.cond3, label %87, label %107
+  %83 = icmp ne i32 %3, 0
+  %84 = and i32 %4, -9
+  %85 = icmp ne i32 %84, 0
+  %or.cond3 = and i1 %83, %85
+  br i1 %or.cond3, label %86, label %106
 
-87:                                               ; preds = %.thread
-  %88 = getelementptr inbounds i8, ptr %8, i64 24
-  store ptr %20, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %8, i64 112
-  store i32 %3, ptr %89, align 16
-  %90 = call i32 @mlib_AffineEdges(ptr noundef nonnull %8, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %9, i32 noundef 600, i32 noundef %switch.load, i32 noundef %switch.load, i32 noundef %switch.load113, i32 noundef %switch.load113, i32 noundef -1, ptr noundef %2, i32 noundef 16, i32 noundef 16) #2
-  %.not92 = icmp eq i32 %90, 0
-  br i1 %.not92, label %94, label %91
+86:                                               ; preds = %.thread
+  %87 = getelementptr inbounds i8, ptr %8, i64 24
+  store ptr %20, ptr %87, align 8
+  %88 = getelementptr inbounds i8, ptr %8, i64 112
+  store i32 %3, ptr %88, align 16
+  %89 = call i32 @mlib_AffineEdges(ptr noundef nonnull %8, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %9, i32 noundef 600, i32 noundef %switch.load, i32 noundef %switch.load, i32 noundef %switch.load113, i32 noundef %switch.load113, i32 noundef -1, ptr noundef %2, i32 noundef 16, i32 noundef 16) #2
+  %.not92 = icmp eq i32 %89, 0
+  br i1 %.not92, label %93, label %90
 
-91:                                               ; preds = %87
-  %92 = getelementptr inbounds i8, ptr %6, i64 16
-  %93 = load ptr, ptr %92, align 16
-  %.not95 = icmp eq ptr %93, null
-  br i1 %.not95, label %110, label %.sink.split
+90:                                               ; preds = %86
+  %91 = getelementptr inbounds i8, ptr %6, i64 16
+  %92 = load ptr, ptr %91, align 16
+  %.not95 = icmp eq ptr %92, null
+  br i1 %.not95, label %109, label %.sink.split
 
-94:                                               ; preds = %87
-  switch i32 %4, label %103 [
-    i32 1, label %95
-    i32 3, label %96
-    i32 5, label %97
+93:                                               ; preds = %86
+  switch i32 %4, label %102 [
+    i32 1, label %94
+    i32 3, label %95
+    i32 5, label %96
   ]
 
-95:                                               ; preds = %94
+94:                                               ; preds = %93
   call void @mlib_ImageAffineEdgeZero(ptr noundef nonnull %6, ptr noundef nonnull %8) #2
-  br label %103
+  br label %102
 
-96:                                               ; preds = %94
+95:                                               ; preds = %93
   call void @mlib_ImageAffineEdgeNearest(ptr noundef nonnull %6, ptr noundef nonnull %8) #2
-  br label %103
+  br label %102
 
-97:                                               ; preds = %94
-  %98 = icmp eq i32 %3, 1
-  br i1 %98, label %99, label %101
+96:                                               ; preds = %93
+  %97 = icmp eq i32 %3, 1
+  br i1 %97, label %98, label %100
 
-99:                                               ; preds = %97
-  %100 = call i32 @mlib_ImageAffineEdgeExtend_BL(ptr noundef nonnull %6, ptr noundef nonnull %8) #2
-  br label %103
+98:                                               ; preds = %96
+  %99 = call i32 @mlib_ImageAffineEdgeExtend_BL(ptr noundef nonnull %6, ptr noundef nonnull %8) #2
+  br label %102
 
-101:                                              ; preds = %97
-  %102 = call i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef nonnull %6, ptr noundef nonnull %8) #2
-  br label %103
+100:                                              ; preds = %96
+  %101 = call i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef nonnull %6, ptr noundef nonnull %8) #2
+  br label %102
 
-103:                                              ; preds = %94, %99, %101, %96, %95
-  %.3 = phi i32 [ 0, %94 ], [ %100, %99 ], [ %102, %101 ], [ 0, %96 ], [ 0, %95 ]
-  %104 = getelementptr inbounds i8, ptr %8, i64 16
-  %105 = load ptr, ptr %104, align 16
-  %.not93 = icmp eq ptr %105, null
-  br i1 %.not93, label %107, label %106
+102:                                              ; preds = %93, %98, %100, %95, %94
+  %.3 = phi i32 [ 0, %93 ], [ %99, %98 ], [ %101, %100 ], [ 0, %95 ], [ 0, %94 ]
+  %103 = getelementptr inbounds i8, ptr %8, i64 16
+  %104 = load ptr, ptr %103, align 16
+  %.not93 = icmp eq ptr %104, null
+  br i1 %.not93, label %106, label %105
 
-106:                                              ; preds = %103
-  call void @mlib_free(ptr noundef nonnull %105) #2
-  br label %107
+105:                                              ; preds = %102
+  call void @mlib_free(ptr noundef nonnull %104) #2
+  br label %106
 
-107:                                              ; preds = %103, %106, %.thread
-  %.277 = phi i32 [ %.3, %106 ], [ %.3, %103 ], [ 0, %.thread ]
-  %108 = getelementptr inbounds i8, ptr %6, i64 16
-  %109 = load ptr, ptr %108, align 16
-  %.not94 = icmp eq ptr %109, null
-  br i1 %.not94, label %110, label %.sink.split
+106:                                              ; preds = %102, %105, %.thread
+  %.277 = phi i32 [ %.3, %105 ], [ %.3, %102 ], [ 0, %.thread ]
+  %107 = getelementptr inbounds i8, ptr %6, i64 16
+  %108 = load ptr, ptr %107, align 16
+  %.not94 = icmp eq ptr %108, null
+  br i1 %.not94, label %109, label %.sink.split
 
-.sink.split:                                      ; preds = %107, %91, %81
-  %.sink = phi ptr [ %83, %81 ], [ %93, %91 ], [ %109, %107 ]
-  %.0.ph = phi i32 [ %80, %81 ], [ %90, %91 ], [ %.277, %107 ]
-  call void @mlib_free(ptr noundef nonnull %.sink) #2
-  br label %110
+.sink.split:                                      ; preds = %106, %90, %80
+  %.sink110 = phi ptr [ %82, %80 ], [ %92, %90 ], [ %108, %106 ]
+  %.0.ph = phi i32 [ %79, %80 ], [ %89, %90 ], [ %.277, %106 ]
+  call void @mlib_free(ptr noundef nonnull %.sink110) #2
+  br label %109
 
-110:                                              ; preds = %.sink.split, %107, %91, %81, %19, %switch.lookup, %10, %5
-  %.0 = phi i32 [ 1, %5 ], [ 1, %10 ], [ %18, %switch.lookup ], [ 1, %19 ], [ %80, %81 ], [ %90, %91 ], [ %.277, %107 ], [ %.0.ph, %.sink.split ]
+109:                                              ; preds = %.sink.split, %106, %90, %80, %19, %switch.lookup, %10, %5
+  %.0 = phi i32 [ 1, %5 ], [ 1, %10 ], [ %18, %switch.lookup ], [ 1, %19 ], [ %79, %80 ], [ %89, %90 ], [ %.277, %106 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 

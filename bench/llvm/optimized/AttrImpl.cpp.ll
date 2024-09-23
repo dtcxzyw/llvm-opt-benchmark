@@ -17846,34 +17846,32 @@ define dso_local noundef zeroext i1 @_ZNK5clang11AlignedAttr25isAlignmentErrorDe
   %4 = trunc i8 %3 to i1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
-  br i1 %4, label %7, label %10
+  br i1 %4, label %7, label %13
 
 7:                                                ; preds = %1
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %18, label %8
+  br i1 %.not, label %21, label %8
 
 8:                                                ; preds = %7
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  br label %.sink.split
+  %10 = load i16, ptr %9, align 1
+  %11 = and i16 %10, 512
+  %12 = icmp ne i16 %11, 0
+  br label %21
 
-10:                                               ; preds = %1
+13:                                               ; preds = %1
   %.sroa.0.0.copyload.i = load i64, ptr %6, align 8
-  %11 = and i64 %.sroa.0.0.copyload.i, -16
-  %12 = inttoptr i64 %11 to ptr
-  %13 = load ptr, ptr %12, align 16
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 17
-  br label %.sink.split
+  %14 = and i64 %.sroa.0.0.copyload.i, -16
+  %15 = inttoptr i64 %14 to ptr
+  %16 = load ptr, ptr %15, align 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 17
+  %18 = load i16, ptr %17, align 1
+  %19 = and i16 %18, 16
+  %20 = icmp ne i16 %19, 0
+  br label %21
 
-.sink.split:                                      ; preds = %10, %8
-  %.sink = phi ptr [ %9, %8 ], [ %14, %10 ]
-  %.sink4 = phi i16 [ 512, %8 ], [ 16, %10 ]
-  %15 = load i16, ptr %.sink, align 1
-  %16 = and i16 %15, %.sink4
-  %17 = icmp ne i16 %16, 0
-  br label %18
-
-18:                                               ; preds = %.sink.split, %7
-  %.0 = phi i1 [ false, %7 ], [ %17, %.sink.split ]
+21:                                               ; preds = %7, %8, %13
+  %.0 = phi i1 [ %20, %13 ], [ false, %7 ], [ %12, %8 ]
   ret i1 %.0
 }
 

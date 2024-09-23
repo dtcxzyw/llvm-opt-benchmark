@@ -1288,23 +1288,26 @@ ddLCHash.exit:                                    ; preds = %.lr.ph.i, %2
 44:                                               ; preds = %35
   %45 = load ptr, ptr %18, align 8
   %46 = getelementptr inbounds ptr, ptr %45, i64 %20
-  br label %47
+  store ptr %43, ptr %46, align 8
+  br label %48
 
-47:                                               ; preds = %35, %44
-  %.036.lcssa42.sink = phi ptr [ %46, %44 ], [ %.036.lcssa42, %35 ]
-  store ptr %43, ptr %.036.lcssa42.sink, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 16
-  %49 = load ptr, ptr %48, align 8
-  store ptr %49, ptr %.035.lcssa41, align 8
-  store ptr %.035.lcssa41, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 40
-  %51 = load i32, ptr %50, align 8
-  %52 = add i32 %51, -1
-  store i32 %52, ptr %50, align 8
+47:                                               ; preds = %35
+  store ptr %43, ptr %.036.lcssa42, align 8
+  br label %48
+
+48:                                               ; preds = %47, %44
+  %49 = getelementptr inbounds i8, ptr %0, i64 16
+  %50 = load ptr, ptr %49, align 8
+  store ptr %50, ptr %.035.lcssa41, align 8
+  store ptr %.035.lcssa41, ptr %49, align 8
+  %51 = getelementptr inbounds i8, ptr %0, i64 40
+  %52 = load i32, ptr %51, align 8
+  %53 = add i32 %52, -1
+  store i32 %53, ptr %51, align 8
   br label %.loopexit40
 
-.loopexit40:                                      ; preds = %.loopexit.us, %ddLCHash.exit, %.critedge, %47
-  %.0 = phi ptr [ %30, %47 ], [ %30, %.critedge ], [ null, %ddLCHash.exit ], [ null, %.loopexit.us ]
+.loopexit40:                                      ; preds = %.loopexit.us, %ddLCHash.exit, %.critedge, %48
+  %.0 = phi ptr [ %30, %48 ], [ %30, %.critedge ], [ null, %ddLCHash.exit ], [ null, %.loopexit.us ]
   ret ptr %.0
 }
 
@@ -1431,23 +1434,26 @@ define ptr @cuddHashTableLookup1(ptr nocapture noundef %0, ptr noundef %1) local
 41:                                               ; preds = %32
   %42 = load ptr, ptr %16, align 8
   %43 = getelementptr inbounds ptr, ptr %42, i64 %18
-  br label %44
+  store ptr %40, ptr %43, align 8
+  br label %45
 
-44:                                               ; preds = %32, %41
-  %.030.lcssa36.sink = phi ptr [ %43, %41 ], [ %.030, %32 ]
-  store ptr %40, ptr %.030.lcssa36.sink, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 16
-  %46 = load ptr, ptr %45, align 8
-  store ptr %46, ptr %.029, align 8
-  store ptr %.029, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 40
-  %48 = load i32, ptr %47, align 8
-  %49 = add i32 %48, -1
-  store i32 %49, ptr %47, align 8
+44:                                               ; preds = %32
+  store ptr %40, ptr %.030, align 8
+  br label %45
+
+45:                                               ; preds = %44, %41
+  %46 = getelementptr inbounds i8, ptr %0, i64 16
+  %47 = load ptr, ptr %46, align 8
+  store ptr %47, ptr %.029, align 8
+  store ptr %.029, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %0, i64 40
+  %49 = load i32, ptr %48, align 8
+  %50 = add i32 %49, -1
+  store i32 %50, ptr %48, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %20, %25, %44
-  %.0 = phi ptr [ %27, %44 ], [ %27, %25 ], [ null, %20 ]
+.loopexit:                                        ; preds = %20, %25, %45
+  %.0 = phi ptr [ %27, %45 ], [ %27, %25 ], [ null, %20 ]
   ret ptr %.0
 }
 
@@ -1562,19 +1568,19 @@ define ptr @cuddHashTableLookup2(ptr nocapture noundef %0, ptr noundef %1, ptr n
   %.not36 = icmp eq ptr %.03135, null
   br i1 %.not36, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %3, %64
-  %.03138 = phi ptr [ %.031, %64 ], [ %.03135, %3 ]
-  %.03237 = phi ptr [ %.03138, %64 ], [ null, %3 ]
+.lr.ph:                                           ; preds = %3, %65
+  %.03138 = phi ptr [ %.031, %65 ], [ %.03135, %3 ]
+  %.03237 = phi ptr [ %.03138, %65 ], [ null, %3 ]
   %32 = getelementptr inbounds i8, ptr %.03138, i64 24
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %1, %33
-  br i1 %34, label %35, label %64
+  br i1 %34, label %35, label %65
 
 35:                                               ; preds = %.lr.ph
   %36 = getelementptr inbounds i8, ptr %.03138, i64 32
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %2, %37
-  br i1 %38, label %39, label %64
+  br i1 %38, label %39, label %65
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds i8, ptr %.03138, i64 16
@@ -1601,28 +1607,31 @@ define ptr @cuddHashTableLookup2(ptr nocapture noundef %0, ptr noundef %1, ptr n
 55:                                               ; preds = %46
   %56 = load ptr, ptr %28, align 8
   %57 = getelementptr inbounds ptr, ptr %56, i64 %30
-  br label %58
+  store ptr %54, ptr %57, align 8
+  br label %59
 
-58:                                               ; preds = %46, %55
-  %.03237.lcssa.sink = phi ptr [ %57, %55 ], [ %.03237, %46 ]
-  store ptr %54, ptr %.03237.lcssa.sink, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 16
-  %60 = load ptr, ptr %59, align 8
-  store ptr %60, ptr %.03138, align 8
-  store ptr %.03138, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 40
-  %62 = load i32, ptr %61, align 8
-  %63 = add i32 %62, -1
-  store i32 %63, ptr %61, align 8
+58:                                               ; preds = %46
+  store ptr %54, ptr %.03237, align 8
+  br label %59
+
+59:                                               ; preds = %58, %55
+  %60 = getelementptr inbounds i8, ptr %0, i64 16
+  %61 = load ptr, ptr %60, align 8
+  store ptr %61, ptr %.03138, align 8
+  store ptr %.03138, ptr %60, align 8
+  %62 = getelementptr inbounds i8, ptr %0, i64 40
+  %63 = load i32, ptr %62, align 8
+  %64 = add i32 %63, -1
+  store i32 %64, ptr %62, align 8
   br label %.loopexit
 
-64:                                               ; preds = %35, %.lr.ph
+65:                                               ; preds = %35, %.lr.ph
   %.031 = load ptr, ptr %.03138, align 8
   %.not = icmp eq ptr %.031, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !29
 
-.loopexit:                                        ; preds = %64, %3, %39, %58
-  %.0 = phi ptr [ %41, %58 ], [ %41, %39 ], [ null, %3 ], [ null, %64 ]
+.loopexit:                                        ; preds = %65, %3, %39, %59
+  %.0 = phi ptr [ %41, %59 ], [ %41, %39 ], [ null, %3 ], [ null, %65 ]
   ret ptr %.0
 }
 
@@ -1759,25 +1768,25 @@ define ptr @cuddHashTableLookup3(ptr nocapture noundef %0, ptr noundef %1, ptr n
   %.not40 = icmp eq ptr %.03539, null
   br i1 %.not40, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %4, %79
-  %.03542 = phi ptr [ %.035, %79 ], [ %.03539, %4 ]
-  %.03641 = phi ptr [ %.03542, %79 ], [ null, %4 ]
+.lr.ph:                                           ; preds = %4, %80
+  %.03542 = phi ptr [ %.035, %80 ], [ %.03539, %4 ]
+  %.03641 = phi ptr [ %.03542, %80 ], [ null, %4 ]
   %43 = getelementptr inbounds i8, ptr %.03542, i64 24
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %1, %44
-  br i1 %45, label %46, label %79
+  br i1 %45, label %46, label %80
 
 46:                                               ; preds = %.lr.ph
   %47 = getelementptr inbounds i8, ptr %.03542, i64 32
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %2, %48
-  br i1 %49, label %50, label %79
+  br i1 %49, label %50, label %80
 
 50:                                               ; preds = %46
   %51 = getelementptr inbounds i8, ptr %.03542, i64 40
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %3, %52
-  br i1 %53, label %54, label %79
+  br i1 %53, label %54, label %80
 
 54:                                               ; preds = %50
   %55 = getelementptr inbounds i8, ptr %.03542, i64 16
@@ -1804,28 +1813,31 @@ define ptr @cuddHashTableLookup3(ptr nocapture noundef %0, ptr noundef %1, ptr n
 70:                                               ; preds = %61
   %71 = load ptr, ptr %39, align 8
   %72 = getelementptr inbounds ptr, ptr %71, i64 %41
-  br label %73
+  store ptr %69, ptr %72, align 8
+  br label %74
 
-73:                                               ; preds = %61, %70
-  %.03641.lcssa.sink = phi ptr [ %72, %70 ], [ %.03641, %61 ]
-  store ptr %69, ptr %.03641.lcssa.sink, align 8
-  %74 = getelementptr inbounds i8, ptr %0, i64 16
-  %75 = load ptr, ptr %74, align 8
-  store ptr %75, ptr %.03542, align 8
-  store ptr %.03542, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %0, i64 40
-  %77 = load i32, ptr %76, align 8
-  %78 = add i32 %77, -1
-  store i32 %78, ptr %76, align 8
+73:                                               ; preds = %61
+  store ptr %69, ptr %.03641, align 8
+  br label %74
+
+74:                                               ; preds = %73, %70
+  %75 = getelementptr inbounds i8, ptr %0, i64 16
+  %76 = load ptr, ptr %75, align 8
+  store ptr %76, ptr %.03542, align 8
+  store ptr %.03542, ptr %75, align 8
+  %77 = getelementptr inbounds i8, ptr %0, i64 40
+  %78 = load i32, ptr %77, align 8
+  %79 = add i32 %78, -1
+  store i32 %79, ptr %77, align 8
   br label %.loopexit
 
-79:                                               ; preds = %50, %46, %.lr.ph
+80:                                               ; preds = %50, %46, %.lr.ph
   %.035 = load ptr, ptr %.03542, align 8
   %.not = icmp eq ptr %.035, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !30
 
-.loopexit:                                        ; preds = %79, %4, %54, %73
-  %.0 = phi ptr [ %56, %73 ], [ %56, %54 ], [ null, %4 ], [ null, %79 ]
+.loopexit:                                        ; preds = %80, %4, %54, %74
+  %.0 = phi ptr [ %56, %74 ], [ %56, %54 ], [ null, %4 ], [ null, %80 ]
   ret ptr %.0
 }
 

@@ -214,6 +214,7 @@ define void @_ZN3nix15PathRefScanSinkC2EOSt3setINSt7__cxx1112basic_stringIcSt11c
   store ptr null, ptr %5, align 8
   store ptr %8, ptr %12, align 8
   store ptr %8, ptr %15, align 8
+  store i64 0, ptr %19, align 8
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix9StorePathESt4lessIS5_ESaISt4pairIKS5_S7_EEEC2EOSE_.exit
 
 22:                                               ; preds = %3
@@ -225,11 +226,10 @@ define void @_ZN3nix15PathRefScanSinkC2EOSt3setINSt7__cxx1112basic_stringIcSt11c
   %25 = getelementptr inbounds i8, ptr %0, i64 168
   store ptr %4, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 176
+  store i64 0, ptr %26, align 8
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix9StorePathESt4lessIS5_ESaISt4pairIKS5_S7_EEEC2EOSE_.exit
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix9StorePathESt4lessIS5_ESaISt4pairIKS5_S7_EEEC2EOSE_.exit: ; preds = %7, %22
-  %.sink.i.i.i.i = phi ptr [ %26, %22 ], [ %19, %7 ]
-  store i64 0, ptr %.sink.i.i.i.i, align 8
   ret void
 }
 

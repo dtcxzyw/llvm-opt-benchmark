@@ -2138,7 +2138,7 @@ define dso_local void @_ZN9cmProcess9OnTimeoutEv(ptr noundef nonnull align 8 der
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   %or.cond = select i1 %4, i1 %7, i1 false
-  br i1 %or.cond, label %8, label %44
+  br i1 %or.cond, label %8, label %46
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 120
@@ -2148,7 +2148,7 @@ define dso_local void @_ZN9cmProcess9OnTimeoutEv(ptr noundef nonnull align 8 der
   %13 = getelementptr inbounds i8, ptr %12, i64 440
   %14 = load i8, ptr %13, align 8
   %15 = trunc i8 %14 to i1
-  br i1 %15, label %16, label %44
+  br i1 %15, label %16, label %46
 
 16:                                               ; preds = %8
   %17 = getelementptr inbounds i8, ptr %12, i64 400
@@ -2161,7 +2161,7 @@ define dso_local void @_ZN9cmProcess9OnTimeoutEv(ptr noundef nonnull align 8 der
   %23 = getelementptr inbounds i8, ptr %12, i64 456
   %24 = load i8, ptr %23, align 8
   %25 = trunc i8 %24 to i1
-  br i1 %25, label %26, label %32
+  br i1 %25, label %26, label %33
 
 26:                                               ; preds = %16
   %27 = getelementptr inbounds i8, ptr %12, i64 448
@@ -2169,86 +2169,92 @@ define dso_local void @_ZN9cmProcess9OnTimeoutEv(ptr noundef nonnull align 8 der
   %29 = load i8, ptr %28, align 8
   %30 = trunc i8 %29 to i1
   %31 = load i64, ptr %27, align 8
-  br i1 %30, label %_ZNSt8optionalINSt6chrono8durationIdSt5ratioILl1ELl1EEEEEaSIRS4_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS5_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS4_ESA_IS4_NSt5decayISD_E4typeEEEEESt16is_constructibleIS4_JSD_EESt13is_assignableIS7_SD_EEERS5_E4typeEOSD_.exit, label %_ZNSt8optionalINSt6chrono8durationIdSt5ratioILl1ELl1EEEEEaSIRS4_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS5_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS4_ESA_IS4_NSt5decayISD_E4typeEEEEESt16is_constructibleIS4_JSD_EESt13is_assignableIS7_SD_EEERS5_E4typeEOSD_.exit.thread
+  br i1 %30, label %_ZNSt8optionalINSt6chrono8durationIdSt5ratioILl1ELl1EEEEEaSIRS4_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS5_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS4_ESA_IS4_NSt5decayISD_E4typeEEEEESt16is_constructibleIS4_JSD_EESt13is_assignableIS7_SD_EEERS5_E4typeEOSD_.exit, label %32
 
-32:                                               ; preds = %16
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
-  %34 = load i8, ptr %33, align 8
-  %35 = trunc i8 %34 to i1
-  br i1 %35, label %_ZNSt8optionalINSt6chrono8durationIdSt5ratioILl1ELl1EEEEEaSIRS4_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS5_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS4_ESA_IS4_NSt5decayISD_E4typeEEEEESt16is_constructibleIS4_JSD_EESt13is_assignableIS7_SD_EEERS5_E4typeEOSD_.exit, label %_ZNSt8optionalINSt6chrono8durationIdSt5ratioILl1ELl1EEEEEaSIRS4_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS5_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS4_ESA_IS4_NSt5decayISD_E4typeEEEEESt16is_constructibleIS4_JSD_EESt13is_assignableIS7_SD_EEERS5_E4typeEOSD_.exit.thread
+32:                                               ; preds = %26
+  store i8 1, ptr %28, align 8
+  br label %_ZNSt8optionalINSt6chrono8durationIdSt5ratioILl1ELl1EEEEEaSIRS4_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS5_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS4_ESA_IS4_NSt5decayISD_E4typeEEEEESt16is_constructibleIS4_JSD_EESt13is_assignableIS7_SD_EEERS5_E4typeEOSD_.exit.thread
 
-_ZNSt8optionalINSt6chrono8durationIdSt5ratioILl1ELl1EEEEEaSIRS4_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS5_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS4_ESA_IS4_NSt5decayISD_E4typeEEEEESt16is_constructibleIS4_JSD_EESt13is_assignableIS7_SD_EEERS5_E4typeEOSD_.exit.thread: ; preds = %32, %26
-  %.sink = phi ptr [ %28, %26 ], [ %33, %32 ]
-  %storemerge.ph = phi i64 [ %31, %26 ], [ 4607182418800017408, %32 ]
-  store i8 1, ptr %.sink, align 8
+33:                                               ; preds = %16
+  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = load i8, ptr %34, align 8
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %_ZNSt8optionalINSt6chrono8durationIdSt5ratioILl1ELl1EEEEEaSIRS4_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS5_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS4_ESA_IS4_NSt5decayISD_E4typeEEEEESt16is_constructibleIS4_JSD_EESt13is_assignableIS7_SD_EEERS5_E4typeEOSD_.exit, label %37
+
+37:                                               ; preds = %33
+  store i8 1, ptr %34, align 8
+  br label %_ZNSt8optionalINSt6chrono8durationIdSt5ratioILl1ELl1EEEEEaSIRS4_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS5_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS4_ESA_IS4_NSt5decayISD_E4typeEEEEESt16is_constructibleIS4_JSD_EESt13is_assignableIS7_SD_EEERS5_E4typeEOSD_.exit.thread
+
+_ZNSt8optionalINSt6chrono8durationIdSt5ratioILl1ELl1EEEEEaSIRS4_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS5_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS4_ESA_IS4_NSt5decayISD_E4typeEEEEESt16is_constructibleIS4_JSD_EESt13is_assignableIS7_SD_EEERS5_E4typeEOSD_.exit.thread: ; preds = %32, %37
+  %storemerge.ph = phi i64 [ 4607182418800017408, %37 ], [ %31, %32 ]
   store i64 %storemerge.ph, ptr %0, align 8
-  br label %38
+  br label %40
 
-_ZNSt8optionalINSt6chrono8durationIdSt5ratioILl1ELl1EEEEEaSIRS4_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS5_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS4_ESA_IS4_NSt5decayISD_E4typeEEEEESt16is_constructibleIS4_JSD_EESt13is_assignableIS7_SD_EEERS5_E4typeEOSD_.exit: ; preds = %32, %26
-  %36 = phi i8 [ %29, %26 ], [ %34, %32 ]
-  %storemerge = phi i64 [ %31, %26 ], [ 4607182418800017408, %32 ]
+_ZNSt8optionalINSt6chrono8durationIdSt5ratioILl1ELl1EEEEEaSIRS4_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS5_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS4_ESA_IS4_NSt5decayISD_E4typeEEEEESt16is_constructibleIS4_JSD_EESt13is_assignableIS7_SD_EEERS5_E4typeEOSD_.exit: ; preds = %33, %26
+  %38 = phi i8 [ %29, %26 ], [ %35, %33 ]
+  %storemerge = phi i64 [ %31, %26 ], [ 4607182418800017408, %33 ]
   store i64 %storemerge, ptr %0, align 8
-  %37 = trunc i8 %36 to i1
-  br i1 %37, label %38, label %_ZN9cmProcess10StartTimerEv.exit
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %40, label %_ZN9cmProcess10StartTimerEv.exit
 
-38:                                               ; preds = %_ZNSt8optionalINSt6chrono8durationIdSt5ratioILl1ELl1EEEEEaSIRS4_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS5_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS4_ESA_IS4_NSt5decayISD_E4typeEEEEESt16is_constructibleIS4_JSD_EESt13is_assignableIS7_SD_EEERS5_E4typeEOSD_.exit.thread, %_ZNSt8optionalINSt6chrono8durationIdSt5ratioILl1ELl1EEEEEaSIRS4_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS5_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS4_ESA_IS4_NSt5decayISD_E4typeEEEEESt16is_constructibleIS4_JSD_EESt13is_assignableIS7_SD_EEERS5_E4typeEOSD_.exit
+40:                                               ; preds = %_ZNSt8optionalINSt6chrono8durationIdSt5ratioILl1ELl1EEEEEaSIRS4_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS5_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS4_ESA_IS4_NSt5decayISD_E4typeEEEEESt16is_constructibleIS4_JSD_EESt13is_assignableIS7_SD_EEERS5_E4typeEOSD_.exit.thread, %_ZNSt8optionalINSt6chrono8durationIdSt5ratioILl1ELl1EEEEEaSIRS4_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS5_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS4_ESA_IS4_NSt5decayISD_E4typeEEEEESt16is_constructibleIS4_JSD_EESt13is_assignableIS7_SD_EEERS5_E4typeEOSD_.exit
   %storemerge10 = phi i64 [ %storemerge.ph, %_ZNSt8optionalINSt6chrono8durationIdSt5ratioILl1ELl1EEEEEaSIRS4_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS5_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS4_ESA_IS4_NSt5decayISD_E4typeEEEEESt16is_constructibleIS4_JSD_EESt13is_assignableIS7_SD_EEERS5_E4typeEOSD_.exit.thread ], [ %storemerge, %_ZNSt8optionalINSt6chrono8durationIdSt5ratioILl1ELl1EEEEEaSIRS4_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS5_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS4_ESA_IS4_NSt5decayISD_E4typeEEEEESt16is_constructibleIS4_JSD_EESt13is_assignableIS7_SD_EEERS5_E4typeEOSD_.exit ]
-  %39 = bitcast i64 %storemerge10 to double
-  %40 = fmul double %39, 1.000000e+03
-  %41 = fptosi double %40 to i64
-  %42 = getelementptr inbounds i8, ptr %0, i64 80
-  %43 = tail call noundef i32 @_ZN2cm12uv_timer_ptr5startEPFvP10uv_timer_sEmm(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull @_ZN9cmProcess11OnTimeoutCBEP10uv_timer_s, i64 noundef %41, i64 noundef 0)
+  %41 = bitcast i64 %storemerge10 to double
+  %42 = fmul double %41, 1.000000e+03
+  %43 = fptosi double %42 to i64
+  %44 = getelementptr inbounds i8, ptr %0, i64 80
+  %45 = tail call noundef i32 @_ZN2cm12uv_timer_ptr5startEPFvP10uv_timer_sEmm(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull @_ZN9cmProcess11OnTimeoutCBEP10uv_timer_s, i64 noundef %43, i64 noundef 0)
   br label %_ZN9cmProcess10StartTimerEv.exit
 
-44:                                               ; preds = %8, %1
-  %45 = getelementptr inbounds i8, ptr %0, i64 312
-  store i32 2, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 40
-  %47 = load i8, ptr %46, align 8
-  %48 = trunc i8 %47 to i1
-  br i1 %48, label %49, label %.thread
+46:                                               ; preds = %8, %1
+  %47 = getelementptr inbounds i8, ptr %0, i64 312
+  store i32 2, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %0, i64 40
+  %49 = load i8, ptr %48, align 8
+  %50 = trunc i8 %49 to i1
+  br i1 %50, label %51, label %.thread
 
-49:                                               ; preds = %44
-  %50 = getelementptr inbounds i8, ptr %0, i64 41
-  %51 = load i8, ptr %50, align 1
-  %52 = trunc i8 %51 to i1
-  br i1 %52, label %_ZN9cmProcess10StartTimerEv.exit, label %57
+51:                                               ; preds = %46
+  %52 = getelementptr inbounds i8, ptr %0, i64 41
+  %53 = load i8, ptr %52, align 1
+  %54 = trunc i8 %53 to i1
+  br i1 %54, label %_ZN9cmProcess10StartTimerEv.exit, label %59
 
-.thread:                                          ; preds = %44
-  store i8 1, ptr %46, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 64
-  tail call void @_ZN2cm19uv_handle_ptr_base_I9uv_pipe_sE5resetEv(ptr noundef nonnull align 8 dereferenceable(16) %53)
-  %54 = getelementptr inbounds i8, ptr %0, i64 41
-  %55 = load i8, ptr %54, align 1
-  %56 = trunc i8 %55 to i1
-  br i1 %56, label %63, label %57
+.thread:                                          ; preds = %46
+  store i8 1, ptr %48, align 8
+  %55 = getelementptr inbounds i8, ptr %0, i64 64
+  tail call void @_ZN2cm19uv_handle_ptr_base_I9uv_pipe_sE5resetEv(ptr noundef nonnull align 8 dereferenceable(16) %55)
+  %56 = getelementptr inbounds i8, ptr %0, i64 41
+  %57 = load i8, ptr %56, align 1
+  %58 = trunc i8 %57 to i1
+  br i1 %58, label %65, label %59
 
-57:                                               ; preds = %.thread, %49
-  %58 = getelementptr inbounds i8, ptr %0, i64 48
-  %59 = tail call noundef ptr @_ZNK2cm19uv_handle_ptr_base_I12uv_process_sEptEv(ptr noundef nonnull align 8 dereferenceable(16) %58) #18
-  %60 = getelementptr inbounds i8, ptr %59, i64 104
-  %61 = load i32, ptr %60, align 8
-  %62 = sext i32 %61 to i64
-  tail call void @cmsysProcess_KillPID(i64 noundef %62)
+59:                                               ; preds = %.thread, %51
+  %60 = getelementptr inbounds i8, ptr %0, i64 48
+  %61 = tail call noundef ptr @_ZNK2cm19uv_handle_ptr_base_I12uv_process_sEptEv(ptr noundef nonnull align 8 dereferenceable(16) %60) #18
+  %62 = getelementptr inbounds i8, ptr %61, i64 104
+  %63 = load i32, ptr %62, align 8
+  %64 = sext i32 %63 to i64
+  tail call void @cmsysProcess_KillPID(i64 noundef %64)
   br label %_ZN9cmProcess10StartTimerEv.exit
 
-63:                                               ; preds = %.thread
-  %64 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #18
-  %65 = getelementptr inbounds i8, ptr %0, i64 24
-  %.sroa.0.0.copyload.i2.i.i = load i64, ptr %65, align 8
-  %66 = sub nsw i64 %64, %.sroa.0.0.copyload.i2.i.i
-  %67 = sitofp i64 %66 to double
-  %68 = fdiv double %67, 1.000000e+09
-  %.inv.i = fcmp ogt double %68, 0.000000e+00
-  %storemerge.i = select i1 %.inv.i, double %68, double 0.000000e+00
-  %69 = getelementptr inbounds i8, ptr %0, i64 32
-  store double %storemerge.i, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %0, i64 120
-  %71 = load ptr, ptr %70, align 8
-  tail call void @_ZN14cmCTestRunTest12FinalizeTestEb(ptr noundef nonnull align 8 dereferenceable(640) %71, i1 noundef zeroext true)
+65:                                               ; preds = %.thread
+  %66 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #18
+  %67 = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.0.0.copyload.i2.i.i = load i64, ptr %67, align 8
+  %68 = sub nsw i64 %66, %.sroa.0.0.copyload.i2.i.i
+  %69 = sitofp i64 %68 to double
+  %70 = fdiv double %69, 1.000000e+09
+  %.inv.i = fcmp ogt double %70, 0.000000e+00
+  %storemerge.i = select i1 %.inv.i, double %70, double 0.000000e+00
+  %71 = getelementptr inbounds i8, ptr %0, i64 32
+  store double %storemerge.i, ptr %71, align 8
+  %72 = getelementptr inbounds i8, ptr %0, i64 120
+  %73 = load ptr, ptr %72, align 8
+  tail call void @_ZN14cmCTestRunTest12FinalizeTestEb(ptr noundef nonnull align 8 dereferenceable(640) %73, i1 noundef zeroext true)
   br label %_ZN9cmProcess10StartTimerEv.exit
 
-_ZN9cmProcess10StartTimerEv.exit:                 ; preds = %49, %38, %_ZNSt8optionalINSt6chrono8durationIdSt5ratioILl1ELl1EEEEEaSIRS4_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS5_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS4_ESA_IS4_NSt5decayISD_E4typeEEEEESt16is_constructibleIS4_JSD_EESt13is_assignableIS7_SD_EEERS5_E4typeEOSD_.exit, %63, %57
+_ZN9cmProcess10StartTimerEv.exit:                 ; preds = %51, %40, %_ZNSt8optionalINSt6chrono8durationIdSt5ratioILl1ELl1EEEEEaSIRS4_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS5_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS4_ESA_IS4_NSt5decayISD_E4typeEEEEESt16is_constructibleIS4_JSD_EESt13is_assignableIS7_SD_EEERS5_E4typeEOSD_.exit, %65, %59
   ret void
 }
 

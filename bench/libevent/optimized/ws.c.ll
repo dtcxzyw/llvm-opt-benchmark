@@ -43,10 +43,19 @@ if.then3:                                         ; preds = %if.end
   %cmp5.not = icmp eq ptr %3, null
   %tqe_prev13 = getelementptr inbounds i8, ptr %evws, i64 8
   %4 = load ptr, ptr %tqe_prev13, align 8
-  %tqh_last = getelementptr inbounds i8, ptr %2, i64 72
+  br i1 %cmp5.not, label %if.else, label %if.then6
+
+if.then6:                                         ; preds = %if.then3
   %tqe_prev11 = getelementptr inbounds i8, ptr %3, i64 8
-  %tqh_last.sink = select i1 %cmp5.not, ptr %tqh_last, ptr %tqe_prev11
-  store ptr %4, ptr %tqh_last.sink, align 8
+  store ptr %4, ptr %tqe_prev11, align 8
+  br label %if.end14
+
+if.else:                                          ; preds = %if.then3
+  %tqh_last = getelementptr inbounds i8, ptr %2, i64 72
+  store ptr %4, ptr %tqh_last, align 8
+  br label %if.end14
+
+if.end14:                                         ; preds = %if.else, %if.then6
   %5 = load ptr, ptr %evws, align 8
   store ptr %5, ptr %4, align 8
   %connection_cnt = getelementptr inbounds i8, ptr %2, i64 84
@@ -55,7 +64,7 @@ if.then3:                                         ; preds = %if.end
   store i32 %dec, ptr %connection_cnt, align 4
   br label %if.end19
 
-if.end19:                                         ; preds = %if.then3, %if.end
+if.end19:                                         ; preds = %if.end14, %if.end
   %bufev = getelementptr inbounds i8, ptr %evws, i64 16
   %7 = load ptr, ptr %bufev, align 8
   %cmp20.not = icmp eq ptr %7, null
@@ -153,10 +162,19 @@ if.then3.i:                                       ; preds = %if.end.i
   %cmp5.not.i = icmp eq ptr %3, null
   %tqe_prev13.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %4 = load ptr, ptr %tqe_prev13.i, align 8
-  %tqh_last.i = getelementptr inbounds i8, ptr %2, i64 72
+  br i1 %cmp5.not.i, label %if.else.i, label %if.then6.i
+
+if.then6.i:                                       ; preds = %if.then3.i
   %tqe_prev11.i = getelementptr inbounds i8, ptr %3, i64 8
-  %tqh_last.sink.i = select i1 %cmp5.not.i, ptr %tqh_last.i, ptr %tqe_prev11.i
-  store ptr %4, ptr %tqh_last.sink.i, align 8
+  store ptr %4, ptr %tqe_prev11.i, align 8
+  br label %if.end14.i
+
+if.else.i:                                        ; preds = %if.then3.i
+  %tqh_last.i = getelementptr inbounds i8, ptr %2, i64 72
+  store ptr %4, ptr %tqh_last.i, align 8
+  br label %if.end14.i
+
+if.end14.i:                                       ; preds = %if.else.i, %if.then6.i
   %5 = load ptr, ptr %ctx, align 8
   store ptr %5, ptr %4, align 8
   %connection_cnt.i = getelementptr inbounds i8, ptr %2, i64 84
@@ -165,7 +183,7 @@ if.then3.i:                                       ; preds = %if.end.i
   store i32 %dec.i, ptr %connection_cnt.i, align 4
   br label %if.end19.i
 
-if.end19.i:                                       ; preds = %if.then3.i, %if.end.i
+if.end19.i:                                       ; preds = %if.end14.i, %if.end.i
   %bufev.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %7 = load ptr, ptr %bufev.i, align 8
   %cmp20.not.i = icmp eq ptr %7, null
@@ -218,10 +236,19 @@ if.then3.i:                                       ; preds = %if.end.i
   %cmp5.not.i = icmp eq ptr %3, null
   %tqe_prev13.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %4 = load ptr, ptr %tqe_prev13.i, align 8
-  %tqh_last.i = getelementptr inbounds i8, ptr %2, i64 72
+  br i1 %cmp5.not.i, label %if.else.i, label %if.then6.i
+
+if.then6.i:                                       ; preds = %if.then3.i
   %tqe_prev11.i = getelementptr inbounds i8, ptr %3, i64 8
-  %tqh_last.sink.i = select i1 %cmp5.not.i, ptr %tqh_last.i, ptr %tqe_prev11.i
-  store ptr %4, ptr %tqh_last.sink.i, align 8
+  store ptr %4, ptr %tqe_prev11.i, align 8
+  br label %if.end14.i
+
+if.else.i:                                        ; preds = %if.then3.i
+  %tqh_last.i = getelementptr inbounds i8, ptr %2, i64 72
+  store ptr %4, ptr %tqh_last.i, align 8
+  br label %if.end14.i
+
+if.end14.i:                                       ; preds = %if.else.i, %if.then6.i
   %5 = load ptr, ptr %ctx, align 8
   store ptr %5, ptr %4, align 8
   %connection_cnt.i = getelementptr inbounds i8, ptr %2, i64 84
@@ -230,7 +257,7 @@ if.then3.i:                                       ; preds = %if.end.i
   store i32 %dec.i, ptr %connection_cnt.i, align 4
   br label %if.end19.i
 
-if.end19.i:                                       ; preds = %if.then3.i, %if.end.i
+if.end19.i:                                       ; preds = %if.end14.i, %if.end.i
   %bufev.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %7 = load ptr, ptr %bufev.i, align 8
   %cmp20.not.i = icmp eq ptr %7, null
@@ -460,10 +487,19 @@ if.then3.i:                                       ; preds = %if.end.i
   %cmp5.not.i = icmp eq ptr %37, null
   %tqe_prev13.i = getelementptr inbounds i8, ptr %call24, i64 8
   %38 = load ptr, ptr %tqe_prev13.i, align 8
-  %tqh_last.i = getelementptr inbounds i8, ptr %36, i64 72
+  br i1 %cmp5.not.i, label %if.else.i, label %if.then6.i
+
+if.then6.i:                                       ; preds = %if.then3.i
   %tqe_prev11.i = getelementptr inbounds i8, ptr %37, i64 8
-  %tqh_last.sink.i = select i1 %cmp5.not.i, ptr %tqh_last.i, ptr %tqe_prev11.i
-  store ptr %38, ptr %tqh_last.sink.i, align 8
+  store ptr %38, ptr %tqe_prev11.i, align 8
+  br label %if.end14.i
+
+if.else.i:                                        ; preds = %if.then3.i
+  %tqh_last.i = getelementptr inbounds i8, ptr %36, i64 72
+  store ptr %38, ptr %tqh_last.i, align 8
+  br label %if.end14.i
+
+if.end14.i:                                       ; preds = %if.else.i, %if.then6.i
   %39 = load ptr, ptr %call24, align 8
   store ptr %39, ptr %38, align 8
   %connection_cnt.i = getelementptr inbounds i8, ptr %36, i64 84
@@ -472,7 +508,7 @@ if.then3.i:                                       ; preds = %if.end.i
   store i32 %dec.i, ptr %connection_cnt.i, align 4
   br label %if.end19.i
 
-if.end19.i:                                       ; preds = %if.then3.i, %if.end.i
+if.end19.i:                                       ; preds = %if.end14.i, %if.end.i
   %41 = load ptr, ptr %bufev, align 8
   %cmp20.not.i = icmp eq ptr %41, null
   br i1 %cmp20.not.i, label %if.end23.i, label %if.then21.i

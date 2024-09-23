@@ -374,25 +374,23 @@ if.end:                                           ; preds = %if.else.i, %_ZN6icu
 
 sw.bb:                                            ; preds = %if.end, %if.end, %if.end, %if.end, %if.end
   %4 = load ptr, ptr @_ZN6icu_7511gStaticSetsE, align 8
-  br label %return.sink.split
-
-sw.bb1:                                           ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
-  %5 = load ptr, ptr @_ZN6icu_7511gStaticSetsE, align 8
-  %fTimeIgnorables = getelementptr inbounds i8, ptr %5, i64 8
-  br label %return.sink.split
-
-sw.default:                                       ; preds = %if.end
-  %6 = load ptr, ptr @_ZN6icu_7511gStaticSetsE, align 8
-  %fOtherIgnorables = getelementptr inbounds i8, ptr %6, i64 16
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %sw.bb, %sw.bb1, %sw.default
-  %fOtherIgnorables.sink = phi ptr [ %fOtherIgnorables, %sw.default ], [ %fTimeIgnorables, %sw.bb1 ], [ %4, %sw.bb ]
-  %7 = load ptr, ptr %fOtherIgnorables.sink, align 8
+  %5 = load ptr, ptr %4, align 8
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.else.i, %_ZN6icu_75L17smpdtfmt_initSetsER10UErrorCode.exit
-  %retval.0 = phi ptr [ null, %_ZN6icu_75L17smpdtfmt_initSetsER10UErrorCode.exit ], [ null, %if.else.i ], [ %7, %return.sink.split ]
+sw.bb1:                                           ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
+  %6 = load ptr, ptr @_ZN6icu_7511gStaticSetsE, align 8
+  %fTimeIgnorables = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = load ptr, ptr %fTimeIgnorables, align 8
+  br label %return
+
+sw.default:                                       ; preds = %if.end
+  %8 = load ptr, ptr @_ZN6icu_7511gStaticSetsE, align 8
+  %fOtherIgnorables = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = load ptr, ptr %fOtherIgnorables, align 8
+  br label %return
+
+return:                                           ; preds = %if.else.i, %_ZN6icu_75L17smpdtfmt_initSetsER10UErrorCode.exit, %sw.default, %sw.bb1, %sw.bb
+  %retval.0 = phi ptr [ %9, %sw.default ], [ %7, %sw.bb1 ], [ %5, %sw.bb ], [ null, %_ZN6icu_75L17smpdtfmt_initSetsER10UErrorCode.exit ], [ null, %if.else.i ]
   ret ptr %retval.0
 }
 

@@ -1169,10 +1169,10 @@ define internal fastcc range(i32 0, 8) i32 @nsis_init(ptr noundef nonnull %0) un
 define internal fastcc range(i32 0, 27) i32 @nsis_decomp(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 52
   %3 = load i8, ptr %2, align 4
-  switch i8 %3, label %61 [
+  switch i8 %3, label %63 [
     i8 1, label %4
-    i8 2, label %21
-    i8 3, label %43
+    i8 2, label %22
+    i8 3, label %45
   ]
 
 4:                                                ; preds = %1
@@ -1203,83 +1203,81 @@ define internal fastcc range(i32 0, 27) i32 @nsis_decomp(ptr noundef nonnull %0)
   store ptr %19, ptr %9, align 8
   %20 = load i32, ptr %13, align 8
   store i32 %20, ptr %11, align 8
-  br label %.sink.split
+  %21 = load ptr, ptr %16, align 8
+  store ptr %21, ptr %14, align 8
+  br label %63
 
-21:                                               ; preds = %1
-  %22 = getelementptr inbounds i8, ptr %0, i64 56
-  %23 = load i32, ptr %22, align 8
-  %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds i8, ptr %0, i64 168
-  %26 = getelementptr inbounds i8, ptr %0, i64 352
-  store i64 %24, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 64
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 336
-  store ptr %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 72
-  %31 = load i32, ptr %30, align 8
-  %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds i8, ptr %0, i64 360
-  store i64 %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 80
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 344
-  store ptr %35, ptr %36, align 8
-  %37 = tail call i32 @cli_LzmaDecode(ptr noundef nonnull %25) #10
-  %switch.selectcmp54 = icmp eq i32 %37, 2
+22:                                               ; preds = %1
+  %23 = getelementptr inbounds i8, ptr %0, i64 56
+  %24 = load i32, ptr %23, align 8
+  %25 = zext i32 %24 to i64
+  %26 = getelementptr inbounds i8, ptr %0, i64 168
+  %27 = getelementptr inbounds i8, ptr %0, i64 352
+  store i64 %25, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 64
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %0, i64 336
+  store ptr %29, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 72
+  %32 = load i32, ptr %31, align 8
+  %33 = zext i32 %32 to i64
+  %34 = getelementptr inbounds i8, ptr %0, i64 360
+  store i64 %33, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %0, i64 80
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds i8, ptr %0, i64 344
+  store ptr %36, ptr %37, align 8
+  %38 = tail call i32 @cli_LzmaDecode(ptr noundef nonnull %26) #10
+  %switch.selectcmp54 = icmp eq i32 %38, 2
   %switch.select55 = select i1 %switch.selectcmp54, i32 22, i32 26
-  %switch.selectcmp56 = icmp eq i32 %37, 0
+  %switch.selectcmp56 = icmp eq i32 %38, 0
   %switch.select57 = select i1 %switch.selectcmp56, i32 0, i32 %switch.select55
-  %38 = load i64, ptr %26, align 8
-  %39 = trunc i64 %38 to i32
-  store i32 %39, ptr %22, align 8
-  %40 = load ptr, ptr %29, align 8
-  store ptr %40, ptr %27, align 8
-  %41 = load i64, ptr %33, align 8
-  %42 = trunc i64 %41 to i32
-  store i32 %42, ptr %30, align 8
-  br label %.sink.split
+  %39 = load i64, ptr %27, align 8
+  %40 = trunc i64 %39 to i32
+  store i32 %40, ptr %23, align 8
+  %41 = load ptr, ptr %30, align 8
+  store ptr %41, ptr %28, align 8
+  %42 = load i64, ptr %34, align 8
+  %43 = trunc i64 %42 to i32
+  store i32 %43, ptr %31, align 8
+  %44 = load ptr, ptr %37, align 8
+  store ptr %44, ptr %35, align 8
+  br label %63
 
-43:                                               ; preds = %1
-  %44 = getelementptr inbounds i8, ptr %0, i64 56
-  %45 = load i32, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 368
-  %47 = getelementptr inbounds i8, ptr %0, i64 376
-  store i32 %45, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 64
-  %49 = load ptr, ptr %48, align 8
-  store ptr %49, ptr %46, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 72
-  %51 = load i32, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 400
-  store i32 %51, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 80
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 392
-  store ptr %54, ptr %55, align 8
-  %56 = tail call i32 @nsis_inflate(ptr noundef nonnull %46) #10
-  %switch.selectcmp58 = icmp eq i32 %56, 1
+45:                                               ; preds = %1
+  %46 = getelementptr inbounds i8, ptr %0, i64 56
+  %47 = load i32, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %0, i64 368
+  %49 = getelementptr inbounds i8, ptr %0, i64 376
+  store i32 %47, ptr %49, align 8
+  %50 = getelementptr inbounds i8, ptr %0, i64 64
+  %51 = load ptr, ptr %50, align 8
+  store ptr %51, ptr %48, align 8
+  %52 = getelementptr inbounds i8, ptr %0, i64 72
+  %53 = load i32, ptr %52, align 8
+  %54 = getelementptr inbounds i8, ptr %0, i64 400
+  store i32 %53, ptr %54, align 8
+  %55 = getelementptr inbounds i8, ptr %0, i64 80
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds i8, ptr %0, i64 392
+  store ptr %56, ptr %57, align 8
+  %58 = tail call i32 @nsis_inflate(ptr noundef nonnull %48) #10
+  %switch.selectcmp58 = icmp eq i32 %58, 1
   %switch.select59 = select i1 %switch.selectcmp58, i32 22, i32 26
-  %switch.selectcmp60 = icmp eq i32 %56, 0
+  %switch.selectcmp60 = icmp eq i32 %58, 0
   %switch.select61 = select i1 %switch.selectcmp60, i32 0, i32 %switch.select59
-  %57 = load i32, ptr %47, align 8
-  store i32 %57, ptr %44, align 8
-  %58 = load ptr, ptr %46, align 8
-  store ptr %58, ptr %48, align 8
-  %59 = load i32, ptr %52, align 8
-  store i32 %59, ptr %50, align 8
-  br label %.sink.split
+  %59 = load i32, ptr %49, align 8
+  store i32 %59, ptr %46, align 8
+  %60 = load ptr, ptr %48, align 8
+  store ptr %60, ptr %50, align 8
+  %61 = load i32, ptr %54, align 8
+  store i32 %61, ptr %52, align 8
+  %62 = load ptr, ptr %57, align 8
+  store ptr %62, ptr %55, align 8
+  br label %63
 
-.sink.split:                                      ; preds = %4, %21, %43
-  %.sink63 = phi ptr [ %55, %43 ], [ %36, %21 ], [ %16, %4 ]
-  %.sink62 = phi ptr [ %53, %43 ], [ %34, %21 ], [ %14, %4 ]
-  %.0.ph = phi i32 [ %switch.select61, %43 ], [ %switch.select57, %21 ], [ %switch.select53, %4 ]
-  %60 = load ptr, ptr %.sink63, align 8
-  store ptr %60, ptr %.sink62, align 8
-  br label %61
-
-61:                                               ; preds = %.sink.split, %1
-  %.0 = phi i32 [ 26, %1 ], [ %.0.ph, %.sink.split ]
+63:                                               ; preds = %45, %22, %4, %1
+  %.0 = phi i32 [ 26, %1 ], [ %switch.select61, %45 ], [ %switch.select57, %22 ], [ %switch.select53, %4 ]
   ret i32 %.0
 }
 

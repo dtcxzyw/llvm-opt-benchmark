@@ -354,7 +354,11 @@ if.end.i.i:                                       ; preds = %if.then.i.i
   %pattern.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %call7.i.i, ptr %pattern.i.i, align 8
   %tobool9.not.i.i = icmp eq ptr %call7.i.i, null
-  br i1 %tobool9.not.i.i, label %init_wc_data.exit.i, label %if.end27.i.i
+  br i1 %tobool9.not.i.i, label %init_wc_data.exit.i, label %if.end11.i.i
+
+if.end11.i.i:                                     ; preds = %if.end.i.i
+  store i8 0, ptr %incdec.ptr.i.i, align 1
+  br label %if.end27.i.i
 
 if.else.i.i:                                      ; preds = %sw.bb.i
   %10 = load i8, ptr %6, align 1
@@ -367,7 +371,11 @@ if.then15.i.i:                                    ; preds = %if.else.i.i
   %pattern17.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %call16.i.i, ptr %pattern17.i.i, align 8
   %tobool19.not.i.i = icmp eq ptr %call16.i.i, null
-  br i1 %tobool19.not.i.i, label %init_wc_data.exit.i, label %if.end27.i.i
+  br i1 %tobool19.not.i.i, label %init_wc_data.exit.i, label %if.end21.i.i
+
+if.end21.i.i:                                     ; preds = %if.then15.i.i
+  store i8 0, ptr %6, align 1
+  br label %if.end27.i.i
 
 if.else23.i.i:                                    ; preds = %if.else.i.i
   %state24.i.i = getelementptr inbounds i8, ptr %7, i64 64
@@ -375,9 +383,7 @@ if.else23.i.i:                                    ; preds = %if.else.i.i
   %call25.i.i = tail call fastcc i32 @ftp_parse_url_path(ptr noundef nonnull %data)
   br label %init_wc_data.exit.i
 
-if.end27.i.i:                                     ; preds = %if.then15.i.i, %if.end.i.i
-  %.sink.i.i = phi ptr [ %incdec.ptr.i.i, %if.end.i.i ], [ %6, %if.then15.i.i ]
-  store i8 0, ptr %.sink.i.i, align 1
+if.end27.i.i:                                     ; preds = %if.end21.i.i, %if.end11.i.i
   %12 = load ptr, ptr @Curl_ccalloc, align 8
   %call28.i.i = tail call ptr %12(i64 noundef 1, i64 noundef 24) #10
   %tobool29.not.i.i = icmp eq ptr %call28.i.i, null

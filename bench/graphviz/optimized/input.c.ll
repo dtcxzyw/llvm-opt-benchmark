@@ -310,24 +310,29 @@ gv_alloc.exit.i:                                  ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 104
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %gvg_init.exit, label %10
+  br i1 %.not.i, label %10, label %11
 
 10:                                               ; preds = %gv_alloc.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 112
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  store ptr %3, ptr %8, align 8
   br label %gvg_init.exit
 
-gvg_init.exit:                                    ; preds = %gv_alloc.exit.i, %10
-  %.sink.i = phi ptr [ %13, %10 ], [ %8, %gv_alloc.exit.i ]
-  store ptr %3, ptr %.sink.i, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 112
+11:                                               ; preds = %gv_alloc.exit.i
+  %12 = getelementptr inbounds i8, ptr %0, i64 112
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %3, ptr %14, align 8
+  br label %gvg_init.exit
+
+gvg_init.exit:                                    ; preds = %10, %11
+  %15 = getelementptr inbounds i8, ptr %0, i64 112
+  store ptr %3, ptr %15, align 8
   store ptr %0, ptr %3, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 32
-  store ptr %2, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr @.str, ptr %16, align 8
+  %16 = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr %2, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr @.str, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %3, i64 24
+  store i32 0, ptr %18, align 8
   ret ptr %2
 }
 
@@ -1284,7 +1289,7 @@ define ptr @gvNextInputGraph(ptr noundef %0) local_unnamed_addr #3 {
   %45 = phi ptr [ %43, %40 ], [ %38, %.critedge.thread ]
   %46 = tail call ptr @agread(ptr noundef %45, ptr noundef null) #21
   %.not20 = icmp eq ptr %46, null
-  br i1 %.not20, label %66, label %47
+  br i1 %.not20, label %67, label %47
 
 47:                                               ; preds = %44
   %48 = load ptr, ptr @gvNextInputGraph.fn, align 8
@@ -1305,39 +1310,42 @@ gv_alloc.exit.i:                                  ; preds = %47
   %56 = getelementptr inbounds i8, ptr %0, i64 104
   %57 = load ptr, ptr %56, align 8
   %.not.i = icmp eq ptr %57, null
-  br i1 %.not.i, label %gvg_init.exit, label %58
+  br i1 %.not.i, label %58, label %59
 
 58:                                               ; preds = %gv_alloc.exit.i
-  %59 = getelementptr inbounds i8, ptr %0, i64 112
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 8
+  store ptr %51, ptr %56, align 8
   br label %gvg_init.exit
 
-gvg_init.exit:                                    ; preds = %gv_alloc.exit.i, %58
-  %.sink.i = phi ptr [ %61, %58 ], [ %56, %gv_alloc.exit.i ]
-  store ptr %51, ptr %.sink.i, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 112
+59:                                               ; preds = %gv_alloc.exit.i
+  %60 = getelementptr inbounds i8, ptr %0, i64 112
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds i8, ptr %61, i64 8
   store ptr %51, ptr %62, align 8
+  br label %gvg_init.exit
+
+gvg_init.exit:                                    ; preds = %58, %59
+  %63 = getelementptr inbounds i8, ptr %0, i64 112
+  store ptr %51, ptr %63, align 8
   store ptr %0, ptr %51, align 8
-  %63 = getelementptr inbounds i8, ptr %51, i64 32
-  store ptr %46, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %51, i64 16
-  store ptr %48, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %51, i64 24
-  store i32 %49, ptr %65, align 8
+  %64 = getelementptr inbounds i8, ptr %51, i64 32
+  store ptr %46, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %51, i64 16
+  store ptr %48, ptr %65, align 8
+  %66 = getelementptr inbounds i8, ptr %51, i64 24
+  store i32 %49, ptr %66, align 8
   br label %.critedge.thread29
 
-66:                                               ; preds = %44
-  %67 = load ptr, ptr @gvNextInputGraph.fp, align 8
-  %68 = load ptr, ptr @stdin, align 8
-  %.not21 = icmp eq ptr %67, %68
-  br i1 %.not21, label %.critedge24, label %69
+67:                                               ; preds = %44
+  %68 = load ptr, ptr @gvNextInputGraph.fp, align 8
+  %69 = load ptr, ptr @stdin, align 8
+  %.not21 = icmp eq ptr %68, %69
+  br i1 %.not21, label %.critedge24, label %70
 
-69:                                               ; preds = %66
-  %70 = tail call i32 @fclose(ptr noundef %67)
+70:                                               ; preds = %67
+  %71 = tail call i32 @fclose(ptr noundef %68)
   br label %.critedge24
 
-.critedge24:                                      ; preds = %69, %66
+.critedge24:                                      ; preds = %70, %67
   store ptr null, ptr @gvNextInputGraph.fp, align 8
   store ptr null, ptr @gvNextInputGraph.oldfp, align 8
   store i32 0, ptr @gvNextInputGraph.gidx, align 4

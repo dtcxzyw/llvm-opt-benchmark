@@ -772,8 +772,8 @@ define linkonce_odr noundef ptr @_ZN4pkpy2VM19register_user_classINS_6RandomEEEP
   br label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE8containsENS_7StrNameE.exit
 
 _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE8containsENS_7StrNameE.exit: ; preds = %27, %.lr.ph.i._crit_edge.i.i
-  %.sink.i.i = phi ptr [ %46, %.lr.ph.i._crit_edge.i.i ], [ %29, %27 ]
-  %47 = load ptr, ptr %.sink.i.i, align 8
+  %.in = phi ptr [ %29, %27 ], [ %46, %.lr.ph.i._crit_edge.i.i ]
+  %47 = load ptr, ptr %.in, align 8
   %.not = icmp eq ptr %47, null
   br i1 %.not, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE8containsENS_7StrNameE.exit.thread, label %_ZN4pkpy3anyD2Ev.exit
 

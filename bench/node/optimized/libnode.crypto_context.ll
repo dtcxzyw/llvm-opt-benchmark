@@ -4424,21 +4424,24 @@ do.end:                                           ; preds = %_ZN4node10BaseObjec
 
 if.then14:                                        ; preds = %do.end
   %11 = load ptr, ptr %args, align 8
+  %arrayidx.i44 = getelementptr inbounds i8, ptr %11, i64 24
   %arrayidx.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %arrayidx.i.i, align 8
   %13 = ptrtoint ptr %12 to i64
   %add1.i.i.i = add i64 %13, 624
   %14 = inttoptr i64 %add1.i.i.i to ptr
-  br label %return.sink.split
+  %15 = load i64, ptr %14, align 8
+  store i64 %15, ptr %arrayidx.i44, align 8
+  br label %return
 
 if.end17:                                         ; preds = %do.end
   %realm_.i = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 16
-  %15 = load ptr, ptr %realm_.i, align 8
-  %env_.i.i = getelementptr inbounds i8, ptr %15, i64 176
-  %16 = load ptr, ptr %env_.i.i, align 8
+  %16 = load ptr, ptr %realm_.i, align 8
+  %env_.i.i = getelementptr inbounds i8, ptr %16, i64 176
+  %17 = load ptr, ptr %env_.i.i, align 8
   %call18 = tail call i32 @i2d_X509(ptr noundef nonnull %10, ptr noundef null) #20
   %conv = sext i32 %call18 to i64
-  %call20 = tail call ptr @_ZN4node6Buffer3NewEPNS_11EnvironmentEm(ptr noundef %16, i64 noundef %conv) #20
+  %call20 = tail call ptr @_ZN4node6Buffer3NewEPNS_11EnvironmentEm(ptr noundef %17, i64 noundef %conv) #20
   %cmp.i.i61 = icmp eq ptr %call20, null
   br i1 %cmp.i.i61, label %return, label %if.end27
 
@@ -4446,18 +4449,13 @@ if.end27:                                         ; preds = %if.end17
   %call32 = tail call noundef ptr @_ZN4node6Buffer4DataEN2v85LocalINS1_6ObjectEEE(ptr nonnull %call20) #20
   store ptr %call32, ptr %serialized, align 8
   %call33 = call i32 @i2d_X509(ptr noundef nonnull %10, ptr noundef nonnull %serialized) #20
-  %17 = load ptr, ptr %args, align 8
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.then14, %if.end27
-  %call20.sink = phi ptr [ %call20, %if.end27 ], [ %14, %if.then14 ]
-  %.pn = phi ptr [ %17, %if.end27 ], [ %11, %if.then14 ]
-  %arrayidx.i.sink = getelementptr inbounds i8, ptr %.pn, i64 24
-  %18 = load i64, ptr %call20.sink, align 8
-  store i64 %18, ptr %arrayidx.i.sink, align 8
+  %18 = load ptr, ptr %args, align 8
+  %arrayidx.i = getelementptr inbounds i8, ptr %18, i64 24
+  %19 = load i64, ptr %call20, align 8
+  store i64 %19, ptr %arrayidx.i, align 8
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.end17, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit
+return:                                           ; preds = %if.end27, %if.end17, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %if.then14
   ret void
 }
 
@@ -4504,21 +4502,24 @@ do.end:                                           ; preds = %_ZN4node10BaseObjec
 
 if.then14:                                        ; preds = %do.end
   %11 = load ptr, ptr %args, align 8
+  %arrayidx.i44 = getelementptr inbounds i8, ptr %11, i64 24
   %arrayidx.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %arrayidx.i.i, align 8
   %13 = ptrtoint ptr %12 to i64
   %add1.i.i.i = add i64 %13, 624
   %14 = inttoptr i64 %add1.i.i.i to ptr
-  br label %return.sink.split
+  %15 = load i64, ptr %14, align 8
+  store i64 %15, ptr %arrayidx.i44, align 8
+  br label %return
 
 if.end17:                                         ; preds = %do.end
   %realm_.i = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 16
-  %15 = load ptr, ptr %realm_.i, align 8
-  %env_.i.i = getelementptr inbounds i8, ptr %15, i64 176
-  %16 = load ptr, ptr %env_.i.i, align 8
+  %16 = load ptr, ptr %realm_.i, align 8
+  %env_.i.i = getelementptr inbounds i8, ptr %16, i64 176
+  %17 = load ptr, ptr %env_.i.i, align 8
   %call18 = tail call i32 @i2d_X509(ptr noundef nonnull %10, ptr noundef null) #20
   %conv = sext i32 %call18 to i64
-  %call20 = tail call ptr @_ZN4node6Buffer3NewEPNS_11EnvironmentEm(ptr noundef %16, i64 noundef %conv) #20
+  %call20 = tail call ptr @_ZN4node6Buffer3NewEPNS_11EnvironmentEm(ptr noundef %17, i64 noundef %conv) #20
   %cmp.i.i61 = icmp eq ptr %call20, null
   br i1 %cmp.i.i61, label %return, label %if.end27
 
@@ -4526,18 +4527,13 @@ if.end27:                                         ; preds = %if.end17
   %call32 = tail call noundef ptr @_ZN4node6Buffer4DataEN2v85LocalINS1_6ObjectEEE(ptr nonnull %call20) #20
   store ptr %call32, ptr %serialized, align 8
   %call33 = call i32 @i2d_X509(ptr noundef nonnull %10, ptr noundef nonnull %serialized) #20
-  %17 = load ptr, ptr %args, align 8
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.then14, %if.end27
-  %call20.sink = phi ptr [ %call20, %if.end27 ], [ %14, %if.then14 ]
-  %.pn = phi ptr [ %17, %if.end27 ], [ %11, %if.then14 ]
-  %arrayidx.i.sink = getelementptr inbounds i8, ptr %.pn, i64 24
-  %18 = load i64, ptr %call20.sink, align 8
-  store i64 %18, ptr %arrayidx.i.sink, align 8
+  %18 = load ptr, ptr %args, align 8
+  %arrayidx.i = getelementptr inbounds i8, ptr %18, i64 24
+  %19 = load i64, ptr %call20, align 8
+  store i64 %19, ptr %arrayidx.i, align 8
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.end17, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit
+return:                                           ; preds = %if.end27, %if.end17, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %if.then14
   ret void
 }
 

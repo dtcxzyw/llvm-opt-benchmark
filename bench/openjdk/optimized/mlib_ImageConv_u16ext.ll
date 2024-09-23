@@ -297,7 +297,8 @@ define hidden range(i32 0, 2) i32 @mlib_convMxNext_u16(ptr nocapture noundef rea
 174:                                              ; preds = %169, %167, %154
   %175 = phi i16 [ 0, %154 ], [ %173, %169 ], [ -1, %167 ]
   store i16 %175, ptr %.2549.lcssa.us.us.us.i, align 2
-  br label %.sink.split.i
+  store double 0.000000e+00, ptr %162, align 8
+  br label %393
 
 176:                                              ; preds = %._crit_edge30.us.us.us.i
   %177 = load double, ptr %.0.lcssa.us.us.us.i, align 8
@@ -419,7 +420,8 @@ define hidden range(i32 0, 2) i32 @mlib_convMxNext_u16(ptr nocapture noundef rea
 250:                                              ; preds = %245, %243, %229
   %251 = phi i16 [ 0, %229 ], [ %249, %245 ], [ -1, %243 ]
   store i16 %251, ptr %.1548.lcssa.us.us.us.i, align 2
-  br label %.sink.split.i
+  store double 0.000000e+00, ptr %238, align 8
+  br label %393
 
 252:                                              ; preds = %._crit_edge30.us.us.us.i
   %253 = load double, ptr %.0.lcssa.us.us.us.i, align 8
@@ -551,7 +553,8 @@ define hidden range(i32 0, 2) i32 @mlib_convMxNext_u16(ptr nocapture noundef rea
 334:                                              ; preds = %329, %327, %312
   %335 = phi i16 [ 0, %312 ], [ %333, %329 ], [ -1, %327 ]
   store i16 %335, ptr %.0547.lcssa.us.us.us.i, align 2
-  br label %.sink.split.i
+  store double 0.000000e+00, ptr %322, align 8
+  br label %393
 
 336:                                              ; preds = %._crit_edge30.us.us.us.i
   %337 = load double, ptr %.0557.lcssa.us.us.us.i, align 8
@@ -650,14 +653,10 @@ define hidden range(i32 0, 2) i32 @mlib_convMxNext_u16(ptr nocapture noundef rea
 391:                                              ; preds = %386, %384, %375
   %392 = phi i16 [ 0, %375 ], [ %390, %386 ], [ -1, %384 ]
   store i16 %392, ptr %.3550.lcssa.us.us.us.i, align 2
-  br label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %391, %334, %250, %174
-  %.sink.i = phi ptr [ %379, %391 ], [ %322, %334 ], [ %238, %250 ], [ %162, %174 ]
-  store double 0.000000e+00, ptr %.sink.i, align 8
+  store double 0.000000e+00, ptr %379, align 8
   br label %393
 
-393:                                              ; preds = %.sink.split.i, %._crit_edge75.us.us.us.i, %._crit_edge64.us.us.us.i, %._crit_edge51.us.us.us.i, %._crit_edge40.us.us.us.i
+393:                                              ; preds = %391, %._crit_edge75.us.us.us.i, %334, %._crit_edge64.us.us.us.i, %250, %._crit_edge51.us.us.us.i, %174, %._crit_edge40.us.us.us.i
   %394 = getelementptr inbounds i16, ptr %.054480.us.us.us.i, i64 %77
   %395 = getelementptr inbounds i16, ptr %.054678.us.us.us.i, i64 %77
   %396 = add nuw nsw i32 %.054181.us.us.us.i, 1

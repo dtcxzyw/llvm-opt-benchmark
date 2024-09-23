@@ -350,12 +350,23 @@ _ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier4codeEPKhi.exit.loopexit: ; pred
 _ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier4codeEPKhi.exit: ; preds = %_ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier4codeEPKhi.exit.loopexit, %3
   %.013.lcssa.i = phi i64 [ 0, %3 ], [ %43, %_ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier4codeEPKhi.exit.loopexit ]
   %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds %"class.cv::Point_", ptr %44, i64 %.013.lcssa.i, i32 1
+  br i1 %2, label %45, label %49
+
+45:                                               ; preds = %_ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier4codeEPKhi.exit
   %46 = getelementptr inbounds %"class.cv::Point_", ptr %44, i64 %.013.lcssa.i
-  %.sink = select i1 %2, ptr %46, ptr %45
-  %47 = load i32, ptr %.sink, align 4
+  %47 = load i32, ptr %46, align 4
   %48 = add nsw i32 %47, 1
-  store i32 %48, ptr %.sink, align 4
+  store i32 %48, ptr %46, align 4
+  br label %53
+
+49:                                               ; preds = %_ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier4codeEPKhi.exit
+  %50 = getelementptr inbounds %"class.cv::Point_", ptr %44, i64 %.013.lcssa.i, i32 1
+  %51 = load i32, ptr %50, align 4
+  %52 = add nsw i32 %51, 1
+  store i32 %52, ptr %50, align 4
+  br label %53
+
+53:                                               ; preds = %49, %45
   ret void
 }
 

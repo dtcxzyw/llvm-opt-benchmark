@@ -9313,6 +9313,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MDStringEPKNS_6MDNodeENS_12DenseMapIn
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MDStringEPKNS_6MDNodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupES4_.exit.thread.i: ; preds = %.lr.ph.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MDStringEPKNS_6MDNodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupES4_.exit.i, %_ZNK4llvm6MDNode10getOperandEj.exit89.i
   store i8 1, ptr %1344, align 1
   store ptr @.str.977, ptr %39, align 8
+  store i8 3, ptr %1343, align 8
   br label %.sink.split.i
 
 1400:                                             ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MDStringEPKNS_6MDNodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupES4_.exit.i
@@ -9345,12 +9346,11 @@ _ZNK4llvm6MDNode10getOperandEj.exit93.i:          ; preds = %1408, %1404
 1415:                                             ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit93.i
   store i8 1, ptr %1342, align 1
   store ptr @.str.978, ptr %40, align 8
+  store i8 3, ptr %1341, align 8
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %1415, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MDStringEPKNS_6MDNodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupES4_.exit.thread.i
-  %.sink151.i = phi ptr [ %1341, %1415 ], [ %1343, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MDStringEPKNS_6MDNodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupES4_.exit.thread.i ]
   %.sink.i = phi ptr [ %40, %1415 ], [ %39, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MDStringEPKNS_6MDNodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupES4_.exit.thread.i ]
-  store i8 3, ptr %.sink151.i, align 8
   call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8MDStringEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %.sink.i, ptr noundef nonnull align 8 dereferenceable(8) %38)
   br label %1416
 
@@ -16305,6 +16305,7 @@ _ZN4llvm12is_containedINS_11AllocFnKindES1_EEbSt16initializer_listIT_ERKT0_.exit
   %442 = getelementptr inbounds nuw i8, ptr %58, i64 33
   store i8 1, ptr %442, align 1
   store ptr @.str.156, ptr %58, align 8
+  store i8 3, ptr %441, align 8
   br label %.sink.split
 
 _ZN4llvm13isPowerOf2_32Ej.exit:                   ; preds = %436
@@ -16317,12 +16318,11 @@ _ZN4llvm13isPowerOf2_32Ej.exit:                   ; preds = %436
   %447 = getelementptr inbounds nuw i8, ptr %59, i64 33
   store i8 1, ptr %447, align 1
   store ptr @.str.157, ptr %59, align 8
+  store i8 3, ptr %446, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %440, %445
-  %.sink508 = phi ptr [ %446, %445 ], [ %441, %440 ]
   %.sink = phi ptr [ %59, %445 ], [ %58, %440 ]
-  store i8 3, ptr %.sink508, align 8
   call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_5ValueEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %.sink, ptr noundef nonnull align 8 dereferenceable(8) %9)
   br label %448
 
@@ -16344,7 +16344,8 @@ _ZN4llvm13isPowerOf2_32Ej.exit:                   ; preds = %436
   %456 = getelementptr inbounds nuw i8, ptr %61, i64 33
   store i8 1, ptr %456, align 1
   store ptr @.str.158, ptr %61, align 8
-  br label %.sink.split509
+  store i8 3, ptr %455, align 8
+  br label %.sink.split508
 
 457:                                              ; preds = %452
   %458 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %.sroa.0295.0.extract.trunc)
@@ -16356,16 +16357,15 @@ _ZN4llvm13isPowerOf2_32Ej.exit135.thread:         ; preds = %457
   %460 = getelementptr inbounds nuw i8, ptr %62, i64 33
   store i8 1, ptr %460, align 1
   store ptr @.str.159, ptr %62, align 8
-  br label %.sink.split509
+  store i8 3, ptr %459, align 8
+  br label %.sink.split508
 
-.sink.split509:                                   ; preds = %_ZN4llvm13isPowerOf2_32Ej.exit135.thread, %454
-  %.sink511 = phi ptr [ %455, %454 ], [ %459, %_ZN4llvm13isPowerOf2_32Ej.exit135.thread ]
-  %.sink510 = phi ptr [ %61, %454 ], [ %62, %_ZN4llvm13isPowerOf2_32Ej.exit135.thread ]
-  store i8 3, ptr %.sink511, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_5ValueEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %.sink510, ptr noundef nonnull align 8 dereferenceable(8) %9)
+.sink.split508:                                   ; preds = %_ZN4llvm13isPowerOf2_32Ej.exit135.thread, %454
+  %.sink509 = phi ptr [ %61, %454 ], [ %62, %_ZN4llvm13isPowerOf2_32Ej.exit135.thread ]
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_5ValueEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %.sink509, ptr noundef nonnull align 8 dereferenceable(8) %9)
   br label %461
 
-461:                                              ; preds = %.sink.split509, %457, %448, %434
+461:                                              ; preds = %.sink.split508, %457, %448, %434
   %462 = call noundef zeroext i1 @_ZNK4llvm13AttributeList9hasFnAttrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr nonnull @.str.160, i64 13) #23
   br i1 %462, label %463, label %_ZN4llvmneENS_9StringRefES0_.exit.thread346
 
@@ -19804,6 +19804,7 @@ _ZN4llvm5APIntD2Ev.exit45:                        ; preds = %_ZN4llvm5APIntD2Ev.
   %226 = getelementptr inbounds nuw i8, ptr %25, i64 33
   store i8 1, ptr %226, align 1
   store ptr @.str.101, ptr %25, align 8
+  store i8 3, ptr %225, align 8
   br label %.critedge27
 
 227:                                              ; preds = %222, %221
@@ -19848,6 +19849,7 @@ _ZN4llvm13ConstantRangeD2Ev.exit:                 ; preds = %_ZN4llvm5APIntD2Ev.
   %244 = getelementptr inbounds nuw i8, ptr %27, i64 33
   store i8 1, ptr %244, align 1
   store ptr @.str.102, ptr %27, align 8
+  store i8 3, ptr %243, align 8
   br label %.critedge27
 
 245:                                              ; preds = %_ZN4llvm13ConstantRangeD2Ev.exit
@@ -19860,6 +19862,7 @@ _ZN4llvm13ConstantRangeD2Ev.exit:                 ; preds = %_ZN4llvm5APIntD2Ev.
   %250 = getelementptr inbounds nuw i8, ptr %28, i64 33
   store i8 1, ptr %250, align 1
   store ptr @.str.103, ptr %28, align 8
+  store i8 3, ptr %249, align 8
   br label %.critedge27
 
 251:                                              ; preds = %245
@@ -19897,6 +19900,7 @@ _ZL12isContiguousRKN4llvm13ConstantRangeES2_.exit.thread: ; preds = %254, %_ZNK4
   %268 = getelementptr inbounds nuw i8, ptr %29, i64 33
   store i8 1, ptr %268, align 1
   store ptr @.str.104, ptr %29, align 8
+  store i8 3, ptr %267, align 8
   br label %.critedge27
 
 269:                                              ; preds = %262, %_ZL12isContiguousRKN4llvm13ConstantRangeES2_.exit, %227
@@ -20281,6 +20285,7 @@ _ZN4llvm13ConstantRangeD2Ev.exit77:               ; preds = %_ZN4llvm5APIntD2Ev.
   %438 = getelementptr inbounds nuw i8, ptr %39, i64 33
   store i8 1, ptr %438, align 1
   store ptr @.str.102, ptr %39, align 8
+  store i8 3, ptr %437, align 8
   br label %.critedge25
 
 439:                                              ; preds = %_ZN4llvm13ConstantRangeD2Ev.exit77
@@ -20292,6 +20297,7 @@ _ZN4llvm13ConstantRangeD2Ev.exit77:               ; preds = %_ZN4llvm5APIntD2Ev.
   %443 = getelementptr inbounds nuw i8, ptr %40, i64 33
   store i8 1, ptr %443, align 1
   store ptr @.str.104, ptr %40, align 8
+  store i8 3, ptr %442, align 8
   br label %.critedge25
 
 444:                                              ; preds = %439
@@ -20324,9 +20330,7 @@ _ZN4llvm5APIntD2Ev.exit78:                        ; preds = %444, %447, %450
   br label %_ZN4llvm5APIntD2Ev.exit41
 
 .critedge25:                                      ; preds = %441, %436
-  %.sink114 = phi ptr [ %442, %441 ], [ %437, %436 ]
   %.sink = phi ptr [ %40, %441 ], [ %39, %436 ]
-  store i8 3, ptr %.sink114, align 8
   call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_6MDNodeEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %.sink, ptr noundef nonnull align 8 dereferenceable(8) %6)
   call void @_ZN4llvm13ConstantRangeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #23
   %457 = load i32, ptr %389, align 8
@@ -20357,10 +20361,8 @@ _ZN4llvm5APIntD2Ev.exit80:                        ; preds = %.critedge25, %459, 
   br label %_ZN4llvm5APIntD2Ev.exit41
 
 .critedge27:                                      ; preds = %248, %_ZL12isContiguousRKN4llvm13ConstantRangeES2_.exit.thread, %242, %224
-  %.sink116 = phi ptr [ %249, %248 ], [ %267, %_ZL12isContiguousRKN4llvm13ConstantRangeES2_.exit.thread ], [ %243, %242 ], [ %225, %224 ]
-  %.sink115 = phi ptr [ %28, %248 ], [ %29, %_ZL12isContiguousRKN4llvm13ConstantRangeES2_.exit.thread ], [ %27, %242 ], [ %25, %224 ]
-  store i8 3, ptr %.sink116, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_6MDNodeEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %.sink115, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %.sink114 = phi ptr [ %28, %248 ], [ %29, %_ZL12isContiguousRKN4llvm13ConstantRangeES2_.exit.thread ], [ %27, %242 ], [ %25, %224 ]
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_6MDNodeEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %.sink114, ptr noundef nonnull align 8 dereferenceable(8) %6)
   %469 = load i32, ptr %73, align 8
   %470 = icmp ugt i32 %469, 64
   br i1 %470, label %471, label %_ZN4llvm5APIntD2Ev.exit.i82
@@ -22634,6 +22636,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18Verifier20verifyParameterAttrsEN4
   %209 = getelementptr inbounds nuw i8, ptr %31, i64 33
   store i8 1, ptr %209, align 1
   store ptr @.str.203, ptr %31, align 8
+  store i8 3, ptr %208, align 8
   br label %.critedge
 
 210:                                              ; preds = %199
@@ -22650,6 +22653,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18Verifier20verifyParameterAttrsEN4
   %218 = getelementptr inbounds nuw i8, ptr %32, i64 33
   store i8 1, ptr %218, align 1
   store ptr @.str.204, ptr %32, align 8
+  store i8 3, ptr %217, align 8
   br label %.critedge
 
 219:                                              ; preds = %210
@@ -22686,6 +22690,7 @@ _ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit:   ; preds = %223, %219, %197
   %235 = getelementptr inbounds nuw i8, ptr %34, i64 33
   store i8 1, ptr %235, align 1
   store ptr @.str.205, ptr %34, align 8
+  store i8 3, ptr %234, align 8
   br label %.critedge50
 
 236:                                              ; preds = %225
@@ -22702,6 +22707,7 @@ _ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit:   ; preds = %223, %219, %197
   %244 = getelementptr inbounds nuw i8, ptr %35, i64 33
   store i8 1, ptr %244, align 1
   store ptr @.str.206, ptr %35, align 8
+  store i8 3, ptr %243, align 8
   br label %.critedge50
 
 245:                                              ; preds = %236
@@ -22738,6 +22744,7 @@ _ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit55: ; preds = %249, %245, %_ZN4llv
   %261 = getelementptr inbounds nuw i8, ptr %37, i64 33
   store i8 1, ptr %261, align 1
   store ptr @.str.207, ptr %37, align 8
+  store i8 3, ptr %260, align 8
   br label %.critedge52
 
 262:                                              ; preds = %251
@@ -22754,6 +22761,7 @@ _ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit55: ; preds = %249, %245, %_ZN4llv
   %270 = getelementptr inbounds nuw i8, ptr %38, i64 33
   store i8 1, ptr %270, align 1
   store ptr @.str.208, ptr %38, align 8
+  store i8 3, ptr %269, align 8
   br label %.critedge52
 
 271:                                              ; preds = %262
@@ -22790,6 +22798,7 @@ _ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit56: ; preds = %275, %271, %_ZN4llv
   %287 = getelementptr inbounds nuw i8, ptr %40, i64 33
   store i8 1, ptr %287, align 1
   store ptr @.str.209, ptr %40, align 8
+  store i8 3, ptr %286, align 8
   br label %.critedge54
 
 288:                                              ; preds = %277
@@ -22806,6 +22815,7 @@ _ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit56: ; preds = %275, %271, %_ZN4llv
   %296 = getelementptr inbounds nuw i8, ptr %41, i64 33
   store i8 1, ptr %296, align 1
   store ptr @.str.210, ptr %41, align 8
+  store i8 3, ptr %295, align 8
   br label %.critedge54
 
 297:                                              ; preds = %288
@@ -22924,9 +22934,7 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEj.exit:        ; preds = %333, %341
   br label %_ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit58
 
 .critedge:                                        ; preds = %207, %216
-  %.sink86 = phi ptr [ %208, %207 ], [ %217, %216 ]
   %.sink = phi ptr [ %31, %207 ], [ %32, %216 ]
-  store i8 3, ptr %.sink86, align 8
   call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_5ValueEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %.sink, ptr noundef nonnull align 8 dereferenceable(8) %6)
   %349 = load ptr, ptr %201, align 8
   %350 = load ptr, ptr %30, align 8
@@ -22938,10 +22946,8 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEj.exit:        ; preds = %333, %341
   br label %_ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit58
 
 .critedge50:                                      ; preds = %233, %242
-  %.sink88 = phi ptr [ %234, %233 ], [ %243, %242 ]
-  %.sink87 = phi ptr [ %34, %233 ], [ %35, %242 ]
-  store i8 3, ptr %.sink88, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_5ValueEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %.sink87, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %.sink86 = phi ptr [ %34, %233 ], [ %35, %242 ]
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_5ValueEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %.sink86, ptr noundef nonnull align 8 dereferenceable(8) %6)
   %353 = load ptr, ptr %227, align 8
   %354 = load ptr, ptr %33, align 8
   %355 = icmp eq ptr %353, %354
@@ -22952,10 +22958,8 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEj.exit:        ; preds = %333, %341
   br label %_ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit58
 
 .critedge52:                                      ; preds = %259, %268
-  %.sink90 = phi ptr [ %260, %259 ], [ %269, %268 ]
-  %.sink89 = phi ptr [ %37, %259 ], [ %38, %268 ]
-  store i8 3, ptr %.sink90, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_5ValueEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %.sink89, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %.sink87 = phi ptr [ %37, %259 ], [ %38, %268 ]
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_5ValueEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %.sink87, ptr noundef nonnull align 8 dereferenceable(8) %6)
   %357 = load ptr, ptr %253, align 8
   %358 = load ptr, ptr %36, align 8
   %359 = icmp eq ptr %357, %358
@@ -22966,10 +22970,8 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEj.exit:        ; preds = %333, %341
   br label %_ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit58
 
 .critedge54:                                      ; preds = %285, %294
-  %.sink92 = phi ptr [ %286, %285 ], [ %295, %294 ]
-  %.sink91 = phi ptr [ %40, %285 ], [ %41, %294 ]
-  store i8 3, ptr %.sink92, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_5ValueEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %.sink91, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %.sink88 = phi ptr [ %40, %285 ], [ %41, %294 ]
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_5ValueEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %.sink88, ptr noundef nonnull align 8 dereferenceable(8) %6)
   %361 = load ptr, ptr %279, align 8
   %362 = load ptr, ptr %39, align 8
   %363 = icmp eq ptr %361, %362
@@ -32788,7 +32790,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i: ; preds = %38, %36
   %spec.select.i.i25 = select i1 %52, ptr %50, ptr null
   store ptr %spec.select.i.i25, ptr %11, align 8
   %.not21 = icmp eq ptr %spec.select.i.i25, null
-  br i1 %.not21, label %74, label %53
+  br i1 %.not21, label %75, label %53
 
 53:                                               ; preds = %48
   %54 = getelementptr inbounds i8, ptr %spec.select.i.i25, i64 40
@@ -32843,42 +32845,40 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i28: ; preds = %68, %66
 
 72:                                               ; preds = %53
   %73 = getelementptr inbounds nuw i8, ptr %55, i64 72
-  br label %.sink.split
+  %74 = load ptr, ptr %73, align 8
+  br label %82
 
-74:                                               ; preds = %48
-  switch i8 %51, label %80 [
-    i8 23, label %75
-    i8 22, label %77
+75:                                               ; preds = %48
+  switch i8 %51, label %82 [
+    i8 23, label %76
+    i8 22, label %79
   ]
 
-75:                                               ; preds = %74
-  %76 = getelementptr inbounds nuw i8, ptr %50, i64 72
-  br label %.sink.split
+76:                                               ; preds = %75
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 72
+  %78 = load ptr, ptr %77, align 8
+  br label %82
 
-77:                                               ; preds = %74
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  br label %.sink.split
+79:                                               ; preds = %75
+  %80 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %81 = load ptr, ptr %80, align 8
+  br label %82
 
-.sink.split:                                      ; preds = %75, %77, %72
-  %.sink = phi ptr [ %73, %72 ], [ %78, %77 ], [ %76, %75 ]
-  %79 = load ptr, ptr %.sink, align 8
-  br label %80
+82:                                               ; preds = %75, %72, %79, %76
+  %.0 = phi ptr [ %74, %72 ], [ %78, %76 ], [ %81, %79 ], [ null, %75 ]
+  %83 = icmp eq ptr %.0, %2
+  br i1 %83, label %_ZN4llvm15VerifierSupport11CheckFailedIPKNS_15ValueAsMetadataEJPNS_5ValueEEEEvRKNS_5TwineERKT_DpRKT0_.exit, label %84
 
-80:                                               ; preds = %.sink.split, %74
-  %.0 = phi ptr [ null, %74 ], [ %79, %.sink.split ]
-  %81 = icmp eq ptr %.0, %2
-  br i1 %81, label %_ZN4llvm15VerifierSupport11CheckFailedIPKNS_15ValueAsMetadataEJPNS_5ValueEEEEvRKNS_5TwineERKT_DpRKT0_.exit, label %82
-
-82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %84 = getelementptr inbounds nuw i8, ptr %13, i64 33
-  store i8 1, ptr %84, align 1
+84:                                               ; preds = %82
+  %85 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %86 = getelementptr inbounds nuw i8, ptr %13, i64 33
+  store i8 1, ptr %86, align 1
   store ptr @.str.353, ptr %13, align 8
-  store i8 3, ptr %83, align 8
+  store i8 3, ptr %85, align 8
   call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_15LocalAsMetadataEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %13, ptr noundef nonnull align 8 dereferenceable(8) %9)
   br label %_ZN4llvm15VerifierSupport11CheckFailedIPKNS_15ValueAsMetadataEJPNS_5ValueEEEEvRKNS_5TwineERKT_DpRKT0_.exit
 
-_ZN4llvm15VerifierSupport11CheckFailedIPKNS_15ValueAsMetadataEJPNS_5ValueEEEEvRKNS_5TwineERKT_DpRKT0_.exit: ; preds = %71, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i28, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i31, %41, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i, %80, %42, %82, %45, %16
+_ZN4llvm15VerifierSupport11CheckFailedIPKNS_15ValueAsMetadataEJPNS_5ValueEEEEvRKNS_5TwineERKT_DpRKT0_.exit: ; preds = %71, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i28, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i31, %41, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i, %82, %42, %84, %45, %16
   ret void
 }
 
@@ -56098,6 +56098,7 @@ _ZN4llvm8dyn_castINS_6MDNodeENS_9MDOperandEEEDcRKT0_.exit: ; preds = %.lr.ph
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 1, ptr %41, align 1
   store ptr @.str.445, ptr %4, align 8
+  store i8 3, ptr %40, align 8
   br label %.loopexit.sink.split
 
 42:                                               ; preds = %.lr.ph
@@ -56136,12 +56137,11 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.i14:      ; preds = %50, %46
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 33
   store i8 1, ptr %60, align 1
   store ptr @.str.446, ptr %5, align 8
+  store i8 3, ptr %59, align 8
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %_ZN4llvm8dyn_castINS_6MDNodeENS_9MDOperandEEEDcRKT0_.exit, %"_ZZN12_GLOBAL__N_18Verifier24visitAccessGroupMetadataEPKN4llvm6MDNodeEENK3$_0clES4_.exit16.thread"
-  %.sink23 = phi ptr [ %59, %"_ZZN12_GLOBAL__N_18Verifier24visitAccessGroupMetadataEPKN4llvm6MDNodeEENK3$_0clES4_.exit16.thread" ], [ %40, %_ZN4llvm8dyn_castINS_6MDNodeENS_9MDOperandEEEDcRKT0_.exit ]
   %.sink = phi ptr [ %5, %"_ZZN12_GLOBAL__N_18Verifier24visitAccessGroupMetadataEPKN4llvm6MDNodeEENK3$_0clES4_.exit16.thread" ], [ %4, %_ZN4llvm8dyn_castINS_6MDNodeENS_9MDOperandEEEDcRKT0_.exit ]
-  store i8 3, ptr %.sink23, align 8
   call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_6MDNodeEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %.sink, ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %.loopexit
 
@@ -67641,6 +67641,7 @@ _ZNK4llvm8CallBase13doesNotReturnEv.exit.thread:  ; preds = %17, %_ZNK4llvm8Call
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 1, ptr %29, align 1
   store ptr @.str.749, ptr %4, align 8
+  store i8 3, ptr %28, align 8
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread.sink.split
 
 30:                                               ; preds = %_ZNK4llvm8CallBase13doesNotReturnEv.exit.thread, %3
@@ -67661,6 +67662,7 @@ _ZNK4llvm8CallBase13doesNotReturnEv.exit.thread:  ; preds = %17, %_ZNK4llvm8Call
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 33
   store i8 1, ptr %41, align 1
   store ptr @.str.750, ptr %5, align 8
+  store i8 3, ptr %40, align 8
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread.sink.split
 
 42:                                               ; preds = %34
@@ -67677,6 +67679,7 @@ _ZNK4llvm8CallBase13doesNotReturnEv.exit.thread:  ; preds = %17, %_ZNK4llvm8Call
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 33
   store i8 1, ptr %47, align 1
   store ptr @.str.751, ptr %6, align 8
+  store i8 3, ptr %46, align 8
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread.sink.split
 
 48:                                               ; preds = %42
@@ -67703,12 +67706,11 @@ _ZN4llvmeqENS_9StringRefES0_.exit24.thread32:     ; preds = %_ZN4llvmeqENS_9Stri
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 33
   store i8 1, ptr %55, align 1
   store ptr @.str.751, ptr %7, align 8
+  store i8 3, ptr %54, align 8
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread.sink.split
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread.sink.split: ; preds = %27, %39, %45, %_ZN4llvmeqENS_9StringRefES0_.exit24.thread32
-  %.sink34 = phi ptr [ %54, %_ZN4llvmeqENS_9StringRefES0_.exit24.thread32 ], [ %46, %45 ], [ %40, %39 ], [ %28, %27 ]
   %.sink = phi ptr [ %7, %_ZN4llvmeqENS_9StringRefES0_.exit24.thread32 ], [ %6, %45 ], [ %5, %39 ], [ %4, %27 ]
-  store i8 3, ptr %.sink34, align 8
   call void @_ZN4llvm15VerifierSupport11CheckFailedINS_8CallBaseEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %.sink, ptr noundef nonnull align 8 dereferenceable(88) %1)
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 

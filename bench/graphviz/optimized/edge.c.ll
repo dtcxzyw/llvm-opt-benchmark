@@ -340,7 +340,7 @@ define ptr @agnxtedge(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) l
   %11 = getelementptr inbounds i8, ptr %4, i64 32
   %12 = getelementptr inbounds i8, ptr %0, i64 72
   %13 = getelementptr inbounds i8, ptr %0, i64 80
-  br label %87
+  br label %89
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds i8, ptr %1, i64 120
@@ -392,10 +392,10 @@ agnxtout.exit:                                    ; preds = %agsubrep.exit.threa
   %42 = getelementptr inbounds i8, ptr %2, i64 32
   br label %43
 
-43:                                               ; preds = %.preheader, %83
-  %.0 = phi ptr [ %80, %83 ], [ null, %.preheader ]
+43:                                               ; preds = %.preheader, %85
+  %.0 = phi ptr [ %84, %85 ], [ null, %.preheader ]
   %.not28 = icmp eq ptr %.0, null
-  br i1 %.not28, label %44, label %58
+  br i1 %.not28, label %44, label %60
 
 44:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
@@ -425,114 +425,116 @@ agsubrep.exit.i30:                                ; preds = %44
   %55 = load ptr, ptr %40, align 8
   %56 = load ptr, ptr %55, align 8
   %57 = call ptr %56(ptr noundef nonnull %55, ptr noundef null, i32 noundef 128) #6
+  %58 = load ptr, ptr %40, align 8
+  %59 = call ptr @dtextract(ptr noundef %58) #6
+  store ptr %59, ptr %52, align 8
   br label %agfstin.exit
 
-58:                                               ; preds = %43
-  %59 = load i32, ptr %.0, align 8
-  %60 = and i32 %59, 3
-  %61 = icmp eq i32 %60, 2
-  %.idx.i34 = select i1 %61, i64 0, i64 -64
-  %62 = getelementptr inbounds i8, ptr %.0, i64 %.idx.i34
-  %63 = getelementptr inbounds i8, ptr %62, i64 56
-  %64 = load ptr, ptr %63, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5)
-  %65 = getelementptr inbounds i8, ptr %64, i64 24
+60:                                               ; preds = %43
+  %61 = load i32, ptr %.0, align 8
+  %62 = and i32 %61, 3
+  %63 = icmp eq i32 %62, 2
+  %.idx.i34 = select i1 %63, i64 0, i64 -64
+  %64 = getelementptr inbounds i8, ptr %.0, i64 %.idx.i34
+  %65 = getelementptr inbounds i8, ptr %64, i64 56
   %66 = load ptr, ptr %65, align 8
-  %67 = icmp eq ptr %0, %66
-  br i1 %67, label %agsubrep.exit.thread.i39, label %agsubrep.exit.i35
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5)
+  %67 = getelementptr inbounds i8, ptr %66, i64 24
+  %68 = load ptr, ptr %67, align 8
+  %69 = icmp eq ptr %0, %68
+  br i1 %69, label %agsubrep.exit.thread.i39, label %agsubrep.exit.i35
 
-agsubrep.exit.thread.i39:                         ; preds = %58
-  %68 = getelementptr inbounds i8, ptr %64, i64 32
+agsubrep.exit.thread.i39:                         ; preds = %60
+  %70 = getelementptr inbounds i8, ptr %66, i64 32
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5)
-  br label %72
+  br label %74
 
-agsubrep.exit.i35:                                ; preds = %58
-  store ptr %64, ptr %37, align 8
-  %69 = load ptr, ptr %39, align 8
-  %70 = load ptr, ptr %69, align 8
-  %71 = call ptr %70(ptr noundef nonnull %69, ptr noundef nonnull %5, i32 noundef 4) #6
+agsubrep.exit.i35:                                ; preds = %60
+  store ptr %66, ptr %37, align 8
+  %71 = load ptr, ptr %39, align 8
+  %72 = load ptr, ptr %71, align 8
+  %73 = call ptr %72(ptr noundef nonnull %71, ptr noundef nonnull %5, i32 noundef 4) #6
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5)
-  %.not.i36 = icmp eq ptr %71, null
-  br i1 %.not.i36, label %.critedge, label %72
+  %.not.i36 = icmp eq ptr %73, null
+  br i1 %.not.i36, label %.critedge, label %74
 
-72:                                               ; preds = %agsubrep.exit.i35, %agsubrep.exit.thread.i39
-  %.0.i17.i37 = phi ptr [ %68, %agsubrep.exit.thread.i39 ], [ %71, %agsubrep.exit.i35 ]
-  %73 = load ptr, ptr %40, align 8
-  %74 = getelementptr inbounds i8, ptr %.0.i17.i37, i64 56
-  %75 = load ptr, ptr %74, align 8
-  %76 = call i32 @dtrestore(ptr noundef %73, ptr noundef %75) #6
-  %77 = load ptr, ptr %40, align 8
-  %78 = load ptr, ptr %77, align 8
-  %79 = call ptr %78(ptr noundef nonnull %77, ptr noundef nonnull %.0, i32 noundef 8) #6
+74:                                               ; preds = %agsubrep.exit.i35, %agsubrep.exit.thread.i39
+  %.0.i17.i37 = phi ptr [ %70, %agsubrep.exit.thread.i39 ], [ %73, %agsubrep.exit.i35 ]
+  %75 = load ptr, ptr %40, align 8
+  %76 = getelementptr inbounds i8, ptr %.0.i17.i37, i64 56
+  %77 = load ptr, ptr %76, align 8
+  %78 = call i32 @dtrestore(ptr noundef %75, ptr noundef %77) #6
+  %79 = load ptr, ptr %40, align 8
+  %80 = load ptr, ptr %79, align 8
+  %81 = call ptr %80(ptr noundef nonnull %79, ptr noundef nonnull %.0, i32 noundef 8) #6
+  %82 = load ptr, ptr %40, align 8
+  %83 = call ptr @dtextract(ptr noundef %82) #6
+  store ptr %83, ptr %76, align 8
   br label %agfstin.exit
 
-agfstin.exit:                                     ; preds = %72, %50
-  %.sink58 = phi ptr [ %74, %72 ], [ %52, %50 ]
-  %80 = phi ptr [ %79, %72 ], [ %57, %50 ]
-  %81 = load ptr, ptr %40, align 8
-  %82 = call ptr @dtextract(ptr noundef %81) #6
-  store ptr %82, ptr %.sink58, align 8
-  %.not29 = icmp eq ptr %80, null
-  br i1 %.not29, label %.critedge, label %83
+agfstin.exit:                                     ; preds = %74, %50
+  %84 = phi ptr [ %57, %50 ], [ %81, %74 ]
+  %.not29 = icmp eq ptr %84, null
+  br i1 %.not29, label %.critedge, label %85
 
-83:                                               ; preds = %agfstin.exit
-  %84 = getelementptr inbounds i8, ptr %80, i64 56
-  %85 = load ptr, ptr %84, align 8
-  %86 = icmp eq ptr %85, %2
-  br i1 %86, label %43, label %.critedge
+85:                                               ; preds = %agfstin.exit
+  %86 = getelementptr inbounds i8, ptr %84, i64 56
+  %87 = load ptr, ptr %86, align 8
+  %88 = icmp eq ptr %87, %2
+  br i1 %88, label %43, label %.critedge
 
-87:                                               ; preds = %.preheader50, %110
-  %.021 = phi ptr [ %107, %110 ], [ %1, %.preheader50 ]
-  %88 = load i32, ptr %.021, align 8
-  %89 = and i32 %88, 3
-  %90 = icmp eq i32 %89, 2
-  %.idx.i40 = select i1 %90, i64 0, i64 -64
-  %91 = getelementptr inbounds i8, ptr %.021, i64 %.idx.i40
-  %92 = getelementptr inbounds i8, ptr %91, i64 56
-  %93 = load ptr, ptr %92, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
-  %94 = getelementptr inbounds i8, ptr %93, i64 24
+89:                                               ; preds = %.preheader50, %112
+  %.021 = phi ptr [ %109, %112 ], [ %1, %.preheader50 ]
+  %90 = load i32, ptr %.021, align 8
+  %91 = and i32 %90, 3
+  %92 = icmp eq i32 %91, 2
+  %.idx.i40 = select i1 %92, i64 0, i64 -64
+  %93 = getelementptr inbounds i8, ptr %.021, i64 %.idx.i40
+  %94 = getelementptr inbounds i8, ptr %93, i64 56
   %95 = load ptr, ptr %94, align 8
-  %96 = icmp eq ptr %0, %95
-  br i1 %96, label %agsubrep.exit.thread.i45, label %agsubrep.exit.i41
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
+  %96 = getelementptr inbounds i8, ptr %95, i64 24
+  %97 = load ptr, ptr %96, align 8
+  %98 = icmp eq ptr %0, %97
+  br i1 %98, label %agsubrep.exit.thread.i45, label %agsubrep.exit.i41
 
-agsubrep.exit.thread.i45:                         ; preds = %87
-  %97 = getelementptr inbounds i8, ptr %93, i64 32
+agsubrep.exit.thread.i45:                         ; preds = %89
+  %99 = getelementptr inbounds i8, ptr %95, i64 32
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
   br label %agnxtin.exit46
 
-agsubrep.exit.i41:                                ; preds = %87
-  store ptr %93, ptr %11, align 8
-  %98 = load ptr, ptr %12, align 8
-  %99 = load ptr, ptr %98, align 8
-  %100 = call ptr %99(ptr noundef nonnull %98, ptr noundef nonnull %4, i32 noundef 4) #6
+agsubrep.exit.i41:                                ; preds = %89
+  store ptr %95, ptr %11, align 8
+  %100 = load ptr, ptr %12, align 8
+  %101 = load ptr, ptr %100, align 8
+  %102 = call ptr %101(ptr noundef nonnull %100, ptr noundef nonnull %4, i32 noundef 4) #6
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
-  %.not.i42 = icmp eq ptr %100, null
+  %.not.i42 = icmp eq ptr %102, null
   br i1 %.not.i42, label %.critedge, label %agnxtin.exit46
 
 agnxtin.exit46:                                   ; preds = %agsubrep.exit.thread.i45, %agsubrep.exit.i41
-  %.0.i17.i43 = phi ptr [ %97, %agsubrep.exit.thread.i45 ], [ %100, %agsubrep.exit.i41 ]
-  %101 = load ptr, ptr %13, align 8
-  %102 = getelementptr inbounds i8, ptr %.0.i17.i43, i64 56
-  %103 = load ptr, ptr %102, align 8
-  %104 = call i32 @dtrestore(ptr noundef %101, ptr noundef %103) #6
-  %105 = load ptr, ptr %13, align 8
-  %106 = load ptr, ptr %105, align 8
-  %107 = call ptr %106(ptr noundef nonnull %105, ptr noundef nonnull %.021, i32 noundef 8) #6
-  %108 = load ptr, ptr %13, align 8
-  %109 = call ptr @dtextract(ptr noundef %108) #6
-  store ptr %109, ptr %102, align 8
-  %.not = icmp eq ptr %107, null
-  br i1 %.not, label %.critedge, label %110
+  %.0.i17.i43 = phi ptr [ %99, %agsubrep.exit.thread.i45 ], [ %102, %agsubrep.exit.i41 ]
+  %103 = load ptr, ptr %13, align 8
+  %104 = getelementptr inbounds i8, ptr %.0.i17.i43, i64 56
+  %105 = load ptr, ptr %104, align 8
+  %106 = call i32 @dtrestore(ptr noundef %103, ptr noundef %105) #6
+  %107 = load ptr, ptr %13, align 8
+  %108 = load ptr, ptr %107, align 8
+  %109 = call ptr %108(ptr noundef nonnull %107, ptr noundef nonnull %.021, i32 noundef 8) #6
+  %110 = load ptr, ptr %13, align 8
+  %111 = call ptr @dtextract(ptr noundef %110) #6
+  store ptr %111, ptr %104, align 8
+  %.not = icmp eq ptr %109, null
+  br i1 %.not, label %.critedge, label %112
 
-110:                                              ; preds = %agnxtin.exit46
-  %111 = getelementptr inbounds i8, ptr %107, i64 56
-  %112 = load ptr, ptr %111, align 8
-  %113 = icmp eq ptr %112, %2
-  br i1 %113, label %87, label %.critedge
+112:                                              ; preds = %agnxtin.exit46
+  %113 = getelementptr inbounds i8, ptr %109, i64 56
+  %114 = load ptr, ptr %113, align 8
+  %115 = icmp eq ptr %114, %2
+  br i1 %115, label %89, label %.critedge
 
-.critedge:                                        ; preds = %agsubrep.exit.i41, %agnxtin.exit46, %110, %agsubrep.exit.i35, %agsubrep.exit.i30, %agfstin.exit, %83, %agnxtout.exit
-  %.1 = phi ptr [ %33, %agnxtout.exit ], [ null, %agsubrep.exit.i35 ], [ null, %agsubrep.exit.i30 ], [ null, %agfstin.exit ], [ %80, %83 ], [ null, %agsubrep.exit.i41 ], [ null, %agnxtin.exit46 ], [ %107, %110 ]
+.critedge:                                        ; preds = %agsubrep.exit.i41, %agnxtin.exit46, %112, %agsubrep.exit.i35, %agsubrep.exit.i30, %agfstin.exit, %85, %agnxtout.exit
+  %.1 = phi ptr [ %33, %agnxtout.exit ], [ null, %agsubrep.exit.i35 ], [ null, %agsubrep.exit.i30 ], [ null, %agfstin.exit ], [ %84, %85 ], [ null, %agsubrep.exit.i41 ], [ null, %agnxtin.exit46 ], [ %109, %112 ]
   ret ptr %.1
 }
 

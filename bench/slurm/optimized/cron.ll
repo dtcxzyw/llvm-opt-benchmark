@@ -1115,44 +1115,44 @@ define dso_local range(i32 -1, 1) i32 @unpack_cron_entry(ptr nocapture noundef w
   %20 = alloca i32, align 4
   %21 = call i32 @unpack8(ptr noundef nonnull %4, ptr noundef %2) #6
   %.not = icmp eq i32 %21, 0
-  br i1 %.not, label %22, label %143
+  br i1 %.not, label %22, label %153
 
 22:                                               ; preds = %3
   %23 = load i8, ptr %4, align 1
   %.not65 = icmp eq i8 %23, 0
-  br i1 %.not65, label %144, label %24
+  br i1 %.not65, label %154, label %24
 
 24:                                               ; preds = %22
   %25 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 72, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 482, ptr noundef nonnull @__func__.unpack_cron_entry) #6
   store ptr %25, ptr %0, align 8
   %26 = icmp ugt i16 %1, 9983
-  br i1 %26, label %27, label %143
+  br i1 %26, label %27, label %153
 
 27:                                               ; preds = %24
   %28 = call i32 @unpack32(ptr noundef %25, ptr noundef %2) #6
   %.not66 = icmp eq i32 %28, 0
-  br i1 %.not66, label %29, label %143
+  br i1 %.not66, label %29, label %153
 
 29:                                               ; preds = %27
   store ptr null, ptr %6, align 8
   %30 = call i32 @unpack32(ptr noundef nonnull %7, ptr noundef %2) #6
   %.not67 = icmp eq i32 %30, 0
-  br i1 %.not67, label %31, label %143
+  br i1 %.not67, label %31, label %153
 
 31:                                               ; preds = %29
   %32 = load i32, ptr %7, align 4
   %.not68 = icmp eq i32 %32, -2
-  br i1 %.not68, label %48, label %33
+  br i1 %.not68, label %50, label %33
 
 33:                                               ; preds = %31
   %34 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef %2) #6
   %.not69 = icmp eq i32 %34, 0
-  br i1 %.not69, label %35, label %143
+  br i1 %.not69, label %35, label %153
 
 35:                                               ; preds = %33
   %36 = load i32, ptr %7, align 4
   %.not70 = icmp eq i32 %36, 0
-  br i1 %.not70, label %45, label %37
+  br i1 %.not70, label %47, label %37
 
 37:                                               ; preds = %35
   %38 = zext i32 %36 to i64
@@ -1162,266 +1162,298 @@ define dso_local range(i32 -1, 1) i32 @unpack_cron_entry(ptr nocapture noundef w
   %41 = load ptr, ptr %6, align 8
   %42 = call i32 @bit_unfmt_hexmask(ptr noundef %39, ptr noundef %41) #6
   %.not71 = icmp eq i32 %42, 0
-  br i1 %.not71, label %47, label %43
+  br i1 %.not71, label %49, label %43
 
 43:                                               ; preds = %37
   %44 = load ptr, ptr %40, align 8
   %.not99 = icmp eq ptr %44, null
-  br i1 %.not99, label %.sink.split, label %.sink.split.sink.split
+  br i1 %.not99, label %46, label %45
 
-45:                                               ; preds = %35
-  %46 = getelementptr inbounds i8, ptr %25, i64 8
-  store ptr null, ptr %46, align 8
-  br label %47
+45:                                               ; preds = %43
+  call void @slurm_bit_free(ptr noundef nonnull %40) #6
+  br label %46
 
-47:                                               ; preds = %37, %45
+46:                                               ; preds = %45, %43
+  store ptr null, ptr %40, align 8
+  br label %.sink.split
+
+47:                                               ; preds = %35
+  %48 = getelementptr inbounds i8, ptr %25, i64 8
+  store ptr null, ptr %48, align 8
+  br label %49
+
+49:                                               ; preds = %37, %47
   call void @slurm_xfree(ptr noundef nonnull %6) #6
-  br label %50
+  br label %52
 
-48:                                               ; preds = %31
-  %49 = getelementptr inbounds i8, ptr %25, i64 8
-  store ptr null, ptr %49, align 8
-  br label %50
+50:                                               ; preds = %31
+  %51 = getelementptr inbounds i8, ptr %25, i64 8
+  store ptr null, ptr %51, align 8
+  br label %52
 
-50:                                               ; preds = %48, %47
+52:                                               ; preds = %50, %49
   store ptr null, ptr %9, align 8
-  %51 = call i32 @unpack32(ptr noundef nonnull %10, ptr noundef %2) #6
-  %.not72 = icmp eq i32 %51, 0
-  br i1 %.not72, label %52, label %143
-
-52:                                               ; preds = %50
-  %53 = load i32, ptr %10, align 4
-  %.not73 = icmp eq i32 %53, -2
-  br i1 %.not73, label %69, label %54
+  %53 = call i32 @unpack32(ptr noundef nonnull %10, ptr noundef %2) #6
+  %.not72 = icmp eq i32 %53, 0
+  br i1 %.not72, label %54, label %153
 
 54:                                               ; preds = %52
-  %55 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %9, ptr noundef nonnull %11, ptr noundef %2) #6
-  %.not74 = icmp eq i32 %55, 0
-  br i1 %.not74, label %56, label %143
+  %55 = load i32, ptr %10, align 4
+  %.not73 = icmp eq i32 %55, -2
+  br i1 %.not73, label %73, label %56
 
 56:                                               ; preds = %54
-  %57 = load i32, ptr %10, align 4
-  %.not75 = icmp eq i32 %57, 0
-  br i1 %.not75, label %66, label %58
+  %57 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %9, ptr noundef nonnull %11, ptr noundef %2) #6
+  %.not74 = icmp eq i32 %57, 0
+  br i1 %.not74, label %58, label %153
 
 58:                                               ; preds = %56
-  %59 = zext i32 %57 to i64
-  %60 = call ptr @bit_alloc(i64 noundef %59) #6
-  %61 = getelementptr inbounds i8, ptr %25, i64 16
-  store ptr %60, ptr %61, align 8
-  %62 = load ptr, ptr %9, align 8
-  %63 = call i32 @bit_unfmt_hexmask(ptr noundef %60, ptr noundef %62) #6
-  %.not76 = icmp eq i32 %63, 0
-  br i1 %.not76, label %68, label %64
+  %59 = load i32, ptr %10, align 4
+  %.not75 = icmp eq i32 %59, 0
+  br i1 %.not75, label %70, label %60
 
-64:                                               ; preds = %58
-  %65 = load ptr, ptr %61, align 8
-  %.not98 = icmp eq ptr %65, null
-  br i1 %.not98, label %.sink.split, label %.sink.split.sink.split
+60:                                               ; preds = %58
+  %61 = zext i32 %59 to i64
+  %62 = call ptr @bit_alloc(i64 noundef %61) #6
+  %63 = getelementptr inbounds i8, ptr %25, i64 16
+  store ptr %62, ptr %63, align 8
+  %64 = load ptr, ptr %9, align 8
+  %65 = call i32 @bit_unfmt_hexmask(ptr noundef %62, ptr noundef %64) #6
+  %.not76 = icmp eq i32 %65, 0
+  br i1 %.not76, label %72, label %66
 
-66:                                               ; preds = %56
-  %67 = getelementptr inbounds i8, ptr %25, i64 16
-  store ptr null, ptr %67, align 8
-  br label %68
+66:                                               ; preds = %60
+  %67 = load ptr, ptr %63, align 8
+  %.not98 = icmp eq ptr %67, null
+  br i1 %.not98, label %69, label %68
 
-68:                                               ; preds = %58, %66
+68:                                               ; preds = %66
+  call void @slurm_bit_free(ptr noundef nonnull %63) #6
+  br label %69
+
+69:                                               ; preds = %68, %66
+  store ptr null, ptr %63, align 8
+  br label %.sink.split
+
+70:                                               ; preds = %58
+  %71 = getelementptr inbounds i8, ptr %25, i64 16
+  store ptr null, ptr %71, align 8
+  br label %72
+
+72:                                               ; preds = %60, %70
   call void @slurm_xfree(ptr noundef nonnull %9) #6
-  br label %71
+  br label %75
 
-69:                                               ; preds = %52
-  %70 = getelementptr inbounds i8, ptr %25, i64 16
-  store ptr null, ptr %70, align 8
-  br label %71
+73:                                               ; preds = %54
+  %74 = getelementptr inbounds i8, ptr %25, i64 16
+  store ptr null, ptr %74, align 8
+  br label %75
 
-71:                                               ; preds = %69, %68
+75:                                               ; preds = %73, %72
   store ptr null, ptr %12, align 8
-  %72 = call i32 @unpack32(ptr noundef nonnull %13, ptr noundef %2) #6
-  %.not77 = icmp eq i32 %72, 0
-  br i1 %.not77, label %73, label %143
-
-73:                                               ; preds = %71
-  %74 = load i32, ptr %13, align 4
-  %.not78 = icmp eq i32 %74, -2
-  br i1 %.not78, label %90, label %75
-
-75:                                               ; preds = %73
-  %76 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %12, ptr noundef nonnull %14, ptr noundef %2) #6
-  %.not79 = icmp eq i32 %76, 0
-  br i1 %.not79, label %77, label %143
+  %76 = call i32 @unpack32(ptr noundef nonnull %13, ptr noundef %2) #6
+  %.not77 = icmp eq i32 %76, 0
+  br i1 %.not77, label %77, label %153
 
 77:                                               ; preds = %75
   %78 = load i32, ptr %13, align 4
-  %.not80 = icmp eq i32 %78, 0
-  br i1 %.not80, label %87, label %79
+  %.not78 = icmp eq i32 %78, -2
+  br i1 %.not78, label %96, label %79
 
 79:                                               ; preds = %77
-  %80 = zext i32 %78 to i64
-  %81 = call ptr @bit_alloc(i64 noundef %80) #6
-  %82 = getelementptr inbounds i8, ptr %25, i64 24
-  store ptr %81, ptr %82, align 8
-  %83 = load ptr, ptr %12, align 8
-  %84 = call i32 @bit_unfmt_hexmask(ptr noundef %81, ptr noundef %83) #6
-  %.not81 = icmp eq i32 %84, 0
-  br i1 %.not81, label %89, label %85
+  %80 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %12, ptr noundef nonnull %14, ptr noundef %2) #6
+  %.not79 = icmp eq i32 %80, 0
+  br i1 %.not79, label %81, label %153
 
-85:                                               ; preds = %79
-  %86 = load ptr, ptr %82, align 8
-  %.not97 = icmp eq ptr %86, null
-  br i1 %.not97, label %.sink.split, label %.sink.split.sink.split
+81:                                               ; preds = %79
+  %82 = load i32, ptr %13, align 4
+  %.not80 = icmp eq i32 %82, 0
+  br i1 %.not80, label %93, label %83
 
-87:                                               ; preds = %77
-  %88 = getelementptr inbounds i8, ptr %25, i64 24
-  store ptr null, ptr %88, align 8
-  br label %89
+83:                                               ; preds = %81
+  %84 = zext i32 %82 to i64
+  %85 = call ptr @bit_alloc(i64 noundef %84) #6
+  %86 = getelementptr inbounds i8, ptr %25, i64 24
+  store ptr %85, ptr %86, align 8
+  %87 = load ptr, ptr %12, align 8
+  %88 = call i32 @bit_unfmt_hexmask(ptr noundef %85, ptr noundef %87) #6
+  %.not81 = icmp eq i32 %88, 0
+  br i1 %.not81, label %95, label %89
 
-89:                                               ; preds = %79, %87
-  call void @slurm_xfree(ptr noundef nonnull %12) #6
+89:                                               ; preds = %83
+  %90 = load ptr, ptr %86, align 8
+  %.not97 = icmp eq ptr %90, null
+  br i1 %.not97, label %92, label %91
+
+91:                                               ; preds = %89
+  call void @slurm_bit_free(ptr noundef nonnull %86) #6
   br label %92
 
-90:                                               ; preds = %73
-  %91 = getelementptr inbounds i8, ptr %25, i64 24
-  store ptr null, ptr %91, align 8
-  br label %92
-
-92:                                               ; preds = %90, %89
-  store ptr null, ptr %15, align 8
-  %93 = call i32 @unpack32(ptr noundef nonnull %16, ptr noundef %2) #6
-  %.not82 = icmp eq i32 %93, 0
-  br i1 %.not82, label %94, label %143
-
-94:                                               ; preds = %92
-  %95 = load i32, ptr %16, align 4
-  %.not83 = icmp eq i32 %95, -2
-  br i1 %.not83, label %111, label %96
-
-96:                                               ; preds = %94
-  %97 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %15, ptr noundef nonnull %17, ptr noundef %2) #6
-  %.not84 = icmp eq i32 %97, 0
-  br i1 %.not84, label %98, label %143
-
-98:                                               ; preds = %96
-  %99 = load i32, ptr %16, align 4
-  %.not85 = icmp eq i32 %99, 0
-  br i1 %.not85, label %108, label %100
-
-100:                                              ; preds = %98
-  %101 = zext i32 %99 to i64
-  %102 = call ptr @bit_alloc(i64 noundef %101) #6
-  %103 = getelementptr inbounds i8, ptr %25, i64 32
-  store ptr %102, ptr %103, align 8
-  %104 = load ptr, ptr %15, align 8
-  %105 = call i32 @bit_unfmt_hexmask(ptr noundef %102, ptr noundef %104) #6
-  %.not86 = icmp eq i32 %105, 0
-  br i1 %.not86, label %110, label %106
-
-106:                                              ; preds = %100
-  %107 = load ptr, ptr %103, align 8
-  %.not96 = icmp eq ptr %107, null
-  br i1 %.not96, label %.sink.split, label %.sink.split.sink.split
-
-108:                                              ; preds = %98
-  %109 = getelementptr inbounds i8, ptr %25, i64 32
-  store ptr null, ptr %109, align 8
-  br label %110
-
-110:                                              ; preds = %100, %108
-  call void @slurm_xfree(ptr noundef nonnull %15) #6
-  br label %113
-
-111:                                              ; preds = %94
-  %112 = getelementptr inbounds i8, ptr %25, i64 32
-  store ptr null, ptr %112, align 8
-  br label %113
-
-113:                                              ; preds = %111, %110
-  store ptr null, ptr %18, align 8
-  %114 = call i32 @unpack32(ptr noundef nonnull %19, ptr noundef %2) #6
-  %.not87 = icmp eq i32 %114, 0
-  br i1 %.not87, label %115, label %143
-
-115:                                              ; preds = %113
-  %116 = load i32, ptr %19, align 4
-  %.not88 = icmp eq i32 %116, -2
-  br i1 %.not88, label %132, label %117
-
-117:                                              ; preds = %115
-  %118 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef %2) #6
-  %.not89 = icmp eq i32 %118, 0
-  br i1 %.not89, label %119, label %143
-
-119:                                              ; preds = %117
-  %120 = load i32, ptr %19, align 4
-  %.not90 = icmp eq i32 %120, 0
-  br i1 %.not90, label %129, label %121
-
-121:                                              ; preds = %119
-  %122 = zext i32 %120 to i64
-  %123 = call ptr @bit_alloc(i64 noundef %122) #6
-  %124 = getelementptr inbounds i8, ptr %25, i64 40
-  store ptr %123, ptr %124, align 8
-  %125 = load ptr, ptr %18, align 8
-  %126 = call i32 @bit_unfmt_hexmask(ptr noundef %123, ptr noundef %125) #6
-  %.not91 = icmp eq i32 %126, 0
-  br i1 %.not91, label %131, label %127
-
-127:                                              ; preds = %121
-  %128 = load ptr, ptr %124, align 8
-  %.not95 = icmp eq ptr %128, null
-  br i1 %.not95, label %.sink.split, label %.sink.split.sink.split
-
-129:                                              ; preds = %119
-  %130 = getelementptr inbounds i8, ptr %25, i64 40
-  store ptr null, ptr %130, align 8
-  br label %131
-
-131:                                              ; preds = %121, %129
-  call void @slurm_xfree(ptr noundef nonnull %18) #6
-  br label %134
-
-132:                                              ; preds = %115
-  %133 = getelementptr inbounds i8, ptr %25, i64 40
-  store ptr null, ptr %133, align 8
-  br label %134
-
-134:                                              ; preds = %132, %131
-  %135 = getelementptr inbounds i8, ptr %25, i64 48
-  %136 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %135, ptr noundef nonnull %5, ptr noundef %2) #6
-  %.not92 = icmp eq i32 %136, 0
-  br i1 %.not92, label %137, label %143
-
-137:                                              ; preds = %134
-  %138 = getelementptr inbounds i8, ptr %25, i64 64
-  %139 = call i32 @unpack32(ptr noundef nonnull %138, ptr noundef %2) #6
-  %.not93 = icmp eq i32 %139, 0
-  br i1 %.not93, label %140, label %143
-
-140:                                              ; preds = %137
-  %141 = getelementptr inbounds i8, ptr %25, i64 68
-  %142 = call i32 @unpack32(ptr noundef nonnull %141, ptr noundef %2) #6
-  %.not94 = icmp eq i32 %142, 0
-  br i1 %.not94, label %144, label %143
-
-.sink.split.sink.split:                           ; preds = %127, %106, %85, %64, %43
-  %.sink101 = phi ptr [ %40, %43 ], [ %61, %64 ], [ %82, %85 ], [ %103, %106 ], [ %124, %127 ]
-  %.sink.ph = phi ptr [ %6, %43 ], [ %9, %64 ], [ %12, %85 ], [ %15, %106 ], [ %18, %127 ]
-  call void @slurm_bit_free(ptr noundef nonnull %.sink101) #6
+92:                                               ; preds = %91, %89
+  store ptr null, ptr %86, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.sink.split.sink.split, %127, %106, %85, %64, %43
-  %.sink100 = phi ptr [ %40, %43 ], [ %61, %64 ], [ %82, %85 ], [ %103, %106 ], [ %124, %127 ], [ %.sink101, %.sink.split.sink.split ]
-  %.sink = phi ptr [ %6, %43 ], [ %9, %64 ], [ %12, %85 ], [ %15, %106 ], [ %18, %127 ], [ %.sink.ph, %.sink.split.sink.split ]
-  store ptr null, ptr %.sink100, align 8
-  call void @slurm_xfree(ptr noundef nonnull %.sink) #6
-  br label %143
+93:                                               ; preds = %81
+  %94 = getelementptr inbounds i8, ptr %25, i64 24
+  store ptr null, ptr %94, align 8
+  br label %95
 
-143:                                              ; preds = %.sink.split, %24, %140, %137, %134, %117, %113, %96, %92, %75, %71, %54, %50, %33, %29, %27, %3
-  %.0 = phi ptr [ null, %3 ], [ %25, %27 ], [ %25, %29 ], [ %25, %33 ], [ %25, %50 ], [ %25, %54 ], [ %25, %71 ], [ %25, %75 ], [ %25, %92 ], [ %25, %96 ], [ %25, %113 ], [ %25, %117 ], [ %25, %134 ], [ %25, %137 ], [ %25, %140 ], [ %25, %24 ], [ %25, %.sink.split ]
-  store ptr null, ptr %0, align 8
-  call void @free_cron_entry(ptr noundef %.0)
+95:                                               ; preds = %83, %93
+  call void @slurm_xfree(ptr noundef nonnull %12) #6
+  br label %98
+
+96:                                               ; preds = %77
+  %97 = getelementptr inbounds i8, ptr %25, i64 24
+  store ptr null, ptr %97, align 8
+  br label %98
+
+98:                                               ; preds = %96, %95
+  store ptr null, ptr %15, align 8
+  %99 = call i32 @unpack32(ptr noundef nonnull %16, ptr noundef %2) #6
+  %.not82 = icmp eq i32 %99, 0
+  br i1 %.not82, label %100, label %153
+
+100:                                              ; preds = %98
+  %101 = load i32, ptr %16, align 4
+  %.not83 = icmp eq i32 %101, -2
+  br i1 %.not83, label %119, label %102
+
+102:                                              ; preds = %100
+  %103 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %15, ptr noundef nonnull %17, ptr noundef %2) #6
+  %.not84 = icmp eq i32 %103, 0
+  br i1 %.not84, label %104, label %153
+
+104:                                              ; preds = %102
+  %105 = load i32, ptr %16, align 4
+  %.not85 = icmp eq i32 %105, 0
+  br i1 %.not85, label %116, label %106
+
+106:                                              ; preds = %104
+  %107 = zext i32 %105 to i64
+  %108 = call ptr @bit_alloc(i64 noundef %107) #6
+  %109 = getelementptr inbounds i8, ptr %25, i64 32
+  store ptr %108, ptr %109, align 8
+  %110 = load ptr, ptr %15, align 8
+  %111 = call i32 @bit_unfmt_hexmask(ptr noundef %108, ptr noundef %110) #6
+  %.not86 = icmp eq i32 %111, 0
+  br i1 %.not86, label %118, label %112
+
+112:                                              ; preds = %106
+  %113 = load ptr, ptr %109, align 8
+  %.not96 = icmp eq ptr %113, null
+  br i1 %.not96, label %115, label %114
+
+114:                                              ; preds = %112
+  call void @slurm_bit_free(ptr noundef nonnull %109) #6
+  br label %115
+
+115:                                              ; preds = %114, %112
+  store ptr null, ptr %109, align 8
+  br label %.sink.split
+
+116:                                              ; preds = %104
+  %117 = getelementptr inbounds i8, ptr %25, i64 32
+  store ptr null, ptr %117, align 8
+  br label %118
+
+118:                                              ; preds = %106, %116
+  call void @slurm_xfree(ptr noundef nonnull %15) #6
+  br label %121
+
+119:                                              ; preds = %100
+  %120 = getelementptr inbounds i8, ptr %25, i64 32
+  store ptr null, ptr %120, align 8
+  br label %121
+
+121:                                              ; preds = %119, %118
+  store ptr null, ptr %18, align 8
+  %122 = call i32 @unpack32(ptr noundef nonnull %19, ptr noundef %2) #6
+  %.not87 = icmp eq i32 %122, 0
+  br i1 %.not87, label %123, label %153
+
+123:                                              ; preds = %121
+  %124 = load i32, ptr %19, align 4
+  %.not88 = icmp eq i32 %124, -2
+  br i1 %.not88, label %142, label %125
+
+125:                                              ; preds = %123
+  %126 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef %2) #6
+  %.not89 = icmp eq i32 %126, 0
+  br i1 %.not89, label %127, label %153
+
+127:                                              ; preds = %125
+  %128 = load i32, ptr %19, align 4
+  %.not90 = icmp eq i32 %128, 0
+  br i1 %.not90, label %139, label %129
+
+129:                                              ; preds = %127
+  %130 = zext i32 %128 to i64
+  %131 = call ptr @bit_alloc(i64 noundef %130) #6
+  %132 = getelementptr inbounds i8, ptr %25, i64 40
+  store ptr %131, ptr %132, align 8
+  %133 = load ptr, ptr %18, align 8
+  %134 = call i32 @bit_unfmt_hexmask(ptr noundef %131, ptr noundef %133) #6
+  %.not91 = icmp eq i32 %134, 0
+  br i1 %.not91, label %141, label %135
+
+135:                                              ; preds = %129
+  %136 = load ptr, ptr %132, align 8
+  %.not95 = icmp eq ptr %136, null
+  br i1 %.not95, label %138, label %137
+
+137:                                              ; preds = %135
+  call void @slurm_bit_free(ptr noundef nonnull %132) #6
+  br label %138
+
+138:                                              ; preds = %137, %135
+  store ptr null, ptr %132, align 8
+  br label %.sink.split
+
+139:                                              ; preds = %127
+  %140 = getelementptr inbounds i8, ptr %25, i64 40
+  store ptr null, ptr %140, align 8
+  br label %141
+
+141:                                              ; preds = %129, %139
+  call void @slurm_xfree(ptr noundef nonnull %18) #6
   br label %144
 
-144:                                              ; preds = %140, %22, %143
-  %.059 = phi i32 [ -1, %143 ], [ 0, %22 ], [ 0, %140 ]
+142:                                              ; preds = %123
+  %143 = getelementptr inbounds i8, ptr %25, i64 40
+  store ptr null, ptr %143, align 8
+  br label %144
+
+144:                                              ; preds = %142, %141
+  %145 = getelementptr inbounds i8, ptr %25, i64 48
+  %146 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %145, ptr noundef nonnull %5, ptr noundef %2) #6
+  %.not92 = icmp eq i32 %146, 0
+  br i1 %.not92, label %147, label %153
+
+147:                                              ; preds = %144
+  %148 = getelementptr inbounds i8, ptr %25, i64 64
+  %149 = call i32 @unpack32(ptr noundef nonnull %148, ptr noundef %2) #6
+  %.not93 = icmp eq i32 %149, 0
+  br i1 %.not93, label %150, label %153
+
+150:                                              ; preds = %147
+  %151 = getelementptr inbounds i8, ptr %25, i64 68
+  %152 = call i32 @unpack32(ptr noundef nonnull %151, ptr noundef %2) #6
+  %.not94 = icmp eq i32 %152, 0
+  br i1 %.not94, label %154, label %153
+
+.sink.split:                                      ; preds = %46, %69, %92, %115, %138
+  %.sink = phi ptr [ %18, %138 ], [ %15, %115 ], [ %12, %92 ], [ %9, %69 ], [ %6, %46 ]
+  call void @slurm_xfree(ptr noundef nonnull %.sink) #6
+  br label %153
+
+153:                                              ; preds = %.sink.split, %24, %150, %147, %144, %125, %121, %102, %98, %79, %75, %56, %52, %33, %29, %27, %3
+  %.0 = phi ptr [ null, %3 ], [ %25, %27 ], [ %25, %29 ], [ %25, %33 ], [ %25, %52 ], [ %25, %56 ], [ %25, %75 ], [ %25, %79 ], [ %25, %98 ], [ %25, %102 ], [ %25, %121 ], [ %25, %125 ], [ %25, %144 ], [ %25, %147 ], [ %25, %150 ], [ %25, %24 ], [ %25, %.sink.split ]
+  store ptr null, ptr %0, align 8
+  call void @free_cron_entry(ptr noundef %.0)
+  br label %154
+
+154:                                              ; preds = %150, %22, %153
+  %.059 = phi i32 [ -1, %153 ], [ 0, %22 ], [ 0, %150 ]
   ret i32 %.059
 }
 

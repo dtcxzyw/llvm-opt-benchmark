@@ -1393,7 +1393,7 @@ define hidden zeroext i1 @dfvm_apply_full(ptr nocapture noundef %0, ptr noundef 
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %stack_pop.exit
-  %.0940 = phi i32 [ 0, %.preheader.lr.ph ], [ %1488, %stack_pop.exit ]
+  %.0940 = phi i32 [ 0, %.preheader.lr.ph ], [ %1487, %stack_pop.exit ]
   %.0159939 = phi i8 [ 1, %.preheader.lr.ph ], [ %.1160, %stack_pop.exit ]
   %22 = load ptr, ptr %0, align 8
   %23 = load ptr, ptr %22, align 8
@@ -1448,17 +1448,17 @@ define hidden zeroext i1 @dfvm_apply_full(ptr nocapture noundef %0, ptr noundef 
     i32 27, label %1348
     i32 32, label %1364
     i32 33, label %1378
-    i32 28, label %1408
-    i32 29, label %1412
-    i32 30, label %1416
-    i32 31, label %1421
-    i32 34, label %1426
-    i32 39, label %1428
-    i32 5, label %1462
-    i32 6, label %1464
-    i32 0, label %1487
-    i32 1, label %1485
-    i32 2, label %1486
+    i32 28, label %1407
+    i32 29, label %1411
+    i32 30, label %1415
+    i32 31, label %1420
+    i32 34, label %1425
+    i32 39, label %1427
+    i32 5, label %1461
+    i32 6, label %1463
+    i32 0, label %1486
+    i32 1, label %1484
+    i32 2, label %1485
   ]
 
 33:                                               ; preds = %25
@@ -4333,192 +4333,192 @@ set_push.exit:                                    ; preds = %1367, %1369
   unreachable
 
 .sink.split.i:                                    ; preds = %1397, %1395
-  %.sink21.i = phi ptr [ %1396, %1395 ], [ %1402, %1397 ]
-  %1404 = load ptr, ptr %.sink21.i, align 8
-  %1405 = getelementptr i8, ptr %1381, i64 8
-  store ptr %1404, ptr %1405, align 8
+  %.sink.in.i = phi ptr [ %1396, %1395 ], [ %1402, %1397 ]
+  %.sink.i = load ptr, ptr %.sink.in.i, align 8
+  %1404 = getelementptr i8, ptr %1381, i64 8
+  store ptr %.sink.i, ptr %1404, align 8
   br label %set_push.exit320
 
 set_push.exit320:                                 ; preds = %1392, %.sink.split.i
-  %1406 = load ptr, ptr %20, align 8
-  %1407 = call ptr @g_slist_prepend(ptr noundef %1406, ptr noundef nonnull %1381) #11
-  store ptr %1407, ptr %20, align 8
+  %1405 = load ptr, ptr %20, align 8
+  %1406 = call ptr @g_slist_prepend(ptr noundef %1405, ptr noundef nonnull %1381) #11
+  store ptr %1406, ptr %20, align 8
   br label %stack_pop.exit
 
-1408:                                             ; preds = %25
-  %1409 = getelementptr i8, ptr %30, i64 8
-  %.val195 = load i32, ptr %1409, align 8
-  %1410 = call fastcc zeroext i1 @all_in(ptr noundef nonnull %0, i32 %.val195)
-  %1411 = zext i1 %1410 to i8
+1407:                                             ; preds = %25
+  %1408 = getelementptr i8, ptr %30, i64 8
+  %.val195 = load i32, ptr %1408, align 8
+  %1409 = call fastcc zeroext i1 @all_in(ptr noundef nonnull %0, i32 %.val195)
+  %1410 = zext i1 %1409 to i8
   br label %stack_pop.exit
 
-1412:                                             ; preds = %25
-  %1413 = getelementptr i8, ptr %30, i64 8
-  %.val197 = load i32, ptr %1413, align 8
-  %1414 = call fastcc zeroext i1 @any_in(ptr noundef nonnull %0, i32 %.val197)
-  %1415 = zext i1 %1414 to i8
+1411:                                             ; preds = %25
+  %1412 = getelementptr i8, ptr %30, i64 8
+  %.val197 = load i32, ptr %1412, align 8
+  %1413 = call fastcc zeroext i1 @any_in(ptr noundef nonnull %0, i32 %.val197)
+  %1414 = zext i1 %1413 to i8
   br label %stack_pop.exit
 
-1416:                                             ; preds = %25
-  %1417 = getelementptr i8, ptr %30, i64 8
-  %.val196 = load i32, ptr %1417, align 8
-  %1418 = call fastcc zeroext i1 @all_in(ptr noundef nonnull %0, i32 %.val196)
-  %1419 = xor i1 %1418, true
-  %1420 = zext i1 %1419 to i8
+1415:                                             ; preds = %25
+  %1416 = getelementptr i8, ptr %30, i64 8
+  %.val196 = load i32, ptr %1416, align 8
+  %1417 = call fastcc zeroext i1 @all_in(ptr noundef nonnull %0, i32 %.val196)
+  %1418 = xor i1 %1417, true
+  %1419 = zext i1 %1418 to i8
   br label %stack_pop.exit
 
-1421:                                             ; preds = %25
-  %1422 = getelementptr i8, ptr %30, i64 8
-  %.val198 = load i32, ptr %1422, align 8
-  %1423 = call fastcc zeroext i1 @any_in(ptr noundef nonnull %0, i32 %.val198)
-  %1424 = xor i1 %1423, true
-  %1425 = zext i1 %1424 to i8
+1420:                                             ; preds = %25
+  %1421 = getelementptr i8, ptr %30, i64 8
+  %.val198 = load i32, ptr %1421, align 8
+  %1422 = call fastcc zeroext i1 @any_in(ptr noundef nonnull %0, i32 %.val198)
+  %1423 = xor i1 %1422, true
+  %1424 = zext i1 %1423 to i8
   br label %stack_pop.exit
 
-1426:                                             ; preds = %25
-  %1427 = load ptr, ptr %20, align 8
-  call void @g_slist_free_full(ptr noundef %1427, ptr noundef nonnull @g_free) #11
+1425:                                             ; preds = %25
+  %1426 = load ptr, ptr %20, align 8
+  call void @g_slist_free_full(ptr noundef %1426, ptr noundef nonnull @g_free) #11
   store ptr null, ptr %20, align 8
   br label %stack_pop.exit
 
-1428:                                             ; preds = %25
-  %1429 = getelementptr inbounds i8, ptr %28, i64 16
-  %1430 = load ptr, ptr %1429, align 8
-  %1431 = load i32, ptr %30, align 8
-  switch i32 %1431, label %1440 [
-    i32 5, label %1432
-    i32 1, label %1438
+1427:                                             ; preds = %25
+  %1428 = getelementptr inbounds i8, ptr %28, i64 16
+  %1429 = load ptr, ptr %1428, align 8
+  %1430 = load i32, ptr %30, align 8
+  switch i32 %1430, label %1439 [
+    i32 5, label %1431
+    i32 1, label %1437
   ]
 
-1432:                                             ; preds = %1428
-  %1433 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %1434 = getelementptr inbounds i8, ptr %30, i64 8
-  %1435 = load i32, ptr %1434, align 8
-  %1436 = zext i32 %1435 to i64
-  %1437 = getelementptr %struct.df_cell_t, ptr %1433, i64 %1436
-  br label %1441
+1431:                                             ; preds = %1427
+  %1432 = load ptr, ptr %.phi.trans.insert.i321, align 8
+  %1433 = getelementptr inbounds i8, ptr %30, i64 8
+  %1434 = load i32, ptr %1433, align 8
+  %1435 = zext i32 %1434 to i64
+  %1436 = getelementptr %struct.df_cell_t, ptr %1432, i64 %1435
+  br label %1440
 
-1438:                                             ; preds = %1428
-  %1439 = getelementptr inbounds i8, ptr %30, i64 8
+1437:                                             ; preds = %1427
+  %1438 = getelementptr inbounds i8, ptr %30, i64 8
   %.pre.i322 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  br label %1441
+  br label %1440
 
-1440:                                             ; preds = %1428
+1439:                                             ; preds = %1427
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.57, i32 noundef 7, ptr noundef nonnull @.str.58, i64 noundef 1520, ptr noundef nonnull @__func__.mk_minus, ptr noundef nonnull @.str.60) #13
   unreachable
 
-1441:                                             ; preds = %1438, %1432
-  %1442 = phi ptr [ %1433, %1432 ], [ %.pre.i322, %1438 ]
-  %.0.in.i323 = phi ptr [ %1437, %1432 ], [ %1439, %1438 ]
+1440:                                             ; preds = %1437, %1431
+  %1441 = phi ptr [ %1432, %1431 ], [ %.pre.i322, %1437 ]
+  %.0.in.i323 = phi ptr [ %1436, %1431 ], [ %1438, %1437 ]
   %.0.i324 = load ptr, ptr %.0.in.i323, align 8
-  %1443 = getelementptr inbounds i8, ptr %1430, i64 8
-  %1444 = load i32, ptr %1443, align 8
-  %1445 = zext i32 %1444 to i64
-  %1446 = getelementptr %struct.df_cell_t, ptr %1442, i64 %1445
-  call void @df_cell_init(ptr noundef %1446, i1 noundef zeroext true) #11
+  %1442 = getelementptr inbounds i8, ptr %1429, i64 8
+  %1443 = load i32, ptr %1442, align 8
+  %1444 = zext i32 %1443 to i64
+  %1445 = getelementptr %struct.df_cell_t, ptr %1441, i64 %1444
+  call void @df_cell_init(ptr noundef %1445, i1 noundef zeroext true) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr null, ptr %4, align 8
-  %1447 = getelementptr inbounds i8, ptr %.0.i324, i64 8
-  %1448 = load i32, ptr %1447, align 8
-  %.not.i.i325 = icmp eq i32 %1448, 0
+  %1446 = getelementptr inbounds i8, ptr %.0.i324, i64 8
+  %1447 = load i32, ptr %1446, align 8
+  %.not.i.i325 = icmp eq i32 %1447, 0
   br i1 %.not.i.i325, label %mk_minus.exit, label %.lr.ph.i.i326
 
-.lr.ph.i.i326:                                    ; preds = %1441, %1457
-  %.08.i.i = phi i64 [ %1458, %1457 ], [ 0, %1441 ]
-  %1449 = load ptr, ptr %.0.i324, align 8
-  %1450 = getelementptr ptr, ptr %1449, i64 %.08.i.i
-  %1451 = load ptr, ptr %1450, align 8
-  %1452 = call ptr @fvalue_unary_minus(ptr noundef %1451, ptr noundef nonnull %4) #11
-  %1453 = icmp eq ptr %1452, null
-  br i1 %1453, label %1454, label %1456
+.lr.ph.i.i326:                                    ; preds = %1440, %1456
+  %.08.i.i = phi i64 [ %1457, %1456 ], [ 0, %1440 ]
+  %1448 = load ptr, ptr %.0.i324, align 8
+  %1449 = getelementptr ptr, ptr %1448, i64 %.08.i.i
+  %1450 = load ptr, ptr %1449, align 8
+  %1451 = call ptr @fvalue_unary_minus(ptr noundef %1450, ptr noundef nonnull %4) #11
+  %1452 = icmp eq ptr %1451, null
+  br i1 %1452, label %1453, label %1455
 
-1454:                                             ; preds = %.lr.ph.i.i326
-  %1455 = load ptr, ptr %4, align 8
-  call void @g_free(ptr noundef %1455) #11
+1453:                                             ; preds = %.lr.ph.i.i326
+  %1454 = load ptr, ptr %4, align 8
+  call void @g_free(ptr noundef %1454) #11
   store ptr null, ptr %4, align 8
-  br label %1457
+  br label %1456
 
-1456:                                             ; preds = %.lr.ph.i.i326
-  call void @df_cell_append(ptr noundef %1446, ptr noundef nonnull %1452) #11
-  br label %1457
+1455:                                             ; preds = %.lr.ph.i.i326
+  call void @df_cell_append(ptr noundef %1445, ptr noundef nonnull %1451) #11
+  br label %1456
 
-1457:                                             ; preds = %1456, %1454
-  %1458 = add nuw nsw i64 %.08.i.i, 1
-  %1459 = load i32, ptr %1447, align 8
-  %1460 = zext i32 %1459 to i64
-  %1461 = icmp ult i64 %1458, %1460
-  br i1 %1461, label %.lr.ph.i.i326, label %mk_minus.exit, !llvm.loop !22
+1456:                                             ; preds = %1455, %1453
+  %1457 = add nuw nsw i64 %.08.i.i, 1
+  %1458 = load i32, ptr %1446, align 8
+  %1459 = zext i32 %1458 to i64
+  %1460 = icmp ult i64 %1457, %1459
+  br i1 %1460, label %.lr.ph.i.i326, label %mk_minus.exit, !llvm.loop !22
 
-mk_minus.exit:                                    ; preds = %1457, %1441
+mk_minus.exit:                                    ; preds = %1456, %1440
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %stack_pop.exit
 
-1462:                                             ; preds = %25
-  %1463 = xor i8 %.0159939, 1
+1461:                                             ; preds = %25
+  %1462 = xor i8 %.0159939, 1
   br label %stack_pop.exit
 
-1464:                                             ; preds = %25
-  %1465 = icmp ne ptr %2, null
-  %1466 = icmp ne ptr %30, null
-  %or.cond = select i1 %1465, i1 %1466, i1 false
-  br i1 %or.cond, label %1467, label %1477
+1463:                                             ; preds = %25
+  %1464 = icmp ne ptr %2, null
+  %1465 = icmp ne ptr %30, null
+  %or.cond = select i1 %1464, i1 %1465, i1 false
+  br i1 %or.cond, label %1466, label %1476
 
-1467:                                             ; preds = %1464
-  %1468 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %1469 = getelementptr inbounds i8, ptr %30, i64 8
-  %1470 = load i32, ptr %1469, align 8
-  %1471 = zext i32 %1470 to i64
-  %1472 = getelementptr %struct.df_cell_t, ptr %1468, i64 %1471
-  %1473 = call ptr @df_cell_ref(ptr noundef %1472) #11
-  store ptr %1473, ptr %2, align 8
-  %1474 = icmp eq ptr %1473, null
-  br i1 %1474, label %1475, label %1477
+1466:                                             ; preds = %1463
+  %1467 = load ptr, ptr %.phi.trans.insert.i321, align 8
+  %1468 = getelementptr inbounds i8, ptr %30, i64 8
+  %1469 = load i32, ptr %1468, align 8
+  %1470 = zext i32 %1469 to i64
+  %1471 = getelementptr %struct.df_cell_t, ptr %1467, i64 %1470
+  %1472 = call ptr @df_cell_ref(ptr noundef %1471) #11
+  store ptr %1472, ptr %2, align 8
+  %1473 = icmp eq ptr %1472, null
+  br i1 %1473, label %1474, label %1476
 
-1475:                                             ; preds = %1467
-  %1476 = call ptr @g_ptr_array_new() #11
-  store ptr %1476, ptr %2, align 8
-  br label %1477
+1474:                                             ; preds = %1466
+  %1475 = call ptr @g_ptr_array_new() #11
+  store ptr %1475, ptr %2, align 8
+  br label %1476
 
-1477:                                             ; preds = %1467, %1475, %1464
-  %1478 = getelementptr inbounds i8, ptr %0, i64 8
-  %1479 = load i32, ptr %1478, align 8
-  %.not.i327 = icmp eq i32 %1479, 0
+1476:                                             ; preds = %1466, %1474, %1463
+  %1477 = getelementptr inbounds i8, ptr %0, i64 8
+  %1478 = load i32, ptr %1477, align 8
+  %.not.i327 = icmp eq i32 %1478, 0
   br i1 %.not.i327, label %free_register_overhead.exit, label %.lr.ph.i328
 
-.lr.ph.i328:                                      ; preds = %1477, %.lr.ph.i328
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i328 ], [ 0, %1477 ]
-  %1480 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %1481 = getelementptr %struct.df_cell_t, ptr %1480, i64 %indvars.iv.i
-  call void @df_cell_clear(ptr noundef %1481) #11
+.lr.ph.i328:                                      ; preds = %1476, %.lr.ph.i328
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i328 ], [ 0, %1476 ]
+  %1479 = load ptr, ptr %.phi.trans.insert.i321, align 8
+  %1480 = getelementptr %struct.df_cell_t, ptr %1479, i64 %indvars.iv.i
+  call void @df_cell_clear(ptr noundef %1480) #11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %1482 = load i32, ptr %1478, align 8
-  %1483 = zext i32 %1482 to i64
-  %1484 = icmp ult i64 %indvars.iv.next.i, %1483
-  br i1 %1484, label %.lr.ph.i328, label %free_register_overhead.exit, !llvm.loop !23
+  %1481 = load i32, ptr %1477, align 8
+  %1482 = zext i32 %1481 to i64
+  %1483 = icmp ult i64 %indvars.iv.next.i, %1482
+  br i1 %1483, label %.lr.ph.i328, label %free_register_overhead.exit, !llvm.loop !23
 
-free_register_overhead.exit:                      ; preds = %.lr.ph.i328, %1477
+free_register_overhead.exit:                      ; preds = %.lr.ph.i328, %1476
   ret i1 %24
 
-1485:                                             ; preds = %25
+1484:                                             ; preds = %25
   br i1 %24, label %.backedge, label %stack_pop.exit
 
-.backedge:                                        ; preds = %1486, %1485
+.backedge:                                        ; preds = %1485, %1484
   %.1.be.in = getelementptr inbounds i8, ptr %30, i64 8
   %.1.be = load i32, ptr %.1.be.in, align 8
   br label %25
 
-1486:                                             ; preds = %25
+1485:                                             ; preds = %25
   br i1 %24, label %stack_pop.exit, label %.backedge
 
-1487:                                             ; preds = %25
+1486:                                             ; preds = %25
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.57, i32 noundef 7, ptr noundef nonnull @.str.58, i64 noundef 1878, ptr noundef nonnull @__func__.dfvm_apply_full, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str) #13
   unreachable
 
-stack_pop.exit:                                   ; preds = %25, %1485, %1486, %.lr.ph.i314, %1357, %.lr.ph.i311, %1342, %._crit_edge.split.us.split.us34.us.i.i547, %._crit_edge.split.split.us.i.i531, %.lr.ph.i.i310, %1233, %._crit_edge.split.us.split.us34.us.i.i513, %._crit_edge.split.split.us.i.i497, %._crit_edge.split.us.split.us34.us.i.i479, %._crit_edge.split.split.us.i.i463, %._crit_edge.split.us.split.us34.us.i.i445, %._crit_edge.split.split.us.i.i429, %._crit_edge.split.us.split.us34.us.i.i411, %._crit_edge.split.split.us.i.i395, %._crit_edge.split.us.split.us34.us.i.i377, %._crit_edge.split.split.us.i.i361, %._crit_edge.split.us.split.us34.us.i.i, %._crit_edge.split.split.us.i.i, %152, %check_exists_finfos.exit.thread.i, %check_exists_finfos.exit.i, %check_exists_finfos.exit.thread.us.i204, %56, %check_exists_finfos.exit.thread.us.i, %38, %.lr.ph.us.us.i.i543, %.lr.ph.i.i526, %.lr.ph.us.us.i.i509, %.lr.ph.i.i492, %.lr.ph.us.us.i.i475, %.lr.ph.i.i458, %.lr.ph.us.us.i.i441, %.lr.ph.i.i424, %.lr.ph.us.us.i.i407, %.lr.ph.i.i390, %.lr.ph.us.us.i.i373, %.lr.ph.i.i356, %.lr.ph.us.us.i.i, %.lr.ph.i.i335, %1348, %1332, %1309, %1262, %1226, %807, %760, %713, %666, %619, %572, %525, %478, %431, %384, %337, %290, %.thread.i, %48, %33, %146, %72, %79, %88, %95, %104, %114, %stack_push.exit, %mk_slice.exit, %mk_length.exit, %mk_value_string.exit, %mk_binary.exit, %mk_binary.exit237, %mk_binary.exit255, %mk_binary.exit273, %mk_binary.exit291, %mk_binary.exit309, %set_push.exit, %set_push.exit320, %1408, %1412, %1416, %1421, %1426, %mk_minus.exit, %1462
-  %.1160 = phi i8 [ %1463, %1462 ], [ %.0159939, %mk_minus.exit ], [ %.0159939, %1426 ], [ %1425, %1421 ], [ %1420, %1416 ], [ %1415, %1412 ], [ %1411, %1408 ], [ %.0159939, %set_push.exit320 ], [ %.0159939, %set_push.exit ], [ %.0159939, %mk_binary.exit309 ], [ %.0159939, %mk_binary.exit291 ], [ %.0159939, %mk_binary.exit273 ], [ %.0159939, %mk_binary.exit255 ], [ %.0159939, %mk_binary.exit237 ], [ %.0159939, %mk_binary.exit ], [ %265, %mk_value_string.exit ], [ %.0159939, %mk_length.exit ], [ %.0159939, %mk_slice.exit ], [ %.0159939, %stack_push.exit ], [ %129, %114 ], [ %.0159939, %104 ], [ %103, %95 ], [ %94, %88 ], [ %87, %79 ], [ %78, %72 ], [ %.0159939, %146 ], [ 0, %33 ], [ 0, %48 ], [ 0, %.thread.i ], [ 1, %290 ], [ 0, %337 ], [ 1, %384 ], [ 0, %431 ], [ 1, %478 ], [ 0, %525 ], [ 1, %572 ], [ 0, %619 ], [ 1, %666 ], [ 0, %713 ], [ 1, %760 ], [ 0, %807 ], [ 0, %1226 ], [ 1, %1262 ], [ 0, %1309 ], [ 1, %1332 ], [ 0, %1348 ], [ 0, %.lr.ph.i.i335 ], [ 1, %.lr.ph.us.us.i.i ], [ 0, %.lr.ph.i.i356 ], [ 1, %.lr.ph.us.us.i.i373 ], [ 0, %.lr.ph.i.i390 ], [ 1, %.lr.ph.us.us.i.i407 ], [ 0, %.lr.ph.i.i424 ], [ 1, %.lr.ph.us.us.i.i441 ], [ 0, %.lr.ph.i.i458 ], [ 1, %.lr.ph.us.us.i.i475 ], [ 0, %.lr.ph.i.i492 ], [ 1, %.lr.ph.us.us.i.i509 ], [ 0, %.lr.ph.i.i526 ], [ 1, %.lr.ph.us.us.i.i543 ], [ 0, %check_exists_finfos.exit.thread.us.i ], [ 1, %38 ], [ 0, %check_exists_finfos.exit.thread.us.i204 ], [ 1, %56 ], [ 1, %check_exists_finfos.exit.i ], [ 0, %check_exists_finfos.exit.thread.i ], [ %.0159939, %152 ], [ 1, %._crit_edge.split.split.us.i.i ], [ 0, %._crit_edge.split.us.split.us34.us.i.i ], [ 1, %._crit_edge.split.split.us.i.i361 ], [ 0, %._crit_edge.split.us.split.us34.us.i.i377 ], [ 1, %._crit_edge.split.split.us.i.i395 ], [ 0, %._crit_edge.split.us.split.us34.us.i.i411 ], [ 1, %._crit_edge.split.split.us.i.i429 ], [ 0, %._crit_edge.split.us.split.us34.us.i.i445 ], [ 1, %._crit_edge.split.split.us.i.i463 ], [ 0, %._crit_edge.split.us.split.us34.us.i.i479 ], [ 1, %._crit_edge.split.split.us.i.i497 ], [ 0, %._crit_edge.split.us.split.us34.us.i.i513 ], [ 1, %.lr.ph.i.i310 ], [ 0, %1233 ], [ 1, %._crit_edge.split.split.us.i.i531 ], [ 0, %._crit_edge.split.us.split.us34.us.i.i547 ], [ 1, %1342 ], [ 0, %.lr.ph.i311 ], [ 0, %1357 ], [ 1, %.lr.ph.i314 ], [ %.0159939, %1486 ], [ %.0159939, %1485 ], [ %.0159939, %25 ]
-  %1488 = add i32 %.1, 1
-  %1489 = icmp slt i32 %1488, %18
-  br i1 %1489, label %.preheader, label %._crit_edge, !llvm.loop !24
+stack_pop.exit:                                   ; preds = %25, %1484, %1485, %.lr.ph.i314, %1357, %.lr.ph.i311, %1342, %._crit_edge.split.us.split.us34.us.i.i547, %._crit_edge.split.split.us.i.i531, %.lr.ph.i.i310, %1233, %._crit_edge.split.us.split.us34.us.i.i513, %._crit_edge.split.split.us.i.i497, %._crit_edge.split.us.split.us34.us.i.i479, %._crit_edge.split.split.us.i.i463, %._crit_edge.split.us.split.us34.us.i.i445, %._crit_edge.split.split.us.i.i429, %._crit_edge.split.us.split.us34.us.i.i411, %._crit_edge.split.split.us.i.i395, %._crit_edge.split.us.split.us34.us.i.i377, %._crit_edge.split.split.us.i.i361, %._crit_edge.split.us.split.us34.us.i.i, %._crit_edge.split.split.us.i.i, %152, %check_exists_finfos.exit.thread.i, %check_exists_finfos.exit.i, %check_exists_finfos.exit.thread.us.i204, %56, %check_exists_finfos.exit.thread.us.i, %38, %.lr.ph.us.us.i.i543, %.lr.ph.i.i526, %.lr.ph.us.us.i.i509, %.lr.ph.i.i492, %.lr.ph.us.us.i.i475, %.lr.ph.i.i458, %.lr.ph.us.us.i.i441, %.lr.ph.i.i424, %.lr.ph.us.us.i.i407, %.lr.ph.i.i390, %.lr.ph.us.us.i.i373, %.lr.ph.i.i356, %.lr.ph.us.us.i.i, %.lr.ph.i.i335, %1348, %1332, %1309, %1262, %1226, %807, %760, %713, %666, %619, %572, %525, %478, %431, %384, %337, %290, %.thread.i, %48, %33, %146, %72, %79, %88, %95, %104, %114, %stack_push.exit, %mk_slice.exit, %mk_length.exit, %mk_value_string.exit, %mk_binary.exit, %mk_binary.exit237, %mk_binary.exit255, %mk_binary.exit273, %mk_binary.exit291, %mk_binary.exit309, %set_push.exit, %set_push.exit320, %1407, %1411, %1415, %1420, %1425, %mk_minus.exit, %1461
+  %.1160 = phi i8 [ %1462, %1461 ], [ %.0159939, %mk_minus.exit ], [ %.0159939, %1425 ], [ %1424, %1420 ], [ %1419, %1415 ], [ %1414, %1411 ], [ %1410, %1407 ], [ %.0159939, %set_push.exit320 ], [ %.0159939, %set_push.exit ], [ %.0159939, %mk_binary.exit309 ], [ %.0159939, %mk_binary.exit291 ], [ %.0159939, %mk_binary.exit273 ], [ %.0159939, %mk_binary.exit255 ], [ %.0159939, %mk_binary.exit237 ], [ %.0159939, %mk_binary.exit ], [ %265, %mk_value_string.exit ], [ %.0159939, %mk_length.exit ], [ %.0159939, %mk_slice.exit ], [ %.0159939, %stack_push.exit ], [ %129, %114 ], [ %.0159939, %104 ], [ %103, %95 ], [ %94, %88 ], [ %87, %79 ], [ %78, %72 ], [ %.0159939, %146 ], [ 0, %33 ], [ 0, %48 ], [ 0, %.thread.i ], [ 1, %290 ], [ 0, %337 ], [ 1, %384 ], [ 0, %431 ], [ 1, %478 ], [ 0, %525 ], [ 1, %572 ], [ 0, %619 ], [ 1, %666 ], [ 0, %713 ], [ 1, %760 ], [ 0, %807 ], [ 0, %1226 ], [ 1, %1262 ], [ 0, %1309 ], [ 1, %1332 ], [ 0, %1348 ], [ 0, %.lr.ph.i.i335 ], [ 1, %.lr.ph.us.us.i.i ], [ 0, %.lr.ph.i.i356 ], [ 1, %.lr.ph.us.us.i.i373 ], [ 0, %.lr.ph.i.i390 ], [ 1, %.lr.ph.us.us.i.i407 ], [ 0, %.lr.ph.i.i424 ], [ 1, %.lr.ph.us.us.i.i441 ], [ 0, %.lr.ph.i.i458 ], [ 1, %.lr.ph.us.us.i.i475 ], [ 0, %.lr.ph.i.i492 ], [ 1, %.lr.ph.us.us.i.i509 ], [ 0, %.lr.ph.i.i526 ], [ 1, %.lr.ph.us.us.i.i543 ], [ 0, %check_exists_finfos.exit.thread.us.i ], [ 1, %38 ], [ 0, %check_exists_finfos.exit.thread.us.i204 ], [ 1, %56 ], [ 1, %check_exists_finfos.exit.i ], [ 0, %check_exists_finfos.exit.thread.i ], [ %.0159939, %152 ], [ 1, %._crit_edge.split.split.us.i.i ], [ 0, %._crit_edge.split.us.split.us34.us.i.i ], [ 1, %._crit_edge.split.split.us.i.i361 ], [ 0, %._crit_edge.split.us.split.us34.us.i.i377 ], [ 1, %._crit_edge.split.split.us.i.i395 ], [ 0, %._crit_edge.split.us.split.us34.us.i.i411 ], [ 1, %._crit_edge.split.split.us.i.i429 ], [ 0, %._crit_edge.split.us.split.us34.us.i.i445 ], [ 1, %._crit_edge.split.split.us.i.i463 ], [ 0, %._crit_edge.split.us.split.us34.us.i.i479 ], [ 1, %._crit_edge.split.split.us.i.i497 ], [ 0, %._crit_edge.split.us.split.us34.us.i.i513 ], [ 1, %.lr.ph.i.i310 ], [ 0, %1233 ], [ 1, %._crit_edge.split.split.us.i.i531 ], [ 0, %._crit_edge.split.us.split.us34.us.i.i547 ], [ 1, %1342 ], [ 0, %.lr.ph.i311 ], [ 0, %1357 ], [ 1, %.lr.ph.i314 ], [ %.0159939, %1485 ], [ %.0159939, %1484 ], [ %.0159939, %25 ]
+  %1487 = add i32 %.1, 1
+  %1488 = icmp slt i32 %1487, %18
+  br i1 %1488, label %.preheader, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %stack_pop.exit, %3
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.57, i32 noundef 7, ptr noundef nonnull @.str.58, i64 noundef 1882, ptr noundef nonnull @__func__.dfvm_apply_full, ptr noundef nonnull @.str.60) #13

@@ -787,9 +787,8 @@ entry:
   %cmp = icmp eq i32 %2, 0
   %y = getelementptr inbounds i8, ptr %call5, i64 4
   %y7 = getelementptr inbounds i8, ptr %call5, i64 12
-  %y.val = load i32, ptr %y, align 4
-  %y7.val = load i32, ptr %y7, align 4
-  %cond = select i1 %cmp, i32 %y.val, i32 %y7.val
+  %cond.in = select i1 %cmp, ptr %y, ptr %y7
+  %cond = load i32, ptr %cond.in, align 4
   %3 = load ptr, ptr %_data, align 8
   %currentScanLine = getelementptr inbounds i8, ptr %3, i64 176
   store i32 %cond, ptr %currentScanLine, align 8

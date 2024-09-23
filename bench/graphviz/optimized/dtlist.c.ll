@@ -239,16 +239,16 @@ define internal ptr @dtlist(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %110 = load ptr, ptr %108, align 8
   %111 = getelementptr inbounds i8, ptr %.4, i64 8
   store ptr %110, ptr %111, align 8
+  store ptr %.4, ptr %108, align 8
   br label %114
 
 112:                                              ; preds = %103
   store ptr %.4, ptr %105, align 8
   %113 = getelementptr inbounds i8, ptr %.4, i64 8
+  store ptr %.4, ptr %113, align 8
   br label %114
 
 114:                                              ; preds = %112, %107
-  %.sink = phi ptr [ %113, %112 ], [ %108, %107 ]
-  store ptr %.4, ptr %.sink, align 8
   store ptr null, ptr %.4, align 8
   %115 = load ptr, ptr %4, align 8
   %116 = getelementptr inbounds i8, ptr %115, i64 28

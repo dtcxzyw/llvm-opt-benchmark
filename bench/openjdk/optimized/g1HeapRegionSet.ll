@@ -885,7 +885,7 @@ _ZN16G1FreeRegionList21add_list_common_startEPS_.exit.thread42: ; preds = %22, %
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %47, ptr %48, align 8
-  br label %85
+  br label %88
 
 49:                                               ; preds = %_ZN16G1FreeRegionList21add_list_common_startEPS_.exit.thread42
   %50 = getelementptr inbounds i8, ptr %0, i64 40
@@ -899,9 +899,9 @@ _ZN16G1FreeRegionList21add_list_common_startEPS_.exit.thread42: ; preds = %22, %
   %54 = getelementptr inbounds i8, ptr %0, i64 48
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.lr.ph, %.critedge
-  %.038 = phi ptr [ %53, %.preheader.lr.ph ], [ %.135, %.critedge ]
-  %.02937 = phi ptr [ %52, %.preheader.lr.ph ], [ %69, %.critedge ]
+.preheader:                                       ; preds = %.preheader.lr.ph, %77
+  %.038 = phi ptr [ %53, %.preheader.lr.ph ], [ %.135, %77 ]
+  %.02937 = phi ptr [ %52, %.preheader.lr.ph ], [ %69, %77 ]
   %cond34 = icmp eq ptr %.038, null
   br i1 %cond34, label %.thread, label %.lr.ph
 
@@ -941,41 +941,50 @@ _ZN16G1FreeRegionList21add_list_common_startEPS_.exit.thread42: ; preds = %22, %
   %72 = getelementptr inbounds i8, ptr %.02937, i64 80
   store ptr %71, ptr %72, align 8
   %73 = icmp eq ptr %71, null
-  %74 = getelementptr inbounds i8, ptr %71, i64 72
-  %.sink = select i1 %73, ptr %50, ptr %74
-  store ptr %.02937, ptr %.sink, align 8
+  br i1 %73, label %74, label %75
+
+74:                                               ; preds = %.critedge
+  store ptr %.02937, ptr %50, align 8
+  br label %77
+
+75:                                               ; preds = %.critedge
+  %76 = getelementptr inbounds i8, ptr %71, i64 72
+  store ptr %.02937, ptr %76, align 8
+  br label %77
+
+77:                                               ; preds = %74, %75
   store ptr %.02937, ptr %70, align 8
   %.not = icmp eq ptr %69, null
   br i1 %.not, label %._crit_edge39, label %.preheader, !llvm.loop !10
 
-._crit_edge39:                                    ; preds = %.critedge, %.thread, %49
-  %75 = getelementptr inbounds i8, ptr %0, i64 48
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 48
-  %78 = load i32, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %1, i64 48
-  %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 48
-  %82 = load i32, ptr %81, align 8
-  %83 = icmp ult i32 %78, %82
-  br i1 %83, label %84, label %85
+._crit_edge39:                                    ; preds = %77, %.thread, %49
+  %78 = getelementptr inbounds i8, ptr %0, i64 48
+  %79 = load ptr, ptr %78, align 8
+  %80 = getelementptr inbounds i8, ptr %79, i64 48
+  %81 = load i32, ptr %80, align 8
+  %82 = getelementptr inbounds i8, ptr %1, i64 48
+  %83 = load ptr, ptr %82, align 8
+  %84 = getelementptr inbounds i8, ptr %83, i64 48
+  %85 = load i32, ptr %84, align 8
+  %86 = icmp ult i32 %81, %85
+  br i1 %86, label %87, label %88
 
-84:                                               ; preds = %._crit_edge39
-  store ptr %80, ptr %75, align 8
-  br label %85
+87:                                               ; preds = %._crit_edge39
+  store ptr %83, ptr %78, align 8
+  br label %88
 
-85:                                               ; preds = %._crit_edge39, %84, %42
-  %86 = load i32, ptr %13, align 8
-  %87 = load i32, ptr %39, align 8
-  %88 = add i32 %87, %86
-  store i32 %88, ptr %39, align 8
-  %89 = load ptr, ptr %1, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 16
-  %91 = load ptr, ptr %90, align 8
-  tail call void %91(ptr noundef nonnull align 8 dereferenceable(72) %1) #12
+88:                                               ; preds = %._crit_edge39, %87, %42
+  %89 = load i32, ptr %13, align 8
+  %90 = load i32, ptr %39, align 8
+  %91 = add i32 %90, %89
+  store i32 %91, ptr %39, align 8
+  %92 = load ptr, ptr %1, align 8
+  %93 = getelementptr inbounds i8, ptr %92, i64 16
+  %94 = load ptr, ptr %93, align 8
+  tail call void %94(ptr noundef nonnull align 8 dereferenceable(72) %1) #12
   br label %_ZN16G1FreeRegionList21add_list_common_startEPS_.exit.thread
 
-_ZN16G1FreeRegionList21add_list_common_startEPS_.exit.thread: ; preds = %_ZN19G1HeapRegionSetBase15check_mt_safetyEv.exit9.i, %_ZN16G1FreeRegionList21add_list_common_startEPS_.exit, %85
+_ZN16G1FreeRegionList21add_list_common_startEPS_.exit.thread: ; preds = %_ZN19G1HeapRegionSetBase15check_mt_safetyEv.exit9.i, %_ZN16G1FreeRegionList21add_list_common_startEPS_.exit, %88
   ret void
 }
 
@@ -1065,15 +1074,33 @@ _ZN16G1FreeRegionList15decrease_lengthEj.exit:    ; preds = %_ZN19G1HeapRegionSe
 ._crit_edge:                                      ; preds = %_ZN16G1FreeRegionList15decrease_lengthEj.exit, %_ZN19G1HeapRegionSetBase15check_mt_safetyEv.exit
   %.025.lcssa = phi ptr [ %12, %_ZN19G1HeapRegionSetBase15check_mt_safetyEv.exit ], [ %18, %_ZN16G1FreeRegionList15decrease_lengthEj.exit ]
   %44 = icmp eq ptr %10, null
-  %45 = getelementptr inbounds i8, ptr %10, i64 72
+  br i1 %44, label %45, label %47
+
+45:                                               ; preds = %._crit_edge
   %46 = getelementptr inbounds i8, ptr %0, i64 40
-  %.sink = select i1 %44, ptr %46, ptr %45
-  store ptr %.025.lcssa, ptr %.sink, align 8
-  %47 = icmp eq ptr %.025.lcssa, null
-  %48 = getelementptr inbounds i8, ptr %.025.lcssa, i64 80
-  %49 = getelementptr inbounds i8, ptr %0, i64 48
-  %.sink30 = select i1 %47, ptr %49, ptr %48
-  store ptr %10, ptr %.sink30, align 8
+  store ptr %.025.lcssa, ptr %46, align 8
+  br label %49
+
+47:                                               ; preds = %._crit_edge
+  %48 = getelementptr inbounds i8, ptr %10, i64 72
+  store ptr %.025.lcssa, ptr %48, align 8
+  br label %49
+
+49:                                               ; preds = %47, %45
+  %50 = icmp eq ptr %.025.lcssa, null
+  br i1 %50, label %51, label %53
+
+51:                                               ; preds = %49
+  %52 = getelementptr inbounds i8, ptr %0, i64 48
+  store ptr %10, ptr %52, align 8
+  br label %55
+
+53:                                               ; preds = %49
+  %54 = getelementptr inbounds i8, ptr %.025.lcssa, i64 80
+  store ptr %10, ptr %54, align 8
+  br label %55
+
+55:                                               ; preds = %53, %51
   ret void
 }
 

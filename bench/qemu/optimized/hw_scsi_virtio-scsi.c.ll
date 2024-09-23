@@ -2337,16 +2337,25 @@ land.rhs.lr.ph:                                   ; preds = %virtio_scsi_acquire
   %tql_prev13 = getelementptr inbounds i8, ptr %opaque, i64 832
   br label %land.rhs
 
-land.rhs:                                         ; preds = %land.rhs.lr.ph, %land.rhs
-  %req.040 = phi ptr [ %1, %land.rhs.lr.ph ], [ %2, %land.rhs ]
+land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end14
+  %req.040 = phi ptr [ %1, %land.rhs.lr.ph ], [ %2, %if.end14 ]
   %next = getelementptr inbounds i8, ptr %req.040, i64 152
   %2 = load ptr, ptr %next, align 8
   %cmp.not = icmp eq ptr %2, null
   %tql_prev11 = getelementptr inbounds i8, ptr %req.040, i64 160
   %3 = load ptr, ptr %tql_prev11, align 8
+  br i1 %cmp.not, label %if.else9, label %if.then3
+
+if.then3:                                         ; preds = %land.rhs
   %tql_prev8 = getelementptr inbounds i8, ptr %2, i64 160
-  %tql_prev13.sink = select i1 %cmp.not, ptr %tql_prev13, ptr %tql_prev8
-  store ptr %3, ptr %tql_prev13.sink, align 8
+  store ptr %3, ptr %tql_prev8, align 8
+  br label %if.end14
+
+if.else9:                                         ; preds = %land.rhs
+  store ptr %3, ptr %tql_prev13, align 8
+  br label %if.end14
+
+if.end14:                                         ; preds = %if.else9, %if.then3
   %4 = load ptr, ptr %next, align 8
   %tql_prev17 = getelementptr inbounds i8, ptr %req.040, i64 160
   store ptr %4, ptr %3, align 8
@@ -2357,7 +2366,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %la
   store ptr %next, ptr %tql_prev, align 8
   br i1 %cmp.not, label %for.end, label %land.rhs, !llvm.loop !16
 
-for.end:                                          ; preds = %land.rhs, %virtio_scsi_acquire.exit
+for.end:                                          ; preds = %if.end14, %virtio_scsi_acquire.exit
   %tmf_bh = getelementptr inbounds i8, ptr %opaque, i64 816
   %6 = load ptr, ptr %tmf_bh, align 8
   call void @qemu_bh_delete(ptr noundef %6) #13
@@ -3354,16 +3363,25 @@ land.rhs.lr.ph:                                   ; preds = %if.end4
   %tql_prev17 = getelementptr inbounds i8, ptr %s, i64 832
   br label %land.rhs
 
-land.rhs:                                         ; preds = %land.rhs.lr.ph, %land.rhs
-  %req.024 = phi ptr [ %2, %land.rhs.lr.ph ], [ %3, %land.rhs ]
+land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end18
+  %req.024 = phi ptr [ %2, %land.rhs.lr.ph ], [ %3, %if.end18 ]
   %next = getelementptr inbounds i8, ptr %req.024, i64 152
   %3 = load ptr, ptr %next, align 8
   %cmp.not = icmp eq ptr %3, null
   %tql_prev15 = getelementptr inbounds i8, ptr %req.024, i64 160
   %4 = load ptr, ptr %tql_prev15, align 8
+  br i1 %cmp.not, label %if.else13, label %if.then8
+
+if.then8:                                         ; preds = %land.rhs
   %tql_prev12 = getelementptr inbounds i8, ptr %3, i64 160
-  %tql_prev17.sink = select i1 %cmp.not, ptr %tql_prev17, ptr %tql_prev12
-  store ptr %4, ptr %tql_prev17.sink, align 8
+  store ptr %4, ptr %tql_prev12, align 8
+  br label %if.end18
+
+if.else13:                                        ; preds = %land.rhs
+  store ptr %4, ptr %tql_prev17, align 8
+  br label %if.end18
+
+if.end18:                                         ; preds = %if.else13, %if.then8
   %5 = load ptr, ptr %next, align 8
   store ptr %5, ptr %4, align 8
   %resp = getelementptr inbounds i8, ptr %req.024, i64 196
@@ -3372,7 +3390,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %la
   tail call fastcc void @virtio_scsi_complete_req(ptr noundef nonnull %req.024)
   br i1 %cmp.not, label %for.end, label %land.rhs, !llvm.loop !25
 
-for.end:                                          ; preds = %land.rhs, %if.end4
+for.end:                                          ; preds = %if.end18, %if.end4
   %s.val20 = load ptr, ptr %0, align 8
   %tobool.not.i21 = icmp eq ptr %s.val20, null
   br i1 %tobool.not.i21, label %virtio_scsi_release.exit, label %if.then.i22

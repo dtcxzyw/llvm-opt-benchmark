@@ -488,45 +488,46 @@ define dso_local i64 @gintuple_get_key(ptr nocapture noundef readonly %0, ptr no
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %0, i64 16
-  br label %17
+  %11 = load ptr, ptr %10, align 8
+  %12 = call fastcc i64 @index_getattr(ptr noundef %1, i32 noundef 1, ptr noundef %11, ptr noundef %5)
+  br label %21
 
 gintuple_get_attrnum.exit:                        ; preds = %3
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
-  %12 = load ptr, ptr %11, align 8
-  %13 = call fastcc i64 @index_getattr(ptr noundef %1, i32 noundef 1, ptr noundef %12, ptr noundef %4)
+  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = load ptr, ptr %13, align 8
+  %15 = call fastcc i64 @index_getattr(ptr noundef %1, i32 noundef 1, ptr noundef %14, ptr noundef %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  %14 = and i64 %13, 65535
-  %15 = add nsw i64 %14, -1
-  %16 = getelementptr [32 x ptr], ptr %11, i64 0, i64 %15
-  br label %17
+  %16 = and i64 %15, 65535
+  %17 = add nsw i64 %16, -1
+  %18 = getelementptr [32 x ptr], ptr %13, i64 0, i64 %17
+  %19 = load ptr, ptr %18, align 8
+  %20 = call fastcc i64 @index_getattr(ptr noundef %1, i32 noundef 2, ptr noundef %19, ptr noundef %5)
+  br label %21
 
-17:                                               ; preds = %gintuple_get_attrnum.exit, %9
-  %.sink14 = phi ptr [ %16, %gintuple_get_attrnum.exit ], [ %10, %9 ]
-  %.sink = phi i32 [ 2, %gintuple_get_attrnum.exit ], [ 1, %9 ]
-  %18 = load ptr, ptr %.sink14, align 8
-  %19 = call fastcc i64 @index_getattr(ptr noundef %1, i32 noundef %.sink, ptr noundef %18, ptr noundef %5)
-  %20 = load i8, ptr %5, align 1
-  %21 = trunc i8 %20 to i1
-  br i1 %21, label %22, label %31
+21:                                               ; preds = %gintuple_get_attrnum.exit, %9
+  %.0 = phi i64 [ %12, %9 ], [ %20, %gintuple_get_attrnum.exit ]
+  %22 = load i8, ptr %5, align 1
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %24, label %33
 
-22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %1, i64 6
-  %24 = load i16, ptr %23, align 2
-  %.not.i = icmp sgt i16 %24, -1
+24:                                               ; preds = %21
+  %25 = getelementptr inbounds i8, ptr %1, i64 6
+  %26 = load i16, ptr %25, align 2
+  %.not.i = icmp sgt i16 %26, -1
   %..i = select i1 %.not.i, i64 8, i64 16
-  %25 = load i8, ptr %6, align 8
-  %26 = trunc i8 %25 to i1
-  %27 = select i1 %26, i64 0, i64 2
-  %28 = getelementptr i8, ptr %1, i64 %..i
-  %29 = getelementptr i8, ptr %28, i64 %27
-  %30 = load i8, ptr %29, align 1
-  br label %31
+  %27 = load i8, ptr %6, align 8
+  %28 = trunc i8 %27 to i1
+  %29 = select i1 %28, i64 0, i64 2
+  %30 = getelementptr i8, ptr %1, i64 %..i
+  %31 = getelementptr i8, ptr %30, i64 %29
+  %32 = load i8, ptr %31, align 1
+  br label %33
 
-31:                                               ; preds = %17, %22
-  %storemerge = phi i8 [ %30, %22 ], [ 0, %17 ]
+33:                                               ; preds = %21, %24
+  %storemerge = phi i8 [ %32, %24 ], [ 0, %21 ]
   store i8 %storemerge, ptr %2, align 1
-  ret i64 %19
+  ret i64 %.0
 }
 
 ; Function Attrs: nounwind uwtable

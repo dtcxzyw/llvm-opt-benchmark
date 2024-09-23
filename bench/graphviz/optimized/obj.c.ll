@@ -70,85 +70,85 @@ define i32 @agrename(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = load i32, ptr %0, align 8
   %5 = and i32 %4, 3
-  switch i32 %5, label %default.unreachable26 [
+  switch i32 %5, label %default.unreachable23 [
     i32 0, label %agroot.exit
-    i32 1, label %37
-    i32 3, label %39
-    i32 2, label %39
+    i32 1, label %35
+    i32 3, label %37
+    i32 2, label %37
   ]
 
 agroot.exit:                                      ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 120
-  %9 = load ptr, ptr %8, align 8
-  %10 = call i32 @agmapnametoid(ptr noundef %9, i32 noundef 0, ptr noundef %1, ptr noundef nonnull %3, i1 noundef zeroext false) #4
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %39, label %12
+  %.0.i19 = load ptr, ptr %8, align 8
+  %9 = call i32 @agmapnametoid(ptr noundef %.0.i19, i32 noundef 0, ptr noundef %1, ptr noundef nonnull %3, i1 noundef zeroext false) #4
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %37, label %11
 
-12:                                               ; preds = %agroot.exit
-  %13 = load i64, ptr %3, align 8
-  %14 = icmp eq i64 %13, %7
-  br i1 %14, label %39, label %15
+11:                                               ; preds = %agroot.exit
+  %12 = load i64, ptr %3, align 8
+  %13 = icmp eq i64 %12, %7
+  br i1 %13, label %37, label %14
 
-15:                                               ; preds = %12
-  %16 = load i32, ptr %0, align 8
-  %17 = and i32 %16, 3
-  switch i32 %17, label %default.unreachable26 [
-    i32 3, label %18
-    i32 2, label %18
-    i32 1, label %22
-    i32 0, label %24
+14:                                               ; preds = %11
+  %15 = load i32, ptr %0, align 8
+  %16 = and i32 %15, 3
+  switch i32 %16, label %default.unreachable23 [
+    i32 3, label %17
+    i32 2, label %17
+    i32 1, label %21
+    i32 0, label %23
   ]
 
-18:                                               ; preds = %15, %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
-  br label %agroot.exit25
+17:                                               ; preds = %14, %14
+  %18 = getelementptr inbounds i8, ptr %0, i64 56
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 24
+  br label %agroot.exit22
 
-22:                                               ; preds = %15
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
-  br label %agroot.exit25
+21:                                               ; preds = %14
+  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  br label %agroot.exit22
 
-24:                                               ; preds = %15
-  %25 = getelementptr inbounds i8, ptr %0, i64 120
-  br label %agroot.exit25
+23:                                               ; preds = %14
+  %24 = getelementptr inbounds i8, ptr %0, i64 120
+  br label %agroot.exit22
 
-agroot.exit25:                                    ; preds = %18, %22, %24
-  %.sink.i22 = phi ptr [ %25, %24 ], [ %23, %22 ], [ %21, %18 ]
-  %26 = load ptr, ptr %.sink.i22, align 8
-  %27 = call i32 @agmapnametoid(ptr noundef %26, i32 noundef %17, ptr noundef %1, ptr noundef nonnull %3, i1 noundef zeroext true) #4
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %39, label %29
+agroot.exit22:                                    ; preds = %17, %21, %23
+  %.0.i20.in = phi ptr [ %24, %23 ], [ %22, %21 ], [ %20, %17 ]
+  %.0.i20 = load ptr, ptr %.0.i20.in, align 8
+  %25 = call i32 @agmapnametoid(ptr noundef %.0.i20, i32 noundef %16, ptr noundef %1, ptr noundef nonnull %3, i1 noundef zeroext true) #4
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %37, label %27
 
-29:                                               ; preds = %agroot.exit25
+27:                                               ; preds = %agroot.exit22
+  %28 = call ptr @agparent(ptr noundef nonnull %0) #4
+  %.not = icmp eq ptr %28, null
+  br i1 %.not, label %33, label %29
+
+29:                                               ; preds = %27
   %30 = call ptr @agparent(ptr noundef nonnull %0) #4
-  %.not = icmp eq ptr %30, null
-  br i1 %.not, label %35, label %31
+  %31 = load i64, ptr %3, align 8
+  %32 = call ptr @agidsubg(ptr noundef %30, i64 noundef %31, i32 noundef 0) #4
+  %.not18 = icmp eq ptr %32, null
+  br i1 %.not18, label %33, label %37
 
-31:                                               ; preds = %29
-  %32 = call ptr @agparent(ptr noundef nonnull %0) #4
-  %33 = load i64, ptr %3, align 8
-  %34 = call ptr @agidsubg(ptr noundef %32, i64 noundef %33, i32 noundef 0) #4
-  %.not18 = icmp eq ptr %34, null
-  br i1 %.not18, label %35, label %39
-
-35:                                               ; preds = %31, %29
+33:                                               ; preds = %29, %27
   call void @agfreeid(ptr noundef nonnull %0, i32 noundef 0, i64 noundef %7) #4
-  %36 = load i64, ptr %3, align 8
-  store i64 %36, ptr %6, align 8
-  br label %39
+  %34 = load i64, ptr %3, align 8
+  store i64 %34, ptr %6, align 8
+  br label %37
 
-37:                                               ; preds = %2
-  %38 = tail call i32 @agrelabel_node(ptr noundef nonnull %0, ptr noundef %1) #4
-  br label %39
+35:                                               ; preds = %2
+  %36 = tail call i32 @agrelabel_node(ptr noundef nonnull %0, ptr noundef %1) #4
+  br label %37
 
-default.unreachable26:                            ; preds = %15, %2
+default.unreachable23:                            ; preds = %14, %2
   unreachable
 
-39:                                               ; preds = %2, %2, %31, %agroot.exit25, %12, %agroot.exit, %35, %37
-  %.0 = phi i32 [ %38, %37 ], [ 0, %35 ], [ -1, %agroot.exit ], [ 0, %12 ], [ -1, %agroot.exit25 ], [ -1, %31 ], [ -1, %2 ], [ -1, %2 ]
+37:                                               ; preds = %2, %2, %29, %agroot.exit22, %11, %agroot.exit, %33, %35
+  %.0 = phi i32 [ %36, %35 ], [ 0, %33 ], [ -1, %agroot.exit ], [ 0, %11 ], [ -1, %agroot.exit22 ], [ -1, %29 ], [ -1, %2 ], [ -1, %2 ]
   ret i32 %.0
 }
 
@@ -187,7 +187,7 @@ declare i32 @agmapnametoid(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define ptr @agroot(ptr noundef readonly %0) local_unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %15, label %3
+  br i1 %2, label %17, label %3
 
 3:                                                ; preds = %1
   %4 = load i32, ptr %0, align 8
@@ -195,34 +195,32 @@ define ptr @agroot(ptr noundef readonly %0) local_unnamed_addr #2 {
   switch i32 %5, label %default.unreachable7 [
     i32 3, label %6
     i32 2, label %6
-    i32 1, label %10
-    i32 0, label %12
+    i32 1, label %11
+    i32 0, label %14
   ]
 
 6:                                                ; preds = %3, %3
   %7 = getelementptr inbounds i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 24
-  br label %.sink.split
+  %10 = load ptr, ptr %9, align 8
+  br label %17
 
-10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
-  br label %.sink.split
+11:                                               ; preds = %3
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = load ptr, ptr %12, align 8
+  br label %17
 
-12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %0, i64 120
-  br label %.sink.split
+14:                                               ; preds = %3
+  %15 = getelementptr inbounds i8, ptr %0, i64 120
+  %16 = load ptr, ptr %15, align 8
+  br label %17
 
 default.unreachable7:                             ; preds = %3
   unreachable
 
-.sink.split:                                      ; preds = %6, %10, %12
-  %.sink = phi ptr [ %13, %12 ], [ %11, %10 ], [ %9, %6 ]
-  %14 = load ptr, ptr %.sink, align 8
-  br label %15
-
-15:                                               ; preds = %.sink.split, %1
-  %.0 = phi ptr [ null, %1 ], [ %14, %.sink.split ]
+17:                                               ; preds = %1, %14, %11, %6
+  %.0 = phi ptr [ %16, %14 ], [ %13, %11 ], [ %10, %6 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -430,37 +428,41 @@ define range(i32 -1, 1) i32 @agpopdisc(ptr noundef %0, ptr noundef readnone %1) 
   %5 = getelementptr inbounds i8, ptr %4, i64 56
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %17, label %7
+  br i1 %.not, label %20, label %7
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %6, align 8
   %9 = icmp eq ptr %8, %1
-  br i1 %9, label %14, label %.preheader
+  br i1 %9, label %10, label %.preheader
+
+10:                                               ; preds = %7
+  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %12 = load ptr, ptr %11, align 8
+  store ptr %12, ptr %5, align 8
+  br label %19
 
 .preheader:                                       ; preds = %7, %.preheader
-  %.1 = phi ptr [ %11, %.preheader ], [ %6, %7 ]
-  %10 = getelementptr inbounds i8, ptr %.1, i64 16
-  %11 = load ptr, ptr %10, align 8
-  %12 = load ptr, ptr %11, align 8
-  %.not20 = icmp eq ptr %12, %1
+  %.1 = phi ptr [ %14, %.preheader ], [ %6, %7 ]
+  %13 = getelementptr inbounds i8, ptr %.1, i64 16
+  %14 = load ptr, ptr %13, align 8
+  %15 = load ptr, ptr %14, align 8
+  %.not20 = icmp eq ptr %15, %1
   br i1 %.not20, label %.critedge, label %.preheader
 
 .critedge:                                        ; preds = %.preheader
-  %13 = getelementptr inbounds i8, ptr %.1, i64 16
-  br label %14
+  %16 = getelementptr inbounds i8, ptr %.1, i64 16
+  %17 = getelementptr inbounds i8, ptr %14, i64 16
+  %18 = load ptr, ptr %17, align 8
+  store ptr %18, ptr %16, align 8
+  br label %19
 
-14:                                               ; preds = %7, %.critedge
-  %.sink = phi ptr [ %11, %.critedge ], [ %6, %7 ]
-  %.sink26 = phi ptr [ %13, %.critedge ], [ %5, %7 ]
-  %.0 = phi ptr [ %.1, %.critedge ], [ %6, %7 ]
-  %15 = getelementptr inbounds i8, ptr %.sink, i64 16
-  %16 = load ptr, ptr %15, align 8
-  store ptr %16, ptr %.sink26, align 8
+19:                                               ; preds = %10, %.critedge
+  %.0 = phi ptr [ %6, %10 ], [ %.1, %.critedge ]
   tail call void @agfree(ptr noundef %0, ptr noundef nonnull %.0) #4
-  br label %17
+  br label %20
 
-17:                                               ; preds = %2, %14
-  %.017 = phi i32 [ 0, %14 ], [ -1, %2 ]
+20:                                               ; preds = %2, %19
+  %.017 = phi i32 [ 0, %19 ], [ -1, %2 ]
   ret i32 %.017
 }
 
@@ -477,103 +479,99 @@ define range(i32 0, 2) i32 @agcontains(ptr noundef %0, ptr noundef %1) local_unn
   switch i32 %6, label %default.unreachable [
     i32 3, label %7
     i32 2, label %7
-    i32 1, label %11
-    i32 0, label %13
+    i32 1, label %12
+    i32 0, label %15
   ]
 
 7:                                                ; preds = %4, %4
   %8 = getelementptr inbounds i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 24
-  br label %.sink.split.i
-
-11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
-  br label %.sink.split.i
-
-13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 120
-  br label %.sink.split.i
-
-default.unreachable:                              ; preds = %17, %4
-  unreachable
-
-.sink.split.i:                                    ; preds = %13, %11, %7
-  %.sink.i = phi ptr [ %14, %13 ], [ %12, %11 ], [ %10, %7 ]
-  %15 = load ptr, ptr %.sink.i, align 8
+  %11 = load ptr, ptr %10, align 8
   br label %agroot.exit
 
-agroot.exit:                                      ; preds = %2, %.sink.split.i
-  %.0.i = phi ptr [ null, %2 ], [ %15, %.sink.split.i ]
-  %16 = icmp eq ptr %1, null
-  br i1 %16, label %agroot.exit18, label %17
+12:                                               ; preds = %4
+  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = load ptr, ptr %13, align 8
+  br label %agroot.exit
 
-17:                                               ; preds = %agroot.exit
-  %18 = load i32, ptr %1, align 8
-  %19 = and i32 %18, 3
-  switch i32 %19, label %default.unreachable [
-    i32 3, label %20
-    i32 2, label %20
-    i32 1, label %24
-    i32 0, label %26
+15:                                               ; preds = %4
+  %16 = getelementptr inbounds i8, ptr %0, i64 120
+  %17 = load ptr, ptr %16, align 8
+  br label %agroot.exit
+
+default.unreachable:                              ; preds = %19, %4
+  unreachable
+
+agroot.exit:                                      ; preds = %2, %7, %12, %15
+  %.0.i = phi ptr [ %17, %15 ], [ %14, %12 ], [ %11, %7 ], [ null, %2 ]
+  %18 = icmp eq ptr %1, null
+  br i1 %18, label %agroot.exit16, label %19
+
+19:                                               ; preds = %agroot.exit
+  %20 = load i32, ptr %1, align 8
+  %21 = and i32 %20, 3
+  switch i32 %21, label %default.unreachable [
+    i32 3, label %22
+    i32 2, label %22
+    i32 1, label %27
+    i32 0, label %30
   ]
 
-20:                                               ; preds = %17, %17
-  %21 = getelementptr inbounds i8, ptr %1, i64 56
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
-  br label %.sink.split.i14
+22:                                               ; preds = %19, %19
+  %23 = getelementptr inbounds i8, ptr %1, i64 56
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 24
+  %26 = load ptr, ptr %25, align 8
+  br label %agroot.exit16
 
-24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %1, i64 24
-  br label %.sink.split.i14
+27:                                               ; preds = %19
+  %28 = getelementptr inbounds i8, ptr %1, i64 24
+  %29 = load ptr, ptr %28, align 8
+  br label %agroot.exit16
 
-26:                                               ; preds = %17
-  %27 = getelementptr inbounds i8, ptr %1, i64 120
-  br label %.sink.split.i14
+30:                                               ; preds = %19
+  %31 = getelementptr inbounds i8, ptr %1, i64 120
+  %32 = load ptr, ptr %31, align 8
+  br label %agroot.exit16
 
-.sink.split.i14:                                  ; preds = %26, %24, %20
-  %.sink.i15 = phi ptr [ %27, %26 ], [ %25, %24 ], [ %23, %20 ]
-  %28 = load ptr, ptr %.sink.i15, align 8
-  br label %agroot.exit18
+agroot.exit16:                                    ; preds = %agroot.exit, %22, %27, %30
+  %.0.i14 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %22 ], [ null, %agroot.exit ]
+  %.not = icmp eq ptr %.0.i, %.0.i14
+  br i1 %.not, label %33, label %.loopexit
 
-agroot.exit18:                                    ; preds = %agroot.exit, %.sink.split.i14
-  %.0.i16 = phi ptr [ null, %agroot.exit ], [ %28, %.sink.split.i14 ]
-  %.not = icmp eq ptr %.0.i, %.0.i16
-  br i1 %.not, label %29, label %.loopexit
-
-29:                                               ; preds = %agroot.exit18
-  %30 = load i32, ptr %1, align 8
-  %31 = and i32 %30, 3
-  switch i32 %31, label %40 [
+33:                                               ; preds = %agroot.exit16
+  %34 = load i32, ptr %1, align 8
+  %35 = and i32 %34, 3
+  switch i32 %35, label %44 [
     i32 0, label %.preheader
-    i32 1, label %35
+    i32 1, label %39
   ]
 
-.preheader:                                       ; preds = %29, %33
-  %.0 = phi ptr [ %34, %33 ], [ %1, %29 ]
-  %32 = icmp eq ptr %.0, %0
-  br i1 %32, label %.loopexit, label %33
+.preheader:                                       ; preds = %33, %37
+  %.0 = phi ptr [ %38, %37 ], [ %1, %33 ]
+  %36 = icmp eq ptr %.0, %0
+  br i1 %36, label %.loopexit, label %37
 
-33:                                               ; preds = %.preheader
-  %34 = tail call ptr @agparent(ptr noundef nonnull %.0) #4
-  %.not13 = icmp eq ptr %34, null
+37:                                               ; preds = %.preheader
+  %38 = tail call ptr @agparent(ptr noundef nonnull %.0) #4
+  %.not13 = icmp eq ptr %38, null
   br i1 %.not13, label %.loopexit, label %.preheader
 
-35:                                               ; preds = %29
-  %36 = getelementptr inbounds i8, ptr %1, i64 8
-  %37 = load i64, ptr %36, align 8
-  %38 = tail call ptr @agidnode(ptr noundef %0, i64 noundef %37, i32 noundef 0) #4
-  %39 = icmp ne ptr %38, null
+39:                                               ; preds = %33
+  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  %41 = load i64, ptr %40, align 8
+  %42 = tail call ptr @agidnode(ptr noundef %0, i64 noundef %41, i32 noundef 0) #4
+  %43 = icmp ne ptr %42, null
   br label %.loopexit
 
-40:                                               ; preds = %29
-  %41 = tail call ptr @agsubedge(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 0) #4
-  %42 = icmp ne ptr %41, null
+44:                                               ; preds = %33
+  %45 = tail call ptr @agsubedge(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 0) #4
+  %46 = icmp ne ptr %45, null
   br label %.loopexit
 
-.loopexit:                                        ; preds = %33, %.preheader, %agroot.exit18, %40, %35
-  %.011.shrunk = phi i1 [ %42, %40 ], [ %39, %35 ], [ false, %agroot.exit18 ], [ %32, %.preheader ], [ %32, %33 ]
+.loopexit:                                        ; preds = %37, %.preheader, %agroot.exit16, %44, %39
+  %.011.shrunk = phi i1 [ %46, %44 ], [ %43, %39 ], [ false, %agroot.exit16 ], [ %36, %.preheader ], [ %36, %37 ]
   %.011 = zext i1 %.011.shrunk to i32
   ret i32 %.011
 }

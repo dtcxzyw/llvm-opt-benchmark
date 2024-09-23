@@ -5952,15 +5952,15 @@ _ZNK12_GLOBAL__N_123ModuleSanitizerCoverage14getSectionNameERKNSt7__cxx1112basic
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_11GlobalValueELb1EE9push_backES2_.exit
 
 _ZN4llvm23SmallVectorTemplateBaseIPNS_11GlobalValueELb1EE9push_backES2_.exit: ; preds = %97, %92, %90, %85
-  %.sink36 = phi ptr [ %86, %85 ], [ %86, %90 ], [ %93, %92 ], [ %93, %97 ]
-  %99 = load ptr, ptr %.sink36, align 8
-  %100 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.sink36) #19
-  %101 = getelementptr inbounds ptr, ptr %99, i64 %100
-  %102 = ptrtoint ptr %19 to i64
-  store i64 %102, ptr %101, align 1
-  %103 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.sink36) #19
-  %104 = add i64 %103, 1
-  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %.sink36, i64 noundef %104) #19
+  %.sink35 = phi ptr [ %86, %85 ], [ %86, %90 ], [ %93, %92 ], [ %93, %97 ]
+  %.sink33 = load ptr, ptr %.sink35, align 8
+  %99 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.sink35) #19
+  %100 = getelementptr inbounds ptr, ptr %.sink33, i64 %99
+  %101 = ptrtoint ptr %19 to i64
+  store i64 %101, ptr %100, align 1
+  %102 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.sink35) #19
+  %103 = add i64 %102, 1
+  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %.sink35, i64 noundef %103) #19
   ret ptr %19
 }
 

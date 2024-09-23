@@ -979,6 +979,7 @@ for.end.i:                                        ; preds = %for.cond.backedge.i
   %20 = load i16, ptr %arrayidx38.i, align 1
   store i16 %20, ptr %arrayidx37.i, align 1
   %arrayidx40.i = getelementptr i8, ptr %arrayidx37.i, i64 2
+  store i8 0, ptr %arrayidx40.i, align 1
   br label %percent_decode.exit
 
 if.else.i:                                        ; preds = %for.end.thread, %for.end
@@ -986,12 +987,11 @@ if.else.i:                                        ; preds = %for.end.thread, %fo
   %j.0.lcssa17 = phi i64 [ 0, %for.end.thread ], [ %j.0.lcssa, %for.end ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i18, ptr readonly align 1 %value, i64 %j.0.lcssa17, i1 false)
   %arrayidx41.i = getelementptr inbounds i8, ptr %call.i18, i64 %j.0.lcssa17
+  store i8 0, ptr %arrayidx41.i, align 1
   br label %percent_decode.exit
 
 percent_decode.exit:                              ; preds = %for.end.i, %if.else.i
-  %call.i19 = phi ptr [ %call.i18, %if.else.i ], [ %call.i, %for.end.i ]
-  %arrayidx41.sink.i = phi ptr [ %arrayidx41.i, %if.else.i ], [ %arrayidx40.i, %for.end.i ]
-  store i8 0, ptr %arrayidx41.sink.i, align 1
+  %call.i19 = phi ptr [ %call.i, %for.end.i ], [ %call.i18, %if.else.i ]
   store ptr %call.i19, ptr %request_path, align 8
   br label %sw.epilog
 

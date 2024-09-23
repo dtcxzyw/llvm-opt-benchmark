@@ -360,22 +360,33 @@ if.end.i:                                         ; preds = %if.end31
   %secure5.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 %secure.0, ptr %secure5.i, align 4
   %cmp6.not.i = icmp eq i32 %secure.0, 0
-  %bld.sink13.idx.i = select i1 %cmp6.not.i, i64 0, i64 8
-  %bld.sink13.i = getelementptr inbounds i8, ptr %bld, i64 %bld.sink13.idx.i
-  %0 = load i64, ptr %bld.sink13.i, align 8
-  %add11.i = add i64 %0, %call4.i
-  store i64 %add11.i, ptr %bld.sink13.i, align 8
+  br i1 %cmp6.not.i, label %if.else.i, label %if.then8.i
+
+if.then8.i:                                       ; preds = %if.end.i
+  %secure_blocks.i = getelementptr inbounds i8, ptr %bld, i64 8
+  %0 = load i64, ptr %secure_blocks.i, align 8
+  %add.i = add i64 %0, %call4.i
+  store i64 %add.i, ptr %secure_blocks.i, align 8
+  br label %if.end12.i
+
+if.else.i:                                        ; preds = %if.end.i
+  %1 = load i64, ptr %bld, align 8
+  %add11.i = add i64 %1, %call4.i
+  store i64 %add11.i, ptr %bld, align 8
+  br label %if.end12.i
+
+if.end12.i:                                       ; preds = %if.else.i, %if.then8.i
   %params.i = getelementptr inbounds i8, ptr %bld, i64 16
-  %1 = load ptr, ptr %params.i, align 8
-  %call.i.i = tail call i32 @OPENSSL_sk_push(ptr noundef %1, ptr noundef nonnull %call.i) #7
+  %2 = load ptr, ptr %params.i, align 8
+  %call.i.i = tail call i32 @OPENSSL_sk_push(ptr noundef %2, ptr noundef nonnull %call.i) #7
   %cmp14.i = icmp slt i32 %call.i.i, 1
   br i1 %cmp14.i, label %if.then16.i, label %if.end37
 
-if.then16.i:                                      ; preds = %if.end.i
+if.then16.i:                                      ; preds = %if.end12.i
   tail call void @CRYPTO_free(ptr noundef nonnull %call.i, ptr noundef nonnull @.str, i32 noundef 68) #7
   br label %return
 
-if.end37:                                         ; preds = %if.end.i
+if.end37:                                         ; preds = %if.end12.i
   %bn38 = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr %bn, ptr %bn38, align 8
   br label %return
@@ -491,22 +502,33 @@ if.end.i:                                         ; preds = %if.end3
   %secure5.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 %call4, ptr %secure5.i, align 4
   %cmp6.not.i = icmp eq i32 %call4, 0
-  %bld.sink13.idx.i = select i1 %cmp6.not.i, i64 0, i64 8
-  %bld.sink13.i = getelementptr inbounds i8, ptr %bld, i64 %bld.sink13.idx.i
-  %0 = load i64, ptr %bld.sink13.i, align 8
-  %add11.i = add i64 %0, %call4.i
-  store i64 %add11.i, ptr %bld.sink13.i, align 8
+  br i1 %cmp6.not.i, label %if.else.i, label %if.then8.i
+
+if.then8.i:                                       ; preds = %if.end.i
+  %secure_blocks.i = getelementptr inbounds i8, ptr %bld, i64 8
+  %0 = load i64, ptr %secure_blocks.i, align 8
+  %add.i = add i64 %0, %call4.i
+  store i64 %add.i, ptr %secure_blocks.i, align 8
+  br label %if.end12.i
+
+if.else.i:                                        ; preds = %if.end.i
+  %1 = load i64, ptr %bld, align 8
+  %add11.i = add i64 %1, %call4.i
+  store i64 %add11.i, ptr %bld, align 8
+  br label %if.end12.i
+
+if.end12.i:                                       ; preds = %if.else.i, %if.then8.i
   %params.i = getelementptr inbounds i8, ptr %bld, i64 16
-  %1 = load ptr, ptr %params.i, align 8
-  %call.i.i = tail call i32 @OPENSSL_sk_push(ptr noundef %1, ptr noundef nonnull %call.i) #7
+  %2 = load ptr, ptr %params.i, align 8
+  %call.i.i = tail call i32 @OPENSSL_sk_push(ptr noundef %2, ptr noundef nonnull %call.i) #7
   %cmp14.i = icmp slt i32 %call.i.i, 1
   br i1 %cmp14.i, label %if.then16.i, label %if.end9
 
-if.then16.i:                                      ; preds = %if.end.i
+if.then16.i:                                      ; preds = %if.end12.i
   tail call void @CRYPTO_free(ptr noundef nonnull %call.i, ptr noundef nonnull @.str, i32 noundef 68) #7
   br label %return
 
-if.end9:                                          ; preds = %if.end.i
+if.end9:                                          ; preds = %if.end12.i
   %string = getelementptr inbounds i8, ptr %call.i, i64 40
   store ptr %buf, ptr %string, align 8
   br label %return
@@ -617,22 +639,33 @@ if.end.i:                                         ; preds = %if.end
   %secure5.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 %call, ptr %secure5.i, align 4
   %cmp6.not.i = icmp eq i32 %call, 0
-  %bld.sink13.idx.i = select i1 %cmp6.not.i, i64 0, i64 8
-  %bld.sink13.i = getelementptr inbounds i8, ptr %bld, i64 %bld.sink13.idx.i
-  %0 = load i64, ptr %bld.sink13.i, align 8
-  %add11.i = add i64 %0, %call4.i
-  store i64 %add11.i, ptr %bld.sink13.i, align 8
+  br i1 %cmp6.not.i, label %if.else.i, label %if.then8.i
+
+if.then8.i:                                       ; preds = %if.end.i
+  %secure_blocks.i = getelementptr inbounds i8, ptr %bld, i64 8
+  %0 = load i64, ptr %secure_blocks.i, align 8
+  %add.i = add i64 %0, %call4.i
+  store i64 %add.i, ptr %secure_blocks.i, align 8
+  br label %if.end12.i
+
+if.else.i:                                        ; preds = %if.end.i
+  %1 = load i64, ptr %bld, align 8
+  %add11.i = add i64 %1, %call4.i
+  store i64 %add11.i, ptr %bld, align 8
+  br label %if.end12.i
+
+if.end12.i:                                       ; preds = %if.else.i, %if.then8.i
   %params.i = getelementptr inbounds i8, ptr %bld, i64 16
-  %1 = load ptr, ptr %params.i, align 8
-  %call.i.i = tail call i32 @OPENSSL_sk_push(ptr noundef %1, ptr noundef nonnull %call.i) #7
+  %2 = load ptr, ptr %params.i, align 8
+  %call.i.i = tail call i32 @OPENSSL_sk_push(ptr noundef %2, ptr noundef nonnull %call.i) #7
   %cmp14.i = icmp slt i32 %call.i.i, 1
   br i1 %cmp14.i, label %if.then16.i, label %if.end5
 
-if.then16.i:                                      ; preds = %if.end.i
+if.then16.i:                                      ; preds = %if.end12.i
   tail call void @CRYPTO_free(ptr noundef nonnull %call.i, ptr noundef nonnull @.str, i32 noundef 68) #7
   br label %return
 
-if.end5:                                          ; preds = %if.end.i
+if.end5:                                          ; preds = %if.end12.i
   %string = getelementptr inbounds i8, ptr %call.i, i64 40
   store ptr %buf, ptr %string, align 8
   br label %return

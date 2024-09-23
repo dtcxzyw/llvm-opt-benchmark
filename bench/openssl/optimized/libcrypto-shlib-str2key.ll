@@ -104,10 +104,16 @@ if.then:                                          ; preds = %for.body
 
 if.then7:                                         ; preds = %if.then
   %arrayidx11 = getelementptr inbounds [8 x i8], ptr %key1, i64 0, i64 %rem9
+  %2 = load i8, ptr %arrayidx11, align 1
+  %xor = xor i8 %2, %shl
+  store i8 %xor, ptr %arrayidx11, align 1
   br label %for.inc
 
 if.else:                                          ; preds = %if.then
   %arrayidx18 = getelementptr inbounds [8 x i8], ptr %key2, i64 0, i64 %rem9
+  %3 = load i8, ptr %arrayidx18, align 1
+  %xor20 = xor i8 %3, %shl
+  store i8 %xor20, ptr %arrayidx18, align 1
   br label %for.inc
 
 if.else22:                                        ; preds = %for.body
@@ -119,18 +125,19 @@ if.else22:                                        ; preds = %for.body
 
 if.then47:                                        ; preds = %if.else22
   %arrayidx51 = getelementptr inbounds [8 x i8], ptr %key1, i64 0, i64 %sub
+  %4 = load i8, ptr %arrayidx51, align 1
+  %xor5342 = xor i8 %4, %rev
+  store i8 %xor5342, ptr %arrayidx51, align 1
   br label %for.inc
 
 if.else55:                                        ; preds = %if.else22
   %arrayidx60 = getelementptr inbounds [8 x i8], ptr %key2, i64 0, i64 %sub
+  %5 = load i8, ptr %arrayidx60, align 1
+  %xor6241 = xor i8 %5, %rev
+  store i8 %xor6241, ptr %arrayidx60, align 1
   br label %for.inc
 
 for.inc:                                          ; preds = %if.else, %if.then7, %if.else55, %if.then47
-  %arrayidx18.sink47 = phi ptr [ %arrayidx18, %if.else ], [ %arrayidx11, %if.then7 ], [ %arrayidx60, %if.else55 ], [ %arrayidx51, %if.then47 ]
-  %shl.sink = phi i8 [ %shl, %if.else ], [ %shl, %if.then7 ], [ %rev, %if.else55 ], [ %rev, %if.then47 ]
-  %2 = load i8, ptr %arrayidx18.sink47, align 1
-  %xor20 = xor i8 %2, %shl.sink
-  store i8 %xor20, ptr %arrayidx18.sink47, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
@@ -140,8 +147,8 @@ for.end:                                          ; preds = %for.inc
   br i1 %cmp66, label %if.then68, label %if.end69
 
 if.then68:                                        ; preds = %entry, %for.end
-  %3 = load i64, ptr %key1, align 1
-  store i64 %3, ptr %key2, align 1
+  %6 = load i64, ptr %key1, align 1
+  store i64 %6, ptr %key2, align 1
   br label %if.end69
 
 if.end69:                                         ; preds = %if.then68, %for.end

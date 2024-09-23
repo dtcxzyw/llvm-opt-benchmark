@@ -2107,58 +2107,53 @@ define dso_local i32 @varstr_cmp(ptr noundef %0, i32 noundef %1, ptr noundef %2,
 
 check_collation_set.exit:                         ; preds = %5
   %11 = tail call zeroext i1 @lc_collate_is_c(i32 noundef %4) #19
-  br i1 %11, label %12, label %20
+  br i1 %11, label %12, label %18
 
 12:                                               ; preds = %check_collation_set.exit
   %13 = tail call i32 @llvm.smin.i32(i32 %1, i32 %3)
   %14 = sext i32 %13 to i64
   %15 = tail call i32 @memcmp(ptr noundef %0, ptr noundef %2, i64 noundef %14) #18
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %39
+  br i1 %16, label %17, label %35
 
 17:                                               ; preds = %12
-  %18 = icmp slt i32 %1, %3
-  %.not45 = icmp eq i32 %1, %3
-  %19 = select i1 %18, i32 -1, i32 1
-  %spec.select = select i1 %.not45, i32 0, i32 %19
-  br label %39
+  %spec.select = tail call i32 @llvm.scmp.i32.i32(i32 %1, i32 %3)
+  br label %35
 
-20:                                               ; preds = %check_collation_set.exit
-  %21 = tail call ptr @pg_newlocale_from_collation(i32 noundef %4) #19
-  %22 = icmp eq i32 %1, %3
-  %23 = sext i32 %1 to i64
-  br i1 %22, label %24, label %._crit_edge
+18:                                               ; preds = %check_collation_set.exit
+  %19 = tail call ptr @pg_newlocale_from_collation(i32 noundef %4) #19
+  %20 = icmp eq i32 %1, %3
+  %21 = sext i32 %1 to i64
+  br i1 %20, label %22, label %._crit_edge
 
-24:                                               ; preds = %20
-  %bcmp = tail call i32 @bcmp(ptr %0, ptr %2, i64 %23)
-  %25 = icmp eq i32 %bcmp, 0
-  br i1 %25, label %39, label %._crit_edge
+22:                                               ; preds = %18
+  %bcmp = tail call i32 @bcmp(ptr %0, ptr %2, i64 %21)
+  %23 = icmp eq i32 %bcmp, 0
+  br i1 %23, label %35, label %._crit_edge
 
-._crit_edge:                                      ; preds = %20, %24
-  %26 = sext i32 %3 to i64
-  %27 = tail call i32 @pg_strncoll(ptr noundef %0, i64 noundef %23, ptr noundef %2, i64 noundef %26, ptr noundef %21) #19
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %29, label %39
+._crit_edge:                                      ; preds = %18, %22
+  %24 = sext i32 %3 to i64
+  %25 = tail call i32 @pg_strncoll(ptr noundef %0, i64 noundef %21, ptr noundef %2, i64 noundef %24, ptr noundef %19) #19
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %27, label %35
 
-29:                                               ; preds = %._crit_edge
-  %30 = tail call zeroext i1 @pg_locale_deterministic(ptr noundef %21) #19
-  br i1 %30, label %31, label %39
+27:                                               ; preds = %._crit_edge
+  %28 = tail call zeroext i1 @pg_locale_deterministic(ptr noundef %19) #19
+  br i1 %28, label %29, label %35
 
-31:                                               ; preds = %29
-  %32 = tail call i32 @llvm.smin.i32(i32 %1, i32 %3)
-  %33 = sext i32 %32 to i64
-  %34 = tail call i32 @memcmp(ptr noundef %0, ptr noundef %2, i64 noundef %33) #18
-  %35 = icmp eq i32 %34, 0
-  br i1 %35, label %36, label %39
+29:                                               ; preds = %27
+  %30 = tail call i32 @llvm.smin.i32(i32 %1, i32 %3)
+  %31 = sext i32 %30 to i64
+  %32 = tail call i32 @memcmp(ptr noundef %0, ptr noundef %2, i64 noundef %31) #18
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %34, label %35
 
-36:                                               ; preds = %31
-  %37 = icmp slt i32 %1, %3
-  %38 = select i1 %37, i32 -1, i32 1
-  %spec.select46 = select i1 %22, i32 0, i32 %38
-  br label %39
+34:                                               ; preds = %29
+  %spec.select46 = tail call i32 @llvm.scmp.i32.i32(i32 %1, i32 %3)
+  br label %35
 
-39:                                               ; preds = %36, %17, %12, %31, %29, %._crit_edge, %24
-  %.0 = phi i32 [ 0, %24 ], [ %15, %12 ], [ %34, %31 ], [ 0, %29 ], [ %27, %._crit_edge ], [ %spec.select, %17 ], [ %spec.select46, %36 ]
+35:                                               ; preds = %34, %17, %12, %29, %27, %._crit_edge, %22
+  %.0 = phi i32 [ 0, %22 ], [ %15, %12 ], [ %32, %29 ], [ 0, %27 ], [ %25, %._crit_edge ], [ %spec.select, %17 ], [ %spec.select46, %34 ]
   ret i32 %.0
 }
 
@@ -3457,10 +3452,7 @@ define internal i32 @bpcharfastcmp_c(i64 noundef %0, i64 noundef %1, ptr nocaptu
 
 70:                                               ; preds = %69, %67
   %71 = icmp eq i32 %64, 0
-  %.not48 = icmp eq i32 %38, %61
-  %72 = icmp slt i32 %38, %61
-  %73 = select i1 %72, i32 -1, i32 1
-  %spec.select = select i1 %.not48, i32 0, i32 %73
+  %spec.select = tail call i32 @llvm.scmp.i32.i32(i32 %38, i32 %61)
   %.0 = select i1 %71, i32 %spec.select, i32 %64
   ret i32 %.0
 }
@@ -3577,10 +3569,7 @@ define internal i32 @varstrfastcmp_c(i64 noundef %0, i64 noundef %1, ptr nocaptu
 
 67:                                               ; preds = %66, %64
   %68 = icmp eq i32 %61, 0
-  %.not46 = icmp eq i32 %37, %58
-  %69 = icmp slt i32 %37, %58
-  %70 = select i1 %69, i32 -1, i32 1
-  %spec.select = select i1 %.not46, i32 0, i32 %70
+  %spec.select = tail call i32 @llvm.scmp.i32.i32(i32 %37, i32 %58)
   %.0 = select i1 %68, i32 %spec.select, i32 %61
   ret i32 %.0
 }
@@ -7265,13 +7254,10 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @byteacmp(ptr nocapture 
 
 70:                                               ; preds = %66, %69
   %71 = icmp eq i32 %62, 0
-  %.not48 = icmp eq i32 %32, %55
-  %72 = icmp slt i32 %32, %55
-  %73 = select i1 %72, i32 -1, i32 1
-  %spec.select = select i1 %.not48, i32 0, i32 %73
+  %spec.select = tail call i32 @llvm.scmp.i32.i32(i32 %32, i32 %55)
   %.0 = select i1 %71, i32 %spec.select, i32 %62
-  %74 = sext i32 %.0 to i64
-  ret i64 %74
+  %72 = sext i32 %.0 to i64
+  ret i64 %72
 }
 
 ; Function Attrs: nounwind uwtable
@@ -14351,6 +14337,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #14

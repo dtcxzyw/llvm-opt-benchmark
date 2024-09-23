@@ -1307,13 +1307,13 @@ define ptr @Fraig_NodeRecognizeMux(ptr nocapture noundef readonly %0, ptr nocapt
   %19 = xor i64 %18, 1
   %20 = inttoptr i64 %19 to ptr
   %21 = icmp eq ptr %15, %20
-  br i1 %21, label %22, label %39
+  br i1 %21, label %22, label %49
 
 22:                                               ; preds = %3
   %23 = ptrtoint ptr %15 to i64
   %24 = and i64 %23, 1
   %.not62 = icmp eq i64 %24, 0
-  br i1 %.not62, label %32, label %25
+  br i1 %.not62, label %37, label %25
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds i8, ptr %13, i64 40
@@ -1323,102 +1323,139 @@ define ptr @Fraig_NodeRecognizeMux(ptr nocapture noundef readonly %0, ptr nocapt
   %30 = inttoptr i64 %29 to ptr
   store ptr %30, ptr %1, align 8
   %31 = getelementptr inbounds i8, ptr %8, i64 40
-  br label %.sink.split
+  %32 = load ptr, ptr %31, align 8
+  %33 = ptrtoint ptr %32 to i64
+  %34 = xor i64 %33, 1
+  %35 = inttoptr i64 %34 to ptr
+  store ptr %35, ptr %2, align 8
+  %36 = load ptr, ptr %16, align 8
+  br label %117
 
-32:                                               ; preds = %22
-  %33 = getelementptr inbounds i8, ptr %8, i64 40
-  %34 = load ptr, ptr %33, align 8
-  %35 = ptrtoint ptr %34 to i64
-  %36 = xor i64 %35, 1
-  %37 = inttoptr i64 %36 to ptr
-  store ptr %37, ptr %1, align 8
-  %38 = getelementptr inbounds i8, ptr %13, i64 40
-  br label %.sink.split
+37:                                               ; preds = %22
+  %38 = getelementptr inbounds i8, ptr %8, i64 40
+  %39 = load ptr, ptr %38, align 8
+  %40 = ptrtoint ptr %39 to i64
+  %41 = xor i64 %40, 1
+  %42 = inttoptr i64 %41 to ptr
+  store ptr %42, ptr %1, align 8
+  %43 = getelementptr inbounds i8, ptr %13, i64 40
+  %44 = load ptr, ptr %43, align 8
+  %45 = ptrtoint ptr %44 to i64
+  %46 = xor i64 %45, 1
+  %47 = inttoptr i64 %46 to ptr
+  store ptr %47, ptr %2, align 8
+  %48 = load ptr, ptr %14, align 8
+  br label %117
 
-39:                                               ; preds = %3
-  %40 = getelementptr inbounds i8, ptr %13, i64 40
-  %41 = load ptr, ptr %40, align 8
-  %42 = ptrtoint ptr %41 to i64
-  %43 = xor i64 %42, 1
-  %44 = inttoptr i64 %43 to ptr
-  %45 = icmp eq ptr %15, %44
-  br i1 %45, label %46, label %57
+49:                                               ; preds = %3
+  %50 = getelementptr inbounds i8, ptr %13, i64 40
+  %51 = load ptr, ptr %50, align 8
+  %52 = ptrtoint ptr %51 to i64
+  %53 = xor i64 %52, 1
+  %54 = inttoptr i64 %53 to ptr
+  %55 = icmp eq ptr %15, %54
+  br i1 %55, label %56, label %77
 
-46:                                               ; preds = %39
-  %47 = ptrtoint ptr %15 to i64
-  %48 = and i64 %47, 1
-  %.not61 = icmp eq i64 %48, 0
-  br i1 %.not61, label %51, label %49
+56:                                               ; preds = %49
+  %57 = ptrtoint ptr %15 to i64
+  %58 = and i64 %57, 1
+  %.not61 = icmp eq i64 %58, 0
+  br i1 %.not61, label %66, label %59
 
-49:                                               ; preds = %46
+59:                                               ; preds = %56
   store ptr %20, ptr %1, align 8
-  %50 = getelementptr inbounds i8, ptr %8, i64 40
-  br label %.sink.split
+  %60 = getelementptr inbounds i8, ptr %8, i64 40
+  %61 = load ptr, ptr %60, align 8
+  %62 = ptrtoint ptr %61 to i64
+  %63 = xor i64 %62, 1
+  %64 = inttoptr i64 %63 to ptr
+  store ptr %64, ptr %2, align 8
+  %65 = load ptr, ptr %50, align 8
+  br label %117
 
-51:                                               ; preds = %46
-  %52 = getelementptr inbounds i8, ptr %8, i64 40
-  %53 = load ptr, ptr %52, align 8
-  %54 = ptrtoint ptr %53 to i64
-  %55 = xor i64 %54, 1
-  %56 = inttoptr i64 %55 to ptr
-  store ptr %56, ptr %1, align 8
-  br label %.sink.split
+66:                                               ; preds = %56
+  %67 = getelementptr inbounds i8, ptr %8, i64 40
+  %68 = load ptr, ptr %67, align 8
+  %69 = ptrtoint ptr %68 to i64
+  %70 = xor i64 %69, 1
+  %71 = inttoptr i64 %70 to ptr
+  store ptr %71, ptr %1, align 8
+  %72 = load ptr, ptr %16, align 8
+  %73 = ptrtoint ptr %72 to i64
+  %74 = xor i64 %73, 1
+  %75 = inttoptr i64 %74 to ptr
+  store ptr %75, ptr %2, align 8
+  %76 = load ptr, ptr %14, align 8
+  br label %117
 
-57:                                               ; preds = %39
-  %58 = getelementptr inbounds i8, ptr %8, i64 40
-  %59 = load ptr, ptr %58, align 8
-  %60 = icmp eq ptr %59, %20
-  br i1 %60, label %61, label %68
+77:                                               ; preds = %49
+  %78 = getelementptr inbounds i8, ptr %8, i64 40
+  %79 = load ptr, ptr %78, align 8
+  %80 = icmp eq ptr %79, %20
+  br i1 %80, label %81, label %98
 
-61:                                               ; preds = %57
-  %62 = and i64 %18, 1
-  %.not60.not = icmp eq i64 %62, 0
-  br i1 %.not60.not, label %63, label %64
+81:                                               ; preds = %77
+  %82 = and i64 %18, 1
+  %.not60.not = icmp eq i64 %82, 0
+  br i1 %.not60.not, label %83, label %89
 
-63:                                               ; preds = %61
-  store ptr %44, ptr %1, align 8
-  br label %.sink.split
+83:                                               ; preds = %81
+  store ptr %54, ptr %1, align 8
+  %84 = load ptr, ptr %14, align 8
+  %85 = ptrtoint ptr %84 to i64
+  %86 = xor i64 %85, 1
+  %87 = inttoptr i64 %86 to ptr
+  store ptr %87, ptr %2, align 8
+  %88 = load ptr, ptr %16, align 8
+  br label %117
 
-64:                                               ; preds = %61
-  %65 = ptrtoint ptr %15 to i64
-  %66 = xor i64 %65, 1
-  %67 = inttoptr i64 %66 to ptr
-  store ptr %67, ptr %1, align 8
-  br label %.sink.split
+89:                                               ; preds = %81
+  %90 = ptrtoint ptr %15 to i64
+  %91 = xor i64 %90, 1
+  %92 = inttoptr i64 %91 to ptr
+  store ptr %92, ptr %1, align 8
+  %93 = load ptr, ptr %50, align 8
+  %94 = ptrtoint ptr %93 to i64
+  %95 = xor i64 %94, 1
+  %96 = inttoptr i64 %95 to ptr
+  store ptr %96, ptr %2, align 8
+  %97 = load ptr, ptr %78, align 8
+  br label %117
 
-68:                                               ; preds = %57
-  %69 = icmp eq ptr %59, %44
-  br i1 %69, label %70, label %82
+98:                                               ; preds = %77
+  %99 = icmp eq ptr %79, %54
+  br i1 %99, label %100, label %117
 
-70:                                               ; preds = %68
-  %71 = and i64 %42, 1
-  %.not.not = icmp eq i64 %71, 0
-  br i1 %.not.not, label %72, label %73
+100:                                              ; preds = %98
+  %101 = and i64 %52, 1
+  %.not.not = icmp eq i64 %101, 0
+  br i1 %.not.not, label %102, label %108
 
-72:                                               ; preds = %70
+102:                                              ; preds = %100
   store ptr %20, ptr %1, align 8
-  br label %.sink.split
+  %103 = load ptr, ptr %14, align 8
+  %104 = ptrtoint ptr %103 to i64
+  %105 = xor i64 %104, 1
+  %106 = inttoptr i64 %105 to ptr
+  store ptr %106, ptr %2, align 8
+  %107 = load ptr, ptr %50, align 8
+  br label %117
 
-73:                                               ; preds = %70
-  %74 = ptrtoint ptr %15 to i64
-  %75 = xor i64 %74, 1
-  %76 = inttoptr i64 %75 to ptr
-  store ptr %76, ptr %1, align 8
-  br label %.sink.split
+108:                                              ; preds = %100
+  %109 = ptrtoint ptr %15 to i64
+  %110 = xor i64 %109, 1
+  %111 = inttoptr i64 %110 to ptr
+  store ptr %111, ptr %1, align 8
+  %112 = load ptr, ptr %16, align 8
+  %113 = ptrtoint ptr %112 to i64
+  %114 = xor i64 %113, 1
+  %115 = inttoptr i64 %114 to ptr
+  store ptr %115, ptr %2, align 8
+  %116 = load ptr, ptr %78, align 8
+  br label %117
 
-.sink.split:                                      ; preds = %25, %32, %49, %51, %63, %64, %72, %73
-  %.sink67 = phi ptr [ %16, %73 ], [ %14, %72 ], [ %40, %64 ], [ %14, %63 ], [ %16, %51 ], [ %50, %49 ], [ %38, %32 ], [ %31, %25 ]
-  %.sink = phi ptr [ %58, %73 ], [ %40, %72 ], [ %58, %64 ], [ %16, %63 ], [ %14, %51 ], [ %40, %49 ], [ %14, %32 ], [ %16, %25 ]
-  %77 = load ptr, ptr %.sink67, align 8
-  %78 = ptrtoint ptr %77 to i64
-  %79 = xor i64 %78, 1
-  %80 = inttoptr i64 %79 to ptr
-  store ptr %80, ptr %2, align 8
-  %81 = load ptr, ptr %.sink, align 8
-  br label %82
-
-82:                                               ; preds = %.sink.split, %68
-  %.0 = phi ptr [ null, %68 ], [ %81, %.sink.split ]
+117:                                              ; preds = %98, %108, %102, %89, %83, %66, %59, %37, %25
+  %.0 = phi ptr [ %36, %25 ], [ %48, %37 ], [ %65, %59 ], [ %76, %66 ], [ %88, %83 ], [ %97, %89 ], [ %107, %102 ], [ %116, %108 ], [ null, %98 ]
   ret ptr %.0
 }
 

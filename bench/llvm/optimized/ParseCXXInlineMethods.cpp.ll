@@ -912,7 +912,8 @@ define dso_local noundef ptr @_ZN5clang6Parser23ParseCXXInlineMethodDefENS_15Acc
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 4808
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %47, align 8
   tail call void @_ZN5clang4Sema21PopParsingDeclarationENS0_23DelayedDiagnosticsStateEPNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(17560) %46, ptr %.sroa.0.0.copyload.i.i.i, ptr noundef null) #14
-  br label %_ZN5clang17ParsingDeclarator8completeEPNS_4DeclE.exit.sink.split
+  store i8 1, ptr %41, align 8
+  br label %_ZN5clang17ParsingDeclarator8completeEPNS_4DeclE.exit
 
 .split77:                                         ; preds = %32, %37, %39
   %.075149 = phi ptr [ %40, %39 ], [ %31, %37 ], [ %31, %32 ]
@@ -928,18 +929,12 @@ define dso_local noundef ptr @_ZN5clang6Parser23ParseCXXInlineMethodDefENS_15Acc
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 4808
   %.sroa.0.0.copyload.i.i.i99 = load ptr, ptr %54, align 8
   call void @_ZN5clang4Sema21PopParsingDeclarationENS0_23DelayedDiagnosticsStateEPNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(17560) %53, ptr %.sroa.0.0.copyload.i.i.i99, ptr noundef nonnull %.075149) #14
-  br label %_ZN5clang17ParsingDeclarator8completeEPNS_4DeclE.exit.sink.split
-
-_ZN5clang17ParsingDeclarator8completeEPNS_4DeclE.exit.sink.split: ; preds = %44, %51
-  %.sink = phi ptr [ %48, %51 ], [ %41, %44 ]
-  %.not89150.ph = phi i1 [ false, %51 ], [ true, %44 ]
-  %.075148.ph = phi ptr [ %.075149, %51 ], [ null, %44 ]
-  store i8 1, ptr %.sink, align 8
+  store i8 1, ptr %48, align 8
   br label %_ZN5clang17ParsingDeclarator8completeEPNS_4DeclE.exit
 
-_ZN5clang17ParsingDeclarator8completeEPNS_4DeclE.exit: ; preds = %_ZN5clang17ParsingDeclarator8completeEPNS_4DeclE.exit.sink.split, %.split77, %.split
-  %.not89150 = phi i1 [ true, %.split ], [ false, %.split77 ], [ %.not89150.ph, %_ZN5clang17ParsingDeclarator8completeEPNS_4DeclE.exit.sink.split ]
-  %.075148 = phi ptr [ null, %.split ], [ %.075149, %.split77 ], [ %.075148.ph, %_ZN5clang17ParsingDeclarator8completeEPNS_4DeclE.exit.sink.split ]
+_ZN5clang17ParsingDeclarator8completeEPNS_4DeclE.exit: ; preds = %51, %.split77, %44, %.split
+  %.not89150 = phi i1 [ true, %.split ], [ true, %44 ], [ false, %.split77 ], [ false, %51 ]
+  %.075148 = phi ptr [ null, %.split ], [ null, %44 ], [ %.075149, %.split77 ], [ %.075149, %51 ]
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %56 = load i16, ptr %55, align 8
   %.not.i = icmp eq i16 %56, 64

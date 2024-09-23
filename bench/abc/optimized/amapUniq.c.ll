@@ -1039,16 +1039,16 @@ Vec_IntGrow.exit.i110:                            ; preds = %255, %244, %Vec_Int
   br label %Vec_IntPushOrderWithMask.exit
 
 Vec_IntPushOrderWithMask.exit:                    ; preds = %155, %81, %269, %195, %._crit_edge.loopexit.split.loop.exit.i115, %Vec_IntGrow.exit.i110, %._crit_edge.loopexit.split.loop.exit.i93, %Vec_IntGrow.exit.i88, %._crit_edge.loopexit.split.loop.exit.i82, %Vec_IntGrow.exit.i77, %._crit_edge.loopexit.split.loop.exit.i, %Vec_IntGrow.exit.i
-  %.sink142 = phi ptr [ %71, %Vec_IntGrow.exit.i ], [ %71, %._crit_edge.loopexit.split.loop.exit.i ], [ %145, %Vec_IntGrow.exit.i77 ], [ %145, %._crit_edge.loopexit.split.loop.exit.i82 ], [ %185, %Vec_IntGrow.exit.i88 ], [ %185, %._crit_edge.loopexit.split.loop.exit.i93 ], [ %259, %Vec_IntGrow.exit.i110 ], [ %259, %._crit_edge.loopexit.split.loop.exit.i115 ], [ %185, %195 ], [ %259, %269 ], [ %71, %81 ], [ %145, %155 ]
   %.0.in.lcssa.i89.sink = phi i32 [ %69, %Vec_IntGrow.exit.i ], [ %84, %._crit_edge.loopexit.split.loop.exit.i ], [ %143, %Vec_IntGrow.exit.i77 ], [ %158, %._crit_edge.loopexit.split.loop.exit.i82 ], [ %183, %Vec_IntGrow.exit.i88 ], [ %198, %._crit_edge.loopexit.split.loop.exit.i93 ], [ %257, %Vec_IntGrow.exit.i110 ], [ %272, %._crit_edge.loopexit.split.loop.exit.i115 ], [ 0, %195 ], [ 0, %269 ], [ 0, %81 ], [ 0, %155 ]
+  %.sink140.in = phi ptr [ %71, %Vec_IntGrow.exit.i ], [ %71, %._crit_edge.loopexit.split.loop.exit.i ], [ %145, %Vec_IntGrow.exit.i77 ], [ %145, %._crit_edge.loopexit.split.loop.exit.i82 ], [ %185, %Vec_IntGrow.exit.i88 ], [ %185, %._crit_edge.loopexit.split.loop.exit.i93 ], [ %259, %Vec_IntGrow.exit.i110 ], [ %259, %._crit_edge.loopexit.split.loop.exit.i115 ], [ %185, %195 ], [ %259, %269 ], [ %71, %81 ], [ %145, %155 ]
   %.sink = phi i32 [ %44, %Vec_IntGrow.exit.i ], [ %44, %._crit_edge.loopexit.split.loop.exit.i ], [ %125, %Vec_IntGrow.exit.i77 ], [ %125, %._crit_edge.loopexit.split.loop.exit.i82 ], [ %44, %Vec_IntGrow.exit.i88 ], [ %44, %._crit_edge.loopexit.split.loop.exit.i93 ], [ %239, %Vec_IntGrow.exit.i110 ], [ %239, %._crit_edge.loopexit.split.loop.exit.i115 ], [ %44, %195 ], [ %239, %269 ], [ %44, %81 ], [ %125, %155 ]
-  %273 = load ptr, ptr %.sink142, align 8
-  %274 = sext i32 %.0.in.lcssa.i89.sink to i64
-  %275 = getelementptr inbounds i32, ptr %273, i64 %274
-  store i32 %.sink, ptr %275, align 4
-  %276 = load i32, ptr %5, align 8
-  %277 = and i32 %276, 65535
-  ret i32 %277
+  %.sink140 = load ptr, ptr %.sink140.in, align 8
+  %273 = sext i32 %.0.in.lcssa.i89.sink to i64
+  %274 = getelementptr inbounds i32, ptr %.sink140, i64 %273
+  store i32 %.sink, ptr %274, align 4
+  %275 = load i32, ptr %5, align 8
+  %276 = and i32 %275, 65535
+  ret i32 %276
 }
 
 ; Function Attrs: nofree nounwind

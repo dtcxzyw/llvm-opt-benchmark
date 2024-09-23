@@ -307,8 +307,8 @@ define dso_local void @InitProcGlobal() local_unnamed_addr #0 {
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph133
 
-.lr.ph133:                                        ; preds = %.loopexit, %168
-  %.0132 = phi i32 [ %174, %168 ], [ 0, %.loopexit ]
+.lr.ph133:                                        ; preds = %.loopexit, %177
+  %.0132 = phi i32 [ %183, %177 ], [ 0, %.loopexit ]
   %104 = sext i32 %.0132 to i64
   %105 = getelementptr %struct.PGPROC, ptr %22, i64 %104
   %106 = load i32, ptr @MaxBackends, align 4
@@ -329,7 +329,7 @@ define dso_local void @InitProcGlobal() local_unnamed_addr #0 {
 114:                                              ; preds = %109, %.lr.ph133
   %115 = load i32, ptr @MaxConnections, align 4
   %116 = icmp slt i32 %.0132, %115
-  br i1 %116, label %117, label %124
+  br i1 %116, label %117, label %127
 
 117:                                              ; preds = %114
   %118 = load ptr, ptr @ProcGlobal, align 8
@@ -337,129 +337,161 @@ define dso_local void @InitProcGlobal() local_unnamed_addr #0 {
   %120 = getelementptr inbounds i8, ptr %118, i64 48
   %121 = load ptr, ptr %120, align 8
   %122 = icmp eq ptr %121, null
-  br i1 %122, label %123, label %.sink.split
+  br i1 %122, label %123, label %dlist_push_tail.exit
 
 123:                                              ; preds = %117
   store ptr %119, ptr %119, align 8
   store ptr %119, ptr %120, align 8
+  br label %dlist_push_tail.exit
+
+dlist_push_tail.exit:                             ; preds = %117, %123
+  %124 = getelementptr inbounds i8, ptr %105, i64 8
+  store ptr %119, ptr %124, align 8
+  %125 = load ptr, ptr %119, align 8
+  store ptr %125, ptr %105, align 8
+  %126 = getelementptr inbounds i8, ptr %125, i64 8
+  store ptr %105, ptr %126, align 8
+  store ptr %105, ptr %119, align 8
   br label %.sink.split
 
-124:                                              ; preds = %114
-  %125 = load i32, ptr @autovacuum_max_workers, align 4
-  %126 = add i32 %115, 1
-  %127 = add i32 %126, %125
-  %128 = icmp slt i32 %.0132, %127
-  br i1 %128, label %129, label %136
+127:                                              ; preds = %114
+  %128 = load i32, ptr @autovacuum_max_workers, align 4
+  %129 = add i32 %115, 1
+  %130 = add i32 %129, %128
+  %131 = icmp slt i32 %.0132, %130
+  br i1 %131, label %132, label %142
 
-129:                                              ; preds = %124
-  %130 = load ptr, ptr @ProcGlobal, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 56
-  %132 = getelementptr inbounds i8, ptr %130, i64 64
-  %133 = load ptr, ptr %132, align 8
-  %134 = icmp eq ptr %133, null
-  br i1 %134, label %135, label %.sink.split
+132:                                              ; preds = %127
+  %133 = load ptr, ptr @ProcGlobal, align 8
+  %134 = getelementptr inbounds i8, ptr %133, i64 56
+  %135 = getelementptr inbounds i8, ptr %133, i64 64
+  %136 = load ptr, ptr %135, align 8
+  %137 = icmp eq ptr %136, null
+  br i1 %137, label %138, label %dlist_push_tail.exit118
 
-135:                                              ; preds = %129
-  store ptr %131, ptr %131, align 8
-  store ptr %131, ptr %132, align 8
+138:                                              ; preds = %132
+  store ptr %134, ptr %134, align 8
+  store ptr %134, ptr %135, align 8
+  br label %dlist_push_tail.exit118
+
+dlist_push_tail.exit118:                          ; preds = %132, %138
+  %139 = getelementptr inbounds i8, ptr %105, i64 8
+  store ptr %134, ptr %139, align 8
+  %140 = load ptr, ptr %134, align 8
+  store ptr %140, ptr %105, align 8
+  %141 = getelementptr inbounds i8, ptr %140, i64 8
+  store ptr %105, ptr %141, align 8
+  store ptr %105, ptr %134, align 8
   br label %.sink.split
 
-136:                                              ; preds = %124
-  %137 = load i32, ptr @max_worker_processes, align 4
-  %138 = add i32 %137, %127
-  %139 = icmp slt i32 %.0132, %138
-  br i1 %139, label %140, label %147
+142:                                              ; preds = %127
+  %143 = load i32, ptr @max_worker_processes, align 4
+  %144 = add i32 %143, %130
+  %145 = icmp slt i32 %.0132, %144
+  br i1 %145, label %146, label %156
 
-140:                                              ; preds = %136
-  %141 = load ptr, ptr @ProcGlobal, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 72
-  %143 = getelementptr inbounds i8, ptr %141, i64 80
-  %144 = load ptr, ptr %143, align 8
-  %145 = icmp eq ptr %144, null
-  br i1 %145, label %146, label %.sink.split
+146:                                              ; preds = %142
+  %147 = load ptr, ptr @ProcGlobal, align 8
+  %148 = getelementptr inbounds i8, ptr %147, i64 72
+  %149 = getelementptr inbounds i8, ptr %147, i64 80
+  %150 = load ptr, ptr %149, align 8
+  %151 = icmp eq ptr %150, null
+  br i1 %151, label %152, label %dlist_push_tail.exit119
 
-146:                                              ; preds = %140
-  store ptr %142, ptr %142, align 8
-  store ptr %142, ptr %143, align 8
+152:                                              ; preds = %146
+  store ptr %148, ptr %148, align 8
+  store ptr %148, ptr %149, align 8
+  br label %dlist_push_tail.exit119
+
+dlist_push_tail.exit119:                          ; preds = %146, %152
+  %153 = getelementptr inbounds i8, ptr %105, i64 8
+  store ptr %148, ptr %153, align 8
+  %154 = load ptr, ptr %148, align 8
+  store ptr %154, ptr %105, align 8
+  %155 = getelementptr inbounds i8, ptr %154, i64 8
+  store ptr %105, ptr %155, align 8
+  store ptr %105, ptr %148, align 8
   br label %.sink.split
 
-147:                                              ; preds = %136
-  %148 = load i32, ptr @MaxBackends, align 4
-  %149 = icmp slt i32 %.0132, %148
-  br i1 %149, label %150, label %163
+156:                                              ; preds = %142
+  %157 = load i32, ptr @MaxBackends, align 4
+  %158 = icmp slt i32 %.0132, %157
+  br i1 %158, label %159, label %172
 
-150:                                              ; preds = %147
-  %151 = load ptr, ptr @ProcGlobal, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 88
-  %153 = getelementptr inbounds i8, ptr %151, i64 96
-  %154 = load ptr, ptr %153, align 8
-  %155 = icmp eq ptr %154, null
-  br i1 %155, label %156, label %.sink.split
-
-156:                                              ; preds = %150
-  store ptr %152, ptr %152, align 8
-  store ptr %152, ptr %153, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %156, %150, %146, %140, %135, %129, %123, %117
-  %.sink146 = phi ptr [ %119, %117 ], [ %119, %123 ], [ %131, %129 ], [ %131, %135 ], [ %142, %140 ], [ %142, %146 ], [ %152, %150 ], [ %152, %156 ]
-  %.sink141 = phi i64 [ 40, %117 ], [ 40, %123 ], [ 56, %129 ], [ 56, %135 ], [ 72, %140 ], [ 72, %146 ], [ 88, %150 ], [ 88, %156 ]
-  %157 = getelementptr inbounds i8, ptr %105, i64 8
-  store ptr %.sink146, ptr %157, align 8
-  %158 = load ptr, ptr %.sink146, align 8
-  store ptr %158, ptr %105, align 8
-  %159 = getelementptr inbounds i8, ptr %158, i64 8
-  store ptr %105, ptr %159, align 8
-  store ptr %105, ptr %.sink146, align 8
+159:                                              ; preds = %156
   %160 = load ptr, ptr @ProcGlobal, align 8
-  %161 = getelementptr inbounds i8, ptr %160, i64 %.sink141
-  %162 = getelementptr inbounds i8, ptr %105, i64 16
+  %161 = getelementptr inbounds i8, ptr %160, i64 88
+  %162 = getelementptr inbounds i8, ptr %160, i64 96
+  %163 = load ptr, ptr %162, align 8
+  %164 = icmp eq ptr %163, null
+  br i1 %164, label %165, label %dlist_push_tail.exit120
+
+165:                                              ; preds = %159
+  store ptr %161, ptr %161, align 8
   store ptr %161, ptr %162, align 8
-  br label %163
+  br label %dlist_push_tail.exit120
 
-163:                                              ; preds = %.sink.split, %147
-  %164 = getelementptr inbounds i8, ptr %105, i64 184
-  br label %165
+dlist_push_tail.exit120:                          ; preds = %159, %165
+  %166 = getelementptr inbounds i8, ptr %105, i64 8
+  store ptr %161, ptr %166, align 8
+  %167 = load ptr, ptr %161, align 8
+  store ptr %167, ptr %105, align 8
+  %168 = getelementptr inbounds i8, ptr %167, i64 8
+  store ptr %105, ptr %168, align 8
+  store ptr %105, ptr %161, align 8
+  br label %.sink.split
 
-165:                                              ; preds = %163, %165
-  %indvars.iv = phi i64 [ 0, %163 ], [ %indvars.iv.next, %165 ]
-  %166 = getelementptr [16 x %struct.dlist_head], ptr %164, i64 0, i64 %indvars.iv
-  store ptr %166, ptr %166, align 8
-  %167 = getelementptr inbounds i8, ptr %166, i64 8
-  store ptr %166, ptr %167, align 8
+.sink.split:                                      ; preds = %dlist_push_tail.exit, %dlist_push_tail.exit119, %dlist_push_tail.exit120, %dlist_push_tail.exit118
+  %.sink141 = phi i64 [ 56, %dlist_push_tail.exit118 ], [ 88, %dlist_push_tail.exit120 ], [ 72, %dlist_push_tail.exit119 ], [ 40, %dlist_push_tail.exit ]
+  %169 = load ptr, ptr @ProcGlobal, align 8
+  %170 = getelementptr inbounds i8, ptr %169, i64 %.sink141
+  %171 = getelementptr inbounds i8, ptr %105, i64 16
+  store ptr %170, ptr %171, align 8
+  br label %172
+
+172:                                              ; preds = %.sink.split, %156
+  %173 = getelementptr inbounds i8, ptr %105, i64 184
+  br label %174
+
+174:                                              ; preds = %172, %174
+  %indvars.iv = phi i64 [ 0, %172 ], [ %indvars.iv.next, %174 ]
+  %175 = getelementptr [16 x %struct.dlist_head], ptr %173, i64 0, i64 %indvars.iv
+  store ptr %175, ptr %175, align 8
+  %176 = getelementptr inbounds i8, ptr %175, i64 8
+  store ptr %175, ptr %176, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %168, label %165, !llvm.loop !5
+  br i1 %exitcond.not, label %177, label %174, !llvm.loop !5
 
-168:                                              ; preds = %165
-  %169 = getelementptr inbounds i8, ptr %105, i64 856
-  store ptr %169, ptr %169, align 8
-  %170 = getelementptr inbounds i8, ptr %105, i64 864
-  store ptr %169, ptr %170, align 8
-  %171 = getelementptr inbounds i8, ptr %105, i64 704
-  store volatile i32 -1, ptr %171, align 4
-  %172 = getelementptr inbounds i8, ptr %105, i64 720
-  store volatile i32 -1, ptr %172, align 4
-  %173 = getelementptr inbounds i8, ptr %105, i64 136
-  store volatile i64 0, ptr %173, align 8
-  %174 = add nuw i32 %.0132, 1
-  %exitcond138.not = icmp eq i32 %174, %5
+177:                                              ; preds = %174
+  %178 = getelementptr inbounds i8, ptr %105, i64 856
+  store ptr %178, ptr %178, align 8
+  %179 = getelementptr inbounds i8, ptr %105, i64 864
+  store ptr %178, ptr %179, align 8
+  %180 = getelementptr inbounds i8, ptr %105, i64 704
+  store volatile i32 -1, ptr %180, align 4
+  %181 = getelementptr inbounds i8, ptr %105, i64 720
+  store volatile i32 -1, ptr %181, align 4
+  %182 = getelementptr inbounds i8, ptr %105, i64 136
+  store volatile i64 0, ptr %182, align 8
+  %183 = add nuw i32 %.0132, 1
+  %exitcond138.not = icmp eq i32 %183, %5
   br i1 %exitcond138.not, label %._crit_edge, label %.lr.ph133, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %168, %.loopexit
-  %175 = load i32, ptr @MaxBackends, align 4
-  %176 = sext i32 %175 to i64
-  %177 = getelementptr %struct.PGPROC, ptr %22, i64 %176
-  store ptr %177, ptr @AuxiliaryProcs, align 8
-  %178 = add i32 %175, 6
-  %179 = sext i32 %178 to i64
-  %180 = getelementptr %struct.PGPROC, ptr %22, i64 %179
-  store ptr %180, ptr @PreparedXactProcs, align 8
-  %181 = call ptr @ShmemAlloc(i64 noundef 1) #13
-  store ptr %181, ptr @ProcStructLock, align 8
+._crit_edge:                                      ; preds = %177, %.loopexit
+  %184 = load i32, ptr @MaxBackends, align 4
+  %185 = sext i32 %184 to i64
+  %186 = getelementptr %struct.PGPROC, ptr %22, i64 %185
+  store ptr %186, ptr @AuxiliaryProcs, align 8
+  %187 = add i32 %184, 6
+  %188 = sext i32 %187 to i64
+  %189 = getelementptr %struct.PGPROC, ptr %22, i64 %188
+  store ptr %189, ptr @PreparedXactProcs, align 8
+  %190 = call ptr @ShmemAlloc(i64 noundef 1) #13
+  store ptr %190, ptr @ProcStructLock, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
-  %182 = load ptr, ptr @ProcStructLock, align 8
-  store i8 0, ptr %182, align 1
+  %191 = load ptr, ptr @ProcStructLock, align 8
+  store i8 0, ptr %191, align 1
   ret void
 }
 
@@ -1511,7 +1543,7 @@ define dso_local i32 @ProcSleep(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 90:                                               ; preds = %88
   tail call void @GrantLock(ptr noundef %17, ptr noundef %19, i32 noundef %15) #13
   tail call void @GrantAwaitedLock() #13
-  br label %375
+  br label %377
 
 91:                                               ; preds = %70
   %92 = shl nuw i32 1, %73
@@ -1535,561 +1567,563 @@ define dso_local i32 @ProcSleep(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   %101 = load ptr, ptr %98, align 8
   %102 = getelementptr inbounds i8, ptr %101, i64 8
   store ptr %98, ptr %102, align 8
-  br label %113
+  %103 = load i32, ptr %48, align 8
+  %104 = add i32 %103, 1
+  store i32 %104, ptr %48, align 8
+  br label %117
 
 .loopexit:                                        ; preds = %94, %62, %50, %47, %84, %.loopexit182
-  %103 = phi ptr [ %28, %.loopexit182 ], [ %.pre210, %84 ], [ %28, %47 ], [ %28, %50 ], [ %28, %62 ], [ %28, %94 ]
+  %105 = phi ptr [ %28, %.loopexit182 ], [ %.pre210, %84 ], [ %28, %47 ], [ %28, %50 ], [ %28, %62 ], [ %28, %94 ]
   %.0142.ph = phi i1 [ false, %.loopexit182 ], [ true, %84 ], [ false, %47 ], [ false, %50 ], [ false, %62 ], [ false, %94 ]
-  %104 = getelementptr inbounds i8, ptr %17, i64 48
-  %105 = load ptr, ptr %104, align 8
-  %106 = icmp eq ptr %105, null
-  br i1 %106, label %107, label %dclist_push_tail.exit
+  %106 = getelementptr inbounds i8, ptr %17, i64 48
+  %107 = load ptr, ptr %106, align 8
+  %108 = icmp eq ptr %107, null
+  br i1 %108, label %109, label %dclist_push_tail.exit
 
-107:                                              ; preds = %.loopexit
+109:                                              ; preds = %.loopexit
   store ptr %27, ptr %27, align 8
-  store ptr %27, ptr %104, align 8
-  %108 = getelementptr inbounds i8, ptr %17, i64 56
-  store i32 0, ptr %108, align 8
+  store ptr %27, ptr %106, align 8
+  %110 = getelementptr inbounds i8, ptr %17, i64 56
+  store i32 0, ptr %110, align 8
   br label %dclist_push_tail.exit
 
-dclist_push_tail.exit:                            ; preds = %.loopexit, %107
-  %109 = getelementptr inbounds i8, ptr %103, i64 8
-  store ptr %27, ptr %109, align 8
-  %110 = load ptr, ptr %27, align 8
-  store ptr %110, ptr %103, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 8
-  store ptr %103, ptr %111, align 8
-  store ptr %103, ptr %27, align 8
-  %112 = getelementptr inbounds i8, ptr %17, i64 56
-  br label %113
+dclist_push_tail.exit:                            ; preds = %.loopexit, %109
+  %111 = getelementptr inbounds i8, ptr %105, i64 8
+  store ptr %27, ptr %111, align 8
+  %112 = load ptr, ptr %27, align 8
+  store ptr %112, ptr %105, align 8
+  %113 = getelementptr inbounds i8, ptr %112, i64 8
+  store ptr %105, ptr %113, align 8
+  store ptr %105, ptr %27, align 8
+  %114 = getelementptr inbounds i8, ptr %17, i64 56
+  %115 = load i32, ptr %114, align 8
+  %116 = add i32 %115, 1
+  store i32 %116, ptr %114, align 8
+  br label %117
 
-113:                                              ; preds = %dclist_push_tail.exit, %97
-  %.sink = phi ptr [ %112, %dclist_push_tail.exit ], [ %48, %97 ]
+117:                                              ; preds = %dclist_push_tail.exit, %97
   %.0142178 = phi i1 [ %.0142.ph, %dclist_push_tail.exit ], [ false, %97 ]
-  %114 = load i32, ptr %.sink, align 8
-  %115 = add i32 %114, 1
-  store i32 %115, ptr %.sink, align 8
-  %116 = shl nuw i32 1, %15
-  %117 = getelementptr inbounds i8, ptr %17, i64 20
-  %118 = load i32, ptr %117, align 4
-  %119 = or i32 %118, %116
-  store i32 %119, ptr %117, align 4
-  %120 = load ptr, ptr @MyProc, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 112
-  store ptr %17, ptr %121, align 8
-  %122 = getelementptr inbounds i8, ptr %120, i64 120
-  store ptr %19, ptr %122, align 8
-  %123 = getelementptr inbounds i8, ptr %120, i64 128
-  store i32 %15, ptr %123, align 8
-  %124 = getelementptr inbounds i8, ptr %120, i64 32
-  store i32 1, ptr %124, align 8
-  br i1 %.0142178, label %125, label %126
+  %118 = shl nuw i32 1, %15
+  %119 = getelementptr inbounds i8, ptr %17, i64 20
+  %120 = load i32, ptr %119, align 4
+  %121 = or i32 %120, %118
+  store i32 %121, ptr %119, align 4
+  %122 = load ptr, ptr @MyProc, align 8
+  %123 = getelementptr inbounds i8, ptr %122, i64 112
+  store ptr %17, ptr %123, align 8
+  %124 = getelementptr inbounds i8, ptr %122, i64 120
+  store ptr %19, ptr %124, align 8
+  %125 = getelementptr inbounds i8, ptr %122, i64 128
+  store i32 %15, ptr %125, align 8
+  %126 = getelementptr inbounds i8, ptr %122, i64 32
+  store i32 1, ptr %126, align 8
+  br i1 %.0142178, label %127, label %128
 
-125:                                              ; preds = %113
-  tail call void @RemoveFromWaitQueue(ptr noundef nonnull %120, i32 noundef %21) #13
-  br label %375
+127:                                              ; preds = %117
+  tail call void @RemoveFromWaitQueue(ptr noundef nonnull %122, i32 noundef %21) #13
+  br label %377
 
-126:                                              ; preds = %113
+128:                                              ; preds = %117
   store ptr %0, ptr @lockAwaited, align 8
   tail call void @LWLockRelease(ptr noundef %26) #13
-  %127 = tail call zeroext i1 @RecoveryInProgress() #13
-  br i1 %127, label %128, label %132
+  %129 = tail call zeroext i1 @RecoveryInProgress() #13
+  br i1 %129, label %130, label %134
 
-128:                                              ; preds = %126
-  %129 = load i8, ptr @InRecovery, align 1
-  %130 = trunc i8 %129 to i1
-  br i1 %130, label %132, label %131
+130:                                              ; preds = %128
+  %131 = load i8, ptr @InRecovery, align 1
+  %132 = trunc i8 %131 to i1
+  br i1 %132, label %134, label %133
 
-131:                                              ; preds = %128
+133:                                              ; preds = %130
   tail call void @CheckRecoveryConflictDeadlock() #13
-  br label %132
+  br label %134
 
-132:                                              ; preds = %131, %128, %126
+134:                                              ; preds = %133, %130, %128
   store i32 0, ptr @deadlock_state, align 4
   store volatile i32 0, ptr @got_deadlock_timeout, align 4
-  %133 = load i32, ptr @standbyState, align 4
-  %134 = icmp ugt i32 %133, 1
-  br i1 %134, label %151, label %135
+  %135 = load i32, ptr @standbyState, align 4
+  %136 = icmp ugt i32 %135, 1
+  br i1 %136, label %153, label %137
 
-135:                                              ; preds = %132
-  %136 = load i32, ptr @LockTimeout, align 4
-  %137 = icmp sgt i32 %136, 0
-  br i1 %137, label %138, label %145
+137:                                              ; preds = %134
+  %138 = load i32, ptr @LockTimeout, align 4
+  %139 = icmp sgt i32 %138, 0
+  br i1 %139, label %140, label %147
 
-138:                                              ; preds = %135
+140:                                              ; preds = %137
   store i32 1, ptr %3, align 16
-  %139 = getelementptr inbounds i8, ptr %3, i64 4
-  store i32 0, ptr %139, align 4
-  %140 = load i32, ptr @DeadlockTimeout, align 4
-  %141 = getelementptr inbounds i8, ptr %3, i64 8
-  store i32 %140, ptr %141, align 8
-  %142 = getelementptr inbounds i8, ptr %3, i64 24
-  store i32 2, ptr %142, align 8
-  %143 = getelementptr inbounds i8, ptr %3, i64 28
-  store i32 0, ptr %143, align 4
-  %144 = getelementptr inbounds i8, ptr %3, i64 32
-  store i32 %136, ptr %144, align 16
+  %141 = getelementptr inbounds i8, ptr %3, i64 4
+  store i32 0, ptr %141, align 4
+  %142 = load i32, ptr @DeadlockTimeout, align 4
+  %143 = getelementptr inbounds i8, ptr %3, i64 8
+  store i32 %142, ptr %143, align 8
+  %144 = getelementptr inbounds i8, ptr %3, i64 24
+  store i32 2, ptr %144, align 8
+  %145 = getelementptr inbounds i8, ptr %3, i64 28
+  store i32 0, ptr %145, align 4
+  %146 = getelementptr inbounds i8, ptr %3, i64 32
+  store i32 %138, ptr %146, align 16
   call void @enable_timeouts(ptr noundef nonnull %3, i32 noundef 2) #13
-  br label %147
+  br label %149
 
-145:                                              ; preds = %135
-  %146 = load i32, ptr @DeadlockTimeout, align 4
-  tail call void @enable_timeout_after(i32 noundef 1, i32 noundef %146) #13
-  br label %147
+147:                                              ; preds = %137
+  %148 = load i32, ptr @DeadlockTimeout, align 4
+  tail call void @enable_timeout_after(i32 noundef 1, i32 noundef %148) #13
+  br label %149
 
-147:                                              ; preds = %145, %138
-  %148 = load ptr, ptr @MyProc, align 8
-  %149 = getelementptr inbounds i8, ptr %148, i64 136
-  %150 = call i64 @get_timeout_start_time(i32 noundef 1) #13
-  store volatile i64 %150, ptr %149, align 8
-  br label %156
+149:                                              ; preds = %147, %140
+  %150 = load ptr, ptr @MyProc, align 8
+  %151 = getelementptr inbounds i8, ptr %150, i64 136
+  %152 = call i64 @get_timeout_start_time(i32 noundef 1) #13
+  store volatile i64 %152, ptr %151, align 8
+  br label %158
 
-151:                                              ; preds = %132
-  %152 = load i8, ptr @log_recovery_conflict_waits, align 1
-  %153 = trunc i8 %152 to i1
-  br i1 %153, label %154, label %156
+153:                                              ; preds = %134
+  %154 = load i8, ptr @log_recovery_conflict_waits, align 1
+  %155 = trunc i8 %154 to i1
+  br i1 %155, label %156, label %158
 
-154:                                              ; preds = %151
-  %155 = tail call i64 @GetCurrentTimestamp() #13
-  br label %156
+156:                                              ; preds = %153
+  %157 = tail call i64 @GetCurrentTimestamp() #13
+  br label %158
 
-156:                                              ; preds = %151, %154, %147
-  %.0134 = phi i64 [ %155, %154 ], [ 0, %151 ], [ 0, %147 ]
-  %157 = getelementptr inbounds i8, ptr %0, i64 14
-  %158 = icmp ne i64 %.0134, 0
-  %159 = getelementptr inbounds i8, ptr %0, i64 8
-  %160 = getelementptr inbounds i8, ptr %17, i64 15
-  %161 = getelementptr inbounds i8, ptr %0, i64 15
-  %162 = getelementptr inbounds i8, ptr %17, i64 24
-  %163 = getelementptr inbounds i8, ptr %17, i64 32
-  br label %164
+158:                                              ; preds = %153, %156, %149
+  %.0134 = phi i64 [ %157, %156 ], [ 0, %153 ], [ 0, %149 ]
+  %159 = getelementptr inbounds i8, ptr %0, i64 14
+  %160 = icmp ne i64 %.0134, 0
+  %161 = getelementptr inbounds i8, ptr %0, i64 8
+  %162 = getelementptr inbounds i8, ptr %17, i64 15
+  %163 = getelementptr inbounds i8, ptr %0, i64 15
+  %164 = getelementptr inbounds i8, ptr %17, i64 24
+  %165 = getelementptr inbounds i8, ptr %17, i64 32
+  br label %166
 
-164:                                              ; preds = %350, %156
-  %.0145 = phi i8 [ 0, %156 ], [ %.1146, %350 ]
-  %.0143 = phi i1 [ true, %156 ], [ %.1144, %350 ]
-  %165 = load i32, ptr @standbyState, align 4
-  %166 = icmp ugt i32 %165, 1
-  br i1 %166, label %167, label %182
+166:                                              ; preds = %352, %158
+  %.0145 = phi i8 [ 0, %158 ], [ %.1146, %352 ]
+  %.0143 = phi i1 [ true, %158 ], [ %.1144, %352 ]
+  %167 = load i32, ptr @standbyState, align 4
+  %168 = icmp ugt i32 %167, 1
+  br i1 %168, label %169, label %184
 
-167:                                              ; preds = %164
-  %168 = trunc nuw i8 %.0145 to i1
-  %169 = xor i1 %168, true
-  %170 = select i1 %158, i1 %169, i1 false
-  %171 = load i64, ptr %0, align 8
-  %172 = load i64, ptr %159, align 8
-  call void @ResolveRecoveryConflictWithLock(i64 %171, i64 %172, i1 noundef zeroext %170) #13
-  br i1 %170, label %173, label %217
+169:                                              ; preds = %166
+  %170 = trunc nuw i8 %.0145 to i1
+  %171 = xor i1 %170, true
+  %172 = select i1 %160, i1 %171, i1 false
+  %173 = load i64, ptr %0, align 8
+  %174 = load i64, ptr %161, align 8
+  call void @ResolveRecoveryConflictWithLock(i64 %173, i64 %174, i1 noundef zeroext %172) #13
+  br i1 %172, label %175, label %219
 
-173:                                              ; preds = %167
-  %174 = call i64 @GetCurrentTimestamp() #13
-  %175 = load i32, ptr @DeadlockTimeout, align 4
-  %176 = call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %.0134, i64 noundef %174, i32 noundef %175) #13
-  br i1 %176, label %177, label %217
+175:                                              ; preds = %169
+  %176 = call i64 @GetCurrentTimestamp() #13
+  %177 = load i32, ptr @DeadlockTimeout, align 4
+  %178 = call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %.0134, i64 noundef %176, i32 noundef %177) #13
+  br i1 %178, label %179, label %219
 
-177:                                              ; preds = %173
-  %178 = call ptr @GetLockConflicts(ptr noundef nonnull %0, i32 noundef 8, ptr noundef nonnull %4) #13
-  %179 = load i32, ptr %4, align 4
-  %180 = icmp sgt i32 %179, 0
-  %181 = select i1 %180, ptr %178, ptr null
-  call void @LogRecoveryConflict(i32 noundef 9, i64 noundef %.0134, i64 noundef %174, ptr noundef %181, i1 noundef zeroext true) #13
-  br label %217
+179:                                              ; preds = %175
+  %180 = call ptr @GetLockConflicts(ptr noundef nonnull %0, i32 noundef 8, ptr noundef nonnull %4) #13
+  %181 = load i32, ptr %4, align 4
+  %182 = icmp sgt i32 %181, 0
+  %183 = select i1 %182, ptr %180, ptr null
+  call void @LogRecoveryConflict(i32 noundef 9, i64 noundef %.0134, i64 noundef %176, ptr noundef %183, i1 noundef zeroext true) #13
+  br label %219
 
-182:                                              ; preds = %164
-  %183 = load ptr, ptr @MyLatch, align 8
-  %184 = load i8, ptr %157, align 2
-  %185 = zext i8 %184 to i32
-  %186 = or disjoint i32 %185, 50331648
-  %187 = call i32 @WaitLatch(ptr noundef %183, i32 noundef 33, i64 noundef 0, i32 noundef %186) #13
-  %188 = load ptr, ptr @MyLatch, align 8
-  call void @ResetLatch(ptr noundef %188) #13
-  %189 = load volatile i32, ptr @got_deadlock_timeout, align 4
-  %.not164 = icmp eq i32 %189, 0
-  br i1 %.not164, label %214, label %.preheader
+184:                                              ; preds = %166
+  %185 = load ptr, ptr @MyLatch, align 8
+  %186 = load i8, ptr %159, align 2
+  %187 = zext i8 %186 to i32
+  %188 = or disjoint i32 %187, 50331648
+  %189 = call i32 @WaitLatch(ptr noundef %185, i32 noundef 33, i64 noundef 0, i32 noundef %188) #13
+  %190 = load ptr, ptr @MyLatch, align 8
+  call void @ResetLatch(ptr noundef %190) #13
+  %191 = load volatile i32, ptr @got_deadlock_timeout, align 4
+  %.not164 = icmp eq i32 %191, 0
+  br i1 %.not164, label %216, label %.preheader
 
-.preheader:                                       ; preds = %182, %.preheader
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 0, %182 ]
-  %190 = load ptr, ptr @MainLWLockArray, align 8
-  %191 = getelementptr %union.LWLockPadded, ptr %190, i64 %indvars.iv.i
-  %192 = getelementptr i8, ptr %191, i64 23168
-  %193 = call zeroext i1 @LWLockAcquire(ptr noundef %192, i32 noundef 0) #13
+.preheader:                                       ; preds = %184, %.preheader
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 0, %184 ]
+  %192 = load ptr, ptr @MainLWLockArray, align 8
+  %193 = getelementptr %union.LWLockPadded, ptr %192, i64 %indvars.iv.i
+  %194 = getelementptr i8, ptr %193, i64 23168
+  %195 = call zeroext i1 @LWLockAcquire(ptr noundef %194, i32 noundef 0) #13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %194, label %.preheader, !llvm.loop !23
+  br i1 %exitcond.not.i, label %196, label %.preheader, !llvm.loop !23
 
-194:                                              ; preds = %.preheader
-  %195 = load ptr, ptr @MyProc, align 8
-  %196 = load ptr, ptr %195, align 8
-  %197 = icmp eq ptr %196, null
-  br i1 %197, label %.preheader237, label %198
+196:                                              ; preds = %.preheader
+  %197 = load ptr, ptr @MyProc, align 8
+  %198 = load ptr, ptr %197, align 8
+  %199 = icmp eq ptr %198, null
+  br i1 %199, label %.preheader234, label %200
 
-198:                                              ; preds = %194
-  %199 = getelementptr inbounds i8, ptr %195, i64 8
-  %200 = load ptr, ptr %199, align 8
-  %201 = icmp eq ptr %200, null
-  br i1 %201, label %.preheader237, label %202
+200:                                              ; preds = %196
+  %201 = getelementptr inbounds i8, ptr %197, i64 8
+  %202 = load ptr, ptr %201, align 8
+  %203 = icmp eq ptr %202, null
+  br i1 %203, label %.preheader234, label %204
 
-202:                                              ; preds = %198
-  %203 = call i32 @DeadLockCheck(ptr noundef nonnull %195) #13
-  store i32 %203, ptr @deadlock_state, align 4
-  %204 = icmp eq i32 %203, 3
-  br i1 %204, label %205, label %.preheader237
+204:                                              ; preds = %200
+  %205 = call i32 @DeadLockCheck(ptr noundef nonnull %197) #13
+  store i32 %205, ptr @deadlock_state, align 4
+  %206 = icmp eq i32 %205, 3
+  br i1 %206, label %207, label %.preheader234
 
-205:                                              ; preds = %202
-  %206 = load ptr, ptr @MyProc, align 8
-  %207 = getelementptr inbounds i8, ptr %206, i64 112
-  %208 = load ptr, ptr %207, align 8
-  %209 = call i32 @LockTagHashCode(ptr noundef %208) #13
-  call void @RemoveFromWaitQueue(ptr noundef %206, i32 noundef %209) #13
-  br label %.preheader237
+207:                                              ; preds = %204
+  %208 = load ptr, ptr @MyProc, align 8
+  %209 = getelementptr inbounds i8, ptr %208, i64 112
+  %210 = load ptr, ptr %209, align 8
+  %211 = call i32 @LockTagHashCode(ptr noundef %210) #13
+  call void @RemoveFromWaitQueue(ptr noundef %208, i32 noundef %211) #13
+  br label %.preheader234
 
-.preheader237:                                    ; preds = %205, %202, %198, %194
-  br label %210
+.preheader234:                                    ; preds = %207, %204, %200, %196
+  br label %212
 
-210:                                              ; preds = %.preheader237, %210
-  %indvars.iv11.i = phi i64 [ %indvars.iv.next12.i, %210 ], [ 16, %.preheader237 ]
-  %indvars.iv9.i = phi i64 [ %indvars.iv.next10.i, %210 ], [ 15, %.preheader237 ]
-  %211 = load ptr, ptr @MainLWLockArray, align 8
-  %212 = getelementptr %union.LWLockPadded, ptr %211, i64 %indvars.iv11.i
-  %213 = getelementptr i8, ptr %212, i64 23040
-  call void @LWLockRelease(ptr noundef %213) #13
+212:                                              ; preds = %.preheader234, %212
+  %indvars.iv11.i = phi i64 [ %indvars.iv.next12.i, %212 ], [ 16, %.preheader234 ]
+  %indvars.iv9.i = phi i64 [ %indvars.iv.next10.i, %212 ], [ 15, %.preheader234 ]
+  %213 = load ptr, ptr @MainLWLockArray, align 8
+  %214 = getelementptr %union.LWLockPadded, ptr %213, i64 %indvars.iv11.i
+  %215 = getelementptr i8, ptr %214, i64 23040
+  call void @LWLockRelease(ptr noundef %215) #13
   %indvars.iv.next10.i = add nsw i64 %indvars.iv9.i, -1
   %.not.i = icmp eq i64 %indvars.iv9.i, 0
   %indvars.iv.next12.i = add nsw i64 %indvars.iv11.i, -1
-  br i1 %.not.i, label %CheckDeadLock.exit, label %210, !llvm.loop !24
+  br i1 %.not.i, label %CheckDeadLock.exit, label %212, !llvm.loop !24
 
-CheckDeadLock.exit:                               ; preds = %210
+CheckDeadLock.exit:                               ; preds = %212
   store volatile i32 0, ptr @got_deadlock_timeout, align 4
-  br label %214
+  br label %216
 
-214:                                              ; preds = %182, %CheckDeadLock.exit
-  %215 = load volatile i32, ptr @InterruptPending, align 4
-  %.not165 = icmp eq i32 %215, 0
-  br i1 %.not165, label %217, label %216
+216:                                              ; preds = %184, %CheckDeadLock.exit
+  %217 = load volatile i32, ptr @InterruptPending, align 4
+  %.not165 = icmp eq i32 %217, 0
+  br i1 %.not165, label %219, label %218
 
-216:                                              ; preds = %214
+218:                                              ; preds = %216
   call void @ProcessInterrupts() #13
-  br label %217
+  br label %219
 
-217:                                              ; preds = %216, %214, %167, %177, %173
-  %.1146 = phi i8 [ 1, %177 ], [ %.0145, %173 ], [ %.0145, %167 ], [ %.0145, %216 ], [ %.0145, %214 ]
-  %218 = load ptr, ptr @MyProc, align 8
-  %219 = getelementptr inbounds i8, ptr %218, i64 32
-  %220 = load volatile i32, ptr %219, align 8
-  %221 = load i32, ptr @deadlock_state, align 4
-  %222 = icmp eq i32 %221, 4
-  %brmerge.not = select i1 %222, i1 %.0143, i1 false
-  br i1 %brmerge.not, label %223, label %267
+219:                                              ; preds = %218, %216, %169, %179, %175
+  %.1146 = phi i8 [ 1, %179 ], [ %.0145, %175 ], [ %.0145, %169 ], [ %.0145, %218 ], [ %.0145, %216 ]
+  %220 = load ptr, ptr @MyProc, align 8
+  %221 = getelementptr inbounds i8, ptr %220, i64 32
+  %222 = load volatile i32, ptr %221, align 8
+  %223 = load i32, ptr @deadlock_state, align 4
+  %224 = icmp eq i32 %223, 4
+  %brmerge.not = select i1 %224, i1 %.0143, i1 false
+  br i1 %brmerge.not, label %225, label %269
 
-223:                                              ; preds = %217
-  %224 = call ptr @GetBlockingAutoVacuumPgproc() #13
-  %225 = load ptr, ptr @MainLWLockArray, align 8
-  %226 = getelementptr i8, ptr %225, i64 512
-  %227 = call zeroext i1 @LWLockAcquire(ptr noundef %226, i32 noundef 0) #13
-  %228 = load ptr, ptr @ProcGlobal, align 8
-  %229 = getelementptr inbounds i8, ptr %228, i64 24
-  %230 = load ptr, ptr %229, align 8
-  %231 = getelementptr inbounds i8, ptr %224, i64 64
-  %232 = load i32, ptr %231, align 8
-  %233 = sext i32 %232 to i64
-  %234 = getelementptr i8, ptr %230, i64 %233
-  %235 = load i8, ptr %234, align 1
-  %236 = load i8, ptr %160, align 1
+225:                                              ; preds = %219
+  %226 = call ptr @GetBlockingAutoVacuumPgproc() #13
+  %227 = load ptr, ptr @MainLWLockArray, align 8
+  %228 = getelementptr i8, ptr %227, i64 512
+  %229 = call zeroext i1 @LWLockAcquire(ptr noundef %228, i32 noundef 0) #13
+  %230 = load ptr, ptr @ProcGlobal, align 8
+  %231 = getelementptr inbounds i8, ptr %230, i64 24
+  %232 = load ptr, ptr %231, align 8
+  %233 = getelementptr inbounds i8, ptr %226, i64 64
+  %234 = load i32, ptr %233, align 8
+  %235 = sext i32 %234 to i64
+  %236 = getelementptr i8, ptr %232, i64 %235
+  %237 = load i8, ptr %236, align 1
+  %238 = load i8, ptr %162, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %17, i64 16, i1 false)
-  %237 = load ptr, ptr @MainLWLockArray, align 8
-  %238 = getelementptr i8, ptr %237, i64 512
-  call void @LWLockRelease(ptr noundef %238) #13
-  %239 = and i8 %235, 9
-  %or.cond173 = icmp eq i8 %239, 1
-  br i1 %or.cond173, label %240, label %267
+  %239 = load ptr, ptr @MainLWLockArray, align 8
+  %240 = getelementptr i8, ptr %239, i64 512
+  call void @LWLockRelease(ptr noundef %240) #13
+  %241 = and i8 %237, 9
+  %or.cond173 = icmp eq i8 %241, 1
+  br i1 %or.cond173, label %242, label %269
 
-240:                                              ; preds = %223
-  %241 = getelementptr inbounds i8, ptr %224, i64 60
-  %242 = load i32, ptr %241, align 4
-  %243 = call zeroext i1 @message_level_is_interesting(i32 noundef 14) #13
-  br i1 %243, label %244, label %257
+242:                                              ; preds = %225
+  %243 = getelementptr inbounds i8, ptr %226, i64 60
+  %244 = load i32, ptr %243, align 4
+  %245 = call zeroext i1 @message_level_is_interesting(i32 noundef 14) #13
+  br i1 %245, label %246, label %259
 
-244:                                              ; preds = %240
+246:                                              ; preds = %242
   call void @initStringInfo(ptr noundef nonnull %6) #13
   call void @initStringInfo(ptr noundef nonnull %7) #13
   call void @DescribeLockTag(ptr noundef nonnull %6, ptr noundef nonnull %5) #13
-  %245 = load i32, ptr @MyProcPid, align 4
-  %246 = zext i8 %236 to i16
-  %247 = call ptr @GetLockmodeName(i16 noundef zeroext %246, i32 noundef %15) #13
-  %248 = load ptr, ptr %6, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %7, ptr noundef nonnull @.str.7, i32 noundef %245, ptr noundef %247, ptr noundef %248) #13
-  %249 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #13
-  br i1 %249, label %250, label %254
+  %247 = load i32, ptr @MyProcPid, align 4
+  %248 = zext i8 %238 to i16
+  %249 = call ptr @GetLockmodeName(i16 noundef zeroext %248, i32 noundef %15) #13
+  %250 = load ptr, ptr %6, align 8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %7, ptr noundef nonnull @.str.7, i32 noundef %247, ptr noundef %249, ptr noundef %250) #13
+  %251 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #13
+  br i1 %251, label %252, label %256
 
-250:                                              ; preds = %244
-  %251 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %242) #13
-  %252 = load ptr, ptr %7, align 8
-  %253 = call i32 (ptr, ...) @errdetail_log(ptr noundef nonnull @.str.9, ptr noundef %252) #13
+252:                                              ; preds = %246
+  %253 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %244) #13
+  %254 = load ptr, ptr %7, align 8
+  %255 = call i32 (ptr, ...) @errdetail_log(ptr noundef nonnull @.str.9, ptr noundef %254) #13
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1413, ptr noundef nonnull @__func__.ProcSleep) #13
-  br label %254
+  br label %256
 
-254:                                              ; preds = %244, %250
-  %255 = load ptr, ptr %6, align 8
-  call void @pfree(ptr noundef %255) #13
-  %256 = load ptr, ptr %7, align 8
-  call void @pfree(ptr noundef %256) #13
-  br label %257
+256:                                              ; preds = %246, %252
+  %257 = load ptr, ptr %6, align 8
+  call void @pfree(ptr noundef %257) #13
+  %258 = load ptr, ptr %7, align 8
+  call void @pfree(ptr noundef %258) #13
+  br label %259
 
-257:                                              ; preds = %254, %240
-  %258 = call i32 @kill(i32 noundef %242, i32 noundef 2) #13
-  %259 = icmp slt i32 %258, 0
-  br i1 %259, label %260, label %267
+259:                                              ; preds = %256, %242
+  %260 = call i32 @kill(i32 noundef %244, i32 noundef 2) #13
+  %261 = icmp slt i32 %260, 0
+  br i1 %261, label %262, label %269
 
-260:                                              ; preds = %257
-  %261 = tail call ptr @__errno_location() #15
-  %262 = load i32, ptr %261, align 4
-  %.not168 = icmp eq i32 %262, 3
-  br i1 %.not168, label %267, label %263
+262:                                              ; preds = %259
+  %263 = tail call ptr @__errno_location() #15
+  %264 = load i32, ptr %263, align 4
+  %.not168 = icmp eq i32 %264, 3
+  br i1 %.not168, label %269, label %265
 
-263:                                              ; preds = %260
-  %264 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #13
-  br i1 %264, label %265, label %267
+265:                                              ; preds = %262
+  %266 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #13
+  br i1 %266, label %267, label %269
 
-265:                                              ; preds = %263
-  %266 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, i32 noundef %242) #13
+267:                                              ; preds = %265
+  %268 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, i32 noundef %244) #13
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1435, ptr noundef nonnull @__func__.ProcSleep) #13
-  br label %267
+  br label %269
 
-267:                                              ; preds = %217, %223, %260, %263, %265, %257
-  %.1144 = phi i1 [ %.0143, %217 ], [ false, %257 ], [ false, %265 ], [ false, %263 ], [ false, %260 ], [ false, %223 ]
-  %268 = load i8, ptr @log_lock_waits, align 1
-  %269 = trunc i8 %268 to i1
-  %270 = load i32, ptr @deadlock_state, align 4
-  %271 = icmp ne i32 %270, 0
-  %or.cond = select i1 %269, i1 %271, i1 false
-  br i1 %or.cond, label %272, label %350
+269:                                              ; preds = %219, %225, %262, %265, %267, %259
+  %.1144 = phi i1 [ %.0143, %219 ], [ false, %259 ], [ false, %267 ], [ false, %265 ], [ false, %262 ], [ false, %225 ]
+  %270 = load i8, ptr @log_lock_waits, align 1
+  %271 = trunc i8 %270 to i1
+  %272 = load i32, ptr @deadlock_state, align 4
+  %273 = icmp ne i32 %272, 0
+  %or.cond = select i1 %271, i1 %273, i1 false
+  br i1 %or.cond, label %274, label %352
 
-272:                                              ; preds = %267
+274:                                              ; preds = %269
   call void @initStringInfo(ptr noundef nonnull %8) #13
   call void @initStringInfo(ptr noundef nonnull %9) #13
   call void @initStringInfo(ptr noundef nonnull %10) #13
   call void @DescribeLockTag(ptr noundef nonnull %8, ptr noundef %0) #13
-  %273 = load i8, ptr %161, align 1
-  %274 = zext i8 %273 to i16
-  %275 = call ptr @GetLockmodeName(i16 noundef zeroext %274, i32 noundef %15) #13
-  %276 = call i64 @get_timeout_start_time(i32 noundef 1) #13
-  %277 = call i64 @GetCurrentTimestamp() #13
-  call void @TimestampDifference(i64 noundef %276, i64 noundef %277, ptr noundef nonnull %11, ptr noundef nonnull %12) #13
-  %278 = load i64, ptr %11, align 8
-  %279 = mul i64 %278, 1000
-  %280 = load i32, ptr %12, align 4
-  %281 = sdiv i32 %280, 1000
-  %282 = sext i32 %281 to i64
-  %283 = add i64 %279, %282
-  %284 = srem i32 %280, 1000
-  store i32 %284, ptr %12, align 4
-  %285 = call zeroext i1 @LWLockAcquire(ptr noundef %26, i32 noundef 1) #13
-  %286 = load ptr, ptr %163, align 8
-  %.not169 = icmp eq ptr %286, null
-  %.not170194214 = icmp eq ptr %286, %162
+  %275 = load i8, ptr %163, align 1
+  %276 = zext i8 %275 to i16
+  %277 = call ptr @GetLockmodeName(i16 noundef zeroext %276, i32 noundef %15) #13
+  %278 = call i64 @get_timeout_start_time(i32 noundef 1) #13
+  %279 = call i64 @GetCurrentTimestamp() #13
+  call void @TimestampDifference(i64 noundef %278, i64 noundef %279, ptr noundef nonnull %11, ptr noundef nonnull %12) #13
+  %280 = load i64, ptr %11, align 8
+  %281 = mul i64 %280, 1000
+  %282 = load i32, ptr %12, align 4
+  %283 = sdiv i32 %282, 1000
+  %284 = sext i32 %283 to i64
+  %285 = add i64 %281, %284
+  %286 = srem i32 %282, 1000
+  store i32 %286, ptr %12, align 4
+  %287 = call zeroext i1 @LWLockAcquire(ptr noundef %26, i32 noundef 1) #13
+  %288 = load ptr, ptr %165, align 8
+  %.not169 = icmp eq ptr %288, null
+  %.not170194214 = icmp eq ptr %288, %164
   %.not170194 = select i1 %.not169, i1 true, i1 %.not170194214
   br i1 %.not170194, label %._crit_edge, label %.lr.ph199
 
-.lr.ph199:                                        ; preds = %272, %300
-  %.0135198 = phi i32 [ %.1136, %300 ], [ 0, %272 ]
-  %.0137197 = phi i1 [ %.1138, %300 ], [ true, %272 ]
-  %.0139196 = phi i1 [ %.2141, %300 ], [ true, %272 ]
-  %.sroa.0.0195 = phi ptr [ %302, %300 ], [ %286, %272 ]
-  %287 = getelementptr i8, ptr %.sroa.0.0195, i64 -32
-  %288 = getelementptr i8, ptr %.sroa.0.0195, i64 -24
-  %289 = load ptr, ptr %288, align 8
-  %290 = getelementptr inbounds i8, ptr %289, i64 120
+.lr.ph199:                                        ; preds = %274, %302
+  %.0135198 = phi i32 [ %.1136, %302 ], [ 0, %274 ]
+  %.0137197 = phi i1 [ %.1138, %302 ], [ true, %274 ]
+  %.0139196 = phi i1 [ %.2141, %302 ], [ true, %274 ]
+  %.sroa.0.0195 = phi ptr [ %304, %302 ], [ %288, %274 ]
+  %289 = getelementptr i8, ptr %.sroa.0.0195, i64 -32
+  %290 = getelementptr i8, ptr %.sroa.0.0195, i64 -24
   %291 = load ptr, ptr %290, align 8
-  %292 = icmp eq ptr %291, %287
-  %293 = getelementptr inbounds i8, ptr %289, i64 60
-  %294 = load i32, ptr %293, align 4
-  br i1 %292, label %295, label %298
+  %292 = getelementptr inbounds i8, ptr %291, i64 120
+  %293 = load ptr, ptr %292, align 8
+  %294 = icmp eq ptr %293, %289
+  %295 = getelementptr inbounds i8, ptr %291, i64 60
+  %296 = load i32, ptr %295, align 4
+  br i1 %294, label %297, label %300
 
-295:                                              ; preds = %.lr.ph199
-  br i1 %.0137197, label %296, label %297
+297:                                              ; preds = %.lr.ph199
+  br i1 %.0137197, label %298, label %299
 
-296:                                              ; preds = %295
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %9, ptr noundef nonnull @.str.11, i32 noundef %294) #13
-  br label %300
+298:                                              ; preds = %297
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %9, ptr noundef nonnull @.str.11, i32 noundef %296) #13
+  br label %302
 
-297:                                              ; preds = %295
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %9, ptr noundef nonnull @.str.12, i32 noundef %294) #13
-  br label %300
+299:                                              ; preds = %297
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %9, ptr noundef nonnull @.str.12, i32 noundef %296) #13
+  br label %302
 
-298:                                              ; preds = %.lr.ph199
+300:                                              ; preds = %.lr.ph199
   %.str.11..str.12 = select i1 %.0139196, ptr @.str.11, ptr @.str.12
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %10, ptr noundef nonnull %.str.11..str.12, i32 noundef %294) #13
-  %299 = add i32 %.0135198, 1
-  br label %300
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %10, ptr noundef nonnull %.str.11..str.12, i32 noundef %296) #13
+  %301 = add i32 %.0135198, 1
+  br label %302
 
-300:                                              ; preds = %298, %297, %296
-  %.2141 = phi i1 [ %.0139196, %296 ], [ %.0139196, %297 ], [ false, %298 ]
-  %.1138 = phi i1 [ false, %296 ], [ false, %297 ], [ %.0137197, %298 ]
-  %.1136 = phi i32 [ %.0135198, %296 ], [ %.0135198, %297 ], [ %299, %298 ]
-  %301 = getelementptr inbounds i8, ptr %.sroa.0.0195, i64 8
-  %302 = load ptr, ptr %301, align 8
-  %.not170 = icmp eq ptr %302, %162
+302:                                              ; preds = %300, %299, %298
+  %.2141 = phi i1 [ %.0139196, %298 ], [ %.0139196, %299 ], [ false, %300 ]
+  %.1138 = phi i1 [ false, %298 ], [ false, %299 ], [ %.0137197, %300 ]
+  %.1136 = phi i32 [ %.0135198, %298 ], [ %.0135198, %299 ], [ %301, %300 ]
+  %303 = getelementptr inbounds i8, ptr %.sroa.0.0195, i64 8
+  %304 = load ptr, ptr %303, align 8
+  %.not170 = icmp eq ptr %304, %164
   br i1 %.not170, label %._crit_edge.loopexit, label %.lr.ph199, !llvm.loop !25
 
-._crit_edge.loopexit:                             ; preds = %300
-  %303 = sext i32 %.1136 to i64
+._crit_edge.loopexit:                             ; preds = %302
+  %305 = sext i32 %.1136 to i64
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %272
-  %.0135.lcssa = phi i64 [ 0, %272 ], [ %303, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %274
+  %.0135.lcssa = phi i64 [ 0, %274 ], [ %305, %._crit_edge.loopexit ]
   call void @LWLockRelease(ptr noundef %26) #13
-  %304 = load i32, ptr @deadlock_state, align 4
-  switch i32 %304, label %316 [
-    i32 2, label %305
-    i32 3, label %307
+  %306 = load i32, ptr @deadlock_state, align 4
+  switch i32 %306, label %318 [
+    i32 2, label %307
+    i32 3, label %309
   ]
-
-305:                                              ; preds = %._crit_edge
-  %306 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #13
-  br i1 %306, label %.sink.split, label %316
 
 307:                                              ; preds = %._crit_edge
   %308 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #13
-  br i1 %308, label %.sink.split, label %316
+  br i1 %308, label %.sink.split, label %318
 
-.sink.split:                                      ; preds = %307, %305
-  %.str.16.sink = phi ptr [ @.str.13, %305 ], [ @.str.16, %307 ]
-  %.sink223 = phi i32 [ 1531, %305 ], [ 1546, %307 ]
-  %309 = load i32, ptr @MyProcPid, align 4
-  %310 = load ptr, ptr %8, align 8
-  %311 = load i32, ptr %12, align 4
-  %312 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.16.sink, i32 noundef %309, ptr noundef %275, ptr noundef %310, i64 noundef %283, i32 noundef %311) #13
-  %313 = load ptr, ptr %10, align 8
-  %314 = load ptr, ptr %9, align 8
-  %315 = call i32 (ptr, ptr, i64, ...) @errdetail_log_plural(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i64 noundef %.0135.lcssa, ptr noundef %313, ptr noundef %314) #13
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink223, ptr noundef nonnull @__func__.ProcSleep) #13
-  br label %316
+309:                                              ; preds = %._crit_edge
+  %310 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #13
+  br i1 %310, label %.sink.split, label %318
 
-316:                                              ; preds = %.sink.split, %._crit_edge, %307, %305
-  switch i32 %220, label %334 [
-    i32 1, label %317
-    i32 0, label %327
+.sink.split:                                      ; preds = %309, %307
+  %.str.16.sink = phi ptr [ @.str.13, %307 ], [ @.str.16, %309 ]
+  %.sink = phi i32 [ 1531, %307 ], [ 1546, %309 ]
+  %311 = load i32, ptr @MyProcPid, align 4
+  %312 = load ptr, ptr %8, align 8
+  %313 = load i32, ptr %12, align 4
+  %314 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.16.sink, i32 noundef %311, ptr noundef %277, ptr noundef %312, i64 noundef %285, i32 noundef %313) #13
+  %315 = load ptr, ptr %10, align 8
+  %316 = load ptr, ptr %9, align 8
+  %317 = call i32 (ptr, ptr, i64, ...) @errdetail_log_plural(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i64 noundef %.0135.lcssa, ptr noundef %315, ptr noundef %316) #13
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink, ptr noundef nonnull @__func__.ProcSleep) #13
+  br label %318
+
+318:                                              ; preds = %.sink.split, %._crit_edge, %309, %307
+  switch i32 %222, label %336 [
+    i32 1, label %319
+    i32 0, label %329
   ]
 
-317:                                              ; preds = %316
-  %318 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #13
-  br i1 %318, label %319, label %346
+319:                                              ; preds = %318
+  %320 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #13
+  br i1 %320, label %321, label %348
 
-319:                                              ; preds = %317
-  %320 = load i32, ptr @MyProcPid, align 4
-  %321 = load ptr, ptr %8, align 8
-  %322 = load i32, ptr %12, align 4
-  %323 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, i32 noundef %320, ptr noundef %275, ptr noundef %321, i64 noundef %283, i32 noundef %322) #13
-  %324 = load ptr, ptr %10, align 8
-  %325 = load ptr, ptr %9, align 8
-  %326 = call i32 (ptr, ptr, i64, ...) @errdetail_log_plural(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i64 noundef %.0135.lcssa, ptr noundef %324, ptr noundef %325) #13
-  br label %.sink.split229
+321:                                              ; preds = %319
+  %322 = load i32, ptr @MyProcPid, align 4
+  %323 = load ptr, ptr %8, align 8
+  %324 = load i32, ptr %12, align 4
+  %325 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, i32 noundef %322, ptr noundef %277, ptr noundef %323, i64 noundef %285, i32 noundef %324) #13
+  %326 = load ptr, ptr %10, align 8
+  %327 = load ptr, ptr %9, align 8
+  %328 = call i32 (ptr, ptr, i64, ...) @errdetail_log_plural(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i64 noundef %.0135.lcssa, ptr noundef %326, ptr noundef %327) #13
+  br label %.sink.split226
 
-327:                                              ; preds = %316
-  %328 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #13
-  br i1 %328, label %329, label %346
+329:                                              ; preds = %318
+  %330 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #13
+  br i1 %330, label %331, label %348
 
-329:                                              ; preds = %327
-  %330 = load i32, ptr @MyProcPid, align 4
-  %331 = load ptr, ptr %8, align 8
-  %332 = load i32, ptr %12, align 4
-  %333 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, i32 noundef %330, ptr noundef %275, ptr noundef %331, i64 noundef %283, i32 noundef %332) #13
-  br label %.sink.split229
+331:                                              ; preds = %329
+  %332 = load i32, ptr @MyProcPid, align 4
+  %333 = load ptr, ptr %8, align 8
+  %334 = load i32, ptr %12, align 4
+  %335 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, i32 noundef %332, ptr noundef %277, ptr noundef %333, i64 noundef %285, i32 noundef %334) #13
+  br label %.sink.split226
 
-334:                                              ; preds = %316
-  %335 = load i32, ptr @deadlock_state, align 4
-  %.not171 = icmp eq i32 %335, 3
-  br i1 %.not171, label %346, label %336
-
-336:                                              ; preds = %334
-  %337 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #13
-  br i1 %337, label %338, label %346
+336:                                              ; preds = %318
+  %337 = load i32, ptr @deadlock_state, align 4
+  %.not171 = icmp eq i32 %337, 3
+  br i1 %.not171, label %348, label %338
 
 338:                                              ; preds = %336
-  %339 = load i32, ptr @MyProcPid, align 4
-  %340 = load ptr, ptr %8, align 8
-  %341 = load i32, ptr %12, align 4
-  %342 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19, i32 noundef %339, ptr noundef %275, ptr noundef %340, i64 noundef %283, i32 noundef %341) #13
-  %343 = load ptr, ptr %10, align 8
-  %344 = load ptr, ptr %9, align 8
-  %345 = call i32 (ptr, ptr, i64, ...) @errdetail_log_plural(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i64 noundef %.0135.lcssa, ptr noundef %343, ptr noundef %344) #13
-  br label %.sink.split229
+  %339 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #13
+  br i1 %339, label %340, label %348
 
-.sink.split229:                                   ; preds = %319, %338, %329
-  %.sink230 = phi i32 [ 1559, %329 ], [ 1579, %338 ], [ 1555, %319 ]
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink230, ptr noundef nonnull @__func__.ProcSleep) #13
-  br label %346
+340:                                              ; preds = %338
+  %341 = load i32, ptr @MyProcPid, align 4
+  %342 = load ptr, ptr %8, align 8
+  %343 = load i32, ptr %12, align 4
+  %344 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19, i32 noundef %341, ptr noundef %277, ptr noundef %342, i64 noundef %285, i32 noundef %343) #13
+  %345 = load ptr, ptr %10, align 8
+  %346 = load ptr, ptr %9, align 8
+  %347 = call i32 (ptr, ptr, i64, ...) @errdetail_log_plural(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i64 noundef %.0135.lcssa, ptr noundef %345, ptr noundef %346) #13
+  br label %.sink.split226
 
-346:                                              ; preds = %.sink.split229, %327, %336, %334, %317
+.sink.split226:                                   ; preds = %321, %340, %331
+  %.sink227 = phi i32 [ 1559, %331 ], [ 1579, %340 ], [ 1555, %321 ]
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink227, ptr noundef nonnull @__func__.ProcSleep) #13
+  br label %348
+
+348:                                              ; preds = %.sink.split226, %329, %338, %336, %319
   store i32 1, ptr @deadlock_state, align 4
-  %347 = load ptr, ptr %8, align 8
-  call void @pfree(ptr noundef %347) #13
-  %348 = load ptr, ptr %10, align 8
-  call void @pfree(ptr noundef %348) #13
-  %349 = load ptr, ptr %9, align 8
+  %349 = load ptr, ptr %8, align 8
   call void @pfree(ptr noundef %349) #13
-  br label %350
+  %350 = load ptr, ptr %10, align 8
+  call void @pfree(ptr noundef %350) #13
+  %351 = load ptr, ptr %9, align 8
+  call void @pfree(ptr noundef %351) #13
+  br label %352
 
-350:                                              ; preds = %267, %346
-  %351 = icmp eq i32 %220, 1
-  br i1 %351, label %164, label %352, !llvm.loop !26
+352:                                              ; preds = %269, %348
+  %353 = icmp eq i32 %222, 1
+  br i1 %353, label %166, label %354, !llvm.loop !26
 
-352:                                              ; preds = %350
-  %353 = load i32, ptr @standbyState, align 4
-  %354 = icmp ugt i32 %353, 1
-  br i1 %354, label %.thread180, label %355
+354:                                              ; preds = %352
+  %355 = load i32, ptr @standbyState, align 4
+  %356 = icmp ugt i32 %355, 1
+  br i1 %356, label %.thread180, label %357
 
-355:                                              ; preds = %352
-  %356 = load i32, ptr @LockTimeout, align 4
-  %357 = icmp sgt i32 %356, 0
-  br i1 %357, label %358, label %362
+357:                                              ; preds = %354
+  %358 = load i32, ptr @LockTimeout, align 4
+  %359 = icmp sgt i32 %358, 0
+  br i1 %359, label %360, label %364
 
-358:                                              ; preds = %355
+360:                                              ; preds = %357
   store i32 1, ptr %13, align 16
-  %359 = getelementptr inbounds i8, ptr %13, i64 4
-  store i8 0, ptr %359, align 4
-  %360 = getelementptr inbounds i8, ptr %13, i64 8
-  store i32 2, ptr %360, align 8
-  %361 = getelementptr inbounds i8, ptr %13, i64 12
-  store i8 1, ptr %361, align 4
+  %361 = getelementptr inbounds i8, ptr %13, i64 4
+  store i8 0, ptr %361, align 4
+  %362 = getelementptr inbounds i8, ptr %13, i64 8
+  store i32 2, ptr %362, align 8
+  %363 = getelementptr inbounds i8, ptr %13, i64 12
+  store i8 1, ptr %363, align 4
   call void @disable_timeouts(ptr noundef nonnull %13, i32 noundef 2) #13
-  br label %363
+  br label %365
 
-362:                                              ; preds = %355
+364:                                              ; preds = %357
   call void @disable_timeout(i32 noundef 1, i1 noundef zeroext false) #13
-  br label %363
+  br label %365
 
-363:                                              ; preds = %358, %362
+365:                                              ; preds = %360, %364
   %.pr = load i32, ptr @standbyState, align 4
-  %364 = icmp ugt i32 %.pr, 1
-  br i1 %364, label %.thread180, label %368
+  %366 = icmp ugt i32 %.pr, 1
+  br i1 %366, label %.thread180, label %370
 
-.thread180:                                       ; preds = %352, %363
-  %365 = trunc nuw i8 %.1146 to i1
-  br i1 %365, label %366, label %368
+.thread180:                                       ; preds = %354, %365
+  %367 = trunc nuw i8 %.1146 to i1
+  br i1 %367, label %368, label %370
 
-366:                                              ; preds = %.thread180
-  %367 = call i64 @GetCurrentTimestamp() #13
-  call void @LogRecoveryConflict(i32 noundef 9, i64 noundef %.0134, i64 noundef %367, ptr noundef null, i1 noundef zeroext false) #13
-  br label %368
+368:                                              ; preds = %.thread180
+  %369 = call i64 @GetCurrentTimestamp() #13
+  call void @LogRecoveryConflict(i32 noundef 9, i64 noundef %.0134, i64 noundef %369, ptr noundef null, i1 noundef zeroext false) #13
+  br label %370
 
-368:                                              ; preds = %366, %.thread180, %363
-  %369 = call zeroext i1 @LWLockAcquire(ptr noundef %26, i32 noundef 0) #13
+370:                                              ; preds = %368, %.thread180, %365
+  %371 = call zeroext i1 @LWLockAcquire(ptr noundef %26, i32 noundef 0) #13
   store ptr null, ptr @lockAwaited, align 8
-  %370 = load ptr, ptr @MyProc, align 8
-  %371 = getelementptr inbounds i8, ptr %370, i64 32
-  %372 = load i32, ptr %371, align 8
-  %373 = icmp eq i32 %372, 0
-  br i1 %373, label %374, label %375
+  %372 = load ptr, ptr @MyProc, align 8
+  %373 = getelementptr inbounds i8, ptr %372, i64 32
+  %374 = load i32, ptr %373, align 8
+  %375 = icmp eq i32 %374, 0
+  br i1 %375, label %376, label %377
 
-374:                                              ; preds = %368
+376:                                              ; preds = %370
   call void @GrantAwaitedLock() #13
   %.pre211 = load ptr, ptr @MyProc, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre211, i64 32
   %.pre212 = load i32, ptr %.phi.trans.insert, align 8
-  br label %375
+  br label %377
 
-375:                                              ; preds = %368, %374, %125, %90
-  %.0 = phi i32 [ 2, %125 ], [ 0, %90 ], [ %.pre212, %374 ], [ %372, %368 ]
+377:                                              ; preds = %370, %376, %127, %90
+  %.0 = phi i32 [ 2, %127 ], [ 0, %90 ], [ %.pre212, %376 ], [ %374, %370 ]
   ret i32 %.0
 }
 

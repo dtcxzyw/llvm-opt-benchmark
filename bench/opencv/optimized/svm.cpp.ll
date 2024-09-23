@@ -15887,7 +15887,7 @@ define linkonce_odr hidden noundef ptr @_ZN2cv2ml7SVMImpl6Solver12get_row_baseEi
   %70 = getelementptr inbounds i8, ptr %69, i64 72
   %71 = load ptr, ptr %70, align 8
   tail call void %71(ptr noundef nonnull align 8 dereferenceable(8) %48, i32 noundef %49, i32 noundef %51, ptr noundef %53, ptr noundef %59, ptr noundef %68)
-  br label %88
+  br label %91
 
 72:                                               ; preds = %17
   %73 = getelementptr inbounds i8, ptr %12, i64 8
@@ -15895,59 +15895,68 @@ define linkonce_odr hidden noundef ptr @_ZN2cv2ml7SVMImpl6Solver12get_row_baseEi
   %.not38 = icmp eq i32 %74, 0
   %75 = getelementptr inbounds i8, ptr %12, i64 4
   %76 = load i32, ptr %75, align 4
-  %77 = getelementptr inbounds i8, ptr %0, i64 308
+  br i1 %.not38, label %81, label %77
+
+77:                                               ; preds = %72
   %78 = sext i32 %74 to i64
   %79 = load ptr, ptr %8, align 8
   %80 = getelementptr inbounds %"struct.cv::ml::SVMImpl::Solver::KernelRow", ptr %79, i64 %78, i32 1
-  %.sink = select i1 %.not38, ptr %77, ptr %80
-  store i32 %76, ptr %.sink, align 4
+  store i32 %76, ptr %80, align 4
+  br label %83
+
+81:                                               ; preds = %72
+  %82 = getelementptr inbounds i8, ptr %0, i64 308
+  store i32 %76, ptr %82, align 4
+  br label %83
+
+83:                                               ; preds = %81, %77
   %.not39 = icmp eq i32 %76, 0
-  %81 = load i32, ptr %73, align 4
-  br i1 %.not39, label %86, label %82
+  %84 = load i32, ptr %73, align 4
+  br i1 %.not39, label %89, label %85
 
-82:                                               ; preds = %72
-  %83 = sext i32 %76 to i64
-  %84 = load ptr, ptr %8, align 8
-  %85 = getelementptr inbounds %"struct.cv::ml::SVMImpl::Solver::KernelRow", ptr %84, i64 %83, i32 2
-  store i32 %81, ptr %85, align 4
-  br label %88
+85:                                               ; preds = %83
+  %86 = sext i32 %76 to i64
+  %87 = load ptr, ptr %8, align 8
+  %88 = getelementptr inbounds %"struct.cv::ml::SVMImpl::Solver::KernelRow", ptr %87, i64 %86, i32 2
+  store i32 %84, ptr %88, align 4
+  br label %91
 
-86:                                               ; preds = %72
-  %87 = getelementptr inbounds i8, ptr %0, i64 304
-  store i32 %81, ptr %87, align 8
-  br label %88
+89:                                               ; preds = %83
+  %90 = getelementptr inbounds i8, ptr %0, i64 304
+  store i32 %84, ptr %90, align 8
+  br label %91
 
-88:                                               ; preds = %82, %86, %46
-  %89 = getelementptr inbounds i8, ptr %0, i64 304
-  %90 = load i32, ptr %89, align 8
-  %.not41 = icmp eq i32 %90, 0
-  br i1 %.not41, label %95, label %91
+91:                                               ; preds = %85, %89, %46
+  %92 = getelementptr inbounds i8, ptr %0, i64 304
+  %93 = load i32, ptr %92, align 8
+  %.not41 = icmp eq i32 %93, 0
+  br i1 %.not41, label %98, label %94
 
-91:                                               ; preds = %88
-  %92 = sext i32 %90 to i64
-  %93 = load ptr, ptr %8, align 8
-  %94 = getelementptr inbounds %"struct.cv::ml::SVMImpl::Solver::KernelRow", ptr %93, i64 %92, i32 1
-  store i32 %9, ptr %94, align 4
-  %.pre = load i32, ptr %89, align 8
-  br label %95
+94:                                               ; preds = %91
+  %95 = sext i32 %93 to i64
+  %96 = load ptr, ptr %8, align 8
+  %97 = getelementptr inbounds %"struct.cv::ml::SVMImpl::Solver::KernelRow", ptr %96, i64 %95, i32 1
+  store i32 %9, ptr %97, align 4
+  %.pre = load i32, ptr %92, align 8
+  br label %98
 
-95:                                               ; preds = %91, %88
-  %96 = phi i32 [ %.pre, %91 ], [ 0, %88 ]
-  %97 = getelementptr inbounds i8, ptr %12, i64 8
-  store i32 %96, ptr %97, align 4
-  %98 = getelementptr inbounds i8, ptr %12, i64 4
-  store i32 0, ptr %98, align 4
-  store i32 %9, ptr %89, align 8
-  %99 = load i32, ptr %12, align 4
-  %100 = getelementptr inbounds i8, ptr %0, i64 328
-  %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %0, i64 384
-  %103 = load ptr, ptr %102, align 8
-  %104 = load i64, ptr %103, align 8
-  %105 = sext i32 %99 to i64
-  %106 = mul i64 %104, %105
-  %107 = getelementptr inbounds i8, ptr %101, i64 %106
-  ret ptr %107
+98:                                               ; preds = %94, %91
+  %99 = phi i32 [ %.pre, %94 ], [ 0, %91 ]
+  %100 = getelementptr inbounds i8, ptr %12, i64 8
+  store i32 %99, ptr %100, align 4
+  %101 = getelementptr inbounds i8, ptr %12, i64 4
+  store i32 0, ptr %101, align 4
+  store i32 %9, ptr %92, align 8
+  %102 = load i32, ptr %12, align 4
+  %103 = getelementptr inbounds i8, ptr %0, i64 328
+  %104 = load ptr, ptr %103, align 8
+  %105 = getelementptr inbounds i8, ptr %0, i64 384
+  %106 = load ptr, ptr %105, align 8
+  %107 = load i64, ptr %106, align 8
+  %108 = sext i32 %102 to i64
+  %109 = mul i64 %107, %108
+  %110 = getelementptr inbounds i8, ptr %104, i64 %109
+  ret ptr %110
 }
 
 ; Function Attrs: mustprogress uwtable

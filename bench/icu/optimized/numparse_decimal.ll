@@ -521,14 +521,14 @@ while.cond.preheader:                             ; preds = %invoke.cont10
   %fLength.i172 = getelementptr inbounds i8, ptr %actualDecimalString, i64 12
   br label %while.cond.outer
 
-while.cond.outer:                                 ; preds = %if.end250, %while.cond.preheader
-  %prevGroupCount.0.ph = phi i32 [ -1, %while.cond.preheader ], [ %currGroupCount.0, %if.end250 ]
-  %prevGroupSepType.0.ph = phi i32 [ -1, %while.cond.preheader ], [ %.currGroupSepType.0, %if.end250 ]
-  %prevGroupOffset.0.ph = phi i32 [ -1, %while.cond.preheader ], [ %currGroupOffset.0.ph, %if.end250 ]
-  %currGroupSepType.0.ph = phi i32 [ 0, %while.cond.preheader ], [ %cond252, %if.end250 ]
-  %currGroupOffset.0.ph = phi i32 [ 0, %while.cond.preheader ], [ %currGroupOffset.1, %if.end250 ]
-  %digitsAfterDecimalPlace.0.ph = phi i32 [ 0, %while.cond.preheader ], [ %digitsAfterDecimalPlace.0, %if.end250 ]
-  %maybeMore.0.ph = phi i8 [ 0, %while.cond.preheader ], [ %maybeMore.7225, %if.end250 ]
+while.cond.outer:                                 ; preds = %invoke.cont255.invoke, %while.cond.preheader
+  %prevGroupCount.0.ph = phi i32 [ -1, %while.cond.preheader ], [ %currGroupCount.0, %invoke.cont255.invoke ]
+  %prevGroupSepType.0.ph = phi i32 [ -1, %while.cond.preheader ], [ %.currGroupSepType.0, %invoke.cont255.invoke ]
+  %prevGroupOffset.0.ph = phi i32 [ -1, %while.cond.preheader ], [ %currGroupOffset.0.ph, %invoke.cont255.invoke ]
+  %currGroupSepType.0.ph = phi i32 [ 0, %while.cond.preheader ], [ %cond252, %invoke.cont255.invoke ]
+  %currGroupOffset.0.ph = phi i32 [ 0, %while.cond.preheader ], [ %currGroupOffset.1, %invoke.cont255.invoke ]
+  %digitsAfterDecimalPlace.0.ph = phi i32 [ 0, %while.cond.preheader ], [ %digitsAfterDecimalPlace.0, %invoke.cont255.invoke ]
+  %maybeMore.0.ph = phi i8 [ 0, %while.cond.preheader ], [ %maybeMore.7225, %invoke.cont255.invoke ]
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.outer, %invoke.cont66
@@ -574,7 +574,7 @@ lpad9.loopexit.split-lp.loopexit.loopexit:        ; preds = %while.cond, %while.
           cleanup
   br label %lpad9
 
-lpad9.loopexit.split-lp.loopexit.loopexit.split-lp: ; preds = %if.end250, %if.then82, %lor.rhs88, %if.then98, %if.then107, %lor.rhs112, %if.then137, %lor.rhs143, %if.then153, %if.then164, %if.then168, %if.then183, %if.then187, %if.then247
+lpad9.loopexit.split-lp.loopexit.loopexit.split-lp: ; preds = %invoke.cont255.invoke, %if.then82, %lor.rhs88, %if.then98, %if.then107, %lor.rhs112, %if.then137, %lor.rhs143, %if.then153, %if.then164, %if.then168, %if.then183, %if.then187, %if.then247
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %lpad9
@@ -989,18 +989,30 @@ if.end250:                                        ; preds = %if.then247, %if.els
   %currGroupOffset.1 = phi i32 [ %currGroupOffset.0.ph, %if.else239 ], [ %call249, %if.then247 ]
   %tobool251 = trunc nuw i8 %isGrouping.2 to i1
   %cond252 = select i1 %tobool251, i32 1, i32 2
-  %fUnion2.i.val = load i16, ptr %fUnion2.i, align 8
-  %fUnion2.i113.val = load i16, ptr %fUnion2.i113, align 8
-  %43 = select i1 %tobool251, i16 %fUnion2.i.val, i16 %fUnion2.i113.val
-  %cmp.i.i170 = icmp slt i16 %43, 0
+  br i1 %tobool251, label %invoke.cont255, label %invoke.cont259
+
+invoke.cont255:                                   ; preds = %if.end250
+  %43 = load i16, ptr %fUnion2.i, align 8
+  %cmp.i.i165 = icmp slt i16 %43, 0
   %44 = ashr i16 %43, 5
-  %shr.i.i171 = sext i16 %44 to i32
-  %fLength.i132.val = load i32, ptr %fLength.i132, align 4
-  %fLength.i172.val = load i32, ptr %fLength.i172, align 4
-  %45 = select i1 %tobool251, i32 %fLength.i132.val, i32 %fLength.i172.val
-  %cond.i173 = select i1 %cmp.i.i170, i32 %45, i32 %shr.i.i171
-  invoke void @_ZN6icu_7513StringSegment12adjustOffsetEi(ptr noundef nonnull align 8 dereferenceable(17) %segment, i32 noundef %cond.i173)
+  %shr.i.i166 = sext i16 %44 to i32
+  %45 = load i32, ptr %fLength.i132, align 4
+  %cond.i168 = select i1 %cmp.i.i165, i32 %45, i32 %shr.i.i166
+  br label %invoke.cont255.invoke
+
+invoke.cont255.invoke:                            ; preds = %invoke.cont259, %invoke.cont255
+  %46 = phi i32 [ %cond.i168, %invoke.cont255 ], [ %cond.i173, %invoke.cont259 ]
+  invoke void @_ZN6icu_7513StringSegment12adjustOffsetEi(ptr noundef nonnull align 8 dereferenceable(17) %segment, i32 noundef %46)
           to label %while.cond.outer unwind label %lpad9.loopexit.split-lp.loopexit.loopexit.split-lp, !llvm.loop !7
+
+invoke.cont259:                                   ; preds = %if.end250
+  %47 = load i16, ptr %fUnion2.i113, align 8
+  %cmp.i.i170 = icmp slt i16 %47, 0
+  %48 = ashr i16 %47, 5
+  %shr.i.i171 = sext i16 %48 to i32
+  %49 = load i32, ptr %fLength.i172, align 4
+  %cond.i173 = select i1 %cmp.i.i170, i32 %49, i32 %shr.i.i171
+  br label %invoke.cont255.invoke
 
 while.end:                                        ; preds = %if.else231, %land.lhs.true199, %land.lhs.true194, %invoke.cont12, %if.then219, %invoke.cont227
   %currGroupCount.0366 = phi i32 [ %currGroupCount.0, %if.then219 ], [ %currGroupCount.0, %invoke.cont227 ], [ %currGroupCount.0, %invoke.cont12 ], [ 0, %if.else231 ], [ %currGroupCount.0, %land.lhs.true199 ], [ %currGroupCount.0, %land.lhs.true194 ]
@@ -1022,8 +1034,8 @@ if.end268:                                        ; preds = %land.lhs.true204, %
   %currGroupSepType.1 = phi i32 [ %currGroupSepType.0.ph, %while.end ], [ %prevGroupSepType.0.ph, %if.then266 ], [ 2, %land.lhs.true204 ]
   %currGroupOffset.2 = phi i32 [ %currGroupOffset.0.ph, %while.end ], [ %prevGroupOffset.0.ph, %if.then266 ], [ %currGroupOffset.0.ph, %land.lhs.true204 ]
   %maybeMore.8 = phi i8 [ %maybeMore.1, %while.end ], [ 1, %if.then266 ], [ %maybeMore.7225, %land.lhs.true204 ]
-  %46 = load i8, ptr %requireGroupingMatch.i, align 8
-  %tobool.i175 = trunc i8 %46 to i1
+  %50 = load i8, ptr %requireGroupingMatch.i, align 8
+  %tobool.i175 = trunc i8 %50 to i1
   br i1 %tobool.i175, label %if.then.i181, label %if.then279
 
 if.then.i181:                                     ; preds = %if.end268
@@ -1034,26 +1046,26 @@ if.then.i181:                                     ; preds = %if.end268
 
 if.then4.i182:                                    ; preds = %if.then.i181
   %cmp8.not.i183 = icmp ne i32 %prevGroupCount.1, 0
-  %47 = load i16, ptr %grouping2.i, align 2
-  %conv.i185 = sext i16 %47 to i32
+  %51 = load i16, ptr %grouping2.i, align 2
+  %conv.i185 = sext i16 %51 to i32
   %cmp9.i186 = icmp sle i32 %prevGroupCount.1, %conv.i185
-  %48 = select i1 %cmp8.not.i183, i1 %cmp9.i186, i1 false
+  %52 = select i1 %cmp8.not.i183, i1 %cmp9.i186, i1 false
   br label %if.then.i199
 
 if.then12.i187:                                   ; preds = %if.then.i181
-  %49 = load i16, ptr %grouping2.i, align 2
-  %conv19.i189 = sext i16 %49 to i32
+  %53 = load i16, ptr %grouping2.i, align 2
+  %conv19.i189 = sext i16 %53 to i32
   %cmp20.i190 = icmp eq i32 %prevGroupCount.1, %conv19.i189
   br label %if.then.i199
 
 if.then.i199:                                     ; preds = %if.then.i181, %if.then4.i182, %if.then12.i187
-  %retval.0.i180.ph = phi i1 [ true, %if.then.i181 ], [ %cmp20.i190, %if.then12.i187 ], [ %48, %if.then4.i182 ]
+  %retval.0.i180.ph = phi i1 [ true, %if.then.i181 ], [ %cmp20.i190, %if.then12.i187 ], [ %52, %if.then4.i182 ]
   %cond255 = icmp eq i32 %currGroupSepType.1, 1
   br i1 %cond255, label %if.end301.thread, label %if.end301
 
 if.end301.thread:                                 ; preds = %if.then.i199
-  %50 = load i16, ptr %grouping1.i, align 4
-  %conv15.i203 = sext i16 %50 to i32
+  %54 = load i16, ptr %grouping1.i, align 4
+  %conv15.i203 = sext i16 %54 to i32
   %cmp16.i204 = icmp ne i32 %currGroupCount.1, %conv15.i203
   br label %land.lhs.true303
 
@@ -1071,8 +1083,8 @@ if.else284:                                       ; preds = %if.then279
   %cmp23.i195 = icmp ne i32 %currGroupSepType.1, 1
   %cmp25.i196 = icmp ne i32 %currGroupCount.1, 1
   %spec.select.i197 = or i1 %cmp25.i196, %cmp23.i195
-  %51 = or i32 %prevGroupSepType.2, %prevGroupCount.1
-  %or.cond5.not = icmp eq i32 %51, 0
+  %55 = or i32 %prevGroupSepType.2, %prevGroupCount.1
+  %or.cond5.not = icmp eq i32 %55, 0
   %or.cond109 = or i1 %or.cond5.not, %spec.select.i197
   br i1 %or.cond109, label %if.end301, label %if.then290
 
@@ -1115,8 +1127,8 @@ if.then307:                                       ; preds = %land.lhs.true303
 
 if.end309:                                        ; preds = %land.lhs.true303, %if.then307, %if.end301
   %maybeMore.9254 = phi i8 [ %maybeMore.9253, %land.lhs.true303 ], [ %maybeMore.9253, %if.then307 ], [ %maybeMore.9, %if.end301 ]
-  %52 = load i8, ptr %bogus, align 8
-  %tobool311 = trunc i8 %52 to i1
+  %56 = load i8, ptr %bogus, align 8
+  %tobool311 = trunc i8 %56 to i1
   br i1 %tobool311, label %if.then312, label %if.end322
 
 if.then312:                                       ; preds = %if.end309
@@ -1132,7 +1144,7 @@ invoke.cont315:                                   ; preds = %lor.rhs314
   br label %lor.end318
 
 lor.end318:                                       ; preds = %invoke.cont315, %if.then312
-  %53 = phi i1 [ true, %if.then312 ], [ %cmp317, %invoke.cont315 ]
+  %57 = phi i1 [ true, %if.then312 ], [ %cmp317, %invoke.cont315 ]
   invoke void @_ZN6icu_7513StringSegment9setOffsetEi(ptr noundef nonnull align 8 dereferenceable(17) %segment, i32 noundef %call6)
           to label %cleanup unwind label %lpad9.loopexit.split-lp.loopexit.split-lp
 
@@ -1188,8 +1200,8 @@ if.else357:                                       ; preds = %if.then351
   %bogus359 = getelementptr inbounds i8, ptr %result, i64 8
   store i8 1, ptr %bogus359, align 8
   %flags = getelementptr inbounds i8, ptr %result, i64 76
-  %54 = load i32, ptr %flags, align 4
-  %or = or i32 %54, 128
+  %58 = load i32, ptr %flags, align 4
+  %or = or i32 %58, 128
   store i32 %or, ptr %flags, align 4
   br label %if.end366
 
@@ -1198,15 +1210,15 @@ if.else362:                                       ; preds = %invoke.cont329, %in
           to label %if.end366 unwind label %lpad9.loopexit.split-lp.loopexit.split-lp
 
 if.end366:                                        ; preds = %if.else362, %invoke.cont342, %if.then354, %if.else357
-  %55 = load i16, ptr %fUnion2.i113, align 8
-  %conv2.i207265 = and i16 %55, 1
+  %59 = load i16, ptr %fUnion2.i113, align 8
+  %conv2.i207265 = and i16 %59, 1
   %tobool369.not = icmp eq i16 %conv2.i207265, 0
   br i1 %tobool369.not, label %if.then370, label %if.end373
 
 if.then370:                                       ; preds = %if.end366
   %flags371 = getelementptr inbounds i8, ptr %result, i64 76
-  %56 = load i32, ptr %flags371, align 4
-  %or372 = or i32 %56, 32
+  %60 = load i32, ptr %flags371, align 4
+  %or372 = or i32 %60, 32
   store i32 %or372, ptr %flags371, align 4
   br label %if.end373
 
@@ -1221,11 +1233,11 @@ invoke.cont374:                                   ; preds = %if.end373
 invoke.cont375:                                   ; preds = %invoke.cont374
   %cmp377 = icmp eq i32 %call376, 0
   %tobool379 = trunc nuw i8 %maybeMore.9254 to i1
-  %57 = select i1 %cmp377, i1 true, i1 %tobool379
+  %61 = select i1 %cmp377, i1 true, i1 %tobool379
   br label %cleanup
 
 cleanup:                                          ; preds = %lor.end318, %invoke.cont375
-  %retval.1 = phi i1 [ %57, %invoke.cont375 ], [ %53, %lor.end318 ]
+  %retval.1 = phi i1 [ %61, %invoke.cont375 ], [ %57, %lor.end318 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %actualDecimalString) #7
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %actualGroupingString) #7
   call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %digitsConsumed) #7

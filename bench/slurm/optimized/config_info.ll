@@ -2431,7 +2431,7 @@ define ptr @slurm_ctl_conf_2_key_pairs(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca [256 x i8], align 16
   %3 = tail call i32 @slurmdb_setup_cluster_flags() #13
   %4 = icmp eq ptr %0, null
-  br i1 %4, label %1515, label %5
+  br i1 %4, label %1514, label %5
 
 5:                                                ; preds = %1
   %6 = tail call ptr @list_create(ptr noundef nonnull @destroy_config_key_pair) #13
@@ -3762,16 +3762,16 @@ switch.lookup:                                    ; preds = %554
   %852 = getelementptr inbounds i8, ptr %0, i64 856
   %853 = load i16, ptr %852, align 8
   %854 = icmp ult i16 %853, 7
-  br i1 %854, label %switch.lookup1184, label %_reset_period_str.exit
+  br i1 %854, label %switch.lookup1183, label %_reset_period_str.exit
 
-switch.lookup1184:                                ; preds = %815
+switch.lookup1183:                                ; preds = %815
   %855 = zext nneg i16 %853 to i64
-  %switch.gep1185 = getelementptr inbounds [7 x ptr], ptr @switch.table.slurm_ctl_conf_2_key_pairs.1, i64 0, i64 %855
-  %switch.load1186 = load ptr, ptr %switch.gep1185, align 8
+  %switch.gep1184 = getelementptr inbounds [7 x ptr], ptr @switch.table.slurm_ctl_conf_2_key_pairs.1, i64 0, i64 %855
+  %switch.load1185 = load ptr, ptr %switch.gep1184, align 8
   br label %_reset_period_str.exit
 
-_reset_period_str.exit:                           ; preds = %815, %switch.lookup1184
-  %.0.i = phi ptr [ %switch.load1186, %switch.lookup1184 ], [ @.str.352, %815 ]
+_reset_period_str.exit:                           ; preds = %815, %switch.lookup1183
+  %.0.i = phi ptr [ %switch.load1185, %switch.lookup1183 ], [ @.str.352, %815 ]
   %856 = call ptr @xstrdup(ptr noundef nonnull %.0.i) #13
   %857 = getelementptr inbounds i8, ptr %850, i64 8
   store ptr %856, ptr %857, align 8
@@ -3851,924 +3851,924 @@ _reset_period_str.exit:                           ; preds = %815, %switch.lookup
   br label %908
 
 908:                                              ; preds = %_reset_period_str.exit, %812
-  %.sink1183 = phi ptr [ %907, %_reset_period_str.exit ], [ %319, %812 ]
+  %.sink1182.in = phi ptr [ %907, %_reset_period_str.exit ], [ %319, %812 ]
   %.sink1181 = phi ptr [ %905, %_reset_period_str.exit ], [ %813, %812 ]
-  %909 = load ptr, ptr %.sink1183, align 8
-  %910 = call ptr @xstrdup(ptr noundef %909) #13
-  %911 = getelementptr inbounds i8, ptr %.sink1181, i64 8
-  store ptr %910, ptr %911, align 8
+  %.sink1182 = load ptr, ptr %.sink1182.in, align 8
+  %909 = call ptr @xstrdup(ptr noundef %.sink1182) #13
+  %910 = getelementptr inbounds i8, ptr %.sink1181, i64 8
+  store ptr %909, ptr %910, align 8
   call void @list_append(ptr noundef %6, ptr noundef nonnull %.sink1181) #13
-  %912 = getelementptr inbounds i8, ptr %0, i64 904
-  %913 = load i16, ptr %912, align 8
-  call void @private_data_string(i16 noundef zeroext %913, ptr noundef nonnull %2, i32 noundef 256) #13
-  %914 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1353, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %915 = call ptr @xstrdup(ptr noundef nonnull @.str.238) #13
-  store ptr %915, ptr %914, align 8
-  %916 = call ptr @xstrdup(ptr noundef nonnull %2) #13
-  %917 = getelementptr inbounds i8, ptr %914, i64 8
-  store ptr %916, ptr %917, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %914) #13
-  %918 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1358, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %919 = call ptr @xstrdup(ptr noundef nonnull @.str.239) #13
-  store ptr %919, ptr %918, align 8
-  %920 = getelementptr inbounds i8, ptr %0, i64 912
-  %921 = load ptr, ptr %920, align 8
-  %922 = call ptr @xstrdup(ptr noundef %921) #13
-  %923 = getelementptr inbounds i8, ptr %918, i64 8
-  store ptr %922, ptr %923, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %918) #13
-  %924 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1363, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %925 = call ptr @xstrdup(ptr noundef nonnull @.str.240) #13
-  store ptr %925, ptr %924, align 8
-  %926 = getelementptr inbounds i8, ptr %0, i64 920
-  %927 = load ptr, ptr %926, align 8
-  %928 = call ptr @xstrdup(ptr noundef %927) #13
-  %929 = getelementptr inbounds i8, ptr %924, i64 8
-  store ptr %928, ptr %929, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %924) #13
-  %930 = getelementptr inbounds i8, ptr %0, i64 928
-  %931 = load i16, ptr %930, align 8
-  %932 = zext i16 %931 to i32
-  %933 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.91, i32 noundef %932) #13
-  %934 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1370, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %935 = call ptr @xstrdup(ptr noundef nonnull @.str.241) #13
-  store ptr %935, ptr %934, align 8
-  %936 = call ptr @xstrdup(ptr noundef nonnull %2) #13
-  %937 = getelementptr inbounds i8, ptr %934, i64 8
-  store ptr %936, ptr %937, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %934) #13
-  %938 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1375, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %939 = call ptr @xstrdup(ptr noundef nonnull @.str.242) #13
-  store ptr %939, ptr %938, align 8
-  %940 = getelementptr inbounds i8, ptr %0, i64 936
-  %941 = load ptr, ptr %940, align 8
-  %942 = call ptr @xstrdup(ptr noundef %941) #13
-  %943 = getelementptr inbounds i8, ptr %938, i64 8
-  store ptr %942, ptr %943, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %938) #13
-  %944 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1380, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %945 = call ptr @xstrdup(ptr noundef nonnull @.str.243) #13
-  store ptr %945, ptr %944, align 8
-  %946 = getelementptr inbounds i8, ptr %0, i64 946
-  %947 = load i16, ptr %946, align 2
-  %948 = call ptr @prolog_flags2str(i16 noundef zeroext %947) #13
-  %949 = getelementptr inbounds i8, ptr %944, i64 8
-  store ptr %948, ptr %949, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %944) #13
-  %950 = getelementptr inbounds i8, ptr %0, i64 944
-  %951 = load i16, ptr %950, align 8
-  %952 = zext i16 %951 to i32
-  %953 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.91, i32 noundef %952) #13
-  %954 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1387, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %955 = call ptr @xstrdup(ptr noundef nonnull @.str.244) #13
-  store ptr %955, ptr %954, align 8
-  %956 = call ptr @xstrdup(ptr noundef nonnull %2) #13
-  %957 = getelementptr inbounds i8, ptr %954, i64 8
-  store ptr %956, ptr %957, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %954) #13
-  %958 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1392, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %959 = call ptr @xstrdup(ptr noundef nonnull @.str.245) #13
-  store ptr %959, ptr %958, align 8
-  %960 = getelementptr inbounds i8, ptr %0, i64 952
-  %961 = load ptr, ptr %960, align 8
-  %962 = call ptr @xstrdup(ptr noundef %961) #13
-  %963 = getelementptr inbounds i8, ptr %958, i64 8
-  store ptr %962, ptr %963, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %958) #13
-  %964 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1397, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %965 = call ptr @xstrdup(ptr noundef nonnull @.str.246) #13
-  store ptr %965, ptr %964, align 8
-  %966 = getelementptr inbounds i8, ptr %0, i64 960
-  %967 = load ptr, ptr %966, align 8
-  %968 = call ptr @xstrdup(ptr noundef %967) #13
-  %969 = getelementptr inbounds i8, ptr %964, i64 8
-  store ptr %968, ptr %969, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %964) #13
-  %970 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1403, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %971 = call ptr @xstrdup(ptr noundef nonnull @.str.247) #13
-  store ptr %971, ptr %970, align 8
-  %972 = getelementptr inbounds i8, ptr %0, i64 968
-  %973 = load ptr, ptr %972, align 8
-  %974 = call ptr @xstrdup(ptr noundef %973) #13
-  %975 = getelementptr inbounds i8, ptr %970, i64 8
-  store ptr %974, ptr %975, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %970) #13
-  %976 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1408, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %977 = call ptr @xstrdup(ptr noundef nonnull @.str.248) #13
-  store ptr %977, ptr %976, align 8
-  %978 = getelementptr inbounds i8, ptr %0, i64 976
-  %979 = load i16, ptr %978, align 8
-  %980 = call ptr @reconfig_flags2str(i16 noundef zeroext %979) #13
-  %981 = getelementptr inbounds i8, ptr %976, i64 8
-  store ptr %980, ptr %981, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %976) #13
-  %982 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1414, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %983 = call ptr @xstrdup(ptr noundef nonnull @.str.249) #13
-  store ptr %983, ptr %982, align 8
-  %984 = getelementptr inbounds i8, ptr %0, i64 984
-  %985 = load ptr, ptr %984, align 8
-  %986 = call ptr @xstrdup(ptr noundef %985) #13
-  %987 = getelementptr inbounds i8, ptr %982, i64 8
-  store ptr %986, ptr %987, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %982) #13
-  %988 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1419, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %989 = call ptr @xstrdup(ptr noundef nonnull @.str.250) #13
-  store ptr %989, ptr %988, align 8
-  %990 = getelementptr inbounds i8, ptr %0, i64 992
-  %991 = load ptr, ptr %990, align 8
-  %992 = call ptr @xstrdup(ptr noundef %991) #13
-  %993 = getelementptr inbounds i8, ptr %988, i64 8
-  store ptr %992, ptr %993, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %988) #13
-  %994 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1424, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %995 = call ptr @xstrdup(ptr noundef nonnull @.str.251) #13
-  store ptr %995, ptr %994, align 8
-  %996 = getelementptr inbounds i8, ptr %0, i64 1000
-  %997 = load ptr, ptr %996, align 8
-  %998 = call ptr @xstrdup(ptr noundef %997) #13
-  %999 = getelementptr inbounds i8, ptr %994, i64 8
-  store ptr %998, ptr %999, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %994) #13
-  %1000 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1429, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1001 = call ptr @xstrdup(ptr noundef nonnull @.str.252) #13
-  store ptr %1001, ptr %1000, align 8
-  %1002 = getelementptr inbounds i8, ptr %0, i64 1008
-  %1003 = load ptr, ptr %1002, align 8
-  %1004 = call ptr @xstrdup(ptr noundef %1003) #13
-  %1005 = getelementptr inbounds i8, ptr %1000, i64 8
-  store ptr %1004, ptr %1005, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1000) #13
-  %1006 = getelementptr inbounds i8, ptr %0, i64 1016
-  %1007 = load i16, ptr %1006, align 8
-  %1008 = zext i16 %1007 to i32
-  %1009 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.253, i32 noundef %1008) #13
-  %1010 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1436, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1011 = call ptr @xstrdup(ptr noundef nonnull @.str.254) #13
-  store ptr %1011, ptr %1010, align 8
-  %1012 = call ptr @xstrdup(ptr noundef nonnull %2) #13
-  %1013 = getelementptr inbounds i8, ptr %1010, i64 8
-  store ptr %1012, ptr %1013, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1010) #13
-  %1014 = getelementptr inbounds i8, ptr %0, i64 1018
-  %1015 = load i16, ptr %1014, align 2
-  %1016 = zext i16 %1015 to i32
-  %1017 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.105, i32 noundef %1016) #13
-  %1018 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1443, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1019 = call ptr @xstrdup(ptr noundef nonnull @.str.255) #13
-  store ptr %1019, ptr %1018, align 8
-  %1020 = call ptr @xstrdup(ptr noundef nonnull %2) #13
-  %1021 = getelementptr inbounds i8, ptr %1018, i64 8
-  store ptr %1020, ptr %1021, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1018) #13
-  %1022 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1448, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1023 = call ptr @xstrdup(ptr noundef nonnull @.str.256) #13
-  store ptr %1023, ptr %1022, align 8
-  %1024 = getelementptr inbounds i8, ptr %0, i64 1024
-  %1025 = load ptr, ptr %1024, align 8
-  %1026 = call ptr @xstrdup(ptr noundef %1025) #13
-  %1027 = getelementptr inbounds i8, ptr %1022, i64 8
-  store ptr %1026, ptr %1027, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1022) #13
-  %1028 = getelementptr inbounds i8, ptr %0, i64 1032
-  %1029 = load i16, ptr %1028, align 8
-  %1030 = icmp eq i16 %1029, -1
-  br i1 %1030, label %1031, label %1032
+  %911 = getelementptr inbounds i8, ptr %0, i64 904
+  %912 = load i16, ptr %911, align 8
+  call void @private_data_string(i16 noundef zeroext %912, ptr noundef nonnull %2, i32 noundef 256) #13
+  %913 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1353, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %914 = call ptr @xstrdup(ptr noundef nonnull @.str.238) #13
+  store ptr %914, ptr %913, align 8
+  %915 = call ptr @xstrdup(ptr noundef nonnull %2) #13
+  %916 = getelementptr inbounds i8, ptr %913, i64 8
+  store ptr %915, ptr %916, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %913) #13
+  %917 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1358, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %918 = call ptr @xstrdup(ptr noundef nonnull @.str.239) #13
+  store ptr %918, ptr %917, align 8
+  %919 = getelementptr inbounds i8, ptr %0, i64 912
+  %920 = load ptr, ptr %919, align 8
+  %921 = call ptr @xstrdup(ptr noundef %920) #13
+  %922 = getelementptr inbounds i8, ptr %917, i64 8
+  store ptr %921, ptr %922, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %917) #13
+  %923 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1363, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %924 = call ptr @xstrdup(ptr noundef nonnull @.str.240) #13
+  store ptr %924, ptr %923, align 8
+  %925 = getelementptr inbounds i8, ptr %0, i64 920
+  %926 = load ptr, ptr %925, align 8
+  %927 = call ptr @xstrdup(ptr noundef %926) #13
+  %928 = getelementptr inbounds i8, ptr %923, i64 8
+  store ptr %927, ptr %928, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %923) #13
+  %929 = getelementptr inbounds i8, ptr %0, i64 928
+  %930 = load i16, ptr %929, align 8
+  %931 = zext i16 %930 to i32
+  %932 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.91, i32 noundef %931) #13
+  %933 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1370, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %934 = call ptr @xstrdup(ptr noundef nonnull @.str.241) #13
+  store ptr %934, ptr %933, align 8
+  %935 = call ptr @xstrdup(ptr noundef nonnull %2) #13
+  %936 = getelementptr inbounds i8, ptr %933, i64 8
+  store ptr %935, ptr %936, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %933) #13
+  %937 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1375, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %938 = call ptr @xstrdup(ptr noundef nonnull @.str.242) #13
+  store ptr %938, ptr %937, align 8
+  %939 = getelementptr inbounds i8, ptr %0, i64 936
+  %940 = load ptr, ptr %939, align 8
+  %941 = call ptr @xstrdup(ptr noundef %940) #13
+  %942 = getelementptr inbounds i8, ptr %937, i64 8
+  store ptr %941, ptr %942, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %937) #13
+  %943 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1380, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %944 = call ptr @xstrdup(ptr noundef nonnull @.str.243) #13
+  store ptr %944, ptr %943, align 8
+  %945 = getelementptr inbounds i8, ptr %0, i64 946
+  %946 = load i16, ptr %945, align 2
+  %947 = call ptr @prolog_flags2str(i16 noundef zeroext %946) #13
+  %948 = getelementptr inbounds i8, ptr %943, i64 8
+  store ptr %947, ptr %948, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %943) #13
+  %949 = getelementptr inbounds i8, ptr %0, i64 944
+  %950 = load i16, ptr %949, align 8
+  %951 = zext i16 %950 to i32
+  %952 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.91, i32 noundef %951) #13
+  %953 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1387, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %954 = call ptr @xstrdup(ptr noundef nonnull @.str.244) #13
+  store ptr %954, ptr %953, align 8
+  %955 = call ptr @xstrdup(ptr noundef nonnull %2) #13
+  %956 = getelementptr inbounds i8, ptr %953, i64 8
+  store ptr %955, ptr %956, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %953) #13
+  %957 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1392, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %958 = call ptr @xstrdup(ptr noundef nonnull @.str.245) #13
+  store ptr %958, ptr %957, align 8
+  %959 = getelementptr inbounds i8, ptr %0, i64 952
+  %960 = load ptr, ptr %959, align 8
+  %961 = call ptr @xstrdup(ptr noundef %960) #13
+  %962 = getelementptr inbounds i8, ptr %957, i64 8
+  store ptr %961, ptr %962, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %957) #13
+  %963 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1397, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %964 = call ptr @xstrdup(ptr noundef nonnull @.str.246) #13
+  store ptr %964, ptr %963, align 8
+  %965 = getelementptr inbounds i8, ptr %0, i64 960
+  %966 = load ptr, ptr %965, align 8
+  %967 = call ptr @xstrdup(ptr noundef %966) #13
+  %968 = getelementptr inbounds i8, ptr %963, i64 8
+  store ptr %967, ptr %968, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %963) #13
+  %969 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1403, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %970 = call ptr @xstrdup(ptr noundef nonnull @.str.247) #13
+  store ptr %970, ptr %969, align 8
+  %971 = getelementptr inbounds i8, ptr %0, i64 968
+  %972 = load ptr, ptr %971, align 8
+  %973 = call ptr @xstrdup(ptr noundef %972) #13
+  %974 = getelementptr inbounds i8, ptr %969, i64 8
+  store ptr %973, ptr %974, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %969) #13
+  %975 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1408, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %976 = call ptr @xstrdup(ptr noundef nonnull @.str.248) #13
+  store ptr %976, ptr %975, align 8
+  %977 = getelementptr inbounds i8, ptr %0, i64 976
+  %978 = load i16, ptr %977, align 8
+  %979 = call ptr @reconfig_flags2str(i16 noundef zeroext %978) #13
+  %980 = getelementptr inbounds i8, ptr %975, i64 8
+  store ptr %979, ptr %980, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %975) #13
+  %981 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1414, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %982 = call ptr @xstrdup(ptr noundef nonnull @.str.249) #13
+  store ptr %982, ptr %981, align 8
+  %983 = getelementptr inbounds i8, ptr %0, i64 984
+  %984 = load ptr, ptr %983, align 8
+  %985 = call ptr @xstrdup(ptr noundef %984) #13
+  %986 = getelementptr inbounds i8, ptr %981, i64 8
+  store ptr %985, ptr %986, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %981) #13
+  %987 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1419, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %988 = call ptr @xstrdup(ptr noundef nonnull @.str.250) #13
+  store ptr %988, ptr %987, align 8
+  %989 = getelementptr inbounds i8, ptr %0, i64 992
+  %990 = load ptr, ptr %989, align 8
+  %991 = call ptr @xstrdup(ptr noundef %990) #13
+  %992 = getelementptr inbounds i8, ptr %987, i64 8
+  store ptr %991, ptr %992, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %987) #13
+  %993 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1424, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %994 = call ptr @xstrdup(ptr noundef nonnull @.str.251) #13
+  store ptr %994, ptr %993, align 8
+  %995 = getelementptr inbounds i8, ptr %0, i64 1000
+  %996 = load ptr, ptr %995, align 8
+  %997 = call ptr @xstrdup(ptr noundef %996) #13
+  %998 = getelementptr inbounds i8, ptr %993, i64 8
+  store ptr %997, ptr %998, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %993) #13
+  %999 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1429, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1000 = call ptr @xstrdup(ptr noundef nonnull @.str.252) #13
+  store ptr %1000, ptr %999, align 8
+  %1001 = getelementptr inbounds i8, ptr %0, i64 1008
+  %1002 = load ptr, ptr %1001, align 8
+  %1003 = call ptr @xstrdup(ptr noundef %1002) #13
+  %1004 = getelementptr inbounds i8, ptr %999, i64 8
+  store ptr %1003, ptr %1004, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %999) #13
+  %1005 = getelementptr inbounds i8, ptr %0, i64 1016
+  %1006 = load i16, ptr %1005, align 8
+  %1007 = zext i16 %1006 to i32
+  %1008 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.253, i32 noundef %1007) #13
+  %1009 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1436, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1010 = call ptr @xstrdup(ptr noundef nonnull @.str.254) #13
+  store ptr %1010, ptr %1009, align 8
+  %1011 = call ptr @xstrdup(ptr noundef nonnull %2) #13
+  %1012 = getelementptr inbounds i8, ptr %1009, i64 8
+  store ptr %1011, ptr %1012, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1009) #13
+  %1013 = getelementptr inbounds i8, ptr %0, i64 1018
+  %1014 = load i16, ptr %1013, align 2
+  %1015 = zext i16 %1014 to i32
+  %1016 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.105, i32 noundef %1015) #13
+  %1017 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1443, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1018 = call ptr @xstrdup(ptr noundef nonnull @.str.255) #13
+  store ptr %1018, ptr %1017, align 8
+  %1019 = call ptr @xstrdup(ptr noundef nonnull %2) #13
+  %1020 = getelementptr inbounds i8, ptr %1017, i64 8
+  store ptr %1019, ptr %1020, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1017) #13
+  %1021 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1448, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1022 = call ptr @xstrdup(ptr noundef nonnull @.str.256) #13
+  store ptr %1022, ptr %1021, align 8
+  %1023 = getelementptr inbounds i8, ptr %0, i64 1024
+  %1024 = load ptr, ptr %1023, align 8
+  %1025 = call ptr @xstrdup(ptr noundef %1024) #13
+  %1026 = getelementptr inbounds i8, ptr %1021, i64 8
+  store ptr %1025, ptr %1026, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1021) #13
+  %1027 = getelementptr inbounds i8, ptr %0, i64 1032
+  %1028 = load i16, ptr %1027, align 8
+  %1029 = icmp eq i16 %1028, -1
+  br i1 %1029, label %1030, label %1031
+
+1030:                                             ; preds = %908
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %2, ptr noundef nonnull align 1 dereferenceable(10) @.str.129, i64 10, i1 false)
+  br label %1034
 
 1031:                                             ; preds = %908
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %2, ptr noundef nonnull align 1 dereferenceable(10) @.str.129, i64 10, i1 false)
-  br label %1035
+  %1032 = zext i16 %1028 to i32
+  %1033 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.208, i32 noundef %1032) #13
+  br label %1034
 
-1032:                                             ; preds = %908
-  %1033 = zext i16 %1029 to i32
-  %1034 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.208, i32 noundef %1033) #13
-  br label %1035
+1034:                                             ; preds = %1031, %1030
+  %1035 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1458, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1036 = call ptr @xstrdup(ptr noundef nonnull @.str.257) #13
+  store ptr %1036, ptr %1035, align 8
+  %1037 = call ptr @xstrdup(ptr noundef nonnull %2) #13
+  %1038 = getelementptr inbounds i8, ptr %1035, i64 8
+  store ptr %1037, ptr %1038, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1035) #13
+  %1039 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1463, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1040 = call ptr @xstrdup(ptr noundef nonnull @.str.258) #13
+  store ptr %1040, ptr %1039, align 8
+  %1041 = getelementptr inbounds i8, ptr %0, i64 1040
+  %1042 = load ptr, ptr %1041, align 8
+  %1043 = call ptr @xstrdup(ptr noundef %1042) #13
+  %1044 = getelementptr inbounds i8, ptr %1039, i64 8
+  store ptr %1043, ptr %1044, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1039) #13
+  %1045 = getelementptr inbounds i8, ptr %0, i64 1048
+  %1046 = load i16, ptr %1045, align 8
+  %1047 = zext i16 %1046 to i32
+  %1048 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.91, i32 noundef %1047) #13
+  %1049 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1470, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1050 = call ptr @xstrdup(ptr noundef nonnull @.str.259) #13
+  store ptr %1050, ptr %1049, align 8
+  %1051 = call ptr @xstrdup(ptr noundef nonnull %2) #13
+  %1052 = getelementptr inbounds i8, ptr %1049, i64 8
+  store ptr %1051, ptr %1052, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1049) #13
+  %1053 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1475, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1054 = call ptr @xstrdup(ptr noundef nonnull @.str.260) #13
+  store ptr %1054, ptr %1053, align 8
+  %1055 = getelementptr inbounds i8, ptr %0, i64 1072
+  %1056 = load ptr, ptr %1055, align 8
+  %1057 = call ptr @xstrdup(ptr noundef %1056) #13
+  %1058 = getelementptr inbounds i8, ptr %1053, i64 8
+  store ptr %1057, ptr %1058, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1053) #13
+  %1059 = getelementptr inbounds i8, ptr %0, i64 1080
+  %1060 = load i16, ptr %1059, align 8
+  %1061 = zext i16 %1060 to i32
+  %1062 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.105, i32 noundef %1061) #13
+  %1063 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1482, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1064 = call ptr @xstrdup(ptr noundef nonnull @.str.261) #13
+  store ptr %1064, ptr %1063, align 8
+  %1065 = call ptr @xstrdup(ptr noundef nonnull %2) #13
+  %1066 = getelementptr inbounds i8, ptr %1063, i64 8
+  store ptr %1065, ptr %1066, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1063) #13
+  %1067 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1487, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1068 = call ptr @xstrdup(ptr noundef nonnull @.str.262) #13
+  store ptr %1068, ptr %1067, align 8
+  %1069 = getelementptr inbounds i8, ptr %0, i64 1088
+  %1070 = load ptr, ptr %1069, align 8
+  %1071 = call ptr @xstrdup(ptr noundef %1070) #13
+  %1072 = getelementptr inbounds i8, ptr %1067, i64 8
+  store ptr %1071, ptr %1072, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1067) #13
+  %1073 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1492, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1074 = call ptr @xstrdup(ptr noundef nonnull @.str.263) #13
+  store ptr %1074, ptr %1073, align 8
+  %1075 = getelementptr inbounds i8, ptr %0, i64 1096
+  %1076 = load ptr, ptr %1075, align 8
+  %1077 = call ptr @xstrdup(ptr noundef %1076) #13
+  %1078 = getelementptr inbounds i8, ptr %1073, i64 8
+  store ptr %1077, ptr %1078, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1073) #13
+  %1079 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1497, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1080 = call ptr @xstrdup(ptr noundef nonnull @.str.264) #13
+  store ptr %1080, ptr %1079, align 8
+  %1081 = getelementptr inbounds i8, ptr %0, i64 1104
+  %1082 = load ptr, ptr %1081, align 8
+  %1083 = call ptr @xstrdup(ptr noundef %1082) #13
+  %1084 = getelementptr inbounds i8, ptr %1079, i64 8
+  store ptr %1083, ptr %1084, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1079) #13
+  %1085 = getelementptr inbounds i8, ptr %0, i64 1120
+  %1086 = load i16, ptr %1085, align 8
+  %.not1156 = icmp eq i16 %1086, 0
+  br i1 %.not1156, label %1094, label %1087
 
-1035:                                             ; preds = %1032, %1031
-  %1036 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1458, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1037 = call ptr @xstrdup(ptr noundef nonnull @.str.257) #13
-  store ptr %1037, ptr %1036, align 8
-  %1038 = call ptr @xstrdup(ptr noundef nonnull %2) #13
-  %1039 = getelementptr inbounds i8, ptr %1036, i64 8
-  store ptr %1038, ptr %1039, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1036) #13
-  %1040 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1463, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1041 = call ptr @xstrdup(ptr noundef nonnull @.str.258) #13
-  store ptr %1041, ptr %1040, align 8
-  %1042 = getelementptr inbounds i8, ptr %0, i64 1040
-  %1043 = load ptr, ptr %1042, align 8
-  %1044 = call ptr @xstrdup(ptr noundef %1043) #13
-  %1045 = getelementptr inbounds i8, ptr %1040, i64 8
-  store ptr %1044, ptr %1045, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1040) #13
-  %1046 = getelementptr inbounds i8, ptr %0, i64 1048
-  %1047 = load i16, ptr %1046, align 8
-  %1048 = zext i16 %1047 to i32
-  %1049 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.91, i32 noundef %1048) #13
-  %1050 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1470, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1051 = call ptr @xstrdup(ptr noundef nonnull @.str.259) #13
-  store ptr %1051, ptr %1050, align 8
-  %1052 = call ptr @xstrdup(ptr noundef nonnull %2) #13
-  %1053 = getelementptr inbounds i8, ptr %1050, i64 8
-  store ptr %1052, ptr %1053, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1050) #13
-  %1054 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1475, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1055 = call ptr @xstrdup(ptr noundef nonnull @.str.260) #13
-  store ptr %1055, ptr %1054, align 8
-  %1056 = getelementptr inbounds i8, ptr %0, i64 1072
-  %1057 = load ptr, ptr %1056, align 8
-  %1058 = call ptr @xstrdup(ptr noundef %1057) #13
-  %1059 = getelementptr inbounds i8, ptr %1054, i64 8
-  store ptr %1058, ptr %1059, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1054) #13
-  %1060 = getelementptr inbounds i8, ptr %0, i64 1080
-  %1061 = load i16, ptr %1060, align 8
-  %1062 = zext i16 %1061 to i32
-  %1063 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.105, i32 noundef %1062) #13
-  %1064 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1482, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1065 = call ptr @xstrdup(ptr noundef nonnull @.str.261) #13
-  store ptr %1065, ptr %1064, align 8
-  %1066 = call ptr @xstrdup(ptr noundef nonnull %2) #13
-  %1067 = getelementptr inbounds i8, ptr %1064, i64 8
-  store ptr %1066, ptr %1067, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1064) #13
-  %1068 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1487, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1069 = call ptr @xstrdup(ptr noundef nonnull @.str.262) #13
-  store ptr %1069, ptr %1068, align 8
-  %1070 = getelementptr inbounds i8, ptr %0, i64 1088
-  %1071 = load ptr, ptr %1070, align 8
-  %1072 = call ptr @xstrdup(ptr noundef %1071) #13
-  %1073 = getelementptr inbounds i8, ptr %1068, i64 8
-  store ptr %1072, ptr %1073, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1068) #13
-  %1074 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1492, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1075 = call ptr @xstrdup(ptr noundef nonnull @.str.263) #13
-  store ptr %1075, ptr %1074, align 8
-  %1076 = getelementptr inbounds i8, ptr %0, i64 1096
-  %1077 = load ptr, ptr %1076, align 8
-  %1078 = call ptr @xstrdup(ptr noundef %1077) #13
-  %1079 = getelementptr inbounds i8, ptr %1074, i64 8
-  store ptr %1078, ptr %1079, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1074) #13
-  %1080 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1497, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1081 = call ptr @xstrdup(ptr noundef nonnull @.str.264) #13
-  store ptr %1081, ptr %1080, align 8
-  %1082 = getelementptr inbounds i8, ptr %0, i64 1104
-  %1083 = load ptr, ptr %1082, align 8
-  %1084 = call ptr @xstrdup(ptr noundef %1083) #13
-  %1085 = getelementptr inbounds i8, ptr %1080, i64 8
-  store ptr %1084, ptr %1085, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1080) #13
-  %1086 = getelementptr inbounds i8, ptr %0, i64 1120
-  %1087 = load i16, ptr %1086, align 8
-  %.not1156 = icmp eq i16 %1087, 0
-  br i1 %.not1156, label %1095, label %1088
+1087:                                             ; preds = %1034
+  %1088 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1503, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1089 = call ptr @xstrdup(ptr noundef nonnull @.str.265) #13
+  store ptr %1089, ptr %1088, align 8
+  %1090 = load i16, ptr %1085, align 8
+  %1091 = call ptr @select_type_param_string(i16 noundef zeroext %1090) #13
+  %1092 = call ptr @xstrdup(ptr noundef %1091) #13
+  %1093 = getelementptr inbounds i8, ptr %1088, i64 8
+  store ptr %1092, ptr %1093, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1088) #13
+  br label %1094
 
-1088:                                             ; preds = %1035
-  %1089 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1503, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1090 = call ptr @xstrdup(ptr noundef nonnull @.str.265) #13
-  store ptr %1090, ptr %1089, align 8
-  %1091 = load i16, ptr %1086, align 8
-  %1092 = call ptr @select_type_param_string(i16 noundef zeroext %1091) #13
-  %1093 = call ptr @xstrdup(ptr noundef %1092) #13
-  %1094 = getelementptr inbounds i8, ptr %1089, i64 8
-  store ptr %1093, ptr %1094, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1089) #13
-  br label %1095
-
-1095:                                             ; preds = %1088, %1035
-  %1096 = getelementptr inbounds i8, ptr %0, i64 1160
-  %1097 = load ptr, ptr %1096, align 8
-  %1098 = getelementptr inbounds i8, ptr %0, i64 1152
-  %1099 = load i32, ptr %1098, align 8
-  %1100 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.266, ptr noundef %1097, i32 noundef %1099) #13
-  %1101 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1514, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1102 = call ptr @xstrdup(ptr noundef nonnull @.str.267) #13
-  store ptr %1102, ptr %1101, align 8
-  %1103 = call ptr @xstrdup(ptr noundef nonnull %2) #13
-  %1104 = getelementptr inbounds i8, ptr %1101, i64 8
-  store ptr %1103, ptr %1104, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1101) #13
-  %1105 = getelementptr inbounds i8, ptr %0, i64 1184
-  %1106 = load ptr, ptr %1105, align 8
-  %1107 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.268, ptr noundef %1106) #13
-  %1108 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1521, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1109 = call ptr @xstrdup(ptr noundef nonnull @.str.269) #13
-  store ptr %1109, ptr %1108, align 8
-  %1110 = call ptr @xstrdup(ptr noundef nonnull %2) #13
-  %1111 = getelementptr inbounds i8, ptr %1108, i64 8
-  store ptr %1110, ptr %1111, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1108) #13
-  %1112 = getelementptr inbounds i8, ptr %0, i64 1192
-  %1113 = load i16, ptr %1112, align 8
-  %1114 = call ptr @log_num2string(i16 noundef zeroext %1113) #13
-  %1115 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.268, ptr noundef %1114) #13
-  %1116 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1528, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1117 = call ptr @xstrdup(ptr noundef nonnull @.str.270) #13
-  store ptr %1117, ptr %1116, align 8
-  %1118 = call ptr @xstrdup(ptr noundef nonnull %2) #13
-  %1119 = getelementptr inbounds i8, ptr %1116, i64 8
-  store ptr %1118, ptr %1119, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1116) #13
-  %1120 = getelementptr inbounds i8, ptr %0, i64 256
-  %1121 = load i32, ptr %1120, align 8
-  %.not1166 = icmp eq i32 %1121, 0
+1094:                                             ; preds = %1087, %1034
+  %1095 = getelementptr inbounds i8, ptr %0, i64 1160
+  %1096 = load ptr, ptr %1095, align 8
+  %1097 = getelementptr inbounds i8, ptr %0, i64 1152
+  %1098 = load i32, ptr %1097, align 8
+  %1099 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.266, ptr noundef %1096, i32 noundef %1098) #13
+  %1100 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1514, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1101 = call ptr @xstrdup(ptr noundef nonnull @.str.267) #13
+  store ptr %1101, ptr %1100, align 8
+  %1102 = call ptr @xstrdup(ptr noundef nonnull %2) #13
+  %1103 = getelementptr inbounds i8, ptr %1100, i64 8
+  store ptr %1102, ptr %1103, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1100) #13
+  %1104 = getelementptr inbounds i8, ptr %0, i64 1184
+  %1105 = load ptr, ptr %1104, align 8
+  %1106 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.268, ptr noundef %1105) #13
+  %1107 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1521, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1108 = call ptr @xstrdup(ptr noundef nonnull @.str.269) #13
+  store ptr %1108, ptr %1107, align 8
+  %1109 = call ptr @xstrdup(ptr noundef nonnull %2) #13
+  %1110 = getelementptr inbounds i8, ptr %1107, i64 8
+  store ptr %1109, ptr %1110, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1107) #13
+  %1111 = getelementptr inbounds i8, ptr %0, i64 1192
+  %1112 = load i16, ptr %1111, align 8
+  %1113 = call ptr @log_num2string(i16 noundef zeroext %1112) #13
+  %1114 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.268, ptr noundef %1113) #13
+  %1115 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1528, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1116 = call ptr @xstrdup(ptr noundef nonnull @.str.270) #13
+  store ptr %1116, ptr %1115, align 8
+  %1117 = call ptr @xstrdup(ptr noundef nonnull %2) #13
+  %1118 = getelementptr inbounds i8, ptr %1115, i64 8
+  store ptr %1117, ptr %1118, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1115) #13
+  %1119 = getelementptr inbounds i8, ptr %0, i64 256
+  %1120 = load i32, ptr %1119, align 8
+  %.not1166 = icmp eq i32 %1120, 0
   br i1 %.not1166, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1095
-  %1122 = getelementptr inbounds i8, ptr %0, i64 264
-  %1123 = getelementptr inbounds i8, ptr %0, i64 248
-  br label %1124
+.lr.ph:                                           ; preds = %1094
+  %1121 = getelementptr inbounds i8, ptr %0, i64 264
+  %1122 = getelementptr inbounds i8, ptr %0, i64 248
+  br label %1123
 
-1124:                                             ; preds = %.lr.ph, %1148
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %1148 ]
-  %1125 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1535, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1126 = trunc nuw nsw i64 %indvars.iv to i32
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %1125, ptr noundef nonnull @.str.271, i32 noundef %1126) #13
-  %1127 = load ptr, ptr %1122, align 8
-  %1128 = getelementptr inbounds ptr, ptr %1127, i64 %indvars.iv
-  %1129 = load ptr, ptr %1128, align 8
-  %1130 = load ptr, ptr %1123, align 8
-  %1131 = getelementptr inbounds ptr, ptr %1130, i64 %indvars.iv
-  %1132 = load ptr, ptr %1131, align 8
-  %1133 = call i32 @xstrcmp(ptr noundef %1129, ptr noundef %1132) #13
-  %.not1163 = icmp eq i32 %1133, 0
-  br i1 %.not1163, label %1142, label %1134
+1123:                                             ; preds = %.lr.ph, %1147
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %1147 ]
+  %1124 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1535, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1125 = trunc nuw nsw i64 %indvars.iv to i32
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %1124, ptr noundef nonnull @.str.271, i32 noundef %1125) #13
+  %1126 = load ptr, ptr %1121, align 8
+  %1127 = getelementptr inbounds ptr, ptr %1126, i64 %indvars.iv
+  %1128 = load ptr, ptr %1127, align 8
+  %1129 = load ptr, ptr %1122, align 8
+  %1130 = getelementptr inbounds ptr, ptr %1129, i64 %indvars.iv
+  %1131 = load ptr, ptr %1130, align 8
+  %1132 = call i32 @xstrcmp(ptr noundef %1128, ptr noundef %1131) #13
+  %.not1163 = icmp eq i32 %1132, 0
+  br i1 %.not1163, label %1141, label %1133
 
-1134:                                             ; preds = %1124
-  %1135 = getelementptr inbounds i8, ptr %1125, i64 8
-  %1136 = load ptr, ptr %1122, align 8
-  %1137 = getelementptr inbounds ptr, ptr %1136, i64 %indvars.iv
-  %1138 = load ptr, ptr %1137, align 8
-  %1139 = load ptr, ptr %1123, align 8
-  %1140 = getelementptr inbounds ptr, ptr %1139, i64 %indvars.iv
-  %1141 = load ptr, ptr %1140, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %1135, ptr noundef nonnull @.str.272, ptr noundef %1138, ptr noundef %1141) #13
-  br label %1148
+1133:                                             ; preds = %1123
+  %1134 = getelementptr inbounds i8, ptr %1124, i64 8
+  %1135 = load ptr, ptr %1121, align 8
+  %1136 = getelementptr inbounds ptr, ptr %1135, i64 %indvars.iv
+  %1137 = load ptr, ptr %1136, align 8
+  %1138 = load ptr, ptr %1122, align 8
+  %1139 = getelementptr inbounds ptr, ptr %1138, i64 %indvars.iv
+  %1140 = load ptr, ptr %1139, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %1134, ptr noundef nonnull @.str.272, ptr noundef %1137, ptr noundef %1140) #13
+  br label %1147
 
-1142:                                             ; preds = %1124
-  %1143 = load ptr, ptr %1122, align 8
-  %1144 = getelementptr inbounds ptr, ptr %1143, i64 %indvars.iv
-  %1145 = load ptr, ptr %1144, align 8
-  %1146 = call ptr @xstrdup(ptr noundef %1145) #13
-  %1147 = getelementptr inbounds i8, ptr %1125, i64 8
-  store ptr %1146, ptr %1147, align 8
-  br label %1148
+1141:                                             ; preds = %1123
+  %1142 = load ptr, ptr %1121, align 8
+  %1143 = getelementptr inbounds ptr, ptr %1142, i64 %indvars.iv
+  %1144 = load ptr, ptr %1143, align 8
+  %1145 = call ptr @xstrdup(ptr noundef %1144) #13
+  %1146 = getelementptr inbounds i8, ptr %1124, i64 8
+  store ptr %1145, ptr %1146, align 8
+  br label %1147
 
-1148:                                             ; preds = %1142, %1134
-  call void @list_append(ptr noundef %6, ptr noundef %1125) #13
+1147:                                             ; preds = %1141, %1133
+  call void @list_append(ptr noundef %6, ptr noundef %1124) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %1149 = load i32, ptr %1120, align 8
-  %1150 = zext i32 %1149 to i64
-  %1151 = icmp ult i64 %indvars.iv.next, %1150
-  br i1 %1151, label %1124, label %._crit_edge, !llvm.loop !25
+  %1148 = load i32, ptr %1119, align 8
+  %1149 = zext i32 %1148 to i64
+  %1150 = icmp ult i64 %indvars.iv.next, %1149
+  br i1 %1150, label %1123, label %._crit_edge, !llvm.loop !25
 
-._crit_edge:                                      ; preds = %1148, %1095
-  %1152 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1549, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1153 = call ptr @xstrdup(ptr noundef nonnull @.str.273) #13
-  store ptr %1153, ptr %1152, align 8
-  %1154 = getelementptr inbounds i8, ptr %0, i64 1200
-  %1155 = load ptr, ptr %1154, align 8
-  %1156 = call ptr @xstrdup(ptr noundef %1155) #13
-  %1157 = getelementptr inbounds i8, ptr %1152, i64 8
-  store ptr %1156, ptr %1157, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1152) #13
-  %1158 = getelementptr inbounds i8, ptr %0, i64 1220
-  %1159 = load i16, ptr %1158, align 4
-  %1160 = icmp ugt i16 %1159, 1
-  br i1 %1160, label %1161, label %1168
+._crit_edge:                                      ; preds = %1147, %1094
+  %1151 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1549, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1152 = call ptr @xstrdup(ptr noundef nonnull @.str.273) #13
+  store ptr %1152, ptr %1151, align 8
+  %1153 = getelementptr inbounds i8, ptr %0, i64 1200
+  %1154 = load ptr, ptr %1153, align 8
+  %1155 = call ptr @xstrdup(ptr noundef %1154) #13
+  %1156 = getelementptr inbounds i8, ptr %1151, i64 8
+  store ptr %1155, ptr %1156, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1151) #13
+  %1157 = getelementptr inbounds i8, ptr %0, i64 1220
+  %1158 = load i16, ptr %1157, align 4
+  %1159 = icmp ugt i16 %1158, 1
+  br i1 %1159, label %1160, label %1167
 
-1161:                                             ; preds = %._crit_edge
-  %1162 = zext i16 %1159 to i32
-  %1163 = getelementptr inbounds i8, ptr %0, i64 1216
-  %1164 = load i32, ptr %1163, align 8
-  %1165 = add nsw i32 %1162, -1
-  %1166 = add i32 %1165, %1164
-  %1167 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.274, i32 noundef %1164, i32 noundef %1166) #13
-  br label %1172
+1160:                                             ; preds = %._crit_edge
+  %1161 = zext i16 %1158 to i32
+  %1162 = getelementptr inbounds i8, ptr %0, i64 1216
+  %1163 = load i32, ptr %1162, align 8
+  %1164 = add nsw i32 %1161, -1
+  %1165 = add i32 %1164, %1163
+  %1166 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.274, i32 noundef %1163, i32 noundef %1165) #13
+  br label %1171
 
-1168:                                             ; preds = %._crit_edge
-  %1169 = getelementptr inbounds i8, ptr %0, i64 1216
-  %1170 = load i32, ptr %1169, align 8
-  %1171 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.91, i32 noundef %1170) #13
-  br label %1172
+1167:                                             ; preds = %._crit_edge
+  %1168 = getelementptr inbounds i8, ptr %0, i64 1216
+  %1169 = load i32, ptr %1168, align 8
+  %1170 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.91, i32 noundef %1169) #13
+  br label %1171
 
-1172:                                             ; preds = %1168, %1161
-  %1173 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1563, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1174 = call ptr @xstrdup(ptr noundef nonnull @.str.275) #13
-  store ptr %1174, ptr %1173, align 8
-  %1175 = call ptr @xstrdup(ptr noundef nonnull %2) #13
-  %1176 = getelementptr inbounds i8, ptr %1173, i64 8
-  store ptr %1175, ptr %1176, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1173) #13
-  %1177 = getelementptr inbounds i8, ptr %0, i64 1240
-  %1178 = load i16, ptr %1177, align 8
-  %1179 = call ptr @log_num2string(i16 noundef zeroext %1178) #13
-  %1180 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.268, ptr noundef %1179) #13
-  %1181 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1570, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1182 = call ptr @xstrdup(ptr noundef nonnull @.str.276) #13
-  store ptr %1182, ptr %1181, align 8
-  %1183 = call ptr @xstrdup(ptr noundef nonnull %2) #13
-  %1184 = getelementptr inbounds i8, ptr %1181, i64 8
-  store ptr %1183, ptr %1184, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1181) #13
-  %1185 = getelementptr inbounds i8, ptr %0, i64 1224
-  %1186 = load ptr, ptr %1185, align 8
-  %1187 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.268, ptr noundef %1186) #13
-  %1188 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1577, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1189 = call ptr @xstrdup(ptr noundef nonnull @.str.277) #13
-  store ptr %1189, ptr %1188, align 8
-  %1190 = call ptr @xstrdup(ptr noundef nonnull %2) #13
-  %1191 = getelementptr inbounds i8, ptr %1188, i64 8
-  store ptr %1190, ptr %1191, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1188) #13
-  %1192 = getelementptr inbounds i8, ptr %0, i64 1232
-  %1193 = load ptr, ptr %1192, align 8
-  %1194 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.268, ptr noundef %1193) #13
-  %1195 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1584, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1196 = call ptr @xstrdup(ptr noundef nonnull @.str.278) #13
-  store ptr %1196, ptr %1195, align 8
-  %1197 = call ptr @xstrdup(ptr noundef nonnull %2) #13
-  %1198 = getelementptr inbounds i8, ptr %1195, i64 8
-  store ptr %1197, ptr %1198, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1195) #13
-  %1199 = getelementptr inbounds i8, ptr %0, i64 1242
-  %1200 = load i16, ptr %1199, align 2
-  %1201 = zext i16 %1200 to i32
-  %1202 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.105, i32 noundef %1201) #13
-  %1203 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1591, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1204 = call ptr @xstrdup(ptr noundef nonnull @.str.279) #13
-  store ptr %1204, ptr %1203, align 8
-  %1205 = call ptr @xstrdup(ptr noundef nonnull %2) #13
-  %1206 = getelementptr inbounds i8, ptr %1203, i64 8
-  store ptr %1205, ptr %1206, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1203) #13
-  %1207 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1596, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1208 = call ptr @xstrdup(ptr noundef nonnull @.str.280) #13
-  store ptr %1208, ptr %1207, align 8
-  %1209 = getelementptr inbounds i8, ptr %0, i64 1248
-  %1210 = load ptr, ptr %1209, align 8
-  %1211 = call ptr @xstrdup(ptr noundef %1210) #13
-  %1212 = getelementptr inbounds i8, ptr %1207, i64 8
-  store ptr %1211, ptr %1212, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1207) #13
-  %1213 = getelementptr inbounds i8, ptr %0, i64 1256
-  %1214 = load i16, ptr %1213, align 8
-  %1215 = call ptr @log_num2string(i16 noundef zeroext %1214) #13
-  %1216 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.268, ptr noundef %1215) #13
-  %1217 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1603, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1218 = call ptr @xstrdup(ptr noundef nonnull @.str.281) #13
-  store ptr %1218, ptr %1217, align 8
-  %1219 = call ptr @xstrdup(ptr noundef nonnull %2) #13
-  %1220 = getelementptr inbounds i8, ptr %1217, i64 8
-  store ptr %1219, ptr %1220, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1217) #13
-  %1221 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1608, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1222 = call ptr @xstrdup(ptr noundef nonnull @.str.282) #13
-  store ptr %1222, ptr %1221, align 8
-  %1223 = getelementptr inbounds i8, ptr %0, i64 1264
-  %1224 = load ptr, ptr %1223, align 8
-  %1225 = call ptr @xstrdup(ptr noundef %1224) #13
-  %1226 = getelementptr inbounds i8, ptr %1221, i64 8
-  store ptr %1225, ptr %1226, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1221) #13
-  %1227 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1613, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1228 = call ptr @xstrdup(ptr noundef nonnull @.str.283) #13
-  store ptr %1228, ptr %1227, align 8
-  %1229 = getelementptr inbounds i8, ptr %0, i64 1272
-  %1230 = load ptr, ptr %1229, align 8
-  %1231 = call ptr @xstrdup(ptr noundef %1230) #13
-  %1232 = getelementptr inbounds i8, ptr %1227, i64 8
-  store ptr %1231, ptr %1232, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1227) #13
-  %1233 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1618, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1234 = call ptr @xstrdup(ptr noundef nonnull @.str.284) #13
-  store ptr %1234, ptr %1233, align 8
-  %1235 = getelementptr inbounds i8, ptr %0, i64 1280
-  %1236 = load ptr, ptr %1235, align 8
-  %1237 = call ptr @xstrdup(ptr noundef %1236) #13
-  %1238 = getelementptr inbounds i8, ptr %1233, i64 8
-  store ptr %1237, ptr %1238, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1233) #13
-  %1239 = getelementptr inbounds i8, ptr %0, i64 1288
-  %1240 = load i32, ptr %1239, align 8
-  %1241 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.91, i32 noundef %1240) #13
-  %1242 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1625, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1243 = call ptr @xstrdup(ptr noundef nonnull @.str.285) #13
-  store ptr %1243, ptr %1242, align 8
-  %1244 = call ptr @xstrdup(ptr noundef nonnull %2) #13
-  %1245 = getelementptr inbounds i8, ptr %1242, i64 8
-  store ptr %1244, ptr %1245, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1242) #13
-  %1246 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1630, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1247 = call ptr @xstrdup(ptr noundef nonnull @.str.286) #13
-  store ptr %1247, ptr %1246, align 8
-  %1248 = getelementptr inbounds i8, ptr %0, i64 1296
-  %1249 = load ptr, ptr %1248, align 8
-  %1250 = call ptr @xstrdup(ptr noundef %1249) #13
-  %1251 = getelementptr inbounds i8, ptr %1246, i64 8
-  store ptr %1250, ptr %1251, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1246) #13
-  %1252 = getelementptr inbounds i8, ptr %0, i64 1304
-  %1253 = load i16, ptr %1252, align 8
-  %1254 = call ptr @log_num2string(i16 noundef zeroext %1253) #13
-  %1255 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.268, ptr noundef %1254) #13
-  %1256 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1637, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1257 = call ptr @xstrdup(ptr noundef nonnull @.str.287) #13
-  store ptr %1257, ptr %1256, align 8
-  %1258 = call ptr @xstrdup(ptr noundef nonnull %2) #13
-  %1259 = getelementptr inbounds i8, ptr %1256, i64 8
-  store ptr %1258, ptr %1259, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1256) #13
-  %1260 = getelementptr inbounds i8, ptr %0, i64 1306
-  %1261 = load i16, ptr %1260, align 2
-  %1262 = zext i16 %1261 to i32
-  %1263 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.105, i32 noundef %1262) #13
-  %1264 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1644, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1265 = call ptr @xstrdup(ptr noundef nonnull @.str.288) #13
-  store ptr %1265, ptr %1264, align 8
-  %1266 = call ptr @xstrdup(ptr noundef nonnull %2) #13
-  %1267 = getelementptr inbounds i8, ptr %1264, i64 8
-  store ptr %1266, ptr %1267, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1264) #13
-  %1268 = getelementptr inbounds i8, ptr %0, i64 1176
-  %1269 = load ptr, ptr %1268, align 8
-  %1270 = getelementptr inbounds i8, ptr %0, i64 1168
-  %1271 = load i32, ptr %1270, align 8
-  %1272 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.266, ptr noundef %1269, i32 noundef %1271) #13
-  %1273 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1652, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1274 = call ptr @xstrdup(ptr noundef nonnull @.str.289) #13
-  store ptr %1274, ptr %1273, align 8
-  %1275 = call ptr @xstrdup(ptr noundef nonnull %2) #13
-  %1276 = getelementptr inbounds i8, ptr %1273, i64 8
-  store ptr %1275, ptr %1276, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1273) #13
-  %1277 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1657, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1278 = call ptr @xstrdup(ptr noundef nonnull @.str.290) #13
-  store ptr %1278, ptr %1277, align 8
-  %1279 = getelementptr inbounds i8, ptr %0, i64 1056
-  %1280 = load ptr, ptr %1279, align 8
-  %1281 = call ptr @xstrdup(ptr noundef %1280) #13
-  %1282 = getelementptr inbounds i8, ptr %1277, i64 8
-  store ptr %1281, ptr %1282, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1277) #13
-  %1283 = getelementptr inbounds i8, ptr %0, i64 1064
-  %1284 = load i16, ptr %1283, align 8
-  %1285 = zext i16 %1284 to i32
-  %1286 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.91, i32 noundef %1285) #13
-  %1287 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1664, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1288 = call ptr @xstrdup(ptr noundef nonnull @.str.291) #13
-  store ptr %1288, ptr %1287, align 8
-  %1289 = call ptr @xstrdup(ptr noundef nonnull %2) #13
-  %1290 = getelementptr inbounds i8, ptr %1287, i64 8
-  store ptr %1289, ptr %1290, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1287) #13
-  %1291 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1669, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1292 = call ptr @xstrdup(ptr noundef nonnull @.str.292) #13
-  store ptr %1292, ptr %1291, align 8
-  %1293 = getelementptr inbounds i8, ptr %0, i64 1208
-  %1294 = load ptr, ptr %1293, align 8
-  %1295 = call ptr @xstrdup(ptr noundef %1294) #13
-  %1296 = getelementptr inbounds i8, ptr %1291, i64 8
-  store ptr %1295, ptr %1296, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1291) #13
-  %1297 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1674, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1298 = call ptr @xstrdup(ptr noundef nonnull @.str.1) #13
-  store ptr %1298, ptr %1297, align 8
-  %1299 = getelementptr inbounds i8, ptr %0, i64 1144
-  %1300 = load ptr, ptr %1299, align 8
-  %1301 = call ptr @xstrdup(ptr noundef %1300) #13
-  %1302 = getelementptr inbounds i8, ptr %1297, i64 8
-  store ptr %1301, ptr %1302, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1297) #13
-  %1303 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1679, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1304 = call ptr @xstrdup(ptr noundef nonnull @.str.293) #13
-  store ptr %1304, ptr %1303, align 8
-  %1305 = getelementptr inbounds i8, ptr %0, i64 1496
-  %1306 = load ptr, ptr %1305, align 8
-  %1307 = call ptr @xstrdup(ptr noundef %1306) #13
-  %1308 = getelementptr inbounds i8, ptr %1303, i64 8
-  store ptr %1307, ptr %1308, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1303) #13
-  %1309 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1684, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1310 = call ptr @xstrdup(ptr noundef nonnull @.str.294) #13
-  store ptr %1310, ptr %1309, align 8
-  %1311 = getelementptr inbounds i8, ptr %0, i64 1312
-  %1312 = load ptr, ptr %1311, align 8
-  %1313 = call ptr @xstrdup(ptr noundef %1312) #13
-  %1314 = getelementptr inbounds i8, ptr %1309, i64 8
-  store ptr %1313, ptr %1314, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1309) #13
-  %1315 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1689, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1316 = call ptr @xstrdup(ptr noundef nonnull @.str.295) #13
-  store ptr %1316, ptr %1315, align 8
-  %1317 = getelementptr inbounds i8, ptr %0, i64 1320
-  %1318 = load ptr, ptr %1317, align 8
-  %.not1157 = icmp eq ptr %1318, null
-  br i1 %.not1157, label %.thread, label %1319
+1171:                                             ; preds = %1167, %1160
+  %1172 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1563, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1173 = call ptr @xstrdup(ptr noundef nonnull @.str.275) #13
+  store ptr %1173, ptr %1172, align 8
+  %1174 = call ptr @xstrdup(ptr noundef nonnull %2) #13
+  %1175 = getelementptr inbounds i8, ptr %1172, i64 8
+  store ptr %1174, ptr %1175, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1172) #13
+  %1176 = getelementptr inbounds i8, ptr %0, i64 1240
+  %1177 = load i16, ptr %1176, align 8
+  %1178 = call ptr @log_num2string(i16 noundef zeroext %1177) #13
+  %1179 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.268, ptr noundef %1178) #13
+  %1180 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1570, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1181 = call ptr @xstrdup(ptr noundef nonnull @.str.276) #13
+  store ptr %1181, ptr %1180, align 8
+  %1182 = call ptr @xstrdup(ptr noundef nonnull %2) #13
+  %1183 = getelementptr inbounds i8, ptr %1180, i64 8
+  store ptr %1182, ptr %1183, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1180) #13
+  %1184 = getelementptr inbounds i8, ptr %0, i64 1224
+  %1185 = load ptr, ptr %1184, align 8
+  %1186 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.268, ptr noundef %1185) #13
+  %1187 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1577, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1188 = call ptr @xstrdup(ptr noundef nonnull @.str.277) #13
+  store ptr %1188, ptr %1187, align 8
+  %1189 = call ptr @xstrdup(ptr noundef nonnull %2) #13
+  %1190 = getelementptr inbounds i8, ptr %1187, i64 8
+  store ptr %1189, ptr %1190, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1187) #13
+  %1191 = getelementptr inbounds i8, ptr %0, i64 1232
+  %1192 = load ptr, ptr %1191, align 8
+  %1193 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.268, ptr noundef %1192) #13
+  %1194 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1584, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1195 = call ptr @xstrdup(ptr noundef nonnull @.str.278) #13
+  store ptr %1195, ptr %1194, align 8
+  %1196 = call ptr @xstrdup(ptr noundef nonnull %2) #13
+  %1197 = getelementptr inbounds i8, ptr %1194, i64 8
+  store ptr %1196, ptr %1197, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1194) #13
+  %1198 = getelementptr inbounds i8, ptr %0, i64 1242
+  %1199 = load i16, ptr %1198, align 2
+  %1200 = zext i16 %1199 to i32
+  %1201 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.105, i32 noundef %1200) #13
+  %1202 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1591, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1203 = call ptr @xstrdup(ptr noundef nonnull @.str.279) #13
+  store ptr %1203, ptr %1202, align 8
+  %1204 = call ptr @xstrdup(ptr noundef nonnull %2) #13
+  %1205 = getelementptr inbounds i8, ptr %1202, i64 8
+  store ptr %1204, ptr %1205, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1202) #13
+  %1206 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1596, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1207 = call ptr @xstrdup(ptr noundef nonnull @.str.280) #13
+  store ptr %1207, ptr %1206, align 8
+  %1208 = getelementptr inbounds i8, ptr %0, i64 1248
+  %1209 = load ptr, ptr %1208, align 8
+  %1210 = call ptr @xstrdup(ptr noundef %1209) #13
+  %1211 = getelementptr inbounds i8, ptr %1206, i64 8
+  store ptr %1210, ptr %1211, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1206) #13
+  %1212 = getelementptr inbounds i8, ptr %0, i64 1256
+  %1213 = load i16, ptr %1212, align 8
+  %1214 = call ptr @log_num2string(i16 noundef zeroext %1213) #13
+  %1215 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.268, ptr noundef %1214) #13
+  %1216 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1603, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1217 = call ptr @xstrdup(ptr noundef nonnull @.str.281) #13
+  store ptr %1217, ptr %1216, align 8
+  %1218 = call ptr @xstrdup(ptr noundef nonnull %2) #13
+  %1219 = getelementptr inbounds i8, ptr %1216, i64 8
+  store ptr %1218, ptr %1219, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1216) #13
+  %1220 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1608, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1221 = call ptr @xstrdup(ptr noundef nonnull @.str.282) #13
+  store ptr %1221, ptr %1220, align 8
+  %1222 = getelementptr inbounds i8, ptr %0, i64 1264
+  %1223 = load ptr, ptr %1222, align 8
+  %1224 = call ptr @xstrdup(ptr noundef %1223) #13
+  %1225 = getelementptr inbounds i8, ptr %1220, i64 8
+  store ptr %1224, ptr %1225, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1220) #13
+  %1226 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1613, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1227 = call ptr @xstrdup(ptr noundef nonnull @.str.283) #13
+  store ptr %1227, ptr %1226, align 8
+  %1228 = getelementptr inbounds i8, ptr %0, i64 1272
+  %1229 = load ptr, ptr %1228, align 8
+  %1230 = call ptr @xstrdup(ptr noundef %1229) #13
+  %1231 = getelementptr inbounds i8, ptr %1226, i64 8
+  store ptr %1230, ptr %1231, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1226) #13
+  %1232 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1618, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1233 = call ptr @xstrdup(ptr noundef nonnull @.str.284) #13
+  store ptr %1233, ptr %1232, align 8
+  %1234 = getelementptr inbounds i8, ptr %0, i64 1280
+  %1235 = load ptr, ptr %1234, align 8
+  %1236 = call ptr @xstrdup(ptr noundef %1235) #13
+  %1237 = getelementptr inbounds i8, ptr %1232, i64 8
+  store ptr %1236, ptr %1237, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1232) #13
+  %1238 = getelementptr inbounds i8, ptr %0, i64 1288
+  %1239 = load i32, ptr %1238, align 8
+  %1240 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.91, i32 noundef %1239) #13
+  %1241 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1625, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1242 = call ptr @xstrdup(ptr noundef nonnull @.str.285) #13
+  store ptr %1242, ptr %1241, align 8
+  %1243 = call ptr @xstrdup(ptr noundef nonnull %2) #13
+  %1244 = getelementptr inbounds i8, ptr %1241, i64 8
+  store ptr %1243, ptr %1244, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1241) #13
+  %1245 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1630, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1246 = call ptr @xstrdup(ptr noundef nonnull @.str.286) #13
+  store ptr %1246, ptr %1245, align 8
+  %1247 = getelementptr inbounds i8, ptr %0, i64 1296
+  %1248 = load ptr, ptr %1247, align 8
+  %1249 = call ptr @xstrdup(ptr noundef %1248) #13
+  %1250 = getelementptr inbounds i8, ptr %1245, i64 8
+  store ptr %1249, ptr %1250, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1245) #13
+  %1251 = getelementptr inbounds i8, ptr %0, i64 1304
+  %1252 = load i16, ptr %1251, align 8
+  %1253 = call ptr @log_num2string(i16 noundef zeroext %1252) #13
+  %1254 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.268, ptr noundef %1253) #13
+  %1255 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1637, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1256 = call ptr @xstrdup(ptr noundef nonnull @.str.287) #13
+  store ptr %1256, ptr %1255, align 8
+  %1257 = call ptr @xstrdup(ptr noundef nonnull %2) #13
+  %1258 = getelementptr inbounds i8, ptr %1255, i64 8
+  store ptr %1257, ptr %1258, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1255) #13
+  %1259 = getelementptr inbounds i8, ptr %0, i64 1306
+  %1260 = load i16, ptr %1259, align 2
+  %1261 = zext i16 %1260 to i32
+  %1262 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.105, i32 noundef %1261) #13
+  %1263 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1644, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1264 = call ptr @xstrdup(ptr noundef nonnull @.str.288) #13
+  store ptr %1264, ptr %1263, align 8
+  %1265 = call ptr @xstrdup(ptr noundef nonnull %2) #13
+  %1266 = getelementptr inbounds i8, ptr %1263, i64 8
+  store ptr %1265, ptr %1266, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1263) #13
+  %1267 = getelementptr inbounds i8, ptr %0, i64 1176
+  %1268 = load ptr, ptr %1267, align 8
+  %1269 = getelementptr inbounds i8, ptr %0, i64 1168
+  %1270 = load i32, ptr %1269, align 8
+  %1271 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.266, ptr noundef %1268, i32 noundef %1270) #13
+  %1272 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1652, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1273 = call ptr @xstrdup(ptr noundef nonnull @.str.289) #13
+  store ptr %1273, ptr %1272, align 8
+  %1274 = call ptr @xstrdup(ptr noundef nonnull %2) #13
+  %1275 = getelementptr inbounds i8, ptr %1272, i64 8
+  store ptr %1274, ptr %1275, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1272) #13
+  %1276 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1657, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1277 = call ptr @xstrdup(ptr noundef nonnull @.str.290) #13
+  store ptr %1277, ptr %1276, align 8
+  %1278 = getelementptr inbounds i8, ptr %0, i64 1056
+  %1279 = load ptr, ptr %1278, align 8
+  %1280 = call ptr @xstrdup(ptr noundef %1279) #13
+  %1281 = getelementptr inbounds i8, ptr %1276, i64 8
+  store ptr %1280, ptr %1281, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1276) #13
+  %1282 = getelementptr inbounds i8, ptr %0, i64 1064
+  %1283 = load i16, ptr %1282, align 8
+  %1284 = zext i16 %1283 to i32
+  %1285 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.91, i32 noundef %1284) #13
+  %1286 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1664, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1287 = call ptr @xstrdup(ptr noundef nonnull @.str.291) #13
+  store ptr %1287, ptr %1286, align 8
+  %1288 = call ptr @xstrdup(ptr noundef nonnull %2) #13
+  %1289 = getelementptr inbounds i8, ptr %1286, i64 8
+  store ptr %1288, ptr %1289, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1286) #13
+  %1290 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1669, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1291 = call ptr @xstrdup(ptr noundef nonnull @.str.292) #13
+  store ptr %1291, ptr %1290, align 8
+  %1292 = getelementptr inbounds i8, ptr %0, i64 1208
+  %1293 = load ptr, ptr %1292, align 8
+  %1294 = call ptr @xstrdup(ptr noundef %1293) #13
+  %1295 = getelementptr inbounds i8, ptr %1290, i64 8
+  store ptr %1294, ptr %1295, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1290) #13
+  %1296 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1674, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1297 = call ptr @xstrdup(ptr noundef nonnull @.str.1) #13
+  store ptr %1297, ptr %1296, align 8
+  %1298 = getelementptr inbounds i8, ptr %0, i64 1144
+  %1299 = load ptr, ptr %1298, align 8
+  %1300 = call ptr @xstrdup(ptr noundef %1299) #13
+  %1301 = getelementptr inbounds i8, ptr %1296, i64 8
+  store ptr %1300, ptr %1301, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1296) #13
+  %1302 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1679, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1303 = call ptr @xstrdup(ptr noundef nonnull @.str.293) #13
+  store ptr %1303, ptr %1302, align 8
+  %1304 = getelementptr inbounds i8, ptr %0, i64 1496
+  %1305 = load ptr, ptr %1304, align 8
+  %1306 = call ptr @xstrdup(ptr noundef %1305) #13
+  %1307 = getelementptr inbounds i8, ptr %1302, i64 8
+  store ptr %1306, ptr %1307, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1302) #13
+  %1308 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1684, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1309 = call ptr @xstrdup(ptr noundef nonnull @.str.294) #13
+  store ptr %1309, ptr %1308, align 8
+  %1310 = getelementptr inbounds i8, ptr %0, i64 1312
+  %1311 = load ptr, ptr %1310, align 8
+  %1312 = call ptr @xstrdup(ptr noundef %1311) #13
+  %1313 = getelementptr inbounds i8, ptr %1308, i64 8
+  store ptr %1312, ptr %1313, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1308) #13
+  %1314 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1689, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1315 = call ptr @xstrdup(ptr noundef nonnull @.str.295) #13
+  store ptr %1315, ptr %1314, align 8
+  %1316 = getelementptr inbounds i8, ptr %0, i64 1320
+  %1317 = load ptr, ptr %1316, align 8
+  %.not1157 = icmp eq ptr %1317, null
+  br i1 %.not1157, label %.thread, label %1318
 
-1319:                                             ; preds = %1172
-  %1320 = load i16, ptr %1318, align 2
-  %1321 = zext i16 %1320 to i32
-  %1322 = getelementptr inbounds i8, ptr %1318, i64 2
-  %1323 = load i16, ptr %1322, align 2
-  %1324 = zext i16 %1323 to i32
+1318:                                             ; preds = %1171
+  %1319 = load i16, ptr %1317, align 2
+  %1320 = zext i16 %1319 to i32
+  %1321 = getelementptr inbounds i8, ptr %1317, i64 2
+  %1322 = load i16, ptr %1321, align 2
+  %1323 = zext i16 %1322 to i32
   br label %.thread
 
-.thread:                                          ; preds = %1172, %1319
-  %1325 = phi i32 [ %1321, %1319 ], [ 0, %1172 ]
-  %1326 = phi i32 [ %1324, %1319 ], [ 0, %1172 ]
-  %1327 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.274, i32 noundef %1325, i32 noundef %1326) #13
-  %1328 = getelementptr inbounds i8, ptr %1315, i64 8
-  store ptr %1327, ptr %1328, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1315) #13
-  %1329 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1700, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1330 = call ptr @xstrdup(ptr noundef nonnull @.str.296) #13
-  store ptr %1330, ptr %1329, align 8
-  %1331 = getelementptr inbounds i8, ptr %0, i64 1328
-  %1332 = load ptr, ptr %1331, align 8
-  %1333 = call ptr @xstrdup(ptr noundef %1332) #13
-  %1334 = getelementptr inbounds i8, ptr %1329, i64 8
-  store ptr %1333, ptr %1334, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1329) #13
-  %1335 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1705, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1336 = call ptr @xstrdup(ptr noundef nonnull @.str.297) #13
-  store ptr %1336, ptr %1335, align 8
-  %1337 = getelementptr inbounds i8, ptr %0, i64 1336
-  %1338 = load ptr, ptr %1337, align 8
-  %1339 = call ptr @xstrdup(ptr noundef %1338) #13
-  %1340 = getelementptr inbounds i8, ptr %1335, i64 8
-  store ptr %1339, ptr %1340, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1335) #13
-  %1341 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1710, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1342 = call ptr @xstrdup(ptr noundef nonnull @.str.298) #13
-  store ptr %1342, ptr %1341, align 8
-  %1343 = getelementptr inbounds i8, ptr %0, i64 1344
-  %1344 = load ptr, ptr %1343, align 8
-  %1345 = call ptr @xstrdup(ptr noundef %1344) #13
-  %1346 = getelementptr inbounds i8, ptr %1341, i64 8
-  store ptr %1345, ptr %1346, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1341) #13
-  %1347 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1715, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1348 = call ptr @xstrdup(ptr noundef nonnull @.str.299) #13
-  store ptr %1348, ptr %1347, align 8
-  %1349 = getelementptr inbounds i8, ptr %0, i64 1352
-  %1350 = load ptr, ptr %1349, align 8
-  %1351 = call ptr @xstrdup(ptr noundef %1350) #13
-  %1352 = getelementptr inbounds i8, ptr %1347, i64 8
-  store ptr %1351, ptr %1352, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1347) #13
-  %1353 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1720, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1354 = call ptr @xstrdup(ptr noundef nonnull @.str.300) #13
-  store ptr %1354, ptr %1353, align 8
-  %1355 = getelementptr inbounds i8, ptr %0, i64 1360
-  %1356 = load ptr, ptr %1355, align 8
-  %1357 = call ptr @xstrdup(ptr noundef %1356) #13
-  %1358 = getelementptr inbounds i8, ptr %1353, i64 8
-  store ptr %1357, ptr %1358, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1353) #13
-  %1359 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1725, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1360 = call ptr @xstrdup(ptr noundef nonnull @.str.301) #13
-  store ptr %1360, ptr %1359, align 8
-  %1361 = getelementptr inbounds i8, ptr %0, i64 1368
-  %1362 = load ptr, ptr %1361, align 8
-  %1363 = call ptr @xstrdup(ptr noundef %1362) #13
-  %1364 = getelementptr inbounds i8, ptr %1359, i64 8
-  store ptr %1363, ptr %1364, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1359) #13
-  %1365 = getelementptr inbounds i8, ptr %0, i64 1376
-  %1366 = load i16, ptr %1365, align 8
-  %1367 = zext i16 %1366 to i32
-  %1368 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.253, i32 noundef %1367) #13
-  %1369 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1732, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1370 = call ptr @xstrdup(ptr noundef nonnull @.str.302) #13
-  store ptr %1370, ptr %1369, align 8
-  %1371 = call ptr @xstrdup(ptr noundef nonnull %2) #13
-  %1372 = getelementptr inbounds i8, ptr %1369, i64 8
-  store ptr %1371, ptr %1372, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1369) #13
-  %1373 = getelementptr inbounds i8, ptr %0, i64 1380
-  %1374 = load i32, ptr %1373, align 4
-  %1375 = icmp eq i32 %1374, -1
-  br i1 %1375, label %1376, label %1377
+.thread:                                          ; preds = %1171, %1318
+  %1324 = phi i32 [ %1320, %1318 ], [ 0, %1171 ]
+  %1325 = phi i32 [ %1323, %1318 ], [ 0, %1171 ]
+  %1326 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.274, i32 noundef %1324, i32 noundef %1325) #13
+  %1327 = getelementptr inbounds i8, ptr %1314, i64 8
+  store ptr %1326, ptr %1327, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1314) #13
+  %1328 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1700, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1329 = call ptr @xstrdup(ptr noundef nonnull @.str.296) #13
+  store ptr %1329, ptr %1328, align 8
+  %1330 = getelementptr inbounds i8, ptr %0, i64 1328
+  %1331 = load ptr, ptr %1330, align 8
+  %1332 = call ptr @xstrdup(ptr noundef %1331) #13
+  %1333 = getelementptr inbounds i8, ptr %1328, i64 8
+  store ptr %1332, ptr %1333, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1328) #13
+  %1334 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1705, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1335 = call ptr @xstrdup(ptr noundef nonnull @.str.297) #13
+  store ptr %1335, ptr %1334, align 8
+  %1336 = getelementptr inbounds i8, ptr %0, i64 1336
+  %1337 = load ptr, ptr %1336, align 8
+  %1338 = call ptr @xstrdup(ptr noundef %1337) #13
+  %1339 = getelementptr inbounds i8, ptr %1334, i64 8
+  store ptr %1338, ptr %1339, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1334) #13
+  %1340 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1710, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1341 = call ptr @xstrdup(ptr noundef nonnull @.str.298) #13
+  store ptr %1341, ptr %1340, align 8
+  %1342 = getelementptr inbounds i8, ptr %0, i64 1344
+  %1343 = load ptr, ptr %1342, align 8
+  %1344 = call ptr @xstrdup(ptr noundef %1343) #13
+  %1345 = getelementptr inbounds i8, ptr %1340, i64 8
+  store ptr %1344, ptr %1345, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1340) #13
+  %1346 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1715, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1347 = call ptr @xstrdup(ptr noundef nonnull @.str.299) #13
+  store ptr %1347, ptr %1346, align 8
+  %1348 = getelementptr inbounds i8, ptr %0, i64 1352
+  %1349 = load ptr, ptr %1348, align 8
+  %1350 = call ptr @xstrdup(ptr noundef %1349) #13
+  %1351 = getelementptr inbounds i8, ptr %1346, i64 8
+  store ptr %1350, ptr %1351, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1346) #13
+  %1352 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1720, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1353 = call ptr @xstrdup(ptr noundef nonnull @.str.300) #13
+  store ptr %1353, ptr %1352, align 8
+  %1354 = getelementptr inbounds i8, ptr %0, i64 1360
+  %1355 = load ptr, ptr %1354, align 8
+  %1356 = call ptr @xstrdup(ptr noundef %1355) #13
+  %1357 = getelementptr inbounds i8, ptr %1352, i64 8
+  store ptr %1356, ptr %1357, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1352) #13
+  %1358 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1725, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1359 = call ptr @xstrdup(ptr noundef nonnull @.str.301) #13
+  store ptr %1359, ptr %1358, align 8
+  %1360 = getelementptr inbounds i8, ptr %0, i64 1368
+  %1361 = load ptr, ptr %1360, align 8
+  %1362 = call ptr @xstrdup(ptr noundef %1361) #13
+  %1363 = getelementptr inbounds i8, ptr %1358, i64 8
+  store ptr %1362, ptr %1363, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1358) #13
+  %1364 = getelementptr inbounds i8, ptr %0, i64 1376
+  %1365 = load i16, ptr %1364, align 8
+  %1366 = zext i16 %1365 to i32
+  %1367 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.253, i32 noundef %1366) #13
+  %1368 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1732, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1369 = call ptr @xstrdup(ptr noundef nonnull @.str.302) #13
+  store ptr %1369, ptr %1368, align 8
+  %1370 = call ptr @xstrdup(ptr noundef nonnull %2) #13
+  %1371 = getelementptr inbounds i8, ptr %1368, i64 8
+  store ptr %1370, ptr %1371, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1368) #13
+  %1372 = getelementptr inbounds i8, ptr %0, i64 1380
+  %1373 = load i32, ptr %1372, align 4
+  %1374 = icmp eq i32 %1373, -1
+  br i1 %1374, label %1375, label %1376
+
+1375:                                             ; preds = %.thread
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(9) %2, ptr noundef nonnull align 1 dereferenceable(9) @.str.303, i64 9, i1 false)
+  br label %1378
 
 1376:                                             ; preds = %.thread
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(9) %2, ptr noundef nonnull align 1 dereferenceable(9) @.str.303, i64 9, i1 false)
-  br label %1379
+  %1377 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.105, i32 noundef %1373) #13
+  br label %1378
 
-1377:                                             ; preds = %.thread
-  %1378 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.105, i32 noundef %1374) #13
-  br label %1379
+1378:                                             ; preds = %1376, %1375
+  %1379 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1743, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1380 = call ptr @xstrdup(ptr noundef nonnull @.str.304) #13
+  store ptr %1380, ptr %1379, align 8
+  %1381 = call ptr @xstrdup(ptr noundef nonnull %2) #13
+  %1382 = getelementptr inbounds i8, ptr %1379, i64 8
+  store ptr %1381, ptr %1382, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1379) #13
+  %1383 = getelementptr inbounds i8, ptr %0, i64 1384
+  %1384 = load i16, ptr %1383, align 8
+  %1385 = icmp eq i16 %1384, 0
+  br i1 %1385, label %1386, label %1387
 
-1379:                                             ; preds = %1377, %1376
-  %1380 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1743, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1381 = call ptr @xstrdup(ptr noundef nonnull @.str.304) #13
-  store ptr %1381, ptr %1380, align 8
-  %1382 = call ptr @xstrdup(ptr noundef nonnull %2) #13
-  %1383 = getelementptr inbounds i8, ptr %1380, i64 8
-  store ptr %1382, ptr %1383, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1380) #13
-  %1384 = getelementptr inbounds i8, ptr %0, i64 1384
-  %1385 = load i16, ptr %1384, align 8
-  %1386 = icmp eq i16 %1385, 0
-  br i1 %1386, label %1387, label %1388
-
-1387:                                             ; preds = %1379
+1386:                                             ; preds = %1378
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(5) %2, ptr noundef nonnull align 1 dereferenceable(5) @.str.218, i64 5, i1 false)
-  br label %1391
+  br label %1390
 
-1388:                                             ; preds = %1379
-  %1389 = zext i16 %1385 to i32
-  %1390 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.105, i32 noundef %1389) #13
-  br label %1391
+1387:                                             ; preds = %1378
+  %1388 = zext i16 %1384 to i32
+  %1389 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.105, i32 noundef %1388) #13
+  br label %1390
 
-1391:                                             ; preds = %1388, %1387
-  %1392 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1754, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1393 = call ptr @xstrdup(ptr noundef nonnull @.str.305) #13
-  store ptr %1393, ptr %1392, align 8
-  %1394 = call ptr @xstrdup(ptr noundef nonnull %2) #13
-  %1395 = getelementptr inbounds i8, ptr %1392, i64 8
-  store ptr %1394, ptr %1395, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1392) #13
-  %1396 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1759, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1397 = call ptr @xstrdup(ptr noundef nonnull @.str.306) #13
-  store ptr %1397, ptr %1396, align 8
-  %1398 = getelementptr inbounds i8, ptr %0, i64 1400
-  %1399 = load ptr, ptr %1398, align 8
-  %1400 = call ptr @xstrdup(ptr noundef %1399) #13
-  %1401 = getelementptr inbounds i8, ptr %1396, i64 8
-  store ptr %1400, ptr %1401, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1396) #13
-  %1402 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1764, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1403 = call ptr @xstrdup(ptr noundef nonnull @.str.307) #13
-  store ptr %1403, ptr %1402, align 8
-  %1404 = getelementptr inbounds i8, ptr %0, i64 1392
-  %1405 = load ptr, ptr %1404, align 8
-  %1406 = call ptr @xstrdup(ptr noundef %1405) #13
-  %1407 = getelementptr inbounds i8, ptr %1402, i64 8
-  store ptr %1406, ptr %1407, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1402) #13
-  %1408 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1769, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1409 = call ptr @xstrdup(ptr noundef nonnull @.str.308) #13
-  store ptr %1409, ptr %1408, align 8
-  %1410 = getelementptr inbounds i8, ptr %0, i64 1408
-  %1411 = load ptr, ptr %1410, align 8
-  %1412 = call ptr @xstrdup(ptr noundef %1411) #13
-  %1413 = getelementptr inbounds i8, ptr %1408, i64 8
-  store ptr %1412, ptr %1413, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1408) #13
-  %1414 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1774, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1415 = call ptr @xstrdup(ptr noundef nonnull @.str.309) #13
-  store ptr %1415, ptr %1414, align 8
-  %1416 = getelementptr inbounds i8, ptr %0, i64 1416
-  %1417 = load ptr, ptr %1416, align 8
-  %1418 = call ptr @xstrdup(ptr noundef %1417) #13
-  %1419 = getelementptr inbounds i8, ptr %1414, i64 8
-  store ptr %1418, ptr %1419, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1414) #13
-  %1420 = getelementptr inbounds i8, ptr %0, i64 1424
-  %1421 = load i32, ptr %1420, align 8
-  call void @slurm_sprint_cpu_bind_type(ptr noundef nonnull %2, i32 noundef %1421) #13
-  %1422 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1781, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1423 = call ptr @xstrdup(ptr noundef nonnull @.str.310) #13
-  store ptr %1423, ptr %1422, align 8
-  %1424 = call ptr @xstrdup(ptr noundef nonnull %2) #13
-  %1425 = getelementptr inbounds i8, ptr %1422, i64 8
-  store ptr %1424, ptr %1425, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1422) #13
-  %1426 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1786, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1427 = call ptr @xstrdup(ptr noundef nonnull @.str.311) #13
-  store ptr %1427, ptr %1426, align 8
-  %1428 = getelementptr inbounds i8, ptr %0, i64 1432
-  %1429 = load ptr, ptr %1428, align 8
-  %1430 = call ptr @xstrdup(ptr noundef %1429) #13
-  %1431 = getelementptr inbounds i8, ptr %1426, i64 8
-  store ptr %1430, ptr %1431, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1426) #13
-  %1432 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1791, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1433 = call ptr @xstrdup(ptr noundef nonnull @.str.312) #13
-  store ptr %1433, ptr %1432, align 8
-  %1434 = getelementptr inbounds i8, ptr %0, i64 1440
-  %1435 = load i16, ptr %1434, align 8
-  %1436 = zext i16 %1435 to i32
-  %1437 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.105, i32 noundef %1436) #13
-  %1438 = getelementptr inbounds i8, ptr %1432, i64 8
-  store ptr %1437, ptr %1438, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1432) #13
-  %1439 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1797, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1440 = call ptr @xstrdup(ptr noundef nonnull @.str.313) #13
-  store ptr %1440, ptr %1439, align 8
-  %1441 = getelementptr inbounds i8, ptr %0, i64 1448
-  %1442 = load ptr, ptr %1441, align 8
-  %1443 = call ptr @xstrdup(ptr noundef %1442) #13
-  %1444 = getelementptr inbounds i8, ptr %1439, i64 8
-  store ptr %1443, ptr %1444, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1439) #13
-  %1445 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1802, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1446 = call ptr @xstrdup(ptr noundef nonnull @.str.314) #13
-  store ptr %1446, ptr %1445, align 8
-  %1447 = getelementptr inbounds i8, ptr %0, i64 1456
-  %1448 = load ptr, ptr %1447, align 8
-  %1449 = call ptr @xstrdup(ptr noundef %1448) #13
-  %1450 = getelementptr inbounds i8, ptr %1445, i64 8
-  store ptr %1449, ptr %1450, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1445) #13
-  %1451 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1807, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1452 = call ptr @xstrdup(ptr noundef nonnull @.str.315) #13
-  store ptr %1452, ptr %1451, align 8
-  %1453 = getelementptr inbounds i8, ptr %0, i64 1464
-  %1454 = load ptr, ptr %1453, align 8
-  %1455 = call ptr @xstrdup(ptr noundef %1454) #13
-  %1456 = getelementptr inbounds i8, ptr %1451, i64 8
-  store ptr %1455, ptr %1456, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1451) #13
-  %1457 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1812, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1458 = call ptr @xstrdup(ptr noundef nonnull @.str.316) #13
-  store ptr %1458, ptr %1457, align 8
-  %1459 = load i32, ptr %65, align 4
-  %1460 = and i32 %1459, 32
-  %.not1161 = icmp eq i32 %1460, 0
-  %1461 = select i1 %.not1161, ptr @.str.110, ptr @.str.109
-  %1462 = call ptr @xstrdup(ptr noundef nonnull %1461) #13
-  %1463 = getelementptr inbounds i8, ptr %1457, i64 8
-  store ptr %1462, ptr %1463, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1457) #13
-  %1464 = getelementptr inbounds i8, ptr %0, i64 1472
-  %1465 = load i16, ptr %1464, align 8
-  %1466 = zext i16 %1465 to i32
-  %1467 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.91, i32 noundef %1466) #13
-  %1468 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1821, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1469 = call ptr @xstrdup(ptr noundef nonnull @.str.317) #13
-  store ptr %1469, ptr %1468, align 8
-  %1470 = call ptr @xstrdup(ptr noundef nonnull %2) #13
-  %1471 = getelementptr inbounds i8, ptr %1468, i64 8
-  store ptr %1470, ptr %1471, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1468) #13
-  %1472 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1826, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1473 = call ptr @xstrdup(ptr noundef nonnull @.str.318) #13
-  store ptr %1473, ptr %1472, align 8
-  %1474 = load i32, ptr %65, align 4
-  %1475 = and i32 %1474, 16
-  %.not1162 = icmp eq i32 %1475, 0
-  %1476 = select i1 %.not1162, ptr @.str.110, ptr @.str.109
-  %1477 = call ptr @xstrdup(ptr noundef nonnull %1476) #13
-  %1478 = getelementptr inbounds i8, ptr %1472, i64 8
-  store ptr %1477, ptr %1478, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1472) #13
-  %1479 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1832, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1480 = call ptr @xstrdup(ptr noundef nonnull @.str.319) #13
-  store ptr %1480, ptr %1479, align 8
-  %1481 = getelementptr inbounds i8, ptr %0, i64 1480
-  %1482 = load ptr, ptr %1481, align 8
-  %1483 = call ptr @xstrdup(ptr noundef %1482) #13
-  %1484 = getelementptr inbounds i8, ptr %1479, i64 8
-  store ptr %1483, ptr %1484, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1479) #13
-  %1485 = getelementptr inbounds i8, ptr %0, i64 1488
-  %1486 = load i16, ptr %1485, align 8
-  %1487 = zext i16 %1486 to i32
-  %1488 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.105, i32 noundef %1487) #13
-  %1489 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1839, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1490 = call ptr @xstrdup(ptr noundef nonnull @.str.320) #13
-  store ptr %1490, ptr %1489, align 8
-  %1491 = call ptr @xstrdup(ptr noundef nonnull %2) #13
-  %1492 = getelementptr inbounds i8, ptr %1489, i64 8
-  store ptr %1491, ptr %1492, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1489) #13
-  %1493 = getelementptr inbounds i8, ptr %0, i64 1504
-  %1494 = load i16, ptr %1493, align 8
-  %1495 = zext i16 %1494 to i32
-  %1496 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.321, i32 noundef %1495) #13
-  %1497 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1846, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1498 = call ptr @xstrdup(ptr noundef nonnull @.str.322) #13
-  store ptr %1498, ptr %1497, align 8
-  %1499 = call ptr @xstrdup(ptr noundef nonnull %2) #13
-  %1500 = getelementptr inbounds i8, ptr %1497, i64 8
-  store ptr %1499, ptr %1500, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1497) #13
-  %1501 = getelementptr inbounds i8, ptr %0, i64 1506
-  %1502 = load i16, ptr %1501, align 2
-  %1503 = zext i16 %1502 to i32
-  %1504 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.105, i32 noundef %1503) #13
-  %1505 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1853, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1506 = call ptr @xstrdup(ptr noundef nonnull @.str.323) #13
-  store ptr %1506, ptr %1505, align 8
-  %1507 = call ptr @xstrdup(ptr noundef nonnull %2) #13
-  %1508 = getelementptr inbounds i8, ptr %1505, i64 8
-  store ptr %1507, ptr %1508, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1505) #13
-  %1509 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1858, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1510 = call ptr @xstrdup(ptr noundef nonnull @.str.324) #13
-  store ptr %1510, ptr %1509, align 8
-  %1511 = getelementptr inbounds i8, ptr %0, i64 1512
-  %1512 = load ptr, ptr %1511, align 8
-  %1513 = call ptr @xstrdup(ptr noundef %1512) #13
-  %1514 = getelementptr inbounds i8, ptr %1509, i64 8
-  store ptr %1513, ptr %1514, align 8
-  call void @list_append(ptr noundef %6, ptr noundef nonnull %1509) #13
-  br label %1515
+1390:                                             ; preds = %1387, %1386
+  %1391 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1754, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1392 = call ptr @xstrdup(ptr noundef nonnull @.str.305) #13
+  store ptr %1392, ptr %1391, align 8
+  %1393 = call ptr @xstrdup(ptr noundef nonnull %2) #13
+  %1394 = getelementptr inbounds i8, ptr %1391, i64 8
+  store ptr %1393, ptr %1394, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1391) #13
+  %1395 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1759, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1396 = call ptr @xstrdup(ptr noundef nonnull @.str.306) #13
+  store ptr %1396, ptr %1395, align 8
+  %1397 = getelementptr inbounds i8, ptr %0, i64 1400
+  %1398 = load ptr, ptr %1397, align 8
+  %1399 = call ptr @xstrdup(ptr noundef %1398) #13
+  %1400 = getelementptr inbounds i8, ptr %1395, i64 8
+  store ptr %1399, ptr %1400, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1395) #13
+  %1401 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1764, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1402 = call ptr @xstrdup(ptr noundef nonnull @.str.307) #13
+  store ptr %1402, ptr %1401, align 8
+  %1403 = getelementptr inbounds i8, ptr %0, i64 1392
+  %1404 = load ptr, ptr %1403, align 8
+  %1405 = call ptr @xstrdup(ptr noundef %1404) #13
+  %1406 = getelementptr inbounds i8, ptr %1401, i64 8
+  store ptr %1405, ptr %1406, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1401) #13
+  %1407 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1769, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1408 = call ptr @xstrdup(ptr noundef nonnull @.str.308) #13
+  store ptr %1408, ptr %1407, align 8
+  %1409 = getelementptr inbounds i8, ptr %0, i64 1408
+  %1410 = load ptr, ptr %1409, align 8
+  %1411 = call ptr @xstrdup(ptr noundef %1410) #13
+  %1412 = getelementptr inbounds i8, ptr %1407, i64 8
+  store ptr %1411, ptr %1412, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1407) #13
+  %1413 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1774, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1414 = call ptr @xstrdup(ptr noundef nonnull @.str.309) #13
+  store ptr %1414, ptr %1413, align 8
+  %1415 = getelementptr inbounds i8, ptr %0, i64 1416
+  %1416 = load ptr, ptr %1415, align 8
+  %1417 = call ptr @xstrdup(ptr noundef %1416) #13
+  %1418 = getelementptr inbounds i8, ptr %1413, i64 8
+  store ptr %1417, ptr %1418, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1413) #13
+  %1419 = getelementptr inbounds i8, ptr %0, i64 1424
+  %1420 = load i32, ptr %1419, align 8
+  call void @slurm_sprint_cpu_bind_type(ptr noundef nonnull %2, i32 noundef %1420) #13
+  %1421 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1781, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1422 = call ptr @xstrdup(ptr noundef nonnull @.str.310) #13
+  store ptr %1422, ptr %1421, align 8
+  %1423 = call ptr @xstrdup(ptr noundef nonnull %2) #13
+  %1424 = getelementptr inbounds i8, ptr %1421, i64 8
+  store ptr %1423, ptr %1424, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1421) #13
+  %1425 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1786, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1426 = call ptr @xstrdup(ptr noundef nonnull @.str.311) #13
+  store ptr %1426, ptr %1425, align 8
+  %1427 = getelementptr inbounds i8, ptr %0, i64 1432
+  %1428 = load ptr, ptr %1427, align 8
+  %1429 = call ptr @xstrdup(ptr noundef %1428) #13
+  %1430 = getelementptr inbounds i8, ptr %1425, i64 8
+  store ptr %1429, ptr %1430, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1425) #13
+  %1431 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1791, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1432 = call ptr @xstrdup(ptr noundef nonnull @.str.312) #13
+  store ptr %1432, ptr %1431, align 8
+  %1433 = getelementptr inbounds i8, ptr %0, i64 1440
+  %1434 = load i16, ptr %1433, align 8
+  %1435 = zext i16 %1434 to i32
+  %1436 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.105, i32 noundef %1435) #13
+  %1437 = getelementptr inbounds i8, ptr %1431, i64 8
+  store ptr %1436, ptr %1437, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1431) #13
+  %1438 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1797, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1439 = call ptr @xstrdup(ptr noundef nonnull @.str.313) #13
+  store ptr %1439, ptr %1438, align 8
+  %1440 = getelementptr inbounds i8, ptr %0, i64 1448
+  %1441 = load ptr, ptr %1440, align 8
+  %1442 = call ptr @xstrdup(ptr noundef %1441) #13
+  %1443 = getelementptr inbounds i8, ptr %1438, i64 8
+  store ptr %1442, ptr %1443, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1438) #13
+  %1444 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1802, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1445 = call ptr @xstrdup(ptr noundef nonnull @.str.314) #13
+  store ptr %1445, ptr %1444, align 8
+  %1446 = getelementptr inbounds i8, ptr %0, i64 1456
+  %1447 = load ptr, ptr %1446, align 8
+  %1448 = call ptr @xstrdup(ptr noundef %1447) #13
+  %1449 = getelementptr inbounds i8, ptr %1444, i64 8
+  store ptr %1448, ptr %1449, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1444) #13
+  %1450 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1807, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1451 = call ptr @xstrdup(ptr noundef nonnull @.str.315) #13
+  store ptr %1451, ptr %1450, align 8
+  %1452 = getelementptr inbounds i8, ptr %0, i64 1464
+  %1453 = load ptr, ptr %1452, align 8
+  %1454 = call ptr @xstrdup(ptr noundef %1453) #13
+  %1455 = getelementptr inbounds i8, ptr %1450, i64 8
+  store ptr %1454, ptr %1455, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1450) #13
+  %1456 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1812, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1457 = call ptr @xstrdup(ptr noundef nonnull @.str.316) #13
+  store ptr %1457, ptr %1456, align 8
+  %1458 = load i32, ptr %65, align 4
+  %1459 = and i32 %1458, 32
+  %.not1161 = icmp eq i32 %1459, 0
+  %1460 = select i1 %.not1161, ptr @.str.110, ptr @.str.109
+  %1461 = call ptr @xstrdup(ptr noundef nonnull %1460) #13
+  %1462 = getelementptr inbounds i8, ptr %1456, i64 8
+  store ptr %1461, ptr %1462, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1456) #13
+  %1463 = getelementptr inbounds i8, ptr %0, i64 1472
+  %1464 = load i16, ptr %1463, align 8
+  %1465 = zext i16 %1464 to i32
+  %1466 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.91, i32 noundef %1465) #13
+  %1467 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1821, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1468 = call ptr @xstrdup(ptr noundef nonnull @.str.317) #13
+  store ptr %1468, ptr %1467, align 8
+  %1469 = call ptr @xstrdup(ptr noundef nonnull %2) #13
+  %1470 = getelementptr inbounds i8, ptr %1467, i64 8
+  store ptr %1469, ptr %1470, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1467) #13
+  %1471 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1826, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1472 = call ptr @xstrdup(ptr noundef nonnull @.str.318) #13
+  store ptr %1472, ptr %1471, align 8
+  %1473 = load i32, ptr %65, align 4
+  %1474 = and i32 %1473, 16
+  %.not1162 = icmp eq i32 %1474, 0
+  %1475 = select i1 %.not1162, ptr @.str.110, ptr @.str.109
+  %1476 = call ptr @xstrdup(ptr noundef nonnull %1475) #13
+  %1477 = getelementptr inbounds i8, ptr %1471, i64 8
+  store ptr %1476, ptr %1477, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1471) #13
+  %1478 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1832, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1479 = call ptr @xstrdup(ptr noundef nonnull @.str.319) #13
+  store ptr %1479, ptr %1478, align 8
+  %1480 = getelementptr inbounds i8, ptr %0, i64 1480
+  %1481 = load ptr, ptr %1480, align 8
+  %1482 = call ptr @xstrdup(ptr noundef %1481) #13
+  %1483 = getelementptr inbounds i8, ptr %1478, i64 8
+  store ptr %1482, ptr %1483, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1478) #13
+  %1484 = getelementptr inbounds i8, ptr %0, i64 1488
+  %1485 = load i16, ptr %1484, align 8
+  %1486 = zext i16 %1485 to i32
+  %1487 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.105, i32 noundef %1486) #13
+  %1488 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1839, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1489 = call ptr @xstrdup(ptr noundef nonnull @.str.320) #13
+  store ptr %1489, ptr %1488, align 8
+  %1490 = call ptr @xstrdup(ptr noundef nonnull %2) #13
+  %1491 = getelementptr inbounds i8, ptr %1488, i64 8
+  store ptr %1490, ptr %1491, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1488) #13
+  %1492 = getelementptr inbounds i8, ptr %0, i64 1504
+  %1493 = load i16, ptr %1492, align 8
+  %1494 = zext i16 %1493 to i32
+  %1495 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.321, i32 noundef %1494) #13
+  %1496 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1846, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1497 = call ptr @xstrdup(ptr noundef nonnull @.str.322) #13
+  store ptr %1497, ptr %1496, align 8
+  %1498 = call ptr @xstrdup(ptr noundef nonnull %2) #13
+  %1499 = getelementptr inbounds i8, ptr %1496, i64 8
+  store ptr %1498, ptr %1499, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1496) #13
+  %1500 = getelementptr inbounds i8, ptr %0, i64 1506
+  %1501 = load i16, ptr %1500, align 2
+  %1502 = zext i16 %1501 to i32
+  %1503 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.105, i32 noundef %1502) #13
+  %1504 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1853, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1505 = call ptr @xstrdup(ptr noundef nonnull @.str.323) #13
+  store ptr %1505, ptr %1504, align 8
+  %1506 = call ptr @xstrdup(ptr noundef nonnull %2) #13
+  %1507 = getelementptr inbounds i8, ptr %1504, i64 8
+  store ptr %1506, ptr %1507, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1504) #13
+  %1508 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1858, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
+  %1509 = call ptr @xstrdup(ptr noundef nonnull @.str.324) #13
+  store ptr %1509, ptr %1508, align 8
+  %1510 = getelementptr inbounds i8, ptr %0, i64 1512
+  %1511 = load ptr, ptr %1510, align 8
+  %1512 = call ptr @xstrdup(ptr noundef %1511) #13
+  %1513 = getelementptr inbounds i8, ptr %1508, i64 8
+  store ptr %1512, ptr %1513, align 8
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1508) #13
+  br label %1514
 
-1515:                                             ; preds = %1, %1391
-  %.0 = phi ptr [ %6, %1391 ], [ null, %1 ]
+1514:                                             ; preds = %1, %1390
+  %.0 = phi ptr [ %6, %1390 ], [ null, %1 ]
   ret ptr %.0
 }
 

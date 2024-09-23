@@ -642,16 +642,16 @@ define dso_local void @_ZN5clang6format17WhitespaceManager29calculateLineBreakIn
   %5 = load ptr, ptr %0, align 8
   %6 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   %7 = trunc i64 %6 to i32
-  %.not126 = icmp eq i32 %7, 1
-  br i1 %.not126, label %._crit_edge, label %.lr.ph
+  %.not123 = icmp eq i32 %7, 1
+  br i1 %.not123, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2192
   br label %9
 
-9:                                                ; preds = %.lr.ph, %94
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %94 ]
-  %.087128 = phi ptr [ %5, %.lr.ph ], [ %.1, %94 ]
+9:                                                ; preds = %.lr.ph, %95
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %95 ]
+  %.087125 = phi ptr [ %5, %.lr.ph ], [ %.1, %95 ]
   %10 = load ptr, ptr %0, align 8
   %11 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %10, i64 %indvars.iv
   %12 = getelementptr %"struct.clang::format::WhitespaceManager::Change", ptr %10, i64 %indvars.iv
@@ -660,20 +660,20 @@ define dso_local void @_ZN5clang6format17WhitespaceManager29calculateLineBreakIn
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %.sroa.0.0.copyload.i = load i32, ptr %15, align 4
   %16 = getelementptr i8, ptr %12, i64 -120
-  %.sroa.0.0.copyload.i110 = load i32, ptr %16, align 4
+  %.sroa.0.0.copyload.i108 = load i32, ptr %16, align 4
   %17 = load ptr, ptr %8, align 8
   %18 = tail call i64 @_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %17, i32 %.sroa.0.0.copyload.i)
   %.sroa.1.0.extract.shift.i = lshr i64 %18, 32
   %19 = load ptr, ptr %8, align 8
-  %20 = tail call i64 @_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %19, i32 %.sroa.0.0.copyload.i110)
-  %.sroa.1.0.extract.shift.i111 = lshr i64 %20, 32
+  %20 = tail call i64 @_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %19, i32 %.sroa.0.0.copyload.i108)
+  %.sroa.1.0.extract.shift.i109 = lshr i64 %20, 32
   %21 = load ptr, ptr %8, align 8
-  %22 = tail call noundef ptr @_ZNK5clang13SourceManager16getCharacterDataENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %21, i32 %.sroa.0.0.copyload.i110, ptr noundef null) #18
+  %22 = tail call noundef ptr @_ZNK5clang13SourceManager16getCharacterDataENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %21, i32 %.sroa.0.0.copyload.i108, ptr noundef null) #18
   %23 = load ptr, ptr %8, align 8
   %24 = tail call noundef ptr @_ZNK5clang13SourceManager16getCharacterDataENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %23, i32 %.sroa.0.0.copyload.i, ptr noundef null) #18
   %25 = ptrtoint ptr %22 to i64
-  %.not125 = icmp eq ptr %24, %22
-  br i1 %.not125, label %_ZNK4llvm9StringRef13find_first_ofEcm.exit.thread, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i
+  %.not122 = icmp eq ptr %24, %22
+  br i1 %.not122, label %_ZNK4llvm9StringRef13find_first_ofEcm.exit.thread, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i
 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i:   ; preds = %9
   %26 = ptrtoint ptr %24 to i64
@@ -689,7 +689,7 @@ _ZNK4llvm9StringRef13find_first_ofEcm.exit:       ; preds = %_ZNSt11char_traitsI
   br i1 %31, label %_ZNK4llvm9StringRef13find_first_ofEcm.exit.thread, label %49
 
 _ZNK4llvm9StringRef13find_first_ofEcm.exit.thread: ; preds = %9, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i, %_ZNK4llvm9StringRef13find_first_ofEcm.exit
-  %32 = sub nsw i64 %.sroa.1.0.extract.shift.i, %.sroa.1.0.extract.shift.i111
+  %32 = sub nsw i64 %.sroa.1.0.extract.shift.i, %.sroa.1.0.extract.shift.i109
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %34 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %33) #18
   %35 = add i64 %32, %34
@@ -727,297 +727,299 @@ _ZNK4llvm9StringRef13find_first_ofEcm.exit.thread: ; preds = %9, %_ZNSt11char_tr
   %55 = phi i32 [ %39, %_ZNK4llvm9StringRef13find_first_ofEcm.exit.thread ], [ %48, %43 ], [ %53, %49 ]
   %56 = phi i8 [ %41, %_ZNK4llvm9StringRef13find_first_ofEcm.exit.thread ], [ %41, %43 ], [ %.pre, %49 ]
   %57 = trunc i8 %56 to i1
-  %58 = getelementptr i8, ptr %12, i64 -112
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %or.cond = select i1 %57, i1 %60, i1 false
-  br i1 %or.cond, label %61, label %68
+  br i1 %57, label %58, label %69
 
-61:                                               ; preds = %54
-  %62 = getelementptr i8, ptr %12, i64 -36
-  %63 = load i32, ptr %62, align 4
-  %64 = add i32 %63, %55
-  %65 = getelementptr inbounds nuw i8, ptr %.087128, i64 108
-  %66 = load i32, ptr %65, align 4
-  %67 = add i32 %64, %66
-  store i32 %67, ptr %65, align 4
-  %.pre159 = load i32, ptr %14, align 4
-  br label %68
+58:                                               ; preds = %54
+  %59 = getelementptr i8, ptr %12, i64 -112
+  %60 = load i32, ptr %59, align 8
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %62, label %69
 
-68:                                               ; preds = %54, %61
-  %69 = phi i32 [ %.pre159, %61 ], [ %55, %54 ]
-  %.1 = phi ptr [ %.087128, %61 ], [ %13, %54 ]
-  %70 = getelementptr i8, ptr %12, i64 -116
-  %71 = load i32, ptr %70, align 4
-  %72 = add i32 %69, %71
-  %73 = getelementptr inbounds nuw i8, ptr %11, i64 112
-  store i32 %72, ptr %73, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %75 = load i32, ptr %74, align 8
-  %.not106 = icmp eq i32 %75, 0
-  br i1 %.not106, label %76, label %86
+62:                                               ; preds = %58
+  %63 = getelementptr i8, ptr %12, i64 -36
+  %64 = load i32, ptr %63, align 4
+  %65 = add i32 %64, %55
+  %66 = getelementptr inbounds nuw i8, ptr %.087125, i64 108
+  %67 = load i32, ptr %66, align 4
+  %68 = add i32 %65, %67
+  store i32 %68, ptr %66, align 4
+  %.pre156 = load i32, ptr %14, align 4
+  br label %69
 
-76:                                               ; preds = %68
-  %77 = load ptr, ptr %11, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %79 = load i16, ptr %78, align 8
-  %80 = icmp eq i16 %79, 1
-  br i1 %80, label %86, label %81
+69:                                               ; preds = %54, %58, %62
+  %70 = phi i32 [ %.pre156, %62 ], [ %55, %58 ], [ %55, %54 ]
+  %.1 = phi ptr [ %.087125, %62 ], [ %13, %58 ], [ %13, %54 ]
+  %71 = getelementptr i8, ptr %12, i64 -116
+  %72 = load i32, ptr %71, align 4
+  %73 = add i32 %70, %72
+  %74 = getelementptr inbounds nuw i8, ptr %11, i64 112
+  store i32 %73, ptr %74, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %76 = load i32, ptr %75, align 8
+  %.not106 = icmp eq i32 %76, 0
+  br i1 %.not106, label %77, label %87
 
-81:                                               ; preds = %76
-  %82 = getelementptr inbounds nuw i8, ptr %11, i64 104
-  %83 = load i8, ptr %82, align 8
-  %84 = trunc i8 %83 to i1
-  %85 = icmp eq i16 %79, 4
-  %or.cond124 = and i1 %85, %84
-  br i1 %or.cond124, label %86, label %94
+77:                                               ; preds = %69
+  %78 = load ptr, ptr %11, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
+  %80 = load i16, ptr %79, align 8
+  %81 = icmp eq i16 %80, 1
+  br i1 %81, label %87, label %82
 
-86:                                               ; preds = %81, %76, %68
-  %87 = load ptr, ptr %13, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
-  %89 = load i16, ptr %88, align 8
-  %90 = icmp eq i16 %89, 4
-  br i1 %90, label %91, label %94
+82:                                               ; preds = %77
+  %83 = getelementptr inbounds nuw i8, ptr %11, i64 104
+  %84 = load i8, ptr %83, align 8
+  %85 = trunc i8 %84 to i1
+  %86 = icmp eq i16 %80, 4
+  %or.cond = and i1 %86, %85
+  br i1 %or.cond, label %87, label %95
 
-91:                                               ; preds = %86
-  %92 = icmp ne i32 %.sroa.0.0.copyload.i, %.sroa.0.0.copyload.i110
-  %93 = zext i1 %92 to i8
-  br label %94
+87:                                               ; preds = %82, %77, %69
+  %88 = load ptr, ptr %13, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
+  %90 = load i16, ptr %89, align 8
+  %91 = icmp eq i16 %90, 4
+  br i1 %91, label %92, label %95
 
-94:                                               ; preds = %91, %86, %81
-  %95 = phi i8 [ 0, %86 ], [ 0, %81 ], [ %93, %91 ]
-  %96 = getelementptr i8, ptr %12, i64 -31
-  store i8 %95, ptr %96, align 1
+92:                                               ; preds = %87
+  %93 = icmp ne i32 %.sroa.0.0.copyload.i, %.sroa.0.0.copyload.i108
+  %94 = zext i1 %93 to i8
+  br label %95
+
+95:                                               ; preds = %92, %87, %82
+  %96 = phi i8 [ 0, %87 ], [ 0, %82 ], [ %94, %92 ]
+  %97 = getelementptr i8, ptr %12, i64 -31
+  store i8 %96, ptr %97, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond = icmp eq i32 %lftr.wideiv, %7
   br i1 %exitcond, label %._crit_edge, label %9, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %94, %1
-  %97 = load ptr, ptr %0, align 8
-  %98 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
-  %99 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %97, i64 %98
-  %100 = getelementptr inbounds i8, ptr %99, i64 -28
-  store i32 0, ptr %100, align 4
-  %101 = load ptr, ptr %0, align 8
-  %102 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
-  %103 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %101, i64 %102
-  %104 = getelementptr inbounds i8, ptr %103, i64 -136
-  %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 16
-  %107 = load i16, ptr %106, align 8
-  %108 = icmp eq i16 %107, 4
-  %109 = load ptr, ptr %0, align 8
-  %110 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
-  %111 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %109, i64 %110
-  %112 = getelementptr inbounds i8, ptr %111, i64 -31
-  %113 = zext i1 %108 to i8
-  store i8 %113, ptr %112, align 1
-  %114 = load ptr, ptr %0, align 8
-  %115 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
-  %116 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %114, i64 %115
-  %.not99129 = icmp eq i64 %115, 0
-  br i1 %.not99129, label %._crit_edge134, label %.lr.ph133
+._crit_edge:                                      ; preds = %95, %1
+  %98 = load ptr, ptr %0, align 8
+  %99 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  %100 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %98, i64 %99
+  %101 = getelementptr inbounds i8, ptr %100, i64 -28
+  store i32 0, ptr %101, align 4
+  %102 = load ptr, ptr %0, align 8
+  %103 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  %104 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %102, i64 %103
+  %105 = getelementptr inbounds i8, ptr %104, i64 -136
+  %106 = load ptr, ptr %105, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 16
+  %108 = load i16, ptr %107, align 8
+  %109 = icmp eq i16 %108, 4
+  %110 = load ptr, ptr %0, align 8
+  %111 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  %112 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %110, i64 %111
+  %113 = getelementptr inbounds i8, ptr %112, i64 -31
+  %114 = zext i1 %109 to i8
+  store i8 %114, ptr %113, align 1
+  %115 = load ptr, ptr %0, align 8
+  %116 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  %117 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %115, i64 %116
+  %.not99126 = icmp eq i64 %116, 0
+  br i1 %.not99126, label %._crit_edge131, label %.lr.ph130
 
-.lr.ph133:                                        ; preds = %._crit_edge, %144
-  %.090131 = phi ptr [ %.191, %144 ], [ null, %._crit_edge ]
-  %.092130 = phi ptr [ %145, %144 ], [ %114, %._crit_edge ]
-  %117 = getelementptr inbounds nuw i8, ptr %.092130, i64 104
-  %118 = load i8, ptr %117, align 8
-  %119 = trunc i8 %118 to i1
-  br i1 %119, label %120, label %126
+.lr.ph130:                                        ; preds = %._crit_edge, %145
+  %.090128 = phi ptr [ %.191, %145 ], [ null, %._crit_edge ]
+  %.092127 = phi ptr [ %146, %145 ], [ %115, %._crit_edge ]
+  %118 = getelementptr inbounds nuw i8, ptr %.092127, i64 104
+  %119 = load i8, ptr %118, align 8
+  %120 = trunc i8 %119 to i1
+  br i1 %120, label %121, label %127
 
-120:                                              ; preds = %.lr.ph133
-  %121 = getelementptr inbounds nuw i8, ptr %.092130, i64 24
-  %122 = load i32, ptr %121, align 8
-  %123 = icmp eq i32 %122, 0
-  br i1 %123, label %124, label %126
+121:                                              ; preds = %.lr.ph130
+  %122 = getelementptr inbounds nuw i8, ptr %.092127, i64 24
+  %123 = load i32, ptr %122, align 8
+  %124 = icmp eq i32 %123, 0
+  br i1 %124, label %125, label %127
 
-124:                                              ; preds = %120
-  %125 = getelementptr inbounds nuw i8, ptr %.092130, i64 105
-  store i8 0, ptr %125, align 1
-  br label %126
+125:                                              ; preds = %121
+  %126 = getelementptr inbounds nuw i8, ptr %.092127, i64 105
+  store i8 0, ptr %126, align 1
+  br label %127
 
-126:                                              ; preds = %124, %120, %.lr.ph133
-  %127 = getelementptr inbounds nuw i8, ptr %.092130, i64 120
-  store ptr null, ptr %127, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %.092130, i64 128
-  store i32 0, ptr %128, align 8
-  %129 = load ptr, ptr %.092130, align 8
-  %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
-  %131 = load i16, ptr %130, align 8
-  %132 = icmp eq i16 %131, 4
-  br i1 %132, label %133, label %144
+127:                                              ; preds = %125, %121, %.lr.ph130
+  %128 = getelementptr inbounds nuw i8, ptr %.092127, i64 120
+  store ptr null, ptr %128, align 8
+  %129 = getelementptr inbounds nuw i8, ptr %.092127, i64 128
+  store i32 0, ptr %129, align 8
+  %130 = load ptr, ptr %.092127, align 8
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 16
+  %132 = load i16, ptr %131, align 8
+  %133 = icmp eq i16 %132, 4
+  br i1 %133, label %134, label %145
 
-133:                                              ; preds = %126
-  %134 = getelementptr inbounds nuw i8, ptr %129, i64 67
-  %135 = load i8, ptr %134, align 1
-  %136 = icmp ne i8 %135, 75
-  %brmerge.not = and i1 %136, %119
-  br i1 %brmerge.not, label %137, label %144
+134:                                              ; preds = %127
+  %135 = getelementptr inbounds nuw i8, ptr %130, i64 67
+  %136 = load i8, ptr %135, align 1
+  %137 = icmp ne i8 %136, 75
+  %brmerge.not = and i1 %137, %120
+  br i1 %brmerge.not, label %138, label %145
 
-137:                                              ; preds = %133
-  store ptr %.090131, ptr %127, align 8
-  %.not105 = icmp eq ptr %.090131, null
-  br i1 %.not105, label %144, label %138
+138:                                              ; preds = %134
+  store ptr %.090128, ptr %128, align 8
+  %.not105 = icmp eq ptr %.090128, null
+  br i1 %.not105, label %145, label %139
 
-138:                                              ; preds = %137
-  %139 = getelementptr inbounds nuw i8, ptr %.092130, i64 20
-  %140 = load i32, ptr %139, align 4
-  %141 = getelementptr inbounds nuw i8, ptr %.090131, i64 20
-  %142 = load i32, ptr %141, align 4
-  %143 = sub i32 %140, %142
-  store i32 %143, ptr %128, align 8
-  br label %144
+139:                                              ; preds = %138
+  %140 = getelementptr inbounds nuw i8, ptr %.092127, i64 20
+  %141 = load i32, ptr %140, align 4
+  %142 = getelementptr inbounds nuw i8, ptr %.090128, i64 20
+  %143 = load i32, ptr %142, align 4
+  %144 = sub i32 %141, %143
+  store i32 %144, ptr %129, align 8
+  br label %145
 
-144:                                              ; preds = %133, %126, %137, %138
-  %.191 = phi ptr [ %.090131, %138 ], [ null, %137 ], [ %.092130, %133 ], [ null, %126 ]
-  %145 = getelementptr inbounds i8, ptr %.092130, i64 136
-  %.not99 = icmp eq ptr %145, %116
-  br i1 %.not99, label %._crit_edge134, label %.lr.ph133
+145:                                              ; preds = %134, %127, %138, %139
+  %.191 = phi ptr [ %.090128, %139 ], [ null, %138 ], [ %.092127, %134 ], [ null, %127 ]
+  %146 = getelementptr inbounds i8, ptr %.092127, i64 136
+  %.not99 = icmp eq ptr %146, %117
+  br i1 %.not99, label %._crit_edge131, label %.lr.ph130
 
-._crit_edge134:                                   ; preds = %144, %._crit_edge
-  %146 = getelementptr inbounds i8, ptr %2, i64 24
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %146, i64 noundef 16) #18
-  %147 = load ptr, ptr %0, align 8
-  %148 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
-  %149 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %147, i64 %148
-  %.not100149 = icmp eq i64 %148, 0
-  br i1 %.not100149, label %._crit_edge154, label %.lr.ph153
+._crit_edge131:                                   ; preds = %145, %._crit_edge
+  %147 = getelementptr inbounds i8, ptr %2, i64 24
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %147, i64 noundef 16) #18
+  %148 = load ptr, ptr %0, align 8
+  %149 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  %150 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %148, i64 %149
+  %.not100146 = icmp eq i64 %149, 0
+  br i1 %.not100146, label %._crit_edge151, label %.lr.ph150
 
-.lr.ph153:                                        ; preds = %._crit_edge134, %.critedge
-  %.093151 = phi ptr [ %207, %.critedge ], [ %147, %._crit_edge134 ]
-  %.094150 = phi i32 [ %.3.lcssa, %.critedge ], [ 0, %._crit_edge134 ]
-  %150 = load ptr, ptr %.093151, align 8
-  %151 = getelementptr inbounds nuw i8, ptr %150, i64 152
-  %152 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %151) #18
-  %153 = and i64 %152, 4294967295
-  %.not101135 = icmp eq i64 %153, 0
-  br i1 %.not101135, label %._crit_edge140, label %.lr.ph139.preheader
+.lr.ph150:                                        ; preds = %._crit_edge131, %.critedge
+  %.093148 = phi ptr [ %208, %.critedge ], [ %148, %._crit_edge131 ]
+  %.094147 = phi i32 [ %.3.lcssa, %.critedge ], [ 0, %._crit_edge131 ]
+  %151 = load ptr, ptr %.093148, align 8
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 152
+  %153 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %152) #18
+  %154 = and i64 %153, 4294967295
+  %.not101132 = icmp eq i64 %154, 0
+  br i1 %.not101132, label %._crit_edge137, label %.lr.ph136.preheader
 
-.lr.ph139.preheader:                              ; preds = %.lr.ph153
-  %154 = and i64 %152, 4294967295
-  br label %.lr.ph139
+.lr.ph136.preheader:                              ; preds = %.lr.ph150
+  %155 = and i64 %153, 4294967295
+  br label %.lr.ph136
 
-.lr.ph139:                                        ; preds = %.lr.ph139.preheader, %_ZN4llvm23SmallVectorTemplateBaseIbLb1EE9push_backEb.exit
-  %indvars.iv156 = phi i64 [ 0, %.lr.ph139.preheader ], [ %indvars.iv.next157, %_ZN4llvm23SmallVectorTemplateBaseIbLb1EE9push_backEb.exit ]
-  %.195136 = phi i32 [ %.094150, %.lr.ph139.preheader ], [ %181, %_ZN4llvm23SmallVectorTemplateBaseIbLb1EE9push_backEb.exit ]
-  %155 = load ptr, ptr %.093151, align 8
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 152
-  %157 = xor i64 %indvars.iv156, -1
-  %158 = add i64 %152, %157
-  %159 = and i64 %158, 4294967295
-  %160 = load ptr, ptr %156, align 8
-  %161 = getelementptr inbounds i32, ptr %160, i64 %159
-  %162 = load i32, ptr %161, align 4
-  %163 = icmp eq i32 %162, 3
-  br i1 %163, label %164, label %.thread122
+.lr.ph136:                                        ; preds = %.lr.ph136.preheader, %_ZN4llvm23SmallVectorTemplateBaseIbLb1EE9push_backEb.exit
+  %indvars.iv153 = phi i64 [ 0, %.lr.ph136.preheader ], [ %indvars.iv.next154, %_ZN4llvm23SmallVectorTemplateBaseIbLb1EE9push_backEb.exit ]
+  %.195133 = phi i32 [ %.094147, %.lr.ph136.preheader ], [ %182, %_ZN4llvm23SmallVectorTemplateBaseIbLb1EE9push_backEb.exit ]
+  %156 = load ptr, ptr %.093148, align 8
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 152
+  %158 = xor i64 %indvars.iv153, -1
+  %159 = add i64 %153, %158
+  %160 = and i64 %159, 4294967295
+  %161 = load ptr, ptr %157, align 8
+  %162 = getelementptr inbounds i32, ptr %161, i64 %160
+  %163 = load i32, ptr %162, align 4
+  %164 = icmp eq i32 %163, 3
+  br i1 %164, label %165, label %.thread120
 
-164:                                              ; preds = %.lr.ph139
-  %165 = icmp eq i64 %indvars.iv156, 0
-  br i1 %165, label %166, label %.thread
+165:                                              ; preds = %.lr.ph136
+  %166 = icmp eq i64 %indvars.iv153, 0
+  br i1 %166, label %167, label %.thread
 
-166:                                              ; preds = %164
-  %167 = getelementptr inbounds nuw i8, ptr %155, i64 208
-  %168 = load ptr, ptr %167, align 8
-  %.not104 = icmp eq ptr %168, null
-  br i1 %.not104, label %.thread, label %169
+167:                                              ; preds = %165
+  %168 = getelementptr inbounds nuw i8, ptr %156, i64 208
+  %169 = load ptr, ptr %168, align 8
+  %.not104 = icmp eq ptr %169, null
+  br i1 %.not104, label %.thread, label %170
 
-169:                                              ; preds = %166
-  %170 = getelementptr inbounds nuw i8, ptr %168, i64 67
-  %171 = load i8, ptr %170, align 1
-  %172 = icmp eq i8 %171, 17
-  br i1 %172, label %174, label %.thread
+170:                                              ; preds = %167
+  %171 = getelementptr inbounds nuw i8, ptr %169, i64 67
+  %172 = load i8, ptr %171, align 1
+  %173 = icmp eq i8 %172, 17
+  br i1 %173, label %175, label %.thread
 
-.thread:                                          ; preds = %169, %166, %164
-  %173 = add nsw i32 %.195136, 1
-  br label %.thread122
+.thread:                                          ; preds = %170, %167, %165
+  %174 = add nsw i32 %.195133, 1
+  br label %.thread120
 
-174:                                              ; preds = %169
-  %175 = getelementptr inbounds nuw i8, ptr %168, i64 16
-  %176 = load i16, ptr %175, align 8
-  %.fr = freeze i16 %176
-  %177 = icmp ne i16 %.fr, 62
-  %178 = zext i1 %177 to i32
-  %spec.select = add nsw i32 %.195136, %178
-  %179 = zext i1 %177 to i8
-  br label %.thread122
+175:                                              ; preds = %170
+  %176 = getelementptr inbounds nuw i8, ptr %169, i64 16
+  %177 = load i16, ptr %176, align 8
+  %.fr = freeze i16 %177
+  %178 = icmp ne i16 %.fr, 62
+  %179 = zext i1 %178 to i32
+  %spec.select = add nsw i32 %.195133, %179
+  %180 = zext i1 %178 to i8
+  br label %.thread120
 
-.thread122:                                       ; preds = %174, %.lr.ph139, %.thread
-  %180 = phi i8 [ 1, %.thread ], [ 0, %.lr.ph139 ], [ %179, %174 ]
-  %181 = phi i32 [ %173, %.thread ], [ %.195136, %.lr.ph139 ], [ %spec.select, %174 ]
-  %182 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #18
-  %183 = add i64 %182, 1
-  %184 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE8capacityEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #18
-  %.not.i.i.i113 = icmp ugt i64 %183, %184
-  br i1 %.not.i.i.i113, label %185, label %_ZN4llvm23SmallVectorTemplateBaseIbLb1EE9push_backEb.exit
+.thread120:                                       ; preds = %175, %.lr.ph136, %.thread
+  %181 = phi i8 [ 1, %.thread ], [ 0, %.lr.ph136 ], [ %180, %175 ]
+  %182 = phi i32 [ %174, %.thread ], [ %.195133, %.lr.ph136 ], [ %spec.select, %175 ]
+  %183 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #18
+  %184 = add i64 %183, 1
+  %185 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE8capacityEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #18
+  %.not.i.i.i111 = icmp ugt i64 %184, %185
+  br i1 %.not.i.i.i111, label %186, label %_ZN4llvm23SmallVectorTemplateBaseIbLb1EE9push_backEb.exit
 
-185:                                              ; preds = %.thread122
-  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %146, i64 noundef %183, i64 noundef 1) #18
+186:                                              ; preds = %.thread120
+  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %147, i64 noundef %184, i64 noundef 1) #18
   br label %_ZN4llvm23SmallVectorTemplateBaseIbLb1EE9push_backEb.exit
 
-_ZN4llvm23SmallVectorTemplateBaseIbLb1EE9push_backEb.exit: ; preds = %.thread122, %185
-  %186 = load ptr, ptr %2, align 8
-  %187 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #18
-  %188 = getelementptr inbounds i8, ptr %186, i64 %187
-  store i8 %180, ptr %188, align 1
-  %189 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #18
-  %190 = add i64 %189, 1
-  call void @_ZN4llvm15SmallVectorBaseImE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %190) #18
-  %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
-  %.not101 = icmp eq i64 %indvars.iv.next157, %154
-  br i1 %.not101, label %._crit_edge140, label %.lr.ph139, !llvm.loop !10
+_ZN4llvm23SmallVectorTemplateBaseIbLb1EE9push_backEb.exit: ; preds = %.thread120, %186
+  %187 = load ptr, ptr %2, align 8
+  %188 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #18
+  %189 = getelementptr inbounds i8, ptr %187, i64 %188
+  store i8 %181, ptr %189, align 1
+  %190 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #18
+  %191 = add i64 %190, 1
+  call void @_ZN4llvm15SmallVectorBaseImE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %191) #18
+  %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
+  %.not101 = icmp eq i64 %indvars.iv.next154, %155
+  br i1 %.not101, label %._crit_edge137, label %.lr.ph136, !llvm.loop !10
 
-._crit_edge140:                                   ; preds = %_ZN4llvm23SmallVectorTemplateBaseIbLb1EE9push_backEb.exit, %.lr.ph153
-  %.195.lcssa = phi i32 [ %.094150, %.lr.ph153 ], [ %181, %_ZN4llvm23SmallVectorTemplateBaseIbLb1EE9push_backEb.exit ]
-  %191 = getelementptr inbounds nuw i8, ptr %.093151, i64 132
-  store i32 %.195.lcssa, ptr %191, align 4
-  %192 = load ptr, ptr %.093151, align 8
-  %193 = getelementptr inbounds nuw i8, ptr %192, i64 184
-  %194 = load i32, ptr %193, align 8
-  %.not102141 = icmp eq i32 %194, 0
-  br i1 %.not102141, label %.critedge, label %.lr.ph145
+._crit_edge137:                                   ; preds = %_ZN4llvm23SmallVectorTemplateBaseIbLb1EE9push_backEb.exit, %.lr.ph150
+  %.195.lcssa = phi i32 [ %.094147, %.lr.ph150 ], [ %182, %_ZN4llvm23SmallVectorTemplateBaseIbLb1EE9push_backEb.exit ]
+  %192 = getelementptr inbounds nuw i8, ptr %.093148, i64 132
+  store i32 %.195.lcssa, ptr %192, align 4
+  %193 = load ptr, ptr %.093148, align 8
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 184
+  %195 = load i32, ptr %194, align 8
+  %.not102138 = icmp eq i32 %195, 0
+  br i1 %.not102138, label %.critedge, label %.lr.ph142
 
-.lr.ph145:                                        ; preds = %._crit_edge140, %196
-  %.0143 = phi i32 [ %206, %196 ], [ %194, %._crit_edge140 ]
-  %.3142 = phi i32 [ %spec.select109, %196 ], [ %.195.lcssa, %._crit_edge140 ]
-  %195 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #18
-  %.not103 = icmp eq i64 %195, 0
-  br i1 %.not103, label %.critedge, label %196
+.lr.ph142:                                        ; preds = %._crit_edge137, %197
+  %.0140 = phi i32 [ %207, %197 ], [ %195, %._crit_edge137 ]
+  %.3139 = phi i32 [ %spec.select107, %197 ], [ %.195.lcssa, %._crit_edge137 ]
+  %196 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #18
+  %.not103 = icmp eq i64 %196, 0
+  br i1 %.not103, label %.critedge, label %197
 
-196:                                              ; preds = %.lr.ph145
-  %197 = load ptr, ptr %2, align 8
-  %198 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #18
-  %199 = getelementptr inbounds i8, ptr %197, i64 %198
-  %200 = getelementptr inbounds i8, ptr %199, i64 -1
-  %201 = load i8, ptr %200, align 1
-  %202 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #18
-  %203 = add i64 %202, -1
-  call void @_ZN4llvm15SmallVectorBaseImE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %203) #18
-  %204 = and i8 %201, 1
-  %205 = zext nneg i8 %204 to i32
-  %spec.select109 = sub nsw i32 %.3142, %205
-  %206 = add i32 %.0143, -1
-  %.not102 = icmp eq i32 %206, 0
-  br i1 %.not102, label %.critedge, label %.lr.ph145, !llvm.loop !11
+197:                                              ; preds = %.lr.ph142
+  %198 = load ptr, ptr %2, align 8
+  %199 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #18
+  %200 = getelementptr inbounds i8, ptr %198, i64 %199
+  %201 = getelementptr inbounds i8, ptr %200, i64 -1
+  %202 = load i8, ptr %201, align 1
+  %203 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #18
+  %204 = add i64 %203, -1
+  call void @_ZN4llvm15SmallVectorBaseImE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %204) #18
+  %205 = and i8 %202, 1
+  %206 = zext nneg i8 %205 to i32
+  %spec.select107 = sub nsw i32 %.3139, %206
+  %207 = add i32 %.0140, -1
+  %.not102 = icmp eq i32 %207, 0
+  br i1 %.not102, label %.critedge, label %.lr.ph142, !llvm.loop !11
 
-.critedge:                                        ; preds = %196, %.lr.ph145, %._crit_edge140
-  %.3.lcssa = phi i32 [ %.195.lcssa, %._crit_edge140 ], [ %.3142, %.lr.ph145 ], [ %spec.select109, %196 ]
-  %207 = getelementptr inbounds i8, ptr %.093151, i64 136
-  %.not100 = icmp eq ptr %207, %149
-  br i1 %.not100, label %._crit_edge154, label %.lr.ph153
+.critedge:                                        ; preds = %197, %.lr.ph142, %._crit_edge137
+  %.3.lcssa = phi i32 [ %.195.lcssa, %._crit_edge137 ], [ %.3139, %.lr.ph142 ], [ %spec.select107, %197 ]
+  %208 = getelementptr inbounds i8, ptr %.093148, i64 136
+  %.not100 = icmp eq ptr %208, %150
+  br i1 %.not100, label %._crit_edge151, label %.lr.ph150
 
-._crit_edge154:                                   ; preds = %.critedge, %._crit_edge134
-  %208 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #18
-  %209 = load ptr, ptr %2, align 8
-  %210 = icmp eq ptr %209, %146
-  br i1 %210, label %_ZN4llvm11SmallVectorIbLj16EED2Ev.exit, label %211
+._crit_edge151:                                   ; preds = %.critedge, %._crit_edge131
+  %209 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #18
+  %210 = load ptr, ptr %2, align 8
+  %211 = icmp eq ptr %210, %147
+  br i1 %211, label %_ZN4llvm11SmallVectorIbLj16EED2Ev.exit, label %212
 
-211:                                              ; preds = %._crit_edge154
-  call void @free(ptr noundef %209) #18
+212:                                              ; preds = %._crit_edge151
+  call void @free(ptr noundef %210) #18
   br label %_ZN4llvm11SmallVectorIbLj16EED2Ev.exit
 
-_ZN4llvm11SmallVectorIbLj16EED2Ev.exit:           ; preds = %._crit_edge154, %211
+_ZN4llvm11SmallVectorIbLj16EED2Ev.exit:           ; preds = %._crit_edge151, %212
   ret void
 }
 
@@ -3271,7 +3273,7 @@ define dso_local void @_ZN5clang6format17WhitespaceManager21alignTrailingComment
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 60
   %5 = load i8, ptr %4, align 4
   %6 = icmp eq i8 %5, 2
-  br i1 %6, label %_ZN5clang6format17WhitespaceManager21alignTrailingCommentsEjjj.exit122, label %7
+  br i1 %6, label %_ZN5clang6format17WhitespaceManager21alignTrailingCommentsEjjj.exit120, label %7
 
 7:                                                ; preds = %1
   %8 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
@@ -3291,38 +3293,38 @@ define dso_local void @_ZN5clang6format17WhitespaceManager21alignTrailingComment
 18:                                               ; preds = %14, %7
   %.068 = phi i32 [ %17, %14 ], [ 1, %7 ]
   %19 = icmp sgt i32 %9, 0
-  br i1 %19, label %.lr.ph184, label %._crit_edge
+  br i1 %19, label %.lr.ph182, label %._crit_edge
 
-.lr.ph184:                                        ; preds = %18
+.lr.ph182:                                        ; preds = %18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2192
   %21 = and i64 %8, 2147483647
-  %wide.trip.count203 = and i64 %8, 2147483647
+  %wide.trip.count201 = and i64 %8, 2147483647
   br label %22
 
-22:                                               ; preds = %.lr.ph184, %261
-  %indvars.iv201 = phi i64 [ 0, %.lr.ph184 ], [ %indvars.iv.next202, %261 ]
-  %indvars.iv = phi i64 [ 1, %.lr.ph184 ], [ %indvars.iv.next, %261 ]
-  %.0183 = phi i32 [ 0, %.lr.ph184 ], [ %.1, %261 ]
-  %.065182 = phi i1 [ false, %.lr.ph184 ], [ %.166, %261 ]
-  %.069179 = phi i32 [ 0, %.lr.ph184 ], [ %262, %261 ]
-  %.071178 = phi i32 [ 0, %.lr.ph184 ], [ %.172, %261 ]
-  %.0150177 = phi i32 [ 0, %.lr.ph184 ], [ %.1151, %261 ]
-  %.0153176 = phi i32 [ 2147483647, %.lr.ph184 ], [ %.1154, %261 ]
+22:                                               ; preds = %.lr.ph182, %263
+  %indvars.iv199 = phi i64 [ 0, %.lr.ph182 ], [ %indvars.iv.next200, %263 ]
+  %indvars.iv = phi i64 [ 1, %.lr.ph182 ], [ %indvars.iv.next, %263 ]
+  %.0181 = phi i32 [ 0, %.lr.ph182 ], [ %.1, %263 ]
+  %.065180 = phi i1 [ false, %.lr.ph182 ], [ %.166, %263 ]
+  %.069177 = phi i32 [ 0, %.lr.ph182 ], [ %264, %263 ]
+  %.071176 = phi i32 [ 0, %.lr.ph182 ], [ %.172, %263 ]
+  %.0148175 = phi i32 [ 0, %.lr.ph182 ], [ %.1149, %263 ]
+  %.0151174 = phi i32 [ 2147483647, %.lr.ph182 ], [ %.1152, %263 ]
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %23, i64 %indvars.iv201
+  %24 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %23, i64 %indvars.iv199
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 120
   %26 = load ptr, ptr %25, align 8
   %.not = icmp eq ptr %26, null
-  br i1 %.not, label %27, label %261
+  br i1 %.not, label %27, label %263
 
 27:                                               ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %29 = load i32, ptr %28, align 8
-  %30 = add i32 %29, %.071178
+  %30 = add i32 %29, %.071176
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 105
   %32 = load i8, ptr %31, align 1
   %33 = trunc i8 %32 to i1
-  br i1 %33, label %34, label %261
+  br i1 %33, label %34, label %263
 
 34:                                               ; preds = %27
   %35 = load ptr, ptr %2, align 8
@@ -3335,11 +3337,11 @@ define dso_local void @_ZN5clang6format17WhitespaceManager21alignTrailingComment
   %40 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %41 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %.sroa.0.0.copyload.i = load i32, ptr %41, align 4
-  %.sroa.0.0.copyload.i92 = load i32, ptr %40, align 4
+  %.sroa.0.0.copyload.i90 = load i32, ptr %40, align 4
   %42 = load ptr, ptr %24, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 80
   %44 = load i32, ptr %43, align 8
-  %45 = add i32 %.sroa.0.0.copyload.i92, %44
+  %45 = add i32 %.sroa.0.0.copyload.i90, %44
   %46 = sub i32 %.sroa.0.0.copyload.i, %45
   %47 = getelementptr inbounds nuw i8, ptr %24, i64 20
   %48 = load i32, ptr %47, align 4
@@ -3366,7 +3368,7 @@ define dso_local void @_ZN5clang6format17WhitespaceManager21alignTrailingComment
   %61 = phi i32 [ %59, %57 ], [ %46, %56 ]
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 100
   store i32 %61, ptr %62, align 4
-  br label %261
+  br label %263
 
 63:                                               ; preds = %34
   %64 = getelementptr inbounds nuw i8, ptr %24, i64 20
@@ -3391,9 +3393,9 @@ define dso_local void @_ZN5clang6format17WhitespaceManager21alignTrailingComment
   br label %77
 
 77:                                               ; preds = %73, %69, %63
-  %.0148 = phi i32 [ %65, %63 ], [ 2147483647, %69 ], [ %spec.select, %73 ]
-  %78 = add nuw nsw i64 %indvars.iv201, 1
-  %79 = add nuw nsw i32 %.069179, 1
+  %.0146 = phi i32 [ %65, %63 ], [ 2147483647, %69 ], [ %spec.select, %73 ]
+  %78 = add nuw nsw i64 %indvars.iv199, 1
+  %79 = add nuw nsw i32 %.069177, 1
   %80 = icmp ult i64 %78, %21
   br i1 %80, label %81, label %87
 
@@ -3401,22 +3403,22 @@ define dso_local void @_ZN5clang6format17WhitespaceManager21alignTrailingComment
   %82 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %23, i64 %78, i32 8
   %83 = load i8, ptr %82, align 1
   %84 = trunc i8 %83 to i1
-  %85 = icmp sgt i32 %.0148, 1
+  %85 = icmp sgt i32 %.0146, 1
   %or.cond = select i1 %84, i1 %85, i1 false
-  %86 = add nsw i32 %.0148, -2
-  %spec.select159 = select i1 %or.cond, i32 %86, i32 %.0148
+  %86 = add nsw i32 %.0146, -2
+  %spec.select157 = select i1 %or.cond, i32 %86, i32 %.0146
   br label %87
 
 87:                                               ; preds = %81, %77
-  %.1149 = phi i32 [ %.0148, %77 ], [ %spec.select159, %81 ]
+  %.1147 = phi i32 [ %.0146, %77 ], [ %spec.select157, %81 ]
   %.not83 = icmp eq i32 %29, 0
   br i1 %.not83, label %.loopexit, label %88
 
 88:                                               ; preds = %87
   %89 = load ptr, ptr %20, align 8
   %90 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %.sroa.0.0.copyload.i93 = load i32, ptr %90, align 4
-  %91 = tail call noundef i32 @_ZNK5clang13SourceManager23getSpellingColumnNumberENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %89, i32 %.sroa.0.0.copyload.i93, ptr noundef null) #18
+  %.sroa.0.0.copyload.i91 = load i32, ptr %90, align 4
+  %91 = tail call noundef i32 @_ZNK5clang13SourceManager23getSpellingColumnNumberENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %89, i32 %.sroa.0.0.copyload.i91, ptr noundef null) #18
   br i1 %80, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %88
@@ -3424,13 +3426,13 @@ define dso_local void @_ZN5clang6format17WhitespaceManager21alignTrailingComment
   br label %94
 
 93:                                               ; preds = %94
-  %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next199, %wide.trip.count203
+  %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next197, %wide.trip.count201
   br i1 %exitcond.not, label %.loopexit, label %94, !llvm.loop !90
 
 94:                                               ; preds = %.lr.ph, %93
-  %indvars.iv198 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next199, %93 ]
-  %95 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %92, i64 %indvars.iv198
+  %indvars.iv196 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next197, %93 ]
+  %95 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %92, i64 %indvars.iv196
   %96 = load ptr, ptr %95, align 8
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %98 = load i16, ptr %97, align 8
@@ -3440,8 +3442,8 @@ define dso_local void @_ZN5clang6format17WhitespaceManager21alignTrailingComment
 100:                                              ; preds = %94
   %101 = load ptr, ptr %20, align 8
   %102 = getelementptr inbounds nuw i8, ptr %95, i64 16
-  %.sroa.0.0.copyload.i94 = load i32, ptr %102, align 4
-  %103 = tail call noundef i32 @_ZNK5clang13SourceManager23getSpellingColumnNumberENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %101, i32 %.sroa.0.0.copyload.i94, ptr noundef null) #18
+  %.sroa.0.0.copyload.i92 = load i32, ptr %102, align 4
+  %103 = tail call noundef i32 @_ZNK5clang13SourceManager23getSpellingColumnNumberENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %101, i32 %.sroa.0.0.copyload.i92, ptr noundef null) #18
   %104 = icmp eq i32 %91, %103
   br i1 %104, label %.loopexit, label %105
 
@@ -3455,414 +3457,417 @@ define dso_local void @_ZN5clang6format17WhitespaceManager21alignTrailingComment
 
 .loopexit:                                        ; preds = %93, %88, %100, %105, %87
   %.070 = phi i1 [ false, %87 ], [ true, %100 ], [ %110, %105 ], [ false, %88 ], [ false, %93 ]
-  %111 = icmp ne i64 %indvars.iv201, 0
-  %112 = load i32, ptr %28, align 8
-  %113 = icmp eq i32 %112, 0
-  %or.cond89 = select i1 %111, i1 %113, i1 false
-  br i1 %or.cond89, label %114, label %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread"
+  %111 = icmp ne i64 %indvars.iv199, 0
+  br i1 %111, label %112, label %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread"
 
-114:                                              ; preds = %.loopexit
-  %115 = load ptr, ptr %0, align 8
-  %116 = getelementptr %"struct.clang::format::WhitespaceManager::Change", ptr %115, i64 %indvars.iv201
-  %117 = getelementptr i8, ptr %116, i64 -136
-  %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 16
-  %120 = load i16, ptr %119, align 8
-  %121 = icmp eq i16 %120, 63
-  br i1 %121, label %.preheader4.i, label %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i
+112:                                              ; preds = %.loopexit
+  %113 = load i32, ptr %28, align 8
+  %114 = icmp eq i32 %113, 0
+  br i1 %114, label %115, label %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread"
 
-.preheader4.i:                                    ; preds = %114, %122
-  %.pn.i.i = phi ptr [ %.0.i.i, %122 ], [ %118, %114 ]
+115:                                              ; preds = %112
+  %116 = load ptr, ptr %0, align 8
+  %117 = getelementptr %"struct.clang::format::WhitespaceManager::Change", ptr %116, i64 %indvars.iv199
+  %118 = getelementptr i8, ptr %117, i64 -136
+  %119 = load ptr, ptr %118, align 8
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
+  %121 = load i16, ptr %120, align 8
+  %122 = icmp eq i16 %121, 63
+  br i1 %122, label %.preheader4.i, label %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i
+
+.preheader4.i:                                    ; preds = %115, %123
+  %.pn.i.i = phi ptr [ %.0.i.i, %123 ], [ %119, %115 ]
   %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 208
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8
   %.not.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not.i.i, label %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread", label %122
+  br i1 %.not.i.i, label %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread", label %123
 
-122:                                              ; preds = %.preheader4.i
-  %123 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
-  %124 = load i16, ptr %123, align 8
-  %125 = icmp eq i16 %124, 4
-  br i1 %125, label %.preheader4.i, label %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i, !llvm.loop !71
+123:                                              ; preds = %.preheader4.i
+  %124 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
+  %125 = load i16, ptr %124, align 8
+  %126 = icmp eq i16 %125, 4
+  br i1 %126, label %.preheader4.i, label %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i, !llvm.loop !71
 
-_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i: ; preds = %122, %114
-  %126 = phi i16 [ %120, %114 ], [ %124, %122 ]
-  %.018.i = phi ptr [ %118, %114 ], [ %.0.i.i, %122 ]
-  %127 = icmp eq i16 %126, 23
-  br i1 %127, label %128, label %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit37.i
+_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i: ; preds = %123, %115
+  %127 = phi i16 [ %121, %115 ], [ %125, %123 ]
+  %.018.i = phi ptr [ %119, %115 ], [ %.0.i.i, %123 ]
+  %128 = icmp eq i16 %127, 23
+  br i1 %128, label %129, label %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit37.i
 
-128:                                              ; preds = %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i
-  %129 = getelementptr inbounds nuw i8, ptr %.018.i, i64 200
-  %130 = load ptr, ptr %129, align 8
-  %.not24.i = icmp eq ptr %130, null
+129:                                              ; preds = %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i
+  %130 = getelementptr inbounds nuw i8, ptr %.018.i, i64 200
+  %131 = load ptr, ptr %130, align 8
+  %.not24.i = icmp eq ptr %131, null
   br i1 %.not24.i, label %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread", label %.preheader2.i
 
-.preheader2.i:                                    ; preds = %128, %131
-  %.pn.i28.i = phi ptr [ %.0.i30.i, %131 ], [ %130, %128 ]
+.preheader2.i:                                    ; preds = %129, %132
+  %.pn.i28.i = phi ptr [ %.0.i30.i, %132 ], [ %131, %129 ]
   %.0.in.i29.i = getelementptr inbounds nuw i8, ptr %.pn.i28.i, i64 208
   %.0.i30.i = load ptr, ptr %.0.in.i29.i, align 8
   %.not.i31.i = icmp eq ptr %.0.i30.i, null
-  br i1 %.not.i31.i, label %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread", label %131
+  br i1 %.not.i31.i, label %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread", label %132
 
-131:                                              ; preds = %.preheader2.i
-  %132 = getelementptr inbounds nuw i8, ptr %.0.i30.i, i64 16
-  %133 = load i16, ptr %132, align 8
-  %134 = icmp eq i16 %133, 4
-  br i1 %134, label %.preheader2.i, label %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit32.i, !llvm.loop !71
+132:                                              ; preds = %.preheader2.i
+  %133 = getelementptr inbounds nuw i8, ptr %.0.i30.i, i64 16
+  %134 = load i16, ptr %133, align 8
+  %135 = icmp eq i16 %134, 4
+  br i1 %135, label %.preheader2.i, label %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit32.i, !llvm.loop !71
 
-_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit32.i: ; preds = %131
-  %135 = getelementptr inbounds nuw i8, ptr %.0.i30.i, i64 67
-  %136 = load i8, ptr %135, align 1
-  %137 = icmp eq i8 %136, 38
-  br i1 %137, label %.preheader1.i, label %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit37.i
+_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit32.i: ; preds = %132
+  %136 = getelementptr inbounds nuw i8, ptr %.0.i30.i, i64 67
+  %137 = load i8, ptr %136, align 1
+  %138 = icmp eq i8 %137, 38
+  br i1 %138, label %.preheader1.i, label %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit37.i
 
-.preheader1.i:                                    ; preds = %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit32.i, %138
-  %.pn.i33.i = phi ptr [ %.0.i35.i, %138 ], [ %.0.i30.i, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit32.i ]
+.preheader1.i:                                    ; preds = %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit32.i, %139
+  %.pn.i33.i = phi ptr [ %.0.i35.i, %139 ], [ %.0.i30.i, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit32.i ]
   %.0.in.i34.i = getelementptr inbounds nuw i8, ptr %.pn.i33.i, i64 208
   %.0.i35.i = load ptr, ptr %.0.in.i34.i, align 8
   %.not.i36.i = icmp eq ptr %.0.i35.i, null
-  br i1 %.not.i36.i, label %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread157", label %138
+  br i1 %.not.i36.i, label %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread155", label %139
 
-138:                                              ; preds = %.preheader1.i
-  %139 = getelementptr inbounds nuw i8, ptr %.0.i35.i, i64 16
-  %140 = load i16, ptr %139, align 8
-  %141 = icmp eq i16 %140, 4
-  br i1 %141, label %.preheader1.i, label %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit37.i, !llvm.loop !71
+139:                                              ; preds = %.preheader1.i
+  %140 = getelementptr inbounds nuw i8, ptr %.0.i35.i, i64 16
+  %141 = load i16, ptr %140, align 8
+  %142 = icmp eq i16 %141, 4
+  br i1 %142, label %.preheader1.i, label %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit37.i, !llvm.loop !71
 
-_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit37.i: ; preds = %138, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit32.i, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i
-  %142 = phi i16 [ %133, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit32.i ], [ %126, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i ], [ %140, %138 ]
-  %.1.i = phi ptr [ %.0.i30.i, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit32.i ], [ %.018.i, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i ], [ %.0.i35.i, %138 ]
-  %.not.i = icmp eq i16 %142, 25
+_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit37.i: ; preds = %139, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit32.i, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i
+  %143 = phi i16 [ %134, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit32.i ], [ %127, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i ], [ %141, %139 ]
+  %.1.i = phi ptr [ %.0.i30.i, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit32.i ], [ %.018.i, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i ], [ %.0.i35.i, %139 ]
+  %.not.i = icmp eq i16 %143, 25
   br i1 %.not.i, label %.preheader.i, label %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread"
 
-.preheader.i:                                     ; preds = %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit37.i, %145
-  %.2.i = phi ptr [ %144, %145 ], [ %.1.i, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit37.i ]
-  %143 = getelementptr inbounds nuw i8, ptr %.2.i, i64 208
-  %144 = load ptr, ptr %143, align 8
-  %.not27.i = icmp eq ptr %144, null
-  br i1 %.not27.i, label %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit", label %145
+.preheader.i:                                     ; preds = %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit37.i, %146
+  %.2.i = phi ptr [ %145, %146 ], [ %.1.i, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit37.i ]
+  %144 = getelementptr inbounds nuw i8, ptr %.2.i, i64 208
+  %145 = load ptr, ptr %144, align 8
+  %.not27.i = icmp eq ptr %145, null
+  br i1 %.not27.i, label %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit", label %146
 
-145:                                              ; preds = %.preheader.i
-  %146 = getelementptr inbounds nuw i8, ptr %144, i64 16
-  %147 = load i16, ptr %146, align 8
-  %148 = icmp eq i16 %147, 25
-  br i1 %148, label %.preheader.i, label %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit", !llvm.loop !91
+146:                                              ; preds = %.preheader.i
+  %147 = getelementptr inbounds nuw i8, ptr %145, i64 16
+  %148 = load i16, ptr %147, align 8
+  %149 = icmp eq i16 %148, 25
+  br i1 %149, label %.preheader.i, label %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit", !llvm.loop !91
 
-"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit": ; preds = %.preheader.i, %145
-  %149 = getelementptr inbounds nuw i8, ptr %.2.i, i64 72
-  %150 = load i32, ptr %149, align 8
-  %.not162 = icmp eq i32 %150, 0
-  br i1 %.not162, label %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread", label %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread157"
+"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit": ; preds = %.preheader.i, %146
+  %150 = getelementptr inbounds nuw i8, ptr %.2.i, i64 72
+  %151 = load i32, ptr %150, align 8
+  %.not160 = icmp eq i32 %151, 0
+  br i1 %.not160, label %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread", label %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread155"
 
-"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread157": ; preds = %.preheader1.i, %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit"
-  %151 = zext i32 %.0183 to i64
-  %.not23.i = icmp eq i64 %indvars.iv201, %151
+"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread155": ; preds = %.preheader1.i, %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit"
+  %152 = zext i32 %.0181 to i64
+  %.not23.i = icmp eq i64 %indvars.iv199, %152
   br i1 %.not23.i, label %_ZN5clang6format17WhitespaceManager21alignTrailingCommentsEjjj.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread157", %193
-  %.01924.i = phi i32 [ %.pre-phi.i, %193 ], [ %.0183, %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread157" ]
-  %152 = zext i32 %.01924.i to i64
-  %153 = load ptr, ptr %0, align 8
-  %154 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %153, i64 %152
-  %155 = getelementptr inbounds nuw i8, ptr %154, i64 105
-  %156 = load i8, ptr %155, align 1
-  %157 = trunc i8 %156 to i1
-  br i1 %157, label %158, label %162
+.lr.ph.i:                                         ; preds = %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread155", %194
+  %.01924.i = phi i32 [ %.pre-phi.i, %194 ], [ %.0181, %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread155" ]
+  %153 = zext i32 %.01924.i to i64
+  %154 = load ptr, ptr %0, align 8
+  %155 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %154, i64 %153
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 105
+  %157 = load i8, ptr %156, align 1
+  %158 = trunc i8 %157 to i1
+  br i1 %158, label %159, label %163
 
-158:                                              ; preds = %.lr.ph.i
-  %159 = getelementptr inbounds nuw i8, ptr %154, i64 20
-  %160 = load i32, ptr %159, align 4
-  %161 = sub i32 %.0150177, %160
-  br label %162
+159:                                              ; preds = %.lr.ph.i
+  %160 = getelementptr inbounds nuw i8, ptr %155, i64 20
+  %161 = load i32, ptr %160, align 4
+  %162 = sub i32 %.0148175, %161
+  br label %163
 
-162:                                              ; preds = %158, %.lr.ph.i
-  %.0.i95 = phi i32 [ %161, %158 ], [ 0, %.lr.ph.i ]
-  %163 = getelementptr inbounds nuw i8, ptr %154, i64 120
-  %164 = load ptr, ptr %163, align 8
-  %.not21.i = icmp eq ptr %164, null
-  br i1 %.not21.i, label %174, label %165
+163:                                              ; preds = %159, %.lr.ph.i
+  %.0.i93 = phi i32 [ %162, %159 ], [ 0, %.lr.ph.i ]
+  %164 = getelementptr inbounds nuw i8, ptr %155, i64 120
+  %165 = load ptr, ptr %164, align 8
+  %.not21.i = icmp eq ptr %165, null
+  br i1 %.not21.i, label %175, label %166
 
-165:                                              ; preds = %162
-  %166 = getelementptr inbounds nuw i8, ptr %154, i64 128
-  %167 = load i32, ptr %166, align 8
-  %168 = getelementptr inbounds nuw i8, ptr %164, i64 20
-  %169 = load i32, ptr %168, align 4
-  %170 = add i32 %169, %167
-  %171 = getelementptr inbounds nuw i8, ptr %154, i64 20
-  %172 = load i32, ptr %171, align 4
-  %173 = sub i32 %170, %172
-  br label %174
+166:                                              ; preds = %163
+  %167 = getelementptr inbounds nuw i8, ptr %155, i64 128
+  %168 = load i32, ptr %167, align 8
+  %169 = getelementptr inbounds nuw i8, ptr %165, i64 20
+  %170 = load i32, ptr %169, align 4
+  %171 = add i32 %170, %168
+  %172 = getelementptr inbounds nuw i8, ptr %155, i64 20
+  %173 = load i32, ptr %172, align 4
+  %174 = sub i32 %171, %173
+  br label %175
 
-174:                                              ; preds = %165, %162
-  %.1.i96 = phi i32 [ %173, %165 ], [ %.0.i95, %162 ]
-  %175 = icmp slt i32 %.1.i96, 1
-  br i1 %175, label %._crit_edge25.i, label %176
+175:                                              ; preds = %166, %163
+  %.1.i94 = phi i32 [ %174, %166 ], [ %.0.i93, %163 ]
+  %176 = icmp slt i32 %.1.i94, 1
+  br i1 %176, label %._crit_edge25.i, label %177
 
-._crit_edge25.i:                                  ; preds = %174
+._crit_edge25.i:                                  ; preds = %175
   %.pre.i = add i32 %.01924.i, 1
-  %.pre205 = zext i32 %.pre.i to i64
-  br label %193
+  %.pre203 = zext i32 %.pre.i to i64
+  br label %194
 
-176:                                              ; preds = %174
-  %177 = getelementptr inbounds nuw i8, ptr %154, i64 100
-  %178 = load i32, ptr %177, align 4
-  %179 = add nsw i32 %178, %.1.i96
-  store i32 %179, ptr %177, align 4
-  %180 = add i32 %.01924.i, 1
-  %181 = zext i32 %180 to i64
-  %182 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
-  %.not22.i = icmp eq i64 %182, %181
-  br i1 %.not22.i, label %188, label %183
+177:                                              ; preds = %175
+  %178 = getelementptr inbounds nuw i8, ptr %155, i64 100
+  %179 = load i32, ptr %178, align 4
+  %180 = add nsw i32 %179, %.1.i94
+  store i32 %180, ptr %178, align 4
+  %181 = add i32 %.01924.i, 1
+  %182 = zext i32 %181 to i64
+  %183 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  %.not22.i = icmp eq i64 %183, %182
+  br i1 %.not22.i, label %189, label %184
 
-183:                                              ; preds = %176
-  %184 = load ptr, ptr %0, align 8
-  %185 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %184, i64 %181, i32 13
-  %186 = load i32, ptr %185, align 8
-  %187 = add i32 %186, %.1.i96
-  store i32 %187, ptr %185, align 8
-  br label %188
+184:                                              ; preds = %177
+  %185 = load ptr, ptr %0, align 8
+  %186 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %185, i64 %182, i32 13
+  %187 = load i32, ptr %186, align 8
+  %188 = add i32 %187, %.1.i94
+  store i32 %188, ptr %186, align 8
+  br label %189
 
-188:                                              ; preds = %183, %176
-  %189 = load ptr, ptr %0, align 8
-  %190 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %189, i64 %152, i32 3
-  %191 = load i32, ptr %190, align 4
-  %192 = add i32 %191, %.1.i96
-  store i32 %192, ptr %190, align 4
-  br label %193
+189:                                              ; preds = %184, %177
+  %190 = load ptr, ptr %0, align 8
+  %191 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %190, i64 %153, i32 3
+  %192 = load i32, ptr %191, align 4
+  %193 = add i32 %192, %.1.i94
+  store i32 %193, ptr %191, align 4
+  br label %194
 
-193:                                              ; preds = %188, %._crit_edge25.i
-  %.pre-phi206 = phi i64 [ %181, %188 ], [ %.pre205, %._crit_edge25.i ]
-  %.pre-phi.i = phi i32 [ %180, %188 ], [ %.pre.i, %._crit_edge25.i ]
-  %.not.i97 = icmp eq i64 %.pre-phi206, %indvars.iv201
-  br i1 %.not.i97, label %_ZN5clang6format17WhitespaceManager21alignTrailingCommentsEjjj.exit, label %.lr.ph.i, !llvm.loop !92
+194:                                              ; preds = %189, %._crit_edge25.i
+  %.pre-phi204 = phi i64 [ %182, %189 ], [ %.pre203, %._crit_edge25.i ]
+  %.pre-phi.i = phi i32 [ %181, %189 ], [ %.pre.i, %._crit_edge25.i ]
+  %.not.i95 = icmp eq i64 %.pre-phi204, %indvars.iv199
+  br i1 %.not.i95, label %_ZN5clang6format17WhitespaceManager21alignTrailingCommentsEjjj.exit, label %.lr.ph.i, !llvm.loop !92
 
-"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread": ; preds = %.preheader4.i, %.preheader2.i, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit37.i, %128, %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit", %.loopexit
-  %194 = icmp sgt i32 %30, %.068
-  %or.cond90 = select i1 %.065182, i1 true, i1 %194
-  %195 = icmp sgt i32 %65, %.0153176
-  %or.cond160 = select i1 %or.cond90, i1 true, i1 %195
-  %196 = icmp slt i32 %.1149, %.0150177
-  %or.cond161 = select i1 %or.cond160, i1 true, i1 %196
-  br i1 %or.cond161, label %206, label %197
+"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread": ; preds = %.preheader4.i, %.preheader2.i, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit37.i, %129, %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit", %112, %.loopexit
+  %195 = icmp sgt i32 %30, %.068
+  %or.cond88 = select i1 %.065180, i1 true, i1 %195
+  %196 = icmp sgt i32 %65, %.0151174
+  %or.cond158 = select i1 %or.cond88, i1 true, i1 %196
+  %197 = icmp slt i32 %.1147, %.0148175
+  %or.cond159 = select i1 %or.cond158, i1 true, i1 %197
+  br i1 %or.cond159, label %208, label %198
 
-197:                                              ; preds = %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread"
-  %198 = icmp eq i32 %112, 1
-  %or.cond3 = and i1 %111, %198
-  br i1 %or.cond3, label %199, label %205
+198:                                              ; preds = %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread"
+  %199 = load i32, ptr %28, align 8
+  %200 = icmp eq i32 %199, 1
+  %or.cond3 = and i1 %111, %200
+  br i1 %or.cond3, label %201, label %207
 
-199:                                              ; preds = %197
-  %200 = load ptr, ptr %0, align 8
-  %201 = getelementptr %"struct.clang::format::WhitespaceManager::Change", ptr %200, i64 %indvars.iv201
-  %202 = getelementptr i8, ptr %201, i64 -31
-  %203 = load i8, ptr %202, align 1
-  %204 = trunc i8 %203 to i1
-  %.not91 = xor i1 %204, true
-  %brmerge = select i1 %.not91, i1 true, i1 %.070
-  br i1 %brmerge, label %206, label %251
+201:                                              ; preds = %198
+  %202 = load ptr, ptr %0, align 8
+  %203 = getelementptr %"struct.clang::format::WhitespaceManager::Change", ptr %202, i64 %indvars.iv199
+  %204 = getelementptr i8, ptr %203, i64 -31
+  %205 = load i8, ptr %204, align 1
+  %206 = trunc i8 %205 to i1
+  %.not89 = xor i1 %206, true
+  %brmerge = select i1 %.not89, i1 true, i1 %.070
+  br i1 %brmerge, label %208, label %253
 
-205:                                              ; preds = %197
-  br i1 %.070, label %206, label %251
+207:                                              ; preds = %198
+  br i1 %.070, label %208, label %253
 
-206:                                              ; preds = %199, %205, %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread"
-  %207 = zext i32 %.0183 to i64
-  %.not23.i98 = icmp eq i64 %indvars.iv201, %207
-  %208 = trunc nuw nsw i64 %indvars.iv201 to i32
-  br i1 %.not23.i98, label %_ZN5clang6format17WhitespaceManager21alignTrailingCommentsEjjj.exit, label %.lr.ph.i99
+208:                                              ; preds = %201, %207, %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread"
+  %209 = zext i32 %.0181 to i64
+  %.not23.i96 = icmp eq i64 %indvars.iv199, %209
+  %210 = trunc nuw nsw i64 %indvars.iv199 to i32
+  br i1 %.not23.i96, label %_ZN5clang6format17WhitespaceManager21alignTrailingCommentsEjjj.exit, label %.lr.ph.i97
 
-.lr.ph.i99:                                       ; preds = %206, %250
-  %.01924.i100 = phi i32 [ %.pre-phi.i105, %250 ], [ %.0183, %206 ]
-  %209 = zext i32 %.01924.i100 to i64
-  %210 = load ptr, ptr %0, align 8
-  %211 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %210, i64 %209
-  %212 = getelementptr inbounds nuw i8, ptr %211, i64 105
-  %213 = load i8, ptr %212, align 1
-  %214 = trunc i8 %213 to i1
-  br i1 %214, label %215, label %219
+.lr.ph.i97:                                       ; preds = %208, %252
+  %.01924.i98 = phi i32 [ %.pre-phi.i103, %252 ], [ %.0181, %208 ]
+  %211 = zext i32 %.01924.i98 to i64
+  %212 = load ptr, ptr %0, align 8
+  %213 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %212, i64 %211
+  %214 = getelementptr inbounds nuw i8, ptr %213, i64 105
+  %215 = load i8, ptr %214, align 1
+  %216 = trunc i8 %215 to i1
+  br i1 %216, label %217, label %221
 
-215:                                              ; preds = %.lr.ph.i99
-  %216 = getelementptr inbounds nuw i8, ptr %211, i64 20
-  %217 = load i32, ptr %216, align 4
-  %218 = sub i32 %.0150177, %217
-  br label %219
+217:                                              ; preds = %.lr.ph.i97
+  %218 = getelementptr inbounds nuw i8, ptr %213, i64 20
+  %219 = load i32, ptr %218, align 4
+  %220 = sub i32 %.0148175, %219
+  br label %221
 
-219:                                              ; preds = %215, %.lr.ph.i99
-  %.0.i101 = phi i32 [ %218, %215 ], [ 0, %.lr.ph.i99 ]
-  %220 = getelementptr inbounds nuw i8, ptr %211, i64 120
-  %221 = load ptr, ptr %220, align 8
-  %.not21.i102 = icmp eq ptr %221, null
-  br i1 %.not21.i102, label %231, label %222
+221:                                              ; preds = %217, %.lr.ph.i97
+  %.0.i99 = phi i32 [ %220, %217 ], [ 0, %.lr.ph.i97 ]
+  %222 = getelementptr inbounds nuw i8, ptr %213, i64 120
+  %223 = load ptr, ptr %222, align 8
+  %.not21.i100 = icmp eq ptr %223, null
+  br i1 %.not21.i100, label %233, label %224
 
-222:                                              ; preds = %219
-  %223 = getelementptr inbounds nuw i8, ptr %211, i64 128
-  %224 = load i32, ptr %223, align 8
-  %225 = getelementptr inbounds nuw i8, ptr %221, i64 20
-  %226 = load i32, ptr %225, align 4
-  %227 = add i32 %226, %224
-  %228 = getelementptr inbounds nuw i8, ptr %211, i64 20
-  %229 = load i32, ptr %228, align 4
-  %230 = sub i32 %227, %229
-  br label %231
+224:                                              ; preds = %221
+  %225 = getelementptr inbounds nuw i8, ptr %213, i64 128
+  %226 = load i32, ptr %225, align 8
+  %227 = getelementptr inbounds nuw i8, ptr %223, i64 20
+  %228 = load i32, ptr %227, align 4
+  %229 = add i32 %228, %226
+  %230 = getelementptr inbounds nuw i8, ptr %213, i64 20
+  %231 = load i32, ptr %230, align 4
+  %232 = sub i32 %229, %231
+  br label %233
 
-231:                                              ; preds = %222, %219
-  %.1.i103 = phi i32 [ %230, %222 ], [ %.0.i101, %219 ]
-  %232 = icmp slt i32 %.1.i103, 1
-  br i1 %232, label %._crit_edge25.i107, label %233
+233:                                              ; preds = %224, %221
+  %.1.i101 = phi i32 [ %232, %224 ], [ %.0.i99, %221 ]
+  %234 = icmp slt i32 %.1.i101, 1
+  br i1 %234, label %._crit_edge25.i105, label %235
 
-._crit_edge25.i107:                               ; preds = %231
-  %.pre.i108 = add i32 %.01924.i100, 1
-  %.pre = zext i32 %.pre.i108 to i64
-  br label %250
+._crit_edge25.i105:                               ; preds = %233
+  %.pre.i106 = add i32 %.01924.i98, 1
+  %.pre = zext i32 %.pre.i106 to i64
+  br label %252
 
-233:                                              ; preds = %231
-  %234 = getelementptr inbounds nuw i8, ptr %211, i64 100
-  %235 = load i32, ptr %234, align 4
-  %236 = add nsw i32 %235, %.1.i103
-  store i32 %236, ptr %234, align 4
-  %237 = add i32 %.01924.i100, 1
-  %238 = zext i32 %237 to i64
-  %239 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
-  %.not22.i104 = icmp eq i64 %239, %238
-  br i1 %.not22.i104, label %245, label %240
+235:                                              ; preds = %233
+  %236 = getelementptr inbounds nuw i8, ptr %213, i64 100
+  %237 = load i32, ptr %236, align 4
+  %238 = add nsw i32 %237, %.1.i101
+  store i32 %238, ptr %236, align 4
+  %239 = add i32 %.01924.i98, 1
+  %240 = zext i32 %239 to i64
+  %241 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  %.not22.i102 = icmp eq i64 %241, %240
+  br i1 %.not22.i102, label %247, label %242
 
-240:                                              ; preds = %233
-  %241 = load ptr, ptr %0, align 8
-  %242 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %241, i64 %238, i32 13
-  %243 = load i32, ptr %242, align 8
-  %244 = add i32 %243, %.1.i103
-  store i32 %244, ptr %242, align 8
-  br label %245
+242:                                              ; preds = %235
+  %243 = load ptr, ptr %0, align 8
+  %244 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %243, i64 %240, i32 13
+  %245 = load i32, ptr %244, align 8
+  %246 = add i32 %245, %.1.i101
+  store i32 %246, ptr %244, align 8
+  br label %247
 
-245:                                              ; preds = %240, %233
-  %246 = load ptr, ptr %0, align 8
-  %247 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %246, i64 %209, i32 3
-  %248 = load i32, ptr %247, align 4
-  %249 = add i32 %248, %.1.i103
-  store i32 %249, ptr %247, align 4
-  br label %250
+247:                                              ; preds = %242, %235
+  %248 = load ptr, ptr %0, align 8
+  %249 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %248, i64 %211, i32 3
+  %250 = load i32, ptr %249, align 4
+  %251 = add i32 %250, %.1.i101
+  store i32 %251, ptr %249, align 4
+  br label %252
 
-250:                                              ; preds = %245, %._crit_edge25.i107
-  %.pre-phi = phi i64 [ %238, %245 ], [ %.pre, %._crit_edge25.i107 ]
-  %.pre-phi.i105 = phi i32 [ %237, %245 ], [ %.pre.i108, %._crit_edge25.i107 ]
-  %.not.i106 = icmp eq i64 %.pre-phi, %indvars.iv201
-  br i1 %.not.i106, label %_ZN5clang6format17WhitespaceManager21alignTrailingCommentsEjjj.exit, label %.lr.ph.i99, !llvm.loop !92
+252:                                              ; preds = %247, %._crit_edge25.i105
+  %.pre-phi = phi i64 [ %240, %247 ], [ %.pre, %._crit_edge25.i105 ]
+  %.pre-phi.i103 = phi i32 [ %239, %247 ], [ %.pre.i106, %._crit_edge25.i105 ]
+  %.not.i104 = icmp eq i64 %.pre-phi, %indvars.iv199
+  br i1 %.not.i104, label %_ZN5clang6format17WhitespaceManager21alignTrailingCommentsEjjj.exit, label %.lr.ph.i97, !llvm.loop !92
 
-251:                                              ; preds = %199, %205
-  %.sroa.speculated133 = tail call i32 @llvm.smax.i32(i32 %.0150177, i32 %65)
-  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %.1149, i32 %.0153176)
+253:                                              ; preds = %201, %207
+  %.sroa.speculated131 = tail call i32 @llvm.smax.i32(i32 %.0148175, i32 %65)
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %.1147, i32 %.0151174)
   br label %_ZN5clang6format17WhitespaceManager21alignTrailingCommentsEjjj.exit
 
-_ZN5clang6format17WhitespaceManager21alignTrailingCommentsEjjj.exit: ; preds = %193, %250, %206, %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread157", %251
-  %.2155 = phi i32 [ %.sroa.speculated, %251 ], [ 2147483647, %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread157" ], [ %.1149, %206 ], [ %.1149, %250 ], [ 2147483647, %193 ]
-  %.2152 = phi i32 [ %.sroa.speculated133, %251 ], [ 0, %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread157" ], [ %65, %206 ], [ %65, %250 ], [ 0, %193 ]
-  %.2 = phi i32 [ %.0183, %251 ], [ %79, %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread157" ], [ %208, %206 ], [ %208, %250 ], [ %79, %193 ]
-  %252 = icmp eq i64 %indvars.iv201, 0
-  br i1 %252, label %261, label %253
+_ZN5clang6format17WhitespaceManager21alignTrailingCommentsEjjj.exit: ; preds = %194, %252, %208, %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread155", %253
+  %.2153 = phi i32 [ %.sroa.speculated, %253 ], [ 2147483647, %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread155" ], [ %.1147, %208 ], [ %.1147, %252 ], [ 2147483647, %194 ]
+  %.2150 = phi i32 [ %.sroa.speculated131, %253 ], [ 0, %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread155" ], [ %65, %208 ], [ %65, %252 ], [ 0, %194 ]
+  %.2 = phi i32 [ %.0181, %253 ], [ %79, %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread155" ], [ %210, %208 ], [ %210, %252 ], [ %79, %194 ]
+  %254 = icmp eq i64 %indvars.iv199, 0
+  br i1 %254, label %263, label %255
 
-253:                                              ; preds = %_ZN5clang6format17WhitespaceManager21alignTrailingCommentsEjjj.exit
-  %254 = load i32, ptr %28, align 8
-  %255 = icmp ugt i32 %254, 1
-  br i1 %255, label %261, label %256
+255:                                              ; preds = %_ZN5clang6format17WhitespaceManager21alignTrailingCommentsEjjj.exit
+  %256 = load i32, ptr %28, align 8
+  %257 = icmp ugt i32 %256, 1
+  br i1 %257, label %263, label %258
 
-256:                                              ; preds = %253
-  %257 = icmp eq i32 %254, 1
-  %258 = zext i32 %.2 to i64
-  %259 = icmp eq i64 %indvars.iv201, %258
-  %260 = select i1 %257, i1 %259, i1 false
-  br label %261
+258:                                              ; preds = %255
+  %259 = icmp eq i32 %256, 1
+  %260 = zext i32 %.2 to i64
+  %261 = icmp eq i64 %indvars.iv199, %260
+  %262 = select i1 %259, i1 %261, i1 false
+  br label %263
 
-261:                                              ; preds = %_ZN5clang6format17WhitespaceManager21alignTrailingCommentsEjjj.exit, %253, %256, %27, %22, %60
-  %.1154 = phi i32 [ %.0153176, %60 ], [ %.2155, %_ZN5clang6format17WhitespaceManager21alignTrailingCommentsEjjj.exit ], [ %.2155, %253 ], [ %.2155, %256 ], [ %.0153176, %27 ], [ %.0153176, %22 ]
-  %.1151 = phi i32 [ %.0150177, %60 ], [ %.2152, %_ZN5clang6format17WhitespaceManager21alignTrailingCommentsEjjj.exit ], [ %.2152, %253 ], [ %.2152, %256 ], [ %.0150177, %27 ], [ %.0150177, %22 ]
-  %.172 = phi i32 [ %30, %60 ], [ 0, %_ZN5clang6format17WhitespaceManager21alignTrailingCommentsEjjj.exit ], [ 0, %253 ], [ 0, %256 ], [ %30, %27 ], [ %.071178, %22 ]
-  %.166 = phi i1 [ %.065182, %60 ], [ true, %_ZN5clang6format17WhitespaceManager21alignTrailingCommentsEjjj.exit ], [ true, %253 ], [ %260, %256 ], [ %.065182, %27 ], [ %.065182, %22 ]
-  %.1 = phi i32 [ %.0183, %60 ], [ %.2, %_ZN5clang6format17WhitespaceManager21alignTrailingCommentsEjjj.exit ], [ %.2, %253 ], [ %.2, %256 ], [ %.0183, %27 ], [ %.0183, %22 ]
-  %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
-  %262 = add nuw nsw i32 %.069179, 1
+263:                                              ; preds = %_ZN5clang6format17WhitespaceManager21alignTrailingCommentsEjjj.exit, %255, %258, %27, %22, %60
+  %.1152 = phi i32 [ %.0151174, %60 ], [ %.2153, %_ZN5clang6format17WhitespaceManager21alignTrailingCommentsEjjj.exit ], [ %.2153, %255 ], [ %.2153, %258 ], [ %.0151174, %27 ], [ %.0151174, %22 ]
+  %.1149 = phi i32 [ %.0148175, %60 ], [ %.2150, %_ZN5clang6format17WhitespaceManager21alignTrailingCommentsEjjj.exit ], [ %.2150, %255 ], [ %.2150, %258 ], [ %.0148175, %27 ], [ %.0148175, %22 ]
+  %.172 = phi i32 [ %30, %60 ], [ 0, %_ZN5clang6format17WhitespaceManager21alignTrailingCommentsEjjj.exit ], [ 0, %255 ], [ 0, %258 ], [ %30, %27 ], [ %.071176, %22 ]
+  %.166 = phi i1 [ %.065180, %60 ], [ true, %_ZN5clang6format17WhitespaceManager21alignTrailingCommentsEjjj.exit ], [ true, %255 ], [ %262, %258 ], [ %.065180, %27 ], [ %.065180, %22 ]
+  %.1 = phi i32 [ %.0181, %60 ], [ %.2, %_ZN5clang6format17WhitespaceManager21alignTrailingCommentsEjjj.exit ], [ %.2, %255 ], [ %.2, %258 ], [ %.0181, %27 ], [ %.0181, %22 ]
+  %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
+  %264 = add nuw nsw i32 %.069177, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond204.not = icmp eq i64 %indvars.iv.next202, %wide.trip.count203
-  br i1 %exitcond204.not, label %._crit_edge, label %22, !llvm.loop !93
+  %exitcond202.not = icmp eq i64 %indvars.iv.next200, %wide.trip.count201
+  br i1 %exitcond202.not, label %._crit_edge, label %22, !llvm.loop !93
 
-._crit_edge:                                      ; preds = %261, %39, %18
-  %.0150.lcssa = phi i32 [ 0, %18 ], [ %.0150177, %39 ], [ %.1151, %261 ]
-  %.0.lcssa = phi i32 [ 0, %18 ], [ %.0183, %39 ], [ %.1, %261 ]
-  %.not23.i111 = icmp eq i32 %.0.lcssa, %9
-  br i1 %.not23.i111, label %_ZN5clang6format17WhitespaceManager21alignTrailingCommentsEjjj.exit122, label %.lr.ph.i112
+._crit_edge:                                      ; preds = %263, %39, %18
+  %.0148.lcssa = phi i32 [ 0, %18 ], [ %.0148175, %39 ], [ %.1149, %263 ]
+  %.0.lcssa = phi i32 [ 0, %18 ], [ %.0181, %39 ], [ %.1, %263 ]
+  %.not23.i109 = icmp eq i32 %.0.lcssa, %9
+  br i1 %.not23.i109, label %_ZN5clang6format17WhitespaceManager21alignTrailingCommentsEjjj.exit120, label %.lr.ph.i110
 
-.lr.ph.i112:                                      ; preds = %._crit_edge, %304
-  %.01924.i113 = phi i32 [ %.pre-phi.i118, %304 ], [ %.0.lcssa, %._crit_edge ]
-  %263 = zext i32 %.01924.i113 to i64
-  %264 = load ptr, ptr %0, align 8
-  %265 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %264, i64 %263
-  %266 = getelementptr inbounds nuw i8, ptr %265, i64 105
-  %267 = load i8, ptr %266, align 1
-  %268 = trunc i8 %267 to i1
-  br i1 %268, label %269, label %273
+.lr.ph.i110:                                      ; preds = %._crit_edge, %306
+  %.01924.i111 = phi i32 [ %.pre-phi.i116, %306 ], [ %.0.lcssa, %._crit_edge ]
+  %265 = zext i32 %.01924.i111 to i64
+  %266 = load ptr, ptr %0, align 8
+  %267 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %266, i64 %265
+  %268 = getelementptr inbounds nuw i8, ptr %267, i64 105
+  %269 = load i8, ptr %268, align 1
+  %270 = trunc i8 %269 to i1
+  br i1 %270, label %271, label %275
 
-269:                                              ; preds = %.lr.ph.i112
-  %270 = getelementptr inbounds nuw i8, ptr %265, i64 20
-  %271 = load i32, ptr %270, align 4
-  %272 = sub i32 %.0150.lcssa, %271
-  br label %273
+271:                                              ; preds = %.lr.ph.i110
+  %272 = getelementptr inbounds nuw i8, ptr %267, i64 20
+  %273 = load i32, ptr %272, align 4
+  %274 = sub i32 %.0148.lcssa, %273
+  br label %275
 
-273:                                              ; preds = %269, %.lr.ph.i112
-  %.0.i114 = phi i32 [ %272, %269 ], [ 0, %.lr.ph.i112 ]
-  %274 = getelementptr inbounds nuw i8, ptr %265, i64 120
-  %275 = load ptr, ptr %274, align 8
-  %.not21.i115 = icmp eq ptr %275, null
-  br i1 %.not21.i115, label %285, label %276
+275:                                              ; preds = %271, %.lr.ph.i110
+  %.0.i112 = phi i32 [ %274, %271 ], [ 0, %.lr.ph.i110 ]
+  %276 = getelementptr inbounds nuw i8, ptr %267, i64 120
+  %277 = load ptr, ptr %276, align 8
+  %.not21.i113 = icmp eq ptr %277, null
+  br i1 %.not21.i113, label %287, label %278
 
-276:                                              ; preds = %273
-  %277 = getelementptr inbounds nuw i8, ptr %265, i64 128
-  %278 = load i32, ptr %277, align 8
-  %279 = getelementptr inbounds nuw i8, ptr %275, i64 20
-  %280 = load i32, ptr %279, align 4
-  %281 = add i32 %280, %278
-  %282 = getelementptr inbounds nuw i8, ptr %265, i64 20
-  %283 = load i32, ptr %282, align 4
-  %284 = sub i32 %281, %283
-  br label %285
+278:                                              ; preds = %275
+  %279 = getelementptr inbounds nuw i8, ptr %267, i64 128
+  %280 = load i32, ptr %279, align 8
+  %281 = getelementptr inbounds nuw i8, ptr %277, i64 20
+  %282 = load i32, ptr %281, align 4
+  %283 = add i32 %282, %280
+  %284 = getelementptr inbounds nuw i8, ptr %267, i64 20
+  %285 = load i32, ptr %284, align 4
+  %286 = sub i32 %283, %285
+  br label %287
 
-285:                                              ; preds = %276, %273
-  %.1.i116 = phi i32 [ %284, %276 ], [ %.0.i114, %273 ]
-  %286 = icmp slt i32 %.1.i116, 1
-  br i1 %286, label %._crit_edge25.i120, label %287
+287:                                              ; preds = %278, %275
+  %.1.i114 = phi i32 [ %286, %278 ], [ %.0.i112, %275 ]
+  %288 = icmp slt i32 %.1.i114, 1
+  br i1 %288, label %._crit_edge25.i118, label %289
 
-._crit_edge25.i120:                               ; preds = %285
-  %.pre.i121 = add i32 %.01924.i113, 1
-  br label %304
+._crit_edge25.i118:                               ; preds = %287
+  %.pre.i119 = add i32 %.01924.i111, 1
+  br label %306
 
-287:                                              ; preds = %285
-  %288 = getelementptr inbounds nuw i8, ptr %265, i64 100
-  %289 = load i32, ptr %288, align 4
-  %290 = add nsw i32 %289, %.1.i116
-  store i32 %290, ptr %288, align 4
-  %291 = add i32 %.01924.i113, 1
-  %292 = zext i32 %291 to i64
-  %293 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
-  %.not22.i117 = icmp eq i64 %293, %292
-  br i1 %.not22.i117, label %299, label %294
+289:                                              ; preds = %287
+  %290 = getelementptr inbounds nuw i8, ptr %267, i64 100
+  %291 = load i32, ptr %290, align 4
+  %292 = add nsw i32 %291, %.1.i114
+  store i32 %292, ptr %290, align 4
+  %293 = add i32 %.01924.i111, 1
+  %294 = zext i32 %293 to i64
+  %295 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  %.not22.i115 = icmp eq i64 %295, %294
+  br i1 %.not22.i115, label %301, label %296
 
-294:                                              ; preds = %287
-  %295 = load ptr, ptr %0, align 8
-  %296 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %295, i64 %292, i32 13
-  %297 = load i32, ptr %296, align 8
-  %298 = add i32 %297, %.1.i116
-  store i32 %298, ptr %296, align 8
-  br label %299
+296:                                              ; preds = %289
+  %297 = load ptr, ptr %0, align 8
+  %298 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %297, i64 %294, i32 13
+  %299 = load i32, ptr %298, align 8
+  %300 = add i32 %299, %.1.i114
+  store i32 %300, ptr %298, align 8
+  br label %301
 
-299:                                              ; preds = %294, %287
-  %300 = load ptr, ptr %0, align 8
-  %301 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %300, i64 %263, i32 3
-  %302 = load i32, ptr %301, align 4
-  %303 = add i32 %302, %.1.i116
-  store i32 %303, ptr %301, align 4
-  br label %304
+301:                                              ; preds = %296, %289
+  %302 = load ptr, ptr %0, align 8
+  %303 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %302, i64 %265, i32 3
+  %304 = load i32, ptr %303, align 4
+  %305 = add i32 %304, %.1.i114
+  store i32 %305, ptr %303, align 4
+  br label %306
 
-304:                                              ; preds = %299, %._crit_edge25.i120
-  %.pre-phi.i118 = phi i32 [ %.pre.i121, %._crit_edge25.i120 ], [ %291, %299 ]
-  %.not.i119 = icmp eq i32 %.pre-phi.i118, %9
-  br i1 %.not.i119, label %_ZN5clang6format17WhitespaceManager21alignTrailingCommentsEjjj.exit122, label %.lr.ph.i112, !llvm.loop !92
+306:                                              ; preds = %301, %._crit_edge25.i118
+  %.pre-phi.i116 = phi i32 [ %.pre.i119, %._crit_edge25.i118 ], [ %293, %301 ]
+  %.not.i117 = icmp eq i32 %.pre-phi.i116, %9
+  br i1 %.not.i117, label %_ZN5clang6format17WhitespaceManager21alignTrailingCommentsEjjj.exit120, label %.lr.ph.i110, !llvm.loop !92
 
-_ZN5clang6format17WhitespaceManager21alignTrailingCommentsEjjj.exit122: ; preds = %304, %._crit_edge, %1
+_ZN5clang6format17WhitespaceManager21alignTrailingCommentsEjjj.exit120: ; preds = %306, %._crit_edge, %1
   ret void
 }
 
@@ -7747,7 +7752,8 @@ _ZN4llvm15SmallVectorImplIN5clang6format17WhitespaceManager15CellDescriptionEE12
   store i32 %19, ptr %20, align 4
   store ptr %6, ptr %1, align 8
   store i32 0, ptr %18, align 4
-  br label %.sink.split
+  store i32 0, ptr %15, align 8
+  br label %52
 
 21:                                               ; preds = %4
   %22 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #18
@@ -7776,7 +7782,8 @@ _ZSt4moveIPN5clang6format17WhitespaceManager15CellDescriptionES4_ET0_T_S6_S5_.ex
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %22) #18
   %31 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #18
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
+  store i32 0, ptr %32, align 8
+  br label %52
 
 33:                                               ; preds = %21
   %34 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
@@ -7823,14 +7830,10 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6format17WhitespaceManager15CellDescrip
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %22) #18
   %50 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #18
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %_ZN4llvm15SmallVectorImplIN5clang6format17WhitespaceManager15CellDescriptionEE12assignRemoteEOS5_.exit, %_ZSt4moveIPN5clang6format17WhitespaceManager15CellDescriptionES4_ET0_T_S6_S5_.exit, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6format17WhitespaceManager15CellDescriptionELb1EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit
-  %.sink = phi ptr [ %51, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6format17WhitespaceManager15CellDescriptionELb1EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit ], [ %32, %_ZSt4moveIPN5clang6format17WhitespaceManager15CellDescriptionES4_ET0_T_S6_S5_.exit ], [ %15, %_ZN4llvm15SmallVectorImplIN5clang6format17WhitespaceManager15CellDescriptionEE12assignRemoteEOS5_.exit ]
-  store i32 0, ptr %.sink, align 8
+  store i32 0, ptr %51, align 8
   br label %52
 
-52:                                               ; preds = %.sink.split, %2
+52:                                               ; preds = %2, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6format17WhitespaceManager15CellDescriptionELb1EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit, %_ZSt4moveIPN5clang6format17WhitespaceManager15CellDescriptionES4_ET0_T_S6_S5_.exit, %_ZN4llvm15SmallVectorImplIN5clang6format17WhitespaceManager15CellDescriptionEE12assignRemoteEOS5_.exit
   ret ptr %0
 }
 
@@ -7877,7 +7880,8 @@ _ZN4llvm15SmallVectorImplIjE12assignRemoteEOS1_.exit: ; preds = %8, %13
   store i32 %19, ptr %20, align 4
   store ptr %6, ptr %1, align 8
   store i32 0, ptr %18, align 4
-  br label %.sink.split
+  store i32 0, ptr %15, align 8
+  br label %53
 
 21:                                               ; preds = %4
   %22 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #18
@@ -7906,7 +7910,8 @@ _ZSt4moveIPjS0_ET0_T_S2_S1_.exit:                 ; preds = %29, %26, %24
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %22) #18
   %31 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #18
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
+  store i32 0, ptr %32, align 8
+  br label %53
 
 33:                                               ; preds = %21
   %34 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
@@ -7953,14 +7958,10 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE18uninitialized_moveIPjS3_EEvT_S4_T0_.ex
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %22) #18
   %51 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #18
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %_ZN4llvm15SmallVectorImplIjE12assignRemoteEOS1_.exit, %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE18uninitialized_moveIPjS3_EEvT_S4_T0_.exit
-  %.sink = phi ptr [ %52, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE18uninitialized_moveIPjS3_EEvT_S4_T0_.exit ], [ %32, %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit ], [ %15, %_ZN4llvm15SmallVectorImplIjE12assignRemoteEOS1_.exit ]
-  store i32 0, ptr %.sink, align 8
+  store i32 0, ptr %52, align 8
   br label %53
 
-53:                                               ; preds = %.sink.split, %2
+53:                                               ; preds = %2, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE18uninitialized_moveIPjS3_EEvT_S4_T0_.exit, %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit, %_ZN4llvm15SmallVectorImplIjE12assignRemoteEOS1_.exit
   ret ptr %0
 }
 
@@ -9574,21 +9575,21 @@ define internal fastcc void @"_ZN5clang6formatL18AlignTokenSequenceIRZNS0_17Whit
   %8 = alloca %"class.llvm::SmallVector.202", align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %9, i64 noundef 16) #18
-  %.not154 = icmp eq i32 %1, %2
-  br i1 %.not154, label %._crit_edge, label %.lr.ph158
+  %.not147 = icmp eq i32 %1, %2
+  br i1 %.not147, label %._crit_edge, label %.lr.ph151
 
-.lr.ph158:                                        ; preds = %7
+.lr.ph151:                                        ; preds = %7
   %10 = add i32 %1, 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 696
   br label %14
 
-14:                                               ; preds = %.lr.ph158, %.critedge6
-  %.086157 = phi i1 [ false, %.lr.ph158 ], [ %.2, %.critedge6 ]
-  %.087156 = phi i32 [ 0, %.lr.ph158 ], [ %.289, %.critedge6 ]
-  %.090155 = phi i32 [ %1, %.lr.ph158 ], [ %.pre-phi, %.critedge6 ]
-  %15 = zext i32 %.090155 to i64
+14:                                               ; preds = %.lr.ph151, %.critedge6
+  %.086150 = phi i1 [ false, %.lr.ph151 ], [ %.2, %.critedge6 ]
+  %.087149 = phi i32 [ 0, %.lr.ph151 ], [ %.289, %.critedge6 ]
+  %.090148 = phi i32 [ %1, %.lr.ph151 ], [ %.pre-phi, %.critedge6 ]
+  %15 = zext i32 %.090148 to i64
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %16, i64 %15
   %18 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
@@ -9632,8 +9633,8 @@ define internal fastcc void @"_ZN5clang6formatL18AlignTokenSequenceIRZNS0_17Whit
 47:                                               ; preds = %45
   %48 = icmp uge i32 %40, %25
   %49 = icmp ult i32 %24, %39
-  %or.cond139 = select i1 %48, i1 %49, i1 false
-  br i1 %or.cond139, label %_ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread, label %.critedge
+  %or.cond135 = select i1 %48, i1 %49, i1 false
+  br i1 %or.cond135, label %_ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread, label %.critedge
 
 _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %47, %45, %19
   %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
@@ -9642,7 +9643,7 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %47, 
   br label %.critedge
 
 .critedge:                                        ; preds = %47, %43, %14, %_ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread
-  %52 = add i32 %.090155, -1
+  %52 = add i32 %.090148, -1
   %53 = icmp ugt i32 %52, %1
   br i1 %53, label %.lr.ph, label %.critedge2
 
@@ -9651,8 +9652,8 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %47, 
   br label %55
 
 55:                                               ; preds = %.lr.ph, %62
-  %.091148 = phi i32 [ %52, %.lr.ph ], [ %63, %62 ]
-  %56 = zext i32 %.091148 to i64
+  %.091141 = phi i32 [ %52, %.lr.ph ], [ %63, %62 ]
+  %56 = zext i32 %.091141 to i64
   %57 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %54, i64 %56
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
@@ -9661,13 +9662,13 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %47, 
   br i1 %61, label %62, label %.critedge2
 
 62:                                               ; preds = %55
-  %63 = add i32 %.091148, -1
+  %63 = add i32 %.091141, -1
   %64 = icmp ugt i32 %63, %1
   br i1 %64, label %55, label %.critedge2, !llvm.loop !185
 
 .critedge2:                                       ; preds = %55, %62, %.critedge
-  %.091.lcssa = phi i32 [ %52, %.critedge ], [ %1, %62 ], [ %.091148, %55 ]
-  %.not95 = icmp eq i32 %.090155, %1
+  %.091.lcssa = phi i32 [ %52, %.critedge ], [ %1, %62 ], [ %.091141, %55 ]
+  %.not95 = icmp eq i32 %.090148, %1
   br i1 %.not95, label %.critedge4, label %65
 
 65:                                               ; preds = %.critedge2
@@ -9702,8 +9703,8 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %47, 
 88:                                               ; preds = %86
   %89 = icmp uge i32 %71, %81
   %90 = icmp ult i32 %80, %70
-  %or.cond140 = select i1 %89, i1 %90, i1 false
-  br i1 %or.cond140, label %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread, label %.critedge4
+  %or.cond136 = select i1 %89, i1 %90, i1 false
+  br i1 %or.cond136, label %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread, label %.critedge4
 
 _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %88, %86, %65
   %91 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
@@ -9720,7 +9721,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
   %95 = load ptr, ptr %8, align 8
   %96 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
   %97 = getelementptr inbounds i32, ptr %95, i64 %96
-  store i32 %.090155, ptr %97, align 1
+  store i32 %.090148, ptr %97, align 1
   %98 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
   %99 = add i64 %98, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 noundef %99) #18
@@ -9729,7 +9730,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
 .critedge4:                                       ; preds = %88, %84, %.critedge2, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit
   %100 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
   %101 = icmp ne i64 %100, 0
-  %102 = icmp ugt i32 %.090155, %1
+  %102 = icmp ugt i32 %.090148, %1
   br i1 %102, label %103, label %116
 
 103:                                              ; preds = %.critedge4
@@ -9756,384 +9757,395 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
   %120 = load i32, ptr %119, align 8
   %.not96 = icmp eq i32 %120, 0
   %121 = or i1 %118, %.not96
-  %.188 = select i1 %121, i32 %.087156, i32 0
-  %.1 = and i1 %121, %.086157
+  %.188 = select i1 %121, i32 %.087149, i32 0
+  %.1 = and i1 %121, %.086150
   %brmerge = or i1 %118, %.1
-  br i1 %brmerge, label %141, label %122
+  br i1 %brmerge, label %143, label %122
 
 122:                                              ; preds = %116
   %.val = load ptr, ptr %5, align 8
   %123 = call fastcc noundef zeroext i1 @"_ZZN5clang6format17WhitespaceManager27alignConsecutiveAssignmentsEvENK3$_0clERKNS1_6ChangeE"(ptr %.val, ptr noundef nonnull align 8 dereferenceable(136) %17)
-  br i1 %123, label %124, label %141
+  br i1 %123, label %124, label %143
 
 124:                                              ; preds = %122
-  %125 = getelementptr inbounds nuw i8, ptr %17, i64 108
-  %126 = load i32, ptr %125, align 4
-  %127 = select i1 %4, i32 %126, i32 0
-  %128 = getelementptr inbounds nuw i8, ptr %17, i64 20
-  %129 = load i32, ptr %128, align 4
-  %130 = add i32 %129, %127
-  %131 = sub i32 %3, %130
-  %132 = getelementptr inbounds nuw i8, ptr %17, i64 100
-  %133 = load i32, ptr %132, align 4
-  %134 = add nsw i32 %131, %133
-  store i32 %134, ptr %132, align 4
-  %135 = load i32, ptr %119, align 8
-  %136 = icmp eq i32 %135, 0
-  br i1 %136, label %137, label %141
+  br i1 %4, label %125, label %128
 
-137:                                              ; preds = %124
-  %138 = load ptr, ptr %17, align 8
-  %139 = getelementptr inbounds nuw i8, ptr %138, i64 92
-  %140 = load i32, ptr %139, align 4
-  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %134, i32 %140)
-  store i32 %.sroa.speculated, ptr %132, align 4
-  br label %141
+125:                                              ; preds = %124
+  %126 = getelementptr inbounds nuw i8, ptr %17, i64 108
+  %127 = load i32, ptr %126, align 4
+  br label %128
 
-141:                                              ; preds = %116, %124, %137, %122
-  %.289 = phi i32 [ %.188, %116 ], [ %131, %137 ], [ %131, %124 ], [ %.188, %122 ]
-  %.2 = phi i1 [ %.1, %116 ], [ true, %137 ], [ true, %124 ], [ false, %122 ]
-  %142 = icmp eq i32 %.289, 0
-  br i1 %142, label %..critedge6_crit_edge, label %143
+128:                                              ; preds = %124, %125
+  %129 = phi i32 [ %127, %125 ], [ 0, %124 ]
+  %130 = getelementptr inbounds nuw i8, ptr %17, i64 20
+  %131 = load i32, ptr %130, align 4
+  %132 = add i32 %129, %131
+  %133 = sub i32 %3, %132
+  %134 = getelementptr inbounds nuw i8, ptr %17, i64 100
+  %135 = load i32, ptr %134, align 4
+  %136 = add nsw i32 %135, %133
+  store i32 %136, ptr %134, align 4
+  %137 = load i32, ptr %119, align 8
+  %138 = icmp eq i32 %137, 0
+  br i1 %138, label %139, label %143
 
-..critedge6_crit_edge:                            ; preds = %141
-  %.pre164 = add i32 %.090155, 1
+139:                                              ; preds = %128
+  %140 = load ptr, ptr %17, align 8
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 92
+  %142 = load i32, ptr %141, align 4
+  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %136, i32 %142)
+  store i32 %.sroa.speculated, ptr %134, align 4
+  br label %143
+
+143:                                              ; preds = %116, %128, %139, %122
+  %.289 = phi i32 [ %.188, %116 ], [ %133, %139 ], [ %133, %128 ], [ %.188, %122 ]
+  %.2 = phi i1 [ %.1, %116 ], [ true, %139 ], [ true, %128 ], [ false, %122 ]
+  %144 = icmp eq i32 %.289, 0
+  br i1 %144, label %..critedge6_crit_edge, label %145
+
+..critedge6_crit_edge:                            ; preds = %143
+  %.pre152 = add i32 %.090148, 1
   br label %.critedge6
 
-143:                                              ; preds = %141
-  %144 = load i32, ptr %119, align 8
-  %.not97 = icmp ne i32 %144, 0
-  %or.cond.not = select i1 %101, i1 %.not97, i1 false
-  br i1 %or.cond.not, label %145, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread137"
-
 145:                                              ; preds = %143
-  %146 = load ptr, ptr %8, align 8
-  %147 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
-  %148 = getelementptr inbounds i32, ptr %146, i64 %147
-  %149 = getelementptr inbounds i8, ptr %148, i64 -4
-  %150 = load i32, ptr %149, align 4
-  %151 = add i32 %150, -1
-  %152 = zext i32 %151 to i64
-  %153 = load ptr, ptr %6, align 8
-  %154 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %153, i64 %152
-  %155 = load ptr, ptr %154, align 8
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 67
-  %157 = load i8, ptr %156, align 1
-  switch i8 %157, label %158 [
+  br i1 %101, label %146, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread133"
+
+146:                                              ; preds = %145
+  %147 = load i32, ptr %119, align 8
+  %.not97 = icmp eq i32 %147, 0
+  br i1 %.not97, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread133", label %148
+
+148:                                              ; preds = %146
+  %149 = load ptr, ptr %8, align 8
+  %150 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
+  %151 = getelementptr inbounds i32, ptr %149, i64 %150
+  %152 = getelementptr inbounds i8, ptr %151, i64 -4
+  %153 = load i32, ptr %152, align 4
+  %154 = add i32 %153, -1
+  %155 = zext i32 %154 to i64
+  %156 = load ptr, ptr %6, align 8
+  %157 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %156, i64 %155
+  %158 = load ptr, ptr %157, align 8
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 67
+  %160 = load i8, ptr %159, align 1
+  switch i8 %160, label %161 [
     i8 46, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread"
-    i8 72, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread137"
+    i8 72, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread133"
   ]
 
-158:                                              ; preds = %145
-  %159 = icmp ugt i32 %150, %10
-  br i1 %159, label %160, label %207
+161:                                              ; preds = %148
+  %162 = icmp ugt i32 %153, %10
+  br i1 %162, label %163, label %210
 
-160:                                              ; preds = %158
-  %161 = add i32 %150, -2
-  %162 = zext i32 %161 to i64
-  %163 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %153, i64 %162
-  %164 = load ptr, ptr %163, align 8
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 67
-  %166 = load i8, ptr %165, align 1
-  %167 = icmp eq i8 %166, 46
-  br i1 %167, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %168
+163:                                              ; preds = %161
+  %164 = add i32 %153, -2
+  %165 = zext i32 %164 to i64
+  %166 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %156, i64 %165
+  %167 = load ptr, ptr %166, align 8
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 67
+  %169 = load i8, ptr %168, align 1
+  %170 = icmp eq i8 %169, 46
+  br i1 %170, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %171
 
-168:                                              ; preds = %160
-  %169 = getelementptr inbounds nuw i8, ptr %164, i64 16
-  %170 = load i16, ptr %169, align 8
-  %171 = icmp eq i16 %170, 5
-  %172 = icmp eq i8 %166, -120
-  %173 = or i1 %172, %171
-  br i1 %173, label %174, label %207
+171:                                              ; preds = %163
+  %172 = getelementptr inbounds nuw i8, ptr %167, i64 16
+  %173 = load i16, ptr %172, align 8
+  %174 = icmp eq i16 %173, 5
+  %175 = icmp eq i8 %169, -120
+  %176 = or i1 %175, %174
+  br i1 %176, label %177, label %210
 
-174:                                              ; preds = %168
-  %175 = getelementptr inbounds nuw i8, ptr %155, i64 16
-  %176 = load i16, ptr %175, align 8
-  %177 = icmp eq i16 %176, 22
-  br i1 %177, label %178, label %207
+177:                                              ; preds = %171
+  %178 = getelementptr inbounds nuw i8, ptr %158, i64 16
+  %179 = load i16, ptr %178, align 8
+  %180 = icmp eq i16 %179, 22
+  br i1 %180, label %181, label %210
 
-178:                                              ; preds = %174
-  %179 = zext i32 %150 to i64
-  %180 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %153, i64 %179
-  %181 = load ptr, ptr %180, align 8
-  %182 = getelementptr inbounds nuw i8, ptr %181, i64 67
-  %183 = load i8, ptr %182, align 1
-  %.not21.i = icmp eq i8 %183, 73
-  br i1 %.not21.i, label %207, label %184
+181:                                              ; preds = %177
+  %182 = zext i32 %153 to i64
+  %183 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %156, i64 %182
+  %184 = load ptr, ptr %183, align 8
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 67
+  %186 = load i8, ptr %185, align 1
+  %.not21.i = icmp eq i8 %186, 73
+  br i1 %.not21.i, label %210, label %187
 
-184:                                              ; preds = %178
-  %185 = load ptr, ptr %17, align 8
-  %186 = getelementptr inbounds nuw i8, ptr %185, i64 200
-  %187 = load ptr, ptr %186, align 8
-  %.not13.i = icmp eq ptr %187, null
-  br i1 %.not13.i, label %192, label %188
+187:                                              ; preds = %181
+  %188 = load ptr, ptr %17, align 8
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 200
+  %190 = load ptr, ptr %189, align 8
+  %.not13.i = icmp eq ptr %190, null
+  br i1 %.not13.i, label %195, label %191
 
-188:                                              ; preds = %184
-  %189 = getelementptr inbounds nuw i8, ptr %187, i64 67
-  %190 = load i8, ptr %189, align 1
-  %191 = icmp eq i8 %190, 72
-  br i1 %191, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread137", label %192
+191:                                              ; preds = %187
+  %192 = getelementptr inbounds nuw i8, ptr %190, i64 67
+  %193 = load i8, ptr %192, align 1
+  %194 = icmp eq i8 %193, 72
+  br i1 %194, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread133", label %195
 
-192:                                              ; preds = %188, %184
-  %193 = getelementptr inbounds nuw i8, ptr %180, i64 24
-  %194 = load i32, ptr %193, align 8
-  %.not14.i = icmp eq i32 %194, 0
-  br i1 %.not14.i, label %195, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread137"
+195:                                              ; preds = %191, %187
+  %196 = getelementptr inbounds nuw i8, ptr %183, i64 24
+  %197 = load i32, ptr %196, align 8
+  %.not14.i = icmp eq i32 %197, 0
+  br i1 %.not14.i, label %198, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread133"
 
-195:                                              ; preds = %192
-  %196 = getelementptr inbounds nuw i8, ptr %185, i64 16
-  %197 = load i16, ptr %196, align 8
-  %198 = icmp eq i16 %197, 24
-  br i1 %198, label %199, label %204
+198:                                              ; preds = %195
+  %199 = getelementptr inbounds nuw i8, ptr %188, i64 16
+  %200 = load i16, ptr %199, align 8
+  %201 = icmp eq i16 %200, 24
+  br i1 %201, label %202, label %207
 
-199:                                              ; preds = %195
-  %200 = getelementptr inbounds nuw i8, ptr %185, i64 65
-  %201 = load i16, ptr %200, align 1
-  %202 = and i16 %201, 384
-  %203 = icmp eq i16 %202, 256
-  br i1 %203, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %204
+202:                                              ; preds = %198
+  %203 = getelementptr inbounds nuw i8, ptr %188, i64 65
+  %204 = load i16, ptr %203, align 1
+  %205 = and i16 %204, 384
+  %206 = icmp eq i16 %205, 256
+  br i1 %206, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %207
 
-204:                                              ; preds = %199, %195
-  %205 = load i8, ptr %11, align 8
-  %206 = trunc i8 %205 to i1
-  br i1 %206, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread137"
+207:                                              ; preds = %202, %198
+  %208 = load i8, ptr %11, align 8
+  %209 = trunc i8 %208 to i1
+  br i1 %209, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread133"
 
-207:                                              ; preds = %178, %174, %168, %158
-  %208 = load ptr, ptr %17, align 8
-  %209 = getelementptr inbounds nuw i8, ptr %208, i64 67
-  %210 = load i8, ptr %209, align 1
-  switch i8 %210, label %211 [
+210:                                              ; preds = %181, %177, %171, %161
+  %211 = load ptr, ptr %17, align 8
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 67
+  %213 = load i8, ptr %212, align 1
+  switch i8 %213, label %214 [
     i8 17, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread"
     i8 36, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread"
   ]
 
-211:                                              ; preds = %207
-  %212 = getelementptr inbounds nuw i8, ptr %208, i64 208
-  %213 = load ptr, ptr %212, align 8
-  %.not.i = icmp eq ptr %213, null
-  br i1 %.not.i, label %218, label %214
+214:                                              ; preds = %210
+  %215 = getelementptr inbounds nuw i8, ptr %211, i64 208
+  %216 = load ptr, ptr %215, align 8
+  %.not.i = icmp eq ptr %216, null
+  br i1 %.not.i, label %221, label %217
 
-214:                                              ; preds = %211
-  %215 = getelementptr inbounds nuw i8, ptr %213, i64 67
-  %216 = load i8, ptr %215, align 1
-  %217 = icmp eq i8 %216, 17
-  br i1 %217, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %218
+217:                                              ; preds = %214
+  %218 = getelementptr inbounds nuw i8, ptr %216, i64 67
+  %219 = load i8, ptr %218, align 1
+  %220 = icmp eq i8 %219, 17
+  br i1 %220, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %221
 
-218:                                              ; preds = %214, %211
-  br i1 %159, label %219, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
+221:                                              ; preds = %217, %214
+  br i1 %162, label %222, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
 
-219:                                              ; preds = %218
-  %220 = add i32 %150, -2
-  %221 = zext i32 %220 to i64
-  %222 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %153, i64 %221
-  %223 = load ptr, ptr %222, align 8
-  %224 = getelementptr inbounds nuw i8, ptr %223, i64 16
-  %225 = load i16, ptr %224, align 8
-  %226 = icmp eq i16 %225, 5
-  %227 = getelementptr inbounds nuw i8, ptr %155, i64 16
+222:                                              ; preds = %221
+  %223 = add i32 %153, -2
+  %224 = zext i32 %223 to i64
+  %225 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %156, i64 %224
+  %226 = load ptr, ptr %225, align 8
+  %227 = getelementptr inbounds nuw i8, ptr %226, i64 16
   %228 = load i16, ptr %227, align 8
-  %229 = icmp eq i16 %228, 24
-  br i1 %226, label %230, label %241
+  %229 = icmp eq i16 %228, 5
+  %230 = getelementptr inbounds nuw i8, ptr %158, i64 16
+  %231 = load i16, ptr %230, align 8
+  %232 = icmp eq i16 %231, 24
+  br i1 %229, label %233, label %244
 
-230:                                              ; preds = %219
-  br i1 %229, label %231, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
+233:                                              ; preds = %222
+  br i1 %232, label %234, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
 
-231:                                              ; preds = %230
-  %232 = getelementptr inbounds nuw i8, ptr %208, i64 16
-  %233 = load i16, ptr %232, align 8
-  %234 = icmp eq i16 %233, 24
-  br i1 %234, label %235, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
+234:                                              ; preds = %233
+  %235 = getelementptr inbounds nuw i8, ptr %211, i64 16
+  %236 = load i16, ptr %235, align 8
+  %237 = icmp eq i16 %236, 24
+  br i1 %237, label %238, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
 
-235:                                              ; preds = %231
-  %236 = getelementptr inbounds nuw i8, ptr %208, i64 65
-  %237 = load i16, ptr %236, align 1
-  %238 = and i16 %237, 384
-  %239 = icmp eq i16 %238, 256
-  %240 = icmp eq i8 %157, -119
-  %or.cond141 = or i1 %240, %239
-  br i1 %or.cond141, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread137"
+238:                                              ; preds = %234
+  %239 = getelementptr inbounds nuw i8, ptr %211, i64 65
+  %240 = load i16, ptr %239, align 1
+  %241 = and i16 %240, 384
+  %242 = icmp eq i16 %241, 256
+  %243 = icmp eq i8 %160, -119
+  %or.cond137 = or i1 %243, %242
+  br i1 %or.cond137, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread133"
 
-241:                                              ; preds = %219
-  br i1 %229, label %242, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
+244:                                              ; preds = %222
+  br i1 %232, label %245, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
 
-242:                                              ; preds = %241
-  %243 = getelementptr inbounds nuw i8, ptr %208, i64 16
-  %244 = load i16, ptr %243, align 8
-  %.not23.i = icmp eq i16 %244, 25
-  br i1 %.not23.i, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit", label %245
+245:                                              ; preds = %244
+  %246 = getelementptr inbounds nuw i8, ptr %211, i64 16
+  %247 = load i16, ptr %246, align 8
+  %.not23.i = icmp eq i16 %247, 25
+  br i1 %.not23.i, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit", label %248
 
-245:                                              ; preds = %242
-  %246 = load ptr, ptr %8, align 8, !noalias !198
-  %247 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18, !noalias !198
-  %248 = getelementptr inbounds i32, ptr %246, i64 %247
-  %249 = load ptr, ptr %8, align 8, !noalias !209
-  %.not2425.i = icmp eq ptr %248, %249
+248:                                              ; preds = %245
+  %249 = load ptr, ptr %8, align 8, !noalias !198
+  %250 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18, !noalias !198
+  %251 = getelementptr inbounds i32, ptr %249, i64 %250
+  %252 = load ptr, ptr %8, align 8, !noalias !209
+  %.not2425.i = icmp eq ptr %251, %252
   %.pre = load ptr, ptr %6, align 8
   br i1 %.not2425.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %245, %261
-  %.sroa.016.026.i = phi ptr [ %250, %261 ], [ %248, %245 ]
-  %250 = getelementptr inbounds i8, ptr %.sroa.016.026.i, i64 -4
-  %251 = load i32, ptr %250, align 4
-  %252 = icmp ugt i32 %251, %1
-  br i1 %252, label %253, label %261
+.lr.ph.i:                                         ; preds = %248, %264
+  %.sroa.016.026.i = phi ptr [ %253, %264 ], [ %251, %248 ]
+  %253 = getelementptr inbounds i8, ptr %.sroa.016.026.i, i64 -4
+  %254 = load i32, ptr %253, align 4
+  %255 = icmp ugt i32 %254, %1
+  br i1 %255, label %256, label %264
 
-253:                                              ; preds = %.lr.ph.i
-  %254 = add i32 %251, -1
-  %255 = zext i32 %254 to i64
-  %256 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %.pre, i64 %255
-  %257 = load ptr, ptr %256, align 8
-  %258 = getelementptr inbounds nuw i8, ptr %257, i64 67
-  %259 = load i8, ptr %258, align 1
-  %260 = icmp eq i8 %259, 72
-  br i1 %260, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread137", label %261
+256:                                              ; preds = %.lr.ph.i
+  %257 = add i32 %254, -1
+  %258 = zext i32 %257 to i64
+  %259 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %.pre, i64 %258
+  %260 = load ptr, ptr %259, align 8
+  %261 = getelementptr inbounds nuw i8, ptr %260, i64 67
+  %262 = load i8, ptr %261, align 1
+  %263 = icmp eq i8 %262, 72
+  br i1 %263, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread133", label %264
 
-261:                                              ; preds = %253, %.lr.ph.i
-  %.not24.i = icmp eq ptr %250, %249
+264:                                              ; preds = %256, %.lr.ph.i
+  %.not24.i = icmp eq ptr %253, %252
   br i1 %.not24.i, label %._crit_edge.i, label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %261, %245
-  %262 = zext i32 %150 to i64
-  %263 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %.pre, i64 %262, i32 4
-  %264 = load i32, ptr %263, align 8
-  %.not12.i = icmp eq i32 %264, 0
-  br i1 %.not12.i, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread137"
+._crit_edge.i:                                    ; preds = %264, %248
+  %265 = zext i32 %153 to i64
+  %266 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %.pre, i64 %265, i32 4
+  %267 = load i32, ptr %266, align 8
+  %.not12.i = icmp eq i32 %267, 0
+  br i1 %.not12.i, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread133"
 
-"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit": ; preds = %218, %230, %231, %241, %242
-  %.old = icmp eq i8 %157, -119
-  br i1 %.old, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread137"
+"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit": ; preds = %221, %233, %234, %244, %245
+  %.old = icmp eq i8 %160, -119
+  br i1 %.old, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread133"
 
-"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread": ; preds = %235, %214, %207, %207, %199, %160, %145, %._crit_edge.i, %204, %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
-  %265 = getelementptr inbounds nuw i8, ptr %17, i64 100
-  %266 = load i32, ptr %265, align 4
-  %267 = add nsw i32 %266, %.289
-  store i32 %267, ptr %265, align 4
-  br label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread137"
+"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread": ; preds = %238, %217, %210, %210, %202, %163, %148, %._crit_edge.i, %207, %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
+  %268 = getelementptr inbounds nuw i8, ptr %17, i64 100
+  %269 = load i32, ptr %268, align 4
+  %270 = add nsw i32 %269, %.289
+  store i32 %270, ptr %268, align 4
+  br label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread133"
 
-"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread137": ; preds = %253, %235, %145, %192, %188, %._crit_edge.i, %204, %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit", %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", %143
-  br i1 %117, label %268, label %272
+"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread133": ; preds = %256, %238, %148, %195, %191, %._crit_edge.i, %207, %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit", %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", %146, %145
+  br i1 %117, label %271, label %275
 
-268:                                              ; preds = %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread137"
-  %269 = getelementptr inbounds nuw i8, ptr %17, i64 100
-  %270 = load i32, ptr %269, align 4
-  %271 = add nsw i32 %270, %.289
-  store i32 %271, ptr %269, align 4
-  br label %272
+271:                                              ; preds = %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread133"
+  %272 = getelementptr inbounds nuw i8, ptr %17, i64 100
+  %273 = load i32, ptr %272, align 4
+  %274 = add nsw i32 %273, %.289
+  store i32 %274, ptr %272, align 4
+  br label %275
 
-272:                                              ; preds = %268, %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread137"
-  %273 = getelementptr inbounds nuw i8, ptr %17, i64 20
-  %274 = load i32, ptr %273, align 4
-  %275 = add i32 %274, %.289
-  store i32 %275, ptr %273, align 4
-  %276 = add i32 %.090155, 1
-  %277 = zext i32 %276 to i64
-  %278 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #18
-  %.not98 = icmp eq i64 %278, %277
-  br i1 %.not98, label %284, label %279
+275:                                              ; preds = %271, %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread133"
+  %276 = getelementptr inbounds nuw i8, ptr %17, i64 20
+  %277 = load i32, ptr %276, align 4
+  %278 = add i32 %277, %.289
+  store i32 %278, ptr %276, align 4
+  %279 = add i32 %.090148, 1
+  %280 = zext i32 %279 to i64
+  %281 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #18
+  %.not98 = icmp eq i64 %281, %280
+  br i1 %.not98, label %287, label %282
 
-279:                                              ; preds = %272
-  %280 = load ptr, ptr %6, align 8
-  %281 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %280, i64 %277, i32 13
-  %282 = load i32, ptr %281, align 8
-  %283 = add i32 %282, %.289
-  store i32 %283, ptr %281, align 8
-  br label %284
+282:                                              ; preds = %275
+  %283 = load ptr, ptr %6, align 8
+  %284 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %283, i64 %280, i32 13
+  %285 = load i32, ptr %284, align 8
+  %286 = add i32 %285, %.289
+  store i32 %286, ptr %284, align 8
+  br label %287
 
-284:                                              ; preds = %279, %272
-  %285 = load i8, ptr %12, align 8
-  %286 = icmp ne i8 %285, 1
-  %287 = load i8, ptr %13, align 8
-  %288 = icmp ne i8 %287, 2
-  %or.cond106.not144 = select i1 %286, i1 %288, i1 false
-  %289 = getelementptr inbounds nuw i8, ptr %17, i64 100
-  %290 = load i32, ptr %289, align 4
-  %.not99 = icmp eq i32 %290, 0
-  %or.cond108 = select i1 %or.cond106.not144, i1 true, i1 %.not99
-  br i1 %or.cond108, label %.critedge6, label %291
+287:                                              ; preds = %282, %275
+  %288 = load i8, ptr %12, align 8
+  %289 = icmp eq i8 %288, 1
+  %290 = load i8, ptr %13, align 8
+  %291 = icmp eq i8 %290, 2
+  %or.cond = select i1 %289, i1 true, i1 %291
+  br i1 %or.cond, label %292, label %.critedge6
 
-291:                                              ; preds = %284
-  %292 = load ptr, ptr %17, align 8
-  %293 = getelementptr inbounds nuw i8, ptr %292, i64 16
-  %294 = load i16, ptr %293, align 8
-  %295 = icmp eq i16 %294, 64
-  br i1 %295, label %.critedge6, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit
+292:                                              ; preds = %287
+  %293 = getelementptr inbounds nuw i8, ptr %17, i64 100
+  %294 = load i32, ptr %293, align 4
+  %.not99 = icmp eq i32 %294, 0
+  br i1 %.not99, label %.critedge6, label %295
 
-_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit: ; preds = %291
-  %296 = icmp ne i16 %294, 23
-  %297 = getelementptr inbounds nuw i8, ptr %292, i64 67
-  %298 = load i8, ptr %297, align 1
-  %299 = icmp ne i8 %298, -120
-  %.not163 = select i1 %296, i1 %299, i1 false
-  %300 = icmp sgt i32 %52, -1
-  %or.cond = and i1 %.not163, %300
-  br i1 %or.cond, label %.lr.ph152, label %.critedge6
+295:                                              ; preds = %292
+  %296 = load ptr, ptr %17, align 8
+  %297 = getelementptr inbounds nuw i8, ptr %296, i64 16
+  %298 = load i16, ptr %297, align 8
+  %299 = icmp eq i16 %298, 64
+  br i1 %299, label %.critedge6, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit
 
-.lr.ph152:                                        ; preds = %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit, %326
-  %.0151 = phi i32 [ %327, %326 ], [ %52, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit ]
-  %301 = zext nneg i32 %.0151 to i64
-  %302 = load ptr, ptr %6, align 8
-  %303 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %302, i64 %301
-  %304 = load ptr, ptr %303, align 8
-  %305 = getelementptr inbounds nuw i8, ptr %304, i64 67
-  %306 = load i8, ptr %305, align 1
-  %307 = icmp eq i8 %306, 96
-  br i1 %307, label %308, label %.critedge6
+_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit: ; preds = %295
+  %300 = icmp eq i16 %298, 23
+  %301 = getelementptr inbounds nuw i8, ptr %296, i64 67
+  %302 = load i8, ptr %301, align 1
+  %303 = icmp eq i8 %302, -120
+  %304 = select i1 %300, i1 true, i1 %303
+  br i1 %304, label %.critedge6, label %305
 
-308:                                              ; preds = %.lr.ph152
-  %309 = getelementptr inbounds nuw i8, ptr %304, i64 16
-  %310 = load i16, ptr %309, align 8
-  %.not145 = icmp eq i16 %310, 31
-  br i1 %.not145, label %312, label %311
+305:                                              ; preds = %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit
+  %306 = icmp ne i8 %290, 0
+  %spec.select105 = xor i1 %291, %306
+  %307 = icmp sgt i32 %52, -1
+  br i1 %307, label %.lr.ph145, label %.critedge6
 
-311:                                              ; preds = %308
-  switch i8 %287, label %326 [
-    i8 2, label %314
-    i8 0, label %314
-  ]
+.lr.ph145:                                        ; preds = %305, %333
+  %.0144 = phi i32 [ %334, %333 ], [ %52, %305 ]
+  %308 = zext nneg i32 %.0144 to i64
+  %309 = load ptr, ptr %6, align 8
+  %310 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %309, i64 %308
+  %311 = load ptr, ptr %310, align 8
+  %312 = getelementptr inbounds nuw i8, ptr %311, i64 67
+  %313 = load i8, ptr %312, align 1
+  %314 = icmp eq i8 %313, 96
+  br i1 %314, label %315, label %.critedge6
 
-312:                                              ; preds = %308
-  %313 = load i8, ptr %12, align 8
-  %.not101 = icmp eq i8 %313, 1
-  br i1 %.not101, label %314, label %326
+315:                                              ; preds = %.lr.ph145
+  %316 = getelementptr inbounds nuw i8, ptr %311, i64 16
+  %317 = load i16, ptr %316, align 8
+  %.not138 = icmp eq i16 %317, 31
+  br i1 %.not138, label %319, label %318
 
-314:                                              ; preds = %311, %311, %312
-  %315 = getelementptr inbounds i8, ptr %303, i64 236
-  %316 = load i32, ptr %315, align 4
-  %317 = sub nsw i32 %316, %.289
-  store i32 %317, ptr %315, align 4
-  %318 = load ptr, ptr %6, align 8
-  %319 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %318, i64 %301, i32 9
-  %320 = load i32, ptr %319, align 4
-  %321 = add nsw i32 %320, %.289
-  store i32 %321, ptr %319, align 4
-  %322 = load ptr, ptr %6, align 8
-  %323 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %322, i64 %301, i32 3
-  %324 = load i32, ptr %323, align 4
-  %325 = add i32 %324, %.289
-  store i32 %325, ptr %323, align 4
-  br label %326
+318:                                              ; preds = %315
+  br i1 %spec.select105, label %333, label %321
 
-326:                                              ; preds = %311, %312, %314
-  %327 = add nsw i32 %.0151, -1
-  %328 = icmp sgt i32 %.0151, 0
-  br i1 %328, label %.lr.ph152, label %.critedge6, !llvm.loop !218
+319:                                              ; preds = %315
+  %320 = load i8, ptr %12, align 8
+  %.not101 = icmp eq i8 %320, 1
+  br i1 %.not101, label %321, label %333
 
-.critedge6:                                       ; preds = %.lr.ph152, %326, %..critedge6_crit_edge, %291, %284, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit
-  %.pre-phi = phi i32 [ %.pre164, %..critedge6_crit_edge ], [ %276, %291 ], [ %276, %284 ], [ %276, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit ], [ %276, %326 ], [ %276, %.lr.ph152 ]
+321:                                              ; preds = %319, %318
+  %322 = getelementptr inbounds i8, ptr %310, i64 236
+  %323 = load i32, ptr %322, align 4
+  %324 = sub nsw i32 %323, %.289
+  store i32 %324, ptr %322, align 4
+  %325 = load ptr, ptr %6, align 8
+  %326 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %325, i64 %308, i32 9
+  %327 = load i32, ptr %326, align 4
+  %328 = add nsw i32 %327, %.289
+  store i32 %328, ptr %326, align 4
+  %329 = load ptr, ptr %6, align 8
+  %330 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %329, i64 %308, i32 3
+  %331 = load i32, ptr %330, align 4
+  %332 = add i32 %331, %.289
+  store i32 %332, ptr %330, align 4
+  br label %333
+
+333:                                              ; preds = %319, %318, %321
+  %334 = add nsw i32 %.0144, -1
+  %335 = icmp sgt i32 %.0144, 0
+  br i1 %335, label %.lr.ph145, label %.critedge6, !llvm.loop !218
+
+.critedge6:                                       ; preds = %.lr.ph145, %333, %..critedge6_crit_edge, %305, %295, %287, %292, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit
+  %.pre-phi = phi i32 [ %.pre152, %..critedge6_crit_edge ], [ %279, %305 ], [ %279, %295 ], [ %279, %287 ], [ %279, %292 ], [ %279, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit ], [ %279, %333 ], [ %279, %.lr.ph145 ]
   %.not = icmp eq i32 %.pre-phi, %2
   br i1 %.not, label %._crit_edge, label %14, !llvm.loop !219
 
 ._crit_edge:                                      ; preds = %.critedge6, %7
-  %329 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
-  %330 = load ptr, ptr %8, align 8
-  %331 = icmp eq ptr %330, %9
-  br i1 %331, label %_ZN4llvm11SmallVectorIjLj16EED2Ev.exit, label %332
+  %336 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
+  %337 = load ptr, ptr %8, align 8
+  %338 = icmp eq ptr %337, %9
+  br i1 %338, label %_ZN4llvm11SmallVectorIjLj16EED2Ev.exit, label %339
 
-332:                                              ; preds = %._crit_edge
-  call void @free(ptr noundef %330) #18
+339:                                              ; preds = %._crit_edge
+  call void @free(ptr noundef %337) #18
   br label %_ZN4llvm11SmallVectorIjLj16EED2Ev.exit
 
-_ZN4llvm11SmallVectorIjLj16EED2Ev.exit:           ; preds = %._crit_edge, %332
+_ZN4llvm11SmallVectorIjLj16EED2Ev.exit:           ; preds = %._crit_edge, %339
   ret void
 }
 
@@ -10511,10 +10523,10 @@ define internal fastcc void @"_ZN5clang6formatL18AlignTokenSequenceIRZNS0_17Whit
   %8 = alloca %"class.llvm::SmallVector.202", align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %9, i64 noundef 16) #18
-  %.not158 = icmp eq i32 %1, %2
-  br i1 %.not158, label %._crit_edge, label %.lr.ph162
+  %.not151 = icmp eq i32 %1, %2
+  br i1 %.not151, label %._crit_edge, label %.lr.ph155
 
-.lr.ph162:                                        ; preds = %7
+.lr.ph155:                                        ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = add i32 %1, 1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -10522,11 +10534,11 @@ define internal fastcc void @"_ZN5clang6formatL18AlignTokenSequenceIRZNS0_17Whit
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 696
   br label %15
 
-15:                                               ; preds = %.lr.ph162, %.critedge6
-  %.086161 = phi i1 [ false, %.lr.ph162 ], [ %.2, %.critedge6 ]
-  %.087160 = phi i32 [ 0, %.lr.ph162 ], [ %.289, %.critedge6 ]
-  %.090159 = phi i32 [ %1, %.lr.ph162 ], [ %.pre-phi, %.critedge6 ]
-  %16 = zext i32 %.090159 to i64
+15:                                               ; preds = %.lr.ph155, %.critedge6
+  %.086154 = phi i1 [ false, %.lr.ph155 ], [ %.2, %.critedge6 ]
+  %.087153 = phi i32 [ 0, %.lr.ph155 ], [ %.289, %.critedge6 ]
+  %.090152 = phi i32 [ %1, %.lr.ph155 ], [ %.pre-phi, %.critedge6 ]
+  %16 = zext i32 %.090152 to i64
   %17 = load ptr, ptr %6, align 8
   %18 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %17, i64 %16
   %19 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
@@ -10570,8 +10582,8 @@ define internal fastcc void @"_ZN5clang6formatL18AlignTokenSequenceIRZNS0_17Whit
 48:                                               ; preds = %46
   %49 = icmp uge i32 %41, %26
   %50 = icmp ult i32 %25, %40
-  %or.cond142 = select i1 %49, i1 %50, i1 false
-  br i1 %or.cond142, label %_ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread, label %.critedge
+  %or.cond138 = select i1 %49, i1 %50, i1 false
+  br i1 %or.cond138, label %_ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread, label %.critedge
 
 _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %48, %46, %20
   %51 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
@@ -10580,7 +10592,7 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %48, 
   br label %.critedge
 
 .critedge:                                        ; preds = %48, %44, %15, %_ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread
-  %53 = add i32 %.090159, -1
+  %53 = add i32 %.090152, -1
   %54 = icmp ugt i32 %53, %1
   br i1 %54, label %.lr.ph, label %.critedge2
 
@@ -10589,8 +10601,8 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %48, 
   br label %56
 
 56:                                               ; preds = %.lr.ph, %63
-  %.091152 = phi i32 [ %53, %.lr.ph ], [ %64, %63 ]
-  %57 = zext i32 %.091152 to i64
+  %.091145 = phi i32 [ %53, %.lr.ph ], [ %64, %63 ]
+  %57 = zext i32 %.091145 to i64
   %58 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %55, i64 %57
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
@@ -10599,13 +10611,13 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %48, 
   br i1 %62, label %63, label %.critedge2
 
 63:                                               ; preds = %56
-  %64 = add i32 %.091152, -1
+  %64 = add i32 %.091145, -1
   %65 = icmp ugt i32 %64, %1
   br i1 %65, label %56, label %.critedge2, !llvm.loop !250
 
 .critedge2:                                       ; preds = %56, %63, %.critedge
-  %.091.lcssa = phi i32 [ %53, %.critedge ], [ %1, %63 ], [ %.091152, %56 ]
-  %.not95 = icmp eq i32 %.090159, %1
+  %.091.lcssa = phi i32 [ %53, %.critedge ], [ %1, %63 ], [ %.091145, %56 ]
+  %.not95 = icmp eq i32 %.090152, %1
   br i1 %.not95, label %.critedge4, label %66
 
 66:                                               ; preds = %.critedge2
@@ -10640,8 +10652,8 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %48, 
 89:                                               ; preds = %87
   %90 = icmp uge i32 %72, %82
   %91 = icmp ult i32 %81, %71
-  %or.cond143 = select i1 %90, i1 %91, i1 false
-  br i1 %or.cond143, label %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread, label %.critedge4
+  %or.cond139 = select i1 %90, i1 %91, i1 false
+  br i1 %or.cond139, label %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread, label %.critedge4
 
 _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %89, %87, %66
   %92 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
@@ -10658,7 +10670,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
   %96 = load ptr, ptr %8, align 8
   %97 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
   %98 = getelementptr inbounds i32, ptr %96, i64 %97
-  store i32 %.090159, ptr %98, align 1
+  store i32 %.090152, ptr %98, align 1
   %99 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
   %100 = add i64 %99, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 noundef %100) #18
@@ -10667,7 +10679,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
 .critedge4:                                       ; preds = %89, %85, %.critedge2, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit
   %101 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
   %102 = icmp ne i64 %101, 0
-  %103 = icmp ugt i32 %.090159, %1
+  %103 = icmp ugt i32 %.090152, %1
   br i1 %103, label %104, label %117
 
 104:                                              ; preds = %.critedge4
@@ -10693,15 +10705,15 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
   %120 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %121 = load i32, ptr %120, align 8
   %.not96 = icmp ne i32 %121, 0
-  %spec.select = select i1 %119, i32 %.087160, i32 0
-  %spec.select102 = select i1 %119, i1 %.086161, i1 false
-  %.188 = select i1 %.not96, i32 %spec.select, i32 %.087160
-  %.1 = select i1 %.not96, i1 %spec.select102, i1 %.086161
+  %spec.select = select i1 %119, i32 %.087153, i32 0
+  %spec.select102 = select i1 %119, i1 %.086154, i1 false
+  %.188 = select i1 %.not96, i32 %spec.select, i32 %.087153
+  %.1 = select i1 %.not96, i1 %spec.select102, i1 %.086154
   %brmerge = or i1 %119, %.1
-  %brmerge144 = or i1 %.not96, %brmerge
+  %brmerge140 = or i1 %.not96, %brmerge
   %.188.mux = select i1 %brmerge, i32 %.188, i32 %spec.select
   %.1.mux = select i1 %brmerge, i1 %.1, i1 %spec.select102
-  br i1 %brmerge144, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEENK3$_0clERKNS1_6ChangeE.exit.thread", label %122
+  br i1 %brmerge140, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEENK3$_0clERKNS1_6ChangeE.exit.thread", label %122
 
 122:                                              ; preds = %117
   %123 = load ptr, ptr %5, align 8
@@ -10728,372 +10740,383 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
   br i1 %136, label %137, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEENK3$_0clERKNS1_6ChangeE.exit.thread"
 
 137:                                              ; preds = %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEENK3$_0clERKNS1_6ChangeE.exit"
-  %138 = getelementptr inbounds nuw i8, ptr %18, i64 108
-  %139 = load i32, ptr %138, align 4
-  %140 = select i1 %4, i32 %139, i32 0
-  %141 = getelementptr inbounds nuw i8, ptr %18, i64 20
-  %142 = load i32, ptr %141, align 4
-  %143 = add i32 %142, %140
-  %144 = sub i32 %3, %143
-  %145 = getelementptr inbounds nuw i8, ptr %18, i64 100
-  %146 = load i32, ptr %145, align 4
-  %147 = add nsw i32 %144, %146
-  store i32 %147, ptr %145, align 4
-  %148 = load i32, ptr %120, align 8
-  %149 = icmp eq i32 %148, 0
-  br i1 %149, label %150, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEENK3$_0clERKNS1_6ChangeE.exit.thread"
+  br i1 %4, label %138, label %141
 
-150:                                              ; preds = %137
-  %151 = getelementptr inbounds nuw i8, ptr %131, i64 92
-  %152 = load i32, ptr %151, align 4
-  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %147, i32 %152)
-  store i32 %.sroa.speculated, ptr %145, align 4
+138:                                              ; preds = %137
+  %139 = getelementptr inbounds nuw i8, ptr %18, i64 108
+  %140 = load i32, ptr %139, align 4
+  br label %141
+
+141:                                              ; preds = %137, %138
+  %142 = phi i32 [ %140, %138 ], [ 0, %137 ]
+  %143 = getelementptr inbounds nuw i8, ptr %18, i64 20
+  %144 = load i32, ptr %143, align 4
+  %145 = add i32 %142, %144
+  %146 = sub i32 %3, %145
+  %147 = getelementptr inbounds nuw i8, ptr %18, i64 100
+  %148 = load i32, ptr %147, align 4
+  %149 = add nsw i32 %148, %146
+  store i32 %149, ptr %147, align 4
+  %150 = load i32, ptr %120, align 8
+  %151 = icmp eq i32 %150, 0
+  br i1 %151, label %152, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEENK3$_0clERKNS1_6ChangeE.exit.thread"
+
+152:                                              ; preds = %141
+  %153 = getelementptr inbounds nuw i8, ptr %131, i64 92
+  %154 = load i32, ptr %153, align 4
+  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %149, i32 %154)
+  store i32 %.sroa.speculated, ptr %147, align 4
   br label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEENK3$_0clERKNS1_6ChangeE.exit.thread"
 
-"_ZZN5clang6format17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEENK3$_0clERKNS1_6ChangeE.exit.thread": ; preds = %117, %128, %137, %150, %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEENK3$_0clERKNS1_6ChangeE.exit"
-  %.289 = phi i32 [ %.188.mux, %117 ], [ %144, %150 ], [ %144, %137 ], [ %.087160, %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEENK3$_0clERKNS1_6ChangeE.exit" ], [ %.087160, %128 ]
-  %.2 = phi i1 [ %.1.mux, %117 ], [ true, %150 ], [ true, %137 ], [ %.086161, %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEENK3$_0clERKNS1_6ChangeE.exit" ], [ %.086161, %128 ]
-  %153 = icmp eq i32 %.289, 0
-  br i1 %153, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEENK3$_0clERKNS1_6ChangeE.exit.thread..critedge6_crit_edge", label %154
+"_ZZN5clang6format17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEENK3$_0clERKNS1_6ChangeE.exit.thread": ; preds = %117, %128, %141, %152, %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEENK3$_0clERKNS1_6ChangeE.exit"
+  %.289 = phi i32 [ %.188.mux, %117 ], [ %146, %152 ], [ %146, %141 ], [ %.087153, %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEENK3$_0clERKNS1_6ChangeE.exit" ], [ %.087153, %128 ]
+  %.2 = phi i1 [ %.1.mux, %117 ], [ true, %152 ], [ true, %141 ], [ %.086154, %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEENK3$_0clERKNS1_6ChangeE.exit" ], [ %.086154, %128 ]
+  %155 = icmp eq i32 %.289, 0
+  br i1 %155, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEENK3$_0clERKNS1_6ChangeE.exit.thread..critedge6_crit_edge", label %156
 
 "_ZZN5clang6format17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEENK3$_0clERKNS1_6ChangeE.exit.thread..critedge6_crit_edge": ; preds = %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEENK3$_0clERKNS1_6ChangeE.exit.thread"
-  %.pre168 = add i32 %.090159, 1
+  %.pre156 = add i32 %.090152, 1
   br label %.critedge6
 
-154:                                              ; preds = %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEENK3$_0clERKNS1_6ChangeE.exit.thread"
-  %155 = load i32, ptr %120, align 8
-  %.not97 = icmp ne i32 %155, 0
-  %or.cond.not = select i1 %102, i1 %.not97, i1 false
-  br i1 %or.cond.not, label %156, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread140"
+156:                                              ; preds = %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEENK3$_0clERKNS1_6ChangeE.exit.thread"
+  br i1 %102, label %157, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread136"
 
-156:                                              ; preds = %154
-  %157 = load ptr, ptr %8, align 8
-  %158 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
-  %159 = getelementptr inbounds i32, ptr %157, i64 %158
-  %160 = getelementptr inbounds i8, ptr %159, i64 -4
-  %161 = load i32, ptr %160, align 4
-  %162 = add i32 %161, -1
-  %163 = zext i32 %162 to i64
-  %164 = load ptr, ptr %6, align 8
-  %165 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %164, i64 %163
-  %166 = load ptr, ptr %165, align 8
-  %167 = getelementptr inbounds nuw i8, ptr %166, i64 67
-  %168 = load i8, ptr %167, align 1
-  switch i8 %168, label %169 [
+157:                                              ; preds = %156
+  %158 = load i32, ptr %120, align 8
+  %.not97 = icmp eq i32 %158, 0
+  br i1 %.not97, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread136", label %159
+
+159:                                              ; preds = %157
+  %160 = load ptr, ptr %8, align 8
+  %161 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
+  %162 = getelementptr inbounds i32, ptr %160, i64 %161
+  %163 = getelementptr inbounds i8, ptr %162, i64 -4
+  %164 = load i32, ptr %163, align 4
+  %165 = add i32 %164, -1
+  %166 = zext i32 %165 to i64
+  %167 = load ptr, ptr %6, align 8
+  %168 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %167, i64 %166
+  %169 = load ptr, ptr %168, align 8
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 67
+  %171 = load i8, ptr %170, align 1
+  switch i8 %171, label %172 [
     i8 46, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread"
-    i8 72, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread140"
+    i8 72, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread136"
   ]
 
-169:                                              ; preds = %156
-  %170 = icmp ugt i32 %161, %11
-  br i1 %170, label %171, label %218
+172:                                              ; preds = %159
+  %173 = icmp ugt i32 %164, %11
+  br i1 %173, label %174, label %221
 
-171:                                              ; preds = %169
-  %172 = add i32 %161, -2
-  %173 = zext i32 %172 to i64
-  %174 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %164, i64 %173
-  %175 = load ptr, ptr %174, align 8
-  %176 = getelementptr inbounds nuw i8, ptr %175, i64 67
-  %177 = load i8, ptr %176, align 1
-  %178 = icmp eq i8 %177, 46
-  br i1 %178, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %179
+174:                                              ; preds = %172
+  %175 = add i32 %164, -2
+  %176 = zext i32 %175 to i64
+  %177 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %167, i64 %176
+  %178 = load ptr, ptr %177, align 8
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 67
+  %180 = load i8, ptr %179, align 1
+  %181 = icmp eq i8 %180, 46
+  br i1 %181, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %182
 
-179:                                              ; preds = %171
-  %180 = getelementptr inbounds nuw i8, ptr %175, i64 16
-  %181 = load i16, ptr %180, align 8
-  %182 = icmp eq i16 %181, 5
-  %183 = icmp eq i8 %177, -120
-  %184 = or i1 %183, %182
-  br i1 %184, label %185, label %218
+182:                                              ; preds = %174
+  %183 = getelementptr inbounds nuw i8, ptr %178, i64 16
+  %184 = load i16, ptr %183, align 8
+  %185 = icmp eq i16 %184, 5
+  %186 = icmp eq i8 %180, -120
+  %187 = or i1 %186, %185
+  br i1 %187, label %188, label %221
 
-185:                                              ; preds = %179
-  %186 = getelementptr inbounds nuw i8, ptr %166, i64 16
-  %187 = load i16, ptr %186, align 8
-  %188 = icmp eq i16 %187, 22
-  br i1 %188, label %189, label %218
+188:                                              ; preds = %182
+  %189 = getelementptr inbounds nuw i8, ptr %169, i64 16
+  %190 = load i16, ptr %189, align 8
+  %191 = icmp eq i16 %190, 22
+  br i1 %191, label %192, label %221
 
-189:                                              ; preds = %185
-  %190 = zext i32 %161 to i64
-  %191 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %164, i64 %190
-  %192 = load ptr, ptr %191, align 8
-  %193 = getelementptr inbounds nuw i8, ptr %192, i64 67
-  %194 = load i8, ptr %193, align 1
-  %.not21.i = icmp eq i8 %194, 73
-  br i1 %.not21.i, label %218, label %195
+192:                                              ; preds = %188
+  %193 = zext i32 %164 to i64
+  %194 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %167, i64 %193
+  %195 = load ptr, ptr %194, align 8
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 67
+  %197 = load i8, ptr %196, align 1
+  %.not21.i = icmp eq i8 %197, 73
+  br i1 %.not21.i, label %221, label %198
 
-195:                                              ; preds = %189
-  %196 = load ptr, ptr %18, align 8
-  %197 = getelementptr inbounds nuw i8, ptr %196, i64 200
-  %198 = load ptr, ptr %197, align 8
-  %.not13.i = icmp eq ptr %198, null
-  br i1 %.not13.i, label %203, label %199
+198:                                              ; preds = %192
+  %199 = load ptr, ptr %18, align 8
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 200
+  %201 = load ptr, ptr %200, align 8
+  %.not13.i = icmp eq ptr %201, null
+  br i1 %.not13.i, label %206, label %202
 
-199:                                              ; preds = %195
-  %200 = getelementptr inbounds nuw i8, ptr %198, i64 67
-  %201 = load i8, ptr %200, align 1
-  %202 = icmp eq i8 %201, 72
-  br i1 %202, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread140", label %203
+202:                                              ; preds = %198
+  %203 = getelementptr inbounds nuw i8, ptr %201, i64 67
+  %204 = load i8, ptr %203, align 1
+  %205 = icmp eq i8 %204, 72
+  br i1 %205, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread136", label %206
 
-203:                                              ; preds = %199, %195
-  %204 = getelementptr inbounds nuw i8, ptr %191, i64 24
-  %205 = load i32, ptr %204, align 8
-  %.not14.i = icmp eq i32 %205, 0
-  br i1 %.not14.i, label %206, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread140"
+206:                                              ; preds = %202, %198
+  %207 = getelementptr inbounds nuw i8, ptr %194, i64 24
+  %208 = load i32, ptr %207, align 8
+  %.not14.i = icmp eq i32 %208, 0
+  br i1 %.not14.i, label %209, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread136"
 
-206:                                              ; preds = %203
-  %207 = getelementptr inbounds nuw i8, ptr %196, i64 16
-  %208 = load i16, ptr %207, align 8
-  %209 = icmp eq i16 %208, 24
-  br i1 %209, label %210, label %215
+209:                                              ; preds = %206
+  %210 = getelementptr inbounds nuw i8, ptr %199, i64 16
+  %211 = load i16, ptr %210, align 8
+  %212 = icmp eq i16 %211, 24
+  br i1 %212, label %213, label %218
 
-210:                                              ; preds = %206
-  %211 = getelementptr inbounds nuw i8, ptr %196, i64 65
-  %212 = load i16, ptr %211, align 1
-  %213 = and i16 %212, 384
-  %214 = icmp eq i16 %213, 256
-  br i1 %214, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %215
+213:                                              ; preds = %209
+  %214 = getelementptr inbounds nuw i8, ptr %199, i64 65
+  %215 = load i16, ptr %214, align 1
+  %216 = and i16 %215, 384
+  %217 = icmp eq i16 %216, 256
+  br i1 %217, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %218
 
-215:                                              ; preds = %210, %206
-  %216 = load i8, ptr %12, align 8
-  %217 = trunc i8 %216 to i1
-  br i1 %217, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread140"
+218:                                              ; preds = %213, %209
+  %219 = load i8, ptr %12, align 8
+  %220 = trunc i8 %219 to i1
+  br i1 %220, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread136"
 
-218:                                              ; preds = %189, %185, %179, %169
-  %219 = load ptr, ptr %18, align 8
-  %220 = getelementptr inbounds nuw i8, ptr %219, i64 67
-  %221 = load i8, ptr %220, align 1
-  switch i8 %221, label %222 [
+221:                                              ; preds = %192, %188, %182, %172
+  %222 = load ptr, ptr %18, align 8
+  %223 = getelementptr inbounds nuw i8, ptr %222, i64 67
+  %224 = load i8, ptr %223, align 1
+  switch i8 %224, label %225 [
     i8 17, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread"
     i8 36, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread"
   ]
 
-222:                                              ; preds = %218
-  %223 = getelementptr inbounds nuw i8, ptr %219, i64 208
-  %224 = load ptr, ptr %223, align 8
-  %.not.i111 = icmp eq ptr %224, null
-  br i1 %.not.i111, label %229, label %225
+225:                                              ; preds = %221
+  %226 = getelementptr inbounds nuw i8, ptr %222, i64 208
+  %227 = load ptr, ptr %226, align 8
+  %.not.i107 = icmp eq ptr %227, null
+  br i1 %.not.i107, label %232, label %228
 
-225:                                              ; preds = %222
-  %226 = getelementptr inbounds nuw i8, ptr %224, i64 67
-  %227 = load i8, ptr %226, align 1
-  %228 = icmp eq i8 %227, 17
-  br i1 %228, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %229
+228:                                              ; preds = %225
+  %229 = getelementptr inbounds nuw i8, ptr %227, i64 67
+  %230 = load i8, ptr %229, align 1
+  %231 = icmp eq i8 %230, 17
+  br i1 %231, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %232
 
-229:                                              ; preds = %225, %222
-  br i1 %170, label %230, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
+232:                                              ; preds = %228, %225
+  br i1 %173, label %233, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
 
-230:                                              ; preds = %229
-  %231 = add i32 %161, -2
-  %232 = zext i32 %231 to i64
-  %233 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %164, i64 %232
-  %234 = load ptr, ptr %233, align 8
-  %235 = getelementptr inbounds nuw i8, ptr %234, i64 16
-  %236 = load i16, ptr %235, align 8
-  %237 = icmp eq i16 %236, 5
-  %238 = getelementptr inbounds nuw i8, ptr %166, i64 16
+233:                                              ; preds = %232
+  %234 = add i32 %164, -2
+  %235 = zext i32 %234 to i64
+  %236 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %167, i64 %235
+  %237 = load ptr, ptr %236, align 8
+  %238 = getelementptr inbounds nuw i8, ptr %237, i64 16
   %239 = load i16, ptr %238, align 8
-  %240 = icmp eq i16 %239, 24
-  br i1 %237, label %241, label %252
+  %240 = icmp eq i16 %239, 5
+  %241 = getelementptr inbounds nuw i8, ptr %169, i64 16
+  %242 = load i16, ptr %241, align 8
+  %243 = icmp eq i16 %242, 24
+  br i1 %240, label %244, label %255
 
-241:                                              ; preds = %230
-  br i1 %240, label %242, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
+244:                                              ; preds = %233
+  br i1 %243, label %245, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
 
-242:                                              ; preds = %241
-  %243 = getelementptr inbounds nuw i8, ptr %219, i64 16
-  %244 = load i16, ptr %243, align 8
-  %245 = icmp eq i16 %244, 24
-  br i1 %245, label %246, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
+245:                                              ; preds = %244
+  %246 = getelementptr inbounds nuw i8, ptr %222, i64 16
+  %247 = load i16, ptr %246, align 8
+  %248 = icmp eq i16 %247, 24
+  br i1 %248, label %249, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
 
-246:                                              ; preds = %242
-  %247 = getelementptr inbounds nuw i8, ptr %219, i64 65
-  %248 = load i16, ptr %247, align 1
-  %249 = and i16 %248, 384
-  %250 = icmp eq i16 %249, 256
-  %251 = icmp eq i8 %168, -119
-  %or.cond145 = or i1 %251, %250
-  br i1 %or.cond145, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread140"
+249:                                              ; preds = %245
+  %250 = getelementptr inbounds nuw i8, ptr %222, i64 65
+  %251 = load i16, ptr %250, align 1
+  %252 = and i16 %251, 384
+  %253 = icmp eq i16 %252, 256
+  %254 = icmp eq i8 %171, -119
+  %or.cond141 = or i1 %254, %253
+  br i1 %or.cond141, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread136"
 
-252:                                              ; preds = %230
-  br i1 %240, label %253, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
+255:                                              ; preds = %233
+  br i1 %243, label %256, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
 
-253:                                              ; preds = %252
-  %254 = getelementptr inbounds nuw i8, ptr %219, i64 16
-  %255 = load i16, ptr %254, align 8
-  %.not23.i = icmp eq i16 %255, 25
-  br i1 %.not23.i, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit", label %256
+256:                                              ; preds = %255
+  %257 = getelementptr inbounds nuw i8, ptr %222, i64 16
+  %258 = load i16, ptr %257, align 8
+  %.not23.i = icmp eq i16 %258, 25
+  br i1 %.not23.i, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit", label %259
 
-256:                                              ; preds = %253
-  %257 = load ptr, ptr %8, align 8, !noalias !263
-  %258 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18, !noalias !263
-  %259 = getelementptr inbounds i32, ptr %257, i64 %258
-  %260 = load ptr, ptr %8, align 8, !noalias !274
-  %.not2425.i = icmp eq ptr %259, %260
+259:                                              ; preds = %256
+  %260 = load ptr, ptr %8, align 8, !noalias !263
+  %261 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18, !noalias !263
+  %262 = getelementptr inbounds i32, ptr %260, i64 %261
+  %263 = load ptr, ptr %8, align 8, !noalias !274
+  %.not2425.i = icmp eq ptr %262, %263
   %.pre = load ptr, ptr %6, align 8
   br i1 %.not2425.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %256, %272
-  %.sroa.016.026.i = phi ptr [ %261, %272 ], [ %259, %256 ]
-  %261 = getelementptr inbounds i8, ptr %.sroa.016.026.i, i64 -4
-  %262 = load i32, ptr %261, align 4
-  %263 = icmp ugt i32 %262, %1
-  br i1 %263, label %264, label %272
+.lr.ph.i:                                         ; preds = %259, %275
+  %.sroa.016.026.i = phi ptr [ %264, %275 ], [ %262, %259 ]
+  %264 = getelementptr inbounds i8, ptr %.sroa.016.026.i, i64 -4
+  %265 = load i32, ptr %264, align 4
+  %266 = icmp ugt i32 %265, %1
+  br i1 %266, label %267, label %275
 
-264:                                              ; preds = %.lr.ph.i
-  %265 = add i32 %262, -1
-  %266 = zext i32 %265 to i64
-  %267 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %.pre, i64 %266
-  %268 = load ptr, ptr %267, align 8
-  %269 = getelementptr inbounds nuw i8, ptr %268, i64 67
-  %270 = load i8, ptr %269, align 1
-  %271 = icmp eq i8 %270, 72
-  br i1 %271, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread140", label %272
+267:                                              ; preds = %.lr.ph.i
+  %268 = add i32 %265, -1
+  %269 = zext i32 %268 to i64
+  %270 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %.pre, i64 %269
+  %271 = load ptr, ptr %270, align 8
+  %272 = getelementptr inbounds nuw i8, ptr %271, i64 67
+  %273 = load i8, ptr %272, align 1
+  %274 = icmp eq i8 %273, 72
+  br i1 %274, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread136", label %275
 
-272:                                              ; preds = %264, %.lr.ph.i
-  %.not24.i = icmp eq ptr %261, %260
+275:                                              ; preds = %267, %.lr.ph.i
+  %.not24.i = icmp eq ptr %264, %263
   br i1 %.not24.i, label %._crit_edge.i, label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %272, %256
-  %273 = zext i32 %161 to i64
-  %274 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %.pre, i64 %273, i32 4
-  %275 = load i32, ptr %274, align 8
-  %.not12.i = icmp eq i32 %275, 0
-  br i1 %.not12.i, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread140"
+._crit_edge.i:                                    ; preds = %275, %259
+  %276 = zext i32 %164 to i64
+  %277 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %.pre, i64 %276, i32 4
+  %278 = load i32, ptr %277, align 8
+  %.not12.i = icmp eq i32 %278, 0
+  br i1 %.not12.i, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread136"
 
-"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit": ; preds = %229, %241, %242, %252, %253
-  %.old = icmp eq i8 %168, -119
-  br i1 %.old, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread140"
+"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit": ; preds = %232, %244, %245, %255, %256
+  %.old = icmp eq i8 %171, -119
+  br i1 %.old, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread136"
 
-"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread": ; preds = %246, %225, %218, %218, %210, %171, %156, %._crit_edge.i, %215, %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
-  %276 = getelementptr inbounds nuw i8, ptr %18, i64 100
-  %277 = load i32, ptr %276, align 4
-  %278 = add nsw i32 %277, %.289
-  store i32 %278, ptr %276, align 4
-  br label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread140"
+"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread": ; preds = %249, %228, %221, %221, %213, %174, %159, %._crit_edge.i, %218, %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
+  %279 = getelementptr inbounds nuw i8, ptr %18, i64 100
+  %280 = load i32, ptr %279, align 4
+  %281 = add nsw i32 %280, %.289
+  store i32 %281, ptr %279, align 4
+  br label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread136"
 
-"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread140": ; preds = %264, %246, %156, %203, %199, %._crit_edge.i, %215, %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit", %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", %154
-  br i1 %118, label %279, label %283
+"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread136": ; preds = %267, %249, %159, %206, %202, %._crit_edge.i, %218, %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit", %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", %157, %156
+  br i1 %118, label %282, label %286
 
-279:                                              ; preds = %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread140"
-  %280 = getelementptr inbounds nuw i8, ptr %18, i64 100
-  %281 = load i32, ptr %280, align 4
-  %282 = add nsw i32 %281, %.289
-  store i32 %282, ptr %280, align 4
-  br label %283
+282:                                              ; preds = %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread136"
+  %283 = getelementptr inbounds nuw i8, ptr %18, i64 100
+  %284 = load i32, ptr %283, align 4
+  %285 = add nsw i32 %284, %.289
+  store i32 %285, ptr %283, align 4
+  br label %286
 
-283:                                              ; preds = %279, %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread140"
-  %284 = getelementptr inbounds nuw i8, ptr %18, i64 20
-  %285 = load i32, ptr %284, align 4
-  %286 = add i32 %285, %.289
-  store i32 %286, ptr %284, align 4
-  %287 = add i32 %.090159, 1
-  %288 = zext i32 %287 to i64
-  %289 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #18
-  %.not98 = icmp eq i64 %289, %288
-  br i1 %.not98, label %295, label %290
+286:                                              ; preds = %282, %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread136"
+  %287 = getelementptr inbounds nuw i8, ptr %18, i64 20
+  %288 = load i32, ptr %287, align 4
+  %289 = add i32 %288, %.289
+  store i32 %289, ptr %287, align 4
+  %290 = add i32 %.090152, 1
+  %291 = zext i32 %290 to i64
+  %292 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #18
+  %.not98 = icmp eq i64 %292, %291
+  br i1 %.not98, label %298, label %293
 
-290:                                              ; preds = %283
-  %291 = load ptr, ptr %6, align 8
-  %292 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %291, i64 %288, i32 13
-  %293 = load i32, ptr %292, align 8
-  %294 = add i32 %293, %.289
-  store i32 %294, ptr %292, align 8
-  br label %295
+293:                                              ; preds = %286
+  %294 = load ptr, ptr %6, align 8
+  %295 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %294, i64 %291, i32 13
+  %296 = load i32, ptr %295, align 8
+  %297 = add i32 %296, %.289
+  store i32 %297, ptr %295, align 8
+  br label %298
 
-295:                                              ; preds = %290, %283
-  %296 = load i8, ptr %13, align 8
-  %297 = icmp ne i8 %296, 1
-  %298 = load i8, ptr %14, align 8
-  %299 = icmp ne i8 %298, 2
-  %or.cond106.not148 = select i1 %297, i1 %299, i1 false
-  %300 = getelementptr inbounds nuw i8, ptr %18, i64 100
-  %301 = load i32, ptr %300, align 4
-  %.not99 = icmp eq i32 %301, 0
-  %or.cond108 = select i1 %or.cond106.not148, i1 true, i1 %.not99
-  br i1 %or.cond108, label %.critedge6, label %302
+298:                                              ; preds = %293, %286
+  %299 = load i8, ptr %13, align 8
+  %300 = icmp eq i8 %299, 1
+  %301 = load i8, ptr %14, align 8
+  %302 = icmp eq i8 %301, 2
+  %or.cond = select i1 %300, i1 true, i1 %302
+  br i1 %or.cond, label %303, label %.critedge6
 
-302:                                              ; preds = %295
-  %303 = load ptr, ptr %18, align 8
-  %304 = getelementptr inbounds nuw i8, ptr %303, i64 16
-  %305 = load i16, ptr %304, align 8
-  %306 = icmp eq i16 %305, 64
-  br i1 %306, label %.critedge6, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit
+303:                                              ; preds = %298
+  %304 = getelementptr inbounds nuw i8, ptr %18, i64 100
+  %305 = load i32, ptr %304, align 4
+  %.not99 = icmp eq i32 %305, 0
+  br i1 %.not99, label %.critedge6, label %306
 
-_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit: ; preds = %302
-  %307 = icmp ne i16 %305, 23
-  %308 = getelementptr inbounds nuw i8, ptr %303, i64 67
-  %309 = load i8, ptr %308, align 1
-  %310 = icmp ne i8 %309, -120
-  %.not167 = select i1 %307, i1 %310, i1 false
-  %311 = icmp sgt i32 %53, -1
-  %or.cond = and i1 %.not167, %311
-  br i1 %or.cond, label %.lr.ph156, label %.critedge6
+306:                                              ; preds = %303
+  %307 = load ptr, ptr %18, align 8
+  %308 = getelementptr inbounds nuw i8, ptr %307, i64 16
+  %309 = load i16, ptr %308, align 8
+  %310 = icmp eq i16 %309, 64
+  br i1 %310, label %.critedge6, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit
 
-.lr.ph156:                                        ; preds = %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit, %337
-  %.0155 = phi i32 [ %338, %337 ], [ %53, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit ]
-  %312 = zext nneg i32 %.0155 to i64
-  %313 = load ptr, ptr %6, align 8
-  %314 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %313, i64 %312
-  %315 = load ptr, ptr %314, align 8
-  %316 = getelementptr inbounds nuw i8, ptr %315, i64 67
-  %317 = load i8, ptr %316, align 1
-  %318 = icmp eq i8 %317, 96
-  br i1 %318, label %319, label %.critedge6
+_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit: ; preds = %306
+  %311 = icmp eq i16 %309, 23
+  %312 = getelementptr inbounds nuw i8, ptr %307, i64 67
+  %313 = load i8, ptr %312, align 1
+  %314 = icmp eq i8 %313, -120
+  %315 = select i1 %311, i1 true, i1 %314
+  br i1 %315, label %.critedge6, label %316
 
-319:                                              ; preds = %.lr.ph156
-  %320 = getelementptr inbounds nuw i8, ptr %315, i64 16
-  %321 = load i16, ptr %320, align 8
-  %.not149 = icmp eq i16 %321, 31
-  br i1 %.not149, label %323, label %322
+316:                                              ; preds = %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit
+  %317 = icmp ne i8 %301, 0
+  %spec.select105 = xor i1 %302, %317
+  %318 = icmp sgt i32 %53, -1
+  br i1 %318, label %.lr.ph149, label %.critedge6
 
-322:                                              ; preds = %319
-  switch i8 %298, label %337 [
-    i8 2, label %325
-    i8 0, label %325
-  ]
+.lr.ph149:                                        ; preds = %316, %344
+  %.0148 = phi i32 [ %345, %344 ], [ %53, %316 ]
+  %319 = zext nneg i32 %.0148 to i64
+  %320 = load ptr, ptr %6, align 8
+  %321 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %320, i64 %319
+  %322 = load ptr, ptr %321, align 8
+  %323 = getelementptr inbounds nuw i8, ptr %322, i64 67
+  %324 = load i8, ptr %323, align 1
+  %325 = icmp eq i8 %324, 96
+  br i1 %325, label %326, label %.critedge6
 
-323:                                              ; preds = %319
-  %324 = load i8, ptr %13, align 8
-  %.not101 = icmp eq i8 %324, 1
-  br i1 %.not101, label %325, label %337
+326:                                              ; preds = %.lr.ph149
+  %327 = getelementptr inbounds nuw i8, ptr %322, i64 16
+  %328 = load i16, ptr %327, align 8
+  %.not142 = icmp eq i16 %328, 31
+  br i1 %.not142, label %330, label %329
 
-325:                                              ; preds = %322, %322, %323
-  %326 = getelementptr inbounds i8, ptr %314, i64 236
-  %327 = load i32, ptr %326, align 4
-  %328 = sub nsw i32 %327, %.289
-  store i32 %328, ptr %326, align 4
-  %329 = load ptr, ptr %6, align 8
-  %330 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %329, i64 %312, i32 9
-  %331 = load i32, ptr %330, align 4
-  %332 = add nsw i32 %331, %.289
-  store i32 %332, ptr %330, align 4
-  %333 = load ptr, ptr %6, align 8
-  %334 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %333, i64 %312, i32 3
-  %335 = load i32, ptr %334, align 4
-  %336 = add i32 %335, %.289
-  store i32 %336, ptr %334, align 4
-  br label %337
+329:                                              ; preds = %326
+  br i1 %spec.select105, label %344, label %332
 
-337:                                              ; preds = %322, %323, %325
-  %338 = add nsw i32 %.0155, -1
-  %339 = icmp sgt i32 %.0155, 0
-  br i1 %339, label %.lr.ph156, label %.critedge6, !llvm.loop !283
+330:                                              ; preds = %326
+  %331 = load i8, ptr %13, align 8
+  %.not101 = icmp eq i8 %331, 1
+  br i1 %.not101, label %332, label %344
 
-.critedge6:                                       ; preds = %.lr.ph156, %337, %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEENK3$_0clERKNS1_6ChangeE.exit.thread..critedge6_crit_edge", %302, %295, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit
-  %.pre-phi = phi i32 [ %.pre168, %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEENK3$_0clERKNS1_6ChangeE.exit.thread..critedge6_crit_edge" ], [ %287, %302 ], [ %287, %295 ], [ %287, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit ], [ %287, %337 ], [ %287, %.lr.ph156 ]
+332:                                              ; preds = %330, %329
+  %333 = getelementptr inbounds i8, ptr %321, i64 236
+  %334 = load i32, ptr %333, align 4
+  %335 = sub nsw i32 %334, %.289
+  store i32 %335, ptr %333, align 4
+  %336 = load ptr, ptr %6, align 8
+  %337 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %336, i64 %319, i32 9
+  %338 = load i32, ptr %337, align 4
+  %339 = add nsw i32 %338, %.289
+  store i32 %339, ptr %337, align 4
+  %340 = load ptr, ptr %6, align 8
+  %341 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %340, i64 %319, i32 3
+  %342 = load i32, ptr %341, align 4
+  %343 = add i32 %342, %.289
+  store i32 %343, ptr %341, align 4
+  br label %344
+
+344:                                              ; preds = %330, %329, %332
+  %345 = add nsw i32 %.0148, -1
+  %346 = icmp sgt i32 %.0148, 0
+  br i1 %346, label %.lr.ph149, label %.critedge6, !llvm.loop !283
+
+.critedge6:                                       ; preds = %.lr.ph149, %344, %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEENK3$_0clERKNS1_6ChangeE.exit.thread..critedge6_crit_edge", %316, %306, %298, %303, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit
+  %.pre-phi = phi i32 [ %.pre156, %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEENK3$_0clERKNS1_6ChangeE.exit.thread..critedge6_crit_edge" ], [ %290, %316 ], [ %290, %306 ], [ %290, %298 ], [ %290, %303 ], [ %290, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit ], [ %290, %344 ], [ %290, %.lr.ph149 ]
   %.not = icmp eq i32 %.pre-phi, %2
   br i1 %.not, label %._crit_edge, label %15, !llvm.loop !284
 
 ._crit_edge:                                      ; preds = %.critedge6, %7
-  %340 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
-  %341 = load ptr, ptr %8, align 8
-  %342 = icmp eq ptr %341, %9
-  br i1 %342, label %_ZN4llvm11SmallVectorIjLj16EED2Ev.exit, label %343
+  %347 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
+  %348 = load ptr, ptr %8, align 8
+  %349 = icmp eq ptr %348, %9
+  br i1 %349, label %_ZN4llvm11SmallVectorIjLj16EED2Ev.exit, label %350
 
-343:                                              ; preds = %._crit_edge
-  call void @free(ptr noundef %341) #18
+350:                                              ; preds = %._crit_edge
+  call void @free(ptr noundef %348) #18
   br label %_ZN4llvm11SmallVectorIjLj16EED2Ev.exit
 
-_ZN4llvm11SmallVectorIjLj16EED2Ev.exit:           ; preds = %._crit_edge, %343
+_ZN4llvm11SmallVectorIjLj16EED2Ev.exit:           ; preds = %._crit_edge, %350
   ret void
 }
 
@@ -11609,21 +11632,21 @@ define internal fastcc void @"_ZN5clang6formatL18AlignTokenSequenceIRZNS0_17Whit
   %8 = alloca %"class.llvm::SmallVector.202", align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %9, i64 noundef 16) #18
-  %.not164 = icmp eq i32 %1, %2
-  br i1 %.not164, label %._crit_edge, label %.lr.ph168
+  %.not157 = icmp eq i32 %1, %2
+  br i1 %.not157, label %._crit_edge, label %.lr.ph161
 
-.lr.ph168:                                        ; preds = %7
+.lr.ph161:                                        ; preds = %7
   %10 = add i32 %1, 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 696
   br label %14
 
-14:                                               ; preds = %.lr.ph168, %.critedge6
-  %.086167 = phi i1 [ false, %.lr.ph168 ], [ %.2, %.critedge6 ]
-  %.087166 = phi i32 [ 0, %.lr.ph168 ], [ %.289, %.critedge6 ]
-  %.090165 = phi i32 [ %1, %.lr.ph168 ], [ %.pre-phi, %.critedge6 ]
-  %15 = zext i32 %.090165 to i64
+14:                                               ; preds = %.lr.ph161, %.critedge6
+  %.086160 = phi i1 [ false, %.lr.ph161 ], [ %.2, %.critedge6 ]
+  %.087159 = phi i32 [ 0, %.lr.ph161 ], [ %.289, %.critedge6 ]
+  %.090158 = phi i32 [ %1, %.lr.ph161 ], [ %.pre-phi, %.critedge6 ]
+  %15 = zext i32 %.090158 to i64
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %16, i64 %15
   %18 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
@@ -11667,8 +11690,8 @@ define internal fastcc void @"_ZN5clang6formatL18AlignTokenSequenceIRZNS0_17Whit
 47:                                               ; preds = %45
   %48 = icmp uge i32 %40, %25
   %49 = icmp ult i32 %24, %39
-  %or.cond148 = select i1 %48, i1 %49, i1 false
-  br i1 %or.cond148, label %_ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread, label %.critedge
+  %or.cond144 = select i1 %48, i1 %49, i1 false
+  br i1 %or.cond144, label %_ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread, label %.critedge
 
 _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %47, %45, %19
   %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
@@ -11677,7 +11700,7 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %47, 
   br label %.critedge
 
 .critedge:                                        ; preds = %47, %43, %14, %_ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread
-  %52 = add i32 %.090165, -1
+  %52 = add i32 %.090158, -1
   %53 = icmp ugt i32 %52, %1
   br i1 %53, label %.lr.ph, label %.critedge2
 
@@ -11686,8 +11709,8 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %47, 
   br label %55
 
 55:                                               ; preds = %.lr.ph, %62
-  %.091158 = phi i32 [ %52, %.lr.ph ], [ %63, %62 ]
-  %56 = zext i32 %.091158 to i64
+  %.091151 = phi i32 [ %52, %.lr.ph ], [ %63, %62 ]
+  %56 = zext i32 %.091151 to i64
   %57 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %54, i64 %56
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
@@ -11696,13 +11719,13 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %47, 
   br i1 %61, label %62, label %.critedge2
 
 62:                                               ; preds = %55
-  %63 = add i32 %.091158, -1
+  %63 = add i32 %.091151, -1
   %64 = icmp ugt i32 %63, %1
   br i1 %64, label %55, label %.critedge2, !llvm.loop !315
 
 .critedge2:                                       ; preds = %55, %62, %.critedge
-  %.091.lcssa = phi i32 [ %52, %.critedge ], [ %1, %62 ], [ %.091158, %55 ]
-  %.not95 = icmp eq i32 %.090165, %1
+  %.091.lcssa = phi i32 [ %52, %.critedge ], [ %1, %62 ], [ %.091151, %55 ]
+  %.not95 = icmp eq i32 %.090158, %1
   br i1 %.not95, label %.critedge4, label %65
 
 65:                                               ; preds = %.critedge2
@@ -11737,8 +11760,8 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %47, 
 88:                                               ; preds = %86
   %89 = icmp uge i32 %71, %81
   %90 = icmp ult i32 %80, %70
-  %or.cond149 = select i1 %89, i1 %90, i1 false
-  br i1 %or.cond149, label %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread, label %.critedge4
+  %or.cond145 = select i1 %89, i1 %90, i1 false
+  br i1 %or.cond145, label %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread, label %.critedge4
 
 _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %88, %86, %65
   %91 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
@@ -11755,7 +11778,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
   %95 = load ptr, ptr %8, align 8
   %96 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
   %97 = getelementptr inbounds i32, ptr %95, i64 %96
-  store i32 %.090165, ptr %97, align 1
+  store i32 %.090158, ptr %97, align 1
   %98 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
   %99 = add i64 %98, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 noundef %99) #18
@@ -11764,7 +11787,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
 .critedge4:                                       ; preds = %88, %84, %.critedge2, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit
   %100 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
   %101 = icmp ne i64 %100, 0
-  %102 = icmp ugt i32 %.090165, %1
+  %102 = icmp ugt i32 %.090158, %1
   br i1 %102, label %103, label %116
 
 103:                                              ; preds = %.critedge4
@@ -11791,14 +11814,14 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
   %120 = load i32, ptr %119, align 8
   %.not96 = icmp eq i32 %120, 0
   %121 = or i1 %118, %.not96
-  %.188 = select i1 %121, i32 %.087166, i32 0
-  %.1 = and i1 %121, %.086167
+  %.188 = select i1 %121, i32 %.087159, i32 0
+  %.1 = and i1 %121, %.086160
   %brmerge = or i1 %118, %.1
   br i1 %brmerge, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit", label %122
 
 122:                                              ; preds = %116
   %.val = load ptr, ptr %5, align 8
-  %.val110 = load ptr, ptr %17, align 8
+  %.val106 = load ptr, ptr %17, align 8
   %123 = getelementptr i8, ptr %.val, i64 2248
   %.val.val = load ptr, ptr %123, align 8
   %124 = getelementptr i8, ptr %.val.val, i64 32
@@ -11807,12 +11830,12 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
   br i1 %125, label %.preheader.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %122
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.val110, i64 67
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.val106, i64 67
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 1
   br label %134
 
 .preheader.i:                                     ; preds = %122, %126
-  %.pn24.i = phi ptr [ %.018.i, %126 ], [ %.val110, %122 ]
+  %.pn24.i = phi ptr [ %.018.i, %126 ], [ %.val106, %122 ]
   %.018.in.i = getelementptr inbounds nuw i8, ptr %.pn24.i, i64 208
   %.018.i = load ptr, ptr %.018.in.i, align 8
   %.not.i = icmp eq ptr %.018.i, null
@@ -11825,7 +11848,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
   br i1 %129, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit", label %.preheader.i, !llvm.loop !31
 
 130:                                              ; preds = %.preheader.i
-  %131 = getelementptr inbounds nuw i8, ptr %.val110, i64 67
+  %131 = getelementptr inbounds nuw i8, ptr %.val106, i64 67
   %132 = load i8, ptr %131, align 1
   %133 = icmp eq i8 %132, 50
   br i1 %133, label %.loopexit, label %134
@@ -11838,7 +11861,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
   ]
 
 136:                                              ; preds = %134
-  %137 = getelementptr inbounds nuw i8, ptr %.val110, i64 208
+  %137 = getelementptr inbounds nuw i8, ptr %.val106, i64 208
   %138 = load ptr, ptr %137, align 8
   %.not21.i = icmp eq ptr %138, null
   br i1 %.not21.i, label %143, label %139
@@ -11850,7 +11873,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
   br i1 %142, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit", label %143
 
 143:                                              ; preds = %139, %136
-  %.0.in4.i = getelementptr inbounds nuw i8, ptr %.val110, i64 216
+  %.0.in4.i = getelementptr inbounds nuw i8, ptr %.val106, i64 216
   %.05.i = load ptr, ptr %.0.in4.i, align 8
   %.not226.i = icmp eq ptr %.05.i, null
   br i1 %.not226.i, label %.loopexit, label %.lr.ph.i
@@ -11909,369 +11932,378 @@ _ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEb
   br i1 %.not22.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !32
 
 .loopexit:                                        ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit.i, %159, %151, %151, %151, %151, %151, %151, %151, %151, %151, %151, %151, %151, %151, %151, %130, %134, %143
-  %160 = getelementptr inbounds nuw i8, ptr %17, i64 108
-  %161 = load i32, ptr %160, align 4
-  %162 = select i1 %4, i32 %161, i32 0
-  %163 = getelementptr inbounds nuw i8, ptr %17, i64 20
-  %164 = load i32, ptr %163, align 4
-  %165 = add i32 %164, %162
-  %166 = sub i32 %3, %165
-  %167 = getelementptr inbounds nuw i8, ptr %17, i64 100
-  %168 = load i32, ptr %167, align 4
-  %169 = add nsw i32 %166, %168
-  store i32 %169, ptr %167, align 4
-  br i1 %.not96, label %170, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit"
+  br i1 %4, label %160, label %163
 
-170:                                              ; preds = %.loopexit
-  %171 = getelementptr inbounds nuw i8, ptr %.val110, i64 92
-  %172 = load i32, ptr %171, align 4
-  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %169, i32 %172)
-  store i32 %.sroa.speculated, ptr %167, align 4
+160:                                              ; preds = %.loopexit
+  %161 = getelementptr inbounds nuw i8, ptr %17, i64 108
+  %162 = load i32, ptr %161, align 4
+  br label %163
+
+163:                                              ; preds = %.loopexit, %160
+  %164 = phi i32 [ %162, %160 ], [ 0, %.loopexit ]
+  %165 = getelementptr inbounds nuw i8, ptr %17, i64 20
+  %166 = load i32, ptr %165, align 4
+  %167 = add i32 %164, %166
+  %168 = sub i32 %3, %167
+  %169 = getelementptr inbounds nuw i8, ptr %17, i64 100
+  %170 = load i32, ptr %169, align 4
+  %171 = add nsw i32 %170, %168
+  store i32 %171, ptr %169, align 4
+  br i1 %.not96, label %172, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit"
+
+172:                                              ; preds = %163
+  %173 = getelementptr inbounds nuw i8, ptr %.val106, i64 92
+  %174 = load i32, ptr %173, align 4
+  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %171, i32 %174)
+  store i32 %.sroa.speculated, ptr %169, align 4
   br label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit"
 
-"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit": ; preds = %126, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEbT_T0_DpT1_.exit.i, %154, %147, %134, %139, %116, %.loopexit, %170
-  %.289 = phi i32 [ %.188, %116 ], [ %166, %170 ], [ %166, %.loopexit ], [ %.188, %139 ], [ %.188, %134 ], [ %.188, %147 ], [ %.188, %154 ], [ %.188, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEbT_T0_DpT1_.exit.i ], [ %.188, %126 ]
-  %.2 = phi i1 [ %.1, %116 ], [ true, %170 ], [ true, %.loopexit ], [ false, %139 ], [ false, %134 ], [ false, %147 ], [ false, %154 ], [ false, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEbT_T0_DpT1_.exit.i ], [ false, %126 ]
-  %173 = icmp eq i32 %.289, 0
-  br i1 %173, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit..critedge6_crit_edge", label %174
+"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit": ; preds = %126, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEbT_T0_DpT1_.exit.i, %154, %147, %134, %139, %116, %163, %172
+  %.289 = phi i32 [ %.188, %116 ], [ %168, %172 ], [ %168, %163 ], [ %.188, %139 ], [ %.188, %134 ], [ %.188, %147 ], [ %.188, %154 ], [ %.188, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEbT_T0_DpT1_.exit.i ], [ %.188, %126 ]
+  %.2 = phi i1 [ %.1, %116 ], [ true, %172 ], [ true, %163 ], [ false, %139 ], [ false, %134 ], [ false, %147 ], [ false, %154 ], [ false, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEbT_T0_DpT1_.exit.i ], [ false, %126 ]
+  %175 = icmp eq i32 %.289, 0
+  br i1 %175, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit..critedge6_crit_edge", label %176
 
 "_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit..critedge6_crit_edge": ; preds = %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit"
-  %.pre175 = add i32 %.090165, 1
+  %.pre163 = add i32 %.090158, 1
   br label %.critedge6
 
-174:                                              ; preds = %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit"
-  %.not97 = icmp ne i32 %120, 0
-  %or.cond.not = and i1 %101, %.not97
-  br i1 %or.cond.not, label %175, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread146"
+176:                                              ; preds = %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit"
+  %.not165 = xor i1 %101, true
+  %brmerge166 = or i1 %.not96, %.not165
+  br i1 %brmerge166, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread142", label %177
 
-175:                                              ; preds = %174
-  %176 = load ptr, ptr %8, align 8
-  %177 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
-  %178 = getelementptr inbounds i32, ptr %176, i64 %177
-  %179 = getelementptr inbounds i8, ptr %178, i64 -4
-  %180 = load i32, ptr %179, align 4
-  %181 = add i32 %180, -1
-  %182 = zext i32 %181 to i64
-  %183 = load ptr, ptr %6, align 8
-  %184 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %183, i64 %182
-  %185 = load ptr, ptr %184, align 8
-  %186 = getelementptr inbounds nuw i8, ptr %185, i64 67
-  %187 = load i8, ptr %186, align 1
-  switch i8 %187, label %188 [
+177:                                              ; preds = %176
+  %178 = load ptr, ptr %8, align 8
+  %179 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
+  %180 = getelementptr inbounds i32, ptr %178, i64 %179
+  %181 = getelementptr inbounds i8, ptr %180, i64 -4
+  %182 = load i32, ptr %181, align 4
+  %183 = add i32 %182, -1
+  %184 = zext i32 %183 to i64
+  %185 = load ptr, ptr %6, align 8
+  %186 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %185, i64 %184
+  %187 = load ptr, ptr %186, align 8
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 67
+  %189 = load i8, ptr %188, align 1
+  switch i8 %189, label %190 [
     i8 46, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread"
-    i8 72, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread146"
+    i8 72, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread142"
   ]
 
-188:                                              ; preds = %175
-  %189 = icmp ugt i32 %180, %10
-  br i1 %189, label %190, label %237
+190:                                              ; preds = %177
+  %191 = icmp ugt i32 %182, %10
+  br i1 %191, label %192, label %239
 
-190:                                              ; preds = %188
-  %191 = add i32 %180, -2
-  %192 = zext i32 %191 to i64
-  %193 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %183, i64 %192
-  %194 = load ptr, ptr %193, align 8
-  %195 = getelementptr inbounds nuw i8, ptr %194, i64 67
-  %196 = load i8, ptr %195, align 1
-  %197 = icmp eq i8 %196, 46
-  br i1 %197, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %198
+192:                                              ; preds = %190
+  %193 = add i32 %182, -2
+  %194 = zext i32 %193 to i64
+  %195 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %185, i64 %194
+  %196 = load ptr, ptr %195, align 8
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 67
+  %198 = load i8, ptr %197, align 1
+  %199 = icmp eq i8 %198, 46
+  br i1 %199, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %200
 
-198:                                              ; preds = %190
-  %199 = getelementptr inbounds nuw i8, ptr %194, i64 16
-  %200 = load i16, ptr %199, align 8
-  %201 = icmp eq i16 %200, 5
-  %202 = icmp eq i8 %196, -120
-  %203 = or i1 %202, %201
-  br i1 %203, label %204, label %237
+200:                                              ; preds = %192
+  %201 = getelementptr inbounds nuw i8, ptr %196, i64 16
+  %202 = load i16, ptr %201, align 8
+  %203 = icmp eq i16 %202, 5
+  %204 = icmp eq i8 %198, -120
+  %205 = or i1 %204, %203
+  br i1 %205, label %206, label %239
 
-204:                                              ; preds = %198
-  %205 = getelementptr inbounds nuw i8, ptr %185, i64 16
-  %206 = load i16, ptr %205, align 8
-  %207 = icmp eq i16 %206, 22
-  br i1 %207, label %208, label %237
+206:                                              ; preds = %200
+  %207 = getelementptr inbounds nuw i8, ptr %187, i64 16
+  %208 = load i16, ptr %207, align 8
+  %209 = icmp eq i16 %208, 22
+  br i1 %209, label %210, label %239
 
-208:                                              ; preds = %204
-  %209 = zext i32 %180 to i64
-  %210 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %183, i64 %209
-  %211 = load ptr, ptr %210, align 8
-  %212 = getelementptr inbounds nuw i8, ptr %211, i64 67
-  %213 = load i8, ptr %212, align 1
-  %.not21.i117 = icmp eq i8 %213, 73
-  br i1 %.not21.i117, label %237, label %214
+210:                                              ; preds = %206
+  %211 = zext i32 %182 to i64
+  %212 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %185, i64 %211
+  %213 = load ptr, ptr %212, align 8
+  %214 = getelementptr inbounds nuw i8, ptr %213, i64 67
+  %215 = load i8, ptr %214, align 1
+  %.not21.i113 = icmp eq i8 %215, 73
+  br i1 %.not21.i113, label %239, label %216
 
-214:                                              ; preds = %208
-  %215 = load ptr, ptr %17, align 8
-  %216 = getelementptr inbounds nuw i8, ptr %215, i64 200
-  %217 = load ptr, ptr %216, align 8
-  %.not13.i = icmp eq ptr %217, null
-  br i1 %.not13.i, label %222, label %218
+216:                                              ; preds = %210
+  %217 = load ptr, ptr %17, align 8
+  %218 = getelementptr inbounds nuw i8, ptr %217, i64 200
+  %219 = load ptr, ptr %218, align 8
+  %.not13.i = icmp eq ptr %219, null
+  br i1 %.not13.i, label %224, label %220
 
-218:                                              ; preds = %214
-  %219 = getelementptr inbounds nuw i8, ptr %217, i64 67
-  %220 = load i8, ptr %219, align 1
-  %221 = icmp eq i8 %220, 72
-  br i1 %221, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread146", label %222
+220:                                              ; preds = %216
+  %221 = getelementptr inbounds nuw i8, ptr %219, i64 67
+  %222 = load i8, ptr %221, align 1
+  %223 = icmp eq i8 %222, 72
+  br i1 %223, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread142", label %224
 
-222:                                              ; preds = %218, %214
-  %223 = getelementptr inbounds nuw i8, ptr %210, i64 24
-  %224 = load i32, ptr %223, align 8
-  %.not14.i = icmp eq i32 %224, 0
-  br i1 %.not14.i, label %225, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread146"
+224:                                              ; preds = %220, %216
+  %225 = getelementptr inbounds nuw i8, ptr %212, i64 24
+  %226 = load i32, ptr %225, align 8
+  %.not14.i = icmp eq i32 %226, 0
+  br i1 %.not14.i, label %227, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread142"
 
-225:                                              ; preds = %222
-  %226 = getelementptr inbounds nuw i8, ptr %215, i64 16
-  %227 = load i16, ptr %226, align 8
-  %228 = icmp eq i16 %227, 24
-  br i1 %228, label %229, label %234
+227:                                              ; preds = %224
+  %228 = getelementptr inbounds nuw i8, ptr %217, i64 16
+  %229 = load i16, ptr %228, align 8
+  %230 = icmp eq i16 %229, 24
+  br i1 %230, label %231, label %236
 
-229:                                              ; preds = %225
-  %230 = getelementptr inbounds nuw i8, ptr %215, i64 65
-  %231 = load i16, ptr %230, align 1
-  %232 = and i16 %231, 384
-  %233 = icmp eq i16 %232, 256
-  br i1 %233, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %234
+231:                                              ; preds = %227
+  %232 = getelementptr inbounds nuw i8, ptr %217, i64 65
+  %233 = load i16, ptr %232, align 1
+  %234 = and i16 %233, 384
+  %235 = icmp eq i16 %234, 256
+  br i1 %235, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %236
 
-234:                                              ; preds = %229, %225
-  %235 = load i8, ptr %11, align 8
-  %236 = trunc i8 %235 to i1
-  br i1 %236, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread146"
+236:                                              ; preds = %231, %227
+  %237 = load i8, ptr %11, align 8
+  %238 = trunc i8 %237 to i1
+  br i1 %238, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread142"
 
-237:                                              ; preds = %208, %204, %198, %188
-  %238 = load ptr, ptr %17, align 8
-  %239 = getelementptr inbounds nuw i8, ptr %238, i64 67
-  %240 = load i8, ptr %239, align 1
-  switch i8 %240, label %241 [
+239:                                              ; preds = %210, %206, %200, %190
+  %240 = load ptr, ptr %17, align 8
+  %241 = getelementptr inbounds nuw i8, ptr %240, i64 67
+  %242 = load i8, ptr %241, align 1
+  switch i8 %242, label %243 [
     i8 17, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread"
     i8 36, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread"
   ]
 
-241:                                              ; preds = %237
-  %242 = getelementptr inbounds nuw i8, ptr %238, i64 208
-  %243 = load ptr, ptr %242, align 8
-  %.not.i112 = icmp eq ptr %243, null
-  br i1 %.not.i112, label %248, label %244
+243:                                              ; preds = %239
+  %244 = getelementptr inbounds nuw i8, ptr %240, i64 208
+  %245 = load ptr, ptr %244, align 8
+  %.not.i108 = icmp eq ptr %245, null
+  br i1 %.not.i108, label %250, label %246
 
-244:                                              ; preds = %241
-  %245 = getelementptr inbounds nuw i8, ptr %243, i64 67
-  %246 = load i8, ptr %245, align 1
-  %247 = icmp eq i8 %246, 17
-  br i1 %247, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %248
+246:                                              ; preds = %243
+  %247 = getelementptr inbounds nuw i8, ptr %245, i64 67
+  %248 = load i8, ptr %247, align 1
+  %249 = icmp eq i8 %248, 17
+  br i1 %249, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %250
 
-248:                                              ; preds = %244, %241
-  br i1 %189, label %249, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
+250:                                              ; preds = %246, %243
+  br i1 %191, label %251, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
 
-249:                                              ; preds = %248
-  %250 = add i32 %180, -2
-  %251 = zext i32 %250 to i64
-  %252 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %183, i64 %251
-  %253 = load ptr, ptr %252, align 8
-  %254 = getelementptr inbounds nuw i8, ptr %253, i64 16
-  %255 = load i16, ptr %254, align 8
-  %256 = icmp eq i16 %255, 5
-  %257 = getelementptr inbounds nuw i8, ptr %185, i64 16
-  %258 = load i16, ptr %257, align 8
-  %259 = icmp eq i16 %258, 24
-  br i1 %256, label %260, label %271
+251:                                              ; preds = %250
+  %252 = add i32 %182, -2
+  %253 = zext i32 %252 to i64
+  %254 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %185, i64 %253
+  %255 = load ptr, ptr %254, align 8
+  %256 = getelementptr inbounds nuw i8, ptr %255, i64 16
+  %257 = load i16, ptr %256, align 8
+  %258 = icmp eq i16 %257, 5
+  %259 = getelementptr inbounds nuw i8, ptr %187, i64 16
+  %260 = load i16, ptr %259, align 8
+  %261 = icmp eq i16 %260, 24
+  br i1 %258, label %262, label %273
 
-260:                                              ; preds = %249
-  br i1 %259, label %261, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
+262:                                              ; preds = %251
+  br i1 %261, label %263, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
 
-261:                                              ; preds = %260
-  %262 = getelementptr inbounds nuw i8, ptr %238, i64 16
-  %263 = load i16, ptr %262, align 8
-  %264 = icmp eq i16 %263, 24
-  br i1 %264, label %265, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
+263:                                              ; preds = %262
+  %264 = getelementptr inbounds nuw i8, ptr %240, i64 16
+  %265 = load i16, ptr %264, align 8
+  %266 = icmp eq i16 %265, 24
+  br i1 %266, label %267, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
 
-265:                                              ; preds = %261
-  %266 = getelementptr inbounds nuw i8, ptr %238, i64 65
-  %267 = load i16, ptr %266, align 1
-  %268 = and i16 %267, 384
-  %269 = icmp eq i16 %268, 256
-  %270 = icmp eq i8 %187, -119
-  %or.cond150 = or i1 %270, %269
-  br i1 %or.cond150, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread146"
+267:                                              ; preds = %263
+  %268 = getelementptr inbounds nuw i8, ptr %240, i64 65
+  %269 = load i16, ptr %268, align 1
+  %270 = and i16 %269, 384
+  %271 = icmp eq i16 %270, 256
+  %272 = icmp eq i8 %189, -119
+  %or.cond146 = or i1 %272, %271
+  br i1 %or.cond146, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread142"
 
-271:                                              ; preds = %249
-  br i1 %259, label %272, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
+273:                                              ; preds = %251
+  br i1 %261, label %274, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
 
-272:                                              ; preds = %271
-  %273 = getelementptr inbounds nuw i8, ptr %238, i64 16
-  %274 = load i16, ptr %273, align 8
-  %.not23.i113 = icmp eq i16 %274, 25
-  br i1 %.not23.i113, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit", label %275
+274:                                              ; preds = %273
+  %275 = getelementptr inbounds nuw i8, ptr %240, i64 16
+  %276 = load i16, ptr %275, align 8
+  %.not23.i109 = icmp eq i16 %276, 25
+  br i1 %.not23.i109, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit", label %277
 
-275:                                              ; preds = %272
-  %276 = load ptr, ptr %8, align 8, !noalias !328
-  %277 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18, !noalias !328
-  %278 = getelementptr inbounds i32, ptr %276, i64 %277
-  %279 = load ptr, ptr %8, align 8, !noalias !339
-  %.not2425.i = icmp eq ptr %278, %279
+277:                                              ; preds = %274
+  %278 = load ptr, ptr %8, align 8, !noalias !328
+  %279 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18, !noalias !328
+  %280 = getelementptr inbounds i32, ptr %278, i64 %279
+  %281 = load ptr, ptr %8, align 8, !noalias !339
+  %.not2425.i = icmp eq ptr %280, %281
   %.pre = load ptr, ptr %6, align 8
-  br i1 %.not2425.i, label %._crit_edge.i116, label %.lr.ph.i115
+  br i1 %.not2425.i, label %._crit_edge.i112, label %.lr.ph.i111
 
-.lr.ph.i115:                                      ; preds = %275, %291
-  %.sroa.016.026.i = phi ptr [ %280, %291 ], [ %278, %275 ]
-  %280 = getelementptr inbounds i8, ptr %.sroa.016.026.i, i64 -4
-  %281 = load i32, ptr %280, align 4
-  %282 = icmp ugt i32 %281, %1
-  br i1 %282, label %283, label %291
+.lr.ph.i111:                                      ; preds = %277, %293
+  %.sroa.016.026.i = phi ptr [ %282, %293 ], [ %280, %277 ]
+  %282 = getelementptr inbounds i8, ptr %.sroa.016.026.i, i64 -4
+  %283 = load i32, ptr %282, align 4
+  %284 = icmp ugt i32 %283, %1
+  br i1 %284, label %285, label %293
 
-283:                                              ; preds = %.lr.ph.i115
-  %284 = add i32 %281, -1
-  %285 = zext i32 %284 to i64
-  %286 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %.pre, i64 %285
-  %287 = load ptr, ptr %286, align 8
-  %288 = getelementptr inbounds nuw i8, ptr %287, i64 67
-  %289 = load i8, ptr %288, align 1
-  %290 = icmp eq i8 %289, 72
-  br i1 %290, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread146", label %291
+285:                                              ; preds = %.lr.ph.i111
+  %286 = add i32 %283, -1
+  %287 = zext i32 %286 to i64
+  %288 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %.pre, i64 %287
+  %289 = load ptr, ptr %288, align 8
+  %290 = getelementptr inbounds nuw i8, ptr %289, i64 67
+  %291 = load i8, ptr %290, align 1
+  %292 = icmp eq i8 %291, 72
+  br i1 %292, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread142", label %293
 
-291:                                              ; preds = %283, %.lr.ph.i115
-  %.not24.i = icmp eq ptr %280, %279
-  br i1 %.not24.i, label %._crit_edge.i116, label %.lr.ph.i115
+293:                                              ; preds = %285, %.lr.ph.i111
+  %.not24.i = icmp eq ptr %282, %281
+  br i1 %.not24.i, label %._crit_edge.i112, label %.lr.ph.i111
 
-._crit_edge.i116:                                 ; preds = %291, %275
-  %292 = zext i32 %180 to i64
-  %293 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %.pre, i64 %292, i32 4
-  %294 = load i32, ptr %293, align 8
-  %.not12.i = icmp eq i32 %294, 0
-  br i1 %.not12.i, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread146"
+._crit_edge.i112:                                 ; preds = %293, %277
+  %294 = zext i32 %182 to i64
+  %295 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %.pre, i64 %294, i32 4
+  %296 = load i32, ptr %295, align 8
+  %.not12.i = icmp eq i32 %296, 0
+  br i1 %.not12.i, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread142"
 
-"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit": ; preds = %248, %260, %261, %271, %272
-  %.old = icmp eq i8 %187, -119
-  br i1 %.old, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread146"
+"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit": ; preds = %250, %262, %263, %273, %274
+  %.old = icmp eq i8 %189, -119
+  br i1 %.old, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread142"
 
-"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread": ; preds = %265, %244, %237, %237, %229, %190, %175, %._crit_edge.i116, %234, %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
-  %295 = getelementptr inbounds nuw i8, ptr %17, i64 100
-  %296 = load i32, ptr %295, align 4
-  %297 = add nsw i32 %296, %.289
-  store i32 %297, ptr %295, align 4
-  br label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread146"
+"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread": ; preds = %267, %246, %239, %239, %231, %192, %177, %._crit_edge.i112, %236, %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
+  %297 = getelementptr inbounds nuw i8, ptr %17, i64 100
+  %298 = load i32, ptr %297, align 4
+  %299 = add nsw i32 %298, %.289
+  store i32 %299, ptr %297, align 4
+  br label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread142"
 
-"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread146": ; preds = %283, %265, %175, %222, %218, %._crit_edge.i116, %234, %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit", %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", %174
-  br i1 %117, label %298, label %302
+"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread142": ; preds = %285, %176, %267, %177, %224, %220, %._crit_edge.i112, %236, %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit", %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread"
+  br i1 %117, label %300, label %304
 
-298:                                              ; preds = %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread146"
-  %299 = getelementptr inbounds nuw i8, ptr %17, i64 100
-  %300 = load i32, ptr %299, align 4
-  %301 = add nsw i32 %300, %.289
-  store i32 %301, ptr %299, align 4
-  br label %302
+300:                                              ; preds = %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread142"
+  %301 = getelementptr inbounds nuw i8, ptr %17, i64 100
+  %302 = load i32, ptr %301, align 4
+  %303 = add nsw i32 %302, %.289
+  store i32 %303, ptr %301, align 4
+  br label %304
 
-302:                                              ; preds = %298, %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread146"
-  %303 = getelementptr inbounds nuw i8, ptr %17, i64 20
-  %304 = load i32, ptr %303, align 4
-  %305 = add i32 %304, %.289
-  store i32 %305, ptr %303, align 4
-  %306 = add i32 %.090165, 1
-  %307 = zext i32 %306 to i64
-  %308 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #18
-  %.not98 = icmp eq i64 %308, %307
-  br i1 %.not98, label %314, label %309
+304:                                              ; preds = %300, %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread142"
+  %305 = getelementptr inbounds nuw i8, ptr %17, i64 20
+  %306 = load i32, ptr %305, align 4
+  %307 = add i32 %306, %.289
+  store i32 %307, ptr %305, align 4
+  %308 = add i32 %.090158, 1
+  %309 = zext i32 %308 to i64
+  %310 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #18
+  %.not98 = icmp eq i64 %310, %309
+  br i1 %.not98, label %316, label %311
 
-309:                                              ; preds = %302
-  %310 = load ptr, ptr %6, align 8
-  %311 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %310, i64 %307, i32 13
-  %312 = load i32, ptr %311, align 8
-  %313 = add i32 %312, %.289
-  store i32 %313, ptr %311, align 8
-  br label %314
+311:                                              ; preds = %304
+  %312 = load ptr, ptr %6, align 8
+  %313 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %312, i64 %309, i32 13
+  %314 = load i32, ptr %313, align 8
+  %315 = add i32 %314, %.289
+  store i32 %315, ptr %313, align 8
+  br label %316
 
-314:                                              ; preds = %309, %302
-  %315 = load i8, ptr %12, align 8
-  %316 = icmp ne i8 %315, 1
-  %317 = load i8, ptr %13, align 8
-  %318 = icmp ne i8 %317, 2
-  %or.cond106.not153 = select i1 %316, i1 %318, i1 false
-  %319 = getelementptr inbounds nuw i8, ptr %17, i64 100
-  %320 = load i32, ptr %319, align 4
-  %.not99 = icmp eq i32 %320, 0
-  %or.cond108 = select i1 %or.cond106.not153, i1 true, i1 %.not99
-  br i1 %or.cond108, label %.critedge6, label %321
+316:                                              ; preds = %311, %304
+  %317 = load i8, ptr %12, align 8
+  %318 = icmp eq i8 %317, 1
+  %319 = load i8, ptr %13, align 8
+  %320 = icmp eq i8 %319, 2
+  %or.cond = select i1 %318, i1 true, i1 %320
+  br i1 %or.cond, label %321, label %.critedge6
 
-321:                                              ; preds = %314
-  %322 = load ptr, ptr %17, align 8
-  %323 = getelementptr inbounds nuw i8, ptr %322, i64 16
-  %324 = load i16, ptr %323, align 8
-  %325 = icmp eq i16 %324, 64
-  br i1 %325, label %.critedge6, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit
+321:                                              ; preds = %316
+  %322 = getelementptr inbounds nuw i8, ptr %17, i64 100
+  %323 = load i32, ptr %322, align 4
+  %.not99 = icmp eq i32 %323, 0
+  br i1 %.not99, label %.critedge6, label %324
 
-_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit: ; preds = %321
-  %326 = icmp ne i16 %324, 23
-  %327 = getelementptr inbounds nuw i8, ptr %322, i64 67
-  %328 = load i8, ptr %327, align 1
-  %329 = icmp ne i8 %328, -120
-  %.not173 = select i1 %326, i1 %329, i1 false
-  %330 = icmp sgt i32 %52, -1
-  %or.cond = and i1 %.not173, %330
-  br i1 %or.cond, label %.lr.ph162, label %.critedge6
+324:                                              ; preds = %321
+  %325 = load ptr, ptr %17, align 8
+  %326 = getelementptr inbounds nuw i8, ptr %325, i64 16
+  %327 = load i16, ptr %326, align 8
+  %328 = icmp eq i16 %327, 64
+  br i1 %328, label %.critedge6, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit
 
-.lr.ph162:                                        ; preds = %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit, %356
-  %.0161 = phi i32 [ %357, %356 ], [ %52, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit ]
-  %331 = zext nneg i32 %.0161 to i64
-  %332 = load ptr, ptr %6, align 8
-  %333 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %332, i64 %331
-  %334 = load ptr, ptr %333, align 8
-  %335 = getelementptr inbounds nuw i8, ptr %334, i64 67
-  %336 = load i8, ptr %335, align 1
-  %337 = icmp eq i8 %336, 96
-  br i1 %337, label %338, label %.critedge6
+_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit: ; preds = %324
+  %329 = icmp eq i16 %327, 23
+  %330 = getelementptr inbounds nuw i8, ptr %325, i64 67
+  %331 = load i8, ptr %330, align 1
+  %332 = icmp eq i8 %331, -120
+  %333 = select i1 %329, i1 true, i1 %332
+  br i1 %333, label %.critedge6, label %334
 
-338:                                              ; preds = %.lr.ph162
-  %339 = getelementptr inbounds nuw i8, ptr %334, i64 16
-  %340 = load i16, ptr %339, align 8
-  %.not154 = icmp eq i16 %340, 31
-  br i1 %.not154, label %342, label %341
+334:                                              ; preds = %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit
+  %335 = icmp ne i8 %319, 0
+  %spec.select105 = xor i1 %320, %335
+  %336 = icmp sgt i32 %52, -1
+  br i1 %336, label %.lr.ph155, label %.critedge6
 
-341:                                              ; preds = %338
-  switch i8 %317, label %356 [
-    i8 2, label %344
-    i8 0, label %344
-  ]
+.lr.ph155:                                        ; preds = %334, %362
+  %.0154 = phi i32 [ %363, %362 ], [ %52, %334 ]
+  %337 = zext nneg i32 %.0154 to i64
+  %338 = load ptr, ptr %6, align 8
+  %339 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %338, i64 %337
+  %340 = load ptr, ptr %339, align 8
+  %341 = getelementptr inbounds nuw i8, ptr %340, i64 67
+  %342 = load i8, ptr %341, align 1
+  %343 = icmp eq i8 %342, 96
+  br i1 %343, label %344, label %.critedge6
 
-342:                                              ; preds = %338
-  %343 = load i8, ptr %12, align 8
-  %.not101 = icmp eq i8 %343, 1
-  br i1 %.not101, label %344, label %356
+344:                                              ; preds = %.lr.ph155
+  %345 = getelementptr inbounds nuw i8, ptr %340, i64 16
+  %346 = load i16, ptr %345, align 8
+  %.not147 = icmp eq i16 %346, 31
+  br i1 %.not147, label %348, label %347
 
-344:                                              ; preds = %341, %341, %342
-  %345 = getelementptr inbounds i8, ptr %333, i64 236
-  %346 = load i32, ptr %345, align 4
-  %347 = sub nsw i32 %346, %.289
-  store i32 %347, ptr %345, align 4
-  %348 = load ptr, ptr %6, align 8
-  %349 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %348, i64 %331, i32 9
-  %350 = load i32, ptr %349, align 4
-  %351 = add nsw i32 %350, %.289
-  store i32 %351, ptr %349, align 4
-  %352 = load ptr, ptr %6, align 8
-  %353 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %352, i64 %331, i32 3
-  %354 = load i32, ptr %353, align 4
-  %355 = add i32 %354, %.289
-  store i32 %355, ptr %353, align 4
-  br label %356
+347:                                              ; preds = %344
+  br i1 %spec.select105, label %362, label %350
 
-356:                                              ; preds = %341, %342, %344
-  %357 = add nsw i32 %.0161, -1
-  %358 = icmp sgt i32 %.0161, 0
-  br i1 %358, label %.lr.ph162, label %.critedge6, !llvm.loop !348
+348:                                              ; preds = %344
+  %349 = load i8, ptr %12, align 8
+  %.not101 = icmp eq i8 %349, 1
+  br i1 %.not101, label %350, label %362
 
-.critedge6:                                       ; preds = %.lr.ph162, %356, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit..critedge6_crit_edge", %321, %314, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit
-  %.pre-phi = phi i32 [ %.pre175, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit..critedge6_crit_edge" ], [ %306, %321 ], [ %306, %314 ], [ %306, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit ], [ %306, %356 ], [ %306, %.lr.ph162 ]
+350:                                              ; preds = %348, %347
+  %351 = getelementptr inbounds i8, ptr %339, i64 236
+  %352 = load i32, ptr %351, align 4
+  %353 = sub nsw i32 %352, %.289
+  store i32 %353, ptr %351, align 4
+  %354 = load ptr, ptr %6, align 8
+  %355 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %354, i64 %337, i32 9
+  %356 = load i32, ptr %355, align 4
+  %357 = add nsw i32 %356, %.289
+  store i32 %357, ptr %355, align 4
+  %358 = load ptr, ptr %6, align 8
+  %359 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %358, i64 %337, i32 3
+  %360 = load i32, ptr %359, align 4
+  %361 = add i32 %360, %.289
+  store i32 %361, ptr %359, align 4
+  br label %362
+
+362:                                              ; preds = %348, %347, %350
+  %363 = add nsw i32 %.0154, -1
+  %364 = icmp sgt i32 %.0154, 0
+  br i1 %364, label %.lr.ph155, label %.critedge6, !llvm.loop !348
+
+.critedge6:                                       ; preds = %.lr.ph155, %362, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit..critedge6_crit_edge", %334, %324, %316, %321, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit
+  %.pre-phi = phi i32 [ %.pre163, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit..critedge6_crit_edge" ], [ %308, %334 ], [ %308, %324 ], [ %308, %316 ], [ %308, %321 ], [ %308, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit ], [ %308, %362 ], [ %308, %.lr.ph155 ]
   %.not = icmp eq i32 %.pre-phi, %2
   br i1 %.not, label %._crit_edge, label %14, !llvm.loop !349
 
 ._crit_edge:                                      ; preds = %.critedge6, %7
-  %359 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
-  %360 = load ptr, ptr %8, align 8
-  %361 = icmp eq ptr %360, %9
-  br i1 %361, label %_ZN4llvm11SmallVectorIjLj16EED2Ev.exit, label %362
+  %365 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
+  %366 = load ptr, ptr %8, align 8
+  %367 = icmp eq ptr %366, %9
+  br i1 %367, label %_ZN4llvm11SmallVectorIjLj16EED2Ev.exit, label %368
 
-362:                                              ; preds = %._crit_edge
-  call void @free(ptr noundef %360) #18
+368:                                              ; preds = %._crit_edge
+  call void @free(ptr noundef %366) #18
   br label %_ZN4llvm11SmallVectorIjLj16EED2Ev.exit
 
-_ZN4llvm11SmallVectorIjLj16EED2Ev.exit:           ; preds = %._crit_edge, %362
+_ZN4llvm11SmallVectorIjLj16EED2Ev.exit:           ; preds = %._crit_edge, %368
   ret void
 }
 
@@ -12659,21 +12691,21 @@ define internal fastcc void @"_ZN5clang6formatL18AlignTokenSequenceIRZNS0_17Whit
   %7 = alloca %"class.llvm::SmallVector.202", align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %8, i64 noundef 16) #18
-  %.not48 = icmp eq i32 %1, %2
-  br i1 %.not48, label %._crit_edge, label %.lr.ph52
+  %.not45 = icmp eq i32 %1, %2
+  br i1 %.not45, label %._crit_edge, label %.lr.ph49
 
-.lr.ph52:                                         ; preds = %6
+.lr.ph49:                                         ; preds = %6
   %9 = add i32 %1, 1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 696
   br label %13
 
-13:                                               ; preds = %.lr.ph52, %.critedge6
-  %.08651 = phi i1 [ false, %.lr.ph52 ], [ %.2, %.critedge6 ]
-  %.08750 = phi i32 [ 0, %.lr.ph52 ], [ %.289, %.critedge6 ]
-  %.09049 = phi i32 [ %1, %.lr.ph52 ], [ %.pre-phi, %.critedge6 ]
-  %14 = zext i32 %.09049 to i64
+13:                                               ; preds = %.lr.ph49, %.critedge6
+  %.08648 = phi i1 [ false, %.lr.ph49 ], [ %.2, %.critedge6 ]
+  %.08747 = phi i32 [ 0, %.lr.ph49 ], [ %.289, %.critedge6 ]
+  %.09046 = phi i32 [ %1, %.lr.ph49 ], [ %.pre-phi, %.critedge6 ]
+  %14 = zext i32 %.09046 to i64
   %15 = load ptr, ptr %5, align 8
   %16 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %15, i64 %14
   %17 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #18
@@ -12727,7 +12759,7 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %46, 
   br label %.critedge
 
 .critedge:                                        ; preds = %46, %42, %13, %_ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread
-  %51 = add i32 %.09049, -1
+  %51 = add i32 %.09046, -1
   %52 = icmp ugt i32 %51, %1
   br i1 %52, label %.lr.ph, label %.critedge2
 
@@ -12736,8 +12768,8 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %46, 
   br label %54
 
 54:                                               ; preds = %.lr.ph, %61
-  %.09142 = phi i32 [ %51, %.lr.ph ], [ %62, %61 ]
-  %55 = zext i32 %.09142 to i64
+  %.09139 = phi i32 [ %51, %.lr.ph ], [ %62, %61 ]
+  %55 = zext i32 %.09139 to i64
   %56 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %53, i64 %55
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
@@ -12746,13 +12778,13 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %46, 
   br i1 %60, label %61, label %.critedge2
 
 61:                                               ; preds = %54
-  %62 = add i32 %.09142, -1
+  %62 = add i32 %.09139, -1
   %63 = icmp ugt i32 %62, %1
   br i1 %63, label %54, label %.critedge2, !llvm.loop !380
 
 .critedge2:                                       ; preds = %54, %61, %.critedge
-  %.091.lcssa = phi i32 [ %51, %.critedge ], [ %1, %61 ], [ %.09142, %54 ]
-  %.not95 = icmp eq i32 %.09049, %1
+  %.091.lcssa = phi i32 [ %51, %.critedge ], [ %1, %61 ], [ %.09139, %54 ]
+  %.not95 = icmp eq i32 %.09046, %1
   br i1 %.not95, label %.critedge4, label %64
 
 64:                                               ; preds = %.critedge2
@@ -12805,7 +12837,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
   %94 = load ptr, ptr %7, align 8
   %95 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #18
   %96 = getelementptr inbounds i32, ptr %94, i64 %95
-  store i32 %.09049, ptr %96, align 1
+  store i32 %.09046, ptr %96, align 1
   %97 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #18
   %98 = add i64 %97, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %98) #18
@@ -12814,7 +12846,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
 .critedge4:                                       ; preds = %87, %83, %.critedge2, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit
   %99 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #18
   %100 = icmp ne i64 %99, 0
-  %101 = icmp ugt i32 %.09049, %1
+  %101 = icmp ugt i32 %.09046, %1
   br i1 %101, label %102, label %115
 
 102:                                              ; preds = %.critedge4
@@ -12841,8 +12873,8 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
   %119 = load i32, ptr %118, align 8
   %.not96 = icmp eq i32 %119, 0
   %120 = or i1 %117, %.not96
-  %.188 = select i1 %120, i32 %.08750, i32 0
-  %.1 = and i1 %120, %.08651
+  %.188 = select i1 %120, i32 %.08747, i32 0
+  %.1 = and i1 %120, %.08648
   %brmerge = or i1 %117, %.1
   br i1 %brmerge, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread", label %121
 
@@ -12890,373 +12922,384 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
   br i1 %.not35, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread", label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread27"
 
 "_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread27": ; preds = %126, %135, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit"
-  %148 = getelementptr inbounds nuw i8, ptr %16, i64 108
-  %149 = load i32, ptr %148, align 4
-  %150 = select i1 %4, i32 %149, i32 0
-  %151 = getelementptr inbounds nuw i8, ptr %16, i64 20
-  %152 = load i32, ptr %151, align 4
-  %153 = add i32 %152, %150
-  %154 = sub i32 %3, %153
-  %155 = getelementptr inbounds nuw i8, ptr %16, i64 100
-  %156 = load i32, ptr %155, align 4
-  %157 = add nsw i32 %154, %156
-  store i32 %157, ptr %155, align 4
-  %158 = load i32, ptr %118, align 8
-  %159 = icmp eq i32 %158, 0
-  br i1 %159, label %160, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread"
+  br i1 %4, label %148, label %151
 
-160:                                              ; preds = %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread27"
-  %161 = load ptr, ptr %16, align 8
-  %162 = getelementptr inbounds nuw i8, ptr %161, i64 92
-  %163 = load i32, ptr %162, align 4
-  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %157, i32 %163)
-  store i32 %.sroa.speculated, ptr %155, align 4
+148:                                              ; preds = %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread27"
+  %149 = getelementptr inbounds nuw i8, ptr %16, i64 108
+  %150 = load i32, ptr %149, align 4
+  br label %151
+
+151:                                              ; preds = %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread27", %148
+  %152 = phi i32 [ %150, %148 ], [ 0, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread27" ]
+  %153 = getelementptr inbounds nuw i8, ptr %16, i64 20
+  %154 = load i32, ptr %153, align 4
+  %155 = add i32 %152, %154
+  %156 = sub i32 %3, %155
+  %157 = getelementptr inbounds nuw i8, ptr %16, i64 100
+  %158 = load i32, ptr %157, align 4
+  %159 = add nsw i32 %158, %156
+  store i32 %159, ptr %157, align 4
+  %160 = load i32, ptr %118, align 8
+  %161 = icmp eq i32 %160, 0
+  br i1 %161, label %162, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread"
+
+162:                                              ; preds = %151
+  %163 = load ptr, ptr %16, align 8
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 92
+  %165 = load i32, ptr %164, align 4
+  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %159, i32 %165)
+  store i32 %.sroa.speculated, ptr %157, align 4
   br label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread"
 
-"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread": ; preds = %130, %132, %121, %115, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread27", %160, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit"
-  %.289 = phi i32 [ %.188, %115 ], [ %154, %160 ], [ %154, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread27" ], [ %.188, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit" ], [ %.188, %121 ], [ %.188, %132 ], [ %.188, %130 ]
-  %.2 = phi i1 [ %.1, %115 ], [ true, %160 ], [ true, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread27" ], [ false, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit" ], [ false, %121 ], [ false, %132 ], [ false, %130 ]
-  %164 = icmp eq i32 %.289, 0
-  br i1 %164, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread..critedge6_crit_edge", label %165
+"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread": ; preds = %130, %132, %121, %115, %151, %162, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit"
+  %.289 = phi i32 [ %.188, %115 ], [ %156, %162 ], [ %156, %151 ], [ %.188, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit" ], [ %.188, %121 ], [ %.188, %132 ], [ %.188, %130 ]
+  %.2 = phi i1 [ %.1, %115 ], [ true, %162 ], [ true, %151 ], [ false, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit" ], [ false, %121 ], [ false, %132 ], [ false, %130 ]
+  %166 = icmp eq i32 %.289, 0
+  br i1 %166, label %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread..critedge6_crit_edge", label %167
 
 "_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread..critedge6_crit_edge": ; preds = %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread"
-  %.pre58 = add i32 %.09049, 1
+  %.pre50 = add i32 %.09046, 1
   br label %.critedge6
 
-165:                                              ; preds = %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread"
-  %166 = load i32, ptr %118, align 8
-  %.not97 = icmp ne i32 %166, 0
-  %or.cond.not = select i1 %100, i1 %.not97, i1 false
-  br i1 %or.cond.not, label %167, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread30"
+167:                                              ; preds = %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread"
+  br i1 %100, label %168, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread30"
 
-167:                                              ; preds = %165
-  %168 = load ptr, ptr %7, align 8
-  %169 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #18
-  %170 = getelementptr inbounds i32, ptr %168, i64 %169
-  %171 = getelementptr inbounds i8, ptr %170, i64 -4
-  %172 = load i32, ptr %171, align 4
-  %173 = add i32 %172, -1
-  %174 = zext i32 %173 to i64
-  %175 = load ptr, ptr %5, align 8
-  %176 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %175, i64 %174
-  %177 = load ptr, ptr %176, align 8
-  %178 = getelementptr inbounds nuw i8, ptr %177, i64 67
-  %179 = load i8, ptr %178, align 1
-  switch i8 %179, label %180 [
+168:                                              ; preds = %167
+  %169 = load i32, ptr %118, align 8
+  %.not97 = icmp eq i32 %169, 0
+  br i1 %.not97, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread30", label %170
+
+170:                                              ; preds = %168
+  %171 = load ptr, ptr %7, align 8
+  %172 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #18
+  %173 = getelementptr inbounds i32, ptr %171, i64 %172
+  %174 = getelementptr inbounds i8, ptr %173, i64 -4
+  %175 = load i32, ptr %174, align 4
+  %176 = add i32 %175, -1
+  %177 = zext i32 %176 to i64
+  %178 = load ptr, ptr %5, align 8
+  %179 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %178, i64 %177
+  %180 = load ptr, ptr %179, align 8
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 67
+  %182 = load i8, ptr %181, align 1
+  switch i8 %182, label %183 [
     i8 46, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread"
     i8 72, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread30"
   ]
 
-180:                                              ; preds = %167
-  %181 = icmp ugt i32 %172, %9
-  br i1 %181, label %182, label %229
+183:                                              ; preds = %170
+  %184 = icmp ugt i32 %175, %9
+  br i1 %184, label %185, label %232
 
-182:                                              ; preds = %180
-  %183 = add i32 %172, -2
-  %184 = zext i32 %183 to i64
-  %185 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %175, i64 %184
-  %186 = load ptr, ptr %185, align 8
-  %187 = getelementptr inbounds nuw i8, ptr %186, i64 67
-  %188 = load i8, ptr %187, align 1
-  %189 = icmp eq i8 %188, 46
-  br i1 %189, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %190
+185:                                              ; preds = %183
+  %186 = add i32 %175, -2
+  %187 = zext i32 %186 to i64
+  %188 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %178, i64 %187
+  %189 = load ptr, ptr %188, align 8
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 67
+  %191 = load i8, ptr %190, align 1
+  %192 = icmp eq i8 %191, 46
+  br i1 %192, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %193
 
-190:                                              ; preds = %182
-  %191 = getelementptr inbounds nuw i8, ptr %186, i64 16
-  %192 = load i16, ptr %191, align 8
-  %193 = icmp eq i16 %192, 5
-  %194 = icmp eq i8 %188, -120
-  %195 = or i1 %194, %193
-  br i1 %195, label %196, label %229
+193:                                              ; preds = %185
+  %194 = getelementptr inbounds nuw i8, ptr %189, i64 16
+  %195 = load i16, ptr %194, align 8
+  %196 = icmp eq i16 %195, 5
+  %197 = icmp eq i8 %191, -120
+  %198 = or i1 %197, %196
+  br i1 %198, label %199, label %232
 
-196:                                              ; preds = %190
-  %197 = getelementptr inbounds nuw i8, ptr %177, i64 16
-  %198 = load i16, ptr %197, align 8
-  %199 = icmp eq i16 %198, 22
-  br i1 %199, label %200, label %229
+199:                                              ; preds = %193
+  %200 = getelementptr inbounds nuw i8, ptr %180, i64 16
+  %201 = load i16, ptr %200, align 8
+  %202 = icmp eq i16 %201, 22
+  br i1 %202, label %203, label %232
 
-200:                                              ; preds = %196
-  %201 = zext i32 %172 to i64
-  %202 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %175, i64 %201
-  %203 = load ptr, ptr %202, align 8
-  %204 = getelementptr inbounds nuw i8, ptr %203, i64 67
-  %205 = load i8, ptr %204, align 1
-  %.not21.i = icmp eq i8 %205, 73
-  br i1 %.not21.i, label %229, label %206
+203:                                              ; preds = %199
+  %204 = zext i32 %175 to i64
+  %205 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %178, i64 %204
+  %206 = load ptr, ptr %205, align 8
+  %207 = getelementptr inbounds nuw i8, ptr %206, i64 67
+  %208 = load i8, ptr %207, align 1
+  %.not21.i = icmp eq i8 %208, 73
+  br i1 %.not21.i, label %232, label %209
 
-206:                                              ; preds = %200
-  %207 = load ptr, ptr %16, align 8
-  %208 = getelementptr inbounds nuw i8, ptr %207, i64 200
-  %209 = load ptr, ptr %208, align 8
-  %.not13.i = icmp eq ptr %209, null
-  br i1 %.not13.i, label %214, label %210
+209:                                              ; preds = %203
+  %210 = load ptr, ptr %16, align 8
+  %211 = getelementptr inbounds nuw i8, ptr %210, i64 200
+  %212 = load ptr, ptr %211, align 8
+  %.not13.i = icmp eq ptr %212, null
+  br i1 %.not13.i, label %217, label %213
 
-210:                                              ; preds = %206
-  %211 = getelementptr inbounds nuw i8, ptr %209, i64 67
-  %212 = load i8, ptr %211, align 1
-  %213 = icmp eq i8 %212, 72
-  br i1 %213, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread30", label %214
+213:                                              ; preds = %209
+  %214 = getelementptr inbounds nuw i8, ptr %212, i64 67
+  %215 = load i8, ptr %214, align 1
+  %216 = icmp eq i8 %215, 72
+  br i1 %216, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread30", label %217
 
-214:                                              ; preds = %210, %206
-  %215 = getelementptr inbounds nuw i8, ptr %202, i64 24
-  %216 = load i32, ptr %215, align 8
-  %.not14.i = icmp eq i32 %216, 0
-  br i1 %.not14.i, label %217, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread30"
+217:                                              ; preds = %213, %209
+  %218 = getelementptr inbounds nuw i8, ptr %205, i64 24
+  %219 = load i32, ptr %218, align 8
+  %.not14.i = icmp eq i32 %219, 0
+  br i1 %.not14.i, label %220, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread30"
 
-217:                                              ; preds = %214
-  %218 = getelementptr inbounds nuw i8, ptr %207, i64 16
-  %219 = load i16, ptr %218, align 8
-  %220 = icmp eq i16 %219, 24
-  br i1 %220, label %221, label %226
+220:                                              ; preds = %217
+  %221 = getelementptr inbounds nuw i8, ptr %210, i64 16
+  %222 = load i16, ptr %221, align 8
+  %223 = icmp eq i16 %222, 24
+  br i1 %223, label %224, label %229
 
-221:                                              ; preds = %217
-  %222 = getelementptr inbounds nuw i8, ptr %207, i64 65
-  %223 = load i16, ptr %222, align 1
-  %224 = and i16 %223, 384
-  %225 = icmp eq i16 %224, 256
-  br i1 %225, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %226
+224:                                              ; preds = %220
+  %225 = getelementptr inbounds nuw i8, ptr %210, i64 65
+  %226 = load i16, ptr %225, align 1
+  %227 = and i16 %226, 384
+  %228 = icmp eq i16 %227, 256
+  br i1 %228, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %229
 
-226:                                              ; preds = %221, %217
-  %227 = load i8, ptr %10, align 8
-  %228 = trunc i8 %227 to i1
-  br i1 %228, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread30"
+229:                                              ; preds = %224, %220
+  %230 = load i8, ptr %10, align 8
+  %231 = trunc i8 %230 to i1
+  br i1 %231, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread30"
 
-229:                                              ; preds = %200, %196, %190, %180
-  %230 = load ptr, ptr %16, align 8
-  %231 = getelementptr inbounds nuw i8, ptr %230, i64 67
-  %232 = load i8, ptr %231, align 1
-  switch i8 %232, label %233 [
+232:                                              ; preds = %203, %199, %193, %183
+  %233 = load ptr, ptr %16, align 8
+  %234 = getelementptr inbounds nuw i8, ptr %233, i64 67
+  %235 = load i8, ptr %234, align 1
+  switch i8 %235, label %236 [
     i8 17, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread"
     i8 36, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread"
   ]
 
-233:                                              ; preds = %229
-  %234 = getelementptr inbounds nuw i8, ptr %230, i64 208
-  %235 = load ptr, ptr %234, align 8
-  %.not.i110 = icmp eq ptr %235, null
-  br i1 %.not.i110, label %240, label %236
+236:                                              ; preds = %232
+  %237 = getelementptr inbounds nuw i8, ptr %233, i64 208
+  %238 = load ptr, ptr %237, align 8
+  %.not.i106 = icmp eq ptr %238, null
+  br i1 %.not.i106, label %243, label %239
 
-236:                                              ; preds = %233
-  %237 = getelementptr inbounds nuw i8, ptr %235, i64 67
-  %238 = load i8, ptr %237, align 1
-  %239 = icmp eq i8 %238, 17
-  br i1 %239, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %240
+239:                                              ; preds = %236
+  %240 = getelementptr inbounds nuw i8, ptr %238, i64 67
+  %241 = load i8, ptr %240, align 1
+  %242 = icmp eq i8 %241, 17
+  br i1 %242, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %243
 
-240:                                              ; preds = %236, %233
-  br i1 %181, label %241, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
+243:                                              ; preds = %239, %236
+  br i1 %184, label %244, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
 
-241:                                              ; preds = %240
-  %242 = add i32 %172, -2
-  %243 = zext i32 %242 to i64
-  %244 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %175, i64 %243
-  %245 = load ptr, ptr %244, align 8
-  %246 = getelementptr inbounds nuw i8, ptr %245, i64 16
-  %247 = load i16, ptr %246, align 8
-  %248 = icmp eq i16 %247, 5
-  %249 = getelementptr inbounds nuw i8, ptr %177, i64 16
+244:                                              ; preds = %243
+  %245 = add i32 %175, -2
+  %246 = zext i32 %245 to i64
+  %247 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %178, i64 %246
+  %248 = load ptr, ptr %247, align 8
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 16
   %250 = load i16, ptr %249, align 8
-  %251 = icmp eq i16 %250, 24
-  br i1 %248, label %252, label %263
+  %251 = icmp eq i16 %250, 5
+  %252 = getelementptr inbounds nuw i8, ptr %180, i64 16
+  %253 = load i16, ptr %252, align 8
+  %254 = icmp eq i16 %253, 24
+  br i1 %251, label %255, label %266
 
-252:                                              ; preds = %241
-  br i1 %251, label %253, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
+255:                                              ; preds = %244
+  br i1 %254, label %256, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
 
-253:                                              ; preds = %252
-  %254 = getelementptr inbounds nuw i8, ptr %230, i64 16
-  %255 = load i16, ptr %254, align 8
-  %256 = icmp eq i16 %255, 24
-  br i1 %256, label %257, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
+256:                                              ; preds = %255
+  %257 = getelementptr inbounds nuw i8, ptr %233, i64 16
+  %258 = load i16, ptr %257, align 8
+  %259 = icmp eq i16 %258, 24
+  br i1 %259, label %260, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
 
-257:                                              ; preds = %253
-  %258 = getelementptr inbounds nuw i8, ptr %230, i64 65
-  %259 = load i16, ptr %258, align 1
-  %260 = and i16 %259, 384
-  %261 = icmp eq i16 %260, 256
-  %262 = icmp eq i8 %179, -119
-  %or.cond34 = or i1 %262, %261
+260:                                              ; preds = %256
+  %261 = getelementptr inbounds nuw i8, ptr %233, i64 65
+  %262 = load i16, ptr %261, align 1
+  %263 = and i16 %262, 384
+  %264 = icmp eq i16 %263, 256
+  %265 = icmp eq i8 %182, -119
+  %or.cond34 = or i1 %265, %264
   br i1 %or.cond34, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread30"
 
-263:                                              ; preds = %241
-  br i1 %251, label %264, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
+266:                                              ; preds = %244
+  br i1 %254, label %267, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
 
-264:                                              ; preds = %263
-  %265 = getelementptr inbounds nuw i8, ptr %230, i64 16
-  %266 = load i16, ptr %265, align 8
-  %.not23.i = icmp eq i16 %266, 25
-  br i1 %.not23.i, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit", label %267
+267:                                              ; preds = %266
+  %268 = getelementptr inbounds nuw i8, ptr %233, i64 16
+  %269 = load i16, ptr %268, align 8
+  %.not23.i = icmp eq i16 %269, 25
+  br i1 %.not23.i, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit", label %270
 
-267:                                              ; preds = %264
-  %268 = load ptr, ptr %7, align 8, !noalias !393
-  %269 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #18, !noalias !393
-  %270 = getelementptr inbounds i32, ptr %268, i64 %269
-  %271 = load ptr, ptr %7, align 8, !noalias !404
-  %.not2425.i = icmp eq ptr %270, %271
+270:                                              ; preds = %267
+  %271 = load ptr, ptr %7, align 8, !noalias !393
+  %272 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #18, !noalias !393
+  %273 = getelementptr inbounds i32, ptr %271, i64 %272
+  %274 = load ptr, ptr %7, align 8, !noalias !404
+  %.not2425.i = icmp eq ptr %273, %274
   %.pre = load ptr, ptr %5, align 8
   br i1 %.not2425.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %267, %283
-  %.sroa.016.026.i = phi ptr [ %272, %283 ], [ %270, %267 ]
-  %272 = getelementptr inbounds i8, ptr %.sroa.016.026.i, i64 -4
-  %273 = load i32, ptr %272, align 4
-  %274 = icmp ugt i32 %273, %1
-  br i1 %274, label %275, label %283
+.lr.ph.i:                                         ; preds = %270, %286
+  %.sroa.016.026.i = phi ptr [ %275, %286 ], [ %273, %270 ]
+  %275 = getelementptr inbounds i8, ptr %.sroa.016.026.i, i64 -4
+  %276 = load i32, ptr %275, align 4
+  %277 = icmp ugt i32 %276, %1
+  br i1 %277, label %278, label %286
 
-275:                                              ; preds = %.lr.ph.i
-  %276 = add i32 %273, -1
-  %277 = zext i32 %276 to i64
-  %278 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %.pre, i64 %277
-  %279 = load ptr, ptr %278, align 8
-  %280 = getelementptr inbounds nuw i8, ptr %279, i64 67
-  %281 = load i8, ptr %280, align 1
-  %282 = icmp eq i8 %281, 72
-  br i1 %282, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread30", label %283
+278:                                              ; preds = %.lr.ph.i
+  %279 = add i32 %276, -1
+  %280 = zext i32 %279 to i64
+  %281 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %.pre, i64 %280
+  %282 = load ptr, ptr %281, align 8
+  %283 = getelementptr inbounds nuw i8, ptr %282, i64 67
+  %284 = load i8, ptr %283, align 1
+  %285 = icmp eq i8 %284, 72
+  br i1 %285, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread30", label %286
 
-283:                                              ; preds = %275, %.lr.ph.i
-  %.not24.i = icmp eq ptr %272, %271
+286:                                              ; preds = %278, %.lr.ph.i
+  %.not24.i = icmp eq ptr %275, %274
   br i1 %.not24.i, label %._crit_edge.i, label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %283, %267
-  %284 = zext i32 %172 to i64
-  %285 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %.pre, i64 %284, i32 4
-  %286 = load i32, ptr %285, align 8
-  %.not12.i = icmp eq i32 %286, 0
+._crit_edge.i:                                    ; preds = %286, %270
+  %287 = zext i32 %175 to i64
+  %288 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %.pre, i64 %287, i32 4
+  %289 = load i32, ptr %288, align 8
+  %.not12.i = icmp eq i32 %289, 0
   br i1 %.not12.i, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread30"
 
-"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit": ; preds = %240, %252, %253, %263, %264
-  %.old = icmp eq i8 %179, -119
+"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit": ; preds = %243, %255, %256, %266, %267
+  %.old = icmp eq i8 %182, -119
   br i1 %.old, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread30"
 
-"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread": ; preds = %257, %236, %229, %229, %221, %182, %167, %._crit_edge.i, %226, %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
-  %287 = getelementptr inbounds nuw i8, ptr %16, i64 100
-  %288 = load i32, ptr %287, align 4
-  %289 = add nsw i32 %288, %.289
-  store i32 %289, ptr %287, align 4
+"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread": ; preds = %260, %239, %232, %232, %224, %185, %170, %._crit_edge.i, %229, %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
+  %290 = getelementptr inbounds nuw i8, ptr %16, i64 100
+  %291 = load i32, ptr %290, align 4
+  %292 = add nsw i32 %291, %.289
+  store i32 %292, ptr %290, align 4
   br label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread30"
 
-"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread30": ; preds = %275, %257, %167, %214, %210, %._crit_edge.i, %226, %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit", %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", %165
-  br i1 %116, label %290, label %294
+"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread30": ; preds = %278, %260, %170, %217, %213, %._crit_edge.i, %229, %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit", %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", %168, %167
+  br i1 %116, label %293, label %297
 
-290:                                              ; preds = %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread30"
-  %291 = getelementptr inbounds nuw i8, ptr %16, i64 100
-  %292 = load i32, ptr %291, align 4
-  %293 = add nsw i32 %292, %.289
-  store i32 %293, ptr %291, align 4
-  br label %294
+293:                                              ; preds = %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread30"
+  %294 = getelementptr inbounds nuw i8, ptr %16, i64 100
+  %295 = load i32, ptr %294, align 4
+  %296 = add nsw i32 %295, %.289
+  store i32 %296, ptr %294, align 4
+  br label %297
 
-294:                                              ; preds = %290, %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread30"
-  %295 = getelementptr inbounds nuw i8, ptr %16, i64 20
-  %296 = load i32, ptr %295, align 4
-  %297 = add i32 %296, %.289
-  store i32 %297, ptr %295, align 4
-  %298 = add i32 %.09049, 1
-  %299 = zext i32 %298 to i64
-  %300 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #18
-  %.not98 = icmp eq i64 %300, %299
-  br i1 %.not98, label %306, label %301
+297:                                              ; preds = %293, %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread30"
+  %298 = getelementptr inbounds nuw i8, ptr %16, i64 20
+  %299 = load i32, ptr %298, align 4
+  %300 = add i32 %299, %.289
+  store i32 %300, ptr %298, align 4
+  %301 = add i32 %.09046, 1
+  %302 = zext i32 %301 to i64
+  %303 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #18
+  %.not98 = icmp eq i64 %303, %302
+  br i1 %.not98, label %309, label %304
 
-301:                                              ; preds = %294
-  %302 = load ptr, ptr %5, align 8
-  %303 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %302, i64 %299, i32 13
-  %304 = load i32, ptr %303, align 8
-  %305 = add i32 %304, %.289
-  store i32 %305, ptr %303, align 8
-  br label %306
+304:                                              ; preds = %297
+  %305 = load ptr, ptr %5, align 8
+  %306 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %305, i64 %302, i32 13
+  %307 = load i32, ptr %306, align 8
+  %308 = add i32 %307, %.289
+  store i32 %308, ptr %306, align 8
+  br label %309
 
-306:                                              ; preds = %301, %294
-  %307 = load i8, ptr %11, align 8
-  %308 = icmp ne i8 %307, 1
-  %309 = load i8, ptr %12, align 8
-  %310 = icmp ne i8 %309, 2
-  %or.cond106.not38 = select i1 %308, i1 %310, i1 false
-  %311 = getelementptr inbounds nuw i8, ptr %16, i64 100
-  %312 = load i32, ptr %311, align 4
-  %.not99 = icmp eq i32 %312, 0
-  %or.cond108 = select i1 %or.cond106.not38, i1 true, i1 %.not99
-  br i1 %or.cond108, label %.critedge6, label %313
+309:                                              ; preds = %304, %297
+  %310 = load i8, ptr %11, align 8
+  %311 = icmp eq i8 %310, 1
+  %312 = load i8, ptr %12, align 8
+  %313 = icmp eq i8 %312, 2
+  %or.cond = select i1 %311, i1 true, i1 %313
+  br i1 %or.cond, label %314, label %.critedge6
 
-313:                                              ; preds = %306
-  %314 = load ptr, ptr %16, align 8
-  %315 = getelementptr inbounds nuw i8, ptr %314, i64 16
-  %316 = load i16, ptr %315, align 8
-  %317 = icmp eq i16 %316, 64
-  br i1 %317, label %.critedge6, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit
+314:                                              ; preds = %309
+  %315 = getelementptr inbounds nuw i8, ptr %16, i64 100
+  %316 = load i32, ptr %315, align 4
+  %.not99 = icmp eq i32 %316, 0
+  br i1 %.not99, label %.critedge6, label %317
 
-_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit: ; preds = %313
-  %318 = icmp ne i16 %316, 23
-  %319 = getelementptr inbounds nuw i8, ptr %314, i64 67
-  %320 = load i8, ptr %319, align 1
-  %321 = icmp ne i8 %320, -120
-  %.not57 = select i1 %318, i1 %321, i1 false
-  %322 = icmp sgt i32 %51, -1
-  %or.cond = and i1 %.not57, %322
-  br i1 %or.cond, label %.lr.ph46, label %.critedge6
+317:                                              ; preds = %314
+  %318 = load ptr, ptr %16, align 8
+  %319 = getelementptr inbounds nuw i8, ptr %318, i64 16
+  %320 = load i16, ptr %319, align 8
+  %321 = icmp eq i16 %320, 64
+  br i1 %321, label %.critedge6, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit
 
-.lr.ph46:                                         ; preds = %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit, %348
-  %.045 = phi i32 [ %349, %348 ], [ %51, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit ]
-  %323 = zext nneg i32 %.045 to i64
-  %324 = load ptr, ptr %5, align 8
-  %325 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %324, i64 %323
-  %326 = load ptr, ptr %325, align 8
-  %327 = getelementptr inbounds nuw i8, ptr %326, i64 67
-  %328 = load i8, ptr %327, align 1
-  %329 = icmp eq i8 %328, 96
-  br i1 %329, label %330, label %.critedge6
+_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit: ; preds = %317
+  %322 = icmp eq i16 %320, 23
+  %323 = getelementptr inbounds nuw i8, ptr %318, i64 67
+  %324 = load i8, ptr %323, align 1
+  %325 = icmp eq i8 %324, -120
+  %326 = select i1 %322, i1 true, i1 %325
+  br i1 %326, label %.critedge6, label %327
 
-330:                                              ; preds = %.lr.ph46
-  %331 = getelementptr inbounds nuw i8, ptr %326, i64 16
-  %332 = load i16, ptr %331, align 8
-  %.not39 = icmp eq i16 %332, 31
-  br i1 %.not39, label %334, label %333
+327:                                              ; preds = %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit
+  %328 = icmp ne i8 %312, 0
+  %spec.select105 = xor i1 %313, %328
+  %329 = icmp sgt i32 %51, -1
+  br i1 %329, label %.lr.ph43, label %.critedge6
 
-333:                                              ; preds = %330
-  switch i8 %309, label %348 [
-    i8 2, label %336
-    i8 0, label %336
-  ]
+.lr.ph43:                                         ; preds = %327, %355
+  %.042 = phi i32 [ %356, %355 ], [ %51, %327 ]
+  %330 = zext nneg i32 %.042 to i64
+  %331 = load ptr, ptr %5, align 8
+  %332 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %331, i64 %330
+  %333 = load ptr, ptr %332, align 8
+  %334 = getelementptr inbounds nuw i8, ptr %333, i64 67
+  %335 = load i8, ptr %334, align 1
+  %336 = icmp eq i8 %335, 96
+  br i1 %336, label %337, label %.critedge6
 
-334:                                              ; preds = %330
-  %335 = load i8, ptr %11, align 8
-  %.not101 = icmp eq i8 %335, 1
-  br i1 %.not101, label %336, label %348
+337:                                              ; preds = %.lr.ph43
+  %338 = getelementptr inbounds nuw i8, ptr %333, i64 16
+  %339 = load i16, ptr %338, align 8
+  %.not36 = icmp eq i16 %339, 31
+  br i1 %.not36, label %341, label %340
 
-336:                                              ; preds = %333, %333, %334
-  %337 = getelementptr inbounds i8, ptr %325, i64 236
-  %338 = load i32, ptr %337, align 4
-  %339 = sub nsw i32 %338, %.289
-  store i32 %339, ptr %337, align 4
-  %340 = load ptr, ptr %5, align 8
-  %341 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %340, i64 %323, i32 9
-  %342 = load i32, ptr %341, align 4
-  %343 = add nsw i32 %342, %.289
-  store i32 %343, ptr %341, align 4
-  %344 = load ptr, ptr %5, align 8
-  %345 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %344, i64 %323, i32 3
-  %346 = load i32, ptr %345, align 4
-  %347 = add i32 %346, %.289
-  store i32 %347, ptr %345, align 4
-  br label %348
+340:                                              ; preds = %337
+  br i1 %spec.select105, label %355, label %343
 
-348:                                              ; preds = %333, %334, %336
-  %349 = add nsw i32 %.045, -1
-  %350 = icmp sgt i32 %.045, 0
-  br i1 %350, label %.lr.ph46, label %.critedge6, !llvm.loop !413
+341:                                              ; preds = %337
+  %342 = load i8, ptr %11, align 8
+  %.not101 = icmp eq i8 %342, 1
+  br i1 %.not101, label %343, label %355
 
-.critedge6:                                       ; preds = %.lr.ph46, %348, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread..critedge6_crit_edge", %313, %306, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit
-  %.pre-phi = phi i32 [ %.pre58, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread..critedge6_crit_edge" ], [ %298, %313 ], [ %298, %306 ], [ %298, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit ], [ %298, %348 ], [ %298, %.lr.ph46 ]
+343:                                              ; preds = %341, %340
+  %344 = getelementptr inbounds i8, ptr %332, i64 236
+  %345 = load i32, ptr %344, align 4
+  %346 = sub nsw i32 %345, %.289
+  store i32 %346, ptr %344, align 4
+  %347 = load ptr, ptr %5, align 8
+  %348 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %347, i64 %330, i32 9
+  %349 = load i32, ptr %348, align 4
+  %350 = add nsw i32 %349, %.289
+  store i32 %350, ptr %348, align 4
+  %351 = load ptr, ptr %5, align 8
+  %352 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %351, i64 %330, i32 3
+  %353 = load i32, ptr %352, align 4
+  %354 = add i32 %353, %.289
+  store i32 %354, ptr %352, align 4
+  br label %355
+
+355:                                              ; preds = %341, %340, %343
+  %356 = add nsw i32 %.042, -1
+  %357 = icmp sgt i32 %.042, 0
+  br i1 %357, label %.lr.ph43, label %.critedge6, !llvm.loop !413
+
+.critedge6:                                       ; preds = %.lr.ph43, %355, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread..critedge6_crit_edge", %327, %317, %309, %314, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit
+  %.pre-phi = phi i32 [ %.pre50, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread..critedge6_crit_edge" ], [ %301, %327 ], [ %301, %317 ], [ %301, %309 ], [ %301, %314 ], [ %301, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit ], [ %301, %355 ], [ %301, %.lr.ph43 ]
   %.not = icmp eq i32 %.pre-phi, %2
   br i1 %.not, label %._crit_edge, label %13, !llvm.loop !414
 
 ._crit_edge:                                      ; preds = %.critedge6, %6
-  %351 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #18
-  %352 = load ptr, ptr %7, align 8
-  %353 = icmp eq ptr %352, %8
-  br i1 %353, label %_ZN4llvm11SmallVectorIjLj16EED2Ev.exit, label %354
+  %358 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #18
+  %359 = load ptr, ptr %7, align 8
+  %360 = icmp eq ptr %359, %8
+  br i1 %360, label %_ZN4llvm11SmallVectorIjLj16EED2Ev.exit, label %361
 
-354:                                              ; preds = %._crit_edge
-  call void @free(ptr noundef %352) #18
+361:                                              ; preds = %._crit_edge
+  call void @free(ptr noundef %359) #18
   br label %_ZN4llvm11SmallVectorIjLj16EED2Ev.exit
 
-_ZN4llvm11SmallVectorIjLj16EED2Ev.exit:           ; preds = %._crit_edge, %354
+_ZN4llvm11SmallVectorIjLj16EED2Ev.exit:           ; preds = %._crit_edge, %361
   ret void
 }
 
@@ -13694,21 +13737,21 @@ define internal fastcc void @"_ZN5clang6formatL18AlignTokenSequenceIRZNS0_17Whit
   %8 = alloca %"class.llvm::SmallVector.202", align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %9, i64 noundef 16) #18
-  %.not154 = icmp eq i32 %1, %2
-  br i1 %.not154, label %._crit_edge, label %.lr.ph158
+  %.not147 = icmp eq i32 %1, %2
+  br i1 %.not147, label %._crit_edge, label %.lr.ph151
 
-.lr.ph158:                                        ; preds = %7
+.lr.ph151:                                        ; preds = %7
   %10 = add i32 %1, 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 696
   br label %14
 
-14:                                               ; preds = %.lr.ph158, %.critedge6
-  %.086157 = phi i1 [ false, %.lr.ph158 ], [ %.2, %.critedge6 ]
-  %.087156 = phi i32 [ 0, %.lr.ph158 ], [ %.289, %.critedge6 ]
-  %.090155 = phi i32 [ %1, %.lr.ph158 ], [ %.pre-phi, %.critedge6 ]
-  %15 = zext i32 %.090155 to i64
+14:                                               ; preds = %.lr.ph151, %.critedge6
+  %.086150 = phi i1 [ false, %.lr.ph151 ], [ %.2, %.critedge6 ]
+  %.087149 = phi i32 [ 0, %.lr.ph151 ], [ %.289, %.critedge6 ]
+  %.090148 = phi i32 [ %1, %.lr.ph151 ], [ %.pre-phi, %.critedge6 ]
+  %15 = zext i32 %.090148 to i64
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %16, i64 %15
   %18 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
@@ -13752,8 +13795,8 @@ define internal fastcc void @"_ZN5clang6formatL18AlignTokenSequenceIRZNS0_17Whit
 47:                                               ; preds = %45
   %48 = icmp uge i32 %40, %25
   %49 = icmp ult i32 %24, %39
-  %or.cond139 = select i1 %48, i1 %49, i1 false
-  br i1 %or.cond139, label %_ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread, label %.critedge
+  %or.cond135 = select i1 %48, i1 %49, i1 false
+  br i1 %or.cond135, label %_ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread, label %.critedge
 
 _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %47, %45, %19
   %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
@@ -13762,7 +13805,7 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %47, 
   br label %.critedge
 
 .critedge:                                        ; preds = %47, %43, %14, %_ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread
-  %52 = add i32 %.090155, -1
+  %52 = add i32 %.090148, -1
   %53 = icmp ugt i32 %52, %1
   br i1 %53, label %.lr.ph, label %.critedge2
 
@@ -13771,8 +13814,8 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %47, 
   br label %55
 
 55:                                               ; preds = %.lr.ph, %62
-  %.091148 = phi i32 [ %52, %.lr.ph ], [ %63, %62 ]
-  %56 = zext i32 %.091148 to i64
+  %.091141 = phi i32 [ %52, %.lr.ph ], [ %63, %62 ]
+  %56 = zext i32 %.091141 to i64
   %57 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %54, i64 %56
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
@@ -13781,13 +13824,13 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %47, 
   br i1 %61, label %62, label %.critedge2
 
 62:                                               ; preds = %55
-  %63 = add i32 %.091148, -1
+  %63 = add i32 %.091141, -1
   %64 = icmp ugt i32 %63, %1
   br i1 %64, label %55, label %.critedge2, !llvm.loop !445
 
 .critedge2:                                       ; preds = %55, %62, %.critedge
-  %.091.lcssa = phi i32 [ %52, %.critedge ], [ %1, %62 ], [ %.091148, %55 ]
-  %.not95 = icmp eq i32 %.090155, %1
+  %.091.lcssa = phi i32 [ %52, %.critedge ], [ %1, %62 ], [ %.091141, %55 ]
+  %.not95 = icmp eq i32 %.090148, %1
   br i1 %.not95, label %.critedge4, label %65
 
 65:                                               ; preds = %.critedge2
@@ -13822,8 +13865,8 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %47, 
 88:                                               ; preds = %86
   %89 = icmp uge i32 %71, %81
   %90 = icmp ult i32 %80, %70
-  %or.cond140 = select i1 %89, i1 %90, i1 false
-  br i1 %or.cond140, label %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread, label %.critedge4
+  %or.cond136 = select i1 %89, i1 %90, i1 false
+  br i1 %or.cond136, label %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread, label %.critedge4
 
 _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %88, %86, %65
   %91 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
@@ -13840,7 +13883,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
   %95 = load ptr, ptr %8, align 8
   %96 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
   %97 = getelementptr inbounds i32, ptr %95, i64 %96
-  store i32 %.090155, ptr %97, align 1
+  store i32 %.090148, ptr %97, align 1
   %98 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
   %99 = add i64 %98, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 noundef %99) #18
@@ -13849,7 +13892,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
 .critedge4:                                       ; preds = %88, %84, %.critedge2, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit
   %100 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
   %101 = icmp ne i64 %100, 0
-  %102 = icmp ugt i32 %.090155, %1
+  %102 = icmp ugt i32 %.090148, %1
   br i1 %102, label %103, label %116
 
 103:                                              ; preds = %.critedge4
@@ -13876,384 +13919,395 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
   %120 = load i32, ptr %119, align 8
   %.not96 = icmp eq i32 %120, 0
   %121 = or i1 %118, %.not96
-  %.188 = select i1 %121, i32 %.087156, i32 0
-  %.1 = and i1 %121, %.086157
+  %.188 = select i1 %121, i32 %.087149, i32 0
+  %.1 = and i1 %121, %.086150
   %brmerge = or i1 %118, %.1
-  br i1 %brmerge, label %141, label %122
+  br i1 %brmerge, label %143, label %122
 
 122:                                              ; preds = %116
   %.val = load ptr, ptr %5, align 8
   %123 = call fastcc noundef zeroext i1 @"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_2clERKNS1_6ChangeE"(ptr %.val, ptr noundef nonnull align 8 dereferenceable(136) %17)
-  br i1 %123, label %124, label %141
+  br i1 %123, label %124, label %143
 
 124:                                              ; preds = %122
-  %125 = getelementptr inbounds nuw i8, ptr %17, i64 108
-  %126 = load i32, ptr %125, align 4
-  %127 = select i1 %4, i32 %126, i32 0
-  %128 = getelementptr inbounds nuw i8, ptr %17, i64 20
-  %129 = load i32, ptr %128, align 4
-  %130 = add i32 %129, %127
-  %131 = sub i32 %3, %130
-  %132 = getelementptr inbounds nuw i8, ptr %17, i64 100
-  %133 = load i32, ptr %132, align 4
-  %134 = add nsw i32 %131, %133
-  store i32 %134, ptr %132, align 4
-  %135 = load i32, ptr %119, align 8
-  %136 = icmp eq i32 %135, 0
-  br i1 %136, label %137, label %141
+  br i1 %4, label %125, label %128
 
-137:                                              ; preds = %124
-  %138 = load ptr, ptr %17, align 8
-  %139 = getelementptr inbounds nuw i8, ptr %138, i64 92
-  %140 = load i32, ptr %139, align 4
-  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %134, i32 %140)
-  store i32 %.sroa.speculated, ptr %132, align 4
-  br label %141
+125:                                              ; preds = %124
+  %126 = getelementptr inbounds nuw i8, ptr %17, i64 108
+  %127 = load i32, ptr %126, align 4
+  br label %128
 
-141:                                              ; preds = %116, %124, %137, %122
-  %.289 = phi i32 [ %.188, %116 ], [ %131, %137 ], [ %131, %124 ], [ %.188, %122 ]
-  %.2 = phi i1 [ %.1, %116 ], [ true, %137 ], [ true, %124 ], [ false, %122 ]
-  %142 = icmp eq i32 %.289, 0
-  br i1 %142, label %..critedge6_crit_edge, label %143
+128:                                              ; preds = %124, %125
+  %129 = phi i32 [ %127, %125 ], [ 0, %124 ]
+  %130 = getelementptr inbounds nuw i8, ptr %17, i64 20
+  %131 = load i32, ptr %130, align 4
+  %132 = add i32 %129, %131
+  %133 = sub i32 %3, %132
+  %134 = getelementptr inbounds nuw i8, ptr %17, i64 100
+  %135 = load i32, ptr %134, align 4
+  %136 = add nsw i32 %135, %133
+  store i32 %136, ptr %134, align 4
+  %137 = load i32, ptr %119, align 8
+  %138 = icmp eq i32 %137, 0
+  br i1 %138, label %139, label %143
 
-..critedge6_crit_edge:                            ; preds = %141
-  %.pre164 = add i32 %.090155, 1
+139:                                              ; preds = %128
+  %140 = load ptr, ptr %17, align 8
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 92
+  %142 = load i32, ptr %141, align 4
+  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %136, i32 %142)
+  store i32 %.sroa.speculated, ptr %134, align 4
+  br label %143
+
+143:                                              ; preds = %116, %128, %139, %122
+  %.289 = phi i32 [ %.188, %116 ], [ %133, %139 ], [ %133, %128 ], [ %.188, %122 ]
+  %.2 = phi i1 [ %.1, %116 ], [ true, %139 ], [ true, %128 ], [ false, %122 ]
+  %144 = icmp eq i32 %.289, 0
+  br i1 %144, label %..critedge6_crit_edge, label %145
+
+..critedge6_crit_edge:                            ; preds = %143
+  %.pre152 = add i32 %.090148, 1
   br label %.critedge6
 
-143:                                              ; preds = %141
-  %144 = load i32, ptr %119, align 8
-  %.not97 = icmp ne i32 %144, 0
-  %or.cond.not = select i1 %101, i1 %.not97, i1 false
-  br i1 %or.cond.not, label %145, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread137"
-
 145:                                              ; preds = %143
-  %146 = load ptr, ptr %8, align 8
-  %147 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
-  %148 = getelementptr inbounds i32, ptr %146, i64 %147
-  %149 = getelementptr inbounds i8, ptr %148, i64 -4
-  %150 = load i32, ptr %149, align 4
-  %151 = add i32 %150, -1
-  %152 = zext i32 %151 to i64
-  %153 = load ptr, ptr %6, align 8
-  %154 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %153, i64 %152
-  %155 = load ptr, ptr %154, align 8
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 67
-  %157 = load i8, ptr %156, align 1
-  switch i8 %157, label %158 [
+  br i1 %101, label %146, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread133"
+
+146:                                              ; preds = %145
+  %147 = load i32, ptr %119, align 8
+  %.not97 = icmp eq i32 %147, 0
+  br i1 %.not97, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread133", label %148
+
+148:                                              ; preds = %146
+  %149 = load ptr, ptr %8, align 8
+  %150 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
+  %151 = getelementptr inbounds i32, ptr %149, i64 %150
+  %152 = getelementptr inbounds i8, ptr %151, i64 -4
+  %153 = load i32, ptr %152, align 4
+  %154 = add i32 %153, -1
+  %155 = zext i32 %154 to i64
+  %156 = load ptr, ptr %6, align 8
+  %157 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %156, i64 %155
+  %158 = load ptr, ptr %157, align 8
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 67
+  %160 = load i8, ptr %159, align 1
+  switch i8 %160, label %161 [
     i8 46, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread"
-    i8 72, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread137"
+    i8 72, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread133"
   ]
 
-158:                                              ; preds = %145
-  %159 = icmp ugt i32 %150, %10
-  br i1 %159, label %160, label %207
+161:                                              ; preds = %148
+  %162 = icmp ugt i32 %153, %10
+  br i1 %162, label %163, label %210
 
-160:                                              ; preds = %158
-  %161 = add i32 %150, -2
-  %162 = zext i32 %161 to i64
-  %163 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %153, i64 %162
-  %164 = load ptr, ptr %163, align 8
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 67
-  %166 = load i8, ptr %165, align 1
-  %167 = icmp eq i8 %166, 46
-  br i1 %167, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %168
+163:                                              ; preds = %161
+  %164 = add i32 %153, -2
+  %165 = zext i32 %164 to i64
+  %166 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %156, i64 %165
+  %167 = load ptr, ptr %166, align 8
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 67
+  %169 = load i8, ptr %168, align 1
+  %170 = icmp eq i8 %169, 46
+  br i1 %170, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %171
 
-168:                                              ; preds = %160
-  %169 = getelementptr inbounds nuw i8, ptr %164, i64 16
-  %170 = load i16, ptr %169, align 8
-  %171 = icmp eq i16 %170, 5
-  %172 = icmp eq i8 %166, -120
-  %173 = or i1 %172, %171
-  br i1 %173, label %174, label %207
+171:                                              ; preds = %163
+  %172 = getelementptr inbounds nuw i8, ptr %167, i64 16
+  %173 = load i16, ptr %172, align 8
+  %174 = icmp eq i16 %173, 5
+  %175 = icmp eq i8 %169, -120
+  %176 = or i1 %175, %174
+  br i1 %176, label %177, label %210
 
-174:                                              ; preds = %168
-  %175 = getelementptr inbounds nuw i8, ptr %155, i64 16
-  %176 = load i16, ptr %175, align 8
-  %177 = icmp eq i16 %176, 22
-  br i1 %177, label %178, label %207
+177:                                              ; preds = %171
+  %178 = getelementptr inbounds nuw i8, ptr %158, i64 16
+  %179 = load i16, ptr %178, align 8
+  %180 = icmp eq i16 %179, 22
+  br i1 %180, label %181, label %210
 
-178:                                              ; preds = %174
-  %179 = zext i32 %150 to i64
-  %180 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %153, i64 %179
-  %181 = load ptr, ptr %180, align 8
-  %182 = getelementptr inbounds nuw i8, ptr %181, i64 67
-  %183 = load i8, ptr %182, align 1
-  %.not21.i = icmp eq i8 %183, 73
-  br i1 %.not21.i, label %207, label %184
+181:                                              ; preds = %177
+  %182 = zext i32 %153 to i64
+  %183 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %156, i64 %182
+  %184 = load ptr, ptr %183, align 8
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 67
+  %186 = load i8, ptr %185, align 1
+  %.not21.i = icmp eq i8 %186, 73
+  br i1 %.not21.i, label %210, label %187
 
-184:                                              ; preds = %178
-  %185 = load ptr, ptr %17, align 8
-  %186 = getelementptr inbounds nuw i8, ptr %185, i64 200
-  %187 = load ptr, ptr %186, align 8
-  %.not13.i = icmp eq ptr %187, null
-  br i1 %.not13.i, label %192, label %188
+187:                                              ; preds = %181
+  %188 = load ptr, ptr %17, align 8
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 200
+  %190 = load ptr, ptr %189, align 8
+  %.not13.i = icmp eq ptr %190, null
+  br i1 %.not13.i, label %195, label %191
 
-188:                                              ; preds = %184
-  %189 = getelementptr inbounds nuw i8, ptr %187, i64 67
-  %190 = load i8, ptr %189, align 1
-  %191 = icmp eq i8 %190, 72
-  br i1 %191, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread137", label %192
+191:                                              ; preds = %187
+  %192 = getelementptr inbounds nuw i8, ptr %190, i64 67
+  %193 = load i8, ptr %192, align 1
+  %194 = icmp eq i8 %193, 72
+  br i1 %194, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread133", label %195
 
-192:                                              ; preds = %188, %184
-  %193 = getelementptr inbounds nuw i8, ptr %180, i64 24
-  %194 = load i32, ptr %193, align 8
-  %.not14.i = icmp eq i32 %194, 0
-  br i1 %.not14.i, label %195, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread137"
+195:                                              ; preds = %191, %187
+  %196 = getelementptr inbounds nuw i8, ptr %183, i64 24
+  %197 = load i32, ptr %196, align 8
+  %.not14.i = icmp eq i32 %197, 0
+  br i1 %.not14.i, label %198, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread133"
 
-195:                                              ; preds = %192
-  %196 = getelementptr inbounds nuw i8, ptr %185, i64 16
-  %197 = load i16, ptr %196, align 8
-  %198 = icmp eq i16 %197, 24
-  br i1 %198, label %199, label %204
+198:                                              ; preds = %195
+  %199 = getelementptr inbounds nuw i8, ptr %188, i64 16
+  %200 = load i16, ptr %199, align 8
+  %201 = icmp eq i16 %200, 24
+  br i1 %201, label %202, label %207
 
-199:                                              ; preds = %195
-  %200 = getelementptr inbounds nuw i8, ptr %185, i64 65
-  %201 = load i16, ptr %200, align 1
-  %202 = and i16 %201, 384
-  %203 = icmp eq i16 %202, 256
-  br i1 %203, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %204
+202:                                              ; preds = %198
+  %203 = getelementptr inbounds nuw i8, ptr %188, i64 65
+  %204 = load i16, ptr %203, align 1
+  %205 = and i16 %204, 384
+  %206 = icmp eq i16 %205, 256
+  br i1 %206, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %207
 
-204:                                              ; preds = %199, %195
-  %205 = load i8, ptr %11, align 8
-  %206 = trunc i8 %205 to i1
-  br i1 %206, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread137"
+207:                                              ; preds = %202, %198
+  %208 = load i8, ptr %11, align 8
+  %209 = trunc i8 %208 to i1
+  br i1 %209, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread133"
 
-207:                                              ; preds = %178, %174, %168, %158
-  %208 = load ptr, ptr %17, align 8
-  %209 = getelementptr inbounds nuw i8, ptr %208, i64 67
-  %210 = load i8, ptr %209, align 1
-  switch i8 %210, label %211 [
+210:                                              ; preds = %181, %177, %171, %161
+  %211 = load ptr, ptr %17, align 8
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 67
+  %213 = load i8, ptr %212, align 1
+  switch i8 %213, label %214 [
     i8 17, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread"
     i8 36, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread"
   ]
 
-211:                                              ; preds = %207
-  %212 = getelementptr inbounds nuw i8, ptr %208, i64 208
-  %213 = load ptr, ptr %212, align 8
-  %.not.i = icmp eq ptr %213, null
-  br i1 %.not.i, label %218, label %214
+214:                                              ; preds = %210
+  %215 = getelementptr inbounds nuw i8, ptr %211, i64 208
+  %216 = load ptr, ptr %215, align 8
+  %.not.i = icmp eq ptr %216, null
+  br i1 %.not.i, label %221, label %217
 
-214:                                              ; preds = %211
-  %215 = getelementptr inbounds nuw i8, ptr %213, i64 67
-  %216 = load i8, ptr %215, align 1
-  %217 = icmp eq i8 %216, 17
-  br i1 %217, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %218
+217:                                              ; preds = %214
+  %218 = getelementptr inbounds nuw i8, ptr %216, i64 67
+  %219 = load i8, ptr %218, align 1
+  %220 = icmp eq i8 %219, 17
+  br i1 %220, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %221
 
-218:                                              ; preds = %214, %211
-  br i1 %159, label %219, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
+221:                                              ; preds = %217, %214
+  br i1 %162, label %222, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
 
-219:                                              ; preds = %218
-  %220 = add i32 %150, -2
-  %221 = zext i32 %220 to i64
-  %222 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %153, i64 %221
-  %223 = load ptr, ptr %222, align 8
-  %224 = getelementptr inbounds nuw i8, ptr %223, i64 16
-  %225 = load i16, ptr %224, align 8
-  %226 = icmp eq i16 %225, 5
-  %227 = getelementptr inbounds nuw i8, ptr %155, i64 16
+222:                                              ; preds = %221
+  %223 = add i32 %153, -2
+  %224 = zext i32 %223 to i64
+  %225 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %156, i64 %224
+  %226 = load ptr, ptr %225, align 8
+  %227 = getelementptr inbounds nuw i8, ptr %226, i64 16
   %228 = load i16, ptr %227, align 8
-  %229 = icmp eq i16 %228, 24
-  br i1 %226, label %230, label %241
+  %229 = icmp eq i16 %228, 5
+  %230 = getelementptr inbounds nuw i8, ptr %158, i64 16
+  %231 = load i16, ptr %230, align 8
+  %232 = icmp eq i16 %231, 24
+  br i1 %229, label %233, label %244
 
-230:                                              ; preds = %219
-  br i1 %229, label %231, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
+233:                                              ; preds = %222
+  br i1 %232, label %234, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
 
-231:                                              ; preds = %230
-  %232 = getelementptr inbounds nuw i8, ptr %208, i64 16
-  %233 = load i16, ptr %232, align 8
-  %234 = icmp eq i16 %233, 24
-  br i1 %234, label %235, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
+234:                                              ; preds = %233
+  %235 = getelementptr inbounds nuw i8, ptr %211, i64 16
+  %236 = load i16, ptr %235, align 8
+  %237 = icmp eq i16 %236, 24
+  br i1 %237, label %238, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
 
-235:                                              ; preds = %231
-  %236 = getelementptr inbounds nuw i8, ptr %208, i64 65
-  %237 = load i16, ptr %236, align 1
-  %238 = and i16 %237, 384
-  %239 = icmp eq i16 %238, 256
-  %240 = icmp eq i8 %157, -119
-  %or.cond141 = or i1 %240, %239
-  br i1 %or.cond141, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread137"
+238:                                              ; preds = %234
+  %239 = getelementptr inbounds nuw i8, ptr %211, i64 65
+  %240 = load i16, ptr %239, align 1
+  %241 = and i16 %240, 384
+  %242 = icmp eq i16 %241, 256
+  %243 = icmp eq i8 %160, -119
+  %or.cond137 = or i1 %243, %242
+  br i1 %or.cond137, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread133"
 
-241:                                              ; preds = %219
-  br i1 %229, label %242, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
+244:                                              ; preds = %222
+  br i1 %232, label %245, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
 
-242:                                              ; preds = %241
-  %243 = getelementptr inbounds nuw i8, ptr %208, i64 16
-  %244 = load i16, ptr %243, align 8
-  %.not23.i = icmp eq i16 %244, 25
-  br i1 %.not23.i, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit", label %245
+245:                                              ; preds = %244
+  %246 = getelementptr inbounds nuw i8, ptr %211, i64 16
+  %247 = load i16, ptr %246, align 8
+  %.not23.i = icmp eq i16 %247, 25
+  br i1 %.not23.i, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit", label %248
 
-245:                                              ; preds = %242
-  %246 = load ptr, ptr %8, align 8, !noalias !458
-  %247 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18, !noalias !458
-  %248 = getelementptr inbounds i32, ptr %246, i64 %247
-  %249 = load ptr, ptr %8, align 8, !noalias !469
-  %.not2425.i = icmp eq ptr %248, %249
+248:                                              ; preds = %245
+  %249 = load ptr, ptr %8, align 8, !noalias !458
+  %250 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18, !noalias !458
+  %251 = getelementptr inbounds i32, ptr %249, i64 %250
+  %252 = load ptr, ptr %8, align 8, !noalias !469
+  %.not2425.i = icmp eq ptr %251, %252
   %.pre = load ptr, ptr %6, align 8
   br i1 %.not2425.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %245, %261
-  %.sroa.016.026.i = phi ptr [ %250, %261 ], [ %248, %245 ]
-  %250 = getelementptr inbounds i8, ptr %.sroa.016.026.i, i64 -4
-  %251 = load i32, ptr %250, align 4
-  %252 = icmp ugt i32 %251, %1
-  br i1 %252, label %253, label %261
+.lr.ph.i:                                         ; preds = %248, %264
+  %.sroa.016.026.i = phi ptr [ %253, %264 ], [ %251, %248 ]
+  %253 = getelementptr inbounds i8, ptr %.sroa.016.026.i, i64 -4
+  %254 = load i32, ptr %253, align 4
+  %255 = icmp ugt i32 %254, %1
+  br i1 %255, label %256, label %264
 
-253:                                              ; preds = %.lr.ph.i
-  %254 = add i32 %251, -1
-  %255 = zext i32 %254 to i64
-  %256 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %.pre, i64 %255
-  %257 = load ptr, ptr %256, align 8
-  %258 = getelementptr inbounds nuw i8, ptr %257, i64 67
-  %259 = load i8, ptr %258, align 1
-  %260 = icmp eq i8 %259, 72
-  br i1 %260, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread137", label %261
+256:                                              ; preds = %.lr.ph.i
+  %257 = add i32 %254, -1
+  %258 = zext i32 %257 to i64
+  %259 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %.pre, i64 %258
+  %260 = load ptr, ptr %259, align 8
+  %261 = getelementptr inbounds nuw i8, ptr %260, i64 67
+  %262 = load i8, ptr %261, align 1
+  %263 = icmp eq i8 %262, 72
+  br i1 %263, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread133", label %264
 
-261:                                              ; preds = %253, %.lr.ph.i
-  %.not24.i = icmp eq ptr %250, %249
+264:                                              ; preds = %256, %.lr.ph.i
+  %.not24.i = icmp eq ptr %253, %252
   br i1 %.not24.i, label %._crit_edge.i, label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %261, %245
-  %262 = zext i32 %150 to i64
-  %263 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %.pre, i64 %262, i32 4
-  %264 = load i32, ptr %263, align 8
-  %.not12.i = icmp eq i32 %264, 0
-  br i1 %.not12.i, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread137"
+._crit_edge.i:                                    ; preds = %264, %248
+  %265 = zext i32 %153 to i64
+  %266 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %.pre, i64 %265, i32 4
+  %267 = load i32, ptr %266, align 8
+  %.not12.i = icmp eq i32 %267, 0
+  br i1 %.not12.i, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread133"
 
-"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit": ; preds = %218, %230, %231, %241, %242
-  %.old = icmp eq i8 %157, -119
-  br i1 %.old, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread137"
+"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit": ; preds = %221, %233, %234, %244, %245
+  %.old = icmp eq i8 %160, -119
+  br i1 %.old, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread133"
 
-"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread": ; preds = %235, %214, %207, %207, %199, %160, %145, %._crit_edge.i, %204, %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
-  %265 = getelementptr inbounds nuw i8, ptr %17, i64 100
-  %266 = load i32, ptr %265, align 4
-  %267 = add nsw i32 %266, %.289
-  store i32 %267, ptr %265, align 4
-  br label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread137"
+"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread": ; preds = %238, %217, %210, %210, %202, %163, %148, %._crit_edge.i, %207, %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit"
+  %268 = getelementptr inbounds nuw i8, ptr %17, i64 100
+  %269 = load i32, ptr %268, align 4
+  %270 = add nsw i32 %269, %.289
+  store i32 %270, ptr %268, align 4
+  br label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread133"
 
-"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread137": ; preds = %253, %235, %145, %192, %188, %._crit_edge.i, %204, %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit", %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", %143
-  br i1 %117, label %268, label %272
+"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread133": ; preds = %256, %238, %148, %195, %191, %._crit_edge.i, %207, %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit", %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread", %146, %145
+  br i1 %117, label %271, label %275
 
-268:                                              ; preds = %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread137"
-  %269 = getelementptr inbounds nuw i8, ptr %17, i64 100
-  %270 = load i32, ptr %269, align 4
-  %271 = add nsw i32 %270, %.289
-  store i32 %271, ptr %269, align 4
-  br label %272
+271:                                              ; preds = %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread133"
+  %272 = getelementptr inbounds nuw i8, ptr %17, i64 100
+  %273 = load i32, ptr %272, align 4
+  %274 = add nsw i32 %273, %.289
+  store i32 %274, ptr %272, align 4
+  br label %275
 
-272:                                              ; preds = %268, %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread137"
-  %273 = getelementptr inbounds nuw i8, ptr %17, i64 20
-  %274 = load i32, ptr %273, align 4
-  %275 = add i32 %274, %.289
-  store i32 %275, ptr %273, align 4
-  %276 = add i32 %.090155, 1
-  %277 = zext i32 %276 to i64
-  %278 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #18
-  %.not98 = icmp eq i64 %278, %277
-  br i1 %.not98, label %284, label %279
+275:                                              ; preds = %271, %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread133"
+  %276 = getelementptr inbounds nuw i8, ptr %17, i64 20
+  %277 = load i32, ptr %276, align 4
+  %278 = add i32 %277, %.289
+  store i32 %278, ptr %276, align 4
+  %279 = add i32 %.090148, 1
+  %280 = zext i32 %279 to i64
+  %281 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #18
+  %.not98 = icmp eq i64 %281, %280
+  br i1 %.not98, label %287, label %282
 
-279:                                              ; preds = %272
-  %280 = load ptr, ptr %6, align 8
-  %281 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %280, i64 %277, i32 13
-  %282 = load i32, ptr %281, align 8
-  %283 = add i32 %282, %.289
-  store i32 %283, ptr %281, align 8
-  br label %284
+282:                                              ; preds = %275
+  %283 = load ptr, ptr %6, align 8
+  %284 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %283, i64 %280, i32 13
+  %285 = load i32, ptr %284, align 8
+  %286 = add i32 %285, %.289
+  store i32 %286, ptr %284, align 8
+  br label %287
 
-284:                                              ; preds = %279, %272
-  %285 = load i8, ptr %12, align 8
-  %286 = icmp ne i8 %285, 1
-  %287 = load i8, ptr %13, align 8
-  %288 = icmp ne i8 %287, 2
-  %or.cond106.not144 = select i1 %286, i1 %288, i1 false
-  %289 = getelementptr inbounds nuw i8, ptr %17, i64 100
-  %290 = load i32, ptr %289, align 4
-  %.not99 = icmp eq i32 %290, 0
-  %or.cond108 = select i1 %or.cond106.not144, i1 true, i1 %.not99
-  br i1 %or.cond108, label %.critedge6, label %291
+287:                                              ; preds = %282, %275
+  %288 = load i8, ptr %12, align 8
+  %289 = icmp eq i8 %288, 1
+  %290 = load i8, ptr %13, align 8
+  %291 = icmp eq i8 %290, 2
+  %or.cond = select i1 %289, i1 true, i1 %291
+  br i1 %or.cond, label %292, label %.critedge6
 
-291:                                              ; preds = %284
-  %292 = load ptr, ptr %17, align 8
-  %293 = getelementptr inbounds nuw i8, ptr %292, i64 16
-  %294 = load i16, ptr %293, align 8
-  %295 = icmp eq i16 %294, 64
-  br i1 %295, label %.critedge6, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit
+292:                                              ; preds = %287
+  %293 = getelementptr inbounds nuw i8, ptr %17, i64 100
+  %294 = load i32, ptr %293, align 4
+  %.not99 = icmp eq i32 %294, 0
+  br i1 %.not99, label %.critedge6, label %295
 
-_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit: ; preds = %291
-  %296 = icmp ne i16 %294, 23
-  %297 = getelementptr inbounds nuw i8, ptr %292, i64 67
-  %298 = load i8, ptr %297, align 1
-  %299 = icmp ne i8 %298, -120
-  %.not163 = select i1 %296, i1 %299, i1 false
-  %300 = icmp sgt i32 %52, -1
-  %or.cond = and i1 %.not163, %300
-  br i1 %or.cond, label %.lr.ph152, label %.critedge6
+295:                                              ; preds = %292
+  %296 = load ptr, ptr %17, align 8
+  %297 = getelementptr inbounds nuw i8, ptr %296, i64 16
+  %298 = load i16, ptr %297, align 8
+  %299 = icmp eq i16 %298, 64
+  br i1 %299, label %.critedge6, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit
 
-.lr.ph152:                                        ; preds = %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit, %326
-  %.0151 = phi i32 [ %327, %326 ], [ %52, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit ]
-  %301 = zext nneg i32 %.0151 to i64
-  %302 = load ptr, ptr %6, align 8
-  %303 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %302, i64 %301
-  %304 = load ptr, ptr %303, align 8
-  %305 = getelementptr inbounds nuw i8, ptr %304, i64 67
-  %306 = load i8, ptr %305, align 1
-  %307 = icmp eq i8 %306, 96
-  br i1 %307, label %308, label %.critedge6
+_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit: ; preds = %295
+  %300 = icmp eq i16 %298, 23
+  %301 = getelementptr inbounds nuw i8, ptr %296, i64 67
+  %302 = load i8, ptr %301, align 1
+  %303 = icmp eq i8 %302, -120
+  %304 = select i1 %300, i1 true, i1 %303
+  br i1 %304, label %.critedge6, label %305
 
-308:                                              ; preds = %.lr.ph152
-  %309 = getelementptr inbounds nuw i8, ptr %304, i64 16
-  %310 = load i16, ptr %309, align 8
-  %.not145 = icmp eq i16 %310, 31
-  br i1 %.not145, label %312, label %311
+305:                                              ; preds = %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit
+  %306 = icmp ne i8 %290, 0
+  %spec.select105 = xor i1 %291, %306
+  %307 = icmp sgt i32 %52, -1
+  br i1 %307, label %.lr.ph145, label %.critedge6
 
-311:                                              ; preds = %308
-  switch i8 %287, label %326 [
-    i8 2, label %314
-    i8 0, label %314
-  ]
+.lr.ph145:                                        ; preds = %305, %333
+  %.0144 = phi i32 [ %334, %333 ], [ %52, %305 ]
+  %308 = zext nneg i32 %.0144 to i64
+  %309 = load ptr, ptr %6, align 8
+  %310 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %309, i64 %308
+  %311 = load ptr, ptr %310, align 8
+  %312 = getelementptr inbounds nuw i8, ptr %311, i64 67
+  %313 = load i8, ptr %312, align 1
+  %314 = icmp eq i8 %313, 96
+  br i1 %314, label %315, label %.critedge6
 
-312:                                              ; preds = %308
-  %313 = load i8, ptr %12, align 8
-  %.not101 = icmp eq i8 %313, 1
-  br i1 %.not101, label %314, label %326
+315:                                              ; preds = %.lr.ph145
+  %316 = getelementptr inbounds nuw i8, ptr %311, i64 16
+  %317 = load i16, ptr %316, align 8
+  %.not138 = icmp eq i16 %317, 31
+  br i1 %.not138, label %319, label %318
 
-314:                                              ; preds = %311, %311, %312
-  %315 = getelementptr inbounds i8, ptr %303, i64 236
-  %316 = load i32, ptr %315, align 4
-  %317 = sub nsw i32 %316, %.289
-  store i32 %317, ptr %315, align 4
-  %318 = load ptr, ptr %6, align 8
-  %319 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %318, i64 %301, i32 9
-  %320 = load i32, ptr %319, align 4
-  %321 = add nsw i32 %320, %.289
-  store i32 %321, ptr %319, align 4
-  %322 = load ptr, ptr %6, align 8
-  %323 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %322, i64 %301, i32 3
-  %324 = load i32, ptr %323, align 4
-  %325 = add i32 %324, %.289
-  store i32 %325, ptr %323, align 4
-  br label %326
+318:                                              ; preds = %315
+  br i1 %spec.select105, label %333, label %321
 
-326:                                              ; preds = %311, %312, %314
-  %327 = add nsw i32 %.0151, -1
-  %328 = icmp sgt i32 %.0151, 0
-  br i1 %328, label %.lr.ph152, label %.critedge6, !llvm.loop !478
+319:                                              ; preds = %315
+  %320 = load i8, ptr %12, align 8
+  %.not101 = icmp eq i8 %320, 1
+  br i1 %.not101, label %321, label %333
 
-.critedge6:                                       ; preds = %.lr.ph152, %326, %..critedge6_crit_edge, %291, %284, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit
-  %.pre-phi = phi i32 [ %.pre164, %..critedge6_crit_edge ], [ %276, %291 ], [ %276, %284 ], [ %276, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit ], [ %276, %326 ], [ %276, %.lr.ph152 ]
+321:                                              ; preds = %319, %318
+  %322 = getelementptr inbounds i8, ptr %310, i64 236
+  %323 = load i32, ptr %322, align 4
+  %324 = sub nsw i32 %323, %.289
+  store i32 %324, ptr %322, align 4
+  %325 = load ptr, ptr %6, align 8
+  %326 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %325, i64 %308, i32 9
+  %327 = load i32, ptr %326, align 4
+  %328 = add nsw i32 %327, %.289
+  store i32 %328, ptr %326, align 4
+  %329 = load ptr, ptr %6, align 8
+  %330 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %329, i64 %308, i32 3
+  %331 = load i32, ptr %330, align 4
+  %332 = add i32 %331, %.289
+  store i32 %332, ptr %330, align 4
+  br label %333
+
+333:                                              ; preds = %319, %318, %321
+  %334 = add nsw i32 %.0144, -1
+  %335 = icmp sgt i32 %.0144, 0
+  br i1 %335, label %.lr.ph145, label %.critedge6, !llvm.loop !478
+
+.critedge6:                                       ; preds = %.lr.ph145, %333, %..critedge6_crit_edge, %305, %295, %287, %292, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit
+  %.pre-phi = phi i32 [ %.pre152, %..critedge6_crit_edge ], [ %279, %305 ], [ %279, %295 ], [ %279, %287 ], [ %279, %292 ], [ %279, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEbT_T0_DpT1_.exit ], [ %279, %333 ], [ %279, %.lr.ph145 ]
   %.not = icmp eq i32 %.pre-phi, %2
   br i1 %.not, label %._crit_edge, label %14, !llvm.loop !479
 
 ._crit_edge:                                      ; preds = %.critedge6, %7
-  %329 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
-  %330 = load ptr, ptr %8, align 8
-  %331 = icmp eq ptr %330, %9
-  br i1 %331, label %_ZN4llvm11SmallVectorIjLj16EED2Ev.exit, label %332
+  %336 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
+  %337 = load ptr, ptr %8, align 8
+  %338 = icmp eq ptr %337, %9
+  br i1 %338, label %_ZN4llvm11SmallVectorIjLj16EED2Ev.exit, label %339
 
-332:                                              ; preds = %._crit_edge
-  call void @free(ptr noundef %330) #18
+339:                                              ; preds = %._crit_edge
+  call void @free(ptr noundef %337) #18
   br label %_ZN4llvm11SmallVectorIjLj16EED2Ev.exit
 
-_ZN4llvm11SmallVectorIjLj16EED2Ev.exit:           ; preds = %._crit_edge, %332
+_ZN4llvm11SmallVectorIjLj16EED2Ev.exit:           ; preds = %._crit_edge, %339
   ret void
 }
 

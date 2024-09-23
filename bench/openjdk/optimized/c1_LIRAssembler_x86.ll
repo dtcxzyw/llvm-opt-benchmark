@@ -4430,12 +4430,12 @@ switch.lookup10:                                  ; preds = %27
   br label %33
 
 33:                                               ; preds = %switch.lookup10, %switch.lookup
-  %switch.gep11.sink = phi ptr [ %switch.gep11, %switch.lookup10 ], [ %switch.gep, %switch.lookup ]
-  %switch.load12 = load i32, ptr %switch.gep11.sink, align 4
+  %.0.in = phi ptr [ %switch.gep, %switch.lookup ], [ %switch.gep11, %switch.lookup10 ]
+  %.0 = load i32, ptr %.0.in, align 4
   %34 = load ptr, ptr %0, align 8
   %35 = getelementptr inbounds i8, ptr %1, i64 128
   %36 = load ptr, ptr %35, align 8
-  tail call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %34, i32 noundef %switch.load12, ptr noundef nonnull align 8 dereferenceable(33) %36, i1 noundef zeroext true) #15
+  tail call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %34, i32 noundef %.0, ptr noundef nonnull align 8 dereferenceable(33) %36, i1 noundef zeroext true) #15
   br label %37
 
 37:                                               ; preds = %33, %10

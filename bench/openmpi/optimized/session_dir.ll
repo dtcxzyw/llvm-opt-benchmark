@@ -302,7 +302,7 @@ declare ptr @prte_strerror(i32 noundef) local_unnamed_addr #1
 define void @prte_job_session_dir_finalize(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i8, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 840), align 8
   %3 = trunc i8 %2 to i1
-  br i1 %3, label %32, label %4
+  br i1 %3, label %35, label %4
 
 4:                                                ; preds = %1
   %5 = load i8, ptr getelementptr inbounds (i8, ptr @prte_ras_base, i64 24), align 8
@@ -316,48 +316,49 @@ define void @prte_job_session_dir_finalize(ptr noundef %0) local_unnamed_addr #0
   %10 = load i32, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 256), align 8
   %11 = icmp eq i32 %10, 1
   %or.cond = select i1 %.not, i1 %11, i1 false
-  br i1 %or.cond, label %32, label %12
+  br i1 %or.cond, label %35, label %12
 
 12:                                               ; preds = %7, %4
   %13 = getelementptr inbounds i8, ptr %0, i64 424
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %32, label %16
+  br i1 %15, label %35, label %16
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds i8, ptr %0, i64 168
   %18 = tail call zeroext i1 @PMIx_Check_nspace(ptr noundef nonnull @prte_process_info, ptr noundef nonnull %17) #8
-  br i1 %18, label %19, label %26
+  br i1 %18, label %19, label %29
 
 19:                                               ; preds = %16
   %20 = load i8, ptr @prte_finalizing, align 1
   %21 = trunc i8 %20 to i1
-  br i1 %21, label %22, label %32
+  br i1 %21, label %22, label %35
 
 22:                                               ; preds = %19
   %23 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 832), align 8
   %.not6 = icmp eq ptr %23, null
-  br i1 %.not6, label %32, label %24
+  br i1 %.not6, label %35, label %24
 
 24:                                               ; preds = %22
   %25 = tail call i32 @pmix_os_dirpath_destroy(ptr noundef nonnull %23, i1 noundef zeroext false, ptr noundef nonnull @_check_file) #8
-  br label %.sink.split
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 832), align 8
+  %27 = tail call i32 @rmdir(ptr noundef %26) #8
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 832), align 8
+  tail call void @free(ptr noundef %28) #8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 832), align 8
+  br label %35
 
-26:                                               ; preds = %16
-  %27 = load ptr, ptr %13, align 8
-  %28 = tail call i32 @pmix_os_dirpath_destroy(ptr noundef %27, i1 noundef zeroext false, ptr noundef nonnull @_check_file) #8
-  br label %.sink.split
+29:                                               ; preds = %16
+  %30 = load ptr, ptr %13, align 8
+  %31 = tail call i32 @pmix_os_dirpath_destroy(ptr noundef %30, i1 noundef zeroext false, ptr noundef nonnull @_check_file) #8
+  %32 = load ptr, ptr %13, align 8
+  %33 = tail call i32 @rmdir(ptr noundef %32) #8
+  %34 = load ptr, ptr %13, align 8
+  tail call void @free(ptr noundef %34) #8
+  store ptr null, ptr %13, align 8
+  br label %35
 
-.sink.split:                                      ; preds = %26, %24
-  %.sink11 = phi ptr [ getelementptr inbounds (i8, ptr @prte_process_info, i64 832), %24 ], [ %13, %26 ]
-  %29 = load ptr, ptr %.sink11, align 8
-  %30 = tail call i32 @rmdir(ptr noundef %29) #8
-  %31 = load ptr, ptr %.sink11, align 8
-  tail call void @free(ptr noundef %31) #8
-  store ptr null, ptr %.sink11, align 8
-  br label %32
-
-32:                                               ; preds = %.sink.split, %7, %19, %22, %12, %1
+35:                                               ; preds = %7, %19, %24, %22, %12, %1, %29
   ret void
 }
 

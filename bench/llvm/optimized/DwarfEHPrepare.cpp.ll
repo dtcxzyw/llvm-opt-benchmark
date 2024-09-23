@@ -613,11 +613,11 @@ _ZNK4llvm6Triple23isTargetEHABICompatibleEv.exit.thread.i.i: ; preds = %_ZNK4llv
   br label %201
 
 201:                                              ; preds = %_ZNK4llvm6Triple23isTargetEHABICompatibleEv.exit.thread.i.i, %191
-  %.sink169.i.i = phi i64 [ 404316, %_ZNK4llvm6Triple23isTargetEHABICompatibleEv.exit.thread.i.i ], [ 404320, %191 ]
+  %.sink = phi i64 [ 404316, %_ZNK4llvm6Triple23isTargetEHABICompatibleEv.exit.thread.i.i ], [ 404320, %191 ]
   %.078.i.i = phi i1 [ true, %_ZNK4llvm6Triple23isTargetEHABICompatibleEv.exit.thread.i.i ], [ false, %191 ]
   %.077.i.i = phi ptr [ %197, %_ZNK4llvm6Triple23isTargetEHABICompatibleEv.exit.thread.i.i ], [ %193, %191 ]
   %.076.i.i = phi ptr [ %200, %_ZNK4llvm6Triple23isTargetEHABICompatibleEv.exit.thread.i.i ], [ %195, %191 ]
-  %202 = getelementptr inbounds i8, ptr %2, i64 %.sink169.i.i
+  %202 = getelementptr inbounds i8, ptr %2, i64 %.sink
   %.075.i.i = load i32, ptr %202, align 4
   %203 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %204 = load ptr, ptr %203, align 8

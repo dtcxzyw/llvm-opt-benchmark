@@ -97,15 +97,15 @@ define i32 @IDASetNonlinearSolverB(ptr noundef %0, i32 noundef %1, ptr noundef %
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %17
-  %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
-  %.016 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
-  %19 = load i32, ptr %.016, align 8
+  %.016.sink.in = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
+  %.016.sink = load ptr, ptr %.016.sink.in, align 8, !nonnull !4, !noundef !4
+  %19 = load i32, ptr %.016.sink, align 8
   %20 = icmp eq i32 %1, %19
-  %21 = getelementptr inbounds i8, ptr %.016, i64 128
+  %21 = getelementptr inbounds i8, ptr %.016.sink, i64 128
   br i1 %20, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %22 = getelementptr inbounds i8, ptr %.016, i64 16
+  %22 = getelementptr inbounds i8, ptr %.016.sink, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 @IDASetNonlinearSolver(ptr noundef %23, ptr noundef %2) #2
   br label %25
@@ -153,15 +153,15 @@ define range(i32 -101, 1) i32 @IDASetUserDataB(ptr noundef %0, i32 noundef %1, p
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %17
-  %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
-  %.0 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
-  %19 = load i32, ptr %.0, align 8
+  %.0.sink.in = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
+  %.0.sink = load ptr, ptr %.0.sink.in, align 8, !nonnull !4, !noundef !4
+  %19 = load i32, ptr %.0.sink, align 8
   %20 = icmp eq i32 %1, %19
-  %21 = getelementptr inbounds i8, ptr %.0, i64 128
+  %21 = getelementptr inbounds i8, ptr %.0.sink, i64 128
   br i1 %20, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %22 = getelementptr inbounds i8, ptr %.0, i64 64
+  %22 = getelementptr inbounds i8, ptr %.0.sink, i64 64
   store ptr %2, ptr %22, align 8
   br label %23
 
@@ -206,15 +206,15 @@ define i32 @IDASetMaxOrdB(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %17
-  %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
-  %.016 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
-  %19 = load i32, ptr %.016, align 8
+  %.016.sink.in = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
+  %.016.sink = load ptr, ptr %.016.sink.in, align 8, !nonnull !4, !noundef !4
+  %19 = load i32, ptr %.016.sink, align 8
   %20 = icmp eq i32 %1, %19
-  %21 = getelementptr inbounds i8, ptr %.016, i64 128
+  %21 = getelementptr inbounds i8, ptr %.016.sink, i64 128
   br i1 %20, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %22 = getelementptr inbounds i8, ptr %.016, i64 16
+  %22 = getelementptr inbounds i8, ptr %.016.sink, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 @IDASetMaxOrd(ptr noundef %23, i32 noundef %2) #2
   br label %25
@@ -262,15 +262,15 @@ define i32 @IDASetMaxNumStepsB(ptr noundef %0, i32 noundef %1, i64 noundef %2) l
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %17
-  %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
-  %.016 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
-  %19 = load i32, ptr %.016, align 8
+  %.016.sink.in = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
+  %.016.sink = load ptr, ptr %.016.sink.in, align 8, !nonnull !4, !noundef !4
+  %19 = load i32, ptr %.016.sink, align 8
   %20 = icmp eq i32 %1, %19
-  %21 = getelementptr inbounds i8, ptr %.016, i64 128
+  %21 = getelementptr inbounds i8, ptr %.016.sink, i64 128
   br i1 %20, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %22 = getelementptr inbounds i8, ptr %.016, i64 16
+  %22 = getelementptr inbounds i8, ptr %.016.sink, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 @IDASetMaxNumSteps(ptr noundef %23, i64 noundef %2) #2
   br label %25
@@ -318,15 +318,15 @@ define i32 @IDASetInitStepB(ptr noundef %0, i32 noundef %1, double noundef %2) l
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %17
-  %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
-  %.016 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
-  %19 = load i32, ptr %.016, align 8
+  %.016.sink.in = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
+  %.016.sink = load ptr, ptr %.016.sink.in, align 8, !nonnull !4, !noundef !4
+  %19 = load i32, ptr %.016.sink, align 8
   %20 = icmp eq i32 %1, %19
-  %21 = getelementptr inbounds i8, ptr %.016, i64 128
+  %21 = getelementptr inbounds i8, ptr %.016.sink, i64 128
   br i1 %20, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %22 = getelementptr inbounds i8, ptr %.016, i64 16
+  %22 = getelementptr inbounds i8, ptr %.016.sink, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 @IDASetInitStep(ptr noundef %23, double noundef %2) #2
   br label %25
@@ -374,15 +374,15 @@ define i32 @IDASetMaxStepB(ptr noundef %0, i32 noundef %1, double noundef %2) lo
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %17
-  %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
-  %.016 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
-  %19 = load i32, ptr %.016, align 8
+  %.016.sink.in = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
+  %.016.sink = load ptr, ptr %.016.sink.in, align 8, !nonnull !4, !noundef !4
+  %19 = load i32, ptr %.016.sink, align 8
   %20 = icmp eq i32 %1, %19
-  %21 = getelementptr inbounds i8, ptr %.016, i64 128
+  %21 = getelementptr inbounds i8, ptr %.016.sink, i64 128
   br i1 %20, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %22 = getelementptr inbounds i8, ptr %.016, i64 16
+  %22 = getelementptr inbounds i8, ptr %.016.sink, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 @IDASetMaxStep(ptr noundef %23, double noundef %2) #2
   br label %25
@@ -430,15 +430,15 @@ define i32 @IDASetSuppressAlgB(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %17
-  %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
-  %.016 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
-  %19 = load i32, ptr %.016, align 8
+  %.016.sink.in = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
+  %.016.sink = load ptr, ptr %.016.sink.in, align 8, !nonnull !4, !noundef !4
+  %19 = load i32, ptr %.016.sink, align 8
   %20 = icmp eq i32 %1, %19
-  %21 = getelementptr inbounds i8, ptr %.016, i64 128
+  %21 = getelementptr inbounds i8, ptr %.016.sink, i64 128
   br i1 %20, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %22 = getelementptr inbounds i8, ptr %.016, i64 16
+  %22 = getelementptr inbounds i8, ptr %.016.sink, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 @IDASetSuppressAlg(ptr noundef %23, i32 noundef %2) #2
   br label %25
@@ -486,15 +486,15 @@ define i32 @IDASetIdB(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unna
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %17
-  %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
-  %.016 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
-  %19 = load i32, ptr %.016, align 8
+  %.016.sink.in = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
+  %.016.sink = load ptr, ptr %.016.sink.in, align 8, !nonnull !4, !noundef !4
+  %19 = load i32, ptr %.016.sink, align 8
   %20 = icmp eq i32 %1, %19
-  %21 = getelementptr inbounds i8, ptr %.016, i64 128
+  %21 = getelementptr inbounds i8, ptr %.016.sink, i64 128
   br i1 %20, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %22 = getelementptr inbounds i8, ptr %.016, i64 16
+  %22 = getelementptr inbounds i8, ptr %.016.sink, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 @IDASetId(ptr noundef %23, ptr noundef %2) #2
   br label %25
@@ -542,15 +542,15 @@ define i32 @IDASetConstraintsB(ptr noundef %0, i32 noundef %1, ptr noundef %2) l
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %17
-  %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
-  %.016 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
-  %19 = load i32, ptr %.016, align 8
+  %.016.sink.in = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
+  %.016.sink = load ptr, ptr %.016.sink.in, align 8, !nonnull !4, !noundef !4
+  %19 = load i32, ptr %.016.sink, align 8
   %20 = icmp eq i32 %1, %19
-  %21 = getelementptr inbounds i8, ptr %.016, i64 128
+  %21 = getelementptr inbounds i8, ptr %.016.sink, i64 128
   br i1 %20, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %22 = getelementptr inbounds i8, ptr %.016, i64 16
+  %22 = getelementptr inbounds i8, ptr %.016.sink, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 @IDASetConstraints(ptr noundef %23, ptr noundef %2) #2
   br label %25
@@ -598,15 +598,15 @@ define i32 @IDASetQuadErrConB(ptr noundef %0, i32 noundef %1, i32 noundef %2) lo
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %17
-  %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
-  %.016 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
-  %19 = load i32, ptr %.016, align 8
+  %.016.sink.in = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
+  %.016.sink = load ptr, ptr %.016.sink.in, align 8, !nonnull !4, !noundef !4
+  %19 = load i32, ptr %.016.sink, align 8
   %20 = icmp eq i32 %1, %19
-  %21 = getelementptr inbounds i8, ptr %.016, i64 128
+  %21 = getelementptr inbounds i8, ptr %.016.sink, i64 128
   br i1 %20, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %22 = getelementptr inbounds i8, ptr %.016, i64 16
+  %22 = getelementptr inbounds i8, ptr %.016.sink, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 @IDASetQuadErrCon(ptr noundef %23, i32 noundef %2) #2
   br label %25
@@ -654,15 +654,15 @@ define ptr @IDAGetAdjIDABmem(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %16
-  %.sink = phi ptr [ %20, %.lr.ph ], [ %17, %16 ]
-  %.015 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
-  %18 = load i32, ptr %.015, align 8
+  %.015.sink.in = phi ptr [ %20, %.lr.ph ], [ %17, %16 ]
+  %.015.sink = load ptr, ptr %.015.sink.in, align 8, !nonnull !4, !noundef !4
+  %18 = load i32, ptr %.015.sink, align 8
   %19 = icmp eq i32 %1, %18
-  %20 = getelementptr inbounds i8, ptr %.015, i64 128
+  %20 = getelementptr inbounds i8, ptr %.015.sink, i64 128
   br i1 %19, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %21 = getelementptr inbounds i8, ptr %.015, i64 16
+  %21 = getelementptr inbounds i8, ptr %.015.sink, i64 16
   %22 = load ptr, ptr %21, align 8
   br label %23
 
@@ -772,15 +772,15 @@ define i32 @IDAGetConsistentICB(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %18
-  %.sink = phi ptr [ %22, %.lr.ph ], [ %19, %18 ]
-  %.018 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
-  %20 = load i32, ptr %.018, align 8
+  %.018.sink.in = phi ptr [ %22, %.lr.ph ], [ %19, %18 ]
+  %.018.sink = load ptr, ptr %.018.sink.in, align 8, !nonnull !4, !noundef !4
+  %20 = load i32, ptr %.018.sink, align 8
   %21 = icmp eq i32 %1, %20
-  %22 = getelementptr inbounds i8, ptr %.018, i64 128
+  %22 = getelementptr inbounds i8, ptr %.018.sink, i64 128
   br i1 %21, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %23 = getelementptr inbounds i8, ptr %.018, i64 16
+  %23 = getelementptr inbounds i8, ptr %.018.sink, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 @IDAGetConsistentIC(ptr noundef %24, ptr noundef %2, ptr noundef %3) #2
   br label %26

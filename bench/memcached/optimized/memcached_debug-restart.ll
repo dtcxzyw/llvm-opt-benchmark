@@ -58,7 +58,11 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %2 = load ptr, ptr @cb_stack, align 8
   %cmp2 = icmp eq ptr %2, null
-  br i1 %cmp2, label %if.end7, label %while.cond
+  br i1 %cmp2, label %if.then3, label %while.cond
+
+if.then3:                                         ; preds = %if.end
+  store ptr %call, ptr @cb_stack, align 8
+  br label %if.end7
 
 while.cond:                                       ; preds = %if.end, %while.cond
   %finder.0 = phi ptr [ %3, %while.cond ], [ %2, %if.end ]
@@ -69,11 +73,10 @@ while.cond:                                       ; preds = %if.end, %while.cond
 
 while.end:                                        ; preds = %while.cond
   %next.le = getelementptr inbounds i8, ptr %finder.0, i64 8
+  store ptr %call, ptr %next.le, align 8
   br label %if.end7
 
-if.end7:                                          ; preds = %if.end, %while.end
-  %next.le.sink = phi ptr [ %next.le, %while.end ], [ @cb_stack, %if.end ]
-  store ptr %call, ptr %next.le.sink, align 8
+if.end7:                                          ; preds = %while.end, %if.then3
   %tag8 = getelementptr inbounds i8, ptr %call, i64 32
   %call9 = tail call zeroext i1 @safe_strcpy(ptr noundef nonnull %tag8, ptr noundef %tag, i64 noundef 255) #20
   store ptr %data, ptr %call, align 8

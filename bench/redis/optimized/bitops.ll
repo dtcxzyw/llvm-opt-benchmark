@@ -1327,30 +1327,30 @@ if.then28:                                        ; preds = %if.else
 
 if.end36.thread:                                  ; preds = %sdslen.exit, %if.else, %if.then14
   %14 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 24), align 8
-  br label %20
+  br label %19
 
 if.end36:                                         ; preds = %if.then28, %if.then17
-  %arrayidx29.sink = phi ptr [ %arrayidx29, %if.then28 ], [ %arrayidx19, %if.then17 ]
-  %15 = load i8, ptr %arrayidx29.sink, align 1
-  %conv3020 = zext i8 %15 to i32
-  %16 = trunc i64 %5 to i32
-  %17 = and i32 %16, 7
-  %sh_prom31 = xor i32 %17, 7
+  %.sink.in = phi ptr [ %arrayidx29, %if.then28 ], [ %arrayidx19, %if.then17 ]
+  %.sink = load i8, ptr %.sink.in, align 1
+  %conv3020 = zext i8 %.sink to i32
+  %15 = trunc i64 %5 to i32
+  %16 = and i32 %15, 7
+  %sh_prom31 = xor i32 %16, 7
   %shl32 = shl nuw nsw i32 1, %sh_prom31
   %and33 = and i32 %shl32, %conv3020
   %bitval.0.shrunk.fr = freeze i32 %and33
   %tobool37.not = icmp eq i32 %bitval.0.shrunk.fr, 0
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 32), align 8
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 24), align 8
-  %spec.select = select i1 %tobool37.not, ptr %19, ptr %18
-  br label %20
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 32), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 24), align 8
+  %spec.select = select i1 %tobool37.not, ptr %18, ptr %17
+  br label %19
 
-20:                                               ; preds = %if.end36, %if.end36.thread
-  %21 = phi ptr [ %14, %if.end36.thread ], [ %spec.select, %if.end36 ]
-  call void @addReply(ptr noundef nonnull %c, ptr noundef %21) #16
+19:                                               ; preds = %if.end36, %if.end36.thread
+  %20 = phi ptr [ %14, %if.end36.thread ], [ %spec.select, %if.end36 ]
+  call void @addReply(ptr noundef nonnull %c, ptr noundef %20) #16
   br label %return
 
-return:                                           ; preds = %if.end, %lor.lhs.false, %entry, %20
+return:                                           ; preds = %if.end, %lor.lhs.false, %entry, %19
   ret void
 }
 

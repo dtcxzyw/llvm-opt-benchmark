@@ -432,17 +432,17 @@ define ptr @opal_ring_buffer_poke(ptr noundef %0, i32 noundef %1) local_unnamed_
   %17 = getelementptr inbounds i8, ptr %0, i64 116
   %18 = load i32, ptr %17, align 4
   %.not = icmp sgt i32 %18, %1
-  br i1 %.not, label %19, label %47
+  br i1 %.not, label %19, label %49
 
 19:                                               ; preds = %._crit_edge
   %20 = getelementptr inbounds i8, ptr %0, i64 112
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %21, -1
-  br i1 %22, label %47, label %23
+  br i1 %22, label %49, label %23
 
 23:                                               ; preds = %19
   %24 = icmp slt i32 %1, 0
-  br i1 %24, label %25, label %39
+  br i1 %24, label %25, label %41
 
 25:                                               ; preds = %23
   %26 = getelementptr inbounds i8, ptr %0, i64 108
@@ -450,53 +450,51 @@ define ptr @opal_ring_buffer_poke(ptr noundef %0, i32 noundef %1) local_unnamed_
   %28 = icmp eq i32 %27, 0
   %29 = getelementptr inbounds i8, ptr %0, i64 120
   %30 = load ptr, ptr %29, align 8
-  br i1 %28, label %31, label %35
+  br i1 %28, label %31, label %36
 
 31:                                               ; preds = %25
   %32 = sext i32 %18 to i64
   %33 = getelementptr ptr, ptr %30, i64 %32
   %34 = getelementptr i8, ptr %33, i64 -8
-  br label %.sink.split
+  %35 = load ptr, ptr %34, align 8
+  br label %49
 
-35:                                               ; preds = %25
-  %36 = sext i32 %27 to i64
-  %37 = getelementptr ptr, ptr %30, i64 %36
-  %38 = getelementptr i8, ptr %37, i64 -8
-  br label %.sink.split
+36:                                               ; preds = %25
+  %37 = sext i32 %27 to i64
+  %38 = getelementptr ptr, ptr %30, i64 %37
+  %39 = getelementptr i8, ptr %38, i64 -8
+  %40 = load ptr, ptr %39, align 8
+  br label %49
 
-39:                                               ; preds = %23
-  %40 = add nsw i32 %21, %1
-  %.not31 = icmp sgt i32 %18, %40
-  %41 = select i1 %.not31, i32 0, i32 %18
-  %spec.select = sub nsw i32 %40, %41
-  %42 = getelementptr inbounds i8, ptr %0, i64 120
-  %43 = load ptr, ptr %42, align 8
-  %44 = sext i32 %spec.select to i64
-  %45 = getelementptr inbounds ptr, ptr %43, i64 %44
-  br label %.sink.split
+41:                                               ; preds = %23
+  %42 = add nsw i32 %21, %1
+  %.not31 = icmp sgt i32 %18, %42
+  %43 = select i1 %.not31, i32 0, i32 %18
+  %spec.select = sub nsw i32 %42, %43
+  %44 = getelementptr inbounds i8, ptr %0, i64 120
+  %45 = load ptr, ptr %44, align 8
+  %46 = sext i32 %spec.select to i64
+  %47 = getelementptr inbounds ptr, ptr %45, i64 %46
+  %48 = load ptr, ptr %47, align 8
+  br label %49
 
-.sink.split:                                      ; preds = %39, %35, %31
-  %.sink = phi ptr [ %34, %31 ], [ %38, %35 ], [ %45, %39 ]
-  %46 = load ptr, ptr %.sink, align 8
-  br label %47
-
-47:                                               ; preds = %.sink.split, %._crit_edge, %19
-  %.025 = phi ptr [ null, %19 ], [ null, %._crit_edge ], [ %46, %.sink.split ]
+49:                                               ; preds = %._crit_edge, %19, %31, %36, %41
+  %.025 = phi ptr [ %35, %31 ], [ %40, %36 ], [ %48, %41 ], [ null, %19 ], [ null, %._crit_edge ]
   store i8 0, ptr %9, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 96
-  %49 = load volatile i32, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 100
-  store volatile i32 %49, ptr %50, align 4
-  %51 = load i8, ptr @opal_uses_threads, align 1
-  %52 = trunc i8 %51 to i1
-  br i1 %52, label %53, label %56
+  %50 = getelementptr inbounds i8, ptr %0, i64 96
+  %51 = load volatile i32, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %0, i64 100
+  store volatile i32 %51, ptr %52, align 4
+  %53 = load i8, ptr @opal_uses_threads, align 1
+  %54 = trunc i8 %53 to i1
+  br i1 %54, label %55, label %58
 
-53:                                               ; preds = %47
-  %54 = getelementptr inbounds i8, ptr %0, i64 32
-  %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %54) #6
-  br label %56
+55:                                               ; preds = %49
+  %56 = getelementptr inbounds i8, ptr %0, i64 32
+  %57 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %56) #6
+  br label %58
 
-56:                                               ; preds = %53, %47
+58:                                               ; preds = %55, %49
   ret ptr %.025
 }
 

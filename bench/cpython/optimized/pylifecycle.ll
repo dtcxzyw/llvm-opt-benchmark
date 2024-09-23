@@ -3017,9 +3017,9 @@ if.then13:                                        ; preds = %if.end10
   br label %if.end21
 
 if.end21:                                         ; preds = %if.end10, %if.then13
-  %.sink90 = phi ptr [ %interp17, %if.then13 ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), %if.end10 ]
-  %3 = load ptr, ptr %.sink90, align 8
-  %call20 = call ptr @_PyInterpreterState_GetConfig(ptr noundef %3) #21
+  %.sink.in = phi ptr [ %interp17, %if.then13 ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), %if.end10 ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %call20 = call ptr @_PyInterpreterState_GetConfig(ptr noundef %.sink) #21
   %config23 = getelementptr inbounds i8, ptr %call, i64 1592
   call void @_PyConfig_Copy(ptr nonnull sret(%struct.PyStatus) align 8 %tmp22, ptr noundef nonnull %config23, ptr noundef %call20) #21
   %status.sroa.0.0.copyload26 = load i32, ptr %tmp22, align 8
@@ -3037,92 +3037,92 @@ if.end21:                                         ; preds = %if.end10, %if.then1
   br i1 %cmp25.not, label %if.end27, label %error.thread
 
 if.end27:                                         ; preds = %if.end21
-  %4 = load i32, ptr %config, align 4, !noalias !49
-  %tobool.not.i = icmp eq i32 %4, 0
+  %3 = load i32, ptr %config, align 4, !noalias !49
+  %tobool.not.i = icmp eq i32 %3, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i69
 
 if.then.i69:                                      ; preds = %if.end27
   %feature_flags.i = getelementptr inbounds i8, ptr %call, i64 2040
-  %5 = load i64, ptr %feature_flags.i, align 8, !noalias !49
-  %or.i = or i64 %5, 32
+  %4 = load i64, ptr %feature_flags.i, align 8, !noalias !49
+  %or.i = or i64 %4, 32
   store i64 %or.i, ptr %feature_flags.i, align 8, !noalias !49
   br label %if.end3.i
 
 if.else.i:                                        ; preds = %if.end27
   %check_multi_interp_extensions.i = getelementptr inbounds i8, ptr %config, i64 20
-  %6 = load i32, ptr %check_multi_interp_extensions.i, align 4, !noalias !49
-  %tobool1.not.i = icmp eq i32 %6, 0
+  %5 = load i32, ptr %check_multi_interp_extensions.i, align 4, !noalias !49
+  %tobool1.not.i = icmp eq i32 %5, 0
   br i1 %tobool1.not.i, label %error.thread, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.else.i, %if.then.i69
   %allow_fork.i = getelementptr inbounds i8, ptr %config, i64 4
-  %7 = load i32, ptr %allow_fork.i, align 4, !noalias !49
-  %tobool4.not.i = icmp eq i32 %7, 0
+  %6 = load i32, ptr %allow_fork.i, align 4, !noalias !49
+  %tobool4.not.i = icmp eq i32 %6, 0
   br i1 %tobool4.not.i, label %if.end8.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end3.i
   %feature_flags6.i = getelementptr inbounds i8, ptr %call, i64 2040
-  %8 = load i64, ptr %feature_flags6.i, align 8, !noalias !49
-  %or7.i = or i64 %8, 32768
+  %7 = load i64, ptr %feature_flags6.i, align 8, !noalias !49
+  %or7.i = or i64 %7, 32768
   store i64 %or7.i, ptr %feature_flags6.i, align 8, !noalias !49
   br label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.then5.i, %if.end3.i
   %allow_exec.i = getelementptr inbounds i8, ptr %config, i64 8
-  %9 = load i32, ptr %allow_exec.i, align 4, !noalias !49
-  %tobool9.not.i = icmp eq i32 %9, 0
+  %8 = load i32, ptr %allow_exec.i, align 4, !noalias !49
+  %tobool9.not.i = icmp eq i32 %8, 0
   br i1 %tobool9.not.i, label %if.end13.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end8.i
   %feature_flags11.i = getelementptr inbounds i8, ptr %call, i64 2040
-  %10 = load i64, ptr %feature_flags11.i, align 8, !noalias !49
-  %or12.i = or i64 %10, 65536
+  %9 = load i64, ptr %feature_flags11.i, align 8, !noalias !49
+  %or12.i = or i64 %9, 65536
   store i64 %or12.i, ptr %feature_flags11.i, align 8, !noalias !49
   br label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.then10.i, %if.end8.i
   %allow_threads.i = getelementptr inbounds i8, ptr %config, i64 12
-  %11 = load i32, ptr %allow_threads.i, align 4, !noalias !49
-  %tobool14.not.i = icmp eq i32 %11, 0
+  %10 = load i32, ptr %allow_threads.i, align 4, !noalias !49
+  %tobool14.not.i = icmp eq i32 %10, 0
   br i1 %tobool14.not.i, label %if.end18.i, label %if.then15.i
 
 if.then15.i:                                      ; preds = %if.end13.i
   %feature_flags16.i = getelementptr inbounds i8, ptr %call, i64 2040
-  %12 = load i64, ptr %feature_flags16.i, align 8, !noalias !49
-  %or17.i = or i64 %12, 1024
+  %11 = load i64, ptr %feature_flags16.i, align 8, !noalias !49
+  %or17.i = or i64 %11, 1024
   store i64 %or17.i, ptr %feature_flags16.i, align 8, !noalias !49
   br label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.then15.i, %if.end13.i
   %allow_daemon_threads.i = getelementptr inbounds i8, ptr %config, i64 16
-  %13 = load i32, ptr %allow_daemon_threads.i, align 4, !noalias !49
-  %tobool19.not.i = icmp eq i32 %13, 0
+  %12 = load i32, ptr %allow_daemon_threads.i, align 4, !noalias !49
+  %tobool19.not.i = icmp eq i32 %12, 0
   br i1 %tobool19.not.i, label %if.end23.i, label %if.then20.i
 
 if.then20.i:                                      ; preds = %if.end18.i
   %feature_flags21.i = getelementptr inbounds i8, ptr %call, i64 2040
-  %14 = load i64, ptr %feature_flags21.i, align 8, !noalias !49
-  %or22.i = or i64 %14, 2048
+  %13 = load i64, ptr %feature_flags21.i, align 8, !noalias !49
+  %or22.i = or i64 %13, 2048
   store i64 %or22.i, ptr %feature_flags21.i, align 8, !noalias !49
   br label %if.end23.i
 
 if.end23.i:                                       ; preds = %if.then20.i, %if.end18.i
   %check_multi_interp_extensions24.i = getelementptr inbounds i8, ptr %config, i64 20
-  %15 = load i32, ptr %check_multi_interp_extensions24.i, align 4, !noalias !49
-  %tobool25.not.i = icmp eq i32 %15, 0
+  %14 = load i32, ptr %check_multi_interp_extensions24.i, align 4, !noalias !49
+  %tobool25.not.i = icmp eq i32 %14, 0
   br i1 %tobool25.not.i, label %if.end29.i, label %if.then26.i
 
 if.then26.i:                                      ; preds = %if.end23.i
   %feature_flags27.i = getelementptr inbounds i8, ptr %call, i64 2040
-  %16 = load i64, ptr %feature_flags27.i, align 8, !noalias !49
-  %or28.i = or i64 %16, 256
+  %15 = load i64, ptr %feature_flags27.i, align 8, !noalias !49
+  %or28.i = or i64 %15, 256
   store i64 %or28.i, ptr %feature_flags27.i, align 8, !noalias !49
   br label %if.end29.i
 
 if.end29.i:                                       ; preds = %if.then26.i, %if.end23.i
   %gil.i = getelementptr inbounds i8, ptr %config, i64 24
-  %17 = load i32, ptr %gil.i, align 4, !noalias !49
-  %switch.i = icmp ult i32 %17, 3
+  %16 = load i32, ptr %gil.i, align 4, !noalias !49
+  %switch.i = icmp ult i32 %16, 3
   br i1 %switch.i, label %if.end32, label %error.thread
 
 if.end32:                                         ; preds = %if.end29.i
@@ -3132,8 +3132,8 @@ if.end32:                                         ; preds = %if.end29.i
 
 if.end40:                                         ; preds = %if.end32
   call void @_PyThreadState_Bind(ptr noundef nonnull %call33) #21
-  %18 = load i32, ptr %gil.i, align 4
-  call fastcc void @init_interp_create_gil(ptr noundef %call33, i32 noundef %18)
+  %17 = load i32, ptr %gil.i, align 4
+  call fastcc void @init_interp_create_gil(ptr noundef %call33, i32 noundef %17)
   call fastcc void @pycore_interp_init(ptr noalias align 8 %tmp41, ptr noundef nonnull %call33)
   %status.sroa.0.0.copyload28 = load i32, ptr %tmp41, align 8
   %status.sroa.13.0.tmp41.sroa_idx = getelementptr inbounds i8, ptr %tmp41, i64 4

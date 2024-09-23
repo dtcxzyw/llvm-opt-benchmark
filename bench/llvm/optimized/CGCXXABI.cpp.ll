@@ -718,10 +718,10 @@ _ZNK5clang13CXXMethodDecl9getParentEv.exit26:     ; preds = %66, %73
   br label %90
 
 90:                                               ; preds = %86, %84
-  %.sink = phi ptr [ %89, %86 ], [ %85, %84 ]
-  %.sroa.0.0.copyload.i28 = load i64, ptr %.sink, align 8
+  %.sroa.0.0.copyload.i28.sink.in = phi ptr [ %89, %86 ], [ %85, %84 ]
+  %.sroa.0.0.copyload.i28.sink = load i64, ptr %.sroa.0.0.copyload.i28.sink.in, align 8
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 4552
-  store i64 %.sroa.0.0.copyload.i28, ptr %91, align 8
+  store i64 %.sroa.0.0.copyload.i28.sink, ptr %91, align 8
   ret void
 }
 

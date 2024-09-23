@@ -181,75 +181,122 @@ for.cond:                                         ; preds = %for.cond.preheader,
 sw.bb:                                            ; preds = %for.cond
   %11 = load ptr, ptr %newctx, align 8
   %cmp17 = icmp eq ptr %11, null
-  br i1 %cmp17, label %for.inc.sink.split, label %for.inc
+  br i1 %cmp17, label %if.then18, label %for.inc
 
-sw.bb22:                                          ; preds = %for.cond
-  %12 = load ptr, ptr %freectx, align 8
-  %cmp23 = icmp eq ptr %12, null
-  br i1 %cmp23, label %for.inc.sink.split, label %for.inc
-
-sw.bb28:                                          ; preds = %for.cond
-  %13 = load ptr, ptr %get_params, align 8
-  %cmp29 = icmp eq ptr %13, null
-  br i1 %cmp29, label %for.inc.sink.split, label %for.inc
-
-sw.bb34:                                          ; preds = %for.cond
-  %14 = load ptr, ptr %gettable_params, align 8
-  %cmp35 = icmp eq ptr %14, null
-  br i1 %cmp35, label %for.inc.sink.split, label %for.inc
-
-sw.bb40:                                          ; preds = %for.cond
-  %15 = load ptr, ptr %set_ctx_params, align 8
-  %cmp41 = icmp eq ptr %15, null
-  br i1 %cmp41, label %for.inc.sink.split, label %for.inc
-
-sw.bb46:                                          ; preds = %for.cond
-  %16 = load ptr, ptr %settable_ctx_params, align 8
-  %cmp47 = icmp eq ptr %16, null
-  br i1 %cmp47, label %for.inc.sink.split, label %for.inc
-
-sw.bb52:                                          ; preds = %for.cond
-  %17 = load ptr, ptr %does_selection, align 8
-  %cmp53 = icmp eq ptr %17, null
-  br i1 %cmp53, label %for.inc.sink.split, label %for.inc
-
-sw.bb58:                                          ; preds = %for.cond
-  %18 = load ptr, ptr %decode, align 8
-  %cmp59 = icmp eq ptr %18, null
-  br i1 %cmp59, label %for.inc.sink.split, label %for.inc
-
-sw.bb64:                                          ; preds = %for.cond
-  %19 = load ptr, ptr %export_object, align 8
-  %cmp65 = icmp eq ptr %19, null
-  br i1 %cmp65, label %for.inc.sink.split, label %for.inc
-
-for.inc.sink.split:                               ; preds = %sw.bb64, %sw.bb58, %sw.bb52, %sw.bb46, %sw.bb40, %sw.bb34, %sw.bb28, %sw.bb22, %sw.bb
-  %newctx.sink = phi ptr [ %newctx, %sw.bb ], [ %freectx, %sw.bb22 ], [ %get_params, %sw.bb28 ], [ %gettable_params, %sw.bb34 ], [ %set_ctx_params, %sw.bb40 ], [ %settable_ctx_params, %sw.bb46 ], [ %does_selection, %sw.bb52 ], [ %decode, %sw.bb58 ], [ %export_object, %sw.bb64 ]
-  %20 = getelementptr i8, ptr %fns.0, i64 8
-  %fns.0.val = load ptr, ptr %20, align 8
-  store ptr %fns.0.val, ptr %newctx.sink, align 8
+if.then18:                                        ; preds = %sw.bb
+  %12 = getelementptr i8, ptr %fns.0, i64 8
+  %fns.0.val = load ptr, ptr %12, align 8
+  store ptr %fns.0.val, ptr %newctx, align 8
   br label %for.inc
 
-for.inc:                                          ; preds = %for.inc.sink.split, %for.cond, %sw.bb, %sw.bb22, %sw.bb28, %sw.bb34, %sw.bb40, %sw.bb46, %sw.bb52, %sw.bb58, %sw.bb64
+sw.bb22:                                          ; preds = %for.cond
+  %13 = load ptr, ptr %freectx, align 8
+  %cmp23 = icmp eq ptr %13, null
+  br i1 %cmp23, label %if.then24, label %for.inc
+
+if.then24:                                        ; preds = %sw.bb22
+  %14 = getelementptr i8, ptr %fns.0, i64 8
+  %fns.0.val50 = load ptr, ptr %14, align 8
+  store ptr %fns.0.val50, ptr %freectx, align 8
+  br label %for.inc
+
+sw.bb28:                                          ; preds = %for.cond
+  %15 = load ptr, ptr %get_params, align 8
+  %cmp29 = icmp eq ptr %15, null
+  br i1 %cmp29, label %if.then30, label %for.inc
+
+if.then30:                                        ; preds = %sw.bb28
+  %16 = getelementptr i8, ptr %fns.0, i64 8
+  %fns.0.val51 = load ptr, ptr %16, align 8
+  store ptr %fns.0.val51, ptr %get_params, align 8
+  br label %for.inc
+
+sw.bb34:                                          ; preds = %for.cond
+  %17 = load ptr, ptr %gettable_params, align 8
+  %cmp35 = icmp eq ptr %17, null
+  br i1 %cmp35, label %if.then36, label %for.inc
+
+if.then36:                                        ; preds = %sw.bb34
+  %18 = getelementptr i8, ptr %fns.0, i64 8
+  %fns.0.val52 = load ptr, ptr %18, align 8
+  store ptr %fns.0.val52, ptr %gettable_params, align 8
+  br label %for.inc
+
+sw.bb40:                                          ; preds = %for.cond
+  %19 = load ptr, ptr %set_ctx_params, align 8
+  %cmp41 = icmp eq ptr %19, null
+  br i1 %cmp41, label %if.then42, label %for.inc
+
+if.then42:                                        ; preds = %sw.bb40
+  %20 = getelementptr i8, ptr %fns.0, i64 8
+  %fns.0.val53 = load ptr, ptr %20, align 8
+  store ptr %fns.0.val53, ptr %set_ctx_params, align 8
+  br label %for.inc
+
+sw.bb46:                                          ; preds = %for.cond
+  %21 = load ptr, ptr %settable_ctx_params, align 8
+  %cmp47 = icmp eq ptr %21, null
+  br i1 %cmp47, label %if.then48, label %for.inc
+
+if.then48:                                        ; preds = %sw.bb46
+  %22 = getelementptr i8, ptr %fns.0, i64 8
+  %fns.0.val54 = load ptr, ptr %22, align 8
+  store ptr %fns.0.val54, ptr %settable_ctx_params, align 8
+  br label %for.inc
+
+sw.bb52:                                          ; preds = %for.cond
+  %23 = load ptr, ptr %does_selection, align 8
+  %cmp53 = icmp eq ptr %23, null
+  br i1 %cmp53, label %if.then54, label %for.inc
+
+if.then54:                                        ; preds = %sw.bb52
+  %24 = getelementptr i8, ptr %fns.0, i64 8
+  %fns.0.val55 = load ptr, ptr %24, align 8
+  store ptr %fns.0.val55, ptr %does_selection, align 8
+  br label %for.inc
+
+sw.bb58:                                          ; preds = %for.cond
+  %25 = load ptr, ptr %decode, align 8
+  %cmp59 = icmp eq ptr %25, null
+  br i1 %cmp59, label %if.then60, label %for.inc
+
+if.then60:                                        ; preds = %sw.bb58
+  %26 = getelementptr i8, ptr %fns.0, i64 8
+  %fns.0.val56 = load ptr, ptr %26, align 8
+  store ptr %fns.0.val56, ptr %decode, align 8
+  br label %for.inc
+
+sw.bb64:                                          ; preds = %for.cond
+  %27 = load ptr, ptr %export_object, align 8
+  %cmp65 = icmp eq ptr %27, null
+  br i1 %cmp65, label %if.then66, label %for.inc
+
+if.then66:                                        ; preds = %sw.bb64
+  %28 = getelementptr i8, ptr %fns.0, i64 8
+  %fns.0.val57 = load ptr, ptr %28, align 8
+  store ptr %fns.0.val57, ptr %export_object, align 8
+  br label %for.inc
+
+for.inc:                                          ; preds = %for.cond, %if.then18, %sw.bb, %if.then24, %sw.bb22, %if.then30, %sw.bb28, %if.then36, %sw.bb34, %if.then42, %sw.bb40, %if.then48, %sw.bb46, %if.then54, %sw.bb52, %if.then60, %sw.bb58, %if.then66, %sw.bb64
   %incdec.ptr = getelementptr inbounds i8, ptr %fns.0, i64 16
   br label %for.cond, !llvm.loop !4
 
 for.end:                                          ; preds = %for.cond
-  %21 = load ptr, ptr %newctx, align 8
-  %cmp71 = icmp eq ptr %21, null
-  %22 = load ptr, ptr %freectx, align 8
-  %cmp73 = icmp eq ptr %22, null
-  %23 = xor i1 %cmp71, %cmp73
-  br i1 %23, label %if.end.i73, label %lor.lhs.false79
+  %29 = load ptr, ptr %newctx, align 8
+  %cmp71 = icmp eq ptr %29, null
+  %30 = load ptr, ptr %freectx, align 8
+  %cmp73 = icmp eq ptr %30, null
+  %31 = xor i1 %cmp71, %cmp73
+  br i1 %31, label %if.end.i73, label %lor.lhs.false79
 
 lor.lhs.false79:                                  ; preds = %for.end
-  %24 = load ptr, ptr %decode, align 8
-  %cmp81 = icmp eq ptr %24, null
+  %32 = load ptr, ptr %decode, align 8
+  %cmp81 = icmp eq ptr %32, null
   br i1 %cmp81, label %if.end.i73, label %if.end83
 
 if.end.i73:                                       ; preds = %for.end, %lor.lhs.false79
-  %25 = atomicrmw sub ptr %refcnt.i, i32 1 monotonic, align 4
-  %cmp.i.i75 = icmp eq i32 %25, 1
+  %33 = atomicrmw sub ptr %refcnt.i, i32 1 monotonic, align 4
+  %cmp.i.i75 = icmp eq i32 %33, 1
   br i1 %cmp.i.i75, label %CRYPTO_DOWN_REF.exit.thread.i81, label %CRYPTO_DOWN_REF.exit.i76
 
 CRYPTO_DOWN_REF.exit.thread.i81:                  ; preds = %if.end.i73
@@ -257,16 +304,16 @@ CRYPTO_DOWN_REF.exit.thread.i81:                  ; preds = %if.end.i73
   br label %if.end3.i78
 
 CRYPTO_DOWN_REF.exit.i76:                         ; preds = %if.end.i73
-  %cmp1.i77 = icmp sgt i32 %25, 1
+  %cmp1.i77 = icmp sgt i32 %33, 1
   br i1 %cmp1.i77, label %OSSL_DECODER_free.exit82, label %if.end3.i78
 
 if.end3.i78:                                      ; preds = %CRYPTO_DOWN_REF.exit.i76, %CRYPTO_DOWN_REF.exit.thread.i81
-  %26 = load ptr, ptr %name, align 8
-  tail call void @CRYPTO_free(ptr noundef %26, ptr noundef nonnull @.str, i32 noundef 60) #7
-  %27 = load ptr, ptr %parsed_propdef, align 8
-  tail call void @ossl_property_free(ptr noundef %27) #7
-  %28 = load ptr, ptr %call.i, align 8
-  tail call void @ossl_provider_free(ptr noundef %28) #7
+  %34 = load ptr, ptr %name, align 8
+  tail call void @CRYPTO_free(ptr noundef %34, ptr noundef nonnull @.str, i32 noundef 60) #7
+  %35 = load ptr, ptr %parsed_propdef, align 8
+  tail call void @ossl_property_free(ptr noundef %35) #7
+  %36 = load ptr, ptr %call.i, align 8
+  tail call void @ossl_provider_free(ptr noundef %36) #7
   tail call void @CRYPTO_free(ptr noundef nonnull %call.i, ptr noundef nonnull @.str, i32 noundef 64) #7
   br label %OSSL_DECODER_free.exit82
 

@@ -420,6 +420,7 @@ define internal noundef range(i32 0, -256) i32 @_ZNK12_GLOBAL__N_122AArch64ELFOb
   %174 = getelementptr inbounds nuw i8, ptr %6, i64 33
   store i8 1, ptr %174, align 1
   store ptr @.str.26, ptr %6, align 8
+  store i8 3, ptr %173, align 8
   br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit
 
 175:                                              ; preds = %171
@@ -427,6 +428,7 @@ define internal noundef range(i32 0, -256) i32 @_ZNK12_GLOBAL__N_122AArch64ELFOb
   %177 = getelementptr inbounds nuw i8, ptr %7, i64 33
   store i8 1, ptr %177, align 1
   store ptr @.str.27, ptr %7, align 8
+  store i8 3, ptr %176, align 8
   br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit
 
 178:                                              ; preds = %171
@@ -434,6 +436,7 @@ define internal noundef range(i32 0, -256) i32 @_ZNK12_GLOBAL__N_122AArch64ELFOb
   %180 = getelementptr inbounds nuw i8, ptr %8, i64 33
   store i8 1, ptr %180, align 1
   store ptr @.str.28, ptr %8, align 8
+  store i8 3, ptr %179, align 8
   br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit
 
 181:                                              ; preds = %171
@@ -441,6 +444,7 @@ define internal noundef range(i32 0, -256) i32 @_ZNK12_GLOBAL__N_122AArch64ELFOb
   %183 = getelementptr inbounds nuw i8, ptr %9, i64 33
   store i8 1, ptr %183, align 1
   store ptr @.str.29, ptr %9, align 8
+  store i8 3, ptr %182, align 8
   br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit
 
 184:                                              ; preds = %171
@@ -448,6 +452,7 @@ define internal noundef range(i32 0, -256) i32 @_ZNK12_GLOBAL__N_122AArch64ELFOb
   %186 = getelementptr inbounds nuw i8, ptr %10, i64 33
   store i8 1, ptr %186, align 1
   store ptr @.str.30, ptr %10, align 8
+  store i8 3, ptr %185, align 8
   br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit
 
 187:                                              ; preds = %171
@@ -455,6 +460,7 @@ define internal noundef range(i32 0, -256) i32 @_ZNK12_GLOBAL__N_122AArch64ELFOb
   %189 = getelementptr inbounds nuw i8, ptr %11, i64 33
   store i8 1, ptr %189, align 1
   store ptr @.str.31, ptr %11, align 8
+  store i8 3, ptr %188, align 8
   br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit
 
 190:                                              ; preds = %171
@@ -462,6 +468,7 @@ define internal noundef range(i32 0, -256) i32 @_ZNK12_GLOBAL__N_122AArch64ELFOb
   %192 = getelementptr inbounds nuw i8, ptr %12, i64 33
   store i8 1, ptr %192, align 1
   store ptr @.str.32, ptr %12, align 8
+  store i8 3, ptr %191, align 8
   br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit
 
 193:                                              ; preds = %171
@@ -469,6 +476,7 @@ define internal noundef range(i32 0, -256) i32 @_ZNK12_GLOBAL__N_122AArch64ELFOb
   %195 = getelementptr inbounds nuw i8, ptr %13, i64 33
   store i8 1, ptr %195, align 1
   store ptr @.str.33, ptr %13, align 8
+  store i8 3, ptr %194, align 8
   br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit
 
 196:                                              ; preds = %171
@@ -476,6 +484,7 @@ define internal noundef range(i32 0, -256) i32 @_ZNK12_GLOBAL__N_122AArch64ELFOb
   %198 = getelementptr inbounds nuw i8, ptr %14, i64 33
   store i8 1, ptr %198, align 1
   store ptr @.str.34, ptr %14, align 8
+  store i8 3, ptr %197, align 8
   br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit
 
 199:                                              ; preds = %171
@@ -483,6 +492,7 @@ define internal noundef range(i32 0, -256) i32 @_ZNK12_GLOBAL__N_122AArch64ELFOb
   %201 = getelementptr inbounds nuw i8, ptr %15, i64 33
   store i8 1, ptr %201, align 1
   store ptr @.str.35, ptr %15, align 8
+  store i8 3, ptr %200, align 8
   br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit
 
 202:                                              ; preds = %171
@@ -490,6 +500,7 @@ define internal noundef range(i32 0, -256) i32 @_ZNK12_GLOBAL__N_122AArch64ELFOb
   %204 = getelementptr inbounds nuw i8, ptr %16, i64 33
   store i8 1, ptr %204, align 1
   store ptr @.str.36, ptr %16, align 8
+  store i8 3, ptr %203, align 8
   br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit
 
 205:                                              ; preds = %171
@@ -497,6 +508,7 @@ define internal noundef range(i32 0, -256) i32 @_ZNK12_GLOBAL__N_122AArch64ELFOb
   %207 = getelementptr inbounds nuw i8, ptr %17, i64 33
   store i8 1, ptr %207, align 1
   store ptr @.str.37, ptr %17, align 8
+  store i8 3, ptr %206, align 8
   br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit
 
 _ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread: ; preds = %169, %171
@@ -515,9 +527,7 @@ _ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCCont
   br label %208
 
 _ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit: ; preds = %172, %175, %178, %181, %184, %187, %190, %193, %196, %199, %202, %205
-  %.sink1.i = phi ptr [ %206, %205 ], [ %203, %202 ], [ %200, %199 ], [ %197, %196 ], [ %194, %193 ], [ %191, %190 ], [ %188, %187 ], [ %185, %184 ], [ %182, %181 ], [ %179, %178 ], [ %176, %175 ], [ %173, %172 ]
   %.sink.i = phi ptr [ %17, %205 ], [ %16, %202 ], [ %15, %199 ], [ %14, %196 ], [ %13, %193 ], [ %12, %190 ], [ %11, %187 ], [ %10, %184 ], [ %9, %181 ], [ %8, %178 ], [ %7, %175 ], [ %6, %172 ]
-  store i8 3, ptr %.sink1.i, align 8
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %1, ptr %.val306, ptr noundef nonnull align 8 dereferenceable(34) %.sink.i) #10
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)

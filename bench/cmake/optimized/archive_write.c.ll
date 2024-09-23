@@ -154,7 +154,7 @@ define dso_local range(i32 -30, 1) i32 @archive_write_set_skip_file(ptr noundef 
 define dso_local noundef ptr @__archive_write_allocate_filter(ptr noundef %0) local_unnamed_addr #5 {
   %2 = tail call noalias dereferenceable_or_null(104) ptr @calloc(i64 noundef 1, i64 noundef 104) #12
   %3 = icmp eq ptr %2, null
-  br i1 %3, label %16, label %4
+  br i1 %3, label %17, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 8
@@ -164,22 +164,25 @@ define dso_local noundef ptr @__archive_write_allocate_filter(ptr noundef %0) lo
   %7 = getelementptr inbounds i8, ptr %0, i64 232
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %14, label %10
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 240
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
-  br label %14
+  store ptr %2, ptr %7, align 8
+  br label %15
 
-14:                                               ; preds = %4, %10
-  %.sink = phi ptr [ %13, %10 ], [ %7, %4 ]
-  store ptr %2, ptr %.sink, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 240
-  store ptr %2, ptr %15, align 8
-  br label %16
+11:                                               ; preds = %4
+  %12 = getelementptr inbounds i8, ptr %0, i64 240
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  store ptr %2, ptr %14, align 8
+  br label %15
 
-16:                                               ; preds = %1, %14
+15:                                               ; preds = %11, %10
+  %16 = getelementptr inbounds i8, ptr %0, i64 240
+  store ptr %2, ptr %16, align 8
+  br label %17
+
+17:                                               ; preds = %1, %15
   ret ptr %2
 }
 
@@ -323,117 +326,121 @@ define dso_local i32 @archive_write_open2(ptr noundef %0, ptr noundef %1, ptr no
   %20 = getelementptr i8, ptr %0, i64 232
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %27, label %23
+  br i1 %22, label %23, label %24
 
 23:                                               ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %0, i64 240
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
-  br label %27
+  store ptr %15, ptr %20, align 8
+  br label %28
 
-27:                                               ; preds = %23, %17
-  %.sink.i = phi ptr [ %26, %23 ], [ %20, %17 ]
-  store ptr %15, ptr %.sink.i, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 240
-  store ptr %15, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %15, i64 32
-  store ptr @archive_write_client_open, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %15, i64 40
-  store ptr @archive_write_client_write, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %15, i64 56
-  store ptr @archive_write_client_close, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %15, i64 64
-  store ptr @archive_write_client_free, ptr %32, align 8
-  %.val = load ptr, ptr %20, align 8
-  %33 = tail call fastcc i32 @__archive_write_open_filter(ptr noundef %.val)
-  %34 = icmp slt i32 %33, -20
-  br i1 %34, label %35, label %57
+24:                                               ; preds = %17
+  %25 = getelementptr inbounds i8, ptr %0, i64 240
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 16
+  store ptr %15, ptr %27, align 8
+  %.val.pre = load ptr, ptr %20, align 8
+  br label %28
 
-35:                                               ; preds = %27
+28:                                               ; preds = %24, %23
+  %.val = phi ptr [ %.val.pre, %24 ], [ %15, %23 ]
+  %29 = getelementptr inbounds i8, ptr %0, i64 240
+  store ptr %15, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %15, i64 32
+  store ptr @archive_write_client_open, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %15, i64 40
+  store ptr @archive_write_client_write, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %15, i64 56
+  store ptr @archive_write_client_close, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %15, i64 64
+  store ptr @archive_write_client_free, ptr %33, align 8
+  %34 = tail call fastcc i32 @__archive_write_open_filter(ptr noundef %.val)
+  %35 = icmp slt i32 %34, -20
+  br i1 %35, label %36, label %58
+
+36:                                               ; preds = %28
   %.018.i = load ptr, ptr %20, align 8
   %.not19.i = icmp eq ptr %.018.i, null
   br i1 %.not19.i, label %__archive_write_filters_free.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %35, %45
-  %.021.i = phi ptr [ %.0.i, %45 ], [ %.018.i, %35 ]
-  %.01420.i = phi i32 [ %.2.i, %45 ], [ 0, %35 ]
-  %36 = getelementptr inbounds i8, ptr %.021.i, i64 100
-  %37 = load i32, ptr %36, align 4
-  %38 = icmp eq i32 %37, 2
-  br i1 %38, label %39, label %45
+.lr.ph.i:                                         ; preds = %36, %46
+  %.021.i = phi ptr [ %.0.i, %46 ], [ %.018.i, %36 ]
+  %.01420.i = phi i32 [ %.2.i, %46 ], [ 0, %36 ]
+  %37 = getelementptr inbounds i8, ptr %.021.i, i64 100
+  %38 = load i32, ptr %37, align 4
+  %39 = icmp eq i32 %38, 2
+  br i1 %39, label %40, label %46
 
-39:                                               ; preds = %.lr.ph.i
-  %40 = getelementptr inbounds i8, ptr %.021.i, i64 56
-  %41 = load ptr, ptr %40, align 8
-  %.not17.i = icmp eq ptr %41, null
-  br i1 %.not17.i, label %.sink.split.i, label %42
+40:                                               ; preds = %.lr.ph.i
+  %41 = getelementptr inbounds i8, ptr %.021.i, i64 56
+  %42 = load ptr, ptr %41, align 8
+  %.not17.i = icmp eq ptr %42, null
+  br i1 %.not17.i, label %.sink.split.i, label %43
 
-42:                                               ; preds = %39
-  %43 = tail call i32 %41(ptr noundef nonnull %.021.i) #13
-  %spec.select.i = tail call i32 @llvm.smin.i32(i32 %43, i32 %.01420.i)
-  %44 = icmp eq i32 %43, 0
-  %..i = select i1 %44, i32 4, i32 32768
+43:                                               ; preds = %40
+  %44 = tail call i32 %42(ptr noundef nonnull %.021.i) #13
+  %spec.select.i = tail call i32 @llvm.smin.i32(i32 %44, i32 %.01420.i)
+  %45 = icmp eq i32 %44, 0
+  %..i = select i1 %45, i32 4, i32 32768
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %42, %39
-  %.sink.i37 = phi i32 [ %..i, %42 ], [ 4, %39 ]
-  %.2.ph.i = phi i32 [ %spec.select.i, %42 ], [ %.01420.i, %39 ]
-  store i32 %.sink.i37, ptr %36, align 4
-  br label %45
+.sink.split.i:                                    ; preds = %43, %40
+  %.sink.i = phi i32 [ %..i, %43 ], [ 4, %40 ]
+  %.2.ph.i = phi i32 [ %spec.select.i, %43 ], [ %.01420.i, %40 ]
+  store i32 %.sink.i, ptr %37, align 4
+  br label %46
 
-45:                                               ; preds = %.sink.split.i, %.lr.ph.i
+46:                                               ; preds = %.sink.split.i, %.lr.ph.i
   %.2.i = phi i32 [ %.01420.i, %.lr.ph.i ], [ %.2.ph.i, %.sink.split.i ]
-  %46 = getelementptr inbounds i8, ptr %.021.i, i64 16
-  %.0.i = load ptr, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %.021.i, i64 16
+  %.0.i = load ptr, ptr %47, align 8
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %__archive_write_filters_close.exit, label %.lr.ph.i, !llvm.loop !7
 
-__archive_write_filters_close.exit:               ; preds = %45
+__archive_write_filters_close.exit:               ; preds = %46
   %.pr = load ptr, ptr %20, align 8
   %.not16.i = icmp eq ptr %.pr, null
-  br i1 %.not16.i, label %__archive_write_filters_free.exit, label %.lr.ph.i38
+  br i1 %.not16.i, label %__archive_write_filters_free.exit, label %.lr.ph.i37
 
-.lr.ph.i38:                                       ; preds = %__archive_write_filters_close.exit, %54
-  %47 = phi ptr [ %49, %54 ], [ %.pr, %__archive_write_filters_close.exit ]
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %47, i64 64
-  %51 = load ptr, ptr %50, align 8
-  %.not15.i = icmp eq ptr %51, null
-  br i1 %.not15.i, label %54, label %52
+.lr.ph.i37:                                       ; preds = %__archive_write_filters_close.exit, %55
+  %48 = phi ptr [ %50, %55 ], [ %.pr, %__archive_write_filters_close.exit ]
+  %49 = getelementptr inbounds i8, ptr %48, i64 16
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds i8, ptr %48, i64 64
+  %52 = load ptr, ptr %51, align 8
+  %.not15.i = icmp eq ptr %52, null
+  br i1 %.not15.i, label %55, label %53
 
-52:                                               ; preds = %.lr.ph.i38
-  %53 = tail call i32 %51(ptr noundef nonnull %47) #13
+53:                                               ; preds = %.lr.ph.i37
+  %54 = tail call i32 %52(ptr noundef nonnull %48) #13
   %.pre.i = load ptr, ptr %20, align 8
-  br label %54
+  br label %55
 
-54:                                               ; preds = %52, %.lr.ph.i38
-  %55 = phi ptr [ %47, %.lr.ph.i38 ], [ %.pre.i, %52 ]
-  tail call void @free(ptr noundef %55) #13
-  store ptr %49, ptr %20, align 8
-  %.not.i39 = icmp eq ptr %49, null
-  br i1 %.not.i39, label %__archive_write_filters_free.exit, label %.lr.ph.i38, !llvm.loop !8
+55:                                               ; preds = %53, %.lr.ph.i37
+  %56 = phi ptr [ %48, %.lr.ph.i37 ], [ %.pre.i, %53 ]
+  tail call void @free(ptr noundef %56) #13
+  store ptr %50, ptr %20, align 8
+  %.not.i38 = icmp eq ptr %50, null
+  br i1 %.not.i38, label %__archive_write_filters_free.exit, label %.lr.ph.i37, !llvm.loop !8
 
-__archive_write_filters_free.exit:                ; preds = %54, %35, %__archive_write_filters_close.exit
-  %.014.lcssa.i42 = phi i32 [ %.2.i, %__archive_write_filters_close.exit ], [ 0, %35 ], [ %.2.i, %54 ]
-  store ptr null, ptr %28, align 8
-  %56 = tail call i32 @llvm.smin.i32(i32 %.014.lcssa.i42, i32 %33)
+__archive_write_filters_free.exit:                ; preds = %55, %36, %__archive_write_filters_close.exit
+  %.014.lcssa.i41 = phi i32 [ %.2.i, %__archive_write_filters_close.exit ], [ 0, %36 ], [ %.2.i, %55 ]
+  store ptr null, ptr %29, align 8
+  %57 = tail call i32 @llvm.smin.i32(i32 %.014.lcssa.i41, i32 %34)
   br label %__archive_write_allocate_filter.exit.thread
 
-57:                                               ; preds = %27
-  %58 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 2, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %0, i64 264
-  %60 = load ptr, ptr %59, align 8
-  %.not = icmp eq ptr %60, null
-  br i1 %.not, label %__archive_write_allocate_filter.exit.thread, label %61
+58:                                               ; preds = %28
+  %59 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 2, ptr %59, align 4
+  %60 = getelementptr inbounds i8, ptr %0, i64 264
+  %61 = load ptr, ptr %60, align 8
+  %.not = icmp eq ptr %61, null
+  br i1 %.not, label %__archive_write_allocate_filter.exit.thread, label %62
 
-61:                                               ; preds = %57
-  %62 = tail call i32 %60(ptr noundef nonnull %0) #13
+62:                                               ; preds = %58
+  %63 = tail call i32 %61(ptr noundef nonnull %0) #13
   br label %__archive_write_allocate_filter.exit.thread
 
-__archive_write_allocate_filter.exit.thread:      ; preds = %9, %57, %61, %6, %__archive_write_filters_free.exit
-  %.0 = phi i32 [ %56, %__archive_write_filters_free.exit ], [ -30, %6 ], [ %62, %61 ], [ %33, %57 ], [ -30, %9 ]
+__archive_write_allocate_filter.exit.thread:      ; preds = %9, %58, %62, %6, %__archive_write_filters_free.exit
+  %.0 = phi i32 [ %57, %__archive_write_filters_free.exit ], [ -30, %6 ], [ %63, %62 ], [ %34, %58 ], [ -30, %9 ]
   ret i32 %.0
 }
 

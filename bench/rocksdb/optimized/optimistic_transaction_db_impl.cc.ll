@@ -2506,13 +2506,15 @@ for.body:                                         ; preds = %invoke.cont, %for.i
   %max_write_buffer_size_to_maintain = getelementptr inbounds i8, ptr %__begin1.sroa.0.022, i64 48
   %4 = load i64, ptr %max_write_buffer_size_to_maintain, align 8
   %cmp = icmp eq i64 %4, 0
+  br i1 %cmp, label %land.lhs.true, label %for.inc
+
+land.lhs.true:                                    ; preds = %for.body
   %max_write_buffer_number_to_maintain = getelementptr inbounds i8, ptr %__begin1.sroa.0.022, i64 40
   %5 = load i32, ptr %max_write_buffer_number_to_maintain, align 8
   %cmp6 = icmp eq i32 %5, 0
-  %or.cond = select i1 %cmp, i1 %cmp6, i1 false
-  br i1 %or.cond, label %if.then, label %for.inc
+  br i1 %cmp6, label %if.then, label %for.inc
 
-if.then:                                          ; preds = %for.body
+if.then:                                          ; preds = %land.lhs.true
   store i64 -1, ptr %max_write_buffer_size_to_maintain, align 8
   br label %for.inc
 
@@ -2521,7 +2523,7 @@ lpad:                                             ; preds = %_ZNSt16allocator_tr
           cleanup
   br label %_ZN7rocksdb6StatusD2Ev.exit18
 
-for.inc:                                          ; preds = %for.body, %if.then
+for.inc:                                          ; preds = %for.body, %land.lhs.true, %if.then
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.022, i64 856
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %call.i.i.i8.i
   br i1 %cmp.i.not, label %for.end, label %for.body

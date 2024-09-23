@@ -4131,17 +4131,17 @@ _ZN4pkpy7py_castIRNS_5BytesEEET_PNS_2VMEPNS_8PyObjectE.exit.i: ; preds = %26, %_
   br label %"_ZZN4pkpy6FileIO9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_2clES2_NS_8ArgsViewE.exit"
 
 "_ZZN4pkpy6FileIO9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_2clES2_NS_8ArgsViewE.exit": ; preds = %_ZN4pkpy7py_castIRNS_3StrEEET_PNS_2VMEPNS_8PyObjectE.exit.i, %_ZN4pkpy7py_castIRNS_5BytesEEET_PNS_2VMEPNS_8PyObjectE.exit.i
-  %.sink6.i = phi ptr [ %30, %_ZN4pkpy7py_castIRNS_5BytesEEET_PNS_2VMEPNS_8PyObjectE.exit.i ], [ %20, %_ZN4pkpy7py_castIRNS_3StrEEET_PNS_2VMEPNS_8PyObjectE.exit.i ]
+  %.sink5.in.i = phi ptr [ %30, %_ZN4pkpy7py_castIRNS_5BytesEEET_PNS_2VMEPNS_8PyObjectE.exit.i ], [ %20, %_ZN4pkpy7py_castIRNS_3StrEEET_PNS_2VMEPNS_8PyObjectE.exit.i ]
   %.sink.in.i = phi ptr [ %29, %_ZN4pkpy7py_castIRNS_5BytesEEET_PNS_2VMEPNS_8PyObjectE.exit.i ], [ %21, %_ZN4pkpy7py_castIRNS_3StrEEET_PNS_2VMEPNS_8PyObjectE.exit.i ]
   %.sink.i = load ptr, ptr %.sink.in.i, align 8
+  %.sink5.i = load i32, ptr %.sink5.in.i, align 8
   %31 = getelementptr inbounds i8, ptr %4, i64 24
-  %32 = load i32, ptr %.sink6.i, align 8
-  %33 = sext i32 %32 to i64
-  %34 = load ptr, ptr %31, align 8
-  %35 = tail call i64 @fwrite(ptr noundef %.sink.i, i64 noundef 1, i64 noundef %33, ptr noundef %34)
-  %36 = getelementptr inbounds i8, ptr %0, i64 264520
-  %37 = load ptr, ptr %36, align 8
-  ret ptr %37
+  %32 = sext i32 %.sink5.i to i64
+  %33 = load ptr, ptr %31, align 8
+  %34 = tail call i64 @fwrite(ptr noundef %.sink.i, i64 noundef 1, i64 noundef %32, ptr noundef %33)
+  %35 = getelementptr inbounds i8, ptr %0, i64 264520
+  %36 = load ptr, ptr %35, align 8
+  ret ptr %36
 }
 
 ; Function Attrs: nofree nounwind
@@ -4814,8 +4814,8 @@ _ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.
   br label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit
 
 _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit: ; preds = %16, %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i
-  %.sink.i = phi ptr [ %44, %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i ], [ %18, %16 ]
-  %45 = load ptr, ptr %.sink.i, align 8
+  %.in = phi ptr [ %18, %16 ], [ %44, %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i ]
+  %45 = load ptr, ptr %.in, align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit.thread, label %60
 
@@ -7457,8 +7457,8 @@ define linkonce_odr noundef ptr @_ZN4pkpy2VM19register_user_classINS_6FileIOEEEP
   br label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE8containsENS_7StrNameE.exit
 
 _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE8containsENS_7StrNameE.exit: ; preds = %27, %.lr.ph.i._crit_edge.i.i
-  %.sink.i.i = phi ptr [ %46, %.lr.ph.i._crit_edge.i.i ], [ %29, %27 ]
-  %47 = load ptr, ptr %.sink.i.i, align 8
+  %.in = phi ptr [ %29, %27 ], [ %46, %.lr.ph.i._crit_edge.i.i ]
+  %47 = load ptr, ptr %.in, align 8
   %.not = icmp eq ptr %47, null
   br i1 %.not, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE8containsENS_7StrNameE.exit.thread, label %_ZN4pkpy3anyD2Ev.exit
 

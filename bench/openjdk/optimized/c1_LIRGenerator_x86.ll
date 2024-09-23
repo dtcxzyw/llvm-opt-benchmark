@@ -7132,7 +7132,15 @@ _ZN26GrowableArrayWithAllocatorI9BasicType13GrowableArrayIS0_EE6appendERKS0_.exi
   %67 = load ptr, ptr %48, align 8
   store i32 0, ptr %47, align 4
   %.not.i127 = icmp eq ptr %67, null
-  br i1 %.not.i127, label %_ZN13GrowableArrayI9BasicTypeED2Ev.exit.sink.split, label %_ZN13GrowableArrayI9BasicTypeED2Ev.exit.sink.split.sink.split
+  br i1 %.not.i127, label %_ZN13GrowableArrayI9BasicTypeE10deallocateEPS0_.exit.i, label %.loopexit.thread.i
+
+.loopexit.thread.i:                               ; preds = %.loopexit.i
+  call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %67) #9
+  br label %_ZN13GrowableArrayI9BasicTypeE10deallocateEPS0_.exit.i
+
+_ZN13GrowableArrayI9BasicTypeE10deallocateEPS0_.exit.i: ; preds = %.loopexit.thread.i, %.loopexit.i
+  store ptr null, ptr %48, align 8
+  br label %_ZN13GrowableArrayI9BasicTypeED2Ev.exit
 
 _ZN26GrowableArrayWithAllocatorI9BasicType13GrowableArrayIS0_EE6appendERKS0_.exit90: ; preds = %switch.lookup
   %68 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 1, i32 noundef 1) #9
@@ -7169,23 +7177,18 @@ _ZN26GrowableArrayWithAllocatorI9BasicType13GrowableArrayIS0_EE6appendERKS0_.exi
   %85 = load ptr, ptr %70, align 8
   store i32 0, ptr %69, align 4
   %.not.i152 = icmp eq ptr %85, null
-  br i1 %.not.i152, label %_ZN13GrowableArrayI9BasicTypeED2Ev.exit.sink.split, label %_ZN13GrowableArrayI9BasicTypeED2Ev.exit.sink.split.sink.split
+  br i1 %.not.i152, label %_ZN13GrowableArrayI9BasicTypeE10deallocateEPS0_.exit.i156, label %.loopexit.thread.i153
 
-_ZN13GrowableArrayI9BasicTypeED2Ev.exit.sink.split.sink.split: ; preds = %.loopexit.i151, %.loopexit.i
-  %.sink169 = phi ptr [ %67, %.loopexit.i ], [ %85, %.loopexit.i151 ]
-  %.sink.ph = phi ptr [ %48, %.loopexit.i ], [ %70, %.loopexit.i151 ]
-  %.0.ph.ph = phi ptr [ %54, %.loopexit.i ], [ %76, %.loopexit.i151 ]
-  call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %.sink169) #9
-  br label %_ZN13GrowableArrayI9BasicTypeED2Ev.exit.sink.split
+.loopexit.thread.i153:                            ; preds = %.loopexit.i151
+  call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %85) #9
+  br label %_ZN13GrowableArrayI9BasicTypeE10deallocateEPS0_.exit.i156
 
-_ZN13GrowableArrayI9BasicTypeED2Ev.exit.sink.split: ; preds = %_ZN13GrowableArrayI9BasicTypeED2Ev.exit.sink.split.sink.split, %.loopexit.i151, %.loopexit.i
-  %.sink = phi ptr [ %48, %.loopexit.i ], [ %70, %.loopexit.i151 ], [ %.sink.ph, %_ZN13GrowableArrayI9BasicTypeED2Ev.exit.sink.split.sink.split ]
-  %.0.ph = phi ptr [ %54, %.loopexit.i ], [ %76, %.loopexit.i151 ], [ %.0.ph.ph, %_ZN13GrowableArrayI9BasicTypeED2Ev.exit.sink.split.sink.split ]
-  store ptr null, ptr %.sink, align 8
+_ZN13GrowableArrayI9BasicTypeE10deallocateEPS0_.exit.i156: ; preds = %.loopexit.thread.i153, %.loopexit.i151
+  store ptr null, ptr %70, align 8
   br label %_ZN13GrowableArrayI9BasicTypeED2Ev.exit
 
-_ZN13GrowableArrayI9BasicTypeED2Ev.exit:          ; preds = %_ZN13GrowableArrayI9BasicTypeED2Ev.exit.sink.split, %_ZN26GrowableArrayWithAllocatorI9BasicType13GrowableArrayIS0_EE6appendERKS0_.exit90, %82, %_ZN26GrowableArrayWithAllocatorI9BasicType13GrowableArrayIS0_EE6appendERKS0_.exit85, %64
-  %.0 = phi ptr [ %54, %64 ], [ %54, %_ZN26GrowableArrayWithAllocatorI9BasicType13GrowableArrayIS0_EE6appendERKS0_.exit85 ], [ %76, %82 ], [ %76, %_ZN26GrowableArrayWithAllocatorI9BasicType13GrowableArrayIS0_EE6appendERKS0_.exit90 ], [ %.0.ph, %_ZN13GrowableArrayI9BasicTypeED2Ev.exit.sink.split ]
+_ZN13GrowableArrayI9BasicTypeED2Ev.exit:          ; preds = %_ZN26GrowableArrayWithAllocatorI9BasicType13GrowableArrayIS0_EE6appendERKS0_.exit90, %82, %_ZN13GrowableArrayI9BasicTypeE10deallocateEPS0_.exit.i156, %_ZN26GrowableArrayWithAllocatorI9BasicType13GrowableArrayIS0_EE6appendERKS0_.exit85, %64, %_ZN13GrowableArrayI9BasicTypeE10deallocateEPS0_.exit.i
+  %.0 = phi ptr [ %54, %_ZN13GrowableArrayI9BasicTypeE10deallocateEPS0_.exit.i ], [ %54, %64 ], [ %54, %_ZN26GrowableArrayWithAllocatorI9BasicType13GrowableArrayIS0_EE6appendERKS0_.exit85 ], [ %76, %_ZN13GrowableArrayI9BasicTypeE10deallocateEPS0_.exit.i156 ], [ %76, %82 ], [ %76, %_ZN26GrowableArrayWithAllocatorI9BasicType13GrowableArrayIS0_EE6appendERKS0_.exit90 ]
   %86 = load i32, ptr %29, align 8
   switch i32 %86, label %136 [
     i32 21, label %87

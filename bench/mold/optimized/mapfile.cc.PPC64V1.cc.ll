@@ -6718,13 +6718,13 @@ entry:
   %3 = load i32, ptr %shndx.i, align 8
   %conv.i = zext i32 %3 to i64
   %cmp.not.i = icmp ugt i64 %2, %conv.i
-  br i1 %cmp.not.i, label %if.end.i, label %if.then.i
+  br i1 %cmp.not.i, label %if.end.i, label %_ZNK4mold3elf12InputSectionINS0_7PPC64V1EE4shdrEv.exit.i
 
-if.then.i:                                        ; preds = %entry
-  %elf_sections2.sink.i.i = getelementptr inbounds i8, ptr %1, i64 368
-  %sub.sink.i.i = sub nuw nsw i64 %conv.i, %2
-  %4 = load ptr, ptr %elf_sections2.sink.i.i, align 8
-  %sh_flags.i = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %4, i64 %sub.sink.i.i, i32 2
+_ZNK4mold3elf12InputSectionINS0_7PPC64V1EE4shdrEv.exit.i: ; preds = %entry
+  %elf_sections2.i.i = getelementptr inbounds i8, ptr %1, i64 368
+  %4 = load ptr, ptr %elf_sections2.i.i, align 8
+  %sub.i.i = sub nuw nsw i64 %conv.i, %2
+  %sh_flags.i = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %4, i64 %sub.i.i, i32 2
   %x.0.copyload.i.i = load i64, ptr %sh_flags.i, align 1
   %5 = and i64 %x.0.copyload.i.i, 1125899906842624
   %tobool.not.i = icmp eq i64 %5, 0
@@ -6745,9 +6745,9 @@ if.end.i:                                         ; preds = %entry
   %call.i.i3.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %add.ptr.i) #16
   br label %_ZNK4mold3elf12InputSectionINS0_7PPC64V1EE4nameEv.exit
 
-_ZNK4mold3elf12InputSectionINS0_7PPC64V1EE4nameEv.exit: ; preds = %if.then.i, %if.end.i
-  %retval.sroa.3.0.i = phi ptr [ %add.ptr.i, %if.end.i ], [ %cond.i, %if.then.i ]
-  %retval.sroa.0.0.i = phi i64 [ %call.i.i3.i, %if.end.i ], [ %call.i.i.i, %if.then.i ]
+_ZNK4mold3elf12InputSectionINS0_7PPC64V1EE4nameEv.exit: ; preds = %_ZNK4mold3elf12InputSectionINS0_7PPC64V1EE4shdrEv.exit.i, %if.end.i
+  %retval.sroa.3.0.i = phi ptr [ %add.ptr.i, %if.end.i ], [ %cond.i, %_ZNK4mold3elf12InputSectionINS0_7PPC64V1EE4shdrEv.exit.i ]
+  %retval.sroa.0.0.i = phi i64 [ %call.i.i3.i, %if.end.i ], [ %call.i.i.i, %_ZNK4mold3elf12InputSectionINS0_7PPC64V1EE4shdrEv.exit.i ]
   %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call1, ptr noundef %retval.sroa.3.0.i, i64 noundef %retval.sroa.0.0.i) #16
   %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call2.i, ptr noundef nonnull @.str.23) #16
   ret ptr %out
@@ -7116,13 +7116,13 @@ entry:
   %2 = load i32, ptr %shndx, align 8
   %conv = zext i32 %2 to i64
   %cmp.not = icmp ugt i64 %1, %conv
-  br i1 %cmp.not, label %if.end, label %if.then
+  br i1 %cmp.not, label %if.end, label %_ZNK4mold3elf12InputSectionINS0_7PPC64V1EE4shdrEv.exit
 
-if.then:                                          ; preds = %entry
-  %elf_sections2.sink.i = getelementptr inbounds i8, ptr %0, i64 368
-  %sub.sink.i = sub nuw nsw i64 %conv, %1
-  %3 = load ptr, ptr %elf_sections2.sink.i, align 8
-  %sh_flags = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %3, i64 %sub.sink.i, i32 2
+_ZNK4mold3elf12InputSectionINS0_7PPC64V1EE4shdrEv.exit: ; preds = %entry
+  %elf_sections2.i = getelementptr inbounds i8, ptr %0, i64 368
+  %3 = load ptr, ptr %elf_sections2.i, align 8
+  %sub.i = sub nuw nsw i64 %conv, %1
+  %sh_flags = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %3, i64 %sub.i, i32 2
   %x.0.copyload.i = load i64, ptr %sh_flags, align 1
   %4 = and i64 %x.0.copyload.i, 1125899906842624
   %tobool.not = icmp eq i64 %4, 0
@@ -7143,9 +7143,9 @@ if.end:                                           ; preds = %entry
   %call.i.i3 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %add.ptr) #16
   br label %return
 
-return:                                           ; preds = %if.end, %if.then
-  %retval.sroa.3.0 = phi ptr [ %add.ptr, %if.end ], [ %cond, %if.then ]
-  %retval.sroa.0.0 = phi i64 [ %call.i.i3, %if.end ], [ %call.i.i, %if.then ]
+return:                                           ; preds = %if.end, %_ZNK4mold3elf12InputSectionINS0_7PPC64V1EE4shdrEv.exit
+  %retval.sroa.3.0 = phi ptr [ %add.ptr, %if.end ], [ %cond, %_ZNK4mold3elf12InputSectionINS0_7PPC64V1EE4shdrEv.exit ]
+  %retval.sroa.0.0 = phi i64 [ %call.i.i3, %if.end ], [ %call.i.i, %_ZNK4mold3elf12InputSectionINS0_7PPC64V1EE4shdrEv.exit ]
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %retval.sroa.3.0, 1
   ret { i64, ptr } %.fca.1.insert

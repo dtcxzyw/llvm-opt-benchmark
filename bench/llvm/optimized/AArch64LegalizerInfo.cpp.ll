@@ -21725,39 +21725,39 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit69:            ; preds = %100, %103, %106, %_
   %143 = zext nneg i32 %142 to i64
   %144 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %141) #20
   %145 = icmp ugt i64 %144, %143
-  br i1 %145, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i.i, label %_ZN4llvm16MachineIRBuilder8buildNotERKNS_5DstOpERKNS_5SrcOpE.exit
+  br i1 %145, label %146, label %_ZN4llvm16MachineIRBuilder8buildNotERKNS_5DstOpERKNS_5SrcOpE.exit
 
-_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i.i: ; preds = %138
-  %146 = load ptr, ptr %141, align 8
-  %147 = getelementptr inbounds %"class.llvm::LLT", ptr %146, i64 %143
-  %148 = load i64, ptr %147, align 8
+146:                                              ; preds = %138
+  %147 = load ptr, ptr %141, align 8
+  %148 = getelementptr inbounds %"class.llvm::LLT", ptr %147, i64 %143
+  %149 = load i64, ptr %148, align 8
   br label %_ZN4llvm16MachineIRBuilder8buildNotERKNS_5DstOpERKNS_5SrcOpE.exit
 
-_ZN4llvm16MachineIRBuilder8buildNotERKNS_5DstOpERKNS_5SrcOpE.exit: ; preds = %128, %138, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i.i
-  %.sroa.0.0.i.i = phi i64 [ 0, %138 ], [ 0, %128 ], [ %148, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i.i ]
+_ZN4llvm16MachineIRBuilder8buildNotERKNS_5DstOpERKNS_5SrcOpE.exit: ; preds = %128, %138, %146
+  %.sroa.0.0.i.i = phi i64 [ %149, %146 ], [ 0, %138 ], [ 0, %128 ]
   store i64 %.sroa.0.0.i.i, ptr %5, align 8
-  %149 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 0, ptr %149, align 8
-  %150 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder13buildConstantERKNS_5DstOpEl(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 8 dereferenceable(12) %5, i64 noundef -1) #20
-  %151 = extractvalue { ptr, ptr } %150, 0
-  %152 = extractvalue { ptr, ptr } %150, 1
-  %.sroa.074.sroa.0.0.insert.ext = zext i32 %16 to i64
-  store i64 %.sroa.074.sroa.0.0.insert.ext, ptr %6, align 8
+  %150 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i32 0, ptr %150, align 8
+  %151 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder13buildConstantERKNS_5DstOpEl(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 8 dereferenceable(12) %5, i64 noundef -1) #20
+  %152 = extractvalue { ptr, ptr } %151, 0
+  %153 = extractvalue { ptr, ptr } %151, 1
+  %.sroa.074.sroa.0.0.insert.ext75 = zext i32 %16 to i64
+  store i64 %.sroa.074.sroa.0.0.insert.ext75, ptr %6, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
   store i32 1, ptr %.sroa.4.0..sroa_idx, align 8
   store i32 %137, ptr %7, align 8
   %.sroa.273.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
   store i32 0, ptr %.sroa.273.0..sroa_idx, align 8
-  %153 = getelementptr inbounds i8, ptr %7, i64 24
-  store ptr %151, ptr %153, align 8
+  %154 = getelementptr inbounds i8, ptr %7, i64 24
+  store ptr %152, ptr %154, align 8
   %.sroa.216.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr %152, ptr %.sroa.216.0..sroa_idx.i, align 8
-  %154 = getelementptr inbounds i8, ptr %7, i64 40
-  store i32 1, ptr %154, align 8
-  %155 = load ptr, ptr %3, align 8
-  %156 = getelementptr inbounds i8, ptr %155, i64 32
-  %157 = load ptr, ptr %156, align 8
-  %158 = call { ptr, ptr } %157(ptr noundef nonnull align 8 dereferenceable(88) %3, i32 noundef 63, ptr nonnull %6, i64 1, ptr nonnull %7, i64 2, i64 0) #20
+  store ptr %153, ptr %.sroa.216.0..sroa_idx.i, align 8
+  %155 = getelementptr inbounds i8, ptr %7, i64 40
+  store i32 1, ptr %155, align 8
+  %156 = load ptr, ptr %3, align 8
+  %157 = getelementptr inbounds i8, ptr %156, i64 32
+  %158 = load ptr, ptr %157, align 8
+  %159 = call { ptr, ptr } %158(ptr noundef nonnull align 8 dereferenceable(88) %3, i32 noundef 63, ptr nonnull %6, i64 1, ptr nonnull %7, i64 2, i64 0) #20
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)

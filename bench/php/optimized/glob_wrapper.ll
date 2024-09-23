@@ -386,7 +386,7 @@ define internal ptr @php_glob_stream_opener(ptr nocapture readnone %0, ptr nound
 
 25:                                               ; preds = %20
   tail call void @_efree(ptr noundef nonnull %21) #10
-  br label %84
+  br label %95
 
 26:                                               ; preds = %20, %20
   %27 = and i32 %3, 1024
@@ -457,7 +457,7 @@ define internal ptr @php_glob_stream_opener(ptr nocapture readnone %0, ptr nound
   store i32 %60, ptr %22, align 8
   %61 = load i64, ptr %21, align 8
   %.not103 = icmp eq i64 %61, 0
-  br i1 %.not103, label %70, label %62
+  br i1 %.not103, label %79, label %62
 
 62:                                               ; preds = %.loopexit
   %63 = getelementptr inbounds i8, ptr %21, i64 8
@@ -470,47 +470,62 @@ define internal ptr @php_glob_stream_opener(ptr nocapture readnone %0, ptr nound
   %68 = getelementptr inbounds i8, ptr %21, i64 88
   %69 = load ptr, ptr %68, align 8
   %.not19.i = icmp eq ptr %69, null
-  br i1 %.not19.i, label %php_glob_stream_path_split.exit, label %php_glob_stream_path_split.exit.sink.split
+  br i1 %.not19.i, label %php_glob_stream_path_split.exit, label %70
 
-70:                                               ; preds = %.loopexit
-  %71 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.096, i32 noundef 47) #9
-  %.not.i106 = icmp eq ptr %71, null
-  %72 = getelementptr inbounds i8, ptr %71, i64 1
-  %spec.select.i107 = select i1 %.not.i106, ptr %.096, ptr %72
-  %73 = getelementptr inbounds i8, ptr %21, i64 88
-  %74 = load ptr, ptr %73, align 8
-  %.not19.i108 = icmp eq ptr %74, null
-  br i1 %.not19.i108, label %php_glob_stream_path_split.exit, label %php_glob_stream_path_split.exit.sink.split
-
-php_glob_stream_path_split.exit.sink.split:       ; preds = %70, %62
-  %.sink = phi ptr [ %69, %62 ], [ %74, %70 ]
-  %spec.select.i107.sink123.ph = phi ptr [ %spec.select.i, %62 ], [ %spec.select.i107, %70 ]
-  %.096.sink122.ph = phi ptr [ %65, %62 ], [ %.096, %70 ]
-  %.sink115.ph = phi ptr [ %68, %62 ], [ %73, %70 ]
-  tail call void @_efree(ptr noundef nonnull %.sink) #10
+70:                                               ; preds = %62
+  tail call void @_efree(ptr noundef nonnull %69) #10
   br label %php_glob_stream_path_split.exit
 
-php_glob_stream_path_split.exit:                  ; preds = %php_glob_stream_path_split.exit.sink.split, %70, %62
-  %spec.select.i107.sink123 = phi ptr [ %spec.select.i, %62 ], [ %spec.select.i107, %70 ], [ %spec.select.i107.sink123.ph, %php_glob_stream_path_split.exit.sink.split ]
-  %.096.sink122 = phi ptr [ %65, %62 ], [ %.096, %70 ], [ %.096.sink122.ph, %php_glob_stream_path_split.exit.sink.split ]
-  %.sink115 = phi ptr [ %68, %62 ], [ %73, %70 ], [ %.sink115.ph, %php_glob_stream_path_split.exit.sink.split ]
-  %75 = ptrtoint ptr %spec.select.i107.sink123 to i64
-  %76 = ptrtoint ptr %.096.sink122 to i64
-  %77 = sub i64 %75, %76
-  %78 = icmp sgt i64 %77, 1
-  %spec.select20.idx.i109 = sext i1 %78 to i64
-  %spec.select20.i110 = getelementptr inbounds i8, ptr %spec.select.i107.sink123, i64 %spec.select20.idx.i109
-  %79 = ptrtoint ptr %spec.select20.i110 to i64
-  %80 = sub i64 %79, %76
-  %81 = getelementptr inbounds i8, ptr %21, i64 96
-  store i64 %80, ptr %81, align 8
-  %82 = tail call noalias ptr @_estrndup(ptr noundef %.096.sink122, i64 noundef %80) #10
-  store ptr %82, ptr %.sink115, align 8
-  %83 = tail call ptr @_php_stream_alloc(ptr noundef nonnull @php_glob_stream_ops, ptr noundef nonnull %21, ptr noundef null, ptr noundef %2) #10
-  br label %84
+php_glob_stream_path_split.exit:                  ; preds = %62, %70
+  %71 = ptrtoint ptr %spec.select.i to i64
+  %72 = ptrtoint ptr %65 to i64
+  %73 = sub i64 %71, %72
+  %74 = icmp sgt i64 %73, 1
+  %spec.select20.idx.i = sext i1 %74 to i64
+  %spec.select20.i = getelementptr inbounds i8, ptr %spec.select.i, i64 %spec.select20.idx.i
+  %75 = ptrtoint ptr %spec.select20.i to i64
+  %76 = sub i64 %75, %72
+  %77 = getelementptr inbounds i8, ptr %21, i64 96
+  store i64 %76, ptr %77, align 8
+  %78 = tail call noalias ptr @_estrndup(ptr noundef %65, i64 noundef %76) #10
+  store ptr %78, ptr %68, align 8
+  br label %93
 
-84:                                               ; preds = %php_glob_stream_path_split.exit, %25
-  %.095 = phi ptr [ null, %25 ], [ %83, %php_glob_stream_path_split.exit ]
+79:                                               ; preds = %.loopexit
+  %80 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.096, i32 noundef 47) #9
+  %.not.i106 = icmp eq ptr %80, null
+  %81 = getelementptr inbounds i8, ptr %80, i64 1
+  %spec.select.i107 = select i1 %.not.i106, ptr %.096, ptr %81
+  %82 = getelementptr inbounds i8, ptr %21, i64 88
+  %83 = load ptr, ptr %82, align 8
+  %.not19.i108 = icmp eq ptr %83, null
+  br i1 %.not19.i108, label %php_glob_stream_path_split.exit111, label %84
+
+84:                                               ; preds = %79
+  tail call void @_efree(ptr noundef nonnull %83) #10
+  br label %php_glob_stream_path_split.exit111
+
+php_glob_stream_path_split.exit111:               ; preds = %79, %84
+  %85 = ptrtoint ptr %spec.select.i107 to i64
+  %86 = ptrtoint ptr %.096 to i64
+  %87 = sub i64 %85, %86
+  %88 = icmp sgt i64 %87, 1
+  %spec.select20.idx.i109 = sext i1 %88 to i64
+  %spec.select20.i110 = getelementptr inbounds i8, ptr %spec.select.i107, i64 %spec.select20.idx.i109
+  %89 = ptrtoint ptr %spec.select20.i110 to i64
+  %90 = sub i64 %89, %86
+  %91 = getelementptr inbounds i8, ptr %21, i64 96
+  store i64 %90, ptr %91, align 8
+  %92 = tail call noalias ptr @_estrndup(ptr noundef %.096, i64 noundef %90) #10
+  store ptr %92, ptr %82, align 8
+  br label %93
+
+93:                                               ; preds = %php_glob_stream_path_split.exit111, %php_glob_stream_path_split.exit
+  %94 = tail call ptr @_php_stream_alloc(ptr noundef nonnull @php_glob_stream_ops, ptr noundef nonnull %21, ptr noundef null, ptr noundef %2) #10
+  br label %95
+
+95:                                               ; preds = %93, %25
+  %.095 = phi ptr [ null, %25 ], [ %94, %93 ]
   ret ptr %.095
 }
 

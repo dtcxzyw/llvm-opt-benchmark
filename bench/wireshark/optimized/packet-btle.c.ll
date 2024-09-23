@@ -7155,14 +7155,14 @@ proto_item_set_generated.exit:                    ; preds = %54, %51, %48, %.pre
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @control_proc_add_frame_with_instant(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, i8 noundef zeroext %4, ptr nocapture noundef %5, ptr noundef readonly %6, i32 noundef range(i32 1, 3) %7, i16 noundef zeroext %8) unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %41, label %10
+  br i1 %.not, label %42, label %10
 
 10:                                               ; preds = %9
   %11 = getelementptr inbounds i8, ptr %3, i64 64
   %12 = load i16, ptr %11, align 8
   %13 = and i16 %12, 256
   %.not21 = icmp eq i16 %13, 0
-  br i1 %.not21, label %41, label %14
+  br i1 %.not21, label %42, label %14
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %1, i64 20
@@ -7235,60 +7235,61 @@ control_proc_contains_instant.exit27.i:           ; preds = %control_proc_contai
 control_proc_add_frame.exit:                      ; preds = %proto_item_set_generated.exit.i, %29, %33, %control_proc_contains_instant.exit.i, %control_proc_contains_instant.exit27.i, %control_proc_contains_instant.exit27.i, %38
   %40 = getelementptr inbounds i8, ptr %5, i64 32
   store i16 %8, ptr %40, align 4
-  br label %control_proc_add_last_frame.exit.sink.split
+  %41 = load i32, ptr %15, align 4
+  br label %control_proc_add_last_frame.exit
 
-41:                                               ; preds = %10, %9
-  %42 = getelementptr inbounds i8, ptr %1, i64 20
-  %43 = load i32, ptr %42, align 4
-  %44 = zext nneg i32 %7 to i64
-  %45 = getelementptr [5 x i32], ptr %5, i64 0, i64 %44
-  store i32 %43, ptr %45, align 4
-  %46 = load i32, ptr @hf_request_in_frame, align 4
-  %47 = load i32, ptr %5, align 4
-  %48 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %46, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %47) #9
-  %.not.i.i.i = icmp eq ptr %48, null
-  br i1 %.not.i.i.i, label %proto_item_set_generated.exit.i.i, label %49
+42:                                               ; preds = %10, %9
+  %43 = getelementptr inbounds i8, ptr %1, i64 20
+  %44 = load i32, ptr %43, align 4
+  %45 = zext nneg i32 %7 to i64
+  %46 = getelementptr [5 x i32], ptr %5, i64 0, i64 %45
+  store i32 %44, ptr %46, align 4
+  %47 = load i32, ptr @hf_request_in_frame, align 4
+  %48 = load i32, ptr %5, align 4
+  %49 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %47, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %48) #9
+  %.not.i.i.i = icmp eq ptr %49, null
+  br i1 %.not.i.i.i, label %proto_item_set_generated.exit.i.i, label %50
 
-49:                                               ; preds = %41
-  %50 = getelementptr inbounds i8, ptr %48, i64 32
-  %51 = load ptr, ptr %50, align 8
-  %.not5.i.i.i = icmp eq ptr %51, null
-  br i1 %.not5.i.i.i, label %proto_item_set_generated.exit.i.i, label %52
+50:                                               ; preds = %42
+  %51 = getelementptr inbounds i8, ptr %49, i64 32
+  %52 = load ptr, ptr %51, align 8
+  %.not5.i.i.i = icmp eq ptr %52, null
+  br i1 %.not5.i.i.i, label %proto_item_set_generated.exit.i.i, label %53
 
-52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %51, i64 28
-  %54 = load i32, ptr %53, align 4
-  %55 = or i32 %54, 2
-  store i32 %55, ptr %53, align 4
+53:                                               ; preds = %50
+  %54 = getelementptr inbounds i8, ptr %52, i64 28
+  %55 = load i32, ptr %54, align 4
+  %56 = or i32 %55, 2
+  store i32 %56, ptr %54, align 4
   br label %proto_item_set_generated.exit.i.i
 
-proto_item_set_generated.exit.i.i:                ; preds = %52, %49, %41
+proto_item_set_generated.exit.i.i:                ; preds = %53, %50, %42
   %.not.i.i22 = icmp eq ptr %6, null
-  %.pre9.i = load i32, ptr %42, align 4
-  br i1 %.not.i.i22, label %control_proc_add_last_frame.exit, label %56
+  %.pre9.i = load i32, ptr %43, align 4
+  br i1 %.not.i.i22, label %control_proc_add_last_frame.exit, label %57
 
-56:                                               ; preds = %proto_item_set_generated.exit.i.i
-  %57 = getelementptr i8, ptr %6, i64 24
-  %.val.i.i = load i32, ptr %57, align 4
+57:                                               ; preds = %proto_item_set_generated.exit.i.i
+  %58 = getelementptr i8, ptr %6, i64 24
+  %.val.i.i = load i32, ptr %58, align 4
   %.not.i24.i.i = icmp eq i32 %.val.i.i, 0
-  %58 = icmp ule i32 %.pre9.i, %.val.i.i
-  %or.cond.i.not.i.i = or i1 %.not.i24.i.i, %58
-  br i1 %or.cond.i.not.i.i, label %59, label %control_proc_add_last_frame.exit
+  %59 = icmp ule i32 %.pre9.i, %.val.i.i
+  %or.cond.i.not.i.i = or i1 %.not.i24.i.i, %59
+  br i1 %or.cond.i.not.i.i, label %60, label %control_proc_add_last_frame.exit
 
-59:                                               ; preds = %56
-  %60 = getelementptr inbounds i8, ptr %5, i64 20
-  %61 = load i8, ptr %60, align 4
-  switch i8 %61, label %control_proc_add_last_frame.exit [
+60:                                               ; preds = %57
+  %61 = getelementptr inbounds i8, ptr %5, i64 20
+  %62 = load i8, ptr %61, align 4
+  switch i8 %62, label %control_proc_add_last_frame.exit [
     i8 0, label %control_proc_contains_instant.exit.i.i
     i8 1, label %control_proc_contains_instant.exit.i.i
     i8 15, label %control_proc_contains_instant.exit.i.i
     i8 22, label %control_proc_contains_instant.exit.i.i
   ]
 
-control_proc_contains_instant.exit.i.i:           ; preds = %59, %59, %59, %59
-  %62 = getelementptr inbounds i8, ptr %6, i64 20
-  %63 = load i8, ptr %62, align 4
-  switch i8 %63, label %control_proc_add_last_frame.exit [
+control_proc_contains_instant.exit.i.i:           ; preds = %60, %60, %60, %60
+  %63 = getelementptr inbounds i8, ptr %6, i64 20
+  %64 = load i8, ptr %63, align 4
+  switch i8 %64, label %control_proc_add_last_frame.exit [
     i8 0, label %control_proc_contains_instant.exit27.i.i
     i8 1, label %control_proc_contains_instant.exit27.i.i
     i8 15, label %control_proc_contains_instant.exit27.i.i
@@ -7296,26 +7297,21 @@ control_proc_contains_instant.exit.i.i:           ; preds = %59, %59, %59, %59
   ]
 
 control_proc_contains_instant.exit27.i.i:         ; preds = %control_proc_contains_instant.exit.i.i, %control_proc_contains_instant.exit.i.i, %control_proc_contains_instant.exit.i.i, %control_proc_contains_instant.exit.i.i
-  switch i8 %4, label %64 [
+  switch i8 %4, label %65 [
     i8 17, label %control_proc_add_last_frame.exit
     i8 13, label %control_proc_add_last_frame.exit
   ]
 
-64:                                               ; preds = %control_proc_contains_instant.exit27.i.i
-  %65 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %48, ptr noundef nonnull @ei_control_proc_invalid_conflict_resolution) #9
-  br label %control_proc_add_last_frame.exit.sink.split
-
-control_proc_add_last_frame.exit.sink.split:      ; preds = %control_proc_add_frame.exit, %64
-  %.sink25 = phi ptr [ %42, %64 ], [ %15, %control_proc_add_frame.exit ]
-  %.sink24.ph = phi i64 [ 24, %64 ], [ 28, %control_proc_add_frame.exit ]
-  %.pre.i = load i32, ptr %.sink25, align 4
+65:                                               ; preds = %control_proc_contains_instant.exit27.i.i
+  %66 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %49, ptr noundef nonnull @ei_control_proc_invalid_conflict_resolution) #9
+  %.pre.i = load i32, ptr %43, align 4
   br label %control_proc_add_last_frame.exit
 
-control_proc_add_last_frame.exit:                 ; preds = %control_proc_add_last_frame.exit.sink.split, %control_proc_contains_instant.exit27.i.i, %control_proc_contains_instant.exit27.i.i, %control_proc_contains_instant.exit.i.i, %59, %56, %proto_item_set_generated.exit.i.i
-  %.sink24 = phi i64 [ 24, %proto_item_set_generated.exit.i.i ], [ 24, %56 ], [ 24, %59 ], [ 24, %control_proc_contains_instant.exit.i.i ], [ 24, %control_proc_contains_instant.exit27.i.i ], [ 24, %control_proc_contains_instant.exit27.i.i ], [ %.sink24.ph, %control_proc_add_last_frame.exit.sink.split ]
-  %.sink = phi i32 [ %.pre9.i, %proto_item_set_generated.exit.i.i ], [ %.pre9.i, %56 ], [ %.pre9.i, %59 ], [ %.pre9.i, %control_proc_contains_instant.exit.i.i ], [ %.pre9.i, %control_proc_contains_instant.exit27.i.i ], [ %.pre9.i, %control_proc_contains_instant.exit27.i.i ], [ %.pre.i, %control_proc_add_last_frame.exit.sink.split ]
-  %66 = getelementptr inbounds i8, ptr %5, i64 %.sink24
-  store i32 %.sink, ptr %66, align 4
+control_proc_add_last_frame.exit:                 ; preds = %65, %control_proc_contains_instant.exit27.i.i, %control_proc_contains_instant.exit27.i.i, %control_proc_contains_instant.exit.i.i, %60, %57, %proto_item_set_generated.exit.i.i, %control_proc_add_frame.exit
+  %.sink24 = phi i64 [ 28, %control_proc_add_frame.exit ], [ 24, %proto_item_set_generated.exit.i.i ], [ 24, %57 ], [ 24, %60 ], [ 24, %control_proc_contains_instant.exit.i.i ], [ 24, %control_proc_contains_instant.exit27.i.i ], [ 24, %control_proc_contains_instant.exit27.i.i ], [ 24, %65 ]
+  %.sink = phi i32 [ %41, %control_proc_add_frame.exit ], [ %.pre9.i, %proto_item_set_generated.exit.i.i ], [ %.pre9.i, %57 ], [ %.pre9.i, %60 ], [ %.pre9.i, %control_proc_contains_instant.exit.i.i ], [ %.pre9.i, %control_proc_contains_instant.exit27.i.i ], [ %.pre9.i, %control_proc_contains_instant.exit27.i.i ], [ %.pre.i, %65 ]
+  %67 = getelementptr inbounds i8, ptr %5, i64 %.sink24
+  store i32 %.sink, ptr %67, align 4
   ret void
 }
 

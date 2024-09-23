@@ -41,9 +41,9 @@ define void @nxsched_merge_prioritized(ptr nocapture noundef %0, ptr nocapture n
   store ptr %7, ptr %17, align 8
   br label %.loopexit
 
-18:                                               ; preds = %.preheader, %54
-  %.050 = phi ptr [ %.151, %54 ], [ %13, %.preheader ]
-  %19 = phi ptr [ %.1, %54 ], [ %5, %.preheader ]
+18:                                               ; preds = %.preheader, %56
+  %.050 = phi ptr [ %.151, %56 ], [ %13, %.preheader ]
+  %19 = phi ptr [ %.1, %56 ], [ %5, %.preheader ]
   %20 = icmp eq ptr %.050, null
   br i1 %20, label %21, label %32
 
@@ -75,7 +75,7 @@ define void @nxsched_merge_prioritized(ptr nocapture noundef %0, ptr nocapture n
   %35 = getelementptr inbounds i8, ptr %.050, i64 28
   %36 = load i8, ptr %35, align 4
   %37 = icmp ugt i8 %34, %36
-  br i1 %37, label %38, label %52
+  br i1 %37, label %38, label %54
 
 38:                                               ; preds = %32
   %39 = call ptr @dq_remfirst(ptr noundef nonnull %4) #3
@@ -83,7 +83,7 @@ define void @nxsched_merge_prioritized(ptr nocapture noundef %0, ptr nocapture n
   %.not58 = icmp eq ptr %40, null
   %41 = icmp eq ptr %.050, %40
   %or.cond = or i1 %.not58, %41
-  br i1 %or.cond, label %42, label %46
+  br i1 %or.cond, label %42, label %48
 
 42:                                               ; preds = %38
   %43 = getelementptr inbounds i8, ptr %39, i64 8
@@ -91,38 +91,44 @@ define void @nxsched_merge_prioritized(ptr nocapture noundef %0, ptr nocapture n
   %44 = load ptr, ptr %1, align 8
   store ptr %44, ptr %39, align 8
   %.not59 = icmp eq ptr %44, null
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
-  %spec.select = select i1 %.not59, ptr %1, ptr %45
-  %spec.select65 = select i1 %.not59, ptr %15, ptr %1
-  br label %50
+  br i1 %.not59, label %45, label %46
 
-46:                                               ; preds = %38
-  %47 = getelementptr inbounds i8, ptr %.050, i64 8
-  %48 = load ptr, ptr %47, align 8
+45:                                               ; preds = %42
+  store ptr %39, ptr %1, align 8
+  store ptr %39, ptr %15, align 8
+  br label %52
+
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds i8, ptr %44, i64 8
+  store ptr %39, ptr %47, align 8
+  store ptr %39, ptr %1, align 8
+  br label %52
+
+48:                                               ; preds = %38
+  %49 = getelementptr inbounds i8, ptr %.050, i64 8
+  %50 = load ptr, ptr %49, align 8
   store ptr %.050, ptr %39, align 8
-  %49 = getelementptr inbounds i8, ptr %39, i64 8
-  store ptr %48, ptr %49, align 8
-  br label %50
+  %51 = getelementptr inbounds i8, ptr %39, i64 8
+  store ptr %50, ptr %51, align 8
+  store ptr %39, ptr %50, align 8
+  store ptr %39, ptr %49, align 8
+  br label %52
 
-50:                                               ; preds = %42, %46
-  %.sink64 = phi ptr [ %48, %46 ], [ %spec.select, %42 ]
-  %.sink = phi ptr [ %47, %46 ], [ %spec.select65, %42 ]
-  store ptr %39, ptr %.sink64, align 8
-  store ptr %39, ptr %.sink, align 8
-  %51 = load ptr, ptr %4, align 8
-  br label %54
+52:                                               ; preds = %48, %45, %46
+  %53 = load ptr, ptr %4, align 8
+  br label %56
 
-52:                                               ; preds = %32
-  %53 = load ptr, ptr %.050, align 8
-  br label %54
+54:                                               ; preds = %32
+  %55 = load ptr, ptr %.050, align 8
+  br label %56
 
-54:                                               ; preds = %52, %50
-  %.151 = phi ptr [ %.050, %50 ], [ %53, %52 ]
-  %.1 = phi ptr [ %51, %50 ], [ %19, %52 ]
+56:                                               ; preds = %54, %52
+  %.151 = phi ptr [ %.050, %52 ], [ %55, %54 ]
+  %.1 = phi ptr [ %53, %52 ], [ %19, %54 ]
   %.not60 = icmp eq ptr %.1, null
   br i1 %.not60, label %.loopexit, label %18, !llvm.loop !8
 
-.loopexit:                                        ; preds = %54, %26, %24, %3, %16
+.loopexit:                                        ; preds = %56, %26, %24, %3, %16
   ret void
 }
 

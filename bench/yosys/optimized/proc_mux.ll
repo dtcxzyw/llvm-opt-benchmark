@@ -12383,106 +12383,115 @@ _ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE9do_lookupERKiRi.exit: ; preds = %43
 
 53:                                               ; preds = %_ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE9do_lookupERKiRi.exit
   %54 = icmp eq i32 %39, %.013.i
-  br i1 %54, label %.loopexit12, label %.preheader42.i
+  br i1 %54, label %55, label %.preheader42.i
+
+55:                                               ; preds = %53
+  %56 = zext nneg i32 %39 to i64
+  %57 = getelementptr inbounds %"struct.Yosys::hashlib::pool<int>::entry_t", ptr %41, i64 %56, i32 1
+  %58 = load i32, ptr %57, align 4
+  store i32 %58, ptr %38, align 4
+  br label %66
 
 .preheader42.i:                                   ; preds = %53, %.preheader42.i
-  %.033.i = phi i32 [ %57, %.preheader42.i ], [ %39, %53 ]
-  %55 = sext i32 %.033.i to i64
-  %56 = getelementptr inbounds %"struct.Yosys::hashlib::pool<int>::entry_t", ptr %41, i64 %55, i32 1
-  %57 = load i32, ptr %56, align 4
-  %.not.i = icmp eq i32 %57, %.013.i
-  br i1 %.not.i, label %.loopexit12.loopexit, label %.preheader42.i, !llvm.loop !53
+  %.033.i = phi i32 [ %61, %.preheader42.i ], [ %39, %53 ]
+  %59 = sext i32 %.033.i to i64
+  %60 = getelementptr inbounds %"struct.Yosys::hashlib::pool<int>::entry_t", ptr %41, i64 %59, i32 1
+  %61 = load i32, ptr %60, align 4
+  %.not.i = icmp eq i32 %61, %.013.i
+  br i1 %.not.i, label %62, label %.preheader42.i, !llvm.loop !53
 
-.loopexit12.loopexit:                             ; preds = %.preheader42.i
-  %58 = getelementptr inbounds %"struct.Yosys::hashlib::pool<int>::entry_t", ptr %41, i64 %55, i32 1
-  br label %.loopexit12
+62:                                               ; preds = %.preheader42.i
+  %63 = getelementptr inbounds %"struct.Yosys::hashlib::pool<int>::entry_t", ptr %41, i64 %59, i32 1
+  %64 = getelementptr inbounds %"struct.Yosys::hashlib::pool<int>::entry_t", ptr %41, i64 %44, i32 1
+  %65 = load i32, ptr %64, align 4
+  store i32 %65, ptr %63, align 4
+  br label %66
 
-.loopexit12:                                      ; preds = %.loopexit12.loopexit, %53
-  %.sink51.i = phi ptr [ %38, %53 ], [ %58, %.loopexit12.loopexit ]
-  %59 = getelementptr inbounds %"struct.Yosys::hashlib::pool<int>::entry_t", ptr %41, i64 %44, i32 1
-  %60 = load i32, ptr %59, align 4
-  store i32 %60, ptr %.sink51.i, align 4
-  %61 = load ptr, ptr %16, align 8
-  %62 = load ptr, ptr %15, align 8
-  %63 = ptrtoint ptr %61 to i64
-  %64 = ptrtoint ptr %62 to i64
-  %65 = sub i64 %63, %64
-  %66 = lshr exact i64 %65, 3
-  %67 = trunc i64 %66 to i32
-  %68 = add i32 %67, -1
-  %.not40.i = icmp eq i32 %.013.i, %68
-  br i1 %.not40.i, label %95, label %69
+66:                                               ; preds = %62, %55
+  %67 = load ptr, ptr %16, align 8
+  %68 = load ptr, ptr %15, align 8
+  %69 = ptrtoint ptr %67 to i64
+  %70 = ptrtoint ptr %68 to i64
+  %71 = sub i64 %69, %70
+  %72 = lshr exact i64 %71, 3
+  %73 = trunc i64 %72 to i32
+  %74 = add i32 %73, -1
+  %.not40.i = icmp eq i32 %.013.i, %74
+  br i1 %.not40.i, label %104, label %75
 
-69:                                               ; preds = %.loopexit12
-  %70 = sext i32 %68 to i64
-  %71 = load ptr, ptr %0, align 8
-  %72 = load ptr, ptr %4, align 8
-  %73 = icmp eq ptr %71, %72
-  br i1 %73, label %_ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE7do_hashERKi.exit.i3, label %74
+75:                                               ; preds = %66
+  %76 = sext i32 %74 to i64
+  %77 = load ptr, ptr %0, align 8
+  %78 = load ptr, ptr %4, align 8
+  %79 = icmp eq ptr %77, %78
+  br i1 %79, label %_ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE7do_hashERKi.exit.i3, label %80
 
-74:                                               ; preds = %69
-  %75 = getelementptr inbounds %"struct.Yosys::hashlib::pool<int>::entry_t", ptr %62, i64 %70
-  %76 = load i32, ptr %75, align 4
-  %77 = ptrtoint ptr %72 to i64
-  %78 = ptrtoint ptr %71 to i64
-  %79 = sub i64 %77, %78
-  %80 = lshr exact i64 %79, 2
-  %81 = trunc i64 %80 to i32
-  %82 = urem i32 %76, %81
-  %83 = sext i32 %82 to i64
+80:                                               ; preds = %75
+  %81 = getelementptr inbounds %"struct.Yosys::hashlib::pool<int>::entry_t", ptr %68, i64 %76
+  %82 = load i32, ptr %81, align 4
+  %83 = ptrtoint ptr %78 to i64
+  %84 = ptrtoint ptr %77 to i64
+  %85 = sub i64 %83, %84
+  %86 = lshr exact i64 %85, 2
+  %87 = trunc i64 %86 to i32
+  %88 = urem i32 %82, %87
+  %89 = sext i32 %88 to i64
   br label %_ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE7do_hashERKi.exit.i3
 
-_ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE7do_hashERKi.exit.i3: ; preds = %74, %69
-  %.0.i.i4 = phi i64 [ 0, %69 ], [ %83, %74 ]
-  %84 = getelementptr inbounds i32, ptr %71, i64 %.0.i.i4
-  %85 = load i32, ptr %84, align 4
-  %86 = icmp eq i32 %85, %68
-  br i1 %86, label %.loopexit, label %.preheader.i
+_ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE7do_hashERKi.exit.i3: ; preds = %80, %75
+  %.0.i.i4 = phi i64 [ 0, %75 ], [ %89, %80 ]
+  %90 = getelementptr inbounds i32, ptr %77, i64 %.0.i.i4
+  %91 = load i32, ptr %90, align 4
+  %92 = icmp eq i32 %91, %74
+  br i1 %92, label %93, label %.preheader.i
+
+93:                                               ; preds = %_ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE7do_hashERKi.exit.i3
+  store i32 %.013.i, ptr %90, align 4
+  br label %99
 
 .preheader.i:                                     ; preds = %_ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE7do_hashERKi.exit.i3, %.preheader.i
-  %.1.i = phi i32 [ %89, %.preheader.i ], [ %85, %_ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE7do_hashERKi.exit.i3 ]
-  %87 = sext i32 %.1.i to i64
-  %88 = getelementptr inbounds %"struct.Yosys::hashlib::pool<int>::entry_t", ptr %62, i64 %87, i32 1
-  %89 = load i32, ptr %88, align 4
-  %.not41.i = icmp eq i32 %89, %68
-  br i1 %.not41.i, label %.loopexit.loopexit, label %.preheader.i, !llvm.loop !54
+  %.1.i = phi i32 [ %96, %.preheader.i ], [ %91, %_ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE7do_hashERKi.exit.i3 ]
+  %94 = sext i32 %.1.i to i64
+  %95 = getelementptr inbounds %"struct.Yosys::hashlib::pool<int>::entry_t", ptr %68, i64 %94, i32 1
+  %96 = load i32, ptr %95, align 4
+  %.not41.i = icmp eq i32 %96, %74
+  br i1 %.not41.i, label %97, label %.preheader.i, !llvm.loop !54
 
-.loopexit.loopexit:                               ; preds = %.preheader.i
-  %90 = getelementptr inbounds %"struct.Yosys::hashlib::pool<int>::entry_t", ptr %62, i64 %87, i32 1
-  br label %.loopexit
+97:                                               ; preds = %.preheader.i
+  %98 = getelementptr inbounds %"struct.Yosys::hashlib::pool<int>::entry_t", ptr %68, i64 %94, i32 1
+  store i32 %.013.i, ptr %98, align 4
+  br label %99
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %_ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE7do_hashERKi.exit.i3
-  %.sink.i = phi ptr [ %84, %_ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE7do_hashERKi.exit.i3 ], [ %90, %.loopexit.loopexit ]
-  store i32 %.013.i, ptr %.sink.i, align 4
-  %91 = load ptr, ptr %15, align 8
-  %92 = getelementptr inbounds %"struct.Yosys::hashlib::pool<int>::entry_t", ptr %91, i64 %70
-  %93 = getelementptr inbounds %"struct.Yosys::hashlib::pool<int>::entry_t", ptr %91, i64 %44
-  %94 = load i64, ptr %92, align 4
-  store i64 %94, ptr %93, align 4
+99:                                               ; preds = %97, %93
+  %100 = load ptr, ptr %15, align 8
+  %101 = getelementptr inbounds %"struct.Yosys::hashlib::pool<int>::entry_t", ptr %100, i64 %76
+  %102 = getelementptr inbounds %"struct.Yosys::hashlib::pool<int>::entry_t", ptr %100, i64 %44
+  %103 = load i64, ptr %101, align 4
+  store i64 %103, ptr %102, align 4
   %.pre.i5 = load ptr, ptr %16, align 8
   %.pre47.i = load ptr, ptr %15, align 8
-  br label %95
+  br label %104
 
-95:                                               ; preds = %.loopexit, %.loopexit12
-  %96 = phi ptr [ %.pre47.i, %.loopexit ], [ %62, %.loopexit12 ]
-  %97 = phi ptr [ %.pre.i5, %.loopexit ], [ %61, %.loopexit12 ]
-  %98 = getelementptr inbounds i8, ptr %97, i64 -8
-  store ptr %98, ptr %16, align 8
-  %99 = icmp eq ptr %96, %98
-  br i1 %99, label %100, label %_ZN5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE8do_eraseEii.exit
+104:                                              ; preds = %99, %66
+  %105 = phi ptr [ %.pre47.i, %99 ], [ %68, %66 ]
+  %106 = phi ptr [ %.pre.i5, %99 ], [ %67, %66 ]
+  %107 = getelementptr inbounds i8, ptr %106, i64 -8
+  store ptr %107, ptr %16, align 8
+  %108 = icmp eq ptr %105, %107
+  br i1 %108, label %109, label %_ZN5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE8do_eraseEii.exit
 
-100:                                              ; preds = %95
-  %101 = load ptr, ptr %0, align 8
-  %102 = load ptr, ptr %4, align 8
-  %.not.i.i.i = icmp eq ptr %102, %101
-  br i1 %.not.i.i.i, label %_ZN5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE8do_eraseEii.exit, label %103
+109:                                              ; preds = %104
+  %110 = load ptr, ptr %0, align 8
+  %111 = load ptr, ptr %4, align 8
+  %.not.i.i.i = icmp eq ptr %111, %110
+  br i1 %.not.i.i.i, label %_ZN5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE8do_eraseEii.exit, label %112
 
-103:                                              ; preds = %100
-  store ptr %101, ptr %4, align 8
+112:                                              ; preds = %109
+  store ptr %110, ptr %4, align 8
   br label %_ZN5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE8do_eraseEii.exit
 
-_ZN5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE8do_eraseEii.exit: ; preds = %48, %2, %._crit_edge.i, %_ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE9do_lookupERKiRi.exit, %95, %100, %103
-  %.0.i6 = phi i32 [ 0, %_ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE9do_lookupERKiRi.exit ], [ 1, %95 ], [ 1, %100 ], [ 1, %103 ], [ 0, %._crit_edge.i ], [ 0, %2 ], [ 0, %48 ]
+_ZN5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE8do_eraseEii.exit: ; preds = %48, %2, %._crit_edge.i, %_ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE9do_lookupERKiRi.exit, %104, %109, %112
+  %.0.i6 = phi i32 [ 0, %_ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE9do_lookupERKiRi.exit ], [ 1, %104 ], [ 1, %109 ], [ 1, %112 ], [ 0, %._crit_edge.i ], [ 0, %2 ], [ 0, %48 ]
   ret i32 %.0.i6
 }
 

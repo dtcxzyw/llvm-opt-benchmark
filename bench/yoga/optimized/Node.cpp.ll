@@ -5199,19 +5199,19 @@ if.end.i:                                         ; preds = %sw.epilog.i
   br label %if.then
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit: ; preds = %sw.epilog.i, %entry
-  %YGValueAuto.sink = phi ptr [ @YGValueAuto, %entry ], [ @YGValueUndefined, %sw.epilog.i ]
-  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), %entry ], [ getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), %sw.epilog.i ]
-  %retval.sroa.0.0.copyload4.i = load i32, ptr %YGValueAuto.sink, align 4
-  %retval.sroa.6.0.copyload.i = load i32, ptr %.sink, align 4
-  switch i32 %retval.sroa.6.0.copyload.i, label %if.then [
+  %.in = phi ptr [ @YGValueAuto, %entry ], [ @YGValueUndefined, %sw.epilog.i ]
+  %retval.sroa.6.0.i.in = phi ptr [ getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), %entry ], [ getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), %sw.epilog.i ]
+  %retval.sroa.6.0.i = load i32, ptr %retval.sroa.6.0.i.in, align 4
+  %2 = load i32, ptr %.in, align 4
+  switch i32 %retval.sroa.6.0.i, label %if.then [
     i32 3, label %if.end
     i32 0, label %if.end
   ]
 
 if.then:                                          ; preds = %if.end.i, %entry, %sw.bb3.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit
-  %retval.sroa.6.0.i10 = phi i32 [ %retval.sroa.6.0.copyload.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit ], [ 1, %entry ], [ 2, %sw.bb3.i ], [ %spec.select, %if.end.i ]
-  %2 = phi i32 [ %retval.sroa.0.0.copyload4.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit ], [ 0, %entry ], [ 0, %sw.bb3.i ], [ %add.i, %if.end.i ]
-  %3 = bitcast i32 %2 to float
+  %retval.sroa.6.0.i10 = phi i32 [ %retval.sroa.6.0.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit ], [ 1, %entry ], [ 2, %sw.bb3.i ], [ %spec.select, %if.end.i ]
+  %3 = phi i32 [ %2, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit ], [ 0, %entry ], [ 0, %sw.bb3.i ], [ %add.i, %if.end.i ]
+  %4 = bitcast i32 %3 to float
   br label %return
 
 if.end:                                           ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit
@@ -5222,8 +5222,8 @@ if.end:                                           ; preds = %_ZNK8facebook4yoga1
 
 if.then16:                                        ; preds = %if.end
   %config_ = getelementptr inbounds i8, ptr %this, i64 616
-  %4 = load ptr, ptr %config_, align 8
-  %call17 = tail call noundef zeroext i1 @_ZNK8facebook4yoga6Config14useWebDefaultsEv(ptr noundef nonnull align 8 dereferenceable(48) %4)
+  %5 = load ptr, ptr %config_, align 8
+  %call17 = tail call noundef zeroext i1 @_ZNK8facebook4yoga6Config14useWebDefaultsEv(ptr noundef nonnull align 8 dereferenceable(48) %5)
   %YGValueAuto.val = load float, ptr @YGValueAuto, align 4
   %YGValueZero.val = load float, ptr @YGValueZero, align 4
   %retval.sroa.0.0.copyload = select i1 %call17, float %YGValueAuto.val, float %YGValueZero.val
@@ -5238,12 +5238,12 @@ if.end18:                                         ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end18, %if.then16, %if.then
-  %retval.sroa.0.0 = phi float [ %3, %if.then ], [ %retval.sroa.0.0.copyload, %if.then16 ], [ %retval.sroa.0.0.copyload2, %if.end18 ]
+  %retval.sroa.0.0 = phi float [ %4, %if.then ], [ %retval.sroa.0.0.copyload, %if.then16 ], [ %retval.sroa.0.0.copyload2, %if.end18 ]
   %retval.sroa.4.0 = phi i32 [ %retval.sroa.6.0.i10, %if.then ], [ %retval.sroa.4.0.copyload, %if.then16 ], [ %retval.sroa.4.0.copyload3, %if.end18 ]
-  %5 = bitcast float %retval.sroa.0.0 to i32
+  %6 = bitcast float %retval.sroa.0.0 to i32
   %retval.sroa.4.0.insert.ext = zext i32 %retval.sroa.4.0 to i64
   %retval.sroa.4.0.insert.shift = shl nuw i64 %retval.sroa.4.0.insert.ext, 32
-  %retval.sroa.0.0.insert.ext = zext i32 %5 to i64
+  %retval.sroa.0.0.insert.ext = zext i32 %6 to i64
   %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.4.0.insert.shift, %retval.sroa.0.0.insert.ext
   ret i64 %retval.sroa.0.0.insert.insert
 }

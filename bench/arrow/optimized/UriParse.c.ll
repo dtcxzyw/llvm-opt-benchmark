@@ -173,17 +173,20 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
   %pathHead.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 96
   %11 = load ptr, ptr %pathHead.i.i.i.i, align 8
   %cmp11.i.i.i.i = icmp eq ptr %11, null
-  br i1 %cmp11.i.i.i.i, label %uriOnExitSegmentNzNcOrScheme2A.exit.i.i, label %if.else16.i.i.i.i
+  br i1 %cmp11.i.i.i.i, label %if.then12.i.i.i.i, label %if.else16.i.i.i.i
+
+if.then12.i.i.i.i:                                ; preds = %if.end.i.i.i.i
+  store ptr %call.i.i.i.i, ptr %pathHead.i.i.i.i, align 8
+  br label %uriOnExitSegmentNzNcOrScheme2A.exit.i.i
 
 if.else16.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   %pathTail18.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 104
   %12 = load ptr, ptr %pathTail18.i.i.i.i, align 8
   %next.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 16
+  store ptr %call.i.i.i.i, ptr %next.i.i.i.i, align 8
   br label %uriOnExitSegmentNzNcOrScheme2A.exit.i.i
 
-uriOnExitSegmentNzNcOrScheme2A.exit.i.i:          ; preds = %if.else16.i.i.i.i, %if.end.i.i.i.i
-  %pathHead.sink.i.i.i.i = phi ptr [ %next.i.i.i.i, %if.else16.i.i.i.i ], [ %pathHead.i.i.i.i, %if.end.i.i.i.i ]
-  store ptr %call.i.i.i.i, ptr %pathHead.sink.i.i.i.i, align 8
+uriOnExitSegmentNzNcOrScheme2A.exit.i.i:          ; preds = %if.else16.i.i.i.i, %if.then12.i.i.i.i
   %13 = load ptr, ptr %state, align 8
   %pathTail.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 104
   store ptr %call.i.i.i.i, ptr %pathTail.i.i.i.i, align 8
@@ -1809,17 +1812,20 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
   %pathHead.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 96
   %10 = load ptr, ptr %pathHead.i.i.i.i, align 8
   %cmp11.i.i.i.i = icmp eq ptr %10, null
-  br i1 %cmp11.i.i.i.i, label %uriOnExitSegmentNzNcOrScheme2W.exit.i.i, label %if.else16.i.i.i.i
+  br i1 %cmp11.i.i.i.i, label %if.then12.i.i.i.i, label %if.else16.i.i.i.i
+
+if.then12.i.i.i.i:                                ; preds = %if.end.i.i.i.i
+  store ptr %call.i.i.i.i, ptr %pathHead.i.i.i.i, align 8
+  br label %uriOnExitSegmentNzNcOrScheme2W.exit.i.i
 
 if.else16.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   %pathTail18.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 104
   %11 = load ptr, ptr %pathTail18.i.i.i.i, align 8
   %next.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 16
+  store ptr %call.i.i.i.i, ptr %next.i.i.i.i, align 8
   br label %uriOnExitSegmentNzNcOrScheme2W.exit.i.i
 
-uriOnExitSegmentNzNcOrScheme2W.exit.i.i:          ; preds = %if.else16.i.i.i.i, %if.end.i.i.i.i
-  %pathHead.sink.i.i.i.i = phi ptr [ %next.i.i.i.i, %if.else16.i.i.i.i ], [ %pathHead.i.i.i.i, %if.end.i.i.i.i ]
-  store ptr %call.i.i.i.i, ptr %pathHead.sink.i.i.i.i, align 8
+uriOnExitSegmentNzNcOrScheme2W.exit.i.i:          ; preds = %if.else16.i.i.i.i, %if.then12.i.i.i.i
   %12 = load ptr, ptr %state, align 8
   %pathTail.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 104
   store ptr %call.i.i.i.i, ptr %pathTail.i.i.i.i, align 8
@@ -3324,12 +3330,17 @@ if.end.i:                                         ; preds = %if.then
   %pathHead.i = getelementptr inbounds i8, ptr %5, i64 96
   %6 = load ptr, ptr %pathHead.i, align 8
   %cmp11.i = icmp eq ptr %6, null
-  br i1 %cmp11.i, label %if.end, label %if.else16.i
+  br i1 %cmp11.i, label %if.then12.i, label %if.else16.i
+
+if.then12.i:                                      ; preds = %if.end.i
+  store ptr %call.i, ptr %pathHead.i, align 8
+  br label %if.end
 
 if.else16.i:                                      ; preds = %if.end.i
   %pathTail18.i = getelementptr inbounds i8, ptr %5, i64 104
   %7 = load ptr, ptr %pathTail18.i, align 8
   %next.i = getelementptr inbounds i8, ptr %7, i64 16
+  store ptr %call.i, ptr %next.i, align 8
   br label %if.end
 
 if.then2:                                         ; preds = %if.then
@@ -3341,9 +3352,7 @@ if.then2:                                         ; preds = %if.then
   store i32 3, ptr %errorCode.i, align 8
   br label %return
 
-if.end:                                           ; preds = %if.else16.i, %if.end.i
-  %pathHead.sink.i = phi ptr [ %next.i, %if.else16.i ], [ %pathHead.i, %if.end.i ]
-  store ptr %call.i, ptr %pathHead.sink.i, align 8
+if.end:                                           ; preds = %if.else16.i, %if.then12.i
   %9 = load ptr, ptr %state, align 8
   %pathTail.i = getelementptr inbounds i8, ptr %9, i64 104
   store ptr %call.i, ptr %pathTail.i, align 8
@@ -4149,12 +4158,17 @@ if.end.i.i24:                                     ; preds = %if.end4.i
   %pathHead.i.i = getelementptr inbounds i8, ptr %38, i64 96
   %39 = load ptr, ptr %pathHead.i.i, align 8
   %cmp11.i.i = icmp eq ptr %39, null
-  br i1 %cmp11.i.i, label %if.end8.i26, label %if.else16.i.i
+  br i1 %cmp11.i.i, label %if.then12.i.i, label %if.else16.i.i
+
+if.then12.i.i:                                    ; preds = %if.end.i.i24
+  store ptr %call.i.i23, ptr %pathHead.i.i, align 8
+  br label %if.end8.i26
 
 if.else16.i.i:                                    ; preds = %if.end.i.i24
   %pathTail18.i.i = getelementptr inbounds i8, ptr %38, i64 104
   %40 = load ptr, ptr %pathTail18.i.i, align 8
   %next.i.i = getelementptr inbounds i8, ptr %40, i64 16
+  store ptr %call.i.i23, ptr %next.i.i, align 8
   br label %if.end8.i26
 
 if.then7.i:                                       ; preds = %if.end4.i
@@ -4166,9 +4180,7 @@ if.then7.i:                                       ; preds = %if.end4.i
   store i32 3, ptr %errorCode.i.i, align 8
   br label %uriParsePathAbsEmptyA.exit
 
-if.end8.i26:                                      ; preds = %if.else16.i.i, %if.end.i.i24
-  %pathHead.sink.i.i = phi ptr [ %next.i.i, %if.else16.i.i ], [ %pathHead.i.i, %if.end.i.i24 ]
-  store ptr %call.i.i23, ptr %pathHead.sink.i.i, align 8
+if.end8.i26:                                      ; preds = %if.else16.i.i, %if.then12.i.i
   %42 = load ptr, ptr %state, align 8
   %pathTail.i.i = getelementptr inbounds i8, ptr %42, i64 104
   store ptr %call.i.i23, ptr %pathTail.i.i, align 8
@@ -4298,44 +4310,47 @@ if.end.i18.i:                                     ; preds = %if.end4.i36
   %pathHead.i.i42 = getelementptr inbounds i8, ptr %48, i64 96
   %49 = load ptr, ptr %pathHead.i.i42, align 8
   %cmp11.i.i43 = icmp eq ptr %49, null
-  br i1 %cmp11.i.i43, label %if.end7.i, label %if.else16.i.i44
+  br i1 %cmp11.i.i43, label %if.then12.i.i57, label %if.else16.i.i44
+
+if.then12.i.i57:                                  ; preds = %if.end.i18.i
+  store ptr %call.i16.i38, ptr %pathHead.i.i42, align 8
+  br label %if.end7.i
 
 if.else16.i.i44:                                  ; preds = %if.end.i18.i
   %pathTail18.i.i45 = getelementptr inbounds i8, ptr %48, i64 104
   %50 = load ptr, ptr %pathTail18.i.i45, align 8
   %next.i.i46 = getelementptr inbounds i8, ptr %50, i64 16
+  store ptr %call.i16.i38, ptr %next.i.i46, align 8
   br label %if.end7.i
 
-if.end7.i:                                        ; preds = %if.else16.i.i44, %if.end.i18.i
-  %pathHead.sink.i.i47 = phi ptr [ %next.i.i46, %if.else16.i.i44 ], [ %pathHead.i.i42, %if.end.i18.i ]
-  store ptr %call.i16.i38, ptr %pathHead.sink.i.i47, align 8
+if.end7.i:                                        ; preds = %if.else16.i.i44, %if.then12.i.i57
   %51 = load ptr, ptr %state, align 8
-  %pathTail.i.i48 = getelementptr inbounds i8, ptr %51, i64 104
-  store ptr %call.i16.i38, ptr %pathTail.i.i48, align 8
+  %pathTail.i.i47 = getelementptr inbounds i8, ptr %51, i64 104
+  store ptr %call.i16.i38, ptr %pathTail.i.i47, align 8
   %cmp.not19.i.i = icmp ult ptr %call1.i.i, %afterLast
-  br i1 %cmp.not19.i.i, label %if.end.i22.i49, label %return
+  br i1 %cmp.not19.i.i, label %if.end.i22.i48, label %return
 
-if.end.i22.i49:                                   ; preds = %if.end7.i, %if.end8.i.i
+if.end.i22.i48:                                   ; preds = %if.end7.i, %if.end8.i.i
   %first.tr20.i.i = phi ptr [ %call.i23.i, %if.end8.i.i ], [ %call1.i.i, %if.end7.i ]
   %52 = load i8, ptr %first.tr20.i.i, align 1
-  %cond.i.i50 = icmp eq i8 %52, 47
-  br i1 %cond.i.i50, label %sw.bb.i.i51, label %return
+  %cond.i.i49 = icmp eq i8 %52, 47
+  br i1 %cond.i.i49, label %sw.bb.i.i50, label %return
 
-sw.bb.i.i51:                                      ; preds = %if.end.i22.i49
-  %add.ptr.i.i52 = getelementptr inbounds i8, ptr %first.tr20.i.i, i64 1
-  %call.i23.i = tail call fastcc ptr @uriParseSegmentA(ptr noundef %state, ptr noundef %add.ptr.i.i52, ptr noundef %afterLast, ptr noundef nonnull %memory)
+sw.bb.i.i50:                                      ; preds = %if.end.i22.i48
+  %add.ptr.i.i51 = getelementptr inbounds i8, ptr %first.tr20.i.i, i64 1
+  %call.i23.i = tail call fastcc ptr @uriParseSegmentA(ptr noundef %state, ptr noundef %add.ptr.i.i51, ptr noundef %afterLast, ptr noundef nonnull %memory)
   %cmp1.i24.i = icmp eq ptr %call.i23.i, null
-  br i1 %cmp1.i24.i, label %return, label %if.end4.i.i53
+  br i1 %cmp1.i24.i, label %return, label %if.end4.i.i52
 
-if.end4.i.i53:                                    ; preds = %sw.bb.i.i51
+if.end4.i.i52:                                    ; preds = %sw.bb.i.i50
   %53 = load ptr, ptr %calloc.i.i37, align 8
   %call.i.i.i = tail call ptr %53(ptr noundef nonnull %memory, i64 noundef 1, i64 noundef 32) #6
-  %cmp.i.i.i54 = icmp eq ptr %call.i.i.i, null
-  br i1 %cmp.i.i.i54, label %return.sink.split.i, label %if.end.i.i.i55
+  %cmp.i.i.i53 = icmp eq ptr %call.i.i.i, null
+  br i1 %cmp.i.i.i53, label %return.sink.split.i, label %if.end.i.i.i54
 
-if.end.i.i.i55:                                   ; preds = %if.end4.i.i53
-  %cmp1.i.i.i = icmp eq ptr %add.ptr.i.i52, %call.i23.i
-  %spec.select.i.i.i = select i1 %cmp1.i.i.i, ptr %46, ptr %add.ptr.i.i52
+if.end.i.i.i54:                                   ; preds = %if.end4.i.i52
+  %cmp1.i.i.i = icmp eq ptr %add.ptr.i.i51, %call.i23.i
+  %spec.select.i.i.i = select i1 %cmp1.i.i.i, ptr %46, ptr %add.ptr.i.i51
   %spec.select16.i.i.i = select i1 %cmp1.i.i.i, ptr %46, ptr %call.i23.i
   store ptr %spec.select.i.i.i, ptr %call.i.i.i, align 8
   %54 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
@@ -4344,34 +4359,37 @@ if.end.i.i.i55:                                   ; preds = %if.end4.i.i53
   %pathHead.i.i.i = getelementptr inbounds i8, ptr %55, i64 96
   %56 = load ptr, ptr %pathHead.i.i.i, align 8
   %cmp11.i.i.i = icmp eq ptr %56, null
-  br i1 %cmp11.i.i.i, label %if.end8.i.i, label %if.else16.i.i.i
+  br i1 %cmp11.i.i.i, label %if.then12.i.i.i, label %if.else16.i.i.i
 
-if.else16.i.i.i:                                  ; preds = %if.end.i.i.i55
+if.then12.i.i.i:                                  ; preds = %if.end.i.i.i54
+  store ptr %call.i.i.i, ptr %pathHead.i.i.i, align 8
+  br label %if.end8.i.i
+
+if.else16.i.i.i:                                  ; preds = %if.end.i.i.i54
   %pathTail18.i.i.i = getelementptr inbounds i8, ptr %55, i64 104
   %57 = load ptr, ptr %pathTail18.i.i.i, align 8
   %next.i.i.i = getelementptr inbounds i8, ptr %57, i64 16
+  store ptr %call.i.i.i, ptr %next.i.i.i, align 8
   br label %if.end8.i.i
 
-if.end8.i.i:                                      ; preds = %if.else16.i.i.i, %if.end.i.i.i55
-  %pathHead.sink.i.i.i = phi ptr [ %next.i.i.i, %if.else16.i.i.i ], [ %pathHead.i.i.i, %if.end.i.i.i55 ]
-  store ptr %call.i.i.i, ptr %pathHead.sink.i.i.i, align 8
+if.end8.i.i:                                      ; preds = %if.else16.i.i.i, %if.then12.i.i.i
   %58 = load ptr, ptr %state, align 8
   %pathTail.i.i.i = getelementptr inbounds i8, ptr %58, i64 104
   store ptr %call.i.i.i, ptr %pathTail.i.i.i, align 8
-  %cmp.not.i.i56 = icmp ult ptr %call.i23.i, %afterLast
-  br i1 %cmp.not.i.i56, label %if.end.i22.i49, label %return
+  %cmp.not.i.i55 = icmp ult ptr %call.i23.i, %afterLast
+  br i1 %cmp.not.i.i55, label %if.end.i22.i48, label %return
 
-return.sink.split.i:                              ; preds = %if.end4.i.i53, %if.end4.i36
+return.sink.split.i:                              ; preds = %if.end4.i.i52, %if.end4.i36
   %59 = load ptr, ptr %state, align 8
   %call.i16.i.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %59, ptr noundef nonnull %memory)
-  %errorPos.i.i.i57 = getelementptr inbounds i8, ptr %state, i64 16
-  store ptr null, ptr %errorPos.i.i.i57, align 8
+  %errorPos.i.i.i56 = getelementptr inbounds i8, ptr %state, i64 16
+  store ptr null, ptr %errorPos.i.i.i56, align 8
   %errorCode.i.i.i = getelementptr inbounds i8, ptr %state, i64 8
   store i32 3, ptr %errorCode.i.i.i, align 8
   br label %return
 
-return:                                           ; preds = %if.end8.i.i, %sw.bb.i.i51, %if.end.i22.i49, %sw.bb.i25.i, %if.then6.i.i.i, %if.then1.i.i.i, %sw.default.i.i, %sw.bb.i, %return.sink.split.i, %if.end7.i, %uriParseSegmentNzA.exit.i, %sw.bb.i32, %if.end.i31, %uriParseAuthorityA.exit, %uriParsePathAbsEmptyA.exit, %if.then
-  %retval.0 = phi ptr [ %afterLast, %if.then ], [ %retval.0.i18, %uriParsePathAbsEmptyA.exit ], [ null, %uriParseAuthorityA.exit ], [ null, %uriParseSegmentNzA.exit.i ], [ %first, %if.end.i31 ], [ %afterLast, %if.end7.i ], [ null, %sw.bb.i32 ], [ null, %return.sink.split.i ], [ null, %sw.bb.i ], [ null, %sw.default.i.i ], [ null, %if.then1.i.i.i ], [ null, %if.then6.i.i.i ], [ null, %sw.bb.i25.i ], [ %afterLast, %if.end8.i.i ], [ null, %sw.bb.i.i51 ], [ %first.tr20.i.i, %if.end.i22.i49 ]
+return:                                           ; preds = %if.end8.i.i, %sw.bb.i.i50, %if.end.i22.i48, %sw.bb.i25.i, %if.then6.i.i.i, %if.then1.i.i.i, %sw.default.i.i, %sw.bb.i, %return.sink.split.i, %if.end7.i, %uriParseSegmentNzA.exit.i, %sw.bb.i32, %if.end.i31, %uriParseAuthorityA.exit, %uriParsePathAbsEmptyA.exit, %if.then
+  %retval.0 = phi ptr [ %afterLast, %if.then ], [ %retval.0.i18, %uriParsePathAbsEmptyA.exit ], [ null, %uriParseAuthorityA.exit ], [ null, %uriParseSegmentNzA.exit.i ], [ %first, %if.end.i31 ], [ %afterLast, %if.end7.i ], [ null, %sw.bb.i32 ], [ null, %return.sink.split.i ], [ null, %sw.bb.i ], [ null, %sw.default.i.i ], [ null, %if.then1.i.i.i ], [ null, %if.then6.i.i.i ], [ null, %sw.bb.i25.i ], [ %afterLast, %if.end8.i.i ], [ null, %sw.bb.i.i50 ], [ %first.tr20.i.i, %if.end.i22.i48 ]
   ret ptr %retval.0
 }
 
@@ -4460,17 +4478,20 @@ if.end.i:                                         ; preds = %entry
   %pathHead.i = getelementptr inbounds i8, ptr %5, i64 96
   %6 = load ptr, ptr %pathHead.i, align 8
   %cmp11.i = icmp eq ptr %6, null
-  br i1 %cmp11.i, label %if.end, label %if.else16.i
+  br i1 %cmp11.i, label %if.then12.i, label %if.else16.i
+
+if.then12.i:                                      ; preds = %if.end.i
+  store ptr %call.i, ptr %pathHead.i, align 8
+  br label %if.end
 
 if.else16.i:                                      ; preds = %if.end.i
   %pathTail18.i = getelementptr inbounds i8, ptr %5, i64 104
   %7 = load ptr, ptr %pathTail18.i, align 8
   %next.i = getelementptr inbounds i8, ptr %7, i64 16
+  store ptr %call.i, ptr %next.i, align 8
   br label %if.end
 
-if.end:                                           ; preds = %if.else16.i, %if.end.i
-  %pathHead.sink.i = phi ptr [ %next.i, %if.else16.i ], [ %pathHead.i, %if.end.i ]
-  store ptr %call.i, ptr %pathHead.sink.i, align 8
+if.end:                                           ; preds = %if.else16.i, %if.then12.i
   %8 = load ptr, ptr %state, align 8
   %pathTail.i = getelementptr inbounds i8, ptr %8, i64 104
   store ptr %call.i, ptr %pathTail.i, align 8
@@ -4609,17 +4630,20 @@ if.end:                                           ; preds = %entry
   %pathHead = getelementptr inbounds i8, ptr %3, i64 96
   %4 = load ptr, ptr %pathHead, align 8
   %cmp11 = icmp eq ptr %4, null
-  br i1 %cmp11, label %return.sink.split, label %if.else16
+  br i1 %cmp11, label %if.then12, label %if.else16
+
+if.then12:                                        ; preds = %if.end
+  store ptr %call, ptr %pathHead, align 8
+  br label %return.sink.split
 
 if.else16:                                        ; preds = %if.end
   %pathTail18 = getelementptr inbounds i8, ptr %3, i64 104
   %5 = load ptr, ptr %pathTail18, align 8
   %next = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr %call, ptr %next, align 8
   br label %return.sink.split
 
-return.sink.split:                                ; preds = %if.end, %if.else16
-  %pathHead.sink = phi ptr [ %next, %if.else16 ], [ %pathHead, %if.end ]
-  store ptr %call, ptr %pathHead.sink, align 8
+return.sink.split:                                ; preds = %if.else16, %if.then12
   %6 = load ptr, ptr %state, align 8
   %pathTail = getelementptr inbounds i8, ptr %6, i64 104
   store ptr %call, ptr %pathTail, align 8
@@ -4670,12 +4694,17 @@ if.end.i:                                         ; preds = %if.end4
   %pathHead.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %pathHead.i, align 8
   %cmp11.i = icmp eq ptr %5, null
-  br i1 %cmp11.i, label %if.end8, label %if.else16.i
+  br i1 %cmp11.i, label %if.then12.i, label %if.else16.i
+
+if.then12.i:                                      ; preds = %if.end.i
+  store ptr %call.i, ptr %pathHead.i, align 8
+  br label %if.end8
 
 if.else16.i:                                      ; preds = %if.end.i
   %pathTail18.i = getelementptr inbounds i8, ptr %4, i64 104
   %6 = load ptr, ptr %pathTail18.i, align 8
   %next.i = getelementptr inbounds i8, ptr %6, i64 16
+  store ptr %call.i, ptr %next.i, align 8
   br label %if.end8
 
 if.then7:                                         ; preds = %if.end4
@@ -4687,9 +4716,7 @@ if.then7:                                         ; preds = %if.end4
   store i32 3, ptr %errorCode.i, align 8
   br label %return
 
-if.end8:                                          ; preds = %if.else16.i, %if.end.i
-  %pathHead.sink.i = phi ptr [ %next.i, %if.else16.i ], [ %pathHead.i, %if.end.i ]
-  store ptr %call.i, ptr %pathHead.sink.i, align 8
+if.end8:                                          ; preds = %if.else16.i, %if.then12.i
   %8 = load ptr, ptr %state, align 8
   %pathTail.i = getelementptr inbounds i8, ptr %8, i64 104
   store ptr %call.i, ptr %pathTail.i, align 8
@@ -4822,17 +4849,20 @@ if.end.i13.i:                                     ; preds = %if.else.i
   %pathHead.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %pathHead.i.i, align 8
   %cmp11.i.i = icmp eq ptr %5, null
-  br i1 %cmp11.i.i, label %if.end3.i, label %if.else16.i.i
+  br i1 %cmp11.i.i, label %if.then12.i.i, label %if.else16.i.i
+
+if.then12.i.i:                                    ; preds = %if.end.i13.i
+  store ptr %call.i11.i, ptr %pathHead.i.i, align 8
+  br label %if.end3.i
 
 if.else16.i.i:                                    ; preds = %if.end.i13.i
   %pathTail18.i.i = getelementptr inbounds i8, ptr %4, i64 104
   %6 = load ptr, ptr %pathTail18.i.i, align 8
   %next.i.i = getelementptr inbounds i8, ptr %6, i64 16
+  store ptr %call.i11.i, ptr %next.i.i, align 8
   br label %if.end3.i
 
-if.end3.i:                                        ; preds = %if.else16.i.i, %if.end.i13.i
-  %pathHead.sink.i.i = phi ptr [ %next.i.i, %if.else16.i.i ], [ %pathHead.i.i, %if.end.i13.i ]
-  store ptr %call.i11.i, ptr %pathHead.sink.i.i, align 8
+if.end3.i:                                        ; preds = %if.else16.i.i, %if.then12.i.i
   %7 = load ptr, ptr %state, align 8
   %pathTail.i.i = getelementptr inbounds i8, ptr %7, i64 104
   store ptr %call.i11.i, ptr %pathTail.i.i, align 8
@@ -4868,17 +4898,20 @@ if.end.i.i.i:                                     ; preds = %if.end4.i.i
   %pathHead.i.i.i = getelementptr inbounds i8, ptr %11, i64 96
   %12 = load ptr, ptr %pathHead.i.i.i, align 8
   %cmp11.i.i.i = icmp eq ptr %12, null
-  br i1 %cmp11.i.i.i, label %if.end8.i.i, label %if.else16.i.i.i
+  br i1 %cmp11.i.i.i, label %if.then12.i.i.i, label %if.else16.i.i.i
+
+if.then12.i.i.i:                                  ; preds = %if.end.i.i.i
+  store ptr %call.i.i.i, ptr %pathHead.i.i.i, align 8
+  br label %if.end8.i.i
 
 if.else16.i.i.i:                                  ; preds = %if.end.i.i.i
   %pathTail18.i.i.i = getelementptr inbounds i8, ptr %11, i64 104
   %13 = load ptr, ptr %pathTail18.i.i.i, align 8
   %next.i.i.i = getelementptr inbounds i8, ptr %13, i64 16
+  store ptr %call.i.i.i, ptr %next.i.i.i, align 8
   br label %if.end8.i.i
 
-if.end8.i.i:                                      ; preds = %if.else16.i.i.i, %if.end.i.i.i
-  %pathHead.sink.i.i.i = phi ptr [ %next.i.i.i, %if.else16.i.i.i ], [ %pathHead.i.i.i, %if.end.i.i.i ]
-  store ptr %call.i.i.i, ptr %pathHead.sink.i.i.i, align 8
+if.end8.i.i:                                      ; preds = %if.else16.i.i.i, %if.then12.i.i.i
   %14 = load ptr, ptr %state, align 8
   %pathTail.i.i.i = getelementptr inbounds i8, ptr %14, i64 104
   store ptr %call.i.i.i, ptr %pathTail.i.i.i, align 8
@@ -6514,12 +6547,17 @@ if.end.i:                                         ; preds = %if.then
   %pathHead.i = getelementptr inbounds i8, ptr %5, i64 96
   %6 = load ptr, ptr %pathHead.i, align 8
   %cmp11.i = icmp eq ptr %6, null
-  br i1 %cmp11.i, label %if.end, label %if.else16.i
+  br i1 %cmp11.i, label %if.then12.i, label %if.else16.i
+
+if.then12.i:                                      ; preds = %if.end.i
+  store ptr %call.i, ptr %pathHead.i, align 8
+  br label %if.end
 
 if.else16.i:                                      ; preds = %if.end.i
   %pathTail18.i = getelementptr inbounds i8, ptr %5, i64 104
   %7 = load ptr, ptr %pathTail18.i, align 8
   %next.i = getelementptr inbounds i8, ptr %7, i64 16
+  store ptr %call.i, ptr %next.i, align 8
   br label %if.end
 
 if.then2:                                         ; preds = %if.then
@@ -6531,9 +6569,7 @@ if.then2:                                         ; preds = %if.then
   store i32 3, ptr %errorCode.i, align 8
   br label %return
 
-if.end:                                           ; preds = %if.else16.i, %if.end.i
-  %pathHead.sink.i = phi ptr [ %next.i, %if.else16.i ], [ %pathHead.i, %if.end.i ]
-  store ptr %call.i, ptr %pathHead.sink.i, align 8
+if.end:                                           ; preds = %if.else16.i, %if.then12.i
   %9 = load ptr, ptr %state, align 8
   %pathTail.i = getelementptr inbounds i8, ptr %9, i64 104
   store ptr %call.i, ptr %pathTail.i, align 8
@@ -7339,12 +7375,17 @@ if.end.i.i24:                                     ; preds = %if.end3.i
   %pathHead.i.i = getelementptr inbounds i8, ptr %38, i64 96
   %39 = load ptr, ptr %pathHead.i.i, align 8
   %cmp11.i.i = icmp eq ptr %39, null
-  br i1 %cmp11.i.i, label %if.end7.i26, label %if.else16.i.i
+  br i1 %cmp11.i.i, label %if.then12.i.i, label %if.else16.i.i
+
+if.then12.i.i:                                    ; preds = %if.end.i.i24
+  store ptr %call.i.i23, ptr %pathHead.i.i, align 8
+  br label %if.end7.i26
 
 if.else16.i.i:                                    ; preds = %if.end.i.i24
   %pathTail18.i.i = getelementptr inbounds i8, ptr %38, i64 104
   %40 = load ptr, ptr %pathTail18.i.i, align 8
   %next.i.i = getelementptr inbounds i8, ptr %40, i64 16
+  store ptr %call.i.i23, ptr %next.i.i, align 8
   br label %if.end7.i26
 
 if.then6.i:                                       ; preds = %if.end3.i
@@ -7356,9 +7397,7 @@ if.then6.i:                                       ; preds = %if.end3.i
   store i32 3, ptr %errorCode.i.i, align 8
   br label %uriParsePathAbsEmptyW.exit
 
-if.end7.i26:                                      ; preds = %if.else16.i.i, %if.end.i.i24
-  %pathHead.sink.i.i = phi ptr [ %next.i.i, %if.else16.i.i ], [ %pathHead.i.i, %if.end.i.i24 ]
-  store ptr %call.i.i23, ptr %pathHead.sink.i.i, align 8
+if.end7.i26:                                      ; preds = %if.else16.i.i, %if.then12.i.i
   %42 = load ptr, ptr %state, align 8
   %pathTail.i.i = getelementptr inbounds i8, ptr %42, i64 104
   store ptr %call.i.i23, ptr %pathTail.i.i, align 8
@@ -7488,44 +7527,47 @@ if.end.i18.i:                                     ; preds = %if.end3.i36
   %pathHead.i.i42 = getelementptr inbounds i8, ptr %48, i64 96
   %49 = load ptr, ptr %pathHead.i.i42, align 8
   %cmp11.i.i43 = icmp eq ptr %49, null
-  br i1 %cmp11.i.i43, label %if.end6.i, label %if.else16.i.i44
+  br i1 %cmp11.i.i43, label %if.then12.i.i57, label %if.else16.i.i44
+
+if.then12.i.i57:                                  ; preds = %if.end.i18.i
+  store ptr %call.i16.i38, ptr %pathHead.i.i42, align 8
+  br label %if.end6.i
 
 if.else16.i.i44:                                  ; preds = %if.end.i18.i
   %pathTail18.i.i45 = getelementptr inbounds i8, ptr %48, i64 104
   %50 = load ptr, ptr %pathTail18.i.i45, align 8
   %next.i.i46 = getelementptr inbounds i8, ptr %50, i64 16
+  store ptr %call.i16.i38, ptr %next.i.i46, align 8
   br label %if.end6.i
 
-if.end6.i:                                        ; preds = %if.else16.i.i44, %if.end.i18.i
-  %pathHead.sink.i.i47 = phi ptr [ %next.i.i46, %if.else16.i.i44 ], [ %pathHead.i.i42, %if.end.i18.i ]
-  store ptr %call.i16.i38, ptr %pathHead.sink.i.i47, align 8
+if.end6.i:                                        ; preds = %if.else16.i.i44, %if.then12.i.i57
   %51 = load ptr, ptr %state, align 8
-  %pathTail.i.i48 = getelementptr inbounds i8, ptr %51, i64 104
-  store ptr %call.i16.i38, ptr %pathTail.i.i48, align 8
+  %pathTail.i.i47 = getelementptr inbounds i8, ptr %51, i64 104
+  store ptr %call.i16.i38, ptr %pathTail.i.i47, align 8
   %cmp.not19.i.i = icmp ult ptr %call1.i.i, %afterLast
-  br i1 %cmp.not19.i.i, label %if.end.i22.i49, label %return
+  br i1 %cmp.not19.i.i, label %if.end.i22.i48, label %return
 
-if.end.i22.i49:                                   ; preds = %if.end6.i, %if.end7.i.i
+if.end.i22.i48:                                   ; preds = %if.end6.i, %if.end7.i.i
   %first.tr20.i.i = phi ptr [ %call.i23.i, %if.end7.i.i ], [ %call1.i.i, %if.end6.i ]
   %52 = load i32, ptr %first.tr20.i.i, align 4
-  %cond.i.i50 = icmp eq i32 %52, 47
-  br i1 %cond.i.i50, label %sw.bb.i.i51, label %return
+  %cond.i.i49 = icmp eq i32 %52, 47
+  br i1 %cond.i.i49, label %sw.bb.i.i50, label %return
 
-sw.bb.i.i51:                                      ; preds = %if.end.i22.i49
-  %add.ptr.i.i52 = getelementptr inbounds i8, ptr %first.tr20.i.i, i64 4
-  %call.i23.i = tail call fastcc ptr @uriParseSegmentW(ptr noundef %state, ptr noundef %add.ptr.i.i52, ptr noundef %afterLast, ptr noundef nonnull %memory)
+sw.bb.i.i50:                                      ; preds = %if.end.i22.i48
+  %add.ptr.i.i51 = getelementptr inbounds i8, ptr %first.tr20.i.i, i64 4
+  %call.i23.i = tail call fastcc ptr @uriParseSegmentW(ptr noundef %state, ptr noundef %add.ptr.i.i51, ptr noundef %afterLast, ptr noundef nonnull %memory)
   %cmp1.i24.i = icmp eq ptr %call.i23.i, null
-  br i1 %cmp1.i24.i, label %return, label %if.end3.i.i53
+  br i1 %cmp1.i24.i, label %return, label %if.end3.i.i52
 
-if.end3.i.i53:                                    ; preds = %sw.bb.i.i51
+if.end3.i.i52:                                    ; preds = %sw.bb.i.i50
   %53 = load ptr, ptr %calloc.i.i37, align 8
   %call.i.i.i = tail call ptr %53(ptr noundef nonnull %memory, i64 noundef 1, i64 noundef 32) #6
-  %cmp.i.i.i54 = icmp eq ptr %call.i.i.i, null
-  br i1 %cmp.i.i.i54, label %return.sink.split.i, label %if.end.i.i.i55
+  %cmp.i.i.i53 = icmp eq ptr %call.i.i.i, null
+  br i1 %cmp.i.i.i53, label %return.sink.split.i, label %if.end.i.i.i54
 
-if.end.i.i.i55:                                   ; preds = %if.end3.i.i53
-  %cmp1.i.i.i = icmp eq ptr %add.ptr.i.i52, %call.i23.i
-  %spec.select.i.i.i = select i1 %cmp1.i.i.i, ptr %46, ptr %add.ptr.i.i52
+if.end.i.i.i54:                                   ; preds = %if.end3.i.i52
+  %cmp1.i.i.i = icmp eq ptr %add.ptr.i.i51, %call.i23.i
+  %spec.select.i.i.i = select i1 %cmp1.i.i.i, ptr %46, ptr %add.ptr.i.i51
   %spec.select16.i.i.i = select i1 %cmp1.i.i.i, ptr %46, ptr %call.i23.i
   store ptr %spec.select.i.i.i, ptr %call.i.i.i, align 8
   %54 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
@@ -7534,34 +7576,37 @@ if.end.i.i.i55:                                   ; preds = %if.end3.i.i53
   %pathHead.i.i.i = getelementptr inbounds i8, ptr %55, i64 96
   %56 = load ptr, ptr %pathHead.i.i.i, align 8
   %cmp11.i.i.i = icmp eq ptr %56, null
-  br i1 %cmp11.i.i.i, label %if.end7.i.i, label %if.else16.i.i.i
+  br i1 %cmp11.i.i.i, label %if.then12.i.i.i, label %if.else16.i.i.i
 
-if.else16.i.i.i:                                  ; preds = %if.end.i.i.i55
+if.then12.i.i.i:                                  ; preds = %if.end.i.i.i54
+  store ptr %call.i.i.i, ptr %pathHead.i.i.i, align 8
+  br label %if.end7.i.i
+
+if.else16.i.i.i:                                  ; preds = %if.end.i.i.i54
   %pathTail18.i.i.i = getelementptr inbounds i8, ptr %55, i64 104
   %57 = load ptr, ptr %pathTail18.i.i.i, align 8
   %next.i.i.i = getelementptr inbounds i8, ptr %57, i64 16
+  store ptr %call.i.i.i, ptr %next.i.i.i, align 8
   br label %if.end7.i.i
 
-if.end7.i.i:                                      ; preds = %if.else16.i.i.i, %if.end.i.i.i55
-  %pathHead.sink.i.i.i = phi ptr [ %next.i.i.i, %if.else16.i.i.i ], [ %pathHead.i.i.i, %if.end.i.i.i55 ]
-  store ptr %call.i.i.i, ptr %pathHead.sink.i.i.i, align 8
+if.end7.i.i:                                      ; preds = %if.else16.i.i.i, %if.then12.i.i.i
   %58 = load ptr, ptr %state, align 8
   %pathTail.i.i.i = getelementptr inbounds i8, ptr %58, i64 104
   store ptr %call.i.i.i, ptr %pathTail.i.i.i, align 8
-  %cmp.not.i.i56 = icmp ult ptr %call.i23.i, %afterLast
-  br i1 %cmp.not.i.i56, label %if.end.i22.i49, label %return
+  %cmp.not.i.i55 = icmp ult ptr %call.i23.i, %afterLast
+  br i1 %cmp.not.i.i55, label %if.end.i22.i48, label %return
 
-return.sink.split.i:                              ; preds = %if.end3.i.i53, %if.end3.i36
+return.sink.split.i:                              ; preds = %if.end3.i.i52, %if.end3.i36
   %59 = load ptr, ptr %state, align 8
   %call.i16.i.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %59, ptr noundef nonnull %memory)
-  %errorPos.i.i.i57 = getelementptr inbounds i8, ptr %state, i64 16
-  store ptr null, ptr %errorPos.i.i.i57, align 8
+  %errorPos.i.i.i56 = getelementptr inbounds i8, ptr %state, i64 16
+  store ptr null, ptr %errorPos.i.i.i56, align 8
   %errorCode.i.i.i = getelementptr inbounds i8, ptr %state, i64 8
   store i32 3, ptr %errorCode.i.i.i, align 8
   br label %return
 
-return:                                           ; preds = %if.end7.i.i, %sw.bb.i.i51, %if.end.i22.i49, %sw.bb.i25.i, %if.then6.i.i.i, %if.then1.i.i.i, %sw.default.i.i, %sw.bb.i, %return.sink.split.i, %if.end6.i, %uriParseSegmentNzW.exit.i, %sw.bb.i32, %if.end.i31, %uriParseAuthorityW.exit, %uriParsePathAbsEmptyW.exit, %if.then
-  %retval.0 = phi ptr [ %afterLast, %if.then ], [ %retval.0.i18, %uriParsePathAbsEmptyW.exit ], [ null, %uriParseAuthorityW.exit ], [ null, %uriParseSegmentNzW.exit.i ], [ %first, %if.end.i31 ], [ %afterLast, %if.end6.i ], [ null, %sw.bb.i32 ], [ null, %return.sink.split.i ], [ null, %sw.bb.i ], [ null, %sw.default.i.i ], [ null, %if.then1.i.i.i ], [ null, %if.then6.i.i.i ], [ null, %sw.bb.i25.i ], [ %afterLast, %if.end7.i.i ], [ null, %sw.bb.i.i51 ], [ %first.tr20.i.i, %if.end.i22.i49 ]
+return:                                           ; preds = %if.end7.i.i, %sw.bb.i.i50, %if.end.i22.i48, %sw.bb.i25.i, %if.then6.i.i.i, %if.then1.i.i.i, %sw.default.i.i, %sw.bb.i, %return.sink.split.i, %if.end6.i, %uriParseSegmentNzW.exit.i, %sw.bb.i32, %if.end.i31, %uriParseAuthorityW.exit, %uriParsePathAbsEmptyW.exit, %if.then
+  %retval.0 = phi ptr [ %afterLast, %if.then ], [ %retval.0.i18, %uriParsePathAbsEmptyW.exit ], [ null, %uriParseAuthorityW.exit ], [ null, %uriParseSegmentNzW.exit.i ], [ %first, %if.end.i31 ], [ %afterLast, %if.end6.i ], [ null, %sw.bb.i32 ], [ null, %return.sink.split.i ], [ null, %sw.bb.i ], [ null, %sw.default.i.i ], [ null, %if.then1.i.i.i ], [ null, %if.then6.i.i.i ], [ null, %sw.bb.i25.i ], [ %afterLast, %if.end7.i.i ], [ null, %sw.bb.i.i50 ], [ %first.tr20.i.i, %if.end.i22.i48 ]
   ret ptr %retval.0
 }
 
@@ -7650,17 +7695,20 @@ if.end.i:                                         ; preds = %entry
   %pathHead.i = getelementptr inbounds i8, ptr %5, i64 96
   %6 = load ptr, ptr %pathHead.i, align 8
   %cmp11.i = icmp eq ptr %6, null
-  br i1 %cmp11.i, label %if.end, label %if.else16.i
+  br i1 %cmp11.i, label %if.then12.i, label %if.else16.i
+
+if.then12.i:                                      ; preds = %if.end.i
+  store ptr %call.i, ptr %pathHead.i, align 8
+  br label %if.end
 
 if.else16.i:                                      ; preds = %if.end.i
   %pathTail18.i = getelementptr inbounds i8, ptr %5, i64 104
   %7 = load ptr, ptr %pathTail18.i, align 8
   %next.i = getelementptr inbounds i8, ptr %7, i64 16
+  store ptr %call.i, ptr %next.i, align 8
   br label %if.end
 
-if.end:                                           ; preds = %if.else16.i, %if.end.i
-  %pathHead.sink.i = phi ptr [ %next.i, %if.else16.i ], [ %pathHead.i, %if.end.i ]
-  store ptr %call.i, ptr %pathHead.sink.i, align 8
+if.end:                                           ; preds = %if.else16.i, %if.then12.i
   %8 = load ptr, ptr %state, align 8
   %pathTail.i = getelementptr inbounds i8, ptr %8, i64 104
   store ptr %call.i, ptr %pathTail.i, align 8
@@ -7799,17 +7847,20 @@ if.end:                                           ; preds = %entry
   %pathHead = getelementptr inbounds i8, ptr %3, i64 96
   %4 = load ptr, ptr %pathHead, align 8
   %cmp11 = icmp eq ptr %4, null
-  br i1 %cmp11, label %return.sink.split, label %if.else16
+  br i1 %cmp11, label %if.then12, label %if.else16
+
+if.then12:                                        ; preds = %if.end
+  store ptr %call, ptr %pathHead, align 8
+  br label %return.sink.split
 
 if.else16:                                        ; preds = %if.end
   %pathTail18 = getelementptr inbounds i8, ptr %3, i64 104
   %5 = load ptr, ptr %pathTail18, align 8
   %next = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr %call, ptr %next, align 8
   br label %return.sink.split
 
-return.sink.split:                                ; preds = %if.end, %if.else16
-  %pathHead.sink = phi ptr [ %next, %if.else16 ], [ %pathHead, %if.end ]
-  store ptr %call, ptr %pathHead.sink, align 8
+return.sink.split:                                ; preds = %if.else16, %if.then12
   %6 = load ptr, ptr %state, align 8
   %pathTail = getelementptr inbounds i8, ptr %6, i64 104
   store ptr %call, ptr %pathTail, align 8
@@ -7860,12 +7911,17 @@ if.end.i:                                         ; preds = %if.end3
   %pathHead.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %pathHead.i, align 8
   %cmp11.i = icmp eq ptr %5, null
-  br i1 %cmp11.i, label %if.end7, label %if.else16.i
+  br i1 %cmp11.i, label %if.then12.i, label %if.else16.i
+
+if.then12.i:                                      ; preds = %if.end.i
+  store ptr %call.i, ptr %pathHead.i, align 8
+  br label %if.end7
 
 if.else16.i:                                      ; preds = %if.end.i
   %pathTail18.i = getelementptr inbounds i8, ptr %4, i64 104
   %6 = load ptr, ptr %pathTail18.i, align 8
   %next.i = getelementptr inbounds i8, ptr %6, i64 16
+  store ptr %call.i, ptr %next.i, align 8
   br label %if.end7
 
 if.then6:                                         ; preds = %if.end3
@@ -7877,9 +7933,7 @@ if.then6:                                         ; preds = %if.end3
   store i32 3, ptr %errorCode.i, align 8
   br label %return
 
-if.end7:                                          ; preds = %if.else16.i, %if.end.i
-  %pathHead.sink.i = phi ptr [ %next.i, %if.else16.i ], [ %pathHead.i, %if.end.i ]
-  store ptr %call.i, ptr %pathHead.sink.i, align 8
+if.end7:                                          ; preds = %if.else16.i, %if.then12.i
   %8 = load ptr, ptr %state, align 8
   %pathTail.i = getelementptr inbounds i8, ptr %8, i64 104
   store ptr %call.i, ptr %pathTail.i, align 8
@@ -8012,17 +8066,20 @@ if.end.i13.i:                                     ; preds = %if.else.i
   %pathHead.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %pathHead.i.i, align 8
   %cmp11.i.i = icmp eq ptr %5, null
-  br i1 %cmp11.i.i, label %if.end3.i, label %if.else16.i.i
+  br i1 %cmp11.i.i, label %if.then12.i.i, label %if.else16.i.i
+
+if.then12.i.i:                                    ; preds = %if.end.i13.i
+  store ptr %call.i11.i, ptr %pathHead.i.i, align 8
+  br label %if.end3.i
 
 if.else16.i.i:                                    ; preds = %if.end.i13.i
   %pathTail18.i.i = getelementptr inbounds i8, ptr %4, i64 104
   %6 = load ptr, ptr %pathTail18.i.i, align 8
   %next.i.i = getelementptr inbounds i8, ptr %6, i64 16
+  store ptr %call.i11.i, ptr %next.i.i, align 8
   br label %if.end3.i
 
-if.end3.i:                                        ; preds = %if.else16.i.i, %if.end.i13.i
-  %pathHead.sink.i.i = phi ptr [ %next.i.i, %if.else16.i.i ], [ %pathHead.i.i, %if.end.i13.i ]
-  store ptr %call.i11.i, ptr %pathHead.sink.i.i, align 8
+if.end3.i:                                        ; preds = %if.else16.i.i, %if.then12.i.i
   %7 = load ptr, ptr %state, align 8
   %pathTail.i.i = getelementptr inbounds i8, ptr %7, i64 104
   store ptr %call.i11.i, ptr %pathTail.i.i, align 8
@@ -8058,17 +8115,20 @@ if.end.i.i.i:                                     ; preds = %if.end3.i.i
   %pathHead.i.i.i = getelementptr inbounds i8, ptr %11, i64 96
   %12 = load ptr, ptr %pathHead.i.i.i, align 8
   %cmp11.i.i.i = icmp eq ptr %12, null
-  br i1 %cmp11.i.i.i, label %if.end7.i.i, label %if.else16.i.i.i
+  br i1 %cmp11.i.i.i, label %if.then12.i.i.i, label %if.else16.i.i.i
+
+if.then12.i.i.i:                                  ; preds = %if.end.i.i.i
+  store ptr %call.i.i.i, ptr %pathHead.i.i.i, align 8
+  br label %if.end7.i.i
 
 if.else16.i.i.i:                                  ; preds = %if.end.i.i.i
   %pathTail18.i.i.i = getelementptr inbounds i8, ptr %11, i64 104
   %13 = load ptr, ptr %pathTail18.i.i.i, align 8
   %next.i.i.i = getelementptr inbounds i8, ptr %13, i64 16
+  store ptr %call.i.i.i, ptr %next.i.i.i, align 8
   br label %if.end7.i.i
 
-if.end7.i.i:                                      ; preds = %if.else16.i.i.i, %if.end.i.i.i
-  %pathHead.sink.i.i.i = phi ptr [ %next.i.i.i, %if.else16.i.i.i ], [ %pathHead.i.i.i, %if.end.i.i.i ]
-  store ptr %call.i.i.i, ptr %pathHead.sink.i.i.i, align 8
+if.end7.i.i:                                      ; preds = %if.else16.i.i.i, %if.then12.i.i.i
   %14 = load ptr, ptr %state, align 8
   %pathTail.i.i.i = getelementptr inbounds i8, ptr %14, i64 104
   store ptr %call.i.i.i, ptr %pathTail.i.i.i, align 8

@@ -20,7 +20,7 @@ define hidden noundef zeroext i1 @_Z33hb_syllabic_insert_dotted_circlesP9hb_font
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 16
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %11, label %146
+  br i1 %.not, label %11, label %149
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds i8, ptr %1, i64 180
@@ -33,18 +33,18 @@ define hidden noundef zeroext i1 @_Z33hb_syllabic_insert_dotted_circlesP9hb_font
   br i1 %.not47, label %17, label %20
 
 17:                                               ; preds = %11
-  br i1 %.not65, label %146, label %18
+  br i1 %.not65, label %149, label %18
 
 18:                                               ; preds = %17
   %19 = tail call noundef zeroext i1 (ptr, ptr, ptr, ...) @_ZN11hb_buffer_t7messageEP9hb_font_tPKcz(ptr noundef nonnull align 8 dereferenceable(220) %1, ptr noundef %0, ptr noundef nonnull @.str)
-  br label %146
+  br label %149
 
 20:                                               ; preds = %11
   br i1 %.not65, label %23, label %21
 
 21:                                               ; preds = %20
   %22 = tail call noundef zeroext i1 (ptr, ptr, ptr, ...) @_ZN11hb_buffer_t7messageEP9hb_font_tPKcz(ptr noundef nonnull align 8 dereferenceable(220) %1, ptr noundef %0, ptr noundef nonnull @.str.1)
-  br i1 %22, label %23, label %146
+  br i1 %22, label %23, label %149
 
 23:                                               ; preds = %21, %20
   store i32 0, ptr %7, align 4
@@ -68,7 +68,7 @@ _ZN9hb_font_t17get_nominal_glyphEjPjj.exit:       ; preds = %23, %32
   %35 = phi ptr [ %34, %32 ], [ null, %23 ]
   %36 = call noundef i32 %27(ptr noundef nonnull %0, ptr noundef %29, i32 noundef 9676, ptr noundef nonnull %7, ptr noundef %35)
   %.not48 = icmp eq i32 %36, 0
-  br i1 %.not48, label %146, label %37
+  br i1 %.not48, label %149, label %37
 
 37:                                               ; preds = %_ZN9hb_font_t17get_nominal_glyphEjPjj.exit
   %38 = trunc i32 %3 to i8
@@ -94,8 +94,8 @@ _ZN9hb_font_t17get_nominal_glyphEjPjj.exit:       ; preds = %23, %32
   br label %49
 
 49:                                               ; preds = %.lr.ph70, %_ZN11hb_buffer_t11output_infoERK15hb_glyph_info_t.exit
-  %50 = phi i32 [ %43, %.lr.ph70 ], [ %140, %_ZN11hb_buffer_t11output_infoERK15hb_glyph_info_t.exit ]
-  %51 = phi i32 [ 0, %.lr.ph70 ], [ %139, %_ZN11hb_buffer_t11output_infoERK15hb_glyph_info_t.exit ]
+  %50 = phi i32 [ %43, %.lr.ph70 ], [ %143, %_ZN11hb_buffer_t11output_infoERK15hb_glyph_info_t.exit ]
+  %51 = phi i32 [ 0, %.lr.ph70 ], [ %142, %_ZN11hb_buffer_t11output_infoERK15hb_glyph_info_t.exit ]
   %.04469 = phi i32 [ 0, %.lr.ph70 ], [ %.1, %_ZN11hb_buffer_t11output_infoERK15hb_glyph_info_t.exit ]
   %52 = load i8, ptr %44, align 8
   %53 = trunc i8 %52 to i1
@@ -112,7 +112,7 @@ _ZN9hb_font_t17get_nominal_glyphEjPjj.exit:       ; preds = %23, %32
   %61 = and i32 %60, 15
   %62 = icmp eq i32 %61, %2
   %or.cond = and i1 %.not50, %62
-  br i1 %or.cond, label %63, label %117
+  br i1 %or.cond, label %63, label %118
 
 63:                                               ; preds = %54
   %64 = getelementptr inbounds i8, ptr %57, i64 8
@@ -222,75 +222,75 @@ _ZN11hb_buffer_t10next_glyphEv.exit:              ; preds = %91, %104
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %115, i64 19
   store i8 %spec.select, ptr %.sroa.7.0..sroa_idx, align 1
   %116 = load i32, ptr %48, align 4
-  br label %_ZN11hb_buffer_t11output_infoERK15hb_glyph_info_t.exit.sink.split
-
-117:                                              ; preds = %54
-  %118 = load i8, ptr %46, align 2
-  %119 = trunc i8 %118 to i1
-  br i1 %119, label %120, label %_ZN11hb_buffer_t11output_infoERK15hb_glyph_info_t.exit.sink.split
-
-120:                                              ; preds = %117
-  %121 = load ptr, ptr %47, align 8
-  %.not.i55 = icmp eq ptr %121, %55
-  br i1 %.not.i55, label %122, label %124
-
-122:                                              ; preds = %120
-  %123 = load i32, ptr %48, align 4
-  %.not2.i57 = icmp eq i32 %123, %51
-  br i1 %.not2.i57, label %135, label %124
-
-124:                                              ; preds = %122, %120
-  %125 = call noundef zeroext i1 @_ZN11hb_buffer_t13make_room_forEjj(ptr noundef nonnull align 8 dereferenceable(220) %1, i32 noundef 1, i32 noundef 1)
-  br i1 %125, label %126, label %_ZN11hb_buffer_t11output_infoERK15hb_glyph_info_t.exit
-
-126:                                              ; preds = %124
-  %127 = load ptr, ptr %45, align 8
-  %128 = load i32, ptr %41, align 4
-  %129 = zext i32 %128 to i64
-  %130 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %127, i64 %129
-  %131 = load ptr, ptr %47, align 8
-  %132 = load i32, ptr %48, align 4
-  %133 = zext i32 %132 to i64
-  %134 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %131, i64 %133
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %134, ptr noundef nonnull align 4 dereferenceable(20) %130, i64 20, i1 false)
-  %.pre.i56 = load i32, ptr %48, align 4
-  %.pre.pre = load i32, ptr %41, align 4
-  br label %135
-
-135:                                              ; preds = %126, %122
-  %.pre = phi i32 [ %.pre.pre, %126 ], [ %51, %122 ]
-  %136 = phi i32 [ %.pre.i56, %126 ], [ %51, %122 ]
-  %137 = add i32 %136, 1
-  store i32 %137, ptr %48, align 4
-  br label %_ZN11hb_buffer_t11output_infoERK15hb_glyph_info_t.exit.sink.split
-
-_ZN11hb_buffer_t11output_infoERK15hb_glyph_info_t.exit.sink.split: ; preds = %117, %135, %111
-  %.sink79 = phi i32 [ %116, %111 ], [ %.pre, %135 ], [ %51, %117 ]
-  %.sink78 = phi ptr [ %48, %111 ], [ %41, %135 ], [ %41, %117 ]
-  %.1.ph = phi i32 [ %60, %111 ], [ %.04469, %135 ], [ %.04469, %117 ]
-  %138 = add i32 %.sink79, 1
-  store i32 %138, ptr %.sink78, align 4
+  %117 = add i32 %116, 1
+  store i32 %117, ptr %48, align 4
   br label %_ZN11hb_buffer_t11output_infoERK15hb_glyph_info_t.exit
 
-_ZN11hb_buffer_t11output_infoERK15hb_glyph_info_t.exit: ; preds = %_ZN11hb_buffer_t11output_infoERK15hb_glyph_info_t.exit.sink.split, %124, %.critedge2
-  %.1 = phi i32 [ %60, %.critedge2 ], [ %.04469, %124 ], [ %.1.ph, %_ZN11hb_buffer_t11output_infoERK15hb_glyph_info_t.exit.sink.split ]
-  %139 = load i32, ptr %41, align 4
-  %140 = load i32, ptr %42, align 8
-  %141 = icmp ult i32 %139, %140
-  br i1 %141, label %49, label %.critedge, !llvm.loop !8
+118:                                              ; preds = %54
+  %119 = load i8, ptr %46, align 2
+  %120 = trunc i8 %119 to i1
+  br i1 %120, label %121, label %139
+
+121:                                              ; preds = %118
+  %122 = load ptr, ptr %47, align 8
+  %.not.i55 = icmp eq ptr %122, %55
+  br i1 %.not.i55, label %123, label %125
+
+123:                                              ; preds = %121
+  %124 = load i32, ptr %48, align 4
+  %.not2.i57 = icmp eq i32 %124, %51
+  br i1 %.not2.i57, label %136, label %125
+
+125:                                              ; preds = %123, %121
+  %126 = call noundef zeroext i1 @_ZN11hb_buffer_t13make_room_forEjj(ptr noundef nonnull align 8 dereferenceable(220) %1, i32 noundef 1, i32 noundef 1)
+  br i1 %126, label %127, label %_ZN11hb_buffer_t11output_infoERK15hb_glyph_info_t.exit
+
+127:                                              ; preds = %125
+  %128 = load ptr, ptr %45, align 8
+  %129 = load i32, ptr %41, align 4
+  %130 = zext i32 %129 to i64
+  %131 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %128, i64 %130
+  %132 = load ptr, ptr %47, align 8
+  %133 = load i32, ptr %48, align 4
+  %134 = zext i32 %133 to i64
+  %135 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %132, i64 %134
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %135, ptr noundef nonnull align 4 dereferenceable(20) %131, i64 20, i1 false)
+  %.pre.i56 = load i32, ptr %48, align 4
+  %.pre.pre = load i32, ptr %41, align 4
+  br label %136
+
+136:                                              ; preds = %127, %123
+  %.pre = phi i32 [ %.pre.pre, %127 ], [ %51, %123 ]
+  %137 = phi i32 [ %.pre.i56, %127 ], [ %51, %123 ]
+  %138 = add i32 %137, 1
+  store i32 %138, ptr %48, align 4
+  br label %139
+
+139:                                              ; preds = %136, %118
+  %140 = phi i32 [ %.pre, %136 ], [ %51, %118 ]
+  %141 = add i32 %140, 1
+  store i32 %141, ptr %41, align 4
+  br label %_ZN11hb_buffer_t11output_infoERK15hb_glyph_info_t.exit
+
+_ZN11hb_buffer_t11output_infoERK15hb_glyph_info_t.exit: ; preds = %139, %125, %111, %.critedge2
+  %.1 = phi i32 [ %60, %.critedge2 ], [ %60, %111 ], [ %.04469, %125 ], [ %.04469, %139 ]
+  %142 = load i32, ptr %41, align 4
+  %143 = load i32, ptr %42, align 8
+  %144 = icmp ult i32 %142, %143
+  br i1 %144, label %49, label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %49, %_ZN11hb_buffer_t11output_infoERK15hb_glyph_info_t.exit, %37
-  %142 = call noundef zeroext i1 @_ZN11hb_buffer_t4syncEv(ptr noundef nonnull align 8 dereferenceable(220) %1)
-  %143 = load ptr, ptr %15, align 8
-  %.not64 = icmp eq ptr %143, null
-  br i1 %.not64, label %146, label %144
+  %145 = call noundef zeroext i1 @_ZN11hb_buffer_t4syncEv(ptr noundef nonnull align 8 dereferenceable(220) %1)
+  %146 = load ptr, ptr %15, align 8
+  %.not64 = icmp eq ptr %146, null
+  br i1 %.not64, label %149, label %147
 
-144:                                              ; preds = %.critedge
-  %145 = call noundef zeroext i1 (ptr, ptr, ptr, ...) @_ZN11hb_buffer_t7messageEP9hb_font_tPKcz(ptr noundef nonnull align 8 dereferenceable(220) %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.2)
-  br label %146
+147:                                              ; preds = %.critedge
+  %148 = call noundef zeroext i1 (ptr, ptr, ptr, ...) @_ZN11hb_buffer_t7messageEP9hb_font_tPKcz(ptr noundef nonnull align 8 dereferenceable(220) %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.2)
+  br label %149
 
-146:                                              ; preds = %.critedge, %144, %_ZN9hb_font_t17get_nominal_glyphEjPjj.exit, %21, %17, %18, %6
-  %.0 = phi i1 [ false, %6 ], [ false, %18 ], [ false, %17 ], [ false, %21 ], [ false, %_ZN9hb_font_t17get_nominal_glyphEjPjj.exit ], [ true, %144 ], [ true, %.critedge ]
+149:                                              ; preds = %.critedge, %147, %_ZN9hb_font_t17get_nominal_glyphEjPjj.exit, %21, %17, %18, %6
+  %.0 = phi i1 [ false, %6 ], [ false, %18 ], [ false, %17 ], [ false, %21 ], [ false, %_ZN9hb_font_t17get_nominal_glyphEjPjj.exit ], [ true, %147 ], [ true, %.critedge ]
   ret i1 %.0
 }
 

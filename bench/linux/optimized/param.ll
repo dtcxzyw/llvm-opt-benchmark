@@ -290,7 +290,8 @@ define dso_local void @e1000e_check_options(ptr noundef %0) local_unnamed_addr #
   store i32 3, ptr %86, align 8
   %87 = getelementptr inbounds i8, ptr %0, i64 728
   %88 = getelementptr inbounds i8, ptr %0, i64 732
-  br label %.sink.split
+  store i32 3, ptr %88, align 4
+  br label %105
 
 89:                                               ; preds = %._crit_edge, %75
   %90 = phi i32 [ %.pre1, %._crit_edge ], [ %78, %75 ]
@@ -325,16 +326,11 @@ define dso_local void @e1000e_check_options(ptr noundef %0) local_unnamed_addr #
   %103 = load ptr, ptr %102, align 16
   %104 = getelementptr inbounds i8, ptr %103, i64 184
   tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %104, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.13) #4
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %101, %.thread
-  %.sink4 = phi ptr [ %88, %.thread ], [ %92, %101 ]
-  %.ph = phi ptr [ %87, %.thread ], [ %91, %101 ]
-  store i32 3, ptr %.sink4, align 4
+  store i32 3, ptr %92, align 4
   br label %105
 
-105:                                              ; preds = %.sink.split, %89
-  %106 = phi ptr [ %91, %89 ], [ %.ph, %.sink.split ]
+105:                                              ; preds = %.thread, %101, %89
+  %106 = phi ptr [ %87, %.thread ], [ %91, %101 ], [ %91, %89 ]
   %107 = getelementptr inbounds i8, ptr %0, i64 1456
   %108 = load ptr, ptr %107, align 16
   %109 = getelementptr inbounds i8, ptr %108, i64 184

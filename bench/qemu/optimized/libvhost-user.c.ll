@@ -4528,6 +4528,7 @@ entry:
 if.then:                                          ; preds = %entry
   tail call void (ptr, ptr, ...) @vu_panic(ptr noundef %dev, ptr noundef nonnull @.str.85, i32 noundef %0)
   %payload = getelementptr inbounds i8, ptr %vmsg, i64 12
+  store i64 0, ptr %payload, align 1
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -4570,6 +4571,7 @@ return.sink.split.i:                              ; preds = %if.end10.i, %if.end
 
 if.then12:                                        ; preds = %if.end10.i, %return.sink.split.i, %if.end
   tail call void (ptr, ptr, ...) @vu_panic(ptr noundef %dev, ptr noundef nonnull @.str.87)
+  store i64 0, ptr %payload4, align 1
   br label %return
 
 if.end15:                                         ; preds = %if.end10.i
@@ -4586,11 +4588,10 @@ if.end15:                                         ; preds = %if.end10.i
   %fd_num = getelementptr inbounds i8, ptr %vmsg, i64 316
   store i32 1, ptr %fd_num, align 1
   %mmap_offset = getelementptr inbounds i8, ptr %vmsg, i64 20
+  store i64 0, ptr %mmap_offset, align 1
   br label %return
 
 return:                                           ; preds = %if.end15, %if.then12, %if.then
-  %mmap_offset.sink = phi ptr [ %mmap_offset, %if.end15 ], [ %payload4, %if.then12 ], [ %payload, %if.then ]
-  store i64 0, ptr %mmap_offset.sink, align 1
   ret void
 }
 

@@ -111,9 +111,18 @@ if.end.i:                                         ; preds = %if.end36
   %cmp3.not.i = icmp eq ptr %10, null
   %tql_prev11.i = getelementptr inbounds i8, ptr %p.addr.045, i64 128
   %13 = load ptr, ptr %tql_prev11.i, align 8
+  br i1 %cmp3.not.i, label %if.else9.i, label %if.then4.i
+
+if.then4.i:                                       ; preds = %if.end.i
   %tql_prev8.i = getelementptr inbounds i8, ptr %10, i64 128
-  %tql_prev12.sink.i = select i1 %cmp3.not.i, ptr %tql_prev, ptr %tql_prev8.i
-  store ptr %13, ptr %tql_prev12.sink.i, align 8
+  store ptr %13, ptr %tql_prev8.i, align 8
+  br label %if.end13.i
+
+if.else9.i:                                       ; preds = %if.end.i
+  store ptr %13, ptr %tql_prev, align 8
+  br label %if.end13.i
+
+if.end13.i:                                       ; preds = %if.else9.i, %if.then4.i
   %14 = load ptr, ptr %combined_entry, align 8
   store ptr %14, ptr %13, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %combined_entry, i8 0, i64 16, i1 false)
@@ -121,12 +130,12 @@ if.end.i:                                         ; preds = %if.end36
   %cmp23.i = icmp eq ptr %15, null
   br i1 %cmp23.i, label %if.then24.i, label %usb_combined_packet_remove.exit
 
-if.then24.i:                                      ; preds = %if.end.i
+if.then24.i:                                      ; preds = %if.end13.i
   tail call void @qemu_iovec_destroy(ptr noundef nonnull %iov.i) #5
   tail call void @g_free(ptr noundef nonnull %0) #5
   br label %usb_combined_packet_remove.exit
 
-usb_combined_packet_remove.exit:                  ; preds = %if.end.i, %if.then24.i
+usb_combined_packet_remove.exit:                  ; preds = %if.end13.i, %if.then24.i
   tail call void @usb_packet_complete_one(ptr noundef %dev, ptr noundef nonnull %p.addr.045) #5
   %actual_length40 = getelementptr inbounds i8, ptr %p.addr.045, i64 88
   %16 = load i32, ptr %actual_length40, align 8
@@ -400,10 +409,19 @@ if.end.i:                                         ; preds = %entry
   %cmp3.not.i = icmp eq ptr %2, null
   %tql_prev11.i = getelementptr inbounds i8, ptr %p, i64 128
   %3 = load ptr, ptr %tql_prev11.i, align 8
-  %tql_prev12.i = getelementptr inbounds i8, ptr %0, i64 16
+  br i1 %cmp3.not.i, label %if.else9.i, label %if.then4.i
+
+if.then4.i:                                       ; preds = %if.end.i
   %tql_prev8.i = getelementptr inbounds i8, ptr %2, i64 128
-  %tql_prev12.sink.i = select i1 %cmp3.not.i, ptr %tql_prev12.i, ptr %tql_prev8.i
-  store ptr %3, ptr %tql_prev12.sink.i, align 8
+  store ptr %3, ptr %tql_prev8.i, align 8
+  br label %if.end13.i
+
+if.else9.i:                                       ; preds = %if.end.i
+  %tql_prev12.i = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %3, ptr %tql_prev12.i, align 8
+  br label %if.end13.i
+
+if.end13.i:                                       ; preds = %if.else9.i, %if.then4.i
   %4 = load ptr, ptr %combined_entry.i, align 8
   store ptr %4, ptr %3, align 8
   %packets22.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -412,13 +430,13 @@ if.end.i:                                         ; preds = %entry
   %cmp23.i = icmp eq ptr %5, null
   br i1 %cmp23.i, label %if.then24.i, label %usb_combined_packet_remove.exit
 
-if.then24.i:                                      ; preds = %if.end.i
+if.then24.i:                                      ; preds = %if.end13.i
   %iov.i = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @qemu_iovec_destroy(ptr noundef nonnull %iov.i) #5
   tail call void @g_free(ptr noundef nonnull %0) #5
   br label %usb_combined_packet_remove.exit
 
-usb_combined_packet_remove.exit:                  ; preds = %if.end.i, %if.then24.i
+usb_combined_packet_remove.exit:                  ; preds = %if.end13.i, %if.then24.i
   %cmp4 = icmp eq ptr %p, %1
   br i1 %cmp4, label %if.then5, label %if.end6
 

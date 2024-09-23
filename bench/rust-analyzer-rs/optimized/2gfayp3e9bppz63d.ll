@@ -22772,6 +22772,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$1
 16:                                               ; preds = %13
   %17 = landingpad { ptr, i32 }
           cleanup
+  store ptr null, ptr %8, align 8
   br label %44
 
 18:                                               ; preds = %13
@@ -22816,6 +22817,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$1
 29:                                               ; preds = %27
   %30 = landingpad { ptr, i32 }
           cleanup
+  store ptr null, ptr %8, align 8
   br label %44
 
 31:                                               ; preds = %27
@@ -22852,6 +22854,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$1
 40:                                               ; preds = %37
   %41 = landingpad { ptr, i32 }
           cleanup
+  store ptr null, ptr %32, align 8
   br label %44
 
 42:                                               ; preds = %37
@@ -22863,9 +22866,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$1
   ret void
 
 44:                                               ; preds = %40, %29, %16
-  %.sink = phi ptr [ %32, %40 ], [ %8, %29 ], [ %8, %16 ]
   %.pn = phi { ptr, i32 } [ %41, %40 ], [ %30, %29 ], [ %17, %16 ]
-  store ptr null, ptr %.sink, align 8
   resume { ptr, i32 } %.pn
 }
 

@@ -171,8 +171,8 @@ define noundef ptr @_ZN4pkpy10FastLocals12try_get_nameENS_7StrNameE(ptr nocaptur
   br label %_ZNK4pkpy12NameDictImplIiE7try_getENS_7StrNameE.exit
 
 _ZNK4pkpy12NameDictImplIiE7try_getENS_7StrNameE.exit: ; preds = %14, %.lr.ph.i._crit_edge.i
-  %.sink.i = phi ptr [ %33, %.lr.ph.i._crit_edge.i ], [ %16, %14 ]
-  %34 = load i32, ptr %.sink.i, align 4
+  %.in = phi ptr [ %16, %14 ], [ %33, %.lr.ph.i._crit_edge.i ]
+  %34 = load i32, ptr %.in, align 4
   %.fr = freeze i32 %34
   %35 = icmp eq i32 %.fr, -1
   %36 = getelementptr inbounds i8, ptr %0, i64 8
@@ -409,7 +409,7 @@ define noundef ptr @_ZN4pkpy5Frame17f_closure_try_getENS_7StrNameE(ptr nocapture
 9:                                                ; preds = %6
   %10 = load i8, ptr %8, align 1
   %11 = trunc i8 %10 to i1
-  br i1 %11, label %12, label %22
+  br i1 %11, label %12, label %23
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %8, i64 4
@@ -430,50 +430,47 @@ define noundef ptr @_ZN4pkpy5Frame17f_closure_try_getENS_7StrNameE(ptr nocapture
 19:                                               ; preds = %15
   %20 = getelementptr inbounds i8, ptr %8, i64 24
   %21 = getelementptr inbounds [8 x ptr], ptr %20, i64 0, i64 %indvars.iv.i.i
-  br label %_ZNK4pkpy13SmallNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i
+  %22 = load ptr, ptr %21, align 8
+  br label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE7try_getENS_7StrNameE.exit
 
-22:                                               ; preds = %9
-  %23 = getelementptr inbounds i8, ptr %8, i64 14
-  %24 = load i16, ptr %23, align 2
-  %25 = getelementptr inbounds i8, ptr %8, i64 16
-  %26 = load ptr, ptr %25, align 8
-  %.011.i.i = and i16 %24, %1
-  %27 = zext i16 %.011.i.i to i64
-  %28 = getelementptr inbounds %"struct.pkpy::NameDictItem.42", ptr %26, i64 %27
-  %29 = load i16, ptr %28, align 2
-  %30 = icmp eq i16 %29, 0
-  br i1 %30, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE7try_getENS_7StrNameE.exit, label %.lr.ph.i.preheader.i
+23:                                               ; preds = %9
+  %24 = getelementptr inbounds i8, ptr %8, i64 14
+  %25 = load i16, ptr %24, align 2
+  %26 = getelementptr inbounds i8, ptr %8, i64 16
+  %27 = load ptr, ptr %26, align 8
+  %.011.i.i = and i16 %25, %1
+  %28 = zext i16 %.011.i.i to i64
+  %29 = getelementptr inbounds %"struct.pkpy::NameDictItem.42", ptr %27, i64 %28
+  %30 = load i16, ptr %29, align 2
+  %31 = icmp eq i16 %30, 0
+  br i1 %31, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE7try_getENS_7StrNameE.exit, label %.lr.ph.i.preheader.i
 
-.lr.ph.i.preheader.i:                             ; preds = %22
-  %31 = icmp eq i16 %29, %1
-  br i1 %31, label %.lr.ph.i._crit_edge.i, label %.lr.ph.i
+.lr.ph.i.preheader.i:                             ; preds = %23
+  %32 = icmp eq i16 %30, %1
+  br i1 %32, label %.lr.ph.i._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader.i, %.lr.ph.i.i
   %.012.i7.i = phi i16 [ %.0.i.i, %.lr.ph.i.i ], [ %.011.i.i, %.lr.ph.i.preheader.i ]
-  %32 = add i16 %.012.i7.i, 1
-  %.0.i.i = and i16 %32, %24
-  %33 = zext i16 %.0.i.i to i64
-  %34 = getelementptr inbounds %"struct.pkpy::NameDictItem.42", ptr %26, i64 %33
-  %35 = load i16, ptr %34, align 2
-  %36 = icmp eq i16 %35, 0
-  br i1 %36, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE7try_getENS_7StrNameE.exit, label %.lr.ph.i.i, !llvm.loop !13
+  %33 = add i16 %.012.i7.i, 1
+  %.0.i.i = and i16 %33, %25
+  %34 = zext i16 %.0.i.i to i64
+  %35 = getelementptr inbounds %"struct.pkpy::NameDictItem.42", ptr %27, i64 %34
+  %36 = load i16, ptr %35, align 2
+  %37 = icmp eq i16 %36, 0
+  br i1 %37, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE7try_getENS_7StrNameE.exit, label %.lr.ph.i.i, !llvm.loop !13
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i
-  %37 = icmp eq i16 %35, %1
-  br i1 %37, label %.lr.ph.i._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
+  %38 = icmp eq i16 %36, %1
+  br i1 %38, label %.lr.ph.i._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
 
 .lr.ph.i._crit_edge.i:                            ; preds = %.lr.ph.i.i, %.lr.ph.i.preheader.i
-  %.lcssa.i = phi i64 [ %27, %.lr.ph.i.preheader.i ], [ %33, %.lr.ph.i.i ]
-  %38 = getelementptr inbounds %"struct.pkpy::NameDictItem.42", ptr %26, i64 %.lcssa.i, i32 1
-  br label %_ZNK4pkpy13SmallNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i
-
-_ZNK4pkpy13SmallNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i: ; preds = %.lr.ph.i._crit_edge.i, %19
-  %.sink.i = phi ptr [ %38, %.lr.ph.i._crit_edge.i ], [ %21, %19 ]
-  %39 = load ptr, ptr %.sink.i, align 8
+  %.lcssa.i = phi i64 [ %28, %.lr.ph.i.preheader.i ], [ %34, %.lr.ph.i.i ]
+  %39 = getelementptr inbounds %"struct.pkpy::NameDictItem.42", ptr %27, i64 %.lcssa.i, i32 1
+  %40 = load ptr, ptr %39, align 8
   br label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE7try_getENS_7StrNameE.exit
 
-_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE7try_getENS_7StrNameE.exit: ; preds = %.lr.ph.i, %14, %_ZNK4pkpy13SmallNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i, %22, %6, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %6 ], [ null, %22 ], [ %39, %_ZNK4pkpy13SmallNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i ], [ null, %14 ], [ null, %.lr.ph.i ]
+_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE7try_getENS_7StrNameE.exit: ; preds = %.lr.ph.i, %14, %.lr.ph.i._crit_edge.i, %23, %19, %6, %2
+  %.0 = phi ptr [ null, %2 ], [ null, %6 ], [ %22, %19 ], [ %40, %.lr.ph.i._crit_edge.i ], [ null, %23 ], [ null, %14 ], [ null, %.lr.ph.i ]
   ret ptr %.0
 }
 

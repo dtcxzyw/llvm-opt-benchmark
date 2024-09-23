@@ -3056,6 +3056,7 @@ hash_table_index.exit.i:                          ; preds = %18
 hash_table_index.exit.thread16.i:                 ; preds = %hash_table_index.exit.i, %8
   %.pre-phi.i = phi i64 [ %12, %8 ], [ %21, %hash_table_index.exit.i ]
   %25 = getelementptr %struct.rb_id_item, ptr %11, i64 %.pre-phi.i, i32 2
+  store i64 %2, ptr %25, align 8
   br label %rb_id_table_insert_key.exit
 
 hash_table_index.exit.thread.i:                   ; preds = %.lr.ph.i.i, %hash_table_index.exit.i, %3
@@ -3242,11 +3243,10 @@ hash_table_raw_insert.exit.i:                     ; preds = %115, %._crit_edge.i
   store i32 %.0.i.i, ptr %.lcssa.i.i, align 8
   %118 = load ptr, ptr %97, align 8
   %119 = getelementptr %struct.rb_id_item, ptr %118, i64 %.lcssa22.i.i, i32 2
+  store i64 %2, ptr %119, align 8
   br label %rb_id_table_insert_key.exit
 
 rb_id_table_insert_key.exit:                      ; preds = %hash_table_index.exit.thread16.i, %hash_table_raw_insert.exit.i
-  %.sink.i = phi ptr [ %119, %hash_table_raw_insert.exit.i ], [ %25, %hash_table_index.exit.thread16.i ]
-  store i64 %2, ptr %.sink.i, align 8
   ret i32 1
 }
 

@@ -2441,139 +2441,143 @@ define i32 @_cpu_freq_freqspec_num(i32 noundef %0, i32 noundef %1) local_unnamed
 
 9:                                                ; preds = %4
   %.not57 = icmp sgt i32 %0, -1
-  br i1 %.not57, label %40, label %10
+  br i1 %.not57, label %46, label %10
 
 10:                                               ; preds = %9
   switch i32 %0, label %.loopexit [
     i32 -2147483647, label %11
-    i32 -2147483646, label %13
-    i32 -2147483644, label %24
-    i32 -2147483645, label %34
+    i32 -2147483646, label %14
+    i32 -2147483644, label %27
+    i32 -2147483645, label %39
   ]
 
 11:                                               ; preds = %10
   %12 = getelementptr inbounds i8, ptr %6, i64 4
-  br label %.loopexit.sink.split
-
-13:                                               ; preds = %10
-  %14 = icmp eq i8 %8, 1
-  br i1 %14, label %15, label %17
-
-15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %6, i64 4
-  br label %.loopexit.sink.split
-
-17:                                               ; preds = %13
-  %18 = zext i8 %8 to i64
-  %19 = add nuw nsw i64 %18, 4294967295
-  %20 = lshr i64 %19, 1
-  %21 = getelementptr inbounds i8, ptr %6, i64 4
-  %22 = and i64 %20, 2147483647
-  %23 = getelementptr inbounds [64 x i32], ptr %21, i64 0, i64 %22
-  br label %.loopexit.sink.split
-
-24:                                               ; preds = %10
-  %25 = icmp eq i8 %8, 1
-  br i1 %25, label %26, label %28
-
-26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %6, i64 4
-  br label %.loopexit.sink.split
-
-28:                                               ; preds = %24
-  %29 = zext i8 %8 to i64
-  %30 = add nuw nsw i64 %29, 4294967294
-  %31 = getelementptr inbounds i8, ptr %6, i64 4
-  %32 = and i64 %30, 4294967295
-  %33 = getelementptr inbounds [64 x i32], ptr %31, i64 0, i64 %32
-  br label %.loopexit.sink.split
-
-34:                                               ; preds = %10
-  %35 = zext i8 %8 to i64
-  %36 = add nuw nsw i64 %35, 4294967295
-  %37 = getelementptr inbounds i8, ptr %6, i64 4
-  %38 = and i64 %36, 4294967295
-  %39 = getelementptr inbounds [64 x i32], ptr %37, i64 0, i64 %38
-  br label %.loopexit.sink.split
-
-40:                                               ; preds = %9
-  %41 = getelementptr inbounds i8, ptr %6, i64 4
-  %42 = load i32, ptr %41, align 4
-  %43 = icmp ult i32 %0, %42
-  br i1 %43, label %44, label %48
-
-44:                                               ; preds = %40
-  %45 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.41, i32 noundef %0, i32 noundef %42) #11
-  %46 = load ptr, ptr @cpufreq, align 8
-  %47 = getelementptr inbounds %struct.cpu_freq_data, ptr %46, i64 %5, i32 3
-  br label %.loopexit.sink.split
-
-48:                                               ; preds = %40
-  %49 = zext i8 %8 to i64
-  %50 = add nuw nsw i64 %49, 4294967295
-  %51 = and i64 %50, 4294967295
-  %52 = getelementptr inbounds [64 x i32], ptr %41, i64 0, i64 %51
-  %53 = load i32, ptr %52, align 4
-  %54 = icmp ult i32 %53, %0
-  br i1 %54, label %55, label %.preheader
-
-.preheader:                                       ; preds = %48
-  %wide.trip.count = zext i8 %8 to i64
-  br label %65
-
-55:                                               ; preds = %48
-  %56 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.42, i32 noundef %0, i32 noundef %53) #11
-  %57 = load ptr, ptr @cpufreq, align 8
-  %58 = getelementptr inbounds %struct.cpu_freq_data, ptr %57, i64 %5
-  %59 = getelementptr inbounds i8, ptr %58, i64 4
-  %60 = getelementptr inbounds i8, ptr %58, i64 1
-  %61 = load i8, ptr %60, align 1
-  %62 = zext i8 %61 to i64
-  %63 = add nsw i64 %62, -1
-  %64 = getelementptr inbounds [64 x i32], ptr %59, i64 0, i64 %63
-  br label %.loopexit.sink.split
-
-65:                                               ; preds = %.preheader, %69
-  %66 = phi i32 [ %42, %.preheader ], [ %71, %69 ]
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %69 ]
-  %exitcond.not = icmp eq i64 %indvars.iv, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %67
-
-67:                                               ; preds = %65
-  %68 = icmp eq i32 %0, %66
-  br i1 %68, label %.loopexit, label %69
-
-69:                                               ; preds = %67
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %70 = getelementptr inbounds [64 x i32], ptr %41, i64 0, i64 %indvars.iv.next
-  %71 = load i32, ptr %70, align 4
-  %72 = icmp ult i32 %0, %71
-  br i1 %72, label %73, label %65, !llvm.loop !26
-
-73:                                               ; preds = %69
-  %74 = tail call i32 @get_log_level() #11
-  %75 = icmp sgt i32 %74, 2
-  br i1 %75, label %76, label %80
-
-76:                                               ; preds = %73
-  %77 = load ptr, ptr @cpufreq, align 8
-  %78 = getelementptr inbounds %struct.cpu_freq_data, ptr %77, i64 %5, i32 3, i64 %indvars.iv.next
-  %79 = load i32, ptr %78, align 4
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.43, i32 noundef %0, i32 noundef %79) #11
-  br label %80
-
-80:                                               ; preds = %76, %73
-  %81 = load ptr, ptr @cpufreq, align 8
-  %82 = getelementptr inbounds %struct.cpu_freq_data, ptr %81, i64 %5, i32 3, i64 %indvars.iv.next
-  br label %.loopexit.sink.split
-
-.loopexit.sink.split:                             ; preds = %11, %15, %17, %26, %28, %34, %44, %55, %80
-  %.sink = phi ptr [ %82, %80 ], [ %64, %55 ], [ %47, %44 ], [ %39, %34 ], [ %33, %28 ], [ %27, %26 ], [ %23, %17 ], [ %16, %15 ], [ %12, %11 ]
-  %83 = load i32, ptr %.sink, align 4
+  %13 = load i32, ptr %12, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %65, %67, %.loopexit.sink.split, %10, %2, %4
-  %.047 = phi i32 [ -2, %4 ], [ -2, %2 ], [ -2, %10 ], [ %83, %.loopexit.sink.split ], [ -2, %65 ], [ %0, %67 ]
+14:                                               ; preds = %10
+  %15 = icmp eq i8 %8, 1
+  br i1 %15, label %16, label %19
+
+16:                                               ; preds = %14
+  %17 = getelementptr inbounds i8, ptr %6, i64 4
+  %18 = load i32, ptr %17, align 4
+  br label %.loopexit
+
+19:                                               ; preds = %14
+  %20 = zext i8 %8 to i64
+  %21 = add nuw nsw i64 %20, 4294967295
+  %22 = lshr i64 %21, 1
+  %23 = getelementptr inbounds i8, ptr %6, i64 4
+  %24 = and i64 %22, 2147483647
+  %25 = getelementptr inbounds [64 x i32], ptr %23, i64 0, i64 %24
+  %26 = load i32, ptr %25, align 4
+  br label %.loopexit
+
+27:                                               ; preds = %10
+  %28 = icmp eq i8 %8, 1
+  br i1 %28, label %29, label %32
+
+29:                                               ; preds = %27
+  %30 = getelementptr inbounds i8, ptr %6, i64 4
+  %31 = load i32, ptr %30, align 4
+  br label %.loopexit
+
+32:                                               ; preds = %27
+  %33 = zext i8 %8 to i64
+  %34 = add nuw nsw i64 %33, 4294967294
+  %35 = getelementptr inbounds i8, ptr %6, i64 4
+  %36 = and i64 %34, 4294967295
+  %37 = getelementptr inbounds [64 x i32], ptr %35, i64 0, i64 %36
+  %38 = load i32, ptr %37, align 4
+  br label %.loopexit
+
+39:                                               ; preds = %10
+  %40 = zext i8 %8 to i64
+  %41 = add nuw nsw i64 %40, 4294967295
+  %42 = getelementptr inbounds i8, ptr %6, i64 4
+  %43 = and i64 %41, 4294967295
+  %44 = getelementptr inbounds [64 x i32], ptr %42, i64 0, i64 %43
+  %45 = load i32, ptr %44, align 4
+  br label %.loopexit
+
+46:                                               ; preds = %9
+  %47 = getelementptr inbounds i8, ptr %6, i64 4
+  %48 = load i32, ptr %47, align 4
+  %49 = icmp ult i32 %0, %48
+  br i1 %49, label %50, label %55
+
+50:                                               ; preds = %46
+  %51 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.41, i32 noundef %0, i32 noundef %48) #11
+  %52 = load ptr, ptr @cpufreq, align 8
+  %53 = getelementptr inbounds %struct.cpu_freq_data, ptr %52, i64 %5, i32 3
+  %54 = load i32, ptr %53, align 4
+  br label %.loopexit
+
+55:                                               ; preds = %46
+  %56 = zext i8 %8 to i64
+  %57 = add nuw nsw i64 %56, 4294967295
+  %58 = and i64 %57, 4294967295
+  %59 = getelementptr inbounds [64 x i32], ptr %47, i64 0, i64 %58
+  %60 = load i32, ptr %59, align 4
+  %61 = icmp ult i32 %60, %0
+  br i1 %61, label %62, label %.preheader
+
+.preheader:                                       ; preds = %55
+  %wide.trip.count = zext i8 %8 to i64
+  br label %73
+
+62:                                               ; preds = %55
+  %63 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.42, i32 noundef %0, i32 noundef %60) #11
+  %64 = load ptr, ptr @cpufreq, align 8
+  %65 = getelementptr inbounds %struct.cpu_freq_data, ptr %64, i64 %5
+  %66 = getelementptr inbounds i8, ptr %65, i64 4
+  %67 = getelementptr inbounds i8, ptr %65, i64 1
+  %68 = load i8, ptr %67, align 1
+  %69 = zext i8 %68 to i64
+  %70 = add nsw i64 %69, -1
+  %71 = getelementptr inbounds [64 x i32], ptr %66, i64 0, i64 %70
+  %72 = load i32, ptr %71, align 4
+  br label %.loopexit
+
+73:                                               ; preds = %.preheader, %77
+  %74 = phi i32 [ %48, %.preheader ], [ %79, %77 ]
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %77 ]
+  %exitcond.not = icmp eq i64 %indvars.iv, %wide.trip.count
+  br i1 %exitcond.not, label %.loopexit, label %75
+
+75:                                               ; preds = %73
+  %76 = icmp eq i32 %0, %74
+  br i1 %76, label %.loopexit, label %77
+
+77:                                               ; preds = %75
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %78 = getelementptr inbounds [64 x i32], ptr %47, i64 0, i64 %indvars.iv.next
+  %79 = load i32, ptr %78, align 4
+  %80 = icmp ult i32 %0, %79
+  br i1 %80, label %81, label %73, !llvm.loop !26
+
+81:                                               ; preds = %77
+  %82 = tail call i32 @get_log_level() #11
+  %83 = icmp sgt i32 %82, 2
+  br i1 %83, label %84, label %88
+
+84:                                               ; preds = %81
+  %85 = load ptr, ptr @cpufreq, align 8
+  %86 = getelementptr inbounds %struct.cpu_freq_data, ptr %85, i64 %5, i32 3, i64 %indvars.iv.next
+  %87 = load i32, ptr %86, align 4
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.43, i32 noundef %0, i32 noundef %87) #11
+  br label %88
+
+88:                                               ; preds = %84, %81
+  %89 = load ptr, ptr @cpufreq, align 8
+  %90 = getelementptr inbounds %struct.cpu_freq_data, ptr %89, i64 %5, i32 3, i64 %indvars.iv.next
+  %91 = load i32, ptr %90, align 4
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %73, %75, %10, %2, %4, %88, %62, %50, %39, %32, %29, %19, %16, %11
+  %.047 = phi i32 [ %45, %39 ], [ %31, %29 ], [ %38, %32 ], [ %18, %16 ], [ %26, %19 ], [ %13, %11 ], [ %54, %50 ], [ %72, %62 ], [ %91, %88 ], [ -2, %4 ], [ -2, %2 ], [ -2, %10 ], [ -2, %73 ], [ %0, %75 ]
   ret i32 %.047
 }
 

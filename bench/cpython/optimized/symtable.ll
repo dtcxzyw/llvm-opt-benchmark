@@ -8690,66 +8690,64 @@ if.then:                                          ; preds = %entry
 
 if.then4:                                         ; preds = %if.then
   %recursion_depth = getelementptr inbounds i8, ptr %st, i64 72
-  br label %return.sink.split
+  %1 = load i32, ptr %recursion_depth, align 8
+  %dec = add i32 %1, -1
+  store i32 %dec, ptr %recursion_depth, align 8
+  br label %return
 
 if.end5:                                          ; preds = %if.then, %entry
   %name = getelementptr inbounds i8, ptr %eh, i64 16
-  %1 = load ptr, ptr %name, align 8
-  %tobool7.not = icmp eq ptr %1, null
+  %2 = load ptr, ptr %name, align 8
+  %tobool7.not = icmp eq ptr %2, null
   br i1 %tobool7.not, label %if.end15, label %if.then8
 
 if.then8:                                         ; preds = %if.end5
   %lineno = getelementptr inbounds i8, ptr %eh, i64 32
-  %2 = load i32, ptr %lineno, align 8
+  %3 = load i32, ptr %lineno, align 8
   %col_offset = getelementptr inbounds i8, ptr %eh, i64 36
-  %3 = load i32, ptr %col_offset, align 4
+  %4 = load i32, ptr %col_offset, align 4
   %end_lineno = getelementptr inbounds i8, ptr %eh, i64 40
-  %4 = load i32, ptr %end_lineno, align 8
+  %5 = load i32, ptr %end_lineno, align 8
   %end_col_offset = getelementptr inbounds i8, ptr %eh, i64 44
-  %5 = load i32, ptr %end_col_offset, align 4
+  %6 = load i32, ptr %end_col_offset, align 4
   %st_cur.i = getelementptr inbounds i8, ptr %st, i64 8
-  %6 = load ptr, ptr %st_cur.i, align 8
-  %call.i = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef readonly %st, ptr noundef nonnull %1, i32 noundef 2, ptr noundef %6, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5)
+  %7 = load ptr, ptr %st_cur.i, align 8
+  %call.i = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef readonly %st, ptr noundef nonnull %2, i32 noundef 2, ptr noundef %7, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6)
   %tobool12.not = icmp eq i32 %call.i, 0
   br i1 %tobool12.not, label %return, label %if.end15
 
 if.end15:                                         ; preds = %if.then8, %if.end5
   %body = getelementptr inbounds i8, ptr %eh, i64 24
-  %7 = load ptr, ptr %body, align 8
-  %cmp = icmp eq ptr %7, null
-  %typed_elements = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = load ptr, ptr %body, align 8
+  %cmp = icmp eq ptr %8, null
+  %typed_elements = getelementptr inbounds i8, ptr %8, i64 16
   br i1 %cmp, label %return, label %for.cond
 
 for.cond:                                         ; preds = %if.end15, %for.body
   %i.0 = phi i32 [ %inc, %for.body ], [ 0, %if.end15 ]
   %conv = sext i32 %i.0 to i64
-  %8 = load i64, ptr %7, align 8
-  %cmp18 = icmp sgt i64 %8, %conv
+  %9 = load i64, ptr %8, align 8
+  %cmp18 = icmp sgt i64 %9, %conv
   br i1 %cmp18, label %for.body, label %return
 
 for.body:                                         ; preds = %for.cond
   %arrayidx = getelementptr [1 x ptr], ptr %typed_elements, i64 0, i64 %conv
-  %9 = load ptr, ptr %arrayidx, align 8
-  %call20 = tail call fastcc i32 @symtable_visit_stmt(ptr noundef %st, ptr noundef %9)
+  %10 = load ptr, ptr %arrayidx, align 8
+  %call20 = tail call fastcc i32 @symtable_visit_stmt(ptr noundef %st, ptr noundef %10)
   %tobool21.not = icmp eq i32 %call20, 0
   %inc = add i32 %i.0, 1
   br i1 %tobool21.not, label %if.then22, label %for.cond, !llvm.loop !77
 
 if.then22:                                        ; preds = %for.body
   %recursion_depth23.phi.trans.insert = getelementptr inbounds i8, ptr %st, i64 72
+  %.pre = load i32, ptr %recursion_depth23.phi.trans.insert, align 8
   %recursion_depth23 = getelementptr inbounds i8, ptr %st, i64 72
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.then4, %if.then22
-  %.pre.sink.in = phi ptr [ %recursion_depth23.phi.trans.insert, %if.then22 ], [ %recursion_depth, %if.then4 ]
-  %recursion_depth23.sink = phi ptr [ %recursion_depth23, %if.then22 ], [ %recursion_depth, %if.then4 ]
-  %.pre.sink = load i32, ptr %.pre.sink.in, align 8
-  %dec24 = add i32 %.pre.sink, -1
-  store i32 %dec24, ptr %recursion_depth23.sink, align 8
+  %dec24 = add i32 %.pre, -1
+  store i32 %dec24, ptr %recursion_depth23, align 8
   br label %return
 
-return:                                           ; preds = %for.cond, %return.sink.split, %if.end15, %if.then8
-  %retval.0 = phi i32 [ 0, %if.then8 ], [ 1, %if.end15 ], [ 0, %return.sink.split ], [ 1, %for.cond ]
+return:                                           ; preds = %for.cond, %if.end15, %if.then8, %if.then22, %if.then4
+  %retval.0 = phi i32 [ 0, %if.then22 ], [ 0, %if.then4 ], [ 0, %if.then8 ], [ 1, %if.end15 ], [ 1, %for.cond ]
   ret i32 %retval.0
 }
 
@@ -9631,7 +9629,7 @@ if.end37.i:                                       ; preds = %if.else.i, %if.then
   %43 = load i32, ptr %end_col_offset41.i, align 4
   %call42.i = tail call fastcc i32 @symtable_record_directive(ptr noundef %st, ptr noundef %10, i32 noundef %40, i32 noundef %41, i32 noundef %42, i32 noundef %43)
   %tobool43.not.i = icmp eq i32 %call42.i, 0
-  br i1 %tobool43.not.i, label %if.then44.i, label %symtable_extend_namedexpr_scope.exit
+  br i1 %tobool43.not.i, label %if.then44.i, label %if.end47.i
 
 if.then44.i:                                      ; preds = %if.end37.i
   %recursion_depth45.i = getelementptr inbounds i8, ptr %st, i64 72
@@ -9640,42 +9638,58 @@ if.then44.i:                                      ; preds = %if.end37.i
   store i32 %dec46.i, ptr %recursion_depth45.i, align 8
   br label %return
 
+if.end47.i:                                       ; preds = %if.end37.i
+  %45 = load i32, ptr %lineno38.i, align 8
+  %46 = load i32, ptr %col_offset39.i, align 4
+  %47 = load i32, ptr %end_lineno40.i, align 8
+  %48 = load i32, ptr %end_col_offset41.i, align 4
+  %call52.i = tail call fastcc i32 @symtable_add_def_helper(ptr noundef %st, ptr noundef %10, i32 noundef 2, ptr noundef nonnull %15, i32 noundef %45, i32 noundef %46, i32 noundef %47, i32 noundef %48)
+  br label %symtable_extend_namedexpr_scope.exit
+
 if.then56.i:                                      ; preds = %if.end9.i
   %lineno57.i = getelementptr inbounds i8, ptr %9, i64 32
-  %45 = load i32, ptr %lineno57.i, align 8
+  %49 = load i32, ptr %lineno57.i, align 8
   %col_offset58.i = getelementptr inbounds i8, ptr %9, i64 36
-  %46 = load i32, ptr %col_offset58.i, align 4
+  %50 = load i32, ptr %col_offset58.i, align 4
   %end_lineno59.i = getelementptr inbounds i8, ptr %9, i64 40
-  %47 = load i32, ptr %end_lineno59.i, align 8
+  %51 = load i32, ptr %end_lineno59.i, align 8
   %end_col_offset60.i = getelementptr inbounds i8, ptr %9, i64 44
-  %48 = load i32, ptr %end_col_offset60.i, align 4
-  %49 = load ptr, ptr %st_cur, align 8
-  %call.i88.i = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef readonly %st, ptr noundef %10, i32 noundef 1, ptr noundef %49, i32 noundef %45, i32 noundef %46, i32 noundef %47, i32 noundef %48)
+  %52 = load i32, ptr %end_col_offset60.i, align 4
+  %53 = load ptr, ptr %st_cur, align 8
+  %call.i88.i = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef readonly %st, ptr noundef %10, i32 noundef 1, ptr noundef %53, i32 noundef %49, i32 noundef %50, i32 noundef %51, i32 noundef %52)
   %tobool62.not.i = icmp eq i32 %call.i88.i, 0
   br i1 %tobool62.not.i, label %if.then63.i, label %if.end66.i
 
 if.then63.i:                                      ; preds = %if.then56.i
   %recursion_depth64.i = getelementptr inbounds i8, ptr %st, i64 72
-  %50 = load i32, ptr %recursion_depth64.i, align 8
-  %dec65.i = add i32 %50, -1
+  %54 = load i32, ptr %recursion_depth64.i, align 8
+  %dec65.i = add i32 %54, -1
   store i32 %dec65.i, ptr %recursion_depth64.i, align 8
   br label %return
 
 if.end66.i:                                       ; preds = %if.then56.i
-  %51 = load i32, ptr %lineno57.i, align 8
-  %52 = load i32, ptr %col_offset58.i, align 4
-  %53 = load i32, ptr %end_lineno59.i, align 8
-  %54 = load i32, ptr %end_col_offset60.i, align 4
-  %call71.i = tail call fastcc i32 @symtable_record_directive(ptr noundef %st, ptr noundef %10, i32 noundef %51, i32 noundef %52, i32 noundef %53, i32 noundef %54)
+  %55 = load i32, ptr %lineno57.i, align 8
+  %56 = load i32, ptr %col_offset58.i, align 4
+  %57 = load i32, ptr %end_lineno59.i, align 8
+  %58 = load i32, ptr %end_col_offset60.i, align 4
+  %call71.i = tail call fastcc i32 @symtable_record_directive(ptr noundef %st, ptr noundef %10, i32 noundef %55, i32 noundef %56, i32 noundef %57, i32 noundef %58)
   %tobool72.not.i = icmp eq i32 %call71.i, 0
-  br i1 %tobool72.not.i, label %if.then73.i, label %symtable_extend_namedexpr_scope.exit
+  br i1 %tobool72.not.i, label %if.then73.i, label %if.end76.i
 
 if.then73.i:                                      ; preds = %if.end66.i
   %recursion_depth74.i = getelementptr inbounds i8, ptr %st, i64 72
-  %55 = load i32, ptr %recursion_depth74.i, align 8
-  %dec75.i = add i32 %55, -1
+  %59 = load i32, ptr %recursion_depth74.i, align 8
+  %dec75.i = add i32 %59, -1
   store i32 %dec75.i, ptr %recursion_depth74.i, align 8
   br label %return
+
+if.end76.i:                                       ; preds = %if.end66.i
+  %60 = load i32, ptr %lineno57.i, align 8
+  %61 = load i32, ptr %col_offset58.i, align 4
+  %62 = load i32, ptr %end_lineno59.i, align 8
+  %63 = load i32, ptr %end_col_offset60.i, align 4
+  %call81.i = tail call fastcc i32 @symtable_add_def_helper(ptr noundef %st, ptr noundef %10, i32 noundef 1, ptr noundef nonnull %15, i32 noundef %60, i32 noundef %61, i32 noundef %62, i32 noundef %63)
+  br label %symtable_extend_namedexpr_scope.exit
 
 sw.epilog.i.loopexit29:                           ; preds = %if.end9.i
   br label %sw.epilog.i
@@ -9688,23 +9702,23 @@ sw.epilog.i.loopexit:                             ; preds = %if.end9.i
 
 sw.epilog.i:                                      ; preds = %if.end9.i, %sw.epilog.i.loopexit, %sw.epilog.i.loopexit36, %sw.epilog.i.loopexit29
   %.str.48.sink.i = phi ptr [ @.str.47, %sw.epilog.i.loopexit29 ], [ @.str.48, %sw.epilog.i.loopexit36 ], [ @.str.45, %sw.epilog.i.loopexit ], [ @.str.46, %if.end9.i ]
-  %56 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %call101.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %56, ptr noundef nonnull %.str.48.sink.i) #7
-  %57 = load ptr, ptr %st, align 8
+  %64 = load ptr, ptr @PyExc_SyntaxError, align 8
+  %call101.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %64, ptr noundef nonnull %.str.48.sink.i) #7
+  %65 = load ptr, ptr %st, align 8
   %lineno103.i = getelementptr inbounds i8, ptr %9, i64 32
-  %58 = load i32, ptr %lineno103.i, align 8
+  %66 = load i32, ptr %lineno103.i, align 8
   %col_offset104.i = getelementptr inbounds i8, ptr %9, i64 36
-  %59 = load i32, ptr %col_offset104.i, align 4
-  %add105.i = add i32 %59, 1
+  %67 = load i32, ptr %col_offset104.i, align 4
+  %add105.i = add i32 %67, 1
   %end_lineno106.i = getelementptr inbounds i8, ptr %9, i64 40
-  %60 = load i32, ptr %end_lineno106.i, align 8
+  %68 = load i32, ptr %end_lineno106.i, align 8
   %end_col_offset107.i = getelementptr inbounds i8, ptr %9, i64 44
-  %61 = load i32, ptr %end_col_offset107.i, align 4
-  %add108.i = add i32 %61, 1
-  tail call void @PyErr_RangedSyntaxLocationObject(ptr noundef %57, i32 noundef %58, i32 noundef %add105.i, i32 noundef %60, i32 noundef %add108.i) #7
+  %69 = load i32, ptr %end_col_offset107.i, align 4
+  %add108.i = add i32 %69, 1
+  tail call void @PyErr_RangedSyntaxLocationObject(ptr noundef %65, i32 noundef %66, i32 noundef %add105.i, i32 noundef %68, i32 noundef %add108.i) #7
   %recursion_depth109.i = getelementptr inbounds i8, ptr %st, i64 72
-  %62 = load i32, ptr %recursion_depth109.i, align 8
-  %dec110.i = add i32 %62, -1
+  %70 = load i32, ptr %recursion_depth109.i, align 8
+  %dec110.i = add i32 %70, -1
   store i32 %dec110.i, ptr %recursion_depth109.i, align 8
   br label %return
 
@@ -9712,45 +9726,36 @@ for.inc.i:                                        ; preds = %if.end9.i, %_PyST_G
   %.pre.i = load ptr, ptr %st_stack.i, align 8
   br label %for.cond.i, !llvm.loop !84
 
-symtable_extend_namedexpr_scope.exit:             ; preds = %if.end66.i, %if.end37.i
-  %lineno38.i.sink = phi ptr [ %lineno38.i, %if.end37.i ], [ %lineno57.i, %if.end66.i ]
-  %col_offset39.i.sink = phi ptr [ %col_offset39.i, %if.end37.i ], [ %col_offset58.i, %if.end66.i ]
-  %end_lineno40.i.sink = phi ptr [ %end_lineno40.i, %if.end37.i ], [ %end_lineno59.i, %if.end66.i ]
-  %end_col_offset41.i.sink = phi ptr [ %end_col_offset41.i, %if.end37.i ], [ %end_col_offset60.i, %if.end66.i ]
-  %.sink = phi i32 [ 2, %if.end37.i ], [ 1, %if.end66.i ]
-  %63 = load i32, ptr %lineno38.i.sink, align 8
-  %64 = load i32, ptr %col_offset39.i.sink, align 4
-  %65 = load i32, ptr %end_lineno40.i.sink, align 8
-  %66 = load i32, ptr %end_col_offset41.i.sink, align 4
-  %call52.i = tail call fastcc i32 @symtable_add_def_helper(ptr noundef %st, ptr noundef %10, i32 noundef %.sink, ptr noundef nonnull %15, i32 noundef %63, i32 noundef %64, i32 noundef %65, i32 noundef %66)
-  %tobool5.not = icmp eq i32 %call52.i, 0
+symtable_extend_namedexpr_scope.exit:             ; preds = %if.end47.i, %if.end76.i
+  %retval.0.i = phi i32 [ %call52.i, %if.end47.i ], [ %call81.i, %if.end76.i ]
+  %tobool5.not = icmp eq i32 %retval.0.i, 0
   br i1 %tobool5.not, label %return, label %if.end8
 
 if.end8:                                          ; preds = %symtable_extend_namedexpr_scope.exit, %if.end
   %value = getelementptr inbounds i8, ptr %e, i64 16
-  %67 = load ptr, ptr %value, align 8
-  %call10 = tail call fastcc i32 @symtable_visit_expr(ptr noundef %st, ptr noundef %67)
+  %71 = load ptr, ptr %value, align 8
+  %call10 = tail call fastcc i32 @symtable_visit_expr(ptr noundef %st, ptr noundef %71)
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %if.then12, label %if.end13
 
 if.then12:                                        ; preds = %if.end8
   %recursion_depth = getelementptr inbounds i8, ptr %st, i64 72
-  %68 = load i32, ptr %recursion_depth, align 8
-  %dec = add i32 %68, -1
+  %72 = load i32, ptr %recursion_depth, align 8
+  %dec = add i32 %72, -1
   store i32 %dec, ptr %recursion_depth, align 8
   br label %return
 
 if.end13:                                         ; preds = %if.end8
   %v9 = getelementptr inbounds i8, ptr %e, i64 8
-  %69 = load ptr, ptr %v9, align 8
-  %call16 = tail call fastcc i32 @symtable_visit_expr(ptr noundef %st, ptr noundef %69)
+  %73 = load ptr, ptr %v9, align 8
+  %call16 = tail call fastcc i32 @symtable_visit_expr(ptr noundef %st, ptr noundef %73)
   %tobool17.not = icmp eq i32 %call16, 0
   br i1 %tobool17.not, label %if.then18, label %return
 
 if.then18:                                        ; preds = %if.end13
   %recursion_depth19 = getelementptr inbounds i8, ptr %st, i64 72
-  %70 = load i32, ptr %recursion_depth19, align 8
-  %dec20 = add i32 %70, -1
+  %74 = load i32, ptr %recursion_depth19, align 8
+  %dec20 = add i32 %74, -1
   store i32 %dec20, ptr %recursion_depth19, align 8
   br label %return
 

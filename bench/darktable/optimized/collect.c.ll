@@ -264,7 +264,7 @@ declare ptr @dcgettext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr
 
 ; Function Attrs: nofree nounwind uwtable
 define noalias noundef ptr @legacy_params(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i64 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #3 {
-  switch i32 %3, label %119 [
+  switch i32 %3, label %124 [
     i32 1, label %7
     i32 2, label %50
   ]
@@ -272,13 +272,13 @@ define noalias noundef ptr @legacy_params(ptr nocapture noundef readnone %0, ptr
 7:                                                ; preds = %6
   %8 = load i32, ptr %1, align 4, !tbaa !6
   %9 = icmp ugt i32 %8, 10
-  br i1 %9, label %119, label %10
+  br i1 %9, label %124, label %10
 
 10:                                               ; preds = %7
   %11 = tail call noalias ptr @malloc(i64 noundef %2) #18
   store i32 %8, ptr %11, align 4, !tbaa !6
   %12 = icmp eq i32 %8, 0
-  br i1 %12, label %116, label %13
+  br i1 %12, label %121, label %13
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds i8, ptr %1, i64 4
@@ -330,13 +330,13 @@ define noalias noundef ptr @legacy_params(ptr nocapture noundef readnone %0, ptr
 50:                                               ; preds = %6
   %51 = load i32, ptr %1, align 4, !tbaa !6
   %52 = icmp ugt i32 %51, 10
-  br i1 %52, label %119, label %53
+  br i1 %52, label %124, label %53
 
 53:                                               ; preds = %50
   %54 = tail call noalias ptr @malloc(i64 noundef %2) #18
   store i32 %51, ptr %54, align 4, !tbaa !6
   %55 = icmp eq i32 %51, 0
-  br i1 %55, label %116, label %56
+  br i1 %55, label %121, label %56
 
 56:                                               ; preds = %53
   %57 = getelementptr inbounds i8, ptr %1, i64 4
@@ -388,7 +388,7 @@ define noalias noundef ptr @legacy_params(ptr nocapture noundef readnone %0, ptr
 .loopexit:                                        ; preds = %21, %13
   %93 = phi i64 [ 0, %13 ], [ %20, %21 ]
   %94 = icmp eq i64 %17, 0
-  br i1 %94, label %116, label %95
+  br i1 %94, label %121, label %95
 
 95:                                               ; preds = %.loopexit
   %96 = getelementptr inbounds [10 x %struct.dt_lib_collect_params_rule_t], ptr %14, i64 0, i64 %93
@@ -396,50 +396,53 @@ define noalias noundef ptr @legacy_params(ptr nocapture noundef readnone %0, ptr
   %98 = and i32 %97, 65535
   %99 = zext nneg i32 %98 to i64
   %100 = getelementptr inbounds [35 x i32], ptr @__const.legacy_params.table, i64 0, i64 %99
-  %101 = getelementptr inbounds [10 x %struct.dt_lib_collect_params_rule_t], ptr %15, i64 0, i64 %93
+  %101 = load i32, ptr %100, align 4, !tbaa !11
+  %102 = getelementptr inbounds [10 x %struct.dt_lib_collect_params_rule_t], ptr %15, i64 0, i64 %93
+  %103 = and i32 %101, 65535
+  %104 = and i32 %97, -65536
+  %105 = or disjoint i32 %103, %104
+  store i32 %105, ptr %102, align 4
   br label %.sink.split
 
 .loopexit2:                                       ; preds = %64, %56
-  %102 = phi i64 [ 0, %56 ], [ %63, %64 ]
-  %103 = icmp eq i64 %60, 0
-  br i1 %103, label %116, label %104
+  %106 = phi i64 [ 0, %56 ], [ %63, %64 ]
+  %107 = icmp eq i64 %60, 0
+  br i1 %107, label %121, label %108
 
-104:                                              ; preds = %.loopexit2
-  %105 = getelementptr inbounds [10 x %struct.dt_lib_collect_params_rule_t], ptr %57, i64 0, i64 %102
-  %106 = load i32, ptr %105, align 4
-  %107 = and i32 %106, 65535
-  %108 = zext nneg i32 %107 to i64
-  %109 = getelementptr inbounds [35 x i32], ptr @__const.legacy_params.table.1, i64 0, i64 %108
-  %110 = getelementptr inbounds [10 x %struct.dt_lib_collect_params_rule_t], ptr %58, i64 0, i64 %102
+108:                                              ; preds = %.loopexit2
+  %109 = getelementptr inbounds [10 x %struct.dt_lib_collect_params_rule_t], ptr %57, i64 0, i64 %106
+  %110 = load i32, ptr %109, align 4
+  %111 = and i32 %110, 65535
+  %112 = zext nneg i32 %111 to i64
+  %113 = getelementptr inbounds [35 x i32], ptr @__const.legacy_params.table.1, i64 0, i64 %112
+  %114 = load i32, ptr %113, align 4, !tbaa !11
+  %115 = getelementptr inbounds [10 x %struct.dt_lib_collect_params_rule_t], ptr %58, i64 0, i64 %106
+  %116 = and i32 %114, 65535
+  %117 = and i32 %110, -65536
+  %118 = or disjoint i32 %116, %117
+  store i32 %118, ptr %115, align 4
   br label %.sink.split
 
-.sink.split:                                      ; preds = %95, %104
-  %.sink12.in = phi ptr [ %109, %104 ], [ %100, %95 ]
-  %.sink = phi i32 [ %106, %104 ], [ %97, %95 ]
-  %.sink9 = phi ptr [ %110, %104 ], [ %101, %95 ]
-  %.sink7 = phi ptr [ %105, %104 ], [ %96, %95 ]
-  %.ph = phi i32 [ 3, %104 ], [ 2, %95 ]
-  %.ph5 = phi ptr [ %54, %104 ], [ %11, %95 ]
-  %.sink12 = load i32, ptr %.sink12.in, align 4, !tbaa !11
-  %111 = and i32 %.sink12, 65535
-  %112 = and i32 %.sink, -65536
-  %113 = or disjoint i32 %111, %112
-  store i32 %113, ptr %.sink9, align 4
-  %114 = getelementptr inbounds i8, ptr %.sink9, i64 4
-  %115 = getelementptr inbounds i8, ptr %.sink7, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(256) %114, ptr noundef nonnull align 4 dereferenceable(256) %115, i64 256, i1 false)
-  br label %116
+.sink.split:                                      ; preds = %95, %108
+  %.sink8 = phi ptr [ %115, %108 ], [ %102, %95 ]
+  %.sink7 = phi ptr [ %109, %108 ], [ %96, %95 ]
+  %.ph = phi i32 [ 3, %108 ], [ 2, %95 ]
+  %.ph5 = phi ptr [ %54, %108 ], [ %11, %95 ]
+  %119 = getelementptr inbounds i8, ptr %.sink8, i64 4
+  %120 = getelementptr inbounds i8, ptr %.sink7, i64 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(256) %119, ptr noundef nonnull align 4 dereferenceable(256) %120, i64 256, i1 false)
+  br label %121
 
-116:                                              ; preds = %.sink.split, %.loopexit2, %.loopexit, %53, %10
-  %117 = phi i32 [ 2, %10 ], [ 3, %53 ], [ 2, %.loopexit ], [ 3, %.loopexit2 ], [ %.ph, %.sink.split ]
-  %118 = phi ptr [ %11, %10 ], [ %54, %53 ], [ %11, %.loopexit ], [ %54, %.loopexit2 ], [ %.ph5, %.sink.split ]
+121:                                              ; preds = %.sink.split, %.loopexit2, %.loopexit, %53, %10
+  %122 = phi i32 [ 2, %10 ], [ 3, %53 ], [ 2, %.loopexit ], [ 3, %.loopexit2 ], [ %.ph, %.sink.split ]
+  %123 = phi ptr [ %11, %10 ], [ %54, %53 ], [ %11, %.loopexit ], [ %54, %.loopexit2 ], [ %.ph5, %.sink.split ]
   store i64 %2, ptr %5, align 8, !tbaa !12
-  store i32 %117, ptr %4, align 4, !tbaa !11
-  br label %119
+  store i32 %122, ptr %4, align 4, !tbaa !11
+  br label %124
 
-119:                                              ; preds = %116, %50, %7, %6
-  %120 = phi ptr [ null, %7 ], [ null, %50 ], [ null, %6 ], [ %118, %116 ]
-  ret ptr %120
+124:                                              ; preds = %121, %50, %7, %6
+  %125 = phi ptr [ null, %7 ], [ null, %50 ], [ null, %6 ], [ %123, %121 ]
+  ret ptr %125
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

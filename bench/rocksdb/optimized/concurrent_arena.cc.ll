@@ -397,6 +397,7 @@ cleanup74.thread:                                 ; preds = %if.end.i.i45, %if.t
   %18 = load i64, ptr %irregular_block_num.i.i, align 8
   %irregular_block_num_.i = getelementptr inbounds i8, ptr %this, i64 2408
   store atomic i64 %18, ptr %irregular_block_num_.i monotonic, align 8
+  store atomic i8 0, ptr %arena_mutex_ release, align 16
   br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit110
 
 invoke.cont19:                                    ; preds = %if.else4.i, %lor.lhs.false2, %invoke.cont, %invoke.cont7
@@ -570,6 +571,7 @@ ehcleanup75.thread:                               ; preds = %if.end49, %if.end.i
   %49 = landingpad { ptr, i32 }
           cleanup
   store atomic i8 0, ptr %arena_mutex_ release, align 16
+  store atomic i8 0, ptr %mutex29 release, align 1
   br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit117
 
 if.end49:                                         ; preds = %land.lhs.true40, %invoke.cont37
@@ -615,7 +617,7 @@ cleanup:                                          ; preds = %if.end.i.i76, %if.t
   %irregular_block_num_.i86 = getelementptr inbounds i8, ptr %this, i64 2408
   store atomic i64 %56, ptr %irregular_block_num_.i86 monotonic, align 8
   store atomic i8 0, ptr %arena_mutex_ release, align 16
-  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit110
+  br label %cleanup74
 
 if.end61:                                         ; preds = %cleanup.thread, %if.end28
   %avail.0 = phi i64 [ %34, %if.end28 ], [ %cond, %cleanup.thread ]
@@ -630,29 +632,31 @@ if.end61:                                         ; preds = %cleanup.thread, %if
 if.then66:                                        ; preds = %if.end61
   %add.ptr = getelementptr inbounds i8, ptr %57, i64 %bytes
   store ptr %add.ptr, ptr %free_begin_67, align 8
-  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit110
+  br label %cleanup74
 
 if.else:                                          ; preds = %if.end61
   %add.ptr70 = getelementptr inbounds i8, ptr %57, i64 %avail.0
   %idx.neg = sub nsw i64 0, %bytes
   %add.ptr71 = getelementptr inbounds i8, ptr %add.ptr70, i64 %idx.neg
+  br label %cleanup74
+
+cleanup74:                                        ; preds = %cleanup, %if.then66, %if.else
+  %retval.2 = phi ptr [ %retval.0.i.i75, %cleanup ], [ %57, %if.then66 ], [ %add.ptr71, %if.else ]
+  store atomic i8 0, ptr %mutex29 release, align 1
   br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit110
 
-_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit110: ; preds = %if.else, %if.then66, %cleanup, %cleanup74.thread
-  %mutex29.sink = phi ptr [ %arena_mutex_, %cleanup74.thread ], [ %mutex29, %cleanup ], [ %mutex29, %if.then66 ], [ %mutex29, %if.else ]
-  %retval.0137 = phi ptr [ %retval.0.i.i, %cleanup74.thread ], [ %retval.0.i.i75, %cleanup ], [ %57, %if.then66 ], [ %add.ptr71, %if.else ]
-  store atomic i8 0, ptr %mutex29.sink release, align 1
+_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit110: ; preds = %cleanup74, %cleanup74.thread
+  %retval.0137 = phi ptr [ %retval.2, %cleanup74 ], [ %retval.0.i.i, %cleanup74.thread ]
   ret ptr %retval.0137
 
 if.then3.i.i116:                                  ; preds = %if.end.i.i45
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
+  store atomic i8 0, ptr %arena_mutex_ release, align 16
   br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit117
 
 _ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit117: ; preds = %ehcleanup75.thread, %if.then3.i.i116
-  %mutex29.sink145 = phi ptr [ %mutex29, %ehcleanup75.thread ], [ %arena_mutex_, %if.then3.i.i116 ]
   %.pn32141 = phi { ptr, i32 } [ %49, %ehcleanup75.thread ], [ %lpad.thr_comm.split-lp, %if.then3.i.i116 ]
-  store atomic i8 0, ptr %mutex29.sink145 release, align 1
   resume { ptr, i32 } %.pn32141
 }
 
@@ -749,6 +753,7 @@ cleanup72.thread:                                 ; preds = %if.end
   %20 = load i64, ptr %irregular_block_num.i.i, align 8
   %irregular_block_num_.i = getelementptr inbounds i8, ptr %this, i64 2408
   store atomic i64 %20, ptr %irregular_block_num_.i monotonic, align 8
+  store atomic i8 0, ptr %arena_mutex_ release, align 16
   br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit98
 
 invoke.cont19:                                    ; preds = %if.else4.i, %lor.lhs.false2, %invoke.cont, %invoke.cont7
@@ -910,6 +915,7 @@ ehcleanup73.thread:                               ; preds = %if.end47, %if.then4
   %53 = landingpad { ptr, i32 }
           cleanup
   store atomic i8 0, ptr %arena_mutex_ release, align 16
+  store atomic i8 0, ptr %mutex28 release, align 1
   br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit105
 
 if.end47:                                         ; preds = %land.lhs.true39, %invoke.cont36
@@ -954,7 +960,7 @@ cleanup:                                          ; preds = %if.then41
   %irregular_block_num_.i74 = getelementptr inbounds i8, ptr %this, i64 2408
   store atomic i64 %60, ptr %irregular_block_num_.i74 monotonic, align 8
   store atomic i8 0, ptr %arena_mutex_ release, align 16
-  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit98
+  br label %cleanup72
 
 if.end59:                                         ; preds = %cleanup.thread, %if.end27
   %avail.0 = phi i64 [ %36, %if.end27 ], [ %cond, %cleanup.thread ]
@@ -969,29 +975,31 @@ if.end59:                                         ; preds = %cleanup.thread, %if
 if.then64:                                        ; preds = %if.end59
   %add.ptr = getelementptr inbounds i8, ptr %61, i64 %bytes
   store ptr %add.ptr, ptr %free_begin_65, align 8
-  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit98
+  br label %cleanup72
 
 if.else:                                          ; preds = %if.end59
   %add.ptr68 = getelementptr inbounds i8, ptr %61, i64 %avail.0
   %idx.neg = sub nsw i64 0, %bytes
   %add.ptr69 = getelementptr inbounds i8, ptr %add.ptr68, i64 %idx.neg
+  br label %cleanup72
+
+cleanup72:                                        ; preds = %cleanup, %if.then64, %if.else
+  %retval.2 = phi ptr [ %call.i6667, %cleanup ], [ %61, %if.then64 ], [ %add.ptr69, %if.else ]
+  store atomic i8 0, ptr %mutex28 release, align 1
   br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit98
 
-_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit98: ; preds = %if.else, %if.then64, %cleanup, %cleanup72.thread
-  %mutex28.sink = phi ptr [ %arena_mutex_, %cleanup72.thread ], [ %mutex28, %cleanup ], [ %mutex28, %if.then64 ], [ %mutex28, %if.else ]
-  %retval.0125 = phi ptr [ %call.i4546, %cleanup72.thread ], [ %call.i6667, %cleanup ], [ %61, %if.then64 ], [ %add.ptr69, %if.else ]
-  store atomic i8 0, ptr %mutex28.sink release, align 1
+_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit98: ; preds = %cleanup72, %cleanup72.thread
+  %retval.0125 = phi ptr [ %retval.2, %cleanup72 ], [ %call.i4546, %cleanup72.thread ]
   ret ptr %retval.0125
 
 if.then3.i.i104:                                  ; preds = %if.end
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
+  store atomic i8 0, ptr %arena_mutex_ release, align 16
   br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit105
 
 _ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit105: ; preds = %ehcleanup73.thread, %if.then3.i.i104
-  %mutex28.sink133 = phi ptr [ %mutex28, %ehcleanup73.thread ], [ %arena_mutex_, %if.then3.i.i104 ]
   %.pn32129 = phi { ptr, i32 } [ %53, %ehcleanup73.thread ], [ %lpad.thr_comm.split-lp, %if.then3.i.i104 ]
-  store atomic i8 0, ptr %mutex28.sink133 release, align 1
   resume { ptr, i32 } %.pn32129
 }
 

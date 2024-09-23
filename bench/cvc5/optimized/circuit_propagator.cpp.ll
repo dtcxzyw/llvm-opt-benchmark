@@ -4949,6 +4949,7 @@ if.then.i:                                        ; preds = %invoke.cont3.i
   store ptr %call.i, ptr %d_prev.i, align 8
   %d_next.i = getelementptr inbounds i8, ptr %call.i, i64 72
   store ptr %call.i, ptr %d_next.i, align 8
+  store ptr %call.i, ptr %d_first.i, align 8
   br label %invoke.cont6
 
 if.else.i:                                        ; preds = %invoke.cont3.i
@@ -4962,11 +4963,10 @@ if.else.i:                                        ; preds = %invoke.cont3.i
   store ptr %call.i, ptr %d_next10.i, align 8
   %11 = load ptr, ptr %d_first.i, align 8
   %d_prev11.i = getelementptr inbounds i8, ptr %11, i64 64
+  store ptr %call.i, ptr %d_prev11.i, align 8
   br label %invoke.cont6
 
 invoke.cont6:                                     ; preds = %if.else.i, %if.then.i
-  %d_prev11.sink.i = phi ptr [ %d_prev11.i, %if.else.i ], [ %d_first.i, %if.then.i ]
-  store ptr %call.i, ptr %d_prev11.sink.i, align 8
   %second8 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %call.i, ptr %second8, align 8
   br label %if.end
@@ -10826,7 +10826,11 @@ if.then.i.i.i:                                    ; preds = %invoke.cont82
   %157 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %157, 4294967297
   %158 = trunc i64 %157 to i32
-  br i1 %cmp.i.i.i.i, label %sw.epilog.sink.split.sink.split, label %if.end.i.i.i.i371
+  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i371
+
+if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
+  store i32 0, ptr %_M_use_count.i.i.i.i, align 8
+  br label %sw.epilog.sink.split.sink.split
 
 if.end.i.i.i.i371:                                ; preds = %if.then.i.i.i
   %159 = load i8, ptr @__libc_single_threaded, align 1
@@ -11805,7 +11809,11 @@ if.then.i.i.i778:                                 ; preds = %invoke.cont138
   %324 = load atomic i64, ptr %_M_use_count.i.i.i.i779 acquire, align 8
   %cmp.i.i.i.i780 = icmp eq i64 %324, 4294967297
   %325 = trunc i64 %324 to i32
-  br i1 %cmp.i.i.i.i780, label %sw.epilog.sink.split.sink.split, label %if.end.i.i.i.i781
+  br i1 %cmp.i.i.i.i780, label %if.then.i.i.i.i803, label %if.end.i.i.i.i781
+
+if.then.i.i.i.i803:                               ; preds = %if.then.i.i.i778
+  store i32 0, ptr %_M_use_count.i.i.i.i779, align 8
+  br label %sw.epilog.sink.split.sink.split
 
 if.end.i.i.i.i781:                                ; preds = %if.then.i.i.i778
   %326 = load i8, ptr @__libc_single_threaded, align 1
@@ -11884,7 +11892,11 @@ if.then.i.i.i810:                                 ; preds = %invoke.cont151
   %335 = load atomic i64, ptr %_M_use_count.i.i.i.i811 acquire, align 8
   %cmp.i.i.i.i812 = icmp eq i64 %335, 4294967297
   %336 = trunc i64 %335 to i32
-  br i1 %cmp.i.i.i.i812, label %sw.epilog.sink.split.sink.split, label %if.end.i.i.i.i813
+  br i1 %cmp.i.i.i.i812, label %if.then.i.i.i.i835, label %if.end.i.i.i.i813
+
+if.then.i.i.i.i835:                               ; preds = %if.then.i.i.i810
+  store i32 0, ptr %_M_use_count.i.i.i.i811, align 8
+  br label %sw.epilog.sink.split.sink.split
 
 if.end.i.i.i.i813:                                ; preds = %if.then.i.i.i810
   %337 = load i8, ptr @__libc_single_threaded, align 1
@@ -12630,7 +12642,11 @@ if.then.i.i.i1181:                                ; preds = %invoke.cont186
   %465 = load atomic i64, ptr %_M_use_count.i.i.i.i1182 acquire, align 8
   %cmp.i.i.i.i1183 = icmp eq i64 %465, 4294967297
   %466 = trunc i64 %465 to i32
-  br i1 %cmp.i.i.i.i1183, label %sw.epilog.sink.split.sink.split, label %if.end.i.i.i.i1184
+  br i1 %cmp.i.i.i.i1183, label %if.then.i.i.i.i1206, label %if.end.i.i.i.i1184
+
+if.then.i.i.i.i1206:                              ; preds = %if.then.i.i.i1181
+  store i32 0, ptr %_M_use_count.i.i.i.i1182, align 8
+  br label %sw.epilog.sink.split.sink.split
 
 if.end.i.i.i.i1184:                               ; preds = %if.then.i.i.i1181
   %467 = load i8, ptr @__libc_single_threaded, align 1
@@ -14014,7 +14030,11 @@ if.then.i.i.i1875:                                ; preds = %invoke.cont288
   %704 = load atomic i64, ptr %_M_use_count.i.i.i.i1876 acquire, align 8
   %cmp.i.i.i.i1877 = icmp eq i64 %704, 4294967297
   %705 = trunc i64 %704 to i32
-  br i1 %cmp.i.i.i.i1877, label %if.end325.sink.split.sink.split, label %if.end.i.i.i.i1878
+  br i1 %cmp.i.i.i.i1877, label %if.then.i.i.i.i1900, label %if.end.i.i.i.i1878
+
+if.then.i.i.i.i1900:                              ; preds = %if.then.i.i.i1875
+  store i32 0, ptr %_M_use_count.i.i.i.i1876, align 8
+  br label %if.end325.sink.split.sink.split
 
 if.end.i.i.i.i1878:                               ; preds = %if.then.i.i.i1875
   %706 = load i8, ptr @__libc_single_threaded, align 1
@@ -14336,7 +14356,11 @@ if.then.i.i.i2063:                                ; preds = %invoke.cont318
   %769 = load atomic i64, ptr %_M_use_count.i.i.i.i2064 acquire, align 8
   %cmp.i.i.i.i2065 = icmp eq i64 %769, 4294967297
   %770 = trunc i64 %769 to i32
-  br i1 %cmp.i.i.i.i2065, label %if.end325.sink.split.sink.split, label %if.end.i.i.i.i2066
+  br i1 %cmp.i.i.i.i2065, label %if.then.i.i.i.i2088, label %if.end.i.i.i.i2066
+
+if.then.i.i.i.i2088:                              ; preds = %if.then.i.i.i2063
+  store i32 0, ptr %_M_use_count.i.i.i.i2064, align 8
+  br label %if.end325.sink.split.sink.split
 
 if.end.i.i.i.i2066:                               ; preds = %if.then.i.i.i2063
   %771 = load i8, ptr @__libc_single_threaded, align 1
@@ -14408,10 +14432,8 @@ lpad317:                                          ; preds = %invoke.cont316
   call void @_ZNSt10shared_ptrIN4cvc58internal9ProofNodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp310) #20
   br label %ehcleanup819
 
-if.end325.sink.split.sink.split:                  ; preds = %if.then.i.i.i2063, %if.then.i.i.i1875
-  %_M_use_count.i.i.i.i2064.sink = phi ptr [ %_M_use_count.i.i.i.i1876, %if.then.i.i.i1875 ], [ %_M_use_count.i.i.i.i2064, %if.then.i.i.i2063 ]
-  %.sink5966 = phi ptr [ %703, %if.then.i.i.i1875 ], [ %768, %if.then.i.i.i2063 ]
-  store i32 0, ptr %_M_use_count.i.i.i.i2064.sink, align 8
+if.end325.sink.split.sink.split:                  ; preds = %if.then.i.i.i.i1900, %if.then.i.i.i.i2088
+  %.sink5966 = phi ptr [ %768, %if.then.i.i.i.i2088 ], [ %703, %if.then.i.i.i.i1900 ]
   %_M_weak_count.i.i.i.i2089 = getelementptr inbounds i8, ptr %.sink5966, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i2089, align 4
   %vtable.i.i.i.i2090 = load ptr, ptr %.sink5966, align 8
@@ -14763,7 +14785,11 @@ if.then.i.i.i2279:                                ; preds = %invoke.cont375
   %837 = load atomic i64, ptr %_M_use_count.i.i.i.i2280 acquire, align 8
   %cmp.i.i.i.i2281 = icmp eq i64 %837, 4294967297
   %838 = trunc i64 %837 to i32
-  br i1 %cmp.i.i.i.i2281, label %sw.epilog.sink.split.sink.split, label %if.end.i.i.i.i2282
+  br i1 %cmp.i.i.i.i2281, label %if.then.i.i.i.i2304, label %if.end.i.i.i.i2282
+
+if.then.i.i.i.i2304:                              ; preds = %if.then.i.i.i2279
+  store i32 0, ptr %_M_use_count.i.i.i.i2280, align 8
+  br label %sw.epilog.sink.split.sink.split
 
 if.end.i.i.i.i2282:                               ; preds = %if.then.i.i.i2279
   %839 = load i8, ptr @__libc_single_threaded, align 1
@@ -15315,7 +15341,11 @@ if.then.i.i.i2623:                                ; preds = %invoke.cont426
   %954 = load atomic i64, ptr %_M_use_count.i.i.i.i2624 acquire, align 8
   %cmp.i.i.i.i2625 = icmp eq i64 %954, 4294967297
   %955 = trunc i64 %954 to i32
-  br i1 %cmp.i.i.i.i2625, label %sw.epilog.sink.split.sink.split, label %if.end.i.i.i.i2626
+  br i1 %cmp.i.i.i.i2625, label %if.then.i.i.i.i2648, label %if.end.i.i.i.i2626
+
+if.then.i.i.i.i2648:                              ; preds = %if.then.i.i.i2623
+  store i32 0, ptr %_M_use_count.i.i.i.i2624, align 8
+  br label %sw.epilog.sink.split.sink.split
 
 if.end.i.i.i.i2626:                               ; preds = %if.then.i.i.i2623
   %956 = load i8, ptr @__libc_single_threaded, align 1
@@ -16815,7 +16845,11 @@ if.then.i.i.i3386:                                ; preds = %invoke.cont582
   %1210 = load atomic i64, ptr %_M_use_count.i.i.i.i3387 acquire, align 8
   %cmp.i.i.i.i3388 = icmp eq i64 %1210, 4294967297
   %1211 = trunc i64 %1210 to i32
-  br i1 %cmp.i.i.i.i3388, label %sw.epilog.sink.split.sink.split, label %if.end.i.i.i.i3389
+  br i1 %cmp.i.i.i.i3388, label %if.then.i.i.i.i3411, label %if.end.i.i.i.i3389
+
+if.then.i.i.i.i3411:                              ; preds = %if.then.i.i.i3386
+  store i32 0, ptr %_M_use_count.i.i.i.i3387, align 8
+  br label %sw.epilog.sink.split.sink.split
 
 if.end.i.i.i.i3389:                               ; preds = %if.then.i.i.i3386
   %1212 = load i8, ptr @__libc_single_threaded, align 1
@@ -18620,7 +18654,11 @@ if.then.i.i.i4339:                                ; preds = %invoke.cont803
   %1534 = load atomic i64, ptr %_M_use_count.i.i.i.i4340 acquire, align 8
   %cmp.i.i.i.i4341 = icmp eq i64 %1534, 4294967297
   %1535 = trunc i64 %1534 to i32
-  br i1 %cmp.i.i.i.i4341, label %sw.epilog.sink.split.sink.split, label %if.end.i.i.i.i4342
+  br i1 %cmp.i.i.i.i4341, label %if.then.i.i.i.i4364, label %if.end.i.i.i.i4342
+
+if.then.i.i.i.i4364:                              ; preds = %if.then.i.i.i4339
+  store i32 0, ptr %_M_use_count.i.i.i.i4340, align 8
+  br label %sw.epilog.sink.split.sink.split
 
 if.end.i.i.i.i4342:                               ; preds = %if.then.i.i.i4339
   %1536 = load i8, ptr @__libc_single_threaded, align 1
@@ -18729,10 +18767,8 @@ lpad813:                                          ; preds = %invoke.cont814, %in
   call void @_ZN4cvc58internal11FatalStreamD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp811) #22
   unreachable
 
-sw.epilog.sink.split.sink.split:                  ; preds = %if.then.i.i.i4339, %if.then.i.i.i3386, %if.then.i.i.i2623, %if.then.i.i.i2279, %if.then.i.i.i1181, %if.then.i.i.i810, %if.then.i.i.i778, %if.then.i.i.i
-  %_M_use_count.i.i.i.i4340.sink = phi ptr [ %_M_use_count.i.i.i.i, %if.then.i.i.i ], [ %_M_use_count.i.i.i.i779, %if.then.i.i.i778 ], [ %_M_use_count.i.i.i.i811, %if.then.i.i.i810 ], [ %_M_use_count.i.i.i.i1182, %if.then.i.i.i1181 ], [ %_M_use_count.i.i.i.i2280, %if.then.i.i.i2279 ], [ %_M_use_count.i.i.i.i2624, %if.then.i.i.i2623 ], [ %_M_use_count.i.i.i.i3387, %if.then.i.i.i3386 ], [ %_M_use_count.i.i.i.i4340, %if.then.i.i.i4339 ]
-  %.sink5970 = phi ptr [ %156, %if.then.i.i.i ], [ %323, %if.then.i.i.i778 ], [ %334, %if.then.i.i.i810 ], [ %464, %if.then.i.i.i1181 ], [ %836, %if.then.i.i.i2279 ], [ %953, %if.then.i.i.i2623 ], [ %1209, %if.then.i.i.i3386 ], [ %1533, %if.then.i.i.i4339 ]
-  store i32 0, ptr %_M_use_count.i.i.i.i4340.sink, align 8
+sw.epilog.sink.split.sink.split:                  ; preds = %if.then.i.i.i.i, %if.then.i.i.i.i803, %if.then.i.i.i.i835, %if.then.i.i.i.i1206, %if.then.i.i.i.i2304, %if.then.i.i.i.i2648, %if.then.i.i.i.i3411, %if.then.i.i.i.i4364
+  %.sink5970 = phi ptr [ %1533, %if.then.i.i.i.i4364 ], [ %1209, %if.then.i.i.i.i3411 ], [ %953, %if.then.i.i.i.i2648 ], [ %836, %if.then.i.i.i.i2304 ], [ %464, %if.then.i.i.i.i1206 ], [ %334, %if.then.i.i.i.i835 ], [ %323, %if.then.i.i.i.i803 ], [ %156, %if.then.i.i.i.i ]
   %_M_weak_count.i.i.i.i4365 = getelementptr inbounds i8, ptr %.sink5970, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i4365, align 4
   %vtable.i.i.i.i4366 = load ptr, ptr %.sink5970, align 8
@@ -22647,22 +22683,18 @@ if.then:                                          ; preds = %while.body
 
 if.then15:                                        ; preds = %if.then
   %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
-  br label %if.end22.sink.split
+  store ptr %__p.022, ptr %arrayidx16, align 8
+  br label %if.end22
 
 if.else:                                          ; preds = %while.body
   %6 = load ptr, ptr %3, align 8
   store ptr %6, ptr %__p.022, align 8
   %7 = load ptr, ptr %arrayidx, align 8
-  br label %if.end22.sink.split
-
-if.end22.sink.split:                              ; preds = %if.else, %if.then15
-  %arrayidx16.sink = phi ptr [ %arrayidx16, %if.then15 ], [ %7, %if.else ]
-  %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then15 ], [ %__bbegin_bkt.021, %if.else ]
-  store ptr %__p.022, ptr %arrayidx16.sink, align 8
+  store ptr %__p.022, ptr %7, align 8
   br label %if.end22
 
-if.end22:                                         ; preds = %if.end22.sink.split, %if.then
-  %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then ], [ %__bbegin_bkt.1.ph, %if.end22.sink.split ]
+if.end22:                                         ; preds = %if.then, %if.then15, %if.else
+  %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.021, %if.else ], [ %rem.i.i, %if.then15 ], [ %rem.i.i, %if.then ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !696
 
@@ -23780,22 +23812,18 @@ if.then:                                          ; preds = %while.body
 
 if.then15:                                        ; preds = %if.then
   %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
-  br label %if.end22.sink.split
+  store ptr %__p.022, ptr %arrayidx16, align 8
+  br label %if.end22
 
 if.else:                                          ; preds = %while.body
   %6 = load ptr, ptr %3, align 8
   store ptr %6, ptr %__p.022, align 8
   %7 = load ptr, ptr %arrayidx, align 8
-  br label %if.end22.sink.split
-
-if.end22.sink.split:                              ; preds = %if.else, %if.then15
-  %arrayidx16.sink = phi ptr [ %arrayidx16, %if.then15 ], [ %7, %if.else ]
-  %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then15 ], [ %__bbegin_bkt.021, %if.else ]
-  store ptr %__p.022, ptr %arrayidx16.sink, align 8
+  store ptr %__p.022, ptr %7, align 8
   br label %if.end22
 
-if.end22:                                         ; preds = %if.end22.sink.split, %if.then
-  %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then ], [ %__bbegin_bkt.1.ph, %if.end22.sink.split ]
+if.end22:                                         ; preds = %if.then, %if.then15, %if.else
+  %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.021, %if.else ], [ %rem.i.i, %if.then15 ], [ %rem.i.i, %if.then ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !702
 
@@ -24395,22 +24423,18 @@ if.then:                                          ; preds = %while.body
 
 if.then15:                                        ; preds = %if.then
   %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
-  br label %if.end22.sink.split
+  store ptr %__p.022, ptr %arrayidx16, align 8
+  br label %if.end22
 
 if.else:                                          ; preds = %while.body
   %6 = load ptr, ptr %3, align 8
   store ptr %6, ptr %__p.022, align 8
   %7 = load ptr, ptr %arrayidx, align 8
-  br label %if.end22.sink.split
-
-if.end22.sink.split:                              ; preds = %if.else, %if.then15
-  %arrayidx16.sink = phi ptr [ %arrayidx16, %if.then15 ], [ %7, %if.else ]
-  %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then15 ], [ %__bbegin_bkt.021, %if.else ]
-  store ptr %__p.022, ptr %arrayidx16.sink, align 8
+  store ptr %__p.022, ptr %7, align 8
   br label %if.end22
 
-if.end22:                                         ; preds = %if.end22.sink.split, %if.then
-  %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then ], [ %__bbegin_bkt.1.ph, %if.end22.sink.split ]
+if.end22:                                         ; preds = %if.then, %if.then15, %if.else
+  %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.021, %if.else ], [ %rem.i.i, %if.then15 ], [ %rem.i.i, %if.then ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !706
 

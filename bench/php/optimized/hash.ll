@@ -482,50 +482,50 @@ define hidden ptr @lexbor_hash_insert_by_entry(ptr nocapture noundef readonly %0
   %14 = getelementptr inbounds ptr, ptr %13, i64 %11
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %.loopexit.sink.split, label %.preheader
+  br i1 %16, label %18, label %.preheader
 
 .preheader:                                       ; preds = %5
   %17 = getelementptr inbounds i8, ptr %2, i64 8
-  br label %18
+  br label %19
 
-18:                                               ; preds = %.preheader, %28
-  %.0 = phi ptr [ %30, %28 ], [ %15, %.preheader ]
-  %19 = getelementptr inbounds i8, ptr %.0, i64 24
-  %20 = load i64, ptr %19, align 8
-  %21 = icmp ult i64 %20, 17
-  br i1 %21, label %lexbor_hash_entry_str.exit, label %22
-
-22:                                               ; preds = %18
-  %23 = load ptr, ptr %.0, align 8
-  br label %lexbor_hash_entry_str.exit
-
-lexbor_hash_entry_str.exit:                       ; preds = %18, %22
-  %.0.i = phi ptr [ %23, %22 ], [ %.0, %18 ]
-  %24 = icmp eq i64 %20, %4
-  br i1 %24, label %25, label %28
-
-25:                                               ; preds = %lexbor_hash_entry_str.exit
-  %26 = load ptr, ptr %17, align 8
-  %27 = tail call zeroext i1 %26(ptr noundef %.0.i, ptr noundef %3, i64 noundef %4) #6
-  br i1 %27, label %.loopexit, label %28
-
-28:                                               ; preds = %25, %lexbor_hash_entry_str.exit
-  %29 = getelementptr inbounds i8, ptr %.0, i64 32
-  %30 = load ptr, ptr %29, align 8
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %32, label %18
-
-32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %.0, i64 32
-  br label %.loopexit.sink.split
-
-.loopexit.sink.split:                             ; preds = %5, %32
-  %.sink = phi ptr [ %33, %32 ], [ %14, %5 ]
-  store ptr %1, ptr %.sink, align 8
+18:                                               ; preds = %5
+  store ptr %1, ptr %14, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %25, %.loopexit.sink.split
-  %.025 = phi ptr [ %1, %.loopexit.sink.split ], [ %.0, %25 ]
+19:                                               ; preds = %.preheader, %29
+  %.0 = phi ptr [ %31, %29 ], [ %15, %.preheader ]
+  %20 = getelementptr inbounds i8, ptr %.0, i64 24
+  %21 = load i64, ptr %20, align 8
+  %22 = icmp ult i64 %21, 17
+  br i1 %22, label %lexbor_hash_entry_str.exit, label %23
+
+23:                                               ; preds = %19
+  %24 = load ptr, ptr %.0, align 8
+  br label %lexbor_hash_entry_str.exit
+
+lexbor_hash_entry_str.exit:                       ; preds = %19, %23
+  %.0.i = phi ptr [ %24, %23 ], [ %.0, %19 ]
+  %25 = icmp eq i64 %21, %4
+  br i1 %25, label %26, label %29
+
+26:                                               ; preds = %lexbor_hash_entry_str.exit
+  %27 = load ptr, ptr %17, align 8
+  %28 = tail call zeroext i1 %27(ptr noundef %.0.i, ptr noundef %3, i64 noundef %4) #6
+  br i1 %28, label %.loopexit, label %29
+
+29:                                               ; preds = %26, %lexbor_hash_entry_str.exit
+  %30 = getelementptr inbounds i8, ptr %.0, i64 32
+  %31 = load ptr, ptr %30, align 8
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %33, label %19
+
+33:                                               ; preds = %29
+  %34 = getelementptr inbounds i8, ptr %.0, i64 32
+  store ptr %1, ptr %34, align 8
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %26, %33, %18
+  %.025 = phi ptr [ %1, %18 ], [ %1, %33 ], [ %.0, %26 ]
   ret ptr %.025
 }
 
@@ -576,15 +576,15 @@ lexbor_hash_entry_str.exit.i:                     ; preds = %19, %.lr.ph.i
 28:                                               ; preds = %24
   %29 = load ptr, ptr %13, align 8
   %30 = getelementptr inbounds ptr, ptr %29, i64 %12
+  store ptr %27, ptr %30, align 8
   br label %33
 
 31:                                               ; preds = %24
   %32 = getelementptr inbounds i8, ptr %.030.i, i64 32
+  store ptr %27, ptr %32, align 8
   br label %33
 
 33:                                               ; preds = %31, %28
-  %.sink.i = phi ptr [ %32, %31 ], [ %30, %28 ]
-  store ptr %27, ptr %.sink.i, align 8
   %34 = icmp ugt i64 %3, 16
   br i1 %34, label %35, label %40
 
@@ -653,15 +653,15 @@ lexbor_hash_entry_str.exit:                       ; preds = %.lr.ph, %16
 25:                                               ; preds = %21
   %26 = load ptr, ptr %10, align 8
   %27 = getelementptr inbounds ptr, ptr %26, i64 %9
+  store ptr %24, ptr %27, align 8
   br label %30
 
 28:                                               ; preds = %21
   %29 = getelementptr inbounds i8, ptr %.030, i64 32
+  store ptr %24, ptr %29, align 8
   br label %30
 
 30:                                               ; preds = %28, %25
-  %.sink = phi ptr [ %29, %28 ], [ %27, %25 ]
-  store ptr %24, ptr %.sink, align 8
   %31 = icmp ugt i64 %3, 16
   br i1 %31, label %32, label %37
 

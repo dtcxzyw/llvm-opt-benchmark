@@ -382,63 +382,73 @@ define void @zend_llist_apply_with_del(ptr nocapture noundef %0, ptr nocapture n
   br i1 %.not31, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  br label %7
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  br label %8
 
-7:                                                ; preds = %.lr.ph, %25
-  %.032 = phi ptr [ %3, %.lr.ph ], [ %8, %25 ]
-  %8 = load ptr, ptr %.032, align 8
-  %9 = getelementptr inbounds i8, ptr %.032, i64 16
-  %10 = tail call i32 %1(ptr noundef nonnull %9) #13
-  %.not26 = icmp eq i32 %10, 0
-  br i1 %.not26, label %25, label %11
+8:                                                ; preds = %.lr.ph, %30
+  %.032 = phi ptr [ %3, %.lr.ph ], [ %9, %30 ]
+  %9 = load ptr, ptr %.032, align 8
+  %10 = getelementptr inbounds i8, ptr %.032, i64 16
+  %11 = tail call i32 %1(ptr noundef nonnull %10) #13
+  %.not26 = icmp eq i32 %11, 0
+  br i1 %.not26, label %30, label %12
 
-11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %.032, i64 8
-  %13 = load ptr, ptr %12, align 8
-  %.not27 = icmp eq ptr %13, null
-  %14 = load ptr, ptr %.032, align 8
-  %. = select i1 %.not27, ptr %0, ptr %13
-  store ptr %14, ptr %., align 8
-  %.not28 = icmp eq ptr %14, null
-  %15 = load ptr, ptr %12, align 8
-  %.sink.v = select i1 %.not28, ptr %0, ptr %14
-  %.sink = getelementptr inbounds i8, ptr %.sink.v, i64 8
-  store ptr %15, ptr %.sink, align 8
-  %16 = load ptr, ptr %4, align 8
-  %.not29 = icmp eq ptr %16, null
-  br i1 %.not29, label %18, label %17
+12:                                               ; preds = %8
+  %13 = getelementptr inbounds i8, ptr %.032, i64 8
+  %14 = load ptr, ptr %13, align 8
+  %.not27 = icmp eq ptr %14, null
+  %15 = load ptr, ptr %.032, align 8
+  %. = select i1 %.not27, ptr %0, ptr %14
+  store ptr %15, ptr %., align 8
+  %.not28 = icmp eq ptr %15, null
+  %16 = load ptr, ptr %13, align 8
+  br i1 %.not28, label %19, label %17
 
-17:                                               ; preds = %11
-  tail call void %16(ptr noundef nonnull %9) #13
-  br label %18
+17:                                               ; preds = %12
+  %18 = getelementptr inbounds i8, ptr %15, i64 8
+  store ptr %16, ptr %18, align 8
+  br label %20
 
-18:                                               ; preds = %17, %11
-  %19 = load i8, ptr %5, align 8
-  %.not30 = icmp eq i8 %19, 0
-  br i1 %.not30, label %21, label %20
+19:                                               ; preds = %12
+  store ptr %16, ptr %4, align 8
+  br label %20
 
-20:                                               ; preds = %18
+20:                                               ; preds = %19, %17
+  %21 = load ptr, ptr %5, align 8
+  %.not29 = icmp eq ptr %21, null
+  br i1 %.not29, label %23, label %22
+
+22:                                               ; preds = %20
+  tail call void %21(ptr noundef nonnull %10) #13
+  br label %23
+
+23:                                               ; preds = %22, %20
+  %24 = load i8, ptr %6, align 8
+  %.not30 = icmp eq i8 %24, 0
+  br i1 %.not30, label %26, label %25
+
+25:                                               ; preds = %23
   tail call void @free(ptr noundef nonnull %.032) #13
-  br label %22
+  br label %27
 
-21:                                               ; preds = %18
+26:                                               ; preds = %23
   tail call void @_efree(ptr noundef nonnull %.032) #13
-  br label %22
+  br label %27
 
-22:                                               ; preds = %21, %20
-  %23 = load i64, ptr %6, align 8
-  %24 = add i64 %23, -1
-  store i64 %24, ptr %6, align 8
-  br label %25
+27:                                               ; preds = %26, %25
+  %28 = load i64, ptr %7, align 8
+  %29 = add i64 %28, -1
+  store i64 %29, ptr %7, align 8
+  br label %30
 
-25:                                               ; preds = %22, %7
-  %.not = icmp eq ptr %8, null
-  br i1 %.not, label %._crit_edge, label %7
+30:                                               ; preds = %27, %8
+  %.not = icmp eq ptr %9, null
+  br i1 %.not, label %._crit_edge, label %8
 
-._crit_edge:                                      ; preds = %25, %2
+._crit_edge:                                      ; preds = %30, %2
   ret void
 }
 

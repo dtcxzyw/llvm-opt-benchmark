@@ -119,31 +119,34 @@ define i64 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1OpenSession(ptr noundef %
   %58 = call i32 %56(ptr noundef nonnull %0, ptr noundef %57) #4
   %59 = load ptr, ptr @notifyListHead, align 8
   %60 = icmp eq ptr %59, null
-  br i1 %60, label %.loopexit, label %.preheader.i
+  br i1 %60, label %61, label %.preheader.i
+
+61:                                               ; preds = %51
+  store ptr %48, ptr @notifyListHead, align 8
+  br label %66
 
 .preheader.i:                                     ; preds = %51, %.preheader.i
-  %.0.i = phi ptr [ %62, %.preheader.i ], [ %59, %51 ]
-  %61 = getelementptr inbounds i8, ptr %.0.i, i64 16
-  %62 = load ptr, ptr %61, align 8
-  %.not.i = icmp eq ptr %62, null
-  br i1 %.not.i, label %.loopexit.loopexit, label %.preheader.i, !llvm.loop !6
+  %.0.i = phi ptr [ %63, %.preheader.i ], [ %59, %51 ]
+  %62 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %63 = load ptr, ptr %62, align 8
+  %.not.i = icmp eq ptr %63, null
+  br i1 %.not.i, label %64, label %.preheader.i, !llvm.loop !6
 
-.loopexit.loopexit:                               ; preds = %.preheader.i
-  %63 = getelementptr inbounds i8, ptr %.0.i, i64 16
-  br label %.loopexit
+64:                                               ; preds = %.preheader.i
+  %65 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  store ptr %48, ptr %65, align 8
+  br label %66
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %51
-  %.sink.i = phi ptr [ @notifyListHead, %51 ], [ %63, %.loopexit.loopexit ]
-  store ptr %48, ptr %.sink.i, align 8
-  %64 = load ptr, ptr %0, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 1744
-  %66 = load ptr, ptr %65, align 8
-  %67 = load ptr, ptr @notifyListLock, align 8
-  %68 = call i32 %66(ptr noundef nonnull %0, ptr noundef %67) #4
+66:                                               ; preds = %64, %61
+  %67 = load ptr, ptr %0, align 8
+  %68 = getelementptr inbounds i8, ptr %67, i64 1744
+  %69 = load ptr, ptr %68, align 8
+  %70 = load ptr, ptr @notifyListLock, align 8
+  %71 = call i32 %69(ptr noundef nonnull %0, ptr noundef %70) #4
   br label %putNotifyEntry.exit
 
-putNotifyEntry.exit:                              ; preds = %.loopexit, %50, %45, %33, %41, %6, %14
-  %.0 = phi i64 [ 0, %14 ], [ 0, %6 ], [ 0, %41 ], [ 0, %33 ], [ %46, %45 ], [ %46, %50 ], [ %46, %.loopexit ]
+putNotifyEntry.exit:                              ; preds = %66, %50, %45, %33, %41, %6, %14
+  %.0 = phi i64 [ 0, %14 ], [ 0, %6 ], [ 0, %41 ], [ 0, %33 ], [ %46, %45 ], [ %46, %50 ], [ %46, %66 ]
   ret i64 %.0
 }
 
@@ -269,7 +272,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define hidden void @putNotifyEntry(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %2, null
-  br i1 %4, label %29, label %5
+  br i1 %4, label %30, label %5
 
 5:                                                ; preds = %3
   %6 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #5
@@ -278,7 +281,7 @@ define hidden void @putNotifyEntry(ptr noundef %0, i64 noundef %1, ptr noundef %
 
 8:                                                ; preds = %5
   tail call void @p11ThrowOutOfMemoryError(ptr noundef %0, ptr noundef null) #4
-  br label %29
+  br label %30
 
 9:                                                ; preds = %5
   store i64 %1, ptr %6, align 8
@@ -293,30 +296,33 @@ define hidden void @putNotifyEntry(ptr noundef %0, i64 noundef %1, ptr noundef %
   %16 = tail call i32 %14(ptr noundef nonnull %0, ptr noundef %15) #4
   %17 = load ptr, ptr @notifyListHead, align 8
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %23, label %.preheader
+  br i1 %18, label %19, label %.preheader
+
+19:                                               ; preds = %9
+  store ptr %6, ptr @notifyListHead, align 8
+  br label %24
 
 .preheader:                                       ; preds = %9, %.preheader
-  %.0 = phi ptr [ %20, %.preheader ], [ %17, %9 ]
-  %19 = getelementptr inbounds i8, ptr %.0, i64 16
-  %20 = load ptr, ptr %19, align 8
-  %.not = icmp eq ptr %20, null
-  br i1 %.not, label %21, label %.preheader, !llvm.loop !6
+  %.0 = phi ptr [ %21, %.preheader ], [ %17, %9 ]
+  %20 = getelementptr inbounds i8, ptr %.0, i64 16
+  %21 = load ptr, ptr %20, align 8
+  %.not = icmp eq ptr %21, null
+  br i1 %.not, label %22, label %.preheader, !llvm.loop !6
 
-21:                                               ; preds = %.preheader
-  %22 = getelementptr inbounds i8, ptr %.0, i64 16
-  br label %23
+22:                                               ; preds = %.preheader
+  %23 = getelementptr inbounds i8, ptr %.0, i64 16
+  store ptr %6, ptr %23, align 8
+  br label %24
 
-23:                                               ; preds = %9, %21
-  %.sink = phi ptr [ %22, %21 ], [ @notifyListHead, %9 ]
-  store ptr %6, ptr %.sink, align 8
-  %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 1744
-  %26 = load ptr, ptr %25, align 8
-  %27 = load ptr, ptr @notifyListLock, align 8
-  %28 = tail call i32 %26(ptr noundef nonnull %0, ptr noundef %27) #4
-  br label %29
+24:                                               ; preds = %22, %19
+  %25 = load ptr, ptr %0, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 1744
+  %27 = load ptr, ptr %26, align 8
+  %28 = load ptr, ptr @notifyListLock, align 8
+  %29 = tail call i32 %27(ptr noundef nonnull %0, ptr noundef %28) #4
+  br label %30
 
-29:                                               ; preds = %3, %23, %8
+30:                                               ; preds = %3, %24, %8
   ret void
 }
 
@@ -324,7 +330,7 @@ define hidden void @putNotifyEntry(ptr noundef %0, i64 noundef %1, ptr noundef %
 define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1CloseSession(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @getFunctionList(ptr noundef %0, ptr noundef %1) #4
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %47, label %6
+  br i1 %5, label %50, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %4, i64 112
@@ -332,7 +338,7 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1CloseSession(ptr noundef
   %9 = tail call i64 %8(i64 noundef %2) #4
   %10 = tail call i64 @ckAssertReturnValueOK(ptr noundef %0, i64 noundef %9) #4
   %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %11, label %47
+  br i1 %.not, label %11, label %50
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %0, align 8
@@ -347,7 +353,7 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1CloseSession(ptr noundef
 .preheader.i:                                     ; preds = %11
   %19 = load i64, ptr %17, align 8
   %.not24.i = icmp eq i64 %19, %2
-  br i1 %.not24.i, label %25, label %.lr.ph.i
+  br i1 %.not24.i, label %24, label %.lr.ph.i
 
 20:                                               ; preds = %.lr.ph.i
   %21 = load i64, ptr %23, align 8
@@ -361,54 +367,59 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1CloseSession(ptr noundef
   %.not21.i = icmp eq ptr %23, null
   br i1 %.not21.i, label %removeNotifyEntry.exit, label %20, !llvm.loop !8
 
-._crit_edge.i:                                    ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %.01725.i, i64 16
-  br label %25
+24:                                               ; preds = %.preheader.i
+  %25 = getelementptr inbounds i8, ptr %17, i64 16
+  %26 = load ptr, ptr %25, align 8
+  store ptr %26, ptr @notifyListHead, align 8
+  br label %30
 
-25:                                               ; preds = %.preheader.i, %._crit_edge.i
-  %.lcssa28.sink = phi ptr [ %23, %._crit_edge.i ], [ %17, %.preheader.i ]
-  %.sink31 = phi ptr [ %24, %._crit_edge.i ], [ @notifyListHead, %.preheader.i ]
-  %26 = getelementptr inbounds i8, ptr %.lcssa28.sink, i64 16
-  %27 = load ptr, ptr %26, align 8
-  store ptr %27, ptr %.sink31, align 8
-  %28 = getelementptr inbounds i8, ptr %.lcssa28.sink, i64 8
+._crit_edge.i:                                    ; preds = %20
+  %27 = getelementptr inbounds i8, ptr %.01725.i, i64 16
+  %28 = getelementptr inbounds i8, ptr %23, i64 16
   %29 = load ptr, ptr %28, align 8
-  tail call void @free(ptr noundef nonnull %.lcssa28.sink) #4
+  store ptr %29, ptr %27, align 8
+  br label %30
+
+30:                                               ; preds = %._crit_edge.i, %24
+  %.017.lcssa31.i = phi ptr [ %23, %._crit_edge.i ], [ %17, %24 ]
+  %31 = getelementptr inbounds i8, ptr %.017.lcssa31.i, i64 8
+  %32 = load ptr, ptr %31, align 8
+  tail call void @free(ptr noundef nonnull %.017.lcssa31.i) #4
   br label %removeNotifyEntry.exit
 
-removeNotifyEntry.exit:                           ; preds = %.lr.ph.i, %11, %25
-  %.018.i = phi ptr [ %29, %25 ], [ null, %11 ], [ null, %.lr.ph.i ]
-  %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 1744
-  %32 = load ptr, ptr %31, align 8
-  %33 = load ptr, ptr @notifyListLock, align 8
-  %34 = tail call i32 %32(ptr noundef nonnull %0, ptr noundef %33) #4
+removeNotifyEntry.exit:                           ; preds = %.lr.ph.i, %11, %30
+  %.018.i = phi ptr [ %32, %30 ], [ null, %11 ], [ null, %.lr.ph.i ]
+  %33 = load ptr, ptr %0, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 1744
+  %35 = load ptr, ptr %34, align 8
+  %36 = load ptr, ptr @notifyListLock, align 8
+  %37 = tail call i32 %35(ptr noundef nonnull %0, ptr noundef %36) #4
   %.not21 = icmp eq ptr %.018.i, null
-  br i1 %.not21, label %47, label %35
+  br i1 %.not21, label %50, label %38
 
-35:                                               ; preds = %removeNotifyEntry.exit
-  %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 176
-  %38 = load ptr, ptr %37, align 8
-  %39 = load ptr, ptr %.018.i, align 8
-  tail call void %38(ptr noundef nonnull %0, ptr noundef %39) #4
-  %40 = getelementptr inbounds i8, ptr %.018.i, i64 8
+38:                                               ; preds = %removeNotifyEntry.exit
+  %39 = load ptr, ptr %0, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 176
   %41 = load ptr, ptr %40, align 8
-  %.not22 = icmp eq ptr %41, null
-  br i1 %.not22, label %46, label %42
+  %42 = load ptr, ptr %.018.i, align 8
+  tail call void %41(ptr noundef nonnull %0, ptr noundef %42) #4
+  %43 = getelementptr inbounds i8, ptr %.018.i, i64 8
+  %44 = load ptr, ptr %43, align 8
+  %.not22 = icmp eq ptr %44, null
+  br i1 %.not22, label %49, label %45
 
-42:                                               ; preds = %35
-  %43 = load ptr, ptr %0, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 176
-  %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull %0, ptr noundef nonnull %41) #4
-  br label %46
+45:                                               ; preds = %38
+  %46 = load ptr, ptr %0, align 8
+  %47 = getelementptr inbounds i8, ptr %46, i64 176
+  %48 = load ptr, ptr %47, align 8
+  tail call void %48(ptr noundef nonnull %0, ptr noundef nonnull %44) #4
+  br label %49
 
-46:                                               ; preds = %42, %35
+49:                                               ; preds = %45, %38
   tail call void @free(ptr noundef nonnull %.018.i) #4
-  br label %47
+  br label %50
 
-47:                                               ; preds = %6, %3, %46, %removeNotifyEntry.exit
+50:                                               ; preds = %6, %3, %49, %removeNotifyEntry.exit
   ret void
 }
 

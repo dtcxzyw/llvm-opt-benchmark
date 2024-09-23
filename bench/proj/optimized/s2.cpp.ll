@@ -555,140 +555,144 @@ define internal { double, double } @_ZL10s2_forward5PJ_LPP8PJconsts(double %0, d
   %22 = fmul double %19, %21
   %23 = fmul double %19, %20
   %24 = load i32, ptr %7, align 8
-  switch i32 %24, label %39 [
+  switch i32 %24, label %44 [
     i32 0, label %25
-    i32 1, label %27
-    i32 2, label %30
-    i32 3, label %34
-    i32 4, label %36
+    i32 1, label %28
+    i32 2, label %32
+    i32 3, label %37
+    i32 4, label %40
   ]
 
 25:                                               ; preds = %17
   %26 = fdiv double %23, %22
+  %27 = fdiv double %18, %22
   br label %_Z16ValidFaceXYZtoUViRK6PJ_XYZPdS2_.exit
 
-27:                                               ; preds = %17
-  %28 = fneg double %22
-  %29 = fdiv double %28, %23
+28:                                               ; preds = %17
+  %29 = fneg double %22
+  %30 = fdiv double %29, %23
+  %31 = fdiv double %18, %23
   br label %_Z16ValidFaceXYZtoUViRK6PJ_XYZPdS2_.exit
 
-30:                                               ; preds = %17
-  %31 = fneg double %22
-  %32 = fdiv double %31, %18
-  %33 = fneg double %23
+32:                                               ; preds = %17
+  %33 = fneg double %22
+  %34 = fdiv double %33, %18
+  %35 = fneg double %23
+  %36 = fdiv double %35, %18
   br label %_Z16ValidFaceXYZtoUViRK6PJ_XYZPdS2_.exit
 
-34:                                               ; preds = %17
-  %35 = fdiv double %18, %22
+37:                                               ; preds = %17
+  %38 = fdiv double %18, %22
+  %39 = fdiv double %23, %22
   br label %_Z16ValidFaceXYZtoUViRK6PJ_XYZPdS2_.exit
 
-36:                                               ; preds = %17
-  %37 = fdiv double %18, %23
-  %38 = fneg double %22
-  br label %_Z16ValidFaceXYZtoUViRK6PJ_XYZPdS2_.exit
-
-39:                                               ; preds = %17
-  %40 = fneg double %23
-  %41 = fdiv double %40, %18
+40:                                               ; preds = %17
+  %41 = fdiv double %18, %23
   %42 = fneg double %22
+  %43 = fdiv double %42, %23
   br label %_Z16ValidFaceXYZtoUViRK6PJ_XYZPdS2_.exit
 
-_Z16ValidFaceXYZtoUViRK6PJ_XYZPdS2_.exit:         ; preds = %25, %27, %30, %34, %36, %39
-  %.sroa.0.0 = phi double [ %41, %39 ], [ %37, %36 ], [ %35, %34 ], [ %32, %30 ], [ %29, %27 ], [ %26, %25 ]
-  %.sink.i.sroa.speculated = phi double [ %18, %39 ], [ %23, %36 ], [ %22, %34 ], [ %18, %30 ], [ %23, %27 ], [ %22, %25 ]
-  %.sink36.i = phi double [ %42, %39 ], [ %38, %36 ], [ %23, %34 ], [ %33, %30 ], [ %18, %27 ], [ %18, %25 ]
-  %43 = fdiv double %.sink36.i, %.sink.i.sroa.speculated
-  %44 = getelementptr inbounds i8, ptr %7, i64 32
-  %45 = load i32, ptr %44, align 8
+44:                                               ; preds = %17
+  %45 = fneg double %23
+  %46 = fdiv double %45, %18
+  %47 = fneg double %22
+  %48 = fdiv double %47, %18
+  br label %_Z16ValidFaceXYZtoUViRK6PJ_XYZPdS2_.exit
+
+_Z16ValidFaceXYZtoUViRK6PJ_XYZPdS2_.exit:         ; preds = %25, %28, %32, %37, %40, %44
+  %.sroa.0.0 = phi double [ %46, %44 ], [ %41, %40 ], [ %38, %37 ], [ %34, %32 ], [ %30, %28 ], [ %26, %25 ]
+  %.sink.i = phi double [ %48, %44 ], [ %43, %40 ], [ %39, %37 ], [ %36, %32 ], [ %31, %28 ], [ %27, %25 ]
+  %49 = getelementptr inbounds i8, ptr %7, i64 32
+  %50 = load i32, ptr %49, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  switch i32 %45, label %_ZL6UVtoSTd16S2ProjectionType.exit [
+  switch i32 %50, label %_ZL6UVtoSTd16S2ProjectionType.exit [
     i32 0, label %_ZL6UVtoSTd16S2ProjectionType.exit.thread
-    i32 1, label %48
-    i32 2, label %58
+    i32 1, label %53
+    i32 2, label %63
   ]
 
 _ZL6UVtoSTd16S2ProjectionType.exit.thread:        ; preds = %_Z16ValidFaceXYZtoUViRK6PJ_XYZPdS2_.exit
-  %46 = fadd double %.sroa.0.0, 1.000000e+00
-  %47 = fmul double %46, 5.000000e-01
+  %51 = fadd double %.sroa.0.0, 1.000000e+00
+  %52 = fmul double %51, 5.000000e-01
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  br label %63
+  br label %68
 
-48:                                               ; preds = %_Z16ValidFaceXYZtoUViRK6PJ_XYZPdS2_.exit
-  %49 = fcmp ult double %.sroa.0.0, 0.000000e+00
-  br i1 %49, label %54, label %50
+53:                                               ; preds = %_Z16ValidFaceXYZtoUViRK6PJ_XYZPdS2_.exit
+  %54 = fcmp ult double %.sroa.0.0, 0.000000e+00
+  br i1 %54, label %59, label %55
 
-50:                                               ; preds = %48
-  %51 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0, double 3.000000e+00, double 1.000000e+00)
-  %52 = tail call double @sqrt(double noundef %51) #21
-  %53 = fmul double %52, 5.000000e-01
+55:                                               ; preds = %53
+  %56 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0, double 3.000000e+00, double 1.000000e+00)
+  %57 = tail call double @sqrt(double noundef %56) #21
+  %58 = fmul double %57, 5.000000e-01
   br label %_ZL6UVtoSTd16S2ProjectionType.exitthread-pre-split
 
-54:                                               ; preds = %48
-  %55 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0, double -3.000000e+00, double 1.000000e+00)
-  %56 = tail call double @sqrt(double noundef %55) #21
-  %57 = tail call double @llvm.fmuladd.f64(double %56, double -5.000000e-01, double 1.000000e+00)
+59:                                               ; preds = %53
+  %60 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0, double -3.000000e+00, double 1.000000e+00)
+  %61 = tail call double @sqrt(double noundef %60) #21
+  %62 = tail call double @llvm.fmuladd.f64(double %61, double -5.000000e-01, double 1.000000e+00)
   br label %_ZL6UVtoSTd16S2ProjectionType.exitthread-pre-split
 
-58:                                               ; preds = %_Z16ValidFaceXYZtoUViRK6PJ_XYZPdS2_.exit
-  %59 = tail call double @atan(double noundef %.sroa.0.0) #21
-  store volatile double %59, ptr %5, align 8
+63:                                               ; preds = %_Z16ValidFaceXYZtoUViRK6PJ_XYZPdS2_.exit
+  %64 = tail call double @atan(double noundef %.sroa.0.0) #21
+  store volatile double %64, ptr %5, align 8
   %.0..0..0..0..0..0..i = load volatile double, ptr %5, align 8
-  %60 = fadd double %.0..0..0..0..0..0..i, 0x3FE921FB54442D18
-  %61 = fmul double %60, 0x3FE45F306DC9C883
+  %65 = fadd double %.0..0..0..0..0..0..i, 0x3FE921FB54442D18
+  %66 = fmul double %65, 0x3FE45F306DC9C883
   br label %_ZL6UVtoSTd16S2ProjectionType.exitthread-pre-split
 
-_ZL6UVtoSTd16S2ProjectionType.exitthread-pre-split: ; preds = %58, %54, %50
-  %.0.i.ph = phi double [ %57, %54 ], [ %53, %50 ], [ %61, %58 ]
-  %.pr = load i32, ptr %44, align 8
+_ZL6UVtoSTd16S2ProjectionType.exitthread-pre-split: ; preds = %63, %59, %55
+  %.0.i.ph = phi double [ %62, %59 ], [ %58, %55 ], [ %66, %63 ]
+  %.pr = load i32, ptr %49, align 8
   br label %_ZL6UVtoSTd16S2ProjectionType.exit
 
 _ZL6UVtoSTd16S2ProjectionType.exit:               ; preds = %_ZL6UVtoSTd16S2ProjectionType.exitthread-pre-split, %_Z16ValidFaceXYZtoUViRK6PJ_XYZPdS2_.exit
-  %62 = phi i32 [ %.pr, %_ZL6UVtoSTd16S2ProjectionType.exitthread-pre-split ], [ %45, %_Z16ValidFaceXYZtoUViRK6PJ_XYZPdS2_.exit ]
+  %67 = phi i32 [ %.pr, %_ZL6UVtoSTd16S2ProjectionType.exitthread-pre-split ], [ %50, %_Z16ValidFaceXYZtoUViRK6PJ_XYZPdS2_.exit ]
   %.0.i = phi double [ %.0.i.ph, %_ZL6UVtoSTd16S2ProjectionType.exitthread-pre-split ], [ %.sroa.0.0, %_Z16ValidFaceXYZtoUViRK6PJ_XYZPdS2_.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  switch i32 %62, label %_ZL6UVtoSTd16S2ProjectionType.exit23 [
-    i32 0, label %63
-    i32 1, label %66
-    i32 2, label %76
+  switch i32 %67, label %_ZL6UVtoSTd16S2ProjectionType.exit23 [
+    i32 0, label %68
+    i32 1, label %71
+    i32 2, label %81
   ]
 
-63:                                               ; preds = %_ZL6UVtoSTd16S2ProjectionType.exit.thread, %_ZL6UVtoSTd16S2ProjectionType.exit
-  %.0.i46 = phi double [ %47, %_ZL6UVtoSTd16S2ProjectionType.exit.thread ], [ %.0.i, %_ZL6UVtoSTd16S2ProjectionType.exit ]
-  %64 = fadd double %43, 1.000000e+00
-  %65 = fmul double %64, 5.000000e-01
+68:                                               ; preds = %_ZL6UVtoSTd16S2ProjectionType.exit.thread, %_ZL6UVtoSTd16S2ProjectionType.exit
+  %.0.i47 = phi double [ %52, %_ZL6UVtoSTd16S2ProjectionType.exit.thread ], [ %.0.i, %_ZL6UVtoSTd16S2ProjectionType.exit ]
+  %69 = fadd double %.sink.i, 1.000000e+00
+  %70 = fmul double %69, 5.000000e-01
   br label %_ZL6UVtoSTd16S2ProjectionType.exit23
 
-66:                                               ; preds = %_ZL6UVtoSTd16S2ProjectionType.exit
-  %67 = fcmp ult double %43, 0.000000e+00
-  br i1 %67, label %72, label %68
+71:                                               ; preds = %_ZL6UVtoSTd16S2ProjectionType.exit
+  %72 = fcmp ult double %.sink.i, 0.000000e+00
+  br i1 %72, label %77, label %73
 
-68:                                               ; preds = %66
-  %69 = tail call double @llvm.fmuladd.f64(double %43, double 3.000000e+00, double 1.000000e+00)
-  %70 = tail call double @sqrt(double noundef %69) #21
-  %71 = fmul double %70, 5.000000e-01
+73:                                               ; preds = %71
+  %74 = tail call double @llvm.fmuladd.f64(double %.sink.i, double 3.000000e+00, double 1.000000e+00)
+  %75 = tail call double @sqrt(double noundef %74) #21
+  %76 = fmul double %75, 5.000000e-01
   br label %_ZL6UVtoSTd16S2ProjectionType.exit23
 
-72:                                               ; preds = %66
-  %73 = tail call double @llvm.fmuladd.f64(double %43, double -3.000000e+00, double 1.000000e+00)
-  %74 = tail call double @sqrt(double noundef %73) #21
-  %75 = tail call double @llvm.fmuladd.f64(double %74, double -5.000000e-01, double 1.000000e+00)
+77:                                               ; preds = %71
+  %78 = tail call double @llvm.fmuladd.f64(double %.sink.i, double -3.000000e+00, double 1.000000e+00)
+  %79 = tail call double @sqrt(double noundef %78) #21
+  %80 = tail call double @llvm.fmuladd.f64(double %79, double -5.000000e-01, double 1.000000e+00)
   br label %_ZL6UVtoSTd16S2ProjectionType.exit23
 
-76:                                               ; preds = %_ZL6UVtoSTd16S2ProjectionType.exit
-  %77 = tail call double @atan(double noundef %43) #21
-  store volatile double %77, ptr %4, align 8
+81:                                               ; preds = %_ZL6UVtoSTd16S2ProjectionType.exit
+  %82 = tail call double @atan(double noundef %.sink.i) #21
+  store volatile double %82, ptr %4, align 8
   %.0..0..0..0..0..0..i21 = load volatile double, ptr %4, align 8
-  %78 = fadd double %.0..0..0..0..0..0..i21, 0x3FE921FB54442D18
-  %79 = fmul double %78, 0x3FE45F306DC9C883
+  %83 = fadd double %.0..0..0..0..0..0..i21, 0x3FE921FB54442D18
+  %84 = fmul double %83, 0x3FE45F306DC9C883
   br label %_ZL6UVtoSTd16S2ProjectionType.exit23
 
-_ZL6UVtoSTd16S2ProjectionType.exit23:             ; preds = %_ZL6UVtoSTd16S2ProjectionType.exit, %63, %68, %72, %76
-  %.0.i47 = phi double [ %.0.i, %76 ], [ %.0.i, %68 ], [ %.0.i, %72 ], [ %.0.i46, %63 ], [ %.0.i, %_ZL6UVtoSTd16S2ProjectionType.exit ]
-  %.0.i22 = phi double [ %79, %76 ], [ %71, %68 ], [ %75, %72 ], [ %65, %63 ], [ %43, %_ZL6UVtoSTd16S2ProjectionType.exit ]
+_ZL6UVtoSTd16S2ProjectionType.exit23:             ; preds = %_ZL6UVtoSTd16S2ProjectionType.exit, %68, %73, %77, %81
+  %.0.i48 = phi double [ %.0.i, %81 ], [ %.0.i, %73 ], [ %.0.i, %77 ], [ %.0.i47, %68 ], [ %.0.i, %_ZL6UVtoSTd16S2ProjectionType.exit ]
+  %.0.i22 = phi double [ %84, %81 ], [ %76, %73 ], [ %80, %77 ], [ %70, %68 ], [ %.sink.i, %_ZL6UVtoSTd16S2ProjectionType.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %.fca.0.insert = insertvalue { double, double } poison, double %.0.i47, 0
+  %.fca.0.insert = insertvalue { double, double } poison, double %.0.i48, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.0.i22, 1
   ret { double, double } %.fca.1.insert
 }

@@ -65,7 +65,6 @@ do.end:                                           ; preds = %entry
   br i1 %cmp.i.not.i, label %do.end.i.i, label %_ZL15stream_list_addP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
 do.end.i.i:                                       ; preds = %do.end
-  %lists.i.i = getelementptr inbounds i8, ptr %t, i64 480
   %tail.i.i = getelementptr inbounds i8, ptr %t, i64 488
   %2 = load ptr, ptr %tail.i.i, align 8
   %links.i.i = getelementptr inbounds i8, ptr %s, i64 64
@@ -73,9 +72,19 @@ do.end.i.i:                                       ; preds = %do.end
   %prev.i.i = getelementptr inbounds i8, ptr %s, i64 72
   store ptr %2, ptr %prev.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %2, null
+  br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then7.i.i
+
+if.then7.i.i:                                     ; preds = %do.end.i.i
   %links8.i.i = getelementptr inbounds i8, ptr %2, i64 64
-  %arrayidx.sink.i.i = select i1 %tobool.not.i.i, ptr %lists.i.i, ptr %links8.i.i
-  store ptr %s, ptr %arrayidx.sink.i.i, align 8
+  store ptr %s, ptr %links8.i.i, align 8
+  br label %if.end15.i.i
+
+if.else.i.i:                                      ; preds = %do.end.i.i
+  %lists.i.i = getelementptr inbounds i8, ptr %t, i64 480
+  store ptr %s, ptr %lists.i.i, align 8
+  br label %if.end15.i.i
+
+if.end15.i.i:                                     ; preds = %if.else.i.i, %if.then7.i.i
   store ptr %s, ptr %tail.i.i, align 8
   %3 = load i8, ptr %included.i, align 1
   %or2.i.i.i = or i8 %3, 1
@@ -84,7 +93,7 @@ do.end.i.i:                                       ; preds = %do.end
   %tobool.i.i.i.i.i = trunc i8 %4 to i1
   br i1 %tobool.i.i.i.i.i, label %if.then22.i.i, label %_ZL15stream_list_addP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
-if.then22.i.i:                                    ; preds = %do.end.i.i
+if.then22.i.i:                                    ; preds = %if.end15.i.i
   %5 = load i32, ptr %id, align 8
   %is_client.i.i = getelementptr inbounds i8, ptr %t, i64 3376
   %6 = load i8, ptr %is_client.i.i, align 8
@@ -93,7 +102,7 @@ if.then22.i.i:                                    ; preds = %do.end.i.i
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.2, i32 noundef 127, i32 noundef 1, ptr noundef nonnull @.str.6, ptr noundef nonnull %t, i32 noundef %5, ptr noundef nonnull %.str.7..str.8.i.i, ptr noundef nonnull @.str.9)
   br label %_ZL15stream_list_addP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
-_ZL15stream_list_addP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit: ; preds = %do.end, %do.end.i.i, %if.then22.i.i
+_ZL15stream_list_addP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit: ; preds = %do.end, %if.end15.i.i, %if.then22.i.i
   ret i1 %cmp.i.not.i
 }
 
@@ -205,15 +214,24 @@ if.end29.i.i:                                     ; preds = %do.end20.i.i, %if.t
   %5 = phi ptr [ %4, %do.end20.i.i ], [ %2, %if.then2.i.i ]
   %tobool34.not.i.i = icmp eq ptr %5, null
   %6 = load ptr, ptr %prev.i.i, align 8
-  %tail.i.i = getelementptr inbounds i8, ptr %t, i64 488
+  br i1 %tobool34.not.i.i, label %if.else48.i.i, label %if.then35.i.i
+
+if.then35.i.i:                                    ; preds = %if.end29.i.i
   %prev47.i.i = getelementptr inbounds i8, ptr %5, i64 72
-  %tail.sink.i.i = select i1 %tobool34.not.i.i, ptr %tail.i.i, ptr %prev47.i.i
-  store ptr %6, ptr %tail.sink.i.i, align 8
+  store ptr %6, ptr %prev47.i.i, align 8
+  br label %if.end56.i.i
+
+if.else48.i.i:                                    ; preds = %if.end29.i.i
+  %tail.i.i = getelementptr inbounds i8, ptr %t, i64 488
+  store ptr %6, ptr %tail.i.i, align 8
+  br label %if.end56.i.i
+
+if.end56.i.i:                                     ; preds = %if.else48.i.i, %if.then35.i.i
   %7 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_http2_stream_state, i64 16) monotonic, align 8
   %tobool.i.i.i.i.i = trunc i8 %7 to i1
   br i1 %tobool.i.i.i.i.i, label %if.then58.i.i, label %_ZL24stream_list_maybe_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
-if.then58.i.i:                                    ; preds = %if.end29.i.i
+if.then58.i.i:                                    ; preds = %if.end56.i.i
   %id59.i.i = getelementptr inbounds i8, ptr %s, i64 144
   %8 = load i32, ptr %id59.i.i, align 8
   %is_client.i.i = getelementptr inbounds i8, ptr %t, i64 3376
@@ -223,7 +241,7 @@ if.then58.i.i:                                    ; preds = %if.end29.i.i
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.2, i32 noundef 95, i32 noundef 1, ptr noundef nonnull @.str.18, ptr noundef nonnull %t, i32 noundef %8, ptr noundef nonnull %.str.7..str.8.i.i, ptr noundef nonnull @.str.9)
   br label %_ZL24stream_list_maybe_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
-_ZL24stream_list_maybe_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit: ; preds = %entry, %if.end29.i.i, %if.then58.i.i
+_ZL24stream_list_maybe_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit: ; preds = %entry, %if.end56.i.i, %if.then58.i.i
   ret i1 %cmp.i.i
 }
 
@@ -237,7 +255,6 @@ entry:
   br i1 %cmp.i.not.i, label %do.end.i.i, label %_ZL15stream_list_addP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
 do.end.i.i:                                       ; preds = %entry
-  %arrayidx.i3.i = getelementptr inbounds i8, ptr %t, i64 496
   %tail.i.i = getelementptr inbounds i8, ptr %t, i64 504
   %1 = load ptr, ptr %tail.i.i, align 8
   %arrayidx3.i.i = getelementptr inbounds i8, ptr %s, i64 80
@@ -245,9 +262,19 @@ do.end.i.i:                                       ; preds = %entry
   %prev.i.i = getelementptr inbounds i8, ptr %s, i64 88
   store ptr %1, ptr %prev.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %1, null
+  br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then7.i.i
+
+if.then7.i.i:                                     ; preds = %do.end.i.i
   %arrayidx10.i.i = getelementptr inbounds i8, ptr %1, i64 80
-  %arrayidx.sink.i.i = select i1 %tobool.not.i.i, ptr %arrayidx.i3.i, ptr %arrayidx10.i.i
-  store ptr %s, ptr %arrayidx.sink.i.i, align 8
+  store ptr %s, ptr %arrayidx10.i.i, align 8
+  br label %if.end15.i.i
+
+if.else.i.i:                                      ; preds = %do.end.i.i
+  %arrayidx.i3.i = getelementptr inbounds i8, ptr %t, i64 496
+  store ptr %s, ptr %arrayidx.i3.i, align 8
+  br label %if.end15.i.i
+
+if.end15.i.i:                                     ; preds = %if.else.i.i, %if.then7.i.i
   store ptr %s, ptr %tail.i.i, align 8
   %2 = load i8, ptr %included.i, align 1
   %or2.i.i.i = or i8 %2, 2
@@ -256,7 +283,7 @@ do.end.i.i:                                       ; preds = %entry
   %tobool.i.i.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i.i.i, label %if.then22.i.i, label %_ZL15stream_list_addP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
-if.then22.i.i:                                    ; preds = %do.end.i.i
+if.then22.i.i:                                    ; preds = %if.end15.i.i
   %id23.i.i = getelementptr inbounds i8, ptr %s, i64 144
   %4 = load i32, ptr %id23.i.i, align 8
   %is_client.i.i = getelementptr inbounds i8, ptr %t, i64 3376
@@ -266,7 +293,7 @@ if.then22.i.i:                                    ; preds = %do.end.i.i
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.2, i32 noundef 127, i32 noundef 1, ptr noundef nonnull @.str.6, ptr noundef nonnull %t, i32 noundef %4, ptr noundef nonnull %.str.7..str.8.i.i, ptr noundef nonnull @.str.10)
   br label %_ZL15stream_list_addP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
-_ZL15stream_list_addP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit: ; preds = %entry, %do.end.i.i, %if.then22.i.i
+_ZL15stream_list_addP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit: ; preds = %entry, %if.end15.i.i, %if.then22.i.i
   ret i1 %cmp.i.not.i
 }
 
@@ -351,7 +378,6 @@ entry:
   br i1 %cmp.i.not.i, label %do.end.i.i, label %_ZL15stream_list_addP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
 do.end.i.i:                                       ; preds = %entry
-  %arrayidx.i3.i = getelementptr inbounds i8, ptr %t, i64 544
   %tail.i.i = getelementptr inbounds i8, ptr %t, i64 552
   %1 = load ptr, ptr %tail.i.i, align 8
   %arrayidx3.i.i = getelementptr inbounds i8, ptr %s, i64 128
@@ -359,9 +385,19 @@ do.end.i.i:                                       ; preds = %entry
   %prev.i.i = getelementptr inbounds i8, ptr %s, i64 136
   store ptr %1, ptr %prev.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %1, null
+  br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then7.i.i
+
+if.then7.i.i:                                     ; preds = %do.end.i.i
   %arrayidx10.i.i = getelementptr inbounds i8, ptr %1, i64 128
-  %arrayidx.sink.i.i = select i1 %tobool.not.i.i, ptr %arrayidx.i3.i, ptr %arrayidx10.i.i
-  store ptr %s, ptr %arrayidx.sink.i.i, align 8
+  store ptr %s, ptr %arrayidx10.i.i, align 8
+  br label %if.end15.i.i
+
+if.else.i.i:                                      ; preds = %do.end.i.i
+  %arrayidx.i3.i = getelementptr inbounds i8, ptr %t, i64 544
+  store ptr %s, ptr %arrayidx.i3.i, align 8
+  br label %if.end15.i.i
+
+if.end15.i.i:                                     ; preds = %if.else.i.i, %if.then7.i.i
   store ptr %s, ptr %tail.i.i, align 8
   %2 = load i8, ptr %included.i, align 1
   %or2.i.i.i = or i8 %2, 16
@@ -370,7 +406,7 @@ do.end.i.i:                                       ; preds = %entry
   %tobool.i.i.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i.i.i, label %if.then22.i.i, label %_ZL15stream_list_addP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
-if.then22.i.i:                                    ; preds = %do.end.i.i
+if.then22.i.i:                                    ; preds = %if.end15.i.i
   %id23.i.i = getelementptr inbounds i8, ptr %s, i64 144
   %4 = load i32, ptr %id23.i.i, align 8
   %is_client.i.i = getelementptr inbounds i8, ptr %t, i64 3376
@@ -380,7 +416,7 @@ if.then22.i.i:                                    ; preds = %do.end.i.i
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.2, i32 noundef 127, i32 noundef 1, ptr noundef nonnull @.str.6, ptr noundef nonnull %t, i32 noundef %4, ptr noundef nonnull %.str.7..str.8.i.i, ptr noundef nonnull @.str.13)
   br label %_ZL15stream_list_addP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
-_ZL15stream_list_addP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit: ; preds = %entry, %do.end.i.i, %if.then22.i.i
+_ZL15stream_list_addP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit: ; preds = %entry, %if.end15.i.i, %if.then22.i.i
   ret void
 }
 
@@ -489,15 +525,24 @@ if.end29.i.i:                                     ; preds = %do.end20.i.i, %if.t
   %5 = phi ptr [ %4, %do.end20.i.i ], [ %2, %if.then2.i.i ]
   %tobool34.not.i.i = icmp eq ptr %5, null
   %6 = load ptr, ptr %prev.i.i, align 8
-  %tail.i.i = getelementptr inbounds i8, ptr %t, i64 552
+  br i1 %tobool34.not.i.i, label %if.else48.i.i, label %if.then35.i.i
+
+if.then35.i.i:                                    ; preds = %if.end29.i.i
   %prev47.i.i = getelementptr inbounds i8, ptr %5, i64 136
-  %tail.sink.i.i = select i1 %tobool34.not.i.i, ptr %tail.i.i, ptr %prev47.i.i
-  store ptr %6, ptr %tail.sink.i.i, align 8
+  store ptr %6, ptr %prev47.i.i, align 8
+  br label %if.end56.i.i
+
+if.else48.i.i:                                    ; preds = %if.end29.i.i
+  %tail.i.i = getelementptr inbounds i8, ptr %t, i64 552
+  store ptr %6, ptr %tail.i.i, align 8
+  br label %if.end56.i.i
+
+if.end56.i.i:                                     ; preds = %if.else48.i.i, %if.then35.i.i
   %7 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_http2_stream_state, i64 16) monotonic, align 8
   %tobool.i.i.i.i.i = trunc i8 %7 to i1
   br i1 %tobool.i.i.i.i.i, label %if.then58.i.i, label %_ZL24stream_list_maybe_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
-if.then58.i.i:                                    ; preds = %if.end29.i.i
+if.then58.i.i:                                    ; preds = %if.end56.i.i
   %id59.i.i = getelementptr inbounds i8, ptr %s, i64 144
   %8 = load i32, ptr %id59.i.i, align 8
   %is_client.i.i = getelementptr inbounds i8, ptr %t, i64 3376
@@ -507,7 +552,7 @@ if.then58.i.i:                                    ; preds = %if.end29.i.i
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.2, i32 noundef 95, i32 noundef 1, ptr noundef nonnull @.str.18, ptr noundef nonnull %t, i32 noundef %8, ptr noundef nonnull %.str.7..str.8.i.i, ptr noundef nonnull @.str.13)
   br label %_ZL24stream_list_maybe_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
-_ZL24stream_list_maybe_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit: ; preds = %entry, %if.end29.i.i, %if.then58.i.i
+_ZL24stream_list_maybe_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit: ; preds = %entry, %if.end56.i.i, %if.then58.i.i
   ret void
 }
 
@@ -521,7 +566,6 @@ entry:
   br i1 %cmp.i.not.i, label %do.end.i.i, label %_ZL15stream_list_addP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
 do.end.i.i:                                       ; preds = %entry
-  %arrayidx.i3.i = getelementptr inbounds i8, ptr %t, i64 512
   %tail.i.i = getelementptr inbounds i8, ptr %t, i64 520
   %1 = load ptr, ptr %tail.i.i, align 8
   %arrayidx3.i.i = getelementptr inbounds i8, ptr %s, i64 96
@@ -529,9 +573,19 @@ do.end.i.i:                                       ; preds = %entry
   %prev.i.i = getelementptr inbounds i8, ptr %s, i64 104
   store ptr %1, ptr %prev.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %1, null
+  br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then7.i.i
+
+if.then7.i.i:                                     ; preds = %do.end.i.i
   %arrayidx10.i.i = getelementptr inbounds i8, ptr %1, i64 96
-  %arrayidx.sink.i.i = select i1 %tobool.not.i.i, ptr %arrayidx.i3.i, ptr %arrayidx10.i.i
-  store ptr %s, ptr %arrayidx.sink.i.i, align 8
+  store ptr %s, ptr %arrayidx10.i.i, align 8
+  br label %if.end15.i.i
+
+if.else.i.i:                                      ; preds = %do.end.i.i
+  %arrayidx.i3.i = getelementptr inbounds i8, ptr %t, i64 512
+  store ptr %s, ptr %arrayidx.i3.i, align 8
+  br label %if.end15.i.i
+
+if.end15.i.i:                                     ; preds = %if.else.i.i, %if.then7.i.i
   store ptr %s, ptr %tail.i.i, align 8
   %2 = load i8, ptr %included.i, align 1
   %or2.i.i.i = or i8 %2, 4
@@ -540,7 +594,7 @@ do.end.i.i:                                       ; preds = %entry
   %tobool.i.i.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i.i.i, label %if.then22.i.i, label %_ZL15stream_list_addP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
-if.then22.i.i:                                    ; preds = %do.end.i.i
+if.then22.i.i:                                    ; preds = %if.end15.i.i
   %id23.i.i = getelementptr inbounds i8, ptr %s, i64 144
   %4 = load i32, ptr %id23.i.i, align 8
   %is_client.i.i = getelementptr inbounds i8, ptr %t, i64 3376
@@ -550,7 +604,7 @@ if.then22.i.i:                                    ; preds = %do.end.i.i
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.2, i32 noundef 127, i32 noundef 1, ptr noundef nonnull @.str.6, ptr noundef nonnull %t, i32 noundef %4, ptr noundef nonnull %.str.7..str.8.i.i, ptr noundef nonnull @.str.11)
   br label %_ZL15stream_list_addP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
-_ZL15stream_list_addP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit: ; preds = %entry, %do.end.i.i, %if.then22.i.i
+_ZL15stream_list_addP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit: ; preds = %entry, %if.end15.i.i, %if.then22.i.i
   ret void
 }
 
@@ -659,15 +713,24 @@ if.end29.i.i:                                     ; preds = %do.end20.i.i, %if.t
   %5 = phi ptr [ %4, %do.end20.i.i ], [ %2, %if.then2.i.i ]
   %tobool34.not.i.i = icmp eq ptr %5, null
   %6 = load ptr, ptr %prev.i.i, align 8
-  %tail.i.i = getelementptr inbounds i8, ptr %t, i64 520
+  br i1 %tobool34.not.i.i, label %if.else48.i.i, label %if.then35.i.i
+
+if.then35.i.i:                                    ; preds = %if.end29.i.i
   %prev47.i.i = getelementptr inbounds i8, ptr %5, i64 104
-  %tail.sink.i.i = select i1 %tobool34.not.i.i, ptr %tail.i.i, ptr %prev47.i.i
-  store ptr %6, ptr %tail.sink.i.i, align 8
+  store ptr %6, ptr %prev47.i.i, align 8
+  br label %if.end56.i.i
+
+if.else48.i.i:                                    ; preds = %if.end29.i.i
+  %tail.i.i = getelementptr inbounds i8, ptr %t, i64 520
+  store ptr %6, ptr %tail.i.i, align 8
+  br label %if.end56.i.i
+
+if.end56.i.i:                                     ; preds = %if.else48.i.i, %if.then35.i.i
   %7 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_http2_stream_state, i64 16) monotonic, align 8
   %tobool.i.i.i.i.i = trunc i8 %7 to i1
   br i1 %tobool.i.i.i.i.i, label %if.then58.i.i, label %_ZL24stream_list_maybe_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
-if.then58.i.i:                                    ; preds = %if.end29.i.i
+if.then58.i.i:                                    ; preds = %if.end56.i.i
   %id59.i.i = getelementptr inbounds i8, ptr %s, i64 144
   %8 = load i32, ptr %id59.i.i, align 8
   %is_client.i.i = getelementptr inbounds i8, ptr %t, i64 3376
@@ -677,7 +740,7 @@ if.then58.i.i:                                    ; preds = %if.end29.i.i
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.2, i32 noundef 95, i32 noundef 1, ptr noundef nonnull @.str.18, ptr noundef nonnull %t, i32 noundef %8, ptr noundef nonnull %.str.7..str.8.i.i, ptr noundef nonnull @.str.11)
   br label %_ZL24stream_list_maybe_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
-_ZL24stream_list_maybe_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit: ; preds = %entry, %if.end29.i.i, %if.then58.i.i
+_ZL24stream_list_maybe_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit: ; preds = %entry, %if.end56.i.i, %if.then58.i.i
   ret void
 }
 
@@ -691,7 +754,6 @@ entry:
   br i1 %cmp.i.not.i, label %do.end.i.i, label %_ZL15stream_list_addP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
 do.end.i.i:                                       ; preds = %entry
-  %arrayidx.i3.i = getelementptr inbounds i8, ptr %t, i64 528
   %tail.i.i = getelementptr inbounds i8, ptr %t, i64 536
   %1 = load ptr, ptr %tail.i.i, align 8
   %arrayidx3.i.i = getelementptr inbounds i8, ptr %s, i64 112
@@ -699,9 +761,19 @@ do.end.i.i:                                       ; preds = %entry
   %prev.i.i = getelementptr inbounds i8, ptr %s, i64 120
   store ptr %1, ptr %prev.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %1, null
+  br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then7.i.i
+
+if.then7.i.i:                                     ; preds = %do.end.i.i
   %arrayidx10.i.i = getelementptr inbounds i8, ptr %1, i64 112
-  %arrayidx.sink.i.i = select i1 %tobool.not.i.i, ptr %arrayidx.i3.i, ptr %arrayidx10.i.i
-  store ptr %s, ptr %arrayidx.sink.i.i, align 8
+  store ptr %s, ptr %arrayidx10.i.i, align 8
+  br label %if.end15.i.i
+
+if.else.i.i:                                      ; preds = %do.end.i.i
+  %arrayidx.i3.i = getelementptr inbounds i8, ptr %t, i64 528
+  store ptr %s, ptr %arrayidx.i3.i, align 8
+  br label %if.end15.i.i
+
+if.end15.i.i:                                     ; preds = %if.else.i.i, %if.then7.i.i
   store ptr %s, ptr %tail.i.i, align 8
   %2 = load i8, ptr %included.i, align 1
   %or2.i.i.i = or i8 %2, 8
@@ -710,7 +782,7 @@ do.end.i.i:                                       ; preds = %entry
   %tobool.i.i.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i.i.i, label %if.then22.i.i, label %_ZL15stream_list_addP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
-if.then22.i.i:                                    ; preds = %do.end.i.i
+if.then22.i.i:                                    ; preds = %if.end15.i.i
   %id23.i.i = getelementptr inbounds i8, ptr %s, i64 144
   %4 = load i32, ptr %id23.i.i, align 8
   %is_client.i.i = getelementptr inbounds i8, ptr %t, i64 3376
@@ -720,7 +792,7 @@ if.then22.i.i:                                    ; preds = %do.end.i.i
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.2, i32 noundef 127, i32 noundef 1, ptr noundef nonnull @.str.6, ptr noundef nonnull %t, i32 noundef %4, ptr noundef nonnull %.str.7..str.8.i.i, ptr noundef nonnull @.str.12)
   br label %_ZL15stream_list_addP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
-_ZL15stream_list_addP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit: ; preds = %entry, %do.end.i.i, %if.then22.i.i
+_ZL15stream_list_addP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit: ; preds = %entry, %if.end15.i.i, %if.then22.i.i
   ret void
 }
 
@@ -829,15 +901,24 @@ if.end29.i.i:                                     ; preds = %do.end20.i.i, %if.t
   %5 = phi ptr [ %4, %do.end20.i.i ], [ %2, %if.then2.i.i ]
   %tobool34.not.i.i = icmp eq ptr %5, null
   %6 = load ptr, ptr %prev.i.i, align 8
-  %tail.i.i = getelementptr inbounds i8, ptr %t, i64 536
+  br i1 %tobool34.not.i.i, label %if.else48.i.i, label %if.then35.i.i
+
+if.then35.i.i:                                    ; preds = %if.end29.i.i
   %prev47.i.i = getelementptr inbounds i8, ptr %5, i64 120
-  %tail.sink.i.i = select i1 %tobool34.not.i.i, ptr %tail.i.i, ptr %prev47.i.i
-  store ptr %6, ptr %tail.sink.i.i, align 8
+  store ptr %6, ptr %prev47.i.i, align 8
+  br label %if.end56.i.i
+
+if.else48.i.i:                                    ; preds = %if.end29.i.i
+  %tail.i.i = getelementptr inbounds i8, ptr %t, i64 536
+  store ptr %6, ptr %tail.i.i, align 8
+  br label %if.end56.i.i
+
+if.end56.i.i:                                     ; preds = %if.else48.i.i, %if.then35.i.i
   %7 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_http2_stream_state, i64 16) monotonic, align 8
   %tobool.i.i.i.i.i = trunc i8 %7 to i1
   br i1 %tobool.i.i.i.i.i, label %if.then58.i.i, label %_ZL24stream_list_maybe_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
-if.then58.i.i:                                    ; preds = %if.end29.i.i
+if.then58.i.i:                                    ; preds = %if.end56.i.i
   %id59.i.i = getelementptr inbounds i8, ptr %s, i64 144
   %8 = load i32, ptr %id59.i.i, align 8
   %is_client.i.i = getelementptr inbounds i8, ptr %t, i64 3376
@@ -847,7 +928,7 @@ if.then58.i.i:                                    ; preds = %if.end29.i.i
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.2, i32 noundef 95, i32 noundef 1, ptr noundef nonnull @.str.18, ptr noundef nonnull %t, i32 noundef %8, ptr noundef nonnull %.str.7..str.8.i.i, ptr noundef nonnull @.str.12)
   br label %_ZL24stream_list_maybe_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
-_ZL24stream_list_maybe_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit: ; preds = %entry, %if.end29.i.i, %if.then58.i.i
+_ZL24stream_list_maybe_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit: ; preds = %entry, %if.end56.i.i, %if.then58.i.i
   ret i1 %cmp.i.i
 }
 

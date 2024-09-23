@@ -987,7 +987,7 @@ define internal fastcc ptr @chmd_real_open(ptr noundef %0, ptr noundef %1, i32 n
   %4 = alloca [84 x i8], align 16
   %5 = alloca i64, align 8
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %367, label %6
+  br i1 %.not, label %373, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 48
@@ -995,14 +995,14 @@ define internal fastcc ptr @chmd_real_open(ptr noundef %0, ptr noundef %1, i32 n
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr %9(ptr noundef nonnull %8, ptr noundef %1, i32 noundef 0) #12
   %.not37 = icmp eq ptr %10, null
-  br i1 %.not37, label %365, label %11
+  br i1 %.not37, label %371, label %11
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds i8, ptr %8, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr %13(ptr noundef nonnull %8, i64 noundef 168) #12
   %.not38 = icmp eq ptr %14, null
-  br i1 %.not38, label %361, label %15
+  br i1 %.not38, label %367, label %15
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds i8, ptr %14, i64 16
@@ -1235,7 +1235,7 @@ define internal fastcc ptr @chmd_real_open(ptr noundef %0, ptr noundef %1, i32 n
   %167 = icmp sgt i64 %165, %166
   %168 = icmp ult i32 %130, 22
   %or.cond306.i = select i1 %167, i1 true, i1 %168
-  br i1 %or.cond306.i, label %353, label %169
+  br i1 %or.cond306.i, label %359, label %169
 
 169:                                              ; preds = %164
   %170 = add i32 %151, -100001
@@ -1246,7 +1246,7 @@ define internal fastcc ptr @chmd_real_open(ptr noundef %0, ptr noundef %1, i32 n
   %172 = zext nneg i32 %narrow.i to i64
   %173 = icmp slt i64 %166, %172
   %or.cond261.i = select i1 %or.cond259.i, i1 true, i1 %173
-  br i1 %or.cond261.i, label %353, label %174
+  br i1 %or.cond261.i, label %359, label %174
 
 174:                                              ; preds = %169
   %.not235.i = icmp eq i32 %130, 4096
@@ -1275,7 +1275,7 @@ define internal fastcc ptr @chmd_real_open(ptr noundef %0, ptr noundef %1, i32 n
   %.pr.i = load i32, ptr %154, align 4
   %184 = load i32, ptr %157, align 8
   %185 = icmp ugt i32 %.pr.i, %184
-  br i1 %185, label %353, label %186
+  br i1 %185, label %359, label %186
 
 186:                                              ; preds = %181, %.thread.i
   %187 = phi i32 [ %180, %.thread.i ], [ %184, %181 ]
@@ -1287,7 +1287,7 @@ define internal fastcc ptr @chmd_real_open(ptr noundef %0, ptr noundef %1, i32 n
 190:                                              ; preds = %186
   %191 = load i32, ptr %152, align 8
   %.not238.i = icmp ult i32 %189, %191
-  br i1 %.not238.i, label %192, label %353
+  br i1 %.not238.i, label %192, label %359
 
 192:                                              ; preds = %190, %186
   %.not239.i = icmp eq i32 %2, 0
@@ -1343,7 +1343,7 @@ define internal fastcc ptr @chmd_real_open(ptr noundef %0, ptr noundef %1, i32 n
   %.0209.i = phi i32 [ %215, %221 ], [ %.0209.ph.i, %.outer309.i ]
   %215 = add i32 %.0209.i, -1
   %.not243.i = icmp eq i32 %.0209.i, 0
-  br i1 %.not243.i, label %348, label %216
+  br i1 %.not243.i, label %354, label %216
 
 216:                                              ; preds = %214
   %217 = load ptr, ptr %28, align 8
@@ -1611,60 +1611,77 @@ read_encint.exit282.i:                            ; preds = %286, %283
   store i8 0, ptr %328, align 1
   %329 = load i8, ptr %.2293.i, align 1
   %330 = icmp eq i8 %329, 58
-  br i1 %330, label %331, label %345
+  br i1 %330, label %331, label %349
 
 331:                                              ; preds = %318
   %332 = load i8, ptr %314, align 1
   %333 = icmp eq i8 %332, 58
-  br i1 %333, label %334, label %345
+  br i1 %333, label %334, label %349
 
 334:                                              ; preds = %331
-  switch i32 %254, label %343 [
+  switch i32 %254, label %347 [
     i32 40, label %335
-    i32 44, label %337
-    i32 41, label %339
-    i32 105, label %341
+    i32 44, label %338
+    i32 41, label %341
+    i32 105, label %344
   ]
 
 335:                                              ; preds = %334
   %bcmp254.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(40) %.2293.i, ptr noundef nonnull dereferenceable(40) @.str.9, i64 40)
   %336 = icmp eq i32 %bcmp254.i, 0
-  br i1 %336, label %.sink.split.i, label %343
+  br i1 %336, label %337, label %347
 
-337:                                              ; preds = %334
+337:                                              ; preds = %335
+  store ptr %317, ptr %24, align 8
+  br label %347
+
+338:                                              ; preds = %334
   %bcmp255.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(44) %.2293.i, ptr noundef nonnull dereferenceable(44) @.str.10, i64 44)
-  %338 = icmp eq i32 %bcmp255.i, 0
-  br i1 %338, label %.sink.split.i, label %343
+  %339 = icmp eq i32 %bcmp255.i, 0
+  br i1 %339, label %340, label %347
 
-339:                                              ; preds = %334
-  %bcmp256.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(41) %.2293.i, ptr noundef nonnull dereferenceable(41) @.str.11, i64 41)
-  %340 = icmp eq i32 %bcmp256.i, 0
-  br i1 %340, label %.sink.split.i, label %343
+340:                                              ; preds = %338
+  store ptr %317, ptr %25, align 8
+  br label %347
 
 341:                                              ; preds = %334
+  %bcmp256.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(41) %.2293.i, ptr noundef nonnull dereferenceable(41) @.str.11, i64 41)
+  %342 = icmp eq i32 %bcmp256.i, 0
+  br i1 %342, label %343, label %347
+
+343:                                              ; preds = %341
+  store ptr %317, ptr %26, align 8
+  br label %347
+
+344:                                              ; preds = %334
   %bcmp257.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(105) %.2293.i, ptr noundef nonnull dereferenceable(105) @.str.12, i64 105)
-  %342 = icmp eq i32 %bcmp257.i, 0
-  br i1 %342, label %.sink.split.i, label %343
+  %345 = icmp eq i32 %bcmp257.i, 0
+  br i1 %345, label %346, label %347
 
-.sink.split.i:                                    ; preds = %341, %339, %337, %335
-  %.sink.i = phi ptr [ %24, %335 ], [ %25, %337 ], [ %26, %339 ], [ %27, %341 ]
-  store ptr %317, ptr %.sink.i, align 8
-  br label %343
+346:                                              ; preds = %344
+  store ptr %317, ptr %27, align 8
+  br label %347
 
-343:                                              ; preds = %.sink.split.i, %341, %339, %337, %335, %334
-  %344 = load ptr, ptr %18, align 8
-  store ptr %344, ptr %317, align 8
+347:                                              ; preds = %346, %344, %343, %341, %340, %338, %337, %335, %334
+  %348 = load ptr, ptr %18, align 8
+  store ptr %348, ptr %317, align 8
+  store ptr %317, ptr %18, align 8
   br label %.outer.i
 
-345:                                              ; preds = %331, %318
+349:                                              ; preds = %331, %318
   %.not253.i = icmp eq ptr %.1211.ph356.i, null
-  %..1211.ph356.i = select i1 %.not253.i, ptr %17, ptr %.1211.ph356.i
+  br i1 %.not253.i, label %351, label %350
+
+350:                                              ; preds = %349
+  store ptr %317, ptr %.1211.ph356.i, align 8
   br label %.outer.i
 
-.outer.i:                                         ; preds = %345, %343
-  %.1211.ph356.sink.i = phi ptr [ %18, %343 ], [ %..1211.ph356.i, %345 ]
-  %.2.i = phi ptr [ %.1211.ph356.i, %343 ], [ %317, %345 ]
-  store ptr %317, ptr %.1211.ph356.sink.i, align 8
+351:                                              ; preds = %349
+  store ptr %317, ptr %17, align 8
+  br label %.outer.i
+
+.outer.i:                                         ; preds = %351, %350, %347
+  %.2.i = phi ptr [ %.1211.ph356.i, %347 ], [ %317, %351 ], [ %317, %350 ]
   %.not247333.i = icmp eq i32 %243, 0
   br i1 %.not247333.i, label %read_encint.exit.thread.i, label %.preheader.lr.ph.i
 
@@ -1672,76 +1689,76 @@ read_encint.exit.thread.i:                        ; preds = %.outer.i, %.backedg
   %.1211.ph330.i = phi ptr [ %.0210.ph.i, %235 ], [ %.1211.ph356.i, %285 ], [ %.1211.ph356.i, %246 ], [ %.1211.ph356.i, %read_encint.exit.i ], [ %.1211.ph356.i, %255 ], [ %.1211.ph356.i, %read_encint.exit282.i ], [ %.1211.ph356.i, %.backedge.i ], [ %.2.i, %.outer.i ]
   %.0212318.i = phi i32 [ 0, %235 ], [ %.0212336.i, %285 ], [ %.0212336.i, %246 ], [ 0, %.backedge.i ], [ %.0212336.i, %read_encint.exit282.i ], [ %.0212336.i, %255 ], [ %.0212336.i, %read_encint.exit.i ], [ 0, %.outer.i ]
   %.2290.i = phi i32 [ %.0289.ph.i, %235 ], [ 1, %285 ], [ 1, %246 ], [ 0, %.backedge.i ], [ %.5.i, %read_encint.exit282.i ], [ 0, %255 ], [ %.1335.i, %read_encint.exit.i ], [ 0, %.outer.i ]
-  %346 = icmp sgt i32 %.0212318.i, 0
-  %347 = zext i1 %346 to i32
-  %spec.select.i = add i32 %.0208.ph.i, %347
+  %352 = icmp sgt i32 %.0212318.i, 0
+  %353 = zext i1 %352 to i32
+  %spec.select.i = add i32 %.0208.ph.i, %353
   br label %.outer309.i
 
-348:                                              ; preds = %214
-  %349 = getelementptr inbounds i8, ptr %8, i64 64
-  %350 = load ptr, ptr %349, align 8
-  call void %350(ptr noundef nonnull %207) #12
+354:                                              ; preds = %214
+  %355 = getelementptr inbounds i8, ptr %8, i64 64
+  %356 = load ptr, ptr %355, align 8
+  call void %356(ptr noundef nonnull %207) #12
   %.not244.i = icmp eq i32 %.0208.ph.i, 0
-  br i1 %.not244.i, label %chmd_read_headers.exit, label %353
+  br i1 %.not244.i, label %chmd_read_headers.exit, label %359
 
 chmd_read_headers.exit.thread.sink.split:         ; preds = %216, %313
   %.0.i.ph.ph = phi i32 [ 6, %313 ], [ 3, %216 ]
-  %351 = getelementptr inbounds i8, ptr %8, i64 64
-  %352 = load ptr, ptr %351, align 8
-  call void %352(ptr noundef nonnull %207) #12
+  %357 = getelementptr inbounds i8, ptr %8, i64 64
+  %358 = load ptr, ptr %357, align 8
+  call void %358(ptr noundef nonnull %207) #12
   br label %chmd_read_headers.exit.thread
 
 chmd_read_headers.exit.thread:                    ; preds = %chmd_read_headers.exit.thread.sink.split, %15, %31, %33, %75, %78, %88, %110, %114, %194, %201
   %.0.i.ph = phi i32 [ 6, %201 ], [ 5, %194 ], [ 3, %114 ], [ 5, %110 ], [ 3, %88 ], [ 5, %78 ], [ 3, %75 ], [ 7, %33 ], [ 7, %31 ], [ 3, %15 ], [ %.0.i.ph.ph, %chmd_read_headers.exit.thread.sink.split ]
   call void @llvm.lifetime.end.p0(i64 84, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %360
+  br label %366
 
-chmd_read_headers.exit:                           ; preds = %348, %192
+chmd_read_headers.exit:                           ; preds = %354, %192
   call void @llvm.lifetime.end.p0(i64 84, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %361
+  br label %367
 
-353:                                              ; preds = %348, %164, %169, %181, %190
+359:                                              ; preds = %354, %164, %169, %181, %190
   call void @llvm.lifetime.end.p0(i64 84, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %354 = load ptr, ptr %17, align 8
-  %.not40 = icmp eq ptr %354, null
-  br i1 %.not40, label %355, label %357
+  %360 = load ptr, ptr %17, align 8
+  %.not40 = icmp eq ptr %360, null
+  br i1 %.not40, label %361, label %363
 
-355:                                              ; preds = %353
-  %356 = load ptr, ptr %18, align 8
-  %.not41 = icmp eq ptr %356, null
-  br i1 %.not41, label %360, label %357
+361:                                              ; preds = %359
+  %362 = load ptr, ptr %18, align 8
+  %.not41 = icmp eq ptr %362, null
+  br i1 %.not41, label %366, label %363
 
-357:                                              ; preds = %355, %353
-  %358 = getelementptr inbounds i8, ptr %8, i64 48
-  %359 = load ptr, ptr %358, align 8
-  call void (ptr, ptr, ...) %359(ptr noundef nonnull %10, ptr noundef nonnull @.str) #12
-  br label %361
+363:                                              ; preds = %361, %359
+  %364 = getelementptr inbounds i8, ptr %8, i64 48
+  %365 = load ptr, ptr %364, align 8
+  call void (ptr, ptr, ...) %365(ptr noundef nonnull %10, ptr noundef nonnull @.str) #12
+  br label %367
 
-360:                                              ; preds = %chmd_read_headers.exit.thread, %355
-  %.0.i43 = phi i32 [ %.0.i.ph, %chmd_read_headers.exit.thread ], [ 8, %355 ]
+366:                                              ; preds = %chmd_read_headers.exit.thread, %361
+  %.0.i43 = phi i32 [ %.0.i.ph, %chmd_read_headers.exit.thread ], [ 8, %361 ]
   call void @chmd_close(ptr noundef nonnull %0, ptr noundef nonnull %14)
-  br label %361
-
-361:                                              ; preds = %11, %360, %357, %chmd_read_headers.exit
-  %.sink = phi i32 [ 0, %357 ], [ %.0.i43, %360 ], [ 0, %chmd_read_headers.exit ], [ 6, %11 ]
-  %.1 = phi ptr [ %14, %357 ], [ null, %360 ], [ %14, %chmd_read_headers.exit ], [ null, %11 ]
-  %362 = getelementptr inbounds i8, ptr %0, i64 64
-  store i32 %.sink, ptr %362, align 8
-  %363 = getelementptr inbounds i8, ptr %8, i64 8
-  %364 = load ptr, ptr %363, align 8
-  call void %364(ptr noundef nonnull %10) #12
   br label %367
 
-365:                                              ; preds = %6
-  %366 = getelementptr inbounds i8, ptr %0, i64 64
-  store i32 2, ptr %366, align 8
-  br label %367
+367:                                              ; preds = %11, %366, %363, %chmd_read_headers.exit
+  %.sink = phi i32 [ 0, %363 ], [ %.0.i43, %366 ], [ 0, %chmd_read_headers.exit ], [ 6, %11 ]
+  %.1 = phi ptr [ %14, %363 ], [ null, %366 ], [ %14, %chmd_read_headers.exit ], [ null, %11 ]
+  %368 = getelementptr inbounds i8, ptr %0, i64 64
+  store i32 %.sink, ptr %368, align 8
+  %369 = getelementptr inbounds i8, ptr %8, i64 8
+  %370 = load ptr, ptr %369, align 8
+  call void %370(ptr noundef nonnull %10) #12
+  br label %373
 
-367:                                              ; preds = %361, %365, %3
-  %.029 = phi ptr [ null, %3 ], [ %.1, %361 ], [ null, %365 ]
+371:                                              ; preds = %6
+  %372 = getelementptr inbounds i8, ptr %0, i64 64
+  store i32 2, ptr %372, align 8
+  br label %373
+
+373:                                              ; preds = %367, %371, %3
+  %.029 = phi ptr [ null, %3 ], [ %.1, %367 ], [ null, %371 ]
   ret ptr %.029
 }
 

@@ -7824,25 +7824,25 @@ define hidden void @_ZNK5osgeo4proj2cs13EllipsoidalCS16alterAngularUnitERKNS0_6c
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
   %18 = icmp eq i64 %17, 32
-  br i1 %18, label %19, label %99
+  br i1 %18, label %19, label %100
 
 19:                                               ; preds = %3
   call void @_ZN5osgeo4proj4util11PropertyMapC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4)
   %20 = load ptr, ptr %11, align 8
   %21 = load ptr, ptr %20, align 8
   invoke void @_ZNK5osgeo4proj2cs20CoordinateSystemAxis9alterUnitERKNS0_6common13UnitOfMeasureE(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.67") align 8 %5, ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %22 unwind label %92
+          to label %22 unwind label %93
 
 22:                                               ; preds = %19
   %23 = load ptr, ptr %11, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   invoke void @_ZNK5osgeo4proj2cs20CoordinateSystemAxis9alterUnitERKNS0_6common13UnitOfMeasureE(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.67") align 8 %6, ptr noundef nonnull align 8 dereferenceable(56) %25, ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %26 unwind label %94
+          to label %26 unwind label %95
 
 26:                                               ; preds = %22
   invoke void @_ZN5osgeo4proj2cs13EllipsoidalCS6createERKNS0_4util11PropertyMapERKN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESF_(ptr dead_on_unwind writable sret(%"class.dropbox::oxygen::nn.103") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6)
-          to label %27 unwind label %96
+          to label %27 unwind label %97
 
 27:                                               ; preds = %26
   %28 = getelementptr inbounds i8, ptr %6, i64 8
@@ -7929,275 +7929,281 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2E
   %68 = load atomic i64, ptr %67 acquire, align 8
   %69 = icmp eq i64 %68, 4294967297
   %70 = trunc i64 %68 to i32
-  br i1 %69, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit29.sink.split.sink.split, label %71
+  br i1 %69, label %71, label %72
 
 71:                                               ; preds = %66
-  %72 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i24 = icmp eq i8 %72, 0
-  br i1 %.not.i.i.i.i.i24, label %75, label %73
+  store i32 0, ptr %67, align 8
+  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit29.sink.split.sink.split
 
-73:                                               ; preds = %71
-  %74 = add nsw i32 %70, -1
-  store i32 %74, ptr %67, align 4
-  br label %77
+72:                                               ; preds = %66
+  %73 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i24 = icmp eq i8 %73, 0
+  br i1 %.not.i.i.i.i.i24, label %76, label %74
 
-75:                                               ; preds = %71
-  %76 = atomicrmw volatile add ptr %67, i32 -1 acq_rel, align 4
-  br label %77
+74:                                               ; preds = %72
+  %75 = add nsw i32 %70, -1
+  store i32 %75, ptr %67, align 4
+  br label %78
 
-77:                                               ; preds = %75, %73
-  %.0.i.i.i.i.i25 = phi i32 [ %70, %73 ], [ %76, %75 ]
-  %78 = icmp eq i32 %.0.i.i.i.i.i25, 1
-  br i1 %78, label %79, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit29
+76:                                               ; preds = %72
+  %77 = atomicrmw volatile add ptr %67, i32 -1 acq_rel, align 4
+  br label %78
 
-79:                                               ; preds = %77
-  %80 = load ptr, ptr %65, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 16
-  %82 = load ptr, ptr %81, align 8
-  call void %82(ptr noundef nonnull align 8 dereferenceable(16) %65) #26
-  %83 = getelementptr inbounds i8, ptr %65, i64 12
-  %84 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i26 = icmp eq i8 %84, 0
-  br i1 %.not.i.i.i.i.i.i.i26, label %88, label %85
+78:                                               ; preds = %76, %74
+  %.0.i.i.i.i.i25 = phi i32 [ %70, %74 ], [ %77, %76 ]
+  %79 = icmp eq i32 %.0.i.i.i.i.i25, 1
+  br i1 %79, label %80, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit29
 
-85:                                               ; preds = %79
-  %86 = load i32, ptr %83, align 4
-  %87 = add nsw i32 %86, -1
-  store i32 %87, ptr %83, align 4
-  br label %90
+80:                                               ; preds = %78
+  %81 = load ptr, ptr %65, align 8
+  %82 = getelementptr inbounds i8, ptr %81, i64 16
+  %83 = load ptr, ptr %82, align 8
+  call void %83(ptr noundef nonnull align 8 dereferenceable(16) %65) #26
+  %84 = getelementptr inbounds i8, ptr %65, i64 12
+  %85 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i26 = icmp eq i8 %85, 0
+  br i1 %.not.i.i.i.i.i.i.i26, label %89, label %86
 
-88:                                               ; preds = %79
-  %89 = atomicrmw volatile add ptr %83, i32 -1 acq_rel, align 4
-  br label %90
+86:                                               ; preds = %80
+  %87 = load i32, ptr %84, align 4
+  %88 = add nsw i32 %87, -1
+  store i32 %88, ptr %84, align 4
+  br label %91
 
-90:                                               ; preds = %88, %85
-  %.0.i.i.i.i.i.i.i27 = phi i32 [ %86, %85 ], [ %89, %88 ]
-  %91 = icmp eq i32 %.0.i.i.i.i.i.i.i27, 1
-  br i1 %91, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit29.sink.split, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit29
+89:                                               ; preds = %80
+  %90 = atomicrmw volatile add ptr %84, i32 -1 acq_rel, align 4
+  br label %91
 
-92:                                               ; preds = %19
-  %93 = landingpad { ptr, i32 }
+91:                                               ; preds = %89, %86
+  %.0.i.i.i.i.i.i.i27 = phi i32 [ %87, %86 ], [ %90, %89 ]
+  %92 = icmp eq i32 %.0.i.i.i.i.i.i.i27, 1
+  br i1 %92, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit29.sink.split, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit29
+
+93:                                               ; preds = %19
+  %94 = landingpad { ptr, i32 }
           cleanup
-  br label %188
+  br label %190
 
-94:                                               ; preds = %22
-  %95 = landingpad { ptr, i32 }
+95:                                               ; preds = %22
+  %96 = landingpad { ptr, i32 }
           cleanup
-  br label %98
+  br label %99
 
-96:                                               ; preds = %26
-  %97 = landingpad { ptr, i32 }
+97:                                               ; preds = %26
+  %98 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #26
-  br label %98
+  br label %99
 
-98:                                               ; preds = %96, %94
-  %.pn19 = phi { ptr, i32 } [ %97, %96 ], [ %95, %94 ]
+99:                                               ; preds = %97, %95
+  %.pn19 = phi { ptr, i32 } [ %98, %97 ], [ %96, %95 ]
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #26
-  br label %188
+  br label %190
 
-99:                                               ; preds = %3
+100:                                              ; preds = %3
   call void @_ZN5osgeo4proj4util11PropertyMapC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  %100 = load ptr, ptr %11, align 8
-  %101 = load ptr, ptr %100, align 8
-  invoke void @_ZNK5osgeo4proj2cs20CoordinateSystemAxis9alterUnitERKNS0_6common13UnitOfMeasureE(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.67") align 8 %8, ptr noundef nonnull align 8 dereferenceable(56) %101, ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %102 unwind label %174
+  %101 = load ptr, ptr %11, align 8
+  %102 = load ptr, ptr %101, align 8
+  invoke void @_ZNK5osgeo4proj2cs20CoordinateSystemAxis9alterUnitERKNS0_6common13UnitOfMeasureE(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.67") align 8 %8, ptr noundef nonnull align 8 dereferenceable(56) %102, ptr noundef nonnull align 8 dereferenceable(24) %2)
+          to label %103 unwind label %176
 
-102:                                              ; preds = %99
-  %103 = load ptr, ptr %11, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 16
-  %105 = load ptr, ptr %104, align 8
-  invoke void @_ZNK5osgeo4proj2cs20CoordinateSystemAxis9alterUnitERKNS0_6common13UnitOfMeasureE(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.67") align 8 %9, ptr noundef nonnull align 8 dereferenceable(56) %105, ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %106 unwind label %176
+103:                                              ; preds = %100
+  %104 = load ptr, ptr %11, align 8
+  %105 = getelementptr inbounds i8, ptr %104, i64 16
+  %106 = load ptr, ptr %105, align 8
+  invoke void @_ZNK5osgeo4proj2cs20CoordinateSystemAxis9alterUnitERKNS0_6common13UnitOfMeasureE(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.67") align 8 %9, ptr noundef nonnull align 8 dereferenceable(56) %106, ptr noundef nonnull align 8 dereferenceable(24) %2)
+          to label %107 unwind label %178
 
-106:                                              ; preds = %102
-  %107 = load ptr, ptr %11, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 32
-  invoke void @_ZN5osgeo4proj2cs13EllipsoidalCS6createERKNS0_4util11PropertyMapERKN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESF_SF_(ptr dead_on_unwind writable sret(%"class.dropbox::oxygen::nn.103") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %108)
-          to label %109 unwind label %178
+107:                                              ; preds = %103
+  %108 = load ptr, ptr %11, align 8
+  %109 = getelementptr inbounds i8, ptr %108, i64 32
+  invoke void @_ZN5osgeo4proj2cs13EllipsoidalCS6createERKNS0_4util11PropertyMapERKN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESF_SF_(ptr dead_on_unwind writable sret(%"class.dropbox::oxygen::nn.103") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %109)
+          to label %110 unwind label %180
 
-109:                                              ; preds = %106
-  %110 = getelementptr inbounds i8, ptr %9, i64 8
-  %111 = load ptr, ptr %110, align 8
-  %.not.i.i.i.i30 = icmp eq ptr %111, null
-  br i1 %.not.i.i.i.i30, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit36, label %112
+110:                                              ; preds = %107
+  %111 = getelementptr inbounds i8, ptr %9, i64 8
+  %112 = load ptr, ptr %111, align 8
+  %.not.i.i.i.i30 = icmp eq ptr %112, null
+  br i1 %.not.i.i.i.i30, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit36, label %113
 
-112:                                              ; preds = %109
-  %113 = getelementptr inbounds i8, ptr %111, i64 8
-  %114 = load atomic i64, ptr %113 acquire, align 8
-  %115 = icmp eq i64 %114, 4294967297
-  %116 = trunc i64 %114 to i32
-  br i1 %115, label %117, label %122
+113:                                              ; preds = %110
+  %114 = getelementptr inbounds i8, ptr %112, i64 8
+  %115 = load atomic i64, ptr %114 acquire, align 8
+  %116 = icmp eq i64 %115, 4294967297
+  %117 = trunc i64 %115 to i32
+  br i1 %116, label %118, label %123
 
-117:                                              ; preds = %112
-  store i32 0, ptr %113, align 8
-  %118 = getelementptr inbounds i8, ptr %111, i64 12
-  store i32 0, ptr %118, align 4
-  %119 = load ptr, ptr %111, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 16
-  %121 = load ptr, ptr %120, align 8
-  call void %121(ptr noundef nonnull align 8 dereferenceable(16) %111) #26
+118:                                              ; preds = %113
+  store i32 0, ptr %114, align 8
+  %119 = getelementptr inbounds i8, ptr %112, i64 12
+  store i32 0, ptr %119, align 4
+  %120 = load ptr, ptr %112, align 8
+  %121 = getelementptr inbounds i8, ptr %120, i64 16
+  %122 = load ptr, ptr %121, align 8
+  call void %122(ptr noundef nonnull align 8 dereferenceable(16) %112) #26
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i35
 
-122:                                              ; preds = %112
-  %123 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i31 = icmp eq i8 %123, 0
-  br i1 %.not.i.i.i.i.i31, label %126, label %124
+123:                                              ; preds = %113
+  %124 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i31 = icmp eq i8 %124, 0
+  br i1 %.not.i.i.i.i.i31, label %127, label %125
 
-124:                                              ; preds = %122
-  %125 = add nsw i32 %116, -1
-  store i32 %125, ptr %113, align 4
-  br label %128
+125:                                              ; preds = %123
+  %126 = add nsw i32 %117, -1
+  store i32 %126, ptr %114, align 4
+  br label %129
 
-126:                                              ; preds = %122
-  %127 = atomicrmw volatile add ptr %113, i32 -1 acq_rel, align 4
-  br label %128
+127:                                              ; preds = %123
+  %128 = atomicrmw volatile add ptr %114, i32 -1 acq_rel, align 4
+  br label %129
 
-128:                                              ; preds = %126, %124
-  %.0.i.i.i.i.i32 = phi i32 [ %116, %124 ], [ %127, %126 ]
-  %129 = icmp eq i32 %.0.i.i.i.i.i32, 1
-  br i1 %129, label %130, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit36
+129:                                              ; preds = %127, %125
+  %.0.i.i.i.i.i32 = phi i32 [ %117, %125 ], [ %128, %127 ]
+  %130 = icmp eq i32 %.0.i.i.i.i.i32, 1
+  br i1 %130, label %131, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit36
 
-130:                                              ; preds = %128
-  %131 = load ptr, ptr %111, align 8
-  %132 = getelementptr inbounds i8, ptr %131, i64 16
-  %133 = load ptr, ptr %132, align 8
-  call void %133(ptr noundef nonnull align 8 dereferenceable(16) %111) #26
-  %134 = getelementptr inbounds i8, ptr %111, i64 12
-  %135 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i33 = icmp eq i8 %135, 0
-  br i1 %.not.i.i.i.i.i.i.i33, label %139, label %136
+131:                                              ; preds = %129
+  %132 = load ptr, ptr %112, align 8
+  %133 = getelementptr inbounds i8, ptr %132, i64 16
+  %134 = load ptr, ptr %133, align 8
+  call void %134(ptr noundef nonnull align 8 dereferenceable(16) %112) #26
+  %135 = getelementptr inbounds i8, ptr %112, i64 12
+  %136 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i33 = icmp eq i8 %136, 0
+  br i1 %.not.i.i.i.i.i.i.i33, label %140, label %137
 
-136:                                              ; preds = %130
-  %137 = load i32, ptr %134, align 4
-  %138 = add nsw i32 %137, -1
-  store i32 %138, ptr %134, align 4
-  br label %141
+137:                                              ; preds = %131
+  %138 = load i32, ptr %135, align 4
+  %139 = add nsw i32 %138, -1
+  store i32 %139, ptr %135, align 4
+  br label %142
 
-139:                                              ; preds = %130
-  %140 = atomicrmw volatile add ptr %134, i32 -1 acq_rel, align 4
-  br label %141
+140:                                              ; preds = %131
+  %141 = atomicrmw volatile add ptr %135, i32 -1 acq_rel, align 4
+  br label %142
 
-141:                                              ; preds = %139, %136
-  %.0.i.i.i.i.i.i.i34 = phi i32 [ %137, %136 ], [ %140, %139 ]
-  %142 = icmp eq i32 %.0.i.i.i.i.i.i.i34, 1
-  br i1 %142, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i35, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit36
+142:                                              ; preds = %140, %137
+  %.0.i.i.i.i.i.i.i34 = phi i32 [ %138, %137 ], [ %141, %140 ]
+  %143 = icmp eq i32 %.0.i.i.i.i.i.i.i34, 1
+  br i1 %143, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i35, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit36
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i35: ; preds = %141, %117
-  %143 = load ptr, ptr %111, align 8
-  %144 = getelementptr inbounds i8, ptr %143, i64 24
-  %145 = load ptr, ptr %144, align 8
-  call void %145(ptr noundef nonnull align 8 dereferenceable(16) %111) #26
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i35: ; preds = %142, %118
+  %144 = load ptr, ptr %112, align 8
+  %145 = getelementptr inbounds i8, ptr %144, i64 24
+  %146 = load ptr, ptr %145, align 8
+  call void %146(ptr noundef nonnull align 8 dereferenceable(16) %112) #26
   br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit36
 
-_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit36: ; preds = %109, %128, %141, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i35
-  %146 = getelementptr inbounds i8, ptr %8, i64 8
-  %147 = load ptr, ptr %146, align 8
-  %.not.i.i.i.i37 = icmp eq ptr %147, null
-  br i1 %.not.i.i.i.i37, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit29, label %148
+_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit36: ; preds = %110, %129, %142, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i35
+  %147 = getelementptr inbounds i8, ptr %8, i64 8
+  %148 = load ptr, ptr %147, align 8
+  %.not.i.i.i.i37 = icmp eq ptr %148, null
+  br i1 %.not.i.i.i.i37, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit29, label %149
 
-148:                                              ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit36
-  %149 = getelementptr inbounds i8, ptr %147, i64 8
-  %150 = load atomic i64, ptr %149 acquire, align 8
-  %151 = icmp eq i64 %150, 4294967297
-  %152 = trunc i64 %150 to i32
-  br i1 %151, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit29.sink.split.sink.split, label %153
+149:                                              ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit36
+  %150 = getelementptr inbounds i8, ptr %148, i64 8
+  %151 = load atomic i64, ptr %150 acquire, align 8
+  %152 = icmp eq i64 %151, 4294967297
+  %153 = trunc i64 %151 to i32
+  br i1 %152, label %154, label %155
 
-153:                                              ; preds = %148
-  %154 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i38 = icmp eq i8 %154, 0
-  br i1 %.not.i.i.i.i.i38, label %157, label %155
+154:                                              ; preds = %149
+  store i32 0, ptr %150, align 8
+  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit29.sink.split.sink.split
 
-155:                                              ; preds = %153
-  %156 = add nsw i32 %152, -1
-  store i32 %156, ptr %149, align 4
-  br label %159
+155:                                              ; preds = %149
+  %156 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i38 = icmp eq i8 %156, 0
+  br i1 %.not.i.i.i.i.i38, label %159, label %157
 
-157:                                              ; preds = %153
-  %158 = atomicrmw volatile add ptr %149, i32 -1 acq_rel, align 4
-  br label %159
+157:                                              ; preds = %155
+  %158 = add nsw i32 %153, -1
+  store i32 %158, ptr %150, align 4
+  br label %161
 
-159:                                              ; preds = %157, %155
-  %.0.i.i.i.i.i39 = phi i32 [ %152, %155 ], [ %158, %157 ]
-  %160 = icmp eq i32 %.0.i.i.i.i.i39, 1
-  br i1 %160, label %161, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit29
+159:                                              ; preds = %155
+  %160 = atomicrmw volatile add ptr %150, i32 -1 acq_rel, align 4
+  br label %161
 
-161:                                              ; preds = %159
-  %162 = load ptr, ptr %147, align 8
-  %163 = getelementptr inbounds i8, ptr %162, i64 16
-  %164 = load ptr, ptr %163, align 8
-  call void %164(ptr noundef nonnull align 8 dereferenceable(16) %147) #26
-  %165 = getelementptr inbounds i8, ptr %147, i64 12
-  %166 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i40 = icmp eq i8 %166, 0
-  br i1 %.not.i.i.i.i.i.i.i40, label %170, label %167
+161:                                              ; preds = %159, %157
+  %.0.i.i.i.i.i39 = phi i32 [ %153, %157 ], [ %160, %159 ]
+  %162 = icmp eq i32 %.0.i.i.i.i.i39, 1
+  br i1 %162, label %163, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit29
 
-167:                                              ; preds = %161
-  %168 = load i32, ptr %165, align 4
-  %169 = add nsw i32 %168, -1
-  store i32 %169, ptr %165, align 4
-  br label %172
+163:                                              ; preds = %161
+  %164 = load ptr, ptr %148, align 8
+  %165 = getelementptr inbounds i8, ptr %164, i64 16
+  %166 = load ptr, ptr %165, align 8
+  call void %166(ptr noundef nonnull align 8 dereferenceable(16) %148) #26
+  %167 = getelementptr inbounds i8, ptr %148, i64 12
+  %168 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i40 = icmp eq i8 %168, 0
+  br i1 %.not.i.i.i.i.i.i.i40, label %172, label %169
 
-170:                                              ; preds = %161
-  %171 = atomicrmw volatile add ptr %165, i32 -1 acq_rel, align 4
-  br label %172
+169:                                              ; preds = %163
+  %170 = load i32, ptr %167, align 4
+  %171 = add nsw i32 %170, -1
+  store i32 %171, ptr %167, align 4
+  br label %174
 
-172:                                              ; preds = %170, %167
-  %.0.i.i.i.i.i.i.i41 = phi i32 [ %168, %167 ], [ %171, %170 ]
-  %173 = icmp eq i32 %.0.i.i.i.i.i.i.i41, 1
-  br i1 %173, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit29.sink.split, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit29
+172:                                              ; preds = %163
+  %173 = atomicrmw volatile add ptr %167, i32 -1 acq_rel, align 4
+  br label %174
 
-174:                                              ; preds = %99
-  %175 = landingpad { ptr, i32 }
-          cleanup
-  br label %188
+174:                                              ; preds = %172, %169
+  %.0.i.i.i.i.i.i.i41 = phi i32 [ %170, %169 ], [ %173, %172 ]
+  %175 = icmp eq i32 %.0.i.i.i.i.i.i.i41, 1
+  br i1 %175, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit29.sink.split, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit29
 
-176:                                              ; preds = %102
+176:                                              ; preds = %100
   %177 = landingpad { ptr, i32 }
           cleanup
-  br label %180
+  br label %190
 
-178:                                              ; preds = %106
+178:                                              ; preds = %103
   %179 = landingpad { ptr, i32 }
           cleanup
+  br label %182
+
+180:                                              ; preds = %107
+  %181 = landingpad { ptr, i32 }
+          cleanup
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #26
-  br label %180
+  br label %182
 
-180:                                              ; preds = %178, %176
-  %.pn = phi { ptr, i32 } [ %179, %178 ], [ %177, %176 ]
+182:                                              ; preds = %180, %178
+  %.pn = phi { ptr, i32 } [ %181, %180 ], [ %179, %178 ]
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #26
-  br label %188
+  br label %190
 
-_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit29.sink.split.sink.split: ; preds = %148, %66
-  %.sink57 = phi ptr [ %67, %66 ], [ %149, %148 ]
-  %.sink56 = phi ptr [ %65, %66 ], [ %147, %148 ]
-  %.sink.ph.ph = phi ptr [ %4, %66 ], [ %7, %148 ]
-  store i32 0, ptr %.sink57, align 8
-  %181 = getelementptr inbounds i8, ptr %.sink56, i64 12
-  store i32 0, ptr %181, align 4
-  %182 = load ptr, ptr %.sink56, align 8
-  %183 = getelementptr inbounds i8, ptr %182, i64 16
-  %184 = load ptr, ptr %183, align 8
-  call void %184(ptr noundef nonnull align 8 dereferenceable(16) %.sink56) #26
+_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit29.sink.split.sink.split: ; preds = %71, %154
+  %.sink56 = phi ptr [ %148, %154 ], [ %65, %71 ]
+  %.sink.ph.ph = phi ptr [ %7, %154 ], [ %4, %71 ]
+  %183 = getelementptr inbounds i8, ptr %.sink56, i64 12
+  store i32 0, ptr %183, align 4
+  %184 = load ptr, ptr %.sink56, align 8
+  %185 = getelementptr inbounds i8, ptr %184, i64 16
+  %186 = load ptr, ptr %185, align 8
+  call void %186(ptr noundef nonnull align 8 dereferenceable(16) %.sink56) #26
   br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit29.sink.split
 
-_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit29.sink.split: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit29.sink.split.sink.split, %172, %90
-  %.sink49 = phi ptr [ %65, %90 ], [ %147, %172 ], [ %.sink56, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit29.sink.split.sink.split ]
-  %.sink.ph = phi ptr [ %4, %90 ], [ %7, %172 ], [ %.sink.ph.ph, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit29.sink.split.sink.split ]
-  %185 = load ptr, ptr %.sink49, align 8
-  %186 = getelementptr inbounds i8, ptr %185, i64 24
-  %187 = load ptr, ptr %186, align 8
-  call void %187(ptr noundef nonnull align 8 dereferenceable(16) %.sink49) #26
+_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit29.sink.split: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit29.sink.split.sink.split, %174, %91
+  %.sink49 = phi ptr [ %65, %91 ], [ %148, %174 ], [ %.sink56, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit29.sink.split.sink.split ]
+  %.sink.ph = phi ptr [ %4, %91 ], [ %7, %174 ], [ %.sink.ph.ph, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit29.sink.split.sink.split ]
+  %187 = load ptr, ptr %.sink49, align 8
+  %188 = getelementptr inbounds i8, ptr %187, i64 24
+  %189 = load ptr, ptr %188, align 8
+  call void %189(ptr noundef nonnull align 8 dereferenceable(16) %.sink49) #26
   br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit29
 
-_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit29: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit29.sink.split, %172, %159, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit36, %90, %77, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit
-  %.sink = phi ptr [ %4, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit ], [ %4, %77 ], [ %4, %90 ], [ %7, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit36 ], [ %7, %159 ], [ %7, %172 ], [ %.sink.ph, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit29.sink.split ]
+_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit29: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit29.sink.split, %174, %161, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit36, %91, %78, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit
+  %.sink = phi ptr [ %4, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit ], [ %4, %78 ], [ %4, %91 ], [ %7, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit36 ], [ %7, %161 ], [ %7, %174 ], [ %.sink.ph, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit29.sink.split ]
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #26
   ret void
 
-188:                                              ; preds = %174, %180, %92, %98
-  %.sink44 = phi ptr [ %4, %98 ], [ %4, %92 ], [ %7, %180 ], [ %7, %174 ]
-  %.pn19.pn.pn = phi { ptr, i32 } [ %.pn19, %98 ], [ %93, %92 ], [ %.pn, %180 ], [ %175, %174 ]
+190:                                              ; preds = %176, %182, %93, %99
+  %.sink44 = phi ptr [ %4, %99 ], [ %4, %93 ], [ %7, %182 ], [ %7, %176 ]
+  %.pn19.pn.pn = phi { ptr, i32 } [ %.pn19, %99 ], [ %94, %93 ], [ %.pn, %182 ], [ %177, %176 ]
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink44) #26
   resume { ptr, i32 } %.pn19.pn.pn
 }
@@ -13022,25 +13028,25 @@ define hidden void @_ZNK5osgeo4proj2cs11CartesianCS9alterUnitERKNS0_6common13Uni
   %17 = ptrtoint ptr %15 to i64
   %18 = sub i64 %16, %17
   %19 = icmp eq i64 %18, 32
-  br i1 %19, label %20, label %100
+  br i1 %19, label %20, label %101
 
 20:                                               ; preds = %3
   call void @_ZN5osgeo4proj4util11PropertyMapC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4)
   %21 = load ptr, ptr %12, align 8
   %22 = load ptr, ptr %21, align 8
   invoke void @_ZNK5osgeo4proj2cs20CoordinateSystemAxis9alterUnitERKNS0_6common13UnitOfMeasureE(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.67") align 8 %5, ptr noundef nonnull align 8 dereferenceable(56) %22, ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %23 unwind label %93
+          to label %23 unwind label %94
 
 23:                                               ; preds = %20
   %24 = load ptr, ptr %12, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
   invoke void @_ZNK5osgeo4proj2cs20CoordinateSystemAxis9alterUnitERKNS0_6common13UnitOfMeasureE(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.67") align 8 %6, ptr noundef nonnull align 8 dereferenceable(56) %26, ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %27 unwind label %95
+          to label %27 unwind label %96
 
 27:                                               ; preds = %23
   invoke void @_ZN5osgeo4proj2cs11CartesianCS6createERKNS0_4util11PropertyMapERKN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESF_(ptr dead_on_unwind writable sret(%"class.dropbox::oxygen::nn.111") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6)
-          to label %28 unwind label %97
+          to label %28 unwind label %98
 
 28:                                               ; preds = %27
   %29 = getelementptr inbounds i8, ptr %6, i64 8
@@ -13127,364 +13133,370 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2E
   %69 = load atomic i64, ptr %68 acquire, align 8
   %70 = icmp eq i64 %69, 4294967297
   %71 = trunc i64 %69 to i32
-  br i1 %70, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32.sink.split.sink.split, label %72
+  br i1 %70, label %72, label %73
 
 72:                                               ; preds = %67
-  %73 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i27 = icmp eq i8 %73, 0
-  br i1 %.not.i.i.i.i.i27, label %76, label %74
+  store i32 0, ptr %68, align 8
+  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32.sink.split.sink.split
 
-74:                                               ; preds = %72
-  %75 = add nsw i32 %71, -1
-  store i32 %75, ptr %68, align 4
-  br label %78
+73:                                               ; preds = %67
+  %74 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i27 = icmp eq i8 %74, 0
+  br i1 %.not.i.i.i.i.i27, label %77, label %75
 
-76:                                               ; preds = %72
-  %77 = atomicrmw volatile add ptr %68, i32 -1 acq_rel, align 4
-  br label %78
+75:                                               ; preds = %73
+  %76 = add nsw i32 %71, -1
+  store i32 %76, ptr %68, align 4
+  br label %79
 
-78:                                               ; preds = %76, %74
-  %.0.i.i.i.i.i28 = phi i32 [ %71, %74 ], [ %77, %76 ]
-  %79 = icmp eq i32 %.0.i.i.i.i.i28, 1
-  br i1 %79, label %80, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32
+77:                                               ; preds = %73
+  %78 = atomicrmw volatile add ptr %68, i32 -1 acq_rel, align 4
+  br label %79
 
-80:                                               ; preds = %78
-  %81 = load ptr, ptr %66, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 16
-  %83 = load ptr, ptr %82, align 8
-  call void %83(ptr noundef nonnull align 8 dereferenceable(16) %66) #26
-  %84 = getelementptr inbounds i8, ptr %66, i64 12
-  %85 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i29 = icmp eq i8 %85, 0
-  br i1 %.not.i.i.i.i.i.i.i29, label %89, label %86
+79:                                               ; preds = %77, %75
+  %.0.i.i.i.i.i28 = phi i32 [ %71, %75 ], [ %78, %77 ]
+  %80 = icmp eq i32 %.0.i.i.i.i.i28, 1
+  br i1 %80, label %81, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32
 
-86:                                               ; preds = %80
-  %87 = load i32, ptr %84, align 4
-  %88 = add nsw i32 %87, -1
-  store i32 %88, ptr %84, align 4
-  br label %91
+81:                                               ; preds = %79
+  %82 = load ptr, ptr %66, align 8
+  %83 = getelementptr inbounds i8, ptr %82, i64 16
+  %84 = load ptr, ptr %83, align 8
+  call void %84(ptr noundef nonnull align 8 dereferenceable(16) %66) #26
+  %85 = getelementptr inbounds i8, ptr %66, i64 12
+  %86 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i29 = icmp eq i8 %86, 0
+  br i1 %.not.i.i.i.i.i.i.i29, label %90, label %87
 
-89:                                               ; preds = %80
-  %90 = atomicrmw volatile add ptr %84, i32 -1 acq_rel, align 4
-  br label %91
+87:                                               ; preds = %81
+  %88 = load i32, ptr %85, align 4
+  %89 = add nsw i32 %88, -1
+  store i32 %89, ptr %85, align 4
+  br label %92
 
-91:                                               ; preds = %89, %86
-  %.0.i.i.i.i.i.i.i30 = phi i32 [ %87, %86 ], [ %90, %89 ]
-  %92 = icmp eq i32 %.0.i.i.i.i.i.i.i30, 1
-  br i1 %92, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32.sink.split, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32
+90:                                               ; preds = %81
+  %91 = atomicrmw volatile add ptr %85, i32 -1 acq_rel, align 4
+  br label %92
 
-93:                                               ; preds = %20
-  %94 = landingpad { ptr, i32 }
+92:                                               ; preds = %90, %87
+  %.0.i.i.i.i.i.i.i30 = phi i32 [ %88, %87 ], [ %91, %90 ]
+  %93 = icmp eq i32 %.0.i.i.i.i.i.i.i30, 1
+  br i1 %93, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32.sink.split, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32
+
+94:                                               ; preds = %20
+  %95 = landingpad { ptr, i32 }
           cleanup
-  br label %230
+  br label %232
 
-95:                                               ; preds = %23
-  %96 = landingpad { ptr, i32 }
+96:                                               ; preds = %23
+  %97 = landingpad { ptr, i32 }
           cleanup
-  br label %99
+  br label %100
 
-97:                                               ; preds = %27
-  %98 = landingpad { ptr, i32 }
+98:                                               ; preds = %27
+  %99 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #26
-  br label %99
+  br label %100
 
-99:                                               ; preds = %97, %95
-  %.pn22 = phi { ptr, i32 } [ %98, %97 ], [ %96, %95 ]
+100:                                              ; preds = %98, %96
+  %.pn22 = phi { ptr, i32 } [ %99, %98 ], [ %97, %96 ]
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #26
-  br label %230
+  br label %232
 
-100:                                              ; preds = %3
+101:                                              ; preds = %3
   call void @_ZN5osgeo4proj4util11PropertyMapC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  %101 = load ptr, ptr %12, align 8
-  %102 = load ptr, ptr %101, align 8
-  invoke void @_ZNK5osgeo4proj2cs20CoordinateSystemAxis9alterUnitERKNS0_6common13UnitOfMeasureE(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.67") align 8 %8, ptr noundef nonnull align 8 dereferenceable(56) %102, ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %103 unwind label %213
+  %102 = load ptr, ptr %12, align 8
+  %103 = load ptr, ptr %102, align 8
+  invoke void @_ZNK5osgeo4proj2cs20CoordinateSystemAxis9alterUnitERKNS0_6common13UnitOfMeasureE(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.67") align 8 %8, ptr noundef nonnull align 8 dereferenceable(56) %103, ptr noundef nonnull align 8 dereferenceable(24) %2)
+          to label %104 unwind label %215
 
-103:                                              ; preds = %100
-  %104 = load ptr, ptr %12, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 16
-  %106 = load ptr, ptr %105, align 8
-  invoke void @_ZNK5osgeo4proj2cs20CoordinateSystemAxis9alterUnitERKNS0_6common13UnitOfMeasureE(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.67") align 8 %9, ptr noundef nonnull align 8 dereferenceable(56) %106, ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %107 unwind label %215
+104:                                              ; preds = %101
+  %105 = load ptr, ptr %12, align 8
+  %106 = getelementptr inbounds i8, ptr %105, i64 16
+  %107 = load ptr, ptr %106, align 8
+  invoke void @_ZNK5osgeo4proj2cs20CoordinateSystemAxis9alterUnitERKNS0_6common13UnitOfMeasureE(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.67") align 8 %9, ptr noundef nonnull align 8 dereferenceable(56) %107, ptr noundef nonnull align 8 dereferenceable(24) %2)
+          to label %108 unwind label %217
 
-107:                                              ; preds = %103
-  %108 = load ptr, ptr %12, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 32
-  %110 = load ptr, ptr %109, align 8
-  invoke void @_ZNK5osgeo4proj2cs20CoordinateSystemAxis9alterUnitERKNS0_6common13UnitOfMeasureE(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.67") align 8 %10, ptr noundef nonnull align 8 dereferenceable(56) %110, ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %111 unwind label %217
-
-111:                                              ; preds = %107
-  invoke void @_ZN5osgeo4proj2cs11CartesianCS6createERKNS0_4util11PropertyMapERKN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESF_SF_(ptr dead_on_unwind writable sret(%"class.dropbox::oxygen::nn.111") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %10)
+108:                                              ; preds = %104
+  %109 = load ptr, ptr %12, align 8
+  %110 = getelementptr inbounds i8, ptr %109, i64 32
+  %111 = load ptr, ptr %110, align 8
+  invoke void @_ZNK5osgeo4proj2cs20CoordinateSystemAxis9alterUnitERKNS0_6common13UnitOfMeasureE(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.67") align 8 %10, ptr noundef nonnull align 8 dereferenceable(56) %111, ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %112 unwind label %219
 
-112:                                              ; preds = %111
-  %113 = getelementptr inbounds i8, ptr %10, i64 8
-  %114 = load ptr, ptr %113, align 8
-  %.not.i.i.i.i33 = icmp eq ptr %114, null
-  br i1 %.not.i.i.i.i33, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit39, label %115
+112:                                              ; preds = %108
+  invoke void @_ZN5osgeo4proj2cs11CartesianCS6createERKNS0_4util11PropertyMapERKN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESF_SF_(ptr dead_on_unwind writable sret(%"class.dropbox::oxygen::nn.111") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %10)
+          to label %113 unwind label %221
 
-115:                                              ; preds = %112
-  %116 = getelementptr inbounds i8, ptr %114, i64 8
-  %117 = load atomic i64, ptr %116 acquire, align 8
-  %118 = icmp eq i64 %117, 4294967297
-  %119 = trunc i64 %117 to i32
-  br i1 %118, label %120, label %125
+113:                                              ; preds = %112
+  %114 = getelementptr inbounds i8, ptr %10, i64 8
+  %115 = load ptr, ptr %114, align 8
+  %.not.i.i.i.i33 = icmp eq ptr %115, null
+  br i1 %.not.i.i.i.i33, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit39, label %116
 
-120:                                              ; preds = %115
-  store i32 0, ptr %116, align 8
-  %121 = getelementptr inbounds i8, ptr %114, i64 12
-  store i32 0, ptr %121, align 4
-  %122 = load ptr, ptr %114, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 16
-  %124 = load ptr, ptr %123, align 8
-  call void %124(ptr noundef nonnull align 8 dereferenceable(16) %114) #26
+116:                                              ; preds = %113
+  %117 = getelementptr inbounds i8, ptr %115, i64 8
+  %118 = load atomic i64, ptr %117 acquire, align 8
+  %119 = icmp eq i64 %118, 4294967297
+  %120 = trunc i64 %118 to i32
+  br i1 %119, label %121, label %126
+
+121:                                              ; preds = %116
+  store i32 0, ptr %117, align 8
+  %122 = getelementptr inbounds i8, ptr %115, i64 12
+  store i32 0, ptr %122, align 4
+  %123 = load ptr, ptr %115, align 8
+  %124 = getelementptr inbounds i8, ptr %123, i64 16
+  %125 = load ptr, ptr %124, align 8
+  call void %125(ptr noundef nonnull align 8 dereferenceable(16) %115) #26
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i38
 
-125:                                              ; preds = %115
-  %126 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i34 = icmp eq i8 %126, 0
-  br i1 %.not.i.i.i.i.i34, label %129, label %127
+126:                                              ; preds = %116
+  %127 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i34 = icmp eq i8 %127, 0
+  br i1 %.not.i.i.i.i.i34, label %130, label %128
 
-127:                                              ; preds = %125
-  %128 = add nsw i32 %119, -1
-  store i32 %128, ptr %116, align 4
-  br label %131
+128:                                              ; preds = %126
+  %129 = add nsw i32 %120, -1
+  store i32 %129, ptr %117, align 4
+  br label %132
 
-129:                                              ; preds = %125
-  %130 = atomicrmw volatile add ptr %116, i32 -1 acq_rel, align 4
-  br label %131
+130:                                              ; preds = %126
+  %131 = atomicrmw volatile add ptr %117, i32 -1 acq_rel, align 4
+  br label %132
 
-131:                                              ; preds = %129, %127
-  %.0.i.i.i.i.i35 = phi i32 [ %119, %127 ], [ %130, %129 ]
-  %132 = icmp eq i32 %.0.i.i.i.i.i35, 1
-  br i1 %132, label %133, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit39
+132:                                              ; preds = %130, %128
+  %.0.i.i.i.i.i35 = phi i32 [ %120, %128 ], [ %131, %130 ]
+  %133 = icmp eq i32 %.0.i.i.i.i.i35, 1
+  br i1 %133, label %134, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit39
 
-133:                                              ; preds = %131
-  %134 = load ptr, ptr %114, align 8
-  %135 = getelementptr inbounds i8, ptr %134, i64 16
-  %136 = load ptr, ptr %135, align 8
-  call void %136(ptr noundef nonnull align 8 dereferenceable(16) %114) #26
-  %137 = getelementptr inbounds i8, ptr %114, i64 12
-  %138 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i36 = icmp eq i8 %138, 0
-  br i1 %.not.i.i.i.i.i.i.i36, label %142, label %139
+134:                                              ; preds = %132
+  %135 = load ptr, ptr %115, align 8
+  %136 = getelementptr inbounds i8, ptr %135, i64 16
+  %137 = load ptr, ptr %136, align 8
+  call void %137(ptr noundef nonnull align 8 dereferenceable(16) %115) #26
+  %138 = getelementptr inbounds i8, ptr %115, i64 12
+  %139 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i36 = icmp eq i8 %139, 0
+  br i1 %.not.i.i.i.i.i.i.i36, label %143, label %140
 
-139:                                              ; preds = %133
-  %140 = load i32, ptr %137, align 4
-  %141 = add nsw i32 %140, -1
-  store i32 %141, ptr %137, align 4
-  br label %144
+140:                                              ; preds = %134
+  %141 = load i32, ptr %138, align 4
+  %142 = add nsw i32 %141, -1
+  store i32 %142, ptr %138, align 4
+  br label %145
 
-142:                                              ; preds = %133
-  %143 = atomicrmw volatile add ptr %137, i32 -1 acq_rel, align 4
-  br label %144
+143:                                              ; preds = %134
+  %144 = atomicrmw volatile add ptr %138, i32 -1 acq_rel, align 4
+  br label %145
 
-144:                                              ; preds = %142, %139
-  %.0.i.i.i.i.i.i.i37 = phi i32 [ %140, %139 ], [ %143, %142 ]
-  %145 = icmp eq i32 %.0.i.i.i.i.i.i.i37, 1
-  br i1 %145, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i38, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit39
+145:                                              ; preds = %143, %140
+  %.0.i.i.i.i.i.i.i37 = phi i32 [ %141, %140 ], [ %144, %143 ]
+  %146 = icmp eq i32 %.0.i.i.i.i.i.i.i37, 1
+  br i1 %146, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i38, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit39
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i38: ; preds = %144, %120
-  %146 = load ptr, ptr %114, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 24
-  %148 = load ptr, ptr %147, align 8
-  call void %148(ptr noundef nonnull align 8 dereferenceable(16) %114) #26
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i38: ; preds = %145, %121
+  %147 = load ptr, ptr %115, align 8
+  %148 = getelementptr inbounds i8, ptr %147, i64 24
+  %149 = load ptr, ptr %148, align 8
+  call void %149(ptr noundef nonnull align 8 dereferenceable(16) %115) #26
   br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit39
 
-_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit39: ; preds = %112, %131, %144, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i38
-  %149 = getelementptr inbounds i8, ptr %9, i64 8
-  %150 = load ptr, ptr %149, align 8
-  %.not.i.i.i.i40 = icmp eq ptr %150, null
-  br i1 %.not.i.i.i.i40, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit46, label %151
+_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit39: ; preds = %113, %132, %145, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i38
+  %150 = getelementptr inbounds i8, ptr %9, i64 8
+  %151 = load ptr, ptr %150, align 8
+  %.not.i.i.i.i40 = icmp eq ptr %151, null
+  br i1 %.not.i.i.i.i40, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit46, label %152
 
-151:                                              ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit39
-  %152 = getelementptr inbounds i8, ptr %150, i64 8
-  %153 = load atomic i64, ptr %152 acquire, align 8
-  %154 = icmp eq i64 %153, 4294967297
-  %155 = trunc i64 %153 to i32
-  br i1 %154, label %156, label %161
+152:                                              ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit39
+  %153 = getelementptr inbounds i8, ptr %151, i64 8
+  %154 = load atomic i64, ptr %153 acquire, align 8
+  %155 = icmp eq i64 %154, 4294967297
+  %156 = trunc i64 %154 to i32
+  br i1 %155, label %157, label %162
 
-156:                                              ; preds = %151
-  store i32 0, ptr %152, align 8
-  %157 = getelementptr inbounds i8, ptr %150, i64 12
-  store i32 0, ptr %157, align 4
-  %158 = load ptr, ptr %150, align 8
-  %159 = getelementptr inbounds i8, ptr %158, i64 16
-  %160 = load ptr, ptr %159, align 8
-  call void %160(ptr noundef nonnull align 8 dereferenceable(16) %150) #26
+157:                                              ; preds = %152
+  store i32 0, ptr %153, align 8
+  %158 = getelementptr inbounds i8, ptr %151, i64 12
+  store i32 0, ptr %158, align 4
+  %159 = load ptr, ptr %151, align 8
+  %160 = getelementptr inbounds i8, ptr %159, i64 16
+  %161 = load ptr, ptr %160, align 8
+  call void %161(ptr noundef nonnull align 8 dereferenceable(16) %151) #26
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i45
 
-161:                                              ; preds = %151
-  %162 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i41 = icmp eq i8 %162, 0
-  br i1 %.not.i.i.i.i.i41, label %165, label %163
+162:                                              ; preds = %152
+  %163 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i41 = icmp eq i8 %163, 0
+  br i1 %.not.i.i.i.i.i41, label %166, label %164
 
-163:                                              ; preds = %161
-  %164 = add nsw i32 %155, -1
-  store i32 %164, ptr %152, align 4
-  br label %167
+164:                                              ; preds = %162
+  %165 = add nsw i32 %156, -1
+  store i32 %165, ptr %153, align 4
+  br label %168
 
-165:                                              ; preds = %161
-  %166 = atomicrmw volatile add ptr %152, i32 -1 acq_rel, align 4
-  br label %167
+166:                                              ; preds = %162
+  %167 = atomicrmw volatile add ptr %153, i32 -1 acq_rel, align 4
+  br label %168
 
-167:                                              ; preds = %165, %163
-  %.0.i.i.i.i.i42 = phi i32 [ %155, %163 ], [ %166, %165 ]
-  %168 = icmp eq i32 %.0.i.i.i.i.i42, 1
-  br i1 %168, label %169, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit46
+168:                                              ; preds = %166, %164
+  %.0.i.i.i.i.i42 = phi i32 [ %156, %164 ], [ %167, %166 ]
+  %169 = icmp eq i32 %.0.i.i.i.i.i42, 1
+  br i1 %169, label %170, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit46
 
-169:                                              ; preds = %167
-  %170 = load ptr, ptr %150, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 16
-  %172 = load ptr, ptr %171, align 8
-  call void %172(ptr noundef nonnull align 8 dereferenceable(16) %150) #26
-  %173 = getelementptr inbounds i8, ptr %150, i64 12
-  %174 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i43 = icmp eq i8 %174, 0
-  br i1 %.not.i.i.i.i.i.i.i43, label %178, label %175
+170:                                              ; preds = %168
+  %171 = load ptr, ptr %151, align 8
+  %172 = getelementptr inbounds i8, ptr %171, i64 16
+  %173 = load ptr, ptr %172, align 8
+  call void %173(ptr noundef nonnull align 8 dereferenceable(16) %151) #26
+  %174 = getelementptr inbounds i8, ptr %151, i64 12
+  %175 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i43 = icmp eq i8 %175, 0
+  br i1 %.not.i.i.i.i.i.i.i43, label %179, label %176
 
-175:                                              ; preds = %169
-  %176 = load i32, ptr %173, align 4
-  %177 = add nsw i32 %176, -1
-  store i32 %177, ptr %173, align 4
-  br label %180
+176:                                              ; preds = %170
+  %177 = load i32, ptr %174, align 4
+  %178 = add nsw i32 %177, -1
+  store i32 %178, ptr %174, align 4
+  br label %181
 
-178:                                              ; preds = %169
-  %179 = atomicrmw volatile add ptr %173, i32 -1 acq_rel, align 4
-  br label %180
+179:                                              ; preds = %170
+  %180 = atomicrmw volatile add ptr %174, i32 -1 acq_rel, align 4
+  br label %181
 
-180:                                              ; preds = %178, %175
-  %.0.i.i.i.i.i.i.i44 = phi i32 [ %176, %175 ], [ %179, %178 ]
-  %181 = icmp eq i32 %.0.i.i.i.i.i.i.i44, 1
-  br i1 %181, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i45, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit46
+181:                                              ; preds = %179, %176
+  %.0.i.i.i.i.i.i.i44 = phi i32 [ %177, %176 ], [ %180, %179 ]
+  %182 = icmp eq i32 %.0.i.i.i.i.i.i.i44, 1
+  br i1 %182, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i45, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit46
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i45: ; preds = %180, %156
-  %182 = load ptr, ptr %150, align 8
-  %183 = getelementptr inbounds i8, ptr %182, i64 24
-  %184 = load ptr, ptr %183, align 8
-  call void %184(ptr noundef nonnull align 8 dereferenceable(16) %150) #26
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i45: ; preds = %181, %157
+  %183 = load ptr, ptr %151, align 8
+  %184 = getelementptr inbounds i8, ptr %183, i64 24
+  %185 = load ptr, ptr %184, align 8
+  call void %185(ptr noundef nonnull align 8 dereferenceable(16) %151) #26
   br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit46
 
-_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit46: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit39, %167, %180, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i45
-  %185 = getelementptr inbounds i8, ptr %8, i64 8
-  %186 = load ptr, ptr %185, align 8
-  %.not.i.i.i.i47 = icmp eq ptr %186, null
-  br i1 %.not.i.i.i.i47, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32, label %187
+_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit46: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit39, %168, %181, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i45
+  %186 = getelementptr inbounds i8, ptr %8, i64 8
+  %187 = load ptr, ptr %186, align 8
+  %.not.i.i.i.i47 = icmp eq ptr %187, null
+  br i1 %.not.i.i.i.i47, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32, label %188
 
-187:                                              ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit46
-  %188 = getelementptr inbounds i8, ptr %186, i64 8
-  %189 = load atomic i64, ptr %188 acquire, align 8
-  %190 = icmp eq i64 %189, 4294967297
-  %191 = trunc i64 %189 to i32
-  br i1 %190, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32.sink.split.sink.split, label %192
+188:                                              ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit46
+  %189 = getelementptr inbounds i8, ptr %187, i64 8
+  %190 = load atomic i64, ptr %189 acquire, align 8
+  %191 = icmp eq i64 %190, 4294967297
+  %192 = trunc i64 %190 to i32
+  br i1 %191, label %193, label %194
 
-192:                                              ; preds = %187
-  %193 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i48 = icmp eq i8 %193, 0
-  br i1 %.not.i.i.i.i.i48, label %196, label %194
+193:                                              ; preds = %188
+  store i32 0, ptr %189, align 8
+  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32.sink.split.sink.split
 
-194:                                              ; preds = %192
-  %195 = add nsw i32 %191, -1
-  store i32 %195, ptr %188, align 4
-  br label %198
+194:                                              ; preds = %188
+  %195 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i48 = icmp eq i8 %195, 0
+  br i1 %.not.i.i.i.i.i48, label %198, label %196
 
-196:                                              ; preds = %192
-  %197 = atomicrmw volatile add ptr %188, i32 -1 acq_rel, align 4
-  br label %198
+196:                                              ; preds = %194
+  %197 = add nsw i32 %192, -1
+  store i32 %197, ptr %189, align 4
+  br label %200
 
-198:                                              ; preds = %196, %194
-  %.0.i.i.i.i.i49 = phi i32 [ %191, %194 ], [ %197, %196 ]
-  %199 = icmp eq i32 %.0.i.i.i.i.i49, 1
-  br i1 %199, label %200, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32
+198:                                              ; preds = %194
+  %199 = atomicrmw volatile add ptr %189, i32 -1 acq_rel, align 4
+  br label %200
 
-200:                                              ; preds = %198
-  %201 = load ptr, ptr %186, align 8
-  %202 = getelementptr inbounds i8, ptr %201, i64 16
-  %203 = load ptr, ptr %202, align 8
-  call void %203(ptr noundef nonnull align 8 dereferenceable(16) %186) #26
-  %204 = getelementptr inbounds i8, ptr %186, i64 12
-  %205 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i50 = icmp eq i8 %205, 0
-  br i1 %.not.i.i.i.i.i.i.i50, label %209, label %206
+200:                                              ; preds = %198, %196
+  %.0.i.i.i.i.i49 = phi i32 [ %192, %196 ], [ %199, %198 ]
+  %201 = icmp eq i32 %.0.i.i.i.i.i49, 1
+  br i1 %201, label %202, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32
 
-206:                                              ; preds = %200
-  %207 = load i32, ptr %204, align 4
-  %208 = add nsw i32 %207, -1
-  store i32 %208, ptr %204, align 4
-  br label %211
+202:                                              ; preds = %200
+  %203 = load ptr, ptr %187, align 8
+  %204 = getelementptr inbounds i8, ptr %203, i64 16
+  %205 = load ptr, ptr %204, align 8
+  call void %205(ptr noundef nonnull align 8 dereferenceable(16) %187) #26
+  %206 = getelementptr inbounds i8, ptr %187, i64 12
+  %207 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i50 = icmp eq i8 %207, 0
+  br i1 %.not.i.i.i.i.i.i.i50, label %211, label %208
 
-209:                                              ; preds = %200
-  %210 = atomicrmw volatile add ptr %204, i32 -1 acq_rel, align 4
-  br label %211
+208:                                              ; preds = %202
+  %209 = load i32, ptr %206, align 4
+  %210 = add nsw i32 %209, -1
+  store i32 %210, ptr %206, align 4
+  br label %213
 
-211:                                              ; preds = %209, %206
-  %.0.i.i.i.i.i.i.i51 = phi i32 [ %207, %206 ], [ %210, %209 ]
-  %212 = icmp eq i32 %.0.i.i.i.i.i.i.i51, 1
-  br i1 %212, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32.sink.split, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32
+211:                                              ; preds = %202
+  %212 = atomicrmw volatile add ptr %206, i32 -1 acq_rel, align 4
+  br label %213
 
-213:                                              ; preds = %100
-  %214 = landingpad { ptr, i32 }
-          cleanup
-  br label %230
+213:                                              ; preds = %211, %208
+  %.0.i.i.i.i.i.i.i51 = phi i32 [ %209, %208 ], [ %212, %211 ]
+  %214 = icmp eq i32 %.0.i.i.i.i.i.i.i51, 1
+  br i1 %214, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32.sink.split, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32
 
-215:                                              ; preds = %103
+215:                                              ; preds = %101
   %216 = landingpad { ptr, i32 }
           cleanup
-  br label %222
+  br label %232
 
-217:                                              ; preds = %107
+217:                                              ; preds = %104
   %218 = landingpad { ptr, i32 }
           cleanup
-  br label %221
+  br label %224
 
-219:                                              ; preds = %111
+219:                                              ; preds = %108
   %220 = landingpad { ptr, i32 }
           cleanup
+  br label %223
+
+221:                                              ; preds = %112
+  %222 = landingpad { ptr, i32 }
+          cleanup
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #26
-  br label %221
+  br label %223
 
-221:                                              ; preds = %219, %217
-  %.pn = phi { ptr, i32 } [ %220, %219 ], [ %218, %217 ]
+223:                                              ; preds = %221, %219
+  %.pn = phi { ptr, i32 } [ %222, %221 ], [ %220, %219 ]
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #26
-  br label %222
+  br label %224
 
-222:                                              ; preds = %221, %215
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %221 ], [ %216, %215 ]
+224:                                              ; preds = %223, %217
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %223 ], [ %218, %217 ]
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #26
-  br label %230
+  br label %232
 
-_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32.sink.split.sink.split: ; preds = %187, %67
-  %.sink67 = phi ptr [ %68, %67 ], [ %188, %187 ]
-  %.sink66 = phi ptr [ %66, %67 ], [ %186, %187 ]
-  %.sink.ph.ph = phi ptr [ %4, %67 ], [ %7, %187 ]
-  store i32 0, ptr %.sink67, align 8
-  %223 = getelementptr inbounds i8, ptr %.sink66, i64 12
-  store i32 0, ptr %223, align 4
-  %224 = load ptr, ptr %.sink66, align 8
-  %225 = getelementptr inbounds i8, ptr %224, i64 16
-  %226 = load ptr, ptr %225, align 8
-  call void %226(ptr noundef nonnull align 8 dereferenceable(16) %.sink66) #26
+_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32.sink.split.sink.split: ; preds = %72, %193
+  %.sink66 = phi ptr [ %187, %193 ], [ %66, %72 ]
+  %.sink.ph.ph = phi ptr [ %7, %193 ], [ %4, %72 ]
+  %225 = getelementptr inbounds i8, ptr %.sink66, i64 12
+  store i32 0, ptr %225, align 4
+  %226 = load ptr, ptr %.sink66, align 8
+  %227 = getelementptr inbounds i8, ptr %226, i64 16
+  %228 = load ptr, ptr %227, align 8
+  call void %228(ptr noundef nonnull align 8 dereferenceable(16) %.sink66) #26
   br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32.sink.split
 
-_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32.sink.split: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32.sink.split.sink.split, %211, %91
-  %.sink59 = phi ptr [ %66, %91 ], [ %186, %211 ], [ %.sink66, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32.sink.split.sink.split ]
-  %.sink.ph = phi ptr [ %4, %91 ], [ %7, %211 ], [ %.sink.ph.ph, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32.sink.split.sink.split ]
-  %227 = load ptr, ptr %.sink59, align 8
-  %228 = getelementptr inbounds i8, ptr %227, i64 24
-  %229 = load ptr, ptr %228, align 8
-  call void %229(ptr noundef nonnull align 8 dereferenceable(16) %.sink59) #26
+_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32.sink.split: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32.sink.split.sink.split, %213, %92
+  %.sink59 = phi ptr [ %66, %92 ], [ %187, %213 ], [ %.sink66, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32.sink.split.sink.split ]
+  %.sink.ph = phi ptr [ %4, %92 ], [ %7, %213 ], [ %.sink.ph.ph, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32.sink.split.sink.split ]
+  %229 = load ptr, ptr %.sink59, align 8
+  %230 = getelementptr inbounds i8, ptr %229, i64 24
+  %231 = load ptr, ptr %230, align 8
+  call void %231(ptr noundef nonnull align 8 dereferenceable(16) %.sink59) #26
   br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32
 
-_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32.sink.split, %211, %198, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit46, %91, %78, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit
-  %.sink = phi ptr [ %4, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit ], [ %4, %78 ], [ %4, %91 ], [ %7, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit46 ], [ %7, %198 ], [ %7, %211 ], [ %.sink.ph, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32.sink.split ]
+_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32.sink.split, %213, %200, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit46, %92, %79, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit
+  %.sink = phi ptr [ %4, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit ], [ %4, %79 ], [ %4, %92 ], [ %7, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit46 ], [ %7, %200 ], [ %7, %213 ], [ %.sink.ph, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32.sink.split ]
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #26
   ret void
 
-230:                                              ; preds = %213, %222, %93, %99
-  %.sink54 = phi ptr [ %4, %99 ], [ %4, %93 ], [ %7, %222 ], [ %7, %213 ]
-  %.pn22.pn.pn = phi { ptr, i32 } [ %.pn22, %99 ], [ %94, %93 ], [ %.pn.pn, %222 ], [ %214, %213 ]
+232:                                              ; preds = %215, %224, %94, %100
+  %.sink54 = phi ptr [ %4, %100 ], [ %4, %94 ], [ %7, %224 ], [ %7, %215 ]
+  %.pn22.pn.pn = phi { ptr, i32 } [ %.pn22, %100 ], [ %95, %94 ], [ %.pn.pn, %224 ], [ %216, %215 ]
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink54) #26
   resume { ptr, i32 } %.pn22.pn.pn
 }
@@ -14472,25 +14484,25 @@ define hidden void @_ZNK5osgeo4proj2cs8AffineCS9alterUnitERKNS0_6common13UnitOfM
   %17 = ptrtoint ptr %15 to i64
   %18 = sub i64 %16, %17
   %19 = icmp eq i64 %18, 32
-  br i1 %19, label %20, label %100
+  br i1 %19, label %20, label %101
 
 20:                                               ; preds = %3
   call void @_ZN5osgeo4proj4util11PropertyMapC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4)
   %21 = load ptr, ptr %12, align 8
   %22 = load ptr, ptr %21, align 8
   invoke void @_ZNK5osgeo4proj2cs20CoordinateSystemAxis9alterUnitERKNS0_6common13UnitOfMeasureE(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.67") align 8 %5, ptr noundef nonnull align 8 dereferenceable(56) %22, ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %23 unwind label %93
+          to label %23 unwind label %94
 
 23:                                               ; preds = %20
   %24 = load ptr, ptr %12, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
   invoke void @_ZNK5osgeo4proj2cs20CoordinateSystemAxis9alterUnitERKNS0_6common13UnitOfMeasureE(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.67") align 8 %6, ptr noundef nonnull align 8 dereferenceable(56) %26, ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %27 unwind label %95
+          to label %27 unwind label %96
 
 27:                                               ; preds = %23
   invoke void @_ZN5osgeo4proj2cs8AffineCS6createERKNS0_4util11PropertyMapERKN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESF_(ptr dead_on_unwind writable sret(%"class.dropbox::oxygen::nn.115") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6)
-          to label %28 unwind label %97
+          to label %28 unwind label %98
 
 28:                                               ; preds = %27
   %29 = getelementptr inbounds i8, ptr %6, i64 8
@@ -14577,364 +14589,370 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2E
   %69 = load atomic i64, ptr %68 acquire, align 8
   %70 = icmp eq i64 %69, 4294967297
   %71 = trunc i64 %69 to i32
-  br i1 %70, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32.sink.split.sink.split, label %72
+  br i1 %70, label %72, label %73
 
 72:                                               ; preds = %67
-  %73 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i27 = icmp eq i8 %73, 0
-  br i1 %.not.i.i.i.i.i27, label %76, label %74
+  store i32 0, ptr %68, align 8
+  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32.sink.split.sink.split
 
-74:                                               ; preds = %72
-  %75 = add nsw i32 %71, -1
-  store i32 %75, ptr %68, align 4
-  br label %78
+73:                                               ; preds = %67
+  %74 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i27 = icmp eq i8 %74, 0
+  br i1 %.not.i.i.i.i.i27, label %77, label %75
 
-76:                                               ; preds = %72
-  %77 = atomicrmw volatile add ptr %68, i32 -1 acq_rel, align 4
-  br label %78
+75:                                               ; preds = %73
+  %76 = add nsw i32 %71, -1
+  store i32 %76, ptr %68, align 4
+  br label %79
 
-78:                                               ; preds = %76, %74
-  %.0.i.i.i.i.i28 = phi i32 [ %71, %74 ], [ %77, %76 ]
-  %79 = icmp eq i32 %.0.i.i.i.i.i28, 1
-  br i1 %79, label %80, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32
+77:                                               ; preds = %73
+  %78 = atomicrmw volatile add ptr %68, i32 -1 acq_rel, align 4
+  br label %79
 
-80:                                               ; preds = %78
-  %81 = load ptr, ptr %66, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 16
-  %83 = load ptr, ptr %82, align 8
-  call void %83(ptr noundef nonnull align 8 dereferenceable(16) %66) #26
-  %84 = getelementptr inbounds i8, ptr %66, i64 12
-  %85 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i29 = icmp eq i8 %85, 0
-  br i1 %.not.i.i.i.i.i.i.i29, label %89, label %86
+79:                                               ; preds = %77, %75
+  %.0.i.i.i.i.i28 = phi i32 [ %71, %75 ], [ %78, %77 ]
+  %80 = icmp eq i32 %.0.i.i.i.i.i28, 1
+  br i1 %80, label %81, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32
 
-86:                                               ; preds = %80
-  %87 = load i32, ptr %84, align 4
-  %88 = add nsw i32 %87, -1
-  store i32 %88, ptr %84, align 4
-  br label %91
+81:                                               ; preds = %79
+  %82 = load ptr, ptr %66, align 8
+  %83 = getelementptr inbounds i8, ptr %82, i64 16
+  %84 = load ptr, ptr %83, align 8
+  call void %84(ptr noundef nonnull align 8 dereferenceable(16) %66) #26
+  %85 = getelementptr inbounds i8, ptr %66, i64 12
+  %86 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i29 = icmp eq i8 %86, 0
+  br i1 %.not.i.i.i.i.i.i.i29, label %90, label %87
 
-89:                                               ; preds = %80
-  %90 = atomicrmw volatile add ptr %84, i32 -1 acq_rel, align 4
-  br label %91
+87:                                               ; preds = %81
+  %88 = load i32, ptr %85, align 4
+  %89 = add nsw i32 %88, -1
+  store i32 %89, ptr %85, align 4
+  br label %92
 
-91:                                               ; preds = %89, %86
-  %.0.i.i.i.i.i.i.i30 = phi i32 [ %87, %86 ], [ %90, %89 ]
-  %92 = icmp eq i32 %.0.i.i.i.i.i.i.i30, 1
-  br i1 %92, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32.sink.split, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32
+90:                                               ; preds = %81
+  %91 = atomicrmw volatile add ptr %85, i32 -1 acq_rel, align 4
+  br label %92
 
-93:                                               ; preds = %20
-  %94 = landingpad { ptr, i32 }
+92:                                               ; preds = %90, %87
+  %.0.i.i.i.i.i.i.i30 = phi i32 [ %88, %87 ], [ %91, %90 ]
+  %93 = icmp eq i32 %.0.i.i.i.i.i.i.i30, 1
+  br i1 %93, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32.sink.split, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32
+
+94:                                               ; preds = %20
+  %95 = landingpad { ptr, i32 }
           cleanup
-  br label %230
+  br label %232
 
-95:                                               ; preds = %23
-  %96 = landingpad { ptr, i32 }
+96:                                               ; preds = %23
+  %97 = landingpad { ptr, i32 }
           cleanup
-  br label %99
+  br label %100
 
-97:                                               ; preds = %27
-  %98 = landingpad { ptr, i32 }
+98:                                               ; preds = %27
+  %99 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #26
-  br label %99
+  br label %100
 
-99:                                               ; preds = %97, %95
-  %.pn22 = phi { ptr, i32 } [ %98, %97 ], [ %96, %95 ]
+100:                                              ; preds = %98, %96
+  %.pn22 = phi { ptr, i32 } [ %99, %98 ], [ %97, %96 ]
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #26
-  br label %230
+  br label %232
 
-100:                                              ; preds = %3
+101:                                              ; preds = %3
   call void @_ZN5osgeo4proj4util11PropertyMapC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  %101 = load ptr, ptr %12, align 8
-  %102 = load ptr, ptr %101, align 8
-  invoke void @_ZNK5osgeo4proj2cs20CoordinateSystemAxis9alterUnitERKNS0_6common13UnitOfMeasureE(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.67") align 8 %8, ptr noundef nonnull align 8 dereferenceable(56) %102, ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %103 unwind label %213
+  %102 = load ptr, ptr %12, align 8
+  %103 = load ptr, ptr %102, align 8
+  invoke void @_ZNK5osgeo4proj2cs20CoordinateSystemAxis9alterUnitERKNS0_6common13UnitOfMeasureE(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.67") align 8 %8, ptr noundef nonnull align 8 dereferenceable(56) %103, ptr noundef nonnull align 8 dereferenceable(24) %2)
+          to label %104 unwind label %215
 
-103:                                              ; preds = %100
-  %104 = load ptr, ptr %12, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 16
-  %106 = load ptr, ptr %105, align 8
-  invoke void @_ZNK5osgeo4proj2cs20CoordinateSystemAxis9alterUnitERKNS0_6common13UnitOfMeasureE(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.67") align 8 %9, ptr noundef nonnull align 8 dereferenceable(56) %106, ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %107 unwind label %215
+104:                                              ; preds = %101
+  %105 = load ptr, ptr %12, align 8
+  %106 = getelementptr inbounds i8, ptr %105, i64 16
+  %107 = load ptr, ptr %106, align 8
+  invoke void @_ZNK5osgeo4proj2cs20CoordinateSystemAxis9alterUnitERKNS0_6common13UnitOfMeasureE(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.67") align 8 %9, ptr noundef nonnull align 8 dereferenceable(56) %107, ptr noundef nonnull align 8 dereferenceable(24) %2)
+          to label %108 unwind label %217
 
-107:                                              ; preds = %103
-  %108 = load ptr, ptr %12, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 32
-  %110 = load ptr, ptr %109, align 8
-  invoke void @_ZNK5osgeo4proj2cs20CoordinateSystemAxis9alterUnitERKNS0_6common13UnitOfMeasureE(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.67") align 8 %10, ptr noundef nonnull align 8 dereferenceable(56) %110, ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %111 unwind label %217
-
-111:                                              ; preds = %107
-  invoke void @_ZN5osgeo4proj2cs8AffineCS6createERKNS0_4util11PropertyMapERKN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESF_SF_(ptr dead_on_unwind writable sret(%"class.dropbox::oxygen::nn.115") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %10)
+108:                                              ; preds = %104
+  %109 = load ptr, ptr %12, align 8
+  %110 = getelementptr inbounds i8, ptr %109, i64 32
+  %111 = load ptr, ptr %110, align 8
+  invoke void @_ZNK5osgeo4proj2cs20CoordinateSystemAxis9alterUnitERKNS0_6common13UnitOfMeasureE(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.67") align 8 %10, ptr noundef nonnull align 8 dereferenceable(56) %111, ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %112 unwind label %219
 
-112:                                              ; preds = %111
-  %113 = getelementptr inbounds i8, ptr %10, i64 8
-  %114 = load ptr, ptr %113, align 8
-  %.not.i.i.i.i33 = icmp eq ptr %114, null
-  br i1 %.not.i.i.i.i33, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit39, label %115
+112:                                              ; preds = %108
+  invoke void @_ZN5osgeo4proj2cs8AffineCS6createERKNS0_4util11PropertyMapERKN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESF_SF_(ptr dead_on_unwind writable sret(%"class.dropbox::oxygen::nn.115") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %10)
+          to label %113 unwind label %221
 
-115:                                              ; preds = %112
-  %116 = getelementptr inbounds i8, ptr %114, i64 8
-  %117 = load atomic i64, ptr %116 acquire, align 8
-  %118 = icmp eq i64 %117, 4294967297
-  %119 = trunc i64 %117 to i32
-  br i1 %118, label %120, label %125
+113:                                              ; preds = %112
+  %114 = getelementptr inbounds i8, ptr %10, i64 8
+  %115 = load ptr, ptr %114, align 8
+  %.not.i.i.i.i33 = icmp eq ptr %115, null
+  br i1 %.not.i.i.i.i33, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit39, label %116
 
-120:                                              ; preds = %115
-  store i32 0, ptr %116, align 8
-  %121 = getelementptr inbounds i8, ptr %114, i64 12
-  store i32 0, ptr %121, align 4
-  %122 = load ptr, ptr %114, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 16
-  %124 = load ptr, ptr %123, align 8
-  call void %124(ptr noundef nonnull align 8 dereferenceable(16) %114) #26
+116:                                              ; preds = %113
+  %117 = getelementptr inbounds i8, ptr %115, i64 8
+  %118 = load atomic i64, ptr %117 acquire, align 8
+  %119 = icmp eq i64 %118, 4294967297
+  %120 = trunc i64 %118 to i32
+  br i1 %119, label %121, label %126
+
+121:                                              ; preds = %116
+  store i32 0, ptr %117, align 8
+  %122 = getelementptr inbounds i8, ptr %115, i64 12
+  store i32 0, ptr %122, align 4
+  %123 = load ptr, ptr %115, align 8
+  %124 = getelementptr inbounds i8, ptr %123, i64 16
+  %125 = load ptr, ptr %124, align 8
+  call void %125(ptr noundef nonnull align 8 dereferenceable(16) %115) #26
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i38
 
-125:                                              ; preds = %115
-  %126 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i34 = icmp eq i8 %126, 0
-  br i1 %.not.i.i.i.i.i34, label %129, label %127
+126:                                              ; preds = %116
+  %127 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i34 = icmp eq i8 %127, 0
+  br i1 %.not.i.i.i.i.i34, label %130, label %128
 
-127:                                              ; preds = %125
-  %128 = add nsw i32 %119, -1
-  store i32 %128, ptr %116, align 4
-  br label %131
+128:                                              ; preds = %126
+  %129 = add nsw i32 %120, -1
+  store i32 %129, ptr %117, align 4
+  br label %132
 
-129:                                              ; preds = %125
-  %130 = atomicrmw volatile add ptr %116, i32 -1 acq_rel, align 4
-  br label %131
+130:                                              ; preds = %126
+  %131 = atomicrmw volatile add ptr %117, i32 -1 acq_rel, align 4
+  br label %132
 
-131:                                              ; preds = %129, %127
-  %.0.i.i.i.i.i35 = phi i32 [ %119, %127 ], [ %130, %129 ]
-  %132 = icmp eq i32 %.0.i.i.i.i.i35, 1
-  br i1 %132, label %133, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit39
+132:                                              ; preds = %130, %128
+  %.0.i.i.i.i.i35 = phi i32 [ %120, %128 ], [ %131, %130 ]
+  %133 = icmp eq i32 %.0.i.i.i.i.i35, 1
+  br i1 %133, label %134, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit39
 
-133:                                              ; preds = %131
-  %134 = load ptr, ptr %114, align 8
-  %135 = getelementptr inbounds i8, ptr %134, i64 16
-  %136 = load ptr, ptr %135, align 8
-  call void %136(ptr noundef nonnull align 8 dereferenceable(16) %114) #26
-  %137 = getelementptr inbounds i8, ptr %114, i64 12
-  %138 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i36 = icmp eq i8 %138, 0
-  br i1 %.not.i.i.i.i.i.i.i36, label %142, label %139
+134:                                              ; preds = %132
+  %135 = load ptr, ptr %115, align 8
+  %136 = getelementptr inbounds i8, ptr %135, i64 16
+  %137 = load ptr, ptr %136, align 8
+  call void %137(ptr noundef nonnull align 8 dereferenceable(16) %115) #26
+  %138 = getelementptr inbounds i8, ptr %115, i64 12
+  %139 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i36 = icmp eq i8 %139, 0
+  br i1 %.not.i.i.i.i.i.i.i36, label %143, label %140
 
-139:                                              ; preds = %133
-  %140 = load i32, ptr %137, align 4
-  %141 = add nsw i32 %140, -1
-  store i32 %141, ptr %137, align 4
-  br label %144
+140:                                              ; preds = %134
+  %141 = load i32, ptr %138, align 4
+  %142 = add nsw i32 %141, -1
+  store i32 %142, ptr %138, align 4
+  br label %145
 
-142:                                              ; preds = %133
-  %143 = atomicrmw volatile add ptr %137, i32 -1 acq_rel, align 4
-  br label %144
+143:                                              ; preds = %134
+  %144 = atomicrmw volatile add ptr %138, i32 -1 acq_rel, align 4
+  br label %145
 
-144:                                              ; preds = %142, %139
-  %.0.i.i.i.i.i.i.i37 = phi i32 [ %140, %139 ], [ %143, %142 ]
-  %145 = icmp eq i32 %.0.i.i.i.i.i.i.i37, 1
-  br i1 %145, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i38, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit39
+145:                                              ; preds = %143, %140
+  %.0.i.i.i.i.i.i.i37 = phi i32 [ %141, %140 ], [ %144, %143 ]
+  %146 = icmp eq i32 %.0.i.i.i.i.i.i.i37, 1
+  br i1 %146, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i38, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit39
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i38: ; preds = %144, %120
-  %146 = load ptr, ptr %114, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 24
-  %148 = load ptr, ptr %147, align 8
-  call void %148(ptr noundef nonnull align 8 dereferenceable(16) %114) #26
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i38: ; preds = %145, %121
+  %147 = load ptr, ptr %115, align 8
+  %148 = getelementptr inbounds i8, ptr %147, i64 24
+  %149 = load ptr, ptr %148, align 8
+  call void %149(ptr noundef nonnull align 8 dereferenceable(16) %115) #26
   br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit39
 
-_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit39: ; preds = %112, %131, %144, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i38
-  %149 = getelementptr inbounds i8, ptr %9, i64 8
-  %150 = load ptr, ptr %149, align 8
-  %.not.i.i.i.i40 = icmp eq ptr %150, null
-  br i1 %.not.i.i.i.i40, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit46, label %151
+_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit39: ; preds = %113, %132, %145, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i38
+  %150 = getelementptr inbounds i8, ptr %9, i64 8
+  %151 = load ptr, ptr %150, align 8
+  %.not.i.i.i.i40 = icmp eq ptr %151, null
+  br i1 %.not.i.i.i.i40, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit46, label %152
 
-151:                                              ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit39
-  %152 = getelementptr inbounds i8, ptr %150, i64 8
-  %153 = load atomic i64, ptr %152 acquire, align 8
-  %154 = icmp eq i64 %153, 4294967297
-  %155 = trunc i64 %153 to i32
-  br i1 %154, label %156, label %161
+152:                                              ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit39
+  %153 = getelementptr inbounds i8, ptr %151, i64 8
+  %154 = load atomic i64, ptr %153 acquire, align 8
+  %155 = icmp eq i64 %154, 4294967297
+  %156 = trunc i64 %154 to i32
+  br i1 %155, label %157, label %162
 
-156:                                              ; preds = %151
-  store i32 0, ptr %152, align 8
-  %157 = getelementptr inbounds i8, ptr %150, i64 12
-  store i32 0, ptr %157, align 4
-  %158 = load ptr, ptr %150, align 8
-  %159 = getelementptr inbounds i8, ptr %158, i64 16
-  %160 = load ptr, ptr %159, align 8
-  call void %160(ptr noundef nonnull align 8 dereferenceable(16) %150) #26
+157:                                              ; preds = %152
+  store i32 0, ptr %153, align 8
+  %158 = getelementptr inbounds i8, ptr %151, i64 12
+  store i32 0, ptr %158, align 4
+  %159 = load ptr, ptr %151, align 8
+  %160 = getelementptr inbounds i8, ptr %159, i64 16
+  %161 = load ptr, ptr %160, align 8
+  call void %161(ptr noundef nonnull align 8 dereferenceable(16) %151) #26
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i45
 
-161:                                              ; preds = %151
-  %162 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i41 = icmp eq i8 %162, 0
-  br i1 %.not.i.i.i.i.i41, label %165, label %163
+162:                                              ; preds = %152
+  %163 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i41 = icmp eq i8 %163, 0
+  br i1 %.not.i.i.i.i.i41, label %166, label %164
 
-163:                                              ; preds = %161
-  %164 = add nsw i32 %155, -1
-  store i32 %164, ptr %152, align 4
-  br label %167
+164:                                              ; preds = %162
+  %165 = add nsw i32 %156, -1
+  store i32 %165, ptr %153, align 4
+  br label %168
 
-165:                                              ; preds = %161
-  %166 = atomicrmw volatile add ptr %152, i32 -1 acq_rel, align 4
-  br label %167
+166:                                              ; preds = %162
+  %167 = atomicrmw volatile add ptr %153, i32 -1 acq_rel, align 4
+  br label %168
 
-167:                                              ; preds = %165, %163
-  %.0.i.i.i.i.i42 = phi i32 [ %155, %163 ], [ %166, %165 ]
-  %168 = icmp eq i32 %.0.i.i.i.i.i42, 1
-  br i1 %168, label %169, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit46
+168:                                              ; preds = %166, %164
+  %.0.i.i.i.i.i42 = phi i32 [ %156, %164 ], [ %167, %166 ]
+  %169 = icmp eq i32 %.0.i.i.i.i.i42, 1
+  br i1 %169, label %170, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit46
 
-169:                                              ; preds = %167
-  %170 = load ptr, ptr %150, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 16
-  %172 = load ptr, ptr %171, align 8
-  call void %172(ptr noundef nonnull align 8 dereferenceable(16) %150) #26
-  %173 = getelementptr inbounds i8, ptr %150, i64 12
-  %174 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i43 = icmp eq i8 %174, 0
-  br i1 %.not.i.i.i.i.i.i.i43, label %178, label %175
+170:                                              ; preds = %168
+  %171 = load ptr, ptr %151, align 8
+  %172 = getelementptr inbounds i8, ptr %171, i64 16
+  %173 = load ptr, ptr %172, align 8
+  call void %173(ptr noundef nonnull align 8 dereferenceable(16) %151) #26
+  %174 = getelementptr inbounds i8, ptr %151, i64 12
+  %175 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i43 = icmp eq i8 %175, 0
+  br i1 %.not.i.i.i.i.i.i.i43, label %179, label %176
 
-175:                                              ; preds = %169
-  %176 = load i32, ptr %173, align 4
-  %177 = add nsw i32 %176, -1
-  store i32 %177, ptr %173, align 4
-  br label %180
+176:                                              ; preds = %170
+  %177 = load i32, ptr %174, align 4
+  %178 = add nsw i32 %177, -1
+  store i32 %178, ptr %174, align 4
+  br label %181
 
-178:                                              ; preds = %169
-  %179 = atomicrmw volatile add ptr %173, i32 -1 acq_rel, align 4
-  br label %180
+179:                                              ; preds = %170
+  %180 = atomicrmw volatile add ptr %174, i32 -1 acq_rel, align 4
+  br label %181
 
-180:                                              ; preds = %178, %175
-  %.0.i.i.i.i.i.i.i44 = phi i32 [ %176, %175 ], [ %179, %178 ]
-  %181 = icmp eq i32 %.0.i.i.i.i.i.i.i44, 1
-  br i1 %181, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i45, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit46
+181:                                              ; preds = %179, %176
+  %.0.i.i.i.i.i.i.i44 = phi i32 [ %177, %176 ], [ %180, %179 ]
+  %182 = icmp eq i32 %.0.i.i.i.i.i.i.i44, 1
+  br i1 %182, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i45, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit46
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i45: ; preds = %180, %156
-  %182 = load ptr, ptr %150, align 8
-  %183 = getelementptr inbounds i8, ptr %182, i64 24
-  %184 = load ptr, ptr %183, align 8
-  call void %184(ptr noundef nonnull align 8 dereferenceable(16) %150) #26
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i45: ; preds = %181, %157
+  %183 = load ptr, ptr %151, align 8
+  %184 = getelementptr inbounds i8, ptr %183, i64 24
+  %185 = load ptr, ptr %184, align 8
+  call void %185(ptr noundef nonnull align 8 dereferenceable(16) %151) #26
   br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit46
 
-_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit46: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit39, %167, %180, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i45
-  %185 = getelementptr inbounds i8, ptr %8, i64 8
-  %186 = load ptr, ptr %185, align 8
-  %.not.i.i.i.i47 = icmp eq ptr %186, null
-  br i1 %.not.i.i.i.i47, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32, label %187
+_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit46: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit39, %168, %181, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i45
+  %186 = getelementptr inbounds i8, ptr %8, i64 8
+  %187 = load ptr, ptr %186, align 8
+  %.not.i.i.i.i47 = icmp eq ptr %187, null
+  br i1 %.not.i.i.i.i47, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32, label %188
 
-187:                                              ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit46
-  %188 = getelementptr inbounds i8, ptr %186, i64 8
-  %189 = load atomic i64, ptr %188 acquire, align 8
-  %190 = icmp eq i64 %189, 4294967297
-  %191 = trunc i64 %189 to i32
-  br i1 %190, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32.sink.split.sink.split, label %192
+188:                                              ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit46
+  %189 = getelementptr inbounds i8, ptr %187, i64 8
+  %190 = load atomic i64, ptr %189 acquire, align 8
+  %191 = icmp eq i64 %190, 4294967297
+  %192 = trunc i64 %190 to i32
+  br i1 %191, label %193, label %194
 
-192:                                              ; preds = %187
-  %193 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i48 = icmp eq i8 %193, 0
-  br i1 %.not.i.i.i.i.i48, label %196, label %194
+193:                                              ; preds = %188
+  store i32 0, ptr %189, align 8
+  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32.sink.split.sink.split
 
-194:                                              ; preds = %192
-  %195 = add nsw i32 %191, -1
-  store i32 %195, ptr %188, align 4
-  br label %198
+194:                                              ; preds = %188
+  %195 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i48 = icmp eq i8 %195, 0
+  br i1 %.not.i.i.i.i.i48, label %198, label %196
 
-196:                                              ; preds = %192
-  %197 = atomicrmw volatile add ptr %188, i32 -1 acq_rel, align 4
-  br label %198
+196:                                              ; preds = %194
+  %197 = add nsw i32 %192, -1
+  store i32 %197, ptr %189, align 4
+  br label %200
 
-198:                                              ; preds = %196, %194
-  %.0.i.i.i.i.i49 = phi i32 [ %191, %194 ], [ %197, %196 ]
-  %199 = icmp eq i32 %.0.i.i.i.i.i49, 1
-  br i1 %199, label %200, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32
+198:                                              ; preds = %194
+  %199 = atomicrmw volatile add ptr %189, i32 -1 acq_rel, align 4
+  br label %200
 
-200:                                              ; preds = %198
-  %201 = load ptr, ptr %186, align 8
-  %202 = getelementptr inbounds i8, ptr %201, i64 16
-  %203 = load ptr, ptr %202, align 8
-  call void %203(ptr noundef nonnull align 8 dereferenceable(16) %186) #26
-  %204 = getelementptr inbounds i8, ptr %186, i64 12
-  %205 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i50 = icmp eq i8 %205, 0
-  br i1 %.not.i.i.i.i.i.i.i50, label %209, label %206
+200:                                              ; preds = %198, %196
+  %.0.i.i.i.i.i49 = phi i32 [ %192, %196 ], [ %199, %198 ]
+  %201 = icmp eq i32 %.0.i.i.i.i.i49, 1
+  br i1 %201, label %202, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32
 
-206:                                              ; preds = %200
-  %207 = load i32, ptr %204, align 4
-  %208 = add nsw i32 %207, -1
-  store i32 %208, ptr %204, align 4
-  br label %211
+202:                                              ; preds = %200
+  %203 = load ptr, ptr %187, align 8
+  %204 = getelementptr inbounds i8, ptr %203, i64 16
+  %205 = load ptr, ptr %204, align 8
+  call void %205(ptr noundef nonnull align 8 dereferenceable(16) %187) #26
+  %206 = getelementptr inbounds i8, ptr %187, i64 12
+  %207 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i50 = icmp eq i8 %207, 0
+  br i1 %.not.i.i.i.i.i.i.i50, label %211, label %208
 
-209:                                              ; preds = %200
-  %210 = atomicrmw volatile add ptr %204, i32 -1 acq_rel, align 4
-  br label %211
+208:                                              ; preds = %202
+  %209 = load i32, ptr %206, align 4
+  %210 = add nsw i32 %209, -1
+  store i32 %210, ptr %206, align 4
+  br label %213
 
-211:                                              ; preds = %209, %206
-  %.0.i.i.i.i.i.i.i51 = phi i32 [ %207, %206 ], [ %210, %209 ]
-  %212 = icmp eq i32 %.0.i.i.i.i.i.i.i51, 1
-  br i1 %212, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32.sink.split, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32
+211:                                              ; preds = %202
+  %212 = atomicrmw volatile add ptr %206, i32 -1 acq_rel, align 4
+  br label %213
 
-213:                                              ; preds = %100
-  %214 = landingpad { ptr, i32 }
-          cleanup
-  br label %230
+213:                                              ; preds = %211, %208
+  %.0.i.i.i.i.i.i.i51 = phi i32 [ %209, %208 ], [ %212, %211 ]
+  %214 = icmp eq i32 %.0.i.i.i.i.i.i.i51, 1
+  br i1 %214, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32.sink.split, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32
 
-215:                                              ; preds = %103
+215:                                              ; preds = %101
   %216 = landingpad { ptr, i32 }
           cleanup
-  br label %222
+  br label %232
 
-217:                                              ; preds = %107
+217:                                              ; preds = %104
   %218 = landingpad { ptr, i32 }
           cleanup
-  br label %221
+  br label %224
 
-219:                                              ; preds = %111
+219:                                              ; preds = %108
   %220 = landingpad { ptr, i32 }
           cleanup
+  br label %223
+
+221:                                              ; preds = %112
+  %222 = landingpad { ptr, i32 }
+          cleanup
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #26
-  br label %221
+  br label %223
 
-221:                                              ; preds = %219, %217
-  %.pn = phi { ptr, i32 } [ %220, %219 ], [ %218, %217 ]
+223:                                              ; preds = %221, %219
+  %.pn = phi { ptr, i32 } [ %222, %221 ], [ %220, %219 ]
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #26
-  br label %222
+  br label %224
 
-222:                                              ; preds = %221, %215
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %221 ], [ %216, %215 ]
+224:                                              ; preds = %223, %217
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %223 ], [ %218, %217 ]
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #26
-  br label %230
+  br label %232
 
-_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32.sink.split.sink.split: ; preds = %187, %67
-  %.sink67 = phi ptr [ %68, %67 ], [ %188, %187 ]
-  %.sink66 = phi ptr [ %66, %67 ], [ %186, %187 ]
-  %.sink.ph.ph = phi ptr [ %4, %67 ], [ %7, %187 ]
-  store i32 0, ptr %.sink67, align 8
-  %223 = getelementptr inbounds i8, ptr %.sink66, i64 12
-  store i32 0, ptr %223, align 4
-  %224 = load ptr, ptr %.sink66, align 8
-  %225 = getelementptr inbounds i8, ptr %224, i64 16
-  %226 = load ptr, ptr %225, align 8
-  call void %226(ptr noundef nonnull align 8 dereferenceable(16) %.sink66) #26
+_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32.sink.split.sink.split: ; preds = %72, %193
+  %.sink66 = phi ptr [ %187, %193 ], [ %66, %72 ]
+  %.sink.ph.ph = phi ptr [ %7, %193 ], [ %4, %72 ]
+  %225 = getelementptr inbounds i8, ptr %.sink66, i64 12
+  store i32 0, ptr %225, align 4
+  %226 = load ptr, ptr %.sink66, align 8
+  %227 = getelementptr inbounds i8, ptr %226, i64 16
+  %228 = load ptr, ptr %227, align 8
+  call void %228(ptr noundef nonnull align 8 dereferenceable(16) %.sink66) #26
   br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32.sink.split
 
-_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32.sink.split: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32.sink.split.sink.split, %211, %91
-  %.sink59 = phi ptr [ %66, %91 ], [ %186, %211 ], [ %.sink66, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32.sink.split.sink.split ]
-  %.sink.ph = phi ptr [ %4, %91 ], [ %7, %211 ], [ %.sink.ph.ph, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32.sink.split.sink.split ]
-  %227 = load ptr, ptr %.sink59, align 8
-  %228 = getelementptr inbounds i8, ptr %227, i64 24
-  %229 = load ptr, ptr %228, align 8
-  call void %229(ptr noundef nonnull align 8 dereferenceable(16) %.sink59) #26
+_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32.sink.split: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32.sink.split.sink.split, %213, %92
+  %.sink59 = phi ptr [ %66, %92 ], [ %187, %213 ], [ %.sink66, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32.sink.split.sink.split ]
+  %.sink.ph = phi ptr [ %4, %92 ], [ %7, %213 ], [ %.sink.ph.ph, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32.sink.split.sink.split ]
+  %229 = load ptr, ptr %.sink59, align 8
+  %230 = getelementptr inbounds i8, ptr %229, i64 24
+  %231 = load ptr, ptr %230, align 8
+  call void %231(ptr noundef nonnull align 8 dereferenceable(16) %.sink59) #26
   br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32
 
-_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32.sink.split, %211, %198, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit46, %91, %78, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit
-  %.sink = phi ptr [ %4, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit ], [ %4, %78 ], [ %4, %91 ], [ %7, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit46 ], [ %7, %198 ], [ %7, %211 ], [ %.sink.ph, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32.sink.split ]
+_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32.sink.split, %213, %200, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit46, %92, %79, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit
+  %.sink = phi ptr [ %4, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit ], [ %4, %79 ], [ %4, %92 ], [ %7, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit46 ], [ %7, %200 ], [ %7, %213 ], [ %.sink.ph, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit32.sink.split ]
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #26
   ret void
 
-230:                                              ; preds = %213, %222, %93, %99
-  %.sink54 = phi ptr [ %4, %99 ], [ %4, %93 ], [ %7, %222 ], [ %7, %213 ]
-  %.pn22.pn.pn = phi { ptr, i32 } [ %.pn22, %99 ], [ %94, %93 ], [ %.pn.pn, %222 ], [ %214, %213 ]
+232:                                              ; preds = %215, %224, %94, %100
+  %.sink54 = phi ptr [ %4, %100 ], [ %4, %94 ], [ %7, %224 ], [ %7, %215 ]
+  %.pn22.pn.pn = phi { ptr, i32 } [ %.pn22, %100 ], [ %95, %94 ], [ %.pn.pn, %224 ], [ %216, %215 ]
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink54) #26
   resume { ptr, i32 } %.pn22.pn.pn
 }

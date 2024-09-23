@@ -1113,7 +1113,11 @@ entry:
   %fill = getelementptr inbounds i8, ptr %spec, i64 19
   %0 = load i8, ptr %fmt, align 1
   %cmp.i = icmp eq i8 %0, 0
-  br i1 %cmp.i, label %if.end, label %if.else.i
+  br i1 %cmp.i, label %if.then.i, label %if.else.i
+
+if.then.i:                                        ; preds = %entry
+  store i8 0, ptr %fill, align 1
+  br label %if.end
 
 if.else.i:                                        ; preds = %entry
   %cmp3.i = icmp sgt i8 %0, -1
@@ -1122,6 +1126,7 @@ if.else.i:                                        ; preds = %entry
 if.then5.i:                                       ; preds = %if.else.i
   store i8 %0, ptr %fill, align 1
   %arrayidx7.i = getelementptr i8, ptr %spec, i64 20
+  store i8 0, ptr %arrayidx7.i, align 1
   br label %if.end
 
 if.else8.i:                                       ; preds = %if.else.i
@@ -1155,7 +1160,7 @@ if.else41.i:                                      ; preds = %if.else36.i
 
 if.else46.i:                                      ; preds = %if.else41.i
   %cmp48.i = icmp eq i8 %0, -12
-  br i1 %cmp48.i, label %if.end60.i, label %_mpd_copy_utf8.exit.thread
+  br i1 %cmp48.i, label %if.end60.i, label %_mpd_copy_utf8.exit
 
 if.end60.i:                                       ; preds = %if.else46.i, %if.else41.i, %if.else36.i, %if.else31.i, %if.else26.i, %if.else21.i, %if.else16.i
   %lb.0.i = phi i32 [ 160, %if.else16.i ], [ 128, %if.else21.i ], [ 128, %if.else26.i ], [ 128, %if.else31.i ], [ 144, %if.else36.i ], [ 128, %if.else41.i ], [ 128, %if.else46.i ]
@@ -1168,14 +1173,14 @@ if.end60.i:                                       ; preds = %if.else46.i, %if.el
   %cmp64.i = icmp ugt i32 %lb.0.i, %conv62.i
   %cmp68.i = icmp ult i32 %ub.0.i, %conv62.i
   %or.cond30.i = or i1 %cmp64.i, %cmp68.i
-  br i1 %or.cond30.i, label %_mpd_copy_utf8.exit.thread, label %if.end71.i
+  br i1 %or.cond30.i, label %_mpd_copy_utf8.exit, label %if.end71.i
 
 if.end60.thread.i:                                ; preds = %if.else8.i
   %incdec.ptr40.i = getelementptr i8, ptr %fmt, i64 1
   store i8 %0, ptr %fill, align 1
   %3 = load i8, ptr %incdec.ptr40.i, align 1
   %or.cond3044.i = icmp sgt i8 %3, -65
-  br i1 %or.cond3044.i, label %_mpd_copy_utf8.exit.thread, label %if.end71.thread.i
+  br i1 %or.cond3044.i, label %_mpd_copy_utf8.exit, label %if.end71.thread.i
 
 if.end71.thread.i:                                ; preds = %if.end60.thread.i
   %arrayidx7347.i = getelementptr i8, ptr %spec, i64 20
@@ -1193,7 +1198,7 @@ for.body.i:                                       ; preds = %if.end84.i, %if.end
   %cp.034.i = phi ptr [ %incdec.ptr72.i, %if.end71.i ], [ %incdec.ptr85.i, %if.end84.i ]
   %4 = load i8, ptr %cp.034.i, align 1
   %or.cond31.i = icmp sgt i8 %4, -65
-  br i1 %or.cond31.i, label %_mpd_copy_utf8.exit.thread, label %if.end84.i
+  br i1 %or.cond31.i, label %_mpd_copy_utf8.exit, label %if.end84.i
 
 if.end84.i:                                       ; preds = %for.body.i
   %incdec.ptr85.i = getelementptr i8, ptr %cp.034.i, i64 1
@@ -1206,22 +1211,21 @@ if.end84.i:                                       ; preds = %for.body.i
 for.end.i:                                        ; preds = %if.end84.i, %if.end71.thread.i
   %count.04548.i = phi i64 [ 2, %if.end71.thread.i ], [ %count.0.i, %if.end84.i ]
   %arrayidx88.i = getelementptr i8, ptr %fill, i64 %count.04548.i
+  store i8 0, ptr %arrayidx88.i, align 1
   br label %if.end
 
-_mpd_copy_utf8.exit.thread:                       ; preds = %for.body.i, %if.end60.thread.i, %if.end60.i, %if.else46.i
+_mpd_copy_utf8.exit:                              ; preds = %for.body.i, %if.else46.i, %if.end60.i, %if.end60.thread.i
   store i8 0, ptr %fill, align 1
   br label %return
 
-if.end:                                           ; preds = %for.end.i, %if.then5.i, %entry
-  %dest.sink.i = phi ptr [ %arrayidx88.i, %for.end.i ], [ %arrayidx7.i, %if.then5.i ], [ %fill, %entry ]
-  %retval.0.i = phi i64 [ %count.04548.i, %for.end.i ], [ 1, %if.then5.i ], [ 0, %entry ]
-  store i8 0, ptr %dest.sink.i, align 1
+if.end:                                           ; preds = %if.then.i, %if.then5.i, %for.end.i
+  %retval.0.i.ph = phi i64 [ %count.04548.i, %for.end.i ], [ 1, %if.then5.i ], [ 0, %if.then.i ]
   %5 = load i8, ptr %fmt, align 1
   %tobool3.not = icmp eq i8 %5, 0
   br i1 %tobool3.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %add.ptr = getelementptr i8, ptr %fmt, i64 %retval.0.i
+  %add.ptr = getelementptr i8, ptr %fmt, i64 %retval.0.i.ph
   %6 = load i8, ptr %add.ptr, align 1
   switch i8 %6, label %if.else [
     i8 60, label %if.end50thread-pre-split
@@ -1422,8 +1426,8 @@ if.end203:                                        ; preds = %if.end139, %if.end1
   %. = zext i1 %cmp205.not to i32
   br label %return
 
-return:                                           ; preds = %_mpd_copy_utf8.exit.thread, %if.end203, %if.end182, %if.then178, %if.end126, %if.end126, %if.then116, %if.end90, %if.end90, %if.then85, %if.then69
-  %retval.0 = phi i32 [ 0, %if.then69 ], [ 0, %if.then85 ], [ 0, %if.end90 ], [ 0, %if.end90 ], [ 0, %if.then116 ], [ 0, %if.end126 ], [ 0, %if.end126 ], [ 0, %if.then178 ], [ 0, %if.end182 ], [ %., %if.end203 ], [ 0, %_mpd_copy_utf8.exit.thread ]
+return:                                           ; preds = %_mpd_copy_utf8.exit, %if.end203, %if.end182, %if.then178, %if.end126, %if.end126, %if.then116, %if.end90, %if.end90, %if.then85, %if.then69
+  %retval.0 = phi i32 [ 0, %_mpd_copy_utf8.exit ], [ 0, %if.then69 ], [ 0, %if.then85 ], [ 0, %if.end90 ], [ 0, %if.end90 ], [ 0, %if.then116 ], [ 0, %if.end126 ], [ 0, %if.end126 ], [ 0, %if.then178 ], [ 0, %if.end182 ], [ %., %if.end203 ]
   ret i32 %retval.0
 }
 

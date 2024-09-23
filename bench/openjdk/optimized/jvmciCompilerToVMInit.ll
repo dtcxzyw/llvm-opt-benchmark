@@ -18066,21 +18066,22 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 
 668:                                              ; preds = %663
   %669 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256El11JVMCIObjectElS1_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIlEjRKT_EEXadL_Z16primitive_equalsIlEbS9_S9_EEE3putERKlRKS1_(ptr noundef nonnull align 8 dereferenceable(2052) %3, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(9) %20)
+  %.sroa.43411.0.copyload = load i8, ptr %638, align 8
   br label %671
 
 670:                                              ; preds = %658
   %.sroa.43411.0..sroa_idx3412 = getelementptr inbounds i8, ptr %661, i64 8
+  %.sroa.43411.0.copyload3413 = load i8, ptr %.sroa.43411.0..sroa_idx3412, align 8
   br label %671
 
 671:                                              ; preds = %670, %668
-  %.sroa.43411.0..sroa_idx3412.sink = phi ptr [ %.sroa.43411.0..sroa_idx3412, %670 ], [ %638, %668 ]
-  %.sroa.03409.0.in = phi ptr [ %661, %670 ], [ %20, %668 ]
-  %.sroa.43411.0.copyload3413 = load i8, ptr %.sroa.43411.0..sroa_idx3412.sink, align 8
+  %.sroa.43411.0 = phi i8 [ %.sroa.43411.0.copyload, %668 ], [ %.sroa.43411.0.copyload3413, %670 ]
+  %.sroa.03409.0.in = phi ptr [ %20, %668 ], [ %661, %670 ]
   %.sroa.03409.0 = load ptr, ptr %.sroa.03409.0.in, align 8
   %672 = or disjoint i32 %.020783600, 1
   call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %632, i8 %633, i32 noundef %.020783600, ptr %.sroa.03414.0, i8 %.sroa.43416.0) #7
   %673 = add nuw nsw i32 %.020783600, 2
-  call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %632, i8 %633, i32 noundef %672, ptr %.sroa.03409.0, i8 %.sroa.43411.0.copyload3413) #7
+  call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %632, i8 %633, i32 noundef %672, ptr %.sroa.03409.0, i8 %.sroa.43411.0) #7
   %indvars.iv.next3616 = add nuw nsw i64 %indvars.iv3615, 1
   %exitcond3619.not = icmp eq i64 %indvars.iv.next3616, %wide.trip.count3618
   br i1 %exitcond3619.not, label %.preheader3591, label %643, !llvm.loop !8
@@ -18143,21 +18144,22 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 
 698:                                              ; preds = %693
   %699 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256El11JVMCIObjectElS1_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIlEjRKT_EEXadL_Z16primitive_equalsIlEbS9_S9_EEE3putERKlRKS1_(ptr noundef nonnull align 8 dereferenceable(2052) %3, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(9) %24)
+  %.sroa.43401.0.copyload = load i8, ptr %642, align 8
   br label %701
 
 700:                                              ; preds = %689
   %.sroa.43401.0..sroa_idx3402 = getelementptr inbounds i8, ptr %691, i64 8
+  %.sroa.43401.0.copyload3403 = load i8, ptr %.sroa.43401.0..sroa_idx3402, align 8
   br label %701
 
 701:                                              ; preds = %700, %698
-  %.sroa.43401.0..sroa_idx3402.sink = phi ptr [ %.sroa.43401.0..sroa_idx3402, %700 ], [ %642, %698 ]
-  %.sroa.03399.0.in = phi ptr [ %691, %700 ], [ %24, %698 ]
-  %.sroa.43401.0.copyload3403 = load i8, ptr %.sroa.43401.0..sroa_idx3402.sink, align 8
+  %.sroa.43401.0 = phi i8 [ %.sroa.43401.0.copyload, %698 ], [ %.sroa.43401.0.copyload3403, %700 ]
+  %.sroa.03399.0.in = phi ptr [ %24, %698 ], [ %691, %700 ]
   %.sroa.03399.0 = load ptr, ptr %.sroa.03399.0.in, align 8
   %702 = or disjoint i32 %.13603, 1
   call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %632, i8 %633, i32 noundef %.13603, ptr %.sroa.03404.0, i8 %.sroa.43406.0) #7
   %703 = add nuw nsw i32 %.13603, 2
-  call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %632, i8 %633, i32 noundef %702, ptr %.sroa.03399.0, i8 %.sroa.43401.0.copyload3403) #7
+  call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %632, i8 %633, i32 noundef %702, ptr %.sroa.03399.0, i8 %.sroa.43401.0) #7
   %indvars.iv.next3621 = add nuw nsw i64 %indvars.iv3620, 1
   %exitcond3624.not = icmp eq i64 %indvars.iv.next3621, %wide.trip.count3623
   br i1 %exitcond3624.not, label %._crit_edge3605, label %674, !llvm.loop !9
@@ -18241,23 +18243,24 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 
 739:                                              ; preds = %734
   %740 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256El11JVMCIObjectElS1_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIlEjRKT_EEXadL_Z16primitive_equalsIlEbS9_S9_EEE3putERKlRKS1_(ptr noundef nonnull align 8 dereferenceable(2052) %3, ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(9) %28)
+  %.sroa.43391.0.copyload = load i8, ptr %713, align 8
   br label %742
 
 741:                                              ; preds = %729
   %.sroa.43391.0..sroa_idx3392 = getelementptr inbounds i8, ptr %732, i64 8
+  %.sroa.43391.0.copyload3393 = load i8, ptr %.sroa.43391.0..sroa_idx3392, align 8
   br label %742
 
 742:                                              ; preds = %741, %739
-  %.sroa.43391.0..sroa_idx3392.sink = phi ptr [ %.sroa.43391.0..sroa_idx3392, %741 ], [ %713, %739 ]
-  %.sroa.03389.0.in = phi ptr [ %732, %741 ], [ %28, %739 ]
-  %.sroa.43391.0.copyload3393 = load i8, ptr %.sroa.43391.0..sroa_idx3392.sink, align 8
+  %.sroa.43391.0 = phi i8 [ %.sroa.43391.0.copyload, %739 ], [ %.sroa.43391.0.copyload3393, %741 ]
+  %.sroa.03389.0.in = phi ptr [ %28, %739 ], [ %732, %741 ]
   %.sroa.03389.0 = load ptr, ptr %.sroa.03389.0.in, align 8
   %743 = shl nuw nsw i64 %indvars.iv3625, 1
   %744 = trunc nuw i64 %743 to i32
   call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %707, i8 %708, i32 noundef %744, ptr %.sroa.03394.0, i8 %.sroa.43396.0) #7
   %745 = trunc i64 %743 to i32
   %746 = or disjoint i32 %745, 1
-  call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %707, i8 %708, i32 noundef %746, ptr %.sroa.03389.0, i8 %.sroa.43391.0.copyload3393) #7
+  call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %707, i8 %708, i32 noundef %746, ptr %.sroa.03389.0, i8 %.sroa.43391.0) #7
   %indvars.iv.next3626 = add nuw nsw i64 %indvars.iv3625, 1
   %exitcond3629.not = icmp eq i64 %indvars.iv.next3626, %wide.trip.count3628
   br i1 %exitcond3629.not, label %._crit_edge3608, label %714, !llvm.loop !10
@@ -18290,16 +18293,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 760:                                              ; preds = %754
   store ptr @.str.17, ptr %31, align 8
   %761 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(9) %30)
+  %.sroa.42981.0.copyload = load i8, ptr %757, align 8
   br label %763
 
 762:                                              ; preds = %751
   %.sroa.42981.0..sroa_idx2982 = getelementptr inbounds i8, ptr %752, i64 8
+  %.sroa.42981.0.copyload2983 = load i8, ptr %.sroa.42981.0..sroa_idx2982, align 8
   br label %763
 
 763:                                              ; preds = %762, %760
-  %.sroa.42981.0..sroa_idx2982.sink = phi ptr [ %.sroa.42981.0..sroa_idx2982, %762 ], [ %757, %760 ]
-  %.sroa.02979.0.in = phi ptr [ %752, %762 ], [ %30, %760 ]
-  %.sroa.42981.0.copyload2983 = load i8, ptr %.sroa.42981.0..sroa_idx2982.sink, align 8
+  %.sroa.42981.0 = phi i8 [ %.sroa.42981.0.copyload, %760 ], [ %.sroa.42981.0.copyload2983, %762 ]
+  %.sroa.02979.0.in = phi ptr [ %30, %760 ], [ %752, %762 ]
   %.sroa.02979.0 = load ptr, ptr %.sroa.02979.0.in, align 8
   store ptr @.str.5, ptr %32, align 8
   %764 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %32)
@@ -18320,16 +18324,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 772:                                              ; preds = %766
   store ptr @.str.5, ptr %34, align 8
   %773 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull align 8 dereferenceable(9) %33)
+  %.sroa.42976.0.copyload = load i8, ptr %769, align 8
   br label %775
 
 774:                                              ; preds = %763
   %.sroa.42976.0..sroa_idx2977 = getelementptr inbounds i8, ptr %764, i64 8
+  %.sroa.42976.0.copyload2978 = load i8, ptr %.sroa.42976.0..sroa_idx2977, align 8
   br label %775
 
 775:                                              ; preds = %772, %774
-  %.sink = phi ptr [ %769, %772 ], [ %.sroa.42976.0..sroa_idx2977, %774 ]
+  %.sroa.42976.0 = phi i8 [ %.sroa.42976.0.copyload, %772 ], [ %.sroa.42976.0.copyload2978, %774 ]
   %.sroa.02974.0.in = phi ptr [ %33, %772 ], [ %764, %774 ]
-  %.sroa.42976.0.copyload = load i8, ptr %.sink, align 8
   %.sroa.02974.0 = load ptr, ptr %.sroa.02974.0.in, align 8
   %776 = load i32, ptr @AllocateInstancePrefetchLines, align 4
   %777 = sext i32 %776 to i64
@@ -18351,23 +18356,24 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 
 786:                                              ; preds = %780
   %787 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256El11JVMCIObjectElS1_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIlEjRKT_EEXadL_Z16primitive_equalsIlEbS9_S9_EEE3putERKlRKS1_(ptr noundef nonnull align 8 dereferenceable(2052) %3, ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull align 8 dereferenceable(9) %36)
+  %.sroa.130.0.copyload3222 = load i8, ptr %783, align 8
   br label %789
 
 788:                                              ; preds = %775
   %.sroa.130.0..sroa_idx3223 = getelementptr inbounds i8, ptr %778, i64 8
+  %.sroa.130.0.copyload3224 = load i8, ptr %.sroa.130.0..sroa_idx3223, align 8
   br label %789
 
 789:                                              ; preds = %788, %786
-  %.sroa.130.0..sroa_idx3223.sink = phi ptr [ %.sroa.130.0..sroa_idx3223, %788 ], [ %783, %786 ]
-  %.sroa.02984.0.in = phi ptr [ %778, %788 ], [ %36, %786 ]
-  %.sroa.130.0.copyload3224 = load i8, ptr %.sroa.130.0..sroa_idx3223.sink, align 8
+  %.sroa.130.0 = phi i8 [ %.sroa.130.0.copyload3222, %786 ], [ %.sroa.130.0.copyload3224, %788 ]
+  %.sroa.02984.0.in = phi ptr [ %36, %786 ], [ %778, %788 ]
   %.sroa.02984.0 = load ptr, ptr %.sroa.02984.0.in, align 8
   store ptr %.sroa.02984.0, ptr %37, align 8
   %.sroa.130.0..sroa_idx = getelementptr inbounds i8, ptr %37, i64 8
-  store i8 %.sroa.130.0.copyload3224, ptr %.sroa.130.0..sroa_idx, align 8
+  store i8 %.sroa.130.0, ptr %.sroa.130.0..sroa_idx, align 8
   %.sroa.131.0..sroa_idx = getelementptr inbounds i8, ptr %37, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %790 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02979.0, i8 %.sroa.42981.0.copyload2983, ptr %.sroa.02974.0, i8 %.sroa.42976.0.copyload, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %37, ptr noundef nonnull %1) #7
+  %790 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02979.0, i8 %.sroa.42981.0, ptr %.sroa.02974.0, i8 %.sroa.42976.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %37, ptr noundef nonnull %1) #7
   %791 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2235 = icmp eq i8 %791, 0
   br i1 %.not2235, label %792, label %.loopexit
@@ -18395,16 +18401,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 803:                                              ; preds = %797
   store ptr @.str.18, ptr %40, align 8
   %804 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull align 8 dereferenceable(9) %39)
+  %.sroa.42971.0.copyload = load i8, ptr %800, align 8
   br label %806
 
 805:                                              ; preds = %792
   %.sroa.42971.0..sroa_idx2972 = getelementptr inbounds i8, ptr %795, i64 8
+  %.sroa.42971.0.copyload2973 = load i8, ptr %.sroa.42971.0..sroa_idx2972, align 8
   br label %806
 
 806:                                              ; preds = %805, %803
-  %.sroa.42971.0..sroa_idx2972.sink = phi ptr [ %.sroa.42971.0..sroa_idx2972, %805 ], [ %800, %803 ]
-  %.sroa.02969.0.in = phi ptr [ %795, %805 ], [ %39, %803 ]
-  %.sroa.42971.0.copyload2973 = load i8, ptr %.sroa.42971.0..sroa_idx2972.sink, align 8
+  %.sroa.42971.0 = phi i8 [ %.sroa.42971.0.copyload, %803 ], [ %.sroa.42971.0.copyload2973, %805 ]
+  %.sroa.02969.0.in = phi ptr [ %39, %803 ], [ %795, %805 ]
   %.sroa.02969.0 = load ptr, ptr %.sroa.02969.0.in, align 8
   store ptr @.str.5, ptr %41, align 8
   %807 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %41)
@@ -18425,16 +18432,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 815:                                              ; preds = %809
   store ptr @.str.5, ptr %43, align 8
   %816 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull align 8 dereferenceable(9) %42)
+  %.sroa.42966.0.copyload = load i8, ptr %812, align 8
   br label %818
 
 817:                                              ; preds = %806
   %.sroa.42966.0..sroa_idx2967 = getelementptr inbounds i8, ptr %807, i64 8
+  %.sroa.42966.0.copyload2968 = load i8, ptr %.sroa.42966.0..sroa_idx2967, align 8
   br label %818
 
 818:                                              ; preds = %815, %817
-  %.sink3635 = phi ptr [ %812, %815 ], [ %.sroa.42966.0..sroa_idx2967, %817 ]
+  %.sroa.42966.0 = phi i8 [ %.sroa.42966.0.copyload, %815 ], [ %.sroa.42966.0.copyload2968, %817 ]
   %.sroa.02964.0.in = phi ptr [ %42, %815 ], [ %807, %817 ]
-  %.sroa.42966.0.copyload = load i8, ptr %.sink3635, align 8
   %.sroa.02964.0 = load ptr, ptr %.sroa.02964.0.in, align 8
   %819 = load i32, ptr @AllocatePrefetchDistance, align 4
   %820 = sext i32 %819 to i64
@@ -18456,23 +18464,24 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 
 829:                                              ; preds = %823
   %830 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256El11JVMCIObjectElS1_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIlEjRKT_EEXadL_Z16primitive_equalsIlEbS9_S9_EEE3putERKlRKS1_(ptr noundef nonnull align 8 dereferenceable(2052) %3, ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull align 8 dereferenceable(9) %45)
+  %.sroa.130.0.copyload3226 = load i8, ptr %826, align 8
   br label %832
 
 831:                                              ; preds = %818
   %.sroa.130.0..sroa_idx3227 = getelementptr inbounds i8, ptr %821, i64 8
+  %.sroa.130.0.copyload3228 = load i8, ptr %.sroa.130.0..sroa_idx3227, align 8
   br label %832
 
 832:                                              ; preds = %831, %829
-  %.sroa.130.0..sroa_idx3227.sink = phi ptr [ %.sroa.130.0..sroa_idx3227, %831 ], [ %826, %829 ]
-  %.sroa.02984.1.in = phi ptr [ %821, %831 ], [ %45, %829 ]
-  %.sroa.130.0.copyload3228 = load i8, ptr %.sroa.130.0..sroa_idx3227.sink, align 8
+  %.sroa.130.1 = phi i8 [ %.sroa.130.0.copyload3226, %829 ], [ %.sroa.130.0.copyload3228, %831 ]
+  %.sroa.02984.1.in = phi ptr [ %45, %829 ], [ %821, %831 ]
   %.sroa.02984.1 = load ptr, ptr %.sroa.02984.1.in, align 8
   store ptr %.sroa.02984.1, ptr %46, align 8
   %.sroa.130.0..sroa_idx3113 = getelementptr inbounds i8, ptr %46, i64 8
-  store i8 %.sroa.130.0.copyload3228, ptr %.sroa.130.0..sroa_idx3113, align 8
+  store i8 %.sroa.130.1, ptr %.sroa.130.0..sroa_idx3113, align 8
   %.sroa.131.0..sroa_idx3335 = getelementptr inbounds i8, ptr %46, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3335, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %833 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02969.0, i8 %.sroa.42971.0.copyload2973, ptr %.sroa.02964.0, i8 %.sroa.42966.0.copyload, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %46, ptr noundef nonnull %1) #7
+  %833 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02969.0, i8 %.sroa.42971.0, ptr %.sroa.02964.0, i8 %.sroa.42966.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %46, ptr noundef nonnull %1) #7
   %834 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2239 = icmp eq i8 %834, 0
   br i1 %.not2239, label %835, label %.loopexit
@@ -18500,16 +18509,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 846:                                              ; preds = %840
   store ptr @.str.19, ptr %49, align 8
   %847 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef nonnull align 8 dereferenceable(9) %48)
+  %.sroa.42961.0.copyload = load i8, ptr %843, align 8
   br label %849
 
 848:                                              ; preds = %835
   %.sroa.42961.0..sroa_idx2962 = getelementptr inbounds i8, ptr %838, i64 8
+  %.sroa.42961.0.copyload2963 = load i8, ptr %.sroa.42961.0..sroa_idx2962, align 8
   br label %849
 
 849:                                              ; preds = %848, %846
-  %.sroa.42961.0..sroa_idx2962.sink = phi ptr [ %.sroa.42961.0..sroa_idx2962, %848 ], [ %843, %846 ]
-  %.sroa.02959.0.in = phi ptr [ %838, %848 ], [ %48, %846 ]
-  %.sroa.42961.0.copyload2963 = load i8, ptr %.sroa.42961.0..sroa_idx2962.sink, align 8
+  %.sroa.42961.0 = phi i8 [ %.sroa.42961.0.copyload, %846 ], [ %.sroa.42961.0.copyload2963, %848 ]
+  %.sroa.02959.0.in = phi ptr [ %48, %846 ], [ %838, %848 ]
   %.sroa.02959.0 = load ptr, ptr %.sroa.02959.0.in, align 8
   store ptr @.str.20, ptr %50, align 8
   %850 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %50)
@@ -18530,16 +18540,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 858:                                              ; preds = %852
   store ptr @.str.20, ptr %52, align 8
   %859 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %52, ptr noundef nonnull align 8 dereferenceable(9) %51)
+  %.sroa.42956.0.copyload = load i8, ptr %855, align 8
   br label %861
 
 860:                                              ; preds = %849
   %.sroa.42956.0..sroa_idx2957 = getelementptr inbounds i8, ptr %850, i64 8
+  %.sroa.42956.0.copyload2958 = load i8, ptr %.sroa.42956.0..sroa_idx2957, align 8
   br label %861
 
 861:                                              ; preds = %858, %860
-  %.sink3636 = phi ptr [ %855, %858 ], [ %.sroa.42956.0..sroa_idx2957, %860 ]
+  %.sroa.42956.0 = phi i8 [ %.sroa.42956.0.copyload, %858 ], [ %.sroa.42956.0.copyload2958, %860 ]
   %.sroa.02954.0.in = phi ptr [ %51, %858 ], [ %850, %860 ]
-  %.sroa.42956.0.copyload = load i8, ptr %.sink3636, align 8
   %.sroa.02954.0 = load ptr, ptr %.sroa.02954.0.in, align 8
   %862 = load i64, ptr @AllocatePrefetchInstr, align 8
   store i64 %862, ptr %53, align 8
@@ -18560,23 +18571,24 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 
 871:                                              ; preds = %865
   %872 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256El11JVMCIObjectElS1_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIlEjRKT_EEXadL_Z16primitive_equalsIlEbS9_S9_EEE3putERKlRKS1_(ptr noundef nonnull align 8 dereferenceable(2052) %3, ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef nonnull align 8 dereferenceable(9) %54)
+  %.sroa.130.0.copyload3230 = load i8, ptr %868, align 8
   br label %874
 
 873:                                              ; preds = %861
   %.sroa.130.0..sroa_idx3231 = getelementptr inbounds i8, ptr %863, i64 8
+  %.sroa.130.0.copyload3232 = load i8, ptr %.sroa.130.0..sroa_idx3231, align 8
   br label %874
 
 874:                                              ; preds = %873, %871
-  %.sroa.130.0..sroa_idx3231.sink = phi ptr [ %.sroa.130.0..sroa_idx3231, %873 ], [ %868, %871 ]
-  %.sroa.02984.2.in = phi ptr [ %863, %873 ], [ %54, %871 ]
-  %.sroa.130.0.copyload3232 = load i8, ptr %.sroa.130.0..sroa_idx3231.sink, align 8
+  %.sroa.130.2 = phi i8 [ %.sroa.130.0.copyload3230, %871 ], [ %.sroa.130.0.copyload3232, %873 ]
+  %.sroa.02984.2.in = phi ptr [ %54, %871 ], [ %863, %873 ]
   %.sroa.02984.2 = load ptr, ptr %.sroa.02984.2.in, align 8
   store ptr %.sroa.02984.2, ptr %55, align 8
   %.sroa.130.0..sroa_idx3115 = getelementptr inbounds i8, ptr %55, i64 8
-  store i8 %.sroa.130.0.copyload3232, ptr %.sroa.130.0..sroa_idx3115, align 8
+  store i8 %.sroa.130.2, ptr %.sroa.130.0..sroa_idx3115, align 8
   %.sroa.131.0..sroa_idx3336 = getelementptr inbounds i8, ptr %55, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3336, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %875 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02959.0, i8 %.sroa.42961.0.copyload2963, ptr %.sroa.02954.0, i8 %.sroa.42956.0.copyload, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %55, ptr noundef nonnull %1) #7
+  %875 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02959.0, i8 %.sroa.42961.0, ptr %.sroa.02954.0, i8 %.sroa.42956.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %55, ptr noundef nonnull %1) #7
   %876 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2243 = icmp eq i8 %876, 0
   br i1 %.not2243, label %877, label %.loopexit
@@ -18604,16 +18616,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 888:                                              ; preds = %882
   store ptr @.str.21, ptr %58, align 8
   %889 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %58, ptr noundef nonnull align 8 dereferenceable(9) %57)
+  %.sroa.42951.0.copyload = load i8, ptr %885, align 8
   br label %891
 
 890:                                              ; preds = %877
   %.sroa.42951.0..sroa_idx2952 = getelementptr inbounds i8, ptr %880, i64 8
+  %.sroa.42951.0.copyload2953 = load i8, ptr %.sroa.42951.0..sroa_idx2952, align 8
   br label %891
 
 891:                                              ; preds = %890, %888
-  %.sroa.42951.0..sroa_idx2952.sink = phi ptr [ %.sroa.42951.0..sroa_idx2952, %890 ], [ %885, %888 ]
-  %.sroa.02949.0.in = phi ptr [ %880, %890 ], [ %57, %888 ]
-  %.sroa.42951.0.copyload2953 = load i8, ptr %.sroa.42951.0..sroa_idx2952.sink, align 8
+  %.sroa.42951.0 = phi i8 [ %.sroa.42951.0.copyload, %888 ], [ %.sroa.42951.0.copyload2953, %890 ]
+  %.sroa.02949.0.in = phi ptr [ %57, %888 ], [ %880, %890 ]
   %.sroa.02949.0 = load ptr, ptr %.sroa.02949.0.in, align 8
   store ptr @.str.5, ptr %59, align 8
   %892 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %59)
@@ -18634,16 +18647,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 900:                                              ; preds = %894
   store ptr @.str.5, ptr %61, align 8
   %901 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %61, ptr noundef nonnull align 8 dereferenceable(9) %60)
+  %.sroa.42946.0.copyload = load i8, ptr %897, align 8
   br label %903
 
 902:                                              ; preds = %891
   %.sroa.42946.0..sroa_idx2947 = getelementptr inbounds i8, ptr %892, i64 8
+  %.sroa.42946.0.copyload2948 = load i8, ptr %.sroa.42946.0..sroa_idx2947, align 8
   br label %903
 
 903:                                              ; preds = %900, %902
-  %.sink3637 = phi ptr [ %897, %900 ], [ %.sroa.42946.0..sroa_idx2947, %902 ]
+  %.sroa.42946.0 = phi i8 [ %.sroa.42946.0.copyload, %900 ], [ %.sroa.42946.0.copyload2948, %902 ]
   %.sroa.02944.0.in = phi ptr [ %60, %900 ], [ %892, %902 ]
-  %.sroa.42946.0.copyload = load i8, ptr %.sink3637, align 8
   %.sroa.02944.0 = load ptr, ptr %.sroa.02944.0.in, align 8
   %904 = load i32, ptr @AllocatePrefetchLines, align 4
   %905 = sext i32 %904 to i64
@@ -18665,23 +18679,24 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 
 914:                                              ; preds = %908
   %915 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256El11JVMCIObjectElS1_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIlEjRKT_EEXadL_Z16primitive_equalsIlEbS9_S9_EEE3putERKlRKS1_(ptr noundef nonnull align 8 dereferenceable(2052) %3, ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef nonnull align 8 dereferenceable(9) %63)
+  %.sroa.130.0.copyload3234 = load i8, ptr %911, align 8
   br label %917
 
 916:                                              ; preds = %903
   %.sroa.130.0..sroa_idx3235 = getelementptr inbounds i8, ptr %906, i64 8
+  %.sroa.130.0.copyload3236 = load i8, ptr %.sroa.130.0..sroa_idx3235, align 8
   br label %917
 
 917:                                              ; preds = %916, %914
-  %.sroa.130.0..sroa_idx3235.sink = phi ptr [ %.sroa.130.0..sroa_idx3235, %916 ], [ %911, %914 ]
-  %.sroa.02984.3.in = phi ptr [ %906, %916 ], [ %63, %914 ]
-  %.sroa.130.0.copyload3236 = load i8, ptr %.sroa.130.0..sroa_idx3235.sink, align 8
+  %.sroa.130.3 = phi i8 [ %.sroa.130.0.copyload3234, %914 ], [ %.sroa.130.0.copyload3236, %916 ]
+  %.sroa.02984.3.in = phi ptr [ %63, %914 ], [ %906, %916 ]
   %.sroa.02984.3 = load ptr, ptr %.sroa.02984.3.in, align 8
   store ptr %.sroa.02984.3, ptr %64, align 8
   %.sroa.130.0..sroa_idx3117 = getelementptr inbounds i8, ptr %64, i64 8
-  store i8 %.sroa.130.0.copyload3236, ptr %.sroa.130.0..sroa_idx3117, align 8
+  store i8 %.sroa.130.3, ptr %.sroa.130.0..sroa_idx3117, align 8
   %.sroa.131.0..sroa_idx3337 = getelementptr inbounds i8, ptr %64, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3337, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %918 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02949.0, i8 %.sroa.42951.0.copyload2953, ptr %.sroa.02944.0, i8 %.sroa.42946.0.copyload, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %64, ptr noundef nonnull %1) #7
+  %918 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02949.0, i8 %.sroa.42951.0, ptr %.sroa.02944.0, i8 %.sroa.42946.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %64, ptr noundef nonnull %1) #7
   %919 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2247 = icmp eq i8 %919, 0
   br i1 %.not2247, label %920, label %.loopexit
@@ -18709,16 +18724,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 931:                                              ; preds = %925
   store ptr @.str.22, ptr %67, align 8
   %932 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %67, ptr noundef nonnull align 8 dereferenceable(9) %66)
+  %.sroa.42941.0.copyload = load i8, ptr %928, align 8
   br label %934
 
 933:                                              ; preds = %920
   %.sroa.42941.0..sroa_idx2942 = getelementptr inbounds i8, ptr %923, i64 8
+  %.sroa.42941.0.copyload2943 = load i8, ptr %.sroa.42941.0..sroa_idx2942, align 8
   br label %934
 
 934:                                              ; preds = %933, %931
-  %.sroa.42941.0..sroa_idx2942.sink = phi ptr [ %.sroa.42941.0..sroa_idx2942, %933 ], [ %928, %931 ]
-  %.sroa.02939.0.in = phi ptr [ %923, %933 ], [ %66, %931 ]
-  %.sroa.42941.0.copyload2943 = load i8, ptr %.sroa.42941.0..sroa_idx2942.sink, align 8
+  %.sroa.42941.0 = phi i8 [ %.sroa.42941.0.copyload, %931 ], [ %.sroa.42941.0.copyload2943, %933 ]
+  %.sroa.02939.0.in = phi ptr [ %66, %931 ], [ %923, %933 ]
   %.sroa.02939.0 = load ptr, ptr %.sroa.02939.0.in, align 8
   store ptr @.str.5, ptr %68, align 8
   %935 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %68)
@@ -18739,16 +18755,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 943:                                              ; preds = %937
   store ptr @.str.5, ptr %70, align 8
   %944 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %70, ptr noundef nonnull align 8 dereferenceable(9) %69)
+  %.sroa.42936.0.copyload = load i8, ptr %940, align 8
   br label %946
 
 945:                                              ; preds = %934
   %.sroa.42936.0..sroa_idx2937 = getelementptr inbounds i8, ptr %935, i64 8
+  %.sroa.42936.0.copyload2938 = load i8, ptr %.sroa.42936.0..sroa_idx2937, align 8
   br label %946
 
 946:                                              ; preds = %943, %945
-  %.sink3638 = phi ptr [ %940, %943 ], [ %.sroa.42936.0..sroa_idx2937, %945 ]
+  %.sroa.42936.0 = phi i8 [ %.sroa.42936.0.copyload, %943 ], [ %.sroa.42936.0.copyload2938, %945 ]
   %.sroa.02934.0.in = phi ptr [ %69, %943 ], [ %935, %945 ]
-  %.sroa.42936.0.copyload = load i8, ptr %.sink3638, align 8
   %.sroa.02934.0 = load ptr, ptr %.sroa.02934.0.in, align 8
   %947 = load i32, ptr @AllocatePrefetchStepSize, align 4
   %948 = sext i32 %947 to i64
@@ -18770,23 +18787,24 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 
 957:                                              ; preds = %951
   %958 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256El11JVMCIObjectElS1_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIlEjRKT_EEXadL_Z16primitive_equalsIlEbS9_S9_EEE3putERKlRKS1_(ptr noundef nonnull align 8 dereferenceable(2052) %3, ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull align 8 dereferenceable(9) %72)
+  %.sroa.130.0.copyload3238 = load i8, ptr %954, align 8
   br label %960
 
 959:                                              ; preds = %946
   %.sroa.130.0..sroa_idx3239 = getelementptr inbounds i8, ptr %949, i64 8
+  %.sroa.130.0.copyload3240 = load i8, ptr %.sroa.130.0..sroa_idx3239, align 8
   br label %960
 
 960:                                              ; preds = %959, %957
-  %.sroa.130.0..sroa_idx3239.sink = phi ptr [ %.sroa.130.0..sroa_idx3239, %959 ], [ %954, %957 ]
-  %.sroa.02984.4.in = phi ptr [ %949, %959 ], [ %72, %957 ]
-  %.sroa.130.0.copyload3240 = load i8, ptr %.sroa.130.0..sroa_idx3239.sink, align 8
+  %.sroa.130.4 = phi i8 [ %.sroa.130.0.copyload3238, %957 ], [ %.sroa.130.0.copyload3240, %959 ]
+  %.sroa.02984.4.in = phi ptr [ %72, %957 ], [ %949, %959 ]
   %.sroa.02984.4 = load ptr, ptr %.sroa.02984.4.in, align 8
   store ptr %.sroa.02984.4, ptr %73, align 8
   %.sroa.130.0..sroa_idx3119 = getelementptr inbounds i8, ptr %73, i64 8
-  store i8 %.sroa.130.0.copyload3240, ptr %.sroa.130.0..sroa_idx3119, align 8
+  store i8 %.sroa.130.4, ptr %.sroa.130.0..sroa_idx3119, align 8
   %.sroa.131.0..sroa_idx3338 = getelementptr inbounds i8, ptr %73, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3338, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %961 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02939.0, i8 %.sroa.42941.0.copyload2943, ptr %.sroa.02934.0, i8 %.sroa.42936.0.copyload, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %73, ptr noundef nonnull %1) #7
+  %961 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02939.0, i8 %.sroa.42941.0, ptr %.sroa.02934.0, i8 %.sroa.42936.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %73, ptr noundef nonnull %1) #7
   %962 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2251 = icmp eq i8 %962, 0
   br i1 %.not2251, label %963, label %.loopexit
@@ -18814,16 +18832,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 974:                                              ; preds = %968
   store ptr @.str.23, ptr %76, align 8
   %975 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(9) %75)
+  %.sroa.42931.0.copyload = load i8, ptr %971, align 8
   br label %977
 
 976:                                              ; preds = %963
   %.sroa.42931.0..sroa_idx2932 = getelementptr inbounds i8, ptr %966, i64 8
+  %.sroa.42931.0.copyload2933 = load i8, ptr %.sroa.42931.0..sroa_idx2932, align 8
   br label %977
 
 977:                                              ; preds = %976, %974
-  %.sroa.42931.0..sroa_idx2932.sink = phi ptr [ %.sroa.42931.0..sroa_idx2932, %976 ], [ %971, %974 ]
-  %.sroa.02929.0.in = phi ptr [ %966, %976 ], [ %75, %974 ]
-  %.sroa.42931.0.copyload2933 = load i8, ptr %.sroa.42931.0..sroa_idx2932.sink, align 8
+  %.sroa.42931.0 = phi i8 [ %.sroa.42931.0.copyload, %974 ], [ %.sroa.42931.0.copyload2933, %976 ]
+  %.sroa.02929.0.in = phi ptr [ %75, %974 ], [ %966, %976 ]
   %.sroa.02929.0 = load ptr, ptr %.sroa.02929.0.in, align 8
   store ptr @.str.5, ptr %77, align 8
   %978 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %77)
@@ -18844,16 +18863,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 986:                                              ; preds = %980
   store ptr @.str.5, ptr %79, align 8
   %987 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %79, ptr noundef nonnull align 8 dereferenceable(9) %78)
+  %.sroa.42926.0.copyload = load i8, ptr %983, align 8
   br label %989
 
 988:                                              ; preds = %977
   %.sroa.42926.0..sroa_idx2927 = getelementptr inbounds i8, ptr %978, i64 8
+  %.sroa.42926.0.copyload2928 = load i8, ptr %.sroa.42926.0..sroa_idx2927, align 8
   br label %989
 
 989:                                              ; preds = %986, %988
-  %.sink3639 = phi ptr [ %983, %986 ], [ %.sroa.42926.0..sroa_idx2927, %988 ]
+  %.sroa.42926.0 = phi i8 [ %.sroa.42926.0.copyload, %986 ], [ %.sroa.42926.0.copyload2928, %988 ]
   %.sroa.02924.0.in = phi ptr [ %78, %986 ], [ %978, %988 ]
-  %.sroa.42926.0.copyload = load i8, ptr %.sink3639, align 8
   %.sroa.02924.0 = load ptr, ptr %.sroa.02924.0.in, align 8
   %990 = load i32, ptr @AllocatePrefetchStyle, align 4
   %991 = sext i32 %990 to i64
@@ -18875,23 +18895,24 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 
 1000:                                             ; preds = %994
   %1001 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256El11JVMCIObjectElS1_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIlEjRKT_EEXadL_Z16primitive_equalsIlEbS9_S9_EEE3putERKlRKS1_(ptr noundef nonnull align 8 dereferenceable(2052) %3, ptr noundef nonnull align 8 dereferenceable(8) %80, ptr noundef nonnull align 8 dereferenceable(9) %81)
+  %.sroa.130.0.copyload3242 = load i8, ptr %997, align 8
   br label %1003
 
 1002:                                             ; preds = %989
   %.sroa.130.0..sroa_idx3243 = getelementptr inbounds i8, ptr %992, i64 8
+  %.sroa.130.0.copyload3244 = load i8, ptr %.sroa.130.0..sroa_idx3243, align 8
   br label %1003
 
 1003:                                             ; preds = %1002, %1000
-  %.sroa.130.0..sroa_idx3243.sink = phi ptr [ %.sroa.130.0..sroa_idx3243, %1002 ], [ %997, %1000 ]
-  %.sroa.02984.5.in = phi ptr [ %992, %1002 ], [ %81, %1000 ]
-  %.sroa.130.0.copyload3244 = load i8, ptr %.sroa.130.0..sroa_idx3243.sink, align 8
+  %.sroa.130.5 = phi i8 [ %.sroa.130.0.copyload3242, %1000 ], [ %.sroa.130.0.copyload3244, %1002 ]
+  %.sroa.02984.5.in = phi ptr [ %81, %1000 ], [ %992, %1002 ]
   %.sroa.02984.5 = load ptr, ptr %.sroa.02984.5.in, align 8
   store ptr %.sroa.02984.5, ptr %82, align 8
   %.sroa.130.0..sroa_idx3121 = getelementptr inbounds i8, ptr %82, i64 8
-  store i8 %.sroa.130.0.copyload3244, ptr %.sroa.130.0..sroa_idx3121, align 8
+  store i8 %.sroa.130.5, ptr %.sroa.130.0..sroa_idx3121, align 8
   %.sroa.131.0..sroa_idx3339 = getelementptr inbounds i8, ptr %82, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3339, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %1004 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02929.0, i8 %.sroa.42931.0.copyload2933, ptr %.sroa.02924.0, i8 %.sroa.42926.0.copyload, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %82, ptr noundef nonnull %1) #7
+  %1004 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02929.0, i8 %.sroa.42931.0, ptr %.sroa.02924.0, i8 %.sroa.42926.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %82, ptr noundef nonnull %1) #7
   %1005 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2255 = icmp eq i8 %1005, 0
   br i1 %.not2255, label %1006, label %.loopexit
@@ -18919,16 +18940,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1017:                                             ; preds = %1011
   store ptr @.str.24, ptr %85, align 8
   %1018 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %85, ptr noundef nonnull align 8 dereferenceable(9) %84)
+  %.sroa.42921.0.copyload = load i8, ptr %1014, align 8
   br label %1020
 
 1019:                                             ; preds = %1006
   %.sroa.42921.0..sroa_idx2922 = getelementptr inbounds i8, ptr %1009, i64 8
+  %.sroa.42921.0.copyload2923 = load i8, ptr %.sroa.42921.0..sroa_idx2922, align 8
   br label %1020
 
 1020:                                             ; preds = %1019, %1017
-  %.sroa.42921.0..sroa_idx2922.sink = phi ptr [ %.sroa.42921.0..sroa_idx2922, %1019 ], [ %1014, %1017 ]
-  %.sroa.02919.0.in = phi ptr [ %1009, %1019 ], [ %84, %1017 ]
-  %.sroa.42921.0.copyload2923 = load i8, ptr %.sroa.42921.0..sroa_idx2922.sink, align 8
+  %.sroa.42921.0 = phi i8 [ %.sroa.42921.0.copyload, %1017 ], [ %.sroa.42921.0.copyload2923, %1019 ]
+  %.sroa.02919.0.in = phi ptr [ %84, %1017 ], [ %1009, %1019 ]
   %.sroa.02919.0 = load ptr, ptr %.sroa.02919.0.in, align 8
   store ptr @.str.20, ptr %86, align 8
   %1021 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %86)
@@ -18949,16 +18971,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1029:                                             ; preds = %1023
   store ptr @.str.20, ptr %88, align 8
   %1030 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %88, ptr noundef nonnull align 8 dereferenceable(9) %87)
+  %.sroa.42916.0.copyload = load i8, ptr %1026, align 8
   br label %1032
 
 1031:                                             ; preds = %1020
   %.sroa.42916.0..sroa_idx2917 = getelementptr inbounds i8, ptr %1021, i64 8
+  %.sroa.42916.0.copyload2918 = load i8, ptr %.sroa.42916.0..sroa_idx2917, align 8
   br label %1032
 
 1032:                                             ; preds = %1029, %1031
-  %.sink3640 = phi ptr [ %1026, %1029 ], [ %.sroa.42916.0..sroa_idx2917, %1031 ]
+  %.sroa.42916.0 = phi i8 [ %.sroa.42916.0.copyload, %1029 ], [ %.sroa.42916.0.copyload2918, %1031 ]
   %.sroa.02914.0.in = phi ptr [ %87, %1029 ], [ %1021, %1031 ]
-  %.sroa.42916.0.copyload = load i8, ptr %.sink3640, align 8
   %.sroa.02914.0 = load ptr, ptr %.sroa.02914.0.in, align 8
   store i64 2, ptr %89, align 8
   %1033 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256El11JVMCIObjectElS1_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIlEjRKT_EEXadL_Z16primitive_equalsIlEbS9_S9_EEE3getERKl(ptr noundef nonnull align 8 dereferenceable(2052) %3, ptr noundef nonnull align 8 dereferenceable(8) %89)
@@ -18978,23 +19001,24 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 
 1041:                                             ; preds = %1035
   %1042 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256El11JVMCIObjectElS1_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIlEjRKT_EEXadL_Z16primitive_equalsIlEbS9_S9_EEE3putERKlRKS1_(ptr noundef nonnull align 8 dereferenceable(2052) %3, ptr noundef nonnull align 8 dereferenceable(8) %89, ptr noundef nonnull align 8 dereferenceable(9) %90)
+  %.sroa.130.0.copyload3246 = load i8, ptr %1038, align 8
   br label %1044
 
 1043:                                             ; preds = %1032
   %.sroa.130.0..sroa_idx3247 = getelementptr inbounds i8, ptr %1033, i64 8
+  %.sroa.130.0.copyload3248 = load i8, ptr %.sroa.130.0..sroa_idx3247, align 8
   br label %1044
 
 1044:                                             ; preds = %1043, %1041
-  %.sroa.130.0..sroa_idx3247.sink = phi ptr [ %.sroa.130.0..sroa_idx3247, %1043 ], [ %1038, %1041 ]
-  %.sroa.02984.6.in = phi ptr [ %1033, %1043 ], [ %90, %1041 ]
-  %.sroa.130.0.copyload3248 = load i8, ptr %.sroa.130.0..sroa_idx3247.sink, align 8
+  %.sroa.130.6 = phi i8 [ %.sroa.130.0.copyload3246, %1041 ], [ %.sroa.130.0.copyload3248, %1043 ]
+  %.sroa.02984.6.in = phi ptr [ %90, %1041 ], [ %1033, %1043 ]
   %.sroa.02984.6 = load ptr, ptr %.sroa.02984.6.in, align 8
   store ptr %.sroa.02984.6, ptr %91, align 8
   %.sroa.130.0..sroa_idx3123 = getelementptr inbounds i8, ptr %91, i64 8
-  store i8 %.sroa.130.0.copyload3248, ptr %.sroa.130.0..sroa_idx3123, align 8
+  store i8 %.sroa.130.6, ptr %.sroa.130.0..sroa_idx3123, align 8
   %.sroa.131.0..sroa_idx3340 = getelementptr inbounds i8, ptr %91, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3340, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %1045 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02919.0, i8 %.sroa.42921.0.copyload2923, ptr %.sroa.02914.0, i8 %.sroa.42916.0.copyload, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %91, ptr noundef nonnull %1) #7
+  %1045 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02919.0, i8 %.sroa.42921.0, ptr %.sroa.02914.0, i8 %.sroa.42916.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %91, ptr noundef nonnull %1) #7
   %1046 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2259 = icmp eq i8 %1046, 0
   br i1 %.not2259, label %1047, label %.loopexit
@@ -19022,16 +19046,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1058:                                             ; preds = %1052
   store ptr @.str.25, ptr %94, align 8
   %1059 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %94, ptr noundef nonnull align 8 dereferenceable(9) %93)
+  %.sroa.42911.0.copyload = load i8, ptr %1055, align 8
   br label %1061
 
 1060:                                             ; preds = %1047
   %.sroa.42911.0..sroa_idx2912 = getelementptr inbounds i8, ptr %1050, i64 8
+  %.sroa.42911.0.copyload2913 = load i8, ptr %.sroa.42911.0..sroa_idx2912, align 8
   br label %1061
 
 1061:                                             ; preds = %1060, %1058
-  %.sroa.42911.0..sroa_idx2912.sink = phi ptr [ %.sroa.42911.0..sroa_idx2912, %1060 ], [ %1055, %1058 ]
-  %.sroa.02909.0.in = phi ptr [ %1050, %1060 ], [ %93, %1058 ]
-  %.sroa.42911.0.copyload2913 = load i8, ptr %.sroa.42911.0..sroa_idx2912.sink, align 8
+  %.sroa.42911.0 = phi i8 [ %.sroa.42911.0.copyload, %1058 ], [ %.sroa.42911.0.copyload2913, %1060 ]
+  %.sroa.02909.0.in = phi ptr [ %93, %1058 ], [ %1050, %1060 ]
   %.sroa.02909.0 = load ptr, ptr %.sroa.02909.0.in, align 8
   store ptr @.str.4, ptr %95, align 8
   %1062 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %95)
@@ -19052,16 +19077,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1070:                                             ; preds = %1064
   store ptr @.str.4, ptr %97, align 8
   %1071 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %97, ptr noundef nonnull align 8 dereferenceable(9) %96)
+  %.sroa.42906.0.copyload = load i8, ptr %1067, align 8
   br label %1073
 
 1072:                                             ; preds = %1061
   %.sroa.42906.0..sroa_idx2907 = getelementptr inbounds i8, ptr %1062, i64 8
+  %.sroa.42906.0.copyload2908 = load i8, ptr %.sroa.42906.0..sroa_idx2907, align 8
   br label %1073
 
 1073:                                             ; preds = %1072, %1070
-  %.sroa.42906.0..sroa_idx2907.sink = phi ptr [ %.sroa.42906.0..sroa_idx2907, %1072 ], [ %1067, %1070 ]
-  %.sroa.02904.0.in = phi ptr [ %1062, %1072 ], [ %96, %1070 ]
-  %.sroa.42906.0.copyload2908 = load i8, ptr %.sroa.42906.0..sroa_idx2907.sink, align 8
+  %.sroa.42906.0 = phi i8 [ %.sroa.42906.0.copyload, %1070 ], [ %.sroa.42906.0.copyload2908, %1072 ]
+  %.sroa.02904.0.in = phi ptr [ %96, %1070 ], [ %1062, %1072 ]
   %.sroa.02904.0 = load ptr, ptr %.sroa.02904.0.in, align 8
   %1074 = load i8, ptr @BootstrapJVMCI, align 1
   %1075 = trunc i8 %1074 to i1
@@ -19072,7 +19098,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   store i8 %.sroa.130.0.copyload3249.sroa.speculated, ptr %.sroa.130.0..sroa_idx3125, align 8
   %.sroa.131.0..sroa_idx3341 = getelementptr inbounds i8, ptr %98, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3341, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %1076 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02909.0, i8 %.sroa.42911.0.copyload2913, ptr %.sroa.02904.0, i8 %.sroa.42906.0.copyload2908, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %98, ptr noundef nonnull %1) #7
+  %1076 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02909.0, i8 %.sroa.42911.0, ptr %.sroa.02904.0, i8 %.sroa.42906.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %98, ptr noundef nonnull %1) #7
   %1077 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2262 = icmp eq i8 %1077, 0
   br i1 %.not2262, label %1078, label %.loopexit
@@ -19100,16 +19126,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1089:                                             ; preds = %1083
   store ptr @.str.26, ptr %101, align 8
   %1090 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %101, ptr noundef nonnull align 8 dereferenceable(9) %100)
+  %.sroa.42901.0.copyload = load i8, ptr %1086, align 8
   br label %1092
 
 1091:                                             ; preds = %1078
   %.sroa.42901.0..sroa_idx2902 = getelementptr inbounds i8, ptr %1081, i64 8
+  %.sroa.42901.0.copyload2903 = load i8, ptr %.sroa.42901.0..sroa_idx2902, align 8
   br label %1092
 
 1092:                                             ; preds = %1091, %1089
-  %.sroa.42901.0..sroa_idx2902.sink = phi ptr [ %.sroa.42901.0..sroa_idx2902, %1091 ], [ %1086, %1089 ]
-  %.sroa.02899.0.in = phi ptr [ %1081, %1091 ], [ %100, %1089 ]
-  %.sroa.42901.0.copyload2903 = load i8, ptr %.sroa.42901.0..sroa_idx2902.sink, align 8
+  %.sroa.42901.0 = phi i8 [ %.sroa.42901.0.copyload, %1089 ], [ %.sroa.42901.0.copyload2903, %1091 ]
+  %.sroa.02899.0.in = phi ptr [ %100, %1089 ], [ %1081, %1091 ]
   %.sroa.02899.0 = load ptr, ptr %.sroa.02899.0.in, align 8
   store ptr @.str.4, ptr %102, align 8
   %1093 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %102)
@@ -19130,16 +19157,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1101:                                             ; preds = %1095
   store ptr @.str.4, ptr %104, align 8
   %1102 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull align 8 dereferenceable(9) %103)
+  %.sroa.42896.0.copyload = load i8, ptr %1098, align 8
   br label %1104
 
 1103:                                             ; preds = %1092
   %.sroa.42896.0..sroa_idx2897 = getelementptr inbounds i8, ptr %1093, i64 8
+  %.sroa.42896.0.copyload2898 = load i8, ptr %.sroa.42896.0..sroa_idx2897, align 8
   br label %1104
 
 1104:                                             ; preds = %1103, %1101
-  %.sroa.42896.0..sroa_idx2897.sink = phi ptr [ %.sroa.42896.0..sroa_idx2897, %1103 ], [ %1098, %1101 ]
-  %.sroa.02894.0.in = phi ptr [ %1093, %1103 ], [ %103, %1101 ]
-  %.sroa.42896.0.copyload2898 = load i8, ptr %.sroa.42896.0..sroa_idx2897.sink, align 8
+  %.sroa.42896.0 = phi i8 [ %.sroa.42896.0.copyload, %1101 ], [ %.sroa.42896.0.copyload2898, %1103 ]
+  %.sroa.02894.0.in = phi ptr [ %103, %1101 ], [ %1093, %1103 ]
   %.sroa.02894.0 = load ptr, ptr %.sroa.02894.0.in, align 8
   %1105 = load i8, ptr @CITime, align 1
   %1106 = trunc i8 %1105 to i1
@@ -19150,7 +19178,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   store i8 %.sroa.130.0.copyload3250.sroa.speculated, ptr %.sroa.130.0..sroa_idx3127, align 8
   %.sroa.131.0..sroa_idx3342 = getelementptr inbounds i8, ptr %105, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3342, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %1107 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02899.0, i8 %.sroa.42901.0.copyload2903, ptr %.sroa.02894.0, i8 %.sroa.42896.0.copyload2898, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %105, ptr noundef nonnull %1) #7
+  %1107 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02899.0, i8 %.sroa.42901.0, ptr %.sroa.02894.0, i8 %.sroa.42896.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %105, ptr noundef nonnull %1) #7
   %1108 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2265 = icmp eq i8 %1108, 0
   br i1 %.not2265, label %1109, label %.loopexit
@@ -19178,16 +19206,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1120:                                             ; preds = %1114
   store ptr @.str.27, ptr %108, align 8
   %1121 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %108, ptr noundef nonnull align 8 dereferenceable(9) %107)
+  %.sroa.42891.0.copyload = load i8, ptr %1117, align 8
   br label %1123
 
 1122:                                             ; preds = %1109
   %.sroa.42891.0..sroa_idx2892 = getelementptr inbounds i8, ptr %1112, i64 8
+  %.sroa.42891.0.copyload2893 = load i8, ptr %.sroa.42891.0..sroa_idx2892, align 8
   br label %1123
 
 1123:                                             ; preds = %1122, %1120
-  %.sroa.42891.0..sroa_idx2892.sink = phi ptr [ %.sroa.42891.0..sroa_idx2892, %1122 ], [ %1117, %1120 ]
-  %.sroa.02889.0.in = phi ptr [ %1112, %1122 ], [ %107, %1120 ]
-  %.sroa.42891.0.copyload2893 = load i8, ptr %.sroa.42891.0..sroa_idx2892.sink, align 8
+  %.sroa.42891.0 = phi i8 [ %.sroa.42891.0.copyload, %1120 ], [ %.sroa.42891.0.copyload2893, %1122 ]
+  %.sroa.02889.0.in = phi ptr [ %107, %1120 ], [ %1112, %1122 ]
   %.sroa.02889.0 = load ptr, ptr %.sroa.02889.0.in, align 8
   store ptr @.str.4, ptr %109, align 8
   %1124 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %109)
@@ -19208,23 +19237,24 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1132:                                             ; preds = %1126
   store ptr @.str.4, ptr %111, align 8
   %1133 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %111, ptr noundef nonnull align 8 dereferenceable(9) %110)
+  %.sroa.42886.0.copyload = load i8, ptr %1129, align 8
   br label %1135
 
 1134:                                             ; preds = %1123
   %.sroa.42886.0..sroa_idx2887 = getelementptr inbounds i8, ptr %1124, i64 8
+  %.sroa.42886.0.copyload2888 = load i8, ptr %.sroa.42886.0..sroa_idx2887, align 8
   br label %1135
 
 1135:                                             ; preds = %1134, %1132
-  %.sroa.42886.0..sroa_idx2887.sink = phi ptr [ %.sroa.42886.0..sroa_idx2887, %1134 ], [ %1129, %1132 ]
-  %.sroa.02884.0.in = phi ptr [ %1124, %1134 ], [ %110, %1132 ]
-  %.sroa.42886.0.copyload2888 = load i8, ptr %.sroa.42886.0..sroa_idx2887.sink, align 8
+  %.sroa.42886.0 = phi i8 [ %.sroa.42886.0.copyload, %1132 ], [ %.sroa.42886.0.copyload2888, %1134 ]
+  %.sroa.02884.0.in = phi ptr [ %110, %1132 ], [ %1124, %1134 ]
   %.sroa.02884.0 = load ptr, ptr %.sroa.02884.0.in, align 8
   store ptr %460, ptr %112, align 8
   %.sroa.130.0..sroa_idx3129 = getelementptr inbounds i8, ptr %112, i64 8
   store i8 %461, ptr %.sroa.130.0..sroa_idx3129, align 8
   %.sroa.131.0..sroa_idx3343 = getelementptr inbounds i8, ptr %112, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3343, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %1136 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02889.0, i8 %.sroa.42891.0.copyload2893, ptr %.sroa.02884.0, i8 %.sroa.42886.0.copyload2888, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %112, ptr noundef nonnull %1) #7
+  %1136 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02889.0, i8 %.sroa.42891.0, ptr %.sroa.02884.0, i8 %.sroa.42886.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %112, ptr noundef nonnull %1) #7
   %1137 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2268 = icmp eq i8 %1137, 0
   br i1 %.not2268, label %1138, label %.loopexit
@@ -19252,16 +19282,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1149:                                             ; preds = %1143
   store ptr @.str.28, ptr %115, align 8
   %1150 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %115, ptr noundef nonnull align 8 dereferenceable(9) %114)
+  %.sroa.42881.0.copyload = load i8, ptr %1146, align 8
   br label %1152
 
 1151:                                             ; preds = %1138
   %.sroa.42881.0..sroa_idx2882 = getelementptr inbounds i8, ptr %1141, i64 8
+  %.sroa.42881.0.copyload2883 = load i8, ptr %.sroa.42881.0..sroa_idx2882, align 8
   br label %1152
 
 1152:                                             ; preds = %1151, %1149
-  %.sroa.42881.0..sroa_idx2882.sink = phi ptr [ %.sroa.42881.0..sroa_idx2882, %1151 ], [ %1146, %1149 ]
-  %.sroa.02879.0.in = phi ptr [ %1141, %1151 ], [ %114, %1149 ]
-  %.sroa.42881.0.copyload2883 = load i8, ptr %.sroa.42881.0..sroa_idx2882.sink, align 8
+  %.sroa.42881.0 = phi i8 [ %.sroa.42881.0.copyload, %1149 ], [ %.sroa.42881.0.copyload2883, %1151 ]
+  %.sroa.02879.0.in = phi ptr [ %114, %1149 ], [ %1141, %1151 ]
   %.sroa.02879.0 = load ptr, ptr %.sroa.02879.0.in, align 8
   store ptr @.str.29, ptr %116, align 8
   %1153 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %116)
@@ -19282,16 +19313,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1161:                                             ; preds = %1155
   store ptr @.str.29, ptr %118, align 8
   %1162 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %118, ptr noundef nonnull align 8 dereferenceable(9) %117)
+  %.sroa.42876.0.copyload = load i8, ptr %1158, align 8
   br label %1164
 
 1163:                                             ; preds = %1152
   %.sroa.42876.0..sroa_idx2877 = getelementptr inbounds i8, ptr %1153, i64 8
+  %.sroa.42876.0.copyload2878 = load i8, ptr %.sroa.42876.0..sroa_idx2877, align 8
   br label %1164
 
 1164:                                             ; preds = %1161, %1163
-  %.sink3641 = phi ptr [ %1158, %1161 ], [ %.sroa.42876.0..sroa_idx2877, %1163 ]
+  %.sroa.42876.0 = phi i8 [ %.sroa.42876.0.copyload, %1161 ], [ %.sroa.42876.0.copyload2878, %1163 ]
   %.sroa.02874.0.in = phi ptr [ %117, %1161 ], [ %1153, %1163 ]
-  %.sroa.42876.0.copyload = load i8, ptr %.sink3641, align 8
   %.sroa.02874.0 = load ptr, ptr %.sroa.02874.0.in, align 8
   %1165 = load i64, ptr @CodeCacheSegmentSize, align 8
   store i64 %1165, ptr %119, align 8
@@ -19312,23 +19344,24 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 
 1174:                                             ; preds = %1168
   %1175 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256El11JVMCIObjectElS1_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIlEjRKT_EEXadL_Z16primitive_equalsIlEbS9_S9_EEE3putERKlRKS1_(ptr noundef nonnull align 8 dereferenceable(2052) %3, ptr noundef nonnull align 8 dereferenceable(8) %119, ptr noundef nonnull align 8 dereferenceable(9) %120)
+  %.sroa.130.0.copyload3254 = load i8, ptr %1171, align 8
   br label %1177
 
 1176:                                             ; preds = %1164
   %.sroa.130.0..sroa_idx3255 = getelementptr inbounds i8, ptr %1166, i64 8
+  %.sroa.130.0.copyload3256 = load i8, ptr %.sroa.130.0..sroa_idx3255, align 8
   br label %1177
 
 1177:                                             ; preds = %1176, %1174
-  %.sroa.130.0..sroa_idx3255.sink = phi ptr [ %.sroa.130.0..sroa_idx3255, %1176 ], [ %1171, %1174 ]
-  %.sroa.02984.7.in = phi ptr [ %1166, %1176 ], [ %120, %1174 ]
-  %.sroa.130.0.copyload3256 = load i8, ptr %.sroa.130.0..sroa_idx3255.sink, align 8
+  %.sroa.130.7 = phi i8 [ %.sroa.130.0.copyload3254, %1174 ], [ %.sroa.130.0.copyload3256, %1176 ]
+  %.sroa.02984.7.in = phi ptr [ %120, %1174 ], [ %1166, %1176 ]
   %.sroa.02984.7 = load ptr, ptr %.sroa.02984.7.in, align 8
   store ptr %.sroa.02984.7, ptr %121, align 8
   %.sroa.130.0..sroa_idx3131 = getelementptr inbounds i8, ptr %121, i64 8
-  store i8 %.sroa.130.0.copyload3256, ptr %.sroa.130.0..sroa_idx3131, align 8
+  store i8 %.sroa.130.7, ptr %.sroa.130.0..sroa_idx3131, align 8
   %.sroa.131.0..sroa_idx3344 = getelementptr inbounds i8, ptr %121, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3344, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %1178 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02879.0, i8 %.sroa.42881.0.copyload2883, ptr %.sroa.02874.0, i8 %.sroa.42876.0.copyload, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %121, ptr noundef nonnull %1) #7
+  %1178 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02879.0, i8 %.sroa.42881.0, ptr %.sroa.02874.0, i8 %.sroa.42876.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %121, ptr noundef nonnull %1) #7
   %1179 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2272 = icmp eq i8 %1179, 0
   br i1 %.not2272, label %1180, label %.loopexit
@@ -19356,16 +19389,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1191:                                             ; preds = %1185
   store ptr @.str.30, ptr %124, align 8
   %1192 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %124, ptr noundef nonnull align 8 dereferenceable(9) %123)
+  %.sroa.42871.0.copyload = load i8, ptr %1188, align 8
   br label %1194
 
 1193:                                             ; preds = %1180
   %.sroa.42871.0..sroa_idx2872 = getelementptr inbounds i8, ptr %1183, i64 8
+  %.sroa.42871.0.copyload2873 = load i8, ptr %.sroa.42871.0..sroa_idx2872, align 8
   br label %1194
 
 1194:                                             ; preds = %1193, %1191
-  %.sroa.42871.0..sroa_idx2872.sink = phi ptr [ %.sroa.42871.0..sroa_idx2872, %1193 ], [ %1188, %1191 ]
-  %.sroa.02869.0.in = phi ptr [ %1183, %1193 ], [ %123, %1191 ]
-  %.sroa.42871.0.copyload2873 = load i8, ptr %.sroa.42871.0..sroa_idx2872.sink, align 8
+  %.sroa.42871.0 = phi i8 [ %.sroa.42871.0.copyload, %1191 ], [ %.sroa.42871.0.copyload2873, %1193 ]
+  %.sroa.02869.0.in = phi ptr [ %123, %1191 ], [ %1183, %1193 ]
   %.sroa.02869.0 = load ptr, ptr %.sroa.02869.0.in, align 8
   store ptr @.str.20, ptr %125, align 8
   %1195 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %125)
@@ -19386,16 +19420,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1203:                                             ; preds = %1197
   store ptr @.str.20, ptr %127, align 8
   %1204 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %127, ptr noundef nonnull align 8 dereferenceable(9) %126)
+  %.sroa.42866.0.copyload = load i8, ptr %1200, align 8
   br label %1206
 
 1205:                                             ; preds = %1194
   %.sroa.42866.0..sroa_idx2867 = getelementptr inbounds i8, ptr %1195, i64 8
+  %.sroa.42866.0.copyload2868 = load i8, ptr %.sroa.42866.0..sroa_idx2867, align 8
   br label %1206
 
 1206:                                             ; preds = %1203, %1205
-  %.sink3642 = phi ptr [ %1200, %1203 ], [ %.sroa.42866.0..sroa_idx2867, %1205 ]
+  %.sroa.42866.0 = phi i8 [ %.sroa.42866.0.copyload, %1203 ], [ %.sroa.42866.0.copyload2868, %1205 ]
   %.sroa.02864.0.in = phi ptr [ %126, %1203 ], [ %1195, %1205 ]
-  %.sroa.42866.0.copyload = load i8, ptr %.sink3642, align 8
   %.sroa.02864.0 = load ptr, ptr %.sroa.02864.0.in, align 8
   %1207 = load i64, ptr @CodeEntryAlignment, align 8
   store i64 %1207, ptr %128, align 8
@@ -19416,23 +19451,24 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 
 1216:                                             ; preds = %1210
   %1217 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256El11JVMCIObjectElS1_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIlEjRKT_EEXadL_Z16primitive_equalsIlEbS9_S9_EEE3putERKlRKS1_(ptr noundef nonnull align 8 dereferenceable(2052) %3, ptr noundef nonnull align 8 dereferenceable(8) %128, ptr noundef nonnull align 8 dereferenceable(9) %129)
+  %.sroa.130.0.copyload3258 = load i8, ptr %1213, align 8
   br label %1219
 
 1218:                                             ; preds = %1206
   %.sroa.130.0..sroa_idx3259 = getelementptr inbounds i8, ptr %1208, i64 8
+  %.sroa.130.0.copyload3260 = load i8, ptr %.sroa.130.0..sroa_idx3259, align 8
   br label %1219
 
 1219:                                             ; preds = %1218, %1216
-  %.sroa.130.0..sroa_idx3259.sink = phi ptr [ %.sroa.130.0..sroa_idx3259, %1218 ], [ %1213, %1216 ]
-  %.sroa.02984.8.in = phi ptr [ %1208, %1218 ], [ %129, %1216 ]
-  %.sroa.130.0.copyload3260 = load i8, ptr %.sroa.130.0..sroa_idx3259.sink, align 8
+  %.sroa.130.8 = phi i8 [ %.sroa.130.0.copyload3258, %1216 ], [ %.sroa.130.0.copyload3260, %1218 ]
+  %.sroa.02984.8.in = phi ptr [ %129, %1216 ], [ %1208, %1218 ]
   %.sroa.02984.8 = load ptr, ptr %.sroa.02984.8.in, align 8
   store ptr %.sroa.02984.8, ptr %130, align 8
   %.sroa.130.0..sroa_idx3133 = getelementptr inbounds i8, ptr %130, i64 8
-  store i8 %.sroa.130.0.copyload3260, ptr %.sroa.130.0..sroa_idx3133, align 8
+  store i8 %.sroa.130.8, ptr %.sroa.130.0..sroa_idx3133, align 8
   %.sroa.131.0..sroa_idx3345 = getelementptr inbounds i8, ptr %130, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3345, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %1220 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02869.0, i8 %.sroa.42871.0.copyload2873, ptr %.sroa.02864.0, i8 %.sroa.42866.0.copyload, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %130, ptr noundef nonnull %1) #7
+  %1220 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02869.0, i8 %.sroa.42871.0, ptr %.sroa.02864.0, i8 %.sroa.42866.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %130, ptr noundef nonnull %1) #7
   %1221 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2276 = icmp eq i8 %1221, 0
   br i1 %.not2276, label %1222, label %.loopexit
@@ -19460,16 +19496,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1233:                                             ; preds = %1227
   store ptr @.str.31, ptr %133, align 8
   %1234 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %133, ptr noundef nonnull align 8 dereferenceable(9) %132)
+  %.sroa.42861.0.copyload = load i8, ptr %1230, align 8
   br label %1236
 
 1235:                                             ; preds = %1222
   %.sroa.42861.0..sroa_idx2862 = getelementptr inbounds i8, ptr %1225, i64 8
+  %.sroa.42861.0.copyload2863 = load i8, ptr %.sroa.42861.0..sroa_idx2862, align 8
   br label %1236
 
 1236:                                             ; preds = %1235, %1233
-  %.sroa.42861.0..sroa_idx2862.sink = phi ptr [ %.sroa.42861.0..sroa_idx2862, %1235 ], [ %1230, %1233 ]
-  %.sroa.02859.0.in = phi ptr [ %1225, %1235 ], [ %132, %1233 ]
-  %.sroa.42861.0.copyload2863 = load i8, ptr %.sroa.42861.0..sroa_idx2862.sink, align 8
+  %.sroa.42861.0 = phi i8 [ %.sroa.42861.0.copyload, %1233 ], [ %.sroa.42861.0.copyload2863, %1235 ]
+  %.sroa.02859.0.in = phi ptr [ %132, %1233 ], [ %1225, %1235 ]
   %.sroa.02859.0 = load ptr, ptr %.sroa.02859.0.in, align 8
   store ptr @.str.5, ptr %134, align 8
   %1237 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %134)
@@ -19490,16 +19527,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1245:                                             ; preds = %1239
   store ptr @.str.5, ptr %136, align 8
   %1246 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %136, ptr noundef nonnull align 8 dereferenceable(9) %135)
+  %.sroa.42856.0.copyload = load i8, ptr %1242, align 8
   br label %1248
 
 1247:                                             ; preds = %1236
   %.sroa.42856.0..sroa_idx2857 = getelementptr inbounds i8, ptr %1237, i64 8
+  %.sroa.42856.0.copyload2858 = load i8, ptr %.sroa.42856.0..sroa_idx2857, align 8
   br label %1248
 
 1248:                                             ; preds = %1245, %1247
-  %.sink3643 = phi ptr [ %1242, %1245 ], [ %.sroa.42856.0..sroa_idx2857, %1247 ]
+  %.sroa.42856.0 = phi i8 [ %.sroa.42856.0.copyload, %1245 ], [ %.sroa.42856.0.copyload2858, %1247 ]
   %.sroa.02854.0.in = phi ptr [ %135, %1245 ], [ %1237, %1247 ]
-  %.sroa.42856.0.copyload = load i8, ptr %.sink3643, align 8
   %.sroa.02854.0 = load ptr, ptr %.sroa.02854.0.in, align 8
   %1249 = load i32, ptr @ContendedPaddingWidth, align 4
   %1250 = sext i32 %1249 to i64
@@ -19521,23 +19559,24 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 
 1259:                                             ; preds = %1253
   %1260 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256El11JVMCIObjectElS1_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIlEjRKT_EEXadL_Z16primitive_equalsIlEbS9_S9_EEE3putERKlRKS1_(ptr noundef nonnull align 8 dereferenceable(2052) %3, ptr noundef nonnull align 8 dereferenceable(8) %137, ptr noundef nonnull align 8 dereferenceable(9) %138)
+  %.sroa.130.0.copyload3262 = load i8, ptr %1256, align 8
   br label %1262
 
 1261:                                             ; preds = %1248
   %.sroa.130.0..sroa_idx3263 = getelementptr inbounds i8, ptr %1251, i64 8
+  %.sroa.130.0.copyload3264 = load i8, ptr %.sroa.130.0..sroa_idx3263, align 8
   br label %1262
 
 1262:                                             ; preds = %1261, %1259
-  %.sroa.130.0..sroa_idx3263.sink = phi ptr [ %.sroa.130.0..sroa_idx3263, %1261 ], [ %1256, %1259 ]
-  %.sroa.02984.9.in = phi ptr [ %1251, %1261 ], [ %138, %1259 ]
-  %.sroa.130.0.copyload3264 = load i8, ptr %.sroa.130.0..sroa_idx3263.sink, align 8
+  %.sroa.130.9 = phi i8 [ %.sroa.130.0.copyload3262, %1259 ], [ %.sroa.130.0.copyload3264, %1261 ]
+  %.sroa.02984.9.in = phi ptr [ %138, %1259 ], [ %1251, %1261 ]
   %.sroa.02984.9 = load ptr, ptr %.sroa.02984.9.in, align 8
   store ptr %.sroa.02984.9, ptr %139, align 8
   %.sroa.130.0..sroa_idx3135 = getelementptr inbounds i8, ptr %139, i64 8
-  store i8 %.sroa.130.0.copyload3264, ptr %.sroa.130.0..sroa_idx3135, align 8
+  store i8 %.sroa.130.9, ptr %.sroa.130.0..sroa_idx3135, align 8
   %.sroa.131.0..sroa_idx3346 = getelementptr inbounds i8, ptr %139, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3346, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %1263 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02859.0, i8 %.sroa.42861.0.copyload2863, ptr %.sroa.02854.0, i8 %.sroa.42856.0.copyload, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %139, ptr noundef nonnull %1) #7
+  %1263 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02859.0, i8 %.sroa.42861.0, ptr %.sroa.02854.0, i8 %.sroa.42856.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %139, ptr noundef nonnull %1) #7
   %1264 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2280 = icmp eq i8 %1264, 0
   br i1 %.not2280, label %1265, label %.loopexit
@@ -19565,16 +19604,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1276:                                             ; preds = %1270
   store ptr @.str.32, ptr %142, align 8
   %1277 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 8 dereferenceable(9) %141)
+  %.sroa.42851.0.copyload = load i8, ptr %1273, align 8
   br label %1279
 
 1278:                                             ; preds = %1265
   %.sroa.42851.0..sroa_idx2852 = getelementptr inbounds i8, ptr %1268, i64 8
+  %.sroa.42851.0.copyload2853 = load i8, ptr %.sroa.42851.0..sroa_idx2852, align 8
   br label %1279
 
 1279:                                             ; preds = %1278, %1276
-  %.sroa.42851.0..sroa_idx2852.sink = phi ptr [ %.sroa.42851.0..sroa_idx2852, %1278 ], [ %1273, %1276 ]
-  %.sroa.02849.0.in = phi ptr [ %1268, %1278 ], [ %141, %1276 ]
-  %.sroa.42851.0.copyload2853 = load i8, ptr %.sroa.42851.0..sroa_idx2852.sink, align 8
+  %.sroa.42851.0 = phi i8 [ %.sroa.42851.0.copyload, %1276 ], [ %.sroa.42851.0.copyload2853, %1278 ]
+  %.sroa.02849.0.in = phi ptr [ %141, %1276 ], [ %1268, %1278 ]
   %.sroa.02849.0 = load ptr, ptr %.sroa.02849.0.in, align 8
   store ptr @.str.4, ptr %143, align 8
   %1280 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %143)
@@ -19595,16 +19635,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1288:                                             ; preds = %1282
   store ptr @.str.4, ptr %145, align 8
   %1289 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %145, ptr noundef nonnull align 8 dereferenceable(9) %144)
+  %.sroa.42846.0.copyload = load i8, ptr %1285, align 8
   br label %1291
 
 1290:                                             ; preds = %1279
   %.sroa.42846.0..sroa_idx2847 = getelementptr inbounds i8, ptr %1280, i64 8
+  %.sroa.42846.0.copyload2848 = load i8, ptr %.sroa.42846.0..sroa_idx2847, align 8
   br label %1291
 
 1291:                                             ; preds = %1290, %1288
-  %.sroa.42846.0..sroa_idx2847.sink = phi ptr [ %.sroa.42846.0..sroa_idx2847, %1290 ], [ %1285, %1288 ]
-  %.sroa.02844.0.in = phi ptr [ %1280, %1290 ], [ %144, %1288 ]
-  %.sroa.42846.0.copyload2848 = load i8, ptr %.sroa.42846.0..sroa_idx2847.sink, align 8
+  %.sroa.42846.0 = phi i8 [ %.sroa.42846.0.copyload, %1288 ], [ %.sroa.42846.0.copyload2848, %1290 ]
+  %.sroa.02844.0.in = phi ptr [ %144, %1288 ], [ %1280, %1290 ]
   %.sroa.02844.0 = load ptr, ptr %.sroa.02844.0.in, align 8
   %1292 = load i8, ptr @DontCompileHugeMethods, align 1
   %1293 = trunc i8 %1292 to i1
@@ -19615,7 +19656,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   store i8 %.sroa.130.0.copyload3265.sroa.speculated, ptr %.sroa.130.0..sroa_idx3137, align 8
   %.sroa.131.0..sroa_idx3347 = getelementptr inbounds i8, ptr %146, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3347, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %1294 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02849.0, i8 %.sroa.42851.0.copyload2853, ptr %.sroa.02844.0, i8 %.sroa.42846.0.copyload2848, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %146, ptr noundef nonnull %1) #7
+  %1294 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02849.0, i8 %.sroa.42851.0, ptr %.sroa.02844.0, i8 %.sroa.42846.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %146, ptr noundef nonnull %1) #7
   %1295 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2283 = icmp eq i8 %1295, 0
   br i1 %.not2283, label %1296, label %.loopexit
@@ -19643,16 +19684,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1307:                                             ; preds = %1301
   store ptr @.str.33, ptr %149, align 8
   %1308 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %149, ptr noundef nonnull align 8 dereferenceable(9) %148)
+  %.sroa.42841.0.copyload = load i8, ptr %1304, align 8
   br label %1310
 
 1309:                                             ; preds = %1296
   %.sroa.42841.0..sroa_idx2842 = getelementptr inbounds i8, ptr %1299, i64 8
+  %.sroa.42841.0.copyload2843 = load i8, ptr %.sroa.42841.0..sroa_idx2842, align 8
   br label %1310
 
 1310:                                             ; preds = %1309, %1307
-  %.sroa.42841.0..sroa_idx2842.sink = phi ptr [ %.sroa.42841.0..sroa_idx2842, %1309 ], [ %1304, %1307 ]
-  %.sroa.02839.0.in = phi ptr [ %1299, %1309 ], [ %148, %1307 ]
-  %.sroa.42841.0.copyload2843 = load i8, ptr %.sroa.42841.0..sroa_idx2842.sink, align 8
+  %.sroa.42841.0 = phi i8 [ %.sroa.42841.0.copyload, %1307 ], [ %.sroa.42841.0.copyload2843, %1309 ]
+  %.sroa.02839.0.in = phi ptr [ %148, %1307 ], [ %1299, %1309 ]
   %.sroa.02839.0 = load ptr, ptr %.sroa.02839.0.in, align 8
   store ptr @.str.4, ptr %150, align 8
   %1311 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %150)
@@ -19673,16 +19715,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1319:                                             ; preds = %1313
   store ptr @.str.4, ptr %152, align 8
   %1320 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %152, ptr noundef nonnull align 8 dereferenceable(9) %151)
+  %.sroa.42836.0.copyload = load i8, ptr %1316, align 8
   br label %1322
 
 1321:                                             ; preds = %1310
   %.sroa.42836.0..sroa_idx2837 = getelementptr inbounds i8, ptr %1311, i64 8
+  %.sroa.42836.0.copyload2838 = load i8, ptr %.sroa.42836.0..sroa_idx2837, align 8
   br label %1322
 
 1322:                                             ; preds = %1321, %1319
-  %.sroa.42836.0..sroa_idx2837.sink = phi ptr [ %.sroa.42836.0..sroa_idx2837, %1321 ], [ %1316, %1319 ]
-  %.sroa.02834.0.in = phi ptr [ %1311, %1321 ], [ %151, %1319 ]
-  %.sroa.42836.0.copyload2838 = load i8, ptr %.sroa.42836.0..sroa_idx2837.sink, align 8
+  %.sroa.42836.0 = phi i8 [ %.sroa.42836.0.copyload, %1319 ], [ %.sroa.42836.0.copyload2838, %1321 ]
+  %.sroa.02834.0.in = phi ptr [ %151, %1319 ], [ %1311, %1321 ]
   %.sroa.02834.0 = load ptr, ptr %.sroa.02834.0.in, align 8
   %1323 = load i8, ptr @EagerJVMCI, align 1
   %1324 = trunc i8 %1323 to i1
@@ -19693,7 +19736,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   store i8 %.sroa.130.0.copyload3266.sroa.speculated, ptr %.sroa.130.0..sroa_idx3139, align 8
   %.sroa.131.0..sroa_idx3348 = getelementptr inbounds i8, ptr %153, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3348, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %1325 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02839.0, i8 %.sroa.42841.0.copyload2843, ptr %.sroa.02834.0, i8 %.sroa.42836.0.copyload2838, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %153, ptr noundef nonnull %1) #7
+  %1325 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02839.0, i8 %.sroa.42841.0, ptr %.sroa.02834.0, i8 %.sroa.42836.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %153, ptr noundef nonnull %1) #7
   %1326 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2286 = icmp eq i8 %1326, 0
   br i1 %.not2286, label %1327, label %.loopexit
@@ -19721,16 +19764,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1338:                                             ; preds = %1332
   store ptr @.str.34, ptr %156, align 8
   %1339 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %156, ptr noundef nonnull align 8 dereferenceable(9) %155)
+  %.sroa.42831.0.copyload = load i8, ptr %1335, align 8
   br label %1341
 
 1340:                                             ; preds = %1327
   %.sroa.42831.0..sroa_idx2832 = getelementptr inbounds i8, ptr %1330, i64 8
+  %.sroa.42831.0.copyload2833 = load i8, ptr %.sroa.42831.0..sroa_idx2832, align 8
   br label %1341
 
 1341:                                             ; preds = %1340, %1338
-  %.sroa.42831.0..sroa_idx2832.sink = phi ptr [ %.sroa.42831.0..sroa_idx2832, %1340 ], [ %1335, %1338 ]
-  %.sroa.02829.0.in = phi ptr [ %1330, %1340 ], [ %155, %1338 ]
-  %.sroa.42831.0.copyload2833 = load i8, ptr %.sroa.42831.0..sroa_idx2832.sink, align 8
+  %.sroa.42831.0 = phi i8 [ %.sroa.42831.0.copyload, %1338 ], [ %.sroa.42831.0.copyload2833, %1340 ]
+  %.sroa.02829.0.in = phi ptr [ %155, %1338 ], [ %1330, %1340 ]
   %.sroa.02829.0 = load ptr, ptr %.sroa.02829.0.in, align 8
   store ptr @.str.4, ptr %157, align 8
   %1342 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %157)
@@ -19751,16 +19795,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1350:                                             ; preds = %1344
   store ptr @.str.4, ptr %159, align 8
   %1351 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %159, ptr noundef nonnull align 8 dereferenceable(9) %158)
+  %.sroa.42826.0.copyload = load i8, ptr %1347, align 8
   br label %1353
 
 1352:                                             ; preds = %1341
   %.sroa.42826.0..sroa_idx2827 = getelementptr inbounds i8, ptr %1342, i64 8
+  %.sroa.42826.0.copyload2828 = load i8, ptr %.sroa.42826.0..sroa_idx2827, align 8
   br label %1353
 
 1353:                                             ; preds = %1352, %1350
-  %.sroa.42826.0..sroa_idx2827.sink = phi ptr [ %.sroa.42826.0..sroa_idx2827, %1352 ], [ %1347, %1350 ]
-  %.sroa.02824.0.in = phi ptr [ %1342, %1352 ], [ %158, %1350 ]
-  %.sroa.42826.0.copyload2828 = load i8, ptr %.sroa.42826.0..sroa_idx2827.sink, align 8
+  %.sroa.42826.0 = phi i8 [ %.sroa.42826.0.copyload, %1350 ], [ %.sroa.42826.0.copyload2828, %1352 ]
+  %.sroa.02824.0.in = phi ptr [ %158, %1350 ], [ %1342, %1352 ]
   %.sroa.02824.0 = load ptr, ptr %.sroa.02824.0.in, align 8
   %1354 = load i8, ptr @EnableContended, align 1
   %1355 = trunc i8 %1354 to i1
@@ -19771,7 +19816,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   store i8 %.sroa.130.0.copyload3267.sroa.speculated, ptr %.sroa.130.0..sroa_idx3141, align 8
   %.sroa.131.0..sroa_idx3349 = getelementptr inbounds i8, ptr %160, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3349, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %1356 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02829.0, i8 %.sroa.42831.0.copyload2833, ptr %.sroa.02824.0, i8 %.sroa.42826.0.copyload2828, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %160, ptr noundef nonnull %1) #7
+  %1356 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02829.0, i8 %.sroa.42831.0, ptr %.sroa.02824.0, i8 %.sroa.42826.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %160, ptr noundef nonnull %1) #7
   %1357 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2289 = icmp eq i8 %1357, 0
   br i1 %.not2289, label %1358, label %.loopexit
@@ -19799,16 +19844,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1369:                                             ; preds = %1363
   store ptr @.str.35, ptr %163, align 8
   %1370 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %163, ptr noundef nonnull align 8 dereferenceable(9) %162)
+  %.sroa.42821.0.copyload = load i8, ptr %1366, align 8
   br label %1372
 
 1371:                                             ; preds = %1358
   %.sroa.42821.0..sroa_idx2822 = getelementptr inbounds i8, ptr %1361, i64 8
+  %.sroa.42821.0.copyload2823 = load i8, ptr %.sroa.42821.0..sroa_idx2822, align 8
   br label %1372
 
 1372:                                             ; preds = %1371, %1369
-  %.sroa.42821.0..sroa_idx2822.sink = phi ptr [ %.sroa.42821.0..sroa_idx2822, %1371 ], [ %1366, %1369 ]
-  %.sroa.02819.0.in = phi ptr [ %1361, %1371 ], [ %162, %1369 ]
-  %.sroa.42821.0.copyload2823 = load i8, ptr %.sroa.42821.0..sroa_idx2822.sink, align 8
+  %.sroa.42821.0 = phi i8 [ %.sroa.42821.0.copyload, %1369 ], [ %.sroa.42821.0.copyload2823, %1371 ]
+  %.sroa.02819.0.in = phi ptr [ %162, %1369 ], [ %1361, %1371 ]
   %.sroa.02819.0 = load ptr, ptr %.sroa.02819.0.in, align 8
   store ptr @.str.4, ptr %164, align 8
   %1373 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %164)
@@ -19829,16 +19875,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1381:                                             ; preds = %1375
   store ptr @.str.4, ptr %166, align 8
   %1382 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %166, ptr noundef nonnull align 8 dereferenceable(9) %165)
+  %.sroa.42816.0.copyload = load i8, ptr %1378, align 8
   br label %1384
 
 1383:                                             ; preds = %1372
   %.sroa.42816.0..sroa_idx2817 = getelementptr inbounds i8, ptr %1373, i64 8
+  %.sroa.42816.0.copyload2818 = load i8, ptr %.sroa.42816.0..sroa_idx2817, align 8
   br label %1384
 
 1384:                                             ; preds = %1383, %1381
-  %.sroa.42816.0..sroa_idx2817.sink = phi ptr [ %.sroa.42816.0..sroa_idx2817, %1383 ], [ %1378, %1381 ]
-  %.sroa.02814.0.in = phi ptr [ %1373, %1383 ], [ %165, %1381 ]
-  %.sroa.42816.0.copyload2818 = load i8, ptr %.sroa.42816.0..sroa_idx2817.sink, align 8
+  %.sroa.42816.0 = phi i8 [ %.sroa.42816.0.copyload, %1381 ], [ %.sroa.42816.0.copyload2818, %1383 ]
+  %.sroa.02814.0.in = phi ptr [ %165, %1381 ], [ %1373, %1383 ]
   %.sroa.02814.0 = load ptr, ptr %.sroa.02814.0.in, align 8
   %1385 = load i8, ptr @FoldStableValues, align 1
   %1386 = trunc i8 %1385 to i1
@@ -19849,7 +19896,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   store i8 %.sroa.130.0.copyload3268.sroa.speculated, ptr %.sroa.130.0..sroa_idx3143, align 8
   %.sroa.131.0..sroa_idx3350 = getelementptr inbounds i8, ptr %167, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3350, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %1387 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02819.0, i8 %.sroa.42821.0.copyload2823, ptr %.sroa.02814.0, i8 %.sroa.42816.0.copyload2818, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %167, ptr noundef nonnull %1) #7
+  %1387 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02819.0, i8 %.sroa.42821.0, ptr %.sroa.02814.0, i8 %.sroa.42816.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %167, ptr noundef nonnull %1) #7
   %1388 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2292 = icmp eq i8 %1388, 0
   br i1 %.not2292, label %1389, label %.loopexit
@@ -19877,16 +19924,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1400:                                             ; preds = %1394
   store ptr @.str.36, ptr %170, align 8
   %1401 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %170, ptr noundef nonnull align 8 dereferenceable(9) %169)
+  %.sroa.42811.0.copyload = load i8, ptr %1397, align 8
   br label %1403
 
 1402:                                             ; preds = %1389
   %.sroa.42811.0..sroa_idx2812 = getelementptr inbounds i8, ptr %1392, i64 8
+  %.sroa.42811.0.copyload2813 = load i8, ptr %.sroa.42811.0..sroa_idx2812, align 8
   br label %1403
 
 1403:                                             ; preds = %1402, %1400
-  %.sroa.42811.0..sroa_idx2812.sink = phi ptr [ %.sroa.42811.0..sroa_idx2812, %1402 ], [ %1397, %1400 ]
-  %.sroa.02809.0.in = phi ptr [ %1392, %1402 ], [ %169, %1400 ]
-  %.sroa.42811.0.copyload2813 = load i8, ptr %.sroa.42811.0..sroa_idx2812.sink, align 8
+  %.sroa.42811.0 = phi i8 [ %.sroa.42811.0.copyload, %1400 ], [ %.sroa.42811.0.copyload2813, %1402 ]
+  %.sroa.02809.0.in = phi ptr [ %169, %1400 ], [ %1392, %1402 ]
   %.sroa.02809.0 = load ptr, ptr %.sroa.02809.0.in, align 8
   store ptr @.str.4, ptr %171, align 8
   %1404 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %171)
@@ -19907,16 +19955,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1412:                                             ; preds = %1406
   store ptr @.str.4, ptr %173, align 8
   %1413 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %173, ptr noundef nonnull align 8 dereferenceable(9) %172)
+  %.sroa.42806.0.copyload = load i8, ptr %1409, align 8
   br label %1415
 
 1414:                                             ; preds = %1403
   %.sroa.42806.0..sroa_idx2807 = getelementptr inbounds i8, ptr %1404, i64 8
+  %.sroa.42806.0.copyload2808 = load i8, ptr %.sroa.42806.0..sroa_idx2807, align 8
   br label %1415
 
 1415:                                             ; preds = %1414, %1412
-  %.sroa.42806.0..sroa_idx2807.sink = phi ptr [ %.sroa.42806.0..sroa_idx2807, %1414 ], [ %1409, %1412 ]
-  %.sroa.02804.0.in = phi ptr [ %1404, %1414 ], [ %172, %1412 ]
-  %.sroa.42806.0.copyload2808 = load i8, ptr %.sroa.42806.0..sroa_idx2807.sink, align 8
+  %.sroa.42806.0 = phi i8 [ %.sroa.42806.0.copyload, %1412 ], [ %.sroa.42806.0.copyload2808, %1414 ]
+  %.sroa.02804.0.in = phi ptr [ %172, %1412 ], [ %1404, %1414 ]
   %.sroa.02804.0 = load ptr, ptr %.sroa.02804.0.in, align 8
   %1416 = load i8, ptr @ForceUnreachable, align 1
   %1417 = trunc i8 %1416 to i1
@@ -19927,7 +19976,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   store i8 %.sroa.130.0.copyload3269.sroa.speculated, ptr %.sroa.130.0..sroa_idx3145, align 8
   %.sroa.131.0..sroa_idx3351 = getelementptr inbounds i8, ptr %174, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3351, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %1418 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02809.0, i8 %.sroa.42811.0.copyload2813, ptr %.sroa.02804.0, i8 %.sroa.42806.0.copyload2808, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %174, ptr noundef nonnull %1) #7
+  %1418 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02809.0, i8 %.sroa.42811.0, ptr %.sroa.02804.0, i8 %.sroa.42806.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %174, ptr noundef nonnull %1) #7
   %1419 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2295 = icmp eq i8 %1419, 0
   br i1 %.not2295, label %1420, label %.loopexit
@@ -19955,16 +20004,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1431:                                             ; preds = %1425
   store ptr @.str.37, ptr %177, align 8
   %1432 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %177, ptr noundef nonnull align 8 dereferenceable(9) %176)
+  %.sroa.42801.0.copyload = load i8, ptr %1428, align 8
   br label %1434
 
 1433:                                             ; preds = %1420
   %.sroa.42801.0..sroa_idx2802 = getelementptr inbounds i8, ptr %1423, i64 8
+  %.sroa.42801.0.copyload2803 = load i8, ptr %.sroa.42801.0..sroa_idx2802, align 8
   br label %1434
 
 1434:                                             ; preds = %1433, %1431
-  %.sroa.42801.0..sroa_idx2802.sink = phi ptr [ %.sroa.42801.0..sroa_idx2802, %1433 ], [ %1428, %1431 ]
-  %.sroa.02799.0.in = phi ptr [ %1423, %1433 ], [ %176, %1431 ]
-  %.sroa.42801.0.copyload2803 = load i8, ptr %.sroa.42801.0..sroa_idx2802.sink, align 8
+  %.sroa.42801.0 = phi i8 [ %.sroa.42801.0.copyload, %1431 ], [ %.sroa.42801.0.copyload2803, %1433 ]
+  %.sroa.02799.0.in = phi ptr [ %176, %1431 ], [ %1423, %1433 ]
   %.sroa.02799.0 = load ptr, ptr %.sroa.02799.0.in, align 8
   store ptr @.str.20, ptr %178, align 8
   %1435 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %178)
@@ -19985,16 +20035,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1443:                                             ; preds = %1437
   store ptr @.str.20, ptr %180, align 8
   %1444 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %180, ptr noundef nonnull align 8 dereferenceable(9) %179)
+  %.sroa.42796.0.copyload = load i8, ptr %1440, align 8
   br label %1446
 
 1445:                                             ; preds = %1434
   %.sroa.42796.0..sroa_idx2797 = getelementptr inbounds i8, ptr %1435, i64 8
+  %.sroa.42796.0.copyload2798 = load i8, ptr %.sroa.42796.0..sroa_idx2797, align 8
   br label %1446
 
 1446:                                             ; preds = %1443, %1445
-  %.sink3644 = phi ptr [ %1440, %1443 ], [ %.sroa.42796.0..sroa_idx2797, %1445 ]
+  %.sroa.42796.0 = phi i8 [ %.sroa.42796.0.copyload, %1443 ], [ %.sroa.42796.0.copyload2798, %1445 ]
   %.sroa.02794.0.in = phi ptr [ %179, %1443 ], [ %1435, %1445 ]
-  %.sroa.42796.0.copyload = load i8, ptr %.sink3644, align 8
   %.sroa.02794.0 = load ptr, ptr %.sroa.02794.0.in, align 8
   store i64 8000, ptr %181, align 8
   %1447 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256El11JVMCIObjectElS1_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIlEjRKT_EEXadL_Z16primitive_equalsIlEbS9_S9_EEE3getERKl(ptr noundef nonnull align 8 dereferenceable(2052) %3, ptr noundef nonnull align 8 dereferenceable(8) %181)
@@ -20014,23 +20065,24 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 
 1455:                                             ; preds = %1449
   %1456 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256El11JVMCIObjectElS1_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIlEjRKT_EEXadL_Z16primitive_equalsIlEbS9_S9_EEE3putERKlRKS1_(ptr noundef nonnull align 8 dereferenceable(2052) %3, ptr noundef nonnull align 8 dereferenceable(8) %181, ptr noundef nonnull align 8 dereferenceable(9) %182)
+  %.sroa.130.0.copyload3271 = load i8, ptr %1452, align 8
   br label %1458
 
 1457:                                             ; preds = %1446
   %.sroa.130.0..sroa_idx3272 = getelementptr inbounds i8, ptr %1447, i64 8
+  %.sroa.130.0.copyload3273 = load i8, ptr %.sroa.130.0..sroa_idx3272, align 8
   br label %1458
 
 1458:                                             ; preds = %1457, %1455
-  %.sroa.130.0..sroa_idx3272.sink = phi ptr [ %.sroa.130.0..sroa_idx3272, %1457 ], [ %1452, %1455 ]
-  %.sroa.02984.10.in = phi ptr [ %1447, %1457 ], [ %182, %1455 ]
-  %.sroa.130.0.copyload3273 = load i8, ptr %.sroa.130.0..sroa_idx3272.sink, align 8
+  %.sroa.130.10 = phi i8 [ %.sroa.130.0.copyload3271, %1455 ], [ %.sroa.130.0.copyload3273, %1457 ]
+  %.sroa.02984.10.in = phi ptr [ %182, %1455 ], [ %1447, %1457 ]
   %.sroa.02984.10 = load ptr, ptr %.sroa.02984.10.in, align 8
   store ptr %.sroa.02984.10, ptr %183, align 8
   %.sroa.130.0..sroa_idx3147 = getelementptr inbounds i8, ptr %183, i64 8
-  store i8 %.sroa.130.0.copyload3273, ptr %.sroa.130.0..sroa_idx3147, align 8
+  store i8 %.sroa.130.10, ptr %.sroa.130.0..sroa_idx3147, align 8
   %.sroa.131.0..sroa_idx3352 = getelementptr inbounds i8, ptr %183, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3352, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %1459 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02799.0, i8 %.sroa.42801.0.copyload2803, ptr %.sroa.02794.0, i8 %.sroa.42796.0.copyload, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %183, ptr noundef nonnull %1) #7
+  %1459 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02799.0, i8 %.sroa.42801.0, ptr %.sroa.02794.0, i8 %.sroa.42796.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %183, ptr noundef nonnull %1) #7
   %1460 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2299 = icmp eq i8 %1460, 0
   br i1 %.not2299, label %1461, label %.loopexit
@@ -20058,16 +20110,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1472:                                             ; preds = %1466
   store ptr @.str.38, ptr %186, align 8
   %1473 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %186, ptr noundef nonnull align 8 dereferenceable(9) %185)
+  %.sroa.42791.0.copyload = load i8, ptr %1469, align 8
   br label %1475
 
 1474:                                             ; preds = %1461
   %.sroa.42791.0..sroa_idx2792 = getelementptr inbounds i8, ptr %1464, i64 8
+  %.sroa.42791.0.copyload2793 = load i8, ptr %.sroa.42791.0..sroa_idx2792, align 8
   br label %1475
 
 1475:                                             ; preds = %1474, %1472
-  %.sroa.42791.0..sroa_idx2792.sink = phi ptr [ %.sroa.42791.0..sroa_idx2792, %1474 ], [ %1469, %1472 ]
-  %.sroa.02789.0.in = phi ptr [ %1464, %1474 ], [ %185, %1472 ]
-  %.sroa.42791.0.copyload2793 = load i8, ptr %.sroa.42791.0..sroa_idx2792.sink, align 8
+  %.sroa.42791.0 = phi i8 [ %.sroa.42791.0.copyload, %1472 ], [ %.sroa.42791.0.copyload2793, %1474 ]
+  %.sroa.02789.0.in = phi ptr [ %185, %1472 ], [ %1464, %1474 ]
   %.sroa.02789.0 = load ptr, ptr %.sroa.02789.0.in, align 8
   store ptr @.str.4, ptr %187, align 8
   %1476 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %187)
@@ -20088,16 +20141,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1484:                                             ; preds = %1478
   store ptr @.str.4, ptr %189, align 8
   %1485 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %189, ptr noundef nonnull align 8 dereferenceable(9) %188)
+  %.sroa.42786.0.copyload = load i8, ptr %1481, align 8
   br label %1487
 
 1486:                                             ; preds = %1475
   %.sroa.42786.0..sroa_idx2787 = getelementptr inbounds i8, ptr %1476, i64 8
+  %.sroa.42786.0.copyload2788 = load i8, ptr %.sroa.42786.0..sroa_idx2787, align 8
   br label %1487
 
 1487:                                             ; preds = %1486, %1484
-  %.sroa.42786.0..sroa_idx2787.sink = phi ptr [ %.sroa.42786.0..sroa_idx2787, %1486 ], [ %1481, %1484 ]
-  %.sroa.02784.0.in = phi ptr [ %1476, %1486 ], [ %188, %1484 ]
-  %.sroa.42786.0.copyload2788 = load i8, ptr %.sroa.42786.0..sroa_idx2787.sink, align 8
+  %.sroa.42786.0 = phi i8 [ %.sroa.42786.0.copyload, %1484 ], [ %.sroa.42786.0.copyload2788, %1486 ]
+  %.sroa.02784.0.in = phi ptr [ %188, %1484 ], [ %1476, %1486 ]
   %.sroa.02784.0 = load ptr, ptr %.sroa.02784.0.in, align 8
   %1488 = load i8, ptr @Inline, align 1
   %1489 = trunc i8 %1488 to i1
@@ -20108,7 +20162,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   store i8 %.sroa.130.0.copyload3274.sroa.speculated, ptr %.sroa.130.0..sroa_idx3149, align 8
   %.sroa.131.0..sroa_idx3353 = getelementptr inbounds i8, ptr %190, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3353, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %1490 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02789.0, i8 %.sroa.42791.0.copyload2793, ptr %.sroa.02784.0, i8 %.sroa.42786.0.copyload2788, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %190, ptr noundef nonnull %1) #7
+  %1490 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02789.0, i8 %.sroa.42791.0, ptr %.sroa.02784.0, i8 %.sroa.42786.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %190, ptr noundef nonnull %1) #7
   %1491 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2302 = icmp eq i8 %1491, 0
   br i1 %.not2302, label %1492, label %.loopexit
@@ -20136,16 +20190,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1503:                                             ; preds = %1497
   store ptr @.str.39, ptr %193, align 8
   %1504 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %193, ptr noundef nonnull align 8 dereferenceable(9) %192)
+  %.sroa.42781.0.copyload = load i8, ptr %1500, align 8
   br label %1506
 
 1505:                                             ; preds = %1492
   %.sroa.42781.0..sroa_idx2782 = getelementptr inbounds i8, ptr %1495, i64 8
+  %.sroa.42781.0.copyload2783 = load i8, ptr %.sroa.42781.0..sroa_idx2782, align 8
   br label %1506
 
 1506:                                             ; preds = %1505, %1503
-  %.sroa.42781.0..sroa_idx2782.sink = phi ptr [ %.sroa.42781.0..sroa_idx2782, %1505 ], [ %1500, %1503 ]
-  %.sroa.02779.0.in = phi ptr [ %1495, %1505 ], [ %192, %1503 ]
-  %.sroa.42781.0.copyload2783 = load i8, ptr %.sroa.42781.0..sroa_idx2782.sink, align 8
+  %.sroa.42781.0 = phi i8 [ %.sroa.42781.0.copyload, %1503 ], [ %.sroa.42781.0.copyload2783, %1505 ]
+  %.sroa.02779.0.in = phi ptr [ %192, %1503 ], [ %1495, %1505 ]
   %.sroa.02779.0 = load ptr, ptr %.sroa.02779.0.in, align 8
   store ptr @.str.20, ptr %194, align 8
   %1507 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %194)
@@ -20166,16 +20221,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1515:                                             ; preds = %1509
   store ptr @.str.20, ptr %196, align 8
   %1516 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %196, ptr noundef nonnull align 8 dereferenceable(9) %195)
+  %.sroa.42776.0.copyload = load i8, ptr %1512, align 8
   br label %1518
 
 1517:                                             ; preds = %1506
   %.sroa.42776.0..sroa_idx2777 = getelementptr inbounds i8, ptr %1507, i64 8
+  %.sroa.42776.0.copyload2778 = load i8, ptr %.sroa.42776.0..sroa_idx2777, align 8
   br label %1518
 
 1518:                                             ; preds = %1515, %1517
-  %.sink3645 = phi ptr [ %1512, %1515 ], [ %.sroa.42776.0..sroa_idx2777, %1517 ]
+  %.sroa.42776.0 = phi i8 [ %.sroa.42776.0.copyload, %1515 ], [ %.sroa.42776.0.copyload2778, %1517 ]
   %.sroa.02774.0.in = phi ptr [ %195, %1515 ], [ %1507, %1517 ]
-  %.sroa.42776.0.copyload = load i8, ptr %.sink3645, align 8
   %.sroa.02774.0 = load ptr, ptr %.sroa.02774.0.in, align 8
   %1519 = load i64, ptr @JVMCICounterSize, align 8
   store i64 %1519, ptr %197, align 8
@@ -20196,23 +20252,24 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 
 1528:                                             ; preds = %1522
   %1529 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256El11JVMCIObjectElS1_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIlEjRKT_EEXadL_Z16primitive_equalsIlEbS9_S9_EEE3putERKlRKS1_(ptr noundef nonnull align 8 dereferenceable(2052) %3, ptr noundef nonnull align 8 dereferenceable(8) %197, ptr noundef nonnull align 8 dereferenceable(9) %198)
+  %.sroa.130.0.copyload3276 = load i8, ptr %1525, align 8
   br label %1531
 
 1530:                                             ; preds = %1518
   %.sroa.130.0..sroa_idx3277 = getelementptr inbounds i8, ptr %1520, i64 8
+  %.sroa.130.0.copyload3278 = load i8, ptr %.sroa.130.0..sroa_idx3277, align 8
   br label %1531
 
 1531:                                             ; preds = %1530, %1528
-  %.sroa.130.0..sroa_idx3277.sink = phi ptr [ %.sroa.130.0..sroa_idx3277, %1530 ], [ %1525, %1528 ]
-  %.sroa.02984.11.in = phi ptr [ %1520, %1530 ], [ %198, %1528 ]
-  %.sroa.130.0.copyload3278 = load i8, ptr %.sroa.130.0..sroa_idx3277.sink, align 8
+  %.sroa.130.11 = phi i8 [ %.sroa.130.0.copyload3276, %1528 ], [ %.sroa.130.0.copyload3278, %1530 ]
+  %.sroa.02984.11.in = phi ptr [ %198, %1528 ], [ %1520, %1530 ]
   %.sroa.02984.11 = load ptr, ptr %.sroa.02984.11.in, align 8
   store ptr %.sroa.02984.11, ptr %199, align 8
   %.sroa.130.0..sroa_idx3151 = getelementptr inbounds i8, ptr %199, i64 8
-  store i8 %.sroa.130.0.copyload3278, ptr %.sroa.130.0..sroa_idx3151, align 8
+  store i8 %.sroa.130.11, ptr %.sroa.130.0..sroa_idx3151, align 8
   %.sroa.131.0..sroa_idx3354 = getelementptr inbounds i8, ptr %199, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3354, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %1532 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02779.0, i8 %.sroa.42781.0.copyload2783, ptr %.sroa.02774.0, i8 %.sroa.42776.0.copyload, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %199, ptr noundef nonnull %1) #7
+  %1532 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02779.0, i8 %.sroa.42781.0, ptr %.sroa.02774.0, i8 %.sroa.42776.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %199, ptr noundef nonnull %1) #7
   %1533 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2306 = icmp eq i8 %1533, 0
   br i1 %.not2306, label %1534, label %.loopexit
@@ -20240,16 +20297,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1545:                                             ; preds = %1539
   store ptr @.str.40, ptr %202, align 8
   %1546 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %202, ptr noundef nonnull align 8 dereferenceable(9) %201)
+  %.sroa.42771.0.copyload = load i8, ptr %1542, align 8
   br label %1548
 
 1547:                                             ; preds = %1534
   %.sroa.42771.0..sroa_idx2772 = getelementptr inbounds i8, ptr %1537, i64 8
+  %.sroa.42771.0.copyload2773 = load i8, ptr %.sroa.42771.0..sroa_idx2772, align 8
   br label %1548
 
 1548:                                             ; preds = %1547, %1545
-  %.sroa.42771.0..sroa_idx2772.sink = phi ptr [ %.sroa.42771.0..sroa_idx2772, %1547 ], [ %1542, %1545 ]
-  %.sroa.02769.0.in = phi ptr [ %1537, %1547 ], [ %201, %1545 ]
-  %.sroa.42771.0.copyload2773 = load i8, ptr %.sroa.42771.0..sroa_idx2772.sink, align 8
+  %.sroa.42771.0 = phi i8 [ %.sroa.42771.0.copyload, %1545 ], [ %.sroa.42771.0.copyload2773, %1547 ]
+  %.sroa.02769.0.in = phi ptr [ %201, %1545 ], [ %1537, %1547 ]
   %.sroa.02769.0 = load ptr, ptr %.sroa.02769.0.in, align 8
   store ptr @.str.4, ptr %203, align 8
   %1549 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %203)
@@ -20270,16 +20328,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1557:                                             ; preds = %1551
   store ptr @.str.4, ptr %205, align 8
   %1558 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %205, ptr noundef nonnull align 8 dereferenceable(9) %204)
+  %.sroa.42766.0.copyload = load i8, ptr %1554, align 8
   br label %1560
 
 1559:                                             ; preds = %1548
   %.sroa.42766.0..sroa_idx2767 = getelementptr inbounds i8, ptr %1549, i64 8
+  %.sroa.42766.0.copyload2768 = load i8, ptr %.sroa.42766.0..sroa_idx2767, align 8
   br label %1560
 
 1560:                                             ; preds = %1559, %1557
-  %.sroa.42766.0..sroa_idx2767.sink = phi ptr [ %.sroa.42766.0..sroa_idx2767, %1559 ], [ %1554, %1557 ]
-  %.sroa.02764.0.in = phi ptr [ %1549, %1559 ], [ %204, %1557 ]
-  %.sroa.42766.0.copyload2768 = load i8, ptr %.sroa.42766.0..sroa_idx2767.sink, align 8
+  %.sroa.42766.0 = phi i8 [ %.sroa.42766.0.copyload, %1557 ], [ %.sroa.42766.0.copyload2768, %1559 ]
+  %.sroa.02764.0.in = phi ptr [ %204, %1557 ], [ %1549, %1559 ]
   %.sroa.02764.0 = load ptr, ptr %.sroa.02764.0.in, align 8
   %1561 = load i8, ptr @JVMCIPrintProperties, align 1
   %1562 = trunc i8 %1561 to i1
@@ -20290,7 +20349,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   store i8 %.sroa.130.0.copyload3279.sroa.speculated, ptr %.sroa.130.0..sroa_idx3153, align 8
   %.sroa.131.0..sroa_idx3355 = getelementptr inbounds i8, ptr %206, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3355, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %1563 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02769.0, i8 %.sroa.42771.0.copyload2773, ptr %.sroa.02764.0, i8 %.sroa.42766.0.copyload2768, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %206, ptr noundef nonnull %1) #7
+  %1563 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02769.0, i8 %.sroa.42771.0, ptr %.sroa.02764.0, i8 %.sroa.42766.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %206, ptr noundef nonnull %1) #7
   %1564 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2309 = icmp eq i8 %1564, 0
   br i1 %.not2309, label %1565, label %.loopexit
@@ -20318,16 +20377,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1576:                                             ; preds = %1570
   store ptr @.str.41, ptr %209, align 8
   %1577 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %209, ptr noundef nonnull align 8 dereferenceable(9) %208)
+  %.sroa.42761.0.copyload = load i8, ptr %1573, align 8
   br label %1579
 
 1578:                                             ; preds = %1565
   %.sroa.42761.0..sroa_idx2762 = getelementptr inbounds i8, ptr %1568, i64 8
+  %.sroa.42761.0.copyload2763 = load i8, ptr %.sroa.42761.0..sroa_idx2762, align 8
   br label %1579
 
 1579:                                             ; preds = %1578, %1576
-  %.sroa.42761.0..sroa_idx2762.sink = phi ptr [ %.sroa.42761.0..sroa_idx2762, %1578 ], [ %1573, %1576 ]
-  %.sroa.02759.0.in = phi ptr [ %1568, %1578 ], [ %208, %1576 ]
-  %.sroa.42761.0.copyload2763 = load i8, ptr %.sroa.42761.0..sroa_idx2762.sink, align 8
+  %.sroa.42761.0 = phi i8 [ %.sroa.42761.0.copyload, %1576 ], [ %.sroa.42761.0.copyload2763, %1578 ]
+  %.sroa.02759.0.in = phi ptr [ %208, %1576 ], [ %1568, %1578 ]
   %.sroa.02759.0 = load ptr, ptr %.sroa.02759.0.in, align 8
   store ptr @.str.5, ptr %210, align 8
   %1580 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %210)
@@ -20348,16 +20408,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1588:                                             ; preds = %1582
   store ptr @.str.5, ptr %212, align 8
   %1589 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %212, ptr noundef nonnull align 8 dereferenceable(9) %211)
+  %.sroa.42756.0.copyload = load i8, ptr %1585, align 8
   br label %1591
 
 1590:                                             ; preds = %1579
   %.sroa.42756.0..sroa_idx2757 = getelementptr inbounds i8, ptr %1580, i64 8
+  %.sroa.42756.0.copyload2758 = load i8, ptr %.sroa.42756.0..sroa_idx2757, align 8
   br label %1591
 
 1591:                                             ; preds = %1588, %1590
-  %.sink3646 = phi ptr [ %1585, %1588 ], [ %.sroa.42756.0..sroa_idx2757, %1590 ]
+  %.sroa.42756.0 = phi i8 [ %.sroa.42756.0.copyload, %1588 ], [ %.sroa.42756.0.copyload2758, %1590 ]
   %.sroa.02754.0.in = phi ptr [ %211, %1588 ], [ %1580, %1590 ]
-  %.sroa.42756.0.copyload = load i8, ptr %.sink3646, align 8
   %.sroa.02754.0 = load ptr, ptr %.sroa.02754.0.in, align 8
   %1592 = load i32, ptr @ObjectAlignmentInBytes, align 4
   %1593 = sext i32 %1592 to i64
@@ -20379,23 +20440,24 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 
 1602:                                             ; preds = %1596
   %1603 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256El11JVMCIObjectElS1_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIlEjRKT_EEXadL_Z16primitive_equalsIlEbS9_S9_EEE3putERKlRKS1_(ptr noundef nonnull align 8 dereferenceable(2052) %3, ptr noundef nonnull align 8 dereferenceable(8) %213, ptr noundef nonnull align 8 dereferenceable(9) %214)
+  %.sroa.130.0.copyload3281 = load i8, ptr %1599, align 8
   br label %1605
 
 1604:                                             ; preds = %1591
   %.sroa.130.0..sroa_idx3282 = getelementptr inbounds i8, ptr %1594, i64 8
+  %.sroa.130.0.copyload3283 = load i8, ptr %.sroa.130.0..sroa_idx3282, align 8
   br label %1605
 
 1605:                                             ; preds = %1604, %1602
-  %.sroa.130.0..sroa_idx3282.sink = phi ptr [ %.sroa.130.0..sroa_idx3282, %1604 ], [ %1599, %1602 ]
-  %.sroa.02984.12.in = phi ptr [ %1594, %1604 ], [ %214, %1602 ]
-  %.sroa.130.0.copyload3283 = load i8, ptr %.sroa.130.0..sroa_idx3282.sink, align 8
+  %.sroa.130.12 = phi i8 [ %.sroa.130.0.copyload3281, %1602 ], [ %.sroa.130.0.copyload3283, %1604 ]
+  %.sroa.02984.12.in = phi ptr [ %214, %1602 ], [ %1594, %1604 ]
   %.sroa.02984.12 = load ptr, ptr %.sroa.02984.12.in, align 8
   store ptr %.sroa.02984.12, ptr %215, align 8
   %.sroa.130.0..sroa_idx3155 = getelementptr inbounds i8, ptr %215, i64 8
-  store i8 %.sroa.130.0.copyload3283, ptr %.sroa.130.0..sroa_idx3155, align 8
+  store i8 %.sroa.130.12, ptr %.sroa.130.0..sroa_idx3155, align 8
   %.sroa.131.0..sroa_idx3356 = getelementptr inbounds i8, ptr %215, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3356, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %1606 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02759.0, i8 %.sroa.42761.0.copyload2763, ptr %.sroa.02754.0, i8 %.sroa.42756.0.copyload, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %215, ptr noundef nonnull %1) #7
+  %1606 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02759.0, i8 %.sroa.42761.0, ptr %.sroa.02754.0, i8 %.sroa.42756.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %215, ptr noundef nonnull %1) #7
   %1607 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2313 = icmp eq i8 %1607, 0
   br i1 %.not2313, label %1608, label %.loopexit
@@ -20423,16 +20485,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1619:                                             ; preds = %1613
   store ptr @.str.42, ptr %218, align 8
   %1620 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %218, ptr noundef nonnull align 8 dereferenceable(9) %217)
+  %.sroa.42751.0.copyload = load i8, ptr %1616, align 8
   br label %1622
 
 1621:                                             ; preds = %1608
   %.sroa.42751.0..sroa_idx2752 = getelementptr inbounds i8, ptr %1611, i64 8
+  %.sroa.42751.0.copyload2753 = load i8, ptr %.sroa.42751.0..sroa_idx2752, align 8
   br label %1622
 
 1622:                                             ; preds = %1621, %1619
-  %.sroa.42751.0..sroa_idx2752.sink = phi ptr [ %.sroa.42751.0..sroa_idx2752, %1621 ], [ %1616, %1619 ]
-  %.sroa.02749.0.in = phi ptr [ %1611, %1621 ], [ %217, %1619 ]
-  %.sroa.42751.0.copyload2753 = load i8, ptr %.sroa.42751.0..sroa_idx2752.sink, align 8
+  %.sroa.42751.0 = phi i8 [ %.sroa.42751.0.copyload, %1619 ], [ %.sroa.42751.0.copyload2753, %1621 ]
+  %.sroa.02749.0.in = phi ptr [ %217, %1619 ], [ %1611, %1621 ]
   %.sroa.02749.0 = load ptr, ptr %.sroa.02749.0.in, align 8
   store ptr @.str.4, ptr %219, align 8
   %1623 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %219)
@@ -20453,16 +20516,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1631:                                             ; preds = %1625
   store ptr @.str.4, ptr %221, align 8
   %1632 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %221, ptr noundef nonnull align 8 dereferenceable(9) %220)
+  %.sroa.42746.0.copyload = load i8, ptr %1628, align 8
   br label %1634
 
 1633:                                             ; preds = %1622
   %.sroa.42746.0..sroa_idx2747 = getelementptr inbounds i8, ptr %1623, i64 8
+  %.sroa.42746.0.copyload2748 = load i8, ptr %.sroa.42746.0..sroa_idx2747, align 8
   br label %1634
 
 1634:                                             ; preds = %1633, %1631
-  %.sroa.42746.0..sroa_idx2747.sink = phi ptr [ %.sroa.42746.0..sroa_idx2747, %1633 ], [ %1628, %1631 ]
-  %.sroa.02744.0.in = phi ptr [ %1623, %1633 ], [ %220, %1631 ]
-  %.sroa.42746.0.copyload2748 = load i8, ptr %.sroa.42746.0..sroa_idx2747.sink, align 8
+  %.sroa.42746.0 = phi i8 [ %.sroa.42746.0.copyload, %1631 ], [ %.sroa.42746.0.copyload2748, %1633 ]
+  %.sroa.02744.0.in = phi ptr [ %220, %1631 ], [ %1623, %1633 ]
   %.sroa.02744.0 = load ptr, ptr %.sroa.02744.0.in, align 8
   %1635 = load i8, ptr @PrintInlining, align 1
   %1636 = trunc i8 %1635 to i1
@@ -20473,7 +20537,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   store i8 %.sroa.130.0.copyload3284.sroa.speculated, ptr %.sroa.130.0..sroa_idx3157, align 8
   %.sroa.131.0..sroa_idx3357 = getelementptr inbounds i8, ptr %222, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3357, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %1637 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02749.0, i8 %.sroa.42751.0.copyload2753, ptr %.sroa.02744.0, i8 %.sroa.42746.0.copyload2748, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %222, ptr noundef nonnull %1) #7
+  %1637 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02749.0, i8 %.sroa.42751.0, ptr %.sroa.02744.0, i8 %.sroa.42746.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %222, ptr noundef nonnull %1) #7
   %1638 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2316 = icmp eq i8 %1638, 0
   br i1 %.not2316, label %1639, label %.loopexit
@@ -20501,16 +20565,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1650:                                             ; preds = %1644
   store ptr @.str.43, ptr %225, align 8
   %1651 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %225, ptr noundef nonnull align 8 dereferenceable(9) %224)
+  %.sroa.42741.0.copyload = load i8, ptr %1647, align 8
   br label %1653
 
 1652:                                             ; preds = %1639
   %.sroa.42741.0..sroa_idx2742 = getelementptr inbounds i8, ptr %1642, i64 8
+  %.sroa.42741.0.copyload2743 = load i8, ptr %.sroa.42741.0..sroa_idx2742, align 8
   br label %1653
 
 1653:                                             ; preds = %1652, %1650
-  %.sroa.42741.0..sroa_idx2742.sink = phi ptr [ %.sroa.42741.0..sroa_idx2742, %1652 ], [ %1647, %1650 ]
-  %.sroa.02739.0.in = phi ptr [ %1642, %1652 ], [ %224, %1650 ]
-  %.sroa.42741.0.copyload2743 = load i8, ptr %.sroa.42741.0..sroa_idx2742.sink, align 8
+  %.sroa.42741.0 = phi i8 [ %.sroa.42741.0.copyload, %1650 ], [ %.sroa.42741.0.copyload2743, %1652 ]
+  %.sroa.02739.0.in = phi ptr [ %224, %1650 ], [ %1642, %1652 ]
   %.sroa.02739.0 = load ptr, ptr %.sroa.02739.0.in, align 8
   store ptr @.str.4, ptr %226, align 8
   %1654 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %226)
@@ -20531,16 +20596,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1662:                                             ; preds = %1656
   store ptr @.str.4, ptr %228, align 8
   %1663 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %228, ptr noundef nonnull align 8 dereferenceable(9) %227)
+  %.sroa.42736.0.copyload = load i8, ptr %1659, align 8
   br label %1665
 
 1664:                                             ; preds = %1653
   %.sroa.42736.0..sroa_idx2737 = getelementptr inbounds i8, ptr %1654, i64 8
+  %.sroa.42736.0.copyload2738 = load i8, ptr %.sroa.42736.0..sroa_idx2737, align 8
   br label %1665
 
 1665:                                             ; preds = %1664, %1662
-  %.sroa.42736.0..sroa_idx2737.sink = phi ptr [ %.sroa.42736.0..sroa_idx2737, %1664 ], [ %1659, %1662 ]
-  %.sroa.02734.0.in = phi ptr [ %1654, %1664 ], [ %227, %1662 ]
-  %.sroa.42736.0.copyload2738 = load i8, ptr %.sroa.42736.0..sroa_idx2737.sink, align 8
+  %.sroa.42736.0 = phi i8 [ %.sroa.42736.0.copyload, %1662 ], [ %.sroa.42736.0.copyload2738, %1664 ]
+  %.sroa.02734.0.in = phi ptr [ %227, %1662 ], [ %1654, %1664 ]
   %.sroa.02734.0 = load ptr, ptr %.sroa.02734.0.in, align 8
   %1666 = load i8, ptr @ReduceInitialCardMarks, align 1
   %1667 = trunc i8 %1666 to i1
@@ -20551,7 +20617,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   store i8 %.sroa.130.0.copyload3285.sroa.speculated, ptr %.sroa.130.0..sroa_idx3159, align 8
   %.sroa.131.0..sroa_idx3358 = getelementptr inbounds i8, ptr %229, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3358, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %1668 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02739.0, i8 %.sroa.42741.0.copyload2743, ptr %.sroa.02734.0, i8 %.sroa.42736.0.copyload2738, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %229, ptr noundef nonnull %1) #7
+  %1668 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02739.0, i8 %.sroa.42741.0, ptr %.sroa.02734.0, i8 %.sroa.42736.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %229, ptr noundef nonnull %1) #7
   %1669 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2319 = icmp eq i8 %1669, 0
   br i1 %.not2319, label %1670, label %.loopexit
@@ -20579,16 +20645,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1681:                                             ; preds = %1675
   store ptr @.str.44, ptr %232, align 8
   %1682 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %232, ptr noundef nonnull align 8 dereferenceable(9) %231)
+  %.sroa.42731.0.copyload = load i8, ptr %1678, align 8
   br label %1684
 
 1683:                                             ; preds = %1670
   %.sroa.42731.0..sroa_idx2732 = getelementptr inbounds i8, ptr %1673, i64 8
+  %.sroa.42731.0.copyload2733 = load i8, ptr %.sroa.42731.0..sroa_idx2732, align 8
   br label %1684
 
 1684:                                             ; preds = %1683, %1681
-  %.sroa.42731.0..sroa_idx2732.sink = phi ptr [ %.sroa.42731.0..sroa_idx2732, %1683 ], [ %1678, %1681 ]
-  %.sroa.02729.0.in = phi ptr [ %1673, %1683 ], [ %231, %1681 ]
-  %.sroa.42731.0.copyload2733 = load i8, ptr %.sroa.42731.0..sroa_idx2732.sink, align 8
+  %.sroa.42731.0 = phi i8 [ %.sroa.42731.0.copyload, %1681 ], [ %.sroa.42731.0.copyload2733, %1683 ]
+  %.sroa.02729.0.in = phi ptr [ %231, %1681 ], [ %1673, %1683 ]
   %.sroa.02729.0 = load ptr, ptr %.sroa.02729.0.in, align 8
   store ptr @.str.4, ptr %233, align 8
   %1685 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %233)
@@ -20609,16 +20676,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1693:                                             ; preds = %1687
   store ptr @.str.4, ptr %235, align 8
   %1694 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %235, ptr noundef nonnull align 8 dereferenceable(9) %234)
+  %.sroa.42726.0.copyload = load i8, ptr %1690, align 8
   br label %1696
 
 1695:                                             ; preds = %1684
   %.sroa.42726.0..sroa_idx2727 = getelementptr inbounds i8, ptr %1685, i64 8
+  %.sroa.42726.0.copyload2728 = load i8, ptr %.sroa.42726.0..sroa_idx2727, align 8
   br label %1696
 
 1696:                                             ; preds = %1695, %1693
-  %.sroa.42726.0..sroa_idx2727.sink = phi ptr [ %.sroa.42726.0..sroa_idx2727, %1695 ], [ %1690, %1693 ]
-  %.sroa.02724.0.in = phi ptr [ %1685, %1695 ], [ %234, %1693 ]
-  %.sroa.42726.0.copyload2728 = load i8, ptr %.sroa.42726.0..sroa_idx2727.sink, align 8
+  %.sroa.42726.0 = phi i8 [ %.sroa.42726.0.copyload, %1693 ], [ %.sroa.42726.0.copyload2728, %1695 ]
+  %.sroa.02724.0.in = phi ptr [ %234, %1693 ], [ %1685, %1695 ]
   %.sroa.02724.0 = load ptr, ptr %.sroa.02724.0.in, align 8
   %1697 = load i8, ptr @RestrictContended, align 1
   %1698 = trunc i8 %1697 to i1
@@ -20629,7 +20697,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   store i8 %.sroa.130.0.copyload3286.sroa.speculated, ptr %.sroa.130.0..sroa_idx3161, align 8
   %.sroa.131.0..sroa_idx3359 = getelementptr inbounds i8, ptr %236, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3359, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %1699 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02729.0, i8 %.sroa.42731.0.copyload2733, ptr %.sroa.02724.0, i8 %.sroa.42726.0.copyload2728, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %236, ptr noundef nonnull %1) #7
+  %1699 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02729.0, i8 %.sroa.42731.0, ptr %.sroa.02724.0, i8 %.sroa.42726.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %236, ptr noundef nonnull %1) #7
   %1700 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2322 = icmp eq i8 %1700, 0
   br i1 %.not2322, label %1701, label %.loopexit
@@ -20657,16 +20725,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1712:                                             ; preds = %1706
   store ptr @.str.45, ptr %239, align 8
   %1713 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %239, ptr noundef nonnull align 8 dereferenceable(9) %238)
+  %.sroa.42721.0.copyload = load i8, ptr %1709, align 8
   br label %1715
 
 1714:                                             ; preds = %1701
   %.sroa.42721.0..sroa_idx2722 = getelementptr inbounds i8, ptr %1704, i64 8
+  %.sroa.42721.0.copyload2723 = load i8, ptr %.sroa.42721.0..sroa_idx2722, align 8
   br label %1715
 
 1715:                                             ; preds = %1714, %1712
-  %.sroa.42721.0..sroa_idx2722.sink = phi ptr [ %.sroa.42721.0..sroa_idx2722, %1714 ], [ %1709, %1712 ]
-  %.sroa.02719.0.in = phi ptr [ %1704, %1714 ], [ %238, %1712 ]
-  %.sroa.42721.0.copyload2723 = load i8, ptr %.sroa.42721.0..sroa_idx2722.sink, align 8
+  %.sroa.42721.0 = phi i8 [ %.sroa.42721.0.copyload, %1712 ], [ %.sroa.42721.0.copyload2723, %1714 ]
+  %.sroa.02719.0.in = phi ptr [ %238, %1712 ], [ %1704, %1714 ]
   %.sroa.02719.0 = load ptr, ptr %.sroa.02719.0.in, align 8
   store ptr @.str.20, ptr %240, align 8
   %1716 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %240)
@@ -20687,16 +20756,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1724:                                             ; preds = %1718
   store ptr @.str.20, ptr %242, align 8
   %1725 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %242, ptr noundef nonnull align 8 dereferenceable(9) %241)
+  %.sroa.42716.0.copyload = load i8, ptr %1721, align 8
   br label %1727
 
 1726:                                             ; preds = %1715
   %.sroa.42716.0..sroa_idx2717 = getelementptr inbounds i8, ptr %1716, i64 8
+  %.sroa.42716.0.copyload2718 = load i8, ptr %.sroa.42716.0..sroa_idx2717, align 8
   br label %1727
 
 1727:                                             ; preds = %1724, %1726
-  %.sink3647 = phi ptr [ %1721, %1724 ], [ %.sroa.42716.0..sroa_idx2717, %1726 ]
+  %.sroa.42716.0 = phi i8 [ %.sroa.42716.0.copyload, %1724 ], [ %.sroa.42716.0.copyload2718, %1726 ]
   %.sroa.02714.0.in = phi ptr [ %241, %1724 ], [ %1716, %1726 ]
-  %.sroa.42716.0.copyload = load i8, ptr %.sink3647, align 8
   %.sroa.02714.0 = load ptr, ptr %.sroa.02714.0.in, align 8
   %1728 = load i64, ptr @StackReservedPages, align 8
   store i64 %1728, ptr %243, align 8
@@ -20717,23 +20787,24 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 
 1737:                                             ; preds = %1731
   %1738 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256El11JVMCIObjectElS1_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIlEjRKT_EEXadL_Z16primitive_equalsIlEbS9_S9_EEE3putERKlRKS1_(ptr noundef nonnull align 8 dereferenceable(2052) %3, ptr noundef nonnull align 8 dereferenceable(8) %243, ptr noundef nonnull align 8 dereferenceable(9) %244)
+  %.sroa.130.0.copyload3288 = load i8, ptr %1734, align 8
   br label %1740
 
 1739:                                             ; preds = %1727
   %.sroa.130.0..sroa_idx3289 = getelementptr inbounds i8, ptr %1729, i64 8
+  %.sroa.130.0.copyload3290 = load i8, ptr %.sroa.130.0..sroa_idx3289, align 8
   br label %1740
 
 1740:                                             ; preds = %1739, %1737
-  %.sroa.130.0..sroa_idx3289.sink = phi ptr [ %.sroa.130.0..sroa_idx3289, %1739 ], [ %1734, %1737 ]
-  %.sroa.02984.13.in = phi ptr [ %1729, %1739 ], [ %244, %1737 ]
-  %.sroa.130.0.copyload3290 = load i8, ptr %.sroa.130.0..sroa_idx3289.sink, align 8
+  %.sroa.130.13 = phi i8 [ %.sroa.130.0.copyload3288, %1737 ], [ %.sroa.130.0.copyload3290, %1739 ]
+  %.sroa.02984.13.in = phi ptr [ %244, %1737 ], [ %1729, %1739 ]
   %.sroa.02984.13 = load ptr, ptr %.sroa.02984.13.in, align 8
   store ptr %.sroa.02984.13, ptr %245, align 8
   %.sroa.130.0..sroa_idx3163 = getelementptr inbounds i8, ptr %245, i64 8
-  store i8 %.sroa.130.0.copyload3290, ptr %.sroa.130.0..sroa_idx3163, align 8
+  store i8 %.sroa.130.13, ptr %.sroa.130.0..sroa_idx3163, align 8
   %.sroa.131.0..sroa_idx3360 = getelementptr inbounds i8, ptr %245, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3360, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %1741 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02719.0, i8 %.sroa.42721.0.copyload2723, ptr %.sroa.02714.0, i8 %.sroa.42716.0.copyload, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %245, ptr noundef nonnull %1) #7
+  %1741 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02719.0, i8 %.sroa.42721.0, ptr %.sroa.02714.0, i8 %.sroa.42716.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %245, ptr noundef nonnull %1) #7
   %1742 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2326 = icmp eq i8 %1742, 0
   br i1 %.not2326, label %1743, label %.loopexit
@@ -20761,16 +20832,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1754:                                             ; preds = %1748
   store ptr @.str.46, ptr %248, align 8
   %1755 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %248, ptr noundef nonnull align 8 dereferenceable(9) %247)
+  %.sroa.42711.0.copyload = load i8, ptr %1751, align 8
   br label %1757
 
 1756:                                             ; preds = %1743
   %.sroa.42711.0..sroa_idx2712 = getelementptr inbounds i8, ptr %1746, i64 8
+  %.sroa.42711.0.copyload2713 = load i8, ptr %.sroa.42711.0..sroa_idx2712, align 8
   br label %1757
 
 1757:                                             ; preds = %1756, %1754
-  %.sroa.42711.0..sroa_idx2712.sink = phi ptr [ %.sroa.42711.0..sroa_idx2712, %1756 ], [ %1751, %1754 ]
-  %.sroa.02709.0.in = phi ptr [ %1746, %1756 ], [ %247, %1754 ]
-  %.sroa.42711.0.copyload2713 = load i8, ptr %.sroa.42711.0..sroa_idx2712.sink, align 8
+  %.sroa.42711.0 = phi i8 [ %.sroa.42711.0.copyload, %1754 ], [ %.sroa.42711.0.copyload2713, %1756 ]
+  %.sroa.02709.0.in = phi ptr [ %247, %1754 ], [ %1746, %1756 ]
   %.sroa.02709.0 = load ptr, ptr %.sroa.02709.0.in, align 8
   store ptr @.str.20, ptr %249, align 8
   %1758 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %249)
@@ -20791,16 +20863,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1766:                                             ; preds = %1760
   store ptr @.str.20, ptr %251, align 8
   %1767 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %251, ptr noundef nonnull align 8 dereferenceable(9) %250)
+  %.sroa.42706.0.copyload = load i8, ptr %1763, align 8
   br label %1769
 
 1768:                                             ; preds = %1757
   %.sroa.42706.0..sroa_idx2707 = getelementptr inbounds i8, ptr %1758, i64 8
+  %.sroa.42706.0.copyload2708 = load i8, ptr %.sroa.42706.0..sroa_idx2707, align 8
   br label %1769
 
 1769:                                             ; preds = %1766, %1768
-  %.sink3648 = phi ptr [ %1763, %1766 ], [ %.sroa.42706.0..sroa_idx2707, %1768 ]
+  %.sroa.42706.0 = phi i8 [ %.sroa.42706.0.copyload, %1766 ], [ %.sroa.42706.0.copyload2708, %1768 ]
   %.sroa.02704.0.in = phi ptr [ %250, %1766 ], [ %1758, %1768 ]
-  %.sroa.42706.0.copyload = load i8, ptr %.sink3648, align 8
   %.sroa.02704.0 = load ptr, ptr %.sroa.02704.0.in, align 8
   %1770 = load i64, ptr @StackShadowPages, align 8
   store i64 %1770, ptr %252, align 8
@@ -20821,23 +20894,24 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 
 1779:                                             ; preds = %1773
   %1780 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256El11JVMCIObjectElS1_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIlEjRKT_EEXadL_Z16primitive_equalsIlEbS9_S9_EEE3putERKlRKS1_(ptr noundef nonnull align 8 dereferenceable(2052) %3, ptr noundef nonnull align 8 dereferenceable(8) %252, ptr noundef nonnull align 8 dereferenceable(9) %253)
+  %.sroa.130.0.copyload3292 = load i8, ptr %1776, align 8
   br label %1782
 
 1781:                                             ; preds = %1769
   %.sroa.130.0..sroa_idx3293 = getelementptr inbounds i8, ptr %1771, i64 8
+  %.sroa.130.0.copyload3294 = load i8, ptr %.sroa.130.0..sroa_idx3293, align 8
   br label %1782
 
 1782:                                             ; preds = %1781, %1779
-  %.sroa.130.0..sroa_idx3293.sink = phi ptr [ %.sroa.130.0..sroa_idx3293, %1781 ], [ %1776, %1779 ]
-  %.sroa.02984.14.in = phi ptr [ %1771, %1781 ], [ %253, %1779 ]
-  %.sroa.130.0.copyload3294 = load i8, ptr %.sroa.130.0..sroa_idx3293.sink, align 8
+  %.sroa.130.14 = phi i8 [ %.sroa.130.0.copyload3292, %1779 ], [ %.sroa.130.0.copyload3294, %1781 ]
+  %.sroa.02984.14.in = phi ptr [ %253, %1779 ], [ %1771, %1781 ]
   %.sroa.02984.14 = load ptr, ptr %.sroa.02984.14.in, align 8
   store ptr %.sroa.02984.14, ptr %254, align 8
   %.sroa.130.0..sroa_idx3165 = getelementptr inbounds i8, ptr %254, i64 8
-  store i8 %.sroa.130.0.copyload3294, ptr %.sroa.130.0..sroa_idx3165, align 8
+  store i8 %.sroa.130.14, ptr %.sroa.130.0..sroa_idx3165, align 8
   %.sroa.131.0..sroa_idx3361 = getelementptr inbounds i8, ptr %254, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3361, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %1783 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02709.0, i8 %.sroa.42711.0.copyload2713, ptr %.sroa.02704.0, i8 %.sroa.42706.0.copyload, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %254, ptr noundef nonnull %1) #7
+  %1783 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02709.0, i8 %.sroa.42711.0, ptr %.sroa.02704.0, i8 %.sroa.42706.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %254, ptr noundef nonnull %1) #7
   %1784 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2330 = icmp eq i8 %1784, 0
   br i1 %.not2330, label %1785, label %.loopexit
@@ -20865,16 +20939,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1796:                                             ; preds = %1790
   store ptr @.str.47, ptr %257, align 8
   %1797 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %257, ptr noundef nonnull align 8 dereferenceable(9) %256)
+  %.sroa.42701.0.copyload = load i8, ptr %1793, align 8
   br label %1799
 
 1798:                                             ; preds = %1785
   %.sroa.42701.0..sroa_idx2702 = getelementptr inbounds i8, ptr %1788, i64 8
+  %.sroa.42701.0.copyload2703 = load i8, ptr %.sroa.42701.0..sroa_idx2702, align 8
   br label %1799
 
 1799:                                             ; preds = %1798, %1796
-  %.sroa.42701.0..sroa_idx2702.sink = phi ptr [ %.sroa.42701.0..sroa_idx2702, %1798 ], [ %1793, %1796 ]
-  %.sroa.02699.0.in = phi ptr [ %1788, %1798 ], [ %256, %1796 ]
-  %.sroa.42701.0.copyload2703 = load i8, ptr %.sroa.42701.0..sroa_idx2702.sink, align 8
+  %.sroa.42701.0 = phi i8 [ %.sroa.42701.0.copyload, %1796 ], [ %.sroa.42701.0.copyload2703, %1798 ]
+  %.sroa.02699.0.in = phi ptr [ %256, %1796 ], [ %1788, %1798 ]
   %.sroa.02699.0 = load ptr, ptr %.sroa.02699.0.in, align 8
   store ptr @.str.29, ptr %258, align 8
   %1800 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %258)
@@ -20895,16 +20970,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1808:                                             ; preds = %1802
   store ptr @.str.29, ptr %260, align 8
   %1809 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %260, ptr noundef nonnull align 8 dereferenceable(9) %259)
+  %.sroa.42696.0.copyload = load i8, ptr %1805, align 8
   br label %1811
 
 1810:                                             ; preds = %1799
   %.sroa.42696.0..sroa_idx2697 = getelementptr inbounds i8, ptr %1800, i64 8
+  %.sroa.42696.0.copyload2698 = load i8, ptr %.sroa.42696.0..sroa_idx2697, align 8
   br label %1811
 
 1811:                                             ; preds = %1808, %1810
-  %.sink3649 = phi ptr [ %1805, %1808 ], [ %.sroa.42696.0..sroa_idx2697, %1810 ]
+  %.sroa.42696.0 = phi i8 [ %.sroa.42696.0.copyload, %1808 ], [ %.sroa.42696.0.copyload2698, %1810 ]
   %.sroa.02694.0.in = phi ptr [ %259, %1808 ], [ %1800, %1810 ]
-  %.sroa.42696.0.copyload = load i8, ptr %.sink3649, align 8
   %.sroa.02694.0 = load ptr, ptr %.sroa.02694.0.in, align 8
   %1812 = load i64, ptr @TLABWasteIncrement, align 8
   store i64 %1812, ptr %261, align 8
@@ -20925,23 +21001,24 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 
 1821:                                             ; preds = %1815
   %1822 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256El11JVMCIObjectElS1_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIlEjRKT_EEXadL_Z16primitive_equalsIlEbS9_S9_EEE3putERKlRKS1_(ptr noundef nonnull align 8 dereferenceable(2052) %3, ptr noundef nonnull align 8 dereferenceable(8) %261, ptr noundef nonnull align 8 dereferenceable(9) %262)
+  %.sroa.130.0.copyload3296 = load i8, ptr %1818, align 8
   br label %1824
 
 1823:                                             ; preds = %1811
   %.sroa.130.0..sroa_idx3297 = getelementptr inbounds i8, ptr %1813, i64 8
+  %.sroa.130.0.copyload3298 = load i8, ptr %.sroa.130.0..sroa_idx3297, align 8
   br label %1824
 
 1824:                                             ; preds = %1823, %1821
-  %.sroa.130.0..sroa_idx3297.sink = phi ptr [ %.sroa.130.0..sroa_idx3297, %1823 ], [ %1818, %1821 ]
-  %.sroa.02984.15.in = phi ptr [ %1813, %1823 ], [ %262, %1821 ]
-  %.sroa.130.0.copyload3298 = load i8, ptr %.sroa.130.0..sroa_idx3297.sink, align 8
+  %.sroa.130.15 = phi i8 [ %.sroa.130.0.copyload3296, %1821 ], [ %.sroa.130.0.copyload3298, %1823 ]
+  %.sroa.02984.15.in = phi ptr [ %262, %1821 ], [ %1813, %1823 ]
   %.sroa.02984.15 = load ptr, ptr %.sroa.02984.15.in, align 8
   store ptr %.sroa.02984.15, ptr %263, align 8
   %.sroa.130.0..sroa_idx3167 = getelementptr inbounds i8, ptr %263, i64 8
-  store i8 %.sroa.130.0.copyload3298, ptr %.sroa.130.0..sroa_idx3167, align 8
+  store i8 %.sroa.130.15, ptr %.sroa.130.0..sroa_idx3167, align 8
   %.sroa.131.0..sroa_idx3362 = getelementptr inbounds i8, ptr %263, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3362, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %1825 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02699.0, i8 %.sroa.42701.0.copyload2703, ptr %.sroa.02694.0, i8 %.sroa.42696.0.copyload, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %263, ptr noundef nonnull %1) #7
+  %1825 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02699.0, i8 %.sroa.42701.0, ptr %.sroa.02694.0, i8 %.sroa.42696.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %263, ptr noundef nonnull %1) #7
   %1826 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2334 = icmp eq i8 %1826, 0
   br i1 %.not2334, label %1827, label %.loopexit
@@ -20969,16 +21046,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1838:                                             ; preds = %1832
   store ptr @.str.48, ptr %266, align 8
   %1839 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %266, ptr noundef nonnull align 8 dereferenceable(9) %265)
+  %.sroa.42691.0.copyload = load i8, ptr %1835, align 8
   br label %1841
 
 1840:                                             ; preds = %1827
   %.sroa.42691.0..sroa_idx2692 = getelementptr inbounds i8, ptr %1830, i64 8
+  %.sroa.42691.0.copyload2693 = load i8, ptr %.sroa.42691.0..sroa_idx2692, align 8
   br label %1841
 
 1841:                                             ; preds = %1840, %1838
-  %.sroa.42691.0..sroa_idx2692.sink = phi ptr [ %.sroa.42691.0..sroa_idx2692, %1840 ], [ %1835, %1838 ]
-  %.sroa.02689.0.in = phi ptr [ %1830, %1840 ], [ %265, %1838 ]
-  %.sroa.42691.0.copyload2693 = load i8, ptr %.sroa.42691.0..sroa_idx2692.sink, align 8
+  %.sroa.42691.0 = phi i8 [ %.sroa.42691.0.copyload, %1838 ], [ %.sroa.42691.0.copyload2693, %1840 ]
+  %.sroa.02689.0.in = phi ptr [ %265, %1838 ], [ %1830, %1840 ]
   %.sroa.02689.0 = load ptr, ptr %.sroa.02689.0.in, align 8
   store ptr @.str.20, ptr %267, align 8
   %1842 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %267)
@@ -20999,16 +21077,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1850:                                             ; preds = %1844
   store ptr @.str.20, ptr %269, align 8
   %1851 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %269, ptr noundef nonnull align 8 dereferenceable(9) %268)
+  %.sroa.42686.0.copyload = load i8, ptr %1847, align 8
   br label %1853
 
 1852:                                             ; preds = %1841
   %.sroa.42686.0..sroa_idx2687 = getelementptr inbounds i8, ptr %1842, i64 8
+  %.sroa.42686.0.copyload2688 = load i8, ptr %.sroa.42686.0..sroa_idx2687, align 8
   br label %1853
 
 1853:                                             ; preds = %1850, %1852
-  %.sink3650 = phi ptr [ %1847, %1850 ], [ %.sroa.42686.0..sroa_idx2687, %1852 ]
+  %.sroa.42686.0 = phi i8 [ %.sroa.42686.0.copyload, %1850 ], [ %.sroa.42686.0.copyload2688, %1852 ]
   %.sroa.02684.0.in = phi ptr [ %268, %1850 ], [ %1842, %1852 ]
-  %.sroa.42686.0.copyload = load i8, ptr %.sink3650, align 8
   %.sroa.02684.0 = load ptr, ptr %.sroa.02684.0.in, align 8
   %1854 = load i64, ptr @TypeProfileWidth, align 8
   store i64 %1854, ptr %270, align 8
@@ -21029,23 +21108,24 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 
 1863:                                             ; preds = %1857
   %1864 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256El11JVMCIObjectElS1_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIlEjRKT_EEXadL_Z16primitive_equalsIlEbS9_S9_EEE3putERKlRKS1_(ptr noundef nonnull align 8 dereferenceable(2052) %3, ptr noundef nonnull align 8 dereferenceable(8) %270, ptr noundef nonnull align 8 dereferenceable(9) %271)
+  %.sroa.130.0.copyload3300 = load i8, ptr %1860, align 8
   br label %1866
 
 1865:                                             ; preds = %1853
   %.sroa.130.0..sroa_idx3301 = getelementptr inbounds i8, ptr %1855, i64 8
+  %.sroa.130.0.copyload3302 = load i8, ptr %.sroa.130.0..sroa_idx3301, align 8
   br label %1866
 
 1866:                                             ; preds = %1865, %1863
-  %.sroa.130.0..sroa_idx3301.sink = phi ptr [ %.sroa.130.0..sroa_idx3301, %1865 ], [ %1860, %1863 ]
-  %.sroa.02984.16.in = phi ptr [ %1855, %1865 ], [ %271, %1863 ]
-  %.sroa.130.0.copyload3302 = load i8, ptr %.sroa.130.0..sroa_idx3301.sink, align 8
+  %.sroa.130.16 = phi i8 [ %.sroa.130.0.copyload3300, %1863 ], [ %.sroa.130.0.copyload3302, %1865 ]
+  %.sroa.02984.16.in = phi ptr [ %271, %1863 ], [ %1855, %1865 ]
   %.sroa.02984.16 = load ptr, ptr %.sroa.02984.16.in, align 8
   store ptr %.sroa.02984.16, ptr %272, align 8
   %.sroa.130.0..sroa_idx3169 = getelementptr inbounds i8, ptr %272, i64 8
-  store i8 %.sroa.130.0.copyload3302, ptr %.sroa.130.0..sroa_idx3169, align 8
+  store i8 %.sroa.130.16, ptr %.sroa.130.0..sroa_idx3169, align 8
   %.sroa.131.0..sroa_idx3363 = getelementptr inbounds i8, ptr %272, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3363, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %1867 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02689.0, i8 %.sroa.42691.0.copyload2693, ptr %.sroa.02684.0, i8 %.sroa.42686.0.copyload, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %272, ptr noundef nonnull %1) #7
+  %1867 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02689.0, i8 %.sroa.42691.0, ptr %.sroa.02684.0, i8 %.sroa.42686.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %272, ptr noundef nonnull %1) #7
   %1868 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2338 = icmp eq i8 %1868, 0
   br i1 %.not2338, label %1869, label %.loopexit
@@ -21073,16 +21153,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1880:                                             ; preds = %1874
   store ptr @.str.49, ptr %275, align 8
   %1881 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %275, ptr noundef nonnull align 8 dereferenceable(9) %274)
+  %.sroa.42681.0.copyload = load i8, ptr %1877, align 8
   br label %1883
 
 1882:                                             ; preds = %1869
   %.sroa.42681.0..sroa_idx2682 = getelementptr inbounds i8, ptr %1872, i64 8
+  %.sroa.42681.0.copyload2683 = load i8, ptr %.sroa.42681.0..sroa_idx2682, align 8
   br label %1883
 
 1883:                                             ; preds = %1882, %1880
-  %.sroa.42681.0..sroa_idx2682.sink = phi ptr [ %.sroa.42681.0..sroa_idx2682, %1882 ], [ %1877, %1880 ]
-  %.sroa.02679.0.in = phi ptr [ %1872, %1882 ], [ %274, %1880 ]
-  %.sroa.42681.0.copyload2683 = load i8, ptr %.sroa.42681.0..sroa_idx2682.sink, align 8
+  %.sroa.42681.0 = phi i8 [ %.sroa.42681.0.copyload, %1880 ], [ %.sroa.42681.0.copyload2683, %1882 ]
+  %.sroa.02679.0.in = phi ptr [ %274, %1880 ], [ %1872, %1882 ]
   %.sroa.02679.0 = load ptr, ptr %.sroa.02679.0.in, align 8
   store ptr @.str.4, ptr %276, align 8
   %1884 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %276)
@@ -21103,16 +21184,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1892:                                             ; preds = %1886
   store ptr @.str.4, ptr %278, align 8
   %1893 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %278, ptr noundef nonnull align 8 dereferenceable(9) %277)
+  %.sroa.42676.0.copyload = load i8, ptr %1889, align 8
   br label %1895
 
 1894:                                             ; preds = %1883
   %.sroa.42676.0..sroa_idx2677 = getelementptr inbounds i8, ptr %1884, i64 8
+  %.sroa.42676.0.copyload2678 = load i8, ptr %.sroa.42676.0..sroa_idx2677, align 8
   br label %1895
 
 1895:                                             ; preds = %1894, %1892
-  %.sroa.42676.0..sroa_idx2677.sink = phi ptr [ %.sroa.42676.0..sroa_idx2677, %1894 ], [ %1889, %1892 ]
-  %.sroa.02674.0.in = phi ptr [ %1884, %1894 ], [ %277, %1892 ]
-  %.sroa.42676.0.copyload2678 = load i8, ptr %.sroa.42676.0..sroa_idx2677.sink, align 8
+  %.sroa.42676.0 = phi i8 [ %.sroa.42676.0.copyload, %1892 ], [ %.sroa.42676.0.copyload2678, %1894 ]
+  %.sroa.02674.0.in = phi ptr [ %277, %1892 ], [ %1884, %1894 ]
   %.sroa.02674.0 = load ptr, ptr %.sroa.02674.0.in, align 8
   %1896 = load i8, ptr @UseAESIntrinsics, align 1
   %1897 = trunc i8 %1896 to i1
@@ -21123,7 +21205,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   store i8 %.sroa.130.0.copyload3303.sroa.speculated, ptr %.sroa.130.0..sroa_idx3171, align 8
   %.sroa.131.0..sroa_idx3364 = getelementptr inbounds i8, ptr %279, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3364, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %1898 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02679.0, i8 %.sroa.42681.0.copyload2683, ptr %.sroa.02674.0, i8 %.sroa.42676.0.copyload2678, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %279, ptr noundef nonnull %1) #7
+  %1898 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02679.0, i8 %.sroa.42681.0, ptr %.sroa.02674.0, i8 %.sroa.42676.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %279, ptr noundef nonnull %1) #7
   %1899 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2341 = icmp eq i8 %1899, 0
   br i1 %.not2341, label %1900, label %.loopexit
@@ -21151,16 +21233,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1911:                                             ; preds = %1905
   store ptr @.str.50, ptr %282, align 8
   %1912 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %282, ptr noundef nonnull align 8 dereferenceable(9) %281)
+  %.sroa.42671.0.copyload = load i8, ptr %1908, align 8
   br label %1914
 
 1913:                                             ; preds = %1900
   %.sroa.42671.0..sroa_idx2672 = getelementptr inbounds i8, ptr %1903, i64 8
+  %.sroa.42671.0.copyload2673 = load i8, ptr %.sroa.42671.0..sroa_idx2672, align 8
   br label %1914
 
 1914:                                             ; preds = %1913, %1911
-  %.sroa.42671.0..sroa_idx2672.sink = phi ptr [ %.sroa.42671.0..sroa_idx2672, %1913 ], [ %1908, %1911 ]
-  %.sroa.02669.0.in = phi ptr [ %1903, %1913 ], [ %281, %1911 ]
-  %.sroa.42671.0.copyload2673 = load i8, ptr %.sroa.42671.0..sroa_idx2672.sink, align 8
+  %.sroa.42671.0 = phi i8 [ %.sroa.42671.0.copyload, %1911 ], [ %.sroa.42671.0.copyload2673, %1913 ]
+  %.sroa.02669.0.in = phi ptr [ %281, %1911 ], [ %1903, %1913 ]
   %.sroa.02669.0 = load ptr, ptr %.sroa.02669.0.in, align 8
   store ptr @.str.5, ptr %283, align 8
   %1915 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %283)
@@ -21181,16 +21264,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1923:                                             ; preds = %1917
   store ptr @.str.5, ptr %285, align 8
   %1924 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %285, ptr noundef nonnull align 8 dereferenceable(9) %284)
+  %.sroa.42666.0.copyload = load i8, ptr %1920, align 8
   br label %1926
 
 1925:                                             ; preds = %1914
   %.sroa.42666.0..sroa_idx2667 = getelementptr inbounds i8, ptr %1915, i64 8
+  %.sroa.42666.0.copyload2668 = load i8, ptr %.sroa.42666.0..sroa_idx2667, align 8
   br label %1926
 
 1926:                                             ; preds = %1923, %1925
-  %.sink3651 = phi ptr [ %1920, %1923 ], [ %.sroa.42666.0..sroa_idx2667, %1925 ]
+  %.sroa.42666.0 = phi i8 [ %.sroa.42666.0.copyload, %1923 ], [ %.sroa.42666.0.copyload2668, %1925 ]
   %.sroa.02664.0.in = phi ptr [ %284, %1923 ], [ %1915, %1925 ]
-  %.sroa.42666.0.copyload = load i8, ptr %.sink3651, align 8
   %.sroa.02664.0 = load ptr, ptr %.sroa.02664.0.in, align 8
   %1927 = load i32, ptr @UseAVX, align 4
   %1928 = sext i32 %1927 to i64
@@ -21212,23 +21296,24 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 
 1937:                                             ; preds = %1931
   %1938 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256El11JVMCIObjectElS1_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIlEjRKT_EEXadL_Z16primitive_equalsIlEbS9_S9_EEE3putERKlRKS1_(ptr noundef nonnull align 8 dereferenceable(2052) %3, ptr noundef nonnull align 8 dereferenceable(8) %286, ptr noundef nonnull align 8 dereferenceable(9) %287)
+  %.sroa.130.0.copyload3305 = load i8, ptr %1934, align 8
   br label %1940
 
 1939:                                             ; preds = %1926
   %.sroa.130.0..sroa_idx3306 = getelementptr inbounds i8, ptr %1929, i64 8
+  %.sroa.130.0.copyload3307 = load i8, ptr %.sroa.130.0..sroa_idx3306, align 8
   br label %1940
 
 1940:                                             ; preds = %1939, %1937
-  %.sroa.130.0..sroa_idx3306.sink = phi ptr [ %.sroa.130.0..sroa_idx3306, %1939 ], [ %1934, %1937 ]
-  %.sroa.02984.17.in = phi ptr [ %1929, %1939 ], [ %287, %1937 ]
-  %.sroa.130.0.copyload3307 = load i8, ptr %.sroa.130.0..sroa_idx3306.sink, align 8
+  %.sroa.130.17 = phi i8 [ %.sroa.130.0.copyload3305, %1937 ], [ %.sroa.130.0.copyload3307, %1939 ]
+  %.sroa.02984.17.in = phi ptr [ %287, %1937 ], [ %1929, %1939 ]
   %.sroa.02984.17 = load ptr, ptr %.sroa.02984.17.in, align 8
   store ptr %.sroa.02984.17, ptr %288, align 8
   %.sroa.130.0..sroa_idx3173 = getelementptr inbounds i8, ptr %288, i64 8
-  store i8 %.sroa.130.0.copyload3307, ptr %.sroa.130.0..sroa_idx3173, align 8
+  store i8 %.sroa.130.17, ptr %.sroa.130.0..sroa_idx3173, align 8
   %.sroa.131.0..sroa_idx3365 = getelementptr inbounds i8, ptr %288, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3365, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %1941 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02669.0, i8 %.sroa.42671.0.copyload2673, ptr %.sroa.02664.0, i8 %.sroa.42666.0.copyload, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %288, ptr noundef nonnull %1) #7
+  %1941 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02669.0, i8 %.sroa.42671.0, ptr %.sroa.02664.0, i8 %.sroa.42666.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %288, ptr noundef nonnull %1) #7
   %1942 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2345 = icmp eq i8 %1942, 0
   br i1 %.not2345, label %1943, label %.loopexit
@@ -21256,16 +21341,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1954:                                             ; preds = %1948
   store ptr @.str.51, ptr %291, align 8
   %1955 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %291, ptr noundef nonnull align 8 dereferenceable(9) %290)
+  %.sroa.42661.0.copyload = load i8, ptr %1951, align 8
   br label %1957
 
 1956:                                             ; preds = %1943
   %.sroa.42661.0..sroa_idx2662 = getelementptr inbounds i8, ptr %1946, i64 8
+  %.sroa.42661.0.copyload2663 = load i8, ptr %.sroa.42661.0..sroa_idx2662, align 8
   br label %1957
 
 1957:                                             ; preds = %1956, %1954
-  %.sroa.42661.0..sroa_idx2662.sink = phi ptr [ %.sroa.42661.0..sroa_idx2662, %1956 ], [ %1951, %1954 ]
-  %.sroa.02659.0.in = phi ptr [ %1946, %1956 ], [ %290, %1954 ]
-  %.sroa.42661.0.copyload2663 = load i8, ptr %.sroa.42661.0..sroa_idx2662.sink, align 8
+  %.sroa.42661.0 = phi i8 [ %.sroa.42661.0.copyload, %1954 ], [ %.sroa.42661.0.copyload2663, %1956 ]
+  %.sroa.02659.0.in = phi ptr [ %290, %1954 ], [ %1946, %1956 ]
   %.sroa.02659.0 = load ptr, ptr %.sroa.02659.0.in, align 8
   store ptr @.str.4, ptr %292, align 8
   %1958 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %292)
@@ -21286,16 +21372,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1966:                                             ; preds = %1960
   store ptr @.str.4, ptr %294, align 8
   %1967 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %294, ptr noundef nonnull align 8 dereferenceable(9) %293)
+  %.sroa.42656.0.copyload = load i8, ptr %1963, align 8
   br label %1969
 
 1968:                                             ; preds = %1957
   %.sroa.42656.0..sroa_idx2657 = getelementptr inbounds i8, ptr %1958, i64 8
+  %.sroa.42656.0.copyload2658 = load i8, ptr %.sroa.42656.0..sroa_idx2657, align 8
   br label %1969
 
 1969:                                             ; preds = %1968, %1966
-  %.sroa.42656.0..sroa_idx2657.sink = phi ptr [ %.sroa.42656.0..sroa_idx2657, %1968 ], [ %1963, %1966 ]
-  %.sroa.02654.0.in = phi ptr [ %1958, %1968 ], [ %293, %1966 ]
-  %.sroa.42656.0.copyload2658 = load i8, ptr %.sroa.42656.0..sroa_idx2657.sink, align 8
+  %.sroa.42656.0 = phi i8 [ %.sroa.42656.0.copyload, %1966 ], [ %.sroa.42656.0.copyload2658, %1968 ]
+  %.sroa.02654.0.in = phi ptr [ %293, %1966 ], [ %1958, %1968 ]
   %.sroa.02654.0 = load ptr, ptr %.sroa.02654.0.in, align 8
   %1970 = load i8, ptr @UseCRC32Intrinsics, align 1
   %1971 = trunc i8 %1970 to i1
@@ -21306,7 +21393,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   store i8 %.sroa.130.0.copyload3308.sroa.speculated, ptr %.sroa.130.0..sroa_idx3175, align 8
   %.sroa.131.0..sroa_idx3366 = getelementptr inbounds i8, ptr %295, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3366, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %1972 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02659.0, i8 %.sroa.42661.0.copyload2663, ptr %.sroa.02654.0, i8 %.sroa.42656.0.copyload2658, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %295, ptr noundef nonnull %1) #7
+  %1972 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02659.0, i8 %.sroa.42661.0, ptr %.sroa.02654.0, i8 %.sroa.42656.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %295, ptr noundef nonnull %1) #7
   %1973 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2348 = icmp eq i8 %1973, 0
   br i1 %.not2348, label %1974, label %.loopexit
@@ -21334,16 +21421,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1985:                                             ; preds = %1979
   store ptr @.str.52, ptr %298, align 8
   %1986 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %298, ptr noundef nonnull align 8 dereferenceable(9) %297)
+  %.sroa.42651.0.copyload = load i8, ptr %1982, align 8
   br label %1988
 
 1987:                                             ; preds = %1974
   %.sroa.42651.0..sroa_idx2652 = getelementptr inbounds i8, ptr %1977, i64 8
+  %.sroa.42651.0.copyload2653 = load i8, ptr %.sroa.42651.0..sroa_idx2652, align 8
   br label %1988
 
 1988:                                             ; preds = %1987, %1985
-  %.sroa.42651.0..sroa_idx2652.sink = phi ptr [ %.sroa.42651.0..sroa_idx2652, %1987 ], [ %1982, %1985 ]
-  %.sroa.02649.0.in = phi ptr [ %1977, %1987 ], [ %297, %1985 ]
-  %.sroa.42651.0.copyload2653 = load i8, ptr %.sroa.42651.0..sroa_idx2652.sink, align 8
+  %.sroa.42651.0 = phi i8 [ %.sroa.42651.0.copyload, %1985 ], [ %.sroa.42651.0.copyload2653, %1987 ]
+  %.sroa.02649.0.in = phi ptr [ %297, %1985 ], [ %1977, %1987 ]
   %.sroa.02649.0 = load ptr, ptr %.sroa.02649.0.in, align 8
   store ptr @.str.4, ptr %299, align 8
   %1989 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %299)
@@ -21364,16 +21452,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 1997:                                             ; preds = %1991
   store ptr @.str.4, ptr %301, align 8
   %1998 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %301, ptr noundef nonnull align 8 dereferenceable(9) %300)
+  %.sroa.42646.0.copyload = load i8, ptr %1994, align 8
   br label %2000
 
 1999:                                             ; preds = %1988
   %.sroa.42646.0..sroa_idx2647 = getelementptr inbounds i8, ptr %1989, i64 8
+  %.sroa.42646.0.copyload2648 = load i8, ptr %.sroa.42646.0..sroa_idx2647, align 8
   br label %2000
 
 2000:                                             ; preds = %1999, %1997
-  %.sroa.42646.0..sroa_idx2647.sink = phi ptr [ %.sroa.42646.0..sroa_idx2647, %1999 ], [ %1994, %1997 ]
-  %.sroa.02644.0.in = phi ptr [ %1989, %1999 ], [ %300, %1997 ]
-  %.sroa.42646.0.copyload2648 = load i8, ptr %.sroa.42646.0..sroa_idx2647.sink, align 8
+  %.sroa.42646.0 = phi i8 [ %.sroa.42646.0.copyload, %1997 ], [ %.sroa.42646.0.copyload2648, %1999 ]
+  %.sroa.02644.0.in = phi ptr [ %300, %1997 ], [ %1989, %1999 ]
   %.sroa.02644.0 = load ptr, ptr %.sroa.02644.0.in, align 8
   %2001 = load i8, ptr @UseAdler32Intrinsics, align 1
   %2002 = trunc i8 %2001 to i1
@@ -21384,7 +21473,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   store i8 %.sroa.130.0.copyload3309.sroa.speculated, ptr %.sroa.130.0..sroa_idx3177, align 8
   %.sroa.131.0..sroa_idx3367 = getelementptr inbounds i8, ptr %302, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3367, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %2003 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02649.0, i8 %.sroa.42651.0.copyload2653, ptr %.sroa.02644.0, i8 %.sroa.42646.0.copyload2648, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %302, ptr noundef nonnull %1) #7
+  %2003 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02649.0, i8 %.sroa.42651.0, ptr %.sroa.02644.0, i8 %.sroa.42646.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %302, ptr noundef nonnull %1) #7
   %2004 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2351 = icmp eq i8 %2004, 0
   br i1 %.not2351, label %2005, label %.loopexit
@@ -21412,16 +21501,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 2016:                                             ; preds = %2010
   store ptr @.str.53, ptr %305, align 8
   %2017 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %305, ptr noundef nonnull align 8 dereferenceable(9) %304)
+  %.sroa.42641.0.copyload = load i8, ptr %2013, align 8
   br label %2019
 
 2018:                                             ; preds = %2005
   %.sroa.42641.0..sroa_idx2642 = getelementptr inbounds i8, ptr %2008, i64 8
+  %.sroa.42641.0.copyload2643 = load i8, ptr %.sroa.42641.0..sroa_idx2642, align 8
   br label %2019
 
 2019:                                             ; preds = %2018, %2016
-  %.sroa.42641.0..sroa_idx2642.sink = phi ptr [ %.sroa.42641.0..sroa_idx2642, %2018 ], [ %2013, %2016 ]
-  %.sroa.02639.0.in = phi ptr [ %2008, %2018 ], [ %304, %2016 ]
-  %.sroa.42641.0.copyload2643 = load i8, ptr %.sroa.42641.0..sroa_idx2642.sink, align 8
+  %.sroa.42641.0 = phi i8 [ %.sroa.42641.0.copyload, %2016 ], [ %.sroa.42641.0.copyload2643, %2018 ]
+  %.sroa.02639.0.in = phi ptr [ %304, %2016 ], [ %2008, %2018 ]
   %.sroa.02639.0 = load ptr, ptr %.sroa.02639.0.in, align 8
   store ptr @.str.4, ptr %306, align 8
   %2020 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %306)
@@ -21442,16 +21532,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 2028:                                             ; preds = %2022
   store ptr @.str.4, ptr %308, align 8
   %2029 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %308, ptr noundef nonnull align 8 dereferenceable(9) %307)
+  %.sroa.42636.0.copyload = load i8, ptr %2025, align 8
   br label %2031
 
 2030:                                             ; preds = %2019
   %.sroa.42636.0..sroa_idx2637 = getelementptr inbounds i8, ptr %2020, i64 8
+  %.sroa.42636.0.copyload2638 = load i8, ptr %.sroa.42636.0..sroa_idx2637, align 8
   br label %2031
 
 2031:                                             ; preds = %2030, %2028
-  %.sroa.42636.0..sroa_idx2637.sink = phi ptr [ %.sroa.42636.0..sroa_idx2637, %2030 ], [ %2025, %2028 ]
-  %.sroa.02634.0.in = phi ptr [ %2020, %2030 ], [ %307, %2028 ]
-  %.sroa.42636.0.copyload2638 = load i8, ptr %.sroa.42636.0..sroa_idx2637.sink, align 8
+  %.sroa.42636.0 = phi i8 [ %.sroa.42636.0.copyload, %2028 ], [ %.sroa.42636.0.copyload2638, %2030 ]
+  %.sroa.02634.0.in = phi ptr [ %307, %2028 ], [ %2020, %2030 ]
   %.sroa.02634.0 = load ptr, ptr %.sroa.02634.0.in, align 8
   %2032 = load i8, ptr @UseCompressedClassPointers, align 1
   %2033 = trunc i8 %2032 to i1
@@ -21462,7 +21553,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   store i8 %.sroa.130.0.copyload3310.sroa.speculated, ptr %.sroa.130.0..sroa_idx3179, align 8
   %.sroa.131.0..sroa_idx3368 = getelementptr inbounds i8, ptr %309, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3368, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %2034 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02639.0, i8 %.sroa.42641.0.copyload2643, ptr %.sroa.02634.0, i8 %.sroa.42636.0.copyload2638, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %309, ptr noundef nonnull %1) #7
+  %2034 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02639.0, i8 %.sroa.42641.0, ptr %.sroa.02634.0, i8 %.sroa.42636.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %309, ptr noundef nonnull %1) #7
   %2035 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2354 = icmp eq i8 %2035, 0
   br i1 %.not2354, label %2036, label %.loopexit
@@ -21490,16 +21581,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 2047:                                             ; preds = %2041
   store ptr @.str.54, ptr %312, align 8
   %2048 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %312, ptr noundef nonnull align 8 dereferenceable(9) %311)
+  %.sroa.42631.0.copyload = load i8, ptr %2044, align 8
   br label %2050
 
 2049:                                             ; preds = %2036
   %.sroa.42631.0..sroa_idx2632 = getelementptr inbounds i8, ptr %2039, i64 8
+  %.sroa.42631.0.copyload2633 = load i8, ptr %.sroa.42631.0..sroa_idx2632, align 8
   br label %2050
 
 2050:                                             ; preds = %2049, %2047
-  %.sroa.42631.0..sroa_idx2632.sink = phi ptr [ %.sroa.42631.0..sroa_idx2632, %2049 ], [ %2044, %2047 ]
-  %.sroa.02629.0.in = phi ptr [ %2039, %2049 ], [ %311, %2047 ]
-  %.sroa.42631.0.copyload2633 = load i8, ptr %.sroa.42631.0..sroa_idx2632.sink, align 8
+  %.sroa.42631.0 = phi i8 [ %.sroa.42631.0.copyload, %2047 ], [ %.sroa.42631.0.copyload2633, %2049 ]
+  %.sroa.02629.0.in = phi ptr [ %311, %2047 ], [ %2039, %2049 ]
   %.sroa.02629.0 = load ptr, ptr %.sroa.02629.0.in, align 8
   store ptr @.str.4, ptr %313, align 8
   %2051 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %313)
@@ -21520,16 +21612,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 2059:                                             ; preds = %2053
   store ptr @.str.4, ptr %315, align 8
   %2060 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %315, ptr noundef nonnull align 8 dereferenceable(9) %314)
+  %.sroa.42626.0.copyload = load i8, ptr %2056, align 8
   br label %2062
 
 2061:                                             ; preds = %2050
   %.sroa.42626.0..sroa_idx2627 = getelementptr inbounds i8, ptr %2051, i64 8
+  %.sroa.42626.0.copyload2628 = load i8, ptr %.sroa.42626.0..sroa_idx2627, align 8
   br label %2062
 
 2062:                                             ; preds = %2061, %2059
-  %.sroa.42626.0..sroa_idx2627.sink = phi ptr [ %.sroa.42626.0..sroa_idx2627, %2061 ], [ %2056, %2059 ]
-  %.sroa.02624.0.in = phi ptr [ %2051, %2061 ], [ %314, %2059 ]
-  %.sroa.42626.0.copyload2628 = load i8, ptr %.sroa.42626.0..sroa_idx2627.sink, align 8
+  %.sroa.42626.0 = phi i8 [ %.sroa.42626.0.copyload, %2059 ], [ %.sroa.42626.0.copyload2628, %2061 ]
+  %.sroa.02624.0.in = phi ptr [ %314, %2059 ], [ %2051, %2061 ]
   %.sroa.02624.0 = load ptr, ptr %.sroa.02624.0.in, align 8
   %2063 = load i8, ptr @UseCompressedOops, align 1
   %2064 = trunc i8 %2063 to i1
@@ -21540,7 +21633,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   store i8 %.sroa.130.0.copyload3311.sroa.speculated, ptr %.sroa.130.0..sroa_idx3181, align 8
   %.sroa.131.0..sroa_idx3369 = getelementptr inbounds i8, ptr %316, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3369, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %2065 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02629.0, i8 %.sroa.42631.0.copyload2633, ptr %.sroa.02624.0, i8 %.sroa.42626.0.copyload2628, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %316, ptr noundef nonnull %1) #7
+  %2065 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02629.0, i8 %.sroa.42631.0, ptr %.sroa.02624.0, i8 %.sroa.42626.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %316, ptr noundef nonnull %1) #7
   %2066 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2357 = icmp eq i8 %2066, 0
   br i1 %.not2357, label %2067, label %.loopexit
@@ -21568,16 +21661,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 2078:                                             ; preds = %2072
   store ptr @.str.55, ptr %319, align 8
   %2079 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %319, ptr noundef nonnull align 8 dereferenceable(9) %318)
+  %.sroa.42621.0.copyload = load i8, ptr %2075, align 8
   br label %2081
 
 2080:                                             ; preds = %2067
   %.sroa.42621.0..sroa_idx2622 = getelementptr inbounds i8, ptr %2070, i64 8
+  %.sroa.42621.0.copyload2623 = load i8, ptr %.sroa.42621.0..sroa_idx2622, align 8
   br label %2081
 
 2081:                                             ; preds = %2080, %2078
-  %.sroa.42621.0..sroa_idx2622.sink = phi ptr [ %.sroa.42621.0..sroa_idx2622, %2080 ], [ %2075, %2078 ]
-  %.sroa.02619.0.in = phi ptr [ %2070, %2080 ], [ %318, %2078 ]
-  %.sroa.42621.0.copyload2623 = load i8, ptr %.sroa.42621.0..sroa_idx2622.sink, align 8
+  %.sroa.42621.0 = phi i8 [ %.sroa.42621.0.copyload, %2078 ], [ %.sroa.42621.0.copyload2623, %2080 ]
+  %.sroa.02619.0.in = phi ptr [ %318, %2078 ], [ %2070, %2080 ]
   %.sroa.02619.0 = load ptr, ptr %.sroa.02619.0.in, align 8
   store ptr @.str.4, ptr %320, align 8
   %2082 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %320)
@@ -21598,16 +21692,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 2090:                                             ; preds = %2084
   store ptr @.str.4, ptr %322, align 8
   %2091 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %322, ptr noundef nonnull align 8 dereferenceable(9) %321)
+  %.sroa.42616.0.copyload = load i8, ptr %2087, align 8
   br label %2093
 
 2092:                                             ; preds = %2081
   %.sroa.42616.0..sroa_idx2617 = getelementptr inbounds i8, ptr %2082, i64 8
+  %.sroa.42616.0.copyload2618 = load i8, ptr %.sroa.42616.0..sroa_idx2617, align 8
   br label %2093
 
 2093:                                             ; preds = %2092, %2090
-  %.sroa.42616.0..sroa_idx2617.sink = phi ptr [ %.sroa.42616.0..sroa_idx2617, %2092 ], [ %2087, %2090 ]
-  %.sroa.02614.0.in = phi ptr [ %2082, %2092 ], [ %321, %2090 ]
-  %.sroa.42616.0.copyload2618 = load i8, ptr %.sroa.42616.0..sroa_idx2617.sink, align 8
+  %.sroa.42616.0 = phi i8 [ %.sroa.42616.0.copyload, %2090 ], [ %.sroa.42616.0.copyload2618, %2092 ]
+  %.sroa.02614.0.in = phi ptr [ %321, %2090 ], [ %2082, %2092 ]
   %.sroa.02614.0 = load ptr, ptr %.sroa.02614.0.in, align 8
   %2094 = load i8, ptr @UseCountLeadingZerosInstruction, align 1
   %2095 = trunc i8 %2094 to i1
@@ -21618,7 +21713,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   store i8 %.sroa.130.0.copyload3312.sroa.speculated, ptr %.sroa.130.0..sroa_idx3183, align 8
   %.sroa.131.0..sroa_idx3370 = getelementptr inbounds i8, ptr %323, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3370, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %2096 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02619.0, i8 %.sroa.42621.0.copyload2623, ptr %.sroa.02614.0, i8 %.sroa.42616.0.copyload2618, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %323, ptr noundef nonnull %1) #7
+  %2096 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02619.0, i8 %.sroa.42621.0, ptr %.sroa.02614.0, i8 %.sroa.42616.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %323, ptr noundef nonnull %1) #7
   %2097 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2360 = icmp eq i8 %2097, 0
   br i1 %.not2360, label %2098, label %.loopexit
@@ -21646,16 +21741,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 2109:                                             ; preds = %2103
   store ptr @.str.56, ptr %326, align 8
   %2110 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %326, ptr noundef nonnull align 8 dereferenceable(9) %325)
+  %.sroa.42611.0.copyload = load i8, ptr %2106, align 8
   br label %2112
 
 2111:                                             ; preds = %2098
   %.sroa.42611.0..sroa_idx2612 = getelementptr inbounds i8, ptr %2101, i64 8
+  %.sroa.42611.0.copyload2613 = load i8, ptr %.sroa.42611.0..sroa_idx2612, align 8
   br label %2112
 
 2112:                                             ; preds = %2111, %2109
-  %.sroa.42611.0..sroa_idx2612.sink = phi ptr [ %.sroa.42611.0..sroa_idx2612, %2111 ], [ %2106, %2109 ]
-  %.sroa.02609.0.in = phi ptr [ %2101, %2111 ], [ %325, %2109 ]
-  %.sroa.42611.0.copyload2613 = load i8, ptr %.sroa.42611.0..sroa_idx2612.sink, align 8
+  %.sroa.42611.0 = phi i8 [ %.sroa.42611.0.copyload, %2109 ], [ %.sroa.42611.0.copyload2613, %2111 ]
+  %.sroa.02609.0.in = phi ptr [ %325, %2109 ], [ %2101, %2111 ]
   %.sroa.02609.0 = load ptr, ptr %.sroa.02609.0.in, align 8
   store ptr @.str.4, ptr %327, align 8
   %2113 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %327)
@@ -21676,16 +21772,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 2121:                                             ; preds = %2115
   store ptr @.str.4, ptr %329, align 8
   %2122 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %329, ptr noundef nonnull align 8 dereferenceable(9) %328)
+  %.sroa.42606.0.copyload = load i8, ptr %2118, align 8
   br label %2124
 
 2123:                                             ; preds = %2112
   %.sroa.42606.0..sroa_idx2607 = getelementptr inbounds i8, ptr %2113, i64 8
+  %.sroa.42606.0.copyload2608 = load i8, ptr %.sroa.42606.0..sroa_idx2607, align 8
   br label %2124
 
 2124:                                             ; preds = %2123, %2121
-  %.sroa.42606.0..sroa_idx2607.sink = phi ptr [ %.sroa.42606.0..sroa_idx2607, %2123 ], [ %2118, %2121 ]
-  %.sroa.02604.0.in = phi ptr [ %2113, %2123 ], [ %328, %2121 ]
-  %.sroa.42606.0.copyload2608 = load i8, ptr %.sroa.42606.0..sroa_idx2607.sink, align 8
+  %.sroa.42606.0 = phi i8 [ %.sroa.42606.0.copyload, %2121 ], [ %.sroa.42606.0.copyload2608, %2123 ]
+  %.sroa.02604.0.in = phi ptr [ %328, %2121 ], [ %2113, %2123 ]
   %.sroa.02604.0 = load ptr, ptr %.sroa.02604.0.in, align 8
   %2125 = load i8, ptr @UseCountTrailingZerosInstruction, align 1
   %2126 = trunc i8 %2125 to i1
@@ -21696,7 +21793,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   store i8 %.sroa.130.0.copyload3313.sroa.speculated, ptr %.sroa.130.0..sroa_idx3185, align 8
   %.sroa.131.0..sroa_idx3371 = getelementptr inbounds i8, ptr %330, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3371, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %2127 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02609.0, i8 %.sroa.42611.0.copyload2613, ptr %.sroa.02604.0, i8 %.sroa.42606.0.copyload2608, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %330, ptr noundef nonnull %1) #7
+  %2127 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02609.0, i8 %.sroa.42611.0, ptr %.sroa.02604.0, i8 %.sroa.42606.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %330, ptr noundef nonnull %1) #7
   %2128 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2363 = icmp eq i8 %2128, 0
   br i1 %.not2363, label %2129, label %.loopexit
@@ -21724,16 +21821,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 2140:                                             ; preds = %2134
   store ptr @.str.57, ptr %333, align 8
   %2141 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %333, ptr noundef nonnull align 8 dereferenceable(9) %332)
+  %.sroa.42601.0.copyload = load i8, ptr %2137, align 8
   br label %2143
 
 2142:                                             ; preds = %2129
   %.sroa.42601.0..sroa_idx2602 = getelementptr inbounds i8, ptr %2132, i64 8
+  %.sroa.42601.0.copyload2603 = load i8, ptr %.sroa.42601.0..sroa_idx2602, align 8
   br label %2143
 
 2143:                                             ; preds = %2142, %2140
-  %.sroa.42601.0..sroa_idx2602.sink = phi ptr [ %.sroa.42601.0..sroa_idx2602, %2142 ], [ %2137, %2140 ]
-  %.sroa.02599.0.in = phi ptr [ %2132, %2142 ], [ %332, %2140 ]
-  %.sroa.42601.0.copyload2603 = load i8, ptr %.sroa.42601.0..sroa_idx2602.sink, align 8
+  %.sroa.42601.0 = phi i8 [ %.sroa.42601.0.copyload, %2140 ], [ %.sroa.42601.0.copyload2603, %2142 ]
+  %.sroa.02599.0.in = phi ptr [ %332, %2140 ], [ %2132, %2142 ]
   %.sroa.02599.0 = load ptr, ptr %.sroa.02599.0.in, align 8
   store ptr @.str.4, ptr %334, align 8
   %2144 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %334)
@@ -21754,16 +21852,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 2152:                                             ; preds = %2146
   store ptr @.str.4, ptr %336, align 8
   %2153 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %336, ptr noundef nonnull align 8 dereferenceable(9) %335)
+  %.sroa.42596.0.copyload = load i8, ptr %2149, align 8
   br label %2155
 
 2154:                                             ; preds = %2143
   %.sroa.42596.0..sroa_idx2597 = getelementptr inbounds i8, ptr %2144, i64 8
+  %.sroa.42596.0.copyload2598 = load i8, ptr %.sroa.42596.0..sroa_idx2597, align 8
   br label %2155
 
 2155:                                             ; preds = %2154, %2152
-  %.sroa.42596.0..sroa_idx2597.sink = phi ptr [ %.sroa.42596.0..sroa_idx2597, %2154 ], [ %2149, %2152 ]
-  %.sroa.02594.0.in = phi ptr [ %2144, %2154 ], [ %335, %2152 ]
-  %.sroa.42596.0.copyload2598 = load i8, ptr %.sroa.42596.0..sroa_idx2597.sink, align 8
+  %.sroa.42596.0 = phi i8 [ %.sroa.42596.0.copyload, %2152 ], [ %.sroa.42596.0.copyload2598, %2154 ]
+  %.sroa.02594.0.in = phi ptr [ %335, %2152 ], [ %2144, %2154 ]
   %.sroa.02594.0 = load ptr, ptr %.sroa.02594.0.in, align 8
   %2156 = load i8, ptr @UseG1GC, align 1
   %2157 = trunc i8 %2156 to i1
@@ -21774,7 +21873,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   store i8 %.sroa.130.0.copyload3314.sroa.speculated, ptr %.sroa.130.0..sroa_idx3187, align 8
   %.sroa.131.0..sroa_idx3372 = getelementptr inbounds i8, ptr %337, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3372, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %2158 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02599.0, i8 %.sroa.42601.0.copyload2603, ptr %.sroa.02594.0, i8 %.sroa.42596.0.copyload2598, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %337, ptr noundef nonnull %1) #7
+  %2158 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02599.0, i8 %.sroa.42601.0, ptr %.sroa.02594.0, i8 %.sroa.42596.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %337, ptr noundef nonnull %1) #7
   %2159 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2366 = icmp eq i8 %2159, 0
   br i1 %.not2366, label %2160, label %.loopexit
@@ -21802,16 +21901,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 2171:                                             ; preds = %2165
   store ptr @.str.58, ptr %340, align 8
   %2172 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %340, ptr noundef nonnull align 8 dereferenceable(9) %339)
+  %.sroa.42591.0.copyload = load i8, ptr %2168, align 8
   br label %2174
 
 2173:                                             ; preds = %2160
   %.sroa.42591.0..sroa_idx2592 = getelementptr inbounds i8, ptr %2163, i64 8
+  %.sroa.42591.0.copyload2593 = load i8, ptr %.sroa.42591.0..sroa_idx2592, align 8
   br label %2174
 
 2174:                                             ; preds = %2173, %2171
-  %.sroa.42591.0..sroa_idx2592.sink = phi ptr [ %.sroa.42591.0..sroa_idx2592, %2173 ], [ %2168, %2171 ]
-  %.sroa.02589.0.in = phi ptr [ %2163, %2173 ], [ %339, %2171 ]
-  %.sroa.42591.0.copyload2593 = load i8, ptr %.sroa.42591.0..sroa_idx2592.sink, align 8
+  %.sroa.42591.0 = phi i8 [ %.sroa.42591.0.copyload, %2171 ], [ %.sroa.42591.0.copyload2593, %2173 ]
+  %.sroa.02589.0.in = phi ptr [ %339, %2171 ], [ %2163, %2173 ]
   %.sroa.02589.0 = load ptr, ptr %.sroa.02589.0.in, align 8
   store ptr @.str.4, ptr %341, align 8
   %2175 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %341)
@@ -21832,16 +21932,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 2183:                                             ; preds = %2177
   store ptr @.str.4, ptr %343, align 8
   %2184 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %343, ptr noundef nonnull align 8 dereferenceable(9) %342)
+  %.sroa.42586.0.copyload = load i8, ptr %2180, align 8
   br label %2186
 
 2185:                                             ; preds = %2174
   %.sroa.42586.0..sroa_idx2587 = getelementptr inbounds i8, ptr %2175, i64 8
+  %.sroa.42586.0.copyload2588 = load i8, ptr %.sroa.42586.0..sroa_idx2587, align 8
   br label %2186
 
 2186:                                             ; preds = %2185, %2183
-  %.sroa.42586.0..sroa_idx2587.sink = phi ptr [ %.sroa.42586.0..sroa_idx2587, %2185 ], [ %2180, %2183 ]
-  %.sroa.02584.0.in = phi ptr [ %2175, %2185 ], [ %342, %2183 ]
-  %.sroa.42586.0.copyload2588 = load i8, ptr %.sroa.42586.0..sroa_idx2587.sink, align 8
+  %.sroa.42586.0 = phi i8 [ %.sroa.42586.0.copyload, %2183 ], [ %.sroa.42586.0.copyload2588, %2185 ]
+  %.sroa.02584.0.in = phi ptr [ %342, %2183 ], [ %2175, %2185 ]
   %.sroa.02584.0 = load ptr, ptr %.sroa.02584.0.in, align 8
   %2187 = load i8, ptr @UseParallelGC, align 1
   %2188 = trunc i8 %2187 to i1
@@ -21852,7 +21953,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   store i8 %.sroa.130.0.copyload3315.sroa.speculated, ptr %.sroa.130.0..sroa_idx3189, align 8
   %.sroa.131.0..sroa_idx3373 = getelementptr inbounds i8, ptr %344, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3373, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %2189 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02589.0, i8 %.sroa.42591.0.copyload2593, ptr %.sroa.02584.0, i8 %.sroa.42586.0.copyload2588, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %344, ptr noundef nonnull %1) #7
+  %2189 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02589.0, i8 %.sroa.42591.0, ptr %.sroa.02584.0, i8 %.sroa.42586.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %344, ptr noundef nonnull %1) #7
   %2190 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2369 = icmp eq i8 %2190, 0
   br i1 %.not2369, label %2191, label %.loopexit
@@ -21880,16 +21981,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 2202:                                             ; preds = %2196
   store ptr @.str.59, ptr %347, align 8
   %2203 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %347, ptr noundef nonnull align 8 dereferenceable(9) %346)
+  %.sroa.42581.0.copyload = load i8, ptr %2199, align 8
   br label %2205
 
 2204:                                             ; preds = %2191
   %.sroa.42581.0..sroa_idx2582 = getelementptr inbounds i8, ptr %2194, i64 8
+  %.sroa.42581.0.copyload2583 = load i8, ptr %.sroa.42581.0..sroa_idx2582, align 8
   br label %2205
 
 2205:                                             ; preds = %2204, %2202
-  %.sroa.42581.0..sroa_idx2582.sink = phi ptr [ %.sroa.42581.0..sroa_idx2582, %2204 ], [ %2199, %2202 ]
-  %.sroa.02579.0.in = phi ptr [ %2194, %2204 ], [ %346, %2202 ]
-  %.sroa.42581.0.copyload2583 = load i8, ptr %.sroa.42581.0..sroa_idx2582.sink, align 8
+  %.sroa.42581.0 = phi i8 [ %.sroa.42581.0.copyload, %2202 ], [ %.sroa.42581.0.copyload2583, %2204 ]
+  %.sroa.02579.0.in = phi ptr [ %346, %2202 ], [ %2194, %2204 ]
   %.sroa.02579.0 = load ptr, ptr %.sroa.02579.0.in, align 8
   store ptr @.str.4, ptr %348, align 8
   %2206 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %348)
@@ -21910,16 +22012,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 2214:                                             ; preds = %2208
   store ptr @.str.4, ptr %350, align 8
   %2215 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %350, ptr noundef nonnull align 8 dereferenceable(9) %349)
+  %.sroa.42576.0.copyload = load i8, ptr %2211, align 8
   br label %2217
 
 2216:                                             ; preds = %2205
   %.sroa.42576.0..sroa_idx2577 = getelementptr inbounds i8, ptr %2206, i64 8
+  %.sroa.42576.0.copyload2578 = load i8, ptr %.sroa.42576.0..sroa_idx2577, align 8
   br label %2217
 
 2217:                                             ; preds = %2216, %2214
-  %.sroa.42576.0..sroa_idx2577.sink = phi ptr [ %.sroa.42576.0..sroa_idx2577, %2216 ], [ %2211, %2214 ]
-  %.sroa.02574.0.in = phi ptr [ %2206, %2216 ], [ %349, %2214 ]
-  %.sroa.42576.0.copyload2578 = load i8, ptr %.sroa.42576.0..sroa_idx2577.sink, align 8
+  %.sroa.42576.0 = phi i8 [ %.sroa.42576.0.copyload, %2214 ], [ %.sroa.42576.0.copyload2578, %2216 ]
+  %.sroa.02574.0.in = phi ptr [ %349, %2214 ], [ %2206, %2216 ]
   %.sroa.02574.0 = load ptr, ptr %.sroa.02574.0.in, align 8
   %2218 = load i8, ptr @UseSerialGC, align 1
   %2219 = trunc i8 %2218 to i1
@@ -21930,7 +22033,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   store i8 %.sroa.130.0.copyload3316.sroa.speculated, ptr %.sroa.130.0..sroa_idx3191, align 8
   %.sroa.131.0..sroa_idx3374 = getelementptr inbounds i8, ptr %351, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3374, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %2220 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02579.0, i8 %.sroa.42581.0.copyload2583, ptr %.sroa.02574.0, i8 %.sroa.42576.0.copyload2578, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %351, ptr noundef nonnull %1) #7
+  %2220 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02579.0, i8 %.sroa.42581.0, ptr %.sroa.02574.0, i8 %.sroa.42576.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %351, ptr noundef nonnull %1) #7
   %2221 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2372 = icmp eq i8 %2221, 0
   br i1 %.not2372, label %2222, label %.loopexit
@@ -21958,16 +22061,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 2233:                                             ; preds = %2227
   store ptr @.str.60, ptr %354, align 8
   %2234 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %354, ptr noundef nonnull align 8 dereferenceable(9) %353)
+  %.sroa.42571.0.copyload = load i8, ptr %2230, align 8
   br label %2236
 
 2235:                                             ; preds = %2222
   %.sroa.42571.0..sroa_idx2572 = getelementptr inbounds i8, ptr %2225, i64 8
+  %.sroa.42571.0.copyload2573 = load i8, ptr %.sroa.42571.0..sroa_idx2572, align 8
   br label %2236
 
 2236:                                             ; preds = %2235, %2233
-  %.sroa.42571.0..sroa_idx2572.sink = phi ptr [ %.sroa.42571.0..sroa_idx2572, %2235 ], [ %2230, %2233 ]
-  %.sroa.02569.0.in = phi ptr [ %2225, %2235 ], [ %353, %2233 ]
-  %.sroa.42571.0.copyload2573 = load i8, ptr %.sroa.42571.0..sroa_idx2572.sink, align 8
+  %.sroa.42571.0 = phi i8 [ %.sroa.42571.0.copyload, %2233 ], [ %.sroa.42571.0.copyload2573, %2235 ]
+  %.sroa.02569.0.in = phi ptr [ %353, %2233 ], [ %2225, %2235 ]
   %.sroa.02569.0 = load ptr, ptr %.sroa.02569.0.in, align 8
   store ptr @.str.4, ptr %355, align 8
   %2237 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %355)
@@ -21988,16 +22092,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 2245:                                             ; preds = %2239
   store ptr @.str.4, ptr %357, align 8
   %2246 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %357, ptr noundef nonnull align 8 dereferenceable(9) %356)
+  %.sroa.42566.0.copyload = load i8, ptr %2242, align 8
   br label %2248
 
 2247:                                             ; preds = %2236
   %.sroa.42566.0..sroa_idx2567 = getelementptr inbounds i8, ptr %2237, i64 8
+  %.sroa.42566.0.copyload2568 = load i8, ptr %.sroa.42566.0..sroa_idx2567, align 8
   br label %2248
 
 2248:                                             ; preds = %2247, %2245
-  %.sroa.42566.0..sroa_idx2567.sink = phi ptr [ %.sroa.42566.0..sroa_idx2567, %2247 ], [ %2242, %2245 ]
-  %.sroa.02564.0.in = phi ptr [ %2237, %2247 ], [ %356, %2245 ]
-  %.sroa.42566.0.copyload2568 = load i8, ptr %.sroa.42566.0..sroa_idx2567.sink, align 8
+  %.sroa.42566.0 = phi i8 [ %.sroa.42566.0.copyload, %2245 ], [ %.sroa.42566.0.copyload2568, %2247 ]
+  %.sroa.02564.0.in = phi ptr [ %356, %2245 ], [ %2237, %2247 ]
   %.sroa.02564.0 = load ptr, ptr %.sroa.02564.0.in, align 8
   %2249 = load i8, ptr @UseZGC, align 1
   %2250 = trunc i8 %2249 to i1
@@ -22008,7 +22113,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   store i8 %.sroa.130.0.copyload3317.sroa.speculated, ptr %.sroa.130.0..sroa_idx3193, align 8
   %.sroa.131.0..sroa_idx3375 = getelementptr inbounds i8, ptr %358, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3375, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %2251 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02569.0, i8 %.sroa.42571.0.copyload2573, ptr %.sroa.02564.0, i8 %.sroa.42566.0.copyload2568, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %358, ptr noundef nonnull %1) #7
+  %2251 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02569.0, i8 %.sroa.42571.0, ptr %.sroa.02564.0, i8 %.sroa.42566.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %358, ptr noundef nonnull %1) #7
   %2252 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2375 = icmp eq i8 %2252, 0
   br i1 %.not2375, label %2253, label %.loopexit
@@ -22036,16 +22141,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 2264:                                             ; preds = %2258
   store ptr @.str.61, ptr %361, align 8
   %2265 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %361, ptr noundef nonnull align 8 dereferenceable(9) %360)
+  %.sroa.42561.0.copyload = load i8, ptr %2261, align 8
   br label %2267
 
 2266:                                             ; preds = %2253
   %.sroa.42561.0..sroa_idx2562 = getelementptr inbounds i8, ptr %2256, i64 8
+  %.sroa.42561.0.copyload2563 = load i8, ptr %.sroa.42561.0..sroa_idx2562, align 8
   br label %2267
 
 2267:                                             ; preds = %2266, %2264
-  %.sroa.42561.0..sroa_idx2562.sink = phi ptr [ %.sroa.42561.0..sroa_idx2562, %2266 ], [ %2261, %2264 ]
-  %.sroa.02559.0.in = phi ptr [ %2256, %2266 ], [ %360, %2264 ]
-  %.sroa.42561.0.copyload2563 = load i8, ptr %.sroa.42561.0..sroa_idx2562.sink, align 8
+  %.sroa.42561.0 = phi i8 [ %.sroa.42561.0.copyload, %2264 ], [ %.sroa.42561.0.copyload2563, %2266 ]
+  %.sroa.02559.0.in = phi ptr [ %360, %2264 ], [ %2256, %2266 ]
   %.sroa.02559.0 = load ptr, ptr %.sroa.02559.0.in, align 8
   store ptr @.str.4, ptr %362, align 8
   %2268 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %362)
@@ -22066,16 +22172,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 2276:                                             ; preds = %2270
   store ptr @.str.4, ptr %364, align 8
   %2277 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %364, ptr noundef nonnull align 8 dereferenceable(9) %363)
+  %.sroa.42556.0.copyload = load i8, ptr %2273, align 8
   br label %2279
 
 2278:                                             ; preds = %2267
   %.sroa.42556.0..sroa_idx2557 = getelementptr inbounds i8, ptr %2268, i64 8
+  %.sroa.42556.0.copyload2558 = load i8, ptr %.sroa.42556.0..sroa_idx2557, align 8
   br label %2279
 
 2279:                                             ; preds = %2278, %2276
-  %.sroa.42556.0..sroa_idx2557.sink = phi ptr [ %.sroa.42556.0..sroa_idx2557, %2278 ], [ %2273, %2276 ]
-  %.sroa.02554.0.in = phi ptr [ %2268, %2278 ], [ %363, %2276 ]
-  %.sroa.42556.0.copyload2558 = load i8, ptr %.sroa.42556.0..sroa_idx2557.sink, align 8
+  %.sroa.42556.0 = phi i8 [ %.sroa.42556.0.copyload, %2276 ], [ %.sroa.42556.0.copyload2558, %2278 ]
+  %.sroa.02554.0.in = phi ptr [ %363, %2276 ], [ %2268, %2278 ]
   %.sroa.02554.0 = load ptr, ptr %.sroa.02554.0.in, align 8
   %2280 = load i8, ptr @UseEpsilonGC, align 1
   %2281 = trunc i8 %2280 to i1
@@ -22086,7 +22193,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   store i8 %.sroa.130.0.copyload3318.sroa.speculated, ptr %.sroa.130.0..sroa_idx3195, align 8
   %.sroa.131.0..sroa_idx3376 = getelementptr inbounds i8, ptr %365, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3376, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %2282 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02559.0, i8 %.sroa.42561.0.copyload2563, ptr %.sroa.02554.0, i8 %.sroa.42556.0.copyload2558, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %365, ptr noundef nonnull %1) #7
+  %2282 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02559.0, i8 %.sroa.42561.0, ptr %.sroa.02554.0, i8 %.sroa.42556.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %365, ptr noundef nonnull %1) #7
   %2283 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2378 = icmp eq i8 %2283, 0
   br i1 %.not2378, label %2284, label %.loopexit
@@ -22114,16 +22221,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 2295:                                             ; preds = %2289
   store ptr @.str.62, ptr %368, align 8
   %2296 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %368, ptr noundef nonnull align 8 dereferenceable(9) %367)
+  %.sroa.42551.0.copyload = load i8, ptr %2292, align 8
   br label %2298
 
 2297:                                             ; preds = %2284
   %.sroa.42551.0..sroa_idx2552 = getelementptr inbounds i8, ptr %2287, i64 8
+  %.sroa.42551.0.copyload2553 = load i8, ptr %.sroa.42551.0..sroa_idx2552, align 8
   br label %2298
 
 2298:                                             ; preds = %2297, %2295
-  %.sroa.42551.0..sroa_idx2552.sink = phi ptr [ %.sroa.42551.0..sroa_idx2552, %2297 ], [ %2292, %2295 ]
-  %.sroa.02549.0.in = phi ptr [ %2287, %2297 ], [ %367, %2295 ]
-  %.sroa.42551.0.copyload2553 = load i8, ptr %.sroa.42551.0..sroa_idx2552.sink, align 8
+  %.sroa.42551.0 = phi i8 [ %.sroa.42551.0.copyload, %2295 ], [ %.sroa.42551.0.copyload2553, %2297 ]
+  %.sroa.02549.0.in = phi ptr [ %367, %2295 ], [ %2287, %2297 ]
   %.sroa.02549.0 = load ptr, ptr %.sroa.02549.0.in, align 8
   store ptr @.str.4, ptr %369, align 8
   %2299 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %369)
@@ -22144,16 +22252,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 2307:                                             ; preds = %2301
   store ptr @.str.4, ptr %371, align 8
   %2308 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %371, ptr noundef nonnull align 8 dereferenceable(9) %370)
+  %.sroa.42546.0.copyload = load i8, ptr %2304, align 8
   br label %2310
 
 2309:                                             ; preds = %2298
   %.sroa.42546.0..sroa_idx2547 = getelementptr inbounds i8, ptr %2299, i64 8
+  %.sroa.42546.0.copyload2548 = load i8, ptr %.sroa.42546.0..sroa_idx2547, align 8
   br label %2310
 
 2310:                                             ; preds = %2309, %2307
-  %.sroa.42546.0..sroa_idx2547.sink = phi ptr [ %.sroa.42546.0..sroa_idx2547, %2309 ], [ %2304, %2307 ]
-  %.sroa.02544.0.in = phi ptr [ %2299, %2309 ], [ %370, %2307 ]
-  %.sroa.42546.0.copyload2548 = load i8, ptr %.sroa.42546.0..sroa_idx2547.sink, align 8
+  %.sroa.42546.0 = phi i8 [ %.sroa.42546.0.copyload, %2307 ], [ %.sroa.42546.0.copyload2548, %2309 ]
+  %.sroa.02544.0.in = phi ptr [ %370, %2307 ], [ %2299, %2309 ]
   %.sroa.02544.0 = load ptr, ptr %.sroa.02544.0.in, align 8
   %2311 = load i8, ptr @UseMontgomeryMultiplyIntrinsic, align 1
   %2312 = trunc i8 %2311 to i1
@@ -22164,7 +22273,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   store i8 %.sroa.130.0.copyload3319.sroa.speculated, ptr %.sroa.130.0..sroa_idx3197, align 8
   %.sroa.131.0..sroa_idx3377 = getelementptr inbounds i8, ptr %372, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3377, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %2313 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02549.0, i8 %.sroa.42551.0.copyload2553, ptr %.sroa.02544.0, i8 %.sroa.42546.0.copyload2548, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %372, ptr noundef nonnull %1) #7
+  %2313 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02549.0, i8 %.sroa.42551.0, ptr %.sroa.02544.0, i8 %.sroa.42546.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %372, ptr noundef nonnull %1) #7
   %2314 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2381 = icmp eq i8 %2314, 0
   br i1 %.not2381, label %2315, label %.loopexit
@@ -22192,16 +22301,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 2326:                                             ; preds = %2320
   store ptr @.str.63, ptr %375, align 8
   %2327 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %375, ptr noundef nonnull align 8 dereferenceable(9) %374)
+  %.sroa.42541.0.copyload = load i8, ptr %2323, align 8
   br label %2329
 
 2328:                                             ; preds = %2315
   %.sroa.42541.0..sroa_idx2542 = getelementptr inbounds i8, ptr %2318, i64 8
+  %.sroa.42541.0.copyload2543 = load i8, ptr %.sroa.42541.0..sroa_idx2542, align 8
   br label %2329
 
 2329:                                             ; preds = %2328, %2326
-  %.sroa.42541.0..sroa_idx2542.sink = phi ptr [ %.sroa.42541.0..sroa_idx2542, %2328 ], [ %2323, %2326 ]
-  %.sroa.02539.0.in = phi ptr [ %2318, %2328 ], [ %374, %2326 ]
-  %.sroa.42541.0.copyload2543 = load i8, ptr %.sroa.42541.0..sroa_idx2542.sink, align 8
+  %.sroa.42541.0 = phi i8 [ %.sroa.42541.0.copyload, %2326 ], [ %.sroa.42541.0.copyload2543, %2328 ]
+  %.sroa.02539.0.in = phi ptr [ %374, %2326 ], [ %2318, %2328 ]
   %.sroa.02539.0 = load ptr, ptr %.sroa.02539.0.in, align 8
   store ptr @.str.4, ptr %376, align 8
   %2330 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %376)
@@ -22222,16 +22332,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 2338:                                             ; preds = %2332
   store ptr @.str.4, ptr %378, align 8
   %2339 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %378, ptr noundef nonnull align 8 dereferenceable(9) %377)
+  %.sroa.42536.0.copyload = load i8, ptr %2335, align 8
   br label %2341
 
 2340:                                             ; preds = %2329
   %.sroa.42536.0..sroa_idx2537 = getelementptr inbounds i8, ptr %2330, i64 8
+  %.sroa.42536.0.copyload2538 = load i8, ptr %.sroa.42536.0..sroa_idx2537, align 8
   br label %2341
 
 2341:                                             ; preds = %2340, %2338
-  %.sroa.42536.0..sroa_idx2537.sink = phi ptr [ %.sroa.42536.0..sroa_idx2537, %2340 ], [ %2335, %2338 ]
-  %.sroa.02534.0.in = phi ptr [ %2330, %2340 ], [ %377, %2338 ]
-  %.sroa.42536.0.copyload2538 = load i8, ptr %.sroa.42536.0..sroa_idx2537.sink, align 8
+  %.sroa.42536.0 = phi i8 [ %.sroa.42536.0.copyload, %2338 ], [ %.sroa.42536.0.copyload2538, %2340 ]
+  %.sroa.02534.0.in = phi ptr [ %377, %2338 ], [ %2330, %2340 ]
   %.sroa.02534.0 = load ptr, ptr %.sroa.02534.0.in, align 8
   %2342 = load i8, ptr @UseMontgomerySquareIntrinsic, align 1
   %2343 = trunc i8 %2342 to i1
@@ -22242,7 +22353,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   store i8 %.sroa.130.0.copyload3320.sroa.speculated, ptr %.sroa.130.0..sroa_idx3199, align 8
   %.sroa.131.0..sroa_idx3378 = getelementptr inbounds i8, ptr %379, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3378, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %2344 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02539.0, i8 %.sroa.42541.0.copyload2543, ptr %.sroa.02534.0, i8 %.sroa.42536.0.copyload2538, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %379, ptr noundef nonnull %1) #7
+  %2344 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02539.0, i8 %.sroa.42541.0, ptr %.sroa.02534.0, i8 %.sroa.42536.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %379, ptr noundef nonnull %1) #7
   %2345 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2384 = icmp eq i8 %2345, 0
   br i1 %.not2384, label %2346, label %.loopexit
@@ -22270,16 +22381,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 2357:                                             ; preds = %2351
   store ptr @.str.64, ptr %382, align 8
   %2358 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %382, ptr noundef nonnull align 8 dereferenceable(9) %381)
+  %.sroa.42531.0.copyload = load i8, ptr %2354, align 8
   br label %2360
 
 2359:                                             ; preds = %2346
   %.sroa.42531.0..sroa_idx2532 = getelementptr inbounds i8, ptr %2349, i64 8
+  %.sroa.42531.0.copyload2533 = load i8, ptr %.sroa.42531.0..sroa_idx2532, align 8
   br label %2360
 
 2360:                                             ; preds = %2359, %2357
-  %.sroa.42531.0..sroa_idx2532.sink = phi ptr [ %.sroa.42531.0..sroa_idx2532, %2359 ], [ %2354, %2357 ]
-  %.sroa.02529.0.in = phi ptr [ %2349, %2359 ], [ %381, %2357 ]
-  %.sroa.42531.0.copyload2533 = load i8, ptr %.sroa.42531.0..sroa_idx2532.sink, align 8
+  %.sroa.42531.0 = phi i8 [ %.sroa.42531.0.copyload, %2357 ], [ %.sroa.42531.0.copyload2533, %2359 ]
+  %.sroa.02529.0.in = phi ptr [ %381, %2357 ], [ %2349, %2359 ]
   %.sroa.02529.0 = load ptr, ptr %.sroa.02529.0.in, align 8
   store ptr @.str.4, ptr %383, align 8
   %2361 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %383)
@@ -22300,16 +22412,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 2369:                                             ; preds = %2363
   store ptr @.str.4, ptr %385, align 8
   %2370 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %385, ptr noundef nonnull align 8 dereferenceable(9) %384)
+  %.sroa.42526.0.copyload = load i8, ptr %2366, align 8
   br label %2372
 
 2371:                                             ; preds = %2360
   %.sroa.42526.0..sroa_idx2527 = getelementptr inbounds i8, ptr %2361, i64 8
+  %.sroa.42526.0.copyload2528 = load i8, ptr %.sroa.42526.0..sroa_idx2527, align 8
   br label %2372
 
 2372:                                             ; preds = %2371, %2369
-  %.sroa.42526.0..sroa_idx2527.sink = phi ptr [ %.sroa.42526.0..sroa_idx2527, %2371 ], [ %2366, %2369 ]
-  %.sroa.02524.0.in = phi ptr [ %2361, %2371 ], [ %384, %2369 ]
-  %.sroa.42526.0.copyload2528 = load i8, ptr %.sroa.42526.0..sroa_idx2527.sink, align 8
+  %.sroa.42526.0 = phi i8 [ %.sroa.42526.0.copyload, %2369 ], [ %.sroa.42526.0.copyload2528, %2371 ]
+  %.sroa.02524.0.in = phi ptr [ %384, %2369 ], [ %2361, %2371 ]
   %.sroa.02524.0 = load ptr, ptr %.sroa.02524.0.in, align 8
   %2373 = load i8, ptr @UseMulAddIntrinsic, align 1
   %2374 = trunc i8 %2373 to i1
@@ -22320,7 +22433,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   store i8 %.sroa.130.0.copyload3321.sroa.speculated, ptr %.sroa.130.0..sroa_idx3201, align 8
   %.sroa.131.0..sroa_idx3379 = getelementptr inbounds i8, ptr %386, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3379, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %2375 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02529.0, i8 %.sroa.42531.0.copyload2533, ptr %.sroa.02524.0, i8 %.sroa.42526.0.copyload2528, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %386, ptr noundef nonnull %1) #7
+  %2375 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02529.0, i8 %.sroa.42531.0, ptr %.sroa.02524.0, i8 %.sroa.42526.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %386, ptr noundef nonnull %1) #7
   %2376 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2387 = icmp eq i8 %2376, 0
   br i1 %.not2387, label %2377, label %.loopexit
@@ -22348,16 +22461,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 2388:                                             ; preds = %2382
   store ptr @.str.65, ptr %389, align 8
   %2389 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %389, ptr noundef nonnull align 8 dereferenceable(9) %388)
+  %.sroa.42521.0.copyload = load i8, ptr %2385, align 8
   br label %2391
 
 2390:                                             ; preds = %2377
   %.sroa.42521.0..sroa_idx2522 = getelementptr inbounds i8, ptr %2380, i64 8
+  %.sroa.42521.0.copyload2523 = load i8, ptr %.sroa.42521.0..sroa_idx2522, align 8
   br label %2391
 
 2391:                                             ; preds = %2390, %2388
-  %.sroa.42521.0..sroa_idx2522.sink = phi ptr [ %.sroa.42521.0..sroa_idx2522, %2390 ], [ %2385, %2388 ]
-  %.sroa.02519.0.in = phi ptr [ %2380, %2390 ], [ %388, %2388 ]
-  %.sroa.42521.0.copyload2523 = load i8, ptr %.sroa.42521.0..sroa_idx2522.sink, align 8
+  %.sroa.42521.0 = phi i8 [ %.sroa.42521.0.copyload, %2388 ], [ %.sroa.42521.0.copyload2523, %2390 ]
+  %.sroa.02519.0.in = phi ptr [ %388, %2388 ], [ %2380, %2390 ]
   %.sroa.02519.0 = load ptr, ptr %.sroa.02519.0.in, align 8
   store ptr @.str.4, ptr %390, align 8
   %2392 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %390)
@@ -22378,16 +22492,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 2400:                                             ; preds = %2394
   store ptr @.str.4, ptr %392, align 8
   %2401 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %392, ptr noundef nonnull align 8 dereferenceable(9) %391)
+  %.sroa.42516.0.copyload = load i8, ptr %2397, align 8
   br label %2403
 
 2402:                                             ; preds = %2391
   %.sroa.42516.0..sroa_idx2517 = getelementptr inbounds i8, ptr %2392, i64 8
+  %.sroa.42516.0.copyload2518 = load i8, ptr %.sroa.42516.0..sroa_idx2517, align 8
   br label %2403
 
 2403:                                             ; preds = %2402, %2400
-  %.sroa.42516.0..sroa_idx2517.sink = phi ptr [ %.sroa.42516.0..sroa_idx2517, %2402 ], [ %2397, %2400 ]
-  %.sroa.02514.0.in = phi ptr [ %2392, %2402 ], [ %391, %2400 ]
-  %.sroa.42516.0.copyload2518 = load i8, ptr %.sroa.42516.0..sroa_idx2517.sink, align 8
+  %.sroa.42516.0 = phi i8 [ %.sroa.42516.0.copyload, %2400 ], [ %.sroa.42516.0.copyload2518, %2402 ]
+  %.sroa.02514.0.in = phi ptr [ %391, %2400 ], [ %2392, %2402 ]
   %.sroa.02514.0 = load ptr, ptr %.sroa.02514.0.in, align 8
   %2404 = load i8, ptr @UseMultiplyToLenIntrinsic, align 1
   %2405 = trunc i8 %2404 to i1
@@ -22398,7 +22513,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   store i8 %.sroa.130.0.copyload3322.sroa.speculated, ptr %.sroa.130.0..sroa_idx3203, align 8
   %.sroa.131.0..sroa_idx3380 = getelementptr inbounds i8, ptr %393, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3380, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %2406 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02519.0, i8 %.sroa.42521.0.copyload2523, ptr %.sroa.02514.0, i8 %.sroa.42516.0.copyload2518, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %393, ptr noundef nonnull %1) #7
+  %2406 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02519.0, i8 %.sroa.42521.0, ptr %.sroa.02514.0, i8 %.sroa.42516.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %393, ptr noundef nonnull %1) #7
   %2407 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2390 = icmp eq i8 %2407, 0
   br i1 %.not2390, label %2408, label %.loopexit
@@ -22426,16 +22541,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 2419:                                             ; preds = %2413
   store ptr @.str.66, ptr %396, align 8
   %2420 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %396, ptr noundef nonnull align 8 dereferenceable(9) %395)
+  %.sroa.42511.0.copyload = load i8, ptr %2416, align 8
   br label %2422
 
 2421:                                             ; preds = %2408
   %.sroa.42511.0..sroa_idx2512 = getelementptr inbounds i8, ptr %2411, i64 8
+  %.sroa.42511.0.copyload2513 = load i8, ptr %.sroa.42511.0..sroa_idx2512, align 8
   br label %2422
 
 2422:                                             ; preds = %2421, %2419
-  %.sroa.42511.0..sroa_idx2512.sink = phi ptr [ %.sroa.42511.0..sroa_idx2512, %2421 ], [ %2416, %2419 ]
-  %.sroa.02509.0.in = phi ptr [ %2411, %2421 ], [ %395, %2419 ]
-  %.sroa.42511.0.copyload2513 = load i8, ptr %.sroa.42511.0..sroa_idx2512.sink, align 8
+  %.sroa.42511.0 = phi i8 [ %.sroa.42511.0.copyload, %2419 ], [ %.sroa.42511.0.copyload2513, %2421 ]
+  %.sroa.02509.0.in = phi ptr [ %395, %2419 ], [ %2411, %2421 ]
   %.sroa.02509.0 = load ptr, ptr %.sroa.02509.0.in, align 8
   store ptr @.str.4, ptr %397, align 8
   %2423 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %397)
@@ -22456,16 +22572,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 2431:                                             ; preds = %2425
   store ptr @.str.4, ptr %399, align 8
   %2432 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %399, ptr noundef nonnull align 8 dereferenceable(9) %398)
+  %.sroa.42506.0.copyload = load i8, ptr %2428, align 8
   br label %2434
 
 2433:                                             ; preds = %2422
   %.sroa.42506.0..sroa_idx2507 = getelementptr inbounds i8, ptr %2423, i64 8
+  %.sroa.42506.0.copyload2508 = load i8, ptr %.sroa.42506.0..sroa_idx2507, align 8
   br label %2434
 
 2434:                                             ; preds = %2433, %2431
-  %.sroa.42506.0..sroa_idx2507.sink = phi ptr [ %.sroa.42506.0..sroa_idx2507, %2433 ], [ %2428, %2431 ]
-  %.sroa.02504.0.in = phi ptr [ %2423, %2433 ], [ %398, %2431 ]
-  %.sroa.42506.0.copyload2508 = load i8, ptr %.sroa.42506.0..sroa_idx2507.sink, align 8
+  %.sroa.42506.0 = phi i8 [ %.sroa.42506.0.copyload, %2431 ], [ %.sroa.42506.0.copyload2508, %2433 ]
+  %.sroa.02504.0.in = phi ptr [ %398, %2431 ], [ %2423, %2433 ]
   %.sroa.02504.0 = load ptr, ptr %.sroa.02504.0.in, align 8
   %2435 = load i8, ptr @UsePopCountInstruction, align 1
   %2436 = trunc i8 %2435 to i1
@@ -22476,7 +22593,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   store i8 %.sroa.130.0.copyload3323.sroa.speculated, ptr %.sroa.130.0..sroa_idx3205, align 8
   %.sroa.131.0..sroa_idx3381 = getelementptr inbounds i8, ptr %400, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3381, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %2437 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02509.0, i8 %.sroa.42511.0.copyload2513, ptr %.sroa.02504.0, i8 %.sroa.42506.0.copyload2508, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %400, ptr noundef nonnull %1) #7
+  %2437 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02509.0, i8 %.sroa.42511.0, ptr %.sroa.02504.0, i8 %.sroa.42506.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %400, ptr noundef nonnull %1) #7
   %2438 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2393 = icmp eq i8 %2438, 0
   br i1 %.not2393, label %2439, label %.loopexit
@@ -22504,16 +22621,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 2450:                                             ; preds = %2444
   store ptr @.str.67, ptr %403, align 8
   %2451 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %403, ptr noundef nonnull align 8 dereferenceable(9) %402)
+  %.sroa.42501.0.copyload = load i8, ptr %2447, align 8
   br label %2453
 
 2452:                                             ; preds = %2439
   %.sroa.42501.0..sroa_idx2502 = getelementptr inbounds i8, ptr %2442, i64 8
+  %.sroa.42501.0.copyload2503 = load i8, ptr %.sroa.42501.0..sroa_idx2502, align 8
   br label %2453
 
 2453:                                             ; preds = %2452, %2450
-  %.sroa.42501.0..sroa_idx2502.sink = phi ptr [ %.sroa.42501.0..sroa_idx2502, %2452 ], [ %2447, %2450 ]
-  %.sroa.02499.0.in = phi ptr [ %2442, %2452 ], [ %402, %2450 ]
-  %.sroa.42501.0.copyload2503 = load i8, ptr %.sroa.42501.0..sroa_idx2502.sink, align 8
+  %.sroa.42501.0 = phi i8 [ %.sroa.42501.0.copyload, %2450 ], [ %.sroa.42501.0.copyload2503, %2452 ]
+  %.sroa.02499.0.in = phi ptr [ %402, %2450 ], [ %2442, %2452 ]
   %.sroa.02499.0 = load ptr, ptr %.sroa.02499.0.in, align 8
   store ptr @.str.4, ptr %404, align 8
   %2454 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %404)
@@ -22534,16 +22652,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 2462:                                             ; preds = %2456
   store ptr @.str.4, ptr %406, align 8
   %2463 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %406, ptr noundef nonnull align 8 dereferenceable(9) %405)
+  %.sroa.42496.0.copyload = load i8, ptr %2459, align 8
   br label %2465
 
 2464:                                             ; preds = %2453
   %.sroa.42496.0..sroa_idx2497 = getelementptr inbounds i8, ptr %2454, i64 8
+  %.sroa.42496.0.copyload2498 = load i8, ptr %.sroa.42496.0..sroa_idx2497, align 8
   br label %2465
 
 2465:                                             ; preds = %2464, %2462
-  %.sroa.42496.0..sroa_idx2497.sink = phi ptr [ %.sroa.42496.0..sroa_idx2497, %2464 ], [ %2459, %2462 ]
-  %.sroa.02494.0.in = phi ptr [ %2454, %2464 ], [ %405, %2462 ]
-  %.sroa.42496.0.copyload2498 = load i8, ptr %.sroa.42496.0..sroa_idx2497.sink, align 8
+  %.sroa.42496.0 = phi i8 [ %.sroa.42496.0.copyload, %2462 ], [ %.sroa.42496.0.copyload2498, %2464 ]
+  %.sroa.02494.0.in = phi ptr [ %405, %2462 ], [ %2454, %2464 ]
   %.sroa.02494.0 = load ptr, ptr %.sroa.02494.0.in, align 8
   %2466 = load i8, ptr @UseSHA1Intrinsics, align 1
   %2467 = trunc i8 %2466 to i1
@@ -22554,7 +22673,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   store i8 %.sroa.130.0.copyload3324.sroa.speculated, ptr %.sroa.130.0..sroa_idx3207, align 8
   %.sroa.131.0..sroa_idx3382 = getelementptr inbounds i8, ptr %407, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3382, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %2468 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02499.0, i8 %.sroa.42501.0.copyload2503, ptr %.sroa.02494.0, i8 %.sroa.42496.0.copyload2498, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %407, ptr noundef nonnull %1) #7
+  %2468 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02499.0, i8 %.sroa.42501.0, ptr %.sroa.02494.0, i8 %.sroa.42496.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %407, ptr noundef nonnull %1) #7
   %2469 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2396 = icmp eq i8 %2469, 0
   br i1 %.not2396, label %2470, label %.loopexit
@@ -22582,16 +22701,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 2481:                                             ; preds = %2475
   store ptr @.str.68, ptr %410, align 8
   %2482 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %410, ptr noundef nonnull align 8 dereferenceable(9) %409)
+  %.sroa.42491.0.copyload = load i8, ptr %2478, align 8
   br label %2484
 
 2483:                                             ; preds = %2470
   %.sroa.42491.0..sroa_idx2492 = getelementptr inbounds i8, ptr %2473, i64 8
+  %.sroa.42491.0.copyload2493 = load i8, ptr %.sroa.42491.0..sroa_idx2492, align 8
   br label %2484
 
 2484:                                             ; preds = %2483, %2481
-  %.sroa.42491.0..sroa_idx2492.sink = phi ptr [ %.sroa.42491.0..sroa_idx2492, %2483 ], [ %2478, %2481 ]
-  %.sroa.02489.0.in = phi ptr [ %2473, %2483 ], [ %409, %2481 ]
-  %.sroa.42491.0.copyload2493 = load i8, ptr %.sroa.42491.0..sroa_idx2492.sink, align 8
+  %.sroa.42491.0 = phi i8 [ %.sroa.42491.0.copyload, %2481 ], [ %.sroa.42491.0.copyload2493, %2483 ]
+  %.sroa.02489.0.in = phi ptr [ %409, %2481 ], [ %2473, %2483 ]
   %.sroa.02489.0 = load ptr, ptr %.sroa.02489.0.in, align 8
   store ptr @.str.4, ptr %411, align 8
   %2485 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %411)
@@ -22612,16 +22732,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 2493:                                             ; preds = %2487
   store ptr @.str.4, ptr %413, align 8
   %2494 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %413, ptr noundef nonnull align 8 dereferenceable(9) %412)
+  %.sroa.42486.0.copyload = load i8, ptr %2490, align 8
   br label %2496
 
 2495:                                             ; preds = %2484
   %.sroa.42486.0..sroa_idx2487 = getelementptr inbounds i8, ptr %2485, i64 8
+  %.sroa.42486.0.copyload2488 = load i8, ptr %.sroa.42486.0..sroa_idx2487, align 8
   br label %2496
 
 2496:                                             ; preds = %2495, %2493
-  %.sroa.42486.0..sroa_idx2487.sink = phi ptr [ %.sroa.42486.0..sroa_idx2487, %2495 ], [ %2490, %2493 ]
-  %.sroa.02484.0.in = phi ptr [ %2485, %2495 ], [ %412, %2493 ]
-  %.sroa.42486.0.copyload2488 = load i8, ptr %.sroa.42486.0..sroa_idx2487.sink, align 8
+  %.sroa.42486.0 = phi i8 [ %.sroa.42486.0.copyload, %2493 ], [ %.sroa.42486.0.copyload2488, %2495 ]
+  %.sroa.02484.0.in = phi ptr [ %412, %2493 ], [ %2485, %2495 ]
   %.sroa.02484.0 = load ptr, ptr %.sroa.02484.0.in, align 8
   %2497 = load i8, ptr @UseSHA256Intrinsics, align 1
   %2498 = trunc i8 %2497 to i1
@@ -22632,7 +22753,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   store i8 %.sroa.130.0.copyload3325.sroa.speculated, ptr %.sroa.130.0..sroa_idx3209, align 8
   %.sroa.131.0..sroa_idx3383 = getelementptr inbounds i8, ptr %414, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3383, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %2499 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02489.0, i8 %.sroa.42491.0.copyload2493, ptr %.sroa.02484.0, i8 %.sroa.42486.0.copyload2488, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %414, ptr noundef nonnull %1) #7
+  %2499 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02489.0, i8 %.sroa.42491.0, ptr %.sroa.02484.0, i8 %.sroa.42486.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %414, ptr noundef nonnull %1) #7
   %2500 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2399 = icmp eq i8 %2500, 0
   br i1 %.not2399, label %2501, label %.loopexit
@@ -22660,16 +22781,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 2512:                                             ; preds = %2506
   store ptr @.str.69, ptr %417, align 8
   %2513 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %417, ptr noundef nonnull align 8 dereferenceable(9) %416)
+  %.sroa.42481.0.copyload = load i8, ptr %2509, align 8
   br label %2515
 
 2514:                                             ; preds = %2501
   %.sroa.42481.0..sroa_idx2482 = getelementptr inbounds i8, ptr %2504, i64 8
+  %.sroa.42481.0.copyload2483 = load i8, ptr %.sroa.42481.0..sroa_idx2482, align 8
   br label %2515
 
 2515:                                             ; preds = %2514, %2512
-  %.sroa.42481.0..sroa_idx2482.sink = phi ptr [ %.sroa.42481.0..sroa_idx2482, %2514 ], [ %2509, %2512 ]
-  %.sroa.02479.0.in = phi ptr [ %2504, %2514 ], [ %416, %2512 ]
-  %.sroa.42481.0.copyload2483 = load i8, ptr %.sroa.42481.0..sroa_idx2482.sink, align 8
+  %.sroa.42481.0 = phi i8 [ %.sroa.42481.0.copyload, %2512 ], [ %.sroa.42481.0.copyload2483, %2514 ]
+  %.sroa.02479.0.in = phi ptr [ %416, %2512 ], [ %2504, %2514 ]
   %.sroa.02479.0 = load ptr, ptr %.sroa.02479.0.in, align 8
   store ptr @.str.4, ptr %418, align 8
   %2516 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %418)
@@ -22690,16 +22812,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 2524:                                             ; preds = %2518
   store ptr @.str.4, ptr %420, align 8
   %2525 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %420, ptr noundef nonnull align 8 dereferenceable(9) %419)
+  %.sroa.42476.0.copyload = load i8, ptr %2521, align 8
   br label %2527
 
 2526:                                             ; preds = %2515
   %.sroa.42476.0..sroa_idx2477 = getelementptr inbounds i8, ptr %2516, i64 8
+  %.sroa.42476.0.copyload2478 = load i8, ptr %.sroa.42476.0..sroa_idx2477, align 8
   br label %2527
 
 2527:                                             ; preds = %2526, %2524
-  %.sroa.42476.0..sroa_idx2477.sink = phi ptr [ %.sroa.42476.0..sroa_idx2477, %2526 ], [ %2521, %2524 ]
-  %.sroa.02474.0.in = phi ptr [ %2516, %2526 ], [ %419, %2524 ]
-  %.sroa.42476.0.copyload2478 = load i8, ptr %.sroa.42476.0..sroa_idx2477.sink, align 8
+  %.sroa.42476.0 = phi i8 [ %.sroa.42476.0.copyload, %2524 ], [ %.sroa.42476.0.copyload2478, %2526 ]
+  %.sroa.02474.0.in = phi ptr [ %419, %2524 ], [ %2516, %2526 ]
   %.sroa.02474.0 = load ptr, ptr %.sroa.02474.0.in, align 8
   %2528 = load i8, ptr @UseSHA512Intrinsics, align 1
   %2529 = trunc i8 %2528 to i1
@@ -22710,7 +22833,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   store i8 %.sroa.130.0.copyload3326.sroa.speculated, ptr %.sroa.130.0..sroa_idx3211, align 8
   %.sroa.131.0..sroa_idx3384 = getelementptr inbounds i8, ptr %421, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3384, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %2530 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02479.0, i8 %.sroa.42481.0.copyload2483, ptr %.sroa.02474.0, i8 %.sroa.42476.0.copyload2478, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %421, ptr noundef nonnull %1) #7
+  %2530 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02479.0, i8 %.sroa.42481.0, ptr %.sroa.02474.0, i8 %.sroa.42476.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %421, ptr noundef nonnull %1) #7
   %2531 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2402 = icmp eq i8 %2531, 0
   br i1 %.not2402, label %2532, label %.loopexit
@@ -22738,16 +22861,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 2543:                                             ; preds = %2537
   store ptr @.str.70, ptr %424, align 8
   %2544 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %424, ptr noundef nonnull align 8 dereferenceable(9) %423)
+  %.sroa.42471.0.copyload = load i8, ptr %2540, align 8
   br label %2546
 
 2545:                                             ; preds = %2532
   %.sroa.42471.0..sroa_idx2472 = getelementptr inbounds i8, ptr %2535, i64 8
+  %.sroa.42471.0.copyload2473 = load i8, ptr %.sroa.42471.0..sroa_idx2472, align 8
   br label %2546
 
 2546:                                             ; preds = %2545, %2543
-  %.sroa.42471.0..sroa_idx2472.sink = phi ptr [ %.sroa.42471.0..sroa_idx2472, %2545 ], [ %2540, %2543 ]
-  %.sroa.02469.0.in = phi ptr [ %2535, %2545 ], [ %423, %2543 ]
-  %.sroa.42471.0.copyload2473 = load i8, ptr %.sroa.42471.0..sroa_idx2472.sink, align 8
+  %.sroa.42471.0 = phi i8 [ %.sroa.42471.0.copyload, %2543 ], [ %.sroa.42471.0.copyload2473, %2545 ]
+  %.sroa.02469.0.in = phi ptr [ %423, %2543 ], [ %2535, %2545 ]
   %.sroa.02469.0 = load ptr, ptr %.sroa.02469.0.in, align 8
   store ptr @.str.5, ptr %425, align 8
   %2547 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %425)
@@ -22768,16 +22892,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 2555:                                             ; preds = %2549
   store ptr @.str.5, ptr %427, align 8
   %2556 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %427, ptr noundef nonnull align 8 dereferenceable(9) %426)
+  %.sroa.42466.0.copyload = load i8, ptr %2552, align 8
   br label %2558
 
 2557:                                             ; preds = %2546
   %.sroa.42466.0..sroa_idx2467 = getelementptr inbounds i8, ptr %2547, i64 8
+  %.sroa.42466.0.copyload2468 = load i8, ptr %.sroa.42466.0..sroa_idx2467, align 8
   br label %2558
 
 2558:                                             ; preds = %2555, %2557
-  %.sink3652 = phi ptr [ %2552, %2555 ], [ %.sroa.42466.0..sroa_idx2467, %2557 ]
+  %.sroa.42466.0 = phi i8 [ %.sroa.42466.0.copyload, %2555 ], [ %.sroa.42466.0.copyload2468, %2557 ]
   %.sroa.02464.0.in = phi ptr [ %426, %2555 ], [ %2547, %2557 ]
-  %.sroa.42466.0.copyload = load i8, ptr %.sink3652, align 8
   %.sroa.02464.0 = load ptr, ptr %.sroa.02464.0.in, align 8
   %2559 = load i32, ptr @UseSSE, align 4
   %2560 = sext i32 %2559 to i64
@@ -22799,23 +22924,24 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 
 2569:                                             ; preds = %2563
   %2570 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256El11JVMCIObjectElS1_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIlEjRKT_EEXadL_Z16primitive_equalsIlEbS9_S9_EEE3putERKlRKS1_(ptr noundef nonnull align 8 dereferenceable(2052) %3, ptr noundef nonnull align 8 dereferenceable(8) %428, ptr noundef nonnull align 8 dereferenceable(9) %429)
+  %.sroa.130.0.copyload3328 = load i8, ptr %2566, align 8
   br label %2572
 
 2571:                                             ; preds = %2558
   %.sroa.130.0..sroa_idx3329 = getelementptr inbounds i8, ptr %2561, i64 8
+  %.sroa.130.0.copyload3330 = load i8, ptr %.sroa.130.0..sroa_idx3329, align 8
   br label %2572
 
 2572:                                             ; preds = %2571, %2569
-  %.sroa.130.0..sroa_idx3329.sink = phi ptr [ %.sroa.130.0..sroa_idx3329, %2571 ], [ %2566, %2569 ]
-  %.sroa.02984.18.in = phi ptr [ %2561, %2571 ], [ %429, %2569 ]
-  %.sroa.130.0.copyload3330 = load i8, ptr %.sroa.130.0..sroa_idx3329.sink, align 8
+  %.sroa.130.18 = phi i8 [ %.sroa.130.0.copyload3328, %2569 ], [ %.sroa.130.0.copyload3330, %2571 ]
+  %.sroa.02984.18.in = phi ptr [ %429, %2569 ], [ %2561, %2571 ]
   %.sroa.02984.18 = load ptr, ptr %.sroa.02984.18.in, align 8
   store ptr %.sroa.02984.18, ptr %430, align 8
   %.sroa.130.0..sroa_idx3213 = getelementptr inbounds i8, ptr %430, i64 8
-  store i8 %.sroa.130.0.copyload3330, ptr %.sroa.130.0..sroa_idx3213, align 8
+  store i8 %.sroa.130.18, ptr %.sroa.130.0..sroa_idx3213, align 8
   %.sroa.131.0..sroa_idx3385 = getelementptr inbounds i8, ptr %430, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3385, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %2573 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02469.0, i8 %.sroa.42471.0.copyload2473, ptr %.sroa.02464.0, i8 %.sroa.42466.0.copyload, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %430, ptr noundef nonnull %1) #7
+  %2573 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02469.0, i8 %.sroa.42471.0, ptr %.sroa.02464.0, i8 %.sroa.42466.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %430, ptr noundef nonnull %1) #7
   %2574 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2406 = icmp eq i8 %2574, 0
   br i1 %.not2406, label %2575, label %.loopexit
@@ -22843,16 +22969,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 2586:                                             ; preds = %2580
   store ptr @.str.71, ptr %433, align 8
   %2587 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %433, ptr noundef nonnull align 8 dereferenceable(9) %432)
+  %.sroa.42461.0.copyload = load i8, ptr %2583, align 8
   br label %2589
 
 2588:                                             ; preds = %2575
   %.sroa.42461.0..sroa_idx2462 = getelementptr inbounds i8, ptr %2578, i64 8
+  %.sroa.42461.0.copyload2463 = load i8, ptr %.sroa.42461.0..sroa_idx2462, align 8
   br label %2589
 
 2589:                                             ; preds = %2588, %2586
-  %.sroa.42461.0..sroa_idx2462.sink = phi ptr [ %.sroa.42461.0..sroa_idx2462, %2588 ], [ %2583, %2586 ]
-  %.sroa.02459.0.in = phi ptr [ %2578, %2588 ], [ %432, %2586 ]
-  %.sroa.42461.0.copyload2463 = load i8, ptr %.sroa.42461.0..sroa_idx2462.sink, align 8
+  %.sroa.42461.0 = phi i8 [ %.sroa.42461.0.copyload, %2586 ], [ %.sroa.42461.0.copyload2463, %2588 ]
+  %.sroa.02459.0.in = phi ptr [ %432, %2586 ], [ %2578, %2588 ]
   %.sroa.02459.0 = load ptr, ptr %.sroa.02459.0.in, align 8
   store ptr @.str.4, ptr %434, align 8
   %2590 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %434)
@@ -22873,16 +23000,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 2598:                                             ; preds = %2592
   store ptr @.str.4, ptr %436, align 8
   %2599 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %436, ptr noundef nonnull align 8 dereferenceable(9) %435)
+  %.sroa.42456.0.copyload = load i8, ptr %2595, align 8
   br label %2601
 
 2600:                                             ; preds = %2589
   %.sroa.42456.0..sroa_idx2457 = getelementptr inbounds i8, ptr %2590, i64 8
+  %.sroa.42456.0.copyload2458 = load i8, ptr %.sroa.42456.0..sroa_idx2457, align 8
   br label %2601
 
 2601:                                             ; preds = %2600, %2598
-  %.sroa.42456.0..sroa_idx2457.sink = phi ptr [ %.sroa.42456.0..sroa_idx2457, %2600 ], [ %2595, %2598 ]
-  %.sroa.02454.0.in = phi ptr [ %2590, %2600 ], [ %435, %2598 ]
-  %.sroa.42456.0.copyload2458 = load i8, ptr %.sroa.42456.0..sroa_idx2457.sink, align 8
+  %.sroa.42456.0 = phi i8 [ %.sroa.42456.0.copyload, %2598 ], [ %.sroa.42456.0.copyload2458, %2600 ]
+  %.sroa.02454.0.in = phi ptr [ %435, %2598 ], [ %2590, %2600 ]
   %.sroa.02454.0 = load ptr, ptr %.sroa.02454.0.in, align 8
   %2602 = load i8, ptr @UseSquareToLenIntrinsic, align 1
   %2603 = trunc i8 %2602 to i1
@@ -22893,7 +23021,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   store i8 %.sroa.130.0.copyload3331.sroa.speculated, ptr %.sroa.130.0..sroa_idx3215, align 8
   %.sroa.131.0..sroa_idx3386 = getelementptr inbounds i8, ptr %437, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3386, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %2604 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02459.0, i8 %.sroa.42461.0.copyload2463, ptr %.sroa.02454.0, i8 %.sroa.42456.0.copyload2458, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %437, ptr noundef nonnull %1) #7
+  %2604 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02459.0, i8 %.sroa.42461.0, ptr %.sroa.02454.0, i8 %.sroa.42456.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %437, ptr noundef nonnull %1) #7
   %2605 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2409 = icmp eq i8 %2605, 0
   br i1 %.not2409, label %2606, label %.loopexit
@@ -22921,16 +23049,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 2617:                                             ; preds = %2611
   store ptr @.str.72, ptr %440, align 8
   %2618 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %440, ptr noundef nonnull align 8 dereferenceable(9) %439)
+  %.sroa.42451.0.copyload = load i8, ptr %2614, align 8
   br label %2620
 
 2619:                                             ; preds = %2606
   %.sroa.42451.0..sroa_idx2452 = getelementptr inbounds i8, ptr %2609, i64 8
+  %.sroa.42451.0.copyload2453 = load i8, ptr %.sroa.42451.0..sroa_idx2452, align 8
   br label %2620
 
 2620:                                             ; preds = %2619, %2617
-  %.sroa.42451.0..sroa_idx2452.sink = phi ptr [ %.sroa.42451.0..sroa_idx2452, %2619 ], [ %2614, %2617 ]
-  %.sroa.02449.0.in = phi ptr [ %2609, %2619 ], [ %439, %2617 ]
-  %.sroa.42451.0.copyload2453 = load i8, ptr %.sroa.42451.0..sroa_idx2452.sink, align 8
+  %.sroa.42451.0 = phi i8 [ %.sroa.42451.0.copyload, %2617 ], [ %.sroa.42451.0.copyload2453, %2619 ]
+  %.sroa.02449.0.in = phi ptr [ %439, %2617 ], [ %2609, %2619 ]
   %.sroa.02449.0 = load ptr, ptr %.sroa.02449.0.in, align 8
   store ptr @.str.4, ptr %441, align 8
   %2621 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %441)
@@ -22951,16 +23080,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 2629:                                             ; preds = %2623
   store ptr @.str.4, ptr %443, align 8
   %2630 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %443, ptr noundef nonnull align 8 dereferenceable(9) %442)
+  %.sroa.42446.0.copyload = load i8, ptr %2626, align 8
   br label %2632
 
 2631:                                             ; preds = %2620
   %.sroa.42446.0..sroa_idx2447 = getelementptr inbounds i8, ptr %2621, i64 8
+  %.sroa.42446.0.copyload2448 = load i8, ptr %.sroa.42446.0..sroa_idx2447, align 8
   br label %2632
 
 2632:                                             ; preds = %2631, %2629
-  %.sroa.42446.0..sroa_idx2447.sink = phi ptr [ %.sroa.42446.0..sroa_idx2447, %2631 ], [ %2626, %2629 ]
-  %.sroa.02444.0.in = phi ptr [ %2621, %2631 ], [ %442, %2629 ]
-  %.sroa.42446.0.copyload2448 = load i8, ptr %.sroa.42446.0..sroa_idx2447.sink, align 8
+  %.sroa.42446.0 = phi i8 [ %.sroa.42446.0.copyload, %2629 ], [ %.sroa.42446.0.copyload2448, %2631 ]
+  %.sroa.02444.0.in = phi ptr [ %442, %2629 ], [ %2621, %2631 ]
   %.sroa.02444.0 = load ptr, ptr %.sroa.02444.0.in, align 8
   %2633 = load i8, ptr @UseTLAB, align 1
   %2634 = trunc i8 %2633 to i1
@@ -22971,7 +23101,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   store i8 %.sroa.130.0.copyload3332.sroa.speculated, ptr %.sroa.130.0..sroa_idx3217, align 8
   %.sroa.131.0..sroa_idx3387 = getelementptr inbounds i8, ptr %444, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3387, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %2635 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02449.0, i8 %.sroa.42451.0.copyload2453, ptr %.sroa.02444.0, i8 %.sroa.42446.0.copyload2448, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %444, ptr noundef nonnull %1) #7
+  %2635 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02449.0, i8 %.sroa.42451.0, ptr %.sroa.02444.0, i8 %.sroa.42446.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %444, ptr noundef nonnull %1) #7
   %2636 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2412 = icmp eq i8 %2636, 0
   br i1 %.not2412, label %2637, label %.loopexit
@@ -22999,16 +23129,17 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 2648:                                             ; preds = %2642
   store ptr @.str.73, ptr %447, align 8
   %2649 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %447, ptr noundef nonnull align 8 dereferenceable(9) %446)
+  %.sroa.42441.0.copyload = load i8, ptr %2645, align 8
   br label %2651
 
 2650:                                             ; preds = %2637
   %.sroa.42441.0..sroa_idx2442 = getelementptr inbounds i8, ptr %2640, i64 8
+  %.sroa.42441.0.copyload2443 = load i8, ptr %.sroa.42441.0..sroa_idx2442, align 8
   br label %2651
 
 2651:                                             ; preds = %2650, %2648
-  %.sroa.42441.0..sroa_idx2442.sink = phi ptr [ %.sroa.42441.0..sroa_idx2442, %2650 ], [ %2645, %2648 ]
-  %.sroa.02439.0.in = phi ptr [ %2640, %2650 ], [ %446, %2648 ]
-  %.sroa.42441.0.copyload2443 = load i8, ptr %.sroa.42441.0..sroa_idx2442.sink, align 8
+  %.sroa.42441.0 = phi i8 [ %.sroa.42441.0.copyload, %2648 ], [ %.sroa.42441.0.copyload2443, %2650 ]
+  %.sroa.02439.0.in = phi ptr [ %446, %2648 ], [ %2640, %2650 ]
   %.sroa.02439.0 = load ptr, ptr %.sroa.02439.0.in, align 8
   store ptr @.str.4, ptr %448, align 8
   %2652 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %448)
@@ -23029,23 +23160,24 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 2660:                                             ; preds = %2654
   store ptr @.str.4, ptr %450, align 8
   %2661 = call noundef zeroext i1 @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE3putESA_RKS3_(ptr noundef nonnull align 8 dereferenceable(2052) %4, ptr noundef nonnull align 8 dereferenceable(8) %450, ptr noundef nonnull align 8 dereferenceable(9) %449)
+  %.sroa.4.0.copyload = load i8, ptr %2657, align 8
   br label %2663
 
 2662:                                             ; preds = %2651
   %.sroa.4.0..sroa_idx2437 = getelementptr inbounds i8, ptr %2652, i64 8
+  %.sroa.4.0.copyload2438 = load i8, ptr %.sroa.4.0..sroa_idx2437, align 8
   br label %2663
 
 2663:                                             ; preds = %2662, %2660
-  %.sroa.4.0..sroa_idx2437.sink = phi ptr [ %.sroa.4.0..sroa_idx2437, %2662 ], [ %2657, %2660 ]
-  %.sroa.0.0.in = phi ptr [ %2652, %2662 ], [ %449, %2660 ]
-  %.sroa.4.0.copyload2438 = load i8, ptr %.sroa.4.0..sroa_idx2437.sink, align 8
+  %.sroa.4.0 = phi i8 [ %.sroa.4.0.copyload, %2660 ], [ %.sroa.4.0.copyload2438, %2662 ]
+  %.sroa.0.0.in = phi ptr [ %449, %2660 ], [ %2652, %2662 ]
   %.sroa.0.0 = load ptr, ptr %.sroa.0.0.in, align 8
   store ptr %460, ptr %451, align 8
   %.sroa.130.0..sroa_idx3219 = getelementptr inbounds i8, ptr %451, i64 8
   store i8 %461, ptr %.sroa.130.0..sroa_idx3219, align 8
   %.sroa.131.0..sroa_idx3388 = getelementptr inbounds i8, ptr %451, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3388, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
-  %2664 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02439.0, i8 %.sroa.42441.0.copyload2443, ptr %.sroa.0.0, i8 %.sroa.4.0.copyload2438, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %451, ptr noundef nonnull %1) #7
+  %2664 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02439.0, i8 %.sroa.42441.0, ptr %.sroa.0.0, i8 %.sroa.4.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %451, ptr noundef nonnull %1) #7
   %2665 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2415 = icmp eq i8 %2665, 0
   br i1 %.not2415, label %2666, label %.loopexit

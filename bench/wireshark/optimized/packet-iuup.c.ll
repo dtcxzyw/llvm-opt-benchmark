@@ -3790,8 +3790,8 @@ define internal fastcc range(i32 0, 64) i32 @dissect_rfcis(ptr noundef %0, ptr n
   %7 = getelementptr inbounds i8, ptr %3, i64 8
   br label %8
 
-8:                                                ; preds = %._crit_edge, %4
-  %indvars.iv10 = phi i64 [ %indvars.iv.next11, %._crit_edge ], [ 0, %4 ]
+8:                                                ; preds = %80, %4
+  %indvars.iv10 = phi i64 [ %indvars.iv.next11, %80 ], [ 0, %4 ]
   %9 = tail call ptr @wmem_file_scope() #8
   %10 = tail call noalias ptr @wmem_alloc0(ptr noundef %9, i64 noundef 56) #8
   %exitcond.not = icmp eq i64 %indvars.iv10, 64
@@ -3897,17 +3897,26 @@ define internal fastcc range(i32 0, 64) i32 @dissect_rfcis(ptr noundef %0, ptr n
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %12
   %76 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %76, null
-  %77 = getelementptr inbounds i8, ptr %76, i64 48
-  %.sink = select i1 %.not, ptr %7, ptr %77
-  store ptr %10, ptr %.sink, align 8
+  br i1 %.not, label %79, label %77
+
+77:                                               ; preds = %._crit_edge
+  %78 = getelementptr inbounds i8, ptr %76, i64 48
+  store ptr %10, ptr %78, align 8
+  br label %80
+
+79:                                               ; preds = %._crit_edge
+  store ptr %10, ptr %7, align 8
+  br label %80
+
+80:                                               ; preds = %79, %77
   store ptr %10, ptr %6, align 8
   %indvars.iv.next11 = add nuw nsw i64 %indvars.iv10, 1
   %.not64 = icmp sgt i8 %31, -1
-  br i1 %.not64, label %8, label %78, !llvm.loop !14
+  br i1 %.not64, label %8, label %81, !llvm.loop !14
 
-78:                                               ; preds = %._crit_edge
-  %79 = trunc nuw nsw i64 %indvars.iv10 to i32
-  ret i32 %79
+81:                                               ; preds = %80
+  %82 = trunc nuw nsw i64 %indvars.iv10 to i32
+  ret i32 %82
 }
 
 declare void @proto_item_set_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1

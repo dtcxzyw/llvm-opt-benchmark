@@ -18318,6 +18318,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17O
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIidESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i
   store i32 %.sroa.02.0.copyload.i.i, ptr %0, align 8
+  store double %.sroa.24.0.copyload.i.i, ptr %.sroa.21.0..sroa_idx.i.i, align 8
   br label %51
 
 33:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit._crit_edge.i, %13
@@ -18363,11 +18364,10 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17Ob
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIidESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNSB_17ObjectiveFunctionEEUlS3_S3_E_EEEvT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclISA_NS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEEEEbRT_T0_.exit.i.i, %38
   store i32 %.sroa.02.0.copyload.i.i, ptr %.sroa.06.0.i.i, align 8
   %50 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i, i64 8
+  store double %.sroa.24.0.copyload.i.i, ptr %50, align 8
   br label %51
 
 51:                                               ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIidESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNSB_17ObjectiveFunctionEEUlS3_S3_E_EEEvT_T0_.exit.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIidESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i
-  %.sroa.21.0..sroa_idx.i.sink.i = phi ptr [ %.sroa.21.0..sroa_idx.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIidESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i ], [ %50, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIidESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNSB_17ObjectiveFunctionEEUlS3_S3_E_EEEvT_T0_.exit.i ]
-  store double %.sroa.24.0.copyload.i.i, ptr %.sroa.21.0..sroa_idx.i.sink.i, align 8
   %.sroa.011.024.i.add = add nuw nsw i64 %.sroa.011.024.i.idx, 16
   %.not.i = icmp eq i64 %.sroa.011.024.i.add, 256
   br i1 %.not.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIidESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNSB_17ObjectiveFunctionEEUlS3_S3_E_EEEvT_SK_T0_.exit, label %9, !llvm.loop !109
@@ -18444,7 +18444,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIidESt6ve
   br label %75
 
 75:                                               ; preds = %121, %.lr.ph.i24
-  %.sroa.011.024.i26 = phi ptr [ %.sroa.011.021.i22, %.lr.ph.i24 ], [ %.sroa.011.0.i43, %121 ]
+  %.sroa.011.024.i26 = phi ptr [ %.sroa.011.021.i22, %.lr.ph.i24 ], [ %.sroa.011.0.i42, %121 ]
   %.pn23.i27 = phi ptr [ %0, %.lr.ph.i24 ], [ %.sroa.011.024.i26, %121 ]
   %.sroa.24.0..sroa_idx.i.i28 = getelementptr inbounds i8, ptr %.pn23.i27, i64 24
   %.sroa.24.0.copyload.i.i29 = load double, ptr %.sroa.24.0..sroa_idx.i.i28, align 8
@@ -18456,12 +18456,12 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIidESt6ve
   br i1 %78, label %79, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit.i32
 
 79:                                               ; preds = %75
-  %.sroa.0.0.copyload.i.i54 = load i32, ptr %0, align 8
+  %.sroa.0.0.copyload.i.i53 = load i32, ptr %0, align 8
   %80 = load ptr, ptr %74, align 8
   %81 = sext i32 %.sroa.02.0.copyload.i.i31 to i64
   %82 = getelementptr inbounds float, ptr %80, i64 %81
   %83 = load float, ptr %82, align 4
-  %84 = sext i32 %.sroa.0.0.copyload.i.i54 to i64
+  %84 = sext i32 %.sroa.0.0.copyload.i.i53 to i64
   %85 = getelementptr inbounds float, ptr %80, i64 %84
   %86 = load float, ptr %85, align 4
   %87 = fcmp ogt float %83, %86
@@ -18480,30 +18480,31 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17O
   %91 = sub i64 %90, %5
   %92 = ashr exact i64 %91, 4
   %93 = icmp sgt i64 %92, 0
-  br i1 %93, label %.lr.ph.i.i.i.i.i.preheader.i49, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIidESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i48
+  br i1 %93, label %.lr.ph.i.i.i.i.i.preheader.i48, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIidESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i47
 
-.lr.ph.i.i.i.i.i.preheader.i49:                   ; preds = %89
+.lr.ph.i.i.i.i.i.preheader.i48:                   ; preds = %89
   %94 = getelementptr inbounds i8, ptr %.pn23.i27, i64 32
-  br label %.lr.ph.i.i.i.i.i.i50
+  br label %.lr.ph.i.i.i.i.i.i49
 
-.lr.ph.i.i.i.i.i.i50:                             ; preds = %.lr.ph.i.i.i.i.i.i50, %.lr.ph.i.i.i.i.i.preheader.i49
-  %.010.i.i.i.i.i.i51 = phi i64 [ %101, %.lr.ph.i.i.i.i.i.i50 ], [ %92, %.lr.ph.i.i.i.i.i.preheader.i49 ]
-  %.069.i.i.i.i.i.i52 = phi ptr [ %96, %.lr.ph.i.i.i.i.i.i50 ], [ %94, %.lr.ph.i.i.i.i.i.preheader.i49 ]
-  %.078.i.i.i.i.i.i53 = phi ptr [ %95, %.lr.ph.i.i.i.i.i.i50 ], [ %.sroa.011.024.i26, %.lr.ph.i.i.i.i.i.preheader.i49 ]
-  %95 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i53, i64 -16
-  %96 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i52, i64 -16
+.lr.ph.i.i.i.i.i.i49:                             ; preds = %.lr.ph.i.i.i.i.i.i49, %.lr.ph.i.i.i.i.i.preheader.i48
+  %.010.i.i.i.i.i.i50 = phi i64 [ %101, %.lr.ph.i.i.i.i.i.i49 ], [ %92, %.lr.ph.i.i.i.i.i.preheader.i48 ]
+  %.069.i.i.i.i.i.i51 = phi ptr [ %96, %.lr.ph.i.i.i.i.i.i49 ], [ %94, %.lr.ph.i.i.i.i.i.preheader.i48 ]
+  %.078.i.i.i.i.i.i52 = phi ptr [ %95, %.lr.ph.i.i.i.i.i.i49 ], [ %.sroa.011.024.i26, %.lr.ph.i.i.i.i.i.preheader.i48 ]
+  %95 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i52, i64 -16
+  %96 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i51, i64 -16
   %97 = load i32, ptr %95, align 4
   store i32 %97, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i53, i64 -8
+  %98 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i52, i64 -8
   %99 = load double, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i52, i64 -8
+  %100 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i51, i64 -8
   store double %99, ptr %100, align 8
-  %101 = add nsw i64 %.010.i.i.i.i.i.i51, -1
-  %102 = icmp ugt i64 %.010.i.i.i.i.i.i51, 1
-  br i1 %102, label %.lr.ph.i.i.i.i.i.i50, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIidESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i48, !llvm.loop !107
+  %101 = add nsw i64 %.010.i.i.i.i.i.i50, -1
+  %102 = icmp ugt i64 %.010.i.i.i.i.i.i50, 1
+  br i1 %102, label %.lr.ph.i.i.i.i.i.i49, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIidESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i47, !llvm.loop !107
 
-_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIidESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i48: ; preds = %.lr.ph.i.i.i.i.i.i50, %89
+_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIidESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i47: ; preds = %.lr.ph.i.i.i.i.i.i49, %89
   store i32 %.sroa.02.0.copyload.i.i31, ptr %0, align 8
+  store double %.sroa.24.0.copyload.i.i29, ptr %.sroa.21.0..sroa_idx.i.i25, align 8
   br label %121
 
 103:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit._crit_edge.i33, %79
@@ -18521,11 +18522,11 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIidESt6vectorIS3_SaIS
   br i1 %107, label %108, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclISA_NS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEEEEbRT_T0_.exit.i.i40
 
 108:                                              ; preds = %104
-  %.sroa.0.0.copyload.i.i.i47 = load i32, ptr %.sroa.0.0.i.i37, align 8
+  %.sroa.0.0.copyload.i.i.i46 = load i32, ptr %.sroa.0.0.i.i37, align 8
   %109 = load ptr, ptr %74, align 8
   %110 = getelementptr inbounds float, ptr %109, i64 %.pre-phi.i35
   %111 = load float, ptr %110, align 4
-  %112 = sext i32 %.sroa.0.0.copyload.i.i.i47 to i64
+  %112 = sext i32 %.sroa.0.0.copyload.i.i.i46 to i64
   %113 = getelementptr inbounds float, ptr %109, i64 %112
   %114 = load float, ptr %113, align 4
   %115 = fcmp ogt float %111, %114
@@ -18533,14 +18534,14 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIidESt6vectorIS3_SaIS
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclISA_NS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEEEEbRT_T0_.exit.i.i40: ; preds = %104
   %116 = fcmp olt double %.sroa.24.0.copyload.i.i29, %.sroa.21.0.copyload.i.i.i39
-  br i1 %116, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclISA_NS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEEEEbRT_T0_.exit._crit_edge.i.i45, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIidESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNSB_17ObjectiveFunctionEEUlS3_S3_E_EEEvT_T0_.exit.i41
+  br i1 %116, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclISA_NS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEEEEbRT_T0_.exit._crit_edge.i.i44, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIidESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNSB_17ObjectiveFunctionEEUlS3_S3_E_EEEvT_T0_.exit.i41
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclISA_NS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEEEEbRT_T0_.exit._crit_edge.i.i45: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclISA_NS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEEEEbRT_T0_.exit.i.i40
-  %.pre.i.i46 = load i32, ptr %.sroa.0.0.i.i37, align 4
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclISA_NS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEEEEbRT_T0_.exit._crit_edge.i.i44: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclISA_NS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEEEEbRT_T0_.exit.i.i40
+  %.pre.i.i45 = load i32, ptr %.sroa.0.0.i.i37, align 4
   br label %117
 
-117:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclISA_NS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEEEEbRT_T0_.exit._crit_edge.i.i45, %108
-  %118 = phi i32 [ %.pre.i.i46, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclISA_NS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEEEEbRT_T0_.exit._crit_edge.i.i45 ], [ %.sroa.0.0.copyload.i.i.i47, %108 ]
+117:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclISA_NS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEEEEbRT_T0_.exit._crit_edge.i.i44, %108
+  %118 = phi i32 [ %.pre.i.i45, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclISA_NS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEEEEbRT_T0_.exit._crit_edge.i.i44 ], [ %.sroa.0.0.copyload.i.i.i46, %108 ]
   store i32 %118, ptr %.sroa.06.0.i.i36, align 8
   %119 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i36, i64 8
   store double %.sroa.21.0.copyload.i.i.i39, ptr %119, align 8
@@ -18549,14 +18550,13 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17Ob
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIidESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNSB_17ObjectiveFunctionEEUlS3_S3_E_EEEvT_T0_.exit.i41: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclISA_NS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEEEEbRT_T0_.exit.i.i40, %108
   store i32 %.sroa.02.0.copyload.i.i31, ptr %.sroa.06.0.i.i36, align 8
   %120 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i36, i64 8
+  store double %.sroa.24.0.copyload.i.i29, ptr %120, align 8
   br label %121
 
-121:                                              ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIidESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNSB_17ObjectiveFunctionEEUlS3_S3_E_EEEvT_T0_.exit.i41, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIidESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i48
-  %.sroa.21.0..sroa_idx.i.sink.i42 = phi ptr [ %.sroa.21.0..sroa_idx.i.i25, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIidESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i48 ], [ %120, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIidESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNSB_17ObjectiveFunctionEEUlS3_S3_E_EEEvT_T0_.exit.i41 ]
-  store double %.sroa.24.0.copyload.i.i29, ptr %.sroa.21.0..sroa_idx.i.sink.i42, align 8
-  %.sroa.011.0.i43 = getelementptr inbounds i8, ptr %.sroa.011.024.i26, i64 16
-  %.not.i44 = icmp eq ptr %.sroa.011.0.i43, %1
-  br i1 %.not.i44, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIidESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNSB_17ObjectiveFunctionEEUlS3_S3_E_EEEvT_SK_T0_.exit, label %75, !llvm.loop !109
+121:                                              ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIidESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNSB_17ObjectiveFunctionEEUlS3_S3_E_EEEvT_T0_.exit.i41, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIidESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i47
+  %.sroa.011.0.i42 = getelementptr inbounds i8, ptr %.sroa.011.024.i26, i64 16
+  %.not.i43 = icmp eq ptr %.sroa.011.0.i42, %1
+  br i1 %.not.i43, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIidESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNSB_17ObjectiveFunctionEEUlS3_S3_E_EEEvT_SK_T0_.exit, label %75, !llvm.loop !109
 
 _ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIidESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNSB_17ObjectiveFunctionEEUlS3_S3_E_EEEvT_SK_T0_.exit: ; preds = %121, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIidESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNSB_17ObjectiveFunctionEEUlS3_S3_E_EEEvT_T0_.exit.i16, %.preheader.i21, %72, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIidESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNSB_17ObjectiveFunctionEEUlS3_S3_E_EEEvT_SK_T0_.exit
   ret void
@@ -18727,11 +18727,11 @@ define linkonce_odr void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_ite
   %16 = getelementptr inbounds float, ptr %11, i64 %15
   %17 = load float, ptr %16, align 4
   %18 = fcmp ogt float %14, %17
-  br i1 %18, label %20, label %51
+  br i1 %18, label %20, label %68
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit: ; preds = %5
   %19 = fcmp olt double %.sroa.24.0.copyload.i, %.sroa.21.0.copyload.i
-  br i1 %19, label %20, label %51
+  br i1 %19, label %20, label %68
 
 20:                                               ; preds = %9, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit
   %.sroa.21.0..sroa_idx.i28 = getelementptr inbounds i8, ptr %3, i64 8
@@ -18753,128 +18753,183 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17O
   %31 = getelementptr inbounds float, ptr %26, i64 %30
   %32 = load float, ptr %31, align 4
   %33 = fcmp ogt float %29, %32
-  br i1 %33, label %82, label %35
+  br i1 %33, label %35, label %41
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit33: ; preds = %20
   %34 = fcmp olt double %.sroa.21.0.copyload.i, %.sroa.21.0.copyload.i29
-  br i1 %34, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit33._crit_edge, label %35
+  br i1 %34, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit33._crit_edge, label %41
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit33._crit_edge: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit33
   %.pre68 = load i32, ptr %2, align 4
-  br label %82
+  br label %35
 
-35:                                               ; preds = %24, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit33
-  %36 = fsub double %.sroa.24.0.copyload.i, %.sroa.21.0.copyload.i29
-  %37 = tail call double @llvm.fabs.f64(double %36)
-  %38 = fcmp olt double %37, 0x3CD203AFA0000000
-  br i1 %38, label %39, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit41
+35:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit33._crit_edge, %24
+  %36 = phi i32 [ %.pre68, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit33._crit_edge ], [ %.sroa.02.0.copyload.i32, %24 ]
+  %37 = load i32, ptr %0, align 4
+  store i32 %36, ptr %0, align 4
+  store i32 %37, ptr %2, align 4
+  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %39 = load double, ptr %38, align 8
+  %40 = load double, ptr %.sroa.21.0..sroa_idx.i, align 8
+  store double %40, ptr %38, align 8
+  store double %39, ptr %.sroa.21.0..sroa_idx.i, align 8
+  br label %116
 
-39:                                               ; preds = %35
+41:                                               ; preds = %24, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit33
+  %42 = fsub double %.sroa.24.0.copyload.i, %.sroa.21.0.copyload.i29
+  %43 = tail call double @llvm.fabs.f64(double %42)
+  %44 = fcmp olt double %43, 0x3CD203AFA0000000
+  br i1 %44, label %45, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit41
+
+45:                                               ; preds = %41
   %.sroa.0.0.copyload.i39 = load i32, ptr %3, align 8
   %.sroa.02.0.copyload.i40 = load i32, ptr %1, align 8
-  %40 = getelementptr inbounds i8, ptr %4, i64 16
-  %41 = load ptr, ptr %40, align 8
-  %42 = sext i32 %.sroa.02.0.copyload.i40 to i64
-  %43 = getelementptr inbounds float, ptr %41, i64 %42
-  %44 = load float, ptr %43, align 4
-  %45 = sext i32 %.sroa.0.0.copyload.i39 to i64
-  %46 = getelementptr inbounds float, ptr %41, i64 %45
-  %47 = load float, ptr %46, align 4
-  %48 = fcmp ogt float %44, %47
-  br i1 %48, label %82, label %50
+  %46 = getelementptr inbounds i8, ptr %4, i64 16
+  %47 = load ptr, ptr %46, align 8
+  %48 = sext i32 %.sroa.02.0.copyload.i40 to i64
+  %49 = getelementptr inbounds float, ptr %47, i64 %48
+  %50 = load float, ptr %49, align 4
+  %51 = sext i32 %.sroa.0.0.copyload.i39 to i64
+  %52 = getelementptr inbounds float, ptr %47, i64 %51
+  %53 = load float, ptr %52, align 4
+  %54 = fcmp ogt float %50, %53
+  br i1 %54, label %56, label %62
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit41: ; preds = %35
-  %49 = fcmp olt double %.sroa.24.0.copyload.i, %.sroa.21.0.copyload.i29
-  br i1 %49, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit41._crit_edge66, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit41._crit_edge
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit41: ; preds = %41
+  %55 = fcmp olt double %.sroa.24.0.copyload.i, %.sroa.21.0.copyload.i29
+  br i1 %55, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit41._crit_edge66, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit41._crit_edge
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit41._crit_edge66: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit41
   %.pre67 = load i32, ptr %3, align 4
-  br label %82
+  br label %56
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit41._crit_edge: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit41
   %.pre65 = load i32, ptr %1, align 4
-  br label %82
+  br label %62
 
-50:                                               ; preds = %39
-  br label %82
+56:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit41._crit_edge66, %45
+  %57 = phi i32 [ %.pre67, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit41._crit_edge66 ], [ %.sroa.0.0.copyload.i39, %45 ]
+  %58 = load i32, ptr %0, align 4
+  store i32 %57, ptr %0, align 4
+  store i32 %58, ptr %3, align 4
+  %59 = getelementptr inbounds i8, ptr %0, i64 8
+  %60 = load double, ptr %59, align 8
+  %61 = load double, ptr %.sroa.21.0..sroa_idx.i28, align 8
+  store double %61, ptr %59, align 8
+  store double %60, ptr %.sroa.21.0..sroa_idx.i28, align 8
+  br label %116
 
-51:                                               ; preds = %9, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit
+62:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit41._crit_edge, %45
+  %63 = phi i32 [ %.pre65, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit41._crit_edge ], [ %.sroa.02.0.copyload.i40, %45 ]
+  %64 = load i32, ptr %0, align 4
+  store i32 %63, ptr %0, align 4
+  store i32 %64, ptr %1, align 4
+  %65 = getelementptr inbounds i8, ptr %0, i64 8
+  %66 = load double, ptr %65, align 8
+  %67 = load double, ptr %.sroa.24.0..sroa_idx.i, align 8
+  store double %67, ptr %65, align 8
+  store double %66, ptr %.sroa.24.0..sroa_idx.i, align 8
+  br label %116
+
+68:                                               ; preds = %9, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit
   %.sroa.21.0..sroa_idx.i44 = getelementptr inbounds i8, ptr %3, i64 8
   %.sroa.21.0.copyload.i45 = load double, ptr %.sroa.21.0..sroa_idx.i44, align 8
-  %52 = fsub double %.sroa.24.0.copyload.i, %.sroa.21.0.copyload.i45
-  %53 = tail call double @llvm.fabs.f64(double %52)
-  %54 = fcmp olt double %53, 0x3CD203AFA0000000
-  br i1 %54, label %55, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit49
+  %69 = fsub double %.sroa.24.0.copyload.i, %.sroa.21.0.copyload.i45
+  %70 = tail call double @llvm.fabs.f64(double %69)
+  %71 = fcmp olt double %70, 0x3CD203AFA0000000
+  br i1 %71, label %72, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit49
 
-55:                                               ; preds = %51
+72:                                               ; preds = %68
   %.sroa.0.0.copyload.i47 = load i32, ptr %3, align 8
   %.sroa.02.0.copyload.i48 = load i32, ptr %1, align 8
-  %56 = getelementptr inbounds i8, ptr %4, i64 16
-  %57 = load ptr, ptr %56, align 8
-  %58 = sext i32 %.sroa.02.0.copyload.i48 to i64
-  %59 = getelementptr inbounds float, ptr %57, i64 %58
-  %60 = load float, ptr %59, align 4
-  %61 = sext i32 %.sroa.0.0.copyload.i47 to i64
-  %62 = getelementptr inbounds float, ptr %57, i64 %61
-  %63 = load float, ptr %62, align 4
-  %64 = fcmp ogt float %60, %63
-  br i1 %64, label %82, label %66
+  %73 = getelementptr inbounds i8, ptr %4, i64 16
+  %74 = load ptr, ptr %73, align 8
+  %75 = sext i32 %.sroa.02.0.copyload.i48 to i64
+  %76 = getelementptr inbounds float, ptr %74, i64 %75
+  %77 = load float, ptr %76, align 4
+  %78 = sext i32 %.sroa.0.0.copyload.i47 to i64
+  %79 = getelementptr inbounds float, ptr %74, i64 %78
+  %80 = load float, ptr %79, align 4
+  %81 = fcmp ogt float %77, %80
+  br i1 %81, label %83, label %89
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit49: ; preds = %51
-  %65 = fcmp olt double %.sroa.24.0.copyload.i, %.sroa.21.0.copyload.i45
-  br i1 %65, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit49._crit_edge, label %66
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit49: ; preds = %68
+  %82 = fcmp olt double %.sroa.24.0.copyload.i, %.sroa.21.0.copyload.i45
+  br i1 %82, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit49._crit_edge, label %89
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit49._crit_edge: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit49
   %.pre64 = load i32, ptr %1, align 4
-  br label %82
+  br label %83
 
-66:                                               ; preds = %55, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit49
-  %67 = fsub double %.sroa.21.0.copyload.i, %.sroa.21.0.copyload.i45
-  %68 = tail call double @llvm.fabs.f64(double %67)
-  %69 = fcmp olt double %68, 0x3CD203AFA0000000
-  br i1 %69, label %70, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit57
+83:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit49._crit_edge, %72
+  %84 = phi i32 [ %.pre64, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit49._crit_edge ], [ %.sroa.02.0.copyload.i48, %72 ]
+  %85 = load i32, ptr %0, align 4
+  store i32 %84, ptr %0, align 4
+  store i32 %85, ptr %1, align 4
+  %86 = getelementptr inbounds i8, ptr %0, i64 8
+  %87 = load double, ptr %86, align 8
+  %88 = load double, ptr %.sroa.24.0..sroa_idx.i, align 8
+  store double %88, ptr %86, align 8
+  store double %87, ptr %.sroa.24.0..sroa_idx.i, align 8
+  br label %116
 
-70:                                               ; preds = %66
+89:                                               ; preds = %72, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit49
+  %90 = fsub double %.sroa.21.0.copyload.i, %.sroa.21.0.copyload.i45
+  %91 = tail call double @llvm.fabs.f64(double %90)
+  %92 = fcmp olt double %91, 0x3CD203AFA0000000
+  br i1 %92, label %93, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit57
+
+93:                                               ; preds = %89
   %.sroa.0.0.copyload.i55 = load i32, ptr %3, align 8
   %.sroa.02.0.copyload.i56 = load i32, ptr %2, align 8
-  %71 = getelementptr inbounds i8, ptr %4, i64 16
-  %72 = load ptr, ptr %71, align 8
-  %73 = sext i32 %.sroa.02.0.copyload.i56 to i64
-  %74 = getelementptr inbounds float, ptr %72, i64 %73
-  %75 = load float, ptr %74, align 4
-  %76 = sext i32 %.sroa.0.0.copyload.i55 to i64
-  %77 = getelementptr inbounds float, ptr %72, i64 %76
-  %78 = load float, ptr %77, align 4
-  %79 = fcmp ogt float %75, %78
-  br i1 %79, label %82, label %81
+  %94 = getelementptr inbounds i8, ptr %4, i64 16
+  %95 = load ptr, ptr %94, align 8
+  %96 = sext i32 %.sroa.02.0.copyload.i56 to i64
+  %97 = getelementptr inbounds float, ptr %95, i64 %96
+  %98 = load float, ptr %97, align 4
+  %99 = sext i32 %.sroa.0.0.copyload.i55 to i64
+  %100 = getelementptr inbounds float, ptr %95, i64 %99
+  %101 = load float, ptr %100, align 4
+  %102 = fcmp ogt float %98, %101
+  br i1 %102, label %104, label %110
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit57: ; preds = %66
-  %80 = fcmp olt double %.sroa.21.0.copyload.i, %.sroa.21.0.copyload.i45
-  br i1 %80, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit57._crit_edge62, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit57._crit_edge
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit57: ; preds = %89
+  %103 = fcmp olt double %.sroa.21.0.copyload.i, %.sroa.21.0.copyload.i45
+  br i1 %103, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit57._crit_edge62, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit57._crit_edge
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit57._crit_edge62: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit57
   %.pre63 = load i32, ptr %3, align 4
-  br label %82
+  br label %104
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit57._crit_edge: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit57
   %.pre = load i32, ptr %2, align 4
-  br label %82
+  br label %110
 
-81:                                               ; preds = %70
-  br label %82
+104:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit57._crit_edge62, %93
+  %105 = phi i32 [ %.pre63, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit57._crit_edge62 ], [ %.sroa.0.0.copyload.i55, %93 ]
+  %106 = load i32, ptr %0, align 4
+  store i32 %105, ptr %0, align 4
+  store i32 %106, ptr %3, align 4
+  %107 = getelementptr inbounds i8, ptr %0, i64 8
+  %108 = load double, ptr %107, align 8
+  %109 = load double, ptr %.sroa.21.0..sroa_idx.i44, align 8
+  store double %109, ptr %107, align 8
+  store double %108, ptr %.sroa.21.0..sroa_idx.i44, align 8
+  br label %116
 
-82:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit57._crit_edge, %70, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit57._crit_edge62, %55, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit49._crit_edge, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit41._crit_edge, %39, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit41._crit_edge66, %24, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit33._crit_edge, %81, %50
-  %.sink74 = phi i32 [ %.pre68, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit33._crit_edge ], [ %.sroa.02.0.copyload.i32, %24 ], [ %.pre67, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit41._crit_edge66 ], [ %.sroa.0.0.copyload.i39, %39 ], [ %.pre65, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit41._crit_edge ], [ %.sroa.02.0.copyload.i40, %50 ], [ %.pre64, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit49._crit_edge ], [ %.sroa.02.0.copyload.i48, %55 ], [ %.pre63, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit57._crit_edge62 ], [ %.sroa.0.0.copyload.i55, %70 ], [ %.pre, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit57._crit_edge ], [ %.sroa.02.0.copyload.i56, %81 ]
-  %.sink73 = phi ptr [ %2, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit33._crit_edge ], [ %2, %24 ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit41._crit_edge66 ], [ %3, %39 ], [ %1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit41._crit_edge ], [ %1, %50 ], [ %1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit49._crit_edge ], [ %1, %55 ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit57._crit_edge62 ], [ %3, %70 ], [ %2, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit57._crit_edge ], [ %2, %81 ]
-  %.sroa.24.0..sroa_idx.i.sink71 = phi ptr [ %.sroa.21.0..sroa_idx.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit33._crit_edge ], [ %.sroa.21.0..sroa_idx.i, %24 ], [ %.sroa.21.0..sroa_idx.i28, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit41._crit_edge66 ], [ %.sroa.21.0..sroa_idx.i28, %39 ], [ %.sroa.24.0..sroa_idx.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit41._crit_edge ], [ %.sroa.24.0..sroa_idx.i, %50 ], [ %.sroa.24.0..sroa_idx.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit49._crit_edge ], [ %.sroa.24.0..sroa_idx.i, %55 ], [ %.sroa.21.0..sroa_idx.i44, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit57._crit_edge62 ], [ %.sroa.21.0..sroa_idx.i44, %70 ], [ %.sroa.21.0..sroa_idx.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit57._crit_edge ], [ %.sroa.21.0..sroa_idx.i, %81 ]
-  %83 = load i32, ptr %0, align 4
-  store i32 %.sink74, ptr %0, align 4
-  store i32 %83, ptr %.sink73, align 4
-  %84 = getelementptr inbounds i8, ptr %0, i64 8
-  %85 = load double, ptr %84, align 8
-  %86 = load double, ptr %.sroa.24.0..sroa_idx.i.sink71, align 8
-  store double %86, ptr %84, align 8
-  store double %85, ptr %.sroa.24.0..sroa_idx.i.sink71, align 8
+110:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit57._crit_edge, %93
+  %111 = phi i32 [ %.pre, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM11AucMuMetric4EvalEPKdPKNS2_17ObjectiveFunctionEEUlSt4pairIidESA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit57._crit_edge ], [ %.sroa.02.0.copyload.i56, %93 ]
+  %112 = load i32, ptr %0, align 4
+  store i32 %111, ptr %0, align 4
+  store i32 %112, ptr %2, align 4
+  %113 = getelementptr inbounds i8, ptr %0, i64 8
+  %114 = load double, ptr %113, align 8
+  %115 = load double, ptr %.sroa.21.0..sroa_idx.i, align 8
+  store double %115, ptr %113, align 8
+  store double %114, ptr %.sroa.21.0..sroa_idx.i, align 8
+  br label %116
+
+116:                                              ; preds = %83, %110, %104, %35, %62, %56
   ret void
 }
 

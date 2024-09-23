@@ -1370,7 +1370,15 @@ _ZN7rocksdb6StatusaSEOS0_.exit:                   ; preds = %invoke.cont33, %if.
   %state_.i16 = getelementptr inbounds i8, ptr %ref.tmp25, i64 8
   %20 = load ptr, ptr %state_.i16, align 8
   %cmp.not.i.i = icmp eq ptr %20, null
-  br i1 %cmp.not.i.i, label %nrvo.skipdtor.sink.split, label %nrvo.skipdtor.sink.split.sink.split
+  br i1 %cmp.not.i.i, label %_ZN7rocksdb6StatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
+
+_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i: ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit
+  call void @_ZdaPv(ptr noundef nonnull %20) #18
+  br label %_ZN7rocksdb6StatusD2Ev.exit
+
+_ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
+  store ptr null, ptr %state_.i16, align 8
+  br label %nrvo.skipdtor.sink.split
 
 lpad18:                                           ; preds = %invoke.cont23, %invoke.cont21, %invoke.cont19, %invoke.cont17
   %21 = landingpad { ptr, i32 }
@@ -1613,7 +1621,15 @@ _ZN7rocksdb6StatusaSEOS0_.exit67:                 ; preds = %invoke.cont76, %if.
   %state_.i68 = getelementptr inbounds i8, ptr %ref.tmp68, i64 8
   %53 = load ptr, ptr %state_.i68, align 8
   %cmp.not.i.i69 = icmp eq ptr %53, null
-  br i1 %cmp.not.i.i69, label %nrvo.skipdtor.sink.split, label %nrvo.skipdtor.sink.split.sink.split
+  br i1 %cmp.not.i.i69, label %_ZN7rocksdb6StatusD2Ev.exit71, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i70
+
+_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i70: ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit67
+  call void @_ZdaPv(ptr noundef nonnull %53) #18
+  br label %_ZN7rocksdb6StatusD2Ev.exit71
+
+_ZN7rocksdb6StatusD2Ev.exit71:                    ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit67, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i70
+  store ptr null, ptr %state_.i68, align 8
+  br label %nrvo.skipdtor.sink.split
 
 lpad51:                                           ; preds = %invoke.cont66, %invoke.cont64, %invoke.cont62, %invoke.cont60, %invoke.cont56, %invoke.cont54, %invoke.cont52, %invoke.cont49
   %54 = landingpad { ptr, i32 }
@@ -1636,19 +1652,9 @@ for.inc:                                          ; preds = %if.end44, %for.body
   %cmp.i.not = icmp eq ptr %call.i72, %add.ptr.i.i
   br i1 %cmp.i.not, label %nrvo.skipdtor, label %for.body
 
-nrvo.skipdtor.sink.split.sink.split:              ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit67, %_ZN7rocksdb6StatusaSEOS0_.exit
-  %.sink = phi ptr [ %20, %_ZN7rocksdb6StatusaSEOS0_.exit ], [ %53, %_ZN7rocksdb6StatusaSEOS0_.exit67 ]
-  %state_.i16.sink.ph = phi ptr [ %state_.i16, %_ZN7rocksdb6StatusaSEOS0_.exit ], [ %state_.i68, %_ZN7rocksdb6StatusaSEOS0_.exit67 ]
-  %ref.tmp27.sink.ph = phi ptr [ %ref.tmp27, %_ZN7rocksdb6StatusaSEOS0_.exit ], [ %ref.tmp70, %_ZN7rocksdb6StatusaSEOS0_.exit67 ]
-  %ss.sink.ph = phi ptr [ %ss, %_ZN7rocksdb6StatusaSEOS0_.exit ], [ %ss48, %_ZN7rocksdb6StatusaSEOS0_.exit67 ]
-  call void @_ZdaPv(ptr noundef nonnull %.sink) #18
-  br label %nrvo.skipdtor.sink.split
-
-nrvo.skipdtor.sink.split:                         ; preds = %nrvo.skipdtor.sink.split.sink.split, %_ZN7rocksdb6StatusaSEOS0_.exit67, %_ZN7rocksdb6StatusaSEOS0_.exit
-  %state_.i16.sink = phi ptr [ %state_.i16, %_ZN7rocksdb6StatusaSEOS0_.exit ], [ %state_.i68, %_ZN7rocksdb6StatusaSEOS0_.exit67 ], [ %state_.i16.sink.ph, %nrvo.skipdtor.sink.split.sink.split ]
-  %ref.tmp27.sink = phi ptr [ %ref.tmp27, %_ZN7rocksdb6StatusaSEOS0_.exit ], [ %ref.tmp70, %_ZN7rocksdb6StatusaSEOS0_.exit67 ], [ %ref.tmp27.sink.ph, %nrvo.skipdtor.sink.split.sink.split ]
-  %ss.sink = phi ptr [ %ss, %_ZN7rocksdb6StatusaSEOS0_.exit ], [ %ss48, %_ZN7rocksdb6StatusaSEOS0_.exit67 ], [ %ss.sink.ph, %nrvo.skipdtor.sink.split.sink.split ]
-  store ptr null, ptr %state_.i16.sink, align 8
+nrvo.skipdtor.sink.split:                         ; preds = %_ZN7rocksdb6StatusD2Ev.exit71, %_ZN7rocksdb6StatusD2Ev.exit
+  %ref.tmp27.sink = phi ptr [ %ref.tmp27, %_ZN7rocksdb6StatusD2Ev.exit ], [ %ref.tmp70, %_ZN7rocksdb6StatusD2Ev.exit71 ]
+  %ss.sink = phi ptr [ %ss, %_ZN7rocksdb6StatusD2Ev.exit ], [ %ss48, %_ZN7rocksdb6StatusD2Ev.exit71 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp27.sink) #15
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.sink) #15
   br label %nrvo.skipdtor

@@ -3622,8 +3622,8 @@ define internal fastcc range(i32 -13, 1) i32 @construct_peers(ptr nocapture noun
   %11 = getelementptr inbounds i8, ptr %1, i64 40
   br label %12
 
-12:                                               ; preds = %.lr.ph45, %83
-  %indvars.iv = phi i64 [ 0, %.lr.ph45 ], [ %indvars.iv.next, %83 ]
+12:                                               ; preds = %.lr.ph45, %85
+  %indvars.iv = phi i64 [ 0, %.lr.ph45 ], [ %indvars.iv.next, %85 ]
   %13 = load i32, ptr %6, align 8
   %14 = and i32 %13, 4
   %.not = icmp eq i32 %14, 0
@@ -3743,15 +3743,15 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %57, %5
   %.not3140 = icmp eq ptr %.02839, %8
   br i1 %.not3140, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %opal_obj_new.exit, %77
-  %.02841 = phi ptr [ %.028, %77 ], [ %.02839, %opal_obj_new.exit ]
+.lr.ph:                                           ; preds = %opal_obj_new.exit, %78
+  %.02841 = phi ptr [ %.028, %78 ], [ %.02839, %opal_obj_new.exit ]
   %66 = load ptr, ptr @opal_compare_proc, align 8
   %67 = getelementptr inbounds i8, ptr %.02841, i64 40
   %68 = load i64, ptr %65, align 8
   %69 = load i64, ptr %67, align 8
   %70 = tail call i32 %66(i64 %68, i64 %69) #22
   %71 = icmp slt i32 %70, 0
-  br i1 %71, label %.thread, label %77
+  br i1 %71, label %.thread, label %78
 
 .thread:                                          ; preds = %.lr.ph
   %72 = getelementptr inbounds i8, ptr %53, i64 16
@@ -3761,41 +3761,41 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %57, %5
   %75 = getelementptr inbounds i8, ptr %53, i64 24
   store volatile ptr %74, ptr %75, align 8
   %76 = load volatile ptr, ptr %73, align 8
-  br label %83
+  %77 = getelementptr inbounds i8, ptr %76, i64 16
+  store volatile ptr %53, ptr %77, align 8
+  store volatile ptr %53, ptr %73, align 8
+  br label %85
 
-77:                                               ; preds = %.lr.ph
-  %78 = getelementptr inbounds i8, ptr %.02841, i64 16
-  %.028 = load volatile ptr, ptr %78, align 8
+78:                                               ; preds = %.lr.ph
+  %79 = getelementptr inbounds i8, ptr %.02841, i64 16
+  %.028 = load volatile ptr, ptr %79, align 8
   %.not31 = icmp eq ptr %.028, %8
   br i1 %.not31, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
-._crit_edge:                                      ; preds = %77, %opal_obj_new.exit
-  %79 = load volatile ptr, ptr %11, align 8
-  %80 = getelementptr inbounds i8, ptr %53, i64 24
-  store volatile ptr %79, ptr %80, align 8
-  %81 = load volatile ptr, ptr %11, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 16
-  store volatile ptr %53, ptr %82, align 8
-  br label %83
+._crit_edge:                                      ; preds = %78, %opal_obj_new.exit
+  %80 = load volatile ptr, ptr %11, align 8
+  %81 = getelementptr inbounds i8, ptr %53, i64 24
+  store volatile ptr %80, ptr %81, align 8
+  %82 = load volatile ptr, ptr %11, align 8
+  %83 = getelementptr inbounds i8, ptr %82, i64 16
+  store volatile ptr %53, ptr %83, align 8
+  %84 = getelementptr inbounds i8, ptr %53, i64 16
+  store volatile ptr %8, ptr %84, align 8
+  store volatile ptr %53, ptr %11, align 8
+  br label %85
 
-83:                                               ; preds = %.thread, %._crit_edge
-  %.sink52 = phi ptr [ %76, %.thread ], [ %53, %._crit_edge ]
-  %.sink50 = phi ptr [ %53, %.thread ], [ %8, %._crit_edge ]
-  %.sink = phi ptr [ %73, %.thread ], [ %11, %._crit_edge ]
-  %84 = getelementptr inbounds i8, ptr %.sink52, i64 16
-  store volatile ptr %.sink50, ptr %84, align 8
-  store volatile ptr %53, ptr %.sink, align 8
-  %85 = load volatile i64, ptr %10, align 8
-  %86 = add i64 %85, 1
-  store volatile i64 %86, ptr %10, align 8
+85:                                               ; preds = %.thread, %._crit_edge
+  %86 = load volatile i64, ptr %10, align 8
+  %87 = add i64 %86, 1
+  store volatile i64 %87, ptr %10, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %87 = load i32, ptr %3, align 8
-  %88 = sext i32 %87 to i64
-  %89 = icmp slt i64 %indvars.iv.next, %88
-  br i1 %89, label %12, label %.loopexit, !llvm.loop !39
+  %88 = load i32, ptr %3, align 8
+  %89 = sext i32 %88 to i64
+  %90 = icmp slt i64 %indvars.iv.next, %89
+  br i1 %90, label %12, label %.loopexit, !llvm.loop !39
 
-.loopexit:                                        ; preds = %83, %2, %41
-  %.0 = phi i32 [ -13, %41 ], [ 0, %2 ], [ 0, %83 ]
+.loopexit:                                        ; preds = %85, %2, %41
+  %.0 = phi i32 [ -13, %41 ], [ 0, %2 ], [ 0, %85 ]
   ret i32 %.0
 }
 

@@ -806,7 +806,7 @@ define dso_local void @AtAbort_Portals() local_unnamed_addr #0 {
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0, %.backedge
-  %4 = phi ptr [ %41, %.backedge ], [ %3, %0 ]
+  %4 = phi ptr [ %42, %.backedge ], [ %3, %0 ]
   %5 = getelementptr inbounds i8, ptr %4, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 132
@@ -853,53 +853,53 @@ MarkPortalFailed.exit:                            ; preds = %16, %13, %10, %.lr.
   %28 = getelementptr inbounds i8, ptr %6, i64 32
   %29 = load ptr, ptr %28, align 8
   %.not.i18 = icmp eq ptr %29, null
-  br i1 %.not.i18, label %MarkPortalFailed.exit19.thread, label %MarkPortalFailed.exit19.thread.sink.split
+  br i1 %.not.i18, label %MarkPortalFailed.exit19.thread, label %30
+
+30:                                               ; preds = %27
+  call void %29(ptr noundef nonnull %6) #7
+  store ptr null, ptr %28, align 8
+  br label %MarkPortalFailed.exit19.thread
 
 MarkPortalFailed.exit19:                          ; preds = %24
   %.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 32
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.not16 = icmp eq ptr %.pre, null
-  br i1 %.not16, label %MarkPortalFailed.exit19.thread, label %30
+  br i1 %.not16, label %MarkPortalFailed.exit19.thread, label %31
 
-30:                                               ; preds = %MarkPortalFailed.exit19
-  %31 = getelementptr inbounds i8, ptr %6, i64 32
-  br label %MarkPortalFailed.exit19.thread.sink.split
-
-MarkPortalFailed.exit19.thread.sink.split:        ; preds = %27, %30
-  %.sink23 = phi ptr [ %.pre, %30 ], [ %29, %27 ]
-  %.sink = phi ptr [ %31, %30 ], [ %28, %27 ]
-  call void %.sink23(ptr noundef nonnull %6) #7
-  store ptr null, ptr %.sink, align 8
+31:                                               ; preds = %MarkPortalFailed.exit19
+  %32 = getelementptr inbounds i8, ptr %6, i64 32
+  call void %.pre(ptr noundef nonnull %6) #7
+  store ptr null, ptr %32, align 8
   br label %MarkPortalFailed.exit19.thread
 
-MarkPortalFailed.exit19.thread:                   ; preds = %MarkPortalFailed.exit19.thread.sink.split, %27, %MarkPortalFailed.exit19
-  %32 = getelementptr inbounds i8, ptr %6, i64 96
-  %33 = load ptr, ptr %32, align 8
-  %.not.i20 = icmp eq ptr %33, null
-  br i1 %.not.i20, label %PortalReleaseCachedPlan.exit, label %34
+MarkPortalFailed.exit19.thread:                   ; preds = %27, %30, %31, %MarkPortalFailed.exit19
+  %33 = getelementptr inbounds i8, ptr %6, i64 96
+  %34 = load ptr, ptr %33, align 8
+  %.not.i20 = icmp eq ptr %34, null
+  br i1 %.not.i20, label %PortalReleaseCachedPlan.exit, label %35
 
-34:                                               ; preds = %MarkPortalFailed.exit19.thread
-  call void @ReleaseCachedPlan(ptr noundef nonnull %33, ptr noundef null) #7
-  %35 = getelementptr inbounds i8, ptr %6, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
+35:                                               ; preds = %MarkPortalFailed.exit19.thread
+  call void @ReleaseCachedPlan(ptr noundef nonnull %34, ptr noundef null) #7
+  %36 = getelementptr inbounds i8, ptr %6, i64 88
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false)
   br label %PortalReleaseCachedPlan.exit
 
-PortalReleaseCachedPlan.exit:                     ; preds = %MarkPortalFailed.exit19.thread, %34
-  %36 = getelementptr inbounds i8, ptr %6, i64 24
-  store ptr null, ptr %36, align 8
-  %37 = load i32, ptr %7, align 4
-  %.not17 = icmp eq i32 %37, 3
-  br i1 %.not17, label %.backedge, label %38
+PortalReleaseCachedPlan.exit:                     ; preds = %MarkPortalFailed.exit19.thread, %35
+  %37 = getelementptr inbounds i8, ptr %6, i64 24
+  store ptr null, ptr %37, align 8
+  %38 = load i32, ptr %7, align 4
+  %.not17 = icmp eq i32 %38, 3
+  br i1 %.not17, label %.backedge, label %39
 
-38:                                               ; preds = %PortalReleaseCachedPlan.exit
-  %39 = getelementptr inbounds i8, ptr %6, i64 16
-  %40 = load ptr, ptr %39, align 8
-  call void @MemoryContextDeleteChildren(ptr noundef %40) #7
+39:                                               ; preds = %PortalReleaseCachedPlan.exit
+  %40 = getelementptr inbounds i8, ptr %6, i64 16
+  %41 = load ptr, ptr %40, align 8
+  call void @MemoryContextDeleteChildren(ptr noundef %41) #7
   br label %.backedge
 
-.backedge:                                        ; preds = %PortalReleaseCachedPlan.exit, %38, %MarkPortalFailed.exit, %20
-  %41 = call ptr @hash_seq_search(ptr noundef nonnull %1) #7
-  %.not = icmp eq ptr %41, null
+.backedge:                                        ; preds = %PortalReleaseCachedPlan.exit, %39, %MarkPortalFailed.exit, %20
+  %42 = call ptr @hash_seq_search(ptr noundef nonnull %1) #7
+  %.not = icmp eq ptr %42, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.backedge, %0
@@ -1143,43 +1143,43 @@ MarkPortalFailed.exit.thread:                     ; preds = %21, %MarkPortalFail
   %36 = getelementptr inbounds i8, ptr %10, i64 32
   %37 = load ptr, ptr %36, align 8
   %.not.i30 = icmp eq ptr %37, null
-  br i1 %.not.i30, label %MarkPortalFailed.exit31.thread, label %MarkPortalFailed.exit31.thread.sink.split
+  br i1 %.not.i30, label %MarkPortalFailed.exit31.thread, label %38
+
+38:                                               ; preds = %35
+  call void %37(ptr noundef nonnull %10) #7
+  store ptr null, ptr %36, align 8
+  br label %MarkPortalFailed.exit31.thread
 
 MarkPortalFailed.exit31:                          ; preds = %31
   %.phi.trans.insert = getelementptr inbounds i8, ptr %10, i64 32
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.not28 = icmp eq ptr %.pre, null
-  br i1 %.not28, label %MarkPortalFailed.exit31.thread, label %38
+  br i1 %.not28, label %MarkPortalFailed.exit31.thread, label %39
 
-38:                                               ; preds = %MarkPortalFailed.exit31
-  %39 = getelementptr inbounds i8, ptr %10, i64 32
-  br label %MarkPortalFailed.exit31.thread.sink.split
-
-MarkPortalFailed.exit31.thread.sink.split:        ; preds = %35, %38
-  %.sink35 = phi ptr [ %.pre, %38 ], [ %37, %35 ]
-  %.sink = phi ptr [ %39, %38 ], [ %36, %35 ]
-  call void %.sink35(ptr noundef nonnull %10) #7
-  store ptr null, ptr %.sink, align 8
+39:                                               ; preds = %MarkPortalFailed.exit31
+  %40 = getelementptr inbounds i8, ptr %10, i64 32
+  call void %.pre(ptr noundef nonnull %10) #7
+  store ptr null, ptr %40, align 8
   br label %MarkPortalFailed.exit31.thread
 
-MarkPortalFailed.exit31.thread:                   ; preds = %MarkPortalFailed.exit31.thread.sink.split, %35, %MarkPortalFailed.exit31
-  %40 = getelementptr inbounds i8, ptr %10, i64 96
-  %41 = load ptr, ptr %40, align 8
-  %.not.i32 = icmp eq ptr %41, null
-  br i1 %.not.i32, label %PortalReleaseCachedPlan.exit, label %42
+MarkPortalFailed.exit31.thread:                   ; preds = %35, %38, %39, %MarkPortalFailed.exit31
+  %41 = getelementptr inbounds i8, ptr %10, i64 96
+  %42 = load ptr, ptr %41, align 8
+  %.not.i32 = icmp eq ptr %42, null
+  br i1 %.not.i32, label %PortalReleaseCachedPlan.exit, label %43
 
-42:                                               ; preds = %MarkPortalFailed.exit31.thread
-  call void @ReleaseCachedPlan(ptr noundef nonnull %41, ptr noundef null) #7
-  %43 = getelementptr inbounds i8, ptr %10, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false)
+43:                                               ; preds = %MarkPortalFailed.exit31.thread
+  call void @ReleaseCachedPlan(ptr noundef nonnull %42, ptr noundef null) #7
+  %44 = getelementptr inbounds i8, ptr %10, i64 88
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false)
   br label %PortalReleaseCachedPlan.exit
 
-PortalReleaseCachedPlan.exit:                     ; preds = %MarkPortalFailed.exit31.thread, %42
-  %44 = getelementptr inbounds i8, ptr %10, i64 24
-  store ptr null, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %10, i64 16
-  %46 = load ptr, ptr %45, align 8
-  call void @MemoryContextDeleteChildren(ptr noundef %46) #7
+PortalReleaseCachedPlan.exit:                     ; preds = %MarkPortalFailed.exit31.thread, %43
+  %45 = getelementptr inbounds i8, ptr %10, i64 24
+  store ptr null, ptr %45, align 8
+  %46 = getelementptr inbounds i8, ptr %10, i64 16
+  %47 = load ptr, ptr %46, align 8
+  call void @MemoryContextDeleteChildren(ptr noundef %47) #7
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %4

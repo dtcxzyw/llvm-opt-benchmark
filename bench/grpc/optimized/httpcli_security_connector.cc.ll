@@ -545,7 +545,11 @@ lpad:                                             ; preds = %if.end
   %_M_engaged.i.i.i.i11 = getelementptr inbounds i8, ptr %ref.tmp3, i64 32
   %34 = load i8, ptr %_M_engaged.i.i.i.i11, align 8
   %tobool.i.i.i.i12 = trunc i8 %34 to i1
-  br i1 %tobool.i.i.i.i12, label %eh.resume.sink.split, label %eh.resume
+  br i1 %tobool.i.i.i.i12, label %if.then.i.i.i.i13, label %eh.resume
+
+if.then.i.i.i.i13:                                ; preds = %lpad
+  store i8 0, ptr %_M_engaged.i.i.i.i11, align 8
+  br label %eh.resume.sink.split
 
 lpad6:                                            ; preds = %cond.end.i, %cond.false.i, %if.then.i
   %35 = landingpad { ptr, i32 }
@@ -556,16 +560,18 @@ lpad6.body:                                       ; preds = %lpad.body.i.i, %if.
   %eh.lpad-body = phi { ptr, i32 } [ %35, %lpad6 ], [ %8, %lpad.body.i.i ], [ %eh.lpad-body.i, %if.then.i.i ], [ %eh.lpad-body.i, %if.then.i.i.i ]
   %36 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
   %tobool.i.i.i.i16 = trunc i8 %36 to i1
-  br i1 %tobool.i.i.i.i16, label %eh.resume.sink.split, label %eh.resume
+  br i1 %tobool.i.i.i.i16, label %if.then.i.i.i.i17, label %eh.resume
+
+if.then.i.i.i.i17:                                ; preds = %lpad6.body
+  store i8 0, ptr %_M_engaged.i.i.i.i.i, align 8
+  br label %eh.resume.sink.split
 
 return:                                           ; preds = %if.then.i.i.i.i9, %invoke.cont7, %if.then
   ret void
 
-eh.resume.sink.split:                             ; preds = %lpad6.body, %lpad
-  %_M_engaged.i.i.i.i.i.sink = phi ptr [ %_M_engaged.i.i.i.i11, %lpad ], [ %_M_engaged.i.i.i.i.i, %lpad6.body ]
-  %target_string.sink = phi ptr [ %ref.tmp3, %lpad ], [ %target_string, %lpad6.body ]
-  %.pn.ph = phi { ptr, i32 } [ %33, %lpad ], [ %eh.lpad-body, %lpad6.body ]
-  store i8 0, ptr %_M_engaged.i.i.i.i.i.sink, align 8
+eh.resume.sink.split:                             ; preds = %if.then.i.i.i.i13, %if.then.i.i.i.i17
+  %target_string.sink = phi ptr [ %target_string, %if.then.i.i.i.i17 ], [ %ref.tmp3, %if.then.i.i.i.i13 ]
+  %.pn.ph = phi { ptr, i32 } [ %eh.lpad-body, %if.then.i.i.i.i17 ], [ %33, %if.then.i.i.i.i13 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %target_string.sink) #20
   br label %eh.resume
 

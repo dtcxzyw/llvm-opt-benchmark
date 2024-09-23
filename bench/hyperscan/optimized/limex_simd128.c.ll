@@ -39,23 +39,19 @@ if.end.i:                                         ; preds = %if.then.i
   %4 = getelementptr i8, ptr %3, i64 %2
   %5 = getelementptr i8, ptr %4, i64 -1
   %arrayidx.i = getelementptr i8, ptr %5, i64 %loc
-  br label %queue_prev_byte.exit.sink.split
+  %6 = load i8, ptr %arrayidx.i, align 1
+  br label %queue_prev_byte.exit
 
 if.else.i:                                        ; preds = %entry
   %buffer.i = getelementptr inbounds i8, ptr %q, i64 40
-  %6 = load ptr, ptr %buffer.i, align 8
-  %7 = getelementptr i8, ptr %6, i64 %loc
-  %arrayidx6.i = getelementptr i8, ptr %7, i64 -1
-  br label %queue_prev_byte.exit.sink.split
-
-queue_prev_byte.exit.sink.split:                  ; preds = %if.end.i, %if.else.i
-  %arrayidx6.i.sink = phi ptr [ %arrayidx6.i, %if.else.i ], [ %arrayidx.i, %if.end.i ]
-  %8 = load i8, ptr %arrayidx6.i.sink, align 1
-  %9 = zext i8 %8 to i64
+  %7 = load ptr, ptr %buffer.i, align 8
+  %8 = getelementptr i8, ptr %7, i64 %loc
+  %arrayidx6.i = getelementptr i8, ptr %8, i64 -1
+  %9 = load i8, ptr %arrayidx6.i, align 1
   br label %queue_prev_byte.exit
 
-queue_prev_byte.exit:                             ; preds = %queue_prev_byte.exit.sink.split, %if.then.i
-  %retval.i.0 = phi i64 [ 0, %if.then.i ], [ %9, %queue_prev_byte.exit.sink.split ]
+queue_prev_byte.exit:                             ; preds = %if.then.i, %if.else.i, %if.end.i
+  %retval.i.0 = phi i8 [ %6, %if.end.i ], [ %9, %if.else.i ], [ 0, %if.then.i ]
   %add.ptr = getelementptr inbounds i8, ptr %n, i64 64
   %offset = getelementptr inbounds i8, ptr %q, i64 32
   %10 = load i64, ptr %offset, align 8
@@ -162,7 +158,8 @@ if.then.i10:                                      ; preds = %nfaExecLimEx128_Com
 
 if.else.i12:                                      ; preds = %nfaExecLimEx128_Compress_Repeats.exit
   %add.ptr.i84 = getelementptr inbounds i8, ptr %n, i64 960
-  %arrayidx.i80 = getelementptr inbounds [256 x i8], ptr %add.ptr, i64 0, i64 %retval.i.0
+  %idxprom.i79 = zext i8 %retval.i.0 to i64
+  %arrayidx.i80 = getelementptr inbounds [256 x i8], ptr %add.ptr, i64 0, i64 %idxprom.i79
   %33 = load i8, ptr %arrayidx.i80, align 1
   %idxprom1.i = zext i8 %33 to i64
   %arrayidx2.i = getelementptr inbounds <2 x i64>, ptr %add.ptr.i84, i64 %idxprom1.i
@@ -532,7 +529,7 @@ entry:
   %report_current = getelementptr inbounds i8, ptr %q, i64 80
   %0 = load i8, ptr %report_current, align 8
   %tobool.not = icmp eq i8 %0, 0
-  %mask_chunks.i.i.sroa.0.8.gep180.sroa_idx452 = getelementptr inbounds i8, ptr %mask_chunks.i.i.sroa.0, i64 8
+  %mask_chunks.i.i.sroa.0.8.gep180.sroa_idx451 = getelementptr inbounds i8, ptr %mask_chunks.i.i.sroa.0, i64 8
   br i1 %tobool.not, label %if.end4, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -575,7 +572,7 @@ if.then.i:                                        ; preds = %if.then
 
 for.body.i.i:                                     ; preds = %while.end.i.i, %if.then.i
   %cmp.i.i = phi i1 [ true, %if.then.i ], [ false, %while.end.i.i ]
-  %indvars.iv.i.sroa.phi = phi ptr [ %mask_chunks.i.i.sroa.0, %if.then.i ], [ %mask_chunks.i.i.sroa.0.8.gep180.sroa_idx452, %while.end.i.i ]
+  %indvars.iv.i.sroa.phi = phi ptr [ %mask_chunks.i.i.sroa.0, %if.then.i ], [ %mask_chunks.i.i.sroa.0.8.gep180.sroa_idx451, %while.end.i.i ]
   %indvars.iv.i.sroa.phi182.sroa.speculated = phi i64 [ %chunks.i.i.sroa.0.0.vec.extract, %if.then.i ], [ %chunks.i.i.sroa.0.8.vec.extract, %while.end.i.i ]
   %base_index.i.010.i = phi i32 [ 0, %if.then.i ], [ %add31.i.i, %while.end.i.i ]
   %cmp3.i.not7.i = icmp eq i64 %indvars.iv.i.sroa.phi182.sroa.speculated, 0
@@ -2548,49 +2545,48 @@ sw.bb.i:                                          ; preds = %if.end77
   %tobool.i114.not = icmp eq i64 %cond, 0
   %cond.i.i.v = select i1 %tobool.i114.not, i64 400, i64 416
   %cond.i.i = getelementptr inbounds i8, ptr %n, i64 %cond.i.i.v
-  br label %nfaExecLimEx128_HandleEvent.exit.sink.split
+  call void @llvm.assume(i1 true) [ "align"(ptr %cond.i.i, i64 16) ]
+  %321 = load <2 x i64>, ptr %cond.i.i, align 16
+  %or.i.i = or <2 x i64> %321, %ctx.sroa.0.1
+  br label %nfaExecLimEx128_HandleEvent.exit
 
 sw.default.i:                                     ; preds = %if.end77
   %sub.i = add i32 %320, -4
-  %321 = load i32, ptr %topOffset.i, align 64
-  %idx.ext.i274 = zext i32 %321 to i64
+  %322 = load i32, ptr %topOffset.i, align 64
+  %idx.ext.i274 = zext i32 %322 to i64
   %add.ptr.i275 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext.i274
   %idxprom.i276 = zext i32 %sub.i to i64
   %arrayidx.i277 = getelementptr inbounds <2 x i64>, ptr %add.ptr.i275, i64 %idxprom.i276
-  br label %nfaExecLimEx128_HandleEvent.exit.sink.split
-
-nfaExecLimEx128_HandleEvent.exit.sink.split:      ; preds = %sw.bb.i, %sw.default.i
-  %arrayidx.i277.sink367 = phi ptr [ %arrayidx.i277, %sw.default.i ], [ %cond.i.i, %sw.bb.i ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx.i277.sink367, i64 16) ]
-  %322 = load <2 x i64>, ptr %arrayidx.i277.sink367, align 16
-  %or.i.i278 = or <2 x i64> %322, %ctx.sroa.0.1
+  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx.i277, i64 16) ]
+  %323 = load <2 x i64>, ptr %arrayidx.i277, align 16
+  %or.i.i278 = or <2 x i64> %323, %ctx.sroa.0.1
   br label %nfaExecLimEx128_HandleEvent.exit
 
-nfaExecLimEx128_HandleEvent.exit:                 ; preds = %nfaExecLimEx128_HandleEvent.exit.sink.split, %if.end77, %if.end77
-  %ctx.sroa.0.2 = phi <2 x i64> [ %ctx.sroa.0.1, %if.end77 ], [ %ctx.sroa.0.1, %if.end77 ], [ %or.i.i278, %nfaExecLimEx128_HandleEvent.exit.sink.split ]
+nfaExecLimEx128_HandleEvent.exit:                 ; preds = %if.end77, %if.end77, %sw.default.i, %sw.bb.i
+  %ctx.sroa.0.2 = phi <2 x i64> [ %or.i.i278, %sw.default.i ], [ %ctx.sroa.0.1, %if.end77 ], [ %ctx.sroa.0.1, %if.end77 ], [ %or.i.i, %sw.bb.i ]
   %storemerge = add i32 %317, 1
   store i32 %storemerge, ptr %cur, align 8
-  %323 = load i32, ptr %end5, align 4
-  %cmp21 = icmp ult i32 %storemerge, %323
+  %324 = load i32, ptr %end5, align 4
+  %cmp21 = icmp ult i32 %storemerge, %324
   br i1 %cmp21, label %while.body, label %while.end, !llvm.loop !19
 
 while.end:                                        ; preds = %nfaExecLimEx128_HandleEvent.exit, %if.end9
   %ctx.sroa.0.0.lcssa = phi <2 x i64> [ %31, %if.end9 ], [ %ctx.sroa.0.2, %nfaExecLimEx128_HandleEvent.exit ]
   %sp.0.lcssa = phi i64 [ %add, %if.end9 ], [ %cond, %nfaExecLimEx128_HandleEvent.exit ]
   %repeatCount.i = getelementptr inbounds i8, ptr %n, i64 364
-  %324 = load i32, ptr %repeatCount.i, align 4
-  %tobool.i122.not = icmp eq i32 %324, 0
+  %325 = load i32, ptr %repeatCount.i, align 4
+  %tobool.i122.not = icmp eq i32 %325, 0
   br i1 %tobool.i122.not, label %do.end81, label %if.end.i124
 
 if.end.i124:                                      ; preds = %while.end
   %repeatCyclicMask.i = getelementptr inbounds i8, ptr %n, i64 560
   call void @llvm.assume(i1 true) [ "align"(ptr %repeatCyclicMask.i, i64 16) ]
-  %325 = load <2 x i64>, ptr %repeatCyclicMask.i, align 16
-  %and.i305 = and <2 x i64> %325, %ctx.sroa.0.0.lcssa
-  %326 = bitcast <2 x i64> %and.i305 to <16 x i8>
-  %327 = icmp ne <16 x i8> %326, zeroinitializer
-  %328 = bitcast <16 x i1> %327 to i16
-  %tobool.i63.i.not = icmp eq i16 %328, 0
+  %326 = load <2 x i64>, ptr %repeatCyclicMask.i, align 16
+  %and.i305 = and <2 x i64> %326, %ctx.sroa.0.0.lcssa
+  %327 = bitcast <2 x i64> %and.i305 to <16 x i8>
+  %328 = icmp ne <16 x i8> %327, zeroinitializer
+  %329 = bitcast <16 x i1> %328 to i16
+  %tobool.i63.i.not = icmp eq i16 %329, 0
   br i1 %tobool.i63.i.not, label %do.end81, label %for.body.i.lr.ph
 
 for.body.i.lr.ph:                                 ; preds = %if.end.i124
@@ -2602,41 +2598,41 @@ for.body.i.lr.ph:                                 ; preds = %if.end.i124
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %for.inc.i
   %indvars.iv = phi i64 [ 0, %for.body.i.lr.ph ], [ %indvars.iv.next, %for.inc.i ]
   %ctx.sroa.0.3275 = phi <2 x i64> [ %ctx.sroa.0.0.lcssa, %for.body.i.lr.ph ], [ %ctx.sroa.0.4, %for.inc.i ]
-  %329 = load i32, ptr %repeatOffset1.i.i, align 16
-  %idx.ext.i.i = zext i32 %329 to i64
+  %330 = load i32, ptr %repeatOffset1.i.i, align 16
+  %idx.ext.i.i = zext i32 %330 to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext.i.i
   %arrayidx.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i, i64 %indvars.iv
-  %330 = load i32, ptr %arrayidx.i.i, align 4
-  %idx.ext2.i.i = zext i32 %330 to i64
+  %331 = load i32, ptr %arrayidx.i.i, align 4
+  %idx.ext2.i.i = zext i32 %331 to i64
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext2.i.i
-  %331 = load i32, ptr %add.ptr3.i.i, align 4
-  %rem.i = shl i32 %331, 6
+  %332 = load i32, ptr %add.ptr3.i.i, align 4
+  %rem.i = shl i32 %332, 6
   %mul.i = and i32 %rem.i, 448
-  %div.i129 = lshr i32 %331, 3
+  %div.i129 = lshr i32 %332, 3
   %reass.sub280 = sub nsw i32 %mul.i, %div.i129
   %sub.i180 = add nsw i32 %reass.sub280, 95
   %idxprom.i181 = zext i32 %sub.i180 to i64
   %arrayidx.i182 = getelementptr inbounds [0 x i8], ptr @simd_onebit_masks, i64 0, i64 %idxprom.i181
-  %332 = load <2 x i64>, ptr %arrayidx.i182, align 1
-  %333 = call i32 @llvm.x86.sse41.ptestz(<2 x i64> %332, <2 x i64> %and.i305)
-  %tobool.i174.not = icmp eq i32 %333, 0
+  %333 = load <2 x i64>, ptr %arrayidx.i182, align 1
+  %334 = call i32 @llvm.x86.sse41.ptestz(<2 x i64> %333, <2 x i64> %and.i305)
+  %tobool.i174.not = icmp eq i32 %334, 0
   br i1 %tobool.i174.not, label %if.end14.i, label %for.inc.i
 
 if.end14.i:                                       ; preds = %for.body.i
   %add.ptr.i66.i = getelementptr inbounds i8, ptr %add.ptr3.i.i, i64 24
   %repeatMax.i = getelementptr inbounds i8, ptr %add.ptr3.i.i, i64 32
-  %334 = load i32, ptr %repeatMax.i, align 4
-  %cmp18.i = icmp eq i32 %334, 65535
+  %335 = load i32, ptr %repeatMax.i, align 4
+  %cmp18.i = icmp eq i32 %335, 65535
   br i1 %cmp18.i, label %for.inc.i, label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.end14.i
   %add.ptr.i128 = getelementptr inbounds %union.RepeatControl, ptr %add.ptr.i, i64 %indvars.iv
   %stateOffset.i = getelementptr inbounds i8, ptr %add.ptr3.i.i, i64 12
-  %335 = load i32, ptr %stateOffset.i, align 4
-  %idx.ext23.i = zext i32 %335 to i64
+  %336 = load i32, ptr %stateOffset.i, align 4
+  %idx.ext23.i = zext i32 %336 to i64
   %add.ptr24.i = getelementptr inbounds i8, ptr %add.ptr11, i64 %idx.ext23.i
-  %336 = load i8, ptr %add.ptr.i66.i, align 4
-  switch i8 %336, label %repeatLastTop.exit [
+  %337 = load i8, ptr %add.ptr.i66.i, align 4
+  switch i8 %337, label %repeatLastTop.exit [
     i8 0, label %sw.bb.i283
     i8 1, label %sw.bb1.i
     i8 2, label %sw.bb1.i
@@ -2651,7 +2647,7 @@ sw.bb.i283:                                       ; preds = %if.end20.i
   br label %repeatLastTop.exit
 
 sw.bb1.i:                                         ; preds = %if.end20.i, %if.end20.i
-  %337 = load i64, ptr %add.ptr.i128, align 8
+  %338 = load i64, ptr %add.ptr.i128, align 8
   br label %repeatLastTop.exit
 
 sw.bb2.i:                                         ; preds = %if.end20.i
@@ -2671,68 +2667,68 @@ sw.bb8.i:                                         ; preds = %if.end20.i
   br label %repeatLastTop.exit
 
 repeatLastTop.exit:                               ; preds = %if.end20.i, %sw.bb8.i, %sw.bb6.i282, %sw.bb4.i, %sw.bb2.i, %sw.bb1.i, %sw.bb.i283
-  %retval.i279.0 = phi i64 [ %call9.i, %sw.bb8.i ], [ %call7.i, %sw.bb6.i282 ], [ %call5.i, %sw.bb4.i ], [ %call3.i, %sw.bb2.i ], [ %337, %sw.bb1.i ], [ %call.i, %sw.bb.i283 ], [ 0, %if.end20.i ]
+  %retval.i279.0 = phi i64 [ %call9.i, %sw.bb8.i ], [ %call7.i, %sw.bb6.i282 ], [ %call5.i, %sw.bb4.i ], [ %call3.i, %sw.bb2.i ], [ %338, %sw.bb1.i ], [ %call.i, %sw.bb.i283 ], [ 0, %if.end20.i ]
   call void @llvm.assume(i1 true) [ "align"(ptr %accept.i129, i64 16) ]
-  %338 = load <2 x i64>, ptr %accept.i129, align 16
-  %339 = call i32 @llvm.x86.sse41.ptestz(<2 x i64> %332, <2 x i64> %338)
-  %tobool.i165.not = icmp eq i32 %339, 0
+  %339 = load <2 x i64>, ptr %accept.i129, align 16
+  %340 = call i32 @llvm.x86.sse41.ptestz(<2 x i64> %333, <2 x i64> %339)
+  %tobool.i165.not = icmp eq i32 %340, 0
   br i1 %tobool.i165.not, label %if.end49.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %repeatLastTop.exit
   call void @llvm.assume(i1 true) [ "align"(ptr %acceptAtEOD.i, i64 16) ]
-  %340 = load <2 x i64>, ptr %acceptAtEOD.i, align 16
-  %341 = call i32 @llvm.x86.sse41.ptestz(<2 x i64> %332, <2 x i64> %340)
-  %tobool.i156.not = icmp eq i32 %341, 0
+  %341 = load <2 x i64>, ptr %acceptAtEOD.i, align 16
+  %342 = call i32 @llvm.x86.sse41.ptestz(<2 x i64> %333, <2 x i64> %341)
+  %tobool.i156.not = icmp eq i32 %342, 0
   br i1 %tobool.i156.not, label %if.end49.i, label %if.else.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
   %tugMaskOffset.i = getelementptr inbounds i8, ptr %add.ptr3.i.i, i64 20
-  %342 = load i32, ptr %tugMaskOffset.i, align 4
-  %idx.ext38.i = zext i32 %342 to i64
+  %343 = load i32, ptr %tugMaskOffset.i, align 4
+  %idx.ext38.i = zext i32 %343 to i64
   %add.ptr39.i = getelementptr inbounds i8, ptr %add.ptr3.i.i, i64 %idx.ext38.i
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr39.i, i64 16) ]
-  %343 = load <2 x i64>, ptr %add.ptr39.i, align 16
-  %and.i308 = and <2 x i64> %343, %ctx.sroa.0.3275
-  %344 = bitcast <2 x i64> %and.i308 to <16 x i8>
-  %345 = icmp ne <16 x i8> %344, zeroinitializer
-  %346 = bitcast <16 x i1> %345 to i16
-  %tobool.i.i133.not = icmp ne i16 %346, 0
+  %344 = load <2 x i64>, ptr %add.ptr39.i, align 16
+  %and.i308 = and <2 x i64> %344, %ctx.sroa.0.3275
+  %345 = bitcast <2 x i64> %and.i308 to <16 x i8>
+  %346 = icmp ne <16 x i8> %345, zeroinitializer
+  %347 = bitcast <16 x i1> %346 to i16
+  %tobool.i.i133.not = icmp ne i16 %347, 0
   %spec.select = zext i1 %tobool.i.i133.not to i64
   br label %if.end49.i
 
 if.end49.i:                                       ; preds = %if.else.i, %repeatLastTop.exit, %lor.lhs.false.i
   %adj.i.0 = phi i64 [ 1, %lor.lhs.false.i ], [ 1, %repeatLastTop.exit ], [ %spec.select, %if.else.i ]
-  %347 = load i32, ptr %repeatMax.i, align 4
-  %conv51.i = zext i32 %347 to i64
+  %348 = load i32, ptr %repeatMax.i, align 4
+  %conv51.i = zext i32 %348 to i64
   %add.i136 = add i64 %adj.i.0, %retval.i279.0
   %add52.i = add i64 %add.i136, %conv51.i
   %cmp53.i.not = icmp ult i64 %sp.0.lcssa, %add52.i
   br i1 %cmp53.i.not, label %for.inc.i, label %if.then55.i
 
 if.then55.i:                                      ; preds = %if.end49.i
-  %not.i.i = xor <2 x i64> %332, <i64 -1, i64 -1>
+  %not.i.i = xor <2 x i64> %333, <i64 -1, i64 -1>
   %and.i.i = and <2 x i64> %ctx.sroa.0.3275, %not.i.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end49.i, %if.then55.i, %if.end14.i, %for.body.i
   %ctx.sroa.0.4 = phi <2 x i64> [ %ctx.sroa.0.3275, %if.end14.i ], [ %ctx.sroa.0.3275, %if.end49.i ], [ %and.i.i, %if.then55.i ], [ %ctx.sroa.0.3275, %for.body.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %348 = load i32, ptr %repeatCount.i, align 4
-  %349 = zext i32 %348 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next, %349
+  %349 = load i32, ptr %repeatCount.i, align 4
+  %350 = zext i32 %349 to i64
+  %cmp.i = icmp ult i64 %indvars.iv.next, %350
   br i1 %cmp.i, label %for.body.i, label %do.end81, !llvm.loop !20
 
 do.end81:                                         ; preds = %for.inc.i, %if.end.i124, %while.end
   %ctx.sroa.0.5 = phi <2 x i64> [ %ctx.sroa.0.0.lcssa, %while.end ], [ %ctx.sroa.0.0.lcssa, %if.end.i124 ], [ %ctx.sroa.0.4, %for.inc.i ]
-  %350 = load ptr, ptr %state, align 8
-  store <2 x i64> %ctx.sroa.0.5, ptr %350, align 16
-  %351 = load i32, ptr %cur, align 8
-  %352 = load i32, ptr %end5, align 4
-  %cmp86.not = icmp eq i32 %351, %352
+  %351 = load ptr, ptr %state, align 8
+  store <2 x i64> %ctx.sroa.0.5, ptr %351, align 16
+  %352 = load i32, ptr %cur, align 8
+  %353 = load i32, ptr %end5, align 4
+  %cmp86.not = icmp eq i32 %352, %353
   br i1 %cmp86.not, label %if.end102, label %if.then88
 
 if.then88:                                        ; preds = %do.end81
-  %dec90 = add i32 %351, -1
+  %dec90 = add i32 %352, -1
   store i32 %dec90, ptr %cur, align 8
   %idxprom93 = zext i32 %dec90 to i64
   %arrayidx94 = getelementptr inbounds [10 x %struct.mq_item], ptr %items, i64 0, i64 %idxprom93
@@ -2743,10 +2739,10 @@ if.then88:                                        ; preds = %do.end81
   br label %return
 
 if.end102:                                        ; preds = %do.end81
-  %353 = bitcast <2 x i64> %ctx.sroa.0.5 to <16 x i8>
-  %354 = icmp ne <16 x i8> %353, zeroinitializer
-  %355 = bitcast <16 x i1> %354 to i16
-  %tobool.i = icmp ne i16 %355, 0
+  %354 = bitcast <2 x i64> %ctx.sroa.0.5 to <16 x i8>
+  %355 = icmp ne <16 x i8> %354, zeroinitializer
+  %356 = bitcast <16 x i1> %355 to i16
+  %tobool.i = icmp ne i16 %356, 0
   %conv105 = zext i1 %tobool.i to i8
   br label %return
 
@@ -2766,7 +2762,7 @@ entry:
   %report_current = getelementptr inbounds i8, ptr %q, i64 80
   %0 = load i8, ptr %report_current, align 8
   %tobool.not = icmp eq i8 %0, 0
-  %mask_chunks.i.i.sroa.0.8.gep162.sroa_idx249 = getelementptr inbounds i8, ptr %mask_chunks.i.i.sroa.0, i64 8
+  %mask_chunks.i.i.sroa.0.8.gep162.sroa_idx247 = getelementptr inbounds i8, ptr %mask_chunks.i.i.sroa.0, i64 8
   br i1 %tobool.not, label %if.end4, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -2809,7 +2805,7 @@ if.then.i:                                        ; preds = %if.then
 
 for.body.i.i:                                     ; preds = %while.end.i.i, %if.then.i
   %cmp.i.i = phi i1 [ true, %if.then.i ], [ false, %while.end.i.i ]
-  %indvars.iv.i.sroa.phi = phi ptr [ %mask_chunks.i.i.sroa.0, %if.then.i ], [ %mask_chunks.i.i.sroa.0.8.gep162.sroa_idx249, %while.end.i.i ]
+  %indvars.iv.i.sroa.phi = phi ptr [ %mask_chunks.i.i.sroa.0, %if.then.i ], [ %mask_chunks.i.i.sroa.0.8.gep162.sroa_idx247, %while.end.i.i ]
   %indvars.iv.i.sroa.phi164.sroa.speculated = phi i64 [ %chunks.i.i.sroa.0.0.vec.extract, %if.then.i ], [ %chunks.i.i.sroa.0.8.vec.extract, %while.end.i.i ]
   %base_index.i.010.i = phi i32 [ 0, %if.then.i ], [ %add31.i.i, %while.end.i.i ]
   %cmp3.i.not7.i = icmp eq i64 %indvars.iv.i.sroa.phi164.sroa.speculated, 0
@@ -3059,33 +3055,37 @@ if.end133:                                        ; preds = %scan_done
 
 sw.bb.i:                                          ; preds = %if.end133
   %tobool.i169.not = icmp eq i64 %cond, 0
+  %51 = load <2 x i64>, ptr %ctx, align 64
   %cond.i.i.v = select i1 %tobool.i169.not, i64 400, i64 416
   %cond.i.i = getelementptr inbounds i8, ptr %n, i64 %cond.i.i.v
+  call void @llvm.assume(i1 true) [ "align"(ptr %cond.i.i, i64 16) ]
+  %52 = load <2 x i64>, ptr %cond.i.i, align 16
+  %or.i.i = or <2 x i64> %52, %51
   br label %nfaExecLimEx128_HandleEvent.exit.sink.split
 
 sw.default.i:                                     ; preds = %if.end133
+  %53 = load <2 x i64>, ptr %ctx, align 64
   %sub.i = add i32 %50, -4
-  %51 = load i32, ptr %topOffset.i, align 64
-  %idx.ext.i328 = zext i32 %51 to i64
+  %54 = load i32, ptr %topOffset.i, align 64
+  %idx.ext.i328 = zext i32 %54 to i64
   %add.ptr.i329 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext.i328
   %idxprom.i330 = zext i32 %sub.i to i64
   %arrayidx.i331 = getelementptr inbounds <2 x i64>, ptr %add.ptr.i329, i64 %idxprom.i330
+  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx.i331, i64 16) ]
+  %55 = load <2 x i64>, ptr %arrayidx.i331, align 16
+  %or.i.i332 = or <2 x i64> %55, %53
   br label %nfaExecLimEx128_HandleEvent.exit.sink.split
 
 nfaExecLimEx128_HandleEvent.exit.sink.split:      ; preds = %sw.bb.i, %sw.default.i
-  %arrayidx.i331.sink220 = phi ptr [ %arrayidx.i331, %sw.default.i ], [ %cond.i.i, %sw.bb.i ]
-  %.sink219 = load <2 x i64>, ptr %ctx, align 64
-  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx.i331.sink220, i64 16) ]
-  %52 = load <2 x i64>, ptr %arrayidx.i331.sink220, align 16
-  %or.i.i332 = or <2 x i64> %52, %.sink219
-  store <2 x i64> %or.i.i332, ptr %ctx, align 64
+  %or.i.i332.sink = phi <2 x i64> [ %or.i.i332, %sw.default.i ], [ %or.i.i, %sw.bb.i ]
+  store <2 x i64> %or.i.i332.sink, ptr %ctx, align 64
   br label %nfaExecLimEx128_HandleEvent.exit
 
 nfaExecLimEx128_HandleEvent.exit:                 ; preds = %nfaExecLimEx128_HandleEvent.exit.sink.split, %if.end133, %if.end133
   %storemerge = add i32 %46, 1
   store i32 %storemerge, ptr %cur, align 8
-  %53 = load i32, ptr %end5, align 4
-  %cmp21 = icmp ult i32 %storemerge, %53
+  %56 = load i32, ptr %end5, align 4
+  %cmp21 = icmp ult i32 %storemerge, %56
   br i1 %cmp21, label %while.body, label %while.end.loopexit, !llvm.loop !21
 
 while.end.loopexit:                               ; preds = %nfaExecLimEx128_HandleEvent.exit
@@ -3096,67 +3096,67 @@ while.end:                                        ; preds = %while.end.loopexit,
   %.pre203 = phi <2 x i64> [ %31, %if.end9 ], [ %.pre203.pre, %while.end.loopexit ]
   %sp.0.lcssa = phi i64 [ %add, %if.end9 ], [ %cond, %while.end.loopexit ]
   %repeatCount.i = getelementptr inbounds i8, ptr %n, i64 364
-  %54 = load i32, ptr %repeatCount.i, align 4
-  %tobool.i177.not = icmp eq i32 %54, 0
+  %57 = load i32, ptr %repeatCount.i, align 4
+  %tobool.i177.not = icmp eq i32 %57, 0
   br i1 %tobool.i177.not, label %do.end137, label %if.end.i179
 
 if.end.i179:                                      ; preds = %while.end
   %repeatCyclicMask.i = getelementptr inbounds i8, ptr %n, i64 560
   call void @llvm.assume(i1 true) [ "align"(ptr %repeatCyclicMask.i, i64 16) ]
-  %55 = load <2 x i64>, ptr %repeatCyclicMask.i, align 16
-  %and.i359 = and <2 x i64> %55, %.pre203
-  %56 = bitcast <2 x i64> %and.i359 to <16 x i8>
-  %57 = icmp ne <16 x i8> %56, zeroinitializer
-  %58 = bitcast <16 x i1> %57 to i16
-  %tobool.i63.i.not = icmp eq i16 %58, 0
+  %58 = load <2 x i64>, ptr %repeatCyclicMask.i, align 16
+  %and.i359 = and <2 x i64> %58, %.pre203
+  %59 = bitcast <2 x i64> %and.i359 to <16 x i8>
+  %60 = icmp ne <16 x i8> %59, zeroinitializer
+  %61 = bitcast <16 x i1> %60 to i16
+  %tobool.i63.i.not = icmp eq i16 %61, 0
   br i1 %tobool.i63.i.not, label %do.end137, label %for.body.i.lr.ph
 
 for.body.i.lr.ph:                                 ; preds = %if.end.i179
   %repeatOffset1.i.i = getelementptr inbounds i8, ptr %n, i64 368
-  %59 = load ptr, ptr %repeat_ctrl, align 16
-  %60 = load ptr, ptr %repeat_state, align 8
+  %62 = load ptr, ptr %repeat_ctrl, align 16
+  %63 = load ptr, ptr %repeat_state, align 8
   %accept.i184 = getelementptr inbounds i8, ptr %n, i64 432
   %acceptAtEOD.i = getelementptr inbounds i8, ptr %n, i64 448
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %for.inc.i
   %indvars.iv = phi i64 [ 0, %for.body.i.lr.ph ], [ %indvars.iv.next, %for.inc.i ]
-  %61 = phi <2 x i64> [ %.pre203, %for.body.i.lr.ph ], [ %81, %for.inc.i ]
-  %62 = load i32, ptr %repeatOffset1.i.i, align 16
-  %idx.ext.i.i = zext i32 %62 to i64
+  %64 = phi <2 x i64> [ %.pre203, %for.body.i.lr.ph ], [ %84, %for.inc.i ]
+  %65 = load i32, ptr %repeatOffset1.i.i, align 16
+  %idx.ext.i.i = zext i32 %65 to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext.i.i
   %arrayidx.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i, i64 %indvars.iv
-  %63 = load i32, ptr %arrayidx.i.i, align 4
-  %idx.ext2.i.i = zext i32 %63 to i64
+  %66 = load i32, ptr %arrayidx.i.i, align 4
+  %idx.ext2.i.i = zext i32 %66 to i64
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext2.i.i
-  %64 = load i32, ptr %add.ptr3.i.i, align 4
-  %rem.i = shl i32 %64, 6
+  %67 = load i32, ptr %add.ptr3.i.i, align 4
+  %rem.i = shl i32 %67, 6
   %mul.i = and i32 %rem.i, 448
-  %div.i159 = lshr i32 %64, 3
+  %div.i159 = lshr i32 %67, 3
   %reass.sub = sub nsw i32 %mul.i, %div.i159
   %sub.i235 = add nsw i32 %reass.sub, 95
   %idxprom.i236 = zext i32 %sub.i235 to i64
   %arrayidx.i237 = getelementptr inbounds [0 x i8], ptr @simd_onebit_masks, i64 0, i64 %idxprom.i236
-  %65 = load <2 x i64>, ptr %arrayidx.i237, align 1
-  %66 = tail call i32 @llvm.x86.sse41.ptestz(<2 x i64> %65, <2 x i64> %and.i359)
-  %tobool.i229.not = icmp eq i32 %66, 0
+  %68 = load <2 x i64>, ptr %arrayidx.i237, align 1
+  %69 = tail call i32 @llvm.x86.sse41.ptestz(<2 x i64> %68, <2 x i64> %and.i359)
+  %tobool.i229.not = icmp eq i32 %69, 0
   br i1 %tobool.i229.not, label %if.end14.i, label %for.inc.i
 
 if.end14.i:                                       ; preds = %for.body.i
   %add.ptr.i66.i = getelementptr inbounds i8, ptr %add.ptr3.i.i, i64 24
   %repeatMax.i = getelementptr inbounds i8, ptr %add.ptr3.i.i, i64 32
-  %67 = load i32, ptr %repeatMax.i, align 4
-  %cmp18.i = icmp eq i32 %67, 65535
+  %70 = load i32, ptr %repeatMax.i, align 4
+  %cmp18.i = icmp eq i32 %70, 65535
   br i1 %cmp18.i, label %for.inc.i, label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.end14.i
-  %add.ptr.i183 = getelementptr inbounds %union.RepeatControl, ptr %59, i64 %indvars.iv
+  %add.ptr.i183 = getelementptr inbounds %union.RepeatControl, ptr %62, i64 %indvars.iv
   %stateOffset.i = getelementptr inbounds i8, ptr %add.ptr3.i.i, i64 12
-  %68 = load i32, ptr %stateOffset.i, align 4
-  %idx.ext23.i = zext i32 %68 to i64
-  %add.ptr24.i = getelementptr inbounds i8, ptr %60, i64 %idx.ext23.i
-  %69 = load i8, ptr %add.ptr.i66.i, align 4
-  switch i8 %69, label %repeatLastTop.exit [
+  %71 = load i32, ptr %stateOffset.i, align 4
+  %idx.ext23.i = zext i32 %71 to i64
+  %add.ptr24.i = getelementptr inbounds i8, ptr %63, i64 %idx.ext23.i
+  %72 = load i8, ptr %add.ptr.i66.i, align 4
+  switch i8 %72, label %repeatLastTop.exit [
     i8 0, label %sw.bb.i337
     i8 1, label %sw.bb1.i
     i8 2, label %sw.bb1.i
@@ -3171,7 +3171,7 @@ sw.bb.i337:                                       ; preds = %if.end20.i
   br label %repeatLastTop.exit
 
 sw.bb1.i:                                         ; preds = %if.end20.i, %if.end20.i
-  %70 = load i64, ptr %add.ptr.i183, align 8
+  %73 = load i64, ptr %add.ptr.i183, align 8
   br label %repeatLastTop.exit
 
 sw.bb2.i:                                         ; preds = %if.end20.i
@@ -3191,68 +3191,68 @@ sw.bb8.i:                                         ; preds = %if.end20.i
   br label %repeatLastTop.exit
 
 repeatLastTop.exit:                               ; preds = %if.end20.i, %sw.bb8.i, %sw.bb6.i336, %sw.bb4.i, %sw.bb2.i, %sw.bb1.i, %sw.bb.i337
-  %retval.i333.0 = phi i64 [ %call9.i, %sw.bb8.i ], [ %call7.i, %sw.bb6.i336 ], [ %call5.i, %sw.bb4.i ], [ %call3.i, %sw.bb2.i ], [ %70, %sw.bb1.i ], [ %call.i, %sw.bb.i337 ], [ 0, %if.end20.i ]
+  %retval.i333.0 = phi i64 [ %call9.i, %sw.bb8.i ], [ %call7.i, %sw.bb6.i336 ], [ %call5.i, %sw.bb4.i ], [ %call3.i, %sw.bb2.i ], [ %73, %sw.bb1.i ], [ %call.i, %sw.bb.i337 ], [ 0, %if.end20.i ]
   call void @llvm.assume(i1 true) [ "align"(ptr %accept.i184, i64 16) ]
-  %71 = load <2 x i64>, ptr %accept.i184, align 16
-  %72 = tail call i32 @llvm.x86.sse41.ptestz(<2 x i64> %65, <2 x i64> %71)
-  %tobool.i220.not = icmp eq i32 %72, 0
+  %74 = load <2 x i64>, ptr %accept.i184, align 16
+  %75 = tail call i32 @llvm.x86.sse41.ptestz(<2 x i64> %68, <2 x i64> %74)
+  %tobool.i220.not = icmp eq i32 %75, 0
   br i1 %tobool.i220.not, label %if.end49.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %repeatLastTop.exit
   call void @llvm.assume(i1 true) [ "align"(ptr %acceptAtEOD.i, i64 16) ]
-  %73 = load <2 x i64>, ptr %acceptAtEOD.i, align 16
-  %74 = tail call i32 @llvm.x86.sse41.ptestz(<2 x i64> %65, <2 x i64> %73)
-  %tobool.i211.not = icmp eq i32 %74, 0
+  %76 = load <2 x i64>, ptr %acceptAtEOD.i, align 16
+  %77 = tail call i32 @llvm.x86.sse41.ptestz(<2 x i64> %68, <2 x i64> %76)
+  %tobool.i211.not = icmp eq i32 %77, 0
   br i1 %tobool.i211.not, label %if.end49.i, label %if.else.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
   %tugMaskOffset.i = getelementptr inbounds i8, ptr %add.ptr3.i.i, i64 20
-  %75 = load i32, ptr %tugMaskOffset.i, align 4
-  %idx.ext38.i = zext i32 %75 to i64
+  %78 = load i32, ptr %tugMaskOffset.i, align 4
+  %idx.ext38.i = zext i32 %78 to i64
   %add.ptr39.i = getelementptr inbounds i8, ptr %add.ptr3.i.i, i64 %idx.ext38.i
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr39.i, i64 16) ]
-  %76 = load <2 x i64>, ptr %add.ptr39.i, align 16
-  %and.i362 = and <2 x i64> %76, %61
-  %77 = bitcast <2 x i64> %and.i362 to <16 x i8>
-  %78 = icmp ne <16 x i8> %77, zeroinitializer
-  %79 = bitcast <16 x i1> %78 to i16
-  %tobool.i.i188.not = icmp ne i16 %79, 0
+  %79 = load <2 x i64>, ptr %add.ptr39.i, align 16
+  %and.i362 = and <2 x i64> %79, %64
+  %80 = bitcast <2 x i64> %and.i362 to <16 x i8>
+  %81 = icmp ne <16 x i8> %80, zeroinitializer
+  %82 = bitcast <16 x i1> %81 to i16
+  %tobool.i.i188.not = icmp ne i16 %82, 0
   %spec.select = zext i1 %tobool.i.i188.not to i64
   br label %if.end49.i
 
 if.end49.i:                                       ; preds = %if.else.i, %repeatLastTop.exit, %lor.lhs.false.i
   %adj.i.0 = phi i64 [ 1, %lor.lhs.false.i ], [ 1, %repeatLastTop.exit ], [ %spec.select, %if.else.i ]
-  %80 = load i32, ptr %repeatMax.i, align 4
-  %conv51.i = zext i32 %80 to i64
+  %83 = load i32, ptr %repeatMax.i, align 4
+  %conv51.i = zext i32 %83 to i64
   %add.i191 = add i64 %adj.i.0, %retval.i333.0
   %add52.i = add i64 %add.i191, %conv51.i
   %cmp53.i.not = icmp ult i64 %sp.0.lcssa, %add52.i
   br i1 %cmp53.i.not, label %for.inc.i, label %if.then55.i
 
 if.then55.i:                                      ; preds = %if.end49.i
-  %not.i.i = xor <2 x i64> %65, <i64 -1, i64 -1>
-  %and.i.i = and <2 x i64> %61, %not.i.i
+  %not.i.i = xor <2 x i64> %68, <i64 -1, i64 -1>
+  %and.i.i = and <2 x i64> %64, %not.i.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end49.i, %if.then55.i, %if.end14.i, %for.body.i
-  %81 = phi <2 x i64> [ %61, %if.end49.i ], [ %and.i.i, %if.then55.i ], [ %61, %if.end14.i ], [ %61, %for.body.i ]
+  %84 = phi <2 x i64> [ %64, %if.end49.i ], [ %and.i.i, %if.then55.i ], [ %64, %if.end14.i ], [ %64, %for.body.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %82 = load i32, ptr %repeatCount.i, align 4
-  %83 = zext i32 %82 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next, %83
+  %85 = load i32, ptr %repeatCount.i, align 4
+  %86 = zext i32 %85 to i64
+  %cmp.i = icmp ult i64 %indvars.iv.next, %86
   br i1 %cmp.i, label %for.body.i, label %do.end137, !llvm.loop !20
 
 do.end137:                                        ; preds = %for.inc.i, %if.end.i179, %while.end
-  %84 = phi <2 x i64> [ %.pre203, %if.end.i179 ], [ %.pre203, %while.end ], [ %81, %for.inc.i ]
-  %85 = load ptr, ptr %state, align 8
-  store <2 x i64> %84, ptr %85, align 16
-  %86 = load i32, ptr %cur, align 8
-  %87 = load i32, ptr %end5, align 4
-  %cmp142.not = icmp eq i32 %86, %87
+  %87 = phi <2 x i64> [ %.pre203, %if.end.i179 ], [ %.pre203, %while.end ], [ %84, %for.inc.i ]
+  %88 = load ptr, ptr %state, align 8
+  store <2 x i64> %87, ptr %88, align 16
+  %89 = load i32, ptr %cur, align 8
+  %90 = load i32, ptr %end5, align 4
+  %cmp142.not = icmp eq i32 %89, %90
   br i1 %cmp142.not, label %if.end158, label %if.then144
 
 if.then144:                                       ; preds = %do.end137
-  %dec146 = add i32 %86, -1
+  %dec146 = add i32 %89, -1
   store i32 %dec146, ptr %cur, align 8
   %idxprom149 = zext i32 %dec146 to i64
   %arrayidx150 = getelementptr inbounds [10 x %struct.mq_item], ptr %items, i64 0, i64 %idxprom149
@@ -3263,10 +3263,10 @@ if.then144:                                       ; preds = %do.end137
   br label %return
 
 if.end158:                                        ; preds = %do.end137
-  %88 = bitcast <2 x i64> %84 to <16 x i8>
-  %89 = icmp ne <16 x i8> %88, zeroinitializer
-  %90 = bitcast <16 x i1> %89 to i16
-  %tobool.i = icmp ne i16 %90, 0
+  %91 = bitcast <2 x i64> %87 to <16 x i8>
+  %92 = icmp ne <16 x i8> %91, zeroinitializer
+  %93 = bitcast <16 x i1> %92 to i16
+  %tobool.i = icmp ne i16 %93, 0
   %conv161 = zext i1 %tobool.i to i8
   br label %return
 
@@ -4845,7 +4845,7 @@ entry:
   %end = getelementptr inbounds i8, ptr %q, i64 12
   %1 = load i32, ptr %end, align 4
   %cmp = icmp eq i32 %0, %1
-  %mask_chunks.i.sroa.0.8.gep225.sroa_idx226 = getelementptr inbounds i8, ptr %mask_chunks.i.sroa.0, i64 8
+  %mask_chunks.i.sroa.0.8.gep223.sroa_idx224 = getelementptr inbounds i8, ptr %mask_chunks.i.sroa.0, i64 8
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -4960,33 +4960,37 @@ scan_done:                                        ; preds = %if.end42, %do.end48
 
 sw.bb.i:                                          ; preds = %scan_done
   %tobool.i74.not = icmp eq i64 %add15, 0
+  %16 = load <2 x i64>, ptr %ctx, align 64
   %cond.i.i.v = select i1 %tobool.i74.not, i64 400, i64 416
   %cond.i.i = getelementptr inbounds i8, ptr %n, i64 %cond.i.i.v
+  call void @llvm.assume(i1 true) [ "align"(ptr %cond.i.i, i64 16) ]
+  %17 = load <2 x i64>, ptr %cond.i.i, align 16
+  %or.i.i = or <2 x i64> %17, %16
   br label %nfaExecLimEx128_HandleEvent.exit.sink.split
 
 sw.default.i:                                     ; preds = %scan_done
+  %18 = load <2 x i64>, ptr %ctx, align 64
   %sub.i = add i32 %15, -4
-  %16 = load i32, ptr %topOffset.i, align 64
-  %idx.ext.i347 = zext i32 %16 to i64
+  %19 = load i32, ptr %topOffset.i, align 64
+  %idx.ext.i347 = zext i32 %19 to i64
   %add.ptr.i348 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext.i347
   %idxprom.i349 = zext i32 %sub.i to i64
   %arrayidx.i350 = getelementptr inbounds <2 x i64>, ptr %add.ptr.i348, i64 %idxprom.i349
+  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx.i350, i64 16) ]
+  %20 = load <2 x i64>, ptr %arrayidx.i350, align 16
+  %or.i.i351 = or <2 x i64> %20, %18
   br label %nfaExecLimEx128_HandleEvent.exit.sink.split
 
 nfaExecLimEx128_HandleEvent.exit.sink.split:      ; preds = %sw.bb.i, %sw.default.i
-  %arrayidx.i350.sink218 = phi ptr [ %arrayidx.i350, %sw.default.i ], [ %cond.i.i, %sw.bb.i ]
-  %.sink217 = load <2 x i64>, ptr %ctx, align 64
-  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx.i350.sink218, i64 16) ]
-  %17 = load <2 x i64>, ptr %arrayidx.i350.sink218, align 16
-  %or.i.i351 = or <2 x i64> %17, %.sink217
-  store <2 x i64> %or.i.i351, ptr %ctx, align 64
+  %or.i.i351.sink = phi <2 x i64> [ %or.i.i351, %sw.default.i ], [ %or.i.i, %sw.bb.i ]
+  store <2 x i64> %or.i.i351.sink, ptr %ctx, align 64
   br label %nfaExecLimEx128_HandleEvent.exit
 
 nfaExecLimEx128_HandleEvent.exit:                 ; preds = %nfaExecLimEx128_HandleEvent.exit.sink.split, %scan_done, %scan_done
   %storemerge = add i32 %14, 1
   store i32 %storemerge, ptr %cur, align 8
-  %18 = load i32, ptr %end, align 4
-  %cmp9 = icmp ult i32 %storemerge, %18
+  %21 = load i32, ptr %end, align 4
+  %cmp9 = icmp ult i32 %storemerge, %21
   br i1 %cmp9, label %while.body, label %while.end.loopexit, !llvm.loop !22
 
 while.end.loopexit:                               ; preds = %nfaExecLimEx128_HandleEvent.exit
@@ -4997,67 +5001,67 @@ while.end:                                        ; preds = %while.end.loopexit,
   %.pre = phi <2 x i64> [ %5, %if.end ], [ %.pre.pre, %while.end.loopexit ]
   %sp.0.lcssa = phi i64 [ %add, %if.end ], [ %add15, %while.end.loopexit ]
   %repeatCount.i = getelementptr inbounds i8, ptr %n, i64 364
-  %19 = load i32, ptr %repeatCount.i, align 4
-  %tobool.i81.not = icmp eq i32 %19, 0
+  %22 = load i32, ptr %repeatCount.i, align 4
+  %tobool.i81.not = icmp eq i32 %22, 0
   br i1 %tobool.i81.not, label %do.end58, label %if.end.i
 
 if.end.i:                                         ; preds = %while.end
   %repeatCyclicMask.i = getelementptr inbounds i8, ptr %n, i64 560
   call void @llvm.assume(i1 true) [ "align"(ptr %repeatCyclicMask.i, i64 16) ]
-  %20 = load <2 x i64>, ptr %repeatCyclicMask.i, align 16
-  %and.i412 = and <2 x i64> %20, %.pre
-  %21 = bitcast <2 x i64> %and.i412 to <16 x i8>
-  %22 = icmp ne <16 x i8> %21, zeroinitializer
-  %23 = bitcast <16 x i1> %22 to i16
-  %tobool.i63.i.not = icmp eq i16 %23, 0
+  %23 = load <2 x i64>, ptr %repeatCyclicMask.i, align 16
+  %and.i412 = and <2 x i64> %23, %.pre
+  %24 = bitcast <2 x i64> %and.i412 to <16 x i8>
+  %25 = icmp ne <16 x i8> %24, zeroinitializer
+  %26 = bitcast <16 x i1> %25 to i16
+  %tobool.i63.i.not = icmp eq i16 %26, 0
   br i1 %tobool.i63.i.not, label %do.end58, label %for.body.i.lr.ph
 
 for.body.i.lr.ph:                                 ; preds = %if.end.i
   %repeatOffset1.i.i = getelementptr inbounds i8, ptr %n, i64 368
-  %24 = load ptr, ptr %repeat_ctrl, align 16
-  %25 = load ptr, ptr %repeat_state, align 8
+  %27 = load ptr, ptr %repeat_ctrl, align 16
+  %28 = load ptr, ptr %repeat_state, align 8
   %accept.i = getelementptr inbounds i8, ptr %n, i64 432
   %acceptAtEOD.i = getelementptr inbounds i8, ptr %n, i64 448
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %for.inc.i
   %indvars.iv = phi i64 [ 0, %for.body.i.lr.ph ], [ %indvars.iv.next, %for.inc.i ]
-  %26 = phi <2 x i64> [ %.pre, %for.body.i.lr.ph ], [ %46, %for.inc.i ]
-  %27 = load i32, ptr %repeatOffset1.i.i, align 16
-  %idx.ext.i.i = zext i32 %27 to i64
+  %29 = phi <2 x i64> [ %.pre, %for.body.i.lr.ph ], [ %49, %for.inc.i ]
+  %30 = load i32, ptr %repeatOffset1.i.i, align 16
+  %idx.ext.i.i = zext i32 %30 to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext.i.i
   %arrayidx.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i, i64 %indvars.iv
-  %28 = load i32, ptr %arrayidx.i.i, align 4
-  %idx.ext2.i.i = zext i32 %28 to i64
+  %31 = load i32, ptr %arrayidx.i.i, align 4
+  %idx.ext2.i.i = zext i32 %31 to i64
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext2.i.i
-  %29 = load i32, ptr %add.ptr3.i.i, align 4
-  %rem.i = shl i32 %29, 6
+  %32 = load i32, ptr %add.ptr3.i.i, align 4
+  %rem.i = shl i32 %32, 6
   %mul.i = and i32 %rem.i, 448
-  %div.i175 = lshr i32 %29, 3
+  %div.i175 = lshr i32 %32, 3
   %reass.sub = sub nsw i32 %mul.i, %div.i175
   %sub.i206 = add nsw i32 %reass.sub, 95
   %idxprom.i207 = zext i32 %sub.i206 to i64
   %arrayidx.i208 = getelementptr inbounds [0 x i8], ptr @simd_onebit_masks, i64 0, i64 %idxprom.i207
-  %30 = load <2 x i64>, ptr %arrayidx.i208, align 1
-  %31 = tail call i32 @llvm.x86.sse41.ptestz(<2 x i64> %30, <2 x i64> %and.i412)
-  %tobool.i200.not = icmp eq i32 %31, 0
+  %33 = load <2 x i64>, ptr %arrayidx.i208, align 1
+  %34 = tail call i32 @llvm.x86.sse41.ptestz(<2 x i64> %33, <2 x i64> %and.i412)
+  %tobool.i200.not = icmp eq i32 %34, 0
   br i1 %tobool.i200.not, label %if.end14.i, label %for.inc.i
 
 if.end14.i:                                       ; preds = %for.body.i
   %add.ptr.i66.i = getelementptr inbounds i8, ptr %add.ptr3.i.i, i64 24
   %repeatMax.i = getelementptr inbounds i8, ptr %add.ptr3.i.i, i64 32
-  %32 = load i32, ptr %repeatMax.i, align 4
-  %cmp18.i = icmp eq i32 %32, 65535
+  %35 = load i32, ptr %repeatMax.i, align 4
+  %cmp18.i = icmp eq i32 %35, 65535
   br i1 %cmp18.i, label %for.inc.i, label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.end14.i
-  %add.ptr.i84 = getelementptr inbounds %union.RepeatControl, ptr %24, i64 %indvars.iv
+  %add.ptr.i84 = getelementptr inbounds %union.RepeatControl, ptr %27, i64 %indvars.iv
   %stateOffset.i = getelementptr inbounds i8, ptr %add.ptr3.i.i, i64 12
-  %33 = load i32, ptr %stateOffset.i, align 4
-  %idx.ext23.i = zext i32 %33 to i64
-  %add.ptr24.i = getelementptr inbounds i8, ptr %25, i64 %idx.ext23.i
-  %34 = load i8, ptr %add.ptr.i66.i, align 4
-  switch i8 %34, label %repeatLastTop.exit [
+  %36 = load i32, ptr %stateOffset.i, align 4
+  %idx.ext23.i = zext i32 %36 to i64
+  %add.ptr24.i = getelementptr inbounds i8, ptr %28, i64 %idx.ext23.i
+  %37 = load i8, ptr %add.ptr.i66.i, align 4
+  switch i8 %37, label %repeatLastTop.exit [
     i8 0, label %sw.bb.i359
     i8 1, label %sw.bb1.i358
     i8 2, label %sw.bb1.i358
@@ -5072,7 +5076,7 @@ sw.bb.i359:                                       ; preds = %if.end20.i
   br label %repeatLastTop.exit
 
 sw.bb1.i358:                                      ; preds = %if.end20.i, %if.end20.i
-  %35 = load i64, ptr %add.ptr.i84, align 8
+  %38 = load i64, ptr %add.ptr.i84, align 8
   br label %repeatLastTop.exit
 
 sw.bb2.i:                                         ; preds = %if.end20.i
@@ -5092,78 +5096,78 @@ sw.bb8.i:                                         ; preds = %if.end20.i
   br label %repeatLastTop.exit
 
 repeatLastTop.exit:                               ; preds = %if.end20.i, %sw.bb8.i, %sw.bb6.i357, %sw.bb4.i, %sw.bb2.i, %sw.bb1.i358, %sw.bb.i359
-  %retval.i352.0 = phi i64 [ %call9.i, %sw.bb8.i ], [ %call7.i, %sw.bb6.i357 ], [ %call5.i, %sw.bb4.i ], [ %call3.i, %sw.bb2.i ], [ %35, %sw.bb1.i358 ], [ %call.i360, %sw.bb.i359 ], [ 0, %if.end20.i ]
+  %retval.i352.0 = phi i64 [ %call9.i, %sw.bb8.i ], [ %call7.i, %sw.bb6.i357 ], [ %call5.i, %sw.bb4.i ], [ %call3.i, %sw.bb2.i ], [ %38, %sw.bb1.i358 ], [ %call.i360, %sw.bb.i359 ], [ 0, %if.end20.i ]
   call void @llvm.assume(i1 true) [ "align"(ptr %accept.i, i64 16) ]
-  %36 = load <2 x i64>, ptr %accept.i, align 16
-  %37 = tail call i32 @llvm.x86.sse41.ptestz(<2 x i64> %30, <2 x i64> %36)
-  %tobool.i191.not = icmp eq i32 %37, 0
+  %39 = load <2 x i64>, ptr %accept.i, align 16
+  %40 = tail call i32 @llvm.x86.sse41.ptestz(<2 x i64> %33, <2 x i64> %39)
+  %tobool.i191.not = icmp eq i32 %40, 0
   br i1 %tobool.i191.not, label %if.end49.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %repeatLastTop.exit
   call void @llvm.assume(i1 true) [ "align"(ptr %acceptAtEOD.i, i64 16) ]
-  %38 = load <2 x i64>, ptr %acceptAtEOD.i, align 16
-  %39 = tail call i32 @llvm.x86.sse41.ptestz(<2 x i64> %30, <2 x i64> %38)
-  %tobool.i182.not = icmp eq i32 %39, 0
+  %41 = load <2 x i64>, ptr %acceptAtEOD.i, align 16
+  %42 = tail call i32 @llvm.x86.sse41.ptestz(<2 x i64> %33, <2 x i64> %41)
+  %tobool.i182.not = icmp eq i32 %42, 0
   br i1 %tobool.i182.not, label %if.end49.i, label %if.else.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
   %tugMaskOffset.i = getelementptr inbounds i8, ptr %add.ptr3.i.i, i64 20
-  %40 = load i32, ptr %tugMaskOffset.i, align 4
-  %idx.ext38.i = zext i32 %40 to i64
+  %43 = load i32, ptr %tugMaskOffset.i, align 4
+  %idx.ext38.i = zext i32 %43 to i64
   %add.ptr39.i = getelementptr inbounds i8, ptr %add.ptr3.i.i, i64 %idx.ext38.i
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr39.i, i64 16) ]
-  %41 = load <2 x i64>, ptr %add.ptr39.i, align 16
-  %and.i415 = and <2 x i64> %41, %26
-  %42 = bitcast <2 x i64> %and.i415 to <16 x i8>
-  %43 = icmp ne <16 x i8> %42, zeroinitializer
-  %44 = bitcast <16 x i1> %43 to i16
-  %tobool.i.i.not = icmp ne i16 %44, 0
+  %44 = load <2 x i64>, ptr %add.ptr39.i, align 16
+  %and.i415 = and <2 x i64> %44, %29
+  %45 = bitcast <2 x i64> %and.i415 to <16 x i8>
+  %46 = icmp ne <16 x i8> %45, zeroinitializer
+  %47 = bitcast <16 x i1> %46 to i16
+  %tobool.i.i.not = icmp ne i16 %47, 0
   %spec.select = zext i1 %tobool.i.i.not to i64
   br label %if.end49.i
 
 if.end49.i:                                       ; preds = %if.else.i, %repeatLastTop.exit, %lor.lhs.false.i
   %adj.i.0 = phi i64 [ 1, %lor.lhs.false.i ], [ 1, %repeatLastTop.exit ], [ %spec.select, %if.else.i ]
-  %45 = load i32, ptr %repeatMax.i, align 4
-  %conv51.i = zext i32 %45 to i64
+  %48 = load i32, ptr %repeatMax.i, align 4
+  %conv51.i = zext i32 %48 to i64
   %add.i86 = add i64 %adj.i.0, %retval.i352.0
   %add52.i = add i64 %add.i86, %conv51.i
   %cmp53.i.not = icmp ult i64 %sp.0.lcssa, %add52.i
   br i1 %cmp53.i.not, label %for.inc.i, label %if.then55.i
 
 if.then55.i:                                      ; preds = %if.end49.i
-  %not.i.i388 = xor <2 x i64> %30, <i64 -1, i64 -1>
-  %and.i.i389 = and <2 x i64> %26, %not.i.i388
+  %not.i.i388 = xor <2 x i64> %33, <i64 -1, i64 -1>
+  %and.i.i389 = and <2 x i64> %29, %not.i.i388
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end49.i, %if.then55.i, %if.end14.i, %for.body.i
-  %46 = phi <2 x i64> [ %26, %if.end49.i ], [ %and.i.i389, %if.then55.i ], [ %26, %if.end14.i ], [ %26, %for.body.i ]
+  %49 = phi <2 x i64> [ %29, %if.end49.i ], [ %and.i.i389, %if.then55.i ], [ %29, %if.end14.i ], [ %29, %for.body.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %47 = load i32, ptr %repeatCount.i, align 4
-  %48 = zext i32 %47 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next, %48
+  %50 = load i32, ptr %repeatCount.i, align 4
+  %51 = zext i32 %50 to i64
+  %cmp.i = icmp ult i64 %indvars.iv.next, %51
   br i1 %cmp.i, label %for.body.i, label %do.end58, !llvm.loop !20
 
 do.end58:                                         ; preds = %for.inc.i, %if.end.i, %while.end
-  %49 = phi <2 x i64> [ %.pre, %if.end.i ], [ %.pre, %while.end ], [ %46, %for.inc.i ]
-  %50 = bitcast <2 x i64> %49 to <16 x i8>
-  %51 = load ptr, ptr %state, align 8
-  store <2 x i64> %49, ptr %51, align 16
-  %52 = load ptr, ptr %repeat_ctrl, align 16
-  %53 = load ptr, ptr %repeat_state, align 8
+  %52 = phi <2 x i64> [ %.pre, %if.end.i ], [ %.pre, %while.end ], [ %49, %for.inc.i ]
+  %53 = bitcast <2 x i64> %52 to <16 x i8>
+  %54 = load ptr, ptr %state, align 8
+  store <2 x i64> %52, ptr %54, align 16
+  %55 = load ptr, ptr %repeat_ctrl, align 16
+  %56 = load ptr, ptr %repeat_state, align 8
   %add64 = add i64 %sp.0.lcssa, 1
   %accept.i92 = getelementptr inbounds i8, ptr %n, i64 432
   call void @llvm.assume(i1 true) [ "align"(ptr %accept.i92, i64 16) ]
-  %54 = load <2 x i64>, ptr %accept.i92, align 16
-  %and.i418 = and <2 x i64> %54, %49
-  %55 = bitcast <2 x i64> %and.i418 to <16 x i8>
-  %56 = icmp ne <16 x i8> %55, zeroinitializer
-  %57 = bitcast <16 x i1> %56 to i16
-  %tobool.i.i97.not = icmp eq i16 %57, 0
+  %57 = load <2 x i64>, ptr %accept.i92, align 16
+  %and.i418 = and <2 x i64> %57, %52
+  %58 = bitcast <2 x i64> %and.i418 to <16 x i8>
+  %59 = icmp ne <16 x i8> %58, zeroinitializer
+  %60 = bitcast <16 x i1> %59 to i16
+  %tobool.i.i97.not = icmp eq i16 %60, 0
   br i1 %tobool.i.i97.not, label %if.end68, label %if.end.i101
 
 if.end.i101:                                      ; preds = %do.end58
-  %58 = load i32, ptr %repeatCount.i, align 4
-  %tobool.i143.not = icmp eq i32 %58, 0
+  %61 = load i32, ptr %repeatCount.i, align 4
+  %tobool.i143.not = icmp eq i32 %61, 0
   br i1 %tobool.i143.not, label %lazyTug128.exit, label %for.body.i149.lr.ph
 
 for.body.i149.lr.ph:                              ; preds = %if.end.i101
@@ -5173,35 +5177,35 @@ for.body.i149.lr.ph:                              ; preds = %if.end.i101
 for.body.i149:                                    ; preds = %for.body.i149.lr.ph, %for.inc.i157
   %indvars.iv205 = phi i64 [ 0, %for.body.i149.lr.ph ], [ %indvars.iv.next206, %for.inc.i157 ]
   %accepts.i.1193 = phi <2 x i64> [ %and.i418, %for.body.i149.lr.ph ], [ %accepts.i.2, %for.inc.i157 ]
-  %59 = load i32, ptr %repeatOffset1.i.i150, align 16
-  %idx.ext.i.i151 = zext i32 %59 to i64
+  %62 = load i32, ptr %repeatOffset1.i.i150, align 16
+  %idx.ext.i.i151 = zext i32 %62 to i64
   %add.ptr.i.i152 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext.i.i151
   %arrayidx.i.i154 = getelementptr inbounds i32, ptr %add.ptr.i.i152, i64 %indvars.iv205
-  %60 = load i32, ptr %arrayidx.i.i154, align 4
-  %idx.ext2.i.i155 = zext i32 %60 to i64
+  %63 = load i32, ptr %arrayidx.i.i154, align 4
+  %idx.ext2.i.i155 = zext i32 %63 to i64
   %add.ptr3.i.i156 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext2.i.i155
-  %61 = load i32, ptr %add.ptr3.i.i156, align 4
-  %rem.i232 = shl i32 %61, 6
+  %64 = load i32, ptr %add.ptr3.i.i156, align 4
+  %rem.i232 = shl i32 %64, 6
   %mul.i233 = and i32 %rem.i232, 448
-  %div.i235174 = lshr i32 %61, 3
+  %div.i235174 = lshr i32 %64, 3
   %reass.sub201 = sub nsw i32 %mul.i233, %div.i235174
   %sub.i236 = add nsw i32 %reass.sub201, 95
   %idxprom.i237 = zext i32 %sub.i236 to i64
   %arrayidx.i238 = getelementptr inbounds [0 x i8], ptr @simd_onebit_masks, i64 0, i64 %idxprom.i237
-  %62 = load <2 x i64>, ptr %arrayidx.i238, align 1
-  %63 = tail call i32 @llvm.x86.sse41.ptestz(<2 x i64> %62, <2 x i64> %accepts.i.1193)
-  %tobool.i173.not = icmp eq i32 %63, 0
+  %65 = load <2 x i64>, ptr %arrayidx.i238, align 1
+  %66 = tail call i32 @llvm.x86.sse41.ptestz(<2 x i64> %65, <2 x i64> %accepts.i.1193)
+  %tobool.i173.not = icmp eq i32 %66, 0
   br i1 %tobool.i173.not, label %if.end6.i, label %for.inc.i157
 
 if.end6.i:                                        ; preds = %for.body.i149
-  %add.ptr.i160 = getelementptr inbounds %union.RepeatControl, ptr %52, i64 %indvars.iv205
+  %add.ptr.i160 = getelementptr inbounds %union.RepeatControl, ptr %55, i64 %indvars.iv205
   %stateOffset.i161 = getelementptr inbounds i8, ptr %add.ptr3.i.i156, i64 12
-  %64 = load i32, ptr %stateOffset.i161, align 4
-  %idx.ext9.i = zext i32 %64 to i64
-  %add.ptr10.i = getelementptr inbounds i8, ptr %53, i64 %idx.ext9.i
+  %67 = load i32, ptr %stateOffset.i161, align 4
+  %idx.ext9.i = zext i32 %67 to i64
+  %add.ptr10.i = getelementptr inbounds i8, ptr %56, i64 %idx.ext9.i
   %add.ptr.i18.i = getelementptr inbounds i8, ptr %add.ptr3.i.i156, i64 24
-  %65 = load i8, ptr %add.ptr.i18.i, align 4
-  switch i8 %65, label %if.then14.i [
+  %68 = load i8, ptr %add.ptr.i18.i, align 4
+  switch i8 %68, label %if.then14.i [
     i8 0, label %sw.bb.i313
     i8 1, label %sw.bb1.i
     i8 2, label %sw.bb3.i312
@@ -5217,28 +5221,28 @@ sw.bb.i313:                                       ; preds = %if.end6.i
   br label %repeatHasMatch.exit
 
 sw.bb1.i:                                         ; preds = %if.end6.i
-  %66 = load i64, ptr %add.ptr.i160, align 8
+  %69 = load i64, ptr %add.ptr.i160, align 8
   %repeatMin.i = getelementptr inbounds i8, ptr %add.ptr3.i.i156, i64 28
-  %67 = load i32, ptr %repeatMin.i, align 4
-  %conv.i318 = zext i32 %67 to i64
-  %add.i319 = add i64 %66, %conv.i318
+  %70 = load i32, ptr %repeatMin.i, align 4
+  %conv.i318 = zext i32 %70 to i64
+  %add.i319 = add i64 %69, %conv.i318
   %cmp.i320 = icmp ult i64 %add64, %add.i319
   br i1 %cmp.i320, label %if.then14.i, label %for.inc.i157
 
 sw.bb3.i312:                                      ; preds = %if.end6.i
-  %68 = load i64, ptr %add.ptr.i160, align 8
+  %71 = load i64, ptr %add.ptr.i160, align 8
   %repeatMin.i327 = getelementptr inbounds i8, ptr %add.ptr3.i.i156, i64 28
-  %69 = load i32, ptr %repeatMin.i327, align 4
-  %conv.i328 = zext i32 %69 to i64
-  %add.i329 = add i64 %68, %conv.i328
+  %72 = load i32, ptr %repeatMin.i327, align 4
+  %conv.i328 = zext i32 %72 to i64
+  %add.i329 = add i64 %71, %conv.i328
   %cmp.i330 = icmp ult i64 %add64, %add.i329
   br i1 %cmp.i330, label %if.then14.i, label %if.end.i331
 
 if.end.i331:                                      ; preds = %sw.bb3.i312
   %repeatMax.i332 = getelementptr inbounds i8, ptr %add.ptr3.i.i156, i64 32
-  %70 = load i32, ptr %repeatMax.i332, align 4
-  %conv4.i = zext i32 %70 to i64
-  %add5.i = add i64 %68, %conv4.i
+  %73 = load i32, ptr %repeatMax.i332, align 4
+  %conv4.i = zext i32 %73 to i64
+  %add5.i = add i64 %71, %conv4.i
   %cmp6.i.not = icmp ugt i64 %add64, %add5.i
   br i1 %cmp6.i.not, label %if.then14.i, label %for.inc.i157
 
@@ -5264,35 +5268,35 @@ repeatHasMatch.exit:                              ; preds = %sw.bb11.i, %sw.bb9.
   br i1 %cmp13.i.not, label %for.inc.i157, label %if.then14.i
 
 if.then14.i:                                      ; preds = %if.end.i331, %sw.bb1.i, %if.end6.i, %sw.bb3.i312, %repeatHasMatch.exit
-  %not.i.i = xor <2 x i64> %62, <i64 -1, i64 -1>
+  %not.i.i = xor <2 x i64> %65, <i64 -1, i64 -1>
   %and.i.i = and <2 x i64> %accepts.i.1193, %not.i.i
   br label %for.inc.i157
 
 for.inc.i157:                                     ; preds = %if.end6.i, %if.end.i331, %sw.bb1.i, %repeatHasMatch.exit, %if.then14.i, %for.body.i149
   %accepts.i.2 = phi <2 x i64> [ %and.i.i, %if.then14.i ], [ %accepts.i.1193, %repeatHasMatch.exit ], [ %accepts.i.1193, %for.body.i149 ], [ %accepts.i.1193, %sw.bb1.i ], [ %accepts.i.1193, %if.end.i331 ], [ %accepts.i.1193, %if.end6.i ]
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
-  %71 = load i32, ptr %repeatCount.i, align 4
-  %72 = zext i32 %71 to i64
-  %cmp.i148 = icmp ult i64 %indvars.iv.next206, %72
+  %74 = load i32, ptr %repeatCount.i, align 4
+  %75 = zext i32 %74 to i64
+  %cmp.i148 = icmp ult i64 %indvars.iv.next206, %75
   br i1 %cmp.i148, label %for.body.i149, label %lazyTug128.exit, !llvm.loop !23
 
 lazyTug128.exit:                                  ; preds = %for.inc.i157, %if.end.i101
   %accepts.i.0 = phi <2 x i64> [ %and.i418, %if.end.i101 ], [ %accepts.i.2, %for.inc.i157 ]
   %acceptOffset.i = getelementptr inbounds i8, ptr %n, i64 344
-  %73 = load i32, ptr %acceptOffset.i, align 8
-  %idx.ext.i102 = zext i32 %73 to i64
+  %76 = load i32, ptr %acceptOffset.i, align 8
+  %idx.ext.i102 = zext i32 %76 to i64
   %add.ptr.i103 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext.i102
-  store <2 x i64> %54, ptr %mask_chunks.i.sroa.0, align 16
+  store <2 x i64> %57, ptr %mask_chunks.i.sroa.0, align 16
   %chunks.i.sroa.0.0.vec.extract = extractelement <2 x i64> %accepts.i.0, i64 0
   %chunks.i.sroa.0.8.vec.extract = extractelement <2 x i64> %accepts.i.0, i64 1
   br label %for.body.i107
 
 for.body.i107:                                    ; preds = %lazyTug128.exit, %while.end.i
   %cmp.i106 = phi i1 [ true, %lazyTug128.exit ], [ false, %while.end.i ]
-  %indvars.iv208.sroa.phi = phi ptr [ %mask_chunks.i.sroa.0, %lazyTug128.exit ], [ %mask_chunks.i.sroa.0.8.gep225.sroa_idx226, %while.end.i ]
-  %indvars.iv208.sroa.phi227.sroa.speculated = phi i64 [ %chunks.i.sroa.0.0.vec.extract, %lazyTug128.exit ], [ %chunks.i.sroa.0.8.vec.extract, %while.end.i ]
+  %indvars.iv208.sroa.phi = phi ptr [ %mask_chunks.i.sroa.0, %lazyTug128.exit ], [ %mask_chunks.i.sroa.0.8.gep223.sroa_idx224, %while.end.i ]
+  %indvars.iv208.sroa.phi225.sroa.speculated = phi i64 [ %chunks.i.sroa.0.0.vec.extract, %lazyTug128.exit ], [ %chunks.i.sroa.0.8.vec.extract, %while.end.i ]
   %base_index.i.0199 = phi i32 [ 0, %lazyTug128.exit ], [ %add26.i, %while.end.i ]
-  %cmp7.i.not196 = icmp eq i64 %indvars.iv208.sroa.phi227.sroa.speculated, 0
+  %cmp7.i.not196 = icmp eq i64 %indvars.iv208.sroa.phi225.sroa.speculated, 0
   br i1 %cmp7.i.not196, label %for.body.i107.while.end.i_crit_edge, label %while.body.i
 
 for.body.i107.while.end.i_crit_edge:              ; preds = %for.body.i107
@@ -5300,28 +5304,28 @@ for.body.i107.while.end.i_crit_edge:              ; preds = %for.body.i107
   br label %while.end.i
 
 while.body.i:                                     ; preds = %for.body.i107, %while.cond.i.backedge
-  %chunk.i.0197 = phi i64 [ %asmresult1.i, %while.cond.i.backedge ], [ %indvars.iv208.sroa.phi227.sroa.speculated, %for.body.i107 ]
-  %74 = tail call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %chunk.i.0197) #11, !srcloc !10
-  %asmresult.i = extractvalue { i64, i64 } %74, 0
-  %asmresult1.i = extractvalue { i64, i64 } %74, 1
-  %75 = load i64, ptr %indvars.iv208.sroa.phi, align 8
+  %chunk.i.0197 = phi i64 [ %asmresult1.i, %while.cond.i.backedge ], [ %indvars.iv208.sroa.phi225.sroa.speculated, %for.body.i107 ]
+  %77 = tail call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %chunk.i.0197) #11, !srcloc !10
+  %asmresult.i = extractvalue { i64, i64 } %77, 0
+  %asmresult1.i = extractvalue { i64, i64 } %77, 1
+  %78 = load i64, ptr %indvars.iv208.sroa.phi, align 8
   %sh_prom.i = and i64 %asmresult.i, 4294967295
   %notmask = shl nsw i64 -1, %sh_prom.i
   %sub.i297 = xor i64 %notmask, -1
-  %and.i298 = and i64 %75, %sub.i297
-  %76 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %and.i298)
-  %cast.i305 = trunc nuw nsw i64 %76 to i32
+  %and.i298 = and i64 %78, %sub.i297
+  %79 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %and.i298)
+  %cast.i305 = trunc nuw nsw i64 %79 to i32
   %add.i114 = add i32 %base_index.i.0199, %cast.i305
   %idxprom13.i = zext i32 %add.i114 to i64
   %arrayidx14.i = getelementptr inbounds %struct.NFAAccept, ptr %add.ptr.i103, i64 %idxprom13.i
-  %77 = load i8, ptr %arrayidx14.i, align 4
-  %tobool.i392.not = icmp eq i8 %77, 0
+  %80 = load i8, ptr %arrayidx14.i, align 4
+  %tobool.i392.not = icmp eq i8 %80, 0
   %reports2.i = getelementptr inbounds i8, ptr %arrayidx14.i, i64 4
-  %78 = load i32, ptr %reports2.i, align 4
+  %81 = load i32, ptr %reports2.i, align 4
   br i1 %tobool.i392.not, label %if.end.i393, label %if.then.i399
 
 if.then.i399:                                     ; preds = %while.body.i
-  %cmp.i400.not = icmp eq i32 %78, %report
+  %cmp.i400.not = icmp eq i32 %81, %report
   br i1 %cmp.i400.not, label %return, label %while.cond.i.backedge
 
 while.cond.i.backedge:                            ; preds = %if.end6.i396, %if.then.i399
@@ -5329,34 +5333,34 @@ while.cond.i.backedge:                            ; preds = %if.end6.i396, %if.t
   br i1 %cmp7.i.not, label %while.end.i, label %while.body.i, !llvm.loop !24
 
 if.end.i393:                                      ; preds = %while.body.i
-  %idx.ext.i394 = zext i32 %78 to i64
+  %idx.ext.i394 = zext i32 %81 to i64
   %add.ptr.i395 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext.i394
   %.pre211 = load i32, ptr %add.ptr.i395, align 4
   br label %do.body.i
 
 do.body.i:                                        ; preds = %if.end6.i396, %if.end.i393
-  %79 = phi i32 [ %.pre211, %if.end.i393 ], [ %80, %if.end6.i396 ]
+  %82 = phi i32 [ %.pre211, %if.end.i393 ], [ %83, %if.end6.i396 ]
   %reports1.i.0 = phi ptr [ %add.ptr.i395, %if.end.i393 ], [ %incdec.ptr.i, %if.end6.i396 ]
-  %cmp3.i = icmp eq i32 %79, %report
+  %cmp3.i = icmp eq i32 %82, %report
   br i1 %cmp3.i, label %return, label %if.end6.i396
 
 if.end6.i396:                                     ; preds = %do.body.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %reports1.i.0, i64 4
-  %80 = load i32, ptr %incdec.ptr.i, align 4
-  %cmp7.i397.not = icmp eq i32 %80, -1
+  %83 = load i32, ptr %incdec.ptr.i, align 4
+  %cmp7.i397.not = icmp eq i32 %83, -1
   br i1 %cmp7.i397.not, label %while.cond.i.backedge, label %do.body.i, !llvm.loop !25
 
 while.end.i:                                      ; preds = %while.cond.i.backedge, %for.body.i107.while.end.i_crit_edge
-  %81 = phi i64 [ %.pre212, %for.body.i107.while.end.i_crit_edge ], [ %75, %while.cond.i.backedge ]
-  %82 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %81)
-  %cast.i = trunc nuw nsw i64 %82 to i32
+  %84 = phi i64 [ %.pre212, %for.body.i107.while.end.i_crit_edge ], [ %78, %while.cond.i.backedge ]
+  %85 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %84)
+  %cast.i = trunc nuw nsw i64 %85 to i32
   %add26.i = add i32 %base_index.i.0199, %cast.i
   br i1 %cmp.i106, label %for.body.i107, label %if.end68, !llvm.loop !26
 
 if.end68:                                         ; preds = %while.end.i, %do.end58
-  %83 = icmp ne <16 x i8> %50, zeroinitializer
-  %84 = bitcast <16 x i1> %83 to i16
-  %tobool.i73 = icmp ne i16 %84, 0
+  %86 = icmp ne <16 x i8> %53, zeroinitializer
+  %87 = bitcast <16 x i1> %86 to i16
+  %tobool.i73 = icmp ne i16 %87, 0
   %conv71 = zext i1 %tobool.i73 to i8
   br label %return
 

@@ -1602,7 +1602,7 @@ define internal noundef range(i32 -3, 2) i32 @posix_cpu_timer_set(ptr noundef %0
 
 18:                                               ; preds = %4
   tail call void @__rcu_read_unlock() #11
-  br label %231
+  br label %230
 
 19:                                               ; preds = %4
   store i64 0, ptr %5, align 8, !annotation !6
@@ -1620,7 +1620,7 @@ define internal noundef range(i32 -3, 2) i32 @posix_cpu_timer_set(ptr noundef %0
 
 30:                                               ; preds = %19
   call void @__rcu_read_unlock() #11
-  br label %231
+  br label %230
 
 31:                                               ; preds = %19
   %32 = getelementptr inbounds i8, ptr %0, i64 88
@@ -1861,7 +1861,7 @@ define internal noundef range(i32 -3, 2) i32 @posix_cpu_timer_set(ptr noundef %0
   store i64 0, ptr %174, align 8
   %175 = getelementptr inbounds i8, ptr %0, i64 64
   store i64 -1, ptr %175, align 8
-  br i1 %135, label %225, label %176
+  br i1 %135, label %224, label %176
 
 176:                                              ; preds = %159
   br i1 %134, label %177, label %cpu_timer_fire.exit
@@ -1916,7 +1916,7 @@ define internal noundef range(i32 -3, 2) i32 @posix_cpu_timer_set(ptr noundef %0
 cpu_timer_fire.exit:                              ; preds = %199, %195, %193, %187, %182, %176
   %202 = call ptr @__lock_task_sighand(ptr noundef nonnull %16, ptr noundef nonnull %5) #11
   %203 = icmp eq ptr %202, null
-  br i1 %203, label %225, label %204
+  br i1 %203, label %224, label %204
 
 204:                                              ; preds = %cpu_timer_fire.exit
   %205 = getelementptr inbounds i8, ptr %0, i64 152
@@ -1949,29 +1949,29 @@ cpu_timer_fire.exit:                              ; preds = %199, %195, %193, %1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %204, %219, %125
-  %.sink20 = phi ptr [ %126, %125 ], [ %160, %219 ], [ %160, %204 ]
-  %223 = load ptr, ptr %.sink20, align 32
-  %224 = load i64, ptr %5, align 8
-  call void @_raw_spin_unlock_irqrestore(ptr noundef %223, i64 noundef %224) #11
-  br label %225
+  %.sink.in = phi ptr [ %126, %125 ], [ %160, %219 ], [ %160, %204 ]
+  %.sink = load ptr, ptr %.sink.in, align 32
+  %223 = load i64, ptr %5, align 8
+  call void @_raw_spin_unlock_irqrestore(ptr noundef %.sink, i64 noundef %223) #11
+  br label %224
 
-225:                                              ; preds = %.sink.split, %cpu_timer_fire.exit, %159
+224:                                              ; preds = %.sink.split, %cpu_timer_fire.exit, %159
   call void @__rcu_read_unlock() #11
-  br i1 %67, label %231, label %226
+  br i1 %67, label %230, label %225
 
-226:                                              ; preds = %225
-  %227 = call { i64, i64 } @ns_to_timespec64(i64 noundef %33) #11
-  %228 = extractvalue { i64, i64 } %227, 0
-  %229 = extractvalue { i64, i64 } %227, 1
-  store i64 %228, ptr %3, align 8
-  %230 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 %229, ptr %230, align 8
-  br label %231
+225:                                              ; preds = %224
+  %226 = call { i64, i64 } @ns_to_timespec64(i64 noundef %33) #11
+  %227 = extractvalue { i64, i64 } %226, 0
+  %228 = extractvalue { i64, i64 } %226, 1
+  store i64 %227, ptr %3, align 8
+  %229 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 %228, ptr %229, align 8
+  br label %230
 
-231:                                              ; preds = %226, %225, %30, %18
-  %232 = phi i32 [ -3, %30 ], [ -3, %18 ], [ %47, %226 ], [ %47, %225 ]
+230:                                              ; preds = %225, %224, %30, %18
+  %231 = phi i32 [ -3, %30 ], [ -3, %18 ], [ %47, %225 ], [ %47, %224 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
-  ret i32 %232
+  ret i32 %231
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

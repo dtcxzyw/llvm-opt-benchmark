@@ -1225,19 +1225,25 @@ land.lhs.true27:                                  ; preds = %if.then26
   %cherry_pick_in_progress28 = getelementptr inbounds i8, ptr %state, i64 20
   %3 = load i32, ptr %cherry_pick_in_progress28, align 4
   %tobool29.not = icmp eq i32 %3, 0
-  br i1 %tobool29.not, label %if.end45.sink.split, label %if.end45
+  br i1 %tobool29.not, label %if.then30, label %if.end45
+
+if.then30:                                        ; preds = %land.lhs.true27
+  store i32 1, ptr %cherry_pick_in_progress28, align 4
+  br label %if.end45.sink.split
 
 land.lhs.true36:                                  ; preds = %if.then26
   %revert_in_progress37 = getelementptr inbounds i8, ptr %state, i64 28
   %4 = load i32, ptr %revert_in_progress37, align 4
   %tobool38.not = icmp eq i32 %4, 0
-  br i1 %tobool38.not, label %if.end45.sink.split, label %if.end45
+  br i1 %tobool38.not, label %if.then39, label %if.end45
 
-if.end45.sink.split:                              ; preds = %land.lhs.true36, %land.lhs.true27
-  %cherry_pick_in_progress28.sink = phi ptr [ %cherry_pick_in_progress28, %land.lhs.true27 ], [ %revert_in_progress37, %land.lhs.true36 ]
-  %.sink = phi i64 [ 144, %land.lhs.true27 ], [ 108, %land.lhs.true36 ]
-  %.sink38 = phi i64 [ 176, %land.lhs.true27 ], [ 140, %land.lhs.true36 ]
-  store i32 1, ptr %cherry_pick_in_progress28.sink, align 4
+if.then39:                                        ; preds = %land.lhs.true36
+  store i32 1, ptr %revert_in_progress37, align 4
+  br label %if.end45.sink.split
+
+if.end45.sink.split:                              ; preds = %if.then39, %if.then30
+  %.sink = phi i64 [ 144, %if.then30 ], [ 108, %if.then39 ]
+  %.sink38 = phi i64 [ 176, %if.then30 ], [ 140, %if.then39 ]
   %cherry_pick_head_oid32 = getelementptr inbounds i8, ptr %state, i64 %.sink
   %call33 = call ptr @null_oid() #19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %cherry_pick_head_oid32, ptr noundef nonnull readonly align 4 dereferenceable(32) %call33, i64 32, i1 false)

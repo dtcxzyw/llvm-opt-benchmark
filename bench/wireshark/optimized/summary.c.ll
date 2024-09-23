@@ -161,7 +161,7 @@ define hidden void @summary_fill_in(ptr noundef %0, ptr noundef %1) local_unname
 
 88:                                               ; preds = %83
   store double %70, ptr %13, align 8
-  br label %.sink.split.i
+  br label %.sink.split
 
 89:                                               ; preds = %83
   %90 = load double, ptr %13, align 8
@@ -175,13 +175,13 @@ define hidden void @summary_fill_in(ptr noundef %0, ptr noundef %1) local_unname
 93:                                               ; preds = %92, %89
   %94 = load double, ptr %14, align 8
   %95 = fcmp ogt double %70, %94
-  br i1 %95, label %.sink.split.i, label %96
+  br i1 %95, label %.sink.split, label %96
 
-.sink.split.i:                                    ; preds = %93, %88
+.sink.split:                                      ; preds = %93, %88
   store double %70, ptr %14, align 8
   br label %96
 
-96:                                               ; preds = %.sink.split.i, %93, %80
+96:                                               ; preds = %.sink.split, %93, %80
   %97 = load i16, ptr %39, align 2
   %98 = and i16 %97, 16
   %.not57.i = icmp eq i16 %98, 0
@@ -197,7 +197,7 @@ define hidden void @summary_fill_in(ptr noundef %0, ptr noundef %1) local_unname
 
 104:                                              ; preds = %99
   store double %70, ptr %18, align 8
-  br label %.sink.split60.i
+  br label %tally_frame_data.exit.sink.split
 
 105:                                              ; preds = %99
   %106 = load double, ptr %18, align 8
@@ -211,13 +211,13 @@ define hidden void @summary_fill_in(ptr noundef %0, ptr noundef %1) local_unname
 109:                                              ; preds = %108, %105
   %110 = load double, ptr %19, align 8
   %111 = fcmp ogt double %70, %110
-  br i1 %111, label %.sink.split60.i, label %tally_frame_data.exit
+  br i1 %111, label %tally_frame_data.exit.sink.split, label %tally_frame_data.exit
 
-.sink.split60.i:                                  ; preds = %109, %104
+tally_frame_data.exit.sink.split:                 ; preds = %109, %104
   store double %70, ptr %19, align 8
   br label %tally_frame_data.exit
 
-tally_frame_data.exit:                            ; preds = %65, %96, %109, %.sink.split60.i
+tally_frame_data.exit:                            ; preds = %tally_frame_data.exit.sink.split, %65, %96, %109
   %112 = add i32 %.0102, 1
   %113 = load i32, ptr %22, align 8
   %.not93 = icmp ugt i32 %112, %113

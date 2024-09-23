@@ -10664,20 +10664,20 @@ leap_year_p.exit.thread:                          ; preds = %addv.exit.leap_year
   br label %265
 
 265:                                              ; preds = %leap_year_p.exit.thread, %leap_year_p.exit.thread81
-  %.sink = phi ptr [ %264, %leap_year_p.exit.thread ], [ %254, %leap_year_p.exit.thread81 ]
+  %.sink91.in = phi ptr [ %264, %leap_year_p.exit.thread ], [ %254, %leap_year_p.exit.thread81 ]
   %.sink89 = phi i32 [ %263, %leap_year_p.exit.thread ], [ %253, %leap_year_p.exit.thread81 ]
-  %266 = load i8, ptr %.sink, align 1
-  %267 = and i8 %266, 31
-  %268 = zext nneg i8 %267 to i32
-  %269 = shl nuw nsw i32 %268, 13
-  %270 = and i32 %.sink89, -253953
-  %271 = or disjoint i32 %269, %270
-  store i32 %271, ptr %127, align 8
-  %272 = getelementptr inbounds i8, ptr %1, i64 16
-  store i64 1, ptr %272, align 8
-  %273 = load i64, ptr @str_utc, align 8
-  %274 = getelementptr inbounds i8, ptr %1, i64 24
-  store i64 %273, ptr %274, align 8
+  %.sink91 = load i8, ptr %.sink91.in, align 1
+  %266 = and i8 %.sink91, 31
+  %267 = zext nneg i8 %266 to i32
+  %268 = shl nuw nsw i32 %267, 13
+  %269 = and i32 %.sink89, -253953
+  %270 = or disjoint i32 %268, %269
+  store i32 %270, ptr %127, align 8
+  %271 = getelementptr inbounds i8, ptr %1, i64 16
+  store i64 1, ptr %271, align 8
+  %272 = load i64, ptr @str_utc, align 8
+  %273 = getelementptr inbounds i8, ptr %1, i64 24
+  store i64 %272, ptr %273, align 8
   ret void
 }
 

@@ -653,6 +653,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   store ptr null, ptr %18, align 8
   store ptr %21, ptr %25, align 8
   store ptr %21, ptr %28, align 8
+  store i64 0, ptr %32, align 8
   br label %_ZN10open_spiel13GameParameterC2EOS0_.exit
 
 35:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -664,11 +665,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %38 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %17, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 128
+  store i64 0, ptr %39, align 8
   br label %_ZN10open_spiel13GameParameterC2EOS0_.exit
 
 _ZN10open_spiel13GameParameterC2EOS0_.exit:       ; preds = %20, %35
-  %.sink.i.i.i.i.i = phi ptr [ %39, %35 ], [ %32, %20 ]
-  store i64 0, ptr %.sink.i.i.i.i.i, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %42 = load i32, ptr %41, align 8
@@ -808,6 +808,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   store ptr null, ptr %18, align 8
   store ptr %21, ptr %25, align 8
   store ptr %21, ptr %28, align 8
+  store i64 0, ptr %32, align 8
   br label %_ZN10open_spiel13GameParameterC2EOS0_.exit
 
 35:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -819,11 +820,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %38 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %17, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 128
+  store i64 0, ptr %39, align 8
   br label %_ZN10open_spiel13GameParameterC2EOS0_.exit
 
 _ZN10open_spiel13GameParameterC2EOS0_.exit:       ; preds = %20, %35
-  %.sink.i.i.i.i.i = phi ptr [ %39, %35 ], [ %32, %20 ]
-  store i64 0, ptr %.sink.i.i.i.i.i, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %42 = load i32, ptr %41, align 8
@@ -3327,12 +3327,11 @@ define void @_ZNK10open_spiel14dots_and_boxes17DotsAndBoxesState9DbnStringB5cxx1
 
 30:                                               ; preds = %.lr.ph
   store ptr @.str.9, ptr %3, align 8
+  store i64 1, ptr %11, align 8
   br label %.invoke73
 
 .invoke73:                                        ; preds = %33, %30
-  %.sink74 = phi ptr [ %12, %33 ], [ %11, %30 ]
-  %31 = phi ptr [ %4, %33 ], [ %3, %30 ]
-  store i64 1, ptr %.sink74, align 8
+  %31 = phi ptr [ %3, %30 ], [ %4, %33 ]
   invoke void @_ZN4absl7debian29StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(48) %31)
           to label %34 unwind label %.loopexit.split-lp
 
@@ -3353,6 +3352,7 @@ define void @_ZNK10open_spiel14dots_and_boxes17DotsAndBoxesState9DbnStringB5cxx1
 
 33:                                               ; preds = %.lr.ph
   store ptr @.str.35, ptr %4, align 8
+  store i64 1, ptr %12, align 8
   br label %.invoke73
 
 34:                                               ; preds = %.invoke73
@@ -3399,17 +3399,17 @@ define void @_ZNK10open_spiel14dots_and_boxes17DotsAndBoxesState9DbnStringB5cxx1
 
 49:                                               ; preds = %.lr.ph53
   store ptr @.str.9, ptr %5, align 8
+  store i64 1, ptr %23, align 8
   br label %.invoke
 
 .invoke:                                          ; preds = %51, %49
-  %.sink = phi ptr [ %24, %51 ], [ %23, %49 ]
-  %50 = phi ptr [ %6, %51 ], [ %5, %49 ]
-  store i64 1, ptr %.sink, align 8
+  %50 = phi ptr [ %5, %49 ], [ %6, %51 ]
   invoke void @_ZN4absl7debian29StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(48) %50)
           to label %52 unwind label %.loopexit
 
 51:                                               ; preds = %.lr.ph53
   store ptr @.str.35, ptr %6, align 8
+  store i64 1, ptr %24, align 8
   br label %.invoke
 
 52:                                               ; preds = %.invoke

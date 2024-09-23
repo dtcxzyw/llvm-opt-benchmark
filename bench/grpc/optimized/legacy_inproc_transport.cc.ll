@@ -4518,7 +4518,8 @@ if.then.i.i.i.i:                                  ; preds = %if.end4
 if.then7.i.i.i.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i
   %value.sink.i.sroa.gep.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i.i.i, i64 8
   call void @grpc_slice_copy(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp.i.i.i.i.i.i.i.i, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i), !noalias !16
-  br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i.i.i.i.sink.split
+  %ref.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i = load ptr, ptr %ref.tmp.i.i.i.i.i.i.i.i, align 8
+  br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i.i.i.i
 
 if.end9.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp ugt ptr %5, inttoptr (i64 1 to ptr)
@@ -4526,17 +4527,12 @@ if.end9.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.end9.i.i.i.i.i.i.i.i
   %6 = atomicrmw add ptr %5, i64 1 monotonic, align 8, !noalias !19
-  br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i.i.i.i.sink.split
-
-_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i.i.i.i.sink.split: ; preds = %if.then7.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i
-  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sink = phi ptr [ %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ], [ %ref.tmp.i.i.i.i.i.i.i.i, %if.then7.i.i.i.i.i.i.i.i ]
-  %value.sink.i.sroa.phi.i.i.i.i.i.i.ph = phi ptr [ %value.sink.i.sroa.gep1.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ], [ %value.sink.i.sroa.gep.i.i.i.i.i.i, %if.then7.i.i.i.i.i.i.i.i ]
-  %ref.tmp.sroa.0.0.copyload2.pre.i.i.i.i.i.i.i = load ptr, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sink, align 8
+  %ref.tmp.sroa.0.0.copyload2.pre.i.i.i.i.i.i.i = load ptr, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i.i.i.i
 
-_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i.i.i.i: ; preds = %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i.i.i.i.sink.split, %if.end9.i.i.i.i.i.i.i.i, %if.then.i.i.i.i
-  %value.sink.i.sroa.phi.i.i.i.i.i.i = phi ptr [ %value.sink.i.sroa.gep1.i.i.i.i.i.i, %if.then.i.i.i.i ], [ %value.sink.i.sroa.gep1.i.i.i.i.i.i, %if.end9.i.i.i.i.i.i.i.i ], [ %value.sink.i.sroa.phi.i.i.i.i.i.i.ph, %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i.i.i.i.sink.split ]
-  %ref.tmp.sroa.0.0.i.i.i.i.i.i.i = phi ptr [ %5, %if.then.i.i.i.i ], [ %5, %if.end9.i.i.i.i.i.i.i.i ], [ %ref.tmp.sroa.0.0.copyload2.pre.i.i.i.i.i.i.i, %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i.i.i.i.sink.split ]
+_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %if.end9.i.i.i.i.i.i.i.i, %if.then7.i.i.i.i.i.i.i.i, %if.then.i.i.i.i
+  %value.sink.i.sroa.phi.i.i.i.i.i.i = phi ptr [ %value.sink.i.sroa.gep.i.i.i.i.i.i, %if.then7.i.i.i.i.i.i.i.i ], [ %value.sink.i.sroa.gep1.i.i.i.i.i.i, %if.then.i.i.i.i ], [ %value.sink.i.sroa.gep1.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ], [ %value.sink.i.sroa.gep1.i.i.i.i.i.i, %if.end9.i.i.i.i.i.i.i.i ]
+  %ref.tmp.sroa.0.0.i.i.i.i.i.i.i = phi ptr [ %ref.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i, %if.then7.i.i.i.i.i.i.i.i ], [ %5, %if.then.i.i.i.i ], [ %ref.tmp.sroa.0.0.copyload2.pre.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ], [ %5, %if.end9.i.i.i.i.i.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.8.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %value.sink.i.sroa.phi.i.i.i.i.i.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %replacement.sroa.4.i.i.i.i.i.i.i.i.i.i)
@@ -4613,7 +4609,8 @@ if.then.i31.i.i.i:                                ; preds = %_ZNK9grpc_core5Tabl
 if.then7.i.i.i.i.i35.i.i.i:                       ; preds = %if.then.i31.i.i.i
   %value.sink.i.sroa.gep.i.i.i36.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i27.i.i.i, i64 8
   call void @grpc_slice_copy(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp.i.i.i.i.i27.i.i.i, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i), !noalias !22
-  br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i38.i.i.i.sink.split
+  %ref.tmp.sroa.0.0.copyload.i.i.i.i37.i.i.i = load ptr, ptr %ref.tmp.i.i.i.i.i27.i.i.i, align 8
+  br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i38.i.i.i
 
 if.end9.i.i.i.i.i53.i.i.i:                        ; preds = %if.then.i31.i.i.i
   %cmp.i.i.i.i.i.i.i54.i.i.i = icmp ugt ptr %13, inttoptr (i64 1 to ptr)
@@ -4621,17 +4618,12 @@ if.end9.i.i.i.i.i53.i.i.i:                        ; preds = %if.then.i31.i.i.i
 
 if.then.i.i.i.i.i.i.i55.i.i.i:                    ; preds = %if.end9.i.i.i.i.i53.i.i.i
   %14 = atomicrmw add ptr %13, i64 1 monotonic, align 8, !noalias !25
-  br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i38.i.i.i.sink.split
-
-_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i38.i.i.i.sink.split: ; preds = %if.then7.i.i.i.i.i35.i.i.i, %if.then.i.i.i.i.i.i.i55.i.i.i
-  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sink = phi ptr [ %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i55.i.i.i ], [ %ref.tmp.i.i.i.i.i27.i.i.i, %if.then7.i.i.i.i.i35.i.i.i ]
-  %value.sink.i.sroa.phi.i.i.i39.i.i.i.ph = phi ptr [ %value.sink.i.sroa.gep1.i.i.i34.i.i.i, %if.then.i.i.i.i.i.i.i55.i.i.i ], [ %value.sink.i.sroa.gep.i.i.i36.i.i.i, %if.then7.i.i.i.i.i35.i.i.i ]
-  %ref.tmp.sroa.0.0.copyload2.pre.i.i.i.i56.i.i.i = load ptr, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sink, align 8
+  %ref.tmp.sroa.0.0.copyload2.pre.i.i.i.i56.i.i.i = load ptr, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i38.i.i.i
 
-_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i38.i.i.i: ; preds = %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i38.i.i.i.sink.split, %if.end9.i.i.i.i.i53.i.i.i, %if.then.i31.i.i.i
-  %value.sink.i.sroa.phi.i.i.i39.i.i.i = phi ptr [ %value.sink.i.sroa.gep1.i.i.i34.i.i.i, %if.then.i31.i.i.i ], [ %value.sink.i.sroa.gep1.i.i.i34.i.i.i, %if.end9.i.i.i.i.i53.i.i.i ], [ %value.sink.i.sroa.phi.i.i.i39.i.i.i.ph, %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i38.i.i.i.sink.split ]
-  %ref.tmp.sroa.0.0.i.i.i.i40.i.i.i = phi ptr [ %13, %if.then.i31.i.i.i ], [ %13, %if.end9.i.i.i.i.i53.i.i.i ], [ %ref.tmp.sroa.0.0.copyload2.pre.i.i.i.i56.i.i.i, %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i38.i.i.i.sink.split ]
+_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i38.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i55.i.i.i, %if.end9.i.i.i.i.i53.i.i.i, %if.then7.i.i.i.i.i35.i.i.i, %if.then.i31.i.i.i
+  %value.sink.i.sroa.phi.i.i.i39.i.i.i = phi ptr [ %value.sink.i.sroa.gep.i.i.i36.i.i.i, %if.then7.i.i.i.i.i35.i.i.i ], [ %value.sink.i.sroa.gep1.i.i.i34.i.i.i, %if.then.i31.i.i.i ], [ %value.sink.i.sroa.gep1.i.i.i34.i.i.i, %if.then.i.i.i.i.i.i.i55.i.i.i ], [ %value.sink.i.sroa.gep1.i.i.i34.i.i.i, %if.end9.i.i.i.i.i53.i.i.i ]
+  %ref.tmp.sroa.0.0.i.i.i.i40.i.i.i = phi ptr [ %ref.tmp.sroa.0.0.copyload.i.i.i.i37.i.i.i, %if.then7.i.i.i.i.i35.i.i.i ], [ %13, %if.then.i31.i.i.i ], [ %ref.tmp.sroa.0.0.copyload2.pre.i.i.i.i56.i.i.i, %if.then.i.i.i.i.i.i.i55.i.i.i ], [ %13, %if.end9.i.i.i.i.i53.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.8.i.i.i.i28.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %value.sink.i.sroa.phi.i.i.i39.i.i.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i27.i.i.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %replacement.sroa.4.i.i.i.i.i.i.i26.i.i.i)
@@ -4917,7 +4909,8 @@ if.then.i181.i.i.i:                               ; preds = %_ZNK9grpc_core5Tabl
 if.then7.i.i.i.i.i185.i.i.i:                      ; preds = %if.then.i181.i.i.i
   %value.sink.i.sroa.gep.i.i.i186.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i177.i.i.i, i64 8
   call void @grpc_slice_copy(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp.i.i.i.i.i177.i.i.i, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i), !noalias !28
-  br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i188.i.i.i.sink.split
+  %ref.tmp.sroa.0.0.copyload.i.i.i.i187.i.i.i = load ptr, ptr %ref.tmp.i.i.i.i.i177.i.i.i, align 8
+  br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i188.i.i.i
 
 if.end9.i.i.i.i.i203.i.i.i:                       ; preds = %if.then.i181.i.i.i
   %cmp.i.i.i.i.i.i.i204.i.i.i = icmp ugt ptr %45, inttoptr (i64 1 to ptr)
@@ -4925,17 +4918,12 @@ if.end9.i.i.i.i.i203.i.i.i:                       ; preds = %if.then.i181.i.i.i
 
 if.then.i.i.i.i.i.i.i205.i.i.i:                   ; preds = %if.end9.i.i.i.i.i203.i.i.i
   %46 = atomicrmw add ptr %45, i64 1 monotonic, align 8, !noalias !31
-  br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i188.i.i.i.sink.split
-
-_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i188.i.i.i.sink.split: ; preds = %if.then7.i.i.i.i.i185.i.i.i, %if.then.i.i.i.i.i.i.i205.i.i.i
-  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sink = phi ptr [ %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i205.i.i.i ], [ %ref.tmp.i.i.i.i.i177.i.i.i, %if.then7.i.i.i.i.i185.i.i.i ]
-  %value.sink.i.sroa.phi.i.i.i189.i.i.i.ph = phi ptr [ %value.sink.i.sroa.gep1.i.i.i184.i.i.i, %if.then.i.i.i.i.i.i.i205.i.i.i ], [ %value.sink.i.sroa.gep.i.i.i186.i.i.i, %if.then7.i.i.i.i.i185.i.i.i ]
-  %ref.tmp.sroa.0.0.copyload2.pre.i.i.i.i206.i.i.i = load ptr, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sink, align 8
+  %ref.tmp.sroa.0.0.copyload2.pre.i.i.i.i206.i.i.i = load ptr, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i188.i.i.i
 
-_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i188.i.i.i: ; preds = %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i188.i.i.i.sink.split, %if.end9.i.i.i.i.i203.i.i.i, %if.then.i181.i.i.i
-  %value.sink.i.sroa.phi.i.i.i189.i.i.i = phi ptr [ %value.sink.i.sroa.gep1.i.i.i184.i.i.i, %if.then.i181.i.i.i ], [ %value.sink.i.sroa.gep1.i.i.i184.i.i.i, %if.end9.i.i.i.i.i203.i.i.i ], [ %value.sink.i.sroa.phi.i.i.i189.i.i.i.ph, %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i188.i.i.i.sink.split ]
-  %ref.tmp.sroa.0.0.i.i.i.i190.i.i.i = phi ptr [ %45, %if.then.i181.i.i.i ], [ %45, %if.end9.i.i.i.i.i203.i.i.i ], [ %ref.tmp.sroa.0.0.copyload2.pre.i.i.i.i206.i.i.i, %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i188.i.i.i.sink.split ]
+_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i188.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i205.i.i.i, %if.end9.i.i.i.i.i203.i.i.i, %if.then7.i.i.i.i.i185.i.i.i, %if.then.i181.i.i.i
+  %value.sink.i.sroa.phi.i.i.i189.i.i.i = phi ptr [ %value.sink.i.sroa.gep.i.i.i186.i.i.i, %if.then7.i.i.i.i.i185.i.i.i ], [ %value.sink.i.sroa.gep1.i.i.i184.i.i.i, %if.then.i181.i.i.i ], [ %value.sink.i.sroa.gep1.i.i.i184.i.i.i, %if.then.i.i.i.i.i.i.i205.i.i.i ], [ %value.sink.i.sroa.gep1.i.i.i184.i.i.i, %if.end9.i.i.i.i.i203.i.i.i ]
+  %ref.tmp.sroa.0.0.i.i.i.i190.i.i.i = phi ptr [ %ref.tmp.sroa.0.0.copyload.i.i.i.i187.i.i.i, %if.then7.i.i.i.i.i185.i.i.i ], [ %45, %if.then.i181.i.i.i ], [ %ref.tmp.sroa.0.0.copyload2.pre.i.i.i.i206.i.i.i, %if.then.i.i.i.i.i.i.i205.i.i.i ], [ %45, %if.end9.i.i.i.i.i203.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.8.i.i.i.i178.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %value.sink.i.sroa.phi.i.i.i189.i.i.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i177.i.i.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %replacement.sroa.4.i.i.i.i.i.i.i176.i.i.i)
@@ -5012,7 +5000,8 @@ if.then.i215.i.i.i:                               ; preds = %_ZNK9grpc_core5Tabl
 if.then7.i.i.i.i.i219.i.i.i:                      ; preds = %if.then.i215.i.i.i
   %value.sink.i.sroa.gep.i.i.i220.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i211.i.i.i, i64 8
   call void @grpc_slice_copy(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp.i.i.i.i.i211.i.i.i, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i), !noalias !34
-  br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i222.i.i.i.sink.split
+  %ref.tmp.sroa.0.0.copyload.i.i.i.i221.i.i.i = load ptr, ptr %ref.tmp.i.i.i.i.i211.i.i.i, align 8
+  br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i222.i.i.i
 
 if.end9.i.i.i.i.i238.i.i.i:                       ; preds = %if.then.i215.i.i.i
   %cmp.i.i.i.i.i.i.i239.i.i.i = icmp ugt ptr %53, inttoptr (i64 1 to ptr)
@@ -5020,17 +5009,12 @@ if.end9.i.i.i.i.i238.i.i.i:                       ; preds = %if.then.i215.i.i.i
 
 if.then.i.i.i.i.i.i.i240.i.i.i:                   ; preds = %if.end9.i.i.i.i.i238.i.i.i
   %54 = atomicrmw add ptr %53, i64 1 monotonic, align 8, !noalias !37
-  br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i222.i.i.i.sink.split
-
-_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i222.i.i.i.sink.split: ; preds = %if.then7.i.i.i.i.i219.i.i.i, %if.then.i.i.i.i.i.i.i240.i.i.i
-  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sink = phi ptr [ %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i240.i.i.i ], [ %ref.tmp.i.i.i.i.i211.i.i.i, %if.then7.i.i.i.i.i219.i.i.i ]
-  %value.sink.i.sroa.phi.i.i.i223.i.i.i.ph = phi ptr [ %value.sink.i.sroa.gep1.i.i.i218.i.i.i, %if.then.i.i.i.i.i.i.i240.i.i.i ], [ %value.sink.i.sroa.gep.i.i.i220.i.i.i, %if.then7.i.i.i.i.i219.i.i.i ]
-  %ref.tmp.sroa.0.0.copyload2.pre.i.i.i.i241.i.i.i = load ptr, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sink, align 8
+  %ref.tmp.sroa.0.0.copyload2.pre.i.i.i.i241.i.i.i = load ptr, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i222.i.i.i
 
-_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i222.i.i.i: ; preds = %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i222.i.i.i.sink.split, %if.end9.i.i.i.i.i238.i.i.i, %if.then.i215.i.i.i
-  %value.sink.i.sroa.phi.i.i.i223.i.i.i = phi ptr [ %value.sink.i.sroa.gep1.i.i.i218.i.i.i, %if.then.i215.i.i.i ], [ %value.sink.i.sroa.gep1.i.i.i218.i.i.i, %if.end9.i.i.i.i.i238.i.i.i ], [ %value.sink.i.sroa.phi.i.i.i223.i.i.i.ph, %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i222.i.i.i.sink.split ]
-  %ref.tmp.sroa.0.0.i.i.i.i224.i.i.i = phi ptr [ %53, %if.then.i215.i.i.i ], [ %53, %if.end9.i.i.i.i.i238.i.i.i ], [ %ref.tmp.sroa.0.0.copyload2.pre.i.i.i.i241.i.i.i, %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i222.i.i.i.sink.split ]
+_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i222.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i240.i.i.i, %if.end9.i.i.i.i.i238.i.i.i, %if.then7.i.i.i.i.i219.i.i.i, %if.then.i215.i.i.i
+  %value.sink.i.sroa.phi.i.i.i223.i.i.i = phi ptr [ %value.sink.i.sroa.gep.i.i.i220.i.i.i, %if.then7.i.i.i.i.i219.i.i.i ], [ %value.sink.i.sroa.gep1.i.i.i218.i.i.i, %if.then.i215.i.i.i ], [ %value.sink.i.sroa.gep1.i.i.i218.i.i.i, %if.then.i.i.i.i.i.i.i240.i.i.i ], [ %value.sink.i.sroa.gep1.i.i.i218.i.i.i, %if.end9.i.i.i.i.i238.i.i.i ]
+  %ref.tmp.sroa.0.0.i.i.i.i224.i.i.i = phi ptr [ %ref.tmp.sroa.0.0.copyload.i.i.i.i221.i.i.i, %if.then7.i.i.i.i.i219.i.i.i ], [ %53, %if.then.i215.i.i.i ], [ %ref.tmp.sroa.0.0.copyload2.pre.i.i.i.i241.i.i.i, %if.then.i.i.i.i.i.i.i240.i.i.i ], [ %53, %if.end9.i.i.i.i.i238.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.8.i.i.i.i212.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %value.sink.i.sroa.phi.i.i.i223.i.i.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i211.i.i.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %replacement.sroa.4.i.i.i.i.i.i.i210.i.i.i)
@@ -5107,7 +5091,8 @@ if.then.i250.i.i.i:                               ; preds = %_ZNK9grpc_core5Tabl
 if.then7.i.i.i.i.i254.i.i.i:                      ; preds = %if.then.i250.i.i.i
   %value.sink.i.sroa.gep.i.i.i255.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i246.i.i.i, i64 8
   call void @grpc_slice_copy(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp.i.i.i.i.i246.i.i.i, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i), !noalias !40
-  br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i257.i.i.i.sink.split
+  %ref.tmp.sroa.0.0.copyload.i.i.i.i256.i.i.i = load ptr, ptr %ref.tmp.i.i.i.i.i246.i.i.i, align 8
+  br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i257.i.i.i
 
 if.end9.i.i.i.i.i273.i.i.i:                       ; preds = %if.then.i250.i.i.i
   %cmp.i.i.i.i.i.i.i274.i.i.i = icmp ugt ptr %61, inttoptr (i64 1 to ptr)
@@ -5115,17 +5100,12 @@ if.end9.i.i.i.i.i273.i.i.i:                       ; preds = %if.then.i250.i.i.i
 
 if.then.i.i.i.i.i.i.i275.i.i.i:                   ; preds = %if.end9.i.i.i.i.i273.i.i.i
   %62 = atomicrmw add ptr %61, i64 1 monotonic, align 8, !noalias !43
-  br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i257.i.i.i.sink.split
-
-_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i257.i.i.i.sink.split: ; preds = %if.then7.i.i.i.i.i254.i.i.i, %if.then.i.i.i.i.i.i.i275.i.i.i
-  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sink = phi ptr [ %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i275.i.i.i ], [ %ref.tmp.i.i.i.i.i246.i.i.i, %if.then7.i.i.i.i.i254.i.i.i ]
-  %value.sink.i.sroa.phi.i.i.i258.i.i.i.ph = phi ptr [ %value.sink.i.sroa.gep1.i.i.i253.i.i.i, %if.then.i.i.i.i.i.i.i275.i.i.i ], [ %value.sink.i.sroa.gep.i.i.i255.i.i.i, %if.then7.i.i.i.i.i254.i.i.i ]
-  %ref.tmp.sroa.0.0.copyload2.pre.i.i.i.i276.i.i.i = load ptr, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sink, align 8
+  %ref.tmp.sroa.0.0.copyload2.pre.i.i.i.i276.i.i.i = load ptr, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i257.i.i.i
 
-_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i257.i.i.i: ; preds = %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i257.i.i.i.sink.split, %if.end9.i.i.i.i.i273.i.i.i, %if.then.i250.i.i.i
-  %value.sink.i.sroa.phi.i.i.i258.i.i.i = phi ptr [ %value.sink.i.sroa.gep1.i.i.i253.i.i.i, %if.then.i250.i.i.i ], [ %value.sink.i.sroa.gep1.i.i.i253.i.i.i, %if.end9.i.i.i.i.i273.i.i.i ], [ %value.sink.i.sroa.phi.i.i.i258.i.i.i.ph, %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i257.i.i.i.sink.split ]
-  %ref.tmp.sroa.0.0.i.i.i.i259.i.i.i = phi ptr [ %61, %if.then.i250.i.i.i ], [ %61, %if.end9.i.i.i.i.i273.i.i.i ], [ %ref.tmp.sroa.0.0.copyload2.pre.i.i.i.i276.i.i.i, %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i257.i.i.i.sink.split ]
+_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i257.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i275.i.i.i, %if.end9.i.i.i.i.i273.i.i.i, %if.then7.i.i.i.i.i254.i.i.i, %if.then.i250.i.i.i
+  %value.sink.i.sroa.phi.i.i.i258.i.i.i = phi ptr [ %value.sink.i.sroa.gep.i.i.i255.i.i.i, %if.then7.i.i.i.i.i254.i.i.i ], [ %value.sink.i.sroa.gep1.i.i.i253.i.i.i, %if.then.i250.i.i.i ], [ %value.sink.i.sroa.gep1.i.i.i253.i.i.i, %if.then.i.i.i.i.i.i.i275.i.i.i ], [ %value.sink.i.sroa.gep1.i.i.i253.i.i.i, %if.end9.i.i.i.i.i273.i.i.i ]
+  %ref.tmp.sroa.0.0.i.i.i.i259.i.i.i = phi ptr [ %ref.tmp.sroa.0.0.copyload.i.i.i.i256.i.i.i, %if.then7.i.i.i.i.i254.i.i.i ], [ %61, %if.then.i250.i.i.i ], [ %ref.tmp.sroa.0.0.copyload2.pre.i.i.i.i276.i.i.i, %if.then.i.i.i.i.i.i.i275.i.i.i ], [ %61, %if.end9.i.i.i.i.i273.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.8.i.i.i.i247.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %value.sink.i.sroa.phi.i.i.i258.i.i.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i246.i.i.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %replacement.sroa.4.i.i.i.i.i.i.i245.i.i.i)
@@ -5202,7 +5182,8 @@ if.then.i285.i.i.i:                               ; preds = %_ZNK9grpc_core5Tabl
 if.then7.i.i.i.i.i289.i.i.i:                      ; preds = %if.then.i285.i.i.i
   %value.sink.i.sroa.gep.i.i.i290.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i281.i.i.i, i64 8
   call void @grpc_slice_copy(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp.i.i.i.i.i281.i.i.i, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i), !noalias !46
-  br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i292.i.i.i.sink.split
+  %ref.tmp.sroa.0.0.copyload.i.i.i.i291.i.i.i = load ptr, ptr %ref.tmp.i.i.i.i.i281.i.i.i, align 8
+  br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i292.i.i.i
 
 if.end9.i.i.i.i.i308.i.i.i:                       ; preds = %if.then.i285.i.i.i
   %cmp.i.i.i.i.i.i.i309.i.i.i = icmp ugt ptr %69, inttoptr (i64 1 to ptr)
@@ -5210,17 +5191,12 @@ if.end9.i.i.i.i.i308.i.i.i:                       ; preds = %if.then.i285.i.i.i
 
 if.then.i.i.i.i.i.i.i310.i.i.i:                   ; preds = %if.end9.i.i.i.i.i308.i.i.i
   %70 = atomicrmw add ptr %69, i64 1 monotonic, align 8, !noalias !49
-  br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i292.i.i.i.sink.split
-
-_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i292.i.i.i.sink.split: ; preds = %if.then7.i.i.i.i.i289.i.i.i, %if.then.i.i.i.i.i.i.i310.i.i.i
-  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sink = phi ptr [ %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i310.i.i.i ], [ %ref.tmp.i.i.i.i.i281.i.i.i, %if.then7.i.i.i.i.i289.i.i.i ]
-  %value.sink.i.sroa.phi.i.i.i293.i.i.i.ph = phi ptr [ %value.sink.i.sroa.gep1.i.i.i288.i.i.i, %if.then.i.i.i.i.i.i.i310.i.i.i ], [ %value.sink.i.sroa.gep.i.i.i290.i.i.i, %if.then7.i.i.i.i.i289.i.i.i ]
-  %ref.tmp.sroa.0.0.copyload2.pre.i.i.i.i311.i.i.i = load ptr, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sink, align 8
+  %ref.tmp.sroa.0.0.copyload2.pre.i.i.i.i311.i.i.i = load ptr, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i292.i.i.i
 
-_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i292.i.i.i: ; preds = %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i292.i.i.i.sink.split, %if.end9.i.i.i.i.i308.i.i.i, %if.then.i285.i.i.i
-  %value.sink.i.sroa.phi.i.i.i293.i.i.i = phi ptr [ %value.sink.i.sroa.gep1.i.i.i288.i.i.i, %if.then.i285.i.i.i ], [ %value.sink.i.sroa.gep1.i.i.i288.i.i.i, %if.end9.i.i.i.i.i308.i.i.i ], [ %value.sink.i.sroa.phi.i.i.i293.i.i.i.ph, %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i292.i.i.i.sink.split ]
-  %ref.tmp.sroa.0.0.i.i.i.i294.i.i.i = phi ptr [ %69, %if.then.i285.i.i.i ], [ %69, %if.end9.i.i.i.i.i308.i.i.i ], [ %ref.tmp.sroa.0.0.copyload2.pre.i.i.i.i311.i.i.i, %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i292.i.i.i.sink.split ]
+_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i292.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i310.i.i.i, %if.end9.i.i.i.i.i308.i.i.i, %if.then7.i.i.i.i.i289.i.i.i, %if.then.i285.i.i.i
+  %value.sink.i.sroa.phi.i.i.i293.i.i.i = phi ptr [ %value.sink.i.sroa.gep.i.i.i290.i.i.i, %if.then7.i.i.i.i.i289.i.i.i ], [ %value.sink.i.sroa.gep1.i.i.i288.i.i.i, %if.then.i285.i.i.i ], [ %value.sink.i.sroa.gep1.i.i.i288.i.i.i, %if.then.i.i.i.i.i.i.i310.i.i.i ], [ %value.sink.i.sroa.gep1.i.i.i288.i.i.i, %if.end9.i.i.i.i.i308.i.i.i ]
+  %ref.tmp.sroa.0.0.i.i.i.i294.i.i.i = phi ptr [ %ref.tmp.sroa.0.0.copyload.i.i.i.i291.i.i.i, %if.then7.i.i.i.i.i289.i.i.i ], [ %69, %if.then.i285.i.i.i ], [ %ref.tmp.sroa.0.0.copyload2.pre.i.i.i.i311.i.i.i, %if.then.i.i.i.i.i.i.i310.i.i.i ], [ %69, %if.end9.i.i.i.i.i308.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.8.i.i.i.i282.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %value.sink.i.sroa.phi.i.i.i293.i.i.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i281.i.i.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %replacement.sroa.4.i.i.i.i.i.i.i280.i.i.i)
@@ -5297,7 +5273,8 @@ if.then.i320.i.i.i:                               ; preds = %_ZNK9grpc_core5Tabl
 if.then7.i.i.i.i.i324.i.i.i:                      ; preds = %if.then.i320.i.i.i
   %value.sink.i.sroa.gep.i.i.i325.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i316.i.i.i, i64 8
   call void @grpc_slice_copy(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp.i.i.i.i.i316.i.i.i, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i), !noalias !52
-  br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i327.i.i.i.sink.split
+  %ref.tmp.sroa.0.0.copyload.i.i.i.i326.i.i.i = load ptr, ptr %ref.tmp.i.i.i.i.i316.i.i.i, align 8
+  br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i327.i.i.i
 
 if.end9.i.i.i.i.i343.i.i.i:                       ; preds = %if.then.i320.i.i.i
   %cmp.i.i.i.i.i.i.i344.i.i.i = icmp ugt ptr %77, inttoptr (i64 1 to ptr)
@@ -5305,17 +5282,12 @@ if.end9.i.i.i.i.i343.i.i.i:                       ; preds = %if.then.i320.i.i.i
 
 if.then.i.i.i.i.i.i.i345.i.i.i:                   ; preds = %if.end9.i.i.i.i.i343.i.i.i
   %78 = atomicrmw add ptr %77, i64 1 monotonic, align 8, !noalias !55
-  br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i327.i.i.i.sink.split
-
-_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i327.i.i.i.sink.split: ; preds = %if.then7.i.i.i.i.i324.i.i.i, %if.then.i.i.i.i.i.i.i345.i.i.i
-  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sink = phi ptr [ %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i345.i.i.i ], [ %ref.tmp.i.i.i.i.i316.i.i.i, %if.then7.i.i.i.i.i324.i.i.i ]
-  %value.sink.i.sroa.phi.i.i.i328.i.i.i.ph = phi ptr [ %value.sink.i.sroa.gep1.i.i.i323.i.i.i, %if.then.i.i.i.i.i.i.i345.i.i.i ], [ %value.sink.i.sroa.gep.i.i.i325.i.i.i, %if.then7.i.i.i.i.i324.i.i.i ]
-  %ref.tmp.sroa.0.0.copyload2.pre.i.i.i.i346.i.i.i = load ptr, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sink, align 8
+  %ref.tmp.sroa.0.0.copyload2.pre.i.i.i.i346.i.i.i = load ptr, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i327.i.i.i
 
-_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i327.i.i.i: ; preds = %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i327.i.i.i.sink.split, %if.end9.i.i.i.i.i343.i.i.i, %if.then.i320.i.i.i
-  %value.sink.i.sroa.phi.i.i.i328.i.i.i = phi ptr [ %value.sink.i.sroa.gep1.i.i.i323.i.i.i, %if.then.i320.i.i.i ], [ %value.sink.i.sroa.gep1.i.i.i323.i.i.i, %if.end9.i.i.i.i.i343.i.i.i ], [ %value.sink.i.sroa.phi.i.i.i328.i.i.i.ph, %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i327.i.i.i.sink.split ]
-  %ref.tmp.sroa.0.0.i.i.i.i329.i.i.i = phi ptr [ %77, %if.then.i320.i.i.i ], [ %77, %if.end9.i.i.i.i.i343.i.i.i ], [ %ref.tmp.sroa.0.0.copyload2.pre.i.i.i.i346.i.i.i, %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i327.i.i.i.sink.split ]
+_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i327.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i345.i.i.i, %if.end9.i.i.i.i.i343.i.i.i, %if.then7.i.i.i.i.i324.i.i.i, %if.then.i320.i.i.i
+  %value.sink.i.sroa.phi.i.i.i328.i.i.i = phi ptr [ %value.sink.i.sroa.gep.i.i.i325.i.i.i, %if.then7.i.i.i.i.i324.i.i.i ], [ %value.sink.i.sroa.gep1.i.i.i323.i.i.i, %if.then.i320.i.i.i ], [ %value.sink.i.sroa.gep1.i.i.i323.i.i.i, %if.then.i.i.i.i.i.i.i345.i.i.i ], [ %value.sink.i.sroa.gep1.i.i.i323.i.i.i, %if.end9.i.i.i.i.i343.i.i.i ]
+  %ref.tmp.sroa.0.0.i.i.i.i329.i.i.i = phi ptr [ %ref.tmp.sroa.0.0.copyload.i.i.i.i326.i.i.i, %if.then7.i.i.i.i.i324.i.i.i ], [ %77, %if.then.i320.i.i.i ], [ %ref.tmp.sroa.0.0.copyload2.pre.i.i.i.i346.i.i.i, %if.then.i.i.i.i.i.i.i345.i.i.i ], [ %77, %if.end9.i.i.i.i.i343.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.8.i.i.i.i317.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %value.sink.i.sroa.phi.i.i.i328.i.i.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i316.i.i.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %replacement.sroa.4.i.i.i.i.i.i.i315.i.i.i)
@@ -5392,7 +5364,8 @@ if.then.i355.i.i.i:                               ; preds = %_ZNK9grpc_core5Tabl
 if.then7.i.i.i.i.i359.i.i.i:                      ; preds = %if.then.i355.i.i.i
   %value.sink.i.sroa.gep.i.i.i360.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i351.i.i.i, i64 8
   call void @grpc_slice_copy(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp.i.i.i.i.i351.i.i.i, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %u.i.i.i.i.i.i.i.i.i.i.i.i.i), !noalias !58
-  br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i362.i.i.i.sink.split
+  %ref.tmp.sroa.0.0.copyload.i.i.i.i361.i.i.i = load ptr, ptr %ref.tmp.i.i.i.i.i351.i.i.i, align 8
+  br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i362.i.i.i
 
 if.end9.i.i.i.i.i378.i.i.i:                       ; preds = %if.then.i355.i.i.i
   %cmp.i.i.i.i.i.i.i379.i.i.i = icmp ugt ptr %85, inttoptr (i64 1 to ptr)
@@ -5400,17 +5373,12 @@ if.end9.i.i.i.i.i378.i.i.i:                       ; preds = %if.then.i355.i.i.i
 
 if.then.i.i.i.i.i.i.i380.i.i.i:                   ; preds = %if.end9.i.i.i.i.i378.i.i.i
   %86 = atomicrmw add ptr %85, i64 1 monotonic, align 8, !noalias !61
-  br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i362.i.i.i.sink.split
-
-_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i362.i.i.i.sink.split: ; preds = %if.then7.i.i.i.i.i359.i.i.i, %if.then.i.i.i.i.i.i.i380.i.i.i
-  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.sink = phi ptr [ %u.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i380.i.i.i ], [ %ref.tmp.i.i.i.i.i351.i.i.i, %if.then7.i.i.i.i.i359.i.i.i ]
-  %value.sink.i.sroa.phi.i.i.i363.i.i.i.ph = phi ptr [ %value.sink.i.sroa.gep1.i.i.i358.i.i.i, %if.then.i.i.i.i.i.i.i380.i.i.i ], [ %value.sink.i.sroa.gep.i.i.i360.i.i.i, %if.then7.i.i.i.i.i359.i.i.i ]
-  %ref.tmp.sroa.0.0.copyload2.pre.i.i.i.i381.i.i.i = load ptr, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.sink, align 8
+  %ref.tmp.sroa.0.0.copyload2.pre.i.i.i.i381.i.i.i = load ptr, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i362.i.i.i
 
-_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i362.i.i.i: ; preds = %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i362.i.i.i.sink.split, %if.end9.i.i.i.i.i378.i.i.i, %if.then.i355.i.i.i
-  %value.sink.i.sroa.phi.i.i.i363.i.i.i = phi ptr [ %value.sink.i.sroa.gep1.i.i.i358.i.i.i, %if.then.i355.i.i.i ], [ %value.sink.i.sroa.gep1.i.i.i358.i.i.i, %if.end9.i.i.i.i.i378.i.i.i ], [ %value.sink.i.sroa.phi.i.i.i363.i.i.i.ph, %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i362.i.i.i.sink.split ]
-  %ref.tmp.sroa.0.0.i.i.i.i364.i.i.i = phi ptr [ %85, %if.then.i355.i.i.i ], [ %85, %if.end9.i.i.i.i.i378.i.i.i ], [ %ref.tmp.sroa.0.0.copyload2.pre.i.i.i.i381.i.i.i, %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i362.i.i.i.sink.split ]
+_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i362.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i380.i.i.i, %if.end9.i.i.i.i.i378.i.i.i, %if.then7.i.i.i.i.i359.i.i.i, %if.then.i355.i.i.i
+  %value.sink.i.sroa.phi.i.i.i363.i.i.i = phi ptr [ %value.sink.i.sroa.gep.i.i.i360.i.i.i, %if.then7.i.i.i.i.i359.i.i.i ], [ %value.sink.i.sroa.gep1.i.i.i358.i.i.i, %if.then.i355.i.i.i ], [ %value.sink.i.sroa.gep1.i.i.i358.i.i.i, %if.then.i.i.i.i.i.i.i380.i.i.i ], [ %value.sink.i.sroa.gep1.i.i.i358.i.i.i, %if.end9.i.i.i.i.i378.i.i.i ]
+  %ref.tmp.sroa.0.0.i.i.i.i364.i.i.i = phi ptr [ %ref.tmp.sroa.0.0.copyload.i.i.i.i361.i.i.i, %if.then7.i.i.i.i.i359.i.i.i ], [ %85, %if.then.i355.i.i.i ], [ %ref.tmp.sroa.0.0.copyload2.pre.i.i.i.i381.i.i.i, %if.then.i.i.i.i.i.i.i380.i.i.i ], [ %85, %if.end9.i.i.i.i.i378.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.8.i.i.i.i352.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %value.sink.i.sroa.phi.i.i.i363.i.i.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i351.i.i.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %replacement.sroa.4.i.i.i.i.i.i.i350.i.i.i)
@@ -5487,7 +5455,8 @@ if.then.i390.i.i.i:                               ; preds = %_ZNK9grpc_core5Tabl
 if.then7.i.i.i.i.i394.i.i.i:                      ; preds = %if.then.i390.i.i.i
   %value.sink.i.sroa.gep.i.i.i395.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i386.i.i.i, i64 8
   call void @grpc_slice_copy(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp.i.i.i.i.i386.i.i.i, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %u.i.i.i.i.i.i.i.i.i.i.i.i), !noalias !64
-  br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i397.i.i.i.sink.split
+  %ref.tmp.sroa.0.0.copyload.i.i.i.i396.i.i.i = load ptr, ptr %ref.tmp.i.i.i.i.i386.i.i.i, align 8
+  br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i397.i.i.i
 
 if.end9.i.i.i.i.i413.i.i.i:                       ; preds = %if.then.i390.i.i.i
   %cmp.i.i.i.i.i.i.i414.i.i.i = icmp ugt ptr %93, inttoptr (i64 1 to ptr)
@@ -5495,17 +5464,12 @@ if.end9.i.i.i.i.i413.i.i.i:                       ; preds = %if.then.i390.i.i.i
 
 if.then.i.i.i.i.i.i.i415.i.i.i:                   ; preds = %if.end9.i.i.i.i.i413.i.i.i
   %94 = atomicrmw add ptr %93, i64 1 monotonic, align 8, !noalias !67
-  br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i397.i.i.i.sink.split
-
-_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i397.i.i.i.sink.split: ; preds = %if.then7.i.i.i.i.i394.i.i.i, %if.then.i.i.i.i.i.i.i415.i.i.i
-  %u.i.i.i.i.i.i.i.i.i.i.i.i.sink = phi ptr [ %u.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i415.i.i.i ], [ %ref.tmp.i.i.i.i.i386.i.i.i, %if.then7.i.i.i.i.i394.i.i.i ]
-  %value.sink.i.sroa.phi.i.i.i398.i.i.i.ph = phi ptr [ %value.sink.i.sroa.gep1.i.i.i393.i.i.i, %if.then.i.i.i.i.i.i.i415.i.i.i ], [ %value.sink.i.sroa.gep.i.i.i395.i.i.i, %if.then7.i.i.i.i.i394.i.i.i ]
-  %ref.tmp.sroa.0.0.copyload2.pre.i.i.i.i416.i.i.i = load ptr, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.sink, align 8
+  %ref.tmp.sroa.0.0.copyload2.pre.i.i.i.i416.i.i.i = load ptr, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i397.i.i.i
 
-_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i397.i.i.i: ; preds = %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i397.i.i.i.sink.split, %if.end9.i.i.i.i.i413.i.i.i, %if.then.i390.i.i.i
-  %value.sink.i.sroa.phi.i.i.i398.i.i.i = phi ptr [ %value.sink.i.sroa.gep1.i.i.i393.i.i.i, %if.then.i390.i.i.i ], [ %value.sink.i.sroa.gep1.i.i.i393.i.i.i, %if.end9.i.i.i.i.i413.i.i.i ], [ %value.sink.i.sroa.phi.i.i.i398.i.i.i.ph, %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i397.i.i.i.sink.split ]
-  %ref.tmp.sroa.0.0.i.i.i.i399.i.i.i = phi ptr [ %93, %if.then.i390.i.i.i ], [ %93, %if.end9.i.i.i.i.i413.i.i.i ], [ %ref.tmp.sroa.0.0.copyload2.pre.i.i.i.i416.i.i.i, %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i397.i.i.i.sink.split ]
+_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i397.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i415.i.i.i, %if.end9.i.i.i.i.i413.i.i.i, %if.then7.i.i.i.i.i394.i.i.i, %if.then.i390.i.i.i
+  %value.sink.i.sroa.phi.i.i.i398.i.i.i = phi ptr [ %value.sink.i.sroa.gep.i.i.i395.i.i.i, %if.then7.i.i.i.i.i394.i.i.i ], [ %value.sink.i.sroa.gep1.i.i.i393.i.i.i, %if.then.i390.i.i.i ], [ %value.sink.i.sroa.gep1.i.i.i393.i.i.i, %if.then.i.i.i.i.i.i.i415.i.i.i ], [ %value.sink.i.sroa.gep1.i.i.i393.i.i.i, %if.end9.i.i.i.i.i413.i.i.i ]
+  %ref.tmp.sroa.0.0.i.i.i.i399.i.i.i = phi ptr [ %ref.tmp.sroa.0.0.copyload.i.i.i.i396.i.i.i, %if.then7.i.i.i.i.i394.i.i.i ], [ %93, %if.then.i390.i.i.i ], [ %ref.tmp.sroa.0.0.copyload2.pre.i.i.i.i416.i.i.i, %if.then.i.i.i.i.i.i.i415.i.i.i ], [ %93, %if.end9.i.i.i.i.i413.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.8.i.i.i.i387.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %value.sink.i.sroa.phi.i.i.i398.i.i.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i386.i.i.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %replacement.sroa.4.i.i.i.i.i.i.i385.i.i.i)
@@ -5702,7 +5666,8 @@ if.then.i444.i.i.i:                               ; preds = %_ZNK9grpc_core5Tabl
 if.then7.i.i.i.i.i448.i.i.i:                      ; preds = %if.then.i444.i.i.i
   %value.sink.i.sroa.gep.i.i.i449.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i440.i.i.i, i64 8
   call void @grpc_slice_copy(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp.i.i.i.i.i440.i.i.i, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %u.i.i.i.i.i.i.i.i.i.i), !noalias !73
-  br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i451.i.i.i.sink.split
+  %ref.tmp.sroa.0.0.copyload.i.i.i.i450.i.i.i = load ptr, ptr %ref.tmp.i.i.i.i.i440.i.i.i, align 8
+  br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i451.i.i.i
 
 if.end9.i.i.i.i.i467.i.i.i:                       ; preds = %if.then.i444.i.i.i
   %cmp.i.i.i.i.i.i.i468.i.i.i = icmp ugt ptr %114, inttoptr (i64 1 to ptr)
@@ -5710,17 +5675,12 @@ if.end9.i.i.i.i.i467.i.i.i:                       ; preds = %if.then.i444.i.i.i
 
 if.then.i.i.i.i.i.i.i469.i.i.i:                   ; preds = %if.end9.i.i.i.i.i467.i.i.i
   %115 = atomicrmw add ptr %114, i64 1 monotonic, align 8, !noalias !76
-  br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i451.i.i.i.sink.split
-
-_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i451.i.i.i.sink.split: ; preds = %if.then7.i.i.i.i.i448.i.i.i, %if.then.i.i.i.i.i.i.i469.i.i.i
-  %u.i.i.i.i.i.i.i.i.i.i.sink = phi ptr [ %u.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i469.i.i.i ], [ %ref.tmp.i.i.i.i.i440.i.i.i, %if.then7.i.i.i.i.i448.i.i.i ]
-  %value.sink.i.sroa.phi.i.i.i452.i.i.i.ph = phi ptr [ %value.sink.i.sroa.gep1.i.i.i447.i.i.i, %if.then.i.i.i.i.i.i.i469.i.i.i ], [ %value.sink.i.sroa.gep.i.i.i449.i.i.i, %if.then7.i.i.i.i.i448.i.i.i ]
-  %ref.tmp.sroa.0.0.copyload2.pre.i.i.i.i470.i.i.i = load ptr, ptr %u.i.i.i.i.i.i.i.i.i.i.sink, align 8
+  %ref.tmp.sroa.0.0.copyload2.pre.i.i.i.i470.i.i.i = load ptr, ptr %u.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i451.i.i.i
 
-_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i451.i.i.i: ; preds = %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i451.i.i.i.sink.split, %if.end9.i.i.i.i.i467.i.i.i, %if.then.i444.i.i.i
-  %value.sink.i.sroa.phi.i.i.i452.i.i.i = phi ptr [ %value.sink.i.sroa.gep1.i.i.i447.i.i.i, %if.then.i444.i.i.i ], [ %value.sink.i.sroa.gep1.i.i.i447.i.i.i, %if.end9.i.i.i.i.i467.i.i.i ], [ %value.sink.i.sroa.phi.i.i.i452.i.i.i.ph, %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i451.i.i.i.sink.split ]
-  %ref.tmp.sroa.0.0.i.i.i.i453.i.i.i = phi ptr [ %114, %if.then.i444.i.i.i ], [ %114, %if.end9.i.i.i.i.i467.i.i.i ], [ %ref.tmp.sroa.0.0.copyload2.pre.i.i.i.i470.i.i.i, %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i451.i.i.i.sink.split ]
+_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i451.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i469.i.i.i, %if.end9.i.i.i.i.i467.i.i.i, %if.then7.i.i.i.i.i448.i.i.i, %if.then.i444.i.i.i
+  %value.sink.i.sroa.phi.i.i.i452.i.i.i = phi ptr [ %value.sink.i.sroa.gep.i.i.i449.i.i.i, %if.then7.i.i.i.i.i448.i.i.i ], [ %value.sink.i.sroa.gep1.i.i.i447.i.i.i, %if.then.i444.i.i.i ], [ %value.sink.i.sroa.gep1.i.i.i447.i.i.i, %if.then.i.i.i.i.i.i.i469.i.i.i ], [ %value.sink.i.sroa.gep1.i.i.i447.i.i.i, %if.end9.i.i.i.i.i467.i.i.i ]
+  %ref.tmp.sroa.0.0.i.i.i.i453.i.i.i = phi ptr [ %ref.tmp.sroa.0.0.copyload.i.i.i.i450.i.i.i, %if.then7.i.i.i.i.i448.i.i.i ], [ %114, %if.then.i444.i.i.i ], [ %ref.tmp.sroa.0.0.copyload2.pre.i.i.i.i470.i.i.i, %if.then.i.i.i.i.i.i.i469.i.i.i ], [ %114, %if.end9.i.i.i.i.i467.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.8.i.i.i.i441.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %value.sink.i.sroa.phi.i.i.i452.i.i.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i440.i.i.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %replacement.sroa.4.i.i.i.i.i.i.i439.i.i.i)
@@ -5797,7 +5757,8 @@ if.then.i479.i.i.i:                               ; preds = %_ZNK9grpc_core5Tabl
 if.then7.i.i.i.i.i483.i.i.i:                      ; preds = %if.then.i479.i.i.i
   %value.sink.i.sroa.gep.i.i.i484.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i475.i.i.i, i64 8
   call void @grpc_slice_copy(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp.i.i.i.i.i475.i.i.i, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %u.i.i.i.i.i.i.i.i.i), !noalias !79
-  br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i486.i.i.i.sink.split
+  %ref.tmp.sroa.0.0.copyload.i.i.i.i485.i.i.i = load ptr, ptr %ref.tmp.i.i.i.i.i475.i.i.i, align 8
+  br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i486.i.i.i
 
 if.end9.i.i.i.i.i502.i.i.i:                       ; preds = %if.then.i479.i.i.i
   %cmp.i.i.i.i.i.i.i503.i.i.i = icmp ugt ptr %122, inttoptr (i64 1 to ptr)
@@ -5805,17 +5766,12 @@ if.end9.i.i.i.i.i502.i.i.i:                       ; preds = %if.then.i479.i.i.i
 
 if.then.i.i.i.i.i.i.i504.i.i.i:                   ; preds = %if.end9.i.i.i.i.i502.i.i.i
   %123 = atomicrmw add ptr %122, i64 1 monotonic, align 8, !noalias !82
-  br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i486.i.i.i.sink.split
-
-_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i486.i.i.i.sink.split: ; preds = %if.then7.i.i.i.i.i483.i.i.i, %if.then.i.i.i.i.i.i.i504.i.i.i
-  %u.i.i.i.i.i.i.i.i.i.sink = phi ptr [ %u.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i504.i.i.i ], [ %ref.tmp.i.i.i.i.i475.i.i.i, %if.then7.i.i.i.i.i483.i.i.i ]
-  %value.sink.i.sroa.phi.i.i.i487.i.i.i.ph = phi ptr [ %value.sink.i.sroa.gep1.i.i.i482.i.i.i, %if.then.i.i.i.i.i.i.i504.i.i.i ], [ %value.sink.i.sroa.gep.i.i.i484.i.i.i, %if.then7.i.i.i.i.i483.i.i.i ]
-  %ref.tmp.sroa.0.0.copyload2.pre.i.i.i.i505.i.i.i = load ptr, ptr %u.i.i.i.i.i.i.i.i.i.sink, align 8
+  %ref.tmp.sroa.0.0.copyload2.pre.i.i.i.i505.i.i.i = load ptr, ptr %u.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i486.i.i.i
 
-_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i486.i.i.i: ; preds = %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i486.i.i.i.sink.split, %if.end9.i.i.i.i.i502.i.i.i, %if.then.i479.i.i.i
-  %value.sink.i.sroa.phi.i.i.i487.i.i.i = phi ptr [ %value.sink.i.sroa.gep1.i.i.i482.i.i.i, %if.then.i479.i.i.i ], [ %value.sink.i.sroa.gep1.i.i.i482.i.i.i, %if.end9.i.i.i.i.i502.i.i.i ], [ %value.sink.i.sroa.phi.i.i.i487.i.i.i.ph, %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i486.i.i.i.sink.split ]
-  %ref.tmp.sroa.0.0.i.i.i.i488.i.i.i = phi ptr [ %122, %if.then.i479.i.i.i ], [ %122, %if.end9.i.i.i.i.i502.i.i.i ], [ %ref.tmp.sroa.0.0.copyload2.pre.i.i.i.i505.i.i.i, %_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i486.i.i.i.sink.split ]
+_ZNK9grpc_core5Slice7AsOwnedEv.exit.i.i.i.i486.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i504.i.i.i, %if.end9.i.i.i.i.i502.i.i.i, %if.then7.i.i.i.i.i483.i.i.i, %if.then.i479.i.i.i
+  %value.sink.i.sroa.phi.i.i.i487.i.i.i = phi ptr [ %value.sink.i.sroa.gep.i.i.i484.i.i.i, %if.then7.i.i.i.i.i483.i.i.i ], [ %value.sink.i.sroa.gep1.i.i.i482.i.i.i, %if.then.i479.i.i.i ], [ %value.sink.i.sroa.gep1.i.i.i482.i.i.i, %if.then.i.i.i.i.i.i.i504.i.i.i ], [ %value.sink.i.sroa.gep1.i.i.i482.i.i.i, %if.end9.i.i.i.i.i502.i.i.i ]
+  %ref.tmp.sroa.0.0.i.i.i.i488.i.i.i = phi ptr [ %ref.tmp.sroa.0.0.copyload.i.i.i.i485.i.i.i, %if.then7.i.i.i.i.i483.i.i.i ], [ %122, %if.then.i479.i.i.i ], [ %ref.tmp.sroa.0.0.copyload2.pre.i.i.i.i505.i.i.i, %if.then.i.i.i.i.i.i.i504.i.i.i ], [ %122, %if.end9.i.i.i.i.i502.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.8.i.i.i.i476.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %value.sink.i.sroa.phi.i.i.i487.i.i.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i475.i.i.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %replacement.sroa.4.i.i.i.i.i.i.i474.i.i.i)
@@ -6121,16 +6077,16 @@ if.then2:                                         ; preds = %if.then
 
 if.then3:                                         ; preds = %if.then2
   %stream_list_next4 = getelementptr inbounds i8, ptr %2, i64 2448
+  store ptr %3, ptr %stream_list_next4, align 8
   br label %if.end
 
 if.else:                                          ; preds = %if.then2
   %4 = load ptr, ptr %s, align 8
   %stream_list = getelementptr inbounds i8, ptr %4, i64 152
+  store ptr %3, ptr %stream_list, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then3
-  %stream_list.sink = phi ptr [ %stream_list, %if.else ], [ %stream_list_next4, %if.then3 ]
-  store ptr %3, ptr %stream_list.sink, align 8
   %cmp5.not = icmp eq ptr %3, null
   br i1 %cmp5.not, label %if.end8, label %if.then6
 

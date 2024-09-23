@@ -199,7 +199,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont7
   br label %for.body
 
 _ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit:       ; preds = %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit, %invoke.cont7
-  %10 = phi ptr [ %8, %invoke.cont7 ], [ %46, %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit ]
+  %10 = phi ptr [ %8, %invoke.cont7 ], [ %45, %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit ]
   %coordinates_.i48.phi.trans.insert = getelementptr inbounds nuw i8, ptr %__begin1, i64 32
   %.pre100 = load ptr, ptr %coordinates_.i48.phi.trans.insert, align 8, !tbaa !27
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %__end1) #17
@@ -246,7 +246,7 @@ lpad6:                                            ; preds = %if.end.i.i.i.i.i.i.
   br label %ehcleanup95
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit
-  %16 = phi i64 [ 0, %for.body.lr.ph ], [ %50, %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit ]
+  %16 = phi i64 [ 0, %for.body.lr.ph ], [ %49, %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit ]
   %17 = load ptr, ptr %mesher, align 8, !tbaa !6
   %cmp.not.i64 = icmp eq ptr %17, null
   br i1 %cmp.not.i64, label %cond.false.i65, label %invoke.cont20, !prof !11
@@ -392,37 +392,37 @@ if.else72:                                        ; preds = %invoke.cont54
   br label %if.end87
 
 if.end87:                                         ; preds = %if.then60, %if.else72, %if.then
-  %upper_84.sink = phi ptr [ %upper_84, %if.then60 ], [ %upper_84, %if.else72 ], [ %diag_80, %if.then ]
+  %.sink102.in = phi ptr [ %upper_84, %if.then60 ], [ %upper_84, %if.else72 ], [ %diag_80, %if.then ]
   %.sink = phi double [ 0.000000e+00, %if.then60 ], [ %div83, %if.else72 ], [ %fneg, %if.then ]
-  %43 = load ptr, ptr %upper_84.sink, align 8, !tbaa !17
-  %arrayidx.i93 = getelementptr inbounds nuw double, ptr %43, i64 %16
+  %.sink102 = load ptr, ptr %.sink102.in, align 8, !tbaa !17
+  %arrayidx.i93 = getelementptr inbounds nuw double, ptr %.sink102, i64 %16
   store double %.sink, ptr %arrayidx.i93, align 8, !tbaa !49
-  %44 = load i64, ptr %__begin1, align 8, !tbaa !21
-  %inc.i = add i64 %44, 1
+  %43 = load i64, ptr %__begin1, align 8, !tbaa !21
+  %inc.i = add i64 %43, 1
   store i64 %inc.i, ptr %__begin1, align 8, !tbaa !21
-  %45 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !18
-  %46 = load ptr, ptr %dim_.i97, align 8, !tbaa !27
-  %cmp7.not.i = icmp eq ptr %45, %46
+  %44 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !18
+  %45 = load ptr, ptr %dim_.i97, align 8, !tbaa !27
+  %cmp7.not.i = icmp eq ptr %44, %45
   br i1 %cmp7.not.i, label %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end87
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %45 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %46 to i64
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %44 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %45 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %47 = load ptr, ptr %coordinates_.i74, align 8, !tbaa !27
+  %46 = load ptr, ptr %coordinates_.i74, align 8, !tbaa !27
   %umax.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.then.i, %for.body.lr.ph.i
   %i.08.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc9.i, %if.then.i ]
-  %add.ptr.i.i = getelementptr inbounds nuw i64, ptr %47, i64 %i.08.i
-  %48 = load i64, ptr %add.ptr.i.i, align 8, !tbaa !28
-  %inc3.i = add i64 %48, 1
+  %add.ptr.i.i = getelementptr inbounds nuw i64, ptr %46, i64 %i.08.i
+  %47 = load i64, ptr %add.ptr.i.i, align 8, !tbaa !28
+  %inc3.i = add i64 %47, 1
   store i64 %inc3.i, ptr %add.ptr.i.i, align 8, !tbaa !28
-  %add.ptr.i5.i = getelementptr inbounds nuw i64, ptr %46, i64 %i.08.i
-  %49 = load i64, ptr %add.ptr.i5.i, align 8, !tbaa !28
-  %cmp6.i = icmp eq i64 %inc3.i, %49
+  %add.ptr.i5.i = getelementptr inbounds nuw i64, ptr %45, i64 %i.08.i
+  %48 = load i64, ptr %add.ptr.i5.i, align 8, !tbaa !28
+  %cmp6.i = icmp eq i64 %inc3.i, %48
   br i1 %cmp6.i, label %if.then.i, label %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit
 
 if.then.i:                                        ; preds = %for.body.i
@@ -436,8 +436,8 @@ _ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit: ; preds = %if.then.i, %for.
   br label %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit
 
 _ZN8QuantLib19FdmLinearOpIteratorppEv.exit:       ; preds = %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit, %if.end87
-  %50 = phi i64 [ %.pre, %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit ], [ %inc.i, %if.end87 ]
-  %cmp.i.not = icmp eq i64 %50, %9
+  %49 = phi i64 [ %.pre, %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit ], [ %inc.i, %if.end87 ]
+  %cmp.i.not = icmp eq i64 %49, %9
   br i1 %cmp.i.not, label %_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit, label %for.body
 
 ehcleanup88:                                      ; preds = %lpad24, %lpad35, %lpad19

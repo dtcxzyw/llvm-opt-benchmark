@@ -4476,7 +4476,7 @@ define hidden void @_ZN14ArchiveBuilder21relocate_to_requestedEv(ptr noundef non
   %14 = load i8, ptr @_ZN9CDSConfig26_is_dumping_static_archiveE, align 1
   %15 = trunc i8 %14 to i1
   %16 = getelementptr inbounds i8, ptr %0, i64 96
-  br i1 %15, label %17, label %73
+  br i1 %15, label %17, label %74
 
 17:                                               ; preds = %1
   %18 = getelementptr inbounds i8, ptr %0, i64 48
@@ -4581,115 +4581,122 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i:  ; preds = %63, %46
   %or.cond.i = select i1 %70, i1 %72, i1 false
   br i1 %or.cond.i, label %46, label %_ZN25RelocateBufferToRequestedILb1EE4doitEv.exit, !llvm.loop !31
 
-73:                                               ; preds = %1
-  %74 = getelementptr inbounds i8, ptr %0, i64 64
-  %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 %13
-  %77 = getelementptr inbounds i8, ptr %0, i64 72
-  store ptr %76, ptr %77, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV25RelocateBufferToRequestedILb0EE, i64 16), ptr %3, align 8
-  %78 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %0, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr %10, ptr %79, align 8
-  %80 = load i64, ptr %16, align 8
-  %81 = getelementptr inbounds i8, ptr %3, i64 24
-  store i64 %80, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %0, i64 48
-  %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %0, i64 80
-  %85 = load ptr, ptr %84, align 8
-  %86 = ptrtoint ptr %83 to i64
-  %87 = ptrtoint ptr %85 to i64
-  %88 = sub i64 %86, %87
-  %89 = getelementptr inbounds i8, ptr %3, i64 32
-  store i64 %88, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %3, i64 40
-  store i64 0, ptr %90, align 8
-  %91 = load ptr, ptr %7, align 8
-  %92 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not.i2 = icmp eq ptr %92, null
-  br i1 %.not.i2, label %_ZN25RelocateBufferToRequestedILb0EEC2EP14ArchiveBuilder.exit, label %93
+_ZN25RelocateBufferToRequestedILb1EE4doitEv.exit: ; preds = %63, %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i, %67, %.preheader.i.i.i.i, %_ZN25RelocateBufferToRequestedILb1EEC2EP14ArchiveBuilder.exit
+  %73 = load i64, ptr %32, align 8
+  br label %133
 
-93:                                               ; preds = %73
-  %94 = getelementptr inbounds i8, ptr %91, i64 %80
-  %95 = getelementptr inbounds i8, ptr %10, i64 %80
-  %96 = ptrtoint ptr %91 to i64
-  %97 = ptrtoint ptr %95 to i64
-  %98 = ptrtoint ptr %94 to i64
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.111, i64 noundef %12, i64 noundef %96, i64 noundef %97, i64 noundef %98)
+74:                                               ; preds = %1
+  %75 = getelementptr inbounds i8, ptr %0, i64 64
+  %76 = load ptr, ptr %75, align 8
+  %77 = getelementptr inbounds i8, ptr %76, i64 %13
+  %78 = getelementptr inbounds i8, ptr %0, i64 72
+  store ptr %77, ptr %78, align 8
+  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV25RelocateBufferToRequestedILb0EE, i64 16), ptr %3, align 8
+  %79 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %0, ptr %79, align 8
+  %80 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr %10, ptr %80, align 8
+  %81 = load i64, ptr %16, align 8
+  %82 = getelementptr inbounds i8, ptr %3, i64 24
+  store i64 %81, ptr %82, align 8
+  %83 = getelementptr inbounds i8, ptr %0, i64 48
+  %84 = load ptr, ptr %83, align 8
+  %85 = getelementptr inbounds i8, ptr %0, i64 80
+  %86 = load ptr, ptr %85, align 8
+  %87 = ptrtoint ptr %84 to i64
+  %88 = ptrtoint ptr %86 to i64
+  %89 = sub i64 %87, %88
+  %90 = getelementptr inbounds i8, ptr %3, i64 32
+  store i64 %89, ptr %90, align 8
+  %91 = getelementptr inbounds i8, ptr %3, i64 40
+  store i64 0, ptr %91, align 8
+  %92 = load ptr, ptr %7, align 8
+  %93 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not.i2 = icmp eq ptr %93, null
+  br i1 %.not.i2, label %_ZN25RelocateBufferToRequestedILb0EEC2EP14ArchiveBuilder.exit, label %94
+
+94:                                               ; preds = %74
+  %95 = getelementptr inbounds i8, ptr %92, i64 %81
+  %96 = getelementptr inbounds i8, ptr %10, i64 %81
+  %97 = ptrtoint ptr %92 to i64
+  %98 = ptrtoint ptr %96 to i64
+  %99 = ptrtoint ptr %95 to i64
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.111, i64 noundef %12, i64 noundef %97, i64 noundef %98, i64 noundef %99)
   br label %_ZN25RelocateBufferToRequestedILb0EEC2EP14ArchiveBuilder.exit
 
-_ZN25RelocateBufferToRequestedILb0EEC2EP14ArchiveBuilder.exit: ; preds = %73, %93
-  %99 = load ptr, ptr @_ZN16ArchivePtrMarker7_ptrmapE, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 8
-  %101 = load i64, ptr %100, align 8
-  %.not.i.i3 = icmp eq i64 %101, 0
-  br i1 %.not.i.i3, label %_ZN25RelocateBufferToRequestedILb1EE4doitEv.exit, label %.lr.ph.i.i.i.i4
+_ZN25RelocateBufferToRequestedILb0EEC2EP14ArchiveBuilder.exit: ; preds = %74, %94
+  %100 = load ptr, ptr @_ZN16ArchivePtrMarker7_ptrmapE, align 8
+  %101 = getelementptr inbounds i8, ptr %100, i64 8
+  %102 = load i64, ptr %101, align 8
+  %.not.i.i3 = icmp eq i64 %102, 0
+  br i1 %.not.i.i3, label %_ZN25RelocateBufferToRequestedILb0EE4doitEv.exit, label %.lr.ph.i.i.i.i4
 
 .lr.ph.i.i.i.i4:                                  ; preds = %_ZN25RelocateBufferToRequestedILb0EEC2EP14ArchiveBuilder.exit
-  %102 = add i64 %101, 63
-  %103 = lshr i64 %102, 6
-  br label %104
+  %103 = add i64 %102, 63
+  %104 = lshr i64 %103, 6
+  br label %105
 
-104:                                              ; preds = %125, %.lr.ph.i.i.i.i4
-  %.0917.i.i.i.i5 = phi i64 [ 0, %.lr.ph.i.i.i.i4 ], [ %129, %125 ]
-  %105 = lshr i64 %.0917.i.i.i.i5, 6
-  %106 = load ptr, ptr %99, align 8
-  %107 = getelementptr inbounds i64, ptr %106, i64 %105
-  %108 = load i64, ptr %107, align 8
-  %109 = and i64 %.0917.i.i.i.i5, 63
-  %110 = lshr i64 %108, %109
-  %111 = and i64 %110, 1
-  %.not.i.i.i.i.i.i6 = icmp eq i64 %111, 0
-  br i1 %.not.i.i.i.i.i.i6, label %112, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i7
+105:                                              ; preds = %126, %.lr.ph.i.i.i.i4
+  %.0917.i.i.i.i5 = phi i64 [ 0, %.lr.ph.i.i.i.i4 ], [ %130, %126 ]
+  %106 = lshr i64 %.0917.i.i.i.i5, 6
+  %107 = load ptr, ptr %100, align 8
+  %108 = getelementptr inbounds i64, ptr %107, i64 %106
+  %109 = load i64, ptr %108, align 8
+  %110 = and i64 %.0917.i.i.i.i5, 63
+  %111 = lshr i64 %109, %110
+  %112 = and i64 %111, 1
+  %.not.i.i.i.i.i.i6 = icmp eq i64 %112, 0
+  br i1 %.not.i.i.i.i.i.i6, label %113, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i7
 
-112:                                              ; preds = %104
-  %113 = icmp eq i64 %110, 0
-  br i1 %113, label %.preheader.i.i.i.i13, label %121
+113:                                              ; preds = %105
+  %114 = icmp eq i64 %111, 0
+  br i1 %114, label %.preheader.i.i.i.i13, label %122
 
-.preheader.i.i.i.i13:                             ; preds = %112, %116
-  %.025.i.i.i.i.i.i14 = phi i64 [ %114, %116 ], [ %105, %112 ]
-  %114 = add nuw nsw i64 %.025.i.i.i.i.i.i14, 1
-  %115 = icmp ult i64 %114, %103
-  br i1 %115, label %116, label %_ZN25RelocateBufferToRequestedILb1EE4doitEv.exit
+.preheader.i.i.i.i13:                             ; preds = %113, %117
+  %.025.i.i.i.i.i.i14 = phi i64 [ %115, %117 ], [ %106, %113 ]
+  %115 = add nuw nsw i64 %.025.i.i.i.i.i.i14, 1
+  %116 = icmp ult i64 %115, %104
+  br i1 %116, label %117, label %_ZN25RelocateBufferToRequestedILb0EE4doitEv.exit
 
-116:                                              ; preds = %.preheader.i.i.i.i13
-  %117 = getelementptr inbounds i64, ptr %106, i64 %114
-  %118 = load i64, ptr %117, align 8
-  %.not36.i.i.i.i.i.i15 = icmp eq i64 %118, 0
-  br i1 %.not36.i.i.i.i.i.i15, label %.preheader.i.i.i.i13, label %119, !llvm.loop !6
+117:                                              ; preds = %.preheader.i.i.i.i13
+  %118 = getelementptr inbounds i64, ptr %107, i64 %115
+  %119 = load i64, ptr %118, align 8
+  %.not36.i.i.i.i.i.i15 = icmp eq i64 %119, 0
+  br i1 %.not36.i.i.i.i.i.i15, label %.preheader.i.i.i.i13, label %120, !llvm.loop !6
 
-119:                                              ; preds = %116
-  %120 = shl i64 %114, 6
-  br label %121
+120:                                              ; preds = %117
+  %121 = shl i64 %115, 6
+  br label %122
 
-121:                                              ; preds = %119, %112
-  %.027.ph.i.i.i.i.i.i11 = phi i64 [ %110, %112 ], [ %118, %119 ]
-  %.026.ph.i.i.i.i.i.i12 = phi i64 [ %.0917.i.i.i.i5, %112 ], [ %120, %119 ]
-  %122 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i.i.i11, i1 true)
-  %123 = add i64 %.026.ph.i.i.i.i.i.i12, %122
-  %124 = icmp ult i64 %123, %101
-  br i1 %124, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i7, label %_ZN25RelocateBufferToRequestedILb1EE4doitEv.exit
+122:                                              ; preds = %120, %113
+  %.027.ph.i.i.i.i.i.i11 = phi i64 [ %111, %113 ], [ %119, %120 ]
+  %.026.ph.i.i.i.i.i.i12 = phi i64 [ %.0917.i.i.i.i5, %113 ], [ %121, %120 ]
+  %123 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i.i.i11, i1 true)
+  %124 = add i64 %.026.ph.i.i.i.i.i.i12, %123
+  %125 = icmp ult i64 %124, %102
+  br i1 %125, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i7, label %_ZN25RelocateBufferToRequestedILb0EE4doitEv.exit
 
-_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i7: ; preds = %121, %104
-  %.0.i.i.i.i.i.i8 = phi i64 [ %.0917.i.i.i.i5, %104 ], [ %123, %121 ]
-  %.not.not.i.i.i.i9 = icmp ult i64 %.0.i.i.i.i.i.i8, %101
-  br i1 %.not.not.i.i.i.i9, label %125, label %_ZN25RelocateBufferToRequestedILb1EE4doitEv.exit
+_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i7: ; preds = %122, %105
+  %.0.i.i.i.i.i.i8 = phi i64 [ %.0917.i.i.i.i5, %105 ], [ %124, %122 ]
+  %.not.not.i.i.i.i9 = icmp ult i64 %.0.i.i.i.i.i.i8, %102
+  br i1 %.not.not.i.i.i.i9, label %126, label %_ZN25RelocateBufferToRequestedILb0EE4doitEv.exit
 
-125:                                              ; preds = %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i7
-  %126 = load ptr, ptr %3, align 8
-  %127 = load ptr, ptr %126, align 8
-  %128 = call noundef zeroext i1 %127(ptr noundef nonnull align 8 dereferenceable(48) %3, i64 noundef %.0.i.i.i.i.i.i8) #19
-  %129 = add nuw i64 %.0.i.i.i.i.i.i8, 1
-  %130 = icmp ult i64 %129, %101
-  %or.cond.i10 = select i1 %128, i1 %130, i1 false
-  br i1 %or.cond.i10, label %104, label %_ZN25RelocateBufferToRequestedILb1EE4doitEv.exit, !llvm.loop !32
+126:                                              ; preds = %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i7
+  %127 = load ptr, ptr %3, align 8
+  %128 = load ptr, ptr %127, align 8
+  %129 = call noundef zeroext i1 %128(ptr noundef nonnull align 8 dereferenceable(48) %3, i64 noundef %.0.i.i.i.i.i.i8) #19
+  %130 = add nuw i64 %.0.i.i.i.i.i.i8, 1
+  %131 = icmp ult i64 %130, %102
+  %or.cond.i10 = select i1 %129, i1 %131, i1 false
+  br i1 %or.cond.i10, label %105, label %_ZN25RelocateBufferToRequestedILb0EE4doitEv.exit, !llvm.loop !32
 
-_ZN25RelocateBufferToRequestedILb1EE4doitEv.exit: ; preds = %125, %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i7, %121, %.preheader.i.i.i.i13, %67, %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i, %63, %.preheader.i.i.i.i, %_ZN25RelocateBufferToRequestedILb0EEC2EP14ArchiveBuilder.exit, %_ZN25RelocateBufferToRequestedILb1EEC2EP14ArchiveBuilder.exit
-  %.sink34 = phi ptr [ %32, %_ZN25RelocateBufferToRequestedILb1EEC2EP14ArchiveBuilder.exit ], [ %90, %_ZN25RelocateBufferToRequestedILb0EEC2EP14ArchiveBuilder.exit ], [ %32, %.preheader.i.i.i.i ], [ %32, %63 ], [ %32, %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i ], [ %32, %67 ], [ %90, %.preheader.i.i.i.i13 ], [ %90, %121 ], [ %90, %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i7 ], [ %90, %125 ]
-  %131 = load i64, ptr %.sink34, align 8
-  call void @_ZN16ArchivePtrMarker7compactEm(i64 noundef %131) #19
+_ZN25RelocateBufferToRequestedILb0EE4doitEv.exit: ; preds = %122, %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i7, %126, %.preheader.i.i.i.i13, %_ZN25RelocateBufferToRequestedILb0EEC2EP14ArchiveBuilder.exit
+  %132 = load i64, ptr %91, align 8
+  br label %133
+
+133:                                              ; preds = %_ZN25RelocateBufferToRequestedILb0EE4doitEv.exit, %_ZN25RelocateBufferToRequestedILb1EE4doitEv.exit
+  %.sink = phi i64 [ %132, %_ZN25RelocateBufferToRequestedILb0EE4doitEv.exit ], [ %73, %_ZN25RelocateBufferToRequestedILb1EE4doitEv.exit ]
+  call void @_ZN16ArchivePtrMarker7compactEm(i64 noundef %.sink) #19
   ret void
 }
 

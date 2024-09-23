@@ -216,7 +216,7 @@ if.then:                                          ; preds = %entry
   br label %morebytes
 
 while.cond:                                       ; preds = %entry, %if.end63
-  %myOffsets.1 = phi ptr [ %incdec.ptr37, %if.end63 ], [ %2, %entry ]
+  %myOffsets.1 = phi ptr [ %myOffsets.3, %if.end63 ], [ %2, %entry ]
   %myTarget.1 = phi ptr [ %myTarget.3, %if.end63 ], [ %1, %entry ]
   %mySource.1 = phi ptr [ %mySource.2.lcssa, %if.end63 ], [ %0, %entry ]
   %offsetNum.1 = phi i32 [ %add64, %if.end63 ], [ 0, %entry ]
@@ -287,6 +287,8 @@ if.then34:                                        ; preds = %if.then32
   %conv35 = trunc nuw i32 %ch.1.lcssa to i16
   %incdec.ptr36 = getelementptr inbounds i8, ptr %myTarget.0, i64 2
   store i16 %conv35, ptr %myTarget.0, align 2
+  %incdec.ptr37 = getelementptr inbounds i8, ptr %myOffsets.0, i64 4
+  store i32 %offsetNum.0, ptr %myOffsets.0, align 4
   br label %if.end63
 
 if.else38:                                        ; preds = %if.then32
@@ -306,6 +308,8 @@ if.else38:                                        ; preds = %if.then32
 if.then48:                                        ; preds = %if.else38
   %incdec.ptr50 = getelementptr inbounds i8, ptr %myTarget.0, i64 4
   store i16 %conv45, ptr %incdec.ptr41, align 2
+  %incdec.ptr51 = getelementptr inbounds i8, ptr %myOffsets.0, i64 8
+  store i32 %offsetNum.0, ptr %incdec.ptr42, align 4
   br label %if.end63
 
 if.else52:                                        ; preds = %if.else38
@@ -327,11 +331,8 @@ if.else59:                                        ; preds = %while.end
   br label %donefornow
 
 if.end63:                                         ; preds = %if.then34, %if.then48
-  %.sink = phi i64 [ 4, %if.then34 ], [ 8, %if.then48 ]
-  %myOffsets.0.sink = phi ptr [ %myOffsets.0, %if.then34 ], [ %incdec.ptr42, %if.then48 ]
+  %myOffsets.3 = phi ptr [ %incdec.ptr37, %if.then34 ], [ %incdec.ptr51, %if.then48 ]
   %myTarget.3 = phi ptr [ %incdec.ptr36, %if.then34 ], [ %incdec.ptr50, %if.then48 ]
-  %incdec.ptr37 = getelementptr inbounds i8, ptr %myOffsets.0, i64 %.sink
-  store i32 %offsetNum.0, ptr %myOffsets.0.sink, align 4
   %add64 = add i32 %i.1.lcssa, %offsetNum.0
   br label %while.cond, !llvm.loop !8
 
@@ -1040,7 +1041,7 @@ if.then:                                          ; preds = %entry
   br label %morebytes
 
 while.cond:                                       ; preds = %entry, %if.end63
-  %myOffsets.1 = phi ptr [ %incdec.ptr37, %if.end63 ], [ %2, %entry ]
+  %myOffsets.1 = phi ptr [ %myOffsets.3, %if.end63 ], [ %2, %entry ]
   %myTarget.1 = phi ptr [ %myTarget.3, %if.end63 ], [ %1, %entry ]
   %mySource.1 = phi ptr [ %mySource.2.lcssa, %if.end63 ], [ %0, %entry ]
   %offsetNum.1 = phi i32 [ %add64, %if.end63 ], [ 0, %entry ]
@@ -1113,6 +1114,8 @@ if.then34:                                        ; preds = %if.then32
   %conv35 = trunc nuw i32 %ch.1.lcssa to i16
   %incdec.ptr36 = getelementptr inbounds i8, ptr %myTarget.0, i64 2
   store i16 %conv35, ptr %myTarget.0, align 2
+  %incdec.ptr37 = getelementptr inbounds i8, ptr %myOffsets.0, i64 4
+  store i32 %offsetNum.0, ptr %myOffsets.0, align 4
   br label %if.end63
 
 if.else38:                                        ; preds = %if.then32
@@ -1132,6 +1135,8 @@ if.else38:                                        ; preds = %if.then32
 if.then48:                                        ; preds = %if.else38
   %incdec.ptr50 = getelementptr inbounds i8, ptr %myTarget.0, i64 4
   store i16 %conv45, ptr %incdec.ptr41, align 2
+  %incdec.ptr51 = getelementptr inbounds i8, ptr %myOffsets.0, i64 8
+  store i32 %offsetNum.0, ptr %incdec.ptr42, align 4
   br label %if.end63
 
 if.else52:                                        ; preds = %if.else38
@@ -1153,11 +1158,8 @@ if.else59:                                        ; preds = %while.end
   br label %donefornow
 
 if.end63:                                         ; preds = %if.then34, %if.then48
-  %.sink = phi i64 [ 4, %if.then34 ], [ 8, %if.then48 ]
-  %myOffsets.0.sink = phi ptr [ %myOffsets.0, %if.then34 ], [ %incdec.ptr42, %if.then48 ]
+  %myOffsets.3 = phi ptr [ %incdec.ptr37, %if.then34 ], [ %incdec.ptr51, %if.then48 ]
   %myTarget.3 = phi ptr [ %incdec.ptr36, %if.then34 ], [ %incdec.ptr50, %if.then48 ]
-  %incdec.ptr37 = getelementptr inbounds i8, ptr %myOffsets.0, i64 %.sink
-  store i32 %offsetNum.0, ptr %myOffsets.0.sink, align 4
   %add64 = add i32 %i.1.lcssa, %offsetNum.0
   br label %while.cond, !llvm.loop !15
 

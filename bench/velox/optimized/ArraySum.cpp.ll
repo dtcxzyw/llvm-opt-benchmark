@@ -5419,7 +5419,11 @@ if.then.i.i.i107:                                 ; preds = %_ZN8facebook5velox1
   %112 = load atomic i64, ptr %_M_use_count.i.i.i.i108 acquire, align 8
   %cmp.i.i.i.i109 = icmp eq i64 %112, 4294967297
   %113 = trunc i64 %112 to i32
-  br i1 %cmp.i.i.i.i109, label %return.sink.split.sink.split, label %if.end.i.i.i.i110
+  br i1 %cmp.i.i.i.i109, label %if.then.i.i.i.i132, label %if.end.i.i.i.i110
+
+if.then.i.i.i.i132:                               ; preds = %if.then.i.i.i107
+  store i32 0, ptr %_M_use_count.i.i.i.i108, align 8
+  br label %return.sink.split.sink.split
 
 if.end.i.i.i.i110:                                ; preds = %if.then.i.i.i107
   %114 = load i8, ptr @__libc_single_threaded, align 1
@@ -9238,7 +9242,11 @@ if.then.i.i.i1167:                                ; preds = %if.end123
   %687 = load atomic i64, ptr %_M_use_count.i.i.i.i1168 acquire, align 8
   %cmp.i.i.i.i1169 = icmp eq i64 %687, 4294967297
   %688 = trunc i64 %687 to i32
-  br i1 %cmp.i.i.i.i1169, label %return.sink.split.sink.split, label %if.end.i.i.i.i1170
+  br i1 %cmp.i.i.i.i1169, label %if.then.i.i.i.i1192, label %if.end.i.i.i.i1170
+
+if.then.i.i.i.i1192:                              ; preds = %if.then.i.i.i1167
+  store i32 0, ptr %_M_use_count.i.i.i.i1168, align 8
+  br label %return.sink.split.sink.split
 
 if.end.i.i.i.i1170:                               ; preds = %if.then.i.i.i1167
   %689 = load i8, ptr @__libc_single_threaded, align 1
@@ -9284,10 +9292,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i1184: ; preds = %
   %cmp.i.i.i.i.i.i1186 = icmp eq i32 %retval.i.0.i.i.i.i.i.i1185, 1
   br i1 %cmp.i.i.i.i.i.i1186, label %return.sink.split, label %return
 
-return.sink.split.sink.split:                     ; preds = %if.then.i.i.i1167, %if.then.i.i.i107
-  %_M_use_count.i.i.i.i1168.sink = phi ptr [ %_M_use_count.i.i.i.i108, %if.then.i.i.i107 ], [ %_M_use_count.i.i.i.i1168, %if.then.i.i.i1167 ]
-  %.sink1596 = phi ptr [ %111, %if.then.i.i.i107 ], [ %686, %if.then.i.i.i1167 ]
-  store i32 0, ptr %_M_use_count.i.i.i.i1168.sink, align 8
+return.sink.split.sink.split:                     ; preds = %if.then.i.i.i.i132, %if.then.i.i.i.i1192
+  %.sink1596 = phi ptr [ %686, %if.then.i.i.i.i1192 ], [ %111, %if.then.i.i.i.i132 ]
   %_M_weak_count.i.i.i.i1193 = getelementptr inbounds i8, ptr %.sink1596, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i1193, align 4
   %vtable.i.i.i.i1194 = load ptr, ptr %.sink1596, align 8
@@ -17776,7 +17782,11 @@ if.then:                                          ; preds = %entry
   %containsLazyAndIsWrapped_.i = getelementptr inbounds i8, ptr %1, i64 97
   %2 = load i8, ptr %containsLazyAndIsWrapped_.i, align 1
   %tobool.i = trunc i8 %2 to i1
-  br i1 %tobool.i, label %if.then6, label %return
+  br i1 %tobool.i, label %if.then6, label %_ZN8facebook5velox10BaseVector30markAsContainingLazyAndWrappedEv.exit.thread
+
+_ZN8facebook5velox10BaseVector30markAsContainingLazyAndWrappedEv.exit.thread: ; preds = %if.then
+  store i8 1, ptr %containsLazyAndIsWrapped_.i, align 1
+  br label %return
 
 if.then6:                                         ; preds = %if.then
   tail call void @llvm.trap()
@@ -17916,11 +17926,10 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
 if.end47:                                         ; preds = %if.end43, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i, %if.end7
   tail call void @_ZN8facebook5velox14ConstantVectorImE15makeNullsBufferEv(ptr noundef nonnull align 32 dereferenceable(224) %this)
   %initialized_ = getelementptr inbounds i8, ptr %this, i64 185
+  store i8 1, ptr %initialized_, align 1
   br label %return
 
-return:                                           ; preds = %if.then, %if.end47
-  %containsLazyAndIsWrapped_.i.sink = phi ptr [ %initialized_, %if.end47 ], [ %containsLazyAndIsWrapped_.i, %if.then ]
-  store i8 1, ptr %containsLazyAndIsWrapped_.i.sink, align 1
+return:                                           ; preds = %_ZN8facebook5velox10BaseVector30markAsContainingLazyAndWrappedEv.exit.thread, %if.end47
   ret void
 }
 
@@ -18542,7 +18551,11 @@ if.then:                                          ; preds = %entry
   %containsLazyAndIsWrapped_.i = getelementptr inbounds i8, ptr %1, i64 97
   %2 = load i8, ptr %containsLazyAndIsWrapped_.i, align 1
   %tobool.i = trunc i8 %2 to i1
-  br i1 %tobool.i, label %if.then6, label %return
+  br i1 %tobool.i, label %if.then6, label %_ZN8facebook5velox10BaseVector30markAsContainingLazyAndWrappedEv.exit.thread
+
+_ZN8facebook5velox10BaseVector30markAsContainingLazyAndWrappedEv.exit.thread: ; preds = %if.then
+  store i8 1, ptr %containsLazyAndIsWrapped_.i, align 1
+  br label %return
 
 if.then6:                                         ; preds = %if.then
   tail call void @llvm.trap()
@@ -18682,11 +18695,10 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
 if.end47:                                         ; preds = %if.end43, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i, %if.end7
   tail call void @_ZN8facebook5velox14ConstantVectorIlE15makeNullsBufferEv(ptr noundef nonnull align 32 dereferenceable(224) %this)
   %initialized_ = getelementptr inbounds i8, ptr %this, i64 185
+  store i8 1, ptr %initialized_, align 1
   br label %return
 
-return:                                           ; preds = %if.then, %if.end47
-  %containsLazyAndIsWrapped_.i.sink = phi ptr [ %initialized_, %if.end47 ], [ %containsLazyAndIsWrapped_.i, %if.then ]
-  store i8 1, ptr %containsLazyAndIsWrapped_.i.sink, align 1
+return:                                           ; preds = %_ZN8facebook5velox10BaseVector30markAsContainingLazyAndWrappedEv.exit.thread, %if.end47
   ret void
 }
 
@@ -21452,7 +21464,11 @@ if.then.i.i.i107:                                 ; preds = %_ZN8facebook5velox1
   %113 = load atomic i64, ptr %_M_use_count.i.i.i.i108 acquire, align 8
   %cmp.i.i.i.i109 = icmp eq i64 %113, 4294967297
   %114 = trunc i64 %113 to i32
-  br i1 %cmp.i.i.i.i109, label %return.sink.split.sink.split, label %if.end.i.i.i.i110
+  br i1 %cmp.i.i.i.i109, label %if.then.i.i.i.i132, label %if.end.i.i.i.i110
+
+if.then.i.i.i.i132:                               ; preds = %if.then.i.i.i107
+  store i32 0, ptr %_M_use_count.i.i.i.i108, align 8
+  br label %return.sink.split.sink.split
 
 if.end.i.i.i.i110:                                ; preds = %if.then.i.i.i107
   %115 = load i8, ptr @__libc_single_threaded, align 1
@@ -25271,7 +25287,11 @@ if.then.i.i.i1167:                                ; preds = %if.end118
   %688 = load atomic i64, ptr %_M_use_count.i.i.i.i1168 acquire, align 8
   %cmp.i.i.i.i1169 = icmp eq i64 %688, 4294967297
   %689 = trunc i64 %688 to i32
-  br i1 %cmp.i.i.i.i1169, label %return.sink.split.sink.split, label %if.end.i.i.i.i1170
+  br i1 %cmp.i.i.i.i1169, label %if.then.i.i.i.i1192, label %if.end.i.i.i.i1170
+
+if.then.i.i.i.i1192:                              ; preds = %if.then.i.i.i1167
+  store i32 0, ptr %_M_use_count.i.i.i.i1168, align 8
+  br label %return.sink.split.sink.split
 
 if.end.i.i.i.i1170:                               ; preds = %if.then.i.i.i1167
   %690 = load i8, ptr @__libc_single_threaded, align 1
@@ -25317,10 +25337,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i1184: ; preds = %
   %cmp.i.i.i.i.i.i1186 = icmp eq i32 %retval.i.0.i.i.i.i.i.i1185, 1
   br i1 %cmp.i.i.i.i.i.i1186, label %return.sink.split, label %return
 
-return.sink.split.sink.split:                     ; preds = %if.then.i.i.i1167, %if.then.i.i.i107
-  %_M_use_count.i.i.i.i1168.sink = phi ptr [ %_M_use_count.i.i.i.i108, %if.then.i.i.i107 ], [ %_M_use_count.i.i.i.i1168, %if.then.i.i.i1167 ]
-  %.sink1596 = phi ptr [ %112, %if.then.i.i.i107 ], [ %687, %if.then.i.i.i1167 ]
-  store i32 0, ptr %_M_use_count.i.i.i.i1168.sink, align 8
+return.sink.split.sink.split:                     ; preds = %if.then.i.i.i.i132, %if.then.i.i.i.i1192
+  %.sink1596 = phi ptr [ %687, %if.then.i.i.i.i1192 ], [ %112, %if.then.i.i.i.i132 ]
   %_M_weak_count.i.i.i.i1193 = getelementptr inbounds i8, ptr %.sink1596, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i1193, align 4
   %vtable.i.i.i.i1194 = load ptr, ptr %.sink1596, align 8
@@ -27559,7 +27577,11 @@ if.then.i.i.i107:                                 ; preds = %_ZN8facebook5velox1
   %113 = load atomic i64, ptr %_M_use_count.i.i.i.i108 acquire, align 8
   %cmp.i.i.i.i109 = icmp eq i64 %113, 4294967297
   %114 = trunc i64 %113 to i32
-  br i1 %cmp.i.i.i.i109, label %return.sink.split.sink.split, label %if.end.i.i.i.i110
+  br i1 %cmp.i.i.i.i109, label %if.then.i.i.i.i132, label %if.end.i.i.i.i110
+
+if.then.i.i.i.i132:                               ; preds = %if.then.i.i.i107
+  store i32 0, ptr %_M_use_count.i.i.i.i108, align 8
+  br label %return.sink.split.sink.split
 
 if.end.i.i.i.i110:                                ; preds = %if.then.i.i.i107
   %115 = load i8, ptr @__libc_single_threaded, align 1
@@ -31378,7 +31400,11 @@ if.then.i.i.i1167:                                ; preds = %if.end118
   %688 = load atomic i64, ptr %_M_use_count.i.i.i.i1168 acquire, align 8
   %cmp.i.i.i.i1169 = icmp eq i64 %688, 4294967297
   %689 = trunc i64 %688 to i32
-  br i1 %cmp.i.i.i.i1169, label %return.sink.split.sink.split, label %if.end.i.i.i.i1170
+  br i1 %cmp.i.i.i.i1169, label %if.then.i.i.i.i1192, label %if.end.i.i.i.i1170
+
+if.then.i.i.i.i1192:                              ; preds = %if.then.i.i.i1167
+  store i32 0, ptr %_M_use_count.i.i.i.i1168, align 8
+  br label %return.sink.split.sink.split
 
 if.end.i.i.i.i1170:                               ; preds = %if.then.i.i.i1167
   %690 = load i8, ptr @__libc_single_threaded, align 1
@@ -31424,10 +31450,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i1184: ; preds = %
   %cmp.i.i.i.i.i.i1186 = icmp eq i32 %retval.i.0.i.i.i.i.i.i1185, 1
   br i1 %cmp.i.i.i.i.i.i1186, label %return.sink.split, label %return
 
-return.sink.split.sink.split:                     ; preds = %if.then.i.i.i1167, %if.then.i.i.i107
-  %_M_use_count.i.i.i.i1168.sink = phi ptr [ %_M_use_count.i.i.i.i108, %if.then.i.i.i107 ], [ %_M_use_count.i.i.i.i1168, %if.then.i.i.i1167 ]
-  %.sink1596 = phi ptr [ %112, %if.then.i.i.i107 ], [ %687, %if.then.i.i.i1167 ]
-  store i32 0, ptr %_M_use_count.i.i.i.i1168.sink, align 8
+return.sink.split.sink.split:                     ; preds = %if.then.i.i.i.i132, %if.then.i.i.i.i1192
+  %.sink1596 = phi ptr [ %687, %if.then.i.i.i.i1192 ], [ %112, %if.then.i.i.i.i132 ]
   %_M_weak_count.i.i.i.i1193 = getelementptr inbounds i8, ptr %.sink1596, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i1193, align 4
   %vtable.i.i.i.i1194 = load ptr, ptr %.sink1596, align 8
@@ -33660,7 +33684,11 @@ if.then.i.i.i106:                                 ; preds = %_ZN8facebook5velox1
   %113 = load atomic i64, ptr %_M_use_count.i.i.i.i107 acquire, align 8
   %cmp.i.i.i.i108 = icmp eq i64 %113, 4294967297
   %114 = trunc i64 %113 to i32
-  br i1 %cmp.i.i.i.i108, label %return.sink.split.sink.split, label %if.end.i.i.i.i109
+  br i1 %cmp.i.i.i.i108, label %if.then.i.i.i.i131, label %if.end.i.i.i.i109
+
+if.then.i.i.i.i131:                               ; preds = %if.then.i.i.i106
+  store i32 0, ptr %_M_use_count.i.i.i.i107, align 8
+  br label %return.sink.split.sink.split
 
 if.end.i.i.i.i109:                                ; preds = %if.then.i.i.i106
   %115 = load i8, ptr @__libc_single_threaded, align 1
@@ -37466,7 +37494,11 @@ if.then.i.i.i1160:                                ; preds = %if.end118
   %688 = load atomic i64, ptr %_M_use_count.i.i.i.i1161 acquire, align 8
   %cmp.i.i.i.i1162 = icmp eq i64 %688, 4294967297
   %689 = trunc i64 %688 to i32
-  br i1 %cmp.i.i.i.i1162, label %return.sink.split.sink.split, label %if.end.i.i.i.i1163
+  br i1 %cmp.i.i.i.i1162, label %if.then.i.i.i.i1185, label %if.end.i.i.i.i1163
+
+if.then.i.i.i.i1185:                              ; preds = %if.then.i.i.i1160
+  store i32 0, ptr %_M_use_count.i.i.i.i1161, align 8
+  br label %return.sink.split.sink.split
 
 if.end.i.i.i.i1163:                               ; preds = %if.then.i.i.i1160
   %690 = load i8, ptr @__libc_single_threaded, align 1
@@ -37512,10 +37544,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i1177: ; preds = %
   %cmp.i.i.i.i.i.i1179 = icmp eq i32 %retval.i.0.i.i.i.i.i.i1178, 1
   br i1 %cmp.i.i.i.i.i.i1179, label %return.sink.split, label %return
 
-return.sink.split.sink.split:                     ; preds = %if.then.i.i.i1160, %if.then.i.i.i106
-  %_M_use_count.i.i.i.i1161.sink = phi ptr [ %_M_use_count.i.i.i.i107, %if.then.i.i.i106 ], [ %_M_use_count.i.i.i.i1161, %if.then.i.i.i1160 ]
-  %.sink1589 = phi ptr [ %112, %if.then.i.i.i106 ], [ %687, %if.then.i.i.i1160 ]
-  store i32 0, ptr %_M_use_count.i.i.i.i1161.sink, align 8
+return.sink.split.sink.split:                     ; preds = %if.then.i.i.i.i131, %if.then.i.i.i.i1185
+  %.sink1589 = phi ptr [ %687, %if.then.i.i.i.i1185 ], [ %112, %if.then.i.i.i.i131 ]
   %_M_weak_count.i.i.i.i1186 = getelementptr inbounds i8, ptr %.sink1589, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i1186, align 4
   %vtable.i.i.i.i1187 = load ptr, ptr %.sink1589, align 8
@@ -39723,7 +39753,11 @@ if.then.i.i.i106:                                 ; preds = %_ZN8facebook5velox1
   %98 = load atomic i64, ptr %_M_use_count.i.i.i.i107 acquire, align 8
   %cmp.i.i.i.i108 = icmp eq i64 %98, 4294967297
   %99 = trunc i64 %98 to i32
-  br i1 %cmp.i.i.i.i108, label %return.sink.split.sink.split, label %if.end.i.i.i.i109
+  br i1 %cmp.i.i.i.i108, label %if.then.i.i.i.i131, label %if.end.i.i.i.i109
+
+if.then.i.i.i.i131:                               ; preds = %if.then.i.i.i106
+  store i32 0, ptr %_M_use_count.i.i.i.i107, align 8
+  br label %return.sink.split.sink.split
 
 if.end.i.i.i.i109:                                ; preds = %if.then.i.i.i106
   %100 = load i8, ptr @__libc_single_threaded, align 1
@@ -43449,7 +43483,11 @@ if.then.i.i.i1164:                                ; preds = %if.end118
   %634 = load atomic i64, ptr %_M_use_count.i.i.i.i1165 acquire, align 8
   %cmp.i.i.i.i1166 = icmp eq i64 %634, 4294967297
   %635 = trunc i64 %634 to i32
-  br i1 %cmp.i.i.i.i1166, label %return.sink.split.sink.split, label %if.end.i.i.i.i1167
+  br i1 %cmp.i.i.i.i1166, label %if.then.i.i.i.i1189, label %if.end.i.i.i.i1167
+
+if.then.i.i.i.i1189:                              ; preds = %if.then.i.i.i1164
+  store i32 0, ptr %_M_use_count.i.i.i.i1165, align 8
+  br label %return.sink.split.sink.split
 
 if.end.i.i.i.i1167:                               ; preds = %if.then.i.i.i1164
   %636 = load i8, ptr @__libc_single_threaded, align 1
@@ -43495,10 +43533,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i1181: ; preds = %
   %cmp.i.i.i.i.i.i1183 = icmp eq i32 %retval.i.0.i.i.i.i.i.i1182, 1
   br i1 %cmp.i.i.i.i.i.i1183, label %return.sink.split, label %return
 
-return.sink.split.sink.split:                     ; preds = %if.then.i.i.i1164, %if.then.i.i.i106
-  %_M_use_count.i.i.i.i1165.sink = phi ptr [ %_M_use_count.i.i.i.i107, %if.then.i.i.i106 ], [ %_M_use_count.i.i.i.i1165, %if.then.i.i.i1164 ]
-  %.sink1520 = phi ptr [ %97, %if.then.i.i.i106 ], [ %633, %if.then.i.i.i1164 ]
-  store i32 0, ptr %_M_use_count.i.i.i.i1165.sink, align 8
+return.sink.split.sink.split:                     ; preds = %if.then.i.i.i.i131, %if.then.i.i.i.i1189
+  %.sink1520 = phi ptr [ %633, %if.then.i.i.i.i1189 ], [ %97, %if.then.i.i.i.i131 ]
   %_M_weak_count.i.i.i.i1190 = getelementptr inbounds i8, ptr %.sink1520, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i1190, align 4
   %vtable.i.i.i.i1191 = load ptr, ptr %.sink1520, align 8
@@ -46416,7 +46452,11 @@ if.then:                                          ; preds = %entry
   %containsLazyAndIsWrapped_.i = getelementptr inbounds i8, ptr %1, i64 97
   %2 = load i8, ptr %containsLazyAndIsWrapped_.i, align 1
   %tobool.i = trunc i8 %2 to i1
-  br i1 %tobool.i, label %if.then6, label %return
+  br i1 %tobool.i, label %if.then6, label %_ZN8facebook5velox10BaseVector30markAsContainingLazyAndWrappedEv.exit.thread
+
+_ZN8facebook5velox10BaseVector30markAsContainingLazyAndWrappedEv.exit.thread: ; preds = %if.then
+  store i8 1, ptr %containsLazyAndIsWrapped_.i, align 1
+  br label %return
 
 if.then6:                                         ; preds = %if.then
   tail call void @llvm.trap()
@@ -46556,11 +46596,10 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
 if.end47:                                         ; preds = %if.end43, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i, %if.end7
   tail call void @_ZN8facebook5velox14ConstantVectorIdE15makeNullsBufferEv(ptr noundef nonnull align 8 dereferenceable(192) %this)
   %initialized_ = getelementptr inbounds i8, ptr %this, i64 185
+  store i8 1, ptr %initialized_, align 1
   br label %return
 
-return:                                           ; preds = %if.then, %if.end47
-  %containsLazyAndIsWrapped_.i.sink = phi ptr [ %initialized_, %if.end47 ], [ %containsLazyAndIsWrapped_.i, %if.then ]
-  store i8 1, ptr %containsLazyAndIsWrapped_.i.sink, align 1
+return:                                           ; preds = %_ZN8facebook5velox10BaseVector30markAsContainingLazyAndWrappedEv.exit.thread, %if.end47
   ret void
 }
 
@@ -49169,7 +49208,11 @@ if.then.i.i.i105:                                 ; preds = %_ZN8facebook5velox1
   %98 = load atomic i64, ptr %_M_use_count.i.i.i.i106 acquire, align 8
   %cmp.i.i.i.i107 = icmp eq i64 %98, 4294967297
   %99 = trunc i64 %98 to i32
-  br i1 %cmp.i.i.i.i107, label %return.sink.split.sink.split, label %if.end.i.i.i.i108
+  br i1 %cmp.i.i.i.i107, label %if.then.i.i.i.i130, label %if.end.i.i.i.i108
+
+if.then.i.i.i.i130:                               ; preds = %if.then.i.i.i105
+  store i32 0, ptr %_M_use_count.i.i.i.i106, align 8
+  br label %return.sink.split.sink.split
 
 if.end.i.i.i.i108:                                ; preds = %if.then.i.i.i105
   %100 = load i8, ptr @__libc_single_threaded, align 1
@@ -52979,7 +53022,11 @@ if.then.i.i.i1186:                                ; preds = %if.end118
   %659 = load atomic i64, ptr %_M_use_count.i.i.i.i1187 acquire, align 8
   %cmp.i.i.i.i1188 = icmp eq i64 %659, 4294967297
   %660 = trunc i64 %659 to i32
-  br i1 %cmp.i.i.i.i1188, label %return.sink.split.sink.split, label %if.end.i.i.i.i1189
+  br i1 %cmp.i.i.i.i1188, label %if.then.i.i.i.i1211, label %if.end.i.i.i.i1189
+
+if.then.i.i.i.i1211:                              ; preds = %if.then.i.i.i1186
+  store i32 0, ptr %_M_use_count.i.i.i.i1187, align 8
+  br label %return.sink.split.sink.split
 
 if.end.i.i.i.i1189:                               ; preds = %if.then.i.i.i1186
   %661 = load i8, ptr @__libc_single_threaded, align 1
@@ -53025,10 +53072,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i1203: ; preds = %
   %cmp.i.i.i.i.i.i1205 = icmp eq i32 %retval.i.0.i.i.i.i.i.i1204, 1
   br i1 %cmp.i.i.i.i.i.i1205, label %return.sink.split, label %return
 
-return.sink.split.sink.split:                     ; preds = %if.then.i.i.i1186, %if.then.i.i.i105
-  %_M_use_count.i.i.i.i1187.sink = phi ptr [ %_M_use_count.i.i.i.i106, %if.then.i.i.i105 ], [ %_M_use_count.i.i.i.i1187, %if.then.i.i.i1186 ]
-  %.sink1542 = phi ptr [ %97, %if.then.i.i.i105 ], [ %658, %if.then.i.i.i1186 ]
-  store i32 0, ptr %_M_use_count.i.i.i.i1187.sink, align 8
+return.sink.split.sink.split:                     ; preds = %if.then.i.i.i.i130, %if.then.i.i.i.i1211
+  %.sink1542 = phi ptr [ %658, %if.then.i.i.i.i1211 ], [ %97, %if.then.i.i.i.i130 ]
   %_M_weak_count.i.i.i.i1212 = getelementptr inbounds i8, ptr %.sink1542, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i1212, align 4
   %vtable.i.i.i.i1213 = load ptr, ptr %.sink1542, align 8

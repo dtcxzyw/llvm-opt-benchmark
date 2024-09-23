@@ -2330,49 +2330,58 @@ invoke.cont18:                                    ; preds = %if.end15
           to label %invoke.cont19 unwind label %lpad11
 
 invoke.cont19:                                    ; preds = %invoke.cont18
-  br i1 %call20, label %cleanupthread-pre-split.sink.split, label %if.else
+  br i1 %call20, label %if.then21, label %if.else
+
+if.then21:                                        ; preds = %invoke.cont19
+  %18 = load i64, ptr %val, align 8
+  store i64 %18, ptr %pswpin, align 8
+  br label %cleanupthread-pre-split
 
 if.else:                                          ; preds = %invoke.cont19
-  %18 = load ptr, ptr %tokens, align 8
+  %19 = load ptr, ptr %tokens, align 8
   invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp23, ptr noundef nonnull @.str.28)
           to label %invoke.cont24 unwind label %lpad11
 
 invoke.cont24:                                    ; preds = %if.else
-  %call26 = invoke noundef zeroext i1 @_ZN4baseeqERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp23)
+  %call26 = invoke noundef zeroext i1 @_ZN4baseeqERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp23)
           to label %invoke.cont25 unwind label %lpad11
 
 invoke.cont25:                                    ; preds = %invoke.cont24
-  br i1 %call26, label %cleanupthread-pre-split.sink.split, label %if.else28
+  br i1 %call26, label %if.then27, label %if.else28
+
+if.then27:                                        ; preds = %invoke.cont25
+  %20 = load i64, ptr %val, align 8
+  store i64 %20, ptr %pswpout, align 8
+  br label %cleanupthread-pre-split
 
 if.else28:                                        ; preds = %invoke.cont25
-  %19 = load ptr, ptr %tokens, align 8
+  %21 = load ptr, ptr %tokens, align 8
   invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp30, ptr noundef nonnull @.str.29)
           to label %invoke.cont31 unwind label %lpad11
 
 invoke.cont31:                                    ; preds = %if.else28
-  %call33 = invoke noundef zeroext i1 @_ZN4baseeqERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp30)
+  %call33 = invoke noundef zeroext i1 @_ZN4baseeqERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp30)
           to label %invoke.cont32 unwind label %lpad11
 
 invoke.cont32:                                    ; preds = %invoke.cont31
-  br i1 %call33, label %cleanupthread-pre-split.sink.split, label %cleanupthread-pre-split
+  br i1 %call33, label %if.then34, label %cleanupthread-pre-split
 
-cleanupthread-pre-split.sink.split:               ; preds = %invoke.cont32, %invoke.cont25, %invoke.cont19
-  %pswpout.sink = phi ptr [ %pswpin, %invoke.cont19 ], [ %pswpout, %invoke.cont25 ], [ %pgmajfault, %invoke.cont32 ]
-  %20 = load i64, ptr %val, align 8
-  store i64 %20, ptr %pswpout.sink, align 8
+if.then34:                                        ; preds = %invoke.cont32
+  %22 = load i64, ptr %val, align 8
+  store i64 %22, ptr %pgmajfault, align 8
   br label %cleanupthread-pre-split
 
-cleanupthread-pre-split:                          ; preds = %cleanupthread-pre-split.sink.split, %invoke.cont12, %invoke.cont32
+cleanupthread-pre-split:                          ; preds = %invoke.cont12, %if.then27, %if.then34, %invoke.cont32, %if.then21
   %.pr = load ptr, ptr %tokens, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanupthread-pre-split, %invoke.cont8
-  %21 = phi ptr [ %.pr, %cleanupthread-pre-split ], [ %13, %invoke.cont8 ]
-  %tobool.not.i.i.i12 = icmp eq ptr %21, null
+  %23 = phi ptr [ %.pr, %cleanupthread-pre-split ], [ %13, %invoke.cont8 ]
+  %tobool.not.i.i.i12 = icmp eq ptr %23, null
   br i1 %tobool.not.i.i.i12, label %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EED2Ev.exit14, label %if.then.i.i.i13
 
 if.then.i.i.i13:                                  ; preds = %cleanup
-  call void @_ZdlPv(ptr noundef nonnull %21) #21
+  call void @_ZdlPv(ptr noundef nonnull %23) #21
   br label %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EED2Ev.exit14
 
 _ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EED2Ev.exit14: ; preds = %cleanup, %if.then.i.i.i13
@@ -2382,12 +2391,12 @@ _ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traits
 
 ehcleanup:                                        ; preds = %if.then.i.i.i7, %lpad11, %lpad
   %.pn = phi { ptr, i32 } [ %14, %lpad ], [ %15, %lpad11 ], [ %15, %if.then.i.i.i7 ]
-  %22 = load ptr, ptr %ref.tmp, align 8
-  %tobool.not.i.i.i15 = icmp eq ptr %22, null
+  %24 = load ptr, ptr %ref.tmp, align 8
+  %tobool.not.i.i.i15 = icmp eq ptr %24, null
   br i1 %tobool.not.i.i.i15, label %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EED2Ev.exit17, label %if.then.i.i.i16
 
 if.then.i.i.i16:                                  ; preds = %ehcleanup
-  call void @_ZdlPv(ptr noundef nonnull %22) #21
+  call void @_ZdlPv(ptr noundef nonnull %24) #21
   br label %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EED2Ev.exit17
 
 _ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EED2Ev.exit17: ; preds = %ehcleanup, %if.then.i.i.i16

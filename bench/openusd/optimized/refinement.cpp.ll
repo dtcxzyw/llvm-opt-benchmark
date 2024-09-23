@@ -993,33 +993,38 @@ define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement17subdivideTopologyE
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 20
-  br i1 %47, label %55, label %59
+  br i1 %47, label %55, label %63
 
 55:                                               ; preds = %44
   %.sroa.speculated25 = tail call i32 @llvm.smax.i32(i32 %51, i32 4)
   store i32 %.sroa.speculated25, ptr %54, align 4
-  %56 = load ptr, ptr %48, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  %58 = load i32, ptr %57, align 8
-  br label %64
+  %56 = load ptr, ptr %52, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 20
+  %58 = load ptr, ptr %48, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
+  %60 = load i32, ptr %59, align 8
+  %61 = add nsw i32 %60, 2
+  %62 = load i32, ptr %57, align 4
+  %.sroa.speculated21 = tail call i32 @llvm.smax.i32(i32 %62, i32 %61)
+  store i32 %.sroa.speculated21, ptr %57, align 4
+  br label %72
 
-59:                                               ; preds = %44
+63:                                               ; preds = %44
   %.sroa.speculated17 = tail call i32 @llvm.smax.i32(i32 %51, i32 6)
   store i32 %.sroa.speculated17, ptr %54, align 4
-  %60 = load ptr, ptr %48, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  %62 = load i32, ptr %61, align 8
-  %63 = shl nsw i32 %62, 1
-  br label %64
+  %64 = load ptr, ptr %52, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 20
+  %66 = load ptr, ptr %48, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
+  %68 = load i32, ptr %67, align 8
+  %69 = shl nsw i32 %68, 1
+  %70 = add nsw i32 %69, 2
+  %71 = load i32, ptr %65, align 4
+  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %71, i32 %70)
+  store i32 %.sroa.speculated, ptr %65, align 4
+  br label %72
 
-64:                                               ; preds = %59, %55
-  %.sink35 = phi i32 [ %63, %59 ], [ %58, %55 ]
-  %.pn = load ptr, ptr %52, align 8
-  %.sink34 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %65 = add nsw i32 %.sink35, 2
-  %66 = load i32, ptr %.sink34, align 4
-  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %66, i32 %65)
-  store i32 %.sroa.speculated, ptr %.sink34, align 4
+72:                                               ; preds = %63, %55
   ret void
 }
 

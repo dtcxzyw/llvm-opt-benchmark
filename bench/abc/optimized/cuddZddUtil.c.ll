@@ -416,7 +416,7 @@ define range(i32 0, 2) i32 @Cudd_zddPrintDebug(ptr noundef %0, ptr noundef %1, i
   br label %.sink.split
 
 13:                                               ; preds = %4
-  br i1 %8, label %14, label %48
+  br i1 %8, label %14, label %47
 
 14:                                               ; preds = %13
   %15 = tail call i32 @Cudd_zddDagSize(ptr noundef %1) #11
@@ -497,13 +497,13 @@ Cudd_zddPrintMinterm.exit:                        ; preds = %.lr.ph.i, %.prehead
   br label %.sink.split
 
 .sink.split:                                      ; preds = %43, %29, %9
-  %.sink40 = phi ptr [ %10, %9 ], [ %19, %29 ], [ %19, %43 ]
+  %.sink.in = phi ptr [ %10, %9 ], [ %19, %29 ], [ %19, %43 ]
   %.029.ph = phi i32 [ 1, %9 ], [ %.3, %29 ], [ %44, %43 ]
-  %46 = load ptr, ptr %.sink40, align 8
-  %47 = tail call i32 @fflush(ptr noundef %46)
-  br label %48
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %46 = tail call i32 @fflush(ptr noundef %.sink)
+  br label %47
 
-48:                                               ; preds = %.sink.split, %13
+47:                                               ; preds = %.sink.split, %13
   %.029 = phi i32 [ 1, %13 ], [ %.029.ph, %.sink.split ]
   ret i32 %.029
 }

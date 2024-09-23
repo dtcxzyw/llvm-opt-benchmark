@@ -1471,27 +1471,24 @@ if.end:                                           ; preds = %cond.false, %cond.e
 
 if.then13:                                        ; preds = %if.end
   %peer_ca_names = getelementptr inbounds i8, ptr %cond1116, i64 736
-  br label %return.sink.split
+  %3 = load ptr, ptr %peer_ca_names, align 8
+  br label %return
 
 if.end14:                                         ; preds = %if.end
   %client_ca_names = getelementptr inbounds i8, ptr %cond1116, i64 2344
-  %3 = load ptr, ptr %client_ca_names, align 8
-  %cmp15.not = icmp eq ptr %3, null
+  %4 = load ptr, ptr %client_ca_names, align 8
+  %cmp15.not = icmp eq ptr %4, null
   br i1 %cmp15.not, label %cond.false18, label %return
 
 cond.false18:                                     ; preds = %if.end14
   %ctx = getelementptr inbounds i8, ptr %s, i64 8
-  %4 = load ptr, ptr %ctx, align 8
-  %client_ca_names19 = getelementptr inbounds i8, ptr %4, i64 304
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.then13, %cond.false18
-  %client_ca_names19.sink = phi ptr [ %client_ca_names19, %cond.false18 ], [ %peer_ca_names, %if.then13 ]
-  %5 = load ptr, ptr %client_ca_names19.sink, align 8
+  %5 = load ptr, ptr %ctx, align 8
+  %client_ca_names19 = getelementptr inbounds i8, ptr %5, i64 304
+  %6 = load ptr, ptr %client_ca_names19, align 8
   br label %return
 
-return:                                           ; preds = %return.sink.split, %cond.false, %entry, %if.end14, %cond.end10
-  %retval.0 = phi ptr [ null, %cond.end10 ], [ %3, %if.end14 ], [ null, %entry ], [ null, %cond.false ], [ %5, %return.sink.split ]
+return:                                           ; preds = %cond.false, %entry, %cond.false18, %if.end14, %cond.end10, %if.then13
+  %retval.0 = phi ptr [ %3, %if.then13 ], [ null, %cond.end10 ], [ %6, %cond.false18 ], [ %4, %if.end14 ], [ null, %entry ], [ null, %cond.false ]
   ret ptr %retval.0
 }
 

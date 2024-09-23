@@ -955,36 +955,39 @@ define noundef i32 @_Z24gmx_fprintf_pdb_atomlineP8_IO_FILE13PdbRecordTypeiPKccS3
   %36 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %16, i64 noundef 6, ptr noundef nonnull %.0) #25
   %37 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %3, i64 noundef 4) #25
   %38 = getelementptr inbounds i8, ptr %16, i64 5
-  br label %39
+  store i8 0, ptr %38, align 1
+  br label %40
 
-39:                                               ; preds = %23, %35
-  %.sink = phi ptr [ %38, %35 ], [ %16, %23 ]
-  store i8 0, ptr %.sink, align 1
+39:                                               ; preds = %23
+  store i8 0, ptr %16, align 1
+  br label %40
+
+40:                                               ; preds = %39, %35
   %.not34 = icmp eq ptr %5, null
-  %40 = select i1 %.not34, ptr @.str.63, ptr %5
-  %41 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %40, i64 noundef 4) #25
-  %42 = getelementptr inbounds i8, ptr %17, i64 4
-  store i8 0, ptr %42, align 1
+  %41 = select i1 %.not34, ptr @.str.63, ptr %5
+  %42 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %41, i64 noundef 4) #25
+  %43 = getelementptr inbounds i8, ptr %17, i64 4
+  store i8 0, ptr %43, align 1
   %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %17)
   %endptr = getelementptr inbounds i8, ptr %17, i64 %strlen
   store i16 32, ptr %endptr, align 1
-  %43 = srem i32 %2, 100000
-  %44 = srem i32 %7, 10000
-  %45 = zext nneg i32 %1 to i64
-  %46 = getelementptr inbounds [12 x ptr], ptr @_ZZ17enumValueToString13PdbRecordTypeE17pdbRecordTypeName, i64 0, i64 %45
-  %47 = load ptr, ptr %46, align 8
-  %48 = sext i8 %4 to i32
-  %49 = sext i8 %6 to i32
-  %50 = sext i8 %8 to i32
-  %51 = fpext float %9 to double
-  %52 = fpext float %10 to double
-  %53 = fpext float %11 to double
-  %54 = fpext float %12 to double
-  %55 = fpext float %13 to double
+  %44 = srem i32 %2, 100000
+  %45 = srem i32 %7, 10000
+  %46 = zext nneg i32 %1 to i64
+  %47 = getelementptr inbounds [12 x ptr], ptr @_ZZ17enumValueToString13PdbRecordTypeE17pdbRecordTypeName, i64 0, i64 %46
+  %48 = load ptr, ptr %47, align 8
+  %49 = sext i8 %4 to i32
+  %50 = sext i8 %6 to i32
+  %51 = sext i8 %8 to i32
+  %52 = fpext float %9 to double
+  %53 = fpext float %10 to double
+  %54 = fpext float %11 to double
+  %55 = fpext float %12 to double
+  %56 = fpext float %13 to double
   %.not35 = icmp eq ptr %14, null
-  %56 = select i1 %.not35, ptr @.str.63, ptr %14
-  %57 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.65, ptr noundef %47, i32 noundef %43, ptr noundef nonnull %16, i32 noundef %48, ptr noundef nonnull %17, i32 noundef %49, i32 noundef %44, i32 noundef %50, double noundef %51, double noundef %52, double noundef %53, double noundef %54, double noundef %55, ptr noundef nonnull %56) #25
-  ret i32 %57
+  %57 = select i1 %.not35, ptr @.str.63, ptr %14
+  %58 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.65, ptr noundef %48, i32 noundef %44, ptr noundef nonnull %16, i32 noundef %49, ptr noundef nonnull %17, i32 noundef %50, i32 noundef %45, i32 noundef %51, double noundef %52, double noundef %53, double noundef %54, double noundef %55, double noundef %56, ptr noundef nonnull %57) #25
+  ret i32 %58
 }
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2

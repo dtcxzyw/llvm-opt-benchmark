@@ -385,26 +385,25 @@ if.then11:                                        ; preds = %if.end4
   %b_inuse = getelementptr inbounds i8, ptr %me, i64 20
   %3 = load i32, ptr %b_inuse, align 4
   %cmp12 = icmp eq i32 %3, 1
-  br i1 %cmp12, label %if.then14, label %if.end22.sink.split
+  br i1 %cmp12, label %if.then14, label %if.else
 
 if.then14:                                        ; preds = %if.then11
   store i32 0, ptr %a_start.i, align 8
   %b_end = getelementptr inbounds i8, ptr %me, i64 16
   %4 = load i32, ptr %b_end, align 8
   store i32 %4, ptr %a_end.i, align 4
-  br label %if.end22.sink.split
-
-if.end22.sink.split:                              ; preds = %if.then11, %if.then14
-  %b_inuse.sink = phi ptr [ %b_inuse, %if.then14 ], [ %a_end.i, %if.then11 ]
-  %b_end.sink = phi ptr [ %b_end, %if.then14 ], [ %a_start.i, %if.then11 ]
-  %.ph = phi i32 [ %4, %if.then14 ], [ 0, %if.then11 ]
-  store i32 0, ptr %b_inuse.sink, align 4
-  store i32 0, ptr %b_end.sink, align 8
+  store i32 0, ptr %b_inuse, align 4
+  store i32 0, ptr %b_end, align 8
   br label %if.end22
 
-if.end22:                                         ; preds = %if.end22.sink.split, %if.end4
-  %5 = phi i32 [ %add, %if.end4 ], [ 0, %if.end22.sink.split ]
-  %6 = phi i32 [ %1, %if.end4 ], [ %.ph, %if.end22.sink.split ]
+if.else:                                          ; preds = %if.then11
+  store i32 0, ptr %a_end.i, align 4
+  store i32 0, ptr %a_start.i, align 8
+  br label %if.end22
+
+if.end22:                                         ; preds = %if.then14, %if.else, %if.end4
+  %5 = phi i32 [ 0, %if.then14 ], [ 0, %if.else ], [ %add, %if.end4 ]
+  %6 = phi i32 [ %4, %if.then14 ], [ 0, %if.else ], [ %1, %if.end4 ]
   %conv.i19 = zext i32 %6 to i64
   %sub.i = sub i64 %2, %conv.i19
   %b_end.i = getelementptr inbounds i8, ptr %me, i64 16

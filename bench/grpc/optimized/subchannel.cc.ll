@@ -777,6 +777,7 @@ sw.bb5.i.i.i.i.i.i.i.i.i:                         ; preds = %_ZN9grpc_core5Arena
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %35 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 16
   store i64 %35, ptr %34, align 8
+  store ptr null, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 16
   br label %"_ZZN9grpc_core19ConnectedSubchannel15MakeCallPromiseENS_8CallArgsEEN3$_1D2Ev.exit"
 
 tail0.i.i.i.i.i.i.i.i.i:                          ; preds = %sw.bb.i.i.i.i.i.i.i.i.i, %_ZN9grpc_core5Arena5AllocEm.exit.i.i.i.i
@@ -784,11 +785,10 @@ tail0.i.i.i.i.i.i.i.i.i:                          ; preds = %sw.bb.i.i.i.i.i.i.i
   store ptr null, ptr %next_factory.i.i.i.i.i.i.i.i.i, align 8
   %36 = load ptr, ptr %next_factory.i.i.i.i, align 16
   store ptr %36, ptr %next_factory.i.i.i.i.i.i.i.i.i, align 8
+  store ptr null, ptr %next_factory.i.i.i.i, align 16
   br label %"_ZZN9grpc_core19ConnectedSubchannel15MakeCallPromiseENS_8CallArgsEEN3$_1D2Ev.exit"
 
 "_ZZN9grpc_core19ConnectedSubchannel15MakeCallPromiseENS_8CallArgsEEN3$_1D2Ev.exit": ; preds = %sw.bb5.i.i.i.i.i.i.i.i.i, %tail0.i.i.i.i.i.i.i.i.i
-  %next_factory7.sink.i.i.i.i.i.i.i.i.i = phi ptr [ %next_factory.i.i.i.i, %tail0.i.i.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %sw.bb5.i.i.i.i.i.i.i.i.i ]
-  store ptr null, ptr %next_factory7.sink.i.i.i.i.i.i.i.i.i, align 8
   store ptr %retval.0.i.i.i.i.i, ptr %arg.i, align 16
   call fastcc void @"_ZZN9grpc_core8OnCancelINS_14promise_detail3SeqINS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEJZNS_19ConnectedSubchannel15MakeCallPromiseENS_8CallArgsEE3$_0EEEZNSA_15MakeCallPromiseESB_E3$_1EEDaT_T0_ENUlvE_D2Ev"(ptr noundef nonnull align 16 dereferenceable(80) %ref.tmp) #27
   %37 = load i8, ptr %state.i.i.i, align 16

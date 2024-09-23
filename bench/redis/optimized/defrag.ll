@@ -73,21 +73,26 @@ define dso_local noalias ptr @activeDefragAlloc(ptr noundef %ptr) #0 {
 entry:
   %call = tail call i32 @je_get_defrag_hint(ptr noundef %ptr) #11
   %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %return, label %if.end
+  br i1 %tobool.not, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
+  %inc = add nsw i64 %0, 1
+  store i64 %inc, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
+  br label %return
 
 if.end:                                           ; preds = %entry
   %call1 = tail call i64 @je_malloc_usable_size(ptr noundef %ptr) #11
   %call2 = tail call noalias ptr @zmalloc_no_tcache(i64 noundef %call1) #11
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call2, ptr align 1 %ptr, i64 %call1, i1 false)
   tail call void @zfree_no_tcache(ptr noundef %ptr) #11
+  %1 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
+  %inc3 = add nsw i64 %1, 1
+  store i64 %inc3, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
   br label %return
 
-return:                                           ; preds = %entry, %if.end
-  %.sink7 = phi ptr [ getelementptr inbounds (i8, ptr @server, i64 2056), %if.end ], [ getelementptr inbounds (i8, ptr @server, i64 2064), %entry ]
-  %retval.0 = phi ptr [ %call2, %if.end ], [ null, %entry ]
-  %0 = load i64, ptr %.sink7, align 8
-  %inc3 = add nsw i64 %0, 1
-  store i64 %inc3, ptr %.sink7, align 8
+return:                                           ; preds = %if.end, %if.then
+  %retval.0 = phi ptr [ %call2, %if.end ], [ null, %if.then ]
   ret ptr %retval.0
 }
 
@@ -109,21 +114,26 @@ entry:
   %call = tail call ptr @sdsAllocPtr(ptr noundef %sdsptr) #11
   %call.i = tail call i32 @je_get_defrag_hint(ptr noundef %call) #11
   %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %activeDefragAlloc.exit, label %if.end.i
+  br i1 %tobool.not.i, label %if.then.i, label %if.end.i
+
+if.then.i:                                        ; preds = %entry
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
+  %inc.i = add nsw i64 %0, 1
+  store i64 %inc.i, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
+  br label %activeDefragAlloc.exit
 
 if.end.i:                                         ; preds = %entry
   %call1.i = tail call i64 @je_malloc_usable_size(ptr noundef %call) #11
   %call2.i = tail call noalias ptr @zmalloc_no_tcache(i64 noundef %call1.i) #11
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call2.i, ptr align 1 %call, i64 %call1.i, i1 false)
   tail call void @zfree_no_tcache(ptr noundef %call) #11
+  %1 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
+  %inc3.i = add nsw i64 %1, 1
+  store i64 %inc3.i, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
   br label %activeDefragAlloc.exit
 
-activeDefragAlloc.exit:                           ; preds = %entry, %if.end.i
-  %.sink7.i = phi ptr [ getelementptr inbounds (i8, ptr @server, i64 2056), %if.end.i ], [ getelementptr inbounds (i8, ptr @server, i64 2064), %entry ]
-  %retval.0.i = phi ptr [ %call2.i, %if.end.i ], [ null, %entry ]
-  %0 = load i64, ptr %.sink7.i, align 8
-  %inc3.i = add nsw i64 %0, 1
-  store i64 %inc3.i, ptr %.sink7.i, align 8
+activeDefragAlloc.exit:                           ; preds = %if.then.i, %if.end.i
+  %retval.0.i = phi ptr [ %call2.i, %if.end.i ], [ null, %if.then.i ]
   %tobool.not = icmp eq ptr %retval.0.i, null
   %sub.ptr.lhs.cast = ptrtoint ptr %sdsptr to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %call to i64
@@ -152,21 +162,26 @@ if.end:                                           ; preds = %entry
 if.then5:                                         ; preds = %if.end
   %call.i = tail call i32 @je_get_defrag_hint(ptr noundef nonnull %ob) #11
   %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %activeDefragAlloc.exit, label %if.end.i
+  br i1 %tobool.not.i, label %if.then.i, label %if.end.i
+
+if.then.i:                                        ; preds = %if.then5
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
+  %inc.i = add nsw i64 %2, 1
+  store i64 %inc.i, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
+  br label %activeDefragAlloc.exit
 
 if.end.i:                                         ; preds = %if.then5
   %call1.i = tail call i64 @je_malloc_usable_size(ptr noundef nonnull %ob) #11
   %call2.i = tail call noalias ptr @zmalloc_no_tcache(i64 noundef %call1.i) #11
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call2.i, ptr nonnull align 1 %ob, i64 %call1.i, i1 false)
   tail call void @zfree_no_tcache(ptr noundef nonnull %ob) #11
+  %3 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
+  %inc3.i = add nsw i64 %3, 1
+  store i64 %inc3.i, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
   br label %activeDefragAlloc.exit
 
-activeDefragAlloc.exit:                           ; preds = %if.then5, %if.end.i
-  %.sink7.i = phi ptr [ getelementptr inbounds (i8, ptr @server, i64 2056), %if.end.i ], [ getelementptr inbounds (i8, ptr @server, i64 2064), %if.then5 ]
-  %retval.0.i = phi ptr [ %call2.i, %if.end.i ], [ null, %if.then5 ]
-  %2 = load i64, ptr %.sink7.i, align 8
-  %inc3.i = add nsw i64 %2, 1
-  store i64 %inc3.i, ptr %.sink7.i, align 8
+activeDefragAlloc.exit:                           ; preds = %if.then.i, %if.end.i
+  %retval.0.i = phi ptr [ %call2.i, %if.end.i ], [ null, %if.then.i ]
   %tobool.not = icmp eq ptr %retval.0.i, null
   %spec.select17 = select i1 %tobool.not, ptr %ob, ptr %retval.0.i
   %bf.load9.pre = load i32, ptr %spec.select17, align 8
@@ -191,16 +206,16 @@ if.then12:                                        ; preds = %if.end8
 
 if.then17:                                        ; preds = %if.then12
   %ptr = getelementptr inbounds i8, ptr %ob.addr.0, i64 8
-  %3 = load ptr, ptr %ptr, align 8
-  %call.i18 = tail call ptr @sdsAllocPtr(ptr noundef %3) #11
+  %4 = load ptr, ptr %ptr, align 8
+  %call.i18 = tail call ptr @sdsAllocPtr(ptr noundef %4) #11
   %call.i.i = tail call i32 @je_get_defrag_hint(ptr noundef %call.i18) #11
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %activeDefragSds.exit.thread, label %activeDefragSds.exit
 
 activeDefragSds.exit.thread:                      ; preds = %if.then17
-  %4 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
-  %inc3.i.i38 = add nsw i64 %4, 1
-  store i64 %inc3.i.i38, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
+  %5 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
+  %inc.i.i = add nsw i64 %5, 1
+  store i64 %inc.i.i, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
   br label %return
 
 activeDefragSds.exit:                             ; preds = %if.then17
@@ -208,14 +223,14 @@ activeDefragSds.exit:                             ; preds = %if.then17
   %call2.i.i = tail call noalias ptr @zmalloc_no_tcache(i64 noundef %call1.i.i) #11
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call2.i.i, ptr align 1 %call.i18, i64 %call1.i.i, i1 false)
   tail call void @zfree_no_tcache(ptr noundef %call.i18) #11
-  %5 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
-  %inc3.i.i = add nsw i64 %5, 1
+  %6 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
+  %inc3.i.i = add nsw i64 %6, 1
   store i64 %inc3.i.i, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
-  %tobool19.not34 = icmp eq ptr %call2.i.i, null
-  br i1 %tobool19.not34, label %return, label %if.then20
+  %tobool19.not33 = icmp eq ptr %call2.i.i, null
+  br i1 %tobool19.not33, label %return, label %if.then20
 
 if.then20:                                        ; preds = %activeDefragSds.exit
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %3 to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %call.i18 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %add.ptr.i = getelementptr inbounds i8, ptr %call2.i.i, i64 %sub.ptr.sub.i
@@ -224,37 +239,37 @@ if.then20:                                        ; preds = %activeDefragSds.exi
 
 if.then27:                                        ; preds = %if.then12
   %ptr28 = getelementptr inbounds i8, ptr %ob.addr.0, i64 8
-  %6 = load ptr, ptr %ptr28, align 8
+  %7 = load ptr, ptr %ptr28, align 8
   %call.i21 = tail call i32 @je_get_defrag_hint(ptr noundef nonnull %ob.addr.0) #11
   %tobool.not.i22 = icmp eq i32 %call.i21, 0
-  br i1 %tobool.not.i22, label %activeDefragAlloc.exit29.thread, label %activeDefragAlloc.exit29
+  br i1 %tobool.not.i22, label %activeDefragAlloc.exit30.thread, label %activeDefragAlloc.exit30
 
-activeDefragAlloc.exit29.thread:                  ; preds = %if.then27
-  %7 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
-  %inc3.i2832 = add nsw i64 %7, 1
-  store i64 %inc3.i2832, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
+activeDefragAlloc.exit30.thread:                  ; preds = %if.then27
+  %8 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
+  %inc.i29 = add nsw i64 %8, 1
+  store i64 %inc.i29, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
   br label %return
 
-activeDefragAlloc.exit29:                         ; preds = %if.then27
+activeDefragAlloc.exit30:                         ; preds = %if.then27
   %call1.i24 = tail call i64 @je_malloc_usable_size(ptr noundef nonnull %ob.addr.0) #11
   %call2.i25 = tail call noalias ptr @zmalloc_no_tcache(i64 noundef %call1.i24) #11
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call2.i25, ptr nonnull align 1 %ob.addr.0, i64 %call1.i24, i1 false)
   tail call void @zfree_no_tcache(ptr noundef nonnull %ob.addr.0) #11
-  %8 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
-  %inc3.i28 = add nsw i64 %8, 1
-  store i64 %inc3.i28, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
+  %9 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
+  %inc3.i26 = add nsw i64 %9, 1
+  store i64 %inc3.i26, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
   %tobool30.not = icmp eq ptr %call2.i25, null
   br i1 %tobool30.not, label %return, label %if.then31
 
-if.then31:                                        ; preds = %activeDefragAlloc.exit29
-  %9 = ptrtoint ptr %6 to i64
-  %10 = ptrtoint ptr %ob.addr.0 to i64
-  %sub = sub i64 %9, %10
-  %11 = ptrtoint ptr %call2.i25 to i64
-  %add = add nsw i64 %sub, %11
-  %12 = inttoptr i64 %add to ptr
+if.then31:                                        ; preds = %activeDefragAlloc.exit30
+  %10 = ptrtoint ptr %7 to i64
+  %11 = ptrtoint ptr %ob.addr.0 to i64
+  %sub = sub i64 %10, %11
+  %12 = ptrtoint ptr %call2.i25 to i64
+  %add = add nsw i64 %sub, %12
+  %13 = inttoptr i64 %add to ptr
   %ptr32 = getelementptr inbounds i8, ptr %call2.i25, i64 8
-  store ptr %12, ptr %ptr32, align 8
+  store ptr %13, ptr %ptr32, align 8
   br label %return
 
 if.then39:                                        ; preds = %if.then12
@@ -262,8 +277,8 @@ if.then39:                                        ; preds = %if.then12
   tail call void @abort() #12
   unreachable
 
-return:                                           ; preds = %activeDefragSds.exit.thread, %activeDefragAlloc.exit29.thread, %if.end8, %if.then31, %activeDefragAlloc.exit29, %activeDefragSds.exit, %if.then20, %if.then12, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ %ret.0, %if.then20 ], [ %ret.0, %activeDefragSds.exit ], [ %call2.i25, %if.then31 ], [ null, %activeDefragAlloc.exit29 ], [ %ret.0, %if.end8 ], [ %ret.0, %if.then12 ], [ null, %activeDefragAlloc.exit29.thread ], [ %ret.0, %activeDefragSds.exit.thread ]
+return:                                           ; preds = %activeDefragSds.exit.thread, %activeDefragAlloc.exit30.thread, %if.end8, %if.then31, %activeDefragAlloc.exit30, %activeDefragSds.exit, %if.then20, %if.then12, %entry
+  %retval.0 = phi ptr [ null, %entry ], [ %ret.0, %if.then20 ], [ %ret.0, %activeDefragSds.exit ], [ %call2.i25, %if.then31 ], [ null, %activeDefragAlloc.exit30 ], [ %ret.0, %if.end8 ], [ %ret.0, %if.then12 ], [ null, %activeDefragAlloc.exit30.thread ], [ %ret.0, %activeDefragSds.exit.thread ]
   ret ptr %retval.0
 }
 
@@ -277,26 +292,31 @@ define dso_local ptr @activeDefragLuaScript(ptr noundef %script) #0 {
 entry:
   %call.i = tail call i32 @je_get_defrag_hint(ptr noundef %script) #11
   %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %activeDefragAlloc.exit, label %if.end.i
+  br i1 %tobool.not.i, label %if.then.i, label %if.end.i
+
+if.then.i:                                        ; preds = %entry
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
+  %inc.i = add nsw i64 %0, 1
+  store i64 %inc.i, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
+  br label %activeDefragAlloc.exit
 
 if.end.i:                                         ; preds = %entry
   %call1.i = tail call i64 @je_malloc_usable_size(ptr noundef %script) #11
   %call2.i = tail call noalias ptr @zmalloc_no_tcache(i64 noundef %call1.i) #11
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call2.i, ptr align 1 %script, i64 %call1.i, i1 false)
   tail call void @zfree_no_tcache(ptr noundef %script) #11
+  %1 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
+  %inc3.i = add nsw i64 %1, 1
+  store i64 %inc3.i, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
   br label %activeDefragAlloc.exit
 
-activeDefragAlloc.exit:                           ; preds = %entry, %if.end.i
-  %.sink7.i = phi ptr [ getelementptr inbounds (i8, ptr @server, i64 2056), %if.end.i ], [ getelementptr inbounds (i8, ptr @server, i64 2064), %entry ]
-  %retval.0.i = phi ptr [ %call2.i, %if.end.i ], [ null, %entry ]
-  %0 = load i64, ptr %.sink7.i, align 8
-  %inc3.i = add nsw i64 %0, 1
-  store i64 %inc3.i, ptr %.sink7.i, align 8
+activeDefragAlloc.exit:                           ; preds = %if.then.i, %if.end.i
+  %retval.0.i = phi ptr [ %call2.i, %if.end.i ], [ null, %if.then.i ]
   %tobool.not = icmp eq ptr %retval.0.i, null
   %spec.select = select i1 %tobool.not, ptr %script, ptr %retval.0.i
   %body = getelementptr inbounds i8, ptr %spec.select, i64 8
-  %1 = load ptr, ptr %body, align 8
-  %call1 = tail call ptr @activeDefragStringOb(ptr noundef %1)
+  %2 = load ptr, ptr %body, align 8
+  %call1 = tail call ptr @activeDefragStringOb(ptr noundef %2)
   %tobool2.not = icmp eq ptr %call1, null
   br i1 %tobool2.not, label %if.end5, label %if.then3
 
@@ -319,8 +339,8 @@ entry:
 
 activeDefragAlloc.exit.thread:                    ; preds = %entry
   %1 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
-  %inc3.i19 = add nsw i64 %1, 1
-  store i64 %inc3.i19, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
+  %inc.i = add nsw i64 %1, 1
+  store i64 %inc.i, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
   br label %if.end
 
 activeDefragAlloc.exit:                           ; preds = %entry
@@ -347,30 +367,30 @@ if.end:                                           ; preds = %activeDefragAlloc.e
 if.then6:                                         ; preds = %if.end
   %call.i8 = tail call i32 @je_get_defrag_hint(ptr noundef nonnull %3) #11
   %tobool.not.i9 = icmp eq i32 %call.i8, 0
-  br i1 %tobool.not.i9, label %activeDefragAlloc.exit16.thread, label %activeDefragAlloc.exit16
+  br i1 %tobool.not.i9, label %activeDefragAlloc.exit17.thread, label %activeDefragAlloc.exit17
 
-activeDefragAlloc.exit16.thread:                  ; preds = %if.then6
+activeDefragAlloc.exit17.thread:                  ; preds = %if.then6
   %4 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
-  %inc3.i1523 = add nsw i64 %4, 1
-  store i64 %inc3.i1523, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
+  %inc.i16 = add nsw i64 %4, 1
+  store i64 %inc.i16, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
   br label %if.end15
 
-activeDefragAlloc.exit16:                         ; preds = %if.then6
+activeDefragAlloc.exit17:                         ; preds = %if.then6
   %call1.i11 = tail call i64 @je_malloc_usable_size(ptr noundef nonnull %3) #11
   %call2.i12 = tail call noalias ptr @zmalloc_no_tcache(i64 noundef %call1.i11) #11
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call2.i12, ptr nonnull align 1 %3, i64 %call1.i11, i1 false)
   tail call void @zfree_no_tcache(ptr noundef nonnull %3) #11
   %5 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
-  %inc3.i15 = add nsw i64 %5, 1
-  store i64 %inc3.i15, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
+  %inc3.i13 = add nsw i64 %5, 1
+  store i64 %inc3.i13, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
   %tobool10.not = icmp eq ptr %call2.i12, null
   br i1 %tobool10.not, label %if.end15, label %if.then11
 
-if.then11:                                        ; preds = %activeDefragAlloc.exit16
+if.then11:                                        ; preds = %activeDefragAlloc.exit17
   store ptr %call2.i12, ptr %arrayidx4, align 8
   br label %if.end15
 
-if.end15:                                         ; preds = %activeDefragAlloc.exit16.thread, %activeDefragAlloc.exit16, %if.then11, %if.end
+if.end15:                                         ; preds = %activeDefragAlloc.exit17.thread, %activeDefragAlloc.exit17, %if.then11, %if.end
   ret void
 }
 
@@ -425,27 +445,33 @@ if.then17:                                        ; preds = %cond.end
   %backward = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load ptr, ptr %backward, align 8
   %cmp21 = icmp eq ptr %8, %oldnode
-  br i1 %cmp21, label %if.end48, label %cond.false30
+  br i1 %cmp21, label %cond.end31, label %cond.false30
 
 cond.false30:                                     ; preds = %if.then17
   tail call void @_serverAssert(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 175) #11
   tail call void @abort() #12
   unreachable
 
+cond.end31:                                       ; preds = %if.then17
+  store ptr %newnode, ptr %backward, align 8
+  br label %if.end48
+
 if.else:                                          ; preds = %cond.end
   %tail = getelementptr inbounds i8, ptr %zsl, i64 8
   %9 = load ptr, ptr %tail, align 8
   %cmp36 = icmp eq ptr %9, %oldnode
-  br i1 %cmp36, label %if.end48, label %cond.false45
+  br i1 %cmp36, label %cond.end46, label %cond.false45
 
 cond.false45:                                     ; preds = %if.else
   tail call void @_serverAssert(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str, i32 noundef 178) #11
   tail call void @abort() #12
   unreachable
 
-if.end48:                                         ; preds = %if.else, %if.then17
-  %tail.sink = phi ptr [ %backward, %if.then17 ], [ %tail, %if.else ]
-  store ptr %newnode, ptr %tail.sink, align 8
+cond.end46:                                       ; preds = %if.else
+  store ptr %newnode, ptr %tail, align 8
+  br label %if.end48
+
+if.end48:                                         ; preds = %cond.end46, %cond.end31
   ret void
 }
 
@@ -460,8 +486,8 @@ entry:
   %0 = load ptr, ptr %zsl, align 8
   %level = getelementptr inbounds i8, ptr %zsl, i64 24
   %1 = load i32, ptr %level, align 8
-  %cmp53 = icmp sgt i32 %1, 0
-  br i1 %cmp53, label %while.cond.preheader.preheader, label %for.end
+  %cmp51 = icmp sgt i32 %1, 0
+  br i1 %cmp51, label %while.cond.preheader.preheader, label %for.end
 
 while.cond.preheader.preheader:                   ; preds = %entry
   %2 = zext nneg i32 %1 to i64
@@ -469,18 +495,18 @@ while.cond.preheader.preheader:                   ; preds = %entry
 
 while.cond.preheader:                             ; preds = %while.cond.preheader.preheader, %while.end
   %indvars.iv = phi i64 [ %2, %while.cond.preheader.preheader ], [ %indvars.iv.next, %while.end ]
-  %x.054 = phi ptr [ %0, %while.cond.preheader.preheader ], [ %x.1.lcssa, %while.end ]
+  %x.052 = phi ptr [ %0, %while.cond.preheader.preheader ], [ %x.1.lcssa, %while.end ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %level140 = getelementptr inbounds i8, ptr %x.054, i64 24
-  %arrayidx41 = getelementptr inbounds [0 x %struct.zskiplistLevel], ptr %level140, i64 0, i64 %indvars.iv.next
-  %3 = load ptr, ptr %arrayidx41, align 8
-  %tobool2.not42 = icmp eq ptr %3, null
-  br i1 %tobool2.not42, label %while.end, label %land.lhs.true.preheader
+  %level138 = getelementptr inbounds i8, ptr %x.052, i64 24
+  %arrayidx39 = getelementptr inbounds [0 x %struct.zskiplistLevel], ptr %level138, i64 0, i64 %indvars.iv.next
+  %3 = load ptr, ptr %arrayidx39, align 8
+  %tobool2.not40 = icmp eq ptr %3, null
+  br i1 %tobool2.not40, label %while.end, label %land.lhs.true.preheader
 
 land.lhs.true.preheader:                          ; preds = %while.cond.preheader
   %4 = load ptr, ptr %3, align 8
-  %cmp8.not58 = icmp eq ptr %4, %oldele
-  br i1 %cmp8.not58, label %while.end, label %land.rhs
+  %cmp8.not56 = icmp eq ptr %4, %oldele
+  br i1 %cmp8.not56, label %while.end, label %land.rhs
 
 land.lhs.true:                                    ; preds = %while.body
   %5 = load ptr, ptr %10, align 8
@@ -489,8 +515,8 @@ land.lhs.true:                                    ; preds = %while.body
 
 land.rhs:                                         ; preds = %land.lhs.true.preheader, %land.lhs.true
   %6 = phi ptr [ %5, %land.lhs.true ], [ %4, %land.lhs.true.preheader ]
-  %x.14360 = phi ptr [ %9, %land.lhs.true ], [ %x.054, %land.lhs.true.preheader ]
-  %arrayidx4459 = phi ptr [ %arrayidx, %land.lhs.true ], [ %arrayidx41, %land.lhs.true.preheader ]
+  %x.14158 = phi ptr [ %9, %land.lhs.true ], [ %x.052, %land.lhs.true.preheader ]
+  %arrayidx4257 = phi ptr [ %arrayidx, %land.lhs.true ], [ %arrayidx39, %land.lhs.true.preheader ]
   %7 = phi ptr [ %10, %land.lhs.true ], [ %3, %land.lhs.true.preheader ]
   %score13 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load double, ptr %score13, align 8
@@ -507,7 +533,7 @@ land.rhs21:                                       ; preds = %lor.rhs
   br i1 %cmp27, label %land.rhs21.while.body_crit_edge, label %while.end
 
 land.rhs21.while.body_crit_edge:                  ; preds = %land.rhs21
-  %.pre = load ptr, ptr %arrayidx4459, align 8
+  %.pre = load ptr, ptr %arrayidx4257, align 8
   br label %while.body
 
 while.body:                                       ; preds = %land.rhs21.while.body_crit_edge, %land.rhs
@@ -519,7 +545,7 @@ while.body:                                       ; preds = %land.rhs21.while.bo
   br i1 %tobool2.not, label %while.end, label %land.lhs.true, !llvm.loop !7
 
 while.end:                                        ; preds = %land.lhs.true, %while.body, %lor.rhs, %land.rhs21, %land.lhs.true.preheader, %while.cond.preheader
-  %x.1.lcssa = phi ptr [ %x.054, %while.cond.preheader ], [ %x.054, %land.lhs.true.preheader ], [ %x.14360, %land.rhs21 ], [ %x.14360, %lor.rhs ], [ %9, %while.body ], [ %9, %land.lhs.true ]
+  %x.1.lcssa = phi ptr [ %x.052, %while.cond.preheader ], [ %x.052, %land.lhs.true.preheader ], [ %x.14158, %land.rhs21 ], [ %x.14158, %lor.rhs ], [ %9, %while.body ], [ %9, %land.lhs.true ]
   %arrayidx34 = getelementptr inbounds [32 x ptr], ptr %update, i64 0, i64 %indvars.iv.next
   store ptr %x.1.lcssa, ptr %arrayidx34, align 8
   %cmp = icmp sgt i64 %indvars.iv, 1
@@ -562,8 +588,8 @@ if.end:                                           ; preds = %if.then, %cond.end5
 
 activeDefragAlloc.exit.thread:                    ; preds = %if.end
   %14 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
-  %inc3.i38 = add nsw i64 %14, 1
-  store i64 %inc3.i38, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
+  %inc.i = add nsw i64 %14, 1
+  store i64 %inc.i, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
   br label %return
 
 activeDefragAlloc.exit:                           ; preds = %if.end
@@ -600,8 +626,8 @@ entry:
 
 activeDefragSds.exit.thread:                      ; preds = %entry
   %0 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
-  %inc3.i.i18 = add nsw i64 %0, 1
-  store i64 %inc3.i.i18, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
+  %inc.i.i = add nsw i64 %0, 1
+  store i64 %inc.i.i, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
   br label %entry.split
 
 activeDefragSds.exit:                             ; preds = %entry
@@ -708,31 +734,31 @@ declare i64 @dictScanDefrag(ptr noundef, i64 noundef, ptr noundef, ptr noundef, 
 ; Function Attrs: nounwind uwtable
 define dso_local void @activeDefragList(ptr nocapture noundef %l, i32 noundef %val_type) local_unnamed_addr #0 {
 entry:
-  %ln.043 = load ptr, ptr %l, align 8
-  %tobool.not44 = icmp eq ptr %ln.043, null
-  br i1 %tobool.not44, label %for.end, label %for.body.lr.ph
+  %ln.040 = load ptr, ptr %l, align 8
+  %tobool.not41 = icmp eq ptr %ln.040, null
+  br i1 %tobool.not41, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %tail = getelementptr inbounds i8, ptr %l, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %ln.045 = phi ptr [ %ln.043, %for.body.lr.ph ], [ %ln.0, %for.inc ]
-  %call.i = tail call i32 @je_get_defrag_hint(ptr noundef nonnull %ln.045) #11
+  %ln.042 = phi ptr [ %ln.040, %for.body.lr.ph ], [ %ln.0, %for.inc ]
+  %call.i = tail call i32 @je_get_defrag_hint(ptr noundef nonnull %ln.042) #11
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %activeDefragAlloc.exit.thread, label %activeDefragAlloc.exit
 
 activeDefragAlloc.exit.thread:                    ; preds = %for.body
   %0 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
-  %inc3.i36 = add nsw i64 %0, 1
-  store i64 %inc3.i36, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
+  %inc.i = add nsw i64 %0, 1
+  store i64 %inc.i, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
   br label %if.end13
 
 activeDefragAlloc.exit:                           ; preds = %for.body
-  %call1.i = tail call i64 @je_malloc_usable_size(ptr noundef nonnull %ln.045) #11
+  %call1.i = tail call i64 @je_malloc_usable_size(ptr noundef nonnull %ln.042) #11
   %call2.i = tail call noalias ptr @zmalloc_no_tcache(i64 noundef %call1.i) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call2.i, ptr nonnull align 1 %ln.045, i64 %call1.i, i1 false)
-  tail call void @zfree_no_tcache(ptr noundef nonnull %ln.045) #11
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call2.i, ptr nonnull align 1 %ln.042, i64 %call1.i, i1 false)
+  tail call void @zfree_no_tcache(ptr noundef nonnull %ln.042) #11
   %1 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
   %inc3.i = add nsw i64 %1, 1
   store i64 %inc3.i, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
@@ -742,24 +768,33 @@ activeDefragAlloc.exit:                           ; preds = %for.body
 if.then:                                          ; preds = %activeDefragAlloc.exit
   %2 = load ptr, ptr %call2.i, align 8
   %tobool2.not = icmp eq ptr %2, null
+  br i1 %tobool2.not, label %if.else, label %if.then3
+
+if.then3:                                         ; preds = %if.then
   %next = getelementptr inbounds i8, ptr %2, i64 8
-  %l.sink = select i1 %tobool2.not, ptr %l, ptr %next
-  store ptr %call2.i, ptr %l.sink, align 8
+  store ptr %call2.i, ptr %next, align 8
+  br label %if.end
+
+if.else:                                          ; preds = %if.then
+  store ptr %call2.i, ptr %l, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then3
   %next6 = getelementptr inbounds i8, ptr %call2.i, i64 8
   %3 = load ptr, ptr %next6, align 8
   %tobool7.not = icmp eq ptr %3, null
   br i1 %tobool7.not, label %if.else11, label %if.then8
 
-if.then8:                                         ; preds = %if.then
+if.then8:                                         ; preds = %if.end
   store ptr %call2.i, ptr %3, align 8
   br label %if.end13
 
-if.else11:                                        ; preds = %if.then
+if.else11:                                        ; preds = %if.end
   store ptr %call2.i, ptr %tail, align 8
   br label %if.end13
 
 if.end13:                                         ; preds = %activeDefragAlloc.exit.thread, %if.then8, %if.else11, %activeDefragAlloc.exit
-  %ln.1 = phi ptr [ %ln.045, %activeDefragAlloc.exit ], [ %call2.i, %if.else11 ], [ %call2.i, %if.then8 ], [ %ln.045, %activeDefragAlloc.exit.thread ]
+  %ln.1 = phi ptr [ %ln.042, %activeDefragAlloc.exit ], [ %call2.i, %if.else11 ], [ %call2.i, %if.then8 ], [ %ln.042, %activeDefragAlloc.exit.thread ]
   switch i32 %val_type, label %for.inc [
     i32 1, label %if.then14
     i32 2, label %if.then22
@@ -776,8 +811,8 @@ if.then14:                                        ; preds = %if.end13
 
 activeDefragSds.exit.thread:                      ; preds = %if.then14
   %5 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
-  %inc3.i.i48 = add nsw i64 %5, 1
-  store i64 %inc3.i.i48, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
+  %inc.i.i = add nsw i64 %5, 1
+  store i64 %inc.i.i, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
   br label %for.inc
 
 activeDefragSds.exit:                             ; preds = %if.then14
@@ -788,8 +823,8 @@ activeDefragSds.exit:                             ; preds = %if.then14
   %6 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
   %inc3.i.i = add nsw i64 %6, 1
   store i64 %inc3.i.i, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
-  %tobool16.not42 = icmp eq ptr %call2.i.i, null
-  br i1 %tobool16.not42, label %for.inc, label %if.then17
+  %tobool16.not39 = icmp eq ptr %call2.i.i, null
+  br i1 %tobool16.not39, label %for.inc, label %if.then17
 
 if.then17:                                        ; preds = %activeDefragSds.exit
   %sub.ptr.lhs.cast.i = ptrtoint ptr %4 to i64
@@ -815,30 +850,30 @@ if.then31:                                        ; preds = %if.end13
   %8 = load ptr, ptr %value32, align 8
   %call.i25 = tail call i32 @je_get_defrag_hint(ptr noundef %8) #11
   %tobool.not.i26 = icmp eq i32 %call.i25, 0
-  br i1 %tobool.not.i26, label %activeDefragAlloc.exit33.thread, label %activeDefragAlloc.exit33
+  br i1 %tobool.not.i26, label %activeDefragAlloc.exit34.thread, label %activeDefragAlloc.exit34
 
-activeDefragAlloc.exit33.thread:                  ; preds = %if.then31
+activeDefragAlloc.exit34.thread:                  ; preds = %if.then31
   %9 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
-  %inc3.i3240 = add nsw i64 %9, 1
-  store i64 %inc3.i3240, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
+  %inc.i33 = add nsw i64 %9, 1
+  store i64 %inc.i33, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
   br label %for.inc
 
-activeDefragAlloc.exit33:                         ; preds = %if.then31
+activeDefragAlloc.exit34:                         ; preds = %if.then31
   %call1.i28 = tail call i64 @je_malloc_usable_size(ptr noundef %8) #11
   %call2.i29 = tail call noalias ptr @zmalloc_no_tcache(i64 noundef %call1.i28) #11
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call2.i29, ptr align 1 %8, i64 %call1.i28, i1 false)
   tail call void @zfree_no_tcache(ptr noundef %8) #11
   %10 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
-  %inc3.i32 = add nsw i64 %10, 1
-  store i64 %inc3.i32, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
+  %inc3.i30 = add nsw i64 %10, 1
+  store i64 %inc3.i30, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
   %tobool34.not = icmp eq ptr %call2.i29, null
   br i1 %tobool34.not, label %for.inc, label %if.then35
 
-if.then35:                                        ; preds = %activeDefragAlloc.exit33
+if.then35:                                        ; preds = %activeDefragAlloc.exit34
   store ptr %call2.i29, ptr %value32, align 8
   br label %for.inc
 
-for.inc:                                          ; preds = %activeDefragSds.exit.thread, %activeDefragAlloc.exit33.thread, %if.end13, %if.then17, %activeDefragSds.exit, %if.then35, %activeDefragAlloc.exit33, %if.then22, %if.then26
+for.inc:                                          ; preds = %activeDefragSds.exit.thread, %activeDefragAlloc.exit34.thread, %if.end13, %if.then17, %activeDefragSds.exit, %if.then35, %activeDefragAlloc.exit34, %if.then22, %if.then26
   %next41 = getelementptr inbounds i8, ptr %ln.1, i64 8
   %ln.0 = load ptr, ptr %next41, align 8
   %tobool.not = icmp eq ptr %ln.0, null
@@ -858,8 +893,8 @@ entry:
 
 activeDefragAlloc.exit.thread:                    ; preds = %entry
   %1 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
-  %inc3.i25 = add nsw i64 %1, 1
-  store i64 %inc3.i25, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
+  %inc.i = add nsw i64 %1, 1
+  store i64 %inc.i, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
   br label %if.end11
 
 activeDefragAlloc.exit:                           ; preds = %entry
@@ -876,48 +911,66 @@ activeDefragAlloc.exit:                           ; preds = %entry
 if.then:                                          ; preds = %activeDefragAlloc.exit
   %3 = load ptr, ptr %call2.i, align 8
   %tobool1.not = icmp eq ptr %3, null
+  br i1 %tobool1.not, label %if.else, label %if.then2
+
+if.then2:                                         ; preds = %if.then
   %next = getelementptr inbounds i8, ptr %3, i64 8
-  %ql.sink = select i1 %tobool1.not, ptr %ql, ptr %next
-  store ptr %call2.i, ptr %ql.sink, align 8
+  store ptr %call2.i, ptr %next, align 8
+  br label %if.end
+
+if.else:                                          ; preds = %if.then
+  store ptr %call2.i, ptr %ql, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then2
   %next4 = getelementptr inbounds i8, ptr %call2.i, i64 8
   %4 = load ptr, ptr %next4, align 8
   %tobool5.not = icmp eq ptr %4, null
+  br i1 %tobool5.not, label %if.else9, label %if.then6
+
+if.then6:                                         ; preds = %if.end
+  store ptr %call2.i, ptr %4, align 8
+  br label %if.end10
+
+if.else9:                                         ; preds = %if.end
   %tail = getelementptr inbounds i8, ptr %ql, i64 8
-  %tail.sink = select i1 %tobool5.not, ptr %tail, ptr %4
-  store ptr %call2.i, ptr %tail.sink, align 8
+  store ptr %call2.i, ptr %tail, align 8
+  br label %if.end10
+
+if.end10:                                         ; preds = %if.else9, %if.then6
   store ptr %call2.i, ptr %node_ref, align 8
   br label %if.end11
 
-if.end11:                                         ; preds = %activeDefragAlloc.exit.thread, %if.then, %activeDefragAlloc.exit
-  %node.0 = phi ptr [ %call2.i, %if.then ], [ %0, %activeDefragAlloc.exit ], [ %0, %activeDefragAlloc.exit.thread ]
+if.end11:                                         ; preds = %activeDefragAlloc.exit.thread, %if.end10, %activeDefragAlloc.exit
+  %node.0 = phi ptr [ %call2.i, %if.end10 ], [ %0, %activeDefragAlloc.exit ], [ %0, %activeDefragAlloc.exit.thread ]
   %entry12 = getelementptr inbounds i8, ptr %node.0, i64 16
   %5 = load ptr, ptr %entry12, align 8
   %call.i14 = tail call i32 @je_get_defrag_hint(ptr noundef %5) #11
   %tobool.not.i15 = icmp eq i32 %call.i14, 0
-  br i1 %tobool.not.i15, label %activeDefragAlloc.exit22.thread, label %activeDefragAlloc.exit22
+  br i1 %tobool.not.i15, label %activeDefragAlloc.exit23.thread, label %activeDefragAlloc.exit23
 
-activeDefragAlloc.exit22.thread:                  ; preds = %if.end11
+activeDefragAlloc.exit23.thread:                  ; preds = %if.end11
   %6 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
-  %inc3.i2129 = add nsw i64 %6, 1
-  store i64 %inc3.i2129, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
+  %inc.i22 = add nsw i64 %6, 1
+  store i64 %inc.i22, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
   br label %if.end17
 
-activeDefragAlloc.exit22:                         ; preds = %if.end11
+activeDefragAlloc.exit23:                         ; preds = %if.end11
   %call1.i17 = tail call i64 @je_malloc_usable_size(ptr noundef %5) #11
   %call2.i18 = tail call noalias ptr @zmalloc_no_tcache(i64 noundef %call1.i17) #11
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call2.i18, ptr align 1 %5, i64 %call1.i17, i1 false)
   tail call void @zfree_no_tcache(ptr noundef %5) #11
   %7 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
-  %inc3.i21 = add nsw i64 %7, 1
-  store i64 %inc3.i21, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
+  %inc3.i19 = add nsw i64 %7, 1
+  store i64 %inc3.i19, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
   %tobool14.not = icmp eq ptr %call2.i18, null
   br i1 %tobool14.not, label %if.end17, label %if.then15
 
-if.then15:                                        ; preds = %activeDefragAlloc.exit22
+if.then15:                                        ; preds = %activeDefragAlloc.exit23
   store ptr %call2.i18, ptr %entry12, align 8
   br label %if.end17
 
-if.end17:                                         ; preds = %activeDefragAlloc.exit22.thread, %if.then15, %activeDefragAlloc.exit22
+if.end17:                                         ; preds = %activeDefragAlloc.exit23.thread, %if.then15, %activeDefragAlloc.exit23
   ret void
 }
 
@@ -1183,8 +1236,8 @@ cond.end:                                         ; preds = %entry
 
 activeDefragAlloc.exit.thread:                    ; preds = %cond.end
   %3 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
-  %inc3.i13 = add nsw i64 %3, 1
-  store i64 %inc3.i13, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
+  %inc.i = add nsw i64 %3, 1
+  store i64 %inc.i, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
   br label %if.end
 
 activeDefragAlloc.exit:                           ; preds = %cond.end
@@ -1265,8 +1318,8 @@ cond.end:                                         ; preds = %entry
 
 activeDefragAlloc.exit.thread:                    ; preds = %cond.end
   %3 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
-  %inc3.i49 = add nsw i64 %3, 1
-  store i64 %inc3.i49, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
+  %inc.i = add nsw i64 %3, 1
+  store i64 %inc.i, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
   br label %if.end
 
 activeDefragAlloc.exit:                           ; preds = %cond.end
@@ -1290,59 +1343,59 @@ if.end:                                           ; preds = %activeDefragAlloc.e
   %5 = load ptr, ptr %zsl, align 8
   %call.i17 = tail call i32 @je_get_defrag_hint(ptr noundef %5) #11
   %tobool.not.i18 = icmp eq i32 %call.i17, 0
-  br i1 %tobool.not.i18, label %activeDefragAlloc.exit25.thread, label %activeDefragAlloc.exit25
+  br i1 %tobool.not.i18, label %activeDefragAlloc.exit26.thread, label %activeDefragAlloc.exit26
 
-activeDefragAlloc.exit25.thread:                  ; preds = %if.end
+activeDefragAlloc.exit26.thread:                  ; preds = %if.end
   %6 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
-  %inc3.i2453 = add nsw i64 %6, 1
-  store i64 %inc3.i2453, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
+  %inc.i25 = add nsw i64 %6, 1
+  store i64 %inc.i25, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
   br label %if.end12
 
-activeDefragAlloc.exit25:                         ; preds = %if.end
+activeDefragAlloc.exit26:                         ; preds = %if.end
   %call1.i20 = tail call i64 @je_malloc_usable_size(ptr noundef %5) #11
   %call2.i21 = tail call noalias ptr @zmalloc_no_tcache(i64 noundef %call1.i20) #11
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call2.i21, ptr align 1 %5, i64 %call1.i20, i1 false)
   tail call void @zfree_no_tcache(ptr noundef %5) #11
   %7 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
-  %inc3.i24 = add nsw i64 %7, 1
-  store i64 %inc3.i24, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
+  %inc3.i22 = add nsw i64 %7, 1
+  store i64 %inc3.i22, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
   %tobool9.not = icmp eq ptr %call2.i21, null
   br i1 %tobool9.not, label %if.end12, label %if.then10
 
-if.then10:                                        ; preds = %activeDefragAlloc.exit25
+if.then10:                                        ; preds = %activeDefragAlloc.exit26
   store ptr %call2.i21, ptr %zsl, align 8
   br label %if.end12
 
-if.end12:                                         ; preds = %activeDefragAlloc.exit25.thread, %if.then10, %activeDefragAlloc.exit25
+if.end12:                                         ; preds = %activeDefragAlloc.exit26.thread, %if.then10, %activeDefragAlloc.exit26
   %8 = load ptr, ptr %zsl, align 8
   %9 = load ptr, ptr %8, align 8
-  %call.i26 = tail call i32 @je_get_defrag_hint(ptr noundef %9) #11
-  %tobool.not.i27 = icmp eq i32 %call.i26, 0
-  br i1 %tobool.not.i27, label %activeDefragAlloc.exit34.thread, label %activeDefragAlloc.exit34
+  %call.i27 = tail call i32 @je_get_defrag_hint(ptr noundef %9) #11
+  %tobool.not.i28 = icmp eq i32 %call.i27, 0
+  br i1 %tobool.not.i28, label %activeDefragAlloc.exit36.thread, label %activeDefragAlloc.exit36
 
-activeDefragAlloc.exit34.thread:                  ; preds = %if.end12
+activeDefragAlloc.exit36.thread:                  ; preds = %if.end12
   %10 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
-  %inc3.i3357 = add nsw i64 %10, 1
-  store i64 %inc3.i3357, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
+  %inc.i35 = add nsw i64 %10, 1
+  store i64 %inc.i35, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
   br label %if.end19
 
-activeDefragAlloc.exit34:                         ; preds = %if.end12
-  %call1.i29 = tail call i64 @je_malloc_usable_size(ptr noundef %9) #11
-  %call2.i30 = tail call noalias ptr @zmalloc_no_tcache(i64 noundef %call1.i29) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call2.i30, ptr align 1 %9, i64 %call1.i29, i1 false)
+activeDefragAlloc.exit36:                         ; preds = %if.end12
+  %call1.i30 = tail call i64 @je_malloc_usable_size(ptr noundef %9) #11
+  %call2.i31 = tail call noalias ptr @zmalloc_no_tcache(i64 noundef %call1.i30) #11
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call2.i31, ptr align 1 %9, i64 %call1.i30, i1 false)
   tail call void @zfree_no_tcache(ptr noundef %9) #11
   %11 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
-  %inc3.i33 = add nsw i64 %11, 1
-  store i64 %inc3.i33, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
-  %tobool15.not = icmp eq ptr %call2.i30, null
+  %inc3.i32 = add nsw i64 %11, 1
+  store i64 %inc3.i32, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
+  %tobool15.not = icmp eq ptr %call2.i31, null
   br i1 %tobool15.not, label %if.end19, label %if.then16
 
-if.then16:                                        ; preds = %activeDefragAlloc.exit34
+if.then16:                                        ; preds = %activeDefragAlloc.exit36
   %12 = load ptr, ptr %zsl, align 8
-  store ptr %call2.i30, ptr %12, align 8
+  store ptr %call2.i31, ptr %12, align 8
   br label %if.end19
 
-if.end19:                                         ; preds = %activeDefragAlloc.exit34.thread, %if.then16, %activeDefragAlloc.exit34
+if.end19:                                         ; preds = %activeDefragAlloc.exit36.thread, %if.then16, %activeDefragAlloc.exit36
   %13 = load ptr, ptr %zs.0, align 8
   %ht_used = getelementptr inbounds i8, ptr %13, i64 24
   %14 = load i64, ptr %ht_used, align 8
@@ -1354,22 +1407,22 @@ if.end19:                                         ; preds = %activeDefragAlloc.e
   br i1 %cmp23, label %if.then25, label %if.else
 
 if.then25:                                        ; preds = %if.end19
-  %call.i35 = tail call ptr @dictGetKey(ptr noundef %kde) #11
-  %call1.i36 = tail call ptr @sdsdup(ptr noundef %call.i35) #11
+  %call.i37 = tail call ptr @dictGetKey(ptr noundef %kde) #11
+  %call1.i38 = tail call ptr @sdsdup(ptr noundef %call.i37) #11
   %defrag_later.i = getelementptr inbounds i8, ptr %db, i64 72
   %17 = load ptr, ptr %defrag_later.i, align 8
-  %call2.i37 = tail call ptr @listAddNodeTail(ptr noundef %17, ptr noundef %call1.i36) #11
+  %call2.i39 = tail call ptr @listAddNodeTail(ptr noundef %17, ptr noundef %call1.i38) #11
   br label %if.end31
 
 if.else:                                          ; preds = %if.end19
   %call27 = tail call ptr @dictGetIterator(ptr noundef nonnull %13) #11
-  %call2863 = tail call ptr @dictNext(ptr noundef %call27) #11
-  %cmp29.not64 = icmp eq ptr %call2863, null
-  br i1 %cmp29.not64, label %while.end, label %while.body
+  %call2858 = tail call ptr @dictNext(ptr noundef %call27) #11
+  %cmp29.not59 = icmp eq ptr %call2858, null
+  br i1 %cmp29.not59, label %while.end, label %while.body
 
 while.body:                                       ; preds = %if.else, %while.body
-  %call2865 = phi ptr [ %call28, %while.body ], [ %call2863, %if.else ]
-  tail call void @activeDefragZsetEntry(ptr noundef nonnull %zs.0, ptr noundef nonnull %call2865)
+  %call2860 = phi ptr [ %call28, %while.body ], [ %call2858, %if.else ]
+  tail call void @activeDefragZsetEntry(ptr noundef nonnull %zs.0, ptr noundef nonnull %call2860)
   %call28 = tail call ptr @dictNext(ptr noundef %call27) #11
   %cmp29.not = icmp eq ptr %call28, null
   br i1 %cmp29.not, label %while.end, label %while.body, !llvm.loop !13
@@ -1380,32 +1433,32 @@ while.end:                                        ; preds = %while.body, %if.els
 
 if.end31:                                         ; preds = %while.end, %if.then25
   %18 = load ptr, ptr %zs.0, align 8
-  %call.i38 = tail call i32 @je_get_defrag_hint(ptr noundef %18) #11
-  %tobool.not.i39 = icmp eq i32 %call.i38, 0
-  br i1 %tobool.not.i39, label %activeDefragAlloc.exit46.thread, label %activeDefragAlloc.exit46
+  %call.i40 = tail call i32 @je_get_defrag_hint(ptr noundef %18) #11
+  %tobool.not.i41 = icmp eq i32 %call.i40, 0
+  br i1 %tobool.not.i41, label %activeDefragAlloc.exit49.thread, label %activeDefragAlloc.exit49
 
-activeDefragAlloc.exit46.thread:                  ; preds = %if.end31
+activeDefragAlloc.exit49.thread:                  ; preds = %if.end31
   %19 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
-  %inc3.i4561 = add nsw i64 %19, 1
-  store i64 %inc3.i4561, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
+  %inc.i48 = add nsw i64 %19, 1
+  store i64 %inc.i48, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
   br label %if.end37
 
-activeDefragAlloc.exit46:                         ; preds = %if.end31
-  %call1.i41 = tail call i64 @je_malloc_usable_size(ptr noundef %18) #11
-  %call2.i42 = tail call noalias ptr @zmalloc_no_tcache(i64 noundef %call1.i41) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call2.i42, ptr align 1 %18, i64 %call1.i41, i1 false)
+activeDefragAlloc.exit49:                         ; preds = %if.end31
+  %call1.i43 = tail call i64 @je_malloc_usable_size(ptr noundef %18) #11
+  %call2.i44 = tail call noalias ptr @zmalloc_no_tcache(i64 noundef %call1.i43) #11
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call2.i44, ptr align 1 %18, i64 %call1.i43, i1 false)
   tail call void @zfree_no_tcache(ptr noundef %18) #11
   %20 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
   %inc3.i45 = add nsw i64 %20, 1
   store i64 %inc3.i45, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
-  %tobool34.not = icmp eq ptr %call2.i42, null
+  %tobool34.not = icmp eq ptr %call2.i44, null
   br i1 %tobool34.not, label %if.end37, label %if.then35
 
-if.then35:                                        ; preds = %activeDefragAlloc.exit46
-  store ptr %call2.i42, ptr %zs.0, align 8
+if.then35:                                        ; preds = %activeDefragAlloc.exit49
+  store ptr %call2.i44, ptr %zs.0, align 8
   br label %if.end37
 
-if.end37:                                         ; preds = %activeDefragAlloc.exit46.thread, %if.then35, %activeDefragAlloc.exit46
+if.end37:                                         ; preds = %activeDefragAlloc.exit49.thread, %if.then35, %activeDefragAlloc.exit49
   %21 = load ptr, ptr %zs.0, align 8
   tail call void @dictDefragTables(ptr noundef %21)
   ret void
@@ -1479,8 +1532,8 @@ if.end:                                           ; preds = %activeDefragSdsDict
 
 activeDefragAlloc.exit.thread:                    ; preds = %if.end
   %8 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
-  %inc3.i15 = add nsw i64 %8, 1
-  store i64 %inc3.i15, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
+  %inc.i = add nsw i64 %8, 1
+  store i64 %inc.i, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
   br label %if.end14
 
 activeDefragAlloc.exit:                           ; preds = %if.end
@@ -1566,8 +1619,8 @@ if.end:                                           ; preds = %activeDefragSdsDict
 
 activeDefragAlloc.exit.thread:                    ; preds = %if.end
   %8 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
-  %inc3.i15 = add nsw i64 %8, 1
-  store i64 %inc3.i15, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
+  %inc.i = add nsw i64 %8, 1
+  store i64 %inc.i, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
   br label %if.end14
 
 activeDefragAlloc.exit:                           ; preds = %if.end
@@ -1601,8 +1654,8 @@ entry:
 
 activeDefragAlloc.exit.thread:                    ; preds = %entry
   %1 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
-  %inc3.i5 = add nsw i64 %1, 1
-  store i64 %inc3.i5, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
+  %inc.i = add nsw i64 %1, 1
+  store i64 %inc.i, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
   br label %return
 
 activeDefragAlloc.exit:                           ; preds = %entry
@@ -1656,8 +1709,8 @@ if.then5:                                         ; preds = %if.end
 
 activeDefragAlloc.exit.thread.i:                  ; preds = %if.then5
   %6 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
-  %inc3.i5.i = add nsw i64 %6, 1
-  store i64 %inc3.i5.i, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
+  %inc.i.i = add nsw i64 %6, 1
+  store i64 %inc.i.i, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
   br label %defragRaxNode.exit
 
 activeDefragAlloc.exit.i:                         ; preds = %if.then5
@@ -1700,9 +1753,9 @@ if.end12:                                         ; preds = %if.end10, %defragRa
   %8 = load i64, ptr %cursor, align 8
   %inc = add i64 %8, 1
   store i64 %inc, ptr %cursor, align 8
-  %call1315 = call i32 @raxNext(ptr noundef nonnull %ri) #11
-  %tobool14.not16 = icmp eq i32 %call1315, 0
-  br i1 %tobool14.not16, label %while.end, label %while.body.lr.ph
+  %call1314 = call i32 @raxNext(ptr noundef nonnull %ri) #11
+  %tobool14.not15 = icmp eq i32 %call1314, 0
+  br i1 %tobool14.not15, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end12
   %data = getelementptr inbounds i8, ptr %ri, i64 24
@@ -1710,7 +1763,7 @@ while.body.lr.ph:                                 ; preds = %if.end12
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end32
-  %iterations.017 = phi i64 [ 0, %while.body.lr.ph ], [ %iterations.1, %if.end32 ]
+  %iterations.016 = phi i64 [ 0, %while.body.lr.ph ], [ %iterations.1, %if.end32 ]
   %9 = load ptr, ptr %data, align 8
   %call.i = call i32 @je_get_defrag_hint(ptr noundef %9) #11
   %tobool.not.i9 = icmp eq i32 %call.i, 0
@@ -1718,8 +1771,8 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 activeDefragAlloc.exit.thread:                    ; preds = %while.body
   %10 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
-  %inc3.i13 = add nsw i64 %10, 1
-  store i64 %inc3.i13, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
+  %inc.i = add nsw i64 %10, 1
+  store i64 %inc.i, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
   br label %if.end19
 
 activeDefragAlloc.exit:                           ; preds = %while.body
@@ -1743,8 +1796,8 @@ if.end19:                                         ; preds = %activeDefragAlloc.e
   %13 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2088), align 8
   %inc20 = add nsw i64 %13, 1
   store i64 %inc20, ptr getelementptr inbounds (i8, ptr @server, i64 2088), align 8
-  %inc21 = add nsw i64 %iterations.017, 1
-  %cmp22 = icmp sgt i64 %iterations.017, 127
+  %inc21 = add nsw i64 %iterations.016, 1
+  %cmp22 = icmp sgt i64 %iterations.016, 127
   br i1 %cmp22, label %if.then23, label %if.end32
 
 if.then23:                                        ; preds = %if.end19
@@ -1807,8 +1860,8 @@ entry:
 
 activeDefragAlloc.exit.thread:                    ; preds = %entry
   %1 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
-  %inc3.i21 = add nsw i64 %1, 1
-  store i64 %inc3.i21, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
+  %inc.i = add nsw i64 %1, 1
+  store i64 %inc.i, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
   br label %if.end
 
 activeDefragAlloc.exit:                           ; preds = %entry
@@ -1838,8 +1891,8 @@ if.end:                                           ; preds = %activeDefragAlloc.e
 
 activeDefragAlloc.exit.thread.i:                  ; preds = %if.end
   %5 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
-  %inc3.i5.i = add nsw i64 %5, 1
-  store i64 %inc3.i5.i, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
+  %inc.i.i = add nsw i64 %5, 1
+  store i64 %inc.i.i, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
   br label %defragRaxNode.exit
 
 activeDefragAlloc.exit.i:                         ; preds = %if.end
@@ -1851,17 +1904,17 @@ activeDefragAlloc.exit.i:                         ; preds = %if.end
   %inc3.i.i = add nsw i64 %6, 1
   store i64 %inc3.i.i, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
   %tobool.not.i8 = icmp eq ptr %call2.i.i, null
-  br i1 %tobool.not.i8, label %defragRaxNode.exit, label %if.then.i
+  br i1 %tobool.not.i8, label %defragRaxNode.exit, label %if.then.i9
 
-if.then.i:                                        ; preds = %activeDefragAlloc.exit.i
+if.then.i9:                                       ; preds = %activeDefragAlloc.exit.i
   store ptr %call2.i.i, ptr %3, align 8
   br label %defragRaxNode.exit
 
-defragRaxNode.exit:                               ; preds = %activeDefragAlloc.exit.thread.i, %activeDefragAlloc.exit.i, %if.then.i
+defragRaxNode.exit:                               ; preds = %activeDefragAlloc.exit.thread.i, %activeDefragAlloc.exit.i, %if.then.i9
   %call2 = call i32 @raxSeek(ptr noundef nonnull %ri, ptr noundef nonnull @.str.11, ptr noundef null, i64 noundef 0) #11
-  %call323 = call i32 @raxNext(ptr noundef nonnull %ri) #11
-  %tobool4.not24 = icmp eq i32 %call323, 0
-  br i1 %tobool4.not24, label %while.end, label %while.body.lr.ph
+  %call325 = call i32 @raxNext(ptr noundef nonnull %ri) #11
+  %tobool4.not26 = icmp eq i32 %call325, 0
+  br i1 %tobool4.not26, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %defragRaxNode.exit
   %tobool5.not = icmp eq ptr %element_cb, null
@@ -1895,41 +1948,41 @@ if.end17.us:                                      ; preds = %if.then15.us, %whil
   br i1 %tobool4.not.us, label %while.end, label %while.body.us, !llvm.loop !15
 
 while.body.lr.ph.split:                           ; preds = %while.body.lr.ph
-  br i1 %tobool5.not, label %while.body.us25, label %while.body
+  br i1 %tobool5.not, label %while.body.us27, label %while.body
 
-while.body.us25:                                  ; preds = %while.body.lr.ph.split, %if.end17.us32
+while.body.us27:                                  ; preds = %while.body.lr.ph.split, %if.end17.us34
   %8 = load ptr, ptr %data, align 8
-  %call.i10.us = call i32 @je_get_defrag_hint(ptr noundef %8) #11
-  %tobool.not.i11.us = icmp eq i32 %call.i10.us, 0
-  br i1 %tobool.not.i11.us, label %activeDefragAlloc.exit18.us.thread, label %activeDefragAlloc.exit18.us
+  %call.i11.us = call i32 @je_get_defrag_hint(ptr noundef %8) #11
+  %tobool.not.i12.us = icmp eq i32 %call.i11.us, 0
+  br i1 %tobool.not.i12.us, label %if.end13.thread.us, label %if.end.i13.us
 
-activeDefragAlloc.exit18.us.thread:               ; preds = %while.body.us25
-  %9 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
-  %inc3.i17.us40 = add nsw i64 %9, 1
-  store i64 %inc3.i17.us40, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
-  br label %if.end17.us32
-
-activeDefragAlloc.exit18.us:                      ; preds = %while.body.us25
-  %call1.i13.us = call i64 @je_malloc_usable_size(ptr noundef %8) #11
-  %call2.i14.us = call noalias ptr @zmalloc_no_tcache(i64 noundef %call1.i13.us) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call2.i14.us, ptr align 1 %8, i64 %call1.i13.us, i1 false)
+if.end.i13.us:                                    ; preds = %while.body.us27
+  %call1.i14.us = call i64 @je_malloc_usable_size(ptr noundef %8) #11
+  %call2.i15.us = call noalias ptr @zmalloc_no_tcache(i64 noundef %call1.i14.us) #11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call2.i15.us, ptr align 1 %8, i64 %call1.i14.us, i1 false)
   call void @zfree_no_tcache(ptr noundef %8) #11
-  %10 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
-  %inc3.i17.us = add nsw i64 %10, 1
-  store i64 %inc3.i17.us, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
-  %tobool14.not.us30 = icmp eq ptr %call2.i14.us, null
-  br i1 %tobool14.not.us30, label %if.end17.us32, label %if.then15.us31
+  %9 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
+  %inc3.i16.us = add nsw i64 %9, 1
+  store i64 %inc3.i16.us, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
+  %tobool14.not.us32 = icmp eq ptr %call2.i15.us, null
+  br i1 %tobool14.not.us32, label %if.end17.us34, label %if.then15.us33
 
-if.then15.us31:                                   ; preds = %activeDefragAlloc.exit18.us
+if.end13.thread.us:                               ; preds = %while.body.us27
+  %10 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
+  %inc.i19.us = add nsw i64 %10, 1
+  store i64 %inc.i19.us, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
+  br label %if.end17.us34
+
+if.then15.us33:                                   ; preds = %if.end.i13.us
   %11 = load ptr, ptr %node, align 8
-  store ptr %call2.i14.us, ptr %data, align 8
-  call void @raxSetData(ptr noundef %11, ptr noundef nonnull %call2.i14.us) #11
-  br label %if.end17.us32
+  store ptr %call2.i15.us, ptr %data, align 8
+  call void @raxSetData(ptr noundef %11, ptr noundef nonnull %call2.i15.us) #11
+  br label %if.end17.us34
 
-if.end17.us32:                                    ; preds = %activeDefragAlloc.exit18.us.thread, %if.then15.us31, %activeDefragAlloc.exit18.us
-  %call3.us33 = call i32 @raxNext(ptr noundef nonnull %ri) #11
-  %tobool4.not.us34 = icmp eq i32 %call3.us33, 0
-  br i1 %tobool4.not.us34, label %while.end, label %while.body.us25, !llvm.loop !15
+if.end17.us34:                                    ; preds = %if.then15.us33, %if.end.i13.us, %if.end13.thread.us
+  %call3.us35 = call i32 @raxNext(ptr noundef nonnull %ri) #11
+  %tobool4.not.us36 = icmp eq i32 %call3.us35, 0
+  br i1 %tobool4.not.us36, label %while.end, label %while.body.us27, !llvm.loop !15
 
 while.body:                                       ; preds = %while.body.lr.ph.split, %if.end17
   %call7 = call ptr %element_cb(ptr noundef nonnull %ri, ptr noundef %element_cb_data) #11
@@ -1938,40 +1991,40 @@ while.body:                                       ; preds = %while.body.lr.ph.sp
 
 if.then11:                                        ; preds = %while.body
   %12 = load ptr, ptr %data, align 8
-  %call.i10 = call i32 @je_get_defrag_hint(ptr noundef %12) #11
-  %tobool.not.i11 = icmp eq i32 %call.i10, 0
-  br i1 %tobool.not.i11, label %if.end13.thread45, label %if.end13
+  %call.i11 = call i32 @je_get_defrag_hint(ptr noundef %12) #11
+  %tobool.not.i12 = icmp eq i32 %call.i11, 0
+  br i1 %tobool.not.i12, label %if.end13.thread, label %if.end13
 
-if.end13.thread45:                                ; preds = %if.then11
+if.end13.thread:                                  ; preds = %if.then11
   %13 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
-  %inc3.i1748 = add nsw i64 %13, 1
-  store i64 %inc3.i1748, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
+  %inc.i19 = add nsw i64 %13, 1
+  store i64 %inc.i19, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
   br label %if.end17
 
 if.end13:                                         ; preds = %if.then11
-  %call1.i13 = call i64 @je_malloc_usable_size(ptr noundef %12) #11
-  %call2.i14 = call noalias ptr @zmalloc_no_tcache(i64 noundef %call1.i13) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call2.i14, ptr align 1 %12, i64 %call1.i13, i1 false)
+  %call1.i14 = call i64 @je_malloc_usable_size(ptr noundef %12) #11
+  %call2.i15 = call noalias ptr @zmalloc_no_tcache(i64 noundef %call1.i14) #11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call2.i15, ptr align 1 %12, i64 %call1.i14, i1 false)
   call void @zfree_no_tcache(ptr noundef %12) #11
   %14 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
-  %inc3.i17 = add nsw i64 %14, 1
-  store i64 %inc3.i17, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
-  %tobool14.not = icmp eq ptr %call2.i14, null
+  %inc3.i16 = add nsw i64 %14, 1
+  store i64 %inc3.i16, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
+  %tobool14.not = icmp eq ptr %call2.i15, null
   br i1 %tobool14.not, label %if.end17, label %if.then15
 
 if.then15:                                        ; preds = %while.body, %if.end13
-  %newdata.144 = phi ptr [ %call2.i14, %if.end13 ], [ %call7, %while.body ]
+  %newdata.143 = phi ptr [ %call2.i15, %if.end13 ], [ %call7, %while.body ]
   %15 = load ptr, ptr %node, align 8
-  store ptr %newdata.144, ptr %data, align 8
-  call void @raxSetData(ptr noundef %15, ptr noundef nonnull %newdata.144) #11
+  store ptr %newdata.143, ptr %data, align 8
+  call void @raxSetData(ptr noundef %15, ptr noundef nonnull %newdata.143) #11
   br label %if.end17
 
-if.end17:                                         ; preds = %if.end13.thread45, %if.then15, %if.end13
+if.end17:                                         ; preds = %if.end13.thread, %if.then15, %if.end13
   %call3 = call i32 @raxNext(ptr noundef nonnull %ri) #11
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %while.end, label %while.body, !llvm.loop !15
 
-while.end:                                        ; preds = %if.end17, %if.end17.us32, %if.end17.us, %while.body.us.us, %defragRaxNode.exit
+while.end:                                        ; preds = %if.end17, %if.end17.us34, %if.end17.us, %while.body.us.us, %defragRaxNode.exit
   call void @raxStop(ptr noundef nonnull %ri) #11
   ret void
 }
@@ -1992,8 +2045,8 @@ entry:
 
 activeDefragAlloc.exit.thread:                    ; preds = %entry
   %2 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
-  %inc3.i10 = add nsw i64 %2, 1
-  store i64 %inc3.i10, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
+  %inc.i = add nsw i64 %2, 1
+  store i64 %inc.i, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
   br label %if.end
 
 activeDefragAlloc.exit:                           ; preds = %entry
@@ -2026,8 +2079,8 @@ cond.false:                                       ; preds = %if.then
   unreachable
 
 if.end:                                           ; preds = %activeDefragAlloc.exit.thread, %if.then, %activeDefragAlloc.exit
-  %retval.0.i12 = phi ptr [ null, %activeDefragAlloc.exit.thread ], [ %call2.i, %if.then ], [ null, %activeDefragAlloc.exit ]
-  ret ptr %retval.0.i12
+  %retval.0.i10 = phi ptr [ null, %activeDefragAlloc.exit.thread ], [ %call2.i, %if.then ], [ null, %activeDefragAlloc.exit ]
+  ret ptr %retval.0.i10
 }
 
 declare i32 @raxInsert(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -2040,34 +2093,39 @@ entry:
   %0 = load ptr, ptr %data, align 8
   %call.i = tail call i32 @je_get_defrag_hint(ptr noundef %0) #11
   %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %activeDefragAlloc.exit, label %if.end.i
+  br i1 %tobool.not.i, label %if.then.i, label %if.end.i
+
+if.then.i:                                        ; preds = %entry
+  %1 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
+  %inc.i = add nsw i64 %1, 1
+  store i64 %inc.i, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
+  br label %activeDefragAlloc.exit
 
 if.end.i:                                         ; preds = %entry
   %call1.i = tail call i64 @je_malloc_usable_size(ptr noundef %0) #11
   %call2.i = tail call noalias ptr @zmalloc_no_tcache(i64 noundef %call1.i) #11
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call2.i, ptr align 1 %0, i64 %call1.i, i1 false)
   tail call void @zfree_no_tcache(ptr noundef %0) #11
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
+  %inc3.i = add nsw i64 %2, 1
+  store i64 %inc3.i, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
   br label %activeDefragAlloc.exit
 
-activeDefragAlloc.exit:                           ; preds = %entry, %if.end.i
-  %.sink7.i = phi ptr [ getelementptr inbounds (i8, ptr @server, i64 2056), %if.end.i ], [ getelementptr inbounds (i8, ptr @server, i64 2064), %entry ]
-  %retval.0.i = phi ptr [ %call2.i, %if.end.i ], [ null, %entry ]
-  %1 = load i64, ptr %.sink7.i, align 8
-  %inc3.i = add nsw i64 %1, 1
-  store i64 %inc3.i, ptr %.sink7.i, align 8
+activeDefragAlloc.exit:                           ; preds = %if.then.i, %if.end.i
+  %retval.0.i = phi ptr [ %call2.i, %if.end.i ], [ null, %if.then.i ]
   %tobool.not = icmp eq ptr %retval.0.i, null
   %spec.select = select i1 %tobool.not, ptr %0, ptr %retval.0.i
   %name = getelementptr inbounds i8, ptr %spec.select, i64 16
-  %2 = load ptr, ptr %name, align 8
-  %call.i9 = tail call ptr @sdsAllocPtr(ptr noundef %2) #11
+  %3 = load ptr, ptr %name, align 8
+  %call.i9 = tail call ptr @sdsAllocPtr(ptr noundef %3) #11
   %call.i.i = tail call i32 @je_get_defrag_hint(ptr noundef %call.i9) #11
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %activeDefragSds.exit.thread, label %activeDefragSds.exit
 
 activeDefragSds.exit.thread:                      ; preds = %activeDefragAlloc.exit
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
-  %inc3.i.i15 = add nsw i64 %3, 1
-  store i64 %inc3.i.i15, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
+  %4 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
+  %inc.i.i = add nsw i64 %4, 1
+  store i64 %inc.i.i, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
   br label %if.end5
 
 activeDefragSds.exit:                             ; preds = %activeDefragAlloc.exit
@@ -2075,14 +2133,14 @@ activeDefragSds.exit:                             ; preds = %activeDefragAlloc.e
   %call2.i.i = tail call noalias ptr @zmalloc_no_tcache(i64 noundef %call1.i.i) #11
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call2.i.i, ptr align 1 %call.i9, i64 %call1.i.i, i1 false)
   tail call void @zfree_no_tcache(ptr noundef %call.i9) #11
-  %4 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
-  %inc3.i.i = add nsw i64 %4, 1
+  %5 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
+  %inc3.i.i = add nsw i64 %5, 1
   store i64 %inc3.i.i, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
   %tobool2.not12 = icmp eq ptr %call2.i.i, null
   br i1 %tobool2.not12, label %if.end5, label %if.then3
 
 if.then3:                                         ; preds = %activeDefragSds.exit
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %2 to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %call.i9 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %add.ptr.i = getelementptr inbounds i8, ptr %call2.i.i, i64 %sub.ptr.sub.i
@@ -2091,8 +2149,8 @@ if.then3:                                         ; preds = %activeDefragSds.exi
 
 if.end5:                                          ; preds = %activeDefragSds.exit.thread, %if.then3, %activeDefragSds.exit
   %pel = getelementptr inbounds i8, ptr %spec.select, i64 24
-  %5 = load ptr, ptr %pel, align 8
-  %tobool6.not = icmp eq ptr %5, null
+  %6 = load ptr, ptr %pel, align 8
+  %tobool6.not = icmp eq ptr %6, null
   br i1 %tobool6.not, label %if.end11, label %if.then7
 
 if.then7:                                         ; preds = %if.end5
@@ -2157,8 +2215,8 @@ cond.end:                                         ; preds = %entry
 
 activeDefragAlloc.exit.thread:                    ; preds = %cond.end
   %3 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
-  %inc3.i26 = add nsw i64 %3, 1
-  store i64 %inc3.i26, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
+  %inc.i = add nsw i64 %3, 1
+  store i64 %inc.i, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
   br label %if.end
 
 activeDefragAlloc.exit:                           ; preds = %cond.end
@@ -2188,35 +2246,35 @@ if.then11:                                        ; preds = %if.end
   %7 = load ptr, ptr %s.0, align 8
   %call.i12 = tail call i32 @je_get_defrag_hint(ptr noundef %7) #11
   %tobool.not.i13 = icmp eq i32 %call.i12, 0
-  br i1 %tobool.not.i13, label %activeDefragAlloc.exit20.thread, label %activeDefragAlloc.exit20
+  br i1 %tobool.not.i13, label %activeDefragAlloc.exit21.thread, label %activeDefragAlloc.exit21
 
-activeDefragAlloc.exit20.thread:                  ; preds = %if.then11
+activeDefragAlloc.exit21.thread:                  ; preds = %if.then11
   %8 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
-  %inc3.i1930 = add nsw i64 %8, 1
-  store i64 %inc3.i1930, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
+  %inc.i20 = add nsw i64 %8, 1
+  store i64 %inc.i20, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
   br label %if.end17
 
-activeDefragAlloc.exit20:                         ; preds = %if.then11
+activeDefragAlloc.exit21:                         ; preds = %if.then11
   %call1.i15 = tail call i64 @je_malloc_usable_size(ptr noundef %7) #11
   %call2.i16 = tail call noalias ptr @zmalloc_no_tcache(i64 noundef %call1.i15) #11
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call2.i16, ptr align 1 %7, i64 %call1.i15, i1 false)
   tail call void @zfree_no_tcache(ptr noundef %7) #11
   %9 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
-  %inc3.i19 = add nsw i64 %9, 1
-  store i64 %inc3.i19, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
+  %inc3.i17 = add nsw i64 %9, 1
+  store i64 %inc3.i17, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
   %tobool14.not = icmp eq ptr %call2.i16, null
   br i1 %tobool14.not, label %if.end17, label %if.then15
 
-if.then15:                                        ; preds = %activeDefragAlloc.exit20
+if.then15:                                        ; preds = %activeDefragAlloc.exit21
   store ptr %call2.i16, ptr %s.0, align 8
   br label %if.end17
 
-if.end17:                                         ; preds = %activeDefragAlloc.exit20.thread, %if.then15, %activeDefragAlloc.exit20
-  %call.i21 = tail call ptr @dictGetKey(ptr noundef %kde) #11
-  %call1.i22 = tail call ptr @sdsdup(ptr noundef %call.i21) #11
+if.end17:                                         ; preds = %activeDefragAlloc.exit21.thread, %if.then15, %activeDefragAlloc.exit21
+  %call.i22 = tail call ptr @dictGetKey(ptr noundef %kde) #11
+  %call1.i23 = tail call ptr @sdsdup(ptr noundef %call.i22) #11
   %defrag_later.i = getelementptr inbounds i8, ptr %db, i64 72
   %10 = load ptr, ptr %defrag_later.i, align 8
-  %call2.i23 = tail call ptr @listAddNodeTail(ptr noundef %10, ptr noundef %call1.i22) #11
+  %call2.i24 = tail call ptr @listAddNodeTail(ptr noundef %10, ptr noundef %call1.i23) #11
   br label %if.end19
 
 if.else:                                          ; preds = %if.end
@@ -2289,8 +2347,8 @@ entry:
 
 activeDefragSds.exit.thread:                      ; preds = %entry
   %2 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
-  %inc3.i.i107 = add nsw i64 %2, 1
-  store i64 %inc3.i.i107, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
+  %inc.i.i = add nsw i64 %2, 1
+  store i64 %inc.i.i, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
   br label %if.end20
 
 activeDefragSds.exit:                             ; preds = %entry
@@ -2305,8 +2363,8 @@ activeDefragSds.exit:                             ; preds = %entry
   %sub.ptr.rhs.cast.i = ptrtoint ptr %call.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %add.ptr.i = getelementptr inbounds i8, ptr %call2.i.i, i64 %sub.ptr.sub.i
-  %tobool.not104 = icmp eq ptr %call2.i.i, null
-  br i1 %tobool.not104, label %if.end20, label %if.then
+  %tobool.not99 = icmp eq ptr %call2.i.i, null
+  br i1 %tobool.not99, label %if.end20, label %if.then
 
 if.then:                                          ; preds = %activeDefragSds.exit
   %4 = load ptr, ptr %0, align 8
@@ -2387,8 +2445,8 @@ if.then43:                                        ; preds = %if.then33
 
 activeDefragAlloc.exit.thread:                    ; preds = %if.then43
   %15 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
-  %inc3.i90 = add nsw i64 %15, 1
-  store i64 %inc3.i90, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
+  %inc.i = add nsw i64 %15, 1
+  store i64 %inc.i, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
   br label %if.end149
 
 activeDefragAlloc.exit:                           ; preds = %if.then43
@@ -2429,26 +2487,26 @@ if.then71:                                        ; preds = %if.then56, %if.then
   %17 = load ptr, ptr %ptr73, align 8
   %call.i61 = tail call i32 @je_get_defrag_hint(ptr noundef %17) #11
   %tobool.not.i62 = icmp eq i32 %call.i61, 0
-  br i1 %tobool.not.i62, label %activeDefragAlloc.exit69.thread, label %activeDefragAlloc.exit69
+  br i1 %tobool.not.i62, label %activeDefragAlloc.exit70.thread, label %activeDefragAlloc.exit70
 
-activeDefragAlloc.exit69.thread:                  ; preds = %if.then71
+activeDefragAlloc.exit70.thread:                  ; preds = %if.then71
   %18 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
-  %inc3.i6894 = add nsw i64 %18, 1
-  store i64 %inc3.i6894, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
+  %inc.i69 = add nsw i64 %18, 1
+  store i64 %inc.i69, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
   br label %if.end149
 
-activeDefragAlloc.exit69:                         ; preds = %if.then71
+activeDefragAlloc.exit70:                         ; preds = %if.then71
   %call1.i64 = tail call i64 @je_malloc_usable_size(ptr noundef %17) #11
   %call2.i65 = tail call noalias ptr @zmalloc_no_tcache(i64 noundef %call1.i64) #11
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call2.i65, ptr align 1 %17, i64 %call1.i64, i1 false)
   tail call void @zfree_no_tcache(ptr noundef %17) #11
   %19 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
-  %inc3.i68 = add nsw i64 %19, 1
-  store i64 %inc3.i68, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
+  %inc3.i66 = add nsw i64 %19, 1
+  store i64 %inc3.i66, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
   %tobool75.not = icmp eq ptr %call2.i65, null
   br i1 %tobool75.not, label %if.end149, label %if.then76
 
-if.then76:                                        ; preds = %activeDefragAlloc.exit69
+if.then76:                                        ; preds = %activeDefragAlloc.exit70
   store ptr %call2.i65, ptr %ptr73, align 8
   br label %if.end149
 
@@ -2468,29 +2526,29 @@ if.then86:                                        ; preds = %if.end28
 if.then91:                                        ; preds = %if.then86
   %ptr92 = getelementptr inbounds i8, ptr %ob.0, i64 8
   %20 = load ptr, ptr %ptr92, align 8
-  %call.i70 = tail call i32 @je_get_defrag_hint(ptr noundef %20) #11
-  %tobool.not.i71 = icmp eq i32 %call.i70, 0
-  br i1 %tobool.not.i71, label %activeDefragAlloc.exit78.thread, label %activeDefragAlloc.exit78
+  %call.i71 = tail call i32 @je_get_defrag_hint(ptr noundef %20) #11
+  %tobool.not.i72 = icmp eq i32 %call.i71, 0
+  br i1 %tobool.not.i72, label %activeDefragAlloc.exit80.thread, label %activeDefragAlloc.exit80
 
-activeDefragAlloc.exit78.thread:                  ; preds = %if.then91
+activeDefragAlloc.exit80.thread:                  ; preds = %if.then91
   %21 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
-  %inc3.i7798 = add nsw i64 %21, 1
-  store i64 %inc3.i7798, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
+  %inc.i79 = add nsw i64 %21, 1
+  store i64 %inc.i79, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
   br label %if.end149
 
-activeDefragAlloc.exit78:                         ; preds = %if.then91
-  %call1.i73 = tail call i64 @je_malloc_usable_size(ptr noundef %20) #11
-  %call2.i74 = tail call noalias ptr @zmalloc_no_tcache(i64 noundef %call1.i73) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call2.i74, ptr align 1 %20, i64 %call1.i73, i1 false)
+activeDefragAlloc.exit80:                         ; preds = %if.then91
+  %call1.i74 = tail call i64 @je_malloc_usable_size(ptr noundef %20) #11
+  %call2.i75 = tail call noalias ptr @zmalloc_no_tcache(i64 noundef %call1.i74) #11
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call2.i75, ptr align 1 %20, i64 %call1.i74, i1 false)
   tail call void @zfree_no_tcache(ptr noundef %20) #11
   %22 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
-  %inc3.i77 = add nsw i64 %22, 1
-  store i64 %inc3.i77, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
-  %tobool94.not = icmp eq ptr %call2.i74, null
+  %inc3.i76 = add nsw i64 %22, 1
+  store i64 %inc3.i76, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
+  %tobool94.not = icmp eq ptr %call2.i75, null
   br i1 %tobool94.not, label %if.end149, label %if.then95
 
-if.then95:                                        ; preds = %activeDefragAlloc.exit78
-  store ptr %call2.i74, ptr %ptr92, align 8
+if.then95:                                        ; preds = %activeDefragAlloc.exit80
+  store ptr %call2.i75, ptr %ptr92, align 8
   br label %if.end149
 
 if.then103:                                       ; preds = %if.then86
@@ -2513,29 +2571,29 @@ if.then111:                                       ; preds = %if.end28
 if.then116:                                       ; preds = %if.then111
   %ptr117 = getelementptr inbounds i8, ptr %ob.0, i64 8
   %23 = load ptr, ptr %ptr117, align 8
-  %call.i79 = tail call i32 @je_get_defrag_hint(ptr noundef %23) #11
-  %tobool.not.i80 = icmp eq i32 %call.i79, 0
-  br i1 %tobool.not.i80, label %activeDefragAlloc.exit87.thread, label %activeDefragAlloc.exit87
+  %call.i81 = tail call i32 @je_get_defrag_hint(ptr noundef %23) #11
+  %tobool.not.i82 = icmp eq i32 %call.i81, 0
+  br i1 %tobool.not.i82, label %activeDefragAlloc.exit90.thread, label %activeDefragAlloc.exit90
 
-activeDefragAlloc.exit87.thread:                  ; preds = %if.then116
+activeDefragAlloc.exit90.thread:                  ; preds = %if.then116
   %24 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
-  %inc3.i86102 = add nsw i64 %24, 1
-  store i64 %inc3.i86102, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
+  %inc.i89 = add nsw i64 %24, 1
+  store i64 %inc.i89, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
   br label %if.end149
 
-activeDefragAlloc.exit87:                         ; preds = %if.then116
-  %call1.i82 = tail call i64 @je_malloc_usable_size(ptr noundef %23) #11
-  %call2.i83 = tail call noalias ptr @zmalloc_no_tcache(i64 noundef %call1.i82) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call2.i83, ptr align 1 %23, i64 %call1.i82, i1 false)
+activeDefragAlloc.exit90:                         ; preds = %if.then116
+  %call1.i84 = tail call i64 @je_malloc_usable_size(ptr noundef %23) #11
+  %call2.i85 = tail call noalias ptr @zmalloc_no_tcache(i64 noundef %call1.i84) #11
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call2.i85, ptr align 1 %23, i64 %call1.i84, i1 false)
   tail call void @zfree_no_tcache(ptr noundef %23) #11
   %25 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
   %inc3.i86 = add nsw i64 %25, 1
   store i64 %inc3.i86, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
-  %tobool119.not = icmp eq ptr %call2.i83, null
+  %tobool119.not = icmp eq ptr %call2.i85, null
   br i1 %tobool119.not, label %if.end149, label %if.then120
 
-if.then120:                                       ; preds = %activeDefragAlloc.exit87
-  store ptr %call2.i83, ptr %ptr117, align 8
+if.then120:                                       ; preds = %activeDefragAlloc.exit90
+  store ptr %call2.i85, ptr %ptr117, align 8
   br label %if.end149
 
 if.then128:                                       ; preds = %if.then111
@@ -2560,7 +2618,7 @@ if.else142:                                       ; preds = %if.end28
   tail call void @abort() #12
   unreachable
 
-if.end149:                                        ; preds = %activeDefragAlloc.exit87.thread, %activeDefragAlloc.exit78.thread, %activeDefragAlloc.exit69.thread, %activeDefragAlloc.exit.thread, %if.end28, %if.then46, %activeDefragAlloc.exit, %if.then37, %activeDefragAlloc.exit78, %if.then95, %if.then103, %if.then136, %if.then141, %if.then128, %if.then120, %activeDefragAlloc.exit87, %if.then61, %activeDefragAlloc.exit69, %if.then76
+if.end149:                                        ; preds = %activeDefragAlloc.exit90.thread, %activeDefragAlloc.exit80.thread, %activeDefragAlloc.exit70.thread, %activeDefragAlloc.exit.thread, %if.end28, %if.then46, %activeDefragAlloc.exit, %if.then37, %activeDefragAlloc.exit80, %if.then95, %if.then103, %if.then136, %if.then141, %if.then128, %if.then120, %activeDefragAlloc.exit90, %if.then61, %activeDefragAlloc.exit70, %if.then76
   ret void
 }
 
@@ -2577,12 +2635,23 @@ entry:
   tail call void @defragKey(ptr noundef %privdata, ptr noundef %de)
   %1 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
   %cmp.not = icmp eq i64 %1, %0
-  %. = select i1 %cmp.not, ptr getelementptr inbounds (i8, ptr @server, i64 2080), ptr getelementptr inbounds (i8, ptr @server, i64 2072)
-  %2 = load i64, ptr %., align 8
-  %inc1 = add nsw i64 %2, 1
-  store i64 %inc1, ptr %., align 8
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2088), align 8
-  %inc2 = add nsw i64 %3, 1
+  br i1 %cmp.not, label %if.else, label %if.then
+
+if.then:                                          ; preds = %entry
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2072), align 8
+  %inc = add nsw i64 %2, 1
+  store i64 %inc, ptr getelementptr inbounds (i8, ptr @server, i64 2072), align 8
+  br label %if.end
+
+if.else:                                          ; preds = %entry
+  %3 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2080), align 8
+  %inc1 = add nsw i64 %3, 1
+  store i64 %inc1, ptr getelementptr inbounds (i8, ptr @server, i64 2080), align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then
+  %4 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2088), align 8
+  %inc2 = add nsw i64 %4, 1
   store i64 %inc2, ptr getelementptr inbounds (i8, ptr @server, i64 2088), align 8
   ret void
 }
@@ -2789,11 +2858,11 @@ entry:
   %2 = icmp eq i64 %.pre, 0
   br label %do.body
 
-do.body:                                          ; preds = %do.end, %entry
-  %tobool.not = phi i1 [ %2, %entry ], [ true, %do.end ]
-  %prev_defragged.0 = phi i64 [ %0, %entry ], [ %prev_defragged.2, %do.end ]
-  %prev_scanned.0 = phi i64 [ %1, %entry ], [ %prev_scanned.2, %do.end ]
-  %iterations.0 = phi i32 [ 0, %entry ], [ %iterations.2, %do.end ]
+do.body:                                          ; preds = %do.body.backedge, %entry
+  %tobool.not = phi i1 [ %2, %entry ], [ true, %do.body.backedge ]
+  %prev_defragged.0 = phi i64 [ %0, %entry ], [ %prev_defragged.2, %do.body.backedge ]
+  %prev_scanned.0 = phi i64 [ %1, %entry ], [ %prev_scanned.2, %do.body.backedge ]
+  %iterations.0 = phi i32 [ 0, %entry ], [ %iterations.2, %do.body.backedge ]
   %.pre14 = load ptr, ptr @defrag_later_current_key, align 8
   br i1 %tobool.not, label %if.then, label %if.end13
 
@@ -2877,36 +2946,55 @@ lor.lhs.false31:                                  ; preds = %lor.lhs.false, %lor
 if.then35:                                        ; preds = %do.body14, %lor.lhs.false31
   %15 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
   %cmp36.not = icmp eq i64 %11, %15
-  %. = select i1 %cmp36.not, ptr getelementptr inbounds (i8, ptr @server, i64 2080), ptr getelementptr inbounds (i8, ptr @server, i64 2072)
-  %16 = load i64, ptr %., align 8
+  br i1 %cmp36.not, label %if.else, label %if.then38
+
+if.then38:                                        ; preds = %if.then35
+  %16 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2072), align 8
   %inc39 = add nsw i64 %16, 1
-  store i64 %inc39, ptr %., align 8
+  store i64 %inc39, ptr getelementptr inbounds (i8, ptr @server, i64 2072), align 8
+  br label %do.end53
+
+if.else:                                          ; preds = %if.then35
+  %17 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2080), align 8
+  %inc40 = add nsw i64 %17, 1
+  store i64 %inc40, ptr getelementptr inbounds (i8, ptr @server, i64 2080), align 8
   br label %do.end53
 
 if.end42:                                         ; preds = %lor.lhs.false31
-  %17 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
-  %18 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2088), align 8
+  %18 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
+  %19 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2088), align 8
   br label %do.cond
 
 do.cond:                                          ; preds = %lor.lhs.false25, %if.end42
-  %19 = phi i64 [ %17, %if.end42 ], [ %13, %lor.lhs.false25 ]
-  %prev_defragged.2 = phi i64 [ %17, %if.end42 ], [ %prev_defragged.1, %lor.lhs.false25 ]
-  %prev_scanned.2 = phi i64 [ %18, %if.end42 ], [ %prev_scanned.1, %lor.lhs.false25 ]
+  %20 = phi i64 [ %18, %if.end42 ], [ %13, %lor.lhs.false25 ]
+  %prev_defragged.2 = phi i64 [ %18, %if.end42 ], [ %prev_defragged.1, %lor.lhs.false25 ]
+  %prev_scanned.2 = phi i64 [ %19, %if.end42 ], [ %prev_scanned.1, %lor.lhs.false25 ]
   %iterations.2 = phi i32 [ 0, %if.end42 ], [ %inc, %lor.lhs.false25 ]
-  %20 = load i64, ptr @defrag_later_cursor, align 8
-  %tobool44.not = icmp eq i64 %20, 0
+  %21 = load i64, ptr @defrag_later_cursor, align 8
+  %tobool44.not = icmp eq i64 %21, 0
   br i1 %tobool44.not, label %do.end, label %do.body14, !llvm.loop !16
 
 do.end:                                           ; preds = %do.cond
-  %cmp45.not = icmp eq i64 %11, %19
-  %.21 = select i1 %cmp45.not, ptr getelementptr inbounds (i8, ptr @server, i64 2080), ptr getelementptr inbounds (i8, ptr @server, i64 2072)
-  %21 = load i64, ptr %.21, align 8
-  %inc48 = add nsw i64 %21, 1
-  store i64 %inc48, ptr %.21, align 8
+  %cmp45.not = icmp eq i64 %11, %20
+  br i1 %cmp45.not, label %if.else49, label %if.then47
+
+if.then47:                                        ; preds = %do.end
+  %22 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2072), align 8
+  %inc48 = add nsw i64 %22, 1
+  store i64 %inc48, ptr getelementptr inbounds (i8, ptr @server, i64 2072), align 8
+  br label %do.body.backedge
+
+do.body.backedge:                                 ; preds = %if.then47, %if.else49
   br label %do.body
 
-do.end53:                                         ; preds = %if.end, %if.then35
-  %retval.0 = phi i32 [ 1, %if.then35 ], [ 0, %if.end ]
+if.else49:                                        ; preds = %do.end
+  %23 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2080), align 8
+  %inc50 = add nsw i64 %23, 1
+  store i64 %inc50, ptr getelementptr inbounds (i8, ptr @server, i64 2080), align 8
+  br label %do.body.backedge
+
+do.end53:                                         ; preds = %if.end, %if.then38, %if.else
+  %retval.0 = phi i32 [ 1, %if.else ], [ 1, %if.then38 ], [ 0, %if.end ]
   ret i32 %retval.0
 }
 

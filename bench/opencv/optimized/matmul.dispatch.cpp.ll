@@ -27568,7 +27568,8 @@ _ZN2cv10AutoBufferIdLm136EE8allocateEm.exit433.i: ; preds = %.noexc432.i, %58
 
 115:                                              ; preds = %114, %112
   store ptr %38, ptr %15, align 8
-  br label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit436.sink.split.i
+  store i64 136, ptr %39, align 8
+  br label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit436.i
 
 .thread.i:                                        ; preds = %35, %.noexc.i, %28
   %116 = phi ptr [ %17, %35 ], [ %31, %.noexc.i ], [ %17, %28 ]
@@ -28078,19 +28079,15 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit.i:           ; preds = %.noexc438.i, %245
 
 294:                                              ; preds = %293, %291
   store ptr %247, ptr %16, align 8
-  br label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit436.sink.split.i
-
-_ZN2cv10AutoBufferIdLm136EED2Ev.exit436.sink.split.i: ; preds = %294, %115
-  %.sink708.i = phi ptr [ %248, %294 ], [ %39, %115 ]
-  store i64 136, ptr %.sink708.i, align 8
+  store i64 136, ptr %248, align 8
   br label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit436.i
 
-_ZN2cv10AutoBufferIdLm136EED2Ev.exit436.i:        ; preds = %.loopexit470.i.loopexit, %._crit_edge480.i.us, %._crit_edge542.i, %.lr.ph487.i.split, %_ZN2cv10AutoBufferIdLm136EED2Ev.exit436.sink.split.i, %._crit_edge.i, %.preheader460.i, %.preheader471.i, %._crit_edge569.i
+_ZN2cv10AutoBufferIdLm136EED2Ev.exit436.i:        ; preds = %.loopexit470.i.loopexit, %._crit_edge480.i.us, %._crit_edge542.i, %.lr.ph487.i.split, %294, %._crit_edge.i, %.preheader460.i, %.preheader471.i, %115, %._crit_edge569.i
   %295 = load ptr, ptr %14, align 8
   %.not.i.i442.i = icmp eq ptr %295, %17
   %296 = icmp eq ptr %295, null
-  %or.cond709.i = or i1 %.not.i.i442.i, %296
-  br i1 %or.cond709.i, label %_ZN2cv12cpu_baselineL13GEMMSingleMulIddEEvPKT_mS4_mS4_mPS2_mNS_5Size_IiEES7_ddi.exit, label %297
+  %or.cond708.i = or i1 %.not.i.i442.i, %296
+  br i1 %or.cond708.i, label %_ZN2cv12cpu_baselineL13GEMMSingleMulIddEEvPKT_mS4_mS4_mPS2_mNS_5Size_IiEES7_ddi.exit, label %297
 
 297:                                              ; preds = %_ZN2cv10AutoBufferIdLm136EED2Ev.exit436.i
   call void @_ZdaPv(ptr noundef nonnull %295) #28
@@ -28101,8 +28098,8 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit.i:           ; preds = %55, %32
   %.pn.i = phi { ptr, i32 } [ %34, %32 ], [ %56, %55 ]
   %.not.i.i445.i = icmp eq ptr %298, %17
   %299 = icmp eq ptr %298, null
-  %or.cond710.i = or i1 %.not.i.i445.i, %299
-  br i1 %or.cond710.i, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit447.i, label %300
+  %or.cond709.i = or i1 %.not.i.i445.i, %299
+  br i1 %or.cond709.i, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit447.i, label %300
 
 300:                                              ; preds = %_ZN2cv10AutoBufferIdLm136EED2Ev.exit.i
   call void @_ZdaPv(ptr noundef nonnull %298) #28
@@ -30835,7 +30832,8 @@ _ZN2cv10AutoBufferINS_7ComplexIdEELm72EE8allocateEm.exit565.i: ; preds = %.noexc
 
 126:                                              ; preds = %125, %123
   store ptr %scevgep.i553.i, ptr %15, align 8
-  br label %_ZN2cv10AutoBufferINS_7ComplexIdEELm72EED2Ev.exit586.sink.split.i
+  store i64 72, ptr %37, align 8
+  br label %_ZN2cv10AutoBufferINS_7ComplexIdEELm72EED2Ev.exit586.i
 
 .thread.i:                                        ; preds = %34, %.noexc.i, %27
   %127 = phi ptr [ %scevgep.i.i, %34 ], [ %30, %.noexc.i ], [ %scevgep.i.i, %27 ]
@@ -31464,19 +31462,15 @@ _ZN2cv10AutoBufferINS_7ComplexIdEELm72EEC2Em.exit.i: ; preds = %.noexc651.i, %29
 
 349:                                              ; preds = %348, %346
   store ptr %scevgep.i649.i, ptr %16, align 8
-  br label %_ZN2cv10AutoBufferINS_7ComplexIdEELm72EED2Ev.exit586.sink.split.i
-
-_ZN2cv10AutoBufferINS_7ComplexIdEELm72EED2Ev.exit586.sink.split.i: ; preds = %349, %126
-  %.sink1081.i = phi ptr [ %294, %349 ], [ %37, %126 ]
-  store i64 72, ptr %.sink1081.i, align 8
+  store i64 72, ptr %294, align 8
   br label %_ZN2cv10AutoBufferINS_7ComplexIdEELm72EED2Ev.exit586.i
 
-_ZN2cv10AutoBufferINS_7ComplexIdEELm72EED2Ev.exit586.i: ; preds = %._crit_edge832.i, %._crit_edge906.i, %_ZN2cv10AutoBufferINS_7ComplexIdEELm72EED2Ev.exit586.sink.split.i, %._crit_edge863.i, %.preheader810.i, %.preheader821.i, %._crit_edge932.i
+_ZN2cv10AutoBufferINS_7ComplexIdEELm72EED2Ev.exit586.i: ; preds = %._crit_edge832.i, %._crit_edge906.i, %349, %._crit_edge863.i, %.preheader810.i, %.preheader821.i, %126, %._crit_edge932.i
   %350 = load ptr, ptr %14, align 8
   %.not.i.i668.i = icmp eq ptr %350, %scevgep.i.i
   %351 = icmp eq ptr %350, null
-  %or.cond1082.i = or i1 %.not.i.i668.i, %351
-  br i1 %or.cond1082.i, label %_ZN2cv12cpu_baselineL13GEMMSingleMulINS_7ComplexIdEES3_EEvPKT_mS6_mS6_mPS4_mNS_5Size_IiEES9_ddi.exit, label %352
+  %or.cond1081.i = or i1 %.not.i.i668.i, %351
+  br i1 %or.cond1081.i, label %_ZN2cv12cpu_baselineL13GEMMSingleMulINS_7ComplexIdEES3_EEvPKT_mS6_mS6_mPS4_mNS_5Size_IiEES9_ddi.exit, label %352
 
 352:                                              ; preds = %_ZN2cv10AutoBufferINS_7ComplexIdEELm72EED2Ev.exit586.i
   call void @_ZdaPv(ptr noundef nonnull %350) #28
@@ -31487,8 +31481,8 @@ _ZN2cv10AutoBufferINS_7ComplexIdEELm72EED2Ev.exit.i: ; preds = %52, %31
   %.pn.i = phi { ptr, i32 } [ %33, %31 ], [ %53, %52 ]
   %.not.i.i671.i = icmp eq ptr %353, %scevgep.i.i
   %354 = icmp eq ptr %353, null
-  %or.cond1083.i = or i1 %.not.i.i671.i, %354
-  br i1 %or.cond1083.i, label %_ZN2cv10AutoBufferINS_7ComplexIdEELm72EED2Ev.exit673.i, label %355
+  %or.cond1082.i = or i1 %.not.i.i671.i, %354
+  br i1 %or.cond1082.i, label %_ZN2cv10AutoBufferINS_7ComplexIdEELm72EED2Ev.exit673.i, label %355
 
 355:                                              ; preds = %_ZN2cv10AutoBufferINS_7ComplexIdEELm72EED2Ev.exit.i
   call void @_ZdaPv(ptr noundef nonnull %353) #28

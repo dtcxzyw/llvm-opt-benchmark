@@ -523,6 +523,7 @@ if.end136:                                        ; preds = %if.else131, %if.the
   store i32 %call96, ptr %40, align 8
   %41 = load ptr, ptr %m_nodes4, align 8
   %42 = getelementptr inbounds %struct.b2TreeNode, ptr %41, i64 %idxprom5, i32 2
+  store i32 %call96, ptr %42, align 8
   br label %if.end167
 
 if.else151:                                       ; preds = %while.end
@@ -537,11 +538,10 @@ if.else151:                                       ; preds = %while.end
   %46 = load ptr, ptr %m_nodes4, align 8
   %47 = getelementptr inbounds %struct.b2TreeNode, ptr %46, i64 %idxprom5, i32 2
   store i32 %call96, ptr %47, align 8
+  store i32 %call96, ptr %this, align 8
   br label %if.end167
 
 if.end167:                                        ; preds = %if.else151, %if.end136
-  %this.sink = phi ptr [ %this, %if.else151 ], [ %42, %if.end136 ]
-  store i32 %call96, ptr %this.sink, align 8
   %48 = load ptr, ptr %m_nodes4, align 8
   %49 = getelementptr inbounds %struct.b2TreeNode, ptr %48, i64 %idxprom5, i32 2
   %index.2259 = load i32, ptr %49, align 8
@@ -985,15 +985,138 @@ if.end37:                                         ; preds = %if.then26, %if.else
   %height39 = getelementptr inbounds i8, ptr %add.ptr19, i64 36
   %15 = load i32, ptr %height39, align 4
   %cmp40 = icmp sgt i32 %14, %15
-  %. = select i1 %cmp40, i32 %6, i32 %7
-  %.382 = select i1 %cmp40, i32 %7, i32 %6
-  %add.ptr19.add.ptr16 = select i1 %cmp40, ptr %add.ptr19, ptr %add.ptr16
-  %add.ptr16.add.ptr19 = select i1 %cmp40, ptr %add.ptr16, ptr %add.ptr19
-  %.383 = tail call i32 @llvm.smin.i32(i32 %14, i32 %15)
-  %height38.height39 = select i1 %cmp40, ptr %height38, ptr %height39
-  store i32 %., ptr %child213, align 8
-  store i32 %.382, ptr %child2, align 8
-  br label %return.sink.split
+  %y.i.i = getelementptr inbounds i8, ptr %add.ptr4, i64 4
+  %upperBound.i = getelementptr inbounds i8, ptr %add.ptr4, i64 8
+  br i1 %cmp40, label %if.then41, label %if.else58
+
+if.then41:                                        ; preds = %if.end37
+  store i32 %6, ptr %child213, align 8
+  store i32 %7, ptr %child2, align 8
+  %16 = getelementptr inbounds i8, ptr %add.ptr19, i64 24
+  store i32 %iA, ptr %16, align 8
+  %17 = load float, ptr %add.ptr4, align 4
+  %18 = load float, ptr %add.ptr19, align 4
+  %cmp.i.i.i = fcmp olt float %17, %18
+  %cond.i.i.i = select i1 %cmp.i.i.i, float %17, float %18
+  %19 = load float, ptr %y.i.i, align 4
+  %y2.i.i = getelementptr inbounds i8, ptr %add.ptr19, i64 4
+  %20 = load float, ptr %y2.i.i, align 4
+  %cmp.i3.i.i = fcmp olt float %19, %20
+  %cond.i4.i.i = select i1 %cmp.i3.i.i, float %19, float %20
+  %retval.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %cond.i.i.i, i64 0
+  %retval.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i, float %cond.i4.i.i, i64 1
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i, ptr %add.ptr, align 4
+  %upperBound5.i = getelementptr inbounds i8, ptr %add.ptr19, i64 8
+  %21 = load float, ptr %upperBound.i, align 4
+  %22 = load float, ptr %upperBound5.i, align 4
+  %cmp.i.i3.i = fcmp ogt float %21, %22
+  %cond.i.i4.i = select i1 %cmp.i.i3.i, float %21, float %22
+  %y.i5.i = getelementptr inbounds i8, ptr %add.ptr4, i64 12
+  %23 = load float, ptr %y.i5.i, align 4
+  %y2.i6.i = getelementptr inbounds i8, ptr %add.ptr19, i64 12
+  %24 = load float, ptr %y2.i6.i, align 4
+  %cmp.i3.i7.i = fcmp ogt float %23, %24
+  %cond.i4.i8.i = select i1 %cmp.i3.i7.i, float %23, float %24
+  %retval.sroa.0.0.vec.insert.i9.i = insertelement <2 x float> poison, float %cond.i.i4.i, i64 0
+  %retval.sroa.0.4.vec.insert.i10.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i9.i, float %cond.i4.i8.i, i64 1
+  %upperBound7.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  store <2 x float> %retval.sroa.0.4.vec.insert.i10.i, ptr %upperBound7.i, align 4
+  %25 = load float, ptr %add.ptr16, align 4
+  %cmp.i.i.i115 = fcmp ogt float %25, %cond.i.i.i
+  %cond.i.i.i116 = select i1 %cmp.i.i.i115, float %cond.i.i.i, float %25
+  %y2.i.i118 = getelementptr inbounds i8, ptr %add.ptr16, i64 4
+  %26 = load float, ptr %y2.i.i118, align 4
+  %cmp.i3.i.i119 = fcmp olt float %cond.i4.i.i, %26
+  %cond.i4.i.i120 = select i1 %cmp.i3.i.i119, float %cond.i4.i.i, float %26
+  %retval.sroa.0.0.vec.insert.i.i121 = insertelement <2 x float> poison, float %cond.i.i.i116, i64 0
+  %retval.sroa.0.4.vec.insert.i.i122 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i121, float %cond.i4.i.i120, i64 1
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i122, ptr %add.ptr7, align 4
+  %upperBound5.i124 = getelementptr inbounds i8, ptr %add.ptr16, i64 8
+  %27 = load float, ptr %upperBound5.i124, align 4
+  %cmp.i.i3.i125 = fcmp olt float %27, %cond.i.i4.i
+  %cond.i.i4.i126 = select i1 %cmp.i.i3.i125, float %cond.i.i4.i, float %27
+  %y2.i6.i128 = getelementptr inbounds i8, ptr %add.ptr16, i64 12
+  %28 = load float, ptr %y2.i6.i128, align 4
+  %cmp.i3.i7.i129 = fcmp ogt float %cond.i4.i8.i, %28
+  %cond.i4.i8.i130 = select i1 %cmp.i3.i7.i129, float %cond.i4.i8.i, float %28
+  %retval.sroa.0.0.vec.insert.i9.i131 = insertelement <2 x float> poison, float %cond.i.i4.i126, i64 0
+  %retval.sroa.0.4.vec.insert.i10.i132 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i9.i131, float %cond.i4.i8.i130, i64 1
+  %29 = load i32, ptr %height9, align 4
+  %cond.i = tail call noundef i32 @llvm.smax.i32(i32 %29, i32 %15)
+  %add = add nsw i32 %cond.i, 1
+  store i32 %add, ptr %height, align 4
+  %30 = load i32, ptr %height38, align 4
+  %cond.i134 = tail call noundef i32 @llvm.smax.i32(i32 %add, i32 %30)
+  br label %if.end77
+
+if.else58:                                        ; preds = %if.end37
+  store i32 %7, ptr %child213, align 8
+  store i32 %6, ptr %child2, align 8
+  %31 = getelementptr inbounds i8, ptr %add.ptr16, i64 24
+  store i32 %iA, ptr %31, align 8
+  %32 = load float, ptr %add.ptr4, align 4
+  %33 = load float, ptr %add.ptr16, align 4
+  %cmp.i.i.i135 = fcmp olt float %32, %33
+  %cond.i.i.i136 = select i1 %cmp.i.i.i135, float %32, float %33
+  %34 = load float, ptr %y.i.i, align 4
+  %y2.i.i138 = getelementptr inbounds i8, ptr %add.ptr16, i64 4
+  %35 = load float, ptr %y2.i.i138, align 4
+  %cmp.i3.i.i139 = fcmp olt float %34, %35
+  %cond.i4.i.i140 = select i1 %cmp.i3.i.i139, float %34, float %35
+  %retval.sroa.0.0.vec.insert.i.i141 = insertelement <2 x float> poison, float %cond.i.i.i136, i64 0
+  %retval.sroa.0.4.vec.insert.i.i142 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i141, float %cond.i4.i.i140, i64 1
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i142, ptr %add.ptr, align 4
+  %upperBound5.i144 = getelementptr inbounds i8, ptr %add.ptr16, i64 8
+  %36 = load float, ptr %upperBound.i, align 4
+  %37 = load float, ptr %upperBound5.i144, align 4
+  %cmp.i.i3.i145 = fcmp ogt float %36, %37
+  %cond.i.i4.i146 = select i1 %cmp.i.i3.i145, float %36, float %37
+  %y.i5.i147 = getelementptr inbounds i8, ptr %add.ptr4, i64 12
+  %38 = load float, ptr %y.i5.i147, align 4
+  %y2.i6.i148 = getelementptr inbounds i8, ptr %add.ptr16, i64 12
+  %39 = load float, ptr %y2.i6.i148, align 4
+  %cmp.i3.i7.i149 = fcmp ogt float %38, %39
+  %cond.i4.i8.i150 = select i1 %cmp.i3.i7.i149, float %38, float %39
+  %retval.sroa.0.0.vec.insert.i9.i151 = insertelement <2 x float> poison, float %cond.i.i4.i146, i64 0
+  %retval.sroa.0.4.vec.insert.i10.i152 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i9.i151, float %cond.i4.i8.i150, i64 1
+  %upperBound7.i153 = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  store <2 x float> %retval.sroa.0.4.vec.insert.i10.i152, ptr %upperBound7.i153, align 4
+  %40 = load float, ptr %add.ptr19, align 4
+  %cmp.i.i.i154 = fcmp ogt float %40, %cond.i.i.i136
+  %cond.i.i.i155 = select i1 %cmp.i.i.i154, float %cond.i.i.i136, float %40
+  %y2.i.i157 = getelementptr inbounds i8, ptr %add.ptr19, i64 4
+  %41 = load float, ptr %y2.i.i157, align 4
+  %cmp.i3.i.i158 = fcmp olt float %cond.i4.i.i140, %41
+  %cond.i4.i.i159 = select i1 %cmp.i3.i.i158, float %cond.i4.i.i140, float %41
+  %retval.sroa.0.0.vec.insert.i.i160 = insertelement <2 x float> poison, float %cond.i.i.i155, i64 0
+  %retval.sroa.0.4.vec.insert.i.i161 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i160, float %cond.i4.i.i159, i64 1
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i161, ptr %add.ptr7, align 4
+  %upperBound5.i163 = getelementptr inbounds i8, ptr %add.ptr19, i64 8
+  %42 = load float, ptr %upperBound5.i163, align 4
+  %cmp.i.i3.i164 = fcmp olt float %42, %cond.i.i4.i146
+  %cond.i.i4.i165 = select i1 %cmp.i.i3.i164, float %cond.i.i4.i146, float %42
+  %y2.i6.i167 = getelementptr inbounds i8, ptr %add.ptr19, i64 12
+  %43 = load float, ptr %y2.i6.i167, align 4
+  %cmp.i3.i7.i168 = fcmp ogt float %cond.i4.i8.i150, %43
+  %cond.i4.i8.i169 = select i1 %cmp.i3.i7.i168, float %cond.i4.i8.i150, float %43
+  %retval.sroa.0.0.vec.insert.i9.i170 = insertelement <2 x float> poison, float %cond.i.i4.i165, i64 0
+  %retval.sroa.0.4.vec.insert.i10.i171 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i9.i170, float %cond.i4.i8.i169, i64 1
+  %44 = load i32, ptr %height9, align 4
+  %cond.i173 = tail call noundef i32 @llvm.smax.i32(i32 %44, i32 %14)
+  %add70 = add nsw i32 %cond.i173, 1
+  store i32 %add70, ptr %height, align 4
+  %45 = load i32, ptr %height39, align 4
+  %cond.i174 = tail call noundef i32 @llvm.smax.i32(i32 %add70, i32 %45)
+  br label %if.end77
+
+if.end77:                                         ; preds = %if.else58, %if.then41
+  %retval.sroa.0.4.vec.insert.i10.i171.sink = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i10.i132, %if.then41 ], [ %retval.sroa.0.4.vec.insert.i10.i171, %if.else58 ]
+  %storemerge114.in = phi i32 [ %cond.i134, %if.then41 ], [ %cond.i174, %if.else58 ]
+  %46 = getelementptr inbounds i8, ptr %add.ptr7, i64 8
+  store <2 x float> %retval.sroa.0.4.vec.insert.i10.i171.sink, ptr %46, align 4
+  %storemerge114 = add nsw i32 %storemerge114.in, 1
+  store i32 %storemerge114, ptr %height8, align 4
+  br label %return
 
 if.end78:                                         ; preds = %if.end
   %cmp79 = icmp slt i32 %sub, -1
@@ -1001,30 +1124,30 @@ if.end78:                                         ; preds = %if.end
 
 if.then80:                                        ; preds = %if.end78
   %child181 = getelementptr inbounds i8, ptr %add.ptr4, i64 28
-  %16 = load i32, ptr %child181, align 4
+  %47 = load i32, ptr %child181, align 4
   %child282 = getelementptr inbounds i8, ptr %add.ptr4, i64 32
-  %17 = load i32, ptr %child282, align 8
-  %idx.ext84 = sext i32 %16 to i64
+  %48 = load i32, ptr %child282, align 8
+  %idx.ext84 = sext i32 %47 to i64
   %add.ptr85 = getelementptr inbounds %struct.b2TreeNode, ptr %0, i64 %idx.ext84
-  %idx.ext87 = sext i32 %17 to i64
+  %idx.ext87 = sext i32 %48 to i64
   %add.ptr88 = getelementptr inbounds %struct.b2TreeNode, ptr %0, i64 %idx.ext87
   store i32 %iA, ptr %child181, align 4
-  %18 = getelementptr inbounds i8, ptr %add.ptr, i64 24
-  %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %add.ptr4, i64 24
-  store i32 %19, ptr %20, align 8
-  store i32 %1, ptr %18, align 8
-  %21 = load i32, ptr %20, align 8
-  %cmp90.not = icmp eq i32 %21, -1
+  %49 = getelementptr inbounds i8, ptr %add.ptr, i64 24
+  %50 = load i32, ptr %49, align 8
+  %51 = getelementptr inbounds i8, ptr %add.ptr4, i64 24
+  store i32 %50, ptr %51, align 8
+  store i32 %1, ptr %49, align 8
+  %52 = load i32, ptr %51, align 8
+  %cmp90.not = icmp eq i32 %52, -1
   br i1 %cmp90.not, label %if.else108, label %if.then91
 
 if.then91:                                        ; preds = %if.then80
-  %22 = load ptr, ptr %m_nodes, align 8
-  %idxprom93 = sext i32 %21 to i64
-  %arrayidx94 = getelementptr inbounds %struct.b2TreeNode, ptr %22, i64 %idxprom93
+  %53 = load ptr, ptr %m_nodes, align 8
+  %idxprom93 = sext i32 %52 to i64
+  %arrayidx94 = getelementptr inbounds %struct.b2TreeNode, ptr %53, i64 %idxprom93
   %child195 = getelementptr inbounds i8, ptr %arrayidx94, i64 28
-  %23 = load i32, ptr %child195, align 4
-  %cmp96 = icmp eq i32 %23, %iA
+  %54 = load i32, ptr %child195, align 4
+  %cmp96 = icmp eq i32 %54, %iA
   br i1 %cmp96, label %if.then97, label %if.else102
 
 if.then97:                                        ; preds = %if.then91
@@ -1042,95 +1165,145 @@ if.else108:                                       ; preds = %if.then80
 
 if.end110:                                        ; preds = %if.then97, %if.else102, %if.else108
   %height111 = getelementptr inbounds i8, ptr %add.ptr85, i64 36
-  %24 = load i32, ptr %height111, align 4
+  %55 = load i32, ptr %height111, align 4
   %height112 = getelementptr inbounds i8, ptr %add.ptr88, i64 36
-  %25 = load i32, ptr %height112, align 4
-  %cmp113 = icmp sgt i32 %24, %25
-  %.384 = select i1 %cmp113, i32 %16, i32 %17
-  %.385 = select i1 %cmp113, i32 %17, i32 %16
-  %add.ptr88.add.ptr85 = select i1 %cmp113, ptr %add.ptr88, ptr %add.ptr85
-  %add.ptr85.add.ptr88 = select i1 %cmp113, ptr %add.ptr85, ptr %add.ptr88
-  %.386 = tail call i32 @llvm.smin.i32(i32 %24, i32 %25)
-  %height111.height112 = select i1 %cmp113, ptr %height111, ptr %height112
-  store i32 %.384, ptr %child282, align 8
-  store i32 %.385, ptr %child1.i, align 4
-  br label %return.sink.split
+  %56 = load i32, ptr %height112, align 4
+  %cmp113 = icmp sgt i32 %55, %56
+  %y.i.i177 = getelementptr inbounds i8, ptr %add.ptr7, i64 4
+  %upperBound.i183 = getelementptr inbounds i8, ptr %add.ptr7, i64 8
+  br i1 %cmp113, label %if.then114, label %if.else133
 
-return.sink.split:                                ; preds = %if.end37, %if.end110
-  %add.ptr85.sink340.sink = phi ptr [ %add.ptr88.add.ptr85, %if.end110 ], [ %add.ptr19.add.ptr16, %if.end37 ]
-  %add.ptr7.sink380 = phi ptr [ %add.ptr7, %if.end110 ], [ %add.ptr4, %if.end37 ]
-  %add.ptr88.sink315.sink = phi ptr [ %add.ptr85.add.ptr88, %if.end110 ], [ %add.ptr16.add.ptr19, %if.end37 ]
-  %add.ptr4.sink353 = phi ptr [ %add.ptr4, %if.end110 ], [ %add.ptr7, %if.end37 ]
-  %height8.sink = phi ptr [ %height8, %if.end110 ], [ %height9, %if.end37 ]
-  %.sink300.sink = phi i32 [ %.386, %if.end110 ], [ %.383, %if.end37 ]
-  %height112.sink.sink = phi ptr [ %height111.height112, %if.end110 ], [ %height38.height39, %if.end37 ]
-  %height9.sink = phi ptr [ %height9, %if.end110 ], [ %height8, %if.end37 ]
-  %retval.0.ph = phi i32 [ %1, %if.end110 ], [ %3, %if.end37 ]
-  %upperBound.i183.sink = getelementptr inbounds i8, ptr %add.ptr7.sink380, i64 8
-  %y.i.i177.sink = getelementptr inbounds i8, ptr %add.ptr7.sink380, i64 4
-  %26 = getelementptr inbounds i8, ptr %add.ptr85.sink340.sink, i64 24
-  store i32 %iA, ptr %26, align 8
-  %27 = load float, ptr %add.ptr7.sink380, align 4
-  %28 = load float, ptr %add.ptr85.sink340.sink, align 4
-  %cmp.i.i.i215 = fcmp olt float %27, %28
-  %cond.i.i.i216 = select i1 %cmp.i.i.i215, float %27, float %28
-  %29 = load float, ptr %y.i.i177.sink, align 4
-  %y2.i.i218 = getelementptr inbounds i8, ptr %add.ptr85.sink340.sink, i64 4
-  %30 = load float, ptr %y2.i.i218, align 4
-  %cmp.i3.i.i219 = fcmp olt float %29, %30
-  %cond.i4.i.i220 = select i1 %cmp.i3.i.i219, float %29, float %30
+if.then114:                                       ; preds = %if.end110
+  store i32 %47, ptr %child282, align 8
+  store i32 %48, ptr %child1.i, align 4
+  %57 = getelementptr inbounds i8, ptr %add.ptr88, i64 24
+  store i32 %iA, ptr %57, align 8
+  %58 = load float, ptr %add.ptr7, align 4
+  %59 = load float, ptr %add.ptr88, align 4
+  %cmp.i.i.i175 = fcmp olt float %58, %59
+  %cond.i.i.i176 = select i1 %cmp.i.i.i175, float %58, float %59
+  %60 = load float, ptr %y.i.i177, align 4
+  %y2.i.i178 = getelementptr inbounds i8, ptr %add.ptr88, i64 4
+  %61 = load float, ptr %y2.i.i178, align 4
+  %cmp.i3.i.i179 = fcmp olt float %60, %61
+  %cond.i4.i.i180 = select i1 %cmp.i3.i.i179, float %60, float %61
+  %retval.sroa.0.0.vec.insert.i.i181 = insertelement <2 x float> poison, float %cond.i.i.i176, i64 0
+  %retval.sroa.0.4.vec.insert.i.i182 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i181, float %cond.i4.i.i180, i64 1
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i182, ptr %add.ptr, align 4
+  %upperBound5.i184 = getelementptr inbounds i8, ptr %add.ptr88, i64 8
+  %62 = load float, ptr %upperBound.i183, align 4
+  %63 = load float, ptr %upperBound5.i184, align 4
+  %cmp.i.i3.i185 = fcmp ogt float %62, %63
+  %cond.i.i4.i186 = select i1 %cmp.i.i3.i185, float %62, float %63
+  %y.i5.i187 = getelementptr inbounds i8, ptr %add.ptr7, i64 12
+  %64 = load float, ptr %y.i5.i187, align 4
+  %y2.i6.i188 = getelementptr inbounds i8, ptr %add.ptr88, i64 12
+  %65 = load float, ptr %y2.i6.i188, align 4
+  %cmp.i3.i7.i189 = fcmp ogt float %64, %65
+  %cond.i4.i8.i190 = select i1 %cmp.i3.i7.i189, float %64, float %65
+  %retval.sroa.0.0.vec.insert.i9.i191 = insertelement <2 x float> poison, float %cond.i.i4.i186, i64 0
+  %retval.sroa.0.4.vec.insert.i10.i192 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i9.i191, float %cond.i4.i8.i190, i64 1
+  %upperBound7.i193 = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  store <2 x float> %retval.sroa.0.4.vec.insert.i10.i192, ptr %upperBound7.i193, align 4
+  %66 = load float, ptr %add.ptr85, align 4
+  %cmp.i.i.i194 = fcmp ogt float %66, %cond.i.i.i176
+  %cond.i.i.i195 = select i1 %cmp.i.i.i194, float %cond.i.i.i176, float %66
+  %y2.i.i197 = getelementptr inbounds i8, ptr %add.ptr85, i64 4
+  %67 = load float, ptr %y2.i.i197, align 4
+  %cmp.i3.i.i198 = fcmp olt float %cond.i4.i.i180, %67
+  %cond.i4.i.i199 = select i1 %cmp.i3.i.i198, float %cond.i4.i.i180, float %67
+  %retval.sroa.0.0.vec.insert.i.i200 = insertelement <2 x float> poison, float %cond.i.i.i195, i64 0
+  %retval.sroa.0.4.vec.insert.i.i201 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i200, float %cond.i4.i.i199, i64 1
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i201, ptr %add.ptr4, align 4
+  %upperBound5.i203 = getelementptr inbounds i8, ptr %add.ptr85, i64 8
+  %68 = load float, ptr %upperBound5.i203, align 4
+  %cmp.i.i3.i204 = fcmp olt float %68, %cond.i.i4.i186
+  %cond.i.i4.i205 = select i1 %cmp.i.i3.i204, float %cond.i.i4.i186, float %68
+  %y2.i6.i207 = getelementptr inbounds i8, ptr %add.ptr85, i64 12
+  %69 = load float, ptr %y2.i6.i207, align 4
+  %cmp.i3.i7.i208 = fcmp ogt float %cond.i4.i8.i190, %69
+  %cond.i4.i8.i209 = select i1 %cmp.i3.i7.i208, float %cond.i4.i8.i190, float %69
+  %retval.sroa.0.0.vec.insert.i9.i210 = insertelement <2 x float> poison, float %cond.i.i4.i205, i64 0
+  %retval.sroa.0.4.vec.insert.i10.i211 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i9.i210, float %cond.i4.i8.i209, i64 1
+  %70 = load i32, ptr %height8, align 4
+  %cond.i213 = tail call noundef i32 @llvm.smax.i32(i32 %70, i32 %56)
+  %add126 = add nsw i32 %cond.i213, 1
+  store i32 %add126, ptr %height, align 4
+  %71 = load i32, ptr %height111, align 4
+  %cond.i214 = tail call noundef i32 @llvm.smax.i32(i32 %add126, i32 %71)
+  br label %if.end152
+
+if.else133:                                       ; preds = %if.end110
+  store i32 %48, ptr %child282, align 8
+  store i32 %47, ptr %child1.i, align 4
+  %72 = getelementptr inbounds i8, ptr %add.ptr85, i64 24
+  store i32 %iA, ptr %72, align 8
+  %73 = load float, ptr %add.ptr7, align 4
+  %74 = load float, ptr %add.ptr85, align 4
+  %cmp.i.i.i215 = fcmp olt float %73, %74
+  %cond.i.i.i216 = select i1 %cmp.i.i.i215, float %73, float %74
+  %75 = load float, ptr %y.i.i177, align 4
+  %y2.i.i218 = getelementptr inbounds i8, ptr %add.ptr85, i64 4
+  %76 = load float, ptr %y2.i.i218, align 4
+  %cmp.i3.i.i219 = fcmp olt float %75, %76
+  %cond.i4.i.i220 = select i1 %cmp.i3.i.i219, float %75, float %76
   %retval.sroa.0.0.vec.insert.i.i221 = insertelement <2 x float> poison, float %cond.i.i.i216, i64 0
   %retval.sroa.0.4.vec.insert.i.i222 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i221, float %cond.i4.i.i220, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i222, ptr %add.ptr, align 4
-  %upperBound5.i224 = getelementptr inbounds i8, ptr %add.ptr85.sink340.sink, i64 8
-  %31 = load float, ptr %upperBound.i183.sink, align 4
-  %32 = load float, ptr %upperBound5.i224, align 4
-  %cmp.i.i3.i225 = fcmp ogt float %31, %32
-  %cond.i.i4.i226 = select i1 %cmp.i.i3.i225, float %31, float %32
-  %y.i5.i227 = getelementptr inbounds i8, ptr %add.ptr7.sink380, i64 12
-  %33 = load float, ptr %y.i5.i227, align 4
-  %y2.i6.i228 = getelementptr inbounds i8, ptr %add.ptr85.sink340.sink, i64 12
-  %34 = load float, ptr %y2.i6.i228, align 4
-  %cmp.i3.i7.i229 = fcmp ogt float %33, %34
-  %cond.i4.i8.i230 = select i1 %cmp.i3.i7.i229, float %33, float %34
+  %upperBound5.i224 = getelementptr inbounds i8, ptr %add.ptr85, i64 8
+  %77 = load float, ptr %upperBound.i183, align 4
+  %78 = load float, ptr %upperBound5.i224, align 4
+  %cmp.i.i3.i225 = fcmp ogt float %77, %78
+  %cond.i.i4.i226 = select i1 %cmp.i.i3.i225, float %77, float %78
+  %y.i5.i227 = getelementptr inbounds i8, ptr %add.ptr7, i64 12
+  %79 = load float, ptr %y.i5.i227, align 4
+  %y2.i6.i228 = getelementptr inbounds i8, ptr %add.ptr85, i64 12
+  %80 = load float, ptr %y2.i6.i228, align 4
+  %cmp.i3.i7.i229 = fcmp ogt float %79, %80
+  %cond.i4.i8.i230 = select i1 %cmp.i3.i7.i229, float %79, float %80
   %retval.sroa.0.0.vec.insert.i9.i231 = insertelement <2 x float> poison, float %cond.i.i4.i226, i64 0
   %retval.sroa.0.4.vec.insert.i10.i232 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i9.i231, float %cond.i4.i8.i230, i64 1
   %upperBound7.i233 = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store <2 x float> %retval.sroa.0.4.vec.insert.i10.i232, ptr %upperBound7.i233, align 4
-  %35 = load float, ptr %add.ptr88.sink315.sink, align 4
-  %cmp.i.i.i234 = fcmp ogt float %35, %cond.i.i.i216
-  %cond.i.i.i235 = select i1 %cmp.i.i.i234, float %cond.i.i.i216, float %35
-  %y2.i.i237 = getelementptr inbounds i8, ptr %add.ptr88.sink315.sink, i64 4
-  %36 = load float, ptr %y2.i.i237, align 4
-  %cmp.i3.i.i238 = fcmp olt float %cond.i4.i.i220, %36
-  %cond.i4.i.i239 = select i1 %cmp.i3.i.i238, float %cond.i4.i.i220, float %36
+  %81 = load float, ptr %add.ptr88, align 4
+  %cmp.i.i.i234 = fcmp ogt float %81, %cond.i.i.i216
+  %cond.i.i.i235 = select i1 %cmp.i.i.i234, float %cond.i.i.i216, float %81
+  %y2.i.i237 = getelementptr inbounds i8, ptr %add.ptr88, i64 4
+  %82 = load float, ptr %y2.i.i237, align 4
+  %cmp.i3.i.i238 = fcmp olt float %cond.i4.i.i220, %82
+  %cond.i4.i.i239 = select i1 %cmp.i3.i.i238, float %cond.i4.i.i220, float %82
   %retval.sroa.0.0.vec.insert.i.i240 = insertelement <2 x float> poison, float %cond.i.i.i235, i64 0
   %retval.sroa.0.4.vec.insert.i.i241 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i240, float %cond.i4.i.i239, i64 1
-  store <2 x float> %retval.sroa.0.4.vec.insert.i.i241, ptr %add.ptr4.sink353, align 4
-  %upperBound5.i243 = getelementptr inbounds i8, ptr %add.ptr88.sink315.sink, i64 8
-  %37 = load float, ptr %upperBound5.i243, align 4
-  %cmp.i.i3.i244 = fcmp olt float %37, %cond.i.i4.i226
-  %cond.i.i4.i245 = select i1 %cmp.i.i3.i244, float %cond.i.i4.i226, float %37
-  %y2.i6.i247 = getelementptr inbounds i8, ptr %add.ptr88.sink315.sink, i64 12
-  %38 = load float, ptr %y2.i6.i247, align 4
-  %cmp.i3.i7.i248 = fcmp ogt float %cond.i4.i8.i230, %38
-  %cond.i4.i8.i249 = select i1 %cmp.i3.i7.i248, float %cond.i4.i8.i230, float %38
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i241, ptr %add.ptr4, align 4
+  %upperBound5.i243 = getelementptr inbounds i8, ptr %add.ptr88, i64 8
+  %83 = load float, ptr %upperBound5.i243, align 4
+  %cmp.i.i3.i244 = fcmp olt float %83, %cond.i.i4.i226
+  %cond.i.i4.i245 = select i1 %cmp.i.i3.i244, float %cond.i.i4.i226, float %83
+  %y2.i6.i247 = getelementptr inbounds i8, ptr %add.ptr88, i64 12
+  %84 = load float, ptr %y2.i6.i247, align 4
+  %cmp.i3.i7.i248 = fcmp ogt float %cond.i4.i8.i230, %84
+  %cond.i4.i8.i249 = select i1 %cmp.i3.i7.i248, float %cond.i4.i8.i230, float %84
   %retval.sroa.0.0.vec.insert.i9.i250 = insertelement <2 x float> poison, float %cond.i.i4.i245, i64 0
   %retval.sroa.0.4.vec.insert.i10.i251 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i9.i250, float %cond.i4.i8.i249, i64 1
-  %39 = load i32, ptr %height8.sink, align 4
-  %cond.i253 = tail call noundef i32 @llvm.smax.i32(i32 %39, i32 %.sink300.sink)
+  %85 = load i32, ptr %height8, align 4
+  %cond.i253 = tail call noundef i32 @llvm.smax.i32(i32 %85, i32 %55)
   %add145 = add nsw i32 %cond.i253, 1
   store i32 %add145, ptr %height, align 4
-  %40 = load i32, ptr %height112.sink.sink, align 4
-  %cond.i254 = tail call noundef i32 @llvm.smax.i32(i32 %add145, i32 %40)
-  %41 = getelementptr inbounds i8, ptr %add.ptr4.sink353, i64 8
-  store <2 x float> %retval.sroa.0.4.vec.insert.i10.i251, ptr %41, align 4
-  %storemerge = add nsw i32 %cond.i254, 1
-  store i32 %storemerge, ptr %height9.sink, align 4
+  %86 = load i32, ptr %height112, align 4
+  %cond.i254 = tail call noundef i32 @llvm.smax.i32(i32 %add145, i32 %86)
+  br label %if.end152
+
+if.end152:                                        ; preds = %if.else133, %if.then114
+  %retval.sroa.0.4.vec.insert.i10.i251.sink = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i10.i211, %if.then114 ], [ %retval.sroa.0.4.vec.insert.i10.i251, %if.else133 ]
+  %storemerge.in = phi i32 [ %cond.i214, %if.then114 ], [ %cond.i254, %if.else133 ]
+  %87 = getelementptr inbounds i8, ptr %add.ptr4, i64 8
+  store <2 x float> %retval.sroa.0.4.vec.insert.i10.i251.sink, ptr %87, align 4
+  %storemerge = add nsw i32 %storemerge.in, 1
+  store i32 %storemerge, ptr %height9, align 4
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.end78, %entry, %lor.lhs.false
-  %retval.0 = phi i32 [ %iA, %lor.lhs.false ], [ %iA, %entry ], [ %iA, %if.end78 ], [ %retval.0.ph, %return.sink.split ]
+return:                                           ; preds = %if.end78, %entry, %lor.lhs.false, %if.end152, %if.end77
+  %retval.0 = phi i32 [ %3, %if.end77 ], [ %1, %if.end152 ], [ %iA, %lor.lhs.false ], [ %iA, %entry ], [ %iA, %if.end78 ]
   ret i32 %retval.0
 }
 
@@ -1611,9 +1784,6 @@ declare i32 @llvm.smax.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #16
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #16
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

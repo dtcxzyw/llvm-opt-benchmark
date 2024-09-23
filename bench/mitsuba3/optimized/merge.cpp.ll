@@ -2199,19 +2199,16 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit62:  ; preds = %223, %226, %228
   %230 = phi i64 [ %225, %223 ], [ %229, %228 ], [ %221, %226 ]
   %231 = load ptr, ptr %0, align 8
   %232 = getelementptr inbounds ptr, ptr %231, i64 %230
-  br label %_ZNSt3__110unique_ptrINS_11__hash_nodeINS_17__hash_value_typeIN7mitsuba10MergeShapeIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEE3KeyENS3_3refINS3_4MeshIfS9_EEEEEEPvEENS_22__hash_node_destructorINS_9allocatorISI_EEEEED2B8ne190000Ev.exit.sink.split
+  store ptr %213, ptr %232, align 8
+  br label %_ZNSt3__110unique_ptrINS_11__hash_nodeINS_17__hash_value_typeIN7mitsuba10MergeShapeIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEE3KeyENS3_3refINS3_4MeshIfS9_EEEEEEPvEENS_22__hash_node_destructorINS_9allocatorISI_EEEEED2B8ne190000Ev.exit
 
 233:                                              ; preds = %_ZNSt3__116__constrain_hashB8ne190000Emm.exit60
   %234 = load ptr, ptr %211, align 8
   store ptr %234, ptr %213, align 8
-  br label %_ZNSt3__110unique_ptrINS_11__hash_nodeINS_17__hash_value_typeIN7mitsuba10MergeShapeIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEE3KeyENS3_3refINS3_4MeshIfS9_EEEEEEPvEENS_22__hash_node_destructorINS_9allocatorISI_EEEEED2B8ne190000Ev.exit.sink.split
-
-_ZNSt3__110unique_ptrINS_11__hash_nodeINS_17__hash_value_typeIN7mitsuba10MergeShapeIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEE3KeyENS3_3refINS3_4MeshIfS9_EEEEEEPvEENS_22__hash_node_destructorINS_9allocatorISI_EEEEED2B8ne190000Ev.exit.sink.split: ; preds = %_ZNSt3__116__constrain_hashB8ne190000Emm.exit62, %233
-  %.sink = phi ptr [ %211, %233 ], [ %232, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit62 ]
-  store ptr %213, ptr %.sink, align 8
+  store ptr %213, ptr %211, align 8
   br label %_ZNSt3__110unique_ptrINS_11__hash_nodeINS_17__hash_value_typeIN7mitsuba10MergeShapeIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEE3KeyENS3_3refINS3_4MeshIfS9_EEEEEEPvEENS_22__hash_node_destructorINS_9allocatorISI_EEEEED2B8ne190000Ev.exit
 
-_ZNSt3__110unique_ptrINS_11__hash_nodeINS_17__hash_value_typeIN7mitsuba10MergeShapeIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEE3KeyENS3_3refINS3_4MeshIfS9_EEEEEEPvEENS_22__hash_node_destructorINS_9allocatorISI_EEEEED2B8ne190000Ev.exit: ; preds = %_ZNSt3__110unique_ptrINS_11__hash_nodeINS_17__hash_value_typeIN7mitsuba10MergeShapeIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEE3KeyENS3_3refINS3_4MeshIfS9_EEEEEEPvEENS_22__hash_node_destructorINS_9allocatorISI_EEEEED2B8ne190000Ev.exit.sink.split, %214
+_ZNSt3__110unique_ptrINS_11__hash_nodeINS_17__hash_value_typeIN7mitsuba10MergeShapeIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEE3KeyENS3_3refINS3_4MeshIfS9_EEEEEEPvEENS_22__hash_node_destructorINS_9allocatorISI_EEEEED2B8ne190000Ev.exit: ; preds = %233, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit62, %214
   %235 = load i64, ptr %150, align 8
   %236 = add i64 %235, 1
   store i64 %236, ptr %150, align 8

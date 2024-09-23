@@ -1511,8 +1511,8 @@ define dso_local void @_ZNK4Luau10Constraint24getMaybeMutatedFreeTypesEv(ptr dea
   br label %.invoke107
 
 .invoke107:                                       ; preds = %2, %2, %2, %2, %2, %2, %16, %34, %41
-  %.sink = phi ptr [ %17, %16 ], [ %35, %34 ], [ %42, %41 ], [ %11, %2 ], [ %11, %2 ], [ %11, %2 ], [ %11, %2 ], [ %11, %2 ], [ %11, %2 ]
-  %43 = load ptr, ptr %.sink, align 8
+  %.in108 = phi ptr [ %42, %41 ], [ %35, %34 ], [ %17, %16 ], [ %11, %2 ], [ %11, %2 ], [ %11, %2 ], [ %11, %2 ], [ %11, %2 ], [ %11, %2 ]
+  %43 = load ptr, ptr %.in108, align 8
   invoke void @_ZN4Luau18GenericTypeVisitorINS_12DenseHashSetIPvNS_16DenseHashPointerESt8equal_toIS2_EEEE8traverseEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(60) %3, ptr noundef %43)
           to label %.loopexit unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -1535,8 +1535,8 @@ define dso_local void @_ZNK4Luau10Constraint24getMaybeMutatedFreeTypesEv(ptr dea
   br i1 %.not93, label %.loopexit, label %.lr.ph104
 
 .invoke:                                          ; preds = %2, %20, %30
-  %.sink108 = phi ptr [ %21, %20 ], [ %31, %30 ], [ %11, %2 ]
-  %51 = load ptr, ptr %.sink108, align 8
+  %.in = phi ptr [ %31, %30 ], [ %21, %20 ], [ %11, %2 ]
+  %51 = load ptr, ptr %.in, align 8
   invoke void @_ZN4Luau18GenericTypeVisitorINS_12DenseHashSetIPvNS_16DenseHashPointerESt8equal_toIS2_EEEE8traverseEPKNS_11TypePackVarE(ptr noundef nonnull align 8 dereferenceable(60) %3, ptr noundef %51)
           to label %.loopexit unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -2173,8 +2173,8 @@ _ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %24
   br i1 %249, label %.invoke396, label %_ZN4Luau3getINS_22TypeFamilyInstanceTypeEEEPKT_PKNS_4TypeE.exit.thread
 
 .invoke396:                                       ; preds = %250, %35, %_ZN4Luau3getINS_9Unifiable5BoundIPKNS_4TypeEEEEEPKT_S5_.exit, %83, %95, %125, %134, %183
-  %.sink = phi ptr [ %84, %83 ], [ %96, %95 ], [ %126, %125 ], [ %135, %134 ], [ %184, %183 ], [ %26, %_ZN4Luau3getINS_9Unifiable5BoundIPKNS_4TypeEEEEEPKT_S5_.exit ], [ %26, %35 ], [ %26, %250 ]
-  %251 = load ptr, ptr %.sink, align 8
+  %.in = phi ptr [ %184, %183 ], [ %135, %134 ], [ %126, %125 ], [ %96, %95 ], [ %84, %83 ], [ %26, %_ZN4Luau3getINS_9Unifiable5BoundIPKNS_4TypeEEEEEPKT_S5_.exit ], [ %26, %35 ], [ %26, %250 ]
+  %251 = load ptr, ptr %.in, align 8
   invoke void @_ZN4Luau18GenericTypeVisitorINS_12DenseHashSetIPvNS_16DenseHashPointerESt8equal_toIS2_EEEE8traverseEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %251)
           to label %_ZN4Luau3getINS_22TypeFamilyInstanceTypeEEEPKT_PKNS_4TypeE.exit.thread unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

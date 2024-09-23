@@ -4894,22 +4894,18 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %while.body.i.i.i.i.
 
 if.then15.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then.i.i.i.i.i.i.i.i.i
   %arrayidx16.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i.i.i.i.i.i.i, i64 %__bbegin_bkt.02.i.i.i.i.i.i.i.i.i
-  br label %if.end22.sink.split.i.i.i.i.i.i.i.i.i
+  store ptr %__p.03.i.i.i.i.i.i.i.i.i, ptr %arrayidx16.i.i.i.i.i.i.i.i.i, align 8
+  br label %if.end22.i.i.i.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i.i.i:                        ; preds = %while.body.i.i.i.i.i.i.i.i.i
   %47 = load ptr, ptr %44, align 8
   store ptr %47, ptr %__p.03.i.i.i.i.i.i.i.i.i, align 8
   %48 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i.i, align 8
-  br label %if.end22.sink.split.i.i.i.i.i.i.i.i.i
-
-if.end22.sink.split.i.i.i.i.i.i.i.i.i:            ; preds = %if.else.i.i.i.i.i.i.i.i.i, %if.then15.i.i.i.i.i.i.i.i.i
-  %arrayidx16.sink.i.i.i.i.i.i.i.i.i = phi ptr [ %arrayidx16.i.i.i.i.i.i.i.i.i, %if.then15.i.i.i.i.i.i.i.i.i ], [ %48, %if.else.i.i.i.i.i.i.i.i.i ]
-  %__bbegin_bkt.1.ph.i.i.i.i.i.i.i.i.i = phi i64 [ %rem.i.i.i.i.i24.i.i.i.i.i.i, %if.then15.i.i.i.i.i.i.i.i.i ], [ %__bbegin_bkt.02.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i ]
-  store ptr %__p.03.i.i.i.i.i.i.i.i.i, ptr %arrayidx16.sink.i.i.i.i.i.i.i.i.i, align 8
+  store ptr %__p.03.i.i.i.i.i.i.i.i.i, ptr %48, align 8
   br label %if.end22.i.i.i.i.i.i.i.i.i
 
-if.end22.i.i.i.i.i.i.i.i.i:                       ; preds = %if.end22.sink.split.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
-  %__bbegin_bkt.1.i.i.i.i.i.i.i.i.i = phi i64 [ %rem.i.i.i.i.i24.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ], [ %__bbegin_bkt.1.ph.i.i.i.i.i.i.i.i.i, %if.end22.sink.split.i.i.i.i.i.i.i.i.i ]
+if.end22.i.i.i.i.i.i.i.i.i:                       ; preds = %if.else.i.i.i.i.i.i.i.i.i, %if.then15.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
+  %__bbegin_bkt.1.i.i.i.i.i.i.i.i.i = phi i64 [ %__bbegin_bkt.02.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i ], [ %rem.i.i.i.i.i24.i.i.i.i.i.i, %if.then15.i.i.i.i.i.i.i.i.i ], [ %rem.i.i.i.i.i24.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ]
   %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %__p.0.val.i.i.i.i.i.i.i.i.i, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %while.end.i.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i.i.i, !llvm.loop !7
 

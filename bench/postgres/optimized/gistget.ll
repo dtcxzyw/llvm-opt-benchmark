@@ -414,7 +414,8 @@ BufferGetPage.exit.i:                             ; preds = %199, %193
 213:                                              ; preds = %BufferGetPage.exit.i
   tail call void @UnlockReleaseBuffer(i32 noundef %189) #8
   %214 = getelementptr inbounds i8, ptr %185, i64 56
-  br label %.sink.split.i
+  store i32 0, ptr %214, align 8
+  br label %gistkillitems.exit
 
 215:                                              ; preds = %215, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %215 ]
@@ -447,14 +448,10 @@ BufferGetPage.exit.i:                             ; preds = %199, %193
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %.preheader.i
   tail call void @UnlockReleaseBuffer(i32 noundef %189) #8
-  br label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %._crit_edge.thread.i, %213
-  %.sink.i = phi ptr [ %208, %._crit_edge.thread.i ], [ %214, %213 ]
-  store i32 0, ptr %.sink.i, align 8
+  store i32 0, ptr %208, align 8
   br label %gistkillitems.exit
 
-gistkillitems.exit:                               ; preds = %.sink.split.i, %184, %181, %179
+gistkillitems.exit:                               ; preds = %._crit_edge.thread.i, %213, %184, %181, %179
   %.val = load ptr, ptr %57, align 8
   %234 = getelementptr inbounds i8, ptr %.val, i64 16
   %235 = load ptr, ptr %234, align 8

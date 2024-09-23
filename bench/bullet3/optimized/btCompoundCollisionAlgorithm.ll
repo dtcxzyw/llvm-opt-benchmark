@@ -2217,18 +2217,21 @@ if.end54:                                         ; preds = %if.else, %if.then41
   %m_collisionObject.i89 = getelementptr inbounds i8, ptr %136, i64 16
   %137 = load ptr, ptr %m_collisionObject.i89, align 8
   %cmp59 = icmp eq ptr %135, %137
-  br i1 %cmp59, label %if.end74, label %if.else67
+  br i1 %cmp59, label %if.then60, label %if.else67
+
+if.then60:                                        ; preds = %if.end54
+  store ptr %compoundWrap, ptr %m_body0Wrap.i, align 8
+  br label %if.end74
 
 if.else67:                                        ; preds = %if.end54
   %m_body1Wrap.i = getelementptr inbounds i8, ptr %133, i64 24
   %138 = load ptr, ptr %m_body1Wrap.i, align 8
+  store ptr %compoundWrap, ptr %m_body1Wrap.i, align 8
   br label %if.end74
 
-if.end74:                                         ; preds = %if.end54, %if.else67
-  %m_body1Wrap.i.sink = phi ptr [ %m_body1Wrap.i, %if.else67 ], [ %m_body0Wrap.i, %if.end54 ]
-  %.sink108 = phi i64 [ 24, %if.else67 ], [ 16, %if.end54 ]
-  %tmpWrap.0 = phi ptr [ %138, %if.else67 ], [ %134, %if.end54 ]
-  store ptr %compoundWrap, ptr %m_body1Wrap.i.sink, align 8
+if.end74:                                         ; preds = %if.else67, %if.then60
+  %.sink108 = phi i64 [ 24, %if.else67 ], [ 16, %if.then60 ]
+  %tmpWrap.0 = phi ptr [ %138, %if.else67 ], [ %134, %if.then60 ]
   %139 = load ptr, ptr %m_resultOut, align 8
   %vtable72 = load ptr, ptr %139, align 8
   %vfn73 = getelementptr inbounds i8, ptr %vtable72, i64 %.sink108
@@ -2251,12 +2254,21 @@ if.end74:                                         ; preds = %if.end54, %if.else6
   %m_collisionObject.i95 = getelementptr inbounds i8, ptr %148, i64 16
   %149 = load ptr, ptr %m_collisionObject.i95, align 8
   %cmp83 = icmp eq ptr %147, %149
+  br i1 %cmp83, label %if.then84, label %if.else86
+
+if.then84:                                        ; preds = %if.end74
+  store ptr %tmpWrap.0, ptr %m_body0Wrap.i93, align 8
+  br label %if.end88
+
+if.else86:                                        ; preds = %if.end74
   %m_body1Wrap.i97 = getelementptr inbounds i8, ptr %145, i64 24
-  %m_body1Wrap.i97.sink = select i1 %cmp83, ptr %m_body0Wrap.i93, ptr %m_body1Wrap.i97
-  store ptr %tmpWrap.0, ptr %m_body1Wrap.i97.sink, align 8
+  store ptr %tmpWrap.0, ptr %m_body1Wrap.i97, align 8
+  br label %if.end88
+
+if.end88:                                         ; preds = %if.else86, %if.then84
   br i1 %cmp, label %if.then90, label %if.end97
 
-if.then90:                                        ; preds = %if.end74
+if.then90:                                        ; preds = %if.end88
   %vtable91 = load ptr, ptr %algo.0, align 8
   %150 = load ptr, ptr %vtable91, align 8
   call void %150(ptr noundef nonnull align 8 dereferenceable(16) %algo.0) #11
@@ -2268,7 +2280,7 @@ if.then90:                                        ; preds = %if.end74
   call void %152(ptr noundef nonnull align 8 dereferenceable(8) %151, ptr noundef nonnull %algo.0)
   br label %if.end97
 
-if.end97:                                         ; preds = %lor.lhs.false21.i, %cond.end15.i, %if.end74, %if.then90, %if.then
+if.end97:                                         ; preds = %lor.lhs.false21.i, %cond.end15.i, %if.end88, %if.then90, %if.then
   ret void
 }
 

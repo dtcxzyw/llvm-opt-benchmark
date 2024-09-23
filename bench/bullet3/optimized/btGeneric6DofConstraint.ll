@@ -2120,6 +2120,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %m_currentLimit.i = getelementptr inbounds i8, ptr %arrayidx3, i64 56
+  store i32 0, ptr %m_currentLimit.i, align 4
   br label %land.lhs.true.i
 
 if.end.i:                                         ; preds = %entry
@@ -2152,7 +2153,7 @@ if.then14.i:                                      ; preds = %if.else.i
 if.else18.i:                                      ; preds = %if.end.i
   %cmp20.i = fcmp ogt float %call7, %4
   %m_currentLimit22.i = getelementptr inbounds i8, ptr %arrayidx3, i64 56
-  br i1 %cmp20.i, label %if.then21.i, label %land.lhs.true.i
+  br i1 %cmp20.i, label %if.then21.i, label %if.end40.i
 
 if.then21.i:                                      ; preds = %if.else18.i
   store i32 2, ptr %m_currentLimit22.i, align 4
@@ -2176,9 +2177,11 @@ if.then34.i:                                      ; preds = %if.else31.i
   store float %add36.i, ptr %m_currentLimitError25.i, align 4
   br label %if.end.i10
 
-land.lhs.true.i:                                  ; preds = %if.else18.i, %if.then.i
-  %m_currentLimit22.i.sink = phi ptr [ %m_currentLimit.i, %if.then.i ], [ %m_currentLimit22.i, %if.else18.i ]
-  store i32 0, ptr %m_currentLimit22.i.sink, align 4
+if.end40.i:                                       ; preds = %if.else18.i
+  store i32 0, ptr %m_currentLimit22.i, align 4
+  br label %land.lhs.true.i
+
+land.lhs.true.i:                                  ; preds = %if.end40.i, %if.then.i
   %m_enableMotor.i = getelementptr inbounds i8, ptr %arrayidx3, i64 44
   %5 = load i8, ptr %m_enableMotor.i, align 8
   %6 = and i8 %5, 1
@@ -2413,6 +2416,7 @@ for.body30:                                       ; preds = %for.cond28.preheade
 
 if.then.i.i:                                      ; preds = %for.body30
   %m_currentLimit.i.i = getelementptr inbounds i8, ptr %arrayidx3.i31, i64 56
+  store i32 0, ptr %m_currentLimit.i.i, align 4
   br label %land.lhs.true.i.i
 
 if.end.i.i:                                       ; preds = %for.body30
@@ -2445,7 +2449,7 @@ if.then14.i.i:                                    ; preds = %if.else.i.i
 if.else18.i.i:                                    ; preds = %if.end.i.i
   %cmp20.i.i = fcmp ogt float %call7.i, %14
   %m_currentLimit22.i.i = getelementptr inbounds i8, ptr %arrayidx3.i31, i64 56
-  br i1 %cmp20.i.i, label %if.then21.i.i, label %land.lhs.true.i.i
+  br i1 %cmp20.i.i, label %if.then21.i.i, label %if.end40.i.i
 
 if.then21.i.i:                                    ; preds = %if.else18.i.i
   store i32 2, ptr %m_currentLimit22.i.i, align 4
@@ -2469,9 +2473,11 @@ if.then34.i.i:                                    ; preds = %if.else31.i.i
   store float %add36.i.i, ptr %m_currentLimitError25.i.i, align 4
   br label %if.then32
 
-land.lhs.true.i.i:                                ; preds = %if.else18.i.i, %if.then.i.i
-  %m_currentLimit22.i.sink.i = phi ptr [ %m_currentLimit.i.i, %if.then.i.i ], [ %m_currentLimit22.i.i, %if.else18.i.i ]
-  store i32 0, ptr %m_currentLimit22.i.sink.i, align 4
+if.end40.i.i:                                     ; preds = %if.else18.i.i
+  store i32 0, ptr %m_currentLimit22.i.i, align 4
+  br label %land.lhs.true.i.i
+
+land.lhs.true.i.i:                                ; preds = %if.end40.i.i, %if.then.i.i
   %m_enableMotor.i.i = getelementptr inbounds i8, ptr %arrayidx3.i31, i64 44
   %15 = load i8, ptr %m_enableMotor.i.i, align 8
   %16 = and i8 %15, 1
@@ -2709,6 +2715,7 @@ for.body12:                                       ; preds = %for.cond10.preheade
 
 if.then.i.i:                                      ; preds = %for.body12
   %m_currentLimit.i.i = getelementptr inbounds i8, ptr %arrayidx3.i16, i64 56
+  store i32 0, ptr %m_currentLimit.i.i, align 4
   br label %land.lhs.true.i.i
 
 if.end.i.i:                                       ; preds = %for.body12
@@ -2741,7 +2748,7 @@ if.then14.i.i:                                    ; preds = %if.else.i.i
 if.else18.i.i:                                    ; preds = %if.end.i.i
   %cmp20.i.i = fcmp ogt float %call7.i, %14
   %m_currentLimit22.i.i = getelementptr inbounds i8, ptr %arrayidx3.i16, i64 56
-  br i1 %cmp20.i.i, label %if.then21.i.i, label %land.lhs.true.i.i
+  br i1 %cmp20.i.i, label %if.then21.i.i, label %if.end40.i.i
 
 if.then21.i.i:                                    ; preds = %if.else18.i.i
   store i32 2, ptr %m_currentLimit22.i.i, align 4
@@ -2765,9 +2772,11 @@ if.then34.i.i:                                    ; preds = %if.else31.i.i
   store float %add36.i.i, ptr %m_currentLimitError25.i.i, align 4
   br label %if.then14
 
-land.lhs.true.i.i:                                ; preds = %if.else18.i.i, %if.then.i.i
-  %m_currentLimit22.i.sink.i = phi ptr [ %m_currentLimit.i.i, %if.then.i.i ], [ %m_currentLimit22.i.i, %if.else18.i.i ]
-  store i32 0, ptr %m_currentLimit22.i.sink.i, align 4
+if.end40.i.i:                                     ; preds = %if.else18.i.i
+  store i32 0, ptr %m_currentLimit22.i.i, align 4
+  br label %land.lhs.true.i.i
+
+land.lhs.true.i.i:                                ; preds = %if.end40.i.i, %if.then.i.i
   %m_enableMotor.i.i = getelementptr inbounds i8, ptr %arrayidx3.i16, i64 44
   %15 = load i8, ptr %m_enableMotor.i.i, align 8
   %16 = and i8 %15, 1
@@ -3307,7 +3316,8 @@ for.body:                                         ; preds = %entry, %_ZN23btGene
 
 if.then.i.i:                                      ; preds = %for.body
   %m_currentLimit.i.i = getelementptr inbounds i8, ptr %arrayidx3.i, i64 56
-  br label %land.lhs.true.i.i
+  store i32 0, ptr %m_currentLimit.i.i, align 4
+  br label %_ZN23btGeneric6DofConstraint21testAngularLimitMotorEi.exit
 
 if.end.i.i:                                       ; preds = %for.body
   %cmp3.i.i = fcmp olt float %call7.i, %3
@@ -3339,7 +3349,7 @@ if.then14.i.i:                                    ; preds = %if.else.i.i
 if.else18.i.i:                                    ; preds = %if.end.i.i
   %cmp20.i.i = fcmp ogt float %call7.i, %4
   %m_currentLimit22.i.i = getelementptr inbounds i8, ptr %arrayidx3.i, i64 56
-  br i1 %cmp20.i.i, label %if.then21.i.i, label %land.lhs.true.i.i
+  br i1 %cmp20.i.i, label %if.then21.i.i, label %if.end40.i.i
 
 if.then21.i.i:                                    ; preds = %if.else18.i.i
   store i32 2, ptr %m_currentLimit22.i.i, align 4
@@ -3363,12 +3373,11 @@ if.then34.i.i:                                    ; preds = %if.else31.i.i
   store float %add36.i.i, ptr %m_currentLimitError25.i.i, align 4
   br label %_ZN23btGeneric6DofConstraint21testAngularLimitMotorEi.exit
 
-land.lhs.true.i.i:                                ; preds = %if.else18.i.i, %if.then.i.i
-  %m_currentLimit22.i.sink.i = phi ptr [ %m_currentLimit.i.i, %if.then.i.i ], [ %m_currentLimit22.i.i, %if.else18.i.i ]
-  store i32 0, ptr %m_currentLimit22.i.sink.i, align 4
+if.end40.i.i:                                     ; preds = %if.else18.i.i
+  store i32 0, ptr %m_currentLimit22.i.i, align 4
   br label %_ZN23btGeneric6DofConstraint21testAngularLimitMotorEi.exit
 
-_ZN23btGeneric6DofConstraint21testAngularLimitMotorEi.exit: ; preds = %land.lhs.true.i.i, %if.then9.i.i, %if.else.i.i, %if.then14.i.i, %if.then28.i.i, %if.else31.i.i, %if.then34.i.i
+_ZN23btGeneric6DofConstraint21testAngularLimitMotorEi.exit: ; preds = %if.then.i.i, %if.end40.i.i, %if.then9.i.i, %if.else.i.i, %if.then14.i.i, %if.then28.i.i, %if.else31.i.i, %if.then34.i.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !59
@@ -4173,18 +4182,21 @@ sw.bb:                                            ; preds = %if.then
   %m_stopERP = getelementptr inbounds i8, ptr %this, i64 780
   %idxprom = zext nneg i32 %axis to i64
   %arrayidx = getelementptr inbounds float, ptr %m_stopERP, i64 %idxprom
+  store float %value, ptr %arrayidx, align 4
   br label %if.end56.sink.split
 
 sw.bb3:                                           ; preds = %if.then
   %m_stopCFM = getelementptr inbounds i8, ptr %this, i64 796
   %idxprom6 = zext nneg i32 %axis to i64
   %arrayidx7 = getelementptr inbounds float, ptr %m_stopCFM, i64 %idxprom6
+  store float %value, ptr %arrayidx7, align 4
   br label %if.end56.sink.split
 
 sw.bb12:                                          ; preds = %if.then
   %m_normalCFM = getelementptr inbounds i8, ptr %this, i64 764
   %idxprom15 = zext nneg i32 %axis to i64
   %arrayidx16 = getelementptr inbounds float, ptr %m_normalCFM, i64 %idxprom15
+  store float %value, ptr %arrayidx16, align 4
   br label %if.end56.sink.split
 
 if.else:                                          ; preds = %entry
@@ -4203,24 +4215,25 @@ sw.bb25:                                          ; preds = %if.then24
   %m_angularLimits = getelementptr inbounds i8, ptr %this, i64 892
   %idxprom26 = zext nneg i32 %0 to i64
   %m_stopERP28 = getelementptr inbounds [3 x %class.btRotationalLimitMotor], ptr %m_angularLimits, i64 0, i64 %idxprom26, i32 8
+  store float %value, ptr %m_stopERP28, align 4
   br label %if.end56.sink.split
 
 sw.bb33:                                          ; preds = %if.then24
   %m_angularLimits34 = getelementptr inbounds i8, ptr %this, i64 892
   %idxprom36 = zext nneg i32 %0 to i64
   %m_stopCFM38 = getelementptr inbounds [3 x %class.btRotationalLimitMotor], ptr %m_angularLimits34, i64 0, i64 %idxprom36, i32 9
+  store float %value, ptr %m_stopCFM38, align 8
   br label %if.end56.sink.split
 
 sw.bb43:                                          ; preds = %if.then24
   %m_angularLimits44 = getelementptr inbounds i8, ptr %this, i64 892
   %idxprom46 = zext nneg i32 %0 to i64
   %m_normalCFM48 = getelementptr inbounds [3 x %class.btRotationalLimitMotor], ptr %m_angularLimits44, i64 0, i64 %idxprom46, i32 7
+  store float %value, ptr %m_normalCFM48, align 8
   br label %if.end56.sink.split
 
 if.end56.sink.split:                              ; preds = %sw.bb12, %sw.bb3, %sw.bb, %sw.bb25, %sw.bb33, %sw.bb43
-  %m_normalCFM48.sink = phi ptr [ %m_normalCFM48, %sw.bb43 ], [ %m_stopCFM38, %sw.bb33 ], [ %m_stopERP28, %sw.bb25 ], [ %arrayidx, %sw.bb ], [ %arrayidx7, %sw.bb3 ], [ %arrayidx16, %sw.bb12 ]
   %.sink = phi i32 [ 1, %sw.bb43 ], [ 2, %sw.bb33 ], [ 4, %sw.bb25 ], [ 4, %sw.bb ], [ 2, %sw.bb3 ], [ 1, %sw.bb12 ]
-  store float %value, ptr %m_normalCFM48.sink, align 4
   %mul49 = mul nuw nsw i32 %axis, 3
   %shl50 = shl nuw nsw i32 %.sink, %mul49
   %m_flags51 = getelementptr inbounds i8, ptr %this, i64 1328
@@ -4250,23 +4263,26 @@ sw.bb:                                            ; preds = %if.then
   %m_stopERP = getelementptr inbounds i8, ptr %this, i64 780
   %idxprom = zext nneg i32 %axis to i64
   %arrayidx = getelementptr inbounds float, ptr %m_stopERP, i64 %idxprom
-  br label %if.end36.sink.split
+  %0 = load float, ptr %arrayidx, align 4
+  br label %if.end36
 
 sw.bb3:                                           ; preds = %if.then
   %m_stopCFM = getelementptr inbounds i8, ptr %this, i64 796
   %idxprom6 = zext nneg i32 %axis to i64
   %arrayidx7 = getelementptr inbounds float, ptr %m_stopCFM, i64 %idxprom6
-  br label %if.end36.sink.split
+  %1 = load float, ptr %arrayidx7, align 4
+  br label %if.end36
 
 sw.bb8:                                           ; preds = %if.then
   %m_normalCFM = getelementptr inbounds i8, ptr %this, i64 764
   %idxprom11 = zext nneg i32 %axis to i64
   %arrayidx12 = getelementptr inbounds float, ptr %m_normalCFM, i64 %idxprom11
-  br label %if.end36.sink.split
+  %2 = load float, ptr %arrayidx12, align 4
+  br label %if.end36
 
 if.else:                                          ; preds = %entry
-  %0 = add i32 %axis, -3
-  %or.cond1 = icmp ult i32 %0, 3
+  %3 = add i32 %axis, -3
+  %or.cond1 = icmp ult i32 %3, 3
   br i1 %or.cond1, label %if.then16, label %if.end36
 
 if.then16:                                        ; preds = %if.else
@@ -4278,29 +4294,27 @@ if.then16:                                        ; preds = %if.else
 
 sw.bb17:                                          ; preds = %if.then16
   %m_angularLimits = getelementptr inbounds i8, ptr %this, i64 892
-  %idxprom18 = zext nneg i32 %0 to i64
+  %idxprom18 = zext nneg i32 %3 to i64
   %m_stopERP20 = getelementptr inbounds [3 x %class.btRotationalLimitMotor], ptr %m_angularLimits, i64 0, i64 %idxprom18, i32 8
-  br label %if.end36.sink.split
+  %4 = load float, ptr %m_stopERP20, align 4
+  br label %if.end36
 
 sw.bb21:                                          ; preds = %if.then16
   %m_angularLimits22 = getelementptr inbounds i8, ptr %this, i64 892
-  %idxprom24 = zext nneg i32 %0 to i64
+  %idxprom24 = zext nneg i32 %3 to i64
   %m_stopCFM26 = getelementptr inbounds [3 x %class.btRotationalLimitMotor], ptr %m_angularLimits22, i64 0, i64 %idxprom24, i32 9
-  br label %if.end36.sink.split
+  %5 = load float, ptr %m_stopCFM26, align 8
+  br label %if.end36
 
 sw.bb27:                                          ; preds = %if.then16
   %m_angularLimits28 = getelementptr inbounds i8, ptr %this, i64 892
-  %idxprom30 = zext nneg i32 %0 to i64
+  %idxprom30 = zext nneg i32 %3 to i64
   %m_normalCFM32 = getelementptr inbounds [3 x %class.btRotationalLimitMotor], ptr %m_angularLimits28, i64 0, i64 %idxprom30, i32 7
-  br label %if.end36.sink.split
-
-if.end36.sink.split:                              ; preds = %sw.bb8, %sw.bb3, %sw.bb, %sw.bb17, %sw.bb21, %sw.bb27
-  %m_normalCFM32.sink = phi ptr [ %m_normalCFM32, %sw.bb27 ], [ %m_stopCFM26, %sw.bb21 ], [ %m_stopERP20, %sw.bb17 ], [ %arrayidx, %sw.bb ], [ %arrayidx7, %sw.bb3 ], [ %arrayidx12, %sw.bb8 ]
-  %1 = load float, ptr %m_normalCFM32.sink, align 4
+  %6 = load float, ptr %m_normalCFM32, align 8
   br label %if.end36
 
-if.end36:                                         ; preds = %if.end36.sink.split, %if.then16, %if.else, %if.then
-  %retVal.0 = phi float [ 0.000000e+00, %if.then ], [ 0.000000e+00, %if.then16 ], [ 0.000000e+00, %if.else ], [ %1, %if.end36.sink.split ]
+if.end36:                                         ; preds = %if.then16, %sw.bb27, %sw.bb21, %sw.bb17, %if.else, %sw.bb, %sw.bb3, %sw.bb8, %if.then
+  %retVal.0 = phi float [ 0.000000e+00, %if.then ], [ %2, %sw.bb8 ], [ %1, %sw.bb3 ], [ %0, %sw.bb ], [ 0.000000e+00, %if.then16 ], [ %6, %sw.bb27 ], [ %5, %sw.bb21 ], [ %4, %sw.bb17 ], [ 0.000000e+00, %if.else ]
   ret float %retVal.0
 }
 

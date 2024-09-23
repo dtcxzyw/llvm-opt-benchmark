@@ -1544,10 +1544,19 @@ if.end16:                                         ; preds = %if.then15, %land.lh
   %cmp18.not = icmp eq ptr %7, null
   %tql_prev27 = getelementptr inbounds i8, ptr %p, i64 112
   %8 = load ptr, ptr %tql_prev27, align 8
-  %tql_prev29 = getelementptr inbounds i8, ptr %0, i64 32
+  br i1 %cmp18.not, label %if.else25, label %if.then20
+
+if.then20:                                        ; preds = %if.end16
   %tql_prev24 = getelementptr inbounds i8, ptr %7, i64 112
-  %tql_prev29.sink = select i1 %cmp18.not, ptr %tql_prev29, ptr %tql_prev24
-  store ptr %8, ptr %tql_prev29.sink, align 8
+  store ptr %8, ptr %tql_prev24, align 8
+  br label %if.end30
+
+if.else25:                                        ; preds = %if.end16
+  %tql_prev29 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %8, ptr %tql_prev29, align 8
+  br label %if.end30
+
+if.end30:                                         ; preds = %if.else25, %if.then20
   %9 = load ptr, ptr %queue17, align 8
   store ptr %9, ptr %8, align 8
   %port = getelementptr inbounds i8, ptr %dev, i64 160
@@ -1586,17 +1595,17 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   %tql_prev6 = getelementptr inbounds i8, ptr %2, i64 112
+  store ptr %3, ptr %tql_prev6, align 8
   br label %if.end12
 
 if.else7:                                         ; preds = %if.end
   %ep = getelementptr inbounds i8, ptr %p, i64 16
   %4 = load ptr, ptr %ep, align 8
   %tql_prev11 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %3, ptr %tql_prev11, align 8
   br label %if.end12
 
 if.end12:                                         ; preds = %if.else7, %if.then2
-  %tql_prev11.sink = phi ptr [ %tql_prev11, %if.else7 ], [ %tql_prev6, %if.then2 ]
-  store ptr %3, ptr %tql_prev11.sink, align 8
   %5 = load ptr, ptr %queue, align 8
   store ptr %5, ptr %3, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %queue, i8 0, i64 16, i1 false)

@@ -152,8 +152,8 @@ switch.lookup:                                    ; preds = %sw.epilog
   %14 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.bitmap_writer_build_type_index, i64 0, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %15 = load ptr, ptr %switch.load, align 8
-  tail call void @ewah_set(ptr noundef %15, i64 noundef %indvars.iv) #18
+  %.sink = load ptr, ptr %switch.load, align 8
+  tail call void @ewah_set(ptr noundef %.sink, i64 noundef %indvars.iv) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5

@@ -2747,9 +2747,9 @@ define void @extraDecomposeCover(ptr nocapture noundef readonly %0, ptr nocaptur
   br label %48
 
 48:                                               ; preds = %36, %40, %42
-  %.sink28 = phi ptr [ %37, %36 ], [ %41, %40 ], [ %45, %42 ]
-  %49 = load ptr, ptr %.sink28, align 8
-  store ptr %49, ptr %2, align 8
+  %.sink.in = phi ptr [ %37, %36 ], [ %41, %40 ], [ %45, %42 ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  store ptr %.sink, ptr %2, align 8
   ret void
 }
 

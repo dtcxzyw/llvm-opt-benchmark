@@ -56,7 +56,7 @@ for.cond:                                         ; preds = %for.inc, %if.end3
   %0 = load i32, ptr %in.addr.0, align 8
   switch i32 %0, label %for.inc [
     i32 0, label %for.end
-    i32 4, label %for.inc.sink.split
+    i32 4, label %sw.bb
     i32 105, label %sw.bb8
     i32 106, label %sw.bb10
     i32 107, label %sw.bb12
@@ -66,71 +66,91 @@ for.cond:                                         ; preds = %for.inc, %if.end3
     i32 111, label %sw.bb20
   ]
 
-sw.bb8:                                           ; preds = %for.cond
-  br label %for.inc.sink.split
-
-sw.bb10:                                          ; preds = %for.cond
-  br label %for.inc.sink.split
-
-sw.bb12:                                          ; preds = %for.cond
-  br label %for.inc.sink.split
-
-sw.bb14:                                          ; preds = %for.cond
-  br label %for.inc.sink.split
-
-sw.bb16:                                          ; preds = %for.cond
-  br label %for.inc.sink.split
-
-sw.bb18:                                          ; preds = %for.cond
-  br label %for.inc.sink.split
-
-sw.bb20:                                          ; preds = %for.cond
-  br label %for.inc.sink.split
-
-for.inc.sink.split:                               ; preds = %for.cond, %sw.bb20, %sw.bb18, %sw.bb16, %sw.bb14, %sw.bb12, %sw.bb10, %sw.bb8
-  %c_get_libctx.sink = phi ptr [ %c_provider_register_child_cb, %sw.bb8 ], [ %c_provider_deregister_child_cb, %sw.bb10 ], [ %c_prov_name, %sw.bb12 ], [ %c_prov_get0_provider_ctx, %sw.bb14 ], [ %c_prov_get0_dispatch, %sw.bb16 ], [ %c_prov_up_ref, %sw.bb18 ], [ %c_prov_free, %sw.bb20 ], [ %c_get_libctx, %for.cond ]
+sw.bb:                                            ; preds = %for.cond
   %1 = getelementptr i8, ptr %in.addr.0, i64 8
   %in.addr.0.val = load ptr, ptr %1, align 8
-  store ptr %in.addr.0.val, ptr %c_get_libctx.sink, align 8
+  store ptr %in.addr.0.val, ptr %c_get_libctx, align 8
   br label %for.inc
 
-for.inc:                                          ; preds = %for.inc.sink.split, %for.cond
+sw.bb8:                                           ; preds = %for.cond
+  %2 = getelementptr i8, ptr %in.addr.0, i64 8
+  %in.addr.0.val33 = load ptr, ptr %2, align 8
+  store ptr %in.addr.0.val33, ptr %c_provider_register_child_cb, align 8
+  br label %for.inc
+
+sw.bb10:                                          ; preds = %for.cond
+  %3 = getelementptr i8, ptr %in.addr.0, i64 8
+  %in.addr.0.val34 = load ptr, ptr %3, align 8
+  store ptr %in.addr.0.val34, ptr %c_provider_deregister_child_cb, align 8
+  br label %for.inc
+
+sw.bb12:                                          ; preds = %for.cond
+  %4 = getelementptr i8, ptr %in.addr.0, i64 8
+  %in.addr.0.val35 = load ptr, ptr %4, align 8
+  store ptr %in.addr.0.val35, ptr %c_prov_name, align 8
+  br label %for.inc
+
+sw.bb14:                                          ; preds = %for.cond
+  %5 = getelementptr i8, ptr %in.addr.0, i64 8
+  %in.addr.0.val36 = load ptr, ptr %5, align 8
+  store ptr %in.addr.0.val36, ptr %c_prov_get0_provider_ctx, align 8
+  br label %for.inc
+
+sw.bb16:                                          ; preds = %for.cond
+  %6 = getelementptr i8, ptr %in.addr.0, i64 8
+  %in.addr.0.val37 = load ptr, ptr %6, align 8
+  store ptr %in.addr.0.val37, ptr %c_prov_get0_dispatch, align 8
+  br label %for.inc
+
+sw.bb18:                                          ; preds = %for.cond
+  %7 = getelementptr i8, ptr %in.addr.0, i64 8
+  %in.addr.0.val38 = load ptr, ptr %7, align 8
+  store ptr %in.addr.0.val38, ptr %c_prov_up_ref, align 8
+  br label %for.inc
+
+sw.bb20:                                          ; preds = %for.cond
+  %8 = getelementptr i8, ptr %in.addr.0, i64 8
+  %in.addr.0.val39 = load ptr, ptr %8, align 8
+  store ptr %in.addr.0.val39, ptr %c_prov_free, align 8
+  br label %for.inc
+
+for.inc:                                          ; preds = %for.cond, %sw.bb, %sw.bb8, %sw.bb10, %sw.bb12, %sw.bb14, %sw.bb16, %sw.bb18, %sw.bb20
   %incdec.ptr = getelementptr inbounds i8, ptr %in.addr.0, i64 16
   br label %for.cond, !llvm.loop !4
 
 for.end:                                          ; preds = %for.cond
-  %2 = load ptr, ptr %c_get_libctx, align 8
-  %cmp23 = icmp eq ptr %2, null
+  %9 = load ptr, ptr %c_get_libctx, align 8
+  %cmp23 = icmp eq ptr %9, null
   br i1 %cmp23, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.end
-  %3 = load ptr, ptr %c_provider_register_child_cb, align 8
-  %cmp25 = icmp eq ptr %3, null
+  %10 = load ptr, ptr %c_provider_register_child_cb, align 8
+  %cmp25 = icmp eq ptr %10, null
   br i1 %cmp25, label %return, label %lor.lhs.false26
 
 lor.lhs.false26:                                  ; preds = %lor.lhs.false
-  %4 = load ptr, ptr %c_prov_name, align 8
-  %cmp28 = icmp eq ptr %4, null
+  %11 = load ptr, ptr %c_prov_name, align 8
+  %cmp28 = icmp eq ptr %11, null
   br i1 %cmp28, label %return, label %lor.lhs.false29
 
 lor.lhs.false29:                                  ; preds = %lor.lhs.false26
-  %5 = load ptr, ptr %c_prov_get0_provider_ctx, align 8
-  %cmp31 = icmp eq ptr %5, null
+  %12 = load ptr, ptr %c_prov_get0_provider_ctx, align 8
+  %cmp31 = icmp eq ptr %12, null
   br i1 %cmp31, label %return, label %lor.lhs.false32
 
 lor.lhs.false32:                                  ; preds = %lor.lhs.false29
-  %6 = load ptr, ptr %c_prov_get0_dispatch, align 8
-  %cmp34 = icmp eq ptr %6, null
+  %13 = load ptr, ptr %c_prov_get0_dispatch, align 8
+  %cmp34 = icmp eq ptr %13, null
   br i1 %cmp34, label %return, label %lor.lhs.false35
 
 lor.lhs.false35:                                  ; preds = %lor.lhs.false32
-  %7 = load ptr, ptr %c_prov_up_ref, align 8
-  %cmp37 = icmp eq ptr %7, null
+  %14 = load ptr, ptr %c_prov_up_ref, align 8
+  %cmp37 = icmp eq ptr %14, null
   br i1 %cmp37, label %return, label %lor.lhs.false38
 
 lor.lhs.false38:                                  ; preds = %lor.lhs.false35
-  %8 = load ptr, ptr %c_prov_free, align 8
-  %cmp40 = icmp eq ptr %8, null
+  %15 = load ptr, ptr %c_prov_free, align 8
+  %cmp40 = icmp eq ptr %15, null
   br i1 %cmp40, label %return, label %if.end42
 
 if.end42:                                         ; preds = %lor.lhs.false38
@@ -141,9 +161,9 @@ if.end42:                                         ; preds = %lor.lhs.false38
   br i1 %cmp45, label %return, label %if.end47
 
 if.end47:                                         ; preds = %if.end42
-  %9 = load ptr, ptr %c_provider_register_child_cb, align 8
-  %10 = load ptr, ptr %call, align 8
-  %call50 = tail call i32 %9(ptr noundef %10, ptr noundef nonnull @provider_create_child_cb, ptr noundef nonnull @provider_remove_child_cb, ptr noundef nonnull @provider_global_props_cb, ptr noundef nonnull %ctx) #2
+  %16 = load ptr, ptr %c_provider_register_child_cb, align 8
+  %17 = load ptr, ptr %call, align 8
+  %call50 = tail call i32 %16(ptr noundef %17, ptr noundef nonnull @provider_create_child_cb, ptr noundef nonnull @provider_remove_child_cb, ptr noundef nonnull @provider_global_props_cb, ptr noundef nonnull %ctx) #2
   %tobool.not = icmp ne i32 %call50, 0
   %. = zext i1 %tobool.not to i32
   br label %return

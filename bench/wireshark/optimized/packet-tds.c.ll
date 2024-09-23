@@ -9404,7 +9404,7 @@ define internal fastcc i32 @dissect_tds5_capability_token(ptr noundef nonnull %0
   br i1 %14, label %.lr.ph8, label %._crit_edge9
 
 .lr.ph8:                                          ; preds = %4, %._crit_edge
-  %.0386 = phi i32 [ %59, %._crit_edge ], [ 2, %4 ]
+  %.0386 = phi i32 [ %58, %._crit_edge ], [ 2, %4 ]
   %15 = load i32, ptr @hf_tds_capability_captype, align 4
   %16 = add i32 %.0386, %2
   %17 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %3, i32 noundef %15, ptr noundef nonnull %0, i32 noundef %16, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6) #11
@@ -9436,7 +9436,7 @@ define internal fastcc i32 @dissect_tds5_capability_token(ptr noundef nonnull %0
   br label %33
 
 33:                                               ; preds = %.lr.ph, %.thread
-  %34 = phi i32 [ %31, %.lr.ph ], [ %55, %.thread ]
+  %34 = phi i32 [ %31, %.lr.ph ], [ %54, %.thread ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread ]
   %indvars14 = trunc i64 %indvars.iv to i32
   %35 = load i32, ptr %6, align 4
@@ -9462,48 +9462,48 @@ define internal fastcc i32 @dissect_tds5_capability_token(ptr noundef nonnull %0
   br label %44
 
 44:                                               ; preds = %42, %38
-  %.sink = phi ptr [ %43, %42 ], [ %39, %38 ]
   %.str.1339.sink = phi ptr [ @.str.1339, %42 ], [ @.str.1338, %38 ]
+  %.037.in = phi ptr [ %43, %42 ], [ %39, %38 ]
   %.2.in = phi ptr [ @ett_tds_capability_resp, %42 ], [ @ett_tds_capability_req, %38 ]
-  %45 = load ptr, ptr %.sink, align 8
-  %46 = shl nuw nsw i32 %indvars14, 3
-  %47 = or disjoint i32 %46, 7
+  %.037 = load ptr, ptr %.037.in, align 8
+  %45 = shl nuw nsw i32 %indvars14, 3
+  %46 = or disjoint i32 %45, 7
   %indvars.iv.tr = trunc nuw i64 %indvars.iv to i32
-  %48 = shl nuw nsw i32 %indvars.iv.tr, 3
-  %49 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 240, ptr noundef nonnull %.str.1339.sink, i32 noundef %48, i32 noundef %47) #11
-  %.not = icmp eq ptr %45, null
+  %47 = shl nuw nsw i32 %indvars.iv.tr, 3
+  %48 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 240, ptr noundef nonnull %.str.1339.sink, i32 noundef %47, i32 noundef %46) #11
+  %.not = icmp eq ptr %.037, null
   %.pre15 = load i32, ptr %7, align 4
-  br i1 %.not, label %.thread, label %50
+  br i1 %.not, label %.thread, label %49
 
-50:                                               ; preds = %44
+49:                                               ; preds = %44
   %.2 = load i32, ptr %.2.in, align 4
-  %51 = xor i32 %indvars14, -1
-  %52 = add i32 %32, %51
-  %53 = add i32 %52, %.pre15
-  %54 = call ptr @proto_tree_add_bitmask_text(ptr noundef %3, ptr noundef nonnull %0, i32 noundef %53, i32 noundef 1, ptr noundef nonnull %8, ptr noundef null, i32 noundef %.2, ptr noundef nonnull %45, i32 noundef 0, i32 noundef 10) #11
+  %50 = xor i32 %indvars14, -1
+  %51 = add i32 %32, %50
+  %52 = add i32 %51, %.pre15
+  %53 = call ptr @proto_tree_add_bitmask_text(ptr noundef %3, ptr noundef nonnull %0, i32 noundef %52, i32 noundef 1, ptr noundef nonnull %8, ptr noundef null, i32 noundef %.2, ptr noundef nonnull %.037, i32 noundef 0, i32 noundef 10) #11
   %.pre = load i32, ptr %7, align 4
   br label %.thread
 
-.thread:                                          ; preds = %36, %40, %33, %44, %50
-  %55 = phi i32 [ %34, %36 ], [ %34, %40 ], [ %34, %33 ], [ %.pre15, %44 ], [ %.pre, %50 ]
+.thread:                                          ; preds = %36, %40, %33, %44, %49
+  %54 = phi i32 [ %34, %36 ], [ %34, %40 ], [ %34, %33 ], [ %.pre15, %44 ], [ %.pre, %49 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %56 = zext i32 %55 to i64
-  %57 = icmp ult i64 %indvars.iv.next, %56
-  br i1 %57, label %33, label %._crit_edge.loopexit, !llvm.loop !36
+  %55 = zext i32 %54 to i64
+  %56 = icmp ult i64 %indvars.iv.next, %55
+  br i1 %56, label %33, label %._crit_edge.loopexit, !llvm.loop !36
 
 ._crit_edge.loopexit:                             ; preds = %.thread
   %.pre16 = load i32, ptr %5, align 4
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %29
-  %58 = phi i32 [ %30, %29 ], [ %.pre16, %._crit_edge.loopexit ]
-  %.lcssa = phi i32 [ 0, %29 ], [ %55, %._crit_edge.loopexit ]
-  %59 = add i32 %.lcssa, %20
-  %60 = icmp ult i32 %59, %58
-  br i1 %60, label %.lr.ph8, label %._crit_edge9, !llvm.loop !37
+  %57 = phi i32 [ %30, %29 ], [ %.pre16, %._crit_edge.loopexit ]
+  %.lcssa = phi i32 [ 0, %29 ], [ %54, %._crit_edge.loopexit ]
+  %58 = add i32 %.lcssa, %20
+  %59 = icmp ult i32 %58, %57
+  br i1 %59, label %.lr.ph8, label %._crit_edge9, !llvm.loop !37
 
 ._crit_edge9:                                     ; preds = %._crit_edge, %4
-  %.038.lcssa = phi i32 [ 2, %4 ], [ %59, %._crit_edge ]
+  %.038.lcssa = phi i32 [ 2, %4 ], [ %58, %._crit_edge ]
   ret i32 %.038.lcssa
 }
 

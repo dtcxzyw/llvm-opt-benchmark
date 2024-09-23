@@ -2260,71 +2260,78 @@ _ZNK5clang4Type21isFunctionPointerTypeEv.exit:    ; preds = %74, %_ZNK5clang4Typ
   %96 = load i8, ptr %95, align 16
   %97 = add i8 %96, -25
   %spec.select.i.i.i.i.i.i.i.i.i.i = icmp ult i8 %97, 2
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i, label %_ZNK5clang4Type21isFunctionPointerTypeEv.exit46.thread.sink.split, label %_ZNK5clang4Type21isFunctionPointerTypeEv.exit46.thread
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i, label %98, label %_ZNK5clang4Type21isFunctionPointerTypeEv.exit46.thread
+
+98:                                               ; preds = %_ZNK5clang4Type21isFunctionPointerTypeEv.exit
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %100 = load ptr, ptr %99, align 8
+  %101 = tail call { i64, ptr } @_ZN5clang7CodeGen13CodeGenModule26getFunctionPointerAuthInfoENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(3600) %100, i64 %2)
+  %102 = extractvalue { i64, ptr } %101, 0
+  %103 = extractvalue { i64, ptr } %101, 1
+  store i64 %102, ptr %5, align 8
+  store ptr %103, ptr %7, align 8
+  br label %_ZNK5clang4Type21isFunctionPointerTypeEv.exit46.thread
 
 .thread:                                          ; preds = %70
   br i1 %72, label %.thread.thread66, label %_ZNK5clang4Type21isFunctionPointerTypeEv.exit46.thread
 
 .thread.thread66:                                 ; preds = %.thread59, %.thread
-  %98 = load ptr, ptr %10, align 16
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
-  %100 = load i8, ptr %99, align 16
-  %.not.i.i36 = icmp eq i8 %100, 41
-  br i1 %.not.i.i36, label %_ZNK5clang4Type21isFunctionPointerTypeEv.exit46, label %101
+  %104 = load ptr, ptr %10, align 16
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 16
+  %106 = load i8, ptr %105, align 16
+  %.not.i.i36 = icmp eq i8 %106, 41
+  br i1 %.not.i.i36, label %_ZNK5clang4Type21isFunctionPointerTypeEv.exit46, label %107
 
-101:                                              ; preds = %.thread.thread66
-  %102 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  %.sroa.0.0.copyload.i.i.i.i.i37 = load i64, ptr %102, align 8
-  %103 = and i64 %.sroa.0.0.copyload.i.i.i.i.i37, -16
-  %104 = inttoptr i64 %103 to ptr
-  %105 = load ptr, ptr %104, align 16
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 16
-  %107 = load i8, ptr %106, align 16
-  %108 = icmp eq i8 %107, 41
-  br i1 %108, label %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i39, label %_ZNK5clang4Type21isFunctionPointerTypeEv.exit46.thread
+107:                                              ; preds = %.thread.thread66
+  %108 = getelementptr inbounds nuw i8, ptr %104, i64 8
+  %.sroa.0.0.copyload.i.i.i.i.i37 = load i64, ptr %108, align 8
+  %109 = and i64 %.sroa.0.0.copyload.i.i.i.i.i37, -16
+  %110 = inttoptr i64 %109 to ptr
+  %111 = load ptr, ptr %110, align 16
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 16
+  %113 = load i8, ptr %112, align 16
+  %114 = icmp eq i8 %113, 41
+  br i1 %114, label %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i39, label %_ZNK5clang4Type21isFunctionPointerTypeEv.exit46.thread
 
-_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i39: ; preds = %101
-  %109 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %98) #10
-  %.not.i40 = icmp eq ptr %109, null
+_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i39: ; preds = %107
+  %115 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %104) #10
+  %.not.i40 = icmp eq ptr %115, null
   br i1 %.not.i40, label %_ZNK5clang4Type21isFunctionPointerTypeEv.exit46.thread, label %_ZNK5clang4Type21isFunctionPointerTypeEv.exit46
 
 _ZNK5clang4Type21isFunctionPointerTypeEv.exit46:  ; preds = %.thread.thread66, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i39
-  %.0.i11.i42 = phi ptr [ %109, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i39 ], [ %98, %.thread.thread66 ]
-  %110 = getelementptr inbounds nuw i8, ptr %.0.i11.i42, i64 32
-  %.sroa.0.0.copyload.i.i43 = load i64, ptr %110, align 16
-  %111 = and i64 %.sroa.0.0.copyload.i.i43, -16
-  %112 = inttoptr i64 %111 to ptr
-  %113 = load ptr, ptr %112, align 16
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
-  %.sroa.0.0.copyload.i.i.i.i5.i44 = load i64, ptr %114, align 8
-  %115 = and i64 %.sroa.0.0.copyload.i.i.i.i5.i44, -16
-  %116 = inttoptr i64 %115 to ptr
-  %117 = load ptr, ptr %116, align 16
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 16
-  %119 = load i8, ptr %118, align 16
-  %120 = add i8 %119, -25
-  %spec.select.i.i.i.i.i.i.i.i.i.i45 = icmp ult i8 %120, 2
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i45, label %_ZNK5clang4Type21isFunctionPointerTypeEv.exit46.thread.sink.split, label %_ZNK5clang4Type21isFunctionPointerTypeEv.exit46.thread
+  %.0.i11.i42 = phi ptr [ %115, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i39 ], [ %104, %.thread.thread66 ]
+  %116 = getelementptr inbounds nuw i8, ptr %.0.i11.i42, i64 32
+  %.sroa.0.0.copyload.i.i43 = load i64, ptr %116, align 16
+  %117 = and i64 %.sroa.0.0.copyload.i.i43, -16
+  %118 = inttoptr i64 %117 to ptr
+  %119 = load ptr, ptr %118, align 16
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
+  %.sroa.0.0.copyload.i.i.i.i5.i44 = load i64, ptr %120, align 8
+  %121 = and i64 %.sroa.0.0.copyload.i.i.i.i5.i44, -16
+  %122 = inttoptr i64 %121 to ptr
+  %123 = load ptr, ptr %122, align 16
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
+  %125 = load i8, ptr %124, align 16
+  %126 = add i8 %125, -25
+  %spec.select.i.i.i.i.i.i.i.i.i.i45 = icmp ult i8 %126, 2
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i45, label %127, label %_ZNK5clang4Type21isFunctionPointerTypeEv.exit46.thread
 
-_ZNK5clang4Type21isFunctionPointerTypeEv.exit46.thread.sink.split: ; preds = %_ZNK5clang4Type21isFunctionPointerTypeEv.exit46, %_ZNK5clang4Type21isFunctionPointerTypeEv.exit
-  %.sink73 = phi i64 [ %2, %_ZNK5clang4Type21isFunctionPointerTypeEv.exit ], [ %3, %_ZNK5clang4Type21isFunctionPointerTypeEv.exit46 ]
-  %.sink70 = phi ptr [ %5, %_ZNK5clang4Type21isFunctionPointerTypeEv.exit ], [ %6, %_ZNK5clang4Type21isFunctionPointerTypeEv.exit46 ]
-  %.sink68 = phi ptr [ %7, %_ZNK5clang4Type21isFunctionPointerTypeEv.exit ], [ %8, %_ZNK5clang4Type21isFunctionPointerTypeEv.exit46 ]
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %122 = load ptr, ptr %121, align 8
-  %123 = tail call { i64, ptr } @_ZN5clang7CodeGen13CodeGenModule26getFunctionPointerAuthInfoENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(3600) %122, i64 %.sink73)
-  %124 = extractvalue { i64, ptr } %123, 0
-  %125 = extractvalue { i64, ptr } %123, 1
-  store i64 %124, ptr %.sink70, align 8
-  store ptr %125, ptr %.sink68, align 8
+127:                                              ; preds = %_ZNK5clang4Type21isFunctionPointerTypeEv.exit46
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %129 = load ptr, ptr %128, align 8
+  %130 = tail call { i64, ptr } @_ZN5clang7CodeGen13CodeGenModule26getFunctionPointerAuthInfoENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(3600) %129, i64 %3)
+  %131 = extractvalue { i64, ptr } %130, 0
+  %132 = extractvalue { i64, ptr } %130, 1
+  store i64 %131, ptr %6, align 8
+  store ptr %132, ptr %8, align 8
   br label %_ZNK5clang4Type21isFunctionPointerTypeEv.exit46.thread
 
-_ZNK5clang4Type21isFunctionPointerTypeEv.exit46.thread: ; preds = %_ZNK5clang4Type21isFunctionPointerTypeEv.exit46.thread.sink.split, %_ZNK5clang4Type21isFunctionPointerTypeEv.exit, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i, %78, %101, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i39, %_ZNK5clang4Type21isFunctionPointerTypeEv.exit46, %.thread
-  %126 = call noundef ptr @_ZN5clang7CodeGen15CodeGenFunction21emitPointerAuthResignEPN4llvm5ValueENS_8QualTypeERKNS0_17CGPointerAuthInfoES8_b(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %1, i64 %3, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, i1 noundef zeroext false)
+_ZNK5clang4Type21isFunctionPointerTypeEv.exit46.thread: ; preds = %_ZNK5clang4Type21isFunctionPointerTypeEv.exit, %98, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i, %78, %107, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i39, %127, %_ZNK5clang4Type21isFunctionPointerTypeEv.exit46, %.thread
+  %133 = call noundef ptr @_ZN5clang7CodeGen15CodeGenFunction21emitPointerAuthResignEPN4llvm5ValueENS_8QualTypeERKNS0_17CGPointerAuthInfoES8_b(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %1, i64 %3, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, i1 noundef zeroext false)
   br label %.thread63
 
 .thread63:                                        ; preds = %.thread59, %73, %_ZNK5clang4Type21isFunctionPointerTypeEv.exit46.thread
-  %.0 = phi ptr [ %126, %_ZNK5clang4Type21isFunctionPointerTypeEv.exit46.thread ], [ %1, %73 ], [ %1, %.thread59 ]
+  %.0 = phi ptr [ %133, %_ZNK5clang4Type21isFunctionPointerTypeEv.exit46.thread ], [ %1, %73 ], [ %1, %.thread59 ]
   ret ptr %.0
 }
 

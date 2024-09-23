@@ -2896,16 +2896,20 @@ if.then7.i:                                       ; preds = %if.end.i
 if.end25.i:                                       ; preds = %if.end.i
   store ptr %7, ptr %key, align 8
   %arrayidx30.i = getelementptr [1 x ptr], ptr %b_array.i, i64 0, i64 %add.i
-  br label %return.sink.split
+  %9 = load ptr, ptr %arrayidx30.i, align 8
+  store ptr %9, ptr %val, align 8
+  %add31.i = add i64 %4, 2
+  store i64 %add31.i, ptr %arrayidx2.i, align 8
+  br label %return
 
 if.else:                                          ; preds = %if.end
   %cmp.i12.not = icmp eq ptr %.val, @_PyHamt_ArrayNode_Type
   %arrayidx2.i18 = getelementptr [8 x i64], ptr %i_pos.i31, i64 0, i64 %idxprom
-  %9 = load i64, ptr %arrayidx2.i18, align 8
+  %10 = load i64, ptr %arrayidx2.i18, align 8
   br i1 %cmp.i12.not, label %if.then7, label %if.else9
 
 if.then7:                                         ; preds = %if.else
-  %cmp.i19 = icmp sgt i64 %9, 31
+  %cmp.i19 = icmp sgt i64 %10, 31
   br i1 %cmp.i19, label %if.then.i25, label %for.cond.i.preheader
 
 for.cond.i.preheader:                             ; preds = %if.then7
@@ -2918,10 +2922,10 @@ if.then.i25:                                      ; preds = %if.then7
   br label %tailrecurse.backedge
 
 for.body.i:                                       ; preds = %for.cond.i.preheader, %for.inc.i
-  %i.0.i47 = phi i64 [ %9, %for.cond.i.preheader ], [ %inc.i, %for.inc.i ]
+  %i.0.i47 = phi i64 [ %10, %for.cond.i.preheader ], [ %inc.i, %for.inc.i ]
   %arrayidx5.i21 = getelementptr [32 x ptr], ptr %a_array.i, i64 0, i64 %i.0.i47
-  %10 = load ptr, ptr %arrayidx5.i21, align 8
-  %cmp6.not.i = icmp eq ptr %10, null
+  %11 = load ptr, ptr %arrayidx5.i21, align 8
+  %cmp6.not.i = icmp eq ptr %11, null
   br i1 %cmp6.not.i, label %for.inc.i, label %if.then7.i22
 
 if.then7.i22:                                     ; preds = %for.body.i
@@ -2932,9 +2936,9 @@ if.then7.i22:                                     ; preds = %for.body.i
   %idxprom14.i = sext i8 %add11.i to i64
   %arrayidx15.i = getelementptr [8 x i64], ptr %i_pos.i31, i64 0, i64 %idxprom14.i
   store i64 0, ptr %arrayidx15.i, align 8
-  %11 = load ptr, ptr %arrayidx5.i21.le, align 8
+  %12 = load ptr, ptr %arrayidx5.i21.le, align 8
   %arrayidx20.i24 = getelementptr [8 x ptr], ptr %iter, i64 0, i64 %idxprom14.i
-  store ptr %11, ptr %arrayidx20.i24, align 8
+  store ptr %12, ptr %arrayidx20.i24, align 8
   store i8 %add11.i, ptr %i_level, align 8
   br label %tailrecurse.backedge
 
@@ -2949,9 +2953,9 @@ for.end.i:                                        ; preds = %for.inc.i
   br label %tailrecurse.backedge
 
 if.else9:                                         ; preds = %if.else
-  %add.i33 = add i64 %9, 1
-  %12 = getelementptr i8, ptr %2, i64 16
-  %.val.i34 = load i64, ptr %12, align 8
+  %add.i33 = add i64 %10, 1
+  %13 = getelementptr i8, ptr %2, i64 16
+  %.val.i34 = load i64, ptr %13, align 8
   %cmp.not.i36 = icmp slt i64 %add.i33, %.val.i34
   br i1 %cmp.not.i36, label %if.end.i41, label %if.then.i37
 
@@ -2963,24 +2967,18 @@ if.then.i37:                                      ; preds = %if.else9
 if.end.i41:                                       ; preds = %if.else9
   %arrayidx2.i32.le = getelementptr [8 x i64], ptr %i_pos.i31, i64 0, i64 %idxprom
   %c_array.i = getelementptr inbounds i8, ptr %2, i64 32
-  %arrayidx5.i42 = getelementptr [1 x ptr], ptr %c_array.i, i64 0, i64 %9
-  %13 = load ptr, ptr %arrayidx5.i42, align 8
-  store ptr %13, ptr %key, align 8
+  %arrayidx5.i42 = getelementptr [1 x ptr], ptr %c_array.i, i64 0, i64 %10
+  %14 = load ptr, ptr %arrayidx5.i42, align 8
+  store ptr %14, ptr %key, align 8
   %arrayidx8.i = getelementptr [1 x ptr], ptr %c_array.i, i64 0, i64 %add.i33
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.end25.i, %if.end.i41
-  %arrayidx8.i.sink = phi ptr [ %arrayidx8.i, %if.end.i41 ], [ %arrayidx30.i, %if.end25.i ]
-  %.lcssa.sink = phi i64 [ %9, %if.end.i41 ], [ %4, %if.end25.i ]
-  %arrayidx2.i32.le.sink = phi ptr [ %arrayidx2.i32.le, %if.end.i41 ], [ %arrayidx2.i, %if.end25.i ]
-  %14 = load ptr, ptr %arrayidx8.i.sink, align 8
-  store ptr %14, ptr %val, align 8
-  %add9.i = add i64 %.lcssa.sink, 2
-  store i64 %add9.i, ptr %arrayidx2.i32.le.sink, align 8
+  %15 = load ptr, ptr %arrayidx8.i, align 8
+  store ptr %15, ptr %val, align 8
+  %add9.i = add i64 %10, 2
+  store i64 %add9.i, ptr %arrayidx2.i32.le, align 8
   br label %return
 
-return:                                           ; preds = %tailrecurse.backedge, %return.sink.split, %entry
-  %retval.0 = phi i32 [ 1, %entry ], [ 0, %return.sink.split ], [ 1, %tailrecurse.backedge ]
+return:                                           ; preds = %tailrecurse.backedge, %entry, %if.end.i41, %if.end25.i
+  %retval.0 = phi i32 [ 0, %if.end25.i ], [ 0, %if.end.i41 ], [ 1, %entry ], [ 1, %tailrecurse.backedge ]
   ret i32 %retval.0
 }
 

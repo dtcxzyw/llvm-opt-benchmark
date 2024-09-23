@@ -344,7 +344,7 @@ define linkonce_odr hidden void @_ZN9metaspace9BlockTree21remove_node_from_treeE
   %6 = getelementptr inbounds i8, ptr %1, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %5, label %9, label %28
+  br i1 %5, label %9, label %31
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 8
@@ -375,147 +375,183 @@ define linkonce_odr hidden void @_ZN9metaspace9BlockTree21remove_node_from_treeE
   br label %_ZN9metaspace9BlockTree22replace_node_in_parentEPNS0_4NodeES2_.exit
 
 21:                                               ; preds = %9
-  br i1 %.not.i, label %_ZN9metaspace9BlockTree22replace_node_in_parentEPNS0_4NodeES2_.exit34, label %22
+  br i1 %.not.i, label %29, label %22
 
 22:                                               ; preds = %21
   %23 = getelementptr inbounds i8, ptr %11, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, %1
-  %26 = getelementptr inbounds i8, ptr %11, i64 24
-  %spec.select = select i1 %25, ptr %23, ptr %26
+  br i1 %25, label %26, label %27
+
+26:                                               ; preds = %22
+  store ptr %7, ptr %23, align 8
   br label %_ZN9metaspace9BlockTree22replace_node_in_parentEPNS0_4NodeES2_.exit34
 
-_ZN9metaspace9BlockTree22replace_node_in_parentEPNS0_4NodeES2_.exit34: ; preds = %22, %21
-  %.sink = phi ptr [ %0, %21 ], [ %spec.select, %22 ]
-  store ptr %7, ptr %.sink, align 8
-  %27 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr %11, ptr %27, align 8
+27:                                               ; preds = %22
+  %28 = getelementptr inbounds i8, ptr %11, i64 24
+  store ptr %7, ptr %28, align 8
+  br label %_ZN9metaspace9BlockTree22replace_node_in_parentEPNS0_4NodeES2_.exit34
+
+29:                                               ; preds = %21
+  store ptr %7, ptr %0, align 8
+  br label %_ZN9metaspace9BlockTree22replace_node_in_parentEPNS0_4NodeES2_.exit34
+
+_ZN9metaspace9BlockTree22replace_node_in_parentEPNS0_4NodeES2_.exit34: ; preds = %26, %27, %29
+  %30 = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr %11, ptr %30, align 8
   br label %_ZN9metaspace9BlockTree22replace_node_in_parentEPNS0_4NodeES2_.exit
 
-28:                                               ; preds = %2
-  br i1 %8, label %29, label %.preheader17.i.preheader
+31:                                               ; preds = %2
+  br i1 %8, label %32, label %.preheader17.i.preheader
 
-29:                                               ; preds = %28
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
-  %31 = load ptr, ptr %30, align 8
-  %.not.i35 = icmp eq ptr %31, null
-  br i1 %.not.i35, label %_ZN9metaspace9BlockTree22replace_node_in_parentEPNS0_4NodeES2_.exit41, label %32
-
-32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %31, i64 16
+32:                                               ; preds = %31
+  %33 = getelementptr inbounds i8, ptr %1, i64 8
   %34 = load ptr, ptr %33, align 8
-  %35 = icmp eq ptr %34, %1
-  %36 = getelementptr inbounds i8, ptr %31, i64 24
-  %spec.select69 = select i1 %35, ptr %33, ptr %36
+  %.not.i35 = icmp eq ptr %34, null
+  br i1 %.not.i35, label %42, label %35
+
+35:                                               ; preds = %32
+  %36 = getelementptr inbounds i8, ptr %34, i64 16
+  %37 = load ptr, ptr %36, align 8
+  %38 = icmp eq ptr %37, %1
+  br i1 %38, label %39, label %40
+
+39:                                               ; preds = %35
+  store ptr %4, ptr %36, align 8
   br label %_ZN9metaspace9BlockTree22replace_node_in_parentEPNS0_4NodeES2_.exit41
 
-_ZN9metaspace9BlockTree22replace_node_in_parentEPNS0_4NodeES2_.exit41: ; preds = %32, %29
-  %.sink66 = phi ptr [ %0, %29 ], [ %spec.select69, %32 ]
-  store ptr %4, ptr %.sink66, align 8
-  %37 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %31, ptr %37, align 8
+40:                                               ; preds = %35
+  %41 = getelementptr inbounds i8, ptr %34, i64 24
+  store ptr %4, ptr %41, align 8
+  br label %_ZN9metaspace9BlockTree22replace_node_in_parentEPNS0_4NodeES2_.exit41
+
+42:                                               ; preds = %32
+  store ptr %4, ptr %0, align 8
+  br label %_ZN9metaspace9BlockTree22replace_node_in_parentEPNS0_4NodeES2_.exit41
+
+_ZN9metaspace9BlockTree22replace_node_in_parentEPNS0_4NodeES2_.exit41: ; preds = %39, %40, %42
+  %43 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %34, ptr %43, align 8
   br label %_ZN9metaspace9BlockTree22replace_node_in_parentEPNS0_4NodeES2_.exit
 
-.preheader17.i.preheader:                         ; preds = %28
-  %38 = getelementptr inbounds i8, ptr %1, i64 24
+.preheader17.i.preheader:                         ; preds = %31
+  %44 = getelementptr inbounds i8, ptr %1, i64 24
   br label %.preheader17.i
 
 .preheader17.i:                                   ; preds = %.preheader17.i.preheader, %.preheader17.i
-  %.012.i = phi ptr [ %40, %.preheader17.i ], [ %7, %.preheader17.i.preheader ]
-  %39 = getelementptr inbounds i8, ptr %.012.i, i64 16
-  %40 = load ptr, ptr %39, align 8
-  %.not16.i = icmp eq ptr %40, null
+  %.012.i = phi ptr [ %46, %.preheader17.i ], [ %7, %.preheader17.i.preheader ]
+  %45 = getelementptr inbounds i8, ptr %.012.i, i64 16
+  %46 = load ptr, ptr %45, align 8
+  %.not16.i = icmp eq ptr %46, null
   br i1 %.not16.i, label %_ZN9metaspace9BlockTree9successorEPNS0_4NodeE.exit, label %.preheader17.i, !llvm.loop !10
 
 _ZN9metaspace9BlockTree9successorEPNS0_4NodeE.exit: ; preds = %.preheader17.i
-  %41 = getelementptr inbounds i8, ptr %.012.i, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = icmp eq ptr %42, %1
-  br i1 %43, label %44, label %56
+  %47 = getelementptr inbounds i8, ptr %.012.i, i64 8
+  %48 = load ptr, ptr %47, align 8
+  %49 = icmp eq ptr %48, %1
+  br i1 %49, label %50, label %65
 
-44:                                               ; preds = %_ZN9metaspace9BlockTree9successorEPNS0_4NodeE.exit
-  %45 = getelementptr inbounds i8, ptr %1, i64 8
-  %46 = load ptr, ptr %45, align 8
-  %.not.i43 = icmp eq ptr %46, null
-  br i1 %.not.i43, label %_ZN9metaspace9BlockTree22replace_node_in_parentEPNS0_4NodeES2_.exit49, label %47
+50:                                               ; preds = %_ZN9metaspace9BlockTree9successorEPNS0_4NodeE.exit
+  %51 = getelementptr inbounds i8, ptr %1, i64 8
+  %52 = load ptr, ptr %51, align 8
+  %.not.i43 = icmp eq ptr %52, null
+  br i1 %.not.i43, label %60, label %53
 
-47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %46, i64 16
-  %49 = load ptr, ptr %48, align 8
-  %50 = icmp eq ptr %49, %1
-  %51 = getelementptr inbounds i8, ptr %46, i64 24
-  %spec.select70 = select i1 %50, ptr %48, ptr %51
+53:                                               ; preds = %50
+  %54 = getelementptr inbounds i8, ptr %52, i64 16
+  %55 = load ptr, ptr %54, align 8
+  %56 = icmp eq ptr %55, %1
+  br i1 %56, label %57, label %58
+
+57:                                               ; preds = %53
+  store ptr %.012.i, ptr %54, align 8
   br label %_ZN9metaspace9BlockTree22replace_node_in_parentEPNS0_4NodeES2_.exit49
 
-_ZN9metaspace9BlockTree22replace_node_in_parentEPNS0_4NodeES2_.exit49: ; preds = %47, %44
-  %.sink67 = phi ptr [ %0, %44 ], [ %spec.select70, %47 ]
-  store ptr %.012.i, ptr %.sink67, align 8
-  store ptr %46, ptr %41, align 8
-  %52 = load ptr, ptr %3, align 8
-  %53 = getelementptr inbounds i8, ptr %.012.i, i64 16
-  store ptr %52, ptr %53, align 8
-  %.not.i50 = icmp eq ptr %52, null
-  br i1 %.not.i50, label %_ZN9metaspace9BlockTree22replace_node_in_parentEPNS0_4NodeES2_.exit, label %54
+58:                                               ; preds = %53
+  %59 = getelementptr inbounds i8, ptr %52, i64 24
+  store ptr %.012.i, ptr %59, align 8
+  br label %_ZN9metaspace9BlockTree22replace_node_in_parentEPNS0_4NodeES2_.exit49
 
-54:                                               ; preds = %_ZN9metaspace9BlockTree22replace_node_in_parentEPNS0_4NodeES2_.exit49
-  %55 = getelementptr inbounds i8, ptr %52, i64 8
-  store ptr %.012.i, ptr %55, align 8
+60:                                               ; preds = %50
+  store ptr %.012.i, ptr %0, align 8
+  br label %_ZN9metaspace9BlockTree22replace_node_in_parentEPNS0_4NodeES2_.exit49
+
+_ZN9metaspace9BlockTree22replace_node_in_parentEPNS0_4NodeES2_.exit49: ; preds = %57, %58, %60
+  store ptr %52, ptr %47, align 8
+  %61 = load ptr, ptr %3, align 8
+  %62 = getelementptr inbounds i8, ptr %.012.i, i64 16
+  store ptr %61, ptr %62, align 8
+  %.not.i50 = icmp eq ptr %61, null
+  br i1 %.not.i50, label %_ZN9metaspace9BlockTree22replace_node_in_parentEPNS0_4NodeES2_.exit, label %63
+
+63:                                               ; preds = %_ZN9metaspace9BlockTree22replace_node_in_parentEPNS0_4NodeES2_.exit49
+  %64 = getelementptr inbounds i8, ptr %61, i64 8
+  store ptr %.012.i, ptr %64, align 8
   br label %_ZN9metaspace9BlockTree22replace_node_in_parentEPNS0_4NodeES2_.exit
 
-56:                                               ; preds = %_ZN9metaspace9BlockTree9successorEPNS0_4NodeE.exit
-  %57 = getelementptr inbounds i8, ptr %.012.i, i64 24
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %42, i64 16
-  store ptr %58, ptr %59, align 8
-  %.not.i51 = icmp eq ptr %58, null
-  br i1 %.not.i51, label %_ZN9metaspace9BlockTree14set_left_childEPNS0_4NodeES2_.exit52, label %60
+65:                                               ; preds = %_ZN9metaspace9BlockTree9successorEPNS0_4NodeE.exit
+  %66 = getelementptr inbounds i8, ptr %.012.i, i64 24
+  %67 = load ptr, ptr %66, align 8
+  %68 = getelementptr inbounds i8, ptr %48, i64 16
+  store ptr %67, ptr %68, align 8
+  %.not.i51 = icmp eq ptr %67, null
+  br i1 %.not.i51, label %_ZN9metaspace9BlockTree14set_left_childEPNS0_4NodeES2_.exit52, label %69
 
-60:                                               ; preds = %56
-  %61 = getelementptr inbounds i8, ptr %58, i64 8
-  store ptr %42, ptr %61, align 8
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds i8, ptr %67, i64 8
+  store ptr %48, ptr %70, align 8
   br label %_ZN9metaspace9BlockTree14set_left_childEPNS0_4NodeES2_.exit52
 
-_ZN9metaspace9BlockTree14set_left_childEPNS0_4NodeES2_.exit52: ; preds = %56, %60
-  %62 = getelementptr inbounds i8, ptr %1, i64 8
-  %63 = load ptr, ptr %62, align 8
-  %.not.i53 = icmp eq ptr %63, null
-  br i1 %.not.i53, label %_ZN9metaspace9BlockTree22replace_node_in_parentEPNS0_4NodeES2_.exit59, label %64
+_ZN9metaspace9BlockTree14set_left_childEPNS0_4NodeES2_.exit52: ; preds = %65, %69
+  %71 = getelementptr inbounds i8, ptr %1, i64 8
+  %72 = load ptr, ptr %71, align 8
+  %.not.i53 = icmp eq ptr %72, null
+  br i1 %.not.i53, label %80, label %73
 
-64:                                               ; preds = %_ZN9metaspace9BlockTree14set_left_childEPNS0_4NodeES2_.exit52
-  %65 = getelementptr inbounds i8, ptr %63, i64 16
-  %66 = load ptr, ptr %65, align 8
-  %67 = icmp eq ptr %66, %1
-  %68 = getelementptr inbounds i8, ptr %63, i64 24
-  %spec.select71 = select i1 %67, ptr %65, ptr %68
+73:                                               ; preds = %_ZN9metaspace9BlockTree14set_left_childEPNS0_4NodeES2_.exit52
+  %74 = getelementptr inbounds i8, ptr %72, i64 16
+  %75 = load ptr, ptr %74, align 8
+  %76 = icmp eq ptr %75, %1
+  br i1 %76, label %77, label %78
+
+77:                                               ; preds = %73
+  store ptr %.012.i, ptr %74, align 8
   br label %_ZN9metaspace9BlockTree22replace_node_in_parentEPNS0_4NodeES2_.exit59
 
-_ZN9metaspace9BlockTree22replace_node_in_parentEPNS0_4NodeES2_.exit59: ; preds = %64, %_ZN9metaspace9BlockTree14set_left_childEPNS0_4NodeES2_.exit52
-  %.sink68 = phi ptr [ %0, %_ZN9metaspace9BlockTree14set_left_childEPNS0_4NodeES2_.exit52 ], [ %spec.select71, %64 ]
-  store ptr %.012.i, ptr %.sink68, align 8
-  store ptr %63, ptr %41, align 8
-  %69 = load ptr, ptr %3, align 8
-  %70 = getelementptr inbounds i8, ptr %.012.i, i64 16
-  store ptr %69, ptr %70, align 8
-  %.not.i60 = icmp eq ptr %69, null
-  br i1 %.not.i60, label %_ZN9metaspace9BlockTree14set_left_childEPNS0_4NodeES2_.exit61, label %71
+78:                                               ; preds = %73
+  %79 = getelementptr inbounds i8, ptr %72, i64 24
+  store ptr %.012.i, ptr %79, align 8
+  br label %_ZN9metaspace9BlockTree22replace_node_in_parentEPNS0_4NodeES2_.exit59
 
-71:                                               ; preds = %_ZN9metaspace9BlockTree22replace_node_in_parentEPNS0_4NodeES2_.exit59
-  %72 = getelementptr inbounds i8, ptr %69, i64 8
-  store ptr %.012.i, ptr %72, align 8
+80:                                               ; preds = %_ZN9metaspace9BlockTree14set_left_childEPNS0_4NodeES2_.exit52
+  store ptr %.012.i, ptr %0, align 8
+  br label %_ZN9metaspace9BlockTree22replace_node_in_parentEPNS0_4NodeES2_.exit59
+
+_ZN9metaspace9BlockTree22replace_node_in_parentEPNS0_4NodeES2_.exit59: ; preds = %77, %78, %80
+  store ptr %72, ptr %47, align 8
+  %81 = load ptr, ptr %3, align 8
+  %82 = getelementptr inbounds i8, ptr %.012.i, i64 16
+  store ptr %81, ptr %82, align 8
+  %.not.i60 = icmp eq ptr %81, null
+  br i1 %.not.i60, label %_ZN9metaspace9BlockTree14set_left_childEPNS0_4NodeES2_.exit61, label %83
+
+83:                                               ; preds = %_ZN9metaspace9BlockTree22replace_node_in_parentEPNS0_4NodeES2_.exit59
+  %84 = getelementptr inbounds i8, ptr %81, i64 8
+  store ptr %.012.i, ptr %84, align 8
   br label %_ZN9metaspace9BlockTree14set_left_childEPNS0_4NodeES2_.exit61
 
-_ZN9metaspace9BlockTree14set_left_childEPNS0_4NodeES2_.exit61: ; preds = %_ZN9metaspace9BlockTree22replace_node_in_parentEPNS0_4NodeES2_.exit59, %71
-  %73 = load ptr, ptr %38, align 8
-  store ptr %73, ptr %57, align 8
-  %.not.i62 = icmp eq ptr %73, null
-  br i1 %.not.i62, label %_ZN9metaspace9BlockTree22replace_node_in_parentEPNS0_4NodeES2_.exit, label %74
+_ZN9metaspace9BlockTree14set_left_childEPNS0_4NodeES2_.exit61: ; preds = %_ZN9metaspace9BlockTree22replace_node_in_parentEPNS0_4NodeES2_.exit59, %83
+  %85 = load ptr, ptr %44, align 8
+  store ptr %85, ptr %66, align 8
+  %.not.i62 = icmp eq ptr %85, null
+  br i1 %.not.i62, label %_ZN9metaspace9BlockTree22replace_node_in_parentEPNS0_4NodeES2_.exit, label %86
 
-74:                                               ; preds = %_ZN9metaspace9BlockTree14set_left_childEPNS0_4NodeES2_.exit61
-  %75 = getelementptr inbounds i8, ptr %73, i64 8
-  store ptr %.012.i, ptr %75, align 8
+86:                                               ; preds = %_ZN9metaspace9BlockTree14set_left_childEPNS0_4NodeES2_.exit61
+  %87 = getelementptr inbounds i8, ptr %85, i64 8
+  store ptr %.012.i, ptr %87, align 8
   br label %_ZN9metaspace9BlockTree22replace_node_in_parentEPNS0_4NodeES2_.exit
 
-_ZN9metaspace9BlockTree22replace_node_in_parentEPNS0_4NodeES2_.exit: ; preds = %74, %_ZN9metaspace9BlockTree14set_left_childEPNS0_4NodeES2_.exit61, %54, %_ZN9metaspace9BlockTree22replace_node_in_parentEPNS0_4NodeES2_.exit49, %20, %18, %17, %_ZN9metaspace9BlockTree22replace_node_in_parentEPNS0_4NodeES2_.exit34, %_ZN9metaspace9BlockTree22replace_node_in_parentEPNS0_4NodeES2_.exit41
+_ZN9metaspace9BlockTree22replace_node_in_parentEPNS0_4NodeES2_.exit: ; preds = %86, %_ZN9metaspace9BlockTree14set_left_childEPNS0_4NodeES2_.exit61, %63, %_ZN9metaspace9BlockTree22replace_node_in_parentEPNS0_4NodeES2_.exit49, %20, %18, %17, %_ZN9metaspace9BlockTree22replace_node_in_parentEPNS0_4NodeES2_.exit34, %_ZN9metaspace9BlockTree22replace_node_in_parentEPNS0_4NodeES2_.exit41
   ret void
 }
 

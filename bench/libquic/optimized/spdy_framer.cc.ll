@@ -3132,7 +3132,7 @@ cleanup.action:                                   ; preds = %cond.false
   br label %if.end28
 
 common.resume:                                    ; preds = %lpad8.i32, %lpad8.i, %lpad19
-  %common.resume.op = phi { ptr, i32 } [ %1, %lpad19 ], [ %10, %lpad8.i ], [ %34, %lpad8.i32 ]
+  %common.resume.op = phi { ptr, i32 } [ %1, %lpad19 ], [ %10, %lpad8.i ], [ %33, %lpad8.i32 ]
   resume { ptr, i32 } %common.resume.op
 
 lpad19:                                           ; preds = %cond.false
@@ -3305,31 +3305,31 @@ if.end15.i:                                       ; preds = %if.end12.i, %if.els
   br i1 %cmp.not.i, label %if.end56, label %while.body.i, !llvm.loop !8
 
 if.end56.thread:                                  ; preds = %if.then39, %if.end15.thread.i
-  %visitor_.i22.sink = phi ptr [ %visitor_.i22, %if.then39 ], [ %visitor_.i25, %if.end15.thread.i ]
-  %25 = load ptr, ptr %visitor_.i22.sink, align 8
-  %vtable.i23 = load ptr, ptr %25, align 8
+  %.sink68.in = phi ptr [ %visitor_.i22, %if.then39 ], [ %visitor_.i25, %if.end15.thread.i ]
+  %.sink68 = load ptr, ptr %.sink68.in, align 8
+  %vtable.i23 = load ptr, ptr %.sink68, align 8
   %vfn.i24 = getelementptr inbounds i8, ptr %vtable.i23, i64 16
-  %26 = load ptr, ptr %vfn.i24, align 8
-  call void %26(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull %this)
-  %27 = load i64, ptr %remaining_data_length_, align 8
-  %sub5861 = sub i64 %27, %.sroa.speculated
+  %25 = load ptr, ptr %vfn.i24, align 8
+  call void %25(ptr noundef nonnull align 8 dereferenceable(8) %.sink68, ptr noundef nonnull %this)
+  %26 = load i64, ptr %remaining_data_length_, align 8
+  %sub5861 = sub i64 %26, %.sroa.speculated
   store i64 %sub5861, ptr %remaining_data_length_, align 8
   br label %return
 
 if.end56:                                         ; preds = %if.end15.i, %if.else41, %if.then47, %_ZN3net10SpdyFramer15GetHpackDecoderEv.exit
   %processed_successfully.0.shrunk = phi i1 [ true, %_ZN3net10SpdyFramer15GetHpackDecoderEv.exit ], [ %call48, %if.then47 ], [ true, %if.else41 ], [ true, %if.end15.i ]
-  %28 = load i64, ptr %remaining_data_length_, align 8
-  %sub58 = sub i64 %28, %.sroa.speculated
+  %27 = load i64, ptr %remaining_data_length_, align 8
+  %sub58 = sub i64 %27, %.sroa.speculated
   store i64 %sub58, ptr %remaining_data_length_, align 8
-  %29 = load i64, ptr %remaining_padding_payload_length_, align 8
-  %cmp61 = icmp eq i64 %sub58, %29
+  %28 = load i64, ptr %remaining_padding_payload_length_, align 8
+  %cmp61 = icmp eq i64 %sub58, %28
   %brmerge.not = and i1 %processed_successfully.0.shrunk, %cmp61
   br i1 %brmerge.not, label %if.then64, label %if.end122
 
 if.then64:                                        ; preds = %if.end56
   %expect_continuation_ = getelementptr inbounds i8, ptr %this, i64 100
-  %30 = load i32, ptr %expect_continuation_, align 4
-  %cmp65 = icmp eq i32 %30, 0
+  %29 = load i32, ptr %expect_continuation_, align 4
+  %cmp65 = icmp eq i32 %29, 0
   br i1 %cmp65, label %if.then66, label %if.end122.thread65
 
 if.then66:                                        ; preds = %if.then64
@@ -3338,8 +3338,8 @@ if.then66:                                        ; preds = %if.then64
 if.then68:                                        ; preds = %if.then66
   store i64 0, ptr %compressed_len, align 8
   %hpack_decoder_.i28 = getelementptr inbounds i8, ptr %this, i64 168
-  %31 = load ptr, ptr %hpack_decoder_.i28, align 8
-  %cmp.i29 = icmp eq ptr %31, null
+  %30 = load ptr, ptr %hpack_decoder_.i28, align 8
+  %cmp.i29 = icmp eq ptr %30, null
   br i1 %cmp.i29, label %if.then5.i30, label %_ZN3net10SpdyFramer15GetHpackDecoderEv.exit39
 
 if.then5.i30:                                     ; preds = %if.then68
@@ -3348,56 +3348,56 @@ if.then5.i30:                                     ; preds = %if.then68
           to label %invoke.cont9.i33 unwind label %lpad8.i32
 
 invoke.cont9.i33:                                 ; preds = %if.then5.i30
-  %32 = load ptr, ptr %hpack_decoder_.i28, align 8
+  %31 = load ptr, ptr %hpack_decoder_.i28, align 8
   store ptr %call7.i31, ptr %hpack_decoder_.i28, align 8
-  %tobool.not.i.i.i34 = icmp eq ptr %32, null
+  %tobool.not.i.i.i34 = icmp eq ptr %31, null
   br i1 %tobool.not.i.i.i34, label %_ZN3net10SpdyFramer15GetHpackDecoderEv.exit39, label %_ZNKSt14default_deleteIN3net21HpackDecoderInterfaceEEclEPS1_.exit.i.i.i35
 
 _ZNKSt14default_deleteIN3net21HpackDecoderInterfaceEEclEPS1_.exit.i.i.i35: ; preds = %invoke.cont9.i33
-  %vtable.i.i.i.i36 = load ptr, ptr %32, align 8
+  %vtable.i.i.i.i36 = load ptr, ptr %31, align 8
   %vfn.i.i.i.i37 = getelementptr inbounds i8, ptr %vtable.i.i.i.i36, i64 8
-  %33 = load ptr, ptr %vfn.i.i.i.i37, align 8
-  call void %33(ptr noundef nonnull align 8 dereferenceable(8) %32) #24
+  %32 = load ptr, ptr %vfn.i.i.i.i37, align 8
+  call void %32(ptr noundef nonnull align 8 dereferenceable(8) %31) #24
   %.pre.i38 = load ptr, ptr %hpack_decoder_.i28, align 8
   br label %_ZN3net10SpdyFramer15GetHpackDecoderEv.exit39
 
 lpad8.i32:                                        ; preds = %if.then5.i30
-  %34 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call7.i31) #26
   br label %common.resume
 
 _ZN3net10SpdyFramer15GetHpackDecoderEv.exit39:    ; preds = %if.then68, %invoke.cont9.i33, %_ZNKSt14default_deleteIN3net21HpackDecoderInterfaceEEclEPS1_.exit.i.i.i35
-  %35 = phi ptr [ %.pre.i38, %_ZNKSt14default_deleteIN3net21HpackDecoderInterfaceEEclEPS1_.exit.i.i.i35 ], [ %call7.i31, %invoke.cont9.i33 ], [ %31, %if.then68 ]
-  %vtable70 = load ptr, ptr %35, align 8
+  %34 = phi ptr [ %.pre.i38, %_ZNKSt14default_deleteIN3net21HpackDecoderInterfaceEEclEPS1_.exit.i.i.i35 ], [ %call7.i31, %invoke.cont9.i33 ], [ %30, %if.then68 ]
+  %vtable70 = load ptr, ptr %34, align 8
   %vfn71 = getelementptr inbounds i8, ptr %vtable70, i64 40
-  %36 = load ptr, ptr %vfn71, align 8
-  %call72 = call noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull %compressed_len)
+  %35 = load ptr, ptr %vfn71, align 8
+  %call72 = call noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull %compressed_len)
   br i1 %call72, label %if.then73, label %if.end106.thread
 
 if.then73:                                        ; preds = %_ZN3net10SpdyFramer15GetHpackDecoderEv.exit39
   %use_new_methods_ = getelementptr inbounds i8, ptr %this, i64 258
-  %37 = load i8, ptr %use_new_methods_, align 2
-  %tobool74 = trunc i8 %37 to i1
+  %36 = load i8, ptr %use_new_methods_, align 2
+  %tobool74 = trunc i8 %36 to i1
   br i1 %tobool74, label %if.then75, label %if.else82
 
 if.then75:                                        ; preds = %if.then73
   %visitor_ = getelementptr inbounds i8, ptr %this, i64 176
-  %38 = load ptr, ptr %visitor_, align 8
+  %37 = load ptr, ptr %visitor_, align 8
   %current_frame_stream_id_76 = getelementptr inbounds i8, ptr %this, i64 96
-  %39 = load i32, ptr %current_frame_stream_id_76, align 8
-  %vtable77 = load ptr, ptr %38, align 8
+  %38 = load i32, ptr %current_frame_stream_id_76, align 8
+  %vtable77 = load ptr, ptr %37, align 8
   %vfn78 = getelementptr inbounds i8, ptr %vtable77, i64 72
-  %40 = load ptr, ptr %vfn78, align 8
-  call void %40(ptr noundef nonnull align 8 dereferenceable(8) %38, i32 noundef %39, i1 noundef zeroext true)
+  %39 = load ptr, ptr %vfn78, align 8
+  call void %39(ptr noundef nonnull align 8 dereferenceable(8) %37, i32 noundef %38, i1 noundef zeroext true)
   %state_ = getelementptr inbounds i8, ptr %this, i64 8
-  %41 = load i32, ptr %state_, align 8
-  %cmp79 = icmp eq i32 %41, 0
+  %40 = load i32, ptr %state_, align 8
+  %cmp79 = icmp eq i32 %40, 0
   br i1 %cmp79, label %return, label %if.end122.thread65
 
 if.else82:                                        ; preds = %if.then73
-  %42 = load i64, ptr %compressed_len, align 8
-  call void @_ZN3net10SpdyFramer29DeliverHpackBlockAsSpdy3BlockEm(ptr noundef nonnull align 8 dereferenceable(259) %this, i64 noundef %42)
+  %41 = load i64, ptr %compressed_len, align 8
+  call void @_ZN3net10SpdyFramer29DeliverHpackBlockAsSpdy3BlockEm(ptr noundef nonnull align 8 dereferenceable(259) %this, i64 noundef %41)
   br label %return
 
 if.end106.thread:                                 ; preds = %_ZN3net10SpdyFramer15GetHpackDecoderEv.exit39
@@ -3407,60 +3407,60 @@ if.end106.thread:                                 ; preds = %_ZN3net10SpdyFramer
   %end_stream_when_done_.i42 = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_.i42, align 8
   %state_.i43 = getelementptr inbounds i8, ptr %this, i64 8
-  %43 = load i32, ptr %state_.i43, align 8
+  %42 = load i32, ptr %state_.i43, align 8
   %previous_state_.i44 = getelementptr inbounds i8, ptr %this, i64 12
-  store i32 %43, ptr %previous_state_.i44, align 4
+  store i32 %42, ptr %previous_state_.i44, align 4
   store i32 0, ptr %state_.i43, align 8
   %visitor_.i45 = getelementptr inbounds i8, ptr %this, i64 176
-  %44 = load ptr, ptr %visitor_.i45, align 8
-  %vtable.i46 = load ptr, ptr %44, align 8
+  %43 = load ptr, ptr %visitor_.i45, align 8
+  %vtable.i46 = load ptr, ptr %43, align 8
   %vfn.i47 = getelementptr inbounds i8, ptr %vtable.i46, i64 16
-  %45 = load ptr, ptr %vfn.i47, align 8
-  call void %45(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull %this)
+  %44 = load ptr, ptr %vfn.i47, align 8
+  call void %44(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull %this)
   br label %return
 
 if.else86:                                        ; preds = %if.then66
   %use_new_methods_87 = getelementptr inbounds i8, ptr %this, i64 258
-  %46 = load i8, ptr %use_new_methods_87, align 2
-  %tobool88 = trunc i8 %46 to i1
+  %45 = load i8, ptr %use_new_methods_87, align 2
+  %tobool88 = trunc i8 %45 to i1
   %visitor_90 = getelementptr inbounds i8, ptr %this, i64 176
-  %47 = load ptr, ptr %visitor_90, align 8
+  %46 = load ptr, ptr %visitor_90, align 8
   %current_frame_stream_id_91 = getelementptr inbounds i8, ptr %this, i64 96
-  %48 = load i32, ptr %current_frame_stream_id_91, align 8
-  %vtable92 = load ptr, ptr %47, align 8
+  %47 = load i32, ptr %current_frame_stream_id_91, align 8
+  %vtable92 = load ptr, ptr %46, align 8
   br i1 %tobool88, label %if.then89, label %if.else98
 
 if.then89:                                        ; preds = %if.else86
   %vfn93 = getelementptr inbounds i8, ptr %vtable92, i64 72
-  %49 = load ptr, ptr %vfn93, align 8
-  call void %49(ptr noundef nonnull align 8 dereferenceable(8) %47, i32 noundef %48, i1 noundef zeroext true)
+  %48 = load ptr, ptr %vfn93, align 8
+  call void %48(ptr noundef nonnull align 8 dereferenceable(8) %46, i32 noundef %47, i1 noundef zeroext true)
   %state_94 = getelementptr inbounds i8, ptr %this, i64 8
-  %50 = load i32, ptr %state_94, align 8
-  %cmp95 = icmp eq i32 %50, 0
+  %49 = load i32, ptr %state_94, align 8
+  %cmp95 = icmp eq i32 %49, 0
   br i1 %cmp95, label %return, label %if.end122.thread65
 
 if.else98:                                        ; preds = %if.else86
   %vfn102 = getelementptr inbounds i8, ptr %vtable92, i64 80
-  %51 = load ptr, ptr %vfn102, align 8
-  %call103 = call noundef zeroext i1 %51(ptr noundef nonnull align 8 dereferenceable(8) %47, i32 noundef %48, ptr noundef null, i64 noundef 0)
+  %50 = load ptr, ptr %vfn102, align 8
+  %call103 = call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(8) %46, i32 noundef %47, ptr noundef null, i64 noundef 0)
   br label %if.end122.thread65
 
 if.end122.thread65:                               ; preds = %if.then75, %if.then89, %if.else98, %if.then64
   %state_119 = getelementptr inbounds i8, ptr %this, i64 8
-  %52 = load i32, ptr %state_119, align 8
+  %51 = load i32, ptr %state_119, align 8
   %previous_state_ = getelementptr inbounds i8, ptr %this, i64 12
-  store i32 %52, ptr %previous_state_, align 4
+  store i32 %51, ptr %previous_state_, align 4
   store i32 6, ptr %state_119, align 8
-  br label %53
+  br label %52
 
 if.end122:                                        ; preds = %if.end56
-  br i1 %processed_successfully.0.shrunk, label %53, label %return
+  br i1 %processed_successfully.0.shrunk, label %52, label %return
 
-53:                                               ; preds = %if.end122.thread65, %if.end122
+52:                                               ; preds = %if.end122.thread65, %if.end122
   br label %return
 
-return:                                           ; preds = %if.end56.thread, %if.end106.thread, %53, %if.end122, %if.then89, %if.then75, %if.else82, %if.then30
-  %retval.0 = phi i64 [ %data_len, %if.then30 ], [ %.sroa.speculated, %if.else82 ], [ %data_len, %if.then75 ], [ %data_len, %if.then89 ], [ %.sroa.speculated, %53 ], [ %data_len, %if.end122 ], [ %data_len, %if.end106.thread ], [ %data_len, %if.end56.thread ]
+return:                                           ; preds = %if.end56.thread, %if.end106.thread, %52, %if.end122, %if.then89, %if.then75, %if.else82, %if.then30
+  %retval.0 = phi i64 [ %data_len, %if.then30 ], [ %.sroa.speculated, %if.else82 ], [ %data_len, %if.then75 ], [ %data_len, %if.then89 ], [ %.sroa.speculated, %52 ], [ %data_len, %if.end122 ], [ %data_len, %if.end106.thread ], [ %data_len, %if.end56.thread ]
   ret i64 %retval.0
 }
 
@@ -7645,12 +7645,12 @@ if.end68:                                         ; preds = %if.end63, %if.then6
   br i1 %21, label %while.body, label %return, !llvm.loop !26
 
 return.sink.split:                                ; preds = %cleanup.done, %if.end68.thread
-  %visitor_.i34.sink = phi ptr [ %visitor_.i34, %if.end68.thread ], [ %visitor_.i, %cleanup.done ]
-  %22 = load ptr, ptr %visitor_.i34.sink, align 8
-  %vtable.i35 = load ptr, ptr %22, align 8
+  %.sink49.in = phi ptr [ %visitor_.i34, %if.end68.thread ], [ %visitor_.i, %cleanup.done ]
+  %.sink49 = load ptr, ptr %.sink49.in, align 8
+  %vtable.i35 = load ptr, ptr %.sink49, align 8
   %vfn.i36 = getelementptr inbounds i8, ptr %vtable.i35, i64 16
-  %23 = load ptr, ptr %vfn.i36, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull %this)
+  %22 = load ptr, ptr %vfn.i36, align 8
+  call void %22(ptr noundef nonnull align 8 dereferenceable(8) %.sink49, ptr noundef nonnull %this)
   br label %return
 
 return:                                           ; preds = %if.end68, %return.sink.split, %if.end18

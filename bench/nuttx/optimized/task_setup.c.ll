@@ -201,16 +201,25 @@ nxtask_save_parent.exit:                          ; preds = %58, %71, %89, %.thr
   %102 = load ptr, ptr @g_inactivetasks, align 8
   store ptr %102, ptr %0, align 8
   %.not = icmp eq ptr %102, null
-  %103 = getelementptr inbounds i8, ptr %102, i64 8
-  %.sink = select i1 %.not, ptr getelementptr inbounds (i8, ptr @g_inactivetasks, i64 8), ptr %103
-  store ptr %0, ptr %.sink, align 8
+  br i1 %.not, label %103, label %104
+
+103:                                              ; preds = %nxtask_save_parent.exit
+  store ptr %0, ptr getelementptr inbounds (i8, ptr @g_inactivetasks, i64 8), align 8
+  br label %106
+
+104:                                              ; preds = %nxtask_save_parent.exit
+  %105 = getelementptr inbounds i8, ptr %102, i64 8
+  store ptr %0, ptr %105, align 8
+  br label %106
+
+106:                                              ; preds = %103, %104
   store ptr %0, ptr @g_inactivetasks, align 8
   store i8 4, ptr %99, align 16
-  %104 = call i32 @sched_unlock() #9
+  %107 = call i32 @sched_unlock() #9
   br label %nxtask_assign_pid.exit
 
-nxtask_assign_pid.exit:                           ; preds = %39, %37, %nxtask_save_parent.exit
-  %.0.i34 = phi i32 [ 0, %nxtask_save_parent.exit ], [ -12, %37 ], [ -12, %39 ]
+nxtask_assign_pid.exit:                           ; preds = %39, %37, %106
+  %.0.i34 = phi i32 [ 0, %106 ], [ -12, %37 ], [ -12, %39 ]
   ret i32 %.0.i34
 }
 

@@ -5206,6 +5206,7 @@ _ZN4llvm13MCInstBuilderD2Ev.exit81:               ; preds = %_ZN4llvm13MCInstBui
   %657 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 1, ptr %657, align 1
   store ptr @.str.45, ptr %4, align 8
+  store i8 3, ptr %656, align 8
   br label %.sink.split.i.i
 
 658:                                              ; preds = %654
@@ -5213,12 +5214,11 @@ _ZN4llvm13MCInstBuilderD2Ev.exit81:               ; preds = %_ZN4llvm13MCInstBui
   %660 = getelementptr inbounds nuw i8, ptr %5, i64 33
   store i8 1, ptr %660, align 1
   store ptr @.str.46, ptr %5, align 8
+  store i8 3, ptr %659, align 8
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %658, %655
-  %.sink6.i.i = phi ptr [ %659, %658 ], [ %656, %655 ]
   %.sink.i.i = phi ptr [ %5, %658 ], [ %4, %655 ]
-  store i8 3, ptr %.sink6.i.i, align 8
   %661 = load ptr, ptr %23, align 8
   %662 = getelementptr inbounds i8, ptr %661, i64 136
   %663 = load ptr, ptr %662, align 8
@@ -5800,6 +5800,7 @@ _ZL11emitX86NopsRN4llvm10MCStreamerEjPKNS_12X86SubtargetE.exit: ; preds = %.lr.p
   %105 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 1, ptr %105, align 1
   store ptr @.str.45, ptr %4, align 8
+  store i8 3, ptr %104, align 8
   br label %.sink.split.i.i
 
 106:                                              ; preds = %102
@@ -5807,12 +5808,11 @@ _ZL11emitX86NopsRN4llvm10MCStreamerEjPKNS_12X86SubtargetE.exit: ; preds = %.lr.p
   %108 = getelementptr inbounds nuw i8, ptr %5, i64 33
   store i8 1, ptr %108, align 1
   store ptr @.str.46, ptr %5, align 8
+  store i8 3, ptr %107, align 8
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %106, %103
-  %.sink6.i.i = phi ptr [ %107, %106 ], [ %104, %103 ]
   %.sink.i.i = phi ptr [ %5, %106 ], [ %4, %103 ]
-  store i8 3, ptr %.sink6.i.i, align 8
   %109 = load ptr, ptr %9, align 8
   %110 = getelementptr inbounds i8, ptr %109, i64 136
   %111 = load ptr, ptr %110, align 8
@@ -6026,6 +6026,7 @@ _ZN4llvm6MCInstD2Ev.exit:                         ; preds = %_ZNK4llvm8MCSymbol7
   %109 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 1, ptr %109, align 1
   store ptr @.str.45, ptr %4, align 8
+  store i8 3, ptr %108, align 8
   br label %.sink.split.i.i
 
 110:                                              ; preds = %106
@@ -6033,12 +6034,11 @@ _ZN4llvm6MCInstD2Ev.exit:                         ; preds = %_ZNK4llvm8MCSymbol7
   %112 = getelementptr inbounds nuw i8, ptr %5, i64 33
   store i8 1, ptr %112, align 1
   store ptr @.str.46, ptr %5, align 8
+  store i8 3, ptr %111, align 8
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %110, %107
-  %.sink6.i.i = phi ptr [ %111, %110 ], [ %108, %107 ]
   %.sink.i.i = phi ptr [ %5, %110 ], [ %4, %107 ]
-  store i8 3, ptr %.sink6.i.i, align 8
   %113 = load ptr, ptr %10, align 8
   %114 = getelementptr inbounds i8, ptr %113, i64 136
   %115 = load ptr, ptr %114, align 8
@@ -6379,6 +6379,7 @@ _ZN4llvm11SmallStringILj256EED2Ev.exit:           ; preds = %_ZN4llvm13MCInstBui
   %137 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 1, ptr %137, align 1
   store ptr @.str.45, ptr %4, align 8
+  store i8 3, ptr %136, align 8
   br label %.sink.split.i.i
 
 138:                                              ; preds = %134
@@ -6386,12 +6387,11 @@ _ZN4llvm11SmallStringILj256EED2Ev.exit:           ; preds = %_ZN4llvm13MCInstBui
   %140 = getelementptr inbounds nuw i8, ptr %5, i64 33
   store i8 1, ptr %140, align 1
   store ptr @.str.46, ptr %5, align 8
+  store i8 3, ptr %139, align 8
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %138, %135
-  %.sink6.i.i = phi ptr [ %139, %138 ], [ %136, %135 ]
   %.sink.i.i = phi ptr [ %5, %138 ], [ %4, %135 ]
-  store i8 3, ptr %.sink6.i.i, align 8
   %141 = load ptr, ptr %12, align 8
   %142 = getelementptr inbounds i8, ptr %141, i64 136
   %143 = load ptr, ptr %142, align 8
@@ -6694,6 +6694,7 @@ _ZL11emitX86NopsRN4llvm10MCStreamerEjPKNS_12X86SubtargetE.exit: ; preds = %.lr.p
   %167 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 1, ptr %167, align 1
   store ptr @.str.45, ptr %4, align 8
+  store i8 3, ptr %166, align 8
   br label %.sink.split.i.i
 
 168:                                              ; preds = %164
@@ -6701,12 +6702,11 @@ _ZL11emitX86NopsRN4llvm10MCStreamerEjPKNS_12X86SubtargetE.exit: ; preds = %.lr.p
   %170 = getelementptr inbounds nuw i8, ptr %5, i64 33
   store i8 1, ptr %170, align 1
   store ptr @.str.46, ptr %5, align 8
+  store i8 3, ptr %169, align 8
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %168, %165
-  %.sink6.i.i = phi ptr [ %169, %168 ], [ %166, %165 ]
   %.sink.i.i = phi ptr [ %5, %168 ], [ %4, %165 ]
-  store i8 3, ptr %.sink6.i.i, align 8
   %171 = load ptr, ptr %29, align 8
   %172 = getelementptr inbounds i8, ptr %171, i64 136
   %173 = load ptr, ptr %172, align 8
@@ -6853,6 +6853,7 @@ _ZL11emitX86NopsRN4llvm10MCStreamerEjPKNS_12X86SubtargetE.exit: ; preds = %.lr.p
   %70 = getelementptr inbounds nuw i8, ptr %3, i64 33
   store i8 1, ptr %70, align 1
   store ptr @.str.45, ptr %3, align 8
+  store i8 3, ptr %69, align 8
   br label %.sink.split.i.i
 
 71:                                               ; preds = %67
@@ -6860,12 +6861,11 @@ _ZL11emitX86NopsRN4llvm10MCStreamerEjPKNS_12X86SubtargetE.exit: ; preds = %.lr.p
   %73 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 1, ptr %73, align 1
   store ptr @.str.46, ptr %4, align 8
+  store i8 3, ptr %72, align 8
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %71, %68
-  %.sink6.i.i = phi ptr [ %72, %71 ], [ %69, %68 ]
   %.sink.i.i = phi ptr [ %4, %71 ], [ %3, %68 ]
-  store i8 3, ptr %.sink6.i.i, align 8
   %74 = load ptr, ptr %10, align 8
   %75 = getelementptr inbounds i8, ptr %74, i64 136
   %76 = load ptr, ptr %75, align 8
@@ -7034,6 +7034,7 @@ _ZN4llvm6MCInstD2Ev.exit:                         ; preds = %_ZL11emitX86NopsRN4
   %81 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 1, ptr %81, align 1
   store ptr @.str.45, ptr %4, align 8
+  store i8 3, ptr %80, align 8
   br label %.sink.split.i.i
 
 82:                                               ; preds = %78
@@ -7041,12 +7042,11 @@ _ZN4llvm6MCInstD2Ev.exit:                         ; preds = %_ZL11emitX86NopsRN4
   %84 = getelementptr inbounds nuw i8, ptr %5, i64 33
   store i8 1, ptr %84, align 1
   store ptr @.str.46, ptr %5, align 8
+  store i8 3, ptr %83, align 8
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %82, %79
-  %.sink6.i.i = phi ptr [ %83, %82 ], [ %80, %79 ]
   %.sink.i.i = phi ptr [ %5, %82 ], [ %4, %79 ]
-  store i8 3, ptr %.sink6.i.i, align 8
   %85 = load ptr, ptr %10, align 8
   %86 = getelementptr inbounds i8, ptr %85, i64 136
   %87 = load ptr, ptr %86, align 8
@@ -7371,6 +7371,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %124, %128
   %152 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 1, ptr %152, align 1
   store ptr @.str.45, ptr %4, align 8
+  store i8 3, ptr %151, align 8
   br label %.sink.split.i.i
 
 153:                                              ; preds = %149
@@ -7378,12 +7379,11 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %124, %128
   %155 = getelementptr inbounds nuw i8, ptr %5, i64 33
   store i8 1, ptr %155, align 1
   store ptr @.str.46, ptr %5, align 8
+  store i8 3, ptr %154, align 8
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %153, %150
-  %.sink6.i.i = phi ptr [ %154, %153 ], [ %151, %150 ]
   %.sink.i.i = phi ptr [ %5, %153 ], [ %4, %150 ]
-  store i8 3, ptr %.sink6.i.i, align 8
   %156 = load ptr, ptr %75, align 8
   %157 = getelementptr inbounds i8, ptr %156, i64 136
   %158 = load ptr, ptr %157, align 8
@@ -7853,6 +7853,7 @@ _ZN4llvm13MCInstBuilderD2Ev.exit51:               ; preds = %.lr.ph.i52, %216, %
   %235 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 1, ptr %235, align 1
   store ptr @.str.45, ptr %4, align 8
+  store i8 3, ptr %234, align 8
   br label %.sink.split.i.i
 
 236:                                              ; preds = %232
@@ -7860,12 +7861,11 @@ _ZN4llvm13MCInstBuilderD2Ev.exit51:               ; preds = %.lr.ph.i52, %216, %
   %238 = getelementptr inbounds nuw i8, ptr %5, i64 33
   store i8 1, ptr %238, align 1
   store ptr @.str.46, ptr %5, align 8
+  store i8 3, ptr %237, align 8
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %236, %233
-  %.sink6.i.i = phi ptr [ %237, %236 ], [ %234, %233 ]
   %.sink.i.i = phi ptr [ %5, %236 ], [ %4, %233 ]
-  store i8 3, ptr %.sink6.i.i, align 8
   %239 = load ptr, ptr %20, align 8
   %240 = getelementptr inbounds i8, ptr %239, i64 136
   %241 = load ptr, ptr %240, align 8
@@ -8331,6 +8331,7 @@ _ZN4llvm13MCInstBuilderD2Ev.exit50:               ; preds = %.lr.ph.i51, %221, %
   %240 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 1, ptr %240, align 1
   store ptr @.str.45, ptr %4, align 8
+  store i8 3, ptr %239, align 8
   br label %.sink.split.i.i
 
 241:                                              ; preds = %237
@@ -8338,12 +8339,11 @@ _ZN4llvm13MCInstBuilderD2Ev.exit50:               ; preds = %.lr.ph.i51, %221, %
   %243 = getelementptr inbounds nuw i8, ptr %5, i64 33
   store i8 1, ptr %243, align 1
   store ptr @.str.46, ptr %5, align 8
+  store i8 3, ptr %242, align 8
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %241, %238
-  %.sink6.i.i = phi ptr [ %242, %241 ], [ %239, %238 ]
   %.sink.i.i = phi ptr [ %5, %241 ], [ %4, %238 ]
-  store i8 3, ptr %.sink6.i.i, align 8
   %244 = load ptr, ptr %20, align 8
   %245 = getelementptr inbounds i8, ptr %244, i64 136
   %246 = load ptr, ptr %245, align 8
@@ -11222,7 +11222,8 @@ _ZN4llvm15SmallVectorImplINS_9MCOperandEE12assignRemoteEOS2_.exit: ; preds = %8,
   store i32 %19, ptr %20, align 4
   store ptr %6, ptr %1, align 8
   store i32 0, ptr %18, align 4
-  br label %.sink.split
+  store i32 0, ptr %15, align 8
+  br label %53
 
 21:                                               ; preds = %4
   %22 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #19
@@ -11251,7 +11252,8 @@ _ZSt4moveIPN4llvm9MCOperandES2_ET0_T_S4_S3_.exit: ; preds = %29, %26, %24
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %22) #19
   %31 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #19
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
+  store i32 0, ptr %32, align 8
+  br label %53
 
 33:                                               ; preds = %21
   %34 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
@@ -11298,14 +11300,10 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9MCOperandELb1EE18uninitialized_moveIPS1_S4
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %22) #19
   %51 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #19
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %_ZN4llvm15SmallVectorImplINS_9MCOperandEE12assignRemoteEOS2_.exit, %_ZSt4moveIPN4llvm9MCOperandES2_ET0_T_S4_S3_.exit, %_ZN4llvm23SmallVectorTemplateBaseINS_9MCOperandELb1EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit
-  %.sink = phi ptr [ %52, %_ZN4llvm23SmallVectorTemplateBaseINS_9MCOperandELb1EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit ], [ %32, %_ZSt4moveIPN4llvm9MCOperandES2_ET0_T_S4_S3_.exit ], [ %15, %_ZN4llvm15SmallVectorImplINS_9MCOperandEE12assignRemoteEOS2_.exit ]
-  store i32 0, ptr %.sink, align 8
+  store i32 0, ptr %52, align 8
   br label %53
 
-53:                                               ; preds = %.sink.split, %2
+53:                                               ; preds = %2, %_ZN4llvm23SmallVectorTemplateBaseINS_9MCOperandELb1EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit, %_ZSt4moveIPN4llvm9MCOperandES2_ET0_T_S4_S3_.exit, %_ZN4llvm15SmallVectorImplINS_9MCOperandEE12assignRemoteEOS2_.exit
   ret ptr %0
 }
 

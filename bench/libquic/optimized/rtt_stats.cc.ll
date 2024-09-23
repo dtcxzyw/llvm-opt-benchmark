@@ -364,7 +364,8 @@ if.then:                                          ; preds = %entry, %lor.rhs
   store i64 %new_sample.coerce0, ptr %estimates_, align 8
   store i64 %new_sample.coerce1, ptr %agg.tmp.sroa.2.0.sample.sroa_idx, align 8
   %time.i10.i = getelementptr inbounds i8, ptr %this, i64 48
-  br label %if.end175.sink.split
+  store i64 %new_time.coerce, ptr %time.i10.i, align 8
+  br label %if.end175
 
 if.end:                                           ; preds = %lor.rhs
   %arrayidx22 = getelementptr inbounds i8, ptr %this, i64 56
@@ -380,6 +381,7 @@ if.then25:                                        ; preds = %if.end
   store i64 %new_time.coerce, ptr %time.i16, align 8
   store i64 %new_sample.coerce0, ptr %arrayidx11, align 8
   %time_offset_3.i.i19 = getelementptr inbounds i8, ptr %this, i64 88
+  store i64 %new_sample.coerce1, ptr %time_offset_3.i.i19, align 8
   br label %if.end52.sink.split
 
 if.else:                                          ; preds = %if.end
@@ -390,12 +392,11 @@ if.else:                                          ; preds = %if.end
 
 if.then43:                                        ; preds = %if.else
   store i64 %new_sample.coerce0, ptr %arrayidx11, align 8
+  store i64 %new_sample.coerce1, ptr %agg.tmp2.sroa.2.0..sroa_idx.i24, align 8
   br label %if.end52.sink.split
 
 if.end52.sink.split:                              ; preds = %if.then25, %if.then43
-  %agg.tmp2.sroa.2.0..sroa_idx.i24.sink = phi ptr [ %agg.tmp2.sroa.2.0..sroa_idx.i24, %if.then43 ], [ %time_offset_3.i.i19, %if.then25 ]
-  %.ph = phi i64 [ %agg.tmp2.sroa.2.0.copyload.i14, %if.then43 ], [ %new_sample.coerce1, %if.then25 ]
-  store i64 %new_sample.coerce1, ptr %agg.tmp2.sroa.2.0..sroa_idx.i24.sink, align 8
+  %.ph = phi i64 [ %new_sample.coerce1, %if.then25 ], [ %agg.tmp2.sroa.2.0.copyload.i14, %if.then43 ]
   store i64 %new_time.coerce, ptr %time, align 8
   br label %if.end52
 
@@ -434,7 +435,8 @@ if.then95:                                        ; preds = %if.then65
   store i64 %0, ptr %time58, align 8
   store i64 %new_sample.coerce0, ptr %arrayidx22, align 8
   store i64 %new_sample.coerce1, ptr %agg.tmp2.sroa.2.0..sroa_idx.i13, align 8
-  br label %if.end175.sink.split
+  store i64 %new_time.coerce, ptr %time3.i41, align 8
+  br label %if.end175
 
 if.end107:                                        ; preds = %if.end52
   %cmp.i67 = icmp eq i64 %2, %agg.tmp.sroa.2.0.copyload
@@ -455,7 +457,8 @@ if.then131:                                       ; preds = %land.lhs.true
   store i64 %new_sample.coerce0, ptr %arrayidx11, align 8
   %time_offset_3.i.i81 = getelementptr inbounds i8, ptr %this, i64 88
   store i64 %new_sample.coerce1, ptr %time_offset_3.i.i81, align 8
-  br label %if.end175.sink.split
+  store i64 %new_time.coerce, ptr %time, align 8
+  br label %if.end175
 
 if.end142:                                        ; preds = %land.lhs.true, %if.end107
   %agg.tmp143.sroa.2.0.sample146.sroa_idx = getelementptr inbounds i8, ptr %this, i64 88
@@ -471,14 +474,10 @@ land.lhs.true152:                                 ; preds = %if.end142
 if.then167:                                       ; preds = %land.lhs.true152
   store i64 %new_sample.coerce0, ptr %arrayidx11, align 8
   store i64 %new_sample.coerce1, ptr %agg.tmp143.sroa.2.0.sample146.sroa_idx, align 8
-  br label %if.end175.sink.split
-
-if.end175.sink.split:                             ; preds = %if.then, %if.then131, %if.then167, %if.then95
-  %time3.i41.sink = phi ptr [ %time3.i41, %if.then95 ], [ %time, %if.then167 ], [ %time, %if.then131 ], [ %time.i10.i, %if.then ]
-  store i64 %new_time.coerce, ptr %time3.i41.sink, align 8
+  store i64 %new_time.coerce, ptr %time, align 8
   br label %if.end175
 
-if.end175:                                        ; preds = %if.end175.sink.split, %if.then65, %land.lhs.true152, %if.end142
+if.end175:                                        ; preds = %if.then65, %if.then95, %if.then167, %land.lhs.true152, %if.end142, %if.then131, %if.then
   ret void
 }
 

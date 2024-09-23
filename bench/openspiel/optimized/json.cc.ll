@@ -2670,7 +2670,8 @@ _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i149: ; preds = %
   store ptr null, ptr %224, align 8
   store ptr %223, ptr %225, align 8
   store ptr %223, ptr %226, align 8
-  br label %_ZN4absl7debian28optionalISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel4json5ValueESt4lessIS8_ESaISt4pairIKS8_SB_EEEEC2ISI_TnNSt9enable_ifIXsr4absl11conjunctionINS0_8negationISt7is_sameINS0_10in_place_tENSt5decayIT_E4typeEEEENSM_ISN_ISJ_SS_EEESt14is_convertibleIOSQ_SI_ESt16is_constructibleISI_JSY_EEEE5valueEbE4typeELb0EEESY_.exit
+  store i64 0, ptr %227, align 8
+  br label %_ZN10open_spiel4json12_GLOBAL__N_111ParseObjectB5cxx11EPN4absl7debian211string_viewE.exit
 
 264:                                              ; preds = %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i149
   store i32 0, ptr %252, align 8
@@ -2681,11 +2682,7 @@ _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i149: ; preds = %
   %267 = getelementptr inbounds i8, ptr %23, i64 40
   store ptr %252, ptr %267, align 8
   %268 = getelementptr inbounds i8, ptr %23, i64 48
-  br label %_ZN4absl7debian28optionalISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel4json5ValueESt4lessIS8_ESaISt4pairIKS8_SB_EEEEC2ISI_TnNSt9enable_ifIXsr4absl11conjunctionINS0_8negationISt7is_sameINS0_10in_place_tENSt5decayIT_E4typeEEEENSM_ISN_ISJ_SS_EEESt14is_convertibleIOSQ_SI_ESt16is_constructibleISI_JSY_EEEE5valueEbE4typeELb0EEESY_.exit
-
-_ZN4absl7debian28optionalISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel4json5ValueESt4lessIS8_ESaISt4pairIKS8_SB_EEEEC2ISI_TnNSt9enable_ifIXsr4absl11conjunctionINS0_8negationISt7is_sameINS0_10in_place_tENSt5decayIT_E4typeEEEENSM_ISN_ISJ_SS_EEESt14is_convertibleIOSQ_SI_ESt16is_constructibleISI_JSY_EEEE5valueEbE4typeELb0EEESY_.exit: ; preds = %254, %264
-  %.sink.i.i.i.i.i.i.i.i = phi ptr [ %227, %254 ], [ %268, %264 ]
-  store i64 0, ptr %.sink.i.i.i.i.i.i.i.i, align 8
+  store i64 0, ptr %268, align 8
   br label %_ZN10open_spiel4json12_GLOBAL__N_111ParseObjectB5cxx11EPN4absl7debian211string_viewE.exit
 
 .loopexit218:                                     ; preds = %_ZN10open_spiel4json12_GLOBAL__N_117ConsumeWhitespaceEPN4absl7debian211string_viewE.exit129
@@ -3055,7 +3052,7 @@ _ZN4absl7debian28optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel4json5ValueESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #22
   br label %common.resume543
 
-_ZN10open_spiel4json12_GLOBAL__N_111ParseObjectB5cxx11EPN4absl7debian211string_viewE.exit: ; preds = %_ZN4absl7debian28optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit95, %273, %367, %_ZN4absl7debian28optionalISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel4json5ValueESt4lessIS8_ESaISt4pairIKS8_SB_EEEEC2ISI_TnNSt9enable_ifIXsr4absl11conjunctionINS0_8negationISt7is_sameINS0_10in_place_tENSt5decayIT_E4typeEEEENSM_ISN_ISJ_SS_EEESt14is_convertibleIOSQ_SI_ESt16is_constructibleISI_JSY_EEEE5valueEbE4typeELb0EEESY_.exit, %.critedge.i, %370
+_ZN10open_spiel4json12_GLOBAL__N_111ParseObjectB5cxx11EPN4absl7debian211string_viewE.exit: ; preds = %_ZN4absl7debian28optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit95, %273, %367, %254, %264, %.critedge.i, %370
   %371 = load ptr, ptr %224, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel4json5ValueEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef %371)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel4json5ValueESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit unwind label %372
@@ -3083,7 +3080,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel4json
   %379 = getelementptr inbounds i8, ptr %23, i64 24
   %380 = load ptr, ptr %379, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %380, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %395, label %381
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %394, label %381
 
 381:                                              ; preds = %377
   %382 = getelementptr inbounds i8, ptr %23, i64 16
@@ -3103,34 +3100,32 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel4json
   store ptr %378, ptr %391, align 8
   %392 = getelementptr inbounds i8, ptr %23, i64 48
   %393 = load i64, ptr %392, align 8
-  %394 = getelementptr inbounds i8, ptr %0, i64 48
-  store i64 %393, ptr %394, align 8
-  br label %399
+  br label %397
 
-395:                                              ; preds = %377
-  %396 = getelementptr inbounds i8, ptr %0, i64 32
+394:                                              ; preds = %377
+  %395 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %378, ptr %395, align 8
+  %396 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %378, ptr %396, align 8
-  %397 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %378, ptr %397, align 8
-  %398 = getelementptr inbounds i8, ptr %0, i64 48
-  br label %399
+  br label %397
 
-399:                                              ; preds = %381, %395
-  %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %392, %381 ], [ %398, %395 ]
-  store i64 0, ptr %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %400 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 6, ptr %400, align 8
+397:                                              ; preds = %381, %394
+  %.sink = phi i64 [ 0, %394 ], [ %393, %381 ]
+  %398 = getelementptr inbounds i8, ptr %0, i64 48
+  store i64 %.sink, ptr %398, align 8
+  %399 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i8 6, ptr %399, align 8
   store i8 1, ptr %0, align 8
   br label %_ZN10open_spiel4json12_GLOBAL__N_113ParseConstantINS0_4NullEEEN4absl7debian28optionalINS0_5ValueEEEPNS5_11string_viewES9_T_.exit
 
 _ZN4absl7debian211string_viewC2EPKc.exit49:       ; preds = %_ZNK4absl7debian211string_view2atEm.exit
   tail call fastcc void @_ZN10open_spiel4json12_GLOBAL__N_110ParseErrorEN4absl7debian211string_viewES4_(ptr nonnull @.str.23, i64 17, ptr nonnull %.sroa.01.0.copyload, i64 %.sroa.26.0.copyload.i)
   store i8 0, ptr %0, align 8
-  %401 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %401, i8 0, i64 56, i1 false)
+  %400 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %400, i8 0, i64 56, i1 false)
   br label %_ZN10open_spiel4json12_GLOBAL__N_113ParseConstantINS0_4NullEEEN4absl7debian28optionalINS0_5ValueEEEPNS5_11string_viewES9_T_.exit
 
-_ZN10open_spiel4json12_GLOBAL__N_113ParseConstantINS0_4NullEEEN4absl7debian28optionalINS0_5ValueEEEPNS5_11string_viewES9_T_.exit: ; preds = %399, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel4json5ValueESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit, %_ZNSt6vectorIN10open_spiel4json5ValueESaIS2_EED2Ev.exit.i.i.i.i.i, %_ZNSt6vectorIN10open_spiel4json5ValueESaIS2_EED2Ev.exit, %120, %_ZN4absl7debian28optionalIN10open_spiel4json5ValueEEC2INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt9enable_ifIXsr4absl11conjunctionINS0_8negationISt7is_sameIS4_T_EEESt16is_constructibleIS4_JOSG_EENSE_INS0_17optional_internal42is_constructible_convertible_from_optionalIS4_SG_EEEESt14is_convertibleISK_S4_EEE5valueEbE4typeELb0EEEONS1_ISG_EE.exit, %_ZN4absl7debian211string_viewC2EPKc.exit.i37, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i.i38, %_ZN4absl7debian211string_viewC2EPKc.exit.i27, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i.i28, %_ZN4absl7debian211string_viewC2EPKc.exit.i, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i.i, %_ZN4absl7debian211string_viewC2EPKc.exit49, %_ZN10open_spiel4json12_GLOBAL__N_111ParseNumberEPN4absl7debian211string_viewE.exit
+_ZN10open_spiel4json12_GLOBAL__N_113ParseConstantINS0_4NullEEEN4absl7debian28optionalINS0_5ValueEEEPNS5_11string_viewES9_T_.exit: ; preds = %397, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel4json5ValueESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit, %_ZNSt6vectorIN10open_spiel4json5ValueESaIS2_EED2Ev.exit.i.i.i.i.i, %_ZNSt6vectorIN10open_spiel4json5ValueESaIS2_EED2Ev.exit, %120, %_ZN4absl7debian28optionalIN10open_spiel4json5ValueEEC2INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt9enable_ifIXsr4absl11conjunctionINS0_8negationISt7is_sameIS4_T_EEESt16is_constructibleIS4_JOSG_EENSE_INS0_17optional_internal42is_constructible_convertible_from_optionalIS4_SG_EEEESt14is_convertibleISK_S4_EEE5valueEbE4typeELb0EEEONS1_ISG_EE.exit, %_ZN4absl7debian211string_viewC2EPKc.exit.i37, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i.i38, %_ZN4absl7debian211string_viewC2EPKc.exit.i27, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i.i28, %_ZN4absl7debian211string_viewC2EPKc.exit.i, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i.i, %_ZN4absl7debian211string_viewC2EPKc.exit49, %_ZN10open_spiel4json12_GLOBAL__N_111ParseNumberEPN4absl7debian211string_viewE.exit
   ret void
 }
 
@@ -3993,7 +3988,8 @@ define linkonce_odr void @_ZNSt8__detail9__variant15_Move_ctor_baseILb0EJN10open
   store ptr null, ptr %24, align 8
   store ptr %27, ptr %31, align 8
   store ptr %27, ptr %34, align 8
-  br label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_15_Move_ctor_baseILb0EJN10open_spiel4json4NullEbldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS6_5ValueESaISF_EESt3mapISD_SF_St4lessISD_ESaISt4pairIKSD_SF_EEEEEC1EOSQ_EUlOT_T0_E_OSt7variantIJS7_bldSD_SH_SP_EEEJEEESt16integer_sequenceImJLm6EEEE14__visit_invokeESW_SZ_.exit.i
+  store i64 0, ptr %38, align 8
+  br label %_ZNSt8__detail9__variant15__raw_idx_visitIZNS0_15_Move_ctor_baseILb0EJN10open_spiel4json4NullEbldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS4_5ValueESaISD_EESt3mapISB_SD_St4lessISB_ESaISt4pairIKSB_SD_EEEEEC1EOSO_EUlOT_T0_E_JSt7variantIJS5_bldSB_SF_SN_EEEEEvSR_DpOT0_.exit
 
 41:                                               ; preds = %22
   store i32 0, ptr %23, align 8
@@ -4004,17 +4000,13 @@ define linkonce_odr void @_ZNSt8__detail9__variant15_Move_ctor_baseILb0EJN10open
   %44 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %23, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %0, i64 40
-  br label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_15_Move_ctor_baseILb0EJN10open_spiel4json4NullEbldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS6_5ValueESaISF_EESt3mapISD_SF_St4lessISD_ESaISt4pairIKSD_SF_EEEEEC1EOSQ_EUlOT_T0_E_OSt7variantIJS7_bldSD_SH_SP_EEEJEEESt16integer_sequenceImJLm6EEEE14__visit_invokeESW_SZ_.exit.i
-
-_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_15_Move_ctor_baseILb0EJN10open_spiel4json4NullEbldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS6_5ValueESaISF_EESt3mapISD_SF_St4lessISD_ESaISt4pairIKSD_SF_EEEEEC1EOSQ_EUlOT_T0_E_OSt7variantIJS7_bldSD_SH_SP_EEEJEEESt16integer_sequenceImJLm6EEEE14__visit_invokeESW_SZ_.exit.i: ; preds = %41, %26
-  %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %38, %26 ], [ %45, %41 ]
-  store i64 0, ptr %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  store i64 0, ptr %45, align 8
   br label %_ZNSt8__detail9__variant15__raw_idx_visitIZNS0_15_Move_ctor_baseILb0EJN10open_spiel4json4NullEbldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS4_5ValueESaISD_EESt3mapISB_SD_St4lessISB_ESaISt4pairIKSB_SD_EEEEEC1EOSO_EUlOT_T0_E_JSt7variantIJS5_bldSB_SF_SN_EEEEEvSR_DpOT0_.exit
 
 46:                                               ; preds = %2
   unreachable
 
-_ZNSt8__detail9__variant15__raw_idx_visitIZNS0_15_Move_ctor_baseILb0EJN10open_spiel4json4NullEbldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS4_5ValueESaISD_EESt3mapISB_SD_St4lessISB_ESaISt4pairIKSB_SD_EEEEEC1EOSO_EUlOT_T0_E_JSt7variantIJS5_bldSB_SF_SN_EEEEEvSR_DpOT0_.exit: ; preds = %2, %2, %6, %9, %11, %13, %14, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_15_Move_ctor_baseILb0EJN10open_spiel4json4NullEbldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS6_5ValueESaISF_EESt3mapISD_SF_St4lessISD_ESaISt4pairIKSD_SF_EEEEEC1EOSQ_EUlOT_T0_E_OSt7variantIJS7_bldSD_SH_SP_EEEJEEESt16integer_sequenceImJLm6EEEE14__visit_invokeESW_SZ_.exit.i
+_ZNSt8__detail9__variant15__raw_idx_visitIZNS0_15_Move_ctor_baseILb0EJN10open_spiel4json4NullEbldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS4_5ValueESaISD_EESt3mapISB_SD_St4lessISB_ESaISt4pairIKSB_SD_EEEEEC1EOSO_EUlOT_T0_E_JSt7variantIJS5_bldSB_SF_SN_EEEEEvSR_DpOT0_.exit: ; preds = %2, %2, %6, %9, %11, %13, %14, %26, %41
   %47 = load i8, ptr %4, align 8
   store i8 %47, ptr %3, align 8
   ret void

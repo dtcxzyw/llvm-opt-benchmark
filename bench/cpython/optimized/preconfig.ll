@@ -2512,7 +2512,7 @@ if.end.i75:                                       ; preds = %if.end36
 
 if.then.i.i:                                      ; preds = %if.end.i75
   store i32 0, ptr %coerce_c_locale.i.i, align 4, !noalias !14
-  br label %if.end44.sink.split.i.i
+  br label %preconfig_init_coerce_c_locale.exit.i.sink.split
 
 if.end.i.i:                                       ; preds = %if.end.i75
   %tobool.not.i.i.i = icmp eq i32 %39, 0
@@ -2585,13 +2585,13 @@ if.then31.i.i:                                    ; preds = %if.end26.i.i
 if.end39.i.i:                                     ; preds = %if.then31.i.i, %if.end26.i.i
   %50 = load i32, ptr %coerce_c_locale_warn.i.i, align 4, !noalias !14
   %cmp41.i.i = icmp slt i32 %50, 0
-  br i1 %cmp41.i.i, label %if.end44.sink.split.i.i, label %preconfig_init_coerce_c_locale.exit.i
+  br i1 %cmp41.i.i, label %preconfig_init_coerce_c_locale.exit.i.sink.split, label %preconfig_init_coerce_c_locale.exit.i
 
-if.end44.sink.split.i.i:                          ; preds = %if.end39.i.i, %if.then.i.i
+preconfig_init_coerce_c_locale.exit.i.sink.split: ; preds = %if.end39.i.i, %if.then.i.i
   store i32 0, ptr %coerce_c_locale_warn.i.i, align 4, !noalias !14
   br label %preconfig_init_coerce_c_locale.exit.i
 
-preconfig_init_coerce_c_locale.exit.i:            ; preds = %if.end44.sink.split.i.i, %if.end39.i.i
+preconfig_init_coerce_c_locale.exit.i:            ; preds = %preconfig_init_coerce_c_locale.exit.i.sink.split, %if.end39.i.i
   %51 = load i32, ptr %utf8_mode.i.i, align 4, !noalias !17
   %cmp.i.i = icmp sgt i32 %51, -1
   br i1 %cmp.i.i, label %if.end5.i, label %if.end.i17.i

@@ -9357,44 +9357,46 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %74, %63, %59, %55, 
   br i1 %9, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4Node7set_reqEjPS_.exit
-  %80 = sext i32 %2 to i64
-  %81 = getelementptr inbounds i8, ptr %1, i64 1912
-  br label %82
+  %80 = getelementptr inbounds i8, ptr %0, i64 216
+  %81 = sext i32 %2 to i64
+  %82 = getelementptr inbounds i8, ptr %0, i64 208
+  %83 = getelementptr inbounds i8, ptr %1, i64 1912
+  br label %84
 
-82:                                               ; preds = %.lr.ph, %94
-  %83 = phi i1 [ true, %.lr.ph ], [ false, %94 ]
-  %.03336 = phi ptr [ %8, %.lr.ph ], [ %95, %94 ]
-  %84 = getelementptr inbounds i8, ptr %.03336, i64 1260
-  %..v = select i1 %83, i64 208, i64 216
-  %. = getelementptr inbounds i8, ptr %0, i64 %..v
-  %85 = load ptr, ptr %., align 8
-  %86 = getelementptr inbounds i32, ptr %85, i64 %80
-  %87 = load i32, ptr %86, align 4
-  %88 = zext i32 %87 to i64
-  %89 = getelementptr inbounds [315 x i16], ptr %84, i64 0, i64 %88
-  %.0.in.in = load i16, ptr %89, align 2
+84:                                               ; preds = %.lr.ph, %97
+  %85 = phi i1 [ true, %.lr.ph ], [ false, %97 ]
+  %.03336 = phi ptr [ %8, %.lr.ph ], [ %98, %97 ]
+  %86 = getelementptr inbounds i8, ptr %.03336, i64 1260
+  %87 = load ptr, ptr %80, align 8
+  %88 = load ptr, ptr %82, align 8
+  %.sink41 = select i1 %85, ptr %88, ptr %87
+  %89 = getelementptr inbounds i32, ptr %.sink41, i64 %81
+  %90 = load i32, ptr %89, align 4
+  %91 = zext i32 %90 to i64
+  %92 = getelementptr inbounds [315 x i16], ptr %86, i64 0, i64 %91
+  %.0.in.in = load i16, ptr %92, align 2
   %.0.in = lshr i16 %.0.in.in, 1
   %.0 = zext nneg i16 %.0.in to i32
-  %90 = icmp ult i16 %.0.in.in, 630
-  br i1 %90, label %91, label %92
+  %93 = icmp ult i16 %.0.in.in, 630
+  br i1 %93, label %94, label %95
 
-91:                                               ; preds = %82
+94:                                               ; preds = %84
   call void @_ZN7Matcher10ReduceOperEP5StateiRP4NodeP8MachNode(ptr noundef nonnull align 8 dereferenceable(1008) %0, ptr noundef nonnull %.03336, i32 noundef %.0, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %4)
-  br label %94
+  br label %97
 
-92:                                               ; preds = %82
+95:                                               ; preds = %84
   store ptr inttoptr (i64 1 to ptr), ptr %6, align 8
-  %93 = call noundef ptr @_ZN7Matcher10ReduceInstEP5StateiRP4Node(ptr noundef nonnull align 8 dereferenceable(1008) %0, ptr noundef nonnull %.03336, i32 noundef %.0, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef %93) #15
-  br label %94
+  %96 = call noundef ptr @_ZN7Matcher10ReduceInstEP5StateiRP4Node(ptr noundef nonnull align 8 dereferenceable(1008) %0, ptr noundef nonnull %.03336, i32 noundef %.0, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef %96) #15
+  br label %97
 
-94:                                               ; preds = %91, %92
-  %95 = load ptr, ptr %81, align 8
-  %96 = icmp ne ptr %95, null
-  %97 = and i1 %96, %83
-  br i1 %97, label %82, label %.loopexit, !llvm.loop !51
+97:                                               ; preds = %94, %95
+  %98 = load ptr, ptr %83, align 8
+  %99 = icmp ne ptr %98, null
+  %100 = and i1 %99, %85
+  br i1 %100, label %84, label %.loopexit, !llvm.loop !51
 
-.loopexit:                                        ; preds = %94, %_ZN4Node7set_reqEjPS_.exit, %17
+.loopexit:                                        ; preds = %97, %_ZN4Node7set_reqEjPS_.exit, %17
   ret void
 }
 
@@ -12382,7 +12384,7 @@ define hidden void @_ZN7Matcher20specialize_temp_nodeEP12MachTempNodeP8MachNodej
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(64) %2) #15
   %9 = icmp eq i32 %3, %8
-  br i1 %9, label %10, label %19
+  br i1 %9, label %10, label %20
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds i8, ptr %2, i64 56
@@ -12393,25 +12395,25 @@ define hidden void @_ZN7Matcher20specialize_temp_nodeEP12MachTempNodeP8MachNodej
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef ptr %16(ptr noundef nonnull align 8 dereferenceable(8) %13) #15
   %18 = getelementptr inbounds i8, ptr %1, i64 56
-  br label %29
+  %19 = load ptr, ptr %18, align 8
+  store ptr %17, ptr %19, align 8
+  br label %31
 
-19:                                               ; preds = %4
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 132
-  %23 = load i32, ptr %22, align 4
-  %24 = tail call noundef i32 @_ZN7Matcher16vector_ideal_regEi(i32 noundef %23) #15
-  %25 = getelementptr inbounds i8, ptr %1, i64 56
-  %26 = load ptr, ptr %25, align 8
+20:                                               ; preds = %4
+  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 132
+  %24 = load i32, ptr %23, align 4
+  %25 = tail call noundef i32 @_ZN7Matcher16vector_ideal_regEi(i32 noundef %24) #15
+  %26 = getelementptr inbounds i8, ptr %1, i64 56
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call noundef ptr @_ZN7Matcher36pd_specialize_generic_vector_operandEP8MachOperjb(ptr noundef %27, i32 noundef %24, i1 noundef zeroext true) #15
-  br label %29
+  %28 = load ptr, ptr %27, align 8
+  %29 = tail call noundef ptr @_ZN7Matcher36pd_specialize_generic_vector_operandEP8MachOperjb(ptr noundef %28, i32 noundef %25, i1 noundef zeroext true) #15
+  %30 = load ptr, ptr %26, align 8
+  store ptr %29, ptr %30, align 8
+  br label %31
 
-29:                                               ; preds = %19, %10
-  %.sink8 = phi ptr [ %25, %19 ], [ %18, %10 ]
-  %.sink = phi ptr [ %28, %19 ], [ %17, %10 ]
-  %30 = load ptr, ptr %.sink8, align 8
-  store ptr %.sink, ptr %30, align 8
+31:                                               ; preds = %20, %10
   ret void
 }
 
@@ -12422,7 +12424,7 @@ declare noundef ptr @_ZN7Matcher36pd_specialize_generic_vector_operandEP8MachOpe
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN7Matcher25specialize_vector_operandEP8MachNodej(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1008) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = icmp eq i32 %2, 0
-  br i1 %4, label %55, label %5
+  br i1 %4, label %_ZN7Matcher20specialize_temp_nodeEP12MachTempNodeP8MachNodej.exit, label %5
 
 5:                                                ; preds = %3
   %6 = tail call noundef i32 @_ZNK8MachNode13operand_indexEj(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %2) #15
@@ -12435,19 +12437,19 @@ define hidden noundef ptr @_ZN7Matcher25specialize_vector_operandEP8MachNodej(pt
   %13 = load i32, ptr %12, align 4
   %14 = and i32 %13, 3
   %15 = icmp eq i32 %14, 2
-  br i1 %15, label %16, label %55
+  br i1 %15, label %16, label %_ZN7Matcher20specialize_temp_nodeEP12MachTempNodeP8MachNodej.exit
 
 16:                                               ; preds = %5
   %17 = and i32 %13, 62
   %18 = icmp eq i32 %17, 34
-  br i1 %18, label %19, label %48
+  br i1 %18, label %19, label %49
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds i8, ptr %11, i64 56
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef zeroext i1 @_ZN7Matcher17is_generic_vectorEP8MachOper(ptr noundef %22) #15
-  br i1 %23, label %24, label %48
+  br i1 %23, label %24, label %49
 
 24:                                               ; preds = %19
   %25 = load ptr, ptr %1, align 8
@@ -12455,7 +12457,7 @@ define hidden noundef ptr @_ZN7Matcher25specialize_vector_operandEP8MachNodej(pt
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef i32 %27(ptr noundef nonnull align 8 dereferenceable(64) %1) #15
   %29 = icmp eq i32 %6, %28
-  br i1 %29, label %30, label %38
+  br i1 %29, label %30, label %39
 
 30:                                               ; preds = %24
   %31 = getelementptr inbounds i8, ptr %1, i64 56
@@ -12465,38 +12467,36 @@ define hidden noundef ptr @_ZN7Matcher25specialize_vector_operandEP8MachNodej(pt
   %35 = getelementptr inbounds i8, ptr %34, i64 208
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noundef ptr %36(ptr noundef nonnull align 8 dereferenceable(8) %33) #15
+  %38 = load ptr, ptr %20, align 8
+  store ptr %37, ptr %38, align 8
   br label %_ZN7Matcher20specialize_temp_nodeEP12MachTempNodeP8MachNodej.exit
 
-38:                                               ; preds = %24
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 132
-  %42 = load i32, ptr %41, align 4
-  %43 = tail call noundef i32 @_ZN7Matcher16vector_ideal_regEi(i32 noundef %42) #15
-  %44 = load ptr, ptr %20, align 8
-  %45 = load ptr, ptr %44, align 8
-  %46 = tail call noundef ptr @_ZN7Matcher36pd_specialize_generic_vector_operandEP8MachOperjb(ptr noundef %45, i32 noundef %43, i1 noundef zeroext true) #15
+39:                                               ; preds = %24
+  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 132
+  %43 = load i32, ptr %42, align 4
+  %44 = tail call noundef i32 @_ZN7Matcher16vector_ideal_regEi(i32 noundef %43) #15
+  %45 = load ptr, ptr %20, align 8
+  %46 = load ptr, ptr %45, align 8
+  %47 = tail call noundef ptr @_ZN7Matcher36pd_specialize_generic_vector_operandEP8MachOperjb(ptr noundef %46, i32 noundef %44, i1 noundef zeroext true) #15
+  %48 = load ptr, ptr %20, align 8
+  store ptr %47, ptr %48, align 8
   br label %_ZN7Matcher20specialize_temp_nodeEP12MachTempNodeP8MachNodej.exit
 
-_ZN7Matcher20specialize_temp_nodeEP12MachTempNodeP8MachNodej.exit: ; preds = %30, %38
-  %.sink.i = phi ptr [ %46, %38 ], [ %37, %30 ]
-  %47 = load ptr, ptr %20, align 8
-  store ptr %.sink.i, ptr %47, align 8
-  br label %55
+49:                                               ; preds = %19, %16
+  %50 = tail call noundef zeroext i1 @_ZN7Matcher15is_reg2reg_moveEP8MachNode(ptr noundef nonnull %11) #15
+  br i1 %50, label %51, label %_ZN7Matcher20specialize_temp_nodeEP12MachTempNodeP8MachNodej.exit
 
-48:                                               ; preds = %19, %16
-  %49 = tail call noundef zeroext i1 @_ZN7Matcher15is_reg2reg_moveEP8MachNode(ptr noundef nonnull %11) #15
-  br i1 %49, label %50, label %55
+51:                                               ; preds = %49
+  %52 = getelementptr inbounds i8, ptr %11, i64 8
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 8
+  %55 = load ptr, ptr %54, align 8
+  br label %_ZN7Matcher20specialize_temp_nodeEP12MachTempNodeP8MachNodej.exit
 
-50:                                               ; preds = %48
-  %51 = getelementptr inbounds i8, ptr %11, i64 8
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 8
-  %54 = load ptr, ptr %53, align 8
-  br label %55
-
-55:                                               ; preds = %3, %5, %48, %50, %_ZN7Matcher20specialize_temp_nodeEP12MachTempNodeP8MachNodej.exit
-  %.0 = phi ptr [ %11, %_ZN7Matcher20specialize_temp_nodeEP12MachTempNodeP8MachNodej.exit ], [ %54, %50 ], [ %11, %48 ], [ %11, %5 ], [ %1, %3 ]
+_ZN7Matcher20specialize_temp_nodeEP12MachTempNodeP8MachNodej.exit: ; preds = %39, %30, %3, %5, %49, %51
+  %.0 = phi ptr [ %55, %51 ], [ %11, %49 ], [ %11, %5 ], [ %1, %3 ], [ %11, %30 ], [ %11, %39 ]
   %56 = load ptr, ptr %.0, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 40
   %58 = load ptr, ptr %57, align 8

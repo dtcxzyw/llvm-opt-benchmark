@@ -1096,8 +1096,8 @@ define dso_local ptr @archive_string_conversion_charset_name(ptr nocapture nound
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @archive_string_conversion_set_opt(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #10 {
-  switch i32 %1, label %15 [
-    i32 4, label %8
+  switch i32 %1, label %19 [
+    i32 4, label %11
     i32 2, label %3
   ]
 
@@ -1106,26 +1106,32 @@ define dso_local void @archive_string_conversion_set_opt(ptr nocapture noundef %
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 64
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %.sink.split, label %15
+  br i1 %7, label %8, label %19
 
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 36
-  %10 = load i32, ptr %9, align 4
-  %11 = and i32 %10, 128
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %.sink.split, label %15
+8:                                                ; preds = %3
+  %9 = and i32 %5, -193
+  %10 = or disjoint i32 %9, 64
+  store i32 %10, ptr %4, align 4
+  br label %.sink.split
 
-.sink.split:                                      ; preds = %8, %3
-  %.sink = phi i32 [ %5, %3 ], [ %10, %8 ]
-  %.sink10 = phi i32 [ 64, %3 ], [ 128, %8 ]
-  %.sink8 = phi ptr [ %4, %3 ], [ %9, %8 ]
-  %13 = and i32 %.sink, -193
-  %14 = or disjoint i32 %13, %.sink10
-  store i32 %14, ptr %.sink8, align 4
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds i8, ptr %0, i64 36
+  %13 = load i32, ptr %12, align 4
+  %14 = and i32 %13, 128
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %16, label %19
+
+16:                                               ; preds = %11
+  %17 = and i32 %13, -193
+  %18 = or disjoint i32 %17, 128
+  store i32 %18, ptr %12, align 4
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %8, %16
   tail call fastcc void @setup_converter(ptr noundef nonnull %0)
-  br label %15
+  br label %19
 
-15:                                               ; preds = %.sink.split, %2, %8, %3
+19:                                               ; preds = %.sink.split, %2, %11, %3
   ret void
 }
 
@@ -1683,7 +1689,7 @@ define dso_local range(i32 -1, 1) i32 @archive_mstring_get_utf8(ptr noundef %0, 
   %.pre = load i32, ptr %5, align 8
   %.pre22 = and i32 %.pre, 1
   %16 = icmp eq i32 %.pre22, 0
-  br i1 %16, label %54, label %.thread
+  br i1 %16, label %53, label %.thread
 
 .thread:                                          ; preds = %10, %14
   %17 = icmp eq ptr %0, null
@@ -1723,7 +1729,7 @@ archive_string_conversion_to_charset.exit:        ; preds = %18, %23, %default_i
   %.0.i.i = phi ptr [ %19, %18 ], [ %25, %27 ], [ %25, %default_iconv_charset.exit.i.i ], [ %22, %23 ]
   %31 = tail call fastcc ptr @get_sconv_object(ptr noundef %0, ptr noundef %.0.i.i, ptr noundef nonnull @.str.1, i32 noundef 5)
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %54, label %33
+  br i1 %32, label %53, label %33
 
 33:                                               ; preds = %archive_string_conversion_to_charset.exit
   %34 = getelementptr inbounds i8, ptr %1, i64 24
@@ -1752,7 +1758,7 @@ archive_string_conversion_to_charset.exit:        ; preds = %18, %23, %default_i
 
 48:                                               ; preds = %40, %33
   %49 = icmp eq i32 %39, 0
-  br i1 %49, label %50, label %54
+  br i1 %49, label %50, label %53
 
 50:                                               ; preds = %48
   %51 = load i32, ptr %5, align 8
@@ -1761,12 +1767,12 @@ archive_string_conversion_to_charset.exit:        ; preds = %18, %23, %default_i
   br label %.sink.split
 
 .sink.split:                                      ; preds = %8, %50
-  %.sink24 = phi ptr [ %34, %50 ], [ %9, %8 ]
-  %53 = load ptr, ptr %.sink24, align 8
-  store ptr %53, ptr %2, align 8
-  br label %54
+  %.sink.in = phi ptr [ %34, %50 ], [ %9, %8 ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  store ptr %.sink, ptr %2, align 8
+  br label %53
 
-54:                                               ; preds = %.sink.split, %14, %48, %archive_string_conversion_to_charset.exit
+53:                                               ; preds = %.sink.split, %14, %48, %archive_string_conversion_to_charset.exit
   %.0 = phi i32 [ -1, %archive_string_conversion_to_charset.exit ], [ -1, %48 ], [ 0, %14 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
@@ -1914,7 +1920,7 @@ define dso_local range(i32 -1, 1) i32 @archive_mstring_get_wcs(ptr noundef %0, p
   %10 = getelementptr inbounds i8, ptr %1, i64 48
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %2, align 8
-  br label %61
+  br label %62
 
 12:                                               ; preds = %3
   store ptr null, ptr %2, align 8
@@ -1928,7 +1934,7 @@ define dso_local range(i32 -1, 1) i32 @archive_mstring_get_wcs(ptr noundef %0, p
   %.pre = load i32, ptr %6, align 8
   %.pre30 = and i32 %.pre, 1
   %18 = icmp eq i32 %.pre30, 0
-  br i1 %18, label %61, label %.thread
+  br i1 %18, label %62, label %.thread
 
 .thread:                                          ; preds = %12, %16
   %19 = getelementptr inbounds i8, ptr %1, i64 48
@@ -1947,7 +1953,7 @@ define dso_local range(i32 -1, 1) i32 @archive_mstring_get_wcs(ptr noundef %0, p
 
 archive_wstring_append_from_mbs.exit.thread:      ; preds = %.thread
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %61
+  br label %62
 
 28:                                               ; preds = %.thread
   %29 = load ptr, ptr %19, align 8
@@ -1958,6 +1964,10 @@ archive_wstring_append_from_mbs.exit.thread:      ; preds = %.thread
   %34 = icmp ne i64 %23, 0
   %35 = and i1 %34, %33
   br i1 %35, label %.lr.ph.i, label %archive_wstring_append_from_mbs.exit.thread21
+
+archive_wstring_append_from_mbs.exit.thread21:    ; preds = %28
+  store i32 0, ptr %31, align 4
+  br label %58
 
 .lr.ph.i:                                         ; preds = %28, %40
   %36 = phi i64 [ %43, %40 ], [ %23, %28 ]
@@ -1992,7 +2002,8 @@ archive_wstring_append_from_mbs.exit.thread24:    ; preds = %40, %38
   %51 = ashr exact i64 %50, 2
   store i64 %51, ptr %20, align 8
   %52 = getelementptr inbounds i8, ptr %.pre.i27, i64 %50
-  br label %archive_wstring_append_from_mbs.exit.thread21
+  store i32 0, ptr %52, align 4
+  br label %58
 
 archive_wstring_append_from_mbs.exit:             ; preds = %.lr.ph.i
   %.pre.i = load ptr, ptr %19, align 8
@@ -2004,21 +2015,19 @@ archive_wstring_append_from_mbs.exit:             ; preds = %.lr.ph.i
   %57 = getelementptr inbounds i8, ptr %.pre.i, i64 %55
   store i32 0, ptr %57, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %61
+  br label %62
 
-archive_wstring_append_from_mbs.exit.thread21:    ; preds = %28, %archive_wstring_append_from_mbs.exit.thread24
-  %.sink = phi ptr [ %52, %archive_wstring_append_from_mbs.exit.thread24 ], [ %31, %28 ]
-  store i32 0, ptr %.sink, align 4
+58:                                               ; preds = %archive_wstring_append_from_mbs.exit.thread24, %archive_wstring_append_from_mbs.exit.thread21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %58 = load i32, ptr %6, align 8
-  %59 = or i32 %58, 4
-  store i32 %59, ptr %6, align 8
-  %60 = load ptr, ptr %19, align 8
-  store ptr %60, ptr %2, align 8
-  br label %61
+  %59 = load i32, ptr %6, align 8
+  %60 = or i32 %59, 4
+  store i32 %60, ptr %6, align 8
+  %61 = load ptr, ptr %19, align 8
+  store ptr %61, ptr %2, align 8
+  br label %62
 
-61:                                               ; preds = %archive_wstring_append_from_mbs.exit, %archive_wstring_append_from_mbs.exit.thread, %16, %archive_wstring_append_from_mbs.exit.thread21, %9
-  %.018 = phi i32 [ 0, %9 ], [ 0, %archive_wstring_append_from_mbs.exit.thread21 ], [ 0, %16 ], [ -1, %archive_wstring_append_from_mbs.exit ], [ -1, %archive_wstring_append_from_mbs.exit.thread ]
+62:                                               ; preds = %archive_wstring_append_from_mbs.exit, %archive_wstring_append_from_mbs.exit.thread, %16, %58, %9
+  %.018 = phi i32 [ 0, %9 ], [ 0, %58 ], [ 0, %16 ], [ -1, %archive_wstring_append_from_mbs.exit ], [ -1, %archive_wstring_append_from_mbs.exit.thread ]
   ret i32 %.018
 }
 
@@ -2040,54 +2049,53 @@ define dso_local i32 @archive_mstring_get_mbs_l(ptr noundef %0, ptr noundef %1, 
   %14 = phi i32 [ %.pre, %11 ], [ %8, %5 ]
   %15 = and i32 %14, 1
   %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %30, label %16
+  br i1 %.not, label %33, label %16
 
 16:                                               ; preds = %13
   %17 = icmp eq ptr %4, null
-  br i1 %17, label %18, label %22
+  br i1 %17, label %18, label %23
 
 18:                                               ; preds = %16
   %19 = load ptr, ptr %1, align 8
   store ptr %19, ptr %2, align 8
   %.not28 = icmp eq ptr %3, null
-  br i1 %.not28, label %32, label %20
+  br i1 %.not28, label %34, label %20
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds i8, ptr %1, i64 8
-  br label %.sink.split.sink.split
-
-22:                                               ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %1, i64 72
-  %24 = load ptr, ptr %1, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
-  %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 80
-  store i64 0, ptr %27, align 8
-  %28 = tail call i32 @archive_strncat_l(ptr noundef nonnull %23, ptr noundef %24, i64 noundef %26, ptr noundef nonnull %4)
-  %29 = load ptr, ptr %23, align 8
-  store ptr %29, ptr %2, align 8
-  %.not27 = icmp eq ptr %3, null
-  br i1 %.not27, label %32, label %.sink.split.sink.split
-
-30:                                               ; preds = %13
-  store ptr null, ptr %2, align 8
-  %.not26 = icmp eq ptr %3, null
-  br i1 %.not26, label %32, label %.sink.split
-
-.sink.split.sink.split:                           ; preds = %22, %20
-  %.sink29 = phi ptr [ %21, %20 ], [ %27, %22 ]
-  %.023.ph.ph = phi i32 [ 0, %20 ], [ %28, %22 ]
-  %31 = load i64, ptr %.sink29, align 8
+  %22 = load i64, ptr %21, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.sink.split.sink.split, %30
-  %.sink = phi i64 [ 0, %30 ], [ %31, %.sink.split.sink.split ]
-  %.023.ph = phi i32 [ 0, %30 ], [ %.023.ph.ph, %.sink.split.sink.split ]
-  store i64 %.sink, ptr %3, align 8
-  br label %32
+23:                                               ; preds = %16
+  %24 = getelementptr inbounds i8, ptr %1, i64 72
+  %25 = load ptr, ptr %1, align 8
+  %26 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = load i64, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %1, i64 80
+  store i64 0, ptr %28, align 8
+  %29 = tail call i32 @archive_strncat_l(ptr noundef nonnull %24, ptr noundef %25, i64 noundef %27, ptr noundef nonnull %4)
+  %30 = load ptr, ptr %24, align 8
+  store ptr %30, ptr %2, align 8
+  %.not27 = icmp eq ptr %3, null
+  br i1 %.not27, label %34, label %31
 
-32:                                               ; preds = %.sink.split, %22, %30, %18
-  %.023 = phi i32 [ 0, %18 ], [ %28, %22 ], [ 0, %30 ], [ %.023.ph, %.sink.split ]
+31:                                               ; preds = %23
+  %32 = load i64, ptr %28, align 8
+  br label %.sink.split
+
+33:                                               ; preds = %13
+  store ptr null, ptr %2, align 8
+  %.not26 = icmp eq ptr %3, null
+  br i1 %.not26, label %34, label %.sink.split
+
+.sink.split:                                      ; preds = %33, %20, %31
+  %.sink = phi i64 [ %32, %31 ], [ %22, %20 ], [ 0, %33 ]
+  %.023.ph = phi i32 [ %29, %31 ], [ 0, %20 ], [ 0, %33 ]
+  store i64 %.sink, ptr %3, align 8
+  br label %34
+
+34:                                               ; preds = %.sink.split, %23, %33, %18
+  %.023 = phi i32 [ 0, %18 ], [ %29, %23 ], [ 0, %33 ], [ %.023.ph, %.sink.split ]
   ret i32 %.023
 }
 
@@ -2499,7 +2507,7 @@ define dso_local range(i32 -1, 1) i32 @archive_mstring_update_utf8(ptr noundef %
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %1, i64 96
   store i32 0, ptr %7, align 8
-  br label %100
+  br label %101
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %1, i64 24
@@ -2595,7 +2603,7 @@ archive_string_conversion_from_charset.exit:      ; preds = %34, %39, %default_i
   %.0.i.i = phi ptr [ %35, %34 ], [ %41, %43 ], [ %41, %default_iconv_charset.exit.i.i ], [ %38, %39 ]
   %47 = tail call fastcc ptr @get_sconv_object(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef %.0.i.i, i32 noundef 6)
   %48 = icmp eq ptr %47, null
-  br i1 %48, label %100, label %49
+  br i1 %48, label %101, label %49
 
 49:                                               ; preds = %archive_string_conversion_from_charset.exit
   %50 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
@@ -2620,7 +2628,7 @@ archive_string_conversion_from_charset.exit:      ; preds = %34, %39, %default_i
 
 60:                                               ; preds = %52, %49
   %.not = icmp eq i32 %51, 0
-  br i1 %.not, label %61, label %100
+  br i1 %.not, label %61, label %101
 
 61:                                               ; preds = %60
   store i32 3, ptr %32, align 8
@@ -2638,7 +2646,7 @@ archive_string_conversion_from_charset.exit:      ; preds = %34, %39, %default_i
 
 archive_wstring_append_from_mbs.exit.thread:      ; preds = %61
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %100
+  br label %101
 
 70:                                               ; preds = %61
   %71 = load ptr, ptr %30, align 8
@@ -2649,6 +2657,10 @@ archive_wstring_append_from_mbs.exit.thread:      ; preds = %61
   %76 = icmp ne i64 %63, 0
   %77 = and i1 %76, %75
   br i1 %77, label %.lr.ph.i28, label %archive_wstring_append_from_mbs.exit.thread31
+
+archive_wstring_append_from_mbs.exit.thread31:    ; preds = %70
+  store i32 0, ptr %73, align 4
+  br label %100
 
 .lr.ph.i28:                                       ; preds = %70, %82
   %78 = phi i64 [ %85, %82 ], [ %63, %70 ]
@@ -2683,7 +2695,8 @@ archive_wstring_append_from_mbs.exit.thread35:    ; preds = %82, %80
   %93 = ashr exact i64 %92, 2
   store i64 %93, ptr %31, align 8
   %94 = getelementptr inbounds i8, ptr %.pre.i38, i64 %92
-  br label %archive_wstring_append_from_mbs.exit.thread31
+  store i32 0, ptr %94, align 4
+  br label %100
 
 archive_wstring_append_from_mbs.exit:             ; preds = %.lr.ph.i28
   %.pre.i = load ptr, ptr %30, align 8
@@ -2695,17 +2708,15 @@ archive_wstring_append_from_mbs.exit:             ; preds = %.lr.ph.i28
   %99 = getelementptr inbounds i8, ptr %.pre.i, i64 %97
   store i32 0, ptr %99, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %100
+  br label %101
 
-archive_wstring_append_from_mbs.exit.thread31:    ; preds = %70, %archive_wstring_append_from_mbs.exit.thread35
-  %.sink = phi ptr [ %94, %archive_wstring_append_from_mbs.exit.thread35 ], [ %73, %70 ]
-  store i32 0, ptr %.sink, align 4
+100:                                              ; preds = %archive_wstring_append_from_mbs.exit.thread35, %archive_wstring_append_from_mbs.exit.thread31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   store i32 7, ptr %32, align 8
-  br label %100
+  br label %101
 
-100:                                              ; preds = %archive_wstring_append_from_mbs.exit, %archive_wstring_append_from_mbs.exit.thread, %60, %archive_string_conversion_from_charset.exit, %archive_wstring_append_from_mbs.exit.thread31, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %archive_wstring_append_from_mbs.exit.thread31 ], [ -1, %archive_string_conversion_from_charset.exit ], [ -1, %60 ], [ -1, %archive_wstring_append_from_mbs.exit ], [ -1, %archive_wstring_append_from_mbs.exit.thread ]
+101:                                              ; preds = %archive_wstring_append_from_mbs.exit, %archive_wstring_append_from_mbs.exit.thread, %60, %archive_string_conversion_from_charset.exit, %100, %6
+  %.0 = phi i32 [ 0, %6 ], [ 0, %100 ], [ -1, %archive_string_conversion_from_charset.exit ], [ -1, %60 ], [ -1, %archive_wstring_append_from_mbs.exit ], [ -1, %archive_wstring_append_from_mbs.exit.thread ]
   ret i32 %.0
 }
 

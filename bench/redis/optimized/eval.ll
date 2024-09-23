@@ -1853,14 +1853,14 @@ for.body:                                         ; preds = %if.then46, %for.bod
   %18 = load ptr, ptr %ptr53, align 8
   %call54 = tail call ptr @dictFind(ptr noundef %15, ptr noundef %18) #17
   %tobool55.not = icmp eq ptr %call54, null
-  %.val = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 24), align 8
-  %.val82 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 32), align 8
-  %19 = select i1 %tobool55.not, ptr %.val, ptr %.val82
-  tail call void @addReply(ptr noundef nonnull %c, ptr noundef %19) #17
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 32), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 24), align 8
+  %.sink = select i1 %tobool55.not, ptr %20, ptr %19
+  tail call void @addReply(ptr noundef nonnull %c, ptr noundef %.sink) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %20 = load i32, ptr %argc, align 8
-  %21 = sext i32 %20 to i64
-  %cmp49 = icmp slt i64 %indvars.iv.next, %21
+  %21 = load i32, ptr %argc, align 8
+  %22 = sext i32 %21 to i64
+  %cmp49 = icmp slt i64 %indvars.iv.next, %22
   br i1 %cmp49, label %for.body, label %if.end133, !llvm.loop !12
 
 if.else59:                                        ; preds = %land.lhs.true40
@@ -1874,8 +1874,8 @@ land.lhs.true63:                                  ; preds = %if.else59
 
 if.then69:                                        ; preds = %land.lhs.true63
   %arrayidx71 = getelementptr inbounds i8, ptr %.pre, i64 16
-  %22 = load ptr, ptr %arrayidx71, align 8
-  %call72 = tail call ptr @luaCreateFunction(ptr noundef nonnull %c, ptr noundef %22)
+  %23 = load ptr, ptr %arrayidx71, align 8
+  %call72 = tail call ptr @luaCreateFunction(ptr noundef nonnull %c, ptr noundef %23)
   %cmp73 = icmp eq ptr %call72, null
   br i1 %cmp73, label %if.end133, label %if.end76
 
@@ -1907,47 +1907,47 @@ if.then101:                                       ; preds = %if.then98
   br label %if.end133
 
 if.end102:                                        ; preds = %if.then98
-  %23 = load ptr, ptr %argv4, align 8
-  %arrayidx104 = getelementptr inbounds i8, ptr %23, i64 16
-  %24 = load ptr, ptr %arrayidx104, align 8
-  %ptr105 = getelementptr inbounds i8, ptr %24, i64 8
-  %25 = load ptr, ptr %ptr105, align 8
-  %call106 = tail call i32 @strcasecmp(ptr noundef %25, ptr noundef nonnull @.str.51) #16
+  %24 = load ptr, ptr %argv4, align 8
+  %arrayidx104 = getelementptr inbounds i8, ptr %24, i64 16
+  %25 = load ptr, ptr %arrayidx104, align 8
+  %ptr105 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = load ptr, ptr %ptr105, align 8
+  %call106 = tail call i32 @strcasecmp(ptr noundef %26, ptr noundef nonnull @.str.51) #16
   %tobool107.not = icmp eq i32 %call106, 0
   br i1 %tobool107.not, label %if.then108, label %if.else109
 
 if.then108:                                       ; preds = %if.end102
   %flags.i = getelementptr inbounds i8, ptr %c, i64 8
-  %26 = load i64, ptr %flags.i, align 8
-  %and.i = and i64 %26, -100663297
+  %27 = load i64, ptr %flags.i, align 8
+  %and.i = and i64 %27, -100663297
   store i64 %and.i, ptr %flags.i, align 8
-  %27 = load ptr, ptr @shared, align 8
-  tail call void @addReply(ptr noundef nonnull %c, ptr noundef %27) #17
+  %28 = load ptr, ptr @shared, align 8
+  tail call void @addReply(ptr noundef nonnull %c, ptr noundef %28) #17
   br label %if.end133
 
 if.else109:                                       ; preds = %if.end102
-  %call113 = tail call i32 @strcasecmp(ptr noundef %25, ptr noundef nonnull @.str.52) #16
+  %call113 = tail call i32 @strcasecmp(ptr noundef %26, ptr noundef nonnull @.str.52) #16
   %tobool114.not = icmp eq i32 %call113, 0
   br i1 %tobool114.not, label %if.then115, label %if.else116
 
 if.then115:                                       ; preds = %if.else109
   tail call void @ldbEnable(ptr noundef nonnull %c)
-  %28 = load ptr, ptr @shared, align 8
-  tail call void @addReply(ptr noundef nonnull %c, ptr noundef %28) #17
+  %29 = load ptr, ptr @shared, align 8
+  tail call void @addReply(ptr noundef nonnull %c, ptr noundef %29) #17
   br label %if.end133
 
 if.else116:                                       ; preds = %if.else109
-  %call120 = tail call i32 @strcasecmp(ptr noundef %25, ptr noundef nonnull @.str.44) #16
+  %call120 = tail call i32 @strcasecmp(ptr noundef %26, ptr noundef nonnull @.str.44) #16
   %tobool121.not = icmp eq i32 %call120, 0
   br i1 %tobool121.not, label %if.then122, label %if.else123
 
 if.then122:                                       ; preds = %if.else116
   tail call void @ldbEnable(ptr noundef nonnull %c)
-  %29 = load ptr, ptr @shared, align 8
-  tail call void @addReply(ptr noundef nonnull %c, ptr noundef %29) #17
+  %30 = load ptr, ptr @shared, align 8
+  tail call void @addReply(ptr noundef nonnull %c, ptr noundef %30) #17
   %flags = getelementptr inbounds i8, ptr %c, i64 8
-  %30 = load i64, ptr %flags, align 8
-  %or = or i64 %30, 67108864
+  %31 = load i64, ptr %flags, align 8
+  %or = or i64 %31, 67108864
   store i64 %or, ptr %flags, align 8
   br label %if.end133
 

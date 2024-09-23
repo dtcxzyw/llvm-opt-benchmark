@@ -579,109 +579,143 @@ define hidden noundef ptr @_ZN19G1HeapRegionManager20allocate_free_regionE16G1He
   %9 = getelementptr inbounds i8, ptr %0, i64 160
   %10 = tail call noundef ptr @_ZN16G1FreeRegionList29remove_region_with_node_indexEbj(ptr noundef nonnull align 8 dereferenceable(72) %9, i1 noundef zeroext %.not21, i32 noundef %2)
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %.thread, label %55
+  br i1 %11, label %.thread, label %68
 
 .thread:                                          ; preds = %3, %6, %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 160
-  %13 = getelementptr inbounds i8, ptr %0, i64 168
-  %14 = load ptr, ptr %13, align 8
-  %.not.i.i = icmp eq ptr %14, null
-  br i1 %.not.i.i, label %_ZN19G1HeapRegionSetBase15check_mt_safetyEv.exit.i, label %15
+  %12 = getelementptr inbounds i8, ptr %0, i64 168
+  %13 = load ptr, ptr %12, align 8
+  %.not.i.i = icmp eq ptr %13, null
+  br i1 %.not.i.i, label %_ZN19G1HeapRegionSetBase15check_mt_safetyEv.exit.i, label %14
 
-15:                                               ; preds = %.thread
-  %16 = load ptr, ptr %14, align 8
-  %17 = load ptr, ptr %16, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14) #16
+14:                                               ; preds = %.thread
+  %15 = load ptr, ptr %13, align 8
+  %16 = load ptr, ptr %15, align 8
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %13) #16
   br label %_ZN19G1HeapRegionSetBase15check_mt_safetyEv.exit.i
 
-_ZN19G1HeapRegionSetBase15check_mt_safetyEv.exit.i: ; preds = %15, %.thread
-  %18 = getelementptr inbounds i8, ptr %0, i64 176
-  %19 = load i32, ptr %18, align 8
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %_ZN16G1FreeRegionList13remove_regionEb.exit, label %21
+_ZN19G1HeapRegionSetBase15check_mt_safetyEv.exit.i: ; preds = %14, %.thread
+  %17 = getelementptr inbounds i8, ptr %0, i64 176
+  %18 = load i32, ptr %17, align 8
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %_ZN16G1FreeRegionList13remove_regionEb.exit, label %20
 
-21:                                               ; preds = %_ZN19G1HeapRegionSetBase15check_mt_safetyEv.exit.i
-  %..i = select i1 %.not21, i64 40, i64 48
-  %.22.i = select i1 %.not21, i64 72, i64 80
-  %.23.i = select i1 %.not21, i64 80, i64 72
-  %.24.i = select i1 %.not21, i64 48, i64 40
-  %22 = getelementptr inbounds i8, ptr %12, i64 %..i
+20:                                               ; preds = %_ZN19G1HeapRegionSetBase15check_mt_safetyEv.exit.i
+  br i1 %.not21, label %21, label %31
+
+21:                                               ; preds = %20
+  %22 = getelementptr inbounds i8, ptr %0, i64 200
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 %.22.i
+  %24 = getelementptr inbounds i8, ptr %23, i64 72
   %25 = load ptr, ptr %24, align 8
   store ptr %25, ptr %22, align 8
   %26 = icmp eq ptr %25, null
-  %27 = getelementptr inbounds i8, ptr %25, i64 %.23.i
-  %28 = getelementptr inbounds i8, ptr %12, i64 %.24.i
-  %.sink.i7.i = select i1 %26, ptr %28, ptr %27
-  store ptr null, ptr %.sink.i7.i, align 8
+  br i1 %26, label %27, label %29
+
+27:                                               ; preds = %21
+  %28 = getelementptr inbounds i8, ptr %0, i64 208
+  store ptr null, ptr %28, align 8
+  br label %_ZN16G1FreeRegionList21remove_from_head_implEv.exit.i
+
+29:                                               ; preds = %21
+  %30 = getelementptr inbounds i8, ptr %25, i64 80
+  store ptr null, ptr %30, align 8
+  br label %_ZN16G1FreeRegionList21remove_from_head_implEv.exit.i
+
+_ZN16G1FreeRegionList21remove_from_head_implEv.exit.i: ; preds = %29, %27
   store ptr null, ptr %24, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 216
-  %30 = load ptr, ptr %29, align 8
-  %31 = icmp eq ptr %30, %23
-  br i1 %31, label %32, label %33
+  br label %41
 
-32:                                               ; preds = %21
-  store ptr null, ptr %29, align 8
-  br label %33
+31:                                               ; preds = %20
+  %32 = getelementptr inbounds i8, ptr %0, i64 208
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 80
+  %35 = load ptr, ptr %34, align 8
+  store ptr %35, ptr %32, align 8
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %37, label %39
 
-33:                                               ; preds = %32, %21
-  %34 = load ptr, ptr %13, align 8
-  %.not.i.i.i = icmp eq ptr %34, null
-  br i1 %.not.i.i.i, label %_ZN19G1HeapRegionSetBase6removeEP12G1HeapRegion.exit.i, label %35
+37:                                               ; preds = %31
+  %38 = getelementptr inbounds i8, ptr %0, i64 200
+  store ptr null, ptr %38, align 8
+  br label %_ZN16G1FreeRegionList21remove_from_tail_implEv.exit.i
 
-35:                                               ; preds = %33
-  %36 = load ptr, ptr %34, align 8
-  %37 = load ptr, ptr %36, align 8
-  tail call void %37(ptr noundef nonnull align 8 dereferenceable(8) %34) #16
+39:                                               ; preds = %31
+  %40 = getelementptr inbounds i8, ptr %35, i64 72
+  store ptr null, ptr %40, align 8
+  br label %_ZN16G1FreeRegionList21remove_from_tail_implEv.exit.i
+
+_ZN16G1FreeRegionList21remove_from_tail_implEv.exit.i: ; preds = %39, %37
+  store ptr null, ptr %34, align 8
+  br label %41
+
+41:                                               ; preds = %_ZN16G1FreeRegionList21remove_from_tail_implEv.exit.i, %_ZN16G1FreeRegionList21remove_from_head_implEv.exit.i
+  %.0.i = phi ptr [ %23, %_ZN16G1FreeRegionList21remove_from_head_implEv.exit.i ], [ %33, %_ZN16G1FreeRegionList21remove_from_tail_implEv.exit.i ]
+  %42 = getelementptr inbounds i8, ptr %0, i64 216
+  %43 = load ptr, ptr %42, align 8
+  %44 = icmp eq ptr %43, %.0.i
+  br i1 %44, label %45, label %46
+
+45:                                               ; preds = %41
+  store ptr null, ptr %42, align 8
+  br label %46
+
+46:                                               ; preds = %45, %41
+  %47 = load ptr, ptr %12, align 8
+  %.not.i.i.i = icmp eq ptr %47, null
+  br i1 %.not.i.i.i, label %_ZN19G1HeapRegionSetBase6removeEP12G1HeapRegion.exit.i, label %48
+
+48:                                               ; preds = %46
+  %49 = load ptr, ptr %47, align 8
+  %50 = load ptr, ptr %49, align 8
+  tail call void %50(ptr noundef nonnull align 8 dereferenceable(8) %47) #16
   br label %_ZN19G1HeapRegionSetBase6removeEP12G1HeapRegion.exit.i
 
-_ZN19G1HeapRegionSetBase6removeEP12G1HeapRegion.exit.i: ; preds = %35, %33
-  %38 = load i32, ptr %18, align 8
-  %39 = add i32 %38, -1
-  store i32 %39, ptr %18, align 8
-  %40 = getelementptr inbounds i8, ptr %23, i64 124
-  %41 = load i32, ptr %40, align 4
-  %42 = getelementptr inbounds i8, ptr %0, i64 224
-  %43 = load ptr, ptr %42, align 8
-  %.not.i8.i = icmp eq ptr %43, null
-  br i1 %.not.i8.i, label %55, label %44
+_ZN19G1HeapRegionSetBase6removeEP12G1HeapRegion.exit.i: ; preds = %48, %46
+  %51 = load i32, ptr %17, align 8
+  %52 = add i32 %51, -1
+  store i32 %52, ptr %17, align 8
+  %53 = getelementptr inbounds i8, ptr %.0.i, i64 124
+  %54 = load i32, ptr %53, align 4
+  %55 = getelementptr inbounds i8, ptr %0, i64 224
+  %56 = load ptr, ptr %55, align 8
+  %.not.i7.i = icmp eq ptr %56, null
+  br i1 %.not.i7.i, label %68, label %57
 
-44:                                               ; preds = %_ZN19G1HeapRegionSetBase6removeEP12G1HeapRegion.exit.i
-  %45 = getelementptr inbounds i8, ptr %43, i64 16
-  %46 = load i32, ptr %45, align 8
-  %47 = icmp ult i32 %41, %46
-  br i1 %47, label %48, label %55
+57:                                               ; preds = %_ZN19G1HeapRegionSetBase6removeEP12G1HeapRegion.exit.i
+  %58 = getelementptr inbounds i8, ptr %56, i64 16
+  %59 = load i32, ptr %58, align 8
+  %60 = icmp ult i32 %54, %59
+  br i1 %60, label %61, label %68
 
-48:                                               ; preds = %44
-  %49 = getelementptr inbounds i8, ptr %43, i64 8
-  %50 = load ptr, ptr %49, align 8
-  %51 = zext i32 %41 to i64
-  %52 = getelementptr inbounds i32, ptr %50, i64 %51
-  %53 = load i32, ptr %52, align 4
-  %54 = add i32 %53, -1
-  store i32 %54, ptr %52, align 4
-  br label %55
+61:                                               ; preds = %57
+  %62 = getelementptr inbounds i8, ptr %56, i64 8
+  %63 = load ptr, ptr %62, align 8
+  %64 = zext i32 %54 to i64
+  %65 = getelementptr inbounds i32, ptr %63, i64 %64
+  %66 = load i32, ptr %65, align 4
+  %67 = add i32 %66, -1
+  store i32 %67, ptr %65, align 4
+  br label %68
 
-55:                                               ; preds = %8, %_ZN19G1HeapRegionSetBase6removeEP12G1HeapRegion.exit.i, %44, %48
-  %.1.ph = phi ptr [ %23, %48 ], [ %23, %44 ], [ %23, %_ZN19G1HeapRegionSetBase6removeEP12G1HeapRegion.exit.i ], [ %10, %8 ]
-  %56 = tail call noundef zeroext i1 @_ZNK6G1NUMA10is_enabledEv(ptr noundef nonnull align 8 dereferenceable(56) %5) #16
-  br i1 %56, label %57, label %_ZN16G1FreeRegionList13remove_regionEb.exit
+68:                                               ; preds = %8, %_ZN19G1HeapRegionSetBase6removeEP12G1HeapRegion.exit.i, %57, %61
+  %.1.ph = phi ptr [ %.0.i, %61 ], [ %.0.i, %57 ], [ %.0.i, %_ZN19G1HeapRegionSetBase6removeEP12G1HeapRegion.exit.i ], [ %10, %8 ]
+  %69 = tail call noundef zeroext i1 @_ZNK6G1NUMA10is_enabledEv(ptr noundef nonnull align 8 dereferenceable(56) %5) #16
+  br i1 %69, label %70, label %_ZN16G1FreeRegionList13remove_regionEb.exit
 
-57:                                               ; preds = %55
-  %58 = getelementptr inbounds i8, ptr %.1.ph, i64 124
-  %59 = load i32, ptr %58, align 4
-  %60 = tail call noundef i32 @_ZNK6G1NUMA16num_active_nodesEv(ptr noundef nonnull align 8 dereferenceable(56) %5) #16
-  %61 = icmp ult i32 %59, %60
-  br i1 %61, label %62, label %_ZN16G1FreeRegionList13remove_regionEb.exit
+70:                                               ; preds = %68
+  %71 = getelementptr inbounds i8, ptr %.1.ph, i64 124
+  %72 = load i32, ptr %71, align 4
+  %73 = tail call noundef i32 @_ZNK6G1NUMA16num_active_nodesEv(ptr noundef nonnull align 8 dereferenceable(56) %5) #16
+  %74 = icmp ult i32 %72, %73
+  br i1 %74, label %75, label %_ZN16G1FreeRegionList13remove_regionEb.exit
 
-62:                                               ; preds = %57
-  %63 = load i32, ptr %58, align 4
-  tail call void @_ZN6G1NUMA17update_statisticsEN11G1NUMAStats13NodeDataItemsEjj(ptr noundef nonnull align 8 dereferenceable(56) %5, i32 noundef 0, i32 noundef %2, i32 noundef %63) #16
+75:                                               ; preds = %70
+  %76 = load i32, ptr %71, align 4
+  tail call void @_ZN6G1NUMA17update_statisticsEN11G1NUMAStats13NodeDataItemsEjj(ptr noundef nonnull align 8 dereferenceable(56) %5, i32 noundef 0, i32 noundef %2, i32 noundef %76) #16
   br label %_ZN16G1FreeRegionList13remove_regionEb.exit
 
-_ZN16G1FreeRegionList13remove_regionEb.exit:      ; preds = %_ZN19G1HeapRegionSetBase15check_mt_safetyEv.exit.i, %55, %57, %62
-  %.120 = phi ptr [ %.1.ph, %55 ], [ %.1.ph, %57 ], [ %.1.ph, %62 ], [ null, %_ZN19G1HeapRegionSetBase15check_mt_safetyEv.exit.i ]
+_ZN16G1FreeRegionList13remove_regionEb.exit:      ; preds = %_ZN19G1HeapRegionSetBase15check_mt_safetyEv.exit.i, %68, %70, %75
+  %.120 = phi ptr [ %.1.ph, %68 ], [ %.1.ph, %70 ], [ %.1.ph, %75 ], [ null, %_ZN19G1HeapRegionSetBase15check_mt_safetyEv.exit.i ]
   ret ptr %.120
 }
 
@@ -757,67 +791,85 @@ define linkonce_odr hidden noundef ptr @_ZN16G1FreeRegionList29remove_region_wit
   %38 = getelementptr inbounds i8, ptr %.1, i64 72
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %37, null
-  %41 = getelementptr inbounds i8, ptr %37, i64 72
+  br i1 %40, label %41, label %43
+
+41:                                               ; preds = %35
   %42 = getelementptr inbounds i8, ptr %0, i64 40
-  %.sink = select i1 %40, ptr %42, ptr %41
-  store ptr %39, ptr %.sink, align 8
-  %43 = icmp eq ptr %39, null
-  %44 = getelementptr inbounds i8, ptr %39, i64 80
-  %45 = getelementptr inbounds i8, ptr %0, i64 48
-  %.sink64 = select i1 %43, ptr %45, ptr %44
-  store ptr %37, ptr %.sink64, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 56
+  store ptr %39, ptr %42, align 8
+  br label %45
+
+43:                                               ; preds = %35
+  %44 = getelementptr inbounds i8, ptr %37, i64 72
+  store ptr %39, ptr %44, align 8
+  br label %45
+
+45:                                               ; preds = %43, %41
+  %46 = icmp eq ptr %39, null
+  br i1 %46, label %47, label %49
+
+47:                                               ; preds = %45
+  %48 = getelementptr inbounds i8, ptr %0, i64 48
+  store ptr %37, ptr %48, align 8
+  br label %51
+
+49:                                               ; preds = %45
+  %50 = getelementptr inbounds i8, ptr %39, i64 80
+  store ptr %37, ptr %50, align 8
+  br label %51
+
+51:                                               ; preds = %49, %47
+  %52 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %47, %.1
-  br i1 %48, label %49, label %50
+  %53 = load ptr, ptr %52, align 8
+  %54 = icmp eq ptr %53, %.1
+  br i1 %54, label %55, label %56
 
-49:                                               ; preds = %35
-  store ptr null, ptr %46, align 8
-  br label %50
+55:                                               ; preds = %51
+  store ptr null, ptr %52, align 8
+  br label %56
 
-50:                                               ; preds = %49, %35
-  %51 = getelementptr inbounds i8, ptr %0, i64 8
-  %52 = load ptr, ptr %51, align 8
-  %.not.i.i = icmp eq ptr %52, null
-  br i1 %.not.i.i, label %_ZN19G1HeapRegionSetBase6removeEP12G1HeapRegion.exit, label %53
+56:                                               ; preds = %55, %51
+  %57 = getelementptr inbounds i8, ptr %0, i64 8
+  %58 = load ptr, ptr %57, align 8
+  %.not.i.i = icmp eq ptr %58, null
+  br i1 %.not.i.i, label %_ZN19G1HeapRegionSetBase6removeEP12G1HeapRegion.exit, label %59
 
-53:                                               ; preds = %50
-  %54 = load ptr, ptr %52, align 8
-  %55 = load ptr, ptr %54, align 8
-  tail call void %55(ptr noundef nonnull align 8 dereferenceable(8) %52) #16
+59:                                               ; preds = %56
+  %60 = load ptr, ptr %58, align 8
+  %61 = load ptr, ptr %60, align 8
+  tail call void %61(ptr noundef nonnull align 8 dereferenceable(8) %58) #16
   br label %_ZN19G1HeapRegionSetBase6removeEP12G1HeapRegion.exit
 
-_ZN19G1HeapRegionSetBase6removeEP12G1HeapRegion.exit: ; preds = %50, %53
-  %56 = getelementptr inbounds i8, ptr %0, i64 16
-  %57 = load i32, ptr %56, align 8
-  %58 = add i32 %57, -1
-  store i32 %58, ptr %56, align 8
-  %59 = getelementptr inbounds i8, ptr %.1, i64 124
-  %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %0, i64 64
-  %62 = load ptr, ptr %61, align 8
-  %.not.i = icmp eq ptr %62, null
-  br i1 %.not.i, label %_ZN16G1FreeRegionList15decrease_lengthEj.exit, label %63
+_ZN19G1HeapRegionSetBase6removeEP12G1HeapRegion.exit: ; preds = %56, %59
+  %62 = getelementptr inbounds i8, ptr %0, i64 16
+  %63 = load i32, ptr %62, align 8
+  %64 = add i32 %63, -1
+  store i32 %64, ptr %62, align 8
+  %65 = getelementptr inbounds i8, ptr %.1, i64 124
+  %66 = load i32, ptr %65, align 4
+  %67 = getelementptr inbounds i8, ptr %0, i64 64
+  %68 = load ptr, ptr %67, align 8
+  %.not.i = icmp eq ptr %68, null
+  br i1 %.not.i, label %_ZN16G1FreeRegionList15decrease_lengthEj.exit, label %69
 
-63:                                               ; preds = %_ZN19G1HeapRegionSetBase6removeEP12G1HeapRegion.exit
-  %64 = getelementptr inbounds i8, ptr %62, i64 16
-  %65 = load i32, ptr %64, align 8
-  %66 = icmp ult i32 %60, %65
-  br i1 %66, label %67, label %_ZN16G1FreeRegionList15decrease_lengthEj.exit
+69:                                               ; preds = %_ZN19G1HeapRegionSetBase6removeEP12G1HeapRegion.exit
+  %70 = getelementptr inbounds i8, ptr %68, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp ult i32 %66, %71
+  br i1 %72, label %73, label %_ZN16G1FreeRegionList15decrease_lengthEj.exit
 
-67:                                               ; preds = %63
-  %68 = getelementptr inbounds i8, ptr %62, i64 8
-  %69 = load ptr, ptr %68, align 8
-  %70 = zext i32 %60 to i64
-  %71 = getelementptr inbounds i32, ptr %69, i64 %70
-  %72 = load i32, ptr %71, align 4
-  %73 = add i32 %72, -1
-  store i32 %73, ptr %71, align 4
+73:                                               ; preds = %69
+  %74 = getelementptr inbounds i8, ptr %68, i64 8
+  %75 = load ptr, ptr %74, align 8
+  %76 = zext i32 %66 to i64
+  %77 = getelementptr inbounds i32, ptr %75, i64 %76
+  %78 = load i32, ptr %77, align 4
+  %79 = add i32 %78, -1
+  store i32 %79, ptr %77, align 4
   br label %_ZN16G1FreeRegionList15decrease_lengthEj.exit
 
-_ZN16G1FreeRegionList15decrease_lengthEj.exit:    ; preds = %67, %63, %_ZN19G1HeapRegionSetBase6removeEP12G1HeapRegion.exit, %.loopexit
-  %.0 = phi ptr [ null, %.loopexit ], [ %.1, %_ZN19G1HeapRegionSetBase6removeEP12G1HeapRegion.exit ], [ %.1, %63 ], [ %.1, %67 ]
+_ZN16G1FreeRegionList15decrease_lengthEj.exit:    ; preds = %73, %69, %_ZN19G1HeapRegionSetBase6removeEP12G1HeapRegion.exit, %.loopexit
+  %.0 = phi ptr [ null, %.loopexit ], [ %.1, %_ZN19G1HeapRegionSetBase6removeEP12G1HeapRegion.exit ], [ %.1, %69 ], [ %.1, %73 ]
   ret ptr %.0
 }
 
@@ -1610,7 +1662,9 @@ _ZN19G1HeapRegionSetBase3addEP12G1HeapRegion.exit.i.i: ; preds = %22, %14
   %45 = getelementptr inbounds i8, ptr %17, i64 80
   store ptr %44, ptr %45, align 8
   %46 = getelementptr inbounds i8, ptr %44, i64 72
-  br label %56
+  store ptr %17, ptr %46, align 8
+  store ptr %17, ptr %11, align 8
+  br label %57
 
 47:                                               ; preds = %37
   %48 = getelementptr inbounds i8, ptr %17, i64 72
@@ -1623,60 +1677,65 @@ _ZN19G1HeapRegionSetBase3addEP12G1HeapRegion.exit.i.i: ; preds = %22, %14
 
 53:                                               ; preds = %47
   store ptr null, ptr %52, align 8
-  br label %56
+  store ptr %17, ptr %9, align 8
+  store ptr %17, ptr %49, align 8
+  br label %57
 
 54:                                               ; preds = %47
   store ptr %50, ptr %52, align 8
   %55 = getelementptr inbounds i8, ptr %50, i64 72
-  br label %56
+  store ptr %17, ptr %55, align 8
+  store ptr %17, ptr %49, align 8
+  br label %57
 
-56:                                               ; preds = %_ZN19G1HeapRegionSetBase3addEP12G1HeapRegion.exit.i.i, %54, %53, %._crit_edge.i.i
-  %.sink39.i.i = phi ptr [ %46, %._crit_edge.i.i ], [ %55, %54 ], [ %9, %53 ], [ %11, %_ZN19G1HeapRegionSetBase3addEP12G1HeapRegion.exit.i.i ]
-  %.sink.i.i = phi ptr [ %11, %._crit_edge.i.i ], [ %49, %54 ], [ %49, %53 ], [ %9, %_ZN19G1HeapRegionSetBase3addEP12G1HeapRegion.exit.i.i ]
-  store ptr %17, ptr %.sink39.i.i, align 8
-  store ptr %17, ptr %.sink.i.i, align 8
+56:                                               ; preds = %_ZN19G1HeapRegionSetBase3addEP12G1HeapRegion.exit.i.i
+  store ptr %17, ptr %11, align 8
+  store ptr %17, ptr %9, align 8
+  br label %57
+
+57:                                               ; preds = %56, %54, %53, %._crit_edge.i.i
   store ptr %17, ptr %10, align 8
-  %57 = load i32, ptr %20, align 4
-  %58 = load ptr, ptr %12, align 8
-  %.not.i.i.i = icmp eq ptr %58, null
-  br i1 %.not.i.i.i, label %_ZN19G1HeapRegionManager21insert_into_free_listEP12G1HeapRegion.exit, label %59
+  %58 = load i32, ptr %20, align 4
+  %59 = load ptr, ptr %12, align 8
+  %.not.i.i.i = icmp eq ptr %59, null
+  br i1 %.not.i.i.i, label %_ZN19G1HeapRegionManager21insert_into_free_listEP12G1HeapRegion.exit, label %60
 
-59:                                               ; preds = %56
-  %60 = getelementptr inbounds i8, ptr %58, i64 16
-  %61 = load i32, ptr %60, align 8
-  %62 = icmp ult i32 %57, %61
-  br i1 %62, label %63, label %_ZN19G1HeapRegionManager21insert_into_free_listEP12G1HeapRegion.exit
+60:                                               ; preds = %57
+  %61 = getelementptr inbounds i8, ptr %59, i64 16
+  %62 = load i32, ptr %61, align 8
+  %63 = icmp ult i32 %58, %62
+  br i1 %63, label %64, label %_ZN19G1HeapRegionManager21insert_into_free_listEP12G1HeapRegion.exit
 
-63:                                               ; preds = %59
-  %64 = getelementptr inbounds i8, ptr %58, i64 8
-  %65 = load ptr, ptr %64, align 8
-  %66 = zext i32 %57 to i64
-  %67 = getelementptr inbounds i32, ptr %65, i64 %66
-  %68 = load i32, ptr %67, align 4
-  %69 = add i32 %68, 1
-  store i32 %69, ptr %67, align 4
+64:                                               ; preds = %60
+  %65 = getelementptr inbounds i8, ptr %59, i64 8
+  %66 = load ptr, ptr %65, align 8
+  %67 = zext i32 %58 to i64
+  %68 = getelementptr inbounds i32, ptr %66, i64 %67
+  %69 = load i32, ptr %68, align 4
+  %70 = add i32 %69, 1
+  store i32 %70, ptr %68, align 4
   br label %_ZN19G1HeapRegionManager21insert_into_free_listEP12G1HeapRegion.exit
 
-_ZN19G1HeapRegionManager21insert_into_free_listEP12G1HeapRegion.exit: ; preds = %56, %59, %63
-  %70 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_128ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not.i.i11 = icmp eq ptr %70, null
-  br i1 %.not.i.i11, label %_ZN19G1HeapRegionPrinter6activeEP12G1HeapRegion.exit, label %71
+_ZN19G1HeapRegionManager21insert_into_free_listEP12G1HeapRegion.exit: ; preds = %57, %60, %64
+  %71 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_128ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not.i.i11 = icmp eq ptr %71, null
+  br i1 %.not.i.i11, label %_ZN19G1HeapRegionPrinter6activeEP12G1HeapRegion.exit, label %72
 
-71:                                               ; preds = %_ZN19G1HeapRegionManager21insert_into_free_listEP12G1HeapRegion.exit
-  %72 = getelementptr inbounds i8, ptr %17, i64 52
-  %73 = tail call noundef ptr @_ZNK16G1HeapRegionType7get_strEv(ptr noundef nonnull align 4 dereferenceable(4) %72) #16
-  %74 = load ptr, ptr %17, align 8
-  %75 = ptrtoint ptr %74 to i64
-  %76 = getelementptr inbounds i8, ptr %17, i64 16
-  %77 = load volatile ptr, ptr %76, align 8
-  %78 = ptrtoint ptr %77 to i64
-  %79 = getelementptr inbounds i8, ptr %17, i64 8
-  %80 = load ptr, ptr %79, align 8
-  %81 = ptrtoint ptr %80 to i64
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_128ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.54, ptr noundef %73, i64 noundef %75, i64 noundef %78, i64 noundef %81)
+72:                                               ; preds = %_ZN19G1HeapRegionManager21insert_into_free_listEP12G1HeapRegion.exit
+  %73 = getelementptr inbounds i8, ptr %17, i64 52
+  %74 = tail call noundef ptr @_ZNK16G1HeapRegionType7get_strEv(ptr noundef nonnull align 4 dereferenceable(4) %73) #16
+  %75 = load ptr, ptr %17, align 8
+  %76 = ptrtoint ptr %75 to i64
+  %77 = getelementptr inbounds i8, ptr %17, i64 16
+  %78 = load volatile ptr, ptr %77, align 8
+  %79 = ptrtoint ptr %78 to i64
+  %80 = getelementptr inbounds i8, ptr %17, i64 8
+  %81 = load ptr, ptr %80, align 8
+  %82 = ptrtoint ptr %81 to i64
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_128ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.54, ptr noundef %74, i64 noundef %76, i64 noundef %79, i64 noundef %82)
   br label %_ZN19G1HeapRegionPrinter6activeEP12G1HeapRegion.exit
 
-_ZN19G1HeapRegionPrinter6activeEP12G1HeapRegion.exit: ; preds = %_ZN19G1HeapRegionManager21insert_into_free_listEP12G1HeapRegion.exit, %71
+_ZN19G1HeapRegionPrinter6activeEP12G1HeapRegion.exit: ; preds = %_ZN19G1HeapRegionManager21insert_into_free_listEP12G1HeapRegion.exit, %72
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !18
@@ -3582,7 +3641,7 @@ _ZN20EventGCPhaseParallelC2E14EventStartTime.exit: ; preds = %2, %11
   %21 = trunc i64 %20 to i32
   %22 = tail call noundef i32 @llvm.umin.i32(i32 %16, i32 %21)
   %23 = icmp ugt i32 %15, %22
-  br i1 %23, label %110, label %24
+  br i1 %23, label %111, label %24
 
 24:                                               ; preds = %_ZN20EventGCPhaseParallelC2E14EventStartTime.exit
   %25 = icmp ult i32 %15, %22
@@ -3655,98 +3714,101 @@ _ZN19G1HeapRegionSetBase3addEP12G1HeapRegion.exit.i: ; preds = %56, %54
   %64 = getelementptr inbounds i8, ptr %49, i64 80
   store ptr %63, ptr %64, align 8
   %65 = getelementptr inbounds i8, ptr %63, i64 72
-  br label %66
+  store ptr %49, ptr %65, align 8
+  br label %67
 
-66:                                               ; preds = %_ZN19G1HeapRegionSetBase3addEP12G1HeapRegion.exit.i, %62
-  %.sink = phi ptr [ %65, %62 ], [ %32, %_ZN19G1HeapRegionSetBase3addEP12G1HeapRegion.exit.i ]
-  store ptr %49, ptr %.sink, align 8
+66:                                               ; preds = %_ZN19G1HeapRegionSetBase3addEP12G1HeapRegion.exit.i
+  store ptr %49, ptr %32, align 8
+  br label %67
+
+67:                                               ; preds = %66, %62
   store ptr %49, ptr %33, align 8
-  %67 = getelementptr inbounds i8, ptr %49, i64 124
-  %68 = load i32, ptr %67, align 4
-  %69 = load ptr, ptr %34, align 8
-  %.not.i.i = icmp eq ptr %69, null
-  br i1 %.not.i.i, label %_ZN16G1FreeRegionList11add_to_tailEP12G1HeapRegion.exit, label %70
+  %68 = getelementptr inbounds i8, ptr %49, i64 124
+  %69 = load i32, ptr %68, align 4
+  %70 = load ptr, ptr %34, align 8
+  %.not.i.i = icmp eq ptr %70, null
+  br i1 %.not.i.i, label %_ZN16G1FreeRegionList11add_to_tailEP12G1HeapRegion.exit, label %71
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds i8, ptr %69, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp ult i32 %68, %72
-  br i1 %73, label %74, label %_ZN16G1FreeRegionList11add_to_tailEP12G1HeapRegion.exit
+71:                                               ; preds = %67
+  %72 = getelementptr inbounds i8, ptr %70, i64 16
+  %73 = load i32, ptr %72, align 8
+  %74 = icmp ult i32 %69, %73
+  br i1 %74, label %75, label %_ZN16G1FreeRegionList11add_to_tailEP12G1HeapRegion.exit
 
-74:                                               ; preds = %70
-  %75 = getelementptr inbounds i8, ptr %69, i64 8
-  %76 = load ptr, ptr %75, align 8
-  %77 = zext i32 %68 to i64
-  %78 = getelementptr inbounds i32, ptr %76, i64 %77
-  %79 = load i32, ptr %78, align 4
-  %80 = add i32 %79, 1
-  store i32 %80, ptr %78, align 4
+75:                                               ; preds = %71
+  %76 = getelementptr inbounds i8, ptr %70, i64 8
+  %77 = load ptr, ptr %76, align 8
+  %78 = zext i32 %69 to i64
+  %79 = getelementptr inbounds i32, ptr %77, i64 %78
+  %80 = load i32, ptr %79, align 4
+  %81 = add i32 %80, 1
+  store i32 %81, ptr %79, align 4
   br label %_ZN16G1FreeRegionList11add_to_tailEP12G1HeapRegion.exit
 
-_ZN16G1FreeRegionList11add_to_tailEP12G1HeapRegion.exit: ; preds = %36, %74, %70, %66, %_ZNK19G1HeapRegionManager10at_or_nullEj.exit, %50
+_ZN16G1FreeRegionList11add_to_tailEP12G1HeapRegion.exit: ; preds = %36, %75, %71, %67, %_ZNK19G1HeapRegionManager10at_or_nullEj.exit, %50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %22, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge, label %36, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %_ZN16G1FreeRegionList11add_to_tailEP12G1HeapRegion.exit, %24
-  %81 = tail call noundef i32 @_ZN4GCId7currentEv() #16
-  %82 = tail call noundef ptr @_ZN14G1GCPhaseTimes10phase_nameENS_11GCParPhasesE(i32 noundef 32) #16
-  %83 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 1769), align 1
-  %.not.i.i21 = icmp eq i8 %83, 0
-  br i1 %.not.i.i21, label %_ZN20EventGCPhaseParallel6commitEjjPKc.exit, label %84
+  %82 = tail call noundef i32 @_ZN4GCId7currentEv() #16
+  %83 = tail call noundef ptr @_ZN14G1GCPhaseTimes10phase_nameENS_11GCParPhasesE(i32 noundef 32) #16
+  %84 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 1769), align 1
+  %.not.i.i21 = icmp eq i8 %84, 0
+  br i1 %.not.i.i21, label %_ZN20EventGCPhaseParallel6commitEjjPKc.exit, label %85
 
-84:                                               ; preds = %._crit_edge
-  %85 = icmp eq i64 %.pre3.i.i.i, 0
-  br i1 %85, label %86, label %88
+85:                                               ; preds = %._crit_edge
+  %86 = icmp eq i64 %.pre3.i.i.i, 0
+  br i1 %86, label %87, label %89
 
-86:                                               ; preds = %84
-  %87 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #16
-  store i64 %87, ptr %3, align 8
+87:                                               ; preds = %85
+  %88 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #16
+  store i64 %88, ptr %3, align 8
   br label %_ZN8JfrEventI20EventGCPhaseParallelE13should_commitEv.exit.i
 
-88:                                               ; preds = %84
-  %89 = getelementptr inbounds i8, ptr %3, i64 8
-  %90 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #16
-  store i64 %90, ptr %89, align 8
+89:                                               ; preds = %85
+  %90 = getelementptr inbounds i8, ptr %3, i64 8
+  %91 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #16
+  store i64 %91, ptr %90, align 8
   br label %_ZN8JfrEventI20EventGCPhaseParallelE13should_commitEv.exit.i
 
-_ZN8JfrEventI20EventGCPhaseParallelE13should_commitEv.exit.i: ; preds = %88, %86
-  %91 = phi i64 [ %.pre3.i.i.i, %88 ], [ %87, %86 ]
-  %92 = phi i64 [ %90, %88 ], [ 0, %86 ]
-  %93 = sub nsw i64 %92, %91
-  %94 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 1752), align 8
-  %95 = icmp sge i64 %93, %94
-  %96 = zext i1 %95 to i8
-  store i8 %96, ptr %7, align 1
+_ZN8JfrEventI20EventGCPhaseParallelE13should_commitEv.exit.i: ; preds = %89, %87
+  %92 = phi i64 [ %.pre3.i.i.i, %89 ], [ %88, %87 ]
+  %93 = phi i64 [ %91, %89 ], [ 0, %87 ]
+  %94 = sub nsw i64 %93, %92
+  %95 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 1752), align 8
+  %96 = icmp sge i64 %94, %95
+  %97 = zext i1 %96 to i8
+  store i8 %97, ptr %7, align 1
   store i8 1, ptr %8, align 2
-  br i1 %95, label %_ZN8JfrEventI20EventGCPhaseParallelE13should_commitEv.exit.thread.i, label %_ZN20EventGCPhaseParallel6commitEjjPKc.exit
+  br i1 %96, label %_ZN8JfrEventI20EventGCPhaseParallelE13should_commitEv.exit.thread.i, label %_ZN20EventGCPhaseParallel6commitEjjPKc.exit
 
 _ZN8JfrEventI20EventGCPhaseParallelE13should_commitEv.exit.thread.i: ; preds = %_ZN8JfrEventI20EventGCPhaseParallelE13should_commitEv.exit.i
-  %97 = getelementptr inbounds i8, ptr %3, i64 20
-  store i32 %81, ptr %97, align 4
-  %98 = getelementptr inbounds i8, ptr %3, i64 24
-  store i32 %1, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %3, i64 32
-  store ptr %82, ptr %99, align 8
+  %98 = getelementptr inbounds i8, ptr %3, i64 20
+  store i32 %82, ptr %98, align 4
+  %99 = getelementptr inbounds i8, ptr %3, i64 24
+  store i32 %1, ptr %99, align 8
+  %100 = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr %83, ptr %100, align 8
   call void @_ZN8JfrEventI20EventGCPhaseParallelE6commitEv(ptr noundef nonnull align 8 dereferenceable(19) %3)
   br label %_ZN20EventGCPhaseParallel6commitEjjPKc.exit
 
 _ZN20EventGCPhaseParallel6commitEjjPKc.exit:      ; preds = %._crit_edge, %_ZN8JfrEventI20EventGCPhaseParallelE13should_commitEv.exit.i, %_ZN8JfrEventI20EventGCPhaseParallelE13should_commitEv.exit.thread.i
-  %100 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 1064
-  %102 = load ptr, ptr %101, align 8
-  %103 = call noundef ptr @_ZNK8G1Policy11phase_timesEv(ptr noundef nonnull align 8 dereferenceable(552) %102) #16
-  %104 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #16
-  %105 = extractvalue { i64, i64 } %104, 0
-  %106 = extractvalue { i64, i64 } %104, 1
-  %107 = sub nsw i64 %105, %5
-  %108 = sub nsw i64 %106, %6
-  %109 = call noundef double @_ZN29CompositeElapsedCounterSource7secondsE7PairRepIllE(i64 %107, i64 %108) #16
-  call void @_ZN14G1GCPhaseTimes16record_time_secsENS_11GCParPhasesEjd(ptr noundef nonnull align 8 dereferenceable(872) %103, i32 noundef 32, i32 noundef %1, double noundef %109) #16
-  br label %110
+  %101 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
+  %102 = getelementptr inbounds i8, ptr %101, i64 1064
+  %103 = load ptr, ptr %102, align 8
+  %104 = call noundef ptr @_ZNK8G1Policy11phase_timesEv(ptr noundef nonnull align 8 dereferenceable(552) %103) #16
+  %105 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #16
+  %106 = extractvalue { i64, i64 } %105, 0
+  %107 = extractvalue { i64, i64 } %105, 1
+  %108 = sub nsw i64 %106, %5
+  %109 = sub nsw i64 %107, %6
+  %110 = call noundef double @_ZN29CompositeElapsedCounterSource7secondsE7PairRepIllE(i64 %108, i64 %109) #16
+  call void @_ZN14G1GCPhaseTimes16record_time_secsENS_11GCParPhasesEjd(ptr noundef nonnull align 8 dereferenceable(872) %104, i32 noundef 32, i32 noundef %1, double noundef %110) #16
+  br label %111
 
-110:                                              ; preds = %_ZN20EventGCPhaseParallelC2E14EventStartTime.exit, %_ZN20EventGCPhaseParallel6commitEjjPKc.exit
+111:                                              ; preds = %_ZN20EventGCPhaseParallelC2E14EventStartTime.exit, %_ZN20EventGCPhaseParallel6commitEjjPKc.exit
   ret void
 }
 

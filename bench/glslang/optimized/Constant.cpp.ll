@@ -8699,7 +8699,7 @@ _ZNSt6vectorIN7glslang16TConstUnionArrayENS0_14pool_allocatorIS1_EEE9push_backER
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN7glslang16TConstUnionArrayENS0_14pool_allocatorIS1_EEE9push_backERKS1_.exit, %_ZN7glslang16TConstUnionArrayC2Ei.exit
   %.sroa.3.0.lcssa = phi ptr [ null, %_ZN7glslang16TConstUnionArrayC2Ei.exit ], [ %.sroa.3.1, %_ZNSt6vectorIN7glslang16TConstUnionArrayENS0_14pool_allocatorIS1_EEE9push_backERKS1_.exit ]
   %.lcssa751 = phi ptr [ %182, %_ZN7glslang16TConstUnionArrayC2Ei.exit ], [ %223, %_ZNSt6vectorIN7glslang16TConstUnionArrayENS0_14pool_allocatorIS1_EEE9push_backERKS1_.exit ]
-  br i1 %.0214739, label %.preheader, label %1232
+  br i1 %.0214739, label %.preheader, label %1231
 
 .preheader:                                       ; preds = %._crit_edge
   %229 = icmp sgt i32 %.0215737, 0
@@ -8713,8 +8713,8 @@ _ZNSt6vectorIN7glslang16TConstUnionArrayENS0_14pool_allocatorIS1_EEE9push_backER
   %wide.trip.count835 = zext nneg i32 %.0215737 to i64
   br label %234
 
-234:                                              ; preds = %.lr.ph784, %1231
-  %indvars.iv832 = phi i64 [ 0, %.lr.ph784 ], [ %indvars.iv.next833, %1231 ]
+234:                                              ; preds = %.lr.ph784, %1230
+  %indvars.iv832 = phi i64 [ 0, %.lr.ph784 ], [ %indvars.iv.next833, %1230 ]
   %235 = load ptr, ptr %179, align 8
   %236 = load ptr, ptr %235, align 8
   %237 = load ptr, ptr %236, align 8
@@ -8804,8 +8804,8 @@ _ZNSt6vectorIN7glslang16TConstUnionArrayENS0_14pool_allocatorIS1_EEE9push_backER
     i32 168, label %1007
     i32 169, label %1067
     i32 221, label %1128
-    i32 222, label %1187
-    i32 223, label %1203
+    i32 222, label %1186
+    i32 223, label %1202
   ]
 
 293:                                              ; preds = %.thread843
@@ -8876,7 +8876,7 @@ _ZNSt6vectorIN7glslang16TConstUnionArrayENS0_14pool_allocatorIS1_EEE9push_backER
   %349 = getelementptr inbounds i8, ptr %348, i64 256
   %350 = load ptr, ptr %349, align 8
   %351 = tail call noundef i32 %350(ptr noundef nonnull align 8 dereferenceable(184) %347) #9
-  switch i32 %351, label %1231 [
+  switch i32 %351, label %1230 [
     i32 3, label %352
     i32 1, label %352
     i32 2, label %352
@@ -9064,7 +9064,7 @@ _ZNSt6vectorIN7glslang16TConstUnionArrayENS0_14pool_allocatorIS1_EEE9push_backER
   %487 = getelementptr inbounds i8, ptr %486, i64 256
   %488 = load ptr, ptr %487, align 8
   %489 = tail call noundef i32 %488(ptr noundef nonnull align 8 dereferenceable(184) %485) #9
-  switch i32 %489, label %1231 [
+  switch i32 %489, label %1230 [
     i32 3, label %490
     i32 1, label %490
     i32 2, label %490
@@ -9252,7 +9252,7 @@ _ZNSt6vectorIN7glslang16TConstUnionArrayENS0_14pool_allocatorIS1_EEE9push_backER
   %625 = getelementptr inbounds i8, ptr %624, i64 256
   %626 = load ptr, ptr %625, align 8
   %627 = tail call noundef i32 %626(ptr noundef nonnull align 8 dereferenceable(184) %623) #9
-  switch i32 %627, label %1231 [
+  switch i32 %627, label %1230 [
     i32 3, label %628
     i32 1, label %628
     i32 2, label %628
@@ -10064,7 +10064,7 @@ _ZNK7glslang11TConstUnionneERKS0_.exit:           ; preds = %1067, %1084, %1088,
   %1151 = icmp eq i32 %1150, 12
   %1152 = load ptr, ptr %233, align 8
   %1153 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1152, i64 %indvars.iv832
-  br i1 %1151, label %1154, label %1167
+  br i1 %1151, label %1154, label %1166
 
 1154:                                             ; preds = %1139
   %1155 = load ptr, ptr %230, align 8
@@ -10074,607 +10074,607 @@ _ZNK7glslang11TConstUnionneERKS0_.exit:           ; preds = %1067, %1084, %1088,
   %1159 = load i8, ptr %1158, align 8
   %1160 = trunc i8 %1159 to i1
   %1161 = sext i32 %.sroa.speculated491 to i64
-  %.sink859 = select i1 %1160, ptr %232, ptr %231
+  %.sink.in = select i1 %1160, ptr %232, ptr %231
   %.sink857 = select i1 %1160, i64 %.0219846, i64 %1161
-  %1162 = load ptr, ptr %.sink859, align 8
-  %1163 = getelementptr inbounds i8, ptr %1162, i64 8
-  %1164 = load ptr, ptr %1163, align 8
-  %1165 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1164, i64 %.sink857
-  %1166 = load double, ptr %1165, align 8
-  store double %1166, ptr %1153, align 8
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %1162 = getelementptr inbounds i8, ptr %.sink, i64 8
+  %1163 = load ptr, ptr %1162, align 8
+  %1164 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1163, i64 %.sink857
+  %1165 = load double, ptr %1164, align 8
+  store double %1165, ptr %1153, align 8
   br label %.sink.split
 
-1167:                                             ; preds = %1139
-  %1168 = sext i32 %.sroa.speculated491 to i64
-  %1169 = load ptr, ptr %231, align 8
-  %1170 = getelementptr inbounds i8, ptr %1169, i64 8
-  %1171 = load ptr, ptr %1170, align 8
-  %1172 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1171, i64 %1168
-  %1173 = load double, ptr %1172, align 8
-  %1174 = load ptr, ptr %230, align 8
-  %1175 = getelementptr inbounds i8, ptr %1174, i64 8
-  %1176 = load ptr, ptr %1175, align 8
-  %1177 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1176, i64 %.0222
-  %1178 = load double, ptr %1177, align 8
-  %1179 = fsub double 1.000000e+00, %1178
-  %1180 = load ptr, ptr %232, align 8
-  %1181 = getelementptr inbounds i8, ptr %1180, i64 8
-  %1182 = load ptr, ptr %1181, align 8
-  %1183 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1182, i64 %.0219846
-  %1184 = load double, ptr %1183, align 8
-  %1185 = fmul double %1178, %1184
-  %1186 = tail call double @llvm.fmuladd.f64(double %1173, double %1179, double %1185)
-  store double %1186, ptr %1153, align 8
+1166:                                             ; preds = %1139
+  %1167 = sext i32 %.sroa.speculated491 to i64
+  %1168 = load ptr, ptr %231, align 8
+  %1169 = getelementptr inbounds i8, ptr %1168, i64 8
+  %1170 = load ptr, ptr %1169, align 8
+  %1171 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1170, i64 %1167
+  %1172 = load double, ptr %1171, align 8
+  %1173 = load ptr, ptr %230, align 8
+  %1174 = getelementptr inbounds i8, ptr %1173, i64 8
+  %1175 = load ptr, ptr %1174, align 8
+  %1176 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1175, i64 %.0222
+  %1177 = load double, ptr %1176, align 8
+  %1178 = fsub double 1.000000e+00, %1177
+  %1179 = load ptr, ptr %232, align 8
+  %1180 = getelementptr inbounds i8, ptr %1179, i64 8
+  %1181 = load ptr, ptr %1180, align 8
+  %1182 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1181, i64 %.0219846
+  %1183 = load double, ptr %1182, align 8
+  %1184 = fmul double %1177, %1183
+  %1185 = tail call double @llvm.fmuladd.f64(double %1172, double %1178, double %1184)
+  store double %1185, ptr %1153, align 8
   br label %.sink.split
 
-1187:                                             ; preds = %.thread843
-  %1188 = load ptr, ptr %233, align 8
-  %1189 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1188, i64 %indvars.iv832
-  %1190 = load ptr, ptr %232, align 8
-  %1191 = getelementptr inbounds i8, ptr %1190, i64 8
-  %1192 = load ptr, ptr %1191, align 8
-  %1193 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1192, i64 %.0219846
-  %1194 = load double, ptr %1193, align 8
-  %1195 = sext i32 %.sroa.speculated491 to i64
-  %1196 = load ptr, ptr %231, align 8
-  %1197 = getelementptr inbounds i8, ptr %1196, i64 8
-  %1198 = load ptr, ptr %1197, align 8
-  %1199 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1198, i64 %1195
-  %1200 = load double, ptr %1199, align 8
-  %1201 = fcmp olt double %1194, %1200
-  %1202 = select i1 %1201, double 0.000000e+00, double 1.000000e+00
-  store double %1202, ptr %1189, align 8
+1186:                                             ; preds = %.thread843
+  %1187 = load ptr, ptr %233, align 8
+  %1188 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1187, i64 %indvars.iv832
+  %1189 = load ptr, ptr %232, align 8
+  %1190 = getelementptr inbounds i8, ptr %1189, i64 8
+  %1191 = load ptr, ptr %1190, align 8
+  %1192 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1191, i64 %.0219846
+  %1193 = load double, ptr %1192, align 8
+  %1194 = sext i32 %.sroa.speculated491 to i64
+  %1195 = load ptr, ptr %231, align 8
+  %1196 = getelementptr inbounds i8, ptr %1195, i64 8
+  %1197 = load ptr, ptr %1196, align 8
+  %1198 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1197, i64 %1194
+  %1199 = load double, ptr %1198, align 8
+  %1200 = fcmp olt double %1193, %1199
+  %1201 = select i1 %1200, double 0.000000e+00, double 1.000000e+00
+  store double %1201, ptr %1188, align 8
   br label %.sink.split
 
-1203:                                             ; preds = %.thread843
-  %1204 = load ptr, ptr %230, align 8
-  %1205 = getelementptr inbounds i8, ptr %1204, i64 8
-  %1206 = load ptr, ptr %1205, align 8
-  %1207 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1206, i64 %.0222
-  %1208 = load double, ptr %1207, align 8
-  %1209 = sext i32 %.sroa.speculated491 to i64
-  %1210 = load ptr, ptr %231, align 8
-  %1211 = getelementptr inbounds i8, ptr %1210, i64 8
-  %1212 = load ptr, ptr %1211, align 8
-  %1213 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1212, i64 %1209
-  %1214 = load double, ptr %1213, align 8
-  %1215 = fsub double %1208, %1214
-  %1216 = load ptr, ptr %232, align 8
-  %1217 = getelementptr inbounds i8, ptr %1216, i64 8
-  %1218 = load ptr, ptr %1217, align 8
-  %1219 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1218, i64 %.0219846
-  %1220 = load double, ptr %1219, align 8
-  %1221 = fsub double %1220, %1214
-  %1222 = fdiv double %1215, %1221
-  %1223 = fcmp olt double %1222, 0.000000e+00
-  %.0225 = select i1 %1223, double 0.000000e+00, double %1222
-  %1224 = fcmp ogt double %.0225, 1.000000e+00
-  %.1226 = select i1 %1224, double 1.000000e+00, double %.0225
-  %1225 = load ptr, ptr %233, align 8
-  %1226 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1225, i64 %indvars.iv832
-  %1227 = fmul double %.1226, %.1226
-  %1228 = tail call double @llvm.fmuladd.f64(double %.1226, double -2.000000e+00, double 3.000000e+00)
-  %1229 = fmul double %1227, %1228
-  store double %1229, ptr %1226, align 8
+1202:                                             ; preds = %.thread843
+  %1203 = load ptr, ptr %230, align 8
+  %1204 = getelementptr inbounds i8, ptr %1203, i64 8
+  %1205 = load ptr, ptr %1204, align 8
+  %1206 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1205, i64 %.0222
+  %1207 = load double, ptr %1206, align 8
+  %1208 = sext i32 %.sroa.speculated491 to i64
+  %1209 = load ptr, ptr %231, align 8
+  %1210 = getelementptr inbounds i8, ptr %1209, i64 8
+  %1211 = load ptr, ptr %1210, align 8
+  %1212 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1211, i64 %1208
+  %1213 = load double, ptr %1212, align 8
+  %1214 = fsub double %1207, %1213
+  %1215 = load ptr, ptr %232, align 8
+  %1216 = getelementptr inbounds i8, ptr %1215, i64 8
+  %1217 = load ptr, ptr %1216, align 8
+  %1218 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1217, i64 %.0219846
+  %1219 = load double, ptr %1218, align 8
+  %1220 = fsub double %1219, %1213
+  %1221 = fdiv double %1214, %1220
+  %1222 = fcmp olt double %1221, 0.000000e+00
+  %.0225 = select i1 %1222, double 0.000000e+00, double %1221
+  %1223 = fcmp ogt double %.0225, 1.000000e+00
+  %.1226 = select i1 %1223, double 1.000000e+00, double %.0225
+  %1224 = load ptr, ptr %233, align 8
+  %1225 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1224, i64 %indvars.iv832
+  %1226 = fmul double %.1226, %.1226
+  %1227 = tail call double @llvm.fmuladd.f64(double %.1226, double -2.000000e+00, double 3.000000e+00)
+  %1228 = fmul double %1226, %1227
+  store double %1228, ptr %1225, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %1154, %1167, %628, %649, %668, %687, %706, %725, %744, %763, %782, %490, %505, %519, %533, %547, %561, %575, %589, %603, %352, %367, %381, %395, %409, %423, %437, %451, %465, %1203, %1187, %_ZNK7glslang11TConstUnionneERKS0_.exit, %_ZNK7glslang11TConstUnioneqERKS0_.exit, %_ZNK7glslang11TConstUnionltERKS0_.exit281, %_ZNK7glslang11TConstUniongtERKS0_.exit279, %_ZNK7glslang11TConstUniongtERKS0_.exit, %_ZNK7glslang11TConstUnionltERKS0_.exit, %323, %308, %293
-  %.sink861 = phi ptr [ %295, %293 ], [ %310, %308 ], [ %340, %323 ], [ %803, %_ZNK7glslang11TConstUnionltERKS0_.exit ], [ %854, %_ZNK7glslang11TConstUniongtERKS0_.exit ], [ %905, %_ZNK7glslang11TConstUniongtERKS0_.exit279 ], [ %957, %_ZNK7glslang11TConstUnionltERKS0_.exit281 ], [ %1009, %_ZNK7glslang11TConstUnioneqERKS0_.exit ], [ %1069, %_ZNK7glslang11TConstUnionneERKS0_.exit ], [ %1189, %1187 ], [ %1226, %1203 ], [ %467, %465 ], [ %453, %451 ], [ %439, %437 ], [ %425, %423 ], [ %411, %409 ], [ %397, %395 ], [ %383, %381 ], [ %369, %367 ], [ %354, %352 ], [ %605, %603 ], [ %591, %589 ], [ %577, %575 ], [ %563, %561 ], [ %549, %547 ], [ %535, %533 ], [ %521, %519 ], [ %507, %505 ], [ %492, %490 ], [ %784, %782 ], [ %765, %763 ], [ %746, %744 ], [ %727, %725 ], [ %708, %706 ], [ %689, %687 ], [ %670, %668 ], [ %651, %649 ], [ %630, %628 ], [ %1153, %1167 ], [ %1153, %1154 ]
-  %.sink = phi i32 [ 2, %293 ], [ 2, %308 ], [ 2, %323 ], [ 12, %_ZNK7glslang11TConstUnionltERKS0_.exit ], [ 12, %_ZNK7glslang11TConstUniongtERKS0_.exit ], [ 12, %_ZNK7glslang11TConstUniongtERKS0_.exit279 ], [ 12, %_ZNK7glslang11TConstUnionltERKS0_.exit281 ], [ 12, %_ZNK7glslang11TConstUnioneqERKS0_.exit ], [ 12, %_ZNK7glslang11TConstUnionneERKS0_.exit ], [ 2, %1187 ], [ 2, %1203 ], [ 11, %465 ], [ 10, %451 ], [ 7, %437 ], [ 6, %423 ], [ 5, %409 ], [ 4, %395 ], [ 9, %381 ], [ 8, %367 ], [ 2, %352 ], [ 11, %603 ], [ 10, %589 ], [ 7, %575 ], [ 6, %561 ], [ 5, %547 ], [ 4, %533 ], [ 9, %519 ], [ 8, %505 ], [ 2, %490 ], [ 11, %782 ], [ 10, %763 ], [ 8, %744 ], [ 7, %725 ], [ 6, %706 ], [ 5, %687 ], [ 4, %668 ], [ 9, %649 ], [ 2, %628 ], [ 2, %1167 ], [ 2, %1154 ]
-  %1230 = getelementptr inbounds i8, ptr %.sink861, i64 8
-  store i32 %.sink, ptr %1230, align 8
-  br label %1231
+.sink.split:                                      ; preds = %1154, %1166, %628, %649, %668, %687, %706, %725, %744, %763, %782, %490, %505, %519, %533, %547, %561, %575, %589, %603, %352, %367, %381, %395, %409, %423, %437, %451, %465, %1202, %1186, %_ZNK7glslang11TConstUnionneERKS0_.exit, %_ZNK7glslang11TConstUnioneqERKS0_.exit, %_ZNK7glslang11TConstUnionltERKS0_.exit281, %_ZNK7glslang11TConstUniongtERKS0_.exit279, %_ZNK7glslang11TConstUniongtERKS0_.exit, %_ZNK7glslang11TConstUnionltERKS0_.exit, %323, %308, %293
+  %.sink861 = phi ptr [ %295, %293 ], [ %310, %308 ], [ %340, %323 ], [ %803, %_ZNK7glslang11TConstUnionltERKS0_.exit ], [ %854, %_ZNK7glslang11TConstUniongtERKS0_.exit ], [ %905, %_ZNK7glslang11TConstUniongtERKS0_.exit279 ], [ %957, %_ZNK7glslang11TConstUnionltERKS0_.exit281 ], [ %1009, %_ZNK7glslang11TConstUnioneqERKS0_.exit ], [ %1069, %_ZNK7glslang11TConstUnionneERKS0_.exit ], [ %1188, %1186 ], [ %1225, %1202 ], [ %467, %465 ], [ %453, %451 ], [ %439, %437 ], [ %425, %423 ], [ %411, %409 ], [ %397, %395 ], [ %383, %381 ], [ %369, %367 ], [ %354, %352 ], [ %605, %603 ], [ %591, %589 ], [ %577, %575 ], [ %563, %561 ], [ %549, %547 ], [ %535, %533 ], [ %521, %519 ], [ %507, %505 ], [ %492, %490 ], [ %784, %782 ], [ %765, %763 ], [ %746, %744 ], [ %727, %725 ], [ %708, %706 ], [ %689, %687 ], [ %670, %668 ], [ %651, %649 ], [ %630, %628 ], [ %1153, %1166 ], [ %1153, %1154 ]
+  %.sink859 = phi i32 [ 2, %293 ], [ 2, %308 ], [ 2, %323 ], [ 12, %_ZNK7glslang11TConstUnionltERKS0_.exit ], [ 12, %_ZNK7glslang11TConstUniongtERKS0_.exit ], [ 12, %_ZNK7glslang11TConstUniongtERKS0_.exit279 ], [ 12, %_ZNK7glslang11TConstUnionltERKS0_.exit281 ], [ 12, %_ZNK7glslang11TConstUnioneqERKS0_.exit ], [ 12, %_ZNK7glslang11TConstUnionneERKS0_.exit ], [ 2, %1186 ], [ 2, %1202 ], [ 11, %465 ], [ 10, %451 ], [ 7, %437 ], [ 6, %423 ], [ 5, %409 ], [ 4, %395 ], [ 9, %381 ], [ 8, %367 ], [ 2, %352 ], [ 11, %603 ], [ 10, %589 ], [ 7, %575 ], [ 6, %561 ], [ 5, %547 ], [ 4, %533 ], [ 9, %519 ], [ 8, %505 ], [ 2, %490 ], [ 11, %782 ], [ 10, %763 ], [ 8, %744 ], [ 7, %725 ], [ 6, %706 ], [ 5, %687 ], [ 4, %668 ], [ 9, %649 ], [ 2, %628 ], [ 2, %1166 ], [ 2, %1154 ]
+  %1229 = getelementptr inbounds i8, ptr %.sink861, i64 8
+  store i32 %.sink859, ptr %1229, align 8
+  br label %1230
 
-1231:                                             ; preds = %.sink.split, %341, %479, %617
+1230:                                             ; preds = %.sink.split, %341, %479, %617
   %indvars.iv.next833 = add nuw nsw i64 %indvars.iv832, 1
   %exitcond836.not = icmp eq i64 %indvars.iv.next833, %wide.trip.count835
   br i1 %exitcond836.not, label %.loopexit, label %234, !llvm.loop !38
 
-1232:                                             ; preds = %._crit_edge
-  %1233 = load ptr, ptr %.lcssa751, align 8
-  %1234 = load ptr, ptr %1233, align 8
-  %1235 = getelementptr inbounds i8, ptr %1234, i64 40
-  %1236 = load ptr, ptr %1235, align 8
-  %1237 = tail call noundef ptr %1236(ptr noundef nonnull align 8 dereferenceable(32) %1233) #9
-  %1238 = load ptr, ptr %1237, align 8
-  %1239 = getelementptr inbounds i8, ptr %1238, i64 240
-  %1240 = load ptr, ptr %1239, align 8
-  %1241 = tail call noundef nonnull align 8 dereferenceable(152) ptr %1240(ptr noundef nonnull align 8 dereferenceable(184) %1237) #9
-  %1242 = tail call noundef i32 @_ZNK7glslang5TType20computeNumComponentsEv(ptr noundef nonnull align 8 dereferenceable(152) %1241)
-  %1243 = load i32, ptr %39, align 8
-  switch i32 %1243, label %_ZN7glslang13TIntermediate16areAllChildConstEPNS_16TIntermAggregateE.exit [
+1231:                                             ; preds = %._crit_edge
+  %1232 = load ptr, ptr %.lcssa751, align 8
+  %1233 = load ptr, ptr %1232, align 8
+  %1234 = getelementptr inbounds i8, ptr %1233, i64 40
+  %1235 = load ptr, ptr %1234, align 8
+  %1236 = tail call noundef ptr %1235(ptr noundef nonnull align 8 dereferenceable(32) %1232) #9
+  %1237 = load ptr, ptr %1236, align 8
+  %1238 = getelementptr inbounds i8, ptr %1237, i64 240
+  %1239 = load ptr, ptr %1238, align 8
+  %1240 = tail call noundef nonnull align 8 dereferenceable(152) ptr %1239(ptr noundef nonnull align 8 dereferenceable(184) %1236) #9
+  %1241 = tail call noundef i32 @_ZNK7glslang5TType20computeNumComponentsEv(ptr noundef nonnull align 8 dereferenceable(152) %1240)
+  %1242 = load i32, ptr %39, align 8
+  switch i32 %1242, label %_ZN7glslang13TIntermediate16areAllChildConstEPNS_16TIntermAggregateE.exit [
     i32 274, label %.preheader740
-    i32 275, label %1264
-    i32 276, label %1270
-    i32 278, label %1356
-    i32 279, label %1379
-    i32 280, label %1402
-    i32 298, label %1444
+    i32 275, label %1263
+    i32 276, label %1269
+    i32 278, label %1355
+    i32 279, label %1378
+    i32 280, label %1401
+    i32 298, label %1443
   ]
 
-.preheader740:                                    ; preds = %1232
-  %1244 = icmp sgt i32 %1242, 0
-  br i1 %1244, label %.lr.ph780, label %._crit_edge781
+.preheader740:                                    ; preds = %1231
+  %1243 = icmp sgt i32 %1241, 0
+  br i1 %1243, label %.lr.ph780, label %._crit_edge781
 
 .lr.ph780:                                        ; preds = %.preheader740
-  %1245 = getelementptr inbounds i8, ptr %.sroa.3.0.lcssa, i64 24
-  %1246 = load ptr, ptr %1245, align 8
-  %1247 = getelementptr inbounds i8, ptr %1246, i64 8
-  %1248 = load ptr, ptr %1247, align 8
-  %1249 = getelementptr inbounds i8, ptr %.sroa.3.0.lcssa, i64 8
-  %1250 = load ptr, ptr %1249, align 8
-  %1251 = getelementptr inbounds i8, ptr %1250, i64 8
-  %1252 = load ptr, ptr %1251, align 8
-  %wide.trip.count830 = zext nneg i32 %1242 to i64
-  br label %1253
+  %1244 = getelementptr inbounds i8, ptr %.sroa.3.0.lcssa, i64 24
+  %1245 = load ptr, ptr %1244, align 8
+  %1246 = getelementptr inbounds i8, ptr %1245, i64 8
+  %1247 = load ptr, ptr %1246, align 8
+  %1248 = getelementptr inbounds i8, ptr %.sroa.3.0.lcssa, i64 8
+  %1249 = load ptr, ptr %1248, align 8
+  %1250 = getelementptr inbounds i8, ptr %1249, i64 8
+  %1251 = load ptr, ptr %1250, align 8
+  %wide.trip.count830 = zext nneg i32 %1241 to i64
+  br label %1252
 
-1253:                                             ; preds = %.lr.ph780, %1253
-  %indvars.iv827 = phi i64 [ 0, %.lr.ph780 ], [ %indvars.iv.next828, %1253 ]
-  %.0227779 = phi double [ 0.000000e+00, %.lr.ph780 ], [ %1259, %1253 ]
-  %1254 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1248, i64 %indvars.iv827
-  %1255 = load double, ptr %1254, align 8
-  %1256 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1252, i64 %indvars.iv827
-  %1257 = load double, ptr %1256, align 8
-  %1258 = fsub double %1255, %1257
-  %1259 = tail call double @llvm.fmuladd.f64(double %1258, double %1258, double %.0227779)
+1252:                                             ; preds = %.lr.ph780, %1252
+  %indvars.iv827 = phi i64 [ 0, %.lr.ph780 ], [ %indvars.iv.next828, %1252 ]
+  %.0227779 = phi double [ 0.000000e+00, %.lr.ph780 ], [ %1258, %1252 ]
+  %1253 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1247, i64 %indvars.iv827
+  %1254 = load double, ptr %1253, align 8
+  %1255 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1251, i64 %indvars.iv827
+  %1256 = load double, ptr %1255, align 8
+  %1257 = fsub double %1254, %1256
+  %1258 = tail call double @llvm.fmuladd.f64(double %1257, double %1257, double %.0227779)
   %indvars.iv.next828 = add nuw nsw i64 %indvars.iv827, 1
   %exitcond831.not = icmp eq i64 %indvars.iv.next828, %wide.trip.count830
-  br i1 %exitcond831.not, label %._crit_edge781, label %1253, !llvm.loop !39
+  br i1 %exitcond831.not, label %._crit_edge781, label %1252, !llvm.loop !39
 
-._crit_edge781:                                   ; preds = %1253, %.preheader740
-  %.0227.lcssa = phi double [ 0.000000e+00, %.preheader740 ], [ %1259, %1253 ]
-  %1260 = getelementptr inbounds i8, ptr %.sink.i, i64 8
-  %1261 = load ptr, ptr %1260, align 8
-  %1262 = tail call double @sqrt(double noundef %.0227.lcssa) #9
-  store double %1262, ptr %1261, align 8
-  %1263 = getelementptr inbounds i8, ptr %1261, i64 8
-  store i32 2, ptr %1263, align 8
+._crit_edge781:                                   ; preds = %1252, %.preheader740
+  %.0227.lcssa = phi double [ 0.000000e+00, %.preheader740 ], [ %1258, %1252 ]
+  %1259 = getelementptr inbounds i8, ptr %.sink.i, i64 8
+  %1260 = load ptr, ptr %1259, align 8
+  %1261 = tail call double @sqrt(double noundef %.0227.lcssa) #9
+  store double %1261, ptr %1260, align 8
+  %1262 = getelementptr inbounds i8, ptr %1260, i64 8
+  store i32 2, ptr %1262, align 8
   br label %.loopexit
 
-1264:                                             ; preds = %1232
-  %1265 = getelementptr inbounds i8, ptr %.sink.i, i64 8
-  %1266 = load ptr, ptr %1265, align 8
-  %1267 = getelementptr inbounds i8, ptr %.sroa.3.0.lcssa, i64 16
-  %1268 = tail call noundef double @_ZN7glslang16TConstUnionArray3dotERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0.lcssa, ptr noundef nonnull align 8 dereferenceable(16) %1267)
-  store double %1268, ptr %1266, align 8
-  %1269 = getelementptr inbounds i8, ptr %1266, i64 8
-  store i32 2, ptr %1269, align 8
+1263:                                             ; preds = %1231
+  %1264 = getelementptr inbounds i8, ptr %.sink.i, i64 8
+  %1265 = load ptr, ptr %1264, align 8
+  %1266 = getelementptr inbounds i8, ptr %.sroa.3.0.lcssa, i64 16
+  %1267 = tail call noundef double @_ZN7glslang16TConstUnionArray3dotERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0.lcssa, ptr noundef nonnull align 8 dereferenceable(16) %1266)
+  store double %1267, ptr %1265, align 8
+  %1268 = getelementptr inbounds i8, ptr %1265, i64 8
+  store i32 2, ptr %1268, align 8
   br label %.loopexit
 
-1270:                                             ; preds = %1232
-  %1271 = getelementptr inbounds i8, ptr %.sroa.3.0.lcssa, i64 8
-  %1272 = load ptr, ptr %1271, align 8
-  %1273 = getelementptr inbounds i8, ptr %1272, i64 8
-  %1274 = load ptr, ptr %1273, align 8
-  %1275 = getelementptr inbounds i8, ptr %1274, i64 16
-  %1276 = getelementptr inbounds i8, ptr %.sroa.3.0.lcssa, i64 24
-  %1277 = load ptr, ptr %1276, align 8
-  %1278 = getelementptr inbounds i8, ptr %1277, i64 8
-  %1279 = load ptr, ptr %1278, align 8
-  %1280 = getelementptr inbounds i8, ptr %1279, i64 32
-  %1281 = tail call { i64, i32 } @_ZNK7glslang11TConstUnionmlERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1275, ptr noundef nonnull align 8 dereferenceable(12) %1280)
-  %1282 = extractvalue { i64, i32 } %1281, 0
-  store i64 %1282, ptr %3, align 8
-  %1283 = getelementptr inbounds i8, ptr %3, i64 8
-  %1284 = extractvalue { i64, i32 } %1281, 1
-  store i32 %1284, ptr %1283, align 8
-  %1285 = load ptr, ptr %1271, align 8
-  %1286 = getelementptr inbounds i8, ptr %1285, i64 8
-  %1287 = load ptr, ptr %1286, align 8
-  %1288 = getelementptr inbounds i8, ptr %1287, i64 32
-  %1289 = load ptr, ptr %1276, align 8
-  %1290 = getelementptr inbounds i8, ptr %1289, i64 8
-  %1291 = load ptr, ptr %1290, align 8
-  %1292 = getelementptr inbounds i8, ptr %1291, i64 16
-  %1293 = tail call { i64, i32 } @_ZNK7glslang11TConstUnionmlERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1288, ptr noundef nonnull align 8 dereferenceable(12) %1292)
-  %1294 = extractvalue { i64, i32 } %1293, 0
-  store i64 %1294, ptr %4, align 8
-  %1295 = getelementptr inbounds i8, ptr %4, i64 8
-  %1296 = extractvalue { i64, i32 } %1293, 1
-  store i32 %1296, ptr %1295, align 8
-  %1297 = call { i64, i32 } @_ZNK7glslang11TConstUnionmiERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %4)
-  %1298 = extractvalue { i64, i32 } %1297, 0
-  %1299 = extractvalue { i64, i32 } %1297, 1
-  %1300 = getelementptr inbounds i8, ptr %.sink.i, i64 8
-  %1301 = load ptr, ptr %1300, align 8
-  store i64 %1298, ptr %1301, align 8
-  %.sroa.243.0..sroa_idx = getelementptr inbounds i8, ptr %1301, i64 8
-  store i32 %1299, ptr %.sroa.243.0..sroa_idx, align 8
-  %1302 = load ptr, ptr %1271, align 8
-  %1303 = getelementptr inbounds i8, ptr %1302, i64 8
-  %1304 = load ptr, ptr %1303, align 8
-  %1305 = getelementptr inbounds i8, ptr %1304, i64 32
-  %1306 = load ptr, ptr %1276, align 8
-  %1307 = getelementptr inbounds i8, ptr %1306, i64 8
-  %1308 = load ptr, ptr %1307, align 8
-  %1309 = call { i64, i32 } @_ZNK7glslang11TConstUnionmlERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1305, ptr noundef nonnull align 8 dereferenceable(12) %1308)
-  %1310 = extractvalue { i64, i32 } %1309, 0
-  store i64 %1310, ptr %5, align 8
-  %1311 = getelementptr inbounds i8, ptr %5, i64 8
-  %1312 = extractvalue { i64, i32 } %1309, 1
-  store i32 %1312, ptr %1311, align 8
-  %1313 = load ptr, ptr %1271, align 8
-  %1314 = getelementptr inbounds i8, ptr %1313, i64 8
-  %1315 = load ptr, ptr %1314, align 8
-  %1316 = load ptr, ptr %1276, align 8
-  %1317 = getelementptr inbounds i8, ptr %1316, i64 8
-  %1318 = load ptr, ptr %1317, align 8
-  %1319 = getelementptr inbounds i8, ptr %1318, i64 32
-  %1320 = call { i64, i32 } @_ZNK7glslang11TConstUnionmlERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1315, ptr noundef nonnull align 8 dereferenceable(12) %1319)
-  %1321 = extractvalue { i64, i32 } %1320, 0
-  store i64 %1321, ptr %6, align 8
-  %1322 = getelementptr inbounds i8, ptr %6, i64 8
-  %1323 = extractvalue { i64, i32 } %1320, 1
-  store i32 %1323, ptr %1322, align 8
-  %1324 = call { i64, i32 } @_ZNK7glslang11TConstUnionmiERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(12) %6)
-  %1325 = extractvalue { i64, i32 } %1324, 0
-  %1326 = extractvalue { i64, i32 } %1324, 1
-  %1327 = load ptr, ptr %1300, align 8
-  %1328 = getelementptr inbounds i8, ptr %1327, i64 16
-  store i64 %1325, ptr %1328, align 8
-  %.sroa.241.0..sroa_idx = getelementptr inbounds i8, ptr %1327, i64 24
-  store i32 %1326, ptr %.sroa.241.0..sroa_idx, align 8
-  %1329 = load ptr, ptr %1271, align 8
-  %1330 = getelementptr inbounds i8, ptr %1329, i64 8
-  %1331 = load ptr, ptr %1330, align 8
-  %1332 = load ptr, ptr %1276, align 8
-  %1333 = getelementptr inbounds i8, ptr %1332, i64 8
-  %1334 = load ptr, ptr %1333, align 8
-  %1335 = getelementptr inbounds i8, ptr %1334, i64 16
-  %1336 = call { i64, i32 } @_ZNK7glslang11TConstUnionmlERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1331, ptr noundef nonnull align 8 dereferenceable(12) %1335)
-  %1337 = extractvalue { i64, i32 } %1336, 0
-  store i64 %1337, ptr %7, align 8
-  %1338 = getelementptr inbounds i8, ptr %7, i64 8
-  %1339 = extractvalue { i64, i32 } %1336, 1
-  store i32 %1339, ptr %1338, align 8
-  %1340 = load ptr, ptr %1271, align 8
-  %1341 = getelementptr inbounds i8, ptr %1340, i64 8
-  %1342 = load ptr, ptr %1341, align 8
-  %1343 = getelementptr inbounds i8, ptr %1342, i64 16
-  %1344 = load ptr, ptr %1276, align 8
-  %1345 = getelementptr inbounds i8, ptr %1344, i64 8
-  %1346 = load ptr, ptr %1345, align 8
-  %1347 = call { i64, i32 } @_ZNK7glslang11TConstUnionmlERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1343, ptr noundef nonnull align 8 dereferenceable(12) %1346)
-  %1348 = extractvalue { i64, i32 } %1347, 0
-  store i64 %1348, ptr %8, align 8
-  %1349 = getelementptr inbounds i8, ptr %8, i64 8
-  %1350 = extractvalue { i64, i32 } %1347, 1
-  store i32 %1350, ptr %1349, align 8
-  %1351 = call { i64, i32 } @_ZNK7glslang11TConstUnionmiERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 8 dereferenceable(12) %8)
-  %1352 = extractvalue { i64, i32 } %1351, 0
-  %1353 = extractvalue { i64, i32 } %1351, 1
-  %1354 = load ptr, ptr %1300, align 8
-  %1355 = getelementptr inbounds i8, ptr %1354, i64 32
-  store i64 %1352, ptr %1355, align 8
-  %.sroa.239.0..sroa_idx = getelementptr inbounds i8, ptr %1354, i64 40
-  store i32 %1353, ptr %.sroa.239.0..sroa_idx, align 8
+1269:                                             ; preds = %1231
+  %1270 = getelementptr inbounds i8, ptr %.sroa.3.0.lcssa, i64 8
+  %1271 = load ptr, ptr %1270, align 8
+  %1272 = getelementptr inbounds i8, ptr %1271, i64 8
+  %1273 = load ptr, ptr %1272, align 8
+  %1274 = getelementptr inbounds i8, ptr %1273, i64 16
+  %1275 = getelementptr inbounds i8, ptr %.sroa.3.0.lcssa, i64 24
+  %1276 = load ptr, ptr %1275, align 8
+  %1277 = getelementptr inbounds i8, ptr %1276, i64 8
+  %1278 = load ptr, ptr %1277, align 8
+  %1279 = getelementptr inbounds i8, ptr %1278, i64 32
+  %1280 = tail call { i64, i32 } @_ZNK7glslang11TConstUnionmlERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1274, ptr noundef nonnull align 8 dereferenceable(12) %1279)
+  %1281 = extractvalue { i64, i32 } %1280, 0
+  store i64 %1281, ptr %3, align 8
+  %1282 = getelementptr inbounds i8, ptr %3, i64 8
+  %1283 = extractvalue { i64, i32 } %1280, 1
+  store i32 %1283, ptr %1282, align 8
+  %1284 = load ptr, ptr %1270, align 8
+  %1285 = getelementptr inbounds i8, ptr %1284, i64 8
+  %1286 = load ptr, ptr %1285, align 8
+  %1287 = getelementptr inbounds i8, ptr %1286, i64 32
+  %1288 = load ptr, ptr %1275, align 8
+  %1289 = getelementptr inbounds i8, ptr %1288, i64 8
+  %1290 = load ptr, ptr %1289, align 8
+  %1291 = getelementptr inbounds i8, ptr %1290, i64 16
+  %1292 = tail call { i64, i32 } @_ZNK7glslang11TConstUnionmlERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1287, ptr noundef nonnull align 8 dereferenceable(12) %1291)
+  %1293 = extractvalue { i64, i32 } %1292, 0
+  store i64 %1293, ptr %4, align 8
+  %1294 = getelementptr inbounds i8, ptr %4, i64 8
+  %1295 = extractvalue { i64, i32 } %1292, 1
+  store i32 %1295, ptr %1294, align 8
+  %1296 = call { i64, i32 } @_ZNK7glslang11TConstUnionmiERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %4)
+  %1297 = extractvalue { i64, i32 } %1296, 0
+  %1298 = extractvalue { i64, i32 } %1296, 1
+  %1299 = getelementptr inbounds i8, ptr %.sink.i, i64 8
+  %1300 = load ptr, ptr %1299, align 8
+  store i64 %1297, ptr %1300, align 8
+  %.sroa.243.0..sroa_idx = getelementptr inbounds i8, ptr %1300, i64 8
+  store i32 %1298, ptr %.sroa.243.0..sroa_idx, align 8
+  %1301 = load ptr, ptr %1270, align 8
+  %1302 = getelementptr inbounds i8, ptr %1301, i64 8
+  %1303 = load ptr, ptr %1302, align 8
+  %1304 = getelementptr inbounds i8, ptr %1303, i64 32
+  %1305 = load ptr, ptr %1275, align 8
+  %1306 = getelementptr inbounds i8, ptr %1305, i64 8
+  %1307 = load ptr, ptr %1306, align 8
+  %1308 = call { i64, i32 } @_ZNK7glslang11TConstUnionmlERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1304, ptr noundef nonnull align 8 dereferenceable(12) %1307)
+  %1309 = extractvalue { i64, i32 } %1308, 0
+  store i64 %1309, ptr %5, align 8
+  %1310 = getelementptr inbounds i8, ptr %5, i64 8
+  %1311 = extractvalue { i64, i32 } %1308, 1
+  store i32 %1311, ptr %1310, align 8
+  %1312 = load ptr, ptr %1270, align 8
+  %1313 = getelementptr inbounds i8, ptr %1312, i64 8
+  %1314 = load ptr, ptr %1313, align 8
+  %1315 = load ptr, ptr %1275, align 8
+  %1316 = getelementptr inbounds i8, ptr %1315, i64 8
+  %1317 = load ptr, ptr %1316, align 8
+  %1318 = getelementptr inbounds i8, ptr %1317, i64 32
+  %1319 = call { i64, i32 } @_ZNK7glslang11TConstUnionmlERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1314, ptr noundef nonnull align 8 dereferenceable(12) %1318)
+  %1320 = extractvalue { i64, i32 } %1319, 0
+  store i64 %1320, ptr %6, align 8
+  %1321 = getelementptr inbounds i8, ptr %6, i64 8
+  %1322 = extractvalue { i64, i32 } %1319, 1
+  store i32 %1322, ptr %1321, align 8
+  %1323 = call { i64, i32 } @_ZNK7glslang11TConstUnionmiERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(12) %6)
+  %1324 = extractvalue { i64, i32 } %1323, 0
+  %1325 = extractvalue { i64, i32 } %1323, 1
+  %1326 = load ptr, ptr %1299, align 8
+  %1327 = getelementptr inbounds i8, ptr %1326, i64 16
+  store i64 %1324, ptr %1327, align 8
+  %.sroa.241.0..sroa_idx = getelementptr inbounds i8, ptr %1326, i64 24
+  store i32 %1325, ptr %.sroa.241.0..sroa_idx, align 8
+  %1328 = load ptr, ptr %1270, align 8
+  %1329 = getelementptr inbounds i8, ptr %1328, i64 8
+  %1330 = load ptr, ptr %1329, align 8
+  %1331 = load ptr, ptr %1275, align 8
+  %1332 = getelementptr inbounds i8, ptr %1331, i64 8
+  %1333 = load ptr, ptr %1332, align 8
+  %1334 = getelementptr inbounds i8, ptr %1333, i64 16
+  %1335 = call { i64, i32 } @_ZNK7glslang11TConstUnionmlERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1330, ptr noundef nonnull align 8 dereferenceable(12) %1334)
+  %1336 = extractvalue { i64, i32 } %1335, 0
+  store i64 %1336, ptr %7, align 8
+  %1337 = getelementptr inbounds i8, ptr %7, i64 8
+  %1338 = extractvalue { i64, i32 } %1335, 1
+  store i32 %1338, ptr %1337, align 8
+  %1339 = load ptr, ptr %1270, align 8
+  %1340 = getelementptr inbounds i8, ptr %1339, i64 8
+  %1341 = load ptr, ptr %1340, align 8
+  %1342 = getelementptr inbounds i8, ptr %1341, i64 16
+  %1343 = load ptr, ptr %1275, align 8
+  %1344 = getelementptr inbounds i8, ptr %1343, i64 8
+  %1345 = load ptr, ptr %1344, align 8
+  %1346 = call { i64, i32 } @_ZNK7glslang11TConstUnionmlERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1342, ptr noundef nonnull align 8 dereferenceable(12) %1345)
+  %1347 = extractvalue { i64, i32 } %1346, 0
+  store i64 %1347, ptr %8, align 8
+  %1348 = getelementptr inbounds i8, ptr %8, i64 8
+  %1349 = extractvalue { i64, i32 } %1346, 1
+  store i32 %1349, ptr %1348, align 8
+  %1350 = call { i64, i32 } @_ZNK7glslang11TConstUnionmiERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 8 dereferenceable(12) %8)
+  %1351 = extractvalue { i64, i32 } %1350, 0
+  %1352 = extractvalue { i64, i32 } %1350, 1
+  %1353 = load ptr, ptr %1299, align 8
+  %1354 = getelementptr inbounds i8, ptr %1353, i64 32
+  store i64 %1351, ptr %1354, align 8
+  %.sroa.239.0..sroa_idx = getelementptr inbounds i8, ptr %1353, i64 40
+  store i32 %1352, ptr %.sroa.239.0..sroa_idx, align 8
   br label %.loopexit
 
-1356:                                             ; preds = %1232
-  %1357 = getelementptr inbounds i8, ptr %.sroa.3.0.lcssa, i64 16
-  %1358 = getelementptr inbounds i8, ptr %.sroa.3.0.lcssa, i64 32
-  %1359 = tail call noundef double @_ZN7glslang16TConstUnionArray3dotERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %1357, ptr noundef nonnull align 8 dereferenceable(16) %1358)
-  %1360 = icmp sgt i32 %1242, 0
-  br i1 %1360, label %.lr.ph777, label %.loopexit
+1355:                                             ; preds = %1231
+  %1356 = getelementptr inbounds i8, ptr %.sroa.3.0.lcssa, i64 16
+  %1357 = getelementptr inbounds i8, ptr %.sroa.3.0.lcssa, i64 32
+  %1358 = tail call noundef double @_ZN7glslang16TConstUnionArray3dotERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %1356, ptr noundef nonnull align 8 dereferenceable(16) %1357)
+  %1359 = icmp sgt i32 %1241, 0
+  br i1 %1359, label %.lr.ph777, label %.loopexit
 
-.lr.ph777:                                        ; preds = %1356
-  %1361 = fcmp olt double %1359, 0.000000e+00
-  %1362 = getelementptr inbounds i8, ptr %.sink.i, i64 8
-  %1363 = getelementptr inbounds i8, ptr %.sroa.3.0.lcssa, i64 8
-  %wide.trip.count825 = zext nneg i32 %1242 to i64
-  br i1 %1361, label %.lr.ph777.split.us, label %.lr.ph777.split
+.lr.ph777:                                        ; preds = %1355
+  %1360 = fcmp olt double %1358, 0.000000e+00
+  %1361 = getelementptr inbounds i8, ptr %.sink.i, i64 8
+  %1362 = getelementptr inbounds i8, ptr %.sroa.3.0.lcssa, i64 8
+  %wide.trip.count825 = zext nneg i32 %1241 to i64
+  br i1 %1360, label %.lr.ph777.split.us, label %.lr.ph777.split
 
 .lr.ph777.split.us:                               ; preds = %.lr.ph777, %.lr.ph777.split.us
   %indvars.iv822 = phi i64 [ %indvars.iv.next823, %.lr.ph777.split.us ], [ 0, %.lr.ph777 ]
-  %1364 = load ptr, ptr %1363, align 8
-  %1365 = getelementptr inbounds i8, ptr %1364, i64 8
-  %1366 = load ptr, ptr %1365, align 8
-  %1367 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1366, i64 %indvars.iv822
-  %1368 = load ptr, ptr %1362, align 8
-  %1369 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1368, i64 %indvars.iv822
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %1369, ptr noundef nonnull align 8 dereferenceable(12) %1367, i64 12, i1 false)
+  %1363 = load ptr, ptr %1362, align 8
+  %1364 = getelementptr inbounds i8, ptr %1363, i64 8
+  %1365 = load ptr, ptr %1364, align 8
+  %1366 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1365, i64 %indvars.iv822
+  %1367 = load ptr, ptr %1361, align 8
+  %1368 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1367, i64 %indvars.iv822
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %1368, ptr noundef nonnull align 8 dereferenceable(12) %1366, i64 12, i1 false)
   %indvars.iv.next823 = add nuw nsw i64 %indvars.iv822, 1
   %exitcond826.not = icmp eq i64 %indvars.iv.next823, %wide.trip.count825
   br i1 %exitcond826.not, label %.loopexit, label %.lr.ph777.split.us, !llvm.loop !40
 
 .lr.ph777.split:                                  ; preds = %.lr.ph777, %.lr.ph777.split
   %indvars.iv817 = phi i64 [ %indvars.iv.next818, %.lr.ph777.split ], [ 0, %.lr.ph777 ]
-  %1370 = load ptr, ptr %1362, align 8
-  %1371 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1370, i64 %indvars.iv817
-  %1372 = load ptr, ptr %1363, align 8
-  %1373 = getelementptr inbounds i8, ptr %1372, i64 8
-  %1374 = load ptr, ptr %1373, align 8
-  %1375 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1374, i64 %indvars.iv817
-  %1376 = load double, ptr %1375, align 8
-  %1377 = fneg double %1376
-  store double %1377, ptr %1371, align 8
-  %1378 = getelementptr inbounds i8, ptr %1371, i64 8
-  store i32 2, ptr %1378, align 8
+  %1369 = load ptr, ptr %1361, align 8
+  %1370 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1369, i64 %indvars.iv817
+  %1371 = load ptr, ptr %1362, align 8
+  %1372 = getelementptr inbounds i8, ptr %1371, i64 8
+  %1373 = load ptr, ptr %1372, align 8
+  %1374 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1373, i64 %indvars.iv817
+  %1375 = load double, ptr %1374, align 8
+  %1376 = fneg double %1375
+  store double %1376, ptr %1370, align 8
+  %1377 = getelementptr inbounds i8, ptr %1370, i64 8
+  store i32 2, ptr %1377, align 8
   %indvars.iv.next818 = add nuw nsw i64 %indvars.iv817, 1
   %exitcond821.not = icmp eq i64 %indvars.iv.next818, %wide.trip.count825
   br i1 %exitcond821.not, label %.loopexit, label %.lr.ph777.split, !llvm.loop !40
 
-1379:                                             ; preds = %1232
-  %1380 = getelementptr inbounds i8, ptr %.sroa.3.0.lcssa, i64 16
-  %1381 = tail call noundef double @_ZN7glslang16TConstUnionArray3dotERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0.lcssa, ptr noundef nonnull align 8 dereferenceable(16) %1380)
-  %1382 = icmp sgt i32 %1242, 0
-  br i1 %1382, label %.lr.ph774, label %.loopexit
+1378:                                             ; preds = %1231
+  %1379 = getelementptr inbounds i8, ptr %.sroa.3.0.lcssa, i64 16
+  %1380 = tail call noundef double @_ZN7glslang16TConstUnionArray3dotERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0.lcssa, ptr noundef nonnull align 8 dereferenceable(16) %1379)
+  %1381 = icmp sgt i32 %1241, 0
+  br i1 %1381, label %.lr.ph774, label %.loopexit
 
-.lr.ph774:                                        ; preds = %1379
-  %1383 = getelementptr inbounds i8, ptr %.sink.i, i64 8
-  %1384 = getelementptr inbounds i8, ptr %.sroa.3.0.lcssa, i64 8
-  %1385 = getelementptr inbounds i8, ptr %.sroa.3.0.lcssa, i64 24
-  %1386 = fmul double %1381, -2.000000e+00
-  %wide.trip.count815 = zext nneg i32 %1242 to i64
-  br label %1387
+.lr.ph774:                                        ; preds = %1378
+  %1382 = getelementptr inbounds i8, ptr %.sink.i, i64 8
+  %1383 = getelementptr inbounds i8, ptr %.sroa.3.0.lcssa, i64 8
+  %1384 = getelementptr inbounds i8, ptr %.sroa.3.0.lcssa, i64 24
+  %1385 = fmul double %1380, -2.000000e+00
+  %wide.trip.count815 = zext nneg i32 %1241 to i64
+  br label %1386
 
-1387:                                             ; preds = %.lr.ph774, %1387
-  %indvars.iv812 = phi i64 [ 0, %.lr.ph774 ], [ %indvars.iv.next813, %1387 ]
-  %1388 = load ptr, ptr %1383, align 8
-  %1389 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1388, i64 %indvars.iv812
-  %1390 = load ptr, ptr %1384, align 8
-  %1391 = getelementptr inbounds i8, ptr %1390, i64 8
-  %1392 = load ptr, ptr %1391, align 8
-  %1393 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1392, i64 %indvars.iv812
-  %1394 = load double, ptr %1393, align 8
-  %1395 = load ptr, ptr %1385, align 8
-  %1396 = getelementptr inbounds i8, ptr %1395, i64 8
-  %1397 = load ptr, ptr %1396, align 8
-  %1398 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1397, i64 %indvars.iv812
-  %1399 = load double, ptr %1398, align 8
-  %1400 = tail call double @llvm.fmuladd.f64(double %1386, double %1399, double %1394)
-  store double %1400, ptr %1389, align 8
-  %1401 = getelementptr inbounds i8, ptr %1389, i64 8
-  store i32 2, ptr %1401, align 8
+1386:                                             ; preds = %.lr.ph774, %1386
+  %indvars.iv812 = phi i64 [ 0, %.lr.ph774 ], [ %indvars.iv.next813, %1386 ]
+  %1387 = load ptr, ptr %1382, align 8
+  %1388 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1387, i64 %indvars.iv812
+  %1389 = load ptr, ptr %1383, align 8
+  %1390 = getelementptr inbounds i8, ptr %1389, i64 8
+  %1391 = load ptr, ptr %1390, align 8
+  %1392 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1391, i64 %indvars.iv812
+  %1393 = load double, ptr %1392, align 8
+  %1394 = load ptr, ptr %1384, align 8
+  %1395 = getelementptr inbounds i8, ptr %1394, i64 8
+  %1396 = load ptr, ptr %1395, align 8
+  %1397 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1396, i64 %indvars.iv812
+  %1398 = load double, ptr %1397, align 8
+  %1399 = tail call double @llvm.fmuladd.f64(double %1385, double %1398, double %1393)
+  store double %1399, ptr %1388, align 8
+  %1400 = getelementptr inbounds i8, ptr %1388, i64 8
+  store i32 2, ptr %1400, align 8
   %indvars.iv.next813 = add nuw nsw i64 %indvars.iv812, 1
   %exitcond816.not = icmp eq i64 %indvars.iv.next813, %wide.trip.count815
-  br i1 %exitcond816.not, label %.loopexit, label %1387, !llvm.loop !41
+  br i1 %exitcond816.not, label %.loopexit, label %1386, !llvm.loop !41
 
-1402:                                             ; preds = %1232
-  %1403 = getelementptr inbounds i8, ptr %.sroa.3.0.lcssa, i64 16
-  %1404 = tail call noundef double @_ZN7glslang16TConstUnionArray3dotERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0.lcssa, ptr noundef nonnull align 8 dereferenceable(16) %1403)
-  %1405 = getelementptr inbounds i8, ptr %.sroa.3.0.lcssa, i64 40
-  %1406 = load ptr, ptr %1405, align 8
-  %1407 = getelementptr inbounds i8, ptr %1406, i64 8
-  %1408 = load ptr, ptr %1407, align 8
-  %1409 = load double, ptr %1408, align 8
-  %1410 = fneg double %1404
-  %1411 = tail call double @llvm.fmuladd.f64(double %1410, double %1404, double 1.000000e+00)
-  %1412 = fneg double %1409
-  %1413 = fmul double %1409, %1412
-  %1414 = tail call double @llvm.fmuladd.f64(double %1413, double %1411, double 1.000000e+00)
-  %1415 = fcmp olt double %1414, 0.000000e+00
-  %1416 = icmp sgt i32 %1242, 0
-  br i1 %1415, label %.preheader743, label %.preheader745
+1401:                                             ; preds = %1231
+  %1402 = getelementptr inbounds i8, ptr %.sroa.3.0.lcssa, i64 16
+  %1403 = tail call noundef double @_ZN7glslang16TConstUnionArray3dotERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0.lcssa, ptr noundef nonnull align 8 dereferenceable(16) %1402)
+  %1404 = getelementptr inbounds i8, ptr %.sroa.3.0.lcssa, i64 40
+  %1405 = load ptr, ptr %1404, align 8
+  %1406 = getelementptr inbounds i8, ptr %1405, i64 8
+  %1407 = load ptr, ptr %1406, align 8
+  %1408 = load double, ptr %1407, align 8
+  %1409 = fneg double %1403
+  %1410 = tail call double @llvm.fmuladd.f64(double %1409, double %1403, double 1.000000e+00)
+  %1411 = fneg double %1408
+  %1412 = fmul double %1408, %1411
+  %1413 = tail call double @llvm.fmuladd.f64(double %1412, double %1410, double 1.000000e+00)
+  %1414 = fcmp olt double %1413, 0.000000e+00
+  %1415 = icmp sgt i32 %1241, 0
+  br i1 %1414, label %.preheader743, label %.preheader745
 
-.preheader745:                                    ; preds = %1402
-  br i1 %1416, label %.lr.ph769, label %.loopexit
+.preheader745:                                    ; preds = %1401
+  br i1 %1415, label %.lr.ph769, label %.loopexit
 
 .lr.ph769:                                        ; preds = %.preheader745
-  %1417 = getelementptr inbounds i8, ptr %.sink.i, i64 8
-  %1418 = getelementptr inbounds i8, ptr %.sroa.3.0.lcssa, i64 8
-  %1419 = getelementptr inbounds i8, ptr %.sroa.3.0.lcssa, i64 24
-  %wide.trip.count805 = zext nneg i32 %1242 to i64
-  br label %1425
+  %1416 = getelementptr inbounds i8, ptr %.sink.i, i64 8
+  %1417 = getelementptr inbounds i8, ptr %.sroa.3.0.lcssa, i64 8
+  %1418 = getelementptr inbounds i8, ptr %.sroa.3.0.lcssa, i64 24
+  %wide.trip.count805 = zext nneg i32 %1241 to i64
+  br label %1424
 
-.preheader743:                                    ; preds = %1402
-  br i1 %1416, label %.lr.ph771, label %.loopexit
+.preheader743:                                    ; preds = %1401
+  br i1 %1415, label %.lr.ph771, label %.loopexit
 
 .lr.ph771:                                        ; preds = %.preheader743
-  %1420 = getelementptr inbounds i8, ptr %.sink.i, i64 8
-  %wide.trip.count810 = zext nneg i32 %1242 to i64
-  br label %1421
+  %1419 = getelementptr inbounds i8, ptr %.sink.i, i64 8
+  %wide.trip.count810 = zext nneg i32 %1241 to i64
+  br label %1420
 
-1421:                                             ; preds = %.lr.ph771, %1421
-  %indvars.iv807 = phi i64 [ 0, %.lr.ph771 ], [ %indvars.iv.next808, %1421 ]
-  %1422 = load ptr, ptr %1420, align 8
-  %1423 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1422, i64 %indvars.iv807
-  store double 0.000000e+00, ptr %1423, align 8
-  %1424 = getelementptr inbounds i8, ptr %1423, i64 8
-  store i32 2, ptr %1424, align 8
+1420:                                             ; preds = %.lr.ph771, %1420
+  %indvars.iv807 = phi i64 [ 0, %.lr.ph771 ], [ %indvars.iv.next808, %1420 ]
+  %1421 = load ptr, ptr %1419, align 8
+  %1422 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1421, i64 %indvars.iv807
+  store double 0.000000e+00, ptr %1422, align 8
+  %1423 = getelementptr inbounds i8, ptr %1422, i64 8
+  store i32 2, ptr %1423, align 8
   %indvars.iv.next808 = add nuw nsw i64 %indvars.iv807, 1
   %exitcond811.not = icmp eq i64 %indvars.iv.next808, %wide.trip.count810
-  br i1 %exitcond811.not, label %.loopexit, label %1421, !llvm.loop !42
+  br i1 %exitcond811.not, label %.loopexit, label %1420, !llvm.loop !42
 
-1425:                                             ; preds = %.lr.ph769, %1425
-  %indvars.iv802 = phi i64 [ 0, %.lr.ph769 ], [ %indvars.iv.next803, %1425 ]
-  %1426 = load ptr, ptr %1417, align 8
-  %1427 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1426, i64 %indvars.iv802
-  %1428 = load ptr, ptr %1418, align 8
-  %1429 = getelementptr inbounds i8, ptr %1428, i64 8
-  %1430 = load ptr, ptr %1429, align 8
-  %1431 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1430, i64 %indvars.iv802
-  %1432 = load double, ptr %1431, align 8
-  %1433 = tail call double @sqrt(double noundef %1414) #9
-  %1434 = tail call double @llvm.fmuladd.f64(double %1409, double %1404, double %1433)
-  %1435 = load ptr, ptr %1419, align 8
-  %1436 = getelementptr inbounds i8, ptr %1435, i64 8
-  %1437 = load ptr, ptr %1436, align 8
-  %1438 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1437, i64 %indvars.iv802
-  %1439 = load double, ptr %1438, align 8
-  %1440 = fneg double %1439
-  %1441 = fmul double %1434, %1440
-  %1442 = tail call double @llvm.fmuladd.f64(double %1409, double %1432, double %1441)
-  store double %1442, ptr %1427, align 8
-  %1443 = getelementptr inbounds i8, ptr %1427, i64 8
-  store i32 2, ptr %1443, align 8
+1424:                                             ; preds = %.lr.ph769, %1424
+  %indvars.iv802 = phi i64 [ 0, %.lr.ph769 ], [ %indvars.iv.next803, %1424 ]
+  %1425 = load ptr, ptr %1416, align 8
+  %1426 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1425, i64 %indvars.iv802
+  %1427 = load ptr, ptr %1417, align 8
+  %1428 = getelementptr inbounds i8, ptr %1427, i64 8
+  %1429 = load ptr, ptr %1428, align 8
+  %1430 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1429, i64 %indvars.iv802
+  %1431 = load double, ptr %1430, align 8
+  %1432 = tail call double @sqrt(double noundef %1413) #9
+  %1433 = tail call double @llvm.fmuladd.f64(double %1408, double %1403, double %1432)
+  %1434 = load ptr, ptr %1418, align 8
+  %1435 = getelementptr inbounds i8, ptr %1434, i64 8
+  %1436 = load ptr, ptr %1435, align 8
+  %1437 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1436, i64 %indvars.iv802
+  %1438 = load double, ptr %1437, align 8
+  %1439 = fneg double %1438
+  %1440 = fmul double %1433, %1439
+  %1441 = tail call double @llvm.fmuladd.f64(double %1408, double %1431, double %1440)
+  store double %1441, ptr %1426, align 8
+  %1442 = getelementptr inbounds i8, ptr %1426, i64 8
+  store i32 2, ptr %1442, align 8
   %indvars.iv.next803 = add nuw nsw i64 %indvars.iv802, 1
   %exitcond806.not = icmp eq i64 %indvars.iv.next803, %wide.trip.count805
-  br i1 %exitcond806.not, label %.loopexit, label %1425, !llvm.loop !43
+  br i1 %exitcond806.not, label %.loopexit, label %1424, !llvm.loop !43
 
-1444:                                             ; preds = %1232
-  %1445 = load ptr, ptr %179, align 8
-  %1446 = getelementptr inbounds i8, ptr %1445, i64 8
+1443:                                             ; preds = %1231
+  %1444 = load ptr, ptr %179, align 8
+  %1445 = getelementptr inbounds i8, ptr %1444, i64 8
+  %1446 = load ptr, ptr %1445, align 8
   %1447 = load ptr, ptr %1446, align 8
-  %1448 = load ptr, ptr %1447, align 8
-  %1449 = getelementptr inbounds i8, ptr %1448, i64 40
-  %1450 = load ptr, ptr %1449, align 8
-  %1451 = tail call noundef ptr %1450(ptr noundef nonnull align 8 dereferenceable(32) %1447) #9
-  %1452 = load ptr, ptr %1451, align 8
-  %1453 = getelementptr inbounds i8, ptr %1452, i64 240
-  %1454 = load ptr, ptr %1453, align 8
-  %1455 = tail call noundef nonnull align 8 dereferenceable(152) ptr %1454(ptr noundef nonnull align 8 dereferenceable(184) %1451) #9
-  %1456 = tail call noundef i32 @_ZNK7glslang5TType20computeNumComponentsEv(ptr noundef nonnull align 8 dereferenceable(152) %1455)
-  %1457 = icmp sgt i32 %1242, 0
-  br i1 %1457, label %.preheader747.lr.ph, label %.loopexit
+  %1448 = getelementptr inbounds i8, ptr %1447, i64 40
+  %1449 = load ptr, ptr %1448, align 8
+  %1450 = tail call noundef ptr %1449(ptr noundef nonnull align 8 dereferenceable(32) %1446) #9
+  %1451 = load ptr, ptr %1450, align 8
+  %1452 = getelementptr inbounds i8, ptr %1451, i64 240
+  %1453 = load ptr, ptr %1452, align 8
+  %1454 = tail call noundef nonnull align 8 dereferenceable(152) ptr %1453(ptr noundef nonnull align 8 dereferenceable(184) %1450) #9
+  %1455 = tail call noundef i32 @_ZNK7glslang5TType20computeNumComponentsEv(ptr noundef nonnull align 8 dereferenceable(152) %1454)
+  %1456 = icmp sgt i32 %1241, 0
+  br i1 %1456, label %.preheader747.lr.ph, label %.loopexit
 
-.preheader747.lr.ph:                              ; preds = %1444
-  %1458 = icmp sgt i32 %1456, 0
-  %1459 = getelementptr inbounds i8, ptr %.sroa.3.0.lcssa, i64 8
-  %1460 = getelementptr inbounds i8, ptr %.sroa.3.0.lcssa, i64 24
-  %1461 = getelementptr inbounds i8, ptr %.sink.i, i64 8
-  br i1 %1458, label %.preheader747.us.preheader, label %.loopexit
+.preheader747.lr.ph:                              ; preds = %1443
+  %1457 = icmp sgt i32 %1455, 0
+  %1458 = getelementptr inbounds i8, ptr %.sroa.3.0.lcssa, i64 8
+  %1459 = getelementptr inbounds i8, ptr %.sroa.3.0.lcssa, i64 24
+  %1460 = getelementptr inbounds i8, ptr %.sink.i, i64 8
+  br i1 %1457, label %.preheader747.us.preheader, label %.loopexit
 
 .preheader747.us.preheader:                       ; preds = %.preheader747.lr.ph
-  %1462 = zext nneg i32 %1242 to i64
-  %wide.trip.count = zext nneg i32 %1456 to i64
+  %1461 = zext nneg i32 %1241 to i64
+  %wide.trip.count = zext nneg i32 %1455 to i64
   br label %.preheader747.us
 
 .preheader747.us:                                 ; preds = %.preheader747.us.preheader, %._crit_edge766.us
   %indvars.iv797 = phi i64 [ 0, %.preheader747.us.preheader ], [ %indvars.iv.next798, %._crit_edge766.us ]
-  br label %1463
+  br label %1462
 
-1463:                                             ; preds = %.preheader747.us, %_ZNK7glslang11TConstUnionmlERKS0_.exit.us
+1462:                                             ; preds = %.preheader747.us, %_ZNK7glslang11TConstUnionmlERKS0_.exit.us
   %indvars.iv = phi i64 [ 0, %.preheader747.us ], [ %indvars.iv.next, %_ZNK7glslang11TConstUnionmlERKS0_.exit.us ]
-  %1464 = load ptr, ptr %1459, align 8
-  %1465 = getelementptr inbounds i8, ptr %1464, i64 8
-  %1466 = load ptr, ptr %1465, align 8
-  %1467 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1466, i64 %indvars.iv797
-  %1468 = load ptr, ptr %1460, align 8
-  %1469 = getelementptr inbounds i8, ptr %1468, i64 8
-  %1470 = load ptr, ptr %1469, align 8
-  %1471 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1470, i64 %indvars.iv
-  %1472 = getelementptr inbounds i8, ptr %1467, i64 8
-  %1473 = load i32, ptr %1472, align 8
-  switch i32 %1473, label %_ZNK7glslang11TConstUnionmlERKS0_.exit.us [
-    i32 8, label %1507
-    i32 9, label %1503
-    i32 2, label %1498
-    i32 4, label %1494
-    i32 6, label %1490
-    i32 10, label %1486
-    i32 5, label %1482
-    i32 7, label %1478
-    i32 11, label %1474
+  %1463 = load ptr, ptr %1458, align 8
+  %1464 = getelementptr inbounds i8, ptr %1463, i64 8
+  %1465 = load ptr, ptr %1464, align 8
+  %1466 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1465, i64 %indvars.iv797
+  %1467 = load ptr, ptr %1459, align 8
+  %1468 = getelementptr inbounds i8, ptr %1467, i64 8
+  %1469 = load ptr, ptr %1468, align 8
+  %1470 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1469, i64 %indvars.iv
+  %1471 = getelementptr inbounds i8, ptr %1466, i64 8
+  %1472 = load i32, ptr %1471, align 8
+  switch i32 %1472, label %_ZNK7glslang11TConstUnionmlERKS0_.exit.us [
+    i32 8, label %1506
+    i32 9, label %1502
+    i32 2, label %1497
+    i32 4, label %1493
+    i32 6, label %1489
+    i32 10, label %1485
+    i32 5, label %1481
+    i32 7, label %1477
+    i32 11, label %1473
   ]
 
-1474:                                             ; preds = %1463
-  %1475 = load i64, ptr %1467, align 8
-  %1476 = load i64, ptr %1471, align 8
-  %1477 = mul i64 %1476, %1475
+1473:                                             ; preds = %1462
+  %1474 = load i64, ptr %1466, align 8
+  %1475 = load i64, ptr %1470, align 8
+  %1476 = mul i64 %1475, %1474
   br label %_ZNK7glslang11TConstUnionmlERKS0_.exit.us
 
-1478:                                             ; preds = %1463
-  %1479 = load i16, ptr %1467, align 8
-  %1480 = load i16, ptr %1471, align 8
-  %1481 = mul i16 %1480, %1479
-  %.sroa.0.0.insert.ext22.i.us = zext i16 %1481 to i64
+1477:                                             ; preds = %1462
+  %1478 = load i16, ptr %1466, align 8
+  %1479 = load i16, ptr %1470, align 8
+  %1480 = mul i16 %1479, %1478
+  %.sroa.0.0.insert.ext22.i.us = zext i16 %1480 to i64
   br label %_ZNK7glslang11TConstUnionmlERKS0_.exit.us
 
-1482:                                             ; preds = %1463
-  %1483 = load i8, ptr %1467, align 8
-  %1484 = load i8, ptr %1471, align 8
-  %1485 = mul i8 %1484, %1483
-  %.sroa.0.0.insert.ext30.i.us = zext i8 %1485 to i64
+1481:                                             ; preds = %1462
+  %1482 = load i8, ptr %1466, align 8
+  %1483 = load i8, ptr %1470, align 8
+  %1484 = mul i8 %1483, %1482
+  %.sroa.0.0.insert.ext30.i.us = zext i8 %1484 to i64
   br label %_ZNK7glslang11TConstUnionmlERKS0_.exit.us
 
-1486:                                             ; preds = %1463
-  %1487 = load i64, ptr %1467, align 8
-  %1488 = load i64, ptr %1471, align 8
-  %1489 = mul nsw i64 %1488, %1487
+1485:                                             ; preds = %1462
+  %1486 = load i64, ptr %1466, align 8
+  %1487 = load i64, ptr %1470, align 8
+  %1488 = mul nsw i64 %1487, %1486
   br label %_ZNK7glslang11TConstUnionmlERKS0_.exit.us
 
-1490:                                             ; preds = %1463
-  %1491 = load i16, ptr %1467, align 8
-  %1492 = load i16, ptr %1471, align 8
-  %1493 = mul i16 %1492, %1491
-  %.sroa.0.0.insert.ext18.i.us = zext i16 %1493 to i64
+1489:                                             ; preds = %1462
+  %1490 = load i16, ptr %1466, align 8
+  %1491 = load i16, ptr %1470, align 8
+  %1492 = mul i16 %1491, %1490
+  %.sroa.0.0.insert.ext18.i.us = zext i16 %1492 to i64
   br label %_ZNK7glslang11TConstUnionmlERKS0_.exit.us
 
-1494:                                             ; preds = %1463
-  %1495 = load i8, ptr %1467, align 8
-  %1496 = load i8, ptr %1471, align 8
-  %1497 = mul i8 %1496, %1495
-  %.sroa.0.0.insert.ext26.i.us = zext i8 %1497 to i64
+1493:                                             ; preds = %1462
+  %1494 = load i8, ptr %1466, align 8
+  %1495 = load i8, ptr %1470, align 8
+  %1496 = mul i8 %1495, %1494
+  %.sroa.0.0.insert.ext26.i.us = zext i8 %1496 to i64
   br label %_ZNK7glslang11TConstUnionmlERKS0_.exit.us
 
-1498:                                             ; preds = %1463
-  %1499 = load double, ptr %1467, align 8
-  %1500 = load double, ptr %1471, align 8
-  %1501 = fmul double %1499, %1500
-  %1502 = bitcast double %1501 to i64
+1497:                                             ; preds = %1462
+  %1498 = load double, ptr %1466, align 8
+  %1499 = load double, ptr %1470, align 8
+  %1500 = fmul double %1498, %1499
+  %1501 = bitcast double %1500 to i64
   br label %_ZNK7glslang11TConstUnionmlERKS0_.exit.us
 
-1503:                                             ; preds = %1463
-  %1504 = load i32, ptr %1467, align 8
-  %1505 = load i32, ptr %1471, align 8
-  %1506 = mul i32 %1505, %1504
-  %.sroa.0.0.insert.ext14.i.us = zext i32 %1506 to i64
+1502:                                             ; preds = %1462
+  %1503 = load i32, ptr %1466, align 8
+  %1504 = load i32, ptr %1470, align 8
+  %1505 = mul i32 %1504, %1503
+  %.sroa.0.0.insert.ext14.i.us = zext i32 %1505 to i64
   br label %_ZNK7glslang11TConstUnionmlERKS0_.exit.us
 
-1507:                                             ; preds = %1463
-  %1508 = load i32, ptr %1467, align 8
-  %1509 = load i32, ptr %1471, align 8
-  %1510 = mul nsw i32 %1509, %1508
-  %.sroa.0.0.insert.ext.i.us = zext i32 %1510 to i64
+1506:                                             ; preds = %1462
+  %1507 = load i32, ptr %1466, align 8
+  %1508 = load i32, ptr %1470, align 8
+  %1509 = mul nsw i32 %1508, %1507
+  %.sroa.0.0.insert.ext.i.us = zext i32 %1509 to i64
   br label %_ZNK7glslang11TConstUnionmlERKS0_.exit.us
 
-_ZNK7glslang11TConstUnionmlERKS0_.exit.us:        ; preds = %1507, %1503, %1498, %1494, %1490, %1486, %1482, %1478, %1474, %1463
-  %.sroa.11.0.i.us = phi i32 [ 8, %1463 ], [ 11, %1474 ], [ 7, %1478 ], [ 5, %1482 ], [ 10, %1486 ], [ 6, %1490 ], [ 4, %1494 ], [ 2, %1498 ], [ 9, %1503 ], [ 8, %1507 ]
-  %.sroa.0.0.i.us = phi i64 [ 0, %1463 ], [ %1477, %1474 ], [ %.sroa.0.0.insert.ext22.i.us, %1478 ], [ %.sroa.0.0.insert.ext30.i.us, %1482 ], [ %1489, %1486 ], [ %.sroa.0.0.insert.ext18.i.us, %1490 ], [ %.sroa.0.0.insert.ext26.i.us, %1494 ], [ %1502, %1498 ], [ %.sroa.0.0.insert.ext14.i.us, %1503 ], [ %.sroa.0.0.insert.ext.i.us, %1507 ]
-  %1511 = mul nuw nsw i64 %indvars.iv, %1462
-  %1512 = load ptr, ptr %1461, align 8
-  %1513 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1512, i64 %1511
-  %1514 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1513, i64 %indvars.iv797
-  store i64 %.sroa.0.0.i.us, ptr %1514, align 8
-  %.sroa.2.0..sroa_idx.us = getelementptr inbounds i8, ptr %1514, i64 8
+_ZNK7glslang11TConstUnionmlERKS0_.exit.us:        ; preds = %1506, %1502, %1497, %1493, %1489, %1485, %1481, %1477, %1473, %1462
+  %.sroa.11.0.i.us = phi i32 [ 8, %1462 ], [ 11, %1473 ], [ 7, %1477 ], [ 5, %1481 ], [ 10, %1485 ], [ 6, %1489 ], [ 4, %1493 ], [ 2, %1497 ], [ 9, %1502 ], [ 8, %1506 ]
+  %.sroa.0.0.i.us = phi i64 [ 0, %1462 ], [ %1476, %1473 ], [ %.sroa.0.0.insert.ext22.i.us, %1477 ], [ %.sroa.0.0.insert.ext30.i.us, %1481 ], [ %1488, %1485 ], [ %.sroa.0.0.insert.ext18.i.us, %1489 ], [ %.sroa.0.0.insert.ext26.i.us, %1493 ], [ %1501, %1497 ], [ %.sroa.0.0.insert.ext14.i.us, %1502 ], [ %.sroa.0.0.insert.ext.i.us, %1506 ]
+  %1510 = mul nuw nsw i64 %indvars.iv, %1461
+  %1511 = load ptr, ptr %1460, align 8
+  %1512 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1511, i64 %1510
+  %1513 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1512, i64 %indvars.iv797
+  store i64 %.sroa.0.0.i.us, ptr %1513, align 8
+  %.sroa.2.0..sroa_idx.us = getelementptr inbounds i8, ptr %1513, i64 8
   store i32 %.sroa.11.0.i.us, ptr %.sroa.2.0..sroa_idx.us, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge766.us, label %1463, !llvm.loop !44
+  br i1 %exitcond.not, label %._crit_edge766.us, label %1462, !llvm.loop !44
 
 ._crit_edge766.us:                                ; preds = %_ZNK7glslang11TConstUnionmlERKS0_.exit.us
   %indvars.iv.next798 = add nuw nsw i64 %indvars.iv797, 1
-  %exitcond801.not = icmp eq i64 %indvars.iv.next798, %1462
+  %exitcond801.not = icmp eq i64 %indvars.iv.next798, %1461
   br i1 %exitcond801.not, label %.loopexit, label %.preheader747.us, !llvm.loop !45
 
-.loopexit:                                        ; preds = %._crit_edge766.us, %1425, %1421, %1387, %.lr.ph777.split, %.lr.ph777.split.us, %1231, %.preheader747.lr.ph, %1444, %.preheader745, %.preheader743, %1379, %1356, %.preheader, %._crit_edge781, %1264, %1270
-  %1515 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #9
-  %1516 = call noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(96) %1515, i64 noundef 208) #9
-  %1517 = load ptr, ptr %1, align 8
-  %1518 = getelementptr inbounds i8, ptr %1517, i64 240
-  %1519 = load ptr, ptr %1518, align 8
-  %1520 = call noundef nonnull align 8 dereferenceable(152) ptr %1519(ptr noundef nonnull align 8 dereferenceable(184) %1) #9
-  call void @_ZN7glslang12TIntermTypedC2ERKNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(184) %1516, ptr noundef nonnull align 8 dereferenceable(152) %1520)
-  store ptr getelementptr inbounds inrange(-16, 400) (i8, ptr @_ZTVN7glslang20TIntermConstantUnionE, i64 16), ptr %1516, align 8
-  %1521 = getelementptr inbounds i8, ptr %1516, i64 184
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7glslang16TConstUnionArrayE, i64 16), ptr %1521, align 8
-  %1522 = getelementptr inbounds i8, ptr %1516, i64 192
-  store ptr %.sink.i, ptr %1522, align 8
-  %1523 = getelementptr inbounds i8, ptr %1516, i64 200
-  store i8 0, ptr %1523, align 8
-  %1524 = load ptr, ptr getelementptr inbounds inrange(-264, 152) (i8, ptr @_ZTVN7glslang20TIntermConstantUnionE, i64 264), align 8
-  %1525 = call noundef nonnull align 8 dereferenceable(152) ptr %1524(ptr noundef nonnull align 8 dereferenceable(184) %1516) #9
-  %1526 = load ptr, ptr %1525, align 8
-  %1527 = getelementptr inbounds i8, ptr %1526, i64 80
-  %1528 = load ptr, ptr %1527, align 8
-  %1529 = call noundef nonnull align 8 dereferenceable(80) ptr %1528(ptr noundef nonnull align 8 dereferenceable(152) %1525) #9
-  %1530 = getelementptr inbounds i8, ptr %1529, i64 8
-  %1531 = load i64, ptr %1530, align 8
-  %1532 = and i64 %1531, -128
-  %1533 = or disjoint i64 %1532, 2
-  store i64 %1533, ptr %1530, align 8
-  %1534 = load ptr, ptr %1, align 8
-  %1535 = load ptr, ptr %1534, align 8
-  %1536 = call noundef nonnull align 8 dereferenceable(24) ptr %1535(ptr noundef nonnull align 8 dereferenceable(32) %1) #9
-  %1537 = load ptr, ptr %1516, align 8
-  %1538 = getelementptr inbounds i8, ptr %1537, i64 8
-  %1539 = load ptr, ptr %1538, align 8
-  call void %1539(ptr noundef nonnull align 8 dereferenceable(32) %1516, ptr noundef nonnull align 8 dereferenceable(24) %1536) #9
+.loopexit:                                        ; preds = %._crit_edge766.us, %1424, %1420, %1386, %.lr.ph777.split, %.lr.ph777.split.us, %1230, %.preheader747.lr.ph, %1443, %.preheader745, %.preheader743, %1378, %1355, %.preheader, %._crit_edge781, %1263, %1269
+  %1514 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #9
+  %1515 = call noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(96) %1514, i64 noundef 208) #9
+  %1516 = load ptr, ptr %1, align 8
+  %1517 = getelementptr inbounds i8, ptr %1516, i64 240
+  %1518 = load ptr, ptr %1517, align 8
+  %1519 = call noundef nonnull align 8 dereferenceable(152) ptr %1518(ptr noundef nonnull align 8 dereferenceable(184) %1) #9
+  call void @_ZN7glslang12TIntermTypedC2ERKNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(184) %1515, ptr noundef nonnull align 8 dereferenceable(152) %1519)
+  store ptr getelementptr inbounds inrange(-16, 400) (i8, ptr @_ZTVN7glslang20TIntermConstantUnionE, i64 16), ptr %1515, align 8
+  %1520 = getelementptr inbounds i8, ptr %1515, i64 184
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7glslang16TConstUnionArrayE, i64 16), ptr %1520, align 8
+  %1521 = getelementptr inbounds i8, ptr %1515, i64 192
+  store ptr %.sink.i, ptr %1521, align 8
+  %1522 = getelementptr inbounds i8, ptr %1515, i64 200
+  store i8 0, ptr %1522, align 8
+  %1523 = load ptr, ptr getelementptr inbounds inrange(-264, 152) (i8, ptr @_ZTVN7glslang20TIntermConstantUnionE, i64 264), align 8
+  %1524 = call noundef nonnull align 8 dereferenceable(152) ptr %1523(ptr noundef nonnull align 8 dereferenceable(184) %1515) #9
+  %1525 = load ptr, ptr %1524, align 8
+  %1526 = getelementptr inbounds i8, ptr %1525, i64 80
+  %1527 = load ptr, ptr %1526, align 8
+  %1528 = call noundef nonnull align 8 dereferenceable(80) ptr %1527(ptr noundef nonnull align 8 dereferenceable(152) %1524) #9
+  %1529 = getelementptr inbounds i8, ptr %1528, i64 8
+  %1530 = load i64, ptr %1529, align 8
+  %1531 = and i64 %1530, -128
+  %1532 = or disjoint i64 %1531, 2
+  store i64 %1532, ptr %1529, align 8
+  %1533 = load ptr, ptr %1, align 8
+  %1534 = load ptr, ptr %1533, align 8
+  %1535 = call noundef nonnull align 8 dereferenceable(24) ptr %1534(ptr noundef nonnull align 8 dereferenceable(32) %1) #9
+  %1536 = load ptr, ptr %1515, align 8
+  %1537 = getelementptr inbounds i8, ptr %1536, i64 8
+  %1538 = load ptr, ptr %1537, align 8
+  call void %1538(ptr noundef nonnull align 8 dereferenceable(32) %1515, ptr noundef nonnull align 8 dereferenceable(24) %1535) #9
   br label %_ZN7glslang13TIntermediate16areAllChildConstEPNS_16TIntermAggregateE.exit
 
-_ZN7glslang13TIntermediate16areAllChildConstEPNS_16TIntermAggregateE.exit: ; preds = %.lr.ph.i, %1128, %.thread843, %.loopexit, %1232, %34, %2, %32
-  %.0 = phi ptr [ %33, %32 ], [ null, %2 ], [ %1, %34 ], [ %1516, %.loopexit ], [ %1, %1232 ], [ %1, %.thread843 ], [ %1, %1128 ], [ %1, %.lr.ph.i ]
+_ZN7glslang13TIntermediate16areAllChildConstEPNS_16TIntermAggregateE.exit: ; preds = %.lr.ph.i, %1128, %.thread843, %.loopexit, %1231, %34, %2, %32
+  %.0 = phi ptr [ %33, %32 ], [ null, %2 ], [ %1, %34 ], [ %1515, %.loopexit ], [ %1, %1231 ], [ %1, %.thread843 ], [ %1, %1128 ], [ %1, %.lr.ph.i ]
   ret ptr %.0
 }
 
@@ -10695,26 +10695,28 @@ define noundef zeroext i1 @_ZN7glslang13TIntermediate16areAllChildConstEPNS_16TI
   %.not1011 = icmp eq ptr %9, %11
   br i1 %.not1011, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %3, %.lr.ph
-  %.sroa.07.012 = phi ptr [ %21, %.lr.ph ], [ %9, %3 ]
-  %12 = load ptr, ptr %.sroa.07.012, align 8
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
-  %15 = load ptr, ptr %14, align 8
-  %16 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(32) %12) #9
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 40
-  %19 = load ptr, ptr %18, align 8
-  %20 = tail call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(32) %16) #9
-  %.not6.not = icmp ne ptr %20, null
-  %21 = getelementptr inbounds i8, ptr %.sroa.07.012, i64 8
-  %22 = load ptr, ptr %10, align 8
-  %.not10 = icmp ne ptr %21, %22
-  %or.cond.not = select i1 %.not6.not, i1 %.not10, i1 false
-  br i1 %or.cond.not, label %.lr.ph, label %.loopexit, !llvm.loop !35
+12:                                               ; preds = %.lr.ph
+  %13 = getelementptr inbounds i8, ptr %.sroa.07.012, i64 8
+  %14 = load ptr, ptr %10, align 8
+  %.not10 = icmp eq ptr %13, %14
+  br i1 %.not10, label %.loopexit, label %.lr.ph, !llvm.loop !35
 
-.loopexit:                                        ; preds = %.lr.ph, %3, %2
-  %.0 = phi i1 [ true, %2 ], [ true, %3 ], [ %.not6.not, %.lr.ph ]
+.lr.ph:                                           ; preds = %3, %12
+  %.sroa.07.012 = phi ptr [ %13, %12 ], [ %9, %3 ]
+  %15 = load ptr, ptr %.sroa.07.012, align 8
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 24
+  %18 = load ptr, ptr %17, align 8
+  %19 = tail call noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(32) %15) #9
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 40
+  %22 = load ptr, ptr %21, align 8
+  %23 = tail call noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(32) %19) #9
+  %.not6.not.not = icmp ne ptr %23, null
+  br i1 %.not6.not.not, label %12, label %.loopexit
+
+.loopexit:                                        ; preds = %.lr.ph, %12, %3, %2
+  %.0 = phi i1 [ true, %2 ], [ true, %3 ], [ %.not6.not.not, %12 ], [ %.not6.not.not, %.lr.ph ]
   ret i1 %.0
 }
 

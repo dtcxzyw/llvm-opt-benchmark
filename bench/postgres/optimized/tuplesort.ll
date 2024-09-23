@@ -1265,11 +1265,11 @@ define internal fastcc void @dumptuples(ptr noundef %0, i1 noundef zeroext %1) u
 
 22:                                               ; preds = %18
   %23 = icmp sgt i32 %21, 0
-  br i1 %23, label %130, label %.thread46
+  br i1 %23, label %130, label %.thread45
 
-.thread46:                                        ; preds = %22
+.thread45:                                        ; preds = %22
   %24 = getelementptr inbounds i8, ptr %0, i64 240
-  br label %65
+  br label %selectnewtape.exit
 
 25:                                               ; preds = %18
   %26 = getelementptr inbounds i8, ptr %0, i64 240
@@ -1286,7 +1286,7 @@ define internal fastcc void @dumptuples(ptr noundef %0, i1 noundef zeroext %1) u
 
 32:                                               ; preds = %25
   %33 = icmp sgt i32 %21, 0
-  br i1 %33, label %34, label %65
+  br i1 %33, label %34, label %selectnewtape.exit
 
 34:                                               ; preds = %32
   %35 = getelementptr inbounds i8, ptr %0, i64 272
@@ -1294,7 +1294,7 @@ define internal fastcc void @dumptuples(ptr noundef %0, i1 noundef zeroext %1) u
   %37 = getelementptr inbounds i8, ptr %0, i64 144
   %38 = load i32, ptr %37, align 8
   %39 = icmp slt i32 %36, %38
-  br i1 %39, label %40, label %54
+  br i1 %39, label %40, label %55
 
 40:                                               ; preds = %34
   %41 = getelementptr inbounds i8, ptr %0, i64 168
@@ -1313,40 +1313,36 @@ define internal fastcc void @dumptuples(ptr noundef %0, i1 noundef zeroext %1) u
   store i32 %51, ptr %35, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 276
   %53 = load i32, ptr %52, align 4
-  %.pre44.pre = load i32, ptr %26, align 8
+  %54 = add i32 %53, 1
+  store i32 %54, ptr %52, align 4
+  %.pre44 = load i32, ptr %26, align 8
   br label %selectnewtape.exit
 
-54:                                               ; preds = %34
-  %55 = getelementptr inbounds i8, ptr %0, i64 264
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 276
-  %58 = load i32, ptr %57, align 4
-  %59 = srem i32 %58, %36
-  %60 = sext i32 %59 to i64
-  %61 = getelementptr ptr, ptr %56, i64 %60
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 280
-  store ptr %62, ptr %63, align 8
+55:                                               ; preds = %34
+  %56 = getelementptr inbounds i8, ptr %0, i64 264
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds i8, ptr %0, i64 276
+  %59 = load i32, ptr %58, align 4
+  %60 = srem i32 %59, %36
+  %61 = sext i32 %60 to i64
+  %62 = getelementptr ptr, ptr %57, i64 %61
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds i8, ptr %0, i64 280
+  store ptr %63, ptr %64, align 8
+  %65 = add i32 %59, 1
+  store i32 %65, ptr %58, align 4
   br label %selectnewtape.exit
 
-selectnewtape.exit:                               ; preds = %40, %54
-  %.pre44 = phi i32 [ %21, %54 ], [ %.pre44.pre, %40 ]
-  %.sink15.i = phi i32 [ %58, %54 ], [ %53, %40 ]
-  %.sink14.i = phi ptr [ %57, %54 ], [ %52, %40 ]
-  %64 = add i32 %.sink15.i, 1
-  store i32 %64, ptr %.sink14.i, align 4
-  br label %65
-
-65:                                               ; preds = %.thread46, %selectnewtape.exit, %32
-  %66 = phi ptr [ %26, %selectnewtape.exit ], [ %26, %32 ], [ %24, %.thread46 ]
-  %67 = phi i32 [ %.pre44, %selectnewtape.exit ], [ %21, %32 ], [ %21, %.thread46 ]
+selectnewtape.exit:                               ; preds = %.thread45, %55, %40, %32
+  %66 = phi ptr [ %26, %55 ], [ %26, %40 ], [ %26, %32 ], [ %24, %.thread45 ]
+  %67 = phi i32 [ %21, %55 ], [ %.pre44, %40 ], [ %21, %32 ], [ %21, %.thread45 ]
   %68 = add i32 %67, 1
   store i32 %68, ptr %66, align 8
   %69 = load i8, ptr @trace_sort, align 1
   %70 = trunc i8 %69 to i1
   br i1 %70, label %71, label %80
 
-71:                                               ; preds = %65
+71:                                               ; preds = %selectnewtape.exit
   %72 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #12
   br i1 %72, label %73, label %80
 
@@ -1360,7 +1356,7 @@ selectnewtape.exit:                               ; preds = %40, %54
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2381, ptr noundef nonnull @__func__.dumptuples) #12
   br label %80
 
-80:                                               ; preds = %73, %71, %65
+80:                                               ; preds = %73, %71, %selectnewtape.exit
   tail call fastcc void @tuplesort_sort_memtuples(ptr noundef nonnull %0)
   %81 = load i8, ptr @trace_sort, align 1
   %82 = trunc i8 %81 to i1
@@ -2077,7 +2073,7 @@ init_slab_allocator.exit:                         ; preds = %51, %._crit_edge.i,
   br label %99
 
 99:                                               ; preds = %.backedge, %78
-  %100 = phi i1 [ %98, %78 ], [ %281, %.backedge ]
+  %100 = phi i1 [ %98, %78 ], [ %280, %.backedge ]
   br i1 %100, label %101, label %161
 
 101:                                              ; preds = %99
@@ -2226,299 +2222,299 @@ init_slab_allocator.exit:                         ; preds = %51, %._crit_edge.i,
   br label %selectnewtape.exit
 
 selectnewtape.exit:                               ; preds = %165, %175
-  %.sink15.i = phi i32 [ %177, %175 ], [ %174, %165 ]
-  %182 = add i32 %.sink15.i, 1
-  store i32 %182, ptr %83, align 4
+  %storemerge.in = phi i32 [ %177, %175 ], [ %174, %165 ]
+  %storemerge = add i32 %storemerge.in, 1
+  store i32 %storemerge, ptr %83, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call fastcc void @beginmerge(ptr noundef nonnull %0)
-  %183 = load i32, ptr %91, align 8
-  %184 = icmp sgt i32 %183, 0
-  br i1 %184, label %.lr.ph.i93, label %mergeonerun.exit
+  %182 = load i32, ptr %91, align 8
+  %183 = icmp sgt i32 %182, 0
+  br i1 %183, label %.lr.ph.i93, label %mergeonerun.exit
 
-.lr.ph.i93:                                       ; preds = %selectnewtape.exit, %276
-  %185 = load ptr, ptr %23, align 8
-  %186 = getelementptr inbounds i8, ptr %185, i64 20
-  %187 = load i32, ptr %186, align 4
-  %188 = load ptr, ptr %81, align 8
-  %189 = sext i32 %187 to i64
-  %190 = getelementptr ptr, ptr %188, i64 %189
-  %191 = load ptr, ptr %190, align 8
-  %192 = load ptr, ptr %92, align 8
-  %193 = load ptr, ptr %89, align 8
-  call void %192(ptr noundef nonnull %0, ptr noundef %193, ptr noundef %185) #12
-  %194 = load ptr, ptr %23, align 8
-  %195 = load ptr, ptr %194, align 8
-  %.not.i94 = icmp eq ptr %195, null
-  br i1 %.not.i94, label %204, label %196
+.lr.ph.i93:                                       ; preds = %selectnewtape.exit, %275
+  %184 = load ptr, ptr %23, align 8
+  %185 = getelementptr inbounds i8, ptr %184, i64 20
+  %186 = load i32, ptr %185, align 4
+  %187 = load ptr, ptr %81, align 8
+  %188 = sext i32 %186 to i64
+  %189 = getelementptr ptr, ptr %187, i64 %188
+  %190 = load ptr, ptr %189, align 8
+  %191 = load ptr, ptr %92, align 8
+  %192 = load ptr, ptr %89, align 8
+  call void %191(ptr noundef nonnull %0, ptr noundef %192, ptr noundef %184) #12
+  %193 = load ptr, ptr %23, align 8
+  %194 = load ptr, ptr %193, align 8
+  %.not.i94 = icmp eq ptr %194, null
+  br i1 %.not.i94, label %203, label %195
 
-196:                                              ; preds = %.lr.ph.i93
-  %197 = load ptr, ptr %93, align 8
-  %.not26.i = icmp ult ptr %195, %197
-  br i1 %.not26.i, label %203, label %198
+195:                                              ; preds = %.lr.ph.i93
+  %196 = load ptr, ptr %93, align 8
+  %.not26.i = icmp ult ptr %194, %196
+  br i1 %.not26.i, label %202, label %197
 
-198:                                              ; preds = %196
-  %199 = load ptr, ptr %94, align 8
-  %200 = icmp ult ptr %195, %199
-  br i1 %200, label %201, label %203
+197:                                              ; preds = %195
+  %198 = load ptr, ptr %94, align 8
+  %199 = icmp ult ptr %194, %198
+  br i1 %199, label %200, label %202
 
-201:                                              ; preds = %198
-  %202 = load ptr, ptr %95, align 8
-  store ptr %202, ptr %195, align 8
-  store ptr %195, ptr %95, align 8
-  br label %204
+200:                                              ; preds = %197
+  %201 = load ptr, ptr %95, align 8
+  store ptr %201, ptr %194, align 8
+  store ptr %194, ptr %95, align 8
+  br label %203
 
-203:                                              ; preds = %198, %196
-  call void @pfree(ptr noundef nonnull %195) #12
-  br label %204
+202:                                              ; preds = %197, %195
+  call void @pfree(ptr noundef nonnull %194) #12
+  br label %203
 
-204:                                              ; preds = %203, %201, %.lr.ph.i93
+203:                                              ; preds = %202, %200, %.lr.ph.i93
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %205 = call i64 @LogicalTapeRead(ptr noundef %191, ptr noundef nonnull %4, i64 noundef 4) #12
-  %.not.i.i.i = icmp eq i64 %205, 4
-  br i1 %.not.i.i.i, label %getlen.exit.i.i, label %206
+  %204 = call i64 @LogicalTapeRead(ptr noundef %190, ptr noundef nonnull %4, i64 noundef 4) #12
+  %.not.i.i.i = icmp eq i64 %204, 4
+  br i1 %.not.i.i.i, label %getlen.exit.i.i, label %205
 
-206:                                              ; preds = %204
-  %207 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %207)
-  %208 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.35) #12
+205:                                              ; preds = %203
+  %206 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  call void @llvm.assume(i1 %206)
+  %207 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.35) #12
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2897, ptr noundef nonnull @__func__.getlen) #12
   unreachable
 
-getlen.exit.i.i:                                  ; preds = %204
-  %209 = load i32, ptr %4, align 4
+getlen.exit.i.i:                                  ; preds = %203
+  %208 = load i32, ptr %4, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  %.not28.i = icmp eq i32 %209, 0
-  br i1 %.not28.i, label %mergereadnext.exit.i, label %210
+  %.not28.i = icmp eq i32 %208, 0
+  br i1 %.not28.i, label %mergereadnext.exit.i, label %209
 
-210:                                              ; preds = %getlen.exit.i.i
-  %211 = load ptr, ptr %96, align 8
-  call void %211(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef %191, i32 noundef %209) #12
-  store i32 %187, ptr %97, align 4
-  %212 = load ptr, ptr %23, align 8
-  %213 = load volatile i32, ptr @InterruptPending, align 4
-  %.not.i.i = icmp eq i32 %213, 0
-  br i1 %.not.i.i, label %215, label %214
+209:                                              ; preds = %getlen.exit.i.i
+  %210 = load ptr, ptr %96, align 8
+  call void %210(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef %190, i32 noundef %208) #12
+  store i32 %186, ptr %97, align 4
+  %211 = load ptr, ptr %23, align 8
+  %212 = load volatile i32, ptr @InterruptPending, align 4
+  %.not.i.i = icmp eq i32 %212, 0
+  br i1 %.not.i.i, label %214, label %213
 
-214:                                              ; preds = %210
+213:                                              ; preds = %209
   call void @ProcessInterrupts() #12
-  br label %215
+  br label %214
 
-215:                                              ; preds = %214, %210
-  %216 = load i32, ptr %91, align 8
-  %.not3031.i.i = icmp ugt i32 %216, 1
+214:                                              ; preds = %213, %209
+  %215 = load i32, ptr %91, align 8
+  %.not3031.i.i = icmp ugt i32 %215, 1
   br i1 %.not3031.i.i, label %.lr.ph.i.i, label %tuplesort_heap_replace_top.exit.i
 
-.lr.ph.i.i:                                       ; preds = %215, %235
-  %217 = phi i32 [ %238, %235 ], [ 1, %215 ]
-  %218 = phi i32 [ %237, %235 ], [ 0, %215 ]
-  %.02632.i.i = phi i32 [ %.0.i.i, %235 ], [ 0, %215 ]
-  %219 = add nuw i32 %218, 2
-  %220 = icmp ult i32 %219, %216
-  br i1 %220, label %221, label %229
+.lr.ph.i.i:                                       ; preds = %214, %234
+  %216 = phi i32 [ %237, %234 ], [ 1, %214 ]
+  %217 = phi i32 [ %236, %234 ], [ 0, %214 ]
+  %.02632.i.i = phi i32 [ %.0.i.i, %234 ], [ 0, %214 ]
+  %218 = add nuw i32 %217, 2
+  %219 = icmp ult i32 %218, %215
+  br i1 %219, label %220, label %228
 
-221:                                              ; preds = %.lr.ph.i.i
-  %222 = load ptr, ptr %0, align 8
-  %223 = zext i32 %217 to i64
-  %224 = getelementptr %struct.SortTuple, ptr %212, i64 %223
-  %225 = zext i32 %219 to i64
-  %226 = getelementptr %struct.SortTuple, ptr %212, i64 %225
-  %227 = call i32 %222(ptr noundef %224, ptr noundef %226, ptr noundef nonnull %0) #12
-  %228 = icmp sgt i32 %227, 0
-  %spec.select.i.i = select i1 %228, i32 %219, i32 %217
-  br label %229
+220:                                              ; preds = %.lr.ph.i.i
+  %221 = load ptr, ptr %0, align 8
+  %222 = zext i32 %216 to i64
+  %223 = getelementptr %struct.SortTuple, ptr %211, i64 %222
+  %224 = zext i32 %218 to i64
+  %225 = getelementptr %struct.SortTuple, ptr %211, i64 %224
+  %226 = call i32 %221(ptr noundef %223, ptr noundef %225, ptr noundef nonnull %0) #12
+  %227 = icmp sgt i32 %226, 0
+  %spec.select.i.i = select i1 %227, i32 %218, i32 %216
+  br label %228
 
-229:                                              ; preds = %221, %.lr.ph.i.i
-  %.0.i.i = phi i32 [ %217, %.lr.ph.i.i ], [ %spec.select.i.i, %221 ]
-  %230 = load ptr, ptr %0, align 8
-  %231 = zext i32 %.0.i.i to i64
-  %232 = getelementptr %struct.SortTuple, ptr %212, i64 %231
-  %233 = call i32 %230(ptr noundef nonnull %5, ptr noundef %232, ptr noundef nonnull %0) #12
-  %234 = icmp slt i32 %233, 1
+228:                                              ; preds = %220, %.lr.ph.i.i
+  %.0.i.i = phi i32 [ %216, %.lr.ph.i.i ], [ %spec.select.i.i, %220 ]
+  %229 = load ptr, ptr %0, align 8
+  %230 = zext i32 %.0.i.i to i64
+  %231 = getelementptr %struct.SortTuple, ptr %211, i64 %230
+  %232 = call i32 %229(ptr noundef nonnull %5, ptr noundef %231, ptr noundef nonnull %0) #12
+  %233 = icmp slt i32 %232, 1
   %.pre.i = zext i32 %.02632.i.i to i64
-  br i1 %234, label %tuplesort_heap_replace_top.exit.i, label %235
+  br i1 %233, label %tuplesort_heap_replace_top.exit.i, label %234
 
-235:                                              ; preds = %229
-  %236 = getelementptr %struct.SortTuple, ptr %212, i64 %.pre.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %236, ptr noundef nonnull align 8 dereferenceable(24) %232, i64 24, i1 false)
-  %237 = shl i32 %.0.i.i, 1
-  %238 = or disjoint i32 %237, 1
-  %.not30.i.i = icmp ult i32 %238, %216
+234:                                              ; preds = %228
+  %235 = getelementptr %struct.SortTuple, ptr %211, i64 %.pre.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %235, ptr noundef nonnull align 8 dereferenceable(24) %231, i64 24, i1 false)
+  %236 = shl i32 %.0.i.i, 1
+  %237 = or disjoint i32 %236, 1
+  %.not30.i.i = icmp ult i32 %237, %215
   br i1 %.not30.i.i, label %.lr.ph.i.i, label %tuplesort_heap_replace_top.exit.i
 
-tuplesort_heap_replace_top.exit.i:                ; preds = %235, %229, %215
-  %.026.lcssa.i.i = phi i64 [ 0, %215 ], [ %231, %235 ], [ %.pre.i, %229 ]
-  %239 = getelementptr %struct.SortTuple, ptr %212, i64 %.026.lcssa.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %239, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  br label %276
+tuplesort_heap_replace_top.exit.i:                ; preds = %234, %228, %214
+  %.026.lcssa.i.i = phi i64 [ 0, %214 ], [ %230, %234 ], [ %.pre.i, %228 ]
+  %238 = getelementptr %struct.SortTuple, ptr %211, i64 %.026.lcssa.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %238, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  br label %275
 
 mergereadnext.exit.i:                             ; preds = %getlen.exit.i.i
-  %240 = load ptr, ptr %23, align 8
-  %241 = load i32, ptr %91, align 8
-  %242 = add i32 %241, -1
-  store i32 %242, ptr %91, align 8
-  %243 = icmp slt i32 %242, 1
-  br i1 %243, label %tuplesort_heap_delete_top.exit.i, label %244
+  %239 = load ptr, ptr %23, align 8
+  %240 = load i32, ptr %91, align 8
+  %241 = add i32 %240, -1
+  store i32 %241, ptr %91, align 8
+  %242 = icmp slt i32 %241, 1
+  br i1 %242, label %tuplesort_heap_delete_top.exit.i, label %243
 
-244:                                              ; preds = %mergereadnext.exit.i
-  %245 = zext nneg i32 %242 to i64
-  %246 = getelementptr %struct.SortTuple, ptr %240, i64 %245
-  %247 = load volatile i32, ptr @InterruptPending, align 4
-  %.not.i.i27.i = icmp eq i32 %247, 0
-  br i1 %.not.i.i27.i, label %249, label %248
+243:                                              ; preds = %mergereadnext.exit.i
+  %244 = zext nneg i32 %241 to i64
+  %245 = getelementptr %struct.SortTuple, ptr %239, i64 %244
+  %246 = load volatile i32, ptr @InterruptPending, align 4
+  %.not.i.i27.i = icmp eq i32 %246, 0
+  br i1 %.not.i.i27.i, label %248, label %247
 
-248:                                              ; preds = %244
+247:                                              ; preds = %243
   call void @ProcessInterrupts() #12
   %.pre.i.i = load i32, ptr %91, align 8
-  br label %249
+  br label %248
 
-249:                                              ; preds = %248, %244
-  %250 = phi i32 [ %.pre.i.i, %248 ], [ %242, %244 ]
-  %.not3031.i.i.i = icmp ugt i32 %250, 1
+248:                                              ; preds = %247, %243
+  %249 = phi i32 [ %.pre.i.i, %247 ], [ %241, %243 ]
+  %.not3031.i.i.i = icmp ugt i32 %249, 1
   br i1 %.not3031.i.i.i, label %.lr.ph.i.i.i, label %tuplesort_heap_replace_top.exit.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %249, %269
-  %251 = phi i32 [ %272, %269 ], [ 1, %249 ]
-  %252 = phi i32 [ %271, %269 ], [ 0, %249 ]
-  %.02632.i.i.i = phi i32 [ %.0.i.i.i, %269 ], [ 0, %249 ]
-  %253 = add nuw i32 %252, 2
-  %254 = icmp ult i32 %253, %250
-  br i1 %254, label %255, label %263
+.lr.ph.i.i.i:                                     ; preds = %248, %268
+  %250 = phi i32 [ %271, %268 ], [ 1, %248 ]
+  %251 = phi i32 [ %270, %268 ], [ 0, %248 ]
+  %.02632.i.i.i = phi i32 [ %.0.i.i.i, %268 ], [ 0, %248 ]
+  %252 = add nuw i32 %251, 2
+  %253 = icmp ult i32 %252, %249
+  br i1 %253, label %254, label %262
 
-255:                                              ; preds = %.lr.ph.i.i.i
-  %256 = load ptr, ptr %0, align 8
-  %257 = zext i32 %251 to i64
-  %258 = getelementptr %struct.SortTuple, ptr %240, i64 %257
-  %259 = zext i32 %253 to i64
-  %260 = getelementptr %struct.SortTuple, ptr %240, i64 %259
-  %261 = call i32 %256(ptr noundef %258, ptr noundef %260, ptr noundef nonnull %0) #12
-  %262 = icmp sgt i32 %261, 0
-  %spec.select.i.i.i = select i1 %262, i32 %253, i32 %251
-  br label %263
+254:                                              ; preds = %.lr.ph.i.i.i
+  %255 = load ptr, ptr %0, align 8
+  %256 = zext i32 %250 to i64
+  %257 = getelementptr %struct.SortTuple, ptr %239, i64 %256
+  %258 = zext i32 %252 to i64
+  %259 = getelementptr %struct.SortTuple, ptr %239, i64 %258
+  %260 = call i32 %255(ptr noundef %257, ptr noundef %259, ptr noundef nonnull %0) #12
+  %261 = icmp sgt i32 %260, 0
+  %spec.select.i.i.i = select i1 %261, i32 %252, i32 %250
+  br label %262
 
-263:                                              ; preds = %255, %.lr.ph.i.i.i
-  %.0.i.i.i = phi i32 [ %251, %.lr.ph.i.i.i ], [ %spec.select.i.i.i, %255 ]
-  %264 = load ptr, ptr %0, align 8
-  %265 = zext i32 %.0.i.i.i to i64
-  %266 = getelementptr %struct.SortTuple, ptr %240, i64 %265
-  %267 = call i32 %264(ptr noundef %246, ptr noundef %266, ptr noundef nonnull %0) #12
-  %268 = icmp slt i32 %267, 1
+262:                                              ; preds = %254, %.lr.ph.i.i.i
+  %.0.i.i.i = phi i32 [ %250, %.lr.ph.i.i.i ], [ %spec.select.i.i.i, %254 ]
+  %263 = load ptr, ptr %0, align 8
+  %264 = zext i32 %.0.i.i.i to i64
+  %265 = getelementptr %struct.SortTuple, ptr %239, i64 %264
+  %266 = call i32 %263(ptr noundef %245, ptr noundef %265, ptr noundef nonnull %0) #12
+  %267 = icmp slt i32 %266, 1
   %.pre6.i.i = zext i32 %.02632.i.i.i to i64
-  br i1 %268, label %tuplesort_heap_replace_top.exit.i.i, label %269
+  br i1 %267, label %tuplesort_heap_replace_top.exit.i.i, label %268
 
-269:                                              ; preds = %263
-  %270 = getelementptr %struct.SortTuple, ptr %240, i64 %.pre6.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %270, ptr noundef nonnull align 8 dereferenceable(24) %266, i64 24, i1 false)
-  %271 = shl i32 %.0.i.i.i, 1
-  %272 = or disjoint i32 %271, 1
-  %.not30.i.i.i = icmp ult i32 %272, %250
+268:                                              ; preds = %262
+  %269 = getelementptr %struct.SortTuple, ptr %239, i64 %.pre6.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %269, ptr noundef nonnull align 8 dereferenceable(24) %265, i64 24, i1 false)
+  %270 = shl i32 %.0.i.i.i, 1
+  %271 = or disjoint i32 %270, 1
+  %.not30.i.i.i = icmp ult i32 %271, %249
   br i1 %.not30.i.i.i, label %.lr.ph.i.i.i, label %tuplesort_heap_replace_top.exit.i.i
 
-tuplesort_heap_replace_top.exit.i.i:              ; preds = %269, %263, %249
-  %.026.lcssa.i.i.i = phi i64 [ 0, %249 ], [ %265, %269 ], [ %.pre6.i.i, %263 ]
-  %273 = getelementptr %struct.SortTuple, ptr %240, i64 %.026.lcssa.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %273, ptr noundef nonnull align 8 dereferenceable(24) %246, i64 24, i1 false)
+tuplesort_heap_replace_top.exit.i.i:              ; preds = %268, %262, %248
+  %.026.lcssa.i.i.i = phi i64 [ 0, %248 ], [ %264, %268 ], [ %.pre6.i.i, %262 ]
+  %272 = getelementptr %struct.SortTuple, ptr %239, i64 %.026.lcssa.i.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %272, ptr noundef nonnull align 8 dereferenceable(24) %245, i64 24, i1 false)
   br label %tuplesort_heap_delete_top.exit.i
 
 tuplesort_heap_delete_top.exit.i:                 ; preds = %tuplesort_heap_replace_top.exit.i.i, %mergereadnext.exit.i
-  %274 = load i32, ptr %79, align 4
-  %275 = add i32 %274, -1
-  store i32 %275, ptr %79, align 4
-  br label %276
+  %273 = load i32, ptr %79, align 4
+  %274 = add i32 %273, -1
+  store i32 %274, ptr %79, align 4
+  br label %275
 
-276:                                              ; preds = %tuplesort_heap_delete_top.exit.i, %tuplesort_heap_replace_top.exit.i
-  %277 = load i32, ptr %91, align 8
-  %278 = icmp sgt i32 %277, 0
-  br i1 %278, label %.lr.ph.i93, label %mergeonerun.exit, !llvm.loop !19
+275:                                              ; preds = %tuplesort_heap_delete_top.exit.i, %tuplesort_heap_replace_top.exit.i
+  %276 = load i32, ptr %91, align 8
+  %277 = icmp sgt i32 %276, 0
+  br i1 %277, label %.lr.ph.i93, label %mergeonerun.exit, !llvm.loop !19
 
-mergeonerun.exit:                                 ; preds = %276, %selectnewtape.exit
-  %279 = load ptr, ptr %89, align 8
+mergeonerun.exit:                                 ; preds = %275, %selectnewtape.exit
+  %278 = load ptr, ptr %89, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 0, ptr %3, align 4
-  call void @LogicalTapeWrite(ptr noundef %279, ptr noundef nonnull %3, i64 noundef 4) #12
+  call void @LogicalTapeWrite(ptr noundef %278, ptr noundef nonnull %3, i64 noundef 4) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  %280 = load i32, ptr %79, align 4
-  %281 = icmp eq i32 %280, 0
-  br i1 %281, label %282, label %.backedge
+  %279 = load i32, ptr %79, align 4
+  %280 = icmp eq i32 %279, 0
+  br i1 %280, label %281, label %.backedge
 
-282:                                              ; preds = %mergeonerun.exit
-  %283 = load i32, ptr %83, align 4
-  %284 = icmp slt i32 %283, 2
-  br i1 %284, label %285, label %.backedge
+281:                                              ; preds = %mergeonerun.exit
+  %282 = load i32, ptr %83, align 4
+  %283 = icmp slt i32 %282, 2
+  br i1 %283, label %284, label %.backedge
 
-.backedge:                                        ; preds = %282, %mergeonerun.exit
+.backedge:                                        ; preds = %281, %mergeonerun.exit
   br label %99
 
-285:                                              ; preds = %282
-  %286 = load ptr, ptr %82, align 8
-  %287 = load ptr, ptr %286, align 8
-  %288 = getelementptr inbounds i8, ptr %0, i64 288
-  store ptr %287, ptr %288, align 8
-  %289 = load ptr, ptr %87, align 8
-  %.not90 = icmp eq ptr %289, null
-  br i1 %.not90, label %292, label %290
+284:                                              ; preds = %281
+  %285 = load ptr, ptr %82, align 8
+  %286 = load ptr, ptr %285, align 8
+  %287 = getelementptr inbounds i8, ptr %0, i64 288
+  store ptr %286, ptr %287, align 8
+  %288 = load ptr, ptr %87, align 8
+  %.not90 = icmp eq ptr %288, null
+  br i1 %.not90, label %291, label %289
 
-290:                                              ; preds = %285
-  %291 = load i32, ptr %88, align 8
-  %.not91 = icmp eq i32 %291, -1
-  br i1 %.not91, label %292, label %293
+289:                                              ; preds = %284
+  %290 = load i32, ptr %88, align 8
+  %.not91 = icmp eq i32 %290, -1
+  br i1 %.not91, label %291, label %292
 
-292:                                              ; preds = %290, %285
-  call void @LogicalTapeFreeze(ptr noundef %287, ptr noundef null) #12
-  br label %307
+291:                                              ; preds = %289, %284
+  call void @LogicalTapeFreeze(ptr noundef %286, ptr noundef null) #12
+  br label %306
 
-293:                                              ; preds = %290
+292:                                              ; preds = %289
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  %294 = load ptr, ptr %23, align 8
-  call void @pfree(ptr noundef %294) #12
+  %293 = load ptr, ptr %23, align 8
+  call void @pfree(ptr noundef %293) #12
   store ptr null, ptr %23, align 8
   store i32 0, ptr %58, align 4
-  %295 = load ptr, ptr %288, align 8
-  call void @LogicalTapeFreeze(ptr noundef %295, ptr noundef nonnull %2) #12
-  %296 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %289, i8 1, ptr nonnull elementtype(i8) %289) #12, !srcloc !5
-  %.not.i95 = icmp eq i8 %296, 0
-  br i1 %.not.i95, label %worker_freeze_result_tape.exit, label %297
+  %294 = load ptr, ptr %287, align 8
+  call void @LogicalTapeFreeze(ptr noundef %294, ptr noundef nonnull %2) #12
+  %295 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %288, i8 1, ptr nonnull elementtype(i8) %288) #12, !srcloc !5
+  %.not.i95 = icmp eq i8 %295, 0
+  br i1 %.not.i95, label %worker_freeze_result_tape.exit, label %296
 
-297:                                              ; preds = %293
-  %298 = call i32 @s_lock(ptr noundef nonnull %289, ptr noundef nonnull @.str.1, i32 noundef 3069, ptr noundef nonnull @__func__.worker_freeze_result_tape) #12
+296:                                              ; preds = %292
+  %297 = call i32 @s_lock(ptr noundef nonnull %288, ptr noundef nonnull @.str.1, i32 noundef 3069, ptr noundef nonnull @__func__.worker_freeze_result_tape) #12
   br label %worker_freeze_result_tape.exit
 
-worker_freeze_result_tape.exit:                   ; preds = %293, %297
-  %299 = getelementptr inbounds i8, ptr %289, i64 72
-  %300 = load i32, ptr %88, align 8
-  %301 = sext i32 %300 to i64
-  %302 = getelementptr [0 x %struct.TapeShare], ptr %299, i64 0, i64 %301
-  %303 = load i64, ptr %2, align 8
-  store i64 %303, ptr %302, align 8
-  %304 = getelementptr inbounds i8, ptr %289, i64 8
-  %305 = load i32, ptr %304, align 8
-  %306 = add i32 %305, 1
-  store i32 %306, ptr %304, align 8
+worker_freeze_result_tape.exit:                   ; preds = %292, %296
+  %298 = getelementptr inbounds i8, ptr %288, i64 72
+  %299 = load i32, ptr %88, align 8
+  %300 = sext i32 %299 to i64
+  %301 = getelementptr [0 x %struct.TapeShare], ptr %298, i64 0, i64 %300
+  %302 = load i64, ptr %2, align 8
+  store i64 %302, ptr %301, align 8
+  %303 = getelementptr inbounds i8, ptr %288, i64 8
+  %304 = load i32, ptr %303, align 8
+  %305 = add i32 %304, 1
+  store i32 %305, ptr %303, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !12
-  store i8 0, ptr %289, align 8
+  store i8 0, ptr %288, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  br label %307
+  br label %306
 
-307:                                              ; preds = %worker_freeze_result_tape.exit, %292
-  %308 = getelementptr inbounds i8, ptr %0, i64 112
-  store i32 4, ptr %308, align 8
-  %309 = load i32, ptr %80, align 8
-  %310 = icmp sgt i32 %309, 0
-  br i1 %310, label %.lr.ph110, label %.loopexit
+306:                                              ; preds = %worker_freeze_result_tape.exit, %291
+  %307 = getelementptr inbounds i8, ptr %0, i64 112
+  store i32 4, ptr %307, align 8
+  %308 = load i32, ptr %80, align 8
+  %309 = icmp sgt i32 %308, 0
+  br i1 %309, label %.lr.ph110, label %.loopexit
 
-.lr.ph110:                                        ; preds = %307, %.lr.ph110
-  %indvars.iv123 = phi i64 [ %indvars.iv.next124, %.lr.ph110 ], [ 0, %307 ]
-  %311 = load ptr, ptr %81, align 8
-  %312 = getelementptr ptr, ptr %311, i64 %indvars.iv123
-  %313 = load ptr, ptr %312, align 8
-  call void @LogicalTapeClose(ptr noundef %313) #12
+.lr.ph110:                                        ; preds = %306, %.lr.ph110
+  %indvars.iv123 = phi i64 [ %indvars.iv.next124, %.lr.ph110 ], [ 0, %306 ]
+  %310 = load ptr, ptr %81, align 8
+  %311 = getelementptr ptr, ptr %310, i64 %indvars.iv123
+  %312 = load ptr, ptr %311, align 8
+  call void @LogicalTapeClose(ptr noundef %312) #12
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
-  %314 = load i32, ptr %80, align 8
-  %315 = sext i32 %314 to i64
-  %316 = icmp slt i64 %indvars.iv.next124, %315
-  br i1 %316, label %.lr.ph110, label %.loopexit, !llvm.loop !20
+  %313 = load i32, ptr %80, align 8
+  %314 = sext i32 %313 to i64
+  %315 = icmp slt i64 %indvars.iv.next124, %314
+  br i1 %315, label %.lr.ph110, label %.loopexit, !llvm.loop !20
 
-.loopexit:                                        ; preds = %.lr.ph110, %307, %158
+.loopexit:                                        ; preds = %.lr.ph110, %306, %158
   ret void
 }
 

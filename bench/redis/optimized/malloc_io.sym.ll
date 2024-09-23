@@ -1816,11 +1816,20 @@ sw.epilog1443:                                    ; preds = %if.end1420, %if.end
 
 label_out:                                        ; preds = %while.body
   %cmp1444 = icmp ult i64 %i.0, %size
+  br i1 %cmp1444, label %if.then1446, label %if.else1448
+
+if.then1446:                                      ; preds = %label_out
+  %arrayidx1447 = getelementptr inbounds i8, ptr %str, i64 %i.0
+  store i8 0, ptr %arrayidx1447, align 1
+  br label %if.end1451
+
+if.else1448:                                      ; preds = %label_out
   %130 = getelementptr i8, ptr %str, i64 %size
   %arrayidx1450 = getelementptr i8, ptr %130, i64 -1
-  %arrayidx1447 = getelementptr inbounds i8, ptr %str, i64 %i.0
-  %arrayidx1450.sink = select i1 %cmp1444, ptr %arrayidx1447, ptr %arrayidx1450
-  store i8 0, ptr %arrayidx1450.sink, align 1
+  store i8 0, ptr %arrayidx1450, align 1
+  br label %if.end1451
+
+if.end1451:                                       ; preds = %if.else1448, %if.then1446
   ret i64 %i.0
 }
 

@@ -653,7 +653,7 @@ define range(i32 -1, -2147483648) i32 @H5S_select_deserialize(ptr noundef %0, pt
   %16 = load i64, ptr @H5E_DATASPACE_g, align 8
   %17 = load i64, ptr @H5E_OVERFLOW_g, align 8
   %18 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5S_select_deserialize, i32 noundef 525, i64 noundef %16, i64 noundef %17, ptr noundef nonnull @.str.10) #7
-  br label %47
+  br label %46
 
 19:                                               ; preds = %10, %3
   %20 = load i8, ptr %4, align 1
@@ -685,20 +685,20 @@ switch.lookup:                                    ; preds = %19
   %39 = zext nneg i32 %36 to i64
   %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.H5S_select_deserialize, i64 0, i64 %39
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %40 = load ptr, ptr %switch.load, align 16
-  %41 = add i64 %2, -4
-  %42 = tail call i32 %40(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %41, i1 noundef zeroext %7) #7
-  %43 = icmp slt i32 %42, 0
-  br i1 %43, label %.thread, label %47
+  %.sink42 = load ptr, ptr %switch.load, align 16
+  %40 = add i64 %2, -4
+  %41 = tail call i32 %.sink42(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %40, i1 noundef zeroext %7) #7
+  %42 = icmp slt i32 %41, 0
+  br i1 %42, label %.thread, label %46
 
 .thread:                                          ; preds = %19, %switch.lookup
-  %44 = load i64, ptr @H5E_DATASPACE_g, align 8
-  %45 = load i64, ptr @H5E_CANTLOAD_g, align 8
-  %46 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5S_select_deserialize, i32 noundef 551, i64 noundef %44, i64 noundef %45, ptr noundef nonnull @.str.11) #7
-  br label %47
+  %43 = load i64, ptr @H5E_DATASPACE_g, align 8
+  %44 = load i64, ptr @H5E_CANTLOAD_g, align 8
+  %45 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5S_select_deserialize, i32 noundef 551, i64 noundef %43, i64 noundef %44, ptr noundef nonnull @.str.11) #7
+  br label %46
 
-47:                                               ; preds = %switch.lookup, %.thread, %15
-  %.0 = phi i32 [ -1, %.thread ], [ %42, %switch.lookup ], [ -1, %15 ]
+46:                                               ; preds = %switch.lookup, %.thread, %15
+  %.0 = phi i32 [ -1, %.thread ], [ %41, %switch.lookup ], [ -1, %15 ]
   ret i32 %.0
 }
 

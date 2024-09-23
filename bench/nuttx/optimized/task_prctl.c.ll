@@ -97,16 +97,16 @@ define range(i32 -1, 1) i32 @prctl(i32 noundef %0, ...) local_unnamed_addr #0 {
 47:                                               ; preds = %44
   %48 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(1) %19, i64 noundef 32) #4
   %49 = getelementptr inbounds i8, ptr %.019, i64 1007
+  store i8 0, ptr %49, align 1
   br label %53
 
 50:                                               ; preds = %44
   %51 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %46, i64 noundef 32) #4
   %52 = getelementptr inbounds i8, ptr %19, i64 30
+  store i8 0, ptr %52, align 1
   br label %53
 
 53:                                               ; preds = %47, %50
-  %.sink = phi ptr [ %49, %47 ], [ %52, %50 ]
-  store i8 0, ptr %.sink, align 1
   call void @llvm.va_end.p0(ptr nonnull %2)
   br label %56
 

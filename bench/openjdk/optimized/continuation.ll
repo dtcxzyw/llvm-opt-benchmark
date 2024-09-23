@@ -1669,31 +1669,34 @@ define hidden void @_ZN12Continuation12notify_deoptEP10JavaThreadPl(ptr nocaptur
   %9 = getelementptr inbounds i8, ptr %0, i64 1344
   %10 = load ptr, ptr %9, align 8
   %11 = icmp ugt ptr %1, %10
-  br i1 %11, label %_ZN10JavaThread18push_cont_fastpathEPl.exit.sink.split, label %_ZN10JavaThread18push_cont_fastpathEPl.exit
+  br i1 %11, label %12, label %_ZN10JavaThread18push_cont_fastpathEPl.exit
 
-.preheader:                                       ; preds = %6, %14
-  %.0 = phi ptr [ %13, %14 ], [ %4, %6 ]
-  %12 = getelementptr inbounds i8, ptr %.0, i64 8
-  %13 = load ptr, ptr %12, align 8
-  %cond = icmp eq ptr %13, null
-  br i1 %cond, label %_ZN10JavaThread18push_cont_fastpathEPl.exit, label %14
-
-14:                                               ; preds = %.preheader
-  %15 = icmp ugt ptr %13, %1
-  br i1 %15, label %.critedge, label %.preheader, !llvm.loop !25
-
-.critedge:                                        ; preds = %14
-  %16 = getelementptr inbounds i8, ptr %.0, i64 40
-  %17 = load ptr, ptr %16, align 8
-  %18 = icmp ugt ptr %1, %17
-  br i1 %18, label %_ZN10JavaThread18push_cont_fastpathEPl.exit.sink.split, label %_ZN10JavaThread18push_cont_fastpathEPl.exit
-
-_ZN10JavaThread18push_cont_fastpathEPl.exit.sink.split: ; preds = %.critedge, %8
-  %.sink = phi ptr [ %9, %8 ], [ %16, %.critedge ]
-  store ptr %1, ptr %.sink, align 8
+12:                                               ; preds = %8
+  store ptr %1, ptr %9, align 8
   br label %_ZN10JavaThread18push_cont_fastpathEPl.exit
 
-_ZN10JavaThread18push_cont_fastpathEPl.exit:      ; preds = %.preheader, %_ZN10JavaThread18push_cont_fastpathEPl.exit.sink.split, %8, %2, %.critedge
+.preheader:                                       ; preds = %6, %15
+  %.0 = phi ptr [ %14, %15 ], [ %4, %6 ]
+  %13 = getelementptr inbounds i8, ptr %.0, i64 8
+  %14 = load ptr, ptr %13, align 8
+  %cond = icmp eq ptr %14, null
+  br i1 %cond, label %_ZN10JavaThread18push_cont_fastpathEPl.exit, label %15
+
+15:                                               ; preds = %.preheader
+  %16 = icmp ugt ptr %14, %1
+  br i1 %16, label %.critedge, label %.preheader, !llvm.loop !25
+
+.critedge:                                        ; preds = %15
+  %17 = getelementptr inbounds i8, ptr %.0, i64 40
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp ugt ptr %1, %18
+  br i1 %19, label %20, label %_ZN10JavaThread18push_cont_fastpathEPl.exit
+
+20:                                               ; preds = %.critedge
+  store ptr %1, ptr %17, align 8
+  br label %_ZN10JavaThread18push_cont_fastpathEPl.exit
+
+_ZN10JavaThread18push_cont_fastpathEPl.exit:      ; preds = %.preheader, %12, %8, %2, %20, %.critedge
   ret void
 }
 

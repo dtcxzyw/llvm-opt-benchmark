@@ -112,11 +112,11 @@ define hidden void @_ZN2cv13wechat_qrcode12BinarizerMgr8BinarizeEN5zxing3RefINS2
   %17 = icmp slt i32 %16, 0
   %spec.select = select i1 %17, i32 %14, i32 %16
   store ptr null, ptr %0, align 8
-  switch i32 %spec.select, label %118 [
+  switch i32 %spec.select, label %126 [
     i32 0, label %18
-    i32 1, label %43
-    i32 2, label %68
-    i32 3, label %93
+    i32 1, label %45
+    i32 2, label %72
+    i32 3, label %99
   ]
 
 18:                                               ; preds = %3
@@ -135,7 +135,7 @@ define hidden void @_ZN2cv13wechat_qrcode12BinarizerMgr8BinarizeEN5zxing3RefINS2
 25:                                               ; preds = %18, %21
   store ptr %20, ptr %4, align 8
   invoke void @_ZN5zxing15HybridBinarizerC1ENS_3RefINS_15LuminanceSourceEEE(ptr noundef nonnull align 8 dereferenceable(228) %19, ptr noundef nonnull %4)
-          to label %_ZN5zxing3RefINS_9BinarizerEEaSINS_15HybridBinarizerEEERS2_PT_.exit unwind label %35
+          to label %_ZN5zxing3RefINS_9BinarizerEEaSINS_15HybridBinarizerEEERS2_PT_.exit unwind label %36
 
 _ZN5zxing3RefINS_9BinarizerEEaSINS_15HybridBinarizerEEERS2_PT_.exit: ; preds = %25
   %26 = getelementptr inbounds i8, ptr %19, i64 8
@@ -153,255 +153,291 @@ _ZN5zxing3RefINS_9BinarizerEEaSINS_15HybridBinarizerEEERS2_PT_.exit: ; preds = %
   %33 = add i32 %32, -1
   store i32 %33, ptr %31, align 8
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit.sink.split, label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit
+  br i1 %34, label %35, label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit
 
-35:                                               ; preds = %25
-  %36 = landingpad { ptr, i32 }
+35:                                               ; preds = %30
+  store i32 -559026175, ptr %31, align 8
+  br label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit.sink.split
+
+36:                                               ; preds = %25
+  %37 = landingpad { ptr, i32 }
           cleanup
-  %37 = load ptr, ptr %4, align 8
-  %.not.i29 = icmp eq ptr %37, null
-  br i1 %.not.i29, label %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit, label %38
+  %38 = load ptr, ptr %4, align 8
+  %.not.i29 = icmp eq ptr %38, null
+  br i1 %.not.i29, label %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit, label %39
 
-38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %37, i64 8
-  %40 = load i32, ptr %39, align 8
-  %41 = add i32 %40, -1
-  store i32 %41, ptr %39, align 8
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit.sink.split, label %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit
+39:                                               ; preds = %36
+  %40 = getelementptr inbounds i8, ptr %38, i64 8
+  %41 = load i32, ptr %40, align 8
+  %42 = add i32 %41, -1
+  store i32 %42, ptr %40, align 8
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %44, label %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit
 
-43:                                               ; preds = %3
-  %44 = tail call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #12
-  %45 = load ptr, ptr %2, align 8
-  %.not.i.i31 = icmp eq ptr %45, null
-  br i1 %.not.i.i31, label %50, label %46
+44:                                               ; preds = %39
+  store i32 -559026175, ptr %40, align 8
+  br label %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit.sink.split
 
-46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %45, i64 8
-  %48 = load i32, ptr %47, align 8
-  %49 = add i32 %48, 1
-  store i32 %49, ptr %47, align 8
-  br label %50
+45:                                               ; preds = %3
+  %46 = tail call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #12
+  %47 = load ptr, ptr %2, align 8
+  %.not.i.i31 = icmp eq ptr %47, null
+  br i1 %.not.i.i31, label %52, label %48
 
-50:                                               ; preds = %43, %46
-  store ptr %45, ptr %5, align 8
-  invoke void @_ZN5zxing19FastWindowBinarizerC1ENS_3RefINS_15LuminanceSourceEEE(ptr noundef nonnull align 8 dereferenceable(184) %44, ptr noundef nonnull %5)
-          to label %_ZN5zxing3RefINS_9BinarizerEEaSINS_19FastWindowBinarizerEEERS2_PT_.exit unwind label %60
+48:                                               ; preds = %45
+  %49 = getelementptr inbounds i8, ptr %47, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = add i32 %50, 1
+  store i32 %51, ptr %49, align 8
+  br label %52
 
-_ZN5zxing3RefINS_9BinarizerEEaSINS_19FastWindowBinarizerEEERS2_PT_.exit: ; preds = %50
-  %51 = getelementptr inbounds i8, ptr %44, i64 8
-  %52 = load i32, ptr %51, align 8
-  %53 = add i32 %52, 1
-  store i32 %53, ptr %51, align 8
-  store ptr %44, ptr %0, align 8
-  %54 = load ptr, ptr %5, align 8
-  %.not.i37 = icmp eq ptr %54, null
-  br i1 %.not.i37, label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit, label %55
+52:                                               ; preds = %45, %48
+  store ptr %47, ptr %5, align 8
+  invoke void @_ZN5zxing19FastWindowBinarizerC1ENS_3RefINS_15LuminanceSourceEEE(ptr noundef nonnull align 8 dereferenceable(184) %46, ptr noundef nonnull %5)
+          to label %_ZN5zxing3RefINS_9BinarizerEEaSINS_19FastWindowBinarizerEEERS2_PT_.exit unwind label %63
 
-55:                                               ; preds = %_ZN5zxing3RefINS_9BinarizerEEaSINS_19FastWindowBinarizerEEERS2_PT_.exit
-  %56 = getelementptr inbounds i8, ptr %54, i64 8
-  %57 = load i32, ptr %56, align 8
-  %58 = add i32 %57, -1
-  store i32 %58, ptr %56, align 8
-  %59 = icmp eq i32 %58, 0
-  br i1 %59, label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit.sink.split, label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit
+_ZN5zxing3RefINS_9BinarizerEEaSINS_19FastWindowBinarizerEEERS2_PT_.exit: ; preds = %52
+  %53 = getelementptr inbounds i8, ptr %46, i64 8
+  %54 = load i32, ptr %53, align 8
+  %55 = add i32 %54, 1
+  store i32 %55, ptr %53, align 8
+  store ptr %46, ptr %0, align 8
+  %56 = load ptr, ptr %5, align 8
+  %.not.i37 = icmp eq ptr %56, null
+  br i1 %.not.i37, label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit, label %57
 
-60:                                               ; preds = %50
-  %61 = landingpad { ptr, i32 }
+57:                                               ; preds = %_ZN5zxing3RefINS_9BinarizerEEaSINS_19FastWindowBinarizerEEERS2_PT_.exit
+  %58 = getelementptr inbounds i8, ptr %56, i64 8
+  %59 = load i32, ptr %58, align 8
+  %60 = add i32 %59, -1
+  store i32 %60, ptr %58, align 8
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %62, label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit
+
+62:                                               ; preds = %57
+  store i32 -559026175, ptr %58, align 8
+  br label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit.sink.split
+
+63:                                               ; preds = %52
+  %64 = landingpad { ptr, i32 }
           cleanup
-  %62 = load ptr, ptr %5, align 8
-  %.not.i39 = icmp eq ptr %62, null
-  br i1 %.not.i39, label %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit, label %63
+  %65 = load ptr, ptr %5, align 8
+  %.not.i39 = icmp eq ptr %65, null
+  br i1 %.not.i39, label %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit, label %66
 
-63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %62, i64 8
-  %65 = load i32, ptr %64, align 8
-  %66 = add i32 %65, -1
-  store i32 %66, ptr %64, align 8
-  %67 = icmp eq i32 %66, 0
-  br i1 %67, label %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit.sink.split, label %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit
+66:                                               ; preds = %63
+  %67 = getelementptr inbounds i8, ptr %65, i64 8
+  %68 = load i32, ptr %67, align 8
+  %69 = add i32 %68, -1
+  store i32 %69, ptr %67, align 8
+  %70 = icmp eq i32 %69, 0
+  br i1 %70, label %71, label %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit
 
-68:                                               ; preds = %3
-  %69 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #12
-  %70 = load ptr, ptr %2, align 8
-  %.not.i.i41 = icmp eq ptr %70, null
-  br i1 %.not.i.i41, label %75, label %71
+71:                                               ; preds = %66
+  store i32 -559026175, ptr %67, align 8
+  br label %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit.sink.split
 
-71:                                               ; preds = %68
-  %72 = getelementptr inbounds i8, ptr %70, i64 8
-  %73 = load i32, ptr %72, align 8
-  %74 = add i32 %73, 1
-  store i32 %74, ptr %72, align 8
-  br label %75
+72:                                               ; preds = %3
+  %73 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #12
+  %74 = load ptr, ptr %2, align 8
+  %.not.i.i41 = icmp eq ptr %74, null
+  br i1 %.not.i.i41, label %79, label %75
 
-75:                                               ; preds = %68, %71
-  store ptr %70, ptr %6, align 8
-  invoke void @_ZN5zxing23SimpleAdaptiveBinarizerC1ENS_3RefINS_15LuminanceSourceEEE(ptr noundef nonnull align 8 dereferenceable(122) %69, ptr noundef nonnull %6)
-          to label %_ZN5zxing3RefINS_9BinarizerEEaSINS_23SimpleAdaptiveBinarizerEEERS2_PT_.exit unwind label %85
-
-_ZN5zxing3RefINS_9BinarizerEEaSINS_23SimpleAdaptiveBinarizerEEERS2_PT_.exit: ; preds = %75
-  %76 = getelementptr inbounds i8, ptr %69, i64 8
+75:                                               ; preds = %72
+  %76 = getelementptr inbounds i8, ptr %74, i64 8
   %77 = load i32, ptr %76, align 8
   %78 = add i32 %77, 1
   store i32 %78, ptr %76, align 8
-  store ptr %69, ptr %0, align 8
-  %79 = load ptr, ptr %6, align 8
-  %.not.i47 = icmp eq ptr %79, null
-  br i1 %.not.i47, label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit, label %80
+  br label %79
 
-80:                                               ; preds = %_ZN5zxing3RefINS_9BinarizerEEaSINS_23SimpleAdaptiveBinarizerEEERS2_PT_.exit
-  %81 = getelementptr inbounds i8, ptr %79, i64 8
-  %82 = load i32, ptr %81, align 8
-  %83 = add i32 %82, -1
-  store i32 %83, ptr %81, align 8
-  %84 = icmp eq i32 %83, 0
-  br i1 %84, label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit.sink.split, label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit
+79:                                               ; preds = %72, %75
+  store ptr %74, ptr %6, align 8
+  invoke void @_ZN5zxing23SimpleAdaptiveBinarizerC1ENS_3RefINS_15LuminanceSourceEEE(ptr noundef nonnull align 8 dereferenceable(122) %73, ptr noundef nonnull %6)
+          to label %_ZN5zxing3RefINS_9BinarizerEEaSINS_23SimpleAdaptiveBinarizerEEERS2_PT_.exit unwind label %90
 
-85:                                               ; preds = %75
-  %86 = landingpad { ptr, i32 }
+_ZN5zxing3RefINS_9BinarizerEEaSINS_23SimpleAdaptiveBinarizerEEERS2_PT_.exit: ; preds = %79
+  %80 = getelementptr inbounds i8, ptr %73, i64 8
+  %81 = load i32, ptr %80, align 8
+  %82 = add i32 %81, 1
+  store i32 %82, ptr %80, align 8
+  store ptr %73, ptr %0, align 8
+  %83 = load ptr, ptr %6, align 8
+  %.not.i47 = icmp eq ptr %83, null
+  br i1 %.not.i47, label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit, label %84
+
+84:                                               ; preds = %_ZN5zxing3RefINS_9BinarizerEEaSINS_23SimpleAdaptiveBinarizerEEERS2_PT_.exit
+  %85 = getelementptr inbounds i8, ptr %83, i64 8
+  %86 = load i32, ptr %85, align 8
+  %87 = add i32 %86, -1
+  store i32 %87, ptr %85, align 8
+  %88 = icmp eq i32 %87, 0
+  br i1 %88, label %89, label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit
+
+89:                                               ; preds = %84
+  store i32 -559026175, ptr %85, align 8
+  br label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit.sink.split
+
+90:                                               ; preds = %79
+  %91 = landingpad { ptr, i32 }
           cleanup
-  %87 = load ptr, ptr %6, align 8
-  %.not.i49 = icmp eq ptr %87, null
-  br i1 %.not.i49, label %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit, label %88
+  %92 = load ptr, ptr %6, align 8
+  %.not.i49 = icmp eq ptr %92, null
+  br i1 %.not.i49, label %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit, label %93
 
-88:                                               ; preds = %85
-  %89 = getelementptr inbounds i8, ptr %87, i64 8
-  %90 = load i32, ptr %89, align 8
-  %91 = add i32 %90, -1
-  store i32 %91, ptr %89, align 8
-  %92 = icmp eq i32 %91, 0
-  br i1 %92, label %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit.sink.split, label %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit
+93:                                               ; preds = %90
+  %94 = getelementptr inbounds i8, ptr %92, i64 8
+  %95 = load i32, ptr %94, align 8
+  %96 = add i32 %95, -1
+  store i32 %96, ptr %94, align 8
+  %97 = icmp eq i32 %96, 0
+  br i1 %97, label %98, label %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit
 
-93:                                               ; preds = %3
-  %94 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #12
-  %95 = load ptr, ptr %2, align 8
-  %.not.i.i51 = icmp eq ptr %95, null
-  br i1 %.not.i.i51, label %100, label %96
+98:                                               ; preds = %93
+  store i32 -559026175, ptr %94, align 8
+  br label %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit.sink.split
 
-96:                                               ; preds = %93
-  %97 = getelementptr inbounds i8, ptr %95, i64 8
-  %98 = load i32, ptr %97, align 8
-  %99 = add i32 %98, 1
-  store i32 %99, ptr %97, align 8
-  br label %100
+99:                                               ; preds = %3
+  %100 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #12
+  %101 = load ptr, ptr %2, align 8
+  %.not.i.i51 = icmp eq ptr %101, null
+  br i1 %.not.i.i51, label %106, label %102
 
-100:                                              ; preds = %93, %96
-  store ptr %95, ptr %7, align 8
-  invoke void @_ZN5zxing30AdaptiveThresholdMeanBinarizerC1ENS_3RefINS_15LuminanceSourceEEE(ptr noundef nonnull align 8 dereferenceable(121) %94, ptr noundef nonnull %7)
-          to label %_ZN5zxing3RefINS_9BinarizerEEaSINS_30AdaptiveThresholdMeanBinarizerEEERS2_PT_.exit unwind label %110
+102:                                              ; preds = %99
+  %103 = getelementptr inbounds i8, ptr %101, i64 8
+  %104 = load i32, ptr %103, align 8
+  %105 = add i32 %104, 1
+  store i32 %105, ptr %103, align 8
+  br label %106
 
-_ZN5zxing3RefINS_9BinarizerEEaSINS_30AdaptiveThresholdMeanBinarizerEEERS2_PT_.exit: ; preds = %100
-  %101 = getelementptr inbounds i8, ptr %94, i64 8
-  %102 = load i32, ptr %101, align 8
-  %103 = add i32 %102, 1
-  store i32 %103, ptr %101, align 8
-  store ptr %94, ptr %0, align 8
-  %104 = load ptr, ptr %7, align 8
-  %.not.i57 = icmp eq ptr %104, null
-  br i1 %.not.i57, label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit, label %105
+106:                                              ; preds = %99, %102
+  store ptr %101, ptr %7, align 8
+  invoke void @_ZN5zxing30AdaptiveThresholdMeanBinarizerC1ENS_3RefINS_15LuminanceSourceEEE(ptr noundef nonnull align 8 dereferenceable(121) %100, ptr noundef nonnull %7)
+          to label %_ZN5zxing3RefINS_9BinarizerEEaSINS_30AdaptiveThresholdMeanBinarizerEEERS2_PT_.exit unwind label %117
 
-105:                                              ; preds = %_ZN5zxing3RefINS_9BinarizerEEaSINS_30AdaptiveThresholdMeanBinarizerEEERS2_PT_.exit
-  %106 = getelementptr inbounds i8, ptr %104, i64 8
-  %107 = load i32, ptr %106, align 8
-  %108 = add i32 %107, -1
-  store i32 %108, ptr %106, align 8
-  %109 = icmp eq i32 %108, 0
-  br i1 %109, label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit.sink.split, label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit
+_ZN5zxing3RefINS_9BinarizerEEaSINS_30AdaptiveThresholdMeanBinarizerEEERS2_PT_.exit: ; preds = %106
+  %107 = getelementptr inbounds i8, ptr %100, i64 8
+  %108 = load i32, ptr %107, align 8
+  %109 = add i32 %108, 1
+  store i32 %109, ptr %107, align 8
+  store ptr %100, ptr %0, align 8
+  %110 = load ptr, ptr %7, align 8
+  %.not.i57 = icmp eq ptr %110, null
+  br i1 %.not.i57, label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit, label %111
 
-110:                                              ; preds = %100
-  %111 = landingpad { ptr, i32 }
+111:                                              ; preds = %_ZN5zxing3RefINS_9BinarizerEEaSINS_30AdaptiveThresholdMeanBinarizerEEERS2_PT_.exit
+  %112 = getelementptr inbounds i8, ptr %110, i64 8
+  %113 = load i32, ptr %112, align 8
+  %114 = add i32 %113, -1
+  store i32 %114, ptr %112, align 8
+  %115 = icmp eq i32 %114, 0
+  br i1 %115, label %116, label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit
+
+116:                                              ; preds = %111
+  store i32 -559026175, ptr %112, align 8
+  br label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit.sink.split
+
+117:                                              ; preds = %106
+  %118 = landingpad { ptr, i32 }
           cleanup
-  %112 = load ptr, ptr %7, align 8
-  %.not.i59 = icmp eq ptr %112, null
-  br i1 %.not.i59, label %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit, label %113
+  %119 = load ptr, ptr %7, align 8
+  %.not.i59 = icmp eq ptr %119, null
+  br i1 %.not.i59, label %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit, label %120
 
-113:                                              ; preds = %110
-  %114 = getelementptr inbounds i8, ptr %112, i64 8
-  %115 = load i32, ptr %114, align 8
-  %116 = add i32 %115, -1
-  store i32 %116, ptr %114, align 8
-  %117 = icmp eq i32 %116, 0
-  br i1 %117, label %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit.sink.split, label %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit
+120:                                              ; preds = %117
+  %121 = getelementptr inbounds i8, ptr %119, i64 8
+  %122 = load i32, ptr %121, align 8
+  %123 = add i32 %122, -1
+  store i32 %123, ptr %121, align 8
+  %124 = icmp eq i32 %123, 0
+  br i1 %124, label %125, label %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit
 
-118:                                              ; preds = %3
-  %119 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #12
-  %120 = load ptr, ptr %2, align 8
-  %.not.i.i61 = icmp eq ptr %120, null
-  br i1 %.not.i.i61, label %125, label %121
+125:                                              ; preds = %120
+  store i32 -559026175, ptr %121, align 8
+  br label %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit.sink.split
 
-121:                                              ; preds = %118
-  %122 = getelementptr inbounds i8, ptr %120, i64 8
-  %123 = load i32, ptr %122, align 8
-  %124 = add i32 %123, 1
-  store i32 %124, ptr %122, align 8
-  br label %125
+126:                                              ; preds = %3
+  %127 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #12
+  %128 = load ptr, ptr %2, align 8
+  %.not.i.i61 = icmp eq ptr %128, null
+  br i1 %.not.i.i61, label %133, label %129
 
-125:                                              ; preds = %118, %121
-  store ptr %120, ptr %8, align 8
-  invoke void @_ZN5zxing15HybridBinarizerC1ENS_3RefINS_15LuminanceSourceEEE(ptr noundef nonnull align 8 dereferenceable(228) %119, ptr noundef nonnull %8)
-          to label %_ZN5zxing3RefINS_9BinarizerEEaSINS_15HybridBinarizerEEERS2_PT_.exit67 unwind label %135
+129:                                              ; preds = %126
+  %130 = getelementptr inbounds i8, ptr %128, i64 8
+  %131 = load i32, ptr %130, align 8
+  %132 = add i32 %131, 1
+  store i32 %132, ptr %130, align 8
+  br label %133
 
-_ZN5zxing3RefINS_9BinarizerEEaSINS_15HybridBinarizerEEERS2_PT_.exit67: ; preds = %125
-  %126 = getelementptr inbounds i8, ptr %119, i64 8
-  %127 = load i32, ptr %126, align 8
-  %128 = add i32 %127, 1
-  store i32 %128, ptr %126, align 8
-  store ptr %119, ptr %0, align 8
-  %129 = load ptr, ptr %8, align 8
-  %.not.i68 = icmp eq ptr %129, null
-  br i1 %.not.i68, label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit, label %130
+133:                                              ; preds = %126, %129
+  store ptr %128, ptr %8, align 8
+  invoke void @_ZN5zxing15HybridBinarizerC1ENS_3RefINS_15LuminanceSourceEEE(ptr noundef nonnull align 8 dereferenceable(228) %127, ptr noundef nonnull %8)
+          to label %_ZN5zxing3RefINS_9BinarizerEEaSINS_15HybridBinarizerEEERS2_PT_.exit67 unwind label %144
 
-130:                                              ; preds = %_ZN5zxing3RefINS_9BinarizerEEaSINS_15HybridBinarizerEEERS2_PT_.exit67
-  %131 = getelementptr inbounds i8, ptr %129, i64 8
-  %132 = load i32, ptr %131, align 8
-  %133 = add i32 %132, -1
-  store i32 %133, ptr %131, align 8
-  %134 = icmp eq i32 %133, 0
-  br i1 %134, label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit.sink.split, label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit
-
-135:                                              ; preds = %125
-  %136 = landingpad { ptr, i32 }
-          cleanup
+_ZN5zxing3RefINS_9BinarizerEEaSINS_15HybridBinarizerEEERS2_PT_.exit67: ; preds = %133
+  %134 = getelementptr inbounds i8, ptr %127, i64 8
+  %135 = load i32, ptr %134, align 8
+  %136 = add i32 %135, 1
+  store i32 %136, ptr %134, align 8
+  store ptr %127, ptr %0, align 8
   %137 = load ptr, ptr %8, align 8
-  %.not.i70 = icmp eq ptr %137, null
-  br i1 %.not.i70, label %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit, label %138
+  %.not.i68 = icmp eq ptr %137, null
+  br i1 %.not.i68, label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit, label %138
 
-138:                                              ; preds = %135
+138:                                              ; preds = %_ZN5zxing3RefINS_9BinarizerEEaSINS_15HybridBinarizerEEERS2_PT_.exit67
   %139 = getelementptr inbounds i8, ptr %137, i64 8
   %140 = load i32, ptr %139, align 8
   %141 = add i32 %140, -1
   store i32 %141, ptr %139, align 8
   %142 = icmp eq i32 %141, 0
-  br i1 %142, label %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit.sink.split, label %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit
+  br i1 %142, label %143, label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit
 
-_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit.sink.split: ; preds = %130, %105, %80, %55, %30
-  %.sink77 = phi ptr [ %31, %30 ], [ %56, %55 ], [ %81, %80 ], [ %106, %105 ], [ %131, %130 ]
-  %.sink76 = phi ptr [ %29, %30 ], [ %54, %55 ], [ %79, %80 ], [ %104, %105 ], [ %129, %130 ]
-  store i32 -559026175, ptr %.sink77, align 8
-  %143 = load ptr, ptr %.sink76, align 8
-  %144 = getelementptr inbounds i8, ptr %143, i64 8
-  %145 = load ptr, ptr %144, align 8
-  call void %145(ptr noundef nonnull align 8 dereferenceable(12) %.sink76) #14
+143:                                              ; preds = %138
+  store i32 -559026175, ptr %139, align 8
+  br label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit.sink.split
+
+144:                                              ; preds = %133
+  %145 = landingpad { ptr, i32 }
+          cleanup
+  %146 = load ptr, ptr %8, align 8
+  %.not.i70 = icmp eq ptr %146, null
+  br i1 %.not.i70, label %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit, label %147
+
+147:                                              ; preds = %144
+  %148 = getelementptr inbounds i8, ptr %146, i64 8
+  %149 = load i32, ptr %148, align 8
+  %150 = add i32 %149, -1
+  store i32 %150, ptr %148, align 8
+  %151 = icmp eq i32 %150, 0
+  br i1 %151, label %152, label %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit
+
+152:                                              ; preds = %147
+  store i32 -559026175, ptr %148, align 8
+  br label %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit.sink.split
+
+_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit.sink.split: ; preds = %35, %62, %89, %116, %143
+  %.sink76 = phi ptr [ %137, %143 ], [ %110, %116 ], [ %83, %89 ], [ %56, %62 ], [ %29, %35 ]
+  %153 = load ptr, ptr %.sink76, align 8
+  %154 = getelementptr inbounds i8, ptr %153, i64 8
+  %155 = load ptr, ptr %154, align 8
+  call void %155(ptr noundef nonnull align 8 dereferenceable(12) %.sink76) #14
   br label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit
 
-_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit:    ; preds = %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit.sink.split, %130, %_ZN5zxing3RefINS_9BinarizerEEaSINS_15HybridBinarizerEEERS2_PT_.exit67, %105, %_ZN5zxing3RefINS_9BinarizerEEaSINS_30AdaptiveThresholdMeanBinarizerEEERS2_PT_.exit, %80, %_ZN5zxing3RefINS_9BinarizerEEaSINS_23SimpleAdaptiveBinarizerEEERS2_PT_.exit, %55, %_ZN5zxing3RefINS_9BinarizerEEaSINS_19FastWindowBinarizerEEERS2_PT_.exit, %30, %_ZN5zxing3RefINS_9BinarizerEEaSINS_15HybridBinarizerEEERS2_PT_.exit
+_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit:    ; preds = %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit.sink.split, %138, %_ZN5zxing3RefINS_9BinarizerEEaSINS_15HybridBinarizerEEERS2_PT_.exit67, %111, %_ZN5zxing3RefINS_9BinarizerEEaSINS_30AdaptiveThresholdMeanBinarizerEEERS2_PT_.exit, %84, %_ZN5zxing3RefINS_9BinarizerEEaSINS_23SimpleAdaptiveBinarizerEEERS2_PT_.exit, %57, %_ZN5zxing3RefINS_9BinarizerEEaSINS_19FastWindowBinarizerEEERS2_PT_.exit, %30, %_ZN5zxing3RefINS_9BinarizerEEaSINS_15HybridBinarizerEEERS2_PT_.exit
   ret void
 
-_ZN5zxing3RefINS_9BinarizerEED2Ev.exit.sink.split: ; preds = %138, %113, %88, %63, %38
-  %.sink83 = phi ptr [ %39, %38 ], [ %64, %63 ], [ %89, %88 ], [ %114, %113 ], [ %139, %138 ]
-  %.sink82 = phi ptr [ %37, %38 ], [ %62, %63 ], [ %87, %88 ], [ %112, %113 ], [ %137, %138 ]
-  %.sink.ph = phi ptr [ %19, %38 ], [ %44, %63 ], [ %69, %88 ], [ %94, %113 ], [ %119, %138 ]
-  %.pn24.pn.ph = phi { ptr, i32 } [ %36, %38 ], [ %61, %63 ], [ %86, %88 ], [ %111, %113 ], [ %136, %138 ]
-  store i32 -559026175, ptr %.sink83, align 8
-  %146 = load ptr, ptr %.sink82, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 8
-  %148 = load ptr, ptr %147, align 8
-  call void %148(ptr noundef nonnull align 8 dereferenceable(12) %.sink82) #14
+_ZN5zxing3RefINS_9BinarizerEED2Ev.exit.sink.split: ; preds = %44, %71, %98, %125, %152
+  %.sink81 = phi ptr [ %146, %152 ], [ %119, %125 ], [ %92, %98 ], [ %65, %71 ], [ %38, %44 ]
+  %.sink.ph = phi ptr [ %127, %152 ], [ %100, %125 ], [ %73, %98 ], [ %46, %71 ], [ %19, %44 ]
+  %.pn24.pn.ph = phi { ptr, i32 } [ %145, %152 ], [ %118, %125 ], [ %91, %98 ], [ %64, %71 ], [ %37, %44 ]
+  %156 = load ptr, ptr %.sink81, align 8
+  %157 = getelementptr inbounds i8, ptr %156, i64 8
+  %158 = load ptr, ptr %157, align 8
+  call void %158(ptr noundef nonnull align 8 dereferenceable(12) %.sink81) #14
   br label %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit
 
-_ZN5zxing3RefINS_9BinarizerEED2Ev.exit:           ; preds = %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit.sink.split, %135, %138, %110, %113, %85, %88, %60, %63, %35, %38
-  %.sink = phi ptr [ %19, %38 ], [ %19, %35 ], [ %44, %63 ], [ %44, %60 ], [ %69, %88 ], [ %69, %85 ], [ %94, %113 ], [ %94, %110 ], [ %119, %138 ], [ %119, %135 ], [ %.sink.ph, %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit.sink.split ]
-  %.pn24.pn = phi { ptr, i32 } [ %36, %38 ], [ %36, %35 ], [ %61, %63 ], [ %61, %60 ], [ %86, %88 ], [ %86, %85 ], [ %111, %113 ], [ %111, %110 ], [ %136, %138 ], [ %136, %135 ], [ %.pn24.pn.ph, %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit.sink.split ]
+_ZN5zxing3RefINS_9BinarizerEED2Ev.exit:           ; preds = %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit.sink.split, %144, %147, %117, %120, %90, %93, %63, %66, %36, %39
+  %.sink = phi ptr [ %19, %39 ], [ %19, %36 ], [ %46, %66 ], [ %46, %63 ], [ %73, %93 ], [ %73, %90 ], [ %100, %120 ], [ %100, %117 ], [ %127, %147 ], [ %127, %144 ], [ %.sink.ph, %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit.sink.split ]
+  %.pn24.pn = phi { ptr, i32 } [ %37, %39 ], [ %37, %36 ], [ %64, %66 ], [ %64, %63 ], [ %91, %93 ], [ %91, %90 ], [ %118, %120 ], [ %118, %117 ], [ %145, %147 ], [ %145, %144 ], [ %.pn24.pn.ph, %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit.sink.split ]
   call void @_ZdlPv(ptr noundef nonnull %.sink) #13
   resume { ptr, i32 } %.pn24.pn
 }

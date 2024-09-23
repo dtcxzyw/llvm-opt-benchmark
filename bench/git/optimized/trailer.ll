@@ -3566,6 +3566,7 @@ entry:
   %10 = load ptr, ptr %value.i, align 8
   tail call void @free(ptr noundef %10) #16
   tail call void @free(ptr noundef %arg_tok) #16
+  %prev3.i5 = getelementptr inbounds i8, ptr %call.i, i64 8
   br i1 %2, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -3574,6 +3575,8 @@ if.then:                                          ; preds = %entry
   store ptr %call.i, ptr %prev.i, align 8
   %12 = load ptr, ptr %on_tok, align 8
   store ptr %12, ptr %call.i, align 8
+  store ptr %on_tok, ptr %prev3.i5, align 8
+  store ptr %call.i, ptr %on_tok, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -3582,14 +3585,11 @@ if.else:                                          ; preds = %entry
   store ptr %call.i, ptr %13, align 8
   store ptr %on_tok, ptr %call.i, align 8
   %14 = load ptr, ptr %prev.i4, align 8
+  store ptr %14, ptr %prev3.i5, align 8
+  store ptr %call.i, ptr %prev.i4, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %.sink = phi ptr [ %14, %if.else ], [ %on_tok, %if.then ]
-  %prev.i4.sink = phi ptr [ %prev.i4, %if.else ], [ %on_tok, %if.then ]
-  %prev3.i5 = getelementptr inbounds i8, ptr %call.i, i64 8
-  store ptr %.sink, ptr %prev3.i5, align 8
-  store ptr %call.i, ptr %prev.i4.sink, align 8
   ret void
 }
 

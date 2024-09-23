@@ -321,9 +321,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %if.then59, label %invoke.cont12
 
 invoke.cont12:                                    ; preds = %if.end, %for.inc
-  %ci.053 = phi i64 [ %inc, %for.inc ], [ 0, %if.end ]
+  %ci.052 = phi i64 [ %inc, %for.inc ], [ 0, %if.end ]
   %2 = load ptr, ptr %this, align 8
-  %add.ptr = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %2, i64 %ci.053
+  %add.ptr = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %2, i64 %ci.052
   %3 = load <16 x i8>, ptr %add.ptr, align 16
   %4 = icmp slt <16 x i8> %3, zeroinitializer
   %5 = bitcast <16 x i1> %4 to i16
@@ -337,18 +337,18 @@ for.body17.lr.ph:                                 ; preds = %invoke.cont12
   br label %for.body17
 
 for.body17:                                       ; preds = %for.body17.lr.ph, %for.body17
-  %piter.sroa.0.049 = phi i32 [ %iter.sroa.0.0.extract.trunc, %for.body17.lr.ph ], [ %piter.sroa.0.1, %for.body17 ]
-  %piter.sroa.5.048 = phi i32 [ 0, %for.body17.lr.ph ], [ %add8.i, %for.body17 ]
-  %and.i = and i32 %piter.sroa.0.049, 1
+  %piter.sroa.0.048 = phi i32 [ %iter.sroa.0.0.extract.trunc, %for.body17.lr.ph ], [ %piter.sroa.0.1, %for.body17 ]
+  %piter.sroa.5.047 = phi i32 [ 0, %for.body17.lr.ph ], [ %piter.sroa.5.1, %for.body17 ]
+  %and.i = and i32 %piter.sroa.0.048, 1
   %cmp.not.i = icmp eq i32 %and.i, 0
-  %7 = tail call range(i32 1, 33) i32 @llvm.cttz.i32(i32 %piter.sroa.0.049, i1 true)
+  %7 = tail call range(i32 1, 33) i32 @llvm.cttz.i32(i32 %piter.sroa.0.048, i1 true)
   %add5.i = add nuw nsw i32 %7, 1
-  %add5.i.pn = select i1 %cmp.not.i, i32 %add5.i, i32 1
   %add.i16 = select i1 %cmp.not.i, i32 %7, i32 0
-  %add.sink.i = add i32 %piter.sroa.5.048, %add.i16
-  %piter.sroa.0.1 = lshr i32 %piter.sroa.0.049, %add5.i.pn
-  %add8.i = add i32 %add.sink.i, 1
-  %conv = zext i32 %add.sink.i to i64
+  %piter.sroa.5.1.in = add i32 %piter.sroa.5.047, %add.i16
+  %add5.i.pn = select i1 %cmp.not.i, i32 %add5.i, i32 1
+  %piter.sroa.0.1 = lshr i32 %piter.sroa.0.048, %add5.i.pn
+  %piter.sroa.5.1 = add i32 %piter.sroa.5.1.in, 1
+  %conv = zext i32 %piter.sroa.5.1.in to i64
   %arrayidx.i.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv
   %8 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   tail call void @llvm.prefetch.p0(ptr %8, i32 0, i32 3, i32 1)
@@ -356,18 +356,18 @@ for.body17:                                       ; preds = %for.body17.lr.ph, %
   br i1 %cmp.i15.not, label %while.body, label %for.body17
 
 while.body:                                       ; preds = %for.body17, %_ZN5folly3f146detail19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKNS_7dynamicEEEvvvE11destroyItemERPSt4pairIKS8_SK_E.exit
-  %iter.sroa.5.052 = phi i32 [ %add8.i25, %_ZN5folly3f146detail19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKNS_7dynamicEEEvvvE11destroyItemERPSt4pairIKS8_SK_E.exit ], [ 0, %for.body17 ]
-  %iter.sroa.0.051 = phi i32 [ %iter.sroa.0.1, %_ZN5folly3f146detail19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKNS_7dynamicEEEvvvE11destroyItemERPSt4pairIKS8_SK_E.exit ], [ %iter.sroa.0.0.extract.trunc, %for.body17 ]
-  %and.i18 = and i32 %iter.sroa.0.051, 1
+  %iter.sroa.5.051 = phi i32 [ %iter.sroa.5.1, %_ZN5folly3f146detail19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKNS_7dynamicEEEvvvE11destroyItemERPSt4pairIKS8_SK_E.exit ], [ 0, %for.body17 ]
+  %iter.sroa.0.050 = phi i32 [ %iter.sroa.0.1, %_ZN5folly3f146detail19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKNS_7dynamicEEEvvvE11destroyItemERPSt4pairIKS8_SK_E.exit ], [ %iter.sroa.0.0.extract.trunc, %for.body17 ]
+  %and.i18 = and i32 %iter.sroa.0.050, 1
   %cmp.not.i19 = icmp eq i32 %and.i18, 0
-  %9 = tail call range(i32 1, 33) i32 @llvm.cttz.i32(i32 %iter.sroa.0.051, i1 true)
-  %add5.i30 = add nuw nsw i32 %9, 1
-  %add5.i30.pn = select i1 %cmp.not.i19, i32 %add5.i30, i32 1
-  %add.i29 = select i1 %cmp.not.i19, i32 %9, i32 0
-  %add.sink.i23 = add i32 %iter.sroa.5.052, %add.i29
-  %iter.sroa.0.1 = lshr i32 %iter.sroa.0.051, %add5.i30.pn
-  %add8.i25 = add i32 %add.sink.i23, 1
-  %conv27 = zext i32 %add.sink.i23 to i64
+  %9 = tail call range(i32 1, 33) i32 @llvm.cttz.i32(i32 %iter.sroa.0.050, i1 true)
+  %add5.i29 = add nuw nsw i32 %9, 1
+  %add5.i29.pn = select i1 %cmp.not.i19, i32 %add5.i29, i32 1
+  %add.i28 = select i1 %cmp.not.i19, i32 %9, i32 0
+  %iter.sroa.5.1.in = add i32 %iter.sroa.5.051, %add.i28
+  %iter.sroa.5.1 = add i32 %iter.sroa.5.1.in, 1
+  %iter.sroa.0.1 = lshr i32 %iter.sroa.0.050, %add5.i29.pn
+  %conv27 = zext i32 %iter.sroa.5.1.in to i64
   %arrayidx.i.i.i.i34 = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv27
   %10 = load ptr, ptr %arrayidx.i.i.i.i34, align 8
   %cmp.not.i35 = icmp eq ptr %10, null
@@ -402,7 +402,7 @@ _ZN5folly3f146detail19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_tr
   br i1 %cmp.i17.not, label %for.inc, label %while.body, !llvm.loop !7
 
 for.inc:                                          ; preds = %_ZN5folly3f146detail19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKNS_7dynamicEEEvvvE11destroyItemERPSt4pairIKS8_SK_E.exit, %invoke.cont12
-  %inc = add i64 %ci.053, 1
+  %inc = add i64 %ci.052, 1
   %15 = load i64, ptr %chunkMask_.i, align 8
   %cmp10.not = icmp ugt i64 %inc, %15
   br i1 %cmp10.not, label %if.end50, label %invoke.cont12, !llvm.loop !8
@@ -444,9 +444,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %if.then57, label %invoke.cont12
 
 invoke.cont12:                                    ; preds = %if.end, %for.inc
-  %ci.053 = phi i64 [ %inc, %for.inc ], [ 0, %if.end ]
+  %ci.052 = phi i64 [ %inc, %for.inc ], [ 0, %if.end ]
   %2 = load ptr, ptr %this, align 8
-  %add.ptr = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.49", ptr %2, i64 %ci.053
+  %add.ptr = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.49", ptr %2, i64 %ci.052
   %3 = load <16 x i8>, ptr %add.ptr, align 16
   %4 = icmp slt <16 x i8> %3, zeroinitializer
   %5 = bitcast <16 x i1> %4 to i16
@@ -460,18 +460,18 @@ for.body16.lr.ph:                                 ; preds = %invoke.cont12
   br label %for.body16
 
 for.body16:                                       ; preds = %for.body16.lr.ph, %for.body16
-  %piter.sroa.0.049 = phi i32 [ %iter.sroa.0.0.extract.trunc, %for.body16.lr.ph ], [ %piter.sroa.0.1, %for.body16 ]
-  %piter.sroa.5.048 = phi i32 [ 0, %for.body16.lr.ph ], [ %add8.i, %for.body16 ]
-  %and.i = and i32 %piter.sroa.0.049, 1
+  %piter.sroa.0.048 = phi i32 [ %iter.sroa.0.0.extract.trunc, %for.body16.lr.ph ], [ %piter.sroa.0.1, %for.body16 ]
+  %piter.sroa.5.047 = phi i32 [ 0, %for.body16.lr.ph ], [ %piter.sroa.5.1, %for.body16 ]
+  %and.i = and i32 %piter.sroa.0.048, 1
   %cmp.not.i = icmp eq i32 %and.i, 0
-  %7 = tail call range(i32 1, 33) i32 @llvm.cttz.i32(i32 %piter.sroa.0.049, i1 true)
+  %7 = tail call range(i32 1, 33) i32 @llvm.cttz.i32(i32 %piter.sroa.0.048, i1 true)
   %add5.i = add nuw nsw i32 %7, 1
-  %add5.i.pn = select i1 %cmp.not.i, i32 %add5.i, i32 1
   %add.i16 = select i1 %cmp.not.i, i32 %7, i32 0
-  %add.sink.i = add i32 %piter.sroa.5.048, %add.i16
-  %piter.sroa.0.1 = lshr i32 %piter.sroa.0.049, %add5.i.pn
-  %add8.i = add i32 %add.sink.i, 1
-  %conv = zext i32 %add.sink.i to i64
+  %piter.sroa.5.1.in = add i32 %piter.sroa.5.047, %add.i16
+  %add5.i.pn = select i1 %cmp.not.i, i32 %add5.i, i32 1
+  %piter.sroa.0.1 = lshr i32 %piter.sroa.0.048, %add5.i.pn
+  %piter.sroa.5.1 = add i32 %piter.sroa.5.1.in, 1
+  %conv = zext i32 %piter.sroa.5.1.in to i64
   %arrayidx.i.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv
   %8 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   tail call void @llvm.prefetch.p0(ptr %8, i32 0, i32 3, i32 1)
@@ -479,18 +479,18 @@ for.body16:                                       ; preds = %for.body16.lr.ph, %
   br i1 %cmp.i15.not, label %while.body, label %for.body16
 
 while.body:                                       ; preds = %for.body16, %_ZN5folly3f146detail19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKNS_7dynamicEPvEEvvvE11destroyItemERPSt4pairIKS8_SL_E.exit
-  %iter.sroa.5.052 = phi i32 [ %add8.i25, %_ZN5folly3f146detail19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKNS_7dynamicEPvEEvvvE11destroyItemERPSt4pairIKS8_SL_E.exit ], [ 0, %for.body16 ]
-  %iter.sroa.0.051 = phi i32 [ %iter.sroa.0.1, %_ZN5folly3f146detail19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKNS_7dynamicEPvEEvvvE11destroyItemERPSt4pairIKS8_SL_E.exit ], [ %iter.sroa.0.0.extract.trunc, %for.body16 ]
-  %and.i18 = and i32 %iter.sroa.0.051, 1
+  %iter.sroa.5.051 = phi i32 [ %iter.sroa.5.1, %_ZN5folly3f146detail19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKNS_7dynamicEPvEEvvvE11destroyItemERPSt4pairIKS8_SL_E.exit ], [ 0, %for.body16 ]
+  %iter.sroa.0.050 = phi i32 [ %iter.sroa.0.1, %_ZN5folly3f146detail19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKNS_7dynamicEPvEEvvvE11destroyItemERPSt4pairIKS8_SL_E.exit ], [ %iter.sroa.0.0.extract.trunc, %for.body16 ]
+  %and.i18 = and i32 %iter.sroa.0.050, 1
   %cmp.not.i19 = icmp eq i32 %and.i18, 0
-  %9 = tail call range(i32 1, 33) i32 @llvm.cttz.i32(i32 %iter.sroa.0.051, i1 true)
-  %add5.i30 = add nuw nsw i32 %9, 1
-  %add5.i30.pn = select i1 %cmp.not.i19, i32 %add5.i30, i32 1
-  %add.i29 = select i1 %cmp.not.i19, i32 %9, i32 0
-  %add.sink.i23 = add i32 %iter.sroa.5.052, %add.i29
-  %iter.sroa.0.1 = lshr i32 %iter.sroa.0.051, %add5.i30.pn
-  %add8.i25 = add i32 %add.sink.i23, 1
-  %conv25 = zext i32 %add.sink.i23 to i64
+  %9 = tail call range(i32 1, 33) i32 @llvm.cttz.i32(i32 %iter.sroa.0.050, i1 true)
+  %add5.i29 = add nuw nsw i32 %9, 1
+  %add5.i29.pn = select i1 %cmp.not.i19, i32 %add5.i29, i32 1
+  %add.i28 = select i1 %cmp.not.i19, i32 %9, i32 0
+  %iter.sroa.5.1.in = add i32 %iter.sroa.5.051, %add.i28
+  %iter.sroa.5.1 = add i32 %iter.sroa.5.1.in, 1
+  %iter.sroa.0.1 = lshr i32 %iter.sroa.0.050, %add5.i29.pn
+  %conv25 = zext i32 %iter.sroa.5.1.in to i64
   %arrayidx.i.i.i.i34 = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv25
   %10 = load ptr, ptr %arrayidx.i.i.i.i34, align 8
   %cmp.not.i35 = icmp eq ptr %10, null
@@ -525,7 +525,7 @@ _ZN5folly3f146detail19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_tr
   br i1 %cmp.i17.not, label %for.inc, label %while.body, !llvm.loop !9
 
 for.inc:                                          ; preds = %_ZN5folly3f146detail19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKNS_7dynamicEPvEEvvvE11destroyItemERPSt4pairIKS8_SL_E.exit, %invoke.cont12
-  %inc = add i64 %ci.053, 1
+  %inc = add i64 %ci.052, 1
   %15 = load i64, ptr %chunkMask_.i, align 8
   %cmp10.not = icmp ugt i64 %inc, %15
   br i1 %cmp10.not, label %if.end48, label %invoke.cont12, !llvm.loop !10
@@ -561,9 +561,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %if.then57, label %invoke.cont12
 
 invoke.cont12:                                    ; preds = %if.end, %for.inc
-  %ci.053 = phi i64 [ %inc, %for.inc ], [ 0, %if.end ]
+  %ci.052 = phi i64 [ %inc, %for.inc ], [ 0, %if.end ]
   %2 = load ptr, ptr %this, align 8
-  %add.ptr = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.56", ptr %2, i64 %ci.053
+  %add.ptr = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.56", ptr %2, i64 %ci.052
   %3 = load <16 x i8>, ptr %add.ptr, align 16
   %4 = icmp slt <16 x i8> %3, zeroinitializer
   %5 = bitcast <16 x i1> %4 to i16
@@ -577,18 +577,18 @@ for.body16.lr.ph:                                 ; preds = %invoke.cont12
   br label %for.body16
 
 for.body16:                                       ; preds = %for.body16.lr.ph, %for.body16
-  %piter.sroa.0.049 = phi i32 [ %iter.sroa.0.0.extract.trunc, %for.body16.lr.ph ], [ %piter.sroa.0.1, %for.body16 ]
-  %piter.sroa.5.048 = phi i32 [ 0, %for.body16.lr.ph ], [ %add8.i, %for.body16 ]
-  %and.i = and i32 %piter.sroa.0.049, 1
+  %piter.sroa.0.048 = phi i32 [ %iter.sroa.0.0.extract.trunc, %for.body16.lr.ph ], [ %piter.sroa.0.1, %for.body16 ]
+  %piter.sroa.5.047 = phi i32 [ 0, %for.body16.lr.ph ], [ %piter.sroa.5.1, %for.body16 ]
+  %and.i = and i32 %piter.sroa.0.048, 1
   %cmp.not.i = icmp eq i32 %and.i, 0
-  %7 = tail call range(i32 1, 33) i32 @llvm.cttz.i32(i32 %piter.sroa.0.049, i1 true)
+  %7 = tail call range(i32 1, 33) i32 @llvm.cttz.i32(i32 %piter.sroa.0.048, i1 true)
   %add5.i = add nuw nsw i32 %7, 1
-  %add5.i.pn = select i1 %cmp.not.i, i32 %add5.i, i32 1
   %add.i16 = select i1 %cmp.not.i, i32 %7, i32 0
-  %add.sink.i = add i32 %piter.sroa.5.048, %add.i16
-  %piter.sroa.0.1 = lshr i32 %piter.sroa.0.049, %add5.i.pn
-  %add8.i = add i32 %add.sink.i, 1
-  %conv = zext i32 %add.sink.i to i64
+  %piter.sroa.5.1.in = add i32 %piter.sroa.5.047, %add.i16
+  %add5.i.pn = select i1 %cmp.not.i, i32 %add5.i, i32 1
+  %piter.sroa.0.1 = lshr i32 %piter.sroa.0.048, %add5.i.pn
+  %piter.sroa.5.1 = add i32 %piter.sroa.5.1.in, 1
+  %conv = zext i32 %piter.sroa.5.1.in to i64
   %arrayidx.i.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv
   %8 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   tail call void @llvm.prefetch.p0(ptr %8, i32 0, i32 3, i32 1)
@@ -596,18 +596,18 @@ for.body16:                                       ; preds = %for.body16.lr.ph, %
   br i1 %cmp.i15.not, label %while.body, label %for.body16
 
 while.body:                                       ; preds = %for.body16, %_ZN5folly3f146detail19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10unique_ptrIN8facebook5velox13ISerializableESt14default_deleteISD_EERKNS_7dynamicEEEvvvE11destroyItemERPSt4pairIKS8_SL_E.exit
-  %iter.sroa.5.052 = phi i32 [ %add8.i25, %_ZN5folly3f146detail19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10unique_ptrIN8facebook5velox13ISerializableESt14default_deleteISD_EERKNS_7dynamicEEEvvvE11destroyItemERPSt4pairIKS8_SL_E.exit ], [ 0, %for.body16 ]
-  %iter.sroa.0.051 = phi i32 [ %iter.sroa.0.1, %_ZN5folly3f146detail19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10unique_ptrIN8facebook5velox13ISerializableESt14default_deleteISD_EERKNS_7dynamicEEEvvvE11destroyItemERPSt4pairIKS8_SL_E.exit ], [ %iter.sroa.0.0.extract.trunc, %for.body16 ]
-  %and.i18 = and i32 %iter.sroa.0.051, 1
+  %iter.sroa.5.051 = phi i32 [ %iter.sroa.5.1, %_ZN5folly3f146detail19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10unique_ptrIN8facebook5velox13ISerializableESt14default_deleteISD_EERKNS_7dynamicEEEvvvE11destroyItemERPSt4pairIKS8_SL_E.exit ], [ 0, %for.body16 ]
+  %iter.sroa.0.050 = phi i32 [ %iter.sroa.0.1, %_ZN5folly3f146detail19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10unique_ptrIN8facebook5velox13ISerializableESt14default_deleteISD_EERKNS_7dynamicEEEvvvE11destroyItemERPSt4pairIKS8_SL_E.exit ], [ %iter.sroa.0.0.extract.trunc, %for.body16 ]
+  %and.i18 = and i32 %iter.sroa.0.050, 1
   %cmp.not.i19 = icmp eq i32 %and.i18, 0
-  %9 = tail call range(i32 1, 33) i32 @llvm.cttz.i32(i32 %iter.sroa.0.051, i1 true)
-  %add5.i30 = add nuw nsw i32 %9, 1
-  %add5.i30.pn = select i1 %cmp.not.i19, i32 %add5.i30, i32 1
-  %add.i29 = select i1 %cmp.not.i19, i32 %9, i32 0
-  %add.sink.i23 = add i32 %iter.sroa.5.052, %add.i29
-  %iter.sroa.0.1 = lshr i32 %iter.sroa.0.051, %add5.i30.pn
-  %add8.i25 = add i32 %add.sink.i23, 1
-  %conv25 = zext i32 %add.sink.i23 to i64
+  %9 = tail call range(i32 1, 33) i32 @llvm.cttz.i32(i32 %iter.sroa.0.050, i1 true)
+  %add5.i29 = add nuw nsw i32 %9, 1
+  %add5.i29.pn = select i1 %cmp.not.i19, i32 %add5.i29, i32 1
+  %add.i28 = select i1 %cmp.not.i19, i32 %9, i32 0
+  %iter.sroa.5.1.in = add i32 %iter.sroa.5.051, %add.i28
+  %iter.sroa.5.1 = add i32 %iter.sroa.5.1.in, 1
+  %iter.sroa.0.1 = lshr i32 %iter.sroa.0.050, %add5.i29.pn
+  %conv25 = zext i32 %iter.sroa.5.1.in to i64
   %arrayidx.i.i.i.i34 = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv25
   %10 = load ptr, ptr %arrayidx.i.i.i.i34, align 8
   %cmp.not.i35 = icmp eq ptr %10, null
@@ -642,7 +642,7 @@ _ZN5folly3f146detail19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_tr
   br i1 %cmp.i17.not, label %for.inc, label %while.body, !llvm.loop !11
 
 for.inc:                                          ; preds = %_ZN5folly3f146detail19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10unique_ptrIN8facebook5velox13ISerializableESt14default_deleteISD_EERKNS_7dynamicEEEvvvE11destroyItemERPSt4pairIKS8_SL_E.exit, %invoke.cont12
-  %inc = add i64 %ci.053, 1
+  %inc = add i64 %ci.052, 1
   %15 = load i64, ptr %chunkMask_.i, align 8
   %cmp10.not = icmp ugt i64 %inc, %15
   br i1 %cmp10.not, label %if.end48, label %invoke.cont12, !llvm.loop !12

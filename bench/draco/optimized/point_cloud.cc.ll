@@ -1896,22 +1896,18 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN5draco9IndexTypeIj
 
 260:                                              ; preds = %257
   %261 = getelementptr inbounds ptr, ptr %.0.i.i.i.i.i.i.i, i64 %.02531.i.i.i.i.i.i
-  br label %.sink.split.i.i.i.i.i.i
+  store ptr %.032.i.i.i.i.i.i, ptr %261, align 8
+  br label %265
 
 262:                                              ; preds = %.lr.ph.i.i.i.i.i.i
   %263 = load ptr, ptr %256, align 8
   store ptr %263, ptr %.032.i.i.i.i.i.i, align 8
   %264 = load ptr, ptr %255, align 8
-  br label %.sink.split.i.i.i.i.i.i
-
-.sink.split.i.i.i.i.i.i:                          ; preds = %262, %260
-  %.sink.i.i.i.i.i.i = phi ptr [ %261, %260 ], [ %264, %262 ]
-  %.1.ph.i.i.i.i.i.i = phi i64 [ %254, %260 ], [ %.02531.i.i.i.i.i.i, %262 ]
-  store ptr %.032.i.i.i.i.i.i, ptr %.sink.i.i.i.i.i.i, align 8
+  store ptr %.032.i.i.i.i.i.i, ptr %264, align 8
   br label %265
 
-265:                                              ; preds = %.sink.split.i.i.i.i.i.i, %257
-  %.1.i.i.i.i.i.i = phi i64 [ %254, %257 ], [ %.1.ph.i.i.i.i.i.i, %.sink.split.i.i.i.i.i.i ]
+265:                                              ; preds = %262, %260, %257
+  %.1.i.i.i.i.i.i = phi i64 [ %.02531.i.i.i.i.i.i, %262 ], [ %254, %260 ], [ %254, %257 ]
   %.not.i.i.i.i.i.i = icmp eq ptr %252, null
   br i1 %.not.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !24
 

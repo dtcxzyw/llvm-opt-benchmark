@@ -3261,167 +3261,166 @@ define dso_local ptr @xa_load(ptr noundef %0, i64 noundef %1) #2 align 16 {
   %6 = ptrtoint ptr %.sroa.134.0 to i64
   %7 = and i64 %6, 3
   %8 = icmp eq i64 %7, 0
-  br i1 %8, label %9, label %28
+  br i1 %8, label %9, label %31
 
 9:                                                ; preds = %5
   %10 = icmp eq ptr %.sroa.134.0, null
-  br i1 %10, label %.sink.split, label %11
+  br i1 %10, label %11, label %13
 
 11:                                               ; preds = %9
-  %12 = load i8, ptr %.sroa.134.0, align 8
-  %13 = zext nneg i8 %12 to i64
-  %14 = lshr i64 %1, %13
-  %15 = and i64 %14, 63
-  %16 = getelementptr inbounds i8, ptr %.sroa.134.0, i64 40
-  %17 = getelementptr [64 x ptr], ptr %16, i64 0, i64 %15
-  %18 = load volatile ptr, ptr %17, align 8
-  %19 = ptrtoint ptr %18 to i64
-  %20 = and i64 %19, 3
-  %21 = icmp eq i64 %20, 2
-  %22 = icmp ult ptr %18, inttoptr (i64 254 to ptr)
-  %23 = and i1 %22, %21
-  br i1 %23, label %24, label %51
+  %12 = load volatile ptr, ptr %3, align 8
+  br label %53
 
-24:                                               ; preds = %11
-  %25 = lshr i64 %19, 2
-  %26 = and i64 %25, 255
-  %27 = getelementptr [64 x ptr], ptr %16, i64 0, i64 %26
-  br label %.sink.split
+13:                                               ; preds = %9
+  %14 = load i8, ptr %.sroa.134.0, align 8
+  %15 = zext nneg i8 %14 to i64
+  %16 = lshr i64 %1, %15
+  %17 = and i64 %16, 63
+  %18 = getelementptr inbounds i8, ptr %.sroa.134.0, i64 40
+  %19 = getelementptr [64 x ptr], ptr %18, i64 0, i64 %17
+  %20 = load volatile ptr, ptr %19, align 8
+  %21 = ptrtoint ptr %20 to i64
+  %22 = and i64 %21, 3
+  %23 = icmp eq i64 %22, 2
+  %24 = icmp ult ptr %20, inttoptr (i64 254 to ptr)
+  %25 = and i1 %24, %23
+  br i1 %25, label %26, label %53
 
-28:                                               ; preds = %5
-  %29 = icmp ne i64 %7, 2
-  %30 = icmp ult ptr %.sroa.134.0, inttoptr (i64 -16378 to ptr)
-  %31 = or i1 %30, %29
-  %32 = and i64 %6, 17179869180
-  %33 = icmp eq i64 %32, 0
-  %34 = or i1 %33, %31
-  br i1 %34, label %35, label %xas_load.exit
+26:                                               ; preds = %13
+  %27 = lshr i64 %21, 2
+  %28 = and i64 %27, 255
+  %29 = getelementptr [64 x ptr], ptr %18, i64 0, i64 %28
+  %30 = load volatile ptr, ptr %29, align 8
+  br label %53
 
-35:                                               ; preds = %28
-  %36 = load volatile ptr, ptr %3, align 8
-  %37 = ptrtoint ptr %36 to i64
-  %38 = and i64 %37, 3
-  %39 = icmp eq i64 %38, 2
-  %40 = icmp ugt ptr %36, inttoptr (i64 4096 to ptr)
-  %41 = and i1 %40, %39
-  br i1 %41, label %43, label %42
+31:                                               ; preds = %5
+  %32 = icmp ne i64 %7, 2
+  %33 = icmp ult ptr %.sroa.134.0, inttoptr (i64 -16378 to ptr)
+  %34 = or i1 %33, %32
+  %35 = and i64 %6, 17179869180
+  %36 = icmp eq i64 %35, 0
+  %37 = or i1 %36, %34
+  br i1 %37, label %38, label %xas_load.exit
 
-42:                                               ; preds = %35
-  br i1 %4, label %51, label %xas_load.exit
+38:                                               ; preds = %31
+  %39 = load volatile ptr, ptr %3, align 8
+  %40 = ptrtoint ptr %39 to i64
+  %41 = and i64 %40, 3
+  %42 = icmp eq i64 %41, 2
+  %43 = icmp ugt ptr %39, inttoptr (i64 4096 to ptr)
+  %44 = and i1 %43, %42
+  br i1 %44, label %46, label %45
 
-43:                                               ; preds = %35
-  %44 = add nsw i64 %37, -2
-  %45 = inttoptr i64 %44 to ptr
-  %46 = load i8, ptr %45, align 8
-  %47 = zext nneg i8 %46 to i64
-  %48 = lshr i64 %1, %47
-  %49 = icmp ugt i64 %48, 63
-  br i1 %49, label %xas_load.exit, label %51
+45:                                               ; preds = %38
+  br i1 %4, label %53, label %xas_load.exit
 
-.sink.split:                                      ; preds = %9, %24
-  %.sink = phi ptr [ %27, %24 ], [ %3, %9 ]
-  %.sroa.134.2.ph = phi ptr [ %.sroa.134.0, %24 ], [ null, %9 ]
-  %50 = load volatile ptr, ptr %.sink, align 8
-  br label %51
+46:                                               ; preds = %38
+  %47 = add nsw i64 %40, -2
+  %48 = inttoptr i64 %47 to ptr
+  %49 = load i8, ptr %48, align 8
+  %50 = zext nneg i8 %49 to i64
+  %51 = lshr i64 %1, %50
+  %52 = icmp ugt i64 %51, 63
+  br i1 %52, label %xas_load.exit, label %53
 
-51:                                               ; preds = %.sink.split, %42, %43, %11
-  %.sroa.134.2 = phi ptr [ %.sroa.134.0, %11 ], [ null, %43 ], [ null, %42 ], [ %.sroa.134.2.ph, %.sink.split ]
-  %52 = phi ptr [ %18, %11 ], [ %36, %43 ], [ %36, %42 ], [ %50, %.sink.split ]
-  %53 = ptrtoint ptr %52 to i64
-  %54 = and i64 %53, 3
-  %55 = icmp eq i64 %54, 2
-  %56 = icmp ugt ptr %52, inttoptr (i64 4096 to ptr)
-  %57 = and i1 %56, %55
-  br i1 %57, label %.lr.ph, label %xas_load.exit
+53:                                               ; preds = %45, %46, %26, %13, %11
+  %.sroa.134.2 = phi ptr [ null, %11 ], [ %.sroa.134.0, %26 ], [ %.sroa.134.0, %13 ], [ null, %46 ], [ null, %45 ]
+  %54 = phi ptr [ %12, %11 ], [ %30, %26 ], [ %20, %13 ], [ %39, %46 ], [ %39, %45 ]
+  %55 = ptrtoint ptr %54 to i64
+  %56 = and i64 %55, 3
+  %57 = icmp eq i64 %56, 2
+  %58 = icmp ugt ptr %54, inttoptr (i64 4096 to ptr)
+  %59 = and i1 %58, %57
+  br i1 %59, label %.lr.ph, label %xas_load.exit
 
-58:                                               ; preds = %.split6.us.i
-  %59 = ptrtoint ptr %107 to i64
-  %60 = and i64 %59, 3
-  %61 = icmp eq i64 %60, 2
-  %62 = icmp ugt ptr %107, inttoptr (i64 4096 to ptr)
-  %63 = and i1 %62, %61
-  br i1 %63, label %.lr.ph, label %xas_load.exit
+60:                                               ; preds = %.split6.us.i
+  %61 = ptrtoint ptr %109 to i64
+  %62 = and i64 %61, 3
+  %63 = icmp eq i64 %62, 2
+  %64 = icmp ugt ptr %109, inttoptr (i64 4096 to ptr)
+  %65 = and i1 %64, %63
+  br i1 %65, label %.lr.ph, label %xas_load.exit
 
-.lr.ph:                                           ; preds = %51, %58
-  %64 = phi i64 [ %59, %58 ], [ %53, %51 ]
-  %65 = add nsw i64 %64, -2
-  %66 = inttoptr i64 %65 to ptr
-  %67 = load i8, ptr %66, align 8
-  %68 = zext nneg i8 %67 to i64
-  %69 = lshr i64 %1, %68
-  %70 = getelementptr inbounds i8, ptr %66, i64 40
-  %71 = and i64 %69, 63
-  %72 = getelementptr [64 x ptr], ptr %70, i64 0, i64 %71
-  %73 = load volatile ptr, ptr %72, align 8
-  %74 = ptrtoint ptr %73 to i64
-  %75 = and i64 %74, 3
-  %76 = icmp eq i64 %75, 2
-  %77 = icmp ult ptr %73, inttoptr (i64 254 to ptr)
-  %78 = and i1 %77, %76
-  br i1 %78, label %79, label %.split6.us.i
+.lr.ph:                                           ; preds = %53, %60
+  %66 = phi i64 [ %61, %60 ], [ %55, %53 ]
+  %67 = add nsw i64 %66, -2
+  %68 = inttoptr i64 %67 to ptr
+  %69 = load i8, ptr %68, align 8
+  %70 = zext nneg i8 %69 to i64
+  %71 = lshr i64 %1, %70
+  %72 = getelementptr inbounds i8, ptr %68, i64 40
+  %73 = and i64 %71, 63
+  %74 = getelementptr [64 x ptr], ptr %72, i64 0, i64 %73
+  %75 = load volatile ptr, ptr %74, align 8
+  %76 = ptrtoint ptr %75 to i64
+  %77 = and i64 %76, 3
+  %78 = icmp eq i64 %77, 2
+  %79 = icmp ult ptr %75, inttoptr (i64 254 to ptr)
+  %80 = and i1 %79, %78
+  br i1 %80, label %81, label %.split6.us.i
 
-79:                                               ; preds = %.lr.ph
-  %80 = icmp eq i8 %67, 0
-  br i1 %80, label %.split.us.i, label %.split.i
+81:                                               ; preds = %.lr.ph
+  %82 = icmp eq i8 %69, 0
+  br i1 %82, label %.split.us.i, label %.split.i
 
-.split.us.i:                                      ; preds = %79, %.split.us.i
-  %81 = phi i64 [ %86, %.split.us.i ], [ %74, %79 ]
-  %82 = lshr i64 %81, 2
-  %83 = and i64 %82, 4294967295
-  %84 = getelementptr [64 x ptr], ptr %70, i64 0, i64 %83
-  %85 = load volatile ptr, ptr %84, align 8
-  %86 = ptrtoint ptr %85 to i64
-  %87 = and i64 %86, 3
-  %88 = icmp eq i64 %87, 2
-  %89 = icmp ult ptr %85, inttoptr (i64 254 to ptr)
-  %90 = and i1 %89, %88
-  br i1 %90, label %.split.us.i, label %.split6.us.i, !llvm.loop !5
+.split.us.i:                                      ; preds = %81, %.split.us.i
+  %83 = phi i64 [ %88, %.split.us.i ], [ %76, %81 ]
+  %84 = lshr i64 %83, 2
+  %85 = and i64 %84, 4294967295
+  %86 = getelementptr [64 x ptr], ptr %72, i64 0, i64 %85
+  %87 = load volatile ptr, ptr %86, align 8
+  %88 = ptrtoint ptr %87 to i64
+  %89 = and i64 %88, 3
+  %90 = icmp eq i64 %89, 2
+  %91 = icmp ult ptr %87, inttoptr (i64 254 to ptr)
+  %92 = and i1 %91, %90
+  br i1 %92, label %.split.us.i, label %.split6.us.i, !llvm.loop !5
 
-.split.i:                                         ; preds = %79, %.split.i
-  %91 = phi i64 [ %102, %.split.i ], [ %74, %79 ]
-  %92 = lshr i64 %91, 2
-  %93 = and i64 %92, 4294967295
-  %94 = getelementptr [64 x ptr], ptr %70, i64 0, i64 %93
-  %95 = load volatile ptr, ptr %94, align 8
-  %96 = ptrtoint ptr %95 to i64
-  %97 = and i64 %96, 3
-  %98 = icmp eq i64 %97, 2
-  %99 = icmp ugt ptr %95, inttoptr (i64 4096 to ptr)
-  %100 = and i1 %99, %98
-  %101 = select i1 %100, ptr inttoptr (i64 1026 to ptr), ptr %95
-  %102 = ptrtoint ptr %101 to i64
-  %103 = and i64 %102, 3
-  %104 = icmp eq i64 %103, 2
-  %105 = icmp ult ptr %101, inttoptr (i64 254 to ptr)
-  %106 = and i1 %105, %104
-  br i1 %106, label %.split.i, label %.split6.us.i, !llvm.loop !5
+.split.i:                                         ; preds = %81, %.split.i
+  %93 = phi i64 [ %104, %.split.i ], [ %76, %81 ]
+  %94 = lshr i64 %93, 2
+  %95 = and i64 %94, 4294967295
+  %96 = getelementptr [64 x ptr], ptr %72, i64 0, i64 %95
+  %97 = load volatile ptr, ptr %96, align 8
+  %98 = ptrtoint ptr %97 to i64
+  %99 = and i64 %98, 3
+  %100 = icmp eq i64 %99, 2
+  %101 = icmp ugt ptr %97, inttoptr (i64 4096 to ptr)
+  %102 = and i1 %101, %100
+  %103 = select i1 %102, ptr inttoptr (i64 1026 to ptr), ptr %97
+  %104 = ptrtoint ptr %103 to i64
+  %105 = and i64 %104, 3
+  %106 = icmp eq i64 %105, 2
+  %107 = icmp ult ptr %103, inttoptr (i64 254 to ptr)
+  %108 = and i1 %107, %106
+  br i1 %108, label %.split.i, label %.split6.us.i, !llvm.loop !5
 
 .split6.us.i:                                     ; preds = %.split.i, %.split.us.i, %.lr.ph
-  %107 = phi ptr [ %73, %.lr.ph ], [ %85, %.split.us.i ], [ %101, %.split.i ]
-  %.not.i = icmp eq i8 %67, 0
-  br i1 %.not.i, label %xas_load.exit, label %58
+  %109 = phi ptr [ %75, %.lr.ph ], [ %87, %.split.us.i ], [ %103, %.split.i ]
+  %.not.i = icmp eq i8 %69, 0
+  br i1 %.not.i, label %xas_load.exit, label %60
 
-xas_load.exit:                                    ; preds = %.split6.us.i, %58, %43, %42, %28, %51
-  %.sroa.134.4 = phi ptr [ %.sroa.134.2, %51 ], [ inttoptr (i64 1 to ptr), %43 ], [ inttoptr (i64 1 to ptr), %42 ], [ %.sroa.134.0, %28 ], [ %66, %58 ], [ %66, %.split6.us.i ]
-  %108 = phi ptr [ %52, %51 ], [ null, %43 ], [ null, %42 ], [ null, %28 ], [ %107, %58 ], [ %107, %.split6.us.i ]
-  %109 = icmp eq ptr %108, inttoptr (i64 1030 to ptr)
-  %110 = select i1 %109, ptr null, ptr %108
-  %111 = ptrtoint ptr %110 to i64
-  switch i64 %111, label %113 [
+xas_load.exit:                                    ; preds = %.split6.us.i, %60, %46, %45, %31, %53
+  %.sroa.134.4 = phi ptr [ %.sroa.134.2, %53 ], [ inttoptr (i64 1 to ptr), %46 ], [ inttoptr (i64 1 to ptr), %45 ], [ %.sroa.134.0, %31 ], [ %68, %60 ], [ %68, %.split6.us.i ]
+  %110 = phi ptr [ %54, %53 ], [ null, %46 ], [ null, %45 ], [ null, %31 ], [ %109, %60 ], [ %109, %.split6.us.i ]
+  %111 = icmp eq ptr %110, inttoptr (i64 1030 to ptr)
+  %112 = select i1 %111, ptr null, ptr %110
+  %113 = ptrtoint ptr %112 to i64
+  switch i64 %113, label %115 [
     i64 1030, label %.backedge
-    i64 1026, label %112
+    i64 1026, label %114
   ]
 
-112:                                              ; preds = %xas_load.exit
+114:                                              ; preds = %xas_load.exit
   br label %.backedge
 
-.backedge:                                        ; preds = %112, %xas_load.exit
-  %.sroa.134.0.be = phi ptr [ inttoptr (i64 3 to ptr), %112 ], [ %.sroa.134.4, %xas_load.exit ]
+.backedge:                                        ; preds = %114, %xas_load.exit
+  %.sroa.134.0.be = phi ptr [ inttoptr (i64 3 to ptr), %114 ], [ %.sroa.134.4, %xas_load.exit ]
   br label %5
 
-113:                                              ; preds = %xas_load.exit
+115:                                              ; preds = %xas_load.exit
   tail call void @__rcu_read_unlock() #8
-  ret ptr %110
+  ret ptr %112
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

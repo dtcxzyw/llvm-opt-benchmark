@@ -289,21 +289,30 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN2cv12ppf_match_3d15hashtableRemov
   %.not19 = icmp eq ptr %.01724.lcssa, null
   %15 = getelementptr inbounds i8, ptr %.01825.lcssa, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %.01724.lcssa, i64 16
-  %.sink = select i1 %.not19, ptr %10, ptr %17
-  store ptr %16, ptr %.sink, align 8
+  br i1 %.not19, label %19, label %17
+
+17:                                               ; preds = %.lr.ph._crit_edge
+  %18 = getelementptr inbounds i8, ptr %.01724.lcssa, i64 16
+  store ptr %16, ptr %18, align 8
+  br label %20
+
+19:                                               ; preds = %.lr.ph._crit_edge
+  store ptr %16, ptr %10, align 8
+  br label %20
+
+20:                                               ; preds = %19, %17
   tail call void @free(ptr noundef nonnull %.01825.lcssa) #17
   br label %.loopexit
 
 .lr.ph33:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %.0182532 = phi ptr [ %.018, %.lr.ph ], [ %.01822, %.lr.ph.preheader ]
-  %18 = getelementptr inbounds i8, ptr %.0182532, i64 16
-  %.018 = load ptr, ptr %18, align 8
+  %21 = getelementptr inbounds i8, ptr %.0182532, i64 16
+  %.018 = load ptr, ptr %21, align 8
   %.not = icmp eq ptr %.018, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
-.loopexit:                                        ; preds = %.lr.ph33, %2, %.lr.ph._crit_edge
-  %.0 = phi i32 [ 0, %.lr.ph._crit_edge ], [ -1, %2 ], [ -1, %.lr.ph33 ]
+.loopexit:                                        ; preds = %.lr.ph33, %2, %20
+  %.0 = phi i32 [ 0, %20 ], [ -1, %2 ], [ -1, %.lr.ph33 ]
   ret i32 %.0
 }
 
@@ -361,7 +370,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN2cv12ppf_match_3d15hashtableResiz
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 8) #16
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %50, label %.preheader
+  br i1 %.not, label %55, label %.preheader
 
 .preheader:                                       ; preds = %2
   %6 = load i64, ptr %0, align 8
@@ -373,8 +382,8 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN2cv12ppf_match_3d15hashtableResiz
   br label %8
 
 8:                                                ; preds = %.lr.ph35, %._crit_edge
-  %9 = phi i64 [ %6, %.lr.ph35 ], [ %45, %._crit_edge ]
-  %.01934 = phi i64 [ 0, %.lr.ph35 ], [ %46, %._crit_edge ]
+  %9 = phi i64 [ %6, %.lr.ph35 ], [ %50, %._crit_edge ]
+  %.01934 = phi i64 [ 0, %.lr.ph35 ], [ %51, %._crit_edge ]
   %10 = load ptr, ptr %7, align 8
   %11 = getelementptr inbounds ptr, ptr %10, i64 %.01934
   %12 = load ptr, ptr %11, align 8
@@ -441,33 +450,39 @@ _ZN2cv12ppf_match_3d15hashtableInsertEPNS0_8HSHTBL_iEjPv.exit: ; preds = %22, %.
 .lr.ph.i21.preheader:                             ; preds = %_ZN2cv12ppf_match_3d15hashtableInsertEPNS0_8HSHTBL_iEjPv.exit
   %37 = load i32, ptr %.01822.i, align 8
   %38 = icmp eq i32 %37, %30
-  br i1 %38, label %.lr.ph.i21._crit_edge, label %.lr.ph
+  br i1 %38, label %45, label %.lr.ph
 
 .lr.ph.i21:                                       ; preds = %.lr.ph
   %39 = load i32, ptr %.018.i, align 8
   %40 = icmp eq i32 %39, %30
-  br i1 %40, label %.lr.ph.i21._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %40, label %41, label %.lr.ph, !llvm.loop !9
 
-.lr.ph.i21._crit_edge:                            ; preds = %.lr.ph.i21, %.lr.ph.i21.preheader
-  %.01825.i.lcssa = phi ptr [ %.01822.i, %.lr.ph.i21.preheader ], [ %.018.i, %.lr.ph.i21 ]
-  %.01724.i.lcssa = phi ptr [ null, %.lr.ph.i21.preheader ], [ %.01825.i29, %.lr.ph.i21 ]
-  %.not19.i = icmp eq ptr %.01724.i.lcssa, null
-  %41 = getelementptr inbounds i8, ptr %.01825.i.lcssa, i64 16
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %.01724.i.lcssa, i64 16
-  %.sink.i = select i1 %.not19.i, ptr %36, ptr %43
-  store ptr %42, ptr %.sink.i, align 8
-  tail call void @free(ptr noundef nonnull %.01825.i.lcssa) #17
+41:                                               ; preds = %.lr.ph.i21
+  %42 = getelementptr inbounds i8, ptr %.018.i, i64 16
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds i8, ptr %.01825.i29, i64 16
+  store ptr %43, ptr %44, align 8
+  br label %48
+
+45:                                               ; preds = %.lr.ph.i21.preheader
+  %46 = getelementptr inbounds i8, ptr %.01822.i, i64 16
+  %47 = load ptr, ptr %46, align 8
+  store ptr %47, ptr %36, align 8
+  br label %48
+
+48:                                               ; preds = %45, %41
+  %.01825.i.lcssa44 = phi ptr [ %.01822.i, %45 ], [ %.018.i, %41 ]
+  tail call void @free(ptr noundef nonnull %.01825.i.lcssa44) #17
   br label %_ZN2cv12ppf_match_3d15hashtableRemoveEPNS0_8HSHTBL_iEj.exit
 
 .lr.ph:                                           ; preds = %.lr.ph.i21.preheader, %.lr.ph.i21
   %.01825.i29 = phi ptr [ %.018.i, %.lr.ph.i21 ], [ %.01822.i, %.lr.ph.i21.preheader ]
-  %44 = getelementptr inbounds i8, ptr %.01825.i29, i64 16
-  %.018.i = load ptr, ptr %44, align 8
+  %49 = getelementptr inbounds i8, ptr %.01825.i29, i64 16
+  %.018.i = load ptr, ptr %49, align 8
   %.not.i22 = icmp eq ptr %.018.i, null
   br i1 %.not.i22, label %_ZN2cv12ppf_match_3d15hashtableRemoveEPNS0_8HSHTBL_iEj.exit, label %.lr.ph.i21, !llvm.loop !9
 
-_ZN2cv12ppf_match_3d15hashtableRemoveEPNS0_8HSHTBL_iEj.exit: ; preds = %.lr.ph, %_ZN2cv12ppf_match_3d15hashtableInsertEPNS0_8HSHTBL_iEjPv.exit, %.lr.ph.i21._crit_edge
+_ZN2cv12ppf_match_3d15hashtableRemoveEPNS0_8HSHTBL_iEj.exit: ; preds = %.lr.ph, %_ZN2cv12ppf_match_3d15hashtableInsertEPNS0_8HSHTBL_iEjPv.exit, %48
   %.not20 = icmp eq ptr %14, null
   br i1 %.not20, label %._crit_edge.loopexit, label %.lr.ph33, !llvm.loop !11
 
@@ -476,20 +491,20 @@ _ZN2cv12ppf_match_3d15hashtableRemoveEPNS0_8HSHTBL_iEj.exit: ; preds = %.lr.ph, 
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %8
-  %45 = phi i64 [ %.pre, %._crit_edge.loopexit ], [ %9, %8 ]
-  %46 = add nuw i64 %.01934, 1
-  %47 = icmp ult i64 %46, %45
-  br i1 %47, label %8, label %._crit_edge36, !llvm.loop !12
+  %50 = phi i64 [ %.pre, %._crit_edge.loopexit ], [ %9, %8 ]
+  %51 = add nuw i64 %.01934, 1
+  %52 = icmp ult i64 %51, %50
+  br i1 %52, label %8, label %._crit_edge36, !llvm.loop !12
 
 ._crit_edge36:                                    ; preds = %._crit_edge, %.preheader
-  %48 = getelementptr inbounds i8, ptr %0, i64 8
-  %49 = load ptr, ptr %48, align 8
-  tail call void @free(ptr noundef %49) #17
+  %53 = getelementptr inbounds i8, ptr %0, i64 8
+  %54 = load ptr, ptr %53, align 8
+  tail call void @free(ptr noundef %54) #17
   store i64 %1, ptr %0, align 8
-  store ptr %5, ptr %48, align 8
-  br label %50
+  store ptr %5, ptr %53, align 8
+  br label %55
 
-50:                                               ; preds = %2, %._crit_edge36
+55:                                               ; preds = %2, %._crit_edge36
   %.0 = phi i32 [ 0, %._crit_edge36 ], [ -1, %2 ]
   ret i32 %.0
 }

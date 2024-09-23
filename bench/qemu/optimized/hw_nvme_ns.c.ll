@@ -1361,9 +1361,18 @@ land.rhs.i:                                       ; preds = %nvme_aor_dec_active
   %cmp.not.i = icmp eq ptr %3, null
   %tql_prev8.i = getelementptr inbounds i8, ptr %zone.0105.i, i64 80
   %4 = load ptr, ptr %tql_prev8.i, align 8
+  br i1 %cmp.not.i, label %if.else.i, label %if.then.i
+
+if.then.i:                                        ; preds = %land.rhs.i
   %tql_prev6.i = getelementptr inbounds i8, ptr %3, i64 80
-  %tql_prev10.sink.i = select i1 %cmp.not.i, ptr %tql_prev10.i, ptr %tql_prev6.i
-  store ptr %4, ptr %tql_prev10.sink.i, align 8
+  store ptr %4, ptr %tql_prev6.i, align 8
+  br label %if.end.i
+
+if.else.i:                                        ; preds = %land.rhs.i
+  store ptr %4, ptr %tql_prev10.i, align 8
+  br label %if.end.i
+
+if.end.i:                                         ; preds = %if.else.i, %if.then.i
   %5 = load ptr, ptr %entry1.i, align 8
   store ptr %5, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %entry1.i, i8 0, i64 16, i1 false)
@@ -1372,7 +1381,7 @@ land.rhs.i:                                       ; preds = %nvme_aor_dec_active
   %.pre.i.i = load i32, ptr %nr_active_zones9.phi.trans.insert.i.i, align 4
   br i1 %tobool.not.i.i, label %if.end8.i.i, label %if.then.i.i
 
-if.then.i.i:                                      ; preds = %land.rhs.i
+if.then.i.i:                                      ; preds = %if.end.i
   %cmp.i.i = icmp sgt i32 %.pre.i.i, 0
   br i1 %cmp.i.i, label %if.end.i.i, label %if.else.i.i
 
@@ -1391,7 +1400,7 @@ if.else6.i.i:                                     ; preds = %if.end.i.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.31, i32 noundef 359, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_aor_dec_active) #17
   unreachable
 
-if.end8.i.i:                                      ; preds = %land.rhs.i
+if.end8.i.i:                                      ; preds = %if.end.i
   %8 = icmp sgt i32 %.pre.i.i, -1
   br i1 %8, label %nvme_aor_dec_active.exit.i, label %if.else12.i.i
 
@@ -1424,9 +1433,18 @@ land.rhs21.i:                                     ; preds = %nvme_aor_dec_active
   %cmp27.not.i = icmp eq ptr %10, null
   %tql_prev36.i = getelementptr inbounds i8, ptr %zone.1107.i, i64 80
   %11 = load ptr, ptr %tql_prev36.i, align 8
+  br i1 %cmp27.not.i, label %if.else34.i, label %if.then28.i
+
+if.then28.i:                                      ; preds = %land.rhs21.i
   %tql_prev33.i = getelementptr inbounds i8, ptr %10, i64 80
-  %tql_prev38.sink.i = select i1 %cmp27.not.i, ptr %tql_prev38.i, ptr %tql_prev33.i
-  store ptr %11, ptr %tql_prev38.sink.i, align 8
+  store ptr %11, ptr %tql_prev33.i, align 8
+  br label %if.end39.i
+
+if.else34.i:                                      ; preds = %land.rhs21.i
+  store ptr %11, ptr %tql_prev38.i, align 8
+  br label %if.end39.i
+
+if.end39.i:                                       ; preds = %if.else34.i, %if.then28.i
   %12 = load ptr, ptr %entry22.i, align 8
   store ptr %12, ptr %11, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %entry22.i, i8 0, i64 16, i1 false)
@@ -1435,7 +1453,7 @@ land.rhs21.i:                                     ; preds = %nvme_aor_dec_active
   %.pre.i55.i = load i32, ptr %nr_open_zones4.phi.trans.insert.i.i, align 8
   br i1 %tobool.not.i54.i, label %if.end3.i.i, label %if.then.i56.i
 
-if.then.i56.i:                                    ; preds = %land.rhs21.i
+if.then.i56.i:                                    ; preds = %if.end39.i
   %cmp.i57.i = icmp sgt i32 %.pre.i55.i, 0
   br i1 %cmp.i57.i, label %if.end3.thread.i.i, label %if.else.i58.i
 
@@ -1448,7 +1466,7 @@ if.end3.thread.i.i:                               ; preds = %if.then.i56.i
   store i32 %dec.i59.i, ptr %nr_open_zones4.phi.trans.insert.i.i, align 8
   br label %nvme_aor_dec_open.exit.i
 
-if.end3.i.i:                                      ; preds = %land.rhs21.i
+if.end3.i.i:                                      ; preds = %if.end39.i
   %14 = icmp sgt i32 %.pre.i55.i, -1
   br i1 %14, label %nvme_aor_dec_open.exit.i, label %if.else7.i.i
 
@@ -1514,9 +1532,18 @@ land.rhs54.i:                                     ; preds = %nvme_aor_dec_active
   %cmp60.not.i = icmp eq ptr %19, null
   %tql_prev69.i = getelementptr inbounds i8, ptr %zone.2109.i, i64 80
   %20 = load ptr, ptr %tql_prev69.i, align 8
+  br i1 %cmp60.not.i, label %if.else67.i, label %if.then61.i
+
+if.then61.i:                                      ; preds = %land.rhs54.i
   %tql_prev66.i = getelementptr inbounds i8, ptr %19, i64 80
-  %tql_prev71.sink.i = select i1 %cmp60.not.i, ptr %tql_prev71.i, ptr %tql_prev66.i
-  store ptr %20, ptr %tql_prev71.sink.i, align 8
+  store ptr %20, ptr %tql_prev66.i, align 8
+  br label %if.end72.i
+
+if.else67.i:                                      ; preds = %land.rhs54.i
+  store ptr %20, ptr %tql_prev71.i, align 8
+  br label %if.end72.i
+
+if.end72.i:                                       ; preds = %if.else67.i, %if.then61.i
   %21 = load ptr, ptr %entry55.i, align 8
   store ptr %21, ptr %20, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %entry55.i, i8 0, i64 16, i1 false)
@@ -1525,7 +1552,7 @@ land.rhs54.i:                                     ; preds = %nvme_aor_dec_active
   %.pre.i79.i = load i32, ptr %nr_open_zones4.phi.trans.insert.i78.i, align 8
   br i1 %tobool.not.i77.i, label %if.end3.i86.i, label %if.then.i80.i
 
-if.then.i80.i:                                    ; preds = %land.rhs54.i
+if.then.i80.i:                                    ; preds = %if.end72.i
   %cmp.i81.i = icmp sgt i32 %.pre.i79.i, 0
   br i1 %cmp.i81.i, label %if.end3.thread.i83.i, label %if.else.i82.i
 
@@ -1538,7 +1565,7 @@ if.end3.thread.i83.i:                             ; preds = %if.then.i80.i
   store i32 %dec.i84.i, ptr %nr_open_zones4.phi.trans.insert.i78.i, align 8
   br label %nvme_aor_dec_open.exit88.i
 
-if.end3.i86.i:                                    ; preds = %land.rhs54.i
+if.end3.i86.i:                                    ; preds = %if.end72.i
   %23 = icmp sgt i32 %.pre.i79.i, -1
   br i1 %23, label %nvme_aor_dec_open.exit88.i, label %if.else7.i87.i
 
@@ -1802,10 +1829,19 @@ nvme_aor_inc_active.exit:                         ; preds = %if.end.i, %if.then1
   %entry14 = getelementptr inbounds i8, ptr %zone, i64 72
   store ptr %13, ptr %entry14, align 8
   %cmp15.not = icmp eq ptr %13, null
-  %tql_prev23 = getelementptr inbounds i8, ptr %ns, i64 8584
+  br i1 %cmp15.not, label %if.else, label %if.then17
+
+if.then17:                                        ; preds = %nvme_aor_inc_active.exit
   %tql_prev = getelementptr inbounds i8, ptr %13, i64 80
-  %tql_prev23.sink = select i1 %cmp15.not, ptr %tql_prev23, ptr %tql_prev
-  store ptr %entry14, ptr %tql_prev23.sink, align 8
+  store ptr %entry14, ptr %tql_prev, align 8
+  br label %if.end24
+
+if.else:                                          ; preds = %nvme_aor_inc_active.exit
+  %tql_prev23 = getelementptr inbounds i8, ptr %ns, i64 8584
+  store ptr %entry14, ptr %tql_prev23, align 8
+  br label %if.end24
+
+if.end24:                                         ; preds = %if.else, %if.then17
   store ptr %zone, ptr %closed_zones, align 8
   %tql_prev28 = getelementptr inbounds i8, ptr %zone, i64 80
   store ptr %closed_zones, ptr %tql_prev28, align 8
@@ -1864,7 +1900,7 @@ if.end44:                                         ; preds = %if.then38, %trace_p
   store i8 16, ptr %1, align 1
   br label %if.end45
 
-if.end45:                                         ; preds = %if.end44, %nvme_aor_inc_active.exit
+if.end45:                                         ; preds = %if.end44, %if.end24
   ret void
 }
 

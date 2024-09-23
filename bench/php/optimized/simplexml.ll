@@ -2961,7 +2961,7 @@ define hidden void @zim_SimpleXMLElement_current(ptr nocapture noundef readonly 
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
-  br label %39
+  br label %38
 
 .critedge:                                        ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 32
@@ -2977,13 +2977,13 @@ define hidden void @zim_SimpleXMLElement_current(ptr nocapture noundef readonly 
   %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %16 = icmp ne ptr %15, null
   tail call void @llvm.assume(i1 %16)
-  br label %39
+  br label %38
 
 17:                                               ; preds = %.critedge
   %18 = load i32, ptr %11, align 8
   %19 = and i32 %18, 65280
   %.not24 = icmp eq i32 %19, 0
-  br i1 %.not24, label %34, label %20
+  br i1 %.not24, label %33, label %20
 
 20:                                               ; preds = %17
   %21 = and i32 %18, 255
@@ -2997,31 +2997,31 @@ define hidden void @zim_SimpleXMLElement_current(ptr nocapture noundef readonly 
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 65280
   %.not25 = icmp eq i32 %28, 0
-  br i1 %.not25, label %34, label %.sink.split
+  br i1 %.not25, label %33, label %.sink.split
 
 .sink.split:                                      ; preds = %20, %23
-  %.sink = phi i32 [ %27, %23 ], [ %18, %20 ]
-  %.sink28 = phi ptr [ %25, %23 ], [ %10, %20 ]
-  %29 = and i32 %.sink, 65280
+  %.sink30 = phi i32 [ %27, %23 ], [ %18, %20 ]
+  %.sink.in = phi ptr [ %25, %23 ], [ %10, %20 ]
+  %29 = and i32 %.sink30, 65280
   %30 = icmp ne i32 %29, 0
   tail call void @llvm.assume(i1 %30)
-  %31 = load ptr, ptr %.sink28, align 8
-  %32 = load i32, ptr %31, align 4
-  %33 = add i32 %32, 1
-  store i32 %33, ptr %31, align 4
-  br label %34
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %31 = load i32, ptr %.sink, align 4
+  %32 = add i32 %31, 1
+  store i32 %32, ptr %.sink, align 4
+  br label %33
 
-34:                                               ; preds = %.sink.split, %17, %23
-  %.0 = phi ptr [ %25, %23 ], [ %10, %17 ], [ %.sink28, %.sink.split ]
-  %35 = load ptr, ptr %.0, align 8
-  %36 = getelementptr inbounds i8, ptr %.0, i64 8
-  %37 = load i32, ptr %36, align 8
-  store ptr %35, ptr %1, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %37, ptr %38, align 8
-  br label %39
+33:                                               ; preds = %.sink.split, %17, %23
+  %.0 = phi ptr [ %25, %23 ], [ %10, %17 ], [ %.sink.in, %.sink.split ]
+  %34 = load ptr, ptr %.0, align 8
+  %35 = getelementptr inbounds i8, ptr %.0, i64 8
+  %36 = load i32, ptr %35, align 8
+  store ptr %34, ptr %1, align 8
+  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %36, ptr %37, align 8
+  br label %38
 
-39:                                               ; preds = %34, %14, %5
+38:                                               ; preds = %33, %14, %5
   ret void
 }
 
@@ -3283,26 +3283,26 @@ define hidden void @zim_SimpleXMLElement_getChildren(ptr nocapture noundef reado
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %9 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %9)
-  br label %40
+  br label %39
 
 .critedge:                                        ; preds = %2
   %10 = getelementptr inbounds i8, ptr %4, i64 -40
   %11 = getelementptr inbounds i8, ptr %4, i64 -32
   %12 = load i8, ptr %11, align 8
   %13 = icmp eq i8 %12, 0
-  br i1 %13, label %40, label %14
+  br i1 %13, label %39, label %14
 
 14:                                               ; preds = %.critedge
   %15 = getelementptr inbounds i8, ptr %4, i64 -44
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 3
-  br i1 %17, label %40, label %18
+  br i1 %17, label %39, label %18
 
 18:                                               ; preds = %14
   %19 = load i32, ptr %11, align 8
   %20 = and i32 %19, 65280
   %.not25 = icmp eq i32 %20, 0
-  br i1 %.not25, label %35, label %21
+  br i1 %.not25, label %34, label %21
 
 21:                                               ; preds = %18
   %22 = and i32 %19, 255
@@ -3316,31 +3316,31 @@ define hidden void @zim_SimpleXMLElement_getChildren(ptr nocapture noundef reado
   %28 = load i32, ptr %27, align 8
   %29 = and i32 %28, 65280
   %.not26 = icmp eq i32 %29, 0
-  br i1 %.not26, label %35, label %.sink.split
+  br i1 %.not26, label %34, label %.sink.split
 
 .sink.split:                                      ; preds = %21, %24
-  %.sink = phi i32 [ %28, %24 ], [ %19, %21 ]
-  %.sink29 = phi ptr [ %26, %24 ], [ %10, %21 ]
-  %30 = and i32 %.sink, 65280
+  %.sink31 = phi i32 [ %28, %24 ], [ %19, %21 ]
+  %.sink.in = phi ptr [ %26, %24 ], [ %10, %21 ]
+  %30 = and i32 %.sink31, 65280
   %31 = icmp ne i32 %30, 0
   tail call void @llvm.assume(i1 %31)
-  %32 = load ptr, ptr %.sink29, align 8
-  %33 = load i32, ptr %32, align 4
-  %34 = add i32 %33, 1
-  store i32 %34, ptr %32, align 4
-  br label %35
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %32 = load i32, ptr %.sink, align 4
+  %33 = add i32 %32, 1
+  store i32 %33, ptr %.sink, align 4
+  br label %34
 
-35:                                               ; preds = %.sink.split, %18, %24
-  %.0 = phi ptr [ %26, %24 ], [ %10, %18 ], [ %.sink29, %.sink.split ]
-  %36 = load ptr, ptr %.0, align 8
-  %37 = getelementptr inbounds i8, ptr %.0, i64 8
-  %38 = load i32, ptr %37, align 8
-  store ptr %36, ptr %1, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %38, ptr %39, align 8
-  br label %40
+34:                                               ; preds = %.sink.split, %18, %24
+  %.0 = phi ptr [ %26, %24 ], [ %10, %18 ], [ %.sink.in, %.sink.split ]
+  %35 = load ptr, ptr %.0, align 8
+  %36 = getelementptr inbounds i8, ptr %.0, i64 8
+  %37 = load i32, ptr %36, align 8
+  store ptr %35, ptr %1, align 8
+  %38 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %37, ptr %38, align 8
+  br label %39
 
-40:                                               ; preds = %.critedge, %14, %35, %7
+39:                                               ; preds = %.critedge, %14, %34, %7
   ret void
 }
 

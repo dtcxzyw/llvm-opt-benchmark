@@ -1590,34 +1590,87 @@ declare noundef i32 @_ZNKSt10filesystem7__cxx114path7compareERKS1_(ptr noundef n
 define linkonce_odr void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPNSt10filesystem7__cxx114pathESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_SC_T0_(ptr %0, ptr %1, ptr %2, ptr %3) local_unnamed_addr #0 comdat {
   %5 = tail call noundef i32 @_ZNKSt10filesystem7__cxx114path7compareERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) #19
   %6 = icmp slt i32 %5, 0
-  br i1 %6, label %7, label %10
+  br i1 %6, label %7, label %27
 
 7:                                                ; preds = %4
   %8 = tail call noundef i32 @_ZNKSt10filesystem7__cxx114path7compareERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %3) #19
   %9 = icmp slt i32 %8, 0
-  br i1 %9, label %15, label %.sink.split
+  br i1 %9, label %10, label %15
 
-10:                                               ; preds = %4
-  %11 = tail call noundef i32 @_ZNKSt10filesystem7__cxx114path7compareERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %3) #19
-  %12 = icmp slt i32 %11, 0
-  br i1 %12, label %15, label %.sink.split
+10:                                               ; preds = %7
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %2) #19
+  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds i8, ptr %2, i64 32
+  %13 = load ptr, ptr %11, align 8
+  %14 = load ptr, ptr %12, align 8
+  store ptr %14, ptr %11, align 8
+  store ptr %13, ptr %12, align 8
+  br label %47
 
-.sink.split:                                      ; preds = %10, %7
-  %.sink = phi ptr [ %1, %7 ], [ %2, %10 ]
-  %13 = tail call noundef i32 @_ZNKSt10filesystem7__cxx114path7compareERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %.sink, ptr noundef nonnull align 8 dereferenceable(40) %3) #19
-  %14 = icmp slt i32 %13, 0
-  %.32 = select i1 %14, ptr %3, ptr %.sink
-  br label %15
+15:                                               ; preds = %7
+  %16 = tail call noundef i32 @_ZNKSt10filesystem7__cxx114path7compareERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %3) #19
+  %17 = icmp slt i32 %16, 0
+  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  br i1 %17, label %19, label %23
 
-15:                                               ; preds = %.sink.split, %10, %7
-  %.sink31 = phi ptr [ %2, %7 ], [ %1, %10 ], [ %.32, %.sink.split ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sink31) #19
-  %.sink30 = getelementptr inbounds i8, ptr %0, i64 32
-  %16 = getelementptr inbounds i8, ptr %.sink31, i64 32
-  %17 = load ptr, ptr %.sink30, align 8
-  %18 = load ptr, ptr %16, align 8
-  store ptr %18, ptr %.sink30, align 8
-  store ptr %17, ptr %16, align 8
+19:                                               ; preds = %15
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3) #19
+  %20 = getelementptr inbounds i8, ptr %3, i64 32
+  %21 = load ptr, ptr %18, align 8
+  %22 = load ptr, ptr %20, align 8
+  store ptr %22, ptr %18, align 8
+  store ptr %21, ptr %20, align 8
+  br label %47
+
+23:                                               ; preds = %15
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #19
+  %24 = getelementptr inbounds i8, ptr %1, i64 32
+  %25 = load ptr, ptr %18, align 8
+  %26 = load ptr, ptr %24, align 8
+  store ptr %26, ptr %18, align 8
+  store ptr %25, ptr %24, align 8
+  br label %47
+
+27:                                               ; preds = %4
+  %28 = tail call noundef i32 @_ZNKSt10filesystem7__cxx114path7compareERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %3) #19
+  %29 = icmp slt i32 %28, 0
+  br i1 %29, label %30, label %35
+
+30:                                               ; preds = %27
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #19
+  %31 = getelementptr inbounds i8, ptr %0, i64 32
+  %32 = getelementptr inbounds i8, ptr %1, i64 32
+  %33 = load ptr, ptr %31, align 8
+  %34 = load ptr, ptr %32, align 8
+  store ptr %34, ptr %31, align 8
+  store ptr %33, ptr %32, align 8
+  br label %47
+
+35:                                               ; preds = %27
+  %36 = tail call noundef i32 @_ZNKSt10filesystem7__cxx114path7compareERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %3) #19
+  %37 = icmp slt i32 %36, 0
+  %38 = getelementptr inbounds i8, ptr %0, i64 32
+  br i1 %37, label %39, label %43
+
+39:                                               ; preds = %35
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3) #19
+  %40 = getelementptr inbounds i8, ptr %3, i64 32
+  %41 = load ptr, ptr %38, align 8
+  %42 = load ptr, ptr %40, align 8
+  store ptr %42, ptr %38, align 8
+  store ptr %41, ptr %40, align 8
+  br label %47
+
+43:                                               ; preds = %35
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %2) #19
+  %44 = getelementptr inbounds i8, ptr %2, i64 32
+  %45 = load ptr, ptr %38, align 8
+  %46 = load ptr, ptr %44, align 8
+  store ptr %46, ptr %38, align 8
+  store ptr %45, ptr %44, align 8
+  br label %47
+
+47:                                               ; preds = %30, %43, %39, %10, %23, %19
   ret void
 }
 

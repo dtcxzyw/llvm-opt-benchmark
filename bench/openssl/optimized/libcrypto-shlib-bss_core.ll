@@ -115,46 +115,81 @@ for.cond:                                         ; preds = %for.cond.preheader,
 sw.bb:                                            ; preds = %for.cond
   %1 = load ptr, ptr %call.i, align 8
   %cmp3 = icmp eq ptr %1, null
-  br i1 %cmp3, label %for.inc.sink.split, label %for.inc
+  br i1 %cmp3, label %if.then4, label %for.inc
 
-sw.bb8:                                           ; preds = %for.cond
-  %2 = load ptr, ptr %c_bio_write_ex, align 8
-  %cmp9 = icmp eq ptr %2, null
-  br i1 %cmp9, label %for.inc.sink.split, label %for.inc
-
-sw.bb14:                                          ; preds = %for.cond
-  %3 = load ptr, ptr %c_bio_gets, align 8
-  %cmp15 = icmp eq ptr %3, null
-  br i1 %cmp15, label %for.inc.sink.split, label %for.inc
-
-sw.bb20:                                          ; preds = %for.cond
-  %4 = load ptr, ptr %c_bio_puts, align 8
-  %cmp21 = icmp eq ptr %4, null
-  br i1 %cmp21, label %for.inc.sink.split, label %for.inc
-
-sw.bb26:                                          ; preds = %for.cond
-  %5 = load ptr, ptr %c_bio_ctrl, align 8
-  %cmp27 = icmp eq ptr %5, null
-  br i1 %cmp27, label %for.inc.sink.split, label %for.inc
-
-sw.bb32:                                          ; preds = %for.cond
-  %6 = load ptr, ptr %c_bio_up_ref, align 8
-  %cmp33 = icmp eq ptr %6, null
-  br i1 %cmp33, label %for.inc.sink.split, label %for.inc
-
-sw.bb38:                                          ; preds = %for.cond
-  %7 = load ptr, ptr %c_bio_free, align 8
-  %cmp39 = icmp eq ptr %7, null
-  br i1 %cmp39, label %for.inc.sink.split, label %for.inc
-
-for.inc.sink.split:                               ; preds = %sw.bb38, %sw.bb32, %sw.bb26, %sw.bb20, %sw.bb14, %sw.bb8, %sw.bb
-  %call.i.sink = phi ptr [ %call.i, %sw.bb ], [ %c_bio_write_ex, %sw.bb8 ], [ %c_bio_gets, %sw.bb14 ], [ %c_bio_puts, %sw.bb20 ], [ %c_bio_ctrl, %sw.bb26 ], [ %c_bio_up_ref, %sw.bb32 ], [ %c_bio_free, %sw.bb38 ]
-  %8 = getelementptr i8, ptr %fns.addr.0, i64 8
-  %fns.addr.0.val = load ptr, ptr %8, align 8
-  store ptr %fns.addr.0.val, ptr %call.i.sink, align 8
+if.then4:                                         ; preds = %sw.bb
+  %2 = getelementptr i8, ptr %fns.addr.0, i64 8
+  %fns.addr.0.val = load ptr, ptr %2, align 8
+  store ptr %fns.addr.0.val, ptr %call.i, align 8
   br label %for.inc
 
-for.inc:                                          ; preds = %for.inc.sink.split, %for.cond, %sw.bb, %sw.bb8, %sw.bb14, %sw.bb20, %sw.bb26, %sw.bb32, %sw.bb38
+sw.bb8:                                           ; preds = %for.cond
+  %3 = load ptr, ptr %c_bio_write_ex, align 8
+  %cmp9 = icmp eq ptr %3, null
+  br i1 %cmp9, label %if.then10, label %for.inc
+
+if.then10:                                        ; preds = %sw.bb8
+  %4 = getelementptr i8, ptr %fns.addr.0, i64 8
+  %fns.addr.0.val24 = load ptr, ptr %4, align 8
+  store ptr %fns.addr.0.val24, ptr %c_bio_write_ex, align 8
+  br label %for.inc
+
+sw.bb14:                                          ; preds = %for.cond
+  %5 = load ptr, ptr %c_bio_gets, align 8
+  %cmp15 = icmp eq ptr %5, null
+  br i1 %cmp15, label %if.then16, label %for.inc
+
+if.then16:                                        ; preds = %sw.bb14
+  %6 = getelementptr i8, ptr %fns.addr.0, i64 8
+  %fns.addr.0.val25 = load ptr, ptr %6, align 8
+  store ptr %fns.addr.0.val25, ptr %c_bio_gets, align 8
+  br label %for.inc
+
+sw.bb20:                                          ; preds = %for.cond
+  %7 = load ptr, ptr %c_bio_puts, align 8
+  %cmp21 = icmp eq ptr %7, null
+  br i1 %cmp21, label %if.then22, label %for.inc
+
+if.then22:                                        ; preds = %sw.bb20
+  %8 = getelementptr i8, ptr %fns.addr.0, i64 8
+  %fns.addr.0.val26 = load ptr, ptr %8, align 8
+  store ptr %fns.addr.0.val26, ptr %c_bio_puts, align 8
+  br label %for.inc
+
+sw.bb26:                                          ; preds = %for.cond
+  %9 = load ptr, ptr %c_bio_ctrl, align 8
+  %cmp27 = icmp eq ptr %9, null
+  br i1 %cmp27, label %if.then28, label %for.inc
+
+if.then28:                                        ; preds = %sw.bb26
+  %10 = getelementptr i8, ptr %fns.addr.0, i64 8
+  %fns.addr.0.val27 = load ptr, ptr %10, align 8
+  store ptr %fns.addr.0.val27, ptr %c_bio_ctrl, align 8
+  br label %for.inc
+
+sw.bb32:                                          ; preds = %for.cond
+  %11 = load ptr, ptr %c_bio_up_ref, align 8
+  %cmp33 = icmp eq ptr %11, null
+  br i1 %cmp33, label %if.then34, label %for.inc
+
+if.then34:                                        ; preds = %sw.bb32
+  %12 = getelementptr i8, ptr %fns.addr.0, i64 8
+  %fns.addr.0.val28 = load ptr, ptr %12, align 8
+  store ptr %fns.addr.0.val28, ptr %c_bio_up_ref, align 8
+  br label %for.inc
+
+sw.bb38:                                          ; preds = %for.cond
+  %13 = load ptr, ptr %c_bio_free, align 8
+  %cmp39 = icmp eq ptr %13, null
+  br i1 %cmp39, label %if.then40, label %for.inc
+
+if.then40:                                        ; preds = %sw.bb38
+  %14 = getelementptr i8, ptr %fns.addr.0, i64 8
+  %fns.addr.0.val29 = load ptr, ptr %14, align 8
+  store ptr %fns.addr.0.val29, ptr %c_bio_free, align 8
+  br label %for.inc
+
+for.inc:                                          ; preds = %for.cond, %if.then4, %sw.bb, %if.then10, %sw.bb8, %if.then16, %sw.bb14, %if.then22, %sw.bb20, %if.then28, %sw.bb26, %if.then34, %sw.bb32, %if.then40, %sw.bb38
   %incdec.ptr = getelementptr inbounds i8, ptr %fns.addr.0, i64 16
   br label %for.cond, !llvm.loop !4
 

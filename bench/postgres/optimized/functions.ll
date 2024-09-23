@@ -136,18 +136,18 @@ define dso_local ptr @prepare_sql_fn_parse_info(ptr noundef %0, ptr noundef %1, 
   %48 = getelementptr inbounds i8, ptr %11, i64 24
   %49 = call i32 @get_func_input_arg_names(i64 noundef %spec.select, i64 noundef %.068, ptr noundef nonnull %48) #10
   %50 = icmp slt i32 %49, %17
-  br i1 %50, label %.sink.split, label %52
+  br i1 %50, label %51, label %53
+
+51:                                               ; preds = %40
+  store ptr null, ptr %48, align 8
+  br label %53
 
 .critedge:                                        ; preds = %3
-  %51 = getelementptr inbounds i8, ptr %11, i64 24
-  br label %.sink.split
+  %52 = getelementptr inbounds i8, ptr %11, i64 24
+  store ptr null, ptr %52, align 8
+  br label %53
 
-.sink.split:                                      ; preds = %40, %.critedge
-  %.sink = phi ptr [ %51, %.critedge ], [ %48, %40 ]
-  store ptr null, ptr %.sink, align 8
-  br label %52
-
-52:                                               ; preds = %.sink.split, %40
+53:                                               ; preds = %40, %51, %.critedge
   ret ptr %11
 }
 

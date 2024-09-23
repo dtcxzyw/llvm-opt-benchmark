@@ -233,14 +233,14 @@ define i32 @parse(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3
     i32 10, label %514
     i32 11, label %554
     i32 12, label %554
-    i32 6, label %612
-    i32 7, label %612
-    i32 3, label %657
-    i32 2, label %657
-    i32 4, label %658
-    i32 5, label %659
-    i32 0, label %660
-    i32 13, label %660
+    i32 6, label %616
+    i32 7, label %616
+    i32 3, label %661
+    i32 2, label %661
+    i32 4, label %662
+    i32 5, label %663
+    i32 0, label %664
+    i32 13, label %664
   ]
 
 100:                                              ; preds = %97
@@ -1148,240 +1148,242 @@ thread-pre-split184:                              ; preds = %521, %524
   %577 = phi ptr [ %575, %574 ], [ null, %568 ]
   %578 = call ptr @data_get_type_string(ptr noundef %3) #6
   %579 = call i32 (i32, i32, ptr, i32, ptr, ptr, ptr, ...) @on_error(i32 noundef 60138, i32 noundef %570, ptr noundef nonnull %4, i32 noundef 9208, ptr noundef %577, ptr noundef nonnull @__func__._parse_nt_array, ptr noundef nonnull @.str.20, ptr noundef %578) #6
-  br label %605
+  br label %609
 
 580:                                              ; preds = %566, %554
   %581 = load i32, ptr %98, align 4
-  switch i32 %581, label %586 [
-    i32 11, label %.sink.split
-    i32 12, label %582
+  switch i32 %581, label %590 [
+    i32 11, label %582
+    i32 12, label %586
   ]
 
 582:                                              ; preds = %580
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %580, %582
-  %.sink206 = phi i32 [ 523, %582 ], [ 520, %580 ]
-  %.sink204 = phi ptr [ %556, %582 ], [ %555, %580 ]
   %583 = call i64 @data_get_list_length(ptr noundef %3) #6
   %584 = add i64 %583, 1
-  %585 = call ptr @slurm_xcalloc(i64 noundef %584, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.36, i32 noundef %.sink206, ptr noundef nonnull @__func__._parse_nt_array) #6
-  store ptr %585, ptr %.sink204, align 8
-  br label %586
+  %585 = call ptr @slurm_xcalloc(i64 noundef %584, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.36, i32 noundef 520, ptr noundef nonnull @__func__._parse_nt_array) #6
+  store ptr %585, ptr %555, align 8
+  br label %590
 
-586:                                              ; preds = %.sink.split, %580
-  %587 = call i32 @data_get_type(ptr noundef %3) #6
-  %588 = icmp eq i32 %587, 2
-  br i1 %588, label %589, label %592
+586:                                              ; preds = %580
+  %587 = call i64 @data_get_list_length(ptr noundef %3) #6
+  %588 = add i64 %587, 1
+  %589 = call ptr @slurm_xcalloc(i64 noundef %588, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.36, i32 noundef 523, ptr noundef nonnull @__func__._parse_nt_array) #6
+  store ptr %589, ptr %556, align 8
+  br label %590
 
-589:                                              ; preds = %586
-  %590 = call i32 @data_list_for_each(ptr noundef %3, ptr noundef nonnull @_foreach_array_entry, ptr noundef nonnull %9) #6
-  %591 = icmp slt i32 %590, 0
-  br i1 %591, label %605, label %597
+590:                                              ; preds = %586, %582, %580
+  %591 = call i32 @data_get_type(ptr noundef %3) #6
+  %592 = icmp eq i32 %591, 2
+  br i1 %592, label %593, label %596
 
-592:                                              ; preds = %586
-  %593 = call i32 @data_get_type(ptr noundef %3) #6
-  %594 = icmp eq i32 %593, 5
-  br i1 %594, label %595, label %597
+593:                                              ; preds = %590
+  %594 = call i32 @data_list_for_each(ptr noundef %3, ptr noundef nonnull @_foreach_array_entry, ptr noundef nonnull %9) #6
+  %595 = icmp slt i32 %594, 0
+  br i1 %595, label %609, label %601
 
-595:                                              ; preds = %592
-  %596 = call i32 @_foreach_array_entry(ptr noundef %3, ptr noundef nonnull %9)
-  %.not37.i160 = icmp eq i32 %596, 1
+596:                                              ; preds = %590
+  %597 = call i32 @data_get_type(ptr noundef %3) #6
+  %598 = icmp eq i32 %597, 5
+  br i1 %598, label %599, label %601
+
+599:                                              ; preds = %596
+  %600 = call i32 @_foreach_array_entry(ptr noundef %3, ptr noundef nonnull %9)
+  %.not37.i160 = icmp eq i32 %600, 1
   %spec.select.i161 = select i1 %.not37.i160, i32 0, i32 9001
-  br label %597
+  br label %601
 
-597:                                              ; preds = %595, %592, %589
-  %.1.i = phi i32 [ 0, %589 ], [ 0, %592 ], [ %spec.select.i161, %595 ]
-  %598 = load i32, ptr %98, align 4
-  switch i32 %598, label %605 [
-    i32 11, label %599
-    i32 12, label %602
+601:                                              ; preds = %599, %596, %593
+  %.1.i = phi i32 [ 0, %593 ], [ 0, %596 ], [ %spec.select.i161, %599 ]
+  %602 = load i32, ptr %98, align 4
+  switch i32 %602, label %609 [
+    i32 11, label %603
+    i32 12, label %606
   ]
 
-599:                                              ; preds = %597
-  %600 = load ptr, ptr %0, align 8
-  %601 = load ptr, ptr %555, align 8
-  store ptr %601, ptr %0, align 8
-  store ptr %600, ptr %555, align 8
-  br label %605
+603:                                              ; preds = %601
+  %604 = load ptr, ptr %0, align 8
+  %605 = load ptr, ptr %555, align 8
+  store ptr %605, ptr %0, align 8
+  store ptr %604, ptr %555, align 8
+  br label %609
 
-602:                                              ; preds = %597
-  %603 = load ptr, ptr %0, align 8
-  %604 = load ptr, ptr %556, align 8
-  store ptr %604, ptr %0, align 8
-  store ptr %603, ptr %556, align 8
-  br label %605
+606:                                              ; preds = %601
+  %607 = load ptr, ptr %0, align 8
+  %608 = load ptr, ptr %556, align 8
+  store ptr %608, ptr %0, align 8
+  store ptr %607, ptr %556, align 8
+  br label %609
 
-605:                                              ; preds = %602, %599, %597, %589, %576
-  %.033.i = phi i32 [ %579, %576 ], [ 0, %589 ], [ %.1.i, %599 ], [ %.1.i, %602 ], [ %.1.i, %597 ]
+609:                                              ; preds = %606, %603, %601, %593, %576
+  %.033.i = phi i32 [ %579, %576 ], [ 0, %593 ], [ %.1.i, %603 ], [ %.1.i, %606 ], [ %.1.i, %601 ]
   call void @slurm_xfree(ptr noundef nonnull %10) #6
-  %606 = load ptr, ptr %555, align 8
-  %.not39.i = icmp eq ptr %606, null
+  %610 = load ptr, ptr %555, align 8
+  %.not39.i = icmp eq ptr %610, null
   br i1 %.not39.i, label %_parse_nt_array.exit, label %.preheader186
 
-.preheader186:                                    ; preds = %605
-  %607 = load ptr, ptr %606, align 8
-  %.not40.i188 = icmp eq ptr %607, null
+.preheader186:                                    ; preds = %609
+  %611 = load ptr, ptr %610, align 8
+  %.not40.i188 = icmp eq ptr %611, null
   br i1 %.not40.i188, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader186, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader186 ]
-  %608 = phi ptr [ %610, %.lr.ph ], [ %606, %.preheader186 ]
-  call void @free_parser_obj(ptr noundef %2, ptr noundef nonnull %608) #6
+  %612 = phi ptr [ %614, %.lr.ph ], [ %610, %.preheader186 ]
+  call void @free_parser_obj(ptr noundef %2, ptr noundef nonnull %612) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %609 = load ptr, ptr %555, align 8
-  %610 = getelementptr inbounds ptr, ptr %609, i64 %indvars.iv.next
-  %611 = load ptr, ptr %610, align 8
-  %.not40.i = icmp eq ptr %611, null
+  %613 = load ptr, ptr %555, align 8
+  %614 = getelementptr inbounds ptr, ptr %613, i64 %indvars.iv.next
+  %615 = load ptr, ptr %614, align 8
+  %.not40.i = icmp eq ptr %615, null
   br i1 %.not40.i, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader186
   call void @slurm_xfree(ptr noundef nonnull %555) #6
   br label %_parse_nt_array.exit
 
-_parse_nt_array.exit:                             ; preds = %605, %._crit_edge
+_parse_nt_array.exit:                             ; preds = %609, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   br label %_parse_pointer.exit
 
-612:                                              ; preds = %97, %97
-  %613 = getelementptr inbounds i8, ptr %4, i64 112
-  %614 = load i32, ptr %613, align 8
-  %615 = and i32 %614, 6
-  %or.cond = icmp eq i32 %615, 0
-  br i1 %or.cond, label %616, label %653
+616:                                              ; preds = %97, %97
+  %617 = getelementptr inbounds i8, ptr %4, i64 112
+  %618 = load i32, ptr %617, align 8
+  %619 = and i32 %618, 6
+  %or.cond = icmp eq i32 %619, 0
+  br i1 %or.cond, label %620, label %657
 
-616:                                              ; preds = %612
+620:                                              ; preds = %616
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store ptr null, ptr %8, align 8
-  %617 = call i32 @data_get_type(ptr noundef %3) #6
-  %618 = icmp eq i32 %617, 1
-  br i1 %618, label %_parse_check_openapi.exit, label %619
-
-619:                                              ; preds = %616
-  %620 = getelementptr inbounds i8, ptr %2, i64 40
-  %621 = load i32, ptr %620, align 8
-  %622 = icmp eq i32 %621, 0
+  %621 = call i32 @data_get_type(ptr noundef %3) #6
+  %622 = icmp eq i32 %621, 1
   br i1 %622, label %_parse_check_openapi.exit, label %623
 
-623:                                              ; preds = %619
-  %624 = call i32 @data_get_type(ptr noundef %3) #6
-  %625 = load i32, ptr %620, align 8
-  %626 = call i32 @openapi_type_format_to_data_type(i32 noundef %625) #6
-  %627 = icmp eq i32 %624, %626
-  br i1 %627, label %_parse_check_openapi.exit, label %628
+623:                                              ; preds = %620
+  %624 = getelementptr inbounds i8, ptr %2, i64 40
+  %625 = load i32, ptr %624, align 8
+  %626 = icmp eq i32 %625, 0
+  br i1 %626, label %_parse_check_openapi.exit, label %627
 
-628:                                              ; preds = %623
-  %629 = load i32, ptr %620, align 8
-  %630 = call ptr @openapi_type_format_to_type_string(i32 noundef %629) #6
-  %631 = load i32, ptr %620, align 8
-  %632 = call ptr @openapi_type_format_to_format_string(i32 noundef %631) #6
-  %633 = call i32 @data_get_type(ptr noundef %3) #6
-  %634 = call i32 @openapi_data_type_to_type_format(i32 noundef %633) #6
-  %635 = call ptr @openapi_type_format_to_type_string(i32 noundef %634) #6
-  %636 = call ptr @openapi_type_format_to_format_string(i32 noundef %634) #6
-  %637 = load i32, ptr %620, align 8
-  %638 = call i32 @openapi_type_format_to_data_type(i32 noundef %637) #6
-  %639 = getelementptr inbounds i8, ptr %2, i64 8
-  %640 = load i32, ptr %639, align 8
-  %641 = load i32, ptr %613, align 8
-  %642 = and i32 %641, 2
-  %.not.i162 = icmp eq i32 %642, 0
-  br i1 %.not.i162, label %643, label %645
+627:                                              ; preds = %623
+  %628 = call i32 @data_get_type(ptr noundef %3) #6
+  %629 = load i32, ptr %624, align 8
+  %630 = call i32 @openapi_type_format_to_data_type(i32 noundef %629) #6
+  %631 = icmp eq i32 %628, %630
+  br i1 %631, label %_parse_check_openapi.exit, label %632
 
-643:                                              ; preds = %628
-  %644 = call ptr @openapi_fmt_rel_path_str(ptr noundef nonnull %8, ptr noundef %5) #6
-  br label %645
+632:                                              ; preds = %627
+  %633 = load i32, ptr %624, align 8
+  %634 = call ptr @openapi_type_format_to_type_string(i32 noundef %633) #6
+  %635 = load i32, ptr %624, align 8
+  %636 = call ptr @openapi_type_format_to_format_string(i32 noundef %635) #6
+  %637 = call i32 @data_get_type(ptr noundef %3) #6
+  %638 = call i32 @openapi_data_type_to_type_format(i32 noundef %637) #6
+  %639 = call ptr @openapi_type_format_to_type_string(i32 noundef %638) #6
+  %640 = call ptr @openapi_type_format_to_format_string(i32 noundef %638) #6
+  %641 = load i32, ptr %624, align 8
+  %642 = call i32 @openapi_type_format_to_data_type(i32 noundef %641) #6
+  %643 = getelementptr inbounds i8, ptr %2, i64 8
+  %644 = load i32, ptr %643, align 8
+  %645 = load i32, ptr %617, align 8
+  %646 = and i32 %645, 2
+  %.not.i162 = icmp eq i32 %646, 0
+  br i1 %.not.i162, label %647, label %649
 
-645:                                              ; preds = %643, %628
-  %646 = phi ptr [ %644, %643 ], [ null, %628 ]
-  %.not24.i163 = icmp eq ptr %632, null
-  %647 = select i1 %.not24.i163, ptr @.str.3, ptr @.str.39
-  %648 = select i1 %.not24.i163, ptr @.str.3, ptr %632
-  %649 = call ptr @data_type_to_string(i32 noundef %638) #6
-  %.not25.i164 = icmp eq ptr %636, null
-  %650 = select i1 %.not25.i164, ptr @.str.3, ptr @.str.39
-  %651 = select i1 %.not25.i164, ptr @.str.3, ptr %636
-  %652 = call ptr @data_get_type_string(ptr noundef %3) #6
-  call void (i32, i32, ptr, ptr, ptr, ptr, ...) @on_warn(i32 noundef 60138, i32 noundef %640, ptr noundef nonnull %4, ptr noundef %646, ptr noundef nonnull @__func__._parse_check_openapi, ptr noundef nonnull @.str.38, ptr noundef %630, ptr noundef nonnull %647, ptr noundef nonnull %648, ptr noundef %649, ptr noundef %635, ptr noundef nonnull %650, ptr noundef nonnull %651, ptr noundef %652, ptr noundef %3) #6
+647:                                              ; preds = %632
+  %648 = call ptr @openapi_fmt_rel_path_str(ptr noundef nonnull %8, ptr noundef %5) #6
+  br label %649
+
+649:                                              ; preds = %647, %632
+  %650 = phi ptr [ %648, %647 ], [ null, %632 ]
+  %.not24.i163 = icmp eq ptr %636, null
+  %651 = select i1 %.not24.i163, ptr @.str.3, ptr @.str.39
+  %652 = select i1 %.not24.i163, ptr @.str.3, ptr %636
+  %653 = call ptr @data_type_to_string(i32 noundef %642) #6
+  %.not25.i164 = icmp eq ptr %640, null
+  %654 = select i1 %.not25.i164, ptr @.str.3, ptr @.str.39
+  %655 = select i1 %.not25.i164, ptr @.str.3, ptr %640
+  %656 = call ptr @data_get_type_string(ptr noundef %3) #6
+  call void (i32, i32, ptr, ptr, ptr, ptr, ...) @on_warn(i32 noundef 60138, i32 noundef %644, ptr noundef nonnull %4, ptr noundef %650, ptr noundef nonnull @__func__._parse_check_openapi, ptr noundef nonnull @.str.38, ptr noundef %634, ptr noundef nonnull %651, ptr noundef nonnull %652, ptr noundef %653, ptr noundef %639, ptr noundef nonnull %654, ptr noundef nonnull %655, ptr noundef %656, ptr noundef %3) #6
   call void @slurm_xfree(ptr noundef nonnull %8) #6
   br label %_parse_check_openapi.exit
 
-_parse_check_openapi.exit:                        ; preds = %616, %619, %623, %645
+_parse_check_openapi.exit:                        ; preds = %620, %623, %627, %649
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  br label %653
+  br label %657
 
-653:                                              ; preds = %_parse_check_openapi.exit, %612
-  %654 = getelementptr inbounds i8, ptr %2, i64 168
-  %655 = load ptr, ptr %654, align 8
-  %656 = call i32 %655(ptr noundef nonnull %2, ptr noundef %0, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5) #6
+657:                                              ; preds = %_parse_check_openapi.exit, %616
+  %658 = getelementptr inbounds i8, ptr %2, i64 168
+  %659 = load ptr, ptr %658, align 8
+  %660 = call i32 %659(ptr noundef nonnull %2, ptr noundef %0, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5) #6
   br label %_parse_pointer.exit
 
-657:                                              ; preds = %97, %97
+661:                                              ; preds = %97, %97
   call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.parse, i32 noundef %99) #7
   unreachable
 
-658:                                              ; preds = %97
+662:                                              ; preds = %97
   call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.parse, i32 noundef 4) #7
   unreachable
 
-659:                                              ; preds = %97
+663:                                              ; preds = %97
   call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.parse, i32 noundef 5) #7
   unreachable
 
-660:                                              ; preds = %97, %97
+664:                                              ; preds = %97, %97
   call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.parse, i32 noundef %99) #7
   unreachable
 
-_parse_pointer.exit:                              ; preds = %552, %538, %537, %49, %40, %37, %6, %32, %241, %513, %.critedge, %653, %_parse_nt_array.exit, %_parse_list.exit, %_parse_flag.exit, %97
-  %.2 = phi i32 [ %18, %6 ], [ 0, %97 ], [ %656, %653 ], [ %.033.i, %_parse_nt_array.exit ], [ %244, %241 ], [ %.1.lcssa, %.critedge ], [ %.1.lcssa, %513 ], [ %.0.i150173, %_parse_list.exit ], [ %.0.i, %_parse_flag.exit ], [ %36, %32 ], [ 0, %37 ], [ 0, %40 ], [ 0, %49 ], [ 0, %537 ], [ %540, %552 ], [ 0, %538 ]
-  %661 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %662 = and i64 %661, 256
-  %.not144 = icmp eq i64 %662, 0
-  br i1 %.not144, label %692, label %663
+_parse_pointer.exit:                              ; preds = %552, %538, %537, %49, %40, %37, %6, %32, %241, %513, %.critedge, %657, %_parse_nt_array.exit, %_parse_list.exit, %_parse_flag.exit, %97
+  %.2 = phi i32 [ %18, %6 ], [ 0, %97 ], [ %660, %657 ], [ %.033.i, %_parse_nt_array.exit ], [ %244, %241 ], [ %.1.lcssa, %.critedge ], [ %.1.lcssa, %513 ], [ %.0.i150173, %_parse_list.exit ], [ %.0.i, %_parse_flag.exit ], [ %36, %32 ], [ 0, %37 ], [ 0, %40 ], [ 0, %49 ], [ 0, %537 ], [ %540, %552 ], [ 0, %538 ]
+  %665 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %666 = and i64 %665, 256
+  %.not144 = icmp eq i64 %666, 0
+  br i1 %.not144, label %696, label %667
 
-663:                                              ; preds = %_parse_pointer.exit
-  %664 = call i32 @get_log_level() #6
-  %665 = icmp sgt i32 %664, 3
-  br i1 %665, label %666, label %692
+667:                                              ; preds = %_parse_pointer.exit
+  %668 = call i32 @get_log_level() #6
+  %669 = icmp sgt i32 %668, 3
+  br i1 %669, label %670, label %696
 
-666:                                              ; preds = %663
-  %667 = getelementptr inbounds i8, ptr %4, i64 112
-  %668 = load i32, ptr %667, align 8
-  %669 = and i32 %668, 2
-  %.not145 = icmp eq i32 %669, 0
-  br i1 %.not145, label %670, label %672
+670:                                              ; preds = %667
+  %671 = getelementptr inbounds i8, ptr %4, i64 112
+  %672 = load i32, ptr %671, align 8
+  %673 = and i32 %672, 2
+  %.not145 = icmp eq i32 %673, 0
+  br i1 %.not145, label %674, label %676
 
-670:                                              ; preds = %666
-  %671 = call ptr @openapi_fmt_rel_path_str(ptr noundef nonnull %16, ptr noundef %5) #6
-  br label %672
+674:                                              ; preds = %670
+  %675 = call ptr @openapi_fmt_rel_path_str(ptr noundef nonnull %16, ptr noundef %5) #6
+  br label %676
 
-672:                                              ; preds = %666, %670
-  %673 = phi ptr [ %671, %670 ], [ null, %666 ]
-  %674 = call ptr @data_get_type_string(ptr noundef %3) #6
-  %675 = ptrtoint ptr %3 to i64
-  %676 = icmp eq i64 %1, 4294967294
-  %677 = select i1 %676, i64 -1, i64 %1
-  %678 = getelementptr inbounds i8, ptr %2, i64 32
-  %679 = load ptr, ptr %678, align 8
-  %680 = ptrtoint ptr %0 to i64
-  %681 = getelementptr inbounds i8, ptr %2, i64 104
-  %682 = load i64, ptr %681, align 8
-  %683 = icmp eq i64 %682, 4294967294
-  %spec.select148 = select i1 %683, i64 0, i64 %682
-  %684 = getelementptr inbounds i8, ptr %2, i64 80
-  %685 = load ptr, ptr %684, align 8
-  %.not146 = icmp eq ptr %685, null
-  %686 = select i1 %.not146, ptr @.str.3, ptr @.str.2
-  %687 = select i1 %.not146, ptr @.str.3, ptr %685
-  %688 = getelementptr inbounds i8, ptr %2, i64 16
+676:                                              ; preds = %670, %674
+  %677 = phi ptr [ %675, %674 ], [ null, %670 ]
+  %678 = call ptr @data_get_type_string(ptr noundef %3) #6
+  %679 = ptrtoint ptr %3 to i64
+  %680 = icmp eq i64 %1, 4294967294
+  %681 = select i1 %680, i64 -1, i64 %1
+  %682 = getelementptr inbounds i8, ptr %2, i64 32
+  %683 = load ptr, ptr %682, align 8
+  %684 = ptrtoint ptr %0 to i64
+  %685 = getelementptr inbounds i8, ptr %2, i64 104
+  %686 = load i64, ptr %685, align 8
+  %687 = icmp eq i64 %686, 4294967294
+  %spec.select148 = select i1 %687, i64 0, i64 %686
+  %688 = getelementptr inbounds i8, ptr %2, i64 80
   %689 = load ptr, ptr %688, align 8
-  %690 = ptrtoint ptr %2 to i64
-  %691 = call ptr @slurm_strerror(i32 noundef %.2) #6
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.parse, ptr noundef %673, ptr noundef %674, i64 noundef %675, i64 noundef %677, ptr noundef %679, i64 noundef %680, i64 noundef %spec.select148, ptr noundef nonnull %686, ptr noundef nonnull %687, ptr noundef %689, i64 noundef %690, i32 noundef %.2, ptr noundef %691) #6
-  br label %692
+  %.not146 = icmp eq ptr %689, null
+  %690 = select i1 %.not146, ptr @.str.3, ptr @.str.2
+  %691 = select i1 %.not146, ptr @.str.3, ptr %689
+  %692 = getelementptr inbounds i8, ptr %2, i64 16
+  %693 = load ptr, ptr %692, align 8
+  %694 = ptrtoint ptr %2 to i64
+  %695 = call ptr @slurm_strerror(i32 noundef %.2) #6
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.parse, ptr noundef %677, ptr noundef %678, i64 noundef %679, i64 noundef %681, ptr noundef %683, i64 noundef %684, i64 noundef %spec.select148, ptr noundef nonnull %690, ptr noundef nonnull %691, ptr noundef %693, i64 noundef %694, i32 noundef %.2, ptr noundef %695) #6
+  br label %696
 
-692:                                              ; preds = %_parse_pointer.exit, %663, %672
+696:                                              ; preds = %_parse_pointer.exit, %667, %676
   call void @slurm_xfree(ptr noundef nonnull %16) #6
   ret i32 %.2
 }

@@ -931,12 +931,12 @@ if.end93:                                         ; preds = %if.then92, %if.end8
   %_M_left.i.i.i88 = getelementptr inbounds i8, ptr %ref.tmp94, i64 24
   %27 = load ptr, ptr %_M_left.i.i.i88, align 8
   %add.ptr.i.i.i89 = getelementptr inbounds i8, ptr %ref.tmp94, i64 8
-  %cmp.i.not4.i.i.i.i.i = icmp eq ptr %27, %add.ptr.i.i.i89
-  br i1 %cmp.i.not4.i.i.i.i.i, label %invoke.cont98, label %land.rhs.i.i.i.i.i
+  %cmp.i.not3.i.i.i.i.i = icmp eq ptr %27, %add.ptr.i.i.i89
+  br i1 %cmp.i.not3.i.i.i.i.i, label %invoke.cont98, label %land.rhs.i.i.i.i.i
 
 land.rhs.i.i.i.i.i:                               ; preds = %if.end93, %while.body.i.i.i.i.i
-  %__first.sroa.0.05.i.i.i.i.i = phi ptr [ %call.i.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %27, %if.end93 ]
-  %_M_storage.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.05.i.i.i.i.i, i64 32
+  %__first.sroa.0.04.i.i.i.i.i = phi ptr [ %call.i.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %27, %if.end93 ]
+  %_M_storage.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.04.i.i.i.i.i, i64 32
   %28 = load i32, ptr %_M_storage.i.i.i.i.i.i.i.i, align 4
   %call.i.i.i.i.i.i.i9091 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZNK3ue213ReportManager9getReportEj(ptr noundef nonnull align 8 dereferenceable(505) %rm, i32 noundef %28)
           to label %call.i.i.i.i.i.i.i90.noexc unwind label %lpad97
@@ -945,23 +945,27 @@ call.i.i.i.i.i.i.i90.noexc:                       ; preds = %land.rhs.i.i.i.i.i
   %ekey.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i9091, i64 32
   %29 = load i32, ptr %ekey.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq i32 %29, -1
+  br i1 %cmp.not.i.i.i.i.i.i.i, label %invoke.cont98, label %land.lhs.true.i.i.i.i.i.i.i
+
+land.lhs.true.i.i.i.i.i.i.i:                      ; preds = %call.i.i.i.i.i.i.i90.noexc
   %minLength.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i9091, i64 24
   %30 = load i64, ptr %minLength.i.i.i.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i.i.i = icmp ne i64 %30, 0
-  %or.cond.i.i.not3.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i.i, i1 true, i1 %tobool.not.i.i.i.i.i.i.i
+  %tobool.not.i.i.i.i.i.i.i = icmp eq i64 %30, 0
+  br i1 %tobool.not.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN3ue22NG8addGraphERNS2_14ExpressionInfoESt10unique_ptrINS2_8NGHolderESt14default_deleteIS7_EEE3$_1EclISt23_Rb_tree_const_iteratorIjEEEbT_.exit.i.i.i.i.i", label %invoke.cont98
+
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN3ue22NG8addGraphERNS2_14ExpressionInfoESt10unique_ptrINS2_8NGHolderESt14default_deleteIS7_EEE3$_1EclISt23_Rb_tree_const_iteratorIjEEEbT_.exit.i.i.i.i.i": ; preds = %land.lhs.true.i.i.i.i.i.i.i
   %minOffset.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i9091, i64 8
   %31 = load i64, ptr %minOffset.i.i.i.i.i.i.i, align 8
-  %tobool2.not.i.i.i.i.i.i.i = icmp ne i64 %31, 0
-  %or.cond.i.i.i.i.i = select i1 %or.cond.i.i.not3.i.i.i.i.i, i1 true, i1 %tobool2.not.i.i.i.i.i.i.i
-  br i1 %or.cond.i.i.i.i.i, label %invoke.cont98, label %while.body.i.i.i.i.i
+  %tobool2.not.i.i.not.i.i.i.i.i = icmp eq i64 %31, 0
+  br i1 %tobool2.not.i.i.not.i.i.i.i.i, label %while.body.i.i.i.i.i, label %invoke.cont98
 
-while.body.i.i.i.i.i:                             ; preds = %call.i.i.i.i.i.i.i90.noexc
-  %call.i.i.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first.sroa.0.05.i.i.i.i.i) #23
+while.body.i.i.i.i.i:                             ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN3ue22NG8addGraphERNS2_14ExpressionInfoESt10unique_ptrINS2_8NGHolderESt14default_deleteIS7_EEE3$_1EclISt23_Rb_tree_const_iteratorIjEEEbT_.exit.i.i.i.i.i"
+  %call.i.i.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first.sroa.0.04.i.i.i.i.i) #23
   %cmp.i.not.i.i.i.i.i = icmp eq ptr %call.i.i.i.i.i.i, %add.ptr.i.i.i89
   br i1 %cmp.i.not.i.i.i.i.i, label %invoke.cont98, label %land.rhs.i.i.i.i.i, !llvm.loop !11
 
-invoke.cont98:                                    ; preds = %while.body.i.i.i.i.i, %call.i.i.i.i.i.i.i90.noexc, %if.end93
-  %__first.sroa.0.0.lcssa.i.i.i.i.i = phi ptr [ %27, %if.end93 ], [ %add.ptr.i.i.i89, %while.body.i.i.i.i.i ], [ %__first.sroa.0.05.i.i.i.i.i, %call.i.i.i.i.i.i.i90.noexc ]
+invoke.cont98:                                    ; preds = %while.body.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN3ue22NG8addGraphERNS2_14ExpressionInfoESt10unique_ptrINS2_8NGHolderESt14default_deleteIS7_EEE3$_1EclISt23_Rb_tree_const_iteratorIjEEEbT_.exit.i.i.i.i.i", %land.lhs.true.i.i.i.i.i.i.i, %call.i.i.i.i.i.i.i90.noexc, %if.end93
+  %__first.sroa.0.0.lcssa.i.i.i.i.i = phi ptr [ %27, %if.end93 ], [ %__first.sroa.0.04.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN3ue22NG8addGraphERNS2_14ExpressionInfoESt10unique_ptrINS2_8NGHolderESt14default_deleteIS7_EEE3$_1EclISt23_Rb_tree_const_iteratorIjEEEbT_.exit.i.i.i.i.i" ], [ %add.ptr.i.i.i89, %while.body.i.i.i.i.i ], [ %__first.sroa.0.04.i.i.i.i.i, %land.lhs.true.i.i.i.i.i.i.i ], [ %__first.sroa.0.04.i.i.i.i.i, %call.i.i.i.i.i.i.i90.noexc ]
   %_M_parent.i.i.i.i92 = getelementptr inbounds i8, ptr %ref.tmp94, i64 16
   %32 = load ptr, ptr %_M_parent.i.i.i.i92, align 8
   invoke void @_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE8_M_eraseEPSt13_Rb_tree_nodeIjE(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp94, ptr noundef %32)

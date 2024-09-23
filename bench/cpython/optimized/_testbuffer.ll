@@ -1341,18 +1341,27 @@ while.body:                                       ; preds = %if.then, %ndbuf_pop
   %6 = load ptr, ptr %prev.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %6, null
   %7 = load ptr, ptr %5, align 8
-  %head.sink.i.i = select i1 %tobool.not.i.i, ptr %head, ptr %6
-  store ptr %7, ptr %head.sink.i.i, align 8
+  br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
+
+if.then.i.i:                                      ; preds = %while.body
+  store ptr %7, ptr %6, align 8
+  br label %if.end.i.i
+
+if.else.i.i:                                      ; preds = %while.body
+  store ptr %7, ptr %head, align 8
+  br label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %if.else.i.i, %if.then.i.i
   %tobool5.not.i.i = icmp eq ptr %7, null
   br i1 %tobool5.not.i.i, label %ndbuf_pop.exit, label %if.then6.i.i
 
-if.then6.i.i:                                     ; preds = %while.body
+if.then6.i.i:                                     ; preds = %if.end.i.i
   %8 = load ptr, ptr %prev.i.i, align 8
   %prev9.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %8, ptr %prev9.i.i, align 8
   br label %ndbuf_pop.exit
 
-ndbuf_pop.exit:                                   ; preds = %while.body, %if.then6.i.i
+ndbuf_pop.exit:                                   ; preds = %if.end.i.i, %if.then6.i.i
   tail call fastcc void @ndbuf_free(ptr noundef nonnull %5)
   %.pr = load ptr, ptr %head, align 8
   %tobool25.not = icmp eq ptr %.pr, null
@@ -3783,18 +3792,27 @@ if.then4:                                         ; preds = %land.lhs.true
   %4 = load ptr, ptr %prev.i, align 8
   %tobool.not.i = icmp eq ptr %4, null
   %5 = load ptr, ptr %1, align 8
-  %head.sink.i = select i1 %tobool.not.i, ptr %head, ptr %4
-  store ptr %5, ptr %head.sink.i, align 8
+  br i1 %tobool.not.i, label %if.else.i, label %if.then.i
+
+if.then.i:                                        ; preds = %if.then4
+  store ptr %5, ptr %4, align 8
+  br label %if.end.i
+
+if.else.i:                                        ; preds = %if.then4
+  store ptr %5, ptr %head, align 8
+  br label %if.end.i
+
+if.end.i:                                         ; preds = %if.else.i, %if.then.i
   %tobool5.not.i = icmp eq ptr %5, null
   br i1 %tobool5.not.i, label %ndbuf_delete.exit, label %if.then6.i
 
-if.then6.i:                                       ; preds = %if.then4
+if.then6.i:                                       ; preds = %if.end.i
   %6 = load ptr, ptr %prev.i, align 8
   %prev9.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %6, ptr %prev9.i, align 8
   br label %ndbuf_delete.exit
 
-ndbuf_delete.exit:                                ; preds = %if.then4, %if.then6.i
+ndbuf_delete.exit:                                ; preds = %if.end.i, %if.then6.i
   tail call fastcc void @ndbuf_free(ptr noundef nonnull %1)
   br label %if.end5
 
@@ -4130,19 +4148,28 @@ if.then3:                                         ; preds = %if.end
 if.end9:                                          ; preds = %if.end
   %4 = load ptr, ptr %0, align 8
   %cmp11 = icmp eq ptr %4, null
-  br i1 %cmp11, label %if.then12, label %ndbuf_pop.exit
+  br i1 %cmp11, label %if.then12, label %if.end13
 
 if.then12:                                        ; preds = %if.end9
   %5 = load ptr, ptr @PyExc_BufferError, align 8
   tail call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.112) #14
   br label %return
 
-ndbuf_pop.exit:                                   ; preds = %if.end9
+if.end13:                                         ; preds = %if.end9
   %prev.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %prev.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %6, null
-  %head.sink.i.i = select i1 %tobool.not.i.i, ptr %head, ptr %6
-  store ptr %4, ptr %head.sink.i.i, align 8
+  br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
+
+if.then.i.i:                                      ; preds = %if.end13
+  store ptr %4, ptr %6, align 8
+  br label %ndbuf_pop.exit
+
+if.else.i.i:                                      ; preds = %if.end13
+  store ptr %4, ptr %head, align 8
+  br label %ndbuf_pop.exit
+
+ndbuf_pop.exit:                                   ; preds = %if.else.i.i, %if.then.i.i
   %7 = load ptr, ptr %prev.i.i, align 8
   %prev9.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %prev9.i.i, align 8

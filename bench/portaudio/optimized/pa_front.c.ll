@@ -292,8 +292,8 @@ define range(i32 -10000, 1) i32 @Pa_Terminate() local_unnamed_addr #3 {
 
 2:                                                ; preds = %0
   %3 = load ptr, ptr @firstOpenStream_, align 8
-  %.not3.i = icmp eq ptr %3, null
-  br i1 %.not3.i, label %CloseOpenStreams.exit, label %.lr.ph.split.i
+  %.not2.i = icmp eq ptr %3, null
+  br i1 %.not2.i, label %CloseOpenStreams.exit, label %.lr.ph.split.i
 
 .lr.ph.splitthread-pre-split.i:                   ; preds = %Pa_CloseStream.exit.i
   %.pr.i = load i32, ptr @initializationCount_, align 4
@@ -343,11 +343,11 @@ RemoveOpenStream.exit.i.thread.i:                 ; preds = %6, %.lr.ph.split.i
   br label %Pa_CloseStream.exitthread-pre-split.i
 
 Pa_CloseStream.exitthread-pre-split.i:            ; preds = %.thread.i.i, %18, %10
-  %.pr4.i = load ptr, ptr @firstOpenStream_, align 8
+  %.pr3.i = load ptr, ptr @firstOpenStream_, align 8
   br label %Pa_CloseStream.exit.i
 
 Pa_CloseStream.exit.i:                            ; preds = %Pa_CloseStream.exitthread-pre-split.i, %RemoveOpenStream.exit.i.thread.i
-  %25 = phi ptr [ %.pr4.i, %Pa_CloseStream.exitthread-pre-split.i ], [ %9, %RemoveOpenStream.exit.i.thread.i ]
+  %25 = phi ptr [ %.pr3.i, %Pa_CloseStream.exitthread-pre-split.i ], [ %9, %RemoveOpenStream.exit.i.thread.i ]
   %.not.i = icmp eq ptr %25, null
   br i1 %.not.i, label %CloseOpenStreams.exit, label %.lr.ph.splitthread-pre-split.i, !llvm.loop !8
 
@@ -1578,59 +1578,61 @@ PaUtil_ValidateStreamPointer.exit:                ; preds = %1, %3, %5
 
 .lr.ph.i.preheader:                               ; preds = %PaUtil_ValidateStreamPointer.exit
   %7 = icmp eq ptr %.012.i, %0
-  br i1 %7, label %.loopexit.sink.split.i, label %.lr.ph
+  br i1 %7, label %9, label %.lr.ph
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %8 = icmp eq ptr %.0.i15, %0
-  br i1 %8, label %.loopexit.sink.split.i, label %.lr.ph, !llvm.loop !13
+  br i1 %8, label %12, label %.lr.ph, !llvm.loop !13
 
-.loopexit.sink.split.i:                           ; preds = %.lr.ph.i, %.lr.ph.i.preheader
-  %.015.i.lcssa = phi ptr [ %.012.i, %.lr.ph.i.preheader ], [ %.0.i15, %.lr.ph.i ]
-  %.0914.i.lcssa = phi ptr [ null, %.lr.ph.i.preheader ], [ %.015.i22, %.lr.ph.i ]
-  %9 = icmp eq ptr %.0914.i.lcssa, null
-  %10 = getelementptr inbounds nuw i8, ptr %.015.i.lcssa, i64 8
+9:                                                ; preds = %.lr.ph.i.preheader
+  %10 = getelementptr inbounds nuw i8, ptr %.012.i, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %.0914.i.lcssa, i64 8
-  %firstOpenStream_.sink.i = select i1 %9, ptr @firstOpenStream_, ptr %12
-  store ptr %11, ptr %firstOpenStream_.sink.i, align 8
+  store ptr %11, ptr @firstOpenStream_, align 8
+  br label %RemoveOpenStream.exit
+
+12:                                               ; preds = %.lr.ph.i
+  %13 = getelementptr inbounds nuw i8, ptr %.0.i15, i64 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %.015.i22, i64 8
+  store ptr %14, ptr %15, align 8
   br label %RemoveOpenStream.exit
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.015.i22 = phi ptr [ %.0.i15, %.lr.ph.i ], [ %.012.i, %.lr.ph.i.preheader ]
-  %13 = getelementptr inbounds nuw i8, ptr %.015.i22, i64 8
-  %.0.i15 = load ptr, ptr %13, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %.015.i22, i64 8
+  %.0.i15 = load ptr, ptr %16, align 8
   %.not.i16 = icmp eq ptr %.0.i15, null
   br i1 %.not.i16, label %RemoveOpenStream.exit, label %.lr.ph.i, !llvm.loop !13
 
-RemoveOpenStream.exit:                            ; preds = %.lr.ph, %PaUtil_ValidateStreamPointer.exit, %.loopexit.sink.split.i
-  %14 = icmp eq i32 %.0.i, 0
-  br i1 %14, label %15, label %.thread18
+RemoveOpenStream.exit:                            ; preds = %.lr.ph, %PaUtil_ValidateStreamPointer.exit, %9, %12
+  %17 = icmp eq i32 %.0.i, 0
+  br i1 %17, label %18, label %.thread18
 
-15:                                               ; preds = %RemoveOpenStream.exit
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %19 = load ptr, ptr %18, align 8
-  %20 = tail call i32 %19(ptr noundef %0) #12
-  switch i32 %20, label %.thread18 [
+18:                                               ; preds = %RemoveOpenStream.exit
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  %22 = load ptr, ptr %21, align 8
+  %23 = tail call i32 %22(ptr noundef %0) #12
+  switch i32 %23, label %.thread18 [
     i32 1, label %.thread
-    i32 0, label %21
+    i32 0, label %24
   ]
 
-21:                                               ; preds = %15
-  %22 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %23 = load ptr, ptr %22, align 8
-  %24 = tail call i32 %23(ptr noundef nonnull %0) #12
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %.thread, label %.thread18
-
-.thread:                                          ; preds = %15, %21
-  %26 = load ptr, ptr %17, align 8
+24:                                               ; preds = %18
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %26 = load ptr, ptr %25, align 8
   %27 = tail call i32 %26(ptr noundef nonnull %0) #12
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %.thread, label %.thread18
+
+.thread:                                          ; preds = %18, %24
+  %29 = load ptr, ptr %20, align 8
+  %30 = tail call i32 %29(ptr noundef nonnull %0) #12
   br label %.thread18
 
-.thread18:                                        ; preds = %15, %21, %.thread, %RemoveOpenStream.exit
-  %.0 = phi i32 [ %27, %.thread ], [ %24, %21 ], [ %.0.i, %RemoveOpenStream.exit ], [ %20, %15 ]
+.thread18:                                        ; preds = %18, %24, %.thread, %RemoveOpenStream.exit
+  %.0 = phi i32 [ %30, %.thread ], [ %27, %24 ], [ %.0.i, %RemoveOpenStream.exit ], [ %23, %18 ]
   ret i32 %.0
 }
 

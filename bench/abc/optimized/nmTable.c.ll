@@ -318,48 +318,48 @@ Nm_ManTableLookupName.exit.thread41:              ; preds = %.lr.ph40.split.us.i
   %151 = load ptr, ptr %150, align 8
   %.not28 = icmp eq ptr %151, null
   %. = select i1 %.not28, ptr %.023.i44, ptr %151
-  br label %169
+  %152 = getelementptr inbounds i8, ptr %1, i64 24
+  store ptr %., ptr %152, align 8
+  store ptr %1, ptr %150, align 8
+  br label %171
 
 Nm_ManTableLookupName.exit.thread:                ; preds = %.loopexit.us.i, %Nm_HashString.exit.i34, %Nm_ManTableLookupName.exit
   br i1 %.not12.i.i29, label %Nm_HashString.exit, label %.lr.ph.i36
 
 .lr.ph.i36:                                       ; preds = %Nm_ManTableLookupName.exit.thread, %.lr.ph.i36
-  %152 = phi i8 [ %164, %.lr.ph.i36 ], [ %121, %Nm_ManTableLookupName.exit.thread ]
-  %.014.i = phi i32 [ %160, %.lr.ph.i36 ], [ 0, %Nm_ManTableLookupName.exit.thread ]
-  %.01013.i = phi i32 [ %161, %.lr.ph.i36 ], [ 0, %Nm_ManTableLookupName.exit.thread ]
-  %153 = sext i8 %152 to i32
-  %154 = urem i32 %.01013.i, 10
-  %155 = zext nneg i32 %154 to i64
-  %156 = getelementptr inbounds [10 x i32], ptr @Nm_HashString.s_Primes, i64 0, i64 %155
-  %157 = load i32, ptr %156, align 4
-  %158 = mul nsw i32 %153, %153
-  %159 = mul i32 %158, %157
-  %160 = xor i32 %159, %.014.i
-  %161 = add i32 %.01013.i, 1
-  %162 = zext i32 %161 to i64
-  %163 = getelementptr inbounds i8, ptr %117, i64 %162
-  %164 = load i8, ptr %163, align 1
-  %.not.i37 = icmp eq i8 %164, 0
+  %153 = phi i8 [ %165, %.lr.ph.i36 ], [ %121, %Nm_ManTableLookupName.exit.thread ]
+  %.014.i = phi i32 [ %161, %.lr.ph.i36 ], [ 0, %Nm_ManTableLookupName.exit.thread ]
+  %.01013.i = phi i32 [ %162, %.lr.ph.i36 ], [ 0, %Nm_ManTableLookupName.exit.thread ]
+  %154 = sext i8 %153 to i32
+  %155 = urem i32 %.01013.i, 10
+  %156 = zext nneg i32 %155 to i64
+  %157 = getelementptr inbounds [10 x i32], ptr @Nm_HashString.s_Primes, i64 0, i64 %156
+  %158 = load i32, ptr %157, align 4
+  %159 = mul nsw i32 %154, %154
+  %160 = mul i32 %159, %158
+  %161 = xor i32 %160, %.014.i
+  %162 = add i32 %.01013.i, 1
+  %163 = zext i32 %162 to i64
+  %164 = getelementptr inbounds i8, ptr %117, i64 %163
+  %165 = load i8, ptr %164, align 1
+  %.not.i37 = icmp eq i8 %165, 0
   br i1 %.not.i37, label %Nm_HashString.exit, label %.lr.ph.i36, !llvm.loop !9
 
 Nm_HashString.exit:                               ; preds = %.lr.ph.i36, %Nm_ManTableLookupName.exit.thread
-  %.0.lcssa.i = phi i32 [ 0, %Nm_ManTableLookupName.exit.thread ], [ %160, %.lr.ph.i36 ]
-  %165 = urem i32 %.0.lcssa.i, %120
-  %166 = zext i32 %165 to i64
-  %167 = getelementptr inbounds ptr, ptr %119, i64 %166
-  %168 = load ptr, ptr %167, align 8
-  br label %169
+  %.0.lcssa.i = phi i32 [ 0, %Nm_ManTableLookupName.exit.thread ], [ %161, %.lr.ph.i36 ]
+  %166 = urem i32 %.0.lcssa.i, %120
+  %167 = zext i32 %166 to i64
+  %168 = getelementptr inbounds ptr, ptr %119, i64 %167
+  %169 = load ptr, ptr %168, align 8
+  %170 = getelementptr inbounds i8, ptr %1, i64 16
+  store ptr %169, ptr %170, align 8
+  store ptr %1, ptr %168, align 8
+  br label %171
 
-169:                                              ; preds = %Nm_HashString.exit, %Nm_ManTableLookupName.exit.thread41
-  %.sink74 = phi i64 [ 16, %Nm_HashString.exit ], [ 24, %Nm_ManTableLookupName.exit.thread41 ]
-  %.sink72 = phi ptr [ %168, %Nm_HashString.exit ], [ %., %Nm_ManTableLookupName.exit.thread41 ]
-  %.sink = phi ptr [ %167, %Nm_HashString.exit ], [ %150, %Nm_ManTableLookupName.exit.thread41 ]
-  %170 = getelementptr inbounds i8, ptr %1, i64 %.sink74
-  store ptr %.sink72, ptr %170, align 8
-  store ptr %1, ptr %.sink, align 8
-  %171 = load i32, ptr %4, align 4
-  %172 = add nsw i32 %171, 1
-  store i32 %172, ptr %4, align 4
+171:                                              ; preds = %Nm_HashString.exit, %Nm_ManTableLookupName.exit.thread41
+  %172 = load i32, ptr %4, align 4
+  %173 = add nsw i32 %172, 1
+  store i32 %173, ptr %4, align 4
   ret i32 1
 }
 

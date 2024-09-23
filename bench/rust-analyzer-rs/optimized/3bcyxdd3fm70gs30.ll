@@ -1865,7 +1865,7 @@ define hidden noundef ptr @"_ZN5rowan3api125_$LT$impl$u20$rowan..utility_types..
   %2 = load i64, ptr %0, align 8, !range !55, !noundef !4
   %trunc = trunc nuw i64 %2 to i1
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %trunc, label %15, label %4
+  br i1 %trunc, label %17, label %4
 
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !390)
@@ -1880,41 +1880,43 @@ define hidden noundef ptr @"_ZN5rowan3api125_$LT$impl$u20$rowan..utility_types..
   %11 = load i32, ptr %10, align 4, !noalias !390, !noundef !4
   %12 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %11, i32 1)
   %13 = extractvalue { i32, i1 } %12, 1
-  br i1 %13, label %14, label %"_ZN5rowan3api19SyntaxNode$LT$L$GT$6parent17h9067579407e696eaE.exit.sink.split"
+  br i1 %13, label %14, label %15
 
 14:                                               ; preds = %9
   tail call void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #40, !noalias !390
   unreachable
 
-15:                                               ; preds = %1
+15:                                               ; preds = %9
+  %16 = extractvalue { i32, i1 } %12, 0
+  store i32 %16, ptr %10, align 4, !noalias !390
+  br label %"_ZN5rowan3api19SyntaxNode$LT$L$GT$6parent17h9067579407e696eaE.exit"
+
+17:                                               ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !393)
-  %16 = load ptr, ptr %3, align 8, !alias.scope !393, !nonnull !4, !noundef !4
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
-  %18 = load ptr, ptr %17, align 8, !noalias !393, !noundef !4
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %"_ZN5rowan3api19SyntaxNode$LT$L$GT$6parent17h9067579407e696eaE.exit", label %20
+  %18 = load ptr, ptr %3, align 8, !alias.scope !393, !nonnull !4, !noundef !4
+  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %20 = load ptr, ptr %19, align 8, !noalias !393, !noundef !4
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %"_ZN5rowan3api19SyntaxNode$LT$L$GT$6parent17h9067579407e696eaE.exit", label %22
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %18, i64 48
-  %22 = load i32, ptr %21, align 4, !noalias !393, !noundef !4
-  %23 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %22, i32 1)
-  %24 = extractvalue { i32, i1 } %23, 1
-  br i1 %24, label %25, label %"_ZN5rowan3api19SyntaxNode$LT$L$GT$6parent17h9067579407e696eaE.exit.sink.split"
+22:                                               ; preds = %17
+  %23 = getelementptr inbounds i8, ptr %20, i64 48
+  %24 = load i32, ptr %23, align 4, !noalias !393, !noundef !4
+  %25 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %24, i32 1)
+  %26 = extractvalue { i32, i1 } %25, 1
+  br i1 %26, label %27, label %28
 
-25:                                               ; preds = %20
+27:                                               ; preds = %22
   tail call void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #40, !noalias !393
   unreachable
 
-"_ZN5rowan3api19SyntaxNode$LT$L$GT$6parent17h9067579407e696eaE.exit.sink.split": ; preds = %20, %9
-  %.sink2 = phi { i32, i1 } [ %12, %9 ], [ %23, %20 ]
-  %.sink1 = phi ptr [ %10, %9 ], [ %21, %20 ]
-  %.0.ph = phi ptr [ %7, %9 ], [ %18, %20 ]
-  %26 = extractvalue { i32, i1 } %.sink2, 0
-  store i32 %26, ptr %.sink1, align 4, !noalias !4
+28:                                               ; preds = %22
+  %29 = extractvalue { i32, i1 } %25, 0
+  store i32 %29, ptr %23, align 4, !noalias !393
   br label %"_ZN5rowan3api19SyntaxNode$LT$L$GT$6parent17h9067579407e696eaE.exit"
 
-"_ZN5rowan3api19SyntaxNode$LT$L$GT$6parent17h9067579407e696eaE.exit": ; preds = %"_ZN5rowan3api19SyntaxNode$LT$L$GT$6parent17h9067579407e696eaE.exit.sink.split", %15, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %15 ], [ %.0.ph, %"_ZN5rowan3api19SyntaxNode$LT$L$GT$6parent17h9067579407e696eaE.exit.sink.split" ]
+"_ZN5rowan3api19SyntaxNode$LT$L$GT$6parent17h9067579407e696eaE.exit": ; preds = %28, %17, %15, %4
+  %.0 = phi ptr [ null, %4 ], [ %7, %15 ], [ null, %17 ], [ %20, %28 ]
   ret ptr %.0
 }
 
@@ -1923,7 +1925,7 @@ define hidden noundef ptr @"_ZN5rowan3api125_$LT$impl$u20$rowan..utility_types..
   %2 = load i64, ptr %0, align 8, !range !55, !noundef !4
   %trunc = trunc nuw i64 %2 to i1
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %trunc, label %11, label %4
+  br i1 %trunc, label %12, label %4
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
@@ -1931,41 +1933,43 @@ define hidden noundef ptr @"_ZN5rowan3api125_$LT$impl$u20$rowan..utility_types..
   %7 = load i32, ptr %6, align 4, !noundef !4
   %8 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %7, i32 1)
   %9 = extractvalue { i32, i1 } %8, 1
-  br i1 %9, label %10, label %"_ZN5rowan3api20SyntaxToken$LT$L$GT$6parent17h1c33c59741ef4fa2E.llvm.3712155024907033177.exit.sink.split"
+  br i1 %9, label %10, label %_ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.3712155024907033177.exit
 
 10:                                               ; preds = %4
   tail call void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #40
   unreachable
 
-11:                                               ; preds = %1
+_ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.3712155024907033177.exit: ; preds = %4
+  %11 = extractvalue { i32, i1 } %8, 0
+  store i32 %11, ptr %6, align 4
+  br label %"_ZN5rowan3api20SyntaxToken$LT$L$GT$6parent17h1c33c59741ef4fa2E.llvm.3712155024907033177.exit"
+
+12:                                               ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !396)
-  %12 = load ptr, ptr %3, align 8, !alias.scope !396, !nonnull !4, !noundef !4
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
-  %14 = load ptr, ptr %13, align 8, !noalias !396, !noundef !4
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %"_ZN5rowan3api20SyntaxToken$LT$L$GT$6parent17h1c33c59741ef4fa2E.llvm.3712155024907033177.exit", label %16
+  %13 = load ptr, ptr %3, align 8, !alias.scope !396, !nonnull !4, !noundef !4
+  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %15 = load ptr, ptr %14, align 8, !noalias !396, !noundef !4
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %"_ZN5rowan3api20SyntaxToken$LT$L$GT$6parent17h1c33c59741ef4fa2E.llvm.3712155024907033177.exit", label %17
 
-16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %14, i64 48
-  %18 = load i32, ptr %17, align 4, !noalias !396, !noundef !4
-  %19 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %18, i32 1)
-  %20 = extractvalue { i32, i1 } %19, 1
-  br i1 %20, label %21, label %"_ZN5rowan3api20SyntaxToken$LT$L$GT$6parent17h1c33c59741ef4fa2E.llvm.3712155024907033177.exit.sink.split"
+17:                                               ; preds = %12
+  %18 = getelementptr inbounds i8, ptr %15, i64 48
+  %19 = load i32, ptr %18, align 4, !noalias !396, !noundef !4
+  %20 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %19, i32 1)
+  %21 = extractvalue { i32, i1 } %20, 1
+  br i1 %21, label %22, label %23
 
-21:                                               ; preds = %16
+22:                                               ; preds = %17
   tail call void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #40, !noalias !396
   unreachable
 
-"_ZN5rowan3api20SyntaxToken$LT$L$GT$6parent17h1c33c59741ef4fa2E.llvm.3712155024907033177.exit.sink.split": ; preds = %16, %4
-  %.sink5 = phi { i32, i1 } [ %8, %4 ], [ %19, %16 ]
-  %.sink4 = phi ptr [ %6, %4 ], [ %17, %16 ]
-  %.0.ph = phi ptr [ %5, %4 ], [ %14, %16 ]
-  %22 = extractvalue { i32, i1 } %.sink5, 0
-  store i32 %22, ptr %.sink4, align 4
+23:                                               ; preds = %17
+  %24 = extractvalue { i32, i1 } %20, 0
+  store i32 %24, ptr %18, align 4, !noalias !396
   br label %"_ZN5rowan3api20SyntaxToken$LT$L$GT$6parent17h1c33c59741ef4fa2E.llvm.3712155024907033177.exit"
 
-"_ZN5rowan3api20SyntaxToken$LT$L$GT$6parent17h1c33c59741ef4fa2E.llvm.3712155024907033177.exit": ; preds = %"_ZN5rowan3api20SyntaxToken$LT$L$GT$6parent17h1c33c59741ef4fa2E.llvm.3712155024907033177.exit.sink.split", %11
-  %.0 = phi ptr [ null, %11 ], [ %.0.ph, %"_ZN5rowan3api20SyntaxToken$LT$L$GT$6parent17h1c33c59741ef4fa2E.llvm.3712155024907033177.exit.sink.split" ]
+"_ZN5rowan3api20SyntaxToken$LT$L$GT$6parent17h1c33c59741ef4fa2E.llvm.3712155024907033177.exit": ; preds = %23, %12, %_ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.3712155024907033177.exit
+  %.0 = phi ptr [ %5, %_ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.3712155024907033177.exit ], [ null, %12 ], [ %15, %23 ]
   ret ptr %.0
 }
 

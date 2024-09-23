@@ -86,7 +86,7 @@ if.end:                                           ; preds = %for.body
 
 if.end19:                                         ; preds = %if.end
   switch i32 %2, label %for.inc76 [
-    i32 1, label %sw.epilog
+    i32 1, label %sw.bb
     i32 2, label %sw.bb24
     i32 3, label %sw.bb27
     i32 4, label %sw.bb30
@@ -97,33 +97,43 @@ if.end19:                                         ; preds = %if.end
     i32 9, label %sw.bb45
   ]
 
+sw.bb:                                            ; preds = %if.end19
+  store ptr %_M_storage.i.i, ptr %trans_x, align 8
+  br label %sw.epilog
+
 sw.bb24:                                          ; preds = %if.end19
+  store ptr %_M_storage.i.i, ptr %trans_y, align 8
   br label %sw.epilog
 
 sw.bb27:                                          ; preds = %if.end19
+  store ptr %_M_storage.i.i, ptr %trans_z, align 8
   br label %sw.epilog
 
 sw.bb30:                                          ; preds = %if.end19
+  store ptr %_M_storage.i.i, ptr %rotat_x, align 8
   br label %sw.epilog
 
 sw.bb33:                                          ; preds = %if.end19
+  store ptr %_M_storage.i.i, ptr %rotat_y, align 8
   br label %sw.epilog
 
 sw.bb36:                                          ; preds = %if.end19
+  store ptr %_M_storage.i.i, ptr %rotat_z, align 8
   br label %sw.epilog
 
 sw.bb39:                                          ; preds = %if.end19
+  store ptr %_M_storage.i.i, ptr %scale_x, align 8
   br label %sw.epilog
 
 sw.bb42:                                          ; preds = %if.end19
+  store ptr %_M_storage.i.i, ptr %scale_y, align 8
   br label %sw.epilog
 
 sw.bb45:                                          ; preds = %if.end19
+  store ptr %_M_storage.i.i, ptr %scale_z, align 8
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %if.end19, %sw.bb45, %sw.bb42, %sw.bb39, %sw.bb36, %sw.bb33, %sw.bb30, %sw.bb27, %sw.bb24
-  %scale_z.sink = phi ptr [ %scale_z, %sw.bb45 ], [ %scale_y, %sw.bb42 ], [ %scale_x, %sw.bb39 ], [ %rotat_z, %sw.bb36 ], [ %rotat_y, %sw.bb33 ], [ %rotat_x, %sw.bb30 ], [ %trans_z, %sw.bb27 ], [ %trans_y, %sw.bb24 ], [ %trans_x, %if.end19 ]
-  store ptr %_M_storage.i.i, ptr %scale_z.sink, align 8
+sw.epilog:                                        ; preds = %sw.bb45, %sw.bb42, %sw.bb39, %sw.bb36, %sw.bb33, %sw.bb30, %sw.bb27, %sw.bb24, %sw.bb
   %4 = load ptr, ptr %keys, align 8
   %5 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i19.not49 = icmp eq ptr %4, %5

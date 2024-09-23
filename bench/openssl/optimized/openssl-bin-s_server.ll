@@ -6725,9 +6725,18 @@ if.then:                                          ; preds = %land.lhs.true
   %tobool5.not = icmp eq ptr %prev.015, null
   %next8 = getelementptr inbounds i8, ptr %sess.016, i64 32
   %3 = load ptr, ptr %next8, align 8
+  br i1 %tobool5.not, label %if.else, label %if.then6
+
+if.then6:                                         ; preds = %if.then
   %next7 = getelementptr inbounds i8, ptr %prev.015, i64 32
-  %first.sink = select i1 %tobool5.not, ptr @first, ptr %next7
-  store ptr %3, ptr %first.sink, align 8
+  store ptr %3, ptr %next7, align 8
+  br label %if.end
+
+if.else:                                          ; preds = %if.then
+  store ptr %3, ptr @first, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then6
   %4 = load ptr, ptr %sess.016, align 8
   call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str.410, i32 noundef 3848) #14
   %der = getelementptr inbounds i8, ptr %sess.016, i64 16
@@ -6742,7 +6751,7 @@ if.end10:                                         ; preds = %land.lhs.true, %for
   %tobool.not = icmp eq ptr %sess.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !29
 
-for.end:                                          ; preds = %if.end10, %entry, %if.then
+for.end:                                          ; preds = %if.end10, %entry, %if.end
   ret void
 }
 

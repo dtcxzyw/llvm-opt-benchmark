@@ -669,7 +669,7 @@ define internal fastcc void @recompute_limits(ptr nocapture noundef %0) unnamed_
   %5 = getelementptr inbounds i8, ptr %0, i64 200
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %23, label %7
+  br i1 %.not, label %24, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %4, i64 40
@@ -683,101 +683,104 @@ define internal fastcc void @recompute_limits(ptr nocapture noundef %0) unnamed_
   %14 = load i8, ptr %2, align 1
   %15 = trunc i8 %14 to i1
   %16 = getelementptr inbounds i8, ptr %0, i64 224
-  br i1 %15, label %.sink.split, label %17
+  br i1 %15, label %17, label %18
 
 17:                                               ; preds = %7
-  store i64 %13, ptr %16, align 8
-  %18 = icmp slt i64 %13, 0
-  br i1 %18, label %19, label %25
+  store i64 0, ptr %16, align 8
+  br label %26
 
-19:                                               ; preds = %17
-  %20 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  call void @llvm.assume(i1 %20)
-  %21 = call i32 @errcode(i32 noundef 671350914) #6
-  %22 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #6
+18:                                               ; preds = %7
+  store i64 %13, ptr %16, align 8
+  %19 = icmp slt i64 %13, 0
+  br i1 %19, label %20, label %26
+
+20:                                               ; preds = %18
+  %21 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  call void @llvm.assume(i1 %21)
+  %22 = call i32 @errcode(i32 noundef 671350914) #6
+  %23 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #6
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 374, ptr noundef nonnull @__func__.recompute_limits) #6
   unreachable
 
-23:                                               ; preds = %1
-  %24 = getelementptr inbounds i8, ptr %0, i64 224
-  br label %.sink.split
+24:                                               ; preds = %1
+  %25 = getelementptr inbounds i8, ptr %0, i64 224
+  store i64 0, ptr %25, align 8
+  br label %26
 
-.sink.split:                                      ; preds = %7, %23
-  %.sink = phi ptr [ %24, %23 ], [ %16, %7 ]
-  store i64 0, ptr %.sink, align 8
-  br label %25
+26:                                               ; preds = %17, %18, %24
+  %27 = getelementptr inbounds i8, ptr %0, i64 208
+  %28 = load ptr, ptr %27, align 8
+  %.not25 = icmp eq ptr %28, null
+  br i1 %.not25, label %46, label %29
 
-25:                                               ; preds = %.sink.split, %17
-  %26 = getelementptr inbounds i8, ptr %0, i64 208
-  %27 = load ptr, ptr %26, align 8
-  %.not25 = icmp eq ptr %27, null
-  br i1 %.not25, label %44, label %28
-
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %4, i64 40
-  %30 = load ptr, ptr %29, align 8
-  %31 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %30, ptr @CurrentMemoryContext, align 8
-  %32 = getelementptr inbounds i8, ptr %27, i64 32
-  %33 = load ptr, ptr %32, align 8
-  %34 = call i64 %33(ptr noundef nonnull %27, ptr noundef %4, ptr noundef nonnull %2) #6
+29:                                               ; preds = %26
+  %30 = getelementptr inbounds i8, ptr %4, i64 40
+  %31 = load ptr, ptr %30, align 8
+  %32 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %31, ptr @CurrentMemoryContext, align 8
-  %35 = load i8, ptr %2, align 1
-  %36 = trunc i8 %35 to i1
-  %37 = getelementptr inbounds i8, ptr %0, i64 232
-  br i1 %36, label %.thread, label %38
+  %33 = getelementptr inbounds i8, ptr %28, i64 32
+  %34 = load ptr, ptr %33, align 8
+  %35 = call i64 %34(ptr noundef nonnull %28, ptr noundef %4, ptr noundef nonnull %2) #6
+  store ptr %32, ptr @CurrentMemoryContext, align 8
+  %36 = load i8, ptr %2, align 1
+  %37 = trunc i8 %36 to i1
+  %38 = getelementptr inbounds i8, ptr %0, i64 232
+  br i1 %37, label %39, label %40
 
-38:                                               ; preds = %28
-  store i64 %34, ptr %37, align 8
-  %39 = icmp slt i64 %34, 0
-  br i1 %39, label %40, label %49
+39:                                               ; preds = %29
+  store i64 0, ptr %38, align 8
+  br label %.thread
 
-40:                                               ; preds = %38
-  %41 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  call void @llvm.assume(i1 %41)
-  %42 = call i32 @errcode(i32 noundef 654573698) #6
-  %43 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #6
+40:                                               ; preds = %29
+  store i64 %35, ptr %38, align 8
+  %41 = icmp slt i64 %35, 0
+  br i1 %41, label %42, label %51
+
+42:                                               ; preds = %40
+  %43 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  call void @llvm.assume(i1 %43)
+  %44 = call i32 @errcode(i32 noundef 654573698) #6
+  %45 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #6
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 400, ptr noundef nonnull @__func__.recompute_limits) #6
   unreachable
 
-44:                                               ; preds = %25
-  %45 = getelementptr inbounds i8, ptr %0, i64 232
+46:                                               ; preds = %26
+  %47 = getelementptr inbounds i8, ptr %0, i64 232
+  store i64 0, ptr %47, align 8
   br label %.thread
 
-.thread:                                          ; preds = %28, %44
-  %.sink27 = phi ptr [ %45, %44 ], [ %37, %28 ]
-  store i64 0, ptr %.sink27, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 240
-  store i8 1, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 248
-  %48 = getelementptr inbounds i8, ptr %0, i64 244
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, i8 0, i64 16, i1 false)
-  store i32 1, ptr %48, align 4
+.thread:                                          ; preds = %39, %46
+  %48 = getelementptr inbounds i8, ptr %0, i64 240
+  store i8 1, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %0, i64 248
+  %50 = getelementptr inbounds i8, ptr %0, i64 244
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, i8 0, i64 16, i1 false)
+  store i32 1, ptr %50, align 4
   br label %compute_tuples_needed.exit
 
-49:                                               ; preds = %38
-  %50 = getelementptr inbounds i8, ptr %0, i64 240
-  store i8 0, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 248
-  %52 = getelementptr inbounds i8, ptr %0, i64 244
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, i8 0, i64 16, i1 false)
-  store i32 1, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %0, i64 216
-  %54 = load i32, ptr %53, align 8
-  %55 = icmp eq i32 %54, 1
-  br i1 %55, label %compute_tuples_needed.exit, label %56
+51:                                               ; preds = %40
+  %52 = getelementptr inbounds i8, ptr %0, i64 240
+  store i8 0, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %0, i64 248
+  %54 = getelementptr inbounds i8, ptr %0, i64 244
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, i8 0, i64 16, i1 false)
+  store i32 1, ptr %54, align 4
+  %55 = getelementptr inbounds i8, ptr %0, i64 216
+  %56 = load i32, ptr %55, align 8
+  %57 = icmp eq i32 %56, 1
+  br i1 %57, label %compute_tuples_needed.exit, label %58
 
-56:                                               ; preds = %49
-  %57 = getelementptr inbounds i8, ptr %0, i64 224
-  %58 = load i64, ptr %57, align 8
-  %59 = add i64 %58, %34
+58:                                               ; preds = %51
+  %59 = getelementptr inbounds i8, ptr %0, i64 224
+  %60 = load i64, ptr %59, align 8
+  %61 = add i64 %60, %35
   br label %compute_tuples_needed.exit
 
-compute_tuples_needed.exit:                       ; preds = %.thread, %49, %56
-  %.0.i = phi i64 [ %59, %56 ], [ -1, %49 ], [ -1, %.thread ]
-  %60 = getelementptr inbounds i8, ptr %0, i64 72
-  %61 = load ptr, ptr %60, align 8
-  call void @ExecSetTupleBound(i64 noundef %.0.i, ptr noundef %61) #6
+compute_tuples_needed.exit:                       ; preds = %.thread, %51, %58
+  %.0.i = phi i64 [ %61, %58 ], [ -1, %51 ], [ -1, %.thread ]
+  %62 = getelementptr inbounds i8, ptr %0, i64 72
+  %63 = load ptr, ptr %62, align 8
+  call void @ExecSetTupleBound(i64 noundef %.0.i, ptr noundef %63) #6
   ret void
 }
 

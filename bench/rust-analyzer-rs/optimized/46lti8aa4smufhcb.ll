@@ -2606,14 +2606,13 @@ define internal fastcc { i32, i32 } @"_ZN102_$LT$core..iter..adapters..map..Map$
   br label %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h8cc49d005b1feb84E.exit.i.i"
 
 common.resume.i.i:                                ; preds = %41, %18
-  %.sink.i.i = phi ptr [ %26, %41 ], [ %3, %18 ]
-  %common.resume.op.i.i = phi { ptr, i32 } [ %42, %41 ], [ %19, %18 ]
-  store ptr null, ptr %.sink.i.i, align 8, !alias.scope !1218
+  %common.resume.op.i.i = phi { ptr, i32 } [ %19, %18 ], [ %42, %41 ]
   resume { ptr, i32 } %common.resume.op.i.i
 
 18:                                               ; preds = %17
   %19 = landingpad { ptr, i32 }
           cleanup
+  store ptr null, ptr %3, align 8, !alias.scope !1222
   br label %common.resume.i.i
 
 "_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h8cc49d005b1feb84E.exit.i.i": ; preds = %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h6b3543c8b7c09982E.exit.i.i.i", %1
@@ -2678,6 +2677,7 @@ common.resume.i.i:                                ; preds = %41, %18
 41:                                               ; preds = %40
   %42 = landingpad { ptr, i32 }
           cleanup
+  store ptr null, ptr %26, align 8, !alias.scope !1262
   br label %common.resume.i.i
 
 "_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h6b3543c8b7c09982E.exit.i.i": ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h16511e711be062acE.exit.i.i"

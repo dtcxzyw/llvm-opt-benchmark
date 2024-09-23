@@ -1890,6 +1890,7 @@ define noalias noundef ptr @format_char(ptr noundef %0, i8 noundef signext %1) l
   %9 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef 2) #19
   store i8 %1, ptr %9, align 1
   %10 = getelementptr i8, ptr %9, i64 1
+  store i8 0, ptr %10, align 1
   br label %38
 
 11:                                               ; preds = %2
@@ -1936,6 +1937,7 @@ define noalias noundef ptr @format_char(ptr noundef %0, i8 noundef signext %1) l
   %22 = getelementptr i8, ptr %21, i64 1
   store i8 %.021.ph, ptr %22, align 1
   %23 = getelementptr i8, ptr %21, i64 2
+  store i8 0, ptr %23, align 1
   br label %38
 
 escape_char.exit:                                 ; preds = %11
@@ -1957,12 +1959,11 @@ escape_char.exit:                                 ; preds = %11
   %36 = getelementptr i8, ptr %24, i64 3
   store i8 %35, ptr %36, align 1
   %37 = getelementptr i8, ptr %24, i64 4
+  store i8 0, ptr %37, align 1
   br label %38
 
 38:                                               ; preds = %escape_char.exit, %20, %8
-  %.sink = phi ptr [ %37, %escape_char.exit ], [ %23, %20 ], [ %10, %8 ]
-  %.0 = phi ptr [ %24, %escape_char.exit ], [ %21, %20 ], [ %9, %8 ]
-  store i8 0, ptr %.sink, align 1
+  %.0 = phi ptr [ %9, %8 ], [ %21, %20 ], [ %24, %escape_char.exit ]
   ret ptr %.0
 }
 

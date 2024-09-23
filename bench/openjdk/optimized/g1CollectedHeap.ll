@@ -9186,6 +9186,8 @@ _ZN19G1HeapRegionSetBase3addEP12G1HeapRegion.exit.i: ; preds = %10, %7
   %37 = getelementptr inbounds i8, ptr %1, i64 80
   store ptr %36, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %36, i64 72
+  store ptr %1, ptr %38, align 8
+  store ptr %1, ptr %35, align 8
   br label %50
 
 39:                                               ; preds = %28
@@ -9199,22 +9201,24 @@ _ZN19G1HeapRegionSetBase3addEP12G1HeapRegion.exit.i: ; preds = %10, %7
 
 45:                                               ; preds = %39
   store ptr null, ptr %44, align 8
+  store ptr %1, ptr %16, align 8
+  store ptr %1, ptr %41, align 8
   br label %50
 
 46:                                               ; preds = %39
   store ptr %42, ptr %44, align 8
   %47 = getelementptr inbounds i8, ptr %42, i64 72
+  store ptr %1, ptr %47, align 8
+  store ptr %1, ptr %41, align 8
   br label %50
 
 48:                                               ; preds = %_ZN19G1HeapRegionSetBase3addEP12G1HeapRegion.exit.i
   %49 = getelementptr inbounds i8, ptr %2, i64 48
+  store ptr %1, ptr %49, align 8
+  store ptr %1, ptr %16, align 8
   br label %50
 
 50:                                               ; preds = %48, %46, %45, %._crit_edge.i
-  %.sink39.i = phi ptr [ %38, %._crit_edge.i ], [ %47, %46 ], [ %16, %45 ], [ %49, %48 ]
-  %.sink.i = phi ptr [ %35, %._crit_edge.i ], [ %41, %46 ], [ %41, %45 ], [ %16, %48 ]
-  store ptr %1, ptr %.sink39.i, align 8
-  store ptr %1, ptr %.sink.i, align 8
   %51 = getelementptr inbounds i8, ptr %2, i64 56
   store ptr %1, ptr %51, align 8
   %52 = getelementptr inbounds i8, ptr %1, i64 124
@@ -11405,6 +11409,8 @@ _ZN19G1HeapRegionSetBase3addEP12G1HeapRegion.exit.i.i: ; preds = %12, %7
   %39 = getelementptr inbounds i8, ptr %1, i64 80
   store ptr %38, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %38, i64 72
+  store ptr %1, ptr %40, align 8
+  store ptr %1, ptr %37, align 8
   br label %52
 
 41:                                               ; preds = %30
@@ -11418,22 +11424,24 @@ _ZN19G1HeapRegionSetBase3addEP12G1HeapRegion.exit.i.i: ; preds = %12, %7
 
 47:                                               ; preds = %41
   store ptr null, ptr %46, align 8
+  store ptr %1, ptr %18, align 8
+  store ptr %1, ptr %43, align 8
   br label %52
 
 48:                                               ; preds = %41
   store ptr %44, ptr %46, align 8
   %49 = getelementptr inbounds i8, ptr %44, i64 72
+  store ptr %1, ptr %49, align 8
+  store ptr %1, ptr %43, align 8
   br label %52
 
 50:                                               ; preds = %_ZN19G1HeapRegionSetBase3addEP12G1HeapRegion.exit.i.i
   %51 = getelementptr inbounds i8, ptr %9, i64 208
+  store ptr %1, ptr %51, align 8
+  store ptr %1, ptr %18, align 8
   br label %52
 
 52:                                               ; preds = %50, %48, %47, %._crit_edge.i.i
-  %.sink39.i.i = phi ptr [ %40, %._crit_edge.i.i ], [ %49, %48 ], [ %18, %47 ], [ %51, %50 ]
-  %.sink.i.i = phi ptr [ %37, %._crit_edge.i.i ], [ %43, %48 ], [ %43, %47 ], [ %18, %50 ]
-  store ptr %1, ptr %.sink39.i.i, align 8
-  store ptr %1, ptr %.sink.i.i, align 8
   %53 = getelementptr inbounds i8, ptr %9, i64 216
   store ptr %1, ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %1, i64 124

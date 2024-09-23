@@ -7762,9 +7762,9 @@ define dso_local double @index_other_operands_eval_cost(ptr noundef %0, ptr noun
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph41, label %._crit_edge
 
-.lr.ph41:                                         ; preds = %.lr.ph, %35
-  %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %.lr.ph ]
-  %.03439 = phi double [ %39, %35 ], [ 0.000000e+00, %.lr.ph ]
+.lr.ph41:                                         ; preds = %.lr.ph, %37
+  %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ 0, %.lr.ph ]
+  %.03439 = phi double [ %41, %37 ], [ 0.000000e+00, %.lr.ph ]
   %9 = load ptr, ptr %5, align 8
   %10 = getelementptr %union.ListCell, ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
@@ -7783,9 +7783,9 @@ define dso_local double @index_other_operands_eval_cost(ptr noundef %0, ptr noun
   %.025 = phi ptr [ %16, %14 ], [ %11, %.lr.ph41 ]
   switch i32 %18, label %.split [
     i32 15, label %19
-    i32 35, label %24
-    i32 18, label %26
-    i32 45, label %35
+    i32 35, label %25
+    i32 18, label %28
+    i32 45, label %37
   ]
 
 19:                                               ; preds = %17
@@ -7794,48 +7794,46 @@ define dso_local double @index_other_operands_eval_cost(ptr noundef %0, ptr noun
   %22 = getelementptr i8, ptr %21, i64 16
   %.val29 = load ptr, ptr %22, align 8
   %23 = getelementptr i8, ptr %.val29, i64 8
-  br label %.sink.split
+  %24 = load ptr, ptr %23, align 8
+  br label %37
 
-24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %.025, i64 40
-  br label %.sink.split
+25:                                               ; preds = %17
+  %26 = getelementptr inbounds i8, ptr %.025, i64 40
+  %27 = load ptr, ptr %26, align 8
+  br label %37
 
-26:                                               ; preds = %17
-  %27 = getelementptr inbounds i8, ptr %.025, i64 32
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr i8, ptr %28, i64 16
-  %.val = load ptr, ptr %29, align 8
-  %30 = getelementptr i8, ptr %.val, i64 8
-  br label %.sink.split
+28:                                               ; preds = %17
+  %29 = getelementptr inbounds i8, ptr %.025, i64 32
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr i8, ptr %30, i64 16
+  %.val = load ptr, ptr %31, align 8
+  %32 = getelementptr i8, ptr %.val, i64 8
+  %33 = load ptr, ptr %32, align 8
+  br label %37
 
 .split:                                           ; preds = %17
-  %31 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %31)
-  %32 = load i32, ptr %.025, align 4
-  %33 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %32) #13
+  %34 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  call void @llvm.assume(i1 %34)
+  %35 = load i32, ptr %.025, align 4
+  %36 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %35) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 6533, ptr noundef nonnull @__func__.index_other_operands_eval_cost) #13
   unreachable
 
-.sink.split:                                      ; preds = %19, %26, %24
-  %.sink = phi ptr [ %25, %24 ], [ %30, %26 ], [ %23, %19 ]
-  %34 = load ptr, ptr %.sink, align 8
-  br label %35
-
-35:                                               ; preds = %.sink.split, %17
-  %.024 = phi ptr [ null, %17 ], [ %34, %.sink.split ]
+37:                                               ; preds = %17, %25, %28, %19
+  %.024 = phi ptr [ %24, %19 ], [ %27, %25 ], [ %33, %28 ], [ null, %17 ]
   call void @cost_qual_eval_node(ptr noundef nonnull %3, ptr noundef %.024, ptr noundef %0) #13
-  %36 = load double, ptr %3, align 8
-  %37 = load double, ptr %6, align 8
-  %38 = fadd double %36, %37
-  %39 = fadd double %.03439, %38
+  %38 = load double, ptr %3, align 8
+  %39 = load double, ptr %6, align 8
+  %40 = fadd double %38, %39
+  %41 = fadd double %.03439, %40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %40 = load i32, ptr %4, align 4
-  %41 = sext i32 %40 to i64
-  %42 = icmp slt i64 %indvars.iv.next, %41
-  br i1 %42, label %.lr.ph41, label %._crit_edge
+  %42 = load i32, ptr %4, align 4
+  %43 = sext i32 %42 to i64
+  %44 = icmp slt i64 %indvars.iv.next, %43
+  br i1 %44, label %.lr.ph41, label %._crit_edge
 
-._crit_edge:                                      ; preds = %35, %.lr.ph, %2
-  %.0.lcssa = phi double [ 0.000000e+00, %2 ], [ 0.000000e+00, %.lr.ph ], [ %39, %35 ]
+._crit_edge:                                      ; preds = %37, %.lr.ph, %2
+  %.0.lcssa = phi double [ 0.000000e+00, %2 ], [ 0.000000e+00, %.lr.ph ], [ %41, %37 ]
   ret double %.0.lcssa
 }
 
@@ -11010,7 +11008,7 @@ define internal fastcc noundef zeroext i1 @gincost_pattern(ptr nocapture noundef
   %55 = load i32, ptr %14, align 4
   %56 = icmp ne i32 %55, 0
   %or.cond.not = select i1 %54, i1 true, i1 %56
-  br i1 %or.cond.not, label %.preheader, label %88
+  br i1 %or.cond.not, label %.preheader, label %93
 
 .preheader:                                       ; preds = %35
   br i1 %54, label %.lr.ph, label %._crit_edge
@@ -11047,55 +11045,65 @@ define internal fastcc noundef zeroext i1 @gincost_pattern(ptr nocapture noundef
   store double %65, ptr %60, align 8
   br label %._crit_edge
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.lr.ph.split ]
-  %67 = phi double [ %.promoted, %.lr.ph.split.preheader ], [ %73, %.lr.ph.split ]
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %77
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %77 ]
+  %67 = phi double [ %.promoted, %.lr.ph.split.preheader ], [ %78, %77 ]
   %68 = getelementptr i8, ptr %57, i64 %indvars.iv
   %69 = load i8, ptr %68, align 1
   %70 = trunc i8 %69 to i1
-  %.57 = select i1 %70, ptr %58, ptr %59
-  %.58 = select i1 %70, double 1.000000e+02, double 1.000000e+00
-  %71 = load double, ptr %.57, align 8
-  %72 = fadd double %71, %.58
-  store double %72, ptr %.57, align 8
-  %73 = fadd double %67, 1.000000e+00
-  store double %73, ptr %60, align 8
+  br i1 %70, label %71, label %74
+
+71:                                               ; preds = %.lr.ph.split
+  %72 = load double, ptr %58, align 8
+  %73 = fadd double %72, 1.000000e+02
+  store double %73, ptr %58, align 8
+  br label %77
+
+74:                                               ; preds = %.lr.ph.split
+  %75 = load double, ptr %59, align 8
+  %76 = fadd double %75, 1.000000e+00
+  store double %76, ptr %59, align 8
+  br label %77
+
+77:                                               ; preds = %74, %71
+  %78 = fadd double %67, 1.000000e+00
+  store double %78, ptr %60, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !51
 
-._crit_edge:                                      ; preds = %.lr.ph.split, %._crit_edge.split.us, %.preheader
-  switch i32 %55, label %86 [
-    i32 0, label %74
-    i32 1, label %77
+._crit_edge:                                      ; preds = %77, %._crit_edge.split.us, %.preheader
+  switch i32 %55, label %91 [
+    i32 0, label %79
+    i32 1, label %82
   ]
 
-74:                                               ; preds = %._crit_edge
-  %75 = getelementptr inbounds i8, ptr %4, i64 32
-  %76 = getelementptr [32 x i8], ptr %75, i64 0, i64 %17
-  store i8 1, ptr %76, align 1
-  br label %88
+79:                                               ; preds = %._crit_edge
+  %80 = getelementptr inbounds i8, ptr %4, i64 32
+  %81 = getelementptr [32 x i8], ptr %80, i64 0, i64 %17
+  store i8 1, ptr %81, align 1
+  br label %93
 
-77:                                               ; preds = %._crit_edge
-  %78 = getelementptr inbounds i8, ptr %4, i64 32
-  %79 = getelementptr [32 x i8], ptr %78, i64 0, i64 %17
-  store i8 1, ptr %79, align 1
-  %80 = getelementptr inbounds i8, ptr %4, i64 72
-  %81 = load double, ptr %80, align 8
-  %82 = fadd double %81, 1.000000e+00
-  store double %82, ptr %80, align 8
-  %83 = getelementptr inbounds i8, ptr %4, i64 80
-  %84 = load double, ptr %83, align 8
-  %85 = fadd double %84, 1.000000e+00
-  store double %85, ptr %83, align 8
-  br label %88
+82:                                               ; preds = %._crit_edge
+  %83 = getelementptr inbounds i8, ptr %4, i64 32
+  %84 = getelementptr [32 x i8], ptr %83, i64 0, i64 %17
+  store i8 1, ptr %84, align 1
+  %85 = getelementptr inbounds i8, ptr %4, i64 72
+  %86 = load double, ptr %85, align 8
+  %87 = fadd double %86, 1.000000e+00
+  store double %87, ptr %85, align 8
+  %88 = getelementptr inbounds i8, ptr %4, i64 80
+  %89 = load double, ptr %88, align 8
+  %90 = fadd double %89, 1.000000e+00
+  store double %90, ptr %88, align 8
+  br label %93
 
-86:                                               ; preds = %._crit_edge
-  %87 = getelementptr [32 x i8], ptr %4, i64 0, i64 %17
-  store i8 1, ptr %87, align 1
-  br label %88
+91:                                               ; preds = %._crit_edge
+  %92 = getelementptr [32 x i8], ptr %4, i64 0, i64 %17
+  store i8 1, ptr %92, align 1
+  br label %93
 
-88:                                               ; preds = %74, %86, %77, %35
+93:                                               ; preds = %79, %91, %82, %35
   ret i1 %or.cond.not
 }
 

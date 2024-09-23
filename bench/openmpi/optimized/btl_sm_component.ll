@@ -660,7 +660,7 @@ define internal i32 @mca_btl_sm_component_progress() #0 {
 9:                                                ; preds = %0
   %10 = atomicrmw volatile xchg ptr @mca_btl_sm_component_progress.lock, i32 1 monotonic, align 4
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %11, label %364
+  br i1 %.not, label %11, label %365
 
 11:                                               ; preds = %9, %0
   %12 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 5976), align 8
@@ -1255,7 +1255,7 @@ mca_btl_sm_try_fbox_setup.exit.i.i.i:             ; preds = %290, %287, %opal_th
   %294 = atomicrmw volatile xchg ptr %293, i64 %128 monotonic, align 8
   fence acquire
   %.not.i10.i.i.i = icmp eq i64 %294, -2
-  br i1 %.not.i10.i.i.i, label %sm_fifo_write.exit.i.i.i, label %295
+  br i1 %.not.i10.i.i.i, label %302, label %295
 
 295:                                              ; preds = %mca_btl_sm_try_fbox_setup.exit.i.i.i
   %296 = and i64 %294, 4294967295
@@ -1264,72 +1264,75 @@ mca_btl_sm_try_fbox_setup.exit.i.i.i:             ; preds = %290, %287, %opal_th
   %299 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %297, i64 %298, i32 5
   %300 = load ptr, ptr %299, align 8
   %301 = getelementptr inbounds i8, ptr %300, i64 %296
+  store volatile i64 %128, ptr %301, align 8
   br label %sm_fifo_write.exit.i.i.i
 
-sm_fifo_write.exit.i.i.i:                         ; preds = %295, %mca_btl_sm_try_fbox_setup.exit.i.i.i
-  %.sink.i.i.i.i = phi ptr [ %301, %295 ], [ %292, %mca_btl_sm_try_fbox_setup.exit.i.i.i ]
-  store volatile i64 %128, ptr %.sink.i.i.i.i, align 8
+302:                                              ; preds = %mca_btl_sm_try_fbox_setup.exit.i.i.i
+  store volatile i64 %128, ptr %292, align 8
+  br label %sm_fifo_write.exit.i.i.i
+
+sm_fifo_write.exit.i.i.i:                         ; preds = %302, %295
   fence release
   br label %sm_fifo_write_ep.exit.thread.i.i
 
 sm_fifo_write_ep.exit.i.i:                        ; preds = %179
-  %302 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %109) #10
+  %303 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %109) #10
   br label %sm_fifo_write_ep.exit.thread20.i.i
 
 sm_fifo_write_ep.exit.thread20.i.i:               ; preds = %130, %sm_fifo_write_ep.exit.i.i, %179
-  %303 = load i8, ptr @opal_uses_threads, align 1
-  %304 = trunc i8 %303 to i1
-  br i1 %304, label %.sink.split.i.i, label %mca_btl_sm_progress_waiting.exit.i
+  %304 = load i8, ptr @opal_uses_threads, align 1
+  %305 = trunc i8 %304 to i1
+  br i1 %305, label %.sink.split.i.i, label %mca_btl_sm_progress_waiting.exit.i
 
 sm_fifo_write_ep.exit.thread.i.i:                 ; preds = %sm_fifo_write.exit.i.i.i, %sm_fifo_write_ep.exit.thread22.i.i, %197
-  %305 = load volatile i64, ptr %117, align 8
-  %306 = icmp eq i64 %305, 0
-  br i1 %306, label %opal_list_remove_first.exit.i.i, label %307
+  %306 = load volatile i64, ptr %117, align 8
+  %307 = icmp eq i64 %306, 0
+  br i1 %307, label %opal_list_remove_first.exit.i.i, label %308
 
-307:                                              ; preds = %sm_fifo_write_ep.exit.thread.i.i
-  %308 = load volatile i64, ptr %117, align 8
-  %309 = add i64 %308, -1
-  store volatile i64 %309, ptr %117, align 8
-  %310 = load volatile ptr, ptr %106, align 8
-  %311 = getelementptr inbounds i8, ptr %310, i64 24
-  %312 = load volatile ptr, ptr %311, align 8
-  %313 = getelementptr inbounds i8, ptr %310, i64 16
-  %314 = load volatile ptr, ptr %313, align 8
-  %315 = getelementptr inbounds i8, ptr %314, i64 24
-  store volatile ptr %312, ptr %315, align 8
-  %316 = load volatile ptr, ptr %313, align 8
-  store volatile ptr %316, ptr %106, align 8
+308:                                              ; preds = %sm_fifo_write_ep.exit.thread.i.i
+  %309 = load volatile i64, ptr %117, align 8
+  %310 = add i64 %309, -1
+  store volatile i64 %310, ptr %117, align 8
+  %311 = load volatile ptr, ptr %106, align 8
+  %312 = getelementptr inbounds i8, ptr %311, i64 24
+  %313 = load volatile ptr, ptr %312, align 8
+  %314 = getelementptr inbounds i8, ptr %311, i64 16
+  %315 = load volatile ptr, ptr %314, align 8
+  %316 = getelementptr inbounds i8, ptr %315, i64 24
+  store volatile ptr %313, ptr %316, align 8
+  %317 = load volatile ptr, ptr %314, align 8
+  store volatile ptr %317, ptr %106, align 8
   br label %opal_list_remove_first.exit.i.i
 
-opal_list_remove_first.exit.i.i:                  ; preds = %307, %sm_fifo_write_ep.exit.thread.i.i
+opal_list_remove_first.exit.i.i:                  ; preds = %308, %sm_fifo_write_ep.exit.thread.i.i
   %.0.in.i.i = getelementptr inbounds i8, ptr %.033.i.i, i64 16
   %.0.i.i = load volatile ptr, ptr %.0.in.i.i, align 8
   %.not.i.i = icmp eq ptr %.033.i.i, %105
   br i1 %.not.i.i, label %._crit_edge.i.i, label %118, !llvm.loop !9
 
 ._crit_edge.i.i:                                  ; preds = %opal_list_remove_first.exit.i.i, %104
-  %317 = getelementptr inbounds i8, ptr %.013.i, i64 352
-  store i8 0, ptr %317, align 8
-  %318 = load volatile ptr, ptr %.05.in14.i, align 8
-  %319 = getelementptr inbounds i8, ptr %.013.i, i64 24
-  %320 = load volatile ptr, ptr %319, align 8
-  %321 = getelementptr inbounds i8, ptr %320, i64 16
-  store volatile ptr %318, ptr %321, align 8
-  %322 = load volatile ptr, ptr %319, align 8
-  %323 = load volatile ptr, ptr %.05.in14.i, align 8
-  %324 = getelementptr inbounds i8, ptr %323, i64 24
-  store volatile ptr %322, ptr %324, align 8
-  %325 = load volatile i64, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 6048), align 16
-  %326 = add i64 %325, -1
-  store volatile i64 %326, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 6048), align 16
-  %327 = load volatile ptr, ptr %319, align 8
-  %328 = load i8, ptr @opal_uses_threads, align 1
-  %329 = trunc i8 %328 to i1
-  br i1 %329, label %.sink.split.i.i, label %mca_btl_sm_progress_waiting.exit.i
+  %318 = getelementptr inbounds i8, ptr %.013.i, i64 352
+  store i8 0, ptr %318, align 8
+  %319 = load volatile ptr, ptr %.05.in14.i, align 8
+  %320 = getelementptr inbounds i8, ptr %.013.i, i64 24
+  %321 = load volatile ptr, ptr %320, align 8
+  %322 = getelementptr inbounds i8, ptr %321, i64 16
+  store volatile ptr %319, ptr %322, align 8
+  %323 = load volatile ptr, ptr %320, align 8
+  %324 = load volatile ptr, ptr %.05.in14.i, align 8
+  %325 = getelementptr inbounds i8, ptr %324, i64 24
+  store volatile ptr %323, ptr %325, align 8
+  %326 = load volatile i64, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 6048), align 16
+  %327 = add i64 %326, -1
+  store volatile i64 %327, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 6048), align 16
+  %328 = load volatile ptr, ptr %320, align 8
+  %329 = load i8, ptr @opal_uses_threads, align 1
+  %330 = trunc i8 %329 to i1
+  br i1 %330, label %.sink.split.i.i, label %mca_btl_sm_progress_waiting.exit.i
 
 .sink.split.i.i:                                  ; preds = %._crit_edge.i.i, %sm_fifo_write_ep.exit.thread20.i.i
-  %330 = getelementptr inbounds i8, ptr %.013.i, i64 240
-  %331 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %330) #10
+  %331 = getelementptr inbounds i8, ptr %.013.i, i64 240
+  %332 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %331) #10
   br label %mca_btl_sm_progress_waiting.exit.i
 
 mca_btl_sm_progress_waiting.exit.i:               ; preds = %.sink.split.i.i, %._crit_edge.i.i, %sm_fifo_write_ep.exit.thread20.i.i, %.lr.ph.i6
@@ -1339,84 +1342,84 @@ mca_btl_sm_progress_waiting.exit.i:               ; preds = %.sink.split.i.i, %.
   br i1 %.not.i7, label %._crit_edge.i, label %.lr.ph.i6, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %mca_btl_sm_progress_waiting.exit.i, %95
-  %332 = load i8, ptr @opal_uses_threads, align 1
-  %333 = trunc i8 %332 to i1
-  br i1 %333, label %334, label %mca_btl_sm_progress_endpoints.exit
+  %333 = load i8, ptr @opal_uses_threads, align 1
+  %334 = trunc i8 %333 to i1
+  br i1 %334, label %335, label %mca_btl_sm_progress_endpoints.exit
 
-334:                                              ; preds = %._crit_edge.i
-  %335 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 4448)) #10
+335:                                              ; preds = %._crit_edge.i
+  %336 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 4448)) #10
   br label %mca_btl_sm_progress_endpoints.exit
 
-mca_btl_sm_progress_endpoints.exit:               ; preds = %86, %._crit_edge.i, %334
-  %336 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 5984), align 16
-  %337 = load volatile i64, ptr %336, align 8
-  %338 = icmp eq i64 %337, -2
-  br i1 %338, label %.sink.split, label %.preheader
+mca_btl_sm_progress_endpoints.exit:               ; preds = %86, %._crit_edge.i, %335
+  %337 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 5984), align 16
+  %338 = load volatile i64, ptr %337, align 8
+  %339 = icmp eq i64 %338, -2
+  br i1 %339, label %.sink.split, label %.preheader
 
-.preheader:                                       ; preds = %mca_btl_sm_progress_endpoints.exit, %361
-  %.010.i = phi i32 [ %362, %361 ], [ 0, %mca_btl_sm_progress_endpoints.exit ]
-  %339 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 5984), align 16
-  %340 = load volatile i64, ptr %339, align 8
-  %341 = icmp eq i64 %340, -2
-  br i1 %341, label %mca_btl_sm_poll_fifo.exit, label %342
+.preheader:                                       ; preds = %mca_btl_sm_progress_endpoints.exit, %362
+  %.010.i = phi i32 [ %363, %362 ], [ 0, %mca_btl_sm_progress_endpoints.exit ]
+  %340 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 5984), align 16
+  %341 = load volatile i64, ptr %340, align 8
+  %342 = icmp eq i64 %341, -2
+  br i1 %342, label %mca_btl_sm_poll_fifo.exit, label %343
 
-342:                                              ; preds = %.preheader
+343:                                              ; preds = %.preheader
   fence acquire
-  %343 = load volatile i64, ptr %339, align 8
-  %344 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 5960), align 8
-  %345 = ashr i64 %343, 32
-  %346 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %344, i64 %345
-  %347 = and i64 %343, 4294967295
-  %348 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %344, i64 %345, i32 5
-  %349 = load ptr, ptr %348, align 8
-  %350 = getelementptr inbounds i8, ptr %349, i64 %347
-  store volatile i64 -2, ptr %339, align 8
-  %351 = load volatile i64, ptr %350, align 8
-  %352 = icmp eq i64 %351, -2
-  br i1 %352, label %opal_atomic_compare_exchange_strong_ptr.exit.i.i, label %.sink.split.i.i8
+  %344 = load volatile i64, ptr %340, align 8
+  %345 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 5960), align 8
+  %346 = ashr i64 %344, 32
+  %347 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %345, i64 %346
+  %348 = and i64 %344, 4294967295
+  %349 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %345, i64 %346, i32 5
+  %350 = load ptr, ptr %349, align 8
+  %351 = getelementptr inbounds i8, ptr %350, i64 %348
+  store volatile i64 -2, ptr %340, align 8
+  %352 = load volatile i64, ptr %351, align 8
+  %353 = icmp eq i64 %352, -2
+  br i1 %353, label %opal_atomic_compare_exchange_strong_ptr.exit.i.i, label %.sink.split.i.i8
 
-opal_atomic_compare_exchange_strong_ptr.exit.i.i: ; preds = %342
+opal_atomic_compare_exchange_strong_ptr.exit.i.i: ; preds = %343
   fence acquire
-  %353 = getelementptr inbounds i8, ptr %339, i64 8
-  %354 = cmpxchg volatile ptr %353, i64 %343, i64 -2 acquire monotonic, align 8
-  %355 = extractvalue { i64, i1 } %354, 1
-  br i1 %355, label %361, label %.preheader.i.i
+  %354 = getelementptr inbounds i8, ptr %340, i64 8
+  %355 = cmpxchg volatile ptr %354, i64 %344, i64 -2 acquire monotonic, align 8
+  %356 = extractvalue { i64, i1 } %355, 1
+  br i1 %356, label %362, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %opal_atomic_compare_exchange_strong_ptr.exit.i.i
-  %356 = load volatile i64, ptr %350, align 8
-  %357 = icmp eq i64 %356, -2
-  br i1 %357, label %.lr.ph.i.i11, label %.sink.split.i.i8
+  %357 = load volatile i64, ptr %351, align 8
+  %358 = icmp eq i64 %357, -2
+  br i1 %358, label %.lr.ph.i.i11, label %.sink.split.i.i8
 
 .lr.ph.i.i11:                                     ; preds = %.preheader.i.i, %.lr.ph.i.i11
   fence acquire
-  %358 = load volatile i64, ptr %350, align 8
-  %359 = icmp eq i64 %358, -2
-  br i1 %359, label %.lr.ph.i.i11, label %.sink.split.i.i8, !llvm.loop !11
+  %359 = load volatile i64, ptr %351, align 8
+  %360 = icmp eq i64 %359, -2
+  br i1 %360, label %.lr.ph.i.i11, label %.sink.split.i.i8, !llvm.loop !11
 
-.sink.split.i.i8:                                 ; preds = %.lr.ph.i.i11, %.preheader.i.i, %342
-  %360 = load volatile i64, ptr %350, align 8
-  store volatile i64 %360, ptr %339, align 8
-  br label %361
+.sink.split.i.i8:                                 ; preds = %.lr.ph.i.i11, %.preheader.i.i, %343
+  %361 = load volatile i64, ptr %351, align 8
+  store volatile i64 %361, ptr %340, align 8
+  br label %362
 
-361:                                              ; preds = %.sink.split.i.i8, %opal_atomic_compare_exchange_strong_ptr.exit.i.i
+362:                                              ; preds = %.sink.split.i.i8, %opal_atomic_compare_exchange_strong_ptr.exit.i.i
   fence release
-  call void @mca_btl_sm_poll_handle_frag(ptr noundef nonnull %350, ptr noundef %346)
-  %362 = add nuw nsw i32 %.010.i, 1
-  %exitcond.not.i9 = icmp eq i32 %362, 31
+  call void @mca_btl_sm_poll_handle_frag(ptr noundef nonnull %351, ptr noundef %347)
+  %363 = add nuw nsw i32 %.010.i, 1
+  %exitcond.not.i9 = icmp eq i32 %363, 31
   br i1 %exitcond.not.i9, label %mca_btl_sm_poll_fifo.exit, label %.preheader, !llvm.loop !12
 
-mca_btl_sm_poll_fifo.exit:                        ; preds = %.preheader, %361
-  %.05.i10 = phi i32 [ 1, %361 ], [ %.010.i, %.preheader ]
-  %363 = add nuw nsw i32 %.05.i10, %.0
+mca_btl_sm_poll_fifo.exit:                        ; preds = %.preheader, %362
+  %.05.i10 = phi i32 [ 1, %362 ], [ %.010.i, %.preheader ]
+  %364 = add nuw nsw i32 %.05.i10, %.0
   fence seq_cst
   br label %.sink.split
 
 .sink.split:                                      ; preds = %mca_btl_sm_progress_endpoints.exit, %mca_btl_sm_poll_fifo.exit
-  %.04.ph = phi i32 [ %363, %mca_btl_sm_poll_fifo.exit ], [ %.0, %mca_btl_sm_progress_endpoints.exit ]
+  %.04.ph = phi i32 [ %364, %mca_btl_sm_poll_fifo.exit ], [ %.0, %mca_btl_sm_progress_endpoints.exit ]
   store volatile i32 0, ptr @mca_btl_sm_component_progress.lock, align 4
-  br label %364
+  br label %365
 
-364:                                              ; preds = %.sink.split, %9
+365:                                              ; preds = %.sink.split, %9
   %.04 = phi i32 [ 0, %9 ], [ %.04.ph, %.sink.split ]
   ret i32 %.04
 }
@@ -1660,7 +1663,7 @@ opal_free_list_return_mt.exit.sink.split.i.i.i:   ; preds = %65, %51
   %140 = atomicrmw volatile xchg ptr %139, i64 %138 monotonic, align 8
   fence acquire
   %.not.i.i27 = icmp eq i64 %140, -2
-  br i1 %.not.i.i27, label %sm_fifo_write_back.exit, label %141
+  br i1 %.not.i.i27, label %148, label %141
 
 141:                                              ; preds = %128
   %142 = and i64 %140, 4294967295
@@ -1669,11 +1672,14 @@ opal_free_list_return_mt.exit.sink.split.i.i.i:   ; preds = %65, %51
   %145 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %143, i64 %144, i32 5
   %146 = load ptr, ptr %145, align 8
   %147 = getelementptr inbounds i8, ptr %146, i64 %142
+  store volatile i64 %138, ptr %147, align 8
   br label %sm_fifo_write_back.exit
 
-sm_fifo_write_back.exit:                          ; preds = %128, %141
-  %.sink.i.i = phi ptr [ %147, %141 ], [ %130, %128 ]
-  store volatile i64 %138, ptr %.sink.i.i, align 8
+148:                                              ; preds = %128
+  store volatile i64 %138, ptr %130, align 8
+  br label %sm_fifo_write_back.exit
+
+sm_fifo_write_back.exit:                          ; preds = %141, %148
   fence release
   br label %mca_btl_sm_frag_complete.exit
 

@@ -130,129 +130,222 @@ for.cond:                                         ; preds = %for.inc, %if.end5
 sw.bb:                                            ; preds = %for.cond
   %6 = load ptr, ptr %new, align 8
   %cmp8 = icmp eq ptr %6, null
-  br i1 %cmp8, label %for.inc.sink.split, label %for.inc
+  br i1 %cmp8, label %if.then9, label %for.inc
+
+if.then9:                                         ; preds = %sw.bb
+  %7 = getelementptr i8, ptr %fns.0, i64 8
+  %fns.0.val = load ptr, ptr %7, align 8
+  store ptr %fns.0.val, ptr %new, align 8
+  br label %for.inc
 
 sw.bb13:                                          ; preds = %for.cond
-  %7 = load ptr, ptr %gen_init, align 8
-  %cmp14 = icmp eq ptr %7, null
-  br i1 %cmp14, label %for.inc.sink.split, label %for.inc
+  %8 = load ptr, ptr %gen_init, align 8
+  %cmp14 = icmp eq ptr %8, null
+  br i1 %cmp14, label %if.then15, label %for.inc
+
+if.then15:                                        ; preds = %sw.bb13
+  %9 = getelementptr i8, ptr %fns.0, i64 8
+  %fns.0.val127 = load ptr, ptr %9, align 8
+  store ptr %fns.0.val127, ptr %gen_init, align 8
+  br label %for.inc
 
 sw.bb19:                                          ; preds = %for.cond
-  %8 = load ptr, ptr %gen_set_template, align 8
-  %cmp20 = icmp eq ptr %8, null
-  br i1 %cmp20, label %for.inc.sink.split, label %for.inc
+  %10 = load ptr, ptr %gen_set_template, align 8
+  %cmp20 = icmp eq ptr %10, null
+  br i1 %cmp20, label %if.then21, label %for.inc
+
+if.then21:                                        ; preds = %sw.bb19
+  %11 = getelementptr i8, ptr %fns.0, i64 8
+  %fns.0.val128 = load ptr, ptr %11, align 8
+  store ptr %fns.0.val128, ptr %gen_set_template, align 8
+  br label %for.inc
 
 sw.bb25:                                          ; preds = %for.cond
-  %9 = load ptr, ptr %gen_set_params, align 8
-  %cmp26 = icmp eq ptr %9, null
+  %12 = load ptr, ptr %gen_set_params, align 8
+  %cmp26 = icmp eq ptr %12, null
   br i1 %cmp26, label %if.then27, label %for.inc
 
 if.then27:                                        ; preds = %sw.bb25
   %inc = add nsw i32 %setgenparamfncnt.0, 1
-  br label %for.inc.sink.split
+  %13 = getelementptr i8, ptr %fns.0, i64 8
+  %fns.0.val129 = load ptr, ptr %13, align 8
+  store ptr %fns.0.val129, ptr %gen_set_params, align 8
+  br label %for.inc
 
 sw.bb31:                                          ; preds = %for.cond
-  %10 = load ptr, ptr %gen_settable_params, align 8
-  %cmp32 = icmp eq ptr %10, null
+  %14 = load ptr, ptr %gen_settable_params, align 8
+  %cmp32 = icmp eq ptr %14, null
   br i1 %cmp32, label %if.then33, label %for.inc
 
 if.then33:                                        ; preds = %sw.bb31
   %inc34 = add nsw i32 %setgenparamfncnt.0, 1
-  br label %for.inc.sink.split
+  %15 = getelementptr i8, ptr %fns.0, i64 8
+  %fns.0.val130 = load ptr, ptr %15, align 8
+  store ptr %fns.0.val130, ptr %gen_settable_params, align 8
+  br label %for.inc
 
 sw.bb38:                                          ; preds = %for.cond
-  %11 = load ptr, ptr %gen, align 8
-  %cmp39 = icmp eq ptr %11, null
-  br i1 %cmp39, label %for.inc.sink.split, label %for.inc
+  %16 = load ptr, ptr %gen, align 8
+  %cmp39 = icmp eq ptr %16, null
+  br i1 %cmp39, label %if.then40, label %for.inc
+
+if.then40:                                        ; preds = %sw.bb38
+  %17 = getelementptr i8, ptr %fns.0, i64 8
+  %fns.0.val131 = load ptr, ptr %17, align 8
+  store ptr %fns.0.val131, ptr %gen, align 8
+  br label %for.inc
 
 sw.bb44:                                          ; preds = %for.cond
-  %12 = load ptr, ptr %gen_cleanup, align 8
-  %cmp45 = icmp eq ptr %12, null
-  br i1 %cmp45, label %for.inc.sink.split, label %for.inc
+  %18 = load ptr, ptr %gen_cleanup, align 8
+  %cmp45 = icmp eq ptr %18, null
+  br i1 %cmp45, label %if.then46, label %for.inc
+
+if.then46:                                        ; preds = %sw.bb44
+  %19 = getelementptr i8, ptr %fns.0, i64 8
+  %fns.0.val132 = load ptr, ptr %19, align 8
+  store ptr %fns.0.val132, ptr %gen_cleanup, align 8
+  br label %for.inc
 
 sw.bb50:                                          ; preds = %for.cond
-  %13 = load ptr, ptr %free, align 8
-  %cmp51 = icmp eq ptr %13, null
-  br i1 %cmp51, label %for.inc.sink.split, label %for.inc
+  %20 = load ptr, ptr %free, align 8
+  %cmp51 = icmp eq ptr %20, null
+  br i1 %cmp51, label %if.then52, label %for.inc
+
+if.then52:                                        ; preds = %sw.bb50
+  %21 = getelementptr i8, ptr %fns.0, i64 8
+  %fns.0.val133 = load ptr, ptr %21, align 8
+  store ptr %fns.0.val133, ptr %free, align 8
+  br label %for.inc
 
 sw.bb56:                                          ; preds = %for.cond
-  %14 = load ptr, ptr %load, align 8
-  %cmp57 = icmp eq ptr %14, null
-  br i1 %cmp57, label %for.inc.sink.split, label %for.inc
+  %22 = load ptr, ptr %load, align 8
+  %cmp57 = icmp eq ptr %22, null
+  br i1 %cmp57, label %if.then58, label %for.inc
+
+if.then58:                                        ; preds = %sw.bb56
+  %23 = getelementptr i8, ptr %fns.0, i64 8
+  %fns.0.val134 = load ptr, ptr %23, align 8
+  store ptr %fns.0.val134, ptr %load, align 8
+  br label %for.inc
 
 sw.bb62:                                          ; preds = %for.cond
-  %15 = load ptr, ptr %get_params, align 8
-  %cmp63 = icmp eq ptr %15, null
+  %24 = load ptr, ptr %get_params, align 8
+  %cmp63 = icmp eq ptr %24, null
   br i1 %cmp63, label %if.then64, label %for.inc
 
 if.then64:                                        ; preds = %sw.bb62
   %inc65 = add nsw i32 %getparamfncnt.0, 1
-  br label %for.inc.sink.split
+  %25 = getelementptr i8, ptr %fns.0, i64 8
+  %fns.0.val135 = load ptr, ptr %25, align 8
+  store ptr %fns.0.val135, ptr %get_params, align 8
+  br label %for.inc
 
 sw.bb69:                                          ; preds = %for.cond
-  %16 = load ptr, ptr %gettable_params, align 8
-  %cmp70 = icmp eq ptr %16, null
+  %26 = load ptr, ptr %gettable_params, align 8
+  %cmp70 = icmp eq ptr %26, null
   br i1 %cmp70, label %if.then71, label %for.inc
 
 if.then71:                                        ; preds = %sw.bb69
   %inc72 = add nsw i32 %getparamfncnt.0, 1
-  br label %for.inc.sink.split
+  %27 = getelementptr i8, ptr %fns.0, i64 8
+  %fns.0.val136 = load ptr, ptr %27, align 8
+  store ptr %fns.0.val136, ptr %gettable_params, align 8
+  br label %for.inc
 
 sw.bb76:                                          ; preds = %for.cond
-  %17 = load ptr, ptr %set_params, align 8
-  %cmp77 = icmp eq ptr %17, null
+  %28 = load ptr, ptr %set_params, align 8
+  %cmp77 = icmp eq ptr %28, null
   br i1 %cmp77, label %if.then78, label %for.inc
 
 if.then78:                                        ; preds = %sw.bb76
   %inc79 = add nsw i32 %setparamfncnt.0, 1
-  br label %for.inc.sink.split
+  %29 = getelementptr i8, ptr %fns.0, i64 8
+  %fns.0.val137 = load ptr, ptr %29, align 8
+  store ptr %fns.0.val137, ptr %set_params, align 8
+  br label %for.inc
 
 sw.bb83:                                          ; preds = %for.cond
-  %18 = load ptr, ptr %settable_params, align 8
-  %cmp84 = icmp eq ptr %18, null
+  %30 = load ptr, ptr %settable_params, align 8
+  %cmp84 = icmp eq ptr %30, null
   br i1 %cmp84, label %if.then85, label %for.inc
 
 if.then85:                                        ; preds = %sw.bb83
   %inc86 = add nsw i32 %setparamfncnt.0, 1
-  br label %for.inc.sink.split
+  %31 = getelementptr i8, ptr %fns.0, i64 8
+  %fns.0.val138 = load ptr, ptr %31, align 8
+  store ptr %fns.0.val138, ptr %settable_params, align 8
+  br label %for.inc
 
 sw.bb90:                                          ; preds = %for.cond
-  %19 = load ptr, ptr %query_operation_name, align 8
-  %cmp91 = icmp eq ptr %19, null
-  br i1 %cmp91, label %for.inc.sink.split, label %for.inc
+  %32 = load ptr, ptr %query_operation_name, align 8
+  %cmp91 = icmp eq ptr %32, null
+  br i1 %cmp91, label %if.then92, label %for.inc
+
+if.then92:                                        ; preds = %sw.bb90
+  %33 = getelementptr i8, ptr %fns.0, i64 8
+  %fns.0.val139 = load ptr, ptr %33, align 8
+  store ptr %fns.0.val139, ptr %query_operation_name, align 8
+  br label %for.inc
 
 sw.bb96:                                          ; preds = %for.cond
-  %20 = load ptr, ptr %has, align 8
-  %cmp97 = icmp eq ptr %20, null
-  br i1 %cmp97, label %for.inc.sink.split, label %for.inc
+  %34 = load ptr, ptr %has, align 8
+  %cmp97 = icmp eq ptr %34, null
+  br i1 %cmp97, label %if.then98, label %for.inc
+
+if.then98:                                        ; preds = %sw.bb96
+  %35 = getelementptr i8, ptr %fns.0, i64 8
+  %fns.0.val140 = load ptr, ptr %35, align 8
+  store ptr %fns.0.val140, ptr %has, align 8
+  br label %for.inc
 
 sw.bb102:                                         ; preds = %for.cond
-  %21 = load ptr, ptr %dup, align 8
-  %cmp103 = icmp eq ptr %21, null
-  br i1 %cmp103, label %for.inc.sink.split, label %for.inc
+  %36 = load ptr, ptr %dup, align 8
+  %cmp103 = icmp eq ptr %36, null
+  br i1 %cmp103, label %if.then104, label %for.inc
+
+if.then104:                                       ; preds = %sw.bb102
+  %37 = getelementptr i8, ptr %fns.0, i64 8
+  %fns.0.val141 = load ptr, ptr %37, align 8
+  store ptr %fns.0.val141, ptr %dup, align 8
+  br label %for.inc
 
 sw.bb108:                                         ; preds = %for.cond
-  %22 = load ptr, ptr %validate, align 8
-  %cmp109 = icmp eq ptr %22, null
-  br i1 %cmp109, label %for.inc.sink.split, label %for.inc
+  %38 = load ptr, ptr %validate, align 8
+  %cmp109 = icmp eq ptr %38, null
+  br i1 %cmp109, label %if.then110, label %for.inc
+
+if.then110:                                       ; preds = %sw.bb108
+  %39 = getelementptr i8, ptr %fns.0, i64 8
+  %fns.0.val142 = load ptr, ptr %39, align 8
+  store ptr %fns.0.val142, ptr %validate, align 8
+  br label %for.inc
 
 sw.bb114:                                         ; preds = %for.cond
-  %23 = load ptr, ptr %match, align 8
-  %cmp115 = icmp eq ptr %23, null
-  br i1 %cmp115, label %for.inc.sink.split, label %for.inc
+  %40 = load ptr, ptr %match, align 8
+  %cmp115 = icmp eq ptr %40, null
+  br i1 %cmp115, label %if.then116, label %for.inc
+
+if.then116:                                       ; preds = %sw.bb114
+  %41 = getelementptr i8, ptr %fns.0, i64 8
+  %fns.0.val143 = load ptr, ptr %41, align 8
+  store ptr %fns.0.val143, ptr %match, align 8
+  br label %for.inc
 
 sw.bb120:                                         ; preds = %for.cond
-  %24 = load ptr, ptr %import, align 8
-  %cmp121 = icmp eq ptr %24, null
+  %42 = load ptr, ptr %import, align 8
+  %cmp121 = icmp eq ptr %42, null
   br i1 %cmp121, label %if.then122, label %for.inc
 
 if.then122:                                       ; preds = %sw.bb120
   %inc123 = add nsw i32 %importfncnt.0, 1
-  br label %for.inc.sink.split
+  %43 = getelementptr i8, ptr %fns.0, i64 8
+  %fns.0.val144 = load ptr, ptr %43, align 8
+  store ptr %fns.0.val144, ptr %import, align 8
+  br label %for.inc
 
 sw.bb127:                                         ; preds = %for.cond
-  %25 = load ptr, ptr %import_types, align 8
-  %cmp128 = icmp eq ptr %25, null
+  %44 = load ptr, ptr %import_types, align 8
+  %cmp128 = icmp eq ptr %44, null
   br i1 %cmp128, label %if.then129, label %for.inc
 
 if.then129:                                       ; preds = %sw.bb127
@@ -260,11 +353,14 @@ if.then129:                                       ; preds = %sw.bb127
   %inc132 = zext i1 %cmp130 to i32
   %spec.select = add nsw i32 %importfncnt.0, %inc132
   %inc134 = add nsw i32 %importtypesfncnt.0, 1
-  br label %for.inc.sink.split
+  %45 = getelementptr i8, ptr %fns.0, i64 8
+  %fns.0.val145 = load ptr, ptr %45, align 8
+  store ptr %fns.0.val145, ptr %import_types, align 8
+  br label %for.inc
 
 sw.bb138:                                         ; preds = %for.cond
-  %26 = load ptr, ptr %import_types_ex, align 8
-  %cmp139 = icmp eq ptr %26, null
+  %46 = load ptr, ptr %import_types_ex, align 8
+  %cmp139 = icmp eq ptr %46, null
   br i1 %cmp139, label %if.then140, label %for.inc
 
 if.then140:                                       ; preds = %sw.bb138
@@ -272,20 +368,26 @@ if.then140:                                       ; preds = %sw.bb138
   %inc143 = zext i1 %cmp141 to i32
   %spec.select120 = add nsw i32 %importfncnt.0, %inc143
   %inc145 = add nsw i32 %importtypesfncnt.0, 1
-  br label %for.inc.sink.split
+  %47 = getelementptr i8, ptr %fns.0, i64 8
+  %fns.0.val146 = load ptr, ptr %47, align 8
+  store ptr %fns.0.val146, ptr %import_types_ex, align 8
+  br label %for.inc
 
 sw.bb149:                                         ; preds = %for.cond
-  %27 = load ptr, ptr %export, align 8
-  %cmp150 = icmp eq ptr %27, null
+  %48 = load ptr, ptr %export, align 8
+  %cmp150 = icmp eq ptr %48, null
   br i1 %cmp150, label %if.then151, label %for.inc
 
 if.then151:                                       ; preds = %sw.bb149
   %inc152 = add nsw i32 %exportfncnt.0, 1
-  br label %for.inc.sink.split
+  %49 = getelementptr i8, ptr %fns.0, i64 8
+  %fns.0.val147 = load ptr, ptr %49, align 8
+  store ptr %fns.0.val147, ptr %export, align 8
+  br label %for.inc
 
 sw.bb156:                                         ; preds = %for.cond
-  %28 = load ptr, ptr %export_types, align 8
-  %cmp157 = icmp eq ptr %28, null
+  %50 = load ptr, ptr %export_types, align 8
+  %cmp157 = icmp eq ptr %50, null
   br i1 %cmp157, label %if.then158, label %for.inc
 
 if.then158:                                       ; preds = %sw.bb156
@@ -293,11 +395,14 @@ if.then158:                                       ; preds = %sw.bb156
   %inc161 = zext i1 %cmp159 to i32
   %spec.select121 = add nsw i32 %exportfncnt.0, %inc161
   %inc163 = add nsw i32 %exporttypesfncnt.0, 1
-  br label %for.inc.sink.split
+  %51 = getelementptr i8, ptr %fns.0, i64 8
+  %fns.0.val148 = load ptr, ptr %51, align 8
+  store ptr %fns.0.val148, ptr %export_types, align 8
+  br label %for.inc
 
 sw.bb167:                                         ; preds = %for.cond
-  %29 = load ptr, ptr %export_types_ex, align 8
-  %cmp168 = icmp eq ptr %29, null
+  %52 = load ptr, ptr %export_types_ex, align 8
+  %cmp168 = icmp eq ptr %52, null
   br i1 %cmp168, label %if.then169, label %for.inc
 
 if.then169:                                       ; preds = %sw.bb167
@@ -305,91 +410,80 @@ if.then169:                                       ; preds = %sw.bb167
   %inc172 = zext i1 %cmp170 to i32
   %spec.select122 = add nsw i32 %exportfncnt.0, %inc172
   %inc174 = add nsw i32 %exporttypesfncnt.0, 1
-  br label %for.inc.sink.split
-
-for.inc.sink.split:                               ; preds = %sw.bb114, %sw.bb108, %sw.bb102, %sw.bb96, %sw.bb90, %sw.bb56, %sw.bb50, %sw.bb44, %sw.bb38, %sw.bb19, %sw.bb13, %sw.bb, %if.then169, %if.then158, %if.then151, %if.then140, %if.then129, %if.then122, %if.then85, %if.then78, %if.then71, %if.then64, %if.then33, %if.then27
-  %new.sink = phi ptr [ %gen_set_params, %if.then27 ], [ %gen_settable_params, %if.then33 ], [ %get_params, %if.then64 ], [ %gettable_params, %if.then71 ], [ %set_params, %if.then78 ], [ %settable_params, %if.then85 ], [ %import, %if.then122 ], [ %import_types, %if.then129 ], [ %import_types_ex, %if.then140 ], [ %export, %if.then151 ], [ %export_types, %if.then158 ], [ %export_types_ex, %if.then169 ], [ %new, %sw.bb ], [ %gen_init, %sw.bb13 ], [ %gen_set_template, %sw.bb19 ], [ %gen, %sw.bb38 ], [ %gen_cleanup, %sw.bb44 ], [ %free, %sw.bb50 ], [ %load, %sw.bb56 ], [ %query_operation_name, %sw.bb90 ], [ %has, %sw.bb96 ], [ %dup, %sw.bb102 ], [ %validate, %sw.bb108 ], [ %match, %sw.bb114 ]
-  %setparamfncnt.1.ph = phi i32 [ %setparamfncnt.0, %if.then27 ], [ %setparamfncnt.0, %if.then33 ], [ %setparamfncnt.0, %if.then64 ], [ %setparamfncnt.0, %if.then71 ], [ %inc79, %if.then78 ], [ %inc86, %if.then85 ], [ %setparamfncnt.0, %if.then122 ], [ %setparamfncnt.0, %if.then129 ], [ %setparamfncnt.0, %if.then140 ], [ %setparamfncnt.0, %if.then151 ], [ %setparamfncnt.0, %if.then158 ], [ %setparamfncnt.0, %if.then169 ], [ %setparamfncnt.0, %sw.bb ], [ %setparamfncnt.0, %sw.bb13 ], [ %setparamfncnt.0, %sw.bb19 ], [ %setparamfncnt.0, %sw.bb38 ], [ %setparamfncnt.0, %sw.bb44 ], [ %setparamfncnt.0, %sw.bb50 ], [ %setparamfncnt.0, %sw.bb56 ], [ %setparamfncnt.0, %sw.bb90 ], [ %setparamfncnt.0, %sw.bb96 ], [ %setparamfncnt.0, %sw.bb102 ], [ %setparamfncnt.0, %sw.bb108 ], [ %setparamfncnt.0, %sw.bb114 ]
-  %getparamfncnt.1.ph = phi i32 [ %getparamfncnt.0, %if.then27 ], [ %getparamfncnt.0, %if.then33 ], [ %inc65, %if.then64 ], [ %inc72, %if.then71 ], [ %getparamfncnt.0, %if.then78 ], [ %getparamfncnt.0, %if.then85 ], [ %getparamfncnt.0, %if.then122 ], [ %getparamfncnt.0, %if.then129 ], [ %getparamfncnt.0, %if.then140 ], [ %getparamfncnt.0, %if.then151 ], [ %getparamfncnt.0, %if.then158 ], [ %getparamfncnt.0, %if.then169 ], [ %getparamfncnt.0, %sw.bb ], [ %getparamfncnt.0, %sw.bb13 ], [ %getparamfncnt.0, %sw.bb19 ], [ %getparamfncnt.0, %sw.bb38 ], [ %getparamfncnt.0, %sw.bb44 ], [ %getparamfncnt.0, %sw.bb50 ], [ %getparamfncnt.0, %sw.bb56 ], [ %getparamfncnt.0, %sw.bb90 ], [ %getparamfncnt.0, %sw.bb96 ], [ %getparamfncnt.0, %sw.bb102 ], [ %getparamfncnt.0, %sw.bb108 ], [ %getparamfncnt.0, %sw.bb114 ]
-  %setgenparamfncnt.1.ph = phi i32 [ %inc, %if.then27 ], [ %inc34, %if.then33 ], [ %setgenparamfncnt.0, %if.then64 ], [ %setgenparamfncnt.0, %if.then71 ], [ %setgenparamfncnt.0, %if.then78 ], [ %setgenparamfncnt.0, %if.then85 ], [ %setgenparamfncnt.0, %if.then122 ], [ %setgenparamfncnt.0, %if.then129 ], [ %setgenparamfncnt.0, %if.then140 ], [ %setgenparamfncnt.0, %if.then151 ], [ %setgenparamfncnt.0, %if.then158 ], [ %setgenparamfncnt.0, %if.then169 ], [ %setgenparamfncnt.0, %sw.bb ], [ %setgenparamfncnt.0, %sw.bb13 ], [ %setgenparamfncnt.0, %sw.bb19 ], [ %setgenparamfncnt.0, %sw.bb38 ], [ %setgenparamfncnt.0, %sw.bb44 ], [ %setgenparamfncnt.0, %sw.bb50 ], [ %setgenparamfncnt.0, %sw.bb56 ], [ %setgenparamfncnt.0, %sw.bb90 ], [ %setgenparamfncnt.0, %sw.bb96 ], [ %setgenparamfncnt.0, %sw.bb102 ], [ %setgenparamfncnt.0, %sw.bb108 ], [ %setgenparamfncnt.0, %sw.bb114 ]
-  %importfncnt.3.ph = phi i32 [ %importfncnt.0, %if.then27 ], [ %importfncnt.0, %if.then33 ], [ %importfncnt.0, %if.then64 ], [ %importfncnt.0, %if.then71 ], [ %importfncnt.0, %if.then78 ], [ %importfncnt.0, %if.then85 ], [ %inc123, %if.then122 ], [ %spec.select, %if.then129 ], [ %spec.select120, %if.then140 ], [ %importfncnt.0, %if.then151 ], [ %importfncnt.0, %if.then158 ], [ %importfncnt.0, %if.then169 ], [ %importfncnt.0, %sw.bb ], [ %importfncnt.0, %sw.bb13 ], [ %importfncnt.0, %sw.bb19 ], [ %importfncnt.0, %sw.bb38 ], [ %importfncnt.0, %sw.bb44 ], [ %importfncnt.0, %sw.bb50 ], [ %importfncnt.0, %sw.bb56 ], [ %importfncnt.0, %sw.bb90 ], [ %importfncnt.0, %sw.bb96 ], [ %importfncnt.0, %sw.bb102 ], [ %importfncnt.0, %sw.bb108 ], [ %importfncnt.0, %sw.bb114 ]
-  %exportfncnt.3.ph = phi i32 [ %exportfncnt.0, %if.then27 ], [ %exportfncnt.0, %if.then33 ], [ %exportfncnt.0, %if.then64 ], [ %exportfncnt.0, %if.then71 ], [ %exportfncnt.0, %if.then78 ], [ %exportfncnt.0, %if.then85 ], [ %exportfncnt.0, %if.then122 ], [ %exportfncnt.0, %if.then129 ], [ %exportfncnt.0, %if.then140 ], [ %inc152, %if.then151 ], [ %spec.select121, %if.then158 ], [ %spec.select122, %if.then169 ], [ %exportfncnt.0, %sw.bb ], [ %exportfncnt.0, %sw.bb13 ], [ %exportfncnt.0, %sw.bb19 ], [ %exportfncnt.0, %sw.bb38 ], [ %exportfncnt.0, %sw.bb44 ], [ %exportfncnt.0, %sw.bb50 ], [ %exportfncnt.0, %sw.bb56 ], [ %exportfncnt.0, %sw.bb90 ], [ %exportfncnt.0, %sw.bb96 ], [ %exportfncnt.0, %sw.bb102 ], [ %exportfncnt.0, %sw.bb108 ], [ %exportfncnt.0, %sw.bb114 ]
-  %importtypesfncnt.1.ph = phi i32 [ %importtypesfncnt.0, %if.then27 ], [ %importtypesfncnt.0, %if.then33 ], [ %importtypesfncnt.0, %if.then64 ], [ %importtypesfncnt.0, %if.then71 ], [ %importtypesfncnt.0, %if.then78 ], [ %importtypesfncnt.0, %if.then85 ], [ %importtypesfncnt.0, %if.then122 ], [ %inc134, %if.then129 ], [ %inc145, %if.then140 ], [ %importtypesfncnt.0, %if.then151 ], [ %importtypesfncnt.0, %if.then158 ], [ %importtypesfncnt.0, %if.then169 ], [ %importtypesfncnt.0, %sw.bb ], [ %importtypesfncnt.0, %sw.bb13 ], [ %importtypesfncnt.0, %sw.bb19 ], [ %importtypesfncnt.0, %sw.bb38 ], [ %importtypesfncnt.0, %sw.bb44 ], [ %importtypesfncnt.0, %sw.bb50 ], [ %importtypesfncnt.0, %sw.bb56 ], [ %importtypesfncnt.0, %sw.bb90 ], [ %importtypesfncnt.0, %sw.bb96 ], [ %importtypesfncnt.0, %sw.bb102 ], [ %importtypesfncnt.0, %sw.bb108 ], [ %importtypesfncnt.0, %sw.bb114 ]
-  %exporttypesfncnt.1.ph = phi i32 [ %exporttypesfncnt.0, %if.then27 ], [ %exporttypesfncnt.0, %if.then33 ], [ %exporttypesfncnt.0, %if.then64 ], [ %exporttypesfncnt.0, %if.then71 ], [ %exporttypesfncnt.0, %if.then78 ], [ %exporttypesfncnt.0, %if.then85 ], [ %exporttypesfncnt.0, %if.then122 ], [ %exporttypesfncnt.0, %if.then129 ], [ %exporttypesfncnt.0, %if.then140 ], [ %exporttypesfncnt.0, %if.then151 ], [ %inc163, %if.then158 ], [ %inc174, %if.then169 ], [ %exporttypesfncnt.0, %sw.bb ], [ %exporttypesfncnt.0, %sw.bb13 ], [ %exporttypesfncnt.0, %sw.bb19 ], [ %exporttypesfncnt.0, %sw.bb38 ], [ %exporttypesfncnt.0, %sw.bb44 ], [ %exporttypesfncnt.0, %sw.bb50 ], [ %exporttypesfncnt.0, %sw.bb56 ], [ %exporttypesfncnt.0, %sw.bb90 ], [ %exporttypesfncnt.0, %sw.bb96 ], [ %exporttypesfncnt.0, %sw.bb102 ], [ %exporttypesfncnt.0, %sw.bb108 ], [ %exporttypesfncnt.0, %sw.bb114 ]
-  %30 = getelementptr i8, ptr %fns.0, i64 8
-  %fns.0.val = load ptr, ptr %30, align 8
-  store ptr %fns.0.val, ptr %new.sink, align 8
+  %53 = getelementptr i8, ptr %fns.0, i64 8
+  %fns.0.val149 = load ptr, ptr %53, align 8
+  store ptr %fns.0.val149, ptr %export_types_ex, align 8
   br label %for.inc
 
-for.inc:                                          ; preds = %for.inc.sink.split, %for.cond, %sw.bb, %sw.bb13, %sw.bb19, %sw.bb25, %sw.bb31, %sw.bb38, %sw.bb44, %sw.bb50, %sw.bb56, %sw.bb62, %sw.bb69, %sw.bb76, %sw.bb83, %sw.bb90, %sw.bb96, %sw.bb102, %sw.bb108, %sw.bb114, %sw.bb120, %sw.bb127, %sw.bb138, %sw.bb149, %sw.bb156, %sw.bb167
-  %setparamfncnt.1 = phi i32 [ %setparamfncnt.0, %sw.bb167 ], [ %setparamfncnt.0, %sw.bb156 ], [ %setparamfncnt.0, %sw.bb149 ], [ %setparamfncnt.0, %sw.bb138 ], [ %setparamfncnt.0, %sw.bb127 ], [ %setparamfncnt.0, %sw.bb120 ], [ %setparamfncnt.0, %sw.bb114 ], [ %setparamfncnt.0, %sw.bb108 ], [ %setparamfncnt.0, %sw.bb102 ], [ %setparamfncnt.0, %sw.bb96 ], [ %setparamfncnt.0, %sw.bb90 ], [ %setparamfncnt.0, %sw.bb83 ], [ %setparamfncnt.0, %sw.bb76 ], [ %setparamfncnt.0, %sw.bb69 ], [ %setparamfncnt.0, %sw.bb62 ], [ %setparamfncnt.0, %sw.bb56 ], [ %setparamfncnt.0, %sw.bb50 ], [ %setparamfncnt.0, %sw.bb44 ], [ %setparamfncnt.0, %sw.bb38 ], [ %setparamfncnt.0, %sw.bb31 ], [ %setparamfncnt.0, %sw.bb25 ], [ %setparamfncnt.0, %sw.bb19 ], [ %setparamfncnt.0, %sw.bb13 ], [ %setparamfncnt.0, %sw.bb ], [ %setparamfncnt.0, %for.cond ], [ %setparamfncnt.1.ph, %for.inc.sink.split ]
-  %getparamfncnt.1 = phi i32 [ %getparamfncnt.0, %sw.bb167 ], [ %getparamfncnt.0, %sw.bb156 ], [ %getparamfncnt.0, %sw.bb149 ], [ %getparamfncnt.0, %sw.bb138 ], [ %getparamfncnt.0, %sw.bb127 ], [ %getparamfncnt.0, %sw.bb120 ], [ %getparamfncnt.0, %sw.bb114 ], [ %getparamfncnt.0, %sw.bb108 ], [ %getparamfncnt.0, %sw.bb102 ], [ %getparamfncnt.0, %sw.bb96 ], [ %getparamfncnt.0, %sw.bb90 ], [ %getparamfncnt.0, %sw.bb83 ], [ %getparamfncnt.0, %sw.bb76 ], [ %getparamfncnt.0, %sw.bb69 ], [ %getparamfncnt.0, %sw.bb62 ], [ %getparamfncnt.0, %sw.bb56 ], [ %getparamfncnt.0, %sw.bb50 ], [ %getparamfncnt.0, %sw.bb44 ], [ %getparamfncnt.0, %sw.bb38 ], [ %getparamfncnt.0, %sw.bb31 ], [ %getparamfncnt.0, %sw.bb25 ], [ %getparamfncnt.0, %sw.bb19 ], [ %getparamfncnt.0, %sw.bb13 ], [ %getparamfncnt.0, %sw.bb ], [ %getparamfncnt.0, %for.cond ], [ %getparamfncnt.1.ph, %for.inc.sink.split ]
-  %setgenparamfncnt.1 = phi i32 [ %setgenparamfncnt.0, %sw.bb167 ], [ %setgenparamfncnt.0, %sw.bb156 ], [ %setgenparamfncnt.0, %sw.bb149 ], [ %setgenparamfncnt.0, %sw.bb138 ], [ %setgenparamfncnt.0, %sw.bb127 ], [ %setgenparamfncnt.0, %sw.bb120 ], [ %setgenparamfncnt.0, %sw.bb114 ], [ %setgenparamfncnt.0, %sw.bb108 ], [ %setgenparamfncnt.0, %sw.bb102 ], [ %setgenparamfncnt.0, %sw.bb96 ], [ %setgenparamfncnt.0, %sw.bb90 ], [ %setgenparamfncnt.0, %sw.bb83 ], [ %setgenparamfncnt.0, %sw.bb76 ], [ %setgenparamfncnt.0, %sw.bb69 ], [ %setgenparamfncnt.0, %sw.bb62 ], [ %setgenparamfncnt.0, %sw.bb56 ], [ %setgenparamfncnt.0, %sw.bb50 ], [ %setgenparamfncnt.0, %sw.bb44 ], [ %setgenparamfncnt.0, %sw.bb38 ], [ %setgenparamfncnt.0, %sw.bb31 ], [ %setgenparamfncnt.0, %sw.bb25 ], [ %setgenparamfncnt.0, %sw.bb19 ], [ %setgenparamfncnt.0, %sw.bb13 ], [ %setgenparamfncnt.0, %sw.bb ], [ %setgenparamfncnt.0, %for.cond ], [ %setgenparamfncnt.1.ph, %for.inc.sink.split ]
-  %importfncnt.3 = phi i32 [ %importfncnt.0, %sw.bb167 ], [ %importfncnt.0, %sw.bb156 ], [ %importfncnt.0, %sw.bb149 ], [ %importfncnt.0, %sw.bb138 ], [ %importfncnt.0, %sw.bb127 ], [ %importfncnt.0, %sw.bb120 ], [ %importfncnt.0, %sw.bb114 ], [ %importfncnt.0, %sw.bb108 ], [ %importfncnt.0, %sw.bb102 ], [ %importfncnt.0, %sw.bb96 ], [ %importfncnt.0, %sw.bb90 ], [ %importfncnt.0, %sw.bb83 ], [ %importfncnt.0, %sw.bb76 ], [ %importfncnt.0, %sw.bb69 ], [ %importfncnt.0, %sw.bb62 ], [ %importfncnt.0, %sw.bb56 ], [ %importfncnt.0, %sw.bb50 ], [ %importfncnt.0, %sw.bb44 ], [ %importfncnt.0, %sw.bb38 ], [ %importfncnt.0, %sw.bb31 ], [ %importfncnt.0, %sw.bb25 ], [ %importfncnt.0, %sw.bb19 ], [ %importfncnt.0, %sw.bb13 ], [ %importfncnt.0, %sw.bb ], [ %importfncnt.0, %for.cond ], [ %importfncnt.3.ph, %for.inc.sink.split ]
-  %exportfncnt.3 = phi i32 [ %exportfncnt.0, %sw.bb167 ], [ %exportfncnt.0, %sw.bb156 ], [ %exportfncnt.0, %sw.bb149 ], [ %exportfncnt.0, %sw.bb138 ], [ %exportfncnt.0, %sw.bb127 ], [ %exportfncnt.0, %sw.bb120 ], [ %exportfncnt.0, %sw.bb114 ], [ %exportfncnt.0, %sw.bb108 ], [ %exportfncnt.0, %sw.bb102 ], [ %exportfncnt.0, %sw.bb96 ], [ %exportfncnt.0, %sw.bb90 ], [ %exportfncnt.0, %sw.bb83 ], [ %exportfncnt.0, %sw.bb76 ], [ %exportfncnt.0, %sw.bb69 ], [ %exportfncnt.0, %sw.bb62 ], [ %exportfncnt.0, %sw.bb56 ], [ %exportfncnt.0, %sw.bb50 ], [ %exportfncnt.0, %sw.bb44 ], [ %exportfncnt.0, %sw.bb38 ], [ %exportfncnt.0, %sw.bb31 ], [ %exportfncnt.0, %sw.bb25 ], [ %exportfncnt.0, %sw.bb19 ], [ %exportfncnt.0, %sw.bb13 ], [ %exportfncnt.0, %sw.bb ], [ %exportfncnt.0, %for.cond ], [ %exportfncnt.3.ph, %for.inc.sink.split ]
-  %importtypesfncnt.1 = phi i32 [ %importtypesfncnt.0, %sw.bb167 ], [ %importtypesfncnt.0, %sw.bb156 ], [ %importtypesfncnt.0, %sw.bb149 ], [ %importtypesfncnt.0, %sw.bb138 ], [ %importtypesfncnt.0, %sw.bb127 ], [ %importtypesfncnt.0, %sw.bb120 ], [ %importtypesfncnt.0, %sw.bb114 ], [ %importtypesfncnt.0, %sw.bb108 ], [ %importtypesfncnt.0, %sw.bb102 ], [ %importtypesfncnt.0, %sw.bb96 ], [ %importtypesfncnt.0, %sw.bb90 ], [ %importtypesfncnt.0, %sw.bb83 ], [ %importtypesfncnt.0, %sw.bb76 ], [ %importtypesfncnt.0, %sw.bb69 ], [ %importtypesfncnt.0, %sw.bb62 ], [ %importtypesfncnt.0, %sw.bb56 ], [ %importtypesfncnt.0, %sw.bb50 ], [ %importtypesfncnt.0, %sw.bb44 ], [ %importtypesfncnt.0, %sw.bb38 ], [ %importtypesfncnt.0, %sw.bb31 ], [ %importtypesfncnt.0, %sw.bb25 ], [ %importtypesfncnt.0, %sw.bb19 ], [ %importtypesfncnt.0, %sw.bb13 ], [ %importtypesfncnt.0, %sw.bb ], [ %importtypesfncnt.0, %for.cond ], [ %importtypesfncnt.1.ph, %for.inc.sink.split ]
-  %exporttypesfncnt.1 = phi i32 [ %exporttypesfncnt.0, %sw.bb167 ], [ %exporttypesfncnt.0, %sw.bb156 ], [ %exporttypesfncnt.0, %sw.bb149 ], [ %exporttypesfncnt.0, %sw.bb138 ], [ %exporttypesfncnt.0, %sw.bb127 ], [ %exporttypesfncnt.0, %sw.bb120 ], [ %exporttypesfncnt.0, %sw.bb114 ], [ %exporttypesfncnt.0, %sw.bb108 ], [ %exporttypesfncnt.0, %sw.bb102 ], [ %exporttypesfncnt.0, %sw.bb96 ], [ %exporttypesfncnt.0, %sw.bb90 ], [ %exporttypesfncnt.0, %sw.bb83 ], [ %exporttypesfncnt.0, %sw.bb76 ], [ %exporttypesfncnt.0, %sw.bb69 ], [ %exporttypesfncnt.0, %sw.bb62 ], [ %exporttypesfncnt.0, %sw.bb56 ], [ %exporttypesfncnt.0, %sw.bb50 ], [ %exporttypesfncnt.0, %sw.bb44 ], [ %exporttypesfncnt.0, %sw.bb38 ], [ %exporttypesfncnt.0, %sw.bb31 ], [ %exporttypesfncnt.0, %sw.bb25 ], [ %exporttypesfncnt.0, %sw.bb19 ], [ %exporttypesfncnt.0, %sw.bb13 ], [ %exporttypesfncnt.0, %sw.bb ], [ %exporttypesfncnt.0, %for.cond ], [ %exporttypesfncnt.1.ph, %for.inc.sink.split ]
+for.inc:                                          ; preds = %for.cond, %if.then9, %sw.bb, %if.then15, %sw.bb13, %if.then21, %sw.bb19, %if.then27, %sw.bb25, %if.then33, %sw.bb31, %if.then40, %sw.bb38, %if.then46, %sw.bb44, %if.then52, %sw.bb50, %if.then58, %sw.bb56, %if.then64, %sw.bb62, %if.then71, %sw.bb69, %if.then78, %sw.bb76, %if.then85, %sw.bb83, %if.then92, %sw.bb90, %if.then98, %sw.bb96, %if.then104, %sw.bb102, %if.then110, %sw.bb108, %if.then116, %sw.bb114, %if.then122, %sw.bb120, %if.then129, %sw.bb127, %if.then140, %sw.bb138, %if.then151, %sw.bb149, %if.then158, %sw.bb156, %if.then169, %sw.bb167
+  %setparamfncnt.1 = phi i32 [ %setparamfncnt.0, %if.then169 ], [ %setparamfncnt.0, %sw.bb167 ], [ %setparamfncnt.0, %if.then158 ], [ %setparamfncnt.0, %sw.bb156 ], [ %setparamfncnt.0, %if.then151 ], [ %setparamfncnt.0, %sw.bb149 ], [ %setparamfncnt.0, %if.then140 ], [ %setparamfncnt.0, %sw.bb138 ], [ %setparamfncnt.0, %if.then129 ], [ %setparamfncnt.0, %sw.bb127 ], [ %setparamfncnt.0, %if.then122 ], [ %setparamfncnt.0, %sw.bb120 ], [ %setparamfncnt.0, %if.then116 ], [ %setparamfncnt.0, %sw.bb114 ], [ %setparamfncnt.0, %if.then110 ], [ %setparamfncnt.0, %sw.bb108 ], [ %setparamfncnt.0, %if.then104 ], [ %setparamfncnt.0, %sw.bb102 ], [ %setparamfncnt.0, %if.then98 ], [ %setparamfncnt.0, %sw.bb96 ], [ %setparamfncnt.0, %if.then92 ], [ %setparamfncnt.0, %sw.bb90 ], [ %inc86, %if.then85 ], [ %setparamfncnt.0, %sw.bb83 ], [ %inc79, %if.then78 ], [ %setparamfncnt.0, %sw.bb76 ], [ %setparamfncnt.0, %if.then71 ], [ %setparamfncnt.0, %sw.bb69 ], [ %setparamfncnt.0, %if.then64 ], [ %setparamfncnt.0, %sw.bb62 ], [ %setparamfncnt.0, %if.then58 ], [ %setparamfncnt.0, %sw.bb56 ], [ %setparamfncnt.0, %if.then52 ], [ %setparamfncnt.0, %sw.bb50 ], [ %setparamfncnt.0, %if.then46 ], [ %setparamfncnt.0, %sw.bb44 ], [ %setparamfncnt.0, %if.then40 ], [ %setparamfncnt.0, %sw.bb38 ], [ %setparamfncnt.0, %if.then33 ], [ %setparamfncnt.0, %sw.bb31 ], [ %setparamfncnt.0, %if.then27 ], [ %setparamfncnt.0, %sw.bb25 ], [ %setparamfncnt.0, %if.then21 ], [ %setparamfncnt.0, %sw.bb19 ], [ %setparamfncnt.0, %if.then15 ], [ %setparamfncnt.0, %sw.bb13 ], [ %setparamfncnt.0, %if.then9 ], [ %setparamfncnt.0, %sw.bb ], [ %setparamfncnt.0, %for.cond ]
+  %getparamfncnt.1 = phi i32 [ %getparamfncnt.0, %if.then169 ], [ %getparamfncnt.0, %sw.bb167 ], [ %getparamfncnt.0, %if.then158 ], [ %getparamfncnt.0, %sw.bb156 ], [ %getparamfncnt.0, %if.then151 ], [ %getparamfncnt.0, %sw.bb149 ], [ %getparamfncnt.0, %if.then140 ], [ %getparamfncnt.0, %sw.bb138 ], [ %getparamfncnt.0, %if.then129 ], [ %getparamfncnt.0, %sw.bb127 ], [ %getparamfncnt.0, %if.then122 ], [ %getparamfncnt.0, %sw.bb120 ], [ %getparamfncnt.0, %if.then116 ], [ %getparamfncnt.0, %sw.bb114 ], [ %getparamfncnt.0, %if.then110 ], [ %getparamfncnt.0, %sw.bb108 ], [ %getparamfncnt.0, %if.then104 ], [ %getparamfncnt.0, %sw.bb102 ], [ %getparamfncnt.0, %if.then98 ], [ %getparamfncnt.0, %sw.bb96 ], [ %getparamfncnt.0, %if.then92 ], [ %getparamfncnt.0, %sw.bb90 ], [ %getparamfncnt.0, %if.then85 ], [ %getparamfncnt.0, %sw.bb83 ], [ %getparamfncnt.0, %if.then78 ], [ %getparamfncnt.0, %sw.bb76 ], [ %inc72, %if.then71 ], [ %getparamfncnt.0, %sw.bb69 ], [ %inc65, %if.then64 ], [ %getparamfncnt.0, %sw.bb62 ], [ %getparamfncnt.0, %if.then58 ], [ %getparamfncnt.0, %sw.bb56 ], [ %getparamfncnt.0, %if.then52 ], [ %getparamfncnt.0, %sw.bb50 ], [ %getparamfncnt.0, %if.then46 ], [ %getparamfncnt.0, %sw.bb44 ], [ %getparamfncnt.0, %if.then40 ], [ %getparamfncnt.0, %sw.bb38 ], [ %getparamfncnt.0, %if.then33 ], [ %getparamfncnt.0, %sw.bb31 ], [ %getparamfncnt.0, %if.then27 ], [ %getparamfncnt.0, %sw.bb25 ], [ %getparamfncnt.0, %if.then21 ], [ %getparamfncnt.0, %sw.bb19 ], [ %getparamfncnt.0, %if.then15 ], [ %getparamfncnt.0, %sw.bb13 ], [ %getparamfncnt.0, %if.then9 ], [ %getparamfncnt.0, %sw.bb ], [ %getparamfncnt.0, %for.cond ]
+  %setgenparamfncnt.1 = phi i32 [ %setgenparamfncnt.0, %if.then169 ], [ %setgenparamfncnt.0, %sw.bb167 ], [ %setgenparamfncnt.0, %if.then158 ], [ %setgenparamfncnt.0, %sw.bb156 ], [ %setgenparamfncnt.0, %if.then151 ], [ %setgenparamfncnt.0, %sw.bb149 ], [ %setgenparamfncnt.0, %if.then140 ], [ %setgenparamfncnt.0, %sw.bb138 ], [ %setgenparamfncnt.0, %if.then129 ], [ %setgenparamfncnt.0, %sw.bb127 ], [ %setgenparamfncnt.0, %if.then122 ], [ %setgenparamfncnt.0, %sw.bb120 ], [ %setgenparamfncnt.0, %if.then116 ], [ %setgenparamfncnt.0, %sw.bb114 ], [ %setgenparamfncnt.0, %if.then110 ], [ %setgenparamfncnt.0, %sw.bb108 ], [ %setgenparamfncnt.0, %if.then104 ], [ %setgenparamfncnt.0, %sw.bb102 ], [ %setgenparamfncnt.0, %if.then98 ], [ %setgenparamfncnt.0, %sw.bb96 ], [ %setgenparamfncnt.0, %if.then92 ], [ %setgenparamfncnt.0, %sw.bb90 ], [ %setgenparamfncnt.0, %if.then85 ], [ %setgenparamfncnt.0, %sw.bb83 ], [ %setgenparamfncnt.0, %if.then78 ], [ %setgenparamfncnt.0, %sw.bb76 ], [ %setgenparamfncnt.0, %if.then71 ], [ %setgenparamfncnt.0, %sw.bb69 ], [ %setgenparamfncnt.0, %if.then64 ], [ %setgenparamfncnt.0, %sw.bb62 ], [ %setgenparamfncnt.0, %if.then58 ], [ %setgenparamfncnt.0, %sw.bb56 ], [ %setgenparamfncnt.0, %if.then52 ], [ %setgenparamfncnt.0, %sw.bb50 ], [ %setgenparamfncnt.0, %if.then46 ], [ %setgenparamfncnt.0, %sw.bb44 ], [ %setgenparamfncnt.0, %if.then40 ], [ %setgenparamfncnt.0, %sw.bb38 ], [ %inc34, %if.then33 ], [ %setgenparamfncnt.0, %sw.bb31 ], [ %inc, %if.then27 ], [ %setgenparamfncnt.0, %sw.bb25 ], [ %setgenparamfncnt.0, %if.then21 ], [ %setgenparamfncnt.0, %sw.bb19 ], [ %setgenparamfncnt.0, %if.then15 ], [ %setgenparamfncnt.0, %sw.bb13 ], [ %setgenparamfncnt.0, %if.then9 ], [ %setgenparamfncnt.0, %sw.bb ], [ %setgenparamfncnt.0, %for.cond ]
+  %importfncnt.3 = phi i32 [ %importfncnt.0, %if.then169 ], [ %importfncnt.0, %sw.bb167 ], [ %importfncnt.0, %if.then158 ], [ %importfncnt.0, %sw.bb156 ], [ %importfncnt.0, %if.then151 ], [ %importfncnt.0, %sw.bb149 ], [ %spec.select120, %if.then140 ], [ %importfncnt.0, %sw.bb138 ], [ %spec.select, %if.then129 ], [ %importfncnt.0, %sw.bb127 ], [ %inc123, %if.then122 ], [ %importfncnt.0, %sw.bb120 ], [ %importfncnt.0, %if.then116 ], [ %importfncnt.0, %sw.bb114 ], [ %importfncnt.0, %if.then110 ], [ %importfncnt.0, %sw.bb108 ], [ %importfncnt.0, %if.then104 ], [ %importfncnt.0, %sw.bb102 ], [ %importfncnt.0, %if.then98 ], [ %importfncnt.0, %sw.bb96 ], [ %importfncnt.0, %if.then92 ], [ %importfncnt.0, %sw.bb90 ], [ %importfncnt.0, %if.then85 ], [ %importfncnt.0, %sw.bb83 ], [ %importfncnt.0, %if.then78 ], [ %importfncnt.0, %sw.bb76 ], [ %importfncnt.0, %if.then71 ], [ %importfncnt.0, %sw.bb69 ], [ %importfncnt.0, %if.then64 ], [ %importfncnt.0, %sw.bb62 ], [ %importfncnt.0, %if.then58 ], [ %importfncnt.0, %sw.bb56 ], [ %importfncnt.0, %if.then52 ], [ %importfncnt.0, %sw.bb50 ], [ %importfncnt.0, %if.then46 ], [ %importfncnt.0, %sw.bb44 ], [ %importfncnt.0, %if.then40 ], [ %importfncnt.0, %sw.bb38 ], [ %importfncnt.0, %if.then33 ], [ %importfncnt.0, %sw.bb31 ], [ %importfncnt.0, %if.then27 ], [ %importfncnt.0, %sw.bb25 ], [ %importfncnt.0, %if.then21 ], [ %importfncnt.0, %sw.bb19 ], [ %importfncnt.0, %if.then15 ], [ %importfncnt.0, %sw.bb13 ], [ %importfncnt.0, %if.then9 ], [ %importfncnt.0, %sw.bb ], [ %importfncnt.0, %for.cond ]
+  %exportfncnt.3 = phi i32 [ %spec.select122, %if.then169 ], [ %exportfncnt.0, %sw.bb167 ], [ %spec.select121, %if.then158 ], [ %exportfncnt.0, %sw.bb156 ], [ %inc152, %if.then151 ], [ %exportfncnt.0, %sw.bb149 ], [ %exportfncnt.0, %if.then140 ], [ %exportfncnt.0, %sw.bb138 ], [ %exportfncnt.0, %if.then129 ], [ %exportfncnt.0, %sw.bb127 ], [ %exportfncnt.0, %if.then122 ], [ %exportfncnt.0, %sw.bb120 ], [ %exportfncnt.0, %if.then116 ], [ %exportfncnt.0, %sw.bb114 ], [ %exportfncnt.0, %if.then110 ], [ %exportfncnt.0, %sw.bb108 ], [ %exportfncnt.0, %if.then104 ], [ %exportfncnt.0, %sw.bb102 ], [ %exportfncnt.0, %if.then98 ], [ %exportfncnt.0, %sw.bb96 ], [ %exportfncnt.0, %if.then92 ], [ %exportfncnt.0, %sw.bb90 ], [ %exportfncnt.0, %if.then85 ], [ %exportfncnt.0, %sw.bb83 ], [ %exportfncnt.0, %if.then78 ], [ %exportfncnt.0, %sw.bb76 ], [ %exportfncnt.0, %if.then71 ], [ %exportfncnt.0, %sw.bb69 ], [ %exportfncnt.0, %if.then64 ], [ %exportfncnt.0, %sw.bb62 ], [ %exportfncnt.0, %if.then58 ], [ %exportfncnt.0, %sw.bb56 ], [ %exportfncnt.0, %if.then52 ], [ %exportfncnt.0, %sw.bb50 ], [ %exportfncnt.0, %if.then46 ], [ %exportfncnt.0, %sw.bb44 ], [ %exportfncnt.0, %if.then40 ], [ %exportfncnt.0, %sw.bb38 ], [ %exportfncnt.0, %if.then33 ], [ %exportfncnt.0, %sw.bb31 ], [ %exportfncnt.0, %if.then27 ], [ %exportfncnt.0, %sw.bb25 ], [ %exportfncnt.0, %if.then21 ], [ %exportfncnt.0, %sw.bb19 ], [ %exportfncnt.0, %if.then15 ], [ %exportfncnt.0, %sw.bb13 ], [ %exportfncnt.0, %if.then9 ], [ %exportfncnt.0, %sw.bb ], [ %exportfncnt.0, %for.cond ]
+  %importtypesfncnt.1 = phi i32 [ %importtypesfncnt.0, %if.then169 ], [ %importtypesfncnt.0, %sw.bb167 ], [ %importtypesfncnt.0, %if.then158 ], [ %importtypesfncnt.0, %sw.bb156 ], [ %importtypesfncnt.0, %if.then151 ], [ %importtypesfncnt.0, %sw.bb149 ], [ %inc145, %if.then140 ], [ %importtypesfncnt.0, %sw.bb138 ], [ %inc134, %if.then129 ], [ %importtypesfncnt.0, %sw.bb127 ], [ %importtypesfncnt.0, %if.then122 ], [ %importtypesfncnt.0, %sw.bb120 ], [ %importtypesfncnt.0, %if.then116 ], [ %importtypesfncnt.0, %sw.bb114 ], [ %importtypesfncnt.0, %if.then110 ], [ %importtypesfncnt.0, %sw.bb108 ], [ %importtypesfncnt.0, %if.then104 ], [ %importtypesfncnt.0, %sw.bb102 ], [ %importtypesfncnt.0, %if.then98 ], [ %importtypesfncnt.0, %sw.bb96 ], [ %importtypesfncnt.0, %if.then92 ], [ %importtypesfncnt.0, %sw.bb90 ], [ %importtypesfncnt.0, %if.then85 ], [ %importtypesfncnt.0, %sw.bb83 ], [ %importtypesfncnt.0, %if.then78 ], [ %importtypesfncnt.0, %sw.bb76 ], [ %importtypesfncnt.0, %if.then71 ], [ %importtypesfncnt.0, %sw.bb69 ], [ %importtypesfncnt.0, %if.then64 ], [ %importtypesfncnt.0, %sw.bb62 ], [ %importtypesfncnt.0, %if.then58 ], [ %importtypesfncnt.0, %sw.bb56 ], [ %importtypesfncnt.0, %if.then52 ], [ %importtypesfncnt.0, %sw.bb50 ], [ %importtypesfncnt.0, %if.then46 ], [ %importtypesfncnt.0, %sw.bb44 ], [ %importtypesfncnt.0, %if.then40 ], [ %importtypesfncnt.0, %sw.bb38 ], [ %importtypesfncnt.0, %if.then33 ], [ %importtypesfncnt.0, %sw.bb31 ], [ %importtypesfncnt.0, %if.then27 ], [ %importtypesfncnt.0, %sw.bb25 ], [ %importtypesfncnt.0, %if.then21 ], [ %importtypesfncnt.0, %sw.bb19 ], [ %importtypesfncnt.0, %if.then15 ], [ %importtypesfncnt.0, %sw.bb13 ], [ %importtypesfncnt.0, %if.then9 ], [ %importtypesfncnt.0, %sw.bb ], [ %importtypesfncnt.0, %for.cond ]
+  %exporttypesfncnt.1 = phi i32 [ %inc174, %if.then169 ], [ %exporttypesfncnt.0, %sw.bb167 ], [ %inc163, %if.then158 ], [ %exporttypesfncnt.0, %sw.bb156 ], [ %exporttypesfncnt.0, %if.then151 ], [ %exporttypesfncnt.0, %sw.bb149 ], [ %exporttypesfncnt.0, %if.then140 ], [ %exporttypesfncnt.0, %sw.bb138 ], [ %exporttypesfncnt.0, %if.then129 ], [ %exporttypesfncnt.0, %sw.bb127 ], [ %exporttypesfncnt.0, %if.then122 ], [ %exporttypesfncnt.0, %sw.bb120 ], [ %exporttypesfncnt.0, %if.then116 ], [ %exporttypesfncnt.0, %sw.bb114 ], [ %exporttypesfncnt.0, %if.then110 ], [ %exporttypesfncnt.0, %sw.bb108 ], [ %exporttypesfncnt.0, %if.then104 ], [ %exporttypesfncnt.0, %sw.bb102 ], [ %exporttypesfncnt.0, %if.then98 ], [ %exporttypesfncnt.0, %sw.bb96 ], [ %exporttypesfncnt.0, %if.then92 ], [ %exporttypesfncnt.0, %sw.bb90 ], [ %exporttypesfncnt.0, %if.then85 ], [ %exporttypesfncnt.0, %sw.bb83 ], [ %exporttypesfncnt.0, %if.then78 ], [ %exporttypesfncnt.0, %sw.bb76 ], [ %exporttypesfncnt.0, %if.then71 ], [ %exporttypesfncnt.0, %sw.bb69 ], [ %exporttypesfncnt.0, %if.then64 ], [ %exporttypesfncnt.0, %sw.bb62 ], [ %exporttypesfncnt.0, %if.then58 ], [ %exporttypesfncnt.0, %sw.bb56 ], [ %exporttypesfncnt.0, %if.then52 ], [ %exporttypesfncnt.0, %sw.bb50 ], [ %exporttypesfncnt.0, %if.then46 ], [ %exporttypesfncnt.0, %sw.bb44 ], [ %exporttypesfncnt.0, %if.then40 ], [ %exporttypesfncnt.0, %sw.bb38 ], [ %exporttypesfncnt.0, %if.then33 ], [ %exporttypesfncnt.0, %sw.bb31 ], [ %exporttypesfncnt.0, %if.then27 ], [ %exporttypesfncnt.0, %sw.bb25 ], [ %exporttypesfncnt.0, %if.then21 ], [ %exporttypesfncnt.0, %sw.bb19 ], [ %exporttypesfncnt.0, %if.then15 ], [ %exporttypesfncnt.0, %sw.bb13 ], [ %exporttypesfncnt.0, %if.then9 ], [ %exporttypesfncnt.0, %sw.bb ], [ %exporttypesfncnt.0, %for.cond ]
   %incdec.ptr = getelementptr inbounds i8, ptr %fns.0, i64 16
   br label %for.cond, !llvm.loop !4
 
 for.end:                                          ; preds = %for.cond
-  %31 = load ptr, ptr %free, align 8
-  %cmp179 = icmp eq ptr %31, null
+  %54 = load ptr, ptr %free, align 8
+  %cmp179 = icmp eq ptr %54, null
   br i1 %cmp179, label %if.end.i154, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.end
-  %32 = load ptr, ptr %new, align 8
-  %cmp181 = icmp eq ptr %32, null
+  %55 = load ptr, ptr %new, align 8
+  %cmp181 = icmp eq ptr %55, null
   br i1 %cmp181, label %land.lhs.true, label %lor.lhs.false187
 
 land.lhs.true:                                    ; preds = %lor.lhs.false
-  %33 = load ptr, ptr %gen, align 8
-  %cmp183 = icmp eq ptr %33, null
+  %56 = load ptr, ptr %gen, align 8
+  %cmp183 = icmp eq ptr %56, null
   br i1 %cmp183, label %land.lhs.true184, label %lor.lhs.false187
 
 land.lhs.true184:                                 ; preds = %land.lhs.true
-  %34 = load ptr, ptr %load, align 8
-  %cmp186 = icmp eq ptr %34, null
+  %57 = load ptr, ptr %load, align 8
+  %cmp186 = icmp eq ptr %57, null
   br i1 %cmp186, label %if.end.i154, label %lor.lhs.false187
 
 lor.lhs.false187:                                 ; preds = %land.lhs.true184, %land.lhs.true, %lor.lhs.false
-  %35 = load ptr, ptr %has, align 8
-  %cmp189 = icmp ne ptr %35, null
-  %36 = and i32 %getparamfncnt.0, -3
-  %or.cond.not = icmp eq i32 %36, 0
+  %58 = load ptr, ptr %has, align 8
+  %cmp189 = icmp ne ptr %58, null
+  %59 = and i32 %getparamfncnt.0, -3
+  %or.cond.not = icmp eq i32 %59, 0
   %or.cond = select i1 %cmp189, i1 %or.cond.not, i1 false
-  %37 = and i32 %setparamfncnt.0, -3
-  %or.cond1.not = icmp eq i32 %37, 0
+  %60 = and i32 %setparamfncnt.0, -3
+  %or.cond1.not = icmp eq i32 %60, 0
   %or.cond123 = select i1 %or.cond, i1 %or.cond1.not, i1 false
-  %38 = and i32 %setgenparamfncnt.0, -3
-  %or.cond2.not = icmp eq i32 %38, 0
+  %61 = and i32 %setgenparamfncnt.0, -3
+  %or.cond2.not = icmp eq i32 %61, 0
   %or.cond124 = select i1 %or.cond123, i1 %or.cond2.not, i1 false
-  %39 = and i32 %importfncnt.0, -3
-  %or.cond3.not = icmp eq i32 %39, 0
+  %62 = and i32 %importfncnt.0, -3
+  %or.cond3.not = icmp eq i32 %62, 0
   %or.cond125 = select i1 %or.cond124, i1 %or.cond3.not, i1 false
-  %40 = and i32 %exportfncnt.0, -3
-  %or.cond4.not = icmp eq i32 %40, 0
+  %63 = and i32 %exportfncnt.0, -3
+  %or.cond4.not = icmp eq i32 %63, 0
   %or.cond126 = select i1 %or.cond125, i1 %or.cond4.not, i1 false
   br i1 %or.cond126, label %lor.lhs.false210, label %if.end.i154
 
 lor.lhs.false210:                                 ; preds = %lor.lhs.false187
-  %41 = load ptr, ptr %gen, align 8
-  %cmp212.not = icmp eq ptr %41, null
+  %64 = load ptr, ptr %gen, align 8
+  %cmp212.not = icmp eq ptr %64, null
   br i1 %cmp212.not, label %if.end220, label %land.lhs.true213
 
 land.lhs.true213:                                 ; preds = %lor.lhs.false210
-  %42 = load ptr, ptr %gen_init, align 8
-  %cmp215 = icmp eq ptr %42, null
+  %65 = load ptr, ptr %gen_init, align 8
+  %cmp215 = icmp eq ptr %65, null
   br i1 %cmp215, label %if.end.i154, label %lor.lhs.false216
 
 lor.lhs.false216:                                 ; preds = %land.lhs.true213
-  %43 = load ptr, ptr %gen_cleanup, align 8
-  %cmp218 = icmp eq ptr %43, null
+  %66 = load ptr, ptr %gen_cleanup, align 8
+  %cmp218 = icmp eq ptr %66, null
   br i1 %cmp218, label %if.end.i154, label %if.end220
 
 if.end.i154:                                      ; preds = %for.end, %land.lhs.true184, %lor.lhs.false187, %land.lhs.true213, %lor.lhs.false216
-  %44 = atomicrmw sub ptr %refcnt.i, i32 1 monotonic, align 4
-  %cmp.i.i156 = icmp eq i32 %44, 1
+  %67 = atomicrmw sub ptr %refcnt.i, i32 1 monotonic, align 4
+  %cmp.i.i156 = icmp eq i32 %67, 1
   br i1 %cmp.i.i156, label %CRYPTO_DOWN_REF.exit.thread.i162, label %CRYPTO_DOWN_REF.exit.i157
 
 CRYPTO_DOWN_REF.exit.thread.i162:                 ; preds = %if.end.i154
@@ -398,15 +492,15 @@ CRYPTO_DOWN_REF.exit.thread.i162:                 ; preds = %if.end.i154
   br label %if.end3.i159
 
 CRYPTO_DOWN_REF.exit.i157:                        ; preds = %if.end.i154
-  %cmp1.i158 = icmp sgt i32 %44, 1
+  %cmp1.i158 = icmp sgt i32 %67, 1
   br i1 %cmp1.i158, label %EVP_KEYMGMT_free.exit163, label %if.end3.i159
 
 if.end3.i159:                                     ; preds = %CRYPTO_DOWN_REF.exit.i157, %CRYPTO_DOWN_REF.exit.thread.i162
-  %45 = phi ptr [ %call2, %CRYPTO_DOWN_REF.exit.i157 ], [ %.pre, %CRYPTO_DOWN_REF.exit.thread.i162 ]
-  tail call void @CRYPTO_free(ptr noundef %45, ptr noundef nonnull @.str, i32 noundef 262) #4
+  %68 = phi ptr [ %call2, %CRYPTO_DOWN_REF.exit.i157 ], [ %.pre, %CRYPTO_DOWN_REF.exit.thread.i162 ]
+  tail call void @CRYPTO_free(ptr noundef %68, ptr noundef nonnull @.str, i32 noundef 262) #4
   %prov.i161 = getelementptr inbounds i8, ptr %call.i, i64 24
-  %46 = load ptr, ptr %prov.i161, align 8
-  tail call void @ossl_provider_free(ptr noundef %46) #4
+  %69 = load ptr, ptr %prov.i161, align 8
+  tail call void @ossl_provider_free(ptr noundef %69) #4
   tail call void @CRYPTO_free(ptr noundef nonnull %call.i, ptr noundef nonnull @.str, i32 noundef 265) #4
   br label %EVP_KEYMGMT_free.exit163
 

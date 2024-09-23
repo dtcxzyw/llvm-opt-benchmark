@@ -847,10 +847,7 @@ if.end10:                                         ; preds = %if.else, %if.then8,
   %conv15 = zext i32 %3 to i64
   %nValueA.1 = select i1 %or.cond, i64 %conv, i64 %nValueA.0
   %nValueB.1 = select i1 %or.cond, i64 %conv15, i64 %nValueB.0
-  %cmp17 = icmp eq i64 %nValueA.1, %nValueB.1
-  %cmp20 = icmp slt i64 %nValueA.1, %nValueB.1
-  %. = select i1 %cmp20, i32 -1, i32 1
-  %retval.0 = select i1 %cmp17, i32 0, i32 %.
+  %retval.0 = tail call i32 @llvm.scmp.i32.i64(i64 %nValueA.1, i64 %nValueB.1)
   ret i32 %retval.0
 }
 
@@ -5035,6 +5032,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #16

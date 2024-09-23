@@ -3157,7 +3157,7 @@ define internal i64 @ssl_cf_recv(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ssl_cf_cntrl(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 %3, ptr nocapture readnone %4) #2 {
-  switch i32 %2, label %27 [
+  switch i32 %2, label %26 [
     i32 1, label %6
     i32 2, label %16
   ]
@@ -3167,7 +3167,7 @@ define internal noundef i32 @ssl_cf_cntrl(ptr noundef %0, ptr noundef %1, i32 no
   %8 = getelementptr inbounds i8, ptr %7, i64 192
   %9 = load ptr, ptr %8, align 8
   %.not15 = icmp eq ptr %9, null
-  br i1 %.not15, label %27, label %10
+  br i1 %.not15, label %26, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %0, i64 16
@@ -3184,7 +3184,7 @@ define internal noundef i32 @ssl_cf_cntrl(ptr noundef %0, ptr noundef %1, i32 no
   %18 = getelementptr inbounds i8, ptr %17, i64 200
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %27, label %20
+  br i1 %.not, label %26, label %20
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds i8, ptr %0, i64 16
@@ -3197,14 +3197,14 @@ define internal noundef i32 @ssl_cf_cntrl(ptr noundef %0, ptr noundef %1, i32 no
   br label %.sink.split
 
 .sink.split:                                      ; preds = %10, %20
-  %.sink = phi ptr [ %21, %20 ], [ %11, %10 ]
+  %.sink16.in = phi ptr [ %21, %20 ], [ %11, %10 ]
   %.sroa.0.0.copyload2.sink = phi ptr [ %.sroa.0.0.copyload2, %20 ], [ %.sroa.0.0.copyload, %10 ]
-  %25 = load ptr, ptr %.sink, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 56
-  store ptr %.sroa.0.0.copyload2.sink, ptr %26, align 8
-  br label %27
+  %.sink16 = load ptr, ptr %.sink16.in, align 8
+  %25 = getelementptr inbounds i8, ptr %.sink16, i64 56
+  store ptr %.sroa.0.0.copyload2.sink, ptr %25, align 8
+  br label %26
 
-27:                                               ; preds = %.sink.split, %5, %16, %6
+26:                                               ; preds = %.sink.split, %5, %16, %6
   ret i32 0
 }
 

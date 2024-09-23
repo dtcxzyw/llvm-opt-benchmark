@@ -1911,28 +1911,25 @@ define dso_local void @_ZN5clang21CodeCompletionBuilder15addBriefCommentEN4llvm9
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef ptr @_ZNK5clang20CodeCompleteConsumer17OverloadCandidate11getFunctionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #9 align 2 {
   %2 = load i32, ptr %0, align 8
-  switch i32 %2, label %10 [
+  switch i32 %2, label %11 [
     i32 0, label %3
-    i32 1, label %5
+    i32 1, label %6
   ]
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %.sink.split
+  %5 = load ptr, ptr %4, align 8
+  br label %11
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  br label %.sink.split
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %10 = load ptr, ptr %9, align 8
+  br label %11
 
-.sink.split:                                      ; preds = %3, %5
-  %.sink = phi ptr [ %8, %5 ], [ %4, %3 ]
-  %9 = load ptr, ptr %.sink, align 8
-  br label %10
-
-10:                                               ; preds = %.sink.split, %1
-  %.0 = phi ptr [ null, %1 ], [ %9, %.sink.split ]
+11:                                               ; preds = %1, %6, %3
+  %.0 = phi ptr [ %5, %3 ], [ %10, %6 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -2351,7 +2348,7 @@ define dso_local noundef ptr @_ZNK5clang20CodeCompleteConsumer17OverloadCandidat
     i32 4, label %69
     i32 0, label %83
     i32 1, label %85
-    i32 3, label %99
+    i32 3, label %98
   ]
 
 4:                                                ; preds = %2
@@ -2506,51 +2503,51 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit: ; preds
   br label %_ZNK5clang20CodeCompleteConsumer17OverloadCandidate11getFunctionEv.exit
 
 _ZNK5clang20CodeCompleteConsumer17OverloadCandidate11getFunctionEv.exit: ; preds = %83, %85
-  %.sink.i = phi ptr [ %88, %85 ], [ %84, %83 ]
-  %89 = load ptr, ptr %.sink.i, align 8
-  %.not = icmp eq ptr %89, null
-  br i1 %.not, label %.thread, label %90
+  %.0.i.in = phi ptr [ %84, %83 ], [ %88, %85 ]
+  %.0.i = load ptr, ptr %.0.i.in, align 8
+  %.not = icmp eq ptr %.0.i, null
+  br i1 %.not, label %.thread, label %89
 
-90:                                               ; preds = %_ZNK5clang20CodeCompleteConsumer17OverloadCandidate11getFunctionEv.exit
-  %91 = tail call noundef i32 @_ZNK5clang12FunctionDecl12getNumParamsEv(ptr noundef nonnull align 8 dereferenceable(168) %89) #23
-  %92 = icmp ugt i32 %91, %1
-  br i1 %92, label %93, label %.thread
+89:                                               ; preds = %_ZNK5clang20CodeCompleteConsumer17OverloadCandidate11getFunctionEv.exit
+  %90 = tail call noundef i32 @_ZNK5clang12FunctionDecl12getNumParamsEv(ptr noundef nonnull align 8 dereferenceable(168) %.0.i) #23
+  %91 = icmp ugt i32 %90, %1
+  br i1 %91, label %92, label %.thread
 
-93:                                               ; preds = %90
-  %94 = zext i32 %1 to i64
-  %95 = getelementptr inbounds nuw i8, ptr %89, i64 120
-  %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds ptr, ptr %96, i64 %94
-  %98 = load ptr, ptr %97, align 8
+92:                                               ; preds = %89
+  %93 = zext i32 %1 to i64
+  %94 = getelementptr inbounds nuw i8, ptr %.0.i, i64 120
+  %95 = load ptr, ptr %94, align 8
+  %96 = getelementptr inbounds ptr, ptr %95, i64 %93
+  %97 = load ptr, ptr %96, align 8
   br label %.thread
 
-99:                                               ; preds = %2
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 16
-  %103 = load i8, ptr %102, align 16
-  %104 = icmp eq i8 %103, 25
-  br i1 %104, label %.thread, label %_ZNK5clang15FunctionTypeLoc12getNumParamsEv.exit
+98:                                               ; preds = %2
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %100 = load ptr, ptr %99, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
+  %102 = load i8, ptr %101, align 16
+  %103 = icmp eq i8 %102, 25
+  br i1 %103, label %.thread, label %_ZNK5clang15FunctionTypeLoc12getNumParamsEv.exit
 
-_ZNK5clang15FunctionTypeLoc12getNumParamsEv.exit: ; preds = %99
-  %105 = load i64, ptr %102, align 16
-  %106 = lshr i64 %105, 38
-  %107 = trunc nuw nsw i64 %106 to i32
-  %108 = and i32 %107, 65535
-  %109 = icmp ult i32 %1, %108
-  br i1 %109, label %110, label %.thread
+_ZNK5clang15FunctionTypeLoc12getNumParamsEv.exit: ; preds = %98
+  %104 = load i64, ptr %101, align 16
+  %105 = lshr i64 %104, 38
+  %106 = trunc nuw nsw i64 %105 to i32
+  %107 = and i32 %106, 65535
+  %108 = icmp ult i32 %1, %107
+  br i1 %108, label %109, label %.thread
 
-110:                                              ; preds = %_ZNK5clang15FunctionTypeLoc12getNumParamsEv.exit
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 16
-  %114 = zext nneg i32 %1 to i64
-  %115 = getelementptr inbounds ptr, ptr %113, i64 %114
-  %116 = load ptr, ptr %115, align 8
+109:                                              ; preds = %_ZNK5clang15FunctionTypeLoc12getNumParamsEv.exit
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %111 = load ptr, ptr %110, align 8
+  %112 = getelementptr inbounds i8, ptr %111, i64 16
+  %113 = zext nneg i32 %1 to i64
+  %114 = getelementptr inbounds ptr, ptr %112, i64 %113
+  %115 = load ptr, ptr %114, align 8
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit, %51, %2, %99, %_ZNK5clang20CodeCompleteConsumer17OverloadCandidate11getFunctionEv.exit, %90, %_ZNK5clang15FunctionTypeLoc12getNumParamsEv.exit, %69, %110, %93, %78, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit
-  %.0 = phi ptr [ %46, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit ], [ %82, %78 ], [ %98, %93 ], [ %116, %110 ], [ null, %69 ], [ null, %_ZNK5clang15FunctionTypeLoc12getNumParamsEv.exit ], [ null, %90 ], [ null, %_ZNK5clang20CodeCompleteConsumer17OverloadCandidate11getFunctionEv.exit ], [ null, %99 ], [ null, %2 ], [ null, %51 ], [ %.sroa.035.045, %.lr.ph ], [ null, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit ]
+.thread:                                          ; preds = %.lr.ph, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit, %51, %2, %98, %_ZNK5clang20CodeCompleteConsumer17OverloadCandidate11getFunctionEv.exit, %89, %_ZNK5clang15FunctionTypeLoc12getNumParamsEv.exit, %69, %109, %92, %78, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit
+  %.0 = phi ptr [ %46, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit ], [ %82, %78 ], [ %97, %92 ], [ %115, %109 ], [ null, %69 ], [ null, %_ZNK5clang15FunctionTypeLoc12getNumParamsEv.exit ], [ null, %89 ], [ null, %_ZNK5clang20CodeCompleteConsumer17OverloadCandidate11getFunctionEv.exit ], [ null, %98 ], [ null, %2 ], [ null, %51 ], [ %.sroa.035.045, %.lr.ph ], [ null, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit ]
   ret ptr %.0
 }
 

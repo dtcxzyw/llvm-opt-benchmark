@@ -2825,6 +2825,7 @@ define dso_local void @_ZN3ozz7options20ParsedExecutablePathB5cxx11Ev(ptr dead_o
   store ptr %4, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %5, align 8
+  store i8 0, ptr %4, align 8
   br label %35
 
 6:                                                ; preds = %1
@@ -2893,11 +2894,10 @@ _ZNK3ozz7options6Parser15executable_pathB5cxx11Ev.exit: ; preds = %._crit_edge.i
   store i64 %13, ptr %10, align 8, !alias.scope !23
   %33 = load ptr, ptr %0, align 8, !alias.scope !23
   %34 = getelementptr inbounds i8, ptr %33, i64 %13
+  store i8 0, ptr %34, align 1
   br label %35
 
 35:                                               ; preds = %_ZNK3ozz7options6Parser15executable_pathB5cxx11Ev.exit, %3
-  %.sink = phi ptr [ %34, %_ZNK3ozz7options6Parser15executable_pathB5cxx11Ev.exit ], [ %4, %3 ]
-  store i8 0, ptr %.sink, align 1
   ret void
 }
 

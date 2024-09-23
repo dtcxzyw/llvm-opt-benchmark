@@ -5918,13 +5918,13 @@ _ZN5Ipopt8SmartPtrINS_17MultiVectorMatrixEED2Ev.exit: ; preds = %1642, %1644, %1
   br label %.invoke1287
 
 .invoke1287:                                      ; preds = %1659, %1675
-  %.sink1288 = phi ptr [ %1637, %1659 ], [ %1677, %1675 ]
-  %.in = phi ptr [ %1660, %1659 ], [ %1676, %1675 ]
-  %1678 = load double, ptr %.in, align 8
-  %1679 = load ptr, ptr %1640, align 8
-  %1680 = load ptr, ptr %.sink1288, align 8
+  %.in1298 = phi ptr [ %1676, %1675 ], [ %1660, %1659 ]
+  %.in1299 = phi ptr [ %1677, %1675 ], [ %1637, %1659 ]
+  %1678 = load ptr, ptr %.in1299, align 8
+  %1679 = load double, ptr %.in1298, align 8
+  %1680 = load ptr, ptr %1640, align 8
   %1681 = load ptr, ptr %30, align 8
-  invoke void @_ZN5Ipopt17MultiVectorMatrix18AddRightMultMatrixEdRKS0_RKNS_6MatrixEd(ptr noundef nonnull align 8 dereferenceable(128) %1679, double noundef %1678, ptr noundef nonnull align 8 dereferenceable(128) %1680, ptr noundef nonnull align 8 dereferenceable(69) %1681, double noundef 0.000000e+00)
+  invoke void @_ZN5Ipopt17MultiVectorMatrix18AddRightMultMatrixEdRKS0_RKNS_6MatrixEd(ptr noundef nonnull align 8 dereferenceable(128) %1680, double noundef %1679, ptr noundef nonnull align 8 dereferenceable(128) %1678, ptr noundef nonnull align 8 dereferenceable(69) %1681, double noundef 0.000000e+00)
           to label %1682 unwind label %1661
 
 1682:                                             ; preds = %.invoke1287
@@ -6749,24 +6749,24 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit664:                 ; preds = %.noexc663, %._crit_
   br i1 %2070, label %_ZN5Ipopt8SmartPtrINS_14DenseSymMatrixEED2Ev.exit670.invoke.sink.split, label %_ZN5Ipopt8SmartPtrINS_14DenseSymMatrixEED2Ev.exit670.invoke
 
 _ZN5Ipopt8SmartPtrINS_14DenseSymMatrixEED2Ev.exit670.invoke.sink.split: ; preds = %2066, %2040
-  %.sink1303 = phi ptr [ %2039, %2040 ], [ %2065, %2066 ]
-  %.sink1292.ph = phi i64 [ 216, %2040 ], [ 152, %2066 ]
-  %.sink1289.ph = phi ptr [ %2034, %2040 ], [ %2060, %2066 ]
-  %2071 = load ptr, ptr %.sink1303, align 8
+  %.sink1305 = phi ptr [ %2039, %2040 ], [ %2065, %2066 ]
+  %.sink.ph = phi i64 [ 216, %2040 ], [ 152, %2066 ]
+  %.in.ph = phi ptr [ %2034, %2040 ], [ %2060, %2066 ]
+  %2071 = load ptr, ptr %.sink1305, align 8
   %2072 = getelementptr inbounds i8, ptr %2071, i64 8
   %2073 = load ptr, ptr %2072, align 8
-  call void %2073(ptr noundef nonnull align 8 dereferenceable(97) %.sink1303) #21
+  call void %2073(ptr noundef nonnull align 8 dereferenceable(97) %.sink1305) #21
   br label %_ZN5Ipopt8SmartPtrINS_14DenseSymMatrixEED2Ev.exit670.invoke
 
 _ZN5Ipopt8SmartPtrINS_14DenseSymMatrixEED2Ev.exit670.invoke: ; preds = %_ZN5Ipopt8SmartPtrINS_14DenseSymMatrixEED2Ev.exit670.invoke.sink.split, %2066, %2064, %2040, %2038
-  %.sink1292 = phi i64 [ 216, %2038 ], [ 216, %2040 ], [ 152, %2064 ], [ 152, %2066 ], [ %.sink1292.ph, %_ZN5Ipopt8SmartPtrINS_14DenseSymMatrixEED2Ev.exit670.invoke.sink.split ]
-  %.sink1289 = phi ptr [ %2034, %2038 ], [ %2034, %2040 ], [ %2060, %2064 ], [ %2060, %2066 ], [ %.sink1289.ph, %_ZN5Ipopt8SmartPtrINS_14DenseSymMatrixEED2Ev.exit670.invoke.sink.split ]
-  %2074 = load ptr, ptr %36, align 8
-  %2075 = getelementptr inbounds i8, ptr %0, i64 %.sink1292
-  %2076 = load double, ptr %2075, align 8
-  %2077 = fneg double %2076
-  %2078 = load ptr, ptr %.sink1289, align 8
-  invoke void @_ZN5Ipopt14DenseSymMatrix9AddMatrixEdRKS0_d(ptr noundef nonnull align 8 dereferenceable(97) %2074, double noundef %2077, ptr noundef nonnull align 8 dereferenceable(97) %2078, double noundef 0.000000e+00)
+  %.sink = phi i64 [ 216, %2038 ], [ 216, %2040 ], [ 152, %2064 ], [ 152, %2066 ], [ %.sink.ph, %_ZN5Ipopt8SmartPtrINS_14DenseSymMatrixEED2Ev.exit670.invoke.sink.split ]
+  %.in = phi ptr [ %2034, %2038 ], [ %2034, %2040 ], [ %2060, %2064 ], [ %2060, %2066 ], [ %.in.ph, %_ZN5Ipopt8SmartPtrINS_14DenseSymMatrixEED2Ev.exit670.invoke.sink.split ]
+  %2074 = getelementptr inbounds i8, ptr %0, i64 %.sink
+  %2075 = load double, ptr %2074, align 8
+  %2076 = fneg double %2075
+  %2077 = load ptr, ptr %.in, align 8
+  %2078 = load ptr, ptr %36, align 8
+  invoke void @_ZN5Ipopt14DenseSymMatrix9AddMatrixEdRKS0_d(ptr noundef nonnull align 8 dereferenceable(97) %2078, double noundef %2076, ptr noundef nonnull align 8 dereferenceable(97) %2077, double noundef 0.000000e+00)
           to label %2091 unwind label %2045
 
 2079:                                             ; preds = %2062
@@ -6955,33 +6955,33 @@ _ZN5Ipopt8SmartPtrINS_14DenseSymMatrixEED2Ev.exit670.invoke: ; preds = %_ZN5Ipop
   %2153 = load ptr, ptr %45, align 8
   %2154 = load ptr, ptr %2150, align 8
   invoke void @_ZN5Ipopt17MultiVectorMatrix23AddOneMultiVectorMatrixEdRKS0_d(ptr noundef nonnull align 8 dereferenceable(128) %2153, double noundef 1.000000e+00, ptr noundef nonnull align 8 dereferenceable(128) %2154, double noundef 0.000000e+00)
-          to label %.invoke1293 unwind label %2168
+          to label %.invoke1288 unwind label %2168
 
-.invoke1293:                                      ; preds = %2152
+.invoke1288:                                      ; preds = %2152
   %2155 = load i8, ptr %173, align 1
   %2156 = trunc i8 %2155 to i1
   %2157 = getelementptr inbounds i8, ptr %0, i64 112
   %2158 = load i8, ptr %2157, align 8
   %2159 = trunc i8 %2158 to i1
   %2160 = select i1 %2156, i1 %2159, i1 false
-  %.sink1298 = select i1 %2160, i64 152, i64 216
+  %.sink1293 = select i1 %2160, i64 152, i64 216
   %2161 = select i1 %2156, i1 %2159, i1 false
-  %.sink1295 = select i1 %2161, i64 256, i64 168
+  %.sink1290 = select i1 %2161, i64 256, i64 168
   %2162 = load ptr, ptr %45, align 8
-  %2163 = getelementptr inbounds i8, ptr %0, i64 %.sink1298
+  %2163 = getelementptr inbounds i8, ptr %0, i64 %.sink1293
   %2164 = load double, ptr %2163, align 8
   %2165 = fneg double %2164
-  %2166 = getelementptr inbounds i8, ptr %0, i64 %.sink1295
+  %2166 = getelementptr inbounds i8, ptr %0, i64 %.sink1290
   %2167 = load ptr, ptr %2166, align 8
   invoke void @_ZN5Ipopt17MultiVectorMatrix23AddOneMultiVectorMatrixEdRKS0_d(ptr noundef nonnull align 8 dereferenceable(128) %2162, double noundef %2165, ptr noundef nonnull align 8 dereferenceable(128) %2167, double noundef 1.000000e+00)
           to label %2170 unwind label %2168
 
-2168:                                             ; preds = %.invoke1293, %2249, %2172, %2152
+2168:                                             ; preds = %.invoke1288, %2249, %2172, %2152
   %2169 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5Ipopt8SmartPtrINS_22MultiVectorMatrixSpaceEED2Ev.exit688
 
-2170:                                             ; preds = %.invoke1293
+2170:                                             ; preds = %.invoke1288
   %2171 = load ptr, ptr %43, align 8
   %.not1256 = icmp eq ptr %2171, null
   br i1 %.not1256, label %2232, label %2172
@@ -7562,13 +7562,13 @@ _ZN5Ipopt9IpoptData18Append_info_stringERKNSt7__cxx1112basic_stringIcSt11char_tr
   br label %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit534
 
 2449:                                             ; preds = %2432, %_ZN5Ipopt9IpoptData18Append_info_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit737, %2433
-  %.sink1299 = phi i32 [ %2444, %_ZN5Ipopt9IpoptData18Append_info_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit737 ], [ %2435, %2433 ], [ 0, %2432 ]
-  store i32 %.sink1299, ptr %479, align 8
+  %.sink1294 = phi i32 [ %2444, %_ZN5Ipopt9IpoptData18Append_info_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit737 ], [ %2435, %2433 ], [ 0, %2432 ]
+  store i32 %.sink1294, ptr %479, align 8
   %2450 = load ptr, ptr %1304, align 8
   %2451 = load ptr, ptr %2450, align 8
   %2452 = getelementptr inbounds i8, ptr %2451, i64 16
   %2453 = load ptr, ptr %2452, align 8
-  invoke void (ptr, i32, i32, ptr, ...) %2453(ptr noundef nonnull align 8 dereferenceable(40) %2450, i32 noundef 6, i32 noundef 9, ptr noundef nonnull @.str.57, i32 noundef %.sink1299)
+  invoke void (ptr, i32, i32, ptr, ...) %2453(ptr noundef nonnull align 8 dereferenceable(40) %2450, i32 noundef 6, i32 noundef 9, ptr noundef nonnull @.str.57, i32 noundef %.sink1294)
           to label %2454 unwind label %1289
 
 2454:                                             ; preds = %2449

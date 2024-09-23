@@ -729,9 +729,9 @@ define i32 @cuddGarbageCollect(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %220 = getelementptr inbounds i8, ptr %0, i64 400
   br label %221
 
-221:                                              ; preds = %.lr.ph308, %236
-  %.0189306 = phi ptr [ null, %.lr.ph308 ], [ %.2191, %236 ]
-  %.0198305 = phi ptr [ %219, %.lr.ph308 ], [ %222, %236 ]
+221:                                              ; preds = %.lr.ph308, %239
+  %.0189306 = phi ptr [ null, %.lr.ph308 ], [ %.2191, %239 ]
+  %.0198305 = phi ptr [ %219, %.lr.ph308 ], [ %222, %239 ]
   %222 = load ptr, ptr %.0198305, align 8
   %223 = ptrtoint ptr %.0198305 to i64
   %224 = and i64 %223, 31
@@ -740,65 +740,71 @@ define i32 @cuddGarbageCollect(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %227 = getelementptr inbounds ptr, ptr %.0198305, i64 %226
   br label %228
 
-228:                                              ; preds = %235, %221
-  %indvars.iv349 = phi i64 [ %indvars.iv.next350, %235 ], [ 0, %221 ]
-  %.1190 = phi ptr [ %.2191, %235 ], [ %.0189306, %221 ]
+228:                                              ; preds = %238, %221
+  %indvars.iv349 = phi i64 [ %indvars.iv.next350, %238 ], [ 0, %221 ]
+  %.1190 = phi ptr [ %.2191, %238 ], [ %.0189306, %221 ]
   %229 = getelementptr inbounds %struct.DdNode, ptr %227, i64 %indvars.iv349
   %230 = getelementptr inbounds i8, ptr %229, i64 4
   %231 = load i32, ptr %230, align 4
   %232 = icmp eq i32 %231, 0
-  br i1 %232, label %.sink.split, label %235
+  br i1 %232, label %233, label %238
 
-.sink.split:                                      ; preds = %228
-  %233 = icmp eq ptr %.1190, null
-  %234 = getelementptr inbounds i8, ptr %.1190, i64 8
-  %.sink = select i1 %233, ptr %220, ptr %234
-  store ptr %229, ptr %.sink, align 8
-  br label %235
+233:                                              ; preds = %228
+  %234 = icmp eq ptr %.1190, null
+  br i1 %234, label %235, label %236
 
-235:                                              ; preds = %.sink.split, %228
-  %.2191 = phi ptr [ %.1190, %228 ], [ %229, %.sink.split ]
+235:                                              ; preds = %233
+  store ptr %229, ptr %220, align 8
+  br label %238
+
+236:                                              ; preds = %233
+  %237 = getelementptr inbounds i8, ptr %.1190, i64 8
+  store ptr %229, ptr %237, align 8
+  br label %238
+
+238:                                              ; preds = %228, %236, %235
+  %.2191 = phi ptr [ %229, %235 ], [ %229, %236 ], [ %.1190, %228 ]
   %indvars.iv.next350 = add nuw nsw i64 %indvars.iv349, 1
   %exitcond352.not = icmp eq i64 %indvars.iv.next350, 1022
-  br i1 %exitcond352.not, label %236, label %228, !llvm.loop !20
+  br i1 %exitcond352.not, label %239, label %228, !llvm.loop !20
 
-236:                                              ; preds = %235
+239:                                              ; preds = %238
   %.not224 = icmp eq ptr %222, null
   br i1 %.not224, label %._crit_edge309, label %221, !llvm.loop !21
 
-._crit_edge309:                                   ; preds = %236
-  %237 = getelementptr inbounds i8, ptr %.2191, i64 8
-  store ptr null, ptr %237, align 8
-  %238 = tail call i64 (...) @Extra_CpuTime() #14
-  %239 = sub i64 %238, %41
-  %240 = getelementptr inbounds i8, ptr %0, i64 664
-  %241 = load i64, ptr %240, align 8
-  %242 = add nsw i64 %239, %241
-  store i64 %242, ptr %240, align 8
-  %243 = getelementptr inbounds i8, ptr %0, i64 584
-  %.2311 = load ptr, ptr %243, align 8
+._crit_edge309:                                   ; preds = %239
+  %240 = getelementptr inbounds i8, ptr %.2191, i64 8
+  store ptr null, ptr %240, align 8
+  %241 = tail call i64 (...) @Extra_CpuTime() #14
+  %242 = sub i64 %241, %41
+  %243 = getelementptr inbounds i8, ptr %0, i64 664
+  %244 = load i64, ptr %243, align 8
+  %245 = add nsw i64 %242, %244
+  store i64 %245, ptr %243, align 8
+  %246 = getelementptr inbounds i8, ptr %0, i64 584
+  %.2311 = load ptr, ptr %246, align 8
   %.not225312 = icmp eq ptr %.2311, null
   br i1 %.not225312, label %._crit_edge316, label %.lr.ph315
 
-244:                                              ; preds = %.lr.ph315
-  %245 = getelementptr inbounds i8, ptr %.2313, i64 8
-  %.2 = load ptr, ptr %245, align 8
+247:                                              ; preds = %.lr.ph315
+  %248 = getelementptr inbounds i8, ptr %.2313, i64 8
+  %.2 = load ptr, ptr %248, align 8
   %.not225 = icmp eq ptr %.2, null
   br i1 %.not225, label %._crit_edge316, label %.lr.ph315, !llvm.loop !22
 
-.lr.ph315:                                        ; preds = %._crit_edge309, %244
-  %.2313 = phi ptr [ %.2, %244 ], [ %.2311, %._crit_edge309 ]
-  %246 = load ptr, ptr %.2313, align 8
-  %247 = tail call i32 %246(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef null) #14
-  %248 = icmp eq i32 %247, 0
-  br i1 %248, label %.loopexit, label %244
+.lr.ph315:                                        ; preds = %._crit_edge309, %247
+  %.2313 = phi ptr [ %.2, %247 ], [ %.2311, %._crit_edge309 ]
+  %249 = load ptr, ptr %.2313, align 8
+  %250 = tail call i32 %249(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef null) #14
+  %251 = icmp eq i32 %250, 0
+  br i1 %251, label %.loopexit, label %247
 
-._crit_edge316:                                   ; preds = %244, %._crit_edge309
-  %249 = add nsw i32 %.0211.lcssa, %.2201
+._crit_edge316:                                   ; preds = %247, %._crit_edge309
+  %252 = add nsw i32 %.0211.lcssa, %.2201
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph315, %.lr.ph321, %19, %17, %._crit_edge316, %37
-  %.0 = phi i32 [ 0, %37 ], [ %249, %._crit_edge316 ], [ 0, %17 ], [ 0, %19 ], [ 0, %.lr.ph321 ], [ 0, %.lr.ph315 ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ 0, %37 ], [ %252, %._crit_edge316 ], [ 0, %17 ], [ 0, %19 ], [ 0, %.lr.ph321 ], [ 0, %.lr.ph315 ], [ 0, %.lr.ph ]
   ret i32 %.0
 }
 

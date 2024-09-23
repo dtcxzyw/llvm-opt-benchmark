@@ -2120,7 +2120,9 @@ thread-pre-split.i:                               ; preds = %693, %693
   %1094 = getelementptr inbounds i8, ptr %.013031481.i, i64 12
   %1095 = load i32, ptr %1094, align 4
   store i32 %1095, ptr %1083, align 8
-  br label %.preheader.sink.split.i
+  store i8 0, ptr %616, align 2
+  store i32 -1, ptr %1094, align 4
+  br label %.preheader.i
 
 1096:                                             ; preds = %1076
   br i1 %1079, label %1097, label %.loopexit.i360
@@ -2142,15 +2144,11 @@ thread-pre-split.i:                               ; preds = %693, %693
   %1108 = xor i1 %1106, %1107
   %1109 = select i1 %1108, i8 52, i8 14
   store i8 %1109, ptr %694, align 4
-  br label %.preheader.sink.split.i
-
-.preheader.sink.split.i:                          ; preds = %1105, %1089
-  %.sink1552.i = phi ptr [ %1094, %1089 ], [ %1099, %1105 ]
   store i8 0, ptr %616, align 2
-  store i32 -1, ptr %.sink1552.i, align 4
+  store i32 -1, ptr %1099, align 4
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %.preheader.sink.split.i, %693, %693
+.preheader.i:                                     ; preds = %1089, %1105, %693, %693
   %1110 = getelementptr inbounds i8, ptr %.013031481.i, i64 8
   br label %1111
 
@@ -2217,14 +2215,12 @@ thread-pre-split.i:                               ; preds = %693, %693
   %1136 = icmp eq i8 %1135, 52
   %1137 = select i1 %1136, i8 14, i8 52
   store i8 %1137, ptr %694, align 4
+  store i8 0, ptr %1128, align 4
+  store i8 0, ptr %1131, align 1
+  store i32 -1, ptr %1133, align 8
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %1142, %1130
-  %.sink1558.i = phi ptr [ %1131, %1130 ], [ %1143, %1142 ]
-  %.sink1557.i = phi ptr [ %1133, %1130 ], [ %1145, %1142 ]
-  store i8 0, ptr %1128, align 4
-  store i8 0, ptr %.sink1558.i, align 1
-  store i32 -1, ptr %.sink1557.i, align 8
   %1138 = getelementptr inbounds i8, ptr %1126, i64 30
   store i8 0, ptr %1138, align 2
   %1139 = getelementptr inbounds i8, ptr %1126, i64 12
@@ -2243,6 +2239,9 @@ thread-pre-split.i:                               ; preds = %693, %693
   %1145 = getelementptr inbounds i8, ptr %1126, i64 8
   %1146 = load i32, ptr %1145, align 8
   store i32 %1146, ptr %1110, align 8
+  store i8 0, ptr %1128, align 4
+  store i8 0, ptr %1143, align 1
+  store i32 -1, ptr %1145, align 8
   br label %.backedge.i
 
 1147:                                             ; preds = %1127
@@ -2610,14 +2609,12 @@ thread-pre-split.i:                               ; preds = %693, %693
   %1339 = icmp eq i8 %1338, 43
   %1340 = select i1 %1339, i8 44, i8 43
   store i8 %1340, ptr %694, align 4
+  store i8 0, ptr %1331, align 4
+  store i8 0, ptr %1334, align 1
+  store i32 -1, ptr %1336, align 8
   br label %.backedge1450.i
 
 .backedge1450.i:                                  ; preds = %1345, %1333
-  %.sink1564.i = phi ptr [ %1334, %1333 ], [ %1346, %1345 ]
-  %.sink1563.i = phi ptr [ %1336, %1333 ], [ %1348, %1345 ]
-  store i8 0, ptr %1331, align 4
-  store i8 0, ptr %.sink1564.i, align 1
-  store i32 -1, ptr %.sink1563.i, align 8
   %1341 = getelementptr inbounds i8, ptr %1329, i64 30
   store i8 0, ptr %1341, align 2
   %1342 = getelementptr inbounds i8, ptr %1329, i64 12
@@ -2636,6 +2633,9 @@ thread-pre-split.i:                               ; preds = %693, %693
   %1348 = getelementptr inbounds i8, ptr %1329, i64 8
   %1349 = load i32, ptr %1348, align 8
   store i32 %1349, ptr %1275, align 8
+  store i8 0, ptr %1331, align 4
+  store i8 0, ptr %1346, align 1
+  store i32 -1, ptr %1348, align 8
   br label %.backedge1450.i
 
 1350:                                             ; preds = %693, %693
@@ -2953,11 +2953,11 @@ thread-pre-split.i:                               ; preds = %693, %693
   br label %1542
 
 1542:                                             ; preds = %1540, %1492
-  %.sink1566.i = phi ptr [ %1541, %1540 ], [ %1500, %1492 ]
+  %.sink1561.i = phi ptr [ %1541, %1540 ], [ %1500, %1492 ]
   %.01302.sink.i = phi ptr [ %.01302.i, %1540 ], [ %1495, %1492 ]
   %1543 = load i32, ptr %1459, align 4
   %1544 = zext i32 %1543 to i64
-  %1545 = getelementptr inbounds %struct._zval_struct, ptr %.sink1566.i, i64 %1544
+  %1545 = getelementptr inbounds %struct._zval_struct, ptr %.sink1561.i, i64 %1544
   store ptr %.01302.sink.i, ptr %1545, align 8
   %1546 = load ptr, ptr %122, align 8
   %1547 = load i32, ptr %1459, align 4

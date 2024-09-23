@@ -173,54 +173,54 @@ define noundef i32 @ADIO_Type_create_subarray(i32 noundef %0, ptr nocapture noun
   %100 = mul nsw i64 %96, %99
   %101 = add nsw i64 %100, %93
   %indvars.iv.next107 = add nsw i64 %indvars.iv106, -1
-  %.not132 = icmp eq i64 %indvars.iv106, 0
-  br i1 %.not132, label %.loopexit, label %.lr.ph84, !llvm.loop !8
+  %.not131 = icmp eq i64 %indvars.iv106, 0
+  br i1 %.not131, label %.loopexit, label %.lr.ph84, !llvm.loop !8
 
 .loopexit.thread:                                 ; preds = %.loopexit77.thread, %.loopexit75.thread
-  %.sink131 = phi ptr [ %57, %.loopexit77.thread ], [ %3, %.loopexit75.thread ]
-  %102 = load i32, ptr %.sink131, align 4
-  %103 = sext i32 %102 to i64
-  %104 = load i64, ptr %9, align 8
-  %105 = mul nsw i64 %104, %103
-  store i64 %105, ptr %10, align 8
+  %.sink.in = phi ptr [ %57, %.loopexit77.thread ], [ %3, %.loopexit75.thread ]
+  %.sink = load i32, ptr %.sink.in, align 4
+  %102 = sext i32 %.sink to i64
+  %103 = load i64, ptr %9, align 8
+  %104 = mul nsw i64 %103, %102
+  store i64 %104, ptr %10, align 8
   br label %.lr.ph100.preheader
 
 .loopexit:                                        ; preds = %.lr.ph84, %.lr.ph96, %.loopexit77, %.loopexit75
   %storemerge = phi i64 [ %42, %.loopexit75 ], [ %89, %.loopexit77 ], [ %52, %.lr.ph96 ], [ %101, %.lr.ph84 ]
-  %106 = load i64, ptr %9, align 8
-  %107 = mul nsw i64 %storemerge, %106
-  store i64 %107, ptr %10, align 8
-  %108 = icmp sgt i32 %0, 0
-  br i1 %108, label %.lr.ph100.preheader, label %._crit_edge
+  %105 = load i64, ptr %9, align 8
+  %106 = mul nsw i64 %storemerge, %105
+  store i64 %106, ptr %10, align 8
+  %107 = icmp sgt i32 %0, 0
+  br i1 %107, label %.lr.ph100.preheader, label %._crit_edge
 
 .lr.ph100.preheader:                              ; preds = %.loopexit.thread, %.loopexit
-  %109 = phi i64 [ %104, %.loopexit.thread ], [ %106, %.loopexit ]
+  %108 = phi i64 [ %103, %.loopexit.thread ], [ %105, %.loopexit ]
   %wide.trip.count120 = zext nneg i32 %0 to i64
   br label %.lr.ph100
 
 .lr.ph100:                                        ; preds = %.lr.ph100.preheader, %.lr.ph100
   %indvars.iv117 = phi i64 [ 0, %.lr.ph100.preheader ], [ %indvars.iv.next118, %.lr.ph100 ]
-  %.07298 = phi i64 [ %109, %.lr.ph100.preheader ], [ %113, %.lr.ph100 ]
-  %110 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv117
-  %111 = load i32, ptr %110, align 4
-  %112 = sext i32 %111 to i64
-  %113 = mul nsw i64 %.07298, %112
+  %.07298 = phi i64 [ %108, %.lr.ph100.preheader ], [ %112, %.lr.ph100 ]
+  %109 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv117
+  %110 = load i32, ptr %109, align 4
+  %111 = sext i32 %110 to i64
+  %112 = mul nsw i64 %.07298, %111
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   %exitcond121.not = icmp eq i64 %indvars.iv.next118, %wide.trip.count120
   br i1 %exitcond121.not, label %._crit_edge, label %.lr.ph100, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph100, %.loopexit
-  %.072.lcssa = phi i64 [ %106, %.loopexit ], [ %113, %.lr.ph100 ]
+  %.072.lcssa = phi i64 [ %105, %.loopexit ], [ %112, %.lr.ph100 ]
   store i64 0, ptr %8, align 8
   store i32 1, ptr %11, align 4
-  %114 = load ptr, ptr %12, align 8
-  store ptr %114, ptr %14, align 16
-  %115 = call i32 @PMPI_Type_create_struct(i32 noundef 1, ptr noundef nonnull %11, ptr noundef nonnull %10, ptr noundef nonnull %14, ptr noundef nonnull %13) #2
-  %116 = load ptr, ptr %13, align 8
-  %117 = load i64, ptr %8, align 8
-  %118 = call i32 @MPI_Type_create_resized(ptr noundef %116, i64 noundef %117, i64 noundef %.072.lcssa, ptr noundef %6) #2
-  %119 = call i32 @PMPI_Type_free(ptr noundef nonnull %12) #2
-  %120 = call i32 @PMPI_Type_free(ptr noundef nonnull %13) #2
+  %113 = load ptr, ptr %12, align 8
+  store ptr %113, ptr %14, align 16
+  %114 = call i32 @PMPI_Type_create_struct(i32 noundef 1, ptr noundef nonnull %11, ptr noundef nonnull %10, ptr noundef nonnull %14, ptr noundef nonnull %13) #2
+  %115 = load ptr, ptr %13, align 8
+  %116 = load i64, ptr %8, align 8
+  %117 = call i32 @MPI_Type_create_resized(ptr noundef %115, i64 noundef %116, i64 noundef %.072.lcssa, ptr noundef %6) #2
+  %118 = call i32 @PMPI_Type_free(ptr noundef nonnull %12) #2
+  %119 = call i32 @PMPI_Type_free(ptr noundef nonnull %13) #2
   ret i32 0
 }
 

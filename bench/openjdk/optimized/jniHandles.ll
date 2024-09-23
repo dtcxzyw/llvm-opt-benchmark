@@ -391,7 +391,8 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse
   store i32 %24, ptr %23, align 8
   %25 = sext i32 %20 to i64
   %26 = getelementptr inbounds [32 x i64], ptr %18, i64 0, i64 %25
-  br label %.loopexit.sink.split
+  store ptr %2, ptr %26, align 8
+  br label %.loopexit
 
 27:                                               ; preds = %17
   %28 = load ptr, ptr %7, align 8
@@ -403,7 +404,8 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse
   %31 = and i64 %30, -2
   %32 = inttoptr i64 %31 to ptr
   store ptr %32, ptr %7, align 8
-  br label %.loopexit.sink.split
+  store ptr %2, ptr %28, align 8
+  br label %.loopexit
 
 33:                                               ; preds = %27
   %34 = getelementptr inbounds i8, ptr %18, i64 264
@@ -545,13 +547,8 @@ _ZN14JNIHandleBlock14allocate_blockEP10JavaThreadN17AllocFailStrategy13AllocFail
 tailrecurse.backedge:                             ; preds = %96, %64, %69, %36
   br label %tailrecurse
 
-.loopexit.sink.split:                             ; preds = %22, %29
-  %.lcssa68.sink = phi ptr [ %28, %29 ], [ %26, %22 ]
-  store ptr %2, ptr %.lcssa68.sink, align 8
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %_ZN14JNIHandleBlock14allocate_blockEP10JavaThreadN17AllocFailStrategy13AllocFailEnumE.exit, %.loopexit.sink.split
-  %.0 = phi ptr [ %.lcssa68.sink, %.loopexit.sink.split ], [ null, %_ZN14JNIHandleBlock14allocate_blockEP10JavaThreadN17AllocFailStrategy13AllocFailEnumE.exit ]
+.loopexit:                                        ; preds = %_ZN14JNIHandleBlock14allocate_blockEP10JavaThreadN17AllocFailStrategy13AllocFailEnumE.exit, %29, %22
+  %.0 = phi ptr [ %26, %22 ], [ %28, %29 ], [ null, %_ZN14JNIHandleBlock14allocate_blockEP10JavaThreadN17AllocFailStrategy13AllocFailEnumE.exit ]
   ret ptr %.0
 }
 

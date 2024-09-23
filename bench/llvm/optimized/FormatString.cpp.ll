@@ -159,31 +159,31 @@ define dso_local void @_ZN5clang21analyze_format_string11ParseAmountERPKcS2_(ptr
   %scevgep = getelementptr i8, ptr %4, i64 %7
   %8 = load i8, ptr %4, align 1
   %9 = add i8 %8, -48
-  %or.cond37 = icmp ult i8 %9, 10
-  br i1 %or.cond37, label %.lr.ph40, label %.lr.ph._crit_edge
+  %or.cond35 = icmp ult i8 %9, 10
+  br i1 %or.cond35, label %.lr.ph38, label %.lr.ph._crit_edge
 
-.lr.ph:                                           ; preds = %.lr.ph40
-  %10 = mul i32 %.02538, 10
+.lr.ph:                                           ; preds = %.lr.ph38
+  %10 = mul i32 %.02536, 10
   %11 = add i32 %10, -48
   %12 = zext nneg i8 %16 to i32
   %13 = add i32 %11, %12
   %14 = load i8, ptr %17, align 1
   %15 = add i8 %14, -48
   %or.cond = icmp ult i8 %15, 10
-  br i1 %or.cond, label %.lr.ph40, label %.lr.ph._crit_edge, !llvm.loop !4
+  br i1 %or.cond, label %.lr.ph38, label %.lr.ph._crit_edge, !llvm.loop !4
 
-.lr.ph40:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph38:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %16 = phi i8 [ %14, %.lr.ph ], [ %8, %.lr.ph.preheader ]
-  %.0162339 = phi ptr [ %17, %.lr.ph ], [ %4, %.lr.ph.preheader ]
-  %.02538 = phi i32 [ %13, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %17 = getelementptr inbounds i8, ptr %.0162339, i64 1
+  %.0162337 = phi ptr [ %17, %.lr.ph ], [ %4, %.lr.ph.preheader ]
+  %.02536 = phi i32 [ %13, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %17 = getelementptr inbounds i8, ptr %.0162337, i64 1
   %.not = icmp eq ptr %17, %2
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.025.lcssa = phi i32 [ 0, %.lr.ph.preheader ], [ %13, %.lr.ph ]
   %.01623.lcssa = phi ptr [ %4, %.lr.ph.preheader ], [ %17, %.lr.ph ]
-  br i1 %or.cond37, label %18, label %.loopexit
+  br i1 %or.cond35, label %18, label %.loopexit
 
 18:                                               ; preds = %.lr.ph._crit_edge
   %19 = ptrtoint ptr %.01623.lcssa to i64
@@ -196,21 +196,25 @@ define dso_local void @_ZN5clang21analyze_format_string11ParseAmountERPKcS2_(ptr
   store i32 1, ptr %23, align 4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.025.lcssa, ptr %24, align 8
-  br label %25
-
-.loopexit:                                        ; preds = %.lr.ph40, %3, %.lr.ph._crit_edge
-  %.01621 = phi ptr [ %.01623.lcssa, %.lr.ph._crit_edge ], [ %4, %3 ], [ %scevgep, %.lr.ph40 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false)
-  br label %25
-
-25:                                               ; preds = %.loopexit, %18
-  %.01620 = phi ptr [ %.01621, %.loopexit ], [ %.01623.lcssa, %18 ]
-  %.sink = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %26 = load i8, ptr %.sink, align 4
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %26 = load i8, ptr %25, align 4
   %27 = and i8 %26, -2
-  store i8 %27, ptr %.sink, align 4
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 21
-  store i8 0, ptr %28, align 1
+  store i8 %27, ptr %25, align 4
+  br label %31
+
+.loopexit:                                        ; preds = %.lr.ph38, %3, %.lr.ph._crit_edge
+  %.01621 = phi ptr [ %.01623.lcssa, %.lr.ph._crit_edge ], [ %4, %3 ], [ %scevgep, %.lr.ph38 ]
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false)
+  %29 = load i8, ptr %28, align 4
+  %30 = and i8 %29, -2
+  store i8 %30, ptr %28, align 4
+  br label %31
+
+31:                                               ; preds = %.loopexit, %18
+  %.01620 = phi ptr [ %.01621, %.loopexit ], [ %.01623.lcssa, %18 ]
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 21
+  store i8 0, ptr %32, align 1
   store ptr %.01620, ptr %1, align 8
   ret void
 }
@@ -242,7 +246,7 @@ define dso_local void @_ZN5clang21analyze_format_string22ParseNonPositionAmountE
   store i8 %18, ptr %16, align 4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 21
   store i8 0, ptr %19, align 1
-  br label %42
+  br label %46
 
 20:                                               ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
@@ -287,25 +291,29 @@ define dso_local void @_ZN5clang21analyze_format_string22ParseNonPositionAmountE
   store i32 1, ptr %37, align 4, !alias.scope !6
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %28, ptr %38, align 8, !alias.scope !6
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %40 = load i8, ptr %39, align 4, !alias.scope !6
+  %41 = and i8 %40, -2
+  store i8 %41, ptr %39, align 4, !alias.scope !6
   br label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit
 
 .loopexit.i:                                      ; preds = %.lr.ph, %.lr.ph.preheader.i, %20
   %.01621.i = phi ptr [ %5, %20 ], [ %5, %.lr.ph.preheader.i ], [ %scevgep.i, %.lr.ph ]
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false), !alias.scope !6
+  %43 = load i8, ptr %42, align 4, !alias.scope !6
+  %44 = and i8 %43, -2
+  store i8 %44, ptr %42, align 4, !alias.scope !6
   br label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit
 
 _ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit: ; preds = %.lr.ph.i._crit_edge, %.loopexit.i
   %.01620.i = phi ptr [ %.01621.i, %.loopexit.i ], [ %32, %.lr.ph.i._crit_edge ]
-  %.sink.i = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %39 = load i8, ptr %.sink.i, align 4, !alias.scope !6
-  %40 = and i8 %39, -2
-  store i8 %40, ptr %.sink.i, align 4, !alias.scope !6
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 21
-  store i8 0, ptr %41, align 1, !alias.scope !6
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 21
+  store i8 0, ptr %45, align 1, !alias.scope !6
   store ptr %.01620.i, ptr %1, align 8, !noalias !6
-  br label %42
+  br label %46
 
-42:                                               ; preds = %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit, %8
+46:                                               ; preds = %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit, %8
   ret void
 }
 
@@ -372,7 +380,7 @@ define dso_local void @_ZN5clang21analyze_format_string19ParsePositionAmountERNS
   store i8 %37, ptr %35, align 4
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 21
   store i8 0, ptr %38, align 1
-  br label %105
+  br label %109
 
 .lr.ph.i._crit_edge:                              ; preds = %.lr.ph.i
   %39 = icmp eq i8 %21, 36
@@ -405,7 +413,7 @@ define dso_local void @_ZN5clang21analyze_format_string19ParsePositionAmountERNS
   store i8 %56, ptr %54, align 4
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 21
   store i8 0, ptr %57, align 1
-  br label %105
+  br label %109
 
 58:                                               ; preds = %40
   %59 = getelementptr inbounds i8, ptr %.01623.i63, i64 2
@@ -424,7 +432,7 @@ define dso_local void @_ZN5clang21analyze_format_string19ParsePositionAmountERNS
   store i8 %66, ptr %64, align 4
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 21
   store i8 0, ptr %67, align 1
-  br label %105
+  br label %109
 
 68:                                               ; preds = %.lr.ph.i._crit_edge
   %69 = ptrtoint ptr %24 to i64
@@ -448,7 +456,7 @@ define dso_local void @_ZN5clang21analyze_format_string19ParsePositionAmountERNS
   store i8 %81, ptr %79, align 4
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 21
   store i8 0, ptr %82, align 1
-  br label %105
+  br label %109
 
 83:                                               ; preds = %6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
@@ -479,8 +487,8 @@ define dso_local void @_ZN5clang21analyze_format_string19ParsePositionAmountERNS
   %.01623.i3358 = phi ptr [ %95, %.lr.ph.i30 ], [ %7, %.lr.ph.preheader.i28 ]
   %.025.i3157 = phi i32 [ %91, %.lr.ph.i30 ], [ 0, %.lr.ph.preheader.i28 ]
   %95 = getelementptr inbounds i8, ptr %.01623.i3358, i64 1
-  %.not.i39 = icmp eq ptr %95, %4
-  br i1 %.not.i39, label %.loopexit.i35, label %.lr.ph.i30, !llvm.loop !4
+  %.not.i38 = icmp eq ptr %95, %4
+  br i1 %.not.i38, label %.loopexit.i35, label %.lr.ph.i30, !llvm.loop !4
 
 .lr.ph.i30._crit_edge:                            ; preds = %.lr.ph.i30
   %96 = ptrtoint ptr %95 to i64
@@ -493,25 +501,29 @@ define dso_local void @_ZN5clang21analyze_format_string19ParsePositionAmountERNS
   store i32 1, ptr %100, align 4, !alias.scope !9
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %91, ptr %101, align 8, !alias.scope !9
-  br label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit40
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %103 = load i8, ptr %102, align 4, !alias.scope !9
+  %104 = and i8 %103, -2
+  store i8 %104, ptr %102, align 4, !alias.scope !9
+  br label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit39
 
 .loopexit.i35:                                    ; preds = %.lr.ph, %.lr.ph.preheader.i28, %83
   %.01621.i36 = phi ptr [ %7, %83 ], [ %7, %.lr.ph.preheader.i28 ], [ %scevgep.i29, %.lr.ph ]
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false), !alias.scope !9
-  br label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit40
+  %106 = load i8, ptr %105, align 4, !alias.scope !9
+  %107 = and i8 %106, -2
+  store i8 %107, ptr %105, align 4, !alias.scope !9
+  br label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit39
 
-_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit40: ; preds = %.lr.ph.i30._crit_edge, %.loopexit.i35
+_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit39: ; preds = %.lr.ph.i30._crit_edge, %.loopexit.i35
   %.01620.i37 = phi ptr [ %.01621.i36, %.loopexit.i35 ], [ %95, %.lr.ph.i30._crit_edge ]
-  %.sink.i38 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %102 = load i8, ptr %.sink.i38, align 4, !alias.scope !9
-  %103 = and i8 %102, -2
-  store i8 %103, ptr %.sink.i38, align 4, !alias.scope !9
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 21
-  store i8 0, ptr %104, align 1, !alias.scope !9
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 21
+  store i8 0, ptr %108, align 1, !alias.scope !9
   store ptr %.01620.i37, ptr %3, align 8, !noalias !9
-  br label %105
+  br label %109
 
-105:                                              ; preds = %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit40, %68, %58, %42, %.loopexit
+109:                                              ; preds = %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit39, %68, %58, %42, %.loopexit
   ret void
 }
 
@@ -597,8 +609,8 @@ _ZN5clang21analyze_format_string22ParseNonPositionAmountERPKcS2_Rj.exit: ; preds
   store i32 %.sroa.8.1, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 36
   store i8 0, ptr %.sroa.10.0..sroa_idx, align 4
-  %.sroa.14.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 37
-  store i8 0, ptr %.sroa.14.0..sroa_idx, align 1
+  %.sroa.16.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 37
+  store i8 0, ptr %.sroa.16.0..sroa_idx, align 1
   br label %40
 
 34:                                               ; preds = %6
@@ -631,11 +643,11 @@ define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string16ParseArgP
   %scevgep.i = getelementptr i8, ptr %6, i64 %9
   %10 = load i8, ptr %6, align 1
   %11 = add i8 %10, -48
-  %or.cond.i40 = icmp ult i8 %11, 10
-  br i1 %or.cond.i40, label %.lr.ph, label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit
+  %or.cond.i41 = icmp ult i8 %11, 10
+  br i1 %or.cond.i41, label %.lr.ph, label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit
 
 .lr.ph.i:                                         ; preds = %.lr.ph
-  %12 = mul i32 %.025.i41, 10
+  %12 = mul i32 %.025.i42, 10
   %13 = add i32 %12, -48
   %14 = zext nneg i8 %18 to i32
   %15 = add i32 %13, %14
@@ -646,16 +658,16 @@ define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string16ParseArgP
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader.i, %.lr.ph.i
   %18 = phi i8 [ %16, %.lr.ph.i ], [ %10, %.lr.ph.preheader.i ]
-  %.01623.i42 = phi ptr [ %19, %.lr.ph.i ], [ %6, %.lr.ph.preheader.i ]
-  %.025.i41 = phi i32 [ %15, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %19 = getelementptr inbounds i8, ptr %.01623.i42, i64 1
+  %.01623.i43 = phi ptr [ %19, %.lr.ph.i ], [ %6, %.lr.ph.preheader.i ]
+  %.025.i42 = phi i32 [ %15, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+  %19 = getelementptr inbounds i8, ptr %.01623.i43, i64 1
   %.not.i = icmp eq ptr %19, %4
   br i1 %.not.i, label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit, label %.lr.ph.i, !llvm.loop !4
 
 _ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit: ; preds = %.lr.ph, %.lr.ph.preheader.i
   %.01620.i = phi ptr [ %6, %.lr.ph.preheader.i ], [ %scevgep.i, %.lr.ph ]
   %20 = icmp eq ptr %.01620.i, %4
-  br i1 %20, label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit._crit_edge, label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread51
+  br i1 %20, label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit._crit_edge, label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread52
 
 _ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit._crit_edge: ; preds = %5, %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit
   %.pre = ptrtoint ptr %4 to i64
@@ -666,12 +678,12 @@ _ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit._crit_edge: ; preds =
   %25 = getelementptr inbounds i8, ptr %24, i64 48
   %26 = load ptr, ptr %25, align 8
   tail call void %26(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %2, i32 noundef %23) #14
-  br label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread51
+  br label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread52
 
 _ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread: ; preds = %.lr.ph.i
-  %27 = getelementptr inbounds i8, ptr %.01623.i42, i64 2
+  %27 = getelementptr inbounds i8, ptr %.01623.i43, i64 2
   %28 = icmp eq i8 %16, 36
-  br i1 %28, label %29, label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread51
+  br i1 %28, label %29, label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread52
 
 29:                                               ; preds = %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread
   %30 = ptrtoint ptr %27 to i64
@@ -690,7 +702,7 @@ _ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread: ; preds = %.l
   %40 = getelementptr inbounds i8, ptr %39, i64 40
   %41 = load ptr, ptr %40, align 8
   tail call void %41(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %2, i32 noundef %33) #14
-  br label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread51
+  br label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread52
 
 42:                                               ; preds = %29
   %43 = add i32 %15, -1
@@ -699,9 +711,9 @@ _ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread: ; preds = %.l
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store i8 1, ptr %45, align 8
   store ptr %27, ptr %3, align 8
-  br label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread51
+  br label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread52
 
-_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread51: ; preds = %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit, %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread, %42, %38, %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit._crit_edge
+_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread52: ; preds = %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit, %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread, %42, %38, %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit._crit_edge
   %.0 = phi i1 [ true, %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit._crit_edge ], [ true, %38 ], [ false, %42 ], [ false, %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread ], [ false, %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit ]
   ret i1 %.0
 }
@@ -744,11 +756,11 @@ define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string19ParseVect
   %scevgep.i = getelementptr i8, ptr %14, i64 %26
   %27 = load i8, ptr %14, align 1, !noalias !18
   %28 = add i8 %27, -48
-  %or.cond.i30 = icmp ult i8 %28, 10
-  br i1 %or.cond.i30, label %.lr.ph, label %.loopexit
+  %or.cond.i32 = icmp ult i8 %28, 10
+  br i1 %or.cond.i32, label %.lr.ph, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %.lr.ph
-  %29 = mul i32 %.025.i31, 10
+  %29 = mul i32 %.025.i33, 10
   %30 = add i32 %29, -48
   %31 = zext nneg i8 %35 to i32
   %32 = add i32 %30, %31
@@ -759,9 +771,9 @@ define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string19ParseVect
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader.i, %.lr.ph.i
   %35 = phi i8 [ %33, %.lr.ph.i ], [ %27, %.lr.ph.preheader.i ]
-  %.01623.i32 = phi ptr [ %36, %.lr.ph.i ], [ %14, %.lr.ph.preheader.i ]
-  %.025.i31 = phi i32 [ %32, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %36 = getelementptr inbounds i8, ptr %.01623.i32, i64 1
+  %.01623.i34 = phi ptr [ %36, %.lr.ph.i ], [ %14, %.lr.ph.preheader.i ]
+  %.025.i33 = phi i32 [ %32, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+  %36 = getelementptr inbounds i8, ptr %.01623.i34, i64 1
   %.not.i = icmp eq ptr %36, %3
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !4
 
@@ -792,8 +804,8 @@ define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string19ParseVect
   store i32 %32, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 92
   store i8 0, ptr %.sroa.7.0..sroa_idx, align 4
-  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 93
-  store i8 0, ptr %.sroa.9.0..sroa_idx, align 1
+  %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 93
+  store i8 0, ptr %.sroa.11.0..sroa_idx, align 1
   br label %47
 
 47:                                               ; preds = %9, %.lr.ph.i._crit_edge, %5, %.loopexit, %16

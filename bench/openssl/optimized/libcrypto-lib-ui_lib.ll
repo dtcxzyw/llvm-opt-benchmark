@@ -290,13 +290,13 @@ sw.bb.i18:                                        ; preds = %if.then.i15
   br label %if.end13.sink.split.sink.split
 
 if.end13.sink.split.sink.split:                   ; preds = %sw.bb.i, %sw.bb.i18
-  %ok_chars.i20.sink = phi ptr [ %ok_chars.i20, %sw.bb.i18 ], [ %test_buf6, %sw.bb.i ]
+  %.sink.in = phi ptr [ %ok_chars.i20, %sw.bb.i18 ], [ %test_buf6, %sw.bb.i ]
   %ret.0.ph.ph = phi i32 [ -1, %sw.bb.i18 ], [ %dec, %sw.bb.i ]
-  %10 = load ptr, ptr %ok_chars.i20.sink, align 8
-  tail call void @CRYPTO_free(ptr noundef %10, ptr noundef nonnull @.str, i32 noundef 57) #7
+  %.sink = load ptr, ptr %.sink.in, align 8
+  tail call void @CRYPTO_free(ptr noundef %.sink, ptr noundef nonnull @.str, i32 noundef 57) #7
   %cancel_chars.i21 = getelementptr inbounds i8, ptr %call, i64 56
-  %11 = load ptr, ptr %cancel_chars.i21, align 8
-  tail call void @CRYPTO_free(ptr noundef %11, ptr noundef nonnull @.str, i32 noundef 58) #7
+  %10 = load ptr, ptr %cancel_chars.i21, align 8
+  tail call void @CRYPTO_free(ptr noundef %10, ptr noundef nonnull @.str, i32 noundef 58) #7
   br label %if.end13.sink.split
 
 if.end13.sink.split:                              ; preds = %if.end13.sink.split.sink.split, %if.then.i15, %if.else, %if.then.i11, %if.then11

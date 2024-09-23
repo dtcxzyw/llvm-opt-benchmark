@@ -4273,19 +4273,19 @@ _ZN17OverflowTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE12pop_overflowERS0_.e
 60:                                               ; preds = %56
   %61 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.sroa.08.0.insert.insert11.i.i, i64 %57, ptr nonnull %42) #11, !srcloc !17
   %62 = icmp eq i64 %61, %57
-  br i1 %62, label %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.i, label %._crit_edge.i.i
+  br i1 %62, label %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.sink.split.i, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %60, %56
   store volatile i64 %.sroa.08.0.insert.insert11.i.i, ptr %42, align 8
-  br label %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.i
+  br label %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.sink.split.i
 
-_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.i: ; preds = %._crit_edge.i.i, %60
-  %.0.i.i = phi i1 [ false, %._crit_edge.i.i ], [ true, %60 ]
+_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.sink.split.i: ; preds = %._crit_edge.i.i, %60
+  %.0.ph.i = phi i1 [ false, %._crit_edge.i.i ], [ true, %60 ]
   %63 = load volatile i32, ptr %42, align 4
   br label %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit
 
-_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit: ; preds = %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.i, %46, %_ZN17OverflowTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE12pop_overflowERS0_.exit, %_ZN17OverflowTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE12pop_overflowERS0_.exit.thread
-  %64 = phi i1 [ true, %_ZN17OverflowTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE12pop_overflowERS0_.exit.thread ], [ %.0.i.i, %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.i ], [ false, %_ZN17OverflowTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE12pop_overflowERS0_.exit ], [ true, %46 ]
+_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit: ; preds = %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.sink.split.i, %46, %_ZN17OverflowTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE12pop_overflowERS0_.exit, %_ZN17OverflowTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE12pop_overflowERS0_.exit.thread
+  %64 = phi i1 [ true, %_ZN17OverflowTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE12pop_overflowERS0_.exit.thread ], [ false, %_ZN17OverflowTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE12pop_overflowERS0_.exit ], [ true, %46 ], [ %.0.ph.i, %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.sink.split.i ]
   ret i1 %64
 }
 
@@ -6933,10 +6933,10 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_proc
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(32) %2) #11
-  switch i32 %8, label %83 [
+  switch i32 %8, label %86 [
     i32 0, label %9
-    i32 1, label %50
-    i32 2, label %71
+    i32 1, label %51
+    i32 2, label %73
   ]
 
 9:                                                ; preds = %4
@@ -7000,60 +7000,59 @@ _ZN16InstanceRefKlass12try_discoverIP7oopDesc23XHeapIteratorOopClosureILb1EEEEbS
   %47 = sub i64 %44, %46
   %48 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm397382EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
   %49 = tail call noundef ptr %48(ptr noundef %45, i64 noundef %47) #11
-  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc23XHeapIteratorOopClosureILb1EE14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit.sink.split
+  %50 = load ptr, ptr %40, align 8
+  tail call void @_ZNK20XHeapIteratorContext13mark_and_pushEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(29) %50, ptr noundef %49)
+  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc23XHeapIteratorOopClosureILb1EE14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit
 
-50:                                               ; preds = %4
-  %51 = load i32, ptr @_ZN23java_lang_ref_Reference16_referent_offsetE, align 4
-  %52 = ptrtoint ptr %1 to i64
-  %53 = sext i32 %51 to i64
-  %54 = add nsw i64 %53, %52
-  %55 = getelementptr inbounds i8, ptr %2, i64 24
-  %56 = load ptr, ptr %55, align 8
-  %57 = ptrtoint ptr %56 to i64
-  %58 = sub i64 %54, %57
-  %59 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm397382EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %60 = tail call noundef ptr %59(ptr noundef %56, i64 noundef %58) #11
-  %61 = getelementptr inbounds i8, ptr %2, i64 16
-  %62 = load ptr, ptr %61, align 8
-  tail call void @_ZNK20XHeapIteratorContext13mark_and_pushEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(29) %62, ptr noundef %60)
-  %63 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
-  %64 = sext i32 %63 to i64
-  %65 = add nsw i64 %64, %52
-  %66 = load ptr, ptr %55, align 8
-  %67 = ptrtoint ptr %66 to i64
-  %68 = sub i64 %65, %67
-  %69 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm397382EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %70 = tail call noundef ptr %69(ptr noundef %66, i64 noundef %68) #11
-  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc23XHeapIteratorOopClosureILb1EE14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit.sink.split
+51:                                               ; preds = %4
+  %52 = load i32, ptr @_ZN23java_lang_ref_Reference16_referent_offsetE, align 4
+  %53 = ptrtoint ptr %1 to i64
+  %54 = sext i32 %52 to i64
+  %55 = add nsw i64 %54, %53
+  %56 = getelementptr inbounds i8, ptr %2, i64 24
+  %57 = load ptr, ptr %56, align 8
+  %58 = ptrtoint ptr %57 to i64
+  %59 = sub i64 %55, %58
+  %60 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm397382EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
+  %61 = tail call noundef ptr %60(ptr noundef %57, i64 noundef %59) #11
+  %62 = getelementptr inbounds i8, ptr %2, i64 16
+  %63 = load ptr, ptr %62, align 8
+  tail call void @_ZNK20XHeapIteratorContext13mark_and_pushEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(29) %63, ptr noundef %61)
+  %64 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
+  %65 = sext i32 %64 to i64
+  %66 = add nsw i64 %65, %53
+  %67 = load ptr, ptr %56, align 8
+  %68 = ptrtoint ptr %67 to i64
+  %69 = sub i64 %66, %68
+  %70 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm397382EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
+  %71 = tail call noundef ptr %70(ptr noundef %67, i64 noundef %69) #11
+  %72 = load ptr, ptr %62, align 8
+  tail call void @_ZNK20XHeapIteratorContext13mark_and_pushEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(29) %72, ptr noundef %71)
+  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc23XHeapIteratorOopClosureILb1EE14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit
 
-71:                                               ; preds = %4
-  %72 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
-  %73 = ptrtoint ptr %1 to i64
-  %74 = sext i32 %72 to i64
-  %75 = add nsw i64 %74, %73
-  %76 = getelementptr inbounds i8, ptr %2, i64 24
-  %77 = load ptr, ptr %76, align 8
-  %78 = ptrtoint ptr %77 to i64
-  %79 = sub i64 %75, %78
-  %80 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm397382EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %81 = tail call noundef ptr %80(ptr noundef %77, i64 noundef %79) #11
-  %82 = getelementptr inbounds i8, ptr %2, i64 16
-  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc23XHeapIteratorOopClosureILb1EE14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit.sink.split
+73:                                               ; preds = %4
+  %74 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
+  %75 = ptrtoint ptr %1 to i64
+  %76 = sext i32 %74 to i64
+  %77 = add nsw i64 %76, %75
+  %78 = getelementptr inbounds i8, ptr %2, i64 24
+  %79 = load ptr, ptr %78, align 8
+  %80 = ptrtoint ptr %79 to i64
+  %81 = sub i64 %77, %80
+  %82 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm397382EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
+  %83 = tail call noundef ptr %82(ptr noundef %79, i64 noundef %81) #11
+  %84 = getelementptr inbounds i8, ptr %2, i64 16
+  %85 = load ptr, ptr %84, align 8
+  tail call void @_ZNK20XHeapIteratorContext13mark_and_pushEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(29) %85, ptr noundef %83)
+  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc23XHeapIteratorOopClosureILb1EE14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit
 
-83:                                               ; preds = %4
-  %84 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %84, align 1
+86:                                               ; preds = %4
+  %87 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %87, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.18, i32 noundef 122) #12
   unreachable
 
-_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc23XHeapIteratorOopClosureILb1EE14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit.sink.split: ; preds = %50, %71, %_ZN16InstanceRefKlass12try_discoverIP7oopDesc23XHeapIteratorOopClosureILb1EEEEbS2_13ReferenceTypePT0_.exit.thread.i
-  %.sink19 = phi ptr [ %40, %_ZN16InstanceRefKlass12try_discoverIP7oopDesc23XHeapIteratorOopClosureILb1EEEEbS2_13ReferenceTypePT0_.exit.thread.i ], [ %82, %71 ], [ %61, %50 ]
-  %.sink18 = phi ptr [ %49, %_ZN16InstanceRefKlass12try_discoverIP7oopDesc23XHeapIteratorOopClosureILb1EEEEbS2_13ReferenceTypePT0_.exit.thread.i ], [ %81, %71 ], [ %70, %50 ]
-  %85 = load ptr, ptr %.sink19, align 8
-  tail call void @_ZNK20XHeapIteratorContext13mark_and_pushEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(29) %85, ptr noundef %.sink18)
-  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc23XHeapIteratorOopClosureILb1EE14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit
-
-_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc23XHeapIteratorOopClosureILb1EE14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit: ; preds = %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc23XHeapIteratorOopClosureILb1EE14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit.sink.split, %_ZN16InstanceRefKlass12try_discoverIP7oopDesc23XHeapIteratorOopClosureILb1EEEEbS2_13ReferenceTypePT0_.exit.i
+_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc23XHeapIteratorOopClosureILb1EE14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit: ; preds = %_ZN16InstanceRefKlass12try_discoverIP7oopDesc23XHeapIteratorOopClosureILb1EEEEbS2_13ReferenceTypePT0_.exit.thread.i, %_ZN16InstanceRefKlass12try_discoverIP7oopDesc23XHeapIteratorOopClosureILb1EEEEbS2_13ReferenceTypePT0_.exit.i, %73, %51
   ret void
 }
 
@@ -9672,10 +9671,10 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_proc
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(32) %2) #11
-  switch i32 %8, label %70 [
+  switch i32 %8, label %73 [
     i32 0, label %9
-    i32 1, label %45
-    i32 2, label %61
+    i32 1, label %46
+    i32 2, label %63
   ]
 
 9:                                                ; preds = %4
@@ -9734,52 +9733,51 @@ _ZN16InstanceRefKlass12try_discoverIP7oopDesc23XHeapIteratorOopClosureILb0EEEEbS
   %42 = inttoptr i64 %41 to ptr
   %43 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm282692EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %44 = tail call noundef ptr %43(ptr noundef %42) #11
-  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc23XHeapIteratorOopClosureILb0EE14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit.sink.split
+  %45 = load ptr, ptr %37, align 8
+  tail call void @_ZNK20XHeapIteratorContext13mark_and_pushEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(29) %45, ptr noundef %44)
+  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc23XHeapIteratorOopClosureILb0EE14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit
 
-45:                                               ; preds = %4
-  %46 = load i32, ptr @_ZN23java_lang_ref_Reference16_referent_offsetE, align 4
-  %47 = ptrtoint ptr %1 to i64
-  %48 = sext i32 %46 to i64
-  %49 = add nsw i64 %48, %47
-  %50 = inttoptr i64 %49 to ptr
-  %51 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm282692EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
-  %52 = tail call noundef ptr %51(ptr noundef %50) #11
-  %53 = getelementptr inbounds i8, ptr %2, i64 16
-  %54 = load ptr, ptr %53, align 8
-  tail call void @_ZNK20XHeapIteratorContext13mark_and_pushEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(29) %54, ptr noundef %52)
-  %55 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
-  %56 = sext i32 %55 to i64
-  %57 = add nsw i64 %56, %47
-  %58 = inttoptr i64 %57 to ptr
-  %59 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm282692EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
-  %60 = tail call noundef ptr %59(ptr noundef %58) #11
-  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc23XHeapIteratorOopClosureILb0EE14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit.sink.split
+46:                                               ; preds = %4
+  %47 = load i32, ptr @_ZN23java_lang_ref_Reference16_referent_offsetE, align 4
+  %48 = ptrtoint ptr %1 to i64
+  %49 = sext i32 %47 to i64
+  %50 = add nsw i64 %49, %48
+  %51 = inttoptr i64 %50 to ptr
+  %52 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm282692EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
+  %53 = tail call noundef ptr %52(ptr noundef %51) #11
+  %54 = getelementptr inbounds i8, ptr %2, i64 16
+  %55 = load ptr, ptr %54, align 8
+  tail call void @_ZNK20XHeapIteratorContext13mark_and_pushEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(29) %55, ptr noundef %53)
+  %56 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
+  %57 = sext i32 %56 to i64
+  %58 = add nsw i64 %57, %48
+  %59 = inttoptr i64 %58 to ptr
+  %60 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm282692EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
+  %61 = tail call noundef ptr %60(ptr noundef %59) #11
+  %62 = load ptr, ptr %54, align 8
+  tail call void @_ZNK20XHeapIteratorContext13mark_and_pushEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(29) %62, ptr noundef %61)
+  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc23XHeapIteratorOopClosureILb0EE14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit
 
-61:                                               ; preds = %4
-  %62 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
-  %63 = ptrtoint ptr %1 to i64
-  %64 = sext i32 %62 to i64
-  %65 = add nsw i64 %64, %63
-  %66 = inttoptr i64 %65 to ptr
-  %67 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm282692EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
-  %68 = tail call noundef ptr %67(ptr noundef %66) #11
-  %69 = getelementptr inbounds i8, ptr %2, i64 16
-  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc23XHeapIteratorOopClosureILb0EE14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit.sink.split
+63:                                               ; preds = %4
+  %64 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
+  %65 = ptrtoint ptr %1 to i64
+  %66 = sext i32 %64 to i64
+  %67 = add nsw i64 %66, %65
+  %68 = inttoptr i64 %67 to ptr
+  %69 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm282692EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
+  %70 = tail call noundef ptr %69(ptr noundef %68) #11
+  %71 = getelementptr inbounds i8, ptr %2, i64 16
+  %72 = load ptr, ptr %71, align 8
+  tail call void @_ZNK20XHeapIteratorContext13mark_and_pushEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(29) %72, ptr noundef %70)
+  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc23XHeapIteratorOopClosureILb0EE14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit
 
-70:                                               ; preds = %4
-  %71 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %71, align 1
+73:                                               ; preds = %4
+  %74 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %74, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.18, i32 noundef 122) #12
   unreachable
 
-_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc23XHeapIteratorOopClosureILb0EE14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit.sink.split: ; preds = %45, %61, %_ZN16InstanceRefKlass12try_discoverIP7oopDesc23XHeapIteratorOopClosureILb0EEEEbS2_13ReferenceTypePT0_.exit.thread.i
-  %.sink15 = phi ptr [ %37, %_ZN16InstanceRefKlass12try_discoverIP7oopDesc23XHeapIteratorOopClosureILb0EEEEbS2_13ReferenceTypePT0_.exit.thread.i ], [ %69, %61 ], [ %53, %45 ]
-  %.sink14 = phi ptr [ %44, %_ZN16InstanceRefKlass12try_discoverIP7oopDesc23XHeapIteratorOopClosureILb0EEEEbS2_13ReferenceTypePT0_.exit.thread.i ], [ %68, %61 ], [ %60, %45 ]
-  %72 = load ptr, ptr %.sink15, align 8
-  tail call void @_ZNK20XHeapIteratorContext13mark_and_pushEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(29) %72, ptr noundef %.sink14)
-  br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc23XHeapIteratorOopClosureILb0EE14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit
-
-_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc23XHeapIteratorOopClosureILb0EE14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit: ; preds = %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc23XHeapIteratorOopClosureILb0EE14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit.sink.split, %_ZN16InstanceRefKlass12try_discoverIP7oopDesc23XHeapIteratorOopClosureILb0EEEEbS2_13ReferenceTypePT0_.exit.i
+_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc23XHeapIteratorOopClosureILb0EE14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit: ; preds = %_ZN16InstanceRefKlass12try_discoverIP7oopDesc23XHeapIteratorOopClosureILb0EEEEbS2_13ReferenceTypePT0_.exit.thread.i, %_ZN16InstanceRefKlass12try_discoverIP7oopDesc23XHeapIteratorOopClosureILb0EEEEbS2_13ReferenceTypePT0_.exit.i, %63, %46
   ret void
 }
 

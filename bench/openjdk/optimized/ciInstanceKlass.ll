@@ -1047,96 +1047,96 @@ define hidden noundef ptr @_ZN15ciInstanceKlass20get_canonical_holderEi(ptr noun
   %4 = trunc i8 %3 to i1
   %spec.select.i = select i1 %4, i32 12, i32 16
   %5 = icmp slt i32 %1, %spec.select.i
-  br i1 %5, label %.loopexit.sink.split, label %6
+  br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 112
-  %8 = load ptr, ptr %7, align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %12
+  %7 = load ptr, ptr @_ZN5ciEnv13_Object_klassE, align 8
+  br label %.loopexit
 
-10:                                               ; preds = %6
-  %11 = tail call noundef i32 @_ZN15ciInstanceKlass24compute_nonstatic_fieldsEv(ptr noundef nonnull align 8 dereferenceable(144) %0)
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds i8, ptr %0, i64 112
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %12, label %14
+
+12:                                               ; preds = %8
+  %13 = tail call noundef i32 @_ZN15ciInstanceKlass24compute_nonstatic_fieldsEv(ptr noundef nonnull align 8 dereferenceable(144) %0)
   br label %_ZN15ciInstanceKlass20nof_nonstatic_fieldsEv.exit.i
 
-12:                                               ; preds = %6
-  %13 = load i32, ptr %8, align 4
+14:                                               ; preds = %8
+  %15 = load i32, ptr %10, align 4
   br label %_ZN15ciInstanceKlass20nof_nonstatic_fieldsEv.exit.i
 
-_ZN15ciInstanceKlass20nof_nonstatic_fieldsEv.exit.i: ; preds = %12, %10
-  %.0.i.i = phi i32 [ %11, %10 ], [ %13, %12 ]
-  %14 = icmp sgt i32 %.0.i.i, 0
-  br i1 %14, label %.lr.ph.i, label %_ZN15ciInstanceKlass19get_field_by_offsetEib.exit.preheader
+_ZN15ciInstanceKlass20nof_nonstatic_fieldsEv.exit.i: ; preds = %14, %12
+  %.0.i.i = phi i32 [ %13, %12 ], [ %15, %14 ]
+  %16 = icmp sgt i32 %.0.i.i, 0
+  br i1 %16, label %.lr.ph.i, label %_ZN15ciInstanceKlass19get_field_by_offsetEib.exit.preheader
 
-_ZN15ciInstanceKlass19get_field_by_offsetEib.exit.preheader: ; preds = %24, %_ZN15ciInstanceKlass20nof_nonstatic_fieldsEv.exit.i
+_ZN15ciInstanceKlass19get_field_by_offsetEib.exit.preheader: ; preds = %26, %_ZN15ciInstanceKlass20nof_nonstatic_fieldsEv.exit.i
   br label %_ZN15ciInstanceKlass19get_field_by_offsetEib.exit
 
 .lr.ph.i:                                         ; preds = %_ZN15ciInstanceKlass20nof_nonstatic_fieldsEv.exit.i
-  %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
-  %17 = load ptr, ptr %16, align 8
+  %17 = load ptr, ptr %9, align 8
+  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %19 = load ptr, ptr %18, align 8
   %wide.trip.count.i = zext nneg i32 %.0.i.i to i64
-  br label %18
+  br label %20
 
-18:                                               ; preds = %24, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %24 ]
-  %19 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv.i
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 40
-  %22 = load i32, ptr %21, align 8
-  %23 = icmp eq i32 %22, %1
-  br i1 %23, label %26, label %24
+20:                                               ; preds = %26, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %26 ]
+  %21 = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv.i
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 40
+  %24 = load i32, ptr %23, align 8
+  %25 = icmp eq i32 %24, %1
+  br i1 %25, label %28, label %26
 
-24:                                               ; preds = %18
-  %25 = icmp sgt i32 %22, %1
+26:                                               ; preds = %20
+  %27 = icmp sgt i32 %24, %1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  %or.cond.i = select i1 %25, i1 true, i1 %exitcond.not.i
-  br i1 %or.cond.i, label %_ZN15ciInstanceKlass19get_field_by_offsetEib.exit.preheader, label %18, !llvm.loop !8
+  %or.cond.i = select i1 %27, i1 true, i1 %exitcond.not.i
+  br i1 %or.cond.i, label %_ZN15ciInstanceKlass19get_field_by_offsetEib.exit.preheader, label %20, !llvm.loop !8
 
-26:                                               ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %20, i64 8
-  br label %.loopexit.sink.split
-
-_ZN15ciInstanceKlass19get_field_by_offsetEib.exit: ; preds = %_ZN15ciInstanceKlass19get_field_by_offsetEib.exit.preheader, %39
-  %.013 = phi ptr [ %28, %39 ], [ %0, %_ZN15ciInstanceKlass19get_field_by_offsetEib.exit.preheader ]
-  %28 = tail call noundef ptr @_ZN15ciInstanceKlass5superEv(ptr noundef nonnull align 8 dereferenceable(144) %.013)
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %.loopexit, label %30
-
-30:                                               ; preds = %_ZN15ciInstanceKlass19get_field_by_offsetEib.exit
-  %31 = getelementptr inbounds i8, ptr %28, i64 112
-  %32 = load ptr, ptr %31, align 8
-  %33 = icmp eq ptr %32, null
-  br i1 %33, label %34, label %36
-
-34:                                               ; preds = %30
-  %35 = tail call noundef i32 @_ZN15ciInstanceKlass24compute_nonstatic_fieldsEv(ptr noundef nonnull align 8 dereferenceable(144) %28)
-  br label %_ZN15ciInstanceKlass20nof_nonstatic_fieldsEv.exit
-
-36:                                               ; preds = %30
-  %37 = load i32, ptr %32, align 4
-  br label %_ZN15ciInstanceKlass20nof_nonstatic_fieldsEv.exit
-
-_ZN15ciInstanceKlass20nof_nonstatic_fieldsEv.exit: ; preds = %34, %36
-  %.0.i18 = phi i32 [ %35, %34 ], [ %37, %36 ]
-  %38 = icmp eq i32 %.0.i18, 0
-  br i1 %38, label %.loopexit, label %39
-
-39:                                               ; preds = %_ZN15ciInstanceKlass20nof_nonstatic_fieldsEv.exit
-  %40 = getelementptr inbounds i8, ptr %28, i64 40
-  %41 = load i32, ptr %40, align 8
-  %42 = and i32 %41, -2
-  %.not17 = icmp sgt i32 %42, %1
-  br i1 %.not17, label %_ZN15ciInstanceKlass19get_field_by_offsetEib.exit, label %.loopexit, !llvm.loop !10
-
-.loopexit.sink.split:                             ; preds = %2, %26
-  %.sink = phi ptr [ %27, %26 ], [ @_ZN5ciEnv13_Object_klassE, %2 ]
-  %43 = load ptr, ptr %.sink, align 8
+28:                                               ; preds = %20
+  %29 = getelementptr inbounds i8, ptr %22, i64 8
+  %30 = load ptr, ptr %29, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN15ciInstanceKlass19get_field_by_offsetEib.exit, %_ZN15ciInstanceKlass20nof_nonstatic_fieldsEv.exit, %39, %.loopexit.sink.split
-  %.0 = phi ptr [ %43, %.loopexit.sink.split ], [ %.013, %39 ], [ %.013, %_ZN15ciInstanceKlass20nof_nonstatic_fieldsEv.exit ], [ %.013, %_ZN15ciInstanceKlass19get_field_by_offsetEib.exit ]
+_ZN15ciInstanceKlass19get_field_by_offsetEib.exit: ; preds = %_ZN15ciInstanceKlass19get_field_by_offsetEib.exit.preheader, %42
+  %.013 = phi ptr [ %31, %42 ], [ %0, %_ZN15ciInstanceKlass19get_field_by_offsetEib.exit.preheader ]
+  %31 = tail call noundef ptr @_ZN15ciInstanceKlass5superEv(ptr noundef nonnull align 8 dereferenceable(144) %.013)
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %.loopexit, label %33
+
+33:                                               ; preds = %_ZN15ciInstanceKlass19get_field_by_offsetEib.exit
+  %34 = getelementptr inbounds i8, ptr %31, i64 112
+  %35 = load ptr, ptr %34, align 8
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %37, label %39
+
+37:                                               ; preds = %33
+  %38 = tail call noundef i32 @_ZN15ciInstanceKlass24compute_nonstatic_fieldsEv(ptr noundef nonnull align 8 dereferenceable(144) %31)
+  br label %_ZN15ciInstanceKlass20nof_nonstatic_fieldsEv.exit
+
+39:                                               ; preds = %33
+  %40 = load i32, ptr %35, align 4
+  br label %_ZN15ciInstanceKlass20nof_nonstatic_fieldsEv.exit
+
+_ZN15ciInstanceKlass20nof_nonstatic_fieldsEv.exit: ; preds = %37, %39
+  %.0.i18 = phi i32 [ %38, %37 ], [ %40, %39 ]
+  %41 = icmp eq i32 %.0.i18, 0
+  br i1 %41, label %.loopexit, label %42
+
+42:                                               ; preds = %_ZN15ciInstanceKlass20nof_nonstatic_fieldsEv.exit
+  %43 = getelementptr inbounds i8, ptr %31, i64 40
+  %44 = load i32, ptr %43, align 8
+  %45 = and i32 %44, -2
+  %.not17 = icmp sgt i32 %45, %1
+  br i1 %.not17, label %_ZN15ciInstanceKlass19get_field_by_offsetEib.exit, label %.loopexit, !llvm.loop !10
+
+.loopexit:                                        ; preds = %_ZN15ciInstanceKlass19get_field_by_offsetEib.exit, %_ZN15ciInstanceKlass20nof_nonstatic_fieldsEv.exit, %42, %28, %6
+  %.0 = phi ptr [ %7, %6 ], [ %30, %28 ], [ %.013, %42 ], [ %.013, %_ZN15ciInstanceKlass20nof_nonstatic_fieldsEv.exit ], [ %.013, %_ZN15ciInstanceKlass19get_field_by_offsetEib.exit ]
   ret ptr %.0
 }
 

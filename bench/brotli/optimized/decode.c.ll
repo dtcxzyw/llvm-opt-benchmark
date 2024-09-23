@@ -363,7 +363,11 @@ land.lhs.true.i:                                  ; preds = %if.then7
   %last_in.i = getelementptr inbounds i8, ptr %s, i64 40
   %9 = load ptr, ptr %last_in.i, align 8
   %cmp2.i540 = icmp eq ptr %8, %9
-  br i1 %cmp2.i540, label %return.sink.split, label %return
+  br i1 %cmp2.i540, label %if.then.i541, label %return
+
+if.then.i541:                                     ; preds = %land.lhs.true.i
+  store i64 0, ptr %buffer_length.i, align 8
+  br label %return
 
 if.end8:                                          ; preds = %lor.lhs.false, %if.end3
   %spec.select = phi ptr [ %next_out, %lor.lhs.false ], [ null, %if.end3 ]
@@ -2540,7 +2544,11 @@ land.lhs.true.i723:                               ; preds = %if.then344
   %289 = load ptr, ptr %next_in30, align 8
   %290 = load ptr, ptr %last_in, align 8
   %cmp2.i726 = icmp eq ptr %289, %290
-  br i1 %cmp2.i726, label %return.sink.split, label %return
+  br i1 %cmp2.i726, label %if.then.i729, label %return
+
+if.then.i729:                                     ; preds = %land.lhs.true.i723
+  store i64 0, ptr %buffer_length, align 8
+  br label %return
 
 sw.bb350.thread:                                  ; preds = %if.end332
   store i32 0, ptr %loop_counter439, align 4
@@ -2577,7 +2585,11 @@ land.lhs.true.i736:                               ; preds = %sw.default
   %294 = load ptr, ptr %next_in30, align 8
   %295 = load ptr, ptr %last_in, align 8
   %cmp2.i739 = icmp eq ptr %294, %295
-  br i1 %cmp2.i739, label %return.sink.split, label %return
+  br i1 %cmp2.i739, label %if.then.i742, label %return
+
+if.then.i742:                                     ; preds = %land.lhs.true.i736
+  store i64 0, ptr %buffer_length, align 8
+  br label %return
 
 sw.epilog:                                        ; preds = %sw.bb350.thread, %sw.bb350, %sw.bb356, %sw.bb354
   %296 = phi i32 [ %.pre1939, %sw.bb356 ], [ %.pre1939, %sw.bb354 ], [ %.pre1939, %sw.bb350 ], [ 0, %sw.bb350.thread ]
@@ -8008,7 +8020,11 @@ land.lhs.true.i1474:                              ; preds = %if.end489
   %1195 = load ptr, ptr %next_in30, align 8
   %1196 = load ptr, ptr %last_in, align 8
   %cmp2.i1477 = icmp eq ptr %1195, %1196
-  br i1 %cmp2.i1477, label %return.sink.split, label %return
+  br i1 %cmp2.i1477, label %if.then.i1480, label %return
+
+if.then.i1480:                                    ; preds = %land.lhs.true.i1474
+  store i64 0, ptr %buffer_length, align 8
+  br label %return
 
 for.end:                                          ; preds = %if.then21, %if.else34, %while.body, %if.else46, %if.then60, %BrotliBitReaderUnload.exit600
   %result.2 = phi i32 [ %result.1, %if.then60 ], [ %result.1, %BrotliBitReaderUnload.exit600 ], [ 2, %if.else46 ], [ 2, %while.body ], [ -9, %if.then21 ], [ 2, %if.else34 ]
@@ -8039,14 +8055,8 @@ if.end.i1491:                                     ; preds = %if.then.i1493, %lan
   %spec.select2375 = select i1 %1202, i32 %result.2, i32 0
   br label %return
 
-return.sink.split:                                ; preds = %land.lhs.true.i1474, %land.lhs.true.i736, %land.lhs.true.i723, %land.lhs.true.i
-  %buffer_length.sink = phi ptr [ %buffer_length.i, %land.lhs.true.i ], [ %buffer_length, %land.lhs.true.i723 ], [ %buffer_length, %land.lhs.true.i736 ], [ %buffer_length, %land.lhs.true.i1474 ]
-  %retval.0.ph = phi i32 [ 0, %land.lhs.true.i ], [ 0, %land.lhs.true.i723 ], [ 0, %land.lhs.true.i736 ], [ 1, %land.lhs.true.i1474 ]
-  store i64 0, ptr %buffer_length.sink, align 8
-  br label %return
-
-return:                                           ; preds = %if.end.i1491, %return.sink.split, %land.lhs.true.i1474, %if.end489, %land.lhs.true.i736, %sw.default, %land.lhs.true.i723, %if.then344, %land.lhs.true.i, %if.then7, %if.end
-  %retval.0 = phi i32 [ 0, %if.end ], [ 0, %if.then7 ], [ 0, %land.lhs.true.i ], [ 0, %if.then344 ], [ 0, %land.lhs.true.i723 ], [ 0, %sw.default ], [ 0, %land.lhs.true.i736 ], [ 1, %if.end489 ], [ 1, %land.lhs.true.i1474 ], [ %spec.select2375, %if.end.i1491 ], [ %retval.0.ph, %return.sink.split ]
+return:                                           ; preds = %if.end.i1491, %if.then.i1480, %land.lhs.true.i1474, %if.end489, %if.then.i742, %land.lhs.true.i736, %sw.default, %if.then.i729, %land.lhs.true.i723, %if.then344, %if.then.i541, %land.lhs.true.i, %if.then7, %if.end
+  %retval.0 = phi i32 [ 0, %if.end ], [ 0, %if.then7 ], [ 0, %land.lhs.true.i ], [ 0, %if.then.i541 ], [ 0, %if.then344 ], [ 0, %land.lhs.true.i723 ], [ 0, %if.then.i729 ], [ 0, %sw.default ], [ 0, %land.lhs.true.i736 ], [ 0, %if.then.i742 ], [ 1, %if.end489 ], [ 1, %land.lhs.true.i1474 ], [ 1, %if.then.i1480 ], [ %spec.select2375, %if.end.i1491 ]
   ret i32 %retval.0
 }
 

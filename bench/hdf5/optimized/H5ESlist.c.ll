@@ -20,6 +20,7 @@ define void @H5ES__list_append(ptr nocapture noundef %0, ptr noundef %1) local_u
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %1, ptr %8, align 8
   br label %13
 
 9:                                                ; preds = %2
@@ -27,11 +28,10 @@ define void @H5ES__list_append(ptr nocapture noundef %0, ptr noundef %1) local_u
   store ptr %5, ptr %10, align 8
   %11 = load ptr, ptr %4, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 16
+  store ptr %1, ptr %12, align 8
   br label %13
 
 13:                                               ; preds = %9, %7
-  %.sink = phi ptr [ %12, %9 ], [ %8, %7 ]
-  store ptr %1, ptr %.sink, align 8
   store ptr %1, ptr %4, align 8
   %14 = load i64, ptr %0, align 8
   %15 = add i64 %14, 1

@@ -3681,24 +3681,32 @@ if.then10:                                        ; preds = %for.body8
   %3 = load i64, ptr %source_curr.039, align 8
   store i64 %3, ptr %target_curr.035, align 8
   %m_data.i = getelementptr inbounds i8, ptr %target_curr.035, i64 8
+  %m_data3.i = getelementptr inbounds i8, ptr %source_curr.039, i64 8
   %cmp.i.i.i = icmp eq ptr %target_curr.035, %source_curr.039
   br i1 %cmp.i.i.i, label %for.inc23, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then10
   %4 = load ptr, ptr %m_data.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %4, null
-  br i1 %tobool.not.i.i.i.i, label %for.inc23.sink.split, label %if.then.i.i.i.i
+  br i1 %tobool.not.i.i.i.i, label %invoke.cont.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i.i)
-          to label %for.inc23.sink.split unwind label %terminate.lpad.i.i.i
+          to label %invoke.cont.i.i.i unwind label %terminate.lpad.i.i.i
+
+invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i.i, %if.end.i.i.i
+  store ptr null, ptr %m_data.i, align 8
+  %5 = load ptr, ptr %m_data3.i, align 8
+  store ptr %5, ptr %m_data.i, align 8
+  store ptr null, ptr %m_data3.i, align 8
+  br label %for.inc23
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #23
+  %7 = extractvalue { ptr, i32 } %6, 0
+  tail call void @__clang_call_terminate(ptr %7) #23
   unreachable
 
 for.inc:                                          ; preds = %for.body8
@@ -3709,32 +3717,40 @@ for.inc:                                          ; preds = %for.body8
 for.body14:                                       ; preds = %for.cond12.preheader, %for.inc19
   %target_curr.137 = phi ptr [ %incdec.ptr20, %for.inc19 ], [ %target, %for.cond12.preheader ]
   %m_state.i20 = getelementptr inbounds i8, ptr %target_curr.137, i64 4
-  %7 = load i32, ptr %m_state.i20, align 4
-  %cmp.i21 = icmp eq i32 %7, 0
+  %8 = load i32, ptr %m_state.i20, align 4
+  %cmp.i21 = icmp eq i32 %8, 0
   br i1 %cmp.i21, label %if.then16, label %for.inc19
 
 if.then16:                                        ; preds = %for.body14
-  %8 = load i64, ptr %source_curr.039, align 8
-  store i64 %8, ptr %target_curr.137, align 8
+  %9 = load i64, ptr %source_curr.039, align 8
+  store i64 %9, ptr %target_curr.137, align 8
   %m_data.i22 = getelementptr inbounds i8, ptr %target_curr.137, i64 8
+  %m_data3.i23 = getelementptr inbounds i8, ptr %source_curr.039, i64 8
   %cmp.i.i.i24 = icmp eq ptr %target_curr.137, %source_curr.039
   br i1 %cmp.i.i.i24, label %for.inc23, label %if.end.i.i.i25
 
 if.end.i.i.i25:                                   ; preds = %if.then16
-  %9 = load ptr, ptr %m_data.i22, align 8
-  %tobool.not.i.i.i.i26 = icmp eq ptr %9, null
-  br i1 %tobool.not.i.i.i.i26, label %for.inc23.sink.split, label %if.then.i.i.i.i27
+  %10 = load ptr, ptr %m_data.i22, align 8
+  %tobool.not.i.i.i.i26 = icmp eq ptr %10, null
+  br i1 %tobool.not.i.i.i.i26, label %invoke.cont.i.i.i30, label %if.then.i.i.i.i27
 
 if.then.i.i.i.i27:                                ; preds = %if.end.i.i.i25
-  %add.ptr.i.i.i.i.i28 = getelementptr inbounds i8, ptr %9, i64 -8
+  %add.ptr.i.i.i.i.i28 = getelementptr inbounds i8, ptr %10, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i.i28)
-          to label %for.inc23.sink.split unwind label %terminate.lpad.i.i.i29
+          to label %invoke.cont.i.i.i30 unwind label %terminate.lpad.i.i.i29
+
+invoke.cont.i.i.i30:                              ; preds = %if.then.i.i.i.i27, %if.end.i.i.i25
+  store ptr null, ptr %m_data.i22, align 8
+  %11 = load ptr, ptr %m_data3.i23, align 8
+  store ptr %11, ptr %m_data.i22, align 8
+  store ptr null, ptr %m_data3.i23, align 8
+  br label %for.inc23
 
 terminate.lpad.i.i.i29:                           ; preds = %if.then.i.i.i.i27
-  %10 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #23
+  %13 = extractvalue { ptr, i32 } %12, 0
+  tail call void @__clang_call_terminate(ptr %13) #23
   unreachable
 
 for.inc19:                                        ; preds = %for.body14
@@ -3747,16 +3763,7 @@ for.end21:                                        ; preds = %for.cond12.preheade
   tail call void @exit(i32 noundef 114) #25
   unreachable
 
-for.inc23.sink.split:                             ; preds = %if.end.i.i.i25, %if.then.i.i.i.i27, %if.end.i.i.i, %if.then.i.i.i.i
-  %m_data.i22.sink47 = phi ptr [ %m_data.i, %if.then.i.i.i.i ], [ %m_data.i, %if.end.i.i.i ], [ %m_data.i22, %if.then.i.i.i.i27 ], [ %m_data.i22, %if.end.i.i.i25 ]
-  %m_data3.i23.sink46 = getelementptr inbounds i8, ptr %source_curr.039, i64 8
-  store ptr null, ptr %m_data.i22.sink47, align 8
-  %12 = load ptr, ptr %m_data3.i23.sink46, align 8
-  store ptr %12, ptr %m_data.i22.sink47, align 8
-  store ptr null, ptr %m_data3.i23.sink46, align 8
-  br label %for.inc23
-
-for.inc23:                                        ; preds = %for.inc23.sink.split, %if.then16, %if.then10, %for.body
+for.inc23:                                        ; preds = %invoke.cont.i.i.i30, %if.then16, %invoke.cont.i.i.i, %if.then10, %for.body
   %incdec.ptr24 = getelementptr inbounds i8, ptr %source_curr.039, i64 16
   %cmp.not = icmp eq ptr %incdec.ptr24, %add.ptr
   br i1 %cmp.not, label %for.end25, label %for.body, !llvm.loop !35

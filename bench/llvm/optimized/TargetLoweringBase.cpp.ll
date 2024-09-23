@@ -1159,11 +1159,11 @@ _ZNK4llvm3MVT19getScalarSizeInBitsEv.exit:        ; preds = %3
   %8 = lshr i64 %.sroa.0.0.copyload.i.i, 3
   switch i32 %0, label %_ZN4llvm5RTLIB22getOutlineAtomicHelperERA5_A4_KNS0_7LibcallENS_14AtomicOrderingEm.exit [
     i32 336, label %9
-    i32 338, label %18
-    i32 339, label %27
-    i32 343, label %36
-    i32 342, label %45
-    i32 344, label %54
+    i32 338, label %19
+    i32 339, label %29
+    i32 343, label %39
+    i32 342, label %49
+    i32 344, label %59
   ]
 
 9:                                                ; preds = %_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit
@@ -1204,215 +1204,216 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %switch.gep = getelementptr inbounds [6 x i64], ptr @switch.table._ZN4llvm5RTLIB17getOUTLINE_ATOMICEjNS_14AtomicOrderingENS_3MVTE.12, i64 0, i64 %16
   %switch.load = load i64, ptr %switch.gep, align 8
   %17 = getelementptr inbounds [5 x [4 x i32]], ptr @__const._ZN4llvm5RTLIB17getOUTLINE_ATOMICEjNS_14AtomicOrderingENS_3MVTE.LC, i64 0, i64 %.05.i, i64 %switch.load
-  br label %_ZN4llvm5RTLIB22getOutlineAtomicHelperERA5_A4_KNS0_7LibcallENS_14AtomicOrderingEm.exit.sink.split
+  %18 = load i32, ptr %17, align 4
+  br label %_ZN4llvm5RTLIB22getOutlineAtomicHelperERA5_A4_KNS0_7LibcallENS_14AtomicOrderingEm.exit
 
-18:                                               ; preds = %_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit
+19:                                               ; preds = %_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit
   switch i64 %8, label %_ZN4llvm5RTLIB22getOutlineAtomicHelperERA5_A4_KNS0_7LibcallENS_14AtomicOrderingEm.exit [
-    i64 1, label %23
-    i64 2, label %19
-    i64 4, label %20
-    i64 8, label %21
-    i64 16, label %22
+    i64 1, label %24
+    i64 2, label %20
+    i64 4, label %21
+    i64 8, label %22
+    i64 16, label %23
   ]
 
-19:                                               ; preds = %18
-  br label %23
+20:                                               ; preds = %19
+  br label %24
 
-20:                                               ; preds = %18
-  br label %23
+21:                                               ; preds = %19
+  br label %24
 
-21:                                               ; preds = %18
-  br label %23
+22:                                               ; preds = %19
+  br label %24
 
-22:                                               ; preds = %18
-  br label %23
+23:                                               ; preds = %19
+  br label %24
 
-23:                                               ; preds = %22, %21, %20, %19, %18
-  %.05.i14 = phi i64 [ 4, %22 ], [ 3, %21 ], [ 2, %20 ], [ 1, %19 ], [ 0, %18 ]
+24:                                               ; preds = %23, %22, %21, %20, %19
+  %.05.i14 = phi i64 [ 4, %23 ], [ 3, %22 ], [ 2, %21 ], [ 1, %20 ], [ 0, %19 ]
   %switch.tableidx36 = add i32 %1, -2
-  %24 = icmp ult i32 %switch.tableidx36, 6
-  br i1 %24, label %switch.hole_check37, label %_ZN4llvm5RTLIB22getOutlineAtomicHelperERA5_A4_KNS0_7LibcallENS_14AtomicOrderingEm.exit
+  %25 = icmp ult i32 %switch.tableidx36, 6
+  br i1 %25, label %switch.hole_check37, label %_ZN4llvm5RTLIB22getOutlineAtomicHelperERA5_A4_KNS0_7LibcallENS_14AtomicOrderingEm.exit
 
-switch.hole_check37:                              ; preds = %23
+switch.hole_check37:                              ; preds = %24
   %switch.maskindex39 = trunc nuw i32 %switch.tableidx36 to i8
   %switch.shifted40 = lshr i8 61, %switch.maskindex39
   %switch.lobit41 = trunc i8 %switch.shifted40 to i1
   br i1 %switch.lobit41, label %switch.lookup38, label %_ZN4llvm5RTLIB22getOutlineAtomicHelperERA5_A4_KNS0_7LibcallENS_14AtomicOrderingEm.exit
 
 switch.lookup38:                                  ; preds = %switch.hole_check37
-  %25 = zext nneg i32 %switch.tableidx36 to i64
-  %switch.gep42 = getelementptr inbounds [6 x i64], ptr @switch.table._ZN4llvm5RTLIB17getOUTLINE_ATOMICEjNS_14AtomicOrderingENS_3MVTE.12, i64 0, i64 %25
+  %26 = zext nneg i32 %switch.tableidx36 to i64
+  %switch.gep42 = getelementptr inbounds [6 x i64], ptr @switch.table._ZN4llvm5RTLIB17getOUTLINE_ATOMICEjNS_14AtomicOrderingENS_3MVTE.12, i64 0, i64 %26
   %switch.load43 = load i64, ptr %switch.gep42, align 8
-  %26 = getelementptr inbounds [5 x [4 x i32]], ptr @__const._ZN4llvm5RTLIB17getOUTLINE_ATOMICEjNS_14AtomicOrderingENS_3MVTE.LC.17, i64 0, i64 %.05.i14, i64 %switch.load43
-  br label %_ZN4llvm5RTLIB22getOutlineAtomicHelperERA5_A4_KNS0_7LibcallENS_14AtomicOrderingEm.exit.sink.split
+  %27 = getelementptr inbounds [5 x [4 x i32]], ptr @__const._ZN4llvm5RTLIB17getOUTLINE_ATOMICEjNS_14AtomicOrderingENS_3MVTE.LC.17, i64 0, i64 %.05.i14, i64 %switch.load43
+  %28 = load i32, ptr %27, align 4
+  br label %_ZN4llvm5RTLIB22getOutlineAtomicHelperERA5_A4_KNS0_7LibcallENS_14AtomicOrderingEm.exit
 
-27:                                               ; preds = %_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit
+29:                                               ; preds = %_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit
   switch i64 %8, label %_ZN4llvm5RTLIB22getOutlineAtomicHelperERA5_A4_KNS0_7LibcallENS_14AtomicOrderingEm.exit [
-    i64 1, label %32
-    i64 2, label %28
-    i64 4, label %29
-    i64 8, label %30
-    i64 16, label %31
+    i64 1, label %34
+    i64 2, label %30
+    i64 4, label %31
+    i64 8, label %32
+    i64 16, label %33
   ]
 
-28:                                               ; preds = %27
-  br label %32
+30:                                               ; preds = %29
+  br label %34
 
-29:                                               ; preds = %27
-  br label %32
+31:                                               ; preds = %29
+  br label %34
 
-30:                                               ; preds = %27
-  br label %32
+32:                                               ; preds = %29
+  br label %34
 
-31:                                               ; preds = %27
-  br label %32
+33:                                               ; preds = %29
+  br label %34
 
-32:                                               ; preds = %31, %30, %29, %28, %27
-  %.05.i18 = phi i64 [ 4, %31 ], [ 3, %30 ], [ 2, %29 ], [ 1, %28 ], [ 0, %27 ]
+34:                                               ; preds = %33, %32, %31, %30, %29
+  %.05.i18 = phi i64 [ 4, %33 ], [ 3, %32 ], [ 2, %31 ], [ 1, %30 ], [ 0, %29 ]
   %switch.tableidx45 = add i32 %1, -2
-  %33 = icmp ult i32 %switch.tableidx45, 6
-  br i1 %33, label %switch.hole_check46, label %_ZN4llvm5RTLIB22getOutlineAtomicHelperERA5_A4_KNS0_7LibcallENS_14AtomicOrderingEm.exit
+  %35 = icmp ult i32 %switch.tableidx45, 6
+  br i1 %35, label %switch.hole_check46, label %_ZN4llvm5RTLIB22getOutlineAtomicHelperERA5_A4_KNS0_7LibcallENS_14AtomicOrderingEm.exit
 
-switch.hole_check46:                              ; preds = %32
+switch.hole_check46:                              ; preds = %34
   %switch.maskindex48 = trunc nuw i32 %switch.tableidx45 to i8
   %switch.shifted49 = lshr i8 61, %switch.maskindex48
   %switch.lobit50 = trunc i8 %switch.shifted49 to i1
   br i1 %switch.lobit50, label %switch.lookup47, label %_ZN4llvm5RTLIB22getOutlineAtomicHelperERA5_A4_KNS0_7LibcallENS_14AtomicOrderingEm.exit
 
 switch.lookup47:                                  ; preds = %switch.hole_check46
-  %34 = zext nneg i32 %switch.tableidx45 to i64
-  %switch.gep51 = getelementptr inbounds [6 x i64], ptr @switch.table._ZN4llvm5RTLIB17getOUTLINE_ATOMICEjNS_14AtomicOrderingENS_3MVTE.12, i64 0, i64 %34
+  %36 = zext nneg i32 %switch.tableidx45 to i64
+  %switch.gep51 = getelementptr inbounds [6 x i64], ptr @switch.table._ZN4llvm5RTLIB17getOUTLINE_ATOMICEjNS_14AtomicOrderingENS_3MVTE.12, i64 0, i64 %36
   %switch.load52 = load i64, ptr %switch.gep51, align 8
-  %35 = getelementptr inbounds [5 x [4 x i32]], ptr @__const._ZN4llvm5RTLIB17getOUTLINE_ATOMICEjNS_14AtomicOrderingENS_3MVTE.LC.18, i64 0, i64 %.05.i18, i64 %switch.load52
-  br label %_ZN4llvm5RTLIB22getOutlineAtomicHelperERA5_A4_KNS0_7LibcallENS_14AtomicOrderingEm.exit.sink.split
+  %37 = getelementptr inbounds [5 x [4 x i32]], ptr @__const._ZN4llvm5RTLIB17getOUTLINE_ATOMICEjNS_14AtomicOrderingENS_3MVTE.LC.18, i64 0, i64 %.05.i18, i64 %switch.load52
+  %38 = load i32, ptr %37, align 4
+  br label %_ZN4llvm5RTLIB22getOutlineAtomicHelperERA5_A4_KNS0_7LibcallENS_14AtomicOrderingEm.exit
 
-36:                                               ; preds = %_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit
+39:                                               ; preds = %_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit
   switch i64 %8, label %_ZN4llvm5RTLIB22getOutlineAtomicHelperERA5_A4_KNS0_7LibcallENS_14AtomicOrderingEm.exit [
-    i64 1, label %41
-    i64 2, label %37
-    i64 4, label %38
-    i64 8, label %39
-    i64 16, label %40
+    i64 1, label %44
+    i64 2, label %40
+    i64 4, label %41
+    i64 8, label %42
+    i64 16, label %43
   ]
 
-37:                                               ; preds = %36
-  br label %41
+40:                                               ; preds = %39
+  br label %44
 
-38:                                               ; preds = %36
-  br label %41
+41:                                               ; preds = %39
+  br label %44
 
-39:                                               ; preds = %36
-  br label %41
+42:                                               ; preds = %39
+  br label %44
 
-40:                                               ; preds = %36
-  br label %41
+43:                                               ; preds = %39
+  br label %44
 
-41:                                               ; preds = %40, %39, %38, %37, %36
-  %.05.i22 = phi i64 [ 4, %40 ], [ 3, %39 ], [ 2, %38 ], [ 1, %37 ], [ 0, %36 ]
+44:                                               ; preds = %43, %42, %41, %40, %39
+  %.05.i22 = phi i64 [ 4, %43 ], [ 3, %42 ], [ 2, %41 ], [ 1, %40 ], [ 0, %39 ]
   %switch.tableidx54 = add i32 %1, -2
-  %42 = icmp ult i32 %switch.tableidx54, 6
-  br i1 %42, label %switch.hole_check55, label %_ZN4llvm5RTLIB22getOutlineAtomicHelperERA5_A4_KNS0_7LibcallENS_14AtomicOrderingEm.exit
+  %45 = icmp ult i32 %switch.tableidx54, 6
+  br i1 %45, label %switch.hole_check55, label %_ZN4llvm5RTLIB22getOutlineAtomicHelperERA5_A4_KNS0_7LibcallENS_14AtomicOrderingEm.exit
 
-switch.hole_check55:                              ; preds = %41
+switch.hole_check55:                              ; preds = %44
   %switch.maskindex57 = trunc nuw i32 %switch.tableidx54 to i8
   %switch.shifted58 = lshr i8 61, %switch.maskindex57
   %switch.lobit59 = trunc i8 %switch.shifted58 to i1
   br i1 %switch.lobit59, label %switch.lookup56, label %_ZN4llvm5RTLIB22getOutlineAtomicHelperERA5_A4_KNS0_7LibcallENS_14AtomicOrderingEm.exit
 
 switch.lookup56:                                  ; preds = %switch.hole_check55
-  %43 = zext nneg i32 %switch.tableidx54 to i64
-  %switch.gep60 = getelementptr inbounds [6 x i64], ptr @switch.table._ZN4llvm5RTLIB17getOUTLINE_ATOMICEjNS_14AtomicOrderingENS_3MVTE.12, i64 0, i64 %43
+  %46 = zext nneg i32 %switch.tableidx54 to i64
+  %switch.gep60 = getelementptr inbounds [6 x i64], ptr @switch.table._ZN4llvm5RTLIB17getOUTLINE_ATOMICEjNS_14AtomicOrderingENS_3MVTE.12, i64 0, i64 %46
   %switch.load61 = load i64, ptr %switch.gep60, align 8
-  %44 = getelementptr inbounds [5 x [4 x i32]], ptr @__const._ZN4llvm5RTLIB17getOUTLINE_ATOMICEjNS_14AtomicOrderingENS_3MVTE.LC.19, i64 0, i64 %.05.i22, i64 %switch.load61
-  br label %_ZN4llvm5RTLIB22getOutlineAtomicHelperERA5_A4_KNS0_7LibcallENS_14AtomicOrderingEm.exit.sink.split
+  %47 = getelementptr inbounds [5 x [4 x i32]], ptr @__const._ZN4llvm5RTLIB17getOUTLINE_ATOMICEjNS_14AtomicOrderingENS_3MVTE.LC.19, i64 0, i64 %.05.i22, i64 %switch.load61
+  %48 = load i32, ptr %47, align 4
+  br label %_ZN4llvm5RTLIB22getOutlineAtomicHelperERA5_A4_KNS0_7LibcallENS_14AtomicOrderingEm.exit
 
-45:                                               ; preds = %_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit
+49:                                               ; preds = %_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit
   switch i64 %8, label %_ZN4llvm5RTLIB22getOutlineAtomicHelperERA5_A4_KNS0_7LibcallENS_14AtomicOrderingEm.exit [
-    i64 1, label %50
-    i64 2, label %46
-    i64 4, label %47
-    i64 8, label %48
-    i64 16, label %49
+    i64 1, label %54
+    i64 2, label %50
+    i64 4, label %51
+    i64 8, label %52
+    i64 16, label %53
   ]
 
-46:                                               ; preds = %45
-  br label %50
+50:                                               ; preds = %49
+  br label %54
 
-47:                                               ; preds = %45
-  br label %50
+51:                                               ; preds = %49
+  br label %54
 
-48:                                               ; preds = %45
-  br label %50
+52:                                               ; preds = %49
+  br label %54
 
-49:                                               ; preds = %45
-  br label %50
+53:                                               ; preds = %49
+  br label %54
 
-50:                                               ; preds = %49, %48, %47, %46, %45
-  %.05.i26 = phi i64 [ 4, %49 ], [ 3, %48 ], [ 2, %47 ], [ 1, %46 ], [ 0, %45 ]
+54:                                               ; preds = %53, %52, %51, %50, %49
+  %.05.i26 = phi i64 [ 4, %53 ], [ 3, %52 ], [ 2, %51 ], [ 1, %50 ], [ 0, %49 ]
   %switch.tableidx63 = add i32 %1, -2
-  %51 = icmp ult i32 %switch.tableidx63, 6
-  br i1 %51, label %switch.hole_check64, label %_ZN4llvm5RTLIB22getOutlineAtomicHelperERA5_A4_KNS0_7LibcallENS_14AtomicOrderingEm.exit
+  %55 = icmp ult i32 %switch.tableidx63, 6
+  br i1 %55, label %switch.hole_check64, label %_ZN4llvm5RTLIB22getOutlineAtomicHelperERA5_A4_KNS0_7LibcallENS_14AtomicOrderingEm.exit
 
-switch.hole_check64:                              ; preds = %50
+switch.hole_check64:                              ; preds = %54
   %switch.maskindex66 = trunc nuw i32 %switch.tableidx63 to i8
   %switch.shifted67 = lshr i8 61, %switch.maskindex66
   %switch.lobit68 = trunc i8 %switch.shifted67 to i1
   br i1 %switch.lobit68, label %switch.lookup65, label %_ZN4llvm5RTLIB22getOutlineAtomicHelperERA5_A4_KNS0_7LibcallENS_14AtomicOrderingEm.exit
 
 switch.lookup65:                                  ; preds = %switch.hole_check64
-  %52 = zext nneg i32 %switch.tableidx63 to i64
-  %switch.gep69 = getelementptr inbounds [6 x i64], ptr @switch.table._ZN4llvm5RTLIB17getOUTLINE_ATOMICEjNS_14AtomicOrderingENS_3MVTE.12, i64 0, i64 %52
+  %56 = zext nneg i32 %switch.tableidx63 to i64
+  %switch.gep69 = getelementptr inbounds [6 x i64], ptr @switch.table._ZN4llvm5RTLIB17getOUTLINE_ATOMICEjNS_14AtomicOrderingENS_3MVTE.12, i64 0, i64 %56
   %switch.load70 = load i64, ptr %switch.gep69, align 8
-  %53 = getelementptr inbounds [5 x [4 x i32]], ptr @__const._ZN4llvm5RTLIB17getOUTLINE_ATOMICEjNS_14AtomicOrderingENS_3MVTE.LC.20, i64 0, i64 %.05.i26, i64 %switch.load70
-  br label %_ZN4llvm5RTLIB22getOutlineAtomicHelperERA5_A4_KNS0_7LibcallENS_14AtomicOrderingEm.exit.sink.split
+  %57 = getelementptr inbounds [5 x [4 x i32]], ptr @__const._ZN4llvm5RTLIB17getOUTLINE_ATOMICEjNS_14AtomicOrderingENS_3MVTE.LC.20, i64 0, i64 %.05.i26, i64 %switch.load70
+  %58 = load i32, ptr %57, align 4
+  br label %_ZN4llvm5RTLIB22getOutlineAtomicHelperERA5_A4_KNS0_7LibcallENS_14AtomicOrderingEm.exit
 
-54:                                               ; preds = %_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit
+59:                                               ; preds = %_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit
   switch i64 %8, label %_ZN4llvm5RTLIB22getOutlineAtomicHelperERA5_A4_KNS0_7LibcallENS_14AtomicOrderingEm.exit [
-    i64 1, label %59
-    i64 2, label %55
-    i64 4, label %56
-    i64 8, label %57
-    i64 16, label %58
+    i64 1, label %64
+    i64 2, label %60
+    i64 4, label %61
+    i64 8, label %62
+    i64 16, label %63
   ]
 
-55:                                               ; preds = %54
-  br label %59
+60:                                               ; preds = %59
+  br label %64
 
-56:                                               ; preds = %54
-  br label %59
+61:                                               ; preds = %59
+  br label %64
 
-57:                                               ; preds = %54
-  br label %59
+62:                                               ; preds = %59
+  br label %64
 
-58:                                               ; preds = %54
-  br label %59
+63:                                               ; preds = %59
+  br label %64
 
-59:                                               ; preds = %58, %57, %56, %55, %54
-  %.05.i30 = phi i64 [ 4, %58 ], [ 3, %57 ], [ 2, %56 ], [ 1, %55 ], [ 0, %54 ]
+64:                                               ; preds = %63, %62, %61, %60, %59
+  %.05.i30 = phi i64 [ 4, %63 ], [ 3, %62 ], [ 2, %61 ], [ 1, %60 ], [ 0, %59 ]
   %switch.tableidx72 = add i32 %1, -2
-  %60 = icmp ult i32 %switch.tableidx72, 6
-  br i1 %60, label %switch.hole_check73, label %_ZN4llvm5RTLIB22getOutlineAtomicHelperERA5_A4_KNS0_7LibcallENS_14AtomicOrderingEm.exit
+  %65 = icmp ult i32 %switch.tableidx72, 6
+  br i1 %65, label %switch.hole_check73, label %_ZN4llvm5RTLIB22getOutlineAtomicHelperERA5_A4_KNS0_7LibcallENS_14AtomicOrderingEm.exit
 
-switch.hole_check73:                              ; preds = %59
+switch.hole_check73:                              ; preds = %64
   %switch.maskindex75 = trunc nuw i32 %switch.tableidx72 to i8
   %switch.shifted76 = lshr i8 61, %switch.maskindex75
   %switch.lobit77 = trunc i8 %switch.shifted76 to i1
   br i1 %switch.lobit77, label %switch.lookup74, label %_ZN4llvm5RTLIB22getOutlineAtomicHelperERA5_A4_KNS0_7LibcallENS_14AtomicOrderingEm.exit
 
 switch.lookup74:                                  ; preds = %switch.hole_check73
-  %61 = zext nneg i32 %switch.tableidx72 to i64
-  %switch.gep78 = getelementptr inbounds [6 x i64], ptr @switch.table._ZN4llvm5RTLIB17getOUTLINE_ATOMICEjNS_14AtomicOrderingENS_3MVTE.12, i64 0, i64 %61
+  %66 = zext nneg i32 %switch.tableidx72 to i64
+  %switch.gep78 = getelementptr inbounds [6 x i64], ptr @switch.table._ZN4llvm5RTLIB17getOUTLINE_ATOMICEjNS_14AtomicOrderingENS_3MVTE.12, i64 0, i64 %66
   %switch.load79 = load i64, ptr %switch.gep78, align 8
-  %62 = getelementptr inbounds [5 x [4 x i32]], ptr @__const._ZN4llvm5RTLIB17getOUTLINE_ATOMICEjNS_14AtomicOrderingENS_3MVTE.LC.21, i64 0, i64 %.05.i30, i64 %switch.load79
-  br label %_ZN4llvm5RTLIB22getOutlineAtomicHelperERA5_A4_KNS0_7LibcallENS_14AtomicOrderingEm.exit.sink.split
-
-_ZN4llvm5RTLIB22getOutlineAtomicHelperERA5_A4_KNS0_7LibcallENS_14AtomicOrderingEm.exit.sink.split: ; preds = %switch.lookup, %switch.lookup38, %switch.lookup47, %switch.lookup56, %switch.lookup65, %switch.lookup74
-  %.sink = phi ptr [ %62, %switch.lookup74 ], [ %53, %switch.lookup65 ], [ %44, %switch.lookup56 ], [ %35, %switch.lookup47 ], [ %26, %switch.lookup38 ], [ %17, %switch.lookup ]
-  %63 = load i32, ptr %.sink, align 4
+  %67 = getelementptr inbounds [5 x [4 x i32]], ptr @__const._ZN4llvm5RTLIB17getOUTLINE_ATOMICEjNS_14AtomicOrderingENS_3MVTE.LC.21, i64 0, i64 %.05.i30, i64 %switch.load79
+  %68 = load i32, ptr %67, align 4
   br label %_ZN4llvm5RTLIB22getOutlineAtomicHelperERA5_A4_KNS0_7LibcallENS_14AtomicOrderingEm.exit
 
-_ZN4llvm5RTLIB22getOutlineAtomicHelperERA5_A4_KNS0_7LibcallENS_14AtomicOrderingEm.exit: ; preds = %switch.hole_check73, %59, %switch.hole_check64, %50, %switch.hole_check55, %41, %switch.hole_check46, %32, %switch.hole_check37, %23, %switch.hole_check, %14, %_ZN4llvm5RTLIB22getOutlineAtomicHelperERA5_A4_KNS0_7LibcallENS_14AtomicOrderingEm.exit.sink.split, %54, %45, %36, %27, %18, %9, %_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit, %3
-  %.0 = phi i32 [ 700, %3 ], [ 700, %_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit ], [ 700, %9 ], [ 700, %14 ], [ 700, %18 ], [ 700, %23 ], [ 700, %27 ], [ 700, %32 ], [ 700, %36 ], [ 700, %41 ], [ 700, %45 ], [ 700, %50 ], [ 700, %54 ], [ 700, %59 ], [ %63, %_ZN4llvm5RTLIB22getOutlineAtomicHelperERA5_A4_KNS0_7LibcallENS_14AtomicOrderingEm.exit.sink.split ], [ 700, %switch.hole_check ], [ 700, %switch.hole_check37 ], [ 700, %switch.hole_check46 ], [ 700, %switch.hole_check55 ], [ 700, %switch.hole_check64 ], [ 700, %switch.hole_check73 ]
+_ZN4llvm5RTLIB22getOutlineAtomicHelperERA5_A4_KNS0_7LibcallENS_14AtomicOrderingEm.exit: ; preds = %switch.hole_check73, %64, %switch.hole_check64, %54, %switch.hole_check55, %44, %switch.hole_check46, %34, %switch.hole_check37, %24, %switch.hole_check, %14, %switch.lookup74, %59, %switch.lookup65, %49, %switch.lookup56, %39, %switch.lookup47, %29, %switch.lookup38, %19, %switch.lookup, %9, %_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit, %3
+  %.0 = phi i32 [ 700, %3 ], [ 700, %_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit ], [ %18, %switch.lookup ], [ 700, %9 ], [ 700, %14 ], [ %28, %switch.lookup38 ], [ 700, %19 ], [ 700, %24 ], [ %38, %switch.lookup47 ], [ 700, %29 ], [ 700, %34 ], [ %48, %switch.lookup56 ], [ 700, %39 ], [ 700, %44 ], [ %58, %switch.lookup65 ], [ 700, %49 ], [ 700, %54 ], [ %68, %switch.lookup74 ], [ 700, %59 ], [ 700, %64 ], [ 700, %switch.hole_check ], [ 700, %switch.hole_check37 ], [ 700, %switch.hole_check46 ], [ 700, %switch.hole_check55 ], [ 700, %switch.hole_check64 ], [ 700, %switch.hole_check73 ]
   ret i32 %.0
 }
 

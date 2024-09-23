@@ -1109,8 +1109,8 @@ _ZN4Node7set_reqEjPS_.exit191:                    ; preds = %_ZN4Node7del_outEPS
   %571 = getelementptr inbounds i8, ptr %2, i64 40
   br label %572
 
-572:                                              ; preds = %.lr.ph253, %719
-  %indvars.iv264 = phi i64 [ 1, %.lr.ph253 ], [ %indvars.iv.next265, %719 ]
+572:                                              ; preds = %.lr.ph253, %718
+  %indvars.iv264 = phi i64 [ 1, %.lr.ph253 ], [ %indvars.iv.next265, %718 ]
   %573 = load ptr, ptr %565, align 8
   %574 = getelementptr inbounds ptr, ptr %573, i64 %indvars.iv264
   %575 = load ptr, ptr %574, align 8
@@ -1239,11 +1239,11 @@ _ZNK14PhaseIdealLoop8get_loopEP4Node.exit:        ; preds = %_ZNK14PhaseIdealLoo
 _ZNK14PhaseIdealLoop7dom_lcaEP4NodeS1_.exit:      ; preds = %640, %645
   %.0.i.i200 = phi ptr [ %648, %645 ], [ %639, %640 ]
   %649 = icmp eq ptr %.0.i.i200, %.0136
-  br i1 %649, label %719, label %651
+  br i1 %649, label %718, label %651
 
 _ZNK14PhaseIdealLoop7dom_lcaEP4NodeS1_.exit.thread: ; preds = %_ZNK14PhaseIdealLoop8get_loopEP4Node.exit
   %650 = icmp eq ptr %.0136, null
-  br i1 %650, label %719, label %.thread
+  br i1 %650, label %718, label %.thread
 
 651:                                              ; preds = %_ZNK14PhaseIdealLoop7dom_lcaEP4NodeS1_.exit
   %.not.i.i201 = icmp eq ptr %.0.i.i200, null
@@ -1356,7 +1356,7 @@ _ZN14PhaseIdealLoop8set_ctrlEP4NodeS1_.exit220:   ; preds = %_ZNK14PhaseIdealLoo
   %697 = getelementptr inbounds ptr, ptr %695, i64 %696
   store ptr %694, ptr %697, align 8
   %.not161 = icmp eq ptr %.0135, %.0133
-  br i1 %.not161, label %719, label %698
+  br i1 %.not161, label %718, label %698
 
 698:                                              ; preds = %_ZN14PhaseIdealLoop8set_ctrlEP4NodeS1_.exit220
   %.not162 = icmp eq ptr %.0135, null
@@ -1377,7 +1377,7 @@ _ZN14PhaseIdealLoop8set_ctrlEP4NodeS1_.exit220:   ; preds = %_ZNK14PhaseIdealLoo
   %705 = getelementptr inbounds i8, ptr %.0133, i64 16
   %706 = load ptr, ptr %705, align 8
   %.not164 = icmp eq ptr %706, null
-  br i1 %.not164, label %707, label %719
+  br i1 %.not164, label %707, label %718
 
 707:                                              ; preds = %704
   %708 = getelementptr inbounds i8, ptr %.0133, i64 80
@@ -1399,24 +1399,24 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %707, %713
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZN14PhaseIdealLoop8set_ctrlEP4NodeS1_.exit, %_ZN9Node_List4pushEP4Node.exit
-  %.sink277 = phi ptr [ %715, %_ZN9Node_List4pushEP4Node.exit ], [ %568, %_ZN14PhaseIdealLoop8set_ctrlEP4NodeS1_.exit ]
   %.sink276 = phi i32 [ %709, %_ZN9Node_List4pushEP4Node.exit ], [ %584, %_ZN14PhaseIdealLoop8set_ctrlEP4NodeS1_.exit ]
+  %.sink274.in = phi ptr [ %715, %_ZN9Node_List4pushEP4Node.exit ], [ %568, %_ZN14PhaseIdealLoop8set_ctrlEP4NodeS1_.exit ]
   %.sink = phi ptr [ %575, %_ZN9Node_List4pushEP4Node.exit ], [ %589, %_ZN14PhaseIdealLoop8set_ctrlEP4NodeS1_.exit ]
-  %716 = load ptr, ptr %.sink277, align 8
-  %717 = zext i32 %.sink276 to i64
-  %718 = getelementptr inbounds ptr, ptr %716, i64 %717
-  store ptr %.sink, ptr %718, align 8
-  br label %719
+  %.sink274 = load ptr, ptr %.sink274.in, align 8
+  %716 = zext i32 %.sink276 to i64
+  %717 = getelementptr inbounds ptr, ptr %.sink274, i64 %716
+  store ptr %.sink, ptr %717, align 8
+  br label %718
 
-719:                                              ; preds = %.sink.split, %_ZNK14PhaseIdealLoop7dom_lcaEP4NodeS1_.exit.thread, %_ZN14PhaseIdealLoop8set_ctrlEP4NodeS1_.exit220, %704, %_ZNK14PhaseIdealLoop7dom_lcaEP4NodeS1_.exit
+718:                                              ; preds = %.sink.split, %_ZNK14PhaseIdealLoop7dom_lcaEP4NodeS1_.exit.thread, %_ZN14PhaseIdealLoop8set_ctrlEP4NodeS1_.exit220, %704, %_ZNK14PhaseIdealLoop7dom_lcaEP4NodeS1_.exit
   %indvars.iv.next265 = add nuw nsw i64 %indvars.iv264, 1
-  %720 = load i32, ptr %562, align 8
-  %721 = zext i32 %720 to i64
-  %722 = icmp ult i64 %indvars.iv.next265, %721
-  br i1 %722, label %572, label %_ZNK14PhaseIdealLoop21cannot_split_divisionEPK4NodeS2_.exit.thread223, !llvm.loop !14
+  %719 = load i32, ptr %562, align 8
+  %720 = zext i32 %719 to i64
+  %721 = icmp ult i64 %indvars.iv.next265, %720
+  br i1 %721, label %572, label %_ZNK14PhaseIdealLoop21cannot_split_divisionEPK4NodeS2_.exit.thread223, !llvm.loop !14
 
-_ZNK14PhaseIdealLoop21cannot_split_divisionEPK4NodeS2_.exit.thread223: ; preds = %719, %561, %102, %_ZNK14PhaseIdealLoop21cannot_split_divisionEPK4NodeS2_.exit, %_ZNK19BaseCountedLoopNode3phiEv.exit, %9, %20, %559
-  %.0 = phi ptr [ null, %559 ], [ null, %20 ], [ null, %9 ], [ null, %_ZNK19BaseCountedLoopNode3phiEv.exit ], [ null, %_ZNK14PhaseIdealLoop21cannot_split_divisionEPK4NodeS2_.exit ], [ null, %102 ], [ %.0141, %561 ], [ %.0141, %719 ]
+_ZNK14PhaseIdealLoop21cannot_split_divisionEPK4NodeS2_.exit.thread223: ; preds = %718, %561, %102, %_ZNK14PhaseIdealLoop21cannot_split_divisionEPK4NodeS2_.exit, %_ZNK19BaseCountedLoopNode3phiEv.exit, %9, %20, %559
+  %.0 = phi ptr [ null, %559 ], [ null, %20 ], [ null, %9 ], [ null, %_ZNK19BaseCountedLoopNode3phiEv.exit ], [ null, %_ZNK14PhaseIdealLoop21cannot_split_divisionEPK4NodeS2_.exit ], [ null, %102 ], [ %.0141, %561 ], [ %.0141, %718 ]
   ret ptr %.0
 }
 
@@ -25372,7 +25372,7 @@ define hidden void @_ZN13DataNodeGraph48clone_data_nodes_and_transform_opaque_lo
 
 11:                                               ; preds = %.lr.ph, %_ZN13DataNodeGraph21transform_opaque_nodeERK35TransformStrategyForOpaqueLoopNodesP4Node.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN13DataNodeGraph21transform_opaque_nodeERK35TransformStrategyForOpaqueLoopNodesP4Node.exit ]
-  %12 = phi ptr [ %5, %.lr.ph ], [ %61, %_ZN13DataNodeGraph21transform_opaque_nodeERK35TransformStrategyForOpaqueLoopNodesP4Node.exit ]
+  %12 = phi ptr [ %5, %.lr.ph ], [ %60, %_ZN13DataNodeGraph21transform_opaque_nodeERK35TransformStrategyForOpaqueLoopNodesP4Node.exit ]
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
@@ -25392,84 +25392,84 @@ _ZNK10Node_ArrayixEj.exit:                        ; preds = %11, %17
   %24 = load i32, ptr %23, align 4
   %25 = and i32 %24, 131071
   %26 = icmp eq i32 %25, 65536
-  br i1 %26, label %27, label %60
+  br i1 %26, label %27, label %59
 
 27:                                               ; preds = %_ZNK10Node_ArrayixEj.exit
   %28 = and i32 %24, 196608
   %29 = icmp eq i32 %28, 196608
   %30 = load ptr, ptr %1, align 8
-  %.sink13.idx.i = select i1 %29, i64 0, i64 8
-  %.sink13.i = getelementptr inbounds i8, ptr %30, i64 %.sink13.idx.i
-  %31 = load ptr, ptr %.sink13.i, align 8
-  %32 = tail call noundef ptr %31(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %22) #9
-  %33 = ptrtoint ptr %22 to i64
-  %34 = trunc i64 %33 to i32
-  %35 = lshr i32 %34, 3
-  %36 = xor i32 %35, %34
-  %37 = load i32, ptr %8, align 8
-  %38 = urem i32 %36, %37
-  %39 = load ptr, ptr %9, align 8
-  %40 = zext i32 %38 to i64
-  %41 = getelementptr inbounds ptr, ptr %39, i64 %40
-  %42 = load ptr, ptr %41, align 8
-  %.not11.i.i.i = icmp eq ptr %42, null
+  %spec.select.idx = select i1 %29, i64 0, i64 8
+  %spec.select = getelementptr inbounds i8, ptr %30, i64 %spec.select.idx
+  %.sink.i = load ptr, ptr %spec.select, align 8
+  %31 = tail call noundef ptr %.sink.i(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %22) #9
+  %32 = ptrtoint ptr %22 to i64
+  %33 = trunc i64 %32 to i32
+  %34 = lshr i32 %33, 3
+  %35 = xor i32 %34, %33
+  %36 = load i32, ptr %8, align 8
+  %37 = urem i32 %35, %36
+  %38 = load ptr, ptr %9, align 8
+  %39 = zext i32 %37 to i64
+  %40 = getelementptr inbounds ptr, ptr %38, i64 %39
+  %41 = load ptr, ptr %40, align 8
+  %.not11.i.i.i = icmp eq ptr %41, null
   br i1 %.not11.i.i.i, label %_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %27, %49
-  %.pr.i.i = phi ptr [ %51, %49 ], [ %42, %27 ]
-  %43 = load i32, ptr %.pr.i.i, align 8
-  %44 = icmp eq i32 %43, %36
-  br i1 %44, label %45, label %49
+.lr.ph.i.i.i:                                     ; preds = %27, %48
+  %.pr.i.i = phi ptr [ %50, %48 ], [ %41, %27 ]
+  %42 = load i32, ptr %.pr.i.i, align 8
+  %43 = icmp eq i32 %42, %35
+  br i1 %43, label %44, label %48
 
-45:                                               ; preds = %.lr.ph.i.i.i
-  %46 = getelementptr inbounds i8, ptr %.pr.i.i, i64 8
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %22, %47
-  br i1 %48, label %_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.i.i, label %49
+44:                                               ; preds = %.lr.ph.i.i.i
+  %45 = getelementptr inbounds i8, ptr %.pr.i.i, i64 8
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %22, %46
+  br i1 %47, label %_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.i.i, label %48
 
-49:                                               ; preds = %45, %.lr.ph.i.i.i
-  %50 = getelementptr inbounds i8, ptr %.pr.i.i, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %.not.i.i.i = icmp eq ptr %51, null
+48:                                               ; preds = %44, %.lr.ph.i.i.i
+  %49 = getelementptr inbounds i8, ptr %.pr.i.i, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %.not.i.i.i = icmp eq ptr %50, null
   br i1 %.not.i.i.i, label %_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i.i.loopexit, label %.lr.ph.i.i.i, !llvm.loop !125
 
-_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.i.i: ; preds = %45
-  %52 = getelementptr inbounds i8, ptr %.pr.i.i, i64 16
-  store ptr %32, ptr %52, align 8
+_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.i.i: ; preds = %44
+  %51 = getelementptr inbounds i8, ptr %.pr.i.i, i64 16
+  store ptr %31, ptr %51, align 8
   br label %_ZN13DataNodeGraph21transform_opaque_nodeERK35TransformStrategyForOpaqueLoopNodesP4Node.exit
 
-_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i.i.loopexit: ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %.pr.i.i, i64 24
+_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i.i.loopexit: ; preds = %48
+  %52 = getelementptr inbounds i8, ptr %.pr.i.i, i64 24
   br label %_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i.i
 
 _ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i.i: ; preds = %_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i.i.loopexit, %27
-  %.0.lcssa.i14.i.i = phi ptr [ %41, %27 ], [ %53, %_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i.i.loopexit ]
-  %54 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i32 noundef 0) #9
-  store i32 %36, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 8
-  store ptr %22, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %54, i64 16
-  store ptr %32, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %54, i64 24
-  store ptr null, ptr %57, align 8
-  store ptr %54, ptr %.0.lcssa.i14.i.i, align 8
-  %58 = load i32, ptr %10, align 8
-  %59 = add nsw i32 %58, 1
-  store i32 %59, ptr %10, align 8
+  %.0.lcssa.i14.i.i = phi ptr [ %40, %27 ], [ %52, %_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i.i.loopexit ]
+  %53 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i32 noundef 0) #9
+  store i32 %35, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 8
+  store ptr %22, ptr %54, align 8
+  %55 = getelementptr inbounds i8, ptr %53, i64 16
+  store ptr %31, ptr %55, align 8
+  %56 = getelementptr inbounds i8, ptr %53, i64 24
+  store ptr null, ptr %56, align 8
+  store ptr %53, ptr %.0.lcssa.i14.i.i, align 8
+  %57 = load i32, ptr %10, align 8
+  %58 = add nsw i32 %57, 1
+  store i32 %58, ptr %10, align 8
   br label %_ZN13DataNodeGraph21transform_opaque_nodeERK35TransformStrategyForOpaqueLoopNodesP4Node.exit
 
-60:                                               ; preds = %_ZNK10Node_ArrayixEj.exit
+59:                                               ; preds = %_ZNK10Node_ArrayixEj.exit
   tail call void @_ZN13DataNodeGraph5cloneEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %22, ptr noundef %2)
   br label %_ZN13DataNodeGraph21transform_opaque_nodeERK35TransformStrategyForOpaqueLoopNodesP4Node.exit
 
-_ZN13DataNodeGraph21transform_opaque_nodeERK35TransformStrategyForOpaqueLoopNodesP4Node.exit: ; preds = %_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i.i, %_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.i.i, %60
+_ZN13DataNodeGraph21transform_opaque_nodeERK35TransformStrategyForOpaqueLoopNodesP4Node.exit: ; preds = %_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i.i, %_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.i.i, %59
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %61 = load ptr, ptr %4, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 24
-  %63 = load i32, ptr %62, align 8
-  %64 = zext i32 %63 to i64
-  %65 = icmp ult i64 %indvars.iv.next, %64
-  br i1 %65, label %11, label %._crit_edge, !llvm.loop !129
+  %60 = load ptr, ptr %4, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 24
+  %62 = load i32, ptr %61, align 8
+  %63 = zext i32 %62 to i64
+  %64 = icmp ult i64 %indvars.iv.next, %63
+  br i1 %64, label %11, label %._crit_edge, !llvm.loop !129
 
 ._crit_edge:                                      ; preds = %_ZN13DataNodeGraph21transform_opaque_nodeERK35TransformStrategyForOpaqueLoopNodesP4Node.exit, %3
   ret void
@@ -25482,67 +25482,67 @@ define hidden void @_ZN13DataNodeGraph21transform_opaque_nodeERK35TransformStrat
   %6 = and i32 %5, 262143
   %7 = icmp eq i32 %6, 196608
   %8 = load ptr, ptr %1, align 8
-  %.sink13.idx = select i1 %7, i64 0, i64 8
-  %.sink13 = getelementptr inbounds i8, ptr %8, i64 %.sink13.idx
-  %9 = load ptr, ptr %.sink13, align 8
-  %10 = tail call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %2) #9
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
-  %12 = ptrtoint ptr %2 to i64
-  %13 = trunc i64 %12 to i32
-  %14 = lshr i32 %13, 3
-  %15 = xor i32 %14, %13
-  %16 = load i32, ptr %11, align 8
-  %17 = urem i32 %15, %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
-  %19 = load ptr, ptr %18, align 8
-  %20 = zext i32 %17 to i64
-  %21 = getelementptr inbounds ptr, ptr %19, i64 %20
-  %22 = load ptr, ptr %21, align 8
-  %.not11.i.i = icmp eq ptr %22, null
+  %.sink.in.idx = select i1 %7, i64 0, i64 8
+  %.sink.in = getelementptr inbounds i8, ptr %8, i64 %.sink.in.idx
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %9 = tail call noundef ptr %.sink(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %2) #9
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = ptrtoint ptr %2 to i64
+  %12 = trunc i64 %11 to i32
+  %13 = lshr i32 %12, 3
+  %14 = xor i32 %13, %12
+  %15 = load i32, ptr %10, align 8
+  %16 = urem i32 %14, %15
+  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = load ptr, ptr %17, align 8
+  %19 = zext i32 %16 to i64
+  %20 = getelementptr inbounds ptr, ptr %18, i64 %19
+  %21 = load ptr, ptr %20, align 8
+  %.not11.i.i = icmp eq ptr %21, null
   br i1 %.not11.i.i, label %_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %3, %29
-  %.pr.i = phi ptr [ %31, %29 ], [ %22, %3 ]
-  %23 = load i32, ptr %.pr.i, align 8
-  %24 = icmp eq i32 %23, %15
-  br i1 %24, label %25, label %29
+.lr.ph.i.i:                                       ; preds = %3, %28
+  %.pr.i = phi ptr [ %30, %28 ], [ %21, %3 ]
+  %22 = load i32, ptr %.pr.i, align 8
+  %23 = icmp eq i32 %22, %14
+  br i1 %23, label %24, label %28
 
-25:                                               ; preds = %.lr.ph.i.i
-  %26 = getelementptr inbounds i8, ptr %.pr.i, i64 8
-  %27 = load ptr, ptr %26, align 8
-  %28 = icmp eq ptr %2, %27
-  br i1 %28, label %_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.i, label %29
+24:                                               ; preds = %.lr.ph.i.i
+  %25 = getelementptr inbounds i8, ptr %.pr.i, i64 8
+  %26 = load ptr, ptr %25, align 8
+  %27 = icmp eq ptr %2, %26
+  br i1 %27, label %_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.i, label %28
 
-29:                                               ; preds = %25, %.lr.ph.i.i
-  %30 = getelementptr inbounds i8, ptr %.pr.i, i64 24
-  %31 = load ptr, ptr %30, align 8
-  %.not.i.i = icmp eq ptr %31, null
+28:                                               ; preds = %24, %.lr.ph.i.i
+  %29 = getelementptr inbounds i8, ptr %.pr.i, i64 24
+  %30 = load ptr, ptr %29, align 8
+  %.not.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i, label %_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i.loopexit, label %.lr.ph.i.i, !llvm.loop !125
 
-_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.i: ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %.pr.i, i64 16
-  store ptr %10, ptr %32, align 8
+_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.i: ; preds = %24
+  %31 = getelementptr inbounds i8, ptr %.pr.i, i64 16
+  store ptr %9, ptr %31, align 8
   br label %_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE3putERKS2_SE_.exit
 
-_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i.loopexit: ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %.pr.i, i64 24
+_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i.loopexit: ; preds = %28
+  %32 = getelementptr inbounds i8, ptr %.pr.i, i64 24
   br label %_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i
 
 _ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i: ; preds = %_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i.loopexit, %3
-  %.0.lcssa.i14.i = phi ptr [ %21, %3 ], [ %33, %_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i.loopexit ]
-  %34 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i32 noundef 0) #9
-  store i32 %15, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
-  store ptr %2, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %34, i64 16
-  store ptr %10, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %34, i64 24
-  store ptr null, ptr %37, align 8
-  store ptr %34, ptr %.0.lcssa.i14.i, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 32
-  %39 = load i32, ptr %38, align 8
-  %40 = add nsw i32 %39, 1
-  store i32 %40, ptr %38, align 8
+  %.0.lcssa.i14.i = phi ptr [ %20, %3 ], [ %32, %_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i.loopexit ]
+  %33 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i32 noundef 0) #9
+  store i32 %14, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  store ptr %2, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %33, i64 16
+  store ptr %9, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %33, i64 24
+  store ptr null, ptr %36, align 8
+  store ptr %33, ptr %.0.lcssa.i14.i, align 8
+  %37 = getelementptr inbounds i8, ptr %0, i64 32
+  %38 = load i32, ptr %37, align 8
+  %39 = add nsw i32 %38, 1
+  store i32 %39, ptr %37, align 8
   br label %_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE3putERKS2_SE_.exit
 
 _ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE3putERKS2_SE_.exit: ; preds = %_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.i, %_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i

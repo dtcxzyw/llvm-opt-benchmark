@@ -5186,7 +5186,7 @@ if.end11.i:                                       ; preds = %land.lhs.true6.i, %
   br i1 %or.cond.not.i, label %land.lhs.true21.i, label %if.end11.if.end32_crit_edge.i
 
 if.end11.if.end32_crit_edge.i:                    ; preds = %if.end11.i
-  %.pre62.i = zext i16 %.fr.i to i32
+  %.pre63.i = zext i16 %.fr.i to i32
   br label %if.end32.i
 
 land.lhs.true21.i:                                ; preds = %if.end11.i
@@ -5198,7 +5198,7 @@ land.lhs.true21.i:                                ; preds = %if.end11.i
   br i1 %cmp28.i, label %invoke.cont42, label %if.end32.i
 
 if.end32.i:                                       ; preds = %land.lhs.true21.i, %if.end11.if.end32_crit_edge.i
-  %conv34.pre-phi.i = phi i32 [ %.pre62.i, %if.end11.if.end32_crit_edge.i ], [ %conv26.i, %land.lhs.true21.i ]
+  %conv34.pre-phi.i = phi i32 [ %.pre63.i, %if.end11.if.end32_crit_edge.i ], [ %conv26.i, %land.lhs.true21.i ]
   %mul35.i = shl i16 %.fr.i, 1
   %cmp40.i = icmp ugt i16 %mul35.i, 31
   br i1 %cmp40.i, label %invoke.cont.i59, label %cond.false.i
@@ -5230,8 +5230,8 @@ if.then51.i:                                      ; preds = %invoke.cont.i59
 if.else.i:                                        ; preds = %if.then51.i
   %shermanState.i.i = getelementptr inbounds %"struct.ue2::(anonymous namespace)::dstate_extra", ptr %info.val22, i64 %conv.i.i119, i32 1
   %267 = load i8, ptr %shermanState.i.i, align 2
-  %tobool.i70.i = trunc i8 %267 to i1
-  br i1 %tobool.i70.i, label %if.else61.i, label %if.end69.invoke.i
+  %tobool.i69.i = trunc i8 %267 to i1
+  br i1 %tobool.i69.i, label %if.else61.i, label %if.end69.invoke.i
 
 lpad55.i:                                         ; preds = %if.end69.invoke.i
   %268 = landingpad { ptr, i32 }
@@ -5258,11 +5258,11 @@ if.else61.i:                                      ; preds = %if.else.i
   %daddy66.i = getelementptr inbounds %"struct.ue2::dstate", ptr %271, i64 %conv.i.i119, i32 1
   %272 = load i16, ptr %daddy66.i, align 8
   store i16 %272, ptr %granddaddy.i, align 2
-  %conv.i73.i = zext i16 %272 to i64
-  %wideState.i74.i = getelementptr inbounds %"struct.ue2::(anonymous namespace)::dstate_extra", ptr %info.val22, i64 %conv.i73.i, i32 2
-  %273 = load i8, ptr %wideState.i74.i, align 1
-  %tobool.i75.i = trunc i8 %273 to i1
-  br i1 %tobool.i75.i, label %cleanup.i90, label %if.end69.invoke.i
+  %conv.i72.i = zext i16 %272 to i64
+  %wideState.i73.i = getelementptr inbounds %"struct.ue2::(anonymous namespace)::dstate_extra", ptr %info.val22, i64 %conv.i72.i, i32 2
+  %273 = load i8, ptr %wideState.i73.i, align 1
+  %tobool.i74.i = trunc i8 %273 to i1
+  br i1 %tobool.i74.i, label %cleanup.i90, label %if.end69.invoke.i
 
 if.end69.invoke.i:                                ; preds = %if.else61.i, %if.else.i
   %274 = phi ptr [ %tmp70.i, %if.else61.i ], [ %tmp.i, %if.else.i ]
@@ -5288,11 +5288,11 @@ if.then.i.i.i63:                                  ; preds = %if.else74.i
 if.then.i.i.invoke.cont3.i_crit_edge.i:           ; preds = %if.then.i.i.i63
   %.pre.i71 = load ptr, ptr %raw.i, align 8, !noalias !180
   %start_anchored.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i71, i64 40
-  %.pre59.i = load i16, ptr %start_anchored.i.phi.trans.insert.i, align 8
+  %.pre60.i = load i16, ptr %start_anchored.i.phi.trans.insert.i, align 8
   br label %invoke.cont3.i.i
 
 invoke.cont3.i.i:                                 ; preds = %if.then.i.i.invoke.cont3.i_crit_edge.i, %if.else74.i
-  %276 = phi i16 [ %.pre59.i, %if.then.i.i.invoke.cont3.i_crit_edge.i ], [ %262, %if.else74.i ]
+  %276 = phi i16 [ %.pre60.i, %if.then.i.i.invoke.cont3.i_crit_edge.i ], [ %262, %if.else74.i ]
   %277 = phi ptr [ %.pre.i71, %if.then.i.i.invoke.cont3.i_crit_edge.i ], [ %261, %if.else74.i ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %candidate.addr.i.i.i), !noalias !180
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tmp.i.i.i), !noalias !180
@@ -5581,8 +5581,8 @@ invoke.cont12.i.i:                                ; preds = %invoke.cont12.loope
   %304 = phi ptr [ %.pre69.i.i, %invoke.cont12.loopexit.i.i ], [ %284, %invoke.cont8.i.i ]
   %daddy.0.in.i.i = getelementptr inbounds %"struct.ue2::dstate", ptr %303, i64 %conv10.i.i, i32 1
   %daddy.0.i.i = load i16, ptr %daddy.0.in.i.i, align 8
-  %tobool.i77.i = icmp ne i16 %daddy.0.i.i, 0
-  %305 = and i1 %cmp.i.i76, %tobool.i77.i
+  %tobool.i76.i = icmp ne i16 %daddy.0.i.i, 0
+  %305 = and i1 %cmp.i.i76, %tobool.i76.i
   br i1 %305, label %for.body.i.i75, label %invoke.cont76.i, !llvm.loop !203
 
 lpad2.loopexit.i.i:                               ; preds = %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorItSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit.i.i.i
@@ -5623,9 +5623,9 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i67:            ; preds = %if.then.i.i.i.i.i.i
 invoke.cont76.i:                                  ; preds = %invoke.cont12.i.i, %invoke.cont6.i.i
   %308 = load ptr, ptr %ref.tmp75.i, align 8
   %cmp.i.i.i.i.i.i.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %m_storage_start.i.i.i.i.i.i.i.i.i.i, %308
-  br i1 %cmp.i.i.i.i.i.i.not.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i78.i
+  br i1 %cmp.i.i.i.i.i.i.not.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i77.i
 
-if.then.i.i.i.i.i.i.i.i78.i:                      ; preds = %invoke.cont76.i
+if.then.i.i.i.i.i.i.i.i77.i:                      ; preds = %invoke.cont76.i
   store i64 0, ptr %m_size.i.i.i.i.i.i.i.i.i.i, align 8
   %309 = load ptr, ptr %hinted.i, align 8
   %tobool8.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %309, null
@@ -5633,13 +5633,13 @@ if.then.i.i.i.i.i.i.i.i78.i:                      ; preds = %invoke.cont76.i
   %or.cond.i.i.i.i.i.i.i.i.i = select i1 %tobool8.not.i.i.i.i.i.i.i.i.i, i1 true, i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i
   br i1 %or.cond.i.i.i.i.i.i.i.i.i, label %_ZN3ue28flat_setItSt4lessItESaItEEaSEOS4_.exit.thread.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
 
-if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %if.then.i.i.i.i.i.i.i.i78.i
+if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %if.then.i.i.i.i.i.i.i.i77.i
   call void @_ZdlPv(ptr noundef nonnull %309) #25
-  %.pre60.i = load ptr, ptr %ref.tmp75.i, align 8
+  %.pre61.i = load ptr, ptr %ref.tmp75.i, align 8
   br label %_ZN3ue28flat_setItSt4lessItESaItEEaSEOS4_.exit.thread.i
 
-_ZN3ue28flat_setItSt4lessItESaItEEaSEOS4_.exit.thread.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i78.i
-  %310 = phi ptr [ %.pre60.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ], [ %308, %if.then.i.i.i.i.i.i.i.i78.i ]
+_ZN3ue28flat_setItSt4lessItESaItEEaSEOS4_.exit.thread.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i77.i
+  %310 = phi ptr [ %.pre61.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ], [ %308, %if.then.i.i.i.i.i.i.i.i77.i ]
   store ptr %310, ptr %hinted.i, align 8
   %311 = load i64, ptr %m_size.i.i.i.i.i.i.i.i.i.i.i, align 8
   store i64 %311, ptr %m_size.i.i.i.i.i.i.i.i.i.i, align 8
@@ -5663,20 +5663,20 @@ terminate.lpad.i.i.i.i.i.i.i.i92:                 ; preds = %if.else.i.i.i.i.i.i
 
 _ZN3ue28flat_setItSt4lessItESaItEEaSEOS4_.exit.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i
   store i64 0, ptr %m_size.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %.pre61.i = load i64, ptr %m_capacity.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %316 = icmp eq i64 %.pre61.i, 0
-  br i1 %316, label %invoke.cont79thread-pre-split.i, label %if.then.i.i.i.i.i.i.i.i.i85.i
+  %.pre62.i = load i64, ptr %m_capacity.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %316 = icmp eq i64 %.pre62.i, 0
+  br i1 %316, label %invoke.cont79thread-pre-split.i, label %if.then.i.i.i.i.i.i.i.i.i84.i
 
-if.then.i.i.i.i.i.i.i.i.i85.i:                    ; preds = %_ZN3ue28flat_setItSt4lessItESaItEEaSEOS4_.exit.i
+if.then.i.i.i.i.i.i.i.i.i84.i:                    ; preds = %_ZN3ue28flat_setItSt4lessItESaItEEaSEOS4_.exit.i
   %317 = load ptr, ptr %ref.tmp75.i, align 8
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i87.i = icmp eq ptr %m_storage_start.i.i.i.i.i.i.i.i.i.i, %317
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i87.i, label %invoke.cont79thread-pre-split.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i88.i
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i86.i = icmp eq ptr %m_storage_start.i.i.i.i.i.i.i.i.i.i, %317
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i86.i, label %invoke.cont79thread-pre-split.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i87.i
 
-if.then.i.i.i.i.i.i.i.i.i.i.i.i88.i:              ; preds = %if.then.i.i.i.i.i.i.i.i.i85.i
+if.then.i.i.i.i.i.i.i.i.i.i.i.i87.i:              ; preds = %if.then.i.i.i.i.i.i.i.i.i84.i
   call void @_ZdlPv(ptr noundef %317) #25
   br label %invoke.cont79thread-pre-split.i
 
-invoke.cont79thread-pre-split.i:                  ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i88.i, %if.then.i.i.i.i.i.i.i.i.i85.i, %_ZN3ue28flat_setItSt4lessItESaItEEaSEOS4_.exit.i, %if.end69.invoke.i
+invoke.cont79thread-pre-split.i:                  ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i87.i, %if.then.i.i.i.i.i.i.i.i.i84.i, %_ZN3ue28flat_setItSt4lessItESaItEEaSEOS4_.exit.i, %if.end69.invoke.i
   %.pr.i93 = load i64, ptr %m_size.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !207
   %.pre697 = load ptr, ptr %hinted.i, align 8, !noalias !8
   br label %invoke.cont79.i
@@ -5685,48 +5685,48 @@ invoke.cont79.i:                                  ; preds = %invoke.cont79thread
   %318 = phi ptr [ %.pre697, %invoke.cont79thread-pre-split.i ], [ %310, %_ZN3ue28flat_setItSt4lessItESaItEEaSEOS4_.exit.thread.i ]
   %319 = phi i64 [ %.pr.i93, %invoke.cont79thread-pre-split.i ], [ %311, %_ZN3ue28flat_setItSt4lessItESaItEEaSEOS4_.exit.thread.i ]
   %add.ptr.i.i.i84 = getelementptr inbounds i16, ptr %318, i64 %319
-  %cmp.i.i.i.i90.not7.i = icmp eq i64 %319, 0
-  br i1 %cmp.i.i.i.i90.not7.i, label %for.end128.i, label %invoke.cont83.lr.ph.i
+  %cmp.i.i.i.i89.not8.i = icmp eq i64 %319, 0
+  br i1 %cmp.i.i.i.i89.not8.i, label %for.end128.i, label %invoke.cont83.lr.ph.i
 
 invoke.cont83.lr.ph.i:                            ; preds = %invoke.cont79.i
-  %info.val67.i = load ptr, ptr %extra.i, align 8
+  %info.val66.i = load ptr, ptr %extra.i, align 8
   %320 = load ptr, ptr %states.i, align 8
-  %cmp964.not.i = icmp eq i16 %.fr.i, 0
-  br i1 %cmp964.not.i, label %for.end128.i, label %invoke.cont83.us.preheader.i
+  %cmp965.not.i = icmp eq i16 %.fr.i, 0
+  br i1 %cmp965.not.i, label %for.end128.i, label %invoke.cont83.us.preheader.i
 
 invoke.cont83.us.preheader.i:                     ; preds = %invoke.cont83.lr.ph.i
   %wide.trip.count.i = zext i16 %.fr.i to i64
   br label %invoke.cont83.us.i
 
 invoke.cont83.us.i:                               ; preds = %for.inc125.us.i, %invoke.cont83.us.preheader.i
-  %best_score.010.us.i = phi i16 [ %best_score.2.us.i, %for.inc125.us.i ], [ 0, %invoke.cont83.us.preheader.i ]
-  %best_daddy.09.us.i = phi i16 [ %best_daddy.2.us.i, %for.inc125.us.i ], [ 0, %invoke.cont83.us.preheader.i ]
-  %__begin1.sroa.0.08.us.i = phi ptr [ %incdec.ptr.i.i.i.i.us.i, %for.inc125.us.i ], [ %318, %invoke.cont83.us.preheader.i ]
-  %321 = load i16, ptr %__begin1.sroa.0.08.us.i, align 2
-  %conv.i91.us.i = zext i16 %321 to i64
-  %shermanState.i92.us.i = getelementptr inbounds %"struct.ue2::(anonymous namespace)::dstate_extra", ptr %info.val67.i, i64 %conv.i91.us.i, i32 1
-  %322 = load i8, ptr %shermanState.i92.us.i, align 2
-  %tobool.i93.us.i = trunc i8 %322 to i1
-  br i1 %tobool.i93.us.i, label %for.inc125.us.i, label %lor.lhs.false.us.i
+  %best_score.011.us.i = phi i16 [ %best_score.2.us.i, %for.inc125.us.i ], [ 0, %invoke.cont83.us.preheader.i ]
+  %best_daddy.010.us.i = phi i16 [ %best_daddy.2.us.i, %for.inc125.us.i ], [ 0, %invoke.cont83.us.preheader.i ]
+  %__begin1.sroa.0.09.us.i = phi ptr [ %incdec.ptr.i.i.i.i.us.i, %for.inc125.us.i ], [ %318, %invoke.cont83.us.preheader.i ]
+  %321 = load i16, ptr %__begin1.sroa.0.09.us.i, align 2
+  %conv.i90.us.i = zext i16 %321 to i64
+  %shermanState.i91.us.i = getelementptr inbounds %"struct.ue2::(anonymous namespace)::dstate_extra", ptr %info.val66.i, i64 %conv.i90.us.i, i32 1
+  %322 = load i8, ptr %shermanState.i91.us.i, align 2
+  %tobool.i92.us.i = trunc i8 %322 to i1
+  br i1 %tobool.i92.us.i, label %for.inc125.us.i, label %lor.lhs.false.us.i
 
 lor.lhs.false.us.i:                               ; preds = %invoke.cont83.us.i
-  %wideState.i95.us.i = getelementptr inbounds %"struct.ue2::(anonymous namespace)::dstate_extra", ptr %info.val67.i, i64 %conv.i91.us.i, i32 2
-  %323 = load i8, ptr %wideState.i95.us.i, align 1
-  %tobool.i96.us.i = trunc i8 %323 to i1
-  br i1 %tobool.i96.us.i, label %for.inc125.us.i, label %if.end89.us.i
+  %wideState.i94.us.i = getelementptr inbounds %"struct.ue2::(anonymous namespace)::dstate_extra", ptr %info.val66.i, i64 %conv.i90.us.i, i32 2
+  %323 = load i8, ptr %wideState.i94.us.i, align 1
+  %tobool.i95.us.i = trunc i8 %323 to i1
+  br i1 %tobool.i95.us.i, label %for.inc125.us.i, label %if.end89.us.i
 
 if.end89.us.i:                                    ; preds = %lor.lhs.false.us.i
   %324 = load ptr, ptr %320, align 8
-  %add.ptr.i97.us.i = getelementptr inbounds %"struct.ue2::dstate", ptr %324, i64 %conv.i91.us.i
+  %add.ptr.i96.us.i = getelementptr inbounds %"struct.ue2::dstate", ptr %324, i64 %conv.i90.us.i
   %325 = load ptr, ptr %add.ptr.i.i61, align 8
-  %326 = load ptr, ptr %add.ptr.i97.us.i, align 8
+  %326 = load ptr, ptr %add.ptr.i96.us.i, align 8
   br label %for.body97.us.i
 
 lor.lhs.false111.us.i:                            ; preds = %for.cond93.for.end_crit_edge.us.i
   %cmp113.us.i = icmp eq i32 %spec.select.us.i, %conv109.us.i
-  %cmp117.us.i = icmp ult i16 %321, %best_daddy.09.us.i
-  %or.cond61.us.i = select i1 %cmp113.us.i, i1 %cmp117.us.i, i1 false
-  br i1 %or.cond61.us.i, label %if.then118.us.i, label %for.inc125.us.i
+  %cmp117.us.i = icmp ult i16 %321, %best_daddy.010.us.i
+  %or.cond4.us.i = select i1 %cmp113.us.i, i1 %cmp117.us.i, i1 false
+  br i1 %or.cond4.us.i, label %if.then118.us.i, label %for.inc125.us.i
 
 if.then118.us.i:                                  ; preds = %for.cond93.for.end_crit_edge.us.i, %lor.lhs.false111.us.i
   %conv119.us.i = trunc i32 %spec.select.us.i to i16
@@ -5735,27 +5735,27 @@ if.then118.us.i:                                  ; preds = %for.cond93.for.end_
 
 for.body97.us.i:                                  ; preds = %for.body97.us.i, %if.end89.us.i
   %indvars.iv.i85 = phi i64 [ 0, %if.end89.us.i ], [ %indvars.iv.next.i86, %for.body97.us.i ]
-  %score.05.us.i = phi i32 [ 0, %if.end89.us.i ], [ %spec.select.us.i, %for.body97.us.i ]
-  %add.ptr.i98.us.i = getelementptr inbounds i16, ptr %325, i64 %indvars.iv.i85
-  %327 = load i16, ptr %add.ptr.i98.us.i, align 2
-  %add.ptr.i99.us.i = getelementptr inbounds i16, ptr %326, i64 %indvars.iv.i85
-  %328 = load i16, ptr %add.ptr.i99.us.i, align 2
+  %score.06.us.i = phi i32 [ 0, %if.end89.us.i ], [ %spec.select.us.i, %for.body97.us.i ]
+  %add.ptr.i97.us.i = getelementptr inbounds i16, ptr %325, i64 %indvars.iv.i85
+  %327 = load i16, ptr %add.ptr.i97.us.i, align 2
+  %add.ptr.i98.us.i = getelementptr inbounds i16, ptr %326, i64 %indvars.iv.i85
+  %328 = load i16, ptr %add.ptr.i98.us.i, align 2
   %cmp105.us.i = icmp eq i16 %327, %328
   %inc.us.i = zext i1 %cmp105.us.i to i32
-  %spec.select.us.i = add i32 %score.05.us.i, %inc.us.i
+  %spec.select.us.i = add i32 %score.06.us.i, %inc.us.i
   %indvars.iv.next.i86 = add nuw nsw i64 %indvars.iv.i85, 1
   %exitcond.not.i87 = icmp eq i64 %indvars.iv.next.i86, %wide.trip.count.i
   br i1 %exitcond.not.i87, label %for.cond93.for.end_crit_edge.us.i, label %for.body97.us.i, !llvm.loop !212
 
 for.inc125.us.i:                                  ; preds = %if.then118.us.i, %lor.lhs.false111.us.i, %lor.lhs.false.us.i, %invoke.cont83.us.i
-  %best_daddy.2.us.i = phi i16 [ %best_daddy.09.us.i, %invoke.cont83.us.i ], [ %best_daddy.09.us.i, %lor.lhs.false.us.i ], [ %321, %if.then118.us.i ], [ %best_daddy.09.us.i, %lor.lhs.false111.us.i ]
-  %best_score.2.us.i = phi i16 [ %best_score.010.us.i, %invoke.cont83.us.i ], [ %best_score.010.us.i, %lor.lhs.false.us.i ], [ %conv119.us.i, %if.then118.us.i ], [ %best_score.010.us.i, %lor.lhs.false111.us.i ]
-  %incdec.ptr.i.i.i.i.us.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.08.us.i, i64 2
-  %cmp.i.i.i.i90.not.us.i = icmp eq ptr %incdec.ptr.i.i.i.i.us.i, %add.ptr.i.i.i84
-  br i1 %cmp.i.i.i.i90.not.us.i, label %for.end128.i, label %invoke.cont83.us.i
+  %best_daddy.2.us.i = phi i16 [ %best_daddy.010.us.i, %invoke.cont83.us.i ], [ %best_daddy.010.us.i, %lor.lhs.false.us.i ], [ %321, %if.then118.us.i ], [ %best_daddy.010.us.i, %lor.lhs.false111.us.i ]
+  %best_score.2.us.i = phi i16 [ %best_score.011.us.i, %invoke.cont83.us.i ], [ %best_score.011.us.i, %lor.lhs.false.us.i ], [ %conv119.us.i, %if.then118.us.i ], [ %best_score.011.us.i, %lor.lhs.false111.us.i ]
+  %incdec.ptr.i.i.i.i.us.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.09.us.i, i64 2
+  %cmp.i.i.i.i89.not.us.i = icmp eq ptr %incdec.ptr.i.i.i.i.us.i, %add.ptr.i.i.i84
+  br i1 %cmp.i.i.i.i89.not.us.i, label %for.end128.i, label %invoke.cont83.us.i
 
 for.cond93.for.end_crit_edge.us.i:                ; preds = %for.body97.us.i
-  %conv109.us.i = zext i16 %best_score.010.us.i to i32
+  %conv109.us.i = zext i16 %best_score.011.us.i to i32
   %cmp110.us.i = icmp ugt i32 %spec.select.us.i, %conv109.us.i
   br i1 %cmp110.us.i, label %if.then118.us.i, label %lor.lhs.false111.us.i
 
@@ -5765,8 +5765,8 @@ for.end128.i:                                     ; preds = %for.inc125.us.i, %i
   %daddy129.i = getelementptr inbounds i8, ptr %add.ptr.i.i61, i64 24
   store i16 %best_daddy.1.i, ptr %daddy129.i, align 8
   %extra.val.i = load ptr, ptr %extra.i, align 8
-  %add.ptr.i100.i = getelementptr inbounds %"struct.ue2::(anonymous namespace)::dstate_extra", ptr %extra.val.i, i64 %conv.i53
-  store i16 %best_score.1.i, ptr %add.ptr.i100.i, align 2
+  %add.ptr.i99.i = getelementptr inbounds %"struct.ue2::(anonymous namespace)::dstate_extra", ptr %extra.val.i, i64 %conv.i53
+  store i16 %best_score.1.i, ptr %add.ptr.i99.i, align 2
   %conv134.i = zext i16 %best_score.1.i to i32
   %add136.i = add nuw nsw i32 %cond46.i, %conv134.i
   %cmp138.i = icmp ult i32 %add136.i, %conv34.pre-phi.i
@@ -5774,60 +5774,60 @@ for.end128.i:                                     ; preds = %for.inc125.us.i, %i
 
 if.end140.i:                                      ; preds = %for.end128.i
   %329 = load i16, ptr %daddy129.i, align 8
-  %info.val68.i = load ptr, ptr %extra.i, align 8
-  %conv.i101.i = zext i16 %329 to i64
-  %shermanState.i102.i = getelementptr inbounds %"struct.ue2::(anonymous namespace)::dstate_extra", ptr %info.val68.i, i64 %conv.i101.i, i32 1
-  %330 = load i8, ptr %shermanState.i102.i, align 2
-  %tobool.i103.i = trunc i8 %330 to i1
-  br i1 %tobool.i103.i, label %cleanup.i90, label %if.end145.i
+  %info.val67.i = load ptr, ptr %extra.i, align 8
+  %conv.i100.i = zext i16 %329 to i64
+  %shermanState.i101.i = getelementptr inbounds %"struct.ue2::(anonymous namespace)::dstate_extra", ptr %info.val67.i, i64 %conv.i100.i, i32 1
+  %330 = load i8, ptr %shermanState.i101.i, align 2
+  %tobool.i102.i = trunc i8 %330 to i1
+  br i1 %tobool.i102.i, label %cleanup.i90, label %if.end145.i
 
 if.end145.i:                                      ; preds = %if.end140.i
   %331 = load ptr, ptr %states.i, align 8
   %332 = load ptr, ptr %331, align 8
-  %add.ptr.i104.i = getelementptr inbounds %"struct.ue2::dstate", ptr %332, i64 %conv.i53
+  %add.ptr.i103.i = getelementptr inbounds %"struct.ue2::dstate", ptr %332, i64 %conv.i53
   %333 = load ptr, ptr %alpha_remap.i, align 8
-  %334 = load ptr, ptr %add.ptr.i104.i, align 8
+  %334 = load ptr, ptr %add.ptr.i103.i, align 8
   br label %for.body151.i
 
 for.body151.i:                                    ; preds = %for.body151.i, %if.end145.i
-  %indvars.iv55.i = phi i64 [ 0, %if.end145.i ], [ %indvars.iv.next56.i, %for.body151.i ]
-  %self_loop_width.049.i = phi i32 [ 0, %if.end145.i ], [ %spec.select62.i, %for.body151.i ]
-  %arrayidx.i.i.i = getelementptr inbounds [257 x i16], ptr %333, i64 0, i64 %indvars.iv55.i
+  %indvars.iv56.i = phi i64 [ 0, %if.end145.i ], [ %indvars.iv.next57.i, %for.body151.i ]
+  %self_loop_width.050.i = phi i32 [ 0, %if.end145.i ], [ %spec.select61.i, %for.body151.i ]
+  %arrayidx.i.i.i = getelementptr inbounds [257 x i16], ptr %333, i64 0, i64 %indvars.iv56.i
   %335 = load i16, ptr %arrayidx.i.i.i, align 2
   %conv155.i = zext i16 %335 to i64
-  %add.ptr.i105.i = getelementptr inbounds i16, ptr %334, i64 %conv155.i
-  %336 = load i16, ptr %add.ptr.i105.i, align 2
+  %add.ptr.i104.i = getelementptr inbounds i16, ptr %334, i64 %conv155.i
+  %336 = load i16, ptr %add.ptr.i104.i, align 2
   %cmp159.i = icmp eq i16 %336, %conv32
   %inc161.i = zext i1 %cmp159.i to i32
-  %spec.select62.i = add i32 %self_loop_width.049.i, %inc161.i
-  %indvars.iv.next56.i = add nuw nsw i64 %indvars.iv55.i, 1
-  %exitcond58.not.i = icmp eq i64 %indvars.iv.next56.i, 256
-  br i1 %exitcond58.not.i, label %for.end165.i, label %for.body151.i, !llvm.loop !213
+  %spec.select61.i = add i32 %self_loop_width.050.i, %inc161.i
+  %indvars.iv.next57.i = add nuw nsw i64 %indvars.iv56.i, 1
+  %exitcond59.not.i = icmp eq i64 %indvars.iv.next57.i, 256
+  br i1 %exitcond59.not.i, label %for.end165.i, label %for.body151.i, !llvm.loop !213
 
 for.end165.i:                                     ; preds = %for.body151.i
-  %cmp166.i = icmp ugt i32 %spec.select62.i, 20
+  %cmp166.i = icmp ugt i32 %spec.select61.i, 20
   br i1 %cmp166.i, label %cleanup.i90, label %do.end174.i
 
 do.end174.i:                                      ; preds = %for.end165.i
-  %shermanState.i = getelementptr inbounds %"struct.ue2::(anonymous namespace)::dstate_extra", ptr %info.val68.i, i64 %conv.i53, i32 1
+  %shermanState.i = getelementptr inbounds %"struct.ue2::(anonymous namespace)::dstate_extra", ptr %info.val67.i, i64 %conv.i53, i32 1
   store i8 1, ptr %shermanState.i, align 2
   br label %cleanup.i90
 
 cleanup.i90:                                      ; preds = %do.end174.i, %for.end165.i, %if.end140.i, %for.end128.i, %if.else61.i, %if.then51.i
   %337 = load i64, ptr %m_capacity.i.i.i.i.i.i.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i.i.i.i.i108.i = icmp eq i64 %337, 0
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i108.i, label %invoke.cont42, label %if.then.i.i.i.i.i.i.i.i.i109.i
+  %tobool.not.i.i.i.i.i.i.i.i.i107.i = icmp eq i64 %337, 0
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.i107.i, label %invoke.cont42, label %if.then.i.i.i.i.i.i.i.i.i108.i
 
-if.then.i.i.i.i.i.i.i.i.i109.i:                   ; preds = %cleanup.i90
+if.then.i.i.i.i.i.i.i.i.i108.i:                   ; preds = %cleanup.i90
   %338 = load ptr, ptr %hinted.i, align 8
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i111.i = icmp eq ptr %m_storage_start.i.i.i.i.i.i.i.i.i, %338
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i111.i, label %invoke.cont42, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i112.i
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i110.i = icmp eq ptr %m_storage_start.i.i.i.i.i.i.i.i.i, %338
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i110.i, label %invoke.cont42, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i111.i
 
-if.then.i.i.i.i.i.i.i.i.i.i.i.i112.i:             ; preds = %if.then.i.i.i.i.i.i.i.i.i109.i
+if.then.i.i.i.i.i.i.i.i.i.i.i.i111.i:             ; preds = %if.then.i.i.i.i.i.i.i.i.i108.i
   call void @_ZdlPv(ptr noundef %338) #25
   br label %invoke.cont42
 
-invoke.cont42:                                    ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i112.i, %if.then.i.i.i.i.i.i.i.i.i109.i, %cleanup.i90, %land.lhs.true21.i, %land.lhs.true6.i, %if.end36
+invoke.cont42:                                    ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i111.i, %if.then.i.i.i.i.i.i.i.i.i108.i, %cleanup.i90, %land.lhs.true21.i, %land.lhs.true6.i, %if.end36
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %hinted.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tmp.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %granddaddy.i)

@@ -1597,10 +1597,19 @@ if.end11.i:                                       ; preds = %if.end6.i
   store ptr null, ptr %next.i.i, align 8
   %11 = load ptr, ptr %od_last.i.i, align 8
   %cmp.i25.i = icmp eq ptr %11, null
-  %next3.i.i = getelementptr inbounds i8, ptr %11, i64 16
+  br i1 %cmp.i25.i, label %if.then.i.i, label %if.else.i.i
+
+if.then.i.i:                                      ; preds = %if.end11.i
   %od_first.i.i = getelementptr inbounds i8, ptr %od, i64 48
-  %next3.sink.i.i = select i1 %cmp.i25.i, ptr %od_first.i.i, ptr %next3.i.i
-  store ptr %call7.i, ptr %next3.sink.i.i, align 8
+  store ptr %call7.i, ptr %od_first.i.i, align 8
+  br label %_odict_add_tail.exit.i
+
+if.else.i.i:                                      ; preds = %if.end11.i
+  %next3.i.i = getelementptr inbounds i8, ptr %11, i64 16
+  store ptr %call7.i, ptr %next3.i.i, align 8
+  br label %_odict_add_tail.exit.i
+
+_odict_add_tail.exit.i:                           ; preds = %if.else.i.i, %if.then.i.i
   store ptr %call7.i, ptr %od_last.i.i, align 8
   %od_state.i.i = getelementptr inbounds i8, ptr %od, i64 88
   %12 = load i64, ptr %od_state.i.i, align 8
@@ -1617,8 +1626,8 @@ if.then3:                                         ; preds = %Py_DECREF.exit.i, %
   tail call void @_PyErr_ChainExceptions1(ptr noundef %call4) #7
   br label %if.end6
 
-if.end6:                                          ; preds = %if.end11.i, %if.then1.i22.i, %if.end.i19.i, %if.then5.i, %if.then3, %entry
-  %res.0 = phi i32 [ -1, %if.then3 ], [ %call, %entry ], [ 0, %if.end11.i ], [ 0, %if.then5.i ], [ 0, %if.then1.i22.i ], [ 0, %if.end.i19.i ]
+if.end6:                                          ; preds = %_odict_add_tail.exit.i, %if.then1.i22.i, %if.end.i19.i, %if.then5.i, %if.then3, %entry
+  %res.0 = phi i32 [ -1, %if.then3 ], [ %call, %entry ], [ 0, %_odict_add_tail.exit.i ], [ 0, %if.then5.i ], [ 0, %if.then1.i22.i ], [ 0, %if.end.i19.i ]
   ret i32 %res.0
 }
 
@@ -4307,78 +4316,96 @@ _odict_remove_node.exit.i:                        ; preds = %if.then15.i.i, %if.
   store ptr null, ptr %next22.i.i, align 8
   %24 = load ptr, ptr %od_last14.i, align 8
   %cmp.i27.i = icmp eq ptr %24, null
+  br i1 %cmp.i27.i, label %if.then.i32.i, label %if.else.i28.i
+
+if.then.i32.i:                                    ; preds = %_odict_remove_node.exit.i
+  store ptr %11, ptr %od_first.i3136, align 8
+  br label %_odict_add_tail.exit.i
+
+if.else.i28.i:                                    ; preds = %_odict_remove_node.exit.i
   %next3.i.i = getelementptr inbounds i8, ptr %24, i64 16
-  %next3.sink.i.i = select i1 %cmp.i27.i, ptr %od_first.i3136, ptr %next3.i.i
-  store ptr %11, ptr %next3.sink.i.i, align 8
+  store ptr %11, ptr %next3.i.i, align 8
+  br label %_odict_add_tail.exit.i
+
+_odict_add_tail.exit.i:                           ; preds = %if.else.i28.i, %if.then.i32.i
   store ptr %11, ptr %od_last14.i, align 8
   %25 = load i64, ptr %od_state.i.i, align 8
-  %inc.i30.i = add i64 %25, 1
-  store i64 %inc.i30.i, ptr %od_state.i.i, align 8
+  %inc.i31.i = add i64 %25, 1
+  store i64 %inc.i31.i, ptr %od_state.i.i, align 8
   br label %exit
 
 if.else.i:                                        ; preds = %if.end11.i
   %26 = load ptr, ptr %od_first.i3136, align 8
   %cmp19.not.i = icmp eq ptr %11, %26
-  br i1 %cmp19.not.i, label %exit, label %if.else.i33.i
+  br i1 %cmp19.not.i, label %exit, label %if.else.i36.i
 
-if.else.i33.i:                                    ; preds = %if.else.i
-  %prev.i34.i = getelementptr inbounds i8, ptr %11, i64 24
-  %27 = load ptr, ptr %prev.i34.i, align 8
-  %cmp2.not.i35.i = icmp eq ptr %27, null
-  br i1 %cmp2.not.i35.i, label %if.end7.i39.i, label %if.then3.i36.i
+if.else.i36.i:                                    ; preds = %if.else.i
+  %prev.i37.i = getelementptr inbounds i8, ptr %11, i64 24
+  %27 = load ptr, ptr %prev.i37.i, align 8
+  %cmp2.not.i38.i = icmp eq ptr %27, null
+  br i1 %cmp2.not.i38.i, label %if.end7.i42.i, label %if.then3.i39.i
 
-if.then3.i36.i:                                   ; preds = %if.else.i33.i
-  %next4.i37.i = getelementptr inbounds i8, ptr %11, i64 16
-  %28 = load ptr, ptr %next4.i37.i, align 8
-  %next6.i38.i = getelementptr inbounds i8, ptr %27, i64 16
-  store ptr %28, ptr %next6.i38.i, align 8
-  br label %if.end7.i39.i
+if.then3.i39.i:                                   ; preds = %if.else.i36.i
+  %next4.i40.i = getelementptr inbounds i8, ptr %11, i64 16
+  %28 = load ptr, ptr %next4.i40.i, align 8
+  %next6.i41.i = getelementptr inbounds i8, ptr %27, i64 16
+  store ptr %28, ptr %next6.i41.i, align 8
+  br label %if.end7.i42.i
 
-if.end7.i39.i:                                    ; preds = %if.then3.i36.i, %if.else.i33.i
-  %od_last.i40.i = getelementptr inbounds i8, ptr %self, i64 56
-  %29 = load ptr, ptr %od_last.i40.i, align 8
-  %cmp8.i41.i = icmp eq ptr %29, %11
-  br i1 %cmp8.i41.i, label %if.then9.i51.i, label %if.else12.i42.i
+if.end7.i42.i:                                    ; preds = %if.then3.i39.i, %if.else.i36.i
+  %od_last.i43.i = getelementptr inbounds i8, ptr %self, i64 56
+  %29 = load ptr, ptr %od_last.i43.i, align 8
+  %cmp8.i44.i = icmp eq ptr %29, %11
+  br i1 %cmp8.i44.i, label %if.then9.i54.i, label %if.else12.i45.i
 
-if.then9.i51.i:                                   ; preds = %if.end7.i39.i
-  %30 = load ptr, ptr %prev.i34.i, align 8
-  store ptr %30, ptr %od_last.i40.i, align 8
-  br label %_odict_remove_node.exit55.i
+if.then9.i54.i:                                   ; preds = %if.end7.i42.i
+  %30 = load ptr, ptr %prev.i37.i, align 8
+  store ptr %30, ptr %od_last.i43.i, align 8
+  br label %_odict_remove_node.exit58.i
 
-if.else12.i42.i:                                  ; preds = %if.end7.i39.i
-  %next13.i43.i = getelementptr inbounds i8, ptr %11, i64 16
-  %31 = load ptr, ptr %next13.i43.i, align 8
-  %cmp14.not.i44.i = icmp eq ptr %31, null
-  br i1 %cmp14.not.i44.i, label %_odict_remove_node.exit55.i, label %if.then15.i45.i
+if.else12.i45.i:                                  ; preds = %if.end7.i42.i
+  %next13.i46.i = getelementptr inbounds i8, ptr %11, i64 16
+  %31 = load ptr, ptr %next13.i46.i, align 8
+  %cmp14.not.i47.i = icmp eq ptr %31, null
+  br i1 %cmp14.not.i47.i, label %_odict_remove_node.exit58.i, label %if.then15.i48.i
 
-if.then15.i45.i:                                  ; preds = %if.else12.i42.i
-  %32 = load ptr, ptr %prev.i34.i, align 8
-  %prev18.i47.i = getelementptr inbounds i8, ptr %31, i64 24
-  store ptr %32, ptr %prev18.i47.i, align 8
-  br label %_odict_remove_node.exit55.i
+if.then15.i48.i:                                  ; preds = %if.else12.i45.i
+  %32 = load ptr, ptr %prev.i37.i, align 8
+  %prev18.i50.i = getelementptr inbounds i8, ptr %31, i64 24
+  store ptr %32, ptr %prev18.i50.i, align 8
+  br label %_odict_remove_node.exit58.i
 
-_odict_remove_node.exit55.i:                      ; preds = %if.then15.i45.i, %if.else12.i42.i, %if.then9.i51.i
-  %next22.i48.i = getelementptr inbounds i8, ptr %11, i64 16
-  %od_state.i49.i = getelementptr inbounds i8, ptr %self, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next22.i48.i, i8 0, i64 16, i1 false)
-  %33 = load i64, ptr %od_state.i49.i, align 8
-  %inc.i50.i = add i64 %33, 1
-  store i64 %inc.i50.i, ptr %od_state.i49.i, align 8
-  store ptr null, ptr %prev.i34.i, align 8
+_odict_remove_node.exit58.i:                      ; preds = %if.then15.i48.i, %if.else12.i45.i, %if.then9.i54.i
+  %next22.i51.i = getelementptr inbounds i8, ptr %11, i64 16
+  %od_state.i52.i = getelementptr inbounds i8, ptr %self, i64 88
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next22.i51.i, i8 0, i64 16, i1 false)
+  %33 = load i64, ptr %od_state.i52.i, align 8
+  %inc.i53.i = add i64 %33, 1
+  store i64 %inc.i53.i, ptr %od_state.i52.i, align 8
+  store ptr null, ptr %prev.i37.i, align 8
   %34 = load ptr, ptr %od_first.i3136, align 8
-  store ptr %34, ptr %next22.i48.i, align 8
-  %cmp.i59.i = icmp eq ptr %34, null
+  store ptr %34, ptr %next22.i51.i, align 8
+  %cmp.i62.i = icmp eq ptr %34, null
+  br i1 %cmp.i62.i, label %if.then.i67.i, label %if.else.i63.i
+
+if.then.i67.i:                                    ; preds = %_odict_remove_node.exit58.i
+  store ptr %11, ptr %od_last.i43.i, align 8
+  br label %_odict_add_head.exit.i
+
+if.else.i63.i:                                    ; preds = %_odict_remove_node.exit58.i
   %prev3.i.i = getelementptr inbounds i8, ptr %34, i64 24
-  %prev3.sink.i.i = select i1 %cmp.i59.i, ptr %od_last.i40.i, ptr %prev3.i.i
-  store ptr %11, ptr %prev3.sink.i.i, align 8
+  store ptr %11, ptr %prev3.i.i, align 8
+  br label %_odict_add_head.exit.i
+
+_odict_add_head.exit.i:                           ; preds = %if.else.i63.i, %if.then.i67.i
   store ptr %11, ptr %od_first.i3136, align 8
-  %35 = load i64, ptr %od_state.i49.i, align 8
-  %inc.i62.i = add i64 %35, 1
-  store i64 %inc.i62.i, ptr %od_state.i49.i, align 8
+  %35 = load i64, ptr %od_state.i52.i, align 8
+  %inc.i66.i = add i64 %35, 1
+  store i64 %inc.i66.i, ptr %od_state.i52.i, align 8
   br label %exit
 
-exit:                                             ; preds = %_odict_remove_node.exit55.i, %if.else.i, %_odict_remove_node.exit.i, %if.then13.i, %if.then9.i, %if.then6.i, %cond.end.i, %if.then.i, %if.end14, %cond.end9
-  %return_value.0 = phi ptr [ null, %if.end14 ], [ null, %cond.end9 ], [ null, %if.then.i ], [ null, %if.then9.i ], [ null, %if.then6.i ], [ @_Py_NoneStruct, %_odict_remove_node.exit.i ], [ @_Py_NoneStruct, %if.then13.i ], [ @_Py_NoneStruct, %_odict_remove_node.exit55.i ], [ @_Py_NoneStruct, %if.else.i ], [ @_Py_NoneStruct, %cond.end.i ]
+exit:                                             ; preds = %_odict_add_head.exit.i, %if.else.i, %_odict_add_tail.exit.i, %if.then13.i, %if.then9.i, %if.then6.i, %cond.end.i, %if.then.i, %if.end14, %cond.end9
+  %return_value.0 = phi ptr [ null, %if.end14 ], [ null, %cond.end9 ], [ null, %if.then.i ], [ null, %if.then9.i ], [ null, %if.then6.i ], [ @_Py_NoneStruct, %_odict_add_tail.exit.i ], [ @_Py_NoneStruct, %if.then13.i ], [ @_Py_NoneStruct, %_odict_add_head.exit.i ], [ @_Py_NoneStruct, %if.else.i ], [ @_Py_NoneStruct, %cond.end.i ]
   ret ptr %return_value.0
 }
 

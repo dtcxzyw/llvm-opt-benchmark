@@ -9309,6 +9309,7 @@ define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph15ConfigurePresetC2E
   store ptr null, ptr %22, align 8
   store ptr %25, ptr %29, align 8
   store ptr %25, ptr %32, align 8
+  store i64 0, ptr %36, align 8
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIN19cmCMakePresetsGraph13CacheVariableEESt4lessIS5_ESaISt4pairIKS5_S9_EEEC2EOSG_.exit
 
 39:                                               ; preds = %2
@@ -9320,11 +9321,10 @@ define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph15ConfigurePresetC2E
   %42 = getelementptr inbounds i8, ptr %0, i64 456
   store ptr %21, ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %0, i64 464
+  store i64 0, ptr %43, align 8
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIN19cmCMakePresetsGraph13CacheVariableEESt4lessIS5_ESaISt4pairIKS5_S9_EEEC2EOSG_.exit
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIN19cmCMakePresetsGraph13CacheVariableEESt4lessIS5_ESaISt4pairIKS5_S9_EEEC2EOSG_.exit: ; preds = %24, %39
-  %.sink.i.i.i.i = phi ptr [ %43, %39 ], [ %36, %24 ]
-  store i64 0, ptr %.sink.i.i.i.i, align 8
   %44 = getelementptr inbounds i8, ptr %0, i64 472
   %45 = getelementptr inbounds i8, ptr %1, i64 472
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %44, ptr noundef nonnull align 8 dereferenceable(36) %45, i64 36, i1 false)
@@ -9421,6 +9421,7 @@ define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph6PresetC2EOS0_(ptr n
   store ptr null, ptr %31, align 8
   store ptr %34, ptr %38, align 8
   store ptr %34, ptr %41, align 8
+  store i64 0, ptr %45, align 8
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIS5_ESt4lessIS5_ESaISt4pairIKS5_S7_EEEC2EOSE_.exit
 
 48:                                               ; preds = %2
@@ -9432,11 +9433,10 @@ define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph6PresetC2EOS0_(ptr n
   %51 = getelementptr inbounds i8, ptr %0, i64 200
   store ptr %30, ptr %51, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 208
+  store i64 0, ptr %52, align 8
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIS5_ESt4lessIS5_ESaISt4pairIKS5_S7_EEEC2EOSE_.exit
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIS5_ESt4lessIS5_ESaISt4pairIKS5_S7_EEEC2EOSE_.exit: ; preds = %33, %48
-  %.sink.i.i.i.i = phi ptr [ %52, %48 ], [ %45, %33 ]
-  store i64 0, ptr %.sink.i.i.i.i, align 8
   ret void
 }
 

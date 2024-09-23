@@ -8827,22 +8827,18 @@ if.then:                                          ; preds = %while.body
 
 if.then15:                                        ; preds = %if.then
   %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
-  br label %if.end22.sink.split
+  store ptr %__p.022, ptr %arrayidx16, align 8
+  br label %if.end22
 
 if.else:                                          ; preds = %while.body
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %__p.022, align 8
   %8 = load ptr, ptr %arrayidx, align 8
-  br label %if.end22.sink.split
-
-if.end22.sink.split:                              ; preds = %if.else, %if.then15
-  %arrayidx16.sink = phi ptr [ %arrayidx16, %if.then15 ], [ %8, %if.else ]
-  %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then15 ], [ %__bbegin_bkt.021, %if.else ]
-  store ptr %__p.022, ptr %arrayidx16.sink, align 8
+  store ptr %__p.022, ptr %8, align 8
   br label %if.end22
 
-if.end22:                                         ; preds = %if.end22.sink.split, %if.then
-  %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then ], [ %__bbegin_bkt.1.ph, %if.end22.sink.split ]
+if.end22:                                         ; preds = %if.then, %if.then15, %if.else
+  %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.021, %if.else ], [ %rem.i.i, %if.then15 ], [ %rem.i.i, %if.then ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !41
 
@@ -11399,6 +11395,7 @@ if.then76:                                        ; preds = %_ZNSt10unique_ptrI2
   %code3.i.i = getelementptr inbounds i8, ptr %err, i64 8
   store ptr @.str.294, ptr %code3.i.i, align 8, !alias.scope !75
   %err4.i.i = getelementptr inbounds i8, ptr %err, i64 16
+  store i32 -1, ptr %err4.i.i, align 8, !alias.scope !75
   br label %cleanup.sink.split
 
 lor.lhs.false.i160:                               ; preds = %_ZNSt10unique_ptrI24BrotliEncoderStateStructN4node15FunctionDeleterIS0_XadL_Z28BrotliEncoderDestroyInstanceEEEEE5resetEPS0_.exit.i
@@ -11497,6 +11494,7 @@ if.end122:                                        ; preds = %for.body
 if.then128:                                       ; preds = %if.end122
   store ptr @.str.295, ptr %err, align 8
   store ptr @.str.296, ptr %40, align 8
+  store i32 -1, ptr %ref.tmp123.sroa.4.0.err.sroa_idx, align 8
   br label %cleanup.sink.split
 
 for.inc:                                          ; preds = %if.end122, %for.body
@@ -11505,8 +11503,6 @@ for.inc:                                          ; preds = %if.end122, %for.bod
   br i1 %exitcond.not, label %cleanup, label %for.body, !llvm.loop !81
 
 cleanup.sink.split:                               ; preds = %if.then76, %if.then128
-  %ref.tmp123.sroa.4.0.err.sroa_idx.sink = phi ptr [ %ref.tmp123.sroa.4.0.err.sroa_idx, %if.then128 ], [ %err4.i.i, %if.then76 ]
-  store i32 -1, ptr %ref.tmp123.sroa.4.0.err.sroa_idx.sink, align 8
   call fastcc void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE9EmitErrorERKNS0_16CompressionErrorE(ptr noundef nonnull align 8 dereferenceable(336) %retval.i17.0.i, ptr noundef nonnull align 8 dereferenceable(20) %err)
   br label %cleanup
 
@@ -14085,6 +14081,7 @@ if.then76:                                        ; preds = %_ZNSt10unique_ptrI2
   %code3.i.i = getelementptr inbounds i8, ptr %err, i64 8
   store ptr @.str.294, ptr %code3.i.i, align 8, !alias.scope !98
   %err4.i.i = getelementptr inbounds i8, ptr %err, i64 16
+  store i32 -1, ptr %err4.i.i, align 8, !alias.scope !98
   br label %cleanup.sink.split
 
 lor.lhs.false.i160:                               ; preds = %_ZNSt10unique_ptrI24BrotliDecoderStateStructN4node15FunctionDeleterIS0_XadL_Z28BrotliDecoderDestroyInstanceEEEEE5resetEPS0_.exit.i
@@ -14183,6 +14180,7 @@ if.end122:                                        ; preds = %for.body
 if.then128:                                       ; preds = %if.end122
   store ptr @.str.295, ptr %err, align 8
   store ptr @.str.296, ptr %40, align 8
+  store i32 -1, ptr %ref.tmp123.sroa.4.0.err.sroa_idx, align 8
   br label %cleanup.sink.split
 
 for.inc:                                          ; preds = %if.end122, %for.body
@@ -14191,8 +14189,6 @@ for.inc:                                          ; preds = %if.end122, %for.bod
   br i1 %exitcond.not, label %cleanup, label %for.body, !llvm.loop !104
 
 cleanup.sink.split:                               ; preds = %if.then76, %if.then128
-  %ref.tmp123.sroa.4.0.err.sroa_idx.sink = phi ptr [ %ref.tmp123.sroa.4.0.err.sroa_idx, %if.then128 ], [ %err4.i.i, %if.then76 ]
-  store i32 -1, ptr %ref.tmp123.sroa.4.0.err.sroa_idx.sink, align 8
   call fastcc void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE9EmitErrorERKNS0_16CompressionErrorE(ptr noundef nonnull align 8 dereferenceable(368) %retval.i17.0.i, ptr noundef nonnull align 8 dereferenceable(20) %err)
   br label %cleanup
 

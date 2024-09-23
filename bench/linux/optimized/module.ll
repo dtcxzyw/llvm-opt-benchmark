@@ -261,7 +261,7 @@ define dso_local noundef i32 @module_finalize(ptr nocapture noundef readonly %0,
   %14 = getelementptr %struct.elf64_shdr, ptr %1, i64 %13
   %15 = icmp ugt ptr %14, %1
   %.sink42.sroa.gep = getelementptr inbounds i8, ptr %4, i64 8
-  %.sink42.sroa.gep61 = getelementptr inbounds i8, ptr %4, i64 24
+  %.sink42.sroa.gep59 = getelementptr inbounds i8, ptr %4, i64 24
   br i1 %15, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %3, %.preheader
@@ -413,7 +413,7 @@ define dso_local noundef i32 @module_finalize(ptr nocapture noundef readonly %0,
 
 122:                                              ; preds = %108
   %.not15 = icmp eq ptr %59, null
-  br i1 %.not15, label %135, label %123
+  br i1 %.not15, label %137, label %123
 
 123:                                              ; preds = %122
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #10
@@ -423,84 +423,85 @@ define dso_local noundef i32 @module_finalize(ptr nocapture noundef readonly %0,
   %126 = inttoptr i64 %125 to ptr
   store ptr %126, ptr %4, align 8
   %127 = getelementptr inbounds i8, ptr %59, i64 32
+  %128 = load i64, ptr %127, align 8
+  %129 = getelementptr i8, ptr %126, i64 %128
   br label %.thread13
 
 .thread12:                                        ; preds = %.thread11, %.thread14
-  %128 = load i64, ptr %109, align 8
-  %129 = inttoptr i64 %128 to ptr
-  %130 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %129, ptr %130, align 8
-  %131 = load i64, ptr %109, align 8
-  %132 = inttoptr i64 %131 to ptr
+  %130 = load i64, ptr %109, align 8
+  %131 = inttoptr i64 %130 to ptr
+  %132 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %131, ptr %132, align 8
+  %133 = load i64, ptr %109, align 8
+  %134 = inttoptr i64 %133 to ptr
+  %135 = load i64, ptr %112, align 8
+  %136 = getelementptr i8, ptr %134, i64 %135
   br label %.thread13
 
 .thread13:                                        ; preds = %123, %.thread12
-  %.sink = phi ptr [ %127, %123 ], [ %112, %.thread12 ]
-  %.sink43 = phi ptr [ %126, %123 ], [ %132, %.thread12 ]
-  %.sink42.sroa.phi = phi ptr [ %.sink42.sroa.gep, %123 ], [ %.sink42.sroa.gep61, %.thread12 ]
-  %133 = load i64, ptr %.sink, align 8
-  %134 = getelementptr i8, ptr %.sink43, i64 %133
-  store ptr %134, ptr %.sink42.sroa.phi, align 8
+  %.sink42.sroa.phi = phi ptr [ %.sink42.sroa.gep, %123 ], [ %.sink42.sroa.gep59, %.thread12 ]
+  %.sink = phi ptr [ %129, %123 ], [ %136, %.thread12 ]
+  store ptr %.sink, ptr %.sink42.sroa.phi, align 8
   call void @callthunks_patch_module_calls(ptr noundef nonnull %4, ptr noundef %2) #10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #10
-  br label %135
+  br label %137
 
-135:                                              ; preds = %.thread13, %122
-  %136 = icmp eq ptr %58, null
-  br i1 %136, label %144, label %137
+137:                                              ; preds = %.thread13, %122
+  %138 = icmp eq ptr %58, null
+  br i1 %138, label %146, label %139
 
-137:                                              ; preds = %135
-  %138 = getelementptr inbounds i8, ptr %58, i64 16
-  %139 = load i64, ptr %138, align 8
-  %140 = inttoptr i64 %139 to ptr
-  %141 = getelementptr inbounds i8, ptr %58, i64 32
-  %142 = load i64, ptr %141, align 8
-  %143 = getelementptr i8, ptr %140, i64 %142
-  call void @apply_seal_endbr(ptr noundef %140, ptr noundef %143) #10
-  br label %144
+139:                                              ; preds = %137
+  %140 = getelementptr inbounds i8, ptr %58, i64 16
+  %141 = load i64, ptr %140, align 8
+  %142 = inttoptr i64 %141 to ptr
+  %143 = getelementptr inbounds i8, ptr %58, i64 32
+  %144 = load i64, ptr %143, align 8
+  %145 = getelementptr i8, ptr %142, i64 %144
+  call void @apply_seal_endbr(ptr noundef %142, ptr noundef %145) #10
+  br label %146
 
-144:                                              ; preds = %137, %135
-  %145 = icmp eq ptr %65, null
-  br i1 %145, label %160, label %146
+146:                                              ; preds = %139, %137
+  %147 = icmp eq ptr %65, null
+  br i1 %147, label %162, label %148
 
-146:                                              ; preds = %144
-  %147 = getelementptr inbounds i8, ptr %65, i64 16
-  %148 = load i64, ptr %147, align 8
-  %149 = inttoptr i64 %148 to ptr
-  %150 = getelementptr inbounds i8, ptr %2, i64 320
-  %151 = load ptr, ptr %150, align 64
-  %152 = getelementptr inbounds i8, ptr %2, i64 328
-  %153 = load i32, ptr %152, align 8
-  %154 = zext i32 %153 to i64
-  %155 = getelementptr i8, ptr %151, i64 %154
-  %156 = getelementptr inbounds i8, ptr %2, i64 24
-  %157 = getelementptr inbounds i8, ptr %65, i64 32
-  %158 = load i64, ptr %157, align 8
-  %159 = getelementptr i8, ptr %149, i64 %158
-  call void @alternatives_smp_module_add(ptr noundef %2, ptr noundef %156, ptr noundef %149, ptr noundef %159, ptr noundef %151, ptr noundef %155) #10
-  br label %160
+148:                                              ; preds = %146
+  %149 = getelementptr inbounds i8, ptr %65, i64 16
+  %150 = load i64, ptr %149, align 8
+  %151 = inttoptr i64 %150 to ptr
+  %152 = getelementptr inbounds i8, ptr %2, i64 320
+  %153 = load ptr, ptr %152, align 64
+  %154 = getelementptr inbounds i8, ptr %2, i64 328
+  %155 = load i32, ptr %154, align 8
+  %156 = zext i32 %155 to i64
+  %157 = getelementptr i8, ptr %153, i64 %156
+  %158 = getelementptr inbounds i8, ptr %2, i64 24
+  %159 = getelementptr inbounds i8, ptr %65, i64 32
+  %160 = load i64, ptr %159, align 8
+  %161 = getelementptr i8, ptr %151, i64 %160
+  call void @alternatives_smp_module_add(ptr noundef %2, ptr noundef %158, ptr noundef %151, ptr noundef %161, ptr noundef %153, ptr noundef %157) #10
+  br label %162
 
-160:                                              ; preds = %146, %144
-  %161 = icmp ne ptr %64, null
-  %162 = icmp ne ptr %63, null
-  %163 = select i1 %161, i1 %162, i1 false
-  br i1 %163, label %164, label %175
+162:                                              ; preds = %148, %146
+  %163 = icmp ne ptr %64, null
+  %164 = icmp ne ptr %63, null
+  %165 = select i1 %163, i1 %164, i1 false
+  br i1 %165, label %166, label %177
 
-164:                                              ; preds = %160
-  %165 = getelementptr inbounds i8, ptr %63, i64 16
-  %166 = load i64, ptr %165, align 8
-  %167 = inttoptr i64 %166 to ptr
-  %168 = getelementptr inbounds i8, ptr %63, i64 32
-  %169 = load i64, ptr %168, align 8
-  %170 = getelementptr inbounds i8, ptr %64, i64 16
+166:                                              ; preds = %162
+  %167 = getelementptr inbounds i8, ptr %63, i64 16
+  %168 = load i64, ptr %167, align 8
+  %169 = inttoptr i64 %168 to ptr
+  %170 = getelementptr inbounds i8, ptr %63, i64 32
   %171 = load i64, ptr %170, align 8
-  %172 = inttoptr i64 %171 to ptr
-  %173 = getelementptr inbounds i8, ptr %64, i64 32
-  %174 = load i64, ptr %173, align 8
-  call void @unwind_module_init(ptr noundef %2, ptr noundef %167, i64 noundef %169, ptr noundef %172, i64 noundef %174) #10
-  br label %175
+  %172 = getelementptr inbounds i8, ptr %64, i64 16
+  %173 = load i64, ptr %172, align 8
+  %174 = inttoptr i64 %173 to ptr
+  %175 = getelementptr inbounds i8, ptr %64, i64 32
+  %176 = load i64, ptr %175, align 8
+  call void @unwind_module_init(ptr noundef %2, ptr noundef %169, i64 noundef %171, ptr noundef %174, i64 noundef %176) #10
+  br label %177
 
-175:                                              ; preds = %164, %160
+177:                                              ; preds = %166, %162
   ret i32 0
 }
 

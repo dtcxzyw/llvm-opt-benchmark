@@ -10126,7 +10126,8 @@ _ZN4llvm15SmallVectorImplIN5clang13CodeGenAction10LinkModuleEE12assignRemoteEOS4
   store i32 %23, ptr %24, align 4
   store ptr %6, ptr %1, align 8
   store i32 0, ptr %22, align 4
-  br label %.sink.split
+  store i32 0, ptr %19, align 8
+  br label %96
 
 25:                                               ; preds = %4
   %26 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #23
@@ -10227,7 +10228,8 @@ _ZN5clang13CodeGenAction10LinkModuleD2Ev.exit.i.i40: ; preds = %_ZNKSt14default_
 
 _ZN4llvm15SmallVectorImplIN5clang13CodeGenAction10LinkModuleEE5clearEv.exit: ; preds = %_ZN5clang13CodeGenAction10LinkModuleD2Ev.exit.i.i40, %_ZN4llvm23SmallVectorTemplateBaseIN5clang13CodeGenAction10LinkModuleELb0EE13destroy_rangeEPS3_S5_.exit
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
+  store i32 0, ptr %53, align 8
+  br label %96
 
 54:                                               ; preds = %25
   %55 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
@@ -10366,14 +10368,10 @@ _ZN5clang13CodeGenAction10LinkModuleD2Ev.exit.i.i69: ; preds = %_ZNKSt14default_
 
 _ZN4llvm15SmallVectorImplIN5clang13CodeGenAction10LinkModuleEE5clearEv.exit72: ; preds = %_ZN5clang13CodeGenAction10LinkModuleD2Ev.exit.i.i69, %_ZN4llvm23SmallVectorTemplateBaseIN5clang13CodeGenAction10LinkModuleELb0EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %_ZN4llvm15SmallVectorImplIN5clang13CodeGenAction10LinkModuleEE12assignRemoteEOS4_.exit, %_ZN4llvm15SmallVectorImplIN5clang13CodeGenAction10LinkModuleEE5clearEv.exit, %_ZN4llvm15SmallVectorImplIN5clang13CodeGenAction10LinkModuleEE5clearEv.exit72
-  %.sink = phi ptr [ %95, %_ZN4llvm15SmallVectorImplIN5clang13CodeGenAction10LinkModuleEE5clearEv.exit72 ], [ %53, %_ZN4llvm15SmallVectorImplIN5clang13CodeGenAction10LinkModuleEE5clearEv.exit ], [ %19, %_ZN4llvm15SmallVectorImplIN5clang13CodeGenAction10LinkModuleEE12assignRemoteEOS4_.exit ]
-  store i32 0, ptr %.sink, align 8
+  store i32 0, ptr %95, align 8
   br label %96
 
-96:                                               ; preds = %.sink.split, %2
+96:                                               ; preds = %2, %_ZN4llvm15SmallVectorImplIN5clang13CodeGenAction10LinkModuleEE5clearEv.exit72, %_ZN4llvm15SmallVectorImplIN5clang13CodeGenAction10LinkModuleEE5clearEv.exit, %_ZN4llvm15SmallVectorImplIN5clang13CodeGenAction10LinkModuleEE12assignRemoteEOS4_.exit
   ret ptr %0
 }
 

@@ -2776,264 +2776,264 @@ define void @_ZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTyp
 224:                                              ; preds = %29
   %225 = landingpad { ptr, i32 }
           cleanup
-  br label %317
+  br label %316
 
 226:                                              ; preds = %30
   %227 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #11
-  br label %317
+  br label %316
 
 228:                                              ; preds = %38
   %229 = landingpad { ptr, i32 }
           cleanup
-  br label %317
+  br label %316
 
 230:                                              ; preds = %39
   %231 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #11
-  br label %317
+  br label %316
 
 232:                                              ; preds = %47
   %233 = landingpad { ptr, i32 }
           cleanup
-  br label %317
+  br label %316
 
 234:                                              ; preds = %48
   %235 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #11
-  br label %317
+  br label %316
 
 236:                                              ; preds = %56
   %237 = landingpad { ptr, i32 }
           cleanup
-  br label %317
+  br label %316
 
 238:                                              ; preds = %57
   %239 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #11
-  br label %317
+  br label %316
 
 240:                                              ; preds = %65
   %241 = landingpad { ptr, i32 }
           cleanup
-  br label %317
+  br label %316
 
 242:                                              ; preds = %66
   %243 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #11
-  br label %317
+  br label %316
 
 244:                                              ; preds = %74
   %245 = landingpad { ptr, i32 }
           cleanup
-  br label %317
+  br label %316
 
 246:                                              ; preds = %75
   %247 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #11
-  br label %317
+  br label %316
 
 248:                                              ; preds = %83
   %249 = landingpad { ptr, i32 }
           cleanup
-  br label %317
+  br label %316
 
 250:                                              ; preds = %84
   %251 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #11
-  br label %317
+  br label %316
 
 252:                                              ; preds = %92
   %253 = landingpad { ptr, i32 }
           cleanup
-  br label %317
+  br label %316
 
 254:                                              ; preds = %93
   %255 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #11
-  br label %317
+  br label %316
 
 256:                                              ; preds = %101
   %257 = landingpad { ptr, i32 }
           cleanup
-  br label %317
+  br label %316
 
 258:                                              ; preds = %102
   %259 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #11
-  br label %317
+  br label %316
 
 260:                                              ; preds = %110
   %261 = landingpad { ptr, i32 }
           cleanup
-  br label %317
+  br label %316
 
 262:                                              ; preds = %111
   %263 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #11
-  br label %317
+  br label %316
 
 264:                                              ; preds = %119
   %265 = landingpad { ptr, i32 }
           cleanup
-  br label %317
+  br label %316
 
 266:                                              ; preds = %120
   %267 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #11
-  br label %317
+  br label %316
 
 268:                                              ; preds = %128
   %269 = landingpad { ptr, i32 }
           cleanup
-  br label %317
+  br label %316
 
 270:                                              ; preds = %129
   %271 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #11
-  br label %317
+  br label %316
 
 272:                                              ; preds = %137
   %273 = landingpad { ptr, i32 }
           cleanup
-  br label %317
+  br label %316
 
 274:                                              ; preds = %138
   %275 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #11
-  br label %317
+  br label %316
 
 276:                                              ; preds = %146
   %277 = landingpad { ptr, i32 }
           cleanup
-  br label %317
+  br label %316
 
 278:                                              ; preds = %147
   %279 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %16) #11
-  br label %317
+  br label %316
 
 280:                                              ; preds = %155
   %281 = landingpad { ptr, i32 }
           cleanup
-  br label %317
+  br label %316
 
 282:                                              ; preds = %156
   %283 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %17) #11
-  br label %317
+  br label %316
 
 284:                                              ; preds = %164
   %285 = landingpad { ptr, i32 }
           cleanup
-  br label %317
+  br label %316
 
 286:                                              ; preds = %165
   %287 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #11
-  br label %317
+  br label %316
 
 288:                                              ; preds = %173
   %289 = landingpad { ptr, i32 }
           cleanup
-  br label %317
+  br label %316
 
 290:                                              ; preds = %174
   %291 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %19) #11
-  br label %317
+  br label %316
 
 292:                                              ; preds = %182
   %293 = landingpad { ptr, i32 }
           cleanup
-  br label %317
+  br label %316
 
 294:                                              ; preds = %183
   %295 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %20) #11
-  br label %317
+  br label %316
 
 296:                                              ; preds = %191
   %297 = landingpad { ptr, i32 }
           cleanup
-  br label %317
+  br label %316
 
 298:                                              ; preds = %192
   %299 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %21) #11
-  br label %317
+  br label %316
 
 300:                                              ; preds = %200
   %301 = landingpad { ptr, i32 }
           cleanup
-  br label %317
+  br label %316
 
 302:                                              ; preds = %201
   %303 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %22) #11
-  br label %317
+  br label %316
 
 304:                                              ; preds = %209
   %305 = landingpad { ptr, i32 }
           cleanup
-  br label %317
+  br label %316
 
 306:                                              ; preds = %210
   %307 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %23) #11
-  br label %317
+  br label %316
 
 308:                                              ; preds = %218
   %309 = landingpad { ptr, i32 }
           cleanup
-  br label %317
+  br label %316
 
 310:                                              ; preds = %219
   %311 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %24) #11
-  br label %317
+  br label %316
 
 switch.lookup:                                    ; preds = %222
   %312 = zext nneg i32 %1 to i64
   %switch.gep = getelementptr inbounds [22 x ptr], ptr @switch.table._ZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeE, i64 0, i64 %312
   %switch.load = load ptr, ptr %switch.gep, align 8
   %313 = zext nneg i32 %1 to i64
-  %switch.gep98 = getelementptr inbounds [22 x ptr], ptr @switch.table._ZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeE.1, i64 0, i64 %313
-  %switch.load99 = load ptr, ptr %switch.gep98, align 8
+  %switch.gep97 = getelementptr inbounds [22 x ptr], ptr @switch.table._ZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeE.1, i64 0, i64 %313
+  %switch.load98 = load ptr, ptr %switch.gep97, align 8
   br label %314
 
 314:                                              ; preds = %222, %switch.lookup
   %_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE16DICT_4X4_50_DATA.sink = phi ptr [ %switch.load, %switch.lookup ], [ @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE16DICT_4X4_50_DATA, %222 ]
-  %.sink97 = phi ptr [ %switch.load99, %switch.lookup ], [ getelementptr inbounds (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE16DICT_4X4_50_DATA, i64 96), %222 ]
-  %315 = getelementptr inbounds i8, ptr %0, i64 96
+  %.sink.in = phi ptr [ %switch.load98, %switch.lookup ], [ getelementptr inbounds (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE16DICT_4X4_50_DATA, i64 96), %222 ]
   call void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE16DICT_4X4_50_DATA.sink)
-  %316 = load i64, ptr %.sink97, align 8
-  store i64 %316, ptr %315, align 8
+  %.sink = load i64, ptr %.sink.in, align 8
+  %315 = getelementptr inbounds i8, ptr %0, i64 96
+  store i64 %.sink, ptr %315, align 8
   ret void
 
-317:                                              ; preds = %308, %310, %304, %306, %300, %302, %296, %298, %292, %294, %288, %290, %284, %286, %280, %282, %276, %278, %272, %274, %268, %270, %264, %266, %260, %262, %256, %258, %252, %254, %248, %250, %244, %246, %240, %242, %236, %238, %232, %234, %228, %230, %224, %226
+316:                                              ; preds = %308, %310, %304, %306, %300, %302, %296, %298, %292, %294, %288, %290, %284, %286, %280, %282, %276, %278, %272, %274, %268, %270, %264, %266, %260, %262, %256, %258, %252, %254, %248, %250, %244, %246, %240, %242, %236, %238, %232, %234, %228, %230, %224, %226
   %_ZGVZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE25DICT_ARUCO_MIP_36h12_DATA.sink = phi ptr [ @_ZGVZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE15DICT_ARUCO_DATA, %226 ], [ @_ZGVZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE15DICT_ARUCO_DATA, %224 ], [ @_ZGVZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE16DICT_4X4_50_DATA, %230 ], [ @_ZGVZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE16DICT_4X4_50_DATA, %228 ], [ @_ZGVZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE17DICT_4X4_100_DATA, %234 ], [ @_ZGVZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE17DICT_4X4_100_DATA, %232 ], [ @_ZGVZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE17DICT_4X4_250_DATA, %238 ], [ @_ZGVZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE17DICT_4X4_250_DATA, %236 ], [ @_ZGVZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE18DICT_4X4_1000_DATA, %242 ], [ @_ZGVZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE18DICT_4X4_1000_DATA, %240 ], [ @_ZGVZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE16DICT_5X5_50_DATA, %246 ], [ @_ZGVZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE16DICT_5X5_50_DATA, %244 ], [ @_ZGVZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE17DICT_5X5_100_DATA, %250 ], [ @_ZGVZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE17DICT_5X5_100_DATA, %248 ], [ @_ZGVZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE17DICT_5X5_250_DATA, %254 ], [ @_ZGVZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE17DICT_5X5_250_DATA, %252 ], [ @_ZGVZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE18DICT_5X5_1000_DATA, %258 ], [ @_ZGVZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE18DICT_5X5_1000_DATA, %256 ], [ @_ZGVZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE16DICT_6X6_50_DATA, %262 ], [ @_ZGVZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE16DICT_6X6_50_DATA, %260 ], [ @_ZGVZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE17DICT_6X6_100_DATA, %266 ], [ @_ZGVZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE17DICT_6X6_100_DATA, %264 ], [ @_ZGVZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE17DICT_6X6_250_DATA, %270 ], [ @_ZGVZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE17DICT_6X6_250_DATA, %268 ], [ @_ZGVZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE18DICT_6X6_1000_DATA, %274 ], [ @_ZGVZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE18DICT_6X6_1000_DATA, %272 ], [ @_ZGVZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE16DICT_7X7_50_DATA, %278 ], [ @_ZGVZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE16DICT_7X7_50_DATA, %276 ], [ @_ZGVZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE17DICT_7X7_100_DATA, %282 ], [ @_ZGVZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE17DICT_7X7_100_DATA, %280 ], [ @_ZGVZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE17DICT_7X7_250_DATA, %286 ], [ @_ZGVZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE17DICT_7X7_250_DATA, %284 ], [ @_ZGVZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE18DICT_7X7_1000_DATA, %290 ], [ @_ZGVZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE18DICT_7X7_1000_DATA, %288 ], [ @_ZGVZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE23DICT_APRILTAG_16h5_DATA, %294 ], [ @_ZGVZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE23DICT_APRILTAG_16h5_DATA, %292 ], [ @_ZGVZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE23DICT_APRILTAG_25h9_DATA, %298 ], [ @_ZGVZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE23DICT_APRILTAG_25h9_DATA, %296 ], [ @_ZGVZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE24DICT_APRILTAG_36h10_DATA, %302 ], [ @_ZGVZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE24DICT_APRILTAG_36h10_DATA, %300 ], [ @_ZGVZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE24DICT_APRILTAG_36h11_DATA, %306 ], [ @_ZGVZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE24DICT_APRILTAG_36h11_DATA, %304 ], [ @_ZGVZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE25DICT_ARUCO_MIP_36h12_DATA, %310 ], [ @_ZGVZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE25DICT_ARUCO_MIP_36h12_DATA, %308 ]
   %.pn94.pn = phi { ptr, i32 } [ %227, %226 ], [ %225, %224 ], [ %231, %230 ], [ %229, %228 ], [ %235, %234 ], [ %233, %232 ], [ %239, %238 ], [ %237, %236 ], [ %243, %242 ], [ %241, %240 ], [ %247, %246 ], [ %245, %244 ], [ %251, %250 ], [ %249, %248 ], [ %255, %254 ], [ %253, %252 ], [ %259, %258 ], [ %257, %256 ], [ %263, %262 ], [ %261, %260 ], [ %267, %266 ], [ %265, %264 ], [ %271, %270 ], [ %269, %268 ], [ %275, %274 ], [ %273, %272 ], [ %279, %278 ], [ %277, %276 ], [ %283, %282 ], [ %281, %280 ], [ %287, %286 ], [ %285, %284 ], [ %291, %290 ], [ %289, %288 ], [ %295, %294 ], [ %293, %292 ], [ %299, %298 ], [ %297, %296 ], [ %303, %302 ], [ %301, %300 ], [ %307, %306 ], [ %305, %304 ], [ %311, %310 ], [ %309, %308 ]
   call void @__cxa_guard_abort(ptr nonnull %_ZGVZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE25DICT_ARUCO_MIP_36h12_DATA.sink) #11

@@ -2607,34 +2607,34 @@ flush_pending.exit398:                            ; preds = %flush_pending.exit3
   br label %840
 
 840:                                              ; preds = %816, %758
-  %.sink452 = phi ptr [ %820, %816 ], [ %760, %758 ]
+  %.sink447.in = phi ptr [ %820, %816 ], [ %760, %758 ]
   %.sink.in = phi i64 [ %832, %816 ], [ %815, %758 ]
   %.sink = trunc i64 %.sink.in to i8
-  %841 = load ptr, ptr %.sink452, align 8
-  %842 = load i32, ptr %635, align 8
-  %843 = add i32 %842, 1
-  store i32 %843, ptr %635, align 8
-  %844 = zext i32 %842 to i64
-  %845 = getelementptr inbounds i8, ptr %841, i64 %844
-  store i8 %.sink, ptr %845, align 1
+  %.sink447 = load ptr, ptr %.sink447.in, align 8
+  %841 = load i32, ptr %635, align 8
+  %842 = add i32 %841, 1
+  store i32 %842, ptr %635, align 8
+  %843 = zext i32 %841 to i64
+  %844 = getelementptr inbounds i8, ptr %.sink447, i64 %843
+  store i8 %.sink, ptr %844, align 1
   tail call fastcc void @flush_pending(ptr noundef nonnull %0)
-  %846 = load i32, ptr %751, align 4
-  %847 = icmp sgt i32 %846, 0
-  br i1 %847, label %848, label %850
+  %845 = load i32, ptr %751, align 4
+  %846 = icmp sgt i32 %845, 0
+  br i1 %846, label %847, label %849
 
-848:                                              ; preds = %840
-  %849 = sub nsw i32 0, %846
-  store i32 %849, ptr %751, align 4
-  br label %850
+847:                                              ; preds = %840
+  %848 = sub nsw i32 0, %845
+  store i32 %848, ptr %751, align 4
+  br label %849
 
-850:                                              ; preds = %848, %840
-  %851 = load i32, ptr %635, align 8
-  %.not390 = icmp eq i32 %851, 0
-  %852 = zext i1 %.not390 to i32
+849:                                              ; preds = %847, %840
+  %850 = load i32, ptr %635, align 8
+  %.not390 = icmp eq i32 %850, 0
+  %851 = zext i1 %.not390 to i32
   br label %.thread415
 
-.thread415:                                       ; preds = %693, %750, %749, %715, %718, %2, %4, %850, %748, %687, %678, %665, %31, %24
-  %.0 = phi i32 [ -2, %24 ], [ -5, %31 ], [ 0, %665 ], [ -5, %687 ], [ 0, %748 ], [ %852, %850 ], [ -5, %678 ], [ -2, %4 ], [ -2, %2 ], [ 0, %718 ], [ 0, %715 ], [ 0, %749 ], [ 1, %750 ], [ 0, %693 ]
+.thread415:                                       ; preds = %693, %750, %749, %715, %718, %2, %4, %849, %748, %687, %678, %665, %31, %24
+  %.0 = phi i32 [ -2, %24 ], [ -5, %31 ], [ 0, %665 ], [ -5, %687 ], [ 0, %748 ], [ %851, %849 ], [ -5, %678 ], [ -2, %4 ], [ -2, %2 ], [ 0, %718 ], [ 0, %715 ], [ 0, %749 ], [ 1, %750 ], [ 0, %693 ]
   ret i32 %.0
 }
 

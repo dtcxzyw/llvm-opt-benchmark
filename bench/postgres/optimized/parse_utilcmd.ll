@@ -6062,93 +6062,114 @@ define internal fastcc void @generateSerialExtraStmts(ptr nocapture noundef nonn
   %89 = getelementptr inbounds i8, ptr %0, i64 24
   %90 = load ptr, ptr %89, align 8
   %.not110 = icmp eq ptr %90, null
-  %91 = getelementptr inbounds i8, ptr %0, i64 16
+  br i1 %.not110, label %95, label %91
+
+91:                                               ; preds = %84
   %92 = getelementptr inbounds i8, ptr %90, i64 56
-  %.sink146 = select i1 %.not110, ptr %91, ptr %92
-  %.sink145 = select i1 %.not110, i64 33, i64 114
-  %93 = load ptr, ptr %.sink146, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 %.sink145
-  %.in111 = load i8, ptr %94, align 1
-  %95 = getelementptr inbounds i8, ptr %87, i64 33
-  store i8 %.in111, ptr %95, align 1
-  %96 = getelementptr inbounds i8, ptr %85, i64 16
-  store ptr %.0, ptr %96, align 8
+  %93 = load ptr, ptr %92, align 8
+  %94 = getelementptr inbounds i8, ptr %93, i64 114
+  br label %99
+
+95:                                               ; preds = %84
+  %96 = getelementptr inbounds i8, ptr %0, i64 16
+  %97 = load ptr, ptr %96, align 8
+  %98 = getelementptr inbounds i8, ptr %97, i64 33
+  br label %99
+
+99:                                               ; preds = %95, %91
+  %.in.in = phi ptr [ %94, %91 ], [ %98, %95 ]
+  %.in111 = load i8, ptr %.in.in, align 1
+  %100 = getelementptr inbounds i8, ptr %87, i64 33
+  store i8 %.in111, ptr %100, align 1
+  %101 = getelementptr inbounds i8, ptr %85, i64 16
+  store ptr %.0, ptr %101, align 8
   %.not112 = icmp eq i32 %2, 0
-  br i1 %.not112, label %102, label %97
+  br i1 %.not112, label %107, label %102
 
-97:                                               ; preds = %84
-  %98 = tail call ptr @makeTypeNameFromOid(i32 noundef %2, i32 noundef -1) #8
-  %99 = tail call ptr @makeDefElem(ptr noundef nonnull @.str.37, ptr noundef %98, i32 noundef -1) #8
-  %100 = load ptr, ptr %96, align 8
-  %101 = tail call ptr @lcons(ptr noundef %99, ptr noundef %100) #8
-  store ptr %101, ptr %96, align 8
-  br label %102
+102:                                              ; preds = %99
+  %103 = tail call ptr @makeTypeNameFromOid(i32 noundef %2, i32 noundef -1) #8
+  %104 = tail call ptr @makeDefElem(ptr noundef nonnull @.str.37, ptr noundef %103, i32 noundef -1) #8
+  %105 = load ptr, ptr %101, align 8
+  %106 = tail call ptr @lcons(ptr noundef %104, ptr noundef %105) #8
+  store ptr %106, ptr %101, align 8
+  br label %107
 
-102:                                              ; preds = %97, %84
-  %103 = load ptr, ptr %89, align 8
-  %.not113 = icmp eq ptr %103, null
-  br i1 %.not113, label %109, label %104
+107:                                              ; preds = %102, %99
+  %108 = load ptr, ptr %89, align 8
+  %.not113 = icmp eq ptr %108, null
+  br i1 %.not113, label %114, label %109
 
-104:                                              ; preds = %102
-  %105 = getelementptr inbounds i8, ptr %103, i64 56
-  %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 80
-  %108 = load i32, ptr %107, align 4
-  br label %109
+109:                                              ; preds = %107
+  %110 = getelementptr inbounds i8, ptr %108, i64 56
+  %111 = load ptr, ptr %110, align 8
+  %112 = getelementptr inbounds i8, ptr %111, i64 80
+  %113 = load i32, ptr %112, align 4
+  br label %114
 
-109:                                              ; preds = %102, %104
-  %.sink = phi i32 [ %108, %104 ], [ 0, %102 ]
-  %110 = getelementptr inbounds i8, ptr %85, i64 24
-  store i32 %.sink, ptr %110, align 8
-  %111 = getelementptr inbounds i8, ptr %0, i64 104
-  %112 = load ptr, ptr %111, align 8
-  %113 = tail call ptr @lappend(ptr noundef %112, ptr noundef nonnull %85) #8
-  store ptr %113, ptr %111, align 8
-  %114 = load ptr, ptr %88, align 8
-  %115 = getelementptr inbounds i8, ptr %1, i64 72
-  store ptr %114, ptr %115, align 8
-  %116 = tail call noundef ptr @palloc0(i64 noundef 32) #8
-  store i32 174, ptr %116, align 4
-  %117 = tail call ptr @makeRangeVar(ptr noundef %.192, ptr noundef %.093, i32 noundef -1) #8
-  %118 = getelementptr inbounds i8, ptr %116, i64 8
-  store ptr %117, ptr %118, align 8
-  %119 = tail call ptr @makeString(ptr noundef %.192) #8
-  %120 = getelementptr inbounds i8, ptr %0, i64 16
-  %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 24
-  %123 = load ptr, ptr %122, align 8
-  %124 = tail call ptr @makeString(ptr noundef %123) #8
-  %125 = getelementptr inbounds i8, ptr %1, i64 8
+114:                                              ; preds = %107, %109
+  %.sink = phi i32 [ %113, %109 ], [ 0, %107 ]
+  %115 = getelementptr inbounds i8, ptr %85, i64 24
+  store i32 %.sink, ptr %115, align 8
+  %116 = getelementptr inbounds i8, ptr %0, i64 104
+  %117 = load ptr, ptr %116, align 8
+  %118 = tail call ptr @lappend(ptr noundef %117, ptr noundef nonnull %85) #8
+  store ptr %118, ptr %116, align 8
+  %119 = load ptr, ptr %88, align 8
+  %120 = getelementptr inbounds i8, ptr %1, i64 72
+  store ptr %119, ptr %120, align 8
+  %121 = tail call noundef ptr @palloc0(i64 noundef 32) #8
+  store i32 174, ptr %121, align 4
+  %122 = tail call ptr @makeRangeVar(ptr noundef %.192, ptr noundef %.093, i32 noundef -1) #8
+  %123 = getelementptr inbounds i8, ptr %121, i64 8
+  store ptr %122, ptr %123, align 8
+  %124 = tail call ptr @makeString(ptr noundef %.192) #8
+  %125 = getelementptr inbounds i8, ptr %0, i64 16
   %126 = load ptr, ptr %125, align 8
-  %127 = tail call ptr @makeString(ptr noundef %126) #8
-  %128 = tail call ptr @list_make3_impl(i32 noundef 1, ptr %119, ptr %124, ptr %127) #8
-  %129 = tail call ptr @makeDefElem(ptr noundef nonnull @.str.117, ptr noundef %128, i32 noundef -1) #8
-  %130 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %129) #8
-  %131 = getelementptr inbounds i8, ptr %116, i64 16
-  store ptr %130, ptr %131, align 8
-  %132 = getelementptr inbounds i8, ptr %116, i64 24
-  store i8 %9, ptr %132, align 8
-  %133 = getelementptr inbounds i8, ptr %0, i64 112
-  %.sink150 = select i1 %5, ptr %111, ptr %133
-  %134 = load ptr, ptr %.sink150, align 8
-  %135 = tail call ptr @lappend(ptr noundef %134, ptr noundef nonnull %116) #8
-  store ptr %135, ptr %.sink150, align 8
+  %127 = getelementptr inbounds i8, ptr %126, i64 24
+  %128 = load ptr, ptr %127, align 8
+  %129 = tail call ptr @makeString(ptr noundef %128) #8
+  %130 = getelementptr inbounds i8, ptr %1, i64 8
+  %131 = load ptr, ptr %130, align 8
+  %132 = tail call ptr @makeString(ptr noundef %131) #8
+  %133 = tail call ptr @list_make3_impl(i32 noundef 1, ptr %124, ptr %129, ptr %132) #8
+  %134 = tail call ptr @makeDefElem(ptr noundef nonnull @.str.117, ptr noundef %133, i32 noundef -1) #8
+  %135 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %134) #8
+  %136 = getelementptr inbounds i8, ptr %121, i64 16
+  store ptr %135, ptr %136, align 8
+  %137 = getelementptr inbounds i8, ptr %121, i64 24
+  store i8 %9, ptr %137, align 8
+  br i1 %5, label %138, label %141
+
+138:                                              ; preds = %114
+  %139 = load ptr, ptr %116, align 8
+  %140 = tail call ptr @lappend(ptr noundef %139, ptr noundef nonnull %121) #8
+  store ptr %140, ptr %116, align 8
+  br label %145
+
+141:                                              ; preds = %114
+  %142 = getelementptr inbounds i8, ptr %0, i64 112
+  %143 = load ptr, ptr %142, align 8
+  %144 = tail call ptr @lappend(ptr noundef %143, ptr noundef nonnull %121) #8
+  store ptr %144, ptr %142, align 8
+  br label %145
+
+145:                                              ; preds = %141, %138
   %.not114 = icmp eq ptr %6, null
-  br i1 %.not114, label %137, label %136
+  br i1 %.not114, label %147, label %146
 
-136:                                              ; preds = %109
+146:                                              ; preds = %145
   store ptr %.192, ptr %6, align 8
-  br label %137
+  br label %147
 
-137:                                              ; preds = %136, %109
+147:                                              ; preds = %146, %145
   %.not115 = icmp eq ptr %7, null
-  br i1 %.not115, label %139, label %138
+  br i1 %.not115, label %149, label %148
 
-138:                                              ; preds = %137
+148:                                              ; preds = %147
   store ptr %.093, ptr %7, align 8
-  br label %139
+  br label %149
 
-139:                                              ; preds = %138, %137
+149:                                              ; preds = %148, %147
   ret void
 }
 

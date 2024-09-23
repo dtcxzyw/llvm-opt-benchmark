@@ -5669,100 +5669,96 @@ define dso_local noundef ptr @_ZN4llvm13IRBuilderBase17CreateVectorSplatENS_12El
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %17 = load i8, ptr %16, align 8, !noalias !16
-  switch i8 %17, label %18 [
+  switch i8 %17, label %19 [
     i8 0, label %_ZN4llvmplERKNS_5TwineES2_.exit
-    i8 1, label %_ZN4llvmplERKNS_5TwineES2_.exit.sink.split
+    i8 1, label %18
   ]
 
 18:                                               ; preds = %4
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 33
-  %20 = load i8, ptr %19, align 1, !noalias !16
-  %21 = icmp eq i8 %20, 1
+  store ptr @.str.4, ptr %5, align 8
+  br label %_ZN4llvmplERKNS_5TwineES2_.exit
+
+19:                                               ; preds = %4
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 33
+  %21 = load i8, ptr %20, align 1, !noalias !16
+  %22 = icmp eq i8 %21, 1
   %.sroa.05.0.copyload.i.i = load ptr, ptr %3, align 8, !noalias !16
   %.sroa.36.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %.sroa.36.0.copyload.i.i = load i64, ptr %.sroa.36.0..sroa_idx.i.i, align 8, !noalias !16
-  %.014.i.i = select i1 %21, i8 %17, i8 2
-  %.sroa.05.0.i.i = select i1 %21, ptr %.sroa.05.0.copyload.i.i, ptr %3
-  %.sroa.36.0.i.i = select i1 %21, i64 %.sroa.36.0.copyload.i.i, i64 undef
+  %.014.i.i = select i1 %22, i8 %17, i8 2
+  %.sroa.05.0.i.i = select i1 %22, ptr %.sroa.05.0.copyload.i.i, ptr %3
+  %.sroa.36.0.i.i = select i1 %22, i64 %.sroa.36.0.copyload.i.i, i64 undef
   store ptr %.sroa.05.0.i.i, ptr %5, align 8, !alias.scope !16
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %.sroa.36.0.i.i, ptr %.sroa.23.0..sroa_idx.i.i.i, align 8, !alias.scope !16
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  br label %_ZN4llvmplERKNS_5TwineES2_.exit.sink.split
-
-_ZN4llvmplERKNS_5TwineES2_.exit.sink.split:       ; preds = %4, %18
-  %.sink37 = phi ptr [ %22, %18 ], [ %5, %4 ]
-  %.sink31.ph = phi i8 [ %.014.i.i, %18 ], [ 3, %4 ]
-  %.sink.ph = phi i8 [ 3, %18 ], [ %17, %4 ]
-  store ptr @.str.4, ptr %.sink37, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr @.str.4, ptr %23, align 8, !alias.scope !16
   br label %_ZN4llvmplERKNS_5TwineES2_.exit
 
-_ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit.sink.split, %4
-  %.sink31 = phi i8 [ %17, %4 ], [ %.sink31.ph, %_ZN4llvmplERKNS_5TwineES2_.exit.sink.split ]
-  %.sink = phi i8 [ 1, %4 ], [ %.sink.ph, %_ZN4llvmplERKNS_5TwineES2_.exit.sink.split ]
-  %23 = getelementptr inbounds i8, ptr %5, i64 32
-  store i8 %.sink31, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %5, i64 33
-  store i8 %.sink, ptr %24, align 1
-  %25 = call noundef ptr @_ZN4llvm13IRBuilderBase19CreateInsertElementEPNS_5ValueES2_S2_RKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %11, ptr noundef nonnull %2, ptr noundef %15, ptr noundef nonnull align 8 dereferenceable(34) %5)
-  %26 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %26, i64 noundef 16) #19
+_ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %4, %18, %19
+  %.sink31 = phi i8 [ 3, %18 ], [ %.014.i.i, %19 ], [ %17, %4 ]
+  %.sink = phi i8 [ 1, %18 ], [ 3, %19 ], [ 1, %4 ]
+  %24 = getelementptr inbounds i8, ptr %5, i64 32
+  store i8 %.sink31, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %5, i64 33
+  store i8 %.sink, ptr %25, align 1
+  %26 = call noundef ptr @_ZN4llvm13IRBuilderBase19CreateInsertElementEPNS_5ValueES2_S2_RKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %11, ptr noundef nonnull %2, ptr noundef %15, ptr noundef nonnull align 8 dereferenceable(34) %5)
+  %27 = getelementptr inbounds i8, ptr %6, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %27, i64 noundef 16) #19
   call void @_ZN4llvm15SmallVectorImplIiE10resizeImplILb0EEEvm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %.sroa.022.0.insert.ext)
-  %27 = load ptr, ptr %6, align 8
-  %28 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #19
+  %28 = load ptr, ptr %6, align 8
+  %29 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #19
   call void @llvm.experimental.noalias.scope.decl(metadata !17)
   call void @llvm.experimental.noalias.scope.decl(metadata !20)
-  %29 = load i8, ptr %16, align 8, !noalias !23
-  switch i8 %29, label %30 [
+  %30 = load i8, ptr %16, align 8, !noalias !23
+  switch i8 %30, label %32 [
     i8 0, label %_ZN4llvmplERKNS_5TwineES2_.exit21
-    i8 1, label %_ZN4llvmplERKNS_5TwineES2_.exit21.sink.split
+    i8 1, label %31
   ]
 
-30:                                               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit
-  %31 = getelementptr inbounds nuw i8, ptr %3, i64 33
-  %32 = load i8, ptr %31, align 1, !noalias !23
-  %33 = icmp eq i8 %32, 1
+31:                                               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit
+  store ptr @.str.5, ptr %7, align 8
+  br label %_ZN4llvmplERKNS_5TwineES2_.exit21
+
+32:                                               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 33
+  %34 = load i8, ptr %33, align 1, !noalias !23
+  %35 = icmp eq i8 %34, 1
   %.sroa.05.0.copyload.i.i7 = load ptr, ptr %3, align 8, !noalias !23
   %.sroa.36.0..sroa_idx.i.i8 = getelementptr inbounds i8, ptr %3, i64 8
   %.sroa.36.0.copyload.i.i9 = load i64, ptr %.sroa.36.0..sroa_idx.i.i8, align 8, !noalias !23
-  %.014.i.i10 = select i1 %33, i8 %29, i8 2
-  %.sroa.05.0.i.i11 = select i1 %33, ptr %.sroa.05.0.copyload.i.i7, ptr %3
-  %.sroa.36.0.i.i12 = select i1 %33, i64 %.sroa.36.0.copyload.i.i9, i64 undef
+  %.014.i.i10 = select i1 %35, i8 %30, i8 2
+  %.sroa.05.0.i.i11 = select i1 %35, ptr %.sroa.05.0.copyload.i.i7, ptr %3
+  %.sroa.36.0.i.i12 = select i1 %35, i64 %.sroa.36.0.copyload.i.i9, i64 undef
   store ptr %.sroa.05.0.i.i11, ptr %7, align 8, !alias.scope !23
   %.sroa.23.0..sroa_idx.i.i.i19 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %.sroa.36.0.i.i12, ptr %.sroa.23.0..sroa_idx.i.i.i19, align 8, !alias.scope !23
-  %34 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  br label %_ZN4llvmplERKNS_5TwineES2_.exit21.sink.split
-
-_ZN4llvmplERKNS_5TwineES2_.exit21.sink.split:     ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit, %30
-  %.sink38 = phi ptr [ %34, %30 ], [ %7, %_ZN4llvmplERKNS_5TwineES2_.exit ]
-  %.sink35.ph = phi i8 [ %.014.i.i10, %30 ], [ 3, %_ZN4llvmplERKNS_5TwineES2_.exit ]
-  %.sink33.ph = phi i8 [ 3, %30 ], [ %29, %_ZN4llvmplERKNS_5TwineES2_.exit ]
-  store ptr @.str.5, ptr %.sink38, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr @.str.5, ptr %36, align 8, !alias.scope !23
   br label %_ZN4llvmplERKNS_5TwineES2_.exit21
 
-_ZN4llvmplERKNS_5TwineES2_.exit21:                ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit21.sink.split, %_ZN4llvmplERKNS_5TwineES2_.exit
-  %.sink35 = phi i8 [ %29, %_ZN4llvmplERKNS_5TwineES2_.exit ], [ %.sink35.ph, %_ZN4llvmplERKNS_5TwineES2_.exit21.sink.split ]
-  %.sink33 = phi i8 [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit ], [ %.sink33.ph, %_ZN4llvmplERKNS_5TwineES2_.exit21.sink.split ]
-  %35 = getelementptr inbounds i8, ptr %7, i64 32
-  store i8 %.sink35, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %7, i64 33
-  store i8 %.sink33, ptr %36, align 1
-  %37 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = call noundef ptr @_ZN4llvm11PoisonValue3getEPNS_4TypeE(ptr noundef %38) #19
-  %40 = call noundef ptr @_ZN4llvm13IRBuilderBase19CreateShuffleVectorEPNS_5ValueES2_NS_8ArrayRefIiEERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull %25, ptr noundef %39, ptr %27, i64 %28, ptr noundef nonnull align 8 dereferenceable(34) %7)
-  %41 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #19
-  %42 = load ptr, ptr %6, align 8
-  %43 = icmp eq ptr %42, %26
-  br i1 %43, label %_ZN4llvm11SmallVectorIiLj16EED2Ev.exit, label %44
+_ZN4llvmplERKNS_5TwineES2_.exit21:                ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit, %31, %32
+  %.sink35 = phi i8 [ 3, %31 ], [ %.014.i.i10, %32 ], [ %30, %_ZN4llvmplERKNS_5TwineES2_.exit ]
+  %.sink33 = phi i8 [ 1, %31 ], [ 3, %32 ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit ]
+  %37 = getelementptr inbounds i8, ptr %7, i64 32
+  store i8 %.sink35, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %7, i64 33
+  store i8 %.sink33, ptr %38, align 1
+  %39 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %40 = load ptr, ptr %39, align 8
+  %41 = call noundef ptr @_ZN4llvm11PoisonValue3getEPNS_4TypeE(ptr noundef %40) #19
+  %42 = call noundef ptr @_ZN4llvm13IRBuilderBase19CreateShuffleVectorEPNS_5ValueES2_NS_8ArrayRefIiEERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull %26, ptr noundef %41, ptr %28, i64 %29, ptr noundef nonnull align 8 dereferenceable(34) %7)
+  %43 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #19
+  %44 = load ptr, ptr %6, align 8
+  %45 = icmp eq ptr %44, %27
+  br i1 %45, label %_ZN4llvm11SmallVectorIiLj16EED2Ev.exit, label %46
 
-44:                                               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit21
-  call void @free(ptr noundef %42) #19
+46:                                               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit21
+  call void @free(ptr noundef %44) #19
   br label %_ZN4llvm11SmallVectorIiLj16EED2Ev.exit
 
-_ZN4llvm11SmallVectorIiLj16EED2Ev.exit:           ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit21, %44
-  ret ptr %40
+_ZN4llvm11SmallVectorIiLj16EED2Ev.exit:           ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit21, %46
+  ret ptr %42
 }
 
 declare noundef ptr @_ZN4llvm10VectorType3getEPNS_4TypeENS_12ElementCountE(ptr noundef, i64) local_unnamed_addr #1

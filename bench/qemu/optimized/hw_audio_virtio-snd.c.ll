@@ -498,7 +498,8 @@ if.then2.i:                                       ; preds = %virtio_snd_pcm_flus
   %voice.i = getelementptr inbounds i8, ptr %13, i64 120
   %24 = load ptr, ptr %voice.i, align 8
   tail call void @AUD_close_out(ptr noundef nonnull %card.i, ptr noundef %24) #11
-  br label %if.end16.sink.split.i
+  store ptr null, ptr %voice.i, align 8
+  br label %virtio_snd_pcm_close.exit
 
 if.then9.i:                                       ; preds = %virtio_snd_pcm_flush.exit.i
   %25 = load ptr, ptr %13, align 8
@@ -507,14 +508,10 @@ if.then9.i:                                       ; preds = %virtio_snd_pcm_flus
   %voice13.i = getelementptr inbounds i8, ptr %13, i64 120
   %27 = load ptr, ptr %voice13.i, align 8
   tail call void @AUD_close_in(ptr noundef nonnull %card12.i, ptr noundef %27) #11
-  br label %if.end16.sink.split.i
-
-if.end16.sink.split.i:                            ; preds = %if.then9.i, %if.then2.i
-  %voice.sink.i = phi ptr [ %voice.i, %if.then2.i ], [ %voice13.i, %if.then9.i ]
-  store ptr null, ptr %voice.sink.i, align 8
+  store ptr null, ptr %voice13.i, align 8
   br label %virtio_snd_pcm_close.exit
 
-virtio_snd_pcm_close.exit:                        ; preds = %virtio_snd_pcm_flush.exit.i, %if.end16.sink.split.i
+virtio_snd_pcm_close.exit:                        ; preds = %virtio_snd_pcm_flush.exit.i, %if.then2.i, %if.then9.i
   tail call void @qemu_mutex_destroy(ptr noundef nonnull %queue_mutex.i.i) #11
   tail call void @g_free(ptr noundef nonnull %13) #11
   %.pre = load i32, ptr %streams5, align 4
@@ -732,16 +729,25 @@ while.cond.preheader.us:
   %cmp.not15.us = icmp eq ptr %2, null
   br i1 %cmp.not15.us, label %qemu_lockable_auto_unlock.exit.us, label %while.body.us
 
-while.body.us:                                    ; preds = %while.cond.preheader.us, %while.body.us
-  %3 = phi ptr [ %8, %while.body.us ], [ %2, %while.cond.preheader.us ]
+while.body.us:                                    ; preds = %while.cond.preheader.us, %if.end.us
+  %3 = phi ptr [ %8, %if.end.us ], [ %2, %while.cond.preheader.us ]
   %next.us = getelementptr inbounds i8, ptr %3, i64 24
   %4 = load ptr, ptr %next.us, align 8
   %cmp3.not.us = icmp eq ptr %4, null
   %tql_prev9.us = getelementptr inbounds i8, ptr %3, i64 32
   %5 = load ptr, ptr %tql_prev9.us, align 8
+  br i1 %cmp3.not.us, label %if.else.us, label %if.then.us
+
+if.then.us:                                       ; preds = %while.body.us
   %tql_prev7.us = getelementptr inbounds i8, ptr %4, i64 32
-  %tql_prev11.sink = select i1 %cmp3.not.us, ptr %tql_prev11, ptr %tql_prev7.us
-  store ptr %5, ptr %tql_prev11.sink, align 8
+  store ptr %5, ptr %tql_prev7.us, align 8
+  br label %if.end.us
+
+if.else.us:                                       ; preds = %while.body.us
+  store ptr %5, ptr %tql_prev11, align 8
+  br label %if.end.us
+
+if.end.us:                                        ; preds = %if.else.us, %if.then.us
   %6 = load ptr, ptr %next.us, align 8
   store ptr %6, ptr %5, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.us, i8 0, i64 16, i1 false)
@@ -752,7 +758,7 @@ while.body.us:                                    ; preds = %while.cond.preheade
   %cmp.not.us = icmp eq ptr %8, null
   br i1 %cmp.not.us, label %qemu_lockable_auto_unlock.exit.us, label %while.body.us, !llvm.loop !10
 
-qemu_lockable_auto_unlock.exit.us:                ; preds = %while.body.us, %while.cond.preheader.us
+qemu_lockable_auto_unlock.exit.us:                ; preds = %if.end.us, %while.cond.preheader.us
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %cmdq_mutex, ptr noundef nonnull @.str.26, i32 noundef 132) #11
   ret void
 }
@@ -1641,8 +1647,8 @@ if.end:                                           ; preds = %entry
   %cmp.not21 = icmp eq ptr %3, null
   br i1 %cmp.not21, label %qemu_lockable_auto_unlock.exit, label %while.body18
 
-while.body18:                                     ; preds = %if.end, %process_cmd.exit
-  %4 = phi ptr [ %128, %process_cmd.exit ], [ %3, %if.end ]
+while.body18:                                     ; preds = %if.end, %if.end32
+  %4 = phi ptr [ %128, %if.end32 ], [ %3, %if.end ]
   %5 = load ptr, ptr %4, align 8
   %out_sg.i = getelementptr inbounds i8, ptr %5, i64 48
   %6 = load ptr, ptr %out_sg.i, align 8
@@ -2396,9 +2402,18 @@ process_cmd.exit:                                 ; preds = %do.body.i, %if.then
   %cmp21.not = icmp eq ptr %124, null
   %tql_prev29 = getelementptr inbounds i8, ptr %4, i64 32
   %125 = load ptr, ptr %tql_prev29, align 8
+  br i1 %cmp21.not, label %if.else, label %if.then23
+
+if.then23:                                        ; preds = %process_cmd.exit
   %tql_prev27 = getelementptr inbounds i8, ptr %124, i64 32
-  %tql_prev31.sink = select i1 %cmp21.not, ptr %tql_prev31, ptr %tql_prev27
-  store ptr %125, ptr %tql_prev31.sink, align 8
+  store ptr %125, ptr %tql_prev27, align 8
+  br label %if.end32
+
+if.else:                                          ; preds = %process_cmd.exit
+  store ptr %125, ptr %tql_prev31, align 8
+  br label %if.end32
+
+if.end32:                                         ; preds = %if.else, %if.then23
   %126 = load ptr, ptr %next, align 8
   store ptr %126, ptr %125, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next, i8 0, i64 16, i1 false)
@@ -2409,7 +2424,7 @@ process_cmd.exit:                                 ; preds = %do.body.i, %if.then
   %cmp.not = icmp eq ptr %128, null
   br i1 %cmp.not, label %qemu_lockable_auto_unlock.exit, label %while.body18, !llvm.loop !15
 
-qemu_lockable_auto_unlock.exit:                   ; preds = %process_cmd.exit, %if.end
+qemu_lockable_auto_unlock.exit:                   ; preds = %if.end32, %if.end
   store atomic i8 0, ptr %processing_cmdq monotonic, align 8
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %cmdq_mutex, ptr noundef nonnull @.str.26, i32 noundef 132) #11
   br label %for.end

@@ -3548,7 +3548,7 @@ define void @_ZN5Nbnxm4Grid17calcColumnIndicesERKNS0_10DimensionsEPKN3gmx15Updat
   %41 = load ptr, ptr %10, align 8
   %42 = sext i32 %28 to i64
   %wide.trip.count = sext i32 %34 to i64
-  br label %124
+  br label %132
 
 .preheader:                                       ; preds = %._crit_edge
   br i1 %36, label %.lr.ph121, label %.loopexit
@@ -3557,165 +3557,174 @@ define void @_ZN5Nbnxm4Grid17calcColumnIndicesERKNS0_10DimensionsEPKN3gmx15Updat
   %43 = icmp eq ptr %6, null
   %44 = load ptr, ptr %9, align 8
   %45 = load ptr, ptr %10, align 8
+  %46 = sext i32 %16 to i64
+  %47 = getelementptr inbounds i32, ptr %45, i64 %46
   %.not = icmp eq ptr %1, null
-  %46 = getelementptr inbounds i8, ptr %1, i64 24
-  %47 = getelementptr inbounds i8, ptr %0, i64 52
-  %48 = getelementptr inbounds i8, ptr %0, i64 4
-  %49 = getelementptr inbounds i8, ptr %0, i64 56
-  %50 = sext i32 %28 to i64
+  %48 = getelementptr inbounds i8, ptr %1, i64 24
+  %49 = getelementptr inbounds i8, ptr %0, i64 52
+  %50 = getelementptr inbounds i8, ptr %0, i64 4
+  %51 = getelementptr inbounds i8, ptr %0, i64 56
+  %52 = sext i32 %28 to i64
   %wide.trip.count134 = sext i32 %34 to i64
   br i1 %43, label %.lr.ph121.split.us, label %.lr.ph121.split
 
-.lr.ph121.split.us:                               ; preds = %.lr.ph121, %60
-  %indvars.iv131 = phi i64 [ %indvars.iv.next132, %60 ], [ %50, %.lr.ph121 ]
-  br i1 %.not, label %58, label %51
+.lr.ph121.split.us:                               ; preds = %.lr.ph121, %62
+  %indvars.iv131 = phi i64 [ %indvars.iv.next132, %62 ], [ %52, %.lr.ph121 ]
+  br i1 %.not, label %60, label %53
 
-51:                                               ; preds = %.lr.ph121.split.us
-  %52 = load ptr, ptr %1, align 8
-  %53 = getelementptr inbounds i32, ptr %52, i64 %indvars.iv131
-  %54 = load i32, ptr %53, align 4
-  %55 = sext i32 %54 to i64
-  %56 = load ptr, ptr %46, align 8
-  %57 = getelementptr inbounds %"class.gmx::BasicVector", ptr %56, i64 %55
-  br label %60
+53:                                               ; preds = %.lr.ph121.split.us
+  %54 = load ptr, ptr %1, align 8
+  %55 = getelementptr inbounds i32, ptr %54, i64 %indvars.iv131
+  %56 = load i32, ptr %55, align 4
+  %57 = sext i32 %56 to i64
+  %58 = load ptr, ptr %48, align 8
+  %59 = getelementptr inbounds %"class.gmx::BasicVector", ptr %58, i64 %57
+  br label %62
 
-58:                                               ; preds = %.lr.ph121.split.us
-  %59 = getelementptr inbounds %"class.gmx::BasicVector", ptr %3, i64 %indvars.iv131
-  br label %60
+60:                                               ; preds = %.lr.ph121.split.us
+  %61 = getelementptr inbounds %"class.gmx::BasicVector", ptr %3, i64 %indvars.iv131
+  br label %62
 
-60:                                               ; preds = %58, %51
-  %61 = phi ptr [ %57, %51 ], [ %59, %58 ]
-  %62 = load float, ptr %61, align 4
-  %63 = load float, ptr %0, align 4
-  %64 = fsub float %62, %63
-  %65 = load float, ptr %47, align 4
-  %66 = fmul float %64, %65
-  %67 = fptosi float %66 to i32
-  %68 = getelementptr inbounds i8, ptr %61, i64 4
-  %69 = load float, ptr %68, align 4
-  %70 = load float, ptr %48, align 4
-  %71 = fsub float %69, %70
-  %72 = load float, ptr %49, align 4
-  %73 = fmul float %71, %72
-  %74 = fptosi float %73 to i32
-  %75 = load i32, ptr %12, align 4
-  %76 = add nsw i32 %75, -1
-  %.sroa.speculated96.us = tail call i32 @llvm.smin.i32(i32 %76, i32 %67)
-  %77 = load i32, ptr %14, align 4
+62:                                               ; preds = %60, %53
+  %63 = phi ptr [ %59, %53 ], [ %61, %60 ]
+  %64 = load float, ptr %63, align 4
+  %65 = load float, ptr %0, align 4
+  %66 = fsub float %64, %65
+  %67 = load float, ptr %49, align 4
+  %68 = fmul float %66, %67
+  %69 = fptosi float %68 to i32
+  %70 = getelementptr inbounds i8, ptr %63, i64 4
+  %71 = load float, ptr %70, align 4
+  %72 = load float, ptr %50, align 4
+  %73 = fsub float %71, %72
+  %74 = load float, ptr %51, align 4
+  %75 = fmul float %73, %74
+  %76 = fptosi float %75 to i32
+  %77 = load i32, ptr %12, align 4
   %78 = add nsw i32 %77, -1
-  %.sroa.speculated92.us = tail call i32 @llvm.smin.i32(i32 %78, i32 %74)
-  %79 = mul nsw i32 %.sroa.speculated96.us, %77
-  %80 = add nsw i32 %79, %.sroa.speculated92.us
-  %81 = getelementptr inbounds i32, ptr %44, i64 %indvars.iv131
-  store i32 %80, ptr %81, align 4
-  %82 = sext i32 %80 to i64
-  %83 = getelementptr inbounds i32, ptr %45, i64 %82
-  %84 = load i32, ptr %83, align 4
-  %85 = add nsw i32 %84, 1
-  store i32 %85, ptr %83, align 4
+  %.sroa.speculated96.us = tail call i32 @llvm.smin.i32(i32 %78, i32 %69)
+  %79 = load i32, ptr %14, align 4
+  %80 = add nsw i32 %79, -1
+  %.sroa.speculated92.us = tail call i32 @llvm.smin.i32(i32 %80, i32 %76)
+  %81 = mul nsw i32 %.sroa.speculated96.us, %79
+  %82 = add nsw i32 %81, %.sroa.speculated92.us
+  %83 = getelementptr inbounds i32, ptr %44, i64 %indvars.iv131
+  store i32 %82, ptr %83, align 4
+  %84 = sext i32 %82 to i64
+  %85 = getelementptr inbounds i32, ptr %45, i64 %84
+  %86 = load i32, ptr %85, align 4
+  %87 = add nsw i32 %86, 1
+  store i32 %87, ptr %85, align 4
   %indvars.iv.next132 = add nsw i64 %indvars.iv131, 1
   %exitcond135.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count134
   br i1 %exitcond135.not, label %.loopexit, label %.lr.ph121.split.us, !llvm.loop !44
 
-.lr.ph121.split:                                  ; preds = %.lr.ph121, %120
-  %indvars.iv126 = phi i64 [ %indvars.iv.next127, %120 ], [ %50, %.lr.ph121 ]
-  %86 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv126
-  %87 = load i32, ptr %86, align 4
-  %88 = icmp sgt i32 %87, -1
-  br i1 %88, label %89, label %120
+.lr.ph121.split:                                  ; preds = %.lr.ph121, %131
+  %indvars.iv126 = phi i64 [ %indvars.iv.next127, %131 ], [ %52, %.lr.ph121 ]
+  %88 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv126
+  %89 = load i32, ptr %88, align 4
+  %90 = icmp sgt i32 %89, -1
+  br i1 %90, label %91, label %127
 
-89:                                               ; preds = %.lr.ph121.split
-  br i1 %.not, label %97, label %90
+91:                                               ; preds = %.lr.ph121.split
+  br i1 %.not, label %99, label %92
 
-90:                                               ; preds = %89
-  %91 = load ptr, ptr %1, align 8
-  %92 = getelementptr inbounds i32, ptr %91, i64 %indvars.iv126
-  %93 = load i32, ptr %92, align 4
-  %94 = sext i32 %93 to i64
-  %95 = load ptr, ptr %46, align 8
-  %96 = getelementptr inbounds %"class.gmx::BasicVector", ptr %95, i64 %94
-  br label %99
+92:                                               ; preds = %91
+  %93 = load ptr, ptr %1, align 8
+  %94 = getelementptr inbounds i32, ptr %93, i64 %indvars.iv126
+  %95 = load i32, ptr %94, align 4
+  %96 = sext i32 %95 to i64
+  %97 = load ptr, ptr %48, align 8
+  %98 = getelementptr inbounds %"class.gmx::BasicVector", ptr %97, i64 %96
+  br label %101
 
-97:                                               ; preds = %89
-  %98 = getelementptr inbounds %"class.gmx::BasicVector", ptr %3, i64 %indvars.iv126
-  br label %99
+99:                                               ; preds = %91
+  %100 = getelementptr inbounds %"class.gmx::BasicVector", ptr %3, i64 %indvars.iv126
+  br label %101
 
-99:                                               ; preds = %97, %90
-  %100 = phi ptr [ %96, %90 ], [ %98, %97 ]
-  %101 = load float, ptr %100, align 4
-  %102 = load float, ptr %0, align 4
-  %103 = fsub float %101, %102
-  %104 = load float, ptr %47, align 4
-  %105 = fmul float %103, %104
-  %106 = fptosi float %105 to i32
-  %107 = getelementptr inbounds i8, ptr %100, i64 4
-  %108 = load float, ptr %107, align 4
-  %109 = load float, ptr %48, align 4
-  %110 = fsub float %108, %109
-  %111 = load float, ptr %49, align 4
-  %112 = fmul float %110, %111
-  %113 = fptosi float %112 to i32
-  %114 = load i32, ptr %12, align 4
-  %115 = add nsw i32 %114, -1
-  %.sroa.speculated96 = tail call i32 @llvm.smin.i32(i32 %115, i32 %106)
-  %116 = load i32, ptr %14, align 4
+101:                                              ; preds = %99, %92
+  %102 = phi ptr [ %98, %92 ], [ %100, %99 ]
+  %103 = load float, ptr %102, align 4
+  %104 = load float, ptr %0, align 4
+  %105 = fsub float %103, %104
+  %106 = load float, ptr %49, align 4
+  %107 = fmul float %105, %106
+  %108 = fptosi float %107 to i32
+  %109 = getelementptr inbounds i8, ptr %102, i64 4
+  %110 = load float, ptr %109, align 4
+  %111 = load float, ptr %50, align 4
+  %112 = fsub float %110, %111
+  %113 = load float, ptr %51, align 4
+  %114 = fmul float %112, %113
+  %115 = fptosi float %114 to i32
+  %116 = load i32, ptr %12, align 4
   %117 = add nsw i32 %116, -1
-  %.sroa.speculated92 = tail call i32 @llvm.smin.i32(i32 %117, i32 %113)
-  %118 = mul nsw i32 %.sroa.speculated96, %116
-  %119 = add nsw i32 %118, %.sroa.speculated92
-  br label %120
+  %.sroa.speculated96 = tail call i32 @llvm.smin.i32(i32 %117, i32 %108)
+  %118 = load i32, ptr %14, align 4
+  %119 = add nsw i32 %118, -1
+  %.sroa.speculated92 = tail call i32 @llvm.smin.i32(i32 %119, i32 %115)
+  %120 = mul nsw i32 %.sroa.speculated96, %118
+  %121 = add nsw i32 %120, %.sroa.speculated92
+  %122 = getelementptr inbounds i32, ptr %44, i64 %indvars.iv126
+  store i32 %121, ptr %122, align 4
+  %123 = sext i32 %121 to i64
+  %124 = getelementptr inbounds i32, ptr %45, i64 %123
+  %125 = load i32, ptr %124, align 4
+  %126 = add nsw i32 %125, 1
+  store i32 %126, ptr %124, align 4
+  br label %131
 
-120:                                              ; preds = %.lr.ph121.split, %99
-  %.sink142 = phi i32 [ %119, %99 ], [ %16, %.lr.ph121.split ]
-  %121 = getelementptr inbounds i32, ptr %44, i64 %indvars.iv126
-  store i32 %.sink142, ptr %121, align 4
-  %.pn = sext i32 %.sink142 to i64
-  %.sink = getelementptr inbounds i32, ptr %45, i64 %.pn
-  %122 = load i32, ptr %.sink, align 4
-  %123 = add nsw i32 %122, 1
-  store i32 %123, ptr %.sink, align 4
+127:                                              ; preds = %.lr.ph121.split
+  %128 = getelementptr inbounds i32, ptr %44, i64 %indvars.iv126
+  store i32 %16, ptr %128, align 4
+  %129 = load i32, ptr %47, align 4
+  %130 = add nsw i32 %129, 1
+  store i32 %130, ptr %47, align 4
+  br label %131
+
+131:                                              ; preds = %101, %127
   %indvars.iv.next127 = add nsw i64 %indvars.iv126, 1
   %exitcond130.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count134
   br i1 %exitcond130.not, label %.loopexit, label %.lr.ph121.split, !llvm.loop !44
 
-124:                                              ; preds = %.lr.ph119, %124
-  %indvars.iv = phi i64 [ %42, %.lr.ph119 ], [ %indvars.iv.next, %124 ]
-  %125 = getelementptr inbounds %"class.gmx::BasicVector", ptr %3, i64 %indvars.iv
-  %126 = load float, ptr %125, align 4
-  %127 = load float, ptr %0, align 4
-  %128 = fsub float %126, %127
-  %129 = load float, ptr %37, align 4
-  %130 = fmul float %128, %129
-  %131 = fptosi float %130 to i32
-  %132 = getelementptr inbounds i8, ptr %125, i64 4
-  %133 = load float, ptr %132, align 4
-  %134 = load float, ptr %38, align 4
-  %135 = fsub float %133, %134
-  %136 = load float, ptr %39, align 4
-  %137 = fmul float %135, %136
-  %138 = fptosi float %137 to i32
-  %.sroa.speculated71 = tail call i32 @llvm.smax.i32(i32 %131, i32 0)
-  %139 = load i32, ptr %12, align 4
-  %140 = add nsw i32 %139, -1
-  %.sroa.speculated67 = tail call i32 @llvm.smin.i32(i32 %140, i32 %.sroa.speculated71)
-  %.sroa.speculated63 = tail call i32 @llvm.smax.i32(i32 %138, i32 0)
-  %141 = load i32, ptr %14, align 4
-  %142 = add nsw i32 %141, -1
-  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %142, i32 %.sroa.speculated63)
-  %143 = mul nsw i32 %.sroa.speculated67, %141
-  %144 = add nsw i32 %143, %.sroa.speculated
-  %145 = getelementptr inbounds i32, ptr %40, i64 %indvars.iv
-  store i32 %144, ptr %145, align 4
-  %146 = sext i32 %144 to i64
-  %147 = getelementptr inbounds i32, ptr %41, i64 %146
-  %148 = load i32, ptr %147, align 4
-  %149 = add nsw i32 %148, 1
-  store i32 %149, ptr %147, align 4
+132:                                              ; preds = %.lr.ph119, %132
+  %indvars.iv = phi i64 [ %42, %.lr.ph119 ], [ %indvars.iv.next, %132 ]
+  %133 = getelementptr inbounds %"class.gmx::BasicVector", ptr %3, i64 %indvars.iv
+  %134 = load float, ptr %133, align 4
+  %135 = load float, ptr %0, align 4
+  %136 = fsub float %134, %135
+  %137 = load float, ptr %37, align 4
+  %138 = fmul float %136, %137
+  %139 = fptosi float %138 to i32
+  %140 = getelementptr inbounds i8, ptr %133, i64 4
+  %141 = load float, ptr %140, align 4
+  %142 = load float, ptr %38, align 4
+  %143 = fsub float %141, %142
+  %144 = load float, ptr %39, align 4
+  %145 = fmul float %143, %144
+  %146 = fptosi float %145 to i32
+  %.sroa.speculated71 = tail call i32 @llvm.smax.i32(i32 %139, i32 0)
+  %147 = load i32, ptr %12, align 4
+  %148 = add nsw i32 %147, -1
+  %.sroa.speculated67 = tail call i32 @llvm.smin.i32(i32 %148, i32 %.sroa.speculated71)
+  %.sroa.speculated63 = tail call i32 @llvm.smax.i32(i32 %146, i32 0)
+  %149 = load i32, ptr %14, align 4
+  %150 = add nsw i32 %149, -1
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %150, i32 %.sroa.speculated63)
+  %151 = mul nsw i32 %.sroa.speculated67, %149
+  %152 = add nsw i32 %151, %.sroa.speculated
+  %153 = getelementptr inbounds i32, ptr %40, i64 %indvars.iv
+  store i32 %152, ptr %153, align 4
+  %154 = sext i32 %152 to i64
+  %155 = getelementptr inbounds i32, ptr %41, i64 %154
+  %156 = load i32, ptr %155, align 4
+  %157 = add nsw i32 %156, 1
+  store i32 %157, ptr %155, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %124, !llvm.loop !45
+  br i1 %exitcond.not, label %.loopexit, label %132, !llvm.loop !45
 
-.loopexit:                                        ; preds = %124, %120, %60, %.preheader115, %.preheader
+.loopexit:                                        ; preds = %132, %131, %62, %.preheader115, %.preheader
   ret void
 }
 

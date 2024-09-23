@@ -806,7 +806,7 @@ declare ptr @Hop_And(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define ptr @Hop_Transfer(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, %1
-  br i1 %5, label %35, label %6
+  br i1 %5, label %39, label %6
 
 6:                                                ; preds = %4
   %7 = ptrtoint ptr %2 to i64
@@ -833,44 +833,45 @@ define ptr @Hop_Transfer(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2
 
 17:                                               ; preds = %6
   %18 = getelementptr i8, ptr %1, i64 24
-  br label %.sink.split
+  %.val25 = load ptr, ptr %18, align 8
+  %19 = and i64 %7, 1
+  %20 = ptrtoint ptr %.val25 to i64
+  %21 = xor i64 %19, %20
+  %22 = inttoptr i64 %21 to ptr
+  br label %39
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %19 = phi ptr [ %12, %.lr.ph.preheader ], [ %25, %.lr.ph ]
-  %20 = getelementptr i8, ptr %19, i64 8
-  %.val24 = load ptr, ptr %20, align 8
-  %21 = getelementptr inbounds ptr, ptr %.val24, i64 %indvars.iv
-  %22 = load ptr, ptr %21, align 8
-  %23 = trunc nuw nsw i64 %indvars.iv to i32
-  %24 = tail call ptr @Hop_IthVar(ptr noundef %1, i32 noundef %23) #11
-  store ptr %24, ptr %22, align 8
+  %23 = phi ptr [ %12, %.lr.ph.preheader ], [ %29, %.lr.ph ]
+  %24 = getelementptr i8, ptr %23, i64 8
+  %.val24 = load ptr, ptr %24, align 8
+  %25 = getelementptr inbounds ptr, ptr %.val24, i64 %indvars.iv
+  %26 = load ptr, ptr %25, align 8
+  %27 = trunc nuw nsw i64 %indvars.iv to i32
+  %28 = tail call ptr @Hop_IthVar(ptr noundef %1, i32 noundef %27) #11
+  store ptr %28, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr i8, ptr %25, i64 4
-  %.val = load i32, ptr %26, align 4
-  %27 = sext i32 %.val to i64
-  %28 = icmp sge i64 %indvars.iv.next, %27
-  %29 = icmp eq i64 %indvars.iv.next, %16
-  %or.cond = or i1 %29, %28
+  %29 = load ptr, ptr %0, align 8
+  %30 = getelementptr i8, ptr %29, i64 4
+  %.val = load i32, ptr %30, align 4
+  %31 = sext i32 %.val to i64
+  %32 = icmp sge i64 %indvars.iv.next, %31
+  %33 = icmp eq i64 %indvars.iv.next, %16
+  %or.cond = or i1 %33, %32
   br i1 %or.cond, label %.critedge, label %.lr.ph, !llvm.loop !16
 
 .critedge:                                        ; preds = %.lr.ph, %.preheader
   tail call void @Hop_Transfer_rec(ptr noundef %1, ptr noundef %9)
   tail call void @Hop_ConeUnmark_rec(ptr noundef %9)
-  br label %.sink.split
+  %34 = load ptr, ptr %9, align 8
+  %35 = and i64 %7, 1
+  %36 = ptrtoint ptr %34 to i64
+  %37 = xor i64 %35, %36
+  %38 = inttoptr i64 %37 to ptr
+  br label %39
 
-.sink.split:                                      ; preds = %17, %.critedge
-  %.sink33 = phi ptr [ %9, %.critedge ], [ %18, %17 ]
-  %30 = load ptr, ptr %.sink33, align 8
-  %31 = and i64 %7, 1
-  %32 = ptrtoint ptr %30 to i64
-  %33 = xor i64 %31, %32
-  %34 = inttoptr i64 %33 to ptr
-  br label %35
-
-35:                                               ; preds = %.sink.split, %4
-  %.021 = phi ptr [ %2, %4 ], [ %34, %.sink.split ]
+39:                                               ; preds = %4, %.critedge, %17
+  %.021 = phi ptr [ %22, %17 ], [ %38, %.critedge ], [ %2, %4 ]
   ret ptr %.021
 }
 

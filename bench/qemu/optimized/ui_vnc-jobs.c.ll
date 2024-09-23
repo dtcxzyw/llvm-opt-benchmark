@@ -502,7 +502,7 @@ lor.lhs.false.i:                                  ; preds = %if.end12.i
 if.then20.i:                                      ; preds = %lor.lhs.false.i, %if.end12.i
   %output_mutex.i59.i = getelementptr inbounds i8, ptr %12, i64 49504
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %output_mutex.i59.i, ptr noundef nonnull @.str.5, i32 noundef 65) #11
-  br label %vnc_worker_thread_loop.exit
+  br label %disconnected.i
 
 if.end22.i:                                       ; preds = %lor.lhs.false.i
   %output.i = getelementptr inbounds i8, ptr %12, i64 49328
@@ -610,7 +610,7 @@ if.then43.i:                                      ; preds = %land.rhs37.i
   %43 = load ptr, ptr %lossy_rect4.i.i, align 8
   %lossy_rect5.i.i = getelementptr inbounds i8, ptr %39, i64 49184
   store ptr %43, ptr %lossy_rect5.i.i, align 8
-  br label %vnc_worker_thread_loop.exit
+  br label %disconnected.i
 
 if.end47.i:                                       ; preds = %land.rhs37.i
   %44 = load i32, ptr %entry1.0106.i, align 4
@@ -891,9 +891,9 @@ if.end84.i:                                       ; preds = %if.else81.i, %if.th
   %105 = load ptr, ptr %.lcssa101.i, align 8
   %output_mutex.i95.i = getelementptr inbounds i8, ptr %105, i64 49504
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %output_mutex.i95.i, ptr noundef nonnull @.str.5, i32 noundef 65) #11
-  br label %vnc_worker_thread_loop.exit
+  br label %disconnected.i
 
-vnc_worker_thread_loop.exit:                      ; preds = %if.then20.i, %if.then43.i, %if.end84.i
+disconnected.i:                                   ; preds = %if.end84.i, %if.then43.i, %if.then20.i
   %106 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %107 = inttoptr i64 %106 to ptr
   call void %107(ptr noundef nonnull %mutex.i.i, ptr noundef nonnull @.str.1, i32 noundef 74) #11
@@ -902,9 +902,18 @@ vnc_worker_thread_loop.exit:                      ; preds = %if.then20.i, %if.th
   %cmp88.not.i = icmp eq ptr %108, null
   %tql_prev97.i = getelementptr inbounds i8, ptr %.lcssa101.i, i64 24
   %109 = load ptr, ptr %tql_prev97.i, align 8
+  br i1 %cmp88.not.i, label %if.else95.i, label %if.then90.i
+
+if.then90.i:                                      ; preds = %disconnected.i
   %tql_prev94.i = getelementptr inbounds i8, ptr %108, i64 24
-  %tql_prev99.sink.i = select i1 %cmp88.not.i, ptr %tql_prev99.i, ptr %tql_prev94.i
-  store ptr %109, ptr %tql_prev99.sink.i, align 8
+  store ptr %109, ptr %tql_prev94.i, align 8
+  br label %vnc_worker_thread_loop.exit
+
+if.else95.i:                                      ; preds = %disconnected.i
+  store ptr %109, ptr %tql_prev99.i, align 8
+  br label %vnc_worker_thread_loop.exit
+
+vnc_worker_thread_loop.exit:                      ; preds = %if.then90.i, %if.else95.i
   %110 = load ptr, ptr %next87.i, align 8
   store ptr %110, ptr %109, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next87.i, i8 0, i64 16, i1 false)

@@ -296,6 +296,7 @@ _ZNSt5stackI13cmFortranFileSt5dequeIS0_SaIS0_EEEC2IS3_vEEv.exit: ; preds = %5
   store ptr null, ptr %23, align 8
   store ptr %26, ptr %30, align 8
   store ptr %26, ptr %33, align 8
+  store i64 0, ptr %37, align 8
   br label %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEC2EOS9_.exit
 
 40:                                               ; preds = %_ZNSt5stackI13cmFortranFileSt5dequeIS0_SaIS0_EEEC2IS3_vEEv.exit
@@ -307,11 +308,10 @@ _ZNSt5stackI13cmFortranFileSt5dequeIS0_SaIS0_EEEC2IS3_vEEv.exit: ; preds = %5
   %43 = getelementptr inbounds i8, ptr %0, i64 312
   store ptr %22, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %0, i64 320
+  store i64 0, ptr %44, align 8
   br label %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEC2EOS9_.exit
 
 _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEC2EOS9_.exit: ; preds = %25, %40
-  %.sink.i.i.i.i = phi ptr [ %37, %25 ], [ %44, %40 ]
-  store i64 0, ptr %.sink.i.i.i.i, align 8
   %45 = getelementptr inbounds i8, ptr %0, i64 336
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %45, i8 0, i64 80, i1 false)
   invoke void @_ZNSt11_Deque_baseIbSaIbEE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %45, i64 noundef 0)

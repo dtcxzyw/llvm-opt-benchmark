@@ -45,7 +45,7 @@ declare i32 @JLI_ManifestIterate(ptr noundef, ptr noundef, ptr noundef) local_un
 define internal void @doAttribute(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2) #0 {
   %4 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #11
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %44, label %5
+  br i1 %.not, label %45, label %5
 
 5:                                                ; preds = %3
   %6 = tail call noalias ptr @strdup(ptr noundef %0) #10
@@ -55,7 +55,7 @@ define internal void @doAttribute(ptr nocapture noundef readonly %0, ptr noundef
 
 8:                                                ; preds = %5
   tail call void @free(ptr noundef nonnull %4) #10
-  br label %44
+  br label %45
 
 .preheader:                                       ; preds = %5, %.preheader
   %.0 = phi ptr [ %11, %.preheader ], [ %1, %5 ]
@@ -87,7 +87,7 @@ define internal void @doAttribute(ptr nocapture noundef readonly %0, ptr noundef
 22:                                               ; preds = %.critedge
   tail call void @free(ptr noundef %6) #10
   tail call void @free(ptr noundef %4) #10
-  br label %44
+  br label %45
 
 23:                                               ; preds = %.critedge
   %24 = ptrtoint ptr %.038 to i64
@@ -103,7 +103,7 @@ define internal void @doAttribute(ptr nocapture noundef readonly %0, ptr noundef
 31:                                               ; preds = %23
   tail call void @free(ptr noundef %6) #10
   tail call void @free(ptr noundef nonnull %4) #10
-  br label %44
+  br label %45
 
 32:                                               ; preds = %23
   %33 = tail call ptr @strncpy(ptr noundef nonnull %28, ptr noundef nonnull %.0, i64 noundef %26) #10
@@ -113,22 +113,25 @@ define internal void @doAttribute(ptr nocapture noundef readonly %0, ptr noundef
   store ptr null, ptr %35, align 8
   %36 = load ptr, ptr %2, align 8
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %42, label %38
+  br i1 %37, label %38, label %39
 
 38:                                               ; preds = %32
-  %39 = getelementptr inbounds i8, ptr %2, i64 8
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 16
-  br label %42
+  store ptr %4, ptr %2, align 8
+  br label %43
 
-42:                                               ; preds = %32, %38
-  %.sink = phi ptr [ %41, %38 ], [ %2, %32 ]
-  store ptr %4, ptr %.sink, align 8
-  %43 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr %4, ptr %43, align 8
-  br label %44
+39:                                               ; preds = %32
+  %40 = getelementptr inbounds i8, ptr %2, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 16
+  store ptr %4, ptr %42, align 8
+  br label %43
 
-44:                                               ; preds = %8, %42, %31, %22, %3
+43:                                               ; preds = %39, %38
+  %44 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %4, ptr %44, align 8
+  br label %45
+
+45:                                               ; preds = %8, %43, %31, %22, %3
   ret void
 }
 

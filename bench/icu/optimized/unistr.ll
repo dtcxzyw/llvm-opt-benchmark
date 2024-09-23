@@ -3341,11 +3341,8 @@ if.then9:                                         ; preds = %if.end4
 
 if.end13:                                         ; preds = %if.then9, %if.end4
   %srcLength.addr.0 = phi i32 [ %call12, %if.then9 ], [ %srcLength, %if.end4 ]
-  %cmp14.not = icmp eq i32 %length.addr.0, %srcLength.addr.0
-  %cmp16 = icmp slt i32 %length.addr.0, %srcLength.addr.0
   %.srcLength.addr.0 = tail call i32 @llvm.smin.i32(i32 %length.addr.0, i32 %srcLength.addr.0)
-  %. = select i1 %cmp16, i8 -1, i8 1
-  %lengthResult.0 = select i1 %cmp14.not, i8 0, i8 %.
+  %lengthResult.0 = tail call i8 @llvm.scmp.i8.i32(i32 %length.addr.0, i32 %srcLength.addr.0)
   %cmp21 = icmp slt i32 %.srcLength.addr.0, 1
   %cmp22.not = icmp eq ptr %add.ptr, %add.ptr7
   %or.cond = select i1 %cmp21, i1 true, i1 %cmp22.not
@@ -6660,6 +6657,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.scmp.i8.i32(i32, i32) #21
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

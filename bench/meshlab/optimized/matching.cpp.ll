@@ -6082,7 +6082,7 @@ define linkonce_odr void @_ZNK5Eigen11EigenSolverINS_6MatrixIdLi2ELi2ELi0ELi2ELi
   br label %4
 
 4:                                                ; preds = %2, %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixISt7complexIdELi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEEE9normalizeEv.exit
-  %.02577 = phi i64 [ 0, %2 ], [ %136, %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixISt7complexIdELi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEEE9normalizeEv.exit ]
+  %.02577 = phi i64 [ 0, %2 ], [ %172, %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixISt7complexIdELi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEEE9normalizeEv.exit ]
   %5 = getelementptr inbounds %"class.std::complex", ptr %3, i64 %.02577
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load double, ptr %6, align 8
@@ -6101,7 +6101,7 @@ define linkonce_odr void @_ZNK5Eigen11EigenSolverINS_6MatrixIdLi2ELi2ELi0ELi2ELi
 .preheader:                                       ; preds = %4
   %.idx.i29 = shl i64 %13, 4
   %.idx.i33 = shl i64 %13, 5
-  br label %27
+  br label %62
 
 16:                                               ; preds = %4
   %17 = getelementptr inbounds i8, ptr %1, i64 %.idx.i.i.i.i
@@ -6120,153 +6120,189 @@ define linkonce_odr void @_ZNK5Eigen11EigenSolverINS_6MatrixIdLi2ELi2ELi0ELi2ELi
   %24 = tail call noundef double @llvm.fmuladd.f64(double %22, double %22, double 0.000000e+00)
   %25 = fadd double %23, %24
   %26 = fcmp ogt double %25, 0.000000e+00
-  br i1 %26, label %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixISt7complexIdELi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEEE9normalizeEv.exit.sink.split, label %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixISt7complexIdELi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEEE9normalizeEv.exit
+  br i1 %26, label %27, label %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixISt7complexIdELi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEEE9normalizeEv.exit
 
-27:                                               ; preds = %.preheader, %27
-  %28 = phi i1 [ true, %.preheader ], [ false, %27 ]
-  %.076 = phi i64 [ 0, %.preheader ], [ 1, %27 ]
-  %29 = getelementptr double, ptr %1, i64 %.076
-  %30 = getelementptr i8, ptr %29, i64 %.idx.i.i.i.i
-  %31 = load double, ptr %30, align 8
-  %32 = getelementptr i8, ptr %29, i64 %.idx.i29
-  %33 = load double, ptr %32, align 8
-  %34 = getelementptr %"class.std::complex", ptr %0, i64 %.076
-  %35 = getelementptr i8, ptr %34, i64 %.idx.i.i.i.i27
-  store double %31, ptr %35, align 16
-  %.sroa.250.0..sroa_idx = getelementptr inbounds i8, ptr %35, i64 8
-  store double %33, ptr %.sroa.250.0..sroa_idx, align 8
-  %36 = fneg double %33
-  %37 = getelementptr i8, ptr %34, i64 %.idx.i33
-  store double %31, ptr %37, align 16
-  %.sroa.248.0..sroa_idx = getelementptr inbounds i8, ptr %37, i64 8
-  store double %36, ptr %.sroa.248.0..sroa_idx, align 8
-  br i1 %28, label %27, label %38, !llvm.loop !200
-
-38:                                               ; preds = %27
-  %39 = getelementptr inbounds i8, ptr %0, i64 %.idx.i.i.i.i27
-  %40 = load double, ptr %39, align 16
-  %41 = getelementptr inbounds i8, ptr %39, i64 8
-  %42 = load double, ptr %41, align 8
-  %43 = fmul double %42, %42
-  %44 = tail call noundef double @llvm.fmuladd.f64(double %40, double %40, double %43)
-  %45 = getelementptr i8, ptr %39, i64 16
-  %46 = load double, ptr %45, align 16
-  %47 = getelementptr i8, ptr %39, i64 24
-  %48 = load double, ptr %47, align 8
-  %49 = fmul double %48, %48
-  %50 = tail call noundef double @llvm.fmuladd.f64(double %46, double %46, double %49)
-  %51 = fadd double %44, %50
-  %52 = fcmp ogt double %51, 0.000000e+00
-  br i1 %52, label %53, label %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixISt7complexIdELi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEEE9normalizeEv.exit37
-
-53:                                               ; preds = %38
-  %54 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %51, i64 0
-  %55 = tail call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %54)
-  %.sroa.0.8.vec.insert.i36 = insertelement <2 x double> %55, double 0.000000e+00, i64 1
-  %56 = bitcast <2 x double> %.sroa.0.8.vec.insert.i36 to <2 x i64>
-  %57 = load <4 x i32>, ptr %39, align 16
-  %58 = or disjoint <2 x i64> %56, <i64 0, i64 -9223372036854775808>
+27:                                               ; preds = %16
+  %28 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %25, i64 0
+  %29 = tail call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %28)
+  %.sroa.0.8.vec.insert.i = insertelement <2 x double> %29, double 0.000000e+00, i64 1
+  %30 = bitcast <2 x double> %.sroa.0.8.vec.insert.i to <2 x i64>
+  %31 = load <4 x i32>, ptr %18, align 16
+  %32 = or disjoint <2 x i64> %30, <i64 0, i64 -9223372036854775808>
+  %33 = bitcast <2 x i64> %32 to <2 x double>
+  %34 = bitcast <4 x i32> %31 to <2 x double>
+  %35 = shufflevector <2 x double> %34, <2 x double> poison, <2 x i32> zeroinitializer
+  %36 = fmul <2 x double> %35, %33
+  %37 = bitcast <4 x i32> %31 to <2 x double>
+  %38 = shufflevector <2 x double> %37, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %39 = bitcast <2 x i64> %32 to <2 x double>
+  %40 = shufflevector <2 x double> %39, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %41 = fmul <2 x double> %40, %38
+  %42 = bitcast <2 x double> %41 to <2 x i64>
+  %43 = xor <2 x i64> %42, <i64 -9223372036854775808, i64 0>
+  %44 = bitcast <2 x i64> %43 to <2 x double>
+  %45 = fadd <2 x double> %36, %44
+  %46 = fmul <2 x double> %.sroa.0.8.vec.insert.i, %.sroa.0.8.vec.insert.i
+  %47 = shufflevector <2 x double> %46, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %48 = fadd <2 x double> %46, %47
+  %49 = fdiv <2 x double> %45, %48
+  store <2 x double> %49, ptr %18, align 16
+  %50 = load <4 x i32>, ptr %20, align 16
+  %51 = bitcast <4 x i32> %50 to <2 x double>
+  %52 = shufflevector <2 x double> %51, <2 x double> poison, <2 x i32> zeroinitializer
+  %53 = fmul <2 x double> %52, %33
+  %54 = bitcast <4 x i32> %50 to <2 x double>
+  %55 = shufflevector <2 x double> %54, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %56 = fmul <2 x double> %40, %55
+  %57 = bitcast <2 x double> %56 to <2 x i64>
+  %58 = xor <2 x i64> %57, <i64 -9223372036854775808, i64 0>
   %59 = bitcast <2 x i64> %58 to <2 x double>
-  %60 = bitcast <4 x i32> %57 to <2 x double>
-  %61 = shufflevector <2 x double> %60, <2 x double> poison, <2 x i32> zeroinitializer
-  %62 = fmul <2 x double> %61, %59
-  %63 = bitcast <4 x i32> %57 to <2 x double>
-  %64 = shufflevector <2 x double> %63, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %65 = bitcast <2 x i64> %58 to <2 x double>
-  %66 = shufflevector <2 x double> %65, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %67 = fmul <2 x double> %66, %64
-  %68 = bitcast <2 x double> %67 to <2 x i64>
-  %69 = xor <2 x i64> %68, <i64 -9223372036854775808, i64 0>
-  %70 = bitcast <2 x i64> %69 to <2 x double>
-  %71 = fadd <2 x double> %62, %70
-  %72 = fmul <2 x double> %.sroa.0.8.vec.insert.i36, %.sroa.0.8.vec.insert.i36
-  %73 = shufflevector <2 x double> %72, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %74 = fadd <2 x double> %72, %73
-  %75 = fdiv <2 x double> %71, %74
-  store <2 x double> %75, ptr %39, align 16
-  %76 = load <4 x i32>, ptr %45, align 16
-  %77 = bitcast <4 x i32> %76 to <2 x double>
-  %78 = shufflevector <2 x double> %77, <2 x double> poison, <2 x i32> zeroinitializer
-  %79 = fmul <2 x double> %78, %59
-  %80 = bitcast <4 x i32> %76 to <2 x double>
-  %81 = shufflevector <2 x double> %80, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %82 = fmul <2 x double> %66, %81
-  %83 = bitcast <2 x double> %82 to <2 x i64>
-  %84 = xor <2 x i64> %83, <i64 -9223372036854775808, i64 0>
-  %85 = bitcast <2 x i64> %84 to <2 x double>
-  %86 = fadd <2 x double> %79, %85
-  %87 = fdiv <2 x double> %86, %74
-  store <2 x double> %87, ptr %45, align 16
-  br label %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixISt7complexIdELi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEEE9normalizeEv.exit37
-
-_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixISt7complexIdELi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEEE9normalizeEv.exit37: ; preds = %38, %53
-  %88 = getelementptr inbounds i8, ptr %0, i64 %.idx.i33
-  %89 = load double, ptr %88, align 16
-  %90 = getelementptr inbounds i8, ptr %88, i64 8
-  %91 = load double, ptr %90, align 8
-  %92 = fmul double %91, %91
-  %93 = tail call noundef double @llvm.fmuladd.f64(double %89, double %89, double %92)
-  %94 = getelementptr i8, ptr %88, i64 16
-  %95 = load double, ptr %94, align 16
-  %96 = getelementptr i8, ptr %88, i64 24
-  %97 = load double, ptr %96, align 8
-  %98 = fmul double %97, %97
-  %99 = tail call noundef double @llvm.fmuladd.f64(double %95, double %95, double %98)
-  %100 = fadd double %93, %99
-  %101 = fcmp ogt double %100, 0.000000e+00
-  br i1 %101, label %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixISt7complexIdELi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEEE9normalizeEv.exit.sink.split, label %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixISt7complexIdELi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEEE9normalizeEv.exit
-
-_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixISt7complexIdELi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEEE9normalizeEv.exit.sink.split: ; preds = %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixISt7complexIdELi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEEE9normalizeEv.exit37, %16
-  %.sink122 = phi double [ %25, %16 ], [ %100, %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixISt7complexIdELi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEEE9normalizeEv.exit37 ]
-  %.sink118 = phi ptr [ %18, %16 ], [ %88, %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixISt7complexIdELi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEEE9normalizeEv.exit37 ]
-  %.sink = phi ptr [ %20, %16 ], [ %94, %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixISt7complexIdELi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEEE9normalizeEv.exit37 ]
-  %.1.ph = phi i64 [ %.02577, %16 ], [ %13, %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixISt7complexIdELi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEEE9normalizeEv.exit37 ]
-  %102 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %.sink122, i64 0
-  %103 = tail call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %102)
-  %.sroa.0.8.vec.insert.i40 = insertelement <2 x double> %103, double 0.000000e+00, i64 1
-  %104 = bitcast <2 x double> %.sroa.0.8.vec.insert.i40 to <2 x i64>
-  %105 = load <4 x i32>, ptr %.sink118, align 16
-  %106 = or disjoint <2 x i64> %104, <i64 0, i64 -9223372036854775808>
-  %107 = bitcast <2 x i64> %106 to <2 x double>
-  %108 = bitcast <4 x i32> %105 to <2 x double>
-  %109 = shufflevector <2 x double> %108, <2 x double> poison, <2 x i32> zeroinitializer
-  %110 = fmul <2 x double> %109, %107
-  %111 = bitcast <4 x i32> %105 to <2 x double>
-  %112 = shufflevector <2 x double> %111, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %113 = bitcast <2 x i64> %106 to <2 x double>
-  %114 = shufflevector <2 x double> %113, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %115 = fmul <2 x double> %114, %112
-  %116 = bitcast <2 x double> %115 to <2 x i64>
-  %117 = xor <2 x i64> %116, <i64 -9223372036854775808, i64 0>
-  %118 = bitcast <2 x i64> %117 to <2 x double>
-  %119 = fadd <2 x double> %110, %118
-  %120 = fmul <2 x double> %.sroa.0.8.vec.insert.i40, %.sroa.0.8.vec.insert.i40
-  %121 = shufflevector <2 x double> %120, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %122 = fadd <2 x double> %120, %121
-  %123 = fdiv <2 x double> %119, %122
-  store <2 x double> %123, ptr %.sink118, align 16
-  %124 = load <4 x i32>, ptr %.sink, align 16
-  %125 = bitcast <4 x i32> %124 to <2 x double>
-  %126 = shufflevector <2 x double> %125, <2 x double> poison, <2 x i32> zeroinitializer
-  %127 = fmul <2 x double> %126, %107
-  %128 = bitcast <4 x i32> %124 to <2 x double>
-  %129 = shufflevector <2 x double> %128, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %130 = fmul <2 x double> %114, %129
-  %131 = bitcast <2 x double> %130 to <2 x i64>
-  %132 = xor <2 x i64> %131, <i64 -9223372036854775808, i64 0>
-  %133 = bitcast <2 x i64> %132 to <2 x double>
-  %134 = fadd <2 x double> %127, %133
-  %135 = fdiv <2 x double> %134, %122
-  store <2 x double> %135, ptr %.sink, align 16
+  %60 = fadd <2 x double> %53, %59
+  %61 = fdiv <2 x double> %60, %48
+  store <2 x double> %61, ptr %20, align 16
   br label %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixISt7complexIdELi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEEE9normalizeEv.exit
 
-_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixISt7complexIdELi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEEE9normalizeEv.exit: ; preds = %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixISt7complexIdELi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEEE9normalizeEv.exit.sink.split, %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixISt7complexIdELi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEEE9normalizeEv.exit37, %16
-  %.1 = phi i64 [ %.02577, %16 ], [ %13, %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixISt7complexIdELi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEEE9normalizeEv.exit37 ], [ %.1.ph, %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixISt7complexIdELi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEEE9normalizeEv.exit.sink.split ]
-  %136 = add nsw i64 %.1, 1
-  %137 = icmp slt i64 %.1, 1
-  br i1 %137, label %4, label %138, !llvm.loop !201
+62:                                               ; preds = %.preheader, %62
+  %63 = phi i1 [ true, %.preheader ], [ false, %62 ]
+  %.076 = phi i64 [ 0, %.preheader ], [ 1, %62 ]
+  %64 = getelementptr double, ptr %1, i64 %.076
+  %65 = getelementptr i8, ptr %64, i64 %.idx.i.i.i.i
+  %66 = load double, ptr %65, align 8
+  %67 = getelementptr i8, ptr %64, i64 %.idx.i29
+  %68 = load double, ptr %67, align 8
+  %69 = getelementptr %"class.std::complex", ptr %0, i64 %.076
+  %70 = getelementptr i8, ptr %69, i64 %.idx.i.i.i.i27
+  store double %66, ptr %70, align 16
+  %.sroa.250.0..sroa_idx = getelementptr inbounds i8, ptr %70, i64 8
+  store double %68, ptr %.sroa.250.0..sroa_idx, align 8
+  %71 = fneg double %68
+  %72 = getelementptr i8, ptr %69, i64 %.idx.i33
+  store double %66, ptr %72, align 16
+  %.sroa.248.0..sroa_idx = getelementptr inbounds i8, ptr %72, i64 8
+  store double %71, ptr %.sroa.248.0..sroa_idx, align 8
+  br i1 %63, label %62, label %73, !llvm.loop !200
 
-138:                                              ; preds = %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixISt7complexIdELi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEEE9normalizeEv.exit
+73:                                               ; preds = %62
+  %74 = getelementptr inbounds i8, ptr %0, i64 %.idx.i.i.i.i27
+  %75 = load double, ptr %74, align 16
+  %76 = getelementptr inbounds i8, ptr %74, i64 8
+  %77 = load double, ptr %76, align 8
+  %78 = fmul double %77, %77
+  %79 = tail call noundef double @llvm.fmuladd.f64(double %75, double %75, double %78)
+  %80 = getelementptr i8, ptr %74, i64 16
+  %81 = load double, ptr %80, align 16
+  %82 = getelementptr i8, ptr %74, i64 24
+  %83 = load double, ptr %82, align 8
+  %84 = fmul double %83, %83
+  %85 = tail call noundef double @llvm.fmuladd.f64(double %81, double %81, double %84)
+  %86 = fadd double %79, %85
+  %87 = fcmp ogt double %86, 0.000000e+00
+  br i1 %87, label %88, label %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixISt7complexIdELi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEEE9normalizeEv.exit37
+
+88:                                               ; preds = %73
+  %89 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %86, i64 0
+  %90 = tail call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %89)
+  %.sroa.0.8.vec.insert.i36 = insertelement <2 x double> %90, double 0.000000e+00, i64 1
+  %91 = bitcast <2 x double> %.sroa.0.8.vec.insert.i36 to <2 x i64>
+  %92 = load <4 x i32>, ptr %74, align 16
+  %93 = or disjoint <2 x i64> %91, <i64 0, i64 -9223372036854775808>
+  %94 = bitcast <2 x i64> %93 to <2 x double>
+  %95 = bitcast <4 x i32> %92 to <2 x double>
+  %96 = shufflevector <2 x double> %95, <2 x double> poison, <2 x i32> zeroinitializer
+  %97 = fmul <2 x double> %96, %94
+  %98 = bitcast <4 x i32> %92 to <2 x double>
+  %99 = shufflevector <2 x double> %98, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %100 = bitcast <2 x i64> %93 to <2 x double>
+  %101 = shufflevector <2 x double> %100, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %102 = fmul <2 x double> %101, %99
+  %103 = bitcast <2 x double> %102 to <2 x i64>
+  %104 = xor <2 x i64> %103, <i64 -9223372036854775808, i64 0>
+  %105 = bitcast <2 x i64> %104 to <2 x double>
+  %106 = fadd <2 x double> %97, %105
+  %107 = fmul <2 x double> %.sroa.0.8.vec.insert.i36, %.sroa.0.8.vec.insert.i36
+  %108 = shufflevector <2 x double> %107, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %109 = fadd <2 x double> %107, %108
+  %110 = fdiv <2 x double> %106, %109
+  store <2 x double> %110, ptr %74, align 16
+  %111 = load <4 x i32>, ptr %80, align 16
+  %112 = bitcast <4 x i32> %111 to <2 x double>
+  %113 = shufflevector <2 x double> %112, <2 x double> poison, <2 x i32> zeroinitializer
+  %114 = fmul <2 x double> %113, %94
+  %115 = bitcast <4 x i32> %111 to <2 x double>
+  %116 = shufflevector <2 x double> %115, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %117 = fmul <2 x double> %101, %116
+  %118 = bitcast <2 x double> %117 to <2 x i64>
+  %119 = xor <2 x i64> %118, <i64 -9223372036854775808, i64 0>
+  %120 = bitcast <2 x i64> %119 to <2 x double>
+  %121 = fadd <2 x double> %114, %120
+  %122 = fdiv <2 x double> %121, %109
+  store <2 x double> %122, ptr %80, align 16
+  br label %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixISt7complexIdELi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEEE9normalizeEv.exit37
+
+_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixISt7complexIdELi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEEE9normalizeEv.exit37: ; preds = %73, %88
+  %123 = getelementptr inbounds i8, ptr %0, i64 %.idx.i33
+  %124 = load double, ptr %123, align 16
+  %125 = getelementptr inbounds i8, ptr %123, i64 8
+  %126 = load double, ptr %125, align 8
+  %127 = fmul double %126, %126
+  %128 = tail call noundef double @llvm.fmuladd.f64(double %124, double %124, double %127)
+  %129 = getelementptr i8, ptr %123, i64 16
+  %130 = load double, ptr %129, align 16
+  %131 = getelementptr i8, ptr %123, i64 24
+  %132 = load double, ptr %131, align 8
+  %133 = fmul double %132, %132
+  %134 = tail call noundef double @llvm.fmuladd.f64(double %130, double %130, double %133)
+  %135 = fadd double %128, %134
+  %136 = fcmp ogt double %135, 0.000000e+00
+  br i1 %136, label %137, label %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixISt7complexIdELi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEEE9normalizeEv.exit
+
+137:                                              ; preds = %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixISt7complexIdELi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEEE9normalizeEv.exit37
+  %138 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %135, i64 0
+  %139 = tail call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %138)
+  %.sroa.0.8.vec.insert.i40 = insertelement <2 x double> %139, double 0.000000e+00, i64 1
+  %140 = bitcast <2 x double> %.sroa.0.8.vec.insert.i40 to <2 x i64>
+  %141 = load <4 x i32>, ptr %123, align 16
+  %142 = or disjoint <2 x i64> %140, <i64 0, i64 -9223372036854775808>
+  %143 = bitcast <2 x i64> %142 to <2 x double>
+  %144 = bitcast <4 x i32> %141 to <2 x double>
+  %145 = shufflevector <2 x double> %144, <2 x double> poison, <2 x i32> zeroinitializer
+  %146 = fmul <2 x double> %145, %143
+  %147 = bitcast <4 x i32> %141 to <2 x double>
+  %148 = shufflevector <2 x double> %147, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %149 = bitcast <2 x i64> %142 to <2 x double>
+  %150 = shufflevector <2 x double> %149, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %151 = fmul <2 x double> %150, %148
+  %152 = bitcast <2 x double> %151 to <2 x i64>
+  %153 = xor <2 x i64> %152, <i64 -9223372036854775808, i64 0>
+  %154 = bitcast <2 x i64> %153 to <2 x double>
+  %155 = fadd <2 x double> %146, %154
+  %156 = fmul <2 x double> %.sroa.0.8.vec.insert.i40, %.sroa.0.8.vec.insert.i40
+  %157 = shufflevector <2 x double> %156, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %158 = fadd <2 x double> %156, %157
+  %159 = fdiv <2 x double> %155, %158
+  store <2 x double> %159, ptr %123, align 16
+  %160 = load <4 x i32>, ptr %129, align 16
+  %161 = bitcast <4 x i32> %160 to <2 x double>
+  %162 = shufflevector <2 x double> %161, <2 x double> poison, <2 x i32> zeroinitializer
+  %163 = fmul <2 x double> %162, %143
+  %164 = bitcast <4 x i32> %160 to <2 x double>
+  %165 = shufflevector <2 x double> %164, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %166 = fmul <2 x double> %150, %165
+  %167 = bitcast <2 x double> %166 to <2 x i64>
+  %168 = xor <2 x i64> %167, <i64 -9223372036854775808, i64 0>
+  %169 = bitcast <2 x i64> %168 to <2 x double>
+  %170 = fadd <2 x double> %163, %169
+  %171 = fdiv <2 x double> %170, %158
+  store <2 x double> %171, ptr %129, align 16
+  br label %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixISt7complexIdELi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEEE9normalizeEv.exit
+
+_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixISt7complexIdELi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEEE9normalizeEv.exit: ; preds = %137, %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixISt7complexIdELi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEEE9normalizeEv.exit37, %27, %16
+  %.1 = phi i64 [ %.02577, %16 ], [ %.02577, %27 ], [ %13, %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixISt7complexIdELi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEEE9normalizeEv.exit37 ], [ %13, %137 ]
+  %172 = add nsw i64 %.1, 1
+  %173 = icmp slt i64 %.1, 1
+  br i1 %173, label %4, label %174, !llvm.loop !201
+
+174:                                              ; preds = %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixISt7complexIdELi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEEE9normalizeEv.exit
   ret void
 }
 

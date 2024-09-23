@@ -132,10 +132,10 @@ tear_down.exit13:                                 ; preds = %if.then13, %land.rh
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %tear_down.exit13, %if.end10.thread
-  %client.i.sink = phi ptr [ %client.i, %if.end10.thread ], [ %client, %tear_down.exit13 ]
+  %.sink.in = phi ptr [ %client.i, %if.end10.thread ], [ %client, %tear_down.exit13 ]
   %retval.0.ph = phi i32 [ 0, %if.end10.thread ], [ %land.ext.i, %tear_down.exit13 ]
-  %6 = load ptr, ptr %client.i.sink, align 8
-  tail call void @SSL_CTX_free(ptr noundef %6) #3
+  %.sink = load ptr, ptr %.sink.in, align 8
+  tail call void @SSL_CTX_free(ptr noundef %.sink) #3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %server, i8 0, i64 16, i1 false)
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.4, i32 noundef 37) #3
   br label %return

@@ -1756,13 +1756,13 @@ if.else55.i:                                      ; preds = %if.else31.i
   %shr61.i = lshr i64 %enclen.0151, 21
   %29 = trunc i64 %shr61.i to i8
   %conv64.i = or i8 %29, -128
-  %backlen.1.backlen.1.backlen.1.arrayidx44.i.sroa_idx195 = getelementptr inbounds i8, ptr %backlen, i64 1
-  store i8 %conv64.i, ptr %backlen.1.backlen.1.backlen.1.arrayidx44.i.sroa_idx195, align 1
+  %backlen.1.backlen.1.backlen.1.arrayidx44.i.sroa_idx194 = getelementptr inbounds i8, ptr %backlen, i64 1
+  store i8 %conv64.i, ptr %backlen.1.backlen.1.backlen.1.arrayidx44.i.sroa_idx194, align 1
   %shr66.i = lshr i64 %enclen.0151, 14
   %30 = trunc i64 %shr66.i to i8
   %conv69.i = or i8 %30, -128
-  %backlen.2.backlen.2.backlen.2.arrayidx49.i.sroa_idx196 = getelementptr inbounds i8, ptr %backlen, i64 2
-  store i8 %conv69.i, ptr %backlen.2.backlen.2.backlen.2.arrayidx49.i.sroa_idx196, align 1
+  %backlen.2.backlen.2.backlen.2.arrayidx49.i.sroa_idx195 = getelementptr inbounds i8, ptr %backlen, i64 2
+  store i8 %conv69.i, ptr %backlen.2.backlen.2.backlen.2.arrayidx49.i.sroa_idx195, align 1
   %shr71.i = lshr i64 %enclen.0151, 7
   %31 = trunc i64 %shr71.i to i8
   %conv74.i = or i8 %31, -128
@@ -1816,9 +1816,9 @@ if.end11.i:                                       ; preds = %if.end.i
   br i1 %cmp15.i, label %lpEncodeBacklen.exit132, label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.end11.i
-  %switch.tableidx192 = add nsw i8 %37, 15
-  %38 = icmp ult i8 %switch.tableidx192, 4
-  br i1 %38, label %switch.lookup191, label %if.end46.i
+  %switch.tableidx191 = add nsw i8 %37, 15
+  %38 = icmp ult i8 %switch.tableidx191, 4
+  br i1 %38, label %switch.lookup190, label %if.end46.i
 
 if.end46.i:                                       ; preds = %if.end18.i
   %and49.i = and i32 %conv.i113, 240
@@ -1868,15 +1868,15 @@ if.else31.i124:                                   ; preds = %if.else12.i122
   %41 = select i1 %cmp32.i125, i32 4, i32 5
   br label %lpEncodeBacklen.exit132
 
-switch.lookup191:                                 ; preds = %if.end18.i
-  %42 = zext nneg i8 %switch.tableidx192 to i64
-  %switch.gep193 = getelementptr inbounds [4 x i32], ptr @switch.table.lpRandomEntries.4, i64 0, i64 %42
-  %switch.load194 = load i32, ptr %switch.gep193, align 4
+switch.lookup190:                                 ; preds = %if.end18.i
+  %42 = zext nneg i8 %switch.tableidx191 to i64
+  %switch.gep192 = getelementptr inbounds [4 x i32], ptr @switch.table.lpRandomEntries.4, i64 0, i64 %42
+  %switch.load193 = load i32, ptr %switch.gep192, align 4
   br label %lpEncodeBacklen.exit132
 
-lpEncodeBacklen.exit132:                          ; preds = %switch.lookup191, %lpCurrentEncodedSizeUnsafe.exit.thread, %if.else31.i124, %if.end59.i, %if.end11.i, %if.then64, %if.end88.i, %if.else12.i122, %if.else.i120, %lpCurrentEncodedSizeUnsafe.exit
-  %retval.0.i116160 = phi i32 [ %retval.0.i116, %lpCurrentEncodedSizeUnsafe.exit ], [ %retval.0.i116, %if.else.i120 ], [ %retval.0.i116, %if.else12.i122 ], [ 1, %if.end59.i ], [ 2, %if.end11.i ], [ 1, %if.then64 ], [ 0, %if.end88.i ], [ %retval.0.i116, %if.else31.i124 ], [ %add.i118, %lpCurrentEncodedSizeUnsafe.exit.thread ], [ %switch.load194, %switch.lookup191 ]
-  %retval.0.i127 = phi i32 [ 1, %lpCurrentEncodedSizeUnsafe.exit ], [ 2, %if.else.i120 ], [ 3, %if.else12.i122 ], [ 1, %if.end59.i ], [ 1, %if.end11.i ], [ 1, %if.then64 ], [ 1, %if.end88.i ], [ %41, %if.else31.i124 ], [ 1, %lpCurrentEncodedSizeUnsafe.exit.thread ], [ 1, %switch.lookup191 ]
+lpEncodeBacklen.exit132:                          ; preds = %switch.lookup190, %lpCurrentEncodedSizeUnsafe.exit.thread, %if.else31.i124, %if.end59.i, %if.end11.i, %if.then64, %if.end88.i, %if.else12.i122, %if.else.i120, %lpCurrentEncodedSizeUnsafe.exit
+  %retval.0.i116160 = phi i32 [ %retval.0.i116, %lpCurrentEncodedSizeUnsafe.exit ], [ %retval.0.i116, %if.else.i120 ], [ %retval.0.i116, %if.else12.i122 ], [ 1, %if.end59.i ], [ 2, %if.end11.i ], [ 1, %if.then64 ], [ 0, %if.end88.i ], [ %retval.0.i116, %if.else31.i124 ], [ %add.i118, %lpCurrentEncodedSizeUnsafe.exit.thread ], [ %switch.load193, %switch.lookup190 ]
+  %retval.0.i127 = phi i32 [ 1, %lpCurrentEncodedSizeUnsafe.exit ], [ 2, %if.else.i120 ], [ 3, %if.else12.i122 ], [ 1, %if.end59.i ], [ 1, %if.end11.i ], [ 1, %if.then64 ], [ 1, %if.end88.i ], [ %41, %if.else31.i124 ], [ 1, %lpCurrentEncodedSizeUnsafe.exit.thread ], [ 1, %switch.lookup190 ]
   %conv69 = add i32 %retval.0.i127, %retval.0.i116160
   %add.ptr71 = getelementptr inbounds i8, ptr %lp, i64 6
   %cmp72.not = icmp uge ptr %p.addr.0, %add.ptr71
@@ -2063,24 +2063,23 @@ if.then184.thread:                                ; preds = %if.end180
 
 do.body197:                                       ; preds = %if.then184.thread
   %add198 = add nuw nsw i32 %or191169, 1
-  br label %do.body221.sink.split
+  %conv199 = trunc i32 %add198 to i8
+  store i8 %conv199, ptr %arrayidx185164, align 1
+  %shr = lshr i32 %add198, 8
+  %conv203 = trunc i32 %shr to i8
+  store i8 %conv203, ptr %arrayidx188166, align 1
+  br label %do.body221
 
 do.body207:                                       ; preds = %if.then184
   %sub208 = add nsw i32 %or191, -1
-  br label %do.body221.sink.split
-
-do.body221.sink.split:                            ; preds = %do.body207, %do.body197
-  %add198.sink190 = phi i32 [ %add198, %do.body197 ], [ %sub208, %do.body207 ]
-  %arrayidx185164.sink = phi ptr [ %arrayidx185164, %do.body197 ], [ %arrayidx185, %do.body207 ]
-  %arrayidx188166.sink = phi ptr [ %arrayidx188166, %do.body197 ], [ %arrayidx188, %do.body207 ]
-  %conv199 = trunc i32 %add198.sink190 to i8
-  store i8 %conv199, ptr %arrayidx185164.sink, align 1
-  %shr = lshr i32 %add198.sink190, 8
-  %conv203 = trunc i32 %shr to i8
-  store i8 %conv203, ptr %arrayidx188166.sink, align 1
+  %conv210 = trunc i32 %sub208 to i8
+  store i8 %conv210, ptr %arrayidx185, align 1
+  %shr213 = lshr i32 %sub208, 8
+  %conv215 = trunc i32 %shr213 to i8
+  store i8 %conv215, ptr %arrayidx188, align 1
   br label %do.body221
 
-do.body221:                                       ; preds = %do.body221.sink.split, %if.then184.thread, %if.end180, %if.then184
+do.body221:                                       ; preds = %if.then184.thread, %if.end180, %do.body197, %do.body207, %if.then184
   %conv223 = trunc i64 %sub to i8
   store i8 %conv223, ptr %lp.addr.1, align 1
   %shr225 = lshr i64 %sub, 8

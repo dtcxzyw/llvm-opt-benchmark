@@ -319,6 +319,7 @@ define void @zend_objects_store_put(ptr noundef %0) local_unnamed_addr #0 {
   %27 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 840), align 8
   %28 = sext i32 %24 to i64
   %29 = getelementptr inbounds ptr, ptr %27, i64 %28
+  store ptr %0, ptr %29, align 8
   br label %36
 
 30:                                               ; preds = %14
@@ -334,11 +335,10 @@ define void @zend_objects_store_put(ptr noundef %0) local_unnamed_addr #0 {
   store i32 %.0, ptr %33, align 8
   %34 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 840), align 8
   %35 = getelementptr inbounds ptr, ptr %34, i64 %.pre-phi
+  store ptr %0, ptr %35, align 8
   br label %36
 
 36:                                               ; preds = %32, %18
-  %.sink = phi ptr [ %35, %32 ], [ %29, %18 ]
-  store ptr %0, ptr %.sink, align 8
   ret void
 }
 

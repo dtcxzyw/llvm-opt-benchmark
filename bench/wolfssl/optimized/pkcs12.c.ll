@@ -1834,9 +1834,18 @@ do.end:                                           ; preds = %if.then
   %cmp9 = icmp eq ptr %previous.017, null
   %next = getelementptr inbounds i8, ptr %current.018, i64 16
   %6 = load ptr, ptr %next, align 8
+  br i1 %cmp9, label %if.then10, label %if.else
+
+if.then10:                                        ; preds = %do.end
+  store ptr %6, ptr %list, align 8
+  br label %if.end
+
+if.else:                                          ; preds = %do.end
   %next12 = getelementptr inbounds i8, ptr %previous.017, i64 16
-  %next12.sink = select i1 %cmp9, ptr %list, ptr %next12
-  store ptr %6, ptr %next12.sink, align 8
+  store ptr %6, ptr %next12, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then10
   call void @FreeDecodedCert(ptr noundef nonnull %DeCert) #9
   call void @wolfSSL_Free(ptr noundef nonnull %current.018) #9
   br label %while.end
@@ -1848,7 +1857,7 @@ if.end17:                                         ; preds = %if.then, %while.bod
   %cmp.not = icmp eq ptr %current.0, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !9
 
-while.end:                                        ; preds = %if.end17, %entry, %do.end
+while.end:                                        ; preds = %if.end17, %entry, %if.end
   ret void
 }
 

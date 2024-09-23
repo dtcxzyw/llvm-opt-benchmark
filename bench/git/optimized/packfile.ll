@@ -1173,9 +1173,9 @@ for.end.i:                                        ; preds = %scan_windows.exit22
   %lru_w.1.lcssa.i = phi ptr [ %lru_w.0.i, %if.end.i ], [ %lru_w.7.i, %scan_windows.exit22.i ]
   %lru_l.1.lcssa.i = phi ptr [ %lru_l.0.i, %if.end.i ], [ %lru_l.7.i, %scan_windows.exit22.i ]
   %tobool2.not.i = icmp eq ptr %lru_p.1.lcssa.i, null
-  br i1 %tobool2.not.i, label %while.end.loopexit, label %unuse_one_window.exit
+  br i1 %tobool2.not.i, label %while.end.loopexit, label %if.then3.i
 
-unuse_one_window.exit:                            ; preds = %for.end.i
+if.then3.i:                                       ; preds = %for.end.i
   %base.i = getelementptr inbounds i8, ptr %lru_w.1.lcssa.i, i64 8
   %29 = load ptr, ptr %base.i, align 8
   %len.i71 = getelementptr inbounds i8, ptr %lru_w.1.lcssa.i, i64 24
@@ -1187,9 +1187,18 @@ unuse_one_window.exit:                            ; preds = %for.end.i
   store i64 %sub.i, ptr @pack_mapped, align 8
   %tobool5.not.i = icmp eq ptr %lru_l.1.lcssa.i, null
   %33 = load ptr, ptr %lru_w.1.lcssa.i, align 8
+  br i1 %tobool5.not.i, label %if.else.i, label %if.then6.i
+
+if.then6.i:                                       ; preds = %if.then3.i
+  store ptr %33, ptr %lru_l.1.lcssa.i, align 8
+  br label %unuse_one_window.exit
+
+if.else.i:                                        ; preds = %if.then3.i
   %windows.i = getelementptr inbounds i8, ptr %lru_p.1.lcssa.i, i64 40
-  %windows.sink.i = select i1 %tobool5.not.i, ptr %windows.i, ptr %lru_l.1.lcssa.i
-  store ptr %33, ptr %windows.sink.i, align 8
+  store ptr %33, ptr %windows.i, align 8
+  br label %unuse_one_window.exit
+
+unuse_one_window.exit:                            ; preds = %if.then6.i, %if.else.i
   tail call void @free(ptr noundef nonnull %lru_w.1.lcssa.i) #18
   %34 = load i32, ptr @pack_open_windows, align 4
   %dec.i = add i32 %34, -1
@@ -6579,7 +6588,7 @@ declare ptr @xmallocz_gently(i64 noundef) local_unnamed_addr #1
 
 declare void @hashmap_init(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 2) i32 @delta_base_cache_hash_cmp(ptr nocapture readnone %cmp_data, ptr nocapture noundef readonly %va, ptr nocapture noundef readonly %vb, ptr noundef readonly %vkey) #14 {
 entry:
   %tobool.not = icmp eq ptr %vkey, null
@@ -6593,32 +6602,33 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %land.rhs.i, label %return
 
 land.rhs.i:                                       ; preds = %if.then
+  %base_offset.i = getelementptr inbounds i8, ptr %va, i64 24
+  %2 = load i64, ptr %base_offset.i, align 8
   %base_offset2.i = getelementptr inbounds i8, ptr %vkey, i64 8
-  br label %return.sink.split
+  %3 = load i64, ptr %base_offset2.i, align 8
+  %cmp3.i = icmp eq i64 %2, %3
+  br label %return
 
 if.else:                                          ; preds = %entry
   %key5 = getelementptr inbounds i8, ptr %vb, i64 16
-  %2 = load ptr, ptr %key4, align 8
-  %3 = load ptr, ptr %key5, align 8
-  %cmp.i3 = icmp eq ptr %2, %3
+  %4 = load ptr, ptr %key4, align 8
+  %5 = load ptr, ptr %key5, align 8
+  %cmp.i3 = icmp eq ptr %4, %5
   br i1 %cmp.i3, label %land.rhs.i5, label %return
 
 land.rhs.i5:                                      ; preds = %if.else
+  %base_offset.i6 = getelementptr inbounds i8, ptr %va, i64 24
+  %6 = load i64, ptr %base_offset.i6, align 8
   %base_offset2.i7 = getelementptr inbounds i8, ptr %vb, i64 24
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %land.rhs.i, %land.rhs.i5
-  %base_offset2.i7.sink = phi ptr [ %base_offset2.i7, %land.rhs.i5 ], [ %base_offset2.i, %land.rhs.i ]
-  %.sink.in = getelementptr inbounds i8, ptr %va, i64 24
-  %.sink = load i64, ptr %.sink.in, align 8
-  %4 = load i64, ptr %base_offset2.i7.sink, align 8
-  %cmp3.i8 = icmp ne i64 %.sink, %4
-  %5 = zext i1 %cmp3.i8 to i32
+  %7 = load i64, ptr %base_offset2.i7, align 8
+  %cmp3.i8 = icmp eq i64 %6, %7
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.else, %if.then
-  %retval.0.in.shrunk = phi i32 [ 1, %if.then ], [ 1, %if.else ], [ %5, %return.sink.split ]
-  ret i32 %retval.0.in.shrunk
+return:                                           ; preds = %land.rhs.i5, %if.else, %land.rhs.i, %if.then
+  %retval.0.in.shrunk = phi i1 [ false, %if.then ], [ %cmp3.i, %land.rhs.i ], [ false, %if.else ], [ %cmp3.i8, %land.rhs.i5 ]
+  %8 = xor i1 %retval.0.in.shrunk, true
+  %retval.0 = zext i1 %8 to i32
+  ret i32 %retval.0
 }
 
 declare ptr @lookup_object(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -6667,7 +6677,7 @@ attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) 
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #13 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

@@ -1426,6 +1426,7 @@ define dso_local { i64, i32 } @DefineTSTemplate(ptr noundef %0, ptr noundef read
 41:                                               ; preds = %.lr.ph44
   %42 = call fastcc i64 @get_ts_template_func(ptr noundef nonnull %36, i32 noundef 4)
   store i64 %42, ptr %29, align 8
+  store i8 0, ptr %30, align 1
   br label %53
 
 43:                                               ; preds = %.lr.ph44
@@ -1436,6 +1437,7 @@ define dso_local { i64, i32 } @DefineTSTemplate(ptr noundef %0, ptr noundef read
 46:                                               ; preds = %43
   %47 = call fastcc i64 @get_ts_template_func(ptr noundef nonnull %36, i32 noundef 5)
   store i64 %47, ptr %27, align 16
+  store i8 0, ptr %28, align 1
   br label %53
 
 .split:                                           ; preds = %43
@@ -1449,9 +1451,7 @@ define dso_local { i64, i32 } @DefineTSTemplate(ptr noundef %0, ptr noundef read
   unreachable
 
 53:                                               ; preds = %41, %46
-  %.sink = phi ptr [ %30, %41 ], [ %28, %46 ]
   %54 = phi i64 [ %33, %41 ], [ %47, %46 ]
-  store i8 0, ptr %.sink, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = load i32, ptr %25, align 4
   %56 = sext i32 %55 to i64

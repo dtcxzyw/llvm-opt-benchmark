@@ -433,8 +433,8 @@ _ZN4llvm23early_inc_iterator_implINS_26MachineInstrBundleIteratorINS_12MachineIn
   %95 = icmp ult i32 %94, 1073741823
   %96 = icmp ne i32 %89, %91
   %97 = or i1 %96, %95
-  %or.cond5.i.i = select i1 %93, i1 true, i1 %97
-  br i1 %or.cond5.i.i, label %_ZL23isMatchingStartStopPairPKN4llvm12MachineInstrES2_.exit.thread.i, label %_ZL23isMatchingStartStopPairPKN4llvm12MachineInstrES2_.exit.thread13.i
+  %or.cond25.i.i = select i1 %93, i1 true, i1 %97
+  br i1 %or.cond25.i.i, label %_ZL23isMatchingStartStopPairPKN4llvm12MachineInstrES2_.exit.thread.i, label %_ZL23isMatchingStartStopPairPKN4llvm12MachineInstrES2_.exit.thread13.i
 
 _ZL23isMatchingStartStopPairPKN4llvm12MachineInstrES2_.exit.i: ; preds = %62
   %98 = xor i1 %63, %65
@@ -495,21 +495,21 @@ _ZL23isMatchingStartStopPairPKN4llvm12MachineInstrES2_.exit.thread.i: ; preds = 
 111:                                              ; preds = %108, %108, %108, %108, %108
   %112 = getelementptr inbounds nuw i8, ptr %.sroa.01.020.i, i64 32
   %113 = load ptr, ptr %112, align 8
-  %.val42.i = load ptr, ptr %31, align 8
-  %.val43.i = load i32, ptr %113, align 8
+  %.val40.i = load ptr, ptr %31, align 8
+  %.val41.i = load i32, ptr %113, align 8
   %114 = getelementptr i8, ptr %113, i64 4
-  %.val44.i = load i32, ptr %114, align 4
-  %115 = call fastcc noundef zeroext i1 @_ZL10isSVERegOpRKN4llvm18TargetRegisterInfoERKNS_19MachineRegisterInfoERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(308) %27, ptr %.val42.i, i32 %.val43.i, i32 %.val44.i)
+  %.val42.i = load i32, ptr %114, align 4
+  %115 = call fastcc noundef zeroext i1 @_ZL10isSVERegOpRKN4llvm18TargetRegisterInfoERKNS_19MachineRegisterInfoERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(308) %27, ptr %.val40.i, i32 %.val41.i, i32 %.val42.i)
   br i1 %115, label %121, label %116
 
 116:                                              ; preds = %111
   %117 = load ptr, ptr %112, align 8
   %118 = getelementptr inbounds i8, ptr %117, i64 32
-  %.val45.i = load ptr, ptr %31, align 8
-  %.val46.i = load i32, ptr %118, align 8
+  %.val43.i = load ptr, ptr %31, align 8
+  %.val44.i = load i32, ptr %118, align 8
   %119 = getelementptr i8, ptr %117, i64 36
-  %.val47.i = load i32, ptr %119, align 4
-  %120 = call fastcc noundef zeroext i1 @_ZL10isSVERegOpRKN4llvm18TargetRegisterInfoERKNS_19MachineRegisterInfoERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(308) %27, ptr %.val45.i, i32 %.val46.i, i32 %.val47.i)
+  %.val45.i = load i32, ptr %119, align 4
+  %120 = call fastcc noundef zeroext i1 @_ZL10isSVERegOpRKN4llvm18TargetRegisterInfoERKNS_19MachineRegisterInfoERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(308) %27, ptr %.val43.i, i32 %.val44.i, i32 %.val45.i)
   br i1 %120, label %121, label %134
 
 121:                                              ; preds = %116, %111

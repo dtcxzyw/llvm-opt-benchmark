@@ -582,12 +582,12 @@ define hidden void @_ZN4llvm22CriticalAntiDepBreaker7ObserveERNS_12MachineInstrE
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %6 = load i16, ptr %5, align 4
   switch i16 %6, label %.preheader [
-    i16 17, label %33
-    i16 16, label %33
-    i16 15, label %33
-    i16 14, label %33
-    i16 13, label %33
-    i16 7, label %33
+    i16 17, label %32
+    i16 16, label %32
+    i16 15, label %32
+    i16 14, label %32
+    i16 13, label %32
+    i16 7, label %32
   ]
 
 .preheader:                                       ; preds = %4
@@ -604,8 +604,8 @@ define hidden void @_ZN4llvm22CriticalAntiDepBreaker7ObserveERNS_12MachineInstrE
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 216
   br label %14
 
-14:                                               ; preds = %.lr.ph, %28
-  %.023 = phi i32 [ 1, %.lr.ph ], [ %29, %28 ]
+14:                                               ; preds = %.lr.ph, %27
+  %.023 = phi i32 [ 1, %.lr.ph ], [ %28, %27 ]
   %15 = zext i32 %.023 to i64
   %16 = load ptr, ptr %11, align 8
   %17 = getelementptr inbounds i32, ptr %16, i64 %15
@@ -620,33 +620,33 @@ define hidden void @_ZN4llvm22CriticalAntiDepBreaker7ObserveERNS_12MachineInstrE
   %23 = icmp uge i32 %22, %3
   %.not20 = icmp ult i32 %22, %2
   %or.cond21 = or i1 %23, %.not20
-  br i1 %or.cond21, label %28, label %.sink.split
+  br i1 %or.cond21, label %27, label %.sink.split
 
 .sink.split:                                      ; preds = %19, %14
-  %.sink26 = phi ptr [ %11, %14 ], [ %13, %19 ]
+  %.sink25.in = phi ptr [ %11, %14 ], [ %13, %19 ]
   %.sink = phi i32 [ %2, %14 ], [ %3, %19 ]
   %24 = load ptr, ptr %12, align 8
   %25 = getelementptr inbounds ptr, ptr %24, i64 %15
   store ptr inttoptr (i64 -1 to ptr), ptr %25, align 8
-  %26 = load ptr, ptr %.sink26, align 8
-  %27 = getelementptr inbounds i32, ptr %26, i64 %15
-  store i32 %.sink, ptr %27, align 4
-  br label %28
+  %.sink25 = load ptr, ptr %.sink25.in, align 8
+  %26 = getelementptr inbounds i32, ptr %.sink25, i64 %15
+  store i32 %.sink, ptr %26, align 4
+  br label %27
 
-28:                                               ; preds = %.sink.split, %19
-  %29 = add i32 %.023, 1
-  %30 = load ptr, ptr %7, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 16
-  %32 = load i32, ptr %31, align 8
-  %.not = icmp eq i32 %29, %32
+27:                                               ; preds = %.sink.split, %19
+  %28 = add i32 %.023, 1
+  %29 = load ptr, ptr %7, align 8
+  %30 = getelementptr inbounds i8, ptr %29, i64 16
+  %31 = load i32, ptr %30, align 8
+  %.not = icmp eq i32 %28, %31
   br i1 %.not, label %._crit_edge, label %14, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %28, %.preheader
+._crit_edge:                                      ; preds = %27, %.preheader
   tail call void @_ZN4llvm22CriticalAntiDepBreaker18PrescanInstructionERNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull align 8 dereferenceable(70) %1)
   tail call void @_ZN4llvm22CriticalAntiDepBreaker15ScanInstructionERNS_12MachineInstrEj(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2)
-  br label %33
+  br label %32
 
-33:                                               ; preds = %4, %4, %4, %4, %4, %4, %._crit_edge
+32:                                               ; preds = %4, %4, %4, %4, %4, %4, %._crit_edge
   ret void
 }
 

@@ -2010,11 +2010,15 @@ do.body30:                                        ; preds = %do.body25
   %10 = load ptr, ptr %active_next33, align 8
   store ptr %10, ptr %active_rules, align 8
   %cmp37 = icmp eq ptr %10, null
-  br i1 %cmp37, label %if.then38, label %do.end72
+  br i1 %cmp37, label %if.then38, label %if.end42
 
 if.then38:                                        ; preds = %do.body30
   %sqh_last = getelementptr inbounds i8, ptr %0, i64 472
   store ptr %active_rules, ptr %sqh_last, align 8
+  br label %if.end42
+
+if.end42:                                         ; preds = %if.then38, %do.body30
+  store ptr null, ptr %active_next33, align 8
   br label %do.end72
 
 while.cond48:                                     ; preds = %do.body25, %while.cond48
@@ -2039,11 +2043,10 @@ if.then63:                                        ; preds = %while.end55
 
 if.end68:                                         ; preds = %if.then63, %while.end55
   %active_next69 = getelementptr inbounds i8, ptr %.us-phi42, i64 64
+  store ptr null, ptr %active_next69, align 8
   br label %do.end72
 
-do.end72:                                         ; preds = %do.body30, %if.then38, %if.end68
-  %active_next33.sink = phi ptr [ %active_next69, %if.end68 ], [ %active_next33, %if.then38 ], [ %active_next33, %do.body30 ]
-  store ptr null, ptr %active_next33.sink, align 8
+do.end72:                                         ; preds = %if.end42, %if.end68
   %action.i = getelementptr inbounds i8, ptr %.us-phi42, i64 4
   %13 = load i32, ptr %action.i, align 4
   %cond.i = icmp eq i32 %13, 2

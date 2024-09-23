@@ -104846,10 +104846,10 @@ default.unreachable.i.i.i.i.i:                    ; preds = %24
   br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hdf323ee0692c2bd2E.exit.i"
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hdf323ee0692c2bd2E.exit.i": ; preds = %27, %26, %24, %21
-  %.sink3.i.i.i.i.i.sroa.speculated = phi ptr [ %8, %26 ], [ %6, %27 ], [ %7, %24 ], [ %5, %21 ]
-  %28 = load i64, ptr %.sink3.i.i.i.i.i.sroa.speculated, align 8, !noalias !19462, !noundef !137
+  %.sink.in.i.i.i.i.i.sroa.speculated = phi ptr [ %8, %26 ], [ %6, %27 ], [ %7, %24 ], [ %5, %21 ]
+  %28 = load i64, ptr %.sink.in.i.i.i.i.i.sroa.speculated, align 8, !noalias !19462, !noundef !137
   %29 = add i64 %28, 1
-  store i64 %29, ptr %.sink3.i.i.i.i.i.sroa.speculated, align 8, !noalias !19462
+  store i64 %29, ptr %.sink.in.i.i.i.i.i.sroa.speculated, align 8, !noalias !19462
   %30 = add nuw i64 %.0.i, 1
   %31 = icmp eq i64 %30, %20
   br i1 %31, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hcf0503656812447fE.exit", label %21

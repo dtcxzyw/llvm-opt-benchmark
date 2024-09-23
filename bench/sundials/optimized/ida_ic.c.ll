@@ -454,11 +454,11 @@ IDANewy.exit.i.i.i:                               ; preds = %211, %204
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %255, double noundef -1.000000e+00, ptr noundef %256, ptr noundef %256) #3
   br label %IDANewyyp.exit.i.i.i
 
-IDANewyyp.exit.i.i.i:                             ; preds = %245, %242
-  %.sink83.i.i.i = phi ptr [ %114, %245 ], [ %102, %242 ]
+IDANewyyp.exit.i.i.i:                             ; preds = %242, %245
+  %.sink240 = phi ptr [ %114, %245 ], [ %102, %242 ]
   %257 = load ptr, ptr %43, align 8
   %258 = fneg double %.05969.i.i.i
-  %259 = load ptr, ptr %.sink83.i.i.i, align 8
+  %259 = load ptr, ptr %.sink240, align 8
   %260 = load ptr, ptr %115, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %257, double noundef %258, ptr noundef %259, ptr noundef %260) #3
   %261 = load ptr, ptr %101, align 8

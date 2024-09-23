@@ -7415,12 +7415,12 @@ _ZN2cv3Mat2atIdEERT_i.exit37.thread:              ; preds = %29
   br label %109
 
 109:                                              ; preds = %_ZN2cv3Mat2atIdEERT_i.exit37.thread, %_ZN2cv3Mat2atIdEERT_i.exit37
-  %.sink = phi ptr [ %108, %_ZN2cv3Mat2atIdEERT_i.exit37.thread ], [ %105, %_ZN2cv3Mat2atIdEERT_i.exit37 ]
   %110 = phi ptr [ %106, %_ZN2cv3Mat2atIdEERT_i.exit37.thread ], [ %102, %_ZN2cv3Mat2atIdEERT_i.exit37 ]
+  %.in = phi ptr [ %108, %_ZN2cv3Mat2atIdEERT_i.exit37.thread ], [ %105, %_ZN2cv3Mat2atIdEERT_i.exit37 ]
   %111 = phi i64 [ %107, %_ZN2cv3Mat2atIdEERT_i.exit37.thread ], [ %103, %_ZN2cv3Mat2atIdEERT_i.exit37 ]
-  %.in = getelementptr inbounds double, ptr %110, i64 %indvars.iv55
-  %112 = load double, ptr %.in, align 8
-  %113 = load double, ptr %.sink, align 8
+  %.in61 = getelementptr inbounds double, ptr %110, i64 %indvars.iv55
+  %112 = load double, ptr %.in61, align 8
+  %113 = load double, ptr %.in, align 8
   %sext = shl i64 %111, 32
   %114 = ashr exact i64 %sext, 32
   %115 = getelementptr inbounds double, ptr %110, i64 %114

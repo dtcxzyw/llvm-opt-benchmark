@@ -10950,36 +10950,34 @@ _ZN6Unpack12UnpWriteDataEPhm.exit33:              ; preds = %65, %71
   %spec.select.i35 = tail call i64 @llvm.smin.i64(i64 %2, i64 %85)
   %86 = load ptr, ptr %0, align 8
   tail call void @_ZN11ComprDataIO8UnpWriteEPhm(ptr noundef nonnull align 8 dereferenceable(266) %86, ptr noundef %84, i64 noundef %spec.select.i35)
-  br label %_ZN6Unpack12UnpWriteDataEPhm.exit36.sink.split
-
-.thread40:                                        ; preds = %.thread
-  %87 = getelementptr inbounds i8, ptr %0, i64 19856
-  %88 = load i64, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %0, i64 19840
-  %90 = load i64, ptr %89, align 8
-  %.not.i37 = icmp slt i64 %88, %90
-  br i1 %.not.i37, label %91, label %_ZN6Unpack12UnpWriteDataEPhm.exit36
-
-91:                                               ; preds = %.thread40
-  %92 = sub nuw i64 %2, %1
-  %93 = getelementptr inbounds i8, ptr %0, i64 19312
-  %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 %1
-  %96 = sub nsw i64 %90, %88
-  %spec.select.i38 = tail call i64 @llvm.smin.i64(i64 %92, i64 %96)
-  %97 = load ptr, ptr %0, align 8
-  tail call void @_ZN11ComprDataIO8UnpWriteEPhm(ptr noundef nonnull align 8 dereferenceable(266) %97, ptr noundef %95, i64 noundef %spec.select.i38)
-  br label %_ZN6Unpack12UnpWriteDataEPhm.exit36.sink.split
-
-_ZN6Unpack12UnpWriteDataEPhm.exit36.sink.split:   ; preds = %83, %91
-  %.sink = phi ptr [ %87, %91 ], [ %67, %83 ]
-  %.sink53 = phi i64 [ %92, %91 ], [ %2, %83 ]
-  %98 = load i64, ptr %.sink, align 8
-  %99 = add i64 %98, %.sink53
-  store i64 %99, ptr %.sink, align 8
+  %87 = load i64, ptr %67, align 8
+  %88 = add i64 %87, %2
+  store i64 %88, ptr %67, align 8
   br label %_ZN6Unpack12UnpWriteDataEPhm.exit36
 
-_ZN6Unpack12UnpWriteDataEPhm.exit36:              ; preds = %_ZN6Unpack12UnpWriteDataEPhm.exit, %_ZN6Unpack12UnpWriteDataEPhm.exit36.sink.split, %16, %.thread40, %_ZN6Unpack12UnpWriteDataEPhm.exit33
+.thread40:                                        ; preds = %.thread
+  %89 = getelementptr inbounds i8, ptr %0, i64 19856
+  %90 = load i64, ptr %89, align 8
+  %91 = getelementptr inbounds i8, ptr %0, i64 19840
+  %92 = load i64, ptr %91, align 8
+  %.not.i37 = icmp slt i64 %90, %92
+  br i1 %.not.i37, label %93, label %_ZN6Unpack12UnpWriteDataEPhm.exit36
+
+93:                                               ; preds = %.thread40
+  %94 = sub nuw i64 %2, %1
+  %95 = getelementptr inbounds i8, ptr %0, i64 19312
+  %96 = load ptr, ptr %95, align 8
+  %97 = getelementptr inbounds i8, ptr %96, i64 %1
+  %98 = sub nsw i64 %92, %90
+  %spec.select.i38 = tail call i64 @llvm.smin.i64(i64 %94, i64 %98)
+  %99 = load ptr, ptr %0, align 8
+  tail call void @_ZN11ComprDataIO8UnpWriteEPhm(ptr noundef nonnull align 8 dereferenceable(266) %99, ptr noundef %97, i64 noundef %spec.select.i38)
+  %100 = load i64, ptr %89, align 8
+  %101 = add i64 %100, %94
+  store i64 %101, ptr %89, align 8
+  br label %_ZN6Unpack12UnpWriteDataEPhm.exit36
+
+_ZN6Unpack12UnpWriteDataEPhm.exit36:              ; preds = %_ZN6Unpack12UnpWriteDataEPhm.exit, %16, %93, %.thread40, %83, %_ZN6Unpack12UnpWriteDataEPhm.exit33
   ret void
 }
 

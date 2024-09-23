@@ -882,10 +882,19 @@ remove_port.exit:                                 ; preds = %discard_throttle_da
   %cmp.not = icmp eq ptr %14, null
   %tql_prev9 = getelementptr inbounds i8, ptr %call.i, i64 168
   %15 = load ptr, ptr %tql_prev9, align 8
-  %tql_prev10 = getelementptr inbounds i8, ptr %0, i64 696
+  br i1 %cmp.not, label %if.else, label %if.then
+
+if.then:                                          ; preds = %remove_port.exit
   %tql_prev7 = getelementptr inbounds i8, ptr %14, i64 168
-  %tql_prev10.sink = select i1 %cmp.not, ptr %tql_prev10, ptr %tql_prev7
-  store ptr %15, ptr %tql_prev10.sink, align 8
+  store ptr %15, ptr %tql_prev7, align 8
+  br label %if.end
+
+if.else:                                          ; preds = %remove_port.exit
+  %tql_prev10 = getelementptr inbounds i8, ptr %0, i64 696
+  store ptr %15, ptr %tql_prev10, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then
   %16 = load ptr, ptr %next, align 8
   store ptr %16, ptr %15, align 8
   %unrealize = getelementptr inbounds i8, ptr %call1.i, i64 192
@@ -894,11 +903,11 @@ remove_port.exit:                                 ; preds = %discard_throttle_da
   %tobool.not = icmp eq ptr %17, null
   br i1 %tobool.not, label %if.end21, label %if.then19
 
-if.then19:                                        ; preds = %remove_port.exit
+if.then19:                                        ; preds = %if.end
   tail call void %17(ptr noundef %dev) #12
   br label %if.end21
 
-if.end21:                                         ; preds = %if.then19, %remove_port.exit
+if.end21:                                         ; preds = %if.then19, %if.end
   ret void
 }
 

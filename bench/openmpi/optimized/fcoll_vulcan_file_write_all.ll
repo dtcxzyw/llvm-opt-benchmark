@@ -1890,7 +1890,8 @@ define internal fastcc void @shuffle_init(i32 noundef %0, i32 noundef %1, i32 no
   %95 = getelementptr inbounds i8, ptr %3, i64 144
   store i32 0, ptr %95, align 8
   %96 = getelementptr inbounds i8, ptr %3, i64 192
-  br label %.loopexit569.sink.split
+  store i32 0, ptr %96, align 8
+  br label %.loopexit569
 
 97:                                               ; preds = %.loopexit570, %91
   %.sink765 = phi i64 [ %94, %91 ], [ %82, %.loopexit570 ]
@@ -2172,7 +2173,8 @@ define internal fastcc void @shuffle_init(i32 noundef %0, i32 noundef %1, i32 no
   %298 = load i32, ptr %107, align 4
   %299 = sub nsw i32 %298, %.pre697
   store i32 %299, ptr %107, align 4
-  br label %.loopexit569.sink.split
+  store i32 0, ptr %100, align 8
+  br label %.loopexit569
 
 300:                                              ; preds = %.loopexit568
   %301 = sext i32 %114 to i64
@@ -2257,7 +2259,8 @@ define internal fastcc void @shuffle_init(i32 noundef %0, i32 noundef %1, i32 no
   %366 = trunc i64 %365 to i32
   %367 = sub i32 %366, %.pre718
   store i32 %367, ptr %107, align 4
-  br label %.loopexit569.sink.split
+  store i32 0, ptr %100, align 8
+  br label %.loopexit569
 
 368:                                              ; preds = %300
   br i1 %10, label %369, label %._crit_edge708
@@ -2413,14 +2416,8 @@ define internal fastcc void @shuffle_init(i32 noundef %0, i32 noundef %1, i32 no
   %.not544 = icmp eq i32 %.pr, 0
   br i1 %.not544, label %.loopexit569, label %113, !llvm.loop !40
 
-.loopexit569.sink.split:                          ; preds = %290, %349, %.thread
-  %.sink = phi ptr [ %96, %.thread ], [ %100, %349 ], [ %100, %290 ]
-  %.1484.ph = phi i32 [ 0, %.thread ], [ %spec.select768, %349 ], [ %spec.select767, %290 ]
-  store i32 0, ptr %.sink, align 8
-  br label %.loopexit569
-
-.loopexit569:                                     ; preds = %481, %.loopexit569.sink.split, %97
-  %.1484 = phi i32 [ 0, %97 ], [ %.1484.ph, %.loopexit569.sink.split ], [ %.4, %481 ]
+.loopexit569:                                     ; preds = %481, %.thread, %97, %349, %290
+  %.1484 = phi i32 [ %spec.select767, %290 ], [ %spec.select768, %349 ], [ 0, %97 ], [ 0, %.thread ], [ %.4, %481 ]
   br i1 %10, label %.preheader567, label %.loopexit561
 
 .preheader567:                                    ; preds = %.loopexit569

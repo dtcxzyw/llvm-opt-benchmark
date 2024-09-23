@@ -22,7 +22,7 @@ define void @dot_position(ptr noundef %0) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %4, i64 256
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %987, label %8
+  br i1 %7, label %992, label %8
 
 8:                                                ; preds = %1
   tail call void @mark_lowclusters(ptr noundef nonnull %0) #16
@@ -1684,9 +1684,9 @@ set_aspect.exit:                                  ; preds = %set_xcoords.exit, %
   %.pre49.i = load ptr, ptr %.phi.trans.insert.i57, align 8, !nonnull !4, !noundef !4
   br label %.lr.ph45.i
 
-.lr.ph45.i:                                       ; preds = %983, %._crit_edge40.i
-  %.02743.i = phi ptr [ %.1.i58, %983 ], [ null, %._crit_edge40.i ]
-  %.12942.i = phi ptr [ %974, %983 ], [ %.pre49.i, %._crit_edge40.i ]
+.lr.ph45.i:                                       ; preds = %988, %._crit_edge40.i
+  %.02743.i = phi ptr [ %.1.i58, %988 ], [ null, %._crit_edge40.i ]
+  %.12942.i = phi ptr [ %974, %988 ], [ %.pre49.i, %._crit_edge40.i ]
   %971 = getelementptr inbounds i8, ptr %.12942.i, i64 16
   %972 = load ptr, ptr %971, align 8
   %973 = getelementptr inbounds i8, ptr %972, i64 240
@@ -1694,37 +1694,47 @@ set_aspect.exit:                                  ; preds = %set_xcoords.exit, %
   %975 = getelementptr inbounds i8, ptr %972, i64 216
   %976 = load i8, ptr %975, align 8
   %977 = icmp eq i8 %976, 2
-  br i1 %977, label %978, label %983
+  br i1 %977, label %978, label %988
 
 978:                                              ; preds = %.lr.ph45.i
   %.not32.i = icmp eq ptr %.02743.i, null
-  %979 = getelementptr inbounds i8, ptr %.02743.i, i64 16
-  %.sink.i = select i1 %.not32.i, ptr %3, ptr %979
-  %.sink56.i = select i1 %.not32.i, i64 256, i64 240
-  %980 = load ptr, ptr %.sink.i, align 8
-  %981 = getelementptr inbounds i8, ptr %980, i64 %.sink56.i
-  store ptr %974, ptr %981, align 8
-  %982 = load ptr, ptr %971, align 8
-  tail call void @free(ptr noundef %982) #16
-  tail call void @free(ptr noundef nonnull %.12942.i) #16
-  br label %983
+  br i1 %.not32.i, label %983, label %979
 
-983:                                              ; preds = %978, %.lr.ph45.i
-  %.1.i58 = phi ptr [ %.02743.i, %978 ], [ %.12942.i, %.lr.ph45.i ]
+979:                                              ; preds = %978
+  %980 = getelementptr inbounds i8, ptr %.02743.i, i64 16
+  %981 = load ptr, ptr %980, align 8
+  %982 = getelementptr inbounds i8, ptr %981, i64 240
+  store ptr %974, ptr %982, align 8
+  br label %986
+
+983:                                              ; preds = %978
+  %984 = load ptr, ptr %3, align 8
+  %985 = getelementptr inbounds i8, ptr %984, i64 256
+  store ptr %974, ptr %985, align 8
+  br label %986
+
+986:                                              ; preds = %983, %979
+  %987 = load ptr, ptr %971, align 8
+  tail call void @free(ptr noundef %987) #16
+  tail call void @free(ptr noundef nonnull %.12942.i) #16
+  br label %988
+
+988:                                              ; preds = %986, %.lr.ph45.i
+  %.1.i58 = phi ptr [ %.02743.i, %986 ], [ %.12942.i, %.lr.ph45.i ]
   %.not31.i = icmp eq ptr %974, null
   br i1 %.not31.i, label %remove_aux_edges.exit, label %.lr.ph45.i
 
-remove_aux_edges.exit:                            ; preds = %983
+remove_aux_edges.exit:                            ; preds = %988
   %.pre50.i = load ptr, ptr %3, align 8
   %.phi.trans.insert51.i = getelementptr inbounds i8, ptr %.pre50.i, i64 256
   %.pre52.i = load ptr, ptr %.phi.trans.insert51.i, align 8
-  %984 = getelementptr inbounds i8, ptr %.pre52.i, i64 16
-  %985 = load ptr, ptr %984, align 8
-  %986 = getelementptr inbounds i8, ptr %985, i64 248
-  store ptr null, ptr %986, align 8
-  br label %987
+  %989 = getelementptr inbounds i8, ptr %.pre52.i, i64 16
+  %990 = load ptr, ptr %989, align 8
+  %991 = getelementptr inbounds i8, ptr %990, i64 248
+  store ptr null, ptr %991, align 8
+  br label %992
 
-987:                                              ; preds = %1, %remove_aux_edges.exit
+992:                                              ; preds = %1, %remove_aux_edges.exit
   ret void
 }
 

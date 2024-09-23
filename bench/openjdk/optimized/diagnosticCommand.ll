@@ -6154,58 +6154,59 @@ define hidden void @_ZN17SystemDumpMapDCmd7executeE10DCmdSourceP10JavaThread(ptr
   %7 = getelementptr inbounds i8, ptr %0, i64 88
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
-  br i1 %9, label %10, label %12
+  br i1 %9, label %10, label %13
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds i8, ptr %0, i64 96
-  br label %15
+  %12 = load ptr, ptr %11, align 8
+  br label %17
 
-12:                                               ; preds = %3
-  %13 = call noundef i32 @_ZN2os18current_process_idEv() #17
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.170, i32 noundef %13) #17
-  %14 = getelementptr inbounds i8, ptr %4, i64 56
-  br label %15
+13:                                               ; preds = %3
+  %14 = call noundef i32 @_ZN2os18current_process_idEv() #17
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.170, i32 noundef %14) #17
+  %15 = getelementptr inbounds i8, ptr %4, i64 56
+  %16 = load ptr, ptr %15, align 8
+  br label %17
 
-15:                                               ; preds = %12, %10
-  %.sink = phi ptr [ %14, %12 ], [ %11, %10 ]
-  %16 = load ptr, ptr %.sink, align 8
-  call void @_ZN10fileStreamC1EPKc(ptr noundef nonnull align 8 dereferenceable(65) %5, ptr noundef %16) #17
-  %17 = getelementptr inbounds i8, ptr %5, i64 56
-  %18 = load ptr, ptr %17, align 8
-  %.not8 = icmp eq ptr %18, null
-  br i1 %.not8, label %30, label %19
+17:                                               ; preds = %13, %10
+  %.0 = phi ptr [ %12, %10 ], [ %16, %13 ]
+  call void @_ZN10fileStreamC1EPKc(ptr noundef nonnull align 8 dereferenceable(65) %5, ptr noundef %.0) #17
+  %18 = getelementptr inbounds i8, ptr %5, i64 56
+  %19 = load ptr, ptr %18, align 8
+  %.not8 = icmp eq ptr %19, null
+  br i1 %.not8, label %31, label %20
 
-19:                                               ; preds = %15
-  %20 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
-  %21 = icmp sgt i32 %20, 1
-  br i1 %21, label %25, label %22
+20:                                               ; preds = %17
+  %21 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
+  %22 = icmp sgt i32 %21, 1
+  br i1 %22, label %26, label %23
 
-22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
-  %24 = load ptr, ptr %23, align 8
-  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %24, ptr noundef nonnull @.str.171) #17
-  br label %25
+23:                                               ; preds = %20
+  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = load ptr, ptr %24, align 8
+  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %25, ptr noundef nonnull @.str.171) #17
+  br label %26
 
-25:                                               ; preds = %22, %19
+26:                                               ; preds = %23, %20
   call void @_ZN13MemMapPrinter18print_all_mappingsEP12outputStream(ptr noundef nonnull %5) #17
-  %26 = call noundef ptr @_ZN2os5Posix8realpathEPKcPcm(ptr noundef %16, ptr noundef nonnull %6, i64 noundef 4097) #17
-  %.not = icmp eq ptr %26, null
-  %27 = select i1 %.not, ptr %16, ptr %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
-  %29 = load ptr, ptr %28, align 8
-  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull @.str.172, ptr noundef %27) #17
-  br label %36
+  %27 = call noundef ptr @_ZN2os5Posix8realpathEPKcPcm(ptr noundef %.0, ptr noundef nonnull %6, i64 noundef 4097) #17
+  %.not = icmp eq ptr %27, null
+  %28 = select i1 %.not, ptr %.0, ptr %27
+  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = load ptr, ptr %29, align 8
+  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %30, ptr noundef nonnull @.str.172, ptr noundef %28) #17
+  br label %37
 
-30:                                               ; preds = %15
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = tail call ptr @__errno_location() #19
-  %34 = load i32, ptr %33, align 4
-  %35 = call noundef ptr @_ZN2os8strerrorEi(i32 noundef %34) #17
-  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %32, ptr noundef nonnull @.str.173, ptr noundef %16, ptr noundef %35) #17
-  br label %36
+31:                                               ; preds = %17
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = load ptr, ptr %32, align 8
+  %34 = tail call ptr @__errno_location() #19
+  %35 = load i32, ptr %34, align 4
+  %36 = call noundef ptr @_ZN2os8strerrorEi(i32 noundef %35) #17
+  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %33, ptr noundef nonnull @.str.173, ptr noundef %.0, ptr noundef %36) #17
+  br label %37
 
-36:                                               ; preds = %30, %25
+37:                                               ; preds = %31, %26
   call void @_ZN10fileStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(65) %5) #17
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %4) #17
   ret void

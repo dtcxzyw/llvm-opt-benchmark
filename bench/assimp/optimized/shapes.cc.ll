@@ -263,16 +263,28 @@ if.then:                                          ; preds = %for.body
   %neighbors_.i = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %neighbors_.i, align 8
   %cmp.i = icmp eq ptr %1, %this
+  br i1 %cmp.i, label %if.then.i, label %if.else.i
+
+if.then.i:                                        ; preds = %if.then
+  store ptr null, ptr %neighbors_.i, align 8
+  br label %for.inc
+
+if.else.i:                                        ; preds = %if.then
   %arrayidx5.i = getelementptr inbounds i8, ptr %0, i64 40
   %2 = load ptr, ptr %arrayidx5.i, align 8
   %cmp6.i = icmp eq ptr %2, %this
-  %arrayidx12.i = getelementptr inbounds i8, ptr %0, i64 48
-  %spec.select.i = select i1 %cmp6.i, ptr %arrayidx5.i, ptr %arrayidx12.i
-  %arrayidx5.sink.i = select i1 %cmp.i, ptr %neighbors_.i, ptr %spec.select.i
-  store ptr null, ptr %arrayidx5.sink.i, align 8
+  br i1 %cmp6.i, label %if.then7.i, label %if.else10.i
+
+if.then7.i:                                       ; preds = %if.else.i
+  store ptr null, ptr %arrayidx5.i, align 8
   br label %for.inc
 
-for.inc:                                          ; preds = %for.body, %if.then
+if.else10.i:                                      ; preds = %if.else.i
+  %arrayidx12.i = getelementptr inbounds i8, ptr %0, i64 48
+  store ptr null, ptr %arrayidx12.i, align 8
+  br label %for.inc
+
+for.inc:                                          ; preds = %if.else10.i, %if.then7.i, %if.then.i, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
@@ -289,13 +301,28 @@ entry:
   %neighbors_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %neighbors_, align 8
   %cmp = icmp eq ptr %0, %triangle
+  br i1 %cmp, label %if.then, label %if.else
+
+if.then:                                          ; preds = %entry
+  store ptr null, ptr %neighbors_, align 8
+  br label %if.end13
+
+if.else:                                          ; preds = %entry
   %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %arrayidx5, align 8
   %cmp6 = icmp eq ptr %1, %triangle
+  br i1 %cmp6, label %if.then7, label %if.else10
+
+if.then7:                                         ; preds = %if.else
+  store ptr null, ptr %arrayidx5, align 8
+  br label %if.end13
+
+if.else10:                                        ; preds = %if.else
   %arrayidx12 = getelementptr inbounds i8, ptr %this, i64 48
-  %spec.select = select i1 %cmp6, ptr %arrayidx5, ptr %arrayidx12
-  %arrayidx5.sink = select i1 %cmp, ptr %neighbors_, ptr %spec.select
-  store ptr null, ptr %arrayidx5.sink, align 8
+  store ptr null, ptr %arrayidx12, align 8
+  br label %if.end13
+
+if.end13:                                         ; preds = %if.then7, %if.else10, %if.then
   ret void
 }
 
@@ -434,7 +461,8 @@ if.then:                                          ; preds = %entry
   %arrayidx7 = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %arrayidx7, align 8
   store ptr %1, ptr %points_, align 8
-  br label %if.end43.sink.split
+  store ptr %npoint, ptr %arrayidx7, align 8
+  br label %if.end43
 
 if.else:                                          ; preds = %entry
   %2 = load ptr, ptr %arrayidx5, align 8
@@ -445,7 +473,8 @@ if.else:                                          ; preds = %entry
 if.then15:                                        ; preds = %if.else
   store ptr %2, ptr %arrayidx19, align 8
   store ptr %0, ptr %arrayidx5, align 8
-  br label %if.end43.sink.split
+  store ptr %npoint, ptr %points_, align 8
+  br label %if.end43
 
 if.else26:                                        ; preds = %if.else
   %3 = load ptr, ptr %arrayidx19, align 8
@@ -455,14 +484,10 @@ if.else26:                                        ; preds = %if.else
 if.then30:                                        ; preds = %if.else26
   store ptr %3, ptr %points_, align 8
   store ptr %2, ptr %arrayidx19, align 8
-  br label %if.end43.sink.split
-
-if.end43.sink.split:                              ; preds = %if.then, %if.then30, %if.then15
-  %points_.sink = phi ptr [ %points_, %if.then15 ], [ %arrayidx5, %if.then30 ], [ %arrayidx7, %if.then ]
-  store ptr %npoint, ptr %points_.sink, align 8
+  store ptr %npoint, ptr %arrayidx5, align 8
   br label %if.end43
 
-if.end43:                                         ; preds = %if.end43.sink.split, %if.else26
+if.end43:                                         ; preds = %if.then15, %if.else26, %if.then30, %if.then
   ret void
 }
 

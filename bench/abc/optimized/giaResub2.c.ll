@@ -2232,11 +2232,11 @@ define i32 @Gia_Rsb2ManInsert_rec(ptr noundef %0, i32 noundef %1, ptr noundef %2
   br label %73
 
 73:                                               ; preds = %71, %67
-  %.sink = phi ptr [ %38, %71 ], [ %9, %67 ]
   %.sink158 = phi i32 [ %72, %71 ], [ %70, %67 ]
-  %.val120 = load ptr, ptr %.sink, align 8
+  %.val120.sink.in = phi ptr [ %38, %71 ], [ %9, %67 ]
+  %.val120.sink = load ptr, ptr %.val120.sink.in, align 8
   %74 = sext i32 %.sink158 to i64
-  %75 = getelementptr inbounds i32, ptr %.val120, i64 %74
+  %75 = getelementptr inbounds i32, ptr %.val120.sink, i64 %74
   %76 = load i32, ptr %75, align 4
   %77 = icmp slt i32 %65, %.val132
   br i1 %77, label %78, label %82
@@ -2253,11 +2253,11 @@ define i32 @Gia_Rsb2ManInsert_rec(ptr noundef %0, i32 noundef %1, ptr noundef %2
   br label %84
 
 84:                                               ; preds = %82, %78
-  %.sink161 = phi ptr [ %38, %82 ], [ %9, %78 ]
-  %.sink160 = phi i32 [ %83, %82 ], [ %81, %78 ]
-  %.val117 = load ptr, ptr %.sink161, align 8
-  %85 = sext i32 %.sink160 to i64
-  %86 = getelementptr inbounds i32, ptr %.val117, i64 %85
+  %.sink159 = phi i32 [ %83, %82 ], [ %81, %78 ]
+  %.val117.sink.in = phi ptr [ %38, %82 ], [ %9, %78 ]
+  %.val117.sink = load ptr, ptr %.val117.sink.in, align 8
+  %85 = sext i32 %.sink159 to i64
+  %86 = getelementptr inbounds i32, ptr %.val117.sink, i64 %85
   %87 = load i32, ptr %86, align 4
   %88 = icmp slt i32 %76, %87
   %..i = select i1 %88, i32 %61, i32 %63

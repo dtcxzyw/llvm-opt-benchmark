@@ -72,9 +72,18 @@ do.body:                                          ; preds = %land.lhs.true
   %cmp5.not = icmp eq ptr %2, null
   %tql_prev12 = getelementptr inbounds i8, ptr %re.017, i64 8
   %3 = load ptr, ptr %tql_prev12, align 8
+  br i1 %cmp5.not, label %if.else, label %if.then6
+
+if.then6:                                         ; preds = %do.body
   %tql_prev10 = getelementptr inbounds i8, ptr %2, i64 8
-  %.sink = select i1 %cmp5.not, ptr getelementptr inbounds (i8, ptr @reset_handlers, i64 8), ptr %tql_prev10
-  store ptr %3, ptr %.sink, align 8
+  store ptr %3, ptr %tql_prev10, align 8
+  br label %if.end
+
+if.else:                                          ; preds = %do.body
+  store ptr %3, ptr getelementptr inbounds (i8, ptr @reset_handlers, i64 8), align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then6
   %4 = load ptr, ptr %re.017, align 8
   store ptr %4, ptr %3, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %re.017, i8 0, i64 16, i1 false)
@@ -86,7 +95,7 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   %tobool.not = icmp eq ptr %re.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !5
 
-for.end:                                          ; preds = %for.inc, %entry, %do.body
+for.end:                                          ; preds = %for.inc, %entry, %if.end
   ret void
 }
 

@@ -1877,16 +1877,16 @@ _ZN12ResourceMarkD2Ev.exit.i.i.i.i:               ; preds = %74, %72, %48
 
 79:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit.i.i.i.i
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
+  store volatile ptr %78, ptr %44, align 8
   br label %82
 
 80:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit.i.i.i.i
   %81 = getelementptr inbounds i8, ptr %.022.i.i.i.i, i64 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
+  store volatile ptr %78, ptr %81, align 8
   br label %82
 
 82:                                               ; preds = %80, %79
-  %.sink.i.i.i.i = phi ptr [ %81, %80 ], [ %44, %79 ]
-  store volatile ptr %78, ptr %.sink.i.i.i.i, align 8
   %83 = load i32, ptr %1, align 8
   %84 = load i32, ptr %21, align 4
   %85 = icmp eq i32 %83, %84

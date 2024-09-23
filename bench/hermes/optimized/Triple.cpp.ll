@@ -1338,20 +1338,17 @@ sw.bb7.i:                                         ; preds = %if.then142
 switch.lookup:                                    ; preds = %sw.bb.i
   %89 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZL9parseArchN4llvh9StringRefE, i64 0, i64 %89
-  br label %sw.epilog14.i.sink.split
+  %switch.load = load i32, ptr %switch.gep, align 4
+  br label %sw.epilog14.i
 
 switch.lookup2115:                                ; preds = %sw.bb7.i
   %90 = zext nneg i32 %switch.tableidx2116 to i64
   %switch.gep2117 = getelementptr inbounds [3 x i32], ptr @switch.table._ZL9parseArchN4llvh9StringRefE.7, i64 0, i64 %90
-  br label %sw.epilog14.i.sink.split
-
-sw.epilog14.i.sink.split:                         ; preds = %switch.lookup, %switch.lookup2115
-  %switch.gep2117.sink = phi ptr [ %switch.gep2117, %switch.lookup2115 ], [ %switch.gep, %switch.lookup ]
-  %switch.load2118 = load i32, ptr %switch.gep2117.sink, align 4
+  %switch.load2118 = load i32, ptr %switch.gep2117, align 4
   br label %sw.epilog14.i
 
-sw.epilog14.i:                                    ; preds = %sw.epilog14.i.sink.split, %sw.bb7.i, %sw.bb.i, %if.then142
-  %arch.0.i = phi i32 [ 0, %if.then142 ], [ 0, %sw.bb7.i ], [ 0, %sw.bb.i ], [ %switch.load2118, %sw.epilog14.i.sink.split ]
+sw.epilog14.i:                                    ; preds = %switch.lookup2115, %sw.bb7.i, %switch.lookup, %sw.bb.i, %if.then142
+  %arch.0.i = phi i32 [ 0, %if.then142 ], [ 0, %sw.bb7.i ], [ 0, %sw.bb.i ], [ %switch.load, %switch.lookup ], [ %switch.load2118, %switch.lookup2115 ]
   %call16.i = tail call { ptr, i64 } @_ZN4llvh3ARM20getCanonicalArchNameENS_9StringRefE(ptr %ArchName.coerce0, i64 %ArchName.coerce1) #13
   %91 = extractvalue { ptr, i64 } %call16.i, 0
   %92 = extractvalue { ptr, i64 } %call16.i, 1
@@ -2184,8 +2181,12 @@ entry:
   %0 = load i8, ptr %LHSKind.i.i.i.i, align 8, !noalias !10
   switch i8 %0, label %if.end8.i.i [
     i8 0, label %_ZN4llvhplERKNS_5TwineES2_.exit
-    i8 1, label %lor.lhs.false.i.i12
+    i8 1, label %if.then4.i.i
   ]
+
+if.then4.i.i:                                     ; preds = %entry
+  store ptr inttoptr (i64 45 to ptr), ptr %ref.tmp4, align 8
+  br label %lor.lhs.false.i.i12
 
 if.end8.i.i:                                      ; preds = %entry
   %RHSKind.i.i.i.i = getelementptr inbounds i8, ptr %ArchStr, i64 17
@@ -2196,6 +2197,7 @@ if.end8.i.i:                                      ; preds = %entry
   %spec.select20.i.i = select i1 %cmp.i13.i.i, ptr %NewLHS.sroa.0.0.copyload.i.i, ptr %ArchStr
   store ptr %spec.select20.i.i, ptr %ref.tmp4, align 8, !alias.scope !10
   %RHS4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
+  store ptr inttoptr (i64 45 to ptr), ptr %RHS4.i.i.i, align 8, !alias.scope !10
   br label %lor.lhs.false.i.i12
 
 _ZN4llvhplERKNS_5TwineES2_.exit:                  ; preds = %entry
@@ -2207,13 +2209,11 @@ _ZN4llvhplERKNS_5TwineES2_.exit:                  ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   br label %if.then.i.i35
 
-lor.lhs.false.i.i12:                              ; preds = %entry, %if.end8.i.i
-  %ref.tmp4.sink = phi ptr [ %RHS4.i.i.i, %if.end8.i.i ], [ %ref.tmp4, %entry ]
-  %.sink114 = phi i8 [ %spec.select.i.i, %if.end8.i.i ], [ 8, %entry ]
-  %.sink = phi i8 [ 8, %if.end8.i.i ], [ %0, %entry ]
-  %NewLHS.sroa.0.0.copyload.i.i22.ph = phi ptr [ %spec.select20.i.i, %if.end8.i.i ], [ inttoptr (i64 45 to ptr), %entry ]
-  %cmp.i13.i.i21.ph = phi i1 [ false, %if.end8.i.i ], [ true, %entry ]
-  store ptr inttoptr (i64 45 to ptr), ptr %ref.tmp4.sink, align 8
+lor.lhs.false.i.i12:                              ; preds = %if.then4.i.i, %if.end8.i.i
+  %.sink114 = phi i8 [ 8, %if.then4.i.i ], [ %spec.select.i.i, %if.end8.i.i ]
+  %.sink = phi i8 [ 1, %if.then4.i.i ], [ 8, %if.end8.i.i ]
+  %NewLHS.sroa.0.0.copyload.i.i22.ph = phi ptr [ inttoptr (i64 45 to ptr), %if.then4.i.i ], [ %spec.select20.i.i, %if.end8.i.i ]
+  %cmp.i13.i.i21.ph = phi i1 [ true, %if.then4.i.i ], [ false, %if.end8.i.i ]
   %ref.tmp5.sroa.3100.0.ref.tmp4.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
   store i8 %.sink114, ptr %ref.tmp5.sroa.3100.0.ref.tmp4.sroa_idx, align 8
   %ref.tmp5.sroa.4.0.ref.tmp4.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp4, i64 17
@@ -2261,8 +2261,12 @@ _ZN4llvhplERKNS_5TwineES2_.exit38:                ; preds = %if.then.i.i35, %if.
   %4 = load i8, ptr %LHSKind.i.i.i.i41, align 8, !noalias !24
   switch i8 %4, label %if.end8.i.i50 [
     i8 0, label %_ZN4llvhplERKNS_5TwineES2_.exit69
-    i8 1, label %lor.lhs.false.i.i72
+    i8 1, label %if.then4.i.i65
   ]
+
+if.then4.i.i65:                                   ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit38
+  store ptr inttoptr (i64 45 to ptr), ptr %ref.tmp2, align 8
+  br label %lor.lhs.false.i.i72
 
 if.end8.i.i50:                                    ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit38
   %RHSKind.i.i.i.i51 = getelementptr inbounds i8, ptr %ref.tmp3, i64 17
@@ -2273,6 +2277,7 @@ if.end8.i.i50:                                    ; preds = %_ZN4llvhplERKNS_5Tw
   %spec.select20.i.i55 = select i1 %cmp.i13.i.i52, ptr %NewLHS.sroa.0.0.copyload.i.i53, ptr %ref.tmp3
   store ptr %spec.select20.i.i55, ptr %ref.tmp2, align 8, !alias.scope !24
   %RHS4.i.i.i61 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
+  store ptr inttoptr (i64 45 to ptr), ptr %RHS4.i.i.i61, align 8, !alias.scope !24
   br label %lor.lhs.false.i.i72
 
 _ZN4llvhplERKNS_5TwineES2_.exit69:                ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit38
@@ -2284,13 +2289,11 @@ _ZN4llvhplERKNS_5TwineES2_.exit69:                ; preds = %_ZN4llvhplERKNS_5Tw
   call void @llvm.experimental.noalias.scope.decl(metadata !28)
   br label %if.then.i.i95
 
-lor.lhs.false.i.i72:                              ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit38, %if.end8.i.i50
-  %ref.tmp2.sink = phi ptr [ %RHS4.i.i.i61, %if.end8.i.i50 ], [ %ref.tmp2, %_ZN4llvhplERKNS_5TwineES2_.exit38 ]
-  %.sink116 = phi i8 [ %spec.select.i.i54, %if.end8.i.i50 ], [ 8, %_ZN4llvhplERKNS_5TwineES2_.exit38 ]
-  %.sink115 = phi i8 [ 8, %if.end8.i.i50 ], [ %4, %_ZN4llvhplERKNS_5TwineES2_.exit38 ]
-  %NewLHS.sroa.0.0.copyload.i.i82.ph = phi ptr [ %spec.select20.i.i55, %if.end8.i.i50 ], [ inttoptr (i64 45 to ptr), %_ZN4llvhplERKNS_5TwineES2_.exit38 ]
-  %cmp.i13.i.i81.ph = phi i1 [ false, %if.end8.i.i50 ], [ true, %_ZN4llvhplERKNS_5TwineES2_.exit38 ]
-  store ptr inttoptr (i64 45 to ptr), ptr %ref.tmp2.sink, align 8
+lor.lhs.false.i.i72:                              ; preds = %if.then4.i.i65, %if.end8.i.i50
+  %.sink116 = phi i8 [ 8, %if.then4.i.i65 ], [ %spec.select.i.i54, %if.end8.i.i50 ]
+  %.sink115 = phi i8 [ 1, %if.then4.i.i65 ], [ 8, %if.end8.i.i50 ]
+  %NewLHS.sroa.0.0.copyload.i.i82.ph = phi ptr [ inttoptr (i64 45 to ptr), %if.then4.i.i65 ], [ %spec.select20.i.i55, %if.end8.i.i50 ]
+  %cmp.i13.i.i81.ph = phi i1 [ true, %if.then4.i.i65 ], [ false, %if.end8.i.i50 ]
   %ref.tmp6.sroa.399.0.ref.tmp2.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
   store i8 %.sink116, ptr %ref.tmp6.sroa.399.0.ref.tmp2.sroa_idx, align 8
   %ref.tmp6.sroa.4.0.ref.tmp2.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp2, i64 17
@@ -2394,8 +2397,12 @@ entry:
   %0 = load i8, ptr %LHSKind.i.i.i.i, align 8, !noalias !38
   switch i8 %0, label %if.end8.i.i [
     i8 0, label %_ZN4llvhplERKNS_5TwineES2_.exit
-    i8 1, label %lor.lhs.false.i.i16
+    i8 1, label %if.then4.i.i
   ]
+
+if.then4.i.i:                                     ; preds = %entry
+  store ptr inttoptr (i64 45 to ptr), ptr %ref.tmp6, align 8
+  br label %lor.lhs.false.i.i16
 
 if.end8.i.i:                                      ; preds = %entry
   %RHSKind.i.i.i.i = getelementptr inbounds i8, ptr %ArchStr, i64 17
@@ -2406,6 +2413,7 @@ if.end8.i.i:                                      ; preds = %entry
   %spec.select20.i.i = select i1 %cmp.i13.i.i, ptr %NewLHS.sroa.0.0.copyload.i.i, ptr %ArchStr
   store ptr %spec.select20.i.i, ptr %ref.tmp6, align 8, !alias.scope !38
   %RHS4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
+  store ptr inttoptr (i64 45 to ptr), ptr %RHS4.i.i.i, align 8, !alias.scope !38
   br label %lor.lhs.false.i.i16
 
 _ZN4llvhplERKNS_5TwineES2_.exit:                  ; preds = %entry
@@ -2417,13 +2425,11 @@ _ZN4llvhplERKNS_5TwineES2_.exit:                  ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
   br label %if.then.i.i39
 
-lor.lhs.false.i.i16:                              ; preds = %entry, %if.end8.i.i
-  %ref.tmp6.sink = phi ptr [ %RHS4.i.i.i, %if.end8.i.i ], [ %ref.tmp6, %entry ]
-  %.sink186 = phi i8 [ %spec.select.i.i, %if.end8.i.i ], [ 8, %entry ]
-  %.sink = phi i8 [ 8, %if.end8.i.i ], [ %0, %entry ]
-  %NewLHS.sroa.0.0.copyload.i.i26.ph = phi ptr [ %spec.select20.i.i, %if.end8.i.i ], [ inttoptr (i64 45 to ptr), %entry ]
-  %cmp.i13.i.i25.ph = phi i1 [ false, %if.end8.i.i ], [ true, %entry ]
-  store ptr inttoptr (i64 45 to ptr), ptr %ref.tmp6.sink, align 8
+lor.lhs.false.i.i16:                              ; preds = %if.then4.i.i, %if.end8.i.i
+  %.sink186 = phi i8 [ 8, %if.then4.i.i ], [ %spec.select.i.i, %if.end8.i.i ]
+  %.sink = phi i8 [ 1, %if.then4.i.i ], [ 8, %if.end8.i.i ]
+  %NewLHS.sroa.0.0.copyload.i.i26.ph = phi ptr [ inttoptr (i64 45 to ptr), %if.then4.i.i ], [ %spec.select20.i.i, %if.end8.i.i ]
+  %cmp.i13.i.i25.ph = phi i1 [ true, %if.then4.i.i ], [ false, %if.end8.i.i ]
   %ref.tmp7.sroa.3165.0.ref.tmp6.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp6, i64 16
   store i8 %.sink186, ptr %ref.tmp7.sroa.3165.0.ref.tmp6.sroa_idx, align 8
   %ref.tmp7.sroa.4.0.ref.tmp6.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp6, i64 17
@@ -2471,8 +2477,12 @@ _ZN4llvhplERKNS_5TwineES2_.exit42:                ; preds = %if.then.i.i39, %if.
   %4 = load i8, ptr %LHSKind.i.i.i.i45, align 8, !noalias !52
   switch i8 %4, label %if.end8.i.i54 [
     i8 0, label %_ZN4llvhplERKNS_5TwineES2_.exit73
-    i8 1, label %lor.lhs.false.i.i76
+    i8 1, label %if.then4.i.i69
   ]
+
+if.then4.i.i69:                                   ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit42
+  store ptr inttoptr (i64 45 to ptr), ptr %ref.tmp4, align 8
+  br label %lor.lhs.false.i.i76
 
 if.end8.i.i54:                                    ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit42
   %RHSKind.i.i.i.i55 = getelementptr inbounds i8, ptr %ref.tmp5, i64 17
@@ -2483,6 +2493,7 @@ if.end8.i.i54:                                    ; preds = %_ZN4llvhplERKNS_5Tw
   %spec.select20.i.i59 = select i1 %cmp.i13.i.i56, ptr %NewLHS.sroa.0.0.copyload.i.i57, ptr %ref.tmp5
   store ptr %spec.select20.i.i59, ptr %ref.tmp4, align 8, !alias.scope !52
   %RHS4.i.i.i65 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
+  store ptr inttoptr (i64 45 to ptr), ptr %RHS4.i.i.i65, align 8, !alias.scope !52
   br label %lor.lhs.false.i.i76
 
 _ZN4llvhplERKNS_5TwineES2_.exit73:                ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit42
@@ -2494,13 +2505,11 @@ _ZN4llvhplERKNS_5TwineES2_.exit73:                ; preds = %_ZN4llvhplERKNS_5Tw
   call void @llvm.experimental.noalias.scope.decl(metadata !56)
   br label %if.then.i.i99
 
-lor.lhs.false.i.i76:                              ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit42, %if.end8.i.i54
-  %ref.tmp4.sink = phi ptr [ %RHS4.i.i.i65, %if.end8.i.i54 ], [ %ref.tmp4, %_ZN4llvhplERKNS_5TwineES2_.exit42 ]
-  %.sink188 = phi i8 [ %spec.select.i.i58, %if.end8.i.i54 ], [ 8, %_ZN4llvhplERKNS_5TwineES2_.exit42 ]
-  %.sink187 = phi i8 [ 8, %if.end8.i.i54 ], [ %4, %_ZN4llvhplERKNS_5TwineES2_.exit42 ]
-  %NewLHS.sroa.0.0.copyload.i.i86.ph = phi ptr [ %spec.select20.i.i59, %if.end8.i.i54 ], [ inttoptr (i64 45 to ptr), %_ZN4llvhplERKNS_5TwineES2_.exit42 ]
-  %cmp.i13.i.i85.ph = phi i1 [ false, %if.end8.i.i54 ], [ true, %_ZN4llvhplERKNS_5TwineES2_.exit42 ]
-  store ptr inttoptr (i64 45 to ptr), ptr %ref.tmp4.sink, align 8
+lor.lhs.false.i.i76:                              ; preds = %if.then4.i.i69, %if.end8.i.i54
+  %.sink188 = phi i8 [ 8, %if.then4.i.i69 ], [ %spec.select.i.i58, %if.end8.i.i54 ]
+  %.sink187 = phi i8 [ 1, %if.then4.i.i69 ], [ 8, %if.end8.i.i54 ]
+  %NewLHS.sroa.0.0.copyload.i.i86.ph = phi ptr [ inttoptr (i64 45 to ptr), %if.then4.i.i69 ], [ %spec.select20.i.i59, %if.end8.i.i54 ]
+  %cmp.i13.i.i85.ph = phi i1 [ true, %if.then4.i.i69 ], [ false, %if.end8.i.i54 ]
   %ref.tmp8.sroa.3164.0.ref.tmp4.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
   store i8 %.sink188, ptr %ref.tmp8.sroa.3164.0.ref.tmp4.sroa_idx, align 8
   %ref.tmp8.sroa.4.0.ref.tmp4.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp4, i64 17
@@ -2548,8 +2557,12 @@ _ZN4llvhplERKNS_5TwineES2_.exit102:               ; preds = %if.then.i.i99, %if.
   %8 = load i8, ptr %LHSKind.i.i.i.i105, align 8, !noalias !66
   switch i8 %8, label %if.end8.i.i114 [
     i8 0, label %_ZN4llvhplERKNS_5TwineES2_.exit133
-    i8 1, label %lor.lhs.false.i.i136
+    i8 1, label %if.then4.i.i129
   ]
+
+if.then4.i.i129:                                  ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit102
+  store ptr inttoptr (i64 45 to ptr), ptr %ref.tmp2, align 8
+  br label %lor.lhs.false.i.i136
 
 if.end8.i.i114:                                   ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit102
   %RHSKind.i.i.i.i115 = getelementptr inbounds i8, ptr %ref.tmp3, i64 17
@@ -2560,6 +2573,7 @@ if.end8.i.i114:                                   ; preds = %_ZN4llvhplERKNS_5Tw
   %spec.select20.i.i119 = select i1 %cmp.i13.i.i116, ptr %NewLHS.sroa.0.0.copyload.i.i117, ptr %ref.tmp3
   store ptr %spec.select20.i.i119, ptr %ref.tmp2, align 8, !alias.scope !66
   %RHS4.i.i.i125 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
+  store ptr inttoptr (i64 45 to ptr), ptr %RHS4.i.i.i125, align 8, !alias.scope !66
   br label %lor.lhs.false.i.i136
 
 _ZN4llvhplERKNS_5TwineES2_.exit133:               ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit102
@@ -2571,13 +2585,11 @@ _ZN4llvhplERKNS_5TwineES2_.exit133:               ; preds = %_ZN4llvhplERKNS_5Tw
   call void @llvm.experimental.noalias.scope.decl(metadata !70)
   br label %if.then.i.i159
 
-lor.lhs.false.i.i136:                             ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit102, %if.end8.i.i114
-  %ref.tmp2.sink = phi ptr [ %RHS4.i.i.i125, %if.end8.i.i114 ], [ %ref.tmp2, %_ZN4llvhplERKNS_5TwineES2_.exit102 ]
-  %.sink190 = phi i8 [ %spec.select.i.i118, %if.end8.i.i114 ], [ 8, %_ZN4llvhplERKNS_5TwineES2_.exit102 ]
-  %.sink189 = phi i8 [ 8, %if.end8.i.i114 ], [ %8, %_ZN4llvhplERKNS_5TwineES2_.exit102 ]
-  %NewLHS.sroa.0.0.copyload.i.i146.ph = phi ptr [ %spec.select20.i.i119, %if.end8.i.i114 ], [ inttoptr (i64 45 to ptr), %_ZN4llvhplERKNS_5TwineES2_.exit102 ]
-  %cmp.i13.i.i145.ph = phi i1 [ false, %if.end8.i.i114 ], [ true, %_ZN4llvhplERKNS_5TwineES2_.exit102 ]
-  store ptr inttoptr (i64 45 to ptr), ptr %ref.tmp2.sink, align 8
+lor.lhs.false.i.i136:                             ; preds = %if.then4.i.i129, %if.end8.i.i114
+  %.sink190 = phi i8 [ 8, %if.then4.i.i129 ], [ %spec.select.i.i118, %if.end8.i.i114 ]
+  %.sink189 = phi i8 [ 1, %if.then4.i.i129 ], [ 8, %if.end8.i.i114 ]
+  %NewLHS.sroa.0.0.copyload.i.i146.ph = phi ptr [ inttoptr (i64 45 to ptr), %if.then4.i.i129 ], [ %spec.select20.i.i119, %if.end8.i.i114 ]
+  %cmp.i13.i.i145.ph = phi i1 [ true, %if.then4.i.i129 ], [ false, %if.end8.i.i114 ]
   %ref.tmp9.sroa.3163.0.ref.tmp2.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
   store i8 %.sink190, ptr %ref.tmp9.sroa.3163.0.ref.tmp2.sroa_idx, align 8
   %ref.tmp9.sroa.4.0.ref.tmp2.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp2, i64 17

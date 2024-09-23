@@ -1826,13 +1826,17 @@ if.end155:                                        ; preds = %sw.bb141
   %call157 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %fKeyword.i, ptr noundef nonnull align 8 dereferenceable(64) %token220)
   %104 = load ptr, ptr %mRules, align 8
   %cmp158 = icmp eq ptr %104, null
-  br i1 %cmp158, label %if.end185, label %while.cond163.preheader
+  br i1 %cmp158, label %if.then159, label %while.cond163.preheader
 
 while.cond163.preheader:                          ; preds = %if.end155
   %fNext284 = getelementptr inbounds i8, ptr %104, i64 72
   %105 = load ptr, ptr %fNext284, align 8
   %cmp164.not.not285 = icmp eq ptr %105, null
   br i1 %cmp164.not.not285, label %while.end181, label %land.rhs
+
+if.then159:                                       ; preds = %if.end155
+  store ptr %call142, ptr %mRules, align 8
+  br label %if.end185
 
 land.rhs:                                         ; preds = %while.cond163.preheader, %while.body179
   %106 = phi ptr [ %110, %while.body179 ], [ %105, %while.cond163.preheader ]
@@ -1871,11 +1875,10 @@ while.end181:                                     ; preds = %while.body179, %cle
   %112 = phi ptr [ null, %while.cond163.preheader ], [ null, %while.body179 ], [ %.pre.pre, %cleanup.done175 ]
   %fNext.lcssa = phi ptr [ %fNext284, %while.cond163.preheader ], [ %fNext, %while.body179 ], [ %fNext286, %cleanup.done175 ]
   store ptr %112, ptr %fNext.i, align 8
+  store ptr %call142, ptr %fNext.lcssa, align 8
   br label %if.end185
 
-if.end185:                                        ; preds = %if.end155, %while.end181
-  %fNext.lcssa.sink = phi ptr [ %fNext.lcssa, %while.end181 ], [ %mRules, %if.end155 ]
-  store ptr %call142, ptr %fNext.lcssa.sink, align 8
+if.end185:                                        ; preds = %while.end181, %if.then159
   %call187 = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 32) #27
   %new.isnull188 = icmp eq ptr %call187, null
   br i1 %new.isnull188, label %if.then194, label %if.end195
@@ -6660,7 +6663,7 @@ if.end:                                           ; preds = %entry
 if.then6:                                         ; preds = %if.end
   %call7 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 56) #27
   %new.isnull = icmp eq ptr %call7, null
-  br i1 %new.isnull, label %if.end46.sink.split.sink.split, label %new.notnull
+  br i1 %new.isnull, label %if.then12, label %new.notnull
 
 new.notnull:                                      ; preds = %if.then6
   %2 = load ptr, ptr %childNode5, align 8
@@ -6670,6 +6673,10 @@ new.notnull:                                      ; preds = %if.then6
 new.cont:                                         ; preds = %new.notnull
   store ptr %call7, ptr %childNode, align 8
   br label %if.end15
+
+if.then12:                                        ; preds = %if.then6
+  store ptr null, ptr %childNode, align 8
+  br label %if.end46.sink.split
 
 lpad:                                             ; preds = %new.notnull
   %3 = landingpad { ptr, i32 }
@@ -6685,12 +6692,16 @@ if.end15:                                         ; preds = %new.cont, %if.end
 if.then18:                                        ; preds = %if.end15
   %call19 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 32) #27
   %new.isnull20 = icmp eq ptr %call19, null
-  br i1 %new.isnull20, label %if.end46.sink.split.sink.split, label %new.notnull21
+  br i1 %new.isnull20, label %if.then34, label %new.notnull21
 
 new.notnull21:                                    ; preds = %if.then18
   %5 = load ptr, ptr %next16, align 8
   invoke void @_ZN6icu_7512OrConstraintC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(28) %call19, ptr noundef nonnull align 8 dereferenceable(28) %5)
           to label %if.end36 unwind label %lpad25
+
+if.then34:                                        ; preds = %if.then18
+  store ptr null, ptr %next, align 8
+  br label %if.end46.sink.split
 
 lpad25:                                           ; preds = %new.notnull21
   %6 = landingpad { ptr, i32 }
@@ -6704,13 +6715,8 @@ if.end36:                                         ; preds = %new.notnull21
   %cmp.i6 = icmp slt i32 %7, 1
   br i1 %cmp.i6, label %if.end46, label %if.end46.sink.split
 
-if.end46.sink.split.sink.split:                   ; preds = %if.then18, %if.then6
-  %childNode.sink = phi ptr [ %childNode, %if.then6 ], [ %next, %if.then18 ]
-  store ptr null, ptr %childNode.sink, align 8
-  br label %if.end46.sink.split
-
-if.end46.sink.split:                              ; preds = %if.end46.sink.split.sink.split, %if.end36
-  %.sink = phi i32 [ %7, %if.end36 ], [ 7, %if.end46.sink.split.sink.split ]
+if.end46.sink.split:                              ; preds = %if.end36, %if.then12, %if.then34
+  %.sink = phi i32 [ 7, %if.then34 ], [ 7, %if.then12 ], [ %7, %if.end36 ]
   store i32 %.sink, ptr %fInternalStatus, align 8
   br label %if.end46
 

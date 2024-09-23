@@ -4530,22 +4530,18 @@ _ZNSt10_HashtableI33AtomNonbondedAndKineticPropertiesSt4pairIKS0_iESaIS3_ENSt8__
 
 45:                                               ; preds = %42
   %46 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
-  br label %.sink.split
+  store ptr %.031, ptr %46, align 8
+  br label %50
 
 47:                                               ; preds = %.lr.ph
   %48 = load ptr, ptr %41, align 8
   store ptr %48, ptr %.031, align 8
   %49 = load ptr, ptr %40, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %47, %45
-  %.sink = phi ptr [ %46, %45 ], [ %49, %47 ]
-  %.1.ph = phi i64 [ %39, %45 ], [ %.02530, %47 ]
-  store ptr %.031, ptr %.sink, align 8
+  store ptr %.031, ptr %49, align 8
   br label %50
 
-50:                                               ; preds = %.sink.split, %42
-  %.1 = phi i64 [ %39, %42 ], [ %.1.ph, %.sink.split ]
+50:                                               ; preds = %42, %45, %47
+  %.1 = phi i64 [ %.02530, %47 ], [ %39, %45 ], [ %39, %42 ]
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 

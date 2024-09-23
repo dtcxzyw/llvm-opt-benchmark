@@ -74,18 +74,27 @@ do.body:                                          ; preds = %entry
   %cmp2.not = icmp eq ptr %1, null
   %tql_prev9 = getelementptr inbounds i8, ptr %client, i64 32
   %2 = load ptr, ptr %tql_prev9, align 8
-  %tql_prev10 = getelementptr inbounds i8, ptr %0, i64 48
+  br i1 %cmp2.not, label %if.else, label %if.then3
+
+if.then3:                                         ; preds = %do.body
   %tql_prev7 = getelementptr inbounds i8, ptr %1, i64 32
-  %tql_prev10.sink = select i1 %cmp2.not, ptr %tql_prev10, ptr %tql_prev7
-  store ptr %2, ptr %tql_prev10.sink, align 8
+  store ptr %2, ptr %tql_prev7, align 8
+  br label %if.end11
+
+if.else:                                          ; preds = %do.body
+  %tql_prev10 = getelementptr inbounds i8, ptr %0, i64 48
+  store ptr %2, ptr %tql_prev10, align 8
+  br label %if.end11
+
+if.end11:                                         ; preds = %if.else, %if.then3
   %3 = load ptr, ptr %next, align 8
   store ptr %3, ptr %2, align 8
   store ptr null, ptr %bus1, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next, i8 0, i64 16, i1 false)
   br label %return
 
-return:                                           ; preds = %entry, %do.body
-  %retval.0 = phi i32 [ 1, %do.body ], [ 0, %entry ]
+return:                                           ; preds = %entry, %if.end11
+  %retval.0 = phi i32 [ 1, %if.end11 ], [ 0, %entry ]
   ret i32 %retval.0
 }
 

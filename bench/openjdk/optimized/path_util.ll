@@ -181,8 +181,8 @@ splitNames.exit:                                  ; preds = %.loopexit.i48, %29,
 
 .sink.split:                                      ; preds = %59, %.thread, %62
   %.26063.ph = phi i32 [ %50, %62 ], [ %52, %.thread ], [ %50, %59 ]
-  %sext97 = shl i64 %indvars.iv, 32
-  %65 = ashr exact i64 %sext97, 29
+  %sext = shl i64 %indvars.iv, 32
+  %65 = ashr exact i64 %sext, 29
   %66 = getelementptr inbounds i8, ptr %26, i64 %65
   store ptr null, ptr %66, align 8
   br label %67

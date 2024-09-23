@@ -10125,7 +10125,7 @@ define linkonce_odr dso_local void @_ZSt19__relocate_object_aIN22cmComputeTarget
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %6, null
-  br i1 %.not.i.i.i.i.i.i.i, label %21, label %7
+  br i1 %.not.i.i.i.i.i.i.i, label %20, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %1, i64 8
@@ -10145,93 +10145,91 @@ define linkonce_odr dso_local void @_ZSt19__relocate_object_aIN22cmComputeTarget
   store ptr %4, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %1, i64 40
   %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %19, ptr %20, align 8
   store ptr null, ptr %5, align 8
   store ptr %8, ptr %11, align 8
   store ptr %8, ptr %14, align 8
+  store i64 0, ptr %18, align 8
   br label %_ZNSt3setIPK17cmGeneratorTargetSt4lessIS2_ESaIS2_EEC2EOS6_.exit.i.i.i
 
-21:                                               ; preds = %3
+20:                                               ; preds = %3
   store i32 0, ptr %4, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr null, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr null, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %4, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %4, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %4, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 40
   br label %_ZNSt3setIPK17cmGeneratorTargetSt4lessIS2_ESaIS2_EEC2EOS6_.exit.i.i.i
 
-_ZNSt3setIPK17cmGeneratorTargetSt4lessIS2_ESaIS2_EEC2EOS6_.exit.i.i.i: ; preds = %21, %7
-  %.sink.i.i.i.i.i.i.i = phi ptr [ %25, %21 ], [ %18, %7 ]
-  store i64 0, ptr %.sink.i.i.i.i.i.i.i, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 56
-  %27 = getelementptr inbounds i8, ptr %1, i64 64
-  %28 = load ptr, ptr %27, align 8
-  %.not.i.i.i.i3.i.i.i = icmp eq ptr %28, null
-  br i1 %.not.i.i.i.i3.i.i.i, label %43, label %29
+_ZNSt3setIPK17cmGeneratorTargetSt4lessIS2_ESaIS2_EEC2EOS6_.exit.i.i.i: ; preds = %20, %7
+  %.sink = phi i64 [ 0, %20 ], [ %19, %7 ]
+  %24 = getelementptr inbounds i8, ptr %0, i64 40
+  store i64 %.sink, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 56
+  %26 = getelementptr inbounds i8, ptr %1, i64 64
+  %27 = load ptr, ptr %26, align 8
+  %.not.i.i.i.i3.i.i.i = icmp eq ptr %27, null
+  br i1 %.not.i.i.i.i3.i.i.i, label %41, label %28
 
-29:                                               ; preds = %_ZNSt3setIPK17cmGeneratorTargetSt4lessIS2_ESaIS2_EEC2EOS6_.exit.i.i.i
-  %30 = getelementptr inbounds i8, ptr %1, i64 56
-  %31 = load i32, ptr %30, align 8
-  store i32 %31, ptr %26, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 64
-  store ptr %28, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 72
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 72
-  store ptr %34, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 80
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 80
-  store ptr %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %28, i64 8
-  store ptr %26, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 88
-  %41 = load i64, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 88
-  store i64 %41, ptr %42, align 8
-  store ptr null, ptr %27, align 8
-  store ptr %30, ptr %33, align 8
-  store ptr %30, ptr %36, align 8
+28:                                               ; preds = %_ZNSt3setIPK17cmGeneratorTargetSt4lessIS2_ESaIS2_EEC2EOS6_.exit.i.i.i
+  %29 = getelementptr inbounds i8, ptr %1, i64 56
+  %30 = load i32, ptr %29, align 8
+  store i32 %30, ptr %25, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 64
+  store ptr %27, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %1, i64 72
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %0, i64 72
+  store ptr %33, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %1, i64 80
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds i8, ptr %0, i64 80
+  store ptr %36, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %27, i64 8
+  store ptr %25, ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %1, i64 88
+  %40 = load i64, ptr %39, align 8
+  store ptr null, ptr %26, align 8
+  store ptr %29, ptr %32, align 8
+  store ptr %29, ptr %35, align 8
+  store i64 0, ptr %39, align 8
   br label %_ZNSt16allocator_traitsISaIN22cmComputeTargetDepends17TargetSideEffectsEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit
 
-43:                                               ; preds = %_ZNSt3setIPK17cmGeneratorTargetSt4lessIS2_ESaIS2_EEC2EOS6_.exit.i.i.i
-  store i32 0, ptr %26, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 64
-  store ptr null, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 72
-  store ptr %26, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 80
-  store ptr %26, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 88
+41:                                               ; preds = %_ZNSt3setIPK17cmGeneratorTargetSt4lessIS2_ESaIS2_EEC2EOS6_.exit.i.i.i
+  store i32 0, ptr %25, align 8
+  %42 = getelementptr inbounds i8, ptr %0, i64 64
+  store ptr null, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %0, i64 72
+  store ptr %25, ptr %43, align 8
+  %44 = getelementptr inbounds i8, ptr %0, i64 80
+  store ptr %25, ptr %44, align 8
   br label %_ZNSt16allocator_traitsISaIN22cmComputeTargetDepends17TargetSideEffectsEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit
 
-_ZNSt16allocator_traitsISaIN22cmComputeTargetDepends17TargetSideEffectsEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit: ; preds = %29, %43
-  %.sink.i.i.i.i4.i.i.i = phi ptr [ %47, %43 ], [ %40, %29 ]
-  store i64 0, ptr %.sink.i.i.i.i4.i.i.i, align 8
-  %48 = getelementptr inbounds i8, ptr %1, i64 48
-  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St3setIPK17cmGeneratorTargetSt4lessISB_ESaISB_EEESt10_Select1stISG_ESC_IS5_ESaISG_EE8_M_eraseEPSt13_Rb_tree_nodeISG_E(ptr noundef nonnull align 8 dereferenceable(48) %48, ptr noundef null)
-          to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3setIPK17cmGeneratorTargetSt4lessIS9_ESaIS9_EESA_IS5_ESaISt4pairIKS5_SD_EEED2Ev.exit.i.i.i unwind label %49
+_ZNSt16allocator_traitsISaIN22cmComputeTargetDepends17TargetSideEffectsEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit: ; preds = %28, %41
+  %.sink5 = phi i64 [ 0, %41 ], [ %40, %28 ]
+  %45 = getelementptr inbounds i8, ptr %0, i64 88
+  store i64 %.sink5, ptr %45, align 8
+  %46 = getelementptr inbounds i8, ptr %1, i64 48
+  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St3setIPK17cmGeneratorTargetSt4lessISB_ESaISB_EEESt10_Select1stISG_ESC_IS5_ESaISG_EE8_M_eraseEPSt13_Rb_tree_nodeISG_E(ptr noundef nonnull align 8 dereferenceable(48) %46, ptr noundef null)
+          to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3setIPK17cmGeneratorTargetSt4lessIS9_ESaIS9_EESA_IS5_ESaISt4pairIKS5_SD_EEED2Ev.exit.i.i.i unwind label %47
 
-49:                                               ; preds = %_ZNSt16allocator_traitsISaIN22cmComputeTargetDepends17TargetSideEffectsEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit
-  %50 = landingpad { ptr, i32 }
+47:                                               ; preds = %_ZNSt16allocator_traitsISaIN22cmComputeTargetDepends17TargetSideEffectsEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit
+  %48 = landingpad { ptr, i32 }
           catch ptr null
-  %51 = extractvalue { ptr, i32 } %50, 0
-  tail call void @__clang_call_terminate(ptr %51) #24
+  %49 = extractvalue { ptr, i32 } %48, 0
+  tail call void @__clang_call_terminate(ptr %49) #24
   unreachable
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3setIPK17cmGeneratorTargetSt4lessIS9_ESaIS9_EESA_IS5_ESaISt4pairIKS5_SD_EEED2Ev.exit.i.i.i: ; preds = %_ZNSt16allocator_traitsISaIN22cmComputeTargetDepends17TargetSideEffectsEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit
-  %52 = load ptr, ptr %5, align 8
-  invoke void @_ZNSt8_Rb_treeIPK17cmGeneratorTargetS2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %52)
-          to label %_ZNSt16allocator_traitsISaIN22cmComputeTargetDepends17TargetSideEffectsEEE7destroyIS1_EEvRS2_PT_.exit unwind label %53
+  %50 = load ptr, ptr %5, align 8
+  invoke void @_ZNSt8_Rb_treeIPK17cmGeneratorTargetS2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %50)
+          to label %_ZNSt16allocator_traitsISaIN22cmComputeTargetDepends17TargetSideEffectsEEE7destroyIS1_EEvRS2_PT_.exit unwind label %51
 
-53:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3setIPK17cmGeneratorTargetSt4lessIS9_ESaIS9_EESA_IS5_ESaISt4pairIKS5_SD_EEED2Ev.exit.i.i.i
-  %54 = landingpad { ptr, i32 }
+51:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3setIPK17cmGeneratorTargetSt4lessIS9_ESaIS9_EESA_IS5_ESaISt4pairIKS5_SD_EEED2Ev.exit.i.i.i
+  %52 = landingpad { ptr, i32 }
           catch ptr null
-  %55 = extractvalue { ptr, i32 } %54, 0
-  tail call void @__clang_call_terminate(ptr %55) #24
+  %53 = extractvalue { ptr, i32 } %52, 0
+  tail call void @__clang_call_terminate(ptr %53) #24
   unreachable
 
 _ZNSt16allocator_traitsISaIN22cmComputeTargetDepends17TargetSideEffectsEEE7destroyIS1_EEvRS2_PT_.exit: ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3setIPK17cmGeneratorTargetSt4lessIS9_ESaIS9_EESA_IS5_ESaISt4pairIKS5_SD_EEED2Ev.exit.i.i.i

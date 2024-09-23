@@ -3089,29 +3089,31 @@ _ZN17grpc_event_engine12experimental15BusyThreadCount17AutoThreadCounterD2Ev.exi
 _ZN17grpc_event_engine12experimental15BusyThreadCount17AutoThreadCounterD2Ev.exit13: ; preds = %if.then4
   %12 = landingpad { ptr, i32 }
           cleanup
+  %13 = load ptr, ptr %busy_thread_count_.i, align 8
+  %add.ptr.i.i.i12 = getelementptr inbounds %"struct.grpc_event_engine::experimental::BusyThreadCount::ShardedData", ptr %13, i64 %6
   br label %common.resume.sink.split
 
 if.end10:                                         ; preds = %if.end
   %call11 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #25
-  %13 = load ptr, ptr %this, align 8
-  %forking_.i1445 = getelementptr inbounds i8, ptr %13, i64 225
-  %14 = load atomic i8, ptr %forking_.i1445 monotonic, align 1
-  %tobool.i.i.i1546 = trunc i8 %14 to i1
+  %14 = load ptr, ptr %this, align 8
+  %forking_.i1445 = getelementptr inbounds i8, ptr %14, i64 225
+  %15 = load atomic i8, ptr %forking_.i1445 monotonic, align 1
+  %tobool.i.i.i1546 = trunc i8 %15 to i1
   br i1 %tobool.i.i.i1546, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end10
   %backoff_ = getelementptr inbounds i8, ptr %this, i64 24
   %.not.i.i = icmp eq ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
-  %15 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core9Timestamp25thread_local_time_source_E)
+  %16 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core9Timestamp25thread_local_time_source_E)
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end76
-  %16 = phi ptr [ %13, %while.body.lr.ph ], [ %38, %if.end76 ]
-  %queue_.i = getelementptr inbounds i8, ptr %16, i64 120
+  %17 = phi ptr [ %14, %while.body.lr.ph ], [ %38, %if.end76 ]
+  %queue_.i = getelementptr inbounds i8, ptr %17, i64 120
   %vtable19 = load ptr, ptr %queue_.i, align 8
   %vfn20 = getelementptr inbounds i8, ptr %vtable19, i64 32
-  %17 = load ptr, ptr %vfn20, align 8
-  %call21 = tail call noundef ptr %17(ptr noundef nonnull align 8 dereferenceable(8) %queue_.i)
+  %18 = load ptr, ptr %vfn20, align 8
+  %call21 = tail call noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(8) %queue_.i)
   %cmp22.not = icmp eq ptr %call21, null
   %.pre61.pre62 = load ptr, ptr %this, align 8
   br i1 %cmp22.not, label %if.end24, label %while.end
@@ -3125,24 +3127,24 @@ if.end24:                                         ; preds = %while.body
 
 if.end31:                                         ; preds = %if.end24
   %shutdown_.i = getelementptr inbounds i8, ptr %.pre61.pre, i64 224
-  %18 = load atomic i8, ptr %shutdown_.i monotonic, align 1
-  %tobool.i.i.i16 = trunc i8 %18 to i1
+  %19 = load atomic i8, ptr %shutdown_.i monotonic, align 1
+  %tobool.i.i.i16 = trunc i8 %19 to i1
   br i1 %tobool.i.i.i16, label %while.end, label %if.end36
 
 if.end36:                                         ; preds = %if.end31
   %work_signal_.i = getelementptr inbounds i8, ptr %.pre61.pre, i64 248
   %call41 = tail call i64 @_ZN9grpc_core7BackOff15NextAttemptTimeEv(ptr noundef nonnull align 8 dereferenceable(336) %backoff_)
-  br i1 %.not.i.i, label %_ZN9grpc_core9Timestamp3NowEv.exit, label %19
+  br i1 %.not.i.i, label %_ZN9grpc_core9Timestamp3NowEv.exit, label %20
 
-19:                                               ; preds = %if.end36
+20:                                               ; preds = %if.end36
   tail call void @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E()
   br label %_ZN9grpc_core9Timestamp3NowEv.exit
 
-_ZN9grpc_core9Timestamp3NowEv.exit:               ; preds = %if.end36, %19
-  %20 = load ptr, ptr %15, align 8
-  %vtable.i = load ptr, ptr %20, align 8
-  %21 = load ptr, ptr %vtable.i, align 8
-  %call.i = tail call i64 %21(ptr noundef nonnull align 8 dereferenceable(8) %20)
+_ZN9grpc_core9Timestamp3NowEv.exit:               ; preds = %if.end36, %20
+  %21 = load ptr, ptr %16, align 8
+  %vtable.i = load ptr, ptr %21, align 8
+  %22 = load ptr, ptr %vtable.i, align 8
+  %call.i = tail call i64 %22(ptr noundef nonnull align 8 dereferenceable(8) %21)
   %sub.i = sub i64 0, %call.i
   %cmp.i.i = icmp eq i64 %call41, 9223372036854775807
   %cmp2.i.i = icmp eq i64 %call.i, -9223372036854775807
@@ -3180,11 +3182,11 @@ _ZN9grpc_coremiENS_9TimestampES0_.exit:           ; preds = %_ZN9grpc_core9Times
   %rem.i.i.i = srem i64 %retval.0.i.i, 1000
   %mul2.i.i.i = mul nsw i64 %rem.i.i.i, 4000000
   %cmp.i.i.i.i = icmp slt i64 %rem.i.i.i, 0
-  %22 = trunc i64 %mul2.i.i.i to i32
-  %conv.i.i.i.i.i = add i32 %22, -294967296
+  %23 = trunc i64 %mul2.i.i.i to i32
+  %conv.i.i.i.i.i = add i32 %23, -294967296
   %ticks.lobit.i.i.i.i = ashr i64 %mul2.i.i.i, 63
   %sub.pn.i.i.i.i = add nsw i64 %ticks.lobit.i.i.i.i, %div.i.i.i
-  %conv.i.pn.i.i.i.i = select i1 %cmp.i.i.i.i, i32 %conv.i.i.i.i.i, i32 %22
+  %conv.i.pn.i.i.i.i = select i1 %cmp.i.i.i.i, i32 %conv.i.i.i.i.i, i32 %23
   %cv_.i = getelementptr inbounds i8, ptr %.pre61.pre, i64 256
   %call6.i = invoke noundef zeroext i1 @_ZN4absl12lts_202308027CondVar15WaitWithTimeoutEPNS0_5MutexENS0_8DurationE(ptr noundef nonnull align 8 dereferenceable(8) %cv_.i, ptr noundef nonnull %work_signal_.i, i64 %sub.pn.i.i.i.i, i32 %conv.i.pn.i.i.i.i)
           to label %invoke.cont5.i unwind label %lpad.i
@@ -3194,36 +3196,33 @@ invoke.cont5.i:                                   ; preds = %_ZN9grpc_coremiENS_
           to label %_ZN17grpc_event_engine12experimental22WorkStealingThreadPool10WorkSignal15WaitWithTimeoutEN9grpc_core8DurationE.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %invoke.cont5.i
-  %23 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           catch ptr null
-  %24 = extractvalue { ptr, i32 } %23, 0
-  tail call void @__clang_call_terminate(ptr %24) #26
+  %25 = extractvalue { ptr, i32 } %24, 0
+  tail call void @__clang_call_terminate(ptr %25) #26
   unreachable
 
 lpad.i:                                           ; preds = %_ZN9grpc_coremiENS_9TimestampES0_.exit
-  %25 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %work_signal_.i)
           to label %common.resume unwind label %terminate.lpad.i1.i
 
 terminate.lpad.i1.i:                              ; preds = %lpad.i
-  %26 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           catch ptr null
-  %27 = extractvalue { ptr, i32 } %26, 0
-  tail call void @__clang_call_terminate(ptr %27) #26
+  %28 = extractvalue { ptr, i32 } %27, 0
+  tail call void @__clang_call_terminate(ptr %28) #26
   unreachable
 
 common.resume.sink.split:                         ; preds = %_ZN17grpc_event_engine12experimental15BusyThreadCount17AutoThreadCounterD2Ev.exit37, %_ZN17grpc_event_engine12experimental15BusyThreadCount17AutoThreadCounterD2Ev.exit13
-  %busy_thread_count_.i.sink = phi ptr [ %busy_thread_count_.i, %_ZN17grpc_event_engine12experimental15BusyThreadCount17AutoThreadCounterD2Ev.exit13 ], [ %busy_thread_count_.i25, %_ZN17grpc_event_engine12experimental15BusyThreadCount17AutoThreadCounterD2Ev.exit37 ]
-  %.sink67 = phi i64 [ %6, %_ZN17grpc_event_engine12experimental15BusyThreadCount17AutoThreadCounterD2Ev.exit13 ], [ %44, %_ZN17grpc_event_engine12experimental15BusyThreadCount17AutoThreadCounterD2Ev.exit37 ]
+  %add.ptr.i.i.i12.sink = phi ptr [ %add.ptr.i.i.i12, %_ZN17grpc_event_engine12experimental15BusyThreadCount17AutoThreadCounterD2Ev.exit13 ], [ %add.ptr.i.i.i36, %_ZN17grpc_event_engine12experimental15BusyThreadCount17AutoThreadCounterD2Ev.exit37 ]
   %common.resume.op.ph = phi { ptr, i32 } [ %12, %_ZN17grpc_event_engine12experimental15BusyThreadCount17AutoThreadCounterD2Ev.exit13 ], [ %50, %_ZN17grpc_event_engine12experimental15BusyThreadCount17AutoThreadCounterD2Ev.exit37 ]
-  %28 = load ptr, ptr %busy_thread_count_.i.sink, align 8
-  %add.ptr.i.i.i12 = getelementptr inbounds %"struct.grpc_event_engine::experimental::BusyThreadCount::ShardedData", ptr %28, i64 %.sink67
-  %29 = atomicrmw sub ptr %add.ptr.i.i.i12, i64 1 monotonic, align 8
+  %29 = atomicrmw sub ptr %add.ptr.i.i.i12.sink, i64 1 monotonic, align 8
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %25, %lpad.i ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %26, %lpad.i ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN17grpc_event_engine12experimental22WorkStealingThreadPool10WorkSignal15WaitWithTimeoutEN9grpc_core8DurationE.exit: ; preds = %invoke.cont5.i
@@ -3282,7 +3281,7 @@ if.end76:                                         ; preds = %land.rhs.if.end76_c
   br i1 %tobool.i.i.i15, label %while.end, label %while.body, !llvm.loop !58
 
 while.end:                                        ; preds = %if.end76, %if.end31, %lor.lhs.false, %_ZN17grpc_event_engine12experimental22WorkStealingThreadPool10WorkSignal15WaitWithTimeoutEN9grpc_core8DurationE.exit, %while.body, %if.end24, %if.end10
-  %40 = phi ptr [ %13, %if.end10 ], [ %.pre61.pre, %if.end24 ], [ %.pre61.pre62, %while.body ], [ %30, %_ZN17grpc_event_engine12experimental22WorkStealingThreadPool10WorkSignal15WaitWithTimeoutEN9grpc_core8DurationE.exit ], [ %30, %lor.lhs.false ], [ %.pre61.pre, %if.end31 ], [ %38, %if.end76 ]
+  %40 = phi ptr [ %14, %if.end10 ], [ %.pre61.pre, %if.end24 ], [ %.pre61.pre62, %while.body ], [ %30, %_ZN17grpc_event_engine12experimental22WorkStealingThreadPool10WorkSignal15WaitWithTimeoutEN9grpc_core8DurationE.exit ], [ %30, %lor.lhs.false ], [ %.pre61.pre, %if.end31 ], [ %38, %if.end76 ]
   %should_run_again.0 = phi i1 [ false, %if.end10 ], [ true, %if.end24 ], [ true, %while.body ], [ false, %_ZN17grpc_event_engine12experimental22WorkStealingThreadPool10WorkSignal15WaitWithTimeoutEN9grpc_core8DurationE.exit ], [ false, %lor.lhs.false ], [ false, %if.end31 ], [ false, %if.end76 ]
   %closure.1 = phi ptr [ null, %if.end10 ], [ %call28, %if.end24 ], [ %call21, %while.body ], [ null, %_ZN17grpc_event_engine12experimental22WorkStealingThreadPool10WorkSignal15WaitWithTimeoutEN9grpc_core8DurationE.exit ], [ null, %lor.lhs.false ], [ null, %if.end31 ], [ null, %if.end76 ]
   %forking_.i23 = getelementptr inbounds i8, ptr %40, i64 225
@@ -3327,6 +3326,8 @@ _ZN17grpc_event_engine12experimental15BusyThreadCount17AutoThreadCounterD2Ev.exi
 _ZN17grpc_event_engine12experimental15BusyThreadCount17AutoThreadCounterD2Ev.exit37: ; preds = %if.then88
   %50 = landingpad { ptr, i32 }
           cleanup
+  %51 = load ptr, ptr %busy_thread_count_.i25, align 8
+  %add.ptr.i.i.i36 = getelementptr inbounds %"struct.grpc_event_engine::experimental::BusyThreadCount::ShardedData", ptr %51, i64 %44
   br label %common.resume.sink.split
 
 if.end98:                                         ; preds = %_ZN17grpc_event_engine12experimental15BusyThreadCount17AutoThreadCounterD2Ev.exit32, %if.end86

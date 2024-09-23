@@ -24,7 +24,8 @@ define hidden noundef ptr @pj_geoc(ptr noundef writeonly %0) local_unnamed_addr 
   %6 = getelementptr inbounds i8, ptr %0, i64 384
   store i32 4, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 352
-  br label %.sink.split
+  store i32 1, ptr %7, align 8
+  br label %17
 
 8:                                                ; preds = %1
   %9 = tail call noundef ptr @_Z6pj_newv()
@@ -41,16 +42,11 @@ define hidden noundef ptr @pj_geoc(ptr noundef writeonly %0) local_unnamed_addr 
   %15 = getelementptr inbounds i8, ptr %9, i64 380
   store i32 4, ptr %15, align 4
   %16 = getelementptr inbounds i8, ptr %9, i64 384
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %2, %11
-  %.sink = phi ptr [ %16, %11 ], [ %7, %2 ]
-  %.0.ph = phi ptr [ %9, %11 ], [ %0, %2 ]
-  store i32 1, ptr %.sink, align 8
+  store i32 1, ptr %16, align 8
   br label %17
 
-17:                                               ; preds = %.sink.split, %8
-  %.0 = phi ptr [ null, %8 ], [ %.0.ph, %.sink.split ]
+17:                                               ; preds = %8, %11, %2
+  %.0 = phi ptr [ %0, %2 ], [ %9, %11 ], [ null, %8 ]
   ret ptr %.0
 }
 

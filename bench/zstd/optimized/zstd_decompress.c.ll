@@ -617,27 +617,27 @@ if.end56:                                         ; preds = %if.then53
   br label %return
 
 if.end69:                                         ; preds = %if.end44, %ZSTD_frameHeaderSize_internal.exit91
-  %arrayidx.i73.sink = phi ptr [ %arrayidx.i73, %ZSTD_frameHeaderSize_internal.exit91 ], [ %src, %if.end44 ]
+  %.sink.in = phi ptr [ %arrayidx.i73, %ZSTD_frameHeaderSize_internal.exit91 ], [ %src, %if.end44 ]
   %cond.i.sink = phi i64 [ %cond.i, %ZSTD_frameHeaderSize_internal.exit91 ], [ 1, %if.end44 ]
-  %1 = load i8, ptr %arrayidx.i73.sink, align 1
-  %conv.i74 = zext i8 %1 to i32
+  %.sink = load i8, ptr %.sink.in, align 1
+  %conv.i74 = zext i8 %.sink to i32
   %and.i75 = and i32 %conv.i74, 3
   %shr12.i76 = lshr i32 %conv.i74, 6
-  %2 = and i32 %conv.i74, 32
-  %tobool.i77 = icmp ne i32 %2, 0
+  %1 = and i32 %conv.i74, 32
+  %tobool.i77 = icmp ne i32 %1, 0
   %lnot.i78 = xor i1 %tobool.i77, true
   %conv13.i79 = zext i1 %lnot.i78 to i64
   %idxprom.i80 = zext nneg i32 %and.i75 to i64
   %arrayidx14.i81 = getelementptr inbounds [4 x i64], ptr @ZSTD_did_fieldSize, i64 0, i64 %idxprom.i80
-  %3 = load i64, ptr %arrayidx14.i81, align 8
+  %2 = load i64, ptr %arrayidx14.i81, align 8
   %idxprom16.i82 = zext nneg i32 %shr12.i76 to i64
   %arrayidx17.i83 = getelementptr inbounds [4 x i64], ptr @ZSTD_fcs_fieldSize, i64 0, i64 %idxprom16.i82
-  %4 = load i64, ptr %arrayidx17.i83, align 8
-  %tobool20.not.i84 = icmp ult i8 %1, 64
-  %5 = and i1 %tobool20.not.i84, %tobool.i77
-  %conv23.i85 = zext i1 %5 to i64
-  %add.i86 = add i64 %3, %cond.i.sink
-  %add15.i87 = add i64 %add.i86, %4
+  %3 = load i64, ptr %arrayidx17.i83, align 8
+  %tobool20.not.i84 = icmp ult i8 %.sink, 64
+  %4 = and i1 %tobool20.not.i84, %tobool.i77
+  %conv23.i85 = zext i1 %4 to i64
+  %add.i86 = add i64 %2, %cond.i.sink
+  %add15.i87 = add i64 %add.i86, %3
   %add18.i88 = add i64 %add15.i87, %conv13.i79
   %add24.i89 = add i64 %add18.i88, %conv23.i85
   %cmp71 = icmp ult i64 %srcSize, %add24.i89
@@ -647,10 +647,10 @@ if.end74:                                         ; preds = %if.end69
   %conv75 = trunc i64 %add24.i89 to i32
   %headerSize = getelementptr inbounds i8, ptr %zfhPtr, i64 24
   store i32 %conv75, ptr %headerSize, align 8
-  %6 = getelementptr i8, ptr %src, i64 %cond.i
-  %arrayidx = getelementptr i8, ptr %6, i64 -1
-  %7 = load i8, ptr %arrayidx, align 1
-  %conv76 = zext i8 %7 to i32
+  %5 = getelementptr i8, ptr %src, i64 %cond.i
+  %arrayidx = getelementptr i8, ptr %5, i64 -1
+  %6 = load i8, ptr %arrayidx, align 1
+  %conv76 = zext i8 %6 to i32
   %and77 = and i32 %conv76, 3
   %shr = lshr i32 %conv76, 2
   %and79 = and i32 %shr, 1
@@ -660,17 +660,17 @@ if.end74:                                         ; preds = %if.end69
   br i1 %cmp89.not, label %do.end101, label %return
 
 do.end101:                                        ; preds = %if.end74
-  %8 = and i32 %conv76, 32
-  %tobool.not = icmp eq i32 %8, 0
+  %7 = and i32 %conv76, 32
+  %tobool.not = icmp eq i32 %7, 0
   br i1 %tobool.not, label %if.then102, label %if.end125
 
 if.then102:                                       ; preds = %do.end101
-  %9 = load i8, ptr %6, align 1
-  %cmp107 = icmp ugt i8 %9, -81
+  %8 = load i8, ptr %5, align 1
+  %cmp107 = icmp ugt i8 %8, -81
   br i1 %cmp107, label %return, label %do.end119
 
 do.end119:                                        ; preds = %if.then102
-  %conv104 = zext i8 %9 to i32
+  %conv104 = zext i8 %8 to i32
   %shr105 = lshr i32 %conv104, 3
   %add = add nuw nsw i32 %shr105, 10
   %inc = add nuw nsw i64 %cond.i, 1
@@ -695,8 +695,8 @@ if.end125:                                        ; preds = %do.end119, %do.end1
 
 sw.bb126:                                         ; preds = %if.end125
   %arrayidx127 = getelementptr inbounds i8, ptr %src, i64 %pos.0
-  %10 = load i8, ptr %arrayidx127, align 1
-  %conv128 = zext i8 %10 to i32
+  %9 = load i8, ptr %arrayidx127, align 1
+  %conv128 = zext i8 %9 to i32
   %inc129 = add nuw nsw i64 %pos.0, 1
   br label %sw.epilog
 
@@ -731,8 +731,8 @@ sw.bb140:                                         ; preds = %sw.epilog
 
 if.then142:                                       ; preds = %sw.bb140
   %arrayidx143 = getelementptr inbounds i8, ptr %src, i64 %pos.1
-  %11 = load i8, ptr %arrayidx143, align 1
-  %conv144 = zext i8 %11 to i64
+  %10 = load i8, ptr %arrayidx143, align 1
+  %conv144 = zext i8 %10 to i64
   br label %sw.epilog159
 
 sw.bb146:                                         ; preds = %sw.epilog
@@ -5349,64 +5349,72 @@ sw.bb6:                                           ; preds = %do.end
   %sub16 = sub i64 %7, %6
   store i64 %sub16, ptr %decodedSize, align 8
   %call = call i64 @ZBUFFv05_decompressContinue(ptr noundef %legacyContext, ptr noundef %add.ptr13, ptr noundef nonnull %decodedSize, ptr noundef nonnull %add.ptr, ptr noundef nonnull %readSize) #16
-  br label %return.sink.split
+  %8 = load i64, ptr %decodedSize, align 8
+  %9 = load i64, ptr %pos12, align 8
+  %add = add i64 %9, %8
+  store i64 %add, ptr %pos12, align 8
+  %10 = load i64, ptr %readSize, align 8
+  %11 = load i64, ptr %pos, align 8
+  %add19 = add i64 %11, %10
+  store i64 %add19, ptr %pos, align 8
+  br label %return
 
 sw.bb20:                                          ; preds = %do.end
   %pos24 = getelementptr inbounds i8, ptr %input, i64 16
-  %8 = load i64, ptr %pos24, align 8
-  %add.ptr25 = getelementptr inbounds i8, ptr %2, i64 %8
+  %12 = load i64, ptr %pos24, align 8
+  %add.ptr25 = getelementptr inbounds i8, ptr %2, i64 %12
   %size27 = getelementptr inbounds i8, ptr %input, i64 8
-  %9 = load i64, ptr %size27, align 8
-  %sub29 = sub i64 %9, %8
+  %13 = load i64, ptr %size27, align 8
+  %sub29 = sub i64 %13, %12
   store i64 %sub29, ptr %readSize26, align 8
-  %10 = load ptr, ptr %output, align 8
+  %14 = load ptr, ptr %output, align 8
   %pos32 = getelementptr inbounds i8, ptr %output, i64 16
-  %11 = load i64, ptr %pos32, align 8
-  %add.ptr33 = getelementptr inbounds i8, ptr %10, i64 %11
+  %15 = load i64, ptr %pos32, align 8
+  %add.ptr33 = getelementptr inbounds i8, ptr %14, i64 %15
   %size35 = getelementptr inbounds i8, ptr %output, i64 8
-  %12 = load i64, ptr %size35, align 8
-  %sub37 = sub i64 %12, %11
+  %16 = load i64, ptr %size35, align 8
+  %sub37 = sub i64 %16, %15
   store i64 %sub37, ptr %decodedSize34, align 8
   %call39 = call i64 @ZBUFFv06_decompressContinue(ptr noundef %legacyContext, ptr noundef %add.ptr33, ptr noundef nonnull %decodedSize34, ptr noundef nonnull %add.ptr25, ptr noundef nonnull %readSize26) #16
-  br label %return.sink.split
+  %17 = load i64, ptr %decodedSize34, align 8
+  %18 = load i64, ptr %pos32, align 8
+  %add41 = add i64 %18, %17
+  store i64 %add41, ptr %pos32, align 8
+  %19 = load i64, ptr %readSize26, align 8
+  %20 = load i64, ptr %pos24, align 8
+  %add43 = add i64 %20, %19
+  store i64 %add43, ptr %pos24, align 8
+  br label %return
 
 sw.bb44:                                          ; preds = %do.end
   %pos48 = getelementptr inbounds i8, ptr %input, i64 16
-  %13 = load i64, ptr %pos48, align 8
-  %add.ptr49 = getelementptr inbounds i8, ptr %2, i64 %13
+  %21 = load i64, ptr %pos48, align 8
+  %add.ptr49 = getelementptr inbounds i8, ptr %2, i64 %21
   %size51 = getelementptr inbounds i8, ptr %input, i64 8
-  %14 = load i64, ptr %size51, align 8
-  %sub53 = sub i64 %14, %13
+  %22 = load i64, ptr %size51, align 8
+  %sub53 = sub i64 %22, %21
   store i64 %sub53, ptr %readSize50, align 8
-  %15 = load ptr, ptr %output, align 8
+  %23 = load ptr, ptr %output, align 8
   %pos56 = getelementptr inbounds i8, ptr %output, i64 16
-  %16 = load i64, ptr %pos56, align 8
-  %add.ptr57 = getelementptr inbounds i8, ptr %15, i64 %16
+  %24 = load i64, ptr %pos56, align 8
+  %add.ptr57 = getelementptr inbounds i8, ptr %23, i64 %24
   %size59 = getelementptr inbounds i8, ptr %output, i64 8
-  %17 = load i64, ptr %size59, align 8
-  %sub61 = sub i64 %17, %16
+  %25 = load i64, ptr %size59, align 8
+  %sub61 = sub i64 %25, %24
   store i64 %sub61, ptr %decodedSize58, align 8
   %call63 = call i64 @ZBUFFv07_decompressContinue(ptr noundef %legacyContext, ptr noundef %add.ptr57, ptr noundef nonnull %decodedSize58, ptr noundef nonnull %add.ptr49, ptr noundef nonnull %readSize50) #16
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %sw.bb6, %sw.bb20, %sw.bb44
-  %decodedSize58.sink = phi ptr [ %decodedSize58, %sw.bb44 ], [ %decodedSize34, %sw.bb20 ], [ %decodedSize, %sw.bb6 ]
-  %pos56.sink38 = phi ptr [ %pos56, %sw.bb44 ], [ %pos32, %sw.bb20 ], [ %pos12, %sw.bb6 ]
-  %readSize50.sink = phi ptr [ %readSize50, %sw.bb44 ], [ %readSize26, %sw.bb20 ], [ %readSize, %sw.bb6 ]
-  %pos48.sink36 = phi ptr [ %pos48, %sw.bb44 ], [ %pos24, %sw.bb20 ], [ %pos, %sw.bb6 ]
-  %retval.0.ph = phi i64 [ %call63, %sw.bb44 ], [ %call39, %sw.bb20 ], [ %call, %sw.bb6 ]
-  %18 = load i64, ptr %decodedSize58.sink, align 8
-  %19 = load i64, ptr %pos56.sink38, align 8
-  %add65 = add i64 %19, %18
-  store i64 %add65, ptr %pos56.sink38, align 8
-  %20 = load i64, ptr %readSize50.sink, align 8
-  %21 = load i64, ptr %pos48.sink36, align 8
-  %add67 = add i64 %21, %20
-  store i64 %add67, ptr %pos48.sink36, align 8
+  %26 = load i64, ptr %decodedSize58, align 8
+  %27 = load i64, ptr %pos56, align 8
+  %add65 = add i64 %27, %26
+  store i64 %add65, ptr %pos56, align 8
+  %28 = load i64, ptr %readSize50, align 8
+  %29 = load i64, ptr %pos48, align 8
+  %add67 = add i64 %29, %28
+  store i64 %add67, ptr %pos48, align 8
   br label %return
 
-return:                                           ; preds = %return.sink.split, %do.end
-  %retval.0 = phi i64 [ -12, %do.end ], [ %retval.0.ph, %return.sink.split ]
+return:                                           ; preds = %do.end, %sw.bb44, %sw.bb20, %sw.bb6
+  %retval.0 = phi i64 [ %call, %sw.bb6 ], [ %call39, %sw.bb20 ], [ %call63, %sw.bb44 ], [ -12, %do.end ]
   ret i64 %retval.0
 }
 

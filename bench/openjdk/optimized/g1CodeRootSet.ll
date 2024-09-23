@@ -1999,6 +1999,7 @@ _ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE6Bucket4lock
 
 82:                                               ; preds = %80
   %83 = getelementptr inbounds ptr, ptr %8, i64 %.023.i
+  store ptr %.063, ptr %83, align 8
   br label %115
 
 84:                                               ; preds = %80
@@ -2073,14 +2074,13 @@ _ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI28G1CodeRootSetHashTable
   %.sroa.13.7 = phi ptr [ %98, %.preheader.i.i.i ], [ %98, %112 ], [ %.sroa.13.2, %88 ]
   %113 = sext i32 %.sroa.0.2 to i64
   %114 = getelementptr inbounds ptr, ptr %.sroa.13.7, i64 %113
+  store ptr %.063, ptr %114, align 8
   br label %115
 
 115:                                              ; preds = %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE4NodeE18GrowableArrayCHeapIS5_LS2_5EEE6appendERKS5_.exit, %82
-  %.sink = phi ptr [ %114, %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE4NodeE18GrowableArrayCHeapIS5_LS2_5EEE6appendERKS5_.exit ], [ %83, %82 ]
-  %.sroa.0.3 = phi i32 [ %90, %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE4NodeE18GrowableArrayCHeapIS5_LS2_5EEE6appendERKS5_.exit ], [ %.sroa.0.2, %82 ]
-  %.sroa.7.3 = phi i32 [ %.sroa.7.7, %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE4NodeE18GrowableArrayCHeapIS5_LS2_5EEE6appendERKS5_.exit ], [ %.sroa.7.2, %82 ]
-  %.sroa.13.3 = phi ptr [ %.sroa.13.7, %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE4NodeE18GrowableArrayCHeapIS5_LS2_5EEE6appendERKS5_.exit ], [ %.sroa.13.2, %82 ]
-  store ptr %.063, ptr %.sink, align 8
+  %.sroa.0.3 = phi i32 [ %.sroa.0.2, %82 ], [ %90, %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE4NodeE18GrowableArrayCHeapIS5_LS2_5EEE6appendERKS5_.exit ]
+  %.sroa.7.3 = phi i32 [ %.sroa.7.2, %82 ], [ %.sroa.7.7, %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE4NodeE18GrowableArrayCHeapIS5_LS2_5EEE6appendERKS5_.exit ]
+  %.sroa.13.3 = phi ptr [ %.sroa.13.2, %82 ], [ %.sroa.13.7, %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE4NodeE18GrowableArrayCHeapIS5_LS2_5EEE6appendERKS5_.exit ]
   %116 = add nuw i64 %.023.i, 1
   %117 = load volatile ptr, ptr %.063, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
@@ -2789,6 +2789,7 @@ _ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE6Bucket4lock
 
 70:                                               ; preds = %.lr.ph.i
   %71 = getelementptr inbounds ptr, ptr %8, i64 %.021.i
+  store ptr %.060, ptr %71, align 8
   br label %103
 
 72:                                               ; preds = %.lr.ph.i
@@ -2863,14 +2864,13 @@ _ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI28G1CodeRootSetHashTable
   %.sroa.13.6 = phi ptr [ %86, %.preheader.i.i.i ], [ %86, %100 ], [ %.sroa.13.2, %76 ]
   %101 = sext i32 %.sroa.0.2 to i64
   %102 = getelementptr inbounds ptr, ptr %.sroa.13.6, i64 %101
+  store ptr %.060, ptr %102, align 8
   br label %103
 
 103:                                              ; preds = %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE4NodeE18GrowableArrayCHeapIS5_LS2_5EEE6appendERKS5_.exit, %70
-  %.sink = phi ptr [ %102, %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE4NodeE18GrowableArrayCHeapIS5_LS2_5EEE6appendERKS5_.exit ], [ %71, %70 ]
-  %.sroa.0.3 = phi i32 [ %78, %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE4NodeE18GrowableArrayCHeapIS5_LS2_5EEE6appendERKS5_.exit ], [ %.sroa.0.2, %70 ]
-  %.sroa.7.3 = phi i32 [ %.sroa.7.6, %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE4NodeE18GrowableArrayCHeapIS5_LS2_5EEE6appendERKS5_.exit ], [ %.sroa.7.2, %70 ]
-  %.sroa.13.3 = phi ptr [ %.sroa.13.6, %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE4NodeE18GrowableArrayCHeapIS5_LS2_5EEE6appendERKS5_.exit ], [ %.sroa.13.2, %70 ]
-  store ptr %.060, ptr %.sink, align 8
+  %.sroa.0.3 = phi i32 [ %.sroa.0.2, %70 ], [ %78, %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE4NodeE18GrowableArrayCHeapIS5_LS2_5EEE6appendERKS5_.exit ]
+  %.sroa.7.3 = phi i32 [ %.sroa.7.2, %70 ], [ %.sroa.7.6, %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE4NodeE18GrowableArrayCHeapIS5_LS2_5EEE6appendERKS5_.exit ]
+  %.sroa.13.3 = phi ptr [ %.sroa.13.2, %70 ], [ %.sroa.13.6, %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE4NodeE18GrowableArrayCHeapIS5_LS2_5EEE6appendERKS5_.exit ]
   %104 = add nuw i64 %.021.i, 1
   %105 = load volatile ptr, ptr %.060, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
@@ -3340,6 +3340,7 @@ _ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE6Bucket4lock
 
 85:                                               ; preds = %83
   %86 = getelementptr inbounds ptr, ptr %8, i64 %.022.i
+  store ptr %.065, ptr %86, align 8
   br label %118
 
 87:                                               ; preds = %83
@@ -3414,14 +3415,13 @@ _ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI28G1CodeRootSetHashTable
   %.sroa.13.7 = phi ptr [ %101, %.preheader.i.i.i ], [ %101, %115 ], [ %.sroa.13.2, %91 ]
   %116 = sext i32 %.sroa.0.2 to i64
   %117 = getelementptr inbounds ptr, ptr %.sroa.13.7, i64 %116
+  store ptr %.065, ptr %117, align 8
   br label %118
 
 118:                                              ; preds = %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE4NodeE18GrowableArrayCHeapIS5_LS2_5EEE6appendERKS5_.exit, %85
-  %.sink = phi ptr [ %117, %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE4NodeE18GrowableArrayCHeapIS5_LS2_5EEE6appendERKS5_.exit ], [ %86, %85 ]
-  %.sroa.0.3 = phi i32 [ %93, %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE4NodeE18GrowableArrayCHeapIS5_LS2_5EEE6appendERKS5_.exit ], [ %.sroa.0.2, %85 ]
-  %.sroa.7.3 = phi i32 [ %.sroa.7.7, %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE4NodeE18GrowableArrayCHeapIS5_LS2_5EEE6appendERKS5_.exit ], [ %.sroa.7.2, %85 ]
-  %.sroa.13.3 = phi ptr [ %.sroa.13.7, %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE4NodeE18GrowableArrayCHeapIS5_LS2_5EEE6appendERKS5_.exit ], [ %.sroa.13.2, %85 ]
-  store ptr %.065, ptr %.sink, align 8
+  %.sroa.0.3 = phi i32 [ %.sroa.0.2, %85 ], [ %93, %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE4NodeE18GrowableArrayCHeapIS5_LS2_5EEE6appendERKS5_.exit ]
+  %.sroa.7.3 = phi i32 [ %.sroa.7.2, %85 ], [ %.sroa.7.7, %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE4NodeE18GrowableArrayCHeapIS5_LS2_5EEE6appendERKS5_.exit ]
+  %.sroa.13.3 = phi ptr [ %.sroa.13.2, %85 ], [ %.sroa.13.7, %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE4NodeE18GrowableArrayCHeapIS5_LS2_5EEE6appendERKS5_.exit ]
   %119 = add nuw i64 %.022.i, 1
   %120 = load volatile ptr, ptr %.065, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7

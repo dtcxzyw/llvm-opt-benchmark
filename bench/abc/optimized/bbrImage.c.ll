@@ -375,8 +375,8 @@ Bbr_CreateVars.exit:                              ; preds = %.lr.ph87.split.i, %
   %exitcond114.not.i = icmp eq i64 %indvars.iv.next111.i, %wide.trip.count113.i
   br i1 %exitcond114.not.i, label %.preheader.i, label %135, !llvm.loop !12
 
-165:                                              ; preds = %._crit_edge176, %.lr.ph108.i
-  %indvars.iv115.i = phi i64 [ 0, %.lr.ph108.i ], [ %indvars.iv.next116.i, %._crit_edge176 ]
+165:                                              ; preds = %._crit_edge174, %.lr.ph108.i
+  %indvars.iv115.i = phi i64 [ 0, %.lr.ph108.i ], [ %indvars.iv.next116.i, %._crit_edge174 ]
   %166 = getelementptr inbounds ptr, ptr %127, i64 %indvars.iv115.i
   %167 = load ptr, ptr %166, align 8
   %168 = getelementptr inbounds i8, ptr %167, i64 8
@@ -384,7 +384,7 @@ Bbr_CreateVars.exit:                              ; preds = %.lr.ph87.split.i, %
   %.not.i120 = icmp eq ptr %169, null
   %.phi.trans.insert = getelementptr inbounds ptr, ptr %34, i64 %indvars.iv115.i
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br i1 %.not.i120, label %._crit_edge176, label %170
+  br i1 %.not.i120, label %._crit_edge174, label %170
 
 170:                                              ; preds = %165
   %171 = load ptr, ptr %.pre, align 8
@@ -409,15 +409,15 @@ Bbr_CreateVars.exit:                              ; preds = %.lr.ph87.split.i, %
   %183 = getelementptr inbounds i8, ptr %.pre, i64 16
   store i32 %182, ptr %183, align 8
   %184 = icmp ult i64 %indvars.iv115.i, %134
-  br i1 %184, label %185, label %._crit_edge176
+  br i1 %184, label %185, label %._crit_edge174
 
 185:                                              ; preds = %170
   %186 = load ptr, ptr %168, align 8
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %186) #10
   store ptr null, ptr %168, align 8
-  br label %._crit_edge176
+  br label %._crit_edge174
 
-._crit_edge176:                                   ; preds = %165, %185, %170
+._crit_edge174:                                   ; preds = %165, %185, %170
   %187 = load ptr, ptr %.pre, align 8
   %188 = getelementptr inbounds i8, ptr %167, i64 16
   store ptr %187, ptr %188, align 8
@@ -426,7 +426,7 @@ Bbr_CreateVars.exit:                              ; preds = %.lr.ph87.split.i, %
   %exitcond119.not.i = icmp eq i64 %indvars.iv.next116.i, %wide.trip.count118.i
   br i1 %exitcond119.not.i, label %Bbr_CreateNodes.exit, label %165, !llvm.loop !13
 
-Bbr_CreateNodes.exit:                             ; preds = %._crit_edge176, %.preheader.i
+Bbr_CreateNodes.exit:                             ; preds = %._crit_edge174, %.preheader.i
   %189 = getelementptr inbounds ptr, ptr %127, i64 %53
   %190 = load ptr, ptr %189, align 8
   %191 = load i32, ptr %80, align 8
@@ -789,11 +789,11 @@ Bbr_BuildTreeNode.exit:                           ; preds = %349, %321
 361:                                              ; preds = %.lr.ph
   tail call void @free(ptr noundef nonnull %360) #10
   store ptr null, ptr %359, align 8
-  %.pre177 = load i32, ptr %80, align 8
+  %.pre175 = load i32, ptr %80, align 8
   br label %362
 
 362:                                              ; preds = %.lr.ph, %361
-  %363 = phi i32 [ %358, %.lr.ph ], [ %.pre177, %361 ]
+  %363 = phi i32 [ %358, %.lr.ph ], [ %.pre175, %361 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %364 = sext i32 %363 to i64
   %365 = icmp slt i64 %indvars.iv.next, %364
@@ -816,8 +816,8 @@ Bbr_BuildTreeNode.exit:                           ; preds = %349, %321
   br label %.lr.ph164
 
 .lr.ph164:                                        ; preds = %.lr.ph164.preheader, %370
-  %indvars.iv173 = phi i64 [ 0, %.lr.ph164.preheader ], [ %indvars.iv.next174, %370 ]
-  %367 = getelementptr inbounds ptr, ptr %127, i64 %indvars.iv173
+  %indvars.iv171 = phi i64 [ 0, %.lr.ph164.preheader ], [ %indvars.iv.next172, %370 ]
+  %367 = getelementptr inbounds ptr, ptr %127, i64 %indvars.iv171
   %368 = load ptr, ptr %367, align 8
   %.not104 = icmp eq ptr %368, null
   br i1 %.not104, label %370, label %369
@@ -828,8 +828,8 @@ Bbr_BuildTreeNode.exit:                           ; preds = %349, %321
   br label %370
 
 370:                                              ; preds = %.lr.ph164, %369
-  %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next174, %wide.trip.count
+  %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next172, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge165.thread, label %.lr.ph164, !llvm.loop !23
 
 ._crit_edge165:                                   ; preds = %366
@@ -842,7 +842,7 @@ Bbr_BuildTreeNode.exit:                           ; preds = %349, %321
 
 371:                                              ; preds = %._crit_edge165, %._crit_edge165.thread
   %.not103 = icmp eq ptr %34, null
-  br i1 %.not103, label %401, label %.sink.split
+  br i1 %.not103, label %400, label %.sink.split
 
 372:                                              ; preds = %.preheader151
   tail call void @free(ptr noundef nonnull %calloc.i) #10
@@ -857,90 +857,77 @@ Bbr_BuildTreeNode.exit:                           ; preds = %349, %321
   %376 = getelementptr inbounds i8, ptr %calloc, i64 24
   store i32 %7, ptr %376, align 8
   %wide.trip.count.i138 = zext nneg i32 %31 to i64
-  br i1 %68, label %.lr.ph.i139.us, label %.split
+  br label %377
 
-.lr.ph.i139.us:                                   ; preds = %373, %.lr.ph.i139.us.backedge
-  %indvars.iv.i140.us = phi i64 [ %indvars.iv.i140.us.be, %.lr.ph.i139.us.backedge ], [ 0, %373 ]
-  %.02732.i.us = phi i32 [ %.02732.i.us.be, %.lr.ph.i139.us.backedge ], [ -1, %373 ]
-  %377 = getelementptr inbounds ptr, ptr %127, i64 %indvars.iv.i140.us
-  %378 = load ptr, ptr %377, align 8
-  %.not.i141.us = icmp eq ptr %378, null
-  br i1 %.not.i141.us, label %391, label %379
+377:                                              ; preds = %Bbr_MergeTopNodes.exit, %373
+  br i1 %68, label %.lr.ph.i139, label %._crit_edge.i136
 
-379:                                              ; preds = %.lr.ph.i139.us
-  %380 = icmp eq i32 %.02732.i.us, -1
-  %381 = trunc nuw nsw i64 %indvars.iv.i140.us to i32
-  br i1 %380, label %391, label %382
+.lr.ph.i139:                                      ; preds = %377, %383
+  %indvars.iv.i140 = phi i64 [ %indvars.iv.next.i143, %383 ], [ 0, %377 ]
+  %.02732.i = phi i32 [ %.1.i142, %383 ], [ -1, %377 ]
+  %378 = getelementptr inbounds ptr, ptr %127, i64 %indvars.iv.i140
+  %379 = load ptr, ptr %378, align 8
+  %.not.i141 = icmp eq ptr %379, null
+  br i1 %.not.i141, label %383, label %380
 
-382:                                              ; preds = %379
-  %383 = load ptr, ptr %84, align 8
-  %384 = sext i32 %.02732.i.us to i64
-  %385 = getelementptr inbounds ptr, ptr %127, i64 %384
-  %386 = load ptr, ptr %385, align 8
-  %387 = and i64 %indvars.iv.i140.us, 4294967295
-  %388 = getelementptr inbounds ptr, ptr %127, i64 %387
-  %389 = load ptr, ptr %388, align 8
-  %390 = tail call fastcc ptr @Bbr_CombineTwoNodes(ptr noundef %0, ptr noundef %383, ptr noundef %386, ptr noundef %389)
-  store ptr %390, ptr %385, align 8
-  br label %Bbr_MergeTopNodes.exit.us
+380:                                              ; preds = %.lr.ph.i139
+  %381 = icmp eq i32 %.02732.i, -1
+  %382 = trunc nuw nsw i64 %indvars.iv.i140 to i32
+  br i1 %381, label %383, label %387
 
-391:                                              ; preds = %379, %.lr.ph.i139.us
-  %.1.i142.us = phi i32 [ %.02732.i.us, %.lr.ph.i139.us ], [ %381, %379 ]
-  %indvars.iv.next.i143.us = add nuw nsw i64 %indvars.iv.i140.us, 1
-  %exitcond.not.i144.us = icmp eq i64 %indvars.iv.next.i143.us, %wide.trip.count.i138
-  br i1 %exitcond.not.i144.us, label %._crit_edge.loopexit.i.us, label %.lr.ph.i139.us.backedge
+383:                                              ; preds = %380, %.lr.ph.i139
+  %.1.i142 = phi i32 [ %.02732.i, %.lr.ph.i139 ], [ %382, %380 ]
+  %indvars.iv.next.i143 = add nuw nsw i64 %indvars.iv.i140, 1
+  %exitcond.not.i144 = icmp eq i64 %indvars.iv.next.i143, %wide.trip.count.i138
+  br i1 %exitcond.not.i144, label %._crit_edge.loopexit.i, label %.lr.ph.i139, !llvm.loop !24
 
-.lr.ph.i139.us.backedge:                          ; preds = %391, %Bbr_MergeTopNodes.exit.us
-  %indvars.iv.i140.us.be = phi i64 [ %indvars.iv.next.i143.us, %391 ], [ 0, %Bbr_MergeTopNodes.exit.us ]
-  %.02732.i.us.be = phi i32 [ %.1.i142.us, %391 ], [ -1, %Bbr_MergeTopNodes.exit.us ]
-  br label %.lr.ph.i139.us, !llvm.loop !24
-
-._crit_edge.loopexit.i.us:                        ; preds = %391
-  %392 = sext i32 %.1.i142.us to i64
-  %393 = getelementptr inbounds ptr, ptr %127, i64 %392
-  %394 = load ptr, ptr %393, align 8
-  br label %Bbr_MergeTopNodes.exit.us
-
-Bbr_MergeTopNodes.exit.us:                        ; preds = %._crit_edge.loopexit.i.us, %382
-  %.sink.i.us = phi ptr [ %388, %382 ], [ %393, %._crit_edge.loopexit.i.us ]
-  %.028.i.us = phi ptr [ null, %382 ], [ %394, %._crit_edge.loopexit.i.us ]
-  store ptr null, ptr %.sink.i.us, align 8
-  store ptr %.028.i.us, ptr %calloc, align 8
-  %395 = icmp eq ptr %.028.i.us, null
-  br i1 %395, label %.lr.ph.i139.us.backedge, label %.loopexit
-
-.split:                                           ; preds = %373
-  %396 = getelementptr inbounds i8, ptr %127, i64 -8
-  %.promoted = load ptr, ptr %396, align 8
+._crit_edge.loopexit.i:                           ; preds = %383
+  %384 = sext i32 %.1.i142 to i64
   br label %._crit_edge.i136
 
-._crit_edge.i136:                                 ; preds = %._crit_edge.i136, %.split
-  %397 = phi ptr [ null, %._crit_edge.i136 ], [ %.promoted, %.split ]
-  %398 = icmp eq ptr %397, null
-  br i1 %398, label %._crit_edge.i136, label %.preheader.split, !llvm.loop !24
+._crit_edge.i136:                                 ; preds = %._crit_edge.loopexit.i, %377
+  %.027.lcssa.i = phi i64 [ -1, %377 ], [ %384, %._crit_edge.loopexit.i ]
+  %385 = getelementptr inbounds ptr, ptr %127, i64 %.027.lcssa.i
+  %386 = load ptr, ptr %385, align 8
+  store ptr null, ptr %385, align 8
+  br label %Bbr_MergeTopNodes.exit
 
-.preheader.split:                                 ; preds = %._crit_edge.i136
-  store ptr %397, ptr %calloc, align 8
-  br label %.loopexit
+387:                                              ; preds = %380
+  %388 = load ptr, ptr %84, align 8
+  %389 = sext i32 %.02732.i to i64
+  %390 = getelementptr inbounds ptr, ptr %127, i64 %389
+  %391 = load ptr, ptr %390, align 8
+  %392 = and i64 %indvars.iv.i140, 4294967295
+  %393 = getelementptr inbounds ptr, ptr %127, i64 %392
+  %394 = load ptr, ptr %393, align 8
+  %395 = tail call fastcc ptr @Bbr_CombineTwoNodes(ptr noundef %0, ptr noundef %388, ptr noundef %391, ptr noundef %394)
+  store ptr %395, ptr %390, align 8
+  store ptr null, ptr %393, align 8
+  br label %Bbr_MergeTopNodes.exit
 
-.loopexit:                                        ; preds = %Bbr_MergeTopNodes.exit.us, %.preheader.split
-  %.us-phi = phi ptr [ %397, %.preheader.split ], [ %.028.i.us, %Bbr_MergeTopNodes.exit.us ]
+Bbr_MergeTopNodes.exit:                           ; preds = %._crit_edge.i136, %387
+  %.028.i = phi ptr [ %386, %._crit_edge.i136 ], [ null, %387 ]
+  store ptr %.028.i, ptr %calloc, align 8
+  %396 = icmp eq ptr %.028.i, null
+  br i1 %396, label %377, label %397, !llvm.loop !25
+
+397:                                              ; preds = %Bbr_MergeTopNodes.exit
   tail call void @free(ptr noundef nonnull %127) #10
-  %399 = tail call ptr @Cudd_Support(ptr noundef %0, ptr noundef %1) #10
-  %400 = getelementptr inbounds i8, ptr %calloc, i64 16
-  store ptr %399, ptr %400, align 8
-  tail call void @Cudd_Ref(ptr noundef %399) #10
-  tail call fastcc void @Bbr_DeleteParts_rec(ptr noundef nonnull %.us-phi)
+  %398 = tail call ptr @Cudd_Support(ptr noundef %0, ptr noundef %1) #10
+  %399 = getelementptr inbounds i8, ptr %calloc, i64 16
+  store ptr %398, ptr %399, align 8
+  tail call void @Cudd_Ref(ptr noundef %398) #10
+  tail call fastcc void @Bbr_DeleteParts_rec(ptr noundef nonnull %.028.i)
   %.not99 = icmp eq ptr %34, null
-  br i1 %.not99, label %401, label %.sink.split
+  br i1 %.not99, label %400, label %.sink.split
 
-.sink.split:                                      ; preds = %.loopexit, %371
-  %.085.ph = phi ptr [ null, %371 ], [ %calloc, %.loopexit ]
+.sink.split:                                      ; preds = %397, %371
+  %.085.ph = phi ptr [ null, %371 ], [ %calloc, %397 ]
   tail call void @free(ptr noundef nonnull %34) #10
-  br label %401
+  br label %400
 
-401:                                              ; preds = %.sink.split, %.loopexit, %371
-  %.085 = phi ptr [ null, %371 ], [ %calloc, %.loopexit ], [ %.085.ph, %.sink.split ]
+400:                                              ; preds = %.sink.split, %397, %371
+  %.085 = phi ptr [ null, %371 ], [ %calloc, %397 ], [ %.085.ph, %.sink.split ]
   ret ptr %.085
 }
 
@@ -1208,11 +1195,11 @@ define internal fastcc void @Bbr_bddPrint(ptr noundef %0, ptr noundef %1) unname
 32:                                               ; preds = %.sink.split, %.lr.ph.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !26
 
 ._crit_edge.us:                                   ; preds = %32
   %33 = call i32 @Cudd_NextCube(ptr noundef %18, ptr noundef nonnull %3, ptr noundef nonnull %4) #10
-  br label %.split.us, !llvm.loop !26
+  br label %.split.us, !llvm.loop !27
 
 .split:                                           ; preds = %17, %40
   %.not22 = phi i1 [ true, %40 ], [ false, %17 ]
@@ -1234,7 +1221,7 @@ define internal fastcc void @Bbr_bddPrint(ptr noundef %0, ptr noundef %1) unname
 
 40:                                               ; preds = %.critedge, %38
   %41 = call i32 @Cudd_NextCube(ptr noundef %18, ptr noundef nonnull %3, ptr noundef nonnull %4) #10
-  br label %.split, !llvm.loop !26
+  br label %.split, !llvm.loop !27
 
 .loopexit.sink.split:                             ; preds = %15, %8, %2
   %.str.9.sink = phi ptr [ @.str.7, %2 ], [ @.str.8, %8 ], [ @.str.9, %15 ]
@@ -1405,7 +1392,7 @@ define noundef ptr @Bbr_bddComputeCube(ptr noundef %0, ptr nocapture noundef rea
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.01314) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.013.lcssa = phi ptr [ %5, %3 ], [ %9, %.lr.ph ]
@@ -1447,7 +1434,7 @@ define noalias noundef ptr @Bbr_bddImageStart2(ptr noundef %0, ptr noundef %1, i
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.01314.i) #10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Bbr_bddComputeCube.exit, label %.lr.ph.i, !llvm.loop !27
+  br i1 %exitcond.not.i, label %Bbr_bddComputeCube.exit, label %.lr.ph.i, !llvm.loop !28
 
 Bbr_bddComputeCube.exit:                          ; preds = %.lr.ph.i, %7
   %.013.lcssa.i = phi ptr [ %15, %7 ], [ %19, %.lr.ph.i ]
@@ -1472,7 +1459,7 @@ Bbr_bddComputeCube.exit:                          ; preds = %.lr.ph.i, %7
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.01314.i41) #10
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i40, 1
   %exitcond.not.i43 = icmp eq i64 %indvars.iv.next.i42, %wide.trip.count.i38
-  br i1 %exitcond.not.i43, label %Bbr_bddComputeCube.exit44, label %.lr.ph.i39, !llvm.loop !27
+  br i1 %exitcond.not.i43, label %Bbr_bddComputeCube.exit44, label %.lr.ph.i39, !llvm.loop !28
 
 Bbr_bddComputeCube.exit44:                        ; preds = %.lr.ph.i39, %Bbr_bddComputeCube.exit
   %.013.lcssa.i36 = phi ptr [ %20, %Bbr_bddComputeCube.exit ], [ %24, %.lr.ph.i39 ]
@@ -1505,7 +1492,7 @@ Bbr_bddComputeCube.exit44:                        ; preds = %.lr.ph.i39, %Bbr_bd
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %31) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.Bbr_bddImageCompute2.exit_crit_edge, label %30, !llvm.loop !28
+  br i1 %exitcond.not, label %.Bbr_bddImageCompute2.exit_crit_edge, label %30, !llvm.loop !29
 
 .Bbr_bddImageCompute2.exit_crit_edge:             ; preds = %30
   store ptr %34, ptr %28, align 8
@@ -1719,7 +1706,7 @@ define internal fastcc void @Bbr_bddImagePrintLatchDependencyOne(ptr noundef %0,
   %28 = load i32, ptr %8, align 8
   %29 = sext i32 %28 to i64
   %30 = icmp slt i64 %indvars.iv.next, %29
-  br i1 %30, label %12, label %._crit_edge, !llvm.loop !29
+  br i1 %30, label %12, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %27, %5
   %putchar = tail call i32 @putchar(i32 10)
@@ -1784,3 +1771,4 @@ attributes #11 = { nounwind allocsize(0) }
 !27 = distinct !{!27, !5}
 !28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
+!30 = distinct !{!30, !5}

@@ -301,84 +301,84 @@ define internal range(i32 -1, 2) i32 @IDASpgmrSolve(ptr noundef %0, ptr noundef 
   %39 = load i32, ptr %7, align 4
   %40 = icmp eq i32 %39, 0
   %41 = getelementptr inbounds i8, ptr %13, i64 48
-  %.sink38 = select i1 %40, ptr %41, ptr %30
-  %42 = load ptr, ptr %.sink38, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %42, ptr noundef %1) #7
-  %43 = load i32, ptr %7, align 4
-  %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds i8, ptr %11, i64 56
-  %46 = load i64, ptr %45, align 8
-  %47 = add nsw i64 %46, %44
-  store i64 %47, ptr %45, align 8
-  %48 = load i32, ptr %8, align 4
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds i8, ptr %11, i64 64
-  %51 = load i64, ptr %50, align 8
-  %52 = add nsw i64 %51, %49
-  store i64 %52, ptr %50, align 8
+  %.sink.in = select i1 %40, ptr %41, ptr %30
+  %.sink = load ptr, ptr %.sink.in, align 8
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %.sink, ptr noundef %1) #7
+  %42 = load i32, ptr %7, align 4
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr inbounds i8, ptr %11, i64 56
+  %45 = load i64, ptr %44, align 8
+  %46 = add nsw i64 %45, %43
+  store i64 %46, ptr %44, align 8
+  %47 = load i32, ptr %8, align 4
+  %48 = sext i32 %47 to i64
+  %49 = getelementptr inbounds i8, ptr %11, i64 64
+  %50 = load i64, ptr %49, align 8
+  %51 = add nsw i64 %50, %48
+  store i64 %51, ptr %49, align 8
   %.not = icmp eq i32 %38, 0
-  br i1 %.not, label %.thread, label %54
+  br i1 %.not, label %.thread, label %53
 
 .thread:                                          ; preds = %6
-  %53 = getelementptr inbounds i8, ptr %11, i64 200
-  store i64 0, ptr %53, align 8
-  br label %70
+  %52 = getelementptr inbounds i8, ptr %11, i64 200
+  store i64 0, ptr %52, align 8
+  br label %69
 
-54:                                               ; preds = %6
-  %55 = getelementptr inbounds i8, ptr %11, i64 72
-  %56 = load i64, ptr %55, align 8
-  %57 = add nsw i64 %56, 1
-  store i64 %57, ptr %55, align 8
-  %58 = sext i32 %38 to i64
-  %59 = getelementptr inbounds i8, ptr %11, i64 200
-  store i64 %58, ptr %59, align 8
-  switch i32 %38, label %70 [
-    i32 -5, label %69
-    i32 1, label %60
-    i32 2, label %61
-    i32 3, label %62
-    i32 4, label %63
-    i32 5, label %64
-    i32 -1, label %65
-    i32 -2, label %66
-    i32 -3, label %67
-    i32 -4, label %68
+53:                                               ; preds = %6
+  %54 = getelementptr inbounds i8, ptr %11, i64 72
+  %55 = load i64, ptr %54, align 8
+  %56 = add nsw i64 %55, 1
+  store i64 %56, ptr %54, align 8
+  %57 = sext i32 %38 to i64
+  %58 = getelementptr inbounds i8, ptr %11, i64 200
+  store i64 %57, ptr %58, align 8
+  switch i32 %38, label %69 [
+    i32 -5, label %68
+    i32 1, label %59
+    i32 2, label %60
+    i32 3, label %61
+    i32 4, label %62
+    i32 5, label %63
+    i32 -1, label %64
+    i32 -2, label %65
+    i32 -3, label %66
+    i32 -4, label %67
   ]
 
-60:                                               ; preds = %54
-  br label %70
+59:                                               ; preds = %53
+  br label %69
 
-61:                                               ; preds = %54
-  br label %70
+60:                                               ; preds = %53
+  br label %69
 
-62:                                               ; preds = %54
-  br label %70
+61:                                               ; preds = %53
+  br label %69
 
-63:                                               ; preds = %54
-  br label %70
+62:                                               ; preds = %53
+  br label %69
 
-64:                                               ; preds = %54
-  br label %70
+63:                                               ; preds = %53
+  br label %69
 
-65:                                               ; preds = %54
-  br label %70
+64:                                               ; preds = %53
+  br label %69
 
-66:                                               ; preds = %54
+65:                                               ; preds = %53
   call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12) #7
-  br label %70
+  br label %69
 
-67:                                               ; preds = %54
+66:                                               ; preds = %53
   call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.13) #7
-  br label %70
+  br label %69
 
-68:                                               ; preds = %54
-  br label %70
+67:                                               ; preds = %53
+  br label %69
 
-69:                                               ; preds = %54
-  br label %70
+68:                                               ; preds = %53
+  br label %69
 
-70:                                               ; preds = %.thread, %54, %69, %68, %67, %66, %65, %64, %63, %62, %61, %60
-  %.0 = phi i32 [ -1, %69 ], [ -1, %68 ], [ -1, %67 ], [ -1, %66 ], [ %38, %65 ], [ 1, %64 ], [ 1, %63 ], [ 1, %62 ], [ 1, %61 ], [ %38, %60 ], [ 0, %54 ], [ 0, %.thread ]
+69:                                               ; preds = %.thread, %53, %68, %67, %66, %65, %64, %63, %62, %61, %60, %59
+  %.0 = phi i32 [ -1, %68 ], [ -1, %67 ], [ -1, %66 ], [ -1, %65 ], [ %38, %64 ], [ 1, %63 ], [ 1, %62 ], [ 1, %61 ], [ 1, %60 ], [ %38, %59 ], [ 0, %53 ], [ 0, %.thread ]
   ret i32 %.0
 }
 

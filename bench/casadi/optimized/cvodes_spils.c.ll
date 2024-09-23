@@ -774,15 +774,15 @@ define range(i32 -101, 1) i32 @CVSpilsSetPrecTypeB(ptr noundef %0, i32 noundef %
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %17
-  %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
-  %.017 = load ptr, ptr %.sink, align 8, !nonnull !6, !noundef !6
-  %19 = load i32, ptr %.017, align 8
+  %.017.sink.in = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
+  %.017.sink = load ptr, ptr %.017.sink.in, align 8, !nonnull !6, !noundef !6
+  %19 = load i32, ptr %.017.sink, align 8
   %20 = icmp eq i32 %1, %19
-  %21 = getelementptr inbounds i8, ptr %.017, i64 120
+  %21 = getelementptr inbounds i8, ptr %.017.sink, i64 120
   br i1 %20, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %22 = getelementptr inbounds i8, ptr %.017, i64 16
+  %22 = getelementptr inbounds i8, ptr %.017.sink, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %26
@@ -855,15 +855,15 @@ define range(i32 -101, 1) i32 @CVSpilsSetGSTypeB(ptr noundef %0, i32 noundef %1,
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %17
-  %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
-  %.017 = load ptr, ptr %.sink, align 8, !nonnull !6, !noundef !6
-  %19 = load i32, ptr %.017, align 8
+  %.017.sink.in = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
+  %.017.sink = load ptr, ptr %.017.sink.in, align 8, !nonnull !6, !noundef !6
+  %19 = load i32, ptr %.017.sink, align 8
   %20 = icmp eq i32 %1, %19
-  %21 = getelementptr inbounds i8, ptr %.017, i64 120
+  %21 = getelementptr inbounds i8, ptr %.017.sink, i64 120
   br i1 %20, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %22 = getelementptr inbounds i8, ptr %.017, i64 16
+  %22 = getelementptr inbounds i8, ptr %.017.sink, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %26
@@ -946,15 +946,15 @@ define range(i32 -101, 1) i32 @CVSpilsSetEpsLinB(ptr noundef %0, i32 noundef %1,
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %17
-  %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
-  %.017 = load ptr, ptr %.sink, align 8, !nonnull !6, !noundef !6
-  %19 = load i32, ptr %.017, align 8
+  %.017.sink.in = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
+  %.017.sink = load ptr, ptr %.017.sink.in, align 8, !nonnull !6, !noundef !6
+  %19 = load i32, ptr %.017.sink, align 8
   %20 = icmp eq i32 %1, %19
-  %21 = getelementptr inbounds i8, ptr %.017, i64 120
+  %21 = getelementptr inbounds i8, ptr %.017.sink, i64 120
   br i1 %20, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %22 = getelementptr inbounds i8, ptr %.017, i64 16
+  %22 = getelementptr inbounds i8, ptr %.017.sink, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %26
@@ -1029,15 +1029,15 @@ define range(i32 -101, 1) i32 @CVSpilsSetMaxlB(ptr noundef %0, i32 noundef %1, i
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %17
-  %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
-  %.017 = load ptr, ptr %.sink, align 8, !nonnull !6, !noundef !6
-  %19 = load i32, ptr %.017, align 8
+  %.017.sink.in = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
+  %.017.sink = load ptr, ptr %.017.sink.in, align 8, !nonnull !6, !noundef !6
+  %19 = load i32, ptr %.017.sink, align 8
   %20 = icmp eq i32 %1, %19
-  %21 = getelementptr inbounds i8, ptr %.017, i64 120
+  %21 = getelementptr inbounds i8, ptr %.017.sink, i64 120
   br i1 %20, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %22 = getelementptr inbounds i8, ptr %.017, i64 16
+  %22 = getelementptr inbounds i8, ptr %.017.sink, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %26
@@ -1113,17 +1113,17 @@ define range(i32 -102, 1) i32 @CVSpilsSetPreconditionerB(ptr noundef %0, i32 nou
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %18
-  %.sink = phi ptr [ %22, %.lr.ph ], [ %19, %18 ]
-  %.026 = load ptr, ptr %.sink, align 8, !nonnull !6, !noundef !6
-  %20 = load i32, ptr %.026, align 8
+  %.026.sink.in = phi ptr [ %22, %.lr.ph ], [ %19, %18 ]
+  %.026.sink = load ptr, ptr %.026.sink.in, align 8, !nonnull !6, !noundef !6
+  %20 = load i32, ptr %.026.sink, align 8
   %21 = icmp eq i32 %1, %20
-  %22 = getelementptr inbounds i8, ptr %.026, i64 120
+  %22 = getelementptr inbounds i8, ptr %.026.sink, i64 120
   br i1 %21, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %23 = getelementptr inbounds i8, ptr %.026, i64 16
+  %23 = getelementptr inbounds i8, ptr %.026.sink, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %.026, i64 72
+  %25 = getelementptr inbounds i8, ptr %.026.sink, i64 72
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %29
@@ -1298,17 +1298,17 @@ define range(i32 -102, 1) i32 @CVSpilsSetPreconditionerBS(ptr noundef %0, i32 no
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %18
-  %.sink = phi ptr [ %22, %.lr.ph ], [ %19, %18 ]
-  %.026 = load ptr, ptr %.sink, align 8, !nonnull !6, !noundef !6
-  %20 = load i32, ptr %.026, align 8
+  %.026.sink.in = phi ptr [ %22, %.lr.ph ], [ %19, %18 ]
+  %.026.sink = load ptr, ptr %.026.sink.in, align 8, !nonnull !6, !noundef !6
+  %20 = load i32, ptr %.026.sink, align 8
   %21 = icmp eq i32 %1, %20
-  %22 = getelementptr inbounds i8, ptr %.026, i64 120
+  %22 = getelementptr inbounds i8, ptr %.026.sink, i64 120
   br i1 %21, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %23 = getelementptr inbounds i8, ptr %.026, i64 16
+  %23 = getelementptr inbounds i8, ptr %.026.sink, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %.026, i64 72
+  %25 = getelementptr inbounds i8, ptr %.026.sink, i64 72
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %29
@@ -1513,17 +1513,17 @@ define range(i32 -102, 1) i32 @CVSpilsSetJacTimesVecFnB(ptr noundef %0, i32 noun
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %17
-  %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
-  %.024 = load ptr, ptr %.sink, align 8, !nonnull !6, !noundef !6
-  %19 = load i32, ptr %.024, align 8
+  %.024.sink.in = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
+  %.024.sink = load ptr, ptr %.024.sink.in, align 8, !nonnull !6, !noundef !6
+  %19 = load i32, ptr %.024.sink, align 8
   %20 = icmp eq i32 %1, %19
-  %21 = getelementptr inbounds i8, ptr %.024, i64 120
+  %21 = getelementptr inbounds i8, ptr %.024.sink, i64 120
   br i1 %20, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %22 = getelementptr inbounds i8, ptr %.024, i64 16
+  %22 = getelementptr inbounds i8, ptr %.024.sink, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %.024, i64 72
+  %24 = getelementptr inbounds i8, ptr %.024.sink, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %28
@@ -1658,17 +1658,17 @@ define range(i32 -102, 1) i32 @CVSpilsSetJacTimesVecFnBS(ptr noundef %0, i32 nou
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %17
-  %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
-  %.024 = load ptr, ptr %.sink, align 8, !nonnull !6, !noundef !6
-  %19 = load i32, ptr %.024, align 8
+  %.024.sink.in = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
+  %.024.sink = load ptr, ptr %.024.sink.in, align 8, !nonnull !6, !noundef !6
+  %19 = load i32, ptr %.024.sink, align 8
   %20 = icmp eq i32 %1, %19
-  %21 = getelementptr inbounds i8, ptr %.024, i64 120
+  %21 = getelementptr inbounds i8, ptr %.024.sink, i64 120
   br i1 %20, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %22 = getelementptr inbounds i8, ptr %.024, i64 16
+  %22 = getelementptr inbounds i8, ptr %.024.sink, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %.024, i64 72
+  %24 = getelementptr inbounds i8, ptr %.024.sink, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %28

@@ -239,7 +239,7 @@ define hidden noundef ptr @add_lib_info_fd(ptr nocapture noundef %0, ptr noundef
 
 8:                                                ; preds = %4
   tail call void (ptr, ...) @print_debug(ptr noundef nonnull @.str.5)
-  br label %120
+  br label %121
 
 9:                                                ; preds = %4
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #23
@@ -249,7 +249,7 @@ define hidden noundef ptr @add_lib_info_fd(ptr nocapture noundef %0, ptr noundef
 12:                                               ; preds = %9
   tail call void (ptr, ...) @print_debug(ptr noundef nonnull @.str.6, ptr noundef %1)
   tail call void @free(ptr noundef nonnull %6) #22
-  br label %120
+  br label %121
 
 13:                                               ; preds = %9
   %14 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %1) #22
@@ -268,7 +268,7 @@ define hidden noundef ptr @add_lib_info_fd(ptr nocapture noundef %0, ptr noundef
 21:                                               ; preds = %17
   tail call void (ptr, ...) @print_debug(ptr noundef nonnull @.str.7, ptr noundef nonnull %6)
   tail call void @free(ptr noundef nonnull %6) #22
-  br label %120
+  br label %121
 
 22:                                               ; preds = %13
   %23 = getelementptr inbounds i8, ptr %6, i64 4424
@@ -286,7 +286,7 @@ define hidden noundef ptr @add_lib_info_fd(ptr nocapture noundef %0, ptr noundef
 30:                                               ; preds = %24
   %31 = tail call i32 @close(i32 noundef %29) #22
   tail call void @free(ptr noundef nonnull %6) #22
-  br label %120
+  br label %121
 
 32:                                               ; preds = %24
   %33 = tail call ptr @build_symtab(i32 noundef %29, ptr noundef %1) #22
@@ -446,21 +446,24 @@ fill_addr_info.exit:                              ; preds = %104
 113:                                              ; preds = %109
   %114 = load ptr, ptr %112, align 8
   %115 = getelementptr inbounds i8, ptr %114, i64 4432
-  br label %116
+  store ptr %6, ptr %115, align 8
+  store ptr %6, ptr %112, align 8
+  br label %117
 
-116:                                              ; preds = %109, %113
-  %.sink44 = phi ptr [ %115, %113 ], [ %112, %109 ]
-  %.sink = phi ptr [ %112, %113 ], [ %110, %109 ]
-  store ptr %6, ptr %.sink44, align 8
-  store ptr %6, ptr %.sink, align 8
-  %117 = getelementptr inbounds i8, ptr %0, i64 12
-  %118 = load i32, ptr %117, align 4
-  %119 = add nsw i32 %118, 1
-  store i32 %119, ptr %117, align 4
-  br label %120
+116:                                              ; preds = %109
+  store ptr %6, ptr %112, align 8
+  store ptr %6, ptr %110, align 8
+  br label %117
 
-120:                                              ; preds = %116, %30, %21, %12, %8
-  %.0 = phi ptr [ null, %8 ], [ null, %12 ], [ null, %21 ], [ null, %30 ], [ %6, %116 ]
+117:                                              ; preds = %116, %113
+  %118 = getelementptr inbounds i8, ptr %0, i64 12
+  %119 = load i32, ptr %118, align 4
+  %120 = add nsw i32 %119, 1
+  store i32 %120, ptr %118, align 4
+  br label %121
+
+121:                                              ; preds = %117, %30, %21, %12, %8
+  %.0 = phi ptr [ null, %8 ], [ null, %12 ], [ null, %21 ], [ null, %30 ], [ %6, %117 ]
   ret ptr %.0
 }
 

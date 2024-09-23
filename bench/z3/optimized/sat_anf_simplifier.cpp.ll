@@ -2902,7 +2902,15 @@ lpad:                                             ; preds = %_ZNK2dd3pdd2hiEv.ex
   %bf.load.i.i58 = load i32, ptr %arrayidx.i.i.i57, align 4
   %bf.clear.i.i59 = and i32 %bf.load.i.i58, 1023
   %cmp.not.i.i60 = icmp eq i32 %bf.clear.i.i59, 1023
-  br i1 %cmp.not.i.i60, label %eh.resume, label %eh.resume.sink.split
+  br i1 %cmp.not.i.i60, label %eh.resume, label %if.then.i.i61
+
+if.then.i.i61:                                    ; preds = %lpad
+  %dec.i.i62 = add i32 %bf.load.i.i58, 1023
+  %bf.value.i.i63 = and i32 %dec.i.i62, 1023
+  %bf.clear7.i.i64 = and i32 %bf.load.i.i58, -1024
+  %bf.set.i.i65 = or disjoint i32 %bf.value.i.i63, %bf.clear7.i.i64
+  store i32 %bf.set.i.i65, ptr %arrayidx.i.i.i57, align 4
+  br label %eh.resume
 
 lpad22:                                           ; preds = %_ZNK2dd3pdd2loEv.exit
   %38 = landingpad { ptr, i32 }
@@ -2912,7 +2920,15 @@ lpad22:                                           ; preds = %_ZNK2dd3pdd2loEv.ex
   %bf.load.i.i70 = load i32, ptr %arrayidx.i.i.i69, align 4
   %bf.clear.i.i71 = and i32 %bf.load.i.i70, 1023
   %cmp.not.i.i72 = icmp eq i32 %bf.clear.i.i71, 1023
-  br i1 %cmp.not.i.i72, label %eh.resume, label %eh.resume.sink.split
+  br i1 %cmp.not.i.i72, label %eh.resume, label %if.then.i.i73
+
+if.then.i.i73:                                    ; preds = %lpad22
+  %dec.i.i74 = add i32 %bf.load.i.i70, 1023
+  %bf.value.i.i75 = and i32 %dec.i.i74, 1023
+  %bf.clear7.i.i76 = and i32 %bf.load.i.i70, -1024
+  %bf.set.i.i77 = or disjoint i32 %bf.value.i.i75, %bf.clear7.i.i76
+  store i32 %bf.set.i.i77, ptr %arrayidx.i.i.i69, align 4
+  br label %eh.resume
 
 return.fold.split:                                ; preds = %entry
   br label %return
@@ -2921,19 +2937,8 @@ return:                                           ; preds = %entry, %return.fold
   %retval.0 = phi i1 [ %tobool31, %_ZN6vectorIjLb0EjE7reserveEjRKj.exit ], [ true, %entry ], [ false, %if.then7 ], [ true, %if.end12 ], [ false, %return.fold.split ]
   ret i1 %retval.0
 
-eh.resume.sink.split:                             ; preds = %lpad22, %lpad
-  %bf.load.i.i70.sink82 = phi i32 [ %bf.load.i.i58, %lpad ], [ %bf.load.i.i70, %lpad22 ]
-  %arrayidx.i.i.i69.sink = phi ptr [ %arrayidx.i.i.i57, %lpad ], [ %arrayidx.i.i.i69, %lpad22 ]
-  %.pn.ph = phi { ptr, i32 } [ %36, %lpad ], [ %38, %lpad22 ]
-  %dec.i.i74 = add i32 %bf.load.i.i70.sink82, 1023
-  %bf.value.i.i75 = and i32 %dec.i.i74, 1023
-  %bf.clear7.i.i76 = and i32 %bf.load.i.i70.sink82, -1024
-  %bf.set.i.i77 = or disjoint i32 %bf.value.i.i75, %bf.clear7.i.i76
-  store i32 %bf.set.i.i77, ptr %arrayidx.i.i.i69.sink, align 4
-  br label %eh.resume
-
-eh.resume:                                        ; preds = %eh.resume.sink.split, %lpad22, %lpad
-  %.pn = phi { ptr, i32 } [ %36, %lpad ], [ %38, %lpad22 ], [ %.pn.ph, %eh.resume.sink.split ]
+eh.resume:                                        ; preds = %if.then.i.i73, %lpad22, %if.then.i.i61, %lpad
+  %.pn = phi { ptr, i32 } [ %36, %lpad ], [ %36, %if.then.i.i61 ], [ %38, %lpad22 ], [ %38, %if.then.i.i73 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -4676,7 +4681,15 @@ cleanup.action44:                                 ; preds = %ehcleanup42
   %bf.load.i.i136 = load i32, ptr %arrayidx.i.i.i135, align 4
   %bf.clear.i.i137 = and i32 %bf.load.i.i136, 1023
   %cmp.not.i.i138 = icmp eq i32 %bf.clear.i.i137, 1023
-  br i1 %cmp.not.i.i138, label %eh.resume, label %eh.resume.sink.split
+  br i1 %cmp.not.i.i138, label %eh.resume, label %if.then.i.i139
+
+if.then.i.i139:                                   ; preds = %cleanup.action44
+  %dec.i.i140 = add i32 %bf.load.i.i136, 1023
+  %bf.value.i.i141 = and i32 %dec.i.i140, 1023
+  %bf.clear7.i.i142 = and i32 %bf.load.i.i136, -1024
+  %bf.set.i.i143 = or disjoint i32 %bf.value.i.i141, %bf.clear7.i.i142
+  store i32 %bf.set.i.i143, ptr %arrayidx.i.i.i135, align 4
+  br label %eh.resume
 
 lpad46:                                           ; preds = %cleanup.done41
   %53 = landingpad { ptr, i32 }
@@ -4690,21 +4703,18 @@ lpad46:                                           ; preds = %cleanup.done41
   %bf.load.i.i148 = load i32, ptr %arrayidx.i.i.i147, align 4
   %bf.clear.i.i149 = and i32 %bf.load.i.i148, 1023
   %cmp.not.i.i150 = icmp eq i32 %bf.clear.i.i149, 1023
-  br i1 %cmp.not.i.i150, label %eh.resume, label %eh.resume.sink.split
+  br i1 %cmp.not.i.i150, label %eh.resume, label %if.then.i.i151
 
-eh.resume.sink.split:                             ; preds = %lpad46, %cleanup.action44
-  %bf.load.i.i148.sink157 = phi i32 [ %bf.load.i.i136, %cleanup.action44 ], [ %bf.load.i.i148, %lpad46 ]
-  %arrayidx.i.i.i147.sink = phi ptr [ %arrayidx.i.i.i135, %cleanup.action44 ], [ %arrayidx.i.i.i147, %lpad46 ]
-  %.pn14.ph = phi { ptr, i32 } [ %.pn.pn.pn.pn, %cleanup.action44 ], [ %53, %lpad46 ]
-  %dec.i.i152 = add i32 %bf.load.i.i148.sink157, 1023
+if.then.i.i151:                                   ; preds = %lpad46
+  %dec.i.i152 = add i32 %bf.load.i.i148, 1023
   %bf.value.i.i153 = and i32 %dec.i.i152, 1023
-  %bf.clear7.i.i154 = and i32 %bf.load.i.i148.sink157, -1024
+  %bf.clear7.i.i154 = and i32 %bf.load.i.i148, -1024
   %bf.set.i.i155 = or disjoint i32 %bf.value.i.i153, %bf.clear7.i.i154
-  store i32 %bf.set.i.i155, ptr %arrayidx.i.i.i147.sink, align 4
+  store i32 %bf.set.i.i155, ptr %arrayidx.i.i.i147, align 4
   br label %eh.resume
 
-eh.resume:                                        ; preds = %eh.resume.sink.split, %lpad46, %cleanup.action44, %ehcleanup42
-  %.pn14 = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup42 ], [ %.pn.pn.pn.pn, %cleanup.action44 ], [ %53, %lpad46 ], [ %.pn14.ph, %eh.resume.sink.split ]
+eh.resume:                                        ; preds = %if.then.i.i151, %lpad46, %if.then.i.i139, %cleanup.action44, %ehcleanup42
+  %.pn14 = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup42 ], [ %.pn.pn.pn.pn, %cleanup.action44 ], [ %.pn.pn.pn.pn, %if.then.i.i139 ], [ %53, %lpad46 ], [ %53, %if.then.i.i151 ]
   resume { ptr, i32 } %.pn14
 }
 
@@ -6908,7 +6918,15 @@ cleanup.action11:                                 ; preds = %cond.true
   %bf.load.i.i187 = load i32, ptr %arrayidx.i.i.i186, align 4
   %bf.clear.i.i188 = and i32 %bf.load.i.i187, 1023
   %cmp.not.i.i189 = icmp eq i32 %bf.clear.i.i188, 1023
-  br i1 %cmp.not.i.i189, label %eh.resume, label %eh.resume.sink.split
+  br i1 %cmp.not.i.i189, label %eh.resume, label %if.then.i.i190
+
+if.then.i.i190:                                   ; preds = %cleanup.action11
+  %dec.i.i191 = add i32 %bf.load.i.i187, 1023
+  %bf.value.i.i192 = and i32 %dec.i.i191, 1023
+  %bf.clear7.i.i193 = and i32 %bf.load.i.i187, -1024
+  %bf.set.i.i194 = or disjoint i32 %bf.value.i.i192, %bf.clear7.i.i193
+  store i32 %bf.set.i.i194, ptr %arrayidx.i.i.i186, align 4
+  br label %eh.resume
 
 lpad15:                                           ; preds = %cond.true18
   %53 = landingpad { ptr, i32 }
@@ -7213,21 +7231,18 @@ ehcleanup107:                                     ; preds = %if.then.i.i322, %lp
   %bf.load.i.i331 = load i32, ptr %arrayidx.i.i.i330, align 4
   %bf.clear.i.i332 = and i32 %bf.load.i.i331, 1023
   %cmp.not.i.i333 = icmp eq i32 %bf.clear.i.i332, 1023
-  br i1 %cmp.not.i.i333, label %eh.resume, label %eh.resume.sink.split
+  br i1 %cmp.not.i.i333, label %eh.resume, label %if.then.i.i334
 
-eh.resume.sink.split:                             ; preds = %ehcleanup107, %cleanup.action11
-  %bf.load.i.i331.sink348 = phi i32 [ %bf.load.i.i187, %cleanup.action11 ], [ %bf.load.i.i331, %ehcleanup107 ]
-  %arrayidx.i.i.i330.sink = phi ptr [ %arrayidx.i.i.i186, %cleanup.action11 ], [ %arrayidx.i.i.i330, %ehcleanup107 ]
-  %.pn18.pn.ph = phi { ptr, i32 } [ %49, %cleanup.action11 ], [ %.pn18, %ehcleanup107 ]
-  %dec.i.i335 = add i32 %bf.load.i.i331.sink348, 1023
+if.then.i.i334:                                   ; preds = %ehcleanup107
+  %dec.i.i335 = add i32 %bf.load.i.i331, 1023
   %bf.value.i.i336 = and i32 %dec.i.i335, 1023
-  %bf.clear7.i.i337 = and i32 %bf.load.i.i331.sink348, -1024
+  %bf.clear7.i.i337 = and i32 %bf.load.i.i331, -1024
   %bf.set.i.i338 = or disjoint i32 %bf.value.i.i336, %bf.clear7.i.i337
-  store i32 %bf.set.i.i338, ptr %arrayidx.i.i.i330.sink, align 4
+  store i32 %bf.set.i.i338, ptr %arrayidx.i.i.i330, align 4
   br label %eh.resume
 
-eh.resume:                                        ; preds = %eh.resume.sink.split, %ehcleanup107, %cleanup.action11
-  %.pn18.pn = phi { ptr, i32 } [ %49, %cleanup.action11 ], [ %.pn18, %ehcleanup107 ], [ %.pn18.pn.ph, %eh.resume.sink.split ]
+eh.resume:                                        ; preds = %if.then.i.i334, %ehcleanup107, %if.then.i.i190, %cleanup.action11
+  %.pn18.pn = phi { ptr, i32 } [ %49, %cleanup.action11 ], [ %49, %if.then.i.i190 ], [ %.pn18, %ehcleanup107 ], [ %.pn18, %if.then.i.i334 ]
   resume { ptr, i32 } %.pn18.pn
 }
 

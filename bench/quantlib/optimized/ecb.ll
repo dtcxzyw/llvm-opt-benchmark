@@ -2988,13 +2988,18 @@ if.then2.i.i.i.i.i.i.i:                           ; preds = %if.then.i9.i.i.i.i.
   %or.i.i.i.i.i.i.i.i = or i64 %and.i.i.i8.i.i.i.i.i, %45
   store i64 %or.i.i.i.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i.i.i.i, align 8, !tbaa !8
   %right_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val5.i.i.i.i.i, i64 40
-  br label %if.end17.sink.split.i.i.i.i.i.i.i
+  store ptr %add.ptr.i.i.i.i.i.i.i, ptr %right_.i.i.i.i.i.i.i.i, align 8, !tbaa !18
+  br label %if.then6.i.i.i.i.i
 
 if.else.i10.i.i.i.i.i.i:                          ; preds = %if.then.i9.i.i.i.i.i.i
   %left_.i24.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val5.i.i.i.i.i, i64 32
   %46 = load ptr, ptr %left_.i24.i.i.i.i.i.i.i, align 8, !tbaa !18
   %cmp6.i.i.i.i.i.i.i = icmp eq ptr %add.ptr.i40.i16.i.i.i.i.i.i, %46
-  br i1 %cmp6.i.i.i.i.i.i.i, label %if.end17.sink.split.i.i.i.i.i.i.i, label %if.then6.i.i.i.i.i
+  br i1 %cmp6.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i, label %if.then6.i.i.i.i.i
+
+if.then7.i.i.i.i.i.i.i:                           ; preds = %if.else.i10.i.i.i.i.i.i
+  store ptr %add.ptr.i.i.i.i.i.i.i, ptr %left_.i24.i.i.i.i.i.i.i, align 8, !tbaa !18
+  br label %if.then6.i.i.i.i.i
 
 if.else10.i.i.i.i.i.i.i:                          ; preds = %if.then6.i.i.i.i.i.i
   %right_.i26.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %yy.0.sink.i.ph.i.i.i.i.i.i, i64 40
@@ -3002,14 +3007,13 @@ if.else10.i.i.i.i.i.i.i:                          ; preds = %if.then6.i.i.i.i.i.
   %right_.i27.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val5.i.i.i.i.i, i64 40
   %47 = load ptr, ptr %right_.i27.i.i.i.i.i.i.i, align 8, !tbaa !18
   %cmp13.i.i.i.i.i.i.i = icmp eq ptr %add.ptr.i40.i16.i.i.i.i.i.i, %47
-  br i1 %cmp13.i.i.i.i.i.i.i, label %if.end17.sink.split.i.i.i.i.i.i.i, label %if.then6.i.i.i.i.i
+  br i1 %cmp13.i.i.i.i.i.i.i, label %if.then14.i.i.i.i.i.i.i, label %if.then6.i.i.i.i.i
 
-if.end17.sink.split.i.i.i.i.i.i.i:                ; preds = %if.else10.i.i.i.i.i.i.i, %if.else.i10.i.i.i.i.i.i, %if.then2.i.i.i.i.i.i.i
-  %right_.i27.sink.i.i.i.i.i.i.i = phi ptr [ %right_.i.i.i.i.i.i.i.i, %if.then2.i.i.i.i.i.i.i ], [ %left_.i24.i.i.i.i.i.i.i, %if.else.i10.i.i.i.i.i.i ], [ %right_.i27.i.i.i.i.i.i.i, %if.else10.i.i.i.i.i.i.i ]
-  store ptr %add.ptr.i.i.i.i.i.i.i, ptr %right_.i27.sink.i.i.i.i.i.i.i, align 8, !tbaa !18
+if.then14.i.i.i.i.i.i.i:                          ; preds = %if.else10.i.i.i.i.i.i.i
+  store ptr %add.ptr.i.i.i.i.i.i.i, ptr %right_.i27.i.i.i.i.i.i.i, align 8, !tbaa !18
   br label %if.then6.i.i.i.i.i
 
-if.then6.i.i.i.i.i:                               ; preds = %if.end17.sink.split.i.i.i.i.i.i.i, %if.else10.i.i.i.i.i.i.i, %if.else.i10.i.i.i.i.i.i
+if.then6.i.i.i.i.i:                               ; preds = %if.then14.i.i.i.i.i.i.i, %if.else10.i.i.i.i.i.i.i, %if.then7.i.i.i.i.i.i.i, %if.else.i10.i.i.i.i.i.i, %if.then2.i.i.i.i.i.i.i
   %48 = ptrtoint ptr %add.ptr.i40.i16.i.i.i.i.i.i to i64
   store i64 %48, ptr %add.ptr.i.i.i.i.i.i.i, align 8, !tbaa !8
   %left_.i31.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i.i.i, i64 32
@@ -3037,13 +3041,18 @@ if.then2.i.i.i.i.i.i:                             ; preds = %if.then.i12.i.i.i.i
   %or.i.i.i.i.i.i.i = or i64 %and.i.i.i.i.i.i.i, %49
   store i64 %or.i.i.i.i.i.i.i, ptr %add.ptr.i10.i.i.i.i.i, align 8, !tbaa !8
   %right_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val.i.i.i.i.i, i64 64
-  br label %if.end17.sink.split.i.i.i.i.i.i
+  store ptr %add.ptr.i.i.i.i.i.i, ptr %right_.i.i.i.i.i.i.i, align 8, !tbaa !18
+  br label %_ZN5boost11multi_index6detail18ordered_index_implINS0_6memberINS_6bimaps8relation6detail16relation_storageINS4_4tags6taggedIKNS_17basic_string_viewIcSt11char_traitsIcEEENS5_9member_at4leftEEENS9_IKN8QuantLib5MonthENSF_5rightEEELb1EEESJ_XadL_ZNSN_5rightEEEEESt4lessISJ_ENS1_9nth_layerILi1ENS5_15mutant_relationISH_SM_N4mpl_2naELb1EEENS4_6detail10bimap_coreINS4_6set_ofISD_NSI_12_GLOBAL__N_18is_ilessEEESJ_SU_SU_SU_E12core_indicesESaISV_EEENS_3mpl6v_itemISL_NS16_7vector0ISU_EELi0EEENS1_18ordered_unique_tagENS1_19null_augment_policyEE7insert_INS1_10lvalue_tagEEEPNS1_18ordered_index_nodeIS1C_NS1G_IS1C_NS1_15index_node_baseISV_S14_EEEEEERKSV_RS1L_T_.exit.i.i.i.i
 
 if.else.i13.i.i.i.i.i:                            ; preds = %if.then.i12.i.i.i.i.i
   %left_.i24.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val.i.i.i.i.i, i64 56
   %51 = load ptr, ptr %left_.i24.i.i.i.i.i.i, align 8, !tbaa !18
   %cmp6.i.i.i.i.i.i = icmp eq ptr %add.ptr.i21.i19.i.i.i.i.i, %51
-  br i1 %cmp6.i.i.i.i.i.i, label %if.end17.sink.split.i.i.i.i.i.i, label %_ZN5boost11multi_index6detail18ordered_index_implINS0_6memberINS_6bimaps8relation6detail16relation_storageINS4_4tags6taggedIKNS_17basic_string_viewIcSt11char_traitsIcEEENS5_9member_at4leftEEENS9_IKN8QuantLib5MonthENSF_5rightEEELb1EEESJ_XadL_ZNSN_5rightEEEEESt4lessISJ_ENS1_9nth_layerILi1ENS5_15mutant_relationISH_SM_N4mpl_2naELb1EEENS4_6detail10bimap_coreINS4_6set_ofISD_NSI_12_GLOBAL__N_18is_ilessEEESJ_SU_SU_SU_E12core_indicesESaISV_EEENS_3mpl6v_itemISL_NS16_7vector0ISU_EELi0EEENS1_18ordered_unique_tagENS1_19null_augment_policyEE7insert_INS1_10lvalue_tagEEEPNS1_18ordered_index_nodeIS1C_NS1G_IS1C_NS1_15index_node_baseISV_S14_EEEEEERKSV_RS1L_T_.exit.i.i.i.i
+  br i1 %cmp6.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i, label %_ZN5boost11multi_index6detail18ordered_index_implINS0_6memberINS_6bimaps8relation6detail16relation_storageINS4_4tags6taggedIKNS_17basic_string_viewIcSt11char_traitsIcEEENS5_9member_at4leftEEENS9_IKN8QuantLib5MonthENSF_5rightEEELb1EEESJ_XadL_ZNSN_5rightEEEEESt4lessISJ_ENS1_9nth_layerILi1ENS5_15mutant_relationISH_SM_N4mpl_2naELb1EEENS4_6detail10bimap_coreINS4_6set_ofISD_NSI_12_GLOBAL__N_18is_ilessEEESJ_SU_SU_SU_E12core_indicesESaISV_EEENS_3mpl6v_itemISL_NS16_7vector0ISU_EELi0EEENS1_18ordered_unique_tagENS1_19null_augment_policyEE7insert_INS1_10lvalue_tagEEEPNS1_18ordered_index_nodeIS1C_NS1G_IS1C_NS1_15index_node_baseISV_S14_EEEEEERKSV_RS1L_T_.exit.i.i.i.i
+
+if.then7.i.i.i.i.i.i:                             ; preds = %if.else.i13.i.i.i.i.i
+  store ptr %add.ptr.i.i.i.i.i.i, ptr %left_.i24.i.i.i.i.i.i, align 8, !tbaa !18
+  br label %_ZN5boost11multi_index6detail18ordered_index_implINS0_6memberINS_6bimaps8relation6detail16relation_storageINS4_4tags6taggedIKNS_17basic_string_viewIcSt11char_traitsIcEEENS5_9member_at4leftEEENS9_IKN8QuantLib5MonthENSF_5rightEEELb1EEESJ_XadL_ZNSN_5rightEEEEESt4lessISJ_ENS1_9nth_layerILi1ENS5_15mutant_relationISH_SM_N4mpl_2naELb1EEENS4_6detail10bimap_coreINS4_6set_ofISD_NSI_12_GLOBAL__N_18is_ilessEEESJ_SU_SU_SU_E12core_indicesESaISV_EEENS_3mpl6v_itemISL_NS16_7vector0ISU_EELi0EEENS1_18ordered_unique_tagENS1_19null_augment_policyEE7insert_INS1_10lvalue_tagEEEPNS1_18ordered_index_nodeIS1C_NS1G_IS1C_NS1_15index_node_baseISV_S14_EEEEEERKSV_RS1L_T_.exit.i.i.i.i
 
 if.else10.i.i.i.i.i.i:                            ; preds = %if.then6.i.i.i.i.i
   %right_.i26.i.i.i.i.i.i = getelementptr inbounds i8, ptr %yy.0.sink.i.ph.i.i.i.i.i, i64 64
@@ -3051,14 +3060,13 @@ if.else10.i.i.i.i.i.i:                            ; preds = %if.then6.i.i.i.i.i
   %right_.i27.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val.i.i.i.i.i, i64 64
   %52 = load ptr, ptr %right_.i27.i.i.i.i.i.i, align 8, !tbaa !18
   %cmp13.i.i.i.i.i.i = icmp eq ptr %add.ptr.i21.i19.i.i.i.i.i, %52
-  br i1 %cmp13.i.i.i.i.i.i, label %if.end17.sink.split.i.i.i.i.i.i, label %_ZN5boost11multi_index6detail18ordered_index_implINS0_6memberINS_6bimaps8relation6detail16relation_storageINS4_4tags6taggedIKNS_17basic_string_viewIcSt11char_traitsIcEEENS5_9member_at4leftEEENS9_IKN8QuantLib5MonthENSF_5rightEEELb1EEESJ_XadL_ZNSN_5rightEEEEESt4lessISJ_ENS1_9nth_layerILi1ENS5_15mutant_relationISH_SM_N4mpl_2naELb1EEENS4_6detail10bimap_coreINS4_6set_ofISD_NSI_12_GLOBAL__N_18is_ilessEEESJ_SU_SU_SU_E12core_indicesESaISV_EEENS_3mpl6v_itemISL_NS16_7vector0ISU_EELi0EEENS1_18ordered_unique_tagENS1_19null_augment_policyEE7insert_INS1_10lvalue_tagEEEPNS1_18ordered_index_nodeIS1C_NS1G_IS1C_NS1_15index_node_baseISV_S14_EEEEEERKSV_RS1L_T_.exit.i.i.i.i
+  br i1 %cmp13.i.i.i.i.i.i, label %if.then14.i.i.i.i.i.i, label %_ZN5boost11multi_index6detail18ordered_index_implINS0_6memberINS_6bimaps8relation6detail16relation_storageINS4_4tags6taggedIKNS_17basic_string_viewIcSt11char_traitsIcEEENS5_9member_at4leftEEENS9_IKN8QuantLib5MonthENSF_5rightEEELb1EEESJ_XadL_ZNSN_5rightEEEEESt4lessISJ_ENS1_9nth_layerILi1ENS5_15mutant_relationISH_SM_N4mpl_2naELb1EEENS4_6detail10bimap_coreINS4_6set_ofISD_NSI_12_GLOBAL__N_18is_ilessEEESJ_SU_SU_SU_E12core_indicesESaISV_EEENS_3mpl6v_itemISL_NS16_7vector0ISU_EELi0EEENS1_18ordered_unique_tagENS1_19null_augment_policyEE7insert_INS1_10lvalue_tagEEEPNS1_18ordered_index_nodeIS1C_NS1G_IS1C_NS1_15index_node_baseISV_S14_EEEEEERKSV_RS1L_T_.exit.i.i.i.i
 
-if.end17.sink.split.i.i.i.i.i.i:                  ; preds = %if.else10.i.i.i.i.i.i, %if.else.i13.i.i.i.i.i, %if.then2.i.i.i.i.i.i
-  %right_.i27.sink.i.i.i.i.i.i = phi ptr [ %right_.i.i.i.i.i.i.i, %if.then2.i.i.i.i.i.i ], [ %left_.i24.i.i.i.i.i.i, %if.else.i13.i.i.i.i.i ], [ %right_.i27.i.i.i.i.i.i, %if.else10.i.i.i.i.i.i ]
-  store ptr %add.ptr.i.i.i.i.i.i, ptr %right_.i27.sink.i.i.i.i.i.i, align 8, !tbaa !18
+if.then14.i.i.i.i.i.i:                            ; preds = %if.else10.i.i.i.i.i.i
+  store ptr %add.ptr.i.i.i.i.i.i, ptr %right_.i27.i.i.i.i.i.i, align 8, !tbaa !18
   br label %_ZN5boost11multi_index6detail18ordered_index_implINS0_6memberINS_6bimaps8relation6detail16relation_storageINS4_4tags6taggedIKNS_17basic_string_viewIcSt11char_traitsIcEEENS5_9member_at4leftEEENS9_IKN8QuantLib5MonthENSF_5rightEEELb1EEESJ_XadL_ZNSN_5rightEEEEESt4lessISJ_ENS1_9nth_layerILi1ENS5_15mutant_relationISH_SM_N4mpl_2naELb1EEENS4_6detail10bimap_coreINS4_6set_ofISD_NSI_12_GLOBAL__N_18is_ilessEEESJ_SU_SU_SU_E12core_indicesESaISV_EEENS_3mpl6v_itemISL_NS16_7vector0ISU_EELi0EEENS1_18ordered_unique_tagENS1_19null_augment_policyEE7insert_INS1_10lvalue_tagEEEPNS1_18ordered_index_nodeIS1C_NS1G_IS1C_NS1_15index_node_baseISV_S14_EEEEEERKSV_RS1L_T_.exit.i.i.i.i
 
-_ZN5boost11multi_index6detail18ordered_index_implINS0_6memberINS_6bimaps8relation6detail16relation_storageINS4_4tags6taggedIKNS_17basic_string_viewIcSt11char_traitsIcEEENS5_9member_at4leftEEENS9_IKN8QuantLib5MonthENSF_5rightEEELb1EEESJ_XadL_ZNSN_5rightEEEEESt4lessISJ_ENS1_9nth_layerILi1ENS5_15mutant_relationISH_SM_N4mpl_2naELb1EEENS4_6detail10bimap_coreINS4_6set_ofISD_NSI_12_GLOBAL__N_18is_ilessEEESJ_SU_SU_SU_E12core_indicesESaISV_EEENS_3mpl6v_itemISL_NS16_7vector0ISU_EELi0EEENS1_18ordered_unique_tagENS1_19null_augment_policyEE7insert_INS1_10lvalue_tagEEEPNS1_18ordered_index_nodeIS1C_NS1G_IS1C_NS1_15index_node_baseISV_S14_EEEEEERKSV_RS1L_T_.exit.i.i.i.i: ; preds = %if.end17.sink.split.i.i.i.i.i.i, %if.else10.i.i.i.i.i.i, %if.else.i13.i.i.i.i.i
+_ZN5boost11multi_index6detail18ordered_index_implINS0_6memberINS_6bimaps8relation6detail16relation_storageINS4_4tags6taggedIKNS_17basic_string_viewIcSt11char_traitsIcEEENS5_9member_at4leftEEENS9_IKN8QuantLib5MonthENSF_5rightEEELb1EEESJ_XadL_ZNSN_5rightEEEEESt4lessISJ_ENS1_9nth_layerILi1ENS5_15mutant_relationISH_SM_N4mpl_2naELb1EEENS4_6detail10bimap_coreINS4_6set_ofISD_NSI_12_GLOBAL__N_18is_ilessEEESJ_SU_SU_SU_E12core_indicesESaISV_EEENS_3mpl6v_itemISL_NS16_7vector0ISU_EELi0EEENS1_18ordered_unique_tagENS1_19null_augment_policyEE7insert_INS1_10lvalue_tagEEEPNS1_18ordered_index_nodeIS1C_NS1G_IS1C_NS1_15index_node_baseISV_S14_EEEEEERKSV_RS1L_T_.exit.i.i.i.i: ; preds = %if.then14.i.i.i.i.i.i, %if.else10.i.i.i.i.i.i, %if.then7.i.i.i.i.i.i, %if.else.i13.i.i.i.i.i, %if.then2.i.i.i.i.i.i
   %53 = ptrtoint ptr %add.ptr.i21.i19.i.i.i.i.i to i64
   %54 = load i64, ptr %add.ptr.i.i.i.i.i.i, align 8, !tbaa !8
   %and.i29.i.i.i.i.i.i = and i64 %54, 1

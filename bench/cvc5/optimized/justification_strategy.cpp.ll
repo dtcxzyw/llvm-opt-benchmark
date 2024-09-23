@@ -1935,10 +1935,10 @@ cond.true294:                                     ; preds = %if.then219, %if.the
   br label %cleanup326
 
 cleanup326:                                       ; preds = %cond.true294, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit533
-  %arrayidx.i.i721.sink = phi ptr [ %arrayidx.i.i721, %cond.true294 ], [ @_ZN4cvc58internal12NodeTemplateILb0EE6s_nullE, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit533 ]
+  %.sink.in = phi ptr [ %arrayidx.i.i721, %cond.true294 ], [ @_ZN4cvc58internal12NodeTemplateILb0EE6s_nullE, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit533 ]
   %desiredVal.1.sink = phi i32 [ %desiredVal.1, %cond.true294 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit533 ]
-  %33 = load ptr, ptr %arrayidx.i.i721.sink, align 8, !noalias !47
-  store ptr %33, ptr %agg.result, align 8
+  %.sink = load ptr, ptr %.sink.in, align 8, !noalias !47
+  store ptr %.sink, ptr %agg.result, align 8
   %second.i724 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %desiredVal.1.sink, ptr %second.i724, align 8
   ret void

@@ -496,13 +496,12 @@ define hidden { ptr, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   %58 = getelementptr inbounds i8, ptr %55, i64 -8
   %59 = load i64, ptr %58, align 8, !noundef !9
   store ptr %2, ptr %56, align 8
+  store i64 %3, ptr %58, align 8
   br label %60
 
 60:                                               ; preds = %63, %54
-  %.sroa.5.0..sroa_idx.sink = phi ptr [ %.sroa.5.0..sroa_idx, %63 ], [ %58, %54 ]
   %.sroa.3.0 = phi i64 [ undef, %63 ], [ %59, %54 ]
   %.sroa.0.0 = phi ptr [ null, %63 ], [ %57, %54 ]
-  store i64 %3, ptr %.sroa.5.0..sroa_idx.sink, align 8
   %61 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %62 = insertvalue { ptr, i64 } %61, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %62
@@ -534,6 +533,7 @@ define hidden { ptr, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   %.sroa.415.0..sroa_idx = getelementptr inbounds i8, ptr %78, i64 -16
   store ptr %2, ptr %.sroa.415.0..sroa_idx, align 8, !noalias !117
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %78, i64 -8
+  store i64 %3, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !117
   br label %60
 
 80:                                               ; preds = %9

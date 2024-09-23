@@ -1213,8 +1213,8 @@ delete.notnull7.i65:                              ; preds = %if.end.i62
   br label %if.end11.i68.invoke
 
 if.end11.i68.invoke:                              ; preds = %if.end.i62, %delete.notnull7.i65, %if.end11.i
-  %fLocationNamesMap.i.sink = phi ptr [ %fLocationNamesMap.i, %if.end11.i ], [ %fLocationNamesMap, %delete.notnull7.i65 ], [ %fLocationNamesMap, %if.end.i62 ]
-  %29 = load ptr, ptr %fLocationNamesMap.i.sink, align 8
+  %.in = phi ptr [ %fLocationNamesMap.i, %if.end11.i ], [ %fLocationNamesMap, %delete.notnull7.i65 ], [ %fLocationNamesMap, %if.end.i62 ]
+  %29 = load ptr, ptr %.in, align 8
   invoke void @uhash_close_75(ptr noundef %29)
           to label %.noexc71.invoke unwind label %lpad12
 

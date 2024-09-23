@@ -327,11 +327,14 @@ define void @_ZN11SecPassword3GetEPwm(ptr nocapture noundef nonnull readonly ali
 _ZN11SecPassword7ProcessEPKwmPwmb.exit:           ; preds = %20, %7
   %28 = getelementptr i32, ptr %1, i64 %2
   %29 = getelementptr i8, ptr %28, i64 -4
-  br label %30
+  store i32 0, ptr %29, align 4
+  br label %31
 
-30:                                               ; preds = %3, %_ZN11SecPassword7ProcessEPKwmPwmb.exit
-  %.sink = phi ptr [ %29, %_ZN11SecPassword7ProcessEPKwmPwmb.exit ], [ %1, %3 ]
-  store i32 0, ptr %.sink, align 4
+30:                                               ; preds = %3
+  store i32 0, ptr %1, align 4
+  br label %31
+
+31:                                               ; preds = %30, %_ZN11SecPassword7ProcessEPKwmPwmb.exit
   ret void
 }
 
@@ -344,7 +347,7 @@ define noundef i64 @_ZN11SecPassword6LengthEv(ptr nocapture noundef nonnull read
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
-  br i1 %5, label %6, label %_ZN11SecPassword3GetEPwm.exit
+  br i1 %5, label %6, label %27
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr %0, align 8
@@ -376,24 +379,27 @@ define noundef i64 @_ZN11SecPassword6LengthEv(ptr nocapture noundef nonnull read
 
 _ZN11SecPassword7ProcessEPKwmPwmb.exit.i:         ; preds = %18
   %26 = getelementptr inbounds i8, ptr %2, i64 2044
+  store i32 0, ptr %26, align 4
   br label %_ZN11SecPassword3GetEPwm.exit
 
-_ZN11SecPassword3GetEPwm.exit:                    ; preds = %1, %_ZN11SecPassword7ProcessEPKwmPwmb.exit.i
-  %.sink.i = phi ptr [ %26, %_ZN11SecPassword7ProcessEPKwmPwmb.exit.i ], [ %2, %1 ]
-  store i32 0, ptr %.sink.i, align 4
-  %27 = call i64 @wcslen(ptr noundef nonnull %2) #15
+27:                                               ; preds = %1
+  store i32 0, ptr %2, align 16
+  br label %_ZN11SecPassword3GetEPwm.exit
+
+_ZN11SecPassword3GetEPwm.exit:                    ; preds = %_ZN11SecPassword7ProcessEPKwmPwmb.exit.i, %27
+  %28 = call i64 @wcslen(ptr noundef nonnull %2) #15
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %_ZN11SecPassword3GetEPwm.exit, %.preheader.i
-  %.010.i = phi i64 [ %29, %.preheader.i ], [ 0, %_ZN11SecPassword3GetEPwm.exit ]
-  %28 = getelementptr inbounds i8, ptr %2, i64 %.010.i
-  store volatile i8 0, ptr %28, align 1
-  %29 = add nuw nsw i64 %.010.i, 1
-  %exitcond.not.i = icmp eq i64 %29, 2048
+  %.010.i = phi i64 [ %30, %.preheader.i ], [ 0, %_ZN11SecPassword3GetEPwm.exit ]
+  %29 = getelementptr inbounds i8, ptr %2, i64 %.010.i
+  store volatile i8 0, ptr %29, align 1
+  %30 = add nuw nsw i64 %.010.i, 1
+  %exitcond.not.i = icmp eq i64 %30, 2048
   br i1 %exitcond.not.i, label %_Z9cleandataPvm.exit, label %.preheader.i, !llvm.loop !4
 
 _Z9cleandataPvm.exit:                             ; preds = %.preheader.i
-  ret i64 %27
+  ret i64 %28
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -403,7 +409,7 @@ define noundef zeroext i1 @_ZN11SecPasswordeqERS_(ptr nocapture noundef nonnull 
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
-  br i1 %7, label %8, label %_ZN11SecPassword3GetEPwm.exit
+  br i1 %7, label %8, label %29
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
@@ -435,73 +441,79 @@ define noundef zeroext i1 @_ZN11SecPasswordeqERS_(ptr nocapture noundef nonnull 
 
 _ZN11SecPassword7ProcessEPKwmPwmb.exit.i:         ; preds = %20
   %28 = getelementptr inbounds i8, ptr %3, i64 2044
+  store i32 0, ptr %28, align 4
   br label %_ZN11SecPassword3GetEPwm.exit
 
-_ZN11SecPassword3GetEPwm.exit:                    ; preds = %2, %_ZN11SecPassword7ProcessEPKwmPwmb.exit.i
-  %.sink.i = phi ptr [ %28, %_ZN11SecPassword7ProcessEPKwmPwmb.exit.i ], [ %3, %2 ]
-  store i32 0, ptr %.sink.i, align 4
-  %29 = getelementptr inbounds i8, ptr %1, i64 24
-  %30 = load i8, ptr %29, align 8
-  %31 = trunc i8 %30 to i1
-  br i1 %31, label %32, label %_ZN11SecPassword3GetEPwm.exit6
+29:                                               ; preds = %2
+  store i32 0, ptr %3, align 16
+  br label %_ZN11SecPassword3GetEPwm.exit
 
-32:                                               ; preds = %_ZN11SecPassword3GetEPwm.exit
-  %33 = load ptr, ptr %1, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 8
-  %35 = load ptr, ptr %34, align 8
-  %36 = ptrtoint ptr %35 to i64
-  %37 = ptrtoint ptr %33 to i64
-  %38 = sub i64 %36, %37
-  %39 = ashr exact i64 %38, 2
-  %40 = tail call i64 @llvm.umin.i64(i64 %39, i64 512)
-  %41 = shl nuw nsw i64 %40, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr readonly align 4 %33, i64 %41, i1 false)
-  %42 = tail call i32 @getpid() #13
-  %43 = zext i32 %42 to i64
-  br label %44
+_ZN11SecPassword3GetEPwm.exit:                    ; preds = %_ZN11SecPassword7ProcessEPKwmPwmb.exit.i, %29
+  %30 = getelementptr inbounds i8, ptr %1, i64 24
+  %31 = load i8, ptr %30, align 8
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %33, label %54
 
-44:                                               ; preds = %44, %32
-  %.06.i.i.i3 = phi i64 [ 0, %32 ], [ %51, %44 ]
-  %45 = add nuw nsw i64 %.06.i.i.i3, %43
-  %46 = getelementptr inbounds i8, ptr %4, i64 %.06.i.i.i3
-  %47 = load i8, ptr %46, align 1
-  %48 = trunc i64 %45 to i8
-  %49 = add i8 %48, 75
-  %50 = xor i8 %49, %47
-  store i8 %50, ptr %46, align 1
-  %51 = add nuw nsw i64 %.06.i.i.i3, 1
-  %exitcond.not.i.i.i4 = icmp eq i64 %51, 2048
-  br i1 %exitcond.not.i.i.i4, label %_ZN11SecPassword7ProcessEPKwmPwmb.exit.i5, label %44, !llvm.loop !6
+33:                                               ; preds = %_ZN11SecPassword3GetEPwm.exit
+  %34 = load ptr, ptr %1, align 8
+  %35 = getelementptr inbounds i8, ptr %1, i64 8
+  %36 = load ptr, ptr %35, align 8
+  %37 = ptrtoint ptr %36 to i64
+  %38 = ptrtoint ptr %34 to i64
+  %39 = sub i64 %37, %38
+  %40 = ashr exact i64 %39, 2
+  %41 = tail call i64 @llvm.umin.i64(i64 %40, i64 512)
+  %42 = shl nuw nsw i64 %41, 2
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr readonly align 4 %34, i64 %42, i1 false)
+  %43 = tail call i32 @getpid() #13
+  %44 = zext i32 %43 to i64
+  br label %45
 
-_ZN11SecPassword7ProcessEPKwmPwmb.exit.i5:        ; preds = %44
-  %52 = getelementptr inbounds i8, ptr %4, i64 2044
-  br label %_ZN11SecPassword3GetEPwm.exit6
+45:                                               ; preds = %45, %33
+  %.06.i.i.i2 = phi i64 [ 0, %33 ], [ %52, %45 ]
+  %46 = add nuw nsw i64 %.06.i.i.i2, %44
+  %47 = getelementptr inbounds i8, ptr %4, i64 %.06.i.i.i2
+  %48 = load i8, ptr %47, align 1
+  %49 = trunc i64 %46 to i8
+  %50 = add i8 %49, 75
+  %51 = xor i8 %50, %48
+  store i8 %51, ptr %47, align 1
+  %52 = add nuw nsw i64 %.06.i.i.i2, 1
+  %exitcond.not.i.i.i3 = icmp eq i64 %52, 2048
+  br i1 %exitcond.not.i.i.i3, label %_ZN11SecPassword7ProcessEPKwmPwmb.exit.i4, label %45, !llvm.loop !6
 
-_ZN11SecPassword3GetEPwm.exit6:                   ; preds = %_ZN11SecPassword3GetEPwm.exit, %_ZN11SecPassword7ProcessEPKwmPwmb.exit.i5
-  %.sink.i2 = phi ptr [ %52, %_ZN11SecPassword7ProcessEPKwmPwmb.exit.i5 ], [ %4, %_ZN11SecPassword3GetEPwm.exit ]
-  store i32 0, ptr %.sink.i2, align 4
-  %53 = call i32 @wcscmp(ptr noundef nonnull %3, ptr noundef nonnull %4) #15
+_ZN11SecPassword7ProcessEPKwmPwmb.exit.i4:        ; preds = %45
+  %53 = getelementptr inbounds i8, ptr %4, i64 2044
+  store i32 0, ptr %53, align 4
+  br label %_ZN11SecPassword3GetEPwm.exit5
+
+54:                                               ; preds = %_ZN11SecPassword3GetEPwm.exit
+  store i32 0, ptr %4, align 16
+  br label %_ZN11SecPassword3GetEPwm.exit5
+
+_ZN11SecPassword3GetEPwm.exit5:                   ; preds = %_ZN11SecPassword7ProcessEPKwmPwmb.exit.i4, %54
+  %55 = call i32 @wcscmp(ptr noundef nonnull %3, ptr noundef nonnull %4) #15
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %_ZN11SecPassword3GetEPwm.exit6, %.preheader.i
-  %.010.i = phi i64 [ %55, %.preheader.i ], [ 0, %_ZN11SecPassword3GetEPwm.exit6 ]
-  %54 = getelementptr inbounds i8, ptr %3, i64 %.010.i
-  store volatile i8 0, ptr %54, align 1
-  %55 = add nuw nsw i64 %.010.i, 1
-  %exitcond.not.i = icmp eq i64 %55, 2048
-  br i1 %exitcond.not.i, label %.preheader.i7, label %.preheader.i, !llvm.loop !4
-
-.preheader.i7:                                    ; preds = %.preheader.i, %.preheader.i7
-  %.010.i8 = phi i64 [ %57, %.preheader.i7 ], [ 0, %.preheader.i ]
-  %56 = getelementptr inbounds i8, ptr %4, i64 %.010.i8
+.preheader.i:                                     ; preds = %_ZN11SecPassword3GetEPwm.exit5, %.preheader.i
+  %.010.i = phi i64 [ %57, %.preheader.i ], [ 0, %_ZN11SecPassword3GetEPwm.exit5 ]
+  %56 = getelementptr inbounds i8, ptr %3, i64 %.010.i
   store volatile i8 0, ptr %56, align 1
-  %57 = add nuw nsw i64 %.010.i8, 1
-  %exitcond.not.i9 = icmp eq i64 %57, 2048
-  br i1 %exitcond.not.i9, label %_Z9cleandataPvm.exit10, label %.preheader.i7, !llvm.loop !4
+  %57 = add nuw nsw i64 %.010.i, 1
+  %exitcond.not.i = icmp eq i64 %57, 2048
+  br i1 %exitcond.not.i, label %.preheader.i6, label %.preheader.i, !llvm.loop !4
 
-_Z9cleandataPvm.exit10:                           ; preds = %.preheader.i7
-  %58 = icmp eq i32 %53, 0
-  ret i1 %58
+.preheader.i6:                                    ; preds = %.preheader.i, %.preheader.i6
+  %.010.i7 = phi i64 [ %59, %.preheader.i6 ], [ 0, %.preheader.i ]
+  %58 = getelementptr inbounds i8, ptr %4, i64 %.010.i7
+  store volatile i8 0, ptr %58, align 1
+  %59 = add nuw nsw i64 %.010.i7, 1
+  %exitcond.not.i8 = icmp eq i64 %59, 2048
+  br i1 %exitcond.not.i8, label %_Z9cleandataPvm.exit9, label %.preheader.i6, !llvm.loop !4
+
+_Z9cleandataPvm.exit9:                            ; preds = %.preheader.i6
+  %60 = icmp eq i32 %55, 0
+  ret i1 %60
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)

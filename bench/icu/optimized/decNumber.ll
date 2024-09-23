@@ -13951,6 +13951,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 
 if.else:                                          ; preds = %if.then
   %call5 = call fastcc noundef ptr @_ZL7decNaNsP9decNumberPKS_S2_P10decContextPj(ptr noundef %res, ptr noundef nonnull %rhs, ptr noundef null, ptr noundef %set, ptr noundef %status)
+  %.pr.pre = load i32, ptr %status, align 4
   br label %if.end15
 
 if.else6:                                         ; preds = %entry
@@ -14060,26 +14061,26 @@ _ZL9decStatusP9decNumberjP10decContext.exit.i:    ; preds = %if.else.i.i, %if.th
 uprv_decNumberQuantize_75.exit:                   ; preds = %if.end10, %_ZL9decStatusP9decNumberjP10decContext.exit.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i)
   %status14 = getelementptr inbounds i8, ptr %workset, i64 20
+  %16 = load i32, ptr %status14, align 4
   br label %if.end15
 
 if.end15:                                         ; preds = %if.else, %uprv_decNumberQuantize_75.exit
-  %status.sink = phi ptr [ %status, %if.else ], [ %status14, %uprv_decNumberQuantize_75.exit ]
-  %.pr.pre = load i32, ptr %status.sink, align 4
-  %cmp16.not = icmp eq i32 %.pr.pre, 0
+  %17 = phi i32 [ %16, %uprv_decNumberQuantize_75.exit ], [ %.pr.pre, %if.else ]
+  %cmp16.not = icmp eq i32 %17, 0
   br i1 %cmp16.not, label %return, label %if.then17
 
 if.then17:                                        ; preds = %if.end15
-  %and.i = and i32 %.pr.pre, 221
+  %and.i = and i32 %17, 221
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %_ZL9decStatusP9decNumberjP10decContext.exit, label %if.then.i47
 
 if.then.i47:                                      ; preds = %if.then17
-  %and1.i = and i32 %.pr.pre, 1073741824
+  %and1.i = and i32 %17, 1073741824
   %tobool2.not.i = icmp eq i32 %and1.i, 0
   br i1 %tobool2.not.i, label %if.else.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i47
-  %and4.i = and i32 %.pr.pre, -1073741825
+  %and4.i = and i32 %17, -1073741825
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
 
 if.else.i:                                        ; preds = %if.then.i47
@@ -14093,7 +14094,7 @@ if.else.i:                                        ; preds = %if.then.i47
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
 
 _ZL9decStatusP9decNumberjP10decContext.exit:      ; preds = %if.then17, %if.then3.i, %if.else.i
-  %status.addr.0.i = phi i32 [ %and4.i, %if.then3.i ], [ %.pr.pre, %if.else.i ], [ %.pr.pre, %if.then17 ]
+  %status.addr.0.i = phi i32 [ %and4.i, %if.then3.i ], [ %17, %if.else.i ], [ %17, %if.then17 ]
   %call6.i = call ptr @uprv_decContextSetStatus_75(ptr noundef %set, i32 noundef %status.addr.0.i)
   br label %return
 

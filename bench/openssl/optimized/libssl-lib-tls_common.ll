@@ -2159,29 +2159,37 @@ for.cond85:                                       ; preds = %for.cond85.preheade
   %4 = load i32, ptr %fns.addr.0, align 8
   switch i32 %4, label %for.inc96 [
     i32 0, label %if.end99
-    i32 1, label %for.inc96.sink.split
+    i32 1, label %sw.bb
     i32 2, label %sw.bb90
     i32 3, label %sw.bb92
     i32 4, label %sw.bb94
   ]
 
-sw.bb90:                                          ; preds = %for.cond85
-  br label %for.inc96.sink.split
-
-sw.bb92:                                          ; preds = %for.cond85
-  br label %for.inc96.sink.split
-
-sw.bb94:                                          ; preds = %for.cond85
-  br label %for.inc96.sink.split
-
-for.inc96.sink.split:                             ; preds = %for.cond85, %sw.bb94, %sw.bb92, %sw.bb90
-  %skip_early_data.sink = phi ptr [ %msg_callback, %sw.bb90 ], [ %security, %sw.bb92 ], [ %padding, %sw.bb94 ], [ %skip_early_data, %for.cond85 ]
+sw.bb:                                            ; preds = %for.cond85
   %5 = getelementptr i8, ptr %fns.addr.0, i64 8
   %fns.addr.0.val = load ptr, ptr %5, align 8
-  store ptr %fns.addr.0.val, ptr %skip_early_data.sink, align 8
+  store ptr %fns.addr.0.val, ptr %skip_early_data, align 8
   br label %for.inc96
 
-for.inc96:                                        ; preds = %for.inc96.sink.split, %for.cond85
+sw.bb90:                                          ; preds = %for.cond85
+  %6 = getelementptr i8, ptr %fns.addr.0, i64 8
+  %fns.addr.0.val59 = load ptr, ptr %6, align 8
+  store ptr %fns.addr.0.val59, ptr %msg_callback, align 8
+  br label %for.inc96
+
+sw.bb92:                                          ; preds = %for.cond85
+  %7 = getelementptr i8, ptr %fns.addr.0, i64 8
+  %fns.addr.0.val60 = load ptr, ptr %7, align 8
+  store ptr %fns.addr.0.val60, ptr %security, align 8
+  br label %for.inc96
+
+sw.bb94:                                          ; preds = %for.cond85
+  %8 = getelementptr i8, ptr %fns.addr.0, i64 8
+  %fns.addr.0.val61 = load ptr, ptr %8, align 8
+  store ptr %fns.addr.0.val61, ptr %padding, align 8
+  br label %for.inc96
+
+for.inc96:                                        ; preds = %for.cond85, %sw.bb, %sw.bb90, %sw.bb92, %sw.bb94
   %incdec.ptr97 = getelementptr inbounds i8, ptr %fns.addr.0, i64 16
   br label %for.cond85, !llvm.loop !15
 
@@ -2192,14 +2200,14 @@ if.end99:                                         ; preds = %for.cond85, %if.end
 
 if.end103:                                        ; preds = %if.end99
   %options104 = getelementptr inbounds i8, ptr %call, i64 80
-  %6 = load i64, ptr %options104, align 8
-  %and = and i64 %6, 2048
+  %9 = load i64, ptr %options104, align 8
+  %and = and i64 %9, 2048
   %cmp105 = icmp eq i64 %and, 0
   br i1 %cmp105, label %land.lhs.true106, label %if.end116
 
 land.lhs.true106:                                 ; preds = %if.end103
-  %7 = load i32, ptr %version, align 4
-  %cmp108 = icmp slt i32 %7, 770
+  %10 = load i32, ptr %version, align 4
+  %cmp108 = icmp slt i32 %10, 770
   br i1 %cmp108, label %land.lhs.true109, label %if.end116
 
 land.lhs.true109:                                 ; preds = %land.lhs.true106

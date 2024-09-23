@@ -1117,17 +1117,17 @@ agxbsizeof.exit.i.i139.i:                         ; preds = %copyUpper.exit126.i
 358:                                              ; preds = %357
   %359 = zext i8 %.val.i15.pre.i.i140.i to i64
   %360 = getelementptr inbounds [31 x i8], ptr %7, i64 0, i64 %359
+  store i8 0, ptr %360, align 1
   br label %agxbputc.exit.i142.i
 
 .thread.i.i:                                      ; preds = %..thread_crit_edge.i.i, %agxbsizeof.exit.i.i139.i
   %361 = phi i64 [ %.pre.i.i, %..thread_crit_edge.i.i ], [ %355, %agxbsizeof.exit.i.i139.i ]
   %362 = load ptr, ptr %7, align 8
   %363 = getelementptr inbounds i8, ptr %362, i64 %361
+  store i8 0, ptr %363, align 1
   br label %agxbputc.exit.i142.i
 
 agxbputc.exit.i142.i:                             ; preds = %.thread.i.i, %358
-  %.sink.i.i = phi ptr [ %360, %358 ], [ %363, %.thread.i.i ]
-  store i8 0, ptr %.sink.i.i, align 1
   %364 = load ptr, ptr %7, align 8
   br label %agxbdisown.exit.i
 

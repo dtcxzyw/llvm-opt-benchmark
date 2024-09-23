@@ -447,21 +447,17 @@ define internal noundef ptr @logger_thread(ptr nocapture readnone %arg) #1 {
 entry:
   %size.i = alloca i32, align 4
   %scratch.i = alloca [4096 x i8], align 16
-  %ls.sroa.7 = alloca i64, align 8
-  %ls.sroa.10 = alloca i64, align 8
   %0 = load volatile i32, ptr @do_run_logger_thread, align 4
-  %tobool.not30 = icmp eq i32 %0, 0
-  br i1 %tobool.not30, label %while.end, label %while.body
+  %tobool.not40 = icmp eq i32 %0, 0
+  br i1 %tobool.not40, label %while.end, label %while.body
 
 while.body:                                       ; preds = %entry, %if.end26
-  %to_sleep.031 = phi i32 [ %to_sleep.2, %if.end26 ], [ 1000, %entry ]
-  store i64 0, ptr %ls.sroa.7, align 8
-  store i64 0, ptr %ls.sroa.10, align 8
-  %cmp = icmp ugt i32 %to_sleep.031, 1000
+  %to_sleep.041 = phi i32 [ %to_sleep.2, %if.end26 ], [ 1000, %entry ]
+  %cmp = icmp ugt i32 %to_sleep.041, 1000
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body
-  %call = call i32 @usleep(i32 noundef %to_sleep.031) #18
+  %call = call i32 @usleep(i32 noundef %to_sleep.041) #18
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %while.body
@@ -475,20 +471,22 @@ if.then3:                                         ; preds = %if.end
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then3, %if.end
-  %l.022 = load ptr, ptr @logger_stack_head, align 8
-  %cmp6.not23 = icmp eq ptr %l.022, null
-  br i1 %cmp6.not23, label %for.end, label %for.body
+  %l.028 = load ptr, ptr @logger_stack_head, align 8
+  %cmp6.not29 = icmp eq ptr %l.028, null
+  br i1 %cmp6.not29, label %for.end, label %for.body
 
 for.body:                                         ; preds = %if.end5, %logger_thread_read.exit
-  %l.027 = phi ptr [ %l.0, %logger_thread_read.exit ], [ %l.022, %if.end5 ]
-  %found_logs.026 = phi i32 [ %add, %logger_thread_read.exit ], [ 0, %if.end5 ]
-  %ls.sroa.4.125 = phi i64 [ %ls.sroa.4.2, %logger_thread_read.exit ], [ 0, %if.end5 ]
-  %ls.sroa.0.124 = phi i64 [ %ls.sroa.0.2, %logger_thread_read.exit ], [ 0, %if.end5 ]
+  %l.035 = phi ptr [ %l.0, %logger_thread_read.exit ], [ %l.028, %if.end5 ]
+  %found_logs.034 = phi i32 [ %add, %logger_thread_read.exit ], [ 0, %if.end5 ]
+  %ls.sroa.12.133 = phi i64 [ %ls.sroa.12.7, %logger_thread_read.exit ], [ 0, %if.end5 ]
+  %ls.sroa.7.132 = phi i64 [ %ls.sroa.7.7, %logger_thread_read.exit ], [ 0, %if.end5 ]
+  %ls.sroa.4.131 = phi i64 [ %ls.sroa.4.2, %logger_thread_read.exit ], [ 0, %if.end5 ]
+  %ls.sroa.0.130 = phi i64 [ %ls.sroa.0.2, %logger_thread_read.exit ], [ 0, %if.end5 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %size.i)
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %scratch.i)
-  %mutex.i = getelementptr inbounds i8, ptr %l.027, i64 16
+  %mutex.i = getelementptr inbounds i8, ptr %l.035, i64 16
   %call.i = call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #18
-  %buf.i = getelementptr inbounds i8, ptr %l.027, i64 88
+  %buf.i = getelementptr inbounds i8, ptr %l.035, i64 88
   %2 = load ptr, ptr %buf.i, align 8
   %call1.i = call ptr @bipbuf_peek_all(ptr noundef %2, ptr noundef nonnull %size.i) #18
   %call3.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #18
@@ -504,6 +502,8 @@ while.cond.preheader.i:                           ; preds = %for.body
   br i1 %5, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %while.cond.preheader.i, %if.end11.i
+  %ls.sroa.7.3 = phi i64 [ %ls.sroa.7.6, %if.end11.i ], [ %ls.sroa.7.132, %while.cond.preheader.i ]
+  %ls.sroa.12.3 = phi i64 [ %ls.sroa.12.6, %if.end11.i ], [ %ls.sroa.12.133, %while.cond.preheader.i ]
   %pos.030.i = phi i32 [ %add16.i, %if.end11.i ], [ 0, %while.cond.preheader.i ]
   %idx.ext.i = zext i32 %pos.030.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %call1.i, i64 %idx.ext.i
@@ -528,6 +528,8 @@ if.else.i:                                        ; preds = %while.body.i
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %if.else.i
+  %ls.sroa.7.4 = phi i64 [ %ls.sroa.7.3, %if.else.i ], [ %ls.sroa.7.5, %for.inc.i.i ]
+  %ls.sroa.12.4 = phi i64 [ %ls.sroa.12.3, %if.else.i ], [ %ls.sroa.12.5, %for.inc.i.i ]
   %indvars.iv.i.i = phi i64 [ 0, %if.else.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %arrayidx.i.i = getelementptr inbounds [20 x ptr], ptr @watchers, i64 0, i64 %indvars.iv.i.i
   %11 = load ptr, ptr %arrayidx.i.i, align 8
@@ -595,7 +597,8 @@ if.then19.i.i:                                    ; preds = %while.end.i.i, %whi
   %20 = load i64, ptr %skipped.i.i, align 8
   %inc.i.i = add i64 %20, 1
   store i64 %inc.i.i, ptr %skipped.i.i, align 8
-  br label %for.inc.sink.split.i.i
+  %inc20.i.i = add i64 %ls.sroa.7.4, 1
+  br label %for.inc.i.i
 
 if.end21.i.i:                                     ; preds = %while.end.i.i
   %skipped22.i.i = getelementptr inbounds i8, ptr %11, i64 16
@@ -613,7 +616,8 @@ if.then33.i.i:                                    ; preds = %if.then25.i.i
   %23 = load i64, ptr %skipped22.i.i, align 8
   %inc35.i.i = add i64 %23, 1
   store i64 %inc35.i.i, ptr %skipped22.i.i, align 8
-  br label %for.inc.sink.split.i.i
+  %inc37.i.i = add i64 %ls.sroa.7.4, 1
+  br label %for.inc.i.i
 
 if.end38.i.i:                                     ; preds = %if.then25.i.i
   %24 = load ptr, ptr %buf.i.i, align 8
@@ -624,120 +628,122 @@ if.end38.i.i:                                     ; preds = %if.then25.i.i
 if.end42.i.i:                                     ; preds = %if.end38.i.i, %if.end21.i.i
   %25 = load ptr, ptr %buf.i.i, align 8
   %call44.i.i = call i32 @bipbuf_offer(ptr noundef %25, ptr noundef nonnull %scratch.i, i32 noundef %call.i.i) #18
-  br label %for.inc.sink.split.i.i
-
-for.inc.sink.split.i.i:                           ; preds = %if.end42.i.i, %if.then33.i.i, %if.then19.i.i
-  %watcher_sent.sink38.i.i = phi ptr [ %ls.sroa.10, %if.end42.i.i ], [ %ls.sroa.7, %if.then33.i.i ], [ %ls.sroa.7, %if.then19.i.i ]
-  %26 = load i64, ptr %watcher_sent.sink38.i.i, align 8
-  %inc45.i.i = add i64 %26, 1
-  store i64 %inc45.i.i, ptr %watcher_sent.sink38.i.i, align 8
+  %inc45.i.i = add i64 %ls.sroa.12.4, 1
   br label %for.inc.i.i
 
-for.inc.i.i:                                      ; preds = %for.inc.sink.split.i.i, %lor.lhs.false6.i.i, %lor.lhs.false.i.i, %for.body.i.i
+for.inc.i.i:                                      ; preds = %if.end42.i.i, %if.then33.i.i, %if.then19.i.i, %lor.lhs.false6.i.i, %lor.lhs.false.i.i, %for.body.i.i
+  %ls.sroa.7.5 = phi i64 [ %ls.sroa.7.4, %for.body.i.i ], [ %ls.sroa.7.4, %lor.lhs.false.i.i ], [ %ls.sroa.7.4, %lor.lhs.false6.i.i ], [ %inc20.i.i, %if.then19.i.i ], [ %ls.sroa.7.4, %if.end42.i.i ], [ %inc37.i.i, %if.then33.i.i ]
+  %ls.sroa.12.5 = phi i64 [ %ls.sroa.12.4, %for.body.i.i ], [ %ls.sroa.12.4, %lor.lhs.false.i.i ], [ %ls.sroa.12.4, %lor.lhs.false6.i.i ], [ %ls.sroa.12.4, %if.then19.i.i ], [ %inc45.i.i, %if.end42.i.i ], [ %ls.sroa.12.4, %if.then33.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 20
   br i1 %exitcond.not.i.i, label %if.end11.i, label %for.body.i.i, !llvm.loop !10
 
 if.end11.i:                                       ; preds = %for.inc.i.i, %if.then8.i
+  %ls.sroa.7.6 = phi i64 [ %ls.sroa.7.3, %if.then8.i ], [ %ls.sroa.7.5, %for.inc.i.i ]
+  %ls.sroa.12.6 = phi i64 [ %ls.sroa.12.3, %if.then8.i ], [ %ls.sroa.12.5, %for.inc.i.i ]
   %size12.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
-  %27 = load i32, ptr %size12.i, align 8
+  %26 = load i32, ptr %size12.i, align 8
   %pad.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
-  %28 = load i8, ptr %pad.i, align 4
-  %conv13.i = zext i8 %28 to i32
+  %27 = load i8, ptr %pad.i, align 4
+  %conv13.i = zext i8 %27 to i32
   %add.i = add i32 %pos.030.i, 40
-  %add14.i = add i32 %add.i, %27
+  %add14.i = add i32 %add.i, %26
   %add16.i = add i32 %add14.i, %conv13.i
-  %29 = load i32, ptr %size.i, align 4
-  %cmp4.i = icmp ult i32 %add16.i, %29
-  %30 = load i32, ptr @watcher_count, align 4
-  %cmp5.i = icmp sgt i32 %30, 0
-  %31 = select i1 %cmp4.i, i1 %cmp5.i, i1 false
-  br i1 %31, label %while.body.i, label %while.end.i, !llvm.loop !11
+  %28 = load i32, ptr %size.i, align 4
+  %cmp4.i = icmp ult i32 %add16.i, %28
+  %29 = load i32, ptr @watcher_count, align 4
+  %cmp5.i = icmp sgt i32 %29, 0
+  %30 = select i1 %cmp4.i, i1 %cmp5.i, i1 false
+  br i1 %30, label %while.body.i, label %while.end.i, !llvm.loop !11
 
 while.end.i:                                      ; preds = %if.end11.i, %while.cond.preheader.i
+  %ls.sroa.7.2 = phi i64 [ %ls.sroa.7.132, %while.cond.preheader.i ], [ %ls.sroa.7.6, %if.end11.i ]
+  %ls.sroa.12.2 = phi i64 [ %ls.sroa.12.133, %while.cond.preheader.i ], [ %ls.sroa.12.6, %if.end11.i ]
   %call19.i = call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #18
-  %32 = load ptr, ptr %buf.i, align 8
-  %33 = load i32, ptr %size.i, align 4
-  %call21.i = call ptr @bipbuf_poll(ptr noundef %32, i32 noundef %33) #18
-  %written.i = getelementptr inbounds i8, ptr %l.027, i64 56
-  %34 = load i64, ptr %written.i, align 8
-  %add22.i = add i64 %34, %ls.sroa.4.125
-  %dropped.i = getelementptr inbounds i8, ptr %l.027, i64 64
-  %35 = load i64, ptr %dropped.i, align 8
-  %add23.i = add i64 %35, %ls.sroa.0.124
+  %31 = load ptr, ptr %buf.i, align 8
+  %32 = load i32, ptr %size.i, align 4
+  %call21.i = call ptr @bipbuf_poll(ptr noundef %31, i32 noundef %32) #18
+  %written.i = getelementptr inbounds i8, ptr %l.035, i64 56
+  %33 = load i64, ptr %written.i, align 8
+  %add22.i = add i64 %33, %ls.sroa.4.131
+  %dropped.i = getelementptr inbounds i8, ptr %l.035, i64 64
+  %34 = load i64, ptr %dropped.i, align 8
+  %add23.i = add i64 %34, %ls.sroa.0.130
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %written.i, i8 0, i64 16, i1 false)
   %call27.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #18
   %cmp28.i = icmp eq ptr %call21.i, null
   br i1 %cmp28.i, label %if.then30.i, label %if.end32.i
 
 if.then30.i:                                      ; preds = %while.end.i
-  %36 = load ptr, ptr @stderr, align 8
-  %37 = call i64 @fwrite(ptr nonnull @.str.5, i64 50, i64 1, ptr %36) #19
+  %35 = load ptr, ptr @stderr, align 8
+  %36 = call i64 @fwrite(ptr nonnull @.str.5, i64 50, i64 1, ptr %35) #19
   br label %if.end32.i
 
 if.end32.i:                                       ; preds = %if.then30.i, %while.end.i
-  %38 = load i32, ptr %size.i, align 4
+  %37 = load i32, ptr %size.i, align 4
   br label %logger_thread_read.exit
 
 logger_thread_read.exit:                          ; preds = %for.body, %if.end32.i
-  %ls.sroa.0.2 = phi i64 [ %ls.sroa.0.124, %for.body ], [ %add23.i, %if.end32.i ]
-  %ls.sroa.4.2 = phi i64 [ %ls.sroa.4.125, %for.body ], [ %add22.i, %if.end32.i ]
-  %retval.0.i = phi i32 [ 0, %for.body ], [ %38, %if.end32.i ]
+  %ls.sroa.0.2 = phi i64 [ %ls.sroa.0.130, %for.body ], [ %add23.i, %if.end32.i ]
+  %ls.sroa.4.2 = phi i64 [ %ls.sroa.4.131, %for.body ], [ %add22.i, %if.end32.i ]
+  %ls.sroa.7.7 = phi i64 [ %ls.sroa.7.132, %for.body ], [ %ls.sroa.7.2, %if.end32.i ]
+  %ls.sroa.12.7 = phi i64 [ %ls.sroa.12.133, %for.body ], [ %ls.sroa.12.2, %if.end32.i ]
+  %retval.0.i = phi i32 [ 0, %for.body ], [ %37, %if.end32.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %size.i)
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %scratch.i)
-  %add = add nsw i32 %retval.0.i, %found_logs.026
-  %next = getelementptr inbounds i8, ptr %l.027, i64 8
+  %add = add nsw i32 %retval.0.i, %found_logs.034
+  %next = getelementptr inbounds i8, ptr %l.035, i64 8
   %l.0 = load ptr, ptr %next, align 8
   %cmp6.not = icmp eq ptr %l.0, null
   br i1 %cmp6.not, label %for.end.loopexit, label %for.body, !llvm.loop !12
 
 for.end.loopexit:                                 ; preds = %logger_thread_read.exit
-  %39 = icmp eq i32 %add, 0
+  %38 = icmp eq i32 %add, 0
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end5
   %ls.sroa.0.1.lcssa = phi i64 [ 0, %if.end5 ], [ %ls.sroa.0.2, %for.end.loopexit ]
   %ls.sroa.4.1.lcssa = phi i64 [ 0, %if.end5 ], [ %ls.sroa.4.2, %for.end.loopexit ]
-  %found_logs.0.lcssa = phi i1 [ true, %if.end5 ], [ %39, %for.end.loopexit ]
+  %ls.sroa.7.1.lcssa = phi i64 [ 0, %if.end5 ], [ %ls.sroa.7.7, %for.end.loopexit ]
+  %ls.sroa.12.1.lcssa = phi i64 [ 0, %if.end5 ], [ %ls.sroa.12.7, %for.end.loopexit ]
+  %found_logs.0.lcssa = phi i1 [ true, %if.end5 ], [ %38, %for.end.loopexit ]
   %call8 = call fastcc i32 @logger_thread_poll_watchers(i32 noundef 1, i32 noundef -1)
-  %40 = load i32, ptr @watcher_count, align 4
+  %39 = load i32, ptr @watcher_count, align 4
   %call9 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @logger_stack_lock) #18
   br i1 %found_logs.0.lcssa, label %if.then11, label %if.else
 
 if.then11:                                        ; preds = %for.end
-  %cmp12 = icmp ult i32 %to_sleep.031, 1000000
-  %div12 = lshr i32 %to_sleep.031, 3
+  %cmp12 = icmp ult i32 %to_sleep.041, 1000000
+  %div12 = lshr i32 %to_sleep.041, 3
   %add15 = select i1 %cmp12, i32 %div12, i32 0
-  %to_sleep.1 = add nuw nsw i32 %add15, %to_sleep.031
+  %to_sleep.1 = add nuw nsw i32 %add15, %to_sleep.041
   %spec.store.select = call i32 @llvm.umin.i32(i32 %to_sleep.1, i32 1000000)
   br label %if.end26
 
 if.else:                                          ; preds = %for.end
-  %div2113 = lshr i32 %to_sleep.031, 1
+  %div2113 = lshr i32 %to_sleep.041, 1
   %spec.store.select1 = call i32 @llvm.umax.i32(i32 %div2113, i32 1000)
   br label %if.end26
 
 if.end26:                                         ; preds = %if.else, %if.then11
   %to_sleep.2 = phi i32 [ %spec.store.select1, %if.else ], [ %spec.store.select, %if.then11 ]
   call void @STATS_LOCK() #18
-  %41 = load i64, ptr getelementptr inbounds (i8, ptr @stats, i64 120), align 8
-  %add.i14 = add i64 %41, %ls.sroa.0.1.lcssa
+  %40 = load i64, ptr getelementptr inbounds (i8, ptr @stats, i64 120), align 8
+  %add.i14 = add i64 %40, %ls.sroa.0.1.lcssa
   store i64 %add.i14, ptr getelementptr inbounds (i8, ptr @stats, i64 120), align 8
-  %42 = load i64, ptr getelementptr inbounds (i8, ptr @stats, i64 128), align 8
-  %add1.i = add i64 %42, %ls.sroa.4.1.lcssa
+  %41 = load i64, ptr getelementptr inbounds (i8, ptr @stats, i64 128), align 8
+  %add1.i = add i64 %41, %ls.sroa.4.1.lcssa
   store i64 %add1.i, ptr getelementptr inbounds (i8, ptr @stats, i64 128), align 8
-  %ls.sroa.7.0.ls.sroa.7.0.ls.sroa.7.0.ls.sroa.7.16. = load i64, ptr %ls.sroa.7, align 8
-  %43 = load i64, ptr getelementptr inbounds (i8, ptr @stats, i64 136), align 8
-  %add2.i = add i64 %43, %ls.sroa.7.0.ls.sroa.7.0.ls.sroa.7.0.ls.sroa.7.16.
+  %42 = load i64, ptr getelementptr inbounds (i8, ptr @stats, i64 136), align 8
+  %add2.i = add i64 %42, %ls.sroa.7.1.lcssa
   store i64 %add2.i, ptr getelementptr inbounds (i8, ptr @stats, i64 136), align 8
-  %ls.sroa.10.0.ls.sroa.10.0.ls.sroa.10.0.ls.sroa.10.24. = load i64, ptr %ls.sroa.10, align 8
-  %44 = load i64, ptr getelementptr inbounds (i8, ptr @stats, i64 144), align 8
-  %add3.i = add i64 %44, %ls.sroa.10.0.ls.sroa.10.0.ls.sroa.10.0.ls.sroa.10.24.
+  %43 = load i64, ptr getelementptr inbounds (i8, ptr @stats, i64 144), align 8
+  %add3.i = add i64 %43, %ls.sroa.12.1.lcssa
   store i64 %add3.i, ptr getelementptr inbounds (i8, ptr @stats, i64 144), align 8
-  store i32 %40, ptr getelementptr inbounds (i8, ptr @stats_state, i64 44), align 4
+  store i32 %39, ptr getelementptr inbounds (i8, ptr @stats_state, i64 44), align 4
   call void @STATS_UNLOCK() #18
-  %45 = load volatile i32, ptr @do_run_logger_thread, align 4
-  %tobool.not = icmp eq i32 %45, 0
+  %44 = load volatile i32, ptr @do_run_logger_thread, align 4
+  %tobool.not = icmp eq i32 %44, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !13
 
 while.end:                                        ; preds = %if.end26, %entry

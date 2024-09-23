@@ -2501,6 +2501,7 @@ if.then5.i:                                       ; preds = %_ZNK6hermes6parser1
   %RHSKind.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 17
   store i8 1, ptr %RHSKind.i.i, align 1
   store ptr @.str.866, ptr %ref.tmp.i, align 8
+  store i8 3, ptr %LHSKind.i.i, align 8
   br label %if.then100
 
 _ZN4llvh9StringRefC2EPKc.exit73.i:                ; preds = %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit.i.i
@@ -2585,6 +2586,7 @@ if.then9.i:                                       ; preds = %_ZNK6hermes6parser1
   %RHSKind.i76.i = getelementptr inbounds i8, ptr %ref.tmp12.i, i64 17
   store i8 1, ptr %RHSKind.i76.i, align 1
   store ptr @.str.867, ptr %ref.tmp12.i, align 8
+  store i8 3, ptr %LHSKind.i75.i, align 8
   br label %if.then100
 
 if.end14.i:                                       ; preds = %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit.i33.i
@@ -2709,6 +2711,7 @@ if.then21.i:                                      ; preds = %_ZNK6hermes6parser1
   %RHSKind.i135.i = getelementptr inbounds i8, ptr %ref.tmp24.i, i64 17
   store i8 1, ptr %RHSKind.i135.i, align 1
   store ptr @.str.868, ptr %ref.tmp24.i, align 8
+  store i8 3, ptr %LHSKind.i134.i, align 8
   br label %if.then100
 
 if.end26.i:                                       ; preds = %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit133.i
@@ -2906,12 +2909,11 @@ sw.default.i:                                     ; preds = %if.end26.i
   %RHSKind.i220.i = getelementptr inbounds i8, ptr %ref.tmp51.i, i64 17
   store i8 1, ptr %RHSKind.i220.i, align 1
   store ptr @.str.868, ptr %ref.tmp51.i, align 8
+  store i8 3, ptr %LHSKind.i219.i, align 8
   br label %if.then100
 
 if.then100:                                       ; preds = %sw.default.i, %if.then21.i, %if.then9.i, %if.then5.i
-  %LHSKind.i219.i.sink = phi ptr [ %LHSKind.i219.i, %sw.default.i ], [ %LHSKind.i134.i, %if.then21.i ], [ %LHSKind.i75.i, %if.then9.i ], [ %LHSKind.i.i, %if.then5.i ]
   %ref.tmp51.i.sink = phi ptr [ %ref.tmp51.i, %sw.default.i ], [ %ref.tmp24.i, %if.then21.i ], [ %ref.tmp12.i, %if.then9.i ], [ %ref.tmp.i, %if.then5.i ]
-  store i8 3, ptr %LHSKind.i219.i.sink, align 8
   call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %this.val2698, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp51.i.sink, i32 noundef 0) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp12.i)
@@ -3023,6 +3025,7 @@ if.then.i2951:                                    ; preds = %_ZNK6hermes6parser1
   %RHSKind.i.i2953 = getelementptr inbounds i8, ptr %ref.tmp.i2934, i64 17
   store i8 1, ptr %RHSKind.i.i2953, align 1
   store ptr @.str.263, ptr %ref.tmp.i2934, align 8
+  store i8 3, ptr %LHSKind.i.i2952, align 8
   br label %if.then112
 
 if.end.i:                                         ; preds = %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit.i.i2948
@@ -3106,6 +3109,7 @@ if.then6.i:                                       ; preds = %land.lhs.true.i.i29
   %RHSKind.i15.i = getelementptr inbounds i8, ptr %ref.tmp9.i, i64 17
   store i8 1, ptr %RHSKind.i15.i, align 1
   store ptr @.str.869, ptr %ref.tmp9.i, align 8
+  store i8 3, ptr %LHSKind.i14.i, align 8
   br label %if.then112
 
 _ZN4llvh9StringRefC2EPKc.exit51.i:                ; preds = %land.lhs.true.i.i2975
@@ -3195,6 +3199,7 @@ if.then14.i:                                      ; preds = %_ZNK6hermes6parser1
   %RHSKind.i75.i = getelementptr inbounds i8, ptr %ref.tmp17.i, i64 17
   store i8 1, ptr %RHSKind.i75.i, align 1
   store ptr @.str.870, ptr %ref.tmp17.i, align 8
+  store i8 3, ptr %LHSKind.i74.i, align 8
   br label %if.then112
 
 _ZN4llvh9StringRefC2EPKc.exit61.i:                ; preds = %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit.i33.i2984
@@ -3279,6 +3284,7 @@ if.then22.i:                                      ; preds = %_ZNK6hermes6parser1
   %RHSKind.i136.i = getelementptr inbounds i8, ptr %ref.tmp25.i, i64 17
   store i8 1, ptr %RHSKind.i136.i, align 1
   store ptr @.str.871, ptr %ref.tmp25.i, align 8
+  store i8 3, ptr %LHSKind.i135.i, align 8
   br label %if.then112
 
 if.end27.i:                                       ; preds = %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit.i93.i
@@ -3317,9 +3323,7 @@ if.end.i.i.i.i2998:                               ; preds = %if.end27.i
   br label %if.end113
 
 if.then112:                                       ; preds = %if.then6.i, %if.then22.i, %if.then14.i, %if.then.i2951
-  %LHSKind.i14.i.sink = phi ptr [ %LHSKind.i14.i, %if.then6.i ], [ %LHSKind.i135.i, %if.then22.i ], [ %LHSKind.i74.i, %if.then14.i ], [ %LHSKind.i.i2952, %if.then.i2951 ]
   %ref.tmp9.i.sink = phi ptr [ %ref.tmp9.i, %if.then6.i ], [ %ref.tmp25.i, %if.then22.i ], [ %ref.tmp17.i, %if.then14.i ], [ %ref.tmp.i2934, %if.then.i2951 ]
-  store i8 3, ptr %LHSKind.i14.i.sink, align 8
   call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %this.val2700, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp9.i.sink, i32 noundef 0) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i2934)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp9.i)

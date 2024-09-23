@@ -1432,14 +1432,13 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i: ; preds 
   br i1 %26, label %23, label %29, !llvm.loop !7
 
 common.resume:                                    ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i
-  %.sink = phi ptr [ %33, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3 ], [ %5, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i ]
-  %common.resume.op = phi { ptr, i32 } [ %48, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3 ], [ %28, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i ]
-  store atomic i8 0, ptr %.sink release, align 1
+  %common.resume.op = phi { ptr, i32 } [ %28, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i ], [ %48, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i: ; preds = %23
   %28 = landingpad { ptr, i32 }
           cleanup
+  store atomic i8 0, ptr %5 release, align 1
   br label %common.resume
 
 29:                                               ; preds = %27
@@ -1500,6 +1499,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit: ; preds = %_Z
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3: ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit
   %48 = landingpad { ptr, i32 }
           cleanup
+  store atomic i8 0, ptr %33 release, align 1
   br label %common.resume
 }
 

@@ -291,7 +291,8 @@ phar_get_pharfp.exit.i:                           ; preds = %38, %36
 
 52:                                               ; preds = %47
   %53 = getelementptr inbounds i8, ptr %31, i64 256
-  br label %phar_set_pharfp.exit.i
+  store ptr %49, ptr %53, align 8
+  br label %phar_open_archive_fp.exit
 
 54:                                               ; preds = %47
   %55 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 112), align 8
@@ -299,14 +300,10 @@ phar_get_pharfp.exit.i:                           ; preds = %38, %36
   %57 = load i32, ptr %56, align 8
   %58 = zext i32 %57 to i64
   %59 = getelementptr inbounds %struct._phar_entry_fp, ptr %55, i64 %58
-  br label %phar_set_pharfp.exit.i
-
-phar_set_pharfp.exit.i:                           ; preds = %54, %52
-  %.sink.i.i = phi ptr [ %59, %54 ], [ %53, %52 ]
-  store ptr %49, ptr %.sink.i.i, align 8
+  store ptr %49, ptr %59, align 8
   br label %phar_open_archive_fp.exit
 
-phar_open_archive_fp.exit:                        ; preds = %phar_set_pharfp.exit.i, %44, %phar_get_pharfp.exit.i, %phar_get_entrypfp.exit
+phar_open_archive_fp.exit:                        ; preds = %54, %52, %44, %phar_get_pharfp.exit.i, %phar_get_entrypfp.exit
   %60 = load i16, ptr %10, align 2
   %61 = and i16 %60, 256
   %.not.i30 = icmp eq i16 %61, 0
@@ -409,6 +406,7 @@ phar_get_pharfp.exit:                             ; preds = %5, %7
 
 21:                                               ; preds = %16
   %22 = getelementptr inbounds i8, ptr %0, i64 256
+  store ptr %18, ptr %22, align 8
   br label %phar_set_pharfp.exit
 
 23:                                               ; preds = %16
@@ -417,12 +415,12 @@ phar_get_pharfp.exit:                             ; preds = %5, %7
   %26 = load i32, ptr %25, align 8
   %27 = zext i32 %26 to i64
   %28 = getelementptr inbounds %struct._phar_entry_fp, ptr %24, i64 %27
+  store ptr %18, ptr %28, align 8
+  %.pre = load i16, ptr %2, align 4
   br label %phar_set_pharfp.exit
 
 phar_set_pharfp.exit:                             ; preds = %21, %23
-  %.sink.i = phi ptr [ %28, %23 ], [ %22, %21 ]
-  store ptr %18, ptr %.sink.i, align 8
-  %29 = load i16, ptr %2, align 4
+  %29 = phi i16 [ %19, %21 ], [ %.pre, %23 ]
   %30 = and i16 %29, 256
   %.not.i8 = icmp eq i16 %30, 0
   br i1 %.not.i8, label %31, label %33
@@ -2816,10 +2814,10 @@ define hidden range(i32 -1, 1) i32 @phar_open_entry_fp(ptr noundef %0, ptr nound
 
 tailrecurse:                                      ; preds = %11, %3
   %.tr = phi ptr [ %0, %3 ], [ %12, %11 ]
-  %.tr162 = phi i1 [ %5, %3 ], [ false, %11 ]
+  %.tr161 = phi i1 [ %5, %3 ], [ false, %11 ]
   %6 = getelementptr inbounds i8, ptr %.tr, i64 128
   %7 = load ptr, ptr %6, align 8
-  br i1 %.tr162, label %13, label %8
+  br i1 %.tr161, label %13, label %8
 
 8:                                                ; preds = %tailrecurse
   %9 = getelementptr inbounds i8, ptr %.tr, i64 136
@@ -2874,7 +2872,7 @@ phar_get_pharfp.exit:                             ; preds = %28
   %32 = getelementptr inbounds i8, ptr %7, i64 256
   %.0.i = load ptr, ptr %32, align 8
   %.not89 = icmp eq ptr %.0.i, null
-  br i1 %.not89, label %phar_get_pharfp.exit.i.thread, label %phar_open_archive_fp.exit.thread151
+  br i1 %.not89, label %phar_get_pharfp.exit.i.thread, label %phar_open_archive_fp.exit.thread150
 
 phar_get_pharfp.exit.thread:                      ; preds = %28
   %33 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 112), align 8
@@ -2882,9 +2880,9 @@ phar_get_pharfp.exit.thread:                      ; preds = %28
   %35 = load i32, ptr %34, align 8
   %36 = zext i32 %35 to i64
   %37 = getelementptr inbounds %struct._phar_entry_fp, ptr %33, i64 %36
-  %.0.i145 = load ptr, ptr %37, align 8
-  %.not89146 = icmp eq ptr %.0.i145, null
-  br i1 %.not89146, label %phar_get_pharfp.exit.i.thread, label %phar_open_archive_fp.exit.thread151
+  %.0.i144 = load ptr, ptr %37, align 8
+  %.not89145 = icmp eq ptr %.0.i144, null
+  br i1 %.not89145, label %phar_get_pharfp.exit.i.thread, label %phar_open_archive_fp.exit.thread150
 
 phar_get_pharfp.exit.i.thread:                    ; preds = %phar_get_pharfp.exit.thread, %phar_get_pharfp.exit
   %38 = load ptr, ptr %7, align 8
@@ -2902,6 +2900,7 @@ phar_get_pharfp.exit.i.thread:                    ; preds = %phar_get_pharfp.exi
 
 45:                                               ; preds = %40
   %46 = getelementptr inbounds i8, ptr %7, i64 256
+  store ptr %42, ptr %46, align 8
   br label %phar_set_pharfp.exit.i
 
 47:                                               ; preds = %40
@@ -2910,12 +2909,12 @@ phar_get_pharfp.exit.i.thread:                    ; preds = %phar_get_pharfp.exi
   %50 = load i32, ptr %49, align 8
   %51 = zext i32 %50 to i64
   %52 = getelementptr inbounds %struct._phar_entry_fp, ptr %48, i64 %51
+  store ptr %42, ptr %52, align 8
+  %.pre.i = load i16, ptr %29, align 4
   br label %phar_set_pharfp.exit.i
 
 phar_set_pharfp.exit.i:                           ; preds = %47, %45
-  %.sink.i.i = phi ptr [ %52, %47 ], [ %46, %45 ]
-  store ptr %42, ptr %.sink.i.i, align 8
-  %53 = load i16, ptr %29, align 4
+  %53 = phi i16 [ %43, %45 ], [ %.pre.i, %47 ]
   %54 = and i16 %53, 256
   %.not.i8.i = icmp eq i16 %54, 0
   br i1 %.not.i8.i, label %55, label %57
@@ -2936,14 +2935,14 @@ phar_open_archive_fp.exit:                        ; preds = %55, %57
   %.0.in.i9.i = phi ptr [ %62, %57 ], [ %56, %55 ]
   %.0.i10.i = load ptr, ptr %.0.in.i9.i, align 8
   %.not6.i = icmp eq ptr %.0.i10.i, null
-  br i1 %.not6.i, label %phar_open_archive_fp.exit.thread, label %phar_open_archive_fp.exit.thread151
+  br i1 %.not6.i, label %phar_open_archive_fp.exit.thread, label %phar_open_archive_fp.exit.thread150
 
 phar_open_archive_fp.exit.thread:                 ; preds = %phar_get_pharfp.exit.i.thread, %phar_open_archive_fp.exit
   %63 = load ptr, ptr %7, align 8
   %64 = tail call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef %1, i64 noundef 4096, ptr noundef nonnull @.str.16, ptr noundef %63) #15
   br label %254
 
-phar_open_archive_fp.exit.thread151:              ; preds = %phar_get_pharfp.exit.thread, %phar_open_archive_fp.exit, %phar_get_pharfp.exit
+phar_open_archive_fp.exit.thread150:              ; preds = %phar_get_pharfp.exit.thread, %phar_open_archive_fp.exit, %phar_get_pharfp.exit
   %65 = phi i16 [ %30, %phar_get_pharfp.exit.thread ], [ %53, %phar_open_archive_fp.exit ], [ %30, %phar_get_pharfp.exit ]
   %66 = getelementptr inbounds i8, ptr %.tr, i64 20
   %67 = load i32, ptr %66, align 4
@@ -2953,14 +2952,14 @@ phar_open_archive_fp.exit.thread151:              ; preds = %phar_get_pharfp.exi
   %or.cond101 = and i1 %.not90, %.not91
   br i1 %or.cond101, label %73, label %69
 
-69:                                               ; preds = %phar_open_archive_fp.exit.thread151
+69:                                               ; preds = %phar_open_archive_fp.exit.thread150
   %70 = getelementptr inbounds i8, ptr %.tr, i64 16
   %71 = load i32, ptr %70, align 8
   %72 = and i32 %71, 61440
   %.not92 = icmp eq i32 %72, 0
   br i1 %.not92, label %73, label %92
 
-73:                                               ; preds = %phar_open_archive_fp.exit.thread151, %69
+73:                                               ; preds = %phar_open_archive_fp.exit.thread150, %69
   %74 = getelementptr inbounds i8, ptr %4, i64 40
   store ptr %.tr, ptr %74, align 8
   store ptr %7, ptr %4, align 8
@@ -3033,6 +3032,7 @@ phar_get_entrypufp.exit:                          ; preds = %95, %98
 
 110:                                              ; preds = %105
   %111 = getelementptr inbounds i8, ptr %.val, i64 264
+  store ptr %106, ptr %111, align 8
   br label %phar_set_entrypufp.exit
 
 112:                                              ; preds = %105
@@ -3041,11 +3041,10 @@ phar_get_entrypufp.exit:                          ; preds = %95, %98
   %115 = load i32, ptr %114, align 8
   %116 = zext i32 %115 to i64
   %117 = getelementptr inbounds %struct._phar_entry_fp, ptr %113, i64 %116, i32 1
+  store ptr %106, ptr %117, align 8
   br label %phar_set_entrypufp.exit
 
 phar_set_entrypufp.exit:                          ; preds = %110, %112
-  %.sink.i = phi ptr [ %117, %112 ], [ %111, %110 ]
-  store ptr %106, ptr %.sink.i, align 8
   %118 = load i16, ptr %15, align 2
   %119 = and i16 %118, 256
   %.not.i113 = icmp eq i16 %119, 0
@@ -3148,7 +3147,7 @@ phar_get_entrypufp.exit124:                       ; preds = %158, %161
   %.0.i127 = load i32, ptr %.0.in.i126, align 4
   %169 = trunc i32 %.0.i127 to i16
   %trunc.i = and i16 %169, -4096
-  switch i16 %trunc.i, label %phar_decompress_filter.exit.thread156 [
+  switch i16 %trunc.i, label %phar_decompress_filter.exit.thread155 [
     i16 4096, label %phar_decompress_filter.exit
     i16 8192, label %170
   ]
@@ -3160,15 +3159,15 @@ phar_decompress_filter.exit:                      ; preds = %phar_get_entrypufp.
   %.05.i.ph = phi ptr [ @.str.26, %phar_get_entrypufp.exit124 ], [ @.str.27, %170 ]
   %171 = call ptr @php_stream_filter_create(ptr noundef nonnull %.05.i.ph, ptr noundef null, i8 noundef zeroext 0) #15
   %.not96 = icmp eq ptr %171, null
-  br i1 %.not96, label %phar_decompress_filter.exit.phar_decompress_filter.exit.thread156_crit_edge, label %177
+  br i1 %.not96, label %phar_decompress_filter.exit.phar_decompress_filter.exit.thread155_crit_edge, label %177
 
-phar_decompress_filter.exit.phar_decompress_filter.exit.thread156_crit_edge: ; preds = %phar_decompress_filter.exit
+phar_decompress_filter.exit.phar_decompress_filter.exit.thread155_crit_edge: ; preds = %phar_decompress_filter.exit
   %.pre165 = load i16, ptr %15, align 2
   %.pre166 = and i16 %.pre165, 2
-  br label %phar_decompress_filter.exit.thread156
+  br label %phar_decompress_filter.exit.thread155
 
-phar_decompress_filter.exit.thread156:            ; preds = %phar_decompress_filter.exit.phar_decompress_filter.exit.thread156_crit_edge, %phar_get_entrypufp.exit124
-  %.pre-phi = phi i16 [ %.pre166, %phar_decompress_filter.exit.phar_decompress_filter.exit.thread156_crit_edge ], [ %168, %phar_get_entrypufp.exit124 ]
+phar_decompress_filter.exit.thread155:            ; preds = %phar_decompress_filter.exit.phar_decompress_filter.exit.thread155_crit_edge, %phar_get_entrypufp.exit124
+  %.pre-phi = phi i16 [ %.pre166, %phar_decompress_filter.exit.phar_decompress_filter.exit.thread155_crit_edge ], [ %168, %phar_get_entrypufp.exit124 ]
   %172 = load ptr, ptr %7, align 8
   %.not.i128 = icmp eq i16 %.pre-phi, 0
   %.0.in.v.i129 = select i1 %.not.i128, i64 16, i64 20
@@ -3178,11 +3177,11 @@ phar_decompress_filter.exit.thread156:            ; preds = %phar_decompress_fil
   %trunc.i132 = and i16 %173, -4096
   %switch.selectcmp = icmp eq i16 %trunc.i132, 8192
   %switch.select = select i1 %switch.selectcmp, ptr @.str.27, ptr @.str.25
-  %switch.selectcmp159 = icmp eq i16 %trunc.i132, 4096
-  %switch.select160 = select i1 %switch.selectcmp159, ptr @.str.26, ptr %switch.select
+  %switch.selectcmp158 = icmp eq i16 %trunc.i132, 4096
+  %switch.select159 = select i1 %switch.selectcmp158, ptr @.str.26, ptr %switch.select
   %174 = getelementptr inbounds i8, ptr %.tr, i64 56
   %175 = load ptr, ptr %174, align 8
-  %176 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef %1, i64 noundef 4096, ptr noundef nonnull @.str.18, ptr noundef %172, ptr noundef nonnull %switch.select160, ptr noundef %175) #15
+  %176 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef %1, i64 noundef 4096, ptr noundef nonnull @.str.18, ptr noundef %172, ptr noundef nonnull %switch.select159, ptr noundef %175) #15
   br label %254
 
 177:                                              ; preds = %phar_decompress_filter.exit
@@ -3284,6 +3283,7 @@ phar_get_entrypfp.exit141:                        ; preds = %199, %202
 
 236:                                              ; preds = %232
   store i32 1, ptr %19, align 8
+  store i64 %179, ptr %138, align 8
   br label %phar_set_fp_type.exit
 
 237:                                              ; preds = %232
@@ -3300,12 +3300,12 @@ phar_get_entrypfp.exit141:                        ; preds = %199, %202
   %248 = getelementptr inbounds %struct._phar_entry_fp_info, ptr %244, i64 %247
   store i32 1, ptr %248, align 8
   %249 = getelementptr inbounds i8, ptr %248, i64 8
+  store i64 %179, ptr %249, align 8
+  %.pre164 = load i64, ptr %138, align 8
   br label %phar_set_fp_type.exit
 
 phar_set_fp_type.exit:                            ; preds = %236, %237
-  %.sink.i143 = phi ptr [ %249, %237 ], [ %138, %236 ]
-  store i64 %179, ptr %.sink.i143, align 8
-  %250 = load i64, ptr %138, align 8
+  %250 = phi i64 [ %179, %236 ], [ %.pre164, %237 ]
   store i64 %250, ptr %140, align 8
   store ptr %.0.i123, ptr %150, align 8
   %251 = load i32, ptr %151, align 4
@@ -3314,8 +3314,8 @@ phar_set_fp_type.exit:                            ; preds = %236, %237
   %.102 = sext i1 %253 to i32
   br label %254
 
-254:                                              ; preds = %phar_set_fp_type.exit, %phar_get_pharfp.exit120, %phar_get_pharfp.exit108, %18, %21, %24, %13, %227, %213, %phar_decompress_filter.exit.thread156, %130, %phar_open_archive_fp.exit.thread
-  %.0 = phi i32 [ -1, %213 ], [ -1, %227 ], [ -1, %phar_decompress_filter.exit.thread156 ], [ -1, %130 ], [ -1, %phar_open_archive_fp.exit.thread ], [ 0, %13 ], [ 0, %24 ], [ 0, %21 ], [ 0, %18 ], [ %., %phar_get_pharfp.exit108 ], [ -1, %phar_get_pharfp.exit120 ], [ %.102, %phar_set_fp_type.exit ]
+254:                                              ; preds = %phar_set_fp_type.exit, %phar_get_pharfp.exit120, %phar_get_pharfp.exit108, %18, %21, %24, %13, %227, %213, %phar_decompress_filter.exit.thread155, %130, %phar_open_archive_fp.exit.thread
+  %.0 = phi i32 [ -1, %213 ], [ -1, %227 ], [ -1, %phar_decompress_filter.exit.thread155 ], [ -1, %130 ], [ -1, %phar_open_archive_fp.exit.thread ], [ 0, %13 ], [ 0, %24 ], [ 0, %21 ], [ 0, %18 ], [ %., %phar_get_pharfp.exit108 ], [ -1, %phar_get_pharfp.exit120 ], [ %.102, %phar_set_fp_type.exit ]
   ret i32 %.0
 }
 

@@ -11242,13 +11242,13 @@ _ZNSt6vectorIfN8LightGBM6Common18AlignmentAllocatorIfLm32EEEE6resizeEm.exit: ; p
   %51 = load i32, ptr %2, align 4
   %52 = icmp slt i32 %15, %51
   %or.cond = select i1 %13, i1 %52, i1 false
-  br i1 %or.cond, label %53, label %89
+  br i1 %or.cond, label %53, label %88
 
 53:                                               ; preds = %50
   %54 = getelementptr inbounds i8, ptr %0, i64 352
   %55 = load i8, ptr %54, align 8
   %56 = trunc i8 %55 to i1
-  br i1 %56, label %89, label %57
+  br i1 %56, label %88, label %57
 
 57:                                               ; preds = %53, %45
   %58 = getelementptr inbounds i8, ptr %0, i64 288
@@ -11295,17 +11295,17 @@ _ZNSt6vectorIfN8LightGBM6Common18AlignmentAllocatorIfLm32EEEE6resizeEm.exit12: ;
   br label %.sink.split
 
 .sink.split:                                      ; preds = %57, %77, %79, %81, %83, %18, %38, %40, %42, %44
-  %.sink18 = phi ptr [ %19, %44 ], [ %19, %42 ], [ %19, %40 ], [ %19, %38 ], [ %19, %18 ], [ %58, %83 ], [ %58, %81 ], [ %58, %79 ], [ %58, %77 ], [ %58, %57 ]
-  %84 = load ptr, ptr %.sink18, align 8
-  %85 = getelementptr inbounds i8, ptr %0, i64 336
-  store ptr %84, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %0, i64 312
-  %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %0, i64 344
-  store ptr %87, ptr %88, align 8
-  br label %89
+  %.sink.in = phi ptr [ %19, %44 ], [ %19, %42 ], [ %19, %40 ], [ %19, %38 ], [ %19, %18 ], [ %58, %83 ], [ %58, %81 ], [ %58, %79 ], [ %58, %77 ], [ %58, %57 ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %84 = getelementptr inbounds i8, ptr %0, i64 336
+  store ptr %.sink, ptr %84, align 8
+  %85 = getelementptr inbounds i8, ptr %0, i64 312
+  %86 = load ptr, ptr %85, align 8
+  %87 = getelementptr inbounds i8, ptr %0, i64 344
+  store ptr %86, ptr %87, align 8
+  br label %88
 
-89:                                               ; preds = %.sink.split, %50, %53
+88:                                               ; preds = %.sink.split, %50, %53
   ret void
 }
 
@@ -16820,22 +16820,18 @@ _ZNSt10_HashtableIiSt4pairIKidESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
-  br label %.sink.split
+  store ptr %.031, ptr %25, align 8
+  br label %29
 
 26:                                               ; preds = %.lr.ph
   %27 = load ptr, ptr %20, align 8
   store ptr %27, ptr %.031, align 8
   %28 = load ptr, ptr %19, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %26, %24
-  %.sink = phi ptr [ %25, %24 ], [ %28, %26 ]
-  %.1.ph = phi i64 [ %18, %24 ], [ %.02530, %26 ]
-  store ptr %.031, ptr %.sink, align 8
+  store ptr %.031, ptr %28, align 8
   br label %29
 
-29:                                               ; preds = %.sink.split, %21
-  %.1 = phi i64 [ %18, %21 ], [ %.1.ph, %.sink.split ]
+29:                                               ; preds = %21, %24, %26
+  %.1 = phi i64 [ %.02530, %26 ], [ %18, %24 ], [ %18, %21 ]
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !186
 

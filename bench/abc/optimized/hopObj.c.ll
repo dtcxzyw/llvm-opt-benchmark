@@ -363,7 +363,7 @@ define void @Hop_ObjConnect(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   %7 = getelementptr inbounds i8, ptr %0, i64 132
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %29, label %9
+  br i1 %.not, label %31, label %9
 
 9:                                                ; preds = %4
   %.not16 = icmp eq ptr %2, null
@@ -384,7 +384,7 @@ define void @Hop_ObjConnect(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
 
 20:                                               ; preds = %10, %9
   %.not17 = icmp eq ptr %3, null
-  br i1 %.not17, label %51, label %21
+  br i1 %.not17, label %53, label %21
 
 21:                                               ; preds = %20
   %.val18 = load ptr, ptr %6, align 8
@@ -395,91 +395,88 @@ define void @Hop_ObjConnect(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   %26 = load i32, ptr %25, align 8
   %27 = and i32 %26, -64
   %28 = add i32 %27, 64
-  br label %.sink.split
+  %29 = and i32 %26, 63
+  %30 = or disjoint i32 %28, %29
+  store i32 %30, ptr %25, align 8
+  br label %53
 
-29:                                               ; preds = %4
-  %30 = getelementptr i8, ptr %1, i64 32
-  %.val4.i = load i32, ptr %30, align 8
-  %31 = and i32 %.val4.i, 7
-  %32 = icmp eq i32 %31, 5
-  %33 = select i1 %32, i32 2, i32 1
-  %34 = ptrtoint ptr %2 to i64
-  %35 = and i64 %34, -2
-  %36 = inttoptr i64 %35 to ptr
-  %37 = getelementptr inbounds i8, ptr %36, i64 32
-  %38 = load i32, ptr %37, align 8
-  %39 = lshr i32 %38, 6
-  %40 = ptrtoint ptr %3 to i64
-  %41 = and i64 %40, -2
-  %42 = inttoptr i64 %41 to ptr
-  %43 = getelementptr inbounds i8, ptr %42, i64 32
-  %44 = load i32, ptr %43, align 8
-  %45 = lshr i32 %44, 6
-  %46 = tail call range(i32 0, 67108864) i32 @llvm.umax.i32(i32 %39, i32 %45)
-  %47 = add nuw nsw i32 %46, %33
-  %48 = shl i32 %47, 6
-  br label %.sink.split
+31:                                               ; preds = %4
+  %32 = getelementptr i8, ptr %1, i64 32
+  %.val4.i = load i32, ptr %32, align 8
+  %33 = and i32 %.val4.i, 7
+  %34 = icmp eq i32 %33, 5
+  %35 = select i1 %34, i32 2, i32 1
+  %36 = ptrtoint ptr %2 to i64
+  %37 = and i64 %36, -2
+  %38 = inttoptr i64 %37 to ptr
+  %39 = getelementptr inbounds i8, ptr %38, i64 32
+  %40 = load i32, ptr %39, align 8
+  %41 = lshr i32 %40, 6
+  %42 = ptrtoint ptr %3 to i64
+  %43 = and i64 %42, -2
+  %44 = inttoptr i64 %43 to ptr
+  %45 = getelementptr inbounds i8, ptr %44, i64 32
+  %46 = load i32, ptr %45, align 8
+  %47 = lshr i32 %46, 6
+  %48 = tail call range(i32 0, 67108864) i32 @llvm.umax.i32(i32 %41, i32 %47)
+  %49 = add nuw nsw i32 %48, %35
+  %50 = shl i32 %49, 6
+  %51 = and i32 %.val4.i, 63
+  %52 = or disjoint i32 %50, %51
+  store i32 %52, ptr %32, align 8
+  br label %53
 
-.sink.split:                                      ; preds = %29, %21
-  %.sink = phi i32 [ %26, %21 ], [ %.val4.i, %29 ]
-  %.sink23 = phi i32 [ %28, %21 ], [ %48, %29 ]
-  %.sink22 = phi ptr [ %25, %21 ], [ %30, %29 ]
-  %49 = and i32 %.sink, 63
-  %50 = or disjoint i32 %.sink23, %49
-  store i32 %50, ptr %.sink22, align 8
-  br label %51
+53:                                               ; preds = %20, %21, %31
+  %54 = ptrtoint ptr %2 to i64
+  %55 = and i64 %54, 1
+  %.not.i = icmp eq i64 %55, 0
+  br i1 %.not.i, label %62, label %56
 
-51:                                               ; preds = %.sink.split, %20
-  %52 = ptrtoint ptr %2 to i64
-  %53 = and i64 %52, 1
-  %.not.i = icmp eq i64 %53, 0
-  br i1 %.not.i, label %60, label %54
-
-54:                                               ; preds = %51
-  %55 = and i64 %52, -2
-  %56 = inttoptr i64 %55 to ptr
-  %57 = getelementptr inbounds i8, ptr %56, i64 32
-  %58 = load i32, ptr %57, align 8
-  %.lobit.i = and i32 %58, 8
-  %59 = xor i32 %.lobit.i, 8
+56:                                               ; preds = %53
+  %57 = and i64 %54, -2
+  %58 = inttoptr i64 %57 to ptr
+  %59 = getelementptr inbounds i8, ptr %58, i64 32
+  %60 = load i32, ptr %59, align 8
+  %.lobit.i = and i32 %60, 8
+  %61 = xor i32 %.lobit.i, 8
   br label %Hop_ObjPhaseCompl.exit
 
-60:                                               ; preds = %51
-  %61 = getelementptr inbounds i8, ptr %2, i64 32
-  %62 = load i32, ptr %61, align 8
-  %63 = and i32 %62, 8
+62:                                               ; preds = %53
+  %63 = getelementptr inbounds i8, ptr %2, i64 32
+  %64 = load i32, ptr %63, align 8
+  %65 = and i32 %64, 8
   br label %Hop_ObjPhaseCompl.exit
 
-Hop_ObjPhaseCompl.exit:                           ; preds = %54, %60
-  %64 = phi i32 [ %59, %54 ], [ %63, %60 ]
-  %65 = ptrtoint ptr %3 to i64
-  %66 = and i64 %65, 1
-  %.not.i19 = icmp eq i64 %66, 0
-  br i1 %.not.i19, label %73, label %67
+Hop_ObjPhaseCompl.exit:                           ; preds = %56, %62
+  %66 = phi i32 [ %61, %56 ], [ %65, %62 ]
+  %67 = ptrtoint ptr %3 to i64
+  %68 = and i64 %67, 1
+  %.not.i19 = icmp eq i64 %68, 0
+  br i1 %.not.i19, label %75, label %69
 
-67:                                               ; preds = %Hop_ObjPhaseCompl.exit
-  %68 = and i64 %65, -2
-  %69 = inttoptr i64 %68 to ptr
-  %70 = getelementptr inbounds i8, ptr %69, i64 32
-  %71 = load i32, ptr %70, align 8
-  %.lobit.i20 = and i32 %71, 8
-  %72 = xor i32 %.lobit.i20, 8
+69:                                               ; preds = %Hop_ObjPhaseCompl.exit
+  %70 = and i64 %67, -2
+  %71 = inttoptr i64 %70 to ptr
+  %72 = getelementptr inbounds i8, ptr %71, i64 32
+  %73 = load i32, ptr %72, align 8
+  %.lobit.i20 = and i32 %73, 8
+  %74 = xor i32 %.lobit.i20, 8
   br label %Hop_ObjPhaseCompl.exit21
 
-73:                                               ; preds = %Hop_ObjPhaseCompl.exit
-  %74 = getelementptr inbounds i8, ptr %3, i64 32
-  %75 = load i32, ptr %74, align 8
-  %76 = and i32 %75, 8
+75:                                               ; preds = %Hop_ObjPhaseCompl.exit
+  %76 = getelementptr inbounds i8, ptr %3, i64 32
+  %77 = load i32, ptr %76, align 8
+  %78 = and i32 %77, 8
   br label %Hop_ObjPhaseCompl.exit21
 
-Hop_ObjPhaseCompl.exit21:                         ; preds = %67, %73
-  %77 = phi i32 [ %72, %67 ], [ %76, %73 ]
-  %78 = and i32 %77, %64
-  %79 = getelementptr inbounds i8, ptr %1, i64 32
-  %80 = load i32, ptr %79, align 8
-  %81 = and i32 %80, -9
-  %82 = or disjoint i32 %81, %78
-  store i32 %82, ptr %79, align 8
+Hop_ObjPhaseCompl.exit21:                         ; preds = %69, %75
+  %79 = phi i32 [ %74, %69 ], [ %78, %75 ]
+  %80 = and i32 %79, %66
+  %81 = getelementptr inbounds i8, ptr %1, i64 32
+  %82 = load i32, ptr %81, align 8
+  %83 = and i32 %82, -9
+  %84 = or disjoint i32 %83, %80
+  store i32 %84, ptr %81, align 8
   tail call void @Hop_TableInsert(ptr noundef nonnull %0, ptr noundef nonnull %1) #10
   ret void
 }

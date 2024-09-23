@@ -36950,18 +36950,10 @@ common.ret:                                       ; preds = %141, %"_ZN118_$LT$w
   store i8 %storemerge, ptr %15, align 1
   ret void
 
-"_ZN118_$LT$wasi_common..snapshots..preview_1..types..Error$u20$as$u20$wasi_common..snapshots..preview_1..error..ErrorExt$GT$7not_dir17hb1e4febeabbabf5cE.exit.sink.split": ; preds = %228, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he9366eece0c45f17E.exit.i72", %"_ZN4core3ptr71drop_in_place$LT$alloc..sync..Arc$LT$wasi_common..dir..DirEntry$GT$$GT$17h96e8fb9e6fa2d487E.exit"
-  %.sink = phi ptr [ %115, %"_ZN4core3ptr71drop_in_place$LT$alloc..sync..Arc$LT$wasi_common..dir..DirEntry$GT$$GT$17h96e8fb9e6fa2d487E.exit" ], [ %145, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he9366eece0c45f17E.exit.i72" ], [ %145, %228 ]
-  %.sroa.0108.0.ph = phi i32 [ 1, %"_ZN4core3ptr71drop_in_place$LT$alloc..sync..Arc$LT$wasi_common..dir..DirEntry$GT$$GT$17h96e8fb9e6fa2d487E.exit" ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he9366eece0c45f17E.exit.i72" ], [ 0, %228 ]
-  %.sroa.8109.0.ph = phi i32 [ undef, %"_ZN4core3ptr71drop_in_place$LT$alloc..sync..Arc$LT$wasi_common..dir..DirEntry$GT$$GT$17h96e8fb9e6fa2d487E.exit" ], [ %.08, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he9366eece0c45f17E.exit.i72" ], [ %.08, %228 ]
-  %.sroa.9.0.ph = phi ptr [ %.sroa.9.2, %"_ZN4core3ptr71drop_in_place$LT$alloc..sync..Arc$LT$wasi_common..dir..DirEntry$GT$$GT$17h96e8fb9e6fa2d487E.exit" ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he9366eece0c45f17E.exit.i72" ], [ undef, %228 ]
-  store i8 0, ptr %.sink, align 2
-  br label %"_ZN118_$LT$wasi_common..snapshots..preview_1..types..Error$u20$as$u20$wasi_common..snapshots..preview_1..error..ErrorExt$GT$7not_dir17hb1e4febeabbabf5cE.exit"
-
-"_ZN118_$LT$wasi_common..snapshots..preview_1..types..Error$u20$as$u20$wasi_common..snapshots..preview_1..error..ErrorExt$GT$7not_dir17hb1e4febeabbabf5cE.exit": ; preds = %"_ZN118_$LT$wasi_common..snapshots..preview_1..types..Error$u20$as$u20$wasi_common..snapshots..preview_1..error..ErrorExt$GT$7not_dir17hb1e4febeabbabf5cE.exit.sink.split", %45
-  %.sroa.0108.0 = phi i32 [ 1, %45 ], [ %.sroa.0108.0.ph, %"_ZN118_$LT$wasi_common..snapshots..preview_1..types..Error$u20$as$u20$wasi_common..snapshots..preview_1..error..ErrorExt$GT$7not_dir17hb1e4febeabbabf5cE.exit.sink.split" ]
-  %.sroa.8109.0 = phi i32 [ undef, %45 ], [ %.sroa.8109.0.ph, %"_ZN118_$LT$wasi_common..snapshots..preview_1..types..Error$u20$as$u20$wasi_common..snapshots..preview_1..error..ErrorExt$GT$7not_dir17hb1e4febeabbabf5cE.exit.sink.split" ]
-  %.sroa.9.0 = phi ptr [ %46, %45 ], [ %.sroa.9.0.ph, %"_ZN118_$LT$wasi_common..snapshots..preview_1..types..Error$u20$as$u20$wasi_common..snapshots..preview_1..error..ErrorExt$GT$7not_dir17hb1e4febeabbabf5cE.exit.sink.split" ]
+"_ZN118_$LT$wasi_common..snapshots..preview_1..types..Error$u20$as$u20$wasi_common..snapshots..preview_1..error..ErrorExt$GT$7not_dir17hb1e4febeabbabf5cE.exit": ; preds = %45, %"_ZN4core3ptr71drop_in_place$LT$alloc..sync..Arc$LT$wasi_common..dir..DirEntry$GT$$GT$17h96e8fb9e6fa2d487E.exit", %"_ZN4core3ptr40drop_in_place$LT$wiggle..GuestStrCow$GT$17h406fc68fc266da4bE.exit75"
+  %.sroa.0108.0 = phi i32 [ 1, %"_ZN4core3ptr71drop_in_place$LT$alloc..sync..Arc$LT$wasi_common..dir..DirEntry$GT$$GT$17h96e8fb9e6fa2d487E.exit" ], [ 0, %"_ZN4core3ptr40drop_in_place$LT$wiggle..GuestStrCow$GT$17h406fc68fc266da4bE.exit75" ], [ 1, %45 ]
+  %.sroa.8109.0 = phi i32 [ undef, %"_ZN4core3ptr71drop_in_place$LT$alloc..sync..Arc$LT$wasi_common..dir..DirEntry$GT$$GT$17h96e8fb9e6fa2d487E.exit" ], [ %.08, %"_ZN4core3ptr40drop_in_place$LT$wiggle..GuestStrCow$GT$17h406fc68fc266da4bE.exit75" ], [ undef, %45 ]
+  %.sroa.9.0 = phi ptr [ %.sroa.9.2, %"_ZN4core3ptr71drop_in_place$LT$alloc..sync..Arc$LT$wasi_common..dir..DirEntry$GT$$GT$17h96e8fb9e6fa2d487E.exit" ], [ undef, %"_ZN4core3ptr40drop_in_place$LT$wiggle..GuestStrCow$GT$17h406fc68fc266da4bE.exit75" ], [ %46, %45 ]
   store i32 %.sroa.0108.0, ptr %0, align 8
   %.sroa.8109.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %.sroa.8109.0, ptr %.sroa.8109.0..sroa_idx, align 4
@@ -37170,7 +37162,8 @@ common.ret:                                       ; preds = %141, %"_ZN118_$LT$w
 "_ZN4core3ptr71drop_in_place$LT$alloc..sync..Arc$LT$wasi_common..dir..DirEntry$GT$$GT$17h96e8fb9e6fa2d487E.exit": ; preds = %49, %254, %259, %"_ZN4core3ptr40drop_in_place$LT$wiggle..GuestStrCow$GT$17h406fc68fc266da4bE.exit"
   %.sroa.9.2 = phi ptr [ %.sroa.9.1, %"_ZN4core3ptr40drop_in_place$LT$wiggle..GuestStrCow$GT$17h406fc68fc266da4bE.exit" ], [ %.sroa.9.1, %259 ], [ %.sroa.9.1, %254 ], [ %50, %49 ]
   %115 = getelementptr inbounds i8, ptr %1, i64 126
-  br label %"_ZN118_$LT$wasi_common..snapshots..preview_1..types..Error$u20$as$u20$wasi_common..snapshots..preview_1..error..ErrorExt$GT$7not_dir17hb1e4febeabbabf5cE.exit.sink.split"
+  store i8 0, ptr %115, align 2
+  br label %"_ZN118_$LT$wasi_common..snapshots..preview_1..types..Error$u20$as$u20$wasi_common..snapshots..preview_1..error..ErrorExt$GT$7not_dir17hb1e4febeabbabf5cE.exit"
 
 "_ZN4core3ptr71drop_in_place$LT$alloc..sync..Arc$LT$wasi_common..dir..DirEntry$GT$$GT$17h96e8fb9e6fa2d487E.exit78": ; preds = %262, %267, %47, %260, %62
   %.pn40 = phi { ptr, i32 } [ %261, %260 ], [ %.pn38, %62 ], [ %48, %47 ], [ %.pn38, %267 ], [ %.pn38, %262 ]
@@ -37512,7 +37505,7 @@ common.ret:                                       ; preds = %141, %"_ZN118_$LT$w
   %233 = getelementptr inbounds i8, ptr %232, i64 72
   %234 = load ptr, ptr %233, align 8, !invariant.load !5, !noalias !6272, !nonnull !5
   invoke void %234(ptr noundef nonnull align 1 %230)
-          to label %"_ZN118_$LT$wasi_common..snapshots..preview_1..types..Error$u20$as$u20$wasi_common..snapshots..preview_1..error..ErrorExt$GT$7not_dir17hb1e4febeabbabf5cE.exit.sink.split" unwind label %66
+          to label %"_ZN4core3ptr40drop_in_place$LT$wiggle..GuestStrCow$GT$17h406fc68fc266da4bE.exit75" unwind label %66
 
 235:                                              ; preds = %226
   %236 = getelementptr inbounds i8, ptr %1, i64 8
@@ -37539,7 +37532,11 @@ common.ret:                                       ; preds = %141, %"_ZN118_$LT$w
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he9366eece0c45f17E.exit.i72": ; preds = %243, %239, %.noexc74
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !6273
-  br label %"_ZN118_$LT$wasi_common..snapshots..preview_1..types..Error$u20$as$u20$wasi_common..snapshots..preview_1..error..ErrorExt$GT$7not_dir17hb1e4febeabbabf5cE.exit.sink.split"
+  br label %"_ZN4core3ptr40drop_in_place$LT$wiggle..GuestStrCow$GT$17h406fc68fc266da4bE.exit75"
+
+"_ZN4core3ptr40drop_in_place$LT$wiggle..GuestStrCow$GT$17h406fc68fc266da4bE.exit75": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he9366eece0c45f17E.exit.i72", %228
+  store i8 0, ptr %145, align 2
+  br label %"_ZN118_$LT$wasi_common..snapshots..preview_1..types..Error$u20$as$u20$wasi_common..snapshots..preview_1..error..ErrorExt$GT$7not_dir17hb1e4febeabbabf5cE.exit"
 
 245:                                              ; preds = %221
   %246 = getelementptr inbounds i8, ptr %10, i64 8

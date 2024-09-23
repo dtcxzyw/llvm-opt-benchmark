@@ -2083,10 +2083,19 @@ do.body:                                          ; preds = %entry
   %cmp1.not = icmp eq ptr %1, null
   %tql_prev9 = getelementptr inbounds i8, ptr %p, i64 40
   %2 = load ptr, ptr %tql_prev9, align 8
-  %tql_prev10 = getelementptr inbounds i8, ptr %s, i64 3728
+  br i1 %cmp1.not, label %if.else7, label %if.then2
+
+if.then2:                                         ; preds = %do.body
   %tql_prev6 = getelementptr inbounds i8, ptr %1, i64 40
-  %tql_prev10.sink = select i1 %cmp1.not, ptr %tql_prev10, ptr %tql_prev6
-  store ptr %2, ptr %tql_prev10.sink, align 8
+  store ptr %2, ptr %tql_prev6, align 8
+  br label %if.end11
+
+if.else7:                                         ; preds = %do.body
+  %tql_prev10 = getelementptr inbounds i8, ptr %s, i64 3728
+  store ptr %2, ptr %tql_prev10, align 8
+  br label %if.end11
+
+if.end11:                                         ; preds = %if.else7, %if.then2
   %3 = load ptr, ptr %next, align 8
   store ptr %3, ptr %2, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next, i8 0, i64 16, i1 false)
@@ -2105,7 +2114,7 @@ do.body:                                          ; preds = %entry
   %tobool.not = icmp eq i8 %7, 0
   br i1 %tobool.not, label %if.then23, label %if.end26
 
-if.then23:                                        ; preds = %do.body
+if.then23:                                        ; preds = %if.end11
   %and24 = and i32 %shr, 7
   %shl = shl nuw nsw i32 1, %and24
   %conv25 = trunc nuw i32 %shl to i8
@@ -2113,7 +2122,7 @@ if.then23:                                        ; preds = %do.body
   store i8 %conv25, ptr %sfbr, align 1
   br label %if.end26
 
-if.end26:                                         ; preds = %if.then23, %do.body
+if.end26:                                         ; preds = %if.then23, %if.end11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %8 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i = icmp ne i32 %8, 0
@@ -8223,13 +8232,13 @@ if.end13:                                         ; preds = %lsi_request_free.ex
   %38 = load i32, ptr %waiting, align 16
   %cmp.not.i = icmp eq i32 %38, 2
   store i32 0, ptr %waiting, align 16
-  br i1 %cmp.not.i, label %lsi_resume_script.exit, label %if.then.i17
+  br i1 %cmp.not.i, label %lsi_resume_script.exit, label %if.then.i18
 
-if.then.i17:                                      ; preds = %if.end13
+if.then.i18:                                      ; preds = %if.end13
   tail call fastcc void @lsi_execute_script(ptr noundef nonnull %call.i)
   br label %lsi_resume_script.exit
 
-lsi_resume_script.exit:                           ; preds = %if.end13, %if.then.i17
+lsi_resume_script.exit:                           ; preds = %if.end13, %if.then.i18
   ret void
 }
 
@@ -8258,16 +8267,25 @@ do.body.i:                                        ; preds = %entry
   %cmp2.not.i = icmp eq ptr %4, null
   %tql_prev10.i = getelementptr inbounds i8, ptr %2, i64 40
   %5 = load ptr, ptr %tql_prev10.i, align 8
-  %tql_prev11.i = getelementptr inbounds i8, ptr %call.i, i64 3728
+  br i1 %cmp2.not.i, label %if.else8.i, label %if.then3.i
+
+if.then3.i:                                       ; preds = %do.body.i
   %tql_prev7.i = getelementptr inbounds i8, ptr %4, i64 40
-  %tql_prev11.sink.i = select i1 %cmp2.not.i, ptr %tql_prev11.i, ptr %tql_prev7.i
-  store ptr %5, ptr %tql_prev11.sink.i, align 8
+  store ptr %5, ptr %tql_prev7.i, align 8
+  br label %if.end.i
+
+if.else8.i:                                       ; preds = %do.body.i
+  %tql_prev11.i = getelementptr inbounds i8, ptr %call.i, i64 3728
+  store ptr %5, ptr %tql_prev11.i, align 8
+  br label %if.end.i
+
+if.end.i:                                         ; preds = %if.else8.i, %if.then3.i
   %6 = load ptr, ptr %next.i, align 8
   store ptr %6, ptr %5, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i, i8 0, i64 16, i1 false)
   br label %lsi_request_free.exit
 
-lsi_request_free.exit:                            ; preds = %if.then.i, %do.body.i
+lsi_request_free.exit:                            ; preds = %if.then.i, %if.end.i
   tail call void @g_free(ptr noundef %2) #12
   tail call void @scsi_req_unref(ptr noundef nonnull %req) #12
   ret void

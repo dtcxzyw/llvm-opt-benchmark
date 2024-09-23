@@ -1558,365 +1558,365 @@ define internal fastcc noundef ptr @_ZL14getSrcFromCopyPN4llvm12MachineInstrEPKN
   switch i16 %5, label %.critedge2 [
     i16 3277, label %6
     i16 3290, label %6
-    i16 7472, label %8
-    i16 19, label %15
+    i16 7472, label %10
+    i16 19, label %19
   ]
 
 6:                                                ; preds = %3, %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br label %.critedge2.sink.split
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %8, i64 32
+  br label %.critedge2
 
-8:                                                ; preds = %3
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 80
-  %12 = load i64, ptr %11, align 8
-  %13 = icmp eq i64 %12, 0
-  br i1 %13, label %14, label %.critedge2
+10:                                               ; preds = %3
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %12, i64 80
+  %14 = load i64, ptr %13, align 8
+  %15 = icmp eq i64 %14, 0
+  br i1 %15, label %16, label %.critedge2
 
-14:                                               ; preds = %8
+16:                                               ; preds = %10
   store i32 2, ptr %2, align 4
-  br label %.critedge2.sink.split
+  %17 = load ptr, ptr %11, align 8
+  %18 = getelementptr inbounds i8, ptr %17, i64 32
+  br label %.critedge2
 
-15:                                               ; preds = %3
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  %19 = load i32, ptr %18, align 4
-  %20 = load i32, ptr %17, align 8
-  %21 = lshr i32 %20, 8
-  %22 = and i32 %21, 4095
-  %23 = icmp slt i32 %19, 0
-  br i1 %23, label %24, label %54
+19:                                               ; preds = %3
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  %23 = load i32, ptr %22, align 4
+  %24 = load i32, ptr %21, align 8
+  %25 = lshr i32 %24, 8
+  %26 = and i32 %25, 4095
+  %27 = icmp slt i32 %23, 0
+  br i1 %27, label %28, label %58
 
-24:                                               ; preds = %15
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %26 = and i32 %19, 2147483647
-  %27 = zext nneg i32 %26 to i64
-  %28 = load ptr, ptr %25, align 8
-  %29 = getelementptr inbounds %"struct.std::pair", ptr %28, i64 %27
-  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %29, align 8
-  %30 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -8
-  %31 = inttoptr i64 %30 to ptr
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  %34 = load i16, ptr %33, align 8
-  %35 = zext i16 %34 to i32
-  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm7AArch6413FPR64RegClassE, i64 8), align 8
-  %37 = lshr i32 %35, 5
-  %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds i32, ptr %36, i64 %38
-  %40 = load i32, ptr %39, align 4
-  %41 = and i32 %35, 31
-  %42 = shl nuw i32 1, %41
-  %43 = and i32 %42, %40
-  %44 = icmp ne i32 %43, 0
-  %45 = icmp eq i32 %22, 0
-  %or.cond.i = and i1 %45, %44
-  br i1 %or.cond.i, label %_ZL7isFPR64jjPKN4llvm19MachineRegisterInfoE.exit.thread, label %46
+28:                                               ; preds = %19
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %30 = and i32 %23, 2147483647
+  %31 = zext nneg i32 %30 to i64
+  %32 = load ptr, ptr %29, align 8
+  %33 = getelementptr inbounds %"struct.std::pair", ptr %32, i64 %31
+  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %33, align 8
+  %34 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -8
+  %35 = inttoptr i64 %34 to ptr
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
+  %38 = load i16, ptr %37, align 8
+  %39 = zext i16 %38 to i32
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm7AArch6413FPR64RegClassE, i64 8), align 8
+  %41 = lshr i32 %39, 5
+  %42 = zext nneg i32 %41 to i64
+  %43 = getelementptr inbounds i32, ptr %40, i64 %42
+  %44 = load i32, ptr %43, align 4
+  %45 = and i32 %39, 31
+  %46 = shl nuw i32 1, %45
+  %47 = and i32 %46, %44
+  %48 = icmp ne i32 %47, 0
+  %49 = icmp eq i32 %26, 0
+  %or.cond.i = and i1 %49, %48
+  br i1 %or.cond.i, label %_ZL7isFPR64jjPKN4llvm19MachineRegisterInfoE.exit.thread, label %50
 
-46:                                               ; preds = %24
-  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm7AArch6414FPR128RegClassE, i64 8), align 8
-  %48 = getelementptr inbounds i32, ptr %47, i64 %38
-  %49 = load i32, ptr %48, align 4
-  %50 = and i32 %49, %42
-  %51 = icmp ne i32 %50, 0
-  %52 = icmp eq i32 %22, 2
-  %53 = and i1 %52, %51
-  br i1 %53, label %_ZL7isFPR64jjPKN4llvm19MachineRegisterInfoE.exit.thread, label %.critedge.thread
+50:                                               ; preds = %28
+  %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm7AArch6414FPR128RegClassE, i64 8), align 8
+  %52 = getelementptr inbounds i32, ptr %51, i64 %42
+  %53 = load i32, ptr %52, align 4
+  %54 = and i32 %53, %46
+  %55 = icmp ne i32 %54, 0
+  %56 = icmp eq i32 %26, 2
+  %57 = and i1 %56, %55
+  br i1 %57, label %_ZL7isFPR64jjPKN4llvm19MachineRegisterInfoE.exit.thread, label %.critedge.thread
 
-54:                                               ; preds = %15
-  %55 = add nsw i32 %19, -1
-  %56 = icmp ult i32 %55, 1073741823
-  br i1 %56, label %57, label %.critedge
+58:                                               ; preds = %19
+  %59 = add nsw i32 %23, -1
+  %60 = icmp ult i32 %59, 1073741823
+  br i1 %60, label %61, label %.critedge
 
-57:                                               ; preds = %54
-  %58 = load ptr, ptr @_ZN4llvm7AArch6413FPR64RegClassE, align 8
-  %59 = lshr i32 %19, 3
-  %60 = getelementptr inbounds nuw i8, ptr %58, i64 22
-  %61 = load i16, ptr %60, align 2
-  %62 = zext i16 %61 to i32
-  %.not.i.i.i = icmp ult i32 %59, %62
+61:                                               ; preds = %58
+  %62 = load ptr, ptr @_ZN4llvm7AArch6413FPR64RegClassE, align 8
+  %63 = lshr i32 %23, 3
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 22
+  %65 = load i16, ptr %64, align 2
+  %66 = zext i16 %65 to i32
+  %.not.i.i.i = icmp ult i32 %63, %66
   br i1 %.not.i.i.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i, label %.thread23.i
 
-_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i: ; preds = %57
-  %63 = and i32 %19, 7
-  %64 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %65 = load ptr, ptr %64, align 8
-  %66 = zext nneg i32 %59 to i64
-  %67 = getelementptr inbounds i8, ptr %65, i64 %66
-  %68 = load i8, ptr %67, align 1
-  %69 = zext i8 %68 to i32
-  %70 = shl nuw nsw i32 1, %63
-  %71 = and i32 %70, %69
-  %72 = icmp ne i32 %71, 0
-  %73 = icmp eq i32 %22, 0
-  %or.cond3.i = and i1 %73, %72
+_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i: ; preds = %61
+  %67 = and i32 %23, 7
+  %68 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %69 = load ptr, ptr %68, align 8
+  %70 = zext nneg i32 %63 to i64
+  %71 = getelementptr inbounds i8, ptr %69, i64 %70
+  %72 = load i8, ptr %71, align 1
+  %73 = zext i8 %72 to i32
+  %74 = shl nuw nsw i32 1, %67
+  %75 = and i32 %74, %73
+  %76 = icmp ne i32 %75, 0
+  %77 = icmp eq i32 %26, 0
+  %or.cond3.i = and i1 %77, %76
   br i1 %or.cond3.i, label %_ZL7isFPR64jjPKN4llvm19MachineRegisterInfoE.exit.thread, label %.thread23.i
 
-.thread23.i:                                      ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i, %57
-  %74 = load ptr, ptr @_ZN4llvm7AArch6414FPR128RegClassE, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 22
-  %76 = load i16, ptr %75, align 2
-  %77 = zext i16 %76 to i32
-  %.not.i.i16.i = icmp ult i32 %59, %77
+.thread23.i:                                      ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i, %61
+  %78 = load ptr, ptr @_ZN4llvm7AArch6414FPR128RegClassE, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 22
+  %80 = load i16, ptr %79, align 2
+  %81 = zext i16 %80 to i32
+  %.not.i.i16.i = icmp ult i32 %63, %81
   br i1 %.not.i.i16.i, label %_ZL7isFPR64jjPKN4llvm19MachineRegisterInfoE.exit, label %.critedge
 
 _ZL7isFPR64jjPKN4llvm19MachineRegisterInfoE.exit: ; preds = %.thread23.i
-  %78 = and i32 %19, 7
-  %79 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  %80 = load ptr, ptr %79, align 8
-  %81 = zext nneg i32 %59 to i64
-  %82 = getelementptr inbounds i8, ptr %80, i64 %81
-  %83 = load i8, ptr %82, align 1
-  %84 = zext i8 %83 to i32
-  %85 = shl nuw nsw i32 1, %78
-  %86 = and i32 %85, %84
-  %87 = icmp ne i32 %86, 0
-  %88 = icmp eq i32 %22, 2
-  %89 = and i1 %88, %87
-  br i1 %89, label %_ZL7isFPR64jjPKN4llvm19MachineRegisterInfoE.exit.thread, label %.critedge
+  %82 = and i32 %23, 7
+  %83 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %84 = load ptr, ptr %83, align 8
+  %85 = zext nneg i32 %63 to i64
+  %86 = getelementptr inbounds i8, ptr %84, i64 %85
+  %87 = load i8, ptr %86, align 1
+  %88 = zext i8 %87 to i32
+  %89 = shl nuw nsw i32 1, %82
+  %90 = and i32 %89, %88
+  %91 = icmp ne i32 %90, 0
+  %92 = icmp eq i32 %26, 2
+  %93 = and i1 %92, %91
+  br i1 %93, label %_ZL7isFPR64jjPKN4llvm19MachineRegisterInfoE.exit.thread, label %.critedge
 
-_ZL7isFPR64jjPKN4llvm19MachineRegisterInfoE.exit.thread: ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i, %24, %46, %_ZL7isFPR64jjPKN4llvm19MachineRegisterInfoE.exit
-  %90 = getelementptr inbounds i8, ptr %17, i64 32
-  %91 = getelementptr inbounds i8, ptr %17, i64 36
-  %92 = load i32, ptr %91, align 4
-  %93 = load i32, ptr %90, align 8
-  %94 = and i32 %93, 1048320
-  %.not.i = icmp eq i32 %94, 0
-  br i1 %.not.i, label %95, label %.critedge
+_ZL7isFPR64jjPKN4llvm19MachineRegisterInfoE.exit.thread: ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i, %28, %50, %_ZL7isFPR64jjPKN4llvm19MachineRegisterInfoE.exit
+  %94 = getelementptr inbounds i8, ptr %21, i64 32
+  %95 = getelementptr inbounds i8, ptr %21, i64 36
+  %96 = load i32, ptr %95, align 4
+  %97 = load i32, ptr %94, align 8
+  %98 = and i32 %97, 1048320
+  %.not.i = icmp eq i32 %98, 0
+  br i1 %.not.i, label %99, label %.critedge
 
-95:                                               ; preds = %_ZL7isFPR64jjPKN4llvm19MachineRegisterInfoE.exit.thread
-  %96 = icmp slt i32 %92, 0
-  br i1 %96, label %97, label %117
+99:                                               ; preds = %_ZL7isFPR64jjPKN4llvm19MachineRegisterInfoE.exit.thread
+  %100 = icmp slt i32 %96, 0
+  br i1 %100, label %101, label %121
 
-97:                                               ; preds = %95
-  %98 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %99 = and i32 %92, 2147483647
-  %100 = zext nneg i32 %99 to i64
-  %101 = load ptr, ptr %98, align 8
-  %102 = getelementptr inbounds %"struct.std::pair", ptr %101, i64 %100
-  %.0.copyload.i.i.i.i.i.i.i.i.i31 = load i64, ptr %102, align 8
-  %103 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i31, -8
-  %104 = inttoptr i64 %103 to ptr
-  %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 24
-  %107 = load i16, ptr %106, align 8
-  %108 = zext i16 %107 to i32
-  %109 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm7AArch6413GPR64RegClassE, i64 8), align 8
-  %110 = lshr i32 %108, 5
-  %111 = zext nneg i32 %110 to i64
-  %112 = getelementptr inbounds i32, ptr %109, i64 %111
-  %113 = load i32, ptr %112, align 4
-  %114 = and i32 %108, 31
-  %115 = shl nuw i32 1, %114
-  %116 = and i32 %115, %113
-  %.not64 = icmp eq i32 %116, 0
+101:                                              ; preds = %99
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %103 = and i32 %96, 2147483647
+  %104 = zext nneg i32 %103 to i64
+  %105 = load ptr, ptr %102, align 8
+  %106 = getelementptr inbounds %"struct.std::pair", ptr %105, i64 %104
+  %.0.copyload.i.i.i.i.i.i.i.i.i31 = load i64, ptr %106, align 8
+  %107 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i31, -8
+  %108 = inttoptr i64 %107 to ptr
+  %109 = load ptr, ptr %108, align 8
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 24
+  %111 = load i16, ptr %110, align 8
+  %112 = zext i16 %111 to i32
+  %113 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm7AArch6413GPR64RegClassE, i64 8), align 8
+  %114 = lshr i32 %112, 5
+  %115 = zext nneg i32 %114 to i64
+  %116 = getelementptr inbounds i32, ptr %113, i64 %115
+  %117 = load i32, ptr %116, align 4
+  %118 = and i32 %112, 31
+  %119 = shl nuw i32 1, %118
+  %120 = and i32 %119, %117
+  %.not64 = icmp eq i32 %120, 0
   br i1 %.not64, label %.critedge, label %.critedge2
 
-117:                                              ; preds = %95
-  %118 = add nsw i32 %92, -1
-  %119 = icmp ult i32 %118, 1073741823
-  br i1 %119, label %120, label %.critedge
+121:                                              ; preds = %99
+  %122 = add nsw i32 %96, -1
+  %123 = icmp ult i32 %122, 1073741823
+  br i1 %123, label %124, label %.critedge
 
-120:                                              ; preds = %117
-  %121 = load ptr, ptr @_ZN4llvm7AArch6413GPR64RegClassE, align 8
-  %122 = lshr i32 %92, 3
-  %123 = getelementptr inbounds nuw i8, ptr %121, i64 22
-  %124 = load i16, ptr %123, align 2
-  %125 = zext i16 %124 to i32
-  %.not.i.i.i30 = icmp ult i32 %122, %125
+124:                                              ; preds = %121
+  %125 = load ptr, ptr @_ZN4llvm7AArch6413GPR64RegClassE, align 8
+  %126 = lshr i32 %96, 3
+  %127 = getelementptr inbounds nuw i8, ptr %125, i64 22
+  %128 = load i16, ptr %127, align 2
+  %129 = zext i16 %128 to i32
+  %.not.i.i.i30 = icmp ult i32 %126, %129
   br i1 %.not.i.i.i30, label %_ZL7isGPR64jjPKN4llvm19MachineRegisterInfoE.exit, label %.critedge
 
-_ZL7isGPR64jjPKN4llvm19MachineRegisterInfoE.exit: ; preds = %120
-  %126 = and i32 %92, 7
-  %127 = getelementptr inbounds nuw i8, ptr %121, i64 8
-  %128 = load ptr, ptr %127, align 8
-  %129 = zext nneg i32 %122 to i64
-  %130 = getelementptr inbounds i8, ptr %128, i64 %129
-  %131 = load i8, ptr %130, align 1
-  %132 = zext i8 %131 to i32
-  %133 = shl nuw nsw i32 1, %126
-  %134 = and i32 %133, %132
-  %.not = icmp eq i32 %134, 0
+_ZL7isGPR64jjPKN4llvm19MachineRegisterInfoE.exit: ; preds = %124
+  %130 = and i32 %96, 7
+  %131 = getelementptr inbounds nuw i8, ptr %125, i64 8
+  %132 = load ptr, ptr %131, align 8
+  %133 = zext nneg i32 %126 to i64
+  %134 = getelementptr inbounds i8, ptr %132, i64 %133
+  %135 = load i8, ptr %134, align 1
+  %136 = zext i8 %135 to i32
+  %137 = shl nuw nsw i32 1, %130
+  %138 = and i32 %137, %136
+  %.not = icmp eq i32 %138, 0
   br i1 %.not, label %.critedge, label %.critedge2
 
-.critedge:                                        ; preds = %120, %117, %_ZL7isFPR64jjPKN4llvm19MachineRegisterInfoE.exit.thread, %54, %.thread23.i, %97, %_ZL7isFPR64jjPKN4llvm19MachineRegisterInfoE.exit, %_ZL7isGPR64jjPKN4llvm19MachineRegisterInfoE.exit
-  %.not.i32 = icmp eq i32 %22, 0
-  br i1 %.not.i32, label %135, label %.critedge2
+.critedge:                                        ; preds = %124, %121, %_ZL7isFPR64jjPKN4llvm19MachineRegisterInfoE.exit.thread, %58, %.thread23.i, %101, %_ZL7isFPR64jjPKN4llvm19MachineRegisterInfoE.exit, %_ZL7isGPR64jjPKN4llvm19MachineRegisterInfoE.exit
+  %.not.i32 = icmp eq i32 %26, 0
+  br i1 %.not.i32, label %139, label %.critedge2
 
-.critedge.thread:                                 ; preds = %46
-  br i1 %45, label %.thread58, label %.critedge2
+.critedge.thread:                                 ; preds = %50
+  br i1 %49, label %.thread58, label %.critedge2
 
-135:                                              ; preds = %.critedge
-  br i1 %23, label %..thread58_crit_edge, label %152
+139:                                              ; preds = %.critedge
+  br i1 %27, label %..thread58_crit_edge, label %156
 
-..thread58_crit_edge:                             ; preds = %135
+..thread58_crit_edge:                             ; preds = %139
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.pre67 = and i32 %19, 2147483647
+  %.pre67 = and i32 %23, 2147483647
   %.pre68 = zext nneg i32 %.pre67 to i64
   br label %.thread58
 
 .thread58:                                        ; preds = %..thread58_crit_edge, %.critedge.thread
-  %.pre-phi69 = phi i64 [ %.pre68, %..thread58_crit_edge ], [ %27, %.critedge.thread ]
-  %136 = phi ptr [ %.pre, %..thread58_crit_edge ], [ %28, %.critedge.thread ]
-  %137 = getelementptr inbounds %"struct.std::pair", ptr %136, i64 %.pre-phi69
-  %.0.copyload.i.i.i.i.i.i.i.i.i36 = load i64, ptr %137, align 8
-  %138 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i36, -8
-  %139 = inttoptr i64 %138 to ptr
-  %140 = load ptr, ptr %139, align 8
-  %141 = getelementptr inbounds nuw i8, ptr %140, i64 24
-  %142 = load i16, ptr %141, align 8
-  %143 = zext i16 %142 to i32
-  %144 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm7AArch6413GPR64RegClassE, i64 8), align 8
-  %145 = lshr i32 %143, 5
-  %146 = zext nneg i32 %145 to i64
-  %147 = getelementptr inbounds i32, ptr %144, i64 %146
-  %148 = load i32, ptr %147, align 4
-  %149 = and i32 %143, 31
-  %150 = shl nuw i32 1, %149
-  %151 = and i32 %150, %148
-  %.not66 = icmp eq i32 %151, 0
-  br i1 %.not66, label %.critedge2, label %170
+  %.pre-phi69 = phi i64 [ %.pre68, %..thread58_crit_edge ], [ %31, %.critedge.thread ]
+  %140 = phi ptr [ %.pre, %..thread58_crit_edge ], [ %32, %.critedge.thread ]
+  %141 = getelementptr inbounds %"struct.std::pair", ptr %140, i64 %.pre-phi69
+  %.0.copyload.i.i.i.i.i.i.i.i.i36 = load i64, ptr %141, align 8
+  %142 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i36, -8
+  %143 = inttoptr i64 %142 to ptr
+  %144 = load ptr, ptr %143, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 24
+  %146 = load i16, ptr %145, align 8
+  %147 = zext i16 %146 to i32
+  %148 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm7AArch6413GPR64RegClassE, i64 8), align 8
+  %149 = lshr i32 %147, 5
+  %150 = zext nneg i32 %149 to i64
+  %151 = getelementptr inbounds i32, ptr %148, i64 %150
+  %152 = load i32, ptr %151, align 4
+  %153 = and i32 %147, 31
+  %154 = shl nuw i32 1, %153
+  %155 = and i32 %154, %152
+  %.not66 = icmp eq i32 %155, 0
+  br i1 %.not66, label %.critedge2, label %174
 
-152:                                              ; preds = %135
-  %153 = add nsw i32 %19, -1
-  %154 = icmp ult i32 %153, 1073741823
-  br i1 %154, label %155, label %.critedge2
+156:                                              ; preds = %139
+  %157 = add nsw i32 %23, -1
+  %158 = icmp ult i32 %157, 1073741823
+  br i1 %158, label %159, label %.critedge2
 
-155:                                              ; preds = %152
-  %156 = load ptr, ptr @_ZN4llvm7AArch6413GPR64RegClassE, align 8
-  %157 = lshr i32 %19, 3
-  %158 = getelementptr inbounds nuw i8, ptr %156, i64 22
-  %159 = load i16, ptr %158, align 2
-  %160 = zext i16 %159 to i32
-  %.not.i.i.i35 = icmp ult i32 %157, %160
+159:                                              ; preds = %156
+  %160 = load ptr, ptr @_ZN4llvm7AArch6413GPR64RegClassE, align 8
+  %161 = lshr i32 %23, 3
+  %162 = getelementptr inbounds nuw i8, ptr %160, i64 22
+  %163 = load i16, ptr %162, align 2
+  %164 = zext i16 %163 to i32
+  %.not.i.i.i35 = icmp ult i32 %161, %164
   br i1 %.not.i.i.i35, label %_ZL7isGPR64jjPKN4llvm19MachineRegisterInfoE.exit37, label %.critedge2
 
-_ZL7isGPR64jjPKN4llvm19MachineRegisterInfoE.exit37: ; preds = %155
-  %161 = and i32 %19, 7
-  %162 = getelementptr inbounds nuw i8, ptr %156, i64 8
-  %163 = load ptr, ptr %162, align 8
-  %164 = zext nneg i32 %157 to i64
-  %165 = getelementptr inbounds i8, ptr %163, i64 %164
-  %166 = load i8, ptr %165, align 1
-  %167 = zext i8 %166 to i32
-  %168 = shl nuw nsw i32 1, %161
-  %169 = and i32 %168, %167
-  %.not65 = icmp eq i32 %169, 0
-  br i1 %.not65, label %.critedge2, label %170
+_ZL7isGPR64jjPKN4llvm19MachineRegisterInfoE.exit37: ; preds = %159
+  %165 = and i32 %23, 7
+  %166 = getelementptr inbounds nuw i8, ptr %160, i64 8
+  %167 = load ptr, ptr %166, align 8
+  %168 = zext nneg i32 %161 to i64
+  %169 = getelementptr inbounds i8, ptr %167, i64 %168
+  %170 = load i8, ptr %169, align 1
+  %171 = zext i8 %170 to i32
+  %172 = shl nuw nsw i32 1, %165
+  %173 = and i32 %172, %171
+  %.not65 = icmp eq i32 %173, 0
+  br i1 %.not65, label %.critedge2, label %174
 
-170:                                              ; preds = %.thread58, %_ZL7isGPR64jjPKN4llvm19MachineRegisterInfoE.exit37
-  %171 = getelementptr inbounds i8, ptr %17, i64 32
-  %172 = getelementptr inbounds i8, ptr %17, i64 36
-  %173 = load i32, ptr %172, align 4
-  %174 = load i32, ptr %171, align 8
-  %175 = lshr i32 %174, 8
-  %176 = and i32 %175, 4095
-  %177 = icmp slt i32 %173, 0
-  br i1 %177, label %178, label %208
+174:                                              ; preds = %.thread58, %_ZL7isGPR64jjPKN4llvm19MachineRegisterInfoE.exit37
+  %175 = getelementptr inbounds i8, ptr %21, i64 32
+  %176 = getelementptr inbounds i8, ptr %21, i64 36
+  %177 = load i32, ptr %176, align 4
+  %178 = load i32, ptr %175, align 8
+  %179 = lshr i32 %178, 8
+  %180 = and i32 %179, 4095
+  %181 = icmp slt i32 %177, 0
+  br i1 %181, label %182, label %212
 
-178:                                              ; preds = %170
-  %179 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %180 = and i32 %173, 2147483647
-  %181 = zext nneg i32 %180 to i64
-  %182 = load ptr, ptr %179, align 8
-  %183 = getelementptr inbounds %"struct.std::pair", ptr %182, i64 %181
-  %.0.copyload.i.i.i.i.i.i.i.i.i46 = load i64, ptr %183, align 8
-  %184 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i46, -8
-  %185 = inttoptr i64 %184 to ptr
-  %186 = load ptr, ptr %185, align 8
-  %187 = getelementptr inbounds nuw i8, ptr %186, i64 24
-  %188 = load i16, ptr %187, align 8
-  %189 = zext i16 %188 to i32
-  %190 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm7AArch6413FPR64RegClassE, i64 8), align 8
-  %191 = lshr i32 %189, 5
-  %192 = zext nneg i32 %191 to i64
-  %193 = getelementptr inbounds i32, ptr %190, i64 %192
-  %194 = load i32, ptr %193, align 4
-  %195 = and i32 %189, 31
-  %196 = shl nuw i32 1, %195
-  %197 = and i32 %196, %194
-  %198 = icmp ne i32 %197, 0
-  %199 = icmp eq i32 %176, 0
-  %or.cond.i47 = and i1 %199, %198
-  br i1 %or.cond.i47, label %_ZL7isFPR64jjPKN4llvm19MachineRegisterInfoE.exit48.thread, label %200
+182:                                              ; preds = %174
+  %183 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %184 = and i32 %177, 2147483647
+  %185 = zext nneg i32 %184 to i64
+  %186 = load ptr, ptr %183, align 8
+  %187 = getelementptr inbounds %"struct.std::pair", ptr %186, i64 %185
+  %.0.copyload.i.i.i.i.i.i.i.i.i46 = load i64, ptr %187, align 8
+  %188 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i46, -8
+  %189 = inttoptr i64 %188 to ptr
+  %190 = load ptr, ptr %189, align 8
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 24
+  %192 = load i16, ptr %191, align 8
+  %193 = zext i16 %192 to i32
+  %194 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm7AArch6413FPR64RegClassE, i64 8), align 8
+  %195 = lshr i32 %193, 5
+  %196 = zext nneg i32 %195 to i64
+  %197 = getelementptr inbounds i32, ptr %194, i64 %196
+  %198 = load i32, ptr %197, align 4
+  %199 = and i32 %193, 31
+  %200 = shl nuw i32 1, %199
+  %201 = and i32 %200, %198
+  %202 = icmp ne i32 %201, 0
+  %203 = icmp eq i32 %180, 0
+  %or.cond.i47 = and i1 %203, %202
+  br i1 %or.cond.i47, label %_ZL7isFPR64jjPKN4llvm19MachineRegisterInfoE.exit48.thread, label %204
 
-200:                                              ; preds = %178
-  %201 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm7AArch6414FPR128RegClassE, i64 8), align 8
-  %202 = getelementptr inbounds i32, ptr %201, i64 %192
-  %203 = load i32, ptr %202, align 4
-  %204 = and i32 %203, %196
-  %205 = icmp ne i32 %204, 0
-  %206 = icmp eq i32 %176, 2
-  %207 = and i1 %206, %205
-  br i1 %207, label %_ZL7isFPR64jjPKN4llvm19MachineRegisterInfoE.exit48.thread, label %.critedge2
+204:                                              ; preds = %182
+  %205 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm7AArch6414FPR128RegClassE, i64 8), align 8
+  %206 = getelementptr inbounds i32, ptr %205, i64 %196
+  %207 = load i32, ptr %206, align 4
+  %208 = and i32 %207, %200
+  %209 = icmp ne i32 %208, 0
+  %210 = icmp eq i32 %180, 2
+  %211 = and i1 %210, %209
+  br i1 %211, label %_ZL7isFPR64jjPKN4llvm19MachineRegisterInfoE.exit48.thread, label %.critedge2
 
-208:                                              ; preds = %170
-  %209 = add nsw i32 %173, -1
-  %210 = icmp ult i32 %209, 1073741823
-  br i1 %210, label %211, label %.critedge2
+212:                                              ; preds = %174
+  %213 = add nsw i32 %177, -1
+  %214 = icmp ult i32 %213, 1073741823
+  br i1 %214, label %215, label %.critedge2
 
-211:                                              ; preds = %208
-  %212 = load ptr, ptr @_ZN4llvm7AArch6413FPR64RegClassE, align 8
-  %213 = lshr i32 %173, 3
-  %214 = getelementptr inbounds nuw i8, ptr %212, i64 22
-  %215 = load i16, ptr %214, align 2
-  %216 = zext i16 %215 to i32
-  %.not.i.i.i41 = icmp ult i32 %213, %216
+215:                                              ; preds = %212
+  %216 = load ptr, ptr @_ZN4llvm7AArch6413FPR64RegClassE, align 8
+  %217 = lshr i32 %177, 3
+  %218 = getelementptr inbounds nuw i8, ptr %216, i64 22
+  %219 = load i16, ptr %218, align 2
+  %220 = zext i16 %219 to i32
+  %.not.i.i.i41 = icmp ult i32 %217, %220
   br i1 %.not.i.i.i41, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i44, label %.thread23.i42
 
-_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i44: ; preds = %211
-  %217 = and i32 %173, 7
-  %218 = getelementptr inbounds nuw i8, ptr %212, i64 8
-  %219 = load ptr, ptr %218, align 8
-  %220 = zext nneg i32 %213 to i64
-  %221 = getelementptr inbounds i8, ptr %219, i64 %220
-  %222 = load i8, ptr %221, align 1
-  %223 = zext i8 %222 to i32
-  %224 = shl nuw nsw i32 1, %217
-  %225 = and i32 %224, %223
-  %226 = icmp ne i32 %225, 0
-  %227 = icmp eq i32 %176, 0
-  %or.cond3.i45 = and i1 %227, %226
+_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i44: ; preds = %215
+  %221 = and i32 %177, 7
+  %222 = getelementptr inbounds nuw i8, ptr %216, i64 8
+  %223 = load ptr, ptr %222, align 8
+  %224 = zext nneg i32 %217 to i64
+  %225 = getelementptr inbounds i8, ptr %223, i64 %224
+  %226 = load i8, ptr %225, align 1
+  %227 = zext i8 %226 to i32
+  %228 = shl nuw nsw i32 1, %221
+  %229 = and i32 %228, %227
+  %230 = icmp ne i32 %229, 0
+  %231 = icmp eq i32 %180, 0
+  %or.cond3.i45 = and i1 %231, %230
   br i1 %or.cond3.i45, label %_ZL7isFPR64jjPKN4llvm19MachineRegisterInfoE.exit48.thread, label %.thread23.i42
 
-.thread23.i42:                                    ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i44, %211
-  %228 = load ptr, ptr @_ZN4llvm7AArch6414FPR128RegClassE, align 8
-  %229 = getelementptr inbounds nuw i8, ptr %228, i64 22
-  %230 = load i16, ptr %229, align 2
-  %231 = zext i16 %230 to i32
-  %.not.i.i16.i43 = icmp ult i32 %213, %231
+.thread23.i42:                                    ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i44, %215
+  %232 = load ptr, ptr @_ZN4llvm7AArch6414FPR128RegClassE, align 8
+  %233 = getelementptr inbounds nuw i8, ptr %232, i64 22
+  %234 = load i16, ptr %233, align 2
+  %235 = zext i16 %234 to i32
+  %.not.i.i16.i43 = icmp ult i32 %217, %235
   br i1 %.not.i.i16.i43, label %_ZL7isFPR64jjPKN4llvm19MachineRegisterInfoE.exit48, label %.critedge2
 
 _ZL7isFPR64jjPKN4llvm19MachineRegisterInfoE.exit48: ; preds = %.thread23.i42
-  %232 = and i32 %173, 7
-  %233 = getelementptr inbounds nuw i8, ptr %228, i64 8
-  %234 = load ptr, ptr %233, align 8
-  %235 = zext nneg i32 %213 to i64
-  %236 = getelementptr inbounds i8, ptr %234, i64 %235
-  %237 = load i8, ptr %236, align 1
-  %238 = zext i8 %237 to i32
-  %239 = shl nuw nsw i32 1, %232
-  %240 = and i32 %239, %238
-  %241 = icmp ne i32 %240, 0
-  %242 = icmp eq i32 %176, 2
-  %243 = and i1 %242, %241
-  br i1 %243, label %_ZL7isFPR64jjPKN4llvm19MachineRegisterInfoE.exit48.thread, label %.critedge2
+  %236 = and i32 %177, 7
+  %237 = getelementptr inbounds nuw i8, ptr %232, i64 8
+  %238 = load ptr, ptr %237, align 8
+  %239 = zext nneg i32 %217 to i64
+  %240 = getelementptr inbounds i8, ptr %238, i64 %239
+  %241 = load i8, ptr %240, align 1
+  %242 = zext i8 %241 to i32
+  %243 = shl nuw nsw i32 1, %236
+  %244 = and i32 %243, %242
+  %245 = icmp ne i32 %244, 0
+  %246 = icmp eq i32 %180, 2
+  %247 = and i1 %246, %245
+  br i1 %247, label %_ZL7isFPR64jjPKN4llvm19MachineRegisterInfoE.exit48.thread, label %.critedge2
 
-_ZL7isFPR64jjPKN4llvm19MachineRegisterInfoE.exit48.thread: ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i44, %178, %200, %_ZL7isFPR64jjPKN4llvm19MachineRegisterInfoE.exit48
-  store i32 %176, ptr %2, align 4
-  br label %.critedge2.sink.split
-
-.critedge2.sink.split:                            ; preds = %6, %14, %_ZL7isFPR64jjPKN4llvm19MachineRegisterInfoE.exit48.thread
-  %.sink70 = phi ptr [ %16, %_ZL7isFPR64jjPKN4llvm19MachineRegisterInfoE.exit48.thread ], [ %9, %14 ], [ %7, %6 ]
-  %244 = load ptr, ptr %.sink70, align 8
-  %245 = getelementptr inbounds i8, ptr %244, i64 32
+_ZL7isFPR64jjPKN4llvm19MachineRegisterInfoE.exit48.thread: ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i44, %182, %204, %_ZL7isFPR64jjPKN4llvm19MachineRegisterInfoE.exit48
+  store i32 %180, ptr %2, align 4
+  %248 = load ptr, ptr %20, align 8
+  %249 = getelementptr inbounds i8, ptr %248, i64 32
   br label %.critedge2
 
-.critedge2:                                       ; preds = %.critedge2.sink.split, %3, %208, %.thread23.i42, %.critedge.thread, %155, %152, %.critedge, %8, %200, %.thread58, %_ZL7isGPR64jjPKN4llvm19MachineRegisterInfoE.exit, %97, %_ZL7isGPR64jjPKN4llvm19MachineRegisterInfoE.exit37, %_ZL7isFPR64jjPKN4llvm19MachineRegisterInfoE.exit48
-  %.0 = phi ptr [ null, %_ZL7isFPR64jjPKN4llvm19MachineRegisterInfoE.exit48 ], [ null, %_ZL7isGPR64jjPKN4llvm19MachineRegisterInfoE.exit37 ], [ %90, %97 ], [ %90, %_ZL7isGPR64jjPKN4llvm19MachineRegisterInfoE.exit ], [ null, %.thread58 ], [ null, %200 ], [ null, %8 ], [ null, %.critedge ], [ null, %152 ], [ null, %155 ], [ null, %.critedge.thread ], [ null, %.thread23.i42 ], [ null, %208 ], [ null, %3 ], [ %245, %.critedge2.sink.split ]
+.critedge2:                                       ; preds = %3, %212, %.thread23.i42, %.critedge.thread, %159, %156, %.critedge, %10, %204, %.thread58, %_ZL7isGPR64jjPKN4llvm19MachineRegisterInfoE.exit, %101, %_ZL7isGPR64jjPKN4llvm19MachineRegisterInfoE.exit37, %_ZL7isFPR64jjPKN4llvm19MachineRegisterInfoE.exit48, %_ZL7isFPR64jjPKN4llvm19MachineRegisterInfoE.exit48.thread, %16, %6
+  %.0 = phi ptr [ %9, %6 ], [ %18, %16 ], [ %249, %_ZL7isFPR64jjPKN4llvm19MachineRegisterInfoE.exit48.thread ], [ null, %_ZL7isFPR64jjPKN4llvm19MachineRegisterInfoE.exit48 ], [ null, %_ZL7isGPR64jjPKN4llvm19MachineRegisterInfoE.exit37 ], [ %94, %101 ], [ %94, %_ZL7isGPR64jjPKN4llvm19MachineRegisterInfoE.exit ], [ null, %.thread58 ], [ null, %204 ], [ null, %10 ], [ null, %.critedge ], [ null, %156 ], [ null, %159 ], [ null, %.critedge.thread ], [ null, %.thread23.i42 ], [ null, %212 ], [ null, %3 ]
   ret ptr %.0
 }
 

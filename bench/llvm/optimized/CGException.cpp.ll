@@ -3651,6 +3651,7 @@ define dso_local noundef ptr @_ZN5clang7CodeGen15CodeGenFunction25getFuncletEHDi
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 33
   store i8 1, ptr %53, align 1
   store ptr @.str.30, ptr %5, align 8
+  store i8 3, ptr %52, align 8
   br label %.sink.split
 
 54:                                               ; preds = %30
@@ -3658,6 +3659,7 @@ define dso_local noundef ptr @_ZN5clang7CodeGen15CodeGenFunction25getFuncletEHDi
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 33
   store i8 1, ptr %56, align 1
   store ptr @.str.31, ptr %6, align 8
+  store i8 3, ptr %55, align 8
   br label %.sink.split
 
 57:                                               ; preds = %30
@@ -3665,12 +3667,11 @@ define dso_local noundef ptr @_ZN5clang7CodeGen15CodeGenFunction25getFuncletEHDi
   %59 = getelementptr inbounds nuw i8, ptr %7, i64 33
   store i8 1, ptr %59, align 1
   store ptr @.str.34, ptr %7, align 8
+  store i8 3, ptr %58, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %51, %54, %57
-  %.sink20 = phi ptr [ %58, %57 ], [ %55, %54 ], [ %52, %51 ]
   %.sink = phi ptr [ %7, %57 ], [ %6, %54 ], [ %5, %51 ]
-  store i8 3, ptr %.sink20, align 8
   call void @_ZN4llvm5Value7setNameERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(24) %.0, ptr noundef nonnull align 8 dereferenceable(34) %.sink) #18
   br label %60
 

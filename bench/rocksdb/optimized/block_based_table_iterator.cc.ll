@@ -3129,6 +3129,7 @@ if.then4:                                         ; preds = %if.end
   %first_internal_key_ = getelementptr inbounds i8, ptr %4, i64 56
   %first_internal_key.sroa.0.0.copyload = load ptr, ptr %first_internal_key_, align 8
   %first_internal_key.sroa.5.0.first_internal_key_.sroa_idx = getelementptr inbounds i8, ptr %4, i64 64
+  %first_internal_key.sroa.5.0.copyload = load i64, ptr %first_internal_key.sroa.5.0.first_internal_key_.sroa_idx, align 8
   br label %if.end9
 
 if.else:                                          ; preds = %if.end
@@ -3141,12 +3142,12 @@ if.else:                                          ; preds = %if.end
   %first_internal_key8 = getelementptr inbounds i8, ptr %ref.tmp6, i64 16
   %first_internal_key.sroa.0.0.copyload21 = load ptr, ptr %first_internal_key8, align 8
   %first_internal_key.sroa.5.0.first_internal_key8.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp6, i64 24
+  %first_internal_key.sroa.5.0.copyload22 = load i64, ptr %first_internal_key.sroa.5.0.first_internal_key8.sroa_idx, align 8
   br label %if.end9
 
 if.end9:                                          ; preds = %if.else, %if.then4
-  %first_internal_key.sroa.5.0.first_internal_key8.sroa_idx.sink = phi ptr [ %first_internal_key.sroa.5.0.first_internal_key8.sroa_idx, %if.else ], [ %first_internal_key.sroa.5.0.first_internal_key_.sroa_idx, %if.then4 ]
-  %first_internal_key.sroa.0.0 = phi ptr [ %first_internal_key.sroa.0.0.copyload21, %if.else ], [ %first_internal_key.sroa.0.0.copyload, %if.then4 ]
-  %first_internal_key.sroa.5.0.copyload22 = load i64, ptr %first_internal_key.sroa.5.0.first_internal_key8.sroa_idx.sink, align 8
+  %first_internal_key.sroa.0.0 = phi ptr [ %first_internal_key.sroa.0.0.copyload, %if.then4 ], [ %first_internal_key.sroa.0.0.copyload21, %if.else ]
+  %first_internal_key.sroa.5.0 = phi i64 [ %first_internal_key.sroa.5.0.copyload, %if.then4 ], [ %first_internal_key.sroa.5.0.copyload22, %if.else ]
   %current_.i = getelementptr inbounds i8, ptr %this, i64 156
   %7 = load i32, ptr %current_.i, align 4
   %restarts_.i = getelementptr inbounds i8, ptr %this, i64 152
@@ -3168,7 +3169,7 @@ lor.rhs:                                          ; preds = %if.end9
   store ptr %retval.sroa.0.0.copyload.i, ptr %ref.tmp.i, align 8
   %10 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i64 %sub.i.i, ptr %10, align 8
-  %sub.i9.i = add i64 %first_internal_key.sroa.5.0.copyload22, -8
+  %sub.i9.i = add i64 %first_internal_key.sroa.5.0, -8
   store ptr %first_internal_key.sroa.0.0, ptr %ref.tmp2.i, align 8
   %11 = getelementptr inbounds i8, ptr %ref.tmp2.i, i64 8
   store i64 %sub.i9.i, ptr %11, align 8
@@ -3214,7 +3215,7 @@ if.then.i:                                        ; preds = %_ZNK7rocksdb21UserC
   %add.ptr.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload.i, i64 %retval.sroa.2.0.copyload.i
   %add.ptr7.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -8
   %result.0.copyload.i.i = load i64, ptr %add.ptr7.i, align 1
-  %add.ptr11.i = getelementptr inbounds i8, ptr %first_internal_key.sroa.0.0, i64 %first_internal_key.sroa.5.0.copyload22
+  %add.ptr11.i = getelementptr inbounds i8, ptr %first_internal_key.sroa.0.0, i64 %first_internal_key.sroa.5.0
   %add.ptr12.i = getelementptr inbounds i8, ptr %add.ptr11.i, i64 -8
   %result.0.copyload.i13.i = load i64, ptr %add.ptr12.i, align 1
   %cmp14.i = icmp ugt i64 %result.0.copyload.i.i, %result.0.copyload.i13.i
@@ -6324,20 +6325,21 @@ if.then:                                          ; preds = %entry
   %first_internal_key = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %retval.sroa.0.0.copyload = load ptr, ptr %first_internal_key, align 8
   %retval.sroa.3.0.first_internal_key.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 24
+  %retval.sroa.3.0.copyload = load i64, ptr %retval.sroa.3.0.first_internal_key.sroa_idx, align 8
   br label %return
 
 if.else:                                          ; preds = %entry
   %key_.i = getelementptr inbounds i8, ptr %this, i64 336
   %retval.sroa.0.0.copyload.i = load ptr, ptr %key_.i, align 8
   %retval.sroa.2.0.key_.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 344
+  %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.key_.sroa_idx.i, align 8
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
-  %retval.sroa.2.0.key_.sroa_idx.i.sink = phi ptr [ %retval.sroa.2.0.key_.sroa_idx.i, %if.else ], [ %retval.sroa.3.0.first_internal_key.sroa_idx, %if.then ]
-  %retval.sroa.0.0 = phi ptr [ %retval.sroa.0.0.copyload.i, %if.else ], [ %retval.sroa.0.0.copyload, %if.then ]
-  %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.key_.sroa_idx.i.sink, align 8
+  %retval.sroa.0.0 = phi ptr [ %retval.sroa.0.0.copyload, %if.then ], [ %retval.sroa.0.0.copyload.i, %if.else ]
+  %retval.sroa.3.0 = phi i64 [ %retval.sroa.3.0.copyload, %if.then ], [ %retval.sroa.2.0.copyload.i, %if.else ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.2.0.copyload.i, 1
+  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.3.0, 1
   ret { ptr, i64 } %.fca.1.insert
 }
 

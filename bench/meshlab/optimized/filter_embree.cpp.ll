@@ -7182,7 +7182,7 @@ define internal void @_ZN3vcg13EmbreeAdaptorI6CMeshOE17computeObscuranceERS1_St6
   %15 = load i32, ptr %14, align 8
   %16 = icmp sgt i32 %15, 0
   %.pre70 = load i32, ptr %0, align 4
-  br i1 %16, label %17, label %139
+  br i1 %16, label %17, label %141
 
 17:                                               ; preds = %6
   %18 = add nsw i32 %15, -1
@@ -7223,9 +7223,9 @@ define internal void @_ZN3vcg13EmbreeAdaptorI6CMeshOE17computeObscuranceERS1_St6
   br label %41
 
 41:                                               ; preds = %.lr.ph61, %._crit_edge
-  %42 = phi i32 [ %20, %.lr.ph61 ], [ %135, %._crit_edge ]
-  %43 = phi ptr [ %.pre68, %.lr.ph61 ], [ %136, %._crit_edge ]
-  %44 = phi ptr [ %.pre, %.lr.ph61 ], [ %137, %._crit_edge ]
+  %42 = phi i32 [ %20, %.lr.ph61 ], [ %137, %._crit_edge ]
+  %43 = phi ptr [ %.pre68, %.lr.ph61 ], [ %138, %._crit_edge ]
+  %44 = phi ptr [ %.pre, %.lr.ph61 ], [ %139, %._crit_edge ]
   %indvars.iv65 = phi i64 [ %39, %.lr.ph61 ], [ %indvars.iv.next66, %._crit_edge ]
   store i32 -1, ptr %22, align 4, !alias.scope !74
   store i32 0, ptr %23, align 4, !alias.scope !74
@@ -7273,9 +7273,9 @@ define internal void @_ZN3vcg13EmbreeAdaptorI6CMeshOE17computeObscuranceERS1_St6
   %.not63 = icmp eq ptr %44, %43
   br i1 %.not63, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %41, %127
-  %indvars.iv = phi i64 [ %indvars.iv.next, %127 ], [ 0, %41 ]
-  %80 = phi ptr [ %129, %127 ], [ %43, %41 ]
+.lr.ph:                                           ; preds = %41, %129
+  %indvars.iv = phi i64 [ %indvars.iv.next, %129 ], [ 0, %41 ]
+  %80 = phi ptr [ %131, %129 ], [ %43, %41 ]
   %81 = getelementptr inbounds %"class.vcg::Point3", ptr %80, i64 %indvars.iv
   %.sroa.0.0.copyload = load <2 x float>, ptr %81, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %81, i64 8
@@ -7293,7 +7293,7 @@ define internal void @_ZN3vcg13EmbreeAdaptorI6CMeshOE17computeObscuranceERS1_St6
   %90 = load float, ptr %89, align 4
   %91 = call noundef float @llvm.fmuladd.f32(float %90, float %.sroa.4.0.copyload, float %88)
   %92 = fcmp ogt float %91, 0.000000e+00
-  br i1 %92, label %.critedge, label %127
+  br i1 %92, label %.critedge, label %129
 
 .critedge:                                        ; preds = %.lr.ph
   store float %.sroa.0.0.vec.extract, ptr %31, align 16
@@ -7309,12 +7309,12 @@ define internal void @_ZN3vcg13EmbreeAdaptorI6CMeshOE17computeObscuranceERS1_St6
   store ptr %12, ptr %37, align 8
   %93 = load ptr, ptr %38, align 8
   invoke void @rtcIntersect1(ptr noundef %93, ptr noundef nonnull %11, ptr noundef nonnull %13)
-          to label %94 unwind label %140
+          to label %94 unwind label %142
 
 94:                                               ; preds = %.critedge
   %95 = load i32, ptr %24, align 8
   %96 = icmp eq i32 %95, -1
-  br i1 %96, label %97, label %109
+  br i1 %96, label %97, label %111
 
 97:                                               ; preds = %94
   %98 = load ptr, ptr %26, align 8
@@ -7328,71 +7328,69 @@ define internal void @_ZN3vcg13EmbreeAdaptorI6CMeshOE17computeObscuranceERS1_St6
   %106 = load ptr, ptr %101, align 8
   %107 = sdiv exact i64 %105, 12
   %108 = getelementptr inbounds i8, ptr %106, i64 %107
-  br label %.sink.split
+  %109 = load float, ptr %108, align 4
+  %110 = fadd float %91, %109
+  store float %110, ptr %108, align 4
+  br label %129
 
-109:                                              ; preds = %94
-  %110 = load float, ptr %34, align 16
-  %111 = load float, ptr %5, align 4
-  %112 = call float @powf(float noundef %110, float noundef %111) #22
-  %113 = load ptr, ptr %26, align 8
-  %114 = getelementptr inbounds %class.CFaceO, ptr %113, i64 %indvars.iv65
-  %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 120
-  %117 = load ptr, ptr %115, align 8
-  %118 = ptrtoint ptr %114 to i64
-  %119 = ptrtoint ptr %117 to i64
-  %120 = sub i64 %118, %119
-  %121 = load ptr, ptr %116, align 8
-  %122 = sdiv exact i64 %120, 12
-  %123 = getelementptr inbounds i8, ptr %121, i64 %122
-  %124 = fsub float 1.000000e+00, %112
-  br label %.sink.split
+111:                                              ; preds = %94
+  %112 = load float, ptr %34, align 16
+  %113 = load float, ptr %5, align 4
+  %114 = call float @powf(float noundef %112, float noundef %113) #22
+  %115 = load ptr, ptr %26, align 8
+  %116 = getelementptr inbounds %class.CFaceO, ptr %115, i64 %indvars.iv65
+  %117 = load ptr, ptr %116, align 8
+  %118 = getelementptr inbounds i8, ptr %117, i64 120
+  %119 = load ptr, ptr %117, align 8
+  %120 = ptrtoint ptr %116 to i64
+  %121 = ptrtoint ptr %119 to i64
+  %122 = sub i64 %120, %121
+  %123 = load ptr, ptr %118, align 8
+  %124 = sdiv exact i64 %122, 12
+  %125 = getelementptr inbounds i8, ptr %123, i64 %124
+  %126 = fsub float 1.000000e+00, %114
+  %127 = load float, ptr %125, align 4
+  %128 = fadd float %126, %127
+  store float %128, ptr %125, align 4
+  br label %129
 
-.sink.split:                                      ; preds = %97, %109
-  %.sink = phi ptr [ %123, %109 ], [ %108, %97 ]
-  %.sink73 = phi float [ %124, %109 ], [ %91, %97 ]
-  %125 = load float, ptr %.sink, align 4
-  %126 = fadd float %.sink73, %125
-  store float %126, ptr %.sink, align 4
-  br label %127
-
-127:                                              ; preds = %.sink.split, %.lr.ph
+129:                                              ; preds = %.lr.ph, %111, %97
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %128 = load ptr, ptr %30, align 8
-  %129 = load ptr, ptr %4, align 8
-  %130 = ptrtoint ptr %128 to i64
-  %131 = ptrtoint ptr %129 to i64
-  %132 = sub i64 %130, %131
-  %133 = sdiv exact i64 %132, 12
-  %134 = icmp ugt i64 %133, %indvars.iv.next
-  br i1 %134, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !77
+  %130 = load ptr, ptr %30, align 8
+  %131 = load ptr, ptr %4, align 8
+  %132 = ptrtoint ptr %130 to i64
+  %133 = ptrtoint ptr %131 to i64
+  %134 = sub i64 %132, %133
+  %135 = sdiv exact i64 %134, 12
+  %136 = icmp ugt i64 %135, %indvars.iv.next
+  br i1 %136, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !77
 
-._crit_edge.loopexit:                             ; preds = %127
+._crit_edge.loopexit:                             ; preds = %129
   %.pre69 = load i32, ptr %8, align 4
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %41
-  %135 = phi i32 [ %.pre69, %._crit_edge.loopexit ], [ %42, %41 ]
-  %136 = phi ptr [ %129, %._crit_edge.loopexit ], [ %43, %41 ]
-  %137 = phi ptr [ %128, %._crit_edge.loopexit ], [ %43, %41 ]
+  %137 = phi i32 [ %.pre69, %._crit_edge.loopexit ], [ %42, %41 ]
+  %138 = phi ptr [ %131, %._crit_edge.loopexit ], [ %43, %41 ]
+  %139 = phi ptr [ %130, %._crit_edge.loopexit ], [ %43, %41 ]
   %indvars.iv.next66 = add nsw i64 %indvars.iv65, 1
-  %138 = sext i32 %135 to i64
-  %.not.not = icmp slt i64 %indvars.iv65, %138
+  %140 = sext i32 %137 to i64
+  %.not.not = icmp slt i64 %indvars.iv65, %140
   br i1 %.not.not, label %41, label %._crit_edge62
 
 ._crit_edge62:                                    ; preds = %._crit_edge, %17
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre70)
-  br label %139
+  br label %141
 
-139:                                              ; preds = %._crit_edge62, %6
+141:                                              ; preds = %._crit_edge62, %6
   call void @__kmpc_barrier(ptr nonnull @2, i32 %.pre70)
   ret void
 
-140:                                              ; preds = %.critedge
-  %141 = landingpad { ptr, i32 }
+142:                                              ; preds = %.critedge
+  %143 = landingpad { ptr, i32 }
           catch ptr null
-  %142 = extractvalue { ptr, i32 } %141, 0
-  call void @__clang_call_terminate(ptr %142) #29
+  %144 = extractvalue { ptr, i32 } %143, 0
+  call void @__clang_call_terminate(ptr %144) #29
   unreachable
 }
 

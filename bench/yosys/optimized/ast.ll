@@ -6869,8 +6869,8 @@ define noundef nonnull ptr @_ZN5Yosys3AST7AstNode12mkconst_bitsERKSt6vectorINS_5
   %exitcond.not = icmp eq i64 %27, 32
   br i1 %exitcond.not, label %.split28.us, label %.split.us, !llvm.loop !26
 
-.split:                                           ; preds = %.split.preheader, %41
-  %.026 = phi i64 [ %42, %41 ], [ 0, %.split.preheader ]
+.split:                                           ; preds = %.split.preheader, %40
+  %.026 = phi i64 [ %41, %40 ], [ 0, %.split.preheader ]
   %28 = icmp ult i64 %.026, %14
   br i1 %28, label %29, label %33
 
@@ -6885,37 +6885,37 @@ define noundef nonnull ptr @_ZN5Yosys3AST7AstNode12mkconst_bitsERKSt6vectorINS_5
   resume { ptr, i32 } %32
 
 33:                                               ; preds = %.split
-  br i1 %.not, label %41, label %.sink.split
+  br i1 %.not, label %40, label %.sink.split
 
 .sink.split:                                      ; preds = %33, %29
-  %.sink42 = phi ptr [ %30, %29 ], [ %15, %33 ]
-  %34 = load i8, ptr %.sink42, align 1
-  %35 = icmp eq i8 %34, 1
-  %36 = zext i1 %35 to i32
-  %37 = trunc nuw nsw i64 %.026 to i32
-  %38 = shl nuw i32 %36, %37
-  %39 = load i32, ptr %11, align 4
-  %40 = or i32 %38, %39
-  store i32 %40, ptr %11, align 4
-  br label %41
+  %.sink.in = phi ptr [ %30, %29 ], [ %15, %33 ]
+  %.sink = load i8, ptr %.sink.in, align 1
+  %34 = icmp eq i8 %.sink, 1
+  %35 = zext i1 %34 to i32
+  %36 = trunc nuw nsw i64 %.026 to i32
+  %37 = shl nuw i32 %35, %36
+  %38 = load i32, ptr %11, align 4
+  %39 = or i32 %37, %38
+  store i32 %39, ptr %11, align 4
+  br label %40
 
-41:                                               ; preds = %.sink.split, %33
-  %42 = add nuw nsw i64 %.026, 1
-  %exitcond30.not = icmp eq i64 %42, 32
+40:                                               ; preds = %.sink.split, %33
+  %41 = add nuw nsw i64 %.026, 1
+  %exitcond30.not = icmp eq i64 %41, 32
   br i1 %exitcond30.not, label %.split28.us, label %.split, !llvm.loop !26
 
-.split28.us:                                      ; preds = %26, %41
-  %43 = zext i1 %2 to i8
-  %44 = getelementptr inbounds i8, ptr %4, i64 144
-  store i8 1, ptr %44, align 8
-  %45 = trunc i64 %14 to i32
-  %46 = add i32 %45, -1
-  %47 = getelementptr inbounds i8, ptr %4, i64 156
-  store i32 %46, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %4, i64 160
-  store i32 0, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %4, i64 147
-  store i8 %43, ptr %49, align 1
+.split28.us:                                      ; preds = %26, %40
+  %42 = zext i1 %2 to i8
+  %43 = getelementptr inbounds i8, ptr %4, i64 144
+  store i8 1, ptr %43, align 8
+  %44 = trunc i64 %14 to i32
+  %45 = add i32 %44, -1
+  %46 = getelementptr inbounds i8, ptr %4, i64 156
+  store i32 %45, ptr %46, align 4
+  %47 = getelementptr inbounds i8, ptr %4, i64 160
+  store i32 0, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %4, i64 147
+  store i8 %42, ptr %48, align 1
   ret ptr %4
 }
 
@@ -25166,22 +25166,18 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
-  br label %.sink.split
+  store ptr %.031, ptr %24, align 8
+  br label %28
 
 25:                                               ; preds = %.lr.ph
   %26 = load ptr, ptr %19, align 8
   store ptr %26, ptr %.031, align 8
   %27 = load ptr, ptr %18, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %25, %23
-  %.sink = phi ptr [ %24, %23 ], [ %27, %25 ]
-  %.1.ph = phi i64 [ %17, %23 ], [ %.02530, %25 ]
-  store ptr %.031, ptr %.sink, align 8
+  store ptr %.031, ptr %27, align 8
   br label %28
 
-28:                                               ; preds = %.sink.split, %20
-  %.1 = phi i64 [ %17, %20 ], [ %.1.ph, %.sink.split ]
+28:                                               ; preds = %20, %23, %25
+  %.1 = phi i64 [ %.02530, %25 ], [ %17, %23 ], [ %17, %20 ]
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !153
 

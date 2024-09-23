@@ -502,19 +502,16 @@ if.then11.i:                                      ; preds = %if.end8.i
 if.then16.i:                                      ; preds = %if.then11.i
   %sub.i = sub i32 0, %call13.i
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.44, i32 noundef %sub.i) #11
-  br label %if.end20.sink.split.i
+  store i8 0, ptr %vhost_started.i, align 8
+  br label %virtio_crypto_vhost_status.exit
 
 if.else.i:                                        ; preds = %if.end8.i, %virtio_crypto_started.exit.thr_comm.i
   %vhost_started1620.i = phi ptr [ %vhost_started.i, %if.end8.i ], [ %vhost_started14.i, %virtio_crypto_started.exit.thr_comm.i ]
   tail call void @cryptodev_vhost_stop(ptr noundef %call.i.i, i32 noundef %cond.i) #11
-  br label %if.end20.sink.split.i
-
-if.end20.sink.split.i:                            ; preds = %if.else.i, %if.then16.i
-  %vhost_started.sink.i = phi ptr [ %vhost_started.i, %if.then16.i ], [ %vhost_started1620.i, %if.else.i ]
-  store i8 0, ptr %vhost_started.sink.i, align 8
+  store i8 0, ptr %vhost_started1620.i, align 8
   br label %virtio_crypto_vhost_status.exit
 
-virtio_crypto_vhost_status.exit:                  ; preds = %cond.end.i, %virtio_crypto_started.exit.thr_comm.i, %virtio_crypto_started.exit.i, %if.then11.i, %if.end20.sink.split.i
+virtio_crypto_vhost_status.exit:                  ; preds = %cond.end.i, %virtio_crypto_started.exit.thr_comm.i, %virtio_crypto_started.exit.i, %if.then11.i, %if.then16.i, %if.else.i
   ret void
 }
 

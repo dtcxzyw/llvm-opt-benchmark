@@ -1657,7 +1657,10 @@ for.body20.preheader:                             ; preds = %for.cond16.preheade
   %38 = icmp eq i64 %count, 1
   %unroll_iter = and i64 %count, -2
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
-  %arrayidx7.us.i.epil.sink194 = getelementptr inbounds i64, ptr %entry_sizes, i64 %unroll_iter
+  %arrayidx7.us.i.epil = getelementptr inbounds i64, ptr %entry_sizes, i64 %unroll_iter
+  %arrayidx7.us.us53.i.epil = getelementptr inbounds i64, ptr %entry_sizes, i64 %unroll_iter
+  %arrayidx7.us.us.i.epil = getelementptr inbounds i64, ptr %entry_sizes, i64 %unroll_iter
+  %arrayidx7.us.us.us.i.epil = getelementptr inbounds i64, ptr %entry_sizes, i64 %unroll_iter
   br label %for.body20
 
 for.cond.cleanup19:                               ; preds = %for.inc55, %for.cond16.preheader
@@ -2114,61 +2117,81 @@ for.body.us.us.us.i.epil:                         ; preds = %for.body.us.us.us.i
   %arrayidx.us.us.us.i.epil = getelementptr inbounds %"struct.duckdb::string_t", ptr %44, i64 %unroll_iter
   %93 = load i32, ptr %arrayidx.us.us.us.i.epil, align 8, !tbaa !41
   %cmp.i.us.us.us.i.epil = icmp ult i32 %93, 13
-  br i1 %cmp.i.us.us.us.i.epil, label %for.inc55, label %for.inc55.sink.split
+  br i1 %cmp.i.us.us.us.i.epil, label %for.inc55, label %if.then.us.us.us.i.epil
+
+if.then.us.us.us.i.epil:                          ; preds = %for.body.us.us.us.i.epil
+  %conv.i23.us.us.us.i.epil = zext i32 %93 to i64
+  %94 = load i64, ptr %arrayidx7.us.us.us.i.epil, align 16, !tbaa !38
+  %add8.us.us.us.i.epil = add i64 %94, %conv.i23.us.us.us.i.epil
+  store i64 %add8.us.us.us.i.epil, ptr %arrayidx7.us.us.us.i.epil, align 16, !tbaa !38
+  br label %for.inc55
 
 for.inc55.loopexit1324.unr-lcssa:                 ; preds = %if.end.us.us.i.1
   br i1 %lcmp.mod.not, label %for.inc55, label %for.body.us.us.i.epil
 
 for.body.us.us.i.epil:                            ; preds = %for.body.us.us.i.preheader, %for.inc55.loopexit1324.unr-lcssa
   %arrayidx.i18.us.us.i.epil = getelementptr inbounds i32, ptr %46, i64 %unroll_iter
-  %94 = load i32, ptr %arrayidx.i18.us.us.i.epil, align 4, !tbaa !30
-  %conv.i19.us.us.i.epil = zext i32 %94 to i64
+  %95 = load i32, ptr %arrayidx.i18.us.us.i.epil, align 4, !tbaa !30
+  %conv.i19.us.us.i.epil = zext i32 %95 to i64
   %arrayidx.us.us.i.epil = getelementptr inbounds %"struct.duckdb::string_t", ptr %44, i64 %conv.i19.us.us.i.epil
-  %95 = load i32, ptr %arrayidx.us.us.i.epil, align 8, !tbaa !41
-  %cmp.i.us.us.i.epil = icmp ult i32 %95, 13
-  br i1 %cmp.i.us.us.i.epil, label %for.inc55, label %for.inc55.sink.split
+  %96 = load i32, ptr %arrayidx.us.us.i.epil, align 8, !tbaa !41
+  %cmp.i.us.us.i.epil = icmp ult i32 %96, 13
+  br i1 %cmp.i.us.us.i.epil, label %for.inc55, label %if.then.us.us.i.epil
+
+if.then.us.us.i.epil:                             ; preds = %for.body.us.us.i.epil
+  %conv.i23.us.us.i.epil = zext i32 %96 to i64
+  %97 = load i64, ptr %arrayidx7.us.us.i.epil, align 16, !tbaa !38
+  %add8.us.us.i.epil = add i64 %97, %conv.i23.us.us.i.epil
+  store i64 %add8.us.us.i.epil, ptr %arrayidx7.us.us.i.epil, align 16, !tbaa !38
+  br label %for.inc55
 
 for.inc55.loopexit1325.unr-lcssa:                 ; preds = %if.end.us.us55.i.1
   br i1 %lcmp.mod.not, label %for.inc55, label %for.body.us.us45.i.epil
 
 for.body.us.us45.i.epil:                          ; preds = %for.body.us.us45.i.preheader, %for.inc55.loopexit1325.unr-lcssa
   %arrayidx.i.us.us.i.epil = getelementptr inbounds i32, ptr %sel.val, i64 %unroll_iter
-  %96 = load i32, ptr %arrayidx.i.us.us.i.epil, align 4, !tbaa !30
-  %conv.i.us.us.i.epil = zext i32 %96 to i64
+  %98 = load i32, ptr %arrayidx.i.us.us.i.epil, align 4, !tbaa !30
+  %conv.i.us.us.i.epil = zext i32 %98 to i64
   %arrayidx.us.us49.i.epil = getelementptr inbounds %"struct.duckdb::string_t", ptr %44, i64 %conv.i.us.us.i.epil
-  %97 = load i32, ptr %arrayidx.us.us49.i.epil, align 8, !tbaa !41
-  %cmp.i.us.us50.i.epil = icmp ult i32 %97, 13
-  br i1 %cmp.i.us.us50.i.epil, label %for.inc55, label %for.inc55.sink.split
+  %99 = load i32, ptr %arrayidx.us.us49.i.epil, align 8, !tbaa !41
+  %cmp.i.us.us50.i.epil = icmp ult i32 %99, 13
+  br i1 %cmp.i.us.us50.i.epil, label %for.inc55, label %if.then.us.us51.i.epil
+
+if.then.us.us51.i.epil:                           ; preds = %for.body.us.us45.i.epil
+  %conv.i23.us.us52.i.epil = zext i32 %99 to i64
+  %100 = load i64, ptr %arrayidx7.us.us53.i.epil, align 16, !tbaa !38
+  %add8.us.us54.i.epil = add i64 %100, %conv.i23.us.us52.i.epil
+  store i64 %add8.us.us54.i.epil, ptr %arrayidx7.us.us53.i.epil, align 16, !tbaa !38
+  br label %for.inc55
 
 for.inc55.loopexit1326.unr-lcssa:                 ; preds = %if.end.us.i.1
   br i1 %lcmp.mod.not, label %for.inc55, label %for.body.us.i.epil
 
 for.body.us.i.epil:                               ; preds = %for.body.us.i.preheader, %for.inc55.loopexit1326.unr-lcssa
   %arrayidx.i.us.i.epil = getelementptr inbounds i32, ptr %sel.val, i64 %unroll_iter
-  %98 = load i32, ptr %arrayidx.i.us.i.epil, align 4, !tbaa !30
-  %conv.i.us.i.epil = zext i32 %98 to i64
+  %101 = load i32, ptr %arrayidx.i.us.i.epil, align 4, !tbaa !30
+  %conv.i.us.i.epil = zext i32 %101 to i64
   %arrayidx.i18.us.i.epil = getelementptr inbounds i32, ptr %46, i64 %conv.i.us.i.epil
-  %99 = load i32, ptr %arrayidx.i18.us.i.epil, align 4, !tbaa !30
-  %conv.i19.us.i.epil = zext i32 %99 to i64
+  %102 = load i32, ptr %arrayidx.i18.us.i.epil, align 4, !tbaa !30
+  %conv.i19.us.i.epil = zext i32 %102 to i64
   %arrayidx.us.i.epil = getelementptr inbounds %"struct.duckdb::string_t", ptr %44, i64 %conv.i19.us.i.epil
-  %100 = load i32, ptr %arrayidx.us.i.epil, align 8, !tbaa !41
-  %cmp.i.us.i.epil = icmp ult i32 %100, 13
-  br i1 %cmp.i.us.i.epil, label %for.inc55, label %for.inc55.sink.split
+  %103 = load i32, ptr %arrayidx.us.i.epil, align 8, !tbaa !41
+  %cmp.i.us.i.epil = icmp ult i32 %103, 13
+  br i1 %cmp.i.us.i.epil, label %for.inc55, label %if.then.us.i.epil
 
-for.inc55.sink.split:                             ; preds = %for.body.us.i.epil, %for.body.us.us45.i.epil, %for.body.us.us.i.epil, %for.body.us.us.us.i.epil
-  %.sink = phi i32 [ %93, %for.body.us.us.us.i.epil ], [ %95, %for.body.us.us.i.epil ], [ %97, %for.body.us.us45.i.epil ], [ %100, %for.body.us.i.epil ]
-  %conv.i23.us.i.epil = zext i32 %.sink to i64
-  %101 = load i64, ptr %arrayidx7.us.i.epil.sink194, align 16, !tbaa !38
-  %add8.us.i.epil = add i64 %101, %conv.i23.us.i.epil
-  store i64 %add8.us.i.epil, ptr %arrayidx7.us.i.epil.sink194, align 16, !tbaa !38
+if.then.us.i.epil:                                ; preds = %for.body.us.i.epil
+  %conv.i23.us.i.epil = zext i32 %103 to i64
+  %104 = load i64, ptr %arrayidx7.us.i.epil, align 16, !tbaa !38
+  %add8.us.i.epil = add i64 %104, %conv.i23.us.i.epil
+  store i64 %add8.us.i.epil, ptr %arrayidx7.us.i.epil, align 16, !tbaa !38
   br label %for.inc55
 
-for.inc55:                                        ; preds = %if.end.i341, %if.end.us42.i, %if.end.us20.i, %if.end.us20.us.i, %for.inc55.sink.split, %for.body.us.i.epil, %for.inc55.loopexit1326.unr-lcssa, %for.body.us.us45.i.epil, %for.inc55.loopexit1325.unr-lcssa, %for.body.us.us.i.epil, %for.inc55.loopexit1324.unr-lcssa, %for.body.us.us.us.i.epil, %for.inc55.loopexit.unr-lcssa, %sw.bb41, %invoke.cont26
+for.inc55:                                        ; preds = %if.end.i341, %if.end.us42.i, %if.end.us20.i, %if.end.us20.us.i, %if.then.us.i.epil, %for.body.us.i.epil, %for.inc55.loopexit1326.unr-lcssa, %if.then.us.us51.i.epil, %for.body.us.us45.i.epil, %for.inc55.loopexit1325.unr-lcssa, %if.then.us.us.i.epil, %for.body.us.us.i.epil, %for.inc55.loopexit1324.unr-lcssa, %if.then.us.us.us.i.epil, %for.body.us.us.us.i.epil, %for.inc55.loopexit.unr-lcssa, %sw.bb41, %invoke.cont26
   %inc56 = add nuw i64 %col_no.01176, 1
-  %102 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !23
-  %103 = load ptr, ptr %layout, align 8, !tbaa !25
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %102 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %103 to i64
+  %105 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !23
+  %106 = load ptr, ptr %layout, align 8, !tbaa !25
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %105 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %106 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
   %cmp18 = icmp ult i64 %inc56, %sub.ptr.div.i
@@ -2181,14 +2204,14 @@ invoke.cont63:                                    ; preds = %for.cond.cleanup19
 for.body75.preheader:                             ; preds = %invoke.cont63
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %handles, i64 8
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %handles, i64 16
-  %104 = load ptr, ptr %ref.tmp59, align 8, !tbaa !146
-  store ptr %104, ptr %handles, align 8, !tbaa !146
+  %107 = load ptr, ptr %ref.tmp59, align 8, !tbaa !146
+  store ptr %107, ptr %handles, align 8, !tbaa !146
   %_M_finish.i3.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp59, i64 8
-  %105 = load ptr, ptr %_M_finish.i3.i.i.i.i, align 8, !tbaa !148
-  store ptr %105, ptr %_M_finish.i.i.i.i.i, align 8, !tbaa !148
+  %108 = load ptr, ptr %_M_finish.i3.i.i.i.i, align 8, !tbaa !148
+  store ptr %108, ptr %_M_finish.i.i.i.i.i, align 8, !tbaa !148
   %_M_end_of_storage.i5.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp59, i64 16
-  %106 = load ptr, ptr %_M_end_of_storage.i5.i.i.i.i, align 8, !tbaa !149
-  store ptr %106, ptr %_M_end_of_storage.i.i.i.i.i, align 8, !tbaa !149
+  %109 = load ptr, ptr %_M_end_of_storage.i5.i.i.i.i, align 8, !tbaa !149
+  store ptr %109, ptr %_M_end_of_storage.i.i.i.i.i, align 8, !tbaa !149
   %heap_pointer_offset.i.phi.trans.insert = getelementptr inbounds i8, ptr %layout, i64 80
   %.pre1218 = load i64, ptr %heap_pointer_offset.i.phi.trans.insert, align 8, !tbaa !150
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp59) #22
@@ -2199,59 +2222,59 @@ for.cond.cleanup74:                               ; preds = %_ZNK6duckdb15Select
   br label %if.end101
 
 lpad62:                                           ; preds = %invoke.cont63, %for.cond.cleanup19
-  %107 = landingpad { ptr, i32 }
+  %110 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp59) #22
   br label %ehcleanup100
 
 for.body75:                                       ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit358, %for.body75.preheader
   %i71.01178 = phi i64 [ %inc96, %_ZNK6duckdb15SelectionVector9get_indexEm.exit358 ], [ 0, %for.body75.preheader ]
-  %108 = load ptr, ptr %sel, align 8, !tbaa !26
-  %tobool.not.i353 = icmp eq ptr %108, null
+  %111 = load ptr, ptr %sel, align 8, !tbaa !26
+  %tobool.not.i353 = icmp eq ptr %111, null
   br i1 %tobool.not.i353, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit358, label %cond.true.i354
 
 cond.true.i354:                                   ; preds = %for.body75
-  %arrayidx.i355 = getelementptr inbounds i32, ptr %108, i64 %i71.01178
-  %109 = load i32, ptr %arrayidx.i355, align 4, !tbaa !30
-  %conv.i356 = zext i32 %109 to i64
+  %arrayidx.i355 = getelementptr inbounds i32, ptr %111, i64 %i71.01178
+  %112 = load i32, ptr %arrayidx.i355, align 4, !tbaa !30
+  %conv.i356 = zext i32 %112 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit358
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit358: ; preds = %cond.true.i354, %for.body75
   %cond.i357 = phi i64 [ %conv.i356, %cond.true.i354 ], [ %i71.01178, %for.body75 ]
   %arrayidx81 = getelementptr inbounds ptr, ptr %0, i64 %cond.i357
-  %110 = load ptr, ptr %arrayidx81, align 8, !tbaa !22
+  %113 = load ptr, ptr %arrayidx81, align 8, !tbaa !22
   %arrayidx82 = getelementptr inbounds [2048 x ptr], ptr %data_locations, i64 0, i64 %i71.01178
-  %add.ptr = getelementptr inbounds i8, ptr %110, i64 %.pre1218
-  %111 = load i64, ptr %arrayidx82, align 8
-  store i64 %111, ptr %add.ptr, align 1
+  %add.ptr = getelementptr inbounds i8, ptr %113, i64 %.pre1218
+  %114 = load i64, ptr %arrayidx82, align 8
+  store i64 %114, ptr %add.ptr, align 1
   %arrayidx86 = getelementptr inbounds [2048 x i64], ptr %entry_sizes, i64 0, i64 %i71.01178
-  %112 = load i64, ptr %arrayidx86, align 8, !tbaa !38
-  %conv = trunc i64 %112 to i32
-  %113 = load ptr, ptr %arrayidx82, align 8, !tbaa !22
-  store i32 %conv, ptr %113, align 1
-  %114 = load ptr, ptr %arrayidx82, align 8, !tbaa !22
-  %add.ptr92 = getelementptr inbounds i8, ptr %114, i64 4
+  %115 = load i64, ptr %arrayidx86, align 8, !tbaa !38
+  %conv = trunc i64 %115 to i32
+  %116 = load ptr, ptr %arrayidx82, align 8, !tbaa !22
+  store i32 %conv, ptr %116, align 1
+  %117 = load ptr, ptr %arrayidx82, align 8, !tbaa !22
+  %add.ptr92 = getelementptr inbounds i8, ptr %117, i64 4
   store ptr %add.ptr92, ptr %arrayidx82, align 8, !tbaa !22
   %inc96 = add nuw i64 %i71.01178, 1
   %exitcond1216.not = icmp eq i64 %inc96, %count
   br i1 %exitcond1216.not, label %for.cond.cleanup74, label %for.body75, !llvm.loop !151
 
 ehcleanup100:                                     ; preds = %lpad62, %cleanup.action, %ehcleanup, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %lpad34, %lpad30, %lpad21
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %107, %lpad62 ], [ %40, %lpad21 ], [ %42, %lpad30 ], [ %.pn1135, %cleanup.action ], [ %89, %ehcleanup ], [ %43, %lpad34 ], [ %89, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %110, %lpad62 ], [ %40, %lpad21 ], [ %42, %lpad30 ], [ %.pn1135, %cleanup.action ], [ %89, %ehcleanup ], [ %43, %lpad34 ], [ %89, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   call void @llvm.lifetime.end.p0(i64 16384, ptr nonnull %entry_sizes) #22
   br label %ehcleanup177
 
 if.end101:                                        ; preds = %for.cond.cleanup74, %for.cond.cleanup
-  %115 = phi ptr [ %105, %for.cond.cleanup74 ], [ null, %for.cond.cleanup ]
-  %116 = phi ptr [ %104, %for.cond.cleanup74 ], [ null, %for.cond.cleanup ]
-  %117 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !23
-  %118 = load ptr, ptr %layout, align 8, !tbaa !25
-  %cmp1051183.not = icmp eq ptr %117, %118
+  %118 = phi ptr [ %108, %for.cond.cleanup74 ], [ null, %for.cond.cleanup ]
+  %119 = phi ptr [ %107, %for.cond.cleanup74 ], [ null, %for.cond.cleanup ]
+  %120 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !23
+  %121 = load ptr, ptr %layout, align 8, !tbaa !25
+  %cmp1051183.not = icmp eq ptr %120, %121
   br i1 %cmp1051183.not, label %for.cond.cleanup106, label %for.body107.preheader
 
 for.body107.preheader:                            ; preds = %if.end101
   %xtraiter1343 = and i64 %count, 1
-  %119 = icmp eq i64 %count, 1
+  %122 = icmp eq i64 %count, 1
   %unroll_iter1345 = and i64 %count, -2
   %lcmp.mod1344.not = icmp eq i64 %xtraiter1343, 0
   %arrayidx2.i.epil = getelementptr inbounds [2048 x ptr], ptr %validitymask_locations.i, i64 0, i64 %unroll_iter1345
@@ -2265,17 +2288,17 @@ for.cond.cleanup106.loopexit:                     ; preds = %sw.epilog169
   br label %for.cond.cleanup106
 
 for.cond.cleanup106:                              ; preds = %for.cond.cleanup106.loopexit, %if.end101
-  %120 = phi ptr [ %.pre1220, %for.cond.cleanup106.loopexit ], [ %115, %if.end101 ]
-  %121 = phi ptr [ %.pre1219, %for.cond.cleanup106.loopexit ], [ %116, %if.end101 ]
+  %123 = phi ptr [ %.pre1220, %for.cond.cleanup106.loopexit ], [ %118, %if.end101 ]
+  %124 = phi ptr [ %.pre1219, %for.cond.cleanup106.loopexit ], [ %119, %if.end101 ]
   call void @llvm.lifetime.end.p0(i64 16384, ptr nonnull %data_locations) #22
-  %cmp.not3.i.i.i.i365 = icmp eq ptr %121, %120
+  %cmp.not3.i.i.i.i365 = icmp eq ptr %124, %123
   br i1 %cmp.not3.i.i.i.i365, label %invoke.cont.i372, label %for.body.i.i.i.i366
 
 for.body.i.i.i.i366:                              ; preds = %for.cond.cleanup106, %for.body.i.i.i.i366
-  %__first.addr.04.i.i.i.i367 = phi ptr [ %incdec.ptr.i.i.i.i368, %for.body.i.i.i.i366 ], [ %121, %for.cond.cleanup106 ]
+  %__first.addr.04.i.i.i.i367 = phi ptr [ %incdec.ptr.i.i.i.i368, %for.body.i.i.i.i366 ], [ %124, %for.cond.cleanup106 ]
   call void @_ZN6duckdb12BufferHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.04.i.i.i.i367) #22
   %incdec.ptr.i.i.i.i368 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i367, i64 24
-  %cmp.not.i.i.i.i369 = icmp eq ptr %incdec.ptr.i.i.i.i368, %120
+  %cmp.not.i.i.i.i369 = icmp eq ptr %incdec.ptr.i.i.i.i368, %123
   br i1 %cmp.not.i.i.i.i369, label %invoke.contthread-pre-split.i370, label %for.body.i.i.i.i366, !llvm.loop !152
 
 invoke.contthread-pre-split.i370:                 ; preds = %for.body.i.i.i.i366
@@ -2283,12 +2306,12 @@ invoke.contthread-pre-split.i370:                 ; preds = %for.body.i.i.i.i366
   br label %invoke.cont.i372
 
 invoke.cont.i372:                                 ; preds = %invoke.contthread-pre-split.i370, %for.cond.cleanup106
-  %122 = phi ptr [ %.pr.i371, %invoke.contthread-pre-split.i370 ], [ %120, %for.cond.cleanup106 ]
-  %tobool.not.i.i.i373 = icmp eq ptr %122, null
+  %125 = phi ptr [ %.pr.i371, %invoke.contthread-pre-split.i370 ], [ %123, %for.cond.cleanup106 ]
+  %tobool.not.i.i.i373 = icmp eq ptr %125, null
   br i1 %tobool.not.i.i.i373, label %_ZNSt6vectorIN6duckdb12BufferHandleESaIS1_EED2Ev.exit375, label %if.then.i.i.i374
 
 if.then.i.i.i374:                                 ; preds = %invoke.cont.i372
-  call void @_ZdlPv(ptr noundef nonnull %122) #24
+  call void @_ZdlPv(ptr noundef nonnull %125) #24
   br label %_ZNSt6vectorIN6duckdb12BufferHandleESaIS1_EED2Ev.exit375
 
 _ZNSt6vectorIN6duckdb12BufferHandleESaIS1_EED2Ev.exit375: ; preds = %if.then.i.i.i374, %invoke.cont.i372
@@ -2306,14 +2329,14 @@ invoke.cont111:                                   ; preds = %for.body107
           to label %invoke.cont116 unwind label %lpad115
 
 invoke.cont116:                                   ; preds = %invoke.cont111
-  %123 = load i64, ptr %call117, align 8, !tbaa !38
+  %126 = load i64, ptr %call117, align 8, !tbaa !38
   %call119 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6duckdb6vectorINS_11LogicalTypeELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %layout, i64 noundef %col_no102.01184)
           to label %invoke.cont118 unwind label %lpad115
 
 invoke.cont118:                                   ; preds = %invoke.cont116
   %physical_type_.i376 = getelementptr inbounds i8, ptr %call119, i64 1
-  %124 = load i8, ptr %physical_type_.i376, align 1, !tbaa !139
-  switch i8 %124, label %sw.default152 [
+  %127 = load i8, ptr %physical_type_.i376, align 1, !tbaa !139
+  switch i8 %127, label %sw.default152 [
     i8 1, label %sw.bb122
     i8 3, label %sw.bb122
     i8 5, label %sw.bb124
@@ -2334,89 +2357,89 @@ invoke.cont118:                                   ; preds = %invoke.cont116
   ]
 
 lpad110:                                          ; preds = %for.body107
-  %125 = landingpad { ptr, i32 }
+  %128 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup177
 
 lpad115:                                          ; preds = %for.cond.cleanup.i1119, %invoke.cont116, %invoke.cont111
-  %126 = landingpad { ptr, i32 }
+  %129 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup177
 
 sw.bb122:                                         ; preds = %invoke.cont118, %invoke.cont118
   %rows.val = load ptr, ptr %data.i.i.i, align 8, !tbaa !3
   %data.i.i377 = getelementptr inbounds i8, ptr %arrayidx114, i64 8
-  %127 = load ptr, ptr %data.i.i377, align 8, !tbaa !140
+  %130 = load ptr, ptr %data.i.i377, align 8, !tbaa !140
   %validity.i378 = getelementptr inbounds i8, ptr %arrayidx114, i64 16
-  %128 = load ptr, ptr %validity.i378, align 8, !tbaa !143
-  %tobool.not.i.i379 = icmp eq ptr %128, null
+  %131 = load ptr, ptr %validity.i378, align 8, !tbaa !143
+  %tobool.not.i.i379 = icmp eq ptr %131, null
   br i1 %tobool.not.i.i379, label %for.body17.i, label %for.body.lr.ph.i380
 
 for.body.lr.ph.i380:                              ; preds = %sw.bb122
   %div2.i.i.i = lshr i64 %col_no102.01184, 3
-  %129 = trunc i64 %col_no102.01184 to i8
-  %conv.i.i.i = and i8 %129, 7
+  %132 = trunc i64 %col_no102.01184 to i8
+  %conv.i.i.i = and i8 %132, 7
   %shl.i.i.i = shl nuw i8 1, %conv.i.i.i
-  %130 = xor i8 %shl.i.i.i, -1
+  %133 = xor i8 %shl.i.i.i, -1
   br label %for.body.i381
 
 for.body.i381:                                    ; preds = %if.end.i391, %for.body.lr.ph.i380
   %i.09.i = phi i64 [ 0, %for.body.lr.ph.i380 ], [ %inc.i392, %if.end.i391 ]
-  %131 = load ptr, ptr %sel, align 8, !tbaa !26
-  %tobool.not.i52.i = icmp eq ptr %131, null
+  %134 = load ptr, ptr %sel, align 8, !tbaa !26
+  %tobool.not.i52.i = icmp eq ptr %134, null
   br i1 %tobool.not.i52.i, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %for.body.i381
-  %arrayidx.i.i382 = getelementptr inbounds i32, ptr %131, i64 %i.09.i
-  %132 = load i32, ptr %arrayidx.i.i382, align 4, !tbaa !30
-  %conv.i.i383 = zext i32 %132 to i64
+  %arrayidx.i.i382 = getelementptr inbounds i32, ptr %134, i64 %i.09.i
+  %135 = load i32, ptr %arrayidx.i.i382, align 4, !tbaa !30
+  %conv.i.i383 = zext i32 %135 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit.i:  ; preds = %cond.true.i.i, %for.body.i381
   %cond.i.i = phi i64 [ %conv.i.i383, %cond.true.i.i ], [ %i.09.i, %for.body.i381 ]
-  %133 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
-  %134 = load ptr, ptr %133, align 8, !tbaa !26
-  %tobool.not.i53.i = icmp eq ptr %134, null
+  %136 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
+  %137 = load ptr, ptr %136, align 8, !tbaa !26
+  %tobool.not.i53.i = icmp eq ptr %137, null
   br i1 %tobool.not.i53.i, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.i, label %cond.true.i54.i
 
 cond.true.i54.i:                                  ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i
-  %arrayidx.i55.i = getelementptr inbounds i32, ptr %134, i64 %cond.i.i
-  %135 = load i32, ptr %arrayidx.i55.i, align 4, !tbaa !30
-  %conv.i56.i = zext i32 %135 to i64
+  %arrayidx.i55.i = getelementptr inbounds i32, ptr %137, i64 %cond.i.i
+  %138 = load i32, ptr %arrayidx.i55.i, align 4, !tbaa !30
+  %conv.i56.i = zext i32 %138 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.i
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit58.i: ; preds = %cond.true.i54.i, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i
   %cond.i57.i = phi i64 [ %conv.i56.i, %cond.true.i54.i ], [ %cond.i.i, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i ]
   %arrayidx.i384 = getelementptr inbounds ptr, ptr %rows.val, i64 %cond.i.i
-  %136 = load ptr, ptr %arrayidx.i384, align 8, !tbaa !22
-  %137 = load ptr, ptr %validity.i378, align 8, !tbaa !143
-  %tobool.not.i59.i = icmp eq ptr %137, null
+  %139 = load ptr, ptr %arrayidx.i384, align 8, !tbaa !22
+  %140 = load ptr, ptr %validity.i378, align 8, !tbaa !143
+  %tobool.not.i59.i = icmp eq ptr %140, null
   br i1 %tobool.not.i59.i, label %cond.end.thread.i, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i: ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.i
   %div2.i.i.i.i385 = lshr i64 %cond.i57.i, 6
-  %arrayidx.i.i.i.i.i386 = getelementptr inbounds i64, ptr %137, i64 %div2.i.i.i.i385
-  %138 = load i64, ptr %arrayidx.i.i.i.i.i386, align 8, !tbaa !38
+  %arrayidx.i.i.i.i.i386 = getelementptr inbounds i64, ptr %140, i64 %div2.i.i.i.i385
+  %141 = load i64, ptr %arrayidx.i.i.i.i.i386, align 8, !tbaa !38
   %rem.i.i.i.i387 = and i64 %cond.i57.i, 63
   %shl.i.i.i.i388 = shl nuw i64 1, %rem.i.i.i.i387
-  %and.i.i.i.i389 = and i64 %138, %shl.i.i.i.i388
+  %and.i.i.i.i389 = and i64 %141, %shl.i.i.i.i388
   %tobool.i.i.i.not.i390 = icmp eq i64 %and.i.i.i.i389, 0
   br i1 %tobool.i.i.i.not.i390, label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.i, label %cond.end.thread.i
 
 cond.end.thread.i:                                ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i, %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.i
-  %arrayidx9.i = getelementptr inbounds i8, ptr %127, i64 %cond.i57.i
-  %139 = load i8, ptr %arrayidx9.i, align 1, !tbaa !41
-  %add.ptr6.i = getelementptr inbounds i8, ptr %136, i64 %123
-  store i8 %139, ptr %add.ptr6.i, align 1
+  %arrayidx9.i = getelementptr inbounds i8, ptr %130, i64 %cond.i57.i
+  %142 = load i8, ptr %arrayidx9.i, align 1, !tbaa !41
+  %add.ptr6.i = getelementptr inbounds i8, ptr %139, i64 %126
+  store i8 %142, ptr %add.ptr6.i, align 1
   br label %if.end.i391
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.i:  ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %136, i64 %123
+  %add.ptr.i = getelementptr inbounds i8, ptr %139, i64 %126
   store i8 -128, ptr %add.ptr.i, align 1
-  %140 = load ptr, ptr %arrayidx.i384, align 8, !tbaa !22
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %140, i64 %div2.i.i.i
-  %141 = load i8, ptr %arrayidx.i.i.i, align 1, !tbaa !41
-  %conv4.i.i.i = and i8 %141, %130
+  %143 = load ptr, ptr %arrayidx.i384, align 8, !tbaa !22
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %143, i64 %div2.i.i.i
+  %144 = load i8, ptr %arrayidx.i.i.i, align 1, !tbaa !41
+  %conv4.i.i.i = and i8 %144, %133
   store i8 %conv4.i.i.i, ptr %arrayidx.i.i.i, align 1, !tbaa !41
   br label %if.end.i391
 
@@ -2427,37 +2450,37 @@ if.end.i391:                                      ; preds = %_ZN6duckdb21Templat
 
 for.body17.i:                                     ; preds = %sw.bb122, %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i
   %i13.011.i = phi i64 [ %inc28.i, %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i ], [ 0, %sw.bb122 ]
-  %142 = load ptr, ptr %sel, align 8, !tbaa !26
-  %tobool.not.i60.i = icmp eq ptr %142, null
+  %145 = load ptr, ptr %sel, align 8, !tbaa !26
+  %tobool.not.i60.i = icmp eq ptr %145, null
   br i1 %tobool.not.i60.i, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i, label %cond.true.i61.i
 
 cond.true.i61.i:                                  ; preds = %for.body17.i
-  %arrayidx.i62.i = getelementptr inbounds i32, ptr %142, i64 %i13.011.i
-  %143 = load i32, ptr %arrayidx.i62.i, align 4, !tbaa !30
-  %conv.i63.i = zext i32 %143 to i64
+  %arrayidx.i62.i = getelementptr inbounds i32, ptr %145, i64 %i13.011.i
+  %146 = load i32, ptr %arrayidx.i62.i, align 4, !tbaa !30
+  %conv.i63.i = zext i32 %146 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit65.i: ; preds = %cond.true.i61.i, %for.body17.i
   %cond.i64.i = phi i64 [ %conv.i63.i, %cond.true.i61.i ], [ %i13.011.i, %for.body17.i ]
-  %144 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
-  %145 = load ptr, ptr %144, align 8, !tbaa !26
-  %tobool.not.i66.i = icmp eq ptr %145, null
+  %147 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
+  %148 = load ptr, ptr %147, align 8, !tbaa !26
+  %tobool.not.i66.i = icmp eq ptr %148, null
   br i1 %tobool.not.i66.i, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i, label %cond.true.i67.i
 
 cond.true.i67.i:                                  ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i
-  %arrayidx.i68.i = getelementptr inbounds i32, ptr %145, i64 %cond.i64.i
-  %146 = load i32, ptr %arrayidx.i68.i, align 4, !tbaa !30
-  %conv.i69.i = zext i32 %146 to i64
+  %arrayidx.i68.i = getelementptr inbounds i32, ptr %148, i64 %cond.i64.i
+  %149 = load i32, ptr %arrayidx.i68.i, align 4, !tbaa !30
+  %conv.i69.i = zext i32 %149 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit71.i: ; preds = %cond.true.i67.i, %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i
   %cond.i70.i = phi i64 [ %conv.i69.i, %cond.true.i67.i ], [ %cond.i64.i, %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i ]
   %arrayidx24.i = getelementptr inbounds ptr, ptr %rows.val, i64 %cond.i64.i
-  %147 = load ptr, ptr %arrayidx24.i, align 8, !tbaa !22
-  %arrayidx25.i = getelementptr inbounds i8, ptr %127, i64 %cond.i70.i
-  %add.ptr26.i = getelementptr inbounds i8, ptr %147, i64 %123
-  %148 = load i8, ptr %arrayidx25.i, align 1
-  store i8 %148, ptr %add.ptr26.i, align 1
+  %150 = load ptr, ptr %arrayidx24.i, align 8, !tbaa !22
+  %arrayidx25.i = getelementptr inbounds i8, ptr %130, i64 %cond.i70.i
+  %add.ptr26.i = getelementptr inbounds i8, ptr %150, i64 %126
+  %151 = load i8, ptr %arrayidx25.i, align 1
+  store i8 %151, ptr %add.ptr26.i, align 1
   %inc28.i = add nuw i64 %i13.011.i, 1
   %exitcond13.not.i = icmp eq i64 %inc28.i, %count
   br i1 %exitcond13.not.i, label %sw.epilog169, label %for.body17.i, !llvm.loop !154
@@ -2465,77 +2488,77 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit71.i: ; preds = %cond.true.i67.i, %
 sw.bb124:                                         ; preds = %invoke.cont118
   %rows.val321 = load ptr, ptr %data.i.i.i, align 8, !tbaa !3
   %data.i.i394 = getelementptr inbounds i8, ptr %arrayidx114, i64 8
-  %149 = load ptr, ptr %data.i.i394, align 8, !tbaa !140
+  %152 = load ptr, ptr %data.i.i394, align 8, !tbaa !140
   %validity.i395 = getelementptr inbounds i8, ptr %arrayidx114, i64 16
-  %150 = load ptr, ptr %validity.i395, align 8, !tbaa !143
-  %tobool.not.i.i396 = icmp eq ptr %150, null
+  %153 = load ptr, ptr %validity.i395, align 8, !tbaa !143
+  %tobool.not.i.i396 = icmp eq ptr %153, null
   br i1 %tobool.not.i.i396, label %for.body17.i437, label %for.body.lr.ph.i399
 
 for.body.lr.ph.i399:                              ; preds = %sw.bb124
   %div2.i.i.i400 = lshr i64 %col_no102.01184, 3
-  %151 = trunc i64 %col_no102.01184 to i8
-  %conv.i.i.i401 = and i8 %151, 7
+  %154 = trunc i64 %col_no102.01184 to i8
+  %conv.i.i.i401 = and i8 %154, 7
   %shl.i.i.i402 = shl nuw i8 1, %conv.i.i.i401
-  %152 = xor i8 %shl.i.i.i402, -1
+  %155 = xor i8 %shl.i.i.i402, -1
   br label %for.body.i403
 
 for.body.i403:                                    ; preds = %if.end.i429, %for.body.lr.ph.i399
   %i.09.i404 = phi i64 [ 0, %for.body.lr.ph.i399 ], [ %inc.i430, %if.end.i429 ]
-  %153 = load ptr, ptr %sel, align 8, !tbaa !26
-  %tobool.not.i52.i405 = icmp eq ptr %153, null
+  %156 = load ptr, ptr %sel, align 8, !tbaa !26
+  %tobool.not.i52.i405 = icmp eq ptr %156, null
   br i1 %tobool.not.i52.i405, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i409, label %cond.true.i.i406
 
 cond.true.i.i406:                                 ; preds = %for.body.i403
-  %arrayidx.i.i407 = getelementptr inbounds i32, ptr %153, i64 %i.09.i404
-  %154 = load i32, ptr %arrayidx.i.i407, align 4, !tbaa !30
-  %conv.i.i408 = zext i32 %154 to i64
+  %arrayidx.i.i407 = getelementptr inbounds i32, ptr %156, i64 %i.09.i404
+  %157 = load i32, ptr %arrayidx.i.i407, align 4, !tbaa !30
+  %conv.i.i408 = zext i32 %157 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i409
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit.i409: ; preds = %cond.true.i.i406, %for.body.i403
   %cond.i.i410 = phi i64 [ %conv.i.i408, %cond.true.i.i406 ], [ %i.09.i404, %for.body.i403 ]
-  %155 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
-  %156 = load ptr, ptr %155, align 8, !tbaa !26
-  %tobool.not.i53.i411 = icmp eq ptr %156, null
+  %158 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
+  %159 = load ptr, ptr %158, align 8, !tbaa !26
+  %tobool.not.i53.i411 = icmp eq ptr %159, null
   br i1 %tobool.not.i53.i411, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.i415, label %cond.true.i54.i412
 
 cond.true.i54.i412:                               ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i409
-  %arrayidx.i55.i413 = getelementptr inbounds i32, ptr %156, i64 %cond.i.i410
-  %157 = load i32, ptr %arrayidx.i55.i413, align 4, !tbaa !30
-  %conv.i56.i414 = zext i32 %157 to i64
+  %arrayidx.i55.i413 = getelementptr inbounds i32, ptr %159, i64 %cond.i.i410
+  %160 = load i32, ptr %arrayidx.i55.i413, align 4, !tbaa !30
+  %conv.i56.i414 = zext i32 %160 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.i415
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit58.i415: ; preds = %cond.true.i54.i412, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i409
   %cond.i57.i416 = phi i64 [ %conv.i56.i414, %cond.true.i54.i412 ], [ %cond.i.i410, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i409 ]
   %arrayidx.i417 = getelementptr inbounds ptr, ptr %rows.val321, i64 %cond.i.i410
-  %158 = load ptr, ptr %arrayidx.i417, align 8, !tbaa !22
-  %159 = load ptr, ptr %validity.i395, align 8, !tbaa !143
-  %tobool.not.i59.i418 = icmp eq ptr %159, null
+  %161 = load ptr, ptr %arrayidx.i417, align 8, !tbaa !22
+  %162 = load ptr, ptr %validity.i395, align 8, !tbaa !143
+  %tobool.not.i59.i418 = icmp eq ptr %162, null
   br i1 %tobool.not.i59.i418, label %cond.end.thread.i426, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i419
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i419: ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.i415
   %div2.i.i.i.i420 = lshr i64 %cond.i57.i416, 6
-  %arrayidx.i.i.i.i.i421 = getelementptr inbounds i64, ptr %159, i64 %div2.i.i.i.i420
-  %160 = load i64, ptr %arrayidx.i.i.i.i.i421, align 8, !tbaa !38
+  %arrayidx.i.i.i.i.i421 = getelementptr inbounds i64, ptr %162, i64 %div2.i.i.i.i420
+  %163 = load i64, ptr %arrayidx.i.i.i.i.i421, align 8, !tbaa !38
   %rem.i.i.i.i422 = and i64 %cond.i57.i416, 63
   %shl.i.i.i.i423 = shl nuw i64 1, %rem.i.i.i.i422
-  %and.i.i.i.i424 = and i64 %160, %shl.i.i.i.i423
+  %and.i.i.i.i424 = and i64 %163, %shl.i.i.i.i423
   %tobool.i.i.i.not.i425 = icmp eq i64 %and.i.i.i.i424, 0
   br i1 %tobool.i.i.i.not.i425, label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.i432, label %cond.end.thread.i426
 
 cond.end.thread.i426:                             ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i419, %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.i415
-  %arrayidx9.i427 = getelementptr inbounds i16, ptr %149, i64 %cond.i57.i416
-  %161 = load i16, ptr %arrayidx9.i427, align 2, !tbaa !155
-  %add.ptr6.i428 = getelementptr inbounds i8, ptr %158, i64 %123
-  store i16 %161, ptr %add.ptr6.i428, align 1
+  %arrayidx9.i427 = getelementptr inbounds i16, ptr %152, i64 %cond.i57.i416
+  %164 = load i16, ptr %arrayidx9.i427, align 2, !tbaa !155
+  %add.ptr6.i428 = getelementptr inbounds i8, ptr %161, i64 %126
+  store i16 %164, ptr %add.ptr6.i428, align 1
   br label %if.end.i429
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.i432: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i419
-  %add.ptr.i433 = getelementptr inbounds i8, ptr %158, i64 %123
+  %add.ptr.i433 = getelementptr inbounds i8, ptr %161, i64 %126
   store i16 -32768, ptr %add.ptr.i433, align 1
-  %162 = load ptr, ptr %arrayidx.i417, align 8, !tbaa !22
-  %arrayidx.i.i.i434 = getelementptr inbounds i8, ptr %162, i64 %div2.i.i.i400
-  %163 = load i8, ptr %arrayidx.i.i.i434, align 1, !tbaa !41
-  %conv4.i.i.i435 = and i8 %163, %152
+  %165 = load ptr, ptr %arrayidx.i417, align 8, !tbaa !22
+  %arrayidx.i.i.i434 = getelementptr inbounds i8, ptr %165, i64 %div2.i.i.i400
+  %166 = load i8, ptr %arrayidx.i.i.i434, align 1, !tbaa !41
+  %conv4.i.i.i435 = and i8 %166, %155
   store i8 %conv4.i.i.i435, ptr %arrayidx.i.i.i434, align 1, !tbaa !41
   br label %if.end.i429
 
@@ -2546,37 +2569,37 @@ if.end.i429:                                      ; preds = %_ZN6duckdb21Templat
 
 for.body17.i437:                                  ; preds = %sw.bb124, %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i449
   %i13.011.i438 = phi i64 [ %inc28.i454, %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i449 ], [ 0, %sw.bb124 ]
-  %164 = load ptr, ptr %sel, align 8, !tbaa !26
-  %tobool.not.i60.i439 = icmp eq ptr %164, null
+  %167 = load ptr, ptr %sel, align 8, !tbaa !26
+  %tobool.not.i60.i439 = icmp eq ptr %167, null
   br i1 %tobool.not.i60.i439, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i443, label %cond.true.i61.i440
 
 cond.true.i61.i440:                               ; preds = %for.body17.i437
-  %arrayidx.i62.i441 = getelementptr inbounds i32, ptr %164, i64 %i13.011.i438
-  %165 = load i32, ptr %arrayidx.i62.i441, align 4, !tbaa !30
-  %conv.i63.i442 = zext i32 %165 to i64
+  %arrayidx.i62.i441 = getelementptr inbounds i32, ptr %167, i64 %i13.011.i438
+  %168 = load i32, ptr %arrayidx.i62.i441, align 4, !tbaa !30
+  %conv.i63.i442 = zext i32 %168 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i443
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit65.i443: ; preds = %cond.true.i61.i440, %for.body17.i437
   %cond.i64.i444 = phi i64 [ %conv.i63.i442, %cond.true.i61.i440 ], [ %i13.011.i438, %for.body17.i437 ]
-  %166 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
-  %167 = load ptr, ptr %166, align 8, !tbaa !26
-  %tobool.not.i66.i445 = icmp eq ptr %167, null
+  %169 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
+  %170 = load ptr, ptr %169, align 8, !tbaa !26
+  %tobool.not.i66.i445 = icmp eq ptr %170, null
   br i1 %tobool.not.i66.i445, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i449, label %cond.true.i67.i446
 
 cond.true.i67.i446:                               ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i443
-  %arrayidx.i68.i447 = getelementptr inbounds i32, ptr %167, i64 %cond.i64.i444
-  %168 = load i32, ptr %arrayidx.i68.i447, align 4, !tbaa !30
-  %conv.i69.i448 = zext i32 %168 to i64
+  %arrayidx.i68.i447 = getelementptr inbounds i32, ptr %170, i64 %cond.i64.i444
+  %171 = load i32, ptr %arrayidx.i68.i447, align 4, !tbaa !30
+  %conv.i69.i448 = zext i32 %171 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i449
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit71.i449: ; preds = %cond.true.i67.i446, %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i443
   %cond.i70.i450 = phi i64 [ %conv.i69.i448, %cond.true.i67.i446 ], [ %cond.i64.i444, %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i443 ]
   %arrayidx24.i451 = getelementptr inbounds ptr, ptr %rows.val321, i64 %cond.i64.i444
-  %169 = load ptr, ptr %arrayidx24.i451, align 8, !tbaa !22
-  %arrayidx25.i452 = getelementptr inbounds i16, ptr %149, i64 %cond.i70.i450
-  %add.ptr26.i453 = getelementptr inbounds i8, ptr %169, i64 %123
-  %170 = load i16, ptr %arrayidx25.i452, align 2
-  store i16 %170, ptr %add.ptr26.i453, align 1
+  %172 = load ptr, ptr %arrayidx24.i451, align 8, !tbaa !22
+  %arrayidx25.i452 = getelementptr inbounds i16, ptr %152, i64 %cond.i70.i450
+  %add.ptr26.i453 = getelementptr inbounds i8, ptr %172, i64 %126
+  %173 = load i16, ptr %arrayidx25.i452, align 2
+  store i16 %173, ptr %add.ptr26.i453, align 1
   %inc28.i454 = add nuw i64 %i13.011.i438, 1
   %exitcond13.not.i455 = icmp eq i64 %inc28.i454, %count
   br i1 %exitcond13.not.i455, label %sw.epilog169, label %for.body17.i437, !llvm.loop !158
@@ -2584,77 +2607,77 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit71.i449: ; preds = %cond.true.i67.i
 sw.bb126:                                         ; preds = %invoke.cont118
   %rows.val322 = load ptr, ptr %data.i.i.i, align 8, !tbaa !3
   %data.i.i456 = getelementptr inbounds i8, ptr %arrayidx114, i64 8
-  %171 = load ptr, ptr %data.i.i456, align 8, !tbaa !140
+  %174 = load ptr, ptr %data.i.i456, align 8, !tbaa !140
   %validity.i457 = getelementptr inbounds i8, ptr %arrayidx114, i64 16
-  %172 = load ptr, ptr %validity.i457, align 8, !tbaa !143
-  %tobool.not.i.i458 = icmp eq ptr %172, null
+  %175 = load ptr, ptr %validity.i457, align 8, !tbaa !143
+  %tobool.not.i.i458 = icmp eq ptr %175, null
   br i1 %tobool.not.i.i458, label %for.body17.i499, label %for.body.lr.ph.i461
 
 for.body.lr.ph.i461:                              ; preds = %sw.bb126
   %div2.i.i.i462 = lshr i64 %col_no102.01184, 3
-  %173 = trunc i64 %col_no102.01184 to i8
-  %conv.i.i.i463 = and i8 %173, 7
+  %176 = trunc i64 %col_no102.01184 to i8
+  %conv.i.i.i463 = and i8 %176, 7
   %shl.i.i.i464 = shl nuw i8 1, %conv.i.i.i463
-  %174 = xor i8 %shl.i.i.i464, -1
+  %177 = xor i8 %shl.i.i.i464, -1
   br label %for.body.i465
 
 for.body.i465:                                    ; preds = %if.end.i491, %for.body.lr.ph.i461
   %i.09.i466 = phi i64 [ 0, %for.body.lr.ph.i461 ], [ %inc.i492, %if.end.i491 ]
-  %175 = load ptr, ptr %sel, align 8, !tbaa !26
-  %tobool.not.i52.i467 = icmp eq ptr %175, null
+  %178 = load ptr, ptr %sel, align 8, !tbaa !26
+  %tobool.not.i52.i467 = icmp eq ptr %178, null
   br i1 %tobool.not.i52.i467, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i471, label %cond.true.i.i468
 
 cond.true.i.i468:                                 ; preds = %for.body.i465
-  %arrayidx.i.i469 = getelementptr inbounds i32, ptr %175, i64 %i.09.i466
-  %176 = load i32, ptr %arrayidx.i.i469, align 4, !tbaa !30
-  %conv.i.i470 = zext i32 %176 to i64
+  %arrayidx.i.i469 = getelementptr inbounds i32, ptr %178, i64 %i.09.i466
+  %179 = load i32, ptr %arrayidx.i.i469, align 4, !tbaa !30
+  %conv.i.i470 = zext i32 %179 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i471
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit.i471: ; preds = %cond.true.i.i468, %for.body.i465
   %cond.i.i472 = phi i64 [ %conv.i.i470, %cond.true.i.i468 ], [ %i.09.i466, %for.body.i465 ]
-  %177 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
-  %178 = load ptr, ptr %177, align 8, !tbaa !26
-  %tobool.not.i53.i473 = icmp eq ptr %178, null
+  %180 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
+  %181 = load ptr, ptr %180, align 8, !tbaa !26
+  %tobool.not.i53.i473 = icmp eq ptr %181, null
   br i1 %tobool.not.i53.i473, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.i477, label %cond.true.i54.i474
 
 cond.true.i54.i474:                               ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i471
-  %arrayidx.i55.i475 = getelementptr inbounds i32, ptr %178, i64 %cond.i.i472
-  %179 = load i32, ptr %arrayidx.i55.i475, align 4, !tbaa !30
-  %conv.i56.i476 = zext i32 %179 to i64
+  %arrayidx.i55.i475 = getelementptr inbounds i32, ptr %181, i64 %cond.i.i472
+  %182 = load i32, ptr %arrayidx.i55.i475, align 4, !tbaa !30
+  %conv.i56.i476 = zext i32 %182 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.i477
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit58.i477: ; preds = %cond.true.i54.i474, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i471
   %cond.i57.i478 = phi i64 [ %conv.i56.i476, %cond.true.i54.i474 ], [ %cond.i.i472, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i471 ]
   %arrayidx.i479 = getelementptr inbounds ptr, ptr %rows.val322, i64 %cond.i.i472
-  %180 = load ptr, ptr %arrayidx.i479, align 8, !tbaa !22
-  %181 = load ptr, ptr %validity.i457, align 8, !tbaa !143
-  %tobool.not.i59.i480 = icmp eq ptr %181, null
+  %183 = load ptr, ptr %arrayidx.i479, align 8, !tbaa !22
+  %184 = load ptr, ptr %validity.i457, align 8, !tbaa !143
+  %tobool.not.i59.i480 = icmp eq ptr %184, null
   br i1 %tobool.not.i59.i480, label %cond.end.thread.i488, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i481
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i481: ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.i477
   %div2.i.i.i.i482 = lshr i64 %cond.i57.i478, 6
-  %arrayidx.i.i.i.i.i483 = getelementptr inbounds i64, ptr %181, i64 %div2.i.i.i.i482
-  %182 = load i64, ptr %arrayidx.i.i.i.i.i483, align 8, !tbaa !38
+  %arrayidx.i.i.i.i.i483 = getelementptr inbounds i64, ptr %184, i64 %div2.i.i.i.i482
+  %185 = load i64, ptr %arrayidx.i.i.i.i.i483, align 8, !tbaa !38
   %rem.i.i.i.i484 = and i64 %cond.i57.i478, 63
   %shl.i.i.i.i485 = shl nuw i64 1, %rem.i.i.i.i484
-  %and.i.i.i.i486 = and i64 %182, %shl.i.i.i.i485
+  %and.i.i.i.i486 = and i64 %185, %shl.i.i.i.i485
   %tobool.i.i.i.not.i487 = icmp eq i64 %and.i.i.i.i486, 0
   br i1 %tobool.i.i.i.not.i487, label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.i494, label %cond.end.thread.i488
 
 cond.end.thread.i488:                             ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i481, %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.i477
-  %arrayidx9.i489 = getelementptr inbounds i32, ptr %171, i64 %cond.i57.i478
-  %183 = load i32, ptr %arrayidx9.i489, align 4, !tbaa !30
-  %add.ptr6.i490 = getelementptr inbounds i8, ptr %180, i64 %123
-  store i32 %183, ptr %add.ptr6.i490, align 1
+  %arrayidx9.i489 = getelementptr inbounds i32, ptr %174, i64 %cond.i57.i478
+  %186 = load i32, ptr %arrayidx9.i489, align 4, !tbaa !30
+  %add.ptr6.i490 = getelementptr inbounds i8, ptr %183, i64 %126
+  store i32 %186, ptr %add.ptr6.i490, align 1
   br label %if.end.i491
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.i494: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i481
-  %add.ptr.i495 = getelementptr inbounds i8, ptr %180, i64 %123
+  %add.ptr.i495 = getelementptr inbounds i8, ptr %183, i64 %126
   store i32 -2147483648, ptr %add.ptr.i495, align 1
-  %184 = load ptr, ptr %arrayidx.i479, align 8, !tbaa !22
-  %arrayidx.i.i.i496 = getelementptr inbounds i8, ptr %184, i64 %div2.i.i.i462
-  %185 = load i8, ptr %arrayidx.i.i.i496, align 1, !tbaa !41
-  %conv4.i.i.i497 = and i8 %185, %174
+  %187 = load ptr, ptr %arrayidx.i479, align 8, !tbaa !22
+  %arrayidx.i.i.i496 = getelementptr inbounds i8, ptr %187, i64 %div2.i.i.i462
+  %188 = load i8, ptr %arrayidx.i.i.i496, align 1, !tbaa !41
+  %conv4.i.i.i497 = and i8 %188, %177
   store i8 %conv4.i.i.i497, ptr %arrayidx.i.i.i496, align 1, !tbaa !41
   br label %if.end.i491
 
@@ -2665,37 +2688,37 @@ if.end.i491:                                      ; preds = %_ZN6duckdb21Templat
 
 for.body17.i499:                                  ; preds = %sw.bb126, %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i511
   %i13.011.i500 = phi i64 [ %inc28.i516, %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i511 ], [ 0, %sw.bb126 ]
-  %186 = load ptr, ptr %sel, align 8, !tbaa !26
-  %tobool.not.i60.i501 = icmp eq ptr %186, null
+  %189 = load ptr, ptr %sel, align 8, !tbaa !26
+  %tobool.not.i60.i501 = icmp eq ptr %189, null
   br i1 %tobool.not.i60.i501, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i505, label %cond.true.i61.i502
 
 cond.true.i61.i502:                               ; preds = %for.body17.i499
-  %arrayidx.i62.i503 = getelementptr inbounds i32, ptr %186, i64 %i13.011.i500
-  %187 = load i32, ptr %arrayidx.i62.i503, align 4, !tbaa !30
-  %conv.i63.i504 = zext i32 %187 to i64
+  %arrayidx.i62.i503 = getelementptr inbounds i32, ptr %189, i64 %i13.011.i500
+  %190 = load i32, ptr %arrayidx.i62.i503, align 4, !tbaa !30
+  %conv.i63.i504 = zext i32 %190 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i505
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit65.i505: ; preds = %cond.true.i61.i502, %for.body17.i499
   %cond.i64.i506 = phi i64 [ %conv.i63.i504, %cond.true.i61.i502 ], [ %i13.011.i500, %for.body17.i499 ]
-  %188 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
-  %189 = load ptr, ptr %188, align 8, !tbaa !26
-  %tobool.not.i66.i507 = icmp eq ptr %189, null
+  %191 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
+  %192 = load ptr, ptr %191, align 8, !tbaa !26
+  %tobool.not.i66.i507 = icmp eq ptr %192, null
   br i1 %tobool.not.i66.i507, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i511, label %cond.true.i67.i508
 
 cond.true.i67.i508:                               ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i505
-  %arrayidx.i68.i509 = getelementptr inbounds i32, ptr %189, i64 %cond.i64.i506
-  %190 = load i32, ptr %arrayidx.i68.i509, align 4, !tbaa !30
-  %conv.i69.i510 = zext i32 %190 to i64
+  %arrayidx.i68.i509 = getelementptr inbounds i32, ptr %192, i64 %cond.i64.i506
+  %193 = load i32, ptr %arrayidx.i68.i509, align 4, !tbaa !30
+  %conv.i69.i510 = zext i32 %193 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i511
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit71.i511: ; preds = %cond.true.i67.i508, %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i505
   %cond.i70.i512 = phi i64 [ %conv.i69.i510, %cond.true.i67.i508 ], [ %cond.i64.i506, %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i505 ]
   %arrayidx24.i513 = getelementptr inbounds ptr, ptr %rows.val322, i64 %cond.i64.i506
-  %191 = load ptr, ptr %arrayidx24.i513, align 8, !tbaa !22
-  %arrayidx25.i514 = getelementptr inbounds i32, ptr %171, i64 %cond.i70.i512
-  %add.ptr26.i515 = getelementptr inbounds i8, ptr %191, i64 %123
-  %192 = load i32, ptr %arrayidx25.i514, align 4
-  store i32 %192, ptr %add.ptr26.i515, align 1
+  %194 = load ptr, ptr %arrayidx24.i513, align 8, !tbaa !22
+  %arrayidx25.i514 = getelementptr inbounds i32, ptr %174, i64 %cond.i70.i512
+  %add.ptr26.i515 = getelementptr inbounds i8, ptr %194, i64 %126
+  %195 = load i32, ptr %arrayidx25.i514, align 4
+  store i32 %195, ptr %add.ptr26.i515, align 1
   %inc28.i516 = add nuw i64 %i13.011.i500, 1
   %exitcond13.not.i517 = icmp eq i64 %inc28.i516, %count
   br i1 %exitcond13.not.i517, label %sw.epilog169, label %for.body17.i499, !llvm.loop !160
@@ -2703,77 +2726,77 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit71.i511: ; preds = %cond.true.i67.i
 sw.bb128:                                         ; preds = %invoke.cont118
   %rows.val323 = load ptr, ptr %data.i.i.i, align 8, !tbaa !3
   %data.i.i518 = getelementptr inbounds i8, ptr %arrayidx114, i64 8
-  %193 = load ptr, ptr %data.i.i518, align 8, !tbaa !140
+  %196 = load ptr, ptr %data.i.i518, align 8, !tbaa !140
   %validity.i519 = getelementptr inbounds i8, ptr %arrayidx114, i64 16
-  %194 = load ptr, ptr %validity.i519, align 8, !tbaa !143
-  %tobool.not.i.i520 = icmp eq ptr %194, null
+  %197 = load ptr, ptr %validity.i519, align 8, !tbaa !143
+  %tobool.not.i.i520 = icmp eq ptr %197, null
   br i1 %tobool.not.i.i520, label %for.body17.i561, label %for.body.lr.ph.i523
 
 for.body.lr.ph.i523:                              ; preds = %sw.bb128
   %div2.i.i.i524 = lshr i64 %col_no102.01184, 3
-  %195 = trunc i64 %col_no102.01184 to i8
-  %conv.i.i.i525 = and i8 %195, 7
+  %198 = trunc i64 %col_no102.01184 to i8
+  %conv.i.i.i525 = and i8 %198, 7
   %shl.i.i.i526 = shl nuw i8 1, %conv.i.i.i525
-  %196 = xor i8 %shl.i.i.i526, -1
+  %199 = xor i8 %shl.i.i.i526, -1
   br label %for.body.i527
 
 for.body.i527:                                    ; preds = %if.end.i553, %for.body.lr.ph.i523
   %i.09.i528 = phi i64 [ 0, %for.body.lr.ph.i523 ], [ %inc.i554, %if.end.i553 ]
-  %197 = load ptr, ptr %sel, align 8, !tbaa !26
-  %tobool.not.i52.i529 = icmp eq ptr %197, null
+  %200 = load ptr, ptr %sel, align 8, !tbaa !26
+  %tobool.not.i52.i529 = icmp eq ptr %200, null
   br i1 %tobool.not.i52.i529, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i533, label %cond.true.i.i530
 
 cond.true.i.i530:                                 ; preds = %for.body.i527
-  %arrayidx.i.i531 = getelementptr inbounds i32, ptr %197, i64 %i.09.i528
-  %198 = load i32, ptr %arrayidx.i.i531, align 4, !tbaa !30
-  %conv.i.i532 = zext i32 %198 to i64
+  %arrayidx.i.i531 = getelementptr inbounds i32, ptr %200, i64 %i.09.i528
+  %201 = load i32, ptr %arrayidx.i.i531, align 4, !tbaa !30
+  %conv.i.i532 = zext i32 %201 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i533
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit.i533: ; preds = %cond.true.i.i530, %for.body.i527
   %cond.i.i534 = phi i64 [ %conv.i.i532, %cond.true.i.i530 ], [ %i.09.i528, %for.body.i527 ]
-  %199 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
-  %200 = load ptr, ptr %199, align 8, !tbaa !26
-  %tobool.not.i53.i535 = icmp eq ptr %200, null
+  %202 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
+  %203 = load ptr, ptr %202, align 8, !tbaa !26
+  %tobool.not.i53.i535 = icmp eq ptr %203, null
   br i1 %tobool.not.i53.i535, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.i539, label %cond.true.i54.i536
 
 cond.true.i54.i536:                               ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i533
-  %arrayidx.i55.i537 = getelementptr inbounds i32, ptr %200, i64 %cond.i.i534
-  %201 = load i32, ptr %arrayidx.i55.i537, align 4, !tbaa !30
-  %conv.i56.i538 = zext i32 %201 to i64
+  %arrayidx.i55.i537 = getelementptr inbounds i32, ptr %203, i64 %cond.i.i534
+  %204 = load i32, ptr %arrayidx.i55.i537, align 4, !tbaa !30
+  %conv.i56.i538 = zext i32 %204 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.i539
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit58.i539: ; preds = %cond.true.i54.i536, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i533
   %cond.i57.i540 = phi i64 [ %conv.i56.i538, %cond.true.i54.i536 ], [ %cond.i.i534, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i533 ]
   %arrayidx.i541 = getelementptr inbounds ptr, ptr %rows.val323, i64 %cond.i.i534
-  %202 = load ptr, ptr %arrayidx.i541, align 8, !tbaa !22
-  %203 = load ptr, ptr %validity.i519, align 8, !tbaa !143
-  %tobool.not.i59.i542 = icmp eq ptr %203, null
+  %205 = load ptr, ptr %arrayidx.i541, align 8, !tbaa !22
+  %206 = load ptr, ptr %validity.i519, align 8, !tbaa !143
+  %tobool.not.i59.i542 = icmp eq ptr %206, null
   br i1 %tobool.not.i59.i542, label %cond.end.thread.i550, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i543
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i543: ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.i539
   %div2.i.i.i.i544 = lshr i64 %cond.i57.i540, 6
-  %arrayidx.i.i.i.i.i545 = getelementptr inbounds i64, ptr %203, i64 %div2.i.i.i.i544
-  %204 = load i64, ptr %arrayidx.i.i.i.i.i545, align 8, !tbaa !38
+  %arrayidx.i.i.i.i.i545 = getelementptr inbounds i64, ptr %206, i64 %div2.i.i.i.i544
+  %207 = load i64, ptr %arrayidx.i.i.i.i.i545, align 8, !tbaa !38
   %rem.i.i.i.i546 = and i64 %cond.i57.i540, 63
   %shl.i.i.i.i547 = shl nuw i64 1, %rem.i.i.i.i546
-  %and.i.i.i.i548 = and i64 %204, %shl.i.i.i.i547
+  %and.i.i.i.i548 = and i64 %207, %shl.i.i.i.i547
   %tobool.i.i.i.not.i549 = icmp eq i64 %and.i.i.i.i548, 0
   br i1 %tobool.i.i.i.not.i549, label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.i556, label %cond.end.thread.i550
 
 cond.end.thread.i550:                             ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i543, %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.i539
-  %arrayidx9.i551 = getelementptr inbounds i64, ptr %193, i64 %cond.i57.i540
-  %205 = load i64, ptr %arrayidx9.i551, align 8, !tbaa !38
-  %add.ptr6.i552 = getelementptr inbounds i8, ptr %202, i64 %123
-  store i64 %205, ptr %add.ptr6.i552, align 1
+  %arrayidx9.i551 = getelementptr inbounds i64, ptr %196, i64 %cond.i57.i540
+  %208 = load i64, ptr %arrayidx9.i551, align 8, !tbaa !38
+  %add.ptr6.i552 = getelementptr inbounds i8, ptr %205, i64 %126
+  store i64 %208, ptr %add.ptr6.i552, align 1
   br label %if.end.i553
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.i556: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i543
-  %add.ptr.i557 = getelementptr inbounds i8, ptr %202, i64 %123
+  %add.ptr.i557 = getelementptr inbounds i8, ptr %205, i64 %126
   store i64 -9223372036854775808, ptr %add.ptr.i557, align 1
-  %206 = load ptr, ptr %arrayidx.i541, align 8, !tbaa !22
-  %arrayidx.i.i.i558 = getelementptr inbounds i8, ptr %206, i64 %div2.i.i.i524
-  %207 = load i8, ptr %arrayidx.i.i.i558, align 1, !tbaa !41
-  %conv4.i.i.i559 = and i8 %207, %196
+  %209 = load ptr, ptr %arrayidx.i541, align 8, !tbaa !22
+  %arrayidx.i.i.i558 = getelementptr inbounds i8, ptr %209, i64 %div2.i.i.i524
+  %210 = load i8, ptr %arrayidx.i.i.i558, align 1, !tbaa !41
+  %conv4.i.i.i559 = and i8 %210, %199
   store i8 %conv4.i.i.i559, ptr %arrayidx.i.i.i558, align 1, !tbaa !41
   br label %if.end.i553
 
@@ -2784,37 +2807,37 @@ if.end.i553:                                      ; preds = %_ZN6duckdb21Templat
 
 for.body17.i561:                                  ; preds = %sw.bb128, %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i573
   %i13.011.i562 = phi i64 [ %inc28.i578, %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i573 ], [ 0, %sw.bb128 ]
-  %208 = load ptr, ptr %sel, align 8, !tbaa !26
-  %tobool.not.i60.i563 = icmp eq ptr %208, null
+  %211 = load ptr, ptr %sel, align 8, !tbaa !26
+  %tobool.not.i60.i563 = icmp eq ptr %211, null
   br i1 %tobool.not.i60.i563, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i567, label %cond.true.i61.i564
 
 cond.true.i61.i564:                               ; preds = %for.body17.i561
-  %arrayidx.i62.i565 = getelementptr inbounds i32, ptr %208, i64 %i13.011.i562
-  %209 = load i32, ptr %arrayidx.i62.i565, align 4, !tbaa !30
-  %conv.i63.i566 = zext i32 %209 to i64
+  %arrayidx.i62.i565 = getelementptr inbounds i32, ptr %211, i64 %i13.011.i562
+  %212 = load i32, ptr %arrayidx.i62.i565, align 4, !tbaa !30
+  %conv.i63.i566 = zext i32 %212 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i567
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit65.i567: ; preds = %cond.true.i61.i564, %for.body17.i561
   %cond.i64.i568 = phi i64 [ %conv.i63.i566, %cond.true.i61.i564 ], [ %i13.011.i562, %for.body17.i561 ]
-  %210 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
-  %211 = load ptr, ptr %210, align 8, !tbaa !26
-  %tobool.not.i66.i569 = icmp eq ptr %211, null
+  %213 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
+  %214 = load ptr, ptr %213, align 8, !tbaa !26
+  %tobool.not.i66.i569 = icmp eq ptr %214, null
   br i1 %tobool.not.i66.i569, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i573, label %cond.true.i67.i570
 
 cond.true.i67.i570:                               ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i567
-  %arrayidx.i68.i571 = getelementptr inbounds i32, ptr %211, i64 %cond.i64.i568
-  %212 = load i32, ptr %arrayidx.i68.i571, align 4, !tbaa !30
-  %conv.i69.i572 = zext i32 %212 to i64
+  %arrayidx.i68.i571 = getelementptr inbounds i32, ptr %214, i64 %cond.i64.i568
+  %215 = load i32, ptr %arrayidx.i68.i571, align 4, !tbaa !30
+  %conv.i69.i572 = zext i32 %215 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i573
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit71.i573: ; preds = %cond.true.i67.i570, %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i567
   %cond.i70.i574 = phi i64 [ %conv.i69.i572, %cond.true.i67.i570 ], [ %cond.i64.i568, %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i567 ]
   %arrayidx24.i575 = getelementptr inbounds ptr, ptr %rows.val323, i64 %cond.i64.i568
-  %213 = load ptr, ptr %arrayidx24.i575, align 8, !tbaa !22
-  %arrayidx25.i576 = getelementptr inbounds i64, ptr %193, i64 %cond.i70.i574
-  %add.ptr26.i577 = getelementptr inbounds i8, ptr %213, i64 %123
-  %214 = load i64, ptr %arrayidx25.i576, align 8
-  store i64 %214, ptr %add.ptr26.i577, align 1
+  %216 = load ptr, ptr %arrayidx24.i575, align 8, !tbaa !22
+  %arrayidx25.i576 = getelementptr inbounds i64, ptr %196, i64 %cond.i70.i574
+  %add.ptr26.i577 = getelementptr inbounds i8, ptr %216, i64 %126
+  %217 = load i64, ptr %arrayidx25.i576, align 8
+  store i64 %217, ptr %add.ptr26.i577, align 1
   %inc28.i578 = add nuw i64 %i13.011.i562, 1
   %exitcond13.not.i579 = icmp eq i64 %inc28.i578, %count
   br i1 %exitcond13.not.i579, label %sw.epilog169, label %for.body17.i561, !llvm.loop !162
@@ -2822,77 +2845,77 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit71.i573: ; preds = %cond.true.i67.i
 sw.bb130:                                         ; preds = %invoke.cont118
   %rows.val324 = load ptr, ptr %data.i.i.i, align 8, !tbaa !3
   %data.i.i580 = getelementptr inbounds i8, ptr %arrayidx114, i64 8
-  %215 = load ptr, ptr %data.i.i580, align 8, !tbaa !140
+  %218 = load ptr, ptr %data.i.i580, align 8, !tbaa !140
   %validity.i581 = getelementptr inbounds i8, ptr %arrayidx114, i64 16
-  %216 = load ptr, ptr %validity.i581, align 8, !tbaa !143
-  %tobool.not.i.i582 = icmp eq ptr %216, null
+  %219 = load ptr, ptr %validity.i581, align 8, !tbaa !143
+  %tobool.not.i.i582 = icmp eq ptr %219, null
   br i1 %tobool.not.i.i582, label %for.body17.i623, label %for.body.lr.ph.i585
 
 for.body.lr.ph.i585:                              ; preds = %sw.bb130
   %div2.i.i.i586 = lshr i64 %col_no102.01184, 3
-  %217 = trunc i64 %col_no102.01184 to i8
-  %conv.i.i.i587 = and i8 %217, 7
+  %220 = trunc i64 %col_no102.01184 to i8
+  %conv.i.i.i587 = and i8 %220, 7
   %shl.i.i.i588 = shl nuw i8 1, %conv.i.i.i587
-  %218 = xor i8 %shl.i.i.i588, -1
+  %221 = xor i8 %shl.i.i.i588, -1
   br label %for.body.i589
 
 for.body.i589:                                    ; preds = %if.end.i615, %for.body.lr.ph.i585
   %i.09.i590 = phi i64 [ 0, %for.body.lr.ph.i585 ], [ %inc.i616, %if.end.i615 ]
-  %219 = load ptr, ptr %sel, align 8, !tbaa !26
-  %tobool.not.i52.i591 = icmp eq ptr %219, null
+  %222 = load ptr, ptr %sel, align 8, !tbaa !26
+  %tobool.not.i52.i591 = icmp eq ptr %222, null
   br i1 %tobool.not.i52.i591, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i595, label %cond.true.i.i592
 
 cond.true.i.i592:                                 ; preds = %for.body.i589
-  %arrayidx.i.i593 = getelementptr inbounds i32, ptr %219, i64 %i.09.i590
-  %220 = load i32, ptr %arrayidx.i.i593, align 4, !tbaa !30
-  %conv.i.i594 = zext i32 %220 to i64
+  %arrayidx.i.i593 = getelementptr inbounds i32, ptr %222, i64 %i.09.i590
+  %223 = load i32, ptr %arrayidx.i.i593, align 4, !tbaa !30
+  %conv.i.i594 = zext i32 %223 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i595
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit.i595: ; preds = %cond.true.i.i592, %for.body.i589
   %cond.i.i596 = phi i64 [ %conv.i.i594, %cond.true.i.i592 ], [ %i.09.i590, %for.body.i589 ]
-  %221 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
-  %222 = load ptr, ptr %221, align 8, !tbaa !26
-  %tobool.not.i53.i597 = icmp eq ptr %222, null
+  %224 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
+  %225 = load ptr, ptr %224, align 8, !tbaa !26
+  %tobool.not.i53.i597 = icmp eq ptr %225, null
   br i1 %tobool.not.i53.i597, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.i601, label %cond.true.i54.i598
 
 cond.true.i54.i598:                               ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i595
-  %arrayidx.i55.i599 = getelementptr inbounds i32, ptr %222, i64 %cond.i.i596
-  %223 = load i32, ptr %arrayidx.i55.i599, align 4, !tbaa !30
-  %conv.i56.i600 = zext i32 %223 to i64
+  %arrayidx.i55.i599 = getelementptr inbounds i32, ptr %225, i64 %cond.i.i596
+  %226 = load i32, ptr %arrayidx.i55.i599, align 4, !tbaa !30
+  %conv.i56.i600 = zext i32 %226 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.i601
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit58.i601: ; preds = %cond.true.i54.i598, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i595
   %cond.i57.i602 = phi i64 [ %conv.i56.i600, %cond.true.i54.i598 ], [ %cond.i.i596, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i595 ]
   %arrayidx.i603 = getelementptr inbounds ptr, ptr %rows.val324, i64 %cond.i.i596
-  %224 = load ptr, ptr %arrayidx.i603, align 8, !tbaa !22
-  %225 = load ptr, ptr %validity.i581, align 8, !tbaa !143
-  %tobool.not.i59.i604 = icmp eq ptr %225, null
+  %227 = load ptr, ptr %arrayidx.i603, align 8, !tbaa !22
+  %228 = load ptr, ptr %validity.i581, align 8, !tbaa !143
+  %tobool.not.i59.i604 = icmp eq ptr %228, null
   br i1 %tobool.not.i59.i604, label %cond.end.thread.i612, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i605
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i605: ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.i601
   %div2.i.i.i.i606 = lshr i64 %cond.i57.i602, 6
-  %arrayidx.i.i.i.i.i607 = getelementptr inbounds i64, ptr %225, i64 %div2.i.i.i.i606
-  %226 = load i64, ptr %arrayidx.i.i.i.i.i607, align 8, !tbaa !38
+  %arrayidx.i.i.i.i.i607 = getelementptr inbounds i64, ptr %228, i64 %div2.i.i.i.i606
+  %229 = load i64, ptr %arrayidx.i.i.i.i.i607, align 8, !tbaa !38
   %rem.i.i.i.i608 = and i64 %cond.i57.i602, 63
   %shl.i.i.i.i609 = shl nuw i64 1, %rem.i.i.i.i608
-  %and.i.i.i.i610 = and i64 %226, %shl.i.i.i.i609
+  %and.i.i.i.i610 = and i64 %229, %shl.i.i.i.i609
   %tobool.i.i.i.not.i611 = icmp eq i64 %and.i.i.i.i610, 0
   br i1 %tobool.i.i.i.not.i611, label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.i618, label %cond.end.thread.i612
 
 cond.end.thread.i612:                             ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i605, %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.i601
-  %arrayidx9.i613 = getelementptr inbounds i8, ptr %215, i64 %cond.i57.i602
-  %227 = load i8, ptr %arrayidx9.i613, align 1, !tbaa !41
-  %add.ptr6.i614 = getelementptr inbounds i8, ptr %224, i64 %123
-  store i8 %227, ptr %add.ptr6.i614, align 1
+  %arrayidx9.i613 = getelementptr inbounds i8, ptr %218, i64 %cond.i57.i602
+  %230 = load i8, ptr %arrayidx9.i613, align 1, !tbaa !41
+  %add.ptr6.i614 = getelementptr inbounds i8, ptr %227, i64 %126
+  store i8 %230, ptr %add.ptr6.i614, align 1
   br label %if.end.i615
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.i618: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i605
-  %add.ptr.i619 = getelementptr inbounds i8, ptr %224, i64 %123
+  %add.ptr.i619 = getelementptr inbounds i8, ptr %227, i64 %126
   store i8 0, ptr %add.ptr.i619, align 1
-  %228 = load ptr, ptr %arrayidx.i603, align 8, !tbaa !22
-  %arrayidx.i.i.i620 = getelementptr inbounds i8, ptr %228, i64 %div2.i.i.i586
-  %229 = load i8, ptr %arrayidx.i.i.i620, align 1, !tbaa !41
-  %conv4.i.i.i621 = and i8 %229, %218
+  %231 = load ptr, ptr %arrayidx.i603, align 8, !tbaa !22
+  %arrayidx.i.i.i620 = getelementptr inbounds i8, ptr %231, i64 %div2.i.i.i586
+  %232 = load i8, ptr %arrayidx.i.i.i620, align 1, !tbaa !41
+  %conv4.i.i.i621 = and i8 %232, %221
   store i8 %conv4.i.i.i621, ptr %arrayidx.i.i.i620, align 1, !tbaa !41
   br label %if.end.i615
 
@@ -2903,37 +2926,37 @@ if.end.i615:                                      ; preds = %_ZN6duckdb21Templat
 
 for.body17.i623:                                  ; preds = %sw.bb130, %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i635
   %i13.011.i624 = phi i64 [ %inc28.i640, %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i635 ], [ 0, %sw.bb130 ]
-  %230 = load ptr, ptr %sel, align 8, !tbaa !26
-  %tobool.not.i60.i625 = icmp eq ptr %230, null
+  %233 = load ptr, ptr %sel, align 8, !tbaa !26
+  %tobool.not.i60.i625 = icmp eq ptr %233, null
   br i1 %tobool.not.i60.i625, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i629, label %cond.true.i61.i626
 
 cond.true.i61.i626:                               ; preds = %for.body17.i623
-  %arrayidx.i62.i627 = getelementptr inbounds i32, ptr %230, i64 %i13.011.i624
-  %231 = load i32, ptr %arrayidx.i62.i627, align 4, !tbaa !30
-  %conv.i63.i628 = zext i32 %231 to i64
+  %arrayidx.i62.i627 = getelementptr inbounds i32, ptr %233, i64 %i13.011.i624
+  %234 = load i32, ptr %arrayidx.i62.i627, align 4, !tbaa !30
+  %conv.i63.i628 = zext i32 %234 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i629
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit65.i629: ; preds = %cond.true.i61.i626, %for.body17.i623
   %cond.i64.i630 = phi i64 [ %conv.i63.i628, %cond.true.i61.i626 ], [ %i13.011.i624, %for.body17.i623 ]
-  %232 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
-  %233 = load ptr, ptr %232, align 8, !tbaa !26
-  %tobool.not.i66.i631 = icmp eq ptr %233, null
+  %235 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
+  %236 = load ptr, ptr %235, align 8, !tbaa !26
+  %tobool.not.i66.i631 = icmp eq ptr %236, null
   br i1 %tobool.not.i66.i631, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i635, label %cond.true.i67.i632
 
 cond.true.i67.i632:                               ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i629
-  %arrayidx.i68.i633 = getelementptr inbounds i32, ptr %233, i64 %cond.i64.i630
-  %234 = load i32, ptr %arrayidx.i68.i633, align 4, !tbaa !30
-  %conv.i69.i634 = zext i32 %234 to i64
+  %arrayidx.i68.i633 = getelementptr inbounds i32, ptr %236, i64 %cond.i64.i630
+  %237 = load i32, ptr %arrayidx.i68.i633, align 4, !tbaa !30
+  %conv.i69.i634 = zext i32 %237 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i635
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit71.i635: ; preds = %cond.true.i67.i632, %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i629
   %cond.i70.i636 = phi i64 [ %conv.i69.i634, %cond.true.i67.i632 ], [ %cond.i64.i630, %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i629 ]
   %arrayidx24.i637 = getelementptr inbounds ptr, ptr %rows.val324, i64 %cond.i64.i630
-  %235 = load ptr, ptr %arrayidx24.i637, align 8, !tbaa !22
-  %arrayidx25.i638 = getelementptr inbounds i8, ptr %215, i64 %cond.i70.i636
-  %add.ptr26.i639 = getelementptr inbounds i8, ptr %235, i64 %123
-  %236 = load i8, ptr %arrayidx25.i638, align 1
-  store i8 %236, ptr %add.ptr26.i639, align 1
+  %238 = load ptr, ptr %arrayidx24.i637, align 8, !tbaa !22
+  %arrayidx25.i638 = getelementptr inbounds i8, ptr %218, i64 %cond.i70.i636
+  %add.ptr26.i639 = getelementptr inbounds i8, ptr %238, i64 %126
+  %239 = load i8, ptr %arrayidx25.i638, align 1
+  store i8 %239, ptr %add.ptr26.i639, align 1
   %inc28.i640 = add nuw i64 %i13.011.i624, 1
   %exitcond13.not.i641 = icmp eq i64 %inc28.i640, %count
   br i1 %exitcond13.not.i641, label %sw.epilog169, label %for.body17.i623, !llvm.loop !164
@@ -2941,77 +2964,77 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit71.i635: ; preds = %cond.true.i67.i
 sw.bb132:                                         ; preds = %invoke.cont118
   %rows.val325 = load ptr, ptr %data.i.i.i, align 8, !tbaa !3
   %data.i.i642 = getelementptr inbounds i8, ptr %arrayidx114, i64 8
-  %237 = load ptr, ptr %data.i.i642, align 8, !tbaa !140
+  %240 = load ptr, ptr %data.i.i642, align 8, !tbaa !140
   %validity.i643 = getelementptr inbounds i8, ptr %arrayidx114, i64 16
-  %238 = load ptr, ptr %validity.i643, align 8, !tbaa !143
-  %tobool.not.i.i644 = icmp eq ptr %238, null
+  %241 = load ptr, ptr %validity.i643, align 8, !tbaa !143
+  %tobool.not.i.i644 = icmp eq ptr %241, null
   br i1 %tobool.not.i.i644, label %for.body17.i685, label %for.body.lr.ph.i647
 
 for.body.lr.ph.i647:                              ; preds = %sw.bb132
   %div2.i.i.i648 = lshr i64 %col_no102.01184, 3
-  %239 = trunc i64 %col_no102.01184 to i8
-  %conv.i.i.i649 = and i8 %239, 7
+  %242 = trunc i64 %col_no102.01184 to i8
+  %conv.i.i.i649 = and i8 %242, 7
   %shl.i.i.i650 = shl nuw i8 1, %conv.i.i.i649
-  %240 = xor i8 %shl.i.i.i650, -1
+  %243 = xor i8 %shl.i.i.i650, -1
   br label %for.body.i651
 
 for.body.i651:                                    ; preds = %if.end.i677, %for.body.lr.ph.i647
   %i.09.i652 = phi i64 [ 0, %for.body.lr.ph.i647 ], [ %inc.i678, %if.end.i677 ]
-  %241 = load ptr, ptr %sel, align 8, !tbaa !26
-  %tobool.not.i52.i653 = icmp eq ptr %241, null
+  %244 = load ptr, ptr %sel, align 8, !tbaa !26
+  %tobool.not.i52.i653 = icmp eq ptr %244, null
   br i1 %tobool.not.i52.i653, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i657, label %cond.true.i.i654
 
 cond.true.i.i654:                                 ; preds = %for.body.i651
-  %arrayidx.i.i655 = getelementptr inbounds i32, ptr %241, i64 %i.09.i652
-  %242 = load i32, ptr %arrayidx.i.i655, align 4, !tbaa !30
-  %conv.i.i656 = zext i32 %242 to i64
+  %arrayidx.i.i655 = getelementptr inbounds i32, ptr %244, i64 %i.09.i652
+  %245 = load i32, ptr %arrayidx.i.i655, align 4, !tbaa !30
+  %conv.i.i656 = zext i32 %245 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i657
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit.i657: ; preds = %cond.true.i.i654, %for.body.i651
   %cond.i.i658 = phi i64 [ %conv.i.i656, %cond.true.i.i654 ], [ %i.09.i652, %for.body.i651 ]
-  %243 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
-  %244 = load ptr, ptr %243, align 8, !tbaa !26
-  %tobool.not.i53.i659 = icmp eq ptr %244, null
+  %246 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
+  %247 = load ptr, ptr %246, align 8, !tbaa !26
+  %tobool.not.i53.i659 = icmp eq ptr %247, null
   br i1 %tobool.not.i53.i659, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.i663, label %cond.true.i54.i660
 
 cond.true.i54.i660:                               ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i657
-  %arrayidx.i55.i661 = getelementptr inbounds i32, ptr %244, i64 %cond.i.i658
-  %245 = load i32, ptr %arrayidx.i55.i661, align 4, !tbaa !30
-  %conv.i56.i662 = zext i32 %245 to i64
+  %arrayidx.i55.i661 = getelementptr inbounds i32, ptr %247, i64 %cond.i.i658
+  %248 = load i32, ptr %arrayidx.i55.i661, align 4, !tbaa !30
+  %conv.i56.i662 = zext i32 %248 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.i663
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit58.i663: ; preds = %cond.true.i54.i660, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i657
   %cond.i57.i664 = phi i64 [ %conv.i56.i662, %cond.true.i54.i660 ], [ %cond.i.i658, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i657 ]
   %arrayidx.i665 = getelementptr inbounds ptr, ptr %rows.val325, i64 %cond.i.i658
-  %246 = load ptr, ptr %arrayidx.i665, align 8, !tbaa !22
-  %247 = load ptr, ptr %validity.i643, align 8, !tbaa !143
-  %tobool.not.i59.i666 = icmp eq ptr %247, null
+  %249 = load ptr, ptr %arrayidx.i665, align 8, !tbaa !22
+  %250 = load ptr, ptr %validity.i643, align 8, !tbaa !143
+  %tobool.not.i59.i666 = icmp eq ptr %250, null
   br i1 %tobool.not.i59.i666, label %cond.end.thread.i674, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i667
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i667: ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.i663
   %div2.i.i.i.i668 = lshr i64 %cond.i57.i664, 6
-  %arrayidx.i.i.i.i.i669 = getelementptr inbounds i64, ptr %247, i64 %div2.i.i.i.i668
-  %248 = load i64, ptr %arrayidx.i.i.i.i.i669, align 8, !tbaa !38
+  %arrayidx.i.i.i.i.i669 = getelementptr inbounds i64, ptr %250, i64 %div2.i.i.i.i668
+  %251 = load i64, ptr %arrayidx.i.i.i.i.i669, align 8, !tbaa !38
   %rem.i.i.i.i670 = and i64 %cond.i57.i664, 63
   %shl.i.i.i.i671 = shl nuw i64 1, %rem.i.i.i.i670
-  %and.i.i.i.i672 = and i64 %248, %shl.i.i.i.i671
+  %and.i.i.i.i672 = and i64 %251, %shl.i.i.i.i671
   %tobool.i.i.i.not.i673 = icmp eq i64 %and.i.i.i.i672, 0
   br i1 %tobool.i.i.i.not.i673, label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.i680, label %cond.end.thread.i674
 
 cond.end.thread.i674:                             ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i667, %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.i663
-  %arrayidx9.i675 = getelementptr inbounds i16, ptr %237, i64 %cond.i57.i664
-  %249 = load i16, ptr %arrayidx9.i675, align 2, !tbaa !155
-  %add.ptr6.i676 = getelementptr inbounds i8, ptr %246, i64 %123
-  store i16 %249, ptr %add.ptr6.i676, align 1
+  %arrayidx9.i675 = getelementptr inbounds i16, ptr %240, i64 %cond.i57.i664
+  %252 = load i16, ptr %arrayidx9.i675, align 2, !tbaa !155
+  %add.ptr6.i676 = getelementptr inbounds i8, ptr %249, i64 %126
+  store i16 %252, ptr %add.ptr6.i676, align 1
   br label %if.end.i677
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.i680: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i667
-  %add.ptr.i681 = getelementptr inbounds i8, ptr %246, i64 %123
+  %add.ptr.i681 = getelementptr inbounds i8, ptr %249, i64 %126
   store i16 0, ptr %add.ptr.i681, align 1
-  %250 = load ptr, ptr %arrayidx.i665, align 8, !tbaa !22
-  %arrayidx.i.i.i682 = getelementptr inbounds i8, ptr %250, i64 %div2.i.i.i648
-  %251 = load i8, ptr %arrayidx.i.i.i682, align 1, !tbaa !41
-  %conv4.i.i.i683 = and i8 %251, %240
+  %253 = load ptr, ptr %arrayidx.i665, align 8, !tbaa !22
+  %arrayidx.i.i.i682 = getelementptr inbounds i8, ptr %253, i64 %div2.i.i.i648
+  %254 = load i8, ptr %arrayidx.i.i.i682, align 1, !tbaa !41
+  %conv4.i.i.i683 = and i8 %254, %243
   store i8 %conv4.i.i.i683, ptr %arrayidx.i.i.i682, align 1, !tbaa !41
   br label %if.end.i677
 
@@ -3022,37 +3045,37 @@ if.end.i677:                                      ; preds = %_ZN6duckdb21Templat
 
 for.body17.i685:                                  ; preds = %sw.bb132, %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i697
   %i13.011.i686 = phi i64 [ %inc28.i702, %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i697 ], [ 0, %sw.bb132 ]
-  %252 = load ptr, ptr %sel, align 8, !tbaa !26
-  %tobool.not.i60.i687 = icmp eq ptr %252, null
+  %255 = load ptr, ptr %sel, align 8, !tbaa !26
+  %tobool.not.i60.i687 = icmp eq ptr %255, null
   br i1 %tobool.not.i60.i687, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i691, label %cond.true.i61.i688
 
 cond.true.i61.i688:                               ; preds = %for.body17.i685
-  %arrayidx.i62.i689 = getelementptr inbounds i32, ptr %252, i64 %i13.011.i686
-  %253 = load i32, ptr %arrayidx.i62.i689, align 4, !tbaa !30
-  %conv.i63.i690 = zext i32 %253 to i64
+  %arrayidx.i62.i689 = getelementptr inbounds i32, ptr %255, i64 %i13.011.i686
+  %256 = load i32, ptr %arrayidx.i62.i689, align 4, !tbaa !30
+  %conv.i63.i690 = zext i32 %256 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i691
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit65.i691: ; preds = %cond.true.i61.i688, %for.body17.i685
   %cond.i64.i692 = phi i64 [ %conv.i63.i690, %cond.true.i61.i688 ], [ %i13.011.i686, %for.body17.i685 ]
-  %254 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
-  %255 = load ptr, ptr %254, align 8, !tbaa !26
-  %tobool.not.i66.i693 = icmp eq ptr %255, null
+  %257 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
+  %258 = load ptr, ptr %257, align 8, !tbaa !26
+  %tobool.not.i66.i693 = icmp eq ptr %258, null
   br i1 %tobool.not.i66.i693, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i697, label %cond.true.i67.i694
 
 cond.true.i67.i694:                               ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i691
-  %arrayidx.i68.i695 = getelementptr inbounds i32, ptr %255, i64 %cond.i64.i692
-  %256 = load i32, ptr %arrayidx.i68.i695, align 4, !tbaa !30
-  %conv.i69.i696 = zext i32 %256 to i64
+  %arrayidx.i68.i695 = getelementptr inbounds i32, ptr %258, i64 %cond.i64.i692
+  %259 = load i32, ptr %arrayidx.i68.i695, align 4, !tbaa !30
+  %conv.i69.i696 = zext i32 %259 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i697
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit71.i697: ; preds = %cond.true.i67.i694, %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i691
   %cond.i70.i698 = phi i64 [ %conv.i69.i696, %cond.true.i67.i694 ], [ %cond.i64.i692, %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i691 ]
   %arrayidx24.i699 = getelementptr inbounds ptr, ptr %rows.val325, i64 %cond.i64.i692
-  %257 = load ptr, ptr %arrayidx24.i699, align 8, !tbaa !22
-  %arrayidx25.i700 = getelementptr inbounds i16, ptr %237, i64 %cond.i70.i698
-  %add.ptr26.i701 = getelementptr inbounds i8, ptr %257, i64 %123
-  %258 = load i16, ptr %arrayidx25.i700, align 2
-  store i16 %258, ptr %add.ptr26.i701, align 1
+  %260 = load ptr, ptr %arrayidx24.i699, align 8, !tbaa !22
+  %arrayidx25.i700 = getelementptr inbounds i16, ptr %240, i64 %cond.i70.i698
+  %add.ptr26.i701 = getelementptr inbounds i8, ptr %260, i64 %126
+  %261 = load i16, ptr %arrayidx25.i700, align 2
+  store i16 %261, ptr %add.ptr26.i701, align 1
   %inc28.i702 = add nuw i64 %i13.011.i686, 1
   %exitcond13.not.i703 = icmp eq i64 %inc28.i702, %count
   br i1 %exitcond13.not.i703, label %sw.epilog169, label %for.body17.i685, !llvm.loop !166
@@ -3060,77 +3083,77 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit71.i697: ; preds = %cond.true.i67.i
 sw.bb134:                                         ; preds = %invoke.cont118
   %rows.val326 = load ptr, ptr %data.i.i.i, align 8, !tbaa !3
   %data.i.i704 = getelementptr inbounds i8, ptr %arrayidx114, i64 8
-  %259 = load ptr, ptr %data.i.i704, align 8, !tbaa !140
+  %262 = load ptr, ptr %data.i.i704, align 8, !tbaa !140
   %validity.i705 = getelementptr inbounds i8, ptr %arrayidx114, i64 16
-  %260 = load ptr, ptr %validity.i705, align 8, !tbaa !143
-  %tobool.not.i.i706 = icmp eq ptr %260, null
+  %263 = load ptr, ptr %validity.i705, align 8, !tbaa !143
+  %tobool.not.i.i706 = icmp eq ptr %263, null
   br i1 %tobool.not.i.i706, label %for.body17.i747, label %for.body.lr.ph.i709
 
 for.body.lr.ph.i709:                              ; preds = %sw.bb134
   %div2.i.i.i710 = lshr i64 %col_no102.01184, 3
-  %261 = trunc i64 %col_no102.01184 to i8
-  %conv.i.i.i711 = and i8 %261, 7
+  %264 = trunc i64 %col_no102.01184 to i8
+  %conv.i.i.i711 = and i8 %264, 7
   %shl.i.i.i712 = shl nuw i8 1, %conv.i.i.i711
-  %262 = xor i8 %shl.i.i.i712, -1
+  %265 = xor i8 %shl.i.i.i712, -1
   br label %for.body.i713
 
 for.body.i713:                                    ; preds = %if.end.i739, %for.body.lr.ph.i709
   %i.09.i714 = phi i64 [ 0, %for.body.lr.ph.i709 ], [ %inc.i740, %if.end.i739 ]
-  %263 = load ptr, ptr %sel, align 8, !tbaa !26
-  %tobool.not.i52.i715 = icmp eq ptr %263, null
+  %266 = load ptr, ptr %sel, align 8, !tbaa !26
+  %tobool.not.i52.i715 = icmp eq ptr %266, null
   br i1 %tobool.not.i52.i715, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i719, label %cond.true.i.i716
 
 cond.true.i.i716:                                 ; preds = %for.body.i713
-  %arrayidx.i.i717 = getelementptr inbounds i32, ptr %263, i64 %i.09.i714
-  %264 = load i32, ptr %arrayidx.i.i717, align 4, !tbaa !30
-  %conv.i.i718 = zext i32 %264 to i64
+  %arrayidx.i.i717 = getelementptr inbounds i32, ptr %266, i64 %i.09.i714
+  %267 = load i32, ptr %arrayidx.i.i717, align 4, !tbaa !30
+  %conv.i.i718 = zext i32 %267 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i719
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit.i719: ; preds = %cond.true.i.i716, %for.body.i713
   %cond.i.i720 = phi i64 [ %conv.i.i718, %cond.true.i.i716 ], [ %i.09.i714, %for.body.i713 ]
-  %265 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
-  %266 = load ptr, ptr %265, align 8, !tbaa !26
-  %tobool.not.i53.i721 = icmp eq ptr %266, null
+  %268 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
+  %269 = load ptr, ptr %268, align 8, !tbaa !26
+  %tobool.not.i53.i721 = icmp eq ptr %269, null
   br i1 %tobool.not.i53.i721, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.i725, label %cond.true.i54.i722
 
 cond.true.i54.i722:                               ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i719
-  %arrayidx.i55.i723 = getelementptr inbounds i32, ptr %266, i64 %cond.i.i720
-  %267 = load i32, ptr %arrayidx.i55.i723, align 4, !tbaa !30
-  %conv.i56.i724 = zext i32 %267 to i64
+  %arrayidx.i55.i723 = getelementptr inbounds i32, ptr %269, i64 %cond.i.i720
+  %270 = load i32, ptr %arrayidx.i55.i723, align 4, !tbaa !30
+  %conv.i56.i724 = zext i32 %270 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.i725
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit58.i725: ; preds = %cond.true.i54.i722, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i719
   %cond.i57.i726 = phi i64 [ %conv.i56.i724, %cond.true.i54.i722 ], [ %cond.i.i720, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i719 ]
   %arrayidx.i727 = getelementptr inbounds ptr, ptr %rows.val326, i64 %cond.i.i720
-  %268 = load ptr, ptr %arrayidx.i727, align 8, !tbaa !22
-  %269 = load ptr, ptr %validity.i705, align 8, !tbaa !143
-  %tobool.not.i59.i728 = icmp eq ptr %269, null
+  %271 = load ptr, ptr %arrayidx.i727, align 8, !tbaa !22
+  %272 = load ptr, ptr %validity.i705, align 8, !tbaa !143
+  %tobool.not.i59.i728 = icmp eq ptr %272, null
   br i1 %tobool.not.i59.i728, label %cond.end.thread.i736, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i729
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i729: ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.i725
   %div2.i.i.i.i730 = lshr i64 %cond.i57.i726, 6
-  %arrayidx.i.i.i.i.i731 = getelementptr inbounds i64, ptr %269, i64 %div2.i.i.i.i730
-  %270 = load i64, ptr %arrayidx.i.i.i.i.i731, align 8, !tbaa !38
+  %arrayidx.i.i.i.i.i731 = getelementptr inbounds i64, ptr %272, i64 %div2.i.i.i.i730
+  %273 = load i64, ptr %arrayidx.i.i.i.i.i731, align 8, !tbaa !38
   %rem.i.i.i.i732 = and i64 %cond.i57.i726, 63
   %shl.i.i.i.i733 = shl nuw i64 1, %rem.i.i.i.i732
-  %and.i.i.i.i734 = and i64 %270, %shl.i.i.i.i733
+  %and.i.i.i.i734 = and i64 %273, %shl.i.i.i.i733
   %tobool.i.i.i.not.i735 = icmp eq i64 %and.i.i.i.i734, 0
   br i1 %tobool.i.i.i.not.i735, label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.i742, label %cond.end.thread.i736
 
 cond.end.thread.i736:                             ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i729, %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.i725
-  %arrayidx9.i737 = getelementptr inbounds i32, ptr %259, i64 %cond.i57.i726
-  %271 = load i32, ptr %arrayidx9.i737, align 4, !tbaa !30
-  %add.ptr6.i738 = getelementptr inbounds i8, ptr %268, i64 %123
-  store i32 %271, ptr %add.ptr6.i738, align 1
+  %arrayidx9.i737 = getelementptr inbounds i32, ptr %262, i64 %cond.i57.i726
+  %274 = load i32, ptr %arrayidx9.i737, align 4, !tbaa !30
+  %add.ptr6.i738 = getelementptr inbounds i8, ptr %271, i64 %126
+  store i32 %274, ptr %add.ptr6.i738, align 1
   br label %if.end.i739
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.i742: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i729
-  %add.ptr.i743 = getelementptr inbounds i8, ptr %268, i64 %123
+  %add.ptr.i743 = getelementptr inbounds i8, ptr %271, i64 %126
   store i32 0, ptr %add.ptr.i743, align 1
-  %272 = load ptr, ptr %arrayidx.i727, align 8, !tbaa !22
-  %arrayidx.i.i.i744 = getelementptr inbounds i8, ptr %272, i64 %div2.i.i.i710
-  %273 = load i8, ptr %arrayidx.i.i.i744, align 1, !tbaa !41
-  %conv4.i.i.i745 = and i8 %273, %262
+  %275 = load ptr, ptr %arrayidx.i727, align 8, !tbaa !22
+  %arrayidx.i.i.i744 = getelementptr inbounds i8, ptr %275, i64 %div2.i.i.i710
+  %276 = load i8, ptr %arrayidx.i.i.i744, align 1, !tbaa !41
+  %conv4.i.i.i745 = and i8 %276, %265
   store i8 %conv4.i.i.i745, ptr %arrayidx.i.i.i744, align 1, !tbaa !41
   br label %if.end.i739
 
@@ -3141,37 +3164,37 @@ if.end.i739:                                      ; preds = %_ZN6duckdb21Templat
 
 for.body17.i747:                                  ; preds = %sw.bb134, %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i759
   %i13.011.i748 = phi i64 [ %inc28.i764, %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i759 ], [ 0, %sw.bb134 ]
-  %274 = load ptr, ptr %sel, align 8, !tbaa !26
-  %tobool.not.i60.i749 = icmp eq ptr %274, null
+  %277 = load ptr, ptr %sel, align 8, !tbaa !26
+  %tobool.not.i60.i749 = icmp eq ptr %277, null
   br i1 %tobool.not.i60.i749, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i753, label %cond.true.i61.i750
 
 cond.true.i61.i750:                               ; preds = %for.body17.i747
-  %arrayidx.i62.i751 = getelementptr inbounds i32, ptr %274, i64 %i13.011.i748
-  %275 = load i32, ptr %arrayidx.i62.i751, align 4, !tbaa !30
-  %conv.i63.i752 = zext i32 %275 to i64
+  %arrayidx.i62.i751 = getelementptr inbounds i32, ptr %277, i64 %i13.011.i748
+  %278 = load i32, ptr %arrayidx.i62.i751, align 4, !tbaa !30
+  %conv.i63.i752 = zext i32 %278 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i753
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit65.i753: ; preds = %cond.true.i61.i750, %for.body17.i747
   %cond.i64.i754 = phi i64 [ %conv.i63.i752, %cond.true.i61.i750 ], [ %i13.011.i748, %for.body17.i747 ]
-  %276 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
-  %277 = load ptr, ptr %276, align 8, !tbaa !26
-  %tobool.not.i66.i755 = icmp eq ptr %277, null
+  %279 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
+  %280 = load ptr, ptr %279, align 8, !tbaa !26
+  %tobool.not.i66.i755 = icmp eq ptr %280, null
   br i1 %tobool.not.i66.i755, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i759, label %cond.true.i67.i756
 
 cond.true.i67.i756:                               ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i753
-  %arrayidx.i68.i757 = getelementptr inbounds i32, ptr %277, i64 %cond.i64.i754
-  %278 = load i32, ptr %arrayidx.i68.i757, align 4, !tbaa !30
-  %conv.i69.i758 = zext i32 %278 to i64
+  %arrayidx.i68.i757 = getelementptr inbounds i32, ptr %280, i64 %cond.i64.i754
+  %281 = load i32, ptr %arrayidx.i68.i757, align 4, !tbaa !30
+  %conv.i69.i758 = zext i32 %281 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i759
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit71.i759: ; preds = %cond.true.i67.i756, %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i753
   %cond.i70.i760 = phi i64 [ %conv.i69.i758, %cond.true.i67.i756 ], [ %cond.i64.i754, %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i753 ]
   %arrayidx24.i761 = getelementptr inbounds ptr, ptr %rows.val326, i64 %cond.i64.i754
-  %279 = load ptr, ptr %arrayidx24.i761, align 8, !tbaa !22
-  %arrayidx25.i762 = getelementptr inbounds i32, ptr %259, i64 %cond.i70.i760
-  %add.ptr26.i763 = getelementptr inbounds i8, ptr %279, i64 %123
-  %280 = load i32, ptr %arrayidx25.i762, align 4
-  store i32 %280, ptr %add.ptr26.i763, align 1
+  %282 = load ptr, ptr %arrayidx24.i761, align 8, !tbaa !22
+  %arrayidx25.i762 = getelementptr inbounds i32, ptr %262, i64 %cond.i70.i760
+  %add.ptr26.i763 = getelementptr inbounds i8, ptr %282, i64 %126
+  %283 = load i32, ptr %arrayidx25.i762, align 4
+  store i32 %283, ptr %add.ptr26.i763, align 1
   %inc28.i764 = add nuw i64 %i13.011.i748, 1
   %exitcond13.not.i765 = icmp eq i64 %inc28.i764, %count
   br i1 %exitcond13.not.i765, label %sw.epilog169, label %for.body17.i747, !llvm.loop !168
@@ -3179,77 +3202,77 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit71.i759: ; preds = %cond.true.i67.i
 sw.bb136:                                         ; preds = %invoke.cont118
   %rows.val327 = load ptr, ptr %data.i.i.i, align 8, !tbaa !3
   %data.i.i766 = getelementptr inbounds i8, ptr %arrayidx114, i64 8
-  %281 = load ptr, ptr %data.i.i766, align 8, !tbaa !140
+  %284 = load ptr, ptr %data.i.i766, align 8, !tbaa !140
   %validity.i767 = getelementptr inbounds i8, ptr %arrayidx114, i64 16
-  %282 = load ptr, ptr %validity.i767, align 8, !tbaa !143
-  %tobool.not.i.i768 = icmp eq ptr %282, null
+  %285 = load ptr, ptr %validity.i767, align 8, !tbaa !143
+  %tobool.not.i.i768 = icmp eq ptr %285, null
   br i1 %tobool.not.i.i768, label %for.body17.i809, label %for.body.lr.ph.i771
 
 for.body.lr.ph.i771:                              ; preds = %sw.bb136
   %div2.i.i.i772 = lshr i64 %col_no102.01184, 3
-  %283 = trunc i64 %col_no102.01184 to i8
-  %conv.i.i.i773 = and i8 %283, 7
+  %286 = trunc i64 %col_no102.01184 to i8
+  %conv.i.i.i773 = and i8 %286, 7
   %shl.i.i.i774 = shl nuw i8 1, %conv.i.i.i773
-  %284 = xor i8 %shl.i.i.i774, -1
+  %287 = xor i8 %shl.i.i.i774, -1
   br label %for.body.i775
 
 for.body.i775:                                    ; preds = %if.end.i801, %for.body.lr.ph.i771
   %i.09.i776 = phi i64 [ 0, %for.body.lr.ph.i771 ], [ %inc.i802, %if.end.i801 ]
-  %285 = load ptr, ptr %sel, align 8, !tbaa !26
-  %tobool.not.i52.i777 = icmp eq ptr %285, null
+  %288 = load ptr, ptr %sel, align 8, !tbaa !26
+  %tobool.not.i52.i777 = icmp eq ptr %288, null
   br i1 %tobool.not.i52.i777, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i781, label %cond.true.i.i778
 
 cond.true.i.i778:                                 ; preds = %for.body.i775
-  %arrayidx.i.i779 = getelementptr inbounds i32, ptr %285, i64 %i.09.i776
-  %286 = load i32, ptr %arrayidx.i.i779, align 4, !tbaa !30
-  %conv.i.i780 = zext i32 %286 to i64
+  %arrayidx.i.i779 = getelementptr inbounds i32, ptr %288, i64 %i.09.i776
+  %289 = load i32, ptr %arrayidx.i.i779, align 4, !tbaa !30
+  %conv.i.i780 = zext i32 %289 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i781
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit.i781: ; preds = %cond.true.i.i778, %for.body.i775
   %cond.i.i782 = phi i64 [ %conv.i.i780, %cond.true.i.i778 ], [ %i.09.i776, %for.body.i775 ]
-  %287 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
-  %288 = load ptr, ptr %287, align 8, !tbaa !26
-  %tobool.not.i53.i783 = icmp eq ptr %288, null
+  %290 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
+  %291 = load ptr, ptr %290, align 8, !tbaa !26
+  %tobool.not.i53.i783 = icmp eq ptr %291, null
   br i1 %tobool.not.i53.i783, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.i787, label %cond.true.i54.i784
 
 cond.true.i54.i784:                               ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i781
-  %arrayidx.i55.i785 = getelementptr inbounds i32, ptr %288, i64 %cond.i.i782
-  %289 = load i32, ptr %arrayidx.i55.i785, align 4, !tbaa !30
-  %conv.i56.i786 = zext i32 %289 to i64
+  %arrayidx.i55.i785 = getelementptr inbounds i32, ptr %291, i64 %cond.i.i782
+  %292 = load i32, ptr %arrayidx.i55.i785, align 4, !tbaa !30
+  %conv.i56.i786 = zext i32 %292 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.i787
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit58.i787: ; preds = %cond.true.i54.i784, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i781
   %cond.i57.i788 = phi i64 [ %conv.i56.i786, %cond.true.i54.i784 ], [ %cond.i.i782, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i781 ]
   %arrayidx.i789 = getelementptr inbounds ptr, ptr %rows.val327, i64 %cond.i.i782
-  %290 = load ptr, ptr %arrayidx.i789, align 8, !tbaa !22
-  %291 = load ptr, ptr %validity.i767, align 8, !tbaa !143
-  %tobool.not.i59.i790 = icmp eq ptr %291, null
+  %293 = load ptr, ptr %arrayidx.i789, align 8, !tbaa !22
+  %294 = load ptr, ptr %validity.i767, align 8, !tbaa !143
+  %tobool.not.i59.i790 = icmp eq ptr %294, null
   br i1 %tobool.not.i59.i790, label %cond.end.thread.i798, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i791
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i791: ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.i787
   %div2.i.i.i.i792 = lshr i64 %cond.i57.i788, 6
-  %arrayidx.i.i.i.i.i793 = getelementptr inbounds i64, ptr %291, i64 %div2.i.i.i.i792
-  %292 = load i64, ptr %arrayidx.i.i.i.i.i793, align 8, !tbaa !38
+  %arrayidx.i.i.i.i.i793 = getelementptr inbounds i64, ptr %294, i64 %div2.i.i.i.i792
+  %295 = load i64, ptr %arrayidx.i.i.i.i.i793, align 8, !tbaa !38
   %rem.i.i.i.i794 = and i64 %cond.i57.i788, 63
   %shl.i.i.i.i795 = shl nuw i64 1, %rem.i.i.i.i794
-  %and.i.i.i.i796 = and i64 %292, %shl.i.i.i.i795
+  %and.i.i.i.i796 = and i64 %295, %shl.i.i.i.i795
   %tobool.i.i.i.not.i797 = icmp eq i64 %and.i.i.i.i796, 0
   br i1 %tobool.i.i.i.not.i797, label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.i804, label %cond.end.thread.i798
 
 cond.end.thread.i798:                             ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i791, %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.i787
-  %arrayidx9.i799 = getelementptr inbounds i64, ptr %281, i64 %cond.i57.i788
-  %293 = load i64, ptr %arrayidx9.i799, align 8, !tbaa !38
-  %add.ptr6.i800 = getelementptr inbounds i8, ptr %290, i64 %123
-  store i64 %293, ptr %add.ptr6.i800, align 1
+  %arrayidx9.i799 = getelementptr inbounds i64, ptr %284, i64 %cond.i57.i788
+  %296 = load i64, ptr %arrayidx9.i799, align 8, !tbaa !38
+  %add.ptr6.i800 = getelementptr inbounds i8, ptr %293, i64 %126
+  store i64 %296, ptr %add.ptr6.i800, align 1
   br label %if.end.i801
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.i804: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i791
-  %add.ptr.i805 = getelementptr inbounds i8, ptr %290, i64 %123
+  %add.ptr.i805 = getelementptr inbounds i8, ptr %293, i64 %126
   store i64 0, ptr %add.ptr.i805, align 1
-  %294 = load ptr, ptr %arrayidx.i789, align 8, !tbaa !22
-  %arrayidx.i.i.i806 = getelementptr inbounds i8, ptr %294, i64 %div2.i.i.i772
-  %295 = load i8, ptr %arrayidx.i.i.i806, align 1, !tbaa !41
-  %conv4.i.i.i807 = and i8 %295, %284
+  %297 = load ptr, ptr %arrayidx.i789, align 8, !tbaa !22
+  %arrayidx.i.i.i806 = getelementptr inbounds i8, ptr %297, i64 %div2.i.i.i772
+  %298 = load i8, ptr %arrayidx.i.i.i806, align 1, !tbaa !41
+  %conv4.i.i.i807 = and i8 %298, %287
   store i8 %conv4.i.i.i807, ptr %arrayidx.i.i.i806, align 1, !tbaa !41
   br label %if.end.i801
 
@@ -3260,37 +3283,37 @@ if.end.i801:                                      ; preds = %_ZN6duckdb21Templat
 
 for.body17.i809:                                  ; preds = %sw.bb136, %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i821
   %i13.011.i810 = phi i64 [ %inc28.i826, %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i821 ], [ 0, %sw.bb136 ]
-  %296 = load ptr, ptr %sel, align 8, !tbaa !26
-  %tobool.not.i60.i811 = icmp eq ptr %296, null
+  %299 = load ptr, ptr %sel, align 8, !tbaa !26
+  %tobool.not.i60.i811 = icmp eq ptr %299, null
   br i1 %tobool.not.i60.i811, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i815, label %cond.true.i61.i812
 
 cond.true.i61.i812:                               ; preds = %for.body17.i809
-  %arrayidx.i62.i813 = getelementptr inbounds i32, ptr %296, i64 %i13.011.i810
-  %297 = load i32, ptr %arrayidx.i62.i813, align 4, !tbaa !30
-  %conv.i63.i814 = zext i32 %297 to i64
+  %arrayidx.i62.i813 = getelementptr inbounds i32, ptr %299, i64 %i13.011.i810
+  %300 = load i32, ptr %arrayidx.i62.i813, align 4, !tbaa !30
+  %conv.i63.i814 = zext i32 %300 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i815
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit65.i815: ; preds = %cond.true.i61.i812, %for.body17.i809
   %cond.i64.i816 = phi i64 [ %conv.i63.i814, %cond.true.i61.i812 ], [ %i13.011.i810, %for.body17.i809 ]
-  %298 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
-  %299 = load ptr, ptr %298, align 8, !tbaa !26
-  %tobool.not.i66.i817 = icmp eq ptr %299, null
+  %301 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
+  %302 = load ptr, ptr %301, align 8, !tbaa !26
+  %tobool.not.i66.i817 = icmp eq ptr %302, null
   br i1 %tobool.not.i66.i817, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i821, label %cond.true.i67.i818
 
 cond.true.i67.i818:                               ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i815
-  %arrayidx.i68.i819 = getelementptr inbounds i32, ptr %299, i64 %cond.i64.i816
-  %300 = load i32, ptr %arrayidx.i68.i819, align 4, !tbaa !30
-  %conv.i69.i820 = zext i32 %300 to i64
+  %arrayidx.i68.i819 = getelementptr inbounds i32, ptr %302, i64 %cond.i64.i816
+  %303 = load i32, ptr %arrayidx.i68.i819, align 4, !tbaa !30
+  %conv.i69.i820 = zext i32 %303 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i821
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit71.i821: ; preds = %cond.true.i67.i818, %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i815
   %cond.i70.i822 = phi i64 [ %conv.i69.i820, %cond.true.i67.i818 ], [ %cond.i64.i816, %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i815 ]
   %arrayidx24.i823 = getelementptr inbounds ptr, ptr %rows.val327, i64 %cond.i64.i816
-  %301 = load ptr, ptr %arrayidx24.i823, align 8, !tbaa !22
-  %arrayidx25.i824 = getelementptr inbounds i64, ptr %281, i64 %cond.i70.i822
-  %add.ptr26.i825 = getelementptr inbounds i8, ptr %301, i64 %123
-  %302 = load i64, ptr %arrayidx25.i824, align 8
-  store i64 %302, ptr %add.ptr26.i825, align 1
+  %304 = load ptr, ptr %arrayidx24.i823, align 8, !tbaa !22
+  %arrayidx25.i824 = getelementptr inbounds i64, ptr %284, i64 %cond.i70.i822
+  %add.ptr26.i825 = getelementptr inbounds i8, ptr %304, i64 %126
+  %305 = load i64, ptr %arrayidx25.i824, align 8
+  store i64 %305, ptr %add.ptr26.i825, align 1
   %inc28.i826 = add nuw i64 %i13.011.i810, 1
   %exitcond13.not.i827 = icmp eq i64 %inc28.i826, %count
   br i1 %exitcond13.not.i827, label %sw.epilog169, label %for.body17.i809, !llvm.loop !170
@@ -3298,79 +3321,79 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit71.i821: ; preds = %cond.true.i67.i
 sw.bb138:                                         ; preds = %invoke.cont118
   %rows.val328 = load ptr, ptr %data.i.i.i, align 8, !tbaa !3
   %data.i.i828 = getelementptr inbounds i8, ptr %arrayidx114, i64 8
-  %303 = load ptr, ptr %data.i.i828, align 8, !tbaa !140
+  %306 = load ptr, ptr %data.i.i828, align 8, !tbaa !140
   %validity.i829 = getelementptr inbounds i8, ptr %arrayidx114, i64 16
-  %304 = load ptr, ptr %validity.i829, align 8, !tbaa !143
-  %tobool.not.i.i830 = icmp eq ptr %304, null
+  %307 = load ptr, ptr %validity.i829, align 8, !tbaa !143
+  %tobool.not.i.i830 = icmp eq ptr %307, null
   br i1 %tobool.not.i.i830, label %for.body17.i868, label %for.body.lr.ph.i832
 
 for.body.lr.ph.i832:                              ; preds = %sw.bb138
   %div2.i.i.i833 = lshr i64 %col_no102.01184, 3
-  %305 = trunc i64 %col_no102.01184 to i8
-  %conv.i.i.i834 = and i8 %305, 7
+  %308 = trunc i64 %col_no102.01184 to i8
+  %conv.i.i.i834 = and i8 %308, 7
   %shl.i.i.i835 = shl nuw i8 1, %conv.i.i.i834
-  %306 = xor i8 %shl.i.i.i835, -1
+  %309 = xor i8 %shl.i.i.i835, -1
   br label %for.body.i836
 
 for.body.i836:                                    ; preds = %if.end.i860, %for.body.lr.ph.i832
   %i.013.i = phi i64 [ 0, %for.body.lr.ph.i832 ], [ %inc.i861, %if.end.i860 ]
-  %307 = load ptr, ptr %sel, align 8, !tbaa !26
-  %tobool.not.i52.i837 = icmp eq ptr %307, null
+  %310 = load ptr, ptr %sel, align 8, !tbaa !26
+  %tobool.not.i52.i837 = icmp eq ptr %310, null
   br i1 %tobool.not.i52.i837, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i841, label %cond.true.i.i838
 
 cond.true.i.i838:                                 ; preds = %for.body.i836
-  %arrayidx.i.i839 = getelementptr inbounds i32, ptr %307, i64 %i.013.i
-  %308 = load i32, ptr %arrayidx.i.i839, align 4, !tbaa !30
-  %conv.i.i840 = zext i32 %308 to i64
+  %arrayidx.i.i839 = getelementptr inbounds i32, ptr %310, i64 %i.013.i
+  %311 = load i32, ptr %arrayidx.i.i839, align 4, !tbaa !30
+  %conv.i.i840 = zext i32 %311 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i841
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit.i841: ; preds = %cond.true.i.i838, %for.body.i836
   %cond.i.i842 = phi i64 [ %conv.i.i840, %cond.true.i.i838 ], [ %i.013.i, %for.body.i836 ]
-  %309 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
-  %310 = load ptr, ptr %309, align 8, !tbaa !26
-  %tobool.not.i53.i843 = icmp eq ptr %310, null
+  %312 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
+  %313 = load ptr, ptr %312, align 8, !tbaa !26
+  %tobool.not.i53.i843 = icmp eq ptr %313, null
   br i1 %tobool.not.i53.i843, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.i847, label %cond.true.i54.i844
 
 cond.true.i54.i844:                               ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i841
-  %arrayidx.i55.i845 = getelementptr inbounds i32, ptr %310, i64 %cond.i.i842
-  %311 = load i32, ptr %arrayidx.i55.i845, align 4, !tbaa !30
-  %conv.i56.i846 = zext i32 %311 to i64
+  %arrayidx.i55.i845 = getelementptr inbounds i32, ptr %313, i64 %cond.i.i842
+  %314 = load i32, ptr %arrayidx.i55.i845, align 4, !tbaa !30
+  %conv.i56.i846 = zext i32 %314 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.i847
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit58.i847: ; preds = %cond.true.i54.i844, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i841
   %cond.i57.i848 = phi i64 [ %conv.i56.i846, %cond.true.i54.i844 ], [ %cond.i.i842, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i841 ]
   %arrayidx.i849 = getelementptr inbounds ptr, ptr %rows.val328, i64 %cond.i.i842
-  %312 = load ptr, ptr %arrayidx.i849, align 8, !tbaa !22
-  %313 = load ptr, ptr %validity.i829, align 8, !tbaa !143
-  %tobool.not.i59.i850 = icmp eq ptr %313, null
+  %315 = load ptr, ptr %arrayidx.i849, align 8, !tbaa !22
+  %316 = load ptr, ptr %validity.i829, align 8, !tbaa !143
+  %tobool.not.i59.i850 = icmp eq ptr %316, null
   br i1 %tobool.not.i59.i850, label %cond.end.thread.i858, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i851
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i851: ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.i847
   %div2.i.i.i.i852 = lshr i64 %cond.i57.i848, 6
-  %arrayidx.i.i.i.i.i853 = getelementptr inbounds i64, ptr %313, i64 %div2.i.i.i.i852
-  %314 = load i64, ptr %arrayidx.i.i.i.i.i853, align 8, !tbaa !38
+  %arrayidx.i.i.i.i.i853 = getelementptr inbounds i64, ptr %316, i64 %div2.i.i.i.i852
+  %317 = load i64, ptr %arrayidx.i.i.i.i.i853, align 8, !tbaa !38
   %rem.i.i.i.i854 = and i64 %cond.i57.i848, 63
   %shl.i.i.i.i855 = shl nuw i64 1, %rem.i.i.i.i854
-  %and.i.i.i.i856 = and i64 %314, %shl.i.i.i.i855
+  %and.i.i.i.i856 = and i64 %317, %shl.i.i.i.i855
   %tobool.i.i.i.not.i857 = icmp eq i64 %and.i.i.i.i856, 0
   br i1 %tobool.i.i.i.not.i857, label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.i863, label %cond.end.thread.i858
 
 cond.end.thread.i858:                             ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i851, %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.i847
-  %arrayidx9.i859 = getelementptr inbounds %"struct.duckdb::hugeint_t", ptr %303, i64 %cond.i57.i848
-  %add.ptr9.i = getelementptr inbounds i8, ptr %312, i64 %123
-  %315 = load <2 x i64>, ptr %arrayidx9.i859, align 8, !tbaa !38
-  store <2 x i64> %315, ptr %add.ptr9.i, align 1
+  %arrayidx9.i859 = getelementptr inbounds %"struct.duckdb::hugeint_t", ptr %306, i64 %cond.i57.i848
+  %add.ptr9.i = getelementptr inbounds i8, ptr %315, i64 %126
+  %318 = load <2 x i64>, ptr %arrayidx9.i859, align 8, !tbaa !38
+  store <2 x i64> %318, ptr %add.ptr9.i, align 1
   br label %if.end.i860
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.i863: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i851
-  %add.ptr.i864 = getelementptr inbounds i8, ptr %312, i64 %123
+  %add.ptr.i864 = getelementptr inbounds i8, ptr %315, i64 %126
   store i64 0, ptr %add.ptr.i864, align 1
   %store_value.sroa.6.0.add.ptr.sroa_idx.i = getelementptr inbounds i8, ptr %add.ptr.i864, i64 8
   store i64 -9223372036854775808, ptr %store_value.sroa.6.0.add.ptr.sroa_idx.i, align 1
-  %316 = load ptr, ptr %arrayidx.i849, align 8, !tbaa !22
-  %arrayidx.i.i.i865 = getelementptr inbounds i8, ptr %316, i64 %div2.i.i.i833
-  %317 = load i8, ptr %arrayidx.i.i.i865, align 1, !tbaa !41
-  %conv4.i.i.i866 = and i8 %317, %306
+  %319 = load ptr, ptr %arrayidx.i849, align 8, !tbaa !22
+  %arrayidx.i.i.i865 = getelementptr inbounds i8, ptr %319, i64 %div2.i.i.i833
+  %320 = load i8, ptr %arrayidx.i.i.i865, align 1, !tbaa !41
+  %conv4.i.i.i866 = and i8 %320, %309
   store i8 %conv4.i.i.i866, ptr %arrayidx.i.i.i865, align 1, !tbaa !41
   br label %if.end.i860
 
@@ -3381,35 +3404,35 @@ if.end.i860:                                      ; preds = %_ZN6duckdb21Templat
 
 for.body17.i868:                                  ; preds = %sw.bb138, %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i879
   %i13.015.i = phi i64 [ %inc28.i884, %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i879 ], [ 0, %sw.bb138 ]
-  %318 = load ptr, ptr %sel, align 8, !tbaa !26
-  %tobool.not.i60.i869 = icmp eq ptr %318, null
+  %321 = load ptr, ptr %sel, align 8, !tbaa !26
+  %tobool.not.i60.i869 = icmp eq ptr %321, null
   br i1 %tobool.not.i60.i869, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i873, label %cond.true.i61.i870
 
 cond.true.i61.i870:                               ; preds = %for.body17.i868
-  %arrayidx.i62.i871 = getelementptr inbounds i32, ptr %318, i64 %i13.015.i
-  %319 = load i32, ptr %arrayidx.i62.i871, align 4, !tbaa !30
-  %conv.i63.i872 = zext i32 %319 to i64
+  %arrayidx.i62.i871 = getelementptr inbounds i32, ptr %321, i64 %i13.015.i
+  %322 = load i32, ptr %arrayidx.i62.i871, align 4, !tbaa !30
+  %conv.i63.i872 = zext i32 %322 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i873
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit65.i873: ; preds = %cond.true.i61.i870, %for.body17.i868
   %cond.i64.i874 = phi i64 [ %conv.i63.i872, %cond.true.i61.i870 ], [ %i13.015.i, %for.body17.i868 ]
-  %320 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
-  %321 = load ptr, ptr %320, align 8, !tbaa !26
-  %tobool.not.i66.i875 = icmp eq ptr %321, null
+  %323 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
+  %324 = load ptr, ptr %323, align 8, !tbaa !26
+  %tobool.not.i66.i875 = icmp eq ptr %324, null
   br i1 %tobool.not.i66.i875, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i879, label %cond.true.i67.i876
 
 cond.true.i67.i876:                               ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i873
-  %arrayidx.i68.i877 = getelementptr inbounds i32, ptr %321, i64 %cond.i64.i874
-  %322 = load i32, ptr %arrayidx.i68.i877, align 4, !tbaa !30
-  %conv.i69.i878 = zext i32 %322 to i64
+  %arrayidx.i68.i877 = getelementptr inbounds i32, ptr %324, i64 %cond.i64.i874
+  %325 = load i32, ptr %arrayidx.i68.i877, align 4, !tbaa !30
+  %conv.i69.i878 = zext i32 %325 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i879
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit71.i879: ; preds = %cond.true.i67.i876, %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i873
   %cond.i70.i880 = phi i64 [ %conv.i69.i878, %cond.true.i67.i876 ], [ %cond.i64.i874, %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i873 ]
   %arrayidx24.i881 = getelementptr inbounds ptr, ptr %rows.val328, i64 %cond.i64.i874
-  %323 = load ptr, ptr %arrayidx24.i881, align 8, !tbaa !22
-  %arrayidx25.i882 = getelementptr inbounds %"struct.duckdb::hugeint_t", ptr %303, i64 %cond.i70.i880
-  %add.ptr26.i883 = getelementptr inbounds i8, ptr %323, i64 %123
+  %326 = load ptr, ptr %arrayidx24.i881, align 8, !tbaa !22
+  %arrayidx25.i882 = getelementptr inbounds %"struct.duckdb::hugeint_t", ptr %306, i64 %cond.i70.i880
+  %add.ptr26.i883 = getelementptr inbounds i8, ptr %326, i64 %126
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %add.ptr26.i883, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx25.i882, i64 16, i1 false)
   %inc28.i884 = add nuw i64 %i13.015.i, 1
   %exitcond17.not.i = icmp eq i64 %inc28.i884, %count
@@ -3418,77 +3441,77 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit71.i879: ; preds = %cond.true.i67.i
 sw.bb140:                                         ; preds = %invoke.cont118
   %rows.val329 = load ptr, ptr %data.i.i.i, align 8, !tbaa !3
   %data.i.i885 = getelementptr inbounds i8, ptr %arrayidx114, i64 8
-  %324 = load ptr, ptr %data.i.i885, align 8, !tbaa !140
+  %327 = load ptr, ptr %data.i.i885, align 8, !tbaa !140
   %validity.i886 = getelementptr inbounds i8, ptr %arrayidx114, i64 16
-  %325 = load ptr, ptr %validity.i886, align 8, !tbaa !143
-  %tobool.not.i.i887 = icmp eq ptr %325, null
+  %328 = load ptr, ptr %validity.i886, align 8, !tbaa !143
+  %tobool.not.i.i887 = icmp eq ptr %328, null
   br i1 %tobool.not.i.i887, label %for.body17.i928, label %for.body.lr.ph.i890
 
 for.body.lr.ph.i890:                              ; preds = %sw.bb140
   %div2.i.i.i891 = lshr i64 %col_no102.01184, 3
-  %326 = trunc i64 %col_no102.01184 to i8
-  %conv.i.i.i892 = and i8 %326, 7
+  %329 = trunc i64 %col_no102.01184 to i8
+  %conv.i.i.i892 = and i8 %329, 7
   %shl.i.i.i893 = shl nuw i8 1, %conv.i.i.i892
-  %327 = xor i8 %shl.i.i.i893, -1
+  %330 = xor i8 %shl.i.i.i893, -1
   br label %for.body.i894
 
 for.body.i894:                                    ; preds = %if.end.i920, %for.body.lr.ph.i890
   %i.09.i895 = phi i64 [ 0, %for.body.lr.ph.i890 ], [ %inc.i921, %if.end.i920 ]
-  %328 = load ptr, ptr %sel, align 8, !tbaa !26
-  %tobool.not.i52.i896 = icmp eq ptr %328, null
+  %331 = load ptr, ptr %sel, align 8, !tbaa !26
+  %tobool.not.i52.i896 = icmp eq ptr %331, null
   br i1 %tobool.not.i52.i896, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i900, label %cond.true.i.i897
 
 cond.true.i.i897:                                 ; preds = %for.body.i894
-  %arrayidx.i.i898 = getelementptr inbounds i32, ptr %328, i64 %i.09.i895
-  %329 = load i32, ptr %arrayidx.i.i898, align 4, !tbaa !30
-  %conv.i.i899 = zext i32 %329 to i64
+  %arrayidx.i.i898 = getelementptr inbounds i32, ptr %331, i64 %i.09.i895
+  %332 = load i32, ptr %arrayidx.i.i898, align 4, !tbaa !30
+  %conv.i.i899 = zext i32 %332 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i900
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit.i900: ; preds = %cond.true.i.i897, %for.body.i894
   %cond.i.i901 = phi i64 [ %conv.i.i899, %cond.true.i.i897 ], [ %i.09.i895, %for.body.i894 ]
-  %330 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
-  %331 = load ptr, ptr %330, align 8, !tbaa !26
-  %tobool.not.i53.i902 = icmp eq ptr %331, null
+  %333 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
+  %334 = load ptr, ptr %333, align 8, !tbaa !26
+  %tobool.not.i53.i902 = icmp eq ptr %334, null
   br i1 %tobool.not.i53.i902, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.i906, label %cond.true.i54.i903
 
 cond.true.i54.i903:                               ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i900
-  %arrayidx.i55.i904 = getelementptr inbounds i32, ptr %331, i64 %cond.i.i901
-  %332 = load i32, ptr %arrayidx.i55.i904, align 4, !tbaa !30
-  %conv.i56.i905 = zext i32 %332 to i64
+  %arrayidx.i55.i904 = getelementptr inbounds i32, ptr %334, i64 %cond.i.i901
+  %335 = load i32, ptr %arrayidx.i55.i904, align 4, !tbaa !30
+  %conv.i56.i905 = zext i32 %335 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.i906
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit58.i906: ; preds = %cond.true.i54.i903, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i900
   %cond.i57.i907 = phi i64 [ %conv.i56.i905, %cond.true.i54.i903 ], [ %cond.i.i901, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i900 ]
   %arrayidx.i908 = getelementptr inbounds ptr, ptr %rows.val329, i64 %cond.i.i901
-  %333 = load ptr, ptr %arrayidx.i908, align 8, !tbaa !22
-  %334 = load ptr, ptr %validity.i886, align 8, !tbaa !143
-  %tobool.not.i59.i909 = icmp eq ptr %334, null
+  %336 = load ptr, ptr %arrayidx.i908, align 8, !tbaa !22
+  %337 = load ptr, ptr %validity.i886, align 8, !tbaa !143
+  %tobool.not.i59.i909 = icmp eq ptr %337, null
   br i1 %tobool.not.i59.i909, label %cond.end.thread.i917, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i910
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i910: ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.i906
   %div2.i.i.i.i911 = lshr i64 %cond.i57.i907, 6
-  %arrayidx.i.i.i.i.i912 = getelementptr inbounds i64, ptr %334, i64 %div2.i.i.i.i911
-  %335 = load i64, ptr %arrayidx.i.i.i.i.i912, align 8, !tbaa !38
+  %arrayidx.i.i.i.i.i912 = getelementptr inbounds i64, ptr %337, i64 %div2.i.i.i.i911
+  %338 = load i64, ptr %arrayidx.i.i.i.i.i912, align 8, !tbaa !38
   %rem.i.i.i.i913 = and i64 %cond.i57.i907, 63
   %shl.i.i.i.i914 = shl nuw i64 1, %rem.i.i.i.i913
-  %and.i.i.i.i915 = and i64 %335, %shl.i.i.i.i914
+  %and.i.i.i.i915 = and i64 %338, %shl.i.i.i.i914
   %tobool.i.i.i.not.i916 = icmp eq i64 %and.i.i.i.i915, 0
   br i1 %tobool.i.i.i.not.i916, label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.i923, label %cond.end.thread.i917
 
 cond.end.thread.i917:                             ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i910, %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.i906
-  %arrayidx9.i918 = getelementptr inbounds float, ptr %324, i64 %cond.i57.i907
-  %336 = load i32, ptr %arrayidx9.i918, align 4, !tbaa !173
-  %add.ptr6.i919 = getelementptr inbounds i8, ptr %333, i64 %123
-  store i32 %336, ptr %add.ptr6.i919, align 1
+  %arrayidx9.i918 = getelementptr inbounds float, ptr %327, i64 %cond.i57.i907
+  %339 = load i32, ptr %arrayidx9.i918, align 4, !tbaa !173
+  %add.ptr6.i919 = getelementptr inbounds i8, ptr %336, i64 %126
+  store i32 %339, ptr %add.ptr6.i919, align 1
   br label %if.end.i920
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.i923: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i910
-  %add.ptr.i924 = getelementptr inbounds i8, ptr %333, i64 %123
+  %add.ptr.i924 = getelementptr inbounds i8, ptr %336, i64 %126
   store i32 2143289344, ptr %add.ptr.i924, align 1
-  %337 = load ptr, ptr %arrayidx.i908, align 8, !tbaa !22
-  %arrayidx.i.i.i925 = getelementptr inbounds i8, ptr %337, i64 %div2.i.i.i891
-  %338 = load i8, ptr %arrayidx.i.i.i925, align 1, !tbaa !41
-  %conv4.i.i.i926 = and i8 %338, %327
+  %340 = load ptr, ptr %arrayidx.i908, align 8, !tbaa !22
+  %arrayidx.i.i.i925 = getelementptr inbounds i8, ptr %340, i64 %div2.i.i.i891
+  %341 = load i8, ptr %arrayidx.i.i.i925, align 1, !tbaa !41
+  %conv4.i.i.i926 = and i8 %341, %330
   store i8 %conv4.i.i.i926, ptr %arrayidx.i.i.i925, align 1, !tbaa !41
   br label %if.end.i920
 
@@ -3499,37 +3522,37 @@ if.end.i920:                                      ; preds = %_ZN6duckdb21Templat
 
 for.body17.i928:                                  ; preds = %sw.bb140, %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i940
   %i13.011.i929 = phi i64 [ %inc28.i945, %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i940 ], [ 0, %sw.bb140 ]
-  %339 = load ptr, ptr %sel, align 8, !tbaa !26
-  %tobool.not.i60.i930 = icmp eq ptr %339, null
+  %342 = load ptr, ptr %sel, align 8, !tbaa !26
+  %tobool.not.i60.i930 = icmp eq ptr %342, null
   br i1 %tobool.not.i60.i930, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i934, label %cond.true.i61.i931
 
 cond.true.i61.i931:                               ; preds = %for.body17.i928
-  %arrayidx.i62.i932 = getelementptr inbounds i32, ptr %339, i64 %i13.011.i929
-  %340 = load i32, ptr %arrayidx.i62.i932, align 4, !tbaa !30
-  %conv.i63.i933 = zext i32 %340 to i64
+  %arrayidx.i62.i932 = getelementptr inbounds i32, ptr %342, i64 %i13.011.i929
+  %343 = load i32, ptr %arrayidx.i62.i932, align 4, !tbaa !30
+  %conv.i63.i933 = zext i32 %343 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i934
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit65.i934: ; preds = %cond.true.i61.i931, %for.body17.i928
   %cond.i64.i935 = phi i64 [ %conv.i63.i933, %cond.true.i61.i931 ], [ %i13.011.i929, %for.body17.i928 ]
-  %341 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
-  %342 = load ptr, ptr %341, align 8, !tbaa !26
-  %tobool.not.i66.i936 = icmp eq ptr %342, null
+  %344 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
+  %345 = load ptr, ptr %344, align 8, !tbaa !26
+  %tobool.not.i66.i936 = icmp eq ptr %345, null
   br i1 %tobool.not.i66.i936, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i940, label %cond.true.i67.i937
 
 cond.true.i67.i937:                               ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i934
-  %arrayidx.i68.i938 = getelementptr inbounds i32, ptr %342, i64 %cond.i64.i935
-  %343 = load i32, ptr %arrayidx.i68.i938, align 4, !tbaa !30
-  %conv.i69.i939 = zext i32 %343 to i64
+  %arrayidx.i68.i938 = getelementptr inbounds i32, ptr %345, i64 %cond.i64.i935
+  %346 = load i32, ptr %arrayidx.i68.i938, align 4, !tbaa !30
+  %conv.i69.i939 = zext i32 %346 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i940
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit71.i940: ; preds = %cond.true.i67.i937, %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i934
   %cond.i70.i941 = phi i64 [ %conv.i69.i939, %cond.true.i67.i937 ], [ %cond.i64.i935, %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i934 ]
   %arrayidx24.i942 = getelementptr inbounds ptr, ptr %rows.val329, i64 %cond.i64.i935
-  %344 = load ptr, ptr %arrayidx24.i942, align 8, !tbaa !22
-  %arrayidx25.i943 = getelementptr inbounds float, ptr %324, i64 %cond.i70.i941
-  %add.ptr26.i944 = getelementptr inbounds i8, ptr %344, i64 %123
-  %345 = load i32, ptr %arrayidx25.i943, align 4
-  store i32 %345, ptr %add.ptr26.i944, align 1
+  %347 = load ptr, ptr %arrayidx24.i942, align 8, !tbaa !22
+  %arrayidx25.i943 = getelementptr inbounds float, ptr %327, i64 %cond.i70.i941
+  %add.ptr26.i944 = getelementptr inbounds i8, ptr %347, i64 %126
+  %348 = load i32, ptr %arrayidx25.i943, align 4
+  store i32 %348, ptr %add.ptr26.i944, align 1
   %inc28.i945 = add nuw i64 %i13.011.i929, 1
   %exitcond13.not.i946 = icmp eq i64 %inc28.i945, %count
   br i1 %exitcond13.not.i946, label %sw.epilog169, label %for.body17.i928, !llvm.loop !176
@@ -3537,77 +3560,77 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit71.i940: ; preds = %cond.true.i67.i
 sw.bb142:                                         ; preds = %invoke.cont118
   %rows.val330 = load ptr, ptr %data.i.i.i, align 8, !tbaa !3
   %data.i.i947 = getelementptr inbounds i8, ptr %arrayidx114, i64 8
-  %346 = load ptr, ptr %data.i.i947, align 8, !tbaa !140
+  %349 = load ptr, ptr %data.i.i947, align 8, !tbaa !140
   %validity.i948 = getelementptr inbounds i8, ptr %arrayidx114, i64 16
-  %347 = load ptr, ptr %validity.i948, align 8, !tbaa !143
-  %tobool.not.i.i949 = icmp eq ptr %347, null
+  %350 = load ptr, ptr %validity.i948, align 8, !tbaa !143
+  %tobool.not.i.i949 = icmp eq ptr %350, null
   br i1 %tobool.not.i.i949, label %for.body17.i990, label %for.body.lr.ph.i952
 
 for.body.lr.ph.i952:                              ; preds = %sw.bb142
   %div2.i.i.i953 = lshr i64 %col_no102.01184, 3
-  %348 = trunc i64 %col_no102.01184 to i8
-  %conv.i.i.i954 = and i8 %348, 7
+  %351 = trunc i64 %col_no102.01184 to i8
+  %conv.i.i.i954 = and i8 %351, 7
   %shl.i.i.i955 = shl nuw i8 1, %conv.i.i.i954
-  %349 = xor i8 %shl.i.i.i955, -1
+  %352 = xor i8 %shl.i.i.i955, -1
   br label %for.body.i956
 
 for.body.i956:                                    ; preds = %if.end.i982, %for.body.lr.ph.i952
   %i.09.i957 = phi i64 [ 0, %for.body.lr.ph.i952 ], [ %inc.i983, %if.end.i982 ]
-  %350 = load ptr, ptr %sel, align 8, !tbaa !26
-  %tobool.not.i52.i958 = icmp eq ptr %350, null
+  %353 = load ptr, ptr %sel, align 8, !tbaa !26
+  %tobool.not.i52.i958 = icmp eq ptr %353, null
   br i1 %tobool.not.i52.i958, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i962, label %cond.true.i.i959
 
 cond.true.i.i959:                                 ; preds = %for.body.i956
-  %arrayidx.i.i960 = getelementptr inbounds i32, ptr %350, i64 %i.09.i957
-  %351 = load i32, ptr %arrayidx.i.i960, align 4, !tbaa !30
-  %conv.i.i961 = zext i32 %351 to i64
+  %arrayidx.i.i960 = getelementptr inbounds i32, ptr %353, i64 %i.09.i957
+  %354 = load i32, ptr %arrayidx.i.i960, align 4, !tbaa !30
+  %conv.i.i961 = zext i32 %354 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i962
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit.i962: ; preds = %cond.true.i.i959, %for.body.i956
   %cond.i.i963 = phi i64 [ %conv.i.i961, %cond.true.i.i959 ], [ %i.09.i957, %for.body.i956 ]
-  %352 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
-  %353 = load ptr, ptr %352, align 8, !tbaa !26
-  %tobool.not.i53.i964 = icmp eq ptr %353, null
+  %355 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
+  %356 = load ptr, ptr %355, align 8, !tbaa !26
+  %tobool.not.i53.i964 = icmp eq ptr %356, null
   br i1 %tobool.not.i53.i964, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.i968, label %cond.true.i54.i965
 
 cond.true.i54.i965:                               ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i962
-  %arrayidx.i55.i966 = getelementptr inbounds i32, ptr %353, i64 %cond.i.i963
-  %354 = load i32, ptr %arrayidx.i55.i966, align 4, !tbaa !30
-  %conv.i56.i967 = zext i32 %354 to i64
+  %arrayidx.i55.i966 = getelementptr inbounds i32, ptr %356, i64 %cond.i.i963
+  %357 = load i32, ptr %arrayidx.i55.i966, align 4, !tbaa !30
+  %conv.i56.i967 = zext i32 %357 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.i968
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit58.i968: ; preds = %cond.true.i54.i965, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i962
   %cond.i57.i969 = phi i64 [ %conv.i56.i967, %cond.true.i54.i965 ], [ %cond.i.i963, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i962 ]
   %arrayidx.i970 = getelementptr inbounds ptr, ptr %rows.val330, i64 %cond.i.i963
-  %355 = load ptr, ptr %arrayidx.i970, align 8, !tbaa !22
-  %356 = load ptr, ptr %validity.i948, align 8, !tbaa !143
-  %tobool.not.i59.i971 = icmp eq ptr %356, null
+  %358 = load ptr, ptr %arrayidx.i970, align 8, !tbaa !22
+  %359 = load ptr, ptr %validity.i948, align 8, !tbaa !143
+  %tobool.not.i59.i971 = icmp eq ptr %359, null
   br i1 %tobool.not.i59.i971, label %cond.end.thread.i979, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i972
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i972: ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.i968
   %div2.i.i.i.i973 = lshr i64 %cond.i57.i969, 6
-  %arrayidx.i.i.i.i.i974 = getelementptr inbounds i64, ptr %356, i64 %div2.i.i.i.i973
-  %357 = load i64, ptr %arrayidx.i.i.i.i.i974, align 8, !tbaa !38
+  %arrayidx.i.i.i.i.i974 = getelementptr inbounds i64, ptr %359, i64 %div2.i.i.i.i973
+  %360 = load i64, ptr %arrayidx.i.i.i.i.i974, align 8, !tbaa !38
   %rem.i.i.i.i975 = and i64 %cond.i57.i969, 63
   %shl.i.i.i.i976 = shl nuw i64 1, %rem.i.i.i.i975
-  %and.i.i.i.i977 = and i64 %357, %shl.i.i.i.i976
+  %and.i.i.i.i977 = and i64 %360, %shl.i.i.i.i976
   %tobool.i.i.i.not.i978 = icmp eq i64 %and.i.i.i.i977, 0
   br i1 %tobool.i.i.i.not.i978, label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.i985, label %cond.end.thread.i979
 
 cond.end.thread.i979:                             ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i972, %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.i968
-  %arrayidx9.i980 = getelementptr inbounds double, ptr %346, i64 %cond.i57.i969
-  %358 = load i64, ptr %arrayidx9.i980, align 8, !tbaa !177
-  %add.ptr6.i981 = getelementptr inbounds i8, ptr %355, i64 %123
-  store i64 %358, ptr %add.ptr6.i981, align 1
+  %arrayidx9.i980 = getelementptr inbounds double, ptr %349, i64 %cond.i57.i969
+  %361 = load i64, ptr %arrayidx9.i980, align 8, !tbaa !177
+  %add.ptr6.i981 = getelementptr inbounds i8, ptr %358, i64 %126
+  store i64 %361, ptr %add.ptr6.i981, align 1
   br label %if.end.i982
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.i985: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i972
-  %add.ptr.i986 = getelementptr inbounds i8, ptr %355, i64 %123
+  %add.ptr.i986 = getelementptr inbounds i8, ptr %358, i64 %126
   store i64 9221120237041090560, ptr %add.ptr.i986, align 1
-  %359 = load ptr, ptr %arrayidx.i970, align 8, !tbaa !22
-  %arrayidx.i.i.i987 = getelementptr inbounds i8, ptr %359, i64 %div2.i.i.i953
-  %360 = load i8, ptr %arrayidx.i.i.i987, align 1, !tbaa !41
-  %conv4.i.i.i988 = and i8 %360, %349
+  %362 = load ptr, ptr %arrayidx.i970, align 8, !tbaa !22
+  %arrayidx.i.i.i987 = getelementptr inbounds i8, ptr %362, i64 %div2.i.i.i953
+  %363 = load i8, ptr %arrayidx.i.i.i987, align 1, !tbaa !41
+  %conv4.i.i.i988 = and i8 %363, %352
   store i8 %conv4.i.i.i988, ptr %arrayidx.i.i.i987, align 1, !tbaa !41
   br label %if.end.i982
 
@@ -3618,37 +3641,37 @@ if.end.i982:                                      ; preds = %_ZN6duckdb21Templat
 
 for.body17.i990:                                  ; preds = %sw.bb142, %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i1002
   %i13.011.i991 = phi i64 [ %inc28.i1007, %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i1002 ], [ 0, %sw.bb142 ]
-  %361 = load ptr, ptr %sel, align 8, !tbaa !26
-  %tobool.not.i60.i992 = icmp eq ptr %361, null
+  %364 = load ptr, ptr %sel, align 8, !tbaa !26
+  %tobool.not.i60.i992 = icmp eq ptr %364, null
   br i1 %tobool.not.i60.i992, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i996, label %cond.true.i61.i993
 
 cond.true.i61.i993:                               ; preds = %for.body17.i990
-  %arrayidx.i62.i994 = getelementptr inbounds i32, ptr %361, i64 %i13.011.i991
-  %362 = load i32, ptr %arrayidx.i62.i994, align 4, !tbaa !30
-  %conv.i63.i995 = zext i32 %362 to i64
+  %arrayidx.i62.i994 = getelementptr inbounds i32, ptr %364, i64 %i13.011.i991
+  %365 = load i32, ptr %arrayidx.i62.i994, align 4, !tbaa !30
+  %conv.i63.i995 = zext i32 %365 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i996
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit65.i996: ; preds = %cond.true.i61.i993, %for.body17.i990
   %cond.i64.i997 = phi i64 [ %conv.i63.i995, %cond.true.i61.i993 ], [ %i13.011.i991, %for.body17.i990 ]
-  %363 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
-  %364 = load ptr, ptr %363, align 8, !tbaa !26
-  %tobool.not.i66.i998 = icmp eq ptr %364, null
+  %366 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
+  %367 = load ptr, ptr %366, align 8, !tbaa !26
+  %tobool.not.i66.i998 = icmp eq ptr %367, null
   br i1 %tobool.not.i66.i998, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i1002, label %cond.true.i67.i999
 
 cond.true.i67.i999:                               ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i996
-  %arrayidx.i68.i1000 = getelementptr inbounds i32, ptr %364, i64 %cond.i64.i997
-  %365 = load i32, ptr %arrayidx.i68.i1000, align 4, !tbaa !30
-  %conv.i69.i1001 = zext i32 %365 to i64
+  %arrayidx.i68.i1000 = getelementptr inbounds i32, ptr %367, i64 %cond.i64.i997
+  %368 = load i32, ptr %arrayidx.i68.i1000, align 4, !tbaa !30
+  %conv.i69.i1001 = zext i32 %368 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i1002
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit71.i1002: ; preds = %cond.true.i67.i999, %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i996
   %cond.i70.i1003 = phi i64 [ %conv.i69.i1001, %cond.true.i67.i999 ], [ %cond.i64.i997, %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i996 ]
   %arrayidx24.i1004 = getelementptr inbounds ptr, ptr %rows.val330, i64 %cond.i64.i997
-  %366 = load ptr, ptr %arrayidx24.i1004, align 8, !tbaa !22
-  %arrayidx25.i1005 = getelementptr inbounds double, ptr %346, i64 %cond.i70.i1003
-  %add.ptr26.i1006 = getelementptr inbounds i8, ptr %366, i64 %123
-  %367 = load i64, ptr %arrayidx25.i1005, align 8
-  store i64 %367, ptr %add.ptr26.i1006, align 1
+  %369 = load ptr, ptr %arrayidx24.i1004, align 8, !tbaa !22
+  %arrayidx25.i1005 = getelementptr inbounds double, ptr %349, i64 %cond.i70.i1003
+  %add.ptr26.i1006 = getelementptr inbounds i8, ptr %369, i64 %126
+  %370 = load i64, ptr %arrayidx25.i1005, align 8
+  store i64 %370, ptr %add.ptr26.i1006, align 1
   %inc28.i1007 = add nuw i64 %i13.011.i991, 1
   %exitcond13.not.i1008 = icmp eq i64 %inc28.i1007, %count
   br i1 %exitcond13.not.i1008, label %sw.epilog169, label %for.body17.i990, !llvm.loop !180
@@ -3656,79 +3679,79 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit71.i1002: ; preds = %cond.true.i67.
 sw.bb144:                                         ; preds = %invoke.cont118
   %rows.val331 = load ptr, ptr %data.i.i.i, align 8, !tbaa !3
   %data.i.i1009 = getelementptr inbounds i8, ptr %arrayidx114, i64 8
-  %368 = load ptr, ptr %data.i.i1009, align 8, !tbaa !140
+  %371 = load ptr, ptr %data.i.i1009, align 8, !tbaa !140
   %validity.i1010 = getelementptr inbounds i8, ptr %arrayidx114, i64 16
-  %369 = load ptr, ptr %validity.i1010, align 8, !tbaa !143
-  %tobool.not.i.i1011 = icmp eq ptr %369, null
+  %372 = load ptr, ptr %validity.i1010, align 8, !tbaa !143
+  %tobool.not.i.i1011 = icmp eq ptr %372, null
   br i1 %tobool.not.i.i1011, label %for.body17.i1057, label %for.body.lr.ph.i1014
 
 for.body.lr.ph.i1014:                             ; preds = %sw.bb144
   %div2.i.i.i1015 = lshr i64 %col_no102.01184, 3
-  %370 = trunc i64 %col_no102.01184 to i8
-  %conv.i.i.i1016 = and i8 %370, 7
+  %373 = trunc i64 %col_no102.01184 to i8
+  %conv.i.i.i1016 = and i8 %373, 7
   %shl.i.i.i1017 = shl nuw i8 1, %conv.i.i.i1016
-  %371 = xor i8 %shl.i.i.i1017, -1
+  %374 = xor i8 %shl.i.i.i1017, -1
   br label %for.body.i1018
 
 for.body.i1018:                                   ; preds = %if.end.i1048, %for.body.lr.ph.i1014
   %i.013.i1019 = phi i64 [ 0, %for.body.lr.ph.i1014 ], [ %inc.i1049, %if.end.i1048 ]
-  %372 = load ptr, ptr %sel, align 8, !tbaa !26
-  %tobool.not.i52.i1020 = icmp eq ptr %372, null
+  %375 = load ptr, ptr %sel, align 8, !tbaa !26
+  %tobool.not.i52.i1020 = icmp eq ptr %375, null
   br i1 %tobool.not.i52.i1020, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i1024, label %cond.true.i.i1021
 
 cond.true.i.i1021:                                ; preds = %for.body.i1018
-  %arrayidx.i.i1022 = getelementptr inbounds i32, ptr %372, i64 %i.013.i1019
-  %373 = load i32, ptr %arrayidx.i.i1022, align 4, !tbaa !30
-  %conv.i.i1023 = zext i32 %373 to i64
+  %arrayidx.i.i1022 = getelementptr inbounds i32, ptr %375, i64 %i.013.i1019
+  %376 = load i32, ptr %arrayidx.i.i1022, align 4, !tbaa !30
+  %conv.i.i1023 = zext i32 %376 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i1024
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit.i1024: ; preds = %cond.true.i.i1021, %for.body.i1018
   %cond.i.i1025 = phi i64 [ %conv.i.i1023, %cond.true.i.i1021 ], [ %i.013.i1019, %for.body.i1018 ]
-  %374 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
-  %375 = load ptr, ptr %374, align 8, !tbaa !26
-  %tobool.not.i53.i1026 = icmp eq ptr %375, null
+  %377 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
+  %378 = load ptr, ptr %377, align 8, !tbaa !26
+  %tobool.not.i53.i1026 = icmp eq ptr %378, null
   br i1 %tobool.not.i53.i1026, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.i1030, label %cond.true.i54.i1027
 
 cond.true.i54.i1027:                              ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i1024
-  %arrayidx.i55.i1028 = getelementptr inbounds i32, ptr %375, i64 %cond.i.i1025
-  %376 = load i32, ptr %arrayidx.i55.i1028, align 4, !tbaa !30
-  %conv.i56.i1029 = zext i32 %376 to i64
+  %arrayidx.i55.i1028 = getelementptr inbounds i32, ptr %378, i64 %cond.i.i1025
+  %379 = load i32, ptr %arrayidx.i55.i1028, align 4, !tbaa !30
+  %conv.i56.i1029 = zext i32 %379 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.i1030
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit58.i1030: ; preds = %cond.true.i54.i1027, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i1024
   %cond.i57.i1031 = phi i64 [ %conv.i56.i1029, %cond.true.i54.i1027 ], [ %cond.i.i1025, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i1024 ]
   %arrayidx.i1032 = getelementptr inbounds ptr, ptr %rows.val331, i64 %cond.i.i1025
-  %377 = load ptr, ptr %arrayidx.i1032, align 8, !tbaa !22
-  %378 = load ptr, ptr %validity.i1010, align 8, !tbaa !143
-  %tobool.not.i59.i1033 = icmp eq ptr %378, null
+  %380 = load ptr, ptr %arrayidx.i1032, align 8, !tbaa !22
+  %381 = load ptr, ptr %validity.i1010, align 8, !tbaa !143
+  %tobool.not.i59.i1033 = icmp eq ptr %381, null
   br i1 %tobool.not.i59.i1033, label %cond.end.thread.i1041, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i1034
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i1034: ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.i1030
   %div2.i.i.i.i1035 = lshr i64 %cond.i57.i1031, 6
-  %arrayidx.i.i.i.i.i1036 = getelementptr inbounds i64, ptr %378, i64 %div2.i.i.i.i1035
-  %379 = load i64, ptr %arrayidx.i.i.i.i.i1036, align 8, !tbaa !38
+  %arrayidx.i.i.i.i.i1036 = getelementptr inbounds i64, ptr %381, i64 %div2.i.i.i.i1035
+  %382 = load i64, ptr %arrayidx.i.i.i.i.i1036, align 8, !tbaa !38
   %rem.i.i.i.i1037 = and i64 %cond.i57.i1031, 63
   %shl.i.i.i.i1038 = shl nuw i64 1, %rem.i.i.i.i1037
-  %and.i.i.i.i1039 = and i64 %379, %shl.i.i.i.i1038
+  %and.i.i.i.i1039 = and i64 %382, %shl.i.i.i.i1038
   %tobool.i.i.i.not.i1040 = icmp eq i64 %and.i.i.i.i1039, 0
   br i1 %tobool.i.i.i.not.i1040, label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.i1051, label %cond.end.thread.i1041
 
 cond.end.thread.i1041:                            ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i1034, %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.i1030
-  %arrayidx9.i1042 = getelementptr inbounds %"struct.duckdb::interval_t", ptr %368, i64 %cond.i57.i1031
-  %add.ptr9.i1046 = getelementptr inbounds i8, ptr %377, i64 %123
-  %380 = load <2 x i64>, ptr %arrayidx9.i1042, align 8
-  store <2 x i64> %380, ptr %add.ptr9.i1046, align 1
+  %arrayidx9.i1042 = getelementptr inbounds %"struct.duckdb::interval_t", ptr %371, i64 %cond.i57.i1031
+  %add.ptr9.i1046 = getelementptr inbounds i8, ptr %380, i64 %126
+  %383 = load <2 x i64>, ptr %arrayidx9.i1042, align 8
+  store <2 x i64> %383, ptr %add.ptr9.i1046, align 1
   br label %if.end.i1048
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.i1051: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i1034
-  %add.ptr.i1052 = getelementptr inbounds i8, ptr %377, i64 %123
+  %add.ptr.i1052 = getelementptr inbounds i8, ptr %380, i64 %126
   store i64 -9223372034707292160, ptr %add.ptr.i1052, align 1
   %store_value.sroa.6.0.add.ptr.sroa_idx.i1053 = getelementptr inbounds i8, ptr %add.ptr.i1052, i64 8
   store i64 -9223372036854775808, ptr %store_value.sroa.6.0.add.ptr.sroa_idx.i1053, align 1
-  %381 = load ptr, ptr %arrayidx.i1032, align 8, !tbaa !22
-  %arrayidx.i.i.i1054 = getelementptr inbounds i8, ptr %381, i64 %div2.i.i.i1015
-  %382 = load i8, ptr %arrayidx.i.i.i1054, align 1, !tbaa !41
-  %conv4.i.i.i1055 = and i8 %382, %371
+  %384 = load ptr, ptr %arrayidx.i1032, align 8, !tbaa !22
+  %arrayidx.i.i.i1054 = getelementptr inbounds i8, ptr %384, i64 %div2.i.i.i1015
+  %385 = load i8, ptr %arrayidx.i.i.i1054, align 1, !tbaa !41
+  %conv4.i.i.i1055 = and i8 %385, %374
   store i8 %conv4.i.i.i1055, ptr %arrayidx.i.i.i1054, align 1, !tbaa !41
   br label %if.end.i1048
 
@@ -3739,35 +3762,35 @@ if.end.i1048:                                     ; preds = %_ZN6duckdb21Templat
 
 for.body17.i1057:                                 ; preds = %sw.bb144, %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i1069
   %i13.015.i1058 = phi i64 [ %inc28.i1074, %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i1069 ], [ 0, %sw.bb144 ]
-  %383 = load ptr, ptr %sel, align 8, !tbaa !26
-  %tobool.not.i60.i1059 = icmp eq ptr %383, null
+  %386 = load ptr, ptr %sel, align 8, !tbaa !26
+  %tobool.not.i60.i1059 = icmp eq ptr %386, null
   br i1 %tobool.not.i60.i1059, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i1063, label %cond.true.i61.i1060
 
 cond.true.i61.i1060:                              ; preds = %for.body17.i1057
-  %arrayidx.i62.i1061 = getelementptr inbounds i32, ptr %383, i64 %i13.015.i1058
-  %384 = load i32, ptr %arrayidx.i62.i1061, align 4, !tbaa !30
-  %conv.i63.i1062 = zext i32 %384 to i64
+  %arrayidx.i62.i1061 = getelementptr inbounds i32, ptr %386, i64 %i13.015.i1058
+  %387 = load i32, ptr %arrayidx.i62.i1061, align 4, !tbaa !30
+  %conv.i63.i1062 = zext i32 %387 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i1063
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit65.i1063: ; preds = %cond.true.i61.i1060, %for.body17.i1057
   %cond.i64.i1064 = phi i64 [ %conv.i63.i1062, %cond.true.i61.i1060 ], [ %i13.015.i1058, %for.body17.i1057 ]
-  %385 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
-  %386 = load ptr, ptr %385, align 8, !tbaa !26
-  %tobool.not.i66.i1065 = icmp eq ptr %386, null
+  %388 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
+  %389 = load ptr, ptr %388, align 8, !tbaa !26
+  %tobool.not.i66.i1065 = icmp eq ptr %389, null
   br i1 %tobool.not.i66.i1065, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i1069, label %cond.true.i67.i1066
 
 cond.true.i67.i1066:                              ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i1063
-  %arrayidx.i68.i1067 = getelementptr inbounds i32, ptr %386, i64 %cond.i64.i1064
-  %387 = load i32, ptr %arrayidx.i68.i1067, align 4, !tbaa !30
-  %conv.i69.i1068 = zext i32 %387 to i64
+  %arrayidx.i68.i1067 = getelementptr inbounds i32, ptr %389, i64 %cond.i64.i1064
+  %390 = load i32, ptr %arrayidx.i68.i1067, align 4, !tbaa !30
+  %conv.i69.i1068 = zext i32 %390 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i1069
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit71.i1069: ; preds = %cond.true.i67.i1066, %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i1063
   %cond.i70.i1070 = phi i64 [ %conv.i69.i1068, %cond.true.i67.i1066 ], [ %cond.i64.i1064, %_ZNK6duckdb15SelectionVector9get_indexEm.exit65.i1063 ]
   %arrayidx24.i1071 = getelementptr inbounds ptr, ptr %rows.val331, i64 %cond.i64.i1064
-  %388 = load ptr, ptr %arrayidx24.i1071, align 8, !tbaa !22
-  %arrayidx25.i1072 = getelementptr inbounds %"struct.duckdb::interval_t", ptr %368, i64 %cond.i70.i1070
-  %add.ptr26.i1073 = getelementptr inbounds i8, ptr %388, i64 %123
+  %391 = load ptr, ptr %arrayidx24.i1071, align 8, !tbaa !22
+  %arrayidx25.i1072 = getelementptr inbounds %"struct.duckdb::interval_t", ptr %371, i64 %cond.i70.i1070
+  %add.ptr26.i1073 = getelementptr inbounds i8, ptr %391, i64 %126
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %add.ptr26.i1073, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx25.i1072, i64 16, i1 false)
   %inc28.i1074 = add nuw i64 %i13.015.i1058, 1
   %exitcond17.not.i1075 = icmp eq i64 %inc28.i1074, %count
@@ -3776,97 +3799,97 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit71.i1069: ; preds = %cond.true.i67.
 for.body.lr.ph.i1078:                             ; preds = %invoke.cont118
   %rows.val332 = load ptr, ptr %data.i.i.i, align 8, !tbaa !3
   %data.i.i1076 = getelementptr inbounds i8, ptr %arrayidx114, i64 8
-  %389 = load ptr, ptr %data.i.i1076, align 8, !tbaa !140
+  %392 = load ptr, ptr %data.i.i1076, align 8, !tbaa !140
   %validity.i1079 = getelementptr inbounds i8, ptr %arrayidx114, i64 16
   %div2.i.i.i1080 = lshr i64 %col_no102.01184, 3
-  %390 = trunc i64 %col_no102.01184 to i8
-  %conv.i.i.i1081 = and i8 %390, 7
+  %393 = trunc i64 %col_no102.01184 to i8
+  %conv.i.i.i1081 = and i8 %393, 7
   %shl.i.i.i1082 = shl nuw i8 1, %conv.i.i.i1081
-  %391 = xor i8 %shl.i.i.i1082, -1
+  %394 = xor i8 %shl.i.i.i1082, -1
   br label %for.body.i1083
 
 for.body.i1083:                                   ; preds = %if.end24.i, %for.body.lr.ph.i1078
   %i.03.i1084 = phi i64 [ 0, %for.body.lr.ph.i1078 ], [ %inc.i1101, %if.end24.i ]
-  %392 = load ptr, ptr %sel, align 8, !tbaa !26
-  %tobool.not.i.i1085 = icmp eq ptr %392, null
+  %395 = load ptr, ptr %sel, align 8, !tbaa !26
+  %tobool.not.i.i1085 = icmp eq ptr %395, null
   br i1 %tobool.not.i.i1085, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i1089, label %cond.true.i.i1086
 
 cond.true.i.i1086:                                ; preds = %for.body.i1083
-  %arrayidx.i.i1087 = getelementptr inbounds i32, ptr %392, i64 %i.03.i1084
-  %393 = load i32, ptr %arrayidx.i.i1087, align 4, !tbaa !30
-  %conv.i.i1088 = zext i32 %393 to i64
+  %arrayidx.i.i1087 = getelementptr inbounds i32, ptr %395, i64 %i.03.i1084
+  %396 = load i32, ptr %arrayidx.i.i1087, align 4, !tbaa !30
+  %conv.i.i1088 = zext i32 %396 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i1089
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit.i1089: ; preds = %cond.true.i.i1086, %for.body.i1083
   %cond.i.i1090 = phi i64 [ %conv.i.i1088, %cond.true.i.i1086 ], [ %i.03.i1084, %for.body.i1083 ]
-  %394 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
-  %395 = load ptr, ptr %394, align 8, !tbaa !26
-  %tobool.not.i48.i = icmp eq ptr %395, null
+  %397 = load ptr, ptr %arrayidx114, align 8, !tbaa !142
+  %398 = load ptr, ptr %397, align 8, !tbaa !26
+  %tobool.not.i48.i = icmp eq ptr %398, null
   br i1 %tobool.not.i48.i, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit53.i, label %cond.true.i49.i
 
 cond.true.i49.i:                                  ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i1089
-  %arrayidx.i50.i = getelementptr inbounds i32, ptr %395, i64 %cond.i.i1090
-  %396 = load i32, ptr %arrayidx.i50.i, align 4, !tbaa !30
-  %conv.i51.i = zext i32 %396 to i64
+  %arrayidx.i50.i = getelementptr inbounds i32, ptr %398, i64 %cond.i.i1090
+  %399 = load i32, ptr %arrayidx.i50.i, align 4, !tbaa !30
+  %conv.i51.i = zext i32 %399 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit53.i
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit53.i: ; preds = %cond.true.i49.i, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i1089
   %cond.i52.i = phi i64 [ %conv.i51.i, %cond.true.i49.i ], [ %cond.i.i1090, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i1089 ]
   %arrayidx.i1091 = getelementptr inbounds ptr, ptr %rows.val332, i64 %cond.i.i1090
-  %397 = load ptr, ptr %arrayidx.i1091, align 8, !tbaa !22
-  %398 = load ptr, ptr %validity.i1079, align 8, !tbaa !143
-  %tobool.not.i54.i = icmp eq ptr %398, null
+  %400 = load ptr, ptr %arrayidx.i1091, align 8, !tbaa !22
+  %401 = load ptr, ptr %validity.i1079, align 8, !tbaa !143
+  %tobool.not.i54.i = icmp eq ptr %401, null
   br i1 %tobool.not.i54.i, label %if.else.i, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i1092
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i1092: ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit53.i
   %div2.i.i.i.i1093 = lshr i64 %cond.i52.i, 6
-  %arrayidx.i.i.i.i.i1094 = getelementptr inbounds i64, ptr %398, i64 %div2.i.i.i.i1093
-  %399 = load i64, ptr %arrayidx.i.i.i.i.i1094, align 8, !tbaa !38
+  %arrayidx.i.i.i.i.i1094 = getelementptr inbounds i64, ptr %401, i64 %div2.i.i.i.i1093
+  %402 = load i64, ptr %arrayidx.i.i.i.i.i1094, align 8, !tbaa !38
   %rem.i.i.i.i1095 = and i64 %cond.i52.i, 63
   %shl.i.i.i.i1096 = shl nuw i64 1, %rem.i.i.i.i1095
-  %and.i.i.i.i1097 = and i64 %399, %shl.i.i.i.i1096
+  %and.i.i.i.i1097 = and i64 %402, %shl.i.i.i.i1096
   %tobool.i.i.i.not.i1098 = icmp eq i64 %and.i.i.i.i1097, 0
   br i1 %tobool.i.i.i.not.i1098, label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.i1104, label %if.else.i
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.i1104: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i1092
-  %arrayidx.i.i.i1105 = getelementptr inbounds i8, ptr %397, i64 %div2.i.i.i1080
-  %400 = load i8, ptr %arrayidx.i.i.i1105, align 1, !tbaa !41
-  %conv4.i.i.i1106 = and i8 %400, %391
+  %arrayidx.i.i.i1105 = getelementptr inbounds i8, ptr %400, i64 %div2.i.i.i1080
+  %403 = load i8, ptr %arrayidx.i.i.i1105, align 1, !tbaa !41
+  %conv4.i.i.i1106 = and i8 %403, %394
   store i8 %conv4.i.i.i1106, ptr %arrayidx.i.i.i1105, align 1, !tbaa !41
-  %add.ptr.i1107 = getelementptr inbounds i8, ptr %397, i64 %123
+  %add.ptr.i1107 = getelementptr inbounds i8, ptr %400, i64 %126
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %add.ptr.i1107, i8 0, i64 16, i1 false)
   br label %if.end24.i
 
 if.else.i:                                        ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i1092, %_ZNK6duckdb15SelectionVector9get_indexEm.exit53.i
-  %arrayidx7.i1099 = getelementptr inbounds %"struct.duckdb::string_t", ptr %389, i64 %cond.i52.i
-  %401 = load i32, ptr %arrayidx7.i1099, align 8, !tbaa !41
-  %cmp.i.i1100 = icmp ult i32 %401, 13
+  %arrayidx7.i1099 = getelementptr inbounds %"struct.duckdb::string_t", ptr %392, i64 %cond.i52.i
+  %404 = load i32, ptr %arrayidx7.i1099, align 8, !tbaa !41
+  %cmp.i.i1100 = icmp ult i32 %404, 13
   br i1 %cmp.i.i1100, label %if.then9.i, label %_ZN6duckdb8string_t8FinalizeEv.exit.i
 
 if.then9.i:                                       ; preds = %if.else.i
-  %add.ptr11.i = getelementptr inbounds i8, ptr %397, i64 %123
+  %add.ptr11.i = getelementptr inbounds i8, ptr %400, i64 %126
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %add.ptr11.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx7.i1099, i64 16, i1 false)
   br label %if.end24.i
 
 _ZN6duckdb8string_t8FinalizeEv.exit.i:            ; preds = %if.else.i
   %arrayidx14.i = getelementptr inbounds ptr, ptr %data_locations, i64 %i.03.i1084
-  %402 = load ptr, ptr %arrayidx14.i, align 8, !tbaa !22
-  %conv.i55.i = zext i32 %401 to i64
-  %ptr.i65.i = getelementptr inbounds i8, ptr %arrayidx7.i1099, i64 8
-  %403 = load ptr, ptr %ptr.i65.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %402, ptr align 1 %403, i64 %conv.i55.i, i1 false)
-  %404 = load i32, ptr %arrayidx7.i1099, align 8, !tbaa !41
-  %conv.i68.i = zext i32 %404 to i64
   %405 = load ptr, ptr %arrayidx14.i, align 8, !tbaa !22
-  %add.ptr22.i = getelementptr inbounds i8, ptr %405, i64 %conv.i68.i
+  %conv.i55.i = zext i32 %404 to i64
+  %ptr.i65.i = getelementptr inbounds i8, ptr %arrayidx7.i1099, i64 8
+  %406 = load ptr, ptr %ptr.i65.i, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %405, ptr align 1 %406, i64 %conv.i55.i, i1 false)
+  %407 = load i32, ptr %arrayidx7.i1099, align 8, !tbaa !41
+  %conv.i68.i = zext i32 %407 to i64
+  %408 = load ptr, ptr %arrayidx14.i, align 8, !tbaa !22
+  %add.ptr22.i = getelementptr inbounds i8, ptr %408, i64 %conv.i68.i
   store ptr %add.ptr22.i, ptr %arrayidx14.i, align 8, !tbaa !22
-  %406 = load i32, ptr %402, align 1
-  %add.ptr23.i = getelementptr inbounds i8, ptr %397, i64 %123
-  store i32 %401, ptr %add.ptr23.i, align 1
+  %409 = load i32, ptr %405, align 1
+  %add.ptr23.i = getelementptr inbounds i8, ptr %400, i64 %126
+  store i32 %404, ptr %add.ptr23.i, align 1
   %inserted.sroa.4.0.add.ptr23.sroa_idx.i = getelementptr inbounds i8, ptr %add.ptr23.i, i64 4
-  store i32 %406, ptr %inserted.sroa.4.0.add.ptr23.sroa_idx.i, align 1
+  store i32 %409, ptr %inserted.sroa.4.0.add.ptr23.sroa_idx.i, align 1
   %inserted.sroa.6.0.add.ptr23.sroa_idx.i = getelementptr inbounds i8, ptr %add.ptr23.i, i64 8
-  store ptr %402, ptr %inserted.sroa.6.0.add.ptr23.sroa_idx.i, align 1
+  store ptr %405, ptr %inserted.sroa.6.0.add.ptr23.sroa_idx.i, align 1
   br label %if.end24.i
 
 if.end24.i:                                       ; preds = %_ZN6duckdb8string_t8FinalizeEv.exit.i, %if.then9.i, %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.i1104
@@ -3877,30 +3900,30 @@ if.end24.i:                                       ; preds = %_ZN6duckdb8string_t
 sw.bb149:                                         ; preds = %invoke.cont118, %invoke.cont118, %invoke.cont118
   %rows.val333 = load ptr, ptr %data.i.i.i, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 16384, ptr nonnull %validitymask_locations.i) #22
-  br i1 %119, label %for.body.i1108.epil, label %for.body.i1108
+  br i1 %122, label %for.body.i1108.epil, label %for.body.i1108
 
 for.cond.cleanup.i1119.unr-lcssa:                 ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i1113.1
   br i1 %lcmp.mod1344.not, label %for.cond.cleanup.i1119, label %for.body.i1108.epil
 
 for.body.i1108.epil:                              ; preds = %sw.bb149, %for.cond.cleanup.i1119.unr-lcssa
-  %407 = load ptr, ptr %sel, align 8, !tbaa !26
-  %tobool.not.i.i1109.epil = icmp eq ptr %407, null
+  %410 = load ptr, ptr %sel, align 8, !tbaa !26
+  %tobool.not.i.i1109.epil = icmp eq ptr %410, null
   br i1 %tobool.not.i.i1109.epil, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i1113.epil, label %cond.true.i.i1110.epil
 
 cond.true.i.i1110.epil:                           ; preds = %for.body.i1108.epil
-  %arrayidx.i.i1111.epil = getelementptr inbounds i32, ptr %407, i64 %unroll_iter1345
-  %408 = load i32, ptr %arrayidx.i.i1111.epil, align 4, !tbaa !30
-  %conv.i.i1112.epil = zext i32 %408 to i64
+  %arrayidx.i.i1111.epil = getelementptr inbounds i32, ptr %410, i64 %unroll_iter1345
+  %411 = load i32, ptr %arrayidx.i.i1111.epil, align 4, !tbaa !30
+  %conv.i.i1112.epil = zext i32 %411 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i1113.epil
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit.i1113.epil: ; preds = %cond.true.i.i1110.epil, %for.body.i1108.epil
   %cond.i.i1114.epil = phi i64 [ %conv.i.i1112.epil, %cond.true.i.i1110.epil ], [ %unroll_iter1345, %for.body.i1108.epil ]
   %arrayidx.i1115.epil = getelementptr inbounds ptr, ptr %rows.val333, i64 %cond.i.i1114.epil
-  %409 = load ptr, ptr %arrayidx.i1115.epil, align 8, !tbaa !22
-  store ptr %409, ptr %arrayidx2.i.epil, align 16, !tbaa !22
-  %add.ptr.i1116.epil = getelementptr inbounds i8, ptr %409, i64 %123
-  %410 = load i64, ptr %arrayidx3.i.epil, align 16
-  store i64 %410, ptr %add.ptr.i1116.epil, align 1
+  %412 = load ptr, ptr %arrayidx.i1115.epil, align 8, !tbaa !22
+  store ptr %412, ptr %arrayidx2.i.epil, align 16, !tbaa !22
+  %add.ptr.i1116.epil = getelementptr inbounds i8, ptr %412, i64 %126
+  %413 = load i64, ptr %arrayidx3.i.epil, align 16
+  store i64 %413, ptr %add.ptr.i1116.epil, align 1
   br label %for.cond.cleanup.i1119
 
 for.cond.cleanup.i1119:                           ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i1113.epil, %for.cond.cleanup.i1119.unr-lcssa
@@ -3909,47 +3932,47 @@ for.cond.cleanup.i1119:                           ; preds = %_ZNK6duckdb15Select
 
 for.body.i1108:                                   ; preds = %sw.bb149, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i1113.1
   %i.02.i = phi i64 [ %inc.i1117.1, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i1113.1 ], [ 0, %sw.bb149 ]
-  %411 = load ptr, ptr %sel, align 8, !tbaa !26
-  %tobool.not.i.i1109 = icmp eq ptr %411, null
+  %414 = load ptr, ptr %sel, align 8, !tbaa !26
+  %tobool.not.i.i1109 = icmp eq ptr %414, null
   br i1 %tobool.not.i.i1109, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i1113, label %cond.true.i.i1110
 
 cond.true.i.i1110:                                ; preds = %for.body.i1108
-  %arrayidx.i.i1111 = getelementptr inbounds i32, ptr %411, i64 %i.02.i
-  %412 = load i32, ptr %arrayidx.i.i1111, align 4, !tbaa !30
-  %conv.i.i1112 = zext i32 %412 to i64
+  %arrayidx.i.i1111 = getelementptr inbounds i32, ptr %414, i64 %i.02.i
+  %415 = load i32, ptr %arrayidx.i.i1111, align 4, !tbaa !30
+  %conv.i.i1112 = zext i32 %415 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i1113
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit.i1113: ; preds = %cond.true.i.i1110, %for.body.i1108
   %cond.i.i1114 = phi i64 [ %conv.i.i1112, %cond.true.i.i1110 ], [ %i.02.i, %for.body.i1108 ]
   %arrayidx.i1115 = getelementptr inbounds ptr, ptr %rows.val333, i64 %cond.i.i1114
-  %413 = load ptr, ptr %arrayidx.i1115, align 8, !tbaa !22
+  %416 = load ptr, ptr %arrayidx.i1115, align 8, !tbaa !22
   %arrayidx2.i = getelementptr inbounds [2048 x ptr], ptr %validitymask_locations.i, i64 0, i64 %i.02.i
-  store ptr %413, ptr %arrayidx2.i, align 16, !tbaa !22
+  store ptr %416, ptr %arrayidx2.i, align 16, !tbaa !22
   %arrayidx3.i = getelementptr inbounds ptr, ptr %data_locations, i64 %i.02.i
-  %add.ptr.i1116 = getelementptr inbounds i8, ptr %413, i64 %123
-  %414 = load i64, ptr %arrayidx3.i, align 16
-  store i64 %414, ptr %add.ptr.i1116, align 1
+  %add.ptr.i1116 = getelementptr inbounds i8, ptr %416, i64 %126
+  %417 = load i64, ptr %arrayidx3.i, align 16
+  store i64 %417, ptr %add.ptr.i1116, align 1
   %inc.i1117 = or disjoint i64 %i.02.i, 1
-  %415 = load ptr, ptr %sel, align 8, !tbaa !26
-  %tobool.not.i.i1109.1 = icmp eq ptr %415, null
+  %418 = load ptr, ptr %sel, align 8, !tbaa !26
+  %tobool.not.i.i1109.1 = icmp eq ptr %418, null
   br i1 %tobool.not.i.i1109.1, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i1113.1, label %cond.true.i.i1110.1
 
 cond.true.i.i1110.1:                              ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i1113
-  %arrayidx.i.i1111.1 = getelementptr inbounds i32, ptr %415, i64 %inc.i1117
-  %416 = load i32, ptr %arrayidx.i.i1111.1, align 4, !tbaa !30
-  %conv.i.i1112.1 = zext i32 %416 to i64
+  %arrayidx.i.i1111.1 = getelementptr inbounds i32, ptr %418, i64 %inc.i1117
+  %419 = load i32, ptr %arrayidx.i.i1111.1, align 4, !tbaa !30
+  %conv.i.i1112.1 = zext i32 %419 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i1113.1
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit.i1113.1: ; preds = %cond.true.i.i1110.1, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i1113
   %cond.i.i1114.1 = phi i64 [ %conv.i.i1112.1, %cond.true.i.i1110.1 ], [ %inc.i1117, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i1113 ]
   %arrayidx.i1115.1 = getelementptr inbounds ptr, ptr %rows.val333, i64 %cond.i.i1114.1
-  %417 = load ptr, ptr %arrayidx.i1115.1, align 8, !tbaa !22
+  %420 = load ptr, ptr %arrayidx.i1115.1, align 8, !tbaa !22
   %arrayidx2.i.1 = getelementptr inbounds [2048 x ptr], ptr %validitymask_locations.i, i64 0, i64 %inc.i1117
-  store ptr %417, ptr %arrayidx2.i.1, align 8, !tbaa !22
+  store ptr %420, ptr %arrayidx2.i.1, align 8, !tbaa !22
   %arrayidx3.i.1 = getelementptr inbounds ptr, ptr %data_locations, i64 %inc.i1117
-  %add.ptr.i1116.1 = getelementptr inbounds i8, ptr %417, i64 %123
-  %418 = load i64, ptr %arrayidx3.i.1, align 8
-  store i64 %418, ptr %add.ptr.i1116.1, align 1
+  %add.ptr.i1116.1 = getelementptr inbounds i8, ptr %420, i64 %126
+  %421 = load i64, ptr %arrayidx3.i.1, align 8
+  store i64 %421, ptr %add.ptr.i1116.1, align 1
   %inc.i1117.1 = add i64 %i.02.i, 2
   %niter1346.ncmp.1 = icmp eq i64 %inc.i1117.1, %unroll_iter1345
   br i1 %niter1346.ncmp.1, label %for.cond.cleanup.i1119.unr-lcssa, label %for.body.i1108, !llvm.loop !184
@@ -3974,7 +3997,7 @@ invoke.cont159:                                   ; preds = %invoke.cont157
           to label %unreachable unwind label %lpad158
 
 ehcleanup162.thread:                              ; preds = %sw.default152
-  %419 = landingpad { ptr, i32 }
+  %422 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp155) #22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp154) #22
@@ -3982,39 +4005,39 @@ ehcleanup162.thread:                              ; preds = %sw.default152
 
 lpad158:                                          ; preds = %invoke.cont159, %invoke.cont157
   %cleanup.isactive160.0 = phi i1 [ false, %invoke.cont159 ], [ true, %invoke.cont157 ]
-  %420 = landingpad { ptr, i32 }
+  %423 = landingpad { ptr, i32 }
           cleanup
-  %421 = load ptr, ptr %ref.tmp154, align 8, !tbaa !39
-  %422 = getelementptr inbounds i8, ptr %ref.tmp154, i64 16
-  %cmp.i.i.i1121 = icmp eq ptr %421, %422
+  %424 = load ptr, ptr %ref.tmp154, align 8, !tbaa !39
+  %425 = getelementptr inbounds i8, ptr %ref.tmp154, i64 16
+  %cmp.i.i.i1121 = icmp eq ptr %424, %425
   br i1 %cmp.i.i.i1121, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1124, label %ehcleanup162
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1124: ; preds = %lpad158
   %_M_string_length.i.i.i1125 = getelementptr inbounds i8, ptr %ref.tmp154, i64 8
-  %423 = load i64, ptr %_M_string_length.i.i.i1125, align 8, !tbaa !42
-  %cmp3.i.i.i1126 = icmp ult i64 %423, 16
+  %426 = load i64, ptr %_M_string_length.i.i.i1125, align 8, !tbaa !42
+  %cmp3.i.i.i1126 = icmp ult i64 %426, 16
   call void @llvm.assume(i1 %cmp3.i.i.i1126)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp155) #22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp154) #22
   br i1 %cleanup.isactive160.0, label %cleanup.action167, label %ehcleanup177
 
 ehcleanup162:                                     ; preds = %lpad158
-  call void @_ZdlPv(ptr noundef %421) #24
+  call void @_ZdlPv(ptr noundef %424) #24
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp155) #22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp154) #22
   br i1 %cleanup.isactive160.0, label %cleanup.action167, label %ehcleanup177
 
 cleanup.action167:                                ; preds = %ehcleanup162, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1124, %ehcleanup162.thread
-  %.pn3141138 = phi { ptr, i32 } [ %419, %ehcleanup162.thread ], [ %420, %ehcleanup162 ], [ %420, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1124 ]
+  %.pn3141138 = phi { ptr, i32 } [ %422, %ehcleanup162.thread ], [ %423, %ehcleanup162 ], [ %423, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1124 ]
   call void @__cxa_free_exception(ptr %exception153) #22
   br label %ehcleanup177
 
 sw.epilog169:                                     ; preds = %if.end24.i, %if.end.i1048, %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i1069, %if.end.i982, %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i1002, %if.end.i920, %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i940, %if.end.i860, %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i879, %if.end.i801, %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i821, %if.end.i739, %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i759, %if.end.i677, %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i697, %if.end.i615, %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i635, %if.end.i553, %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i573, %if.end.i491, %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i511, %if.end.i429, %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i449, %if.end.i391, %_ZNK6duckdb15SelectionVector9get_indexEm.exit71.i, %_ZN6duckdbL19ScatterNestedVectorERNS_6VectorERNS_19UnifiedVectorFormatES1_PPhRKNS_15SelectionVectorEmmmm.exit
   %inc174 = add nuw i64 %col_no102.01184, 1
-  %424 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !23
-  %425 = load ptr, ptr %layout, align 8, !tbaa !25
-  %sub.ptr.lhs.cast.i360 = ptrtoint ptr %424 to i64
-  %sub.ptr.rhs.cast.i361 = ptrtoint ptr %425 to i64
+  %427 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !23
+  %428 = load ptr, ptr %layout, align 8, !tbaa !25
+  %sub.ptr.lhs.cast.i360 = ptrtoint ptr %427 to i64
+  %sub.ptr.rhs.cast.i361 = ptrtoint ptr %428 to i64
   %sub.ptr.sub.i362 = sub i64 %sub.ptr.lhs.cast.i360, %sub.ptr.rhs.cast.i361
   %sub.ptr.div.i363 = sdiv exact i64 %sub.ptr.sub.i362, 24
   %cmp105 = icmp ult i64 %inc174, %sub.ptr.div.i363
@@ -4024,7 +4047,7 @@ return:                                           ; preds = %_ZNSt6vectorIN6duck
   ret void
 
 ehcleanup177:                                     ; preds = %cleanup.action167, %ehcleanup162, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1124, %lpad115, %lpad110, %ehcleanup100
-  %.pn314.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %ehcleanup100 ], [ %125, %lpad110 ], [ %.pn3141138, %cleanup.action167 ], [ %420, %ehcleanup162 ], [ %126, %lpad115 ], [ %420, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1124 ]
+  %.pn314.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %ehcleanup100 ], [ %128, %lpad110 ], [ %.pn3141138, %cleanup.action167 ], [ %423, %ehcleanup162 ], [ %129, %lpad115 ], [ %423, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1124 ]
   call void @llvm.lifetime.end.p0(i64 16384, ptr nonnull %data_locations) #22
   call void @_ZNSt6vectorIN6duckdb12BufferHandleESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %handles) #22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %handles) #22
@@ -27651,6 +27674,7 @@ invoke.cont20.us59:                               ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont20.us59
   %inc.us65 = add i64 %match_count.058.us41, 1
   %arrayidx.i52.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.058.us41
+  store i32 %23, ptr %arrayidx.i52.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont20.us59, %for.body.us39
@@ -27658,13 +27682,12 @@ if.else.us67:                                     ; preds = %invoke.cont20.us59,
   store i64 %inc22.us68, ptr %no_match_count, align 8, !tbaa !38
   %29 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i54.us69 = getelementptr inbounds i32, ptr %29, i64 %inc2260.us40
+  store i32 %23, ptr %arrayidx.i54.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i54.us69.sink = phi ptr [ %arrayidx.i54.us69, %if.else.us67 ], [ %arrayidx.i52.us66, %if.then.us64 ]
-  %inc2259.us71 = phi i64 [ %inc22.us68, %if.else.us67 ], [ %inc2260.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.058.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %23, ptr %arrayidx.i54.us69.sink, align 4, !tbaa !30
+  %inc2259.us71 = phi i64 [ %inc2260.us40, %if.then.us64 ], [ %inc22.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.058.us41, %if.else.us67 ]
   %inc23.us73 = add nuw i64 %i.057.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc23.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !515
@@ -27712,6 +27735,7 @@ invoke.cont20:                                    ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont20
   %inc = add i64 %match_count.058, 1
   %arrayidx.i52 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.058
+  store i32 %30, ptr %arrayidx.i52, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont20, %for.body
@@ -27719,13 +27743,12 @@ if.else:                                          ; preds = %invoke.cont20, %for
   store i64 %inc22, ptr %no_match_count, align 8, !tbaa !38
   %37 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i54 = getelementptr inbounds i32, ptr %37, i64 %inc2260
+  store i32 %30, ptr %arrayidx.i54, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i54.sink = phi ptr [ %arrayidx.i54, %if.else ], [ %arrayidx.i52, %if.then ]
-  %inc2259 = phi i64 [ %inc22, %if.else ], [ %inc2260, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.058, %if.else ], [ %inc, %if.then ]
-  store i32 %30, ptr %arrayidx.i54.sink, align 4, !tbaa !30
+  %inc2259 = phi i64 [ %inc2260, %if.then ], [ %inc22, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.058, %if.else ]
   %inc23 = add nuw i64 %i.057, 1
   %exitcond.not = icmp eq i64 %inc23, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !515
@@ -27930,6 +27953,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.057.us41, 1
   %arrayidx.i51.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.057.us41
+  store i32 %23, ptr %arrayidx.i51.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -27937,13 +27961,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc21.us68, ptr %no_match_count, align 8, !tbaa !38
   %29 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i53.us69 = getelementptr inbounds i32, ptr %29, i64 %inc2159.us40
+  store i32 %23, ptr %arrayidx.i53.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i53.us69.sink = phi ptr [ %arrayidx.i53.us69, %if.else.us67 ], [ %arrayidx.i51.us66, %if.then.us64 ]
-  %inc2158.us71 = phi i64 [ %inc21.us68, %if.else.us67 ], [ %inc2159.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.057.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %23, ptr %arrayidx.i53.us69.sink, align 4, !tbaa !30
+  %inc2158.us71 = phi i64 [ %inc2159.us40, %if.then.us64 ], [ %inc21.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.057.us41, %if.else.us67 ]
   %inc22.us73 = add nuw i64 %i.056.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc22.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !516
@@ -27991,6 +28014,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.057, 1
   %arrayidx.i51 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.057
+  store i32 %30, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -27998,13 +28022,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc21, ptr %no_match_count, align 8, !tbaa !38
   %37 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i53 = getelementptr inbounds i32, ptr %37, i64 %inc2159
+  store i32 %30, ptr %arrayidx.i53, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i53.sink = phi ptr [ %arrayidx.i53, %if.else ], [ %arrayidx.i51, %if.then ]
-  %inc2158 = phi i64 [ %inc21, %if.else ], [ %inc2159, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.057, %if.else ], [ %inc, %if.then ]
-  store i32 %30, ptr %arrayidx.i53.sink, align 4, !tbaa !30
+  %inc2158 = phi i64 [ %inc2159, %if.then ], [ %inc21, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.057, %if.else ]
   %inc22 = add nuw i64 %i.056, 1
   %exitcond.not = icmp eq i64 %inc22, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !516
@@ -28219,18 +28242,18 @@ if.else.us68:                                     ; preds = %if.then.i.i.us66, %
   store i64 %inc21.us69, ptr %no_match_count, align 8, !tbaa !38
   %29 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i52.us70 = getelementptr inbounds i32, ptr %29, i64 %inc2158.us42
+  store i32 %23, ptr %arrayidx.i52.us70, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74
 
 if.then.us71:                                     ; preds = %if.then.i.i.us66, %invoke.cont.us61
   %inc.us72 = add i64 %match_count.056.us43, 1
   %arrayidx.i50.us73 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.056.us43
+  store i32 %23, ptr %arrayidx.i50.us73, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74: ; preds = %if.then.us71, %if.else.us68
-  %arrayidx.i50.us73.sink = phi ptr [ %arrayidx.i50.us73, %if.then.us71 ], [ %arrayidx.i52.us70, %if.else.us68 ]
   %inc2157.us75 = phi i64 [ %inc2158.us42, %if.then.us71 ], [ %inc21.us69, %if.else.us68 ]
   %match_count.1.us76 = phi i64 [ %inc.us72, %if.then.us71 ], [ %match_count.056.us43, %if.else.us68 ]
-  store i32 %23, ptr %arrayidx.i50.us73.sink, align 4, !tbaa !30
   %inc22.us77 = add nuw i64 %i.055.us44, 1
   %exitcond.not.us78 = icmp eq i64 %inc22.us77, %count
   br i1 %exitcond.not.us78, label %for.cond.cleanup, label %for.body.us41, !llvm.loop !517
@@ -28282,6 +28305,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont, %if.then.i.i
   %inc = add i64 %match_count.056, 1
   %arrayidx.i50 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.056
+  store i32 %30, ptr %arrayidx.i50, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %if.then.i.i
@@ -28289,13 +28313,12 @@ if.else:                                          ; preds = %invoke.cont, %if.th
   store i64 %inc21, ptr %no_match_count, align 8, !tbaa !38
   %37 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i52 = getelementptr inbounds i32, ptr %37, i64 %inc2158
+  store i32 %30, ptr %arrayidx.i52, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i52.sink = phi ptr [ %arrayidx.i52, %if.else ], [ %arrayidx.i50, %if.then ]
-  %inc2157 = phi i64 [ %inc21, %if.else ], [ %inc2158, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.056, %if.else ], [ %inc, %if.then ]
-  store i32 %30, ptr %arrayidx.i52.sink, align 4, !tbaa !30
+  %inc2157 = phi i64 [ %inc2158, %if.then ], [ %inc21, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.056, %if.else ]
   %inc22 = add nuw i64 %i.055, 1
   %exitcond.not = icmp eq i64 %inc22, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !517
@@ -28508,6 +28531,7 @@ if.then.i.i.i.us66:                               ; preds = %for.body.us41
 if.then.us68:                                     ; preds = %if.then.i.i.i.us66, %invoke.cont.us61
   %inc.us69 = add i64 %match_count.056.us43, 1
   %arrayidx.i50.us70 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.056.us43
+  store i32 %23, ptr %arrayidx.i50.us70, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74
 
 if.else.us71:                                     ; preds = %if.then.i.i.i.us66, %invoke.cont.us61
@@ -28515,13 +28539,12 @@ if.else.us71:                                     ; preds = %if.then.i.i.i.us66,
   store i64 %inc21.us72, ptr %no_match_count, align 8, !tbaa !38
   %29 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i52.us73 = getelementptr inbounds i32, ptr %29, i64 %inc2158.us42
+  store i32 %23, ptr %arrayidx.i52.us73, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74: ; preds = %if.else.us71, %if.then.us68
-  %arrayidx.i52.us73.sink = phi ptr [ %arrayidx.i52.us73, %if.else.us71 ], [ %arrayidx.i50.us70, %if.then.us68 ]
-  %inc2157.us75 = phi i64 [ %inc21.us72, %if.else.us71 ], [ %inc2158.us42, %if.then.us68 ]
-  %match_count.1.us76 = phi i64 [ %match_count.056.us43, %if.else.us71 ], [ %inc.us69, %if.then.us68 ]
-  store i32 %23, ptr %arrayidx.i52.us73.sink, align 4, !tbaa !30
+  %inc2157.us75 = phi i64 [ %inc2158.us42, %if.then.us68 ], [ %inc21.us72, %if.else.us71 ]
+  %match_count.1.us76 = phi i64 [ %inc.us69, %if.then.us68 ], [ %match_count.056.us43, %if.else.us71 ]
   %inc22.us77 = add nuw i64 %i.055.us44, 1
   %exitcond.not.us78 = icmp eq i64 %inc22.us77, %count
   br i1 %exitcond.not.us78, label %for.cond.cleanup, label %for.body.us41, !llvm.loop !518
@@ -28573,6 +28596,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont, %if.then.i.i.i
   %inc = add i64 %match_count.056, 1
   %arrayidx.i50 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.056
+  store i32 %30, ptr %arrayidx.i50, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %if.then.i.i.i
@@ -28580,13 +28604,12 @@ if.else:                                          ; preds = %invoke.cont, %if.th
   store i64 %inc21, ptr %no_match_count, align 8, !tbaa !38
   %37 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i52 = getelementptr inbounds i32, ptr %37, i64 %inc2158
+  store i32 %30, ptr %arrayidx.i52, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i52.sink = phi ptr [ %arrayidx.i52, %if.else ], [ %arrayidx.i50, %if.then ]
-  %inc2157 = phi i64 [ %inc21, %if.else ], [ %inc2158, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.056, %if.else ], [ %inc, %if.then ]
-  store i32 %30, ptr %arrayidx.i52.sink, align 4, !tbaa !30
+  %inc2157 = phi i64 [ %inc2158, %if.then ], [ %inc21, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.056, %if.else ]
   %inc22 = add nuw i64 %i.055, 1
   %exitcond.not = icmp eq i64 %inc22, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !518
@@ -28797,6 +28820,7 @@ invoke.cont.us60:                                 ; preds = %for.body.us40
 if.then.us66:                                     ; preds = %invoke.cont.us60
   %inc.us67 = add i64 %match_count.057.us42, 1
   %arrayidx.i51.us68 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.057.us42
+  store i32 %25, ptr %arrayidx.i51.us68, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us72
 
 if.else.us69:                                     ; preds = %invoke.cont.us60, %for.body.us40
@@ -28804,13 +28828,12 @@ if.else.us69:                                     ; preds = %invoke.cont.us60, %
   store i64 %inc21.us70, ptr %no_match_count, align 8, !tbaa !38
   %32 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i53.us71 = getelementptr inbounds i32, ptr %32, i64 %inc2159.us41
+  store i32 %25, ptr %arrayidx.i53.us71, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us72
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us72: ; preds = %if.else.us69, %if.then.us66
-  %arrayidx.i53.us71.sink = phi ptr [ %arrayidx.i53.us71, %if.else.us69 ], [ %arrayidx.i51.us68, %if.then.us66 ]
-  %inc2158.us73 = phi i64 [ %inc21.us70, %if.else.us69 ], [ %inc2159.us41, %if.then.us66 ]
-  %match_count.1.us74 = phi i64 [ %match_count.057.us42, %if.else.us69 ], [ %inc.us67, %if.then.us66 ]
-  store i32 %25, ptr %arrayidx.i53.us71.sink, align 4, !tbaa !30
+  %inc2158.us73 = phi i64 [ %inc2159.us41, %if.then.us66 ], [ %inc21.us70, %if.else.us69 ]
+  %match_count.1.us74 = phi i64 [ %inc.us67, %if.then.us66 ], [ %match_count.057.us42, %if.else.us69 ]
   %inc22.us75 = add nuw i64 %i.056.us43, 1
   %exitcond.not.us76 = icmp eq i64 %inc22.us75, %count
   br i1 %exitcond.not.us76, label %for.cond.cleanup, label %for.body.us40, !llvm.loop !519
@@ -28860,6 +28883,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.057, 1
   %arrayidx.i51 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.057
+  store i32 %33, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -28867,13 +28891,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc21, ptr %no_match_count, align 8, !tbaa !38
   %41 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i53 = getelementptr inbounds i32, ptr %41, i64 %inc2159
+  store i32 %33, ptr %arrayidx.i53, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i53.sink = phi ptr [ %arrayidx.i53, %if.else ], [ %arrayidx.i51, %if.then ]
-  %inc2158 = phi i64 [ %inc21, %if.else ], [ %inc2159, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.057, %if.else ], [ %inc, %if.then ]
-  store i32 %33, ptr %arrayidx.i53.sink, align 4, !tbaa !30
+  %inc2158 = phi i64 [ %inc2159, %if.then ], [ %inc21, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.057, %if.else ]
   %inc22 = add nuw i64 %i.056, 1
   %exitcond.not = icmp eq i64 %inc22, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !519
@@ -29084,6 +29107,7 @@ invoke.cont.us61:                                 ; preds = %for.body.us41
 if.then.us68:                                     ; preds = %invoke.cont.us61
   %inc.us69 = add i64 %match_count.057.us43, 1
   %arrayidx.i51.us70 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.057.us43
+  store i32 %23, ptr %arrayidx.i51.us70, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74
 
 if.else.us71:                                     ; preds = %invoke.cont.us61, %for.body.us41
@@ -29091,13 +29115,12 @@ if.else.us71:                                     ; preds = %invoke.cont.us61, %
   store i64 %inc21.us72, ptr %no_match_count, align 8, !tbaa !38
   %29 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i53.us73 = getelementptr inbounds i32, ptr %29, i64 %inc2159.us42
+  store i32 %23, ptr %arrayidx.i53.us73, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74: ; preds = %if.else.us71, %if.then.us68
-  %arrayidx.i53.us73.sink = phi ptr [ %arrayidx.i53.us73, %if.else.us71 ], [ %arrayidx.i51.us70, %if.then.us68 ]
-  %inc2158.us75 = phi i64 [ %inc21.us72, %if.else.us71 ], [ %inc2159.us42, %if.then.us68 ]
-  %match_count.1.us76 = phi i64 [ %match_count.057.us43, %if.else.us71 ], [ %inc.us69, %if.then.us68 ]
-  store i32 %23, ptr %arrayidx.i53.us73.sink, align 4, !tbaa !30
+  %inc2158.us75 = phi i64 [ %inc2159.us42, %if.then.us68 ], [ %inc21.us72, %if.else.us71 ]
+  %match_count.1.us76 = phi i64 [ %inc.us69, %if.then.us68 ], [ %match_count.057.us43, %if.else.us71 ]
   %inc22.us77 = add nuw i64 %i.056.us44, 1
   %exitcond.not.us78 = icmp eq i64 %inc22.us77, %count
   br i1 %exitcond.not.us78, label %for.cond.cleanup, label %for.body.us41, !llvm.loop !520
@@ -29147,6 +29170,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.057, 1
   %arrayidx.i51 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.057
+  store i32 %30, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -29154,13 +29178,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc21, ptr %no_match_count, align 8, !tbaa !38
   %37 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i53 = getelementptr inbounds i32, ptr %37, i64 %inc2159
+  store i32 %30, ptr %arrayidx.i53, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i53.sink = phi ptr [ %arrayidx.i53, %if.else ], [ %arrayidx.i51, %if.then ]
-  %inc2158 = phi i64 [ %inc21, %if.else ], [ %inc2159, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.057, %if.else ], [ %inc, %if.then ]
-  store i32 %30, ptr %arrayidx.i53.sink, align 4, !tbaa !30
+  %inc2158 = phi i64 [ %inc2159, %if.then ], [ %inc21, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.057, %if.else ]
   %inc22 = add nuw i64 %i.056, 1
   %exitcond.not = icmp eq i64 %inc22, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !520
@@ -29371,6 +29394,7 @@ invoke.cont.us60:                                 ; preds = %for.body.us40
 if.then.us66:                                     ; preds = %invoke.cont.us60
   %inc.us67 = add i64 %match_count.057.us42, 1
   %arrayidx.i51.us68 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.057.us42
+  store i32 %25, ptr %arrayidx.i51.us68, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us72
 
 if.else.us69:                                     ; preds = %invoke.cont.us60, %for.body.us40
@@ -29378,13 +29402,12 @@ if.else.us69:                                     ; preds = %invoke.cont.us60, %
   store i64 %inc21.us70, ptr %no_match_count, align 8, !tbaa !38
   %32 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i53.us71 = getelementptr inbounds i32, ptr %32, i64 %inc2159.us41
+  store i32 %25, ptr %arrayidx.i53.us71, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us72
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us72: ; preds = %if.else.us69, %if.then.us66
-  %arrayidx.i53.us71.sink = phi ptr [ %arrayidx.i53.us71, %if.else.us69 ], [ %arrayidx.i51.us68, %if.then.us66 ]
-  %inc2158.us73 = phi i64 [ %inc21.us70, %if.else.us69 ], [ %inc2159.us41, %if.then.us66 ]
-  %match_count.1.us74 = phi i64 [ %match_count.057.us42, %if.else.us69 ], [ %inc.us67, %if.then.us66 ]
-  store i32 %25, ptr %arrayidx.i53.us71.sink, align 4, !tbaa !30
+  %inc2158.us73 = phi i64 [ %inc2159.us41, %if.then.us66 ], [ %inc21.us70, %if.else.us69 ]
+  %match_count.1.us74 = phi i64 [ %inc.us67, %if.then.us66 ], [ %match_count.057.us42, %if.else.us69 ]
   %inc22.us75 = add nuw i64 %i.056.us43, 1
   %exitcond.not.us76 = icmp eq i64 %inc22.us75, %count
   br i1 %exitcond.not.us76, label %for.cond.cleanup, label %for.body.us40, !llvm.loop !521
@@ -29434,6 +29457,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.057, 1
   %arrayidx.i51 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.057
+  store i32 %33, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -29441,13 +29465,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc21, ptr %no_match_count, align 8, !tbaa !38
   %41 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i53 = getelementptr inbounds i32, ptr %41, i64 %inc2159
+  store i32 %33, ptr %arrayidx.i53, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i53.sink = phi ptr [ %arrayidx.i53, %if.else ], [ %arrayidx.i51, %if.then ]
-  %inc2158 = phi i64 [ %inc21, %if.else ], [ %inc2159, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.057, %if.else ], [ %inc, %if.then ]
-  store i32 %33, ptr %arrayidx.i53.sink, align 4, !tbaa !30
+  %inc2158 = phi i64 [ %inc2159, %if.then ], [ %inc21, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.057, %if.else ]
   %inc22 = add nuw i64 %i.056, 1
   %exitcond.not = icmp eq i64 %inc22, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !521
@@ -29658,6 +29681,7 @@ invoke.cont.us61:                                 ; preds = %for.body.us41
 if.then.us68:                                     ; preds = %invoke.cont.us61
   %inc.us69 = add i64 %match_count.057.us43, 1
   %arrayidx.i51.us70 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.057.us43
+  store i32 %23, ptr %arrayidx.i51.us70, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74
 
 if.else.us71:                                     ; preds = %invoke.cont.us61, %for.body.us41
@@ -29665,13 +29689,12 @@ if.else.us71:                                     ; preds = %invoke.cont.us61, %
   store i64 %inc21.us72, ptr %no_match_count, align 8, !tbaa !38
   %29 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i53.us73 = getelementptr inbounds i32, ptr %29, i64 %inc2159.us42
+  store i32 %23, ptr %arrayidx.i53.us73, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74: ; preds = %if.else.us71, %if.then.us68
-  %arrayidx.i53.us73.sink = phi ptr [ %arrayidx.i53.us73, %if.else.us71 ], [ %arrayidx.i51.us70, %if.then.us68 ]
-  %inc2158.us75 = phi i64 [ %inc21.us72, %if.else.us71 ], [ %inc2159.us42, %if.then.us68 ]
-  %match_count.1.us76 = phi i64 [ %match_count.057.us43, %if.else.us71 ], [ %inc.us69, %if.then.us68 ]
-  store i32 %23, ptr %arrayidx.i53.us73.sink, align 4, !tbaa !30
+  %inc2158.us75 = phi i64 [ %inc2159.us42, %if.then.us68 ], [ %inc21.us72, %if.else.us71 ]
+  %match_count.1.us76 = phi i64 [ %inc.us69, %if.then.us68 ], [ %match_count.057.us43, %if.else.us71 ]
   %inc22.us77 = add nuw i64 %i.056.us44, 1
   %exitcond.not.us78 = icmp eq i64 %inc22.us77, %count
   br i1 %exitcond.not.us78, label %for.cond.cleanup, label %for.body.us41, !llvm.loop !522
@@ -29721,6 +29744,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.057, 1
   %arrayidx.i51 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.057
+  store i32 %30, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -29728,13 +29752,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc21, ptr %no_match_count, align 8, !tbaa !38
   %37 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i53 = getelementptr inbounds i32, ptr %37, i64 %inc2159
+  store i32 %30, ptr %arrayidx.i53, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i53.sink = phi ptr [ %arrayidx.i53, %if.else ], [ %arrayidx.i51, %if.then ]
-  %inc2158 = phi i64 [ %inc21, %if.else ], [ %inc2159, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.057, %if.else ], [ %inc, %if.then ]
-  store i32 %30, ptr %arrayidx.i53.sink, align 4, !tbaa !30
+  %inc2158 = phi i64 [ %inc2159, %if.then ], [ %inc21, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.057, %if.else ]
   %inc22 = add nuw i64 %i.056, 1
   %exitcond.not = icmp eq i64 %inc22, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !522
@@ -29993,6 +30016,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.055.us41, 1
   %arrayidx.i49.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us41
+  store i32 %21, ptr %arrayidx.i49.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -30000,13 +30024,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc20.us68, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us69 = getelementptr inbounds i32, ptr %26, i64 %inc2057.us40
+  store i32 %21, ptr %arrayidx.i51.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i51.us69.sink = phi ptr [ %arrayidx.i51.us69, %if.else.us67 ], [ %arrayidx.i49.us66, %if.then.us64 ]
-  %inc2056.us71 = phi i64 [ %inc20.us68, %if.else.us67 ], [ %inc2057.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.055.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %21, ptr %arrayidx.i51.us69.sink, align 4, !tbaa !30
+  %inc2056.us71 = phi i64 [ %inc2057.us40, %if.then.us64 ], [ %inc20.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.055.us41, %if.else.us67 ]
   %inc21.us73 = add nuw i64 %i.054.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc21.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !523
@@ -30053,6 +30076,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %27, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -30060,13 +30084,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %33, i64 %inc2057
+  store i32 %27, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !523
@@ -30268,6 +30291,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.055.us41, 1
   %arrayidx.i49.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us41
+  store i32 %21, ptr %arrayidx.i49.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -30275,13 +30299,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc20.us68, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us69 = getelementptr inbounds i32, ptr %26, i64 %inc2057.us40
+  store i32 %21, ptr %arrayidx.i51.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i51.us69.sink = phi ptr [ %arrayidx.i51.us69, %if.else.us67 ], [ %arrayidx.i49.us66, %if.then.us64 ]
-  %inc2056.us71 = phi i64 [ %inc20.us68, %if.else.us67 ], [ %inc2057.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.055.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %21, ptr %arrayidx.i51.us69.sink, align 4, !tbaa !30
+  %inc2056.us71 = phi i64 [ %inc2057.us40, %if.then.us64 ], [ %inc20.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.055.us41, %if.else.us67 ]
   %inc21.us73 = add nuw i64 %i.054.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc21.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !524
@@ -30328,6 +30351,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %27, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -30335,13 +30359,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %33, i64 %inc2057
+  store i32 %27, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !524
@@ -30553,18 +30576,18 @@ if.else.us68:                                     ; preds = %if.then.i.i.us66, %
   store i64 %inc20.us69, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i50.us70 = getelementptr inbounds i32, ptr %26, i64 %inc2056.us42
+  store i32 %21, ptr %arrayidx.i50.us70, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74
 
 if.then.us71:                                     ; preds = %if.then.i.i.us66, %invoke.cont.us61
   %inc.us72 = add i64 %match_count.054.us43, 1
   %arrayidx.i48.us73 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.054.us43
+  store i32 %21, ptr %arrayidx.i48.us73, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74: ; preds = %if.then.us71, %if.else.us68
-  %arrayidx.i48.us73.sink = phi ptr [ %arrayidx.i48.us73, %if.then.us71 ], [ %arrayidx.i50.us70, %if.else.us68 ]
   %inc2055.us75 = phi i64 [ %inc2056.us42, %if.then.us71 ], [ %inc20.us69, %if.else.us68 ]
   %match_count.1.us76 = phi i64 [ %inc.us72, %if.then.us71 ], [ %match_count.054.us43, %if.else.us68 ]
-  store i32 %21, ptr %arrayidx.i48.us73.sink, align 4, !tbaa !30
   %inc21.us77 = add nuw i64 %i.053.us44, 1
   %exitcond.not.us78 = icmp eq i64 %inc21.us77, %count
   br i1 %exitcond.not.us78, label %for.cond.cleanup, label %for.body.us41, !llvm.loop !525
@@ -30615,6 +30638,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont, %if.then.i.i
   %inc = add i64 %match_count.054, 1
   %arrayidx.i48 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.054
+  store i32 %27, ptr %arrayidx.i48, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %if.then.i.i
@@ -30622,13 +30646,12 @@ if.else:                                          ; preds = %invoke.cont, %if.th
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i50 = getelementptr inbounds i32, ptr %33, i64 %inc2056
+  store i32 %27, ptr %arrayidx.i50, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i50.sink = phi ptr [ %arrayidx.i50, %if.else ], [ %arrayidx.i48, %if.then ]
-  %inc2055 = phi i64 [ %inc20, %if.else ], [ %inc2056, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.054, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i50.sink, align 4, !tbaa !30
+  %inc2055 = phi i64 [ %inc2056, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.054, %if.else ]
   %inc21 = add nuw i64 %i.053, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !525
@@ -30838,6 +30861,7 @@ if.then.i.i.i.us66:                               ; preds = %for.body.us41
 if.then.us68:                                     ; preds = %if.then.i.i.i.us66, %invoke.cont.us61
   %inc.us69 = add i64 %match_count.054.us43, 1
   %arrayidx.i48.us70 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.054.us43
+  store i32 %21, ptr %arrayidx.i48.us70, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74
 
 if.else.us71:                                     ; preds = %if.then.i.i.i.us66, %invoke.cont.us61
@@ -30845,13 +30869,12 @@ if.else.us71:                                     ; preds = %if.then.i.i.i.us66,
   store i64 %inc20.us72, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i50.us73 = getelementptr inbounds i32, ptr %26, i64 %inc2056.us42
+  store i32 %21, ptr %arrayidx.i50.us73, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74: ; preds = %if.else.us71, %if.then.us68
-  %arrayidx.i50.us73.sink = phi ptr [ %arrayidx.i50.us73, %if.else.us71 ], [ %arrayidx.i48.us70, %if.then.us68 ]
-  %inc2055.us75 = phi i64 [ %inc20.us72, %if.else.us71 ], [ %inc2056.us42, %if.then.us68 ]
-  %match_count.1.us76 = phi i64 [ %match_count.054.us43, %if.else.us71 ], [ %inc.us69, %if.then.us68 ]
-  store i32 %21, ptr %arrayidx.i50.us73.sink, align 4, !tbaa !30
+  %inc2055.us75 = phi i64 [ %inc2056.us42, %if.then.us68 ], [ %inc20.us72, %if.else.us71 ]
+  %match_count.1.us76 = phi i64 [ %inc.us69, %if.then.us68 ], [ %match_count.054.us43, %if.else.us71 ]
   %inc21.us77 = add nuw i64 %i.053.us44, 1
   %exitcond.not.us78 = icmp eq i64 %inc21.us77, %count
   br i1 %exitcond.not.us78, label %for.cond.cleanup, label %for.body.us41, !llvm.loop !526
@@ -30902,6 +30925,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont, %if.then.i.i.i
   %inc = add i64 %match_count.054, 1
   %arrayidx.i48 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.054
+  store i32 %27, ptr %arrayidx.i48, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %if.then.i.i.i
@@ -30909,13 +30933,12 @@ if.else:                                          ; preds = %invoke.cont, %if.th
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i50 = getelementptr inbounds i32, ptr %33, i64 %inc2056
+  store i32 %27, ptr %arrayidx.i50, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i50.sink = phi ptr [ %arrayidx.i50, %if.else ], [ %arrayidx.i48, %if.then ]
-  %inc2055 = phi i64 [ %inc20, %if.else ], [ %inc2056, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.054, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i50.sink, align 4, !tbaa !30
+  %inc2055 = phi i64 [ %inc2056, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.054, %if.else ]
   %inc21 = add nuw i64 %i.053, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !526
@@ -31117,6 +31140,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.055.us41, 1
   %arrayidx.i49.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us41
+  store i32 %21, ptr %arrayidx.i49.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -31124,13 +31148,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc20.us68, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us69 = getelementptr inbounds i32, ptr %26, i64 %inc2057.us40
+  store i32 %21, ptr %arrayidx.i51.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i51.us69.sink = phi ptr [ %arrayidx.i51.us69, %if.else.us67 ], [ %arrayidx.i49.us66, %if.then.us64 ]
-  %inc2056.us71 = phi i64 [ %inc20.us68, %if.else.us67 ], [ %inc2057.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.055.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %21, ptr %arrayidx.i51.us69.sink, align 4, !tbaa !30
+  %inc2056.us71 = phi i64 [ %inc2057.us40, %if.then.us64 ], [ %inc20.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.055.us41, %if.else.us67 ]
   %inc21.us73 = add nuw i64 %i.054.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc21.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !527
@@ -31177,6 +31200,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %27, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -31184,13 +31208,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %33, i64 %inc2057
+  store i32 %27, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !527
@@ -31392,6 +31415,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.055.us41, 1
   %arrayidx.i49.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us41
+  store i32 %21, ptr %arrayidx.i49.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -31399,13 +31423,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc20.us68, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us69 = getelementptr inbounds i32, ptr %26, i64 %inc2057.us40
+  store i32 %21, ptr %arrayidx.i51.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i51.us69.sink = phi ptr [ %arrayidx.i51.us69, %if.else.us67 ], [ %arrayidx.i49.us66, %if.then.us64 ]
-  %inc2056.us71 = phi i64 [ %inc20.us68, %if.else.us67 ], [ %inc2057.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.055.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %21, ptr %arrayidx.i51.us69.sink, align 4, !tbaa !30
+  %inc2056.us71 = phi i64 [ %inc2057.us40, %if.then.us64 ], [ %inc20.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.055.us41, %if.else.us67 ]
   %inc21.us73 = add nuw i64 %i.054.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc21.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !528
@@ -31452,6 +31475,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %27, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -31459,13 +31483,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %33, i64 %inc2057
+  store i32 %27, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !528
@@ -31667,6 +31690,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.055.us41, 1
   %arrayidx.i49.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us41
+  store i32 %21, ptr %arrayidx.i49.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -31674,13 +31698,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc20.us68, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us69 = getelementptr inbounds i32, ptr %26, i64 %inc2057.us40
+  store i32 %21, ptr %arrayidx.i51.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i51.us69.sink = phi ptr [ %arrayidx.i51.us69, %if.else.us67 ], [ %arrayidx.i49.us66, %if.then.us64 ]
-  %inc2056.us71 = phi i64 [ %inc20.us68, %if.else.us67 ], [ %inc2057.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.055.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %21, ptr %arrayidx.i51.us69.sink, align 4, !tbaa !30
+  %inc2056.us71 = phi i64 [ %inc2057.us40, %if.then.us64 ], [ %inc20.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.055.us41, %if.else.us67 ]
   %inc21.us73 = add nuw i64 %i.054.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc21.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !529
@@ -31727,6 +31750,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %27, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -31734,13 +31758,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %33, i64 %inc2057
+  store i32 %27, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !529
@@ -31942,6 +31965,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.055.us41, 1
   %arrayidx.i49.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us41
+  store i32 %21, ptr %arrayidx.i49.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -31949,13 +31973,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc20.us68, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us69 = getelementptr inbounds i32, ptr %26, i64 %inc2057.us40
+  store i32 %21, ptr %arrayidx.i51.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i51.us69.sink = phi ptr [ %arrayidx.i51.us69, %if.else.us67 ], [ %arrayidx.i49.us66, %if.then.us64 ]
-  %inc2056.us71 = phi i64 [ %inc20.us68, %if.else.us67 ], [ %inc2057.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.055.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %21, ptr %arrayidx.i51.us69.sink, align 4, !tbaa !30
+  %inc2056.us71 = phi i64 [ %inc2057.us40, %if.then.us64 ], [ %inc20.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.055.us41, %if.else.us67 ]
   %inc21.us73 = add nuw i64 %i.054.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc21.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !530
@@ -32002,6 +32025,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %27, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -32009,13 +32033,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %33, i64 %inc2057
+  store i32 %27, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !530
@@ -32217,6 +32240,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.055.us41, 1
   %arrayidx.i49.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us41
+  store i32 %21, ptr %arrayidx.i49.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -32224,13 +32248,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc20.us68, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us69 = getelementptr inbounds i32, ptr %26, i64 %inc2057.us40
+  store i32 %21, ptr %arrayidx.i51.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i51.us69.sink = phi ptr [ %arrayidx.i51.us69, %if.else.us67 ], [ %arrayidx.i49.us66, %if.then.us64 ]
-  %inc2056.us71 = phi i64 [ %inc20.us68, %if.else.us67 ], [ %inc2057.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.055.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %21, ptr %arrayidx.i51.us69.sink, align 4, !tbaa !30
+  %inc2056.us71 = phi i64 [ %inc2057.us40, %if.then.us64 ], [ %inc20.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.055.us41, %if.else.us67 ]
   %inc21.us73 = add nuw i64 %i.054.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc21.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !531
@@ -32277,6 +32300,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %27, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -32284,13 +32308,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %33, i64 %inc2057
+  store i32 %27, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !531
@@ -32492,6 +32515,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.055.us41, 1
   %arrayidx.i49.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us41
+  store i32 %21, ptr %arrayidx.i49.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -32499,13 +32523,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc20.us68, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us69 = getelementptr inbounds i32, ptr %26, i64 %inc2057.us40
+  store i32 %21, ptr %arrayidx.i51.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i51.us69.sink = phi ptr [ %arrayidx.i51.us69, %if.else.us67 ], [ %arrayidx.i49.us66, %if.then.us64 ]
-  %inc2056.us71 = phi i64 [ %inc20.us68, %if.else.us67 ], [ %inc2057.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.055.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %21, ptr %arrayidx.i51.us69.sink, align 4, !tbaa !30
+  %inc2056.us71 = phi i64 [ %inc2057.us40, %if.then.us64 ], [ %inc20.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.055.us41, %if.else.us67 ]
   %inc21.us73 = add nuw i64 %i.054.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc21.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !532
@@ -32552,6 +32575,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %27, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -32559,13 +32583,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %33, i64 %inc2057
+  store i32 %27, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !532
@@ -32777,18 +32800,18 @@ if.else.us68:                                     ; preds = %if.then.i.i.us66, %
   store i64 %inc20.us69, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i50.us70 = getelementptr inbounds i32, ptr %26, i64 %inc2056.us42
+  store i32 %21, ptr %arrayidx.i50.us70, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74
 
 if.then.us71:                                     ; preds = %if.then.i.i.us66, %invoke.cont.us61
   %inc.us72 = add i64 %match_count.054.us43, 1
   %arrayidx.i48.us73 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.054.us43
+  store i32 %21, ptr %arrayidx.i48.us73, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74: ; preds = %if.then.us71, %if.else.us68
-  %arrayidx.i48.us73.sink = phi ptr [ %arrayidx.i48.us73, %if.then.us71 ], [ %arrayidx.i50.us70, %if.else.us68 ]
   %inc2055.us75 = phi i64 [ %inc2056.us42, %if.then.us71 ], [ %inc20.us69, %if.else.us68 ]
   %match_count.1.us76 = phi i64 [ %inc.us72, %if.then.us71 ], [ %match_count.054.us43, %if.else.us68 ]
-  store i32 %21, ptr %arrayidx.i48.us73.sink, align 4, !tbaa !30
   %inc21.us77 = add nuw i64 %i.053.us44, 1
   %exitcond.not.us78 = icmp eq i64 %inc21.us77, %count
   br i1 %exitcond.not.us78, label %for.cond.cleanup, label %for.body.us41, !llvm.loop !533
@@ -32839,6 +32862,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont, %if.then.i.i
   %inc = add i64 %match_count.054, 1
   %arrayidx.i48 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.054
+  store i32 %27, ptr %arrayidx.i48, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %if.then.i.i
@@ -32846,13 +32870,12 @@ if.else:                                          ; preds = %invoke.cont, %if.th
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i50 = getelementptr inbounds i32, ptr %33, i64 %inc2056
+  store i32 %27, ptr %arrayidx.i50, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i50.sink = phi ptr [ %arrayidx.i50, %if.else ], [ %arrayidx.i48, %if.then ]
-  %inc2055 = phi i64 [ %inc20, %if.else ], [ %inc2056, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.054, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i50.sink, align 4, !tbaa !30
+  %inc2055 = phi i64 [ %inc2056, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.054, %if.else ]
   %inc21 = add nuw i64 %i.053, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !533
@@ -33062,6 +33085,7 @@ if.then.i.i.i.us66:                               ; preds = %for.body.us41
 if.then.us68:                                     ; preds = %if.then.i.i.i.us66, %invoke.cont.us61
   %inc.us69 = add i64 %match_count.054.us43, 1
   %arrayidx.i48.us70 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.054.us43
+  store i32 %21, ptr %arrayidx.i48.us70, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74
 
 if.else.us71:                                     ; preds = %if.then.i.i.i.us66, %invoke.cont.us61
@@ -33069,13 +33093,12 @@ if.else.us71:                                     ; preds = %if.then.i.i.i.us66,
   store i64 %inc20.us72, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i50.us73 = getelementptr inbounds i32, ptr %26, i64 %inc2056.us42
+  store i32 %21, ptr %arrayidx.i50.us73, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74: ; preds = %if.else.us71, %if.then.us68
-  %arrayidx.i50.us73.sink = phi ptr [ %arrayidx.i50.us73, %if.else.us71 ], [ %arrayidx.i48.us70, %if.then.us68 ]
-  %inc2055.us75 = phi i64 [ %inc20.us72, %if.else.us71 ], [ %inc2056.us42, %if.then.us68 ]
-  %match_count.1.us76 = phi i64 [ %match_count.054.us43, %if.else.us71 ], [ %inc.us69, %if.then.us68 ]
-  store i32 %21, ptr %arrayidx.i50.us73.sink, align 4, !tbaa !30
+  %inc2055.us75 = phi i64 [ %inc2056.us42, %if.then.us68 ], [ %inc20.us72, %if.else.us71 ]
+  %match_count.1.us76 = phi i64 [ %inc.us69, %if.then.us68 ], [ %match_count.054.us43, %if.else.us71 ]
   %inc21.us77 = add nuw i64 %i.053.us44, 1
   %exitcond.not.us78 = icmp eq i64 %inc21.us77, %count
   br i1 %exitcond.not.us78, label %for.cond.cleanup, label %for.body.us41, !llvm.loop !534
@@ -33126,6 +33149,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont, %if.then.i.i.i
   %inc = add i64 %match_count.054, 1
   %arrayidx.i48 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.054
+  store i32 %27, ptr %arrayidx.i48, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %if.then.i.i.i
@@ -33133,13 +33157,12 @@ if.else:                                          ; preds = %invoke.cont, %if.th
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i50 = getelementptr inbounds i32, ptr %33, i64 %inc2056
+  store i32 %27, ptr %arrayidx.i50, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i50.sink = phi ptr [ %arrayidx.i50, %if.else ], [ %arrayidx.i48, %if.then ]
-  %inc2055 = phi i64 [ %inc20, %if.else ], [ %inc2056, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.054, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i50.sink, align 4, !tbaa !30
+  %inc2055 = phi i64 [ %inc2056, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.054, %if.else ]
   %inc21 = add nuw i64 %i.053, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !534
@@ -33341,6 +33364,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.055.us41, 1
   %arrayidx.i49.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us41
+  store i32 %21, ptr %arrayidx.i49.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -33348,13 +33372,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc20.us68, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us69 = getelementptr inbounds i32, ptr %26, i64 %inc2057.us40
+  store i32 %21, ptr %arrayidx.i51.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i51.us69.sink = phi ptr [ %arrayidx.i51.us69, %if.else.us67 ], [ %arrayidx.i49.us66, %if.then.us64 ]
-  %inc2056.us71 = phi i64 [ %inc20.us68, %if.else.us67 ], [ %inc2057.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.055.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %21, ptr %arrayidx.i51.us69.sink, align 4, !tbaa !30
+  %inc2056.us71 = phi i64 [ %inc2057.us40, %if.then.us64 ], [ %inc20.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.055.us41, %if.else.us67 ]
   %inc21.us73 = add nuw i64 %i.054.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc21.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !535
@@ -33401,6 +33424,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %27, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -33408,13 +33432,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %33, i64 %inc2057
+  store i32 %27, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !535
@@ -33616,6 +33639,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.055.us41, 1
   %arrayidx.i49.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us41
+  store i32 %21, ptr %arrayidx.i49.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -33623,13 +33647,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc20.us68, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us69 = getelementptr inbounds i32, ptr %26, i64 %inc2057.us40
+  store i32 %21, ptr %arrayidx.i51.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i51.us69.sink = phi ptr [ %arrayidx.i51.us69, %if.else.us67 ], [ %arrayidx.i49.us66, %if.then.us64 ]
-  %inc2056.us71 = phi i64 [ %inc20.us68, %if.else.us67 ], [ %inc2057.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.055.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %21, ptr %arrayidx.i51.us69.sink, align 4, !tbaa !30
+  %inc2056.us71 = phi i64 [ %inc2057.us40, %if.then.us64 ], [ %inc20.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.055.us41, %if.else.us67 ]
   %inc21.us73 = add nuw i64 %i.054.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc21.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !536
@@ -33676,6 +33699,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %27, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -33683,13 +33707,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %33, i64 %inc2057
+  store i32 %27, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !536
@@ -33891,6 +33914,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.055.us41, 1
   %arrayidx.i49.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us41
+  store i32 %21, ptr %arrayidx.i49.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -33898,13 +33922,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc20.us68, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us69 = getelementptr inbounds i32, ptr %26, i64 %inc2057.us40
+  store i32 %21, ptr %arrayidx.i51.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i51.us69.sink = phi ptr [ %arrayidx.i51.us69, %if.else.us67 ], [ %arrayidx.i49.us66, %if.then.us64 ]
-  %inc2056.us71 = phi i64 [ %inc20.us68, %if.else.us67 ], [ %inc2057.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.055.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %21, ptr %arrayidx.i51.us69.sink, align 4, !tbaa !30
+  %inc2056.us71 = phi i64 [ %inc2057.us40, %if.then.us64 ], [ %inc20.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.055.us41, %if.else.us67 ]
   %inc21.us73 = add nuw i64 %i.054.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc21.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !537
@@ -33951,6 +33974,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %27, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -33958,13 +33982,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %33, i64 %inc2057
+  store i32 %27, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !537
@@ -34166,6 +34189,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.055.us41, 1
   %arrayidx.i49.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us41
+  store i32 %21, ptr %arrayidx.i49.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -34173,13 +34197,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc20.us68, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us69 = getelementptr inbounds i32, ptr %26, i64 %inc2057.us40
+  store i32 %21, ptr %arrayidx.i51.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i51.us69.sink = phi ptr [ %arrayidx.i51.us69, %if.else.us67 ], [ %arrayidx.i49.us66, %if.then.us64 ]
-  %inc2056.us71 = phi i64 [ %inc20.us68, %if.else.us67 ], [ %inc2057.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.055.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %21, ptr %arrayidx.i51.us69.sink, align 4, !tbaa !30
+  %inc2056.us71 = phi i64 [ %inc2057.us40, %if.then.us64 ], [ %inc20.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.055.us41, %if.else.us67 ]
   %inc21.us73 = add nuw i64 %i.054.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc21.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !538
@@ -34226,6 +34249,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %27, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -34233,13 +34257,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %33, i64 %inc2057
+  store i32 %27, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !538
@@ -34441,6 +34464,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.055.us41, 1
   %arrayidx.i49.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us41
+  store i32 %21, ptr %arrayidx.i49.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -34448,13 +34472,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc20.us68, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us69 = getelementptr inbounds i32, ptr %26, i64 %inc2057.us40
+  store i32 %21, ptr %arrayidx.i51.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i51.us69.sink = phi ptr [ %arrayidx.i51.us69, %if.else.us67 ], [ %arrayidx.i49.us66, %if.then.us64 ]
-  %inc2056.us71 = phi i64 [ %inc20.us68, %if.else.us67 ], [ %inc2057.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.055.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %21, ptr %arrayidx.i51.us69.sink, align 4, !tbaa !30
+  %inc2056.us71 = phi i64 [ %inc2057.us40, %if.then.us64 ], [ %inc20.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.055.us41, %if.else.us67 ]
   %inc21.us73 = add nuw i64 %i.054.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc21.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !539
@@ -34501,6 +34524,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %27, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -34508,13 +34532,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %33, i64 %inc2057
+  store i32 %27, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !539
@@ -34716,6 +34739,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.055.us41, 1
   %arrayidx.i49.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us41
+  store i32 %21, ptr %arrayidx.i49.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -34723,13 +34747,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc20.us68, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us69 = getelementptr inbounds i32, ptr %26, i64 %inc2057.us40
+  store i32 %21, ptr %arrayidx.i51.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i51.us69.sink = phi ptr [ %arrayidx.i51.us69, %if.else.us67 ], [ %arrayidx.i49.us66, %if.then.us64 ]
-  %inc2056.us71 = phi i64 [ %inc20.us68, %if.else.us67 ], [ %inc2057.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.055.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %21, ptr %arrayidx.i51.us69.sink, align 4, !tbaa !30
+  %inc2056.us71 = phi i64 [ %inc2057.us40, %if.then.us64 ], [ %inc20.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.055.us41, %if.else.us67 ]
   %inc21.us73 = add nuw i64 %i.054.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc21.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !540
@@ -34776,6 +34799,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %27, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -34783,13 +34807,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %33, i64 %inc2057
+  store i32 %27, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !540
@@ -35001,18 +35024,18 @@ if.else.us68:                                     ; preds = %if.then.i.i.us66, %
   store i64 %inc20.us69, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i50.us70 = getelementptr inbounds i32, ptr %26, i64 %inc2056.us42
+  store i32 %21, ptr %arrayidx.i50.us70, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74
 
 if.then.us71:                                     ; preds = %if.then.i.i.us66, %invoke.cont.us61
   %inc.us72 = add i64 %match_count.054.us43, 1
   %arrayidx.i48.us73 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.054.us43
+  store i32 %21, ptr %arrayidx.i48.us73, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74: ; preds = %if.then.us71, %if.else.us68
-  %arrayidx.i48.us73.sink = phi ptr [ %arrayidx.i48.us73, %if.then.us71 ], [ %arrayidx.i50.us70, %if.else.us68 ]
   %inc2055.us75 = phi i64 [ %inc2056.us42, %if.then.us71 ], [ %inc20.us69, %if.else.us68 ]
   %match_count.1.us76 = phi i64 [ %inc.us72, %if.then.us71 ], [ %match_count.054.us43, %if.else.us68 ]
-  store i32 %21, ptr %arrayidx.i48.us73.sink, align 4, !tbaa !30
   %inc21.us77 = add nuw i64 %i.053.us44, 1
   %exitcond.not.us78 = icmp eq i64 %inc21.us77, %count
   br i1 %exitcond.not.us78, label %for.cond.cleanup, label %for.body.us41, !llvm.loop !541
@@ -35063,6 +35086,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont, %if.then.i.i
   %inc = add i64 %match_count.054, 1
   %arrayidx.i48 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.054
+  store i32 %27, ptr %arrayidx.i48, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %if.then.i.i
@@ -35070,13 +35094,12 @@ if.else:                                          ; preds = %invoke.cont, %if.th
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i50 = getelementptr inbounds i32, ptr %33, i64 %inc2056
+  store i32 %27, ptr %arrayidx.i50, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i50.sink = phi ptr [ %arrayidx.i50, %if.else ], [ %arrayidx.i48, %if.then ]
-  %inc2055 = phi i64 [ %inc20, %if.else ], [ %inc2056, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.054, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i50.sink, align 4, !tbaa !30
+  %inc2055 = phi i64 [ %inc2056, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.054, %if.else ]
   %inc21 = add nuw i64 %i.053, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !541
@@ -35286,6 +35309,7 @@ if.then.i.i.i.us66:                               ; preds = %for.body.us41
 if.then.us68:                                     ; preds = %if.then.i.i.i.us66, %invoke.cont.us61
   %inc.us69 = add i64 %match_count.054.us43, 1
   %arrayidx.i48.us70 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.054.us43
+  store i32 %21, ptr %arrayidx.i48.us70, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74
 
 if.else.us71:                                     ; preds = %if.then.i.i.i.us66, %invoke.cont.us61
@@ -35293,13 +35317,12 @@ if.else.us71:                                     ; preds = %if.then.i.i.i.us66,
   store i64 %inc20.us72, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i50.us73 = getelementptr inbounds i32, ptr %26, i64 %inc2056.us42
+  store i32 %21, ptr %arrayidx.i50.us73, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74: ; preds = %if.else.us71, %if.then.us68
-  %arrayidx.i50.us73.sink = phi ptr [ %arrayidx.i50.us73, %if.else.us71 ], [ %arrayidx.i48.us70, %if.then.us68 ]
-  %inc2055.us75 = phi i64 [ %inc20.us72, %if.else.us71 ], [ %inc2056.us42, %if.then.us68 ]
-  %match_count.1.us76 = phi i64 [ %match_count.054.us43, %if.else.us71 ], [ %inc.us69, %if.then.us68 ]
-  store i32 %21, ptr %arrayidx.i50.us73.sink, align 4, !tbaa !30
+  %inc2055.us75 = phi i64 [ %inc2056.us42, %if.then.us68 ], [ %inc20.us72, %if.else.us71 ]
+  %match_count.1.us76 = phi i64 [ %inc.us69, %if.then.us68 ], [ %match_count.054.us43, %if.else.us71 ]
   %inc21.us77 = add nuw i64 %i.053.us44, 1
   %exitcond.not.us78 = icmp eq i64 %inc21.us77, %count
   br i1 %exitcond.not.us78, label %for.cond.cleanup, label %for.body.us41, !llvm.loop !542
@@ -35350,6 +35373,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont, %if.then.i.i.i
   %inc = add i64 %match_count.054, 1
   %arrayidx.i48 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.054
+  store i32 %27, ptr %arrayidx.i48, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %if.then.i.i.i
@@ -35357,13 +35381,12 @@ if.else:                                          ; preds = %invoke.cont, %if.th
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i50 = getelementptr inbounds i32, ptr %33, i64 %inc2056
+  store i32 %27, ptr %arrayidx.i50, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i50.sink = phi ptr [ %arrayidx.i50, %if.else ], [ %arrayidx.i48, %if.then ]
-  %inc2055 = phi i64 [ %inc20, %if.else ], [ %inc2056, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.054, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i50.sink, align 4, !tbaa !30
+  %inc2055 = phi i64 [ %inc2056, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.054, %if.else ]
   %inc21 = add nuw i64 %i.053, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !542
@@ -35565,6 +35588,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.055.us41, 1
   %arrayidx.i49.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us41
+  store i32 %21, ptr %arrayidx.i49.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -35572,13 +35596,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc20.us68, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us69 = getelementptr inbounds i32, ptr %26, i64 %inc2057.us40
+  store i32 %21, ptr %arrayidx.i51.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i51.us69.sink = phi ptr [ %arrayidx.i51.us69, %if.else.us67 ], [ %arrayidx.i49.us66, %if.then.us64 ]
-  %inc2056.us71 = phi i64 [ %inc20.us68, %if.else.us67 ], [ %inc2057.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.055.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %21, ptr %arrayidx.i51.us69.sink, align 4, !tbaa !30
+  %inc2056.us71 = phi i64 [ %inc2057.us40, %if.then.us64 ], [ %inc20.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.055.us41, %if.else.us67 ]
   %inc21.us73 = add nuw i64 %i.054.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc21.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !543
@@ -35625,6 +35648,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %27, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -35632,13 +35656,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %33, i64 %inc2057
+  store i32 %27, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !543
@@ -35840,6 +35863,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.055.us41, 1
   %arrayidx.i49.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us41
+  store i32 %21, ptr %arrayidx.i49.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -35847,13 +35871,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc20.us68, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us69 = getelementptr inbounds i32, ptr %26, i64 %inc2057.us40
+  store i32 %21, ptr %arrayidx.i51.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i51.us69.sink = phi ptr [ %arrayidx.i51.us69, %if.else.us67 ], [ %arrayidx.i49.us66, %if.then.us64 ]
-  %inc2056.us71 = phi i64 [ %inc20.us68, %if.else.us67 ], [ %inc2057.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.055.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %21, ptr %arrayidx.i51.us69.sink, align 4, !tbaa !30
+  %inc2056.us71 = phi i64 [ %inc2057.us40, %if.then.us64 ], [ %inc20.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.055.us41, %if.else.us67 ]
   %inc21.us73 = add nuw i64 %i.054.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc21.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !544
@@ -35900,6 +35923,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %27, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -35907,13 +35931,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %33, i64 %inc2057
+  store i32 %27, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !544
@@ -36115,6 +36138,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.055.us41, 1
   %arrayidx.i49.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us41
+  store i32 %21, ptr %arrayidx.i49.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -36122,13 +36146,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc20.us68, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us69 = getelementptr inbounds i32, ptr %26, i64 %inc2057.us40
+  store i32 %21, ptr %arrayidx.i51.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i51.us69.sink = phi ptr [ %arrayidx.i51.us69, %if.else.us67 ], [ %arrayidx.i49.us66, %if.then.us64 ]
-  %inc2056.us71 = phi i64 [ %inc20.us68, %if.else.us67 ], [ %inc2057.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.055.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %21, ptr %arrayidx.i51.us69.sink, align 4, !tbaa !30
+  %inc2056.us71 = phi i64 [ %inc2057.us40, %if.then.us64 ], [ %inc20.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.055.us41, %if.else.us67 ]
   %inc21.us73 = add nuw i64 %i.054.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc21.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !545
@@ -36175,6 +36198,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %27, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -36182,13 +36206,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %33, i64 %inc2057
+  store i32 %27, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !545
@@ -36390,6 +36413,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.055.us41, 1
   %arrayidx.i49.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us41
+  store i32 %21, ptr %arrayidx.i49.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -36397,13 +36421,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc20.us68, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us69 = getelementptr inbounds i32, ptr %26, i64 %inc2057.us40
+  store i32 %21, ptr %arrayidx.i51.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i51.us69.sink = phi ptr [ %arrayidx.i51.us69, %if.else.us67 ], [ %arrayidx.i49.us66, %if.then.us64 ]
-  %inc2056.us71 = phi i64 [ %inc20.us68, %if.else.us67 ], [ %inc2057.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.055.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %21, ptr %arrayidx.i51.us69.sink, align 4, !tbaa !30
+  %inc2056.us71 = phi i64 [ %inc2057.us40, %if.then.us64 ], [ %inc20.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.055.us41, %if.else.us67 ]
   %inc21.us73 = add nuw i64 %i.054.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc21.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !546
@@ -36450,6 +36473,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %27, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -36457,13 +36481,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %33, i64 %inc2057
+  store i32 %27, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !546
@@ -36665,6 +36688,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.055.us41, 1
   %arrayidx.i49.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us41
+  store i32 %21, ptr %arrayidx.i49.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -36672,13 +36696,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc20.us68, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us69 = getelementptr inbounds i32, ptr %26, i64 %inc2057.us40
+  store i32 %21, ptr %arrayidx.i51.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i51.us69.sink = phi ptr [ %arrayidx.i51.us69, %if.else.us67 ], [ %arrayidx.i49.us66, %if.then.us64 ]
-  %inc2056.us71 = phi i64 [ %inc20.us68, %if.else.us67 ], [ %inc2057.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.055.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %21, ptr %arrayidx.i51.us69.sink, align 4, !tbaa !30
+  %inc2056.us71 = phi i64 [ %inc2057.us40, %if.then.us64 ], [ %inc20.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.055.us41, %if.else.us67 ]
   %inc21.us73 = add nuw i64 %i.054.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc21.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !547
@@ -36725,6 +36748,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %27, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -36732,13 +36756,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %33, i64 %inc2057
+  store i32 %27, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !547
@@ -36940,6 +36963,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.055.us41, 1
   %arrayidx.i49.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us41
+  store i32 %21, ptr %arrayidx.i49.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -36947,13 +36971,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc20.us68, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us69 = getelementptr inbounds i32, ptr %26, i64 %inc2057.us40
+  store i32 %21, ptr %arrayidx.i51.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i51.us69.sink = phi ptr [ %arrayidx.i51.us69, %if.else.us67 ], [ %arrayidx.i49.us66, %if.then.us64 ]
-  %inc2056.us71 = phi i64 [ %inc20.us68, %if.else.us67 ], [ %inc2057.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.055.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %21, ptr %arrayidx.i51.us69.sink, align 4, !tbaa !30
+  %inc2056.us71 = phi i64 [ %inc2057.us40, %if.then.us64 ], [ %inc20.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.055.us41, %if.else.us67 ]
   %inc21.us73 = add nuw i64 %i.054.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc21.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !548
@@ -37000,6 +37023,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %27, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -37007,13 +37031,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %33, i64 %inc2057
+  store i32 %27, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !548
@@ -37225,18 +37248,18 @@ if.else.us68:                                     ; preds = %if.then.i.i.us66, %
   store i64 %inc20.us69, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i50.us70 = getelementptr inbounds i32, ptr %26, i64 %inc2056.us42
+  store i32 %21, ptr %arrayidx.i50.us70, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74
 
 if.then.us71:                                     ; preds = %if.then.i.i.us66, %invoke.cont.us61
   %inc.us72 = add i64 %match_count.054.us43, 1
   %arrayidx.i48.us73 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.054.us43
+  store i32 %21, ptr %arrayidx.i48.us73, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74: ; preds = %if.then.us71, %if.else.us68
-  %arrayidx.i48.us73.sink = phi ptr [ %arrayidx.i48.us73, %if.then.us71 ], [ %arrayidx.i50.us70, %if.else.us68 ]
   %inc2055.us75 = phi i64 [ %inc2056.us42, %if.then.us71 ], [ %inc20.us69, %if.else.us68 ]
   %match_count.1.us76 = phi i64 [ %inc.us72, %if.then.us71 ], [ %match_count.054.us43, %if.else.us68 ]
-  store i32 %21, ptr %arrayidx.i48.us73.sink, align 4, !tbaa !30
   %inc21.us77 = add nuw i64 %i.053.us44, 1
   %exitcond.not.us78 = icmp eq i64 %inc21.us77, %count
   br i1 %exitcond.not.us78, label %for.cond.cleanup, label %for.body.us41, !llvm.loop !549
@@ -37287,6 +37310,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont, %if.then.i.i
   %inc = add i64 %match_count.054, 1
   %arrayidx.i48 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.054
+  store i32 %27, ptr %arrayidx.i48, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %if.then.i.i
@@ -37294,13 +37318,12 @@ if.else:                                          ; preds = %invoke.cont, %if.th
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i50 = getelementptr inbounds i32, ptr %33, i64 %inc2056
+  store i32 %27, ptr %arrayidx.i50, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i50.sink = phi ptr [ %arrayidx.i50, %if.else ], [ %arrayidx.i48, %if.then ]
-  %inc2055 = phi i64 [ %inc20, %if.else ], [ %inc2056, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.054, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i50.sink, align 4, !tbaa !30
+  %inc2055 = phi i64 [ %inc2056, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.054, %if.else ]
   %inc21 = add nuw i64 %i.053, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !549
@@ -37510,6 +37533,7 @@ if.then.i.i.i.us66:                               ; preds = %for.body.us41
 if.then.us68:                                     ; preds = %if.then.i.i.i.us66, %invoke.cont.us61
   %inc.us69 = add i64 %match_count.054.us43, 1
   %arrayidx.i48.us70 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.054.us43
+  store i32 %21, ptr %arrayidx.i48.us70, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74
 
 if.else.us71:                                     ; preds = %if.then.i.i.i.us66, %invoke.cont.us61
@@ -37517,13 +37541,12 @@ if.else.us71:                                     ; preds = %if.then.i.i.i.us66,
   store i64 %inc20.us72, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i50.us73 = getelementptr inbounds i32, ptr %26, i64 %inc2056.us42
+  store i32 %21, ptr %arrayidx.i50.us73, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74: ; preds = %if.else.us71, %if.then.us68
-  %arrayidx.i50.us73.sink = phi ptr [ %arrayidx.i50.us73, %if.else.us71 ], [ %arrayidx.i48.us70, %if.then.us68 ]
-  %inc2055.us75 = phi i64 [ %inc20.us72, %if.else.us71 ], [ %inc2056.us42, %if.then.us68 ]
-  %match_count.1.us76 = phi i64 [ %match_count.054.us43, %if.else.us71 ], [ %inc.us69, %if.then.us68 ]
-  store i32 %21, ptr %arrayidx.i50.us73.sink, align 4, !tbaa !30
+  %inc2055.us75 = phi i64 [ %inc2056.us42, %if.then.us68 ], [ %inc20.us72, %if.else.us71 ]
+  %match_count.1.us76 = phi i64 [ %inc.us69, %if.then.us68 ], [ %match_count.054.us43, %if.else.us71 ]
   %inc21.us77 = add nuw i64 %i.053.us44, 1
   %exitcond.not.us78 = icmp eq i64 %inc21.us77, %count
   br i1 %exitcond.not.us78, label %for.cond.cleanup, label %for.body.us41, !llvm.loop !550
@@ -37574,6 +37597,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont, %if.then.i.i.i
   %inc = add i64 %match_count.054, 1
   %arrayidx.i48 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.054
+  store i32 %27, ptr %arrayidx.i48, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %if.then.i.i.i
@@ -37581,13 +37605,12 @@ if.else:                                          ; preds = %invoke.cont, %if.th
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i50 = getelementptr inbounds i32, ptr %33, i64 %inc2056
+  store i32 %27, ptr %arrayidx.i50, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i50.sink = phi ptr [ %arrayidx.i50, %if.else ], [ %arrayidx.i48, %if.then ]
-  %inc2055 = phi i64 [ %inc20, %if.else ], [ %inc2056, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.054, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i50.sink, align 4, !tbaa !30
+  %inc2055 = phi i64 [ %inc2056, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.054, %if.else ]
   %inc21 = add nuw i64 %i.053, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !550
@@ -37789,6 +37812,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.055.us41, 1
   %arrayidx.i49.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us41
+  store i32 %21, ptr %arrayidx.i49.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -37796,13 +37820,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc20.us68, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us69 = getelementptr inbounds i32, ptr %26, i64 %inc2057.us40
+  store i32 %21, ptr %arrayidx.i51.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i51.us69.sink = phi ptr [ %arrayidx.i51.us69, %if.else.us67 ], [ %arrayidx.i49.us66, %if.then.us64 ]
-  %inc2056.us71 = phi i64 [ %inc20.us68, %if.else.us67 ], [ %inc2057.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.055.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %21, ptr %arrayidx.i51.us69.sink, align 4, !tbaa !30
+  %inc2056.us71 = phi i64 [ %inc2057.us40, %if.then.us64 ], [ %inc20.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.055.us41, %if.else.us67 ]
   %inc21.us73 = add nuw i64 %i.054.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc21.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !551
@@ -37849,6 +37872,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %27, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -37856,13 +37880,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %33, i64 %inc2057
+  store i32 %27, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !551
@@ -38064,6 +38087,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.055.us41, 1
   %arrayidx.i49.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us41
+  store i32 %21, ptr %arrayidx.i49.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -38071,13 +38095,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc20.us68, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us69 = getelementptr inbounds i32, ptr %26, i64 %inc2057.us40
+  store i32 %21, ptr %arrayidx.i51.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i51.us69.sink = phi ptr [ %arrayidx.i51.us69, %if.else.us67 ], [ %arrayidx.i49.us66, %if.then.us64 ]
-  %inc2056.us71 = phi i64 [ %inc20.us68, %if.else.us67 ], [ %inc2057.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.055.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %21, ptr %arrayidx.i51.us69.sink, align 4, !tbaa !30
+  %inc2056.us71 = phi i64 [ %inc2057.us40, %if.then.us64 ], [ %inc20.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.055.us41, %if.else.us67 ]
   %inc21.us73 = add nuw i64 %i.054.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc21.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !552
@@ -38124,6 +38147,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %27, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -38131,13 +38155,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %33, i64 %inc2057
+  store i32 %27, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !552
@@ -38339,6 +38362,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.055.us41, 1
   %arrayidx.i49.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us41
+  store i32 %21, ptr %arrayidx.i49.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -38346,13 +38370,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc20.us68, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us69 = getelementptr inbounds i32, ptr %26, i64 %inc2057.us40
+  store i32 %21, ptr %arrayidx.i51.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i51.us69.sink = phi ptr [ %arrayidx.i51.us69, %if.else.us67 ], [ %arrayidx.i49.us66, %if.then.us64 ]
-  %inc2056.us71 = phi i64 [ %inc20.us68, %if.else.us67 ], [ %inc2057.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.055.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %21, ptr %arrayidx.i51.us69.sink, align 4, !tbaa !30
+  %inc2056.us71 = phi i64 [ %inc2057.us40, %if.then.us64 ], [ %inc20.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.055.us41, %if.else.us67 ]
   %inc21.us73 = add nuw i64 %i.054.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc21.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !553
@@ -38399,6 +38422,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %27, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -38406,13 +38430,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %33, i64 %inc2057
+  store i32 %27, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !553
@@ -38614,6 +38637,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.055.us41, 1
   %arrayidx.i49.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us41
+  store i32 %21, ptr %arrayidx.i49.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -38621,13 +38645,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc20.us68, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us69 = getelementptr inbounds i32, ptr %26, i64 %inc2057.us40
+  store i32 %21, ptr %arrayidx.i51.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i51.us69.sink = phi ptr [ %arrayidx.i51.us69, %if.else.us67 ], [ %arrayidx.i49.us66, %if.then.us64 ]
-  %inc2056.us71 = phi i64 [ %inc20.us68, %if.else.us67 ], [ %inc2057.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.055.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %21, ptr %arrayidx.i51.us69.sink, align 4, !tbaa !30
+  %inc2056.us71 = phi i64 [ %inc2057.us40, %if.then.us64 ], [ %inc20.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.055.us41, %if.else.us67 ]
   %inc21.us73 = add nuw i64 %i.054.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc21.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !554
@@ -38674,6 +38697,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %27, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -38681,13 +38705,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %33, i64 %inc2057
+  store i32 %27, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !554
@@ -38907,6 +38930,7 @@ invoke.cont.us66:                                 ; preds = %for.body.us46
 if.then.us78:                                     ; preds = %invoke.cont.us66
   %inc.us79 = add i64 %match_count.055.us48, 1
   %arrayidx.i49.us80 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us48
+  store i32 %19, ptr %arrayidx.i49.us80, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us84
 
 if.else.us81:                                     ; preds = %invoke.cont.us66, %for.body.us46
@@ -38914,13 +38938,12 @@ if.else.us81:                                     ; preds = %invoke.cont.us66, %
   store i64 %inc20.us82, ptr %no_match_count, align 8, !tbaa !38
   %23 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us83 = getelementptr inbounds i32, ptr %23, i64 %inc2057.us47
+  store i32 %19, ptr %arrayidx.i51.us83, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us84
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us84: ; preds = %if.else.us81, %if.then.us78
-  %arrayidx.i51.us83.sink = phi ptr [ %arrayidx.i51.us83, %if.else.us81 ], [ %arrayidx.i49.us80, %if.then.us78 ]
-  %inc2056.us85 = phi i64 [ %inc20.us82, %if.else.us81 ], [ %inc2057.us47, %if.then.us78 ]
-  %match_count.1.us86 = phi i64 [ %match_count.055.us48, %if.else.us81 ], [ %inc.us79, %if.then.us78 ]
-  store i32 %19, ptr %arrayidx.i51.us83.sink, align 4, !tbaa !30
+  %inc2056.us85 = phi i64 [ %inc2057.us47, %if.then.us78 ], [ %inc20.us82, %if.else.us81 ]
+  %match_count.1.us86 = phi i64 [ %inc.us79, %if.then.us78 ], [ %match_count.055.us48, %if.else.us81 ]
   %inc21.us87 = add nuw i64 %i.054.us49, 1
   %exitcond.not.us88 = icmp eq i64 %inc21.us87, %count
   br i1 %exitcond.not.us88, label %for.cond.cleanup, label %for.body.us46, !llvm.loop !555
@@ -38973,6 +38996,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %24, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -38980,13 +39004,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %29 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %29, i64 %inc2057
+  store i32 %24, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %24, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !555
@@ -39206,6 +39229,7 @@ invoke.cont.us66:                                 ; preds = %for.body.us46
 if.then.us78:                                     ; preds = %invoke.cont.us66
   %inc.us79 = add i64 %match_count.056.us48, 1
   %arrayidx.i49.us80 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.056.us48
+  store i32 %19, ptr %arrayidx.i49.us80, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us84
 
 if.else.us81:                                     ; preds = %invoke.cont.us66, %for.body.us46
@@ -39213,13 +39237,12 @@ if.else.us81:                                     ; preds = %invoke.cont.us66, %
   store i64 %inc20.us82, ptr %no_match_count, align 8, !tbaa !38
   %23 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us83 = getelementptr inbounds i32, ptr %23, i64 %inc2058.us47
+  store i32 %19, ptr %arrayidx.i51.us83, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us84
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us84: ; preds = %if.else.us81, %if.then.us78
-  %arrayidx.i51.us83.sink = phi ptr [ %arrayidx.i51.us83, %if.else.us81 ], [ %arrayidx.i49.us80, %if.then.us78 ]
-  %inc2057.us85 = phi i64 [ %inc20.us82, %if.else.us81 ], [ %inc2058.us47, %if.then.us78 ]
-  %match_count.1.us86 = phi i64 [ %match_count.056.us48, %if.else.us81 ], [ %inc.us79, %if.then.us78 ]
-  store i32 %19, ptr %arrayidx.i51.us83.sink, align 4, !tbaa !30
+  %inc2057.us85 = phi i64 [ %inc2058.us47, %if.then.us78 ], [ %inc20.us82, %if.else.us81 ]
+  %match_count.1.us86 = phi i64 [ %inc.us79, %if.then.us78 ], [ %match_count.056.us48, %if.else.us81 ]
   %inc21.us87 = add nuw i64 %i.055.us49, 1
   %exitcond.not.us88 = icmp eq i64 %inc21.us87, %count
   br i1 %exitcond.not.us88, label %for.cond.cleanup, label %for.body.us46, !llvm.loop !556
@@ -39272,6 +39295,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.056, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.056
+  store i32 %24, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -39279,13 +39303,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %29 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %29, i64 %inc2058
+  store i32 %24, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2057 = phi i64 [ %inc20, %if.else ], [ %inc2058, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.056, %if.else ], [ %inc, %if.then ]
-  store i32 %24, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2057 = phi i64 [ %inc2058, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.056, %if.else ]
   %inc21 = add nuw i64 %i.055, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !556
@@ -39515,18 +39538,18 @@ if.else.us82:                                     ; preds = %if.then.i.i.us80, %
   store i64 %inc20.us83, ptr %no_match_count, align 8, !tbaa !38
   %23 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i50.us84 = getelementptr inbounds i32, ptr %23, i64 %inc2055.us49
+  store i32 %19, ptr %arrayidx.i50.us84, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us88
 
 if.then.us85:                                     ; preds = %if.then.i.i.us80, %invoke.cont.us68
   %inc.us86 = add i64 %match_count.053.us50, 1
   %arrayidx.i48.us87 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.053.us50
+  store i32 %19, ptr %arrayidx.i48.us87, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us88
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us88: ; preds = %if.then.us85, %if.else.us82
-  %arrayidx.i48.us87.sink = phi ptr [ %arrayidx.i48.us87, %if.then.us85 ], [ %arrayidx.i50.us84, %if.else.us82 ]
   %inc2054.us89 = phi i64 [ %inc2055.us49, %if.then.us85 ], [ %inc20.us83, %if.else.us82 ]
   %match_count.1.us90 = phi i64 [ %inc.us86, %if.then.us85 ], [ %match_count.053.us50, %if.else.us82 ]
-  store i32 %19, ptr %arrayidx.i48.us87.sink, align 4, !tbaa !30
   %inc21.us91 = add nuw i64 %i.052.us51, 1
   %exitcond.not.us92 = icmp eq i64 %inc21.us91, %count
   br i1 %exitcond.not.us92, label %for.cond.cleanup, label %for.body.us48, !llvm.loop !557
@@ -39583,6 +39606,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont, %if.then.i.i
   %inc = add i64 %match_count.053, 1
   %arrayidx.i48 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.053
+  store i32 %24, ptr %arrayidx.i48, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %if.then.i.i
@@ -39590,13 +39614,12 @@ if.else:                                          ; preds = %invoke.cont, %if.th
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %29 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i50 = getelementptr inbounds i32, ptr %29, i64 %inc2055
+  store i32 %24, ptr %arrayidx.i50, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i50.sink = phi ptr [ %arrayidx.i50, %if.else ], [ %arrayidx.i48, %if.then ]
-  %inc2054 = phi i64 [ %inc20, %if.else ], [ %inc2055, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.053, %if.else ], [ %inc, %if.then ]
-  store i32 %24, ptr %arrayidx.i50.sink, align 4, !tbaa !30
+  %inc2054 = phi i64 [ %inc2055, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.053, %if.else ]
   %inc21 = add nuw i64 %i.052, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !557
@@ -39824,6 +39847,7 @@ if.then.i.i.i.us80:                               ; preds = %for.body.us48
 if.then.us82:                                     ; preds = %if.then.i.i.i.us80, %invoke.cont.us68
   %inc.us83 = add i64 %match_count.054.us50, 1
   %arrayidx.i48.us84 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.054.us50
+  store i32 %19, ptr %arrayidx.i48.us84, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us88
 
 if.else.us85:                                     ; preds = %if.then.i.i.i.us80, %invoke.cont.us68
@@ -39831,13 +39855,12 @@ if.else.us85:                                     ; preds = %if.then.i.i.i.us80,
   store i64 %inc20.us86, ptr %no_match_count, align 8, !tbaa !38
   %23 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i50.us87 = getelementptr inbounds i32, ptr %23, i64 %inc2056.us49
+  store i32 %19, ptr %arrayidx.i50.us87, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us88
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us88: ; preds = %if.else.us85, %if.then.us82
-  %arrayidx.i50.us87.sink = phi ptr [ %arrayidx.i50.us87, %if.else.us85 ], [ %arrayidx.i48.us84, %if.then.us82 ]
-  %inc2055.us89 = phi i64 [ %inc20.us86, %if.else.us85 ], [ %inc2056.us49, %if.then.us82 ]
-  %match_count.1.us90 = phi i64 [ %match_count.054.us50, %if.else.us85 ], [ %inc.us83, %if.then.us82 ]
-  store i32 %19, ptr %arrayidx.i50.us87.sink, align 4, !tbaa !30
+  %inc2055.us89 = phi i64 [ %inc2056.us49, %if.then.us82 ], [ %inc20.us86, %if.else.us85 ]
+  %match_count.1.us90 = phi i64 [ %inc.us83, %if.then.us82 ], [ %match_count.054.us50, %if.else.us85 ]
   %inc21.us91 = add nuw i64 %i.053.us51, 1
   %exitcond.not.us92 = icmp eq i64 %inc21.us91, %count
   br i1 %exitcond.not.us92, label %for.cond.cleanup, label %for.body.us48, !llvm.loop !558
@@ -39894,6 +39917,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont, %if.then.i.i.i
   %inc = add i64 %match_count.054, 1
   %arrayidx.i48 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.054
+  store i32 %24, ptr %arrayidx.i48, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %if.then.i.i.i
@@ -39901,13 +39925,12 @@ if.else:                                          ; preds = %invoke.cont, %if.th
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %29 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i50 = getelementptr inbounds i32, ptr %29, i64 %inc2056
+  store i32 %24, ptr %arrayidx.i50, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i50.sink = phi ptr [ %arrayidx.i50, %if.else ], [ %arrayidx.i48, %if.then ]
-  %inc2055 = phi i64 [ %inc20, %if.else ], [ %inc2056, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.054, %if.else ], [ %inc, %if.then ]
-  store i32 %24, ptr %arrayidx.i50.sink, align 4, !tbaa !30
+  %inc2055 = phi i64 [ %inc2056, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.054, %if.else ]
   %inc21 = add nuw i64 %i.053, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !558
@@ -40133,6 +40156,7 @@ invoke.cont.us68:                                 ; preds = %for.body.us48
 if.then.us82:                                     ; preds = %invoke.cont.us68
   %inc.us83 = add i64 %match_count.055.us50, 1
   %arrayidx.i49.us84 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us50
+  store i32 %19, ptr %arrayidx.i49.us84, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us88
 
 if.else.us85:                                     ; preds = %invoke.cont.us68, %for.body.us48
@@ -40140,13 +40164,12 @@ if.else.us85:                                     ; preds = %invoke.cont.us68, %
   store i64 %inc20.us86, ptr %no_match_count, align 8, !tbaa !38
   %23 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us87 = getelementptr inbounds i32, ptr %23, i64 %inc2057.us49
+  store i32 %19, ptr %arrayidx.i51.us87, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us88
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us88: ; preds = %if.else.us85, %if.then.us82
-  %arrayidx.i51.us87.sink = phi ptr [ %arrayidx.i51.us87, %if.else.us85 ], [ %arrayidx.i49.us84, %if.then.us82 ]
-  %inc2056.us89 = phi i64 [ %inc20.us86, %if.else.us85 ], [ %inc2057.us49, %if.then.us82 ]
-  %match_count.1.us90 = phi i64 [ %match_count.055.us50, %if.else.us85 ], [ %inc.us83, %if.then.us82 ]
-  store i32 %19, ptr %arrayidx.i51.us87.sink, align 4, !tbaa !30
+  %inc2056.us89 = phi i64 [ %inc2057.us49, %if.then.us82 ], [ %inc20.us86, %if.else.us85 ]
+  %match_count.1.us90 = phi i64 [ %inc.us83, %if.then.us82 ], [ %match_count.055.us50, %if.else.us85 ]
   %inc21.us91 = add nuw i64 %i.054.us51, 1
   %exitcond.not.us92 = icmp eq i64 %inc21.us91, %count
   br i1 %exitcond.not.us92, label %for.cond.cleanup, label %for.body.us48, !llvm.loop !559
@@ -40201,6 +40224,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %24, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -40208,13 +40232,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %29 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %29, i64 %inc2057
+  store i32 %24, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %24, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !559
@@ -40440,6 +40463,7 @@ invoke.cont.us68:                                 ; preds = %for.body.us48
 if.then.us82:                                     ; preds = %invoke.cont.us68
   %inc.us83 = add i64 %match_count.056.us50, 1
   %arrayidx.i49.us84 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.056.us50
+  store i32 %19, ptr %arrayidx.i49.us84, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us88
 
 if.else.us85:                                     ; preds = %invoke.cont.us68, %for.body.us48
@@ -40447,13 +40471,12 @@ if.else.us85:                                     ; preds = %invoke.cont.us68, %
   store i64 %inc20.us86, ptr %no_match_count, align 8, !tbaa !38
   %23 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us87 = getelementptr inbounds i32, ptr %23, i64 %inc2058.us49
+  store i32 %19, ptr %arrayidx.i51.us87, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us88
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us88: ; preds = %if.else.us85, %if.then.us82
-  %arrayidx.i51.us87.sink = phi ptr [ %arrayidx.i51.us87, %if.else.us85 ], [ %arrayidx.i49.us84, %if.then.us82 ]
-  %inc2057.us89 = phi i64 [ %inc20.us86, %if.else.us85 ], [ %inc2058.us49, %if.then.us82 ]
-  %match_count.1.us90 = phi i64 [ %match_count.056.us50, %if.else.us85 ], [ %inc.us83, %if.then.us82 ]
-  store i32 %19, ptr %arrayidx.i51.us87.sink, align 4, !tbaa !30
+  %inc2057.us89 = phi i64 [ %inc2058.us49, %if.then.us82 ], [ %inc20.us86, %if.else.us85 ]
+  %match_count.1.us90 = phi i64 [ %inc.us83, %if.then.us82 ], [ %match_count.056.us50, %if.else.us85 ]
   %inc21.us91 = add nuw i64 %i.055.us51, 1
   %exitcond.not.us92 = icmp eq i64 %inc21.us91, %count
   br i1 %exitcond.not.us92, label %for.cond.cleanup, label %for.body.us48, !llvm.loop !560
@@ -40508,6 +40531,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.056, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.056
+  store i32 %24, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -40515,13 +40539,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %29 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %29, i64 %inc2058
+  store i32 %24, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2057 = phi i64 [ %inc20, %if.else ], [ %inc2058, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.056, %if.else ], [ %inc, %if.then ]
-  store i32 %24, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2057 = phi i64 [ %inc2058, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.056, %if.else ]
   %inc21 = add nuw i64 %i.055, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !560
@@ -40747,6 +40770,7 @@ invoke.cont.us68:                                 ; preds = %for.body.us48
 if.then.us82:                                     ; preds = %invoke.cont.us68
   %inc.us83 = add i64 %match_count.056.us50, 1
   %arrayidx.i49.us84 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.056.us50
+  store i32 %19, ptr %arrayidx.i49.us84, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us88
 
 if.else.us85:                                     ; preds = %invoke.cont.us68, %for.body.us48
@@ -40754,13 +40778,12 @@ if.else.us85:                                     ; preds = %invoke.cont.us68, %
   store i64 %inc20.us86, ptr %no_match_count, align 8, !tbaa !38
   %23 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us87 = getelementptr inbounds i32, ptr %23, i64 %inc2058.us49
+  store i32 %19, ptr %arrayidx.i51.us87, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us88
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us88: ; preds = %if.else.us85, %if.then.us82
-  %arrayidx.i51.us87.sink = phi ptr [ %arrayidx.i51.us87, %if.else.us85 ], [ %arrayidx.i49.us84, %if.then.us82 ]
-  %inc2057.us89 = phi i64 [ %inc20.us86, %if.else.us85 ], [ %inc2058.us49, %if.then.us82 ]
-  %match_count.1.us90 = phi i64 [ %match_count.056.us50, %if.else.us85 ], [ %inc.us83, %if.then.us82 ]
-  store i32 %19, ptr %arrayidx.i51.us87.sink, align 4, !tbaa !30
+  %inc2057.us89 = phi i64 [ %inc2058.us49, %if.then.us82 ], [ %inc20.us86, %if.else.us85 ]
+  %match_count.1.us90 = phi i64 [ %inc.us83, %if.then.us82 ], [ %match_count.056.us50, %if.else.us85 ]
   %inc21.us91 = add nuw i64 %i.055.us51, 1
   %exitcond.not.us92 = icmp eq i64 %inc21.us91, %count
   br i1 %exitcond.not.us92, label %for.cond.cleanup, label %for.body.us48, !llvm.loop !561
@@ -40815,6 +40838,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.056, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.056
+  store i32 %24, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -40822,13 +40846,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %29 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %29, i64 %inc2058
+  store i32 %24, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2057 = phi i64 [ %inc20, %if.else ], [ %inc2058, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.056, %if.else ], [ %inc, %if.then ]
-  store i32 %24, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2057 = phi i64 [ %inc2058, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.056, %if.else ]
   %inc21 = add nuw i64 %i.055, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !561
@@ -41054,6 +41077,7 @@ invoke.cont.us68:                                 ; preds = %for.body.us48
 if.then.us82:                                     ; preds = %invoke.cont.us68
   %inc.us83 = add i64 %match_count.056.us50, 1
   %arrayidx.i49.us84 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.056.us50
+  store i32 %19, ptr %arrayidx.i49.us84, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us88
 
 if.else.us85:                                     ; preds = %invoke.cont.us68, %for.body.us48
@@ -41061,13 +41085,12 @@ if.else.us85:                                     ; preds = %invoke.cont.us68, %
   store i64 %inc20.us86, ptr %no_match_count, align 8, !tbaa !38
   %23 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us87 = getelementptr inbounds i32, ptr %23, i64 %inc2058.us49
+  store i32 %19, ptr %arrayidx.i51.us87, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us88
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us88: ; preds = %if.else.us85, %if.then.us82
-  %arrayidx.i51.us87.sink = phi ptr [ %arrayidx.i51.us87, %if.else.us85 ], [ %arrayidx.i49.us84, %if.then.us82 ]
-  %inc2057.us89 = phi i64 [ %inc20.us86, %if.else.us85 ], [ %inc2058.us49, %if.then.us82 ]
-  %match_count.1.us90 = phi i64 [ %match_count.056.us50, %if.else.us85 ], [ %inc.us83, %if.then.us82 ]
-  store i32 %19, ptr %arrayidx.i51.us87.sink, align 4, !tbaa !30
+  %inc2057.us89 = phi i64 [ %inc2058.us49, %if.then.us82 ], [ %inc20.us86, %if.else.us85 ]
+  %match_count.1.us90 = phi i64 [ %inc.us83, %if.then.us82 ], [ %match_count.056.us50, %if.else.us85 ]
   %inc21.us91 = add nuw i64 %i.055.us51, 1
   %exitcond.not.us92 = icmp eq i64 %inc21.us91, %count
   br i1 %exitcond.not.us92, label %for.cond.cleanup, label %for.body.us48, !llvm.loop !562
@@ -41122,6 +41145,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.056, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.056
+  store i32 %24, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -41129,13 +41153,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %29 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %29, i64 %inc2058
+  store i32 %24, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2057 = phi i64 [ %inc20, %if.else ], [ %inc2058, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.056, %if.else ], [ %inc, %if.then ]
-  store i32 %24, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2057 = phi i64 [ %inc2058, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.056, %if.else ]
   %inc21 = add nuw i64 %i.055, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !562
@@ -41337,6 +41360,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.055.us41, 1
   %arrayidx.i49.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us41
+  store i32 %21, ptr %arrayidx.i49.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -41344,13 +41368,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc20.us68, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us69 = getelementptr inbounds i32, ptr %26, i64 %inc2057.us40
+  store i32 %21, ptr %arrayidx.i51.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i51.us69.sink = phi ptr [ %arrayidx.i51.us69, %if.else.us67 ], [ %arrayidx.i49.us66, %if.then.us64 ]
-  %inc2056.us71 = phi i64 [ %inc20.us68, %if.else.us67 ], [ %inc2057.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.055.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %21, ptr %arrayidx.i51.us69.sink, align 4, !tbaa !30
+  %inc2056.us71 = phi i64 [ %inc2057.us40, %if.then.us64 ], [ %inc20.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.055.us41, %if.else.us67 ]
   %inc21.us73 = add nuw i64 %i.054.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc21.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !563
@@ -41397,6 +41420,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %27, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -41404,13 +41428,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %33, i64 %inc2057
+  store i32 %27, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !563
@@ -41612,6 +41635,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.055.us41, 1
   %arrayidx.i49.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us41
+  store i32 %21, ptr %arrayidx.i49.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -41619,13 +41643,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc20.us68, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us69 = getelementptr inbounds i32, ptr %26, i64 %inc2057.us40
+  store i32 %21, ptr %arrayidx.i51.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i51.us69.sink = phi ptr [ %arrayidx.i51.us69, %if.else.us67 ], [ %arrayidx.i49.us66, %if.then.us64 ]
-  %inc2056.us71 = phi i64 [ %inc20.us68, %if.else.us67 ], [ %inc2057.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.055.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %21, ptr %arrayidx.i51.us69.sink, align 4, !tbaa !30
+  %inc2056.us71 = phi i64 [ %inc2057.us40, %if.then.us64 ], [ %inc20.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.055.us41, %if.else.us67 ]
   %inc21.us73 = add nuw i64 %i.054.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc21.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !564
@@ -41672,6 +41695,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %27, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -41679,13 +41703,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %33, i64 %inc2057
+  store i32 %27, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !564
@@ -41897,18 +41920,18 @@ if.else.us68:                                     ; preds = %if.then.i.i.us66, %
   store i64 %inc20.us69, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i50.us70 = getelementptr inbounds i32, ptr %26, i64 %inc2056.us42
+  store i32 %21, ptr %arrayidx.i50.us70, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74
 
 if.then.us71:                                     ; preds = %if.then.i.i.us66, %invoke.cont.us61
   %inc.us72 = add i64 %match_count.054.us43, 1
   %arrayidx.i48.us73 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.054.us43
+  store i32 %21, ptr %arrayidx.i48.us73, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74: ; preds = %if.then.us71, %if.else.us68
-  %arrayidx.i48.us73.sink = phi ptr [ %arrayidx.i48.us73, %if.then.us71 ], [ %arrayidx.i50.us70, %if.else.us68 ]
   %inc2055.us75 = phi i64 [ %inc2056.us42, %if.then.us71 ], [ %inc20.us69, %if.else.us68 ]
   %match_count.1.us76 = phi i64 [ %inc.us72, %if.then.us71 ], [ %match_count.054.us43, %if.else.us68 ]
-  store i32 %21, ptr %arrayidx.i48.us73.sink, align 4, !tbaa !30
   %inc21.us77 = add nuw i64 %i.053.us44, 1
   %exitcond.not.us78 = icmp eq i64 %inc21.us77, %count
   br i1 %exitcond.not.us78, label %for.cond.cleanup, label %for.body.us41, !llvm.loop !565
@@ -41959,6 +41982,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont, %if.then.i.i
   %inc = add i64 %match_count.054, 1
   %arrayidx.i48 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.054
+  store i32 %27, ptr %arrayidx.i48, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %if.then.i.i
@@ -41966,13 +41990,12 @@ if.else:                                          ; preds = %invoke.cont, %if.th
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i50 = getelementptr inbounds i32, ptr %33, i64 %inc2056
+  store i32 %27, ptr %arrayidx.i50, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i50.sink = phi ptr [ %arrayidx.i50, %if.else ], [ %arrayidx.i48, %if.then ]
-  %inc2055 = phi i64 [ %inc20, %if.else ], [ %inc2056, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.054, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i50.sink, align 4, !tbaa !30
+  %inc2055 = phi i64 [ %inc2056, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.054, %if.else ]
   %inc21 = add nuw i64 %i.053, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !565
@@ -42182,6 +42205,7 @@ if.then.i.i.i.us66:                               ; preds = %for.body.us41
 if.then.us68:                                     ; preds = %if.then.i.i.i.us66, %invoke.cont.us61
   %inc.us69 = add i64 %match_count.054.us43, 1
   %arrayidx.i48.us70 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.054.us43
+  store i32 %21, ptr %arrayidx.i48.us70, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74
 
 if.else.us71:                                     ; preds = %if.then.i.i.i.us66, %invoke.cont.us61
@@ -42189,13 +42213,12 @@ if.else.us71:                                     ; preds = %if.then.i.i.i.us66,
   store i64 %inc20.us72, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i50.us73 = getelementptr inbounds i32, ptr %26, i64 %inc2056.us42
+  store i32 %21, ptr %arrayidx.i50.us73, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74: ; preds = %if.else.us71, %if.then.us68
-  %arrayidx.i50.us73.sink = phi ptr [ %arrayidx.i50.us73, %if.else.us71 ], [ %arrayidx.i48.us70, %if.then.us68 ]
-  %inc2055.us75 = phi i64 [ %inc20.us72, %if.else.us71 ], [ %inc2056.us42, %if.then.us68 ]
-  %match_count.1.us76 = phi i64 [ %match_count.054.us43, %if.else.us71 ], [ %inc.us69, %if.then.us68 ]
-  store i32 %21, ptr %arrayidx.i50.us73.sink, align 4, !tbaa !30
+  %inc2055.us75 = phi i64 [ %inc2056.us42, %if.then.us68 ], [ %inc20.us72, %if.else.us71 ]
+  %match_count.1.us76 = phi i64 [ %inc.us69, %if.then.us68 ], [ %match_count.054.us43, %if.else.us71 ]
   %inc21.us77 = add nuw i64 %i.053.us44, 1
   %exitcond.not.us78 = icmp eq i64 %inc21.us77, %count
   br i1 %exitcond.not.us78, label %for.cond.cleanup, label %for.body.us41, !llvm.loop !566
@@ -42246,6 +42269,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont, %if.then.i.i.i
   %inc = add i64 %match_count.054, 1
   %arrayidx.i48 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.054
+  store i32 %27, ptr %arrayidx.i48, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %if.then.i.i.i
@@ -42253,13 +42277,12 @@ if.else:                                          ; preds = %invoke.cont, %if.th
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i50 = getelementptr inbounds i32, ptr %33, i64 %inc2056
+  store i32 %27, ptr %arrayidx.i50, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i50.sink = phi ptr [ %arrayidx.i50, %if.else ], [ %arrayidx.i48, %if.then ]
-  %inc2055 = phi i64 [ %inc20, %if.else ], [ %inc2056, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.054, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i50.sink, align 4, !tbaa !30
+  %inc2055 = phi i64 [ %inc2056, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.054, %if.else ]
   %inc21 = add nuw i64 %i.053, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !566
@@ -42461,6 +42484,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.055.us41, 1
   %arrayidx.i49.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us41
+  store i32 %21, ptr %arrayidx.i49.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -42468,13 +42492,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc20.us68, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us69 = getelementptr inbounds i32, ptr %26, i64 %inc2057.us40
+  store i32 %21, ptr %arrayidx.i51.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i51.us69.sink = phi ptr [ %arrayidx.i51.us69, %if.else.us67 ], [ %arrayidx.i49.us66, %if.then.us64 ]
-  %inc2056.us71 = phi i64 [ %inc20.us68, %if.else.us67 ], [ %inc2057.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.055.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %21, ptr %arrayidx.i51.us69.sink, align 4, !tbaa !30
+  %inc2056.us71 = phi i64 [ %inc2057.us40, %if.then.us64 ], [ %inc20.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.055.us41, %if.else.us67 ]
   %inc21.us73 = add nuw i64 %i.054.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc21.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !567
@@ -42521,6 +42544,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %27, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -42528,13 +42552,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %33, i64 %inc2057
+  store i32 %27, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !567
@@ -42736,6 +42759,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.055.us41, 1
   %arrayidx.i49.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us41
+  store i32 %21, ptr %arrayidx.i49.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -42743,13 +42767,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc20.us68, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us69 = getelementptr inbounds i32, ptr %26, i64 %inc2057.us40
+  store i32 %21, ptr %arrayidx.i51.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i51.us69.sink = phi ptr [ %arrayidx.i51.us69, %if.else.us67 ], [ %arrayidx.i49.us66, %if.then.us64 ]
-  %inc2056.us71 = phi i64 [ %inc20.us68, %if.else.us67 ], [ %inc2057.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.055.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %21, ptr %arrayidx.i51.us69.sink, align 4, !tbaa !30
+  %inc2056.us71 = phi i64 [ %inc2057.us40, %if.then.us64 ], [ %inc20.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.055.us41, %if.else.us67 ]
   %inc21.us73 = add nuw i64 %i.054.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc21.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !568
@@ -42796,6 +42819,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %27, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -42803,13 +42827,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %33, i64 %inc2057
+  store i32 %27, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !568
@@ -43011,6 +43034,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.055.us41, 1
   %arrayidx.i49.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us41
+  store i32 %21, ptr %arrayidx.i49.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -43018,13 +43042,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc20.us68, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us69 = getelementptr inbounds i32, ptr %26, i64 %inc2057.us40
+  store i32 %21, ptr %arrayidx.i51.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i51.us69.sink = phi ptr [ %arrayidx.i51.us69, %if.else.us67 ], [ %arrayidx.i49.us66, %if.then.us64 ]
-  %inc2056.us71 = phi i64 [ %inc20.us68, %if.else.us67 ], [ %inc2057.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.055.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %21, ptr %arrayidx.i51.us69.sink, align 4, !tbaa !30
+  %inc2056.us71 = phi i64 [ %inc2057.us40, %if.then.us64 ], [ %inc20.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.055.us41, %if.else.us67 ]
   %inc21.us73 = add nuw i64 %i.054.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc21.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !569
@@ -43071,6 +43094,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %27, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -43078,13 +43102,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %33, i64 %inc2057
+  store i32 %27, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !569
@@ -43286,6 +43309,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.055.us41, 1
   %arrayidx.i49.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us41
+  store i32 %21, ptr %arrayidx.i49.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -43293,13 +43317,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc20.us68, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us69 = getelementptr inbounds i32, ptr %26, i64 %inc2057.us40
+  store i32 %21, ptr %arrayidx.i51.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i51.us69.sink = phi ptr [ %arrayidx.i51.us69, %if.else.us67 ], [ %arrayidx.i49.us66, %if.then.us64 ]
-  %inc2056.us71 = phi i64 [ %inc20.us68, %if.else.us67 ], [ %inc2057.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.055.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %21, ptr %arrayidx.i51.us69.sink, align 4, !tbaa !30
+  %inc2056.us71 = phi i64 [ %inc2057.us40, %if.then.us64 ], [ %inc20.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.055.us41, %if.else.us67 ]
   %inc21.us73 = add nuw i64 %i.054.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc21.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !570
@@ -43346,6 +43369,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %27, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -43353,13 +43377,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %33, i64 %inc2057
+  store i32 %27, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !570
@@ -43561,6 +43584,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.055.us41, 1
   %arrayidx.i49.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us41
+  store i32 %21, ptr %arrayidx.i49.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -43568,13 +43592,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc20.us68, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us69 = getelementptr inbounds i32, ptr %26, i64 %inc2057.us40
+  store i32 %21, ptr %arrayidx.i51.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i51.us69.sink = phi ptr [ %arrayidx.i51.us69, %if.else.us67 ], [ %arrayidx.i49.us66, %if.then.us64 ]
-  %inc2056.us71 = phi i64 [ %inc20.us68, %if.else.us67 ], [ %inc2057.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.055.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %21, ptr %arrayidx.i51.us69.sink, align 4, !tbaa !30
+  %inc2056.us71 = phi i64 [ %inc2057.us40, %if.then.us64 ], [ %inc20.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.055.us41, %if.else.us67 ]
   %inc21.us73 = add nuw i64 %i.054.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc21.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !571
@@ -43621,6 +43644,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %27, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -43628,13 +43652,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %33, i64 %inc2057
+  store i32 %27, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !571
@@ -43836,6 +43859,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.055.us41, 1
   %arrayidx.i49.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us41
+  store i32 %21, ptr %arrayidx.i49.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -43843,13 +43867,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc20.us68, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us69 = getelementptr inbounds i32, ptr %26, i64 %inc2057.us40
+  store i32 %21, ptr %arrayidx.i51.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i51.us69.sink = phi ptr [ %arrayidx.i51.us69, %if.else.us67 ], [ %arrayidx.i49.us66, %if.then.us64 ]
-  %inc2056.us71 = phi i64 [ %inc20.us68, %if.else.us67 ], [ %inc2057.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.055.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %21, ptr %arrayidx.i51.us69.sink, align 4, !tbaa !30
+  %inc2056.us71 = phi i64 [ %inc2057.us40, %if.then.us64 ], [ %inc20.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.055.us41, %if.else.us67 ]
   %inc21.us73 = add nuw i64 %i.054.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc21.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !572
@@ -43896,6 +43919,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %27, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -43903,13 +43927,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %33, i64 %inc2057
+  store i32 %27, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !572
@@ -44121,18 +44144,18 @@ if.else.us68:                                     ; preds = %if.then.i.i.us66, %
   store i64 %inc20.us69, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i50.us70 = getelementptr inbounds i32, ptr %26, i64 %inc2056.us42
+  store i32 %21, ptr %arrayidx.i50.us70, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74
 
 if.then.us71:                                     ; preds = %if.then.i.i.us66, %invoke.cont.us61
   %inc.us72 = add i64 %match_count.054.us43, 1
   %arrayidx.i48.us73 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.054.us43
+  store i32 %21, ptr %arrayidx.i48.us73, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74: ; preds = %if.then.us71, %if.else.us68
-  %arrayidx.i48.us73.sink = phi ptr [ %arrayidx.i48.us73, %if.then.us71 ], [ %arrayidx.i50.us70, %if.else.us68 ]
   %inc2055.us75 = phi i64 [ %inc2056.us42, %if.then.us71 ], [ %inc20.us69, %if.else.us68 ]
   %match_count.1.us76 = phi i64 [ %inc.us72, %if.then.us71 ], [ %match_count.054.us43, %if.else.us68 ]
-  store i32 %21, ptr %arrayidx.i48.us73.sink, align 4, !tbaa !30
   %inc21.us77 = add nuw i64 %i.053.us44, 1
   %exitcond.not.us78 = icmp eq i64 %inc21.us77, %count
   br i1 %exitcond.not.us78, label %for.cond.cleanup, label %for.body.us41, !llvm.loop !573
@@ -44183,6 +44206,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont, %if.then.i.i
   %inc = add i64 %match_count.054, 1
   %arrayidx.i48 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.054
+  store i32 %27, ptr %arrayidx.i48, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %if.then.i.i
@@ -44190,13 +44214,12 @@ if.else:                                          ; preds = %invoke.cont, %if.th
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i50 = getelementptr inbounds i32, ptr %33, i64 %inc2056
+  store i32 %27, ptr %arrayidx.i50, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i50.sink = phi ptr [ %arrayidx.i50, %if.else ], [ %arrayidx.i48, %if.then ]
-  %inc2055 = phi i64 [ %inc20, %if.else ], [ %inc2056, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.054, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i50.sink, align 4, !tbaa !30
+  %inc2055 = phi i64 [ %inc2056, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.054, %if.else ]
   %inc21 = add nuw i64 %i.053, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !573
@@ -44406,6 +44429,7 @@ if.then.i.i.i.us66:                               ; preds = %for.body.us41
 if.then.us68:                                     ; preds = %if.then.i.i.i.us66, %invoke.cont.us61
   %inc.us69 = add i64 %match_count.054.us43, 1
   %arrayidx.i48.us70 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.054.us43
+  store i32 %21, ptr %arrayidx.i48.us70, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74
 
 if.else.us71:                                     ; preds = %if.then.i.i.i.us66, %invoke.cont.us61
@@ -44413,13 +44437,12 @@ if.else.us71:                                     ; preds = %if.then.i.i.i.us66,
   store i64 %inc20.us72, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i50.us73 = getelementptr inbounds i32, ptr %26, i64 %inc2056.us42
+  store i32 %21, ptr %arrayidx.i50.us73, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74: ; preds = %if.else.us71, %if.then.us68
-  %arrayidx.i50.us73.sink = phi ptr [ %arrayidx.i50.us73, %if.else.us71 ], [ %arrayidx.i48.us70, %if.then.us68 ]
-  %inc2055.us75 = phi i64 [ %inc20.us72, %if.else.us71 ], [ %inc2056.us42, %if.then.us68 ]
-  %match_count.1.us76 = phi i64 [ %match_count.054.us43, %if.else.us71 ], [ %inc.us69, %if.then.us68 ]
-  store i32 %21, ptr %arrayidx.i50.us73.sink, align 4, !tbaa !30
+  %inc2055.us75 = phi i64 [ %inc2056.us42, %if.then.us68 ], [ %inc20.us72, %if.else.us71 ]
+  %match_count.1.us76 = phi i64 [ %inc.us69, %if.then.us68 ], [ %match_count.054.us43, %if.else.us71 ]
   %inc21.us77 = add nuw i64 %i.053.us44, 1
   %exitcond.not.us78 = icmp eq i64 %inc21.us77, %count
   br i1 %exitcond.not.us78, label %for.cond.cleanup, label %for.body.us41, !llvm.loop !574
@@ -44470,6 +44493,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont, %if.then.i.i.i
   %inc = add i64 %match_count.054, 1
   %arrayidx.i48 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.054
+  store i32 %27, ptr %arrayidx.i48, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %if.then.i.i.i
@@ -44477,13 +44501,12 @@ if.else:                                          ; preds = %invoke.cont, %if.th
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i50 = getelementptr inbounds i32, ptr %33, i64 %inc2056
+  store i32 %27, ptr %arrayidx.i50, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i50.sink = phi ptr [ %arrayidx.i50, %if.else ], [ %arrayidx.i48, %if.then ]
-  %inc2055 = phi i64 [ %inc20, %if.else ], [ %inc2056, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.054, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i50.sink, align 4, !tbaa !30
+  %inc2055 = phi i64 [ %inc2056, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.054, %if.else ]
   %inc21 = add nuw i64 %i.053, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !574
@@ -44685,6 +44708,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.055.us41, 1
   %arrayidx.i49.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us41
+  store i32 %21, ptr %arrayidx.i49.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -44692,13 +44716,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc20.us68, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us69 = getelementptr inbounds i32, ptr %26, i64 %inc2057.us40
+  store i32 %21, ptr %arrayidx.i51.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i51.us69.sink = phi ptr [ %arrayidx.i51.us69, %if.else.us67 ], [ %arrayidx.i49.us66, %if.then.us64 ]
-  %inc2056.us71 = phi i64 [ %inc20.us68, %if.else.us67 ], [ %inc2057.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.055.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %21, ptr %arrayidx.i51.us69.sink, align 4, !tbaa !30
+  %inc2056.us71 = phi i64 [ %inc2057.us40, %if.then.us64 ], [ %inc20.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.055.us41, %if.else.us67 ]
   %inc21.us73 = add nuw i64 %i.054.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc21.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !575
@@ -44745,6 +44768,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %27, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -44752,13 +44776,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %33, i64 %inc2057
+  store i32 %27, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !575
@@ -44960,6 +44983,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.055.us41, 1
   %arrayidx.i49.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us41
+  store i32 %21, ptr %arrayidx.i49.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -44967,13 +44991,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc20.us68, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us69 = getelementptr inbounds i32, ptr %26, i64 %inc2057.us40
+  store i32 %21, ptr %arrayidx.i51.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i51.us69.sink = phi ptr [ %arrayidx.i51.us69, %if.else.us67 ], [ %arrayidx.i49.us66, %if.then.us64 ]
-  %inc2056.us71 = phi i64 [ %inc20.us68, %if.else.us67 ], [ %inc2057.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.055.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %21, ptr %arrayidx.i51.us69.sink, align 4, !tbaa !30
+  %inc2056.us71 = phi i64 [ %inc2057.us40, %if.then.us64 ], [ %inc20.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.055.us41, %if.else.us67 ]
   %inc21.us73 = add nuw i64 %i.054.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc21.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !576
@@ -45020,6 +45043,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %27, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -45027,13 +45051,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %33, i64 %inc2057
+  store i32 %27, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !576
@@ -45235,6 +45258,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.055.us41, 1
   %arrayidx.i49.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us41
+  store i32 %21, ptr %arrayidx.i49.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -45242,13 +45266,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc20.us68, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us69 = getelementptr inbounds i32, ptr %26, i64 %inc2057.us40
+  store i32 %21, ptr %arrayidx.i51.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i51.us69.sink = phi ptr [ %arrayidx.i51.us69, %if.else.us67 ], [ %arrayidx.i49.us66, %if.then.us64 ]
-  %inc2056.us71 = phi i64 [ %inc20.us68, %if.else.us67 ], [ %inc2057.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.055.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %21, ptr %arrayidx.i51.us69.sink, align 4, !tbaa !30
+  %inc2056.us71 = phi i64 [ %inc2057.us40, %if.then.us64 ], [ %inc20.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.055.us41, %if.else.us67 ]
   %inc21.us73 = add nuw i64 %i.054.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc21.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !577
@@ -45295,6 +45318,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %27, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -45302,13 +45326,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %33, i64 %inc2057
+  store i32 %27, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !577
@@ -45510,6 +45533,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.055.us41, 1
   %arrayidx.i49.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us41
+  store i32 %21, ptr %arrayidx.i49.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -45517,13 +45541,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc20.us68, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us69 = getelementptr inbounds i32, ptr %26, i64 %inc2057.us40
+  store i32 %21, ptr %arrayidx.i51.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i51.us69.sink = phi ptr [ %arrayidx.i51.us69, %if.else.us67 ], [ %arrayidx.i49.us66, %if.then.us64 ]
-  %inc2056.us71 = phi i64 [ %inc20.us68, %if.else.us67 ], [ %inc2057.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.055.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %21, ptr %arrayidx.i51.us69.sink, align 4, !tbaa !30
+  %inc2056.us71 = phi i64 [ %inc2057.us40, %if.then.us64 ], [ %inc20.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.055.us41, %if.else.us67 ]
   %inc21.us73 = add nuw i64 %i.054.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc21.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !578
@@ -45570,6 +45593,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %27, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -45577,13 +45601,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %33, i64 %inc2057
+  store i32 %27, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !578
@@ -45785,6 +45808,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.055.us41, 1
   %arrayidx.i49.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us41
+  store i32 %21, ptr %arrayidx.i49.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -45792,13 +45816,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc20.us68, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us69 = getelementptr inbounds i32, ptr %26, i64 %inc2057.us40
+  store i32 %21, ptr %arrayidx.i51.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i51.us69.sink = phi ptr [ %arrayidx.i51.us69, %if.else.us67 ], [ %arrayidx.i49.us66, %if.then.us64 ]
-  %inc2056.us71 = phi i64 [ %inc20.us68, %if.else.us67 ], [ %inc2057.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.055.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %21, ptr %arrayidx.i51.us69.sink, align 4, !tbaa !30
+  %inc2056.us71 = phi i64 [ %inc2057.us40, %if.then.us64 ], [ %inc20.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.055.us41, %if.else.us67 ]
   %inc21.us73 = add nuw i64 %i.054.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc21.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !579
@@ -45845,6 +45868,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %27, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -45852,13 +45876,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %33, i64 %inc2057
+  store i32 %27, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !579
@@ -46060,6 +46083,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.055.us41, 1
   %arrayidx.i49.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us41
+  store i32 %21, ptr %arrayidx.i49.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -46067,13 +46091,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc20.us68, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us69 = getelementptr inbounds i32, ptr %26, i64 %inc2057.us40
+  store i32 %21, ptr %arrayidx.i51.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i51.us69.sink = phi ptr [ %arrayidx.i51.us69, %if.else.us67 ], [ %arrayidx.i49.us66, %if.then.us64 ]
-  %inc2056.us71 = phi i64 [ %inc20.us68, %if.else.us67 ], [ %inc2057.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.055.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %21, ptr %arrayidx.i51.us69.sink, align 4, !tbaa !30
+  %inc2056.us71 = phi i64 [ %inc2057.us40, %if.then.us64 ], [ %inc20.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.055.us41, %if.else.us67 ]
   %inc21.us73 = add nuw i64 %i.054.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc21.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !580
@@ -46120,6 +46143,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %27, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -46127,13 +46151,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %33, i64 %inc2057
+  store i32 %27, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !580
@@ -46345,18 +46368,18 @@ if.else.us68:                                     ; preds = %if.then.i.i.us66, %
   store i64 %inc20.us69, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i50.us70 = getelementptr inbounds i32, ptr %26, i64 %inc2056.us42
+  store i32 %21, ptr %arrayidx.i50.us70, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74
 
 if.then.us71:                                     ; preds = %if.then.i.i.us66, %invoke.cont.us61
   %inc.us72 = add i64 %match_count.054.us43, 1
   %arrayidx.i48.us73 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.054.us43
+  store i32 %21, ptr %arrayidx.i48.us73, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74: ; preds = %if.then.us71, %if.else.us68
-  %arrayidx.i48.us73.sink = phi ptr [ %arrayidx.i48.us73, %if.then.us71 ], [ %arrayidx.i50.us70, %if.else.us68 ]
   %inc2055.us75 = phi i64 [ %inc2056.us42, %if.then.us71 ], [ %inc20.us69, %if.else.us68 ]
   %match_count.1.us76 = phi i64 [ %inc.us72, %if.then.us71 ], [ %match_count.054.us43, %if.else.us68 ]
-  store i32 %21, ptr %arrayidx.i48.us73.sink, align 4, !tbaa !30
   %inc21.us77 = add nuw i64 %i.053.us44, 1
   %exitcond.not.us78 = icmp eq i64 %inc21.us77, %count
   br i1 %exitcond.not.us78, label %for.cond.cleanup, label %for.body.us41, !llvm.loop !581
@@ -46407,6 +46430,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont, %if.then.i.i
   %inc = add i64 %match_count.054, 1
   %arrayidx.i48 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.054
+  store i32 %27, ptr %arrayidx.i48, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %if.then.i.i
@@ -46414,13 +46438,12 @@ if.else:                                          ; preds = %invoke.cont, %if.th
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i50 = getelementptr inbounds i32, ptr %33, i64 %inc2056
+  store i32 %27, ptr %arrayidx.i50, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i50.sink = phi ptr [ %arrayidx.i50, %if.else ], [ %arrayidx.i48, %if.then ]
-  %inc2055 = phi i64 [ %inc20, %if.else ], [ %inc2056, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.054, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i50.sink, align 4, !tbaa !30
+  %inc2055 = phi i64 [ %inc2056, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.054, %if.else ]
   %inc21 = add nuw i64 %i.053, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !581
@@ -46630,6 +46653,7 @@ if.then.i.i.i.us66:                               ; preds = %for.body.us41
 if.then.us68:                                     ; preds = %if.then.i.i.i.us66, %invoke.cont.us61
   %inc.us69 = add i64 %match_count.054.us43, 1
   %arrayidx.i48.us70 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.054.us43
+  store i32 %21, ptr %arrayidx.i48.us70, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74
 
 if.else.us71:                                     ; preds = %if.then.i.i.i.us66, %invoke.cont.us61
@@ -46637,13 +46661,12 @@ if.else.us71:                                     ; preds = %if.then.i.i.i.us66,
   store i64 %inc20.us72, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i50.us73 = getelementptr inbounds i32, ptr %26, i64 %inc2056.us42
+  store i32 %21, ptr %arrayidx.i50.us73, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74: ; preds = %if.else.us71, %if.then.us68
-  %arrayidx.i50.us73.sink = phi ptr [ %arrayidx.i50.us73, %if.else.us71 ], [ %arrayidx.i48.us70, %if.then.us68 ]
-  %inc2055.us75 = phi i64 [ %inc20.us72, %if.else.us71 ], [ %inc2056.us42, %if.then.us68 ]
-  %match_count.1.us76 = phi i64 [ %match_count.054.us43, %if.else.us71 ], [ %inc.us69, %if.then.us68 ]
-  store i32 %21, ptr %arrayidx.i50.us73.sink, align 4, !tbaa !30
+  %inc2055.us75 = phi i64 [ %inc2056.us42, %if.then.us68 ], [ %inc20.us72, %if.else.us71 ]
+  %match_count.1.us76 = phi i64 [ %inc.us69, %if.then.us68 ], [ %match_count.054.us43, %if.else.us71 ]
   %inc21.us77 = add nuw i64 %i.053.us44, 1
   %exitcond.not.us78 = icmp eq i64 %inc21.us77, %count
   br i1 %exitcond.not.us78, label %for.cond.cleanup, label %for.body.us41, !llvm.loop !582
@@ -46694,6 +46717,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont, %if.then.i.i.i
   %inc = add i64 %match_count.054, 1
   %arrayidx.i48 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.054
+  store i32 %27, ptr %arrayidx.i48, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %if.then.i.i.i
@@ -46701,13 +46725,12 @@ if.else:                                          ; preds = %invoke.cont, %if.th
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i50 = getelementptr inbounds i32, ptr %33, i64 %inc2056
+  store i32 %27, ptr %arrayidx.i50, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i50.sink = phi ptr [ %arrayidx.i50, %if.else ], [ %arrayidx.i48, %if.then ]
-  %inc2055 = phi i64 [ %inc20, %if.else ], [ %inc2056, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.054, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i50.sink, align 4, !tbaa !30
+  %inc2055 = phi i64 [ %inc2056, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.054, %if.else ]
   %inc21 = add nuw i64 %i.053, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !582
@@ -46909,6 +46932,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.055.us41, 1
   %arrayidx.i49.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us41
+  store i32 %21, ptr %arrayidx.i49.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -46916,13 +46940,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc20.us68, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us69 = getelementptr inbounds i32, ptr %26, i64 %inc2057.us40
+  store i32 %21, ptr %arrayidx.i51.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i51.us69.sink = phi ptr [ %arrayidx.i51.us69, %if.else.us67 ], [ %arrayidx.i49.us66, %if.then.us64 ]
-  %inc2056.us71 = phi i64 [ %inc20.us68, %if.else.us67 ], [ %inc2057.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.055.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %21, ptr %arrayidx.i51.us69.sink, align 4, !tbaa !30
+  %inc2056.us71 = phi i64 [ %inc2057.us40, %if.then.us64 ], [ %inc20.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.055.us41, %if.else.us67 ]
   %inc21.us73 = add nuw i64 %i.054.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc21.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !583
@@ -46969,6 +46992,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %27, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -46976,13 +47000,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %33, i64 %inc2057
+  store i32 %27, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !583
@@ -47184,6 +47207,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.055.us41, 1
   %arrayidx.i49.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us41
+  store i32 %21, ptr %arrayidx.i49.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -47191,13 +47215,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc20.us68, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us69 = getelementptr inbounds i32, ptr %26, i64 %inc2057.us40
+  store i32 %21, ptr %arrayidx.i51.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i51.us69.sink = phi ptr [ %arrayidx.i51.us69, %if.else.us67 ], [ %arrayidx.i49.us66, %if.then.us64 ]
-  %inc2056.us71 = phi i64 [ %inc20.us68, %if.else.us67 ], [ %inc2057.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.055.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %21, ptr %arrayidx.i51.us69.sink, align 4, !tbaa !30
+  %inc2056.us71 = phi i64 [ %inc2057.us40, %if.then.us64 ], [ %inc20.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.055.us41, %if.else.us67 ]
   %inc21.us73 = add nuw i64 %i.054.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc21.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !584
@@ -47244,6 +47267,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %27, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -47251,13 +47275,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %33, i64 %inc2057
+  store i32 %27, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !584
@@ -47459,6 +47482,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.055.us41, 1
   %arrayidx.i49.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us41
+  store i32 %21, ptr %arrayidx.i49.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -47466,13 +47490,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc20.us68, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us69 = getelementptr inbounds i32, ptr %26, i64 %inc2057.us40
+  store i32 %21, ptr %arrayidx.i51.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i51.us69.sink = phi ptr [ %arrayidx.i51.us69, %if.else.us67 ], [ %arrayidx.i49.us66, %if.then.us64 ]
-  %inc2056.us71 = phi i64 [ %inc20.us68, %if.else.us67 ], [ %inc2057.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.055.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %21, ptr %arrayidx.i51.us69.sink, align 4, !tbaa !30
+  %inc2056.us71 = phi i64 [ %inc2057.us40, %if.then.us64 ], [ %inc20.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.055.us41, %if.else.us67 ]
   %inc21.us73 = add nuw i64 %i.054.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc21.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !585
@@ -47519,6 +47542,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %27, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -47526,13 +47550,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %33, i64 %inc2057
+  store i32 %27, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !585
@@ -47734,6 +47757,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.055.us41, 1
   %arrayidx.i49.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us41
+  store i32 %21, ptr %arrayidx.i49.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -47741,13 +47765,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc20.us68, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us69 = getelementptr inbounds i32, ptr %26, i64 %inc2057.us40
+  store i32 %21, ptr %arrayidx.i51.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i51.us69.sink = phi ptr [ %arrayidx.i51.us69, %if.else.us67 ], [ %arrayidx.i49.us66, %if.then.us64 ]
-  %inc2056.us71 = phi i64 [ %inc20.us68, %if.else.us67 ], [ %inc2057.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.055.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %21, ptr %arrayidx.i51.us69.sink, align 4, !tbaa !30
+  %inc2056.us71 = phi i64 [ %inc2057.us40, %if.then.us64 ], [ %inc20.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.055.us41, %if.else.us67 ]
   %inc21.us73 = add nuw i64 %i.054.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc21.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !586
@@ -47794,6 +47817,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %27, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -47801,13 +47825,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %33, i64 %inc2057
+  store i32 %27, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !586
@@ -48009,6 +48032,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.055.us41, 1
   %arrayidx.i49.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us41
+  store i32 %21, ptr %arrayidx.i49.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -48016,13 +48040,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc20.us68, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us69 = getelementptr inbounds i32, ptr %26, i64 %inc2057.us40
+  store i32 %21, ptr %arrayidx.i51.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i51.us69.sink = phi ptr [ %arrayidx.i51.us69, %if.else.us67 ], [ %arrayidx.i49.us66, %if.then.us64 ]
-  %inc2056.us71 = phi i64 [ %inc20.us68, %if.else.us67 ], [ %inc2057.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.055.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %21, ptr %arrayidx.i51.us69.sink, align 4, !tbaa !30
+  %inc2056.us71 = phi i64 [ %inc2057.us40, %if.then.us64 ], [ %inc20.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.055.us41, %if.else.us67 ]
   %inc21.us73 = add nuw i64 %i.054.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc21.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !587
@@ -48069,6 +48092,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %27, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -48076,13 +48100,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %33, i64 %inc2057
+  store i32 %27, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !587
@@ -48284,6 +48307,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.055.us41, 1
   %arrayidx.i49.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us41
+  store i32 %21, ptr %arrayidx.i49.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -48291,13 +48315,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc20.us68, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us69 = getelementptr inbounds i32, ptr %26, i64 %inc2057.us40
+  store i32 %21, ptr %arrayidx.i51.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i51.us69.sink = phi ptr [ %arrayidx.i51.us69, %if.else.us67 ], [ %arrayidx.i49.us66, %if.then.us64 ]
-  %inc2056.us71 = phi i64 [ %inc20.us68, %if.else.us67 ], [ %inc2057.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.055.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %21, ptr %arrayidx.i51.us69.sink, align 4, !tbaa !30
+  %inc2056.us71 = phi i64 [ %inc2057.us40, %if.then.us64 ], [ %inc20.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.055.us41, %if.else.us67 ]
   %inc21.us73 = add nuw i64 %i.054.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc21.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !588
@@ -48344,6 +48367,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %27, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -48351,13 +48375,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %33, i64 %inc2057
+  store i32 %27, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !588
@@ -48569,18 +48592,18 @@ if.else.us68:                                     ; preds = %if.then.i.i.us66, %
   store i64 %inc20.us69, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i50.us70 = getelementptr inbounds i32, ptr %26, i64 %inc2056.us42
+  store i32 %21, ptr %arrayidx.i50.us70, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74
 
 if.then.us71:                                     ; preds = %if.then.i.i.us66, %invoke.cont.us61
   %inc.us72 = add i64 %match_count.054.us43, 1
   %arrayidx.i48.us73 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.054.us43
+  store i32 %21, ptr %arrayidx.i48.us73, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74: ; preds = %if.then.us71, %if.else.us68
-  %arrayidx.i48.us73.sink = phi ptr [ %arrayidx.i48.us73, %if.then.us71 ], [ %arrayidx.i50.us70, %if.else.us68 ]
   %inc2055.us75 = phi i64 [ %inc2056.us42, %if.then.us71 ], [ %inc20.us69, %if.else.us68 ]
   %match_count.1.us76 = phi i64 [ %inc.us72, %if.then.us71 ], [ %match_count.054.us43, %if.else.us68 ]
-  store i32 %21, ptr %arrayidx.i48.us73.sink, align 4, !tbaa !30
   %inc21.us77 = add nuw i64 %i.053.us44, 1
   %exitcond.not.us78 = icmp eq i64 %inc21.us77, %count
   br i1 %exitcond.not.us78, label %for.cond.cleanup, label %for.body.us41, !llvm.loop !589
@@ -48631,6 +48654,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont, %if.then.i.i
   %inc = add i64 %match_count.054, 1
   %arrayidx.i48 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.054
+  store i32 %27, ptr %arrayidx.i48, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %if.then.i.i
@@ -48638,13 +48662,12 @@ if.else:                                          ; preds = %invoke.cont, %if.th
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i50 = getelementptr inbounds i32, ptr %33, i64 %inc2056
+  store i32 %27, ptr %arrayidx.i50, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i50.sink = phi ptr [ %arrayidx.i50, %if.else ], [ %arrayidx.i48, %if.then ]
-  %inc2055 = phi i64 [ %inc20, %if.else ], [ %inc2056, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.054, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i50.sink, align 4, !tbaa !30
+  %inc2055 = phi i64 [ %inc2056, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.054, %if.else ]
   %inc21 = add nuw i64 %i.053, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !589
@@ -48854,6 +48877,7 @@ if.then.i.i.i.us66:                               ; preds = %for.body.us41
 if.then.us68:                                     ; preds = %if.then.i.i.i.us66, %invoke.cont.us61
   %inc.us69 = add i64 %match_count.054.us43, 1
   %arrayidx.i48.us70 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.054.us43
+  store i32 %21, ptr %arrayidx.i48.us70, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74
 
 if.else.us71:                                     ; preds = %if.then.i.i.i.us66, %invoke.cont.us61
@@ -48861,13 +48885,12 @@ if.else.us71:                                     ; preds = %if.then.i.i.i.us66,
   store i64 %inc20.us72, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i50.us73 = getelementptr inbounds i32, ptr %26, i64 %inc2056.us42
+  store i32 %21, ptr %arrayidx.i50.us73, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us74: ; preds = %if.else.us71, %if.then.us68
-  %arrayidx.i50.us73.sink = phi ptr [ %arrayidx.i50.us73, %if.else.us71 ], [ %arrayidx.i48.us70, %if.then.us68 ]
-  %inc2055.us75 = phi i64 [ %inc20.us72, %if.else.us71 ], [ %inc2056.us42, %if.then.us68 ]
-  %match_count.1.us76 = phi i64 [ %match_count.054.us43, %if.else.us71 ], [ %inc.us69, %if.then.us68 ]
-  store i32 %21, ptr %arrayidx.i50.us73.sink, align 4, !tbaa !30
+  %inc2055.us75 = phi i64 [ %inc2056.us42, %if.then.us68 ], [ %inc20.us72, %if.else.us71 ]
+  %match_count.1.us76 = phi i64 [ %inc.us69, %if.then.us68 ], [ %match_count.054.us43, %if.else.us71 ]
   %inc21.us77 = add nuw i64 %i.053.us44, 1
   %exitcond.not.us78 = icmp eq i64 %inc21.us77, %count
   br i1 %exitcond.not.us78, label %for.cond.cleanup, label %for.body.us41, !llvm.loop !590
@@ -48918,6 +48941,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont, %if.then.i.i.i
   %inc = add i64 %match_count.054, 1
   %arrayidx.i48 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.054
+  store i32 %27, ptr %arrayidx.i48, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %if.then.i.i.i
@@ -48925,13 +48949,12 @@ if.else:                                          ; preds = %invoke.cont, %if.th
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i50 = getelementptr inbounds i32, ptr %33, i64 %inc2056
+  store i32 %27, ptr %arrayidx.i50, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i50.sink = phi ptr [ %arrayidx.i50, %if.else ], [ %arrayidx.i48, %if.then ]
-  %inc2055 = phi i64 [ %inc20, %if.else ], [ %inc2056, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.054, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i50.sink, align 4, !tbaa !30
+  %inc2055 = phi i64 [ %inc2056, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.054, %if.else ]
   %inc21 = add nuw i64 %i.053, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !590
@@ -49133,6 +49156,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.055.us41, 1
   %arrayidx.i49.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us41
+  store i32 %21, ptr %arrayidx.i49.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -49140,13 +49164,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc20.us68, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us69 = getelementptr inbounds i32, ptr %26, i64 %inc2057.us40
+  store i32 %21, ptr %arrayidx.i51.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i51.us69.sink = phi ptr [ %arrayidx.i51.us69, %if.else.us67 ], [ %arrayidx.i49.us66, %if.then.us64 ]
-  %inc2056.us71 = phi i64 [ %inc20.us68, %if.else.us67 ], [ %inc2057.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.055.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %21, ptr %arrayidx.i51.us69.sink, align 4, !tbaa !30
+  %inc2056.us71 = phi i64 [ %inc2057.us40, %if.then.us64 ], [ %inc20.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.055.us41, %if.else.us67 ]
   %inc21.us73 = add nuw i64 %i.054.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc21.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !591
@@ -49193,6 +49216,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %27, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -49200,13 +49224,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %33, i64 %inc2057
+  store i32 %27, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !591
@@ -49408,6 +49431,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.055.us41, 1
   %arrayidx.i49.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us41
+  store i32 %21, ptr %arrayidx.i49.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -49415,13 +49439,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc20.us68, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us69 = getelementptr inbounds i32, ptr %26, i64 %inc2057.us40
+  store i32 %21, ptr %arrayidx.i51.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i51.us69.sink = phi ptr [ %arrayidx.i51.us69, %if.else.us67 ], [ %arrayidx.i49.us66, %if.then.us64 ]
-  %inc2056.us71 = phi i64 [ %inc20.us68, %if.else.us67 ], [ %inc2057.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.055.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %21, ptr %arrayidx.i51.us69.sink, align 4, !tbaa !30
+  %inc2056.us71 = phi i64 [ %inc2057.us40, %if.then.us64 ], [ %inc20.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.055.us41, %if.else.us67 ]
   %inc21.us73 = add nuw i64 %i.054.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc21.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !592
@@ -49468,6 +49491,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %27, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -49475,13 +49499,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %33, i64 %inc2057
+  store i32 %27, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !592
@@ -49683,6 +49706,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.055.us41, 1
   %arrayidx.i49.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us41
+  store i32 %21, ptr %arrayidx.i49.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -49690,13 +49714,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc20.us68, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us69 = getelementptr inbounds i32, ptr %26, i64 %inc2057.us40
+  store i32 %21, ptr %arrayidx.i51.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i51.us69.sink = phi ptr [ %arrayidx.i51.us69, %if.else.us67 ], [ %arrayidx.i49.us66, %if.then.us64 ]
-  %inc2056.us71 = phi i64 [ %inc20.us68, %if.else.us67 ], [ %inc2057.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.055.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %21, ptr %arrayidx.i51.us69.sink, align 4, !tbaa !30
+  %inc2056.us71 = phi i64 [ %inc2057.us40, %if.then.us64 ], [ %inc20.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.055.us41, %if.else.us67 ]
   %inc21.us73 = add nuw i64 %i.054.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc21.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !593
@@ -49743,6 +49766,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %27, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -49750,13 +49774,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %33, i64 %inc2057
+  store i32 %27, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !593
@@ -49958,6 +49981,7 @@ invoke.cont.us59:                                 ; preds = %for.body.us39
 if.then.us64:                                     ; preds = %invoke.cont.us59
   %inc.us65 = add i64 %match_count.055.us41, 1
   %arrayidx.i49.us66 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055.us41
+  store i32 %21, ptr %arrayidx.i49.us66, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 if.else.us67:                                     ; preds = %invoke.cont.us59, %for.body.us39
@@ -49965,13 +49989,12 @@ if.else.us67:                                     ; preds = %invoke.cont.us59, %
   store i64 %inc20.us68, ptr %no_match_count, align 8, !tbaa !38
   %26 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us69 = getelementptr inbounds i32, ptr %26, i64 %inc2057.us40
+  store i32 %21, ptr %arrayidx.i51.us69, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us70: ; preds = %if.else.us67, %if.then.us64
-  %arrayidx.i51.us69.sink = phi ptr [ %arrayidx.i51.us69, %if.else.us67 ], [ %arrayidx.i49.us66, %if.then.us64 ]
-  %inc2056.us71 = phi i64 [ %inc20.us68, %if.else.us67 ], [ %inc2057.us40, %if.then.us64 ]
-  %match_count.1.us72 = phi i64 [ %match_count.055.us41, %if.else.us67 ], [ %inc.us65, %if.then.us64 ]
-  store i32 %21, ptr %arrayidx.i51.us69.sink, align 4, !tbaa !30
+  %inc2056.us71 = phi i64 [ %inc2057.us40, %if.then.us64 ], [ %inc20.us68, %if.else.us67 ]
+  %match_count.1.us72 = phi i64 [ %inc.us65, %if.then.us64 ], [ %match_count.055.us41, %if.else.us67 ]
   %inc21.us73 = add nuw i64 %i.054.us42, 1
   %exitcond.not.us74 = icmp eq i64 %inc21.us73, %count
   br i1 %exitcond.not.us74, label %for.cond.cleanup, label %for.body.us39, !llvm.loop !594
@@ -50018,6 +50041,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont
   %inc = add i64 %match_count.055, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.055
+  store i32 %27, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %for.body
@@ -50025,13 +50049,12 @@ if.else:                                          ; preds = %invoke.cont, %for.b
   store i64 %inc20, ptr %no_match_count, align 8, !tbaa !38
   %33 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %33, i64 %inc2057
+  store i32 %27, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2056 = phi i64 [ %inc20, %if.else ], [ %inc2057, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.055, %if.else ], [ %inc, %if.then ]
-  store i32 %27, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2056 = phi i64 [ %inc2057, %if.then ], [ %inc20, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.055, %if.else ]
   %inc21 = add nuw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc21, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !594
@@ -53888,6 +53911,7 @@ if.then13.i.i.i.i.us86:                           ; preds = %if.end11.i.i.i.i.us
 if.then.us90:                                     ; preds = %if.then13.i.i.i.i.us86, %if.end.i.i.i.i.us80
   %inc.us91 = add i64 %match_count.057.us54, 1
   %arrayidx.i50.us92 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.057.us54
+  store i32 %25, ptr %arrayidx.i50.us92, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us96
 
 if.else.us93:                                     ; preds = %if.then13.i.i.i.i.us86, %if.end11.i.i.i.i.us84, %if.end.i.us76, %for.body.us52
@@ -53895,13 +53919,12 @@ if.else.us93:                                     ; preds = %if.then13.i.i.i.i.u
   store i64 %inc21.us94, ptr %no_match_count, align 8, !tbaa !38
   %32 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i52.us95 = getelementptr inbounds i32, ptr %32, i64 %inc2159.us53
+  store i32 %25, ptr %arrayidx.i52.us95, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us96
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us96: ; preds = %if.else.us93, %if.then.us90
-  %arrayidx.i52.us95.sink = phi ptr [ %arrayidx.i52.us95, %if.else.us93 ], [ %arrayidx.i50.us92, %if.then.us90 ]
-  %inc2158.us97 = phi i64 [ %inc21.us94, %if.else.us93 ], [ %inc2159.us53, %if.then.us90 ]
-  %match_count.1.us98 = phi i64 [ %match_count.057.us54, %if.else.us93 ], [ %inc.us91, %if.then.us90 ]
-  store i32 %25, ptr %arrayidx.i52.us95.sink, align 4, !tbaa !30
+  %inc2158.us97 = phi i64 [ %inc2159.us53, %if.then.us90 ], [ %inc21.us94, %if.else.us93 ]
+  %match_count.1.us98 = phi i64 [ %inc.us91, %if.then.us90 ], [ %match_count.057.us54, %if.else.us93 ]
   %inc22.us99 = add nuw i64 %i.056.us55, 1
   %exitcond.not.us100 = icmp eq i64 %inc22.us99, %count
   br i1 %exitcond.not.us100, label %for.cond.cleanup, label %for.body.us52, !llvm.loop !619
@@ -53969,6 +53992,7 @@ if.then13.i.i.i.i:                                ; preds = %if.end11.i.i.i.i
 if.then:                                          ; preds = %if.then13.i.i.i.i, %if.end.i.i.i.i
   %inc = add i64 %match_count.057, 1
   %arrayidx.i50 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.057
+  store i32 %33, ptr %arrayidx.i50, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %if.then13.i.i.i.i, %if.end11.i.i.i.i, %if.end.i, %for.body
@@ -53976,13 +54000,12 @@ if.else:                                          ; preds = %if.then13.i.i.i.i, 
   store i64 %inc21, ptr %no_match_count, align 8, !tbaa !38
   %41 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i52 = getelementptr inbounds i32, ptr %41, i64 %inc2159
+  store i32 %33, ptr %arrayidx.i52, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i52.sink = phi ptr [ %arrayidx.i52, %if.else ], [ %arrayidx.i50, %if.then ]
-  %inc2158 = phi i64 [ %inc21, %if.else ], [ %inc2159, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.057, %if.else ], [ %inc, %if.then ]
-  store i32 %33, ptr %arrayidx.i52.sink, align 4, !tbaa !30
+  %inc2158 = phi i64 [ %inc2159, %if.then ], [ %inc21, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.057, %if.else ]
   %inc22 = add nuw i64 %i.056, 1
   %exitcond.not = icmp eq i64 %inc22, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !619
@@ -54247,6 +54270,7 @@ if.then13.i.i.i.i.i.us86:                         ; preds = %if.end11.i.i.i.i.i.
 if.then.us90:                                     ; preds = %if.then13.i.i.i.i.i.us86, %if.end11.i.i.i.i.i.us84, %if.end.i.us76
   %inc.us91 = add i64 %match_count.056.us54, 1
   %arrayidx.i50.us92 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.056.us54
+  store i32 %25, ptr %arrayidx.i50.us92, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us96
 
 if.else.us93:                                     ; preds = %if.then13.i.i.i.i.i.us86, %if.end.i.i.i.i.i.us80, %for.body.us52
@@ -54254,13 +54278,12 @@ if.else.us93:                                     ; preds = %if.then13.i.i.i.i.i
   store i64 %inc21.us94, ptr %no_match_count, align 8, !tbaa !38
   %32 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i52.us95 = getelementptr inbounds i32, ptr %32, i64 %inc2158.us53
+  store i32 %25, ptr %arrayidx.i52.us95, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us96
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us96: ; preds = %if.else.us93, %if.then.us90
-  %arrayidx.i52.us95.sink = phi ptr [ %arrayidx.i52.us95, %if.else.us93 ], [ %arrayidx.i50.us92, %if.then.us90 ]
-  %inc2157.us97 = phi i64 [ %inc21.us94, %if.else.us93 ], [ %inc2158.us53, %if.then.us90 ]
-  %match_count.1.us98 = phi i64 [ %match_count.056.us54, %if.else.us93 ], [ %inc.us91, %if.then.us90 ]
-  store i32 %25, ptr %arrayidx.i52.us95.sink, align 4, !tbaa !30
+  %inc2157.us97 = phi i64 [ %inc2158.us53, %if.then.us90 ], [ %inc21.us94, %if.else.us93 ]
+  %match_count.1.us98 = phi i64 [ %inc.us91, %if.then.us90 ], [ %match_count.056.us54, %if.else.us93 ]
   %inc22.us99 = add nuw i64 %i.055.us55, 1
   %exitcond.not.us100 = icmp eq i64 %inc22.us99, %count
   br i1 %exitcond.not.us100, label %for.cond.cleanup, label %for.body.us52, !llvm.loop !620
@@ -54328,6 +54351,7 @@ if.then13.i.i.i.i.i:                              ; preds = %if.end11.i.i.i.i.i
 if.then:                                          ; preds = %if.then13.i.i.i.i.i, %if.end11.i.i.i.i.i, %if.end.i
   %inc = add i64 %match_count.056, 1
   %arrayidx.i50 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.056
+  store i32 %33, ptr %arrayidx.i50, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %if.then13.i.i.i.i.i, %if.end.i.i.i.i.i, %for.body
@@ -54335,13 +54359,12 @@ if.else:                                          ; preds = %if.then13.i.i.i.i.i
   store i64 %inc21, ptr %no_match_count, align 8, !tbaa !38
   %41 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i52 = getelementptr inbounds i32, ptr %41, i64 %inc2158
+  store i32 %33, ptr %arrayidx.i52, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i52.sink = phi ptr [ %arrayidx.i52, %if.else ], [ %arrayidx.i50, %if.then ]
-  %inc2157 = phi i64 [ %inc21, %if.else ], [ %inc2158, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.056, %if.else ], [ %inc, %if.then ]
-  store i32 %33, ptr %arrayidx.i52.sink, align 4, !tbaa !30
+  %inc2157 = phi i64 [ %inc2158, %if.then ], [ %inc21, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.056, %if.else ]
   %inc22 = add nuw i64 %i.055, 1
   %exitcond.not = icmp eq i64 %inc22, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !620
@@ -54616,18 +54639,18 @@ if.else.us94:                                     ; preds = %invoke.cont.us92, %
   store i64 %inc21.us95, ptr %no_match_count, align 8, !tbaa !38
   %32 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us96 = getelementptr inbounds i32, ptr %32, i64 %inc2160.us55
+  store i32 %25, ptr %arrayidx.i51.us96, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us100
 
 if.then.us97:                                     ; preds = %invoke.cont.us92, %if.then13.i.i.i.i.i.i.us88, %if.end11.i.i.i.i.i.i.us86, %if.end.i.i.us78
   %inc.us98 = add i64 %match_count.058.us56, 1
   %arrayidx.i49.us99 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.058.us56
+  store i32 %25, ptr %arrayidx.i49.us99, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us100
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us100: ; preds = %if.then.us97, %if.else.us94
-  %arrayidx.i49.us99.sink = phi ptr [ %arrayidx.i49.us99, %if.then.us97 ], [ %arrayidx.i51.us96, %if.else.us94 ]
   %inc2159.us101 = phi i64 [ %inc2160.us55, %if.then.us97 ], [ %inc21.us95, %if.else.us94 ]
   %match_count.1.us102 = phi i64 [ %inc.us98, %if.then.us97 ], [ %match_count.058.us56, %if.else.us94 ]
-  store i32 %25, ptr %arrayidx.i49.us99.sink, align 4, !tbaa !30
   %inc22.us103 = add nuw i64 %i.057.us57, 1
   %exitcond.not.us104 = icmp eq i64 %inc22.us103, %count
   br i1 %exitcond.not.us104, label %for.cond.cleanup, label %for.body.us54, !llvm.loop !621
@@ -54699,6 +54722,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont, %if.then13.i.i.i.i.i.i, %if.end11.i.i.i.i.i.i, %if.end.i.i
   %inc = add i64 %match_count.058, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.058
+  store i32 %33, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %if.then13.i.i.i.i.i.i, %if.end.i.i.i.i.i.i
@@ -54706,13 +54730,12 @@ if.else:                                          ; preds = %invoke.cont, %if.th
   store i64 %inc21, ptr %no_match_count, align 8, !tbaa !38
   %41 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %41, i64 %inc2160
+  store i32 %33, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2159 = phi i64 [ %inc21, %if.else ], [ %inc2160, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.058, %if.else ], [ %inc, %if.then ]
-  store i32 %33, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2159 = phi i64 [ %inc2160, %if.then ], [ %inc21, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.058, %if.else ]
   %inc22 = add nuw i64 %i.057, 1
   %exitcond.not = icmp eq i64 %inc22, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !621
@@ -54985,6 +55008,7 @@ invoke.cont.us92:                                 ; preds = %for.body.us54
 if.then.us94:                                     ; preds = %invoke.cont.us92, %if.then13.i.i.i.i.i.i.i.us88, %if.end.i.i.i.i.i.i.i.us82
   %inc.us95 = add i64 %match_count.059.us56, 1
   %arrayidx.i49.us96 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.059.us56
+  store i32 %25, ptr %arrayidx.i49.us96, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us100
 
 if.else.us97:                                     ; preds = %invoke.cont.us92, %if.then13.i.i.i.i.i.i.i.us88, %if.end11.i.i.i.i.i.i.i.us86, %if.end.i.i.i.us78
@@ -54992,13 +55016,12 @@ if.else.us97:                                     ; preds = %invoke.cont.us92, %
   store i64 %inc21.us98, ptr %no_match_count, align 8, !tbaa !38
   %32 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51.us99 = getelementptr inbounds i32, ptr %32, i64 %inc2161.us55
+  store i32 %25, ptr %arrayidx.i51.us99, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us100
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit.us100: ; preds = %if.else.us97, %if.then.us94
-  %arrayidx.i51.us99.sink = phi ptr [ %arrayidx.i51.us99, %if.else.us97 ], [ %arrayidx.i49.us96, %if.then.us94 ]
-  %inc2160.us101 = phi i64 [ %inc21.us98, %if.else.us97 ], [ %inc2161.us55, %if.then.us94 ]
-  %match_count.1.us102 = phi i64 [ %match_count.059.us56, %if.else.us97 ], [ %inc.us95, %if.then.us94 ]
-  store i32 %25, ptr %arrayidx.i51.us99.sink, align 4, !tbaa !30
+  %inc2160.us101 = phi i64 [ %inc2161.us55, %if.then.us94 ], [ %inc21.us98, %if.else.us97 ]
+  %match_count.1.us102 = phi i64 [ %inc.us95, %if.then.us94 ], [ %match_count.059.us56, %if.else.us97 ]
   %inc22.us103 = add nuw i64 %i.058.us57, 1
   %exitcond.not.us104 = icmp eq i64 %inc22.us103, %count
   br i1 %exitcond.not.us104, label %for.cond.cleanup, label %for.body.us54, !llvm.loop !622
@@ -55070,6 +55093,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then:                                          ; preds = %invoke.cont, %if.then13.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
   %inc = add i64 %match_count.059, 1
   %arrayidx.i49 = getelementptr inbounds i32, ptr %.pre, i64 %match_count.059
+  store i32 %33, ptr %arrayidx.i49, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 if.else:                                          ; preds = %invoke.cont, %if.then13.i.i.i.i.i.i.i, %if.end11.i.i.i.i.i.i.i, %if.end.i.i.i
@@ -55077,13 +55101,12 @@ if.else:                                          ; preds = %invoke.cont, %if.th
   store i64 %inc21, ptr %no_match_count, align 8, !tbaa !38
   %41 = load ptr, ptr %no_match_sel, align 8, !tbaa !26
   %arrayidx.i51 = getelementptr inbounds i32, ptr %41, i64 %inc2161
+  store i32 %33, ptr %arrayidx.i51, align 4, !tbaa !30
   br label %_ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit
 
 _ZN6duckdb21TemplatedValidityMaskIhED2Ev.exit:    ; preds = %if.else, %if.then
-  %arrayidx.i51.sink = phi ptr [ %arrayidx.i51, %if.else ], [ %arrayidx.i49, %if.then ]
-  %inc2160 = phi i64 [ %inc21, %if.else ], [ %inc2161, %if.then ]
-  %match_count.1 = phi i64 [ %match_count.059, %if.else ], [ %inc, %if.then ]
-  store i32 %33, ptr %arrayidx.i51.sink, align 4, !tbaa !30
+  %inc2160 = phi i64 [ %inc2161, %if.then ], [ %inc21, %if.else ]
+  %match_count.1 = phi i64 [ %inc, %if.then ], [ %match_count.059, %if.else ]
   %inc22 = add nuw i64 %i.058, 1
   %exitcond.not = icmp eq i64 %inc22, %count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !622

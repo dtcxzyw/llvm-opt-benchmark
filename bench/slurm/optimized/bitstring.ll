@@ -3304,6 +3304,7 @@ define ptr @bitstr2inx(ptr noundef readonly %0) local_unnamed_addr #0 {
 
 2:                                                ; preds = %1
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 1492, ptr noundef nonnull @__func__.bitstr2inx) #16
+  store i32 -1, ptr %3, align 4
   br label %39
 
 4:                                                ; preds = %1
@@ -3384,12 +3385,11 @@ define ptr @bitstr2inx(ptr noundef readonly %0) local_unnamed_addr #0 {
 .outer._crit_edge:                                ; preds = %.outer, %16, %4
   %.0.ph.lcssa = phi i64 [ 0, %4 ], [ %.0.ph43, %16 ], [ %.1, %.outer ]
   %38 = getelementptr inbounds i32, ptr %9, i64 %.0.ph.lcssa
+  store i32 -1, ptr %38, align 4
   br label %39
 
 39:                                               ; preds = %.outer._crit_edge, %2
-  %.sink = phi ptr [ %38, %.outer._crit_edge ], [ %3, %2 ]
   %.029 = phi ptr [ %9, %.outer._crit_edge ], [ %3, %2 ]
-  store i32 -1, ptr %.sink, align 4
   ret ptr %.029
 }
 

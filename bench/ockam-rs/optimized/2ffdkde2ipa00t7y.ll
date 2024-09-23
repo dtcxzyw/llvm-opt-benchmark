@@ -16193,6 +16193,7 @@ common.ret:                                       ; preds = %1878, %1875, %252
   %1598 = getelementptr inbounds i8, ptr %0, i64 2622
   store i8 0, ptr %1598, align 2, !noalias !1998
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %49), !noalias !1998
+  store i8 0, ptr %1555, align 1, !noalias !1998
   br label %1599
 
 1599:                                             ; preds = %1662, %"_ZN4core3ptr153drop_in_place$LT$tokio..sync..mpsc..bounded..Receiver$LT$core..result..Result$LT$ockam_node..messages..RouterReply$C$ockam_core..error..Error$GT$$GT$$GT$17h82c950db655e95abE.exit251.i.i.i.i.i"
@@ -16200,9 +16201,7 @@ common.ret:                                       ; preds = %1878, %1875, %252
   %1601 = phi ptr [ %1437, %1662 ], [ %1483, %"_ZN4core3ptr153drop_in_place$LT$tokio..sync..mpsc..bounded..Receiver$LT$core..result..Result$LT$ockam_node..messages..RouterReply$C$ockam_core..error..Error$GT$$GT$$GT$17h82c950db655e95abE.exit251.i.i.i.i.i" ]
   %1602 = phi ptr [ %1438, %1662 ], [ %1484, %"_ZN4core3ptr153drop_in_place$LT$tokio..sync..mpsc..bounded..Receiver$LT$core..result..Result$LT$ockam_node..messages..RouterReply$C$ockam_core..error..Error$GT$$GT$$GT$17h82c950db655e95abE.exit251.i.i.i.i.i" ]
   %1603 = phi ptr [ %1439, %1662 ], [ %1485, %"_ZN4core3ptr153drop_in_place$LT$tokio..sync..mpsc..bounded..Receiver$LT$core..result..Result$LT$ockam_node..messages..RouterReply$C$ockam_core..error..Error$GT$$GT$$GT$17h82c950db655e95abE.exit251.i.i.i.i.i" ]
-  %.sink.i.i.i.i.i = phi ptr [ %1663, %1662 ], [ %1555, %"_ZN4core3ptr153drop_in_place$LT$tokio..sync..mpsc..bounded..Receiver$LT$core..result..Result$LT$ockam_node..messages..RouterReply$C$ockam_core..error..Error$GT$$GT$$GT$17h82c950db655e95abE.exit251.i.i.i.i.i" ]
   %.1127.i.i.i.i.i = phi ptr [ %.0126.i.i.i.i.i, %1662 ], [ null, %"_ZN4core3ptr153drop_in_place$LT$tokio..sync..mpsc..bounded..Receiver$LT$core..result..Result$LT$ockam_node..messages..RouterReply$C$ockam_core..error..Error$GT$$GT$$GT$17h82c950db655e95abE.exit251.i.i.i.i.i" ]
-  store i8 0, ptr %.sink.i.i.i.i.i, align 1, !noalias !1998
   %1604 = getelementptr inbounds i8, ptr %0, i64 2624
   store i8 0, ptr %1604, align 8, !noalias !1998
   store i8 1, ptr %1602, align 8, !noalias !1998
@@ -16348,6 +16347,7 @@ common.ret:                                       ; preds = %1878, %1875, %252
 
 1662:                                             ; preds = %1646
   %1663 = getelementptr inbounds i8, ptr %0, i64 2623
+  store i8 0, ptr %1663, align 1, !noalias !1998
   br label %1599
 
 .body235.i.i.i.i.i:                               ; preds = %1493, %1488

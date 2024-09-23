@@ -11414,7 +11414,12 @@ if.end8.i.i48.i:                                  ; preds = %if.then6.i.i58.i, %
   %bf.load10.i.i49.i = load i16, ptr %should_free.i.i43.i, align 2
   %298 = and i16 %bf.load10.i.i49.i, 6
   %or.cond.i.i50.i = icmp eq i16 %298, 0
-  br i1 %or.cond.i.i50.i, label %if.end68.sink.split.i, label %if.end68.sink.split.sink.split.i
+  br i1 %or.cond.i.i50.i, label %if.end68.sink.split.i, label %if.then21.i.i51.i
+
+if.then21.i.i51.i:                                ; preds = %if.end8.i.i48.i
+  %bf.clear27.i.i52.i = and i16 %bf.load10.i.i49.i, -7
+  store i16 %bf.clear27.i.i52.i, ptr %should_free.i.i43.i, align 2
+  br label %if.end68.sink.split.sink.split.i
 
 if.then48.i:                                      ; preds = %land.lhs.true25.i
   %call51.i = call i32 @diff_populate_filespec(ptr noundef %278, ptr noundef nonnull %.pre137.i, ptr noundef nonnull %dpf_options.i)
@@ -11454,7 +11459,12 @@ if.end8.i.i70.i:                                  ; preds = %if.then6.i.i80.i, %
   %bf.load10.i.i71.i = load i16, ptr %should_free.i.i65.i, align 2
   %305 = and i16 %bf.load10.i.i71.i, 6
   %or.cond.i.i72.i = icmp eq i16 %305, 0
-  br i1 %or.cond.i.i72.i, label %if.end68.sink.split.i, label %if.end68.sink.split.sink.split.i
+  br i1 %or.cond.i.i72.i, label %if.end68.sink.split.i, label %if.then21.i.i73.i
+
+if.then21.i.i73.i:                                ; preds = %if.end8.i.i70.i
+  %bf.clear27.i.i74.i = and i16 %bf.load10.i.i71.i, -7
+  store i16 %bf.clear27.i.i74.i, ptr %should_free.i.i65.i, align 2
+  br label %if.end68.sink.split.sink.split.i
 
 if.else53.i:                                      ; preds = %if.end21.i
   br i1 %cmp57.not.i, label %for.inc.i217, label %if.end.i86.i
@@ -11494,14 +11504,15 @@ if.end8.i.i92.i:                                  ; preds = %if.then6.i.i102.i, 
   %bf.load10.i.i93.i = load i16, ptr %should_free.i.i87.i, align 2
   %313 = and i16 %bf.load10.i.i93.i, 6
   %or.cond.i.i94.i = icmp eq i16 %313, 0
-  br i1 %or.cond.i.i94.i, label %if.end68.sink.split.i, label %if.end68.sink.split.sink.split.i
+  br i1 %or.cond.i.i94.i, label %if.end68.sink.split.i, label %if.then21.i.i95.i
 
-if.end68.sink.split.sink.split.i:                 ; preds = %if.end8.i.i92.i, %if.end8.i.i70.i, %if.end8.i.i48.i
-  %bf.load10.i.i93.sink.i = phi i16 [ %bf.load10.i.i49.i, %if.end8.i.i48.i ], [ %bf.load10.i.i71.i, %if.end8.i.i70.i ], [ %bf.load10.i.i93.i, %if.end8.i.i92.i ]
-  %should_free.i.i87.sink.i = phi ptr [ %should_free.i.i43.i, %if.end8.i.i48.i ], [ %should_free.i.i65.i, %if.end8.i.i70.i ], [ %should_free.i.i87.i, %if.end8.i.i92.i ]
-  %.sink146.i = phi ptr [ %292, %if.end8.i.i48.i ], [ %299, %if.end8.i.i70.i ], [ %307, %if.end8.i.i92.i ]
-  %bf.clear27.i.i96.i = and i16 %bf.load10.i.i93.sink.i, -7
-  store i16 %bf.clear27.i.i96.i, ptr %should_free.i.i87.sink.i, align 2
+if.then21.i.i95.i:                                ; preds = %if.end8.i.i92.i
+  %bf.clear27.i.i96.i = and i16 %bf.load10.i.i93.i, -7
+  store i16 %bf.clear27.i.i96.i, ptr %should_free.i.i87.i, align 2
+  br label %if.end68.sink.split.sink.split.i
+
+if.end68.sink.split.sink.split.i:                 ; preds = %if.then21.i.i95.i, %if.then21.i.i73.i, %if.then21.i.i51.i
+  %.sink146.i = phi ptr [ %307, %if.then21.i.i95.i ], [ %299, %if.then21.i.i73.i ], [ %292, %if.then21.i.i51.i ]
   %data29.i.i97.i = getelementptr inbounds i8, ptr %.sink146.i, i64 48
   store ptr null, ptr %data29.i.i97.i, align 8
   br label %if.end68.sink.split.i
@@ -12045,16 +12056,16 @@ create_filepairs_for_header_only_notifications.exit.i: ; preds = %if.then.i.i34.
 
 if.end3.i:                                        ; preds = %create_filepairs_for_header_only_notifications.exit.i, %if.end.i277
   %390 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
-  %cmp106.i = icmp sgt i32 %390, 0
-  br i1 %cmp106.i, label %for.body.preheader.i313, label %for.end.i279
+  %cmp105.i = icmp sgt i32 %390, 0
+  br i1 %cmp105.i, label %for.body.preheader.i313, label %for.end.i279
 
 for.body.preheader.i313:                          ; preds = %if.end3.i
-  %.pre130.i = load ptr, ptr @diff_queued_diff, align 8
+  %.pre129.i = load ptr, ptr @diff_queued_diff, align 8
   br label %for.body.i314
 
 for.body.i314:                                    ; preds = %for.inc.i317, %for.body.preheader.i313
   %391 = phi i32 [ %390, %for.body.preheader.i313 ], [ %395, %for.inc.i317 ]
-  %392 = phi ptr [ %.pre130.i, %for.body.preheader.i313 ], [ %396, %for.inc.i317 ]
+  %392 = phi ptr [ %.pre129.i, %for.body.preheader.i313 ], [ %396, %for.inc.i317 ]
   %indvars.iv.i315 = phi i64 [ 0, %for.body.preheader.i313 ], [ %indvars.iv.next.i318, %for.inc.i317 ]
   %arrayidx.i316 = getelementptr inbounds ptr, ptr %392, i64 %indvars.iv.i315
   %393 = load ptr, ptr %arrayidx.i316, align 8
@@ -12072,11 +12083,11 @@ sw.bb1.i.i:                                       ; preds = %for.body.i314
 if.then5.i320:                                    ; preds = %for.body.i314
   call fastcc void @diff_flush_patch(ptr noundef nonnull %393, ptr noundef %options)
   %.pre.i321 = load ptr, ptr @diff_queued_diff, align 8
-  %.pre131.i = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  %.pre130.i = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
   br label %for.inc.i317
 
 for.inc.i317:                                     ; preds = %if.then5.i320, %for.body.i314
-  %395 = phi i32 [ %391, %for.body.i314 ], [ %.pre131.i, %if.then5.i320 ]
+  %395 = phi i32 [ %391, %for.body.i314 ], [ %.pre130.i, %if.then5.i320 ]
   %396 = phi ptr [ %392, %for.body.i314 ], [ %.pre.i321, %if.then5.i320 ]
   %indvars.iv.next.i318 = add nuw nsw i64 %indvars.iv.i315, 1
   %397 = sext i32 %395 to i64
@@ -12114,8 +12125,8 @@ for.body.lr.ph.i26.i:                             ; preds = %if.then12.i282
   br label %for.body.i27.i
 
 for.body.i27.i:                                   ; preds = %for.inc.i30.i, %for.body.lr.ph.i26.i
-  %402 = phi ptr [ %400, %for.body.lr.ph.i26.i ], [ %431, %for.inc.i30.i ]
   %indvars.iv.i28.i = phi i64 [ 0, %for.body.lr.ph.i26.i ], [ %indvars.iv.next.i31.i, %for.inc.i30.i ]
+  %402 = phi ptr [ %400, %for.body.lr.ph.i26.i ], [ %431, %for.inc.i30.i ]
   %prev_line.060.i.i = phi ptr [ null, %for.body.lr.ph.i26.i ], [ %prev_line.1.i.i, %for.inc.i30.i ]
   %entry_list.059.i.i = phi ptr [ null, %for.body.lr.ph.i26.i ], [ %entry_list.1.i.i, %for.inc.i30.i ]
   %entry_list_alloc.058.i.i = phi i64 [ 0, %for.body.lr.ph.i26.i ], [ %entry_list_alloc.1.i.i, %for.inc.i30.i ]
@@ -12364,7 +12375,8 @@ if.then56.i.i:                                    ; preds = %if.end52.i.i
   %428 = load i32, ptr %id57.i.i, align 8
   %idxprom62.i.i = zext i32 %428 to i64
   %arrayidx63.i.i = getelementptr inbounds %struct.moved_entry_list, ptr %entry_list.2.i.i, i64 %idxprom62.i.i
-  br label %for.inc.sink.split.i.i
+  store ptr %call41.i.i, ptr %arrayidx63.i.i, align 8
+  br label %for.inc.i30.i
 
 if.else65.i.i:                                    ; preds = %if.end52.i.i
   %del.i.i = getelementptr inbounds %struct.moved_entry_list, ptr %entry_list.2.i.i, i64 %idxprom58.i.i, i32 1
@@ -12373,21 +12385,16 @@ if.else65.i.i:                                    ; preds = %if.end52.i.i
   %430 = load i32, ptr %id57.i.i, align 8
   %idxprom71.i.i = zext i32 %430 to i64
   %del73.i.i = getelementptr inbounds %struct.moved_entry_list, ptr %entry_list.2.i.i, i64 %idxprom71.i.i, i32 1
-  br label %for.inc.sink.split.i.i
-
-for.inc.sink.split.i.i:                           ; preds = %if.else65.i.i, %if.then56.i.i
-  %arrayidx63.sink.i.i = phi ptr [ %arrayidx63.i.i, %if.then56.i.i ], [ %del73.i.i, %if.else65.i.i ]
-  store ptr %call41.i.i, ptr %arrayidx63.sink.i.i, align 8
-  %.pre132.i = load ptr, ptr %emitted_symbols7.i, align 8
+  store ptr %call41.i.i, ptr %del73.i.i, align 8
   br label %for.inc.i30.i
 
-for.inc.i30.i:                                    ; preds = %for.inc.sink.split.i.i, %for.body.i27.i
-  %431 = phi ptr [ %402, %for.body.i27.i ], [ %.pre132.i, %for.inc.sink.split.i.i ]
-  %id.1.i.i = phi i32 [ %id.057.i.i, %for.body.i27.i ], [ %id.2.i.i, %for.inc.sink.split.i.i ]
-  %entry_list_alloc.1.i.i = phi i64 [ %entry_list_alloc.058.i.i, %for.body.i27.i ], [ %entry_list_alloc.2.i.i, %for.inc.sink.split.i.i ]
-  %entry_list.1.i.i = phi ptr [ %entry_list.059.i.i, %for.body.i27.i ], [ %entry_list.2.i.i, %for.inc.sink.split.i.i ]
-  %prev_line.1.i.i = phi ptr [ null, %for.body.i27.i ], [ %call41.i.i, %for.inc.sink.split.i.i ]
+for.inc.i30.i:                                    ; preds = %if.else65.i.i, %if.then56.i.i, %for.body.i27.i
+  %id.1.i.i = phi i32 [ %id.2.i.i, %if.then56.i.i ], [ %id.2.i.i, %if.else65.i.i ], [ %id.057.i.i, %for.body.i27.i ]
+  %entry_list_alloc.1.i.i = phi i64 [ %entry_list_alloc.2.i.i, %if.then56.i.i ], [ %entry_list_alloc.2.i.i, %if.else65.i.i ], [ %entry_list_alloc.058.i.i, %for.body.i27.i ]
+  %entry_list.1.i.i = phi ptr [ %entry_list.2.i.i, %if.then56.i.i ], [ %entry_list.2.i.i, %if.else65.i.i ], [ %entry_list.059.i.i, %for.body.i27.i ]
+  %prev_line.1.i.i = phi ptr [ %call41.i.i, %if.then56.i.i ], [ %call41.i.i, %if.else65.i.i ], [ null, %for.body.i27.i ]
   %indvars.iv.next.i31.i = add nuw nsw i64 %indvars.iv.i28.i, 1
+  %431 = load ptr, ptr %emitted_symbols7.i, align 8
   %nr.i.i = getelementptr inbounds i8, ptr %431, i64 8
   %432 = load i32, ptr %nr.i.i, align 8
   %433 = sext i32 %432 to i64
@@ -13022,7 +13029,7 @@ land.lhs.true51.i.i:                              ; preds = %land.lhs.true43.i.i
   %528 = load i32, ptr %flags52.i.i, align 4
   %and53.i.i = and i32 %528, 393216
   %cmp56.i.i = icmp eq i32 %and53.i.i, %and45.i.i
-  br i1 %cmp56.i.i, label %for.inc.sink.split.i92.i, label %land.lhs.true61.i.i
+  br i1 %cmp56.i.i, label %for.inc.sink.split.i.i, label %land.lhs.true61.i.i
 
 land.lhs.true61.i.i:                              ; preds = %land.lhs.true51.i.i, %land.lhs.true43.i.i
   %and63.i.i = and i32 %527, 131072
@@ -13037,29 +13044,29 @@ land.lhs.true65.i.i:                              ; preds = %land.lhs.true61.i.i
 
 if.end72.i.i:                                     ; preds = %land.lhs.true65.i.i, %land.lhs.true61.i.i, %if.end41.i.i
   %tobool73.not.i.i = icmp eq ptr %next.0.i.i, null
-  br i1 %tobool73.not.i.i, label %for.inc.sink.split.i92.i, label %land.lhs.true74.i.i
+  br i1 %tobool73.not.i.i, label %for.inc.sink.split.i.i, label %land.lhs.true74.i.i
 
 land.lhs.true74.i.i:                              ; preds = %if.end72.i.i
   %flags75.i.i = getelementptr inbounds i8, ptr %next.0.i.i, i64 12
   %531 = load i32, ptr %flags75.i.i, align 4
   %and76.i.i = and i32 %531, 131072
   %tobool77.not.i.i = icmp eq i32 %and76.i.i, 0
-  br i1 %tobool77.not.i.i, label %for.inc.sink.split.i92.i, label %land.lhs.true78.i.i
+  br i1 %tobool77.not.i.i, label %for.inc.sink.split.i.i, label %land.lhs.true78.i.i
 
 land.lhs.true78.i.i:                              ; preds = %land.lhs.true74.i.i
   %532 = xor i32 %531, %524
   %533 = and i32 %532, 262144
   %cmp83.not.i.i = icmp eq i32 %533, 0
-  br i1 %cmp83.not.i.i, label %for.inc.sink.split.i92.i, label %for.inc.i82.i
+  br i1 %cmp83.not.i.i, label %for.inc.sink.split.i.i, label %for.inc.i82.i
 
-for.inc.sink.split.i92.i:                         ; preds = %land.lhs.true78.i.i, %land.lhs.true74.i.i, %if.end72.i.i, %land.lhs.true51.i.i
+for.inc.sink.split.i.i:                           ; preds = %land.lhs.true78.i.i, %land.lhs.true74.i.i, %if.end72.i.i, %land.lhs.true51.i.i
   %or87.i.i = or i32 %524, 524288
   store i32 %or87.i.i, ptr %flags.i87.i, align 4
-  %.pre133.i = load ptr, ptr %emitted_symbols7.i, align 8
+  %.pre131.i = load ptr, ptr %emitted_symbols7.i, align 8
   br label %for.inc.i82.i
 
-for.inc.i82.i:                                    ; preds = %for.inc.sink.split.i92.i, %land.lhs.true78.i.i, %land.lhs.true65.i.i, %if.end.i86.i284, %for.body.i74.i
-  %534 = phi ptr [ %.pre133.i, %for.inc.sink.split.i92.i ], [ %518, %land.lhs.true78.i.i ], [ %518, %land.lhs.true65.i.i ], [ %518, %if.end.i86.i284 ], [ %518, %for.body.i74.i ]
+for.inc.i82.i:                                    ; preds = %for.inc.sink.split.i.i, %land.lhs.true78.i.i, %land.lhs.true65.i.i, %if.end.i86.i284, %for.body.i74.i
+  %534 = phi ptr [ %.pre131.i, %for.inc.sink.split.i.i ], [ %518, %land.lhs.true78.i.i ], [ %518, %land.lhs.true65.i.i ], [ %518, %if.end.i86.i284 ], [ %518, %for.body.i74.i ]
   %indvars.iv.next.i83.i = add nuw nsw i64 %indvars.iv.i75.i, 1
   %nr.i84.i = getelementptr inbounds i8, ptr %534, i64 8
   %535 = load i32, ptr %nr.i84.i, align 8
@@ -13074,34 +13081,34 @@ if.end17.i:                                       ; preds = %for.inc.i82.i, %if.
 
 if.end18.i:                                       ; preds = %if.end17.i, %if.then9.i
   %537 = load i32, ptr getelementptr inbounds (i8, ptr @diff_flush_patch_all_file_pairs.esm, i64 8), align 8
-  %cmp20108.i = icmp sgt i32 %537, 0
-  br i1 %cmp20108.i, label %for.body21.i, label %for.end34.i
+  %cmp20107.i = icmp sgt i32 %537, 0
+  br i1 %cmp20107.i, label %for.body21.i, label %for.end34.i
 
 for.cond27.preheader.i:                           ; preds = %for.body21.i
   %538 = icmp sgt i32 %540, 0
   br i1 %538, label %for.body29.i, label %for.end34.i
 
 for.body21.i:                                     ; preds = %if.end18.i, %for.body21.i
-  %indvars.iv124.i = phi i64 [ %indvars.iv.next125.i, %for.body21.i ], [ 0, %if.end18.i ]
+  %indvars.iv123.i = phi i64 [ %indvars.iv.next124.i, %for.body21.i ], [ 0, %if.end18.i ]
   %539 = load ptr, ptr @diff_flush_patch_all_file_pairs.esm, align 8
-  %arrayidx23.i = getelementptr inbounds %struct.emitted_diff_symbol, ptr %539, i64 %indvars.iv124.i
+  %arrayidx23.i = getelementptr inbounds %struct.emitted_diff_symbol, ptr %539, i64 %indvars.iv123.i
   call fastcc void @emit_diff_symbol_from_struct(ptr noundef %options, ptr noundef %arrayidx23.i)
-  %indvars.iv.next125.i = add nuw nsw i64 %indvars.iv124.i, 1
+  %indvars.iv.next124.i = add nuw nsw i64 %indvars.iv123.i, 1
   %540 = load i32, ptr getelementptr inbounds (i8, ptr @diff_flush_patch_all_file_pairs.esm, i64 8), align 8
   %541 = sext i32 %540 to i64
-  %cmp20.i283 = icmp slt i64 %indvars.iv.next125.i, %541
+  %cmp20.i283 = icmp slt i64 %indvars.iv.next124.i, %541
   br i1 %cmp20.i283, label %for.body21.i, label %for.cond27.preheader.i, !llvm.loop !45
 
 for.body29.i:                                     ; preds = %for.cond27.preheader.i, %for.body29.i
-  %indvars.iv127.i = phi i64 [ %indvars.iv.next128.i, %for.body29.i ], [ 0, %for.cond27.preheader.i ]
+  %indvars.iv126.i = phi i64 [ %indvars.iv.next127.i, %for.body29.i ], [ 0, %for.cond27.preheader.i ]
   %542 = load ptr, ptr @diff_flush_patch_all_file_pairs.esm, align 8
-  %arrayidx31.i = getelementptr inbounds %struct.emitted_diff_symbol, ptr %542, i64 %indvars.iv127.i
+  %arrayidx31.i = getelementptr inbounds %struct.emitted_diff_symbol, ptr %542, i64 %indvars.iv126.i
   %543 = load ptr, ptr %arrayidx31.i, align 8
   call void @free(ptr noundef %543) #31
-  %indvars.iv.next128.i = add nuw nsw i64 %indvars.iv127.i, 1
+  %indvars.iv.next127.i = add nuw nsw i64 %indvars.iv126.i, 1
   %544 = load i32, ptr getelementptr inbounds (i8, ptr @diff_flush_patch_all_file_pairs.esm, i64 8), align 8
   %545 = sext i32 %544 to i64
-  %cmp28.i = icmp slt i64 %indvars.iv.next128.i, %545
+  %cmp28.i = icmp slt i64 %indvars.iv.next127.i, %545
   br i1 %cmp28.i, label %for.body29.i, label %for.end34.i, !llvm.loop !46
 
 for.end34.i:                                      ; preds = %for.body29.i, %for.cond27.preheader.i, %if.end18.i

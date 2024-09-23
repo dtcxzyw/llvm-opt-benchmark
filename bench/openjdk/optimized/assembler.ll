@@ -427,6 +427,7 @@ define hidden void @_ZN5Label12add_patch_atEP10CodeBufferiPKci(ptr nocapture nou
   %14 = getelementptr inbounds i8, ptr %0, i64 4
   %15 = sext i32 %11 to i64
   %16 = getelementptr inbounds [4 x i32], ptr %14, i64 0, i64 %15
+  store i32 %2, ptr %16, align 4
   br label %43
 
 17:                                               ; preds = %9
@@ -470,11 +471,10 @@ _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit: ; preds = %2
   %40 = load ptr, ptr %39, align 8
   %41 = sext i32 %37 to i64
   %42 = getelementptr inbounds i32, ptr %40, i64 %41
+  store i32 %2, ptr %42, align 4
   br label %43
 
 43:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit, %13
-  %.sink = phi ptr [ %42, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit ], [ %16, %13 ]
-  store i32 %2, ptr %.sink, align 4
   %44 = load i32, ptr %10, align 4
   %45 = add nsw i32 %44, 1
   store i32 %45, ptr %10, align 4

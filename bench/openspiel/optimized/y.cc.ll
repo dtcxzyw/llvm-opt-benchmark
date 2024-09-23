@@ -648,6 +648,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   store ptr null, ptr %18, align 8
   store ptr %21, ptr %25, align 8
   store ptr %21, ptr %28, align 8
+  store i64 0, ptr %32, align 8
   br label %_ZN10open_spiel13GameParameterC2EOS0_.exit
 
 35:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -659,11 +660,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %38 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %17, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 128
+  store i64 0, ptr %39, align 8
   br label %_ZN10open_spiel13GameParameterC2EOS0_.exit
 
 _ZN10open_spiel13GameParameterC2EOS0_.exit:       ; preds = %20, %35
-  %.sink.i.i.i.i.i = phi ptr [ %39, %35 ], [ %32, %20 ]
-  store i64 0, ptr %.sink.i.i.i.i.i, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %42 = load i32, ptr %41, align 8
@@ -803,6 +803,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   store ptr null, ptr %18, align 8
   store ptr %21, ptr %25, align 8
   store ptr %21, ptr %28, align 8
+  store i64 0, ptr %32, align 8
   br label %_ZN10open_spiel13GameParameterC2EOS0_.exit
 
 35:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -814,11 +815,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %38 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %17, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 128
+  store i64 0, ptr %39, align 8
   br label %_ZN10open_spiel13GameParameterC2EOS0_.exit
 
 _ZN10open_spiel13GameParameterC2EOS0_.exit:       ; preds = %20, %35
-  %.sink.i.i.i.i.i = phi ptr [ %39, %35 ], [ %32, %20 ]
-  store i64 0, ptr %.sink.i.i.i.i.i, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %42 = load i32, ptr %41, align 8
@@ -2783,30 +2783,34 @@ define void @_ZNK10open_spiel6y_game6YState7ReturnsEv(ptr dead_on_unwind noalias
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %6, ptr %7, align 8
-  switch i8 %4, label %10 [
+  switch i8 %4, label %12 [
     i8 0, label %8
-    i8 1, label %9
+    i8 1, label %10
   ]
 
 8:                                                ; preds = %2
   store double 1.000000e+00, ptr %5, align 8
   %.sroa.222.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
   store double -1.000000e+00, ptr %.sroa.222.0..sroa_idx, align 8
-  br label %11
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %6, ptr %9, align 8
+  br label %14
 
-9:                                                ; preds = %2
+10:                                               ; preds = %2
   store double -1.000000e+00, ptr %5, align 8
   %.sroa.220.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
   store double 1.000000e+00, ptr %.sroa.220.0..sroa_idx, align 8
-  br label %11
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %6, ptr %11, align 8
+  br label %14
 
-10:                                               ; preds = %2
+12:                                               ; preds = %2
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  br label %11
+  store ptr %6, ptr %13, align 8
+  br label %14
 
-11:                                               ; preds = %10, %9, %8
-  %.sink = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %6, ptr %.sink, align 8
+14:                                               ; preds = %12, %10, %8
   ret void
 }
 

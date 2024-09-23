@@ -2600,36 +2600,36 @@ RARRAY_PTR.exit:                                  ; preds = %6, %8
 17:                                               ; preds = %13
   %18 = load i64, ptr %.0.i.i, align 8
   %19 = icmp eq i64 %18, 36
-  br i1 %19, label %20, label %22
+  br i1 %19, label %minmax_ii_update.exit.thread, label %21
 
-20:                                               ; preds = %17
+minmax_ii_update.exit.thread:                     ; preds = %17
   store i64 %15, ptr %.0.i.i, align 8
-  %21 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
-  br label %.sink.split.i
+  %20 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
+  store i64 %15, ptr %20, align 8
+  br label %41
 
-22:                                               ; preds = %17
-  %23 = tail call i64 (i32, ...) @rb_yield_values(i32 noundef 2, i64 noundef %15, i64 noundef %18) #13
-  %24 = load i64, ptr %.0.i.i, align 8
-  %25 = tail call i32 @rb_cmpint(i64 noundef %23, i64 noundef %15, i64 noundef %24) #13
-  %26 = icmp slt i32 %25, 0
-  br i1 %26, label %27, label %28
+21:                                               ; preds = %17
+  %22 = tail call i64 (i32, ...) @rb_yield_values(i32 noundef 2, i64 noundef %15, i64 noundef %18) #13
+  %23 = load i64, ptr %.0.i.i, align 8
+  %24 = tail call i32 @rb_cmpint(i64 noundef %22, i64 noundef %15, i64 noundef %23) #13
+  %25 = icmp slt i32 %24, 0
+  br i1 %25, label %26, label %27
 
-27:                                               ; preds = %22
+26:                                               ; preds = %21
   store i64 %15, ptr %.0.i.i, align 8
-  br label %28
+  br label %27
 
-28:                                               ; preds = %27, %22
-  %29 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
-  %30 = load i64, ptr %29, align 8
-  %31 = tail call i64 (i32, ...) @rb_yield_values(i32 noundef 2, i64 noundef %15, i64 noundef %30) #13
-  %32 = load i64, ptr %29, align 8
-  %33 = tail call i32 @rb_cmpint(i64 noundef %31, i64 noundef %15, i64 noundef %32) #13
-  %34 = icmp sgt i32 %33, 0
-  br i1 %34, label %.sink.split.i, label %minmax_ii_update.exit
+27:                                               ; preds = %26, %21
+  %28 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
+  %29 = load i64, ptr %28, align 8
+  %30 = tail call i64 (i32, ...) @rb_yield_values(i32 noundef 2, i64 noundef %15, i64 noundef %29) #13
+  %31 = load i64, ptr %28, align 8
+  %32 = tail call i32 @rb_cmpint(i64 noundef %30, i64 noundef %15, i64 noundef %31) #13
+  %33 = icmp sgt i32 %32, 0
+  br i1 %33, label %34, label %minmax_ii_update.exit
 
-.sink.split.i:                                    ; preds = %28, %20
-  %.sink.i = phi ptr [ %21, %20 ], [ %29, %28 ]
-  store i64 %15, ptr %.sink.i, align 8
+34:                                               ; preds = %27
+  store i64 %15, ptr %28, align 8
   br label %minmax_ii_update.exit
 
 35:                                               ; preds = %RARRAY_PTR.exit
@@ -2642,23 +2642,28 @@ RARRAY_PTR.exit:                                  ; preds = %6, %8
   tail call fastcc void @minmax_i_update(i64 noundef %37, i64 noundef %37, ptr noundef nonnull %.0.i.i)
   br label %minmax_ii_update.exit
 
-minmax_ii_update.exit:                            ; preds = %.sink.split.i, %28, %35, %39, %13
-  %40 = load i64, ptr %.0.i.i, align 8
-  %41 = icmp eq i64 %40, 36
-  br i1 %41, label %46, label %42
+minmax_ii_update.exit:                            ; preds = %34, %27, %35, %39, %13
+  %.pr = load i64, ptr %.0.i.i, align 8
+  %40 = icmp eq i64 %.pr, 36
+  br i1 %40, label %45, label %minmax_ii_update.exit._crit_edge
 
-42:                                               ; preds = %minmax_ii_update.exit
-  %43 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
-  %44 = load i64, ptr %43, align 8
-  %45 = tail call i64 @rb_assoc_new(i64 noundef %40, i64 noundef %44) #13
-  br label %48
+minmax_ii_update.exit._crit_edge:                 ; preds = %minmax_ii_update.exit
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %.0.i.i, i64 8
+  %.pre = load i64, ptr %.phi.trans.insert, align 8
+  br label %41
 
-46:                                               ; preds = %minmax_ii_update.exit
-  %47 = tail call i64 @rb_assoc_new(i64 noundef 4, i64 noundef 4) #13
-  br label %48
+41:                                               ; preds = %minmax_ii_update.exit._crit_edge, %minmax_ii_update.exit.thread
+  %42 = phi i64 [ %15, %minmax_ii_update.exit.thread ], [ %.pre, %minmax_ii_update.exit._crit_edge ]
+  %43 = phi i64 [ %15, %minmax_ii_update.exit.thread ], [ %.pr, %minmax_ii_update.exit._crit_edge ]
+  %44 = tail call i64 @rb_assoc_new(i64 noundef %43, i64 noundef %42) #13
+  br label %47
 
-48:                                               ; preds = %46, %42
-  %.0 = phi i64 [ %47, %46 ], [ %45, %42 ]
+45:                                               ; preds = %minmax_ii_update.exit
+  %46 = tail call i64 @rb_assoc_new(i64 noundef 4, i64 noundef 4) #13
+  br label %47
+
+47:                                               ; preds = %45, %41
+  %.0 = phi i64 [ %46, %45 ], [ %44, %41 ]
   ret i64 %.0
 }
 
@@ -6969,7 +6974,8 @@ rb_enum_values_pack.exit:                         ; preds = %RARRAY_PTR.exit, %1
 31:                                               ; preds = %23
   store i64 %.022, ptr %.0.i.i, align 8
   %32 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
-  br label %.sink.split.i
+  store i64 %.021, ptr %32, align 8
+  br label %minmax_ii_update.exit
 
 33:                                               ; preds = %23
   %34 = tail call i64 (i32, ...) @rb_yield_values(i32 noundef 2, i64 noundef %.022, i64 noundef %29) #13
@@ -6989,14 +6995,13 @@ rb_enum_values_pack.exit:                         ; preds = %RARRAY_PTR.exit, %1
   %43 = load i64, ptr %40, align 8
   %44 = tail call i32 @rb_cmpint(i64 noundef %42, i64 noundef %.021, i64 noundef %43) #13
   %45 = icmp sgt i32 %44, 0
-  br i1 %45, label %.sink.split.i, label %minmax_ii_update.exit
+  br i1 %45, label %46, label %minmax_ii_update.exit
 
-.sink.split.i:                                    ; preds = %39, %31
-  %.sink.i = phi ptr [ %32, %31 ], [ %40, %39 ]
-  store i64 %.021, ptr %.sink.i, align 8
+46:                                               ; preds = %39
+  store i64 %.021, ptr %40, align 8
   br label %minmax_ii_update.exit
 
-minmax_ii_update.exit:                            ; preds = %.sink.split.i, %39, %22
+minmax_ii_update.exit:                            ; preds = %46, %39, %31, %22
   ret i64 4
 }
 

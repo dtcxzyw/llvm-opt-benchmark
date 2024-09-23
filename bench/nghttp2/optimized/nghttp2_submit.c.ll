@@ -436,20 +436,23 @@ if.end16.thread:                                  ; preds = %if.end8
 
 if.then20:                                        ; preds = %if.end16
   %consumed_size = getelementptr inbounds i8, ptr %session, i64 2780
+  %2 = load i32, ptr %consumed_size, align 4
+  %sub = sub nsw i32 %2, %0
+  %spec.select = call i32 @llvm.smax.i32(i32 %sub, i32 0)
+  store i32 %spec.select, ptr %consumed_size, align 4
   br label %if.end36
 
 if.else25:                                        ; preds = %if.end16.thread
   %consumed_size26 = getelementptr inbounds i8, ptr %call6, i64 180
+  %3 = load i32, ptr %consumed_size26, align 4
+  %sub27 = sub nsw i32 %3, %1
+  %spec.select20 = call i32 @llvm.smax.i32(i32 %sub27, i32 0)
+  store i32 %spec.select20, ptr %consumed_size26, align 4
   br label %if.end36
 
 if.end36:                                         ; preds = %if.else25, %if.then20
-  %consumed_size26.sink27 = phi ptr [ %consumed_size26, %if.else25 ], [ %consumed_size, %if.then20 ]
-  %.sink26 = phi i32 [ %1, %if.else25 ], [ %0, %if.then20 ]
-  %2 = load i32, ptr %consumed_size26.sink27, align 4
-  %sub27 = sub nsw i32 %2, %.sink26
-  %spec.select20 = call i32 @llvm.smax.i32(i32 %sub27, i32 0)
-  store i32 %spec.select20, ptr %consumed_size26.sink27, align 4
-  %call37 = call i32 @nghttp2_session_add_window_update(ptr noundef %session, i8 noundef zeroext 0, i32 noundef %stream_id, i32 noundef %.sink26) #6
+  %4 = phi i32 [ %1, %if.else25 ], [ %0, %if.then20 ]
+  %call37 = call i32 @nghttp2_session_add_window_update(ptr noundef %session, i8 noundef zeroext 0, i32 noundef %stream_id, i32 noundef %4) #6
   br label %return
 
 return:                                           ; preds = %if.end16.thread, %if.end16, %if.end8, %if.else, %if.then2, %entry, %if.end36

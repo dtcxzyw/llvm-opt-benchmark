@@ -356,7 +356,7 @@ define range(i32 -2, 1) i32 @opal_rb_tree_insert(ptr noundef %0, ptr noundef %1,
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = tail call fastcc ptr @opal_free_list_get(ptr noundef nonnull %4)
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %176, label %7
+  br i1 %6, label %184, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %5, i64 88
@@ -435,17 +435,17 @@ btree_insert.exit:                                ; preds = %._crit_edge.i, %33
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %btree_insert.exit, %166
-  %50 = phi ptr [ %169, %166 ], [ %47, %btree_insert.exit ]
-  %51 = phi ptr [ %168, %166 ], [ %46, %btree_insert.exit ]
-  %52 = phi ptr [ %167, %166 ], [ %15, %btree_insert.exit ]
-  %.04360 = phi ptr [ %.2, %166 ], [ %5, %btree_insert.exit ]
+.lr.ph:                                           ; preds = %btree_insert.exit, %174
+  %50 = phi ptr [ %177, %174 ], [ %47, %btree_insert.exit ]
+  %51 = phi ptr [ %176, %174 ], [ %46, %btree_insert.exit ]
+  %52 = phi ptr [ %175, %174 ], [ %15, %btree_insert.exit ]
+  %.04357 = phi ptr [ %.2, %174 ], [ %5, %btree_insert.exit ]
   %53 = getelementptr inbounds i8, ptr %51, i64 64
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 72
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %51, %56
-  br i1 %57, label %58, label %113
+  br i1 %57, label %58, label %117
 
 58:                                               ; preds = %.lr.ph
   %59 = getelementptr inbounds i8, ptr %54, i64 80
@@ -466,13 +466,13 @@ btree_insert.exit:                                ; preds = %._crit_edge.i, %33
   %69 = load ptr, ptr %52, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 64
   %71 = load ptr, ptr %70, align 8
-  br label %166
+  br label %174
 
 72:                                               ; preds = %58
   %73 = getelementptr inbounds i8, ptr %51, i64 80
   %74 = load ptr, ptr %73, align 8
-  %75 = icmp eq ptr %.04360, %74
-  br i1 %75, label %76, label %87
+  %75 = icmp eq ptr %.04357, %74
+  br i1 %75, label %76, label %88
 
 76:                                               ; preds = %72
   %.val = load ptr, ptr %16, align 8
@@ -484,191 +484,209 @@ btree_insert.exit:                                ; preds = %._crit_edge.i, %33
 79:                                               ; preds = %76
   %80 = getelementptr inbounds i8, ptr %78, i64 64
   store ptr %51, ptr %80, align 8
-  %.pre62 = load ptr, ptr %53, align 8
-  %.phi.trans.insert63 = getelementptr inbounds i8, ptr %.pre62, i64 72
-  %.pre64 = load ptr, ptr %.phi.trans.insert63, align 8
+  %.pre59 = load ptr, ptr %53, align 8
+  %.phi.trans.insert60 = getelementptr inbounds i8, ptr %.pre59, i64 72
+  %.pre61 = load ptr, ptr %.phi.trans.insert60, align 8
   br label %left_rotate.exit
 
-left_rotate.exit:                                 ; preds = %76, %79
-  %81 = phi ptr [ %51, %76 ], [ %.pre64, %79 ]
-  %82 = phi ptr [ %54, %76 ], [ %.pre62, %79 ]
+left_rotate.exit:                                 ; preds = %79, %76
+  %81 = phi ptr [ %.pre61, %79 ], [ %51, %76 ]
+  %82 = phi ptr [ %.pre59, %79 ], [ %54, %76 ]
   %83 = icmp eq ptr %51, %81
-  %.sink.i.v = select i1 %83, i64 72, i64 80
-  %.sink.i = getelementptr inbounds i8, ptr %82, i64 %.sink.i.v
-  store ptr %74, ptr %.sink.i, align 8
-  %84 = load ptr, ptr %53, align 8
-  %85 = getelementptr inbounds i8, ptr %74, i64 64
-  store ptr %84, ptr %85, align 8
+  %. = select i1 %83, i64 72, i64 80
+  %84 = getelementptr inbounds i8, ptr %82, i64 %.
+  store ptr %74, ptr %84, align 8
+  %85 = load ptr, ptr %53, align 8
+  %86 = getelementptr inbounds i8, ptr %74, i64 64
+  store ptr %85, ptr %86, align 8
   store ptr %74, ptr %53, align 8
-  %86 = load ptr, ptr %77, align 8
-  store ptr %86, ptr %73, align 8
+  %87 = load ptr, ptr %77, align 8
+  store ptr %87, ptr %73, align 8
   store ptr %51, ptr %77, align 8
-  br label %87
+  br label %88
 
-87:                                               ; preds = %left_rotate.exit, %72
-  %.1 = phi ptr [ %51, %left_rotate.exit ], [ %.04360, %72 ]
-  %88 = getelementptr inbounds i8, ptr %.1, i64 64
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 56
-  store i32 1, ptr %90, align 8
-  %91 = load ptr, ptr %88, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 64
-  %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 56
-  store i32 0, ptr %94, align 8
-  %95 = load ptr, ptr %88, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 64
-  %97 = load ptr, ptr %96, align 8
+88:                                               ; preds = %left_rotate.exit, %72
+  %.1 = phi ptr [ %51, %left_rotate.exit ], [ %.04357, %72 ]
+  %89 = getelementptr inbounds i8, ptr %.1, i64 64
+  %90 = load ptr, ptr %89, align 8
+  %91 = getelementptr inbounds i8, ptr %90, i64 56
+  store i32 1, ptr %91, align 8
+  %92 = load ptr, ptr %89, align 8
+  %93 = getelementptr inbounds i8, ptr %92, i64 64
+  %94 = load ptr, ptr %93, align 8
+  %95 = getelementptr inbounds i8, ptr %94, i64 56
+  store i32 0, ptr %95, align 8
+  %96 = load ptr, ptr %89, align 8
+  %97 = getelementptr inbounds i8, ptr %96, i64 64
+  %98 = load ptr, ptr %97, align 8
   %.val49 = load ptr, ptr %16, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 72
-  %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 80
-  %101 = load ptr, ptr %100, align 8
-  %.not.i52 = icmp eq ptr %101, %.val49
-  br i1 %.not.i52, label %right_rotate.exit, label %102
+  %99 = getelementptr inbounds i8, ptr %98, i64 72
+  %100 = load ptr, ptr %99, align 8
+  %101 = getelementptr inbounds i8, ptr %100, i64 80
+  %102 = load ptr, ptr %101, align 8
+  %.not.i52 = icmp eq ptr %102, %.val49
+  br i1 %.not.i52, label %105, label %103
 
-102:                                              ; preds = %87
-  %103 = getelementptr inbounds i8, ptr %101, i64 64
-  store ptr %97, ptr %103, align 8
+103:                                              ; preds = %88
+  %104 = getelementptr inbounds i8, ptr %102, i64 64
+  store ptr %98, ptr %104, align 8
+  br label %105
+
+105:                                              ; preds = %103, %88
+  %106 = getelementptr inbounds i8, ptr %98, i64 64
+  %107 = load ptr, ptr %106, align 8
+  %108 = getelementptr inbounds i8, ptr %107, i64 72
+  %109 = load ptr, ptr %108, align 8
+  %110 = icmp eq ptr %98, %109
+  br i1 %110, label %111, label %112
+
+111:                                              ; preds = %105
+  store ptr %100, ptr %108, align 8
   br label %right_rotate.exit
 
-right_rotate.exit:                                ; preds = %87, %102
-  %104 = getelementptr inbounds i8, ptr %97, i64 64
-  %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 72
-  %107 = load ptr, ptr %106, align 8
-  %108 = icmp eq ptr %97, %107
-  %109 = getelementptr inbounds i8, ptr %105, i64 80
-  %.sink.i53 = select i1 %108, ptr %106, ptr %109
-  store ptr %99, ptr %.sink.i53, align 8
-  %110 = load ptr, ptr %104, align 8
-  %111 = getelementptr inbounds i8, ptr %99, i64 64
-  store ptr %110, ptr %111, align 8
-  store ptr %99, ptr %104, align 8
-  %112 = load ptr, ptr %100, align 8
-  store ptr %112, ptr %98, align 8
-  store ptr %97, ptr %100, align 8
-  br label %166
+112:                                              ; preds = %105
+  %113 = getelementptr inbounds i8, ptr %107, i64 80
+  store ptr %100, ptr %113, align 8
+  br label %right_rotate.exit
 
-113:                                              ; preds = %.lr.ph
-  %114 = getelementptr inbounds i8, ptr %56, i64 56
-  %115 = load i32, ptr %114, align 8
-  %116 = icmp eq i32 %115, 0
-  br i1 %116, label %117, label %125
+right_rotate.exit:                                ; preds = %111, %112
+  %114 = load ptr, ptr %106, align 8
+  %115 = getelementptr inbounds i8, ptr %100, i64 64
+  store ptr %114, ptr %115, align 8
+  store ptr %100, ptr %106, align 8
+  %116 = load ptr, ptr %101, align 8
+  store ptr %116, ptr %99, align 8
+  store ptr %98, ptr %101, align 8
+  br label %174
 
-117:                                              ; preds = %113
+117:                                              ; preds = %.lr.ph
+  %118 = getelementptr inbounds i8, ptr %56, i64 56
+  %119 = load i32, ptr %118, align 8
+  %120 = icmp eq i32 %119, 0
+  br i1 %120, label %121, label %129
+
+121:                                              ; preds = %117
   store i32 1, ptr %50, align 8
-  store i32 1, ptr %114, align 8
-  %118 = load ptr, ptr %52, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 64
-  %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 56
-  store i32 0, ptr %121, align 8
+  store i32 1, ptr %118, align 8
   %122 = load ptr, ptr %52, align 8
   %123 = getelementptr inbounds i8, ptr %122, i64 64
   %124 = load ptr, ptr %123, align 8
-  br label %166
+  %125 = getelementptr inbounds i8, ptr %124, i64 56
+  store i32 0, ptr %125, align 8
+  %126 = load ptr, ptr %52, align 8
+  %127 = getelementptr inbounds i8, ptr %126, i64 64
+  %128 = load ptr, ptr %127, align 8
+  br label %174
 
-125:                                              ; preds = %113
-  %126 = getelementptr inbounds i8, ptr %51, i64 72
-  %127 = load ptr, ptr %126, align 8
-  %128 = icmp eq ptr %.04360, %127
-  br i1 %128, label %129, label %140
-
-129:                                              ; preds = %125
-  %.val50 = load ptr, ptr %16, align 8
-  %130 = getelementptr inbounds i8, ptr %127, i64 80
+129:                                              ; preds = %117
+  %130 = getelementptr inbounds i8, ptr %51, i64 72
   %131 = load ptr, ptr %130, align 8
-  %.not.i54 = icmp eq ptr %131, %.val50
-  br i1 %.not.i54, label %right_rotate.exit56, label %132
+  %132 = icmp eq ptr %.04357, %131
+  br i1 %132, label %133, label %145
 
-132:                                              ; preds = %129
-  %133 = getelementptr inbounds i8, ptr %131, i64 64
-  store ptr %51, ptr %133, align 8
+133:                                              ; preds = %129
+  %.val50 = load ptr, ptr %16, align 8
+  %134 = getelementptr inbounds i8, ptr %131, i64 80
+  %135 = load ptr, ptr %134, align 8
+  %.not.i53 = icmp eq ptr %135, %.val50
+  br i1 %.not.i53, label %right_rotate.exit54, label %136
+
+136:                                              ; preds = %133
+  %137 = getelementptr inbounds i8, ptr %135, i64 64
+  store ptr %51, ptr %137, align 8
   %.pre = load ptr, ptr %53, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 72
-  %.pre61 = load ptr, ptr %.phi.trans.insert, align 8
-  br label %right_rotate.exit56
+  %.pre58 = load ptr, ptr %.phi.trans.insert, align 8
+  br label %right_rotate.exit54
 
-right_rotate.exit56:                              ; preds = %129, %132
-  %134 = phi ptr [ %56, %129 ], [ %.pre61, %132 ]
-  %135 = phi ptr [ %54, %129 ], [ %.pre, %132 ]
-  %136 = icmp eq ptr %51, %134
-  %.sink.i55.v = select i1 %136, i64 72, i64 80
-  %.sink.i55 = getelementptr inbounds i8, ptr %135, i64 %.sink.i55.v
-  store ptr %127, ptr %.sink.i55, align 8
-  %137 = load ptr, ptr %53, align 8
-  %138 = getelementptr inbounds i8, ptr %127, i64 64
-  store ptr %137, ptr %138, align 8
-  store ptr %127, ptr %53, align 8
-  %139 = load ptr, ptr %130, align 8
-  store ptr %139, ptr %126, align 8
-  store ptr %51, ptr %130, align 8
-  br label %140
+right_rotate.exit54:                              ; preds = %136, %133
+  %138 = phi ptr [ %.pre58, %136 ], [ %56, %133 ]
+  %139 = phi ptr [ %.pre, %136 ], [ %54, %133 ]
+  %140 = icmp eq ptr %51, %138
+  %.64 = select i1 %140, i64 72, i64 80
+  %141 = getelementptr inbounds i8, ptr %139, i64 %.64
+  store ptr %131, ptr %141, align 8
+  %142 = load ptr, ptr %53, align 8
+  %143 = getelementptr inbounds i8, ptr %131, i64 64
+  store ptr %142, ptr %143, align 8
+  store ptr %131, ptr %53, align 8
+  %144 = load ptr, ptr %134, align 8
+  store ptr %144, ptr %130, align 8
+  store ptr %51, ptr %134, align 8
+  br label %145
 
-140:                                              ; preds = %right_rotate.exit56, %125
-  %.3 = phi ptr [ %51, %right_rotate.exit56 ], [ %.04360, %125 ]
-  %141 = getelementptr inbounds i8, ptr %.3, i64 64
-  %142 = load ptr, ptr %141, align 8
-  %143 = getelementptr inbounds i8, ptr %142, i64 56
-  store i32 1, ptr %143, align 8
-  %144 = load ptr, ptr %141, align 8
-  %145 = getelementptr inbounds i8, ptr %144, i64 64
-  %146 = load ptr, ptr %145, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 56
-  store i32 0, ptr %147, align 8
-  %148 = load ptr, ptr %141, align 8
-  %149 = getelementptr inbounds i8, ptr %148, i64 64
-  %150 = load ptr, ptr %149, align 8
+145:                                              ; preds = %right_rotate.exit54, %129
+  %.3 = phi ptr [ %51, %right_rotate.exit54 ], [ %.04357, %129 ]
+  %146 = getelementptr inbounds i8, ptr %.3, i64 64
+  %147 = load ptr, ptr %146, align 8
+  %148 = getelementptr inbounds i8, ptr %147, i64 56
+  store i32 1, ptr %148, align 8
+  %149 = load ptr, ptr %146, align 8
+  %150 = getelementptr inbounds i8, ptr %149, i64 64
+  %151 = load ptr, ptr %150, align 8
+  %152 = getelementptr inbounds i8, ptr %151, i64 56
+  store i32 0, ptr %152, align 8
+  %153 = load ptr, ptr %146, align 8
+  %154 = getelementptr inbounds i8, ptr %153, i64 64
+  %155 = load ptr, ptr %154, align 8
   %.val48 = load ptr, ptr %16, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 80
-  %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds i8, ptr %152, i64 72
-  %154 = load ptr, ptr %153, align 8
-  %.not.i57 = icmp eq ptr %154, %.val48
-  br i1 %.not.i57, label %left_rotate.exit59, label %155
+  %156 = getelementptr inbounds i8, ptr %155, i64 80
+  %157 = load ptr, ptr %156, align 8
+  %158 = getelementptr inbounds i8, ptr %157, i64 72
+  %159 = load ptr, ptr %158, align 8
+  %.not.i55 = icmp eq ptr %159, %.val48
+  br i1 %.not.i55, label %162, label %160
 
-155:                                              ; preds = %140
-  %156 = getelementptr inbounds i8, ptr %154, i64 64
-  store ptr %150, ptr %156, align 8
-  br label %left_rotate.exit59
+160:                                              ; preds = %145
+  %161 = getelementptr inbounds i8, ptr %159, i64 64
+  store ptr %155, ptr %161, align 8
+  br label %162
 
-left_rotate.exit59:                               ; preds = %140, %155
-  %157 = getelementptr inbounds i8, ptr %150, i64 64
-  %158 = load ptr, ptr %157, align 8
-  %159 = getelementptr inbounds i8, ptr %158, i64 72
-  %160 = load ptr, ptr %159, align 8
-  %161 = icmp eq ptr %150, %160
-  %162 = getelementptr inbounds i8, ptr %158, i64 80
-  %.sink.i58 = select i1 %161, ptr %159, ptr %162
-  store ptr %152, ptr %.sink.i58, align 8
-  %163 = load ptr, ptr %157, align 8
-  %164 = getelementptr inbounds i8, ptr %152, i64 64
-  store ptr %163, ptr %164, align 8
-  store ptr %152, ptr %157, align 8
-  %165 = load ptr, ptr %153, align 8
-  store ptr %165, ptr %151, align 8
-  store ptr %150, ptr %153, align 8
-  br label %166
+162:                                              ; preds = %160, %145
+  %163 = getelementptr inbounds i8, ptr %155, i64 64
+  %164 = load ptr, ptr %163, align 8
+  %165 = getelementptr inbounds i8, ptr %164, i64 72
+  %166 = load ptr, ptr %165, align 8
+  %167 = icmp eq ptr %155, %166
+  br i1 %167, label %168, label %169
 
-166:                                              ; preds = %117, %left_rotate.exit59, %64, %right_rotate.exit
-  %.2 = phi ptr [ %71, %64 ], [ %.1, %right_rotate.exit ], [ %124, %117 ], [ %.3, %left_rotate.exit59 ]
-  %167 = getelementptr inbounds i8, ptr %.2, i64 64
-  %168 = load ptr, ptr %167, align 8
-  %169 = getelementptr inbounds i8, ptr %168, i64 56
-  %170 = load i32, ptr %169, align 8
-  %171 = icmp eq i32 %170, 0
-  br i1 %171, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+168:                                              ; preds = %162
+  store ptr %157, ptr %165, align 8
+  br label %left_rotate.exit56
 
-._crit_edge:                                      ; preds = %166, %btree_insert.exit
-  %172 = load ptr, ptr %10, align 16
-  %173 = getelementptr inbounds i8, ptr %172, i64 72
-  %174 = load ptr, ptr %173, align 8
-  %175 = getelementptr inbounds i8, ptr %174, i64 56
-  store i32 1, ptr %175, align 8
-  br label %176
+169:                                              ; preds = %162
+  %170 = getelementptr inbounds i8, ptr %164, i64 80
+  store ptr %157, ptr %170, align 8
+  br label %left_rotate.exit56
 
-176:                                              ; preds = %3, %._crit_edge
+left_rotate.exit56:                               ; preds = %168, %169
+  %171 = load ptr, ptr %163, align 8
+  %172 = getelementptr inbounds i8, ptr %157, i64 64
+  store ptr %171, ptr %172, align 8
+  store ptr %157, ptr %163, align 8
+  %173 = load ptr, ptr %158, align 8
+  store ptr %173, ptr %156, align 8
+  store ptr %155, ptr %158, align 8
+  br label %174
+
+174:                                              ; preds = %121, %left_rotate.exit56, %64, %right_rotate.exit
+  %.2 = phi ptr [ %71, %64 ], [ %.1, %right_rotate.exit ], [ %128, %121 ], [ %.3, %left_rotate.exit56 ]
+  %175 = getelementptr inbounds i8, ptr %.2, i64 64
+  %176 = load ptr, ptr %175, align 8
+  %177 = getelementptr inbounds i8, ptr %176, i64 56
+  %178 = load i32, ptr %177, align 8
+  %179 = icmp eq i32 %178, 0
+  br i1 %179, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+
+._crit_edge:                                      ; preds = %174, %btree_insert.exit
+  %180 = load ptr, ptr %10, align 16
+  %181 = getelementptr inbounds i8, ptr %180, i64 72
+  %182 = load ptr, ptr %181, align 8
+  %183 = getelementptr inbounds i8, ptr %182, i64 56
+  store i32 1, ptr %183, align 8
+  br label %184
+
+184:                                              ; preds = %3, %._crit_edge
   %.0 = phi i32 [ 0, %._crit_edge ], [ -2, %3 ]
   ret i32 %.0
 }
@@ -785,472 +803,532 @@ btree_successor.exit:                             ; preds = %.preheader21.i, %op
 
 39:                                               ; preds = %33
   %40 = getelementptr inbounds i8, ptr %37, i64 72
-  br label %46
+  store ptr %.039, ptr %40, align 8
+  br label %48
 
 41:                                               ; preds = %33
   %42 = getelementptr inbounds i8, ptr %35, i64 72
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %.040, %43
-  %45 = getelementptr inbounds i8, ptr %35, i64 80
-  %spec.select = select i1 %44, ptr %42, ptr %45
-  br label %46
+  br i1 %44, label %45, label %46
 
-46:                                               ; preds = %41, %39
-  %.sink = phi ptr [ %40, %39 ], [ %spec.select, %41 ]
-  store ptr %.039, ptr %.sink, align 8
+45:                                               ; preds = %41
+  store ptr %.039, ptr %42, align 8
+  br label %48
+
+46:                                               ; preds = %41
+  %47 = getelementptr inbounds i8, ptr %35, i64 80
+  store ptr %.039, ptr %47, align 8
+  br label %48
+
+48:                                               ; preds = %45, %46, %39
   %.not = icmp eq ptr %.040, %.01115.i
-  br i1 %.not, label %53, label %47
+  br i1 %.not, label %55, label %49
 
-47:                                               ; preds = %46
-  %48 = getelementptr inbounds i8, ptr %.040, i64 88
-  %49 = load ptr, ptr %48, align 8
-  store ptr %49, ptr %17, align 8
-  %50 = getelementptr inbounds i8, ptr %.040, i64 96
+49:                                               ; preds = %48
+  %50 = getelementptr inbounds i8, ptr %.040, i64 88
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %.01115.i, i64 96
-  store ptr %51, ptr %52, align 8
-  br label %53
+  store ptr %51, ptr %17, align 8
+  %52 = getelementptr inbounds i8, ptr %.040, i64 96
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds i8, ptr %.01115.i, i64 96
+  store ptr %53, ptr %54, align 8
+  br label %55
 
-53:                                               ; preds = %47, %46
-  %54 = getelementptr inbounds i8, ptr %.040, i64 56
-  %55 = load i32, ptr %54, align 8
-  %56 = icmp eq i32 %55, 1
-  br i1 %56, label %57, label %250
+55:                                               ; preds = %49, %48
+  %56 = getelementptr inbounds i8, ptr %.040, i64 56
+  %57 = load i32, ptr %56, align 8
+  %58 = icmp eq i32 %57, 1
+  br i1 %58, label %59, label %270
 
-57:                                               ; preds = %53
-  %58 = load ptr, ptr %3, align 16
-  %59 = getelementptr inbounds i8, ptr %58, i64 72
-  %60 = load ptr, ptr %59, align 8
-  %.not78.i = icmp eq ptr %.039, %60
-  br i1 %.not78.i, label %btree_delete_fixup.exit, label %.lr.ph.i47
+59:                                               ; preds = %55
+  %60 = load ptr, ptr %3, align 16
+  %61 = getelementptr inbounds i8, ptr %60, i64 72
+  %62 = load ptr, ptr %61, align 8
+  %.not73.i = icmp eq ptr %.039, %62
+  br i1 %.not73.i, label %btree_delete_fixup.exit, label %.lr.ph.i47
 
-.lr.ph.i47:                                       ; preds = %57, %246
-  %.079.i = phi ptr [ %248, %246 ], [ %.039, %57 ]
-  %61 = getelementptr inbounds i8, ptr %.079.i, i64 56
-  %62 = load i32, ptr %61, align 8
-  %63 = icmp eq i32 %62, 1
-  br i1 %63, label %64, label %btree_delete_fixup.exit
+.lr.ph.i47:                                       ; preds = %59, %266
+  %.074.i = phi ptr [ %268, %266 ], [ %.039, %59 ]
+  %63 = getelementptr inbounds i8, ptr %.074.i, i64 56
+  %64 = load i32, ptr %63, align 8
+  %65 = icmp eq i32 %64, 1
+  br i1 %65, label %66, label %btree_delete_fixup.exit
 
-64:                                               ; preds = %.lr.ph.i47
-  %65 = getelementptr inbounds i8, ptr %.079.i, i64 64
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 72
+66:                                               ; preds = %.lr.ph.i47
+  %67 = getelementptr inbounds i8, ptr %.074.i, i64 64
   %68 = load ptr, ptr %67, align 8
-  %69 = icmp eq ptr %.079.i, %68
-  br i1 %69, label %70, label %159
+  %69 = getelementptr inbounds i8, ptr %68, i64 72
+  %70 = load ptr, ptr %69, align 8
+  %71 = icmp eq ptr %.074.i, %70
+  br i1 %71, label %72, label %170
 
-70:                                               ; preds = %64
-  %71 = getelementptr inbounds i8, ptr %66, i64 80
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 56
-  %74 = load i32, ptr %73, align 8
-  %75 = icmp eq i32 %74, 0
-  br i1 %75, label %76, label %98
+72:                                               ; preds = %66
+  %73 = getelementptr inbounds i8, ptr %68, i64 80
+  %74 = load ptr, ptr %73, align 8
+  %75 = getelementptr inbounds i8, ptr %74, i64 56
+  %76 = load i32, ptr %75, align 8
+  %77 = icmp eq i32 %76, 0
+  br i1 %77, label %78, label %103
 
-76:                                               ; preds = %70
-  store i32 1, ptr %73, align 8
-  %77 = load ptr, ptr %65, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 56
-  store i32 0, ptr %78, align 8
-  %79 = load ptr, ptr %65, align 8
+78:                                               ; preds = %72
+  store i32 1, ptr %75, align 8
+  %79 = load ptr, ptr %67, align 8
+  %80 = getelementptr inbounds i8, ptr %79, i64 56
+  store i32 0, ptr %80, align 8
+  %81 = load ptr, ptr %67, align 8
   %.val60.i = load ptr, ptr %7, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 80
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 72
+  %82 = getelementptr inbounds i8, ptr %81, i64 80
   %83 = load ptr, ptr %82, align 8
-  %.not.i.i = icmp eq ptr %83, %.val60.i
-  br i1 %.not.i.i, label %left_rotate.exit.i, label %84
+  %84 = getelementptr inbounds i8, ptr %83, i64 72
+  %85 = load ptr, ptr %84, align 8
+  %.not.i.i = icmp eq ptr %85, %.val60.i
+  br i1 %.not.i.i, label %88, label %86
 
-84:                                               ; preds = %76
-  %85 = getelementptr inbounds i8, ptr %83, i64 64
-  store ptr %79, ptr %85, align 8
+86:                                               ; preds = %78
+  %87 = getelementptr inbounds i8, ptr %85, i64 64
+  store ptr %81, ptr %87, align 8
+  br label %88
+
+88:                                               ; preds = %86, %78
+  %89 = getelementptr inbounds i8, ptr %81, i64 64
+  %90 = load ptr, ptr %89, align 8
+  %91 = getelementptr inbounds i8, ptr %90, i64 72
+  %92 = load ptr, ptr %91, align 8
+  %93 = icmp eq ptr %81, %92
+  br i1 %93, label %94, label %95
+
+94:                                               ; preds = %88
+  store ptr %83, ptr %91, align 8
   br label %left_rotate.exit.i
 
-left_rotate.exit.i:                               ; preds = %84, %76
-  %86 = getelementptr inbounds i8, ptr %79, i64 64
-  %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 72
-  %89 = load ptr, ptr %88, align 8
-  %90 = icmp eq ptr %79, %89
-  %91 = getelementptr inbounds i8, ptr %87, i64 80
-  %.sink.i.i = select i1 %90, ptr %88, ptr %91
-  store ptr %81, ptr %.sink.i.i, align 8
-  %92 = load ptr, ptr %86, align 8
-  %93 = getelementptr inbounds i8, ptr %81, i64 64
-  store ptr %92, ptr %93, align 8
-  store ptr %81, ptr %86, align 8
-  %94 = load ptr, ptr %82, align 8
-  store ptr %94, ptr %80, align 8
-  store ptr %79, ptr %82, align 8
-  %95 = load ptr, ptr %65, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 80
-  %97 = load ptr, ptr %96, align 8
-  br label %98
+95:                                               ; preds = %88
+  %96 = getelementptr inbounds i8, ptr %90, i64 80
+  store ptr %83, ptr %96, align 8
+  br label %left_rotate.exit.i
 
-98:                                               ; preds = %left_rotate.exit.i, %70
-  %99 = phi ptr [ %95, %left_rotate.exit.i ], [ %66, %70 ]
-  %.055.i = phi ptr [ %97, %left_rotate.exit.i ], [ %72, %70 ]
-  %100 = getelementptr inbounds i8, ptr %.055.i, i64 72
-  %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 56
-  %103 = load i32, ptr %102, align 8
-  %104 = icmp eq i32 %103, 1
-  br i1 %104, label %105, label %111
+left_rotate.exit.i:                               ; preds = %95, %94
+  %97 = load ptr, ptr %89, align 8
+  %98 = getelementptr inbounds i8, ptr %83, i64 64
+  store ptr %97, ptr %98, align 8
+  store ptr %83, ptr %89, align 8
+  %99 = load ptr, ptr %84, align 8
+  store ptr %99, ptr %82, align 8
+  store ptr %81, ptr %84, align 8
+  %100 = load ptr, ptr %67, align 8
+  %101 = getelementptr inbounds i8, ptr %100, i64 80
+  %102 = load ptr, ptr %101, align 8
+  br label %103
 
-105:                                              ; preds = %98
-  %106 = getelementptr inbounds i8, ptr %.055.i, i64 80
-  %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 56
-  %109 = load i32, ptr %108, align 8
-  %110 = icmp eq i32 %109, 1
-  br i1 %110, label %246, label %.thread.i
+103:                                              ; preds = %left_rotate.exit.i, %72
+  %104 = phi ptr [ %100, %left_rotate.exit.i ], [ %68, %72 ]
+  %.055.i = phi ptr [ %102, %left_rotate.exit.i ], [ %74, %72 ]
+  %105 = getelementptr inbounds i8, ptr %.055.i, i64 72
+  %106 = load ptr, ptr %105, align 8
+  %107 = getelementptr inbounds i8, ptr %106, i64 56
+  %108 = load i32, ptr %107, align 8
+  %109 = icmp eq i32 %108, 1
+  br i1 %109, label %110, label %116
 
-111:                                              ; preds = %98
-  %112 = getelementptr inbounds i8, ptr %.055.i, i64 72
-  %.phi.trans.insert85.i = getelementptr inbounds i8, ptr %.055.i, i64 80
-  %.pre86.i = load ptr, ptr %.phi.trans.insert85.i, align 8
-  %.phi.trans.insert87.i = getelementptr inbounds i8, ptr %.pre86.i, i64 56
-  %.pre88.i = load i32, ptr %.phi.trans.insert87.i, align 8
-  %113 = icmp eq i32 %.pre88.i, 1
-  br i1 %113, label %114, label %.thread.i
+110:                                              ; preds = %103
+  %111 = getelementptr inbounds i8, ptr %.055.i, i64 80
+  %112 = load ptr, ptr %111, align 8
+  %113 = getelementptr inbounds i8, ptr %112, i64 56
+  %114 = load i32, ptr %113, align 8
+  %115 = icmp eq i32 %114, 1
+  br i1 %115, label %266, label %.thread.i
 
-114:                                              ; preds = %111
-  %115 = getelementptr inbounds i8, ptr %101, i64 56
-  store i32 1, ptr %115, align 8
-  %116 = getelementptr inbounds i8, ptr %.055.i, i64 56
-  store i32 0, ptr %116, align 8
+116:                                              ; preds = %103
+  %117 = getelementptr inbounds i8, ptr %.055.i, i64 72
+  %.phi.trans.insert80.i = getelementptr inbounds i8, ptr %.055.i, i64 80
+  %.pre81.i = load ptr, ptr %.phi.trans.insert80.i, align 8
+  %.phi.trans.insert82.i = getelementptr inbounds i8, ptr %.pre81.i, i64 56
+  %.pre83.i = load i32, ptr %.phi.trans.insert82.i, align 8
+  %118 = icmp eq i32 %.pre83.i, 1
+  br i1 %118, label %119, label %.thread.i
+
+119:                                              ; preds = %116
+  %120 = getelementptr inbounds i8, ptr %106, i64 56
+  store i32 1, ptr %120, align 8
+  %121 = getelementptr inbounds i8, ptr %.055.i, i64 56
+  store i32 0, ptr %121, align 8
   %.val63.i = load ptr, ptr %7, align 8
-  %117 = load ptr, ptr %112, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 80
-  %119 = load ptr, ptr %118, align 8
-  %.not.i64.i = icmp eq ptr %119, %.val63.i
-  br i1 %.not.i64.i, label %right_rotate.exit.i, label %120
+  %122 = load ptr, ptr %117, align 8
+  %123 = getelementptr inbounds i8, ptr %122, i64 80
+  %124 = load ptr, ptr %123, align 8
+  %.not.i64.i = icmp eq ptr %124, %.val63.i
+  br i1 %.not.i64.i, label %127, label %125
 
-120:                                              ; preds = %114
-  %121 = getelementptr inbounds i8, ptr %119, i64 64
-  store ptr %.055.i, ptr %121, align 8
+125:                                              ; preds = %119
+  %126 = getelementptr inbounds i8, ptr %124, i64 64
+  store ptr %.055.i, ptr %126, align 8
+  br label %127
+
+127:                                              ; preds = %125, %119
+  %128 = getelementptr inbounds i8, ptr %.055.i, i64 64
+  %129 = load ptr, ptr %128, align 8
+  %130 = getelementptr inbounds i8, ptr %129, i64 72
+  %131 = load ptr, ptr %130, align 8
+  %132 = icmp eq ptr %.055.i, %131
+  br i1 %132, label %133, label %134
+
+133:                                              ; preds = %127
+  store ptr %122, ptr %130, align 8
   br label %right_rotate.exit.i
 
-right_rotate.exit.i:                              ; preds = %120, %114
-  %122 = getelementptr inbounds i8, ptr %.055.i, i64 64
-  %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 72
-  %125 = load ptr, ptr %124, align 8
-  %126 = icmp eq ptr %.055.i, %125
-  %127 = getelementptr inbounds i8, ptr %123, i64 80
-  %.sink.i65.i = select i1 %126, ptr %124, ptr %127
-  store ptr %117, ptr %.sink.i65.i, align 8
-  %128 = load ptr, ptr %122, align 8
-  %129 = getelementptr inbounds i8, ptr %117, i64 64
-  store ptr %128, ptr %129, align 8
-  store ptr %117, ptr %122, align 8
-  %130 = load ptr, ptr %118, align 8
-  store ptr %130, ptr %112, align 8
-  store ptr %.055.i, ptr %118, align 8
-  %131 = load ptr, ptr %65, align 8
-  %132 = getelementptr inbounds i8, ptr %131, i64 80
-  %133 = load ptr, ptr %132, align 8
+134:                                              ; preds = %127
+  %135 = getelementptr inbounds i8, ptr %129, i64 80
+  store ptr %122, ptr %135, align 8
+  br label %right_rotate.exit.i
+
+right_rotate.exit.i:                              ; preds = %134, %133
+  %136 = load ptr, ptr %128, align 8
+  %137 = getelementptr inbounds i8, ptr %122, i64 64
+  store ptr %136, ptr %137, align 8
+  store ptr %122, ptr %128, align 8
+  %138 = load ptr, ptr %123, align 8
+  store ptr %138, ptr %117, align 8
+  store ptr %.055.i, ptr %123, align 8
+  %139 = load ptr, ptr %67, align 8
+  %140 = getelementptr inbounds i8, ptr %139, i64 80
+  %141 = load ptr, ptr %140, align 8
   br label %.thread.i
 
-.thread.i:                                        ; preds = %105, %right_rotate.exit.i, %111
-  %134 = phi ptr [ %131, %right_rotate.exit.i ], [ %99, %111 ], [ %99, %105 ]
-  %.156.i = phi ptr [ %133, %right_rotate.exit.i ], [ %.055.i, %111 ], [ %.055.i, %105 ]
-  %135 = getelementptr inbounds i8, ptr %134, i64 56
-  %136 = load i32, ptr %135, align 8
-  %137 = getelementptr inbounds i8, ptr %.156.i, i64 56
-  store i32 %136, ptr %137, align 8
-  %138 = load ptr, ptr %65, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 56
-  store i32 1, ptr %139, align 8
-  %140 = getelementptr inbounds i8, ptr %.156.i, i64 80
-  %141 = load ptr, ptr %140, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 56
-  store i32 1, ptr %142, align 8
-  %143 = load ptr, ptr %65, align 8
+.thread.i:                                        ; preds = %110, %right_rotate.exit.i, %116
+  %142 = phi ptr [ %139, %right_rotate.exit.i ], [ %104, %116 ], [ %104, %110 ]
+  %.156.i = phi ptr [ %141, %right_rotate.exit.i ], [ %.055.i, %116 ], [ %.055.i, %110 ]
+  %143 = getelementptr inbounds i8, ptr %142, i64 56
+  %144 = load i32, ptr %143, align 8
+  %145 = getelementptr inbounds i8, ptr %.156.i, i64 56
+  store i32 %144, ptr %145, align 8
+  %146 = load ptr, ptr %67, align 8
+  %147 = getelementptr inbounds i8, ptr %146, i64 56
+  store i32 1, ptr %147, align 8
+  %148 = getelementptr inbounds i8, ptr %.156.i, i64 80
+  %149 = load ptr, ptr %148, align 8
+  %150 = getelementptr inbounds i8, ptr %149, i64 56
+  store i32 1, ptr %150, align 8
+  %151 = load ptr, ptr %67, align 8
   %.val59.i = load ptr, ptr %7, align 8
-  %144 = getelementptr inbounds i8, ptr %143, i64 80
-  %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds i8, ptr %145, i64 72
-  %147 = load ptr, ptr %146, align 8
-  %.not.i66.i = icmp eq ptr %147, %.val59.i
-  br i1 %.not.i66.i, label %left_rotate.exit68.i, label %148
-
-148:                                              ; preds = %.thread.i
-  %149 = getelementptr inbounds i8, ptr %147, i64 64
-  store ptr %143, ptr %149, align 8
-  br label %left_rotate.exit68.i
-
-left_rotate.exit68.i:                             ; preds = %148, %.thread.i
-  %150 = getelementptr inbounds i8, ptr %143, i64 64
-  %151 = load ptr, ptr %150, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 72
+  %152 = getelementptr inbounds i8, ptr %151, i64 80
   %153 = load ptr, ptr %152, align 8
-  %154 = icmp eq ptr %143, %153
-  %155 = getelementptr inbounds i8, ptr %151, i64 80
-  %.sink.i67.i = select i1 %154, ptr %152, ptr %155
-  store ptr %145, ptr %.sink.i67.i, align 8
-  %156 = load ptr, ptr %150, align 8
-  %157 = getelementptr inbounds i8, ptr %145, i64 64
-  store ptr %156, ptr %157, align 8
-  store ptr %145, ptr %150, align 8
-  %158 = load ptr, ptr %146, align 8
-  store ptr %158, ptr %144, align 8
-  store ptr %143, ptr %146, align 8
+  %154 = getelementptr inbounds i8, ptr %153, i64 72
+  %155 = load ptr, ptr %154, align 8
+  %.not.i65.i = icmp eq ptr %155, %.val59.i
+  br i1 %.not.i65.i, label %158, label %156
+
+156:                                              ; preds = %.thread.i
+  %157 = getelementptr inbounds i8, ptr %155, i64 64
+  store ptr %151, ptr %157, align 8
+  br label %158
+
+158:                                              ; preds = %156, %.thread.i
+  %159 = getelementptr inbounds i8, ptr %151, i64 64
+  %160 = load ptr, ptr %159, align 8
+  %161 = getelementptr inbounds i8, ptr %160, i64 72
+  %162 = load ptr, ptr %161, align 8
+  %163 = icmp eq ptr %151, %162
+  br i1 %163, label %164, label %165
+
+164:                                              ; preds = %158
+  store ptr %153, ptr %161, align 8
+  br label %left_rotate.exit66.i
+
+165:                                              ; preds = %158
+  %166 = getelementptr inbounds i8, ptr %160, i64 80
+  store ptr %153, ptr %166, align 8
+  br label %left_rotate.exit66.i
+
+left_rotate.exit66.i:                             ; preds = %165, %164
+  %167 = load ptr, ptr %159, align 8
+  %168 = getelementptr inbounds i8, ptr %153, i64 64
+  store ptr %167, ptr %168, align 8
+  store ptr %153, ptr %159, align 8
+  %169 = load ptr, ptr %154, align 8
+  store ptr %169, ptr %152, align 8
+  store ptr %151, ptr %154, align 8
   br label %btree_delete_fixup.exit
 
-159:                                              ; preds = %64
-  %160 = getelementptr inbounds i8, ptr %68, i64 56
-  %161 = load i32, ptr %160, align 8
-  %162 = icmp eq i32 %161, 0
-  br i1 %162, label %163, label %185
+170:                                              ; preds = %66
+  %171 = getelementptr inbounds i8, ptr %70, i64 56
+  %172 = load i32, ptr %171, align 8
+  %173 = icmp eq i32 %172, 0
+  br i1 %173, label %174, label %199
 
-163:                                              ; preds = %159
-  store i32 1, ptr %160, align 8
-  %164 = load ptr, ptr %65, align 8
-  %165 = getelementptr inbounds i8, ptr %164, i64 56
-  store i32 0, ptr %165, align 8
-  %166 = load ptr, ptr %65, align 8
+174:                                              ; preds = %170
+  store i32 1, ptr %171, align 8
+  %175 = load ptr, ptr %67, align 8
+  %176 = getelementptr inbounds i8, ptr %175, i64 56
+  store i32 0, ptr %176, align 8
+  %177 = load ptr, ptr %67, align 8
   %.val62.i = load ptr, ptr %7, align 8
-  %167 = getelementptr inbounds i8, ptr %166, i64 72
-  %168 = load ptr, ptr %167, align 8
-  %169 = getelementptr inbounds i8, ptr %168, i64 80
-  %170 = load ptr, ptr %169, align 8
-  %.not.i69.i = icmp eq ptr %170, %.val62.i
-  br i1 %.not.i69.i, label %right_rotate.exit71.i, label %171
+  %178 = getelementptr inbounds i8, ptr %177, i64 72
+  %179 = load ptr, ptr %178, align 8
+  %180 = getelementptr inbounds i8, ptr %179, i64 80
+  %181 = load ptr, ptr %180, align 8
+  %.not.i67.i = icmp eq ptr %181, %.val62.i
+  br i1 %.not.i67.i, label %184, label %182
 
-171:                                              ; preds = %163
-  %172 = getelementptr inbounds i8, ptr %170, i64 64
-  store ptr %166, ptr %172, align 8
-  br label %right_rotate.exit71.i
+182:                                              ; preds = %174
+  %183 = getelementptr inbounds i8, ptr %181, i64 64
+  store ptr %177, ptr %183, align 8
+  br label %184
 
-right_rotate.exit71.i:                            ; preds = %171, %163
-  %173 = getelementptr inbounds i8, ptr %166, i64 64
-  %174 = load ptr, ptr %173, align 8
-  %175 = getelementptr inbounds i8, ptr %174, i64 72
-  %176 = load ptr, ptr %175, align 8
-  %177 = icmp eq ptr %166, %176
-  %178 = getelementptr inbounds i8, ptr %174, i64 80
-  %.sink.i70.i = select i1 %177, ptr %175, ptr %178
-  store ptr %168, ptr %.sink.i70.i, align 8
-  %179 = load ptr, ptr %173, align 8
-  %180 = getelementptr inbounds i8, ptr %168, i64 64
-  store ptr %179, ptr %180, align 8
-  store ptr %168, ptr %173, align 8
-  %181 = load ptr, ptr %169, align 8
-  store ptr %181, ptr %167, align 8
-  store ptr %166, ptr %169, align 8
-  %182 = load ptr, ptr %65, align 8
-  %183 = getelementptr inbounds i8, ptr %182, i64 72
-  %184 = load ptr, ptr %183, align 8
-  br label %185
-
-185:                                              ; preds = %right_rotate.exit71.i, %159
-  %186 = phi ptr [ %182, %right_rotate.exit71.i ], [ %66, %159 ]
-  %.2.i = phi ptr [ %184, %right_rotate.exit71.i ], [ %68, %159 ]
-  %187 = getelementptr inbounds i8, ptr %.2.i, i64 80
+184:                                              ; preds = %182, %174
+  %185 = getelementptr inbounds i8, ptr %177, i64 64
+  %186 = load ptr, ptr %185, align 8
+  %187 = getelementptr inbounds i8, ptr %186, i64 72
   %188 = load ptr, ptr %187, align 8
-  %189 = getelementptr inbounds i8, ptr %188, i64 56
-  %190 = load i32, ptr %189, align 8
-  %191 = icmp eq i32 %190, 1
-  br i1 %191, label %192, label %198
+  %189 = icmp eq ptr %177, %188
+  br i1 %189, label %190, label %191
 
-192:                                              ; preds = %185
-  %193 = getelementptr inbounds i8, ptr %.2.i, i64 72
-  %194 = load ptr, ptr %193, align 8
-  %195 = getelementptr inbounds i8, ptr %194, i64 56
-  %196 = load i32, ptr %195, align 8
-  %197 = icmp eq i32 %196, 1
-  br i1 %197, label %246, label %.thread89.i
+190:                                              ; preds = %184
+  store ptr %179, ptr %187, align 8
+  br label %right_rotate.exit68.i
 
-198:                                              ; preds = %185
-  %199 = getelementptr inbounds i8, ptr %.2.i, i64 80
+191:                                              ; preds = %184
+  %192 = getelementptr inbounds i8, ptr %186, i64 80
+  store ptr %179, ptr %192, align 8
+  br label %right_rotate.exit68.i
+
+right_rotate.exit68.i:                            ; preds = %191, %190
+  %193 = load ptr, ptr %185, align 8
+  %194 = getelementptr inbounds i8, ptr %179, i64 64
+  store ptr %193, ptr %194, align 8
+  store ptr %179, ptr %185, align 8
+  %195 = load ptr, ptr %180, align 8
+  store ptr %195, ptr %178, align 8
+  store ptr %177, ptr %180, align 8
+  %196 = load ptr, ptr %67, align 8
+  %197 = getelementptr inbounds i8, ptr %196, i64 72
+  %198 = load ptr, ptr %197, align 8
+  br label %199
+
+199:                                              ; preds = %right_rotate.exit68.i, %170
+  %200 = phi ptr [ %196, %right_rotate.exit68.i ], [ %68, %170 ]
+  %.2.i = phi ptr [ %198, %right_rotate.exit68.i ], [ %70, %170 ]
+  %201 = getelementptr inbounds i8, ptr %.2.i, i64 80
+  %202 = load ptr, ptr %201, align 8
+  %203 = getelementptr inbounds i8, ptr %202, i64 56
+  %204 = load i32, ptr %203, align 8
+  %205 = icmp eq i32 %204, 1
+  br i1 %205, label %206, label %212
+
+206:                                              ; preds = %199
+  %207 = getelementptr inbounds i8, ptr %.2.i, i64 72
+  %208 = load ptr, ptr %207, align 8
+  %209 = getelementptr inbounds i8, ptr %208, i64 56
+  %210 = load i32, ptr %209, align 8
+  %211 = icmp eq i32 %210, 1
+  br i1 %211, label %266, label %.thread84.i
+
+212:                                              ; preds = %199
+  %213 = getelementptr inbounds i8, ptr %.2.i, i64 80
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.2.i, i64 72
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
-  %.phi.trans.insert82.i = getelementptr inbounds i8, ptr %.pre.i, i64 56
-  %.pre83.i = load i32, ptr %.phi.trans.insert82.i, align 8
-  %200 = icmp eq i32 %.pre83.i, 1
-  br i1 %200, label %201, label %.thread89.i
+  %.phi.trans.insert77.i = getelementptr inbounds i8, ptr %.pre.i, i64 56
+  %.pre78.i = load i32, ptr %.phi.trans.insert77.i, align 8
+  %214 = icmp eq i32 %.pre78.i, 1
+  br i1 %214, label %215, label %.thread84.i
 
-201:                                              ; preds = %198
-  %202 = getelementptr inbounds i8, ptr %188, i64 56
-  store i32 1, ptr %202, align 8
-  %203 = getelementptr inbounds i8, ptr %.2.i, i64 56
-  store i32 0, ptr %203, align 8
+215:                                              ; preds = %212
+  %216 = getelementptr inbounds i8, ptr %202, i64 56
+  store i32 1, ptr %216, align 8
+  %217 = getelementptr inbounds i8, ptr %.2.i, i64 56
+  store i32 0, ptr %217, align 8
   %.val.i = load ptr, ptr %7, align 8
-  %204 = load ptr, ptr %199, align 8
-  %205 = getelementptr inbounds i8, ptr %204, i64 72
-  %206 = load ptr, ptr %205, align 8
-  %.not.i72.i = icmp eq ptr %206, %.val.i
-  br i1 %.not.i72.i, label %left_rotate.exit74.i, label %207
-
-207:                                              ; preds = %201
-  %208 = getelementptr inbounds i8, ptr %206, i64 64
-  store ptr %.2.i, ptr %208, align 8
-  br label %left_rotate.exit74.i
-
-left_rotate.exit74.i:                             ; preds = %207, %201
-  %209 = getelementptr inbounds i8, ptr %.2.i, i64 64
-  %210 = load ptr, ptr %209, align 8
-  %211 = getelementptr inbounds i8, ptr %210, i64 72
-  %212 = load ptr, ptr %211, align 8
-  %213 = icmp eq ptr %.2.i, %212
-  %214 = getelementptr inbounds i8, ptr %210, i64 80
-  %.sink.i73.i = select i1 %213, ptr %211, ptr %214
-  store ptr %204, ptr %.sink.i73.i, align 8
-  %215 = load ptr, ptr %209, align 8
-  %216 = getelementptr inbounds i8, ptr %204, i64 64
-  store ptr %215, ptr %216, align 8
-  store ptr %204, ptr %209, align 8
-  %217 = load ptr, ptr %205, align 8
-  store ptr %217, ptr %199, align 8
-  store ptr %.2.i, ptr %205, align 8
-  %218 = load ptr, ptr %65, align 8
+  %218 = load ptr, ptr %213, align 8
   %219 = getelementptr inbounds i8, ptr %218, i64 72
   %220 = load ptr, ptr %219, align 8
-  br label %.thread89.i
+  %.not.i69.i = icmp eq ptr %220, %.val.i
+  br i1 %.not.i69.i, label %223, label %221
 
-.thread89.i:                                      ; preds = %192, %left_rotate.exit74.i, %198
-  %221 = phi ptr [ %218, %left_rotate.exit74.i ], [ %186, %198 ], [ %186, %192 ]
-  %.3.i = phi ptr [ %220, %left_rotate.exit74.i ], [ %.2.i, %198 ], [ %.2.i, %192 ]
-  %222 = getelementptr inbounds i8, ptr %221, i64 56
-  %223 = load i32, ptr %222, align 8
-  %224 = getelementptr inbounds i8, ptr %.3.i, i64 56
-  store i32 %223, ptr %224, align 8
-  %225 = load ptr, ptr %65, align 8
-  %226 = getelementptr inbounds i8, ptr %225, i64 56
-  store i32 1, ptr %226, align 8
-  %227 = getelementptr inbounds i8, ptr %.3.i, i64 72
-  %228 = load ptr, ptr %227, align 8
-  %229 = getelementptr inbounds i8, ptr %228, i64 56
-  store i32 1, ptr %229, align 8
-  %230 = load ptr, ptr %65, align 8
+221:                                              ; preds = %215
+  %222 = getelementptr inbounds i8, ptr %220, i64 64
+  store ptr %.2.i, ptr %222, align 8
+  br label %223
+
+223:                                              ; preds = %221, %215
+  %224 = getelementptr inbounds i8, ptr %.2.i, i64 64
+  %225 = load ptr, ptr %224, align 8
+  %226 = getelementptr inbounds i8, ptr %225, i64 72
+  %227 = load ptr, ptr %226, align 8
+  %228 = icmp eq ptr %.2.i, %227
+  br i1 %228, label %229, label %230
+
+229:                                              ; preds = %223
+  store ptr %218, ptr %226, align 8
+  br label %left_rotate.exit70.i
+
+230:                                              ; preds = %223
+  %231 = getelementptr inbounds i8, ptr %225, i64 80
+  store ptr %218, ptr %231, align 8
+  br label %left_rotate.exit70.i
+
+left_rotate.exit70.i:                             ; preds = %230, %229
+  %232 = load ptr, ptr %224, align 8
+  %233 = getelementptr inbounds i8, ptr %218, i64 64
+  store ptr %232, ptr %233, align 8
+  store ptr %218, ptr %224, align 8
+  %234 = load ptr, ptr %219, align 8
+  store ptr %234, ptr %213, align 8
+  store ptr %.2.i, ptr %219, align 8
+  %235 = load ptr, ptr %67, align 8
+  %236 = getelementptr inbounds i8, ptr %235, i64 72
+  %237 = load ptr, ptr %236, align 8
+  br label %.thread84.i
+
+.thread84.i:                                      ; preds = %206, %left_rotate.exit70.i, %212
+  %238 = phi ptr [ %235, %left_rotate.exit70.i ], [ %200, %212 ], [ %200, %206 ]
+  %.3.i = phi ptr [ %237, %left_rotate.exit70.i ], [ %.2.i, %212 ], [ %.2.i, %206 ]
+  %239 = getelementptr inbounds i8, ptr %238, i64 56
+  %240 = load i32, ptr %239, align 8
+  %241 = getelementptr inbounds i8, ptr %.3.i, i64 56
+  store i32 %240, ptr %241, align 8
+  %242 = load ptr, ptr %67, align 8
+  %243 = getelementptr inbounds i8, ptr %242, i64 56
+  store i32 1, ptr %243, align 8
+  %244 = getelementptr inbounds i8, ptr %.3.i, i64 72
+  %245 = load ptr, ptr %244, align 8
+  %246 = getelementptr inbounds i8, ptr %245, i64 56
+  store i32 1, ptr %246, align 8
+  %247 = load ptr, ptr %67, align 8
   %.val61.i = load ptr, ptr %7, align 8
-  %231 = getelementptr inbounds i8, ptr %230, i64 72
-  %232 = load ptr, ptr %231, align 8
-  %233 = getelementptr inbounds i8, ptr %232, i64 80
-  %234 = load ptr, ptr %233, align 8
-  %.not.i75.i = icmp eq ptr %234, %.val61.i
-  br i1 %.not.i75.i, label %right_rotate.exit77.i, label %235
+  %248 = getelementptr inbounds i8, ptr %247, i64 72
+  %249 = load ptr, ptr %248, align 8
+  %250 = getelementptr inbounds i8, ptr %249, i64 80
+  %251 = load ptr, ptr %250, align 8
+  %.not.i71.i = icmp eq ptr %251, %.val61.i
+  br i1 %.not.i71.i, label %254, label %252
 
-235:                                              ; preds = %.thread89.i
-  %236 = getelementptr inbounds i8, ptr %234, i64 64
-  store ptr %230, ptr %236, align 8
-  br label %right_rotate.exit77.i
+252:                                              ; preds = %.thread84.i
+  %253 = getelementptr inbounds i8, ptr %251, i64 64
+  store ptr %247, ptr %253, align 8
+  br label %254
 
-right_rotate.exit77.i:                            ; preds = %235, %.thread89.i
-  %237 = getelementptr inbounds i8, ptr %230, i64 64
-  %238 = load ptr, ptr %237, align 8
-  %239 = getelementptr inbounds i8, ptr %238, i64 72
-  %240 = load ptr, ptr %239, align 8
-  %241 = icmp eq ptr %230, %240
-  %242 = getelementptr inbounds i8, ptr %238, i64 80
-  %.sink.i76.i = select i1 %241, ptr %239, ptr %242
-  store ptr %232, ptr %.sink.i76.i, align 8
-  %243 = load ptr, ptr %237, align 8
-  %244 = getelementptr inbounds i8, ptr %232, i64 64
-  store ptr %243, ptr %244, align 8
-  store ptr %232, ptr %237, align 8
-  %245 = load ptr, ptr %233, align 8
-  store ptr %245, ptr %231, align 8
-  store ptr %230, ptr %233, align 8
+254:                                              ; preds = %252, %.thread84.i
+  %255 = getelementptr inbounds i8, ptr %247, i64 64
+  %256 = load ptr, ptr %255, align 8
+  %257 = getelementptr inbounds i8, ptr %256, i64 72
+  %258 = load ptr, ptr %257, align 8
+  %259 = icmp eq ptr %247, %258
+  br i1 %259, label %260, label %261
+
+260:                                              ; preds = %254
+  store ptr %249, ptr %257, align 8
+  br label %right_rotate.exit72.i
+
+261:                                              ; preds = %254
+  %262 = getelementptr inbounds i8, ptr %256, i64 80
+  store ptr %249, ptr %262, align 8
+  br label %right_rotate.exit72.i
+
+right_rotate.exit72.i:                            ; preds = %261, %260
+  %263 = load ptr, ptr %255, align 8
+  %264 = getelementptr inbounds i8, ptr %249, i64 64
+  store ptr %263, ptr %264, align 8
+  store ptr %249, ptr %255, align 8
+  %265 = load ptr, ptr %250, align 8
+  store ptr %265, ptr %248, align 8
+  store ptr %247, ptr %250, align 8
   br label %btree_delete_fixup.exit
 
-246:                                              ; preds = %192, %105
-  %.2.sink.i = phi ptr [ %.055.i, %105 ], [ %.2.i, %192 ]
-  %247 = getelementptr inbounds i8, ptr %.2.sink.i, i64 56
-  store i32 0, ptr %247, align 8
-  %248 = load ptr, ptr %65, align 8
-  %.not.i48 = icmp eq ptr %248, %60
+266:                                              ; preds = %206, %110
+  %.2.sink.i = phi ptr [ %.055.i, %110 ], [ %.2.i, %206 ]
+  %267 = getelementptr inbounds i8, ptr %.2.sink.i, i64 56
+  store i32 0, ptr %267, align 8
+  %268 = load ptr, ptr %67, align 8
+  %.not.i48 = icmp eq ptr %268, %62
   br i1 %.not.i48, label %btree_delete_fixup.exit, label %.lr.ph.i47, !llvm.loop !12
 
-btree_delete_fixup.exit:                          ; preds = %.lr.ph.i47, %246, %57, %left_rotate.exit68.i, %right_rotate.exit77.i
-  %.0.lcssa.i = phi ptr [ %.039, %57 ], [ %60, %left_rotate.exit68.i ], [ %60, %right_rotate.exit77.i ], [ %.079.i, %.lr.ph.i47 ], [ %248, %246 ]
-  %249 = getelementptr inbounds i8, ptr %.0.lcssa.i, i64 56
-  store i32 1, ptr %249, align 8
-  br label %250
+btree_delete_fixup.exit:                          ; preds = %.lr.ph.i47, %266, %59, %left_rotate.exit66.i, %right_rotate.exit72.i
+  %.0.lcssa.i = phi ptr [ %.039, %59 ], [ %62, %left_rotate.exit66.i ], [ %62, %right_rotate.exit72.i ], [ %.074.i, %.lr.ph.i47 ], [ %268, %266 ]
+  %269 = getelementptr inbounds i8, ptr %.0.lcssa.i, i64 56
+  store i32 1, ptr %269, align 8
+  br label %270
 
-250:                                              ; preds = %btree_delete_fixup.exit, %53
-  %251 = load i8, ptr @opal_uses_threads, align 1
-  %252 = trunc i8 %251 to i1
-  %253 = getelementptr inbounds i8, ptr %0, i64 72
-  %254 = load volatile i64, ptr %253, align 8
-  br i1 %252, label %255, label %272
+270:                                              ; preds = %btree_delete_fixup.exit, %55
+  %271 = load i8, ptr @opal_uses_threads, align 1
+  %272 = trunc i8 %271 to i1
+  %273 = getelementptr inbounds i8, ptr %0, i64 72
+  %274 = load volatile i64, ptr %273, align 8
+  br i1 %272, label %275, label %292
 
-255:                                              ; preds = %250
-  %256 = getelementptr inbounds i8, ptr %.040, i64 16
-  %.08.i.i.i = inttoptr i64 %254 to ptr
-  store volatile ptr %.08.i.i.i, ptr %256, align 8
+275:                                              ; preds = %270
+  %276 = getelementptr inbounds i8, ptr %.040, i64 16
+  %.08.i.i.i = inttoptr i64 %274 to ptr
+  store volatile ptr %.08.i.i.i, ptr %276, align 8
   fence release
-  %257 = ptrtoint ptr %.040 to i64
-  %258 = cmpxchg volatile ptr %253, i64 %254, i64 %257 acquire monotonic, align 8
-  %259 = extractvalue { i64, i1 } %258, 1
-  br i1 %259, label %opal_lifo_push_atomic.exit.i.i, label %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i
+  %277 = ptrtoint ptr %.040 to i64
+  %278 = cmpxchg volatile ptr %273, i64 %274, i64 %277 acquire monotonic, align 8
+  %279 = extractvalue { i64, i1 } %278, 1
+  br i1 %279, label %opal_lifo_push_atomic.exit.i.i, label %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i
 
-opal_atomic_compare_exchange_strong_ptr.exit.i.i.i: ; preds = %255, %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i
-  %260 = phi { i64, i1 } [ %262, %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i ], [ %258, %255 ]
-  %261 = extractvalue { i64, i1 } %260, 0
-  %.0.i.i.i = inttoptr i64 %261 to ptr
-  store volatile ptr %.0.i.i.i, ptr %256, align 8
+opal_atomic_compare_exchange_strong_ptr.exit.i.i.i: ; preds = %275, %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i
+  %280 = phi { i64, i1 } [ %282, %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i ], [ %278, %275 ]
+  %281 = extractvalue { i64, i1 } %280, 0
+  %.0.i.i.i = inttoptr i64 %281 to ptr
+  store volatile ptr %.0.i.i.i, ptr %276, align 8
   fence release
-  %262 = cmpxchg volatile ptr %253, i64 %261, i64 %257 acquire monotonic, align 8
-  %263 = extractvalue { i64, i1 } %262, 1
-  br i1 %263, label %opal_lifo_push_atomic.exit.i.i, label %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i
+  %282 = cmpxchg volatile ptr %273, i64 %281, i64 %277 acquire monotonic, align 8
+  %283 = extractvalue { i64, i1 } %282, 1
+  br i1 %283, label %opal_lifo_push_atomic.exit.i.i, label %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i
 
-opal_lifo_push_atomic.exit.i.i:                   ; preds = %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i, %255
-  %.0.lcssa.i.i.i = phi ptr [ %.08.i.i.i, %255 ], [ %.0.i.i.i, %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i ]
-  %264 = getelementptr inbounds i8, ptr %0, i64 80
-  %265 = icmp eq ptr %264, %.0.lcssa.i.i.i
-  br i1 %265, label %266, label %opal_free_list_return.exit
+opal_lifo_push_atomic.exit.i.i:                   ; preds = %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i, %275
+  %.0.lcssa.i.i.i = phi ptr [ %.08.i.i.i, %275 ], [ %.0.i.i.i, %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i ]
+  %284 = getelementptr inbounds i8, ptr %0, i64 80
+  %285 = icmp eq ptr %284, %.0.lcssa.i.i.i
+  br i1 %285, label %286, label %opal_free_list_return.exit
 
-266:                                              ; preds = %opal_lifo_push_atomic.exit.i.i
-  %267 = getelementptr inbounds i8, ptr %0, i64 152
-  %268 = load i64, ptr %267, align 8
-  %.not.i.i49 = icmp eq i64 %268, 0
-  br i1 %.not.i.i49, label %opal_free_list_return.exit, label %269
+286:                                              ; preds = %opal_lifo_push_atomic.exit.i.i
+  %287 = getelementptr inbounds i8, ptr %0, i64 152
+  %288 = load i64, ptr %287, align 8
+  %.not.i.i49 = icmp eq i64 %288, 0
+  br i1 %.not.i.i49, label %opal_free_list_return.exit, label %289
 
-269:                                              ; preds = %266
-  %270 = getelementptr inbounds i8, ptr %0, i64 296
-  %271 = load volatile i32, ptr %270, align 8
-  %.not.i.i.i = icmp eq i32 %271, 0
+289:                                              ; preds = %286
+  %290 = getelementptr inbounds i8, ptr %0, i64 296
+  %291 = load volatile i32, ptr %290, align 8
+  %.not.i.i.i = icmp eq i32 %291, 0
   br i1 %.not.i.i.i, label %opal_free_list_return.exit, label %opal_free_list_return_mt.exit.sink.split.i
 
-272:                                              ; preds = %250
-  %273 = inttoptr i64 %254 to ptr
-  %274 = getelementptr inbounds i8, ptr %.040, i64 16
-  store volatile ptr %273, ptr %274, align 8
-  %275 = getelementptr inbounds i8, ptr %.040, i64 32
-  store i32 0, ptr %275, align 8
-  %276 = ptrtoint ptr %.040 to i64
-  store volatile i64 %276, ptr %253, align 8
-  %277 = load volatile ptr, ptr %274, align 8
-  %278 = getelementptr inbounds i8, ptr %0, i64 80
-  %279 = icmp eq ptr %278, %277
-  br i1 %279, label %280, label %opal_free_list_return.exit
+292:                                              ; preds = %270
+  %293 = inttoptr i64 %274 to ptr
+  %294 = getelementptr inbounds i8, ptr %.040, i64 16
+  store volatile ptr %293, ptr %294, align 8
+  %295 = getelementptr inbounds i8, ptr %.040, i64 32
+  store i32 0, ptr %295, align 8
+  %296 = ptrtoint ptr %.040 to i64
+  store volatile i64 %296, ptr %273, align 8
+  %297 = load volatile ptr, ptr %294, align 8
+  %298 = getelementptr inbounds i8, ptr %0, i64 80
+  %299 = icmp eq ptr %298, %297
+  br i1 %299, label %300, label %opal_free_list_return.exit
 
-280:                                              ; preds = %272
-  %281 = getelementptr inbounds i8, ptr %0, i64 152
-  %282 = load i64, ptr %281, align 8
-  %.not.i4.i = icmp eq i64 %282, 0
-  br i1 %.not.i4.i, label %opal_free_list_return.exit, label %283
+300:                                              ; preds = %292
+  %301 = getelementptr inbounds i8, ptr %0, i64 152
+  %302 = load i64, ptr %301, align 8
+  %.not.i4.i = icmp eq i64 %302, 0
+  br i1 %.not.i4.i, label %opal_free_list_return.exit, label %303
 
-283:                                              ; preds = %280
-  %284 = getelementptr inbounds i8, ptr %0, i64 296
-  %285 = load volatile i32, ptr %284, align 8
-  %.not.i.i5.i = icmp eq i32 %285, 0
+303:                                              ; preds = %300
+  %304 = getelementptr inbounds i8, ptr %0, i64 296
+  %305 = load volatile i32, ptr %304, align 8
+  %.not.i.i5.i = icmp eq i32 %305, 0
   br i1 %.not.i.i5.i, label %opal_free_list_return.exit, label %opal_free_list_return_mt.exit.sink.split.i
 
-opal_free_list_return_mt.exit.sink.split.i:       ; preds = %283, %269
-  %286 = getelementptr inbounds i8, ptr %0, i64 300
-  %287 = load volatile i32, ptr %286, align 4
-  %288 = add nsw i32 %287, 1
-  store volatile i32 %288, ptr %286, align 4
+opal_free_list_return_mt.exit.sink.split.i:       ; preds = %303, %289
+  %306 = getelementptr inbounds i8, ptr %0, i64 300
+  %307 = load volatile i32, ptr %306, align 4
+  %308 = add nsw i32 %307, 1
+  store volatile i32 %308, ptr %306, align 4
   br label %opal_free_list_return.exit
 
-opal_free_list_return.exit:                       ; preds = %opal_lifo_push_atomic.exit.i.i, %266, %269, %272, %280, %283, %opal_free_list_return_mt.exit.sink.split.i
-  %289 = getelementptr inbounds i8, ptr %0, i64 400
-  %290 = load i64, ptr %289, align 16
-  %291 = add i64 %290, -1
-  store i64 %291, ptr %289, align 16
+opal_free_list_return.exit:                       ; preds = %opal_lifo_push_atomic.exit.i.i, %286, %289, %292, %300, %303, %opal_free_list_return_mt.exit.sink.split.i
+  %309 = getelementptr inbounds i8, ptr %0, i64 400
+  %310 = load i64, ptr %309, align 16
+  %311 = add i64 %310, -1
+  store i64 %311, ptr %309, align 16
   br label %opal_rb_tree_find_node.exit.thread
 
 opal_rb_tree_find_node.exit.thread:               ; preds = %14, %2, %opal_free_list_return.exit

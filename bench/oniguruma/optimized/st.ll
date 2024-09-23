@@ -1024,15 +1024,15 @@ define void @onig_st_cleanup_safe(ptr nocapture noundef %0, i64 noundef %1) loca
 23:                                               ; preds = %19
   %24 = load ptr, ptr %8, align 8
   %25 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv.i
+  store ptr %22, ptr %25, align 8
   br label %28
 
 26:                                               ; preds = %19
   %27 = getelementptr inbounds i8, ptr %.03448.i, i64 24
+  store ptr %22, ptr %27, align 8
   br label %28
 
 28:                                               ; preds = %26, %23
-  %.sink.i = phi ptr [ %27, %26 ], [ %25, %23 ]
-  store ptr %22, ptr %.sink.i, align 8
   tail call void @free(ptr noundef nonnull %.03647.i) #13
   %29 = load i32, ptr %3, align 4
   %30 = add nsw i32 %29, -1
@@ -1135,15 +1135,15 @@ define range(i32 0, 2) i32 @onig_st_foreach(ptr nocapture noundef %0, ptr nocapt
 35:                                               ; preds = %31
   %36 = load ptr, ptr %7, align 8
   %37 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv
+  store ptr %34, ptr %37, align 8
   br label %40
 
 38:                                               ; preds = %31
   %39 = getelementptr inbounds i8, ptr %.03448, i64 24
+  store ptr %34, ptr %39, align 8
   br label %40
 
 40:                                               ; preds = %38, %35
-  %.sink = phi ptr [ %39, %38 ], [ %37, %35 ]
-  store ptr %34, ptr %.sink, align 8
   tail call void @free(ptr noundef nonnull %.03647) #13
   %41 = load i32, ptr %8, align 4
   %42 = add nsw i32 %41, -1

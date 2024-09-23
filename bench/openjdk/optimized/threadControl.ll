@@ -2509,7 +2509,7 @@ define hidden i32 @threadControl_setEventMode(i32 noundef %0, i32 noundef %1, pt
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @eventIndex2jvmti(i32 noundef %1) #6
   %18 = tail call i32 (ptr, i32, i32, ptr, ...) %16(ptr noundef nonnull %13, i32 noundef %0, i32 noundef %17, ptr noundef null) #6
-  br label %56
+  br label %58
 
 19:                                               ; preds = %3
   %20 = load ptr, ptr @threadLock, align 8
@@ -2526,7 +2526,7 @@ define hidden i32 @threadControl_setEventMode(i32 noundef %0, i32 noundef %1, pt
   %26 = load i16, ptr %25, align 8
   %27 = and i16 %26, 16
   %.not = icmp eq i16 %27, 0
-  br i1 %.not, label %28, label %38
+  br i1 %.not, label %28, label %40
 
 28:                                               ; preds = %24, %19
   %29 = tail call ptr @getEnv() #6
@@ -2545,52 +2545,61 @@ define hidden i32 @threadControl_setEventMode(i32 noundef %0, i32 noundef %1, pt
   store ptr null, ptr %35, align 8
   %36 = load ptr, ptr getelementptr inbounds (i8, ptr @deferredEventModes, i64 8), align 8
   %.not.i.i = icmp eq ptr %36, null
-  %37 = getelementptr inbounds i8, ptr %36, i64 16
-  %deferredEventModes.sink.i.i = select i1 %.not.i.i, ptr @deferredEventModes, ptr %37
-  store ptr %30, ptr %deferredEventModes.sink.i.i, align 8
+  br i1 %.not.i.i, label %39, label %37
+
+37:                                               ; preds = %32
+  %38 = getelementptr inbounds i8, ptr %36, i64 16
+  store ptr %30, ptr %38, align 8
+  br label %insertEventMode.exit.i
+
+39:                                               ; preds = %32
+  store ptr %30, ptr @deferredEventModes, align 8
+  br label %insertEventMode.exit.i
+
+insertEventMode.exit.i:                           ; preds = %39, %37
   store ptr %30, ptr getelementptr inbounds (i8, ptr @deferredEventModes, i64 8), align 8
   br label %addDeferredEventMode.exit
 
-38:                                               ; preds = %24
-  %39 = icmp eq i32 %1, 1
-  br i1 %39, label %40, label %42
+40:                                               ; preds = %24
+  %41 = icmp eq i32 %1, 1
+  br i1 %41, label %42, label %44
 
-40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %22, i64 28
-  store i32 %0, ptr %41, align 4
-  br label %42
+42:                                               ; preds = %40
+  %43 = getelementptr inbounds i8, ptr %22, i64 28
+  store i32 %0, ptr %43, align 4
+  br label %44
 
-42:                                               ; preds = %40, %38
-  %43 = load ptr, ptr @gdata, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 528
-  %45 = load i32, ptr %44, align 8
-  %46 = and i32 %45, 4
-  %.not.i19 = icmp eq i32 %46, 0
-  br i1 %.not.i19, label %threadSetEventNotificationMode.exit, label %47
+44:                                               ; preds = %42, %40
+  %45 = load ptr, ptr @gdata, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 528
+  %47 = load i32, ptr %46, align 8
+  %48 = and i32 %47, 4
+  %.not.i19 = icmp eq i32 %48, 0
+  br i1 %.not.i19, label %threadSetEventNotificationMode.exit, label %49
 
-47:                                               ; preds = %42
+49:                                               ; preds = %44
   tail call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 604) #6
   tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.36) #6
   %.pre.i = load ptr, ptr @gdata, align 8
   br label %threadSetEventNotificationMode.exit
 
-threadSetEventNotificationMode.exit:              ; preds = %42, %47
-  %48 = phi ptr [ %43, %42 ], [ %.pre.i, %47 ]
-  %49 = load ptr, ptr %48, align 8
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 8
+threadSetEventNotificationMode.exit:              ; preds = %44, %49
+  %50 = phi ptr [ %45, %44 ], [ %.pre.i, %49 ]
+  %51 = load ptr, ptr %50, align 8
   %52 = load ptr, ptr %51, align 8
-  %53 = tail call i32 @eventIndex2jvmti(i32 noundef %1) #6
-  %54 = tail call i32 (ptr, i32, i32, ptr, ...) %52(ptr noundef nonnull %49, i32 noundef %0, i32 noundef %53, ptr noundef nonnull %2) #6
+  %53 = getelementptr inbounds i8, ptr %52, i64 8
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call i32 @eventIndex2jvmti(i32 noundef %1) #6
+  %56 = tail call i32 (ptr, i32, i32, ptr, ...) %54(ptr noundef nonnull %51, i32 noundef %0, i32 noundef %55, ptr noundef nonnull %2) #6
   br label %addDeferredEventMode.exit
 
-addDeferredEventMode.exit:                        ; preds = %32, %28, %threadSetEventNotificationMode.exit
-  %.1 = phi i32 [ %54, %threadSetEventNotificationMode.exit ], [ 0, %32 ], [ 188, %28 ]
-  %55 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorExit(ptr noundef %55) #6
-  br label %56
+addDeferredEventMode.exit:                        ; preds = %insertEventMode.exit.i, %28, %threadSetEventNotificationMode.exit
+  %.1 = phi i32 [ %56, %threadSetEventNotificationMode.exit ], [ 0, %insertEventMode.exit.i ], [ 188, %28 ]
+  %57 = load ptr, ptr @threadLock, align 8
+  tail call void @debugMonitorExit(ptr noundef %57) #6
+  br label %58
 
-56:                                               ; preds = %addDeferredEventMode.exit, %11
+58:                                               ; preds = %addDeferredEventMode.exit, %11
   %.0 = phi i32 [ %18, %11 ], [ %.1, %addDeferredEventMode.exit ]
   ret i32 %.0
 }
@@ -2725,7 +2734,7 @@ getPopFrameThread.exit.i:                         ; preds = %3
   %37 = getelementptr inbounds i8, ptr %36, i64 104
   %38 = load ptr, ptr %37, align 8
   %39 = tail call i32 %38(ptr noundef nonnull %7, ptr noundef nonnull %2) #6
-  br label %166
+  br label %169
 
 40:                                               ; preds = %28
   br i1 %.not59, label %42, label %41
@@ -2740,7 +2749,7 @@ getPopFrameThread.exit.i:                         ; preds = %3
   %44 = getelementptr inbounds i8, ptr %43, i64 136
   %45 = load ptr, ptr %44, align 8
   tail call void %45(ptr noundef nonnull %7) #6
-  br label %166
+  br label %169
 
 checkForPopFrameEvents.exit:                      ; preds = %26, %23, %21, %20, %17, %16, %getPopFrameThread.exit.i, %getPopFrameThread.exit.thread.i
   %46 = load ptr, ptr @threadLock, align 8
@@ -2892,7 +2901,7 @@ moveNode.exit:                                    ; preds = %85, %86
 .thread:                                          ; preds = %96, %104
   switch i32 %4, label %processDeferredEventModes.exit [
     i32 5, label %109
-    i32 6, label %151
+    i32 6, label %154
   ]
 
 109:                                              ; preds = %.thread
@@ -2908,16 +2917,16 @@ moveNode.exit:                                    ; preds = %85, %86
   %114 = getelementptr inbounds i8, ptr %.045, i64 28
   br label %115
 
-115:                                              ; preds = %150, %.lr.ph.i
-  %.025.i = phi ptr [ %113, %.lr.ph.i ], [ %117, %150 ]
-  %.01924.i = phi ptr [ null, %.lr.ph.i ], [ %.1.i, %150 ]
+115:                                              ; preds = %153, %.lr.ph.i
+  %.025.i = phi ptr [ %113, %.lr.ph.i ], [ %117, %153 ]
+  %.01924.i = phi ptr [ null, %.lr.ph.i ], [ %.1.i, %153 ]
   %116 = getelementptr inbounds i8, ptr %.025.i, i64 16
   %117 = load ptr, ptr %116, align 8
   %118 = getelementptr inbounds i8, ptr %.025.i, i64 8
   %119 = load ptr, ptr %118, align 8
   %120 = tail call zeroext i8 @isSameObject(ptr noundef %7, ptr noundef %6, ptr noundef %119) #6
   %.not21.i = icmp eq i8 %120, 0
-  br i1 %.not21.i, label %150, label %121
+  br i1 %.not21.i, label %153, label %121
 
 121:                                              ; preds = %115
   %122 = getelementptr inbounds i8, ptr %.025.i, i64 4
@@ -2966,62 +2975,71 @@ threadSetEventNotificationMode.exit.i:            ; preds = %133, %128
 144:                                              ; preds = %141, %threadSetEventNotificationMode.exit.i
   %145 = icmp eq ptr %.01924.i, null
   %146 = load ptr, ptr %116, align 8
-  %147 = getelementptr inbounds i8, ptr %.01924.i, i64 16
-  %.sink.i.i = select i1 %145, ptr @deferredEventModes, ptr %147
-  store ptr %146, ptr %.sink.i.i, align 8
-  %148 = icmp eq ptr %146, null
-  br i1 %148, label %149, label %removeEventMode.exit.i
+  br i1 %145, label %147, label %148
 
-149:                                              ; preds = %144
+147:                                              ; preds = %144
+  store ptr %146, ptr @deferredEventModes, align 8
+  br label %150
+
+148:                                              ; preds = %144
+  %149 = getelementptr inbounds i8, ptr %.01924.i, i64 16
+  store ptr %146, ptr %149, align 8
+  br label %150
+
+150:                                              ; preds = %148, %147
+  %151 = icmp eq ptr %146, null
+  br i1 %151, label %152, label %removeEventMode.exit.i
+
+152:                                              ; preds = %150
   store ptr %.01924.i, ptr getelementptr inbounds (i8, ptr @deferredEventModes, i64 8), align 8
   br label %removeEventMode.exit.i
 
-removeEventMode.exit.i:                           ; preds = %149, %144
+removeEventMode.exit.i:                           ; preds = %152, %150
   tail call void @tossGlobalRef(ptr noundef %7, ptr noundef nonnull %118) #6
   tail call void @jvmtiDeallocate(ptr noundef nonnull %.025.i) #6
-  br label %150
+  br label %153
 
-150:                                              ; preds = %removeEventMode.exit.i, %115
+153:                                              ; preds = %removeEventMode.exit.i, %115
   %.1.i = phi ptr [ %.01924.i, %removeEventMode.exit.i ], [ %.025.i, %115 ]
   %.not.i63 = icmp eq ptr %117, null
   br i1 %.not.i63, label %processDeferredEventModes.exit, label %115, !llvm.loop !18
 
-151:                                              ; preds = %.thread
-  %152 = getelementptr inbounds i8, ptr %.045, i64 8
-  %153 = load i16, ptr %152, align 8
-  %154 = or i16 %153, 16
-  store i16 %154, ptr %152, align 8
+154:                                              ; preds = %.thread
+  %155 = getelementptr inbounds i8, ptr %.045, i64 8
+  %156 = load i16, ptr %155, align 8
+  %157 = or i16 %156, 16
+  store i16 %157, ptr %155, align 8
   br label %processDeferredEventModes.exit
 
-processDeferredEventModes.exit:                   ; preds = %150, %103, %109, %.thread67, %.thread, %151
-  %155 = getelementptr inbounds i8, ptr %.045, i64 12
-  store i32 %4, ptr %155, align 4
-  %156 = getelementptr inbounds i8, ptr %.045, i64 192
-  %157 = load ptr, ptr %156, align 8
-  %158 = getelementptr inbounds i8, ptr %.045, i64 8
-  %159 = load i16, ptr %158, align 8
-  %160 = and i16 %159, 8
-  %.not56 = icmp eq i16 %160, 0
-  br i1 %.not56, label %.thread68, label %162
+processDeferredEventModes.exit:                   ; preds = %153, %103, %109, %.thread67, %.thread, %154
+  %158 = getelementptr inbounds i8, ptr %.045, i64 12
+  store i32 %4, ptr %158, align 4
+  %159 = getelementptr inbounds i8, ptr %.045, i64 192
+  %160 = load ptr, ptr %159, align 8
+  %161 = getelementptr inbounds i8, ptr %.045, i64 8
+  %162 = load i16, ptr %161, align 8
+  %163 = and i16 %162, 8
+  %.not56 = icmp eq i16 %163, 0
+  br i1 %.not56, label %.thread68, label %165
 
 .thread68:                                        ; preds = %processDeferredEventModes.exit
-  %161 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorExit(ptr noundef %161) #6
-  br label %166
-
-162:                                              ; preds = %processDeferredEventModes.exit
-  %163 = load ptr, ptr %.045, align 8
   %164 = load ptr, ptr @threadLock, align 8
   tail call void @debugMonitorExit(ptr noundef %164) #6
-  %.not57 = icmp eq ptr %163, null
-  br i1 %.not57, label %166, label %165
+  br label %169
 
-165:                                              ; preds = %162
-  tail call void @eventHelper_suspendThread(i8 noundef signext %0, ptr noundef nonnull %163) #6
-  br label %166
+165:                                              ; preds = %processDeferredEventModes.exit
+  %166 = load ptr, ptr %.045, align 8
+  %167 = load ptr, ptr @threadLock, align 8
+  tail call void @debugMonitorExit(ptr noundef %167) #6
+  %.not57 = icmp eq ptr %166, null
+  br i1 %.not57, label %169, label %168
 
-166:                                              ; preds = %.thread68, %162, %165, %35, %42
-  %.0 = phi ptr [ null, %42 ], [ null, %35 ], [ %157, %165 ], [ %157, %162 ], [ %157, %.thread68 ]
+168:                                              ; preds = %165
+  tail call void @eventHelper_suspendThread(i8 noundef signext %0, ptr noundef nonnull %166) #6
+  br label %169
+
+169:                                              ; preds = %.thread68, %165, %168, %35, %42
+  %.0 = phi ptr [ null, %42 ], [ null, %35 ], [ %160, %168 ], [ %160, %165 ], [ %160, %.thread68 ]
   ret ptr %.0
 }
 

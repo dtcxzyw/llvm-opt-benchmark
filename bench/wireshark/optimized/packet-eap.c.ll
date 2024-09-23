@@ -873,6 +873,7 @@ define internal i32 @dissect_eap(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   store i32 1, ptr %6, align 8
   store i32 6, ptr %42, align 4
   store ptr @dissect_eap.pae_group_address_mac_addr, ptr %43, align 8
+  store ptr null, ptr %44, align 8
   br label %64
 
 46:                                               ; preds = %37
@@ -883,6 +884,7 @@ define internal i32 @dissect_eap(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   store i32 0, ptr %6, align 8
   store i32 0, ptr %42, align 4
   store ptr null, ptr %43, align 8
+  store ptr null, ptr %44, align 8
   br label %64
 
 47:                                               ; preds = %4
@@ -909,13 +911,12 @@ define internal i32 @dissect_eap(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %62 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %60, ptr %62, align 8
   %63 = getelementptr inbounds i8, ptr %6, i64 16
+  store ptr null, ptr %63, align 8
   br label %64
 
 64:                                               ; preds = %45, %46, %47
-  %.sink = phi ptr [ %44, %45 ], [ %44, %46 ], [ %63, %47 ]
   %.0476 = phi i32 [ %33, %45 ], [ 443, %46 ], [ %33, %47 ]
   %.0465 = phi i32 [ 443, %45 ], [ %31, %46 ], [ %31, %47 ]
-  store ptr null, ptr %.sink, align 8
   %65 = icmp eq i8 %21, 1
   %66 = or i32 %.0476, %29
   %.1477 = select i1 %65, i32 %66, i32 %.0476
@@ -1486,16 +1487,16 @@ proto_item_set_generated.exit:                    ; preds = %313, %310, %307, %3
   %370 = zext i8 %351 to i32
   %switch.tableidx = add i32 %369, -1
   %371 = icmp ult i32 %switch.tableidx, 4
-  br i1 %371, label %switch.lookup547, label %373
+  br i1 %371, label %switch.lookup545, label %373
 
-switch.lookup547:                                 ; preds = %368
+switch.lookup545:                                 ; preds = %368
   %372 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_eap, i64 0, i64 %372
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %373
 
-373:                                              ; preds = %368, %switch.lookup547
-  %hf_eap_leap_data.sink = phi ptr [ %switch.load, %switch.lookup547 ], [ @hf_eap_leap_data, %368 ]
+373:                                              ; preds = %368, %switch.lookup545
+  %hf_eap_leap_data.sink = phi ptr [ %switch.load, %switch.lookup545 ], [ @hf_eap_leap_data, %368 ]
   %374 = load i32, ptr %hf_eap_leap_data.sink, align 4
   %375 = call ptr @proto_tree_add_item(ptr noundef %108, i32 noundef %374, ptr noundef %0, i32 noundef 8, i32 noundef %370, i32 noundef 0) #6
   %376 = add nuw nsw i32 %370, 8

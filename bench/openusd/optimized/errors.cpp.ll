@@ -1386,20 +1386,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 switch.lookup:                                    ; preds = %29
   %43 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZNK32pxrInternal_v0_24__pxrReserved__16PcpErrorArcCycle8ToStringB5cxx11Ev, i64 0, i64 %43
-  br label %.invoke.sink.split
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  br label %.invoke
 
 switch.lookup32:                                  ; preds = %39
   %44 = zext nneg i32 %switch.tableidx33 to i64
   %switch.gep34 = getelementptr inbounds [5 x ptr], ptr @switch.table._ZNK32pxrInternal_v0_24__pxrReserved__28PcpErrorArcToProhibitedChild8ToStringB5cxx11Ev, i64 0, i64 %44
-  br label %.invoke.sink.split
-
-.invoke.sink.split:                               ; preds = %switch.lookup, %switch.lookup32
-  %switch.gep34.sink = phi ptr [ %switch.gep34, %switch.lookup32 ], [ %switch.gep, %switch.lookup ]
-  %switch.load35 = load ptr, ptr %switch.gep34.sink, align 8
+  %switch.load35 = load ptr, ptr %switch.gep34, align 8
   br label %.invoke
 
-.invoke:                                          ; preds = %.invoke.sink.split, %39, %29
-  %45 = phi ptr [ @.str.8, %29 ], [ @.str.15, %39 ], [ %switch.load35, %.invoke.sink.split ]
+.invoke:                                          ; preds = %39, %switch.lookup32, %29, %switch.lookup
+  %45 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.8, %29 ], [ %switch.load35, %switch.lookup32 ], [ @.str.15, %39 ]
   %46 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %45)
           to label %47 unwind label %35
 

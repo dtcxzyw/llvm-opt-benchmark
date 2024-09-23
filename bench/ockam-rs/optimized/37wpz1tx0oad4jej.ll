@@ -124848,6 +124848,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i.i.i:
 
 .thread309:                                       ; preds = %894
   %895 = getelementptr inbounds i8, ptr %0, i64 514
+  store i8 0, ptr %895, align 2, !noalias !16406
   br label %.thread372.sink.split
 
 896:                                              ; preds = %894
@@ -124932,6 +124933,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i.i.i:
   %922 = getelementptr inbounds i8, ptr %0, i64 513
   store i8 0, ptr %922, align 1, !noalias !16406
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %42), !noalias !16406
+  store i8 0, ptr %897, align 2, !noalias !16406
   br label %.thread372.sink.split
 
 923:                                              ; preds = %942, %906, %859
@@ -125023,8 +125025,6 @@ common.ret:                                       ; preds = %1154, %951
   br label %89
 
 .thread372.sink.split:                            ; preds = %.thread316, %.thread309
-  %.sink = phi ptr [ %895, %.thread309 ], [ %897, %.thread316 ]
-  store i8 0, ptr %.sink, align 2, !noalias !16406
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %43), !noalias !16406
   br label %.thread372
 

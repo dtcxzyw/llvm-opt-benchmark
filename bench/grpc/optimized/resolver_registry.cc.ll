@@ -488,11 +488,10 @@ if.then.i.i.i.i.i:                                ; preds = %entry
   store ptr %0, ptr %_M_parent16.i.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %5 = load i64, ptr %_M_node_count.i.i.i.i.i.i, align 8
-  %_M_node_count17.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 40
-  store i64 %5, ptr %_M_node_count17.i.i.i.i.i.i, align 8
   store ptr null, ptr %_M_parent.i.i.i.i.i, align 8
   store ptr %add.ptr.i.i.i.i, ptr %_M_left.i.i.i.i.i.i, align 8
   store ptr %add.ptr.i.i.i.i, ptr %_M_right.i.i.i.i.i.i, align 8
+  store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8
   br label %_ZN9grpc_core16ResolverRegistry5StateC2EOS1_.exit
 
 if.else.i.i.i.i.i:                                ; preds = %entry
@@ -503,71 +502,69 @@ if.else.i.i.i.i.i:                                ; preds = %entry
   store ptr %0, ptr %_M_left.i3.i.i.i.i.i, align 8
   %_M_right.i4.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
   store ptr %0, ptr %_M_right.i4.i.i.i.i.i, align 8
-  %_M_node_count.i5.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 40
   br label %_ZN9grpc_core16ResolverRegistry5StateC2EOS1_.exit
 
 _ZN9grpc_core16ResolverRegistry5StateC2EOS1_.exit: ; preds = %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  %_M_node_count.i5.sink.i.i.i.i.i = phi ptr [ %_M_node_count.i5.i.i.i.i.i, %if.else.i.i.i.i.i ], [ %_M_node_count.i.i.i.i.i.i, %if.then.i.i.i.i.i ]
-  store i64 0, ptr %_M_node_count.i5.sink.i.i.i.i.i, align 8
+  %.sink = phi i64 [ 0, %if.else.i.i.i.i.i ], [ %5, %if.then.i.i.i.i.i ]
+  %6 = getelementptr inbounds i8, ptr %agg.tmp, i64 40
+  store i64 %.sink, ptr %6, align 8
   %default_prefix.i = getelementptr inbounds i8, ptr %agg.tmp, i64 48
   %default_prefix3.i = getelementptr inbounds i8, ptr %this, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %default_prefix.i, ptr noundef nonnull align 8 dereferenceable(32) %default_prefix3.i) #18
-  %6 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %7 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  %7 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %7, null
+  %8 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZN9grpc_core16ResolverRegistry5StateC2EOS1_.exit
-  %8 = load i32, ptr %0, align 8
-  store i32 %8, ptr %6, align 8
+  %9 = load i32, ptr %0, align 8
+  store i32 %9, ptr %7, align 8
   %_M_parent6.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store ptr %7, ptr %_M_parent6.i.i.i.i.i.i.i, align 8
+  store ptr %8, ptr %_M_parent6.i.i.i.i.i.i.i, align 8
   %_M_left.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  %9 = load ptr, ptr %_M_left.i.i.i.i.i.i.i, align 8
+  %10 = load ptr, ptr %_M_left.i.i.i.i.i.i.i, align 8
   %_M_left9.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
-  store ptr %9, ptr %_M_left9.i.i.i.i.i.i.i, align 8
+  store ptr %10, ptr %_M_left9.i.i.i.i.i.i.i, align 8
   %_M_right.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
-  %10 = load ptr, ptr %_M_right.i.i.i.i.i.i.i, align 8
+  %11 = load ptr, ptr %_M_right.i.i.i.i.i.i.i, align 8
   %_M_right12.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
-  store ptr %10, ptr %_M_right12.i.i.i.i.i.i.i, align 8
-  %_M_parent16.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr %6, ptr %_M_parent16.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 40
-  %11 = load i64, ptr %_M_node_count.i.i.i.i.i.i.i, align 8
-  %_M_node_count17.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
-  store i64 %11, ptr %_M_node_count17.i.i.i.i.i.i.i, align 8
+  store ptr %11, ptr %_M_right12.i.i.i.i.i.i.i, align 8
+  %_M_parent16.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %7, ptr %_M_parent16.i.i.i.i.i.i.i, align 8
+  %12 = load i64, ptr %6, align 8
   store ptr null, ptr %_M_parent.i.i.i.i.i.i, align 8
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i, align 8
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i, align 8
+  store i64 0, ptr %6, align 8
   br label %_ZN9grpc_core16ResolverRegistryC2ENS0_5StateE.exit
 
 if.else.i.i.i.i.i.i:                              ; preds = %_ZN9grpc_core16ResolverRegistry5StateC2EOS1_.exit
-  store i32 0, ptr %6, align 8
+  store i32 0, ptr %7, align 8
   %_M_parent.i2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i2.i.i.i.i.i.i, align 8
   %_M_left.i3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
-  store ptr %6, ptr %_M_left.i3.i.i.i.i.i.i, align 8
+  store ptr %7, ptr %_M_left.i3.i.i.i.i.i.i, align 8
   %_M_right.i4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
-  store ptr %6, ptr %_M_right.i4.i.i.i.i.i.i, align 8
-  %_M_node_count.i5.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  store ptr %7, ptr %_M_right.i4.i.i.i.i.i.i, align 8
   br label %_ZN9grpc_core16ResolverRegistryC2ENS0_5StateE.exit
 
 _ZN9grpc_core16ResolverRegistryC2ENS0_5StateE.exit: ; preds = %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i
-  %_M_node_count.i5.sink.i.i.i.i.i.i = phi ptr [ %_M_node_count.i5.i.i.i.i.i.i, %if.else.i.i.i.i.i.i ], [ %_M_node_count.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ]
-  store i64 0, ptr %_M_node_count.i5.sink.i.i.i.i.i.i, align 8
+  %.sink3 = phi i64 [ 0, %if.else.i.i.i.i.i.i ], [ %12, %if.then.i.i.i.i.i.i ]
+  %13 = getelementptr inbounds i8, ptr %agg.result, i64 40
+  store i64 %.sink3, ptr %13, align 8
   %default_prefix.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %default_prefix.i.i, ptr noundef nonnull align 8 dereferenceable(32) %default_prefix.i) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %default_prefix.i) #18
-  %12 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
-  invoke void @_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St10unique_ptrIN9grpc_core15ResolverFactoryESt14default_deleteIS8_EEESt10_Select1stISC_ESt4lessIS3_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp, ptr noundef %12)
+  %14 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
+  invoke void @_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St10unique_ptrIN9grpc_core15ResolverFactoryESt14default_deleteIS8_EEESt10_Select1stISC_ESt4lessIS3_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp, ptr noundef %14)
           to label %_ZN9grpc_core16ResolverRegistry5StateD2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %_ZN9grpc_core16ResolverRegistryC2ENS0_5StateE.exit
-  %13 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #19
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #19
   unreachable
 
 _ZN9grpc_core16ResolverRegistry5StateD2Ev.exit:   ; preds = %_ZN9grpc_core16ResolverRegistryC2ENS0_5StateE.exit
@@ -2020,6 +2017,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   store ptr null, ptr %_M_parent.i.i.i.i, align 8
   store ptr %add.ptr.i.i.i, ptr %_M_left.i.i.i.i.i, align 8
   store ptr %add.ptr.i.i.i, ptr %_M_right.i.i.i.i.i, align 8
+  store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8
   br label %_ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEES3_St4lessIS3_ESaISt4pairIKS3_S3_EEEC2EOSA_.exit
 
 if.else.i.i.i.i:                                  ; preds = %entry
@@ -2031,11 +2029,10 @@ if.else.i.i.i.i:                                  ; preds = %entry
   %_M_right.i4.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 128
   store ptr %1, ptr %_M_right.i4.i.i.i.i, align 8
   %_M_node_count.i5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
+  store i64 0, ptr %_M_node_count.i5.i.i.i.i, align 8
   br label %_ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEES3_St4lessIS3_ESaISt4pairIKS3_S3_EEEC2EOSA_.exit
 
 _ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEES3_St4lessIS3_ESaISt4pairIKS3_S3_EEEC2EOSA_.exit: ; preds = %if.then.i.i.i.i, %if.else.i.i.i.i
-  %_M_node_count.i5.sink.i.i.i.i = phi ptr [ %_M_node_count.i5.i.i.i.i, %if.else.i.i.i.i ], [ %_M_node_count.i.i.i.i.i, %if.then.i.i.i.i ]
-  store i64 0, ptr %_M_node_count.i5.sink.i.i.i.i, align 8
   %query_parameter_pairs_ = getelementptr inbounds i8, ptr %this, i64 144
   %query_parameter_pairs_6 = getelementptr inbounds i8, ptr %0, i64 144
   %8 = load ptr, ptr %query_parameter_pairs_6, align 8

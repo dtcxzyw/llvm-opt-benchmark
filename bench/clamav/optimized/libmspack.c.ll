@@ -691,78 +691,76 @@ define internal noundef i32 @mspack_fmap_seek(ptr noundef %0, i64 noundef %1, i3
 
 4:                                                ; preds = %3
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.11, ptr noundef nonnull @__func__.mspack_fmap_seek, i32 noundef 219) #14
-  br label %35
+  br label %37
 
 5:                                                ; preds = %3
   %6 = load i32, ptr %0, align 8
   %7 = icmp eq i32 %6, 1
-  br i1 %7, label %8, label %29
+  br i1 %7, label %8, label %31
 
 8:                                                ; preds = %5
-  switch i32 %2, label %15 [
-    i32 0, label %18
+  switch i32 %2, label %19 [
+    i32 0, label %20
     i32 1, label %9
-    i32 2, label %11
+    i32 2, label %13
   ]
 
 9:                                                ; preds = %8
   %10 = getelementptr inbounds i8, ptr %0, i64 24
-  br label %.sink.split
+  %11 = load i64, ptr %10, align 8
+  %12 = add nsw i64 %11, %1
+  br label %20
 
-11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 88
-  br label %.sink.split
+13:                                               ; preds = %8
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %15, i64 88
+  %17 = load i64, ptr %16, align 8
+  %18 = add i64 %17, %1
+  br label %20
 
-15:                                               ; preds = %8
+19:                                               ; preds = %8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.11, ptr noundef nonnull @__func__.mspack_fmap_seek, i32 noundef 237) #14
-  br label %35
+  br label %37
 
-.sink.split:                                      ; preds = %9, %11
-  %.sink21 = phi ptr [ %14, %11 ], [ %10, %9 ]
-  %16 = load i64, ptr %.sink21, align 8
-  %17 = add i64 %16, %1
-  br label %18
+20:                                               ; preds = %8, %13, %9
+  %.0 = phi i64 [ %18, %13 ], [ %12, %9 ], [ %1, %8 ]
+  %21 = icmp slt i64 %.0, 0
+  br i1 %21, label %28, label %22
 
-18:                                               ; preds = %.sink.split, %8
-  %.0 = phi i64 [ %1, %8 ], [ %17, %.sink.split ]
-  %19 = icmp slt i64 %.0, 0
-  br i1 %19, label %26, label %20
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 88
+  %26 = load i64, ptr %25, align 8
+  %27 = icmp sgt i64 %.0, %26
+  br i1 %27, label %28, label %29
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 88
-  %24 = load i64, ptr %23, align 8
-  %25 = icmp sgt i64 %.0, %24
-  br i1 %25, label %26, label %27
-
-26:                                               ; preds = %20, %18
+28:                                               ; preds = %22, %20
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.11, ptr noundef nonnull @__func__.mspack_fmap_seek, i32 noundef 241) #14
-  br label %35
+  br label %37
 
-27:                                               ; preds = %20
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.0, ptr %28, align 8
-  br label %35
+29:                                               ; preds = %22
+  %30 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %.0, ptr %30, align 8
+  br label %37
 
-29:                                               ; preds = %5
+31:                                               ; preds = %5
   %switch = icmp ult i32 %2, 3
-  br i1 %switch, label %31, label %30
+  br i1 %switch, label %33, label %32
 
-30:                                               ; preds = %29
+32:                                               ; preds = %31
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.11, ptr noundef nonnull @__func__.mspack_fmap_seek, i32 noundef 260) #14
-  br label %35
+  br label %37
 
-31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %0, i64 32
-  %33 = load ptr, ptr %32, align 8
-  %34 = tail call i32 @fseek(ptr noundef %33, i64 noundef %1, i32 noundef %2)
-  br label %35
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds i8, ptr %0, i64 32
+  %35 = load ptr, ptr %34, align 8
+  %36 = tail call i32 @fseek(ptr noundef %35, i64 noundef %1, i32 noundef %2)
+  br label %37
 
-35:                                               ; preds = %31, %30, %27, %26, %15, %4
-  %.018 = phi i32 [ -1, %15 ], [ -1, %26 ], [ 0, %27 ], [ -1, %30 ], [ %34, %31 ], [ -1, %4 ]
+37:                                               ; preds = %33, %32, %29, %28, %19, %4
+  %.018 = phi i32 [ -1, %19 ], [ -1, %28 ], [ 0, %29 ], [ -1, %32 ], [ %36, %33 ], [ -1, %4 ]
   ret i32 %.018
 }
 

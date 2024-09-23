@@ -1155,20 +1155,20 @@ define void @_ZN3gmx29adjustKeyValueTreeFromOptionsERKNS_18KeyValueTreeObjectERK
   %13 = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %5, ptr %13, align 8
   %14 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3gmx7Options11rootSectionEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
-          to label %15 unwind label %43
+          to label %15 unwind label %41
 
 15:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   invoke void @_ZN3gmx15OptionsIteratorC1ERKNS_17OptionSectionInfoE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %14)
-          to label %.noexc unwind label %43
+          to label %.noexc unwind label %41
 
 .noexc:                                           ; preds = %15
   invoke void @_ZNK3gmx15OptionsIterator13acceptOptionsEPNS_14OptionsVisitorE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %6)
-          to label %.noexc5 unwind label %43
+          to label %.noexc5 unwind label %41
 
 .noexc5:                                          ; preds = %.noexc
   invoke void @_ZNK3gmx15OptionsIterator14acceptSectionsEPNS_14OptionsVisitorE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %6)
-          to label %16 unwind label %43
+          to label %16 unwind label %41
 
 16:                                               ; preds = %.noexc5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -1176,7 +1176,7 @@ define void @_ZN3gmx29adjustKeyValueTreeFromOptionsERKNS_18KeyValueTreeObjectERK
   %17 = getelementptr inbounds i8, ptr %0, i64 8
   %18 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %18, null
-  br i1 %.not.i.i.i.i.i.i, label %26, label %19
+  br i1 %.not.i.i.i.i.i.i, label %_ZN3gmx19KeyValueTreeBuilder5buildEv.exit, label %19
 
 19:                                               ; preds = %16
   %20 = load i32, ptr %7, align 8, !noalias !13
@@ -1185,61 +1185,57 @@ define void @_ZN3gmx29adjustKeyValueTreeFromOptionsERKNS_18KeyValueTreeObjectERK
   %23 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %17, ptr %23, align 8, !noalias !13
   %24 = load i64, ptr %11, align 8, !noalias !13
-  %25 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %24, ptr %25, align 8, !alias.scope !13
   store ptr null, ptr %8, align 8, !noalias !13
   store ptr %7, ptr %9, align 8, !noalias !13
   store ptr %7, ptr %10, align 8, !noalias !13
+  store i64 0, ptr %11, align 8, !noalias !13
   br label %_ZN3gmx19KeyValueTreeBuilder5buildEv.exit
 
-26:                                               ; preds = %16
-  %27 = getelementptr inbounds i8, ptr %0, i64 40
-  br label %_ZN3gmx19KeyValueTreeBuilder5buildEv.exit
-
-_ZN3gmx19KeyValueTreeBuilder5buildEv.exit:        ; preds = %19, %26
-  %.sink9 = phi i32 [ 0, %26 ], [ %20, %19 ]
-  %.sink7 = phi ptr [ %17, %26 ], [ %21, %19 ]
-  %.sink = phi ptr [ %17, %26 ], [ %22, %19 ]
-  %.sink.i.i.i.i.i.i = phi ptr [ %27, %26 ], [ %11, %19 ]
+_ZN3gmx19KeyValueTreeBuilder5buildEv.exit:        ; preds = %16, %19
+  %.sink9 = phi i32 [ %20, %19 ], [ 0, %16 ]
+  %.sink7 = phi ptr [ %21, %19 ], [ %17, %16 ]
+  %.sink = phi ptr [ %22, %19 ], [ %17, %16 ]
+  %.sink.i = phi i64 [ %24, %19 ], [ 0, %16 ]
   store i32 %.sink9, ptr %17, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %18, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %.sink7, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %.sink, ptr %30, align 8
-  store i64 0, ptr %.sink.i.i.i.i.i.i, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 48
-  %32 = getelementptr inbounds i8, ptr %5, i64 48
-  %33 = load ptr, ptr %32, align 8, !noalias !13
-  store ptr %33, ptr %31, align 8, !alias.scope !13
-  %34 = getelementptr inbounds i8, ptr %0, i64 56
-  %35 = getelementptr inbounds i8, ptr %5, i64 56
-  %36 = load ptr, ptr %35, align 8, !noalias !13
-  store ptr %36, ptr %34, align 8, !alias.scope !13
-  %37 = getelementptr inbounds i8, ptr %0, i64 64
-  %38 = getelementptr inbounds i8, ptr %5, i64 64
-  %39 = load ptr, ptr %38, align 8, !noalias !13
-  store ptr %39, ptr %37, align 8, !alias.scope !13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false), !noalias !13
+  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %18, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %.sink7, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %.sink, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 40
+  store i64 %.sink.i, ptr %28, align 8, !alias.scope !13
+  %29 = getelementptr inbounds i8, ptr %0, i64 48
+  %30 = getelementptr inbounds i8, ptr %5, i64 48
+  %31 = load ptr, ptr %30, align 8, !noalias !13
+  store ptr %31, ptr %29, align 8, !alias.scope !13
+  %32 = getelementptr inbounds i8, ptr %0, i64 56
+  %33 = getelementptr inbounds i8, ptr %5, i64 56
+  %34 = load ptr, ptr %33, align 8, !noalias !13
+  store ptr %34, ptr %32, align 8, !alias.scope !13
+  %35 = getelementptr inbounds i8, ptr %0, i64 64
+  %36 = getelementptr inbounds i8, ptr %5, i64 64
+  %37 = load ptr, ptr %36, align 8, !noalias !13
+  store ptr %37, ptr %35, align 8, !alias.scope !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false), !noalias !13
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N3gmx17KeyValueTreeValueEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef null)
-          to label %_ZN3gmx19KeyValueTreeBuilderD2Ev.exit unwind label %40
+          to label %_ZN3gmx19KeyValueTreeBuilderD2Ev.exit unwind label %38
 
-40:                                               ; preds = %_ZN3gmx19KeyValueTreeBuilder5buildEv.exit
-  %41 = landingpad { ptr, i32 }
+38:                                               ; preds = %_ZN3gmx19KeyValueTreeBuilder5buildEv.exit
+  %39 = landingpad { ptr, i32 }
           catch ptr null
-  %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #22
+  %40 = extractvalue { ptr, i32 } %39, 0
+  call void @__clang_call_terminate(ptr %40) #22
   unreachable
 
 _ZN3gmx19KeyValueTreeBuilderD2Ev.exit:            ; preds = %_ZN3gmx19KeyValueTreeBuilder5buildEv.exit
   ret void
 
-43:                                               ; preds = %.noexc5, %.noexc, %15, %3
-  %44 = landingpad { ptr, i32 }
+41:                                               ; preds = %.noexc5, %.noexc, %15, %3
+  %42 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx19KeyValueTreeBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %5) #19
-  resume { ptr, i32 } %44
+  resume { ptr, i32 } %42
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

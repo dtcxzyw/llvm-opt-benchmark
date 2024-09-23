@@ -16656,15 +16656,24 @@ if.then21:                                        ; preds = %if.end
   unreachable
 
 do.end:                                           ; preds = %if.end
-  %objects_begin = getelementptr inbounds i8, ptr %ctx, i64 24
+  br i1 %cmp, label %if.else, label %if.then26
+
+if.then26:                                        ; preds = %do.end
   %next27 = getelementptr inbounds i8, ptr %0, i64 16
-  %objects_begin.sink = select i1 %cmp, ptr %objects_begin, ptr %next27
-  store ptr %add.ptr, ptr %objects_begin.sink, align 8
+  store ptr %add.ptr, ptr %next27, align 8
+  br label %if.end28
+
+if.else:                                          ; preds = %do.end
+  %objects_begin = getelementptr inbounds i8, ptr %ctx, i64 24
+  store ptr %add.ptr, ptr %objects_begin, align 8
+  br label %if.end28
+
+if.end28:                                         ; preds = %if.else, %if.then26
   store ptr %add.ptr, ptr %objects_end, align 8
   br label %return
 
-return:                                           ; preds = %do.end, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ %add.ptr, %do.end ]
+return:                                           ; preds = %if.end28, %if.then
+  %retval.0 = phi ptr [ null, %if.then ], [ %add.ptr, %if.end28 ]
   ret ptr %retval.0
 }
 

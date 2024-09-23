@@ -405,12 +405,12 @@ _ZN26GrowableArrayWithAllocatorI21StackSlotAnalysisData13GrowableArrayIS0_EE4pus
   br label %_ZN21SimulatedOperandStack8push_rawE21StackSlotAnalysisData.exit7.sink.split
 
 _ZN21SimulatedOperandStack8push_rawE21StackSlotAnalysisData.exit7.sink.split: ; preds = %_ZN26GrowableArrayWithAllocatorI21StackSlotAnalysisData13GrowableArrayIS0_EE4pushERKS0_.exit.i3, %_ZN26GrowableArrayWithAllocatorI21StackSlotAnalysisData13GrowableArrayIS0_EE4pushERKS0_.exit.i8
-  %.sink18 = phi ptr [ %61, %_ZN26GrowableArrayWithAllocatorI21StackSlotAnalysisData13GrowableArrayIS0_EE4pushERKS0_.exit.i8 ], [ %28, %_ZN26GrowableArrayWithAllocatorI21StackSlotAnalysisData13GrowableArrayIS0_EE4pushERKS0_.exit.i3 ]
   %.sink = phi i32 [ %59, %_ZN26GrowableArrayWithAllocatorI21StackSlotAnalysisData13GrowableArrayIS0_EE4pushERKS0_.exit.i8 ], [ %43, %_ZN26GrowableArrayWithAllocatorI21StackSlotAnalysisData13GrowableArrayIS0_EE4pushERKS0_.exit.i3 ]
-  %62 = load ptr, ptr %.sink18, align 8
-  %63 = sext i32 %.sink to i64
-  %64 = getelementptr inbounds %class.StackSlotAnalysisData, ptr %62, i64 %63
-  store i32 %1, ptr %64, align 4
+  %.sink16.in = phi ptr [ %61, %_ZN26GrowableArrayWithAllocatorI21StackSlotAnalysisData13GrowableArrayIS0_EE4pushERKS0_.exit.i8 ], [ %28, %_ZN26GrowableArrayWithAllocatorI21StackSlotAnalysisData13GrowableArrayIS0_EE4pushERKS0_.exit.i3 ]
+  %.sink16 = load ptr, ptr %.sink16.in, align 8
+  %62 = sext i32 %.sink to i64
+  %63 = getelementptr inbounds %class.StackSlotAnalysisData, ptr %.sink16, i64 %62
+  store i32 %1, ptr %63, align 4
   br label %_ZN21SimulatedOperandStack8push_rawE21StackSlotAnalysisData.exit7
 
 _ZN21SimulatedOperandStack8push_rawE21StackSlotAnalysisData.exit7: ; preds = %_ZN21SimulatedOperandStack8push_rawE21StackSlotAnalysisData.exit7.sink.split, %11, %45

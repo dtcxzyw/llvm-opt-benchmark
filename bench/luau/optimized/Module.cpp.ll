@@ -5391,7 +5391,8 @@ _ZN4Luau10getMutableINS_12FunctionTypeEEEPT_PKNS_4TypeE.exit: ; preds = %5
   %8 = getelementptr inbounds i8, ptr %4, i64 208
   store i32 0, ptr %8, align 8
   %.sroa.23.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 212
-  br label %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit.thread.sink.split
+  store i32 0, ptr %.sroa.23.0..sroa_idx, align 4
+  br label %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit.thread
 
 9:                                                ; preds = %5, %2
   %10 = tail call noundef ptr @_ZN4Luau9asMutableEPKNS_4TypeE(ptr noundef %3)
@@ -5407,14 +5408,10 @@ _ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit: ; preds = %11
   %14 = getelementptr inbounds i8, ptr %10, i64 84
   store i32 0, ptr %14, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 88
-  br label %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit.thread.sink.split
-
-_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit.thread.sink.split: ; preds = %_ZN4Luau10getMutableINS_12FunctionTypeEEEPT_PKNS_4TypeE.exit, %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit
-  %.sroa.2.0..sroa_idx.sink = phi ptr [ %.sroa.2.0..sroa_idx, %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit ], [ %.sroa.23.0..sroa_idx, %_ZN4Luau10getMutableINS_12FunctionTypeEEEPT_PKNS_4TypeE.exit ]
-  store i32 0, ptr %.sroa.2.0..sroa_idx.sink, align 4
+  store i32 0, ptr %.sroa.2.0..sroa_idx, align 4
   br label %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit.thread
 
-_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit.thread: ; preds = %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit.thread.sink.split, %9, %11
+_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit.thread: ; preds = %9, %11, %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit, %_ZN4Luau10getMutableINS_12FunctionTypeEEEPT_PKNS_4TypeE.exit
   ret ptr %3
 }
 
@@ -5939,6 +5936,7 @@ define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_12TypeMismatchENS_13Unk
   store ptr null, ptr %7, align 8
   store ptr %10, ptr %14, align 8
   store ptr %10, ptr %17, align 8
+  store i64 0, ptr %21, align 8
   br label %_ZN4Luau27UnknownPropButFoundLikePropC2EOS0_.exit
 
 24:                                               ; preds = %2
@@ -5950,11 +5948,10 @@ define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_12TypeMismatchENS_13Unk
   %27 = getelementptr inbounds i8, ptr %0, i64 72
   store ptr %6, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 80
+  store i64 0, ptr %28, align 8
   br label %_ZN4Luau27UnknownPropButFoundLikePropC2EOS0_.exit
 
 _ZN4Luau27UnknownPropButFoundLikePropC2EOS0_.exit: ; preds = %9, %24
-  %.sink.i.i.i.i.i = phi ptr [ %21, %9 ], [ %28, %24 ]
-  store i64 0, ptr %.sink.i.i.i.i.i, align 8
   ret void
 }
 

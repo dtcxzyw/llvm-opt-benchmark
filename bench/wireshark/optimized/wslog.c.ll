@@ -1139,77 +1139,84 @@ sub_1:                                            ; preds = %sub_0
 17:                                               ; preds = %13
   %18 = tail call i32 @g_str_has_prefix(ptr noundef nonnull %15, ptr noundef nonnull @.str.55) #20
   %.not22 = icmp eq i32 %18, 0
-  br i1 %.not22, label %ws_log_set_level.exit, label %20
+  br i1 %.not22, label %ws_log_set_level.exit, label %19
+
+19:                                               ; preds = %17
+  %20 = load ptr, ptr %14, align 8
+  %21 = getelementptr i8, ptr %20, i64 18
+  br label %26
 
 .tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
-  %19 = tail call i32 @g_str_has_prefix(ptr noundef nonnull %5, ptr noundef nonnull @.str.56) #20
-  %.not = icmp eq i32 %19, 0
-  br i1 %.not, label %ws_log_set_level.exit, label %20
+  %22 = tail call i32 @g_str_has_prefix(ptr noundef nonnull %5, ptr noundef nonnull @.str.56) #20
+  %.not = icmp eq i32 %22, 0
+  br i1 %.not, label %ws_log_set_level.exit, label %23
 
-20:                                               ; preds = %.tail.thread, %17
-  %.sink38 = phi ptr [ %14, %17 ], [ %0, %.tail.thread ]
-  %.sink37 = phi i64 [ 18, %17 ], [ 20, %.tail.thread ]
-  %21 = load ptr, ptr %.sink38, align 8
-  %22 = getelementptr i8, ptr %21, i64 %.sink37
+23:                                               ; preds = %.tail.thread
+  %24 = load ptr, ptr %0, align 8
+  %25 = getelementptr i8, ptr %24, i64 20
+  br label %26
+
+26:                                               ; preds = %23, %19
+  %.019 = phi ptr [ %21, %19 ], [ %25, %23 ]
   tail call void (ptr, i32, ptr, ...) @print_err(ptr noundef %1, i32 noundef -1, ptr noundef nonnull @.str.57)
-  %23 = load i8, ptr %22, align 1
-  %24 = icmp eq i8 %23, 0
-  br i1 %24, label %25, label %26
+  %27 = load i8, ptr %.019, align 1
+  %28 = icmp eq i8 %27, 0
+  br i1 %28, label %29, label %30
 
-25:                                               ; preds = %20
+29:                                               ; preds = %26
   tail call void (ptr, i32, ptr, ...) @print_err(ptr noundef %1, i32 noundef %2, ptr noundef nonnull @.str.58)
   br label %ws_log_set_level.exit
 
-26:                                               ; preds = %20
-  %27 = call zeroext i1 @ws_basestrtou32(ptr noundef nonnull %22, ptr noundef null, ptr noundef nonnull %4, i32 noundef 10) #20
-  br i1 %27, label %29, label %28
+30:                                               ; preds = %26
+  %31 = call zeroext i1 @ws_basestrtou32(ptr noundef nonnull %.019, ptr noundef null, ptr noundef nonnull %4, i32 noundef 10) #20
+  br i1 %31, label %33, label %32
 
-28:                                               ; preds = %26
-  call void (ptr, i32, ptr, ...) @print_err(ptr noundef %1, i32 noundef %2, ptr noundef nonnull @.str.59, ptr noundef nonnull %22)
+32:                                               ; preds = %30
+  call void (ptr, i32, ptr, ...) @print_err(ptr noundef %1, i32 noundef %2, ptr noundef nonnull @.str.59, ptr noundef nonnull %.019)
   br label %ws_log_set_level.exit
 
-29:                                               ; preds = %26
-  %30 = load i32, ptr %4, align 4
-  %31 = and i32 %30, 128
-  %.not23 = icmp eq i32 %31, 0
-  br i1 %.not23, label %32, label %.thread.thread
+33:                                               ; preds = %30
+  %34 = load i32, ptr %4, align 4
+  %35 = and i32 %34, 128
+  %.not23 = icmp eq i32 %35, 0
+  br i1 %.not23, label %36, label %.thread.thread
 
-32:                                               ; preds = %29
-  %33 = and i32 %30, 64
-  %.not24 = icmp eq i32 %33, 0
-  br i1 %.not24, label %34, label %.thread.thread
-
-34:                                               ; preds = %32
-  %35 = and i32 %30, 32
-  %.not25 = icmp eq i32 %35, 0
-  br i1 %.not25, label %36, label %.thread.thread
-
-36:                                               ; preds = %34
-  %37 = and i32 %30, 16
-  %.not26 = icmp eq i32 %37, 0
-  br i1 %.not26, label %38, label %.thread.thread
+36:                                               ; preds = %33
+  %37 = and i32 %34, 64
+  %.not24 = icmp eq i32 %37, 0
+  br i1 %.not24, label %38, label %.thread.thread
 
 38:                                               ; preds = %36
-  %39 = and i32 %30, 8
-  %.not27 = icmp eq i32 %39, 0
-  br i1 %.not27, label %40, label %.thread.thread
+  %39 = and i32 %34, 32
+  %.not25 = icmp eq i32 %39, 0
+  br i1 %.not25, label %40, label %.thread.thread
 
 40:                                               ; preds = %38
-  %41 = and i32 %30, 4
-  %.not28 = icmp eq i32 %41, 0
-  br i1 %.not28, label %42, label %.thread.thread
+  %41 = and i32 %34, 16
+  %.not26 = icmp eq i32 %41, 0
+  br i1 %.not26, label %42, label %.thread.thread
 
 42:                                               ; preds = %40
-  call void (ptr, i32, ptr, ...) @print_err(ptr noundef %1, i32 noundef %2, ptr noundef nonnull @.str.60, ptr noundef nonnull %22)
+  %43 = and i32 %34, 8
+  %.not27 = icmp eq i32 %43, 0
+  br i1 %.not27, label %44, label %.thread.thread
+
+44:                                               ; preds = %42
+  %45 = and i32 %34, 4
+  %.not28 = icmp eq i32 %45, 0
+  br i1 %.not28, label %46, label %.thread.thread
+
+46:                                               ; preds = %44
+  call void (ptr, i32, ptr, ...) @print_err(ptr noundef %1, i32 noundef %2, ptr noundef nonnull @.str.60, ptr noundef nonnull %.019)
   br label %ws_log_set_level.exit
 
-.thread.thread:                                   ; preds = %40, %29, %32, %34, %36, %38
-  %.03134 = phi i32 [ 2, %29 ], [ 3, %32 ], [ 4, %34 ], [ 5, %36 ], [ 6, %38 ], [ 7, %40 ]
+.thread.thread:                                   ; preds = %44, %33, %36, %38, %40, %42
+  %.03134 = phi i32 [ 2, %33 ], [ 3, %36 ], [ 4, %38 ], [ 5, %40 ], [ 6, %42 ], [ 7, %44 ]
   %spec.store.select.i = call i32 @llvm.umin.i32(i32 %.03134, i32 6)
   store i32 %spec.store.select.i, ptr @current_log_level, align 4
   br label %ws_log_set_level.exit
 
-ws_log_set_level.exit:                            ; preds = %.thread.thread, %.tail.thread, %13, %17, %3, %42, %28, %25
+ws_log_set_level.exit:                            ; preds = %.thread.thread, %.tail.thread, %13, %17, %3, %46, %32, %29
   ret void
 }
 

@@ -328,6 +328,7 @@ define dso_local void @_ZN4llvm9CallGraphC2EOS0_(ptr noundef nonnull align 8 der
   store ptr null, ptr %6, align 8
   store ptr %9, ptr %13, align 8
   store ptr %9, ptr %16, align 8
+  store i64 0, ptr %20, align 8
   br label %_ZNSt3mapIPKN4llvm8FunctionESt10unique_ptrINS0_13CallGraphNodeESt14default_deleteIS5_EESt4lessIS3_ESaISt4pairIKS3_S8_EEEC2EOSF_.exit
 
 23:                                               ; preds = %2
@@ -339,11 +340,10 @@ define dso_local void @_ZN4llvm9CallGraphC2EOS0_(ptr noundef nonnull align 8 der
   %26 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %5, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 48
+  store i64 0, ptr %27, align 8
   br label %_ZNSt3mapIPKN4llvm8FunctionESt10unique_ptrINS0_13CallGraphNodeESt14default_deleteIS5_EESt4lessIS3_ESaISt4pairIKS3_S8_EEEC2EOSF_.exit
 
 _ZNSt3mapIPKN4llvm8FunctionESt10unique_ptrINS0_13CallGraphNodeESt14default_deleteIS5_EESt4lessIS3_ESaISt4pairIKS3_S8_EEEC2EOSF_.exit: ; preds = %8, %23
-  %.sink.i.i.i.i = phi ptr [ %27, %23 ], [ %20, %8 ]
-  store i64 0, ptr %.sink.i.i.i.i, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %30 = load ptr, ptr %29, align 8

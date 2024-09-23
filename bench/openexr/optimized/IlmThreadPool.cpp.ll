@@ -982,7 +982,11 @@ if.then.i.i.i5:                                   ; preds = %invoke.cont22
   %24 = load atomic i64, ptr %_M_use_count.i.i.i.i6 acquire, align 8
   %cmp.i.i.i.i7 = icmp eq i64 %24, 4294967297
   %25 = trunc i64 %24 to i32
-  br i1 %cmp.i.i.i.i7, label %if.end27.sink.split.sink.split, label %if.end.i.i.i.i8
+  br i1 %cmp.i.i.i.i7, label %if.then.i.i.i.i30, label %if.end.i.i.i.i8
+
+if.then.i.i.i.i30:                                ; preds = %if.then.i.i.i5
+  store i32 0, ptr %_M_use_count.i.i.i.i6, align 8
+  br label %if.end27.sink.split.sink.split
 
 if.end.i.i.i.i8:                                  ; preds = %if.then.i.i.i5
   %26 = load i8, ptr @__libc_single_threaded, align 1
@@ -1120,7 +1124,11 @@ if.then.i.i.i39:                                  ; preds = %invoke.cont26
   %38 = load atomic i64, ptr %_M_use_count.i.i.i.i40 acquire, align 8
   %cmp.i.i.i.i41 = icmp eq i64 %38, 4294967297
   %39 = trunc i64 %38 to i32
-  br i1 %cmp.i.i.i.i41, label %if.end27.sink.split.sink.split, label %if.end.i.i.i.i42
+  br i1 %cmp.i.i.i.i41, label %if.then.i.i.i.i64, label %if.end.i.i.i.i42
+
+if.then.i.i.i.i64:                                ; preds = %if.then.i.i.i39
+  store i32 0, ptr %_M_use_count.i.i.i.i40, align 8
+  br label %if.end27.sink.split.sink.split
 
 if.end.i.i.i.i42:                                 ; preds = %if.then.i.i.i39
   %40 = load i8, ptr @__libc_single_threaded, align 1
@@ -1173,10 +1181,8 @@ lpad25:                                           ; preds = %_ZSt11make_sharedIN
   call fastcc void @_ZNSt10shared_ptrIN13IlmThread_3_212_GLOBAL__N_125DefaultThreadPoolProviderEED2Ev(ptr null) #25
   br label %common.resume
 
-if.end27.sink.split.sink.split:                   ; preds = %if.then.i.i.i39, %if.then.i.i.i5
-  %_M_use_count.i.i.i.i40.sink = phi ptr [ %_M_use_count.i.i.i.i6, %if.then.i.i.i5 ], [ %_M_use_count.i.i.i.i40, %if.then.i.i.i39 ]
-  %.sink106 = phi ptr [ %23, %if.then.i.i.i5 ], [ %37, %if.then.i.i.i39 ]
-  store i32 0, ptr %_M_use_count.i.i.i.i40.sink, align 8
+if.end27.sink.split.sink.split:                   ; preds = %if.then.i.i.i.i30, %if.then.i.i.i.i64
+  %.sink106 = phi ptr [ %37, %if.then.i.i.i.i64 ], [ %23, %if.then.i.i.i.i30 ]
   %_M_weak_count.i.i.i.i65 = getelementptr inbounds i8, ptr %.sink106, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i65, align 4
   %vtable.i.i.i.i66 = load ptr, ptr %.sink106, align 8

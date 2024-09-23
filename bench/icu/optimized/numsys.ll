@@ -206,7 +206,7 @@ if.then.i:                                        ; preds = %new.cont
 _ZN6icu_7512LocalPointerINS_15NumberingSystemEEC2EPS1_R10UErrorCode.exit: ; preds = %new.notnull
   %.pre = load i32, ptr %status, align 4
   %2 = icmp slt i32 %.pre, 1
-  br i1 %2, label %if.end16, label %delete.notnull.i15
+  br i1 %2, label %if.end16, label %delete.notnull.i16
 
 lpad:                                             ; preds = %new.notnull
   %3 = landingpad { ptr, i32 }
@@ -237,15 +237,15 @@ cleanup.thread:                                   ; preds = %if.end16
   store i8 0, ptr %name.i, align 1
   br label %return
 
-delete.notnull.i15:                               ; preds = %_ZN6icu_7512LocalPointerINS_15NumberingSystemEEC2EPS1_R10UErrorCode.exit
-  %vtable.i16 = load ptr, ptr %call10, align 8
-  %vfn.i17 = getelementptr inbounds i8, ptr %vtable.i16, i64 8
-  %6 = load ptr, ptr %vfn.i17, align 8
+delete.notnull.i16:                               ; preds = %_ZN6icu_7512LocalPointerINS_15NumberingSystemEEC2EPS1_R10UErrorCode.exit
+  %vtable.i17 = load ptr, ptr %call10, align 8
+  %vfn.i18 = getelementptr inbounds i8, ptr %vtable.i17, i64 8
+  %6 = load ptr, ptr %vfn.i18, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(86) %call10) #17
   br label %return
 
-return:                                           ; preds = %new.cont, %if.then.i, %delete.notnull.i15, %cleanup.thread, %entry, %if.then7, %if.then1
-  %retval.0 = phi ptr [ null, %if.then1 ], [ null, %if.then7 ], [ null, %entry ], [ %call10, %cleanup.thread ], [ null, %delete.notnull.i15 ], [ null, %if.then.i ], [ null, %new.cont ]
+return:                                           ; preds = %new.cont, %if.then.i, %delete.notnull.i16, %cleanup.thread, %entry, %if.then7, %if.then1
+  %retval.0 = phi ptr [ null, %if.then1 ], [ null, %if.then7 ], [ null, %entry ], [ %call10, %cleanup.thread ], [ null, %delete.notnull.i16 ], [ null, %if.then.i ], [ null, %new.cont ]
   ret ptr %retval.0
 
 eh.resume:                                        ; preds = %lpad, %_ZN6icu_7512LocalPointerINS_15NumberingSystemEED2Ev.exit
@@ -290,16 +290,19 @@ define void @_ZN6icu_7515NumberingSystem7setNameEPKc(ptr noundef nonnull align 8
 entry:
   %cmp = icmp eq ptr %n, null
   %name = getelementptr inbounds i8, ptr %this, i64 77
-  br i1 %cmp, label %if.end, label %if.else
+  br i1 %cmp, label %if.then, label %if.else
+
+if.then:                                          ; preds = %entry
+  store i8 0, ptr %name, align 1
+  br label %if.end
 
 if.else:                                          ; preds = %entry
   %call = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %n, i64 noundef 8) #17
   %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 85
+  store i8 0, ptr %arrayidx4, align 1
   br label %if.end
 
-if.end:                                           ; preds = %entry, %if.else
-  %arrayidx4.sink = phi ptr [ %arrayidx4, %if.else ], [ %name, %entry ]
-  store i8 0, ptr %arrayidx4.sink, align 1
+if.end:                                           ; preds = %if.else, %if.then
   ret void
 }
 
@@ -685,9 +688,9 @@ invoke.cont41:                                    ; preds = %if.end40
   %10 = load i32, ptr %status, align 4
   %cmp.i.i19 = icmp sgt i32 %10, 0
   %or.cond.i = select i1 %cmp.i18, i1 true, i1 %cmp.i.i19
-  br i1 %or.cond.i, label %invoke.cont43, label %cleanup.thread42
+  br i1 %or.cond.i, label %invoke.cont43, label %cleanup.thread
 
-cleanup.thread42:                                 ; preds = %invoke.cont41
+cleanup.thread:                                   ; preds = %invoke.cont41
   store i32 7, ptr %status, align 4
   br label %cleanup55
 
@@ -698,16 +701,16 @@ invoke.cont43:                                    ; preds = %invoke.cont41
 if.end49:                                         ; preds = %invoke.cont43
   %cmp.i23 = icmp eq ptr %name, null
   %name.i = getelementptr inbounds i8, ptr %call42, i64 77
-  br i1 %cmp.i23, label %cleanup.thread, label %if.else.i24
+  br i1 %cmp.i23, label %if.then.i26, label %if.else.i24
+
+if.then.i26:                                      ; preds = %if.end49
+  store i8 0, ptr %name.i, align 1
+  br label %cleanup55
 
 if.else.i24:                                      ; preds = %if.end49
   %call.i25 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %name.i, ptr noundef nonnull readonly dereferenceable(1) %name, i64 noundef 8) #17
   %arrayidx4.i = getelementptr inbounds i8, ptr %call42, i64 85
-  br label %cleanup.thread
-
-cleanup.thread:                                   ; preds = %if.else.i24, %if.end49
-  %arrayidx4.sink.i = phi ptr [ %arrayidx4.i, %if.else.i24 ], [ %name.i, %if.end49 ]
-  store i8 0, ptr %arrayidx4.sink.i, align 1
+  store i8 0, ptr %arrayidx4.i, align 1
   br label %cleanup55
 
 cleanup:                                          ; preds = %invoke.cont43
@@ -721,54 +724,54 @@ delete.notnull.i:                                 ; preds = %cleanup
   call void %11(ptr noundef nonnull align 8 dereferenceable(86) %call42) #17
   br label %cleanup55
 
-cleanup55:                                        ; preds = %cleanup.thread42, %delete.notnull.i, %cleanup, %cleanup.thread, %if.then, %if.then39
-  %retval.0 = phi ptr [ null, %if.then39 ], [ null, %if.then ], [ %call42, %cleanup.thread ], [ null, %cleanup ], [ null, %delete.notnull.i ], [ null, %cleanup.thread42 ]
+cleanup55:                                        ; preds = %cleanup.thread, %if.else.i24, %if.then.i26, %delete.notnull.i, %cleanup, %if.then, %if.then39
+  %retval.0 = phi ptr [ null, %if.then39 ], [ null, %if.then ], [ null, %cleanup ], [ null, %delete.notnull.i ], [ %call42, %if.then.i26 ], [ %call42, %if.else.i24 ], [ null, %cleanup.thread ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %nsd) #17
   %cmp.not.i = icmp eq ptr %call9, null
-  br i1 %cmp.not.i, label %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit, label %if.then.i26
+  br i1 %cmp.not.i, label %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit, label %if.then.i27
 
-if.then.i26:                                      ; preds = %cleanup55
+if.then.i27:                                      ; preds = %cleanup55
   invoke void @ures_close_75(ptr noundef nonnull %call9)
           to label %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit unwind label %terminate.lpad.i
 
-terminate.lpad.i:                                 ; preds = %if.then.i26
+terminate.lpad.i:                                 ; preds = %if.then.i27
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
   call void @__clang_call_terminate(ptr %13) #18
   unreachable
 
-_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit: ; preds = %cleanup55, %if.then.i26
-  %cmp.not.i27 = icmp eq ptr %call3, null
-  br i1 %cmp.not.i27, label %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit30, label %if.then.i28
+_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit: ; preds = %cleanup55, %if.then.i27
+  %cmp.not.i28 = icmp eq ptr %call3, null
+  br i1 %cmp.not.i28, label %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit31, label %if.then.i29
 
-if.then.i28:                                      ; preds = %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit
+if.then.i29:                                      ; preds = %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit
   invoke void @ures_close_75(ptr noundef nonnull %call3)
-          to label %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit30 unwind label %terminate.lpad.i29
+          to label %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit31 unwind label %terminate.lpad.i30
 
-terminate.lpad.i29:                               ; preds = %if.then.i28
+terminate.lpad.i30:                               ; preds = %if.then.i29
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
   call void @__clang_call_terminate(ptr %15) #18
   unreachable
 
-_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit30: ; preds = %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit, %if.then.i28
-  %cmp.not.i31 = icmp eq ptr %call, null
-  br i1 %cmp.not.i31, label %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit34, label %if.then.i32
+_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit31: ; preds = %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit, %if.then.i29
+  %cmp.not.i32 = icmp eq ptr %call, null
+  br i1 %cmp.not.i32, label %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit35, label %if.then.i33
 
-if.then.i32:                                      ; preds = %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit30
+if.then.i33:                                      ; preds = %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit31
   invoke void @ures_close_75(ptr noundef nonnull %call)
-          to label %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit34 unwind label %terminate.lpad.i33
+          to label %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit35 unwind label %terminate.lpad.i34
 
-terminate.lpad.i33:                               ; preds = %if.then.i32
+terminate.lpad.i34:                               ; preds = %if.then.i33
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
   call void @__clang_call_terminate(ptr %17) #18
   unreachable
 
-_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit34: ; preds = %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit30, %if.then.i32
+_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit35: ; preds = %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit31, %if.then.i33
   ret ptr %retval.0
 
 ehcleanup57:                                      ; preds = %lpad.i, %lpad8.i, %lpad15

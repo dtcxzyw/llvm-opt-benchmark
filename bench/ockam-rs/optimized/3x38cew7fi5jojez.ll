@@ -4360,6 +4360,7 @@ common.ret:                                       ; preds = %566, %39
   %506 = getelementptr inbounds i8, ptr %1, i64 489
   store i8 0, ptr %506, align 1, !noalias !426
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22), !noalias !426
+  store i8 0, ptr %482, align 2, !noalias !426
   br label %537
 
 507:                                              ; preds = %480, %435
@@ -4390,6 +4391,7 @@ common.ret:                                       ; preds = %566, %39
 
 514:                                              ; preds = %"_ZN4core3ptr153drop_in_place$LT$tokio..sync..mpsc..bounded..Receiver$LT$core..result..Result$LT$ockam_node..messages..RouterReply$C$ockam_core..error..Error$GT$$GT$$GT$17h4cc63e1d5ea32370E.exit.i.i"
   %515 = getelementptr inbounds i8, ptr %1, i64 490
+  store i8 0, ptr %515, align 2, !noalias !426
   br label %537
 
 .body143.i.i:                                     ; preds = %426, %.body.i137.i.i
@@ -4473,10 +4475,8 @@ common.ret:                                       ; preds = %566, %39
   br label %566
 
 537:                                              ; preds = %514, %"_ZN4core3ptr153drop_in_place$LT$tokio..sync..mpsc..bounded..Receiver$LT$core..result..Result$LT$ockam_node..messages..RouterReply$C$ockam_core..error..Error$GT$$GT$$GT$17h4cc63e1d5ea32370E.exit160.i.i"
-  %.sink267.i.i = phi ptr [ %515, %514 ], [ %482, %"_ZN4core3ptr153drop_in_place$LT$tokio..sync..mpsc..bounded..Receiver$LT$core..result..Result$LT$ockam_node..messages..RouterReply$C$ockam_core..error..Error$GT$$GT$$GT$17h4cc63e1d5ea32370E.exit160.i.i" ]
   %.sroa.058.0.copyload.i = phi i64 [ 2, %514 ], [ %.sroa.0222.0.copyload.i.i, %"_ZN4core3ptr153drop_in_place$LT$tokio..sync..mpsc..bounded..Receiver$LT$core..result..Result$LT$ockam_node..messages..RouterReply$C$ockam_core..error..Error$GT$$GT$$GT$17h4cc63e1d5ea32370E.exit160.i.i" ]
   %.sroa.459.0.copyload.i = phi ptr [ %.sroa.5217.0.i.i, %514 ], [ %.sroa.4223.0.copyload.i.i, %"_ZN4core3ptr153drop_in_place$LT$tokio..sync..mpsc..bounded..Receiver$LT$core..result..Result$LT$ockam_node..messages..RouterReply$C$ockam_core..error..Error$GT$$GT$$GT$17h4cc63e1d5ea32370E.exit160.i.i" ]
-  store i8 0, ptr %.sink267.i.i, align 2, !noalias !426
   %538 = getelementptr inbounds i8, ptr %1, i64 491
   store i8 0, ptr %538, align 1, !noalias !426
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23), !noalias !426

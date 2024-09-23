@@ -28469,97 +28469,97 @@ pm_write_node_value.exit.i.loopexit:              ; preds = %tailrecurse.i.i, %t
 pm_write_node_value.exit.i:                       ; preds = %tailrecurse.i.i, %pm_write_node_value.exit.i.loopexit
   %.sink = phi i64 [ 48, %pm_write_node_value.exit.i.loopexit ], [ 128, %tailrecurse.i.i ]
   %20 = getelementptr inbounds i8, ptr %.tr.i.i, i64 %.sink
-  %21 = load ptr, ptr %20, align 8
-  %.not.i = icmp eq ptr %21, null
-  br i1 %.not.i, label %pm_predicate_check.exit, label %22
+  %.0.i.i = load ptr, ptr %20, align 8
+  %.not.i = icmp eq ptr %.0.i.i, null
+  br i1 %.not.i, label %pm_predicate_check.exit, label %21
 
-22:                                               ; preds = %pm_write_node_value.exit.i
-  %23 = getelementptr inbounds i8, ptr %21, i64 2
-  %24 = load i16, ptr %23, align 2
-  %25 = and i16 %24, 16384
-  %.not5.i = icmp eq i16 %25, 0
-  br i1 %.not5.i, label %pm_predicate_check.exit, label %26
+21:                                               ; preds = %pm_write_node_value.exit.i
+  %22 = getelementptr inbounds i8, ptr %.0.i.i, i64 2
+  %23 = load i16, ptr %22, align 2
+  %24 = and i16 %23, 16384
+  %.not5.i = icmp eq i16 %24, 0
+  br i1 %.not5.i, label %pm_predicate_check.exit, label %25
 
-26:                                               ; preds = %22
-  %27 = getelementptr i8, ptr %0, i64 312
-  %.val.i = load ptr, ptr %27, align 8
-  %28 = getelementptr i8, ptr %0, i64 320
-  %.val6.i = load ptr, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 408
-  %30 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %29, ptr noundef %.val.i, ptr noundef %.val6.i, i32 noundef 228) #27
+25:                                               ; preds = %21
+  %26 = getelementptr i8, ptr %0, i64 312
+  %.val.i = load ptr, ptr %26, align 8
+  %27 = getelementptr i8, ptr %0, i64 320
+  %.val6.i = load ptr, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 408
+  %29 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %28, ptr noundef %.val.i, ptr noundef %.val6.i, i32 noundef 228) #27
   br label %pm_predicate_check.exit
 
-pm_predicate_check.exit:                          ; preds = %tailrecurse.i.i, %6, %9, %pm_write_node_value.exit.i, %22, %26
-  %31 = tail call noalias dereferenceable_or_null(96) ptr @calloc(i64 noundef 1, i64 noundef 96) #30
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %33, label %pm_alloc_node.exit
+pm_predicate_check.exit:                          ; preds = %tailrecurse.i.i, %6, %9, %pm_write_node_value.exit.i, %21, %25
+  %30 = tail call noalias dereferenceable_or_null(96) ptr @calloc(i64 noundef 1, i64 noundef 96) #30
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %32, label %pm_alloc_node.exit
 
-33:                                               ; preds = %pm_predicate_check.exit
-  %34 = load ptr, ptr @stderr, align 8
-  %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str.87, i32 noundef 96) #31
+32:                                               ; preds = %pm_predicate_check.exit
+  %33 = load ptr, ptr @stderr, align 8
+  %34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.87, i32 noundef 96) #31
   tail call void @abort() #32
   unreachable
 
 pm_alloc_node.exit:                               ; preds = %pm_predicate_check.exit
-  %36 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #30
-  %37 = icmp eq ptr %36, null
-  br i1 %37, label %38, label %41
+  %35 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #30
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %37, label %40
 
-38:                                               ; preds = %pm_alloc_node.exit
-  %39 = load ptr, ptr @stderr, align 8
-  %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.87, i32 noundef 48) #31
+37:                                               ; preds = %pm_alloc_node.exit
+  %38 = load ptr, ptr @stderr, align 8
+  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str.87, i32 noundef 48) #31
   tail call void @abort() #32
   unreachable
 
-41:                                               ; preds = %pm_alloc_node.exit
-  %42 = getelementptr inbounds i8, ptr %0, i64 264
-  %43 = load ptr, ptr %42, align 8
-  store i16 138, ptr %36, align 8
-  %.sroa.31.0..sroa_idx.i = getelementptr inbounds i8, ptr %36, i64 8
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %36, i64 16
-  store ptr %43, ptr %.sroa.4.0..sroa_idx.i, align 8
+40:                                               ; preds = %pm_alloc_node.exit
+  %41 = getelementptr inbounds i8, ptr %0, i64 264
+  %42 = load ptr, ptr %41, align 8
+  store i16 138, ptr %35, align 8
+  %.sroa.31.0..sroa_idx.i = getelementptr inbounds i8, ptr %35, i64 8
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %35, i64 16
+  store ptr %42, ptr %.sroa.4.0..sroa_idx.i, align 8
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   store ptr %.pre.i.i, ptr %.sroa.31.0..sroa_idx.i, align 8
-  %44 = getelementptr inbounds i8, ptr %1, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %46 = icmp ugt ptr %45, %43
-  br i1 %46, label %47, label %pm_statements_node_body_append.exit
+  %43 = getelementptr inbounds i8, ptr %1, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = icmp ugt ptr %44, %42
+  br i1 %45, label %46, label %pm_statements_node_body_append.exit
 
-47:                                               ; preds = %41
-  store ptr %45, ptr %.sroa.4.0..sroa_idx.i, align 8
+46:                                               ; preds = %40
+  store ptr %44, ptr %.sroa.4.0..sroa_idx.i, align 8
   br label %pm_statements_node_body_append.exit
 
-pm_statements_node_body_append.exit:              ; preds = %41, %47
-  %48 = getelementptr inbounds i8, ptr %36, i64 24
-  tail call void @pm_node_list_append(ptr noundef nonnull %48, ptr noundef nonnull %1) #27
-  %49 = getelementptr inbounds i8, ptr %1, i64 2
-  %50 = load i16, ptr %49, align 2
-  %51 = or i16 %50, -32768
-  store i16 %51, ptr %49, align 2
-  %52 = load ptr, ptr %.phi.trans.insert.i.i, align 8
-  %53 = getelementptr inbounds i8, ptr %3, i64 16
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %2, i64 8
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %2, i64 16
-  %58 = load ptr, ptr %57, align 8
-  store i16 67, ptr %31, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %31, i64 2
+pm_statements_node_body_append.exit:              ; preds = %40, %46
+  %47 = getelementptr inbounds i8, ptr %35, i64 24
+  tail call void @pm_node_list_append(ptr noundef nonnull %47, ptr noundef nonnull %1) #27
+  %48 = getelementptr inbounds i8, ptr %1, i64 2
+  %49 = load i16, ptr %48, align 2
+  %50 = or i16 %49, -32768
+  store i16 %50, ptr %48, align 2
+  %51 = load ptr, ptr %.phi.trans.insert.i.i, align 8
+  %52 = getelementptr inbounds i8, ptr %3, i64 16
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds i8, ptr %2, i64 8
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds i8, ptr %2, i64 16
+  %57 = load ptr, ptr %56, align 8
+  store i16 67, ptr %30, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 2
   store i16 -32768, ptr %.sroa.2.0..sroa_idx, align 2
-  %.sroa.31.0..sroa_idx = getelementptr inbounds i8, ptr %31, i64 8
-  store ptr %52, ptr %.sroa.31.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %31, i64 16
-  store ptr %54, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %31, i64 24
-  store ptr %56, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %31, i64 32
-  store ptr %58, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %31, i64 40
+  %.sroa.31.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 8
+  store ptr %51, ptr %.sroa.31.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 16
+  store ptr %53, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 24
+  store ptr %55, ptr %.sroa.5.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 32
+  store ptr %57, ptr %.sroa.6.0..sroa_idx, align 8
+  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 40
   store ptr %3, ptr %.sroa.7.0..sroa_idx, align 8
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %31, i64 64
-  store ptr %36, ptr %.sroa.10.0..sroa_idx, align 8
-  ret ptr %31
+  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 64
+  store ptr %35, ptr %.sroa.10.0..sroa_idx, align 8
+  ret ptr %30
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -28614,97 +28614,97 @@ pm_write_node_value.exit.i.loopexit:              ; preds = %tailrecurse.i.i, %t
 pm_write_node_value.exit.i:                       ; preds = %tailrecurse.i.i, %pm_write_node_value.exit.i.loopexit
   %.sink = phi i64 [ 48, %pm_write_node_value.exit.i.loopexit ], [ 128, %tailrecurse.i.i ]
   %20 = getelementptr inbounds i8, ptr %.tr.i.i, i64 %.sink
-  %21 = load ptr, ptr %20, align 8
-  %.not.i = icmp eq ptr %21, null
-  br i1 %.not.i, label %pm_predicate_check.exit, label %22
+  %.0.i.i = load ptr, ptr %20, align 8
+  %.not.i = icmp eq ptr %.0.i.i, null
+  br i1 %.not.i, label %pm_predicate_check.exit, label %21
 
-22:                                               ; preds = %pm_write_node_value.exit.i
-  %23 = getelementptr inbounds i8, ptr %21, i64 2
-  %24 = load i16, ptr %23, align 2
-  %25 = and i16 %24, 16384
-  %.not5.i = icmp eq i16 %25, 0
-  br i1 %.not5.i, label %pm_predicate_check.exit, label %26
+21:                                               ; preds = %pm_write_node_value.exit.i
+  %22 = getelementptr inbounds i8, ptr %.0.i.i, i64 2
+  %23 = load i16, ptr %22, align 2
+  %24 = and i16 %23, 16384
+  %.not5.i = icmp eq i16 %24, 0
+  br i1 %.not5.i, label %pm_predicate_check.exit, label %25
 
-26:                                               ; preds = %22
-  %27 = getelementptr i8, ptr %0, i64 312
-  %.val.i = load ptr, ptr %27, align 8
-  %28 = getelementptr i8, ptr %0, i64 320
-  %.val6.i = load ptr, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 408
-  %30 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %29, ptr noundef %.val.i, ptr noundef %.val6.i, i32 noundef 228) #27
+25:                                               ; preds = %21
+  %26 = getelementptr i8, ptr %0, i64 312
+  %.val.i = load ptr, ptr %26, align 8
+  %27 = getelementptr i8, ptr %0, i64 320
+  %.val6.i = load ptr, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 408
+  %29 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %28, ptr noundef %.val.i, ptr noundef %.val6.i, i32 noundef 228) #27
   br label %pm_predicate_check.exit
 
-pm_predicate_check.exit:                          ; preds = %tailrecurse.i.i, %6, %9, %pm_write_node_value.exit.i, %22, %26
-  %31 = tail call noalias dereferenceable_or_null(96) ptr @calloc(i64 noundef 1, i64 noundef 96) #30
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %33, label %pm_alloc_node.exit
+pm_predicate_check.exit:                          ; preds = %tailrecurse.i.i, %6, %9, %pm_write_node_value.exit.i, %21, %25
+  %30 = tail call noalias dereferenceable_or_null(96) ptr @calloc(i64 noundef 1, i64 noundef 96) #30
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %32, label %pm_alloc_node.exit
 
-33:                                               ; preds = %pm_predicate_check.exit
-  %34 = load ptr, ptr @stderr, align 8
-  %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str.87, i32 noundef 96) #31
+32:                                               ; preds = %pm_predicate_check.exit
+  %33 = load ptr, ptr @stderr, align 8
+  %34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.87, i32 noundef 96) #31
   tail call void @abort() #32
   unreachable
 
 pm_alloc_node.exit:                               ; preds = %pm_predicate_check.exit
-  %36 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #30
-  %37 = icmp eq ptr %36, null
-  br i1 %37, label %38, label %41
+  %35 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #30
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %37, label %40
 
-38:                                               ; preds = %pm_alloc_node.exit
-  %39 = load ptr, ptr @stderr, align 8
-  %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.87, i32 noundef 48) #31
+37:                                               ; preds = %pm_alloc_node.exit
+  %38 = load ptr, ptr @stderr, align 8
+  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str.87, i32 noundef 48) #31
   tail call void @abort() #32
   unreachable
 
-41:                                               ; preds = %pm_alloc_node.exit
-  %42 = getelementptr inbounds i8, ptr %0, i64 264
-  %43 = load ptr, ptr %42, align 8
-  store i16 138, ptr %36, align 8
-  %.sroa.31.0..sroa_idx.i = getelementptr inbounds i8, ptr %36, i64 8
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %36, i64 16
-  store ptr %43, ptr %.sroa.4.0..sroa_idx.i, align 8
+40:                                               ; preds = %pm_alloc_node.exit
+  %41 = getelementptr inbounds i8, ptr %0, i64 264
+  %42 = load ptr, ptr %41, align 8
+  store i16 138, ptr %35, align 8
+  %.sroa.31.0..sroa_idx.i = getelementptr inbounds i8, ptr %35, i64 8
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %35, i64 16
+  store ptr %42, ptr %.sroa.4.0..sroa_idx.i, align 8
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   store ptr %.pre.i.i, ptr %.sroa.31.0..sroa_idx.i, align 8
-  %44 = getelementptr inbounds i8, ptr %1, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %46 = icmp ugt ptr %45, %43
-  br i1 %46, label %47, label %pm_statements_node_body_append.exit
+  %43 = getelementptr inbounds i8, ptr %1, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = icmp ugt ptr %44, %42
+  br i1 %45, label %46, label %pm_statements_node_body_append.exit
 
-47:                                               ; preds = %41
-  store ptr %45, ptr %.sroa.4.0..sroa_idx.i, align 8
+46:                                               ; preds = %40
+  store ptr %44, ptr %.sroa.4.0..sroa_idx.i, align 8
   br label %pm_statements_node_body_append.exit
 
-pm_statements_node_body_append.exit:              ; preds = %41, %47
-  %48 = getelementptr inbounds i8, ptr %36, i64 24
-  tail call void @pm_node_list_append(ptr noundef nonnull %48, ptr noundef nonnull %1) #27
-  %49 = getelementptr inbounds i8, ptr %1, i64 2
-  %50 = load i16, ptr %49, align 2
-  %51 = or i16 %50, -32768
-  store i16 %51, ptr %49, align 2
-  %52 = load ptr, ptr %.phi.trans.insert.i.i, align 8
-  %53 = getelementptr inbounds i8, ptr %3, i64 16
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %2, i64 8
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %2, i64 16
-  %58 = load ptr, ptr %57, align 8
-  store i16 144, ptr %31, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %31, i64 2
+pm_statements_node_body_append.exit:              ; preds = %40, %46
+  %47 = getelementptr inbounds i8, ptr %35, i64 24
+  tail call void @pm_node_list_append(ptr noundef nonnull %47, ptr noundef nonnull %1) #27
+  %48 = getelementptr inbounds i8, ptr %1, i64 2
+  %49 = load i16, ptr %48, align 2
+  %50 = or i16 %49, -32768
+  store i16 %50, ptr %48, align 2
+  %51 = load ptr, ptr %.phi.trans.insert.i.i, align 8
+  %52 = getelementptr inbounds i8, ptr %3, i64 16
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds i8, ptr %2, i64 8
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds i8, ptr %2, i64 16
+  %57 = load ptr, ptr %56, align 8
+  store i16 144, ptr %30, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 2
   store i16 -32768, ptr %.sroa.2.0..sroa_idx, align 2
-  %.sroa.31.0..sroa_idx = getelementptr inbounds i8, ptr %31, i64 8
-  store ptr %52, ptr %.sroa.31.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %31, i64 16
-  store ptr %54, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %31, i64 24
-  store ptr %56, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %31, i64 32
-  store ptr %58, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %31, i64 40
+  %.sroa.31.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 8
+  store ptr %51, ptr %.sroa.31.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 16
+  store ptr %53, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 24
+  store ptr %55, ptr %.sroa.5.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 32
+  store ptr %57, ptr %.sroa.6.0..sroa_idx, align 8
+  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 40
   store ptr %3, ptr %.sroa.7.0..sroa_idx, align 8
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %31, i64 64
-  store ptr %36, ptr %.sroa.10.0..sroa_idx, align 8
-  ret ptr %31
+  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 64
+  store ptr %35, ptr %.sroa.10.0..sroa_idx, align 8
+  ret ptr %30
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
@@ -31049,7 +31049,7 @@ pm_parameters_node_create.exit:                   ; preds = %5
   %.0570 = phi i32 [ 8, %pm_parameters_node_create.exit ], [ %.1571, %accept1.exit494 ]
   %.0198 = phi i1 [ true, %pm_parameters_node_create.exit ], [ %.1, %accept1.exit494 ]
   %41 = load i32, ptr %21, align 8
-  switch i32 %41, label %589 [
+  switch i32 %41, label %592 [
     i32 123, label %42
     i32 154, label %70
     i32 4, label %70
@@ -31060,11 +31060,11 @@ pm_parameters_node_create.exit:                   ; preds = %5
     i32 57, label %211
     i32 48, label %211
     i32 117, label %211
-    i32 109, label %331
-    i32 161, label %437
-    i32 145, label %437
-    i32 147, label %508
-    i32 162, label %508
+    i32 109, label %334
+    i32 161, label %440
+    i32 145, label %440
+    i32 147, label %511
+    i32 162, label %511
   ]
 
 42:                                               ; preds = %40
@@ -31101,7 +31101,7 @@ update_parameter_state.exit:                      ; preds = %44
   %storemerge19.i.i = select i1 %55, ptr %57, ptr %.20.i.i
   store ptr %storemerge19.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8
   tail call void @pm_node_list_append(ptr noundef nonnull %37, ptr noundef nonnull %48) #27
-  br label %624
+  br label %627
 
 update_parameter_state.exit.thread:               ; preds = %42, %update_parameter_state.exit
   %.3574 = phi i32 [ %.0570, %update_parameter_state.exit ], [ 5, %42 ]
@@ -31123,7 +31123,7 @@ update_parameter_state.exit.thread:               ; preds = %42, %update_paramet
   %storemerge19.i.i238 = select i1 %66, ptr %68, ptr %.20.i.i237
   store ptr %storemerge19.i.i238, ptr %.sroa.4.0..sroa_idx.i, align 8
   tail call void @pm_node_list_append(ptr noundef nonnull %28, ptr noundef nonnull %59) #27
-  br label %624
+  br label %627
 
 70:                                               ; preds = %40, %40
   %71 = zext nneg i32 %41 to i64
@@ -31273,7 +31273,7 @@ pm_block_parameter_node_create.exit:              ; preds = %pm_alloc_node.exit.
   %storemerge19.i.i255 = select i1 %129, ptr %.sroa.speculated549, ptr %.20.i.i254
   store ptr %storemerge19.i.i255, ptr %.sroa.4.0..sroa_idx.i, align 8
   store ptr %104, ptr %39, align 8
-  br label %624
+  br label %627
 
 131:                                              ; preds = %121
   %132 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %22, ptr noundef %.sroa.1545.0.copyload, ptr noundef %.sroa.speculated549, i32 noundef 161) #27
@@ -31292,7 +31292,7 @@ pm_block_parameter_node_create.exit:              ; preds = %pm_alloc_node.exit.
   %storemerge19.i.i259 = select i1 %138, ptr %139, ptr %.20.i.i258
   store ptr %storemerge19.i.i259, ptr %.sroa.4.0..sroa_idx.i, align 8
   tail call void @pm_node_list_append(ptr noundef nonnull %28, ptr noundef nonnull %104) #27
-  br label %624
+  br label %627
 
 141:                                              ; preds = %40
   br i1 %4, label %146, label %142
@@ -31425,7 +31425,7 @@ pm_forwarding_parameter_node_create.exit:         ; preds = %update_parameter_st
   %storemerge19.i.i280 = select i1 %206, ptr %200, ptr %.20.i.i279
   store ptr %storemerge19.i.i280, ptr %.sroa.4.0..sroa_idx.i, align 8
   store ptr %177, ptr %27, align 8
-  br label %624
+  br label %627
 
 208:                                              ; preds = %146
   br i1 %152, label %update_parameter_state.exit290, label %209
@@ -31438,7 +31438,7 @@ pm_forwarding_parameter_node_create.exit:         ; preds = %update_parameter_st
 
 update_parameter_state.exit290:                   ; preds = %208, %209
   tail call fastcc void @parser_lex(ptr noundef nonnull %0)
-  br label %624
+  br label %627
 
 211:                                              ; preds = %40, %40, %40, %40, %40, %40
   tail call fastcc void @parser_lex(ptr noundef nonnull %0)
@@ -31473,634 +31473,638 @@ update_parameter_state.exit290:                   ; preds = %208, %209
 220:                                              ; preds = %.sink.split, %211
   %221 = load i32, ptr %21, align 8
   %222 = icmp eq i32 %221, 39
-  br i1 %222, label %223, label %225
+  br i1 %222, label %223, label %227
 
 223:                                              ; preds = %220
   %224 = icmp ult i32 %.0570, 6
-  br i1 %224, label %update_parameter_state.exit300.sink.split, label %update_parameter_state.exit300
+  br i1 %224, label %225, label %update_parameter_state.exit300
 
-225:                                              ; preds = %220
-  %226 = load i32, ptr %23, align 8
-  %227 = zext i32 %226 to i64
-  %228 = getelementptr [165 x i32], ptr @parameters_ordering, i64 0, i64 %227
-  %229 = load i32, ptr %228, align 4
-  %230 = icmp eq i32 %229, 0
-  br i1 %230, label %update_parameter_state.exit300, label %231
-
-231:                                              ; preds = %225
-  %232 = icmp eq i32 %.0570, 6
-  %233 = icmp eq i32 %226, 55
-  %234 = icmp eq i32 %226, 123
-  %235 = or i1 %233, %234
-  %or.cond.i301 = and i1 %232, %235
-  br i1 %or.cond.i301, label %update_parameter_state.exit300, label %236
-
-236:                                              ; preds = %231
-  %237 = icmp eq i32 %.0570, 5
-  %or.cond3.i302 = and i1 %237, %235
-  br i1 %or.cond3.i302, label %update_parameter_state.exit300, label %238
-
-238:                                              ; preds = %236
-  %239 = icmp eq i32 %226, 161
-  %brmerge.not.i303 = and i1 %237, %239
-  br i1 %brmerge.not.i303, label %240, label %242
-
-240:                                              ; preds = %238
-  %.val26.i307 = load ptr, ptr %.sroa.1.0..sroa_idx, align 8
-  %.val27.i308 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
-  %241 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %22, ptr noundef %.val26.i307, ptr noundef %.val27.i308, i32 noundef 170) #27
-  br label %242
-
-242:                                              ; preds = %240, %238
-  %243 = icmp eq i32 %.0570, 1
-  %244 = icmp ugt i32 %229, %.0570
-  %or.cond24.i304 = or i1 %243, %244
-  br i1 %or.cond24.i304, label %update_parameter_state.exit300.sink.split, label %update_parameter_state.exit300
-
-update_parameter_state.exit300.sink.split:        ; preds = %242, %223
-  %.sroa.1.0..sroa_idx.sink = phi ptr [ %16, %223 ], [ %.sroa.1.0..sroa_idx, %242 ]
-  %.sroa.4.0..sroa_idx.sink = phi ptr [ %18, %223 ], [ %.sroa.4.0..sroa_idx, %242 ]
-  %.val.i305 = load ptr, ptr %.sroa.1.0..sroa_idx.sink, align 8
-  %.val25.i306 = load ptr, ptr %.sroa.4.0..sroa_idx.sink, align 8
-  %245 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %22, ptr noundef %.val.i305, ptr noundef %.val25.i306, i32 noundef 168) #27
+225:                                              ; preds = %223
+  %.val.i295 = load ptr, ptr %16, align 8
+  %.val25.i296 = load ptr, ptr %18, align 8
+  %226 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %22, ptr noundef %.val.i295, ptr noundef %.val25.i296, i32 noundef 168) #27
   br label %update_parameter_state.exit300
 
-update_parameter_state.exit300:                   ; preds = %update_parameter_state.exit300.sink.split, %242, %223, %236, %225, %231
-  %.2572 = phi i32 [ %.0570, %225 ], [ 5, %236 ], [ 5, %231 ], [ 6, %223 ], [ %229, %242 ], [ %.0570, %update_parameter_state.exit300.sink.split ]
+227:                                              ; preds = %220
+  %228 = load i32, ptr %23, align 8
+  %229 = zext i32 %228 to i64
+  %230 = getelementptr [165 x i32], ptr @parameters_ordering, i64 0, i64 %229
+  %231 = load i32, ptr %230, align 4
+  %232 = icmp eq i32 %231, 0
+  br i1 %232, label %update_parameter_state.exit300, label %233
+
+233:                                              ; preds = %227
+  %234 = icmp eq i32 %.0570, 6
+  %235 = icmp eq i32 %228, 55
+  %236 = icmp eq i32 %228, 123
+  %237 = or i1 %235, %236
+  %or.cond.i301 = and i1 %234, %237
+  br i1 %or.cond.i301, label %update_parameter_state.exit300, label %238
+
+238:                                              ; preds = %233
+  %239 = icmp eq i32 %.0570, 5
+  %or.cond3.i302 = and i1 %239, %237
+  br i1 %or.cond3.i302, label %update_parameter_state.exit300, label %240
+
+240:                                              ; preds = %238
+  %241 = icmp eq i32 %228, 161
+  %brmerge.not.i303 = and i1 %239, %241
+  br i1 %brmerge.not.i303, label %242, label %244
+
+242:                                              ; preds = %240
+  %.val26.i307 = load ptr, ptr %.sroa.1.0..sroa_idx, align 8
+  %.val27.i308 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
+  %243 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %22, ptr noundef %.val26.i307, ptr noundef %.val27.i308, i32 noundef 170) #27
+  br label %244
+
+244:                                              ; preds = %242, %240
+  %245 = icmp eq i32 %.0570, 1
+  %246 = icmp ugt i32 %231, %.0570
+  %or.cond24.i304 = or i1 %245, %246
+  br i1 %or.cond24.i304, label %247, label %update_parameter_state.exit300
+
+247:                                              ; preds = %244
+  %.val.i305 = load ptr, ptr %.sroa.1.0..sroa_idx, align 8
+  %.val25.i306 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
+  %248 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %22, ptr noundef %.val.i305, ptr noundef %.val25.i306, i32 noundef 168) #27
+  br label %update_parameter_state.exit300
+
+update_parameter_state.exit300:                   ; preds = %244, %223, %247, %238, %227, %233, %225
+  %.2572 = phi i32 [ %.0570, %225 ], [ %.0570, %227 ], [ 5, %238 ], [ %.0570, %247 ], [ 5, %233 ], [ 6, %223 ], [ %231, %244 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 24, i1 false)
-  %246 = call fastcc zeroext i1 @pm_parser_parameter_name_check(ptr noundef nonnull %0, ptr noundef nonnull %7)
+  %249 = call fastcc zeroext i1 @pm_parser_parameter_name_check(ptr noundef nonnull %0, ptr noundef nonnull %7)
   %.val225 = load ptr, ptr %35, align 8
   %.val226 = load ptr, ptr %36, align 8
-  %247 = ptrtoint ptr %.val226 to i64
-  %248 = ptrtoint ptr %.val225 to i64
-  %249 = sub i64 %247, %248
-  %250 = tail call i32 @pm_constant_pool_insert_shared(ptr noundef nonnull %26, ptr noundef %.val225, i64 noundef %249) #27
-  %.not.i.i311 = icmp eq i32 %250, 0
-  br i1 %.not.i.i311, label %pm_parser_local_add_token.exit312, label %251
+  %250 = ptrtoint ptr %.val226 to i64
+  %251 = ptrtoint ptr %.val225 to i64
+  %252 = sub i64 %250, %251
+  %253 = tail call i32 @pm_constant_pool_insert_shared(ptr noundef nonnull %26, ptr noundef %.val225, i64 noundef %252) #27
+  %.not.i.i311 = icmp eq i32 %253, 0
+  br i1 %.not.i.i311, label %pm_parser_local_add_token.exit312, label %254
 
-251:                                              ; preds = %update_parameter_state.exit300
-  %252 = load ptr, ptr %25, align 8
-  %253 = getelementptr inbounds i8, ptr %252, i64 8
-  %254 = tail call zeroext i1 @pm_constant_id_list_includes(ptr noundef nonnull %253, i32 noundef %250) #27
-  br i1 %254, label %pm_parser_local_add_token.exit312, label %255
+254:                                              ; preds = %update_parameter_state.exit300
+  %255 = load ptr, ptr %25, align 8
+  %256 = getelementptr inbounds i8, ptr %255, i64 8
+  %257 = tail call zeroext i1 @pm_constant_id_list_includes(ptr noundef nonnull %256, i32 noundef %253) #27
+  br i1 %257, label %pm_parser_local_add_token.exit312, label %258
 
-255:                                              ; preds = %251
-  %256 = load ptr, ptr %25, align 8
-  %257 = getelementptr inbounds i8, ptr %256, i64 8
-  %258 = tail call zeroext i1 @pm_constant_id_list_append(ptr noundef nonnull %257, i32 noundef %250) #27
+258:                                              ; preds = %254
+  %259 = load ptr, ptr %25, align 8
+  %260 = getelementptr inbounds i8, ptr %259, i64 8
+  %261 = tail call zeroext i1 @pm_constant_id_list_append(ptr noundef nonnull %260, i32 noundef %253) #27
   br label %pm_parser_local_add_token.exit312
 
-pm_parser_local_add_token.exit312:                ; preds = %update_parameter_state.exit300, %251, %255
+pm_parser_local_add_token.exit312:                ; preds = %update_parameter_state.exit300, %254, %258
   %.val.i313 = load i32, ptr %21, align 8
-  %259 = icmp eq i32 %.val.i313, 39
-  br i1 %259, label %260, label %accept1.exit314
+  %262 = icmp eq i32 %.val.i313, 39
+  br i1 %262, label %263, label %accept1.exit314
 
-260:                                              ; preds = %pm_parser_local_add_token.exit312
+263:                                              ; preds = %pm_parser_local_add_token.exit312
   tail call fastcc void @parser_lex(ptr noundef nonnull %0)
   %.sroa.1537.0.copyload = load ptr, ptr %.sroa.1.0..sroa_idx, align 8
   %.sroa.2538.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
-  %261 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
-  %.not599 = icmp eq ptr %261, null
-  br i1 %.not599, label %context_push.exit, label %262
+  %264 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
+  %.not599 = icmp eq ptr %264, null
+  br i1 %.not599, label %context_push.exit, label %265
 
-262:                                              ; preds = %260
-  store i32 9, ptr %261, align 8
-  %.sroa.21.0..sroa_idx.i = getelementptr inbounds i8, ptr %261, i64 8
-  %263 = load ptr, ptr %32, align 8
-  store ptr %263, ptr %.sroa.21.0..sroa_idx.i, align 8
-  store ptr %261, ptr %32, align 8
+265:                                              ; preds = %263
+  store i32 9, ptr %264, align 8
+  %.sroa.21.0..sroa_idx.i = getelementptr inbounds i8, ptr %264, i64 8
+  %266 = load ptr, ptr %32, align 8
+  store ptr %266, ptr %.sroa.21.0..sroa_idx.i, align 8
+  store ptr %264, ptr %32, align 8
   br label %context_push.exit
 
-context_push.exit:                                ; preds = %260, %262
-  %264 = tail call i32 @pm_constant_pool_insert_shared(ptr noundef nonnull %26, ptr noundef %.val225, i64 noundef %249) #27
-  %265 = load i32, ptr %33, align 8
-  store i32 %264, ptr %33, align 8
-  %266 = tail call fastcc ptr @parse_expression(ptr noundef nonnull %0, i32 noundef %1, i1 noundef zeroext false, i32 noundef 165)
-  %267 = tail call fastcc ptr @pm_check_value_expression(ptr noundef readonly %266)
-  %.not.i = icmp eq ptr %267, null
-  br i1 %.not.i, label %pm_assert_value_expression.exit, label %268
+context_push.exit:                                ; preds = %263, %265
+  %267 = tail call i32 @pm_constant_pool_insert_shared(ptr noundef nonnull %26, ptr noundef %.val225, i64 noundef %252) #27
+  %268 = load i32, ptr %33, align 8
+  store i32 %267, ptr %33, align 8
+  %269 = tail call fastcc ptr @parse_expression(ptr noundef nonnull %0, i32 noundef %1, i1 noundef zeroext false, i32 noundef 165)
+  %270 = tail call fastcc ptr @pm_check_value_expression(ptr noundef readonly %269)
+  %.not.i = icmp eq ptr %270, null
+  br i1 %.not.i, label %pm_assert_value_expression.exit, label %271
 
-268:                                              ; preds = %context_push.exit
-  %269 = getelementptr i8, ptr %267, i64 8
-  %.val.i495 = load ptr, ptr %269, align 8
-  %270 = getelementptr i8, ptr %267, i64 16
-  %.val4.i = load ptr, ptr %270, align 8
-  %271 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %22, ptr noundef %.val.i495, ptr noundef %.val4.i, i32 noundef 218) #27
+271:                                              ; preds = %context_push.exit
+  %272 = getelementptr i8, ptr %270, i64 8
+  %.val.i495 = load ptr, ptr %272, align 8
+  %273 = getelementptr i8, ptr %270, i64 16
+  %.val4.i = load ptr, ptr %273, align 8
+  %274 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %22, ptr noundef %.val.i495, ptr noundef %.val4.i, i32 noundef 218) #27
   br label %pm_assert_value_expression.exit
 
-pm_assert_value_expression.exit:                  ; preds = %context_push.exit, %268
-  %272 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef 72) #30
-  %273 = icmp eq ptr %272, null
-  br i1 %273, label %274, label %pm_optional_parameter_node_create.exit
+pm_assert_value_expression.exit:                  ; preds = %context_push.exit, %271
+  %275 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef 72) #30
+  %276 = icmp eq ptr %275, null
+  br i1 %276, label %277, label %pm_optional_parameter_node_create.exit
 
-274:                                              ; preds = %pm_assert_value_expression.exit
-  %275 = load ptr, ptr @stderr, align 8
-  %276 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %275, ptr noundef nonnull @.str.87, i32 noundef 72) #31
+277:                                              ; preds = %pm_assert_value_expression.exit
+  %278 = load ptr, ptr @stderr, align 8
+  %279 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %278, ptr noundef nonnull @.str.87, i32 noundef 72) #31
   tail call void @abort() #32
   unreachable
 
 pm_optional_parameter_node_create.exit:           ; preds = %pm_assert_value_expression.exit
-  %277 = getelementptr inbounds i8, ptr %266, i64 16
-  %278 = load ptr, ptr %277, align 8
-  %279 = tail call i32 @pm_constant_pool_insert_shared(ptr noundef nonnull %26, ptr noundef %.val225, i64 noundef %249) #27
-  store i16 112, ptr %272, align 8
-  %.sroa.31.0..sroa_idx.i316 = getelementptr inbounds i8, ptr %272, i64 8
+  %280 = getelementptr inbounds i8, ptr %269, i64 16
+  %281 = load ptr, ptr %280, align 8
+  %282 = tail call i32 @pm_constant_pool_insert_shared(ptr noundef nonnull %26, ptr noundef %.val225, i64 noundef %252) #27
+  store i16 112, ptr %275, align 8
+  %.sroa.31.0..sroa_idx.i316 = getelementptr inbounds i8, ptr %275, i64 8
   store ptr %.val225, ptr %.sroa.31.0..sroa_idx.i316, align 8
-  %.sroa.4.0..sroa_idx.i317 = getelementptr inbounds i8, ptr %272, i64 16
-  store ptr %278, ptr %.sroa.4.0..sroa_idx.i317, align 8
-  %.sroa.5.0..sroa_idx.i318 = getelementptr inbounds i8, ptr %272, i64 24
-  store i32 %279, ptr %.sroa.5.0..sroa_idx.i318, align 8
-  %.sroa.62.0..sroa_idx.i319 = getelementptr inbounds i8, ptr %272, i64 32
+  %.sroa.4.0..sroa_idx.i317 = getelementptr inbounds i8, ptr %275, i64 16
+  store ptr %281, ptr %.sroa.4.0..sroa_idx.i317, align 8
+  %.sroa.5.0..sroa_idx.i318 = getelementptr inbounds i8, ptr %275, i64 24
+  store i32 %282, ptr %.sroa.5.0..sroa_idx.i318, align 8
+  %.sroa.62.0..sroa_idx.i319 = getelementptr inbounds i8, ptr %275, i64 32
   store ptr %.val225, ptr %.sroa.62.0..sroa_idx.i319, align 8
-  %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %272, i64 40
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %275, i64 40
   store ptr %.val226, ptr %.sroa.7.0..sroa_idx.i, align 8
-  %.sroa.8.0..sroa_idx.i320 = getelementptr inbounds i8, ptr %272, i64 48
+  %.sroa.8.0..sroa_idx.i320 = getelementptr inbounds i8, ptr %275, i64 48
   store ptr %.sroa.1537.0.copyload, ptr %.sroa.8.0..sroa_idx.i320, align 8
-  %.sroa.9.0..sroa_idx.i = getelementptr inbounds i8, ptr %272, i64 56
+  %.sroa.9.0..sroa_idx.i = getelementptr inbounds i8, ptr %275, i64 56
   store ptr %.sroa.2538.0.copyload, ptr %.sroa.9.0..sroa_idx.i, align 8
-  %.sroa.10.0..sroa_idx.i321 = getelementptr inbounds i8, ptr %272, i64 64
-  store ptr %266, ptr %.sroa.10.0..sroa_idx.i321, align 8
-  br i1 %246, label %280, label %284
+  %.sroa.10.0..sroa_idx.i321 = getelementptr inbounds i8, ptr %275, i64 64
+  store ptr %269, ptr %.sroa.10.0..sroa_idx.i321, align 8
+  br i1 %249, label %283, label %287
 
-280:                                              ; preds = %pm_optional_parameter_node_create.exit
-  %281 = getelementptr inbounds i8, ptr %272, i64 2
-  %282 = load i16, ptr %281, align 2
-  %283 = or i16 %282, 1
-  store i16 %283, ptr %281, align 2
-  br label %284
+283:                                              ; preds = %pm_optional_parameter_node_create.exit
+  %284 = getelementptr inbounds i8, ptr %275, i64 2
+  %285 = load i16, ptr %284, align 2
+  %286 = or i16 %285, 1
+  store i16 %286, ptr %284, align 2
+  br label %287
 
-284:                                              ; preds = %280, %pm_optional_parameter_node_create.exit
-  %285 = load ptr, ptr %.sroa.31.0..sroa_idx.i, align 8
-  %286 = icmp eq ptr %285, null
-  %287 = icmp ult ptr %285, %.val225
-  %..i.i322 = select i1 %287, ptr %285, ptr %.val225
-  %storemerge.i.i323 = select i1 %286, ptr %.val225, ptr %..i.i322
-  store ptr %storemerge.i.i323, ptr %.sroa.31.0..sroa_idx.i, align 8
-  %288 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8
+287:                                              ; preds = %283, %pm_optional_parameter_node_create.exit
+  %288 = load ptr, ptr %.sroa.31.0..sroa_idx.i, align 8
   %289 = icmp eq ptr %288, null
-  %290 = icmp ugt ptr %288, %278
-  %.20.i.i324 = select i1 %290, ptr %288, ptr %278
-  %storemerge19.i.i325 = select i1 %289, ptr %278, ptr %.20.i.i324
+  %290 = icmp ult ptr %288, %.val225
+  %..i.i322 = select i1 %290, ptr %288, ptr %.val225
+  %storemerge.i.i323 = select i1 %289, ptr %.val225, ptr %..i.i322
+  store ptr %storemerge.i.i323, ptr %.sroa.31.0..sroa_idx.i, align 8
+  %291 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8
+  %292 = icmp eq ptr %291, null
+  %293 = icmp ugt ptr %291, %281
+  %.20.i.i324 = select i1 %293, ptr %291, ptr %281
+  %storemerge19.i.i325 = select i1 %292, ptr %281, ptr %.20.i.i324
   store ptr %storemerge19.i.i325, ptr %.sroa.4.0..sroa_idx.i, align 8
-  tail call void @pm_node_list_append(ptr noundef nonnull %38, ptr noundef nonnull %272) #27
-  store i32 %265, ptr %33, align 8
-  %291 = load ptr, ptr %32, align 8
-  %292 = getelementptr inbounds i8, ptr %291, i64 8
-  %293 = load ptr, ptr %292, align 8
-  tail call void @free(ptr noundef %291) #27
-  store ptr %293, ptr %32, align 8
-  %294 = load i8, ptr %34, align 2
-  %295 = trunc i8 %294 to i1
-  %not.601 = xor i1 %295, true
+  tail call void @pm_node_list_append(ptr noundef nonnull %38, ptr noundef nonnull %275) #27
+  store i32 %268, ptr %33, align 8
+  %294 = load ptr, ptr %32, align 8
+  %295 = getelementptr inbounds i8, ptr %294, i64 8
+  %296 = load ptr, ptr %295, align 8
+  tail call void @free(ptr noundef %294) #27
+  store ptr %296, ptr %32, align 8
+  %297 = load i8, ptr %34, align 2
+  %298 = trunc i8 %297 to i1
+  %not.601 = xor i1 %298, true
   %spec.select = and i1 %.0198, %not.601
-  br label %624
+  br label %627
 
 accept1.exit314:                                  ; preds = %pm_parser_local_add_token.exit312
-  %296 = icmp ugt i32 %.2572, 5
-  %297 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #30
-  %298 = icmp eq ptr %297, null
-  br i1 %296, label %299, label %315
+  %299 = icmp ugt i32 %.2572, 5
+  %300 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #30
+  %301 = icmp eq ptr %300, null
+  br i1 %299, label %302, label %318
 
-299:                                              ; preds = %accept1.exit314
-  br i1 %298, label %300, label %pm_required_parameter_node_create.exit
+302:                                              ; preds = %accept1.exit314
+  br i1 %301, label %303, label %pm_required_parameter_node_create.exit
 
-300:                                              ; preds = %299
-  %301 = load ptr, ptr @stderr, align 8
-  %302 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %301, ptr noundef nonnull @.str.87, i32 noundef 32) #31
+303:                                              ; preds = %302
+  %304 = load ptr, ptr @stderr, align 8
+  %305 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %304, ptr noundef nonnull @.str.87, i32 noundef 32) #31
   tail call void @abort() #32
   unreachable
 
-pm_required_parameter_node_create.exit:           ; preds = %299
-  %303 = tail call i32 @pm_constant_pool_insert_shared(ptr noundef nonnull %26, ptr noundef %.val225, i64 noundef %249) #27
-  store i16 126, ptr %297, align 8
-  %.sroa.31.0..sroa_idx.i327 = getelementptr inbounds i8, ptr %297, i64 8
+pm_required_parameter_node_create.exit:           ; preds = %302
+  %306 = tail call i32 @pm_constant_pool_insert_shared(ptr noundef nonnull %26, ptr noundef %.val225, i64 noundef %252) #27
+  store i16 126, ptr %300, align 8
+  %.sroa.31.0..sroa_idx.i327 = getelementptr inbounds i8, ptr %300, i64 8
   store ptr %.val225, ptr %.sroa.31.0..sroa_idx.i327, align 8
-  %.sroa.4.0..sroa_idx.i328 = getelementptr inbounds i8, ptr %297, i64 16
+  %.sroa.4.0..sroa_idx.i328 = getelementptr inbounds i8, ptr %300, i64 16
   store ptr %.val226, ptr %.sroa.4.0..sroa_idx.i328, align 8
-  %.sroa.5.0..sroa_idx.i329 = getelementptr inbounds i8, ptr %297, i64 24
-  store i32 %303, ptr %.sroa.5.0..sroa_idx.i329, align 8
-  br i1 %246, label %304, label %308
+  %.sroa.5.0..sroa_idx.i329 = getelementptr inbounds i8, ptr %300, i64 24
+  store i32 %306, ptr %.sroa.5.0..sroa_idx.i329, align 8
+  br i1 %249, label %307, label %311
 
-304:                                              ; preds = %pm_required_parameter_node_create.exit
-  %305 = getelementptr inbounds i8, ptr %297, i64 2
-  %306 = load i16, ptr %305, align 2
-  %307 = or i16 %306, 1
-  store i16 %307, ptr %305, align 2
-  br label %308
+307:                                              ; preds = %pm_required_parameter_node_create.exit
+  %308 = getelementptr inbounds i8, ptr %300, i64 2
+  %309 = load i16, ptr %308, align 2
+  %310 = or i16 %309, 1
+  store i16 %310, ptr %308, align 2
+  br label %311
 
-308:                                              ; preds = %304, %pm_required_parameter_node_create.exit
-  %309 = load ptr, ptr %.sroa.31.0..sroa_idx.i, align 8
-  %310 = icmp eq ptr %309, null
-  %311 = icmp ult ptr %309, %.val225
-  %..i.i330 = select i1 %311, ptr %309, ptr %.val225
-  %storemerge.i.i331 = select i1 %310, ptr %.val225, ptr %..i.i330
-  store ptr %storemerge.i.i331, ptr %.sroa.31.0..sroa_idx.i, align 8
-  %312 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8
+311:                                              ; preds = %307, %pm_required_parameter_node_create.exit
+  %312 = load ptr, ptr %.sroa.31.0..sroa_idx.i, align 8
   %313 = icmp eq ptr %312, null
-  %314 = icmp ugt ptr %312, %.val226
-  %.20.i.i332 = select i1 %314, ptr %312, ptr %.val226
-  %storemerge19.i.i333 = select i1 %313, ptr %.val226, ptr %.20.i.i332
+  %314 = icmp ult ptr %312, %.val225
+  %..i.i330 = select i1 %314, ptr %312, ptr %.val225
+  %storemerge.i.i331 = select i1 %313, ptr %.val225, ptr %..i.i330
+  store ptr %storemerge.i.i331, ptr %.sroa.31.0..sroa_idx.i, align 8
+  %315 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8
+  %316 = icmp eq ptr %315, null
+  %317 = icmp ugt ptr %315, %.val226
+  %.20.i.i332 = select i1 %317, ptr %315, ptr %.val226
+  %storemerge19.i.i333 = select i1 %316, ptr %.val226, ptr %.20.i.i332
   store ptr %storemerge19.i.i333, ptr %.sroa.4.0..sroa_idx.i, align 8
-  tail call void @pm_node_list_append(ptr noundef nonnull %37, ptr noundef nonnull %297) #27
-  br label %624
+  tail call void @pm_node_list_append(ptr noundef nonnull %37, ptr noundef nonnull %300) #27
+  br label %627
 
-315:                                              ; preds = %accept1.exit314
-  br i1 %298, label %316, label %pm_required_parameter_node_create.exit338
+318:                                              ; preds = %accept1.exit314
+  br i1 %301, label %319, label %pm_required_parameter_node_create.exit338
 
-316:                                              ; preds = %315
-  %317 = load ptr, ptr @stderr, align 8
-  %318 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %317, ptr noundef nonnull @.str.87, i32 noundef 32) #31
+319:                                              ; preds = %318
+  %320 = load ptr, ptr @stderr, align 8
+  %321 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %320, ptr noundef nonnull @.str.87, i32 noundef 32) #31
   tail call void @abort() #32
   unreachable
 
-pm_required_parameter_node_create.exit338:        ; preds = %315
-  %319 = tail call i32 @pm_constant_pool_insert_shared(ptr noundef nonnull %26, ptr noundef %.val225, i64 noundef %249) #27
-  store i16 126, ptr %297, align 8
-  %.sroa.31.0..sroa_idx.i335 = getelementptr inbounds i8, ptr %297, i64 8
+pm_required_parameter_node_create.exit338:        ; preds = %318
+  %322 = tail call i32 @pm_constant_pool_insert_shared(ptr noundef nonnull %26, ptr noundef %.val225, i64 noundef %252) #27
+  store i16 126, ptr %300, align 8
+  %.sroa.31.0..sroa_idx.i335 = getelementptr inbounds i8, ptr %300, i64 8
   store ptr %.val225, ptr %.sroa.31.0..sroa_idx.i335, align 8
-  %.sroa.4.0..sroa_idx.i336 = getelementptr inbounds i8, ptr %297, i64 16
+  %.sroa.4.0..sroa_idx.i336 = getelementptr inbounds i8, ptr %300, i64 16
   store ptr %.val226, ptr %.sroa.4.0..sroa_idx.i336, align 8
-  %.sroa.5.0..sroa_idx.i337 = getelementptr inbounds i8, ptr %297, i64 24
-  store i32 %319, ptr %.sroa.5.0..sroa_idx.i337, align 8
-  br i1 %246, label %320, label %324
+  %.sroa.5.0..sroa_idx.i337 = getelementptr inbounds i8, ptr %300, i64 24
+  store i32 %322, ptr %.sroa.5.0..sroa_idx.i337, align 8
+  br i1 %249, label %323, label %327
 
-320:                                              ; preds = %pm_required_parameter_node_create.exit338
-  %321 = getelementptr inbounds i8, ptr %297, i64 2
-  %322 = load i16, ptr %321, align 2
-  %323 = or i16 %322, 1
-  store i16 %323, ptr %321, align 2
-  br label %324
+323:                                              ; preds = %pm_required_parameter_node_create.exit338
+  %324 = getelementptr inbounds i8, ptr %300, i64 2
+  %325 = load i16, ptr %324, align 2
+  %326 = or i16 %325, 1
+  store i16 %326, ptr %324, align 2
+  br label %327
 
-324:                                              ; preds = %320, %pm_required_parameter_node_create.exit338
-  %325 = load ptr, ptr %.sroa.31.0..sroa_idx.i, align 8
-  %326 = icmp eq ptr %325, null
-  %327 = icmp ult ptr %325, %.val225
-  %..i.i339 = select i1 %327, ptr %325, ptr %.val225
-  %storemerge.i.i340 = select i1 %326, ptr %.val225, ptr %..i.i339
-  store ptr %storemerge.i.i340, ptr %.sroa.31.0..sroa_idx.i, align 8
-  %328 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8
+327:                                              ; preds = %323, %pm_required_parameter_node_create.exit338
+  %328 = load ptr, ptr %.sroa.31.0..sroa_idx.i, align 8
   %329 = icmp eq ptr %328, null
-  %330 = icmp ugt ptr %328, %.val226
-  %.20.i.i341 = select i1 %330, ptr %328, ptr %.val226
-  %storemerge19.i.i342 = select i1 %329, ptr %.val226, ptr %.20.i.i341
+  %330 = icmp ult ptr %328, %.val225
+  %..i.i339 = select i1 %330, ptr %328, ptr %.val225
+  %storemerge.i.i340 = select i1 %329, ptr %.val225, ptr %..i.i339
+  store ptr %storemerge.i.i340, ptr %.sroa.31.0..sroa_idx.i, align 8
+  %331 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8
+  %332 = icmp eq ptr %331, null
+  %333 = icmp ugt ptr %331, %.val226
+  %.20.i.i341 = select i1 %333, ptr %331, ptr %.val226
+  %storemerge19.i.i342 = select i1 %332, ptr %.val226, ptr %.20.i.i341
   store ptr %storemerge19.i.i342, ptr %.sroa.4.0..sroa_idx.i, align 8
-  tail call void @pm_node_list_append(ptr noundef nonnull %28, ptr noundef nonnull %297) #27
-  br label %624
+  tail call void @pm_node_list_append(ptr noundef nonnull %28, ptr noundef nonnull %300) #27
+  br label %627
 
-331:                                              ; preds = %40
-  br i1 %2, label %333, label %332
+334:                                              ; preds = %40
+  br i1 %2, label %336, label %335
 
-332:                                              ; preds = %331
+335:                                              ; preds = %334
   store i8 1, ptr %30, align 1
-  br label %333
+  br label %336
 
-333:                                              ; preds = %331, %332
-  %334 = icmp ult i32 %.0570, 3
-  br i1 %334, label %335, label %update_parameter_state.exit352
+336:                                              ; preds = %334, %335
+  %337 = icmp ult i32 %.0570, 3
+  br i1 %337, label %338, label %update_parameter_state.exit352
 
-335:                                              ; preds = %333
+338:                                              ; preds = %336
   %.val.i347 = load ptr, ptr %16, align 8
   %.val25.i348 = load ptr, ptr %18, align 8
-  %336 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %22, ptr noundef %.val.i347, ptr noundef %.val25.i348, i32 noundef 168) #27
+  %339 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %22, ptr noundef %.val.i347, ptr noundef %.val25.i348, i32 noundef 168) #27
   br label %update_parameter_state.exit352
 
-update_parameter_state.exit352:                   ; preds = %333, %335
-  %.9 = phi i32 [ %.0570, %335 ], [ 3, %333 ]
+update_parameter_state.exit352:                   ; preds = %336, %338
+  %.9 = phi i32 [ %.0570, %338 ], [ 3, %336 ]
   tail call fastcc void @parser_lex(ptr noundef nonnull %0)
   %.sroa.0515.0.copyload = load i64, ptr %23, align 8
   %.sroa.2517.0.copyload = load ptr, ptr %.sroa.1.0..sroa_idx, align 8
   %.sroa.10.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
   store i64 %.sroa.0515.0.copyload, ptr %8, align 8
   store ptr %.sroa.2517.0.copyload, ptr %.sroa.2517.0..sroa_idx518, align 8
-  %337 = getelementptr i8, ptr %.sroa.10.0.copyload, i64 -1
-  store ptr %337, ptr %.sroa.10.0..sroa_idx527, align 8
-  %338 = call fastcc zeroext i1 @pm_parser_parameter_name_check(ptr noundef nonnull %0, ptr noundef nonnull %8)
-  %339 = ptrtoint ptr %337 to i64
-  %340 = ptrtoint ptr %.sroa.2517.0.copyload to i64
-  %341 = sub i64 %339, %340
-  %342 = tail call i32 @pm_constant_pool_insert_shared(ptr noundef nonnull %26, ptr noundef %.sroa.2517.0.copyload, i64 noundef %341) #27
-  %.not.i.i353 = icmp eq i32 %342, 0
-  br i1 %.not.i.i353, label %pm_parser_local_add_token.exit354, label %343
+  %340 = getelementptr i8, ptr %.sroa.10.0.copyload, i64 -1
+  store ptr %340, ptr %.sroa.10.0..sroa_idx527, align 8
+  %341 = call fastcc zeroext i1 @pm_parser_parameter_name_check(ptr noundef nonnull %0, ptr noundef nonnull %8)
+  %342 = ptrtoint ptr %340 to i64
+  %343 = ptrtoint ptr %.sroa.2517.0.copyload to i64
+  %344 = sub i64 %342, %343
+  %345 = tail call i32 @pm_constant_pool_insert_shared(ptr noundef nonnull %26, ptr noundef %.sroa.2517.0.copyload, i64 noundef %344) #27
+  %.not.i.i353 = icmp eq i32 %345, 0
+  br i1 %.not.i.i353, label %pm_parser_local_add_token.exit354, label %346
 
-343:                                              ; preds = %update_parameter_state.exit352
-  %344 = load ptr, ptr %25, align 8
-  %345 = getelementptr inbounds i8, ptr %344, i64 8
-  %346 = tail call zeroext i1 @pm_constant_id_list_includes(ptr noundef nonnull %345, i32 noundef %342) #27
-  br i1 %346, label %pm_parser_local_add_token.exit354, label %347
+346:                                              ; preds = %update_parameter_state.exit352
+  %347 = load ptr, ptr %25, align 8
+  %348 = getelementptr inbounds i8, ptr %347, i64 8
+  %349 = tail call zeroext i1 @pm_constant_id_list_includes(ptr noundef nonnull %348, i32 noundef %345) #27
+  br i1 %349, label %pm_parser_local_add_token.exit354, label %350
 
-347:                                              ; preds = %343
-  %348 = load ptr, ptr %25, align 8
-  %349 = getelementptr inbounds i8, ptr %348, i64 8
-  %350 = tail call zeroext i1 @pm_constant_id_list_append(ptr noundef nonnull %349, i32 noundef %342) #27
+350:                                              ; preds = %346
+  %351 = load ptr, ptr %25, align 8
+  %352 = getelementptr inbounds i8, ptr %351, i64 8
+  %353 = tail call zeroext i1 @pm_constant_id_list_append(ptr noundef nonnull %352, i32 noundef %345) #27
   br label %pm_parser_local_add_token.exit354
 
-pm_parser_local_add_token.exit354:                ; preds = %update_parameter_state.exit352, %343, %347
-  %351 = load i32, ptr %21, align 8
-  switch i32 %351, label %389 [
-    i32 27, label %352
-    i32 125, label %352
-    i32 133, label %352
-    i32 142, label %370
-    i32 121, label %370
+pm_parser_local_add_token.exit354:                ; preds = %update_parameter_state.exit352, %346, %350
+  %354 = load i32, ptr %21, align 8
+  switch i32 %354, label %392 [
+    i32 27, label %355
+    i32 125, label %355
+    i32 133, label %355
+    i32 142, label %373
+    i32 121, label %373
   ]
 
-352:                                              ; preds = %pm_parser_local_add_token.exit354, %pm_parser_local_add_token.exit354, %pm_parser_local_add_token.exit354
-  %353 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #30
-  %354 = icmp eq ptr %353, null
-  br i1 %354, label %355, label %pm_required_keyword_parameter_node_create.exit
+355:                                              ; preds = %pm_parser_local_add_token.exit354, %pm_parser_local_add_token.exit354, %pm_parser_local_add_token.exit354
+  %356 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #30
+  %357 = icmp eq ptr %356, null
+  br i1 %357, label %358, label %pm_required_keyword_parameter_node_create.exit
 
-355:                                              ; preds = %352
-  %356 = load ptr, ptr @stderr, align 8
-  %357 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %356, ptr noundef nonnull @.str.87, i32 noundef 48) #31
+358:                                              ; preds = %355
+  %359 = load ptr, ptr @stderr, align 8
+  %360 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %359, ptr noundef nonnull @.str.87, i32 noundef 48) #31
   tail call void @abort() #32
   unreachable
 
-pm_required_keyword_parameter_node_create.exit:   ; preds = %352
-  %358 = tail call i32 @pm_constant_pool_insert_shared(ptr noundef nonnull %26, ptr noundef %.sroa.2517.0.copyload, i64 noundef %341) #27
-  store i16 125, ptr %353, align 8
-  %.sroa.31.0..sroa_idx.i356 = getelementptr inbounds i8, ptr %353, i64 8
+pm_required_keyword_parameter_node_create.exit:   ; preds = %355
+  %361 = tail call i32 @pm_constant_pool_insert_shared(ptr noundef nonnull %26, ptr noundef %.sroa.2517.0.copyload, i64 noundef %344) #27
+  store i16 125, ptr %356, align 8
+  %.sroa.31.0..sroa_idx.i356 = getelementptr inbounds i8, ptr %356, i64 8
   store ptr %.sroa.2517.0.copyload, ptr %.sroa.31.0..sroa_idx.i356, align 8
-  %.sroa.4.0..sroa_idx.i357 = getelementptr inbounds i8, ptr %353, i64 16
+  %.sroa.4.0..sroa_idx.i357 = getelementptr inbounds i8, ptr %356, i64 16
   store ptr %.sroa.10.0.copyload, ptr %.sroa.4.0..sroa_idx.i357, align 8
-  %.sroa.5.0..sroa_idx.i358 = getelementptr inbounds i8, ptr %353, i64 24
-  store i32 %358, ptr %.sroa.5.0..sroa_idx.i358, align 8
-  %.sroa.62.0..sroa_idx.i359 = getelementptr inbounds i8, ptr %353, i64 32
+  %.sroa.5.0..sroa_idx.i358 = getelementptr inbounds i8, ptr %356, i64 24
+  store i32 %361, ptr %.sroa.5.0..sroa_idx.i358, align 8
+  %.sroa.62.0..sroa_idx.i359 = getelementptr inbounds i8, ptr %356, i64 32
   store ptr %.sroa.2517.0.copyload, ptr %.sroa.62.0..sroa_idx.i359, align 8
-  %.sroa.7.0..sroa_idx.i360 = getelementptr inbounds i8, ptr %353, i64 40
+  %.sroa.7.0..sroa_idx.i360 = getelementptr inbounds i8, ptr %356, i64 40
   store ptr %.sroa.10.0.copyload, ptr %.sroa.7.0..sroa_idx.i360, align 8
-  br i1 %338, label %359, label %363
+  br i1 %341, label %362, label %366
 
-359:                                              ; preds = %pm_required_keyword_parameter_node_create.exit
-  %360 = getelementptr inbounds i8, ptr %353, i64 2
-  %361 = load i16, ptr %360, align 2
-  %362 = or i16 %361, 1
-  store i16 %362, ptr %360, align 2
-  br label %363
+362:                                              ; preds = %pm_required_keyword_parameter_node_create.exit
+  %363 = getelementptr inbounds i8, ptr %356, i64 2
+  %364 = load i16, ptr %363, align 2
+  %365 = or i16 %364, 1
+  store i16 %365, ptr %363, align 2
+  br label %366
 
-363:                                              ; preds = %359, %pm_required_keyword_parameter_node_create.exit
-  %364 = load ptr, ptr %.sroa.31.0..sroa_idx.i, align 8
-  %365 = icmp eq ptr %364, null
-  %366 = icmp ult ptr %364, %.sroa.2517.0.copyload
-  %..i.i361 = select i1 %366, ptr %364, ptr %.sroa.2517.0.copyload
-  %storemerge.i.i362 = select i1 %365, ptr %.sroa.2517.0.copyload, ptr %..i.i361
-  store ptr %storemerge.i.i362, ptr %.sroa.31.0..sroa_idx.i, align 8
-  %367 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8
+366:                                              ; preds = %362, %pm_required_keyword_parameter_node_create.exit
+  %367 = load ptr, ptr %.sroa.31.0..sroa_idx.i, align 8
   %368 = icmp eq ptr %367, null
-  %369 = icmp ugt ptr %367, %.sroa.10.0.copyload
-  %.20.i.i363 = select i1 %369, ptr %367, ptr %.sroa.10.0.copyload
-  %storemerge19.i.i364 = select i1 %368, ptr %.sroa.10.0.copyload, ptr %.20.i.i363
+  %369 = icmp ult ptr %367, %.sroa.2517.0.copyload
+  %..i.i361 = select i1 %369, ptr %367, ptr %.sroa.2517.0.copyload
+  %storemerge.i.i362 = select i1 %368, ptr %.sroa.2517.0.copyload, ptr %..i.i361
+  store ptr %storemerge.i.i362, ptr %.sroa.31.0..sroa_idx.i, align 8
+  %370 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8
+  %371 = icmp eq ptr %370, null
+  %372 = icmp ugt ptr %370, %.sroa.10.0.copyload
+  %.20.i.i363 = select i1 %372, ptr %370, ptr %.sroa.10.0.copyload
+  %storemerge19.i.i364 = select i1 %371, ptr %.sroa.10.0.copyload, ptr %.20.i.i363
   store ptr %storemerge19.i.i364, ptr %.sroa.4.0..sroa_idx.i, align 8
-  tail call void @pm_node_list_append(ptr noundef nonnull %31, ptr noundef nonnull %353) #27
-  br label %436
+  tail call void @pm_node_list_append(ptr noundef nonnull %31, ptr noundef nonnull %356) #27
+  br label %439
 
-370:                                              ; preds = %pm_parser_local_add_token.exit354, %pm_parser_local_add_token.exit354
-  br i1 %2, label %436, label %371
+373:                                              ; preds = %pm_parser_local_add_token.exit354, %pm_parser_local_add_token.exit354
+  br i1 %2, label %439, label %374
 
-371:                                              ; preds = %370
-  %372 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #30
-  %373 = icmp eq ptr %372, null
-  br i1 %373, label %374, label %pm_required_keyword_parameter_node_create.exit371
+374:                                              ; preds = %373
+  %375 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #30
+  %376 = icmp eq ptr %375, null
+  br i1 %376, label %377, label %pm_required_keyword_parameter_node_create.exit371
 
-374:                                              ; preds = %371
-  %375 = load ptr, ptr @stderr, align 8
-  %376 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %375, ptr noundef nonnull @.str.87, i32 noundef 48) #31
+377:                                              ; preds = %374
+  %378 = load ptr, ptr @stderr, align 8
+  %379 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %378, ptr noundef nonnull @.str.87, i32 noundef 48) #31
   tail call void @abort() #32
   unreachable
 
-pm_required_keyword_parameter_node_create.exit371: ; preds = %371
-  %377 = tail call i32 @pm_constant_pool_insert_shared(ptr noundef nonnull %26, ptr noundef %.sroa.2517.0.copyload, i64 noundef %341) #27
-  store i16 125, ptr %372, align 8
-  %.sroa.31.0..sroa_idx.i366 = getelementptr inbounds i8, ptr %372, i64 8
+pm_required_keyword_parameter_node_create.exit371: ; preds = %374
+  %380 = tail call i32 @pm_constant_pool_insert_shared(ptr noundef nonnull %26, ptr noundef %.sroa.2517.0.copyload, i64 noundef %344) #27
+  store i16 125, ptr %375, align 8
+  %.sroa.31.0..sroa_idx.i366 = getelementptr inbounds i8, ptr %375, i64 8
   store ptr %.sroa.2517.0.copyload, ptr %.sroa.31.0..sroa_idx.i366, align 8
-  %.sroa.4.0..sroa_idx.i367 = getelementptr inbounds i8, ptr %372, i64 16
+  %.sroa.4.0..sroa_idx.i367 = getelementptr inbounds i8, ptr %375, i64 16
   store ptr %.sroa.10.0.copyload, ptr %.sroa.4.0..sroa_idx.i367, align 8
-  %.sroa.5.0..sroa_idx.i368 = getelementptr inbounds i8, ptr %372, i64 24
-  store i32 %377, ptr %.sroa.5.0..sroa_idx.i368, align 8
-  %.sroa.62.0..sroa_idx.i369 = getelementptr inbounds i8, ptr %372, i64 32
+  %.sroa.5.0..sroa_idx.i368 = getelementptr inbounds i8, ptr %375, i64 24
+  store i32 %380, ptr %.sroa.5.0..sroa_idx.i368, align 8
+  %.sroa.62.0..sroa_idx.i369 = getelementptr inbounds i8, ptr %375, i64 32
   store ptr %.sroa.2517.0.copyload, ptr %.sroa.62.0..sroa_idx.i369, align 8
-  %.sroa.7.0..sroa_idx.i370 = getelementptr inbounds i8, ptr %372, i64 40
+  %.sroa.7.0..sroa_idx.i370 = getelementptr inbounds i8, ptr %375, i64 40
   store ptr %.sroa.10.0.copyload, ptr %.sroa.7.0..sroa_idx.i370, align 8
-  br i1 %338, label %378, label %382
+  br i1 %341, label %381, label %385
 
-378:                                              ; preds = %pm_required_keyword_parameter_node_create.exit371
-  %379 = getelementptr inbounds i8, ptr %372, i64 2
-  %380 = load i16, ptr %379, align 2
-  %381 = or i16 %380, 1
-  store i16 %381, ptr %379, align 2
-  br label %382
+381:                                              ; preds = %pm_required_keyword_parameter_node_create.exit371
+  %382 = getelementptr inbounds i8, ptr %375, i64 2
+  %383 = load i16, ptr %382, align 2
+  %384 = or i16 %383, 1
+  store i16 %384, ptr %382, align 2
+  br label %385
 
-382:                                              ; preds = %378, %pm_required_keyword_parameter_node_create.exit371
-  %383 = load ptr, ptr %.sroa.31.0..sroa_idx.i, align 8
-  %384 = icmp eq ptr %383, null
-  %385 = icmp ult ptr %383, %.sroa.2517.0.copyload
-  %..i.i372 = select i1 %385, ptr %383, ptr %.sroa.2517.0.copyload
-  %storemerge.i.i373 = select i1 %384, ptr %.sroa.2517.0.copyload, ptr %..i.i372
-  store ptr %storemerge.i.i373, ptr %.sroa.31.0..sroa_idx.i, align 8
-  %386 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8
+385:                                              ; preds = %381, %pm_required_keyword_parameter_node_create.exit371
+  %386 = load ptr, ptr %.sroa.31.0..sroa_idx.i, align 8
   %387 = icmp eq ptr %386, null
-  %388 = icmp ugt ptr %386, %.sroa.10.0.copyload
-  %.20.i.i374 = select i1 %388, ptr %386, ptr %.sroa.10.0.copyload
-  %storemerge19.i.i375 = select i1 %387, ptr %.sroa.10.0.copyload, ptr %.20.i.i374
+  %388 = icmp ult ptr %386, %.sroa.2517.0.copyload
+  %..i.i372 = select i1 %388, ptr %386, ptr %.sroa.2517.0.copyload
+  %storemerge.i.i373 = select i1 %387, ptr %.sroa.2517.0.copyload, ptr %..i.i372
+  store ptr %storemerge.i.i373, ptr %.sroa.31.0..sroa_idx.i, align 8
+  %389 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8
+  %390 = icmp eq ptr %389, null
+  %391 = icmp ugt ptr %389, %.sroa.10.0.copyload
+  %.20.i.i374 = select i1 %391, ptr %389, ptr %.sroa.10.0.copyload
+  %storemerge19.i.i375 = select i1 %390, ptr %.sroa.10.0.copyload, ptr %.20.i.i374
   store ptr %storemerge19.i.i375, ptr %.sroa.4.0..sroa_idx.i, align 8
-  tail call void @pm_node_list_append(ptr noundef nonnull %31, ptr noundef nonnull %372) #27
-  br label %436
+  tail call void @pm_node_list_append(ptr noundef nonnull %31, ptr noundef nonnull %375) #27
+  br label %439
 
-389:                                              ; preds = %pm_parser_local_add_token.exit354
-  %390 = tail call fastcc zeroext i1 @token_begins_expression_p(i32 noundef %351)
-  br i1 %390, label %391, label %414
+392:                                              ; preds = %pm_parser_local_add_token.exit354
+  %393 = tail call fastcc zeroext i1 @token_begins_expression_p(i32 noundef %354)
+  br i1 %393, label %394, label %417
 
-391:                                              ; preds = %389
-  %392 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
-  %.not598 = icmp eq ptr %392, null
-  br i1 %.not598, label %context_push.exit377, label %393
+394:                                              ; preds = %392
+  %395 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
+  %.not598 = icmp eq ptr %395, null
+  br i1 %.not598, label %context_push.exit377, label %396
 
-393:                                              ; preds = %391
-  store i32 9, ptr %392, align 8
-  %.sroa.21.0..sroa_idx.i376 = getelementptr inbounds i8, ptr %392, i64 8
-  %394 = load ptr, ptr %32, align 8
-  store ptr %394, ptr %.sroa.21.0..sroa_idx.i376, align 8
-  store ptr %392, ptr %32, align 8
+396:                                              ; preds = %394
+  store i32 9, ptr %395, align 8
+  %.sroa.21.0..sroa_idx.i376 = getelementptr inbounds i8, ptr %395, i64 8
+  %397 = load ptr, ptr %32, align 8
+  store ptr %397, ptr %.sroa.21.0..sroa_idx.i376, align 8
+  store ptr %395, ptr %32, align 8
   br label %context_push.exit377
 
-context_push.exit377:                             ; preds = %391, %393
-  %395 = tail call i32 @pm_constant_pool_insert_shared(ptr noundef nonnull %26, ptr noundef %.sroa.2517.0.copyload, i64 noundef %341) #27
-  %396 = load i32, ptr %33, align 8
-  store i32 %395, ptr %33, align 8
-  %397 = tail call fastcc ptr @parse_expression(ptr noundef nonnull %0, i32 noundef %1, i1 noundef zeroext false, i32 noundef 166)
-  %398 = tail call fastcc ptr @pm_check_value_expression(ptr noundef readonly %397)
-  %.not.i496 = icmp eq ptr %398, null
-  br i1 %.not.i496, label %pm_assert_value_expression.exit499, label %399
+context_push.exit377:                             ; preds = %394, %396
+  %398 = tail call i32 @pm_constant_pool_insert_shared(ptr noundef nonnull %26, ptr noundef %.sroa.2517.0.copyload, i64 noundef %344) #27
+  %399 = load i32, ptr %33, align 8
+  store i32 %398, ptr %33, align 8
+  %400 = tail call fastcc ptr @parse_expression(ptr noundef nonnull %0, i32 noundef %1, i1 noundef zeroext false, i32 noundef 166)
+  %401 = tail call fastcc ptr @pm_check_value_expression(ptr noundef readonly %400)
+  %.not.i496 = icmp eq ptr %401, null
+  br i1 %.not.i496, label %pm_assert_value_expression.exit499, label %402
 
-399:                                              ; preds = %context_push.exit377
-  %400 = getelementptr i8, ptr %398, i64 8
-  %.val.i497 = load ptr, ptr %400, align 8
-  %401 = getelementptr i8, ptr %398, i64 16
-  %.val4.i498 = load ptr, ptr %401, align 8
-  %402 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %22, ptr noundef %.val.i497, ptr noundef %.val4.i498, i32 noundef 218) #27
+402:                                              ; preds = %context_push.exit377
+  %403 = getelementptr i8, ptr %401, i64 8
+  %.val.i497 = load ptr, ptr %403, align 8
+  %404 = getelementptr i8, ptr %401, i64 16
+  %.val4.i498 = load ptr, ptr %404, align 8
+  %405 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %22, ptr noundef %.val.i497, ptr noundef %.val4.i498, i32 noundef 218) #27
   br label %pm_assert_value_expression.exit499
 
-pm_assert_value_expression.exit499:               ; preds = %context_push.exit377, %399
-  store i32 %396, ptr %33, align 8
-  %403 = load ptr, ptr %32, align 8
-  %404 = getelementptr inbounds i8, ptr %403, i64 8
-  %405 = load ptr, ptr %404, align 8
-  tail call void @free(ptr noundef %403) #27
-  store ptr %405, ptr %32, align 8
-  %406 = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef 56) #30
-  %407 = icmp eq ptr %406, null
-  br i1 %407, label %408, label %pm_optional_keyword_parameter_node_create.exit
+pm_assert_value_expression.exit499:               ; preds = %context_push.exit377, %402
+  store i32 %399, ptr %33, align 8
+  %406 = load ptr, ptr %32, align 8
+  %407 = getelementptr inbounds i8, ptr %406, i64 8
+  %408 = load ptr, ptr %407, align 8
+  tail call void @free(ptr noundef %406) #27
+  store ptr %408, ptr %32, align 8
+  %409 = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef 56) #30
+  %410 = icmp eq ptr %409, null
+  br i1 %410, label %411, label %pm_optional_keyword_parameter_node_create.exit
 
-408:                                              ; preds = %pm_assert_value_expression.exit499
-  %409 = load ptr, ptr @stderr, align 8
-  %410 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %409, ptr noundef nonnull @.str.87, i32 noundef 56) #31
+411:                                              ; preds = %pm_assert_value_expression.exit499
+  %412 = load ptr, ptr @stderr, align 8
+  %413 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %412, ptr noundef nonnull @.str.87, i32 noundef 56) #31
   tail call void @abort() #32
   unreachable
 
 pm_optional_keyword_parameter_node_create.exit:   ; preds = %pm_assert_value_expression.exit499
-  %411 = getelementptr inbounds i8, ptr %397, i64 16
-  %412 = load ptr, ptr %411, align 8
-  %413 = tail call i32 @pm_constant_pool_insert_shared(ptr noundef nonnull %26, ptr noundef %.sroa.2517.0.copyload, i64 noundef %341) #27
-  store i16 111, ptr %406, align 8
-  %.sroa.31.0..sroa_idx.i379 = getelementptr inbounds i8, ptr %406, i64 8
+  %414 = getelementptr inbounds i8, ptr %400, i64 16
+  %415 = load ptr, ptr %414, align 8
+  %416 = tail call i32 @pm_constant_pool_insert_shared(ptr noundef nonnull %26, ptr noundef %.sroa.2517.0.copyload, i64 noundef %344) #27
+  store i16 111, ptr %409, align 8
+  %.sroa.31.0..sroa_idx.i379 = getelementptr inbounds i8, ptr %409, i64 8
   store ptr %.sroa.2517.0.copyload, ptr %.sroa.31.0..sroa_idx.i379, align 8
-  %.sroa.4.0..sroa_idx.i380 = getelementptr inbounds i8, ptr %406, i64 16
-  store ptr %412, ptr %.sroa.4.0..sroa_idx.i380, align 8
-  %.sroa.5.0..sroa_idx.i381 = getelementptr inbounds i8, ptr %406, i64 24
-  store i32 %413, ptr %.sroa.5.0..sroa_idx.i381, align 8
-  %.sroa.62.0..sroa_idx.i382 = getelementptr inbounds i8, ptr %406, i64 32
+  %.sroa.4.0..sroa_idx.i380 = getelementptr inbounds i8, ptr %409, i64 16
+  store ptr %415, ptr %.sroa.4.0..sroa_idx.i380, align 8
+  %.sroa.5.0..sroa_idx.i381 = getelementptr inbounds i8, ptr %409, i64 24
+  store i32 %416, ptr %.sroa.5.0..sroa_idx.i381, align 8
+  %.sroa.62.0..sroa_idx.i382 = getelementptr inbounds i8, ptr %409, i64 32
   store ptr %.sroa.2517.0.copyload, ptr %.sroa.62.0..sroa_idx.i382, align 8
-  %.sroa.7.0..sroa_idx.i383 = getelementptr inbounds i8, ptr %406, i64 40
+  %.sroa.7.0..sroa_idx.i383 = getelementptr inbounds i8, ptr %409, i64 40
   store ptr %.sroa.10.0.copyload, ptr %.sroa.7.0..sroa_idx.i383, align 8
-  %.sroa.8.0..sroa_idx.i384 = getelementptr inbounds i8, ptr %406, i64 48
-  store ptr %397, ptr %.sroa.8.0..sroa_idx.i384, align 8
-  br label %421
+  %.sroa.8.0..sroa_idx.i384 = getelementptr inbounds i8, ptr %409, i64 48
+  store ptr %400, ptr %.sroa.8.0..sroa_idx.i384, align 8
+  br label %424
 
-414:                                              ; preds = %389
-  %415 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #30
-  %416 = icmp eq ptr %415, null
-  br i1 %416, label %417, label %pm_required_keyword_parameter_node_create.exit391
+417:                                              ; preds = %392
+  %418 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #30
+  %419 = icmp eq ptr %418, null
+  br i1 %419, label %420, label %pm_required_keyword_parameter_node_create.exit391
 
-417:                                              ; preds = %414
-  %418 = load ptr, ptr @stderr, align 8
-  %419 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %418, ptr noundef nonnull @.str.87, i32 noundef 48) #31
+420:                                              ; preds = %417
+  %421 = load ptr, ptr @stderr, align 8
+  %422 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %421, ptr noundef nonnull @.str.87, i32 noundef 48) #31
   tail call void @abort() #32
   unreachable
 
-pm_required_keyword_parameter_node_create.exit391: ; preds = %414
-  %420 = tail call i32 @pm_constant_pool_insert_shared(ptr noundef nonnull %26, ptr noundef %.sroa.2517.0.copyload, i64 noundef %341) #27
-  store i16 125, ptr %415, align 8
-  %.sroa.31.0..sroa_idx.i386 = getelementptr inbounds i8, ptr %415, i64 8
+pm_required_keyword_parameter_node_create.exit391: ; preds = %417
+  %423 = tail call i32 @pm_constant_pool_insert_shared(ptr noundef nonnull %26, ptr noundef %.sroa.2517.0.copyload, i64 noundef %344) #27
+  store i16 125, ptr %418, align 8
+  %.sroa.31.0..sroa_idx.i386 = getelementptr inbounds i8, ptr %418, i64 8
   store ptr %.sroa.2517.0.copyload, ptr %.sroa.31.0..sroa_idx.i386, align 8
-  %.sroa.4.0..sroa_idx.i387 = getelementptr inbounds i8, ptr %415, i64 16
+  %.sroa.4.0..sroa_idx.i387 = getelementptr inbounds i8, ptr %418, i64 16
   store ptr %.sroa.10.0.copyload, ptr %.sroa.4.0..sroa_idx.i387, align 8
-  %.sroa.5.0..sroa_idx.i388 = getelementptr inbounds i8, ptr %415, i64 24
-  store i32 %420, ptr %.sroa.5.0..sroa_idx.i388, align 8
-  %.sroa.62.0..sroa_idx.i389 = getelementptr inbounds i8, ptr %415, i64 32
+  %.sroa.5.0..sroa_idx.i388 = getelementptr inbounds i8, ptr %418, i64 24
+  store i32 %423, ptr %.sroa.5.0..sroa_idx.i388, align 8
+  %.sroa.62.0..sroa_idx.i389 = getelementptr inbounds i8, ptr %418, i64 32
   store ptr %.sroa.2517.0.copyload, ptr %.sroa.62.0..sroa_idx.i389, align 8
-  %.sroa.7.0..sroa_idx.i390 = getelementptr inbounds i8, ptr %415, i64 40
+  %.sroa.7.0..sroa_idx.i390 = getelementptr inbounds i8, ptr %418, i64 40
   store ptr %.sroa.10.0.copyload, ptr %.sroa.7.0..sroa_idx.i390, align 8
-  br label %421
+  br label %424
 
-421:                                              ; preds = %pm_required_keyword_parameter_node_create.exit391, %pm_optional_keyword_parameter_node_create.exit
-  %422 = phi ptr [ %412, %pm_optional_keyword_parameter_node_create.exit ], [ %.sroa.10.0.copyload, %pm_required_keyword_parameter_node_create.exit391 ]
-  %.0201 = phi ptr [ %406, %pm_optional_keyword_parameter_node_create.exit ], [ %415, %pm_required_keyword_parameter_node_create.exit391 ]
-  br i1 %338, label %423, label %427
+424:                                              ; preds = %pm_required_keyword_parameter_node_create.exit391, %pm_optional_keyword_parameter_node_create.exit
+  %425 = phi ptr [ %415, %pm_optional_keyword_parameter_node_create.exit ], [ %.sroa.10.0.copyload, %pm_required_keyword_parameter_node_create.exit391 ]
+  %.0201 = phi ptr [ %409, %pm_optional_keyword_parameter_node_create.exit ], [ %418, %pm_required_keyword_parameter_node_create.exit391 ]
+  br i1 %341, label %426, label %430
 
-423:                                              ; preds = %421
-  %424 = getelementptr inbounds i8, ptr %.0201, i64 2
-  %425 = load i16, ptr %424, align 2
-  %426 = or i16 %425, 1
-  store i16 %426, ptr %424, align 2
-  br label %427
+426:                                              ; preds = %424
+  %427 = getelementptr inbounds i8, ptr %.0201, i64 2
+  %428 = load i16, ptr %427, align 2
+  %429 = or i16 %428, 1
+  store i16 %429, ptr %427, align 2
+  br label %430
 
-427:                                              ; preds = %423, %421
-  %428 = load ptr, ptr %.sroa.31.0..sroa_idx.i, align 8
-  %429 = icmp eq ptr %428, null
-  %430 = icmp ult ptr %428, %.sroa.2517.0.copyload
-  %..i.i392 = select i1 %430, ptr %428, ptr %.sroa.2517.0.copyload
-  %storemerge.i.i393 = select i1 %429, ptr %.sroa.2517.0.copyload, ptr %..i.i392
-  store ptr %storemerge.i.i393, ptr %.sroa.31.0..sroa_idx.i, align 8
-  %431 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8
+430:                                              ; preds = %426, %424
+  %431 = load ptr, ptr %.sroa.31.0..sroa_idx.i, align 8
   %432 = icmp eq ptr %431, null
-  %433 = icmp ugt ptr %431, %422
-  %.20.i.i394 = select i1 %433, ptr %431, ptr %422
-  %storemerge19.i.i395 = select i1 %432, ptr %422, ptr %.20.i.i394
+  %433 = icmp ult ptr %431, %.sroa.2517.0.copyload
+  %..i.i392 = select i1 %433, ptr %431, ptr %.sroa.2517.0.copyload
+  %storemerge.i.i393 = select i1 %432, ptr %.sroa.2517.0.copyload, ptr %..i.i392
+  store ptr %storemerge.i.i393, ptr %.sroa.31.0..sroa_idx.i, align 8
+  %434 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8
+  %435 = icmp eq ptr %434, null
+  %436 = icmp ugt ptr %434, %425
+  %.20.i.i394 = select i1 %436, ptr %434, ptr %425
+  %storemerge19.i.i395 = select i1 %435, ptr %425, ptr %.20.i.i394
   store ptr %storemerge19.i.i395, ptr %.sroa.4.0..sroa_idx.i, align 8
   tail call void @pm_node_list_append(ptr noundef nonnull %31, ptr noundef nonnull %.0201) #27
-  %434 = load i8, ptr %34, align 2
-  %435 = trunc i8 %434 to i1
-  %not. = xor i1 %435, true
+  %437 = load i8, ptr %34, align 2
+  %438 = trunc i8 %437 to i1
+  %not. = xor i1 %438, true
   %spec.select203 = and i1 %.0198, %not.
-  br label %436
+  br label %439
 
-436:                                              ; preds = %427, %370, %382, %363
-  %.2 = phi i1 [ %.0198, %382 ], [ %.0198, %363 ], [ false, %370 ], [ %spec.select203, %427 ]
+439:                                              ; preds = %430, %373, %385, %366
+  %.2 = phi i1 [ %.0198, %385 ], [ %.0198, %366 ], [ false, %373 ], [ %spec.select203, %430 ]
   store i8 0, ptr %30, align 1
-  br label %624
+  br label %627
 
-437:                                              ; preds = %40, %40
-  %438 = zext nneg i32 %41 to i64
-  %439 = getelementptr [165 x i32], ptr @parameters_ordering, i64 0, i64 %438
-  %440 = load i32, ptr %439, align 4
-  %441 = icmp eq i32 %440, 0
-  br i1 %441, label %update_parameter_state.exit405, label %442
+440:                                              ; preds = %40, %40
+  %441 = zext nneg i32 %41 to i64
+  %442 = getelementptr [165 x i32], ptr @parameters_ordering, i64 0, i64 %441
+  %443 = load i32, ptr %442, align 4
+  %444 = icmp eq i32 %443, 0
+  br i1 %444, label %update_parameter_state.exit405, label %445
 
-442:                                              ; preds = %437
-  %443 = icmp eq i32 %.0570, 5
-  %444 = icmp eq i32 %41, 161
-  %brmerge.not.i398 = and i1 %443, %444
-  br i1 %brmerge.not.i398, label %445, label %447
+445:                                              ; preds = %440
+  %446 = icmp eq i32 %.0570, 5
+  %447 = icmp eq i32 %41, 161
+  %brmerge.not.i398 = and i1 %446, %447
+  br i1 %brmerge.not.i398, label %448, label %450
 
-445:                                              ; preds = %442
+448:                                              ; preds = %445
   %.val26.i402 = load ptr, ptr %16, align 8
   %.val27.i403 = load ptr, ptr %18, align 8
-  %446 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %22, ptr noundef %.val26.i402, ptr noundef %.val27.i403, i32 noundef 170) #27
-  br label %447
+  %449 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %22, ptr noundef %.val26.i402, ptr noundef %.val27.i403, i32 noundef 170) #27
+  br label %450
 
-447:                                              ; preds = %445, %442
-  %448 = icmp eq i32 %.0570, 1
-  %449 = icmp ugt i32 %440, %.0570
-  %or.cond24.i399 = or i1 %448, %449
-  br i1 %or.cond24.i399, label %450, label %update_parameter_state.exit405
+450:                                              ; preds = %448, %445
+  %451 = icmp eq i32 %.0570, 1
+  %452 = icmp ugt i32 %443, %.0570
+  %or.cond24.i399 = or i1 %451, %452
+  br i1 %or.cond24.i399, label %453, label %update_parameter_state.exit405
 
-450:                                              ; preds = %447
+453:                                              ; preds = %450
   %.val.i400 = load ptr, ptr %16, align 8
   %.val25.i401 = load ptr, ptr %18, align 8
-  %451 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %22, ptr noundef %.val.i400, ptr noundef %.val25.i401, i32 noundef 168) #27
+  %454 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %22, ptr noundef %.val.i400, ptr noundef %.val25.i401, i32 noundef 168) #27
   br label %update_parameter_state.exit405
 
-update_parameter_state.exit405:                   ; preds = %447, %437, %450
-  %.10 = phi i32 [ %.0570, %437 ], [ %.0570, %450 ], [ %440, %447 ]
+update_parameter_state.exit405:                   ; preds = %450, %440, %453
+  %.10 = phi i32 [ %.0570, %440 ], [ %.0570, %453 ], [ %443, %450 ]
   tail call fastcc void @parser_lex(ptr noundef nonnull %0)
   %.sroa.1510.0.copyload = load ptr, ptr %.sroa.1.0..sroa_idx, align 8
   %.sroa.3512.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
   %.val.i406 = load i32, ptr %21, align 8
-  %452 = icmp eq i32 %.val.i406, 55
-  br i1 %452, label %453, label %accept1.exit407
+  %455 = icmp eq i32 %.val.i406, 55
+  br i1 %455, label %456, label %accept1.exit407
 
-453:                                              ; preds = %update_parameter_state.exit405
+456:                                              ; preds = %update_parameter_state.exit405
   tail call fastcc void @parser_lex(ptr noundef nonnull %0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 24, i1 false)
-  %454 = call fastcc zeroext i1 @pm_parser_parameter_name_check(ptr noundef nonnull %0, ptr noundef nonnull %9)
+  %457 = call fastcc zeroext i1 @pm_parser_parameter_name_check(ptr noundef nonnull %0, ptr noundef nonnull %9)
   %.val229 = load ptr, ptr %.sroa.2506.0..sroa_idx, align 8
   %.val230 = load ptr, ptr %.sroa.3507.0..sroa_idx, align 8
-  %455 = ptrtoint ptr %.val230 to i64
-  %456 = ptrtoint ptr %.val229 to i64
-  %457 = sub i64 %455, %456
-  %458 = tail call i32 @pm_constant_pool_insert_shared(ptr noundef nonnull %26, ptr noundef %.val229, i64 noundef %457) #27
-  %.not.i.i408 = icmp eq i32 %458, 0
-  br i1 %.not.i.i408, label %pm_parser_local_add_token.exit409, label %459
+  %458 = ptrtoint ptr %.val230 to i64
+  %459 = ptrtoint ptr %.val229 to i64
+  %460 = sub i64 %458, %459
+  %461 = tail call i32 @pm_constant_pool_insert_shared(ptr noundef nonnull %26, ptr noundef %.val229, i64 noundef %460) #27
+  %.not.i.i408 = icmp eq i32 %461, 0
+  br i1 %.not.i.i408, label %pm_parser_local_add_token.exit409, label %462
 
-459:                                              ; preds = %453
-  %460 = load ptr, ptr %25, align 8
-  %461 = getelementptr inbounds i8, ptr %460, i64 8
-  %462 = tail call zeroext i1 @pm_constant_id_list_includes(ptr noundef nonnull %461, i32 noundef %458) #27
-  br i1 %462, label %pm_parser_local_add_token.exit409, label %463
+462:                                              ; preds = %456
+  %463 = load ptr, ptr %25, align 8
+  %464 = getelementptr inbounds i8, ptr %463, i64 8
+  %465 = tail call zeroext i1 @pm_constant_id_list_includes(ptr noundef nonnull %464, i32 noundef %461) #27
+  br i1 %465, label %pm_parser_local_add_token.exit409, label %466
 
-463:                                              ; preds = %459
-  %464 = load ptr, ptr %25, align 8
-  %465 = getelementptr inbounds i8, ptr %464, i64 8
-  %466 = tail call zeroext i1 @pm_constant_id_list_append(ptr noundef nonnull %465, i32 noundef %458) #27
+466:                                              ; preds = %462
+  %467 = load ptr, ptr %25, align 8
+  %468 = getelementptr inbounds i8, ptr %467, i64 8
+  %469 = tail call zeroext i1 @pm_constant_id_list_append(ptr noundef nonnull %468, i32 noundef %461) #27
   br label %pm_parser_local_add_token.exit409
 
 accept1.exit407:                                  ; preds = %update_parameter_state.exit405
@@ -32108,203 +32112,203 @@ accept1.exit407:                                  ; preds = %update_parameter_st
   store i32 3, ptr %9, align 8
   store ptr %.val217, ptr %.sroa.2506.0..sroa_idx, align 8
   store ptr %.val217, ptr %.sroa.3507.0..sroa_idx, align 8
-  %467 = load ptr, ptr %25, align 8
-  %468 = getelementptr inbounds i8, ptr %467, i64 32
-  %469 = load i8, ptr %468, align 8
-  %470 = or i8 %469, 8
-  store i8 %470, ptr %468, align 8
+  %470 = load ptr, ptr %25, align 8
+  %471 = getelementptr inbounds i8, ptr %470, i64 32
+  %472 = load i8, ptr %471, align 8
+  %473 = or i8 %472, 8
+  store i8 %473, ptr %471, align 8
   br label %pm_parser_local_add_token.exit409
 
-pm_parser_local_add_token.exit409:                ; preds = %463, %459, %453, %accept1.exit407
-  %.val.i.i414 = phi ptr [ %.val217, %accept1.exit407 ], [ %.val229, %453 ], [ %.val229, %459 ], [ %.val229, %463 ]
-  %.sroa.speculate.load.false513 = phi ptr [ %.val217, %accept1.exit407 ], [ %.val230, %453 ], [ %.val230, %459 ], [ %.val230, %463 ]
-  %.0199 = phi i1 [ false, %accept1.exit407 ], [ %454, %453 ], [ %454, %459 ], [ %454, %463 ]
-  %471 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 1, i64 noundef 64) #30
-  %472 = icmp eq ptr %471, null
-  br i1 %472, label %473, label %pm_alloc_node.exit.i410
+pm_parser_local_add_token.exit409:                ; preds = %466, %462, %456, %accept1.exit407
+  %.val.i.i414 = phi ptr [ %.val217, %accept1.exit407 ], [ %.val229, %456 ], [ %.val229, %462 ], [ %.val229, %466 ]
+  %.sroa.speculate.load.false513 = phi ptr [ %.val217, %accept1.exit407 ], [ %.val230, %456 ], [ %.val230, %462 ], [ %.val230, %466 ]
+  %.0199 = phi i1 [ false, %accept1.exit407 ], [ %457, %456 ], [ %457, %462 ], [ %457, %466 ]
+  %474 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 1, i64 noundef 64) #30
+  %475 = icmp eq ptr %474, null
+  br i1 %475, label %476, label %pm_alloc_node.exit.i410
 
-473:                                              ; preds = %pm_parser_local_add_token.exit409
-  %474 = load ptr, ptr @stderr, align 8
-  %475 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %474, ptr noundef nonnull @.str.87, i32 noundef 64) #31
+476:                                              ; preds = %pm_parser_local_add_token.exit409
+  %477 = load ptr, ptr @stderr, align 8
+  %478 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %477, ptr noundef nonnull @.str.87, i32 noundef 64) #31
   tail call void @abort() #32
   unreachable
 
 pm_alloc_node.exit.i410:                          ; preds = %pm_parser_local_add_token.exit409
-  %476 = load i32, ptr %9, align 8
-  %477 = icmp eq i32 %476, 3
-  %.sroa.speculated514 = select i1 %477, ptr %.sroa.3512.0.copyload, ptr %.sroa.speculate.load.false513
-  br i1 %477, label %pm_rest_parameter_node_create.exit, label %478
+  %479 = load i32, ptr %9, align 8
+  %480 = icmp eq i32 %479, 3
+  %.sroa.speculated514 = select i1 %480, ptr %.sroa.3512.0.copyload, ptr %.sroa.speculate.load.false513
+  br i1 %480, label %pm_rest_parameter_node_create.exit, label %481
 
-478:                                              ; preds = %pm_alloc_node.exit.i410
-  %479 = ptrtoint ptr %.sroa.speculate.load.false513 to i64
-  %480 = ptrtoint ptr %.val.i.i414 to i64
-  %481 = sub i64 %479, %480
-  %482 = tail call i32 @pm_constant_pool_insert_shared(ptr noundef nonnull %26, ptr noundef %.val.i.i414, i64 noundef %481) #27
+481:                                              ; preds = %pm_alloc_node.exit.i410
+  %482 = ptrtoint ptr %.sroa.speculate.load.false513 to i64
+  %483 = ptrtoint ptr %.val.i.i414 to i64
+  %484 = sub i64 %482, %483
+  %485 = tail call i32 @pm_constant_pool_insert_shared(ptr noundef nonnull %26, ptr noundef %.val.i.i414, i64 noundef %484) #27
   br label %pm_rest_parameter_node_create.exit
 
-pm_rest_parameter_node_create.exit:               ; preds = %pm_alloc_node.exit.i410, %478
-  %483 = phi i32 [ %482, %478 ], [ 0, %pm_alloc_node.exit.i410 ]
-  %.sroa.62.0.i417 = phi ptr [ %.val.i.i414, %478 ], [ null, %pm_alloc_node.exit.i410 ]
-  %.sroa.8.0.i418 = phi ptr [ %.sroa.speculate.load.false513, %478 ], [ null, %pm_alloc_node.exit.i410 ]
-  store i16 129, ptr %471, align 8
-  %.sroa.31.0..sroa_idx.i419 = getelementptr inbounds i8, ptr %471, i64 8
+pm_rest_parameter_node_create.exit:               ; preds = %pm_alloc_node.exit.i410, %481
+  %486 = phi i32 [ %485, %481 ], [ 0, %pm_alloc_node.exit.i410 ]
+  %.sroa.62.0.i417 = phi ptr [ %.val.i.i414, %481 ], [ null, %pm_alloc_node.exit.i410 ]
+  %.sroa.8.0.i418 = phi ptr [ %.sroa.speculate.load.false513, %481 ], [ null, %pm_alloc_node.exit.i410 ]
+  store i16 129, ptr %474, align 8
+  %.sroa.31.0..sroa_idx.i419 = getelementptr inbounds i8, ptr %474, i64 8
   store ptr %.sroa.1510.0.copyload, ptr %.sroa.31.0..sroa_idx.i419, align 8
-  %.sroa.4.0..sroa_idx.i420 = getelementptr inbounds i8, ptr %471, i64 16
+  %.sroa.4.0..sroa_idx.i420 = getelementptr inbounds i8, ptr %474, i64 16
   store ptr %.sroa.speculated514, ptr %.sroa.4.0..sroa_idx.i420, align 8
-  %.sroa.5.0..sroa_idx.i421 = getelementptr inbounds i8, ptr %471, i64 24
-  store i32 %483, ptr %.sroa.5.0..sroa_idx.i421, align 8
-  %.sroa.62.0..sroa_idx.i422 = getelementptr inbounds i8, ptr %471, i64 32
+  %.sroa.5.0..sroa_idx.i421 = getelementptr inbounds i8, ptr %474, i64 24
+  store i32 %486, ptr %.sroa.5.0..sroa_idx.i421, align 8
+  %.sroa.62.0..sroa_idx.i422 = getelementptr inbounds i8, ptr %474, i64 32
   store ptr %.sroa.62.0.i417, ptr %.sroa.62.0..sroa_idx.i422, align 8
-  %.sroa.8.0..sroa_idx.i423 = getelementptr inbounds i8, ptr %471, i64 40
+  %.sroa.8.0..sroa_idx.i423 = getelementptr inbounds i8, ptr %474, i64 40
   store ptr %.sroa.8.0.i418, ptr %.sroa.8.0..sroa_idx.i423, align 8
-  %.sroa.10.0..sroa_idx.i424 = getelementptr inbounds i8, ptr %471, i64 48
+  %.sroa.10.0..sroa_idx.i424 = getelementptr inbounds i8, ptr %474, i64 48
   store ptr %.sroa.1510.0.copyload, ptr %.sroa.10.0..sroa_idx.i424, align 8
-  %.sroa.11.0..sroa_idx.i425 = getelementptr inbounds i8, ptr %471, i64 56
+  %.sroa.11.0..sroa_idx.i425 = getelementptr inbounds i8, ptr %474, i64 56
   store ptr %.sroa.3512.0.copyload, ptr %.sroa.11.0..sroa_idx.i425, align 8
-  br i1 %.0199, label %484, label %488
+  br i1 %.0199, label %487, label %491
 
-484:                                              ; preds = %pm_rest_parameter_node_create.exit
-  %485 = getelementptr inbounds i8, ptr %471, i64 2
-  %486 = load i16, ptr %485, align 2
-  %487 = or i16 %486, 1
-  store i16 %487, ptr %485, align 2
-  br label %488
+487:                                              ; preds = %pm_rest_parameter_node_create.exit
+  %488 = getelementptr inbounds i8, ptr %474, i64 2
+  %489 = load i16, ptr %488, align 2
+  %490 = or i16 %489, 1
+  store i16 %490, ptr %488, align 2
+  br label %491
 
-488:                                              ; preds = %484, %pm_rest_parameter_node_create.exit
-  %489 = load ptr, ptr %29, align 8
-  %490 = icmp eq ptr %489, null
-  br i1 %490, label %491, label %498
-
-491:                                              ; preds = %488
-  %492 = load ptr, ptr %.sroa.31.0..sroa_idx.i, align 8
+491:                                              ; preds = %487, %pm_rest_parameter_node_create.exit
+  %492 = load ptr, ptr %29, align 8
   %493 = icmp eq ptr %492, null
-  %494 = icmp ult ptr %492, %.sroa.1510.0.copyload
-  %..i.i426 = select i1 %494, ptr %492, ptr %.sroa.1510.0.copyload
-  %storemerge.i.i427 = select i1 %493, ptr %.sroa.1510.0.copyload, ptr %..i.i426
-  store ptr %storemerge.i.i427, ptr %.sroa.31.0..sroa_idx.i, align 8
-  %495 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8
+  br i1 %493, label %494, label %501
+
+494:                                              ; preds = %491
+  %495 = load ptr, ptr %.sroa.31.0..sroa_idx.i, align 8
   %496 = icmp eq ptr %495, null
-  %497 = icmp ugt ptr %495, %.sroa.speculated514
-  %.20.i.i428 = select i1 %497, ptr %495, ptr %.sroa.speculated514
-  %storemerge19.i.i429 = select i1 %496, ptr %.sroa.speculated514, ptr %.20.i.i428
+  %497 = icmp ult ptr %495, %.sroa.1510.0.copyload
+  %..i.i426 = select i1 %497, ptr %495, ptr %.sroa.1510.0.copyload
+  %storemerge.i.i427 = select i1 %496, ptr %.sroa.1510.0.copyload, ptr %..i.i426
+  store ptr %storemerge.i.i427, ptr %.sroa.31.0..sroa_idx.i, align 8
+  %498 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8
+  %499 = icmp eq ptr %498, null
+  %500 = icmp ugt ptr %498, %.sroa.speculated514
+  %.20.i.i428 = select i1 %500, ptr %498, ptr %.sroa.speculated514
+  %storemerge19.i.i429 = select i1 %499, ptr %.sroa.speculated514, ptr %.20.i.i428
   store ptr %storemerge19.i.i429, ptr %.sroa.4.0..sroa_idx.i, align 8
-  store ptr %471, ptr %29, align 8
-  br label %624
+  store ptr %474, ptr %29, align 8
+  br label %627
 
-498:                                              ; preds = %488
-  %499 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %22, ptr noundef %.sroa.1510.0.copyload, ptr noundef %.sroa.speculated514, i32 noundef 169) #27
-  %500 = load ptr, ptr %.sroa.31.0..sroa_idx.i, align 8
-  %501 = icmp eq ptr %500, null
-  %502 = load ptr, ptr %.sroa.31.0..sroa_idx.i419, align 8
-  %503 = icmp ult ptr %500, %502
-  %..i.i430 = select i1 %503, ptr %500, ptr %502
-  %storemerge.i.i431 = select i1 %501, ptr %502, ptr %..i.i430
+501:                                              ; preds = %491
+  %502 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %22, ptr noundef %.sroa.1510.0.copyload, ptr noundef %.sroa.speculated514, i32 noundef 169) #27
+  %503 = load ptr, ptr %.sroa.31.0..sroa_idx.i, align 8
+  %504 = icmp eq ptr %503, null
+  %505 = load ptr, ptr %.sroa.31.0..sroa_idx.i419, align 8
+  %506 = icmp ult ptr %503, %505
+  %..i.i430 = select i1 %506, ptr %503, ptr %505
+  %storemerge.i.i431 = select i1 %504, ptr %505, ptr %..i.i430
   store ptr %storemerge.i.i431, ptr %.sroa.31.0..sroa_idx.i, align 8
-  %504 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8
-  %505 = icmp eq ptr %504, null
-  %506 = load ptr, ptr %.sroa.4.0..sroa_idx.i420, align 8
-  %507 = icmp ugt ptr %504, %506
-  %.20.i.i432 = select i1 %507, ptr %504, ptr %506
-  %storemerge19.i.i433 = select i1 %505, ptr %506, ptr %.20.i.i432
+  %507 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8
+  %508 = icmp eq ptr %507, null
+  %509 = load ptr, ptr %.sroa.4.0..sroa_idx.i420, align 8
+  %510 = icmp ugt ptr %507, %509
+  %.20.i.i432 = select i1 %510, ptr %507, ptr %509
+  %storemerge19.i.i433 = select i1 %508, ptr %509, ptr %.20.i.i432
   store ptr %storemerge19.i.i433, ptr %.sroa.4.0..sroa_idx.i, align 8
-  tail call void @pm_node_list_append(ptr noundef nonnull %28, ptr noundef nonnull %471) #27
-  br label %624
+  tail call void @pm_node_list_append(ptr noundef nonnull %28, ptr noundef nonnull %474) #27
+  br label %627
 
-508:                                              ; preds = %40, %40
-  %509 = zext nneg i32 %41 to i64
-  %510 = getelementptr [165 x i32], ptr @parameters_ordering, i64 0, i64 %509
-  %511 = load i32, ptr %510, align 4
-  %512 = icmp eq i32 %511, 0
-  br i1 %512, label %update_parameter_state.exit443, label %513
+511:                                              ; preds = %40, %40
+  %512 = zext nneg i32 %41 to i64
+  %513 = getelementptr [165 x i32], ptr @parameters_ordering, i64 0, i64 %512
+  %514 = load i32, ptr %513, align 4
+  %515 = icmp eq i32 %514, 0
+  br i1 %515, label %update_parameter_state.exit443, label %516
 
-513:                                              ; preds = %508
-  %514 = icmp eq i32 %.0570, 5
-  %515 = icmp eq i32 %41, 161
-  %brmerge.not.i436 = and i1 %514, %515
-  br i1 %brmerge.not.i436, label %516, label %518
+516:                                              ; preds = %511
+  %517 = icmp eq i32 %.0570, 5
+  %518 = icmp eq i32 %41, 161
+  %brmerge.not.i436 = and i1 %517, %518
+  br i1 %brmerge.not.i436, label %519, label %521
 
-516:                                              ; preds = %513
+519:                                              ; preds = %516
   %.val26.i440 = load ptr, ptr %16, align 8
   %.val27.i441 = load ptr, ptr %18, align 8
-  %517 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %22, ptr noundef %.val26.i440, ptr noundef %.val27.i441, i32 noundef 170) #27
-  br label %518
+  %520 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %22, ptr noundef %.val26.i440, ptr noundef %.val27.i441, i32 noundef 170) #27
+  br label %521
 
-518:                                              ; preds = %516, %513
-  %519 = icmp eq i32 %.0570, 1
-  %520 = icmp ugt i32 %511, %.0570
-  %or.cond24.i437 = or i1 %519, %520
-  br i1 %or.cond24.i437, label %521, label %update_parameter_state.exit443
+521:                                              ; preds = %519, %516
+  %522 = icmp eq i32 %.0570, 1
+  %523 = icmp ugt i32 %514, %.0570
+  %or.cond24.i437 = or i1 %522, %523
+  br i1 %or.cond24.i437, label %524, label %update_parameter_state.exit443
 
-521:                                              ; preds = %518
+524:                                              ; preds = %521
   %.val.i438 = load ptr, ptr %16, align 8
   %.val25.i439 = load ptr, ptr %18, align 8
-  %522 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %22, ptr noundef %.val.i438, ptr noundef %.val25.i439, i32 noundef 168) #27
+  %525 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %22, ptr noundef %.val.i438, ptr noundef %.val25.i439, i32 noundef 168) #27
   br label %update_parameter_state.exit443
 
-update_parameter_state.exit443:                   ; preds = %518, %508, %521
-  %.11 = phi i32 [ %.0570, %508 ], [ %.0570, %521 ], [ %511, %518 ]
+update_parameter_state.exit443:                   ; preds = %521, %511, %524
+  %.11 = phi i32 [ %.0570, %511 ], [ %.0570, %524 ], [ %514, %521 ]
   tail call fastcc void @parser_lex(ptr noundef nonnull %0)
   %.sroa.1.0.copyload = load ptr, ptr %.sroa.1.0..sroa_idx, align 8
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
   %.val.i444 = load i32, ptr %21, align 8
   switch i32 %.val.i444, label %accept1.exit453 [
-    i32 85, label %523
-    i32 55, label %531
+    i32 85, label %526
+    i32 55, label %534
   ]
 
-523:                                              ; preds = %update_parameter_state.exit443
+526:                                              ; preds = %update_parameter_state.exit443
   tail call fastcc void @parser_lex(ptr noundef nonnull %0)
-  %524 = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef 56) #30
-  %525 = icmp eq ptr %524, null
-  br i1 %525, label %526, label %pm_no_keywords_parameter_node_create.exit
+  %527 = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef 56) #30
+  %528 = icmp eq ptr %527, null
+  br i1 %528, label %529, label %pm_no_keywords_parameter_node_create.exit
 
-526:                                              ; preds = %523
-  %527 = load ptr, ptr @stderr, align 8
-  %528 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %527, ptr noundef nonnull @.str.87, i32 noundef 56) #31
+529:                                              ; preds = %526
+  %530 = load ptr, ptr @stderr, align 8
+  %531 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %530, ptr noundef nonnull @.str.87, i32 noundef 56) #31
   tail call void @abort() #32
   unreachable
 
-pm_no_keywords_parameter_node_create.exit:        ; preds = %523
-  %529 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
-  %530 = load ptr, ptr %.sroa.1.0..sroa_idx, align 8
-  store i16 108, ptr %524, align 8
-  %.sroa.31.0..sroa_idx.i447 = getelementptr inbounds i8, ptr %524, i64 8
+pm_no_keywords_parameter_node_create.exit:        ; preds = %526
+  %532 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
+  %533 = load ptr, ptr %.sroa.1.0..sroa_idx, align 8
+  store i16 108, ptr %527, align 8
+  %.sroa.31.0..sroa_idx.i447 = getelementptr inbounds i8, ptr %527, i64 8
   store ptr %.sroa.1.0.copyload, ptr %.sroa.31.0..sroa_idx.i447, align 8
-  %.sroa.4.0..sroa_idx.i448 = getelementptr inbounds i8, ptr %524, i64 16
-  store ptr %529, ptr %.sroa.4.0..sroa_idx.i448, align 8
-  %.sroa.5.0..sroa_idx.i449 = getelementptr inbounds i8, ptr %524, i64 24
+  %.sroa.4.0..sroa_idx.i448 = getelementptr inbounds i8, ptr %527, i64 16
+  store ptr %532, ptr %.sroa.4.0..sroa_idx.i448, align 8
+  %.sroa.5.0..sroa_idx.i449 = getelementptr inbounds i8, ptr %527, i64 24
   store ptr %.sroa.1.0.copyload, ptr %.sroa.5.0..sroa_idx.i449, align 8
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %524, i64 32
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %527, i64 32
   store ptr %.sroa.4.0.copyload, ptr %.sroa.6.0..sroa_idx.i, align 8
-  %.sroa.7.0..sroa_idx.i450 = getelementptr inbounds i8, ptr %524, i64 40
-  store ptr %530, ptr %.sroa.7.0..sroa_idx.i450, align 8
-  %.sroa.8.0..sroa_idx.i451 = getelementptr inbounds i8, ptr %524, i64 48
-  store ptr %529, ptr %.sroa.8.0..sroa_idx.i451, align 8
-  br label %566
+  %.sroa.7.0..sroa_idx.i450 = getelementptr inbounds i8, ptr %527, i64 40
+  store ptr %533, ptr %.sroa.7.0..sroa_idx.i450, align 8
+  %.sroa.8.0..sroa_idx.i451 = getelementptr inbounds i8, ptr %527, i64 48
+  store ptr %532, ptr %.sroa.8.0..sroa_idx.i451, align 8
+  br label %569
 
-531:                                              ; preds = %update_parameter_state.exit443
+534:                                              ; preds = %update_parameter_state.exit443
   tail call fastcc void @parser_lex(ptr noundef nonnull %0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 24, i1 false)
-  %532 = call fastcc zeroext i1 @pm_parser_parameter_name_check(ptr noundef nonnull %0, ptr noundef nonnull %10)
+  %535 = call fastcc zeroext i1 @pm_parser_parameter_name_check(ptr noundef nonnull %0, ptr noundef nonnull %10)
   %.val231 = load ptr, ptr %.sroa.2500.0..sroa_idx, align 8
   %.val232 = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
-  %533 = ptrtoint ptr %.val232 to i64
-  %534 = ptrtoint ptr %.val231 to i64
-  %535 = sub i64 %533, %534
-  %536 = tail call i32 @pm_constant_pool_insert_shared(ptr noundef nonnull %26, ptr noundef %.val231, i64 noundef %535) #27
-  %.not.i.i454 = icmp eq i32 %536, 0
-  br i1 %.not.i.i454, label %pm_parser_local_add_token.exit455, label %537
+  %536 = ptrtoint ptr %.val232 to i64
+  %537 = ptrtoint ptr %.val231 to i64
+  %538 = sub i64 %536, %537
+  %539 = tail call i32 @pm_constant_pool_insert_shared(ptr noundef nonnull %26, ptr noundef %.val231, i64 noundef %538) #27
+  %.not.i.i454 = icmp eq i32 %539, 0
+  br i1 %.not.i.i454, label %pm_parser_local_add_token.exit455, label %540
 
-537:                                              ; preds = %531
-  %538 = load ptr, ptr %25, align 8
-  %539 = getelementptr inbounds i8, ptr %538, i64 8
-  %540 = tail call zeroext i1 @pm_constant_id_list_includes(ptr noundef nonnull %539, i32 noundef %536) #27
-  br i1 %540, label %pm_parser_local_add_token.exit455, label %541
+540:                                              ; preds = %534
+  %541 = load ptr, ptr %25, align 8
+  %542 = getelementptr inbounds i8, ptr %541, i64 8
+  %543 = tail call zeroext i1 @pm_constant_id_list_includes(ptr noundef nonnull %542, i32 noundef %539) #27
+  br i1 %543, label %pm_parser_local_add_token.exit455, label %544
 
-541:                                              ; preds = %537
-  %542 = load ptr, ptr %25, align 8
-  %543 = getelementptr inbounds i8, ptr %542, i64 8
-  %544 = tail call zeroext i1 @pm_constant_id_list_append(ptr noundef nonnull %543, i32 noundef %536) #27
+544:                                              ; preds = %540
+  %545 = load ptr, ptr %25, align 8
+  %546 = getelementptr inbounds i8, ptr %545, i64 8
+  %547 = tail call zeroext i1 @pm_constant_id_list_append(ptr noundef nonnull %546, i32 noundef %539) #27
   br label %pm_parser_local_add_token.exit455
 
 accept1.exit453:                                  ; preds = %update_parameter_state.exit443
@@ -32312,224 +32316,224 @@ accept1.exit453:                                  ; preds = %update_parameter_st
   store i32 3, ptr %10, align 8
   store ptr %.val216, ptr %.sroa.2500.0..sroa_idx, align 8
   store ptr %.val216, ptr %.sroa.3.0..sroa_idx, align 8
-  %545 = load ptr, ptr %25, align 8
-  %546 = getelementptr inbounds i8, ptr %545, i64 32
-  %547 = load i8, ptr %546, align 8
-  %548 = or i8 %547, 16
-  store i8 %548, ptr %546, align 8
+  %548 = load ptr, ptr %25, align 8
+  %549 = getelementptr inbounds i8, ptr %548, i64 32
+  %550 = load i8, ptr %549, align 8
+  %551 = or i8 %550, 16
+  store i8 %551, ptr %549, align 8
   br label %pm_parser_local_add_token.exit455
 
-pm_parser_local_add_token.exit455:                ; preds = %541, %537, %531, %accept1.exit453
-  %.val.i.i460 = phi ptr [ %.val216, %accept1.exit453 ], [ %.val231, %531 ], [ %.val231, %537 ], [ %.val231, %541 ]
-  %.sroa.speculate.load.false = phi ptr [ %.val216, %accept1.exit453 ], [ %.val232, %531 ], [ %.val232, %537 ], [ %.val232, %541 ]
-  %.0196 = phi i1 [ false, %accept1.exit453 ], [ %532, %531 ], [ %532, %537 ], [ %532, %541 ]
-  %549 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 1, i64 noundef 64) #30
-  %550 = icmp eq ptr %549, null
-  br i1 %550, label %551, label %pm_alloc_node.exit.i456
+pm_parser_local_add_token.exit455:                ; preds = %544, %540, %534, %accept1.exit453
+  %.val.i.i460 = phi ptr [ %.val216, %accept1.exit453 ], [ %.val231, %534 ], [ %.val231, %540 ], [ %.val231, %544 ]
+  %.sroa.speculate.load.false = phi ptr [ %.val216, %accept1.exit453 ], [ %.val232, %534 ], [ %.val232, %540 ], [ %.val232, %544 ]
+  %.0196 = phi i1 [ false, %accept1.exit453 ], [ %535, %534 ], [ %535, %540 ], [ %535, %544 ]
+  %552 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 1, i64 noundef 64) #30
+  %553 = icmp eq ptr %552, null
+  br i1 %553, label %554, label %pm_alloc_node.exit.i456
 
-551:                                              ; preds = %pm_parser_local_add_token.exit455
-  %552 = load ptr, ptr @stderr, align 8
-  %553 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %552, ptr noundef nonnull @.str.87, i32 noundef 64) #31
+554:                                              ; preds = %pm_parser_local_add_token.exit455
+  %555 = load ptr, ptr @stderr, align 8
+  %556 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %555, ptr noundef nonnull @.str.87, i32 noundef 64) #31
   tail call void @abort() #32
   unreachable
 
 pm_alloc_node.exit.i456:                          ; preds = %pm_parser_local_add_token.exit455
-  %554 = load i32, ptr %10, align 8
-  %555 = icmp eq i32 %554, 3
-  %.sroa.speculated = select i1 %555, ptr %.sroa.4.0.copyload, ptr %.sroa.speculate.load.false
-  br i1 %555, label %pm_keyword_rest_parameter_node_create.exit, label %556
+  %557 = load i32, ptr %10, align 8
+  %558 = icmp eq i32 %557, 3
+  %.sroa.speculated = select i1 %558, ptr %.sroa.4.0.copyload, ptr %.sroa.speculate.load.false
+  br i1 %558, label %pm_keyword_rest_parameter_node_create.exit, label %559
 
-556:                                              ; preds = %pm_alloc_node.exit.i456
-  %557 = ptrtoint ptr %.sroa.speculate.load.false to i64
-  %558 = ptrtoint ptr %.val.i.i460 to i64
-  %559 = sub i64 %557, %558
-  %560 = tail call i32 @pm_constant_pool_insert_shared(ptr noundef nonnull %26, ptr noundef %.val.i.i460, i64 noundef %559) #27
+559:                                              ; preds = %pm_alloc_node.exit.i456
+  %560 = ptrtoint ptr %.sroa.speculate.load.false to i64
+  %561 = ptrtoint ptr %.val.i.i460 to i64
+  %562 = sub i64 %560, %561
+  %563 = tail call i32 @pm_constant_pool_insert_shared(ptr noundef nonnull %26, ptr noundef %.val.i.i460, i64 noundef %562) #27
   br label %pm_keyword_rest_parameter_node_create.exit
 
-pm_keyword_rest_parameter_node_create.exit:       ; preds = %pm_alloc_node.exit.i456, %556
-  %561 = phi i32 [ %560, %556 ], [ 0, %pm_alloc_node.exit.i456 ]
-  %.sroa.62.0.i463 = phi ptr [ %.val.i.i460, %556 ], [ null, %pm_alloc_node.exit.i456 ]
-  %.sroa.8.0.i464 = phi ptr [ %.sroa.speculate.load.false, %556 ], [ null, %pm_alloc_node.exit.i456 ]
-  store i16 90, ptr %549, align 8
-  %.sroa.31.0..sroa_idx.i465 = getelementptr inbounds i8, ptr %549, i64 8
+pm_keyword_rest_parameter_node_create.exit:       ; preds = %pm_alloc_node.exit.i456, %559
+  %564 = phi i32 [ %563, %559 ], [ 0, %pm_alloc_node.exit.i456 ]
+  %.sroa.62.0.i463 = phi ptr [ %.val.i.i460, %559 ], [ null, %pm_alloc_node.exit.i456 ]
+  %.sroa.8.0.i464 = phi ptr [ %.sroa.speculate.load.false, %559 ], [ null, %pm_alloc_node.exit.i456 ]
+  store i16 90, ptr %552, align 8
+  %.sroa.31.0..sroa_idx.i465 = getelementptr inbounds i8, ptr %552, i64 8
   store ptr %.sroa.1.0.copyload, ptr %.sroa.31.0..sroa_idx.i465, align 8
-  %.sroa.4.0..sroa_idx.i466 = getelementptr inbounds i8, ptr %549, i64 16
+  %.sroa.4.0..sroa_idx.i466 = getelementptr inbounds i8, ptr %552, i64 16
   store ptr %.sroa.speculated, ptr %.sroa.4.0..sroa_idx.i466, align 8
-  %.sroa.5.0..sroa_idx.i467 = getelementptr inbounds i8, ptr %549, i64 24
-  store i32 %561, ptr %.sroa.5.0..sroa_idx.i467, align 8
-  %.sroa.62.0..sroa_idx.i468 = getelementptr inbounds i8, ptr %549, i64 32
+  %.sroa.5.0..sroa_idx.i467 = getelementptr inbounds i8, ptr %552, i64 24
+  store i32 %564, ptr %.sroa.5.0..sroa_idx.i467, align 8
+  %.sroa.62.0..sroa_idx.i468 = getelementptr inbounds i8, ptr %552, i64 32
   store ptr %.sroa.62.0.i463, ptr %.sroa.62.0..sroa_idx.i468, align 8
-  %.sroa.8.0..sroa_idx.i469 = getelementptr inbounds i8, ptr %549, i64 40
+  %.sroa.8.0..sroa_idx.i469 = getelementptr inbounds i8, ptr %552, i64 40
   store ptr %.sroa.8.0.i464, ptr %.sroa.8.0..sroa_idx.i469, align 8
-  %.sroa.10.0..sroa_idx.i470 = getelementptr inbounds i8, ptr %549, i64 48
+  %.sroa.10.0..sroa_idx.i470 = getelementptr inbounds i8, ptr %552, i64 48
   store ptr %.sroa.1.0.copyload, ptr %.sroa.10.0..sroa_idx.i470, align 8
-  %.sroa.11.0..sroa_idx.i471 = getelementptr inbounds i8, ptr %549, i64 56
+  %.sroa.11.0..sroa_idx.i471 = getelementptr inbounds i8, ptr %552, i64 56
   store ptr %.sroa.4.0.copyload, ptr %.sroa.11.0..sroa_idx.i471, align 8
-  br i1 %.0196, label %562, label %566
+  br i1 %.0196, label %565, label %569
 
-562:                                              ; preds = %pm_keyword_rest_parameter_node_create.exit
-  %563 = getelementptr inbounds i8, ptr %549, i64 2
-  %564 = load i16, ptr %563, align 2
-  %565 = or i16 %564, 1
-  store i16 %565, ptr %563, align 2
-  br label %566
+565:                                              ; preds = %pm_keyword_rest_parameter_node_create.exit
+  %566 = getelementptr inbounds i8, ptr %552, i64 2
+  %567 = load i16, ptr %566, align 2
+  %568 = or i16 %567, 1
+  store i16 %568, ptr %566, align 2
+  br label %569
 
-566:                                              ; preds = %pm_keyword_rest_parameter_node_create.exit, %562, %pm_no_keywords_parameter_node_create.exit
-  %567 = phi ptr [ %529, %pm_no_keywords_parameter_node_create.exit ], [ %.sroa.speculated, %562 ], [ %.sroa.speculated, %pm_keyword_rest_parameter_node_create.exit ]
-  %.0197 = phi ptr [ %524, %pm_no_keywords_parameter_node_create.exit ], [ %549, %562 ], [ %549, %pm_keyword_rest_parameter_node_create.exit ]
-  %568 = load ptr, ptr %27, align 8
-  %569 = icmp eq ptr %568, null
-  br i1 %569, label %570, label %577
-
-570:                                              ; preds = %566
-  %571 = load ptr, ptr %.sroa.31.0..sroa_idx.i, align 8
+569:                                              ; preds = %pm_keyword_rest_parameter_node_create.exit, %565, %pm_no_keywords_parameter_node_create.exit
+  %570 = phi ptr [ %532, %pm_no_keywords_parameter_node_create.exit ], [ %.sroa.speculated, %565 ], [ %.sroa.speculated, %pm_keyword_rest_parameter_node_create.exit ]
+  %.0197 = phi ptr [ %527, %pm_no_keywords_parameter_node_create.exit ], [ %552, %565 ], [ %552, %pm_keyword_rest_parameter_node_create.exit ]
+  %571 = load ptr, ptr %27, align 8
   %572 = icmp eq ptr %571, null
-  %573 = icmp ult ptr %571, %.sroa.1.0.copyload
-  %..i.i472 = select i1 %573, ptr %571, ptr %.sroa.1.0.copyload
-  %storemerge.i.i473 = select i1 %572, ptr %.sroa.1.0.copyload, ptr %..i.i472
-  store ptr %storemerge.i.i473, ptr %.sroa.31.0..sroa_idx.i, align 8
-  %574 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8
+  br i1 %572, label %573, label %580
+
+573:                                              ; preds = %569
+  %574 = load ptr, ptr %.sroa.31.0..sroa_idx.i, align 8
   %575 = icmp eq ptr %574, null
-  %576 = icmp ugt ptr %574, %567
-  %.20.i.i474 = select i1 %576, ptr %574, ptr %567
-  %storemerge19.i.i475 = select i1 %575, ptr %567, ptr %.20.i.i474
+  %576 = icmp ult ptr %574, %.sroa.1.0.copyload
+  %..i.i472 = select i1 %576, ptr %574, ptr %.sroa.1.0.copyload
+  %storemerge.i.i473 = select i1 %575, ptr %.sroa.1.0.copyload, ptr %..i.i472
+  store ptr %storemerge.i.i473, ptr %.sroa.31.0..sroa_idx.i, align 8
+  %577 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8
+  %578 = icmp eq ptr %577, null
+  %579 = icmp ugt ptr %577, %570
+  %.20.i.i474 = select i1 %579, ptr %577, ptr %570
+  %storemerge19.i.i475 = select i1 %578, ptr %570, ptr %.20.i.i474
   store ptr %storemerge19.i.i475, ptr %.sroa.4.0..sroa_idx.i, align 8
   store ptr %.0197, ptr %27, align 8
-  br label %624
+  br label %627
 
-577:                                              ; preds = %566
-  %578 = getelementptr i8, ptr %.0197, i64 8
-  %579 = getelementptr i8, ptr %.0197, i64 16
-  %580 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %22, ptr noundef %.sroa.1.0.copyload, ptr noundef %567, i32 noundef 160) #27
-  %581 = load ptr, ptr %.sroa.31.0..sroa_idx.i, align 8
-  %582 = icmp eq ptr %581, null
-  %583 = load ptr, ptr %578, align 8
-  %584 = icmp ult ptr %581, %583
-  %..i.i476 = select i1 %584, ptr %581, ptr %583
-  %storemerge.i.i477 = select i1 %582, ptr %583, ptr %..i.i476
+580:                                              ; preds = %569
+  %581 = getelementptr i8, ptr %.0197, i64 8
+  %582 = getelementptr i8, ptr %.0197, i64 16
+  %583 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %22, ptr noundef %.sroa.1.0.copyload, ptr noundef %570, i32 noundef 160) #27
+  %584 = load ptr, ptr %.sroa.31.0..sroa_idx.i, align 8
+  %585 = icmp eq ptr %584, null
+  %586 = load ptr, ptr %581, align 8
+  %587 = icmp ult ptr %584, %586
+  %..i.i476 = select i1 %587, ptr %584, ptr %586
+  %storemerge.i.i477 = select i1 %585, ptr %586, ptr %..i.i476
   store ptr %storemerge.i.i477, ptr %.sroa.31.0..sroa_idx.i, align 8
-  %585 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8
-  %586 = icmp eq ptr %585, null
-  %587 = load ptr, ptr %579, align 8
-  %588 = icmp ugt ptr %585, %587
-  %.20.i.i478 = select i1 %588, ptr %585, ptr %587
-  %storemerge19.i.i479 = select i1 %586, ptr %587, ptr %.20.i.i478
+  %588 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8
+  %589 = icmp eq ptr %588, null
+  %590 = load ptr, ptr %582, align 8
+  %591 = icmp ugt ptr %588, %590
+  %.20.i.i478 = select i1 %591, ptr %588, ptr %590
+  %storemerge19.i.i479 = select i1 %589, ptr %590, ptr %.20.i.i478
   store ptr %storemerge19.i.i479, ptr %.sroa.4.0..sroa_idx.i, align 8
   tail call void @pm_node_list_append(ptr noundef nonnull %28, ptr noundef nonnull %.0197) #27
-  br label %624
+  br label %627
 
-589:                                              ; preds = %40
-  %590 = load i32, ptr %23, align 8
-  %591 = icmp eq i32 %590, 27
-  br i1 %591, label %592, label %.critedge
+592:                                              ; preds = %40
+  %593 = load i32, ptr %23, align 8
+  %594 = icmp eq i32 %593, 27
+  br i1 %594, label %595, label %.critedge
 
-592:                                              ; preds = %589
-  br i1 %3, label %593, label %620
+595:                                              ; preds = %592
+  br i1 %3, label %596, label %623
 
-593:                                              ; preds = %592
-  %594 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #30
-  %595 = icmp eq ptr %594, null
-  br i1 %595, label %596, label %pm_implicit_rest_node_create.exit
+596:                                              ; preds = %595
+  %597 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #30
+  %598 = icmp eq ptr %597, null
+  br i1 %598, label %599, label %pm_implicit_rest_node_create.exit
 
-596:                                              ; preds = %593
-  %597 = load ptr, ptr @stderr, align 8
-  %598 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %597, ptr noundef nonnull @.str.87, i32 noundef 24) #31
+599:                                              ; preds = %596
+  %600 = load ptr, ptr @stderr, align 8
+  %601 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %600, ptr noundef nonnull @.str.87, i32 noundef 24) #31
   tail call void @abort() #32
   unreachable
 
-pm_implicit_rest_node_create.exit:                ; preds = %593
-  %599 = load ptr, ptr %.sroa.1.0..sroa_idx, align 8
-  %600 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
-  store i16 70, ptr %594, align 8
-  %.sroa.31.0..sroa_idx.i481 = getelementptr inbounds i8, ptr %594, i64 8
-  store ptr %599, ptr %.sroa.31.0..sroa_idx.i481, align 8
-  %.sroa.4.0..sroa_idx.i482 = getelementptr inbounds i8, ptr %594, i64 16
-  store ptr %600, ptr %.sroa.4.0..sroa_idx.i482, align 8
-  %601 = load ptr, ptr %29, align 8
-  %602 = icmp eq ptr %601, null
-  br i1 %602, label %603, label %610
-
-603:                                              ; preds = %pm_implicit_rest_node_create.exit
-  %604 = load ptr, ptr %.sroa.31.0..sroa_idx.i, align 8
+pm_implicit_rest_node_create.exit:                ; preds = %596
+  %602 = load ptr, ptr %.sroa.1.0..sroa_idx, align 8
+  %603 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
+  store i16 70, ptr %597, align 8
+  %.sroa.31.0..sroa_idx.i481 = getelementptr inbounds i8, ptr %597, i64 8
+  store ptr %602, ptr %.sroa.31.0..sroa_idx.i481, align 8
+  %.sroa.4.0..sroa_idx.i482 = getelementptr inbounds i8, ptr %597, i64 16
+  store ptr %603, ptr %.sroa.4.0..sroa_idx.i482, align 8
+  %604 = load ptr, ptr %29, align 8
   %605 = icmp eq ptr %604, null
-  %606 = icmp ult ptr %604, %599
-  %..i.i483 = select i1 %606, ptr %604, ptr %599
-  %storemerge.i.i484 = select i1 %605, ptr %599, ptr %..i.i483
-  store ptr %storemerge.i.i484, ptr %.sroa.31.0..sroa_idx.i, align 8
-  %607 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8
+  br i1 %605, label %606, label %613
+
+606:                                              ; preds = %pm_implicit_rest_node_create.exit
+  %607 = load ptr, ptr %.sroa.31.0..sroa_idx.i, align 8
   %608 = icmp eq ptr %607, null
-  %609 = icmp ugt ptr %607, %600
-  %.20.i.i485 = select i1 %609, ptr %607, ptr %600
-  %storemerge19.i.i486 = select i1 %608, ptr %600, ptr %.20.i.i485
+  %609 = icmp ult ptr %607, %602
+  %..i.i483 = select i1 %609, ptr %607, ptr %602
+  %storemerge.i.i484 = select i1 %608, ptr %602, ptr %..i.i483
+  store ptr %storemerge.i.i484, ptr %.sroa.31.0..sroa_idx.i, align 8
+  %610 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8
+  %611 = icmp eq ptr %610, null
+  %612 = icmp ugt ptr %610, %603
+  %.20.i.i485 = select i1 %612, ptr %610, ptr %603
+  %storemerge19.i.i486 = select i1 %611, ptr %603, ptr %.20.i.i485
   store ptr %storemerge19.i.i486, ptr %.sroa.4.0..sroa_idx.i, align 8
-  store ptr %594, ptr %29, align 8
+  store ptr %597, ptr %29, align 8
   br label %.critedge
 
-610:                                              ; preds = %pm_implicit_rest_node_create.exit
-  %611 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %22, ptr noundef %599, ptr noundef %600, i32 noundef 169) #27
-  %612 = load ptr, ptr %.sroa.31.0..sroa_idx.i, align 8
-  %613 = icmp eq ptr %612, null
-  %614 = load ptr, ptr %.sroa.31.0..sroa_idx.i481, align 8
-  %615 = icmp ult ptr %612, %614
-  %..i.i487 = select i1 %615, ptr %612, ptr %614
-  %storemerge.i.i488 = select i1 %613, ptr %614, ptr %..i.i487
+613:                                              ; preds = %pm_implicit_rest_node_create.exit
+  %614 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %22, ptr noundef %602, ptr noundef %603, i32 noundef 169) #27
+  %615 = load ptr, ptr %.sroa.31.0..sroa_idx.i, align 8
+  %616 = icmp eq ptr %615, null
+  %617 = load ptr, ptr %.sroa.31.0..sroa_idx.i481, align 8
+  %618 = icmp ult ptr %615, %617
+  %..i.i487 = select i1 %618, ptr %615, ptr %617
+  %storemerge.i.i488 = select i1 %616, ptr %617, ptr %..i.i487
   store ptr %storemerge.i.i488, ptr %.sroa.31.0..sroa_idx.i, align 8
-  %616 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8
-  %617 = icmp eq ptr %616, null
-  %618 = load ptr, ptr %.sroa.4.0..sroa_idx.i482, align 8
-  %619 = icmp ugt ptr %616, %618
-  %.20.i.i489 = select i1 %619, ptr %616, ptr %618
-  %storemerge19.i.i490 = select i1 %617, ptr %618, ptr %.20.i.i489
+  %619 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8
+  %620 = icmp eq ptr %619, null
+  %621 = load ptr, ptr %.sroa.4.0..sroa_idx.i482, align 8
+  %622 = icmp ugt ptr %619, %621
+  %.20.i.i489 = select i1 %622, ptr %619, ptr %621
+  %storemerge19.i.i490 = select i1 %620, ptr %621, ptr %.20.i.i489
   store ptr %storemerge19.i.i490, ptr %.sroa.4.0..sroa_idx.i, align 8
-  tail call void @pm_node_list_append(ptr noundef nonnull %28, ptr noundef nonnull %594) #27
+  tail call void @pm_node_list_append(ptr noundef nonnull %28, ptr noundef nonnull %597) #27
   br label %.critedge
 
-620:                                              ; preds = %592
-  %621 = load ptr, ptr %.sroa.1.0..sroa_idx, align 8
-  %622 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
-  %623 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %22, ptr noundef %621, ptr noundef %622, i32 noundef 172) #27
+623:                                              ; preds = %595
+  %624 = load ptr, ptr %.sroa.1.0..sroa_idx, align 8
+  %625 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
+  %626 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %22, ptr noundef %624, ptr noundef %625, i32 noundef 172) #27
   br label %.critedge
 
-624:                                              ; preds = %284, %570, %577, %491, %498, %324, %308, %199, %update_parameter_state.exit290, %124, %131, %47, %update_parameter_state.exit.thread, %436
-  %.1571 = phi i32 [ %.11, %570 ], [ %.11, %577 ], [ %.10, %491 ], [ %.10, %498 ], [ %.9, %436 ], [ %.2572, %284 ], [ %.2572, %308 ], [ %.2572, %324 ], [ %.5, %199 ], [ %.0570, %update_parameter_state.exit290 ], [ %.4, %124 ], [ %.4, %131 ], [ 7, %47 ], [ %.3574, %update_parameter_state.exit.thread ]
-  %.1 = phi i1 [ %.0198, %570 ], [ %.0198, %577 ], [ %.0198, %491 ], [ %.0198, %498 ], [ %.2, %436 ], [ %spec.select, %284 ], [ %.0198, %308 ], [ %.0198, %324 ], [ %.0198, %199 ], [ %.0198, %update_parameter_state.exit290 ], [ %.0198, %124 ], [ %.0198, %131 ], [ %.0198, %47 ], [ %.0198, %update_parameter_state.exit.thread ]
+627:                                              ; preds = %287, %573, %580, %494, %501, %327, %311, %199, %update_parameter_state.exit290, %124, %131, %47, %update_parameter_state.exit.thread, %439
+  %.1571 = phi i32 [ %.11, %573 ], [ %.11, %580 ], [ %.10, %494 ], [ %.10, %501 ], [ %.9, %439 ], [ %.2572, %287 ], [ %.2572, %311 ], [ %.2572, %327 ], [ %.5, %199 ], [ %.0570, %update_parameter_state.exit290 ], [ %.4, %124 ], [ %.4, %131 ], [ 7, %47 ], [ %.3574, %update_parameter_state.exit.thread ]
+  %.1 = phi i1 [ %.0198, %573 ], [ %.0198, %580 ], [ %.0198, %494 ], [ %.0198, %501 ], [ %.2, %439 ], [ %spec.select, %287 ], [ %.0198, %311 ], [ %.0198, %327 ], [ %.0198, %199 ], [ %.0198, %update_parameter_state.exit290 ], [ %.0198, %124 ], [ %.0198, %131 ], [ %.0198, %47 ], [ %.0198, %update_parameter_state.exit.thread ]
   %brmerge.demorgan = and i1 %2, %.1
-  br i1 %brmerge.demorgan, label %625, label %accept1.exit492
+  br i1 %brmerge.demorgan, label %628, label %accept1.exit492
 
-625:                                              ; preds = %624
+628:                                              ; preds = %627
   %.val.i491 = load i32, ptr %21, align 8
-  %626 = icmp eq i32 %.val.i491, 121
-  br i1 %626, label %627, label %accept1.exit492
+  %629 = icmp eq i32 %.val.i491, 121
+  br i1 %629, label %630, label %accept1.exit492
 
-627:                                              ; preds = %625
+630:                                              ; preds = %628
   tail call fastcc void @parser_lex(ptr noundef nonnull %0)
-  br label %628
+  br label %631
 
-accept1.exit492:                                  ; preds = %625, %624
-  br i1 %.1, label %628, label %.critedge
+accept1.exit492:                                  ; preds = %628, %627
+  br i1 %.1, label %631, label %.critedge
 
-628:                                              ; preds = %627, %accept1.exit492
+631:                                              ; preds = %630, %accept1.exit492
   %.val.i493 = load i32, ptr %21, align 8
-  %629 = icmp eq i32 %.val.i493, 27
-  br i1 %629, label %accept1.exit494, label %.critedge
+  %632 = icmp eq i32 %.val.i493, 27
+  br i1 %632, label %accept1.exit494, label %.critedge
 
-accept1.exit494:                                  ; preds = %628
+accept1.exit494:                                  ; preds = %631
   tail call fastcc void @parser_lex(ptr noundef nonnull %0)
   br label %40, !llvm.loop !132
 
-.critedge:                                        ; preds = %628, %accept1.exit492, %620, %610, %603, %589
+.critedge:                                        ; preds = %631, %accept1.exit492, %623, %613, %606, %592
   tail call void @pm_state_stack_pop(ptr noundef nonnull %20) #27
-  %630 = load ptr, ptr %.sroa.31.0..sroa_idx.i, align 8
-  %631 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8
-  %632 = icmp eq ptr %630, %631
-  br i1 %632, label %633, label %634
+  %633 = load ptr, ptr %.sroa.31.0..sroa_idx.i, align 8
+  %634 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8
+  %635 = icmp eq ptr %633, %634
+  br i1 %635, label %636, label %637
 
-633:                                              ; preds = %.critedge
+636:                                              ; preds = %.critedge
   tail call void @pm_node_destroy(ptr noundef nonnull %0, ptr noundef nonnull %11) #27
-  br label %634
+  br label %637
 
-634:                                              ; preds = %.critedge, %633
-  %.0 = phi ptr [ null, %633 ], [ %11, %.critedge ]
+637:                                              ; preds = %.critedge, %636
+  %.0 = phi ptr [ null, %636 ], [ %11, %.critedge ]
   ret ptr %.0
 }
 
@@ -33464,7 +33468,7 @@ accept2.exit:                                     ; preds = %parse_predicate.exi
   store ptr %.val69, ptr %40, align 8, !alias.scope !137
   %41 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %.val69, ptr %41, align 8, !alias.scope !137
-  switch i32 %1, label %83 [
+  switch i32 %1, label %82 [
     i32 17, label %.thread
     i32 31, label %43
   ]
@@ -33524,34 +33528,34 @@ pm_write_node_value.exit.i.i.loopexit:            ; preds = %tailrecurse.i.i.i, 
 pm_write_node_value.exit.i.i:                     ; preds = %tailrecurse.i.i.i, %pm_write_node_value.exit.i.i.loopexit
   %.sink = phi i64 [ 48, %pm_write_node_value.exit.i.i.loopexit ], [ 128, %tailrecurse.i.i.i ]
   %59 = getelementptr inbounds i8, ptr %.tr.i.i.i, i64 %.sink
-  %60 = load ptr, ptr %59, align 8
-  %.not.i.i = icmp eq ptr %60, null
-  br i1 %.not.i.i, label %pm_predicate_check.exit.i, label %61
+  %.0.i.i.i = load ptr, ptr %59, align 8
+  %.not.i.i = icmp eq ptr %.0.i.i.i, null
+  br i1 %.not.i.i, label %pm_predicate_check.exit.i, label %60
 
-61:                                               ; preds = %pm_write_node_value.exit.i.i
-  %62 = getelementptr inbounds i8, ptr %60, i64 2
-  %63 = load i16, ptr %62, align 2
-  %64 = and i16 %63, 16384
-  %.not5.i.i = icmp eq i16 %64, 0
-  br i1 %.not5.i.i, label %pm_predicate_check.exit.i, label %65
+60:                                               ; preds = %pm_write_node_value.exit.i.i
+  %61 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 2
+  %62 = load i16, ptr %61, align 2
+  %63 = and i16 %62, 16384
+  %.not5.i.i = icmp eq i16 %63, 0
+  br i1 %.not5.i.i, label %pm_predicate_check.exit.i, label %64
 
-65:                                               ; preds = %61
-  %66 = getelementptr i8, ptr %0, i64 312
-  %.val.i.i = load ptr, ptr %66, align 8
-  %67 = getelementptr i8, ptr %0, i64 320
-  %.val6.i.i = load ptr, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %0, i64 408
-  %69 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %68, ptr noundef %.val.i.i, ptr noundef %.val6.i.i, i32 noundef 228) #27
+64:                                               ; preds = %60
+  %65 = getelementptr i8, ptr %0, i64 312
+  %.val.i.i = load ptr, ptr %65, align 8
+  %66 = getelementptr i8, ptr %0, i64 320
+  %.val6.i.i = load ptr, ptr %66, align 8
+  %67 = getelementptr inbounds i8, ptr %0, i64 408
+  %68 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %67, ptr noundef %.val.i.i, ptr noundef %.val6.i.i, i32 noundef 228) #27
   br label %pm_predicate_check.exit.i
 
-pm_predicate_check.exit.i:                        ; preds = %48, %45, %tailrecurse.i.i.i, %65, %61, %pm_write_node_value.exit.i.i
-  %70 = tail call noalias dereferenceable_or_null(96) ptr @calloc(i64 noundef 1, i64 noundef 96) #30
-  %71 = icmp eq ptr %70, null
-  br i1 %71, label %72, label %pm_alloc_node.exit.i
+pm_predicate_check.exit.i:                        ; preds = %48, %45, %tailrecurse.i.i.i, %64, %60, %pm_write_node_value.exit.i.i
+  %69 = tail call noalias dereferenceable_or_null(96) ptr @calloc(i64 noundef 1, i64 noundef 96) #30
+  %70 = icmp eq ptr %69, null
+  br i1 %70, label %71, label %pm_alloc_node.exit.i
 
-72:                                               ; preds = %pm_predicate_check.exit.i
-  %73 = load ptr, ptr @stderr, align 8
-  %74 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef nonnull @.str.87, i32 noundef 96) #31
+71:                                               ; preds = %pm_predicate_check.exit.i
+  %72 = load ptr, ptr @stderr, align 8
+  %73 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %72, ptr noundef nonnull @.str.87, i32 noundef 96) #31
   tail call void @abort() #32
   unreachable
 
@@ -33560,85 +33564,85 @@ pm_alloc_node.exit.i:                             ; preds = %pm_predicate_check.
   %..i = select i1 %.not.i, ptr %17, ptr %.064
   %.0.in.i = getelementptr inbounds i8, ptr %..i, i64 16
   %.0.i = load ptr, ptr %.0.in.i, align 8
-  %75 = getelementptr inbounds i8, ptr %3, i64 8
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %3, i64 16
-  %78 = load ptr, ptr %77, align 8
-  %79 = load i32, ptr %4, align 8
-  %80 = icmp eq i32 %79, 3
-  %81 = load ptr, ptr %9, align 8
-  %82 = load ptr, ptr %10, align 8
-  %.sroa.8.0.i = select i1 %80, ptr null, ptr %81
-  %.sroa.10.0.i = select i1 %80, ptr null, ptr %82
-  store i16 144, ptr %70, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %70, i64 2
+  %74 = getelementptr inbounds i8, ptr %3, i64 8
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds i8, ptr %3, i64 16
+  %77 = load ptr, ptr %76, align 8
+  %78 = load i32, ptr %4, align 8
+  %79 = icmp eq i32 %78, 3
+  %80 = load ptr, ptr %9, align 8
+  %81 = load ptr, ptr %10, align 8
+  %.sroa.8.0.i = select i1 %79, ptr null, ptr %80
+  %.sroa.10.0.i = select i1 %79, ptr null, ptr %81
+  store i16 144, ptr %69, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %69, i64 2
   store i16 -32768, ptr %.sroa.2.0..sroa_idx.i, align 2
-  %.sroa.31.0..sroa_idx.i = getelementptr inbounds i8, ptr %70, i64 8
-  store ptr %76, ptr %.sroa.31.0..sroa_idx.i, align 8
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %70, i64 16
+  %.sroa.31.0..sroa_idx.i = getelementptr inbounds i8, ptr %69, i64 8
+  store ptr %75, ptr %.sroa.31.0..sroa_idx.i, align 8
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %69, i64 16
   store ptr %.0.i, ptr %.sroa.4.0..sroa_idx.i, align 8
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %70, i64 24
-  store ptr %76, ptr %.sroa.5.0..sroa_idx.i, align 8
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %70, i64 32
-  store ptr %78, ptr %.sroa.6.0..sroa_idx.i, align 8
-  %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %70, i64 40
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %69, i64 24
+  store ptr %75, ptr %.sroa.5.0..sroa_idx.i, align 8
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %69, i64 32
+  store ptr %77, ptr %.sroa.6.0..sroa_idx.i, align 8
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %69, i64 40
   store ptr %17, ptr %.sroa.7.0..sroa_idx.i, align 8
-  %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %70, i64 48
+  %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %69, i64 48
   store ptr %.sroa.8.0.i, ptr %.sroa.8.0..sroa_idx.i, align 8
-  %.sroa.10.0..sroa_idx.i = getelementptr inbounds i8, ptr %70, i64 56
+  %.sroa.10.0..sroa_idx.i = getelementptr inbounds i8, ptr %69, i64 56
   store ptr %.sroa.10.0.i, ptr %.sroa.10.0..sroa_idx.i, align 8
-  %.sroa.12.0..sroa_idx.i = getelementptr inbounds i8, ptr %70, i64 64
+  %.sroa.12.0..sroa_idx.i = getelementptr inbounds i8, ptr %69, i64 64
   store ptr %.064, ptr %.sroa.12.0..sroa_idx.i, align 8
-  br label %83
+  br label %82
 
-83:                                               ; preds = %accept2.exit, %pm_alloc_node.exit.i
-  %.065 = phi ptr [ null, %accept2.exit ], [ %70, %pm_alloc_node.exit.i ]
+82:                                               ; preds = %accept2.exit, %pm_alloc_node.exit.i
+  %.065 = phi ptr [ null, %accept2.exit ], [ %69, %pm_alloc_node.exit.i ]
   br i1 %15, label %.preheader124, label %accept1.exitthread-pre-split
 
-.preheader124:                                    ; preds = %.thread, %83
-  %.065143 = phi ptr [ %42, %.thread ], [ %.065, %83 ]
+.preheader124:                                    ; preds = %.thread, %82
+  %.065143 = phi ptr [ %42, %.thread ], [ %.065, %82 ]
   %.val.i71131 = load i32, ptr %24, align 8
-  %84 = icmp eq i32 %.val.i71131, 74
-  br i1 %84, label %.lr.ph, label %accept1.exit
+  %83 = icmp eq i32 %.val.i71131, 74
+  br i1 %83, label %.lr.ph, label %accept1.exit
 
 .lr.ph:                                           ; preds = %.preheader124
-  %85 = getelementptr inbounds i8, ptr %0, i64 432
-  %86 = getelementptr inbounds i8, ptr %0, i64 312
-  %87 = getelementptr inbounds i8, ptr %0, i64 320
-  %88 = getelementptr inbounds i8, ptr %0, i64 20
-  br label %89
+  %84 = getelementptr inbounds i8, ptr %0, i64 432
+  %85 = getelementptr inbounds i8, ptr %0, i64 312
+  %86 = getelementptr inbounds i8, ptr %0, i64 320
+  %87 = getelementptr inbounds i8, ptr %0, i64 20
+  br label %88
 
-89:                                               ; preds = %.lr.ph, %accept2.exit76
-  %.167132 = phi ptr [ %.065143, %.lr.ph ], [ %108, %accept2.exit76 ]
+88:                                               ; preds = %.lr.ph, %accept2.exit76
+  %.167132 = phi ptr [ %.065143, %.lr.ph ], [ %107, %accept2.exit76 ]
   tail call fastcc void @parser_lex(ptr noundef nonnull %0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
-  %90 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
-  %.not123 = icmp eq ptr %90, null
-  br i1 %.not123, label %context_push.exit118, label %91
+  %89 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
+  %.not123 = icmp eq ptr %89, null
+  br i1 %.not123, label %context_push.exit118, label %90
 
-91:                                               ; preds = %89
-  store i32 24, ptr %90, align 8
-  %.sroa.21.0..sroa_idx.i117 = getelementptr inbounds i8, ptr %90, i64 8
-  %92 = load ptr, ptr %32, align 8
-  store ptr %92, ptr %.sroa.21.0..sroa_idx.i117, align 8
-  store ptr %90, ptr %32, align 8
+90:                                               ; preds = %88
+  store i32 24, ptr %89, align 8
+  %.sroa.21.0..sroa_idx.i117 = getelementptr inbounds i8, ptr %89, i64 8
+  %91 = load ptr, ptr %32, align 8
+  store ptr %91, ptr %.sroa.21.0..sroa_idx.i117, align 8
+  store ptr %89, ptr %32, align 8
   br label %context_push.exit118
 
-context_push.exit118:                             ; preds = %89, %91
-  %93 = tail call fastcc ptr @parse_expression(ptr noundef nonnull %0, i32 noundef 6, i1 noundef zeroext true, i32 noundef 51)
-  %94 = tail call fastcc ptr @pm_check_value_expression(ptr noundef readonly %93)
-  %.not.i.i113 = icmp eq ptr %94, null
-  br i1 %.not.i.i113, label %parse_value_expression.exit116, label %95
+context_push.exit118:                             ; preds = %88, %90
+  %92 = tail call fastcc ptr @parse_expression(ptr noundef nonnull %0, i32 noundef 6, i1 noundef zeroext true, i32 noundef 51)
+  %93 = tail call fastcc ptr @pm_check_value_expression(ptr noundef readonly %92)
+  %.not.i.i113 = icmp eq ptr %93, null
+  br i1 %.not.i.i113, label %parse_value_expression.exit116, label %94
 
-95:                                               ; preds = %context_push.exit118
-  %96 = getelementptr i8, ptr %94, i64 8
-  %.val.i.i114 = load ptr, ptr %96, align 8
-  %97 = getelementptr i8, ptr %94, i64 16
-  %.val4.i.i115 = load ptr, ptr %97, align 8
-  %98 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %85, ptr noundef %.val.i.i114, ptr noundef %.val4.i.i115, i32 noundef 218) #27
+94:                                               ; preds = %context_push.exit118
+  %95 = getelementptr i8, ptr %93, i64 8
+  %.val.i.i114 = load ptr, ptr %95, align 8
+  %96 = getelementptr i8, ptr %93, i64 16
+  %.val4.i.i115 = load ptr, ptr %96, align 8
+  %97 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %84, ptr noundef %.val.i.i114, ptr noundef %.val4.i.i115, i32 noundef 218) #27
   br label %parse_value_expression.exit116
 
-parse_value_expression.exit116:                   ; preds = %context_push.exit118, %95
+parse_value_expression.exit116:                   ; preds = %context_push.exit118, %94
   %.val.i110 = load i32, ptr %24, align 8
   switch i32 %.val.i110, label %accept1.exit109.thread122 [
     i32 142, label %accept2.exit112
@@ -33649,8 +33653,8 @@ parse_value_expression.exit116:                   ; preds = %context_push.exit11
 accept2.exit112:                                  ; preds = %parse_value_expression.exit116, %parse_value_expression.exit116
   tail call fastcc void @parser_lex(ptr noundef nonnull %0)
   %.val.i108.pr = load i32, ptr %24, align 8
-  %99 = icmp eq i32 %.val.i108.pr, 95
-  br i1 %99, label %.critedge.i72, label %parse_predicate.exit73
+  %98 = icmp eq i32 %.val.i108.pr, 95
+  br i1 %98, label %.critedge.i72, label %parse_predicate.exit73
 
 .critedge.i72:                                    ; preds = %parse_value_expression.exit116, %accept2.exit112
   tail call fastcc void @parser_lex(ptr noundef nonnull %0)
@@ -33658,132 +33662,132 @@ accept2.exit112:                                  ; preds = %parse_value_express
   br label %parse_predicate.exit73
 
 accept1.exit109.thread122:                        ; preds = %parse_value_expression.exit116
+  %99 = load ptr, ptr %85, align 8
   %100 = load ptr, ptr %86, align 8
-  %101 = load ptr, ptr %87, align 8
-  %102 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %85, ptr noundef %100, ptr noundef %101, i32 noundef 48) #27
+  %101 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %84, ptr noundef %99, ptr noundef %100, i32 noundef 48) #27
   br label %parse_predicate.exit73
 
 parse_predicate.exit73:                           ; preds = %accept2.exit112, %.critedge.i72, %accept1.exit109.thread122
-  %103 = load ptr, ptr %32, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 8
-  %105 = load ptr, ptr %104, align 8
-  tail call void @free(ptr noundef %103) #27
-  store ptr %105, ptr %32, align 8
-  tail call void @pm_state_stack_push(ptr noundef nonnull %88, i1 noundef zeroext false) #27
-  %106 = tail call fastcc ptr @parse_statements(ptr noundef nonnull %0, i32 noundef 11)
-  tail call void @pm_state_stack_pop(ptr noundef nonnull %88) #27
+  %102 = load ptr, ptr %32, align 8
+  %103 = getelementptr inbounds i8, ptr %102, i64 8
+  %104 = load ptr, ptr %103, align 8
+  tail call void @free(ptr noundef %102) #27
+  store ptr %104, ptr %32, align 8
+  tail call void @pm_state_stack_push(ptr noundef nonnull %87, i1 noundef zeroext false) #27
+  %105 = tail call fastcc ptr @parse_statements(ptr noundef nonnull %0, i32 noundef 11)
+  tail call void @pm_state_stack_pop(ptr noundef nonnull %87) #27
   %.val.i74 = load i32, ptr %24, align 8
   switch i32 %.val.i74, label %accept2.exit76 [
-    i32 142, label %107
-    i32 121, label %107
+    i32 142, label %106
+    i32 121, label %106
   ]
 
-107:                                              ; preds = %parse_predicate.exit73, %parse_predicate.exit73
+106:                                              ; preds = %parse_predicate.exit73, %parse_predicate.exit73
   tail call fastcc void @parser_lex(ptr noundef nonnull %0)
   br label %accept2.exit76
 
-accept2.exit76:                                   ; preds = %parse_predicate.exit73, %107
-  %108 = call fastcc ptr @pm_if_node_create(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %93, ptr noundef %4, ptr noundef %106, ptr noundef %5)
-  %109 = getelementptr inbounds i8, ptr %.167132, i64 72
-  store ptr %108, ptr %109, align 8
+accept2.exit76:                                   ; preds = %parse_predicate.exit73, %106
+  %107 = call fastcc ptr @pm_if_node_create(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %92, ptr noundef %4, ptr noundef %105, ptr noundef %5)
+  %108 = getelementptr inbounds i8, ptr %.167132, i64 72
+  store ptr %107, ptr %108, align 8
   %.val.i71 = load i32, ptr %24, align 8
-  %110 = icmp eq i32 %.val.i71, 74
-  br i1 %110, label %89, label %accept1.exit, !llvm.loop !140
+  %109 = icmp eq i32 %.val.i71, 74
+  br i1 %109, label %88, label %accept1.exit, !llvm.loop !140
 
-accept1.exitthread-pre-split:                     ; preds = %83
+accept1.exitthread-pre-split:                     ; preds = %82
   %.val.pr = load i32, ptr %24, align 8
   br label %accept1.exit
 
 accept1.exit:                                     ; preds = %accept2.exit76, %.preheader124, %accept1.exitthread-pre-split
   %.065142 = phi ptr [ %.065, %accept1.exitthread-pre-split ], [ %.065143, %.preheader124 ], [ %.065143, %accept2.exit76 ]
   %.val = phi i32 [ %.val.pr, %accept1.exitthread-pre-split ], [ %.val.i71131, %.preheader124 ], [ %.val.i71, %accept2.exit76 ]
-  %.066 = phi ptr [ %.065, %accept1.exitthread-pre-split ], [ %.065143, %.preheader124 ], [ %108, %accept2.exit76 ]
+  %.066 = phi ptr [ %.065, %accept1.exitthread-pre-split ], [ %.065143, %.preheader124 ], [ %107, %accept2.exit76 ]
   switch i32 %.val, label %accept1.exit.i95 [
-    i32 73, label %111
+    i32 73, label %110
     i32 75, label %accept1.exit.thread.i96
   ]
 
-111:                                              ; preds = %accept1.exit
+110:                                              ; preds = %accept1.exit
   tail call fastcc void @parser_lex(ptr noundef nonnull %0)
   %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 288
   %.sroa.1.0.copyload = load ptr, ptr %.sroa.1.0..sroa_idx, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 296
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
-  %112 = getelementptr inbounds i8, ptr %0, i64 20
-  tail call void @pm_state_stack_push(ptr noundef nonnull %112, i1 noundef zeroext false) #27
-  %113 = tail call fastcc ptr @parse_statements(ptr noundef nonnull %0, i32 noundef 10)
-  tail call void @pm_state_stack_pop(ptr noundef nonnull %112) #27
+  %111 = getelementptr inbounds i8, ptr %0, i64 20
+  tail call void @pm_state_stack_push(ptr noundef nonnull %111, i1 noundef zeroext false) #27
+  %112 = tail call fastcc ptr @parse_statements(ptr noundef nonnull %0, i32 noundef 10)
+  tail call void @pm_state_stack_pop(ptr noundef nonnull %111) #27
   %.val.i77 = load i32, ptr %24, align 8
   switch i32 %.val.i77, label %accept2.exit79 [
-    i32 142, label %114
-    i32 121, label %114
+    i32 142, label %113
+    i32 121, label %113
   ]
 
-114:                                              ; preds = %111, %111
+113:                                              ; preds = %110, %110
   tail call fastcc void @parser_lex(ptr noundef nonnull %0)
   %.val.i.i80.pr = load i32, ptr %24, align 8
   br label %accept2.exit79
 
-accept2.exit79:                                   ; preds = %111, %114
-  %.val.i.i80 = phi i32 [ %.val.i77, %111 ], [ %.val.i.i80.pr, %114 ]
-  %115 = icmp eq i32 %.val.i.i80, 75
-  br i1 %115, label %accept1.exit.thread.i, label %accept1.exit.i
+accept2.exit79:                                   ; preds = %110, %113
+  %.val.i.i80 = phi i32 [ %.val.i77, %110 ], [ %.val.i.i80.pr, %113 ]
+  %114 = icmp eq i32 %.val.i.i80, 75
+  br i1 %114, label %accept1.exit.thread.i, label %accept1.exit.i
 
 accept1.exit.thread.i:                            ; preds = %accept2.exit79
   tail call fastcc void @parser_lex(ptr noundef nonnull %0)
   br label %expect1.exit
 
 accept1.exit.i:                                   ; preds = %accept2.exit79
-  %116 = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
-  %117 = getelementptr inbounds i8, ptr %0, i64 432
-  %118 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %117, ptr noundef %116, ptr noundef %116, i32 noundef 50) #27
-  store ptr %116, ptr %.sroa.1.0..sroa_idx, align 8
+  %115 = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
+  %116 = getelementptr inbounds i8, ptr %0, i64 432
+  %117 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %116, ptr noundef %115, ptr noundef %115, i32 noundef 50) #27
+  store ptr %115, ptr %.sroa.1.0..sroa_idx, align 8
   store i32 2, ptr %7, align 8
   br label %expect1.exit
 
 expect1.exit:                                     ; preds = %accept1.exit.thread.i, %accept1.exit.i
-  %119 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 1, i64 noundef 64) #30
-  %120 = icmp eq ptr %119, null
-  br i1 %120, label %121, label %pm_alloc_node.exit.i81
+  %118 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 1, i64 noundef 64) #30
+  %119 = icmp eq ptr %118, null
+  br i1 %119, label %120, label %pm_alloc_node.exit.i81
 
-121:                                              ; preds = %expect1.exit
-  %122 = load ptr, ptr @stderr, align 8
-  %123 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %122, ptr noundef nonnull @.str.87, i32 noundef 64) #31
+120:                                              ; preds = %expect1.exit
+  %121 = load ptr, ptr @stderr, align 8
+  %122 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %121, ptr noundef nonnull @.str.87, i32 noundef 64) #31
   tail call void @abort() #32
   unreachable
 
 pm_alloc_node.exit.i81:                           ; preds = %expect1.exit
-  %124 = load i32, ptr %7, align 8
-  %125 = icmp eq i32 %124, 3
-  %126 = icmp ne ptr %113, null
-  %or.cond.i82 = and i1 %126, %125
-  %..i83 = select i1 %or.cond.i82, ptr %113, ptr %7
+  %123 = load i32, ptr %7, align 8
+  %124 = icmp eq i32 %123, 3
+  %125 = icmp ne ptr %112, null
+  %or.cond.i82 = and i1 %125, %124
+  %..i83 = select i1 %or.cond.i82, ptr %112, ptr %7
   %.0.in.i84 = getelementptr inbounds i8, ptr %..i83, i64 16
   %.0.i85 = load ptr, ptr %.0.in.i84, align 8
-  br i1 %125, label %pm_else_node_create.exit, label %127
+  br i1 %124, label %pm_else_node_create.exit, label %126
 
-127:                                              ; preds = %pm_alloc_node.exit.i81
-  %128 = load ptr, ptr %.sroa.1.0..sroa_idx, align 8
-  %129 = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
+126:                                              ; preds = %pm_alloc_node.exit.i81
+  %127 = load ptr, ptr %.sroa.1.0..sroa_idx, align 8
+  %128 = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
   br label %pm_else_node_create.exit
 
-pm_else_node_create.exit:                         ; preds = %pm_alloc_node.exit.i81, %127
-  %.sroa.8.0.i86 = phi ptr [ %128, %127 ], [ null, %pm_alloc_node.exit.i81 ]
-  %.sroa.10.0.i87 = phi ptr [ %129, %127 ], [ null, %pm_alloc_node.exit.i81 ]
-  store i16 47, ptr %119, align 8
-  %.sroa.32.0..sroa_idx.i = getelementptr inbounds i8, ptr %119, i64 8
+pm_else_node_create.exit:                         ; preds = %pm_alloc_node.exit.i81, %126
+  %.sroa.8.0.i86 = phi ptr [ %127, %126 ], [ null, %pm_alloc_node.exit.i81 ]
+  %.sroa.10.0.i87 = phi ptr [ %128, %126 ], [ null, %pm_alloc_node.exit.i81 ]
+  store i16 47, ptr %118, align 8
+  %.sroa.32.0..sroa_idx.i = getelementptr inbounds i8, ptr %118, i64 8
   store ptr %.sroa.1.0.copyload, ptr %.sroa.32.0..sroa_idx.i, align 8
-  %.sroa.4.0..sroa_idx.i88 = getelementptr inbounds i8, ptr %119, i64 16
+  %.sroa.4.0..sroa_idx.i88 = getelementptr inbounds i8, ptr %118, i64 16
   store ptr %.0.i85, ptr %.sroa.4.0..sroa_idx.i88, align 8
-  %.sroa.5.0..sroa_idx.i89 = getelementptr inbounds i8, ptr %119, i64 24
+  %.sroa.5.0..sroa_idx.i89 = getelementptr inbounds i8, ptr %118, i64 24
   store ptr %.sroa.1.0.copyload, ptr %.sroa.5.0..sroa_idx.i89, align 8
-  %.sroa.6.0..sroa_idx.i90 = getelementptr inbounds i8, ptr %119, i64 32
+  %.sroa.6.0..sroa_idx.i90 = getelementptr inbounds i8, ptr %118, i64 32
   store ptr %.sroa.2.0.copyload, ptr %.sroa.6.0..sroa_idx.i90, align 8
-  %.sroa.7.0..sroa_idx.i91 = getelementptr inbounds i8, ptr %119, i64 40
-  store ptr %113, ptr %.sroa.7.0..sroa_idx.i91, align 8
-  %.sroa.8.0..sroa_idx.i92 = getelementptr inbounds i8, ptr %119, i64 48
+  %.sroa.7.0..sroa_idx.i91 = getelementptr inbounds i8, ptr %118, i64 40
+  store ptr %112, ptr %.sroa.7.0..sroa_idx.i91, align 8
+  %.sroa.8.0..sroa_idx.i92 = getelementptr inbounds i8, ptr %118, i64 48
   store ptr %.sroa.8.0.i86, ptr %.sroa.8.0..sroa_idx.i92, align 8
-  %.sroa.10.0..sroa_idx.i93 = getelementptr inbounds i8, ptr %119, i64 56
+  %.sroa.10.0..sroa_idx.i93 = getelementptr inbounds i8, ptr %118, i64 56
   store ptr %.sroa.10.0.i87, ptr %.sroa.10.0..sroa_idx.i93, align 8
   switch i32 %1, label %.loopexit [
     i32 17, label %expect1.exit97.thread144
@@ -33791,87 +33795,87 @@ pm_else_node_create.exit:                         ; preds = %pm_alloc_node.exit.
   ]
 
 expect1.exit97.thread144:                         ; preds = %pm_else_node_create.exit
-  %130 = getelementptr inbounds i8, ptr %.066, i64 72
-  store ptr %119, ptr %130, align 8
+  %129 = getelementptr inbounds i8, ptr %.066, i64 72
+  store ptr %118, ptr %129, align 8
   br label %.preheader
 
 expect1.exit97.thread:                            ; preds = %pm_else_node_create.exit
-  %131 = getelementptr inbounds i8, ptr %.065142, i64 72
-  store ptr %119, ptr %131, align 8
-  br label %153
+  %130 = getelementptr inbounds i8, ptr %.065142, i64 72
+  store ptr %118, ptr %130, align 8
+  br label %152
 
 accept1.exit.thread.i96:                          ; preds = %accept1.exit
   tail call fastcc void @parser_lex(ptr noundef nonnull %0)
   br label %expect1.exit97
 
 accept1.exit.i95:                                 ; preds = %accept1.exit
-  %132 = getelementptr inbounds i8, ptr %0, i64 296
-  %133 = load ptr, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %0, i64 432
-  %135 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %134, ptr noundef %133, ptr noundef %133, i32 noundef 49) #27
-  %136 = getelementptr inbounds i8, ptr %0, i64 288
-  store ptr %133, ptr %136, align 8
+  %131 = getelementptr inbounds i8, ptr %0, i64 296
+  %132 = load ptr, ptr %131, align 8
+  %133 = getelementptr inbounds i8, ptr %0, i64 432
+  %134 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %133, ptr noundef %132, ptr noundef %132, i32 noundef 49) #27
+  %135 = getelementptr inbounds i8, ptr %0, i64 288
+  store ptr %132, ptr %135, align 8
   store i32 2, ptr %7, align 8
   br label %expect1.exit97
 
 expect1.exit97:                                   ; preds = %accept1.exit.i95, %accept1.exit.thread.i96
   switch i32 %1, label %.loopexit [
     i32 17, label %.preheader
-    i32 31, label %153
+    i32 31, label %152
   ]
 
 .preheader:                                       ; preds = %expect1.exit97.thread144, %expect1.exit97
-  %137 = getelementptr inbounds i8, ptr %0, i64 296
-  %138 = getelementptr inbounds i8, ptr %0, i64 288
-  br label %139
+  %136 = getelementptr inbounds i8, ptr %0, i64 296
+  %137 = getelementptr inbounds i8, ptr %0, i64 288
+  br label %138
 
-139:                                              ; preds = %.preheader, %146
-  %.062134 = phi ptr [ %.065142, %.preheader ], [ %152, %146 ]
-  %140 = load i16, ptr %.062134, align 8
-  switch i16 %140, label %.loopexit [
-    i16 67, label %146
-    i16 47, label %141
+138:                                              ; preds = %.preheader, %145
+  %.062134 = phi ptr [ %.065142, %.preheader ], [ %151, %145 ]
+  %139 = load i16, ptr %.062134, align 8
+  switch i16 %139, label %.loopexit [
+    i16 67, label %145
+    i16 47, label %140
   ]
 
-141:                                              ; preds = %139
-  %142 = load ptr, ptr %137, align 8
-  %143 = getelementptr inbounds i8, ptr %.062134, i64 16
-  store ptr %142, ptr %143, align 8
-  %144 = getelementptr inbounds i8, ptr %.062134, i64 48
-  %145 = load ptr, ptr %138, align 8
-  store ptr %145, ptr %144, align 8
+140:                                              ; preds = %138
+  %141 = load ptr, ptr %136, align 8
+  %142 = getelementptr inbounds i8, ptr %.062134, i64 16
+  store ptr %141, ptr %142, align 8
+  %143 = getelementptr inbounds i8, ptr %.062134, i64 48
+  %144 = load ptr, ptr %137, align 8
+  store ptr %144, ptr %143, align 8
   %.sroa.2.0..sroa_idx.i99 = getelementptr inbounds i8, ptr %.062134, i64 56
-  store ptr %142, ptr %.sroa.2.0..sroa_idx.i99, align 8
+  store ptr %141, ptr %.sroa.2.0..sroa_idx.i99, align 8
   br label %.loopexit
 
-146:                                              ; preds = %139
-  %147 = load ptr, ptr %137, align 8
-  %148 = getelementptr inbounds i8, ptr %.062134, i64 16
-  store ptr %147, ptr %148, align 8
-  %149 = getelementptr inbounds i8, ptr %.062134, i64 80
-  %150 = load ptr, ptr %138, align 8
-  store ptr %150, ptr %149, align 8
+145:                                              ; preds = %138
+  %146 = load ptr, ptr %136, align 8
+  %147 = getelementptr inbounds i8, ptr %.062134, i64 16
+  store ptr %146, ptr %147, align 8
+  %148 = getelementptr inbounds i8, ptr %.062134, i64 80
+  %149 = load ptr, ptr %137, align 8
+  store ptr %149, ptr %148, align 8
   %.sroa.2.0..sroa_idx.i98 = getelementptr inbounds i8, ptr %.062134, i64 88
-  store ptr %147, ptr %.sroa.2.0..sroa_idx.i98, align 8
-  %151 = getelementptr inbounds i8, ptr %.062134, i64 72
-  %152 = load ptr, ptr %151, align 8
-  %.not155 = icmp eq ptr %152, null
-  br i1 %.not155, label %.loopexit, label %139, !llvm.loop !141
+  store ptr %146, ptr %.sroa.2.0..sroa_idx.i98, align 8
+  %150 = getelementptr inbounds i8, ptr %.062134, i64 72
+  %151 = load ptr, ptr %150, align 8
+  %.not155 = icmp eq ptr %151, null
+  br i1 %.not155, label %.loopexit, label %138, !llvm.loop !141
 
-153:                                              ; preds = %expect1.exit97.thread, %expect1.exit97
-  %154 = getelementptr inbounds i8, ptr %.065142, i64 80
-  %155 = getelementptr inbounds i8, ptr %0, i64 288
-  %156 = load ptr, ptr %155, align 8
-  %157 = getelementptr inbounds i8, ptr %0, i64 296
-  %158 = load ptr, ptr %157, align 8
-  store ptr %156, ptr %154, align 8
+152:                                              ; preds = %expect1.exit97.thread, %expect1.exit97
+  %153 = getelementptr inbounds i8, ptr %.065142, i64 80
+  %154 = getelementptr inbounds i8, ptr %0, i64 288
+  %155 = load ptr, ptr %154, align 8
+  %156 = getelementptr inbounds i8, ptr %0, i64 296
+  %157 = load ptr, ptr %156, align 8
+  store ptr %155, ptr %153, align 8
   %.sroa.2.0..sroa_idx.i100 = getelementptr inbounds i8, ptr %.065142, i64 88
-  store ptr %158, ptr %.sroa.2.0..sroa_idx.i100, align 8
-  %159 = getelementptr inbounds i8, ptr %.065142, i64 16
-  store ptr %158, ptr %159, align 8
+  store ptr %157, ptr %.sroa.2.0..sroa_idx.i100, align 8
+  %158 = getelementptr inbounds i8, ptr %.065142, i64 16
+  store ptr %157, ptr %158, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %139, %146, %141, %pm_else_node_create.exit, %expect1.exit97, %153
+.loopexit:                                        ; preds = %138, %145, %140, %pm_else_node_create.exit, %expect1.exit97, %152
   ret ptr %.065142
 }
 
@@ -34287,27 +34291,27 @@ pm_write_node_value.exit.loopexit:                ; preds = %tailrecurse.i, %tai
 pm_write_node_value.exit:                         ; preds = %tailrecurse.i, %pm_write_node_value.exit.loopexit
   %.sink = phi i64 [ 48, %pm_write_node_value.exit.loopexit ], [ 128, %tailrecurse.i ]
   %18 = getelementptr inbounds i8, ptr %.tr.i, i64 %.sink
-  %19 = load ptr, ptr %18, align 8
-  %.not = icmp eq ptr %19, null
-  br i1 %.not, label %pm_write_node_value.exit.thread, label %20
+  %.0.i = load ptr, ptr %18, align 8
+  %.not = icmp eq ptr %.0.i, null
+  br i1 %.not, label %pm_write_node_value.exit.thread, label %19
 
-20:                                               ; preds = %pm_write_node_value.exit
-  %21 = getelementptr inbounds i8, ptr %19, i64 2
-  %22 = load i16, ptr %21, align 2
-  %23 = and i16 %22, 16384
-  %.not5 = icmp eq i16 %23, 0
-  br i1 %.not5, label %pm_write_node_value.exit.thread, label %24
+19:                                               ; preds = %pm_write_node_value.exit
+  %20 = getelementptr inbounds i8, ptr %.0.i, i64 2
+  %21 = load i16, ptr %20, align 2
+  %22 = and i16 %21, 16384
+  %.not5 = icmp eq i16 %22, 0
+  br i1 %.not5, label %pm_write_node_value.exit.thread, label %23
 
-24:                                               ; preds = %20
-  %25 = getelementptr i8, ptr %0, i64 312
-  %.val = load ptr, ptr %25, align 8
-  %26 = getelementptr i8, ptr %0, i64 320
-  %.val6 = load ptr, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 408
-  %28 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %27, ptr noundef %.val, ptr noundef %.val6, i32 noundef 228) #27
+23:                                               ; preds = %19
+  %24 = getelementptr i8, ptr %0, i64 312
+  %.val = load ptr, ptr %24, align 8
+  %25 = getelementptr i8, ptr %0, i64 320
+  %.val6 = load ptr, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 408
+  %27 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %26, ptr noundef %.val, ptr noundef %.val6, i32 noundef 228) #27
   br label %pm_write_node_value.exit.thread
 
-pm_write_node_value.exit.thread:                  ; preds = %tailrecurse.i, %7, %4, %24, %20, %pm_write_node_value.exit
+pm_write_node_value.exit.thread:                  ; preds = %tailrecurse.i, %7, %4, %23, %19, %pm_write_node_value.exit
   ret void
 }
 
@@ -34599,54 +34603,54 @@ pm_write_node_value.exit.i.loopexit:              ; preds = %tailrecurse.i.i, %t
 pm_write_node_value.exit.i:                       ; preds = %tailrecurse.i.i, %pm_write_node_value.exit.i.loopexit
   %.sink = phi i64 [ 48, %pm_write_node_value.exit.i.loopexit ], [ 128, %tailrecurse.i.i ]
   %26 = getelementptr inbounds i8, ptr %.tr.i.i, i64 %.sink
-  %27 = load ptr, ptr %26, align 8
-  %.not.i = icmp eq ptr %27, null
-  br i1 %.not.i, label %pm_predicate_check.exit, label %28
+  %.0.i.i = load ptr, ptr %26, align 8
+  %.not.i = icmp eq ptr %.0.i.i, null
+  br i1 %.not.i, label %pm_predicate_check.exit, label %27
 
-28:                                               ; preds = %pm_write_node_value.exit.i
-  %29 = getelementptr inbounds i8, ptr %27, i64 2
-  %30 = load i16, ptr %29, align 2
-  %31 = and i16 %30, 16384
-  %.not5.i = icmp eq i16 %31, 0
-  br i1 %.not5.i, label %pm_predicate_check.exit, label %32
+27:                                               ; preds = %pm_write_node_value.exit.i
+  %28 = getelementptr inbounds i8, ptr %.0.i.i, i64 2
+  %29 = load i16, ptr %28, align 2
+  %30 = and i16 %29, 16384
+  %.not5.i = icmp eq i16 %30, 0
+  br i1 %.not5.i, label %pm_predicate_check.exit, label %31
 
-32:                                               ; preds = %28
-  %33 = getelementptr i8, ptr %0, i64 312
-  %.val.i = load ptr, ptr %33, align 8
-  %34 = getelementptr i8, ptr %0, i64 320
-  %.val6.i = load ptr, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 408
-  %36 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %35, ptr noundef %.val.i, ptr noundef %.val6.i, i32 noundef 228) #27
+31:                                               ; preds = %27
+  %32 = getelementptr i8, ptr %0, i64 312
+  %.val.i = load ptr, ptr %32, align 8
+  %33 = getelementptr i8, ptr %0, i64 320
+  %.val6.i = load ptr, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %0, i64 408
+  %35 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %34, ptr noundef %.val.i, ptr noundef %.val6.i, i32 noundef 228) #27
   br label %pm_predicate_check.exit
 
-pm_predicate_check.exit:                          ; preds = %tailrecurse.i.i, %12, %15, %pm_write_node_value.exit.i, %28, %32
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %2, i64 16
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 16
-  %42 = load ptr, ptr %41, align 8
-  %43 = load i32, ptr %2, align 8
-  %44 = icmp eq i32 %43, 3
-  br i1 %44, label %48, label %45
+pm_predicate_check.exit:                          ; preds = %tailrecurse.i.i, %12, %15, %pm_write_node_value.exit.i, %27, %31
+  %36 = getelementptr inbounds i8, ptr %1, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %2, i64 16
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %1, i64 16
+  %41 = load ptr, ptr %40, align 8
+  %42 = load i32, ptr %2, align 8
+  %43 = icmp eq i32 %42, 3
+  br i1 %43, label %47, label %44
 
-45:                                               ; preds = %pm_predicate_check.exit
-  %46 = getelementptr inbounds i8, ptr %2, i64 8
-  %47 = load ptr, ptr %46, align 8
-  br label %48
+44:                                               ; preds = %pm_predicate_check.exit
+  %45 = getelementptr inbounds i8, ptr %2, i64 8
+  %46 = load ptr, ptr %45, align 8
+  br label %47
 
-48:                                               ; preds = %pm_predicate_check.exit, %45
-  %.sroa.7.0 = phi ptr [ %47, %45 ], [ null, %pm_predicate_check.exit ]
-  %.sroa.9.0 = phi ptr [ %40, %45 ], [ null, %pm_predicate_check.exit ]
+47:                                               ; preds = %pm_predicate_check.exit, %44
+  %.sroa.7.0 = phi ptr [ %46, %44 ], [ null, %pm_predicate_check.exit ]
+  %.sroa.9.0 = phi ptr [ %39, %44 ], [ null, %pm_predicate_check.exit ]
   store i16 145, ptr %6, align 8
   %.sroa.31.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %38, ptr %.sroa.31.0..sroa_idx, align 8
+  store ptr %37, ptr %.sroa.31.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr %40, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %39, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 24
-  store ptr %38, ptr %.sroa.5.0..sroa_idx, align 8
+  store ptr %37, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 32
-  store ptr %42, ptr %.sroa.6.0..sroa_idx, align 8
+  store ptr %41, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 40
   store ptr %.sroa.7.0, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 48
@@ -34717,54 +34721,54 @@ pm_write_node_value.exit.i.loopexit:              ; preds = %tailrecurse.i.i, %t
 pm_write_node_value.exit.i:                       ; preds = %tailrecurse.i.i, %pm_write_node_value.exit.i.loopexit
   %.sink = phi i64 [ 48, %pm_write_node_value.exit.i.loopexit ], [ 128, %tailrecurse.i.i ]
   %26 = getelementptr inbounds i8, ptr %.tr.i.i, i64 %.sink
-  %27 = load ptr, ptr %26, align 8
-  %.not.i = icmp eq ptr %27, null
-  br i1 %.not.i, label %pm_predicate_check.exit, label %28
+  %.0.i.i = load ptr, ptr %26, align 8
+  %.not.i = icmp eq ptr %.0.i.i, null
+  br i1 %.not.i, label %pm_predicate_check.exit, label %27
 
-28:                                               ; preds = %pm_write_node_value.exit.i
-  %29 = getelementptr inbounds i8, ptr %27, i64 2
-  %30 = load i16, ptr %29, align 2
-  %31 = and i16 %30, 16384
-  %.not5.i = icmp eq i16 %31, 0
-  br i1 %.not5.i, label %pm_predicate_check.exit, label %32
+27:                                               ; preds = %pm_write_node_value.exit.i
+  %28 = getelementptr inbounds i8, ptr %.0.i.i, i64 2
+  %29 = load i16, ptr %28, align 2
+  %30 = and i16 %29, 16384
+  %.not5.i = icmp eq i16 %30, 0
+  br i1 %.not5.i, label %pm_predicate_check.exit, label %31
 
-32:                                               ; preds = %28
-  %33 = getelementptr i8, ptr %0, i64 312
-  %.val.i = load ptr, ptr %33, align 8
-  %34 = getelementptr i8, ptr %0, i64 320
-  %.val6.i = load ptr, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 408
-  %36 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %35, ptr noundef %.val.i, ptr noundef %.val6.i, i32 noundef 228) #27
+31:                                               ; preds = %27
+  %32 = getelementptr i8, ptr %0, i64 312
+  %.val.i = load ptr, ptr %32, align 8
+  %33 = getelementptr i8, ptr %0, i64 320
+  %.val6.i = load ptr, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %0, i64 408
+  %35 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %34, ptr noundef %.val.i, ptr noundef %.val6.i, i32 noundef 228) #27
   br label %pm_predicate_check.exit
 
-pm_predicate_check.exit:                          ; preds = %tailrecurse.i.i, %12, %15, %pm_write_node_value.exit.i, %28, %32
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %2, i64 16
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 16
-  %42 = load ptr, ptr %41, align 8
-  %43 = load i32, ptr %2, align 8
-  %44 = icmp eq i32 %43, 3
-  br i1 %44, label %48, label %45
+pm_predicate_check.exit:                          ; preds = %tailrecurse.i.i, %12, %15, %pm_write_node_value.exit.i, %27, %31
+  %36 = getelementptr inbounds i8, ptr %1, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %2, i64 16
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %1, i64 16
+  %41 = load ptr, ptr %40, align 8
+  %42 = load i32, ptr %2, align 8
+  %43 = icmp eq i32 %42, 3
+  br i1 %43, label %47, label %44
 
-45:                                               ; preds = %pm_predicate_check.exit
-  %46 = getelementptr inbounds i8, ptr %2, i64 8
-  %47 = load ptr, ptr %46, align 8
-  br label %48
+44:                                               ; preds = %pm_predicate_check.exit
+  %45 = getelementptr inbounds i8, ptr %2, i64 8
+  %46 = load ptr, ptr %45, align 8
+  br label %47
 
-48:                                               ; preds = %pm_predicate_check.exit, %45
-  %.sroa.7.0 = phi ptr [ %47, %45 ], [ null, %pm_predicate_check.exit ]
-  %.sroa.9.0 = phi ptr [ %40, %45 ], [ null, %pm_predicate_check.exit ]
+47:                                               ; preds = %pm_predicate_check.exit, %44
+  %.sroa.7.0 = phi ptr [ %46, %44 ], [ null, %pm_predicate_check.exit ]
+  %.sroa.9.0 = phi ptr [ %39, %44 ], [ null, %pm_predicate_check.exit ]
   store i16 147, ptr %6, align 8
   %.sroa.31.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %38, ptr %.sroa.31.0..sroa_idx, align 8
+  store ptr %37, ptr %.sroa.31.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr %40, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %39, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 24
-  store ptr %38, ptr %.sroa.5.0..sroa_idx, align 8
+  store ptr %37, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 32
-  store ptr %42, ptr %.sroa.6.0..sroa_idx, align 8
+  store ptr %41, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 40
   store ptr %.sroa.7.0, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 48
@@ -40755,113 +40759,113 @@ pm_write_node_value.exit.i.loopexit:              ; preds = %tailrecurse.i.i, %t
 pm_write_node_value.exit.i:                       ; preds = %tailrecurse.i.i, %pm_write_node_value.exit.i.loopexit
   %.sink27 = phi i64 [ 48, %pm_write_node_value.exit.i.loopexit ], [ 128, %tailrecurse.i.i ]
   %22 = getelementptr inbounds i8, ptr %.tr.i.i, i64 %.sink27
-  %23 = load ptr, ptr %22, align 8
-  %.not.i = icmp eq ptr %23, null
-  br i1 %.not.i, label %pm_predicate_check.exit, label %24
+  %.0.i.i = load ptr, ptr %22, align 8
+  %.not.i = icmp eq ptr %.0.i.i, null
+  br i1 %.not.i, label %pm_predicate_check.exit, label %23
 
-24:                                               ; preds = %pm_write_node_value.exit.i
-  %25 = getelementptr inbounds i8, ptr %23, i64 2
-  %26 = load i16, ptr %25, align 2
-  %27 = and i16 %26, 16384
-  %.not5.i = icmp eq i16 %27, 0
-  br i1 %.not5.i, label %pm_predicate_check.exit, label %28
+23:                                               ; preds = %pm_write_node_value.exit.i
+  %24 = getelementptr inbounds i8, ptr %.0.i.i, i64 2
+  %25 = load i16, ptr %24, align 2
+  %26 = and i16 %25, 16384
+  %.not5.i = icmp eq i16 %26, 0
+  br i1 %.not5.i, label %pm_predicate_check.exit, label %27
 
-28:                                               ; preds = %24
-  %29 = getelementptr i8, ptr %0, i64 312
-  %.val.i = load ptr, ptr %29, align 8
-  %30 = getelementptr i8, ptr %0, i64 320
-  %.val6.i = load ptr, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 408
-  %32 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %31, ptr noundef %.val.i, ptr noundef %.val6.i, i32 noundef 228) #27
+27:                                               ; preds = %23
+  %28 = getelementptr i8, ptr %0, i64 312
+  %.val.i = load ptr, ptr %28, align 8
+  %29 = getelementptr i8, ptr %0, i64 320
+  %.val6.i = load ptr, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %0, i64 408
+  %31 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %30, ptr noundef %.val.i, ptr noundef %.val6.i, i32 noundef 228) #27
   br label %pm_predicate_check.exit
 
-pm_predicate_check.exit:                          ; preds = %tailrecurse.i.i, %8, %11, %pm_write_node_value.exit.i, %24, %28
-  %33 = tail call noalias dereferenceable_or_null(96) ptr @calloc(i64 noundef 1, i64 noundef 96) #30
-  %34 = icmp eq ptr %33, null
-  br i1 %34, label %35, label %pm_alloc_node.exit
+pm_predicate_check.exit:                          ; preds = %tailrecurse.i.i, %8, %11, %pm_write_node_value.exit.i, %23, %27
+  %32 = tail call noalias dereferenceable_or_null(96) ptr @calloc(i64 noundef 1, i64 noundef 96) #30
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %34, label %pm_alloc_node.exit
 
-35:                                               ; preds = %pm_predicate_check.exit
-  %36 = load ptr, ptr @stderr, align 8
-  %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.87, i32 noundef 96) #31
+34:                                               ; preds = %pm_predicate_check.exit
+  %35 = load ptr, ptr @stderr, align 8
+  %36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.87, i32 noundef 96) #31
   tail call void @abort() #32
   unreachable
 
 pm_alloc_node.exit:                               ; preds = %pm_predicate_check.exit
-  %38 = load i32, ptr %5, align 8
-  %.not = icmp eq i32 %38, 3
-  br i1 %.not, label %39, label %42
+  %37 = load i32, ptr %5, align 8
+  %.not = icmp eq i32 %37, 3
+  br i1 %.not, label %38, label %41
 
-39:                                               ; preds = %pm_alloc_node.exit
+38:                                               ; preds = %pm_alloc_node.exit
   %.not.i30 = icmp eq ptr %4, null
   br i1 %.not.i30, label %pm_statements_node_body_length.exit.thread, label %pm_statements_node_body_length.exit
 
-pm_statements_node_body_length.exit:              ; preds = %39
-  %40 = getelementptr inbounds i8, ptr %4, i64 24
-  %41 = load i64, ptr %40, align 8
-  %.not2 = icmp eq i64 %41, 0
-  br i1 %.not2, label %pm_statements_node_body_length.exit.thread, label %42
+pm_statements_node_body_length.exit:              ; preds = %38
+  %39 = getelementptr inbounds i8, ptr %4, i64 24
+  %40 = load i64, ptr %39, align 8
+  %.not2 = icmp eq i64 %40, 0
+  br i1 %.not2, label %pm_statements_node_body_length.exit.thread, label %41
 
-pm_statements_node_body_length.exit.thread:       ; preds = %39, %pm_statements_node_body_length.exit
-  br label %42
+pm_statements_node_body_length.exit.thread:       ; preds = %38, %pm_statements_node_body_length.exit
+  br label %41
 
-42:                                               ; preds = %pm_statements_node_body_length.exit, %pm_alloc_node.exit, %pm_statements_node_body_length.exit.thread
+41:                                               ; preds = %pm_statements_node_body_length.exit, %pm_alloc_node.exit, %pm_statements_node_body_length.exit.thread
   %.sink = phi ptr [ %2, %pm_statements_node_body_length.exit.thread ], [ %5, %pm_alloc_node.exit ], [ %4, %pm_statements_node_body_length.exit ]
-  %43 = getelementptr inbounds i8, ptr %.sink, i64 16
-  %.0 = load ptr, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 16
-  %47 = load ptr, ptr %46, align 8
-  %48 = load i32, ptr %3, align 8
-  %49 = icmp eq i32 %48, 3
-  br i1 %49, label %55, label %50
+  %42 = getelementptr inbounds i8, ptr %.sink, i64 16
+  %.0 = load ptr, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %1, i64 8
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %1, i64 16
+  %46 = load ptr, ptr %45, align 8
+  %47 = load i32, ptr %3, align 8
+  %48 = icmp eq i32 %47, 3
+  br i1 %48, label %54, label %49
 
-50:                                               ; preds = %42
-  %51 = getelementptr inbounds i8, ptr %3, i64 8
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %3, i64 16
-  %54 = load ptr, ptr %53, align 8
-  br label %55
+49:                                               ; preds = %41
+  %50 = getelementptr inbounds i8, ptr %3, i64 8
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %3, i64 16
+  %53 = load ptr, ptr %52, align 8
+  br label %54
 
-55:                                               ; preds = %42, %50
-  %.sroa.8.0 = phi ptr [ %52, %50 ], [ null, %42 ]
-  %.sroa.10.0 = phi ptr [ %54, %50 ], [ null, %42 ]
-  br i1 %.not, label %61, label %56
+54:                                               ; preds = %41, %49
+  %.sroa.8.0 = phi ptr [ %51, %49 ], [ null, %41 ]
+  %.sroa.10.0 = phi ptr [ %53, %49 ], [ null, %41 ]
+  br i1 %.not, label %60, label %55
 
-56:                                               ; preds = %55
-  %57 = getelementptr inbounds i8, ptr %5, i64 8
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %5, i64 16
-  %60 = load ptr, ptr %59, align 8
-  br label %61
+55:                                               ; preds = %54
+  %56 = getelementptr inbounds i8, ptr %5, i64 8
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds i8, ptr %5, i64 16
+  %59 = load ptr, ptr %58, align 8
+  br label %60
 
-61:                                               ; preds = %55, %56
-  %.sroa.14.0 = phi ptr [ %58, %56 ], [ null, %55 ]
-  %.sroa.16.0 = phi ptr [ %60, %56 ], [ null, %55 ]
-  store i16 67, ptr %33, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 2
+60:                                               ; preds = %54, %55
+  %.sroa.14.0 = phi ptr [ %57, %55 ], [ null, %54 ]
+  %.sroa.16.0 = phi ptr [ %59, %55 ], [ null, %54 ]
+  store i16 67, ptr %32, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %32, i64 2
   store i16 -32768, ptr %.sroa.2.0..sroa_idx, align 2
-  %.sroa.31.0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 8
-  store ptr %45, ptr %.sroa.31.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 16
+  %.sroa.31.0..sroa_idx = getelementptr inbounds i8, ptr %32, i64 8
+  store ptr %44, ptr %.sroa.31.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %32, i64 16
   store ptr %.0, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 24
-  store ptr %45, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 32
-  store ptr %47, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 40
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %32, i64 24
+  store ptr %44, ptr %.sroa.5.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %32, i64 32
+  store ptr %46, ptr %.sroa.6.0..sroa_idx, align 8
+  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %32, i64 40
   store ptr %2, ptr %.sroa.7.0..sroa_idx, align 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 48
+  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %32, i64 48
   store ptr %.sroa.8.0, ptr %.sroa.8.0..sroa_idx, align 8
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 56
+  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %32, i64 56
   store ptr %.sroa.10.0, ptr %.sroa.10.0..sroa_idx, align 8
-  %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 64
+  %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %32, i64 64
   store ptr %4, ptr %.sroa.12.0..sroa_idx, align 8
-  %.sroa.14.0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 80
+  %.sroa.14.0..sroa_idx = getelementptr inbounds i8, ptr %32, i64 80
   store ptr %.sroa.14.0, ptr %.sroa.14.0..sroa_idx, align 8
-  %.sroa.16.0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 88
+  %.sroa.16.0..sroa_idx = getelementptr inbounds i8, ptr %32, i64 88
   store ptr %.sroa.16.0, ptr %.sroa.16.0..sroa_idx, align 8
-  ret ptr %33
+  ret ptr %32
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -44134,46 +44138,46 @@ pm_write_node_value.exit.i.loopexit:              ; preds = %tailrecurse.i.i, %t
 pm_write_node_value.exit.i:                       ; preds = %tailrecurse.i.i, %pm_write_node_value.exit.i.loopexit
   %.sink = phi i64 [ 48, %pm_write_node_value.exit.i.loopexit ], [ 128, %tailrecurse.i.i ]
   %26 = getelementptr inbounds i8, ptr %.tr.i.i, i64 %.sink
-  %27 = load ptr, ptr %26, align 8
-  %.not.i = icmp eq ptr %27, null
-  br i1 %.not.i, label %pm_predicate_check.exit, label %28
+  %.0.i.i = load ptr, ptr %26, align 8
+  %.not.i = icmp eq ptr %.0.i.i, null
+  br i1 %.not.i, label %pm_predicate_check.exit, label %27
 
-28:                                               ; preds = %pm_write_node_value.exit.i
-  %29 = getelementptr inbounds i8, ptr %27, i64 2
-  %30 = load i16, ptr %29, align 2
-  %31 = and i16 %30, 16384
-  %.not5.i = icmp eq i16 %31, 0
-  br i1 %.not5.i, label %pm_predicate_check.exit, label %32
+27:                                               ; preds = %pm_write_node_value.exit.i
+  %28 = getelementptr inbounds i8, ptr %.0.i.i, i64 2
+  %29 = load i16, ptr %28, align 2
+  %30 = and i16 %29, 16384
+  %.not5.i = icmp eq i16 %30, 0
+  br i1 %.not5.i, label %pm_predicate_check.exit, label %31
 
-32:                                               ; preds = %28
-  %33 = getelementptr i8, ptr %0, i64 312
-  %.val.i = load ptr, ptr %33, align 8
-  %34 = getelementptr i8, ptr %0, i64 320
-  %.val6.i = load ptr, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 408
-  %36 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %35, ptr noundef %.val.i, ptr noundef %.val6.i, i32 noundef 228) #27
+31:                                               ; preds = %27
+  %32 = getelementptr i8, ptr %0, i64 312
+  %.val.i = load ptr, ptr %32, align 8
+  %33 = getelementptr i8, ptr %0, i64 320
+  %.val6.i = load ptr, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %0, i64 408
+  %35 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %34, ptr noundef %.val.i, ptr noundef %.val6.i, i32 noundef 228) #27
   br label %pm_predicate_check.exit
 
-pm_predicate_check.exit:                          ; preds = %tailrecurse.i.i, %12, %15, %pm_write_node_value.exit.i, %28, %32
-  %37 = getelementptr inbounds i8, ptr %3, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %2, i64 16
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 16
-  %44 = load ptr, ptr %43, align 8
+pm_predicate_check.exit:                          ; preds = %tailrecurse.i.i, %12, %15, %pm_write_node_value.exit.i, %27, %31
+  %36 = getelementptr inbounds i8, ptr %3, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %2, i64 16
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %1, i64 16
+  %43 = load ptr, ptr %42, align 8
   store i16 145, ptr %6, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 2
   store i16 %4, ptr %.sroa.2.0..sroa_idx, align 2
   %.sroa.31.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %38, ptr %.sroa.31.0..sroa_idx, align 8
+  store ptr %37, ptr %.sroa.31.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr %40, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %39, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 24
-  store ptr %42, ptr %.sroa.5.0..sroa_idx, align 8
+  store ptr %41, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 32
-  store ptr %44, ptr %.sroa.6.0..sroa_idx, align 8
+  store ptr %43, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 56
   store ptr %2, ptr %.sroa.9.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 64
@@ -44240,46 +44244,46 @@ pm_write_node_value.exit.i.loopexit:              ; preds = %tailrecurse.i.i, %t
 pm_write_node_value.exit.i:                       ; preds = %tailrecurse.i.i, %pm_write_node_value.exit.i.loopexit
   %.sink = phi i64 [ 48, %pm_write_node_value.exit.i.loopexit ], [ 128, %tailrecurse.i.i ]
   %26 = getelementptr inbounds i8, ptr %.tr.i.i, i64 %.sink
-  %27 = load ptr, ptr %26, align 8
-  %.not.i = icmp eq ptr %27, null
-  br i1 %.not.i, label %pm_predicate_check.exit, label %28
+  %.0.i.i = load ptr, ptr %26, align 8
+  %.not.i = icmp eq ptr %.0.i.i, null
+  br i1 %.not.i, label %pm_predicate_check.exit, label %27
 
-28:                                               ; preds = %pm_write_node_value.exit.i
-  %29 = getelementptr inbounds i8, ptr %27, i64 2
-  %30 = load i16, ptr %29, align 2
-  %31 = and i16 %30, 16384
-  %.not5.i = icmp eq i16 %31, 0
-  br i1 %.not5.i, label %pm_predicate_check.exit, label %32
+27:                                               ; preds = %pm_write_node_value.exit.i
+  %28 = getelementptr inbounds i8, ptr %.0.i.i, i64 2
+  %29 = load i16, ptr %28, align 2
+  %30 = and i16 %29, 16384
+  %.not5.i = icmp eq i16 %30, 0
+  br i1 %.not5.i, label %pm_predicate_check.exit, label %31
 
-32:                                               ; preds = %28
-  %33 = getelementptr i8, ptr %0, i64 312
-  %.val.i = load ptr, ptr %33, align 8
-  %34 = getelementptr i8, ptr %0, i64 320
-  %.val6.i = load ptr, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 408
-  %36 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %35, ptr noundef %.val.i, ptr noundef %.val6.i, i32 noundef 228) #27
+31:                                               ; preds = %27
+  %32 = getelementptr i8, ptr %0, i64 312
+  %.val.i = load ptr, ptr %32, align 8
+  %33 = getelementptr i8, ptr %0, i64 320
+  %.val6.i = load ptr, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %0, i64 408
+  %35 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %34, ptr noundef %.val.i, ptr noundef %.val6.i, i32 noundef 228) #27
   br label %pm_predicate_check.exit
 
-pm_predicate_check.exit:                          ; preds = %tailrecurse.i.i, %12, %15, %pm_write_node_value.exit.i, %28, %32
-  %37 = getelementptr inbounds i8, ptr %3, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %2, i64 16
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 16
-  %44 = load ptr, ptr %43, align 8
+pm_predicate_check.exit:                          ; preds = %tailrecurse.i.i, %12, %15, %pm_write_node_value.exit.i, %27, %31
+  %36 = getelementptr inbounds i8, ptr %3, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %2, i64 16
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %1, i64 16
+  %43 = load ptr, ptr %42, align 8
   store i16 147, ptr %6, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 2
   store i16 %4, ptr %.sroa.2.0..sroa_idx, align 2
   %.sroa.31.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %38, ptr %.sroa.31.0..sroa_idx, align 8
+  store ptr %37, ptr %.sroa.31.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr %40, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %39, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 24
-  store ptr %42, ptr %.sroa.5.0..sroa_idx, align 8
+  store ptr %41, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 32
-  store ptr %44, ptr %.sroa.6.0..sroa_idx, align 8
+  store ptr %43, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 56
   store ptr %2, ptr %.sroa.9.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 64
@@ -44353,161 +44357,161 @@ pm_write_node_value.exit.i.loopexit:              ; preds = %tailrecurse.i.i, %t
 pm_write_node_value.exit.i:                       ; preds = %tailrecurse.i.i, %pm_write_node_value.exit.i.loopexit
   %.sink = phi i64 [ 48, %pm_write_node_value.exit.i.loopexit ], [ 128, %tailrecurse.i.i ]
   %28 = getelementptr inbounds i8, ptr %.tr.i.i, i64 %.sink
-  %29 = load ptr, ptr %28, align 8
-  %.not.i27 = icmp eq ptr %29, null
-  br i1 %.not.i27, label %pm_predicate_check.exit, label %30
+  %.0.i.i = load ptr, ptr %28, align 8
+  %.not.i27 = icmp eq ptr %.0.i.i, null
+  br i1 %.not.i27, label %pm_predicate_check.exit, label %29
 
-30:                                               ; preds = %pm_write_node_value.exit.i
-  %31 = getelementptr inbounds i8, ptr %29, i64 2
-  %32 = load i16, ptr %31, align 2
-  %33 = and i16 %32, 16384
-  %.not5.i = icmp eq i16 %33, 0
-  br i1 %.not5.i, label %pm_predicate_check.exit, label %34
+29:                                               ; preds = %pm_write_node_value.exit.i
+  %30 = getelementptr inbounds i8, ptr %.0.i.i, i64 2
+  %31 = load i16, ptr %30, align 2
+  %32 = and i16 %31, 16384
+  %.not5.i = icmp eq i16 %32, 0
+  br i1 %.not5.i, label %pm_predicate_check.exit, label %33
 
-34:                                               ; preds = %30
-  %35 = getelementptr i8, ptr %0, i64 312
-  %.val.i28 = load ptr, ptr %35, align 8
-  %36 = getelementptr i8, ptr %0, i64 320
-  %.val6.i = load ptr, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 408
-  %38 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %37, ptr noundef %.val.i28, ptr noundef %.val6.i, i32 noundef 228) #27
+33:                                               ; preds = %29
+  %34 = getelementptr i8, ptr %0, i64 312
+  %.val.i28 = load ptr, ptr %34, align 8
+  %35 = getelementptr i8, ptr %0, i64 320
+  %.val6.i = load ptr, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %0, i64 408
+  %37 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %36, ptr noundef %.val.i28, ptr noundef %.val6.i, i32 noundef 228) #27
   br label %pm_predicate_check.exit
 
-pm_predicate_check.exit:                          ; preds = %tailrecurse.i.i, %14, %17, %pm_write_node_value.exit.i, %30, %34
-  %39 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #30
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %41, label %44
+pm_predicate_check.exit:                          ; preds = %tailrecurse.i.i, %14, %17, %pm_write_node_value.exit.i, %29, %33
+  %38 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #30
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %40, label %43
 
-41:                                               ; preds = %pm_predicate_check.exit
-  %42 = load ptr, ptr @stderr, align 8
-  %43 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef nonnull @.str.87, i32 noundef 48) #31
+40:                                               ; preds = %pm_predicate_check.exit
+  %41 = load ptr, ptr @stderr, align 8
+  %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.87, i32 noundef 48) #31
   tail call void @abort() #32
   unreachable
 
-44:                                               ; preds = %pm_predicate_check.exit
-  %45 = getelementptr inbounds i8, ptr %0, i64 264
-  %46 = load ptr, ptr %45, align 8
-  store i16 138, ptr %39, align 8
-  %.sroa.31.0..sroa_idx.i = getelementptr inbounds i8, ptr %39, i64 8
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %39, i64 16
-  store ptr %46, ptr %.sroa.4.0..sroa_idx.i, align 8
-  %47 = getelementptr inbounds i8, ptr %39, i64 24
+43:                                               ; preds = %pm_predicate_check.exit
+  %44 = getelementptr inbounds i8, ptr %0, i64 264
+  %45 = load ptr, ptr %44, align 8
+  store i16 138, ptr %38, align 8
+  %.sroa.31.0..sroa_idx.i = getelementptr inbounds i8, ptr %38, i64 8
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %38, i64 16
+  store ptr %45, ptr %.sroa.4.0..sroa_idx.i, align 8
+  %46 = getelementptr inbounds i8, ptr %38, i64 24
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   store ptr %.pre.i.i, ptr %.sroa.31.0..sroa_idx.i, align 8
-  %48 = getelementptr inbounds i8, ptr %3, i64 16
-  %49 = load ptr, ptr %48, align 8
-  %50 = icmp ugt ptr %49, %46
-  br i1 %50, label %51, label %pm_statements_node_body_append.exit
+  %47 = getelementptr inbounds i8, ptr %3, i64 16
+  %48 = load ptr, ptr %47, align 8
+  %49 = icmp ugt ptr %48, %45
+  br i1 %49, label %50, label %pm_statements_node_body_append.exit
 
-51:                                               ; preds = %44
-  store ptr %49, ptr %.sroa.4.0..sroa_idx.i, align 8
+50:                                               ; preds = %43
+  store ptr %48, ptr %.sroa.4.0..sroa_idx.i, align 8
   br label %pm_statements_node_body_append.exit
 
-pm_statements_node_body_append.exit:              ; preds = %44, %51
-  tail call void @pm_node_list_append(ptr noundef nonnull %47, ptr noundef nonnull %3) #27
-  %52 = getelementptr inbounds i8, ptr %3, i64 2
-  %53 = load i16, ptr %52, align 2
-  %54 = or i16 %53, -32768
-  store i16 %54, ptr %52, align 2
-  %55 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #30
-  %56 = icmp eq ptr %55, null
-  br i1 %56, label %57, label %60
+pm_statements_node_body_append.exit:              ; preds = %43, %50
+  tail call void @pm_node_list_append(ptr noundef nonnull %46, ptr noundef nonnull %3) #27
+  %51 = getelementptr inbounds i8, ptr %3, i64 2
+  %52 = load i16, ptr %51, align 2
+  %53 = or i16 %52, -32768
+  store i16 %53, ptr %51, align 2
+  %54 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #30
+  %55 = icmp eq ptr %54, null
+  br i1 %55, label %56, label %59
 
-57:                                               ; preds = %pm_statements_node_body_append.exit
-  %58 = load ptr, ptr @stderr, align 8
-  %59 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %58, ptr noundef nonnull @.str.87, i32 noundef 48) #31
+56:                                               ; preds = %pm_statements_node_body_append.exit
+  %57 = load ptr, ptr @stderr, align 8
+  %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %57, ptr noundef nonnull @.str.87, i32 noundef 48) #31
   tail call void @abort() #32
   unreachable
 
-60:                                               ; preds = %pm_statements_node_body_append.exit
-  %61 = load ptr, ptr %45, align 8
-  store i16 138, ptr %55, align 8
-  %.sroa.31.0..sroa_idx.i30 = getelementptr inbounds i8, ptr %55, i64 8
-  %.sroa.4.0..sroa_idx.i31 = getelementptr inbounds i8, ptr %55, i64 16
-  store ptr %61, ptr %.sroa.4.0..sroa_idx.i31, align 8
-  %62 = getelementptr inbounds i8, ptr %55, i64 24
+59:                                               ; preds = %pm_statements_node_body_append.exit
+  %60 = load ptr, ptr %44, align 8
+  store i16 138, ptr %54, align 8
+  %.sroa.31.0..sroa_idx.i30 = getelementptr inbounds i8, ptr %54, i64 8
+  %.sroa.4.0..sroa_idx.i31 = getelementptr inbounds i8, ptr %54, i64 16
+  store ptr %60, ptr %.sroa.4.0..sroa_idx.i31, align 8
+  %61 = getelementptr inbounds i8, ptr %54, i64 24
   %.phi.trans.insert.i.i34 = getelementptr inbounds i8, ptr %5, i64 8
   %.pre.i.i35 = load ptr, ptr %.phi.trans.insert.i.i34, align 8
   store ptr %.pre.i.i35, ptr %.sroa.31.0..sroa_idx.i30, align 8
-  %63 = getelementptr inbounds i8, ptr %5, i64 16
-  %64 = load ptr, ptr %63, align 8
-  %65 = icmp ugt ptr %64, %61
-  br i1 %65, label %66, label %pm_statements_node_body_append.exit37
+  %62 = getelementptr inbounds i8, ptr %5, i64 16
+  %63 = load ptr, ptr %62, align 8
+  %64 = icmp ugt ptr %63, %60
+  br i1 %64, label %65, label %pm_statements_node_body_append.exit37
 
-66:                                               ; preds = %60
-  store ptr %64, ptr %.sroa.4.0..sroa_idx.i31, align 8
+65:                                               ; preds = %59
+  store ptr %63, ptr %.sroa.4.0..sroa_idx.i31, align 8
   br label %pm_statements_node_body_append.exit37
 
-pm_statements_node_body_append.exit37:            ; preds = %60, %66
-  tail call void @pm_node_list_append(ptr noundef nonnull %62, ptr noundef nonnull %5) #27
-  %67 = getelementptr inbounds i8, ptr %5, i64 2
-  %68 = load i16, ptr %67, align 2
-  %69 = or i16 %68, -32768
-  store i16 %69, ptr %67, align 2
-  %70 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 1, i64 noundef 64) #30
-  %71 = icmp eq ptr %70, null
-  br i1 %71, label %72, label %pm_else_node_create.exit
+pm_statements_node_body_append.exit37:            ; preds = %59, %65
+  tail call void @pm_node_list_append(ptr noundef nonnull %61, ptr noundef nonnull %5) #27
+  %66 = getelementptr inbounds i8, ptr %5, i64 2
+  %67 = load i16, ptr %66, align 2
+  %68 = or i16 %67, -32768
+  store i16 %68, ptr %66, align 2
+  %69 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 1, i64 noundef 64) #30
+  %70 = icmp eq ptr %69, null
+  br i1 %70, label %71, label %pm_else_node_create.exit
 
-72:                                               ; preds = %pm_statements_node_body_append.exit37
-  %73 = load ptr, ptr @stderr, align 8
-  %74 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef nonnull @.str.87, i32 noundef 64) #31
+71:                                               ; preds = %pm_statements_node_body_append.exit37
+  %72 = load ptr, ptr @stderr, align 8
+  %73 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %72, ptr noundef nonnull @.str.87, i32 noundef 64) #31
   tail call void @abort() #32
   unreachable
 
 pm_else_node_create.exit:                         ; preds = %pm_statements_node_body_append.exit37
   %.0.i.then.val = load ptr, ptr %.sroa.4.0..sroa_idx.i31, align 8
-  %75 = getelementptr inbounds i8, ptr %4, i64 8
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %4, i64 16
-  %78 = load ptr, ptr %77, align 8
-  store i16 47, ptr %70, align 8
-  %.sroa.32.0..sroa_idx.i = getelementptr inbounds i8, ptr %70, i64 8
-  store ptr %76, ptr %.sroa.32.0..sroa_idx.i, align 8
-  %.sroa.4.0..sroa_idx.i38 = getelementptr inbounds i8, ptr %70, i64 16
+  %74 = getelementptr inbounds i8, ptr %4, i64 8
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds i8, ptr %4, i64 16
+  %77 = load ptr, ptr %76, align 8
+  store i16 47, ptr %69, align 8
+  %.sroa.32.0..sroa_idx.i = getelementptr inbounds i8, ptr %69, i64 8
+  store ptr %75, ptr %.sroa.32.0..sroa_idx.i, align 8
+  %.sroa.4.0..sroa_idx.i38 = getelementptr inbounds i8, ptr %69, i64 16
   store ptr %.0.i.then.val, ptr %.sroa.4.0..sroa_idx.i38, align 8
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %70, i64 24
-  store ptr %76, ptr %.sroa.5.0..sroa_idx.i, align 8
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %70, i64 32
-  store ptr %78, ptr %.sroa.6.0..sroa_idx.i, align 8
-  %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %70, i64 40
-  store ptr %55, ptr %.sroa.7.0..sroa_idx.i, align 8
-  %79 = tail call noalias dereferenceable_or_null(96) ptr @calloc(i64 noundef 1, i64 noundef 96) #30
-  %80 = icmp eq ptr %79, null
-  br i1 %80, label %81, label %pm_alloc_node.exit
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %69, i64 24
+  store ptr %75, ptr %.sroa.5.0..sroa_idx.i, align 8
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %69, i64 32
+  store ptr %77, ptr %.sroa.6.0..sroa_idx.i, align 8
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %69, i64 40
+  store ptr %54, ptr %.sroa.7.0..sroa_idx.i, align 8
+  %78 = tail call noalias dereferenceable_or_null(96) ptr @calloc(i64 noundef 1, i64 noundef 96) #30
+  %79 = icmp eq ptr %78, null
+  br i1 %79, label %80, label %pm_alloc_node.exit
 
-81:                                               ; preds = %pm_else_node_create.exit
-  %82 = load ptr, ptr @stderr, align 8
-  %83 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %82, ptr noundef nonnull @.str.87, i32 noundef 96) #31
+80:                                               ; preds = %pm_else_node_create.exit
+  %81 = load ptr, ptr @stderr, align 8
+  %82 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %81, ptr noundef nonnull @.str.87, i32 noundef 96) #31
   tail call void @abort() #32
   unreachable
 
 pm_alloc_node.exit:                               ; preds = %pm_else_node_create.exit
-  %84 = getelementptr inbounds i8, ptr %1, i64 8
-  %85 = load ptr, ptr %84, align 8
-  %86 = load ptr, ptr %63, align 8
-  %87 = getelementptr inbounds i8, ptr %2, i64 8
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %2, i64 16
-  %90 = load ptr, ptr %89, align 8
-  store i16 67, ptr %79, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %79, i64 2
+  %83 = getelementptr inbounds i8, ptr %1, i64 8
+  %84 = load ptr, ptr %83, align 8
+  %85 = load ptr, ptr %62, align 8
+  %86 = getelementptr inbounds i8, ptr %2, i64 8
+  %87 = load ptr, ptr %86, align 8
+  %88 = getelementptr inbounds i8, ptr %2, i64 16
+  %89 = load ptr, ptr %88, align 8
+  store i16 67, ptr %78, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %78, i64 2
   store i16 -32768, ptr %.sroa.2.0..sroa_idx, align 2
-  %.sroa.31.0..sroa_idx = getelementptr inbounds i8, ptr %79, i64 8
-  store ptr %85, ptr %.sroa.31.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %79, i64 16
-  store ptr %86, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %79, i64 40
+  %.sroa.31.0..sroa_idx = getelementptr inbounds i8, ptr %78, i64 8
+  store ptr %84, ptr %.sroa.31.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %78, i64 16
+  store ptr %85, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %78, i64 40
   store ptr %1, ptr %.sroa.7.0..sroa_idx, align 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %79, i64 48
-  store ptr %88, ptr %.sroa.8.0..sroa_idx, align 8
-  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %79, i64 56
-  store ptr %90, ptr %.sroa.9.0..sroa_idx, align 8
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %79, i64 64
-  store ptr %39, ptr %.sroa.10.0..sroa_idx, align 8
-  %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %79, i64 72
-  store ptr %70, ptr %.sroa.11.0..sroa_idx, align 8
-  ret ptr %79
+  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %78, i64 48
+  store ptr %87, ptr %.sroa.8.0..sroa_idx, align 8
+  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %78, i64 56
+  store ptr %89, ptr %.sroa.9.0..sroa_idx, align 8
+  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %78, i64 64
+  store ptr %38, ptr %.sroa.10.0..sroa_idx, align 8
+  %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %78, i64 72
+  store ptr %69, ptr %.sroa.11.0..sroa_idx, align 8
+  ret ptr %78
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

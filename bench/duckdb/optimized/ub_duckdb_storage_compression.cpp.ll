@@ -86405,6 +86405,12 @@ if.then:                                          ; preds = %entry
   %add.i.i = add i64 %4, 4
   store i64 %add.i.i, ptr %index.i4.i, align 8, !tbaa !2053
   store i8 0, ptr %first, align 8, !tbaa !2042
+  %packed_data_buffer.i.i = getelementptr inbounds i8, ptr %state, i64 16
+  %buffer.i.i.i = getelementptr inbounds i8, ptr %state, i64 24
+  %5 = load ptr, ptr %buffer.i.i.i, align 8, !tbaa !2044
+  %6 = load i64, ptr %packed_data_buffer.i.i, align 8, !tbaa !2046
+  %arrayidx.i.i.i = getelementptr inbounds i16, ptr %5, i64 %6
+  store i16 256, ptr %arrayidx.i.i.i, align 2, !tbaa !525
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -86412,58 +86418,58 @@ if.else:                                          ; preds = %entry
   %and.i.i = and i64 %conv.i4, 8191
   %indices.i.i5 = getelementptr inbounds i8, ptr %state, i64 1072
   %arrayidx.i.i6 = getelementptr inbounds [8192 x i64], ptr %indices.i.i5, i64 0, i64 %and.i.i
-  %5 = load i64, ptr %arrayidx.i.i6, align 8, !tbaa !14
+  %7 = load i64, ptr %arrayidx.i.i6, align 8, !tbaa !14
   %index.i.i7 = getelementptr inbounds i8, ptr %state, i64 1064
-  %6 = load i64, ptr %index.i.i7, align 8, !tbaa !14
-  %cmp.i = icmp ugt i64 %5, %6
+  %8 = load i64, ptr %index.i.i7, align 8, !tbaa !14
+  %cmp.i = icmp ugt i64 %7, %8
   br i1 %cmp.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.else
-  %reass.sub2 = sub nuw i64 %6, %5
-  %7 = add i64 %reass.sub2, -127
-  %cmp7.i = icmp ult i64 %7, -128
+  %reass.sub2 = sub nuw i64 %8, %7
+  %9 = add i64 %reass.sub2, -127
+  %cmp7.i = icmp ult i64 %9, -128
   br i1 %cmp7.i, label %if.then.i, label %_ZN6duckdb5patas16PatasCompressionIjLb0EE15StoreCompressedEjRNS0_21PatasCompressionStateIjLb0EEE.exit
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %if.else
   br label %_ZN6duckdb5patas16PatasCompressionIjLb0EE15StoreCompressedEjRNS0_21PatasCompressionStateIjLb0EEE.exit
 
 _ZN6duckdb5patas16PatasCompressionIjLb0EE15StoreCompressedEjRNS0_21PatasCompressionStateIjLb0EEE.exit: ; preds = %if.then.i, %lor.lhs.false.i
-  %reference_index.0.i = phi i64 [ %6, %if.then.i ], [ %5, %lor.lhs.false.i ]
+  %reference_index.0.i = phi i64 [ %8, %if.then.i ], [ %7, %lor.lhs.false.i ]
   %ring_buffer.i8 = getelementptr inbounds i8, ptr %state, i64 40
   %conv14.i = and i64 %reference_index.0.i, 127
   %arrayidx.i77.i = getelementptr inbounds [128 x i64], ptr %ring_buffer.i8, i64 0, i64 %conv14.i
-  %8 = load i64, ptr %arrayidx.i77.i, align 8, !tbaa !14
-  %9 = trunc i64 %8 to i32
-  %conv17.i = xor i32 %value, %9
-  %10 = tail call noundef i32 @llvm.cttz.i32(i32 %conv17.i, i1 false), !range !2038
-  %11 = tail call noundef i32 @llvm.ctlz.i32(i32 %conv17.i, i1 false), !range !2038
-  %cmp22.i = icmp eq i32 %value, %9
-  %12 = add nuw nsw i32 %10, %11
-  %13 = trunc nuw nsw i32 %12 to i8
-  %14 = sub nsw i8 32, %13
-  %conv30.i = select i1 %cmp22.i, i8 0, i8 %14
+  %10 = load i64, ptr %arrayidx.i77.i, align 8, !tbaa !14
+  %11 = trunc i64 %10 to i32
+  %conv17.i = xor i32 %value, %11
+  %12 = tail call noundef i32 @llvm.cttz.i32(i32 %conv17.i, i1 false), !range !2038
+  %13 = tail call noundef i32 @llvm.ctlz.i32(i32 %conv17.i, i1 false), !range !2038
+  %cmp22.i = icmp eq i32 %value, %11
+  %14 = add nuw nsw i32 %12, %13
+  %15 = trunc nuw nsw i32 %14 to i8
+  %16 = sub nsw i8 32, %15
+  %conv30.i = select i1 %cmp22.i, i8 0, i8 %16
   %shr.i = lshr i8 %conv30.i, 3
-  %15 = and i8 %conv30.i, 7
-  %cmp33.i = icmp ne i8 %15, 0
+  %17 = and i8 %conv30.i, 7
+  %cmp33.i = icmp ne i8 %17, 0
   %conv34.i = zext i1 %cmp33.i to i8
   %add35.i = add nuw nsw i8 %shr.i, %conv34.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp37.i)
   %conv40.neg.i = sext i1 %cmp22.i to i32
-  %sub41.i = add nsw i32 %10, %conv40.neg.i
+  %sub41.i = add nsw i32 %12, %conv40.neg.i
   %shr42.i = lshr i32 %conv17.i, %sub41.i
   store i32 %shr42.i, ptr %ref.tmp37.i, align 4, !tbaa !116
-  %16 = load ptr, ptr %state, align 8, !tbaa !2052
+  %18 = load ptr, ptr %state, align 8, !tbaa !2052
   %index.i78.i = getelementptr inbounds i8, ptr %state, i64 8
-  %17 = load i64, ptr %index.i78.i, align 8, !tbaa !2053
-  %add.ptr.i.i9 = getelementptr inbounds i8, ptr %16, i64 %17
+  %19 = load i64, ptr %index.i78.i, align 8, !tbaa !2053
+  %add.ptr.i.i9 = getelementptr inbounds i8, ptr %18, i64 %19
   %conv5.i.i = zext nneg i8 %add35.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i9, ptr nonnull align 4 %ref.tmp37.i, i64 %conv5.i.i, i1 false)
-  %18 = load i64, ptr %index.i78.i, align 8, !tbaa !2053
-  %add8.i.i = add i64 %18, %conv5.i.i
+  %20 = load i64, ptr %index.i78.i, align 8, !tbaa !2053
+  %add8.i.i = add i64 %20, %conv5.i.i
   store i64 %add8.i.i, ptr %index.i78.i, align 8, !tbaa !2053
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp37.i)
-  %19 = load i64, ptr %index.i.i7, align 8, !tbaa !498
-  %inc.i.i10 = add i64 %19, 1
+  %21 = load i64, ptr %index.i.i7, align 8, !tbaa !498
+  %inc.i.i10 = add i64 %21, 1
   store i64 %inc.i.i10, ptr %index.i.i7, align 8, !tbaa !498
   %rem.i.i11 = and i64 %inc.i.i10, 127
   %arrayidx.i80.i = getelementptr inbounds [128 x i64], ptr %ring_buffer.i8, i64 0, i64 %rem.i.i11
@@ -86472,28 +86478,29 @@ _ZN6duckdb5patas16PatasCompressionIjLb0EE15StoreCompressedEjRNS0_21PatasCompress
   %sub47.i = sub i64 %inc.i.i10, %reference_index.0.i
   %conv48.i = trunc i64 %sub47.i to i16
   %conv53.i = trunc nsw i32 %sub41.i to i16
-  %20 = shl i8 %add35.i, 5
-  %mul5.i.i.i = zext i8 %20 to i16
-  %21 = shl i16 %conv48.i, 9
-  %22 = shl nuw nsw i16 %mul5.i.i.i, 1
+  %packed_data_buffer.i.i12 = getelementptr inbounds i8, ptr %state, i64 16
+  %22 = shl i8 %add35.i, 5
+  %mul5.i.i.i = zext i8 %22 to i16
+  %23 = shl i16 %conv48.i, 9
+  %24 = shl nuw nsw i16 %mul5.i.i.i, 1
   %and12.i.i.i = and i16 %conv53.i, 63
-  %conv13.i.i.i = or disjoint i16 %22, %21
+  %conv13.i.i.i = or disjoint i16 %24, %23
   %add14.i.i.i = or disjoint i16 %conv13.i.i.i, %and12.i.i.i
+  %buffer.i.i.i13 = getelementptr inbounds i8, ptr %state, i64 24
+  %25 = load ptr, ptr %buffer.i.i.i13, align 8, !tbaa !2044
+  %26 = load i64, ptr %packed_data_buffer.i.i12, align 8, !tbaa !2046
+  %arrayidx.i.i.i14 = getelementptr inbounds i16, ptr %25, i64 %26
+  store i16 %add14.i.i.i, ptr %arrayidx.i.i.i14, align 2, !tbaa !525
   br label %if.end
 
 if.end:                                           ; preds = %_ZN6duckdb5patas16PatasCompressionIjLb0EE15StoreCompressedEjRNS0_21PatasCompressionStateIjLb0EEE.exit, %if.then
-  %add14.i.i.i.sink = phi i16 [ %add14.i.i.i, %_ZN6duckdb5patas16PatasCompressionIjLb0EE15StoreCompressedEjRNS0_21PatasCompressionStateIjLb0EEE.exit ], [ 256, %if.then ]
-  %packed_data_buffer.i.i12.sink5 = getelementptr inbounds i8, ptr %state, i64 16
-  %buffer.i.i.i13 = getelementptr inbounds i8, ptr %state, i64 24
-  %23 = load ptr, ptr %buffer.i.i.i13, align 8, !tbaa !2044
-  %24 = load i64, ptr %packed_data_buffer.i.i12.sink5, align 8, !tbaa !2046
-  %arrayidx.i.i.i14 = getelementptr inbounds i16, ptr %23, i64 %24
-  store i16 %add14.i.i.i.sink, ptr %arrayidx.i.i.i14, align 2, !tbaa !525
-  %inc.i.i.i15 = add i64 %24, 1
-  store i64 %inc.i.i.i15, ptr %packed_data_buffer.i.i12.sink5, align 8, !tbaa !2046
+  %.sink = phi i64 [ %26, %_ZN6duckdb5patas16PatasCompressionIjLb0EE15StoreCompressedEjRNS0_21PatasCompressionStateIjLb0EEE.exit ], [ %6, %if.then ]
+  %packed_data_buffer.i.i12.sink = phi ptr [ %packed_data_buffer.i.i12, %_ZN6duckdb5patas16PatasCompressionIjLb0EE15StoreCompressedEjRNS0_21PatasCompressionStateIjLb0EEE.exit ], [ %packed_data_buffer.i.i, %if.then ]
+  %inc.i.i.i15 = add i64 %.sink, 1
+  store i64 %inc.i.i.i15, ptr %packed_data_buffer.i.i12.sink, align 8, !tbaa !2046
   %index.i83.i = getelementptr inbounds i8, ptr %state, i64 32
-  %25 = load i64, ptr %index.i83.i, align 8, !tbaa !2045
-  %inc.i84.i = add i64 %25, 1
+  %27 = load i64, ptr %index.i83.i, align 8, !tbaa !2045
+  %inc.i84.i = add i64 %27, 1
   store i64 %inc.i84.i, ptr %index.i83.i, align 8, !tbaa !2045
   ret void
 }
@@ -88075,46 +88082,52 @@ if.then:                                          ; preds = %entry
   %add.i.i = add i64 %4, 8
   store i64 %add.i.i, ptr %index.i4.i, align 8, !tbaa !2053
   store i8 0, ptr %first, align 8, !tbaa !2061
+  %packed_data_buffer.i.i = getelementptr inbounds i8, ptr %state, i64 16
+  %buffer.i.i.i = getelementptr inbounds i8, ptr %state, i64 24
+  %5 = load ptr, ptr %buffer.i.i.i, align 8, !tbaa !2044
+  %6 = load i64, ptr %packed_data_buffer.i.i, align 8, !tbaa !2046
+  %arrayidx.i.i.i = getelementptr inbounds i16, ptr %5, i64 %6
+  store i16 0, ptr %arrayidx.i.i.i, align 2, !tbaa !525
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %and.i.i = and i64 %value, 16383
   %indices.i.i4 = getelementptr inbounds i8, ptr %state, i64 1072
   %arrayidx.i.i5 = getelementptr inbounds [16384 x i64], ptr %indices.i.i4, i64 0, i64 %and.i.i
-  %5 = load i64, ptr %arrayidx.i.i5, align 8, !tbaa !14
+  %7 = load i64, ptr %arrayidx.i.i5, align 8, !tbaa !14
   %index.i.i6 = getelementptr inbounds i8, ptr %state, i64 1064
-  %6 = load i64, ptr %index.i.i6, align 8, !tbaa !14
-  %cmp.i = icmp ugt i64 %5, %6
+  %8 = load i64, ptr %index.i.i6, align 8, !tbaa !14
+  %cmp.i = icmp ugt i64 %7, %8
   br i1 %cmp.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.else
-  %reass.sub2 = sub nuw i64 %6, %5
-  %7 = add i64 %reass.sub2, -127
-  %cmp7.i = icmp ult i64 %7, -128
+  %reass.sub2 = sub nuw i64 %8, %7
+  %9 = add i64 %reass.sub2, -127
+  %cmp7.i = icmp ult i64 %9, -128
   br i1 %cmp7.i, label %if.then.i, label %_ZN6duckdb5patas16PatasCompressionImLb0EE15StoreCompressedEmRNS0_21PatasCompressionStateImLb0EEE.exit
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %if.else
   br label %_ZN6duckdb5patas16PatasCompressionImLb0EE15StoreCompressedEmRNS0_21PatasCompressionStateImLb0EEE.exit
 
 _ZN6duckdb5patas16PatasCompressionImLb0EE15StoreCompressedEmRNS0_21PatasCompressionStateImLb0EEE.exit: ; preds = %if.then.i, %lor.lhs.false.i
-  %reference_index.0.i = phi i64 [ %6, %if.then.i ], [ %5, %lor.lhs.false.i ]
+  %reference_index.0.i = phi i64 [ %8, %if.then.i ], [ %7, %lor.lhs.false.i ]
   %ring_buffer.i7 = getelementptr inbounds i8, ptr %state, i64 40
   %conv.i = and i64 %reference_index.0.i, 127
   %arrayidx.i70.i = getelementptr inbounds [128 x i64], ptr %ring_buffer.i7, i64 0, i64 %conv.i
-  %8 = load i64, ptr %arrayidx.i70.i, align 8, !tbaa !14
-  %xor.i = xor i64 %8, %value
-  %9 = tail call i64 @llvm.cttz.i64(i64 %xor.i, i1 false), !range !2057
-  %cast.i.i = trunc nuw nsw i64 %9 to i32
-  %10 = tail call i64 @llvm.ctlz.i64(i64 %xor.i, i1 false), !range !2057
-  %cast.i71.i = trunc nuw nsw i64 %10 to i32
-  %cmp18.i = icmp eq i64 %8, %value
-  %11 = add nuw nsw i32 %cast.i.i, %cast.i71.i
-  %12 = trunc nuw i32 %11 to i8
-  %13 = sub i8 64, %12
-  %conv26.i = select i1 %cmp18.i, i8 0, i8 %13
+  %10 = load i64, ptr %arrayidx.i70.i, align 8, !tbaa !14
+  %xor.i = xor i64 %10, %value
+  %11 = tail call i64 @llvm.cttz.i64(i64 %xor.i, i1 false), !range !2057
+  %cast.i.i = trunc nuw nsw i64 %11 to i32
+  %12 = tail call i64 @llvm.ctlz.i64(i64 %xor.i, i1 false), !range !2057
+  %cast.i71.i = trunc nuw nsw i64 %12 to i32
+  %cmp18.i = icmp eq i64 %10, %value
+  %13 = add nuw nsw i32 %cast.i.i, %cast.i71.i
+  %14 = trunc nuw i32 %13 to i8
+  %15 = sub i8 64, %14
+  %conv26.i = select i1 %cmp18.i, i8 0, i8 %15
   %shr.i = lshr i8 %conv26.i, 3
-  %14 = and i8 %conv26.i, 7
-  %cmp29.i = icmp ne i8 %14, 0
+  %16 = and i8 %conv26.i, 7
+  %cmp29.i = icmp ne i8 %16, 0
   %conv30.i = zext i1 %cmp29.i to i8
   %add31.i = add nuw nsw i8 %shr.i, %conv30.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp33.i)
@@ -88123,18 +88136,18 @@ _ZN6duckdb5patas16PatasCompressionImLb0EE15StoreCompressedEmRNS0_21PatasCompress
   %sh_prom.i = zext nneg i32 %sub37.i to i64
   %shr38.i = lshr i64 %xor.i, %sh_prom.i
   store i64 %shr38.i, ptr %ref.tmp33.i, align 8, !tbaa !14
-  %15 = load ptr, ptr %state, align 8, !tbaa !2052
+  %17 = load ptr, ptr %state, align 8, !tbaa !2052
   %index.i72.i = getelementptr inbounds i8, ptr %state, i64 8
-  %16 = load i64, ptr %index.i72.i, align 8, !tbaa !2053
-  %add.ptr.i.i8 = getelementptr inbounds i8, ptr %15, i64 %16
+  %18 = load i64, ptr %index.i72.i, align 8, !tbaa !2053
+  %add.ptr.i.i8 = getelementptr inbounds i8, ptr %17, i64 %18
   %conv5.i.i = zext nneg i8 %add31.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i8, ptr nonnull align 8 %ref.tmp33.i, i64 %conv5.i.i, i1 false)
-  %17 = load i64, ptr %index.i72.i, align 8, !tbaa !2053
-  %add8.i.i = add i64 %17, %conv5.i.i
+  %19 = load i64, ptr %index.i72.i, align 8, !tbaa !2053
+  %add8.i.i = add i64 %19, %conv5.i.i
   store i64 %add8.i.i, ptr %index.i72.i, align 8, !tbaa !2053
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp33.i)
-  %18 = load i64, ptr %index.i.i6, align 8, !tbaa !553
-  %inc.i.i9 = add i64 %18, 1
+  %20 = load i64, ptr %index.i.i6, align 8, !tbaa !553
+  %inc.i.i9 = add i64 %20, 1
   store i64 %inc.i.i9, ptr %index.i.i6, align 8, !tbaa !553
   %rem.i.i10 = and i64 %inc.i.i9, 127
   %arrayidx.i74.i = getelementptr inbounds [128 x i64], ptr %ring_buffer.i7, i64 0, i64 %rem.i.i10
@@ -88143,28 +88156,29 @@ _ZN6duckdb5patas16PatasCompressionImLb0EE15StoreCompressedEmRNS0_21PatasCompress
   %sub42.i = sub i64 %inc.i.i9, %reference_index.0.i
   %conv43.i = trunc i64 %sub42.i to i16
   %conv48.i = trunc nsw i32 %sub37.i to i16
+  %packed_data_buffer.i.i11 = getelementptr inbounds i8, ptr %state, i64 16
   %add.i.i.i = shl i16 %conv43.i, 9
-  %19 = and i8 %add31.i, 7
-  %and.i.i77.i = zext nneg i8 %19 to i16
+  %21 = and i8 %add31.i, 7
+  %and.i.i77.i = zext nneg i8 %21 to i16
   %mul5.i.i.i = shl nuw nsw i16 %and.i.i77.i, 6
   %and10.i.i.i = and i16 %conv48.i, 63
   %conv11.i.i.i = or disjoint i16 %mul5.i.i.i, %add.i.i.i
   %add12.i.i.i = or disjoint i16 %conv11.i.i.i, %and10.i.i.i
+  %buffer.i.i.i12 = getelementptr inbounds i8, ptr %state, i64 24
+  %22 = load ptr, ptr %buffer.i.i.i12, align 8, !tbaa !2044
+  %23 = load i64, ptr %packed_data_buffer.i.i11, align 8, !tbaa !2046
+  %arrayidx.i.i.i13 = getelementptr inbounds i16, ptr %22, i64 %23
+  store i16 %add12.i.i.i, ptr %arrayidx.i.i.i13, align 2, !tbaa !525
   br label %if.end
 
 if.end:                                           ; preds = %_ZN6duckdb5patas16PatasCompressionImLb0EE15StoreCompressedEmRNS0_21PatasCompressionStateImLb0EEE.exit, %if.then
-  %add12.i.i.i.sink = phi i16 [ %add12.i.i.i, %_ZN6duckdb5patas16PatasCompressionImLb0EE15StoreCompressedEmRNS0_21PatasCompressionStateImLb0EEE.exit ], [ 0, %if.then ]
-  %packed_data_buffer.i.i11.sink5 = getelementptr inbounds i8, ptr %state, i64 16
-  %buffer.i.i.i12 = getelementptr inbounds i8, ptr %state, i64 24
-  %20 = load ptr, ptr %buffer.i.i.i12, align 8, !tbaa !2044
-  %21 = load i64, ptr %packed_data_buffer.i.i11.sink5, align 8, !tbaa !2046
-  %arrayidx.i.i.i13 = getelementptr inbounds i16, ptr %20, i64 %21
-  store i16 %add12.i.i.i.sink, ptr %arrayidx.i.i.i13, align 2, !tbaa !525
-  %inc.i.i.i14 = add i64 %21, 1
-  store i64 %inc.i.i.i14, ptr %packed_data_buffer.i.i11.sink5, align 8, !tbaa !2046
+  %.sink = phi i64 [ %23, %_ZN6duckdb5patas16PatasCompressionImLb0EE15StoreCompressedEmRNS0_21PatasCompressionStateImLb0EEE.exit ], [ %6, %if.then ]
+  %packed_data_buffer.i.i11.sink = phi ptr [ %packed_data_buffer.i.i11, %_ZN6duckdb5patas16PatasCompressionImLb0EE15StoreCompressedEmRNS0_21PatasCompressionStateImLb0EEE.exit ], [ %packed_data_buffer.i.i, %if.then ]
+  %inc.i.i.i14 = add i64 %.sink, 1
+  store i64 %inc.i.i.i14, ptr %packed_data_buffer.i.i11.sink, align 8, !tbaa !2046
   %index.i78.i = getelementptr inbounds i8, ptr %state, i64 32
-  %22 = load i64, ptr %index.i78.i, align 8, !tbaa !2063
-  %inc.i79.i = add i64 %22, 1
+  %24 = load i64, ptr %index.i78.i, align 8, !tbaa !2063
+  %inc.i79.i = add i64 %24, 1
   store i64 %inc.i79.i, ptr %index.i78.i, align 8, !tbaa !2063
   ret void
 }

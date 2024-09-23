@@ -3665,7 +3665,11 @@ if.then540:                                       ; preds = %invoke.cont536
   %231 = load ptr, ptr %fStandaloneNarrowMonths, align 8
   %232 = load i32, ptr %fStandaloneNarrowMonthsCount, align 8
   %cmp.i852 = icmp eq ptr %231, null
-  br i1 %cmp.i852, label %if.end573.sink.split.sink.split, label %if.end.i853
+  br i1 %cmp.i852, label %if.then.i878, label %if.end.i853
+
+if.then.i878:                                     ; preds = %if.then540
+  store i32 0, ptr %fNarrowMonthsCount, align 8
+  br label %if.end7.sink.split.i877
 
 if.end.i853:                                      ; preds = %if.then540
   store i32 %232, ptr %fNarrowMonthsCount, align 8
@@ -3677,7 +3681,7 @@ if.end.i853:                                      ; preds = %if.then540
   %237 = select i1 %234, i64 -1, i64 %236
   %call.i.i855 = call noundef ptr @_ZN6icu_757UMemorynaEm(i64 noundef %237) #17
   %new.isnull.i.i856 = icmp eq ptr %call.i.i855, null
-  br i1 %new.isnull.i.i856, label %if.end573.sink.split, label %new.notnull.i.i857
+  br i1 %new.isnull.i.i856, label %if.end7.sink.split.i877, label %new.notnull.i.i857
 
 new.notnull.i.i857:                               ; preds = %if.end.i853
   store i64 %cond.i.i854, ptr %call.i.i855, align 8
@@ -3718,6 +3722,10 @@ call6.i.noexc879:                                 ; preds = %for.body.i871
   %exitcond.not.i876 = icmp eq i64 %indvars.iv.next.i875, %wide.trip.count.i870
   br i1 %exitcond.not.i876, label %if.end573, label %for.body.i871, !llvm.loop !13
 
+if.end7.sink.split.i877:                          ; preds = %if.end.i853, %if.then.i878
+  store ptr null, ptr %fNarrowMonths, align 8
+  br label %if.end573
+
 if.else546:                                       ; preds = %invoke.cont536
   %cmp547 = icmp ne i32 %230, 2
   %cmp549 = icmp eq i32 %standaloneNarrowMonthsEC.1, 2
@@ -3728,7 +3736,11 @@ if.then550:                                       ; preds = %if.else546
   %239 = load ptr, ptr %fNarrowMonths, align 8
   %240 = load i32, ptr %fNarrowMonthsCount, align 8
   %cmp.i882 = icmp eq ptr %239, null
-  br i1 %cmp.i882, label %if.end573.sink.split.sink.split, label %if.end.i883
+  br i1 %cmp.i882, label %if.then.i908, label %if.end.i883
+
+if.then.i908:                                     ; preds = %if.then550
+  store i32 0, ptr %fStandaloneNarrowMonthsCount, align 8
+  br label %if.end7.sink.split.i907
 
 if.end.i883:                                      ; preds = %if.then550
   store i32 %240, ptr %fStandaloneNarrowMonthsCount, align 8
@@ -3740,7 +3752,7 @@ if.end.i883:                                      ; preds = %if.then550
   %245 = select i1 %242, i64 -1, i64 %244
   %call.i.i885 = call noundef ptr @_ZN6icu_757UMemorynaEm(i64 noundef %245) #17
   %new.isnull.i.i886 = icmp eq ptr %call.i.i885, null
-  br i1 %new.isnull.i.i886, label %if.end573.sink.split, label %new.notnull.i.i887
+  br i1 %new.isnull.i.i886, label %if.end7.sink.split.i907, label %new.notnull.i.i887
 
 new.notnull.i.i887:                               ; preds = %if.end.i883
   store i64 %cond.i.i884, ptr %call.i.i885, align 8
@@ -3781,6 +3793,10 @@ call6.i.noexc909:                                 ; preds = %for.body.i901
   %exitcond.not.i906 = icmp eq i64 %indvars.iv.next.i905, %wide.trip.count.i900
   br i1 %exitcond.not.i906, label %if.end573, label %for.body.i901, !llvm.loop !13
 
+if.end7.sink.split.i907:                          ; preds = %if.end.i883, %if.then.i908
+  store ptr null, ptr %fStandaloneNarrowMonths, align 8
+  br label %if.end573
+
 if.else556:                                       ; preds = %if.else546
   %or.cond5 = select i1 %cmp537, i1 %cmp549, i1 false
   br i1 %or.cond5, label %if.then560, label %if.end573
@@ -3797,18 +3813,7 @@ invoke.cont565:                                   ; preds = %if.then560
   invoke void @_ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i(ptr noundef nonnull align 8 dereferenceable(8) %fStandaloneNarrowMonths, ptr noundef nonnull align 4 dereferenceable(4) %fStandaloneNarrowMonthsCount, ptr noundef %249, i32 noundef %250)
           to label %if.end573 unwind label %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-if.end573.sink.split.sink.split:                  ; preds = %if.then550, %if.then540
-  %fStandaloneNarrowMonthsCount.sink = phi ptr [ %fNarrowMonthsCount, %if.then540 ], [ %fStandaloneNarrowMonthsCount, %if.then550 ]
-  %fStandaloneNarrowMonths.sink.ph = phi ptr [ %fNarrowMonths, %if.then540 ], [ %fStandaloneNarrowMonths, %if.then550 ]
-  store i32 0, ptr %fStandaloneNarrowMonthsCount.sink, align 4
-  br label %if.end573.sink.split
-
-if.end573.sink.split:                             ; preds = %if.end573.sink.split.sink.split, %if.end.i883, %if.end.i853
-  %fStandaloneNarrowMonths.sink = phi ptr [ %fNarrowMonths, %if.end.i853 ], [ %fStandaloneNarrowMonths, %if.end.i883 ], [ %fStandaloneNarrowMonths.sink.ph, %if.end573.sink.split.sink.split ]
-  store ptr null, ptr %fStandaloneNarrowMonths.sink, align 8
-  br label %if.end573
-
-if.end573:                                        ; preds = %call6.i.noexc909, %call6.i.noexc879, %if.end573.sink.split, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i897, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i867, %invoke.cont565, %if.else556
+if.end573:                                        ; preds = %call6.i.noexc909, %call6.i.noexc879, %if.end7.sink.split.i907, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i897, %if.end7.sink.split.i877, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i867, %invoke.cont565, %if.else556
   store i32 0, ptr %ampmStatus, align 4
   store i32 0, ptr %len.i227, align 8
   %251 = load ptr, ptr %path, align 8
@@ -5372,7 +5377,11 @@ if.then755:                                       ; preds = %invoke.cont751
   %409 = load ptr, ptr %fStandaloneNarrowWeekdays, align 8
   %410 = load i32, ptr %fStandaloneNarrowWeekdaysCount, align 8
   %cmp.i1544 = icmp eq ptr %409, null
-  br i1 %cmp.i1544, label %if.end788.sink.split.sink.split, label %if.end.i1545
+  br i1 %cmp.i1544, label %if.then.i1570, label %if.end.i1545
+
+if.then.i1570:                                    ; preds = %if.then755
+  store i32 0, ptr %fNarrowWeekdaysCount, align 8
+  br label %if.end7.sink.split.i1569
 
 if.end.i1545:                                     ; preds = %if.then755
   store i32 %410, ptr %fNarrowWeekdaysCount, align 8
@@ -5384,7 +5393,7 @@ if.end.i1545:                                     ; preds = %if.then755
   %415 = select i1 %412, i64 -1, i64 %414
   %call.i.i1547 = call noundef ptr @_ZN6icu_757UMemorynaEm(i64 noundef %415) #17
   %new.isnull.i.i1548 = icmp eq ptr %call.i.i1547, null
-  br i1 %new.isnull.i.i1548, label %if.end788.sink.split, label %new.notnull.i.i1549
+  br i1 %new.isnull.i.i1548, label %if.end7.sink.split.i1569, label %new.notnull.i.i1549
 
 new.notnull.i.i1549:                              ; preds = %if.end.i1545
   store i64 %cond.i.i1546, ptr %call.i.i1547, align 8
@@ -5425,6 +5434,10 @@ call6.i.noexc1571:                                ; preds = %for.body.i1563
   %exitcond.not.i1568 = icmp eq i64 %indvars.iv.next.i1567, %wide.trip.count.i1562
   br i1 %exitcond.not.i1568, label %if.end788, label %for.body.i1563, !llvm.loop !13
 
+if.end7.sink.split.i1569:                         ; preds = %if.end.i1545, %if.then.i1570
+  store ptr null, ptr %fNarrowWeekdays, align 8
+  br label %if.end788
+
 if.else761:                                       ; preds = %invoke.cont751
   %cmp762 = icmp ne i32 %407, 2
   %cmp764 = icmp eq i32 %408, 2
@@ -5435,7 +5448,11 @@ if.then765:                                       ; preds = %if.else761
   %417 = load ptr, ptr %fNarrowWeekdays, align 8
   %418 = load i32, ptr %fNarrowWeekdaysCount, align 8
   %cmp.i1574 = icmp eq ptr %417, null
-  br i1 %cmp.i1574, label %if.end788.sink.split.sink.split, label %if.end.i1575
+  br i1 %cmp.i1574, label %if.then.i1600, label %if.end.i1575
+
+if.then.i1600:                                    ; preds = %if.then765
+  store i32 0, ptr %fStandaloneNarrowWeekdaysCount, align 8
+  br label %if.end7.sink.split.i1599
 
 if.end.i1575:                                     ; preds = %if.then765
   store i32 %418, ptr %fStandaloneNarrowWeekdaysCount, align 8
@@ -5447,7 +5464,7 @@ if.end.i1575:                                     ; preds = %if.then765
   %423 = select i1 %420, i64 -1, i64 %422
   %call.i.i1577 = call noundef ptr @_ZN6icu_757UMemorynaEm(i64 noundef %423) #17
   %new.isnull.i.i1578 = icmp eq ptr %call.i.i1577, null
-  br i1 %new.isnull.i.i1578, label %if.end788.sink.split, label %new.notnull.i.i1579
+  br i1 %new.isnull.i.i1578, label %if.end7.sink.split.i1599, label %new.notnull.i.i1579
 
 new.notnull.i.i1579:                              ; preds = %if.end.i1575
   store i64 %cond.i.i1576, ptr %call.i.i1577, align 8
@@ -5488,6 +5505,10 @@ call6.i.noexc1601:                                ; preds = %for.body.i1593
   %exitcond.not.i1598 = icmp eq i64 %indvars.iv.next.i1597, %wide.trip.count.i1592
   br i1 %exitcond.not.i1598, label %if.end788, label %for.body.i1593, !llvm.loop !13
 
+if.end7.sink.split.i1599:                         ; preds = %if.end.i1575, %if.then.i1600
+  store ptr null, ptr %fStandaloneNarrowWeekdays, align 8
+  br label %if.end788
+
 if.else771:                                       ; preds = %if.else761
   %or.cond8 = select i1 %cmp752, i1 %cmp764, i1 false
   br i1 %or.cond8, label %if.then775, label %if.end788
@@ -5504,18 +5525,7 @@ invoke.cont780:                                   ; preds = %if.then775
   invoke void @_ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i(ptr noundef nonnull align 8 dereferenceable(8) %fStandaloneNarrowWeekdays, ptr noundef nonnull align 4 dereferenceable(4) %fStandaloneNarrowWeekdaysCount, ptr noundef %427, i32 noundef %428)
           to label %if.end788 unwind label %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-if.end788.sink.split.sink.split:                  ; preds = %if.then765, %if.then755
-  %fStandaloneNarrowWeekdaysCount.sink = phi ptr [ %fNarrowWeekdaysCount, %if.then755 ], [ %fStandaloneNarrowWeekdaysCount, %if.then765 ]
-  %fStandaloneNarrowWeekdays.sink.ph = phi ptr [ %fNarrowWeekdays, %if.then755 ], [ %fStandaloneNarrowWeekdays, %if.then765 ]
-  store i32 0, ptr %fStandaloneNarrowWeekdaysCount.sink, align 4
-  br label %if.end788.sink.split
-
-if.end788.sink.split:                             ; preds = %if.end788.sink.split.sink.split, %if.end.i1575, %if.end.i1545
-  %fStandaloneNarrowWeekdays.sink = phi ptr [ %fNarrowWeekdays, %if.end.i1545 ], [ %fStandaloneNarrowWeekdays, %if.end.i1575 ], [ %fStandaloneNarrowWeekdays.sink.ph, %if.end788.sink.split.sink.split ]
-  store ptr null, ptr %fStandaloneNarrowWeekdays.sink, align 8
-  br label %if.end788
-
-if.end788:                                        ; preds = %call6.i.noexc1601, %call6.i.noexc1571, %if.end788.sink.split, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i1589, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i1559, %invoke.cont780, %if.else771
+if.end788:                                        ; preds = %call6.i.noexc1601, %call6.i.noexc1571, %if.end7.sink.split.i1599, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i1589, %if.end7.sink.split.i1569, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i1559, %invoke.cont780, %if.else771
   %429 = load i32, ptr %status, align 4
   %cmp.i1604 = icmp sgt i32 %429, 0
   %tobool793 = icmp ne i8 %useLastResortData, 0

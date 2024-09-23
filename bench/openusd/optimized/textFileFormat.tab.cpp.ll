@@ -20277,7 +20277,11 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue3GetINS_12VtDictionaryEEERKT_v.ex
   call void @__clang_call_terminate(ptr %1278) #28
   unreachable
 
-1279:                                             ; preds = %1255, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_12VtDictionaryEEEbv.exit.thread4.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_12VtDictionaryEEEbv.exit.i, %1238, %1545, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue3GetINS_12VtDictionaryEEERKT_v.exit
+_ZN32pxrInternal_v0_24__pxrReserved__20SdfUnregisteredValueD2Ev.exit: ; preds = %1265, %1271
+  store ptr null, ptr %1266, align 8
+  br label %1543
+
+1279:                                             ; preds = %1255, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_12VtDictionaryEEEbv.exit.thread4.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_12VtDictionaryEEEbv.exit.i, %1238, %1546, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue3GetINS_12VtDictionaryEEERKT_v.exit
   %1280 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -20921,7 +20925,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_9SdfListOpINS_20SdfU
   %1532 = and i64 %1531, 3
   %1533 = icmp eq i64 %1532, 3
   %or.cond.i.i = or i1 %.not.i.i116, %1533
-  br i1 %or.cond.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__20SdfUnregisteredValueD2Ev.exit, label %1534
+  br i1 %or.cond.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit, label %1534
 
 1534:                                             ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_9SdfListOpINS_20SdfUnregisteredValueEEEEEbv.exit.thread132
   %1535 = and i64 %1531, -8
@@ -20929,7 +20933,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_9SdfListOpINS_20SdfU
   %1537 = getelementptr inbounds nuw i8, ptr %1536, i64 32
   %1538 = load ptr, ptr %1537, align 8
   invoke void %1538(ptr noundef nonnull align 8 dereferenceable(8) %73)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__20SdfUnregisteredValueD2Ev.exit unwind label %1539
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %1539
 
 1539:                                             ; preds = %1534
   %1540 = landingpad { ptr, i32 }
@@ -20938,50 +20942,52 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_9SdfListOpINS_20SdfU
   call void @__clang_call_terminate(ptr %1541) #28
   unreachable
 
+_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_9SdfListOpINS_20SdfUnregisteredValueEEEEEbv.exit.thread132, %1534
+  store ptr null, ptr %1283, align 8
+  br label %1543
+
 1542:                                             ; preds = %.body107, %1522, %1373, %1367
   %.pn44.pn = phi { ptr, i32 } [ %.pn44, %1373 ], [ %1368, %1367 ], [ %.pn, %.body107 ], [ %1523, %1522 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %73) #25
   br label %.body
 
-_ZN32pxrInternal_v0_24__pxrReserved__20SdfUnregisteredValueD2Ev.exit: ; preds = %1534, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_9SdfListOpINS_20SdfUnregisteredValueEEEEEbv.exit.thread132, %1271, %1265
-  %.sink = phi ptr [ %1266, %1265 ], [ %1266, %1271 ], [ %1283, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_9SdfListOpINS_20SdfUnregisteredValueEEEEEbv.exit.thread132 ], [ %1283, %1534 ]
-  store ptr null, ptr %.sink, align 8
-  %1543 = load ptr, ptr %1221, align 8
-  %1544 = icmp eq ptr %1543, null
-  br i1 %1544, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit119, label %1545
+1543:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit, %_ZN32pxrInternal_v0_24__pxrReserved__20SdfUnregisteredValueD2Ev.exit
+  %1544 = load ptr, ptr %1221, align 8
+  %1545 = icmp eq ptr %1544, null
+  br i1 %1545, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit119, label %1546
 
-1545:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__20SdfUnregisteredValueD2Ev.exit
-  %1546 = getelementptr inbounds nuw i8, ptr %1, i64 896
-  %1547 = getelementptr i8, ptr %1, i64 888
-  %.val51 = load ptr, ptr %1547, align 8
-  invoke fastcc void @_ZL9_SetFieldIN32pxrInternal_v0_24__pxrReserved__7VtValueEEvRKNS0_7SdfPathERKNS0_7TfTokenERKT_PNS0_21Sdf_TextParserContextE(ptr noundef nonnull align 4 dereferenceable(8) %1546, ptr noundef nonnull align 8 dereferenceable(8) %91, ptr noundef nonnull align 8 dereferenceable(16) %71, ptr %.val51)
-          to label %1548 unwind label %1279
+1546:                                             ; preds = %1543
+  %1547 = getelementptr inbounds nuw i8, ptr %1, i64 896
+  %1548 = getelementptr i8, ptr %1, i64 888
+  %.val51 = load ptr, ptr %1548, align 8
+  invoke fastcc void @_ZL9_SetFieldIN32pxrInternal_v0_24__pxrReserved__7VtValueEEvRKNS0_7SdfPathERKNS0_7TfTokenERKT_PNS0_21Sdf_TextParserContextE(ptr noundef nonnull align 4 dereferenceable(8) %1547, ptr noundef nonnull align 8 dereferenceable(8) %91, ptr noundef nonnull align 8 dereferenceable(16) %71, ptr %.val51)
+          to label %1549 unwind label %1279
 
-1548:                                             ; preds = %1545
+1549:                                             ; preds = %1546
   %.pre155 = load ptr, ptr %1221, align 8
-  %1549 = ptrtoint ptr %.pre155 to i64
+  %1550 = ptrtoint ptr %.pre155 to i64
   %.not.i.i117 = icmp eq ptr %.pre155, null
-  %1550 = and i64 %1549, 3
-  %1551 = icmp eq i64 %1550, 3
-  %or.cond.i.i118 = or i1 %.not.i.i117, %1551
-  br i1 %or.cond.i.i118, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit119, label %1552
+  %1551 = and i64 %1550, 3
+  %1552 = icmp eq i64 %1551, 3
+  %or.cond.i.i118 = or i1 %.not.i.i117, %1552
+  br i1 %or.cond.i.i118, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit119, label %1553
 
-1552:                                             ; preds = %1548
-  %1553 = and i64 %1549, -8
-  %1554 = inttoptr i64 %1553 to ptr
-  %1555 = getelementptr inbounds nuw i8, ptr %1554, i64 32
-  %1556 = load ptr, ptr %1555, align 8
-  invoke void %1556(ptr noundef nonnull align 8 dereferenceable(8) %71)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit119 unwind label %1557
+1553:                                             ; preds = %1549
+  %1554 = and i64 %1550, -8
+  %1555 = inttoptr i64 %1554 to ptr
+  %1556 = getelementptr inbounds nuw i8, ptr %1555, i64 32
+  %1557 = load ptr, ptr %1556, align 8
+  invoke void %1557(ptr noundef nonnull align 8 dereferenceable(8) %71)
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit119 unwind label %1558
 
-1557:                                             ; preds = %1552
-  %1558 = landingpad { ptr, i32 }
+1558:                                             ; preds = %1553
+  %1559 = landingpad { ptr, i32 }
           catch ptr null
-  %1559 = extractvalue { ptr, i32 } %1558, 0
-  call void @__clang_call_terminate(ptr %1559) #28
+  %1560 = extractvalue { ptr, i32 } %1559, 0
+  call void @__clang_call_terminate(ptr %1560) #28
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit119: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__20SdfUnregisteredValueD2Ev.exit, %1548, %1552
+_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit119: ; preds = %1543, %1549, %1553
   store ptr null, ptr %1221, align 8
   br label %_ZL30_SetGenericMetadataListOpItemsRKN32pxrInternal_v0_24__pxrReserved__6TfTypeEPNS_21Sdf_TextParserContextE.exit
 
@@ -20991,40 +20997,40 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit119: ; preds = %_ZN32pxrIn
   br label %common.resume
 
 _ZL30_SetGenericMetadataListOpItemsRKN32pxrInternal_v0_24__pxrReserved__6TfTypeEPNS_21Sdf_TextParserContextE.exit: ; preds = %_ZL17_SetItemsIfListOpIN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS0_7TfTokenEEEEbRKNS0_6TfTypeEPNS0_21Sdf_TextParserContextE.exit.i, %_ZL17_SetItemsIfListOpIN32pxrInternal_v0_24__pxrReserved__9SdfListOpINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEbRKNS0_6TfTypeEPNS0_21Sdf_TextParserContextE.exit.i, %_ZL17_SetItemsIfListOpIN32pxrInternal_v0_24__pxrReserved__9SdfListOpINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEbRKNS0_6TfTypeEPNS0_21Sdf_TextParserContextE.exit.thread.i, %_ZL17_SetItemsIfListOpIN32pxrInternal_v0_24__pxrReserved__9SdfListOpImEEEbRKNS0_6TfTypeEPNS0_21Sdf_TextParserContextE.exit.i, %_ZL17_SetItemsIfListOpIN32pxrInternal_v0_24__pxrReserved__9SdfListOpImEEEbRKNS0_6TfTypeEPNS0_21Sdf_TextParserContextE.exit.thread.i, %_ZL17_SetItemsIfListOpIN32pxrInternal_v0_24__pxrReserved__9SdfListOpIjEEEbRKNS0_6TfTypeEPNS0_21Sdf_TextParserContextE.exit.i, %_ZL17_SetItemsIfListOpIN32pxrInternal_v0_24__pxrReserved__9SdfListOpIjEEEbRKNS0_6TfTypeEPNS0_21Sdf_TextParserContextE.exit.thread.i, %_ZL17_SetItemsIfListOpIN32pxrInternal_v0_24__pxrReserved__9SdfListOpIlEEEbRKNS0_6TfTypeEPNS0_21Sdf_TextParserContextE.exit.i, %_ZL17_SetItemsIfListOpIN32pxrInternal_v0_24__pxrReserved__9SdfListOpIlEEEbRKNS0_6TfTypeEPNS0_21Sdf_TextParserContextE.exit.thread.i, %_ZL17_SetItemsIfListOpIN32pxrInternal_v0_24__pxrReserved__9SdfListOpIiEEEbRKNS0_6TfTypeEPNS0_21Sdf_TextParserContextE.exit.i, %_ZL17_SetItemsIfListOpIN32pxrInternal_v0_24__pxrReserved__9SdfListOpIiEEEbRKNS0_6TfTypeEPNS0_21Sdf_TextParserContextE.exit.thread.i, %1217, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit119, %134, %1202, %1199
-  %1560 = getelementptr inbounds nuw i8, ptr %1, i64 512
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__22Sdf_ParserValueContext5ClearEv(ptr noundef nonnull align 8 dereferenceable(328) %1560)
-  %1561 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  store ptr null, ptr %1561, align 8
-  %1562 = getelementptr inbounds nuw i8, ptr %1, i64 840
-  %.not.i120 = icmp eq ptr %1562, %80
+  %1561 = getelementptr inbounds nuw i8, ptr %1, i64 512
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__22Sdf_ParserValueContext5ClearEv(ptr noundef nonnull align 8 dereferenceable(328) %1561)
+  %1562 = getelementptr inbounds nuw i8, ptr %80, i64 8
+  store ptr null, ptr %1562, align 8
+  %1563 = getelementptr inbounds nuw i8, ptr %1, i64 840
+  %.not.i120 = icmp eq ptr %1563, %80
   br i1 %.not.i120, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit123, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSEOS0_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSEOS0_.exit: ; preds = %_ZL30_SetGenericMetadataListOpItemsRKN32pxrInternal_v0_24__pxrReserved__6TfTypeEPNS_21Sdf_TextParserContextE.exit
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue5_MoveERS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef nonnull align 8 dereferenceable(16) %1562) #25
-  %.pre156 = load ptr, ptr %1561, align 8
-  %1563 = ptrtoint ptr %.pre156 to i64
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue5_MoveERS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef nonnull align 8 dereferenceable(16) %1563) #25
+  %.pre156 = load ptr, ptr %1562, align 8
+  %1564 = ptrtoint ptr %.pre156 to i64
   %.not.i.i121 = icmp eq ptr %.pre156, null
-  %1564 = and i64 %1563, 3
-  %1565 = icmp eq i64 %1564, 3
-  %or.cond.i.i122 = or i1 %.not.i.i121, %1565
-  br i1 %or.cond.i.i122, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit123, label %1566
+  %1565 = and i64 %1564, 3
+  %1566 = icmp eq i64 %1565, 3
+  %or.cond.i.i122 = or i1 %.not.i.i121, %1566
+  br i1 %or.cond.i.i122, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit123, label %1567
 
-1566:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSEOS0_.exit
-  %1567 = and i64 %1563, -8
-  %1568 = inttoptr i64 %1567 to ptr
-  %1569 = getelementptr inbounds nuw i8, ptr %1568, i64 32
-  %1570 = load ptr, ptr %1569, align 8
-  invoke void %1570(ptr noundef nonnull align 8 dereferenceable(8) %80)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit123 unwind label %1571
+1567:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSEOS0_.exit
+  %1568 = and i64 %1564, -8
+  %1569 = inttoptr i64 %1568 to ptr
+  %1570 = getelementptr inbounds nuw i8, ptr %1569, i64 32
+  %1571 = load ptr, ptr %1570, align 8
+  invoke void %1571(ptr noundef nonnull align 8 dereferenceable(8) %80)
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit123 unwind label %1572
 
-1571:                                             ; preds = %1566
-  %1572 = landingpad { ptr, i32 }
+1572:                                             ; preds = %1567
+  %1573 = landingpad { ptr, i32 }
           catch ptr null
-  %1573 = extractvalue { ptr, i32 } %1572, 0
-  call void @__clang_call_terminate(ptr %1573) #28
+  %1574 = extractvalue { ptr, i32 } %1573, 0
+  call void @__clang_call_terminate(ptr %1574) #28
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit123: ; preds = %_ZL30_SetGenericMetadataListOpItemsRKN32pxrInternal_v0_24__pxrReserved__6TfTypeEPNS_21Sdf_TextParserContextE.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSEOS0_.exit, %1566
+_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit123: ; preds = %_ZL30_SetGenericMetadataListOpItemsRKN32pxrInternal_v0_24__pxrReserved__6TfTypeEPNS_21Sdf_TextParserContextE.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSEOS0_.exit, %1567
   ret void
 }
 

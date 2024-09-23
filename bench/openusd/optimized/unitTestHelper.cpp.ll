@@ -2304,22 +2304,22 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__13Hd_TestDriver9SetCameraERKNS
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec4fESaIS1_EED2Ev.exit: ; preds = %28, %30
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__8GfCamera30SetFromViewAndProjectionMatrixERKNS_10GfMatrix4dES3_f(ptr noundef nonnull align 8 dereferenceable(192) %6, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull align 8 dereferenceable(128) %2, float noundef 5.000000e+01)
-          to label %36 unwind label %336
+          to label %36 unwind label %337
 
 36:                                               ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec4fESaIS1_EED2Ev.exit
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 184
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__8GfCamera12GetTransformEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d") align 8 %11, ptr noundef nonnull align 8 dereferenceable(192) %6)
-          to label %40 unwind label %336
+          to label %40 unwind label %337
 
 40:                                               ; preds = %36
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fC1ERKNS_10GfMatrix4dE(ptr noundef nonnull align 4 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(128) %11)
-          to label %41 unwind label %336
+          to label %41 unwind label %337
 
 41:                                               ; preds = %40
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate15UpdateTransformERKNS_7SdfPathERKNS_10GfMatrix4fE(ptr noundef nonnull align 8 dereferenceable(768) %38, ptr noundef nonnull align 4 dereferenceable(8) %39, ptr noundef nonnull align 4 dereferenceable(64) %10)
-          to label %42 unwind label %336
+          to label %42 unwind label %337
 
 42:                                               ; preds = %41
   %43 = load ptr, ptr %37, align 8
@@ -2330,7 +2330,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec4fESaIS1_EED2Ev.exit: ; pr
 
 46:                                               ; preds = %42
   %47 = invoke noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #18
-          to label %.noexc unwind label %336
+          to label %.noexc unwind label %337
 
 .noexc:                                           ; preds = %46
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__30HdCameraTokens_StaticTokenTypeC1Ev(ptr noundef nonnull align 8 dereferenceable(296) %47)
@@ -2358,7 +2358,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCamera
 _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit: ; preds = %53, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i, %42
   %56 = phi ptr [ %45, %42 ], [ %55, %53 ], [ %47, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i ]
   %57 = invoke noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__8GfCamera13GetProjectionEv(ptr noundef nonnull align 8 dereferenceable(192) %6)
-          to label %58 unwind label %336
+          to label %58 unwind label %337
 
 58:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
@@ -2376,7 +2376,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i8 0, ptr %63, align 8
   invoke void (ptr, i32, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13TfCallContextENS_16TfDiagnosticTypeEPKcz(ptr noundef nonnull align 8 dereferenceable(33) %5, i32 noundef 1, ptr noundef nonnull @.str.4)
-          to label %64 unwind label %336
+          to label %64 unwind label %337
 
 64:                                               ; preds = %58, %59
   %.0.i = phi i32 [ 0, %59 ], [ %57, %58 ]
@@ -2387,7 +2387,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   store ptr %67, ptr %65, align 8
   store i32 %.0.i, ptr %12, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate12UpdateCameraERKNS_7SdfPathERKNS_7TfTokenENS_7VtValueE(ptr noundef nonnull align 8 dereferenceable(768) %43, ptr noundef nonnull align 4 dereferenceable(8) %39, ptr noundef nonnull align 8 dereferenceable(8) %56, ptr noundef nonnull %12)
-          to label %68 unwind label %338
+          to label %68 unwind label %339
 
 68:                                               ; preds = %64
   %69 = load ptr, ptr %65, align 8
@@ -2423,7 +2423,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %68, %73
 
 84:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit
   %85 = invoke noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #18
-          to label %.noexc16 unwind label %336
+          to label %.noexc16 unwind label %337
 
 .noexc16:                                         ; preds = %84
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__30HdCameraTokens_StaticTokenTypeC1Ev(ptr noundef nonnull align 8 dereferenceable(296) %85)
@@ -2451,7 +2451,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCamera
 _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit19: ; preds = %91, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i15, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit
   %94 = phi ptr [ %83, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit ], [ %93, %91 ], [ %85, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i15 ]
   %95 = invoke noundef float @_ZNK32pxrInternal_v0_24__pxrReserved__8GfCamera14GetFocalLengthEv(ptr noundef nonnull align 8 dereferenceable(192) %6)
-          to label %96 unwind label %336
+          to label %96 unwind label %337
 
 96:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit19
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 40
@@ -2464,7 +2464,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   store ptr %103, ptr %101, align 8
   store float %100, ptr %13, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate12UpdateCameraERKNS_7SdfPathERKNS_7TfTokenENS_7VtValueE(ptr noundef nonnull align 8 dereferenceable(768) %81, ptr noundef nonnull align 4 dereferenceable(8) %39, ptr noundef nonnull align 8 dereferenceable(8) %97, ptr noundef nonnull %13)
-          to label %104 unwind label %340
+          to label %104 unwind label %341
 
 104:                                              ; preds = %96
   %105 = load ptr, ptr %101, align 8
@@ -2500,7 +2500,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit22: ; preds = %104, %109
 
 120:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit22
   %121 = invoke noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #18
-          to label %.noexc25 unwind label %336
+          to label %.noexc25 unwind label %337
 
 .noexc25:                                         ; preds = %120
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__30HdCameraTokens_StaticTokenTypeC1Ev(ptr noundef nonnull align 8 dereferenceable(296) %121)
@@ -2528,7 +2528,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCamera
 _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit28: ; preds = %127, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i24, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit22
   %130 = phi ptr [ %119, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit22 ], [ %129, %127 ], [ %121, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i24 ]
   %131 = invoke noundef float @_ZNK32pxrInternal_v0_24__pxrReserved__8GfCamera21GetHorizontalApertureEv(ptr noundef nonnull align 8 dereferenceable(192) %6)
-          to label %132 unwind label %336
+          to label %132 unwind label %337
 
 132:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit28
   %133 = getelementptr inbounds nuw i8, ptr %130, i64 8
@@ -2539,7 +2539,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   store ptr %103, ptr %137, align 8
   store float %136, ptr %14, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate12UpdateCameraERKNS_7SdfPathERKNS_7TfTokenENS_7VtValueE(ptr noundef nonnull align 8 dereferenceable(768) %117, ptr noundef nonnull align 4 dereferenceable(8) %39, ptr noundef nonnull align 8 dereferenceable(8) %133, ptr noundef nonnull %14)
-          to label %138 unwind label %342
+          to label %138 unwind label %343
 
 138:                                              ; preds = %132
   %139 = load ptr, ptr %137, align 8
@@ -2575,7 +2575,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit31: ; preds = %138, %143
 
 154:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit31
   %155 = invoke noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #18
-          to label %.noexc34 unwind label %336
+          to label %.noexc34 unwind label %337
 
 .noexc34:                                         ; preds = %154
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__30HdCameraTokens_StaticTokenTypeC1Ev(ptr noundef nonnull align 8 dereferenceable(296) %155)
@@ -2603,7 +2603,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCamera
 _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit37: ; preds = %161, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i33, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit31
   %164 = phi ptr [ %153, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit31 ], [ %163, %161 ], [ %155, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i33 ]
   %165 = invoke noundef float @_ZNK32pxrInternal_v0_24__pxrReserved__8GfCamera19GetVerticalApertureEv(ptr noundef nonnull align 8 dereferenceable(192) %6)
-          to label %166 unwind label %336
+          to label %166 unwind label %337
 
 166:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit37
   %167 = getelementptr inbounds nuw i8, ptr %164, i64 16
@@ -2612,7 +2612,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   store ptr %103, ptr %169, align 8
   store float %168, ptr %15, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate12UpdateCameraERKNS_7SdfPathERKNS_7TfTokenENS_7VtValueE(ptr noundef nonnull align 8 dereferenceable(768) %151, ptr noundef nonnull align 4 dereferenceable(8) %39, ptr noundef nonnull align 8 dereferenceable(8) %167, ptr noundef nonnull %15)
-          to label %170 unwind label %344
+          to label %170 unwind label %345
 
 170:                                              ; preds = %166
   %171 = load ptr, ptr %169, align 8
@@ -2648,7 +2648,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit40: ; preds = %170, %175
 
 186:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit40
   %187 = invoke noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #18
-          to label %.noexc43 unwind label %336
+          to label %.noexc43 unwind label %337
 
 .noexc43:                                         ; preds = %186
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__30HdCameraTokens_StaticTokenTypeC1Ev(ptr noundef nonnull align 8 dereferenceable(296) %187)
@@ -2676,7 +2676,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCamera
 _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit46: ; preds = %193, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i42, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit40
   %196 = phi ptr [ %185, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit40 ], [ %195, %193 ], [ %187, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i42 ]
   %197 = invoke noundef float @_ZNK32pxrInternal_v0_24__pxrReserved__8GfCamera27GetHorizontalApertureOffsetEv(ptr noundef nonnull align 8 dereferenceable(192) %6)
-          to label %198 unwind label %336
+          to label %198 unwind label %337
 
 198:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit46
   %199 = getelementptr inbounds nuw i8, ptr %196, i64 24
@@ -2685,7 +2685,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   store ptr %103, ptr %201, align 8
   store float %200, ptr %16, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate12UpdateCameraERKNS_7SdfPathERKNS_7TfTokenENS_7VtValueE(ptr noundef nonnull align 8 dereferenceable(768) %183, ptr noundef nonnull align 4 dereferenceable(8) %39, ptr noundef nonnull align 8 dereferenceable(8) %199, ptr noundef nonnull %16)
-          to label %202 unwind label %346
+          to label %202 unwind label %347
 
 202:                                              ; preds = %198
   %203 = load ptr, ptr %201, align 8
@@ -2721,7 +2721,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit49: ; preds = %202, %207
 
 218:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit49
   %219 = invoke noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #18
-          to label %.noexc52 unwind label %336
+          to label %.noexc52 unwind label %337
 
 .noexc52:                                         ; preds = %218
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__30HdCameraTokens_StaticTokenTypeC1Ev(ptr noundef nonnull align 8 dereferenceable(296) %219)
@@ -2749,7 +2749,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCamera
 _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit55: ; preds = %225, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i51, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit49
   %228 = phi ptr [ %217, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit49 ], [ %227, %225 ], [ %219, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i51 ]
   %229 = invoke noundef float @_ZNK32pxrInternal_v0_24__pxrReserved__8GfCamera25GetVerticalApertureOffsetEv(ptr noundef nonnull align 8 dereferenceable(192) %6)
-          to label %230 unwind label %336
+          to label %230 unwind label %337
 
 230:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit55
   %231 = getelementptr inbounds nuw i8, ptr %228, i64 32
@@ -2758,7 +2758,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   store ptr %103, ptr %233, align 8
   store float %232, ptr %17, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate12UpdateCameraERKNS_7SdfPathERKNS_7TfTokenENS_7VtValueE(ptr noundef nonnull align 8 dereferenceable(768) %215, ptr noundef nonnull align 4 dereferenceable(8) %39, ptr noundef nonnull align 8 dereferenceable(8) %231, ptr noundef nonnull %17)
-          to label %234 unwind label %348
+          to label %234 unwind label %349
 
 234:                                              ; preds = %230
   %235 = load ptr, ptr %233, align 8
@@ -2794,7 +2794,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit58: ; preds = %234, %239
 
 250:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit58
   %251 = invoke noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #18
-          to label %.noexc61 unwind label %336
+          to label %.noexc61 unwind label %337
 
 .noexc61:                                         ; preds = %250
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__30HdCameraTokens_StaticTokenTypeC1Ev(ptr noundef nonnull align 8 dereferenceable(296) %251)
@@ -2822,7 +2822,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCamera
 _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit64: ; preds = %257, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i60, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit58
   %260 = phi ptr [ %249, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit58 ], [ %259, %257 ], [ %251, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i60 ]
   %261 = invoke <2 x float> @_ZNK32pxrInternal_v0_24__pxrReserved__8GfCamera16GetClippingRangeEv(ptr noundef nonnull align 8 dereferenceable(192) %6)
-          to label %262 unwind label %336
+          to label %262 unwind label %337
 
 262:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit64
   %263 = getelementptr inbounds nuw i8, ptr %260, i64 48
@@ -2832,7 +2832,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   store ptr %266, ptr %264, align 8
   store <2 x float> %261, ptr %18, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate12UpdateCameraERKNS_7SdfPathERKNS_7TfTokenENS_7VtValueE(ptr noundef nonnull align 8 dereferenceable(768) %247, ptr noundef nonnull align 4 dereferenceable(8) %39, ptr noundef nonnull align 8 dereferenceable(8) %263, ptr noundef nonnull %18)
-          to label %267 unwind label %350
+          to label %267 unwind label %351
 
 267:                                              ; preds = %262
   %268 = load ptr, ptr %264, align 8
@@ -2868,7 +2868,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit67: ; preds = %267, %272
 
 283:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit67
   %284 = invoke noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #18
-          to label %.noexc70 unwind label %336
+          to label %.noexc70 unwind label %337
 
 .noexc70:                                         ; preds = %283
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__30HdCameraTokens_StaticTokenTypeC1Ev(ptr noundef nonnull align 8 dereferenceable(296) %284)
@@ -2902,7 +2902,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCamera
   store i32 4, ptr %19, align 8
   %298 = getelementptr inbounds nuw i8, ptr %294, i64 184
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate12UpdateCameraERKNS_7SdfPathERKNS_7TfTokenENS_7VtValueE(ptr noundef nonnull align 8 dereferenceable(768) %280, ptr noundef nonnull align 4 dereferenceable(8) %39, ptr noundef nonnull align 8 dereferenceable(8) %298, ptr noundef nonnull %19)
-          to label %299 unwind label %352
+          to label %299 unwind label %353
 
 299:                                              ; preds = %293
   %300 = load ptr, ptr %295, align 8
@@ -2939,7 +2939,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit76: ; preds = %299, %304
 
 316:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit76
   %317 = invoke noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #18
-          to label %.noexc78 unwind label %336
+          to label %.noexc78 unwind label %337
 
 .noexc78:                                         ; preds = %316
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__32HdPrimTypeTokens_StaticTokenTypeC1Ev(ptr noundef nonnull align 8 dereferenceable(352) %317)
@@ -2968,11 +2968,11 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_Stati
   %326 = phi ptr [ %315, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit76 ], [ %325, %323 ], [ %317, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i ]
   %327 = getelementptr inbounds nuw i8, ptr %326, i64 128
   %328 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__13HdRenderIndex8GetSprimERKNS_7TfTokenERKNS_7SdfPathE(ptr noundef nonnull align 8 dereferenceable(4080) %313, ptr noundef nonnull align 8 dereferenceable(8) %327, ptr noundef nonnull align 4 dereferenceable(8) %39)
-          to label %329 unwind label %336
+          to label %329 unwind label %337
 
 329:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit
   %330 = icmp eq ptr %328, null
-  br i1 %330, label %.thread, label %354
+  br i1 %330, label %.thread, label %355
 
 331:                                              ; preds = %4
   %332 = landingpad { ptr, i32 }
@@ -2983,136 +2983,137 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_Stati
 
 334:                                              ; preds = %331
   %335 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %336 = load ptr, ptr %335, align 8
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec4fESaIS1_EED2Ev.exit82.sink.split
 
-336:                                              ; preds = %316, %283, %250, %218, %186, %154, %120, %84, %59, %46, %367, %365, %361, %.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit64, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit55, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit46, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit37, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit28, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit19, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit, %41, %40, %36, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec4fESaIS1_EED2Ev.exit
-  %337 = landingpad { ptr, i32 }
+337:                                              ; preds = %316, %283, %250, %218, %186, %154, %120, %84, %59, %46, %368, %366, %362, %.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit64, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit55, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit46, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit37, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit28, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit19, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit, %41, %40, %36, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec4fESaIS1_EED2Ev.exit
+  %338 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-338:                                              ; preds = %64
-  %339 = landingpad { ptr, i32 }
+339:                                              ; preds = %64
+  %340 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #17
   br label %.body
 
-340:                                              ; preds = %96
-  %341 = landingpad { ptr, i32 }
+341:                                              ; preds = %96
+  %342 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #17
   br label %.body
 
-342:                                              ; preds = %132
-  %343 = landingpad { ptr, i32 }
+343:                                              ; preds = %132
+  %344 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #17
   br label %.body
 
-344:                                              ; preds = %166
-  %345 = landingpad { ptr, i32 }
+345:                                              ; preds = %166
+  %346 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #17
   br label %.body
 
-346:                                              ; preds = %198
-  %347 = landingpad { ptr, i32 }
+347:                                              ; preds = %198
+  %348 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #17
   br label %.body
 
-348:                                              ; preds = %230
-  %349 = landingpad { ptr, i32 }
+349:                                              ; preds = %230
+  %350 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #17
   br label %.body
 
-350:                                              ; preds = %262
-  %351 = landingpad { ptr, i32 }
+351:                                              ; preds = %262
+  %352 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #17
   br label %.body
 
-352:                                              ; preds = %293
-  %353 = landingpad { ptr, i32 }
+353:                                              ; preds = %293
+  %354 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %19) #17
   br label %.body
 
-354:                                              ; preds = %329
-  %355 = call ptr @__dynamic_cast(ptr nonnull %328, ptr nonnull @_ZTIN32pxrInternal_v0_24__pxrReserved__7HdSprimE, ptr nonnull @_ZTIN32pxrInternal_v0_24__pxrReserved__8HdCameraE, i64 0) #17
-  %.not = icmp eq ptr %355, null
-  br i1 %.not, label %.thread, label %361
+355:                                              ; preds = %329
+  %356 = call ptr @__dynamic_cast(ptr nonnull %328, ptr nonnull @_ZTIN32pxrInternal_v0_24__pxrReserved__7HdSprimE, ptr nonnull @_ZTIN32pxrInternal_v0_24__pxrReserved__8HdCameraE, i64 0) #17
+  %.not = icmp eq ptr %356, null
+  br i1 %.not, label %.thread, label %362
 
-.thread:                                          ; preds = %329, %354
+.thread:                                          ; preds = %329, %355
   store ptr @.str.1, ptr %20, align 8
-  %356 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__13Hd_TestDriver9SetCameraERKNS_10GfMatrix4dES3_RKNS_17CameraUtilFramingE, ptr %356, align 8
-  %357 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  store i64 248, ptr %357, align 8
-  %358 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  store ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__13Hd_TestDriver9SetCameraERKNS_10GfMatrix4dES3_RKNS_17CameraUtilFramingE, ptr %358, align 8
-  %359 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  store i8 0, ptr %359, align 8
-  %360 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %20, ptr noundef nonnull @.str.3, ptr noundef null)
-          to label %361 unwind label %336
+  %357 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__13Hd_TestDriver9SetCameraERKNS_10GfMatrix4dES3_RKNS_17CameraUtilFramingE, ptr %357, align 8
+  %358 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  store i64 248, ptr %358, align 8
+  %359 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  store ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__13Hd_TestDriver9SetCameraERKNS_10GfMatrix4dES3_RKNS_17CameraUtilFramingE, ptr %359, align 8
+  %360 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  store i8 0, ptr %360, align 8
+  %361 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %20, ptr noundef nonnull @.str.3, ptr noundef null)
+          to label %362 unwind label %337
 
-361:                                              ; preds = %.thread, %354
-  %362 = phi ptr [ null, %.thread ], [ %355, %354 ]
-  %363 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %364 = load ptr, ptr %363, align 8
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState9SetCameraEPKNS_8HdCameraE(ptr noundef nonnull align 8 dereferenceable(381) %364, ptr noundef %362)
-          to label %365 unwind label %336
+362:                                              ; preds = %.thread, %355
+  %363 = phi ptr [ null, %.thread ], [ %356, %355 ]
+  %364 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %365 = load ptr, ptr %364, align 8
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState9SetCameraEPKNS_8HdCameraE(ptr noundef nonnull align 8 dereferenceable(381) %365, ptr noundef %363)
+          to label %366 unwind label %337
 
-365:                                              ; preds = %361
-  %366 = load ptr, ptr %363, align 8
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState10SetFramingERKNS_17CameraUtilFramingE(ptr noundef nonnull align 8 dereferenceable(381) %366, ptr noundef nonnull align 4 dereferenceable(36) %3)
-          to label %367 unwind label %336
+366:                                              ; preds = %362
+  %367 = load ptr, ptr %364, align 8
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState10SetFramingERKNS_17CameraUtilFramingE(ptr noundef nonnull align 8 dereferenceable(381) %367, ptr noundef nonnull align 4 dereferenceable(36) %3)
+          to label %368 unwind label %337
 
-367:                                              ; preds = %365
-  %368 = load ptr, ptr %363, align 8
-  %369 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  store i8 0, ptr %369, align 4
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState23SetOverrideWindowPolicyERKSt8optionalINS_29CameraUtilConformWindowPolicyEE(ptr noundef nonnull align 8 dereferenceable(381) %368, ptr noundef nonnull align 4 dereferenceable(8) %21)
-          to label %370 unwind label %336
+368:                                              ; preds = %366
+  %369 = load ptr, ptr %364, align 8
+  %370 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  store i8 0, ptr %370, align 4
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState23SetOverrideWindowPolicyERKSt8optionalINS_29CameraUtilConformWindowPolicyEE(ptr noundef nonnull align 8 dereferenceable(381) %369, ptr noundef nonnull align 4 dereferenceable(8) %21)
+          to label %371 unwind label %337
 
-370:                                              ; preds = %367
-  %371 = getelementptr inbounds nuw i8, ptr %6, i64 160
-  %372 = load ptr, ptr %371, align 8
-  %.not.i.i.i.i = icmp eq ptr %372, null
-  br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__8GfCameraD2Ev.exit, label %373
+371:                                              ; preds = %368
+  %372 = getelementptr inbounds nuw i8, ptr %6, i64 160
+  %373 = load ptr, ptr %372, align 8
+  %.not.i.i.i.i = icmp eq ptr %373, null
+  br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__8GfCameraD2Ev.exit, label %374
 
-373:                                              ; preds = %370
-  %374 = getelementptr inbounds nuw i8, ptr %6, i64 176
-  %375 = load ptr, ptr %374, align 8
-  %376 = ptrtoint ptr %375 to i64
-  %377 = ptrtoint ptr %372 to i64
-  %378 = sub i64 %376, %377
-  call void @_ZdlPvm(ptr noundef nonnull %372, i64 noundef %378) #19
+374:                                              ; preds = %371
+  %375 = getelementptr inbounds nuw i8, ptr %6, i64 176
+  %376 = load ptr, ptr %375, align 8
+  %377 = ptrtoint ptr %376 to i64
+  %378 = ptrtoint ptr %373 to i64
+  %379 = sub i64 %377, %378
+  call void @_ZdlPvm(ptr noundef nonnull %373, i64 noundef %379) #19
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8GfCameraD2Ev.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__8GfCameraD2Ev.exit: ; preds = %370, %373
+_ZN32pxrInternal_v0_24__pxrReserved__8GfCameraD2Ev.exit: ; preds = %371, %374
   ret void
 
-.body:                                            ; preds = %48, %122, %188, %252, %336, %318, %285, %220, %156, %86, %352, %350, %348, %346, %344, %342, %340, %338
-  %.pn = phi { ptr, i32 } [ %353, %352 ], [ %351, %350 ], [ %349, %348 ], [ %347, %346 ], [ %345, %344 ], [ %343, %342 ], [ %341, %340 ], [ %339, %338 ], [ %49, %48 ], [ %87, %86 ], [ %123, %122 ], [ %157, %156 ], [ %189, %188 ], [ %221, %220 ], [ %253, %252 ], [ %286, %285 ], [ %337, %336 ], [ %319, %318 ]
-  %379 = getelementptr inbounds nuw i8, ptr %6, i64 160
-  %380 = load ptr, ptr %379, align 8
-  %.not.i.i.i.i83 = icmp eq ptr %380, null
-  br i1 %.not.i.i.i.i83, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec4fESaIS1_EED2Ev.exit82, label %381
+.body:                                            ; preds = %48, %122, %188, %252, %337, %318, %285, %220, %156, %86, %353, %351, %349, %347, %345, %343, %341, %339
+  %.pn = phi { ptr, i32 } [ %354, %353 ], [ %352, %351 ], [ %350, %349 ], [ %348, %347 ], [ %346, %345 ], [ %344, %343 ], [ %342, %341 ], [ %340, %339 ], [ %49, %48 ], [ %87, %86 ], [ %123, %122 ], [ %157, %156 ], [ %189, %188 ], [ %221, %220 ], [ %253, %252 ], [ %286, %285 ], [ %338, %337 ], [ %319, %318 ]
+  %380 = getelementptr inbounds nuw i8, ptr %6, i64 160
+  %381 = load ptr, ptr %380, align 8
+  %.not.i.i.i.i83 = icmp eq ptr %381, null
+  br i1 %.not.i.i.i.i83, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec4fESaIS1_EED2Ev.exit82, label %382
 
-381:                                              ; preds = %.body
-  %382 = getelementptr inbounds nuw i8, ptr %6, i64 176
+382:                                              ; preds = %.body
+  %383 = getelementptr inbounds nuw i8, ptr %6, i64 176
+  %384 = load ptr, ptr %383, align 8
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec4fESaIS1_EED2Ev.exit82.sink.split
 
-_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec4fESaIS1_EED2Ev.exit82.sink.split: ; preds = %334, %381
-  %.sink96 = phi ptr [ %382, %381 ], [ %335, %334 ]
-  %.sink94 = phi ptr [ %380, %381 ], [ %333, %334 ]
-  %.pn.pn.ph = phi { ptr, i32 } [ %.pn, %381 ], [ %332, %334 ]
-  %383 = load ptr, ptr %.sink96, align 8
-  %384 = ptrtoint ptr %383 to i64
-  %385 = ptrtoint ptr %.sink94 to i64
-  %386 = sub i64 %384, %385
-  call void @_ZdlPvm(ptr noundef nonnull %.sink94, i64 noundef %386) #19
+_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec4fESaIS1_EED2Ev.exit82.sink.split: ; preds = %334, %382
+  %.sink95 = phi ptr [ %384, %382 ], [ %336, %334 ]
+  %.sink94 = phi ptr [ %381, %382 ], [ %333, %334 ]
+  %.pn.pn.ph = phi { ptr, i32 } [ %.pn, %382 ], [ %332, %334 ]
+  %385 = ptrtoint ptr %.sink95 to i64
+  %386 = ptrtoint ptr %.sink94 to i64
+  %387 = sub i64 %385, %386
+  call void @_ZdlPvm(ptr noundef nonnull %.sink94, i64 noundef %387) #19
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec4fESaIS1_EED2Ev.exit82
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec4fESaIS1_EED2Ev.exit82: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec4fESaIS1_EED2Ev.exit82.sink.split, %.body, %331

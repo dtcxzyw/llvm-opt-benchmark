@@ -791,7 +791,11 @@ while.end.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i24.i
   %waiting.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 8
   %20 = load atomic i8, ptr %waiting.i.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i.i = trunc i8 %20 to i1
-  br i1 %tobool.i.i.i.i.i, label %if.end3.sink.split, label %if.end3
+  br i1 %tobool.i.i.i.i.i, label %while.end21.i.i.i.i.i, label %if.end3
+
+while.end21.i.i.i.i.i:                            ; preds = %while.end.i.i.i.i.i
+  store atomic i8 0, ptr %waiting.i.i.i.i.i monotonic, align 8
+  br label %if.end3.sink.split
 
 if.else:                                          ; preds = %if.end
   br i1 %cmp.not.i.i.i10, label %while.end.i.i.i39, label %rcu_read_auto_lock.exit.i11
@@ -1051,11 +1055,13 @@ while.end.i.i.i.i.i28:                            ; preds = %if.end.i.i.i.i50.i
   %waiting.i.i.i.i.i29 = getelementptr inbounds i8, ptr %call.i.i.i.i.i23, i64 8
   %52 = load atomic i8, ptr %waiting.i.i.i.i.i29 monotonic, align 8
   %tobool.i.i.i.i.i30 = trunc i8 %52 to i1
-  br i1 %tobool.i.i.i.i.i30, label %if.end3.sink.split, label %if.end3
+  br i1 %tobool.i.i.i.i.i30, label %while.end21.i.i.i.i.i31, label %if.end3
 
-if.end3.sink.split:                               ; preds = %while.end.i.i.i.i.i28, %while.end.i.i.i.i.i
-  %waiting.i.i.i.i.i29.sink = phi ptr [ %waiting.i.i.i.i.i, %while.end.i.i.i.i.i ], [ %waiting.i.i.i.i.i29, %while.end.i.i.i.i.i28 ]
-  store atomic i8 0, ptr %waiting.i.i.i.i.i29.sink monotonic, align 8
+while.end21.i.i.i.i.i31:                          ; preds = %while.end.i.i.i.i.i28
+  store atomic i8 0, ptr %waiting.i.i.i.i.i29 monotonic, align 8
+  br label %if.end3.sink.split
+
+if.end3.sink.split:                               ; preds = %while.end21.i.i.i.i.i, %while.end21.i.i.i.i.i31
   tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #23
   br label %if.end3
 

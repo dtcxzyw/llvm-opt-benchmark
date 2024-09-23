@@ -348,15 +348,15 @@ define void @_ZN2cv6detail19ExposureCompensator13createDefaultEi(ptr dead_on_unw
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   switch i32 %1, label %.critedge [
     i32 0, label %5
-    i32 1, label %74
-    i32 2, label %150
-    i32 3, label %223
-    i32 4, label %293
+    i32 1, label %75
+    i32 2, label %152
+    i32 3, label %226
+    i32 4, label %297
   ]
 
 5:                                                ; preds = %2
   %6 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #21
-          to label %7 unwind label %72
+          to label %7 unwind label %73
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds i8, ptr %6, i64 8
@@ -457,750 +457,771 @@ _ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_21NoExposureCompensatorEEERS3
   %49 = load atomic i64, ptr %8 acquire, align 8
   %50 = icmp eq i64 %49, 4294967297
   %51 = trunc i64 %49 to i32
-  br i1 %50, label %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split.sink.split.sink.split, label %52
+  br i1 %50, label %52, label %53
 
 52:                                               ; preds = %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_21NoExposureCompensatorEEERS3_RKNS0_IT_EE.exit
-  %53 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i13 = icmp eq i8 %53, 0
-  br i1 %.not.i.i.i.i.i13, label %56, label %54
+  store i32 0, ptr %8, align 8
+  store i32 0, ptr %9, align 4
+  br label %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split.sink.split.sink.split
 
-54:                                               ; preds = %52
-  %55 = add nsw i32 %51, -1
-  store i32 %55, ptr %8, align 4
-  br label %58
+53:                                               ; preds = %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_21NoExposureCompensatorEEERS3_RKNS0_IT_EE.exit
+  %54 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i13 = icmp eq i8 %54, 0
+  br i1 %.not.i.i.i.i.i13, label %57, label %55
 
-56:                                               ; preds = %52
-  %57 = atomicrmw volatile add ptr %8, i32 -1 acq_rel, align 4
-  br label %58
+55:                                               ; preds = %53
+  %56 = add nsw i32 %51, -1
+  store i32 %56, ptr %8, align 4
+  br label %59
 
-58:                                               ; preds = %56, %54
-  %.0.i.i.i.i.i14 = phi i32 [ %51, %54 ], [ %57, %56 ]
-  %59 = icmp eq i32 %.0.i.i.i.i.i14, 1
-  br i1 %59, label %60, label %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split
+57:                                               ; preds = %53
+  %58 = atomicrmw volatile add ptr %8, i32 -1 acq_rel, align 4
+  br label %59
 
-60:                                               ; preds = %58
-  %61 = load ptr, ptr %6, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 16
-  %63 = load ptr, ptr %62, align 8
-  tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %6) #22
-  %64 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i15 = icmp eq i8 %64, 0
-  br i1 %.not.i.i.i.i.i.i.i15, label %68, label %65
+59:                                               ; preds = %57, %55
+  %.0.i.i.i.i.i14 = phi i32 [ %51, %55 ], [ %58, %57 ]
+  %60 = icmp eq i32 %.0.i.i.i.i.i14, 1
+  br i1 %60, label %61, label %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split
 
-65:                                               ; preds = %60
-  %66 = load i32, ptr %9, align 4
-  %67 = add nsw i32 %66, -1
-  store i32 %67, ptr %9, align 4
-  br label %70
+61:                                               ; preds = %59
+  %62 = load ptr, ptr %6, align 8
+  %63 = getelementptr inbounds i8, ptr %62, i64 16
+  %64 = load ptr, ptr %63, align 8
+  tail call void %64(ptr noundef nonnull align 8 dereferenceable(16) %6) #22
+  %65 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i15 = icmp eq i8 %65, 0
+  br i1 %.not.i.i.i.i.i.i.i15, label %69, label %66
 
-68:                                               ; preds = %60
-  %69 = atomicrmw volatile add ptr %9, i32 -1 acq_rel, align 4
-  br label %70
+66:                                               ; preds = %61
+  %67 = load i32, ptr %9, align 4
+  %68 = add nsw i32 %67, -1
+  store i32 %68, ptr %9, align 4
+  br label %71
 
-70:                                               ; preds = %68, %65
-  %.0.i.i.i.i.i.i.i16 = phi i32 [ %66, %65 ], [ %69, %68 ]
-  %71 = icmp eq i32 %.0.i.i.i.i.i.i.i16, 1
-  br i1 %71, label %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split.sink.split, label %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split
+69:                                               ; preds = %61
+  %70 = atomicrmw volatile add ptr %9, i32 -1 acq_rel, align 4
+  br label %71
 
-72:                                               ; preds = %293, %223, %150, %74, %5
-  %73 = landingpad { ptr, i32 }
+71:                                               ; preds = %69, %66
+  %.0.i.i.i.i.i.i.i16 = phi i32 [ %67, %66 ], [ %70, %69 ]
+  %72 = icmp eq i32 %.0.i.i.i.i.i.i.i16, 1
+  br i1 %72, label %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split.sink.split, label %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split
+
+73:                                               ; preds = %297, %226, %152, %75, %5
+  %74 = landingpad { ptr, i32 }
           cleanup
-  br label %381
+  br label %386
 
-74:                                               ; preds = %2
-  %75 = invoke noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-          to label %76 unwind label %72
+75:                                               ; preds = %2
+  %76 = invoke noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
+          to label %77 unwind label %73
 
-76:                                               ; preds = %74
-  %77 = getelementptr inbounds i8, ptr %75, i64 8
-  store i32 1, ptr %77, align 8, !noalias !9
-  %78 = getelementptr inbounds i8, ptr %75, i64 12
-  store i32 1, ptr %78, align 4, !noalias !9
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail15GainCompensatorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %75, align 8, !noalias !9
-  %79 = getelementptr inbounds i8, ptr %75, i64 16
-  %80 = getelementptr inbounds i8, ptr %75, i64 24
-  store i8 1, ptr %80, align 8, !noalias !9
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN2cv6detail15GainCompensatorE, i64 16), ptr %79, align 8, !noalias !9
-  %81 = getelementptr inbounds i8, ptr %75, i64 32
-  tail call void @_ZN2cv3MatC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %81) #22, !noalias !9
-  %82 = load i32, ptr %81, align 8, !noalias !9
-  %83 = and i32 %82, -4096
-  %84 = or disjoint i32 %83, 6
-  store i32 %84, ptr %81, align 8, !noalias !9
-  %85 = getelementptr inbounds i8, ptr %75, i64 128
-  store i32 1, ptr %85, align 8, !noalias !9
-  %86 = getelementptr inbounds i8, ptr %75, i64 136
-  store double 1.000000e+00, ptr %86, align 8, !noalias !9
-  %87 = getelementptr inbounds i8, ptr %75, i64 144
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %87, i8 0, i64 24, i1 false), !noalias !9
-  store ptr %79, ptr %0, align 8
-  %88 = getelementptr inbounds i8, ptr %0, i64 8
-  %89 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i20 = icmp eq i8 %89, 0
+77:                                               ; preds = %75
+  %78 = getelementptr inbounds i8, ptr %76, i64 8
+  store i32 1, ptr %78, align 8, !noalias !9
+  %79 = getelementptr inbounds i8, ptr %76, i64 12
+  store i32 1, ptr %79, align 4, !noalias !9
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail15GainCompensatorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %76, align 8, !noalias !9
+  %80 = getelementptr inbounds i8, ptr %76, i64 16
+  %81 = getelementptr inbounds i8, ptr %76, i64 24
+  store i8 1, ptr %81, align 8, !noalias !9
+  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN2cv6detail15GainCompensatorE, i64 16), ptr %80, align 8, !noalias !9
+  %82 = getelementptr inbounds i8, ptr %76, i64 32
+  tail call void @_ZN2cv3MatC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %82) #22, !noalias !9
+  %83 = load i32, ptr %82, align 8, !noalias !9
+  %84 = and i32 %83, -4096
+  %85 = or disjoint i32 %84, 6
+  store i32 %85, ptr %82, align 8, !noalias !9
+  %86 = getelementptr inbounds i8, ptr %76, i64 128
+  store i32 1, ptr %86, align 8, !noalias !9
+  %87 = getelementptr inbounds i8, ptr %76, i64 136
+  store double 1.000000e+00, ptr %87, align 8, !noalias !9
+  %88 = getelementptr inbounds i8, ptr %76, i64 144
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %88, i8 0, i64 24, i1 false), !noalias !9
+  store ptr %80, ptr %0, align 8
+  %89 = getelementptr inbounds i8, ptr %0, i64 8
+  %90 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i20 = icmp eq i8 %90, 0
   br i1 %.not.i.i.i.i.i20, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i23, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i23.thread
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i23.thread: ; preds = %76
-  %90 = load i32, ptr %77, align 4
-  %91 = add nsw i32 %90, 1
-  store i32 %91, ptr %77, align 4
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i23.thread: ; preds = %77
+  %91 = load i32, ptr %78, align 4
+  %92 = add nsw i32 %91, 1
+  store i32 %92, ptr %78, align 4
   br label %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_15GainCompensatorEEERS3_RKNS0_IT_EE.exit
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i23: ; preds = %76
-  %92 = atomicrmw volatile add ptr %77, i32 1 acq_rel, align 4
-  %.pr.i.i.i.i22.pre = load ptr, ptr %88, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i23: ; preds = %77
+  %93 = atomicrmw volatile add ptr %78, i32 1 acq_rel, align 4
+  %.pr.i.i.i.i22.pre = load ptr, ptr %89, align 8
   %.not8.i.i.i.i24 = icmp eq ptr %.pr.i.i.i.i22.pre, null
-  br i1 %.not8.i.i.i.i24, label %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_15GainCompensatorEEERS3_RKNS0_IT_EE.exit, label %93
+  br i1 %.not8.i.i.i.i24, label %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_15GainCompensatorEEERS3_RKNS0_IT_EE.exit, label %94
 
-93:                                               ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i23
-  %94 = getelementptr inbounds i8, ptr %.pr.i.i.i.i22.pre, i64 8
-  %95 = load atomic i64, ptr %94 acquire, align 8
-  %96 = icmp eq i64 %95, 4294967297
-  %97 = trunc i64 %95 to i32
-  br i1 %96, label %98, label %103
+94:                                               ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i23
+  %95 = getelementptr inbounds i8, ptr %.pr.i.i.i.i22.pre, i64 8
+  %96 = load atomic i64, ptr %95 acquire, align 8
+  %97 = icmp eq i64 %96, 4294967297
+  %98 = trunc i64 %96 to i32
+  br i1 %97, label %99, label %104
 
-98:                                               ; preds = %93
-  store i32 0, ptr %94, align 8
-  %99 = getelementptr inbounds i8, ptr %.pr.i.i.i.i22.pre, i64 12
-  store i32 0, ptr %99, align 4
-  %100 = load ptr, ptr %.pr.i.i.i.i22.pre, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 16
-  %102 = load ptr, ptr %101, align 8
-  tail call void %102(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.i22.pre) #22
+99:                                               ; preds = %94
+  store i32 0, ptr %95, align 8
+  %100 = getelementptr inbounds i8, ptr %.pr.i.i.i.i22.pre, i64 12
+  store i32 0, ptr %100, align 4
+  %101 = load ptr, ptr %.pr.i.i.i.i22.pre, align 8
+  %102 = getelementptr inbounds i8, ptr %101, i64 16
+  %103 = load ptr, ptr %102, align 8
+  tail call void %103(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.i22.pre) #22
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i30
 
-103:                                              ; preds = %93
-  %104 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i9.i.i.i.i25 = icmp eq i8 %104, 0
-  br i1 %.not.i9.i.i.i.i25, label %107, label %105
+104:                                              ; preds = %94
+  %105 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i9.i.i.i.i25 = icmp eq i8 %105, 0
+  br i1 %.not.i9.i.i.i.i25, label %108, label %106
 
-105:                                              ; preds = %103
-  %106 = add nsw i32 %97, -1
-  store i32 %106, ptr %94, align 4
-  br label %109
+106:                                              ; preds = %104
+  %107 = add nsw i32 %98, -1
+  store i32 %107, ptr %95, align 4
+  br label %110
 
-107:                                              ; preds = %103
-  %108 = atomicrmw volatile add ptr %94, i32 -1 acq_rel, align 4
-  br label %109
+108:                                              ; preds = %104
+  %109 = atomicrmw volatile add ptr %95, i32 -1 acq_rel, align 4
+  br label %110
 
-109:                                              ; preds = %107, %105
-  %.0.i.i.i.i.i26 = phi i32 [ %97, %105 ], [ %108, %107 ]
-  %110 = icmp eq i32 %.0.i.i.i.i.i26, 1
-  br i1 %110, label %111, label %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_15GainCompensatorEEERS3_RKNS0_IT_EE.exit
+110:                                              ; preds = %108, %106
+  %.0.i.i.i.i.i26 = phi i32 [ %98, %106 ], [ %109, %108 ]
+  %111 = icmp eq i32 %.0.i.i.i.i.i26, 1
+  br i1 %111, label %112, label %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_15GainCompensatorEEERS3_RKNS0_IT_EE.exit
 
-111:                                              ; preds = %109
-  %112 = load ptr, ptr %.pr.i.i.i.i22.pre, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 16
-  %114 = load ptr, ptr %113, align 8
-  tail call void %114(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.i22.pre) #22
-  %115 = getelementptr inbounds i8, ptr %.pr.i.i.i.i22.pre, i64 12
-  %116 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i28 = icmp eq i8 %116, 0
-  br i1 %.not.i.i.i.i.i.i.i28, label %120, label %117
+112:                                              ; preds = %110
+  %113 = load ptr, ptr %.pr.i.i.i.i22.pre, align 8
+  %114 = getelementptr inbounds i8, ptr %113, i64 16
+  %115 = load ptr, ptr %114, align 8
+  tail call void %115(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.i22.pre) #22
+  %116 = getelementptr inbounds i8, ptr %.pr.i.i.i.i22.pre, i64 12
+  %117 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i28 = icmp eq i8 %117, 0
+  br i1 %.not.i.i.i.i.i.i.i28, label %121, label %118
 
-117:                                              ; preds = %111
-  %118 = load i32, ptr %115, align 4
-  %119 = add nsw i32 %118, -1
-  store i32 %119, ptr %115, align 4
-  br label %122
+118:                                              ; preds = %112
+  %119 = load i32, ptr %116, align 4
+  %120 = add nsw i32 %119, -1
+  store i32 %120, ptr %116, align 4
+  br label %123
 
-120:                                              ; preds = %111
-  %121 = atomicrmw volatile add ptr %115, i32 -1 acq_rel, align 4
-  br label %122
+121:                                              ; preds = %112
+  %122 = atomicrmw volatile add ptr %116, i32 -1 acq_rel, align 4
+  br label %123
 
-122:                                              ; preds = %120, %117
-  %.0.i.i.i.i.i.i.i29 = phi i32 [ %118, %117 ], [ %121, %120 ]
-  %123 = icmp eq i32 %.0.i.i.i.i.i.i.i29, 1
-  br i1 %123, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i30, label %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_15GainCompensatorEEERS3_RKNS0_IT_EE.exit
+123:                                              ; preds = %121, %118
+  %.0.i.i.i.i.i.i.i29 = phi i32 [ %119, %118 ], [ %122, %121 ]
+  %124 = icmp eq i32 %.0.i.i.i.i.i.i.i29, 1
+  br i1 %124, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i30, label %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_15GainCompensatorEEERS3_RKNS0_IT_EE.exit
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i30: ; preds = %122, %98
-  %124 = load ptr, ptr %.pr.i.i.i.i22.pre, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 24
-  %126 = load ptr, ptr %125, align 8
-  tail call void %126(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.i22.pre) #22
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i30: ; preds = %123, %99
+  %125 = load ptr, ptr %.pr.i.i.i.i22.pre, align 8
+  %126 = getelementptr inbounds i8, ptr %125, i64 24
+  %127 = load ptr, ptr %126, align 8
+  tail call void %127(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.i22.pre) #22
   br label %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_15GainCompensatorEEERS3_RKNS0_IT_EE.exit
 
-_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_15GainCompensatorEEERS3_RKNS0_IT_EE.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i23, %109, %122, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i23.thread
-  store ptr %75, ptr %88, align 8
-  %127 = load atomic i64, ptr %77 acquire, align 8
-  %128 = icmp eq i64 %127, 4294967297
-  %129 = trunc i64 %127 to i32
-  br i1 %128, label %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split.sink.split.sink.split, label %130
+_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_15GainCompensatorEEERS3_RKNS0_IT_EE.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i23, %110, %123, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i23.thread
+  store ptr %76, ptr %89, align 8
+  %128 = load atomic i64, ptr %78 acquire, align 8
+  %129 = icmp eq i64 %128, 4294967297
+  %130 = trunc i64 %128 to i32
+  br i1 %129, label %131, label %132
 
-130:                                              ; preds = %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_15GainCompensatorEEERS3_RKNS0_IT_EE.exit
-  %131 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i32 = icmp eq i8 %131, 0
-  br i1 %.not.i.i.i.i.i32, label %134, label %132
+131:                                              ; preds = %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_15GainCompensatorEEERS3_RKNS0_IT_EE.exit
+  store i32 0, ptr %78, align 8
+  store i32 0, ptr %79, align 4
+  br label %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split.sink.split.sink.split
 
-132:                                              ; preds = %130
-  %133 = add nsw i32 %129, -1
-  store i32 %133, ptr %77, align 4
-  br label %136
+132:                                              ; preds = %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_15GainCompensatorEEERS3_RKNS0_IT_EE.exit
+  %133 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i32 = icmp eq i8 %133, 0
+  br i1 %.not.i.i.i.i.i32, label %136, label %134
 
-134:                                              ; preds = %130
-  %135 = atomicrmw volatile add ptr %77, i32 -1 acq_rel, align 4
-  br label %136
+134:                                              ; preds = %132
+  %135 = add nsw i32 %130, -1
+  store i32 %135, ptr %78, align 4
+  br label %138
 
-136:                                              ; preds = %134, %132
-  %.0.i.i.i.i.i33 = phi i32 [ %129, %132 ], [ %135, %134 ]
-  %137 = icmp eq i32 %.0.i.i.i.i.i33, 1
-  br i1 %137, label %138, label %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split
+136:                                              ; preds = %132
+  %137 = atomicrmw volatile add ptr %78, i32 -1 acq_rel, align 4
+  br label %138
 
-138:                                              ; preds = %136
-  %139 = load ptr, ptr %75, align 8
-  %140 = getelementptr inbounds i8, ptr %139, i64 16
-  %141 = load ptr, ptr %140, align 8
-  tail call void %141(ptr noundef nonnull align 8 dereferenceable(16) %75) #22
-  %142 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i34 = icmp eq i8 %142, 0
-  br i1 %.not.i.i.i.i.i.i.i34, label %146, label %143
+138:                                              ; preds = %136, %134
+  %.0.i.i.i.i.i33 = phi i32 [ %130, %134 ], [ %137, %136 ]
+  %139 = icmp eq i32 %.0.i.i.i.i.i33, 1
+  br i1 %139, label %140, label %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split
 
-143:                                              ; preds = %138
-  %144 = load i32, ptr %78, align 4
-  %145 = add nsw i32 %144, -1
-  store i32 %145, ptr %78, align 4
-  br label %148
+140:                                              ; preds = %138
+  %141 = load ptr, ptr %76, align 8
+  %142 = getelementptr inbounds i8, ptr %141, i64 16
+  %143 = load ptr, ptr %142, align 8
+  tail call void %143(ptr noundef nonnull align 8 dereferenceable(16) %76) #22
+  %144 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i34 = icmp eq i8 %144, 0
+  br i1 %.not.i.i.i.i.i.i.i34, label %148, label %145
 
-146:                                              ; preds = %138
-  %147 = atomicrmw volatile add ptr %78, i32 -1 acq_rel, align 4
-  br label %148
+145:                                              ; preds = %140
+  %146 = load i32, ptr %79, align 4
+  %147 = add nsw i32 %146, -1
+  store i32 %147, ptr %79, align 4
+  br label %150
 
-148:                                              ; preds = %146, %143
-  %.0.i.i.i.i.i.i.i35 = phi i32 [ %144, %143 ], [ %147, %146 ]
-  %149 = icmp eq i32 %.0.i.i.i.i.i.i.i35, 1
-  br i1 %149, label %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split.sink.split, label %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split
+148:                                              ; preds = %140
+  %149 = atomicrmw volatile add ptr %79, i32 -1 acq_rel, align 4
+  br label %150
 
-150:                                              ; preds = %2
-  %151 = invoke noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #21
-          to label %152 unwind label %72
+150:                                              ; preds = %148, %145
+  %.0.i.i.i.i.i.i.i35 = phi i32 [ %146, %145 ], [ %149, %148 ]
+  %151 = icmp eq i32 %.0.i.i.i.i.i.i.i35, 1
+  br i1 %151, label %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split.sink.split, label %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split
 
-152:                                              ; preds = %150
-  %153 = getelementptr inbounds i8, ptr %151, i64 8
-  store i32 1, ptr %153, align 8, !noalias !14
-  %154 = getelementptr inbounds i8, ptr %151, i64 12
-  store i32 1, ptr %154, align 4, !noalias !14
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail21BlocksGainCompensatorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %151, align 8, !noalias !14
-  %155 = getelementptr inbounds i8, ptr %151, i64 16
-  %156 = getelementptr inbounds i8, ptr %151, i64 24
-  store i8 1, ptr %156, align 8, !noalias !14
-  %157 = getelementptr inbounds i8, ptr %151, i64 28
-  store i32 32, ptr %157, align 4, !noalias !14
-  %158 = getelementptr inbounds i8, ptr %151, i64 32
-  store i32 32, ptr %158, align 8, !noalias !14
-  %159 = getelementptr inbounds i8, ptr %151, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %159, i8 0, i64 24, i1 false), !noalias !14
-  %160 = getelementptr inbounds i8, ptr %151, i64 64
-  store i32 1, ptr %160, align 8, !noalias !14
-  %161 = getelementptr inbounds i8, ptr %151, i64 68
-  store i32 2, ptr %161, align 4, !noalias !14
-  %162 = getelementptr inbounds i8, ptr %151, i64 72
-  store double 1.000000e+00, ptr %162, align 8, !noalias !14
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN2cv6detail21BlocksGainCompensatorE, i64 16), ptr %155, align 8, !noalias !14
-  store ptr %155, ptr %0, align 8
-  %163 = getelementptr inbounds i8, ptr %0, i64 8
-  %164 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i39 = icmp eq i8 %164, 0
+152:                                              ; preds = %2
+  %153 = invoke noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #21
+          to label %154 unwind label %73
+
+154:                                              ; preds = %152
+  %155 = getelementptr inbounds i8, ptr %153, i64 8
+  store i32 1, ptr %155, align 8, !noalias !14
+  %156 = getelementptr inbounds i8, ptr %153, i64 12
+  store i32 1, ptr %156, align 4, !noalias !14
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail21BlocksGainCompensatorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %153, align 8, !noalias !14
+  %157 = getelementptr inbounds i8, ptr %153, i64 16
+  %158 = getelementptr inbounds i8, ptr %153, i64 24
+  store i8 1, ptr %158, align 8, !noalias !14
+  %159 = getelementptr inbounds i8, ptr %153, i64 28
+  store i32 32, ptr %159, align 4, !noalias !14
+  %160 = getelementptr inbounds i8, ptr %153, i64 32
+  store i32 32, ptr %160, align 8, !noalias !14
+  %161 = getelementptr inbounds i8, ptr %153, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %161, i8 0, i64 24, i1 false), !noalias !14
+  %162 = getelementptr inbounds i8, ptr %153, i64 64
+  store i32 1, ptr %162, align 8, !noalias !14
+  %163 = getelementptr inbounds i8, ptr %153, i64 68
+  store i32 2, ptr %163, align 4, !noalias !14
+  %164 = getelementptr inbounds i8, ptr %153, i64 72
+  store double 1.000000e+00, ptr %164, align 8, !noalias !14
+  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN2cv6detail21BlocksGainCompensatorE, i64 16), ptr %157, align 8, !noalias !14
+  store ptr %157, ptr %0, align 8
+  %165 = getelementptr inbounds i8, ptr %0, i64 8
+  %166 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i39 = icmp eq i8 %166, 0
   br i1 %.not.i.i.i.i.i39, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i42, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i42.thread
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i42.thread: ; preds = %152
-  store i32 2, ptr %153, align 4
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i42.thread: ; preds = %154
+  store i32 2, ptr %155, align 4
   br label %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_21BlocksGainCompensatorEEERS3_RKNS0_IT_EE.exit
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i42: ; preds = %152
-  %165 = atomicrmw volatile add ptr %153, i32 1 acq_rel, align 4
-  %.pr.i.i.i.i41.pre = load ptr, ptr %163, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i42: ; preds = %154
+  %167 = atomicrmw volatile add ptr %155, i32 1 acq_rel, align 4
+  %.pr.i.i.i.i41.pre = load ptr, ptr %165, align 8
   %.not8.i.i.i.i43 = icmp eq ptr %.pr.i.i.i.i41.pre, null
-  br i1 %.not8.i.i.i.i43, label %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_21BlocksGainCompensatorEEERS3_RKNS0_IT_EE.exit, label %166
+  br i1 %.not8.i.i.i.i43, label %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_21BlocksGainCompensatorEEERS3_RKNS0_IT_EE.exit, label %168
 
-166:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i42
-  %167 = getelementptr inbounds i8, ptr %.pr.i.i.i.i41.pre, i64 8
-  %168 = load atomic i64, ptr %167 acquire, align 8
-  %169 = icmp eq i64 %168, 4294967297
-  %170 = trunc i64 %168 to i32
-  br i1 %169, label %171, label %176
+168:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i42
+  %169 = getelementptr inbounds i8, ptr %.pr.i.i.i.i41.pre, i64 8
+  %170 = load atomic i64, ptr %169 acquire, align 8
+  %171 = icmp eq i64 %170, 4294967297
+  %172 = trunc i64 %170 to i32
+  br i1 %171, label %173, label %178
 
-171:                                              ; preds = %166
-  store i32 0, ptr %167, align 8
-  %172 = getelementptr inbounds i8, ptr %.pr.i.i.i.i41.pre, i64 12
-  store i32 0, ptr %172, align 4
-  %173 = load ptr, ptr %.pr.i.i.i.i41.pre, align 8
-  %174 = getelementptr inbounds i8, ptr %173, i64 16
-  %175 = load ptr, ptr %174, align 8
-  tail call void %175(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.i41.pre) #22
+173:                                              ; preds = %168
+  store i32 0, ptr %169, align 8
+  %174 = getelementptr inbounds i8, ptr %.pr.i.i.i.i41.pre, i64 12
+  store i32 0, ptr %174, align 4
+  %175 = load ptr, ptr %.pr.i.i.i.i41.pre, align 8
+  %176 = getelementptr inbounds i8, ptr %175, i64 16
+  %177 = load ptr, ptr %176, align 8
+  tail call void %177(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.i41.pre) #22
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i49
 
-176:                                              ; preds = %166
-  %177 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i9.i.i.i.i44 = icmp eq i8 %177, 0
-  br i1 %.not.i9.i.i.i.i44, label %180, label %178
+178:                                              ; preds = %168
+  %179 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i9.i.i.i.i44 = icmp eq i8 %179, 0
+  br i1 %.not.i9.i.i.i.i44, label %182, label %180
 
-178:                                              ; preds = %176
-  %179 = add nsw i32 %170, -1
-  store i32 %179, ptr %167, align 4
-  br label %182
+180:                                              ; preds = %178
+  %181 = add nsw i32 %172, -1
+  store i32 %181, ptr %169, align 4
+  br label %184
 
-180:                                              ; preds = %176
-  %181 = atomicrmw volatile add ptr %167, i32 -1 acq_rel, align 4
-  br label %182
+182:                                              ; preds = %178
+  %183 = atomicrmw volatile add ptr %169, i32 -1 acq_rel, align 4
+  br label %184
 
-182:                                              ; preds = %180, %178
-  %.0.i.i.i.i.i45 = phi i32 [ %170, %178 ], [ %181, %180 ]
-  %183 = icmp eq i32 %.0.i.i.i.i.i45, 1
-  br i1 %183, label %184, label %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_21BlocksGainCompensatorEEERS3_RKNS0_IT_EE.exit
+184:                                              ; preds = %182, %180
+  %.0.i.i.i.i.i45 = phi i32 [ %172, %180 ], [ %183, %182 ]
+  %185 = icmp eq i32 %.0.i.i.i.i.i45, 1
+  br i1 %185, label %186, label %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_21BlocksGainCompensatorEEERS3_RKNS0_IT_EE.exit
 
-184:                                              ; preds = %182
-  %185 = load ptr, ptr %.pr.i.i.i.i41.pre, align 8
-  %186 = getelementptr inbounds i8, ptr %185, i64 16
-  %187 = load ptr, ptr %186, align 8
-  tail call void %187(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.i41.pre) #22
-  %188 = getelementptr inbounds i8, ptr %.pr.i.i.i.i41.pre, i64 12
-  %189 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i47 = icmp eq i8 %189, 0
-  br i1 %.not.i.i.i.i.i.i.i47, label %193, label %190
+186:                                              ; preds = %184
+  %187 = load ptr, ptr %.pr.i.i.i.i41.pre, align 8
+  %188 = getelementptr inbounds i8, ptr %187, i64 16
+  %189 = load ptr, ptr %188, align 8
+  tail call void %189(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.i41.pre) #22
+  %190 = getelementptr inbounds i8, ptr %.pr.i.i.i.i41.pre, i64 12
+  %191 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i47 = icmp eq i8 %191, 0
+  br i1 %.not.i.i.i.i.i.i.i47, label %195, label %192
 
-190:                                              ; preds = %184
-  %191 = load i32, ptr %188, align 4
-  %192 = add nsw i32 %191, -1
-  store i32 %192, ptr %188, align 4
-  br label %195
+192:                                              ; preds = %186
+  %193 = load i32, ptr %190, align 4
+  %194 = add nsw i32 %193, -1
+  store i32 %194, ptr %190, align 4
+  br label %197
 
-193:                                              ; preds = %184
-  %194 = atomicrmw volatile add ptr %188, i32 -1 acq_rel, align 4
-  br label %195
+195:                                              ; preds = %186
+  %196 = atomicrmw volatile add ptr %190, i32 -1 acq_rel, align 4
+  br label %197
 
-195:                                              ; preds = %193, %190
-  %.0.i.i.i.i.i.i.i48 = phi i32 [ %191, %190 ], [ %194, %193 ]
-  %196 = icmp eq i32 %.0.i.i.i.i.i.i.i48, 1
-  br i1 %196, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i49, label %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_21BlocksGainCompensatorEEERS3_RKNS0_IT_EE.exit
+197:                                              ; preds = %195, %192
+  %.0.i.i.i.i.i.i.i48 = phi i32 [ %193, %192 ], [ %196, %195 ]
+  %198 = icmp eq i32 %.0.i.i.i.i.i.i.i48, 1
+  br i1 %198, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i49, label %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_21BlocksGainCompensatorEEERS3_RKNS0_IT_EE.exit
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i49: ; preds = %195, %171
-  %197 = load ptr, ptr %.pr.i.i.i.i41.pre, align 8
-  %198 = getelementptr inbounds i8, ptr %197, i64 24
-  %199 = load ptr, ptr %198, align 8
-  tail call void %199(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.i41.pre) #22
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i49: ; preds = %197, %173
+  %199 = load ptr, ptr %.pr.i.i.i.i41.pre, align 8
+  %200 = getelementptr inbounds i8, ptr %199, i64 24
+  %201 = load ptr, ptr %200, align 8
+  tail call void %201(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.i41.pre) #22
   br label %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_21BlocksGainCompensatorEEERS3_RKNS0_IT_EE.exit
 
-_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_21BlocksGainCompensatorEEERS3_RKNS0_IT_EE.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i42, %182, %195, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i49, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i42.thread
-  store ptr %151, ptr %163, align 8
-  %200 = load atomic i64, ptr %153 acquire, align 8
-  %201 = icmp eq i64 %200, 4294967297
-  %202 = trunc i64 %200 to i32
-  br i1 %201, label %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split.sink.split.sink.split, label %203
+_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_21BlocksGainCompensatorEEERS3_RKNS0_IT_EE.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i42, %184, %197, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i49, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i42.thread
+  store ptr %153, ptr %165, align 8
+  %202 = load atomic i64, ptr %155 acquire, align 8
+  %203 = icmp eq i64 %202, 4294967297
+  %204 = trunc i64 %202 to i32
+  br i1 %203, label %205, label %206
 
-203:                                              ; preds = %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_21BlocksGainCompensatorEEERS3_RKNS0_IT_EE.exit
-  %204 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i51 = icmp eq i8 %204, 0
-  br i1 %.not.i.i.i.i.i51, label %207, label %205
+205:                                              ; preds = %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_21BlocksGainCompensatorEEERS3_RKNS0_IT_EE.exit
+  store i32 0, ptr %155, align 8
+  store i32 0, ptr %156, align 4
+  br label %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split.sink.split.sink.split
 
-205:                                              ; preds = %203
-  %206 = add nsw i32 %202, -1
-  store i32 %206, ptr %153, align 4
-  br label %209
+206:                                              ; preds = %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_21BlocksGainCompensatorEEERS3_RKNS0_IT_EE.exit
+  %207 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i51 = icmp eq i8 %207, 0
+  br i1 %.not.i.i.i.i.i51, label %210, label %208
 
-207:                                              ; preds = %203
-  %208 = atomicrmw volatile add ptr %153, i32 -1 acq_rel, align 4
-  br label %209
+208:                                              ; preds = %206
+  %209 = add nsw i32 %204, -1
+  store i32 %209, ptr %155, align 4
+  br label %212
 
-209:                                              ; preds = %207, %205
-  %.0.i.i.i.i.i52 = phi i32 [ %202, %205 ], [ %208, %207 ]
-  %210 = icmp eq i32 %.0.i.i.i.i.i52, 1
-  br i1 %210, label %211, label %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split
+210:                                              ; preds = %206
+  %211 = atomicrmw volatile add ptr %155, i32 -1 acq_rel, align 4
+  br label %212
 
-211:                                              ; preds = %209
-  %212 = load ptr, ptr %151, align 8
-  %213 = getelementptr inbounds i8, ptr %212, i64 16
-  %214 = load ptr, ptr %213, align 8
-  tail call void %214(ptr noundef nonnull align 8 dereferenceable(16) %151) #22
-  %215 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i53 = icmp eq i8 %215, 0
-  br i1 %.not.i.i.i.i.i.i.i53, label %219, label %216
+212:                                              ; preds = %210, %208
+  %.0.i.i.i.i.i52 = phi i32 [ %204, %208 ], [ %211, %210 ]
+  %213 = icmp eq i32 %.0.i.i.i.i.i52, 1
+  br i1 %213, label %214, label %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split
 
-216:                                              ; preds = %211
-  %217 = load i32, ptr %154, align 4
-  %218 = add nsw i32 %217, -1
-  store i32 %218, ptr %154, align 4
-  br label %221
+214:                                              ; preds = %212
+  %215 = load ptr, ptr %153, align 8
+  %216 = getelementptr inbounds i8, ptr %215, i64 16
+  %217 = load ptr, ptr %216, align 8
+  tail call void %217(ptr noundef nonnull align 8 dereferenceable(16) %153) #22
+  %218 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i53 = icmp eq i8 %218, 0
+  br i1 %.not.i.i.i.i.i.i.i53, label %222, label %219
 
-219:                                              ; preds = %211
-  %220 = atomicrmw volatile add ptr %154, i32 -1 acq_rel, align 4
-  br label %221
+219:                                              ; preds = %214
+  %220 = load i32, ptr %156, align 4
+  %221 = add nsw i32 %220, -1
+  store i32 %221, ptr %156, align 4
+  br label %224
 
-221:                                              ; preds = %219, %216
-  %.0.i.i.i.i.i.i.i54 = phi i32 [ %217, %216 ], [ %220, %219 ]
-  %222 = icmp eq i32 %.0.i.i.i.i.i.i.i54, 1
-  br i1 %222, label %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split.sink.split, label %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split
+222:                                              ; preds = %214
+  %223 = atomicrmw volatile add ptr %156, i32 -1 acq_rel, align 4
+  br label %224
 
-223:                                              ; preds = %2
-  %224 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #21
-          to label %225 unwind label %72
+224:                                              ; preds = %222, %219
+  %.0.i.i.i.i.i.i.i54 = phi i32 [ %220, %219 ], [ %223, %222 ]
+  %225 = icmp eq i32 %.0.i.i.i.i.i.i.i54, 1
+  br i1 %225, label %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split.sink.split, label %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split
 
-225:                                              ; preds = %223
-  %226 = getelementptr inbounds i8, ptr %224, i64 8
-  store i32 1, ptr %226, align 8, !noalias !19
-  %227 = getelementptr inbounds i8, ptr %224, i64 12
-  store i32 1, ptr %227, align 4, !noalias !19
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail19ChannelsCompensatorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %224, align 8, !noalias !19
-  %228 = getelementptr inbounds i8, ptr %224, i64 16
-  %229 = getelementptr inbounds i8, ptr %224, i64 24
-  store i8 1, ptr %229, align 8, !noalias !19
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN2cv6detail19ChannelsCompensatorE, i64 16), ptr %228, align 8, !noalias !19
-  %230 = getelementptr inbounds i8, ptr %224, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %230, i8 0, i64 24, i1 false), !noalias !19
-  %231 = getelementptr inbounds i8, ptr %224, i64 56
-  store i32 1, ptr %231, align 8, !noalias !19
-  %232 = getelementptr inbounds i8, ptr %224, i64 64
-  store double 1.000000e+00, ptr %232, align 8, !noalias !19
-  store ptr %228, ptr %0, align 8
-  %233 = getelementptr inbounds i8, ptr %0, i64 8
-  %234 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i58 = icmp eq i8 %234, 0
+226:                                              ; preds = %2
+  %227 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #21
+          to label %228 unwind label %73
+
+228:                                              ; preds = %226
+  %229 = getelementptr inbounds i8, ptr %227, i64 8
+  store i32 1, ptr %229, align 8, !noalias !19
+  %230 = getelementptr inbounds i8, ptr %227, i64 12
+  store i32 1, ptr %230, align 4, !noalias !19
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail19ChannelsCompensatorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %227, align 8, !noalias !19
+  %231 = getelementptr inbounds i8, ptr %227, i64 16
+  %232 = getelementptr inbounds i8, ptr %227, i64 24
+  store i8 1, ptr %232, align 8, !noalias !19
+  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN2cv6detail19ChannelsCompensatorE, i64 16), ptr %231, align 8, !noalias !19
+  %233 = getelementptr inbounds i8, ptr %227, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %233, i8 0, i64 24, i1 false), !noalias !19
+  %234 = getelementptr inbounds i8, ptr %227, i64 56
+  store i32 1, ptr %234, align 8, !noalias !19
+  %235 = getelementptr inbounds i8, ptr %227, i64 64
+  store double 1.000000e+00, ptr %235, align 8, !noalias !19
+  store ptr %231, ptr %0, align 8
+  %236 = getelementptr inbounds i8, ptr %0, i64 8
+  %237 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i58 = icmp eq i8 %237, 0
   br i1 %.not.i.i.i.i.i58, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i61, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i61.thread
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i61.thread: ; preds = %225
-  store i32 2, ptr %226, align 4
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i61.thread: ; preds = %228
+  store i32 2, ptr %229, align 4
   br label %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_19ChannelsCompensatorEEERS3_RKNS0_IT_EE.exit
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i61: ; preds = %225
-  %235 = atomicrmw volatile add ptr %226, i32 1 acq_rel, align 4
-  %.pr.i.i.i.i60.pre = load ptr, ptr %233, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i61: ; preds = %228
+  %238 = atomicrmw volatile add ptr %229, i32 1 acq_rel, align 4
+  %.pr.i.i.i.i60.pre = load ptr, ptr %236, align 8
   %.not8.i.i.i.i62 = icmp eq ptr %.pr.i.i.i.i60.pre, null
-  br i1 %.not8.i.i.i.i62, label %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_19ChannelsCompensatorEEERS3_RKNS0_IT_EE.exit, label %236
+  br i1 %.not8.i.i.i.i62, label %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_19ChannelsCompensatorEEERS3_RKNS0_IT_EE.exit, label %239
 
-236:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i61
-  %237 = getelementptr inbounds i8, ptr %.pr.i.i.i.i60.pre, i64 8
-  %238 = load atomic i64, ptr %237 acquire, align 8
-  %239 = icmp eq i64 %238, 4294967297
-  %240 = trunc i64 %238 to i32
-  br i1 %239, label %241, label %246
+239:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i61
+  %240 = getelementptr inbounds i8, ptr %.pr.i.i.i.i60.pre, i64 8
+  %241 = load atomic i64, ptr %240 acquire, align 8
+  %242 = icmp eq i64 %241, 4294967297
+  %243 = trunc i64 %241 to i32
+  br i1 %242, label %244, label %249
 
-241:                                              ; preds = %236
-  store i32 0, ptr %237, align 8
-  %242 = getelementptr inbounds i8, ptr %.pr.i.i.i.i60.pre, i64 12
-  store i32 0, ptr %242, align 4
-  %243 = load ptr, ptr %.pr.i.i.i.i60.pre, align 8
-  %244 = getelementptr inbounds i8, ptr %243, i64 16
-  %245 = load ptr, ptr %244, align 8
-  tail call void %245(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.i60.pre) #22
+244:                                              ; preds = %239
+  store i32 0, ptr %240, align 8
+  %245 = getelementptr inbounds i8, ptr %.pr.i.i.i.i60.pre, i64 12
+  store i32 0, ptr %245, align 4
+  %246 = load ptr, ptr %.pr.i.i.i.i60.pre, align 8
+  %247 = getelementptr inbounds i8, ptr %246, i64 16
+  %248 = load ptr, ptr %247, align 8
+  tail call void %248(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.i60.pre) #22
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i68
 
-246:                                              ; preds = %236
-  %247 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i9.i.i.i.i63 = icmp eq i8 %247, 0
-  br i1 %.not.i9.i.i.i.i63, label %250, label %248
+249:                                              ; preds = %239
+  %250 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i9.i.i.i.i63 = icmp eq i8 %250, 0
+  br i1 %.not.i9.i.i.i.i63, label %253, label %251
 
-248:                                              ; preds = %246
-  %249 = add nsw i32 %240, -1
-  store i32 %249, ptr %237, align 4
-  br label %252
+251:                                              ; preds = %249
+  %252 = add nsw i32 %243, -1
+  store i32 %252, ptr %240, align 4
+  br label %255
 
-250:                                              ; preds = %246
-  %251 = atomicrmw volatile add ptr %237, i32 -1 acq_rel, align 4
-  br label %252
+253:                                              ; preds = %249
+  %254 = atomicrmw volatile add ptr %240, i32 -1 acq_rel, align 4
+  br label %255
 
-252:                                              ; preds = %250, %248
-  %.0.i.i.i.i.i64 = phi i32 [ %240, %248 ], [ %251, %250 ]
-  %253 = icmp eq i32 %.0.i.i.i.i.i64, 1
-  br i1 %253, label %254, label %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_19ChannelsCompensatorEEERS3_RKNS0_IT_EE.exit
+255:                                              ; preds = %253, %251
+  %.0.i.i.i.i.i64 = phi i32 [ %243, %251 ], [ %254, %253 ]
+  %256 = icmp eq i32 %.0.i.i.i.i.i64, 1
+  br i1 %256, label %257, label %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_19ChannelsCompensatorEEERS3_RKNS0_IT_EE.exit
 
-254:                                              ; preds = %252
-  %255 = load ptr, ptr %.pr.i.i.i.i60.pre, align 8
-  %256 = getelementptr inbounds i8, ptr %255, i64 16
-  %257 = load ptr, ptr %256, align 8
-  tail call void %257(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.i60.pre) #22
-  %258 = getelementptr inbounds i8, ptr %.pr.i.i.i.i60.pre, i64 12
-  %259 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i66 = icmp eq i8 %259, 0
-  br i1 %.not.i.i.i.i.i.i.i66, label %263, label %260
+257:                                              ; preds = %255
+  %258 = load ptr, ptr %.pr.i.i.i.i60.pre, align 8
+  %259 = getelementptr inbounds i8, ptr %258, i64 16
+  %260 = load ptr, ptr %259, align 8
+  tail call void %260(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.i60.pre) #22
+  %261 = getelementptr inbounds i8, ptr %.pr.i.i.i.i60.pre, i64 12
+  %262 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i66 = icmp eq i8 %262, 0
+  br i1 %.not.i.i.i.i.i.i.i66, label %266, label %263
 
-260:                                              ; preds = %254
-  %261 = load i32, ptr %258, align 4
-  %262 = add nsw i32 %261, -1
-  store i32 %262, ptr %258, align 4
-  br label %265
+263:                                              ; preds = %257
+  %264 = load i32, ptr %261, align 4
+  %265 = add nsw i32 %264, -1
+  store i32 %265, ptr %261, align 4
+  br label %268
 
-263:                                              ; preds = %254
-  %264 = atomicrmw volatile add ptr %258, i32 -1 acq_rel, align 4
-  br label %265
+266:                                              ; preds = %257
+  %267 = atomicrmw volatile add ptr %261, i32 -1 acq_rel, align 4
+  br label %268
 
-265:                                              ; preds = %263, %260
-  %.0.i.i.i.i.i.i.i67 = phi i32 [ %261, %260 ], [ %264, %263 ]
-  %266 = icmp eq i32 %.0.i.i.i.i.i.i.i67, 1
-  br i1 %266, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i68, label %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_19ChannelsCompensatorEEERS3_RKNS0_IT_EE.exit
+268:                                              ; preds = %266, %263
+  %.0.i.i.i.i.i.i.i67 = phi i32 [ %264, %263 ], [ %267, %266 ]
+  %269 = icmp eq i32 %.0.i.i.i.i.i.i.i67, 1
+  br i1 %269, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i68, label %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_19ChannelsCompensatorEEERS3_RKNS0_IT_EE.exit
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i68: ; preds = %265, %241
-  %267 = load ptr, ptr %.pr.i.i.i.i60.pre, align 8
-  %268 = getelementptr inbounds i8, ptr %267, i64 24
-  %269 = load ptr, ptr %268, align 8
-  tail call void %269(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.i60.pre) #22
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i68: ; preds = %268, %244
+  %270 = load ptr, ptr %.pr.i.i.i.i60.pre, align 8
+  %271 = getelementptr inbounds i8, ptr %270, i64 24
+  %272 = load ptr, ptr %271, align 8
+  tail call void %272(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.i60.pre) #22
   br label %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_19ChannelsCompensatorEEERS3_RKNS0_IT_EE.exit
 
-_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_19ChannelsCompensatorEEERS3_RKNS0_IT_EE.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i61, %252, %265, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i68, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i61.thread
-  store ptr %224, ptr %233, align 8
-  %270 = load atomic i64, ptr %226 acquire, align 8
-  %271 = icmp eq i64 %270, 4294967297
-  %272 = trunc i64 %270 to i32
-  br i1 %271, label %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split.sink.split.sink.split, label %273
+_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_19ChannelsCompensatorEEERS3_RKNS0_IT_EE.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i61, %255, %268, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i68, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i61.thread
+  store ptr %227, ptr %236, align 8
+  %273 = load atomic i64, ptr %229 acquire, align 8
+  %274 = icmp eq i64 %273, 4294967297
+  %275 = trunc i64 %273 to i32
+  br i1 %274, label %276, label %277
 
-273:                                              ; preds = %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_19ChannelsCompensatorEEERS3_RKNS0_IT_EE.exit
-  %274 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i70 = icmp eq i8 %274, 0
-  br i1 %.not.i.i.i.i.i70, label %277, label %275
+276:                                              ; preds = %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_19ChannelsCompensatorEEERS3_RKNS0_IT_EE.exit
+  store i32 0, ptr %229, align 8
+  store i32 0, ptr %230, align 4
+  br label %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split.sink.split.sink.split
 
-275:                                              ; preds = %273
-  %276 = add nsw i32 %272, -1
-  store i32 %276, ptr %226, align 4
-  br label %279
+277:                                              ; preds = %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_19ChannelsCompensatorEEERS3_RKNS0_IT_EE.exit
+  %278 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i70 = icmp eq i8 %278, 0
+  br i1 %.not.i.i.i.i.i70, label %281, label %279
 
-277:                                              ; preds = %273
-  %278 = atomicrmw volatile add ptr %226, i32 -1 acq_rel, align 4
-  br label %279
+279:                                              ; preds = %277
+  %280 = add nsw i32 %275, -1
+  store i32 %280, ptr %229, align 4
+  br label %283
 
-279:                                              ; preds = %277, %275
-  %.0.i.i.i.i.i71 = phi i32 [ %272, %275 ], [ %278, %277 ]
-  %280 = icmp eq i32 %.0.i.i.i.i.i71, 1
-  br i1 %280, label %281, label %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split
+281:                                              ; preds = %277
+  %282 = atomicrmw volatile add ptr %229, i32 -1 acq_rel, align 4
+  br label %283
 
-281:                                              ; preds = %279
-  %282 = load ptr, ptr %224, align 8
-  %283 = getelementptr inbounds i8, ptr %282, i64 16
-  %284 = load ptr, ptr %283, align 8
-  tail call void %284(ptr noundef nonnull align 8 dereferenceable(16) %224) #22
-  %285 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i72 = icmp eq i8 %285, 0
-  br i1 %.not.i.i.i.i.i.i.i72, label %289, label %286
+283:                                              ; preds = %281, %279
+  %.0.i.i.i.i.i71 = phi i32 [ %275, %279 ], [ %282, %281 ]
+  %284 = icmp eq i32 %.0.i.i.i.i.i71, 1
+  br i1 %284, label %285, label %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split
 
-286:                                              ; preds = %281
-  %287 = load i32, ptr %227, align 4
-  %288 = add nsw i32 %287, -1
-  store i32 %288, ptr %227, align 4
-  br label %291
+285:                                              ; preds = %283
+  %286 = load ptr, ptr %227, align 8
+  %287 = getelementptr inbounds i8, ptr %286, i64 16
+  %288 = load ptr, ptr %287, align 8
+  tail call void %288(ptr noundef nonnull align 8 dereferenceable(16) %227) #22
+  %289 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i72 = icmp eq i8 %289, 0
+  br i1 %.not.i.i.i.i.i.i.i72, label %293, label %290
 
-289:                                              ; preds = %281
-  %290 = atomicrmw volatile add ptr %227, i32 -1 acq_rel, align 4
-  br label %291
+290:                                              ; preds = %285
+  %291 = load i32, ptr %230, align 4
+  %292 = add nsw i32 %291, -1
+  store i32 %292, ptr %230, align 4
+  br label %295
 
-291:                                              ; preds = %289, %286
-  %.0.i.i.i.i.i.i.i73 = phi i32 [ %287, %286 ], [ %290, %289 ]
-  %292 = icmp eq i32 %.0.i.i.i.i.i.i.i73, 1
-  br i1 %292, label %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split.sink.split, label %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split
+293:                                              ; preds = %285
+  %294 = atomicrmw volatile add ptr %230, i32 -1 acq_rel, align 4
+  br label %295
 
-293:                                              ; preds = %2
-  %294 = invoke noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #21
-          to label %295 unwind label %72
+295:                                              ; preds = %293, %290
+  %.0.i.i.i.i.i.i.i73 = phi i32 [ %291, %290 ], [ %294, %293 ]
+  %296 = icmp eq i32 %.0.i.i.i.i.i.i.i73, 1
+  br i1 %296, label %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split.sink.split, label %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split
 
-295:                                              ; preds = %293
-  %296 = getelementptr inbounds i8, ptr %294, i64 8
-  store i32 1, ptr %296, align 8, !noalias !24
-  %297 = getelementptr inbounds i8, ptr %294, i64 12
-  store i32 1, ptr %297, align 4, !noalias !24
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail25BlocksChannelsCompensatorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %294, align 8, !noalias !24
-  %298 = getelementptr inbounds i8, ptr %294, i64 16
-  %299 = getelementptr inbounds i8, ptr %294, i64 24
-  store i8 1, ptr %299, align 8, !noalias !24
-  %300 = getelementptr inbounds i8, ptr %294, i64 28
-  store i32 32, ptr %300, align 4, !noalias !24
-  %301 = getelementptr inbounds i8, ptr %294, i64 32
-  store i32 32, ptr %301, align 8, !noalias !24
-  %302 = getelementptr inbounds i8, ptr %294, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %302, i8 0, i64 24, i1 false), !noalias !24
-  %303 = getelementptr inbounds i8, ptr %294, i64 64
-  store i32 1, ptr %303, align 8, !noalias !24
-  %304 = getelementptr inbounds i8, ptr %294, i64 68
-  store i32 2, ptr %304, align 4, !noalias !24
-  %305 = getelementptr inbounds i8, ptr %294, i64 72
-  store double 1.000000e+00, ptr %305, align 8, !noalias !24
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN2cv6detail25BlocksChannelsCompensatorE, i64 16), ptr %298, align 8, !noalias !24
-  store ptr %298, ptr %0, align 8
-  %306 = getelementptr inbounds i8, ptr %0, i64 8
-  %307 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i77 = icmp eq i8 %307, 0
+297:                                              ; preds = %2
+  %298 = invoke noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #21
+          to label %299 unwind label %73
+
+299:                                              ; preds = %297
+  %300 = getelementptr inbounds i8, ptr %298, i64 8
+  store i32 1, ptr %300, align 8, !noalias !24
+  %301 = getelementptr inbounds i8, ptr %298, i64 12
+  store i32 1, ptr %301, align 4, !noalias !24
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail25BlocksChannelsCompensatorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %298, align 8, !noalias !24
+  %302 = getelementptr inbounds i8, ptr %298, i64 16
+  %303 = getelementptr inbounds i8, ptr %298, i64 24
+  store i8 1, ptr %303, align 8, !noalias !24
+  %304 = getelementptr inbounds i8, ptr %298, i64 28
+  store i32 32, ptr %304, align 4, !noalias !24
+  %305 = getelementptr inbounds i8, ptr %298, i64 32
+  store i32 32, ptr %305, align 8, !noalias !24
+  %306 = getelementptr inbounds i8, ptr %298, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %306, i8 0, i64 24, i1 false), !noalias !24
+  %307 = getelementptr inbounds i8, ptr %298, i64 64
+  store i32 1, ptr %307, align 8, !noalias !24
+  %308 = getelementptr inbounds i8, ptr %298, i64 68
+  store i32 2, ptr %308, align 4, !noalias !24
+  %309 = getelementptr inbounds i8, ptr %298, i64 72
+  store double 1.000000e+00, ptr %309, align 8, !noalias !24
+  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN2cv6detail25BlocksChannelsCompensatorE, i64 16), ptr %302, align 8, !noalias !24
+  store ptr %302, ptr %0, align 8
+  %310 = getelementptr inbounds i8, ptr %0, i64 8
+  %311 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i77 = icmp eq i8 %311, 0
   br i1 %.not.i.i.i.i.i77, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i80, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i80.thread
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i80.thread: ; preds = %295
-  store i32 2, ptr %296, align 4
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i80.thread: ; preds = %299
+  store i32 2, ptr %300, align 4
   br label %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_25BlocksChannelsCompensatorEEERS3_RKNS0_IT_EE.exit
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i80: ; preds = %295
-  %308 = atomicrmw volatile add ptr %296, i32 1 acq_rel, align 4
-  %.pr.i.i.i.i79.pre = load ptr, ptr %306, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i80: ; preds = %299
+  %312 = atomicrmw volatile add ptr %300, i32 1 acq_rel, align 4
+  %.pr.i.i.i.i79.pre = load ptr, ptr %310, align 8
   %.not8.i.i.i.i81 = icmp eq ptr %.pr.i.i.i.i79.pre, null
-  br i1 %.not8.i.i.i.i81, label %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_25BlocksChannelsCompensatorEEERS3_RKNS0_IT_EE.exit, label %309
+  br i1 %.not8.i.i.i.i81, label %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_25BlocksChannelsCompensatorEEERS3_RKNS0_IT_EE.exit, label %313
 
-309:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i80
-  %310 = getelementptr inbounds i8, ptr %.pr.i.i.i.i79.pre, i64 8
-  %311 = load atomic i64, ptr %310 acquire, align 8
-  %312 = icmp eq i64 %311, 4294967297
-  %313 = trunc i64 %311 to i32
-  br i1 %312, label %314, label %319
+313:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i80
+  %314 = getelementptr inbounds i8, ptr %.pr.i.i.i.i79.pre, i64 8
+  %315 = load atomic i64, ptr %314 acquire, align 8
+  %316 = icmp eq i64 %315, 4294967297
+  %317 = trunc i64 %315 to i32
+  br i1 %316, label %318, label %323
 
-314:                                              ; preds = %309
-  store i32 0, ptr %310, align 8
-  %315 = getelementptr inbounds i8, ptr %.pr.i.i.i.i79.pre, i64 12
-  store i32 0, ptr %315, align 4
-  %316 = load ptr, ptr %.pr.i.i.i.i79.pre, align 8
-  %317 = getelementptr inbounds i8, ptr %316, i64 16
-  %318 = load ptr, ptr %317, align 8
-  tail call void %318(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.i79.pre) #22
+318:                                              ; preds = %313
+  store i32 0, ptr %314, align 8
+  %319 = getelementptr inbounds i8, ptr %.pr.i.i.i.i79.pre, i64 12
+  store i32 0, ptr %319, align 4
+  %320 = load ptr, ptr %.pr.i.i.i.i79.pre, align 8
+  %321 = getelementptr inbounds i8, ptr %320, i64 16
+  %322 = load ptr, ptr %321, align 8
+  tail call void %322(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.i79.pre) #22
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i87
 
-319:                                              ; preds = %309
-  %320 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i9.i.i.i.i82 = icmp eq i8 %320, 0
-  br i1 %.not.i9.i.i.i.i82, label %323, label %321
+323:                                              ; preds = %313
+  %324 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i9.i.i.i.i82 = icmp eq i8 %324, 0
+  br i1 %.not.i9.i.i.i.i82, label %327, label %325
 
-321:                                              ; preds = %319
-  %322 = add nsw i32 %313, -1
-  store i32 %322, ptr %310, align 4
-  br label %325
+325:                                              ; preds = %323
+  %326 = add nsw i32 %317, -1
+  store i32 %326, ptr %314, align 4
+  br label %329
 
-323:                                              ; preds = %319
-  %324 = atomicrmw volatile add ptr %310, i32 -1 acq_rel, align 4
-  br label %325
+327:                                              ; preds = %323
+  %328 = atomicrmw volatile add ptr %314, i32 -1 acq_rel, align 4
+  br label %329
 
-325:                                              ; preds = %323, %321
-  %.0.i.i.i.i.i83 = phi i32 [ %313, %321 ], [ %324, %323 ]
-  %326 = icmp eq i32 %.0.i.i.i.i.i83, 1
-  br i1 %326, label %327, label %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_25BlocksChannelsCompensatorEEERS3_RKNS0_IT_EE.exit
+329:                                              ; preds = %327, %325
+  %.0.i.i.i.i.i83 = phi i32 [ %317, %325 ], [ %328, %327 ]
+  %330 = icmp eq i32 %.0.i.i.i.i.i83, 1
+  br i1 %330, label %331, label %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_25BlocksChannelsCompensatorEEERS3_RKNS0_IT_EE.exit
 
-327:                                              ; preds = %325
-  %328 = load ptr, ptr %.pr.i.i.i.i79.pre, align 8
-  %329 = getelementptr inbounds i8, ptr %328, i64 16
-  %330 = load ptr, ptr %329, align 8
-  tail call void %330(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.i79.pre) #22
-  %331 = getelementptr inbounds i8, ptr %.pr.i.i.i.i79.pre, i64 12
-  %332 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i85 = icmp eq i8 %332, 0
-  br i1 %.not.i.i.i.i.i.i.i85, label %336, label %333
+331:                                              ; preds = %329
+  %332 = load ptr, ptr %.pr.i.i.i.i79.pre, align 8
+  %333 = getelementptr inbounds i8, ptr %332, i64 16
+  %334 = load ptr, ptr %333, align 8
+  tail call void %334(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.i79.pre) #22
+  %335 = getelementptr inbounds i8, ptr %.pr.i.i.i.i79.pre, i64 12
+  %336 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i85 = icmp eq i8 %336, 0
+  br i1 %.not.i.i.i.i.i.i.i85, label %340, label %337
 
-333:                                              ; preds = %327
-  %334 = load i32, ptr %331, align 4
-  %335 = add nsw i32 %334, -1
-  store i32 %335, ptr %331, align 4
-  br label %338
+337:                                              ; preds = %331
+  %338 = load i32, ptr %335, align 4
+  %339 = add nsw i32 %338, -1
+  store i32 %339, ptr %335, align 4
+  br label %342
 
-336:                                              ; preds = %327
-  %337 = atomicrmw volatile add ptr %331, i32 -1 acq_rel, align 4
-  br label %338
+340:                                              ; preds = %331
+  %341 = atomicrmw volatile add ptr %335, i32 -1 acq_rel, align 4
+  br label %342
 
-338:                                              ; preds = %336, %333
-  %.0.i.i.i.i.i.i.i86 = phi i32 [ %334, %333 ], [ %337, %336 ]
-  %339 = icmp eq i32 %.0.i.i.i.i.i.i.i86, 1
-  br i1 %339, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i87, label %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_25BlocksChannelsCompensatorEEERS3_RKNS0_IT_EE.exit
+342:                                              ; preds = %340, %337
+  %.0.i.i.i.i.i.i.i86 = phi i32 [ %338, %337 ], [ %341, %340 ]
+  %343 = icmp eq i32 %.0.i.i.i.i.i.i.i86, 1
+  br i1 %343, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i87, label %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_25BlocksChannelsCompensatorEEERS3_RKNS0_IT_EE.exit
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i87: ; preds = %338, %314
-  %340 = load ptr, ptr %.pr.i.i.i.i79.pre, align 8
-  %341 = getelementptr inbounds i8, ptr %340, i64 24
-  %342 = load ptr, ptr %341, align 8
-  tail call void %342(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.i79.pre) #22
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i87: ; preds = %342, %318
+  %344 = load ptr, ptr %.pr.i.i.i.i79.pre, align 8
+  %345 = getelementptr inbounds i8, ptr %344, i64 24
+  %346 = load ptr, ptr %345, align 8
+  tail call void %346(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.i79.pre) #22
   br label %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_25BlocksChannelsCompensatorEEERS3_RKNS0_IT_EE.exit
 
-_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_25BlocksChannelsCompensatorEEERS3_RKNS0_IT_EE.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i80, %325, %338, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i87, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i80.thread
-  store ptr %294, ptr %306, align 8
-  %343 = load atomic i64, ptr %296 acquire, align 8
-  %344 = icmp eq i64 %343, 4294967297
-  %345 = trunc i64 %343 to i32
-  br i1 %344, label %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split.sink.split.sink.split, label %346
+_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_25BlocksChannelsCompensatorEEERS3_RKNS0_IT_EE.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i80, %329, %342, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i87, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i80.thread
+  store ptr %298, ptr %310, align 8
+  %347 = load atomic i64, ptr %300 acquire, align 8
+  %348 = icmp eq i64 %347, 4294967297
+  %349 = trunc i64 %347 to i32
+  br i1 %348, label %350, label %351
 
-346:                                              ; preds = %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_25BlocksChannelsCompensatorEEERS3_RKNS0_IT_EE.exit
-  %347 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i89 = icmp eq i8 %347, 0
-  br i1 %.not.i.i.i.i.i89, label %350, label %348
+350:                                              ; preds = %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_25BlocksChannelsCompensatorEEERS3_RKNS0_IT_EE.exit
+  store i32 0, ptr %300, align 8
+  store i32 0, ptr %301, align 4
+  br label %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split.sink.split.sink.split
 
-348:                                              ; preds = %346
-  %349 = add nsw i32 %345, -1
-  store i32 %349, ptr %296, align 4
-  br label %352
+351:                                              ; preds = %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_25BlocksChannelsCompensatorEEERS3_RKNS0_IT_EE.exit
+  %352 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i89 = icmp eq i8 %352, 0
+  br i1 %.not.i.i.i.i.i89, label %355, label %353
 
-350:                                              ; preds = %346
-  %351 = atomicrmw volatile add ptr %296, i32 -1 acq_rel, align 4
-  br label %352
+353:                                              ; preds = %351
+  %354 = add nsw i32 %349, -1
+  store i32 %354, ptr %300, align 4
+  br label %357
 
-352:                                              ; preds = %350, %348
-  %.0.i.i.i.i.i90 = phi i32 [ %345, %348 ], [ %351, %350 ]
-  %353 = icmp eq i32 %.0.i.i.i.i.i90, 1
-  br i1 %353, label %354, label %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split
+355:                                              ; preds = %351
+  %356 = atomicrmw volatile add ptr %300, i32 -1 acq_rel, align 4
+  br label %357
 
-354:                                              ; preds = %352
-  %355 = load ptr, ptr %294, align 8
-  %356 = getelementptr inbounds i8, ptr %355, i64 16
-  %357 = load ptr, ptr %356, align 8
-  tail call void %357(ptr noundef nonnull align 8 dereferenceable(16) %294) #22
-  %358 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i91 = icmp eq i8 %358, 0
-  br i1 %.not.i.i.i.i.i.i.i91, label %362, label %359
+357:                                              ; preds = %355, %353
+  %.0.i.i.i.i.i90 = phi i32 [ %349, %353 ], [ %356, %355 ]
+  %358 = icmp eq i32 %.0.i.i.i.i.i90, 1
+  br i1 %358, label %359, label %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split
 
-359:                                              ; preds = %354
-  %360 = load i32, ptr %297, align 4
-  %361 = add nsw i32 %360, -1
-  store i32 %361, ptr %297, align 4
-  br label %364
+359:                                              ; preds = %357
+  %360 = load ptr, ptr %298, align 8
+  %361 = getelementptr inbounds i8, ptr %360, i64 16
+  %362 = load ptr, ptr %361, align 8
+  tail call void %362(ptr noundef nonnull align 8 dereferenceable(16) %298) #22
+  %363 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i91 = icmp eq i8 %363, 0
+  br i1 %.not.i.i.i.i.i.i.i91, label %367, label %364
 
-362:                                              ; preds = %354
-  %363 = atomicrmw volatile add ptr %297, i32 -1 acq_rel, align 4
-  br label %364
+364:                                              ; preds = %359
+  %365 = load i32, ptr %301, align 4
+  %366 = add nsw i32 %365, -1
+  store i32 %366, ptr %301, align 4
+  br label %369
 
-364:                                              ; preds = %362, %359
-  %.0.i.i.i.i.i.i.i92 = phi i32 [ %360, %359 ], [ %363, %362 ]
-  %365 = icmp eq i32 %.0.i.i.i.i.i.i.i92, 1
-  br i1 %365, label %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split.sink.split, label %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split
+367:                                              ; preds = %359
+  %368 = atomicrmw volatile add ptr %301, i32 -1 acq_rel, align 4
+  br label %369
 
-_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split.sink.split.sink.split: ; preds = %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_25BlocksChannelsCompensatorEEERS3_RKNS0_IT_EE.exit, %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_19ChannelsCompensatorEEERS3_RKNS0_IT_EE.exit, %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_21BlocksGainCompensatorEEERS3_RKNS0_IT_EE.exit, %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_15GainCompensatorEEERS3_RKNS0_IT_EE.exit, %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_21NoExposureCompensatorEEERS3_RKNS0_IT_EE.exit
-  %.sink131 = phi ptr [ %8, %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_21NoExposureCompensatorEEERS3_RKNS0_IT_EE.exit ], [ %77, %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_15GainCompensatorEEERS3_RKNS0_IT_EE.exit ], [ %153, %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_21BlocksGainCompensatorEEERS3_RKNS0_IT_EE.exit ], [ %226, %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_19ChannelsCompensatorEEERS3_RKNS0_IT_EE.exit ], [ %296, %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_25BlocksChannelsCompensatorEEERS3_RKNS0_IT_EE.exit ]
-  %.sink130 = phi ptr [ %9, %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_21NoExposureCompensatorEEERS3_RKNS0_IT_EE.exit ], [ %78, %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_15GainCompensatorEEERS3_RKNS0_IT_EE.exit ], [ %154, %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_21BlocksGainCompensatorEEERS3_RKNS0_IT_EE.exit ], [ %227, %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_19ChannelsCompensatorEEERS3_RKNS0_IT_EE.exit ], [ %297, %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_25BlocksChannelsCompensatorEEERS3_RKNS0_IT_EE.exit ]
-  %.sink129 = phi ptr [ %6, %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_21NoExposureCompensatorEEERS3_RKNS0_IT_EE.exit ], [ %75, %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_15GainCompensatorEEERS3_RKNS0_IT_EE.exit ], [ %151, %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_21BlocksGainCompensatorEEERS3_RKNS0_IT_EE.exit ], [ %224, %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_19ChannelsCompensatorEEERS3_RKNS0_IT_EE.exit ], [ %294, %_ZN2cv3PtrINS_6detail19ExposureCompensatorEEaSINS1_25BlocksChannelsCompensatorEEERS3_RKNS0_IT_EE.exit ]
-  store i32 0, ptr %.sink131, align 8
-  store i32 0, ptr %.sink130, align 4
-  %366 = load ptr, ptr %.sink129, align 8
-  %367 = getelementptr inbounds i8, ptr %366, i64 16
-  %368 = load ptr, ptr %367, align 8
-  tail call void %368(ptr noundef nonnull align 8 dereferenceable(16) %.sink129) #22
+369:                                              ; preds = %367, %364
+  %.0.i.i.i.i.i.i.i92 = phi i32 [ %365, %364 ], [ %368, %367 ]
+  %370 = icmp eq i32 %.0.i.i.i.i.i.i.i92, 1
+  br i1 %370, label %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split.sink.split, label %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split
+
+_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split.sink.split.sink.split: ; preds = %52, %131, %205, %276, %350
+  %.sink129 = phi ptr [ %298, %350 ], [ %227, %276 ], [ %153, %205 ], [ %76, %131 ], [ %6, %52 ]
+  %371 = load ptr, ptr %.sink129, align 8
+  %372 = getelementptr inbounds i8, ptr %371, i64 16
+  %373 = load ptr, ptr %372, align 8
+  tail call void %373(ptr noundef nonnull align 8 dereferenceable(16) %.sink129) #22
   br label %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split.sink.split
 
-_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split.sink.split: ; preds = %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split.sink.split.sink.split, %364, %291, %221, %148, %70
-  %.sink125 = phi ptr [ %6, %70 ], [ %75, %148 ], [ %151, %221 ], [ %224, %291 ], [ %294, %364 ], [ %.sink129, %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split.sink.split.sink.split ]
-  %369 = load ptr, ptr %.sink125, align 8
-  %370 = getelementptr inbounds i8, ptr %369, i64 24
-  %371 = load ptr, ptr %370, align 8
-  tail call void %371(ptr noundef nonnull align 8 dereferenceable(16) %.sink125) #22
+_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split.sink.split: ; preds = %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split.sink.split.sink.split, %369, %295, %224, %150, %71
+  %.sink125 = phi ptr [ %6, %71 ], [ %76, %150 ], [ %153, %224 ], [ %227, %295 ], [ %298, %369 ], [ %.sink129, %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split.sink.split.sink.split ]
+  %374 = load ptr, ptr %.sink125, align 8
+  %375 = getelementptr inbounds i8, ptr %374, i64 24
+  %376 = load ptr, ptr %375, align 8
+  tail call void %376(ptr noundef nonnull align 8 dereferenceable(16) %.sink125) #22
   br label %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split
 
-_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split: ; preds = %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split.sink.split, %58, %70, %136, %148, %209, %221, %279, %291, %352, %364
+_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split: ; preds = %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split.sink.split, %59, %71, %138, %150, %212, %224, %283, %295, %357, %369
   %.pr = load ptr, ptr %0, align 8
-  %372 = icmp eq ptr %.pr, null
-  br i1 %372, label %.critedge, label %380
+  %377 = icmp eq ptr %.pr, null
+  br i1 %377, label %.critedge, label %385
 
 .critedge:                                        ; preds = %2, %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #22
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %373 unwind label %375
+          to label %378 unwind label %380
 
-373:                                              ; preds = %.critedge
+378:                                              ; preds = %.critedge
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -5, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @__func__._ZN2cv6detail19ExposureCompensator13createDefaultEi, ptr noundef nonnull @.str.1, i32 noundef 69) #23
-          to label %374 unwind label %377
+          to label %379 unwind label %382
 
-374:                                              ; preds = %373
+379:                                              ; preds = %378
   unreachable
 
-375:                                              ; preds = %.critedge
-  %376 = landingpad { ptr, i32 }
+380:                                              ; preds = %.critedge
+  %381 = landingpad { ptr, i32 }
           cleanup
-  br label %379
+  br label %384
 
-377:                                              ; preds = %373
-  %378 = landingpad { ptr, i32 }
+382:                                              ; preds = %378
+  %383 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
-  br label %379
+  br label %384
 
-379:                                              ; preds = %377, %375
-  %.pn = phi { ptr, i32 } [ %378, %377 ], [ %376, %375 ]
+384:                                              ; preds = %382, %380
+  %.pn = phi { ptr, i32 } [ %383, %382 ], [ %381, %380 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #22
-  br label %381
+  br label %386
 
-380:                                              ; preds = %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split
+385:                                              ; preds = %_ZN2cv3PtrINS_6detail21NoExposureCompensatorEED2Ev.exitthread-pre-split
   ret void
 
-381:                                              ; preds = %379, %72
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %379 ], [ %73, %72 ]
+386:                                              ; preds = %384, %73
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %384 ], [ %74, %73 ]
   call void @_ZN2cv3PtrINS_6detail19ExposureCompensatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #22
   resume { ptr, i32 } %.pn.pn
 }

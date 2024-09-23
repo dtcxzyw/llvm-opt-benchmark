@@ -600,8 +600,8 @@ define dso_local void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8
           to label %.invoke unwind label %19
 
 .invoke:                                          ; preds = %134, %130
-  %.sink = phi ptr [ %131, %130 ], [ %135, %134 ]
-  %138 = load ptr, ptr %.sink, align 8
+  %.in = phi ptr [ %131, %130 ], [ %135, %134 ]
+  %138 = load ptr, ptr %.in, align 8
   %139 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %138)
           to label %140 unwind label %19
 

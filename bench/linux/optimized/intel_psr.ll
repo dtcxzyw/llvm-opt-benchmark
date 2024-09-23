@@ -8572,13 +8572,13 @@ define internal range(i32 2, 1) i32 @i915_psr_sink_status_show(ptr noundef %0, p
 
 32:                                               ; preds = %28, %24
   tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.165) #10
-  br label %135
+  br label %136
 
 33:                                               ; preds = %28, %20
   %34 = getelementptr inbounds i8, ptr %6, i64 176
   %35 = load i32, ptr %34, align 8
   %36 = icmp eq i32 %35, 1
-  br i1 %36, label %37, label %135
+  br i1 %36, label %37, label %136
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds i8, ptr %16, i64 616
@@ -8609,12 +8609,12 @@ define internal range(i32 2, 1) i32 @i915_psr_sink_status_show(ptr noundef %0, p
 55:                                               ; preds = %46, %37
   %56 = phi i32 [ %44, %37 ], [ %51, %46 ]
   %57 = icmp eq i32 %56, 0
-  br i1 %57, label %58, label %135
+  br i1 %57, label %58, label %136
 
 58:                                               ; preds = %.thread, %55
   %59 = load i8, ptr %39, align 8, !range !5, !noundef !6
   %60 = icmp eq i8 %59, 0
-  br i1 %60, label %61, label %68
+  br i1 %60, label %61, label %69
 
 61:                                               ; preds = %58
   %62 = getelementptr inbounds i8, ptr %16, i64 3638
@@ -8627,125 +8627,120 @@ define internal range(i32 2, 1) i32 @i915_psr_sink_status_show(ptr noundef %0, p
   %65 = and i8 %.pre.pre, 7
   %66 = zext nneg i8 %65 to i64
   %67 = getelementptr [8 x ptr], ptr @i915_psr_sink_status_show.sink_status, i64 0, i64 %66
-  br label %.thread3.sink.split
-
-68:                                               ; preds = %58
-  %69 = load i8, ptr %3, align 1
-  %70 = lshr i8 %69, 3
-  %71 = and i8 %70, 3
-  %72 = zext nneg i8 %71 to i64
-  %73 = getelementptr [4 x ptr], ptr @i915_psr_sink_status_show.panel_replay_status, i64 0, i64 %72
-  br label %.thread3.sink.split
-
-.thread3.sink.split:                              ; preds = %68, %.thread4
-  %.sink = phi ptr [ %67, %.thread4 ], [ %73, %68 ]
-  %.ph = phi i8 [ %.pre.pre, %.thread4 ], [ %69, %68 ]
-  %.ph8 = phi ptr [ @.str.174, %.thread4 ], [ @.str.173, %68 ]
-  %74 = load ptr, ptr %.sink, align 8
+  %68 = load ptr, ptr %67, align 8
   br label %.thread3
 
-.thread3:                                         ; preds = %.thread3.sink.split, %61
-  %75 = phi i8 [ %.pre.pre, %61 ], [ %.ph, %.thread3.sink.split ]
-  %76 = phi ptr [ @.str.133, %61 ], [ %74, %.thread3.sink.split ]
-  %77 = phi ptr [ @.str.133, %61 ], [ %.ph8, %.thread3.sink.split ]
-  %78 = zext i8 %75 to i32
-  call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.166, ptr noundef nonnull %77, i32 noundef %78, ptr noundef %76) #10
-  %79 = load i8, ptr %39, align 8, !range !5, !noundef !6
-  %80 = icmp eq i8 %79, 0
-  br i1 %80, label %81, label %86
+69:                                               ; preds = %58
+  %70 = load i8, ptr %3, align 1
+  %71 = lshr i8 %70, 3
+  %72 = and i8 %71, 3
+  %73 = zext nneg i8 %72 to i64
+  %74 = getelementptr [4 x ptr], ptr @i915_psr_sink_status_show.panel_replay_status, i64 0, i64 %73
+  %75 = load ptr, ptr %74, align 8
+  br label %.thread3
 
-81:                                               ; preds = %.thread3
-  %82 = getelementptr inbounds i8, ptr %16, i64 3638
-  %83 = load i8, ptr %82, align 2, !range !5, !noundef !6
-  %84 = icmp eq i8 %83, 0
-  %85 = select i1 %84, ptr @.str.133, ptr @.str.174
-  br label %86
+.thread3:                                         ; preds = %.thread4, %61, %69
+  %76 = phi i8 [ %70, %69 ], [ %.pre.pre, %61 ], [ %.pre.pre, %.thread4 ]
+  %77 = phi ptr [ %75, %69 ], [ @.str.133, %61 ], [ %68, %.thread4 ]
+  %78 = phi ptr [ @.str.173, %69 ], [ @.str.133, %61 ], [ @.str.174, %.thread4 ]
+  %79 = zext i8 %76 to i32
+  call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.166, ptr noundef nonnull %78, i32 noundef %79, ptr noundef %77) #10
+  %80 = load i8, ptr %39, align 8, !range !5, !noundef !6
+  %81 = icmp eq i8 %80, 0
+  br i1 %81, label %82, label %87
 
-86:                                               ; preds = %81, %.thread3
-  %87 = phi ptr [ @.str.173, %.thread3 ], [ %85, %81 ]
-  %88 = load i8, ptr %4, align 1
-  %89 = zext i8 %88 to i32
-  call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.167, ptr noundef nonnull %87, i32 noundef %89) #10
-  %90 = load i8, ptr %4, align 1
-  %91 = and i8 %90, 7
-  %92 = icmp eq i8 %91, 0
-  %93 = select i1 %92, ptr @.str.169, ptr @.str.168
-  call void @seq_puts(ptr noundef %0, ptr noundef nonnull %93) #10
-  %94 = load i8, ptr %4, align 1
-  %95 = and i8 %94, 2
-  %96 = icmp eq i8 %95, 0
-  br i1 %96, label %107, label %97
+82:                                               ; preds = %.thread3
+  %83 = getelementptr inbounds i8, ptr %16, i64 3638
+  %84 = load i8, ptr %83, align 2, !range !5, !noundef !6
+  %85 = icmp eq i8 %84, 0
+  %86 = select i1 %85, ptr @.str.133, ptr @.str.174
+  br label %87
 
-97:                                               ; preds = %86
-  %98 = load i8, ptr %39, align 8, !range !5, !noundef !6
-  %99 = icmp eq i8 %98, 0
-  br i1 %99, label %100, label %105
+87:                                               ; preds = %82, %.thread3
+  %88 = phi ptr [ @.str.173, %.thread3 ], [ %86, %82 ]
+  %89 = load i8, ptr %4, align 1
+  %90 = zext i8 %89 to i32
+  call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.167, ptr noundef nonnull %88, i32 noundef %90) #10
+  %91 = load i8, ptr %4, align 1
+  %92 = and i8 %91, 7
+  %93 = icmp eq i8 %92, 0
+  %94 = select i1 %93, ptr @.str.169, ptr @.str.168
+  call void @seq_puts(ptr noundef %0, ptr noundef nonnull %94) #10
+  %95 = load i8, ptr %4, align 1
+  %96 = and i8 %95, 2
+  %97 = icmp eq i8 %96, 0
+  br i1 %97, label %108, label %98
 
-100:                                              ; preds = %97
-  %101 = getelementptr inbounds i8, ptr %16, i64 3638
-  %102 = load i8, ptr %101, align 2, !range !5, !noundef !6
-  %103 = icmp eq i8 %102, 0
-  %104 = select i1 %103, ptr @.str.133, ptr @.str.174
-  br label %105
+98:                                               ; preds = %87
+  %99 = load i8, ptr %39, align 8, !range !5, !noundef !6
+  %100 = icmp eq i8 %99, 0
+  br i1 %100, label %101, label %106
 
-105:                                              ; preds = %100, %97
-  %106 = phi ptr [ @.str.173, %97 ], [ %104, %100 ]
-  call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.170, ptr noundef nonnull %106) #10
+101:                                              ; preds = %98
+  %102 = getelementptr inbounds i8, ptr %16, i64 3638
+  %103 = load i8, ptr %102, align 2, !range !5, !noundef !6
+  %104 = icmp eq i8 %103, 0
+  %105 = select i1 %104, ptr @.str.133, ptr @.str.174
+  br label %106
+
+106:                                              ; preds = %101, %98
+  %107 = phi ptr [ @.str.173, %98 ], [ %105, %101 ]
+  call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.170, ptr noundef nonnull %107) #10
   %.pre5 = load i8, ptr %4, align 1
-  br label %107
+  br label %108
 
-107:                                              ; preds = %105, %86
-  %108 = phi i8 [ %.pre5, %105 ], [ %94, %86 ]
-  %109 = and i8 %108, 4
-  %110 = icmp eq i8 %109, 0
-  br i1 %110, label %121, label %111
+108:                                              ; preds = %106, %87
+  %109 = phi i8 [ %.pre5, %106 ], [ %95, %87 ]
+  %110 = and i8 %109, 4
+  %111 = icmp eq i8 %110, 0
+  br i1 %111, label %122, label %112
 
-111:                                              ; preds = %107
-  %112 = load i8, ptr %39, align 8, !range !5, !noundef !6
-  %113 = icmp eq i8 %112, 0
-  br i1 %113, label %114, label %119
+112:                                              ; preds = %108
+  %113 = load i8, ptr %39, align 8, !range !5, !noundef !6
+  %114 = icmp eq i8 %113, 0
+  br i1 %114, label %115, label %120
 
-114:                                              ; preds = %111
-  %115 = getelementptr inbounds i8, ptr %16, i64 3638
-  %116 = load i8, ptr %115, align 2, !range !5, !noundef !6
-  %117 = icmp eq i8 %116, 0
-  %118 = select i1 %117, ptr @.str.133, ptr @.str.174
-  br label %119
+115:                                              ; preds = %112
+  %116 = getelementptr inbounds i8, ptr %16, i64 3638
+  %117 = load i8, ptr %116, align 2, !range !5, !noundef !6
+  %118 = icmp eq i8 %117, 0
+  %119 = select i1 %118, ptr @.str.133, ptr @.str.174
+  br label %120
 
-119:                                              ; preds = %114, %111
-  %120 = phi ptr [ @.str.173, %111 ], [ %118, %114 ]
-  call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.171, ptr noundef nonnull %120) #10
+120:                                              ; preds = %115, %112
+  %121 = phi ptr [ @.str.173, %112 ], [ %119, %115 ]
+  call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.171, ptr noundef nonnull %121) #10
   %.pre6 = load i8, ptr %4, align 1
-  br label %121
+  br label %122
 
-121:                                              ; preds = %119, %107
-  %122 = phi i8 [ %.pre6, %119 ], [ %108, %107 ]
-  %123 = and i8 %122, 1
-  %124 = icmp eq i8 %123, 0
-  br i1 %124, label %135, label %125
+122:                                              ; preds = %120, %108
+  %123 = phi i8 [ %.pre6, %120 ], [ %109, %108 ]
+  %124 = and i8 %123, 1
+  %125 = icmp eq i8 %124, 0
+  br i1 %125, label %136, label %126
 
-125:                                              ; preds = %121
-  %126 = load i8, ptr %39, align 8, !range !5, !noundef !6
-  %127 = icmp eq i8 %126, 0
-  br i1 %127, label %128, label %133
+126:                                              ; preds = %122
+  %127 = load i8, ptr %39, align 8, !range !5, !noundef !6
+  %128 = icmp eq i8 %127, 0
+  br i1 %128, label %129, label %134
 
-128:                                              ; preds = %125
-  %129 = getelementptr inbounds i8, ptr %16, i64 3638
-  %130 = load i8, ptr %129, align 2, !range !5, !noundef !6
-  %131 = icmp eq i8 %130, 0
-  %132 = select i1 %131, ptr @.str.133, ptr @.str.174
-  br label %133
+129:                                              ; preds = %126
+  %130 = getelementptr inbounds i8, ptr %16, i64 3638
+  %131 = load i8, ptr %130, align 2, !range !5, !noundef !6
+  %132 = icmp eq i8 %131, 0
+  %133 = select i1 %132, ptr @.str.133, ptr @.str.174
+  br label %134
 
-133:                                              ; preds = %128, %125
-  %134 = phi ptr [ @.str.173, %125 ], [ %132, %128 ]
-  call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.172, ptr noundef nonnull %134) #10
-  br label %135
+134:                                              ; preds = %129, %126
+  %135 = phi ptr [ @.str.173, %126 ], [ %133, %129 ]
+  call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.172, ptr noundef nonnull %135) #10
+  br label %136
 
-135:                                              ; preds = %133, %121, %55, %33, %32
-  %136 = phi i32 [ -19, %32 ], [ -19, %33 ], [ %56, %55 ], [ 0, %133 ], [ 0, %121 ]
+136:                                              ; preds = %134, %122, %55, %33, %32
+  %137 = phi i32 [ -19, %32 ], [ -19, %33 ], [ %56, %55 ], [ 0, %134 ], [ 0, %122 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #10
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #10
-  ret i32 %136
+  ret i32 %137
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

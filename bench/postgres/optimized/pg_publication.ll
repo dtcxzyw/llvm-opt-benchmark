@@ -440,332 +440,336 @@ define dso_local { i64, i32 } @publication_add_relation(i32 noundef %0, ptr noca
   %13 = zext i32 %10 to i64
   %14 = zext i32 %0 to i64
   %15 = tail call zeroext i1 @SearchSysCacheExists(i32 noundef 51, i64 noundef %13, i64 noundef %14, i64 noundef 0, i64 noundef 0) #6
-  br i1 %15, label %16, label %26
+  br i1 %15, label %16, label %27
 
 16:                                               ; preds = %3
   tail call void @table_close(ptr noundef %12, i32 noundef 3) #6
-  br i1 %2, label %171, label %17
+  br i1 %2, label %17, label %18
 
 17:                                               ; preds = %16
-  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %18)
-  %19 = tail call i32 @errcode(i32 noundef 290948) #6
-  %20 = getelementptr inbounds i8, ptr %8, i64 56
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 4
-  %23 = getelementptr inbounds i8, ptr %11, i64 8
-  %24 = load ptr, ptr %23, align 8
-  %25 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %22, ptr noundef %24) #6
+  %.sroa.3.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), align 4
+  br label %172
+
+18:                                               ; preds = %16
+  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  tail call void @llvm.assume(i1 %19)
+  %20 = tail call i32 @errcode(i32 noundef 290948) #6
+  %21 = getelementptr inbounds i8, ptr %8, i64 56
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 4
+  %24 = getelementptr inbounds i8, ptr %11, i64 8
+  %25 = load ptr, ptr %24, align 8
+  %26 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %23, ptr noundef %25) #6
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 398, ptr noundef nonnull @__func__.publication_add_relation) #6
   unreachable
 
-26:                                               ; preds = %3
-  %27 = getelementptr inbounds i8, ptr %8, i64 56
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 115
-  %30 = load i8, ptr %29, align 1
-  switch i8 %30, label %31 [
-    i8 114, label %41
-    i8 112, label %41
+27:                                               ; preds = %3
+  %28 = getelementptr inbounds i8, ptr %8, i64 56
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %29, i64 115
+  %31 = load i8, ptr %30, align 1
+  switch i8 %31, label %32 [
+    i8 114, label %42
+    i8 112, label %42
   ]
 
-31:                                               ; preds = %26
-  %32 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %32)
-  %33 = tail call i32 @errcode(i32 noundef 50856066) #6
-  %34 = load ptr, ptr %27, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 4
-  %36 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef nonnull %35) #6
-  %37 = load ptr, ptr %27, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 115
-  %39 = load i8, ptr %38, align 1
-  %40 = tail call i32 @errdetail_relkind_not_supported(i8 noundef signext %39) #6
+32:                                               ; preds = %27
+  %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  tail call void @llvm.assume(i1 %33)
+  %34 = tail call i32 @errcode(i32 noundef 50856066) #6
+  %35 = load ptr, ptr %28, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 4
+  %37 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef nonnull %36) #6
+  %38 = load ptr, ptr %28, align 8
+  %39 = getelementptr inbounds i8, ptr %38, i64 115
+  %40 = load i8, ptr %39, align 1
+  %41 = tail call i32 @errdetail_relkind_not_supported(i8 noundef signext %40) #6
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 73, ptr noundef nonnull @__func__.check_publication_add_relation) #6
   unreachable
 
-41:                                               ; preds = %26, %26
-  %42 = tail call zeroext i1 @IsCatalogRelation(ptr noundef nonnull %8) #6
-  br i1 %42, label %43, label %50
+42:                                               ; preds = %27, %27
+  %43 = tail call zeroext i1 @IsCatalogRelation(ptr noundef nonnull %8) #6
+  br i1 %43, label %44, label %51
 
-43:                                               ; preds = %41
-  %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %44)
-  %45 = tail call i32 @errcode(i32 noundef 50856066) #6
-  %46 = load ptr, ptr %27, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 4
-  %48 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef nonnull %47) #6
-  %49 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.9) #6
+44:                                               ; preds = %42
+  %45 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  tail call void @llvm.assume(i1 %45)
+  %46 = tail call i32 @errcode(i32 noundef 50856066) #6
+  %47 = load ptr, ptr %28, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i64 4
+  %49 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef nonnull %48) #6
+  %50 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.9) #6
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 81, ptr noundef nonnull @__func__.check_publication_add_relation) #6
   unreachable
 
-50:                                               ; preds = %41
-  %51 = load ptr, ptr %27, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 114
-  %53 = load i8, ptr %52, align 2
-  switch i8 %53, label %check_publication_add_relation.exit [
-    i8 116, label %54
-    i8 117, label %61
+51:                                               ; preds = %42
+  %52 = load ptr, ptr %28, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 114
+  %54 = load i8, ptr %53, align 2
+  switch i8 %54, label %check_publication_add_relation.exit [
+    i8 116, label %55
+    i8 117, label %62
   ]
 
-54:                                               ; preds = %50
-  %55 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %55)
-  %56 = tail call i32 @errcode(i32 noundef 50856066) #6
-  %57 = load ptr, ptr %27, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 4
-  %59 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef nonnull %58) #6
-  %60 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.10) #6
+55:                                               ; preds = %51
+  %56 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  tail call void @llvm.assume(i1 %56)
+  %57 = tail call i32 @errcode(i32 noundef 50856066) #6
+  %58 = load ptr, ptr %28, align 8
+  %59 = getelementptr inbounds i8, ptr %58, i64 4
+  %60 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef nonnull %59) #6
+  %61 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.10) #6
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 89, ptr noundef nonnull @__func__.check_publication_add_relation) #6
   unreachable
 
-61:                                               ; preds = %50
-  %62 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %62)
-  %63 = tail call i32 @errcode(i32 noundef 50856066) #6
-  %64 = load ptr, ptr %27, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 4
-  %66 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef nonnull %65) #6
-  %67 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.11) #6
+62:                                               ; preds = %51
+  %63 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  tail call void @llvm.assume(i1 %63)
+  %64 = tail call i32 @errcode(i32 noundef 50856066) #6
+  %65 = load ptr, ptr %28, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 4
+  %67 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef nonnull %66) #6
+  %68 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.11) #6
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 95, ptr noundef nonnull @__func__.check_publication_add_relation) #6
   unreachable
 
-check_publication_add_relation.exit:              ; preds = %50
-  %68 = load ptr, ptr %1, align 8
-  %69 = getelementptr inbounds i8, ptr %1, i64 16
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %68, i64 64
-  %72 = load ptr, ptr %71, align 8
-  %.not.i = icmp eq ptr %70, null
+check_publication_add_relation.exit:              ; preds = %51
+  %69 = load ptr, ptr %1, align 8
+  %70 = getelementptr inbounds i8, ptr %1, i64 16
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %69, i64 64
+  %73 = load ptr, ptr %72, align 8
+  %.not.i = icmp eq ptr %71, null
   br i1 %.not.i, label %publication_translate_columns.exit, label %list_length.exit.i
 
 list_length.exit.i:                               ; preds = %check_publication_add_relation.exit
-  %73 = getelementptr inbounds i8, ptr %70, i64 4
-  %74 = load i32, ptr %73, align 4
-  %75 = sext i32 %74 to i64
-  %76 = shl nsw i64 %75, 1
-  %77 = tail call ptr @palloc(i64 noundef %76) #6
-  %78 = load i32, ptr %73, align 4
-  %.not3853.i = icmp sgt i32 %78, 0
+  %74 = getelementptr inbounds i8, ptr %71, i64 4
+  %75 = load i32, ptr %74, align 4
+  %76 = sext i32 %75 to i64
+  %77 = shl nsw i64 %76, 1
+  %78 = tail call ptr @palloc(i64 noundef %77) #6
+  %79 = load i32, ptr %74, align 4
+  %.not3853.i = icmp sgt i32 %79, 0
   br i1 %.not3853.i, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %list_length.exit.i
-  %79 = getelementptr inbounds i8, ptr %70, i64 16
-  %80 = getelementptr inbounds i8, ptr %68, i64 72
-  %81 = getelementptr inbounds i8, ptr %72, i64 24
-  br label %82
+  %80 = getelementptr inbounds i8, ptr %71, i64 16
+  %81 = getelementptr inbounds i8, ptr %69, i64 72
+  %82 = getelementptr inbounds i8, ptr %73, i64 24
+  br label %83
 
-82:                                               ; preds = %120, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %120 ]
-  %.056.i = phi ptr [ null, %.lr.ph.i ], [ %121, %120 ]
-  %83 = load ptr, ptr %79, align 8
-  %84 = getelementptr %union.ListCell, ptr %83, i64 %indvars.iv.i
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 8
-  %87 = load ptr, ptr %86, align 8
-  %88 = load i32, ptr %80, align 8
-  %89 = tail call signext i16 @get_attnum(i32 noundef %88, ptr noundef %87) #6
-  %90 = sext i16 %89 to i32
-  %91 = icmp eq i16 %89, 0
-  br i1 %91, label %92, label %99
+83:                                               ; preds = %121, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %121 ]
+  %.056.i = phi ptr [ null, %.lr.ph.i ], [ %122, %121 ]
+  %84 = load ptr, ptr %80, align 8
+  %85 = getelementptr %union.ListCell, ptr %84, i64 %indvars.iv.i
+  %86 = load ptr, ptr %85, align 8
+  %87 = getelementptr inbounds i8, ptr %86, i64 8
+  %88 = load ptr, ptr %87, align 8
+  %89 = load i32, ptr %81, align 8
+  %90 = tail call signext i16 @get_attnum(i32 noundef %89, ptr noundef %88) #6
+  %91 = sext i16 %90 to i32
+  %92 = icmp eq i16 %90, 0
+  br i1 %92, label %93, label %100
 
-92:                                               ; preds = %82
-  %93 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %93)
-  %94 = tail call i32 @errcode(i32 noundef 50360452) #6
-  %95 = getelementptr inbounds i8, ptr %68, i64 56
-  %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 4
-  %98 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef %87, ptr noundef nonnull %97) #6
+93:                                               ; preds = %83
+  %94 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  tail call void @llvm.assume(i1 %94)
+  %95 = tail call i32 @errcode(i32 noundef 50360452) #6
+  %96 = getelementptr inbounds i8, ptr %69, i64 56
+  %97 = load ptr, ptr %96, align 8
+  %98 = getelementptr inbounds i8, ptr %97, i64 4
+  %99 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef %88, ptr noundef nonnull %98) #6
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 534, ptr noundef nonnull @__func__.publication_translate_columns) #6
   unreachable
 
-99:                                               ; preds = %82
-  %100 = icmp sgt i16 %89, 0
-  br i1 %100, label %105, label %101
+100:                                              ; preds = %83
+  %101 = icmp sgt i16 %90, 0
+  br i1 %101, label %106, label %102
 
-101:                                              ; preds = %99
-  %102 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %102)
-  %103 = tail call i32 @errcode(i32 noundef 393348) #6
-  %104 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, ptr noundef %87) #6
+102:                                              ; preds = %100
+  %103 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  tail call void @llvm.assume(i1 %103)
+  %104 = tail call i32 @errcode(i32 noundef 393348) #6
+  %105 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, ptr noundef %88) #6
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 540, ptr noundef nonnull @__func__.publication_translate_columns) #6
   unreachable
 
-105:                                              ; preds = %99
-  %106 = add nsw i32 %90, -1
-  %107 = zext nneg i32 %106 to i64
-  %108 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %81, i64 0, i64 %107, i32 16
-  %109 = load i8, ptr %108, align 2
-  %.not39.i = icmp eq i8 %109, 0
-  br i1 %.not39.i, label %114, label %110
+106:                                              ; preds = %100
+  %107 = add nsw i32 %91, -1
+  %108 = zext nneg i32 %107 to i64
+  %109 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %82, i64 0, i64 %108, i32 16
+  %110 = load i8, ptr %109, align 2
+  %.not39.i = icmp eq i8 %110, 0
+  br i1 %.not39.i, label %115, label %111
 
-110:                                              ; preds = %105
-  %111 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %111)
-  %112 = tail call i32 @errcode(i32 noundef 393348) #6
-  %113 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14, ptr noundef %87) #6
+111:                                              ; preds = %106
+  %112 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  tail call void @llvm.assume(i1 %112)
+  %113 = tail call i32 @errcode(i32 noundef 393348) #6
+  %114 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14, ptr noundef %88) #6
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 546, ptr noundef nonnull @__func__.publication_translate_columns) #6
   unreachable
 
-114:                                              ; preds = %105
-  %115 = tail call zeroext i1 @bms_is_member(i32 noundef %90, ptr noundef %.056.i) #6
-  br i1 %115, label %116, label %120
+115:                                              ; preds = %106
+  %116 = tail call zeroext i1 @bms_is_member(i32 noundef %91, ptr noundef %.056.i) #6
+  br i1 %116, label %117, label %121
 
-116:                                              ; preds = %114
-  %117 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %117)
-  %118 = tail call i32 @errcode(i32 noundef 290948) #6
-  %119 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef %87) #6
+117:                                              ; preds = %115
+  %118 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  tail call void @llvm.assume(i1 %118)
+  %119 = tail call i32 @errcode(i32 noundef 290948) #6
+  %120 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef %88) #6
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 552, ptr noundef nonnull @__func__.publication_translate_columns) #6
   unreachable
 
-120:                                              ; preds = %114
-  %121 = tail call ptr @bms_add_member(ptr noundef %.056.i, i32 noundef %90) #6
+121:                                              ; preds = %115
+  %122 = tail call ptr @bms_add_member(ptr noundef %.056.i, i32 noundef %91) #6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %122 = getelementptr i16, ptr %77, i64 %indvars.iv.i
-  store i16 %89, ptr %122, align 2
-  %123 = load i32, ptr %73, align 4
-  %124 = sext i32 %123 to i64
-  %.not38.i = icmp slt i64 %indvars.iv.next.i, %124
-  br i1 %.not38.i, label %82, label %._crit_edge.loopexit.i, !llvm.loop !8
+  %123 = getelementptr i16, ptr %78, i64 %indvars.iv.i
+  store i16 %90, ptr %123, align 2
+  %124 = load i32, ptr %74, align 4
+  %125 = sext i32 %124 to i64
+  %.not38.i = icmp slt i64 %indvars.iv.next.i, %125
+  br i1 %.not38.i, label %83, label %._crit_edge.loopexit.i, !llvm.loop !8
 
-._crit_edge.loopexit.i:                           ; preds = %120
-  %125 = trunc nuw nsw i64 %indvars.iv.next.i to i32
+._crit_edge.loopexit.i:                           ; preds = %121
+  %126 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %list_length.exit.i
-  %.034.lcssa.i = phi i32 [ 0, %list_length.exit.i ], [ %125, %._crit_edge.loopexit.i ]
-  %.0.lcssa.i = phi ptr [ null, %list_length.exit.i ], [ %121, %._crit_edge.loopexit.i ]
-  %126 = sext i32 %.034.lcssa.i to i64
-  tail call void @pg_qsort(ptr noundef %77, i64 noundef %126, i64 noundef 2, ptr noundef nonnull @compare_int16) #6
+  %.034.lcssa.i = phi i32 [ 0, %list_length.exit.i ], [ %126, %._crit_edge.loopexit.i ]
+  %.0.lcssa.i = phi ptr [ null, %list_length.exit.i ], [ %122, %._crit_edge.loopexit.i ]
+  %127 = sext i32 %.034.lcssa.i to i64
+  tail call void @pg_qsort(ptr noundef %78, i64 noundef %127, i64 noundef 2, ptr noundef nonnull @compare_int16) #6
   tail call void @bms_free(ptr noundef %.0.lcssa.i) #6
   br label %publication_translate_columns.exit
 
 publication_translate_columns.exit:               ; preds = %check_publication_add_relation.exit, %._crit_edge.i
-  %.046 = phi ptr [ null, %check_publication_add_relation.exit ], [ %77, %._crit_edge.i ]
+  %.046 = phi ptr [ null, %check_publication_add_relation.exit ], [ %78, %._crit_edge.i ]
   %.045 = phi i32 [ 0, %check_publication_add_relation.exit ], [ %.034.lcssa.i, %._crit_edge.i ]
-  %127 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %127, i8 0, i64 24, i1 false)
+  %128 = getelementptr inbounds i8, ptr %4, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %128, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %5, i8 0, i64 5, i1 false)
-  %128 = tail call i32 @GetNewOidWithIndex(ptr noundef %12, i32 noundef 6112, i16 noundef signext 1) #6
-  %129 = zext i32 %128 to i64
-  store i64 %129, ptr %4, align 16
-  %130 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 %14, ptr %130, align 8
-  %131 = getelementptr inbounds i8, ptr %4, i64 16
-  store i64 %13, ptr %131, align 16
-  %132 = getelementptr inbounds i8, ptr %1, i64 8
-  %133 = load ptr, ptr %132, align 8
-  %.not = icmp eq ptr %133, null
-  br i1 %.not, label %139, label %134
+  %129 = tail call i32 @GetNewOidWithIndex(ptr noundef %12, i32 noundef 6112, i16 noundef signext 1) #6
+  %130 = zext i32 %129 to i64
+  store i64 %130, ptr %4, align 16
+  %131 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 %14, ptr %131, align 8
+  %132 = getelementptr inbounds i8, ptr %4, i64 16
+  store i64 %13, ptr %132, align 16
+  %133 = getelementptr inbounds i8, ptr %1, i64 8
+  %134 = load ptr, ptr %133, align 8
+  %.not = icmp eq ptr %134, null
+  br i1 %.not, label %140, label %135
 
-134:                                              ; preds = %publication_translate_columns.exit
-  %135 = tail call ptr @nodeToString(ptr noundef nonnull %133) #6
-  %136 = tail call ptr @cstring_to_text(ptr noundef %135) #6
-  %137 = ptrtoint ptr %136 to i64
-  %138 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 %137, ptr %138, align 8
-  br label %141
+135:                                              ; preds = %publication_translate_columns.exit
+  %136 = tail call ptr @nodeToString(ptr noundef nonnull %134) #6
+  %137 = tail call ptr @cstring_to_text(ptr noundef %136) #6
+  %138 = ptrtoint ptr %137 to i64
+  %139 = getelementptr inbounds i8, ptr %4, i64 24
+  store i64 %138, ptr %139, align 8
+  br label %142
 
-139:                                              ; preds = %publication_translate_columns.exit
-  %140 = getelementptr inbounds i8, ptr %5, i64 3
-  store i8 1, ptr %140, align 1
-  br label %141
+140:                                              ; preds = %publication_translate_columns.exit
+  %141 = getelementptr inbounds i8, ptr %5, i64 3
+  store i8 1, ptr %141, align 1
+  br label %142
 
-141:                                              ; preds = %139, %134
-  %142 = load ptr, ptr %69, align 8
-  %.not41 = icmp eq ptr %142, null
-  br i1 %.not41, label %147, label %143
+142:                                              ; preds = %140, %135
+  %143 = load ptr, ptr %70, align 8
+  %.not41 = icmp eq ptr %143, null
+  br i1 %.not41, label %148, label %144
 
-143:                                              ; preds = %141
-  %144 = tail call ptr @buildint2vector(ptr noundef %.046, i32 noundef %.045) #6
-  %145 = ptrtoint ptr %144 to i64
-  %146 = getelementptr inbounds i8, ptr %4, i64 32
-  store i64 %145, ptr %146, align 16
-  br label %149
+144:                                              ; preds = %142
+  %145 = tail call ptr @buildint2vector(ptr noundef %.046, i32 noundef %.045) #6
+  %146 = ptrtoint ptr %145 to i64
+  %147 = getelementptr inbounds i8, ptr %4, i64 32
+  store i64 %146, ptr %147, align 16
+  br label %150
 
-147:                                              ; preds = %141
-  %148 = getelementptr inbounds i8, ptr %5, i64 4
-  store i8 1, ptr %148, align 1
-  br label %149
+148:                                              ; preds = %142
+  %149 = getelementptr inbounds i8, ptr %5, i64 4
+  store i8 1, ptr %149, align 1
+  br label %150
 
-149:                                              ; preds = %147, %143
-  %150 = getelementptr inbounds i8, ptr %12, i64 64
-  %151 = load ptr, ptr %150, align 8
-  %152 = call ptr @heap_form_tuple(ptr noundef %151, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
-  call void @CatalogTupleInsert(ptr noundef %12, ptr noundef %152) #6
-  call void @heap_freetuple(ptr noundef %152) #6
+150:                                              ; preds = %148, %144
+  %151 = getelementptr inbounds i8, ptr %12, i64 64
+  %152 = load ptr, ptr %151, align 8
+  %153 = call ptr @heap_form_tuple(ptr noundef %152, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
+  call void @CatalogTupleInsert(ptr noundef %12, ptr noundef %153) #6
+  call void @heap_freetuple(ptr noundef %153) #6
   store i32 6106, ptr %6, align 4
-  %153 = getelementptr inbounds i8, ptr %6, i64 4
-  store i32 %128, ptr %153, align 4
-  %154 = getelementptr inbounds i8, ptr %6, i64 8
-  store i32 0, ptr %154, align 4
+  %154 = getelementptr inbounds i8, ptr %6, i64 4
+  store i32 %129, ptr %154, align 4
+  %155 = getelementptr inbounds i8, ptr %6, i64 8
+  store i32 0, ptr %155, align 4
   store i32 6104, ptr %7, align 4
-  %155 = getelementptr inbounds i8, ptr %7, i64 4
-  store i32 %0, ptr %155, align 4
-  %156 = getelementptr inbounds i8, ptr %7, i64 8
-  store i32 0, ptr %156, align 4
+  %156 = getelementptr inbounds i8, ptr %7, i64 4
+  store i32 %0, ptr %156, align 4
+  %157 = getelementptr inbounds i8, ptr %7, i64 8
+  store i32 0, ptr %157, align 4
   call void @recordDependencyOn(ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 97) #6
   store i32 1259, ptr %7, align 4
-  store i32 %10, ptr %155, align 4
-  store i32 0, ptr %156, align 4
+  store i32 %10, ptr %156, align 4
+  store i32 0, ptr %157, align 4
   call void @recordDependencyOn(ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 97) #6
-  %157 = load ptr, ptr %132, align 8
-  %.not42 = icmp eq ptr %157, null
-  br i1 %.not42, label %159, label %158
+  %158 = load ptr, ptr %133, align 8
+  %.not42 = icmp eq ptr %158, null
+  br i1 %.not42, label %160, label %159
 
-158:                                              ; preds = %149
-  call void @recordDependencyOnSingleRelExpr(ptr noundef nonnull %6, ptr noundef nonnull %157, i32 noundef %10, i32 noundef 110, i32 noundef 110, i1 noundef zeroext false) #6
-  br label %159
+159:                                              ; preds = %150
+  call void @recordDependencyOnSingleRelExpr(ptr noundef nonnull %6, ptr noundef nonnull %158, i32 noundef %10, i32 noundef 110, i32 noundef 110, i1 noundef zeroext false) #6
+  br label %160
 
-159:                                              ; preds = %158, %149
-  %160 = icmp sgt i32 %.045, 0
-  br i1 %160, label %.lr.ph.preheader, label %._crit_edge
+160:                                              ; preds = %159, %150
+  %161 = icmp sgt i32 %.045, 0
+  br i1 %161, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %159
+.lr.ph.preheader:                                 ; preds = %160
   %wide.trip.count = zext nneg i32 %.045 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   store i32 1259, ptr %7, align 4
-  store i32 %10, ptr %155, align 4
-  %161 = getelementptr i16, ptr %.046, i64 %indvars.iv
-  %162 = load i16, ptr %161, align 2
-  %163 = sext i16 %162 to i32
-  store i32 %163, ptr %156, align 4
+  store i32 %10, ptr %156, align 4
+  %162 = getelementptr i16, ptr %.046, i64 %indvars.iv
+  %163 = load i16, ptr %162, align 2
+  %164 = sext i16 %163 to i32
+  store i32 %164, ptr %157, align 4
   call void @recordDependencyOn(ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 110) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %.lr.ph, %159
+._crit_edge:                                      ; preds = %.lr.ph, %160
   call void @table_close(ptr noundef %12, i32 noundef 3) #6
-  %164 = call signext i8 @get_rel_relkind(i32 noundef %10) #6
-  %165 = icmp eq i8 %164, 112
-  br i1 %165, label %166, label %169
+  %165 = call signext i8 @get_rel_relkind(i32 noundef %10) #6
+  %166 = icmp eq i8 %165, 112
+  br i1 %166, label %167, label %170
 
-166:                                              ; preds = %._crit_edge
-  %167 = call ptr @find_all_inheritors(i32 noundef %10, i32 noundef 0, ptr noundef null) #6
-  %168 = call ptr @list_concat(ptr noundef null, ptr noundef %167) #6
+167:                                              ; preds = %._crit_edge
+  %168 = call ptr @find_all_inheritors(i32 noundef %10, i32 noundef 0, ptr noundef null) #6
+  %169 = call ptr @list_concat(ptr noundef null, ptr noundef %168) #6
   br label %GetPubPartitionOptionRelations.exit
 
-169:                                              ; preds = %._crit_edge
-  %170 = call ptr @lappend_oid(ptr noundef null, i32 noundef %10) #6
+170:                                              ; preds = %._crit_edge
+  %171 = call ptr @lappend_oid(ptr noundef null, i32 noundef %10) #6
   br label %GetPubPartitionOptionRelations.exit
 
-GetPubPartitionOptionRelations.exit:              ; preds = %166, %169
-  %.2.i = phi ptr [ %168, %166 ], [ %170, %169 ]
+GetPubPartitionOptionRelations.exit:              ; preds = %167, %170
+  %.2.i = phi ptr [ %169, %167 ], [ %171, %170 ]
   call void @InvalidatePublicationRels(ptr noundef %.2.i) #6
-  br label %171
+  %.sroa.3.0.copyload38 = load i32, ptr %155, align 4
+  br label %172
 
-171:                                              ; preds = %16, %GetPubPartitionOptionRelations.exit
-  %.sink = phi ptr [ %154, %GetPubPartitionOptionRelations.exit ], [ getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), %16 ]
-  %.sroa.036.0.in = phi ptr [ %6, %GetPubPartitionOptionRelations.exit ], [ @InvalidObjectAddress, %16 ]
-  %.sroa.3.0.copyload38 = load i32, ptr %.sink, align 4
+172:                                              ; preds = %GetPubPartitionOptionRelations.exit, %17
+  %.sroa.036.0.in = phi ptr [ @InvalidObjectAddress, %17 ], [ %6, %GetPubPartitionOptionRelations.exit ]
+  %.sroa.3.0 = phi i32 [ %.sroa.3.0.copyload, %17 ], [ %.sroa.3.0.copyload38, %GetPubPartitionOptionRelations.exit ]
   %.sroa.036.0 = load i64, ptr %.sroa.036.0.in, align 4
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.036.0, 0
-  %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.3.0.copyload38, 1
+  %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.3.0, 1
   ret { i64, i32 } %.fca.1.insert
 }
 
@@ -946,96 +950,100 @@ define dso_local { i64, i32 } @publication_add_schema(i32 noundef %0, i32 nounde
   %10 = zext i32 %1 to i64
   %11 = zext i32 %0 to i64
   %12 = tail call zeroext i1 @SearchSysCacheExists(i32 noundef 48, i64 noundef %10, i64 noundef %11, i64 noundef 0, i64 noundef 0) #6
-  br i1 %12, label %13, label %21
+  br i1 %12, label %13, label %22
 
 13:                                               ; preds = %3
   tail call void @table_close(ptr noundef %9, i32 noundef 3) #6
-  br i1 %2, label %51, label %14
+  br i1 %2, label %14, label %15
 
 14:                                               ; preds = %13
-  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %15)
-  %16 = tail call i32 @errcode(i32 noundef 290948) #6
-  %17 = tail call ptr @get_namespace_name(i32 noundef %1) #6
-  %18 = getelementptr inbounds i8, ptr %8, i64 8
-  %19 = load ptr, ptr %18, align 8
-  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef %17, ptr noundef %19) #6
+  %.sroa.3.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), align 4
+  br label %52
+
+15:                                               ; preds = %13
+  %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  tail call void @llvm.assume(i1 %16)
+  %17 = tail call i32 @errcode(i32 noundef 290948) #6
+  %18 = tail call ptr @get_namespace_name(i32 noundef %1) #6
+  %19 = getelementptr inbounds i8, ptr %8, i64 8
+  %20 = load ptr, ptr %19, align 8
+  %21 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef %18, ptr noundef %20) #6
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 642, ptr noundef nonnull @__func__.publication_add_schema) #6
   unreachable
 
-21:                                               ; preds = %3
-  %22 = tail call zeroext i1 @IsCatalogNamespace(i32 noundef %1) #6
-  br i1 %22, label %25, label %23
+22:                                               ; preds = %3
+  %23 = tail call zeroext i1 @IsCatalogNamespace(i32 noundef %1) #6
+  br i1 %23, label %26, label %24
 
-23:                                               ; preds = %21
-  %24 = tail call zeroext i1 @IsToastNamespace(i32 noundef %1) #6
-  br i1 %24, label %25, label %31
+24:                                               ; preds = %22
+  %25 = tail call zeroext i1 @IsToastNamespace(i32 noundef %1) #6
+  br i1 %25, label %26, label %32
 
-25:                                               ; preds = %23, %21
-  %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %26)
-  %27 = tail call i32 @errcode(i32 noundef 50856066) #6
-  %28 = tail call ptr @get_namespace_name(i32 noundef %1) #6
-  %29 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef %28) #6
-  %30 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.17) #6
+26:                                               ; preds = %24, %22
+  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  tail call void @llvm.assume(i1 %27)
+  %28 = tail call i32 @errcode(i32 noundef 50856066) #6
+  %29 = tail call ptr @get_namespace_name(i32 noundef %1) #6
+  %30 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef %29) #6
+  %31 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.17) #6
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 111, ptr noundef nonnull @__func__.check_publication_add_schema) #6
   unreachable
 
-31:                                               ; preds = %23
-  %32 = tail call zeroext i1 @isAnyTempNamespace(i32 noundef %1) #6
-  br i1 %32, label %33, label %check_publication_add_schema.exit
+32:                                               ; preds = %24
+  %33 = tail call zeroext i1 @isAnyTempNamespace(i32 noundef %1) #6
+  br i1 %33, label %34, label %check_publication_add_schema.exit
 
-33:                                               ; preds = %31
-  %34 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %34)
-  %35 = tail call i32 @errcode(i32 noundef 50856066) #6
-  %36 = tail call ptr @get_namespace_name(i32 noundef %1) #6
-  %37 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef %36) #6
-  %38 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.18) #6
+34:                                               ; preds = %32
+  %35 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  tail call void @llvm.assume(i1 %35)
+  %36 = tail call i32 @errcode(i32 noundef 50856066) #6
+  %37 = tail call ptr @get_namespace_name(i32 noundef %1) #6
+  %38 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef %37) #6
+  %39 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.18) #6
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 119, ptr noundef nonnull @__func__.check_publication_add_schema) #6
   unreachable
 
-check_publication_add_schema.exit:                ; preds = %31
+check_publication_add_schema.exit:                ; preds = %32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %5, i8 0, i64 3, i1 false)
-  %39 = tail call i32 @GetNewOidWithIndex(ptr noundef %9, i32 noundef 6238, i16 noundef signext 1) #6
-  %40 = zext i32 %39 to i64
-  store i64 %40, ptr %4, align 16
-  %41 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 %11, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %4, i64 16
-  store i64 %10, ptr %42, align 16
-  %43 = getelementptr inbounds i8, ptr %9, i64 64
-  %44 = load ptr, ptr %43, align 8
-  %45 = call ptr @heap_form_tuple(ptr noundef %44, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
-  call void @CatalogTupleInsert(ptr noundef %9, ptr noundef %45) #6
-  call void @heap_freetuple(ptr noundef %45) #6
+  %40 = tail call i32 @GetNewOidWithIndex(ptr noundef %9, i32 noundef 6238, i16 noundef signext 1) #6
+  %41 = zext i32 %40 to i64
+  store i64 %41, ptr %4, align 16
+  %42 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 %11, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %4, i64 16
+  store i64 %10, ptr %43, align 16
+  %44 = getelementptr inbounds i8, ptr %9, i64 64
+  %45 = load ptr, ptr %44, align 8
+  %46 = call ptr @heap_form_tuple(ptr noundef %45, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
+  call void @CatalogTupleInsert(ptr noundef %9, ptr noundef %46) #6
+  call void @heap_freetuple(ptr noundef %46) #6
   store i32 6237, ptr %6, align 4
-  %46 = getelementptr inbounds i8, ptr %6, i64 4
-  store i32 %39, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %6, i64 8
-  store i32 0, ptr %47, align 4
+  %47 = getelementptr inbounds i8, ptr %6, i64 4
+  store i32 %40, ptr %47, align 4
+  %48 = getelementptr inbounds i8, ptr %6, i64 8
+  store i32 0, ptr %48, align 4
   store i32 6104, ptr %7, align 4
-  %48 = getelementptr inbounds i8, ptr %7, i64 4
-  store i32 %0, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %7, i64 8
-  store i32 0, ptr %49, align 4
+  %49 = getelementptr inbounds i8, ptr %7, i64 4
+  store i32 %0, ptr %49, align 4
+  %50 = getelementptr inbounds i8, ptr %7, i64 8
+  store i32 0, ptr %50, align 4
   call void @recordDependencyOn(ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 97) #6
   store i32 2615, ptr %7, align 4
-  store i32 %1, ptr %48, align 4
-  store i32 0, ptr %49, align 4
+  store i32 %1, ptr %49, align 4
+  store i32 0, ptr %50, align 4
   call void @recordDependencyOn(ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 97) #6
   call void @table_close(ptr noundef %9, i32 noundef 3) #6
-  %50 = call ptr @GetSchemaPublicationRelations(i32 noundef %1, i32 noundef 2)
-  call void @InvalidatePublicationRels(ptr noundef %50) #6
-  br label %51
+  %51 = call ptr @GetSchemaPublicationRelations(i32 noundef %1, i32 noundef 2)
+  call void @InvalidatePublicationRels(ptr noundef %51) #6
+  %.sroa.3.0.copyload23 = load i32, ptr %48, align 4
+  br label %52
 
-51:                                               ; preds = %13, %check_publication_add_schema.exit
-  %.sink = phi ptr [ %47, %check_publication_add_schema.exit ], [ getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), %13 ]
-  %.sroa.021.0.in = phi ptr [ %6, %check_publication_add_schema.exit ], [ @InvalidObjectAddress, %13 ]
-  %.sroa.3.0.copyload23 = load i32, ptr %.sink, align 4
+52:                                               ; preds = %check_publication_add_schema.exit, %14
+  %.sroa.021.0.in = phi ptr [ @InvalidObjectAddress, %14 ], [ %6, %check_publication_add_schema.exit ]
+  %.sroa.3.0 = phi i32 [ %.sroa.3.0.copyload, %14 ], [ %.sroa.3.0.copyload23, %check_publication_add_schema.exit ]
   %.sroa.021.0 = load i64, ptr %.sroa.021.0.in, align 4
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.021.0, 0
-  %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.3.0.copyload23, 1
+  %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.3.0, 1
   ret { i64, i32 } %.fca.1.insert
 }
 

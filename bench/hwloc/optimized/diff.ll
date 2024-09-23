@@ -617,26 +617,35 @@ define range(i32 -1, 2) i32 @hwloc_topology_diff_build(ptr noundef %0, ptr nound
   %287 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef 0, i32 noundef 0) #14
   %288 = call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #15
   %.not.i = icmp eq ptr %288, null
-  br i1 %.not.i, label %.critedge233, label %hwloc_append_diff.exit.i
+  br i1 %.not.i, label %.critedge233, label %289
 
-hwloc_append_diff.exit.i:                         ; preds = %.loopexit
+289:                                              ; preds = %.loopexit
   store i32 1, ptr %288, align 8
-  %289 = getelementptr inbounds i8, ptr %287, i64 48
-  %290 = load i32, ptr %289, align 8
-  %291 = getelementptr inbounds i8, ptr %288, i64 16
-  store i32 %290, ptr %291, align 8
-  %292 = getelementptr inbounds i8, ptr %287, i64 52
-  %293 = load i32, ptr %292, align 4
-  %294 = getelementptr inbounds i8, ptr %288, i64 20
-  store i32 %293, ptr %294, align 4
-  %295 = load ptr, ptr %3, align 8
-  %.not.i.i = icmp eq ptr %295, null
-  %296 = load ptr, ptr %5, align 8
-  %297 = getelementptr inbounds i8, ptr %296, i64 8
-  %.sink.i.i = select i1 %.not.i.i, ptr %3, ptr %297
-  store ptr %288, ptr %.sink.i.i, align 8
-  %298 = getelementptr inbounds i8, ptr %288, i64 8
-  store ptr null, ptr %298, align 8
+  %290 = getelementptr inbounds i8, ptr %287, i64 48
+  %291 = load i32, ptr %290, align 8
+  %292 = getelementptr inbounds i8, ptr %288, i64 16
+  store i32 %291, ptr %292, align 8
+  %293 = getelementptr inbounds i8, ptr %287, i64 52
+  %294 = load i32, ptr %293, align 4
+  %295 = getelementptr inbounds i8, ptr %288, i64 20
+  store i32 %294, ptr %295, align 4
+  %296 = load ptr, ptr %3, align 8
+  %.not.i.i = icmp eq ptr %296, null
+  br i1 %.not.i.i, label %300, label %297
+
+297:                                              ; preds = %289
+  %298 = load ptr, ptr %5, align 8
+  %299 = getelementptr inbounds i8, ptr %298, i64 8
+  store ptr %288, ptr %299, align 8
+  br label %hwloc_append_diff.exit.i
+
+300:                                              ; preds = %289
+  store ptr %288, ptr %3, align 8
+  br label %hwloc_append_diff.exit.i
+
+hwloc_append_diff.exit.i:                         ; preds = %300, %297
+  %301 = getelementptr inbounds i8, ptr %288, i64 8
+  store ptr null, ptr %301, align 8
   br label %.critedge233
 
 .critedge233:                                     ; preds = %.lr.ph, %64, %._crit_edge281, %.preheader239, %hwloc_append_diff.exit.i, %.loopexit, %18, %16, %13
@@ -1065,19 +1074,22 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_diff_trees(ptr noundef %0, pt
   store i32 %200, ptr %201, align 4
   %202 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %202, null
-  br i1 %.not.i.i, label %hwloc_append_diff.exit.i, label %203
+  br i1 %.not.i.i, label %206, label %203
 
 203:                                              ; preds = %196
   %204 = load ptr, ptr %4, align 8
   %205 = getelementptr inbounds i8, ptr %204, i64 8
+  store ptr %195, ptr %205, align 8
   br label %hwloc_append_diff.exit.i
 
-hwloc_append_diff.exit.i:                         ; preds = %203, %196
-  %.sink.i.i = phi ptr [ %205, %203 ], [ %3, %196 ]
-  store ptr %195, ptr %.sink.i.i, align 8
+206:                                              ; preds = %196
+  store ptr %195, ptr %3, align 8
+  br label %hwloc_append_diff.exit.i
+
+hwloc_append_diff.exit.i:                         ; preds = %206, %203
   store ptr %195, ptr %4, align 8
-  %206 = getelementptr inbounds i8, ptr %195, i64 8
-  store ptr null, ptr %206, align 8
+  %207 = getelementptr inbounds i8, ptr %195, i64 8
+  store ptr null, ptr %207, align 8
   br label %hwloc_append_diff_too_complex.exit
 
 hwloc_append_diff_too_complex.exit:               ; preds = %133, %.lr.ph30, %.lr.ph38, %.lr.ph47, %.lr.ph56, %hwloc_append_diff.exit.i, %.loopexit, %._crit_edge57, %84, %72
@@ -1095,7 +1107,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 define internal fastcc range(i32 -1, 1) i32 @hwloc_append_diff_obj_attr_string(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i32 noundef range(i32 1, 3) %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, ptr nocapture noundef %6, ptr nocapture noundef nonnull %7) unnamed_addr #6 {
   %9 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #15
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %42, label %10
+  br i1 %.not, label %43, label %10
 
 10:                                               ; preds = %8
   store i32 0, ptr %9, align 8
@@ -1154,22 +1166,25 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_append_diff_obj_attr_string(p
   store ptr %35, ptr %36, align 8
   %37 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %37, null
-  br i1 %.not.i, label %hwloc_append_diff.exit, label %38
+  br i1 %.not.i, label %41, label %38
 
 38:                                               ; preds = %34
   %39 = load ptr, ptr %7, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 8
+  store ptr %9, ptr %40, align 8
   br label %hwloc_append_diff.exit
 
-hwloc_append_diff.exit:                           ; preds = %34, %38
-  %.sink.i = phi ptr [ %40, %38 ], [ %6, %34 ]
-  store ptr %9, ptr %.sink.i, align 8
-  store ptr %9, ptr %7, align 8
-  %41 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr null, ptr %41, align 8
-  br label %42
+41:                                               ; preds = %34
+  store ptr %9, ptr %6, align 8
+  br label %hwloc_append_diff.exit
 
-42:                                               ; preds = %8, %hwloc_append_diff.exit
+hwloc_append_diff.exit:                           ; preds = %38, %41
+  store ptr %9, ptr %7, align 8
+  %42 = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr null, ptr %42, align 8
+  br label %43
+
+43:                                               ; preds = %8, %hwloc_append_diff.exit
   %.0 = phi i32 [ 0, %hwloc_append_diff.exit ], [ -1, %8 ]
   ret i32 %.0
 }
@@ -1294,7 +1309,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_apply_diff_one(ptr noundef %0
   switch i32 %22, label %.critedge [
     i32 0, label %23
     i32 1, label %42
-    i32 2, label %53
+    i32 2, label %54
   ]
 
 23:                                               ; preds = %20
@@ -1356,61 +1371,58 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_apply_diff_one(ptr noundef %0
 
 52:                                               ; preds = %50
   tail call void @free(ptr noundef nonnull %49) #12
-  br label %.critedge.sink.split
-
-53:                                               ; preds = %20
-  %54 = getelementptr inbounds i8, ptr %1, i64 32
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %1, i64 48
-  %57 = getelementptr inbounds i8, ptr %1, i64 40
-  %.in = select i1 %.not, ptr %57, ptr %56
-  %58 = load ptr, ptr %.in, align 8
-  %.in71 = select i1 %.not, ptr %56, ptr %57
-  %59 = load ptr, ptr %.in71, align 8
-  %60 = getelementptr inbounds i8, ptr %.066, i64 8
-  %61 = load i32, ptr %60, align 8
-  %.not7588.not = icmp eq i32 %61, 0
-  br i1 %.not7588.not, label %.critedge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %53
-  %62 = load ptr, ptr %.066, align 8
-  %wide.trip.count = zext i32 %61 to i64
-  br label %63
-
-63:                                               ; preds = %.lr.ph, %73
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %73 ]
-  %64 = getelementptr inbounds %struct.hwloc_info_s, ptr %62, i64 %indvars.iv
-  %65 = load ptr, ptr %64, align 8
-  %66 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %65, ptr noundef nonnull dereferenceable(1) %55) #14
-  %.not72 = icmp eq i32 %66, 0
-  br i1 %.not72, label %67, label %73
-
-67:                                               ; preds = %63
-  %68 = getelementptr inbounds i8, ptr %64, i64 8
-  %69 = load ptr, ptr %68, align 8
-  %70 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %69, ptr noundef nonnull dereferenceable(1) %58) #14
-  %.not73 = icmp eq i32 %70, 0
-  br i1 %.not73, label %71, label %73
-
-71:                                               ; preds = %67
-  %72 = getelementptr inbounds i8, ptr %64, i64 8
-  tail call void @free(ptr noundef %69) #12
-  br label %.critedge.sink.split
-
-73:                                               ; preds = %63, %67
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %63, !llvm.loop !23
-
-.critedge.sink.split:                             ; preds = %71, %52
-  %.sink99 = phi ptr [ %46, %52 ], [ %59, %71 ]
-  %.sink98 = phi ptr [ %48, %52 ], [ %72, %71 ]
-  %74 = tail call noalias ptr @strdup(ptr noundef %.sink99) #12
-  store ptr %74, ptr %.sink98, align 8
+  %53 = tail call noalias ptr @strdup(ptr noundef %46) #12
+  store ptr %53, ptr %48, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %73, %36, %.critedge.sink.split, %53, %3, %20, %47, %50, %42, %31, %29, %23, %14
-  %.0 = phi i32 [ -1, %14 ], [ -1, %23 ], [ -1, %29 ], [ -1, %31 ], [ -1, %42 ], [ -1, %50 ], [ -1, %47 ], [ -1, %20 ], [ -1, %3 ], [ -1, %53 ], [ 0, %.critedge.sink.split ], [ 0, %36 ], [ -1, %73 ]
+54:                                               ; preds = %20
+  %55 = getelementptr inbounds i8, ptr %1, i64 32
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds i8, ptr %1, i64 48
+  %58 = getelementptr inbounds i8, ptr %1, i64 40
+  %.in = select i1 %.not, ptr %58, ptr %57
+  %59 = load ptr, ptr %.in, align 8
+  %.in71 = select i1 %.not, ptr %57, ptr %58
+  %60 = load ptr, ptr %.in71, align 8
+  %61 = getelementptr inbounds i8, ptr %.066, i64 8
+  %62 = load i32, ptr %61, align 8
+  %.not7588.not = icmp eq i32 %62, 0
+  br i1 %.not7588.not, label %.critedge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %54
+  %63 = load ptr, ptr %.066, align 8
+  %wide.trip.count = zext i32 %62 to i64
+  br label %64
+
+64:                                               ; preds = %.lr.ph, %75
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %75 ]
+  %65 = getelementptr inbounds %struct.hwloc_info_s, ptr %63, i64 %indvars.iv
+  %66 = load ptr, ptr %65, align 8
+  %67 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %66, ptr noundef nonnull dereferenceable(1) %56) #14
+  %.not72 = icmp eq i32 %67, 0
+  br i1 %.not72, label %68, label %75
+
+68:                                               ; preds = %64
+  %69 = getelementptr inbounds i8, ptr %65, i64 8
+  %70 = load ptr, ptr %69, align 8
+  %71 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull dereferenceable(1) %59) #14
+  %.not73 = icmp eq i32 %71, 0
+  br i1 %.not73, label %72, label %75
+
+72:                                               ; preds = %68
+  %73 = getelementptr inbounds i8, ptr %65, i64 8
+  tail call void @free(ptr noundef %70) #12
+  %74 = tail call noalias ptr @strdup(ptr noundef %60) #12
+  store ptr %74, ptr %73, align 8
+  br label %.critedge
+
+75:                                               ; preds = %64, %68
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %.critedge, label %64, !llvm.loop !23
+
+.critedge:                                        ; preds = %75, %36, %54, %52, %72, %3, %20, %47, %50, %42, %31, %29, %23, %14
+  %.0 = phi i32 [ -1, %14 ], [ -1, %23 ], [ -1, %29 ], [ -1, %31 ], [ -1, %42 ], [ -1, %50 ], [ -1, %47 ], [ -1, %20 ], [ -1, %3 ], [ 0, %72 ], [ 0, %52 ], [ -1, %54 ], [ 0, %36 ], [ -1, %75 ]
   ret i32 %.0
 }
 
@@ -1418,7 +1430,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_apply_diff_one(ptr noundef %0
 define internal fastcc range(i32 -1, 1) i32 @hwloc_append_diff_obj_attr_uint64(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #8 {
   %6 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #15
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %23, label %7
+  br i1 %.not, label %24, label %7
 
 7:                                                ; preds = %5
   store i32 0, ptr %6, align 8
@@ -1440,22 +1452,25 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_append_diff_obj_attr_uint64(p
   store i64 %2, ptr %17, align 8
   %18 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %hwloc_append_diff.exit, label %19
+  br i1 %.not.i, label %22, label %19
 
 19:                                               ; preds = %7
   %20 = load ptr, ptr %4, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 8
+  store ptr %6, ptr %21, align 8
   br label %hwloc_append_diff.exit
 
-hwloc_append_diff.exit:                           ; preds = %7, %19
-  %.sink.i = phi ptr [ %21, %19 ], [ %3, %7 ]
-  store ptr %6, ptr %.sink.i, align 8
-  store ptr %6, ptr %4, align 8
-  %22 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr null, ptr %22, align 8
-  br label %23
+22:                                               ; preds = %7
+  store ptr %6, ptr %3, align 8
+  br label %hwloc_append_diff.exit
 
-23:                                               ; preds = %5, %hwloc_append_diff.exit
+hwloc_append_diff.exit:                           ; preds = %19, %22
+  store ptr %6, ptr %4, align 8
+  %23 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr null, ptr %23, align 8
+  br label %24
+
+24:                                               ; preds = %5, %hwloc_append_diff.exit
   %.0 = phi i32 [ 0, %hwloc_append_diff.exit ], [ -1, %5 ]
   ret i32 %.0
 }

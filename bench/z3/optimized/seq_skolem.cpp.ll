@@ -1104,9 +1104,9 @@ invoke.cont57:                                    ; preds = %if.then.i.i.i116, %
   br label %invoke.cont57.invoke
 
 invoke.cont57.invoke:                             ; preds = %invoke.cont123, %_ZN7obj_refI4expr11ast_managerED2Ev.exit398, %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %invoke.cont57
-  %m_rewrite.i372.sink = phi ptr [ %m_rewrite.i372, %_ZN7obj_refI4expr11ast_managerED2Ev.exit398 ], [ %m_rewrite.i, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ %m_rewrite, %invoke.cont57 ], [ %m_rewrite125, %invoke.cont123 ]
-  %43 = phi ptr [ %head, %_ZN7obj_refI4expr11ast_managerED2Ev.exit398 ], [ %head, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ %head, %invoke.cont57 ], [ %tail, %invoke.cont123 ]
-  %44 = load ptr, ptr %m_rewrite.i372.sink, align 8
+  %.in474 = phi ptr [ %m_rewrite, %invoke.cont57 ], [ %m_rewrite.i, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ %m_rewrite.i372, %_ZN7obj_refI4expr11ast_managerED2Ev.exit398 ], [ %m_rewrite125, %invoke.cont123 ]
+  %43 = phi ptr [ %head, %invoke.cont57 ], [ %head, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ %head, %_ZN7obj_refI4expr11ast_managerED2Ev.exit398 ], [ %tail, %invoke.cont123 ]
+  %44 = load ptr, ptr %.in474, align 8
   invoke void @_ZN11th_rewriterclER7obj_refI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull align 8 dereferenceable(16) %43)
           to label %if.end196 unwind label %lpad2.loopexit.split-lp
 

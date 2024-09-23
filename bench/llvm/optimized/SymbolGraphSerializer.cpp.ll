@@ -11145,6 +11145,10 @@ define dso_local void @_ZN5clang10extractapi21SymbolGraphSerializer22serializeGr
   store ptr %46, ptr %39, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
+_ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %42, %44
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_4json5ValueEEE, i64 16), ptr %34, align 8
+  br label %74
+
 47:                                               ; preds = %6
   store i16 7, ptr %15, align 8
   %48 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -11203,29 +11207,31 @@ define dso_local void @_ZN5clang10extractapi21SymbolGraphSerializer22serializeGr
 
 69:                                               ; preds = %47
   %70 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %63, ptr noundef nonnull @.str.32, i64 noundef 1) #16
-  br label %_ZN4llvm11raw_ostreamlsEPKc.exit
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit10
 
 71:                                               ; preds = %47
   store i8 10, ptr %67, align 1
   %72 = load ptr, ptr %66, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 1
   store ptr %73, ptr %66, align 8
-  br label %_ZN4llvm11raw_ostreamlsEPKc.exit
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit10
 
-_ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %71, %69, %44, %42
-  %.sink14 = phi ptr [ %34, %42 ], [ %34, %44 ], [ %61, %69 ], [ %61, %71 ]
-  %.sink13 = phi ptr [ %35, %42 ], [ %35, %44 ], [ %62, %69 ], [ %62, %71 ]
-  %.sink = phi ptr [ %13, %42 ], [ %13, %44 ], [ %15, %69 ], [ %15, %71 ]
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_4json5ValueEEE, i64 16), ptr %.sink14, align 8
+_ZN4llvm11raw_ostreamlsEPKc.exit10:               ; preds = %69, %71
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_4json5ValueEEE, i64 16), ptr %61, align 8
+  br label %74
+
+74:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit10, %_ZN4llvm11raw_ostreamlsEPKc.exit
+  %.sink13 = phi ptr [ %62, %_ZN4llvm11raw_ostreamlsEPKc.exit10 ], [ %35, %_ZN4llvm11raw_ostreamlsEPKc.exit ]
+  %.sink = phi ptr [ %15, %_ZN4llvm11raw_ostreamlsEPKc.exit10 ], [ %13, %_ZN4llvm11raw_ostreamlsEPKc.exit ]
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %.sink13) #16
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #16
   call void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9ObjectKeyENS2_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S7_SA_E10destroyAllEv(ptr noundef nonnull align 1 dereferenceable(1) %11)
-  %74 = load ptr, ptr %11, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %76 = load i32, ptr %75, align 8
-  %77 = zext i32 %76 to i64
-  %78 = shl nuw nsw i64 %77, 6
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %74, i64 noundef %78, i64 noundef 8) #16
+  %75 = load ptr, ptr %11, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %77 = load i32, ptr %76, align 8
+  %78 = zext i32 %77 to i64
+  %79 = shl nuw nsw i64 %78, 6
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %75, i64 noundef %79, i64 noundef 8) #16
   ret void
 }
 
@@ -12298,7 +12304,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122generateParentContextsERKN4llvm1
   br label %25
 
 25:                                               ; preds = %.lr.ph, %_ZN4llvm4json5Array12emplace_backIJNS0_6ObjectEEEEvDpOT_.exit
-  %.034 = phi ptr [ %15, %.lr.ph ], [ %68, %_ZN4llvm4json5Array12emplace_backIJNS0_6ObjectEEEEvDpOT_.exit ]
+  %.034 = phi ptr [ %15, %.lr.ph ], [ %69, %_ZN4llvm4json5Array12emplace_backIJNS0_6ObjectEEEEvDpOT_.exit ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4, i8 0, i64 20, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %.034, i64 16
   %.sroa.01.0.copyload = load ptr, ptr %26, align 8
@@ -12344,7 +12350,7 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit19:               ; preds = %_ZN4llvm4json9Objec
   %31 = getelementptr inbounds nuw i8, ptr %.034, i64 48
   %32 = load ptr, ptr %31, align 8
   %.not16 = icmp eq ptr %32, null
-  br i1 %.not16, label %40, label %33
+  br i1 %.not16, label %41, label %33
 
 33:                                               ; preds = %_ZN4llvm4json9ObjectKeyD2Ev.exit19
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 352
@@ -12369,94 +12375,103 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit22:               ; preds = %33, %_ZNKSt14defaul
   store ptr null, ptr %11, align 8
   %39 = load ptr, ptr %10, align 8
   %.not.i.i23 = icmp eq ptr %39, null
-  br i1 %.not.i.i23, label %_ZN4llvm4json9ObjectKeyD2Ev.exit25, label %_ZN4llvm4json9ObjectKeyD2Ev.exit25.sink.split
+  br i1 %.not.i.i23, label %_ZN4llvm4json9ObjectKeyD2Ev.exit25, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i24
 
-40:                                               ; preds = %_ZN4llvm4json9ObjectKeyD2Ev.exit19
-  call fastcc void @_ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE(ptr dead_on_unwind noalias writable align 8 %12, i32 noundef 0, i8 noundef zeroext %2)
-  call void @_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr nonnull @.str.18, i64 10)
-  %41 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN4llvm4json6ObjectixEONS0_9ObjectKeyE(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %13) #16
-  call void @_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr nonnull @.str.14, i64 4)
-  %42 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN4llvm4json6ObjectixEONS0_9ObjectKeyE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %14) #16
-  call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %42) #16
-  call void @_ZN4llvm4json5Value8copyFromERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %41) #16
-  %43 = load ptr, ptr %14, align 8
-  %.not.i.i26 = icmp eq ptr %43, null
-  br i1 %.not.i.i26, label %_ZN4llvm4json9ObjectKeyD2Ev.exit28, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i27
-
-_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i27: ; preds = %40
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #16
-  call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef 32) #17
-  br label %_ZN4llvm4json9ObjectKeyD2Ev.exit28
-
-_ZN4llvm4json9ObjectKeyD2Ev.exit28:               ; preds = %40, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i27
-  store ptr null, ptr %14, align 8
-  %44 = load ptr, ptr %13, align 8
-  %.not.i.i29 = icmp eq ptr %44, null
-  br i1 %.not.i.i29, label %_ZN4llvm4json9ObjectKeyD2Ev.exit25, label %_ZN4llvm4json9ObjectKeyD2Ev.exit25.sink.split
-
-_ZN4llvm4json9ObjectKeyD2Ev.exit25.sink.split:    ; preds = %_ZN4llvm4json9ObjectKeyD2Ev.exit28, %_ZN4llvm4json9ObjectKeyD2Ev.exit22
-  %.sink42 = phi ptr [ %39, %_ZN4llvm4json9ObjectKeyD2Ev.exit22 ], [ %44, %_ZN4llvm4json9ObjectKeyD2Ev.exit28 ]
-  %.sink40.ph = phi ptr [ %10, %_ZN4llvm4json9ObjectKeyD2Ev.exit22 ], [ %13, %_ZN4llvm4json9ObjectKeyD2Ev.exit28 ]
-  %.sink.ph = phi ptr [ %9, %_ZN4llvm4json9ObjectKeyD2Ev.exit22 ], [ %12, %_ZN4llvm4json9ObjectKeyD2Ev.exit28 ]
-  %.sink38.ph = phi ptr [ %18, %_ZN4llvm4json9ObjectKeyD2Ev.exit22 ], [ %19, %_ZN4llvm4json9ObjectKeyD2Ev.exit28 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink42) #16
-  call void @_ZdlPvm(ptr noundef nonnull %.sink42, i64 noundef 32) #17
+_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i24: ; preds = %_ZN4llvm4json9ObjectKeyD2Ev.exit22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #16
+  call void @_ZdlPvm(ptr noundef nonnull %39, i64 noundef 32) #17
   br label %_ZN4llvm4json9ObjectKeyD2Ev.exit25
 
-_ZN4llvm4json9ObjectKeyD2Ev.exit25:               ; preds = %_ZN4llvm4json9ObjectKeyD2Ev.exit25.sink.split, %_ZN4llvm4json9ObjectKeyD2Ev.exit28, %_ZN4llvm4json9ObjectKeyD2Ev.exit22
-  %.sink40 = phi ptr [ %10, %_ZN4llvm4json9ObjectKeyD2Ev.exit22 ], [ %13, %_ZN4llvm4json9ObjectKeyD2Ev.exit28 ], [ %.sink40.ph, %_ZN4llvm4json9ObjectKeyD2Ev.exit25.sink.split ]
-  %.sink = phi ptr [ %9, %_ZN4llvm4json9ObjectKeyD2Ev.exit22 ], [ %12, %_ZN4llvm4json9ObjectKeyD2Ev.exit28 ], [ %.sink.ph, %_ZN4llvm4json9ObjectKeyD2Ev.exit25.sink.split ]
-  %.sink38 = phi ptr [ %18, %_ZN4llvm4json9ObjectKeyD2Ev.exit22 ], [ %19, %_ZN4llvm4json9ObjectKeyD2Ev.exit28 ], [ %.sink38.ph, %_ZN4llvm4json9ObjectKeyD2Ev.exit25.sink.split ]
-  store ptr null, ptr %.sink40, align 8
-  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9ObjectKeyENS2_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S7_SA_E10destroyAllEv(ptr noundef nonnull align 1 dereferenceable(1) %.sink)
-  %45 = load ptr, ptr %.sink, align 8
-  %46 = load i32, ptr %.sink38, align 8
-  %47 = zext i32 %46 to i64
-  %48 = shl nuw nsw i64 %47, 6
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %45, i64 noundef %48, i64 noundef 8) #16
-  %49 = load ptr, ptr %20, align 8
-  %50 = load ptr, ptr %21, align 8
-  %.not.i.i32 = icmp eq ptr %49, %50
-  br i1 %.not.i.i32, label %63, label %51
+_ZN4llvm4json9ObjectKeyD2Ev.exit25:               ; preds = %_ZN4llvm4json9ObjectKeyD2Ev.exit22, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i24
+  store ptr null, ptr %10, align 8
+  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9ObjectKeyENS2_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S7_SA_E10destroyAllEv(ptr noundef nonnull align 1 dereferenceable(1) %9)
+  %40 = load i32, ptr %18, align 8
+  br label %47
 
-51:                                               ; preds = %_ZN4llvm4json9ObjectKeyD2Ev.exit25
-  store i16 7, ptr %49, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %53 = getelementptr inbounds i8, ptr %49, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %53, i8 0, i64 12, i1 false)
-  %54 = load ptr, ptr %4, align 8
-  store ptr %54, ptr %52, align 8
+41:                                               ; preds = %_ZN4llvm4json9ObjectKeyD2Ev.exit19
+  call fastcc void @_ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE(ptr dead_on_unwind noalias writable align 8 %12, i32 noundef 0, i8 noundef zeroext %2)
+  call void @_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr nonnull @.str.18, i64 10)
+  %42 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN4llvm4json6ObjectixEONS0_9ObjectKeyE(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %13) #16
+  call void @_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr nonnull @.str.14, i64 4)
+  %43 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN4llvm4json6ObjectixEONS0_9ObjectKeyE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %14) #16
+  call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %43) #16
+  call void @_ZN4llvm4json5Value8copyFromERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #16
+  %44 = load ptr, ptr %14, align 8
+  %.not.i.i26 = icmp eq ptr %44, null
+  br i1 %.not.i.i26, label %_ZN4llvm4json9ObjectKeyD2Ev.exit28, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i27
+
+_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i27: ; preds = %41
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %44) #16
+  call void @_ZdlPvm(ptr noundef nonnull %44, i64 noundef 32) #17
+  br label %_ZN4llvm4json9ObjectKeyD2Ev.exit28
+
+_ZN4llvm4json9ObjectKeyD2Ev.exit28:               ; preds = %41, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i27
+  store ptr null, ptr %14, align 8
+  %45 = load ptr, ptr %13, align 8
+  %.not.i.i29 = icmp eq ptr %45, null
+  br i1 %.not.i.i29, label %_ZN4llvm4json9ObjectKeyD2Ev.exit31, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i30
+
+_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i30: ; preds = %_ZN4llvm4json9ObjectKeyD2Ev.exit28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %45) #16
+  call void @_ZdlPvm(ptr noundef nonnull %45, i64 noundef 32) #17
+  br label %_ZN4llvm4json9ObjectKeyD2Ev.exit31
+
+_ZN4llvm4json9ObjectKeyD2Ev.exit31:               ; preds = %_ZN4llvm4json9ObjectKeyD2Ev.exit28, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i30
+  store ptr null, ptr %13, align 8
+  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9ObjectKeyENS2_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S7_SA_E10destroyAllEv(ptr noundef nonnull align 1 dereferenceable(1) %12)
+  %46 = load i32, ptr %19, align 8
+  br label %47
+
+47:                                               ; preds = %_ZN4llvm4json9ObjectKeyD2Ev.exit31, %_ZN4llvm4json9ObjectKeyD2Ev.exit25
+  %.sink37 = phi i32 [ %46, %_ZN4llvm4json9ObjectKeyD2Ev.exit31 ], [ %40, %_ZN4llvm4json9ObjectKeyD2Ev.exit25 ]
+  %.sink.in = phi ptr [ %12, %_ZN4llvm4json9ObjectKeyD2Ev.exit31 ], [ %9, %_ZN4llvm4json9ObjectKeyD2Ev.exit25 ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %48 = zext i32 %.sink37 to i64
+  %49 = shl nuw nsw i64 %48, 6
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %.sink, i64 noundef %49, i64 noundef 8) #16
+  %50 = load ptr, ptr %20, align 8
+  %51 = load ptr, ptr %21, align 8
+  %.not.i.i32 = icmp eq ptr %50, %51
+  br i1 %.not.i.i32, label %64, label %52
+
+52:                                               ; preds = %47
+  store i16 7, ptr %50, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %54 = getelementptr inbounds i8, ptr %50, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %54, i8 0, i64 12, i1 false)
+  %55 = load ptr, ptr %4, align 8
+  store ptr %55, ptr %53, align 8
   store ptr null, ptr %4, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %56 = load i32, ptr %22, align 8
-  store i32 %56, ptr %55, align 4
+  %56 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %57 = load i32, ptr %22, align 8
+  store i32 %57, ptr %56, align 4
   store i32 0, ptr %22, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %49, i64 20
-  %58 = load i32, ptr %23, align 4
-  store i32 %58, ptr %57, align 4
+  %58 = getelementptr inbounds nuw i8, ptr %50, i64 20
+  %59 = load i32, ptr %23, align 4
+  store i32 %59, ptr %58, align 4
   store i32 0, ptr %23, align 4
-  %59 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %60 = load i32, ptr %24, align 8
-  store i32 %60, ptr %59, align 4
+  %60 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %61 = load i32, ptr %24, align 8
+  store i32 %61, ptr %60, align 4
   store i32 0, ptr %24, align 8
-  %61 = load ptr, ptr %20, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 40
-  store ptr %62, ptr %20, align 8
+  %62 = load ptr, ptr %20, align 8
+  %63 = getelementptr inbounds i8, ptr %62, i64 40
+  store ptr %63, ptr %20, align 8
   br label %_ZN4llvm4json5Array12emplace_backIJNS0_6ObjectEEEEvDpOT_.exit
 
-63:                                               ; preds = %_ZN4llvm4json9ObjectKeyD2Ev.exit25
-  call void @_ZNSt6vectorIN4llvm4json5ValueESaIS2_EE17_M_realloc_insertIJNS1_6ObjectEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %49, ptr noundef nonnull align 8 dereferenceable(24) %4)
+64:                                               ; preds = %47
+  call void @_ZNSt6vectorIN4llvm4json5ValueESaIS2_EE17_M_realloc_insertIJNS1_6ObjectEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %50, ptr noundef nonnull align 8 dereferenceable(24) %4)
   br label %_ZN4llvm4json5Array12emplace_backIJNS0_6ObjectEEEEvDpOT_.exit
 
-_ZN4llvm4json5Array12emplace_backIJNS0_6ObjectEEEEvDpOT_.exit: ; preds = %51, %63
+_ZN4llvm4json5Array12emplace_backIJNS0_6ObjectEEEEvDpOT_.exit: ; preds = %52, %64
   call void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9ObjectKeyENS2_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S7_SA_E10destroyAllEv(ptr noundef nonnull align 1 dereferenceable(1) %4)
-  %64 = load ptr, ptr %4, align 8
-  %65 = load i32, ptr %24, align 8
-  %66 = zext i32 %65 to i64
-  %67 = shl nuw nsw i64 %66, 6
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %64, i64 noundef %67, i64 noundef 8) #16
-  %68 = getelementptr inbounds i8, ptr %.034, i64 56
-  %.not = icmp eq ptr %68, %17
+  %65 = load ptr, ptr %4, align 8
+  %66 = load i32, ptr %24, align 8
+  %67 = zext i32 %66 to i64
+  %68 = shl nuw nsw i64 %67, 6
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %65, i64 noundef %68, i64 noundef 8) #16
+  %69 = getelementptr inbounds i8, ptr %.034, i64 56
+  %.not = icmp eq ptr %69, %17
   br i1 %.not, label %._crit_edge, label %25
 
 ._crit_edge:                                      ; preds = %_ZN4llvm4json5Array12emplace_backIJNS0_6ObjectEEEEvDpOT_.exit, %3
@@ -16389,7 +16404,8 @@ _ZN4llvm15SmallVectorImplIN5clang10extractapi15SymbolReferenceEE12assignRemoteEO
   store i32 %19, ptr %20, align 4
   store ptr %6, ptr %1, align 8
   store i32 0, ptr %18, align 4
-  br label %.sink.split
+  store i32 0, ptr %15, align 8
+  br label %52
 
 21:                                               ; preds = %4
   %22 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #16
@@ -16418,7 +16434,8 @@ _ZSt4moveIPN5clang10extractapi15SymbolReferenceES3_ET0_T_S5_S4_.exit: ; preds = 
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %22) #16
   %31 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #16
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
+  store i32 0, ptr %32, align 8
+  br label %52
 
 33:                                               ; preds = %21
   %34 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #16
@@ -16465,14 +16482,10 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang10extractapi15SymbolReferenceELb1EE18un
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %22) #16
   %50 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #16
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %_ZN4llvm15SmallVectorImplIN5clang10extractapi15SymbolReferenceEE12assignRemoteEOS4_.exit, %_ZSt4moveIPN5clang10extractapi15SymbolReferenceES3_ET0_T_S5_S4_.exit, %_ZN4llvm23SmallVectorTemplateBaseIN5clang10extractapi15SymbolReferenceELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit
-  %.sink = phi ptr [ %51, %_ZN4llvm23SmallVectorTemplateBaseIN5clang10extractapi15SymbolReferenceELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit ], [ %32, %_ZSt4moveIPN5clang10extractapi15SymbolReferenceES3_ET0_T_S5_S4_.exit ], [ %15, %_ZN4llvm15SmallVectorImplIN5clang10extractapi15SymbolReferenceEE12assignRemoteEOS4_.exit ]
-  store i32 0, ptr %.sink, align 8
+  store i32 0, ptr %51, align 8
   br label %52
 
-52:                                               ; preds = %.sink.split, %2
+52:                                               ; preds = %2, %_ZN4llvm23SmallVectorTemplateBaseIN5clang10extractapi15SymbolReferenceELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit, %_ZSt4moveIPN5clang10extractapi15SymbolReferenceES3_ET0_T_S5_S4_.exit, %_ZN4llvm15SmallVectorImplIN5clang10extractapi15SymbolReferenceEE12assignRemoteEOS4_.exit
   ret ptr %0
 }
 

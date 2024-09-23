@@ -5972,7 +5972,8 @@ Bfree.exit.i:                                     ; preds = %31, %30
   %72 = add i8 %71, 48
   %73 = getelementptr inbounds i8, ptr %.175, i64 3
   store i8 %72, ptr %.377, align 1
-  br label %.loopexit.sink.split
+  store i8 0, ptr %73, align 1
+  br label %.loopexit
 
 .preheader:                                       ; preds = %.loopexit99, %.preheader
   %indvars.iv131 = phi i32 [ %indvars.iv.next132, %.preheader ], [ 1, %.loopexit99 ]
@@ -6033,7 +6034,7 @@ Bfree.exit.i:                                     ; preds = %31, %30
 .preheader102:                                    ; preds = %91
   %96 = load i8, ptr %phi.call, align 1
   %.not90104 = icmp eq i8 %96, 0
-  br i1 %.not90104, label %.loopexit.sink.split, label %.lr.ph
+  br i1 %.not90104, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader102, %.lr.ph
   %97 = phi i8 [ %100, %.lr.ph ], [ %96, %.preheader102 ]
@@ -6044,7 +6045,12 @@ Bfree.exit.i:                                     ; preds = %31, %30
   store i8 %97, ptr %.5105, align 1
   %100 = load i8, ptr %98, align 1
   %.not90 = icmp eq i8 %100, 0
-  br i1 %.not90, label %.loopexit.sink.split, label %.lr.ph
+  br i1 %.not90, label %._crit_edge, label %.lr.ph
+
+._crit_edge:                                      ; preds = %.lr.ph, %.preheader102
+  %.5.lcssa = phi ptr [ %92, %.preheader102 ], [ %99, %.lr.ph ]
+  store i8 0, ptr %.5.lcssa, align 1
+  br label %.loopexit
 
 .lr.ph110:                                        ; preds = %.preheader101, %.lr.ph110
   %.2109 = phi i32 [ %102, %.lr.ph110 ], [ 0, %.preheader101 ]
@@ -6066,7 +6072,7 @@ Bfree.exit.i:                                     ; preds = %31, %30
   %.272.lcssa = phi ptr [ %phi.call, %.preheader101 ], [ %.373, %.lr.ph110 ]
   %103 = load i8, ptr %.272.lcssa, align 1
   %.not = icmp eq i8 %103, 0
-  br i1 %.not, label %.loopexit.sink.split, label %104
+  br i1 %.not, label %.loopexit100, label %104
 
 104:                                              ; preds = %._crit_edge111
   %105 = icmp eq ptr %.272.lcssa, %phi.call
@@ -6086,7 +6092,7 @@ Bfree.exit.i:                                     ; preds = %31, %30
   %111 = getelementptr inbounds i8, ptr %phi.call, i64 %110
   %112 = load i8, ptr %111, align 1
   %.not88115 = icmp eq i8 %112, 0
-  br i1 %.not88115, label %.loopexit.sink.split, label %.lr.ph119
+  br i1 %.not88115, label %.loopexit100, label %.lr.ph119
 
 .lr.ph119:                                        ; preds = %108, %.lr.ph119
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph119 ], [ %110, %108 ]
@@ -6098,14 +6104,14 @@ Bfree.exit.i:                                     ; preds = %31, %30
   %114 = getelementptr inbounds i8, ptr %phi.call, i64 %indvars.iv.next
   %115 = load i8, ptr %114, align 1
   %.not88 = icmp eq i8 %115, 0
-  br i1 %.not88, label %.loopexit.sink.split, label %.lr.ph119
+  br i1 %.not88, label %.loopexit100, label %.lr.ph119
 
-.loopexit.sink.split:                             ; preds = %.lr.ph, %.lr.ph119, %._crit_edge111, %108, %.preheader102, %70
-  %.5.lcssa.sink = phi ptr [ %73, %70 ], [ %92, %.preheader102 ], [ %.6.lcssa, %._crit_edge111 ], [ %.10114, %108 ], [ %.10, %.lr.ph119 ], [ %99, %.lr.ph ]
-  store i8 0, ptr %.5.lcssa.sink, align 1
+.loopexit100:                                     ; preds = %.lr.ph119, %108, %._crit_edge111
+  %.8 = phi ptr [ %.6.lcssa, %._crit_edge111 ], [ %.10114, %108 ], [ %.10, %.lr.ph119 ]
+  store i8 0, ptr %.8, align 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph126, %.loopexit.sink.split, %76
+.loopexit:                                        ; preds = %.lr.ph126, %76, %._crit_edge, %.loopexit100, %70
   %116 = getelementptr inbounds i8, ptr %phi.call, i64 -4
   %117 = load i32, ptr %116, align 4
   %118 = getelementptr inbounds i8, ptr %phi.call, i64 4

@@ -2964,7 +2964,11 @@ if.end.i:                                         ; preds = %if.then14
   call void @llvm.lifetime.start.p0(i64 129, ptr nonnull %mzIdChar.i.i)
   %14 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i.i = icmp ugt i16 %14, 31
-  br i1 %cmp.i.i.i, label %if.end.i.i, label %_ZN6icu_75L16mergeTimeZoneKeyERKNS_13UnicodeStringEPc.exit.i
+  br i1 %cmp.i.i.i, label %if.end.i.i, label %if.then.i.i
+
+if.then.i.i:                                      ; preds = %if.end.i
+  store i8 0, ptr %key.i, align 16
+  br label %_ZN6icu_75L16mergeTimeZoneKeyERKNS_13UnicodeStringEPc.exit.i
 
 if.end.i.i:                                       ; preds = %if.end.i
   %cmp.i.i.i.i = icmp slt i16 %14, 0
@@ -2982,11 +2986,10 @@ call2.i.i.noexc:                                  ; preds = %if.end.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i, ptr nonnull align 16 %mzIdChar.i.i, i64 %conv5.i.i, i1 false)
   %17 = getelementptr i8, ptr %key.i, i64 %conv5.i.i
   %arrayidx7.i.i = getelementptr i8, ptr %17, i64 5
+  store i8 0, ptr %arrayidx7.i.i, align 1
   br label %_ZN6icu_75L16mergeTimeZoneKeyERKNS_13UnicodeStringEPc.exit.i
 
-_ZN6icu_75L16mergeTimeZoneKeyERKNS_13UnicodeStringEPc.exit.i: ; preds = %call2.i.i.noexc, %if.end.i
-  %arrayidx7.sink.i.i = phi ptr [ %arrayidx7.i.i, %call2.i.i.noexc ], [ %key.i, %if.end.i ]
-  store i8 0, ptr %arrayidx7.sink.i.i, align 1
+_ZN6icu_75L16mergeTimeZoneKeyERKNS_13UnicodeStringEPc.exit.i: ; preds = %call2.i.i.noexc, %if.then.i.i
   call void @llvm.lifetime.end.p0(i64 129, ptr nonnull %mzIdChar.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %localStatus.i.i)
   store i32 0, ptr %localStatus.i.i, align 4
@@ -2997,13 +3000,13 @@ _ZN6icu_75L16mergeTimeZoneKeyERKNS_13UnicodeStringEPc.exit.i: ; preds = %call2.i
 .noexc:                                           ; preds = %_ZN6icu_75L16mergeTimeZoneKeyERKNS_13UnicodeStringEPc.exit.i
   %18 = load i32, ptr %localStatus.i.i, align 4
   %cmp.i.i2.i = icmp sgt i32 %18, 0
-  br i1 %cmp.i.i2.i, label %_ZN6icu_756ZNames12ZNamesLoader9loadNamesEPK15UResourceBundlePKcR10UErrorCode.exit.i, label %if.then.i.i
+  br i1 %cmp.i.i2.i, label %_ZN6icu_756ZNames12ZNamesLoader9loadNamesEPK15UResourceBundlePKcR10UErrorCode.exit.i, label %if.then.i3.i
 
-if.then.i.i:                                      ; preds = %.noexc
+if.then.i3.i:                                     ; preds = %.noexc
   store i32 %18, ptr %status, align 4
   br label %_ZN6icu_756ZNames12ZNamesLoader9loadNamesEPK15UResourceBundlePKcR10UErrorCode.exit.i
 
-_ZN6icu_756ZNames12ZNamesLoader9loadNamesEPK15UResourceBundlePKcR10UErrorCode.exit.i: ; preds = %if.then.i.i, %.noexc
+_ZN6icu_756ZNames12ZNamesLoader9loadNamesEPK15UResourceBundlePKcR10UErrorCode.exit.i: ; preds = %if.then.i3.i, %.noexc
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %localStatus.i.i)
   br label %invoke.cont16
 
@@ -5571,21 +5574,21 @@ entry:
 
 if.end:                                           ; preds = %entry
   switch i32 %type, label %return [
-    i32 16, label %return.sink.split
+    i32 16, label %sw.bb
     i32 32, label %sw.bb3
   ]
 
-sw.bb3:                                           ; preds = %if.end
-  %arrayidx5 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.end, %sw.bb3
-  %.sink = phi ptr [ %arrayidx5, %sw.bb3 ], [ %0, %if.end ]
-  %1 = load ptr, ptr %.sink, align 8
+sw.bb:                                            ; preds = %if.end
+  %1 = load ptr, ptr %0, align 8
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.end, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ null, %if.end ], [ %1, %return.sink.split ]
+sw.bb3:                                           ; preds = %if.end
+  %arrayidx5 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = load ptr, ptr %arrayidx5, align 8
+  br label %return
+
+return:                                           ; preds = %sw.bb, %sw.bb3, %if.end, %entry
+  %retval.0 = phi ptr [ null, %entry ], [ %2, %sw.bb3 ], [ %1, %sw.bb ], [ null, %if.end ]
   ret ptr %retval.0
 }
 
@@ -6200,27 +6203,27 @@ sw.bb3.i:                                         ; preds = %if.end.i
   br label %_ZNK6icu_759TZDBNames7getNameE17UTimeZoneNameType.exit
 
 _ZNK6icu_759TZDBNames7getNameE17UTimeZoneNameType.exit: ; preds = %if.end.i, %sw.bb3.i
-  %.sink.i = phi ptr [ %arrayidx5.i, %sw.bb3.i ], [ %2, %if.end.i ]
-  %3 = load ptr, ptr %.sink.i, align 8
-  %cmp8.not = icmp eq ptr %3, null
+  %retval.0.i.in = phi ptr [ %arrayidx5.i, %sw.bb3.i ], [ %2, %if.end.i ]
+  %retval.0.i = load ptr, ptr %retval.0.i.in, align 8
+  %cmp8.not = icmp eq ptr %retval.0.i, null
   br i1 %cmp8.not, label %return, label %if.then9
 
 if.then9:                                         ; preds = %_ZNK6icu_759TZDBNames7getNameE17UTimeZoneNameType.exit
-  store ptr %3, ptr %agg.tmp, align 8
+  store ptr %retval.0.i, ptr %agg.tmp, align 8
   %call10 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString5setToEaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %name, i8 noundef signext 1, ptr noundef nonnull %agg.tmp, i32 noundef -1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then9
-  %4 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %4) #21, !srcloc !11
+  %3 = load ptr, ptr %agg.tmp, align 8
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %3) #21, !srcloc !11
   br label %return
 
 lpad:                                             ; preds = %if.then9
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %6 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %6) #21, !srcloc !11
-  resume { ptr, i32 } %5
+  %5 = load ptr, ptr %agg.tmp, align 8
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %5) #21, !srcloc !11
+  resume { ptr, i32 } %4
 
 return:                                           ; preds = %if.end.i, %if.then6, %if.end, %_ZNK6icu_759TZDBNames7getNameE17UTimeZoneNameType.exit, %invoke.cont, %entry
   ret ptr %name
@@ -6252,20 +6255,20 @@ if.then4.i:                                       ; preds = %land.lhs.true.i
   store ptr %call.i, ptr @_ZN6icu_75L13gTZDBNamesMapE, align 8
   %2 = load i32, ptr %status, align 4
   %cmp.i.i36 = icmp slt i32 %2, 1
-  br i1 %cmp.i.i36, label %if.end.i37, label %if.then.i
+  br i1 %cmp.i.i36, label %if.end.i38, label %if.then.i37
 
-if.then.i:                                        ; preds = %if.then4.i
+if.then.i37:                                      ; preds = %if.then4.i
   store ptr null, ptr @_ZN6icu_75L13gTZDBNamesMapE, align 8
   br label %_ZN6icu_75L16initTZDBNamesMapER10UErrorCode.exit
 
-if.end.i37:                                       ; preds = %if.then4.i
-  %call2.i38 = tail call ptr @uhash_setValueDeleter_75(ptr noundef %call.i, ptr noundef nonnull @_ZN6icu_75L15deleteTZDBNamesEPv)
+if.end.i38:                                       ; preds = %if.then4.i
+  %call2.i39 = tail call ptr @uhash_setValueDeleter_75(ptr noundef %call.i, ptr noundef nonnull @_ZN6icu_75L15deleteTZDBNamesEPv)
   tail call void @ucln_i18n_registerCleanup_75(i32 noundef 15, ptr noundef nonnull @_ZN6icu_75L25tzdbTimeZoneNames_cleanupEv)
   %.pre = load i32, ptr %status, align 4
   br label %_ZN6icu_75L16initTZDBNamesMapER10UErrorCode.exit
 
-_ZN6icu_75L16initTZDBNamesMapER10UErrorCode.exit: ; preds = %if.then.i, %if.end.i37
-  %3 = phi i32 [ %2, %if.then.i ], [ %.pre, %if.end.i37 ]
+_ZN6icu_75L16initTZDBNamesMapER10UErrorCode.exit: ; preds = %if.then.i37, %if.end.i38
+  %3 = phi i32 [ %2, %if.then.i37 ], [ %.pre, %if.end.i38 ]
   store i32 %3, ptr getelementptr inbounds (i8, ptr @_ZN6icu_75L21gTZDBNamesMapInitOnceE, i64 4), align 4
   tail call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN6icu_75L21gTZDBNamesMapInitOnceE)
   br label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
@@ -6332,7 +6335,11 @@ if.then14:                                        ; preds = %if.then9
   call void @llvm.lifetime.start.p0(i64 129, ptr nonnull %mzIdChar.i)
   %14 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i31 = icmp ugt i16 %14, 31
-  br i1 %cmp.i.i31, label %if.end.i32, label %_ZN6icu_75L16mergeTimeZoneKeyERKNS_13UnicodeStringEPc.exit
+  br i1 %cmp.i.i31, label %if.end.i32, label %if.then.i
+
+if.then.i:                                        ; preds = %if.then14
+  store i8 0, ptr %key, align 16
+  br label %_ZN6icu_75L16mergeTimeZoneKeyERKNS_13UnicodeStringEPc.exit
 
 if.end.i32:                                       ; preds = %if.then14
   %cmp.i.i.i = icmp slt i16 %14, 0
@@ -6347,11 +6354,10 @@ if.end.i32:                                       ; preds = %if.then14
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull align 16 %mzIdChar.i, i64 %conv5.i, i1 false)
   %17 = getelementptr i8, ptr %key, i64 %conv5.i
   %arrayidx7.i = getelementptr i8, ptr %17, i64 5
+  store i8 0, ptr %arrayidx7.i, align 1
   br label %_ZN6icu_75L16mergeTimeZoneKeyERKNS_13UnicodeStringEPc.exit
 
-_ZN6icu_75L16mergeTimeZoneKeyERKNS_13UnicodeStringEPc.exit: ; preds = %if.then14, %if.end.i32
-  %arrayidx7.sink.i = phi ptr [ %arrayidx7.i, %if.end.i32 ], [ %key, %if.then14 ]
-  store i8 0, ptr %arrayidx7.sink.i, align 1
+_ZN6icu_75L16mergeTimeZoneKeyERKNS_13UnicodeStringEPc.exit: ; preds = %if.then.i, %if.end.i32
   call void @llvm.lifetime.end.p0(i64 129, ptr nonnull %mzIdChar.i)
   %call17 = call noundef ptr @_ZN6icu_759TZDBNames14createInstanceEP15UResourceBundlePKc(ptr noundef %call11, ptr noundef nonnull %key)
   %cmp18 = icmp eq ptr %call17, null

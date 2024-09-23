@@ -1896,12 +1896,12 @@ define internal void @_ZN12_GLOBAL__N_124ItaniumMangleContextImpl13mangleCXXName
   %.sink51.sroa.gep55 = getelementptr inbounds nuw i8, ptr %8, i64 256
   %.sink51.sroa.gep56 = getelementptr inbounds nuw i8, ptr %7, i64 256
   %.sink51.sroa.gep57 = getelementptr inbounds nuw i8, ptr %6, i64 256
-  %.sink51.sroa.gep59 = getelementptr inbounds nuw i8, ptr %8, i64 248
-  %.sink51.sroa.gep60 = getelementptr inbounds nuw i8, ptr %7, i64 248
-  %.sink51.sroa.gep61 = getelementptr inbounds nuw i8, ptr %6, i64 248
-  %.sink51.sroa.gep63 = getelementptr inbounds nuw i8, ptr %8, i64 272
-  %.sink51.sroa.gep64 = getelementptr inbounds nuw i8, ptr %7, i64 272
-  %.sink51.sroa.gep65 = getelementptr inbounds nuw i8, ptr %6, i64 272
+  %.sink51.sroa.gep59 = getelementptr inbounds nuw i8, ptr %8, i64 272
+  %.sink51.sroa.gep60 = getelementptr inbounds nuw i8, ptr %7, i64 272
+  %.sink51.sroa.gep61 = getelementptr inbounds nuw i8, ptr %6, i64 272
+  %.sink51.sroa.gep63 = getelementptr inbounds nuw i8, ptr %8, i64 248
+  %.sink51.sroa.gep64 = getelementptr inbounds nuw i8, ptr %7, i64 248
+  %.sink51.sroa.gep65 = getelementptr inbounds nuw i8, ptr %6, i64 248
   br i1 %.not, label %45, label %23
 
 23:                                               ; preds = %4
@@ -2053,12 +2053,12 @@ _ZN12_GLOBAL__N_114CXXNameManglerC2ERNS_24ItaniumMangleContextImplERN4llvm11raw_
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sink51.sroa.phi54, i8 0, i64 20, i1 false)
   call fastcc void @_ZN12_GLOBAL__N_114CXXNameMangler6mangleEN5clang10GlobalDeclE(ptr noundef nonnull align 8 dereferenceable(280) %.sink51, i64 %1)
   %92 = load ptr, ptr %.sink51.sroa.phi54, align 8
-  %93 = load i32, ptr %.sink51.sroa.phi62, align 8
+  %93 = load i32, ptr %.sink51.sroa.phi58, align 8
   %94 = zext i32 %93 to i64
   %95 = mul nuw nsw i64 %94, 24
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %92, i64 noundef %95, i64 noundef 8) #24
   %96 = load ptr, ptr %.sink51.sroa.phi, align 8
-  %97 = load i32, ptr %.sink51.sroa.phi58, align 8
+  %97 = load i32, ptr %.sink51.sroa.phi62, align 8
   %98 = zext i32 %97 to i64
   %99 = shl nuw nsw i64 %98, 4
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %96, i64 noundef %99, i64 noundef 8) #24
@@ -22431,9 +22431,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_114CXXNameMangler10mangleTypeEPKN5c
   br label %12
 
 12:                                               ; preds = %7, %5
-  %.sink = phi ptr [ %11, %7 ], [ %6, %5 ]
-  %.sroa.0.0.copyload.i5 = load i64, ptr %.sink, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_114CXXNameMangler10mangleTypeEN5clang8QualTypeE(ptr noundef nonnull align 8 dereferenceable(280) %0, i64 %.sroa.0.0.copyload.i5)
+  %.sroa.0.0.copyload.i5.sink.in = phi ptr [ %11, %7 ], [ %6, %5 ]
+  %.sroa.0.0.copyload.i5.sink = load i64, ptr %.sroa.0.0.copyload.i5.sink.in, align 8
+  tail call fastcc void @_ZN12_GLOBAL__N_114CXXNameMangler10mangleTypeEN5clang8QualTypeE(ptr noundef nonnull align 8 dereferenceable(280) %0, i64 %.sroa.0.0.copyload.i5.sink)
   ret void
 }
 

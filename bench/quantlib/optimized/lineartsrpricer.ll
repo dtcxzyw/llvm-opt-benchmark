@@ -7717,7 +7717,12 @@ _ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit: ; preds = %if.then, 
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %h) #27
   %5 = load ptr, ptr %smileSection_, align 8, !tbaa !107
   %cmp.not.i7 = icmp eq ptr %5, null
-  br i1 %cmp.not.i7, label %if.end.sink.split, label %if.end, !prof !58
+  br i1 %cmp.not.i7, label %cond.false.i8, label %if.end, !prof !58
+
+cond.false.i8:                                    ; preds = %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit
+  tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.15, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEdeEv, ptr noundef nonnull @.str.16, i64 noundef 778)
+  %.pre.i9 = load ptr, ptr %smileSection_, align 8, !tbaa !107
+  br label %if.end
 
 if.else:                                          ; preds = %entry
   %smileSection_5 = getelementptr inbounds nuw i8, ptr %this, i64 240
@@ -7745,28 +7750,21 @@ _ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit13: ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %h) #27
   %11 = load ptr, ptr %smileSection_5, align 8, !tbaa !107
   %cmp.not.i16 = icmp eq ptr %11, null
-  br i1 %cmp.not.i16, label %if.end.sink.split, label %if.end, !prof !58
+  br i1 %cmp.not.i16, label %cond.false.i17, label %if.end, !prof !58
 
-if.end.sink.split:                                ; preds = %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit13, %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit
-  %smileSection_5.sink = phi ptr [ %smileSection_, %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit ], [ %smileSection_5, %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit13 ]
-  %optionType.sink.ph = phi i32 [ 1, %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit ], [ %optionType, %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit13 ]
-  %k.0.ph = phi double [ %.sroa.speculated27, %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit ], [ %.sroa.speculated, %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit13 ]
-  %max.0.ph = phi double [ %.sroa.speculated27, %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit ], [ %referenceStrike, %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit13 ]
-  %min.0.ph = phi double [ %referenceStrike, %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit ], [ %.sroa.speculated, %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit13 ]
-  %b.0.ph = phi double [ %.sroa.speculated27, %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit ], [ %10, %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit13 ]
-  %a.0.ph = phi double [ %0, %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit ], [ %.sroa.speculated, %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit13 ]
+cond.false.i17:                                   ; preds = %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit13
   tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.15, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEdeEv, ptr noundef nonnull @.str.16, i64 noundef 778)
-  %.pre.i18 = load ptr, ptr %smileSection_5.sink, align 8, !tbaa !107
+  %.pre.i18 = load ptr, ptr %smileSection_5, align 8, !tbaa !107
   br label %if.end
 
-if.end:                                           ; preds = %if.end.sink.split, %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit13, %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit
-  %.sink = phi ptr [ %5, %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit ], [ %11, %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit13 ], [ %.pre.i18, %if.end.sink.split ]
-  %optionType.sink = phi i32 [ 1, %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit ], [ %optionType, %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit13 ], [ %optionType.sink.ph, %if.end.sink.split ]
-  %k.0 = phi double [ %.sroa.speculated27, %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit ], [ %.sroa.speculated, %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit13 ], [ %k.0.ph, %if.end.sink.split ]
-  %max.0 = phi double [ %.sroa.speculated27, %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit ], [ %referenceStrike, %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit13 ], [ %max.0.ph, %if.end.sink.split ]
-  %min.0 = phi double [ %referenceStrike, %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit ], [ %.sroa.speculated, %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit13 ], [ %min.0.ph, %if.end.sink.split ]
-  %b.0 = phi double [ %.sroa.speculated27, %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit ], [ %10, %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit13 ], [ %b.0.ph, %if.end.sink.split ]
-  %a.0 = phi double [ %0, %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit ], [ %.sroa.speculated, %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit13 ], [ %a.0.ph, %if.end.sink.split ]
+if.end:                                           ; preds = %cond.false.i17, %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit13, %cond.false.i8, %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit
+  %.sink = phi ptr [ %5, %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit ], [ %.pre.i9, %cond.false.i8 ], [ %11, %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit13 ], [ %.pre.i18, %cond.false.i17 ]
+  %optionType.sink = phi i32 [ 1, %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit ], [ 1, %cond.false.i8 ], [ %optionType, %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit13 ], [ %optionType, %cond.false.i17 ]
+  %k.0 = phi double [ %.sroa.speculated27, %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit ], [ %.sroa.speculated27, %cond.false.i8 ], [ %.sroa.speculated, %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit13 ], [ %.sroa.speculated, %cond.false.i17 ]
+  %max.0 = phi double [ %.sroa.speculated27, %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit ], [ %.sroa.speculated27, %cond.false.i8 ], [ %referenceStrike, %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit13 ], [ %referenceStrike, %cond.false.i17 ]
+  %min.0 = phi double [ %referenceStrike, %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit ], [ %referenceStrike, %cond.false.i8 ], [ %.sroa.speculated, %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit13 ], [ %.sroa.speculated, %cond.false.i17 ]
+  %b.0 = phi double [ %.sroa.speculated27, %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit ], [ %.sroa.speculated27, %cond.false.i8 ], [ %10, %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit13 ], [ %10, %cond.false.i17 ]
+  %a.0 = phi double [ %0, %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit ], [ %0, %cond.false.i8 ], [ %.sroa.speculated, %_ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit13 ], [ %.sroa.speculated, %cond.false.i17 ]
   store ptr %.sink, ptr %h, align 8, !tbaa !203
   %targetPrice_.i20 = getelementptr inbounds nuw i8, ptr %h, i64 8
   store double %price, ptr %targetPrice_.i20, align 8, !tbaa !206

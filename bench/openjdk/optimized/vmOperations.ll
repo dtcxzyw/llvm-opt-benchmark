@@ -2073,7 +2073,7 @@ define linkonce_odr hidden void @_ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15
 5:                                                ; preds = %6, %2
   %.0 = phi ptr [ %4, %2 ], [ %8, %6 ]
   %cond = icmp eq ptr %.0, null
-  br i1 %cond, label %.loopexit, label %6
+  br i1 %cond, label %9, label %6
 
 6:                                                ; preds = %5
   %7 = getelementptr inbounds i8, ptr %.0, i64 8
@@ -2081,17 +2081,22 @@ define linkonce_odr hidden void @_ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15
   %.not9 = icmp eq ptr %8, null
   br i1 %.not9, label %.critedge, label %5, !llvm.loop !22
 
-.critedge:                                        ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %.0, i64 8
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %5, %.critedge
-  %.sink11 = phi ptr [ %9, %.critedge ], [ %3, %5 ]
+9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
-  store ptr %11, ptr %.sink11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
-  store ptr null, ptr %12, align 8
+  store ptr %11, ptr %3, align 8
+  br label %15
+
+.critedge:                                        ; preds = %6
+  %12 = getelementptr inbounds i8, ptr %.0, i64 8
+  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = load ptr, ptr %13, align 8
+  store ptr %14, ptr %12, align 8
+  br label %15
+
+15:                                               ; preds = %.critedge, %9
+  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  store ptr null, ptr %16, align 8
   ret void
 }
 
@@ -2197,7 +2202,8 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplIP13ObjectMonitorLN6A
 
 12:                                               ; preds = %6
   store ptr %2, ptr %8, align 8
-  br label %_ZNK14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS1_.exit.thread.sink.split
+  store ptr %4, ptr %9, align 8
+  br label %_ZNK14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS1_.exit.thread
 
 .preheader:                                       ; preds = %6, %13
   %.0 = phi ptr [ %15, %13 ], [ %10, %6 ]
@@ -2213,14 +2219,10 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplIP13ObjectMonitorLN6A
 .critedge:                                        ; preds = %.preheader, %13
   store ptr %2, ptr %8, align 8
   %16 = getelementptr inbounds i8, ptr %.0, i64 8
-  br label %_ZNK14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS1_.exit.thread.sink.split
-
-_ZNK14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS1_.exit.thread.sink.split: ; preds = %.critedge, %12
-  %.sink = phi ptr [ %9, %12 ], [ %16, %.critedge ]
-  store ptr %4, ptr %.sink, align 8
+  store ptr %4, ptr %16, align 8
   br label %_ZNK14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS1_.exit.thread
 
-_ZNK14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS1_.exit.thread: ; preds = %_ZNK14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS1_.exit.thread.sink.split, %3
+_ZNK14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS1_.exit.thread: ; preds = %3, %12, %.critedge
   ret ptr %4
 }
 
@@ -2335,50 +2337,67 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplIP13ObjectMoni
 9:                                                ; preds = %4
   %10 = icmp ne ptr %.016, null
   %or.cond.not = and i1 %10, %5
-  br i1 %or.cond.not, label %_ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS1_E.exit, label %15
+  br i1 %or.cond.not, label %11, label %18
 
-_ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS1_E.exit: ; preds = %9
-  %11 = icmp eq ptr %.0, null
-  %12 = getelementptr inbounds i8, ptr %.016, i64 8
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %.0, i64 8
-  %.sink = select i1 %11, ptr %3, ptr %14
-  store ptr %13, ptr %.sink, align 8
+11:                                               ; preds = %9
+  %12 = icmp eq ptr %.0, null
+  %13 = getelementptr inbounds i8, ptr %.016, i64 8
+  %14 = load ptr, ptr %13, align 8
+  br i1 %12, label %15, label %16
+
+15:                                               ; preds = %11
+  store ptr %14, ptr %3, align 8
+  br label %_ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS1_E.exit
+
+16:                                               ; preds = %11
+  %17 = getelementptr inbounds i8, ptr %.0, i64 8
+  store ptr %14, ptr %17, align 8
+  br label %_ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS1_E.exit
+
+_ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS1_E.exit: ; preds = %16, %15
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.016) #10
-  br label %15
+  br label %18
 
-15:                                               ; preds = %9, %_ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS1_E.exit
+18:                                               ; preds = %9, %_ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS1_E.exit
   ret i1 %or.cond.not
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EE12remove_afterEP14LinkedListNodeIS1_E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
   %3 = icmp eq ptr %1, null
-  br i1 %3, label %4, label %7
+  br i1 %3, label %4, label %10
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
-  br i1 %.not.i, label %_ZN10LinkedListIP13ObjectMonitorE11unlink_headEv.exit, label %_ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS1_E.exit
+  br i1 %.not.i, label %_ZN10LinkedListIP13ObjectMonitorE11unlink_headEv.exit, label %7
 
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+7:                                                ; preds = %4
+  %8 = getelementptr inbounds i8, ptr %6, i64 8
   %9 = load ptr, ptr %8, align 8
-  %.not = icmp eq ptr %9, null
-  br i1 %.not, label %_ZN10LinkedListIP13ObjectMonitorE11unlink_headEv.exit, label %_ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS1_E.exit
+  store ptr %9, ptr %5, align 8
+  br label %_ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS1_E.exit
 
-_ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS1_E.exit: ; preds = %7, %4
-  %.sink = phi ptr [ %6, %4 ], [ %9, %7 ]
-  %.sink18 = phi ptr [ %5, %4 ], [ %8, %7 ]
-  %10 = getelementptr inbounds i8, ptr %.sink, i64 8
-  %11 = load ptr, ptr %10, align 8
-  store ptr %11, ptr %.sink18, align 8
-  tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.sink) #10
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = load ptr, ptr %11, align 8
+  %.not = icmp eq ptr %12, null
+  br i1 %.not, label %_ZN10LinkedListIP13ObjectMonitorE11unlink_headEv.exit, label %13
+
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %15 = load ptr, ptr %14, align 8
+  store ptr %15, ptr %11, align 8
+  br label %_ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS1_E.exit
+
+_ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS1_E.exit: ; preds = %13, %7
+  %.0.ph = phi ptr [ %6, %7 ], [ %12, %13 ]
+  tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.0.ph) #10
   br label %_ZN10LinkedListIP13ObjectMonitorE11unlink_headEv.exit
 
-_ZN10LinkedListIP13ObjectMonitorE11unlink_headEv.exit: ; preds = %7, %4, %_ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS1_E.exit
-  %.not1216 = phi i1 [ true, %_ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS1_E.exit ], [ false, %4 ], [ false, %7 ]
+_ZN10LinkedListIP13ObjectMonitorE11unlink_headEv.exit: ; preds = %10, %4, %_ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS1_E.exit
+  %.not1216 = phi i1 [ true, %_ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS1_E.exit ], [ false, %4 ], [ false, %10 ]
   ret i1 %.not1216
 }
 

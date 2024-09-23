@@ -3200,7 +3200,7 @@ if.then1:                                         ; preds = %entry
   %max_outstanding_handshakes_.i.i = getelementptr inbounds i8, ptr %cond.i, i64 40
   %4 = load i64, ptr %max_outstanding_handshakes_.i.i, align 8
   %cmp.not.i.i = icmp eq i64 %3, %4
-  br i1 %cmp.not.i.i, label %if.then.i.i, label %cleanup.i.i
+  br i1 %cmp.not.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.then1
   %call5.i.i.i.i.i.i1.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
@@ -3213,6 +3213,8 @@ _ZNSt7__cxx114listIP27alts_grpc_handshaker_clientSaIS2_EE9push_backERKS2_.exit.i
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i1.i.i, ptr noundef nonnull %queued_handshakes_.i.i) #20
   %_M_size.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i, i64 24
   %5 = load i64, ptr %_M_size.i.i.i.i.i, align 8
+  %add.i.i.i.i.i = add i64 %5, 1
+  store i64 %add.i.i.i.i.i, ptr %_M_size.i.i.i.i.i, align 8
   br label %cleanup.i.i
 
 lpad.i.i:                                         ; preds = %if.then.i.i
@@ -3231,11 +3233,12 @@ terminate.lpad.i.i.i:                             ; preds = %lpad.i.i
 _ZN4absl12lts_202308029MutexLockD2Ev.exit.i.i:    ; preds = %lpad.i.i
   resume { ptr, i32 } %6
 
-cleanup.i.i:                                      ; preds = %_ZNSt7__cxx114listIP27alts_grpc_handshaker_clientSaIS2_EE9push_backERKS2_.exit.i.i, %if.then1
-  %.sink.i.i = phi i64 [ %5, %_ZNSt7__cxx114listIP27alts_grpc_handshaker_clientSaIS2_EE9push_backERKS2_.exit.i.i ], [ %3, %if.then1 ]
-  %_M_size.i.i.i.sink.i.i = phi ptr [ %_M_size.i.i.i.i.i, %_ZNSt7__cxx114listIP27alts_grpc_handshaker_clientSaIS2_EE9push_backERKS2_.exit.i.i ], [ %outstanding_handshakes_.i.i, %if.then1 ]
-  %add.i.i.i.i.i = add i64 %.sink.i.i, 1
-  store i64 %add.i.i.i.i.i, ptr %_M_size.i.i.i.sink.i.i, align 8
+if.end.i.i:                                       ; preds = %if.then1
+  %inc.i.i = add i64 %3, 1
+  store i64 %inc.i.i, ptr %outstanding_handshakes_.i.i, align 8
+  br label %cleanup.i.i
+
+cleanup.i.i:                                      ; preds = %if.end.i.i, %_ZNSt7__cxx114listIP27alts_grpc_handshaker_clientSaIS2_EE9push_backERKS2_.exit.i.i
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %cond.i)
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit3.i.i unwind label %terminate.lpad.i2.i.i
 

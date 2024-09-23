@@ -21035,6 +21035,9 @@ sw.bb:                                            ; preds = %entry
   store double %call, ptr %arrayidx11.i, align 8
   store double %call1, ptr %arrayidx13.i, align 8
   %fneg = fneg double %call1
+  %arrayidx6 = getelementptr inbounds i8, ptr %agg.result, i64 72
+  store double %fneg, ptr %arrayidx6, align 8
+  store double %call, ptr %arrayidx21.i, align 8
   br label %return
 
 sw.bb9:                                           ; preds = %entry
@@ -21042,12 +21045,18 @@ sw.bb9:                                           ; preds = %entry
   %fneg12 = fneg double %call1
   %arrayidx14 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store double %fneg12, ptr %arrayidx14, align 8
+  %arrayidx.i18 = getelementptr inbounds i8, ptr %agg.result, i64 64
+  store double %call1, ptr %arrayidx.i18, align 8
+  store double %call, ptr %arrayidx21.i, align 8
   br label %return
 
 sw.bb19:                                          ; preds = %entry
   store double %call, ptr %agg.result, align 8
   store double %call1, ptr %arrayidx3.i, align 8
   %fneg24 = fneg double %call1
+  %arrayidx.i22 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  store double %fneg24, ptr %arrayidx.i22, align 8
+  store double %call, ptr %arrayidx11.i, align 8
   br label %return
 
 sw.default:                                       ; preds = %entry
@@ -21077,12 +21086,6 @@ cleanup.action:                                   ; preds = %sw.default
   br label %eh.resume
 
 return:                                           ; preds = %sw.bb19, %sw.bb9, %sw.bb
-  %.sink = phi i64 [ 32, %sw.bb19 ], [ 64, %sw.bb9 ], [ 72, %sw.bb ]
-  %fneg24.sink = phi double [ %fneg24, %sw.bb19 ], [ %call1, %sw.bb9 ], [ %fneg, %sw.bb ]
-  %arrayidx11.i.sink = phi ptr [ %arrayidx11.i, %sw.bb19 ], [ %arrayidx21.i, %sw.bb9 ], [ %arrayidx21.i, %sw.bb ]
-  %arrayidx.i22 = getelementptr inbounds i8, ptr %agg.result, i64 %.sink
-  store double %fneg24.sink, ptr %arrayidx.i22, align 8
-  store double %call, ptr %arrayidx11.i.sink, align 8
   ret void
 
 eh.resume:                                        ; preds = %ehcleanup, %cleanup.action

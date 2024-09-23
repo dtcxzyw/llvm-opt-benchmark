@@ -7749,47 +7749,48 @@ if.then103:                                       ; preds = %if.end101
 
 if.then106:                                       ; preds = %if.then103
   %call107 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.169)
+  %34 = load i32, ptr %background_r, align 4
+  %call108 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call107, i32 noundef %34)
   br label %if.end120.sink.split
 
 if.else110:                                       ; preds = %if.then103
   %call111 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.170)
-  %34 = load i32, ptr %background_r, align 4
-  %call113 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call111, i32 noundef %34)
+  %35 = load i32, ptr %background_r, align 4
+  %call113 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call111, i32 noundef %35)
   %call114 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call113, ptr noundef nonnull @.str.39)
   %background_g = getelementptr inbounds i8, ptr %data, i64 360
-  %35 = load i32, ptr %background_g, align 8
-  %call115 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call114, i32 noundef %35)
+  %36 = load i32, ptr %background_g, align 8
+  %call115 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call114, i32 noundef %36)
   %call116 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call115, ptr noundef nonnull @.str.39)
   %background_b = getelementptr inbounds i8, ptr %data, i64 364
+  %37 = load i32, ptr %background_b, align 4
+  %call117 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call116, i32 noundef %37)
   br label %if.end120.sink.split
 
 if.end120.sink.split:                             ; preds = %if.else110, %if.then106
-  %background_r.sink = phi ptr [ %background_r, %if.then106 ], [ %background_b, %if.else110 ]
-  %call107.sink = phi ptr [ %call107, %if.then106 ], [ %call116, %if.else110 ]
-  %36 = load i32, ptr %background_r.sink, align 4
-  %call108 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call107.sink, i32 noundef %36)
-  %call109 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call108, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+  %call108.sink = phi ptr [ %call108, %if.then106 ], [ %call117, %if.else110 ]
+  %call109 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call108.sink, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   br label %if.end120
 
 if.end120:                                        ; preds = %if.end120.sink.split, %if.end101
   %gama_defined = getelementptr inbounds i8, ptr %data, i64 476
-  %37 = load i32, ptr %gama_defined, align 4
-  %tobool121.not = icmp eq i32 %37, 0
+  %38 = load i32, ptr %gama_defined, align 4
+  %tobool121.not = icmp eq i32 %38, 0
   br i1 %tobool121.not, label %if.end137, label %if.then122
 
 if.then122:                                       ; preds = %if.end120
   %call123 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.171)
   %gama_gamma = getelementptr inbounds i8, ptr %data, i64 480
-  %38 = load i32, ptr %gama_gamma, align 8
-  %call124 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call123, i32 noundef %38)
-  %call125 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call124, ptr noundef nonnull @.str.9)
   %39 = load i32, ptr %gama_gamma, align 8
-  %conv127 = uitofp i32 %39 to double
+  %call124 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call123, i32 noundef %39)
+  %call125 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call124, ptr noundef nonnull @.str.9)
+  %40 = load i32, ptr %gama_gamma, align 8
+  %conv127 = uitofp i32 %40 to double
   %div128 = fdiv double %conv127, 1.000000e+05
   %call129 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call125, double noundef %div128)
   %call130 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call129, ptr noundef nonnull @.str.39)
-  %40 = load i32, ptr %gama_gamma, align 8
-  %conv132 = uitofp i32 %40 to double
+  %41 = load i32, ptr %gama_gamma, align 8
+  %conv132 = uitofp i32 %41 to double
   %div133 = fdiv double 1.000000e+05, %conv132
   %call134 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call130, double noundef %div133)
   %call135 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call134, ptr noundef nonnull @.str.10)
@@ -7798,57 +7799,57 @@ if.then122:                                       ; preds = %if.end120
 
 if.end137:                                        ; preds = %if.then122, %if.end120
   %chrm_defined = getelementptr inbounds i8, ptr %data, i64 484
-  %41 = load i32, ptr %chrm_defined, align 4
-  %tobool138.not = icmp eq i32 %41, 0
+  %42 = load i32, ptr %chrm_defined, align 4
+  %tobool138.not = icmp eq i32 %42, 0
   br i1 %tobool138.not, label %if.end173, label %if.then139
 
 if.then139:                                       ; preds = %if.end137
   %call140 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.172)
   %chrm_white_x = getelementptr inbounds i8, ptr %data, i64 488
-  %42 = load i32, ptr %chrm_white_x, align 8
-  %conv141 = uitofp i32 %42 to double
+  %43 = load i32, ptr %chrm_white_x, align 8
+  %conv141 = uitofp i32 %43 to double
   %div142 = fdiv double %conv141, 1.000000e+05
   %call143 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call140, double noundef %div142)
   %call144 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call143, ptr noundef nonnull @.str.15)
   %chrm_white_y = getelementptr inbounds i8, ptr %data, i64 492
-  %43 = load i32, ptr %chrm_white_y, align 4
-  %conv145 = uitofp i32 %43 to double
+  %44 = load i32, ptr %chrm_white_y, align 4
+  %conv145 = uitofp i32 %44 to double
   %div146 = fdiv double %conv145, 1.000000e+05
   %call147 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call144, double noundef %div146)
   %call148 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call147, ptr noundef nonnull @.str.173)
   %chrm_red_x = getelementptr inbounds i8, ptr %data, i64 496
-  %44 = load i32, ptr %chrm_red_x, align 8
-  %conv149 = uitofp i32 %44 to double
+  %45 = load i32, ptr %chrm_red_x, align 8
+  %conv149 = uitofp i32 %45 to double
   %div150 = fdiv double %conv149, 1.000000e+05
   %call151 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call148, double noundef %div150)
   %call152 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call151, ptr noundef nonnull @.str.15)
   %chrm_red_y = getelementptr inbounds i8, ptr %data, i64 500
-  %45 = load i32, ptr %chrm_red_y, align 4
-  %conv153 = uitofp i32 %45 to double
+  %46 = load i32, ptr %chrm_red_y, align 4
+  %conv153 = uitofp i32 %46 to double
   %div154 = fdiv double %conv153, 1.000000e+05
   %call155 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call152, double noundef %div154)
   %call156 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call155, ptr noundef nonnull @.str.174)
   %chrm_green_x = getelementptr inbounds i8, ptr %data, i64 504
-  %46 = load i32, ptr %chrm_green_x, align 8
-  %conv157 = uitofp i32 %46 to double
+  %47 = load i32, ptr %chrm_green_x, align 8
+  %conv157 = uitofp i32 %47 to double
   %div158 = fdiv double %conv157, 1.000000e+05
   %call159 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call156, double noundef %div158)
   %call160 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call159, ptr noundef nonnull @.str.15)
   %chrm_green_y = getelementptr inbounds i8, ptr %data, i64 508
-  %47 = load i32, ptr %chrm_green_y, align 4
-  %conv161 = uitofp i32 %47 to double
+  %48 = load i32, ptr %chrm_green_y, align 4
+  %conv161 = uitofp i32 %48 to double
   %div162 = fdiv double %conv161, 1.000000e+05
   %call163 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call160, double noundef %div162)
   %call164 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call163, ptr noundef nonnull @.str.175)
   %chrm_blue_x = getelementptr inbounds i8, ptr %data, i64 512
-  %48 = load i32, ptr %chrm_blue_x, align 8
-  %conv165 = uitofp i32 %48 to double
+  %49 = load i32, ptr %chrm_blue_x, align 8
+  %conv165 = uitofp i32 %49 to double
   %div166 = fdiv double %conv165, 1.000000e+05
   %call167 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call164, double noundef %div166)
   %call168 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call167, ptr noundef nonnull @.str.15)
   %chrm_blue_y = getelementptr inbounds i8, ptr %data, i64 516
-  %49 = load i32, ptr %chrm_blue_y, align 4
-  %conv169 = uitofp i32 %49 to double
+  %50 = load i32, ptr %chrm_blue_y, align 4
+  %conv169 = uitofp i32 %50 to double
   %div170 = fdiv double %conv169, 1.000000e+05
   %call171 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call168, double noundef %div170)
   %call172 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call171, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
@@ -7856,48 +7857,48 @@ if.then139:                                       ; preds = %if.end137
 
 if.end173:                                        ; preds = %if.then139, %if.end137
   %srgb_defined = getelementptr inbounds i8, ptr %data, i64 520
-  %50 = load i32, ptr %srgb_defined, align 8
-  %tobool174.not = icmp eq i32 %50, 0
+  %51 = load i32, ptr %srgb_defined, align 8
+  %tobool174.not = icmp eq i32 %51, 0
   br i1 %tobool174.not, label %if.end179, label %if.then175
 
 if.then175:                                       ; preds = %if.end173
   %call176 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.176)
   %srgb_intent = getelementptr inbounds i8, ptr %data, i64 524
-  %51 = load i32, ptr %srgb_intent, align 4
-  %call177 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call176, i32 noundef %51)
+  %52 = load i32, ptr %srgb_intent, align 4
+  %call177 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call176, i32 noundef %52)
   %call178 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call177, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   br label %if.end179
 
 if.end179:                                        ; preds = %if.then175, %if.end173
   %iccp_defined = getelementptr inbounds i8, ptr %data, i64 528
-  %52 = load i32, ptr %iccp_defined, align 8
-  %tobool180.not = icmp eq i32 %52, 0
+  %53 = load i32, ptr %iccp_defined, align 8
+  %tobool180.not = icmp eq i32 %53, 0
   br i1 %tobool180.not, label %if.end198, label %if.then181
 
 if.then181:                                       ; preds = %if.end179
   %call182 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.177)
   %iccp_profile_size = getelementptr inbounds i8, ptr %data, i64 552
-  %53 = load i32, ptr %iccp_profile_size, align 8
-  %call183 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call182, i32 noundef %53)
+  %54 = load i32, ptr %iccp_profile_size, align 8
+  %call183 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call182, i32 noundef %54)
   %call184 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call183, ptr noundef nonnull @.str.178)
   %iccp_name = getelementptr inbounds i8, ptr %data, i64 536
-  %54 = load ptr, ptr %iccp_name, align 8
-  %call185 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call184, ptr noundef %54)
+  %55 = load ptr, ptr %iccp_name, align 8
+  %call185 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call184, ptr noundef %55)
   %call186 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call185, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-  %55 = load i8, ptr %options, align 4
-  %tobool188 = trunc i8 %55 to i1
+  %56 = load i8, ptr %options, align 4
+  %tobool188 = trunc i8 %56 to i1
   br i1 %tobool188, label %land.lhs.true189, label %if.end198
 
 land.lhs.true189:                                 ; preds = %if.then181
   %show_icc_details = getelementptr inbounds i8, ptr %options, i64 5
-  %56 = load i8, ptr %show_icc_details, align 1
-  %tobool190 = trunc i8 %56 to i1
+  %57 = load i8, ptr %show_icc_details, align 1
+  %tobool190 = trunc i8 %57 to i1
   br i1 %tobool190, label %if.end198, label %land.lhs.true191
 
 land.lhs.true191:                                 ; preds = %land.lhs.true189
   %show_icc_hex = getelementptr inbounds i8, ptr %options, i64 6
-  %57 = load i8, ptr %show_icc_hex, align 2
-  %tobool192 = trunc i8 %57 to i1
+  %58 = load i8, ptr %show_icc_hex, align 2
+  %tobool192 = trunc i8 %58 to i1
   br i1 %tobool192, label %if.end198, label %if.then193
 
 if.then193:                                       ; preds = %land.lhs.true191
@@ -7907,38 +7908,38 @@ if.then193:                                       ; preds = %land.lhs.true191
 
 if.end198:                                        ; preds = %if.end179, %if.then193, %land.lhs.true191, %land.lhs.true189, %if.then181, %land.lhs.true, %if.end80
   %iccp_defined199 = getelementptr inbounds i8, ptr %data, i64 528
-  %58 = load i32, ptr %iccp_defined199, align 8
-  %tobool200.not = icmp eq i32 %58, 0
+  %59 = load i32, ptr %iccp_defined199, align 8
+  %tobool200.not = icmp eq i32 %59, 0
   br i1 %tobool200.not, label %if.end271, label %land.lhs.true201
 
 land.lhs.true201:                                 ; preds = %if.end198
   %show_icc_details202 = getelementptr inbounds i8, ptr %options, i64 5
-  %59 = load i8, ptr %show_icc_details202, align 1
-  %tobool203 = trunc i8 %59 to i1
+  %60 = load i8, ptr %show_icc_details202, align 1
+  %tobool203 = trunc i8 %60 to i1
   br i1 %tobool203, label %if.then204, label %land.lhs.true229
 
 if.then204:                                       ; preds = %land.lhs.true201
-  %60 = load i8, ptr %show_header, align 1
-  %tobool206 = trunc i8 %60 to i1
+  %61 = load i8, ptr %show_header, align 1
+  %tobool206 = trunc i8 %61 to i1
   br i1 %tobool206, label %if.end215, label %if.then207
 
 if.then207:                                       ; preds = %if.then204
   %call208 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.180)
   %iccp_profile_size209 = getelementptr inbounds i8, ptr %data, i64 552
-  %61 = load i32, ptr %iccp_profile_size209, align 8
-  %call210 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call208, i32 noundef %61)
+  %62 = load i32, ptr %iccp_profile_size209, align 8
+  %call210 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call208, i32 noundef %62)
   %call211 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call210, ptr noundef nonnull @.str.181)
   %iccp_name212 = getelementptr inbounds i8, ptr %data, i64 536
-  %62 = load ptr, ptr %iccp_name212, align 8
-  %call213 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call211, ptr noundef %62)
+  %63 = load ptr, ptr %iccp_name212, align 8
+  %call213 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call211, ptr noundef %63)
   %call214 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call213, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   br label %if.end215
 
 if.end215:                                        ; preds = %if.then207, %if.then204
   %iccp_profile = getelementptr inbounds i8, ptr %data, i64 544
-  %63 = load ptr, ptr %iccp_profile, align 8
+  %64 = load ptr, ptr %iccp_profile, align 8
   %iccp_profile_size216 = getelementptr inbounds i8, ptr %data, i64 552
-  %64 = load i32, ptr %iccp_profile_size216, align 8
+  %65 = load i32, ptr %iccp_profile_size216, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp219) #23
   %call.i102 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp218)
           to label %call.i.noexc unwind label %lpad220
@@ -7952,29 +7953,29 @@ call.i.noexc:                                     ; preds = %if.end215
           to label %invoke.cont221 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
-  %65 = landingpad { ptr, i32 }
+  %66 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp218) #23
   br label %ehcleanup
 
 invoke.cont221:                                   ; preds = %.noexc
-  %conv217 = zext i32 %64 to i64
-  invoke void @_Z15printICCDetailsPKhmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %63, i64 noundef %conv217, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp218)
+  %conv217 = zext i32 %65 to i64
+  invoke void @_Z15printICCDetailsPKhmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %64, i64 noundef %conv217, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp218)
           to label %if.end226 unwind label %lpad222
 
 lpad220:                                          ; preds = %call.i.noexc, %if.end215
-  %66 = landingpad { ptr, i32 }
+  %67 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad222:                                          ; preds = %invoke.cont221
-  %67 = landingpad { ptr, i32 }
+  %68 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp218) #23
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad220, %lpad.i, %lpad222
-  %.pn = phi { ptr, i32 } [ %67, %lpad222 ], [ %66, %lpad220 ], [ %65, %lpad.i ]
+  %.pn = phi { ptr, i32 } [ %68, %lpad222 ], [ %67, %lpad220 ], [ %66, %lpad.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp219) #23
   br label %eh.resume
 
@@ -7984,19 +7985,19 @@ if.end226:                                        ; preds = %invoke.cont221
   %call224 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.183)
   %call225 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call224, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %.pr.pre = load i32, ptr %iccp_defined199, align 8
-  %68 = icmp eq i32 %.pr.pre, 0
-  br i1 %68, label %if.end271, label %land.lhs.true229
+  %69 = icmp eq i32 %.pr.pre, 0
+  br i1 %69, label %if.end271, label %land.lhs.true229
 
 land.lhs.true229:                                 ; preds = %land.lhs.true201, %if.end226
   %show_icc_hex230 = getelementptr inbounds i8, ptr %options, i64 6
-  %69 = load i8, ptr %show_icc_hex230, align 2
-  %tobool231 = trunc i8 %69 to i1
+  %70 = load i8, ptr %show_icc_hex230, align 2
+  %tobool231 = trunc i8 %70 to i1
   br i1 %tobool231, label %for.cond.preheader, label %if.end271
 
 for.cond.preheader:                               ; preds = %land.lhs.true229
   %iccp_profile_size233 = getelementptr inbounds i8, ptr %data, i64 552
-  %70 = load i32, ptr %iccp_profile_size233, align 8
-  %cmp235105.not = icmp eq i32 %70, 0
+  %71 = load i32, ptr %iccp_profile_size233, align 8
+  %cmp235105.not = icmp eq i32 %71, 0
   br i1 %cmp235105.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
@@ -8006,12 +8007,12 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.0106 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %71 = load ptr, ptr %iccp_profile236, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %71, i64 %i.0106
-  %72 = load i8, ptr %arrayidx, align 1
-  %73 = load i32, ptr %hexformat, align 4
-  %cmp237 = icmp eq i32 %73, 2
-  %conv239 = zext i8 %72 to i32
+  %72 = load ptr, ptr %iccp_profile236, align 8
+  %arrayidx = getelementptr inbounds i8, ptr %72, i64 %i.0106
+  %73 = load i8, ptr %arrayidx, align 1
+  %74 = load i32, ptr %hexformat, align 4
+  %cmp237 = icmp eq i32 %74, 2
+  %conv239 = zext i8 %73 to i32
   br i1 %cmp237, label %if.then238, label %if.else241
 
 if.then238:                                       ; preds = %for.body
@@ -8019,9 +8020,9 @@ if.then238:                                       ; preds = %for.body
   br label %for.inc
 
 if.else241:                                       ; preds = %for.body
-  %74 = add i8 %72, -33
-  %or.cond = icmp ult i8 %74, 94
-  %cmp249 = icmp eq i32 %73, 1
+  %75 = add i8 %73, -33
+  %or.cond = icmp ult i8 %75, 94
+  %cmp249 = icmp eq i32 %74, 1
   %or.cond93 = and i1 %or.cond, %cmp249
   %.str.185..str.186 = select i1 %or.cond93, ptr @.str.185, ptr @.str.186
   %call255 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.185..str.186, i32 noundef %conv239)
@@ -8031,8 +8032,8 @@ if.else241:                                       ; preds = %for.body
 
 land.lhs.true258:                                 ; preds = %if.else241
   %add = add nuw nsw i64 %i.0106, 1
-  %75 = load i32, ptr %iccp_profile_size233, align 8
-  %conv260 = zext i32 %75 to i64
+  %76 = load i32, ptr %iccp_profile_size233, align 8
+  %conv260 = zext i32 %76 to i64
   %cmp261.not = icmp eq i64 %add, %conv260
   br i1 %cmp261.not, label %for.inc, label %if.then262
 
@@ -8042,15 +8043,15 @@ if.then262:                                       ; preds = %land.lhs.true258
 
 for.inc:                                          ; preds = %if.then238, %if.then262, %land.lhs.true258, %if.else241
   %inc = add nuw nsw i64 %i.0106, 1
-  %76 = load i32, ptr %iccp_profile_size233, align 8
-  %conv234 = zext i32 %76 to i64
+  %77 = load i32, ptr %iccp_profile_size233, align 8
+  %conv234 = zext i32 %77 to i64
   %cmp235 = icmp ult i64 %inc, %conv234
   br i1 %cmp235, label %for.body, label %for.end, !llvm.loop !70
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %hexformat266 = getelementptr inbounds i8, ptr %options, i64 12
-  %77 = load i32, ptr %hexformat266, align 4
-  %cmp267.not = icmp eq i32 %77, 2
+  %78 = load i32, ptr %hexformat266, align 4
+  %cmp267.not = icmp eq i32 %78, 2
   br i1 %cmp267.not, label %if.end271, label %if.then268
 
 if.then268:                                       ; preds = %for.end
@@ -8058,48 +8059,48 @@ if.then268:                                       ; preds = %for.end
   br label %if.end271
 
 if.end271:                                        ; preds = %if.end198, %for.end, %if.then268, %land.lhs.true229, %if.end226
-  %78 = load i8, ptr %show_png_info, align 4
-  %tobool273 = trunc i8 %78 to i1
+  %79 = load i8, ptr %show_png_info, align 4
+  %tobool273 = trunc i8 %79 to i1
   br i1 %tobool273, label %land.lhs.true274, label %if.end296
 
 land.lhs.true274:                                 ; preds = %if.end271
   %is_icc275 = getelementptr inbounds i8, ptr %data, i64 637
-  %79 = load i8, ptr %is_icc275, align 1
-  %tobool276 = trunc i8 %79 to i1
+  %80 = load i8, ptr %is_icc275, align 1
+  %tobool276 = trunc i8 %80 to i1
   br i1 %tobool276, label %if.end296, label %if.then277
 
 if.then277:                                       ; preds = %land.lhs.true274
-  %80 = load i8, ptr %options, align 4
-  %tobool279 = trunc i8 %80 to i1
+  %81 = load i8, ptr %options, align 4
+  %tobool279 = trunc i8 %81 to i1
   br i1 %tobool279, label %if.then280, label %if.end284
 
 if.then280:                                       ; preds = %if.then277
   %call281 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.187)
   %phys_defined = getelementptr inbounds i8, ptr %data, i64 460
-  %81 = load i32, ptr %phys_defined, align 4
-  %call282 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call281, i32 noundef %81)
+  %82 = load i32, ptr %phys_defined, align 4
+  %call282 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call281, i32 noundef %82)
   %call283 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call282, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   br label %if.end284
 
 if.end284:                                        ; preds = %if.then280, %if.then277
   %phys_defined285 = getelementptr inbounds i8, ptr %data, i64 460
-  %82 = load i32, ptr %phys_defined285, align 4
-  %tobool286.not = icmp eq i32 %82, 0
+  %83 = load i32, ptr %phys_defined285, align 4
+  %tobool286.not = icmp eq i32 %83, 0
   br i1 %tobool286.not, label %if.end296, label %if.then287
 
 if.then287:                                       ; preds = %if.end284
   %call288 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.188)
   %phys_x = getelementptr inbounds i8, ptr %data, i64 464
-  %83 = load i32, ptr %phys_x, align 8
-  %call289 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call288, i32 noundef %83)
+  %84 = load i32, ptr %phys_x, align 8
+  %call289 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call288, i32 noundef %84)
   %call290 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call289, ptr noundef nonnull @.str.189)
   %phys_y = getelementptr inbounds i8, ptr %data, i64 468
-  %84 = load i32, ptr %phys_y, align 4
-  %call291 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call290, i32 noundef %84)
+  %85 = load i32, ptr %phys_y, align 4
+  %call291 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call290, i32 noundef %85)
   %call292 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call291, ptr noundef nonnull @.str.190)
   %phys_unit = getelementptr inbounds i8, ptr %data, i64 472
-  %85 = load i32, ptr %phys_unit, align 8
-  %call293 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call292, i32 noundef %85)
+  %86 = load i32, ptr %phys_unit, align 8
+  %call293 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call292, i32 noundef %86)
   %call294 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call293, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   br label %if.end296
 

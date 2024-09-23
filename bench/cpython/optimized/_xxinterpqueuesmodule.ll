@@ -588,17 +588,20 @@ if.end12.i.i:                                     ; preds = %if.end8.i.i
   %first.i.i = getelementptr inbounds i8, ptr %7, i64 40
   %21 = load ptr, ptr %first.i.i, align 8
   %cmp16.i.i = icmp eq ptr %21, null
-  br i1 %cmp16.i.i, label %if.end21.i.i, label %if.else.i24.i
+  br i1 %cmp16.i.i, label %if.then17.i.i, label %if.else.i24.i
+
+if.then17.i.i:                                    ; preds = %if.end12.i.i
+  store ptr %call.i18.i.i, ptr %first.i.i, align 8
+  br label %if.end21.i.i
 
 if.else.i24.i:                                    ; preds = %if.end12.i.i
   %last.i.i = getelementptr inbounds i8, ptr %7, i64 48
   %22 = load ptr, ptr %last.i.i, align 8
   %next.i.i = getelementptr inbounds i8, ptr %22, i64 8
+  store ptr %call.i18.i.i, ptr %next.i.i, align 8
   br label %if.end21.i.i
 
-if.end21.i.i:                                     ; preds = %if.else.i24.i, %if.end12.i.i
-  %next.sink.i.i = phi ptr [ %next.i.i, %if.else.i24.i ], [ %first.i.i, %if.end12.i.i ]
-  store ptr %call.i18.i.i, ptr %next.sink.i.i, align 8
+if.end21.i.i:                                     ; preds = %if.else.i24.i, %if.then17.i.i
   %last23.i.i = getelementptr inbounds i8, ptr %7, i64 48
   store ptr %call.i18.i.i, ptr %last23.i.i, align 8
   br label %_queue_add.exit.i
@@ -1362,92 +1365,106 @@ while.body.i.preheader.i:                         ; preds = %entry
   %qid1.i6.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i64, ptr %qid1.i6.i, align 8
   %cmp2.i7.i = icmp eq i64 %2, %qid
-  br i1 %cmp2.i7.i, label %if.end, label %if.end.i.i
+  br i1 %cmp2.i7.i, label %if.end.thread.i, label %if.end.i.i
+
+if.end.thread.i:                                  ; preds = %while.body.i.preheader.i
+  %3 = load ptr, ptr %1, align 8
+  br label %if.then.i.i
 
 while.body.i.i:                                   ; preds = %if.end.i.i
-  %qid1.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  %3 = load i64, ptr %qid1.i.i, align 8
-  %cmp2.i.i = icmp eq i64 %3, %qid
-  br i1 %cmp2.i.i, label %if.end, label %if.end.i.i, !llvm.loop !8
+  %qid1.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %4 = load i64, ptr %qid1.i.i, align 8
+  %cmp2.i.i = icmp eq i64 %4, %qid
+  br i1 %cmp2.i.i, label %if.end.i, label %if.end.i.i, !llvm.loop !8
 
 if.end.i.i:                                       ; preds = %while.body.i.preheader.i, %while.body.i.i
-  %ref.08.i8.i = phi ptr [ %4, %while.body.i.i ], [ %1, %while.body.i.preheader.i ]
-  %4 = load ptr, ptr %ref.08.i8.i, align 8
-  %cmp.not.i.i = icmp eq ptr %4, null
+  %ref.08.i8.i = phi ptr [ %5, %while.body.i.i ], [ %1, %while.body.i.preheader.i ]
+  %5 = load ptr, ptr %ref.08.i8.i, align 8
+  %cmp.not.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i, label %_queues_remove.exit.thread, label %while.body.i.i, !llvm.loop !8
 
+if.end.i:                                         ; preds = %while.body.i.i
+  %cmp.i.i = icmp eq ptr %5, %1
+  %6 = load ptr, ptr %5, align 8
+  br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
+
+if.then.i.i:                                      ; preds = %if.end.i, %if.end.thread.i
+  %7 = phi ptr [ %3, %if.end.thread.i ], [ %6, %if.end.i ]
+  %ref.08.i.lcssa16.i = phi ptr [ %1, %if.end.thread.i ], [ %5, %if.end.i ]
+  store ptr %7, ptr getelementptr inbounds (i8, ptr @_globals, i64 16), align 8
+  br label %if.end
+
+if.else.i.i:                                      ; preds = %if.end.i
+  store ptr %6, ptr %ref.08.i8.i, align 8
+  br label %if.end
+
 _queues_remove.exit.thread:                       ; preds = %if.end.i.i, %entry
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 8), align 8
-  tail call void @PyThread_release_lock(ptr noundef %5) #4
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 8), align 8
+  tail call void @PyThread_release_lock(ptr noundef %8) #4
   br label %return
 
-if.end:                                           ; preds = %while.body.i.i, %while.body.i.preheader.i
-  %ref.08.i.lcssa.i = phi ptr [ %1, %while.body.i.preheader.i ], [ %4, %while.body.i.i ]
-  %prev.07.i.lcssa.i = phi ptr [ null, %while.body.i.preheader.i ], [ %ref.08.i8.i, %while.body.i.i ]
-  %cmp.i.i = icmp eq ptr %ref.08.i.lcssa.i, %1
-  %6 = load ptr, ptr %ref.08.i.lcssa.i, align 8
-  %.prev.i.i = select i1 %cmp.i.i, ptr getelementptr inbounds (i8, ptr @_globals, i64 16), ptr %prev.07.i.lcssa.i
-  store ptr %6, ptr %.prev.i.i, align 8
-  store ptr null, ptr %ref.08.i.lcssa.i, align 8
-  %7 = load i64, ptr getelementptr inbounds (i8, ptr @_globals, i64 24), align 8
-  %sub.i.i = add i64 %7, -1
+if.end:                                           ; preds = %if.else.i.i, %if.then.i.i
+  %ref.08.i.lcssa15.i = phi ptr [ %ref.08.i.lcssa16.i, %if.then.i.i ], [ %5, %if.else.i.i ]
+  store ptr null, ptr %ref.08.i.lcssa15.i, align 8
+  %9 = load i64, ptr getelementptr inbounds (i8, ptr @_globals, i64 24), align 8
+  %sub.i.i = add i64 %9, -1
   store i64 %sub.i.i, ptr getelementptr inbounds (i8, ptr @_globals, i64 24), align 8
-  %queue.i.i = getelementptr inbounds i8, ptr %ref.08.i.lcssa.i, i64 24
-  %8 = load ptr, ptr %queue.i.i, align 8
+  %queue.i.i = getelementptr inbounds i8, ptr %ref.08.i.lcssa15.i, i64 24
+  %10 = load ptr, ptr %queue.i.i, align 8
   store ptr null, ptr %queue.i.i, align 8
-  tail call void @PyMem_RawFree(ptr noundef nonnull %ref.08.i.lcssa.i) #4
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 8), align 8
-  tail call void @PyThread_release_lock(ptr noundef %9) #4
-  %mutex.i = getelementptr inbounds i8, ptr %8, i64 8
-  %10 = load ptr, ptr %mutex.i, align 8
-  %call.i2 = tail call i32 @PyThread_acquire_lock(ptr noundef %10, i32 noundef 1) #4
-  %alive.i = getelementptr inbounds i8, ptr %8, i64 16
-  store i32 0, ptr %alive.i, align 8
-  %11 = load ptr, ptr %mutex.i, align 8
+  tail call void @PyMem_RawFree(ptr noundef nonnull %ref.08.i.lcssa15.i) #4
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 8), align 8
   tail call void @PyThread_release_lock(ptr noundef %11) #4
-  %12 = load i64, ptr %8, align 8
-  %cmp6.i = icmp sgt i64 %12, 0
+  %mutex.i = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = load ptr, ptr %mutex.i, align 8
+  %call.i2 = tail call i32 @PyThread_acquire_lock(ptr noundef %12, i32 noundef 1) #4
+  %alive.i = getelementptr inbounds i8, ptr %10, i64 16
+  store i32 0, ptr %alive.i, align 8
+  %13 = load ptr, ptr %mutex.i, align 8
+  tail call void @PyThread_release_lock(ptr noundef %13) #4
+  %14 = load i64, ptr %10, align 8
+  %cmp6.i = icmp sgt i64 %14, 0
   br i1 %cmp6.i, label %while.body.i, label %_queue_kill_and_wait.exit
 
 while.body.i:                                     ; preds = %if.end, %while.body.i
-  %13 = load ptr, ptr %mutex.i, align 8
-  %call3.i = tail call i32 @PyThread_acquire_lock(ptr noundef %13, i32 noundef 1) #4
-  %14 = load ptr, ptr %mutex.i, align 8
-  tail call void @PyThread_release_lock(ptr noundef %14) #4
-  %15 = load i64, ptr %8, align 8
-  %cmp.i = icmp sgt i64 %15, 0
+  %15 = load ptr, ptr %mutex.i, align 8
+  %call3.i = tail call i32 @PyThread_acquire_lock(ptr noundef %15, i32 noundef 1) #4
+  %16 = load ptr, ptr %mutex.i, align 8
+  tail call void @PyThread_release_lock(ptr noundef %16) #4
+  %17 = load i64, ptr %10, align 8
+  %cmp.i = icmp sgt i64 %17, 0
   br i1 %cmp.i, label %while.body.i, label %_queue_kill_and_wait.exit, !llvm.loop !9
 
 _queue_kill_and_wait.exit:                        ; preds = %while.body.i, %if.end
-  %first.i.i = getelementptr inbounds i8, ptr %8, i64 40
-  %16 = load ptr, ptr %first.i.i, align 8
-  %cmp.not3.i.i.i = icmp eq ptr %16, null
+  %first.i.i = getelementptr inbounds i8, ptr %10, i64 40
+  %18 = load ptr, ptr %first.i.i, align 8
+  %cmp.not3.i.i.i = icmp eq ptr %18, null
   br i1 %cmp.not3.i.i.i, label %_queue_free.exit, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %_queue_kill_and_wait.exit, %_queueitem_free.exit.i.i.i
-  %item.addr.04.i.i.i = phi ptr [ %17, %_queueitem_free.exit.i.i.i ], [ %16, %_queue_kill_and_wait.exit ]
+  %item.addr.04.i.i.i = phi ptr [ %19, %_queueitem_free.exit.i.i.i ], [ %18, %_queue_kill_and_wait.exit ]
   %next.i.i.i = getelementptr inbounds i8, ptr %item.addr.04.i.i.i, i64 8
-  %17 = load ptr, ptr %next.i.i.i, align 8
+  %19 = load ptr, ptr %next.i.i.i, align 8
   store ptr null, ptr %next.i.i.i, align 8
-  %18 = load ptr, ptr %item.addr.04.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %18, null
+  %20 = load ptr, ptr %item.addr.04.i.i.i, align 8
+  %cmp.not.i.i.i.i.i = icmp eq ptr %20, null
   br i1 %cmp.not.i.i.i.i.i, label %_queueitem_free.exit.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body.i.i.i
-  %call5.i.i.i.i.i.i = tail call i32 @_PyCrossInterpreterData_Release(ptr noundef nonnull %18) #4
+  %call5.i.i.i.i.i.i = tail call i32 @_PyCrossInterpreterData_Release(ptr noundef nonnull %20) #4
   store ptr null, ptr %item.addr.04.i.i.i, align 8
   br label %_queueitem_free.exit.i.i.i
 
 _queueitem_free.exit.i.i.i:                       ; preds = %if.then.i.i.i.i.i, %while.body.i.i.i
   tail call void @PyMem_RawFree(ptr noundef nonnull %item.addr.04.i.i.i) #4
-  %cmp.not.i.i.i = icmp eq ptr %17, null
+  %cmp.not.i.i.i = icmp eq ptr %19, null
   br i1 %cmp.not.i.i.i, label %_queue_free.exit, label %while.body.i.i.i, !llvm.loop !4
 
 _queue_free.exit:                                 ; preds = %_queueitem_free.exit.i.i.i, %_queue_kill_and_wait.exit
-  %19 = load ptr, ptr %mutex.i, align 8
-  tail call void @PyThread_free_lock(ptr noundef %19) #4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, i8 0, i64 56, i1 false)
-  tail call void @PyMem_RawFree(ptr noundef nonnull %8) #4
+  %21 = load ptr, ptr %mutex.i, align 8
+  tail call void @PyThread_free_lock(ptr noundef %21) #4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, i8 0, i64 56, i1 false)
+  tail call void @PyMem_RawFree(ptr noundef nonnull %10) #4
   br label %return
 
 return:                                           ; preds = %_queues_remove.exit.thread, %_queue_free.exit
@@ -1630,8 +1647,17 @@ if.then4:                                         ; preds = %if.end
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 16), align 8
   %cmp.i = icmp eq ptr %ref.08.i.lcssa, %6
   %7 = load ptr, ptr %ref.08.i.lcssa, align 8
-  %.prev.i = select i1 %cmp.i, ptr getelementptr inbounds (i8, ptr @_globals, i64 16), ptr %prev.07.i.lcssa
-  store ptr %7, ptr %.prev.i, align 8
+  br i1 %cmp.i, label %if.then.i, label %if.else.i
+
+if.then.i:                                        ; preds = %if.then4
+  store ptr %7, ptr getelementptr inbounds (i8, ptr @_globals, i64 16), align 8
+  br label %_queues_remove_ref.exit
+
+if.else.i:                                        ; preds = %if.then4
+  store ptr %7, ptr %prev.07.i.lcssa, align 8
+  br label %_queues_remove_ref.exit
+
+_queues_remove_ref.exit:                          ; preds = %if.then.i, %if.else.i
   store ptr null, ptr %ref.08.i.lcssa, align 8
   %8 = load i64, ptr getelementptr inbounds (i8, ptr @_globals, i64 24), align 8
   %sub.i = add i64 %8, -1
@@ -1651,18 +1677,18 @@ if.then4:                                         ; preds = %if.end
   tail call void @PyThread_release_lock(ptr noundef %12) #4
   %13 = load i64, ptr %9, align 8
   %cmp6.i = icmp sgt i64 %13, 0
-  br i1 %cmp6.i, label %while.body.i8, label %_queue_kill_and_wait.exit
+  br i1 %cmp6.i, label %while.body.i9, label %_queue_kill_and_wait.exit
 
-while.body.i8:                                    ; preds = %if.then4, %while.body.i8
+while.body.i9:                                    ; preds = %_queues_remove_ref.exit, %while.body.i9
   %14 = load ptr, ptr %mutex.i, align 8
   %call3.i = tail call i32 @PyThread_acquire_lock(ptr noundef %14, i32 noundef 1) #4
   %15 = load ptr, ptr %mutex.i, align 8
   tail call void @PyThread_release_lock(ptr noundef %15) #4
   %16 = load i64, ptr %9, align 8
-  %cmp.i9 = icmp sgt i64 %16, 0
-  br i1 %cmp.i9, label %while.body.i8, label %_queue_kill_and_wait.exit, !llvm.loop !9
+  %cmp.i10 = icmp sgt i64 %16, 0
+  br i1 %cmp.i10, label %while.body.i9, label %_queue_kill_and_wait.exit, !llvm.loop !9
 
-_queue_kill_and_wait.exit:                        ; preds = %while.body.i8, %if.then4
+_queue_kill_and_wait.exit:                        ; preds = %while.body.i9, %_queues_remove_ref.exit
   %first.i.i = getelementptr inbounds i8, ptr %9, i64 40
   %17 = load ptr, ptr %first.i.i, align 8
   %cmp.not3.i.i.i = icmp eq ptr %17, null
@@ -2203,20 +2229,29 @@ while.body.i.i:                                   ; preds = %if.end16.i.i, %whil
 
 if.then5.i.i:                                     ; preds = %while.body.i.i
   %cmp6.i.i = icmp eq ptr %prev.016.i.i, null
+  br i1 %cmp6.i.i, label %if.then7.i.i, label %if.else.i.i
+
+if.then7.i.i:                                     ; preds = %if.then5.i.i
+  store ptr %6, ptr %first.i.i, align 8
+  br label %if.end13.i.i
+
+if.else.i.i:                                      ; preds = %if.then5.i.i
   %next12.i.i = getelementptr inbounds i8, ptr %prev.016.i.i, i64 8
-  %next12.sink.i.i = select i1 %cmp6.i.i, ptr %first.i.i, ptr %next12.i.i
-  store ptr %6, ptr %next12.sink.i.i, align 8
+  store ptr %6, ptr %next12.i.i, align 8
+  br label %if.end13.i.i
+
+if.end13.i.i:                                     ; preds = %if.else.i.i, %if.then7.i.i
   store ptr null, ptr %next2.i.i, align 8
   %9 = load ptr, ptr %next.015.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.not.i.i.i.i, label %_queueitem_free.exit.i.i, label %if.then.i.i.i.i
 
-if.then.i.i.i.i:                                  ; preds = %if.then5.i.i
+if.then.i.i.i.i:                                  ; preds = %if.end13.i.i
   %call5.i.i.i.i.i = tail call i32 @_PyCrossInterpreterData_Release(ptr noundef nonnull %9) #4
   store ptr null, ptr %next.015.i.i, align 8
   br label %_queueitem_free.exit.i.i
 
-_queueitem_free.exit.i.i:                         ; preds = %if.then.i.i.i.i, %if.then5.i.i
+_queueitem_free.exit.i.i:                         ; preds = %if.then.i.i.i.i, %if.end13.i.i
   tail call void @PyMem_RawFree(ptr noundef nonnull %next.015.i.i) #4
   %10 = load i64, ptr %count.i.i, align 8
   %sub.i.i = add i64 %10, -1

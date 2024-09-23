@@ -4590,7 +4590,7 @@ invoke.cont123.i.i.i:                             ; preds = %if.then2.i.i.i216.i
   store ptr null, ptr %m_r.i92.i.i, align 8
   %193 = load ptr, ptr %m_pr.i87.i.i, align 8
   %tobool.not.i3.i219.i.i.i = icmp eq ptr %193, null
-  br i1 %tobool.not.i3.i219.i.i.i, label %cleanup.i.i.i, label %if.then.i.i.i220.i.i.i
+  br i1 %tobool.not.i3.i219.i.i.i, label %_ZN7obj_refI3app11ast_managerEaSEPS0_.exit227.i.i.i, label %if.then.i.i.i220.i.i.i
 
 if.then.i.i.i220.i.i.i:                           ; preds = %invoke.cont123.i.i.i
   %194 = load ptr, ptr %m_manager.i.i.i.i.i, align 8
@@ -4599,11 +4599,15 @@ if.then.i.i.i220.i.i.i:                           ; preds = %invoke.cont123.i.i.
   %dec.i.i.i.i223.i.i.i = add i32 %195, -1
   store i32 %dec.i.i.i.i223.i.i.i, ptr %m_ref_count.i.i.i.i222.i.i.i, align 4
   %cmp.i.i.i224.i.i.i = icmp eq i32 %dec.i.i.i.i223.i.i.i, 0
-  br i1 %cmp.i.i.i224.i.i.i, label %if.then2.i.i.i225.i.i.i, label %cleanup.i.i.i
+  br i1 %cmp.i.i.i224.i.i.i, label %if.then2.i.i.i225.i.i.i, label %_ZN7obj_refI3app11ast_managerEaSEPS0_.exit227.i.i.i
 
 if.then2.i.i.i225.i.i.i:                          ; preds = %if.then.i.i.i220.i.i.i
   invoke void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %194, ptr noundef nonnull %193)
-          to label %cleanup.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i.i
+          to label %_ZN7obj_refI3app11ast_managerEaSEPS0_.exit227.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i.i
+
+_ZN7obj_refI3app11ast_managerEaSEPS0_.exit227.i.i.i: ; preds = %if.then2.i.i.i225.i.i.i, %if.then.i.i.i220.i.i.i, %invoke.cont123.i.i.i
+  store ptr null, ptr %m_pr.i87.i.i, align 8
+  br label %cleanup.i.i.i
 
 if.else246.i.i.i:                                 ; preds = %invoke.cont56.i.i.i
   %bf.load247.i.i.i = load i32, ptr %87, align 8
@@ -4971,7 +4975,7 @@ _ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i.i.i.i: ; preds = %_ZNK6
 invoke.cont309.i.i.i:                             ; preds = %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i.i.i.i, %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i.i.i.i, %invoke.cont303.i.i.i
   %254 = phi ptr [ %250, %invoke.cont303.i.i.i ], [ %250, %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i.i.i.i ], [ %.pr.pre.i.i.i, %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i.i.i.i ]
   %tobool.not.i3.i420.i.i.i = icmp eq ptr %254, null
-  br i1 %tobool.not.i3.i420.i.i.i, label %cleanup.i.i.i, label %if.then.i.i.i421.i.i.i
+  br i1 %tobool.not.i3.i420.i.i.i, label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit428.i.i.i, label %if.then.i.i.i421.i.i.i
 
 if.then.i.i.i421.i.i.i:                           ; preds = %invoke.cont309.i.i.i
   %255 = load ptr, ptr %m_manager.i.i257.i.i.i, align 8
@@ -4980,15 +4984,17 @@ if.then.i.i.i421.i.i.i:                           ; preds = %invoke.cont309.i.i.
   %dec.i.i.i.i424.i.i.i = add i32 %256, -1
   store i32 %dec.i.i.i.i424.i.i.i, ptr %m_ref_count.i.i.i.i423.i.i.i, align 4
   %cmp.i.i.i425.i.i.i = icmp eq i32 %dec.i.i.i.i424.i.i.i, 0
-  br i1 %cmp.i.i.i425.i.i.i, label %if.then2.i.i.i426.i.i.i, label %cleanup.i.i.i
+  br i1 %cmp.i.i.i425.i.i.i, label %if.then2.i.i.i426.i.i.i, label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit428.i.i.i
 
 if.then2.i.i.i426.i.i.i:                          ; preds = %if.then.i.i.i421.i.i.i
   invoke void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %255, ptr noundef nonnull %254)
-          to label %cleanup.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i.i
+          to label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit428.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i.i
 
-cleanup.i.i.i:                                    ; preds = %if.then2.i.i.i426.i.i.i, %if.then.i.i.i421.i.i.i, %invoke.cont309.i.i.i, %if.then2.i.i.i225.i.i.i, %if.then.i.i.i220.i.i.i, %invoke.cont123.i.i.i
-  %m_r.sink.i.i.i = phi ptr [ %m_pr.i87.i.i, %if.then2.i.i.i225.i.i.i ], [ %m_pr.i87.i.i, %invoke.cont123.i.i.i ], [ %m_pr.i87.i.i, %if.then.i.i.i220.i.i.i ], [ %m_r.i92.i.i, %invoke.cont309.i.i.i ], [ %m_r.i92.i.i, %if.then.i.i.i421.i.i.i ], [ %m_r.i92.i.i, %if.then2.i.i.i426.i.i.i ]
-  store ptr null, ptr %m_r.sink.i.i.i, align 8
+_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit428.i.i.i: ; preds = %if.then2.i.i.i426.i.i.i, %if.then.i.i.i421.i.i.i, %invoke.cont309.i.i.i
+  store ptr null, ptr %m_r.i92.i.i, align 8
+  br label %cleanup.i.i.i
+
+cleanup.i.i.i:                                    ; preds = %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit428.i.i.i, %_ZN7obj_refI3app11ast_managerEaSEPS0_.exit227.i.i.i
   %tobool.not.i.i429.i.i.i = icmp eq ptr %.pre673.pre.i.i.i, null
   br i1 %tobool.not.i.i429.i.i.i, label %_ZN12rewriter_tplIN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfgEE11process_appILb1EEEvP3appRN13rewriter_core5frameE.exit.i.i, label %if.then.i.i.i430.i.i.i
 

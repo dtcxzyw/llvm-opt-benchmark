@@ -3058,6 +3058,8 @@ _ZN2cv3MatC2INS_6Point_IfEEEERKSt6vectorIT_SaIS5_EEb.exit484.i: ; preds = %840, 
   %1164 = mul nuw nsw i32 %.0309.i, %1163
   store i32 %1164, ptr %117, align 4
   store i32 0, ptr %1124, align 4
+  store i32 %.0309.i, ptr %1125, align 4
+  store i32 %.0308.i, ptr %1126, align 4
   br label %.invoke.i
 
 1165:                                             ; preds = %1161
@@ -3065,14 +3067,12 @@ _ZN2cv3MatC2INS_6Point_IfEEEERKSt6vectorIT_SaIS5_EEb.exit484.i: ; preds = %840, 
   %1166 = trunc nuw nsw i64 %indvars.iv947.i to i32
   %1167 = mul nuw nsw i32 %.0308.i, %1166
   store i32 %1167, ptr %1127, align 4
+  store i32 %.0309.i, ptr %1128, align 4
+  store i32 %.0308.i, ptr %1129, align 4
   br label %.invoke.i
 
 .invoke.i:                                        ; preds = %1165, %1162
-  %.sink1048.i = phi ptr [ %1125, %1162 ], [ %1128, %1165 ]
-  %.sink.i = phi ptr [ %1126, %1162 ], [ %1129, %1165 ]
-  %1168 = phi ptr [ %117, %1162 ], [ %118, %1165 ]
-  store i32 %.0309.i, ptr %.sink1048.i, align 4
-  store i32 %.0308.i, ptr %.sink.i, align 4
+  %1168 = phi ptr [ %118, %1165 ], [ %117, %1162 ]
   invoke void @_ZN2cv3MatC1ERKS0_RKNS_5Rect_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %116, ptr noundef nonnull align 8 dereferenceable(96) %105, ptr noundef nonnull align 4 dereferenceable(16) %1168)
           to label %1169 unwind label %1199
 

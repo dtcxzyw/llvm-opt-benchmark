@@ -548,12 +548,12 @@ _ZN13ConstraintSet14add_constraintEP16LoaderConstraint.exit: ; preds = %71, %78
   br label %89
 
 89:                                               ; preds = %_ZN13ConstraintSet14add_constraintEP16LoaderConstraint.exit, %_ZN13ConstraintSet10initializeEP16LoaderConstraint.exit
-  %.sink26 = phi ptr [ %88, %_ZN13ConstraintSet14add_constraintEP16LoaderConstraint.exit ], [ %56, %_ZN13ConstraintSet10initializeEP16LoaderConstraint.exit ]
   %.sink = phi i32 [ %86, %_ZN13ConstraintSet14add_constraintEP16LoaderConstraint.exit ], [ %69, %_ZN13ConstraintSet10initializeEP16LoaderConstraint.exit ]
-  %90 = load ptr, ptr %.sink26, align 8
-  %91 = sext i32 %.sink to i64
-  %92 = getelementptr inbounds ptr, ptr %90, i64 %91
-  store ptr %5, ptr %92, align 8
+  %.sink24.in = phi ptr [ %88, %_ZN13ConstraintSet14add_constraintEP16LoaderConstraint.exit ], [ %56, %_ZN13ConstraintSet10initializeEP16LoaderConstraint.exit ]
+  %.sink24 = load ptr, ptr %.sink24.in, align 8
+  %90 = sext i32 %.sink to i64
+  %91 = getelementptr inbounds ptr, ptr %.sink24, i64 %90
+  store ptr %5, ptr %91, align 8
   ret void
 }
 

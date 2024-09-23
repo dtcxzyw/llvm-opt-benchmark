@@ -993,10 +993,10 @@ _ZN12hb_bit_set_t8page_forEjb.exit.thread:        ; preds = %if.end8.i.i.i.i.i, 
   br label %if.end11.split.us.i
 
 _ZN12hb_bit_set_t8page_forEjb.exit:               ; preds = %if.then6.i, %if.end45.i
-  %index.i.sink = phi ptr [ %index.i, %if.then6.i ], [ %index54.i, %if.end45.i ]
+  %.sink40.in = phi ptr [ %index.i, %if.then6.i ], [ %index54.i, %if.end45.i ]
   %.sink = load ptr, ptr %arrayZ49.i, align 8
-  %7 = load i32, ptr %index.i.sink, align 4
-  %idxprom8.i = zext i32 %7 to i64
+  %.sink40 = load i32, ptr %.sink40.in, align 4
+  %idxprom8.i = zext i32 %.sink40 to i64
   %arrayidx9.i = getelementptr inbounds %struct.hb_bit_page_t, ptr %.sink, i64 %idxprom8.i
   %tobool9.i = icmp eq ptr %.sink, null
   %shr.i.i = and i32 %g.050.i, -512
@@ -1020,14 +1020,14 @@ land.rhs.us.i:                                    ; preds = %if.end11.split.us.i
   %dec.us44.i = phi i32 [ %dec.us.i, %do.body.us.i ], [ %dec.us41.i, %if.end11.split.us.i ]
   %add.ptr.i.us43.pn.i = phi ptr [ %add.ptr.i.us43.i, %do.body.us.i ], [ %array.addr.052.i, %if.end11.split.us.i ]
   %add.ptr.i.us43.i = getelementptr inbounds i8, ptr %add.ptr.i.us43.pn.i, i64 %idx.ext.i.i
-  %8 = load i32, ptr %add.ptr.i.us43.i, align 4
-  %cmp22.us.i = icmp ule i32 %shr.i.i8, %8
-  %cmp24.us.i = icmp ult i32 %8, %shl.i20.i9
-  %9 = and i1 %cmp22.us.i, %cmp24.us.i
-  br i1 %9, label %do.body.us.i, label %do.end.i, !llvm.loop !7
+  %7 = load i32, ptr %add.ptr.i.us43.i, align 4
+  %cmp22.us.i = icmp ule i32 %shr.i.i8, %7
+  %cmp24.us.i = icmp ult i32 %7, %shl.i20.i9
+  %8 = and i1 %cmp22.us.i, %cmp24.us.i
+  br i1 %8, label %do.body.us.i, label %do.end.i, !llvm.loop !7
 
 do.body.i:                                        ; preds = %_ZN12hb_bit_set_t8page_forEjb.exit, %land.rhs.i
-  %g.1.i = phi i32 [ %11, %land.rhs.i ], [ %g.050.i, %_ZN12hb_bit_set_t8page_forEjb.exit ]
+  %g.1.i = phi i32 [ %10, %land.rhs.i ], [ %g.050.i, %_ZN12hb_bit_set_t8page_forEjb.exit ]
   %count.addr.1.i = phi i32 [ %dec.i, %land.rhs.i ], [ %count.addr.051.i, %_ZN12hb_bit_set_t8page_forEjb.exit ]
   %array.addr.1.i = phi ptr [ %add.ptr.i.i, %land.rhs.i ], [ %array.addr.052.i, %_ZN12hb_bit_set_t8page_forEjb.exit ]
   %cmp.not.not.i = icmp eq i32 %g.1.i, -1
@@ -1042,8 +1042,8 @@ if.then17.i:                                      ; preds = %do.body.i
   %div1.i.i7.i.i = and i32 %and.i2.i6.i.i, 7
   %idxprom.i.i.i8.i.i = zext nneg i32 %div1.i.i7.i.i to i64
   %arrayidx.i.i.i9.i.i = getelementptr inbounds [8 x i64], ptr %v.i.i5.i.i, i64 0, i64 %idxprom.i.i.i8.i.i
-  %10 = load i64, ptr %arrayidx.i.i.i9.i.i, align 8
-  %and.i.i.i = and i64 %10, %not.i.i.i
+  %9 = load i64, ptr %arrayidx.i.i.i9.i.i, align 8
+  %and.i.i.i = and i64 %9, %not.i.i.i
   store i64 %and.i.i.i, ptr %arrayidx.i.i.i9.i.i, align 8
   store i32 -1, ptr %arrayidx9.i, align 8
   br label %if.end19.i
@@ -1055,16 +1055,16 @@ if.end19.i:                                       ; preds = %if.then17.i, %do.bo
 
 land.rhs.i:                                       ; preds = %if.end19.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %array.addr.1.i, i64 %idx.ext.i.i
-  %11 = load i32, ptr %add.ptr.i.i, align 4
-  %cmp22.i = icmp ule i32 %shr.i.i, %11
-  %cmp24.i = icmp ult i32 %11, %shl.i20.i
-  %12 = and i1 %cmp22.i, %cmp24.i
-  br i1 %12, label %do.body.i, label %do.end.i, !llvm.loop !7
+  %10 = load i32, ptr %add.ptr.i.i, align 4
+  %cmp22.i = icmp ule i32 %shr.i.i, %10
+  %cmp24.i = icmp ult i32 %10, %shl.i20.i
+  %11 = and i1 %cmp22.i, %cmp24.i
+  br i1 %11, label %do.body.i, label %do.end.i, !llvm.loop !7
 
 do.end.i:                                         ; preds = %land.rhs.i, %land.rhs.us.i
   %.us-phi.i = phi ptr [ %add.ptr.i.us43.i, %land.rhs.us.i ], [ %add.ptr.i.i, %land.rhs.i ]
   %.us-phi21.i = phi i32 [ %dec.us44.i, %land.rhs.us.i ], [ %dec.i, %land.rhs.i ]
-  %.us-phi22.i = phi i32 [ %8, %land.rhs.us.i ], [ %11, %land.rhs.i ]
+  %.us-phi22.i = phi i32 [ %7, %land.rhs.us.i ], [ %10, %land.rhs.i ]
   br label %if.end11.i, !llvm.loop !8
 
 _ZN12hb_bit_set_t9set_arrayIjEEvbPKT_jj.exit:     ; preds = %if.end11.split.us.i, %if.end19.i, %do.body.us.i, %entry

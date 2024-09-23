@@ -279,7 +279,15 @@ _ZN7rocksdb6StatusaSEOS0_.exit:                   ; preds = %invoke.cont14, %if.
   %state_.i50 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %13 = load ptr, ptr %state_.i50, align 8
   %cmp.not.i.i = icmp eq ptr %13, null
-  br i1 %cmp.not.i.i, label %invoke.cont34.sink.split, label %invoke.cont34.sink.split.sink.split
+  br i1 %cmp.not.i.i, label %_ZN7rocksdb6StatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
+
+_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i: ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit
+  call void @_ZdaPv(ptr noundef nonnull %13) #14
+  br label %_ZN7rocksdb6StatusD2Ev.exit
+
+_ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
+  store ptr null, ptr %state_.i50, align 8
+  br label %invoke.cont34
 
 lpad1.loopexit:                                   ; preds = %if.end26, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i11, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i30
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -368,7 +376,15 @@ _ZN7rocksdb6StatusaSEOS0_.exit74:                 ; preds = %invoke.cont24, %if.
   %state_.i75 = getelementptr inbounds i8, ptr %ref.tmp19, i64 8
   %24 = load ptr, ptr %state_.i75, align 8
   %cmp.not.i.i76 = icmp eq ptr %24, null
-  br i1 %cmp.not.i.i76, label %invoke.cont34.sink.split, label %invoke.cont34.sink.split.sink.split
+  br i1 %cmp.not.i.i76, label %_ZN7rocksdb6StatusD2Ev.exit78, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i77
+
+_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i77: ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit74
+  call void @_ZdaPv(ptr noundef nonnull %24) #14
+  br label %_ZN7rocksdb6StatusD2Ev.exit78
+
+_ZN7rocksdb6StatusD2Ev.exit78:                    ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit74, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i77
+  store ptr null, ptr %state_.i75, align 8
+  br label %invoke.cont34
 
 if.end26:                                         ; preds = %if.end
   %25 = load ptr, ptr %prefixes, align 8
@@ -387,19 +403,8 @@ invoke.cont31:                                    ; preds = %if.end26
   %cmp.i = icmp eq i64 %sub.ptr.sub.i36, 0
   br i1 %cmp.i, label %invoke.cont34, label %while.body, !llvm.loop !4
 
-invoke.cont34.sink.split.sink.split:              ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit74, %_ZN7rocksdb6StatusaSEOS0_.exit
-  %.sink = phi ptr [ %13, %_ZN7rocksdb6StatusaSEOS0_.exit ], [ %24, %_ZN7rocksdb6StatusaSEOS0_.exit74 ]
-  %state_.i50.sink.ph = phi ptr [ %state_.i50, %_ZN7rocksdb6StatusaSEOS0_.exit ], [ %state_.i75, %_ZN7rocksdb6StatusaSEOS0_.exit74 ]
-  call void @_ZdaPv(ptr noundef nonnull %.sink) #14
-  br label %invoke.cont34.sink.split
-
-invoke.cont34.sink.split:                         ; preds = %invoke.cont34.sink.split.sink.split, %_ZN7rocksdb6StatusaSEOS0_.exit74, %_ZN7rocksdb6StatusaSEOS0_.exit
-  %state_.i50.sink = phi ptr [ %state_.i50, %_ZN7rocksdb6StatusaSEOS0_.exit ], [ %state_.i75, %_ZN7rocksdb6StatusaSEOS0_.exit74 ], [ %state_.i50.sink.ph, %invoke.cont34.sink.split.sink.split ]
-  store ptr null, ptr %state_.i50.sink, align 8
-  br label %invoke.cont34
-
-invoke.cont34:                                    ; preds = %invoke.cont31, %invoke.cont34.sink.split, %while.cond.preheader
-  %pos.0142 = phi i64 [ 0, %while.cond.preheader ], [ %pos.0146, %invoke.cont34.sink.split ], [ %add33, %invoke.cont31 ]
+invoke.cont34:                                    ; preds = %invoke.cont31, %while.cond.preheader, %_ZN7rocksdb6StatusD2Ev.exit, %_ZN7rocksdb6StatusD2Ev.exit78
+  %pos.0142 = phi i64 [ %pos.0146, %_ZN7rocksdb6StatusD2Ev.exit ], [ %pos.0146, %_ZN7rocksdb6StatusD2Ev.exit78 ], [ 0, %while.cond.preheader ], [ %add33, %invoke.cont31 ]
   %29 = load i8, ptr %agg.result, align 8
   %cmp.i80 = icmp eq i8 %29, 0
   br i1 %cmp.i80, label %land.lhs.true, label %if.end53

@@ -2343,7 +2343,11 @@ if.then.i13:                                      ; preds = %llist_item_get.exit
   %back.i = getelementptr inbounds i8, ptr %list, i64 8
   %12 = load ptr, ptr %back.i, align 8
   %cmp.i = icmp eq ptr %prev.026, %12
-  br i1 %cmp.i, label %if.end14.sink.split.i, label %return.sink.split
+  br i1 %cmp.i, label %if.then5.i, label %return.sink.split
+
+if.then5.i:                                       ; preds = %if.then.i13
+  store ptr %new_item.0.i.i, ptr %back.i, align 8
+  br label %return.sink.split
 
 if.else.i14:                                      ; preds = %llist_item_get.exit.i
   %size.i = getelementptr inbounds i8, ptr %list, i64 16
@@ -2354,16 +2358,15 @@ if.else.i14:                                      ; preds = %llist_item_get.exit
 if.then8.i:                                       ; preds = %if.else.i14
   %back9.i = getelementptr inbounds i8, ptr %list, i64 8
   store ptr %new_item.0.i.i, ptr %back9.i, align 8
-  br label %if.end14.sink.split.i
+  br label %if.end12.i
 
 if.else10.i:                                      ; preds = %if.else.i14
   %14 = load ptr, ptr %list, align 8
   store ptr %14, ptr %new_item.0.i.i, align 8
-  br label %if.end14.sink.split.i
+  br label %if.end12.i
 
-if.end14.sink.split.i:                            ; preds = %if.else10.i, %if.then8.i, %if.then.i13
-  %back.sink.i = phi ptr [ %back.i, %if.then.i13 ], [ %list, %if.else10.i ], [ %list, %if.then8.i ]
-  store ptr %new_item.0.i.i, ptr %back.sink.i, align 8
+if.end12.i:                                       ; preds = %if.else10.i, %if.then8.i
+  store ptr %new_item.0.i.i, ptr %list, align 8
   br label %return.sink.split
 
 if.end:                                           ; preds = %oidcmp.exit
@@ -2428,7 +2431,11 @@ if.then.i.i18:                                    ; preds = %llist_item_get.exit
   store ptr %new_item.0.i.i.i, ptr %16, align 8
   %24 = load ptr, ptr %back.i16, align 8
   %cmp.i.i19 = icmp eq ptr %16, %24
-  br i1 %cmp.i.i19, label %if.end14.sink.split.i.i, label %return.sink.split
+  br i1 %cmp.i.i19, label %if.then5.i.i, label %return.sink.split
+
+if.then5.i.i:                                     ; preds = %if.then.i.i18
+  store ptr %new_item.0.i.i.i, ptr %back.i16, align 8
+  br label %return.sink.split
 
 if.else.i.i20:                                    ; preds = %llist_item_get.exit.i.i
   %size.i.i = getelementptr inbounds i8, ptr %list, i64 16
@@ -2438,20 +2445,19 @@ if.else.i.i20:                                    ; preds = %llist_item_get.exit
 
 if.then8.i.i:                                     ; preds = %if.else.i.i20
   store ptr %new_item.0.i.i.i, ptr %back.i16, align 8
-  br label %if.end14.sink.split.i.i
+  br label %if.end12.i.i
 
 if.else10.i.i:                                    ; preds = %if.else.i.i20
   %26 = load ptr, ptr %list, align 8
   store ptr %26, ptr %new_item.0.i.i.i, align 8
-  br label %if.end14.sink.split.i.i
+  br label %if.end12.i.i
 
-if.end14.sink.split.i.i:                          ; preds = %if.else10.i.i, %if.then8.i.i, %if.then.i.i18
-  %back.sink.i.i = phi ptr [ %back.i16, %if.then.i.i18 ], [ %list, %if.else10.i.i ], [ %list, %if.then8.i.i ]
-  store ptr %new_item.0.i.i.i, ptr %back.sink.i.i, align 8
+if.end12.i.i:                                     ; preds = %if.else10.i.i, %if.then8.i.i
+  store ptr %new_item.0.i.i.i, ptr %list, align 8
   br label %return.sink.split
 
-return.sink.split:                                ; preds = %if.end14.sink.split.i.i, %if.then.i.i18, %if.end14.sink.split.i, %if.then.i13
-  %retval.0.ph = phi ptr [ %new_item.0.i.i, %if.then.i13 ], [ %new_item.0.i.i, %if.end14.sink.split.i ], [ %new_item.0.i.i.i, %if.then.i.i18 ], [ %new_item.0.i.i.i, %if.end14.sink.split.i.i ]
+return.sink.split:                                ; preds = %if.end12.i.i, %if.then5.i.i, %if.then.i.i18, %if.end12.i, %if.then5.i, %if.then.i13
+  %retval.0.ph = phi ptr [ %new_item.0.i.i, %if.then.i13 ], [ %new_item.0.i.i, %if.then5.i ], [ %new_item.0.i.i, %if.end12.i ], [ %new_item.0.i.i.i, %if.then.i.i18 ], [ %new_item.0.i.i.i, %if.then5.i.i ], [ %new_item.0.i.i.i, %if.end12.i.i ]
   %size15.i.i = getelementptr inbounds i8, ptr %list, i64 16
   %27 = load i64, ptr %size15.i.i, align 8
   %inc.i.i = add i64 %27, 1
@@ -2629,7 +2635,11 @@ if.then.i.i:                                      ; preds = %llist_item_get.exit
   store ptr %new_item.0.i.i.i, ptr %7, align 8
   %14 = load ptr, ptr %back.i, align 8
   %cmp.i.i = icmp eq ptr %7, %14
-  br i1 %cmp.i.i, label %if.end14.sink.split.i.i, label %llist_insert_back.exit
+  br i1 %cmp.i.i, label %if.then5.i.i, label %llist_insert_back.exit
+
+if.then5.i.i:                                     ; preds = %if.then.i.i
+  store ptr %new_item.0.i.i.i, ptr %back.i, align 8
+  br label %llist_insert_back.exit
 
 if.else.i.i:                                      ; preds = %llist_item_get.exit.i.i
   %15 = load i64, ptr %size.i, align 8
@@ -2638,19 +2648,18 @@ if.else.i.i:                                      ; preds = %llist_item_get.exit
 
 if.then8.i.i:                                     ; preds = %if.else.i.i
   store ptr %new_item.0.i.i.i, ptr %back.i, align 8
-  br label %if.end14.sink.split.i.i
+  br label %if.end12.i.i
 
 if.else10.i.i:                                    ; preds = %if.else.i.i
   %16 = load ptr, ptr %call.i, align 8
   store ptr %16, ptr %new_item.0.i.i.i, align 8
-  br label %if.end14.sink.split.i.i
+  br label %if.end12.i.i
 
-if.end14.sink.split.i.i:                          ; preds = %if.else10.i.i, %if.then8.i.i, %if.then.i.i
-  %back.sink.i.i = phi ptr [ %back.i, %if.then.i.i ], [ %call.i, %if.else10.i.i ], [ %call.i, %if.then8.i.i ]
-  store ptr %new_item.0.i.i.i, ptr %back.sink.i.i, align 8
+if.end12.i.i:                                     ; preds = %if.else10.i.i, %if.then8.i.i
+  store ptr %new_item.0.i.i.i, ptr %call.i, align 8
   br label %llist_insert_back.exit
 
-llist_insert_back.exit:                           ; preds = %if.then.i.i, %if.end14.sink.split.i.i
+llist_insert_back.exit:                           ; preds = %if.then.i.i, %if.then5.i.i, %if.end12.i.i
   %17 = load i64, ptr %size.i, align 8
   %inc.i.i = add i64 %17, 1
   store i64 %inc.i.i, ptr %size.i, align 8

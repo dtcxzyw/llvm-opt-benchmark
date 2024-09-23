@@ -526,6 +526,7 @@ define linkonce_odr hidden void @_ZZNSt8__detail9__variant17_Move_assign_baseILb
   store ptr null, ptr %29, align 8
   store ptr %32, ptr %36, align 8
   store ptr %32, ptr %39, align 8
+  store i64 0, ptr %43, align 8
   br label %_ZNSt8__detail9__variant9__emplaceILm3ELb0EJSt9monostateN4llvm3Loc6SingleENS4_5MultiENS4_3MMIENS4_10EntryValueEEJS7_EEEvRNS0_16_Variant_storageIXT0_EJDpT1_EEEDpOT2_.exit
 
 46:                                               ; preds = %27
@@ -537,11 +538,10 @@ define linkonce_odr hidden void @_ZZNSt8__detail9__variant17_Move_assign_baseILb
   %49 = getelementptr inbounds i8, ptr %3, i64 32
   store ptr %28, ptr %49, align 8
   %50 = getelementptr inbounds i8, ptr %3, i64 40
+  store i64 0, ptr %50, align 8
   br label %_ZNSt8__detail9__variant9__emplaceILm3ELb0EJSt9monostateN4llvm3Loc6SingleENS4_5MultiENS4_3MMIENS4_10EntryValueEEJS7_EEEvRNS0_16_Variant_storageIXT0_EJDpT1_EEEDpOT2_.exit
 
 _ZNSt8__detail9__variant9__emplaceILm3ELb0EJSt9monostateN4llvm3Loc6SingleENS4_5MultiENS4_3MMIENS4_10EntryValueEEJS7_EEEvRNS0_16_Variant_storageIXT0_EJDpT1_EEEDpOT2_.exit: ; preds = %31, %46
-  %.sink.i.i.i.i.i.i.i = phi ptr [ %50, %46 ], [ %43, %31 ]
-  store i64 0, ptr %.sink.i.i.i.i.i.i.i, align 8
   store i8 3, ptr %4, align 8
   br label %_ZN4llvm3Loc3MMIaSEOS1_.exit
 
@@ -629,6 +629,7 @@ define linkonce_odr hidden void @_ZZNSt8__detail9__variant17_Move_assign_baseILb
   store ptr null, ptr %29, align 8
   store ptr %32, ptr %36, align 8
   store ptr %32, ptr %39, align 8
+  store i64 0, ptr %43, align 8
   br label %_ZNSt8__detail9__variant9__emplaceILm4ELb0EJSt9monostateN4llvm3Loc6SingleENS4_5MultiENS4_3MMIENS4_10EntryValueEEJS8_EEEvRNS0_16_Variant_storageIXT0_EJDpT1_EEEDpOT2_.exit
 
 46:                                               ; preds = %27
@@ -640,11 +641,10 @@ define linkonce_odr hidden void @_ZZNSt8__detail9__variant17_Move_assign_baseILb
   %49 = getelementptr inbounds i8, ptr %3, i64 32
   store ptr %28, ptr %49, align 8
   %50 = getelementptr inbounds i8, ptr %3, i64 40
+  store i64 0, ptr %50, align 8
   br label %_ZNSt8__detail9__variant9__emplaceILm4ELb0EJSt9monostateN4llvm3Loc6SingleENS4_5MultiENS4_3MMIENS4_10EntryValueEEJS8_EEEvRNS0_16_Variant_storageIXT0_EJDpT1_EEEDpOT2_.exit
 
 _ZNSt8__detail9__variant9__emplaceILm4ELb0EJSt9monostateN4llvm3Loc6SingleENS4_5MultiENS4_3MMIENS4_10EntryValueEEJS8_EEEvRNS0_16_Variant_storageIXT0_EJDpT1_EEEDpOT2_.exit: ; preds = %31, %46
-  %.sink.i.i.i.i.i.i.i = phi ptr [ %50, %46 ], [ %43, %31 ]
-  store i64 0, ptr %.sink.i.i.i.i.i.i.i, align 8
   store i8 4, ptr %4, align 8
   br label %_ZN4llvm3Loc10EntryValueaSEOS1_.exit
 

@@ -289,19 +289,19 @@ resetNativeData.exit:                             ; preds = %.lr.ph, %10
   %58 = getelementptr inbounds %struct._AwtScreenData, ptr %57, i64 %indvars.iv27, i32 1
   %59 = getelementptr inbounds %struct.Screen, ptr %56, i64 %indvars.iv27, i32 2
   %60 = getelementptr inbounds i8, ptr %56, i64 16
-  %.sink32 = select i1 %.not19, ptr %59, ptr %60
-  %61 = load i64, ptr %.sink32, align 8
-  store i64 %61, ptr %58, align 8
-  %62 = trunc nuw nsw i64 %indvars.iv27 to i32
-  %63 = call fastcc ptr @makeDefaultConfig(ptr noundef %0, i32 noundef %62)
-  %64 = load ptr, ptr @x11Screens, align 8
-  %65 = getelementptr inbounds %struct._AwtScreenData, ptr %64, i64 %indvars.iv27, i32 4
-  store ptr %63, ptr %65, align 8
-  %66 = load ptr, ptr %0, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 1824
-  %68 = load ptr, ptr %67, align 8
-  %69 = call zeroext i8 %68(ptr noundef nonnull %0) #17
-  %.not20 = icmp eq i8 %69, 0
+  %.sink.in = select i1 %.not19, ptr %59, ptr %60
+  %.sink = load i64, ptr %.sink.in, align 8
+  store i64 %.sink, ptr %58, align 8
+  %61 = trunc nuw nsw i64 %indvars.iv27 to i32
+  %62 = call fastcc ptr @makeDefaultConfig(ptr noundef %0, i32 noundef %61)
+  %63 = load ptr, ptr @x11Screens, align 8
+  %64 = getelementptr inbounds %struct._AwtScreenData, ptr %63, i64 %indvars.iv27, i32 4
+  store ptr %62, ptr %64, align 8
+  %65 = load ptr, ptr %0, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 1824
+  %67 = load ptr, ptr %66, align 8
+  %68 = call zeroext i8 %67(ptr noundef nonnull %0) #17
+  %.not20 = icmp eq i8 %68, 0
   br i1 %.not20, label %49, label %.loopexit
 
 .loopexit:                                        ; preds = %49, %.lr.ph24, %.preheader, %46

@@ -2253,7 +2253,7 @@ PredicateLockingNeededForRelation.exit.i:         ; preds = %11
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.outer.i, %.lr.ph.lr.ph.i
-  %49 = phi ptr [ %44, %.lr.ph.lr.ph.i ], [ %133, %.outer.i ]
+  %49 = phi ptr [ %44, %.lr.ph.lr.ph.i ], [ %134, %.outer.i ]
   %.0.ph88.i = phi ptr [ null, %.lr.ph.lr.ph.i ], [ %.1.i, %.outer.i ]
   %.057.ph87.i = phi i32 [ 0, %.lr.ph.lr.ph.i ], [ %.158.i, %.outer.i ]
   br i1 %.not67.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
@@ -2345,8 +2345,8 @@ PredicateLockingNeededForRelation.exit.i:         ; preds = %11
   %84 = getelementptr inbounds i8, ptr %.1.i, i64 24
   br label %85
 
-85:                                               ; preds = %130, %.lr.ph84.i
-  %.sroa.0.081.i = phi ptr [ %82, %.lr.ph84.i ], [ %.sroa.6.082.i, %130 ]
+85:                                               ; preds = %131, %.lr.ph84.i
+  %.sroa.0.081.i = phi ptr [ %82, %.lr.ph84.i ], [ %.sroa.6.082.i, %131 ]
   %.sroa.6.082.in.i = getelementptr inbounds i8, ptr %.sroa.0.081.i, i64 8
   %.sroa.6.082.i = load ptr, ptr %.sroa.6.082.in.i, align 8
   %86 = getelementptr i8, ptr %.sroa.0.081.i, i64 -16
@@ -2417,58 +2417,58 @@ dlist_push_tail.exit72.i:                         ; preds = %121, %dlist_push_ta
   store ptr %117, ptr %124, align 8
   store ptr %117, ptr %116, align 8
   %125 = getelementptr inbounds i8, ptr %104, i64 48
-  br label %.sink.split.i
+  store i64 %88, ptr %125, align 8
+  br label %131
 
 126:                                              ; preds = %85
   %127 = getelementptr inbounds i8, ptr %104, i64 48
   %128 = load i64, ptr %127, align 8
   %129 = icmp ult i64 %128, %88
-  br i1 %129, label %.sink.split.i, label %130
+  br i1 %129, label %130, label %131
 
-.sink.split.i:                                    ; preds = %126, %dlist_push_tail.exit72.i
-  %.sink.i = phi ptr [ %125, %dlist_push_tail.exit72.i ], [ %127, %126 ]
-  store i64 %88, ptr %.sink.i, align 8
-  br label %130
+130:                                              ; preds = %126
+  store i64 %88, ptr %127, align 8
+  br label %131
 
-130:                                              ; preds = %.sink.split.i, %126
+131:                                              ; preds = %130, %126, %dlist_push_tail.exit72.i
   %.not71.i = icmp eq ptr %.sroa.6.082.i, %80
   br i1 %.not71.i, label %.outer.i, label %85, !llvm.loop !22
 
-.outer.i:                                         ; preds = %130, %79
-  %131 = load ptr, ptr @PredicateLockTargetHash, align 8
-  %132 = call ptr @hash_search(ptr noundef %131, ptr noundef nonnull %.us-phi.i, i32 noundef 2, ptr noundef nonnull %5) #12
-  %133 = call ptr @hash_seq_search(ptr noundef nonnull %4) #12
-  %.not6476.i = icmp eq ptr %133, null
+.outer.i:                                         ; preds = %131, %79
+  %132 = load ptr, ptr @PredicateLockTargetHash, align 8
+  %133 = call ptr @hash_search(ptr noundef %132, ptr noundef nonnull %.us-phi.i, i32 noundef 2, ptr noundef nonnull %5) #12
+  %134 = call ptr @hash_seq_search(ptr noundef nonnull %4) #12
+  %.not6476.i = icmp eq ptr %134, null
   br i1 %.not6476.i, label %.outer._crit_edge.i, label %.lr.ph.i, !llvm.loop !21
 
 .outer._crit_edge.i:                              ; preds = %.outer.i, %.backedge.i, %.backedge.us.i, %36
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
-  %134 = load ptr, ptr @PredicateLockTargetHash, align 8
-  %135 = load i32, ptr @ScratchTargetTagHash, align 4
-  %136 = call ptr @hash_search_with_hash_value(ptr noundef %134, ptr noundef nonnull @ScratchTargetTag, i32 noundef %135, i32 noundef 1, ptr noundef nonnull %2) #12
+  %135 = load ptr, ptr @PredicateLockTargetHash, align 8
+  %136 = load i32, ptr @ScratchTargetTagHash, align 4
+  %137 = call ptr @hash_search_with_hash_value(ptr noundef %135, ptr noundef nonnull @ScratchTargetTag, i32 noundef %136, i32 noundef 1, ptr noundef nonnull %2) #12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
-  %137 = load ptr, ptr @MainLWLockArray, align 8
-  %138 = getelementptr i8, ptr %137, i64 3584
-  call void @LWLockRelease(ptr noundef %138) #12
-  br label %139
+  %138 = load ptr, ptr @MainLWLockArray, align 8
+  %139 = getelementptr i8, ptr %138, i64 3584
+  call void @LWLockRelease(ptr noundef %139) #12
+  br label %140
 
-139:                                              ; preds = %139, %.outer._crit_edge.i
-  %indvars.iv98.i = phi i64 [ 15, %.outer._crit_edge.i ], [ %indvars.iv.next99.i, %139 ]
-  %140 = load ptr, ptr @MainLWLockArray, align 8
-  %141 = getelementptr %union.LWLockPadded, ptr %140, i64 %indvars.iv98.i
-  %142 = getelementptr i8, ptr %141, i64 25216
-  call void @LWLockRelease(ptr noundef %142) #12
+140:                                              ; preds = %140, %.outer._crit_edge.i
+  %indvars.iv98.i = phi i64 [ 15, %.outer._crit_edge.i ], [ %indvars.iv.next99.i, %140 ]
+  %141 = load ptr, ptr @MainLWLockArray, align 8
+  %142 = getelementptr %union.LWLockPadded, ptr %141, i64 %indvars.iv98.i
+  %143 = getelementptr i8, ptr %142, i64 25216
+  call void @LWLockRelease(ptr noundef %143) #12
   %indvars.iv.next99.i = add nsw i64 %indvars.iv98.i, -1
   %.not101.i = icmp eq i64 %indvars.iv98.i, 0
-  br i1 %.not101.i, label %143, label %139, !llvm.loop !23
+  br i1 %.not101.i, label %144, label %140, !llvm.loop !23
 
-143:                                              ; preds = %139
-  %144 = load ptr, ptr @MainLWLockArray, align 8
-  %145 = getelementptr i8, ptr %144, i64 3840
-  call void @LWLockRelease(ptr noundef %145) #12
+144:                                              ; preds = %140
+  %145 = load ptr, ptr @MainLWLockArray, align 8
+  %146 = getelementptr i8, ptr %145, i64 3840
+  call void @LWLockRelease(ptr noundef %146) #12
   br label %DropAllPredicateLocksFromTable.exit
 
-DropAllPredicateLocksFromTable.exit:              ; preds = %1, %11, %PredicateLockingNeededForRelation.exit.i, %143
+DropAllPredicateLocksFromTable.exit:              ; preds = %1, %11, %PredicateLockingNeededForRelation.exit.i, %144
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
@@ -2637,8 +2637,8 @@ define internal fastcc noundef zeroext i1 @TransferPredicateLocksToNewTarget(i64
   %68 = getelementptr inbounds i8, ptr %52, i64 24
   br label %69
 
-69:                                               ; preds = %.lr.ph, %161
-  %.sroa.0.079 = phi ptr [ %65, %.lr.ph ], [ %.sroa.6.081, %161 ]
+69:                                               ; preds = %.lr.ph, %162
+  %.sroa.0.079 = phi ptr [ %65, %.lr.ph ], [ %.sroa.6.081, %162 ]
   %.sroa.6.0.in80 = getelementptr inbounds i8, ptr %.sroa.0.079, i64 8
   %.sroa.6.081 = load ptr, ptr %.sroa.6.0.in80, align 8
   %70 = getelementptr i8, ptr %.sroa.0.079, i64 32
@@ -2794,74 +2794,74 @@ dlist_push_tail.exit75:                           ; preds = %dlist_push_tail.exi
   store ptr %148, ptr %155, align 8
   store ptr %148, ptr %147, align 8
   %156 = getelementptr inbounds i8, ptr %100, i64 48
-  br label %.sink.split
+  store i64 %71, ptr %156, align 8
+  br label %162
 
 157:                                              ; preds = %135
   %158 = getelementptr inbounds i8, ptr %100, i64 48
   %159 = load i64, ptr %158, align 8
   %160 = icmp ult i64 %159, %71
-  br i1 %160, label %.sink.split, label %161
+  br i1 %160, label %161, label %162
 
-.sink.split:                                      ; preds = %157, %dlist_push_tail.exit75
-  %.sink = phi ptr [ %156, %dlist_push_tail.exit75 ], [ %158, %157 ]
-  store i64 %71, ptr %.sink, align 8
-  br label %161
+161:                                              ; preds = %157
+  store i64 %71, ptr %158, align 8
+  br label %162
 
-161:                                              ; preds = %.sink.split, %157
+162:                                              ; preds = %dlist_push_tail.exit75, %161, %157
   %.not73 = icmp eq ptr %.sroa.6.081, %63
   br i1 %.not73, label %._crit_edge, label %69, !llvm.loop !25
 
-._crit_edge:                                      ; preds = %161, %59
-  %162 = load ptr, ptr @MainLWLockArray, align 8
-  %163 = getelementptr i8, ptr %162, i64 3584
-  call void @LWLockRelease(ptr noundef %163) #12
-  br i1 %4, label %164, label %RemoveTargetIfNoLongerUsed.exit
+._crit_edge:                                      ; preds = %162, %59
+  %163 = load ptr, ptr @MainLWLockArray, align 8
+  %164 = getelementptr i8, ptr %163, i64 3584
+  call void @LWLockRelease(ptr noundef %164) #12
+  br i1 %4, label %165, label %RemoveTargetIfNoLongerUsed.exit
 
-164:                                              ; preds = %._crit_edge
-  %165 = load ptr, ptr %64, align 8
-  %166 = icmp eq ptr %165, null
-  %167 = icmp eq ptr %165, %63
-  %spec.select.i.i = or i1 %166, %167
-  br i1 %spec.select.i.i, label %168, label %RemoveTargetIfNoLongerUsed.exit
+165:                                              ; preds = %._crit_edge
+  %166 = load ptr, ptr %64, align 8
+  %167 = icmp eq ptr %166, null
+  %168 = icmp eq ptr %166, %63
+  %spec.select.i.i = or i1 %167, %168
+  br i1 %spec.select.i.i, label %169, label %RemoveTargetIfNoLongerUsed.exit
 
-168:                                              ; preds = %164
-  %169 = load ptr, ptr @PredicateLockTargetHash, align 8
-  %170 = call ptr @hash_search_with_hash_value(ptr noundef %169, ptr noundef nonnull %49, i32 noundef %16, i32 noundef 2, ptr noundef null) #12
+169:                                              ; preds = %165
+  %170 = load ptr, ptr @PredicateLockTargetHash, align 8
+  %171 = call ptr @hash_search_with_hash_value(ptr noundef %170, ptr noundef nonnull %49, i32 noundef %16, i32 noundef 2, ptr noundef null) #12
   br label %RemoveTargetIfNoLongerUsed.exit
 
-RemoveTargetIfNoLongerUsed.exit:                  ; preds = %168, %164, %50, %47, %._crit_edge, %DeleteLockTarget.exit
-  %171 = phi i1 [ false, %DeleteLockTarget.exit ], [ true, %._crit_edge ], [ true, %47 ], [ false, %50 ], [ true, %164 ], [ true, %168 ]
-  br i1 %36, label %.sink.split84, label %172
+RemoveTargetIfNoLongerUsed.exit:                  ; preds = %169, %165, %50, %47, %._crit_edge, %DeleteLockTarget.exit
+  %172 = phi i1 [ false, %DeleteLockTarget.exit ], [ true, %._crit_edge ], [ true, %47 ], [ false, %50 ], [ true, %165 ], [ true, %169 ]
+  br i1 %36, label %.sink.split, label %173
 
-172:                                              ; preds = %RemoveTargetIfNoLongerUsed.exit
-  %173 = icmp ugt ptr %22, %26
-  br i1 %173, label %.sink.split84, label %174
+173:                                              ; preds = %RemoveTargetIfNoLongerUsed.exit
+  %174 = icmp ugt ptr %22, %26
+  br i1 %174, label %.sink.split, label %175
 
-.sink.split84:                                    ; preds = %172, %RemoveTargetIfNoLongerUsed.exit
-  %.sink85 = phi ptr [ %27, %RemoveTargetIfNoLongerUsed.exit ], [ %23, %172 ]
-  %.sink83.ph = phi ptr [ %23, %RemoveTargetIfNoLongerUsed.exit ], [ %27, %172 ]
-  call void @LWLockRelease(ptr noundef %.sink85) #12
-  br label %174
-
-174:                                              ; preds = %.sink.split84, %172
-  %.sink83 = phi ptr [ %27, %172 ], [ %.sink83.ph, %.sink.split84 ]
+.sink.split:                                      ; preds = %173, %RemoveTargetIfNoLongerUsed.exit
+  %.sink83 = phi ptr [ %27, %RemoveTargetIfNoLongerUsed.exit ], [ %23, %173 ]
+  %.sink.ph = phi ptr [ %23, %RemoveTargetIfNoLongerUsed.exit ], [ %27, %173 ]
   call void @LWLockRelease(ptr noundef %.sink83) #12
-  br i1 %4, label %175, label %182
+  br label %175
 
-175:                                              ; preds = %174
+175:                                              ; preds = %.sink.split, %173
+  %.sink = phi ptr [ %27, %173 ], [ %.sink.ph, %.sink.split ]
+  call void @LWLockRelease(ptr noundef %.sink) #12
+  br i1 %4, label %176, label %183
+
+176:                                              ; preds = %175
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
-  %176 = load ptr, ptr @ScratchPartitionLock, align 8
-  %177 = call zeroext i1 @LWLockAcquire(ptr noundef %176, i32 noundef 0) #12
-  %178 = load ptr, ptr @PredicateLockTargetHash, align 8
-  %179 = load i32, ptr @ScratchTargetTagHash, align 4
-  %180 = call ptr @hash_search_with_hash_value(ptr noundef %178, ptr noundef nonnull @ScratchTargetTag, i32 noundef %179, i32 noundef 1, ptr noundef nonnull %6) #12
-  %181 = load ptr, ptr @ScratchPartitionLock, align 8
-  call void @LWLockRelease(ptr noundef %181) #12
+  %177 = load ptr, ptr @ScratchPartitionLock, align 8
+  %178 = call zeroext i1 @LWLockAcquire(ptr noundef %177, i32 noundef 0) #12
+  %179 = load ptr, ptr @PredicateLockTargetHash, align 8
+  %180 = load i32, ptr @ScratchTargetTagHash, align 4
+  %181 = call ptr @hash_search_with_hash_value(ptr noundef %179, ptr noundef nonnull @ScratchTargetTag, i32 noundef %180, i32 noundef 1, ptr noundef nonnull %6) #12
+  %182 = load ptr, ptr @ScratchPartitionLock, align 8
+  call void @LWLockRelease(ptr noundef %182) #12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  br label %182
+  br label %183
 
-182:                                              ; preds = %175, %174
-  ret i1 %171
+183:                                              ; preds = %176, %175
+  ret i1 %172
 }
 
 ; Function Attrs: nounwind uwtable

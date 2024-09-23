@@ -396,12 +396,12 @@ invoke.cont12:                                    ; preds = %if.then.i.i.i19, %l
   br label %if.end
 
 if.end:                                           ; preds = %_ZN6vectorIN5array6solver12axiom_recordELb0EjE9push_backERKS2_.exit, %invoke.cont12
-  %m_trail.i8.sink = phi ptr [ %m_trail.i8, %invoke.cont12 ], [ %m_axiom_trail, %_ZN6vectorIN5array6solver12axiom_recordELb0EjE9push_backERKS2_.exit ]
+  %.sink.in = phi ptr [ %m_trail.i8, %invoke.cont12 ], [ %m_axiom_trail, %_ZN6vectorIN5array6solver12axiom_recordELb0EjE9push_backERKS2_.exit ]
   %.sink27 = phi i32 [ 1, %invoke.cont12 ], [ -1, %_ZN6vectorIN5array6solver12axiom_recordELb0EjE9push_backERKS2_.exit ]
-  %23 = load ptr, ptr %m_trail.i8.sink, align 8
-  %arrayidx10.i.i.i17 = getelementptr inbounds i8, ptr %23, i64 -4
-  %24 = load i32, ptr %arrayidx10.i.i.i17, align 4
-  %inc.i.i.i18 = add i32 %24, %.sink27
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %arrayidx10.i.i.i17 = getelementptr inbounds i8, ptr %.sink, i64 -4
+  %23 = load i32, ptr %arrayidx10.i.i.i17, align 4
+  %inc.i.i.i18 = add i32 %23, %.sink27
   store i32 %inc.i.i.i18, ptr %arrayidx10.i.i.i17, align 4
   ret void
 }

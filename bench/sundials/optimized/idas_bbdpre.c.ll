@@ -1035,15 +1035,15 @@ define i32 @IDABBDPrecInitB(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %24
-  %.sink = phi ptr [ %28, %.lr.ph ], [ %25, %24 ]
-  %.032 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
-  %26 = load i32, ptr %.032, align 8
+  %.032.sink.in = phi ptr [ %28, %.lr.ph ], [ %25, %24 ]
+  %.032.sink = load ptr, ptr %.032.sink.in, align 8, !nonnull !4, !noundef !4
+  %26 = load i32, ptr %.032.sink, align 8
   %27 = icmp eq i32 %1, %26
-  %28 = getelementptr inbounds i8, ptr %.032, i64 128
+  %28 = getelementptr inbounds i8, ptr %.032.sink, i64 128
   br i1 %27, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %29 = getelementptr inbounds i8, ptr %.032, i64 16
+  %29 = getelementptr inbounds i8, ptr %.032.sink, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i32 @IDABBDPrecInit(ptr noundef %30, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, double noundef %7, ptr noundef nonnull @IDAAglocal, ptr noundef nonnull @IDAAgcomm)
   %.not38 = icmp eq i32 %31, 0
@@ -1062,9 +1062,9 @@ define i32 @IDABBDPrecInitB(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 
   store ptr %8, ptr %33, align 8
   %37 = getelementptr inbounds i8, ptr %33, i64 8
   store ptr %9, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %.032, i64 88
+  %38 = getelementptr inbounds i8, ptr %.032.sink, i64 88
   store ptr %33, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %.032, i64 96
+  %39 = getelementptr inbounds i8, ptr %.032.sink, i64 96
   store ptr @IDABBDPrecFreeB, ptr %39, align 8
   br label %40
 
@@ -1216,15 +1216,15 @@ define range(i32 -101, 1) i32 @IDABBDPrecReInitB(ptr noundef %0, i32 noundef %1,
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %19
-  %.sink = phi ptr [ %23, %.lr.ph ], [ %20, %19 ]
-  %.019 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
-  %21 = load i32, ptr %.019, align 8
+  %.019.sink.in = phi ptr [ %23, %.lr.ph ], [ %20, %19 ]
+  %.019.sink = load ptr, ptr %.019.sink.in, align 8, !nonnull !4, !noundef !4
+  %21 = load i32, ptr %.019.sink, align 8
   %22 = icmp eq i32 %1, %21
-  %23 = getelementptr inbounds i8, ptr %.019, i64 128
+  %23 = getelementptr inbounds i8, ptr %.019.sink, i64 128
   br i1 %22, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %24 = getelementptr inbounds i8, ptr %.019, i64 16
+  %24 = getelementptr inbounds i8, ptr %.019.sink, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i32 @IDABBDPrecReInit(ptr noundef %25, i64 noundef %2, i64 noundef %3, double noundef %4)
   br label %27

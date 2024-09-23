@@ -1218,102 +1218,99 @@ _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE9pop_localERS0_j.e
 
 _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit: ; preds = %35, %39
   store volatile i64 %.sroa.08.0.insert.insert11.i.i, ptr %12, align 8
-  br label %.loopexit.sink.split
+  %43 = load volatile i32, ptr %12, align 4
+  br label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %24, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread22
   %.sroa.0.01529 = inttoptr i64 %31 to ptr
   tail call void @_ZN8G1CMTask23process_grey_task_entryILb1EEEv16G1TaskQueueEntry(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr %.sroa.0.01529)
-  %43 = load ptr, ptr %8, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 128
-  %45 = load volatile i32, ptr %44, align 4
-  %46 = getelementptr inbounds i8, ptr %43, i64 256
-  %47 = load volatile i32, ptr %46, align 4
-  %48 = sub i32 %45, %47
-  %49 = and i32 %48, 131071
-  %50 = icmp ne i32 %49, 131071
-  %.not1430 = icmp ugt i32 %49, %.0
-  %.not31 = select i1 %50, i1 %.not1430, i1 false
+  %44 = load ptr, ptr %8, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 128
+  %46 = load volatile i32, ptr %45, align 4
+  %47 = getelementptr inbounds i8, ptr %44, i64 256
+  %48 = load volatile i32, ptr %47, align 4
+  %49 = sub i32 %46, %48
+  %50 = and i32 %49, 131071
+  %51 = icmp ne i32 %50, 131071
+  %.not1430 = icmp ugt i32 %50, %.0
+  %.not31 = select i1 %51, i1 %.not1430, i1 false
   br i1 %.not31, label %.lr.ph32, label %.loopexit
 
 .lr.ph32:                                         ; preds = %.lr.ph.preheader, %.lr.ph.backedge
-  %51 = phi ptr [ %83, %.lr.ph.backedge ], [ %46, %.lr.ph.preheader ]
-  %52 = phi ptr [ %81, %.lr.ph.backedge ], [ %44, %.lr.ph.preheader ]
-  %53 = phi ptr [ %80, %.lr.ph.backedge ], [ %43, %.lr.ph.preheader ]
-  %54 = load i8, ptr %3, align 8
-  %55 = trunc i8 %54 to i1
-  br i1 %55, label %.loopexit, label %56
+  %52 = phi ptr [ %85, %.lr.ph.backedge ], [ %47, %.lr.ph.preheader ]
+  %53 = phi ptr [ %83, %.lr.ph.backedge ], [ %45, %.lr.ph.preheader ]
+  %54 = phi ptr [ %82, %.lr.ph.backedge ], [ %44, %.lr.ph.preheader ]
+  %55 = load i8, ptr %3, align 8
+  %56 = trunc i8 %55 to i1
+  br i1 %56, label %.loopexit, label %57
 
-56:                                               ; preds = %.lr.ph32
-  %57 = load volatile i32, ptr %52, align 4
-  %58 = load volatile i32, ptr %51, align 4
-  %59 = sub i32 %57, %58
-  %60 = and i32 %59, 131071
-  %.not.i5.not = icmp eq i32 %60, 0
-  br i1 %.not.i5.not, label %.loopexit, label %61
+57:                                               ; preds = %.lr.ph32
+  %58 = load volatile i32, ptr %53, align 4
+  %59 = load volatile i32, ptr %52, align 4
+  %60 = sub i32 %58, %59
+  %61 = and i32 %60, 131071
+  %.not.i5.not = icmp eq i32 %61, 0
+  br i1 %.not.i5.not, label %.loopexit, label %62
 
-61:                                               ; preds = %56
-  %62 = add i32 %57, 131071
-  %63 = and i32 %62, 131071
-  store volatile i32 %63, ptr %52, align 4
+62:                                               ; preds = %57
+  %63 = add i32 %58, 131071
+  %64 = and i32 %63, 131071
+  store volatile i32 %64, ptr %53, align 4
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !10
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !6
-  %64 = getelementptr inbounds i8, ptr %53, i64 384
-  %65 = load ptr, ptr %64, align 8
-  %66 = zext nneg i32 %63 to i64
-  %67 = getelementptr inbounds %class.G1TaskQueueEntry, ptr %65, i64 %66
-  %68 = load i64, ptr %67, align 8
-  %69 = load volatile i32, ptr %51, align 4
-  %70 = sub i32 %62, %69
-  %71 = and i32 %70, 131071
-  switch i32 %71, label %.lr.ph.backedge [
-    i32 131071, label %72
-    i32 0, label %72
+  %65 = getelementptr inbounds i8, ptr %54, i64 384
+  %66 = load ptr, ptr %65, align 8
+  %67 = zext nneg i32 %64 to i64
+  %68 = getelementptr inbounds %class.G1TaskQueueEntry, ptr %66, i64 %67
+  %69 = load i64, ptr %68, align 8
+  %70 = load volatile i32, ptr %52, align 4
+  %71 = sub i32 %63, %70
+  %72 = and i32 %71, 131071
+  switch i32 %72, label %.lr.ph.backedge [
+    i32 131071, label %73
+    i32 0, label %73
   ]
 
-72:                                               ; preds = %61, %61
+73:                                               ; preds = %62, %62
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !6
-  %73 = load volatile i64, ptr %51, align 8
-  %.sroa.016.0.extract.trunc.i.i7 = trunc i64 %73 to i32
-  %74 = icmp eq i32 %63, %.sroa.016.0.extract.trunc.i.i7
-  %75 = and i64 %73, -4294967296
-  %.sroa.3.0.insert.shift13.i.i8 = add i64 %75, 4294967296
-  %.sroa.08.0.insert.insert11.i.i9 = or disjoint i64 %.sroa.3.0.insert.shift13.i.i8, %66
-  br i1 %74, label %76, label %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.i11.thread
+  %74 = load volatile i64, ptr %52, align 8
+  %.sroa.016.0.extract.trunc.i.i7 = trunc i64 %74 to i32
+  %75 = icmp eq i32 %64, %.sroa.016.0.extract.trunc.i.i7
+  %76 = and i64 %74, -4294967296
+  %.sroa.3.0.insert.shift13.i.i8 = add i64 %76, 4294967296
+  %.sroa.08.0.insert.insert11.i.i9 = or disjoint i64 %.sroa.3.0.insert.shift13.i.i8, %67
+  br i1 %75, label %77, label %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.sink.split.i11.thread
 
-76:                                               ; preds = %72
-  %77 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.sroa.08.0.insert.insert11.i.i9, i64 %73, ptr nonnull %51) #22, !srcloc !11
-  %78 = icmp eq i64 %77, %73
-  br i1 %78, label %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.i11, label %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.i11.thread
+77:                                               ; preds = %73
+  %78 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.sroa.08.0.insert.insert11.i.i9, i64 %74, ptr nonnull %52) #22, !srcloc !11
+  %79 = icmp eq i64 %78, %74
+  br i1 %79, label %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.sink.split.i11, label %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.sink.split.i11.thread
 
-_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.i11.thread: ; preds = %72, %76
-  store volatile i64 %.sroa.08.0.insert.insert11.i.i9, ptr %51, align 8
-  br label %.loopexit.sink.split
-
-_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.i11: ; preds = %76
-  %79 = load volatile i32, ptr %51, align 4
-  br label %.lr.ph.backedge
-
-.lr.ph.backedge:                                  ; preds = %61, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.i11
-  %.sroa.0.015 = inttoptr i64 %68 to ptr
-  tail call void @_ZN8G1CMTask23process_grey_task_entryILb1EEEv16G1TaskQueueEntry(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr %.sroa.0.015)
-  %80 = load ptr, ptr %8, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 128
-  %82 = load volatile i32, ptr %81, align 4
-  %83 = getelementptr inbounds i8, ptr %80, i64 256
-  %84 = load volatile i32, ptr %83, align 4
-  %85 = sub i32 %82, %84
-  %86 = and i32 %85, 131071
-  %87 = icmp ne i32 %86, 131071
-  %.not14 = icmp ugt i32 %86, %.0
-  %.not = select i1 %87, i1 %.not14, i1 false
-  br i1 %.not, label %.lr.ph32, label %.loopexit, !llvm.loop !12
-
-.loopexit.sink.split:                             ; preds = %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.i11.thread
-  %.lcssa27.sink = phi ptr [ %51, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.i11.thread ], [ %12, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit ]
-  %88 = load volatile i32, ptr %.lcssa27.sink, align 4
+_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.sink.split.i11.thread: ; preds = %73, %77
+  store volatile i64 %.sroa.08.0.insert.insert11.i.i9, ptr %52, align 8
+  %80 = load volatile i32, ptr %52, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph32, %.lr.ph.backedge, %56, %.lr.ph.preheader, %.loopexit.sink.split, %19, %2, %6
+_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.sink.split.i11: ; preds = %77
+  %81 = load volatile i32, ptr %52, align 4
+  br label %.lr.ph.backedge
+
+.lr.ph.backedge:                                  ; preds = %62, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.sink.split.i11
+  %.sroa.0.015 = inttoptr i64 %69 to ptr
+  tail call void @_ZN8G1CMTask23process_grey_task_entryILb1EEEv16G1TaskQueueEntry(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr %.sroa.0.015)
+  %82 = load ptr, ptr %8, align 8
+  %83 = getelementptr inbounds i8, ptr %82, i64 128
+  %84 = load volatile i32, ptr %83, align 4
+  %85 = getelementptr inbounds i8, ptr %82, i64 256
+  %86 = load volatile i32, ptr %85, align 4
+  %87 = sub i32 %84, %86
+  %88 = and i32 %87, 131071
+  %89 = icmp ne i32 %88, 131071
+  %.not14 = icmp ugt i32 %88, %.0
+  %.not = select i1 %89, i1 %.not14, i1 false
+  br i1 %.not, label %.lr.ph32, label %.loopexit, !llvm.loop !12
+
+.loopexit:                                        ; preds = %.lr.ph32, %.lr.ph.backedge, %57, %.lr.ph.preheader, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.sink.split.i11.thread, %19, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit, %2, %6
   ret void
 }
 

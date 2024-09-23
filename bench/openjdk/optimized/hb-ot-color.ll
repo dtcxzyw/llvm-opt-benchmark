@@ -1643,189 +1643,191 @@ _ZNK2OT15BitmapSizeTable10find_tableEjPKvPS2_.exit: ; preds = %.lr.ph.i.i
   %73 = getelementptr inbounds i8, ptr %13, i64 44
   %74 = load i8, ptr %73, align 1
   %.not18 = icmp eq i8 %74, 0
-  %75 = getelementptr inbounds i8, ptr %13, i64 45
-  %76 = load i8, ptr %75, align 1
-  %.not19 = icmp eq i8 %76, 0
-  %or.cond = select i1 %.not18, i1 true, i1 %.not19
-  br i1 %or.cond, label %_ZNK2OT15BitmapSizeTable10find_tableEjPKvPS2_.exit.thread, label %_ZNK2OT19IndexSubtableRecord14get_image_dataEjPKvPjS3_S3_.exit
+  br i1 %.not18, label %_ZNK2OT15BitmapSizeTable10find_tableEjPKvPS2_.exit.thread, label %75
 
-_ZNK2OT15BitmapSizeTable10find_tableEjPKvPS2_.exit.thread: ; preds = %56, %3, %_ZNK2OT15BitmapSizeTable10find_tableEjPKvPS2_.exit
-  %77 = tail call ptr @hb_blob_get_empty()
-  br label %205
+75:                                               ; preds = %_ZNK2OT15BitmapSizeTable10find_tableEjPKvPS2_.exit
+  %76 = getelementptr inbounds i8, ptr %13, i64 45
+  %77 = load i8, ptr %76, align 1
+  %.not19 = icmp eq i8 %77, 0
+  br i1 %.not19, label %_ZNK2OT15BitmapSizeTable10find_tableEjPKvPS2_.exit.thread, label %_ZNK2OT19IndexSubtableRecord14get_image_dataEjPKvPjS3_S3_.exit
 
-_ZNK2OT19IndexSubtableRecord14get_image_dataEjPKvPjS3_S3_.exit: ; preds = %_ZNK2OT15BitmapSizeTable10find_tableEjPKvPS2_.exit
+_ZNK2OT15BitmapSizeTable10find_tableEjPKvPS2_.exit.thread: ; preds = %56, %3, %75, %_ZNK2OT15BitmapSizeTable10find_tableEjPKvPS2_.exit
+  %78 = tail call ptr @hb_blob_get_empty()
+  br label %206
+
+_ZNK2OT19IndexSubtableRecord14get_image_dataEjPKvPjS3_S3_.exit: ; preds = %75
   store i32 0, ptr %4, align 4
   store i32 0, ptr %5, align 4
   store i32 0, ptr %6, align 4
-  %78 = getelementptr inbounds i8, ptr %57, i64 4
-  %79 = load i8, ptr %78, align 1
-  %80 = zext i8 %79 to i32
-  %81 = shl nuw i32 %80, 24
-  %82 = getelementptr inbounds i8, ptr %57, i64 5
-  %83 = load i8, ptr %82, align 1
-  %84 = zext i8 %83 to i32
-  %85 = shl nuw nsw i32 %84, 16
-  %86 = or disjoint i32 %85, %81
-  %87 = getelementptr inbounds i8, ptr %57, i64 6
-  %88 = load i8, ptr %87, align 1
-  %89 = zext i8 %88 to i32
-  %90 = shl nuw nsw i32 %89, 8
-  %91 = or disjoint i32 %86, %90
-  %92 = getelementptr inbounds i8, ptr %57, i64 7
-  %93 = load i8, ptr %92, align 1
-  %94 = zext i8 %93 to i32
-  %95 = or disjoint i32 %91, %94
-  %96 = icmp eq i32 %95, 0
-  %97 = zext i32 %95 to i64
-  %98 = getelementptr inbounds i8, ptr %37, i64 %97
-  %.0.i.i.i = select i1 %96, ptr @_hb_NullPool, ptr %98
-  %99 = sub nsw i32 %2, %64
-  %100 = call noundef zeroext i1 @_ZNK2OT13IndexSubtable14get_image_dataEjPjS1_S1_(ptr noundef nonnull align 1 dereferenceable(12) %.0.i.i.i, i32 noundef %99, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  br i1 %100, label %102, label %_ZNK2OT19IndexSubtableRecord14get_image_dataEjPKvPjS3_S3_.exit.thread
+  %79 = getelementptr inbounds i8, ptr %57, i64 4
+  %80 = load i8, ptr %79, align 1
+  %81 = zext i8 %80 to i32
+  %82 = shl nuw i32 %81, 24
+  %83 = getelementptr inbounds i8, ptr %57, i64 5
+  %84 = load i8, ptr %83, align 1
+  %85 = zext i8 %84 to i32
+  %86 = shl nuw nsw i32 %85, 16
+  %87 = or disjoint i32 %86, %82
+  %88 = getelementptr inbounds i8, ptr %57, i64 6
+  %89 = load i8, ptr %88, align 1
+  %90 = zext i8 %89 to i32
+  %91 = shl nuw nsw i32 %90, 8
+  %92 = or disjoint i32 %87, %91
+  %93 = getelementptr inbounds i8, ptr %57, i64 7
+  %94 = load i8, ptr %93, align 1
+  %95 = zext i8 %94 to i32
+  %96 = or disjoint i32 %92, %95
+  %97 = icmp eq i32 %96, 0
+  %98 = zext i32 %96 to i64
+  %99 = getelementptr inbounds i8, ptr %37, i64 %98
+  %.0.i.i.i = select i1 %97, ptr @_hb_NullPool, ptr %99
+  %100 = sub nsw i32 %2, %64
+  %101 = call noundef zeroext i1 @_ZNK2OT13IndexSubtable14get_image_dataEjPjS1_S1_(ptr noundef nonnull align 1 dereferenceable(12) %.0.i.i.i, i32 noundef %100, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  br i1 %101, label %103, label %_ZNK2OT19IndexSubtableRecord14get_image_dataEjPKvPjS3_S3_.exit.thread
 
 _ZNK2OT19IndexSubtableRecord14get_image_dataEjPKvPjS3_S3_.exit.thread: ; preds = %_ZNK2OT19IndexSubtableRecord14get_image_dataEjPKvPjS3_S3_.exit
-  %101 = call ptr @hb_blob_get_empty()
-  br label %205
+  %102 = call ptr @hb_blob_get_empty()
+  br label %206
 
-102:                                              ; preds = %_ZNK2OT19IndexSubtableRecord14get_image_dataEjPKvPjS3_S3_.exit
-  %103 = getelementptr inbounds i8, ptr %0, i64 8
-  %104 = load ptr, ptr %103, align 8
-  %.not.i.i23 = icmp eq ptr %104, null
-  %spec.select.i.i = select i1 %.not.i.i23, ptr @_hb_NullPool, ptr %104
-  %105 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 24
-  %106 = load i32, ptr %105, align 8
-  %107 = load i32, ptr %4, align 4
-  %108 = icmp ugt i32 %107, %106
-  br i1 %108, label %113, label %109
+103:                                              ; preds = %_ZNK2OT19IndexSubtableRecord14get_image_dataEjPKvPjS3_S3_.exit
+  %104 = getelementptr inbounds i8, ptr %0, i64 8
+  %105 = load ptr, ptr %104, align 8
+  %.not.i.i23 = icmp eq ptr %105, null
+  %spec.select.i.i = select i1 %.not.i.i23, ptr @_hb_NullPool, ptr %105
+  %106 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 24
+  %107 = load i32, ptr %106, align 8
+  %108 = load i32, ptr %4, align 4
+  %109 = icmp ugt i32 %108, %107
+  br i1 %109, label %114, label %110
 
-109:                                              ; preds = %102
-  %110 = sub nuw i32 %106, %107
-  %111 = load i32, ptr %5, align 4
-  %112 = icmp ult i32 %110, %111
-  br i1 %112, label %113, label %115
+110:                                              ; preds = %103
+  %111 = sub nuw i32 %107, %108
+  %112 = load i32, ptr %5, align 4
+  %113 = icmp ult i32 %111, %112
+  br i1 %113, label %114, label %116
 
-113:                                              ; preds = %109, %102
-  %114 = call ptr @hb_blob_get_empty()
-  br label %205
+114:                                              ; preds = %110, %103
+  %115 = call ptr @hb_blob_get_empty()
+  br label %206
 
-115:                                              ; preds = %109
-  %116 = load i32, ptr %6, align 4
-  switch i32 %116, label %203 [
-    i32 17, label %117
-    i32 18, label %146
-    i32 19, label %175
+116:                                              ; preds = %110
+  %117 = load i32, ptr %6, align 4
+  switch i32 %117, label %204 [
+    i32 17, label %118
+    i32 18, label %147
+    i32 19, label %176
   ]
 
-117:                                              ; preds = %115
-  %118 = icmp ult i32 %111, 9
-  br i1 %118, label %119, label %121
+118:                                              ; preds = %116
+  %119 = icmp ult i32 %112, 9
+  br i1 %119, label %120, label %122
 
-119:                                              ; preds = %117
-  %120 = call ptr @hb_blob_get_empty()
-  br label %205
+120:                                              ; preds = %118
+  %121 = call ptr @hb_blob_get_empty()
+  br label %206
 
-121:                                              ; preds = %117
-  %122 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 16
-  %123 = load ptr, ptr %122, align 8
-  %124 = zext i32 %107 to i64
-  %125 = getelementptr inbounds i8, ptr %123, i64 %124
-  %126 = add i32 %107, 9
-  %127 = getelementptr inbounds i8, ptr %125, i64 5
-  %128 = load i8, ptr %127, align 1
-  %129 = zext i8 %128 to i32
-  %130 = shl nuw i32 %129, 24
-  %131 = getelementptr inbounds i8, ptr %125, i64 6
-  %132 = load i8, ptr %131, align 1
-  %133 = zext i8 %132 to i32
-  %134 = shl nuw nsw i32 %133, 16
-  %135 = or disjoint i32 %134, %130
-  %136 = getelementptr inbounds i8, ptr %125, i64 7
-  %137 = load i8, ptr %136, align 1
-  %138 = zext i8 %137 to i32
-  %139 = shl nuw nsw i32 %138, 8
-  %140 = or disjoint i32 %135, %139
-  %141 = getelementptr inbounds i8, ptr %125, i64 8
-  %142 = load i8, ptr %141, align 1
-  %143 = zext i8 %142 to i32
-  %144 = or disjoint i32 %140, %143
-  %145 = call ptr @hb_blob_create_sub_blob(ptr noundef %104, i32 noundef %126, i32 noundef %144)
-  br label %205
+122:                                              ; preds = %118
+  %123 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 16
+  %124 = load ptr, ptr %123, align 8
+  %125 = zext i32 %108 to i64
+  %126 = getelementptr inbounds i8, ptr %124, i64 %125
+  %127 = add i32 %108, 9
+  %128 = getelementptr inbounds i8, ptr %126, i64 5
+  %129 = load i8, ptr %128, align 1
+  %130 = zext i8 %129 to i32
+  %131 = shl nuw i32 %130, 24
+  %132 = getelementptr inbounds i8, ptr %126, i64 6
+  %133 = load i8, ptr %132, align 1
+  %134 = zext i8 %133 to i32
+  %135 = shl nuw nsw i32 %134, 16
+  %136 = or disjoint i32 %135, %131
+  %137 = getelementptr inbounds i8, ptr %126, i64 7
+  %138 = load i8, ptr %137, align 1
+  %139 = zext i8 %138 to i32
+  %140 = shl nuw nsw i32 %139, 8
+  %141 = or disjoint i32 %136, %140
+  %142 = getelementptr inbounds i8, ptr %126, i64 8
+  %143 = load i8, ptr %142, align 1
+  %144 = zext i8 %143 to i32
+  %145 = or disjoint i32 %141, %144
+  %146 = call ptr @hb_blob_create_sub_blob(ptr noundef %105, i32 noundef %127, i32 noundef %145)
+  br label %206
 
-146:                                              ; preds = %115
-  %147 = icmp ult i32 %111, 12
-  br i1 %147, label %148, label %150
+147:                                              ; preds = %116
+  %148 = icmp ult i32 %112, 12
+  br i1 %148, label %149, label %151
 
-148:                                              ; preds = %146
-  %149 = call ptr @hb_blob_get_empty()
-  br label %205
+149:                                              ; preds = %147
+  %150 = call ptr @hb_blob_get_empty()
+  br label %206
 
-150:                                              ; preds = %146
-  %151 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 16
-  %152 = load ptr, ptr %151, align 8
-  %153 = zext i32 %107 to i64
-  %154 = getelementptr inbounds i8, ptr %152, i64 %153
-  %155 = add i32 %107, 12
-  %156 = getelementptr inbounds i8, ptr %154, i64 8
-  %157 = load i8, ptr %156, align 1
-  %158 = zext i8 %157 to i32
-  %159 = shl nuw i32 %158, 24
-  %160 = getelementptr inbounds i8, ptr %154, i64 9
-  %161 = load i8, ptr %160, align 1
-  %162 = zext i8 %161 to i32
-  %163 = shl nuw nsw i32 %162, 16
-  %164 = or disjoint i32 %163, %159
-  %165 = getelementptr inbounds i8, ptr %154, i64 10
-  %166 = load i8, ptr %165, align 1
-  %167 = zext i8 %166 to i32
-  %168 = shl nuw nsw i32 %167, 8
-  %169 = or disjoint i32 %164, %168
-  %170 = getelementptr inbounds i8, ptr %154, i64 11
-  %171 = load i8, ptr %170, align 1
-  %172 = zext i8 %171 to i32
-  %173 = or disjoint i32 %169, %172
-  %174 = call ptr @hb_blob_create_sub_blob(ptr noundef %104, i32 noundef %155, i32 noundef %173)
-  br label %205
+151:                                              ; preds = %147
+  %152 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 16
+  %153 = load ptr, ptr %152, align 8
+  %154 = zext i32 %108 to i64
+  %155 = getelementptr inbounds i8, ptr %153, i64 %154
+  %156 = add i32 %108, 12
+  %157 = getelementptr inbounds i8, ptr %155, i64 8
+  %158 = load i8, ptr %157, align 1
+  %159 = zext i8 %158 to i32
+  %160 = shl nuw i32 %159, 24
+  %161 = getelementptr inbounds i8, ptr %155, i64 9
+  %162 = load i8, ptr %161, align 1
+  %163 = zext i8 %162 to i32
+  %164 = shl nuw nsw i32 %163, 16
+  %165 = or disjoint i32 %164, %160
+  %166 = getelementptr inbounds i8, ptr %155, i64 10
+  %167 = load i8, ptr %166, align 1
+  %168 = zext i8 %167 to i32
+  %169 = shl nuw nsw i32 %168, 8
+  %170 = or disjoint i32 %165, %169
+  %171 = getelementptr inbounds i8, ptr %155, i64 11
+  %172 = load i8, ptr %171, align 1
+  %173 = zext i8 %172 to i32
+  %174 = or disjoint i32 %170, %173
+  %175 = call ptr @hb_blob_create_sub_blob(ptr noundef %105, i32 noundef %156, i32 noundef %174)
+  br label %206
 
-175:                                              ; preds = %115
-  %176 = icmp ult i32 %111, 4
-  br i1 %176, label %177, label %179
+176:                                              ; preds = %116
+  %177 = icmp ult i32 %112, 4
+  br i1 %177, label %178, label %180
 
-177:                                              ; preds = %175
-  %178 = call ptr @hb_blob_get_empty()
-  br label %205
+178:                                              ; preds = %176
+  %179 = call ptr @hb_blob_get_empty()
+  br label %206
 
-179:                                              ; preds = %175
-  %180 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 16
-  %181 = load ptr, ptr %180, align 8
-  %182 = zext i32 %107 to i64
-  %183 = getelementptr inbounds i8, ptr %181, i64 %182
-  %184 = add i32 %107, 4
-  %185 = load i8, ptr %183, align 1
-  %186 = zext i8 %185 to i32
-  %187 = shl nuw i32 %186, 24
-  %188 = getelementptr inbounds i8, ptr %183, i64 1
-  %189 = load i8, ptr %188, align 1
-  %190 = zext i8 %189 to i32
-  %191 = shl nuw nsw i32 %190, 16
-  %192 = or disjoint i32 %191, %187
-  %193 = getelementptr inbounds i8, ptr %183, i64 2
-  %194 = load i8, ptr %193, align 1
-  %195 = zext i8 %194 to i32
-  %196 = shl nuw nsw i32 %195, 8
-  %197 = or disjoint i32 %192, %196
-  %198 = getelementptr inbounds i8, ptr %183, i64 3
-  %199 = load i8, ptr %198, align 1
-  %200 = zext i8 %199 to i32
-  %201 = or disjoint i32 %197, %200
-  %202 = call ptr @hb_blob_create_sub_blob(ptr noundef %104, i32 noundef %184, i32 noundef %201)
-  br label %205
+180:                                              ; preds = %176
+  %181 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 16
+  %182 = load ptr, ptr %181, align 8
+  %183 = zext i32 %108 to i64
+  %184 = getelementptr inbounds i8, ptr %182, i64 %183
+  %185 = add i32 %108, 4
+  %186 = load i8, ptr %184, align 1
+  %187 = zext i8 %186 to i32
+  %188 = shl nuw i32 %187, 24
+  %189 = getelementptr inbounds i8, ptr %184, i64 1
+  %190 = load i8, ptr %189, align 1
+  %191 = zext i8 %190 to i32
+  %192 = shl nuw nsw i32 %191, 16
+  %193 = or disjoint i32 %192, %188
+  %194 = getelementptr inbounds i8, ptr %184, i64 2
+  %195 = load i8, ptr %194, align 1
+  %196 = zext i8 %195 to i32
+  %197 = shl nuw nsw i32 %196, 8
+  %198 = or disjoint i32 %193, %197
+  %199 = getelementptr inbounds i8, ptr %184, i64 3
+  %200 = load i8, ptr %199, align 1
+  %201 = zext i8 %200 to i32
+  %202 = or disjoint i32 %198, %201
+  %203 = call ptr @hb_blob_create_sub_blob(ptr noundef %105, i32 noundef %185, i32 noundef %202)
+  br label %206
 
-203:                                              ; preds = %115
-  %204 = call ptr @hb_blob_get_empty()
-  br label %205
+204:                                              ; preds = %116
+  %205 = call ptr @hb_blob_get_empty()
+  br label %206
 
-205:                                              ; preds = %203, %179, %177, %150, %148, %121, %119, %113, %_ZNK2OT19IndexSubtableRecord14get_image_dataEjPKvPjS3_S3_.exit.thread, %_ZNK2OT15BitmapSizeTable10find_tableEjPKvPS2_.exit.thread
-  %.0 = phi ptr [ %114, %113 ], [ %204, %203 ], [ %178, %177 ], [ %202, %179 ], [ %149, %148 ], [ %174, %150 ], [ %120, %119 ], [ %145, %121 ], [ %101, %_ZNK2OT19IndexSubtableRecord14get_image_dataEjPKvPjS3_S3_.exit.thread ], [ %77, %_ZNK2OT15BitmapSizeTable10find_tableEjPKvPS2_.exit.thread ]
+206:                                              ; preds = %204, %180, %178, %151, %149, %122, %120, %114, %_ZNK2OT19IndexSubtableRecord14get_image_dataEjPKvPjS3_S3_.exit.thread, %_ZNK2OT15BitmapSizeTable10find_tableEjPKvPS2_.exit.thread
+  %.0 = phi ptr [ %115, %114 ], [ %205, %204 ], [ %179, %178 ], [ %203, %180 ], [ %150, %149 ], [ %175, %151 ], [ %121, %120 ], [ %146, %122 ], [ %102, %_ZNK2OT19IndexSubtableRecord14get_image_dataEjPKvPjS3_S3_.exit.thread ], [ %78, %_ZNK2OT15BitmapSizeTable10find_tableEjPKvPS2_.exit.thread ]
   ret ptr %.0
 }
 
@@ -2751,14 +2753,14 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT13IndexSubtable14get_image
   br label %_ZNK2OT23IndexSubtableFormat1Or3INS_7IntTypeIjLj4EEEE14get_image_dataEjPjS4_.exit.sink.split
 
 _ZNK2OT23IndexSubtableFormat1Or3INS_7IntTypeIjLj4EEEE14get_image_dataEjPjS4_.exit.sink.split: ; preds = %61, %127
-  %.sink13 = phi ptr [ %123, %127 ], [ %57, %61 ]
+  %.sink12.in = phi ptr [ %123, %127 ], [ %57, %61 ]
   %.sink = phi i32 [ %155, %127 ], [ %105, %61 ]
   %.sink9 = phi i32 [ %152, %127 ], [ %94, %61 ]
-  %156 = load i8, ptr %.sink13, align 1
-  %157 = zext i8 %156 to i32
-  %158 = or disjoint i32 %.sink, %157
-  %159 = sub i32 %.sink9, %158
-  store i32 %159, ptr %3, align 4
+  %.sink12 = load i8, ptr %.sink12.in, align 1
+  %156 = zext i8 %.sink12 to i32
+  %157 = or disjoint i32 %.sink, %156
+  %158 = sub i32 %.sink9, %157
+  store i32 %158, ptr %3, align 4
   br label %_ZNK2OT23IndexSubtableFormat1Or3INS_7IntTypeIjLj4EEEE14get_image_dataEjPjS4_.exit
 
 _ZNK2OT23IndexSubtableFormat1Or3INS_7IntTypeIjLj4EEEE14get_image_dataEjPjS4_.exit: ; preds = %_ZNK2OT23IndexSubtableFormat1Or3INS_7IntTypeIjLj4EEEE14get_image_dataEjPjS4_.exit.sink.split, %106, %20, %5

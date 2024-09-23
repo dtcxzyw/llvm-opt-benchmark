@@ -2982,7 +2982,8 @@ define dso_local ptr @xfrm_state_find(ptr nocapture noundef readonly %0, ptr noc
 
 690:                                              ; preds = %.thread72
   %691 = getelementptr inbounds i8, ptr %686, i64 8
-  br label %.sink.split
+  store volatile ptr %499, ptr %691, align 8
+  br label %697
 
 692:                                              ; preds = %.preheader94
   %693 = getelementptr inbounds i8, ptr %674, i64 16
@@ -2993,14 +2994,10 @@ define dso_local ptr @xfrm_state_find(ptr nocapture noundef readonly %0, ptr noc
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !98
   %696 = load ptr, ptr %695, align 8
   store volatile ptr %499, ptr %696, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %690, %692
-  %.sink = phi ptr [ %693, %692 ], [ %691, %690 ]
-  store volatile ptr %499, ptr %.sink, align 8
+  store volatile ptr %499, ptr %693, align 8
   br label %697
 
-697:                                              ; preds = %.sink.split, %.thread72
+697:                                              ; preds = %692, %690, %.thread72
   %698 = load i32, ptr %29, align 16
   %699 = call fastcc i32 @__xfrm_src_hash(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %17, i32 noundef %698)
   %700 = load i8, ptr %664, align 8
@@ -5060,7 +5057,8 @@ define internal fastcc ptr @__find_acq_core(ptr noundef %0, ptr nocapture nounde
 
 229:                                              ; preds = %.thread12
   %230 = getelementptr inbounds i8, ptr %225, i64 8
-  br label %.sink.split
+  store volatile ptr %148, ptr %230, align 8
+  br label %236
 
 231:                                              ; preds = %.preheader15
   %232 = getelementptr inbounds i8, ptr %213, i64 16
@@ -5071,14 +5069,10 @@ define internal fastcc ptr @__find_acq_core(ptr noundef %0, ptr nocapture nounde
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !98
   %235 = load ptr, ptr %234, align 8
   store volatile ptr %148, ptr %235, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %229, %231
-  %.sink = phi ptr [ %232, %231 ], [ %230, %229 ]
-  store volatile ptr %148, ptr %.sink, align 8
+  store volatile ptr %148, ptr %232, align 8
   br label %236
 
-236:                                              ; preds = %.sink.split, %.thread12
+236:                                              ; preds = %231, %229, %.thread12
   %237 = load i32, ptr %11, align 16
   %238 = tail call fastcc i32 @__xfrm_src_hash(ptr noundef %7, ptr noundef %8, i16 noundef zeroext %2, i32 noundef %237)
   %239 = load i8, ptr %203, align 8

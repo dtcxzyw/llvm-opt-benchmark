@@ -1500,15 +1500,33 @@ if.end26:                                         ; preds = %if.then19
   %closed_next.i = getelementptr inbounds i8, ptr %call.i, i64 136
   %9 = load ptr, ptr %closed_next.i, align 8
   %tobool.not.i = icmp eq ptr %8, null
-  %idle_stream_head.i = getelementptr inbounds i8, ptr %session, i64 2592
+  br i1 %tobool.not.i, label %if.else.i, label %if.then.i
+
+if.then.i:                                        ; preds = %if.end26
   %closed_next1.i = getelementptr inbounds i8, ptr %8, i64 136
-  %idle_stream_head.sink.i = select i1 %tobool.not.i, ptr %idle_stream_head.i, ptr %closed_next1.i
-  store ptr %9, ptr %idle_stream_head.sink.i, align 8
+  store ptr %9, ptr %closed_next1.i, align 8
+  br label %if.end.i
+
+if.else.i:                                        ; preds = %if.end26
+  %idle_stream_head.i = getelementptr inbounds i8, ptr %session, i64 2592
+  store ptr %9, ptr %idle_stream_head.i, align 8
+  br label %if.end.i
+
+if.end.i:                                         ; preds = %if.else.i, %if.then.i
   %tobool2.not.i = icmp eq ptr %9, null
-  %idle_stream_tail.i = getelementptr inbounds i8, ptr %session, i64 2600
+  br i1 %tobool2.not.i, label %if.else5.i, label %if.then3.i
+
+if.then3.i:                                       ; preds = %if.end.i
   %closed_prev4.i = getelementptr inbounds i8, ptr %9, i64 128
-  %idle_stream_tail.sink.i = select i1 %tobool2.not.i, ptr %idle_stream_tail.i, ptr %closed_prev4.i
-  store ptr %8, ptr %idle_stream_tail.sink.i, align 8
+  store ptr %8, ptr %closed_prev4.i, align 8
+  br label %nghttp2_session_detach_idle_stream.exit
+
+if.else5.i:                                       ; preds = %if.end.i
+  %idle_stream_tail.i = getelementptr inbounds i8, ptr %session, i64 2600
+  store ptr %8, ptr %idle_stream_tail.i, align 8
+  br label %nghttp2_session_detach_idle_stream.exit
+
+nghttp2_session_detach_idle_stream.exit:          ; preds = %if.then3.i, %if.else5.i
   %num_idle_streams.i = getelementptr inbounds i8, ptr %session, i64 2696
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %closed_prev.i, i8 0, i64 16, i1 false)
   %10 = load i64, ptr %num_idle_streams.i, align 8
@@ -1518,7 +1536,7 @@ if.end26:                                         ; preds = %if.then19
   %cmp28.not = icmp eq i32 %call27, 0
   br i1 %cmp28.not, label %if.end31, label %return
 
-if.end31:                                         ; preds = %if.end26
+if.end31:                                         ; preds = %nghttp2_session_detach_idle_stream.exit
   %pending_no_rfc7540_priorities.i = getelementptr inbounds i8, ptr %session, i64 2874
   %11 = load i8, ptr %pending_no_rfc7540_priorities.i, align 2
   %cmp.i = icmp eq i8 %11, 1
@@ -1618,8 +1636,8 @@ session_is_new_peer_stream_id.exit.i:             ; preds = %nghttp2_session_is_
 session_detect_idle_stream.exit:                  ; preds = %nghttp2_session_is_my_stream_id.exit.i
   %last_sent_stream_id.i = getelementptr inbounds i8, ptr %session, i64 2748
   %28 = load i32, ptr %last_sent_stream_id.i, align 4
-  %cmp.i96.not = icmp slt i32 %28, %23
-  br i1 %cmp.i96.not, label %if.then82, label %if.then97
+  %cmp.i97.not = icmp slt i32 %28, %23
+  br i1 %cmp.i97.not, label %if.then82, label %if.then97
 
 if.then82:                                        ; preds = %session_is_new_peer_stream_id.exit.i, %session_detect_idle_stream.exit
   call void @nghttp2_priority_spec_default_init(ptr noundef nonnull %pri_spec_default) #17
@@ -1662,16 +1680,16 @@ if.then110:                                       ; preds = %if.end101
   %33 = load i32, ptr %initial_window_size112, align 4
   call void @nghttp2_stream_init(ptr noundef nonnull %stream.0, i32 noundef %stream_id, i8 noundef zeroext %spec.select84, i32 noundef %initial_state, i32 noundef %31, i32 noundef %32, i32 noundef %33, ptr noundef %stream_user_data, ptr noundef nonnull %mem1) #17
   %34 = load i8, ptr %pending_no_rfc7540_priorities.i87, align 2
-  %cmp.i98 = icmp eq i8 %34, 1
-  br i1 %cmp.i98, label %session_no_rfc7540_pri_no_fallback.exit103, label %if.end116
+  %cmp.i99 = icmp eq i8 %34, 1
+  br i1 %cmp.i99, label %session_no_rfc7540_pri_no_fallback.exit104, label %if.end116
 
-session_no_rfc7540_pri_no_fallback.exit103:       ; preds = %if.then110
-  %fallback_rfc7540_priorities.i101 = getelementptr inbounds i8, ptr %session, i64 2875
-  %35 = load i8, ptr %fallback_rfc7540_priorities.i101, align 1
-  %tobool.not.i102.not = icmp eq i8 %35, 0
-  br i1 %tobool.not.i102.not, label %if.then115, label %if.end116
+session_no_rfc7540_pri_no_fallback.exit104:       ; preds = %if.then110
+  %fallback_rfc7540_priorities.i102 = getelementptr inbounds i8, ptr %session, i64 2875
+  %35 = load i8, ptr %fallback_rfc7540_priorities.i102, align 1
+  %tobool.not.i103.not = icmp eq i8 %35, 0
+  br i1 %tobool.not.i103.not, label %if.then115, label %if.end116
 
-if.then115:                                       ; preds = %session_no_rfc7540_pri_no_fallback.exit103
+if.then115:                                       ; preds = %session_no_rfc7540_pri_no_fallback.exit104
   %stream_seq = getelementptr inbounds i8, ptr %session, i64 2648
   %36 = load i64, ptr %stream_seq, align 8
   %inc = add i64 %36, 1
@@ -1680,7 +1698,7 @@ if.then115:                                       ; preds = %session_no_rfc7540_
   store i64 %36, ptr %seq, align 8
   br label %if.end116
 
-if.end116:                                        ; preds = %if.then110, %if.then115, %session_no_rfc7540_pri_no_fallback.exit103
+if.end116:                                        ; preds = %if.then110, %if.then115, %session_no_rfc7540_pri_no_fallback.exit104
   %call117 = call i32 @nghttp2_map_insert(ptr noundef nonnull %session, i32 noundef %stream_id, ptr noundef nonnull %stream.0) #17
   %cmp118.not = icmp eq i32 %call117, 0
   br i1 %cmp118.not, label %if.end128, label %if.then120
@@ -1710,8 +1728,8 @@ if.end128:                                        ; preds = %if.end116, %if.else
   ]
 
 sw.bb:                                            ; preds = %if.end128
-  %cmp.i104 = icmp eq i32 %stream_id, 0
-  br i1 %cmp.i104, label %if.else132, label %nghttp2_session_is_my_stream_id.exit
+  %cmp.i105 = icmp eq i32 %stream_id, 0
+  br i1 %cmp.i105, label %if.else132, label %nghttp2_session_is_my_stream_id.exit
 
 nghttp2_session_is_my_stream_id.exit:             ; preds = %sw.bb
   %server.i = getelementptr inbounds i8, ptr %session, i64 2876
@@ -1734,52 +1752,52 @@ if.else132:                                       ; preds = %sw.bb, %nghttp2_ses
   br label %sw.epilog
 
 sw.bb135:                                         ; preds = %if.end128
-  %idle_stream_tail.i107 = getelementptr inbounds i8, ptr %session, i64 2600
-  %42 = load ptr, ptr %idle_stream_tail.i107, align 8
-  %tobool.not.i108 = icmp eq ptr %42, null
-  br i1 %tobool.not.i108, label %if.else.i, label %if.then.i109
+  %idle_stream_tail.i109 = getelementptr inbounds i8, ptr %session, i64 2600
+  %42 = load ptr, ptr %idle_stream_tail.i109, align 8
+  %tobool.not.i110 = icmp eq ptr %42, null
+  br i1 %tobool.not.i110, label %if.else.i116, label %if.then.i111
 
-if.then.i109:                                     ; preds = %sw.bb135
-  %closed_next.i110 = getelementptr inbounds i8, ptr %42, i64 136
-  store ptr %stream.0, ptr %closed_next.i110, align 8
-  %43 = load ptr, ptr %idle_stream_tail.i107, align 8
-  %closed_prev.i111 = getelementptr inbounds i8, ptr %stream.0, i64 128
-  store ptr %43, ptr %closed_prev.i111, align 8
+if.then.i111:                                     ; preds = %sw.bb135
+  %closed_next.i112 = getelementptr inbounds i8, ptr %42, i64 136
+  store ptr %stream.0, ptr %closed_next.i112, align 8
+  %43 = load ptr, ptr %idle_stream_tail.i109, align 8
+  %closed_prev.i113 = getelementptr inbounds i8, ptr %stream.0, i64 128
+  store ptr %43, ptr %closed_prev.i113, align 8
   br label %nghttp2_session_keep_idle_stream.exit
 
-if.else.i:                                        ; preds = %sw.bb135
-  %idle_stream_head.i114 = getelementptr inbounds i8, ptr %session, i64 2592
-  store ptr %stream.0, ptr %idle_stream_head.i114, align 8
+if.else.i116:                                     ; preds = %sw.bb135
+  %idle_stream_head.i117 = getelementptr inbounds i8, ptr %session, i64 2592
+  store ptr %stream.0, ptr %idle_stream_head.i117, align 8
   br label %nghttp2_session_keep_idle_stream.exit
 
-nghttp2_session_keep_idle_stream.exit:            ; preds = %if.then.i109, %if.else.i
-  store ptr %stream.0, ptr %idle_stream_tail.i107, align 8
-  %num_idle_streams.i113 = getelementptr inbounds i8, ptr %session, i64 2696
-  %44 = load i64, ptr %num_idle_streams.i113, align 8
+nghttp2_session_keep_idle_stream.exit:            ; preds = %if.then.i111, %if.else.i116
+  store ptr %stream.0, ptr %idle_stream_tail.i109, align 8
+  %num_idle_streams.i115 = getelementptr inbounds i8, ptr %session, i64 2696
+  %44 = load i64, ptr %num_idle_streams.i115, align 8
   %inc.i = add i64 %44, 1
-  store i64 %inc.i, ptr %num_idle_streams.i113, align 8
+  store i64 %inc.i, ptr %num_idle_streams.i115, align 8
   br label %sw.epilog
 
 sw.default:                                       ; preds = %if.end128
-  %cmp.i115 = icmp eq i32 %stream_id, 0
-  br i1 %cmp.i115, label %if.else140, label %nghttp2_session_is_my_stream_id.exit123
+  %cmp.i118 = icmp eq i32 %stream_id, 0
+  br i1 %cmp.i118, label %if.else140, label %nghttp2_session_is_my_stream_id.exit126
 
-nghttp2_session_is_my_stream_id.exit123:          ; preds = %sw.default
-  %server.i118 = getelementptr inbounds i8, ptr %session, i64 2876
-  %45 = load i8, ptr %server.i118, align 4
+nghttp2_session_is_my_stream_id.exit126:          ; preds = %sw.default
+  %server.i121 = getelementptr inbounds i8, ptr %session, i64 2876
+  %45 = load i8, ptr %server.i121, align 4
   %46 = trunc i32 %stream_id to i1
   %47 = icmp eq i8 %45, 0
   %tobool137.not = xor i1 %47, %46
   br i1 %tobool137.not, label %if.else140, label %if.then138
 
-if.then138:                                       ; preds = %nghttp2_session_is_my_stream_id.exit123
+if.then138:                                       ; preds = %nghttp2_session_is_my_stream_id.exit126
   %num_outgoing_streams = getelementptr inbounds i8, ptr %session, i64 2656
   %48 = load i64, ptr %num_outgoing_streams, align 8
   %inc139 = add i64 %48, 1
   store i64 %inc139, ptr %num_outgoing_streams, align 8
   br label %sw.epilog
 
-if.else140:                                       ; preds = %sw.default, %nghttp2_session_is_my_stream_id.exit123
+if.else140:                                       ; preds = %sw.default, %nghttp2_session_is_my_stream_id.exit126
   %num_incoming_streams = getelementptr inbounds i8, ptr %session, i64 2664
   %49 = load i64, ptr %num_incoming_streams, align 8
   %inc141 = add i64 %49, 1
@@ -1823,8 +1841,8 @@ if.else165:                                       ; preds = %if.end157
 if.end166:                                        ; preds = %if.then159, %if.else165
   br label %return
 
-return:                                           ; preds = %if.then159, %sw.epilog, %if.then87, %if.then89, %if.else41, %if.end26, %if.end166, %if.then120
-  %retval.0 = phi ptr [ null, %if.then120 ], [ %stream.0, %if.end166 ], [ null, %if.end26 ], [ null, %if.else41 ], [ null, %if.then89 ], [ null, %if.then87 ], [ %stream.0, %sw.epilog ], [ null, %if.then159 ]
+return:                                           ; preds = %if.then159, %sw.epilog, %if.then87, %if.then89, %if.else41, %nghttp2_session_detach_idle_stream.exit, %if.end166, %if.then120
+  %retval.0 = phi ptr [ null, %if.then120 ], [ %stream.0, %if.end166 ], [ null, %nghttp2_session_detach_idle_stream.exit ], [ null, %if.else41 ], [ null, %if.then89 ], [ null, %if.then87 ], [ %stream.0, %sw.epilog ], [ null, %if.then159 ]
   ret ptr %retval.0
 }
 
@@ -2169,15 +2187,33 @@ entry:
   %closed_next = getelementptr inbounds i8, ptr %stream, i64 136
   %1 = load ptr, ptr %closed_next, align 8
   %tobool.not = icmp eq ptr %0, null
-  %idle_stream_head = getelementptr inbounds i8, ptr %session, i64 2592
+  br i1 %tobool.not, label %if.else, label %if.then
+
+if.then:                                          ; preds = %entry
   %closed_next1 = getelementptr inbounds i8, ptr %0, i64 136
-  %idle_stream_head.sink = select i1 %tobool.not, ptr %idle_stream_head, ptr %closed_next1
-  store ptr %1, ptr %idle_stream_head.sink, align 8
+  store ptr %1, ptr %closed_next1, align 8
+  br label %if.end
+
+if.else:                                          ; preds = %entry
+  %idle_stream_head = getelementptr inbounds i8, ptr %session, i64 2592
+  store ptr %1, ptr %idle_stream_head, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then
   %tobool2.not = icmp eq ptr %1, null
-  %idle_stream_tail = getelementptr inbounds i8, ptr %session, i64 2600
+  br i1 %tobool2.not, label %if.else5, label %if.then3
+
+if.then3:                                         ; preds = %if.end
   %closed_prev4 = getelementptr inbounds i8, ptr %1, i64 128
-  %idle_stream_tail.sink = select i1 %tobool2.not, ptr %idle_stream_tail, ptr %closed_prev4
-  store ptr %0, ptr %idle_stream_tail.sink, align 8
+  store ptr %0, ptr %closed_prev4, align 8
+  br label %if.end6
+
+if.else5:                                         ; preds = %if.end
+  %idle_stream_tail = getelementptr inbounds i8, ptr %session, i64 2600
+  store ptr %0, ptr %idle_stream_tail, align 8
+  br label %if.end6
+
+if.end6:                                          ; preds = %if.else5, %if.then3
   %num_idle_streams = getelementptr inbounds i8, ptr %session, i64 2696
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %closed_prev, i8 0, i64 16, i1 false)
   %2 = load i64, ptr %num_idle_streams, align 8
@@ -2592,8 +2628,8 @@ land.rhs.lr.ph:                                   ; preds = %do.end
   %closed_stream_tail = getelementptr inbounds i8, ptr %session, i64 2584
   br label %land.rhs
 
-land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end15
-  %3 = phi i64 [ %2, %land.rhs.lr.ph ], [ %dec, %if.end15 ]
+land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end22
+  %3 = phi i64 [ %2, %land.rhs.lr.ph ], [ %dec, %if.end22 ]
   %4 = load i64, ptr %num_incoming_streams, align 8
   %add = add i64 %4, %3
   %cmp7 = icmp ugt i64 %add, %num_stream_max.0
@@ -2628,17 +2664,26 @@ if.end15:                                         ; preds = %if.end11, %if.then.
   tail call void @nghttp2_mem_free(ptr noundef nonnull %mem1.i, ptr noundef nonnull %5) #17
   store ptr %6, ptr %closed_stream_head, align 8
   %tobool18.not = icmp eq ptr %6, null
+  br i1 %tobool18.not, label %if.else21, label %if.then19
+
+if.then19:                                        ; preds = %if.end15
   %closed_prev = getelementptr inbounds i8, ptr %6, i64 128
-  %closed_stream_tail.sink = select i1 %tobool18.not, ptr %closed_stream_tail, ptr %closed_prev
-  store ptr null, ptr %closed_stream_tail.sink, align 8
+  store ptr null, ptr %closed_prev, align 8
+  br label %if.end22
+
+if.else21:                                        ; preds = %if.end15
+  store ptr null, ptr %closed_stream_tail, align 8
+  br label %if.end22
+
+if.end22:                                         ; preds = %if.else21, %if.then19
   %8 = load i64, ptr %num_closed_streams, align 8
   %dec = add i64 %8, -1
   store i64 %dec, ptr %num_closed_streams, align 8
   %cmp4.not = icmp eq i64 %dec, 0
   br i1 %cmp4.not, label %return, label %land.rhs, !llvm.loop !10
 
-return:                                           ; preds = %if.end15, %land.rhs, %if.then.i, %do.end
-  %retval.0 = phi i32 [ 0, %do.end ], [ %call2.i, %if.then.i ], [ 0, %land.rhs ], [ 0, %if.end15 ]
+return:                                           ; preds = %if.end22, %land.rhs, %if.then.i, %do.end
+  %retval.0 = phi i32 [ 0, %do.end ], [ %call2.i, %if.then.i ], [ 0, %land.rhs ], [ 0, %if.end22 ]
   ret i32 %retval.0
 }
 
@@ -2664,7 +2709,7 @@ while.body.lr.ph:                                 ; preds = %entry
   %idle_stream_tail = getelementptr inbounds i8, ptr %session, i64 2600
   br label %while.body
 
-while.body:                                       ; preds = %while.body.lr.ph, %if.end57
+while.body:                                       ; preds = %while.body.lr.ph, %if.end64
   %3 = load ptr, ptr %idle_stream_head, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -2693,17 +2738,26 @@ if.end57:                                         ; preds = %if.end, %if.then.i
   tail call void @nghttp2_mem_free(ptr noundef nonnull %mem1.i, ptr noundef nonnull %3) #17
   store ptr %4, ptr %idle_stream_head, align 8
   %tobool60.not = icmp eq ptr %4, null
+  br i1 %tobool60.not, label %if.else63, label %if.then61
+
+if.then61:                                        ; preds = %if.end57
   %closed_prev = getelementptr inbounds i8, ptr %4, i64 128
-  %idle_stream_tail.sink = select i1 %tobool60.not, ptr %idle_stream_tail, ptr %closed_prev
-  store ptr null, ptr %idle_stream_tail.sink, align 8
+  store ptr null, ptr %closed_prev, align 8
+  br label %if.end64
+
+if.else63:                                        ; preds = %if.end57
+  store ptr null, ptr %idle_stream_tail, align 8
+  br label %if.end64
+
+if.end64:                                         ; preds = %if.else63, %if.then61
   %6 = load i64, ptr %num_idle_streams, align 8
   %dec = add i64 %6, -1
   store i64 %dec, ptr %num_idle_streams, align 8
   %cmp52 = icmp ugt i64 %dec, %conv
   br i1 %cmp52, label %while.body, label %return, !llvm.loop !11
 
-return:                                           ; preds = %if.end57, %if.then.i, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %call2.i, %if.then.i ], [ 0, %if.end57 ]
+return:                                           ; preds = %if.end64, %if.then.i, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ %call2.i, %if.then.i ], [ 0, %if.end64 ]
   ret i32 %retval.0
 }
 
@@ -6268,7 +6322,7 @@ for.body36:                                       ; preds = %for.body36.lr.ph, %
   %arrayidx37 = getelementptr inbounds %struct.nghttp2_settings_entry, ptr %iv, i64 %i.163
   %5 = load i32, ptr %arrayidx37, align 4
   switch i32 %5, label %for.inc74 [
-    i32 1, label %for.inc74.sink.split
+    i32 1, label %sw.bb39
     i32 2, label %sw.bb44
     i32 3, label %sw.bb48
     i32 4, label %sw.bb52
@@ -6278,35 +6332,55 @@ for.body36:                                       ; preds = %for.body36.lr.ph, %
     i32 9, label %sw.bb69
   ]
 
-sw.bb44:                                          ; preds = %for.body36
-  br label %for.inc74.sink.split
-
-sw.bb48:                                          ; preds = %for.body36
-  br label %for.inc74.sink.split
-
-sw.bb52:                                          ; preds = %for.body36
-  br label %for.inc74.sink.split
-
-sw.bb57:                                          ; preds = %for.body36
-  br label %for.inc74.sink.split
-
-sw.bb61:                                          ; preds = %for.body36
-  br label %for.inc74.sink.split
-
-sw.bb65:                                          ; preds = %for.body36
-  br label %for.inc74.sink.split
-
-sw.bb69:                                          ; preds = %for.body36
-  br label %for.inc74.sink.split
-
-for.inc74.sink.split:                             ; preds = %for.body36, %sw.bb69, %sw.bb65, %sw.bb61, %sw.bb57, %sw.bb52, %sw.bb48, %sw.bb44
-  %local_settings42.sink = phi ptr [ %enable_push, %sw.bb44 ], [ %max_concurrent_streams, %sw.bb48 ], [ %initial_window_size56, %sw.bb52 ], [ %max_frame_size, %sw.bb57 ], [ %max_header_list_size, %sw.bb61 ], [ %enable_connect_protocol, %sw.bb65 ], [ %no_rfc7540_priorities, %sw.bb69 ], [ %local_settings42, %for.body36 ]
+sw.bb39:                                          ; preds = %for.body36
   %value41 = getelementptr inbounds i8, ptr %arrayidx37, i64 4
   %6 = load i32, ptr %value41, align 4
-  store i32 %6, ptr %local_settings42.sink, align 4
+  store i32 %6, ptr %local_settings42, align 4
   br label %for.inc74
 
-for.inc74:                                        ; preds = %for.inc74.sink.split, %for.body36
+sw.bb44:                                          ; preds = %for.body36
+  %value46 = getelementptr inbounds i8, ptr %arrayidx37, i64 4
+  %7 = load i32, ptr %value46, align 4
+  store i32 %7, ptr %enable_push, align 4
+  br label %for.inc74
+
+sw.bb48:                                          ; preds = %for.body36
+  %value50 = getelementptr inbounds i8, ptr %arrayidx37, i64 4
+  %8 = load i32, ptr %value50, align 4
+  store i32 %8, ptr %max_concurrent_streams, align 4
+  br label %for.inc74
+
+sw.bb52:                                          ; preds = %for.body36
+  %value54 = getelementptr inbounds i8, ptr %arrayidx37, i64 4
+  %9 = load i32, ptr %value54, align 4
+  store i32 %9, ptr %initial_window_size56, align 4
+  br label %for.inc74
+
+sw.bb57:                                          ; preds = %for.body36
+  %value59 = getelementptr inbounds i8, ptr %arrayidx37, i64 4
+  %10 = load i32, ptr %value59, align 4
+  store i32 %10, ptr %max_frame_size, align 4
+  br label %for.inc74
+
+sw.bb61:                                          ; preds = %for.body36
+  %value63 = getelementptr inbounds i8, ptr %arrayidx37, i64 4
+  %11 = load i32, ptr %value63, align 4
+  store i32 %11, ptr %max_header_list_size, align 4
+  br label %for.inc74
+
+sw.bb65:                                          ; preds = %for.body36
+  %value67 = getelementptr inbounds i8, ptr %arrayidx37, i64 4
+  %12 = load i32, ptr %value67, align 4
+  store i32 %12, ptr %enable_connect_protocol, align 4
+  br label %for.inc74
+
+sw.bb69:                                          ; preds = %for.body36
+  %value71 = getelementptr inbounds i8, ptr %arrayidx37, i64 4
+  %13 = load i32, ptr %value71, align 4
+  store i32 %13, ptr %no_rfc7540_priorities, align 4
+  br label %for.inc74
+
+for.inc74:                                        ; preds = %for.body36, %sw.bb39, %sw.bb44, %sw.bb48, %sw.bb52, %sw.bb57, %sw.bb61, %sw.bb65, %sw.bb69
   %inc75 = add nuw i64 %i.163, 1
   %exitcond64.not = icmp eq i64 %inc75, %niv
   br i1 %exitcond64.not, label %return, label %for.body36, !llvm.loop !15
@@ -13071,7 +13145,8 @@ lor.lhs.false1.i:                                 ; preds = %lor.lhs.false.i
 
 if.then:                                          ; preds = %lor.lhs.false1.i
   %stream_user_data1 = getelementptr inbounds i8, ptr %call.i, i64 144
-  br label %return.sink.split
+  store ptr %stream_user_data, ptr %stream_user_data1, align 8
+  br label %return
 
 if.end:                                           ; preds = %lor.lhs.false1.i, %lor.lhs.false.i, %entry
   %server = getelementptr inbounds i8, ptr %session, i64 2876
@@ -13123,7 +13198,8 @@ if.end32:                                         ; preds = %for.body
 
 if.end38:                                         ; preds = %if.end32
   %stream_user_data39 = getelementptr inbounds i8, ptr %item.030, i64 112
-  br label %return.sink.split
+  store ptr %stream_user_data, ptr %stream_user_data39, align 8
+  br label %return
 
 for.inc:                                          ; preds = %for.body
   %qnext = getelementptr inbounds i8, ptr %item.030, i64 136
@@ -13131,13 +13207,8 @@ for.inc:                                          ; preds = %for.body
   %tobool26.not = icmp eq ptr %9, null
   br i1 %tobool26.not, label %return, label %for.body, !llvm.loop !26
 
-return.sink.split:                                ; preds = %if.then, %if.end38
-  %stream_user_data39.sink = phi ptr [ %stream_user_data39, %if.end38 ], [ %stream_user_data1, %if.then ]
-  store ptr %stream_user_data, ptr %stream_user_data39.sink, align 8
-  br label %return
-
-return:                                           ; preds = %for.inc, %return.sink.split, %if.end32, %if.end15, %lor.lhs.false19, %if.end, %lor.lhs.false5
-  %retval.0 = phi i32 [ -501, %lor.lhs.false5 ], [ -501, %if.end ], [ -501, %lor.lhs.false19 ], [ -501, %if.end15 ], [ -501, %if.end32 ], [ 0, %return.sink.split ], [ -501, %for.inc ]
+return:                                           ; preds = %for.inc, %if.end32, %if.end15, %lor.lhs.false19, %if.end, %lor.lhs.false5, %if.end38, %if.then
+  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.end38 ], [ -501, %lor.lhs.false5 ], [ -501, %if.end ], [ -501, %lor.lhs.false19 ], [ -501, %if.end15 ], [ -501, %if.end32 ], [ -501, %for.inc ]
   ret i32 %retval.0
 }
 

@@ -2684,7 +2684,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h4080f06d4f5ddd
   %.sroa.48.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %102, i64 -16
   store ptr %.sroa.5.0.copyload6, ptr %.sroa.48.0..sroa_idx.i.i.i, align 16, !noalias !666
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %102, i64 -8
-  store ptr %.sroa.8.0.copyload8, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !noalias !632
+  store ptr %.sroa.8.0.copyload8, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !noalias !666
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !632
   br label %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h0402aee010bd0ed0E.exit"
 

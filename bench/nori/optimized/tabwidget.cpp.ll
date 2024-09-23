@@ -1976,6 +1976,8 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %181
   %193 = getelementptr inbounds i8, ptr %192, i64 120
   %194 = load ptr, ptr %193, align 8
   call void %194(ptr noundef nonnull align 8 dereferenceable(416) %0, i32 noundef %191)
+  store i32 0, ptr %10, align 4
+  store i32 0, ptr %.04.i.sroa.gep70, align 4
   br label %.thread142.sink.split
 
 195:                                              ; preds = %175
@@ -2050,20 +2052,19 @@ _ZNKSt8functionIFviEEclEi.exit:                   ; preds = %226, %220
 
 _ZN7nanogui5ArrayIiLm2EEC2Ei.exit68.critedge:     ; preds = %235
   store i32 -1, ptr %95, align 8
+  store i32 0, ptr %11, align 4
+  store i32 0, ptr %.04.i67.sroa.gep69, align 4
   br label %.thread142.sink.split
 
 236:                                              ; preds = %173
   br i1 %3, label %.thread137, label %.thread142
 
 .thread142.sink.split:                            ; preds = %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit68.critedge
-  %.sink159 = phi ptr [ %11, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit68.critedge ], [ %10, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge ]
-  %.04.i67.sroa.gep69.sink = phi ptr [ %.04.i67.sroa.gep69, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit68.critedge ], [ %.04.i.sroa.gep70, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge ]
-  store i32 0, ptr %.sink159, align 4
-  store i32 0, ptr %.04.i67.sroa.gep69.sink, align 4
+  %.sink = phi ptr [ %11, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit68.critedge ], [ %10, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge ]
   %237 = load ptr, ptr %0, align 8
   %238 = getelementptr inbounds i8, ptr %237, i64 40
   %239 = load ptr, ptr %238, align 8
-  %240 = call noundef zeroext i1 %239(ptr noundef nonnull align 8 dereferenceable(416) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %.sink159, i32 noundef 0, i32 noundef 0)
+  %240 = call noundef zeroext i1 %239(ptr noundef nonnull align 8 dereferenceable(416) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %.sink, i32 noundef 0, i32 noundef 0)
   br label %.thread142
 
 .thread142:                                       ; preds = %.thread142.sink.split, %235, %181, %236
@@ -3347,22 +3348,18 @@ _ZNSt10_HashtableIiSt4pairIKiPN7nanogui6WidgetEESaIS5_ENSt8__detail10_Select1stE
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
-  br label %.sink.split
+  store ptr %.031, ptr %25, align 8
+  br label %29
 
 26:                                               ; preds = %.lr.ph
   %27 = load ptr, ptr %20, align 8
   store ptr %27, ptr %.031, align 8
   %28 = load ptr, ptr %19, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %26, %24
-  %.sink = phi ptr [ %25, %24 ], [ %28, %26 ]
-  %.1.ph = phi i64 [ %18, %24 ], [ %.02530, %26 ]
-  store ptr %.031, ptr %.sink, align 8
+  store ptr %.031, ptr %28, align 8
   br label %29
 
-29:                                               ; preds = %.sink.split, %21
-  %.1 = phi i64 [ %18, %21 ], [ %.1.ph, %.sink.split ]
+29:                                               ; preds = %21, %24, %26
+  %.1 = phi i64 [ %.02530, %26 ], [ %18, %24 ], [ %18, %21 ]
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 

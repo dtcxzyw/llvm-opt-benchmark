@@ -3214,7 +3214,9 @@ _ZN4llvm5ErrorD2Ev.exit79:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %318 = load i8, ptr %317, align 8
   %319 = or i8 %318, 1
   store i8 %319, ptr %317, align 8
+  call void @llvm.experimental.noalias.scope.decl(metadata !144)
   store ptr %316, ptr %0, align 8, !alias.scope !144
+  store ptr null, ptr %28, align 8, !noalias !144
   br label %346
 
 _ZN4llvm5ErrorD2Ev.exit80:                        ; preds = %_ZN4llvm5ErrorD2Ev.exit78
@@ -3231,7 +3233,9 @@ _ZN4llvm5ErrorD2Ev.exit81:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %323 = load i8, ptr %322, align 8
   %324 = or i8 %323, 1
   store i8 %324, ptr %322, align 8
+  call void @llvm.experimental.noalias.scope.decl(metadata !147)
   store ptr %321, ptr %0, align 8, !alias.scope !147
+  store ptr null, ptr %29, align 8, !noalias !147
   br label %346
 
 _ZN4llvm5ErrorD2Ev.exit82:                        ; preds = %_ZN4llvm5ErrorD2Ev.exit80
@@ -3275,7 +3279,9 @@ _ZN4llvm5ErrorD2Ev.exit85:                        ; preds = %_ZN4llvm18BinaryStr
   %334 = load i8, ptr %333, align 8
   %335 = or i8 %334, 1
   store i8 %335, ptr %333, align 8
+  call void @llvm.experimental.noalias.scope.decl(metadata !158)
   store ptr %332, ptr %0, align 8, !alias.scope !158
+  store ptr null, ptr %30, align 8, !noalias !158
   br label %346
 
 _ZN4llvm5ErrorD2Ev.exit86:                        ; preds = %_ZN4llvm18BinaryStreamWriter10writeArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEENS_5ErrorENS_8ArrayRefIT_EE.exit84, %_ZN4llvm18BinaryStreamWriter10writeArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEENS_5ErrorENS_8ArrayRefIT_EE.exit84.thread120
@@ -3300,11 +3306,10 @@ _ZN4llvm5ErrorD2Ev.exit86:                        ; preds = %_ZN4llvm18BinaryStr
   %344 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %345 = load i64, ptr %144, align 8
   store i64 %345, ptr %344, align 8
+  store ptr null, ptr %144, align 8
   br label %346
 
 346:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit85, %_ZN4llvm5ErrorD2Ev.exit81, %_ZN4llvm5ErrorD2Ev.exit79, %._crit_edge
-  %.sink = phi ptr [ %30, %_ZN4llvm5ErrorD2Ev.exit85 ], [ %29, %_ZN4llvm5ErrorD2Ev.exit81 ], [ %28, %_ZN4llvm5ErrorD2Ev.exit79 ], [ %144, %._crit_edge ]
-  store ptr null, ptr %.sink, align 8
   call void @_ZN4llvm18BinaryStreamWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %27) #18
   %347 = load ptr, ptr %25, align 8
   %.not.i87 = icmp eq ptr %347, null
@@ -3318,8 +3323,8 @@ _ZNKSt14default_deleteIN4llvm3msf25WritableMappedBlockStreamEEclEPS2_.exit.i: ; 
   br label %_ZNSt10unique_ptrIN4llvm3msf25WritableMappedBlockStreamESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvm3msf25WritableMappedBlockStreamESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN4llvm3msf25WritableMappedBlockStreamEEclEPS2_.exit.i, %346, %_ZN4llvm5ErrorD2Ev.exit77, %_ZN4llvm5ErrorD2Ev.exit71
-  %.sink132 = phi ptr [ %24, %_ZN4llvm5ErrorD2Ev.exit77 ], [ %23, %_ZN4llvm5ErrorD2Ev.exit71 ], [ %25, %346 ], [ %25, %_ZNKSt14default_deleteIN4llvm3msf25WritableMappedBlockStreamEEclEPS2_.exit.i ]
-  store ptr null, ptr %.sink132, align 8
+  %.sink = phi ptr [ %24, %_ZN4llvm5ErrorD2Ev.exit77 ], [ %23, %_ZN4llvm5ErrorD2Ev.exit71 ], [ %25, %346 ], [ %25, %_ZNKSt14default_deleteIN4llvm3msf25WritableMappedBlockStreamEEclEPS2_.exit.i ]
+  store ptr null, ptr %.sink, align 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm18BinaryStreamWriterE, i64 16), ptr %22, align 8
   %351 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %352 = load ptr, ptr %351, align 8
@@ -4027,7 +4032,8 @@ _ZN4llvm15SmallVectorImplImE12assignRemoteEOS1_.exit: ; preds = %8, %13
   store i32 %19, ptr %20, align 4
   store ptr %6, ptr %1, align 8
   store i32 0, ptr %18, align 4
-  br label %.sink.split
+  store i32 0, ptr %15, align 8
+  br label %53
 
 21:                                               ; preds = %4
   %22 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #18
@@ -4056,7 +4062,8 @@ _ZSt4moveIPmS0_ET0_T_S2_S1_.exit:                 ; preds = %29, %26, %24
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %22) #18
   %31 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #18
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
+  store i32 0, ptr %32, align 8
+  br label %53
 
 33:                                               ; preds = %21
   %34 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
@@ -4103,14 +4110,10 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.ex
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %22) #18
   %51 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #18
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %_ZN4llvm15SmallVectorImplImE12assignRemoteEOS1_.exit, %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.exit
-  %.sink = phi ptr [ %52, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.exit ], [ %32, %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit ], [ %15, %_ZN4llvm15SmallVectorImplImE12assignRemoteEOS1_.exit ]
-  store i32 0, ptr %.sink, align 8
+  store i32 0, ptr %52, align 8
   br label %53
 
-53:                                               ; preds = %.sink.split, %2
+53:                                               ; preds = %2, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.exit, %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit, %_ZN4llvm15SmallVectorImplImE12assignRemoteEOS1_.exit
   ret ptr %0
 }
 

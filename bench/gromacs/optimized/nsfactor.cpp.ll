@@ -710,14 +710,14 @@ define noundef ptr @_Z13gmx_sans_initPK10t_topologyP37gmx_neutron_atomic_structu
   br i1 %15, label %.preheader, label %._crit_edge31
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
-  %16 = phi i32 [ %44, %._crit_edge ], [ %9, %.preheader.lr.ph ]
-  %17 = phi i32 [ %45, %._crit_edge ], [ %14, %.preheader.lr.ph ]
+  %16 = phi i32 [ %43, %._crit_edge ], [ %9, %.preheader.lr.ph ]
+  %17 = phi i32 [ %44, %._crit_edge ], [ %14, %.preheader.lr.ph ]
   %indvars.iv34 = phi i64 [ %indvars.iv.next35, %._crit_edge ], [ 0, %.preheader.lr.ph ]
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.preheader, %40
-  %indvars.iv = phi i64 [ %indvars.iv.next, %40 ], [ 0, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %39
+  %indvars.iv = phi i64 [ %indvars.iv.next, %39 ], [ 0, %.preheader ]
   %19 = load ptr, ptr %11, align 8
   %20 = getelementptr inbounds %struct.t_atom, ptr %19, i64 %indvars.iv34
   %21 = getelementptr inbounds i8, ptr %20, i64 28
@@ -726,7 +726,7 @@ define noundef ptr @_Z13gmx_sans_initPK10t_topologyP37gmx_neutron_atomic_structu
   %24 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %22, %25
-  br i1 %26, label %27, label %40
+  br i1 %26, label %27, label %39
 
 27:                                               ; preds = %.lr.ph
   %28 = icmp eq i32 %22, 1
@@ -747,31 +747,31 @@ define noundef ptr @_Z13gmx_sans_initPK10t_topologyP37gmx_neutron_atomic_structu
   br label %.sink.split
 
 .sink.split:                                      ; preds = %29, %34
-  %.sink39 = phi ptr [ %36, %34 ], [ %spec.select, %29 ]
-  %37 = load double, ptr %.sink39, align 8
-  %38 = load ptr, ptr %4, align 8
-  %39 = getelementptr inbounds double, ptr %38, i64 %indvars.iv34
-  store double %37, ptr %39, align 8
-  br label %40
+  %.sink.in = phi ptr [ %36, %34 ], [ %spec.select, %29 ]
+  %.sink = load double, ptr %.sink.in, align 8
+  %37 = load ptr, ptr %4, align 8
+  %38 = getelementptr inbounds double, ptr %37, i64 %indvars.iv34
+  store double %.sink, ptr %38, align 8
+  br label %39
 
-40:                                               ; preds = %.sink.split, %.lr.ph
+39:                                               ; preds = %.sink.split, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %41 = load i32, ptr %1, align 8
-  %42 = sext i32 %41 to i64
-  %43 = icmp slt i64 %indvars.iv.next, %42
-  br i1 %43, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !9
+  %40 = load i32, ptr %1, align 8
+  %41 = sext i32 %40 to i64
+  %42 = icmp slt i64 %indvars.iv.next, %41
+  br i1 %42, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !9
 
-._crit_edge.loopexit:                             ; preds = %40
+._crit_edge.loopexit:                             ; preds = %39
   %.pre = load i32, ptr %5, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %44 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %16, %.preheader ]
-  %45 = phi i32 [ %41, %._crit_edge.loopexit ], [ %17, %.preheader ]
+  %43 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %16, %.preheader ]
+  %44 = phi i32 [ %40, %._crit_edge.loopexit ], [ %17, %.preheader ]
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
-  %46 = sext i32 %44 to i64
-  %47 = icmp slt i64 %indvars.iv.next35, %46
-  br i1 %47, label %.preheader, label %._crit_edge31, !llvm.loop !10
+  %45 = sext i32 %43 to i64
+  %46 = icmp slt i64 %indvars.iv.next35, %45
+  br i1 %46, label %.preheader, label %._crit_edge31, !llvm.loop !10
 
 ._crit_edge31:                                    ; preds = %._crit_edge, %.preheader.lr.ph, %2
   ret ptr %3

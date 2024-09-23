@@ -1296,12 +1296,14 @@ new.cont56:                                       ; preds = %.noexc
 
 new.cont56.thread:                                ; preds = %if.then44
   %fDecimalStr5720 = getelementptr inbounds i8, ptr %this, i64 24
-  br label %if.end64.sink.split
+  store ptr null, ptr %fDecimalStr5720, align 8
+  br label %if.end64
 
 delete.end:                                       ; preds = %new.cont56
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %call45) #17
   call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call45) #17
-  br label %if.end64.sink.split
+  store ptr null, ptr %fDecimalStr57, align 8
+  br label %if.end64
 
 lpad51:                                           ; preds = %new.notnull47
   %27 = landingpad { ptr, i32 }
@@ -1313,12 +1315,7 @@ lpad51.body:                                      ; preds = %lpad.i16, %lpad51
   call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call45) #17
   br label %common.resume
 
-if.end64.sink.split:                              ; preds = %delete.end, %new.cont56.thread
-  %fDecimalStr5720.sink = phi ptr [ %fDecimalStr5720, %new.cont56.thread ], [ %fDecimalStr57, %delete.end ]
-  store ptr null, ptr %fDecimalStr5720.sink, align 8
-  br label %if.end64
-
-if.end64:                                         ; preds = %if.end64.sink.split, %if.end, %new.cont56, %entry
+if.end64:                                         ; preds = %new.cont56.thread, %if.end, %delete.end, %new.cont56, %entry
   ret ptr %this
 }
 

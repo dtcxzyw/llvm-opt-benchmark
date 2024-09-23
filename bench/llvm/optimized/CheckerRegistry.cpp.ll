@@ -11168,7 +11168,8 @@ _ZN5clang4ento11PackageInfoC2EOS1_.exit:          ; preds = %4, %11
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  br label %.sink.split.i.i
+  store i32 0, ptr %19, align 8
+  br label %_ZN5clang4ento11PackageInfoaSEOS1_.exit
 
 20:                                               ; preds = %15
   %21 = load ptr, ptr %8, align 8
@@ -11194,14 +11195,10 @@ _ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.
   %32 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %32, ptr %13, align 8
   store i32 0, ptr %29, align 4
-  br label %.sink.split.i.i
-
-.sink.split.i.i:                                  ; preds = %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i, %18
-  %.sink.i.i = phi ptr [ %19, %18 ], [ %26, %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i ]
-  store i32 0, ptr %.sink.i.i, align 8
+  store i32 0, ptr %26, align 8
   br label %_ZN5clang4ento11PackageInfoaSEOS1_.exit
 
-_ZN5clang4ento11PackageInfoaSEOS1_.exit:          ; preds = %_ZN5clang4ento11PackageInfoC2EOS1_.exit, %.sink.split.i.i
+_ZN5clang4ento11PackageInfoaSEOS1_.exit:          ; preds = %_ZN5clang4ento11PackageInfoC2EOS1_.exit, %18, %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i
   %33 = ptrtoint ptr %1 to i64
   %34 = ptrtoint ptr %0 to i64
   %35 = sub i64 %33, %34
@@ -11252,8 +11249,8 @@ define linkonce_odr void @_ZSt13__adjust_heapIPN5clang4ento11PackageInfoElS2_N9_
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %_ZN5clang4ento11PackageInfoaSEOS1_.exit
-  %.032 = phi i64 [ %spec.select, %_ZN5clang4ento11PackageInfoaSEOS1_.exit ], [ %1, %4 ]
-  %10 = shl i64 %.032, 1
+  %.030 = phi i64 [ %spec.select, %_ZN5clang4ento11PackageInfoaSEOS1_.exit ], [ %1, %4 ]
+  %10 = shl i64 %.030, 1
   %11 = add i64 %10, 2
   %12 = getelementptr inbounds %"struct.clang::ento::PackageInfo", ptr %0, i64 %11
   %13 = or disjoint i64 %10, 1
@@ -11285,11 +11282,11 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang4ento16checker_registry10FullNameLTI
   %.0.i.i.i.i = phi i1 [ %.inv.i.i.i.i, %17 ], [ %18, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i ]
   %spec.select = select i1 %.0.i.i.i.i, i64 %13, i64 %11
   %19 = getelementptr inbounds %"struct.clang::ento::PackageInfo", ptr %0, i64 %spec.select
-  %20 = getelementptr inbounds %"struct.clang::ento::PackageInfo", ptr %0, i64 %.032
+  %20 = getelementptr inbounds %"struct.clang::ento::PackageInfo", ptr %0, i64 %.030
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 16, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %23 = icmp eq i64 %.032, %spec.select
+  %23 = icmp eq i64 %.030, %spec.select
   br i1 %23, label %_ZN5clang4ento11PackageInfoaSEOS1_.exit, label %24
 
 24:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIPS6_SA_EEbT_T0_.exit
@@ -11299,7 +11296,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang4ento16checker_registry10FullNameLTI
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  br label %.sink.split.i.i
+  store i32 0, ptr %28, align 8
+  br label %_ZN5clang4ento11PackageInfoaSEOS1_.exit
 
 29:                                               ; preds = %24
   %30 = load ptr, ptr %21, align 8
@@ -11325,14 +11323,10 @@ _ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.
   %41 = getelementptr inbounds i8, ptr %19, i64 32
   store ptr %41, ptr %22, align 8
   store i32 0, ptr %38, align 4
-  br label %.sink.split.i.i
-
-.sink.split.i.i:                                  ; preds = %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i, %27
-  %.sink.i.i = phi ptr [ %28, %27 ], [ %35, %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i ]
-  store i32 0, ptr %.sink.i.i, align 8
+  store i32 0, ptr %35, align 8
   br label %_ZN5clang4ento11PackageInfoaSEOS1_.exit
 
-_ZN5clang4ento11PackageInfoaSEOS1_.exit:          ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIPS6_SA_EEbT_T0_.exit, %.sink.split.i.i
+_ZN5clang4ento11PackageInfoaSEOS1_.exit:          ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIPS6_SA_EEbT_T0_.exit, %27, %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i
   %42 = icmp slt i64 %spec.select, %8
   br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !100
 
@@ -11340,13 +11334,13 @@ _ZN5clang4ento11PackageInfoaSEOS1_.exit:          ; preds = %_ZN9__gnu_cxx5__ops
   %.0.lcssa = phi i64 [ %1, %4 ], [ %spec.select, %_ZN5clang4ento11PackageInfoaSEOS1_.exit ]
   %43 = and i64 %2, 1
   %44 = icmp eq i64 %43, 0
-  br i1 %44, label %45, label %_ZN5clang4ento11PackageInfoaSEOS1_.exit31
+  br i1 %44, label %45, label %_ZN5clang4ento11PackageInfoaSEOS1_.exit29
 
 45:                                               ; preds = %._crit_edge
   %46 = add nsw i64 %2, -2
   %47 = ashr exact i64 %46, 1
   %48 = icmp eq i64 %.0.lcssa, %47
-  br i1 %48, label %49, label %_ZN5clang4ento11PackageInfoaSEOS1_.exit31
+  br i1 %48, label %49, label %_ZN5clang4ento11PackageInfoaSEOS1_.exit29
 
 49:                                               ; preds = %45
   %50 = shl nsw i64 %.0.lcssa, 1
@@ -11357,7 +11351,7 @@ _ZN5clang4ento11PackageInfoaSEOS1_.exit:          ; preds = %_ZN9__gnu_cxx5__ops
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %56 = icmp eq i64 %.0.lcssa, %51
-  br i1 %56, label %_ZN5clang4ento11PackageInfoaSEOS1_.exit31, label %57
+  br i1 %56, label %_ZN5clang4ento11PackageInfoaSEOS1_.exit29, label %57
 
 57:                                               ; preds = %49
   %58 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %55) #16
@@ -11366,7 +11360,8 @@ _ZN5clang4ento11PackageInfoaSEOS1_.exit:          ; preds = %_ZN9__gnu_cxx5__ops
 
 60:                                               ; preds = %57
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 24
-  br label %.sink.split.i.i29
+  store i32 0, ptr %61, align 8
+  br label %_ZN5clang4ento11PackageInfoaSEOS1_.exit29
 
 62:                                               ; preds = %57
   %63 = load ptr, ptr %54, align 8
@@ -11392,15 +11387,11 @@ _ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.
   %74 = getelementptr inbounds i8, ptr %52, i64 32
   store ptr %74, ptr %55, align 8
   store i32 0, ptr %71, align 4
-  br label %.sink.split.i.i29
+  store i32 0, ptr %68, align 8
+  br label %_ZN5clang4ento11PackageInfoaSEOS1_.exit29
 
-.sink.split.i.i29:                                ; preds = %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i28, %60
-  %.sink.i.i30 = phi ptr [ %61, %60 ], [ %68, %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i28 ]
-  store i32 0, ptr %.sink.i.i30, align 8
-  br label %_ZN5clang4ento11PackageInfoaSEOS1_.exit31
-
-_ZN5clang4ento11PackageInfoaSEOS1_.exit31:        ; preds = %.sink.split.i.i29, %49, %45, %._crit_edge
-  %.127 = phi i64 [ %.0.lcssa, %45 ], [ %.0.lcssa, %._crit_edge ], [ %.0.lcssa, %49 ], [ %51, %.sink.split.i.i29 ]
+_ZN5clang4ento11PackageInfoaSEOS1_.exit29:        ; preds = %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i28, %60, %49, %45, %._crit_edge
+  %.127 = phi i64 [ %.0.lcssa, %45 ], [ %.0.lcssa, %._crit_edge ], [ %.0.lcssa, %49 ], [ %51, %60 ], [ %51, %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i28 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   %75 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %76 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -11409,11 +11400,11 @@ _ZN5clang4ento11PackageInfoaSEOS1_.exit31:        ; preds = %.sink.split.i.i29, 
   %78 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %76) #16
   br i1 %78, label %_ZN5clang4ento11PackageInfoC2EOS1_.exit, label %79
 
-79:                                               ; preds = %_ZN5clang4ento11PackageInfoaSEOS1_.exit31
+79:                                               ; preds = %_ZN5clang4ento11PackageInfoaSEOS1_.exit29
   %80 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull align 8 dereferenceable(16) %76)
   br label %_ZN5clang4ento11PackageInfoC2EOS1_.exit
 
-_ZN5clang4ento11PackageInfoC2EOS1_.exit:          ; preds = %_ZN5clang4ento11PackageInfoaSEOS1_.exit31, %79
+_ZN5clang4ento11PackageInfoC2EOS1_.exit:          ; preds = %_ZN5clang4ento11PackageInfoaSEOS1_.exit29, %79
   call void @_ZSt11__push_heapIPN5clang4ento11PackageInfoElS2_N9__gnu_cxx5__ops14_Iter_comp_valINS1_16checker_registry10FullNameLTIS2_EEEEEvT_T0_SC_T1_RT2_(ptr noundef %0, i64 noundef %.127, i64 noundef %1, ptr noundef nonnull %6, ptr noundef nonnull align 1 dereferenceable(1) %5)
   %81 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %75) #16
   %82 = load ptr, ptr %75, align 8
@@ -11465,7 +11456,8 @@ _ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit:
   store i32 %19, ptr %20, align 4
   store ptr %6, ptr %1, align 8
   store i32 0, ptr %18, align 4
-  br label %.sink.split
+  store i32 0, ptr %15, align 8
+  br label %52
 
 21:                                               ; preds = %4
   %22 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #16
@@ -11494,7 +11486,8 @@ _ZSt4moveIPN5clang4ento13CmdLineOptionES3_ET0_T_S5_S4_.exit: ; preds = %29, %26,
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %22) #16
   %31 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #16
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
+  store i32 0, ptr %32, align 8
+  br label %52
 
 33:                                               ; preds = %21
   %34 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #16
@@ -11541,14 +11534,10 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang4ento13CmdLineOptionELb1EE18uninitializ
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %22) #16
   %50 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #16
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit, %_ZSt4moveIPN5clang4ento13CmdLineOptionES3_ET0_T_S5_S4_.exit, %_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento13CmdLineOptionELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit
-  %.sink = phi ptr [ %51, %_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento13CmdLineOptionELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit ], [ %32, %_ZSt4moveIPN5clang4ento13CmdLineOptionES3_ET0_T_S5_S4_.exit ], [ %15, %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit ]
-  store i32 0, ptr %.sink, align 8
+  store i32 0, ptr %51, align 8
   br label %52
 
-52:                                               ; preds = %.sink.split, %2
+52:                                               ; preds = %2, %_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento13CmdLineOptionELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit, %_ZSt4moveIPN5clang4ento13CmdLineOptionES3_ET0_T_S5_S4_.exit, %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit
   ret ptr %0
 }
 
@@ -11571,10 +11560,10 @@ define linkonce_odr void @_ZSt11__push_heapIPN5clang4ento11PackageInfoElS2_N9__g
   br label %7
 
 7:                                                ; preds = %.lr.ph, %_ZN5clang4ento11PackageInfoaSEOS1_.exit
-  %.01320 = phi i64 [ %1, %.lr.ph ], [ %.021, %_ZN5clang4ento11PackageInfoaSEOS1_.exit ]
-  %.021.in = add nsw i64 %.01320, -1
-  %.021 = sdiv i64 %.021.in, 2
-  %8 = getelementptr inbounds %"struct.clang::ento::PackageInfo", ptr %0, i64 %.021
+  %.01318 = phi i64 [ %1, %.lr.ph ], [ %.019, %_ZN5clang4ento11PackageInfoaSEOS1_.exit ]
+  %.019.in = add nsw i64 %.01318, -1
+  %.019 = sdiv i64 %.019.in, 2
+  %8 = getelementptr inbounds %"struct.clang::ento::PackageInfo", ptr %0, i64 %.019
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %.sroa.22.0.copyload.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
@@ -11598,11 +11587,11 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang4ento16checker_registry10FullNameLTIN
   br i1 %12, label %13, label %.critedge
 
 13:                                               ; preds = %11, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIPS6_S6_EEbT_RT0_.exit
-  %14 = getelementptr inbounds %"struct.clang::ento::PackageInfo", ptr %0, i64 %.01320
+  %14 = getelementptr inbounds %"struct.clang::ento::PackageInfo", ptr %0, i64 %.01318
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %17 = icmp eq i64 %.01320, %.021
+  %17 = icmp eq i64 %.01318, %.019
   br i1 %17, label %_ZN5clang4ento11PackageInfoaSEOS1_.exit, label %18
 
 18:                                               ; preds = %13
@@ -11612,7 +11601,8 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang4ento16checker_registry10FullNameLTIN
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  br label %.sink.split.i.i
+  store i32 0, ptr %22, align 8
+  br label %_ZN5clang4ento11PackageInfoaSEOS1_.exit
 
 23:                                               ; preds = %18
   %24 = load ptr, ptr %15, align 8
@@ -11638,25 +11628,21 @@ _ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.
   %35 = getelementptr inbounds i8, ptr %8, i64 32
   store ptr %35, ptr %16, align 8
   store i32 0, ptr %32, align 4
-  br label %.sink.split.i.i
-
-.sink.split.i.i:                                  ; preds = %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i, %21
-  %.sink.i.i = phi ptr [ %22, %21 ], [ %29, %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i ]
-  store i32 0, ptr %.sink.i.i, align 8
+  store i32 0, ptr %29, align 8
   br label %_ZN5clang4ento11PackageInfoaSEOS1_.exit
 
-_ZN5clang4ento11PackageInfoaSEOS1_.exit:          ; preds = %13, %.sink.split.i.i
-  %36 = icmp sgt i64 %.021, %2
+_ZN5clang4ento11PackageInfoaSEOS1_.exit:          ; preds = %13, %21, %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i
+  %36 = icmp sgt i64 %.019, %2
   br i1 %36, label %7, label %.critedge, !llvm.loop !101
 
 .critedge:                                        ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIPS6_S6_EEbT_RT0_.exit, %_ZN5clang4ento11PackageInfoaSEOS1_.exit, %11, %5
-  %.013.lcssa = phi i64 [ %1, %5 ], [ %.01320, %11 ], [ %.021, %_ZN5clang4ento11PackageInfoaSEOS1_.exit ], [ %.01320, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIPS6_S6_EEbT_RT0_.exit ]
+  %.013.lcssa = phi i64 [ %1, %5 ], [ %.01318, %11 ], [ %.019, %_ZN5clang4ento11PackageInfoaSEOS1_.exit ], [ %.01318, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIPS6_S6_EEbT_RT0_.exit ]
   %37 = getelementptr inbounds %"struct.clang::ento::PackageInfo", ptr %0, i64 %.013.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %40 = icmp eq ptr %37, %3
-  br i1 %40, label %_ZN5clang4ento11PackageInfoaSEOS1_.exit17, label %41
+  br i1 %40, label %_ZN5clang4ento11PackageInfoaSEOS1_.exit15, label %41
 
 41:                                               ; preds = %.critedge
   %42 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %39) #16
@@ -11665,7 +11651,8 @@ _ZN5clang4ento11PackageInfoaSEOS1_.exit:          ; preds = %13, %.sink.split.i.
 
 44:                                               ; preds = %41
   %45 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  br label %.sink.split.i.i15
+  store i32 0, ptr %45, align 8
+  br label %_ZN5clang4ento11PackageInfoaSEOS1_.exit15
 
 46:                                               ; preds = %41
   %47 = load ptr, ptr %38, align 8
@@ -11691,14 +11678,10 @@ _ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.
   %58 = getelementptr inbounds i8, ptr %3, i64 32
   store ptr %58, ptr %39, align 8
   store i32 0, ptr %55, align 4
-  br label %.sink.split.i.i15
+  store i32 0, ptr %52, align 8
+  br label %_ZN5clang4ento11PackageInfoaSEOS1_.exit15
 
-.sink.split.i.i15:                                ; preds = %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i14, %44
-  %.sink.i.i16 = phi ptr [ %45, %44 ], [ %52, %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i14 ]
-  store i32 0, ptr %.sink.i.i16, align 8
-  br label %_ZN5clang4ento11PackageInfoaSEOS1_.exit17
-
-_ZN5clang4ento11PackageInfoaSEOS1_.exit17:        ; preds = %.critedge, %.sink.split.i.i15
+_ZN5clang4ento11PackageInfoaSEOS1_.exit15:        ; preds = %.critedge, %44, %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i14
   ret void
 }
 
@@ -11851,7 +11834,8 @@ _ZN5clang4ento11PackageInfoC2EOS1_.exit:          ; preds = %2, %8
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br label %.sink.split.i.i
+  store i32 0, ptr %16, align 8
+  br label %_ZN5clang4ento11PackageInfoaSEOS1_.exit
 
 17:                                               ; preds = %12
   %18 = load ptr, ptr %5, align 8
@@ -11877,17 +11861,13 @@ _ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.
   %29 = getelementptr inbounds i8, ptr %1, i64 32
   store ptr %29, ptr %10, align 8
   store i32 0, ptr %26, align 4
-  br label %.sink.split.i.i
-
-.sink.split.i.i:                                  ; preds = %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i, %15
-  %.sink.i.i = phi ptr [ %16, %15 ], [ %23, %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i ]
-  store i32 0, ptr %.sink.i.i, align 8
+  store i32 0, ptr %23, align 8
   br label %_ZN5clang4ento11PackageInfoaSEOS1_.exit
 
-_ZN5clang4ento11PackageInfoaSEOS1_.exit:          ; preds = %_ZN5clang4ento11PackageInfoC2EOS1_.exit, %.sink.split.i.i
+_ZN5clang4ento11PackageInfoaSEOS1_.exit:          ; preds = %_ZN5clang4ento11PackageInfoC2EOS1_.exit, %15, %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   %30 = icmp eq ptr %1, %3
-  br i1 %30, label %_ZN5clang4ento11PackageInfoaSEOS1_.exit7, label %31
+  br i1 %30, label %_ZN5clang4ento11PackageInfoaSEOS1_.exit5, label %31
 
 31:                                               ; preds = %_ZN5clang4ento11PackageInfoaSEOS1_.exit
   %32 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
@@ -11896,7 +11876,8 @@ _ZN5clang4ento11PackageInfoaSEOS1_.exit:          ; preds = %_ZN5clang4ento11Pac
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  br label %.sink.split.i.i5
+  store i32 0, ptr %35, align 8
+  br label %_ZN5clang4ento11PackageInfoaSEOS1_.exit5
 
 36:                                               ; preds = %31
   %37 = load ptr, ptr %10, align 8
@@ -11921,24 +11902,20 @@ _ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.
   store i32 %46, ptr %47, align 4
   store ptr %6, ptr %4, align 8
   store i32 0, ptr %45, align 4
-  br label %.sink.split.i.i5
+  store i32 0, ptr %42, align 8
+  br label %_ZN5clang4ento11PackageInfoaSEOS1_.exit5
 
-.sink.split.i.i5:                                 ; preds = %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i4, %34
-  %.sink.i.i6 = phi ptr [ %35, %34 ], [ %42, %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i4 ]
-  store i32 0, ptr %.sink.i.i6, align 8
-  br label %_ZN5clang4ento11PackageInfoaSEOS1_.exit7
-
-_ZN5clang4ento11PackageInfoaSEOS1_.exit7:         ; preds = %_ZN5clang4ento11PackageInfoaSEOS1_.exit, %.sink.split.i.i5
+_ZN5clang4ento11PackageInfoaSEOS1_.exit5:         ; preds = %_ZN5clang4ento11PackageInfoaSEOS1_.exit, %34, %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i4
   %48 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
   %49 = load ptr, ptr %4, align 8
   %50 = icmp eq ptr %49, %6
   br i1 %50, label %_ZN5clang4ento11PackageInfoD2Ev.exit, label %51
 
-51:                                               ; preds = %_ZN5clang4ento11PackageInfoaSEOS1_.exit7
+51:                                               ; preds = %_ZN5clang4ento11PackageInfoaSEOS1_.exit5
   call void @free(ptr noundef %49) #16
   br label %_ZN5clang4ento11PackageInfoD2Ev.exit
 
-_ZN5clang4ento11PackageInfoD2Ev.exit:             ; preds = %_ZN5clang4ento11PackageInfoaSEOS1_.exit7, %51
+_ZN5clang4ento11PackageInfoD2Ev.exit:             ; preds = %_ZN5clang4ento11PackageInfoaSEOS1_.exit5, %51
   ret void
 }
 
@@ -11988,11 +11965,11 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i: ; preds = %14
 
 17:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i
   %.inv.i.i.i.i = icmp slt i32 %16, 0
-  br i1 %.inv.i.i.i.i, label %19, label %65
+  br i1 %.inv.i.i.i.i, label %19, label %66
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIPS6_SA_EEbT_T0_.exit: ; preds = %14, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i
   %18 = icmp ult i64 %.sroa.22.0.copyload.i.i, %.sroa.2.0.copyload.i.i
-  br i1 %18, label %19, label %65
+  br i1 %18, label %19, label %66
 
 19:                                               ; preds = %17, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIPS6_SA_EEbT_T0_.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %.019, i64 16, i1 false)
@@ -12031,6 +12008,7 @@ _ZN5clang4ento11PackageInfoC2EOS1_.exit:          ; preds = %19, %22
 
 36:                                               ; preds = %29
   %37 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -8
+  store i32 0, ptr %37, align 8
   br label %_ZN5clang4ento11PackageInfoaSEOS1_.exit.i.i.i.i.i
 
 38:                                               ; preds = %29
@@ -12055,11 +12033,10 @@ _ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.
   store i32 %47, ptr %48, align 4
   store ptr %.078.i.i.i.i.i, ptr %33, align 8
   store i32 0, ptr %46, align 4
+  store i32 0, ptr %43, align 8
   br label %_ZN5clang4ento11PackageInfoaSEOS1_.exit.i.i.i.i.i
 
-_ZN5clang4ento11PackageInfoaSEOS1_.exit.i.i.i.i.i: ; preds = %36, %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i.i.i.i.i.i
-  %.sink.i.i.i.i.i.i.i = phi ptr [ %37, %36 ], [ %43, %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i.i.i.i.i.i ]
-  store i32 0, ptr %.sink.i.i.i.i.i.i.i, align 8
+_ZN5clang4ento11PackageInfoaSEOS1_.exit.i.i.i.i.i: ; preds = %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i.i.i.i.i.i, %36
   %49 = add nsw i64 %.010.i.i.i.i.i, -1
   %50 = icmp sgt i64 %.010.i.i.i.i.i, 1
   br i1 %50, label %29, label %_ZSt13move_backwardIPN5clang4ento11PackageInfoES3_ET0_T_S5_S4_.exit, !llvm.loop !102
@@ -12071,48 +12048,48 @@ _ZSt13move_backwardIPN5clang4ento11PackageInfoES3_ET0_T_S5_S4_.exit: ; preds = %
 51:                                               ; preds = %_ZSt13move_backwardIPN5clang4ento11PackageInfoES3_ET0_T_S5_S4_.exit
   %52 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
   %53 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #16
-  br i1 %52, label %.sink.split.i.i, label %54
+  br i1 %52, label %54, label %55
 
 54:                                               ; preds = %51
-  %55 = load ptr, ptr %8, align 8
-  %56 = icmp eq ptr %55, %.016
-  br i1 %56, label %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i, label %57
-
-57:                                               ; preds = %54
-  call void @free(ptr noundef %55) #16
-  br label %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i
-
-_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i: ; preds = %57, %54
-  %58 = load ptr, ptr %5, align 8
-  store ptr %58, ptr %8, align 8
-  %59 = load i32, ptr %10, align 8
-  store i32 %59, ptr %11, align 8
-  %60 = load i32, ptr %12, align 4
-  store i32 %60, ptr %13, align 4
-  store ptr %6, ptr %5, align 8
-  store i32 0, ptr %12, align 4
-  br label %.sink.split.i.i
-
-.sink.split.i.i:                                  ; preds = %51, %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i
-  %.sink.i.i = phi ptr [ %10, %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i ], [ %11, %51 ]
-  store i32 0, ptr %.sink.i.i, align 8
+  store i32 0, ptr %11, align 8
   br label %_ZN5clang4ento11PackageInfoaSEOS1_.exit
 
-_ZN5clang4ento11PackageInfoaSEOS1_.exit:          ; preds = %_ZSt13move_backwardIPN5clang4ento11PackageInfoES3_ET0_T_S5_S4_.exit, %.sink.split.i.i
-  %61 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
-  %62 = load ptr, ptr %5, align 8
-  %63 = icmp eq ptr %62, %6
-  br i1 %63, label %_ZN5clang4ento11PackageInfoD2Ev.exit, label %64
+55:                                               ; preds = %51
+  %56 = load ptr, ptr %8, align 8
+  %57 = icmp eq ptr %56, %.016
+  br i1 %57, label %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i, label %58
 
-64:                                               ; preds = %_ZN5clang4ento11PackageInfoaSEOS1_.exit
-  call void @free(ptr noundef %62) #16
+58:                                               ; preds = %55
+  call void @free(ptr noundef %56) #16
+  br label %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i
+
+_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i: ; preds = %58, %55
+  %59 = load ptr, ptr %5, align 8
+  store ptr %59, ptr %8, align 8
+  %60 = load i32, ptr %10, align 8
+  store i32 %60, ptr %11, align 8
+  %61 = load i32, ptr %12, align 4
+  store i32 %61, ptr %13, align 4
+  store ptr %6, ptr %5, align 8
+  store i32 0, ptr %12, align 4
+  store i32 0, ptr %10, align 8
+  br label %_ZN5clang4ento11PackageInfoaSEOS1_.exit
+
+_ZN5clang4ento11PackageInfoaSEOS1_.exit:          ; preds = %_ZSt13move_backwardIPN5clang4ento11PackageInfoES3_ET0_T_S5_S4_.exit, %54, %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i
+  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
+  %63 = load ptr, ptr %5, align 8
+  %64 = icmp eq ptr %63, %6
+  br i1 %64, label %_ZN5clang4ento11PackageInfoD2Ev.exit, label %65
+
+65:                                               ; preds = %_ZN5clang4ento11PackageInfoaSEOS1_.exit
+  call void @free(ptr noundef %63) #16
   br label %_ZN5clang4ento11PackageInfoD2Ev.exit
 
-65:                                               ; preds = %17, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIPS6_SA_EEbT_T0_.exit
+66:                                               ; preds = %17, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIPS6_SA_EEbT_T0_.exit
   call void @_ZSt25__unguarded_linear_insertIPN5clang4ento11PackageInfoEN9__gnu_cxx5__ops14_Val_comp_iterINS1_16checker_registry10FullNameLTIS2_EEEEEvT_T0_(ptr noundef nonnull %.019)
   br label %_ZN5clang4ento11PackageInfoD2Ev.exit
 
-_ZN5clang4ento11PackageInfoD2Ev.exit:             ; preds = %64, %_ZN5clang4ento11PackageInfoaSEOS1_.exit, %65
+_ZN5clang4ento11PackageInfoD2Ev.exit:             ; preds = %65, %_ZN5clang4ento11PackageInfoaSEOS1_.exit, %66
   %.0 = getelementptr inbounds i8, ptr %.019, i64 32
   %.not = icmp eq ptr %.0, %1
   br i1 %.not, label %.loopexit, label %14, !llvm.loop !103
@@ -12138,131 +12115,128 @@ define linkonce_odr void @_ZSt25__unguarded_linear_insertIPN5clang4ento11Package
 
 _ZN5clang4ento11PackageInfoC2EOS1_.exit:          ; preds = %1, %7
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %2, i64 8
-  br label %9
+  br label %_ZN5clang4ento11PackageInfoaSEOS1_.exit
 
-9:                                                ; preds = %_ZN5clang4ento11PackageInfoaSEOS1_.exit, %_ZN5clang4ento11PackageInfoC2EOS1_.exit
-  %.09 = phi ptr [ %0, %_ZN5clang4ento11PackageInfoC2EOS1_.exit ], [ %.0, %_ZN5clang4ento11PackageInfoaSEOS1_.exit ]
+_ZN5clang4ento11PackageInfoaSEOS1_.exit:          ; preds = %_ZN5clang4ento11PackageInfoaSEOS1_.exit.backedge, %_ZN5clang4ento11PackageInfoC2EOS1_.exit
+  %.09 = phi ptr [ %0, %_ZN5clang4ento11PackageInfoC2EOS1_.exit ], [ %.0, %_ZN5clang4ento11PackageInfoaSEOS1_.exit.backedge ]
   %.0 = getelementptr inbounds i8, ptr %.09, i64 -32
   %.sroa.22.0.copyload.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %.09, i64 -24
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i.i, i64 %.sroa.22.0.copyload.i.i)
-  %10 = icmp eq i64 %.sroa.speculated.i.i.i.i, 0
-  br i1 %10, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIS6_PS6_EEbRT_T0_.exit, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i
+  %9 = icmp eq i64 %.sroa.speculated.i.i.i.i, 0
+  br i1 %9, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIS6_PS6_EEbRT_T0_.exit, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i
 
-_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i: ; preds = %9
+_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i: ; preds = %_ZN5clang4ento11PackageInfoaSEOS1_.exit
   %.sroa.0.0.copyload.i.i = load ptr, ptr %.0, align 8
   %.sroa.01.0.copyload.i.i = load ptr, ptr %2, align 8
-  %11 = call i32 @memcmp(ptr noundef %.sroa.01.0.copyload.i.i, ptr noundef %.sroa.0.0.copyload.i.i, i64 noundef %.sroa.speculated.i.i.i.i) #18
-  %.not.i.i.i.i = icmp eq i32 %11, 0
-  br i1 %.not.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIS6_PS6_EEbRT_T0_.exit, label %12
+  %10 = call i32 @memcmp(ptr noundef %.sroa.01.0.copyload.i.i, ptr noundef %.sroa.0.0.copyload.i.i, i64 noundef %.sroa.speculated.i.i.i.i) #18
+  %.not.i.i.i.i = icmp eq i32 %10, 0
+  br i1 %.not.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIS6_PS6_EEbRT_T0_.exit, label %11
 
-12:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i
-  %.inv.i.i.i.i = icmp slt i32 %11, 0
-  br i1 %.inv.i.i.i.i, label %14, label %33
+11:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i
+  %.inv.i.i.i.i = icmp slt i32 %10, 0
+  br i1 %.inv.i.i.i.i, label %13, label %32
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIS6_PS6_EEbRT_T0_.exit: ; preds = %9, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i
-  %13 = icmp ult i64 %.sroa.22.0.copyload.i.i, %.sroa.2.0.copyload.i.i
-  br i1 %13, label %14, label %33
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIS6_PS6_EEbRT_T0_.exit: ; preds = %_ZN5clang4ento11PackageInfoaSEOS1_.exit, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i
+  %12 = icmp ult i64 %.sroa.22.0.copyload.i.i, %.sroa.2.0.copyload.i.i
+  br i1 %12, label %13, label %32
 
-14:                                               ; preds = %12, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIS6_PS6_EEbRT_T0_.exit
+13:                                               ; preds = %11, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIS6_PS6_EEbRT_T0_.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.09, ptr noundef nonnull align 8 dereferenceable(16) %.0, i64 16, i1 false)
-  %15 = getelementptr inbounds nuw i8, ptr %.09, i64 16
-  %16 = getelementptr inbounds i8, ptr %.09, i64 -16
-  %17 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #16
-  %18 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %15) #16
-  br i1 %17, label %19, label %21
+  %14 = getelementptr inbounds nuw i8, ptr %.09, i64 16
+  %15 = getelementptr inbounds i8, ptr %.09, i64 -16
+  %16 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %15) #16
+  %17 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #16
+  br i1 %16, label %18, label %20
 
-19:                                               ; preds = %14
-  %20 = getelementptr inbounds nuw i8, ptr %.09, i64 24
-  br label %_ZN5clang4ento11PackageInfoaSEOS1_.exit
+18:                                               ; preds = %13
+  %19 = getelementptr inbounds nuw i8, ptr %.09, i64 24
+  store i32 0, ptr %19, align 8
+  br label %_ZN5clang4ento11PackageInfoaSEOS1_.exit.backedge
 
-21:                                               ; preds = %14
-  %22 = load ptr, ptr %15, align 8
-  %23 = getelementptr inbounds i8, ptr %.09, i64 32
-  %24 = icmp eq ptr %22, %23
-  br i1 %24, label %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i, label %25
+_ZN5clang4ento11PackageInfoaSEOS1_.exit.backedge: ; preds = %18, %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i
+  br label %_ZN5clang4ento11PackageInfoaSEOS1_.exit, !llvm.loop !104
 
-25:                                               ; preds = %21
-  call void @free(ptr noundef %22) #16
+20:                                               ; preds = %13
+  %21 = load ptr, ptr %14, align 8
+  %22 = getelementptr inbounds i8, ptr %.09, i64 32
+  %23 = icmp eq ptr %21, %22
+  br i1 %23, label %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i, label %24
+
+24:                                               ; preds = %20
+  call void @free(ptr noundef %21) #16
   br label %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i
 
-_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i: ; preds = %25, %21
-  %26 = load ptr, ptr %16, align 8
-  store ptr %26, ptr %15, align 8
-  %27 = getelementptr inbounds i8, ptr %.09, i64 -8
-  %28 = load i32, ptr %27, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %.09, i64 24
-  store i32 %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %.09, i64 -4
-  %31 = load i32, ptr %30, align 4
-  %32 = getelementptr inbounds nuw i8, ptr %.09, i64 28
-  store i32 %31, ptr %32, align 4
-  store ptr %.09, ptr %16, align 8
-  store i32 0, ptr %30, align 4
-  br label %_ZN5clang4ento11PackageInfoaSEOS1_.exit
+_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i: ; preds = %24, %20
+  %25 = load ptr, ptr %15, align 8
+  store ptr %25, ptr %14, align 8
+  %26 = getelementptr inbounds i8, ptr %.09, i64 -8
+  %27 = load i32, ptr %26, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %.09, i64 24
+  store i32 %27, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %.09, i64 -4
+  %30 = load i32, ptr %29, align 4
+  %31 = getelementptr inbounds nuw i8, ptr %.09, i64 28
+  store i32 %30, ptr %31, align 4
+  store ptr %.09, ptr %15, align 8
+  store i32 0, ptr %29, align 4
+  store i32 0, ptr %26, align 8
+  br label %_ZN5clang4ento11PackageInfoaSEOS1_.exit.backedge
 
-_ZN5clang4ento11PackageInfoaSEOS1_.exit:          ; preds = %19, %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i
-  %.sink.i.i = phi ptr [ %20, %19 ], [ %27, %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i ]
-  store i32 0, ptr %.sink.i.i, align 8
-  br label %9, !llvm.loop !104
-
-33:                                               ; preds = %12, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIS6_PS6_EEbRT_T0_.exit
+32:                                               ; preds = %11, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIS6_PS6_EEbRT_T0_.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.09, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  %34 = getelementptr inbounds nuw i8, ptr %.09, i64 16
-  %35 = icmp eq ptr %.09, %2
-  br i1 %35, label %_ZN5clang4ento11PackageInfoaSEOS1_.exit12, label %36
+  %33 = getelementptr inbounds nuw i8, ptr %.09, i64 16
+  %34 = icmp eq ptr %.09, %2
+  br i1 %34, label %_ZN5clang4ento11PackageInfoaSEOS1_.exit11, label %35
 
-36:                                               ; preds = %33
-  %37 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
-  %38 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %34) #16
-  br i1 %37, label %39, label %41
+35:                                               ; preds = %32
+  %36 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
+  %37 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %33) #16
+  br i1 %36, label %38, label %40
 
-39:                                               ; preds = %36
-  %40 = getelementptr inbounds nuw i8, ptr %.09, i64 24
-  br label %.sink.split.i.i
+38:                                               ; preds = %35
+  %39 = getelementptr inbounds nuw i8, ptr %.09, i64 24
+  store i32 0, ptr %39, align 8
+  br label %_ZN5clang4ento11PackageInfoaSEOS1_.exit11
 
-41:                                               ; preds = %36
-  %42 = load ptr, ptr %34, align 8
-  %43 = getelementptr inbounds i8, ptr %.09, i64 32
-  %44 = icmp eq ptr %42, %43
-  br i1 %44, label %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i10, label %45
+40:                                               ; preds = %35
+  %41 = load ptr, ptr %33, align 8
+  %42 = getelementptr inbounds i8, ptr %.09, i64 32
+  %43 = icmp eq ptr %41, %42
+  br i1 %43, label %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i10, label %44
 
-45:                                               ; preds = %41
-  call void @free(ptr noundef %42) #16
+44:                                               ; preds = %40
+  call void @free(ptr noundef %41) #16
   br label %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i10
 
-_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i10: ; preds = %45, %41
-  %46 = load ptr, ptr %3, align 8
-  store ptr %46, ptr %34, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %48 = load i32, ptr %47, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %.09, i64 24
-  store i32 %48, ptr %49, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds nuw i8, ptr %.09, i64 28
-  store i32 %51, ptr %52, align 4
+_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i10: ; preds = %44, %40
+  %45 = load ptr, ptr %3, align 8
+  store ptr %45, ptr %33, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %47 = load i32, ptr %46, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %.09, i64 24
+  store i32 %47, ptr %48, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %50 = load i32, ptr %49, align 4
+  %51 = getelementptr inbounds nuw i8, ptr %.09, i64 28
+  store i32 %50, ptr %51, align 4
   store ptr %5, ptr %3, align 8
-  store i32 0, ptr %50, align 4
-  br label %.sink.split.i.i
+  store i32 0, ptr %49, align 4
+  store i32 0, ptr %46, align 8
+  br label %_ZN5clang4ento11PackageInfoaSEOS1_.exit11
 
-.sink.split.i.i:                                  ; preds = %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i10, %39
-  %.sink.i.i11 = phi ptr [ %40, %39 ], [ %47, %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i10 ]
-  store i32 0, ptr %.sink.i.i11, align 8
-  br label %_ZN5clang4ento11PackageInfoaSEOS1_.exit12
+_ZN5clang4ento11PackageInfoaSEOS1_.exit11:        ; preds = %32, %38, %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i10
+  %52 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
+  %53 = load ptr, ptr %3, align 8
+  %54 = icmp eq ptr %53, %5
+  br i1 %54, label %_ZN5clang4ento11PackageInfoD2Ev.exit, label %55
 
-_ZN5clang4ento11PackageInfoaSEOS1_.exit12:        ; preds = %33, %.sink.split.i.i
-  %53 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
-  %54 = load ptr, ptr %3, align 8
-  %55 = icmp eq ptr %54, %5
-  br i1 %55, label %_ZN5clang4ento11PackageInfoD2Ev.exit, label %56
-
-56:                                               ; preds = %_ZN5clang4ento11PackageInfoaSEOS1_.exit12
-  call void @free(ptr noundef %54) #16
+55:                                               ; preds = %_ZN5clang4ento11PackageInfoaSEOS1_.exit11
+  call void @free(ptr noundef %53) #16
   br label %_ZN5clang4ento11PackageInfoD2Ev.exit
 
-_ZN5clang4ento11PackageInfoD2Ev.exit:             ; preds = %_ZN5clang4ento11PackageInfoaSEOS1_.exit12, %56
+_ZN5clang4ento11PackageInfoD2Ev.exit:             ; preds = %_ZN5clang4ento11PackageInfoaSEOS1_.exit11, %55
   ret void
 }
 
@@ -12827,7 +12801,8 @@ _ZN4llvm15SmallVectorImplIPKN5clang4ento11CheckerInfoEE12assignRemoteEOS6_.exit:
   store i32 %19, ptr %20, align 4
   store ptr %6, ptr %1, align 8
   store i32 0, ptr %18, align 4
-  br label %.sink.split
+  store i32 0, ptr %15, align 8
+  br label %53
 
 21:                                               ; preds = %4
   %22 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #16
@@ -12856,7 +12831,8 @@ _ZSt4moveIPPKN5clang4ento11CheckerInfoES5_ET0_T_S7_S6_.exit: ; preds = %29, %26,
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %22) #16
   %31 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #16
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
+  store i32 0, ptr %32, align 8
+  br label %53
 
 33:                                               ; preds = %21
   %34 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #16
@@ -12903,14 +12879,10 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ento11CheckerInfoELb1EE18uninitializ
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %22) #16
   %51 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #16
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %_ZN4llvm15SmallVectorImplIPKN5clang4ento11CheckerInfoEE12assignRemoteEOS6_.exit, %_ZSt4moveIPPKN5clang4ento11CheckerInfoES5_ET0_T_S7_S6_.exit, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ento11CheckerInfoELb1EE18uninitialized_moveIPS5_S8_EEvT_S9_T0_.exit
-  %.sink = phi ptr [ %52, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ento11CheckerInfoELb1EE18uninitialized_moveIPS5_S8_EEvT_S9_T0_.exit ], [ %32, %_ZSt4moveIPPKN5clang4ento11CheckerInfoES5_ET0_T_S7_S6_.exit ], [ %15, %_ZN4llvm15SmallVectorImplIPKN5clang4ento11CheckerInfoEE12assignRemoteEOS6_.exit ]
-  store i32 0, ptr %.sink, align 8
+  store i32 0, ptr %52, align 8
   br label %53
 
-53:                                               ; preds = %.sink.split, %2
+53:                                               ; preds = %2, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ento11CheckerInfoELb1EE18uninitialized_moveIPS5_S8_EEvT_S9_T0_.exit, %_ZSt4moveIPPKN5clang4ento11CheckerInfoES5_ET0_T_S7_S6_.exit, %_ZN4llvm15SmallVectorImplIPKN5clang4ento11CheckerInfoEE12assignRemoteEOS6_.exit
   ret ptr %0
 }
 
@@ -12920,96 +12892,96 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(120) ptr @_ZN
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %5 = icmp eq ptr %0, %1
-  br i1 %5, label %_ZN4llvm11SmallVectorIPKN5clang4ento11CheckerInfoELj0EEaSEOS6_.exit.thread, label %9
+  br i1 %5, label %_ZN4llvm11SmallVectorIPKN5clang4ento11CheckerInfoELj0EEaSEOS6_.exit, label %6
 
-_ZN4llvm11SmallVectorIPKN5clang4ento11CheckerInfoELj0EEaSEOS6_.exit.thread: ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %8 = load i64, ptr %7, align 8
-  store i64 %8, ptr %6, align 8
-  br label %_ZN4llvm11SmallVectorIPKN5clang4ento11CheckerInfoELj0EEaSEOS6_.exit11
+6:                                                ; preds = %2
+  %7 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
+  %8 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
+  br i1 %7, label %9, label %11
 
-9:                                                ; preds = %2
-  %10 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
-  %11 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
-  br i1 %10, label %12, label %14
+9:                                                ; preds = %6
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i32 0, ptr %10, align 8
+  br label %24
 
-12:                                               ; preds = %9
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  br label %27
+11:                                               ; preds = %6
+  %12 = load ptr, ptr %3, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 80
+  %14 = icmp eq ptr %12, %13
+  br i1 %14, label %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i, label %15
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 80
-  %17 = icmp eq ptr %15, %16
-  br i1 %17, label %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i, label %18
-
-18:                                               ; preds = %14
-  tail call void @free(ptr noundef %15) #16
+15:                                               ; preds = %11
+  tail call void @free(ptr noundef %12) #16
   br label %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i
 
-_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i: ; preds = %18, %14
-  %19 = load ptr, ptr %4, align 8
-  store ptr %19, ptr %3, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 %21, ptr %22, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 76
-  %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  store i32 %24, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %1, i64 80
-  store ptr %26, ptr %4, align 8
-  store i32 0, ptr %23, align 4
-  br label %27
+_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i: ; preds = %15, %11
+  %16 = load ptr, ptr %4, align 8
+  store ptr %16, ptr %3, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %18 = load i32, ptr %17, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i32 %18, ptr %19, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 76
+  %21 = load i32, ptr %20, align 4
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  store i32 %21, ptr %22, align 4
+  %23 = getelementptr inbounds i8, ptr %1, i64 80
+  store ptr %23, ptr %4, align 8
+  store i32 0, ptr %20, align 4
+  store i32 0, ptr %17, align 8
+  br label %24
 
-27:                                               ; preds = %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i, %12
-  %.sink.i = phi ptr [ %13, %12 ], [ %20, %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i ]
-  store i32 0, ptr %.sink.i, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %30 = load i64, ptr %29, align 8
-  store i64 %30, ptr %28, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %33 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %32) #16
-  %34 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %31) #16
-  br i1 %33, label %35, label %37
+24:                                               ; preds = %9, %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %27 = load i64, ptr %26, align 8
+  store i64 %27, ptr %25, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %30 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %29) #16
+  %31 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %28) #16
+  br i1 %30, label %32, label %34
 
-35:                                               ; preds = %27
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 96
+32:                                               ; preds = %24
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store i32 0, ptr %33, align 8
   br label %50
 
-37:                                               ; preds = %27
-  %38 = load ptr, ptr %31, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 104
-  %40 = icmp eq ptr %38, %39
-  br i1 %40, label %_ZN4llvm15SmallVectorImplIPKN5clang4ento11CheckerInfoEE12assignRemoteEOS6_.exit.i, label %41
+34:                                               ; preds = %24
+  %35 = load ptr, ptr %28, align 8
+  %36 = getelementptr inbounds i8, ptr %0, i64 104
+  %37 = icmp eq ptr %35, %36
+  br i1 %37, label %_ZN4llvm15SmallVectorImplIPKN5clang4ento11CheckerInfoEE12assignRemoteEOS6_.exit.i, label %38
 
-41:                                               ; preds = %37
-  tail call void @free(ptr noundef %38) #16
+38:                                               ; preds = %34
+  tail call void @free(ptr noundef %35) #16
   br label %_ZN4llvm15SmallVectorImplIPKN5clang4ento11CheckerInfoEE12assignRemoteEOS6_.exit.i
 
-_ZN4llvm15SmallVectorImplIPKN5clang4ento11CheckerInfoEE12assignRemoteEOS6_.exit.i: ; preds = %41, %37
-  %42 = load ptr, ptr %32, align 8
-  store ptr %42, ptr %31, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %44 = load i32, ptr %43, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i32 %44, ptr %45, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 100
-  %47 = load i32, ptr %46, align 4
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  store i32 %47, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %1, i64 104
-  store ptr %49, ptr %32, align 8
-  store i32 0, ptr %46, align 4
+_ZN4llvm15SmallVectorImplIPKN5clang4ento11CheckerInfoEE12assignRemoteEOS6_.exit.i: ; preds = %38, %34
+  %39 = load ptr, ptr %29, align 8
+  store ptr %39, ptr %28, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %41 = load i32, ptr %40, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store i32 %41, ptr %42, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 100
+  %44 = load i32, ptr %43, align 4
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  store i32 %44, ptr %45, align 4
+  %46 = getelementptr inbounds i8, ptr %1, i64 104
+  store ptr %46, ptr %29, align 8
+  store i32 0, ptr %43, align 4
+  store i32 0, ptr %40, align 8
   br label %50
 
-50:                                               ; preds = %_ZN4llvm15SmallVectorImplIPKN5clang4ento11CheckerInfoEE12assignRemoteEOS6_.exit.i, %35
-  %.sink.i7 = phi ptr [ %36, %35 ], [ %43, %_ZN4llvm15SmallVectorImplIPKN5clang4ento11CheckerInfoEE12assignRemoteEOS6_.exit.i ]
-  store i32 0, ptr %.sink.i7, align 8
+_ZN4llvm11SmallVectorIPKN5clang4ento11CheckerInfoELj0EEaSEOS6_.exit: ; preds = %2
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %49 = load i64, ptr %48, align 8
+  store i64 %49, ptr %47, align 8
+  br label %_ZN4llvm11SmallVectorIPKN5clang4ento11CheckerInfoELj0EEaSEOS6_.exit7
+
+50:                                               ; preds = %32, %_ZN4llvm15SmallVectorImplIPKN5clang4ento11CheckerInfoEE12assignRemoteEOS6_.exit.i
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %53 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %52) #16
@@ -13018,19 +12990,20 @@ _ZN4llvm15SmallVectorImplIPKN5clang4ento11CheckerInfoEE12assignRemoteEOS6_.exit.
 
 55:                                               ; preds = %50
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  br label %.sink.split.i9
+  store i32 0, ptr %56, align 8
+  br label %_ZN4llvm11SmallVectorIPKN5clang4ento11CheckerInfoELj0EEaSEOS6_.exit7
 
 57:                                               ; preds = %50
   %58 = load ptr, ptr %51, align 8
   %59 = getelementptr inbounds i8, ptr %0, i64 120
   %60 = icmp eq ptr %58, %59
-  br i1 %60, label %_ZN4llvm15SmallVectorImplIPKN5clang4ento11CheckerInfoEE12assignRemoteEOS6_.exit.i8, label %61
+  br i1 %60, label %_ZN4llvm15SmallVectorImplIPKN5clang4ento11CheckerInfoEE12assignRemoteEOS6_.exit.i6, label %61
 
 61:                                               ; preds = %57
   tail call void @free(ptr noundef %58) #16
-  br label %_ZN4llvm15SmallVectorImplIPKN5clang4ento11CheckerInfoEE12assignRemoteEOS6_.exit.i8
+  br label %_ZN4llvm15SmallVectorImplIPKN5clang4ento11CheckerInfoEE12assignRemoteEOS6_.exit.i6
 
-_ZN4llvm15SmallVectorImplIPKN5clang4ento11CheckerInfoEE12assignRemoteEOS6_.exit.i8: ; preds = %61, %57
+_ZN4llvm15SmallVectorImplIPKN5clang4ento11CheckerInfoEE12assignRemoteEOS6_.exit.i6: ; preds = %61, %57
   %62 = load ptr, ptr %52, align 8
   store ptr %62, ptr %51, align 8
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -13044,14 +13017,10 @@ _ZN4llvm15SmallVectorImplIPKN5clang4ento11CheckerInfoEE12assignRemoteEOS6_.exit.
   %69 = getelementptr inbounds i8, ptr %1, i64 120
   store ptr %69, ptr %52, align 8
   store i32 0, ptr %66, align 4
-  br label %.sink.split.i9
+  store i32 0, ptr %63, align 8
+  br label %_ZN4llvm11SmallVectorIPKN5clang4ento11CheckerInfoELj0EEaSEOS6_.exit7
 
-.sink.split.i9:                                   ; preds = %_ZN4llvm15SmallVectorImplIPKN5clang4ento11CheckerInfoEE12assignRemoteEOS6_.exit.i8, %55
-  %.sink.i10 = phi ptr [ %56, %55 ], [ %63, %_ZN4llvm15SmallVectorImplIPKN5clang4ento11CheckerInfoEE12assignRemoteEOS6_.exit.i8 ]
-  store i32 0, ptr %.sink.i10, align 8
-  br label %_ZN4llvm11SmallVectorIPKN5clang4ento11CheckerInfoELj0EEaSEOS6_.exit11
-
-_ZN4llvm11SmallVectorIPKN5clang4ento11CheckerInfoELj0EEaSEOS6_.exit11: ; preds = %_ZN4llvm11SmallVectorIPKN5clang4ento11CheckerInfoELj0EEaSEOS6_.exit.thread, %.sink.split.i9
+_ZN4llvm11SmallVectorIPKN5clang4ento11CheckerInfoELj0EEaSEOS6_.exit7: ; preds = %_ZN4llvm11SmallVectorIPKN5clang4ento11CheckerInfoELj0EEaSEOS6_.exit, %55, %_ZN4llvm15SmallVectorImplIPKN5clang4ento11CheckerInfoEE12assignRemoteEOS6_.exit.i6
   ret ptr %0
 }
 
@@ -13305,6 +13274,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang4ento16checker_registry10FullNameLTI
 
 31:                                               ; preds = %24
   %32 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -48
+  store i32 0, ptr %32, align 8
   br label %46
 
 33:                                               ; preds = %24
@@ -13331,11 +13301,10 @@ _ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.
   %45 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -40
   store ptr %45, ptr %28, align 8
   store i32 0, ptr %42, align 4
+  store i32 0, ptr %39, align 8
   br label %46
 
 46:                                               ; preds = %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i, %31
-  %.sink.i.i = phi ptr [ %32, %31 ], [ %39, %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i ]
-  store i32 0, ptr %.sink.i.i, align 8
   %47 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -40
   %48 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -40
   %49 = load i64, ptr %48, align 8
@@ -13348,6 +13317,7 @@ _ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.
 
 54:                                               ; preds = %46
   %55 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -24
+  store i32 0, ptr %55, align 8
   br label %69
 
 56:                                               ; preds = %46
@@ -13374,11 +13344,10 @@ _ZN4llvm15SmallVectorImplIPKN5clang4ento11CheckerInfoEE12assignRemoteEOS6_.exit.
   %68 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -16
   store ptr %68, ptr %51, align 8
   store i32 0, ptr %65, align 4
+  store i32 0, ptr %62, align 8
   br label %69
 
 69:                                               ; preds = %_ZN4llvm15SmallVectorImplIPKN5clang4ento11CheckerInfoEE12assignRemoteEOS6_.exit.i.i, %54
-  %.sink.i7.i = phi ptr [ %55, %54 ], [ %62, %_ZN4llvm15SmallVectorImplIPKN5clang4ento11CheckerInfoEE12assignRemoteEOS6_.exit.i.i ]
-  store i32 0, ptr %.sink.i7.i, align 8
   %70 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -16
   %71 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -16
   %72 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %71) #16
@@ -13387,18 +13356,19 @@ _ZN4llvm15SmallVectorImplIPKN5clang4ento11CheckerInfoEE12assignRemoteEOS6_.exit.
 
 74:                                               ; preds = %69
   %75 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -8
+  store i32 0, ptr %75, align 8
   br label %_ZN5clang4ento11CheckerInfoaSEOS1_.exit
 
 76:                                               ; preds = %69
   %77 = load ptr, ptr %70, align 8
   %78 = icmp eq ptr %77, %.069.i.i.i.i.i
-  br i1 %78, label %_ZN4llvm15SmallVectorImplIPKN5clang4ento11CheckerInfoEE12assignRemoteEOS6_.exit.i8.i, label %79
+  br i1 %78, label %_ZN4llvm15SmallVectorImplIPKN5clang4ento11CheckerInfoEE12assignRemoteEOS6_.exit.i6.i, label %79
 
 79:                                               ; preds = %76
   call void @free(ptr noundef %77) #16
-  br label %_ZN4llvm15SmallVectorImplIPKN5clang4ento11CheckerInfoEE12assignRemoteEOS6_.exit.i8.i
+  br label %_ZN4llvm15SmallVectorImplIPKN5clang4ento11CheckerInfoEE12assignRemoteEOS6_.exit.i6.i
 
-_ZN4llvm15SmallVectorImplIPKN5clang4ento11CheckerInfoEE12assignRemoteEOS6_.exit.i8.i: ; preds = %79, %76
+_ZN4llvm15SmallVectorImplIPKN5clang4ento11CheckerInfoEE12assignRemoteEOS6_.exit.i6.i: ; preds = %79, %76
   %80 = load ptr, ptr %71, align 8
   store ptr %80, ptr %70, align 8
   %81 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -8
@@ -13411,11 +13381,10 @@ _ZN4llvm15SmallVectorImplIPKN5clang4ento11CheckerInfoEE12assignRemoteEOS6_.exit.
   store i32 %85, ptr %86, align 4
   store ptr %.078.i.i.i.i.i, ptr %71, align 8
   store i32 0, ptr %84, align 4
+  store i32 0, ptr %81, align 8
   br label %_ZN5clang4ento11CheckerInfoaSEOS1_.exit
 
-_ZN5clang4ento11CheckerInfoaSEOS1_.exit:          ; preds = %74, %_ZN4llvm15SmallVectorImplIPKN5clang4ento11CheckerInfoEE12assignRemoteEOS6_.exit.i8.i
-  %.sink.i10.i = phi ptr [ %75, %74 ], [ %81, %_ZN4llvm15SmallVectorImplIPKN5clang4ento11CheckerInfoEE12assignRemoteEOS6_.exit.i8.i ]
-  store i32 0, ptr %.sink.i10.i, align 8
+_ZN5clang4ento11CheckerInfoaSEOS1_.exit:          ; preds = %74, %_ZN4llvm15SmallVectorImplIPKN5clang4ento11CheckerInfoEE12assignRemoteEOS6_.exit.i6.i
   %87 = add nsw i64 %.010.i.i.i.i.i, -1
   %88 = icmp ugt i64 %.010.i.i.i.i.i, 1
   br i1 %88, label %24, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5clang4ento11CheckerInfoESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, !llvm.loop !112

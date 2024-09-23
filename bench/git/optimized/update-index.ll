@@ -2587,7 +2587,7 @@ do.end6:                                          ; preds = %do.body2
 
 do.end6.split:                                    ; preds = %do.end6
   %cmp5.i = icmp sgt i32 %3, 1
-  br i1 %cmp5.i, label %for.body.preheader.i, label %if.end11.sink.split
+  br i1 %cmp5.i, label %for.body.preheader.i, label %cond.end.thread
 
 for.body.preheader.i:                             ; preds = %do.end6.split
   %wide.trip.count.i = zext nneg i32 %3 to i64
@@ -2629,7 +2629,7 @@ cond.true.split:                                  ; preds = %do.end6
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #16
   %conv8 = trunc i64 %call to i32
   %cmp5.i12 = icmp sgt i32 %3, 1
-  br i1 %cmp5.i12, label %for.body.preheader.i14, label %if.end11.sink.split
+  br i1 %cmp5.i12, label %for.body.preheader.i14, label %cond.end.thread
 
 for.body.preheader.i14:                           ; preds = %cond.true.split
   %wide.trip.count.i15 = zext nneg i32 %3 to i64
@@ -2667,18 +2667,21 @@ unresolve_one.exit.i28:                           ; preds = %if.end3.i.i25, %if.
   %exitcond.not.i32 = icmp eq i64 %indvars.iv.next.i31, %wide.trip.count.i15
   br i1 %exitcond.not.i32, label %cond.end, label %for.body.i16, !llvm.loop !10
 
+cond.end.thread:                                  ; preds = %do.end6.split, %cond.true.split
+  store i32 0, ptr %0, align 4
+  br label %if.end11
+
 cond.end:                                         ; preds = %unresolve_one.exit.i28, %unresolve_one.exit.i
   %phi.call = phi i32 [ %or.i, %unresolve_one.exit.i ], [ %or.i30, %unresolve_one.exit.i28 ]
   store i32 %phi.call, ptr %0, align 4
   %tobool9.not = icmp eq i32 %phi.call, 0
-  br i1 %tobool9.not, label %if.end11, label %if.end11.sink.split
+  br i1 %tobool9.not, label %if.end11, label %if.then10
 
-if.end11.sink.split:                              ; preds = %cond.end, %cond.true.split, %do.end6.split
-  %.sink = phi ptr [ %0, %do.end6.split ], [ %0, %cond.true.split ], [ getelementptr inbounds (i8, ptr @the_index, i64 20), %cond.end ]
-  store i32 0, ptr %.sink, align 4
+if.then10:                                        ; preds = %cond.end
+  store i32 0, ptr getelementptr inbounds (i8, ptr @the_index, i64 20), align 4
   br label %if.end11
 
-if.end11:                                         ; preds = %if.end11.sink.split, %cond.end
+if.end11:                                         ; preds = %cond.end.thread, %if.then10, %cond.end
   %13 = load i32, ptr %argc, align 8
   %14 = load ptr, ptr %ctx, align 8
   %15 = sext i32 %13 to i64

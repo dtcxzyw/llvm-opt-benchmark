@@ -985,9 +985,18 @@ entry:
   store i64 %call7, ptr %iops_wr, align 8
   %call8 = tail call ptr @blk_by_name(ptr noundef %call) #9
   %tobool.not = icmp eq ptr %call8, null
-  %id.sink.idx.sroa.sel.idx = select i1 %tobool.not, i64 8, i64 0
-  %id.sink.idx.sroa.sel = getelementptr inbounds i8, ptr %throttle, i64 %id.sink.idx.sroa.sel.idx
-  store ptr %call, ptr %id.sink.idx.sroa.sel, align 8
+  br i1 %tobool.not, label %if.else, label %if.then
+
+if.then:                                          ; preds = %entry
+  store ptr %call, ptr %throttle, align 8
+  br label %if.end
+
+if.else:                                          ; preds = %entry
+  %id = getelementptr inbounds i8, ptr %throttle, i64 8
+  store ptr %call, ptr %id, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then
   call void @qmp_block_set_io_throttle(ptr noundef nonnull %throttle, ptr noundef nonnull %err) #9
   %0 = load ptr, ptr %err, align 8
   %call10 = call zeroext i1 @hmp_handle_error(ptr noundef %mon, ptr noundef %0) #9
@@ -1810,16 +1819,25 @@ do.body91:                                        ; preds = %land.rhs
   %cmp93.not = icmp eq ptr %8, null
   %tql_prev102 = getelementptr inbounds i8, ptr %snapshot_entry.085, i64 424
   %10 = load ptr, ptr %tql_prev102, align 8
+  br i1 %cmp93.not, label %if.else, label %if.then95
+
+if.then95:                                        ; preds = %do.body91
   %tql_prev100 = getelementptr inbounds i8, ptr %8, i64 424
-  %tql_prev104.sink = select i1 %cmp93.not, ptr %tql_prev104, ptr %tql_prev100
-  store ptr %10, ptr %tql_prev104.sink, align 8
+  store ptr %10, ptr %tql_prev100, align 8
+  br label %if.end105
+
+if.else:                                          ; preds = %do.body91
+  store ptr %10, ptr %tql_prev104, align 8
+  br label %if.end105
+
+if.end105:                                        ; preds = %if.else, %if.then95
   %11 = load ptr, ptr %next79, align 8
   store ptr %11, ptr %10, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next79, i8 0, i64 16, i1 false)
   call void @g_free(ptr noundef nonnull %snapshot_entry.085) #9
   br label %for.inc118
 
-for.inc118:                                       ; preds = %land.rhs, %do.body91
+for.inc118:                                       ; preds = %land.rhs, %if.end105
   %tobool78.not = icmp eq ptr %8, null
   br i1 %tobool78.not, label %for.inc120, label %land.rhs, !llvm.loop !13
 

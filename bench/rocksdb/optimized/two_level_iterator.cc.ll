@@ -161,51 +161,51 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %vtable6.i = load ptr, ptr %0, align 8
-  %vtable6.sink.i = getelementptr inbounds i8, ptr %vtable6.i, i64 8
-  %1 = load ptr, ptr %vtable6.sink.i, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(40) %0) #11
+  %vfn.i = getelementptr inbounds i8, ptr %vtable6.i, i64 8
+  %.sink.i = load ptr, ptr %vfn.i, align 8
+  tail call void %.sink.i(ptr noundef nonnull align 8 dereferenceable(40) %0) #11
   br label %_ZN7rocksdb19IteratorWrapperBaseINS_10IndexValueEE10DeleteIterEb.exit
 
 _ZN7rocksdb19IteratorWrapperBaseINS_10IndexValueEE10DeleteIterEb.exit: ; preds = %entry, %if.then.i
   %second_level_iter_ = getelementptr inbounds i8, ptr %this, i64 88
-  %2 = load ptr, ptr %second_level_iter_, align 8
-  %tobool.not.i1 = icmp eq ptr %2, null
-  br i1 %tobool.not.i1, label %_ZN7rocksdb19IteratorWrapperBaseINS_10IndexValueEE10DeleteIterEb.exit5, label %if.then.i2
+  %1 = load ptr, ptr %second_level_iter_, align 8
+  %tobool.not.i1 = icmp eq ptr %1, null
+  br i1 %tobool.not.i1, label %_ZN7rocksdb19IteratorWrapperBaseINS_10IndexValueEE10DeleteIterEb.exit6, label %if.then.i2
 
 if.then.i2:                                       ; preds = %_ZN7rocksdb19IteratorWrapperBaseINS_10IndexValueEE10DeleteIterEb.exit
-  %vtable6.i3 = load ptr, ptr %2, align 8
-  %vtable6.sink.i4 = getelementptr inbounds i8, ptr %vtable6.i3, i64 8
-  %3 = load ptr, ptr %vtable6.sink.i4, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(40) %2) #11
-  br label %_ZN7rocksdb19IteratorWrapperBaseINS_10IndexValueEE10DeleteIterEb.exit5
+  %vtable6.i3 = load ptr, ptr %1, align 8
+  %vfn.i4 = getelementptr inbounds i8, ptr %vtable6.i3, i64 8
+  %.sink.i5 = load ptr, ptr %vfn.i4, align 8
+  tail call void %.sink.i5(ptr noundef nonnull align 8 dereferenceable(40) %1) #11
+  br label %_ZN7rocksdb19IteratorWrapperBaseINS_10IndexValueEE10DeleteIterEb.exit6
 
-_ZN7rocksdb19IteratorWrapperBaseINS_10IndexValueEE10DeleteIterEb.exit5: ; preds = %_ZN7rocksdb19IteratorWrapperBaseINS_10IndexValueEE10DeleteIterEb.exit, %if.then.i2
+_ZN7rocksdb19IteratorWrapperBaseINS_10IndexValueEE10DeleteIterEb.exit6: ; preds = %_ZN7rocksdb19IteratorWrapperBaseINS_10IndexValueEE10DeleteIterEb.exit, %if.then.i2
   %state_ = getelementptr inbounds i8, ptr %this, i64 40
-  %4 = load ptr, ptr %state_, align 8
-  %isnull = icmp eq ptr %4, null
+  %2 = load ptr, ptr %state_, align 8
+  %isnull = icmp eq ptr %2, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
-delete.notnull:                                   ; preds = %_ZN7rocksdb19IteratorWrapperBaseINS_10IndexValueEE10DeleteIterEb.exit5
-  %vtable = load ptr, ptr %4, align 8
+delete.notnull:                                   ; preds = %_ZN7rocksdb19IteratorWrapperBaseINS_10IndexValueEE10DeleteIterEb.exit6
+  %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
-  %5 = load ptr, ptr %vfn, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  %3 = load ptr, ptr %vfn, align 8
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #11
   br label %delete.end
 
-delete.end:                                       ; preds = %delete.notnull, %_ZN7rocksdb19IteratorWrapperBaseINS_10IndexValueEE10DeleteIterEb.exit5
+delete.end:                                       ; preds = %delete.notnull, %_ZN7rocksdb19IteratorWrapperBaseINS_10IndexValueEE10DeleteIterEb.exit6
   %state_.i = getelementptr inbounds i8, ptr %this, i64 136
-  %6 = load ptr, ptr %state_.i, align 8
-  %cmp.not.i.i = icmp eq ptr %6, null
+  %4 = load ptr, ptr %state_.i, align 8
+  %cmp.not.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i, label %_ZN7rocksdb6StatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i: ; preds = %delete.end
-  tail call void @_ZdaPv(ptr noundef nonnull %6) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %4) #12
   br label %_ZN7rocksdb6StatusD2Ev.exit
 
 _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %delete.end, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
   store ptr null, ptr %state_.i, align 8
-  %7 = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @_ZN7rocksdb9CleanableD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #11
+  %5 = getelementptr inbounds i8, ptr %this, i64 8
+  tail call void @_ZN7rocksdb9CleanableD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #11
   ret void
 }
 
@@ -220,51 +220,51 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %vtable6.i.i = load ptr, ptr %0, align 8
-  %vtable6.sink.i.i = getelementptr inbounds i8, ptr %vtable6.i.i, i64 8
-  %1 = load ptr, ptr %vtable6.sink.i.i, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(40) %0) #11
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable6.i.i, i64 8
+  %.sink.i.i = load ptr, ptr %vfn.i.i, align 8
+  tail call void %.sink.i.i(ptr noundef nonnull align 8 dereferenceable(40) %0) #11
   br label %_ZN7rocksdb19IteratorWrapperBaseINS_10IndexValueEE10DeleteIterEb.exit.i
 
 _ZN7rocksdb19IteratorWrapperBaseINS_10IndexValueEE10DeleteIterEb.exit.i: ; preds = %if.then.i.i, %entry
   %second_level_iter_.i = getelementptr inbounds i8, ptr %this, i64 88
-  %2 = load ptr, ptr %second_level_iter_.i, align 8
-  %tobool.not.i1.i = icmp eq ptr %2, null
-  br i1 %tobool.not.i1.i, label %_ZN7rocksdb19IteratorWrapperBaseINS_10IndexValueEE10DeleteIterEb.exit5.i, label %if.then.i2.i
+  %1 = load ptr, ptr %second_level_iter_.i, align 8
+  %tobool.not.i1.i = icmp eq ptr %1, null
+  br i1 %tobool.not.i1.i, label %_ZN7rocksdb19IteratorWrapperBaseINS_10IndexValueEE10DeleteIterEb.exit6.i, label %if.then.i2.i
 
 if.then.i2.i:                                     ; preds = %_ZN7rocksdb19IteratorWrapperBaseINS_10IndexValueEE10DeleteIterEb.exit.i
-  %vtable6.i3.i = load ptr, ptr %2, align 8
-  %vtable6.sink.i4.i = getelementptr inbounds i8, ptr %vtable6.i3.i, i64 8
-  %3 = load ptr, ptr %vtable6.sink.i4.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(40) %2) #11
-  br label %_ZN7rocksdb19IteratorWrapperBaseINS_10IndexValueEE10DeleteIterEb.exit5.i
+  %vtable6.i3.i = load ptr, ptr %1, align 8
+  %vfn.i4.i = getelementptr inbounds i8, ptr %vtable6.i3.i, i64 8
+  %.sink.i5.i = load ptr, ptr %vfn.i4.i, align 8
+  tail call void %.sink.i5.i(ptr noundef nonnull align 8 dereferenceable(40) %1) #11
+  br label %_ZN7rocksdb19IteratorWrapperBaseINS_10IndexValueEE10DeleteIterEb.exit6.i
 
-_ZN7rocksdb19IteratorWrapperBaseINS_10IndexValueEE10DeleteIterEb.exit5.i: ; preds = %if.then.i2.i, %_ZN7rocksdb19IteratorWrapperBaseINS_10IndexValueEE10DeleteIterEb.exit.i
+_ZN7rocksdb19IteratorWrapperBaseINS_10IndexValueEE10DeleteIterEb.exit6.i: ; preds = %if.then.i2.i, %_ZN7rocksdb19IteratorWrapperBaseINS_10IndexValueEE10DeleteIterEb.exit.i
   %state_.i = getelementptr inbounds i8, ptr %this, i64 40
-  %4 = load ptr, ptr %state_.i, align 8
-  %isnull.i = icmp eq ptr %4, null
+  %2 = load ptr, ptr %state_.i, align 8
+  %isnull.i = icmp eq ptr %2, null
   br i1 %isnull.i, label %delete.end.i, label %delete.notnull.i
 
-delete.notnull.i:                                 ; preds = %_ZN7rocksdb19IteratorWrapperBaseINS_10IndexValueEE10DeleteIterEb.exit5.i
-  %vtable.i = load ptr, ptr %4, align 8
+delete.notnull.i:                                 ; preds = %_ZN7rocksdb19IteratorWrapperBaseINS_10IndexValueEE10DeleteIterEb.exit6.i
+  %vtable.i = load ptr, ptr %2, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
-  %5 = load ptr, ptr %vfn.i, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  %3 = load ptr, ptr %vfn.i, align 8
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #11
   br label %delete.end.i
 
-delete.end.i:                                     ; preds = %delete.notnull.i, %_ZN7rocksdb19IteratorWrapperBaseINS_10IndexValueEE10DeleteIterEb.exit5.i
+delete.end.i:                                     ; preds = %delete.notnull.i, %_ZN7rocksdb19IteratorWrapperBaseINS_10IndexValueEE10DeleteIterEb.exit6.i
   %state_.i.i = getelementptr inbounds i8, ptr %this, i64 136
-  %6 = load ptr, ptr %state_.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %6, null
+  %4 = load ptr, ptr %state_.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i, label %_ZN7rocksdb12_GLOBAL__N_121TwoLevelIndexIteratorD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i: ; preds = %delete.end.i
-  tail call void @_ZdaPv(ptr noundef nonnull %6) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %4) #12
   br label %_ZN7rocksdb12_GLOBAL__N_121TwoLevelIndexIteratorD2Ev.exit
 
 _ZN7rocksdb12_GLOBAL__N_121TwoLevelIndexIteratorD2Ev.exit: ; preds = %delete.end.i, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i
   store ptr null, ptr %state_.i.i, align 8
-  %7 = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @_ZN7rocksdb9CleanableD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #11
+  %5 = getelementptr inbounds i8, ptr %this, i64 8
+  tail call void @_ZN7rocksdb9CleanableD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #11
   tail call void @_ZdlPv(ptr noundef nonnull %this) #12
   ret void
 }

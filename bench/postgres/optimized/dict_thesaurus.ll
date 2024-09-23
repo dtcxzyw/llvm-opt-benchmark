@@ -1449,6 +1449,7 @@ findTheLexeme.exit80:                             ; preds = %87, %91, %97
 
 checkMatch.exit.thread89:                         ; preds = %129
   %141 = getelementptr %struct.TSLexeme, ptr %126, i64 %139, i32 2
+  store ptr null, ptr %141, align 8
   br label %144
 
 .lr.ph181:                                        ; preds = %103, %113
@@ -1458,11 +1459,10 @@ checkMatch.exit.thread89:                         ; preds = %129
 
 checkMatch.exit:                                  ; preds = %._crit_edge
   %143 = getelementptr i8, ptr %126, i64 8
+  store ptr null, ptr %143, align 8
   br label %144
 
 144:                                              ; preds = %checkMatch.exit, %checkMatch.exit.thread89
-  %.sink = phi ptr [ %143, %checkMatch.exit ], [ %141, %checkMatch.exit.thread89 ]
-  store ptr null, ptr %.sink, align 8
   %145 = getelementptr inbounds i8, ptr %10, i64 1
   store i8 %spec.select.le, ptr %145, align 1
   %146 = ptrtoint ptr %126 to i64

@@ -2922,82 +2922,85 @@ define hidden void @_ZNK5clang6driver10toolchains4OHOS13getCompilerRTB5cxx11ERKN
   %38 = select i1 %37, ptr @.str.8, ptr @.str.10
   %39 = load i8, ptr %38, align 1
   %.not.i = icmp eq i8 %39, 0
-  br i1 %.not.i, label %_ZN4llvmplERKNS_5TwineES2_.exit21, label %40
+  br i1 %.not.i, label %40, label %41
 
 40:                                               ; preds = %6
-  store ptr %38, ptr %16, align 8, !alias.scope !46
-  %41 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  store ptr @.str.33, ptr %16, align 8
   br label %_ZN4llvmplERKNS_5TwineES2_.exit21
 
-_ZN4llvmplERKNS_5TwineES2_.exit21:                ; preds = %6, %40
-  %.014.i.i10 = phi i8 [ 2, %40 ], [ 3, %6 ]
-  %.sink65 = phi ptr [ %41, %40 ], [ %16, %6 ]
-  %.sink = phi i8 [ 3, %40 ], [ 1, %6 ]
-  %.sroa.05.0.i.i11 = phi ptr [ %16, %40 ], [ @.str.33, %6 ]
-  store ptr @.str.33, ptr %.sink65, align 8
+41:                                               ; preds = %6
+  store ptr %38, ptr %16, align 8, !alias.scope !46
+  %42 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  store ptr @.str.33, ptr %42, align 8, !alias.scope !46
+  br label %_ZN4llvmplERKNS_5TwineES2_.exit21
+
+_ZN4llvmplERKNS_5TwineES2_.exit21:                ; preds = %40, %41
+  %.014.i.i10 = phi i8 [ 3, %40 ], [ 2, %41 ]
+  %.sink = phi i8 [ 1, %40 ], [ 3, %41 ]
+  %.sroa.05.0.i.i11 = phi ptr [ @.str.33, %40 ], [ %16, %41 ]
   %.sroa.456.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 32
   store i8 3, ptr %.sroa.456.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 33
   store i8 %.sink, ptr %.sroa.8.0..sroa_idx, align 1
   store ptr %.sroa.05.0.i.i11, ptr %15, align 8, !alias.scope !51
-  %42 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store ptr %3, ptr %42, align 8, !alias.scope !51
+  %43 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  store ptr %3, ptr %43, align 8, !alias.scope !51
   %.sroa.2.0..sroa_idx.i.i.i20 = getelementptr inbounds i8, ptr %15, i64 24
   store i64 %4, ptr %.sroa.2.0..sroa_idx.i.i.i20, align 8, !alias.scope !51
-  %43 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  store i8 %.014.i.i10, ptr %43, align 8, !alias.scope !51
-  %44 = getelementptr inbounds nuw i8, ptr %15, i64 33
-  store i8 5, ptr %44, align 1, !alias.scope !51
-  %45 = load i8, ptr %switch.select5, align 1
-  %.not.i22 = icmp eq i8 %45, 0
-  br i1 %.not.i22, label %46, label %_ZN4llvm5TwineC2EPKc.exit24
+  %44 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  store i8 %.014.i.i10, ptr %44, align 8, !alias.scope !51
+  %45 = getelementptr inbounds nuw i8, ptr %15, i64 33
+  store i8 5, ptr %45, align 1, !alias.scope !51
+  %46 = load i8, ptr %switch.select5, align 1
+  %.not.i22 = icmp eq i8 %46, 0
+  br i1 %.not.i22, label %47, label %_ZN4llvm5TwineC2EPKc.exit24
 
-46:                                               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit21
+47:                                               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %15, i64 40, i1 false)
   br label %_ZN4llvmplERKNS_5TwineES2_.exit39
 
 _ZN4llvm5TwineC2EPKc.exit24:                      ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit21
   store ptr %15, ptr %14, align 8, !alias.scope !56
-  %47 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store ptr %switch.select5, ptr %47, align 8, !alias.scope !56
-  %48 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store i8 2, ptr %48, align 8, !alias.scope !56
-  %49 = getelementptr inbounds nuw i8, ptr %14, i64 33
-  store i8 3, ptr %49, align 1, !alias.scope !56
+  %48 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  store ptr %switch.select5, ptr %48, align 8, !alias.scope !56
+  %49 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  store i8 2, ptr %49, align 8, !alias.scope !56
+  %50 = getelementptr inbounds nuw i8, ptr %14, i64 33
+  store i8 3, ptr %50, align 1, !alias.scope !56
   br label %_ZN4llvmplERKNS_5TwineES2_.exit39
 
-_ZN4llvmplERKNS_5TwineES2_.exit39:                ; preds = %46, %_ZN4llvm5TwineC2EPKc.exit24
-  %50 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %51 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  store i16 257, ptr %50, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %19, i64 32
+_ZN4llvmplERKNS_5TwineES2_.exit39:                ; preds = %47, %_ZN4llvm5TwineC2EPKc.exit24
+  %51 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store i16 257, ptr %51, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store i16 257, ptr %52, align 8
+  store i16 257, ptr %53, align 8
   call void @_ZN4llvm3sys4path6appendERNS_15SmallVectorImplIcEERKNS_5TwineES7_S7_S7_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(34) %14, ptr noundef nonnull align 8 dereferenceable(34) %17, ptr noundef nonnull align 8 dereferenceable(34) %18, ptr noundef nonnull align 8 dereferenceable(34) %19) #13
-  %53 = load ptr, ptr %8, align 8
-  %54 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
+  %54 = load ptr, ptr %8, align 8
+  %55 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  %55 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %54, ptr %53) #13
-  %56 = extractvalue { i64, ptr } %55, 0
-  %57 = extractvalue { i64, ptr } %55, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 %56, ptr %57) #13
-  %58 = load i64, ptr %7, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %60 = load ptr, ptr %59, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %58, ptr %60, ptr noundef nonnull align 1 dereferenceable(1) %20) #13
+  %56 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %55, ptr %54) #13
+  %57 = extractvalue { i64, ptr } %56, 0
+  %58 = extractvalue { i64, ptr } %56, 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 %57, ptr %58) #13
+  %59 = load i64, ptr %7, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %61 = load ptr, ptr %60, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %59, ptr %61, ptr noundef nonnull align 1 dereferenceable(1) %20) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #13
-  %61 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  %62 = load ptr, ptr %8, align 8
-  %63 = icmp eq ptr %62, %27
-  br i1 %63, label %_ZN4llvm11SmallStringILj128EED2Ev.exit, label %64
+  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
+  %63 = load ptr, ptr %8, align 8
+  %64 = icmp eq ptr %63, %27
+  br i1 %64, label %_ZN4llvm11SmallStringILj128EED2Ev.exit, label %65
 
-64:                                               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit39
-  call void @free(ptr noundef %62) #13
+65:                                               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit39
+  call void @free(ptr noundef %63) #13
   br label %_ZN4llvm11SmallStringILj128EED2Ev.exit
 
-_ZN4llvm11SmallStringILj128EED2Ev.exit:           ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit39, %64
+_ZN4llvm11SmallStringILj128EED2Ev.exit:           ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit39, %65
   ret void
 }
 

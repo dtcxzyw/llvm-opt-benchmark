@@ -8910,7 +8910,7 @@ define linkonce_odr dso_local void @_ZSt19__relocate_object_aI4TreeS0_SaIS0_EEvP
   %14 = getelementptr inbounds i8, ptr %1, i64 72
   %15 = load ptr, ptr %14, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %15, null
-  br i1 %.not.i.i.i.i.i.i.i, label %30, label %16
+  br i1 %.not.i.i.i.i.i.i.i, label %29, label %16
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds i8, ptr %1, i64 64
@@ -8930,36 +8930,35 @@ define linkonce_odr dso_local void @_ZSt19__relocate_object_aI4TreeS0_SaIS0_EEvP
   store ptr %13, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %1, i64 96
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 96
-  store i64 %28, ptr %29, align 8
   store ptr null, ptr %14, align 8
   store ptr %17, ptr %20, align 8
   store ptr %17, ptr %23, align 8
+  store i64 0, ptr %27, align 8
   br label %_ZNSt16allocator_traitsISaI4TreeEE9constructIS0_JS0_EEEvRS1_PT_DpOT0_.exit
 
-30:                                               ; preds = %3
+29:                                               ; preds = %3
   store i32 0, ptr %13, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 72
-  store ptr null, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 80
+  %30 = getelementptr inbounds i8, ptr %0, i64 72
+  store ptr null, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 80
+  store ptr %13, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr %13, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 88
-  store ptr %13, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 96
   br label %_ZNSt16allocator_traitsISaI4TreeEE9constructIS0_JS0_EEEvRS1_PT_DpOT0_.exit
 
-_ZNSt16allocator_traitsISaI4TreeEE9constructIS0_JS0_EEEvRS1_PT_DpOT0_.exit: ; preds = %16, %30
-  %.sink.i.i.i.i.i.i.i = phi ptr [ %34, %30 ], [ %27, %16 ]
-  store i64 0, ptr %.sink.i.i.i.i.i.i.i, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 56
-  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef null)
-          to label %_ZNSt16allocator_traitsISaI4TreeEE7destroyIS0_EEvRS1_PT_.exit unwind label %36
+_ZNSt16allocator_traitsISaI4TreeEE9constructIS0_JS0_EEEvRS1_PT_DpOT0_.exit: ; preds = %16, %29
+  %.sink = phi i64 [ 0, %29 ], [ %28, %16 ]
+  %33 = getelementptr inbounds i8, ptr %0, i64 96
+  store i64 %.sink, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %1, i64 56
+  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %34, ptr noundef null)
+          to label %_ZNSt16allocator_traitsISaI4TreeEE7destroyIS0_EEvRS1_PT_.exit unwind label %35
 
-36:                                               ; preds = %_ZNSt16allocator_traitsISaI4TreeEE9constructIS0_JS0_EEEvRS1_PT_DpOT0_.exit
-  %37 = landingpad { ptr, i32 }
+35:                                               ; preds = %_ZNSt16allocator_traitsISaI4TreeEE9constructIS0_JS0_EEEvRS1_PT_DpOT0_.exit
+  %36 = landingpad { ptr, i32 }
           catch ptr null
-  %38 = extractvalue { ptr, i32 } %37, 0
-  tail call void @__clang_call_terminate(ptr %38) #23
+  %37 = extractvalue { ptr, i32 } %36, 0
+  tail call void @__clang_call_terminate(ptr %37) #23
   unreachable
 
 _ZNSt16allocator_traitsISaI4TreeEE7destroyIS0_EEvRS1_PT_.exit: ; preds = %_ZNSt16allocator_traitsISaI4TreeEE9constructIS0_JS0_EEEvRS1_PT_DpOT0_.exit
@@ -10404,22 +10403,18 @@ _ZNSt10_HashtableIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt1
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
-  br label %.sink.split
+  store ptr %.031, ptr %24, align 8
+  br label %28
 
 25:                                               ; preds = %.lr.ph
   %26 = load ptr, ptr %19, align 8
   store ptr %26, ptr %.031, align 8
   %27 = load ptr, ptr %18, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %25, %23
-  %.sink = phi ptr [ %24, %23 ], [ %27, %25 ]
-  %.1.ph = phi i64 [ %17, %23 ], [ %.02530, %25 ]
-  store ptr %.031, ptr %.sink, align 8
+  store ptr %.031, ptr %27, align 8
   br label %28
 
-28:                                               ; preds = %.sink.split, %20
-  %.1 = phi i64 [ %17, %20 ], [ %.1.ph, %.sink.split ]
+28:                                               ; preds = %20, %23, %25
+  %.1 = phi i64 [ %.02530, %25 ], [ %17, %23 ], [ %17, %20 ]
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !183
 

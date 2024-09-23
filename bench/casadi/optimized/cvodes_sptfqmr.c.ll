@@ -519,15 +519,15 @@ define range(i32 -101, 1) i32 @CVSptfqmrB(ptr noundef %0, i32 noundef %1, i32 no
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %18
-  %.sink = phi ptr [ %22, %.lr.ph ], [ %19, %18 ]
-  %.029 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
-  %20 = load i32, ptr %.029, align 8
+  %.029.sink.in = phi ptr [ %22, %.lr.ph ], [ %19, %18 ]
+  %.029.sink = load ptr, ptr %.029.sink.in, align 8, !nonnull !4, !noundef !4
+  %20 = load i32, ptr %.029.sink, align 8
   %21 = icmp eq i32 %1, %20
-  %22 = getelementptr inbounds i8, ptr %.029, i64 120
+  %22 = getelementptr inbounds i8, ptr %.029.sink, i64 120
   br i1 %21, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %23 = getelementptr inbounds i8, ptr %.029, i64 16
+  %23 = getelementptr inbounds i8, ptr %.029.sink, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #7
   %26 = icmp eq ptr %25, null
@@ -545,9 +545,9 @@ define range(i32 -101, 1) i32 @CVSptfqmrB(ptr noundef %0, i32 noundef %1, i32 no
   %31 = getelementptr inbounds i8, ptr %25, i64 48
   store ptr null, ptr %31, align 8
   store ptr null, ptr %25, align 8
-  %32 = getelementptr inbounds i8, ptr %.029, i64 72
+  %32 = getelementptr inbounds i8, ptr %.029.sink, i64 72
   store ptr %25, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %.029, i64 80
+  %33 = getelementptr inbounds i8, ptr %.029.sink, i64 80
   store ptr @CVSptfqmrFreeB, ptr %33, align 8
   %34 = tail call i32 @CVSptfqmr(ptr noundef %24, i32 noundef %2, i32 noundef %3)
   %.not34 = icmp eq i32 %34, 0

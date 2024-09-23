@@ -963,7 +963,7 @@ define dso_local ptr @allocate_het_job_nodes() local_unnamed_addr #0 {
   tail call void @list_iterator_destroy(ptr noundef %4) #9
   %6 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.allocate_het_job_nodes) #9
   %.not102 = icmp eq ptr %2, null
-  br i1 %.not102, label %134, label %25
+  br i1 %.not102, label %139, label %25
 
 .lr.ph:                                           ; preds = %0, %18
   %7 = phi ptr [ %22, %18 ], [ %5, %0 ]
@@ -989,11 +989,11 @@ define dso_local ptr @allocate_het_job_nodes() local_unnamed_addr #0 {
 
 16:                                               ; preds = %13
   %.not124 = icmp eq ptr %2, null
-  br i1 %.not124, label %134, label %17
+  br i1 %.not124, label %139, label %17
 
 17:                                               ; preds = %16
   tail call void @list_destroy(ptr noundef nonnull %2) #9
-  br label %134
+  br label %139
 
 18:                                               ; preds = %13
   %.not123 = icmp eq ptr %.086138, null
@@ -1016,7 +1016,7 @@ define dso_local ptr @allocate_het_job_nodes() local_unnamed_addr #0 {
 
 25:                                               ; preds = %._crit_edge.thread
   tail call void @list_destroy(ptr noundef nonnull %2) #9
-  br label %134
+  br label %139
 
 26:                                               ; preds = %._crit_edge
   %27 = tail call i32 @slurmdb_get_first_het_job_cluster(ptr noundef %2, ptr noundef nonnull %24, ptr noundef nonnull @working_cluster_rec) #9
@@ -1027,11 +1027,11 @@ define dso_local ptr @allocate_het_job_nodes() local_unnamed_addr #0 {
   %29 = load ptr, ptr %23, align 8
   tail call void @print_db_notok(ptr noundef %29, i1 noundef zeroext false) #9
   %.not120 = icmp eq ptr %2, null
-  br i1 %.not120, label %134, label %30
+  br i1 %.not120, label %139, label %30
 
 30:                                               ; preds = %28
   tail call void @list_destroy(ptr noundef nonnull %2) #9
-  br label %134
+  br label %139
 
 31:                                               ; preds = %26, %._crit_edge
   %32 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1112,7 +1112,7 @@ define dso_local ptr @allocate_het_job_nodes() local_unnamed_addr #0 {
   %63 = load i32, ptr @destroy_job, align 4
   %64 = icmp ne i32 %63, 0
   %or.cond = select i1 %62, i1 true, i1 %64
-  br i1 %or.cond, label %117, label %65
+  br i1 %or.cond, label %122, label %65
 
 65:                                               ; preds = %61
   %66 = load ptr, ptr @opt_list, align 8
@@ -1120,16 +1120,16 @@ define dso_local ptr @allocate_het_job_nodes() local_unnamed_addr #0 {
   %68 = call ptr @list_iterator_create(ptr noundef nonnull %.183) #9
   br label %69
 
-69:                                               ; preds = %110, %65
-  %.081 = phi i32 [ 0, %65 ], [ %.1, %110 ]
+69:                                               ; preds = %115, %65
+  %.081 = phi i32 [ 0, %65 ], [ %.1, %115 ]
   %70 = call ptr @list_next(ptr noundef %67) #9
   %.not111 = icmp eq ptr %70, null
-  br i1 %.not111, label %116, label %71
+  br i1 %.not111, label %121, label %71
 
 71:                                               ; preds = %69
   %72 = call ptr @list_next(ptr noundef %68) #9
   %.not112 = icmp eq ptr %72, null
-  br i1 %.not112, label %116, label %73
+  br i1 %.not112, label %121, label %73
 
 73:                                               ; preds = %71
   %74 = load i32, ptr @pending_job_id, align 4
@@ -1157,114 +1157,120 @@ define dso_local ptr @allocate_het_job_nodes() local_unnamed_addr #0 {
 
 87:                                               ; preds = %81
   %88 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.allocate_het_job_nodes, i32 noundef %85, i32 noundef %86) #9
-  br label %120
+  br label %125
 
 89:                                               ; preds = %81, %79
   %.1 = phi i32 [ %83, %81 ], [ %.081, %79 ]
   %90 = getelementptr inbounds i8, ptr %70, i64 448
   %91 = load i64, ptr %90, align 8
   %.not114 = icmp eq i64 %91, -2
-  br i1 %.not114, label %92, label %.sink.split
+  br i1 %.not114, label %96, label %92
 
 92:                                               ; preds = %89
-  %93 = getelementptr inbounds i8, ptr %70, i64 432
+  %93 = getelementptr inbounds i8, ptr %72, i64 152
   %94 = load i64, ptr %93, align 8
-  %.not115 = icmp eq i64 %94, -2
-  br i1 %.not115, label %98, label %.sink.split
+  %95 = and i64 %94, 9223372036854775807
+  store i64 %95, ptr %90, align 8
+  br label %103
 
-.sink.split:                                      ; preds = %92, %89
-  %.sink170 = phi ptr [ %90, %89 ], [ %93, %92 ]
-  %95 = getelementptr inbounds i8, ptr %72, i64 152
-  %96 = load i64, ptr %95, align 8
-  %97 = and i64 %96, 9223372036854775807
-  store i64 %97, ptr %.sink170, align 8
-  br label %98
+96:                                               ; preds = %89
+  %97 = getelementptr inbounds i8, ptr %70, i64 432
+  %98 = load i64, ptr %97, align 8
+  %.not115 = icmp eq i64 %98, -2
+  br i1 %.not115, label %103, label %99
 
-98:                                               ; preds = %.sink.split, %92
-  %99 = getelementptr inbounds i8, ptr %72, i64 112
-  %100 = load i32, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %70, i64 136
-  store i32 %100, ptr %101, align 8
-  %102 = getelementptr inbounds i8, ptr %70, i64 140
-  store i32 %100, ptr %102, align 4
-  %103 = getelementptr inbounds i8, ptr %70, i64 488
-  call void @slurm_xfree(ptr noundef nonnull %103) #9
-  %104 = getelementptr inbounds i8, ptr %72, i64 176
-  %105 = load ptr, ptr %104, align 8
-  %106 = call ptr @xstrdup(ptr noundef %105) #9
-  store ptr %106, ptr %103, align 8
-  %107 = getelementptr inbounds i8, ptr %72, i64 200
-  %108 = load ptr, ptr %107, align 8
-  %.not116 = icmp eq ptr %108, null
-  br i1 %.not116, label %110, label %109
+99:                                               ; preds = %96
+  %100 = getelementptr inbounds i8, ptr %72, i64 152
+  %101 = load i64, ptr %100, align 8
+  %102 = and i64 %101, 9223372036854775807
+  store i64 %102, ptr %97, align 8
+  br label %103
 
-109:                                              ; preds = %98
+103:                                              ; preds = %96, %99, %92
+  %104 = getelementptr inbounds i8, ptr %72, i64 112
+  %105 = load i32, ptr %104, align 8
+  %106 = getelementptr inbounds i8, ptr %70, i64 136
+  store i32 %105, ptr %106, align 8
+  %107 = getelementptr inbounds i8, ptr %70, i64 140
+  store i32 %105, ptr %107, align 4
+  %108 = getelementptr inbounds i8, ptr %70, i64 488
+  call void @slurm_xfree(ptr noundef nonnull %108) #9
+  %109 = getelementptr inbounds i8, ptr %72, i64 176
+  %110 = load ptr, ptr %109, align 8
+  %111 = call ptr @xstrdup(ptr noundef %110) #9
+  store ptr %111, ptr %108, align 8
+  %112 = getelementptr inbounds i8, ptr %72, i64 200
+  %113 = load ptr, ptr %112, align 8
+  %.not116 = icmp eq ptr %113, null
+  br i1 %.not116, label %115, label %114
+
+114:                                              ; preds = %103
   call void @slurm_setup_remote_working_cluster(ptr noundef nonnull %72) #9
-  br label %110
+  br label %115
 
-110:                                              ; preds = %109, %98
-  %111 = call fastcc i32 @_wait_nodes_ready(ptr noundef %72)
-  %.not117 = icmp eq i32 %111, 0
-  br i1 %.not117, label %112, label %69, !llvm.loop !12
+115:                                              ; preds = %114, %103
+  %116 = call fastcc i32 @_wait_nodes_ready(ptr noundef %72)
+  %.not117 = icmp eq i32 %116, 0
+  br i1 %.not117, label %117, label %69, !llvm.loop !12
 
-112:                                              ; preds = %110
-  %113 = load i32, ptr @destroy_job, align 4
-  %.not118 = icmp eq i32 %113, 0
-  br i1 %.not118, label %114, label %120
+117:                                              ; preds = %115
+  %118 = load i32, ptr @destroy_job, align 4
+  %.not118 = icmp eq i32 %118, 0
+  br i1 %.not118, label %119, label %125
 
-114:                                              ; preds = %112
-  %115 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.2) #9
-  br label %120
-
-116:                                              ; preds = %71, %69
-  call void @list_iterator_destroy(ptr noundef %68) #9
-  call void @list_iterator_destroy(ptr noundef %67) #9
-  br label %118
-
-117:                                              ; preds = %61
-  br i1 %64, label %.thread, label %118
-
-118:                                              ; preds = %117, %116
-  %119 = call i32 @xsignal_block(ptr noundef nonnull @sig_array) #9
-  br label %134
-
-.thread:                                          ; preds = %117
-  br i1 %62, label %132, label %.thread128
-
-120:                                              ; preds = %87, %114, %112
-  %.2 = phi i32 [ %83, %87 ], [ %.1, %112 ], [ %.1, %114 ]
-  %121 = icmp eq i32 %.2, 0
-  br i1 %121, label %.thread128, label %125
-
-.thread128:                                       ; preds = %.thread, %120
-  %122 = call ptr @list_peek(ptr noundef nonnull %.183) #9
-  %123 = getelementptr inbounds i8, ptr %122, i64 8
-  %124 = load i32, ptr %123, align 8
+119:                                              ; preds = %117
+  %120 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.2) #9
   br label %125
 
-125:                                              ; preds = %.thread128, %120
-  %.3 = phi i32 [ %124, %.thread128 ], [ %.2, %120 ]
-  %126 = load i32, ptr @destroy_job, align 4
-  %127 = icmp ne i32 %126, 0
-  %128 = icmp ne i32 %.3, 0
-  %or.cond3 = select i1 %127, i1 %128, i1 false
-  br i1 %or.cond3, label %129, label %131
+121:                                              ; preds = %71, %69
+  call void @list_iterator_destroy(ptr noundef %68) #9
+  call void @list_iterator_destroy(ptr noundef %67) #9
+  br label %123
 
-129:                                              ; preds = %125
-  %130 = call i32 @slurm_complete_job(i32 noundef %.3, i32 noundef 1) #9
-  br label %131
+122:                                              ; preds = %61
+  br i1 %64, label %.thread, label %123
 
-131:                                              ; preds = %129, %125
+123:                                              ; preds = %122, %121
+  %124 = call i32 @xsignal_block(ptr noundef nonnull @sig_array) #9
+  br label %139
+
+.thread:                                          ; preds = %122
+  br i1 %62, label %137, label %.thread128
+
+125:                                              ; preds = %87, %119, %117
+  %.2 = phi i32 [ %83, %87 ], [ %.1, %117 ], [ %.1, %119 ]
+  %126 = icmp eq i32 %.2, 0
+  br i1 %126, label %.thread128, label %130
+
+.thread128:                                       ; preds = %.thread, %125
+  %127 = call ptr @list_peek(ptr noundef nonnull %.183) #9
+  %128 = getelementptr inbounds i8, ptr %127, i64 8
+  %129 = load i32, ptr %128, align 8
+  br label %130
+
+130:                                              ; preds = %.thread128, %125
+  %.3 = phi i32 [ %129, %.thread128 ], [ %.2, %125 ]
+  %131 = load i32, ptr @destroy_job, align 4
+  %132 = icmp ne i32 %131, 0
+  %133 = icmp ne i32 %.3, 0
+  %or.cond3 = select i1 %132, i1 %133, i1 false
+  br i1 %or.cond3, label %134, label %136
+
+134:                                              ; preds = %130
+  %135 = call i32 @slurm_complete_job(i32 noundef %.3, i32 noundef 1) #9
+  br label %136
+
+136:                                              ; preds = %134, %130
   call void @list_destroy(ptr noundef nonnull %.183) #9
-  br label %132
+  br label %137
 
-132:                                              ; preds = %.thread, %131
-  %133 = load i32, ptr @error_exit, align 4
-  call void @exit(i32 noundef %133) #10
+137:                                              ; preds = %.thread, %136
+  %138 = load i32, ptr @error_exit, align 4
+  call void @exit(i32 noundef %138) #10
   unreachable
 
-134:                                              ; preds = %28, %30, %._crit_edge.thread, %25, %16, %17, %118
-  %.0 = phi ptr [ %.183, %118 ], [ null, %17 ], [ null, %16 ], [ null, %25 ], [ null, %._crit_edge.thread ], [ null, %30 ], [ null, %28 ]
+139:                                              ; preds = %28, %30, %._crit_edge.thread, %25, %16, %17, %123
+  %.0 = phi ptr [ %.183, %123 ], [ null, %17 ], [ null, %16 ], [ null, %25 ], [ null, %._crit_edge.thread ], [ null, %30 ], [ null, %28 ]
   ret ptr %.0
 }
 

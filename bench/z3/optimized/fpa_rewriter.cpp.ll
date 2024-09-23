@@ -5566,8 +5566,8 @@ if.end269.invoke:                                 ; preds = %invoke.cont266, %in
           to label %invoke.cont279.invoke unwind label %lpad6
 
 invoke.cont279.invoke:                            ; preds = %if.end269.invoke, %invoke.cont155
-  %m_plugin.i125.sink = phi ptr [ %m_plugin.i125, %invoke.cont155 ], [ %m_plugin.i186, %if.end269.invoke ]
-  %99 = load ptr, ptr %m_plugin.i125.sink, align 8
+  %.in = phi ptr [ %m_plugin.i125, %invoke.cont155 ], [ %m_plugin.i186, %if.end269.invoke ]
+  %99 = load ptr, ptr %.in, align 8
   %100 = invoke noundef ptr @_ZN15fpa_decl_plugin10mk_numeralERK3mpf(ptr noundef nonnull align 8 dereferenceable(1008) %99, ptr noundef nonnull align 8 dereferenceable(32) %m_num.i.i)
           to label %invoke.cont283.invoke unwind label %lpad6
 

@@ -627,29 +627,35 @@ sw.bb:                                            ; preds = %if.end9
   %master11 = getelementptr inbounds i8, ptr %0, i64 120
   %5 = load ptr, ptr %master11, align 8
   %tobool12.not = icmp eq ptr %5, null
-  br i1 %tobool12.not, label %sw.epilog, label %if.then13
+  br i1 %tobool12.not, label %if.end15, label %if.then13
 
 if.then13:                                        ; preds = %sw.bb
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.12, i32 noundef 108, ptr noundef nonnull @__func__.ide_qdev_realize, ptr noundef nonnull @.str.49, i32 noundef 0) #6
   br label %return
 
+if.end15:                                         ; preds = %sw.bb
+  store ptr %call.i, ptr %master11, align 8
+  br label %sw.epilog
+
 sw.bb17:                                          ; preds = %if.end9
   %slave = getelementptr inbounds i8, ptr %0, i64 128
   %6 = load ptr, ptr %slave, align 8
   %tobool18.not = icmp eq ptr %6, null
-  br i1 %tobool18.not, label %sw.epilog, label %if.then19
+  br i1 %tobool18.not, label %if.end21, label %if.then19
 
 if.then19:                                        ; preds = %sw.bb17
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.12, i32 noundef 115, ptr noundef nonnull @__func__.ide_qdev_realize, ptr noundef nonnull @.str.49, i32 noundef 1) #6
   br label %return
 
+if.end21:                                         ; preds = %sw.bb17
+  store ptr %call.i, ptr %slave, align 8
+  br label %sw.epilog
+
 sw.default:                                       ; preds = %if.end9
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.12, i32 noundef 121, ptr noundef nonnull @__func__.ide_qdev_realize, ptr noundef nonnull @.str.50, i32 noundef %3) #6
   br label %return
 
-sw.epilog:                                        ; preds = %sw.bb17, %sw.bb
-  %slave.sink = phi ptr [ %master11, %sw.bb ], [ %slave, %sw.bb17 ]
-  store ptr %call.i, ptr %slave.sink, align 8
+sw.epilog:                                        ; preds = %if.end21, %if.end15
   %realize = getelementptr inbounds i8, ptr %call1.i, i64 176
   %7 = load ptr, ptr %realize, align 8
   tail call void %7(ptr noundef nonnull %call.i, ptr noundef %errp) #6

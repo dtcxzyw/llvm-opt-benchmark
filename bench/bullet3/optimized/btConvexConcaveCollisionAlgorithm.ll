@@ -689,7 +689,7 @@ invoke.cont10:                                    ; preds = %if.then7
   %43 = invoke noundef ptr %42(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef %38, ptr noundef nonnull %triObWrap, ptr noundef %40, i32 noundef %41)
           to label %if.end31 unwind label %lpad11
 
-lpad11:                                           ; preds = %invoke.cont10, %invoke.cont67, %if.end59, %if.else49, %if.then39
+lpad11:                                           ; preds = %invoke.cont10, %if.end81, %if.end59, %if.else49, %if.then39
   %44 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -753,30 +753,39 @@ invoke.cont67:                                    ; preds = %invoke.cont61
   %m_collisionObject.i23 = getelementptr inbounds i8, ptr %62, i64 16
   %63 = load ptr, ptr %m_collisionObject.i23, align 8
   %cmp74 = icmp eq ptr %61, %63
-  %m_body1Wrap.i25 = getelementptr inbounds i8, ptr %59, i64 24
-  %m_body1Wrap.i25.sink = select i1 %cmp74, ptr %m_body0Wrap.i21, ptr %m_body1Wrap.i25
-  store ptr %tmpWrap.0, ptr %m_body1Wrap.i25.sink, align 8
-  %vtable82 = load ptr, ptr %43, align 8
-  %64 = load ptr, ptr %vtable82, align 8
-  call void %64(ptr noundef nonnull align 8 dereferenceable(16) %43) #12
-  %vtable85 = load ptr, ptr %28, align 8
-  %vfn86 = getelementptr inbounds i8, ptr %vtable85, i64 120
-  %65 = load ptr, ptr %vfn86, align 8
-  invoke void %65(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull %43)
-          to label %invoke.cont87 unwind label %lpad11
+  br i1 %cmp74, label %if.then75, label %if.else78
+
+if.then75:                                        ; preds = %invoke.cont67
+  store ptr %tmpWrap.0, ptr %m_body0Wrap.i21, align 8
+  br label %if.end81
 
 lpad66:                                           ; preds = %invoke.cont61
-  %66 = landingpad { ptr, i32 }
+  %64 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile60) #12
   br label %ehcleanup
 
-invoke.cont87:                                    ; preds = %invoke.cont67
+if.else78:                                        ; preds = %invoke.cont67
+  %m_body1Wrap.i25 = getelementptr inbounds i8, ptr %59, i64 24
+  store ptr %tmpWrap.0, ptr %m_body1Wrap.i25, align 8
+  br label %if.end81
+
+if.end81:                                         ; preds = %if.else78, %if.then75
+  %vtable82 = load ptr, ptr %43, align 8
+  %65 = load ptr, ptr %vtable82, align 8
+  call void %65(ptr noundef nonnull align 8 dereferenceable(16) %43) #12
+  %vtable85 = load ptr, ptr %28, align 8
+  %vfn86 = getelementptr inbounds i8, ptr %vtable85, i64 120
+  %66 = load ptr, ptr %vfn86, align 8
+  invoke void %66(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull %43)
+          to label %invoke.cont87 unwind label %lpad11
+
+invoke.cont87:                                    ; preds = %if.end81
   call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %tm) #12
   br label %cleanup
 
 ehcleanup:                                        ; preds = %lpad66, %lpad11
-  %.pn = phi { ptr, i32 } [ %44, %lpad11 ], [ %66, %lpad66 ]
+  %.pn = phi { ptr, i32 } [ %44, %lpad11 ], [ %64, %lpad66 ]
   call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %tm) #12
   br label %ehcleanup89
 

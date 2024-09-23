@@ -1770,7 +1770,11 @@ if.then.i.i.i135:                                 ; preds = %if.end16
   %59 = load atomic i64, ptr %_M_use_count.i.i.i.i136 acquire, align 8
   %cmp.i.i.i.i137 = icmp eq i64 %59, 4294967297
   %60 = trunc i64 %59 to i32
-  br i1 %cmp.i.i.i.i137, label %sw.epilog.sink.split.sink.split, label %if.end.i.i.i.i138
+  br i1 %cmp.i.i.i.i137, label %if.then.i.i.i.i160, label %if.end.i.i.i.i138
+
+if.then.i.i.i.i160:                               ; preds = %if.then.i.i.i135
+  store i32 0, ptr %_M_use_count.i.i.i.i136, align 8
+  br label %sw.epilog.sink.split.sink.split
 
 if.end.i.i.i.i138:                                ; preds = %if.then.i.i.i135
   %61 = load i8, ptr @__libc_single_threaded, align 1
@@ -2196,7 +2200,11 @@ if.then.i.i.i340:                                 ; preds = %if.end50
   %126 = load atomic i64, ptr %_M_use_count.i.i.i.i341 acquire, align 8
   %cmp.i.i.i.i342 = icmp eq i64 %126, 4294967297
   %127 = trunc i64 %126 to i32
-  br i1 %cmp.i.i.i.i342, label %sw.epilog.sink.split.sink.split, label %if.end.i.i.i.i343
+  br i1 %cmp.i.i.i.i342, label %if.then.i.i.i.i365, label %if.end.i.i.i.i343
+
+if.then.i.i.i.i365:                               ; preds = %if.then.i.i.i340
+  store i32 0, ptr %_M_use_count.i.i.i.i341, align 8
+  br label %sw.epilog.sink.split.sink.split
 
 if.end.i.i.i.i343:                                ; preds = %if.then.i.i.i340
   %128 = load i8, ptr @__libc_single_threaded, align 1
@@ -2249,11 +2257,9 @@ ehcleanup51:                                      ; preds = %lpad37, %lpad22
   call void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %tr18) #13
   br label %eh.resume
 
-sw.epilog.sink.split.sink.split:                  ; preds = %if.then.i.i.i340, %if.then.i.i.i135
-  %_M_use_count.i.i.i.i341.sink = phi ptr [ %_M_use_count.i.i.i.i136, %if.then.i.i.i135 ], [ %_M_use_count.i.i.i.i341, %if.then.i.i.i340 ]
-  %.sink560 = phi ptr [ %58, %if.then.i.i.i135 ], [ %125, %if.then.i.i.i340 ]
-  %foundContextVars.0.ph.ph = phi i1 [ %foundContextVars.1, %if.then.i.i.i135 ], [ %foundContextVars.2, %if.then.i.i.i340 ]
-  store i32 0, ptr %_M_use_count.i.i.i.i341.sink, align 8
+sw.epilog.sink.split.sink.split:                  ; preds = %if.then.i.i.i.i160, %if.then.i.i.i.i365
+  %.sink560 = phi ptr [ %125, %if.then.i.i.i.i365 ], [ %58, %if.then.i.i.i.i160 ]
+  %foundContextVars.0.ph.ph = phi i1 [ %foundContextVars.2, %if.then.i.i.i.i365 ], [ %foundContextVars.1, %if.then.i.i.i.i160 ]
   %_M_weak_count.i.i.i.i366 = getelementptr inbounds i8, ptr %.sink560, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i366, align 4
   %vtable.i.i.i.i367 = load ptr, ptr %.sink560, align 8

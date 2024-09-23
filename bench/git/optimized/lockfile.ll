@@ -312,7 +312,11 @@ if.then3.i:                                       ; preds = %if.end.i
   store i64 0, ptr %len.i, align 8
   %3 = load ptr, ptr %buf.i, align 8
   %cmp3.not.i.i = icmp eq ptr %3, @strbuf_slopbuf
-  br i1 %cmp3.not.i.i, label %if.end4.i, label %if.end4.sink.split.i
+  br i1 %cmp3.not.i.i, label %if.end4.i, label %if.then4.i.i
+
+if.then4.i.i:                                     ; preds = %if.then3.i
+  store i8 0, ptr %3, align 1
+  br label %if.end4.i
 
 if.else.i:                                        ; preds = %if.end.i
   %4 = load i64, ptr %len.i, align 8
@@ -381,14 +385,10 @@ if.end.i.i.i:                                     ; preds = %while.body.i.i, %wh
 
 if.then4.i.i.i:                                   ; preds = %if.end.i.i.i
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %.pre.i, i64 %i.1.lcssa29.i.i
-  br label %if.end4.sink.split.i
-
-if.end4.sink.split.i:                             ; preds = %if.then4.i.i.i, %if.then3.i
-  %arrayidx.i.i.sink.i = phi ptr [ %arrayidx.i.i.i, %if.then4.i.i.i ], [ %3, %if.then3.i ]
-  store i8 0, ptr %arrayidx.i.i.sink.i, align 1
+  store i8 0, ptr %arrayidx.i.i.i, align 1
   br label %if.end4.i
 
-if.end4.i:                                        ; preds = %if.end4.sink.split.i, %if.end.i.i.i, %if.then3.i
+if.end4.i:                                        ; preds = %if.then4.i.i.i, %if.end.i.i.i, %if.then4.i.i, %if.then3.i
   call void @strbuf_addbuf(ptr noundef nonnull %filename, ptr noundef nonnull @resolve_symlink.link) #10
   %dec.i = add nsw i32 %dec13.i, -1
   %tobool.not.i = icmp eq i32 %dec13.i, 0

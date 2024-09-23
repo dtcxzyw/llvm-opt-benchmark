@@ -3770,8 +3770,8 @@ define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__
   %14 = tail call ptr @_ZNK32pxrInternal_v0_24__pxrReserved__13TsKeyFrameMap11lower_boundEd(ptr noundef nonnull align 8 dereferenceable(24) %11, double noundef %13)
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %16 = load ptr, ptr %15, align 8
-  %.not139 = icmp eq ptr %14, %16
-  br i1 %.not139, label %17, label %.critedge87
+  %.not136 = icmp eq ptr %14, %16
+  br i1 %.not136, label %17, label %.critedge87
 
 17:                                               ; preds = %3
   store ptr @.str, ptr %4, align 8
@@ -3926,17 +3926,19 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit104: ; preds = %50, %56
 
 87:                                               ; preds = %77, %71
   store ptr null, ptr %72, align 8
-  %88 = getelementptr inbounds i8, ptr %14, i64 -72
-  %89 = load ptr, ptr %11, align 8
-  %90 = icmp ne ptr %88, %89
-  %or.cond138 = select i1 %24, i1 %90, i1 false
-  br i1 %or.cond138, label %91, label %.critedge
+  br i1 %24, label %88, label %.critedge
 
-91:                                               ; preds = %87
+88:                                               ; preds = %87
+  %89 = getelementptr inbounds i8, ptr %14, i64 -72
+  %90 = load ptr, ptr %11, align 8
+  %.not137 = icmp eq ptr %89, %90
+  br i1 %.not137, label %.critedge, label %91
+
+91:                                               ; preds = %88
   %92 = getelementptr inbounds i8, ptr %14, i64 144
   %93 = load ptr, ptr %15, align 8
-  %.not140 = icmp eq ptr %92, %93
-  br i1 %.not140, label %.critedge, label %94
+  %.not138 = icmp eq ptr %92, %93
+  br i1 %.not138, label %.critedge, label %94
 
 94:                                               ; preds = %91
   %95 = getelementptr inbounds i8, ptr %14, i64 -144
@@ -3983,9 +3985,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit104: ; preds = %50, %56
 112:                                              ; preds = %99
   br label %.critedge
 
-.critedge:                                        ; preds = %68, %87, %91, %112, %99
-  %.071 = phi double [ %96, %112 ], [ %.172, %99 ], [ %.077, %91 ], [ %.077, %87 ], [ %.077, %68 ]
-  %.069 = phi double [ %98, %112 ], [ %.170, %99 ], [ %70, %91 ], [ %70, %87 ], [ %32, %68 ]
+.critedge:                                        ; preds = %68, %87, %91, %112, %99, %88
+  %.071 = phi double [ %96, %112 ], [ %.172, %99 ], [ %.077, %91 ], [ %.077, %88 ], [ %.077, %87 ], [ %.077, %68 ]
+  %.069 = phi double [ %98, %112 ], [ %.170, %99 ], [ %70, %91 ], [ %70, %88 ], [ %70, %87 ], [ %32, %68 ]
   %113 = fcmp ule double %32, %.071
   %114 = fcmp ult double %32, %.069
   %or.cond96 = select i1 %113, i1 true, i1 %114
@@ -7112,7 +7114,7 @@ _ZNSt12_Vector_baseISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %36, ptr %5, align 8
   %37 = invoke noundef ptr @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__10GfIntervalES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE7_M_copyILb0ENS7_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS1_ESC_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %36, ptr noundef nonnull %34, ptr noundef nonnull %28, ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %.noexc.i.i.i.i.i.i unwind label %99
+          to label %.noexc.i.i.i.i.i.i unwind label %95
 
 .noexc.i.i.i.i.i.i:                               ; preds = %35, %.noexc.i.i.i.i.i.i
   %.0.i.i.i.i.i.i.i.i.i.i = phi ptr [ %39, %.noexc.i.i.i.i.i.i ], [ %37, %35 ]
@@ -7146,8 +7148,8 @@ _ZNSt16allocator_traitsISaISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSpline
   br i1 %.not10.i.i.i, label %_ZNSt6vectorISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt16allocator_traitsISaISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEEEE9constructIS5_JRKS3_RKS4_EEEvRS6_PT_DpOT0_.exit, %_ZSt19__relocate_object_aISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i
-  %.012.i.i.i = phi ptr [ %67, %_ZSt19__relocate_object_aISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i ], [ %25, %_ZNSt16allocator_traitsISaISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEEEE9constructIS5_JRKS3_RKS4_EEEvRS6_PT_DpOT0_.exit ]
-  %.0911.i.i.i = phi ptr [ %66, %_ZSt19__relocate_object_aISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i ], [ %8, %_ZNSt16allocator_traitsISaISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEEEE9constructIS5_JRKS3_RKS4_EEEvRS6_PT_DpOT0_.exit ]
+  %.012.i.i.i = phi ptr [ %65, %_ZSt19__relocate_object_aISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i ], [ %25, %_ZNSt16allocator_traitsISaISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEEEE9constructIS5_JRKS3_RKS4_EEEvRS6_PT_DpOT0_.exit ]
+  %.0911.i.i.i = phi ptr [ %64, %_ZSt19__relocate_object_aISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i ], [ %8, %_ZNSt16allocator_traitsISaISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEEEE9constructIS5_JRKS3_RKS4_EEEvRS6_PT_DpOT0_.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !41)
   call void @llvm.experimental.noalias.scope.decl(metadata !44)
   %46 = load ptr, ptr %.0911.i.i.i, align 8, !alias.scope !44, !noalias !41
@@ -7156,7 +7158,7 @@ _ZNSt16allocator_traitsISaISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSpline
   %48 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
   %49 = load ptr, ptr %48, align 8, !alias.scope !44, !noalias !41
   %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %49, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %61, label %50
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i, label %50
 
 50:                                               ; preds = %.lr.ph.i.i.i
   %51 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
@@ -7169,141 +7171,133 @@ _ZNSt16allocator_traitsISaISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSpline
   store ptr %47, ptr %57, align 8, !noalias !46
   %58 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 48
   %59 = load i64, ptr %58, align 8, !alias.scope !44, !noalias !41
-  %60 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 48
-  store i64 %59, ptr %60, align 8, !alias.scope !41, !noalias !44
   store ptr null, ptr %48, align 8, !alias.scope !44, !noalias !41
   store ptr %51, ptr %53, align 8, !alias.scope !44, !noalias !41
   store ptr %51, ptr %55, align 8, !alias.scope !44, !noalias !41
+  store i64 0, ptr %58, align 8, !alias.scope !44, !noalias !41
   br label %_ZSt19__relocate_object_aISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i
 
-61:                                               ; preds = %.lr.ph.i.i.i
-  %62 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 48
-  br label %_ZSt19__relocate_object_aISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i
-
-_ZSt19__relocate_object_aISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %61, %50
-  %.sink15.i.i.i = phi i32 [ 0, %61 ], [ %52, %50 ]
-  %.sink13.i.i.i = phi ptr [ %47, %61 ], [ %54, %50 ]
-  %.sink.i.i.i = phi ptr [ %47, %61 ], [ %56, %50 ]
-  %.sink.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %62, %61 ], [ %58, %50 ]
+_ZSt19__relocate_object_aISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %50, %.lr.ph.i.i.i
+  %.sink15.i.i.i = phi i32 [ %52, %50 ], [ 0, %.lr.ph.i.i.i ]
+  %.sink13.i.i.i = phi ptr [ %54, %50 ], [ %47, %.lr.ph.i.i.i ]
+  %.sink.i.i.i = phi ptr [ %56, %50 ], [ %47, %.lr.ph.i.i.i ]
+  %.sink.i.i.i.i = phi i64 [ %59, %50 ], [ 0, %.lr.ph.i.i.i ]
   store i32 %.sink15.i.i.i, ptr %47, align 8
-  %63 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
-  store ptr %49, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
-  store ptr %.sink13.i.i.i, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 40
-  store ptr %.sink.i.i.i, ptr %65, align 8
-  store i64 0, ptr %.sink.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !46
-  %66 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 56
-  %67 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 56
-  %.not.i.i.i = icmp eq ptr %66, %1
+  %60 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
+  store ptr %49, ptr %60, align 8
+  %61 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
+  store ptr %.sink13.i.i.i, ptr %61, align 8
+  %62 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 40
+  store ptr %.sink.i.i.i, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 48
+  store i64 %.sink.i.i.i.i, ptr %63, align 8, !alias.scope !41, !noalias !44
+  %64 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 56
+  %65 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 56
+  %.not.i.i.i = icmp eq ptr %64, %1
   br i1 %.not.i.i.i, label %_ZNSt6vectorISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %.lr.ph.i.i.i, !llvm.loop !47
 
 _ZNSt6vectorISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %_ZSt19__relocate_object_aISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i, %_ZNSt16allocator_traitsISaISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEEEE9constructIS5_JRKS3_RKS4_EEEvRS6_PT_DpOT0_.exit
-  %.0.lcssa.i.i.i = phi ptr [ %25, %_ZNSt16allocator_traitsISaISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEEEE9constructIS5_JRKS3_RKS4_EEEvRS6_PT_DpOT0_.exit ], [ %67, %_ZSt19__relocate_object_aISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i ]
-  %68 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 56
+  %.0.lcssa.i.i.i = phi ptr [ %25, %_ZNSt16allocator_traitsISaISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEEEE9constructIS5_JRKS3_RKS4_EEEvRS6_PT_DpOT0_.exit ], [ %65, %_ZSt19__relocate_object_aISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i ]
+  %66 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 56
   %.not10.i.i.i27 = icmp eq ptr %1, %7
   br i1 %.not10.i.i.i27, label %_ZNSt6vectorISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit39, label %.lr.ph.i.i.i28
 
 .lr.ph.i.i.i28:                                   ; preds = %_ZNSt6vectorISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %_ZSt19__relocate_object_aISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i32
-  %.012.i.i.i29 = phi ptr [ %90, %_ZSt19__relocate_object_aISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i32 ], [ %68, %_ZNSt6vectorISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ]
-  %.0911.i.i.i30 = phi ptr [ %89, %_ZSt19__relocate_object_aISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i32 ], [ %1, %_ZNSt6vectorISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ]
+  %.012.i.i.i29 = phi ptr [ %86, %_ZSt19__relocate_object_aISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i32 ], [ %66, %_ZNSt6vectorISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ]
+  %.0911.i.i.i30 = phi ptr [ %85, %_ZSt19__relocate_object_aISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i32 ], [ %1, %_ZNSt6vectorISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !48)
   call void @llvm.experimental.noalias.scope.decl(metadata !51)
-  %69 = load ptr, ptr %.0911.i.i.i30, align 8, !alias.scope !51, !noalias !48
-  store ptr %69, ptr %.012.i.i.i29, align 8, !alias.scope !48, !noalias !51
-  %70 = getelementptr inbounds i8, ptr %.012.i.i.i29, i64 16
-  %71 = getelementptr inbounds i8, ptr %.0911.i.i.i30, i64 24
-  %72 = load ptr, ptr %71, align 8, !alias.scope !51, !noalias !48
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i31 = icmp eq ptr %72, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i31, label %84, label %73
+  %67 = load ptr, ptr %.0911.i.i.i30, align 8, !alias.scope !51, !noalias !48
+  store ptr %67, ptr %.012.i.i.i29, align 8, !alias.scope !48, !noalias !51
+  %68 = getelementptr inbounds i8, ptr %.012.i.i.i29, i64 16
+  %69 = getelementptr inbounds i8, ptr %.0911.i.i.i30, i64 24
+  %70 = load ptr, ptr %69, align 8, !alias.scope !51, !noalias !48
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i31 = icmp eq ptr %70, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i31, label %_ZSt19__relocate_object_aISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i32, label %71
 
-73:                                               ; preds = %.lr.ph.i.i.i28
-  %74 = getelementptr inbounds i8, ptr %.0911.i.i.i30, i64 16
-  %75 = load i32, ptr %74, align 8, !alias.scope !51, !noalias !48
-  %76 = getelementptr inbounds i8, ptr %.0911.i.i.i30, i64 32
+71:                                               ; preds = %.lr.ph.i.i.i28
+  %72 = getelementptr inbounds i8, ptr %.0911.i.i.i30, i64 16
+  %73 = load i32, ptr %72, align 8, !alias.scope !51, !noalias !48
+  %74 = getelementptr inbounds i8, ptr %.0911.i.i.i30, i64 32
+  %75 = load ptr, ptr %74, align 8, !alias.scope !51, !noalias !48
+  %76 = getelementptr inbounds i8, ptr %.0911.i.i.i30, i64 40
   %77 = load ptr, ptr %76, align 8, !alias.scope !51, !noalias !48
-  %78 = getelementptr inbounds i8, ptr %.0911.i.i.i30, i64 40
-  %79 = load ptr, ptr %78, align 8, !alias.scope !51, !noalias !48
-  %80 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store ptr %70, ptr %80, align 8, !noalias !53
-  %81 = getelementptr inbounds i8, ptr %.0911.i.i.i30, i64 48
-  %82 = load i64, ptr %81, align 8, !alias.scope !51, !noalias !48
-  %83 = getelementptr inbounds i8, ptr %.012.i.i.i29, i64 48
-  store i64 %82, ptr %83, align 8, !alias.scope !48, !noalias !51
-  store ptr null, ptr %71, align 8, !alias.scope !51, !noalias !48
-  store ptr %74, ptr %76, align 8, !alias.scope !51, !noalias !48
-  store ptr %74, ptr %78, align 8, !alias.scope !51, !noalias !48
+  %78 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  store ptr %68, ptr %78, align 8, !noalias !53
+  %79 = getelementptr inbounds i8, ptr %.0911.i.i.i30, i64 48
+  %80 = load i64, ptr %79, align 8, !alias.scope !51, !noalias !48
+  store ptr null, ptr %69, align 8, !alias.scope !51, !noalias !48
+  store ptr %72, ptr %74, align 8, !alias.scope !51, !noalias !48
+  store ptr %72, ptr %76, align 8, !alias.scope !51, !noalias !48
+  store i64 0, ptr %79, align 8, !alias.scope !51, !noalias !48
   br label %_ZSt19__relocate_object_aISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i32
 
-84:                                               ; preds = %.lr.ph.i.i.i28
-  %85 = getelementptr inbounds i8, ptr %.012.i.i.i29, i64 48
-  br label %_ZSt19__relocate_object_aISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i32
-
-_ZSt19__relocate_object_aISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i32: ; preds = %84, %73
-  %.sink15.i.i.i33 = phi i32 [ 0, %84 ], [ %75, %73 ]
-  %.sink13.i.i.i34 = phi ptr [ %70, %84 ], [ %77, %73 ]
-  %.sink.i.i.i35 = phi ptr [ %70, %84 ], [ %79, %73 ]
-  %.sink.i.i.i.i.i.i.i.i.i.i.i.i36 = phi ptr [ %85, %84 ], [ %81, %73 ]
-  store i32 %.sink15.i.i.i33, ptr %70, align 8
-  %86 = getelementptr inbounds i8, ptr %.012.i.i.i29, i64 24
-  store ptr %72, ptr %86, align 8
-  %87 = getelementptr inbounds i8, ptr %.012.i.i.i29, i64 32
-  store ptr %.sink13.i.i.i34, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %.012.i.i.i29, i64 40
-  store ptr %.sink.i.i.i35, ptr %88, align 8
-  store i64 0, ptr %.sink.i.i.i.i.i.i.i.i.i.i.i.i36, align 8, !alias.scope !53
-  %89 = getelementptr inbounds i8, ptr %.0911.i.i.i30, i64 56
-  %90 = getelementptr inbounds i8, ptr %.012.i.i.i29, i64 56
-  %.not.i.i.i37 = icmp eq ptr %89, %7
+_ZSt19__relocate_object_aISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i32: ; preds = %71, %.lr.ph.i.i.i28
+  %.sink15.i.i.i33 = phi i32 [ %73, %71 ], [ 0, %.lr.ph.i.i.i28 ]
+  %.sink13.i.i.i34 = phi ptr [ %75, %71 ], [ %68, %.lr.ph.i.i.i28 ]
+  %.sink.i.i.i35 = phi ptr [ %77, %71 ], [ %68, %.lr.ph.i.i.i28 ]
+  %.sink.i.i.i.i36 = phi i64 [ %80, %71 ], [ 0, %.lr.ph.i.i.i28 ]
+  store i32 %.sink15.i.i.i33, ptr %68, align 8
+  %81 = getelementptr inbounds i8, ptr %.012.i.i.i29, i64 24
+  store ptr %70, ptr %81, align 8
+  %82 = getelementptr inbounds i8, ptr %.012.i.i.i29, i64 32
+  store ptr %.sink13.i.i.i34, ptr %82, align 8
+  %83 = getelementptr inbounds i8, ptr %.012.i.i.i29, i64 40
+  store ptr %.sink.i.i.i35, ptr %83, align 8
+  %84 = getelementptr inbounds i8, ptr %.012.i.i.i29, i64 48
+  store i64 %.sink.i.i.i.i36, ptr %84, align 8, !alias.scope !48, !noalias !51
+  %85 = getelementptr inbounds i8, ptr %.0911.i.i.i30, i64 56
+  %86 = getelementptr inbounds i8, ptr %.012.i.i.i29, i64 56
+  %.not.i.i.i37 = icmp eq ptr %85, %7
   br i1 %.not.i.i.i37, label %_ZNSt6vectorISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit39, label %.lr.ph.i.i.i28, !llvm.loop !47
 
 _ZNSt6vectorISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit39: ; preds = %_ZSt19__relocate_object_aISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i32, %_ZNSt6vectorISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit
-  %.0.lcssa.i.i.i38 = phi ptr [ %68, %_ZNSt6vectorISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ], [ %90, %_ZSt19__relocate_object_aISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i32 ]
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.0.lcssa.i.i.i38 = phi ptr [ %66, %_ZNSt6vectorISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ], [ %86, %_ZSt19__relocate_object_aISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i32 ]
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not.i40 = icmp eq ptr %8, null
-  br i1 %.not.i40, label %_ZNSt12_Vector_baseISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEESaIS5_EE13_M_deallocateEPS5_m.exit, label %92
+  br i1 %.not.i40, label %_ZNSt12_Vector_baseISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEESaIS5_EE13_M_deallocateEPS5_m.exit, label %88
 
-92:                                               ; preds = %_ZNSt6vectorISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit39
-  %93 = load ptr, ptr %91, align 8
-  %94 = ptrtoint ptr %93 to i64
-  %95 = sub i64 %94, %10
-  call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef %95) #25
+88:                                               ; preds = %_ZNSt6vectorISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit39
+  %89 = load ptr, ptr %87, align 8
+  %90 = ptrtoint ptr %89 to i64
+  %91 = sub i64 %90, %10
+  call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef %91) #25
   br label %_ZNSt12_Vector_baseISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEESaIS5_EE13_M_deallocateEPS5_m.exit
 
-_ZNSt12_Vector_baseISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit39, %92
+_ZNSt12_Vector_baseISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit39, %88
   store ptr %25, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i38, ptr %6, align 8
-  %96 = getelementptr inbounds %"struct.std::pair.42", ptr %25, i64 %18
-  store ptr %96, ptr %91, align 8
+  %92 = getelementptr inbounds %"struct.std::pair.42", ptr %25, i64 %18
+  store ptr %92, ptr %87, align 8
   ret void
 
-97:                                               ; preds = %99
-  %98 = landingpad { ptr, i32 }
+93:                                               ; preds = %95
+  %94 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %104 unwind label %105
+          to label %100 unwind label %101
 
-99:                                               ; preds = %35
-  %100 = landingpad { ptr, i32 }
+95:                                               ; preds = %35
+  %96 = landingpad { ptr, i32 }
           catch ptr null
-  %101 = extractvalue { ptr, i32 } %100, 0
-  %102 = call ptr @__cxa_begin_catch(ptr %101) #23
-  %103 = mul nuw nsw i64 %18, 56
-  call void @_ZdlPvm(ptr noundef nonnull %25, i64 noundef %103) #25
+  %97 = extractvalue { ptr, i32 } %96, 0
+  %98 = call ptr @__cxa_begin_catch(ptr %97) #23
+  %99 = mul nuw nsw i64 %18, 56
+  call void @_ZdlPvm(ptr noundef nonnull %25, i64 noundef %99) #25
   invoke void @__cxa_rethrow() #26
-          to label %108 unwind label %97
+          to label %104 unwind label %93
 
-104:                                              ; preds = %97
-  resume { ptr, i32 } %98
+100:                                              ; preds = %93
+  resume { ptr, i32 } %94
 
-105:                                              ; preds = %97
-  %106 = landingpad { ptr, i32 }
+101:                                              ; preds = %93
+  %102 = landingpad { ptr, i32 }
           catch ptr null
-  %107 = extractvalue { ptr, i32 } %106, 0
-  call void @__clang_call_terminate(ptr %107) #24
+  %103 = extractvalue { ptr, i32 } %102, 0
+  call void @__clang_call_terminate(ptr %103) #24
   unreachable
 
-108:                                              ; preds = %99
+104:                                              ; preds = %95
   unreachable
 }
 

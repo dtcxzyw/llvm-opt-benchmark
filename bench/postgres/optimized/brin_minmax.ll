@@ -280,60 +280,59 @@ define dso_local i64 @brin_minmax_consistent(ptr nocapture noundef readonly %0) 
   %18 = load i64, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %10, i64 6
   %20 = load i16, ptr %19, align 2
-  switch i16 %20, label %40 [
+  switch i16 %20, label %46 [
     i16 1, label %21
     i16 2, label %21
-    i16 3, label %25
-    i16 4, label %35
-    i16 5, label %35
+    i16 3, label %27
+    i16 4, label %39
+    i16 5, label %39
   ]
 
 21:                                               ; preds = %1, %1
   %22 = tail call fastcc ptr @minmax_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %14, i32 noundef %16, i16 noundef zeroext %20)
   %23 = getelementptr inbounds i8, ptr %7, i64 8
   %24 = load ptr, ptr %23, align 8
-  br label %.sink.split
+  %25 = load i64, ptr %24, align 8
+  %26 = tail call i64 @FunctionCall2Coll(ptr noundef %22, i32 noundef %12, i64 noundef %25, i64 noundef %18) #4
+  br label %51
 
-25:                                               ; preds = %1
-  %26 = tail call fastcc ptr @minmax_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %14, i32 noundef %16, i16 noundef zeroext 2)
-  %27 = getelementptr inbounds i8, ptr %7, i64 8
-  %28 = load ptr, ptr %27, align 8
-  %29 = load i64, ptr %28, align 8
-  %30 = tail call i64 @FunctionCall2Coll(ptr noundef %26, i32 noundef %12, i64 noundef %29, i64 noundef %18) #4
-  %.not = icmp eq i64 %30, 0
-  br i1 %.not, label %47, label %31
+27:                                               ; preds = %1
+  %28 = tail call fastcc ptr @minmax_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %14, i32 noundef %16, i16 noundef zeroext 2)
+  %29 = getelementptr inbounds i8, ptr %7, i64 8
+  %30 = load ptr, ptr %29, align 8
+  %31 = load i64, ptr %30, align 8
+  %32 = tail call i64 @FunctionCall2Coll(ptr noundef %28, i32 noundef %12, i64 noundef %31, i64 noundef %18) #4
+  %.not = icmp eq i64 %32, 0
+  br i1 %.not, label %51, label %33
 
-31:                                               ; preds = %25
-  %32 = tail call fastcc ptr @minmax_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %14, i32 noundef %16, i16 noundef zeroext 4)
-  %33 = load ptr, ptr %27, align 8
-  %34 = getelementptr i8, ptr %33, i64 8
-  br label %.sink.split
+33:                                               ; preds = %27
+  %34 = tail call fastcc ptr @minmax_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %14, i32 noundef %16, i16 noundef zeroext 4)
+  %35 = load ptr, ptr %29, align 8
+  %36 = getelementptr i8, ptr %35, i64 8
+  %37 = load i64, ptr %36, align 8
+  %38 = tail call i64 @FunctionCall2Coll(ptr noundef %34, i32 noundef %12, i64 noundef %37, i64 noundef %18) #4
+  br label %51
 
-35:                                               ; preds = %1, %1
-  %36 = tail call fastcc ptr @minmax_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %14, i32 noundef %16, i16 noundef zeroext %20)
-  %37 = getelementptr inbounds i8, ptr %7, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr i8, ptr %38, i64 8
-  br label %.sink.split
+39:                                               ; preds = %1, %1
+  %40 = tail call fastcc ptr @minmax_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %14, i32 noundef %16, i16 noundef zeroext %20)
+  %41 = getelementptr inbounds i8, ptr %7, i64 8
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr i8, ptr %42, i64 8
+  %44 = load i64, ptr %43, align 8
+  %45 = tail call i64 @FunctionCall2Coll(ptr noundef %40, i32 noundef %12, i64 noundef %44, i64 noundef %18) #4
+  br label %51
 
-40:                                               ; preds = %1
-  %41 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
-  tail call void @llvm.assume(i1 %41)
-  %42 = load i16, ptr %19, align 2
-  %43 = zext i16 %42 to i32
-  %44 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %43) #4
+46:                                               ; preds = %1
+  %47 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  tail call void @llvm.assume(i1 %47)
+  %48 = load i16, ptr %19, align 2
+  %49 = zext i16 %48 to i32
+  %50 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %49) #4
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 197, ptr noundef nonnull @__func__.brin_minmax_consistent) #4
   unreachable
 
-.sink.split:                                      ; preds = %21, %31, %35
-  %.sink41 = phi ptr [ %39, %35 ], [ %34, %31 ], [ %24, %21 ]
-  %.sink = phi ptr [ %36, %35 ], [ %32, %31 ], [ %22, %21 ]
-  %45 = load i64, ptr %.sink41, align 8
-  %46 = tail call i64 @FunctionCall2Coll(ptr noundef %.sink, i32 noundef %12, i64 noundef %45, i64 noundef %18) #4
-  br label %47
-
-47:                                               ; preds = %.sink.split, %25
-  %.0 = phi i64 [ 0, %25 ], [ %46, %.sink.split ]
+51:                                               ; preds = %27, %39, %33, %21
+  %.0 = phi i64 [ %45, %39 ], [ %38, %33 ], [ 0, %27 ], [ %26, %21 ]
   ret i64 %.0
 }
 

@@ -4399,8 +4399,8 @@ define internal fastcc i32 @avifEncoderWriteMediaDataBox(ptr nocapture noundef %
   br i1 %.not227, label %.split222.us, label %.split
 
 .split:                                           ; preds = %12, %._crit_edge
-  %18 = phi ptr [ %136, %._crit_edge ], [ %15, %12 ]
-  %.0133220 = phi i32 [ %137, %._crit_edge ], [ 0, %12 ]
+  %18 = phi ptr [ %140, %._crit_edge ], [ %15, %12 ]
+  %.0133220 = phi i32 [ %141, %._crit_edge ], [ 0, %12 ]
   %19 = icmp eq i32 %.0133220, 0
   %20 = zext i1 %19 to i32
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 12
@@ -4414,7 +4414,7 @@ define internal fastcc i32 @avifEncoderWriteMediaDataBox(ptr nocapture noundef %
 
 24:                                               ; preds = %.lr.ph219, %.loopexit200
   %indvars.iv248 = phi i64 [ 0, %.lr.ph219 ], [ %indvars.iv.next249, %.loopexit200 ]
-  %25 = phi ptr [ %18, %.lr.ph219 ], [ %131, %.loopexit200 ]
+  %25 = phi ptr [ %18, %.lr.ph219 ], [ %135, %.loopexit200 ]
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds %struct.avifEncoderItem, ptr %26, i64 %indvars.iv248
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
@@ -4473,8 +4473,8 @@ define internal fastcc i32 @avifEncoderWriteMediaDataBox(ptr nocapture noundef %
   br label %74
 
 53:                                               ; preds = %51
-  %.282 = select i1 %47, ptr %3, ptr %2
-  %54 = call ptr @avifArrayPush(ptr noundef nonnull %.282) #13
+  %.272 = select i1 %47, ptr %3, ptr %2
+  %54 = call ptr @avifArrayPush(ptr noundef nonnull %.272) #13
   %.not177 = icmp eq ptr %54, null
   br i1 %.not177, label %.loopexit, label %55
 
@@ -4561,11 +4561,11 @@ avifEncoderFindExistingChunk.exit.thread:         ; preds = %72, %86, %80, %74, 
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 12
   %93 = load i32, ptr %92, align 4
   %.not173 = icmp eq i32 %93, 0
-  br i1 %.not173, label %113, label %.lr.ph
+  br i1 %.not173, label %117, label %.lr.ph
 
-.lr.ph:                                           ; preds = %avifEncoderFindExistingChunk.exit.thread, %107
-  %indvars.iv = phi i64 [ %indvars.iv.next, %107 ], [ 0, %avifEncoderFindExistingChunk.exit.thread ]
-  %94 = phi ptr [ %108, %107 ], [ %91, %avifEncoderFindExistingChunk.exit.thread ]
+.lr.ph:                                           ; preds = %avifEncoderFindExistingChunk.exit.thread, %111
+  %indvars.iv = phi i64 [ %indvars.iv.next, %111 ], [ 0, %avifEncoderFindExistingChunk.exit.thread ]
+  %94 = phi ptr [ %112, %111 ], [ %91, %avifEncoderFindExistingChunk.exit.thread ]
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds %struct.avifEncodeSample, ptr %95, i64 %indvars.iv
   %97 = load ptr, ptr %96, align 8
@@ -4577,90 +4577,93 @@ avifEncoderFindExistingChunk.exit.thread:         ; preds = %72, %86, %80, %74, 
 
 101:                                              ; preds = %.lr.ph
   %102 = load i32, ptr %45, align 8
-  switch i32 %102, label %107 [
-    i32 1, label %.sink.split
-    i32 0, label %103
+  switch i32 %102, label %111 [
+    i32 1, label %103
+    i32 0, label %107
   ]
 
 103:                                              ; preds = %101
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %101, %103
-  %.sink276 = phi ptr [ %6, %103 ], [ %7, %101 ]
   %104 = load i64, ptr %98, align 8
-  %105 = load i64, ptr %.sink276, align 8
+  %105 = load i64, ptr %7, align 8
   %106 = add i64 %105, %104
-  store i64 %106, ptr %.sink276, align 8
-  br label %107
+  store i64 %106, ptr %7, align 8
+  br label %111
 
-107:                                              ; preds = %.sink.split, %101
+107:                                              ; preds = %101
+  %108 = load i64, ptr %98, align 8
+  %109 = load i64, ptr %6, align 8
+  %110 = add i64 %109, %108
+  store i64 %110, ptr %6, align 8
+  br label %111
+
+111:                                              ; preds = %101, %103, %107
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %108 = load ptr, ptr %89, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 12
-  %110 = load i32, ptr %109, align 4
-  %111 = zext i32 %110 to i64
-  %112 = icmp ult i64 %indvars.iv.next, %111
-  br i1 %112, label %.lr.ph, label %.loopexit203, !llvm.loop !40
+  %112 = load ptr, ptr %89, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 12
+  %114 = load i32, ptr %113, align 4
+  %115 = zext i32 %114 to i64
+  %116 = icmp ult i64 %indvars.iv.next, %115
+  br i1 %116, label %.lr.ph, label %.loopexit203, !llvm.loop !40
 
-113:                                              ; preds = %avifEncoderFindExistingChunk.exit.thread
-  %114 = load ptr, ptr %28, align 8
-  %115 = load i64, ptr %29, align 8
-  %116 = call i32 @avifRWStreamWrite(ptr noundef nonnull %1, ptr noundef %114, i64 noundef %115) #13
-  %.not174 = icmp eq i32 %116, 0
+117:                                              ; preds = %avifEncoderFindExistingChunk.exit.thread
+  %118 = load ptr, ptr %28, align 8
+  %119 = load i64, ptr %29, align 8
+  %120 = call i32 @avifRWStreamWrite(ptr noundef nonnull %1, ptr noundef %118, i64 noundef %119) #13
+  %.not174 = icmp eq i32 %120, 0
   br i1 %.not174, label %.loopexit203, label %.loopexit
 
-.loopexit203:                                     ; preds = %107, %113, %avifEncoderFindExistingChunk.exit
-  %.1 = phi i64 [ %.0136, %avifEncoderFindExistingChunk.exit ], [ %90, %113 ], [ %90, %107 ]
-  %117 = getelementptr inbounds nuw i8, ptr %27, i64 108
-  %118 = load i32, ptr %117, align 4
-  %.not230 = icmp eq i32 %118, 0
+.loopexit203:                                     ; preds = %111, %117, %avifEncoderFindExistingChunk.exit
+  %.1 = phi i64 [ %.0136, %avifEncoderFindExistingChunk.exit ], [ %90, %117 ], [ %90, %111 ]
+  %121 = getelementptr inbounds nuw i8, ptr %27, i64 108
+  %122 = load i32, ptr %121, align 4
+  %.not230 = icmp eq i32 %122, 0
   br i1 %.not230, label %.loopexit200, label %.lr.ph217
 
 .lr.ph217:                                        ; preds = %.loopexit203
-  %119 = getelementptr inbounds nuw i8, ptr %27, i64 96
-  %120 = trunc i64 %.1 to i32
-  br label %121
+  %123 = getelementptr inbounds nuw i8, ptr %27, i64 96
+  %124 = trunc i64 %.1 to i32
+  br label %125
 
-121:                                              ; preds = %.lr.ph217, %127
-  %indvars.iv245 = phi i64 [ 0, %.lr.ph217 ], [ %indvars.iv.next246, %127 ]
-  %122 = load ptr, ptr %119, align 8
-  %123 = getelementptr inbounds %struct.avifOffsetFixup, ptr %122, i64 %indvars.iv245
-  %124 = call i64 @avifRWStreamOffset(ptr noundef nonnull %1) #13
-  %125 = load i64, ptr %123, align 8
-  call void @avifRWStreamSetOffset(ptr noundef nonnull %1, i64 noundef %125) #13
-  %126 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %1, i32 noundef %120) #13
-  %.not176 = icmp eq i32 %126, 0
-  br i1 %.not176, label %127, label %.loopexit
+125:                                              ; preds = %.lr.ph217, %131
+  %indvars.iv245 = phi i64 [ 0, %.lr.ph217 ], [ %indvars.iv.next246, %131 ]
+  %126 = load ptr, ptr %123, align 8
+  %127 = getelementptr inbounds %struct.avifOffsetFixup, ptr %126, i64 %indvars.iv245
+  %128 = call i64 @avifRWStreamOffset(ptr noundef nonnull %1) #13
+  %129 = load i64, ptr %127, align 8
+  call void @avifRWStreamSetOffset(ptr noundef nonnull %1, i64 noundef %129) #13
+  %130 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %1, i32 noundef %124) #13
+  %.not176 = icmp eq i32 %130, 0
+  br i1 %.not176, label %131, label %.loopexit
 
-127:                                              ; preds = %121
-  call void @avifRWStreamSetOffset(ptr noundef nonnull %1, i64 noundef %124) #13
+131:                                              ; preds = %125
+  call void @avifRWStreamSetOffset(ptr noundef nonnull %1, i64 noundef %128) #13
   %indvars.iv.next246 = add nuw nsw i64 %indvars.iv245, 1
-  %128 = load i32, ptr %117, align 4
-  %129 = zext i32 %128 to i64
-  %130 = icmp ult i64 %indvars.iv.next246, %129
-  br i1 %130, label %121, label %.loopexit200, !llvm.loop !41
+  %132 = load i32, ptr %121, align 4
+  %133 = zext i32 %132 to i64
+  %134 = icmp ult i64 %indvars.iv.next246, %133
+  br i1 %134, label %125, label %.loopexit200, !llvm.loop !41
 
-.loopexit200:                                     ; preds = %127, %.loopexit203, %44, %42, %32, %55
+.loopexit200:                                     ; preds = %131, %.loopexit203, %44, %42, %32, %55
   %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1
-  %131 = load ptr, ptr %8, align 8
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 12
-  %133 = load i32, ptr %132, align 4
-  %134 = zext i32 %133 to i64
-  %135 = icmp ult i64 %indvars.iv.next249, %134
-  br i1 %135, label %24, label %._crit_edge, !llvm.loop !42
+  %135 = load ptr, ptr %8, align 8
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 12
+  %137 = load i32, ptr %136, align 4
+  %138 = zext i32 %137 to i64
+  %139 = icmp ult i64 %indvars.iv.next249, %138
+  br i1 %139, label %24, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %.loopexit200, %.split
-  %136 = phi ptr [ %18, %.split ], [ %131, %.loopexit200 ]
-  %137 = add nuw nsw i32 %.0133220, 1
-  %exitcond.not = icmp eq i32 %137, 3
+  %140 = phi ptr [ %18, %.split ], [ %135, %.loopexit200 ]
+  %141 = add nuw nsw i32 %.0133220, 1
+  %exitcond.not = icmp eq i32 %141, 3
   br i1 %exitcond.not, label %.split222.us, label %.split, !llvm.loop !43
 
 .split222.us:                                     ; preds = %._crit_edge, %12
-  %138 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %139 = load i32, ptr %138, align 4
-  %140 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %141 = load i32, ptr %140, align 4
-  %. = call i32 @llvm.umax.i32(i32 %139, i32 %141)
+  %142 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %143 = load i32, ptr %142, align 4
+  %144 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %145 = load i32, ptr %144, align 4
+  %. = call i32 @llvm.umax.i32(i32 %143, i32 %145)
   %.not157 = icmp eq i32 %., 0
   br i1 %.not157, label %.loopexit199, label %.preheader198.preheader
 
@@ -4668,130 +4671,138 @@ avifEncoderFindExistingChunk.exit.thread:         ; preds = %72, %86, %80, %74, 
   %wide.trip.count = zext i32 %. to i64
   br label %.preheader198
 
-.preheader198:                                    ; preds = %.preheader198.preheader, %194
-  %.0141 = phi i32 [ %142, %194 ], [ 0, %.preheader198.preheader ]
-  %142 = add i32 %.0141, 1
-  %143 = zext i32 %.0141 to i64
+.preheader198:                                    ; preds = %.preheader198.preheader, %203
+  %.0141 = phi i32 [ %146, %203 ], [ 0, %.preheader198.preheader ]
+  %146 = add i32 %.0141, 1
+  %147 = zext i32 %.0141 to i64
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader198, %193
-  %indvars.iv251 = phi i64 [ 0, %.preheader198 ], [ %indvars.iv.next252, %193 ]
-  %.0142225 = phi i32 [ 0, %.preheader198 ], [ %.2, %193 ]
-  br label %144
+.preheader:                                       ; preds = %.preheader198, %202
+  %indvars.iv251 = phi i64 [ 0, %.preheader198 ], [ %indvars.iv.next252, %202 ]
+  %.0142225 = phi i32 [ 0, %.preheader198 ], [ %.2, %202 ]
+  br label %148
 
-144:                                              ; preds = %.preheader, %192
-  %145 = phi i1 [ true, %.preheader ], [ false, %192 ]
-  %.1143223 = phi i32 [ %.0142225, %.preheader ], [ %.2, %192 ]
-  %146 = select i1 %145, ptr %3, ptr %2
-  %147 = getelementptr inbounds nuw i8, ptr %146, i64 12
-  %148 = load i32, ptr %147, align 4
-  %149 = zext i32 %148 to i64
-  %.not159 = icmp ult i64 %indvars.iv251, %149
-  br i1 %.not159, label %150, label %192
+148:                                              ; preds = %.preheader, %201
+  %149 = phi i1 [ true, %.preheader ], [ false, %201 ]
+  %.1143223 = phi i32 [ %.0142225, %.preheader ], [ %.2, %201 ]
+  %150 = select i1 %149, ptr %3, ptr %2
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 12
+  %152 = load i32, ptr %151, align 4
+  %153 = zext i32 %152 to i64
+  %.not159 = icmp ult i64 %indvars.iv251, %153
+  br i1 %.not159, label %154, label %201
 
-150:                                              ; preds = %144
-  %151 = load ptr, ptr %146, align 8
-  %152 = getelementptr inbounds ptr, ptr %151, i64 %indvars.iv251
-  %153 = load ptr, ptr %152, align 8
-  %154 = getelementptr inbounds nuw i8, ptr %153, i64 16
-  %155 = load ptr, ptr %154, align 8
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 12
-  %157 = load i32, ptr %156, align 4
-  %.not160 = icmp ugt i32 %157, %.0141
-  br i1 %.not160, label %158, label %192
+154:                                              ; preds = %148
+  %155 = load ptr, ptr %150, align 8
+  %156 = getelementptr inbounds ptr, ptr %155, i64 %indvars.iv251
+  %157 = load ptr, ptr %156, align 8
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 16
+  %159 = load ptr, ptr %158, align 8
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 12
+  %161 = load i32, ptr %160, align 4
+  %.not160 = icmp ugt i32 %161, %.0141
+  br i1 %.not160, label %162, label %201
 
-158:                                              ; preds = %150
-  %159 = icmp ugt i32 %157, %142
-  %spec.select = select i1 %159, i32 1, i32 %.1143223
-  %160 = load ptr, ptr %155, align 8
-  %161 = getelementptr inbounds %struct.avifEncodeSample, ptr %160, i64 %143
-  %162 = load ptr, ptr %161, align 8
-  %163 = getelementptr inbounds nuw i8, ptr %161, i64 8
-  %164 = load i64, ptr %163, align 8
-  %165 = call i64 @avifRWStreamOffset(ptr noundef nonnull %1) #13
-  %166 = sub i64 %165, %13
-  %167 = icmp ult i64 %166, %164
-  br i1 %167, label %avifEncoderFindExistingChunk.exit193.thread, label %168
+162:                                              ; preds = %154
+  %163 = icmp ugt i32 %161, %146
+  %spec.select = select i1 %163, i32 1, i32 %.1143223
+  %164 = load ptr, ptr %159, align 8
+  %165 = getelementptr inbounds %struct.avifEncodeSample, ptr %164, i64 %147
+  %166 = load ptr, ptr %165, align 8
+  %167 = getelementptr inbounds nuw i8, ptr %165, i64 8
+  %168 = load i64, ptr %167, align 8
+  %169 = call i64 @avifRWStreamOffset(ptr noundef nonnull %1) #13
+  %170 = sub i64 %169, %13
+  %171 = icmp ult i64 %170, %168
+  br i1 %171, label %avifEncoderFindExistingChunk.exit193.thread, label %172
 
-168:                                              ; preds = %158
-  %169 = sub i64 %165, %164
-  %.not19.i186 = icmp ugt i64 %13, %169
+172:                                              ; preds = %162
+  %173 = sub i64 %169, %168
+  %.not19.i186 = icmp ugt i64 %13, %173
   br i1 %.not19.i186, label %avifEncoderFindExistingChunk.exit193.thread, label %.lr.ph.i187
 
-.lr.ph.i187:                                      ; preds = %168
-  %170 = load ptr, ptr %1, align 8
-  %171 = load ptr, ptr %170, align 8
-  br label %172
+.lr.ph.i187:                                      ; preds = %172
+  %174 = load ptr, ptr %1, align 8
+  %175 = load ptr, ptr %174, align 8
+  br label %176
 
-172:                                              ; preds = %174, %.lr.ph.i187
-  %.020.i188 = phi i64 [ %13, %.lr.ph.i187 ], [ %175, %174 ]
-  %173 = getelementptr inbounds i8, ptr %171, i64 %.020.i188
-  %bcmp.i189 = call i32 @bcmp(ptr readonly %162, ptr %173, i64 %164)
+176:                                              ; preds = %178, %.lr.ph.i187
+  %.020.i188 = phi i64 [ %13, %.lr.ph.i187 ], [ %179, %178 ]
+  %177 = getelementptr inbounds i8, ptr %175, i64 %.020.i188
+  %bcmp.i189 = call i32 @bcmp(ptr readonly %166, ptr %177, i64 %168)
   %.not18.i190 = icmp eq i32 %bcmp.i189, 0
-  br i1 %.not18.i190, label %avifEncoderFindExistingChunk.exit193, label %174
+  br i1 %.not18.i190, label %avifEncoderFindExistingChunk.exit193, label %178
 
-174:                                              ; preds = %172
-  %175 = add i64 %.020.i188, 1
-  %.not.i191 = icmp ugt i64 %175, %169
-  br i1 %.not.i191, label %avifEncoderFindExistingChunk.exit193.thread, label %172, !llvm.loop !39
+178:                                              ; preds = %176
+  %179 = add i64 %.020.i188, 1
+  %.not.i191 = icmp ugt i64 %179, %173
+  br i1 %.not.i191, label %avifEncoderFindExistingChunk.exit193.thread, label %176, !llvm.loop !39
 
-avifEncoderFindExistingChunk.exit193:             ; preds = %172
+avifEncoderFindExistingChunk.exit193:             ; preds = %176
   %.not161 = icmp eq i64 %.020.i188, 0
-  br i1 %.not161, label %avifEncoderFindExistingChunk.exit193.thread, label %183
+  br i1 %.not161, label %avifEncoderFindExistingChunk.exit193.thread, label %192
 
-avifEncoderFindExistingChunk.exit193.thread:      ; preds = %174, %168, %158, %avifEncoderFindExistingChunk.exit193
-  %176 = call i64 @avifRWStreamOffset(ptr noundef nonnull %1) #13
-  %177 = load ptr, ptr %161, align 8
-  %178 = load i64, ptr %163, align 8
-  %179 = call i32 @avifRWStreamWrite(ptr noundef nonnull %1, ptr noundef %177, i64 noundef %178) #13
-  %.not162 = icmp eq i32 %179, 0
-  br i1 %.not162, label %.sink.split277, label %.loopexit
+avifEncoderFindExistingChunk.exit193.thread:      ; preds = %178, %172, %162, %avifEncoderFindExistingChunk.exit193
+  %180 = call i64 @avifRWStreamOffset(ptr noundef nonnull %1) #13
+  %181 = load ptr, ptr %165, align 8
+  %182 = load i64, ptr %167, align 8
+  %183 = call i32 @avifRWStreamWrite(ptr noundef nonnull %1, ptr noundef %181, i64 noundef %182) #13
+  %.not162 = icmp eq i32 %183, 0
+  br i1 %.not162, label %184, label %.loopexit
 
-.sink.split277:                                   ; preds = %avifEncoderFindExistingChunk.exit193.thread
-  %180 = load i64, ptr %163, align 8
-  %.283 = select i1 %145, ptr %7, ptr %6
-  %181 = load i64, ptr %.283, align 8
-  %182 = add i64 %181, %180
-  store i64 %182, ptr %.283, align 8
-  br label %183
+184:                                              ; preds = %avifEncoderFindExistingChunk.exit193.thread
+  %185 = load i64, ptr %167, align 8
+  br i1 %149, label %186, label %189
 
-183:                                              ; preds = %.sink.split277, %avifEncoderFindExistingChunk.exit193
-  %.0135 = phi i64 [ %.020.i188, %avifEncoderFindExistingChunk.exit193 ], [ %176, %.sink.split277 ]
-  %184 = call i64 @avifRWStreamOffset(ptr noundef nonnull %1) #13
-  %185 = getelementptr inbounds nuw i8, ptr %153, i64 96
-  %186 = load ptr, ptr %185, align 8
-  %187 = getelementptr inbounds %struct.avifOffsetFixup, ptr %186, i64 %143
-  %188 = load i64, ptr %187, align 8
-  call void @avifRWStreamSetOffset(ptr noundef nonnull %1, i64 noundef %188) #13
-  %189 = trunc i64 %.0135 to i32
-  %190 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %1, i32 noundef %189) #13
-  %.not163 = icmp eq i32 %190, 0
-  br i1 %.not163, label %191, label %.loopexit
-
-191:                                              ; preds = %183
-  call void @avifRWStreamSetOffset(ptr noundef nonnull %1, i64 noundef %184) #13
+186:                                              ; preds = %184
+  %187 = load i64, ptr %7, align 8
+  %188 = add i64 %187, %185
+  store i64 %188, ptr %7, align 8
   br label %192
 
-192:                                              ; preds = %150, %144, %191
-  %.2 = phi i32 [ %.1143223, %144 ], [ %.1143223, %150 ], [ %spec.select, %191 ]
-  br i1 %145, label %144, label %193, !llvm.loop !45
+189:                                              ; preds = %184
+  %190 = load i64, ptr %6, align 8
+  %191 = add i64 %190, %185
+  store i64 %191, ptr %6, align 8
+  br label %192
 
-193:                                              ; preds = %192
+192:                                              ; preds = %186, %189, %avifEncoderFindExistingChunk.exit193
+  %.0135 = phi i64 [ %.020.i188, %avifEncoderFindExistingChunk.exit193 ], [ %180, %186 ], [ %180, %189 ]
+  %193 = call i64 @avifRWStreamOffset(ptr noundef nonnull %1) #13
+  %194 = getelementptr inbounds nuw i8, ptr %157, i64 96
+  %195 = load ptr, ptr %194, align 8
+  %196 = getelementptr inbounds %struct.avifOffsetFixup, ptr %195, i64 %147
+  %197 = load i64, ptr %196, align 8
+  call void @avifRWStreamSetOffset(ptr noundef nonnull %1, i64 noundef %197) #13
+  %198 = trunc i64 %.0135 to i32
+  %199 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %1, i32 noundef %198) #13
+  %.not163 = icmp eq i32 %199, 0
+  br i1 %.not163, label %200, label %.loopexit
+
+200:                                              ; preds = %192
+  call void @avifRWStreamSetOffset(ptr noundef nonnull %1, i64 noundef %193) #13
+  br label %201
+
+201:                                              ; preds = %154, %148, %200
+  %.2 = phi i32 [ %.1143223, %148 ], [ %.1143223, %154 ], [ %spec.select, %200 ]
+  br i1 %149, label %148, label %202, !llvm.loop !45
+
+202:                                              ; preds = %201
   %indvars.iv.next252 = add nuw nsw i64 %indvars.iv251, 1
   %exitcond254.not = icmp eq i64 %indvars.iv.next252, %wide.trip.count
-  br i1 %exitcond254.not, label %194, label %.preheader, !llvm.loop !46
+  br i1 %exitcond254.not, label %203, label %.preheader, !llvm.loop !46
 
-194:                                              ; preds = %193
+203:                                              ; preds = %202
   %.not158 = icmp eq i32 %.2, 0
   br i1 %.not158, label %.loopexit199, label %.preheader198, !llvm.loop !47
 
-.loopexit199:                                     ; preds = %194, %.split222.us
-  %195 = load i64, ptr %5, align 8
-  call void @avifRWStreamFinishBox(ptr noundef nonnull %1, i64 noundef %195) #13
+.loopexit199:                                     ; preds = %203, %.split222.us
+  %204 = load i64, ptr %5, align 8
+  call void @avifRWStreamFinishBox(ptr noundef nonnull %1, i64 noundef %204) #13
   br label %.loopexit
 
-.loopexit:                                        ; preds = %113, %53, %.lr.ph, %121, %183, %avifEncoderFindExistingChunk.exit193.thread, %4, %.loopexit199
-  %.0 = phi i32 [ 0, %.loopexit199 ], [ %11, %4 ], [ %190, %183 ], [ %179, %avifEncoderFindExistingChunk.exit193.thread ], [ %126, %121 ], [ %100, %.lr.ph ], [ %116, %113 ], [ 26, %53 ]
+.loopexit:                                        ; preds = %117, %53, %.lr.ph, %125, %192, %avifEncoderFindExistingChunk.exit193.thread, %4, %.loopexit199
+  %.0 = phi i32 [ 0, %.loopexit199 ], [ %11, %4 ], [ %199, %192 ], [ %183, %avifEncoderFindExistingChunk.exit193.thread ], [ %130, %125 ], [ %100, %.lr.ph ], [ %120, %117 ], [ 26, %53 ]
   ret i32 %.0
 }
 

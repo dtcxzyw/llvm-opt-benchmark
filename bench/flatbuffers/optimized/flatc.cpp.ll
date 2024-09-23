@@ -12739,6 +12739,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont22
   store ptr null, ptr %_M_parent.i.i.i.i.i, align 8
   store ptr %4, ptr %_M_left.i.i.i.i.i, align 8
   store ptr %4, ptr %_M_right.i.i.i.i.i, align 8
+  store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8
   br label %_ZNSt3mapImN11flatbuffers13BinarySectionESt4lessImESaISt4pairIKmS1_EEEC2EOS8_.exit.i
 
 if.else.i.i.i.i.i:                                ; preds = %invoke.cont18, %invoke.cont22
@@ -12746,11 +12747,10 @@ if.else.i.i.i.i.i:                                ; preds = %invoke.cont18, %inv
   store ptr null, ptr %_M_parent6.i.i.i.i.i.i, align 8
   store ptr %5, ptr %_M_left9.i.i.i.i.i.i, align 8
   store ptr %5, ptr %_M_right12.i.i.i.i.i.i, align 8
+  store i64 0, ptr %_M_node_count17.i.i.i.i.i.i, align 8
   br label %_ZNSt3mapImN11flatbuffers13BinarySectionESt4lessImESaISt4pairIKmS1_EEEC2EOS8_.exit.i
 
 _ZNSt3mapImN11flatbuffers13BinarySectionESt4lessImESaISt4pairIKmS1_EEEC2EOS8_.exit.i: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
-  %_M_node_count.i5.sink.i.i.i.i.i = phi ptr [ %_M_node_count17.i.i.i.i.i.i, %if.else.i.i.i.i.i ], [ %_M_node_count.i.i.i.i.i, %if.then.i.i.i.i.i ]
-  store i64 0, ptr %_M_node_count.i5.sink.i.i.i.i.i, align 8
   store ptr %call11, ptr %binary_.i21, align 8
   store i64 %call12, ptr %binary_length_.i22, align 8
   %18 = load i64, ptr %text_gen_opts, align 8

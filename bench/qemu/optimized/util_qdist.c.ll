@@ -668,21 +668,21 @@ if.end.i.i26:                                     ; preds = %cond.false16
   br label %if.end.i.i38
 
 if.end.i.i38:                                     ; preds = %if.end.i.i, %if.end.i.i26
-  %.sink = phi ptr [ %2, %if.end.i.i ], [ %arrayidx.i.i, %if.end.i.i26 ]
-  %5 = load double, ptr %.sink, align 8
-  %6 = load ptr, ptr %dist, align 8
+  %cond19.in = phi ptr [ %2, %if.end.i.i ], [ %arrayidx.i.i, %if.end.i.i26 ]
+  %cond19 = load double, ptr %cond19.in, align 8
+  %5 = load ptr, ptr %dist, align 8
   %conv.i31 = shl i64 %1, 32
   %sext.i32 = add i64 %conv.i31, -4294967296
-  %7 = ashr exact i64 %sext.i32, 28
-  %arrayidx.i.i33 = getelementptr i8, ptr %6, i64 %7
-  %8 = load double, ptr %arrayidx.i.i33, align 8
-  %9 = load double, ptr %6, align 8
-  %10 = fsub double %8, %9
+  %6 = ashr exact i64 %sext.i32, 28
+  %arrayidx.i.i33 = getelementptr i8, ptr %5, i64 %6
+  %7 = load double, ptr %arrayidx.i.i33, align 8
+  %8 = load double, ptr %5, align 8
+  %9 = fsub double %7, %8
   br label %qdist_xmin.exit40
 
 qdist_xmin.exit40:                                ; preds = %cond.false16, %cond.true14, %if.end.i.i38
-  %cond1951 = phi double [ %5, %if.end.i.i38 ], [ 0x7FF8000000000000, %cond.true14 ], [ 0x7FF8000000000000, %cond.false16 ]
-  %sub = phi double [ %10, %if.end.i.i38 ], [ 0x7FF8000000000000, %cond.true14 ], [ 0x7FF8000000000000, %cond.false16 ]
+  %cond1951 = phi double [ %cond19, %if.end.i.i38 ], [ 0x7FF8000000000000, %cond.true14 ], [ 0x7FF8000000000000, %cond.false16 ]
+  %sub = phi double [ %9, %if.end.i.i38 ], [ 0x7FF8000000000000, %cond.true14 ], [ 0x7FF8000000000000, %cond.false16 ]
   %and23 = and i64 %conv, 16
   %tobool24.not = icmp eq i64 %and23, 0
   %mul = fmul double %cond1951, 1.000000e+02

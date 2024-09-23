@@ -1394,16 +1394,16 @@ if.end20:                                         ; preds = %if.then15.if.end20_
 
 if.then25:                                        ; preds = %if.end20
   %tql_prev29 = getelementptr inbounds i8, ptr %14, i64 120
+  store ptr %15, ptr %tql_prev29, align 8
   br label %if.end35
 
 if.else30:                                        ; preds = %if.end20
   %16 = load ptr, ptr %op, align 8
   %tql_prev34 = getelementptr inbounds i8, ptr %16, i64 728
+  store ptr %15, ptr %tql_prev34, align 8
   br label %if.end35
 
 if.end35:                                         ; preds = %if.else30, %if.then25
-  %tql_prev34.sink = phi ptr [ %tql_prev34, %if.else30 ], [ %tql_prev29, %if.then25 ]
-  store ptr %15, ptr %tql_prev34.sink, align 8
   %17 = load ptr, ptr %next, align 8
   store ptr %17, ptr %15, align 8
   %waiting_requests = getelementptr inbounds i8, ptr %op, i64 80
@@ -4345,17 +4345,26 @@ for.end:                                          ; preds = %for.body, %trace_mi
   %cmp19.not = icmp eq ptr %23, null
   %tql_prev26 = getelementptr inbounds i8, ptr %op, i64 120
   %24 = load ptr, ptr %tql_prev26, align 8
-  %tql_prev27 = getelementptr inbounds i8, ptr %0, i64 728
+  br i1 %cmp19.not, label %if.else, label %if.then
+
+if.then:                                          ; preds = %for.end
   %tql_prev24 = getelementptr inbounds i8, ptr %23, i64 120
-  %tql_prev27.sink = select i1 %cmp19.not, ptr %tql_prev27, ptr %tql_prev24
-  store ptr %24, ptr %tql_prev27.sink, align 8
+  store ptr %24, ptr %tql_prev24, align 8
+  br label %if.end
+
+if.else:                                          ; preds = %for.end
+  %tql_prev27 = getelementptr inbounds i8, ptr %0, i64 728
+  store ptr %24, ptr %tql_prev27, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then
   %25 = load ptr, ptr %next18, align 8
   store ptr %25, ptr %24, align 8
   %cmp37 = icmp sgt i32 %ret, -1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next18, i8 0, i64 16, i1 false)
   br i1 %cmp37, label %if.then39, label %if.end48
 
-if.then39:                                        ; preds = %for.end
+if.then39:                                        ; preds = %if.end
   %cow_bitmap = getelementptr inbounds i8, ptr %0, i64 632
   %26 = load ptr, ptr %cow_bitmap, align 8
   %tobool.not = icmp eq ptr %26, null
@@ -4376,7 +4385,7 @@ if.then45:                                        ; preds = %if.end43
   tail call void @job_progress_update(ptr noundef nonnull %0, i64 noundef %28) #12
   br label %if.end48
 
-if.end48:                                         ; preds = %if.end43, %if.then45, %for.end
+if.end48:                                         ; preds = %if.end43, %if.then45, %if.end
   tail call void @qemu_iovec_destroy(ptr noundef nonnull %qiov) #12
   %waiting_requests = getelementptr inbounds i8, ptr %op, i64 80
   tail call void @qemu_co_queue_restart_all(ptr noundef nonnull %waiting_requests) #12

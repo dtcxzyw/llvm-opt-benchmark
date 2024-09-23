@@ -344,8 +344,8 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br label %.loopexit971
 
 .loopexit971:                                     ; preds = %.loopexit971.preheader, %yy_get_next_buffer.exit.thread
-  %.0635 = phi i32 [ %1701, %yy_get_next_buffer.exit.thread ], [ %131, %.loopexit971.preheader ]
-  switch i32 %.0635, label %1715 [
+  %.0635 = phi i32 [ %1700, %yy_get_next_buffer.exit.thread ], [ %131, %.loopexit971.preheader ]
+  switch i32 %.0635, label %1714 [
     i32 0, label %165
     i32 1, label %168
     i32 2, label %188
@@ -2415,10 +2415,10 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %1486, ptr %69, align 8
   br label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %1484, %1702
-  %.0636.be = phi ptr [ %1483, %1484 ], [ %1710, %1702 ]
-  %.0632.be = phi ptr [ %1486, %1484 ], [ %1709, %1702 ]
-  %.0628.be = phi i32 [ %1482, %1484 ], [ %1708, %1702 ]
+.backedge.backedge:                               ; preds = %1484, %1701
+  %.0636.be = phi ptr [ %1483, %1484 ], [ %1709, %1701 ]
+  %.0632.be = phi ptr [ %1486, %1484 ], [ %1708, %1701 ]
+  %.0628.be = phi i32 [ %1482, %1484 ], [ %1707, %1701 ]
   br label %.backedge
 
 1487:                                             ; preds = %1474
@@ -2426,9 +2426,9 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %1487, %yy_get_next_buffer.exit.thread968
-  %.1637.ph.be = phi ptr [ %1714, %yy_get_next_buffer.exit.thread968 ], [ %1483, %1487 ]
+  %.1637.ph.be = phi ptr [ %1713, %yy_get_next_buffer.exit.thread968 ], [ %1483, %1487 ]
   %.2634.in.ph.be = phi ptr [ %69, %yy_get_next_buffer.exit.thread968 ], [ %73, %1487 ]
-  %.3.ph.be = phi i32 [ %1713, %yy_get_next_buffer.exit.thread968 ], [ %1488, %1487 ]
+  %.3.ph.be = phi i32 [ %1712, %yy_get_next_buffer.exit.thread968 ], [ %1488, %1487 ]
   br label %.outer
 
 1489:                                             ; preds = %1464
@@ -2706,121 +2706,121 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br label %1625
 
 1625:                                             ; preds = %.critedge2.i, %1520
-  %.sink195.i = phi ptr [ %1624, %.critedge2.i ], [ %1521, %1520 ]
+  %.sink194.in.i = phi ptr [ %1624, %.critedge2.i ], [ %1521, %1520 ]
   %.sink.i = phi i32 [ %1621, %.critedge2.i ], [ 0, %1520 ]
-  %1626 = load ptr, ptr %.sink195.i, align 8
-  %1627 = getelementptr inbounds i8, ptr %1626, i64 28
-  store i32 %.sink.i, ptr %1627, align 4
-  %1628 = load i32, ptr %78, align 4
-  %1629 = icmp eq i32 %1628, 0
-  br i1 %1629, label %1630, label %1640
+  %.sink194.i = load ptr, ptr %.sink194.in.i, align 8
+  %1626 = getelementptr inbounds i8, ptr %.sink194.i, i64 28
+  store i32 %.sink.i, ptr %1626, align 4
+  %1627 = load i32, ptr %78, align 4
+  %1628 = icmp eq i32 %1627, 0
+  br i1 %1628, label %1629, label %1639
 
-1630:                                             ; preds = %1625
-  %1631 = icmp eq i32 %1508, 0
-  br i1 %1631, label %1632, label %1634
+1629:                                             ; preds = %1625
+  %1630 = icmp eq i32 %1508, 0
+  br i1 %1630, label %1631, label %1633
 
-1632:                                             ; preds = %1630
-  %1633 = load ptr, ptr %79, align 8
-  tail call void @protobuf_lang_restart(ptr noundef %1633, ptr noundef nonnull %0)
-  br label %1640
+1631:                                             ; preds = %1629
+  %1632 = load ptr, ptr %79, align 8
+  tail call void @protobuf_lang_restart(ptr noundef %1632, ptr noundef nonnull %0)
+  br label %1639
 
-1634:                                             ; preds = %1630
-  %1635 = load ptr, ptr %76, align 8
-  %1636 = load i64, ptr %77, align 8
-  %1637 = getelementptr ptr, ptr %1635, i64 %1636
-  %1638 = load ptr, ptr %1637, align 8
-  %1639 = getelementptr inbounds i8, ptr %1638, i64 56
-  store i32 2, ptr %1639, align 8
-  br label %1640
+1633:                                             ; preds = %1629
+  %1634 = load ptr, ptr %76, align 8
+  %1635 = load i64, ptr %77, align 8
+  %1636 = getelementptr ptr, ptr %1634, i64 %1635
+  %1637 = load ptr, ptr %1636, align 8
+  %1638 = getelementptr inbounds i8, ptr %1637, i64 56
+  store i32 2, ptr %1638, align 8
+  br label %1639
 
-1640:                                             ; preds = %1634, %1632, %1625
-  %.0133.i = phi i32 [ 1, %1632 ], [ 2, %1634 ], [ 0, %1625 ]
-  %1641 = load i32, ptr %78, align 4
-  %1642 = add i32 %1641, %1508
-  %1643 = load ptr, ptr %76, align 8
-  %1644 = load i64, ptr %77, align 8
-  %1645 = getelementptr ptr, ptr %1643, i64 %1644
-  %1646 = load ptr, ptr %1645, align 8
-  %1647 = getelementptr inbounds i8, ptr %1646, i64 24
-  %1648 = load i32, ptr %1647, align 8
-  %1649 = icmp sgt i32 %1642, %1648
-  br i1 %1649, label %1650, label %yy_get_next_buffer.exit
+1639:                                             ; preds = %1633, %1631, %1625
+  %.0133.i = phi i32 [ 1, %1631 ], [ 2, %1633 ], [ 0, %1625 ]
+  %1640 = load i32, ptr %78, align 4
+  %1641 = add i32 %1640, %1508
+  %1642 = load ptr, ptr %76, align 8
+  %1643 = load i64, ptr %77, align 8
+  %1644 = getelementptr ptr, ptr %1642, i64 %1643
+  %1645 = load ptr, ptr %1644, align 8
+  %1646 = getelementptr inbounds i8, ptr %1645, i64 24
+  %1647 = load i32, ptr %1646, align 8
+  %1648 = icmp sgt i32 %1641, %1647
+  br i1 %1648, label %1649, label %yy_get_next_buffer.exit
 
-1650:                                             ; preds = %1640
-  %1651 = ashr i32 %1641, 1
-  %1652 = add i32 %1642, %1651
-  %1653 = getelementptr inbounds i8, ptr %1646, i64 8
-  %1654 = load ptr, ptr %1653, align 8
-  %1655 = sext i32 %1652 to i64
-  %1656 = tail call ptr @realloc(ptr noundef %1654, i64 noundef %1655) #27
-  %1657 = load ptr, ptr %76, align 8
-  %1658 = load i64, ptr %77, align 8
-  %1659 = getelementptr ptr, ptr %1657, i64 %1658
-  %1660 = load ptr, ptr %1659, align 8
-  %1661 = getelementptr inbounds i8, ptr %1660, i64 8
-  store ptr %1656, ptr %1661, align 8
-  %1662 = load ptr, ptr %76, align 8
-  %1663 = load i64, ptr %77, align 8
-  %1664 = getelementptr ptr, ptr %1662, i64 %1663
-  %1665 = load ptr, ptr %1664, align 8
-  %1666 = getelementptr inbounds i8, ptr %1665, i64 8
-  %1667 = load ptr, ptr %1666, align 8
-  %.not149.i = icmp eq ptr %1667, null
-  br i1 %.not149.i, label %1668, label %1669
+1649:                                             ; preds = %1639
+  %1650 = ashr i32 %1640, 1
+  %1651 = add i32 %1641, %1650
+  %1652 = getelementptr inbounds i8, ptr %1645, i64 8
+  %1653 = load ptr, ptr %1652, align 8
+  %1654 = sext i32 %1651 to i64
+  %1655 = tail call ptr @realloc(ptr noundef %1653, i64 noundef %1654) #27
+  %1656 = load ptr, ptr %76, align 8
+  %1657 = load i64, ptr %77, align 8
+  %1658 = getelementptr ptr, ptr %1656, i64 %1657
+  %1659 = load ptr, ptr %1658, align 8
+  %1660 = getelementptr inbounds i8, ptr %1659, i64 8
+  store ptr %1655, ptr %1660, align 8
+  %1661 = load ptr, ptr %76, align 8
+  %1662 = load i64, ptr %77, align 8
+  %1663 = getelementptr ptr, ptr %1661, i64 %1662
+  %1664 = load ptr, ptr %1663, align 8
+  %1665 = getelementptr inbounds i8, ptr %1664, i64 8
+  %1666 = load ptr, ptr %1665, align 8
+  %.not149.i = icmp eq ptr %1666, null
+  br i1 %.not149.i, label %1667, label %1668
 
-1668:                                             ; preds = %1650
+1667:                                             ; preds = %1649
   tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.11) #26
   unreachable
 
-1669:                                             ; preds = %1650
-  %1670 = add i32 %1652, -2
-  %1671 = getelementptr inbounds i8, ptr %1665, i64 24
-  store i32 %1670, ptr %1671, align 8
+1668:                                             ; preds = %1649
+  %1669 = add i32 %1651, -2
+  %1670 = getelementptr inbounds i8, ptr %1664, i64 24
+  store i32 %1669, ptr %1670, align 8
   %.pre181.i = load i32, ptr %78, align 4
   %.pre182.i = load ptr, ptr %76, align 8
   %.pre183.i = load i64, ptr %77, align 8
   %.pre184.i = add i32 %.pre181.i, %1508
   br label %yy_get_next_buffer.exit
 
-yy_get_next_buffer.exit:                          ; preds = %1640, %1669
-  %.pre-phi.i = phi i32 [ %.pre184.i, %1669 ], [ %1642, %1640 ]
-  %1672 = phi i64 [ %.pre183.i, %1669 ], [ %1644, %1640 ]
-  %1673 = phi ptr [ %.pre182.i, %1669 ], [ %1643, %1640 ]
+yy_get_next_buffer.exit:                          ; preds = %1639, %1668
+  %.pre-phi.i = phi i32 [ %.pre184.i, %1668 ], [ %1641, %1639 ]
+  %1671 = phi i64 [ %.pre183.i, %1668 ], [ %1643, %1639 ]
+  %1672 = phi ptr [ %.pre182.i, %1668 ], [ %1642, %1639 ]
   store i32 %.pre-phi.i, ptr %78, align 4
-  %1674 = getelementptr ptr, ptr %1673, i64 %1672
-  %1675 = load ptr, ptr %1674, align 8
-  %1676 = getelementptr inbounds i8, ptr %1675, i64 8
-  %1677 = load ptr, ptr %1676, align 8
-  %1678 = sext i32 %.pre-phi.i to i64
-  %1679 = getelementptr i8, ptr %1677, i64 %1678
-  store i8 0, ptr %1679, align 1
-  %1680 = load ptr, ptr %76, align 8
-  %1681 = load i64, ptr %77, align 8
-  %1682 = getelementptr ptr, ptr %1680, i64 %1681
-  %1683 = load ptr, ptr %1682, align 8
-  %1684 = getelementptr inbounds i8, ptr %1683, i64 8
-  %1685 = load ptr, ptr %1684, align 8
-  %1686 = load i32, ptr %78, align 4
-  %1687 = add i32 %1686, 1
-  %1688 = sext i32 %1687 to i64
-  %1689 = getelementptr i8, ptr %1685, i64 %1688
-  store i8 0, ptr %1689, align 1
-  %1690 = load ptr, ptr %76, align 8
-  %1691 = load i64, ptr %77, align 8
-  %1692 = getelementptr ptr, ptr %1690, i64 %1691
-  %1693 = load ptr, ptr %1692, align 8
-  %1694 = getelementptr inbounds i8, ptr %1693, i64 8
-  %1695 = load ptr, ptr %1694, align 8
-  store ptr %1695, ptr %74, align 8
+  %1673 = getelementptr ptr, ptr %1672, i64 %1671
+  %1674 = load ptr, ptr %1673, align 8
+  %1675 = getelementptr inbounds i8, ptr %1674, i64 8
+  %1676 = load ptr, ptr %1675, align 8
+  %1677 = sext i32 %.pre-phi.i to i64
+  %1678 = getelementptr i8, ptr %1676, i64 %1677
+  store i8 0, ptr %1678, align 1
+  %1679 = load ptr, ptr %76, align 8
+  %1680 = load i64, ptr %77, align 8
+  %1681 = getelementptr ptr, ptr %1679, i64 %1680
+  %1682 = load ptr, ptr %1681, align 8
+  %1683 = getelementptr inbounds i8, ptr %1682, i64 8
+  %1684 = load ptr, ptr %1683, align 8
+  %1685 = load i32, ptr %78, align 4
+  %1686 = add i32 %1685, 1
+  %1687 = sext i32 %1686 to i64
+  %1688 = getelementptr i8, ptr %1684, i64 %1687
+  store i8 0, ptr %1688, align 1
+  %1689 = load ptr, ptr %76, align 8
+  %1690 = load i64, ptr %77, align 8
+  %1691 = getelementptr ptr, ptr %1689, i64 %1690
+  %1692 = load ptr, ptr %1691, align 8
+  %1693 = getelementptr inbounds i8, ptr %1692, i64 8
+  %1694 = load ptr, ptr %1693, align 8
+  store ptr %1694, ptr %74, align 8
   switch i32 %.0133.i, label %default.unreachable1311 [
     i32 1, label %yy_get_next_buffer.exit.thread
-    i32 0, label %1702
+    i32 0, label %1701
     i32 2, label %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread968_crit_edge
   ]
 
 yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread968_crit_edge: ; preds = %yy_get_next_buffer.exit
-  %1696 = getelementptr ptr, ptr %1690, i64 %1691
-  %.pre1306 = load ptr, ptr %1696, align 8
+  %1695 = getelementptr ptr, ptr %1689, i64 %1690
+  %.pre1306 = load ptr, ptr %1695, align 8
   %.phi.trans.insert1307 = getelementptr inbounds i8, ptr %.pre1306, i64 8
   %.pre1308 = load ptr, ptr %.phi.trans.insert1307, align 8
   %.pre1309 = load i32, ptr %78, align 4
@@ -2828,38 +2828,38 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread968_crit_edge: ; preds = %
   br label %yy_get_next_buffer.exit.thread968
 
 yy_get_next_buffer.exit.thread:                   ; preds = %1502, %yy_get_next_buffer.exit
-  %1697 = phi ptr [ %1490, %1502 ], [ %1695, %yy_get_next_buffer.exit ]
+  %1696 = phi ptr [ %1490, %1502 ], [ %1694, %yy_get_next_buffer.exit ]
   store i32 0, ptr %80, align 8
-  store ptr %1697, ptr %69, align 8
-  %1698 = load i32, ptr %71, align 4
-  %1699 = add i32 %1698, -1
-  %1700 = sdiv i32 %1699, 2
-  %1701 = add nsw i32 %1700, 72
+  store ptr %1696, ptr %69, align 8
+  %1697 = load i32, ptr %71, align 4
+  %1698 = add i32 %1697, -1
+  %1699 = sdiv i32 %1698, 2
+  %1700 = add nsw i32 %1699, 72
   br label %.loopexit971
 
-1702:                                             ; preds = %yy_get_next_buffer.exit
-  %1703 = ptrtoint ptr %1445 to i64
-  %1704 = xor i64 %1703, -1
-  %1705 = add i64 %1704, %132
-  %sext1195 = shl i64 %1705, 32
-  %1706 = ashr exact i64 %sext1195, 32
-  %1707 = getelementptr i8, ptr %1695, i64 %1706
-  store ptr %1707, ptr %69, align 8
-  %1708 = tail call fastcc i32 @yy_get_previous_state(ptr noundef nonnull %0)
-  %1709 = load ptr, ptr %69, align 8
-  %1710 = load ptr, ptr %74, align 8
+1701:                                             ; preds = %yy_get_next_buffer.exit
+  %1702 = ptrtoint ptr %1445 to i64
+  %1703 = xor i64 %1702, -1
+  %1704 = add i64 %1703, %132
+  %sext1195 = shl i64 %1704, 32
+  %1705 = ashr exact i64 %sext1195, 32
+  %1706 = getelementptr i8, ptr %1694, i64 %1705
+  store ptr %1706, ptr %69, align 8
+  %1707 = tail call fastcc i32 @yy_get_previous_state(ptr noundef nonnull %0)
+  %1708 = load ptr, ptr %69, align 8
+  %1709 = load ptr, ptr %74, align 8
   br label %.backedge.backedge
 
 yy_get_next_buffer.exit.thread968:                ; preds = %1502, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread968_crit_edge
   %.pre-phi = phi i64 [ %.pre1310, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread968_crit_edge ], [ %1472, %1502 ]
-  %1711 = phi ptr [ %.pre1308, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread968_crit_edge ], [ %1470, %1502 ]
-  %1712 = getelementptr i8, ptr %1711, i64 %.pre-phi
-  store ptr %1712, ptr %69, align 8
-  %1713 = tail call fastcc i32 @yy_get_previous_state(ptr noundef nonnull %0)
-  %1714 = load ptr, ptr %74, align 8
+  %1710 = phi ptr [ %.pre1308, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread968_crit_edge ], [ %1470, %1502 ]
+  %1711 = getelementptr i8, ptr %1710, i64 %.pre-phi
+  store ptr %1711, ptr %69, align 8
+  %1712 = tail call fastcc i32 @yy_get_previous_state(ptr noundef nonnull %0)
+  %1713 = load ptr, ptr %74, align 8
   br label %.outer.backedge
 
-1715:                                             ; preds = %.loopexit971
+1714:                                             ; preds = %.loopexit971
   tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.1) #26
   unreachable
 
@@ -2869,18 +2869,18 @@ default.unreachable1311:                          ; preds = %yy_get_next_buffer.
 .loopexit970.sink.split.sink.split:               ; preds = %1424, %1404, %1384, %1364, %1344, %1324, %1304, %1284, %1264, %1244, %1224, %1204, %1184, %1164, %1144, %1124, %1104, %1084, %1064, %1044, %1024, %1004, %984, %964, %944, %924, %904, %884, %864, %844, %824, %804, %784, %764, %744, %724, %704, %684, %664, %644, %624, %604, %584, %564, %544, %524, %504, %484, %464, %444, %424, %404, %384, %364, %344, %324, %304, %284, %264, %244, %224, %204, %184
   %.sink1446 = phi ptr [ %187, %184 ], [ %207, %204 ], [ %227, %224 ], [ %247, %244 ], [ %267, %264 ], [ %287, %284 ], [ %307, %304 ], [ %327, %324 ], [ %347, %344 ], [ %367, %364 ], [ %387, %384 ], [ %407, %404 ], [ %427, %424 ], [ %447, %444 ], [ %467, %464 ], [ %487, %484 ], [ %507, %504 ], [ %527, %524 ], [ %547, %544 ], [ %567, %564 ], [ %587, %584 ], [ %607, %604 ], [ %627, %624 ], [ %647, %644 ], [ %667, %664 ], [ %687, %684 ], [ %707, %704 ], [ %727, %724 ], [ %747, %744 ], [ %767, %764 ], [ %787, %784 ], [ %807, %804 ], [ %827, %824 ], [ %847, %844 ], [ %867, %864 ], [ %887, %884 ], [ %907, %904 ], [ %927, %924 ], [ %947, %944 ], [ %967, %964 ], [ %987, %984 ], [ %1007, %1004 ], [ %1027, %1024 ], [ %1047, %1044 ], [ %1067, %1064 ], [ %1087, %1084 ], [ %1107, %1104 ], [ %1127, %1124 ], [ %1147, %1144 ], [ %1167, %1164 ], [ %1187, %1184 ], [ %1207, %1204 ], [ %1227, %1224 ], [ %1247, %1244 ], [ %1267, %1264 ], [ %1287, %1284 ], [ %1307, %1304 ], [ %1327, %1324 ], [ %1347, %1344 ], [ %1367, %1364 ], [ %1387, %1384 ], [ %1407, %1404 ], [ %1427, %1424 ]
   %.0.ph.ph = phi i32 [ 26, %184 ], [ 27, %204 ], [ 32, %224 ], [ 33, %244 ], [ 29, %264 ], [ 30, %284 ], [ 34, %304 ], [ 35, %324 ], [ 36, %344 ], [ 37, %364 ], [ 38, %384 ], [ 39, %404 ], [ 24, %424 ], [ 40, %444 ], [ 41, %464 ], [ 42, %484 ], [ 43, %504 ], [ 44, %524 ], [ 45, %544 ], [ 46, %564 ], [ 47, %584 ], [ 48, %604 ], [ 49, %624 ], [ 50, %644 ], [ 51, %664 ], [ 52, %684 ], [ 53, %704 ], [ 54, %724 ], [ 55, %744 ], [ 25, %764 ], [ 28, %784 ], [ 56, %804 ], [ 57, %824 ], [ 58, %844 ], [ 59, %864 ], [ 2, %884 ], [ 3, %904 ], [ 4, %924 ], [ 5, %944 ], [ 6, %964 ], [ 7, %984 ], [ 8, %1004 ], [ 9, %1024 ], [ 10, %1044 ], [ 11, %1064 ], [ 12, %1084 ], [ 13, %1104 ], [ 14, %1124 ], [ 15, %1144 ], [ 16, %1164 ], [ 17, %1184 ], [ 18, %1204 ], [ 19, %1224 ], [ 20, %1244 ], [ 21, %1264 ], [ 22, %1284 ], [ 23, %1304 ], [ 60, %1324 ], [ 61, %1344 ], [ 62, %1364 ], [ 1, %1384 ], [ 31, %1404 ], [ 31, %1424 ]
-  %1716 = getelementptr inbounds i8, ptr %.sink1446, i64 44
-  %1717 = load i32, ptr %1716, align 4
+  %1715 = getelementptr inbounds i8, ptr %.sink1446, i64 44
+  %1716 = load i32, ptr %1715, align 4
   br label %.loopexit970.sink.split
 
 .loopexit970.sink.split:                          ; preds = %.loopexit970.sink.split.sink.split, %1424, %1408, %1404, %1388, %1384, %1368, %1364, %1348, %1344, %1328, %1324, %1308, %1304, %1288, %1284, %1268, %1264, %1248, %1244, %1228, %1224, %1208, %1204, %1188, %1184, %1168, %1164, %1148, %1144, %1128, %1124, %1108, %1104, %1088, %1084, %1068, %1064, %1048, %1044, %1028, %1024, %1008, %1004, %988, %984, %968, %964, %948, %944, %928, %924, %908, %904, %888, %884, %868, %864, %848, %844, %828, %824, %808, %804, %788, %784, %768, %764, %748, %744, %728, %724, %708, %704, %688, %684, %668, %664, %648, %644, %628, %624, %608, %604, %588, %584, %568, %564, %548, %544, %528, %524, %508, %504, %488, %484, %468, %464, %448, %444, %428, %424, %408, %404, %388, %384, %368, %364, %348, %344, %328, %324, %308, %304, %288, %284, %268, %264, %248, %244, %228, %224, %208, %204, %188, %184, %168
-  %.0.i963.sink = phi i32 [ 0, %168 ], [ 0, %184 ], [ 0, %188 ], [ 0, %204 ], [ 0, %208 ], [ 0, %224 ], [ 0, %228 ], [ 0, %244 ], [ 0, %248 ], [ 0, %264 ], [ 0, %268 ], [ 0, %284 ], [ 0, %288 ], [ 0, %304 ], [ 0, %308 ], [ 0, %324 ], [ 0, %328 ], [ 0, %344 ], [ 0, %348 ], [ 0, %364 ], [ 0, %368 ], [ 0, %384 ], [ 0, %388 ], [ 0, %404 ], [ 0, %408 ], [ 0, %424 ], [ 0, %428 ], [ 0, %444 ], [ 0, %448 ], [ 0, %464 ], [ 0, %468 ], [ 0, %484 ], [ 0, %488 ], [ 0, %504 ], [ 0, %508 ], [ 0, %524 ], [ 0, %528 ], [ 0, %544 ], [ 0, %548 ], [ 0, %564 ], [ 0, %568 ], [ 0, %584 ], [ 0, %588 ], [ 0, %604 ], [ 0, %608 ], [ 0, %624 ], [ 0, %628 ], [ 0, %644 ], [ 0, %648 ], [ 0, %664 ], [ 0, %668 ], [ 0, %684 ], [ 0, %688 ], [ 0, %704 ], [ 0, %708 ], [ 0, %724 ], [ 0, %728 ], [ 0, %744 ], [ 0, %748 ], [ 0, %764 ], [ 0, %768 ], [ 0, %784 ], [ 0, %788 ], [ 0, %804 ], [ 0, %808 ], [ 0, %824 ], [ 0, %828 ], [ 0, %844 ], [ 0, %848 ], [ 0, %864 ], [ 0, %868 ], [ 0, %884 ], [ 0, %888 ], [ 0, %904 ], [ 0, %908 ], [ 0, %924 ], [ 0, %928 ], [ 0, %944 ], [ 0, %948 ], [ 0, %964 ], [ 0, %968 ], [ 0, %984 ], [ 0, %988 ], [ 0, %1004 ], [ 0, %1008 ], [ 0, %1024 ], [ 0, %1028 ], [ 0, %1044 ], [ 0, %1048 ], [ 0, %1064 ], [ 0, %1068 ], [ 0, %1084 ], [ 0, %1088 ], [ 0, %1104 ], [ 0, %1108 ], [ 0, %1124 ], [ 0, %1128 ], [ 0, %1144 ], [ 0, %1148 ], [ 0, %1164 ], [ 0, %1168 ], [ 0, %1184 ], [ 0, %1188 ], [ 0, %1204 ], [ 0, %1208 ], [ 0, %1224 ], [ 0, %1228 ], [ 0, %1244 ], [ 0, %1248 ], [ 0, %1264 ], [ 0, %1268 ], [ 0, %1284 ], [ 0, %1288 ], [ 0, %1304 ], [ 0, %1308 ], [ 0, %1324 ], [ 0, %1328 ], [ 0, %1344 ], [ 0, %1348 ], [ 0, %1364 ], [ 0, %1368 ], [ 0, %1384 ], [ 0, %1388 ], [ 0, %1404 ], [ 0, %1408 ], [ 0, %1424 ], [ %1717, %.loopexit970.sink.split.sink.split ]
+  %.0.i963.sink = phi i32 [ 0, %168 ], [ 0, %184 ], [ 0, %188 ], [ 0, %204 ], [ 0, %208 ], [ 0, %224 ], [ 0, %228 ], [ 0, %244 ], [ 0, %248 ], [ 0, %264 ], [ 0, %268 ], [ 0, %284 ], [ 0, %288 ], [ 0, %304 ], [ 0, %308 ], [ 0, %324 ], [ 0, %328 ], [ 0, %344 ], [ 0, %348 ], [ 0, %364 ], [ 0, %368 ], [ 0, %384 ], [ 0, %388 ], [ 0, %404 ], [ 0, %408 ], [ 0, %424 ], [ 0, %428 ], [ 0, %444 ], [ 0, %448 ], [ 0, %464 ], [ 0, %468 ], [ 0, %484 ], [ 0, %488 ], [ 0, %504 ], [ 0, %508 ], [ 0, %524 ], [ 0, %528 ], [ 0, %544 ], [ 0, %548 ], [ 0, %564 ], [ 0, %568 ], [ 0, %584 ], [ 0, %588 ], [ 0, %604 ], [ 0, %608 ], [ 0, %624 ], [ 0, %628 ], [ 0, %644 ], [ 0, %648 ], [ 0, %664 ], [ 0, %668 ], [ 0, %684 ], [ 0, %688 ], [ 0, %704 ], [ 0, %708 ], [ 0, %724 ], [ 0, %728 ], [ 0, %744 ], [ 0, %748 ], [ 0, %764 ], [ 0, %768 ], [ 0, %784 ], [ 0, %788 ], [ 0, %804 ], [ 0, %808 ], [ 0, %824 ], [ 0, %828 ], [ 0, %844 ], [ 0, %848 ], [ 0, %864 ], [ 0, %868 ], [ 0, %884 ], [ 0, %888 ], [ 0, %904 ], [ 0, %908 ], [ 0, %924 ], [ 0, %928 ], [ 0, %944 ], [ 0, %948 ], [ 0, %964 ], [ 0, %968 ], [ 0, %984 ], [ 0, %988 ], [ 0, %1004 ], [ 0, %1008 ], [ 0, %1024 ], [ 0, %1028 ], [ 0, %1044 ], [ 0, %1048 ], [ 0, %1064 ], [ 0, %1068 ], [ 0, %1084 ], [ 0, %1088 ], [ 0, %1104 ], [ 0, %1108 ], [ 0, %1124 ], [ 0, %1128 ], [ 0, %1144 ], [ 0, %1148 ], [ 0, %1164 ], [ 0, %1168 ], [ 0, %1184 ], [ 0, %1188 ], [ 0, %1204 ], [ 0, %1208 ], [ 0, %1224 ], [ 0, %1228 ], [ 0, %1244 ], [ 0, %1248 ], [ 0, %1264 ], [ 0, %1268 ], [ 0, %1284 ], [ 0, %1288 ], [ 0, %1304 ], [ 0, %1308 ], [ 0, %1324 ], [ 0, %1328 ], [ 0, %1344 ], [ 0, %1348 ], [ 0, %1364 ], [ 0, %1368 ], [ 0, %1384 ], [ 0, %1388 ], [ 0, %1404 ], [ 0, %1408 ], [ 0, %1424 ], [ %1716, %.loopexit970.sink.split.sink.split ]
   %.0.ph = phi i32 [ 26, %168 ], [ 26, %184 ], [ 27, %188 ], [ 27, %204 ], [ 32, %208 ], [ 32, %224 ], [ 33, %228 ], [ 33, %244 ], [ 29, %248 ], [ 29, %264 ], [ 30, %268 ], [ 30, %284 ], [ 34, %288 ], [ 34, %304 ], [ 35, %308 ], [ 35, %324 ], [ 36, %328 ], [ 36, %344 ], [ 37, %348 ], [ 37, %364 ], [ 38, %368 ], [ 38, %384 ], [ 39, %388 ], [ 39, %404 ], [ 24, %408 ], [ 24, %424 ], [ 40, %428 ], [ 40, %444 ], [ 41, %448 ], [ 41, %464 ], [ 42, %468 ], [ 42, %484 ], [ 43, %488 ], [ 43, %504 ], [ 44, %508 ], [ 44, %524 ], [ 45, %528 ], [ 45, %544 ], [ 46, %548 ], [ 46, %564 ], [ 47, %568 ], [ 47, %584 ], [ 48, %588 ], [ 48, %604 ], [ 49, %608 ], [ 49, %624 ], [ 50, %628 ], [ 50, %644 ], [ 51, %648 ], [ 51, %664 ], [ 52, %668 ], [ 52, %684 ], [ 53, %688 ], [ 53, %704 ], [ 54, %708 ], [ 54, %724 ], [ 55, %728 ], [ 55, %744 ], [ 25, %748 ], [ 25, %764 ], [ 28, %768 ], [ 28, %784 ], [ 56, %788 ], [ 56, %804 ], [ 57, %808 ], [ 57, %824 ], [ 58, %828 ], [ 58, %844 ], [ 59, %848 ], [ 59, %864 ], [ 2, %868 ], [ 2, %884 ], [ 3, %888 ], [ 3, %904 ], [ 4, %908 ], [ 4, %924 ], [ 5, %928 ], [ 5, %944 ], [ 6, %948 ], [ 6, %964 ], [ 7, %968 ], [ 7, %984 ], [ 8, %988 ], [ 8, %1004 ], [ 9, %1008 ], [ 9, %1024 ], [ 10, %1028 ], [ 10, %1044 ], [ 11, %1048 ], [ 11, %1064 ], [ 12, %1068 ], [ 12, %1084 ], [ 13, %1088 ], [ 13, %1104 ], [ 14, %1108 ], [ 14, %1124 ], [ 15, %1128 ], [ 15, %1144 ], [ 16, %1148 ], [ 16, %1164 ], [ 17, %1168 ], [ 17, %1184 ], [ 18, %1188 ], [ 18, %1204 ], [ 19, %1208 ], [ 19, %1224 ], [ 20, %1228 ], [ 20, %1244 ], [ 21, %1248 ], [ 21, %1264 ], [ 22, %1268 ], [ 22, %1284 ], [ 23, %1288 ], [ 23, %1304 ], [ 60, %1308 ], [ 60, %1324 ], [ 61, %1328 ], [ 61, %1344 ], [ 62, %1348 ], [ 62, %1364 ], [ 1, %1368 ], [ 1, %1384 ], [ 31, %1388 ], [ 31, %1404 ], [ 31, %1408 ], [ 31, %1424 ], [ %.0.ph.ph, %.loopexit970.sink.split.sink.split ]
-  %1718 = load ptr, ptr %0, align 8
-  %1719 = getelementptr inbounds i8, ptr %1718, i64 56
-  %1720 = load ptr, ptr %1719, align 8
-  %1721 = getelementptr inbounds i8, ptr %1720, i64 8
-  store i32 %.0.i963.sink, ptr %1721, align 8
+  %1717 = load ptr, ptr %0, align 8
+  %1718 = getelementptr inbounds i8, ptr %1717, i64 56
+  %1719 = load ptr, ptr %1718, align 8
+  %1720 = getelementptr inbounds i8, ptr %1719, i64 8
+  store i32 %.0.i963.sink, ptr %1720, align 8
   br label %.loopexit970
 
 .loopexit970:                                     ; preds = %.loopexit971, %.loopexit971, %.loopexit970.sink.split

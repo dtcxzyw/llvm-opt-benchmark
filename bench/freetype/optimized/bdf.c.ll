@@ -4818,6 +4818,7 @@ switch.edge413:                                   ; preds = %184, %184, %184, %1
   %232 = load i64, ptr %195, align 8
   %233 = getelementptr inbounds i8, ptr %229, i64 8
   store i64 %232, ptr %233, align 8
+  store ptr null, ptr %230, align 8
   br label %266
 
 234:                                              ; preds = %.thread437, %208
@@ -4870,17 +4871,17 @@ switch.edge413:                                   ; preds = %184, %184, %184, %1
   store i64 %261, ptr %240, align 8
   %262 = getelementptr inbounds i8, ptr %257, i64 8
   store i64 %260, ptr %262, align 8
+  store ptr null, ptr %258, align 8
   br label %266
 
 263:                                              ; preds = %234
   %264 = getelementptr inbounds i8, ptr %4, i64 40
   %265 = load ptr, ptr %264, align 8
   tail call void @ft_mem_free(ptr noundef %12, ptr noundef %265) #18
+  store ptr null, ptr %264, align 8
   br label %266
 
 266:                                              ; preds = %254, %263, %225
-  %.sink = phi ptr [ %258, %254 ], [ %264, %263 ], [ %230, %225 ]
-  store ptr null, ptr %.sink, align 8
   %267 = load i64, ptr %4, align 8
   %268 = and i64 %267, -3221225601
   %269 = or disjoint i64 %268, 128
@@ -4896,11 +4897,11 @@ switch.edge413:                                   ; preds = %184, %184, %184, %1
   %272 = getelementptr inbounds i8, ptr %4, i64 48
   %273 = load i64, ptr %272, align 8
   %274 = icmp eq i64 %273, -1
-  %.474 = select i1 %274, i64 120, i64 96
-  %.475 = select i1 %274, i64 112, i64 88
-  %275 = getelementptr inbounds i8, ptr %10, i64 %.474
+  %.472 = select i1 %274, i64 120, i64 96
+  %.473 = select i1 %274, i64 112, i64 88
+  %275 = getelementptr inbounds i8, ptr %10, i64 %.472
   %276 = load ptr, ptr %275, align 8
-  %277 = getelementptr inbounds i8, ptr %10, i64 %.475
+  %277 = getelementptr inbounds i8, ptr %10, i64 %.473
   %278 = load i64, ptr %277, align 8
   %279 = getelementptr %struct.bdf_glyph_t_, ptr %276, i64 %278
   %280 = and i64 %38, 2048
@@ -5351,12 +5352,12 @@ thread-pre-split:                                 ; preds = %118, %127, %switch.
   br i1 %.not399, label %527, label %.thread438
 
 .thread438.sink.split:                            ; preds = %.critedge415, %.critedge428, %488, %492, %switch.edge429, %switch.edge413, %bdf_list_shift_.exit, %switch.edge410, %switch.edge404, %109, %40, %42
-  %.sink473 = phi i32 [ 180, %42 ], [ 180, %40 ], [ 6, %109 ], [ 186, %switch.edge404 ], [ 181, %switch.edge410 ], [ 3, %bdf_list_shift_.exit ], [ 181, %switch.edge413 ], [ 183, %switch.edge429 ], [ 184, %492 ], [ 3, %488 ], [ 3, %.critedge428 ], [ 182, %.critedge415 ]
-  store i32 %.sink473, ptr %8, align 4
+  %.sink471 = phi i32 [ 180, %42 ], [ 180, %40 ], [ 6, %109 ], [ 186, %switch.edge404 ], [ 181, %switch.edge410 ], [ 3, %bdf_list_shift_.exit ], [ 181, %switch.edge413 ], [ 183, %switch.edge429 ], [ 184, %492 ], [ 3, %488 ], [ 3, %.critedge428 ], [ 182, %.critedge415 ]
+  store i32 %.sink471, ptr %8, align 4
   br label %.thread438
 
 .thread438:                                       ; preds = %.thread438.sink.split, %switch.edge401, %113, %157, %175, %187, %216, %245, %switch.edge420, %switch.edge423, %switch.edge426, %509, %519
-  %521 = phi i32 [ %46, %switch.edge401 ], [ %117, %113 ], [ %161, %157 ], [ %179, %175 ], [ %189, %187 ], [ %221, %216 ], [ %250, %245 ], [ %370, %switch.edge420 ], [ %384, %switch.edge423 ], [ %416, %switch.edge426 ], [ %514, %509 ], [ %520, %519 ], [ %.sink473, %.thread438.sink.split ]
+  %521 = phi i32 [ %46, %switch.edge401 ], [ %117, %113 ], [ %161, %157 ], [ %179, %175 ], [ %189, %187 ], [ %221, %216 ], [ %250, %245 ], [ %370, %switch.edge420 ], [ %384, %switch.edge423 ], [ %416, %switch.edge426 ], [ %514, %509 ], [ %520, %519 ], [ %.sink471, %.thread438.sink.split ]
   %522 = load i64, ptr %4, align 8
   %523 = and i64 %522, 64
   %.not400 = icmp eq i64 %523, 0

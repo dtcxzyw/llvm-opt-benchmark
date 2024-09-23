@@ -2413,8 +2413,15 @@ if.end36:                                         ; preds = %if.end32
   %filtered_child_is_backing = getelementptr inbounds i8, ptr %2, i64 13
   %6 = load i8, ptr %filtered_child_is_backing, align 1
   %tobool38 = trunc i8 %6 to i1
-  %backing.file = select i1 %tobool38, ptr %backing, ptr %file
-  br label %if.end87.sink.split
+  br i1 %tobool38, label %if.then39, label %if.else41
+
+if.then39:                                        ; preds = %if.end36
+  store ptr %child, ptr %backing, align 8
+  br label %if.end87
+
+if.else41:                                        ; preds = %if.end36
+  store ptr %child, ptr %file, align 8
+  br label %if.end87
 
 if.else44:                                        ; preds = %if.end18
   br i1 %tobool47.not, label %if.end87, label %if.else49
@@ -2753,18 +2760,17 @@ if.then78:                                        ; preds = %if.else74
   %file79 = getelementptr inbounds i8, ptr %0, i64 16840
   %36 = load ptr, ptr %file79, align 8
   %tobool80.not = icmp eq ptr %36, null
-  br i1 %tobool80.not, label %if.end87.sink.split, label %if.else82
+  br i1 %tobool80.not, label %if.end83, label %if.else82
 
 if.else82:                                        ; preds = %if.then78
   tail call void @__assert_fail(ptr noundef nonnull @.str.167, ptr noundef nonnull @.str.2, i32 noundef 1458, ptr noundef nonnull @__PRETTY_FUNCTION__.bdrv_child_cb_attach) #33
   unreachable
 
-if.end87.sink.split:                              ; preds = %if.then78, %if.end36
-  %file79.sink = phi ptr [ %backing.file, %if.end36 ], [ %file79, %if.then78 ]
-  store ptr %child, ptr %file79.sink, align 8
+if.end83:                                         ; preds = %if.then78
+  store ptr %child, ptr %file79, align 8
   br label %if.end87
 
-if.end87:                                         ; preds = %for.inc.i71.i, %if.end87.sink.split, %do.end.i63.i, %if.else74, %if.else44
+if.end87:                                         ; preds = %for.inc.i71.i, %do.end.i63.i, %if.end83, %if.else74, %if.else41, %if.then39, %if.else44
   ret void
 }
 
@@ -2833,21 +2839,24 @@ if.end7:                                          ; preds = %if.end, %if.then1
   br i1 %cmp16, label %if.then17, label %if.else22
 
 if.then17:                                        ; preds = %if.end7
-  br i1 %cmp18.not, label %if.else, label %if.end28.sink.split
+  br i1 %cmp18.not, label %if.else, label %if.end20
 
 if.else:                                          ; preds = %if.then17
   tail call void @__assert_fail(ptr noundef nonnull @.str.173, ptr noundef nonnull @.str.2, i32 noundef 1474, ptr noundef nonnull @__PRETTY_FUNCTION__.bdrv_child_cb_detach) #33
   unreachable
 
-if.else22:                                        ; preds = %if.end7
-  br i1 %cmp18.not, label %if.end28.sink.split, label %if.end28
-
-if.end28.sink.split:                              ; preds = %if.else22, %if.then17
-  %file23.sink = phi ptr [ %backing, %if.then17 ], [ %file, %if.else22 ]
-  store ptr null, ptr %file23.sink, align 8
+if.end20:                                         ; preds = %if.then17
+  store ptr null, ptr %backing, align 8
   br label %if.end28
 
-if.end28:                                         ; preds = %if.end28.sink.split, %if.else22
+if.else22:                                        ; preds = %if.end7
+  br i1 %cmp18.not, label %if.then25, label %if.end28
+
+if.then25:                                        ; preds = %if.else22
+  store ptr null, ptr %file, align 8
+  br label %if.end28
+
+if.end28:                                         ; preds = %if.else22, %if.then25, %if.end20
   ret void
 }
 

@@ -762,7 +762,7 @@ for.end:                                          ; preds = %for.inc
   %6 = ashr i16 %5, 1
   %shr78 = sext i16 %6 to i32
   %cmp79.not = icmp sgt i32 %shr78, %sub74
-  br i1 %cmp79.not, label %return.sink.split, label %if.then81
+  br i1 %cmp79.not, label %if.else87, label %if.then81
 
 if.then81:                                        ; preds = %for.end
   %mul.i = mul i64 %total, 3
@@ -904,7 +904,10 @@ for.end97.i:                                      ; preds = %for.body86.i
   %idxprom100.i = zext i32 %spec.select88.i to i64
   %arrayidx101.i = getelementptr inbounds i16, ptr %normalizedCounter, i64 %idxprom100.i
   %16 = load i16, ptr %arrayidx101.i, align 2
-  br label %return.sink.split
+  %17 = trunc i32 %ToDistribute.0.i to i16
+  %conv104.i = add i16 %16, %17
+  store i16 %conv104.i, ptr %arrayidx101.i, align 2
+  br label %return
 
 if.end105.i:                                      ; preds = %if.end78.i
   %cmp106.i = icmp eq i64 %total.addr.2.i, 0
@@ -919,21 +922,21 @@ for.body112.i:                                    ; preds = %for.cond109.prehead
   %ToDistribute.199.i = phi i32 [ %ToDistribute.2.i, %for.inc123.i ], [ %ToDistribute.0.i, %for.cond109.preheader.i ]
   %idxprom113.i = zext i32 %s.3100.i to i64
   %arrayidx114.i = getelementptr inbounds i16, ptr %normalizedCounter, i64 %idxprom113.i
-  %17 = load i16, ptr %arrayidx114.i, align 2
-  %cmp116.i = icmp sgt i16 %17, 0
+  %18 = load i16, ptr %arrayidx114.i, align 2
+  %cmp116.i = icmp sgt i16 %18, 0
   br i1 %cmp116.i, label %if.then118.i, label %for.inc123.i
 
 if.then118.i:                                     ; preds = %for.body112.i
   %dec.i = add i32 %ToDistribute.199.i, -1
-  %inc121.i = add nuw i16 %17, 1
+  %inc121.i = add nuw i16 %18, 1
   store i16 %inc121.i, ptr %arrayidx114.i, align 2
   br label %for.inc123.i
 
 for.inc123.i:                                     ; preds = %if.then118.i, %for.body112.i
   %ToDistribute.2.i = phi i32 [ %dec.i, %if.then118.i ], [ %ToDistribute.199.i, %for.body112.i ]
   %add124.i = add i32 %s.3100.i, 1
-  %18 = icmp eq i32 %s.3100.i, %maxSymbolValue
-  %rem.i = select i1 %18, i32 0, i32 %add124.i
+  %19 = icmp eq i32 %s.3100.i, %maxSymbolValue
+  %rem.i = select i1 %19, i32 0, i32 %add124.i
   %cmp110.not.i = icmp eq i32 %ToDistribute.2.i, 0
   br i1 %cmp110.not.i, label %return, label %for.body112.i, !llvm.loop !23
 
@@ -953,14 +956,14 @@ for.body143.i:                                    ; preds = %for.inc168.i, %if.e
   %tmpTotal.096.i = phi i64 [ %sub132.i, %if.end127.i ], [ %tmpTotal.1.i, %for.inc168.i ]
   %idxprom144.i = zext i32 %s.497.i to i64
   %arrayidx145.i = getelementptr inbounds i16, ptr %normalizedCounter, i64 %idxprom144.i
-  %19 = load i16, ptr %arrayidx145.i, align 2
-  %cmp147.i = icmp eq i16 %19, -2
+  %20 = load i16, ptr %arrayidx145.i, align 2
+  %cmp147.i = icmp eq i16 %20, -2
   br i1 %cmp147.i, label %if.then149.i, label %for.inc168.i
 
 if.then149.i:                                     ; preds = %for.body143.i
   %arrayidx151.i = getelementptr inbounds i32, ptr %count, i64 %idxprom144.i
-  %20 = load i32, ptr %arrayidx151.i, align 4
-  %conv152.i = zext i32 %20 to i64
+  %21 = load i32, ptr %arrayidx151.i, align 4
+  %conv152.i = zext i32 %21 to i64
   %mul153.i = mul i64 %div139.i, %conv152.i
   %add154.i = add i64 %mul153.i, %tmpTotal.096.i
   %shr155.i = lshr i64 %tmpTotal.096.i, %conv10
@@ -981,17 +984,14 @@ for.inc168.i:                                     ; preds = %if.end163.i, %for.b
   %cmp141.not.i = icmp ugt i32 %inc169.i, %maxSymbolValue
   br i1 %cmp141.not.i, label %return, label %for.body143.i, !llvm.loop !24
 
-return.sink.split:                                ; preds = %for.end, %for.end97.i
-  %ToDistribute.0.i.sink = phi i32 [ %ToDistribute.0.i, %for.end97.i ], [ %stillToDistribute.1, %for.end ]
-  %.sink = phi i16 [ %16, %for.end97.i ], [ %5, %for.end ]
-  %arrayidx101.i.sink = phi ptr [ %arrayidx101.i, %for.end97.i ], [ %arrayidx76, %for.end ]
-  %21 = trunc i32 %ToDistribute.0.i.sink to i16
-  %conv104.i = add i16 %.sink, %21
-  store i16 %conv104.i, ptr %arrayidx101.i.sink, align 2
+if.else87:                                        ; preds = %for.end
+  %22 = trunc i32 %stillToDistribute.1 to i16
+  %conv94 = add i16 %5, %22
+  store i16 %conv94, ptr %arrayidx76, align 2
   br label %return
 
-return:                                           ; preds = %for.body, %if.then149.i, %for.inc168.i, %for.inc123.i, %return.sink.split, %for.cond109.preheader.i, %for.end.i, %if.end6, %if.end3, %entry
-  %retval.0 = phi i64 [ -1, %entry ], [ -44, %if.end3 ], [ -1, %if.end6 ], [ %sh_prom, %for.end.i ], [ %sh_prom, %for.cond109.preheader.i ], [ %sh_prom, %return.sink.split ], [ %sh_prom, %for.inc123.i ], [ -1, %if.then149.i ], [ %sh_prom, %for.inc168.i ], [ 0, %for.body ]
+return:                                           ; preds = %for.body, %if.then149.i, %for.inc168.i, %for.inc123.i, %for.cond109.preheader.i, %for.end.i, %for.end97.i, %if.else87, %if.end6, %if.end3, %entry
+  %retval.0 = phi i64 [ -1, %entry ], [ -44, %if.end3 ], [ -1, %if.end6 ], [ %sh_prom, %if.else87 ], [ %sh_prom, %for.end97.i ], [ %sh_prom, %for.end.i ], [ %sh_prom, %for.cond109.preheader.i ], [ %sh_prom, %for.inc123.i ], [ -1, %if.then149.i ], [ %sh_prom, %for.inc168.i ], [ 0, %for.body ]
   ret i64 %retval.0
 }
 

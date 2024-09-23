@@ -615,10 +615,10 @@ Cudd_PrintMinterm.exit:                           ; preds = %.lr.ph.i, %.prehead
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %69, %49, %6, %23
-  %.sink52 = phi ptr [ %24, %23 ], [ %7, %6 ], [ %39, %49 ], [ %39, %69 ]
+  %.sink.in = phi ptr [ %24, %23 ], [ %7, %6 ], [ %39, %49 ], [ %39, %69 ]
   %.040.ph = phi i32 [ 1, %23 ], [ 0, %6 ], [ %.4, %49 ], [ %70, %69 ]
-  %72 = load ptr, ptr %.sink52, align 8
-  %73 = tail call i32 @fflush(ptr noundef %72)
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %72 = tail call i32 @fflush(ptr noundef %.sink)
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %22, %27
@@ -2668,10 +2668,10 @@ define range(i32 0, 2) i32 @Cudd_bddPickOneCube(ptr nocapture noundef readonly %
   %20 = icmp slt i64 %indvars.iv.next, %19
   br i1 %20, label %.lr.ph, label %.preheader44, !llvm.loop !27
 
-.lr.ph48:                                         ; preds = %.lr.ph48.preheader, %90
-  %.03747 = phi ptr [ %.1, %90 ], [ %1, %.lr.ph48.preheader ]
-  %21 = phi i64 [ %92, %90 ], [ %cuddRand.promoted, %.lr.ph48.preheader ]
-  %22 = phi i64 [ %91, %90 ], [ %cuddRand2.promoted, %.lr.ph48.preheader ]
+.lr.ph48:                                         ; preds = %.lr.ph48.preheader, %91
+  %.03747 = phi ptr [ %.1, %91 ], [ %1, %.lr.ph48.preheader ]
+  %21 = phi i64 [ %93, %91 ], [ %cuddRand.promoted, %.lr.ph48.preheader ]
+  %22 = phi i64 [ %92, %91 ], [ %cuddRand2.promoted, %.lr.ph48.preheader ]
   %23 = ptrtoint ptr %.03747 to i64
   %24 = and i64 %23, -2
   %25 = inttoptr i64 %24 to ptr
@@ -2697,7 +2697,7 @@ define range(i32 0, 2) i32 @Cudd_bddPickOneCube(ptr nocapture noundef readonly %
   %40 = zext i32 %39 to i64
   %41 = getelementptr inbounds i8, ptr %2, i64 %40
   store i8 0, ptr %41, align 1
-  br label %90
+  br label %91
 
 42:                                               ; preds = %.lr.ph48
   %43 = icmp eq ptr %.039, %11
@@ -2708,7 +2708,7 @@ define range(i32 0, 2) i32 @Cudd_bddPickOneCube(ptr nocapture noundef readonly %
   %46 = zext i32 %45 to i64
   %47 = getelementptr inbounds i8, ptr %2, i64 %46
   store i8 1, ptr %47, align 1
-  br label %90
+  br label %91
 
 48:                                               ; preds = %42
   %49 = icmp eq i64 %21, 0
@@ -2735,62 +2735,62 @@ define range(i32 0, 2) i32 @Cudd_bddPickOneCube(ptr nocapture noundef readonly %
   br i1 %exitcond.not.i.i, label %Cudd_Random.exit, label %.preheader, !llvm.loop !28
 
 Cudd_Random.exit:                                 ; preds = %.preheader, %48
-  %shuffleSelect.sink.i = phi ptr [ @shuffleSelect, %48 ], [ getelementptr inbounds (i8, ptr @shuffleTable, i64 8), %.preheader ]
+  %.in.i = phi ptr [ @shuffleSelect, %48 ], [ getelementptr inbounds (i8, ptr @shuffleTable, i64 8), %.preheader ]
   %61 = phi i64 [ %22, %48 ], [ 1, %.preheader ]
   %62 = phi i64 [ %21, %48 ], [ 477372060, %.preheader ]
-  %.pre10.i = load i64, ptr %shuffleSelect.sink.i, align 8
-  %63 = sdiv i64 %62, 53668
-  %.neg.i = mul nsw i64 %63, -53668
-  %64 = add i64 %.neg.i, %62
-  %65 = mul nsw i64 %64, 40014
-  %.neg6.i = mul nsw i64 %63, -12211
-  %66 = add i64 %65, %.neg6.i
-  %isneg.i = icmp slt i64 %66, 0
-  %67 = select i1 %isneg.i, i64 2147483563, i64 0
-  %68 = add nsw i64 %67, %66
-  store i64 %68, ptr @cuddRand, align 8
-  %69 = sdiv i64 %61, 52774
-  %.neg7.i = mul nsw i64 %69, -52774
-  %70 = add i64 %.neg7.i, %61
-  %71 = mul nsw i64 %70, 40692
-  %.neg8.i = mul nsw i64 %69, -3791
-  %72 = add i64 %71, %.neg8.i
-  %isneg9.i = icmp slt i64 %72, 0
-  %73 = select i1 %isneg9.i, i64 2147483399, i64 0
-  %74 = add nsw i64 %73, %72
-  store i64 %74, ptr @cuddRand2, align 8
-  %75 = sdiv i64 %.pre10.i, 33554431
-  %sext.i = shl i64 %75, 32
-  %76 = ashr exact i64 %sext.i, 32
-  %77 = getelementptr inbounds [64 x i64], ptr @shuffleTable, i64 0, i64 %76
-  %78 = load i64, ptr %77, align 8
-  %79 = sub nsw i64 %78, %74
-  store i64 %68, ptr %77, align 8
-  %.inv.i = icmp sgt i64 %79, 0
-  %80 = select i1 %.inv.i, i64 0, i64 2147483562
-  %81 = add nsw i64 %80, %79
-  store i64 %81, ptr @shuffleSelect, align 8
-  %82 = add i64 %81, 16383
-  %83 = lshr i64 %82, 13
-  %84 = trunc i64 %83 to i8
-  %85 = and i8 %84, 1
-  %86 = load i32, ptr %25, align 8
-  %87 = zext i32 %86 to i64
-  %88 = getelementptr inbounds i8, ptr %2, i64 %87
-  store i8 %85, ptr %88, align 1
-  %.not43 = icmp eq i8 %85, 0
-  %89 = select i1 %.not43, ptr %.039, ptr %.038
-  br label %90
+  %63 = load i64, ptr %.in.i, align 8
+  %64 = sdiv i64 %62, 53668
+  %.neg.i = mul nsw i64 %64, -53668
+  %65 = add i64 %.neg.i, %62
+  %66 = mul nsw i64 %65, 40014
+  %.neg6.i = mul nsw i64 %64, -12211
+  %67 = add i64 %66, %.neg6.i
+  %isneg.i = icmp slt i64 %67, 0
+  %68 = select i1 %isneg.i, i64 2147483563, i64 0
+  %69 = add nsw i64 %68, %67
+  store i64 %69, ptr @cuddRand, align 8
+  %70 = sdiv i64 %61, 52774
+  %.neg7.i = mul nsw i64 %70, -52774
+  %71 = add i64 %.neg7.i, %61
+  %72 = mul nsw i64 %71, 40692
+  %.neg8.i = mul nsw i64 %70, -3791
+  %73 = add i64 %72, %.neg8.i
+  %isneg9.i = icmp slt i64 %73, 0
+  %74 = select i1 %isneg9.i, i64 2147483399, i64 0
+  %75 = add nsw i64 %74, %73
+  store i64 %75, ptr @cuddRand2, align 8
+  %76 = sdiv i64 %63, 33554431
+  %sext.i = shl i64 %76, 32
+  %77 = ashr exact i64 %sext.i, 32
+  %78 = getelementptr inbounds [64 x i64], ptr @shuffleTable, i64 0, i64 %77
+  %79 = load i64, ptr %78, align 8
+  %80 = sub nsw i64 %79, %75
+  store i64 %69, ptr %78, align 8
+  %.inv.i = icmp sgt i64 %80, 0
+  %81 = select i1 %.inv.i, i64 0, i64 2147483562
+  %82 = add nsw i64 %81, %80
+  store i64 %82, ptr @shuffleSelect, align 8
+  %83 = add i64 %82, 16383
+  %84 = lshr i64 %83, 13
+  %85 = trunc i64 %84 to i8
+  %86 = and i8 %85, 1
+  %87 = load i32, ptr %25, align 8
+  %88 = zext i32 %87 to i64
+  %89 = getelementptr inbounds i8, ptr %2, i64 %88
+  store i8 %86, ptr %89, align 1
+  %.not43 = icmp eq i8 %86, 0
+  %90 = select i1 %.not43, ptr %.039, ptr %.038
+  br label %91
 
-90:                                               ; preds = %44, %Cudd_Random.exit, %38
-  %91 = phi i64 [ %22, %38 ], [ %22, %44 ], [ %74, %Cudd_Random.exit ]
-  %92 = phi i64 [ %21, %38 ], [ %21, %44 ], [ %68, %Cudd_Random.exit ]
-  %.1 = phi ptr [ %.039, %38 ], [ %.038, %44 ], [ %89, %Cudd_Random.exit ]
-  %93 = icmp eq ptr %.1, %8
-  br i1 %93, label %.loopexit, label %.lr.ph48
+91:                                               ; preds = %44, %Cudd_Random.exit, %38
+  %92 = phi i64 [ %22, %38 ], [ %22, %44 ], [ %75, %Cudd_Random.exit ]
+  %93 = phi i64 [ %21, %38 ], [ %21, %44 ], [ %69, %Cudd_Random.exit ]
+  %.1 = phi ptr [ %.039, %38 ], [ %.038, %44 ], [ %90, %Cudd_Random.exit ]
+  %94 = icmp eq ptr %.1, %8
+  br i1 %94, label %.loopexit, label %.lr.ph48
 
-.loopexit:                                        ; preds = %90, %.preheader44, %6, %3
-  %.036 = phi i32 [ 0, %3 ], [ 0, %6 ], [ 1, %.preheader44 ], [ 1, %90 ]
+.loopexit:                                        ; preds = %91, %.preheader44, %6, %3
+  %.036 = phi i32 [ 0, %3 ], [ 0, %6 ], [ 1, %.preheader44 ], [ 1, %91 ]
   ret i32 %.036
 }
 
@@ -2825,43 +2825,43 @@ define range(i64 -9223372036854775808, 9223372036854775807) i64 @Cudd_Random() l
   br i1 %exitcond.not.i, label %Cudd_Srandom.exit, label %.preheader, !llvm.loop !28
 
 Cudd_Srandom.exit:                                ; preds = %.preheader, %._crit_edge
-  %shuffleSelect.sink = phi ptr [ @shuffleSelect, %._crit_edge ], [ getelementptr inbounds (i8, ptr @shuffleTable, i64 8), %.preheader ]
+  %.in = phi ptr [ @shuffleSelect, %._crit_edge ], [ getelementptr inbounds (i8, ptr @shuffleTable, i64 8), %.preheader ]
   %14 = phi i64 [ %.pre, %._crit_edge ], [ 1, %.preheader ]
   %15 = phi i64 [ %1, %._crit_edge ], [ 477372060, %.preheader ]
-  %.pre10 = load i64, ptr %shuffleSelect.sink, align 8
-  %16 = sdiv i64 %15, 53668
-  %.neg = mul nsw i64 %16, -53668
-  %17 = add i64 %.neg, %15
-  %18 = mul nsw i64 %17, 40014
-  %.neg6 = mul nsw i64 %16, -12211
-  %19 = add i64 %18, %.neg6
-  %isneg = icmp slt i64 %19, 0
-  %20 = select i1 %isneg, i64 2147483563, i64 0
-  %21 = add nsw i64 %20, %19
-  store i64 %21, ptr @cuddRand, align 8
-  %22 = sdiv i64 %14, 52774
-  %.neg7 = mul nsw i64 %22, -52774
-  %23 = add i64 %.neg7, %14
-  %24 = mul nsw i64 %23, 40692
-  %.neg8 = mul nsw i64 %22, -3791
-  %25 = add i64 %24, %.neg8
-  %isneg9 = icmp slt i64 %25, 0
-  %26 = select i1 %isneg9, i64 2147483399, i64 0
-  %27 = add nsw i64 %26, %25
-  store i64 %27, ptr @cuddRand2, align 8
-  %28 = sdiv i64 %.pre10, 33554431
-  %sext = shl i64 %28, 32
-  %29 = ashr exact i64 %sext, 32
-  %30 = getelementptr inbounds [64 x i64], ptr @shuffleTable, i64 0, i64 %29
-  %31 = load i64, ptr %30, align 8
-  %32 = sub nsw i64 %31, %27
-  store i64 %21, ptr %30, align 8
-  %.inv = icmp sgt i64 %32, 0
-  %33 = select i1 %.inv, i64 0, i64 2147483562
-  %34 = add nsw i64 %33, %32
-  store i64 %34, ptr @shuffleSelect, align 8
-  %35 = add nsw i64 %34, -1
-  ret i64 %35
+  %16 = load i64, ptr %.in, align 8
+  %17 = sdiv i64 %15, 53668
+  %.neg = mul nsw i64 %17, -53668
+  %18 = add i64 %.neg, %15
+  %19 = mul nsw i64 %18, 40014
+  %.neg6 = mul nsw i64 %17, -12211
+  %20 = add i64 %19, %.neg6
+  %isneg = icmp slt i64 %20, 0
+  %21 = select i1 %isneg, i64 2147483563, i64 0
+  %22 = add nsw i64 %21, %20
+  store i64 %22, ptr @cuddRand, align 8
+  %23 = sdiv i64 %14, 52774
+  %.neg7 = mul nsw i64 %23, -52774
+  %24 = add i64 %.neg7, %14
+  %25 = mul nsw i64 %24, 40692
+  %.neg8 = mul nsw i64 %23, -3791
+  %26 = add i64 %25, %.neg8
+  %isneg9 = icmp slt i64 %26, 0
+  %27 = select i1 %isneg9, i64 2147483399, i64 0
+  %28 = add nsw i64 %27, %26
+  store i64 %28, ptr @cuddRand2, align 8
+  %29 = sdiv i64 %16, 33554431
+  %sext = shl i64 %29, 32
+  %30 = ashr exact i64 %sext, 32
+  %31 = getelementptr inbounds [64 x i64], ptr @shuffleTable, i64 0, i64 %30
+  %32 = load i64, ptr %31, align 8
+  %33 = sub nsw i64 %32, %28
+  store i64 %22, ptr %31, align 8
+  %.inv = icmp sgt i64 %33, 0
+  %34 = select i1 %.inv, i64 0, i64 2147483562
+  %35 = add nsw i64 %34, %33
+  store i64 %35, ptr @shuffleSelect, align 8
+  %36 = add nsw i64 %35, -1
+  ret i64 %36
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2876,7 +2876,7 @@ define ptr @Cudd_bddPickOneMinterm(ptr noundef %0, ptr noundef %1, ptr nocapture
 10:                                               ; preds = %4
   %11 = getelementptr inbounds i8, ptr %0, i64 624
   store i32 1, ptr %11, align 8
-  br label %112
+  br label %113
 
 12:                                               ; preds = %4
   %13 = sext i32 %3 to i64
@@ -2897,7 +2897,7 @@ define ptr @Cudd_bddPickOneMinterm(ptr noundef %0, ptr noundef %1, ptr nocapture
   %19 = getelementptr inbounds i8, ptr %0, i64 624
   store i32 1, ptr %19, align 8
   tail call void @free(ptr noundef nonnull %8) #23
-  br label %112
+  br label %113
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -2929,19 +2929,19 @@ define ptr @Cudd_bddPickOneMinterm(ptr noundef %0, ptr noundef %1, ptr nocapture
 28:                                               ; preds = %._crit_edge.thread, %._crit_edge
   tail call void @free(ptr noundef %8) #23
   tail call void @free(ptr noundef nonnull %15) #23
-  br label %112
+  br label %113
 
-.lr.ph73:                                         ; preds = %.lr.ph73.preheader, %75
-  %indvars.iv84 = phi i64 [ 0, %.lr.ph73.preheader ], [ %indvars.iv.next85, %75 ]
-  %29 = phi i64 [ %cuddRand.promoted, %.lr.ph73.preheader ], [ %77, %75 ]
-  %30 = phi i64 [ %cuddRand2.promoted, %.lr.ph73.preheader ], [ %76, %75 ]
+.lr.ph73:                                         ; preds = %.lr.ph73.preheader, %76
+  %indvars.iv84 = phi i64 [ 0, %.lr.ph73.preheader ], [ %indvars.iv.next85, %76 ]
+  %29 = phi i64 [ %cuddRand.promoted, %.lr.ph73.preheader ], [ %78, %76 ]
+  %30 = phi i64 [ %cuddRand2.promoted, %.lr.ph73.preheader ], [ %77, %76 ]
   %31 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv84
   %32 = load i32, ptr %31, align 4
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds i8, ptr %8, i64 %33
   %35 = load i8, ptr %34, align 1
   %36 = icmp eq i8 %35, 2
-  br i1 %36, label %37, label %75
+  br i1 %36, label %37, label %76
 
 37:                                               ; preds = %.lr.ph73
   %38 = icmp eq i64 %29, 0
@@ -2968,121 +2968,121 @@ define ptr @Cudd_bddPickOneMinterm(ptr noundef %0, ptr noundef %1, ptr nocapture
   br i1 %exitcond.not.i.i, label %Cudd_Random.exit, label %.preheader, !llvm.loop !28
 
 Cudd_Random.exit:                                 ; preds = %.preheader, %37
-  %shuffleSelect.sink.i = phi ptr [ @shuffleSelect, %37 ], [ getelementptr inbounds (i8, ptr @shuffleTable, i64 8), %.preheader ]
+  %.in.i = phi ptr [ @shuffleSelect, %37 ], [ getelementptr inbounds (i8, ptr @shuffleTable, i64 8), %.preheader ]
   %50 = phi i64 [ %30, %37 ], [ 1, %.preheader ]
   %51 = phi i64 [ %29, %37 ], [ 477372060, %.preheader ]
-  %.pre10.i = load i64, ptr %shuffleSelect.sink.i, align 8
-  %52 = sdiv i64 %51, 53668
-  %.neg.i = mul nsw i64 %52, -53668
-  %53 = add i64 %.neg.i, %51
-  %54 = mul nsw i64 %53, 40014
-  %.neg6.i = mul nsw i64 %52, -12211
-  %55 = add i64 %54, %.neg6.i
-  %isneg.i = icmp slt i64 %55, 0
-  %56 = select i1 %isneg.i, i64 2147483563, i64 0
-  %57 = add nsw i64 %56, %55
-  store i64 %57, ptr @cuddRand, align 8
-  %58 = sdiv i64 %50, 52774
-  %.neg7.i = mul nsw i64 %58, -52774
-  %59 = add i64 %.neg7.i, %50
-  %60 = mul nsw i64 %59, 40692
-  %.neg8.i = mul nsw i64 %58, -3791
-  %61 = add i64 %60, %.neg8.i
-  %isneg9.i = icmp slt i64 %61, 0
-  %62 = select i1 %isneg9.i, i64 2147483399, i64 0
-  %63 = add nsw i64 %62, %61
-  store i64 %63, ptr @cuddRand2, align 8
-  %64 = sdiv i64 %.pre10.i, 33554431
-  %sext.i = shl i64 %64, 32
-  %65 = ashr exact i64 %sext.i, 32
-  %66 = getelementptr inbounds [64 x i64], ptr @shuffleTable, i64 0, i64 %65
-  %67 = load i64, ptr %66, align 8
-  %68 = sub nsw i64 %67, %63
-  store i64 %57, ptr %66, align 8
-  %.inv.i = icmp sgt i64 %68, 0
-  %69 = select i1 %.inv.i, i64 0, i64 2147483562
-  %70 = add nsw i64 %69, %68
-  store i64 %70, ptr @shuffleSelect, align 8
-  %71 = trunc i64 %70 to i8
-  %72 = add i8 %71, 63
-  %73 = lshr i8 %72, 5
-  %74 = and i8 %73, 1
-  store i8 %74, ptr %34, align 1
-  br label %75
+  %52 = load i64, ptr %.in.i, align 8
+  %53 = sdiv i64 %51, 53668
+  %.neg.i = mul nsw i64 %53, -53668
+  %54 = add i64 %.neg.i, %51
+  %55 = mul nsw i64 %54, 40014
+  %.neg6.i = mul nsw i64 %53, -12211
+  %56 = add i64 %55, %.neg6.i
+  %isneg.i = icmp slt i64 %56, 0
+  %57 = select i1 %isneg.i, i64 2147483563, i64 0
+  %58 = add nsw i64 %57, %56
+  store i64 %58, ptr @cuddRand, align 8
+  %59 = sdiv i64 %50, 52774
+  %.neg7.i = mul nsw i64 %59, -52774
+  %60 = add i64 %.neg7.i, %50
+  %61 = mul nsw i64 %60, 40692
+  %.neg8.i = mul nsw i64 %59, -3791
+  %62 = add i64 %61, %.neg8.i
+  %isneg9.i = icmp slt i64 %62, 0
+  %63 = select i1 %isneg9.i, i64 2147483399, i64 0
+  %64 = add nsw i64 %63, %62
+  store i64 %64, ptr @cuddRand2, align 8
+  %65 = sdiv i64 %52, 33554431
+  %sext.i = shl i64 %65, 32
+  %66 = ashr exact i64 %sext.i, 32
+  %67 = getelementptr inbounds [64 x i64], ptr @shuffleTable, i64 0, i64 %66
+  %68 = load i64, ptr %67, align 8
+  %69 = sub nsw i64 %68, %64
+  store i64 %58, ptr %67, align 8
+  %.inv.i = icmp sgt i64 %69, 0
+  %70 = select i1 %.inv.i, i64 0, i64 2147483562
+  %71 = add nsw i64 %70, %69
+  store i64 %71, ptr @shuffleSelect, align 8
+  %72 = trunc i64 %71 to i8
+  %73 = add i8 %72, 63
+  %74 = lshr i8 %73, 5
+  %75 = and i8 %74, 1
+  store i8 %75, ptr %34, align 1
+  br label %76
 
-75:                                               ; preds = %.lr.ph73, %Cudd_Random.exit
-  %76 = phi i64 [ %30, %.lr.ph73 ], [ %63, %Cudd_Random.exit ]
-  %77 = phi i64 [ %29, %.lr.ph73 ], [ %57, %Cudd_Random.exit ]
+76:                                               ; preds = %.lr.ph73, %Cudd_Random.exit
+  %77 = phi i64 [ %30, %.lr.ph73 ], [ %64, %Cudd_Random.exit ]
+  %78 = phi i64 [ %29, %.lr.ph73 ], [ %58, %Cudd_Random.exit ]
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %exitcond88.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count87
   br i1 %exitcond88.not, label %._crit_edge74, label %.lr.ph73, !llvm.loop !30
 
-._crit_edge74:                                    ; preds = %75, %._crit_edge.thread
-  %78 = tail call ptr @Cudd_ReadOne(ptr noundef %0) #23
-  %79 = ptrtoint ptr %78 to i64
-  %80 = and i64 %79, -2
-  %81 = inttoptr i64 %80 to ptr
-  %82 = getelementptr inbounds i8, ptr %81, i64 4
-  %83 = load i32, ptr %82, align 4
-  %84 = add i32 %83, 1
-  store i32 %84, ptr %82, align 4
+._crit_edge74:                                    ; preds = %76, %._crit_edge.thread
+  %79 = tail call ptr @Cudd_ReadOne(ptr noundef %0) #23
+  %80 = ptrtoint ptr %79 to i64
+  %81 = and i64 %80, -2
+  %82 = inttoptr i64 %81 to ptr
+  %83 = getelementptr inbounds i8, ptr %82, i64 4
+  %84 = load i32, ptr %83, align 4
+  %85 = add i32 %84, 1
+  store i32 %85, ptr %83, align 4
   br i1 %17, label %.lr.ph79.preheader, label %._crit_edge80
 
 .lr.ph79.preheader:                               ; preds = %._crit_edge74
-  %85 = zext nneg i32 %3 to i64
+  %86 = zext nneg i32 %3 to i64
   br label %.lr.ph79
 
-.lr.ph79:                                         ; preds = %.lr.ph79.preheader, %101
-  %indvars.iv89 = phi i64 [ %85, %.lr.ph79.preheader ], [ %indvars.iv.next90, %101 ]
-  %.06276 = phi ptr [ %78, %.lr.ph79.preheader ], [ %98, %101 ]
+.lr.ph79:                                         ; preds = %.lr.ph79.preheader, %102
+  %indvars.iv89 = phi i64 [ %86, %.lr.ph79.preheader ], [ %indvars.iv.next90, %102 ]
+  %.06276 = phi ptr [ %79, %.lr.ph79.preheader ], [ %99, %102 ]
   %indvars.iv.next90 = add nsw i64 %indvars.iv89, -1
-  %86 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.next90
-  %87 = load ptr, ptr %86, align 8
-  %88 = ptrtoint ptr %87 to i64
-  %89 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv.next90
-  %90 = load i32, ptr %89, align 4
-  %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds i8, ptr %8, i64 %91
-  %93 = load i8, ptr %92, align 1
-  %94 = icmp eq i8 %93, 0
-  %95 = zext i1 %94 to i64
-  %96 = xor i64 %95, %88
-  %97 = inttoptr i64 %96 to ptr
-  %98 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %.06276, ptr noundef %97) #23
-  %99 = icmp eq ptr %98, null
-  br i1 %99, label %100, label %101
+  %87 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.next90
+  %88 = load ptr, ptr %87, align 8
+  %89 = ptrtoint ptr %88 to i64
+  %90 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv.next90
+  %91 = load i32, ptr %90, align 4
+  %92 = sext i32 %91 to i64
+  %93 = getelementptr inbounds i8, ptr %8, i64 %92
+  %94 = load i8, ptr %93, align 1
+  %95 = icmp eq i8 %94, 0
+  %96 = zext i1 %95 to i64
+  %97 = xor i64 %96, %89
+  %98 = inttoptr i64 %97 to ptr
+  %99 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %.06276, ptr noundef %98) #23
+  %100 = icmp eq ptr %99, null
+  br i1 %100, label %101, label %102
 
-100:                                              ; preds = %.lr.ph79
+101:                                              ; preds = %.lr.ph79
   tail call void @free(ptr noundef nonnull %8) #23
   tail call void @free(ptr noundef nonnull %15) #23
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.06276) #23
-  br label %112
+  br label %113
 
-101:                                              ; preds = %.lr.ph79
-  %102 = ptrtoint ptr %98 to i64
-  %103 = and i64 %102, -2
-  %104 = inttoptr i64 %103 to ptr
-  %105 = getelementptr inbounds i8, ptr %104, i64 4
-  %106 = load i32, ptr %105, align 4
-  %107 = add i32 %106, 1
-  store i32 %107, ptr %105, align 4
+102:                                              ; preds = %.lr.ph79
+  %103 = ptrtoint ptr %99 to i64
+  %104 = and i64 %103, -2
+  %105 = inttoptr i64 %104 to ptr
+  %106 = getelementptr inbounds i8, ptr %105, i64 4
+  %107 = load i32, ptr %106, align 4
+  %108 = add i32 %107, 1
+  store i32 %108, ptr %106, align 4
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.06276) #23
-  %108 = icmp ugt i64 %indvars.iv89, 1
-  br i1 %108, label %.lr.ph79, label %._crit_edge80, !llvm.loop !31
+  %109 = icmp ugt i64 %indvars.iv89, 1
+  br i1 %109, label %.lr.ph79, label %._crit_edge80, !llvm.loop !31
 
-._crit_edge80:                                    ; preds = %101, %._crit_edge74
-  %.pre-phi93 = phi ptr [ %81, %._crit_edge74 ], [ %104, %101 ]
-  %.062.lcssa = phi ptr [ %78, %._crit_edge74 ], [ %98, %101 ]
-  %109 = getelementptr inbounds i8, ptr %.pre-phi93, i64 4
-  %110 = load i32, ptr %109, align 4
-  %111 = add i32 %110, -1
-  store i32 %111, ptr %109, align 4
+._crit_edge80:                                    ; preds = %102, %._crit_edge74
+  %.pre-phi93 = phi ptr [ %82, %._crit_edge74 ], [ %105, %102 ]
+  %.062.lcssa = phi ptr [ %79, %._crit_edge74 ], [ %99, %102 ]
+  %110 = getelementptr inbounds i8, ptr %.pre-phi93, i64 4
+  %111 = load i32, ptr %110, align 4
+  %112 = add i32 %111, -1
+  store i32 %112, ptr %110, align 4
   tail call void @free(ptr noundef %8) #23
   tail call void @free(ptr noundef %15) #23
-  br label %112
+  br label %113
 
-112:                                              ; preds = %._crit_edge80, %100, %28, %18, %10
-  %.0 = phi ptr [ null, %10 ], [ null, %18 ], [ null, %28 ], [ null, %100 ], [ %.062.lcssa, %._crit_edge80 ]
+113:                                              ; preds = %._crit_edge80, %101, %28, %18, %10
+  %.0 = phi ptr [ null, %10 ], [ null, %18 ], [ null, %28 ], [ null, %101 ], [ %.062.lcssa, %._crit_edge80 ]
   ret ptr %.0
 }
 
@@ -3093,7 +3093,7 @@ define noalias noundef ptr @Cudd_bddPickArbitraryMinterms(ptr noundef %0, ptr no
   %6 = tail call double @Cudd_CountMinterm(ptr noundef %0, ptr noundef %1, i32 noundef %3)
   %7 = sitofp i32 %4 to double
   %8 = fcmp olt double %6, %7
-  br i1 %8, label %266, label %9
+  br i1 %8, label %268, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %0, i64 136
@@ -3120,7 +3120,7 @@ define noalias noundef ptr @Cudd_bddPickArbitraryMinterms(ptr noundef %0, ptr no
 22:                                               ; preds = %9
   %23 = getelementptr inbounds i8, ptr %0, i64 624
   store i32 1, ptr %23, align 8
-  br label %266
+  br label %268
 
 24:                                               ; preds = %.lr.ph370, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph370 ], [ %indvars.iv.next, %._crit_edge ]
@@ -3150,7 +3150,7 @@ define noalias noundef ptr @Cudd_bddPickArbitraryMinterms(ptr noundef %0, ptr no
   tail call void @free(ptr noundef nonnull %14) #23
   %30 = getelementptr inbounds i8, ptr %0, i64 624
   store i32 1, ptr %30, align 8
-  br label %266
+  br label %268
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %.preheader361
   %31 = getelementptr inbounds i8, ptr %25, i64 %20
@@ -3202,7 +3202,7 @@ define noalias noundef ptr @Cudd_bddPickArbitraryMinterms(ptr noundef %0, ptr no
 
 ._crit_edge440:                                   ; preds = %42, %37
   tail call void @free(ptr noundef nonnull %14) #23
-  br label %266
+  br label %268
 
 .lr.ph373:                                        ; preds = %.lr.ph373.preheader, %.lr.ph373
   %indvars.iv459 = phi i64 [ 0, %.lr.ph373.preheader ], [ %indvars.iv.next460, %.lr.ph373 ]
@@ -3247,7 +3247,7 @@ define noalias noundef ptr @Cudd_bddPickArbitraryMinterms(ptr noundef %0, ptr no
 ._crit_edge436:                                   ; preds = %52, %.preheader349
   tail call void @free(ptr noundef %14) #23
   tail call void @free(ptr noundef %34) #23
-  br label %266
+  br label %268
 
 53:                                               ; preds = %._crit_edge374
   %54 = tail call noalias ptr @malloc(i64 noundef %13) #22
@@ -3283,7 +3283,7 @@ define noalias noundef ptr @Cudd_bddPickArbitraryMinterms(ptr noundef %0, ptr no
 ._crit_edge433:                                   ; preds = %61, %56
   tail call void @free(ptr noundef %14) #23
   tail call void @free(ptr noundef %34) #23
-  br label %266
+  br label %268
 
 62:                                               ; preds = %53
   %63 = add nsw i32 %11, 1
@@ -3339,13 +3339,13 @@ define noalias noundef ptr @Cudd_bddPickArbitraryMinterms(ptr noundef %0, ptr no
   tail call void @free(ptr noundef %14) #23
   tail call void @free(ptr noundef %34) #23
   tail call void @free(ptr noundef %54) #23
-  br label %266
+  br label %268
 
-74:                                               ; preds = %.lr.ph410, %253
-  %indvars.iv512 = phi i32 [ 1, %.lr.ph410 ], [ %indvars.iv.next513, %253 ]
-  %indvars.iv464 = phi i64 [ 0, %.lr.ph410 ], [ %indvars.iv.next465, %253 ]
-  %.0276409 = phi i32 [ -1, %.lr.ph410 ], [ %.1277, %253 ]
-  %.0278408 = phi i32 [ 0, %.lr.ph410 ], [ %.1279, %253 ]
+74:                                               ; preds = %.lr.ph410, %255
+  %indvars.iv512 = phi i32 [ 1, %.lr.ph410 ], [ %indvars.iv.next513, %255 ]
+  %indvars.iv464 = phi i64 [ 0, %.lr.ph410 ], [ %indvars.iv.next465, %255 ]
+  %.0276409 = phi i32 [ -1, %.lr.ph410 ], [ %.1277, %255 ]
+  %.0278408 = phi i32 [ 0, %.lr.ph410 ], [ %.1279, %255 ]
   %.not312 = icmp eq i32 %.0278408, 0
   %75 = trunc nuw nsw i64 %indvars.iv464 to i32
   %76 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv464
@@ -3400,11 +3400,11 @@ define noalias noundef ptr @Cudd_bddPickArbitraryMinterms(ptr noundef %0, ptr no
 .lr.ph377:                                        ; preds = %.loopexit356
   %93 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv464
   %94 = load ptr, ptr %93, align 8
-  br label %153
+  br label %154
 
-.preheader354:                                    ; preds = %199, %.loopexit356
-  %cuddRand2.promoted392 = phi i64 [ %cuddRand2.promoted392.pre, %.loopexit356 ], [ %200, %199 ]
-  %cuddRand.promoted386 = phi i64 [ %cuddRand.promoted386.pre, %.loopexit356 ], [ %201, %199 ]
+.preheader354:                                    ; preds = %201, %.loopexit356
+  %cuddRand2.promoted392 = phi i64 [ %cuddRand2.promoted392.pre, %.loopexit356 ], [ %202, %201 ]
+  %cuddRand.promoted386 = phi i64 [ %cuddRand.promoted386.pre, %.loopexit356 ], [ %203, %201 ]
   br i1 %.not313398, label %._crit_edge401, label %.preheader351.lr.ph
 
 .preheader351.lr.ph:                              ; preds = %.preheader354
@@ -3439,369 +3439,369 @@ define noalias noundef ptr @Cudd_bddPickArbitraryMinterms(ptr noundef %0, ptr no
   %104 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull dereferenceable(1) %65) #23
   br i1 %36, label %.lr.ph385.us, label %.loopexit.us
 
-.loopexit.us:                                     ; preds = %150, %103
-  %cuddRand2.promoted382393.us = phi i64 [ %cuddRand2.promoted382397399.us, %103 ], [ %cuddRand2.promoted382395.us, %150 ]
-  %cuddRand.promoted381387.us = phi i64 [ %cuddRand.promoted381391400.us, %103 ], [ %cuddRand.promoted381389.us, %150 ]
+.loopexit.us:                                     ; preds = %151, %103
+  %cuddRand2.promoted382393.us = phi i64 [ %cuddRand2.promoted382397399.us, %103 ], [ %cuddRand2.promoted382395.us, %151 ]
+  %cuddRand.promoted381387.us = phi i64 [ %cuddRand.promoted381391400.us, %103 ], [ %cuddRand.promoted381389.us, %151 ]
   br label %.preheader351.us, !llvm.loop !41
 
-.lr.ph385.us:                                     ; preds = %103, %150
-  %indvars.iv486 = phi i64 [ %indvars.iv.next487, %150 ], [ 0, %103 ]
-  %cuddRand2.promoted382396.us = phi i64 [ %cuddRand2.promoted382395.us, %150 ], [ %cuddRand2.promoted382397399.us, %103 ]
-  %cuddRand.promoted381390.us = phi i64 [ %cuddRand.promoted381389.us, %150 ], [ %cuddRand.promoted381391400.us, %103 ]
-  %105 = phi i64 [ %152, %150 ], [ %cuddRand.promoted381391400.us, %103 ]
-  %106 = phi i64 [ %151, %150 ], [ %cuddRand2.promoted382397399.us, %103 ]
+.lr.ph385.us:                                     ; preds = %103, %151
+  %indvars.iv486 = phi i64 [ %indvars.iv.next487, %151 ], [ 0, %103 ]
+  %cuddRand2.promoted382396.us = phi i64 [ %cuddRand2.promoted382395.us, %151 ], [ %cuddRand2.promoted382397399.us, %103 ]
+  %cuddRand.promoted381390.us = phi i64 [ %cuddRand.promoted381389.us, %151 ], [ %cuddRand.promoted381391400.us, %103 ]
+  %105 = phi i64 [ %153, %151 ], [ %cuddRand.promoted381391400.us, %103 ]
+  %106 = phi i64 [ %152, %151 ], [ %cuddRand2.promoted382397399.us, %103 ]
   %107 = getelementptr inbounds i32, ptr %34, i64 %indvars.iv486
   %108 = load i32, ptr %107, align 4
   %109 = sext i32 %108 to i64
   %110 = getelementptr inbounds i8, ptr %97, i64 %109
   %111 = load i8, ptr %110, align 1
   %112 = icmp eq i8 %111, 50
-  br i1 %112, label %113, label %150
+  br i1 %112, label %113, label %151
 
 113:                                              ; preds = %.lr.ph385.us
   %114 = icmp eq i64 %105, 0
   br i1 %114, label %.preheader350.us, label %Cudd_Random.exit345.us
 
 .preheader350.us:                                 ; preds = %113, %.preheader350.us
-  %.011.i.i340.us = phi i32 [ %125, %.preheader350.us ], [ 0, %113 ]
+  %.011.i.i339.us = phi i32 [ %125, %.preheader350.us ], [ 0, %113 ]
   %115 = phi i64 [ %121, %.preheader350.us ], [ 1, %113 ]
   %116 = sdiv i64 %115, 53668
-  %.neg.i.i341.us = mul nsw i64 %116, -53668
-  %117 = add i64 %.neg.i.i341.us, %115
+  %.neg.i.i340.us = mul nsw i64 %116, -53668
+  %117 = add i64 %.neg.i.i340.us, %115
   %118 = mul nsw i64 %117, 40014
-  %.neg10.i.i342.us = mul nsw i64 %116, -12211
-  %119 = add i64 %118, %.neg10.i.i342.us
-  %isneg.i.i343.us = icmp slt i64 %119, 0
-  %120 = select i1 %isneg.i.i343.us, i64 2147483563, i64 0
+  %.neg10.i.i341.us = mul nsw i64 %116, -12211
+  %119 = add i64 %118, %.neg10.i.i341.us
+  %isneg.i.i342.us = icmp slt i64 %119, 0
+  %120 = select i1 %isneg.i.i342.us, i64 2147483563, i64 0
   %121 = add nsw i64 %120, %119
-  %122 = and i32 %.011.i.i340.us, 63
+  %122 = and i32 %.011.i.i339.us, 63
   %123 = zext nneg i32 %122 to i64
   %124 = getelementptr inbounds [64 x i64], ptr @shuffleTable, i64 0, i64 %123
   store i64 %121, ptr %124, align 8
-  %125 = add nuw nsw i32 %.011.i.i340.us, 1
-  %exitcond.not.i.i344.us = icmp eq i32 %125, 75
-  br i1 %exitcond.not.i.i344.us, label %Cudd_Random.exit345.us, label %.preheader350.us, !llvm.loop !28
+  %125 = add nuw nsw i32 %.011.i.i339.us, 1
+  %exitcond.not.i.i343.us = icmp eq i32 %125, 75
+  br i1 %exitcond.not.i.i343.us, label %Cudd_Random.exit345.us, label %.preheader350.us, !llvm.loop !28
 
 Cudd_Random.exit345.us:                           ; preds = %.preheader350.us, %113
-  %shuffleSelect.sink.i330.us = phi ptr [ @shuffleSelect, %113 ], [ getelementptr inbounds (i8, ptr @shuffleTable, i64 8), %.preheader350.us ]
+  %.in.i330.us = phi ptr [ @shuffleSelect, %113 ], [ getelementptr inbounds (i8, ptr @shuffleTable, i64 8), %.preheader350.us ]
   %126 = phi i64 [ %106, %113 ], [ 1, %.preheader350.us ]
   %127 = phi i64 [ %105, %113 ], [ 477372060, %.preheader350.us ]
-  %.pre10.i331.us = load i64, ptr %shuffleSelect.sink.i330.us, align 8
-  %128 = sdiv i64 %127, 53668
-  %.neg.i332.us = mul nsw i64 %128, -53668
-  %129 = add i64 %.neg.i332.us, %127
-  %130 = mul nsw i64 %129, 40014
-  %.neg6.i333.us = mul nsw i64 %128, -12211
-  %131 = add i64 %130, %.neg6.i333.us
-  %isneg.i334.us = icmp slt i64 %131, 0
-  %132 = select i1 %isneg.i334.us, i64 2147483563, i64 0
-  %133 = add nsw i64 %132, %131
-  store i64 %133, ptr @cuddRand, align 8
-  %134 = sdiv i64 %126, 52774
-  %.neg7.i335.us = mul nsw i64 %134, -52774
-  %135 = add i64 %.neg7.i335.us, %126
-  %136 = mul nsw i64 %135, 40692
-  %.neg8.i336.us = mul nsw i64 %134, -3791
-  %137 = add i64 %136, %.neg8.i336.us
-  %isneg9.i337.us = icmp slt i64 %137, 0
-  %138 = select i1 %isneg9.i337.us, i64 2147483399, i64 0
-  %139 = add nsw i64 %138, %137
-  store i64 %139, ptr @cuddRand2, align 8
-  %140 = sdiv i64 %.pre10.i331.us, 33554431
-  %sext.i338.us = shl i64 %140, 32
-  %141 = ashr exact i64 %sext.i338.us, 32
-  %142 = getelementptr inbounds [64 x i64], ptr @shuffleTable, i64 0, i64 %141
-  %143 = load i64, ptr %142, align 8
-  %144 = sub nsw i64 %143, %139
-  store i64 %133, ptr %142, align 8
-  %.inv.i339.us = icmp sgt i64 %144, 0
-  %145 = select i1 %.inv.i339.us, i64 0, i64 2147483562
-  %146 = add nsw i64 %145, %144
-  store i64 %146, ptr @shuffleSelect, align 8
-  %147 = add i64 %146, 63
-  %148 = and i64 %147, 32
-  %.not321.us = icmp eq i64 %148, 0
-  %149 = select i1 %.not321.us, i8 48, i8 49
-  store i8 %149, ptr %110, align 1
-  br label %150
+  %128 = load i64, ptr %.in.i330.us, align 8
+  %129 = sdiv i64 %127, 53668
+  %.neg.i331.us = mul nsw i64 %129, -53668
+  %130 = add i64 %.neg.i331.us, %127
+  %131 = mul nsw i64 %130, 40014
+  %.neg6.i332.us = mul nsw i64 %129, -12211
+  %132 = add i64 %131, %.neg6.i332.us
+  %isneg.i333.us = icmp slt i64 %132, 0
+  %133 = select i1 %isneg.i333.us, i64 2147483563, i64 0
+  %134 = add nsw i64 %133, %132
+  store i64 %134, ptr @cuddRand, align 8
+  %135 = sdiv i64 %126, 52774
+  %.neg7.i334.us = mul nsw i64 %135, -52774
+  %136 = add i64 %.neg7.i334.us, %126
+  %137 = mul nsw i64 %136, 40692
+  %.neg8.i335.us = mul nsw i64 %135, -3791
+  %138 = add i64 %137, %.neg8.i335.us
+  %isneg9.i336.us = icmp slt i64 %138, 0
+  %139 = select i1 %isneg9.i336.us, i64 2147483399, i64 0
+  %140 = add nsw i64 %139, %138
+  store i64 %140, ptr @cuddRand2, align 8
+  %141 = sdiv i64 %128, 33554431
+  %sext.i337.us = shl i64 %141, 32
+  %142 = ashr exact i64 %sext.i337.us, 32
+  %143 = getelementptr inbounds [64 x i64], ptr @shuffleTable, i64 0, i64 %142
+  %144 = load i64, ptr %143, align 8
+  %145 = sub nsw i64 %144, %140
+  store i64 %134, ptr %143, align 8
+  %.inv.i338.us = icmp sgt i64 %145, 0
+  %146 = select i1 %.inv.i338.us, i64 0, i64 2147483562
+  %147 = add nsw i64 %146, %145
+  store i64 %147, ptr @shuffleSelect, align 8
+  %148 = add i64 %147, 63
+  %149 = and i64 %148, 32
+  %.not321.us = icmp eq i64 %149, 0
+  %150 = select i1 %.not321.us, i8 48, i8 49
+  store i8 %150, ptr %110, align 1
+  br label %151
 
-150:                                              ; preds = %Cudd_Random.exit345.us, %.lr.ph385.us
-  %cuddRand2.promoted382395.us = phi i64 [ %cuddRand2.promoted382396.us, %.lr.ph385.us ], [ %139, %Cudd_Random.exit345.us ]
-  %cuddRand.promoted381389.us = phi i64 [ %cuddRand.promoted381390.us, %.lr.ph385.us ], [ %133, %Cudd_Random.exit345.us ]
-  %151 = phi i64 [ %106, %.lr.ph385.us ], [ %139, %Cudd_Random.exit345.us ]
-  %152 = phi i64 [ %105, %.lr.ph385.us ], [ %133, %Cudd_Random.exit345.us ]
+151:                                              ; preds = %Cudd_Random.exit345.us, %.lr.ph385.us
+  %cuddRand2.promoted382395.us = phi i64 [ %cuddRand2.promoted382396.us, %.lr.ph385.us ], [ %140, %Cudd_Random.exit345.us ]
+  %cuddRand.promoted381389.us = phi i64 [ %cuddRand.promoted381390.us, %.lr.ph385.us ], [ %134, %Cudd_Random.exit345.us ]
+  %152 = phi i64 [ %106, %.lr.ph385.us ], [ %140, %Cudd_Random.exit345.us ]
+  %153 = phi i64 [ %105, %.lr.ph385.us ], [ %134, %Cudd_Random.exit345.us ]
   %indvars.iv.next487 = add nuw nsw i64 %indvars.iv486, 1
   %exitcond490.not = icmp eq i64 %indvars.iv.next487, %wide.trip.count489
   br i1 %exitcond490.not, label %.loopexit.us, label %.lr.ph385.us, !llvm.loop !42
 
-153:                                              ; preds = %.lr.ph377, %199
-  %indvars.iv476 = phi i64 [ 0, %.lr.ph377 ], [ %indvars.iv.next477, %199 ]
-  %154 = phi i64 [ %cuddRand.promoted386.pre, %.lr.ph377 ], [ %201, %199 ]
-  %155 = phi i64 [ %cuddRand2.promoted392.pre, %.lr.ph377 ], [ %200, %199 ]
-  %156 = getelementptr inbounds i32, ptr %34, i64 %indvars.iv476
-  %157 = load i32, ptr %156, align 4
-  %158 = sext i32 %157 to i64
-  %159 = getelementptr inbounds i8, ptr %94, i64 %158
-  %160 = load i8, ptr %159, align 1
-  %161 = icmp eq i8 %160, 50
-  br i1 %161, label %162, label %199
+154:                                              ; preds = %.lr.ph377, %201
+  %indvars.iv476 = phi i64 [ 0, %.lr.ph377 ], [ %indvars.iv.next477, %201 ]
+  %155 = phi i64 [ %cuddRand.promoted386.pre, %.lr.ph377 ], [ %203, %201 ]
+  %156 = phi i64 [ %cuddRand2.promoted392.pre, %.lr.ph377 ], [ %202, %201 ]
+  %157 = getelementptr inbounds i32, ptr %34, i64 %indvars.iv476
+  %158 = load i32, ptr %157, align 4
+  %159 = sext i32 %158 to i64
+  %160 = getelementptr inbounds i8, ptr %94, i64 %159
+  %161 = load i8, ptr %160, align 1
+  %162 = icmp eq i8 %161, 50
+  br i1 %162, label %163, label %201
 
-162:                                              ; preds = %153
-  %163 = icmp eq i64 %154, 0
-  br i1 %163, label %.preheader353, label %Cudd_Random.exit
+163:                                              ; preds = %154
+  %164 = icmp eq i64 %155, 0
+  br i1 %164, label %.preheader353, label %Cudd_Random.exit
 
-.preheader353:                                    ; preds = %162, %.preheader353
-  %.011.i.i = phi i32 [ %174, %.preheader353 ], [ 0, %162 ]
-  %164 = phi i64 [ %170, %.preheader353 ], [ 1, %162 ]
-  %165 = sdiv i64 %164, 53668
-  %.neg.i.i = mul nsw i64 %165, -53668
-  %166 = add i64 %.neg.i.i, %164
-  %167 = mul nsw i64 %166, 40014
-  %.neg10.i.i = mul nsw i64 %165, -12211
-  %168 = add i64 %167, %.neg10.i.i
-  %isneg.i.i = icmp slt i64 %168, 0
-  %169 = select i1 %isneg.i.i, i64 2147483563, i64 0
-  %170 = add nsw i64 %169, %168
-  %171 = and i32 %.011.i.i, 63
-  %172 = zext nneg i32 %171 to i64
-  %173 = getelementptr inbounds [64 x i64], ptr @shuffleTable, i64 0, i64 %172
-  store i64 %170, ptr %173, align 8
-  %174 = add nuw nsw i32 %.011.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %174, 75
+.preheader353:                                    ; preds = %163, %.preheader353
+  %.011.i.i = phi i32 [ %175, %.preheader353 ], [ 0, %163 ]
+  %165 = phi i64 [ %171, %.preheader353 ], [ 1, %163 ]
+  %166 = sdiv i64 %165, 53668
+  %.neg.i.i = mul nsw i64 %166, -53668
+  %167 = add i64 %.neg.i.i, %165
+  %168 = mul nsw i64 %167, 40014
+  %.neg10.i.i = mul nsw i64 %166, -12211
+  %169 = add i64 %168, %.neg10.i.i
+  %isneg.i.i = icmp slt i64 %169, 0
+  %170 = select i1 %isneg.i.i, i64 2147483563, i64 0
+  %171 = add nsw i64 %170, %169
+  %172 = and i32 %.011.i.i, 63
+  %173 = zext nneg i32 %172 to i64
+  %174 = getelementptr inbounds [64 x i64], ptr @shuffleTable, i64 0, i64 %173
+  store i64 %171, ptr %174, align 8
+  %175 = add nuw nsw i32 %.011.i.i, 1
+  %exitcond.not.i.i = icmp eq i32 %175, 75
   br i1 %exitcond.not.i.i, label %Cudd_Random.exit, label %.preheader353, !llvm.loop !28
 
-Cudd_Random.exit:                                 ; preds = %.preheader353, %162
-  %shuffleSelect.sink.i = phi ptr [ @shuffleSelect, %162 ], [ getelementptr inbounds (i8, ptr @shuffleTable, i64 8), %.preheader353 ]
-  %175 = phi i64 [ %155, %162 ], [ 1, %.preheader353 ]
-  %176 = phi i64 [ %154, %162 ], [ 477372060, %.preheader353 ]
-  %.pre10.i = load i64, ptr %shuffleSelect.sink.i, align 8
-  %177 = sdiv i64 %176, 53668
-  %.neg.i = mul nsw i64 %177, -53668
-  %178 = add i64 %.neg.i, %176
-  %179 = mul nsw i64 %178, 40014
-  %.neg6.i = mul nsw i64 %177, -12211
-  %180 = add i64 %179, %.neg6.i
-  %isneg.i = icmp slt i64 %180, 0
-  %181 = select i1 %isneg.i, i64 2147483563, i64 0
-  %182 = add nsw i64 %181, %180
-  store i64 %182, ptr @cuddRand, align 8
-  %183 = sdiv i64 %175, 52774
-  %.neg7.i = mul nsw i64 %183, -52774
-  %184 = add i64 %.neg7.i, %175
-  %185 = mul nsw i64 %184, 40692
-  %.neg8.i = mul nsw i64 %183, -3791
-  %186 = add i64 %185, %.neg8.i
-  %isneg9.i = icmp slt i64 %186, 0
-  %187 = select i1 %isneg9.i, i64 2147483399, i64 0
-  %188 = add nsw i64 %187, %186
-  store i64 %188, ptr @cuddRand2, align 8
-  %189 = sdiv i64 %.pre10.i, 33554431
-  %sext.i = shl i64 %189, 32
-  %190 = ashr exact i64 %sext.i, 32
-  %191 = getelementptr inbounds [64 x i64], ptr @shuffleTable, i64 0, i64 %190
-  %192 = load i64, ptr %191, align 8
-  %193 = sub nsw i64 %192, %188
-  store i64 %182, ptr %191, align 8
-  %.inv.i = icmp sgt i64 %193, 0
-  %194 = select i1 %.inv.i, i64 0, i64 2147483562
-  %195 = add nsw i64 %194, %193
-  store i64 %195, ptr @shuffleSelect, align 8
-  %196 = add i64 %195, 63
-  %197 = and i64 %196, 32
-  %.not322 = icmp eq i64 %197, 0
-  %198 = select i1 %.not322, i8 48, i8 49
-  store i8 %198, ptr %159, align 1
-  br label %199
+Cudd_Random.exit:                                 ; preds = %.preheader353, %163
+  %.in.i = phi ptr [ @shuffleSelect, %163 ], [ getelementptr inbounds (i8, ptr @shuffleTable, i64 8), %.preheader353 ]
+  %176 = phi i64 [ %156, %163 ], [ 1, %.preheader353 ]
+  %177 = phi i64 [ %155, %163 ], [ 477372060, %.preheader353 ]
+  %178 = load i64, ptr %.in.i, align 8
+  %179 = sdiv i64 %177, 53668
+  %.neg.i = mul nsw i64 %179, -53668
+  %180 = add i64 %.neg.i, %177
+  %181 = mul nsw i64 %180, 40014
+  %.neg6.i = mul nsw i64 %179, -12211
+  %182 = add i64 %181, %.neg6.i
+  %isneg.i = icmp slt i64 %182, 0
+  %183 = select i1 %isneg.i, i64 2147483563, i64 0
+  %184 = add nsw i64 %183, %182
+  store i64 %184, ptr @cuddRand, align 8
+  %185 = sdiv i64 %176, 52774
+  %.neg7.i = mul nsw i64 %185, -52774
+  %186 = add i64 %.neg7.i, %176
+  %187 = mul nsw i64 %186, 40692
+  %.neg8.i = mul nsw i64 %185, -3791
+  %188 = add i64 %187, %.neg8.i
+  %isneg9.i = icmp slt i64 %188, 0
+  %189 = select i1 %isneg9.i, i64 2147483399, i64 0
+  %190 = add nsw i64 %189, %188
+  store i64 %190, ptr @cuddRand2, align 8
+  %191 = sdiv i64 %178, 33554431
+  %sext.i = shl i64 %191, 32
+  %192 = ashr exact i64 %sext.i, 32
+  %193 = getelementptr inbounds [64 x i64], ptr @shuffleTable, i64 0, i64 %192
+  %194 = load i64, ptr %193, align 8
+  %195 = sub nsw i64 %194, %190
+  store i64 %184, ptr %193, align 8
+  %.inv.i = icmp sgt i64 %195, 0
+  %196 = select i1 %.inv.i, i64 0, i64 2147483562
+  %197 = add nsw i64 %196, %195
+  store i64 %197, ptr @shuffleSelect, align 8
+  %198 = add i64 %197, 63
+  %199 = and i64 %198, 32
+  %.not322 = icmp eq i64 %199, 0
+  %200 = select i1 %.not322, i8 48, i8 49
+  store i8 %200, ptr %160, align 1
+  br label %201
 
-199:                                              ; preds = %153, %Cudd_Random.exit
-  %200 = phi i64 [ %155, %153 ], [ %188, %Cudd_Random.exit ]
-  %201 = phi i64 [ %154, %153 ], [ %182, %Cudd_Random.exit ]
+201:                                              ; preds = %154, %Cudd_Random.exit
+  %202 = phi i64 [ %156, %154 ], [ %190, %Cudd_Random.exit ]
+  %203 = phi i64 [ %155, %154 ], [ %184, %Cudd_Random.exit ]
   %indvars.iv.next477 = add nuw nsw i64 %indvars.iv476, 1
   %exitcond480.not = icmp eq i64 %indvars.iv.next477, %wide.trip.count479
-  br i1 %exitcond480.not, label %.preheader354, label %153, !llvm.loop !43
+  br i1 %exitcond480.not, label %.preheader354, label %154, !llvm.loop !43
 
 ._crit_edge401:                                   ; preds = %98, %.preheader351.lr.ph, %.preheader354
-  %202 = tail call ptr @Cudd_ReadOne(ptr noundef %0) #23
-  %203 = getelementptr inbounds ptr, ptr %54, i64 %indvars.iv464
-  store ptr %202, ptr %203, align 8
-  %204 = ptrtoint ptr %202 to i64
-  %205 = and i64 %204, -2
-  %206 = inttoptr i64 %205 to ptr
-  %207 = getelementptr inbounds i8, ptr %206, i64 4
-  %208 = load i32, ptr %207, align 4
-  %209 = add i32 %208, 1
-  store i32 %209, ptr %207, align 4
+  %204 = tail call ptr @Cudd_ReadOne(ptr noundef %0) #23
+  %205 = getelementptr inbounds ptr, ptr %54, i64 %indvars.iv464
+  store ptr %204, ptr %205, align 8
+  %206 = ptrtoint ptr %204 to i64
+  %207 = and i64 %206, -2
+  %208 = inttoptr i64 %207 to ptr
+  %209 = getelementptr inbounds i8, ptr %208, i64 4
+  %210 = load i32, ptr %209, align 4
+  %211 = add i32 %210, 1
+  store i32 %211, ptr %209, align 4
   br i1 %36, label %.lr.ph404, label %._crit_edge405
 
 .lr.ph404:                                        ; preds = %._crit_edge401
-  %210 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv464
-  %211 = load ptr, ptr %210, align 8
-  br label %212
+  %212 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv464
+  %213 = load ptr, ptr %212, align 8
+  br label %214
 
-212:                                              ; preds = %.lr.ph404, %235
-  %213 = phi ptr [ %202, %.lr.ph404 ], [ %225, %235 ]
-  %indvars.iv491 = phi i64 [ 0, %.lr.ph404 ], [ %indvars.iv.next492, %235 ]
-  %214 = getelementptr inbounds i32, ptr %34, i64 %indvars.iv491
-  %215 = load i32, ptr %214, align 4
-  %216 = sext i32 %215 to i64
-  %217 = getelementptr inbounds i8, ptr %211, i64 %216
-  %218 = load i8, ptr %217, align 1
-  %219 = icmp eq i8 %218, 48
-  %220 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv491
-  %221 = load ptr, ptr %220, align 8
-  %222 = ptrtoint ptr %221 to i64
-  %223 = xor i64 %222, 1
-  %224 = inttoptr i64 %223 to ptr
-  %.sink571 = select i1 %219, ptr %224, ptr %221
-  %225 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %213, ptr noundef %.sink571) #23
-  %226 = icmp eq ptr %225, null
-  br i1 %226, label %.lr.ph423.preheader, label %235
+214:                                              ; preds = %.lr.ph404, %237
+  %215 = phi ptr [ %204, %.lr.ph404 ], [ %227, %237 ]
+  %indvars.iv491 = phi i64 [ 0, %.lr.ph404 ], [ %indvars.iv.next492, %237 ]
+  %216 = getelementptr inbounds i32, ptr %34, i64 %indvars.iv491
+  %217 = load i32, ptr %216, align 4
+  %218 = sext i32 %217 to i64
+  %219 = getelementptr inbounds i8, ptr %213, i64 %218
+  %220 = load i8, ptr %219, align 1
+  %221 = icmp eq i8 %220, 48
+  %222 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv491
+  %223 = load ptr, ptr %222, align 8
+  %224 = ptrtoint ptr %223 to i64
+  %225 = xor i64 %224, 1
+  %226 = inttoptr i64 %225 to ptr
+  %.sink571 = select i1 %221, ptr %226, ptr %223
+  %227 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %215, ptr noundef %.sink571) #23
+  %228 = icmp eq ptr %227, null
+  br i1 %228, label %.lr.ph423.preheader, label %237
 
-.lr.ph423.preheader:                              ; preds = %212
+.lr.ph423.preheader:                              ; preds = %214
   tail call void @free(ptr noundef %65) #23
   br label %.lr.ph423
 
-.lr.ph423:                                        ; preds = %.lr.ph423.preheader, %230
-  %indvars.iv518 = phi i64 [ 0, %.lr.ph423.preheader ], [ %indvars.iv.next519, %230 ]
-  %227 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv518
-  %228 = load ptr, ptr %227, align 8
-  %.not318 = icmp eq ptr %228, null
-  br i1 %.not318, label %230, label %229
+.lr.ph423:                                        ; preds = %.lr.ph423.preheader, %232
+  %indvars.iv518 = phi i64 [ 0, %.lr.ph423.preheader ], [ %indvars.iv.next519, %232 ]
+  %229 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv518
+  %230 = load ptr, ptr %229, align 8
+  %.not318 = icmp eq ptr %230, null
+  br i1 %.not318, label %232, label %231
 
-229:                                              ; preds = %.lr.ph423
-  tail call void @free(ptr noundef nonnull %228) #23
-  store ptr null, ptr %227, align 8
-  br label %230
+231:                                              ; preds = %.lr.ph423
+  tail call void @free(ptr noundef nonnull %230) #23
+  store ptr null, ptr %229, align 8
+  br label %232
 
-230:                                              ; preds = %229, %.lr.ph423
+232:                                              ; preds = %231, %.lr.ph423
   %indvars.iv.next519 = add nuw nsw i64 %indvars.iv518, 1
   %exitcond522.not = icmp eq i64 %indvars.iv.next519, %wide.trip.count497
   br i1 %exitcond522.not, label %._crit_edge424, label %.lr.ph423, !llvm.loop !44
 
-._crit_edge424:                                   ; preds = %230
+._crit_edge424:                                   ; preds = %232
   tail call void @free(ptr noundef nonnull %14) #23
   tail call void @free(ptr noundef %34) #23
   %wide.trip.count528 = zext i32 %indvars.iv512 to i64
-  br label %231
+  br label %233
 
-231:                                              ; preds = %._crit_edge424, %231
-  %indvars.iv523 = phi i64 [ 0, %._crit_edge424 ], [ %indvars.iv.next524, %231 ]
-  %232 = getelementptr inbounds ptr, ptr %54, i64 %indvars.iv523
-  %233 = load ptr, ptr %232, align 8
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %233) #23
+233:                                              ; preds = %._crit_edge424, %233
+  %indvars.iv523 = phi i64 [ 0, %._crit_edge424 ], [ %indvars.iv.next524, %233 ]
+  %234 = getelementptr inbounds ptr, ptr %54, i64 %indvars.iv523
+  %235 = load ptr, ptr %234, align 8
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %235) #23
   %indvars.iv.next524 = add nuw nsw i64 %indvars.iv523, 1
   %exitcond529.not = icmp eq i64 %indvars.iv.next524, %wide.trip.count528
-  br i1 %exitcond529.not, label %234, label %231, !llvm.loop !45
+  br i1 %exitcond529.not, label %236, label %233, !llvm.loop !45
 
-234:                                              ; preds = %231
+236:                                              ; preds = %233
   tail call void @free(ptr noundef nonnull %54) #23
-  br label %266
+  br label %268
 
-235:                                              ; preds = %212
-  %236 = ptrtoint ptr %225 to i64
-  %237 = and i64 %236, -2
-  %238 = inttoptr i64 %237 to ptr
-  %239 = getelementptr inbounds i8, ptr %238, i64 4
-  %240 = load i32, ptr %239, align 4
-  %241 = add i32 %240, 1
-  store i32 %241, ptr %239, align 4
-  %242 = load ptr, ptr %203, align 8
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %242) #23
-  store ptr %225, ptr %203, align 8
+237:                                              ; preds = %214
+  %238 = ptrtoint ptr %227 to i64
+  %239 = and i64 %238, -2
+  %240 = inttoptr i64 %239 to ptr
+  %241 = getelementptr inbounds i8, ptr %240, i64 4
+  %242 = load i32, ptr %241, align 4
+  %243 = add i32 %242, 1
+  store i32 %243, ptr %241, align 4
+  %244 = load ptr, ptr %205, align 8
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %244) #23
+  store ptr %227, ptr %205, align 8
   %indvars.iv.next492 = add nuw nsw i64 %indvars.iv491, 1
   %exitcond495.not = icmp eq i64 %indvars.iv.next492, %wide.trip.count494
-  br i1 %exitcond495.not, label %._crit_edge405, label %212, !llvm.loop !46
+  br i1 %exitcond495.not, label %._crit_edge405, label %214, !llvm.loop !46
 
-._crit_edge405:                                   ; preds = %235, %._crit_edge401
-  %243 = phi ptr [ %202, %._crit_edge401 ], [ %225, %235 ]
-  %244 = tail call i32 @Cudd_bddLeq(ptr noundef %0, ptr noundef %243, ptr noundef %1) #23
-  %.not314 = icmp eq i32 %244, 0
-  br i1 %.not314, label %.lr.ph418.preheader, label %253
+._crit_edge405:                                   ; preds = %237, %._crit_edge401
+  %245 = phi ptr [ %204, %._crit_edge401 ], [ %227, %237 ]
+  %246 = tail call i32 @Cudd_bddLeq(ptr noundef %0, ptr noundef %245, ptr noundef %1) #23
+  %.not314 = icmp eq i32 %246, 0
+  br i1 %.not314, label %.lr.ph418.preheader, label %255
 
 .lr.ph418.preheader:                              ; preds = %._crit_edge405
   tail call void @free(ptr noundef %65) #23
   br label %.lr.ph418
 
-.lr.ph418:                                        ; preds = %.lr.ph418.preheader, %248
-  %indvars.iv504 = phi i64 [ 0, %.lr.ph418.preheader ], [ %indvars.iv.next505, %248 ]
-  %245 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv504
-  %246 = load ptr, ptr %245, align 8
-  %.not316 = icmp eq ptr %246, null
-  br i1 %.not316, label %248, label %247
+.lr.ph418:                                        ; preds = %.lr.ph418.preheader, %250
+  %indvars.iv504 = phi i64 [ 0, %.lr.ph418.preheader ], [ %indvars.iv.next505, %250 ]
+  %247 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv504
+  %248 = load ptr, ptr %247, align 8
+  %.not316 = icmp eq ptr %248, null
+  br i1 %.not316, label %250, label %249
 
-247:                                              ; preds = %.lr.ph418
-  tail call void @free(ptr noundef nonnull %246) #23
-  store ptr null, ptr %245, align 8
-  br label %248
+249:                                              ; preds = %.lr.ph418
+  tail call void @free(ptr noundef nonnull %248) #23
+  store ptr null, ptr %247, align 8
+  br label %250
 
-248:                                              ; preds = %247, %.lr.ph418
+250:                                              ; preds = %249, %.lr.ph418
   %indvars.iv.next505 = add nuw nsw i64 %indvars.iv504, 1
   %exitcond508.not = icmp eq i64 %indvars.iv.next505, %wide.trip.count497
   br i1 %exitcond508.not, label %._crit_edge419, label %.lr.ph418, !llvm.loop !47
 
-._crit_edge419:                                   ; preds = %248
+._crit_edge419:                                   ; preds = %250
   tail call void @free(ptr noundef nonnull %14) #23
   tail call void @free(ptr noundef %34) #23
   %wide.trip.count516 = zext i32 %indvars.iv512 to i64
-  br label %249
+  br label %251
 
-249:                                              ; preds = %._crit_edge419, %249
-  %indvars.iv509 = phi i64 [ 0, %._crit_edge419 ], [ %indvars.iv.next510, %249 ]
-  %250 = getelementptr inbounds ptr, ptr %54, i64 %indvars.iv509
-  %251 = load ptr, ptr %250, align 8
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %251) #23
+251:                                              ; preds = %._crit_edge419, %251
+  %indvars.iv509 = phi i64 [ 0, %._crit_edge419 ], [ %indvars.iv.next510, %251 ]
+  %252 = getelementptr inbounds ptr, ptr %54, i64 %indvars.iv509
+  %253 = load ptr, ptr %252, align 8
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %253) #23
   %indvars.iv.next510 = add nuw nsw i64 %indvars.iv509, 1
   %exitcond517.not = icmp eq i64 %indvars.iv.next510, %wide.trip.count516
-  br i1 %exitcond517.not, label %252, label %249, !llvm.loop !48
+  br i1 %exitcond517.not, label %254, label %251, !llvm.loop !48
 
-252:                                              ; preds = %249
+254:                                              ; preds = %251
   tail call void @free(ptr noundef nonnull %54) #23
-  br label %266
+  br label %268
 
-253:                                              ; preds = %._crit_edge405
+255:                                              ; preds = %._crit_edge405
   %indvars.iv.next465 = add nuw nsw i64 %indvars.iv464, 1
   %exitcond498.not = icmp eq i64 %indvars.iv.next465, %wide.trip.count497
   %indvars.iv.next513 = add nuw i32 %indvars.iv512, 1
   br i1 %exitcond498.not, label %._crit_edge411, label %74, !llvm.loop !49
 
-._crit_edge411:                                   ; preds = %253
+._crit_edge411:                                   ; preds = %255
   tail call void @free(ptr noundef %65) #23
   %wide.trip.count502 = zext nneg i32 %4 to i64
   br label %.lr.ph414
 
-.lr.ph414:                                        ; preds = %._crit_edge411, %265
-  %indvars.iv499 = phi i64 [ 0, %._crit_edge411 ], [ %indvars.iv.next500, %265 ]
-  %254 = getelementptr inbounds ptr, ptr %54, i64 %indvars.iv499
-  %255 = load ptr, ptr %254, align 8
-  %256 = ptrtoint ptr %255 to i64
-  %257 = and i64 %256, -2
-  %258 = inttoptr i64 %257 to ptr
-  %259 = getelementptr inbounds i8, ptr %258, i64 4
-  %260 = load i32, ptr %259, align 4
-  %261 = add i32 %260, -1
-  store i32 %261, ptr %259, align 4
-  %262 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv499
-  %263 = load ptr, ptr %262, align 8
-  %.not = icmp eq ptr %263, null
-  br i1 %.not, label %265, label %264
+.lr.ph414:                                        ; preds = %._crit_edge411, %267
+  %indvars.iv499 = phi i64 [ 0, %._crit_edge411 ], [ %indvars.iv.next500, %267 ]
+  %256 = getelementptr inbounds ptr, ptr %54, i64 %indvars.iv499
+  %257 = load ptr, ptr %256, align 8
+  %258 = ptrtoint ptr %257 to i64
+  %259 = and i64 %258, -2
+  %260 = inttoptr i64 %259 to ptr
+  %261 = getelementptr inbounds i8, ptr %260, i64 4
+  %262 = load i32, ptr %261, align 4
+  %263 = add i32 %262, -1
+  store i32 %263, ptr %261, align 4
+  %264 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv499
+  %265 = load ptr, ptr %264, align 8
+  %.not = icmp eq ptr %265, null
+  br i1 %.not, label %267, label %266
 
-264:                                              ; preds = %.lr.ph414
-  tail call void @free(ptr noundef nonnull %263) #23
-  store ptr null, ptr %262, align 8
-  br label %265
+266:                                              ; preds = %.lr.ph414
+  tail call void @free(ptr noundef nonnull %265) #23
+  store ptr null, ptr %264, align 8
+  br label %267
 
-265:                                              ; preds = %264, %.lr.ph414
+267:                                              ; preds = %266, %.lr.ph414
   %indvars.iv.next500 = add nuw nsw i64 %indvars.iv499, 1
   %exitcond503.not = icmp eq i64 %indvars.iv.next500, %wide.trip.count502
   br i1 %exitcond503.not, label %._crit_edge415, label %.lr.ph414, !llvm.loop !50
 
-._crit_edge415:                                   ; preds = %265, %._crit_edge411.thread
+._crit_edge415:                                   ; preds = %267, %._crit_edge411.thread
   tail call void @free(ptr noundef %14) #23
   tail call void @free(ptr noundef %34) #23
-  br label %266
+  br label %268
 
-266:                                              ; preds = %5, %._crit_edge415, %252, %234, %._crit_edge429, %._crit_edge433, %._crit_edge436, %._crit_edge440, %29, %22
-  %.0280 = phi ptr [ null, %22 ], [ null, %29 ], [ null, %._crit_edge440 ], [ null, %._crit_edge436 ], [ null, %._crit_edge433 ], [ null, %._crit_edge429 ], [ null, %234 ], [ null, %252 ], [ %54, %._crit_edge415 ], [ null, %5 ]
+268:                                              ; preds = %5, %._crit_edge415, %254, %236, %._crit_edge429, %._crit_edge433, %._crit_edge436, %._crit_edge440, %29, %22
+  %.0280 = phi ptr [ null, %22 ], [ null, %29 ], [ null, %._crit_edge440 ], [ null, %._crit_edge436 ], [ null, %._crit_edge433 ], [ null, %._crit_edge429 ], [ null, %236 ], [ null, %254 ], [ %54, %._crit_edge415 ], [ null, %5 ]
   ret ptr %.0280
 }
 

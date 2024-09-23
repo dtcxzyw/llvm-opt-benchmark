@@ -131,7 +131,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.104 = private unnamed_addr constant [3 x i8] c"13\00", align 1
 @.str.105 = private unnamed_addr constant [27 x i8] c"unknown address family: %s\00", align 1
 @.str.106 = private unnamed_addr constant [26 x i8] c"unexpected address family\00", align 1
-@.str.107 = private unnamed_addr constant [15 x i8] c"host not found\00", align 1
 @.str.108 = private unnamed_addr constant [4 x i8] c":%s\00", align 1
 @.str.109 = private unnamed_addr constant [62 x i8] c"too long unix socket path (%zu bytes given but %zu bytes max)\00", align 1
 @.str.110 = private unnamed_addr constant [7 x i8] c"#<%s: \00", align 1
@@ -498,7 +497,7 @@ make_ipaddr0.exit:                                ; preds = %2
 declare i64 @rb_str_new_cstr(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @rsock_getaddrinfo(i64 noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define noalias noundef nonnull ptr @rsock_getaddrinfo(i64 noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -648,7 +647,7 @@ str_is_number.exit.thread:                        ; preds = %43, %42, %49, %46
   store i32 0, ptr %6, align 4
   %71 = call i64 @rb_fiber_scheduler_address_resolve(i64 noundef %64, i64 noundef %0) #19
   switch i64 %71, label %72 [
-    i64 36, label %98
+    i64 36, label %103
     i64 4, label %.thread77
   ]
 
@@ -672,252 +671,251 @@ str_is_number.exit.thread:                        ; preds = %43, %42, %49, %46
 rb_array_len.exit.i:                              ; preds = %79, %76
   %.027.i = phi i64 [ %78, %76 ], [ %81, %79 ]
   %82 = icmp sgt i64 %.027.i, 0
-  br i1 %82, label %.lr.ph.i, label %.thread77
+  br i1 %82, label %.lr.ph.i.us, label %.thread77
 
-.lr.ph.i:                                         ; preds = %rb_array_len.exit.i, %95
-  %.2 = phi ptr [ %.3, %95 ], [ null, %rb_array_len.exit.i ]
-  %.02334.i = phi i32 [ %.1.i, %95 ], [ 0, %rb_array_len.exit.i ]
-  %.02433.i = phi i64 [ %96, %95 ], [ 0, %rb_array_len.exit.i ]
-  %.02532.i = phi ptr [ %.2.i, %95 ], [ null, %rb_array_len.exit.i ]
-  %83 = call i64 @rb_ary_entry(i64 noundef %71, i64 noundef %.02433.i) #22
+.lr.ph.i.us:                                      ; preds = %rb_array_len.exit.i, %90
+  %.02433.i.us = phi i64 [ %91, %90 ], [ 0, %rb_array_len.exit.i ]
+  %83 = call i64 @rb_ary_entry(i64 noundef %71, i64 noundef %.02433.i.us) #22
   %84 = call fastcc ptr @host_str(i64 noundef %83, ptr noundef %8, ptr noundef nonnull %6)
   %85 = call fastcc i32 @numeric_getaddrinfo(ptr noundef %84, ptr noundef %.0.i, ptr noundef nonnull %2, ptr noundef %7)
-  %86 = icmp eq i32 %85, 0
-  br i1 %86, label %87, label %95
+  %.not116 = icmp eq i32 %85, 0
+  br i1 %.not116, label %.thread81.split.us, label %90
 
-87:                                               ; preds = %.lr.ph.i
-  %.not30.i = icmp eq i32 %.02334.i, 0
-  br i1 %.not30.i, label %88, label %.preheader.i
+.thread81.split.us:                               ; preds = %.lr.ph.i.us
+  %86 = call noalias nonnull dereferenceable(16) ptr @ruby_xmalloc(i64 noundef 16) #20
+  %87 = getelementptr inbounds i8, ptr %86, i64 8
+  store i32 1, ptr %87, align 8
+  %88 = load ptr, ptr %7, align 8
+  store ptr %88, ptr %86, align 8
+  %89 = add nuw nsw i64 %.02433.i.us, 1
+  %exitcond.not.i85 = icmp eq i64 %89, %.027.i
+  br i1 %exitcond.not.i85, label %._crit_edge.loopexit.i.thread, label %.lr.ph.i, !llvm.loop !13
 
-88:                                               ; preds = %87
-  %89 = call noalias nonnull dereferenceable(16) ptr @ruby_xmalloc(i64 noundef 16) #20
-  %90 = getelementptr inbounds i8, ptr %89, i64 8
-  store i32 1, ptr %90, align 8
-  br label %.sink.split.i
+90:                                               ; preds = %.lr.ph.i.us
+  %91 = add nuw nsw i64 %.02433.i.us, 1
+  %exitcond.not.i.us = icmp eq i64 %91, %.027.i
+  br i1 %exitcond.not.i.us, label %.thread77, label %.lr.ph.i.us, !llvm.loop !13
 
-.preheader.i:                                     ; preds = %87, %.preheader.i
-  %.126.i = phi ptr [ %92, %.preheader.i ], [ %.02532.i, %87 ]
-  %91 = getelementptr inbounds i8, ptr %.126.i, i64 40
-  %92 = load ptr, ptr %91, align 8
-  %.not31.i = icmp eq ptr %92, null
-  br i1 %.not31.i, label %.sink.split.i.loopexit, label %.preheader.i, !llvm.loop !13
+.lr.ph.i:                                         ; preds = %.thread81.split.us, %101
+  %.02433.i = phi i64 [ %102, %101 ], [ %89, %.thread81.split.us ]
+  %.02532.i = phi ptr [ %.2.i, %101 ], [ %88, %.thread81.split.us ]
+  %92 = call i64 @rb_ary_entry(i64 noundef %71, i64 noundef %.02433.i) #22
+  %93 = call fastcc ptr @host_str(i64 noundef %92, ptr noundef %8, ptr noundef nonnull %6)
+  %94 = call fastcc i32 @numeric_getaddrinfo(ptr noundef %93, ptr noundef %.0.i, ptr noundef nonnull %2, ptr noundef %7)
+  %95 = icmp eq i32 %94, 0
+  br i1 %95, label %.preheader.i, label %101
 
-.sink.split.i.loopexit:                           ; preds = %.preheader.i
-  %93 = getelementptr inbounds i8, ptr %.126.i, i64 40
-  br label %.sink.split.i
+.preheader.i:                                     ; preds = %.lr.ph.i, %.preheader.i
+  %.126.i = phi ptr [ %97, %.preheader.i ], [ %.02532.i, %.lr.ph.i ]
+  %96 = getelementptr inbounds i8, ptr %.126.i, i64 40
+  %97 = load ptr, ptr %96, align 8
+  %.not31.i = icmp eq ptr %97, null
+  br i1 %.not31.i, label %98, label %.preheader.i, !llvm.loop !14
 
-.sink.split.i:                                    ; preds = %.sink.split.i.loopexit, %88
-  %.4 = phi ptr [ %89, %88 ], [ %.2, %.sink.split.i.loopexit ]
-  %.sink36.i = phi ptr [ %89, %88 ], [ %93, %.sink.split.i.loopexit ]
-  %.1.ph.i = phi i32 [ 1, %88 ], [ %.02334.i, %.sink.split.i.loopexit ]
-  %94 = load ptr, ptr %7, align 8
-  store ptr %94, ptr %.sink36.i, align 8
-  br label %95
+98:                                               ; preds = %.preheader.i
+  %99 = getelementptr inbounds i8, ptr %.126.i, i64 40
+  %100 = load ptr, ptr %7, align 8
+  store ptr %100, ptr %99, align 8
+  br label %101
 
-95:                                               ; preds = %.sink.split.i, %.lr.ph.i
-  %.3 = phi ptr [ %.4, %.sink.split.i ], [ %.2, %.lr.ph.i ]
-  %.2.i = phi ptr [ %94, %.sink.split.i ], [ %.02532.i, %.lr.ph.i ]
-  %.1.i = phi i32 [ %.1.ph.i, %.sink.split.i ], [ %.02334.i, %.lr.ph.i ]
-  %96 = add nuw nsw i64 %.02433.i, 1
-  %exitcond.not.i = icmp eq i64 %96, %.027.i
-  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !14
+101:                                              ; preds = %98, %.lr.ph.i
+  %.2.i = phi ptr [ %100, %98 ], [ %.02532.i, %.lr.ph.i ]
+  %102 = add nuw nsw i64 %.02433.i, 1
+  %exitcond.not.i = icmp eq i64 %102, %.027.i
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i.thread, label %.lr.ph.i, !llvm.loop !13
 
-._crit_edge.loopexit.i:                           ; preds = %95
-  %97 = icmp eq i32 %.1.i, 0
-  br i1 %97, label %.thread77, label %168
-
-98:                                               ; preds = %70
+103:                                              ; preds = %70
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 1025, ptr nonnull %8)
   br label %.thread
 
-.thread:                                          ; preds = %63, %67, %98
+.thread:                                          ; preds = %63, %67, %103
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %.not.i.i49 = icmp eq ptr %15, null
   %.not40.i.i = icmp eq ptr %.0.i, null
-  br label %99
+  br label %104
 
-99:                                               ; preds = %159, %.thread
-  %.026.i = phi i32 [ undef, %.thread ], [ %.127.i, %159 ]
-  %.025.i = phi i32 [ 0, %.thread ], [ %.1.i50, %159 ]
-  br i1 %.not.i.i49, label %103, label %100
+104:                                              ; preds = %164, %.thread
+  %.026.i = phi i32 [ undef, %.thread ], [ %.127.i, %164 ]
+  %.025.i = phi i32 [ 0, %.thread ], [ %.1.i50, %164 ]
+  br i1 %.not.i.i49, label %108, label %105
 
-100:                                              ; preds = %99
-  %101 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %15) #22
-  %102 = add i64 %101, 185
-  br label %103
-
-103:                                              ; preds = %100, %99
-  %104 = phi i64 [ %102, %100 ], [ 184, %99 ]
-  br i1 %.not40.i.i, label %108, label %105
-
-105:                                              ; preds = %103
-  %106 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.0.i) #22
-  %107 = add i64 %106, 1
+105:                                              ; preds = %104
+  %106 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %15) #22
+  %107 = add i64 %106, 185
   br label %108
 
-108:                                              ; preds = %105, %103
-  %109 = phi i64 [ %107, %105 ], [ 0, %103 ]
-  %110 = add i64 %109, %104
-  %111 = call noalias ptr @malloc(i64 noundef %110) #20
-  %.not41.i.i = icmp eq ptr %111, null
-  br i1 %.not41.i.i, label %112, label %114
+108:                                              ; preds = %105, %104
+  %109 = phi i64 [ %107, %105 ], [ 184, %104 ]
+  br i1 %.not40.i.i, label %113, label %110
 
-112:                                              ; preds = %108
+110:                                              ; preds = %108
+  %111 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.0.i) #22
+  %112 = add i64 %111, 1
+  br label %113
+
+113:                                              ; preds = %110, %108
+  %114 = phi i64 [ %112, %110 ], [ 0, %108 ]
+  %115 = add i64 %114, %109
+  %116 = call noalias ptr @malloc(i64 noundef %115) #20
+  %.not41.i.i = icmp eq ptr %116, null
+  br i1 %.not41.i.i, label %117, label %119
+
+117:                                              ; preds = %113
   call void @rb_gc() #19
-  %113 = call noalias ptr @malloc(i64 noundef %110) #20
-  %.not42.i.i = icmp eq ptr %113, null
-  br i1 %.not42.i.i, label %rb_getaddrinfo.exit.thread, label %114
+  %118 = call noalias ptr @malloc(i64 noundef %115) #20
+  %.not42.i.i = icmp eq ptr %118, null
+  br i1 %.not42.i.i, label %rb_getaddrinfo.exit.thread, label %119
 
-114:                                              ; preds = %112, %108
-  %.034.i.i = phi ptr [ %111, %108 ], [ %113, %112 ]
-  br i1 %.not.i.i49, label %118, label %115
+119:                                              ; preds = %117, %113
+  %.034.i.i = phi ptr [ %116, %113 ], [ %118, %117 ]
+  br i1 %.not.i.i49, label %123, label %120
 
-115:                                              ; preds = %114
-  %116 = getelementptr inbounds i8, ptr %.034.i.i, i64 184
-  %117 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %116, ptr noundef nonnull readonly dereferenceable(1) %15) #19
-  br label %118
+120:                                              ; preds = %119
+  %121 = getelementptr inbounds i8, ptr %.034.i.i, i64 184
+  %122 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %121, ptr noundef nonnull readonly dereferenceable(1) %15) #19
+  br label %123
 
-118:                                              ; preds = %115, %114
-  %.sink.i.i = phi ptr [ %116, %115 ], [ null, %114 ]
+123:                                              ; preds = %120, %119
+  %.sink.i.i = phi ptr [ %121, %120 ], [ null, %119 ]
   store ptr %.sink.i.i, ptr %.034.i.i, align 8
-  br i1 %.not40.i.i, label %123, label %119
+  br i1 %.not40.i.i, label %128, label %124
 
-119:                                              ; preds = %118
-  %120 = getelementptr inbounds i8, ptr %.034.i.i, i64 %104
-  %121 = getelementptr inbounds i8, ptr %.034.i.i, i64 8
-  store ptr %120, ptr %121, align 8
-  %122 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %120, ptr noundef nonnull readonly dereferenceable(1) %.0.i) #19
-  br label %125
+124:                                              ; preds = %123
+  %125 = getelementptr inbounds i8, ptr %.034.i.i, i64 %109
+  %126 = getelementptr inbounds i8, ptr %.034.i.i, i64 8
+  store ptr %125, ptr %126, align 8
+  %127 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %125, ptr noundef nonnull readonly dereferenceable(1) %.0.i) #19
+  br label %130
 
-123:                                              ; preds = %118
-  %124 = getelementptr inbounds i8, ptr %.034.i.i, i64 8
-  store ptr null, ptr %124, align 8
-  br label %125
+128:                                              ; preds = %123
+  %129 = getelementptr inbounds i8, ptr %.034.i.i, i64 8
+  store ptr null, ptr %129, align 8
+  br label %130
 
-125:                                              ; preds = %123, %119
-  %126 = getelementptr inbounds i8, ptr %.034.i.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %126, ptr noundef nonnull readonly align 8 dereferenceable(48) %2, i64 48, i1 false)
-  %127 = getelementptr inbounds i8, ptr %.034.i.i, i64 64
-  store ptr null, ptr %127, align 8
-  %128 = getelementptr inbounds i8, ptr %.034.i.i, i64 80
-  store i32 2, ptr %128, align 8
-  %129 = getelementptr inbounds i8, ptr %.034.i.i, i64 88
-  store i32 0, ptr %129, align 8
-  %130 = getelementptr inbounds i8, ptr %.034.i.i, i64 84
-  store i32 0, ptr %130, align 4
-  %131 = getelementptr inbounds i8, ptr %.034.i.i, i64 96
-  call void @rb_nativethread_lock_initialize(ptr noundef nonnull %131) #19
-  %132 = getelementptr inbounds i8, ptr %.034.i.i, i64 136
-  call void @rb_native_cond_initialize(ptr noundef nonnull %132) #19
-  br label %133
+130:                                              ; preds = %128, %124
+  %131 = getelementptr inbounds i8, ptr %.034.i.i, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %131, ptr noundef nonnull readonly align 8 dereferenceable(48) %2, i64 48, i1 false)
+  %132 = getelementptr inbounds i8, ptr %.034.i.i, i64 64
+  store ptr null, ptr %132, align 8
+  %133 = getelementptr inbounds i8, ptr %.034.i.i, i64 80
+  store i32 2, ptr %133, align 8
+  %134 = getelementptr inbounds i8, ptr %.034.i.i, i64 88
+  store i32 0, ptr %134, align 8
+  %135 = getelementptr inbounds i8, ptr %.034.i.i, i64 84
+  store i32 0, ptr %135, align 4
+  %136 = getelementptr inbounds i8, ptr %.034.i.i, i64 96
+  call void @rb_nativethread_lock_initialize(ptr noundef nonnull %136) #19
+  %137 = getelementptr inbounds i8, ptr %.034.i.i, i64 136
+  call void @rb_native_cond_initialize(ptr noundef nonnull %137) #19
+  br label %138
 
-133:                                              ; preds = %133, %125
-  %.0.i40.i = phi i32 [ 3, %125 ], [ %136, %133 ]
-  %134 = call i32 @pthread_create(ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull @do_getaddrinfo, ptr noundef nonnull %.034.i.i) #19
-  %135 = icmp eq i32 %134, 11
-  %136 = add nsw i32 %.0.i40.i, -1
-  %137 = icmp ne i32 %.0.i40.i, 0
-  %or.cond.i.i = select i1 %135, i1 %137, i1 false
-  br i1 %or.cond.i.i, label %133, label %do_pthread_create.exit.i, !llvm.loop !8
+138:                                              ; preds = %138, %130
+  %.0.i40.i = phi i32 [ 3, %130 ], [ %141, %138 ]
+  %139 = call i32 @pthread_create(ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull @do_getaddrinfo, ptr noundef nonnull %.034.i.i) #19
+  %140 = icmp eq i32 %139, 11
+  %141 = add nsw i32 %.0.i40.i, -1
+  %142 = icmp ne i32 %.0.i40.i, 0
+  %or.cond.i.i = select i1 %140, i1 %142, i1 false
+  br i1 %or.cond.i.i, label %138, label %do_pthread_create.exit.i, !llvm.loop !8
 
-do_pthread_create.exit.i:                         ; preds = %133
-  %.not33.i = icmp eq i32 %134, 0
-  br i1 %.not33.i, label %139, label %138
+do_pthread_create.exit.i:                         ; preds = %138
+  %.not33.i = icmp eq i32 %139, 0
+  br i1 %.not33.i, label %144, label %143
 
-138:                                              ; preds = %do_pthread_create.exit.i
-  call void @rb_native_cond_destroy(ptr noundef nonnull %132) #19
-  call void @rb_nativethread_lock_destroy(ptr noundef nonnull %131) #19
+143:                                              ; preds = %do_pthread_create.exit.i
+  call void @rb_native_cond_destroy(ptr noundef nonnull %137) #19
+  call void @rb_nativethread_lock_destroy(ptr noundef nonnull %136) #19
   call void @free(ptr noundef nonnull %.034.i.i) #19
   br label %rb_getaddrinfo.exit.thread
 
-139:                                              ; preds = %do_pthread_create.exit.i
-  %140 = load i64, ptr %5, align 8
-  %141 = call i32 @pthread_detach(i64 noundef %140) #19
-  %142 = call ptr @rb_thread_call_without_gvl2(ptr noundef nonnull @wait_getaddrinfo, ptr noundef nonnull %.034.i.i, ptr noundef nonnull @cancel_getaddrinfo, ptr noundef nonnull %.034.i.i) #19
-  call void @rb_nativethread_lock_lock(ptr noundef nonnull %131) #19
-  %143 = load i32, ptr %130, align 4
-  %.not34.i = icmp eq i32 %143, 0
-  br i1 %.not34.i, label %152, label %144
+144:                                              ; preds = %do_pthread_create.exit.i
+  %145 = load i64, ptr %5, align 8
+  %146 = call i32 @pthread_detach(i64 noundef %145) #19
+  %147 = call ptr @rb_thread_call_without_gvl2(ptr noundef nonnull @wait_getaddrinfo, ptr noundef nonnull %.034.i.i, ptr noundef nonnull @cancel_getaddrinfo, ptr noundef nonnull %.034.i.i) #19
+  call void @rb_nativethread_lock_lock(ptr noundef nonnull %136) #19
+  %148 = load i32, ptr %135, align 4
+  %.not34.i = icmp eq i32 %148, 0
+  br i1 %.not34.i, label %157, label %149
 
-144:                                              ; preds = %139
-  %145 = getelementptr inbounds i8, ptr %.034.i.i, i64 72
-  %146 = load i32, ptr %145, align 8
-  %147 = getelementptr inbounds i8, ptr %.034.i.i, i64 76
-  %148 = load i32, ptr %147, align 4
-  %149 = icmp eq i32 %146, 0
-  br i1 %149, label %150, label %155
+149:                                              ; preds = %144
+  %150 = getelementptr inbounds i8, ptr %.034.i.i, i64 72
+  %151 = load i32, ptr %150, align 8
+  %152 = getelementptr inbounds i8, ptr %.034.i.i, i64 76
+  %153 = load i32, ptr %152, align 4
+  %154 = icmp eq i32 %151, 0
+  br i1 %154, label %155, label %160
 
-150:                                              ; preds = %144
-  %151 = load ptr, ptr %127, align 8
-  store ptr %151, ptr %11, align 8
-  br label %155
+155:                                              ; preds = %149
+  %156 = load ptr, ptr %132, align 8
+  store ptr %156, ptr %11, align 8
+  br label %160
 
-152:                                              ; preds = %139
-  %153 = load i32, ptr %129, align 8
-  %.not35.i = icmp eq i32 %153, 0
-  br i1 %.not35.i, label %154, label %155
+157:                                              ; preds = %144
+  %158 = load i32, ptr %134, align 8
+  %.not35.i = icmp eq i32 %158, 0
+  br i1 %.not35.i, label %159, label %160
 
-154:                                              ; preds = %152
-  store i32 1, ptr %129, align 8
-  br label %155
+159:                                              ; preds = %157
+  store i32 1, ptr %134, align 8
+  br label %160
 
-155:                                              ; preds = %154, %152, %150, %144
-  %.not38.i = phi i1 [ true, %150 ], [ true, %144 ], [ false, %154 ], [ true, %152 ]
-  %.127.i = phi i32 [ 0, %150 ], [ %146, %144 ], [ %.026.i, %154 ], [ -3, %152 ]
-  %.1.i50 = phi i32 [ %148, %150 ], [ %148, %144 ], [ %.025.i, %154 ], [ %.025.i, %152 ]
-  %156 = load i32, ptr %128, align 8
-  %157 = add nsw i32 %156, -1
-  store i32 %157, ptr %128, align 8
-  %.not37.i = icmp eq i32 %157, 0
-  call void @rb_nativethread_lock_unlock(ptr noundef nonnull %131) #19
-  br i1 %.not37.i, label %158, label %159
+160:                                              ; preds = %159, %157, %155, %149
+  %.not38.i = phi i1 [ true, %155 ], [ true, %149 ], [ false, %159 ], [ true, %157 ]
+  %.127.i = phi i32 [ 0, %155 ], [ %151, %149 ], [ %.026.i, %159 ], [ -3, %157 ]
+  %.1.i50 = phi i32 [ %153, %155 ], [ %153, %149 ], [ %.025.i, %159 ], [ %.025.i, %157 ]
+  %161 = load i32, ptr %133, align 8
+  %162 = add nsw i32 %161, -1
+  store i32 %162, ptr %133, align 8
+  %.not37.i = icmp eq i32 %162, 0
+  call void @rb_nativethread_lock_unlock(ptr noundef nonnull %136) #19
+  br i1 %.not37.i, label %163, label %164
 
-158:                                              ; preds = %155
-  call void @rb_native_cond_destroy(ptr noundef nonnull %132) #19
-  call void @rb_nativethread_lock_destroy(ptr noundef nonnull %131) #19
+163:                                              ; preds = %160
+  call void @rb_native_cond_destroy(ptr noundef nonnull %137) #19
+  call void @rb_nativethread_lock_destroy(ptr noundef nonnull %136) #19
   call void @free(ptr noundef nonnull %.034.i.i) #19
-  br label %159
+  br label %164
 
-159:                                              ; preds = %158, %155
+164:                                              ; preds = %163, %160
   call void @rb_thread_check_ints() #19
-  br i1 %.not38.i, label %160, label %99
+  br i1 %.not38.i, label %165, label %104
 
-160:                                              ; preds = %159
+165:                                              ; preds = %164
   %.not39.i = icmp eq i32 %.1.i50, 0
-  br i1 %.not39.i, label %rb_getaddrinfo.exit, label %161
+  br i1 %.not39.i, label %rb_getaddrinfo.exit, label %166
 
-161:                                              ; preds = %160
-  %162 = call ptr @rb_errno_ptr() #19
-  store i32 %.1.i50, ptr %162, align 4
+166:                                              ; preds = %165
+  %167 = call ptr @rb_errno_ptr() #19
+  store i32 %.1.i50, ptr %167, align 4
   br label %rb_getaddrinfo.exit
 
-rb_getaddrinfo.exit.thread:                       ; preds = %112, %138
-  %.028.i.ph = phi i32 [ -3, %138 ], [ -10, %112 ]
+rb_getaddrinfo.exit.thread:                       ; preds = %117, %143
+  %.028.i.ph = phi i32 [ -3, %143 ], [ -10, %117 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %.thread71
 
-rb_getaddrinfo.exit:                              ; preds = %160, %161
+rb_getaddrinfo.exit:                              ; preds = %165, %166
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %163 = icmp eq i32 %.127.i, 0
-  br i1 %163, label %164, label %.thread71
+  %168 = icmp eq i32 %.127.i, 0
+  br i1 %168, label %169, label %.thread71
 
-164:                                              ; preds = %rb_getaddrinfo.exit
-  %165 = call noalias nonnull dereferenceable(16) ptr @ruby_xmalloc(i64 noundef 16) #20
-  %166 = getelementptr inbounds i8, ptr %165, i64 8
-  store i32 0, ptr %166, align 8
-  %167 = load ptr, ptr %11, align 8
-  store ptr %167, ptr %165, align 8
+169:                                              ; preds = %rb_getaddrinfo.exit
+  %170 = call noalias nonnull dereferenceable(16) ptr @ruby_xmalloc(i64 noundef 16) #20
+  %171 = getelementptr inbounds i8, ptr %170, i64 8
+  store i32 0, ptr %171, align 8
+  %172 = load ptr, ptr %11, align 8
+  store ptr %172, ptr %170, align 8
   br label %.thread65
 
-.thread77:                                        ; preds = %rb_array_len.exit.i, %70, %._crit_edge.loopexit.i
+.thread77:                                        ; preds = %90, %rb_array_len.exit.i, %70
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 1025, ptr nonnull %8)
   br label %.thread71
 
-168:                                              ; preds = %._crit_edge.loopexit.i
+._crit_edge.loopexit.i.thread:                    ; preds = %101, %.thread81.split.us
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 1025, ptr nonnull %8)
@@ -926,27 +924,27 @@ rb_getaddrinfo.exit:                              ; preds = %160, %161
 .thread71:                                        ; preds = %rb_getaddrinfo.exit.thread, %rb_getaddrinfo.exit, %.thread77
   %.02975 = phi i32 [ -2, %.thread77 ], [ %.028.i.ph, %rb_getaddrinfo.exit.thread ], [ %.127.i, %rb_getaddrinfo.exit ]
   %.not43 = icmp eq ptr %15, null
-  br i1 %.not43, label %177, label %169
+  br i1 %.not43, label %181, label %173
 
-169:                                              ; preds = %.thread71
-  %170 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #22
-  %171 = getelementptr i8, ptr %15, i64 %170
-  %172 = getelementptr i8, ptr %171, i64 -1
-  %173 = load i8, ptr %172, align 1
-  %174 = icmp eq i8 %173, 10
-  br i1 %174, label %175, label %177
+173:                                              ; preds = %.thread71
+  %174 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #22
+  %175 = getelementptr i8, ptr %15, i64 %174
+  %176 = getelementptr i8, ptr %175, i64 -1
+  %177 = load i8, ptr %176, align 1
+  %178 = icmp eq i8 %177, 10
+  br i1 %178, label %179, label %181
 
-175:                                              ; preds = %169
-  %176 = load i64, ptr @rb_eSocket, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %176, ptr noundef nonnull @.str) #21
+179:                                              ; preds = %173
+  %180 = load i64, ptr @rb_eSocket, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %180, ptr noundef nonnull @.str) #21
   unreachable
 
-177:                                              ; preds = %169, %.thread71
+181:                                              ; preds = %173, %.thread71
   call void @rsock_raise_resolution_error(ptr noundef nonnull @.str.1, i32 noundef %.02975) #21
   unreachable
 
-.thread65:                                        ; preds = %164, %59, %168
-  %.069 = phi ptr [ %.3, %168 ], [ %165, %164 ], [ %60, %59 ]
+.thread65:                                        ; preds = %169, %59, %._crit_edge.loopexit.i.thread
+  %.069 = phi ptr [ %86, %._crit_edge.loopexit.i.thread ], [ %170, %169 ], [ %60, %59 ]
   ret ptr %.069
 }
 
@@ -1467,7 +1465,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 declare i32 @getsockname(i32 noundef, ptr, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @rsock_addrinfo(i64 noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define noalias noundef nonnull ptr @rsock_addrinfo(i64 noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.addrinfo, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, i8 0, i64 40, i1 false)
@@ -2745,399 +2743,417 @@ declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @addrinfo_initialize(i32 noundef %0, ptr noundef %1, i64 noundef returned %2) #0 {
-  %4 = alloca i64, align 8
-  %5 = alloca %struct.sockaddr_un, align 2
-  %6 = alloca i64, align 8
+  %4 = alloca %struct.addrinfo, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca %struct.sockaddr_un, align 2
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
-  %11 = alloca i32, align 4
-  %12 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i32, align 4
   %13 = alloca i64, align 8
   %14 = alloca i64, align 8
-  %15 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @addrinfo_type) #19
-  %.not = icmp eq ptr %15, null
-  br i1 %.not, label %18, label %16
+  %15 = alloca i64, align 8
+  %16 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @addrinfo_type) #19
+  %.not = icmp eq ptr %16, null
+  br i1 %.not, label %19, label %17
 
-16:                                               ; preds = %3
-  %17 = load i64, ptr @rb_eTypeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %17, ptr noundef nonnull @.str.103) #21
+17:                                               ; preds = %3
+  %18 = load i64, ptr @rb_eTypeError, align 8
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %18, ptr noundef nonnull @.str.103) #21
   unreachable
 
-18:                                               ; preds = %3
-  %19 = tail call noalias noundef nonnull dereferenceable(2080) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 2080) #24
-  store i64 4, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+19:                                               ; preds = %3
+  %20 = tail call noalias noundef nonnull dereferenceable(2080) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 2080) #24
   store i64 4, ptr %20, align 8
-  %21 = inttoptr i64 %2 to ptr
-  %22 = getelementptr inbounds i8, ptr %21, i64 32
-  store ptr %19, ptr %22, align 8
-  %23 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.104, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #19
-  %24 = load i64, ptr %7, align 8
-  %25 = icmp eq i64 %24, 4
-  br i1 %25, label %28, label %26
+  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  store i64 4, ptr %21, align 8
+  %22 = inttoptr i64 %2 to ptr
+  %23 = getelementptr inbounds i8, ptr %22, i64 32
+  store ptr %20, ptr %23, align 8
+  %24 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.104, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #19
+  %25 = load i64, ptr %8, align 8
+  %26 = icmp eq i64 %25, 4
+  br i1 %26, label %29, label %27
 
-26:                                               ; preds = %18
-  %27 = call i32 @rsock_family_arg(i64 noundef %24) #19
-  br label %28
+27:                                               ; preds = %19
+  %28 = call i32 @rsock_family_arg(i64 noundef %25) #19
+  br label %29
 
-28:                                               ; preds = %18, %26
-  %29 = phi i32 [ %27, %26 ], [ 0, %18 ]
-  %30 = load i64, ptr %8, align 8
-  %31 = icmp eq i64 %30, 4
-  br i1 %31, label %34, label %32
+29:                                               ; preds = %19, %27
+  %30 = phi i32 [ %28, %27 ], [ 0, %19 ]
+  %31 = load i64, ptr %9, align 8
+  %32 = icmp eq i64 %31, 4
+  br i1 %32, label %35, label %33
 
-32:                                               ; preds = %28
-  %33 = call i32 @rsock_socktype_arg(i64 noundef %30) #19
-  br label %34
+33:                                               ; preds = %29
+  %34 = call i32 @rsock_socktype_arg(i64 noundef %31) #19
+  br label %35
 
-34:                                               ; preds = %28, %32
-  %35 = phi i32 [ %33, %32 ], [ 0, %28 ]
-  %36 = load i64, ptr %9, align 8
-  %37 = icmp eq i64 %36, 4
-  br i1 %37, label %45, label %38
+35:                                               ; preds = %29, %33
+  %36 = phi i32 [ %34, %33 ], [ 0, %29 ]
+  %37 = load i64, ptr %10, align 8
+  %38 = icmp eq i64 %37, 4
+  br i1 %38, label %46, label %39
 
-38:                                               ; preds = %34
-  %39 = and i64 %36, 1
-  %.not.i = icmp eq i64 %39, 0
-  br i1 %.not.i, label %42, label %40
+39:                                               ; preds = %35
+  %40 = and i64 %37, 1
+  %.not.i = icmp eq i64 %40, 0
+  br i1 %.not.i, label %43, label %41
 
-40:                                               ; preds = %38
-  %41 = call i64 @rb_fix2int(i64 noundef %36) #19
+41:                                               ; preds = %39
+  %42 = call i64 @rb_fix2int(i64 noundef %37) #19
   br label %rb_num2int_inline.exit
 
-42:                                               ; preds = %38
-  %43 = call i64 @rb_num2int(i64 noundef %36) #19
+43:                                               ; preds = %39
+  %44 = call i64 @rb_num2int(i64 noundef %37) #19
   br label %rb_num2int_inline.exit
 
-rb_num2int_inline.exit:                           ; preds = %40, %42
-  %.0.i = phi i64 [ %41, %40 ], [ %43, %42 ]
-  %44 = trunc i64 %.0.i to i32
-  br label %45
+rb_num2int_inline.exit:                           ; preds = %41, %43
+  %.0.i = phi i64 [ %42, %41 ], [ %44, %43 ]
+  %45 = trunc i64 %.0.i to i32
+  br label %46
 
-45:                                               ; preds = %34, %rb_num2int_inline.exit
-  %46 = phi i32 [ %44, %rb_num2int_inline.exit ], [ 0, %34 ]
-  %47 = load i64, ptr %6, align 8
-  %48 = call i64 @rb_check_array_type(i64 noundef %47) #19
-  %49 = icmp eq i64 %48, 4
-  br i1 %49, label %166, label %50
+46:                                               ; preds = %35, %rb_num2int_inline.exit
+  %47 = phi i32 [ %45, %rb_num2int_inline.exit ], [ 0, %35 ]
+  %48 = load i64, ptr %7, align 8
+  %49 = call i64 @rb_check_array_type(i64 noundef %48) #19
+  %50 = icmp eq i64 %49, 4
+  br i1 %50, label %177, label %51
 
-50:                                               ; preds = %45
-  %51 = call i64 @rb_ary_entry(i64 noundef %48, i64 noundef 0) #22
-  store i64 %51, ptr %10, align 8
-  %52 = call i64 @rb_string_value(ptr noundef nonnull %10) #19
-  %53 = load i64, ptr %10, align 8
-  %54 = inttoptr i64 %53 to ptr
-  %55 = load i64, ptr %54, align 8, !noalias !33
-  %56 = and i64 %55, 8192
-  %.not.i.i = icmp eq i64 %56, 0
-  %57 = getelementptr inbounds i8, ptr %54, i64 24
-  br i1 %.not.i.i, label %RSTRING_PTR.exit, label %58
+51:                                               ; preds = %46
+  %52 = call i64 @rb_ary_entry(i64 noundef %49, i64 noundef 0) #22
+  store i64 %52, ptr %11, align 8
+  %53 = call i64 @rb_string_value(ptr noundef nonnull %11) #19
+  %54 = load i64, ptr %11, align 8
+  %55 = inttoptr i64 %54 to ptr
+  %56 = load i64, ptr %55, align 8, !noalias !33
+  %57 = and i64 %56, 8192
+  %.not.i.i = icmp eq i64 %57, 0
+  %58 = getelementptr inbounds i8, ptr %55, i64 24
+  br i1 %.not.i.i, label %RSTRING_PTR.exit, label %59
 
-58:                                               ; preds = %50
-  %.sroa.2.0.copyload.i = load ptr, ptr %57, align 8
+59:                                               ; preds = %51
+  %.sroa.2.0.copyload.i = load ptr, ptr %58, align 8
   br label %RSTRING_PTR.exit
 
-RSTRING_PTR.exit:                                 ; preds = %50, %58
-  %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %58 ], [ %57, %50 ]
-  %59 = getelementptr inbounds i8, ptr %54, i64 16
-  %60 = load i64, ptr %59, align 8
-  %61 = call i32 @rsock_family_to_int(ptr noundef %.sroa.2.0.i, i64 noundef %60, ptr noundef nonnull %11) #19
-  %62 = icmp eq i32 %61, -1
-  br i1 %62, label %63, label %66
+RSTRING_PTR.exit:                                 ; preds = %51, %59
+  %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %59 ], [ %58, %51 ]
+  %60 = getelementptr inbounds i8, ptr %55, i64 16
+  %61 = load i64, ptr %60, align 8
+  %62 = call i32 @rsock_family_to_int(ptr noundef %.sroa.2.0.i, i64 noundef %61, ptr noundef nonnull %12) #19
+  %63 = icmp eq i32 %62, -1
+  br i1 %63, label %64, label %67
 
-63:                                               ; preds = %RSTRING_PTR.exit
-  %64 = load i64, ptr @rb_eSocket, align 8
-  %65 = call ptr @rb_string_value_cstr(ptr noundef nonnull %10) #19
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %64, ptr noundef nonnull @.str.105, ptr noundef %65) #21
+64:                                               ; preds = %RSTRING_PTR.exit
+  %65 = load i64, ptr @rb_eSocket, align 8
+  %66 = call ptr @rb_string_value_cstr(ptr noundef nonnull %11) #19
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %65, ptr noundef nonnull @.str.105, ptr noundef %66) #21
   unreachable
 
-66:                                               ; preds = %RSTRING_PTR.exit
-  %67 = load i32, ptr %11, align 4
-  switch i32 %67, label %164 [
-    i32 2, label %68
-    i32 10, label %68
-    i32 1, label %136
+67:                                               ; preds = %RSTRING_PTR.exit
+  %68 = load i32, ptr %12, align 4
+  switch i32 %68, label %175 [
+    i32 2, label %69
+    i32 10, label %69
+    i32 1, label %147
   ]
 
-68:                                               ; preds = %66, %66
-  %69 = call i64 @rb_ary_entry(i64 noundef %48, i64 noundef 1) #22
-  %70 = call i64 @rb_ary_entry(i64 noundef %48, i64 noundef 2) #22
-  store i64 %70, ptr %12, align 8
-  %71 = call i64 @rb_ary_entry(i64 noundef %48, i64 noundef 3) #22
+69:                                               ; preds = %67, %67
+  %70 = call i64 @rb_ary_entry(i64 noundef %49, i64 noundef 1) #22
+  %71 = call i64 @rb_ary_entry(i64 noundef %49, i64 noundef 2) #22
   store i64 %71, ptr %13, align 8
-  %72 = and i64 %69, 1
-  %.not.i30 = icmp eq i64 %72, 0
-  br i1 %.not.i30, label %75, label %73
+  %72 = call i64 @rb_ary_entry(i64 noundef %49, i64 noundef 3) #22
+  store i64 %72, ptr %14, align 8
+  %73 = and i64 %70, 1
+  %.not.i30 = icmp eq i64 %73, 0
+  br i1 %.not.i30, label %76, label %74
 
-73:                                               ; preds = %68
-  %74 = call i64 @rb_fix2int(i64 noundef %69) #19
+74:                                               ; preds = %69
+  %75 = call i64 @rb_fix2int(i64 noundef %70) #19
   br label %rb_num2int_inline.exit32
 
-75:                                               ; preds = %68
-  %76 = call i64 @rb_num2int(i64 noundef %69) #19
+76:                                               ; preds = %69
+  %77 = call i64 @rb_num2int(i64 noundef %70) #19
   br label %rb_num2int_inline.exit32
 
-rb_num2int_inline.exit32:                         ; preds = %73, %75
-  %.0.i31 = phi i64 [ %74, %73 ], [ %76, %75 ]
+rb_num2int_inline.exit32:                         ; preds = %74, %76
+  %.0.i31 = phi i64 [ %75, %74 ], [ %77, %76 ]
   %sext = shl i64 %.0.i31, 32
-  %77 = ashr exact i64 %sext, 31
-  %78 = or disjoint i64 %77, 1
-  %79 = icmp eq i64 %70, 4
-  br i1 %79, label %82, label %80
+  %78 = ashr exact i64 %sext, 31
+  %79 = or disjoint i64 %78, 1
+  %80 = icmp eq i64 %71, 4
+  br i1 %80, label %83, label %81
 
-80:                                               ; preds = %rb_num2int_inline.exit32
-  %81 = call i64 @rb_string_value(ptr noundef nonnull %12) #19
-  br label %82
+81:                                               ; preds = %rb_num2int_inline.exit32
+  %82 = call i64 @rb_string_value(ptr noundef nonnull %13) #19
+  br label %83
 
-82:                                               ; preds = %80, %rb_num2int_inline.exit32
-  %83 = call i64 @rb_string_value(ptr noundef nonnull %13) #19
-  %84 = load i64, ptr %13, align 8
-  %.not29 = icmp eq i32 %29, 0
-  %85 = load i32, ptr %11, align 4
-  %86 = select i1 %.not29, i32 %85, i32 %29
-  %87 = sext i32 %86 to i64
-  %88 = shl nsw i64 %87, 1
-  %89 = or disjoint i64 %88, 1
-  %90 = sext i32 %35 to i64
-  %91 = shl nsw i64 %90, 1
-  %92 = or disjoint i64 %91, 1
-  %93 = sext i32 %46 to i64
-  %94 = shl nsw i64 %93, 1
-  %95 = or disjoint i64 %94, 1
-  %96 = load i64, ptr %12, align 8
-  %97 = call fastcc ptr @call_getaddrinfo(i64 noundef %84, i64 noundef %78, i64 noundef %89, i64 noundef %92, i64 noundef %95, i64 noundef 2057, i32 noundef 1)
-  %98 = call i64 @rb_str_equal(i64 noundef %84, i64 noundef %96) #19
-  %.not.i33 = icmp eq i64 %98, 0
-  %.pre.i = load ptr, ptr %97, align 8
-  br i1 %.not.i33, label %99, label %101
+83:                                               ; preds = %81, %rb_num2int_inline.exit32
+  %84 = call i64 @rb_string_value(ptr noundef nonnull %14) #19
+  %85 = load i64, ptr %14, align 8
+  %.not29 = icmp eq i32 %30, 0
+  %86 = load i32, ptr %12, align 4
+  %87 = select i1 %.not29, i32 %86, i32 %30
+  %88 = sext i32 %87 to i64
+  %89 = shl nsw i64 %88, 1
+  %90 = or disjoint i64 %89, 1
+  %91 = sext i32 %36 to i64
+  %92 = shl nsw i64 %91, 1
+  %93 = or disjoint i64 %92, 1
+  %94 = sext i32 %47 to i64
+  %95 = shl nsw i64 %94, 1
+  %96 = or disjoint i64 %95, 1
+  %97 = load i64, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
+  %98 = getelementptr inbounds i8, ptr %4, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %98, i8 0, i64 32, i1 false)
+  %99 = call i32 @rsock_family_arg(i64 noundef %90) #19
+  %100 = getelementptr inbounds i8, ptr %4, i64 4
+  store i32 %99, ptr %100, align 4
+  %101 = call i32 @rsock_socktype_arg(i64 noundef %93) #19
+  %102 = getelementptr inbounds i8, ptr %4, i64 8
+  store i32 %101, ptr %102, align 8
+  %103 = call i64 @rb_fix2int(i64 noundef %96) #19
+  %104 = trunc i64 %103 to i32
+  %105 = getelementptr inbounds i8, ptr %4, i64 12
+  store i32 %104, ptr %105, align 4
+  %106 = call i64 @rb_fix2int(i64 noundef 2057) #19
+  %107 = trunc i64 %106 to i32
+  store i32 %107, ptr %4, align 8
+  %108 = call noalias noundef nonnull ptr @rsock_getaddrinfo(i64 noundef %85, i64 noundef %79, ptr noundef nonnull %4, i32 noundef 1)
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
+  %109 = call i64 @rb_str_equal(i64 noundef %85, i64 noundef %97) #19
+  %.not.i33 = icmp eq i64 %109, 0
+  %.pre.i = load ptr, ptr %108, align 8
+  br i1 %.not.i33, label %110, label %112
 
-99:                                               ; preds = %82
-  %100 = call fastcc i64 @make_inspectname(i64 noundef %96, i64 noundef %78, ptr noundef %.pre.i)
-  br label %101
+110:                                              ; preds = %83
+  %111 = call fastcc i64 @make_inspectname(i64 noundef %97, i64 noundef %79, ptr noundef %.pre.i)
+  br label %112
 
-101:                                              ; preds = %99, %82
-  %102 = phi i64 [ %100, %99 ], [ 4, %82 ]
-  %103 = getelementptr inbounds i8, ptr %.pre.i, i64 32
-  %104 = load ptr, ptr %103, align 8
-  %.not23.i = icmp eq ptr %104, null
-  br i1 %.not23.i, label %107, label %105
+112:                                              ; preds = %110, %83
+  %113 = phi i64 [ %111, %110 ], [ 4, %83 ]
+  %114 = getelementptr inbounds i8, ptr %.pre.i, i64 32
+  %115 = load ptr, ptr %114, align 8
+  %.not23.i = icmp eq ptr %115, null
+  br i1 %.not23.i, label %118, label %116
 
-105:                                              ; preds = %101
-  %106 = call i64 @rb_str_new_cstr(ptr noundef nonnull %104) #19
-  call void @rb_obj_freeze_inline(i64 noundef %106) #19
-  br label %107
+116:                                              ; preds = %112
+  %117 = call i64 @rb_str_new_cstr(ptr noundef nonnull %115) #19
+  call void @rb_obj_freeze_inline(i64 noundef %117) #19
+  br label %118
 
-107:                                              ; preds = %105, %101
-  %.0.i34 = phi i64 [ %106, %105 ], [ 4, %101 ]
-  %108 = getelementptr inbounds i8, ptr %.pre.i, i64 24
-  %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %.pre.i, i64 16
-  %111 = load i32, ptr %110, align 8
-  %112 = call i64 @rb_fix2int(i64 noundef %89) #19
-  %113 = trunc i64 %112 to i32
-  %114 = call i64 @rb_fix2int(i64 noundef %92) #19
-  %115 = trunc i64 %114 to i32
-  %116 = call i64 @rb_fix2int(i64 noundef %95) #19
-  %117 = trunc i64 %116 to i32
-  %118 = icmp ugt i32 %111, 2048
-  br i1 %118, label %119, label %121
+118:                                              ; preds = %116, %112
+  %.0.i34 = phi i64 [ %117, %116 ], [ 4, %112 ]
+  %119 = getelementptr inbounds i8, ptr %.pre.i, i64 24
+  %120 = load ptr, ptr %119, align 8
+  %121 = getelementptr inbounds i8, ptr %.pre.i, i64 16
+  %122 = load i32, ptr %121, align 8
+  %123 = call i64 @rb_fix2int(i64 noundef %90) #19
+  %124 = trunc i64 %123 to i32
+  %125 = call i64 @rb_fix2int(i64 noundef %93) #19
+  %126 = trunc i64 %125 to i32
+  %127 = call i64 @rb_fix2int(i64 noundef %96) #19
+  %128 = trunc i64 %127 to i32
+  %129 = icmp ugt i32 %122, 2048
+  br i1 %129, label %130, label %132
 
-119:                                              ; preds = %107
-  %120 = load i64, ptr @rb_eArgError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %120, ptr noundef nonnull @.str.100) #21
+130:                                              ; preds = %118
+  %131 = load i64, ptr @rb_eArgError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %131, ptr noundef nonnull @.str.100) #21
   unreachable
 
-121:                                              ; preds = %107
-  %.not.i.i.i = icmp eq i32 %111, 0
-  br i1 %.not.i.i.i, label %init_addrinfo.exit.i, label %122
+132:                                              ; preds = %118
+  %.not.i.i.i = icmp eq i32 %122, 0
+  br i1 %.not.i.i.i, label %init_addrinfo.exit.i, label %133
 
-122:                                              ; preds = %121
-  %123 = zext nneg i32 %111 to i64
-  %124 = getelementptr inbounds i8, ptr %19, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %124, ptr readonly align 1 %109, i64 %123, i1 false)
+133:                                              ; preds = %132
+  %134 = zext nneg i32 %122 to i64
+  %135 = getelementptr inbounds i8, ptr %20, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %135, ptr readonly align 1 %120, i64 %134, i1 false)
   br label %init_addrinfo.exit.i
 
-init_addrinfo.exit.i:                             ; preds = %122, %121
-  %125 = getelementptr inbounds i8, ptr %19, i64 28
-  store i32 %111, ptr %125, align 4
-  %126 = getelementptr inbounds i8, ptr %19, i64 16
-  store i32 %113, ptr %126, align 8
-  %127 = getelementptr inbounds i8, ptr %19, i64 20
-  store i32 %115, ptr %127, align 4
-  %128 = getelementptr inbounds i8, ptr %19, i64 24
-  store i32 %117, ptr %128, align 8
-  store i64 %.0.i34, ptr %20, align 8
-  store i64 %102, ptr %19, align 8
-  %129 = getelementptr inbounds i8, ptr %97, i64 8
-  %130 = load i32, ptr %129, align 8
-  %.not.i30.i = icmp eq i32 %130, 0
-  br i1 %.not.i30.i, label %131, label %.lr.ph.i.i
+init_addrinfo.exit.i:                             ; preds = %133, %132
+  %136 = getelementptr inbounds i8, ptr %20, i64 28
+  store i32 %122, ptr %136, align 4
+  %137 = getelementptr inbounds i8, ptr %20, i64 16
+  store i32 %124, ptr %137, align 8
+  %138 = getelementptr inbounds i8, ptr %20, i64 20
+  store i32 %126, ptr %138, align 4
+  %139 = getelementptr inbounds i8, ptr %20, i64 24
+  store i32 %128, ptr %139, align 8
+  store i64 %.0.i34, ptr %21, align 8
+  store i64 %113, ptr %20, align 8
+  %140 = getelementptr inbounds i8, ptr %108, i64 8
+  %141 = load i32, ptr %140, align 8
+  %.not.i30.i = icmp eq i32 %141, 0
+  br i1 %.not.i30.i, label %142, label %.lr.ph.i.i
 
-131:                                              ; preds = %init_addrinfo.exit.i
+142:                                              ; preds = %init_addrinfo.exit.i
   call void @freeaddrinfo(ptr noundef nonnull %.pre.i) #19
   br label %init_addrinfo_getaddrinfo.exit
 
 .lr.ph.i.i:                                       ; preds = %init_addrinfo.exit.i, %.lr.ph.i.i
-  %.011.i.i = phi ptr [ %133, %.lr.ph.i.i ], [ %.pre.i, %init_addrinfo.exit.i ]
-  %132 = getelementptr inbounds i8, ptr %.011.i.i, i64 40
-  %133 = load ptr, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %.011.i.i, i64 24
-  %135 = load ptr, ptr %134, align 8
-  call void @ruby_xfree(ptr noundef %135) #19
+  %.011.i.i = phi ptr [ %144, %.lr.ph.i.i ], [ %.pre.i, %init_addrinfo.exit.i ]
+  %143 = getelementptr inbounds i8, ptr %.011.i.i, i64 40
+  %144 = load ptr, ptr %143, align 8
+  %145 = getelementptr inbounds i8, ptr %.011.i.i, i64 24
+  %146 = load ptr, ptr %145, align 8
+  call void @ruby_xfree(ptr noundef %146) #19
   call void @ruby_xfree(ptr noundef nonnull %.011.i.i) #19
-  %.not9.i.i = icmp eq ptr %133, null
+  %.not9.i.i = icmp eq ptr %144, null
   br i1 %.not9.i.i, label %init_addrinfo_getaddrinfo.exit, label %.lr.ph.i.i, !llvm.loop !6
 
-init_addrinfo_getaddrinfo.exit:                   ; preds = %.lr.ph.i.i, %131
-  call void @ruby_xfree(ptr noundef nonnull %97) #19
-  br label %190
+init_addrinfo_getaddrinfo.exit:                   ; preds = %.lr.ph.i.i, %142
+  call void @ruby_xfree(ptr noundef nonnull %108) #19
+  br label %201
 
-136:                                              ; preds = %66
-  %137 = call i64 @rb_ary_entry(i64 noundef %48, i64 noundef 1) #22
-  store i64 %137, ptr %14, align 8
-  %138 = call i64 @rb_string_value(ptr noundef nonnull %14) #19
-  %139 = load i64, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 110, ptr nonnull %5)
-  store i64 %139, ptr %4, align 8
-  %140 = call i64 @rb_string_value(ptr noundef nonnull %4) #19
-  %141 = load i64, ptr %4, align 8
-  %142 = inttoptr i64 %141 to ptr
-  %143 = getelementptr inbounds i8, ptr %142, i64 16
-  %144 = load i64, ptr %143, align 8
-  %145 = icmp ugt i64 %144, 108
-  br i1 %145, label %146, label %148
+147:                                              ; preds = %67
+  %148 = call i64 @rb_ary_entry(i64 noundef %49, i64 noundef 1) #22
+  store i64 %148, ptr %15, align 8
+  %149 = call i64 @rb_string_value(ptr noundef nonnull %15) #19
+  %150 = load i64, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(i64 110, ptr nonnull %6)
+  store i64 %150, ptr %5, align 8
+  %151 = call i64 @rb_string_value(ptr noundef nonnull %5) #19
+  %152 = load i64, ptr %5, align 8
+  %153 = inttoptr i64 %152 to ptr
+  %154 = getelementptr inbounds i8, ptr %153, i64 16
+  %155 = load i64, ptr %154, align 8
+  %156 = icmp ugt i64 %155, 108
+  br i1 %156, label %157, label %159
 
-146:                                              ; preds = %136
-  %147 = load i64, ptr @rb_eArgError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %147, ptr noundef nonnull @.str.109, i64 noundef %144, i64 noundef 108) #21
+157:                                              ; preds = %147
+  %158 = load i64, ptr @rb_eArgError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %158, ptr noundef nonnull @.str.109, i64 noundef %155, i64 noundef 108) #21
   unreachable
 
-148:                                              ; preds = %136
-  %.2..2..2..sroa_idx49 = getelementptr inbounds i8, ptr %5, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %.2..2..2..sroa_idx49, i8 0, i64 108, i1 false)
-  store i16 1, ptr %5, align 2
-  %149 = load i64, ptr %142, align 8, !noalias !36
-  %150 = and i64 %149, 8192
-  %.not.i.i.i36 = icmp eq i64 %150, 0
-  %151 = getelementptr inbounds i8, ptr %142, i64 24
-  %.not.i.i37 = icmp eq i64 %144, 0
+159:                                              ; preds = %147
+  %.2..2..2..sroa_idx51 = getelementptr inbounds i8, ptr %6, i64 2
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %.2..2..2..sroa_idx51, i8 0, i64 108, i1 false)
+  store i16 1, ptr %6, align 2
+  %160 = load i64, ptr %153, align 8, !noalias !36
+  %161 = and i64 %160, 8192
+  %.not.i.i.i36 = icmp eq i64 %161, 0
+  %162 = getelementptr inbounds i8, ptr %153, i64 24
+  %.not.i.i37 = icmp eq i64 %155, 0
   br i1 %.not.i.i.i36, label %RSTRING_PTR.exit.i, label %RSTRING_PTR.exit.thread.i
 
-RSTRING_PTR.exit.i:                               ; preds = %148
-  br i1 %.not.i.i37, label %init_unix_addrinfo.exit, label %152
+RSTRING_PTR.exit.i:                               ; preds = %159
+  br i1 %.not.i.i37, label %init_unix_addrinfo.exit, label %163
 
-RSTRING_PTR.exit.thread.i:                        ; preds = %148
-  br i1 %.not.i.i37, label %init_unix_addrinfo.exit, label %153
+RSTRING_PTR.exit.thread.i:                        ; preds = %159
+  br i1 %.not.i.i37, label %init_unix_addrinfo.exit, label %164
 
-152:                                              ; preds = %RSTRING_PTR.exit.i
-  %.2..2..2..sroa_idx48 = getelementptr inbounds i8, ptr %5, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %.2..2..2..sroa_idx48, ptr nonnull readonly align 1 %151, i64 %144, i1 false)
+163:                                              ; preds = %RSTRING_PTR.exit.i
+  %.2..2..2..sroa_idx50 = getelementptr inbounds i8, ptr %6, i64 2
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %.2..2..2..sroa_idx50, ptr nonnull readonly align 1 %162, i64 %155, i1 false)
   br label %RSTRING_PTR.exit.i.i
 
-153:                                              ; preds = %RSTRING_PTR.exit.thread.i
-  %.sroa.2.0.copyload.i.i = load ptr, ptr %151, align 8
-  %.2..2..2..sroa_idx = getelementptr inbounds i8, ptr %5, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %.2..2..2..sroa_idx, ptr readonly align 1 %.sroa.2.0.copyload.i.i, i64 %144, i1 false)
+164:                                              ; preds = %RSTRING_PTR.exit.thread.i
+  %.sroa.2.0.copyload.i.i = load ptr, ptr %162, align 8
+  %.2..2..2..sroa_idx = getelementptr inbounds i8, ptr %6, i64 2
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %.2..2..2..sroa_idx, ptr readonly align 1 %.sroa.2.0.copyload.i.i, i64 %155, i1 false)
   br label %RSTRING_PTR.exit.i.i
 
-RSTRING_PTR.exit.i.i:                             ; preds = %153, %152
-  %.sroa.2.0.i.i.i = phi ptr [ %.sroa.2.0.copyload.i.i, %153 ], [ %151, %152 ]
-  %154 = load i8, ptr %.sroa.2.0.i.i.i, align 1
-  %155 = icmp eq i8 %154, 0
-  br i1 %155, label %RSTRING_LENINT.exit.i.i, label %init_unix_addrinfo.exit
+RSTRING_PTR.exit.i.i:                             ; preds = %164, %163
+  %.sroa.2.0.i.i.i = phi ptr [ %.sroa.2.0.copyload.i.i, %164 ], [ %162, %163 ]
+  %165 = load i8, ptr %.sroa.2.0.i.i.i, align 1
+  %166 = icmp eq i8 %165, 0
+  br i1 %166, label %RSTRING_LENINT.exit.i.i, label %init_unix_addrinfo.exit
 
 RSTRING_LENINT.exit.i.i:                          ; preds = %RSTRING_PTR.exit.i.i
-  %156 = trunc nuw i64 %144 to i32
-  %157 = add nuw nsw i32 %156, 2
+  %167 = trunc nuw i64 %155 to i32
+  %168 = add nuw nsw i32 %167, 2
   br label %init_unix_addrinfo.exit
 
 init_unix_addrinfo.exit:                          ; preds = %RSTRING_PTR.exit.i, %RSTRING_PTR.exit.thread.i, %RSTRING_PTR.exit.i.i, %RSTRING_LENINT.exit.i.i
-  %.0.i.i = phi i32 [ %157, %RSTRING_LENINT.exit.i.i ], [ 110, %RSTRING_PTR.exit.i.i ], [ 2, %RSTRING_PTR.exit.thread.i ], [ 2, %RSTRING_PTR.exit.i ]
-  %158 = zext nneg i32 %.0.i.i to i64
-  %159 = getelementptr inbounds i8, ptr %19, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %159, ptr noundef nonnull readonly align 2 dereferenceable(1) %5, i64 %158, i1 false)
-  %160 = getelementptr inbounds i8, ptr %19, i64 28
-  store i32 %.0.i.i, ptr %160, align 4
-  %161 = getelementptr inbounds i8, ptr %19, i64 16
-  store i32 1, ptr %161, align 8
-  %162 = getelementptr inbounds i8, ptr %19, i64 20
-  store i32 1, ptr %162, align 4
-  %163 = getelementptr inbounds i8, ptr %19, i64 24
-  store i32 0, ptr %163, align 8
+  %.0.i.i = phi i32 [ %168, %RSTRING_LENINT.exit.i.i ], [ 110, %RSTRING_PTR.exit.i.i ], [ 2, %RSTRING_PTR.exit.thread.i ], [ 2, %RSTRING_PTR.exit.i ]
+  %169 = zext nneg i32 %.0.i.i to i64
+  %170 = getelementptr inbounds i8, ptr %20, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %170, ptr noundef nonnull readonly align 2 dereferenceable(1) %6, i64 %169, i1 false)
+  %171 = getelementptr inbounds i8, ptr %20, i64 28
+  store i32 %.0.i.i, ptr %171, align 4
+  %172 = getelementptr inbounds i8, ptr %20, i64 16
+  store i32 1, ptr %172, align 8
+  %173 = getelementptr inbounds i8, ptr %20, i64 20
+  store i32 1, ptr %173, align 4
+  %174 = getelementptr inbounds i8, ptr %20, i64 24
+  store i32 0, ptr %174, align 8
+  store i64 4, ptr %21, align 8
   store i64 4, ptr %20, align 8
-  store i64 4, ptr %19, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 110, ptr nonnull %5)
-  br label %190
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 110, ptr nonnull %6)
+  br label %201
 
-164:                                              ; preds = %66
-  %165 = load i64, ptr @rb_eSocket, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %165, ptr noundef nonnull @.str.106) #21
+175:                                              ; preds = %67
+  %176 = load i64, ptr @rb_eSocket, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %176, ptr noundef nonnull @.str.106) #21
   unreachable
 
-166:                                              ; preds = %45
-  %167 = call i64 @rb_string_value(ptr noundef nonnull %6) #19
-  %168 = load i64, ptr %6, align 8
-  %169 = inttoptr i64 %168 to ptr
-  %170 = load i64, ptr %169, align 8, !noalias !37
-  %171 = and i64 %170, 8192
-  %.not.i.i39 = icmp eq i64 %171, 0
-  %172 = getelementptr inbounds i8, ptr %169, i64 24
-  br i1 %.not.i.i39, label %RSTRING_PTR.exit42, label %173
+177:                                              ; preds = %46
+  %178 = call i64 @rb_string_value(ptr noundef nonnull %7) #19
+  %179 = load i64, ptr %7, align 8
+  %180 = inttoptr i64 %179 to ptr
+  %181 = load i64, ptr %180, align 8, !noalias !37
+  %182 = and i64 %181, 8192
+  %.not.i.i39 = icmp eq i64 %182, 0
+  %183 = getelementptr inbounds i8, ptr %180, i64 24
+  br i1 %.not.i.i39, label %RSTRING_PTR.exit42, label %184
 
-173:                                              ; preds = %166
-  %.sroa.2.0.copyload.i40 = load ptr, ptr %172, align 8
+184:                                              ; preds = %177
+  %.sroa.2.0.copyload.i40 = load ptr, ptr %183, align 8
   br label %RSTRING_PTR.exit42
 
-RSTRING_PTR.exit42:                               ; preds = %166, %173
-  %.sroa.2.0.i41 = phi ptr [ %.sroa.2.0.copyload.i40, %173 ], [ %172, %166 ]
-  %174 = getelementptr inbounds i8, ptr %169, i64 16
-  %175 = load i64, ptr %174, align 8
-  %176 = add i64 %175, 2147483648
-  %.not.i.i43 = icmp ult i64 %176, 4294967296
-  br i1 %.not.i.i43, label %RSTRING_LENINT.exit, label %177
+RSTRING_PTR.exit42:                               ; preds = %177, %184
+  %.sroa.2.0.i41 = phi ptr [ %.sroa.2.0.copyload.i40, %184 ], [ %183, %177 ]
+  %185 = getelementptr inbounds i8, ptr %180, i64 16
+  %186 = load i64, ptr %185, align 8
+  %187 = add i64 %186, 2147483648
+  %.not.i.i43 = icmp ult i64 %187, 4294967296
+  br i1 %.not.i.i43, label %RSTRING_LENINT.exit, label %188
 
-177:                                              ; preds = %RSTRING_PTR.exit42
-  call void @rb_out_of_int(i64 noundef %175) #25
+188:                                              ; preds = %RSTRING_PTR.exit42
+  call void @rb_out_of_int(i64 noundef %186) #25
   unreachable
 
 RSTRING_LENINT.exit:                              ; preds = %RSTRING_PTR.exit42
-  %178 = trunc i64 %175 to i32
-  %179 = icmp ugt i32 %178, 2048
-  br i1 %179, label %180, label %182
+  %189 = trunc i64 %186 to i32
+  %190 = icmp ugt i32 %189, 2048
+  br i1 %190, label %191, label %193
 
-180:                                              ; preds = %RSTRING_LENINT.exit
-  %181 = load i64, ptr @rb_eArgError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %181, ptr noundef nonnull @.str.100) #21
+191:                                              ; preds = %RSTRING_LENINT.exit
+  %192 = load i64, ptr @rb_eArgError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %192, ptr noundef nonnull @.str.100) #21
   unreachable
 
-182:                                              ; preds = %RSTRING_LENINT.exit
-  %.not.i.i44 = icmp eq i32 %178, 0
-  br i1 %.not.i.i44, label %init_addrinfo.exit, label %183
+193:                                              ; preds = %RSTRING_LENINT.exit
+  %.not.i.i44 = icmp eq i32 %189, 0
+  br i1 %.not.i.i44, label %init_addrinfo.exit, label %194
 
-183:                                              ; preds = %182
-  %184 = and i64 %175, 4095
-  %185 = getelementptr inbounds i8, ptr %19, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %185, ptr readonly align 1 %.sroa.2.0.i41, i64 %184, i1 false)
+194:                                              ; preds = %193
+  %195 = and i64 %186, 4095
+  %196 = getelementptr inbounds i8, ptr %20, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %196, ptr readonly align 1 %.sroa.2.0.i41, i64 %195, i1 false)
   br label %init_addrinfo.exit
 
-init_addrinfo.exit:                               ; preds = %182, %183
-  %186 = getelementptr inbounds i8, ptr %19, i64 28
-  store i32 %178, ptr %186, align 4
-  %187 = getelementptr inbounds i8, ptr %19, i64 16
-  store i32 %29, ptr %187, align 8
-  %188 = getelementptr inbounds i8, ptr %19, i64 20
-  store i32 %35, ptr %188, align 4
-  %189 = getelementptr inbounds i8, ptr %19, i64 24
-  store i32 %46, ptr %189, align 8
+init_addrinfo.exit:                               ; preds = %193, %194
+  %197 = getelementptr inbounds i8, ptr %20, i64 28
+  store i32 %189, ptr %197, align 4
+  %198 = getelementptr inbounds i8, ptr %20, i64 16
+  store i32 %30, ptr %198, align 8
+  %199 = getelementptr inbounds i8, ptr %20, i64 20
+  store i32 %36, ptr %199, align 4
+  %200 = getelementptr inbounds i8, ptr %20, i64 24
+  store i32 %47, ptr %200, align 8
+  store i64 4, ptr %21, align 8
   store i64 4, ptr %20, align 8
-  store i64 4, ptr %19, align 8
-  br label %190
+  br label %201
 
-190:                                              ; preds = %init_addrinfo_getaddrinfo.exit, %init_unix_addrinfo.exit, %init_addrinfo.exit
+201:                                              ; preds = %init_addrinfo_getaddrinfo.exit, %init_unix_addrinfo.exit, %init_addrinfo.exit
   ret i64 %2
 }
 
@@ -5089,334 +5105,352 @@ rai_unixsocket_len.exit:                          ; preds = %66, %68
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @addrinfo_mload(i64 noundef returned %0, i64 noundef %1) #0 {
-  %3 = alloca i64, align 8
-  %4 = alloca i32, align 4
+  %3 = alloca %struct.addrinfo, align 8
+  %4 = alloca i64, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  %8 = alloca %union.union_sockaddr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca %union.union_sockaddr, align 8
   %.sroa.3 = alloca [108 x i8], align 2
-  %9 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @addrinfo_type) #19
-  %.not = icmp eq ptr %9, null
-  br i1 %.not, label %12, label %10
+  %10 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @addrinfo_type) #19
+  %.not = icmp eq ptr %10, null
+  br i1 %.not, label %13, label %11
 
-10:                                               ; preds = %2
-  %11 = load i64, ptr @rb_eTypeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %11, ptr noundef nonnull @.str.103) #21
+11:                                               ; preds = %2
+  %12 = load i64, ptr @rb_eTypeError, align 8
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %12, ptr noundef nonnull @.str.103) #21
   unreachable
 
-12:                                               ; preds = %2
-  %13 = tail call i64 @rb_convert_type(i64 noundef %1, i32 noundef 7, ptr noundef nonnull @.str.133, ptr noundef nonnull @.str.134) #19
-  %14 = tail call i64 @rb_ary_entry(i64 noundef %13, i64 noundef 0) #22
-  store i64 %14, ptr %3, align 8
-  %15 = call i64 @rb_string_value(ptr noundef nonnull %3) #19
-  %16 = load i64, ptr %3, align 8
-  %17 = inttoptr i64 %16 to ptr
-  %18 = load i64, ptr %17, align 8, !noalias !41
-  %19 = and i64 %18, 8192
-  %.not.i.i = icmp eq i64 %19, 0
-  %20 = getelementptr inbounds i8, ptr %17, i64 24
-  br i1 %.not.i.i, label %RSTRING_PTR.exit, label %21
+13:                                               ; preds = %2
+  %14 = tail call i64 @rb_convert_type(i64 noundef %1, i32 noundef 7, ptr noundef nonnull @.str.133, ptr noundef nonnull @.str.134) #19
+  %15 = tail call i64 @rb_ary_entry(i64 noundef %14, i64 noundef 0) #22
+  store i64 %15, ptr %4, align 8
+  %16 = call i64 @rb_string_value(ptr noundef nonnull %4) #19
+  %17 = load i64, ptr %4, align 8
+  %18 = inttoptr i64 %17 to ptr
+  %19 = load i64, ptr %18, align 8, !noalias !41
+  %20 = and i64 %19, 8192
+  %.not.i.i = icmp eq i64 %20, 0
+  %21 = getelementptr inbounds i8, ptr %18, i64 24
+  br i1 %.not.i.i, label %RSTRING_PTR.exit, label %22
 
-21:                                               ; preds = %12
-  %.sroa.2.0.copyload.i = load ptr, ptr %20, align 8
+22:                                               ; preds = %13
+  %.sroa.2.0.copyload.i = load ptr, ptr %21, align 8
   br label %RSTRING_PTR.exit
 
-RSTRING_PTR.exit:                                 ; preds = %12, %21
-  %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %21 ], [ %20, %12 ]
-  %22 = getelementptr inbounds i8, ptr %17, i64 16
-  %23 = load i64, ptr %22, align 8
-  %24 = call i32 @rsock_family_to_int(ptr noundef %.sroa.2.0.i, i64 noundef %23, ptr noundef nonnull %4) #19
-  %25 = icmp eq i32 %24, -1
-  br i1 %25, label %26, label %28
+RSTRING_PTR.exit:                                 ; preds = %13, %22
+  %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %22 ], [ %21, %13 ]
+  %23 = getelementptr inbounds i8, ptr %18, i64 16
+  %24 = load i64, ptr %23, align 8
+  %25 = call i32 @rsock_family_to_int(ptr noundef %.sroa.2.0.i, i64 noundef %24, ptr noundef nonnull %5) #19
+  %26 = icmp eq i32 %25, -1
+  br i1 %26, label %27, label %29
 
-26:                                               ; preds = %RSTRING_PTR.exit
-  %27 = load i64, ptr @rb_eTypeError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %27, ptr noundef nonnull @.str.106) #21
+27:                                               ; preds = %RSTRING_PTR.exit
+  %28 = load i64, ptr @rb_eTypeError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %28, ptr noundef nonnull @.str.106) #21
   unreachable
 
-28:                                               ; preds = %RSTRING_PTR.exit
-  %29 = call i64 @rb_ary_entry(i64 noundef %13, i64 noundef 2) #22
-  store i64 %29, ptr %3, align 8
-  %30 = call i64 @rb_string_value(ptr noundef nonnull %3) #19
-  %31 = load i64, ptr %3, align 8
-  %32 = inttoptr i64 %31 to ptr
-  %33 = load i64, ptr %32, align 8, !noalias !44
-  %34 = and i64 %33, 8192
-  %.not.i.i30 = icmp eq i64 %34, 0
-  %35 = getelementptr inbounds i8, ptr %32, i64 24
-  br i1 %.not.i.i30, label %RSTRING_PTR.exit33, label %36
+29:                                               ; preds = %RSTRING_PTR.exit
+  %30 = call i64 @rb_ary_entry(i64 noundef %14, i64 noundef 2) #22
+  store i64 %30, ptr %4, align 8
+  %31 = call i64 @rb_string_value(ptr noundef nonnull %4) #19
+  %32 = load i64, ptr %4, align 8
+  %33 = inttoptr i64 %32 to ptr
+  %34 = load i64, ptr %33, align 8, !noalias !44
+  %35 = and i64 %34, 8192
+  %.not.i.i30 = icmp eq i64 %35, 0
+  %36 = getelementptr inbounds i8, ptr %33, i64 24
+  br i1 %.not.i.i30, label %RSTRING_PTR.exit33, label %37
 
-36:                                               ; preds = %28
-  %.sroa.2.0.copyload.i31 = load ptr, ptr %35, align 8
+37:                                               ; preds = %29
+  %.sroa.2.0.copyload.i31 = load ptr, ptr %36, align 8
   br label %RSTRING_PTR.exit33
 
-RSTRING_PTR.exit33:                               ; preds = %28, %36
-  %.sroa.2.0.i32 = phi ptr [ %.sroa.2.0.copyload.i31, %36 ], [ %35, %28 ]
-  %37 = getelementptr inbounds i8, ptr %32, i64 16
-  %38 = load i64, ptr %37, align 8
-  %39 = call i32 @rsock_family_to_int(ptr noundef %.sroa.2.0.i32, i64 noundef %38, ptr noundef nonnull %5) #19
-  %40 = icmp eq i32 %39, -1
-  br i1 %40, label %41, label %43
+RSTRING_PTR.exit33:                               ; preds = %29, %37
+  %.sroa.2.0.i32 = phi ptr [ %.sroa.2.0.copyload.i31, %37 ], [ %36, %29 ]
+  %38 = getelementptr inbounds i8, ptr %33, i64 16
+  %39 = load i64, ptr %38, align 8
+  %40 = call i32 @rsock_family_to_int(ptr noundef %.sroa.2.0.i32, i64 noundef %39, ptr noundef nonnull %6) #19
+  %41 = icmp eq i32 %40, -1
+  br i1 %41, label %42, label %44
 
-41:                                               ; preds = %RSTRING_PTR.exit33
-  %42 = load i64, ptr @rb_eTypeError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %42, ptr noundef nonnull @.str.135) #21
+42:                                               ; preds = %RSTRING_PTR.exit33
+  %43 = load i64, ptr @rb_eTypeError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %43, ptr noundef nonnull @.str.135) #21
   unreachable
 
-43:                                               ; preds = %RSTRING_PTR.exit33
-  %44 = call i64 @rb_ary_entry(i64 noundef %13, i64 noundef 3) #22
-  store i64 %44, ptr %3, align 8
-  %45 = icmp eq i64 %44, 1
-  br i1 %45, label %46, label %47
+44:                                               ; preds = %RSTRING_PTR.exit33
+  %45 = call i64 @rb_ary_entry(i64 noundef %14, i64 noundef 3) #22
+  store i64 %45, ptr %4, align 8
+  %46 = icmp eq i64 %45, 1
+  br i1 %46, label %47, label %48
 
-46:                                               ; preds = %43
-  store i32 0, ptr %6, align 4
-  br label %61
+47:                                               ; preds = %44
+  store i32 0, ptr %7, align 4
+  br label %62
 
-47:                                               ; preds = %43
-  %48 = call i64 @rb_string_value(ptr noundef nonnull %3) #19
-  %49 = load i64, ptr %3, align 8
-  %50 = inttoptr i64 %49 to ptr
-  %51 = load i64, ptr %50, align 8, !noalias !47
-  %52 = and i64 %51, 8192
-  %.not.i.i34 = icmp eq i64 %52, 0
-  %53 = getelementptr inbounds i8, ptr %50, i64 24
-  br i1 %.not.i.i34, label %RSTRING_PTR.exit37, label %54
+48:                                               ; preds = %44
+  %49 = call i64 @rb_string_value(ptr noundef nonnull %4) #19
+  %50 = load i64, ptr %4, align 8
+  %51 = inttoptr i64 %50 to ptr
+  %52 = load i64, ptr %51, align 8, !noalias !47
+  %53 = and i64 %52, 8192
+  %.not.i.i34 = icmp eq i64 %53, 0
+  %54 = getelementptr inbounds i8, ptr %51, i64 24
+  br i1 %.not.i.i34, label %RSTRING_PTR.exit37, label %55
 
-54:                                               ; preds = %47
-  %.sroa.2.0.copyload.i35 = load ptr, ptr %53, align 8
+55:                                               ; preds = %48
+  %.sroa.2.0.copyload.i35 = load ptr, ptr %54, align 8
   br label %RSTRING_PTR.exit37
 
-RSTRING_PTR.exit37:                               ; preds = %47, %54
-  %.sroa.2.0.i36 = phi ptr [ %.sroa.2.0.copyload.i35, %54 ], [ %53, %47 ]
-  %55 = getelementptr inbounds i8, ptr %50, i64 16
-  %56 = load i64, ptr %55, align 8
-  %57 = call i32 @rsock_socktype_to_int(ptr noundef %.sroa.2.0.i36, i64 noundef %56, ptr noundef nonnull %6) #19
-  %58 = icmp eq i32 %57, -1
-  br i1 %58, label %59, label %61
+RSTRING_PTR.exit37:                               ; preds = %48, %55
+  %.sroa.2.0.i36 = phi ptr [ %.sroa.2.0.copyload.i35, %55 ], [ %54, %48 ]
+  %56 = getelementptr inbounds i8, ptr %51, i64 16
+  %57 = load i64, ptr %56, align 8
+  %58 = call i32 @rsock_socktype_to_int(ptr noundef %.sroa.2.0.i36, i64 noundef %57, ptr noundef nonnull %7) #19
+  %59 = icmp eq i32 %58, -1
+  br i1 %59, label %60, label %62
 
-59:                                               ; preds = %RSTRING_PTR.exit37
-  %60 = load i64, ptr @rb_eTypeError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %60, ptr noundef nonnull @.str.136) #21
+60:                                               ; preds = %RSTRING_PTR.exit37
+  %61 = load i64, ptr @rb_eTypeError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %61, ptr noundef nonnull @.str.136) #21
   unreachable
 
-61:                                               ; preds = %RSTRING_PTR.exit37, %46
-  %62 = call i64 @rb_ary_entry(i64 noundef %13, i64 noundef 4) #22
-  store i64 %62, ptr %3, align 8
-  %63 = icmp eq i64 %62, 1
-  br i1 %63, label %64, label %65
+62:                                               ; preds = %RSTRING_PTR.exit37, %47
+  %63 = call i64 @rb_ary_entry(i64 noundef %14, i64 noundef 4) #22
+  store i64 %63, ptr %4, align 8
+  %64 = icmp eq i64 %63, 1
+  br i1 %64, label %65, label %66
 
-64:                                               ; preds = %61
-  store i32 0, ptr %7, align 4
-  br label %84
+65:                                               ; preds = %62
+  store i32 0, ptr %8, align 4
+  br label %85
 
-65:                                               ; preds = %61
-  %66 = call i64 @rb_string_value(ptr noundef nonnull %3) #19
-  %67 = load i32, ptr %4, align 4
-  %68 = and i32 %67, -9
-  %or.cond = icmp eq i32 %68, 2
-  br i1 %or.cond, label %69, label %82
+66:                                               ; preds = %62
+  %67 = call i64 @rb_string_value(ptr noundef nonnull %4) #19
+  %68 = load i32, ptr %5, align 4
+  %69 = and i32 %68, -9
+  %or.cond = icmp eq i32 %69, 2
+  br i1 %or.cond, label %70, label %83
 
-69:                                               ; preds = %65
-  %70 = load i64, ptr %3, align 8
-  %71 = inttoptr i64 %70 to ptr
-  %72 = load i64, ptr %71, align 8, !noalias !50
-  %73 = and i64 %72, 8192
-  %.not.i.i38 = icmp eq i64 %73, 0
-  %74 = getelementptr inbounds i8, ptr %71, i64 24
-  br i1 %.not.i.i38, label %RSTRING_PTR.exit41, label %75
+70:                                               ; preds = %66
+  %71 = load i64, ptr %4, align 8
+  %72 = inttoptr i64 %71 to ptr
+  %73 = load i64, ptr %72, align 8, !noalias !50
+  %74 = and i64 %73, 8192
+  %.not.i.i38 = icmp eq i64 %74, 0
+  %75 = getelementptr inbounds i8, ptr %72, i64 24
+  br i1 %.not.i.i38, label %RSTRING_PTR.exit41, label %76
 
-75:                                               ; preds = %69
-  %.sroa.2.0.copyload.i39 = load ptr, ptr %74, align 8
+76:                                               ; preds = %70
+  %.sroa.2.0.copyload.i39 = load ptr, ptr %75, align 8
   br label %RSTRING_PTR.exit41
 
-RSTRING_PTR.exit41:                               ; preds = %69, %75
-  %.sroa.2.0.i40 = phi ptr [ %.sroa.2.0.copyload.i39, %75 ], [ %74, %69 ]
-  %76 = getelementptr inbounds i8, ptr %71, i64 16
-  %77 = load i64, ptr %76, align 8
-  %78 = call i32 @rsock_ipproto_to_int(ptr noundef %.sroa.2.0.i40, i64 noundef %77, ptr noundef nonnull %7) #19
-  %79 = icmp eq i32 %78, -1
-  br i1 %79, label %80, label %84
+RSTRING_PTR.exit41:                               ; preds = %70, %76
+  %.sroa.2.0.i40 = phi ptr [ %.sroa.2.0.copyload.i39, %76 ], [ %75, %70 ]
+  %77 = getelementptr inbounds i8, ptr %72, i64 16
+  %78 = load i64, ptr %77, align 8
+  %79 = call i32 @rsock_ipproto_to_int(ptr noundef %.sroa.2.0.i40, i64 noundef %78, ptr noundef nonnull %8) #19
+  %80 = icmp eq i32 %79, -1
+  br i1 %80, label %81, label %85
 
-80:                                               ; preds = %RSTRING_PTR.exit41
-  %81 = load i64, ptr @rb_eTypeError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %81, ptr noundef nonnull @.str.137) #21
+81:                                               ; preds = %RSTRING_PTR.exit41
+  %82 = load i64, ptr @rb_eTypeError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %82, ptr noundef nonnull @.str.137) #21
   unreachable
 
-82:                                               ; preds = %65
-  %83 = load i64, ptr @rb_eTypeError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %83, ptr noundef nonnull @.str.137) #21
+83:                                               ; preds = %66
+  %84 = load i64, ptr @rb_eTypeError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %84, ptr noundef nonnull @.str.137) #21
   unreachable
 
-84:                                               ; preds = %RSTRING_PTR.exit41, %64
-  %85 = call i64 @rb_ary_entry(i64 noundef %13, i64 noundef 5) #22
-  store i64 %85, ptr %3, align 8
-  %86 = icmp eq i64 %85, 4
-  br i1 %86, label %90, label %87
+85:                                               ; preds = %RSTRING_PTR.exit41, %65
+  %86 = call i64 @rb_ary_entry(i64 noundef %14, i64 noundef 5) #22
+  store i64 %86, ptr %4, align 8
+  %87 = icmp eq i64 %86, 4
+  br i1 %87, label %91, label %88
 
-87:                                               ; preds = %84
-  %88 = call i64 @rb_string_value(ptr noundef nonnull %3) #19
-  %89 = load i64, ptr %3, align 8
-  br label %90
+88:                                               ; preds = %85
+  %89 = call i64 @rb_string_value(ptr noundef nonnull %4) #19
+  %90 = load i64, ptr %4, align 8
+  br label %91
 
-90:                                               ; preds = %84, %87
-  %.0 = phi i64 [ %89, %87 ], [ 4, %84 ]
-  %91 = call i64 @rb_ary_entry(i64 noundef %13, i64 noundef 6) #22
-  store i64 %91, ptr %3, align 8
-  %92 = icmp eq i64 %91, 4
-  br i1 %92, label %96, label %93
+91:                                               ; preds = %85, %88
+  %.0 = phi i64 [ %90, %88 ], [ 4, %85 ]
+  %92 = call i64 @rb_ary_entry(i64 noundef %14, i64 noundef 6) #22
+  store i64 %92, ptr %4, align 8
+  %93 = icmp eq i64 %92, 4
+  br i1 %93, label %97, label %94
 
-93:                                               ; preds = %90
-  %94 = call i64 @rb_string_value(ptr noundef nonnull %3) #19
-  %95 = load i64, ptr %3, align 8
-  br label %96
+94:                                               ; preds = %91
+  %95 = call i64 @rb_string_value(ptr noundef nonnull %4) #19
+  %96 = load i64, ptr %4, align 8
+  br label %97
 
-96:                                               ; preds = %90, %93
-  %.027 = phi i64 [ %95, %93 ], [ 4, %90 ]
-  %97 = call i64 @rb_ary_entry(i64 noundef %13, i64 noundef 1) #22
-  store i64 %97, ptr %3, align 8
-  %98 = load i32, ptr %4, align 4
-  %cond = icmp eq i32 %98, 1
-  br i1 %cond, label %99, label %114
+97:                                               ; preds = %91, %94
+  %.027 = phi i64 [ %96, %94 ], [ 4, %91 ]
+  %98 = call i64 @rb_ary_entry(i64 noundef %14, i64 noundef 1) #22
+  store i64 %98, ptr %4, align 8
+  %99 = load i32, ptr %5, align 4
+  %cond = icmp eq i32 %99, 1
+  br i1 %cond, label %100, label %115
 
-99:                                               ; preds = %96
+100:                                              ; preds = %97
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %.sroa.3, i8 0, i64 108, i1 false)
-  %100 = call i64 @rb_string_value(ptr noundef nonnull %3) #19
-  %101 = load i64, ptr %3, align 8
-  %102 = inttoptr i64 %101 to ptr
-  %103 = getelementptr inbounds i8, ptr %102, i64 16
-  %104 = load i64, ptr %103, align 8
-  %105 = icmp ugt i64 %104, 108
-  br i1 %105, label %106, label %108
+  %101 = call i64 @rb_string_value(ptr noundef nonnull %4) #19
+  %102 = load i64, ptr %4, align 8
+  %103 = inttoptr i64 %102 to ptr
+  %104 = getelementptr inbounds i8, ptr %103, i64 16
+  %105 = load i64, ptr %104, align 8
+  %106 = icmp ugt i64 %105, 108
+  br i1 %106, label %107, label %109
 
-106:                                              ; preds = %99
-  %107 = load i64, ptr @rb_eSocket, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %107, ptr noundef nonnull @.str.126, i64 noundef %104, i64 noundef 108) #21
+107:                                              ; preds = %100
+  %108 = load i64, ptr @rb_eSocket, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %108, ptr noundef nonnull @.str.126, i64 noundef %105, i64 noundef 108) #21
   unreachable
 
-108:                                              ; preds = %99
-  %109 = load i64, ptr %102, align 8, !noalias !53
-  %110 = and i64 %109, 8192
-  %.not.i.i42 = icmp eq i64 %110, 0
-  %111 = getelementptr inbounds i8, ptr %102, i64 24
-  br i1 %.not.i.i42, label %RSTRING_PTR.exit45, label %112
+109:                                              ; preds = %100
+  %110 = load i64, ptr %103, align 8, !noalias !53
+  %111 = and i64 %110, 8192
+  %.not.i.i42 = icmp eq i64 %111, 0
+  %112 = getelementptr inbounds i8, ptr %103, i64 24
+  br i1 %.not.i.i42, label %RSTRING_PTR.exit45, label %113
 
-112:                                              ; preds = %108
-  %.sroa.2.0.copyload.i43 = load ptr, ptr %111, align 8
+113:                                              ; preds = %109
+  %.sroa.2.0.copyload.i43 = load ptr, ptr %112, align 8
   br label %RSTRING_PTR.exit45
 
-RSTRING_PTR.exit45:                               ; preds = %108, %112
-  %.sroa.2.0.i44 = phi ptr [ %.sroa.2.0.copyload.i43, %112 ], [ %111, %108 ]
-  %.not.i = icmp eq i64 %104, 0
-  br i1 %.not.i, label %ruby_nonempty_memcpy.exit, label %113
+RSTRING_PTR.exit45:                               ; preds = %109, %113
+  %.sroa.2.0.i44 = phi ptr [ %.sroa.2.0.copyload.i43, %113 ], [ %112, %109 ]
+  %.not.i = icmp eq i64 %105, 0
+  br i1 %.not.i, label %ruby_nonempty_memcpy.exit, label %114
 
-113:                                              ; preds = %RSTRING_PTR.exit45
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %.sroa.3, ptr readonly align 1 %.sroa.2.0.i44, i64 %104, i1 false)
+114:                                              ; preds = %RSTRING_PTR.exit45
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %.sroa.3, ptr readonly align 1 %.sroa.2.0.i44, i64 %105, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
-ruby_nonempty_memcpy.exit:                        ; preds = %RSTRING_PTR.exit45, %113
-  store i16 1, ptr %8, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 2
+ruby_nonempty_memcpy.exit:                        ; preds = %RSTRING_PTR.exit45, %114
+  store i16 1, ptr %9, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %.sroa.3.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(108) %.sroa.3, i64 108, i1 false)
-  br label %145
+  br label %156
 
-114:                                              ; preds = %96
-  %115 = call i64 @rb_convert_type(i64 noundef %97, i32 noundef 7, ptr noundef nonnull @.str.133, ptr noundef nonnull @.str.134) #19
-  %116 = call i64 @rb_ary_entry(i64 noundef %115, i64 noundef 0) #22
-  %117 = call i64 @rb_ary_entry(i64 noundef %115, i64 noundef 1) #22
-  %118 = load i32, ptr %5, align 4
-  %119 = sext i32 %118 to i64
-  %120 = shl nsw i64 %119, 1
-  %121 = or disjoint i64 %120, 1
-  %122 = load i32, ptr %6, align 4
-  %123 = sext i32 %122 to i64
-  %124 = shl nsw i64 %123, 1
-  %125 = or disjoint i64 %124, 1
-  %126 = load i32, ptr %7, align 4
-  %127 = sext i32 %126 to i64
-  %128 = shl nsw i64 %127, 1
-  %129 = or disjoint i64 %128, 1
-  %130 = call fastcc ptr @call_getaddrinfo(i64 noundef %116, i64 noundef %117, i64 noundef %121, i64 noundef %125, i64 noundef %129, i64 noundef 2057, i32 noundef 1)
-  %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds i8, ptr %131, i64 16
-  %133 = load i32, ptr %132, align 8
-  %.not.i46 = icmp eq i32 %133, 0
-  br i1 %.not.i46, label %ruby_nonempty_memcpy.exit47, label %134
+115:                                              ; preds = %97
+  %116 = call i64 @rb_convert_type(i64 noundef %98, i32 noundef 7, ptr noundef nonnull @.str.133, ptr noundef nonnull @.str.134) #19
+  %117 = call i64 @rb_ary_entry(i64 noundef %116, i64 noundef 0) #22
+  %118 = call i64 @rb_ary_entry(i64 noundef %116, i64 noundef 1) #22
+  %119 = load i32, ptr %6, align 4
+  %120 = sext i32 %119 to i64
+  %121 = shl nsw i64 %120, 1
+  %122 = or disjoint i64 %121, 1
+  %123 = load i32, ptr %7, align 4
+  %124 = sext i32 %123 to i64
+  %125 = shl nsw i64 %124, 1
+  %126 = or disjoint i64 %125, 1
+  %127 = load i32, ptr %8, align 4
+  %128 = sext i32 %127 to i64
+  %129 = shl nsw i64 %128, 1
+  %130 = or disjoint i64 %129, 1
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  %131 = getelementptr inbounds i8, ptr %3, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %131, i8 0, i64 32, i1 false)
+  %132 = call i32 @rsock_family_arg(i64 noundef %122) #19
+  %133 = getelementptr inbounds i8, ptr %3, i64 4
+  store i32 %132, ptr %133, align 4
+  %134 = call i32 @rsock_socktype_arg(i64 noundef %126) #19
+  %135 = getelementptr inbounds i8, ptr %3, i64 8
+  store i32 %134, ptr %135, align 8
+  %136 = call i64 @rb_fix2int(i64 noundef %130) #19
+  %137 = trunc i64 %136 to i32
+  %138 = getelementptr inbounds i8, ptr %3, i64 12
+  store i32 %137, ptr %138, align 4
+  %139 = call i64 @rb_fix2int(i64 noundef 2057) #19
+  %140 = trunc i64 %139 to i32
+  store i32 %140, ptr %3, align 8
+  %141 = call noalias noundef nonnull ptr @rsock_getaddrinfo(i64 noundef %117, i64 noundef %118, ptr noundef nonnull %3, i32 noundef 1)
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
+  %142 = load ptr, ptr %141, align 8
+  %143 = getelementptr inbounds i8, ptr %142, i64 16
+  %144 = load i32, ptr %143, align 8
+  %.not.i47 = icmp eq i32 %144, 0
+  br i1 %.not.i47, label %ruby_nonempty_memcpy.exit48, label %145
 
-134:                                              ; preds = %114
-  %135 = zext i32 %133 to i64
-  %136 = getelementptr inbounds i8, ptr %131, i64 24
-  %137 = load ptr, ptr %136, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %8, ptr readonly align 1 %137, i64 %135, i1 false)
-  br label %ruby_nonempty_memcpy.exit47
+145:                                              ; preds = %115
+  %146 = zext i32 %144 to i64
+  %147 = getelementptr inbounds i8, ptr %142, i64 24
+  %148 = load ptr, ptr %147, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %9, ptr readonly align 1 %148, i64 %146, i1 false)
+  br label %ruby_nonempty_memcpy.exit48
 
-ruby_nonempty_memcpy.exit47:                      ; preds = %114, %134
-  %138 = getelementptr inbounds i8, ptr %130, i64 8
-  %139 = load i32, ptr %138, align 8
-  %.not.i48 = icmp eq i32 %139, 0
-  br i1 %.not.i48, label %140, label %.lr.ph.i
+ruby_nonempty_memcpy.exit48:                      ; preds = %115, %145
+  %149 = getelementptr inbounds i8, ptr %141, i64 8
+  %150 = load i32, ptr %149, align 8
+  %.not.i49 = icmp eq i32 %150, 0
+  br i1 %.not.i49, label %151, label %.lr.ph.i
 
-140:                                              ; preds = %ruby_nonempty_memcpy.exit47
-  call void @freeaddrinfo(ptr noundef nonnull %131) #19
+151:                                              ; preds = %ruby_nonempty_memcpy.exit48
+  call void @freeaddrinfo(ptr noundef nonnull %142) #19
   br label %rb_freeaddrinfo.exit
 
-.lr.ph.i:                                         ; preds = %ruby_nonempty_memcpy.exit47, %.lr.ph.i
-  %.011.i = phi ptr [ %142, %.lr.ph.i ], [ %131, %ruby_nonempty_memcpy.exit47 ]
-  %141 = getelementptr inbounds i8, ptr %.011.i, i64 40
-  %142 = load ptr, ptr %141, align 8
-  %143 = getelementptr inbounds i8, ptr %.011.i, i64 24
-  %144 = load ptr, ptr %143, align 8
-  call void @ruby_xfree(ptr noundef %144) #19
+.lr.ph.i:                                         ; preds = %ruby_nonempty_memcpy.exit48, %.lr.ph.i
+  %.011.i = phi ptr [ %153, %.lr.ph.i ], [ %142, %ruby_nonempty_memcpy.exit48 ]
+  %152 = getelementptr inbounds i8, ptr %.011.i, i64 40
+  %153 = load ptr, ptr %152, align 8
+  %154 = getelementptr inbounds i8, ptr %.011.i, i64 24
+  %155 = load ptr, ptr %154, align 8
+  call void @ruby_xfree(ptr noundef %155) #19
   call void @ruby_xfree(ptr noundef nonnull %.011.i) #19
-  %.not9.i = icmp eq ptr %142, null
+  %.not9.i = icmp eq ptr %153, null
   br i1 %.not9.i, label %rb_freeaddrinfo.exit, label %.lr.ph.i, !llvm.loop !6
 
-rb_freeaddrinfo.exit:                             ; preds = %.lr.ph.i, %140
-  call void @ruby_xfree(ptr noundef nonnull %130) #19
-  br label %145
+rb_freeaddrinfo.exit:                             ; preds = %.lr.ph.i, %151
+  call void @ruby_xfree(ptr noundef nonnull %141) #19
+  br label %156
 
-145:                                              ; preds = %rb_freeaddrinfo.exit, %ruby_nonempty_memcpy.exit
-  %.028 = phi i32 [ 110, %ruby_nonempty_memcpy.exit ], [ %133, %rb_freeaddrinfo.exit ]
-  %146 = call noalias noundef nonnull dereferenceable(2080) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 2080) #24
-  store i64 4, ptr %146, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 8
-  store i64 4, ptr %147, align 8
-  %148 = inttoptr i64 %0 to ptr
-  %149 = getelementptr inbounds i8, ptr %148, i64 32
-  store ptr %146, ptr %149, align 8
-  %150 = load i32, ptr %5, align 4
-  %151 = load i32, ptr %6, align 4
-  %152 = load i32, ptr %7, align 4
-  %153 = icmp ugt i32 %.028, 2048
-  br i1 %153, label %154, label %156
+156:                                              ; preds = %rb_freeaddrinfo.exit, %ruby_nonempty_memcpy.exit
+  %.028 = phi i32 [ 110, %ruby_nonempty_memcpy.exit ], [ %144, %rb_freeaddrinfo.exit ]
+  %157 = call noalias noundef nonnull dereferenceable(2080) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 2080) #24
+  store i64 4, ptr %157, align 8
+  %158 = getelementptr inbounds i8, ptr %157, i64 8
+  store i64 4, ptr %158, align 8
+  %159 = inttoptr i64 %0 to ptr
+  %160 = getelementptr inbounds i8, ptr %159, i64 32
+  store ptr %157, ptr %160, align 8
+  %161 = load i32, ptr %6, align 4
+  %162 = load i32, ptr %7, align 4
+  %163 = load i32, ptr %8, align 4
+  %164 = icmp ugt i32 %.028, 2048
+  br i1 %164, label %165, label %167
 
-154:                                              ; preds = %145
-  %155 = load i64, ptr @rb_eArgError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %155, ptr noundef nonnull @.str.100) #21
+165:                                              ; preds = %156
+  %166 = load i64, ptr @rb_eArgError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %166, ptr noundef nonnull @.str.100) #21
   unreachable
 
-156:                                              ; preds = %145
-  %.not.i.i49 = icmp eq i32 %.028, 0
-  br i1 %.not.i.i49, label %init_addrinfo.exit, label %157
+167:                                              ; preds = %156
+  %.not.i.i50 = icmp eq i32 %.028, 0
+  br i1 %.not.i.i50, label %init_addrinfo.exit, label %168
 
-157:                                              ; preds = %156
-  %158 = zext nneg i32 %.028 to i64
-  %159 = getelementptr inbounds i8, ptr %146, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %159, ptr nonnull readonly align 8 %8, i64 %158, i1 false)
+168:                                              ; preds = %167
+  %169 = zext nneg i32 %.028 to i64
+  %170 = getelementptr inbounds i8, ptr %157, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %170, ptr nonnull readonly align 8 %9, i64 %169, i1 false)
   br label %init_addrinfo.exit
 
-init_addrinfo.exit:                               ; preds = %156, %157
-  %160 = getelementptr inbounds i8, ptr %146, i64 28
-  store i32 %.028, ptr %160, align 4
-  %161 = getelementptr inbounds i8, ptr %146, i64 16
-  store i32 %150, ptr %161, align 8
-  %162 = getelementptr inbounds i8, ptr %146, i64 20
-  store i32 %151, ptr %162, align 4
-  %163 = getelementptr inbounds i8, ptr %146, i64 24
-  store i32 %152, ptr %163, align 8
-  store i64 %.0, ptr %147, align 8
-  store i64 %.027, ptr %146, align 8
+init_addrinfo.exit:                               ; preds = %167, %168
+  %171 = getelementptr inbounds i8, ptr %157, i64 28
+  store i32 %.028, ptr %171, align 4
+  %172 = getelementptr inbounds i8, ptr %157, i64 16
+  store i32 %161, ptr %172, align 8
+  %173 = getelementptr inbounds i8, ptr %157, i64 20
+  store i32 %162, ptr %173, align 4
+  %174 = getelementptr inbounds i8, ptr %157, i64 24
+  store i32 %163, ptr %174, align 8
+  store i64 %.0, ptr %158, align 8
+  store i64 %.027, ptr %157, align 8
   ret i64 %0
 }
 
@@ -5658,7 +5692,7 @@ declare i64 @rb_check_array_type(i64 noundef) local_unnamed_addr #2
 declare i32 @rsock_family_to_int(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias nonnull ptr @call_getaddrinfo(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
+define internal fastcc noalias noundef nonnull ptr @call_getaddrinfo(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
   %8 = alloca %struct.addrinfo, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 0, i64 48, i1 false)
   %9 = icmp eq i64 %2, 4
@@ -5728,17 +5762,8 @@ rb_num2int_inline.exit14:                         ; preds = %33, %35
   store i32 %37, ptr %8, align 8
   br label %38
 
-38:                                               ; preds = %rb_num2int_inline.exit14, %29
+38:                                               ; preds = %29, %rb_num2int_inline.exit14
   %39 = call ptr @rsock_getaddrinfo(i64 noundef %0, i64 noundef %1, ptr noundef nonnull %8, i32 noundef %6)
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %41, label %43
-
-41:                                               ; preds = %38
-  %42 = load i64, ptr @rb_eSocket, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %42, ptr noundef nonnull @.str.107) #21
-  unreachable
-
-43:                                               ; preds = %38
   ret ptr %39
 }
 
@@ -5945,92 +5970,145 @@ declare i32 @rb_get_kwargs(i64 noundef, ptr noundef, i32 noundef, i32 noundef, p
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i64 @addrinfo_firstonly_new(i64 noundef %0, i64 noundef %1, i64 noundef range(i64 1, 0) %2, i64 noundef range(i64 1, 0) %3, i64 noundef range(i64 1, 0) %4) unnamed_addr #0 {
-  %6 = tail call fastcc ptr @call_getaddrinfo(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef 1, i32 noundef 0)
-  %7 = load ptr, ptr %6, align 8
-  %8 = tail call fastcc i64 @make_inspectname(i64 noundef %0, i64 noundef %1, ptr noundef %7)
-  %9 = getelementptr inbounds i8, ptr %7, i64 32
-  %10 = load ptr, ptr %9, align 8
-  %.not = icmp eq ptr %10, null
-  br i1 %.not, label %13, label %11
+  %6 = alloca %struct.addrinfo, align 8
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
+  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, i8 0, i64 40, i1 false)
+  %8 = icmp eq i64 %2, 4
+  br i1 %8, label %11, label %9
 
-11:                                               ; preds = %5
-  %12 = tail call i64 @rb_str_new_cstr(ptr noundef nonnull %10) #19
-  tail call void @rb_obj_freeze_inline(i64 noundef %12) #19
-  br label %13
+9:                                                ; preds = %5
+  %10 = tail call i32 @rsock_family_arg(i64 noundef %2) #19
+  br label %11
 
-13:                                               ; preds = %11, %5
-  %.0 = phi i64 [ %12, %11 ], [ 4, %5 ]
-  %14 = getelementptr inbounds i8, ptr %7, i64 24
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 16
-  %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %7, i64 4
-  %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %7, i64 8
-  %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %7, i64 12
-  %23 = load i32, ptr %22, align 4
-  %24 = load i64, ptr @rb_cAddrinfo, align 8
-  %25 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %24, ptr noundef null, ptr noundef nonnull @addrinfo_type) #19
-  %26 = tail call noalias noundef nonnull dereferenceable(2080) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 2080) #24
-  store i64 4, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
-  store i64 4, ptr %27, align 8
-  %28 = inttoptr i64 %25 to ptr
-  %29 = getelementptr inbounds i8, ptr %28, i64 32
-  store ptr %26, ptr %29, align 8
-  %30 = icmp ugt i32 %17, 2048
-  br i1 %30, label %31, label %33
+11:                                               ; preds = %9, %5
+  %12 = phi i32 [ %10, %9 ], [ 0, %5 ]
+  %13 = getelementptr inbounds i8, ptr %6, i64 4
+  store i32 %12, ptr %13, align 4
+  %14 = icmp eq i64 %3, 4
+  br i1 %14, label %18, label %15
 
-31:                                               ; preds = %13
-  %32 = load i64, ptr @rb_eArgError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %32, ptr noundef nonnull @.str.100) #21
+15:                                               ; preds = %11
+  %16 = tail call i32 @rsock_socktype_arg(i64 noundef %3) #19
+  %17 = getelementptr inbounds i8, ptr %6, i64 8
+  store i32 %16, ptr %17, align 8
+  br label %18
+
+18:                                               ; preds = %15, %11
+  %19 = icmp eq i64 %4, 4
+  br i1 %19, label %call_getaddrinfo.exit, label %20
+
+20:                                               ; preds = %18
+  %21 = and i64 %4, 1
+  %.not.i.i = icmp eq i64 %21, 0
+  br i1 %.not.i.i, label %24, label %22
+
+22:                                               ; preds = %20
+  %23 = tail call i64 @rb_fix2int(i64 noundef %4) #19
+  br label %rb_num2int_inline.exit.i
+
+24:                                               ; preds = %20
+  %25 = tail call i64 @rb_num2int(i64 noundef %4) #19
+  br label %rb_num2int_inline.exit.i
+
+rb_num2int_inline.exit.i:                         ; preds = %24, %22
+  %.0.i.i = phi i64 [ %23, %22 ], [ %25, %24 ]
+  %26 = trunc i64 %.0.i.i to i32
+  %27 = getelementptr inbounds i8, ptr %6, i64 12
+  store i32 %26, ptr %27, align 4
+  br label %call_getaddrinfo.exit
+
+call_getaddrinfo.exit:                            ; preds = %18, %rb_num2int_inline.exit.i
+  %28 = tail call i64 @rb_fix2int(i64 noundef 1) #19
+  %29 = trunc i64 %28 to i32
+  store i32 %29, ptr %6, align 8
+  %30 = call noalias noundef nonnull ptr @rsock_getaddrinfo(i64 noundef %0, i64 noundef %1, ptr noundef nonnull %6, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
+  %31 = load ptr, ptr %30, align 8
+  %32 = call fastcc i64 @make_inspectname(i64 noundef %0, i64 noundef %1, ptr noundef %31)
+  %33 = getelementptr inbounds i8, ptr %31, i64 32
+  %34 = load ptr, ptr %33, align 8
+  %.not = icmp eq ptr %34, null
+  br i1 %.not, label %37, label %35
+
+35:                                               ; preds = %call_getaddrinfo.exit
+  %36 = call i64 @rb_str_new_cstr(ptr noundef nonnull %34) #19
+  call void @rb_obj_freeze_inline(i64 noundef %36) #19
+  br label %37
+
+37:                                               ; preds = %35, %call_getaddrinfo.exit
+  %.0 = phi i64 [ %36, %35 ], [ 4, %call_getaddrinfo.exit ]
+  %38 = getelementptr inbounds i8, ptr %31, i64 24
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %31, i64 16
+  %41 = load i32, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %31, i64 4
+  %43 = load i32, ptr %42, align 4
+  %44 = getelementptr inbounds i8, ptr %31, i64 8
+  %45 = load i32, ptr %44, align 8
+  %46 = getelementptr inbounds i8, ptr %31, i64 12
+  %47 = load i32, ptr %46, align 4
+  %48 = load i64, ptr @rb_cAddrinfo, align 8
+  %49 = call i64 @rb_data_typed_object_wrap(i64 noundef %48, ptr noundef null, ptr noundef nonnull @addrinfo_type) #19
+  %50 = call noalias noundef nonnull dereferenceable(2080) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 2080) #24
+  store i64 4, ptr %50, align 8
+  %51 = getelementptr inbounds i8, ptr %50, i64 8
+  store i64 4, ptr %51, align 8
+  %52 = inttoptr i64 %49 to ptr
+  %53 = getelementptr inbounds i8, ptr %52, i64 32
+  store ptr %50, ptr %53, align 8
+  %54 = icmp ugt i32 %41, 2048
+  br i1 %54, label %55, label %57
+
+55:                                               ; preds = %37
+  %56 = load i64, ptr @rb_eArgError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %56, ptr noundef nonnull @.str.100) #21
   unreachable
 
-33:                                               ; preds = %13
-  %.not.i.i.i = icmp eq i32 %17, 0
-  br i1 %.not.i.i.i, label %rsock_addrinfo_new.exit, label %34
+57:                                               ; preds = %37
+  %.not.i.i.i = icmp eq i32 %41, 0
+  br i1 %.not.i.i.i, label %rsock_addrinfo_new.exit, label %58
 
-34:                                               ; preds = %33
-  %35 = zext nneg i32 %17 to i64
-  %36 = getelementptr inbounds i8, ptr %26, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %36, ptr readonly align 1 %15, i64 %35, i1 false)
+58:                                               ; preds = %57
+  %59 = zext nneg i32 %41 to i64
+  %60 = getelementptr inbounds i8, ptr %50, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %60, ptr readonly align 1 %39, i64 %59, i1 false)
   br label %rsock_addrinfo_new.exit
 
-rsock_addrinfo_new.exit:                          ; preds = %33, %34
-  %37 = getelementptr inbounds i8, ptr %26, i64 28
-  store i32 %17, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %26, i64 16
-  store i32 %19, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %26, i64 20
-  store i32 %21, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %26, i64 24
-  store i32 %23, ptr %40, align 8
-  store i64 %.0, ptr %27, align 8
-  store i64 %8, ptr %26, align 8
-  %41 = getelementptr inbounds i8, ptr %6, i64 8
-  %42 = load i32, ptr %41, align 8
-  %.not.i = icmp eq i32 %42, 0
-  br i1 %.not.i, label %43, label %.lr.ph.i
+rsock_addrinfo_new.exit:                          ; preds = %57, %58
+  %61 = getelementptr inbounds i8, ptr %50, i64 28
+  store i32 %41, ptr %61, align 4
+  %62 = getelementptr inbounds i8, ptr %50, i64 16
+  store i32 %43, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %50, i64 20
+  store i32 %45, ptr %63, align 4
+  %64 = getelementptr inbounds i8, ptr %50, i64 24
+  store i32 %47, ptr %64, align 8
+  store i64 %.0, ptr %51, align 8
+  store i64 %32, ptr %50, align 8
+  %65 = getelementptr inbounds i8, ptr %30, i64 8
+  %66 = load i32, ptr %65, align 8
+  %.not.i = icmp eq i32 %66, 0
+  br i1 %.not.i, label %67, label %.lr.ph.i
 
-43:                                               ; preds = %rsock_addrinfo_new.exit
-  tail call void @freeaddrinfo(ptr noundef nonnull %7) #19
+67:                                               ; preds = %rsock_addrinfo_new.exit
+  call void @freeaddrinfo(ptr noundef nonnull %31) #19
   br label %rb_freeaddrinfo.exit
 
 .lr.ph.i:                                         ; preds = %rsock_addrinfo_new.exit, %.lr.ph.i
-  %.011.i = phi ptr [ %45, %.lr.ph.i ], [ %7, %rsock_addrinfo_new.exit ]
-  %44 = getelementptr inbounds i8, ptr %.011.i, i64 40
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %.011.i, i64 24
-  %47 = load ptr, ptr %46, align 8
-  tail call void @ruby_xfree(ptr noundef %47) #19
-  tail call void @ruby_xfree(ptr noundef nonnull %.011.i) #19
-  %.not9.i = icmp eq ptr %45, null
+  %.011.i = phi ptr [ %69, %.lr.ph.i ], [ %31, %rsock_addrinfo_new.exit ]
+  %68 = getelementptr inbounds i8, ptr %.011.i, i64 40
+  %69 = load ptr, ptr %68, align 8
+  %70 = getelementptr inbounds i8, ptr %.011.i, i64 24
+  %71 = load ptr, ptr %70, align 8
+  call void @ruby_xfree(ptr noundef %71) #19
+  call void @ruby_xfree(ptr noundef nonnull %.011.i) #19
+  %.not9.i = icmp eq ptr %69, null
   br i1 %.not9.i, label %rb_freeaddrinfo.exit, label %.lr.ph.i, !llvm.loop !6
 
-rb_freeaddrinfo.exit:                             ; preds = %.lr.ph.i, %43
-  tail call void @ruby_xfree(ptr noundef nonnull %6) #19
-  ret i64 %25
+rb_freeaddrinfo.exit:                             ; preds = %.lr.ph.i, %67
+  call void @ruby_xfree(ptr noundef nonnull %30) #19
+  ret i64 %49
 }
 
 declare void @rb_ary_store(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2

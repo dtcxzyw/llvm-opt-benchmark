@@ -18549,7 +18549,7 @@ select.unfold:                                    ; preds = %401, %.noexc1119, %
   store i8 0, ptr %.sroa.82027.0..sroa_idx, align 8
   %577 = getelementptr inbounds i8, ptr %0, i64 184
   %578 = getelementptr inbounds i8, ptr %0, i64 624
-  br label %.thread55.i
+  br label %.thread54.i
 
 .body1256:                                        ; preds = %1010, %1001, %.body1250, %"_ZN4core3ptr152drop_in_place$LT$aws_smithy_runtime_api..client..orchestrator..OrchestratorError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$GT$$GT$17h8ad7dada4af35b91E.exit1511"
   %.pn422 = phi { ptr, i32 } [ %.pn419.pn2848, %"_ZN4core3ptr152drop_in_place$LT$aws_smithy_runtime_api..client..orchestrator..OrchestratorError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$GT$$GT$17h8ad7dada4af35b91E.exit1511" ], [ %.pn400, %.body1250 ], [ %1002, %1001 ], [ %1011, %1010 ]
@@ -19543,13 +19543,13 @@ common.ret:                                       ; preds = %1901, %681, %774, %
   %876 = getelementptr inbounds i8, ptr %0, i64 184
   %877 = getelementptr inbounds i8, ptr %0, i64 624
   switch i8 %.pre, label %default.unreachable3054 [
-    i8 0, label %.thread55.i
+    i8 0, label %.thread54.i
     i8 1, label %.invoke
     i8 2, label %882
     i8 3, label %885
   ]
 
-.thread55.i:                                      ; preds = %.thread3055, %875
+.thread54.i:                                      ; preds = %.thread3055, %875
   %878 = phi ptr [ %578, %.thread3055 ], [ %877, %875 ]
   %879 = phi ptr [ %577, %.thread3055 ], [ %876, %875 ]
   call void @llvm.lifetime.start.p0(i64 344, ptr nonnull %.sroa.013.i)
@@ -19609,11 +19609,11 @@ common.ret:                                       ; preds = %1901, %681, %774, %
           cleanup
   br label %"_ZN4core3ptr84drop_in_place$LT$bytes_utils..segmented..SegmentedBuf$LT$bytes..bytes..Bytes$GT$$GT$17hdf9b7f0621b4d0b9E.exit19.i.i"
 
-897:                                              ; preds = %885, %.thread55.i
-  %898 = phi ptr [ %878, %.thread55.i ], [ %877, %885 ]
-  %899 = phi ptr [ %879, %.thread55.i ], [ %876, %885 ]
-  %900 = phi ptr [ %.sroa.7.0..sroa_idx.i, %.thread55.i ], [ %.phi.trans.insert.i, %885 ]
-  %901 = phi ptr [ %880, %.thread55.i ], [ %886, %885 ]
+897:                                              ; preds = %885, %.thread54.i
+  %898 = phi ptr [ %878, %.thread54.i ], [ %877, %885 ]
+  %899 = phi ptr [ %879, %.thread54.i ], [ %876, %885 ]
+  %900 = phi ptr [ %.sroa.7.0..sroa_idx.i, %.thread54.i ], [ %.phi.trans.insert.i, %885 ]
+  %901 = phi ptr [ %880, %.thread54.i ], [ %886, %885 ]
   %902 = getelementptr inbounds i8, ptr %0, i64 617
   %903 = getelementptr inbounds i8, ptr %0, i64 618
   %904 = getelementptr inbounds i8, ptr %0, i64 360
@@ -19655,8 +19655,8 @@ common.ret:                                       ; preds = %1901, %681, %774, %
   ]
 
 ._crit_edge.i:                                    ; preds = %911
-  %.phi.trans.insert52.i = getelementptr inbounds i8, ptr %0, i64 584
-  %.pre53.i = load ptr, ptr %.phi.trans.insert52.i, align 8, !noalias !2510
+  %.phi.trans.insert51.i = getelementptr inbounds i8, ptr %0, i64 584
+  %.pre52.i = load ptr, ptr %.phi.trans.insert51.i, align 8, !noalias !2510
   br label %912
 
 ._crit_edge.i.i.i:                                ; preds = %911
@@ -19670,7 +19670,7 @@ common.ret:                                       ; preds = %1901, %681, %774, %
   %914 = phi ptr [ %950, %.thread.i.i ], [ %876, %._crit_edge.i ]
   %915 = phi ptr [ %951, %.thread.i.i ], [ %.phi.trans.insert.i, %._crit_edge.i ]
   %916 = phi ptr [ %952, %.thread.i.i ], [ %886, %._crit_edge.i ]
-  %917 = phi ptr [ %953, %.thread.i.i ], [ %.pre53.i, %._crit_edge.i ]
+  %917 = phi ptr [ %953, %.thread.i.i ], [ %.pre52.i, %._crit_edge.i ]
   %918 = phi ptr [ %.sroa.10.0..sroa_idx.i.i, %.thread.i.i ], [ %.phi.trans.insert58.i.i, %._crit_edge.i ]
   %919 = getelementptr inbounds i8, ptr %0, i64 592
   store ptr %917, ptr %919, align 8, !noalias !2510
@@ -19886,12 +19886,12 @@ common.ret:                                       ; preds = %1901, %681, %774, %
   br label %999
 
 989:                                              ; preds = %985, %"_ZN4core3ptr95drop_in_place$LT$aws_smithy_types..byte_stream..Inner..collect..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1ff8a19736fe862cE.exit.thread.i"
-  %.sroa.546.i.sroa.4.03951.i = phi i64 [ undef, %"_ZN4core3ptr95drop_in_place$LT$aws_smithy_types..byte_stream..Inner..collect..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1ff8a19736fe862cE.exit.thread.i" ], [ %.sroa.546.i.sroa.4.0.copyload.i, %985 ]
-  %.sroa.342.0.i4149.i = phi ptr [ %.sroa.451.sroa.5.0.copyload.i.i, %"_ZN4core3ptr95drop_in_place$LT$aws_smithy_types..byte_stream..Inner..collect..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1ff8a19736fe862cE.exit.thread.i" ], [ %.sroa.447.0.copyload.i.i, %985 ]
-  %.sroa.444.0.i4248.i = phi ptr [ %.sroa.451.sroa.6.0.copyload.i.i, %"_ZN4core3ptr95drop_in_place$LT$aws_smithy_types..byte_stream..Inner..collect..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1ff8a19736fe862cE.exit.thread.i" ], [ %.sroa.548.0.copyload.i.i, %985 ]
-  %990 = icmp ne ptr %.sroa.342.0.i4149.i, null
+  %.sroa.546.i.sroa.4.03850.i = phi i64 [ undef, %"_ZN4core3ptr95drop_in_place$LT$aws_smithy_types..byte_stream..Inner..collect..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1ff8a19736fe862cE.exit.thread.i" ], [ %.sroa.546.i.sroa.4.0.copyload.i, %985 ]
+  %.sroa.342.0.i4048.i = phi ptr [ %.sroa.451.sroa.5.0.copyload.i.i, %"_ZN4core3ptr95drop_in_place$LT$aws_smithy_types..byte_stream..Inner..collect..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1ff8a19736fe862cE.exit.thread.i" ], [ %.sroa.447.0.copyload.i.i, %985 ]
+  %.sroa.444.0.i4147.i = phi ptr [ %.sroa.451.sroa.6.0.copyload.i.i, %"_ZN4core3ptr95drop_in_place$LT$aws_smithy_types..byte_stream..Inner..collect..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1ff8a19736fe862cE.exit.thread.i" ], [ %.sroa.548.0.copyload.i.i, %985 ]
+  %990 = icmp ne ptr %.sroa.342.0.i4048.i, null
   call void @llvm.assume(i1 %990)
-  %991 = icmp ne ptr %.sroa.444.0.i4248.i, null
+  %991 = icmp ne ptr %.sroa.444.0.i4147.i, null
   call void @llvm.assume(i1 %991)
   br label %999
 
@@ -19915,9 +19915,9 @@ common.ret:                                       ; preds = %1901, %681, %774, %
   br label %.body1250
 
 999:                                              ; preds = %989, %987
-  %.sroa.546.i.sroa.4.03950.i = phi i64 [ %.sroa.546.i.sroa.4.03951.i, %989 ], [ %.sroa.546.i.sroa.4.0.copyload.i, %987 ]
-  %.sroa.723.0.i = phi ptr [ %.sroa.444.0.i4248.i, %989 ], [ %.sroa.546.i.sroa.0.0.copyload.i, %987 ]
-  %.sroa.522.0.i = phi ptr [ %.sroa.342.0.i4149.i, %989 ], [ %.sroa.548.0.copyload.i.i, %987 ]
+  %.sroa.546.i.sroa.4.03849.i = phi i64 [ %.sroa.546.i.sroa.4.03850.i, %989 ], [ %.sroa.546.i.sroa.4.0.copyload.i, %987 ]
+  %.sroa.723.0.i = phi ptr [ %.sroa.444.0.i4147.i, %989 ], [ %.sroa.546.i.sroa.0.0.copyload.i, %987 ]
+  %.sroa.522.0.i = phi ptr [ %.sroa.342.0.i4048.i, %989 ], [ %.sroa.548.0.copyload.i.i, %987 ]
   %.sroa.321.0.i = phi i64 [ 3, %989 ], [ %988, %987 ]
   %.sroa.020.0.i = phi i64 [ -9223372036854775808, %989 ], [ %.sroa.0.0.copyload.i.i, %987 ]
   call void @llvm.lifetime.end.p0(i64 344, ptr nonnull %.sroa.013.i)
@@ -19988,7 +19988,7 @@ common.ret:                                       ; preds = %1901, %681, %774, %
   %.sroa.14.sroa.10.0..sroa.14.8..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %231, i64 24
   store ptr %.sroa.723.0.i, ptr %.sroa.14.sroa.10.0..sroa.14.8..sroa_idx.sroa_idx, align 8
   %.sroa.14.sroa.11.0..sroa.14.8..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %231, i64 32
-  store i64 %.sroa.546.i.sroa.4.03950.i, ptr %.sroa.14.sroa.11.0..sroa.14.8..sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.546.i.sroa.4.03849.i, ptr %.sroa.14.sroa.11.0..sroa.14.8..sroa_idx.sroa_idx, align 8
   invoke void @_ZN16aws_smithy_types11byte_stream15AggregatedBytes10into_bytes17h5e486b45291692ddE(ptr noalias nocapture noundef nonnull sret({ ptr, ptr, i64, { ptr } }) align 8 dereferenceable(32) %232, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %231)
           to label %1017 unwind label %1001
 
@@ -22397,7 +22397,7 @@ common.ret:                                       ; preds = %1901, %681, %774, %
   %.sroa.14.sroa.10.0..sroa.14.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %230, i64 32
   store ptr %.sroa.723.0.i, ptr %.sroa.14.sroa.10.0..sroa.14.0..sroa_idx.sroa_idx, align 8
   %.sroa.14.sroa.11.0..sroa.14.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %230, i64 40
-  store i64 %.sroa.546.i.sroa.4.03950.i, ptr %.sroa.14.sroa.11.0..sroa.14.0..sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.546.i.sroa.4.03849.i, ptr %.sroa.14.sroa.11.0..sroa.14.0..sroa_idx.sroa_idx, align 8
   %1800 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hdbd148323133a678E monotonic, align 8
   %1801 = icmp ult i64 %1800, 2
   br i1 %1801, label %1802, label %.thread2841

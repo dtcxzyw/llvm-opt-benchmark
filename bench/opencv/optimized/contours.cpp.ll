@@ -394,13 +394,13 @@ define internal fastcc noundef ptr @_ZL24cvStartFindContours_ImplPvP12CvMemStora
 24:                                               ; preds = %21
   %25 = landingpad { ptr, i32 }
           cleanup
-  br label %175
+  br label %177
 
 26:                                               ; preds = %22
   %27 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #14
-  br label %175
+  br label %177
 
 28:                                               ; preds = %7
   %29 = call ptr @cvGetMat(ptr noundef %0, ptr noundef nonnull %10, ptr noundef null, i32 noundef 0)
@@ -434,13 +434,13 @@ define internal fastcc noundef ptr @_ZL24cvStartFindContours_ImplPvP12CvMemStora
 41:                                               ; preds = %38
   %42 = landingpad { ptr, i32 }
           cleanup
-  br label %175
+  br label %177
 
 43:                                               ; preds = %39
   %44 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #14
-  br label %175
+  br label %177
 
 45:                                               ; preds = %28
   %46 = getelementptr inbounds i8, ptr %29, i64 36
@@ -471,13 +471,13 @@ define internal fastcc noundef ptr @_ZL24cvStartFindContours_ImplPvP12CvMemStora
 57:                                               ; preds = %54
   %58 = landingpad { ptr, i32 }
           cleanup
-  br label %175
+  br label %177
 
 59:                                               ; preds = %55
   %60 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #14
-  br label %175
+  br label %177
 
 61:                                               ; preds = %45
   %62 = icmp eq i32 %4, 0
@@ -500,13 +500,13 @@ define internal fastcc noundef ptr @_ZL24cvStartFindContours_ImplPvP12CvMemStora
 68:                                               ; preds = %65
   %69 = landingpad { ptr, i32 }
           cleanup
-  br label %175
+  br label %177
 
 70:                                               ; preds = %66
   %71 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #14
-  br label %175
+  br label %177
 
 72:                                               ; preds = %61
   %73 = call ptr @cvAlloc(i64 noundef 1432)
@@ -561,198 +561,201 @@ define internal fastcc noundef ptr @_ZL24cvStartFindContours_ImplPvP12CvMemStora
   store i32 %4, ptr %97, align 4
   %98 = add nsw i32 %4, -3
   %or.cond9 = icmp ult i32 %98, 2
-  br i1 %or.cond9, label %103, label %99
+  br i1 %or.cond9, label %104, label %99
 
 99:                                               ; preds = %72
   %100 = getelementptr inbounds i8, ptr %73, i64 384
   %101 = getelementptr inbounds i8, ptr %73, i64 388
   %102 = getelementptr inbounds i8, ptr %73, i64 392
-  br i1 %62, label %107, label %.thread173
+  %103 = getelementptr inbounds i8, ptr %73, i64 400
+  br i1 %62, label %109, label %.thread173
 
 .thread173:                                       ; preds = %99
   store i32 20492, ptr %100, align 8
   store i32 %2, ptr %101, align 4
   store i32 8, ptr %102, align 8
-  br label %108
+  store i32 %2, ptr %103, align 8
+  br label %110
 
-103:                                              ; preds = %72
+104:                                              ; preds = %72
   store i32 0, ptr %96, align 8
-  %104 = getelementptr inbounds i8, ptr %73, i64 384
-  store i32 20480, ptr %104, align 8
-  %105 = getelementptr inbounds i8, ptr %73, i64 388
-  store i32 104, ptr %105, align 4
-  %106 = getelementptr inbounds i8, ptr %73, i64 392
-  store i32 1, ptr %106, align 8
-  br label %108
+  %105 = getelementptr inbounds i8, ptr %73, i64 384
+  store i32 20480, ptr %105, align 8
+  %106 = getelementptr inbounds i8, ptr %73, i64 388
+  store i32 104, ptr %106, align 4
+  %107 = getelementptr inbounds i8, ptr %73, i64 392
+  store i32 1, ptr %107, align 8
+  %108 = getelementptr inbounds i8, ptr %73, i64 400
+  store i32 %2, ptr %108, align 8
+  br label %110
 
-107:                                              ; preds = %99
+109:                                              ; preds = %99
   store i32 20480, ptr %100, align 8
   store i32 %2, ptr %101, align 4
   store i32 1, ptr %102, align 8
-  br label %108
+  store i32 %2, ptr %103, align 8
+  br label %110
 
-108:                                              ; preds = %.thread173, %103, %107
-  %109 = phi i32 [ 20480, %107 ], [ 20492, %.thread173 ], [ 20480, %103 ]
-  %110 = phi i32 [ 20480, %107 ], [ 20492, %.thread173 ], [ 20492, %103 ]
-  %.sink = phi i32 [ 1, %107 ], [ 8, %.thread173 ], [ 8, %103 ]
-  %.sink176 = getelementptr inbounds i8, ptr %73, i64 400
-  store i32 %2, ptr %.sink176, align 8
-  %111 = getelementptr inbounds i8, ptr %73, i64 396
-  %112 = getelementptr inbounds i8, ptr %73, i64 404
-  store i32 %.sink, ptr %112, align 4
-  %113 = getelementptr inbounds i8, ptr %73, i64 384
-  store i32 %109, ptr %113, align 8
-  store i32 %110, ptr %111, align 4
-  %114 = getelementptr inbounds i8, ptr %73, i64 32
-  call void @cvSaveMemStoragePos(ptr noundef nonnull %1, ptr noundef nonnull %114)
-  %115 = icmp ugt i32 %4, 2
-  br i1 %115, label %116, label %119
+110:                                              ; preds = %.thread173, %104, %109
+  %111 = phi i32 [ 20480, %109 ], [ 20492, %.thread173 ], [ 20480, %104 ]
+  %112 = phi i32 [ 20480, %109 ], [ 20492, %.thread173 ], [ 20492, %104 ]
+  %.sink = phi i32 [ 1, %109 ], [ 8, %.thread173 ], [ 8, %104 ]
+  %113 = getelementptr inbounds i8, ptr %73, i64 396
+  %114 = getelementptr inbounds i8, ptr %73, i64 404
+  store i32 %.sink, ptr %114, align 4
+  %115 = getelementptr inbounds i8, ptr %73, i64 384
+  store i32 %111, ptr %115, align 8
+  store i32 %112, ptr %113, align 4
+  %116 = getelementptr inbounds i8, ptr %73, i64 32
+  call void @cvSaveMemStoragePos(ptr noundef nonnull %1, ptr noundef nonnull %116)
+  %117 = icmp ugt i32 %4, 2
+  br i1 %117, label %118, label %121
 
-116:                                              ; preds = %108
-  %117 = load ptr, ptr %75, align 8
-  %118 = call ptr @cvCreateChildMemStorage(ptr noundef %117)
-  store ptr %118, ptr %73, align 8
-  br label %119
+118:                                              ; preds = %110
+  %119 = load ptr, ptr %75, align 8
+  %120 = call ptr @cvCreateChildMemStorage(ptr noundef %119)
+  store ptr %120, ptr %73, align 8
+  br label %121
 
-119:                                              ; preds = %116, %108
-  %120 = icmp sgt i32 %spec.store.select, 1
-  br i1 %120, label %121, label %127
+121:                                              ; preds = %118, %110
+  %122 = icmp sgt i32 %spec.store.select, 1
+  br i1 %122, label %123, label %129
 
-121:                                              ; preds = %119
-  %122 = load ptr, ptr %75, align 8
-  %123 = call ptr @cvCreateChildMemStorage(ptr noundef %122)
-  %124 = getelementptr inbounds i8, ptr %73, i64 16
-  store ptr %123, ptr %124, align 8
-  %125 = call ptr @cvCreateSet(i32 noundef 0, i32 noundef 112, i32 noundef 64, ptr noundef %123)
-  %126 = getelementptr inbounds i8, ptr %73, i64 24
+123:                                              ; preds = %121
+  %124 = load ptr, ptr %75, align 8
+  %125 = call ptr @cvCreateChildMemStorage(ptr noundef %124)
+  %126 = getelementptr inbounds i8, ptr %73, i64 16
   store ptr %125, ptr %126, align 8
-  br label %127
+  %127 = call ptr @cvCreateSet(i32 noundef 0, i32 noundef 112, i32 noundef 64, ptr noundef %125)
+  %128 = getelementptr inbounds i8, ptr %73, i64 24
+  store ptr %127, ptr %128, align 8
+  br label %129
 
-127:                                              ; preds = %119, %121
-  %128 = icmp sgt i32 %51, -1
-  br i1 %128, label %136, label %129
+129:                                              ; preds = %121, %123
+  %130 = icmp sgt i32 %51, -1
+  br i1 %130, label %138, label %131
 
-129:                                              ; preds = %127
+131:                                              ; preds = %129
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #14
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull @.str.13, ptr noundef nonnull align 1 dereferenceable(1) %18)
-          to label %130 unwind label %132
+          to label %132 unwind label %134
 
-130:                                              ; preds = %129
+132:                                              ; preds = %131
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull @__func__._ZL24cvStartFindContours_ImplPvP12CvMemStorageiii7CvPointi, ptr noundef nonnull @.str.1, i32 noundef 285) #15
-          to label %131 unwind label %134
+          to label %133 unwind label %136
 
-131:                                              ; preds = %130
+133:                                              ; preds = %132
   unreachable
 
-132:                                              ; preds = %129
-  %133 = landingpad { ptr, i32 }
-          cleanup
-  br label %175
-
-134:                                              ; preds = %130
+134:                                              ; preds = %131
   %135 = landingpad { ptr, i32 }
           cleanup
+  br label %177
+
+136:                                              ; preds = %132
+  %137 = landingpad { ptr, i32 }
+          cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #14
-  br label %175
+  br label %177
 
-136:                                              ; preds = %127
-  %137 = icmp sgt i32 %49, 0
-  br i1 %137, label %145, label %138
+138:                                              ; preds = %129
+  %139 = icmp sgt i32 %49, 0
+  br i1 %139, label %147, label %140
 
-138:                                              ; preds = %136
+140:                                              ; preds = %138
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #14
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull @.str.14, ptr noundef nonnull align 1 dereferenceable(1) %20)
-          to label %139 unwind label %141
+          to label %141 unwind label %143
 
-139:                                              ; preds = %138
+141:                                              ; preds = %140
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull @__func__._ZL24cvStartFindContours_ImplPvP12CvMemStorageiii7CvPointi, ptr noundef nonnull @.str.1, i32 noundef 286) #15
-          to label %140 unwind label %143
+          to label %142 unwind label %145
 
-140:                                              ; preds = %139
+142:                                              ; preds = %141
   unreachable
 
-141:                                              ; preds = %138
-  %142 = landingpad { ptr, i32 }
-          cleanup
-  br label %175
-
-143:                                              ; preds = %139
+143:                                              ; preds = %140
   %144 = landingpad { ptr, i32 }
           cleanup
+  br label %177
+
+145:                                              ; preds = %141
+  %146 = landingpad { ptr, i32 }
+          cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #14
-  br label %175
+  br label %177
 
-145:                                              ; preds = %136
+147:                                              ; preds = %138
   %.not157 = icmp eq i32 %6, 0
-  br i1 %.not157, label %.loopexit, label %146
+  br i1 %.not157, label %.loopexit, label %148
 
-146:                                              ; preds = %145
-  %147 = load i32, ptr %29, align 8
-  %148 = lshr i32 %147, 3
-  %149 = and i32 %148, 511
-  %150 = add nuw nsw i32 %149, 1
-  %151 = shl i32 %147, 2
-  %152 = and i32 %151, 28
-  %153 = lshr i32 675553809, %152
-  %154 = and i32 %153, 15
-  %155 = mul nuw nsw i32 %154, %150
-  %156 = mul nsw i32 %155, %47
-  %157 = sext i32 %156 to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %53, i8 0, i64 %157, i1 false)
-  %158 = zext nneg i32 %83 to i64
-  %159 = mul nuw nsw i64 %77, %158
-  %160 = getelementptr inbounds i8, ptr %53, i64 %159
-  call void @llvm.memset.p0.i64(ptr align 1 %160, i8 0, i64 %157, i1 false)
-  %161 = icmp ult i32 %49, 3
-  %.not168 = icmp eq i32 %154, 0
-  %or.cond177 = select i1 %161, i1 true, i1 %.not168
-  br i1 %or.cond177, label %.loopexit, label %.preheader.us.preheader
+148:                                              ; preds = %147
+  %149 = load i32, ptr %29, align 8
+  %150 = lshr i32 %149, 3
+  %151 = and i32 %150, 511
+  %152 = add nuw nsw i32 %151, 1
+  %153 = shl i32 %149, 2
+  %154 = and i32 %153, 28
+  %155 = lshr i32 675553809, %154
+  %156 = and i32 %155, 15
+  %157 = mul nuw nsw i32 %156, %152
+  %158 = mul nsw i32 %157, %47
+  %159 = sext i32 %158 to i64
+  call void @llvm.memset.p0.i64(ptr align 1 %53, i8 0, i64 %159, i1 false)
+  %160 = zext nneg i32 %83 to i64
+  %161 = mul nuw nsw i64 %77, %160
+  %162 = getelementptr inbounds i8, ptr %53, i64 %161
+  call void @llvm.memset.p0.i64(ptr align 1 %162, i8 0, i64 %159, i1 false)
+  %163 = icmp ult i32 %49, 3
+  %.not168 = icmp eq i32 %156, 0
+  %or.cond176 = select i1 %163, i1 true, i1 %.not168
+  br i1 %or.cond176, label %.loopexit, label %.preheader.us.preheader
 
-.preheader.us.preheader:                          ; preds = %146
-  %162 = mul nsw i32 %155, %81
-  %163 = sext i32 %162 to i64
-  %wide.trip.count = zext nneg i32 %155 to i64
+.preheader.us.preheader:                          ; preds = %148
+  %164 = mul nsw i32 %157, %81
+  %165 = sext i32 %164 to i64
+  %wide.trip.count = zext nneg i32 %157 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
-  %.0135167.us = phi i32 [ %168, %._crit_edge.us ], [ 1, %.preheader.us.preheader ]
-  %.0144166.us = phi ptr [ %169, %._crit_edge.us ], [ %78, %.preheader.us.preheader ]
-  br label %164
+  %.0135167.us = phi i32 [ %170, %._crit_edge.us ], [ 1, %.preheader.us.preheader ]
+  %.0144166.us = phi ptr [ %171, %._crit_edge.us ], [ %78, %.preheader.us.preheader ]
+  br label %166
 
-164:                                              ; preds = %.preheader.us, %164
-  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %164 ]
-  %165 = add nsw i64 %indvars.iv, %163
-  %166 = getelementptr inbounds i8, ptr %.0144166.us, i64 %165
-  store i8 0, ptr %166, align 1
-  %167 = getelementptr inbounds i8, ptr %.0144166.us, i64 %indvars.iv
-  store i8 0, ptr %167, align 1
+166:                                              ; preds = %.preheader.us, %166
+  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %166 ]
+  %167 = add nsw i64 %indvars.iv, %165
+  %168 = getelementptr inbounds i8, ptr %.0144166.us, i64 %167
+  store i8 0, ptr %168, align 1
+  %169 = getelementptr inbounds i8, ptr %.0144166.us, i64 %indvars.iv
+  store i8 0, ptr %169, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %164, !llvm.loop !6
+  br i1 %exitcond.not, label %._crit_edge.us, label %166, !llvm.loop !6
 
-._crit_edge.us:                                   ; preds = %164
-  %168 = add nuw nsw i32 %.0135167.us, 1
-  %169 = getelementptr inbounds i8, ptr %.0144166.us, i64 %77
-  %exitcond171.not = icmp eq i32 %168, %83
+._crit_edge.us:                                   ; preds = %166
+  %170 = add nuw nsw i32 %.0135167.us, 1
+  %171 = getelementptr inbounds i8, ptr %.0144166.us, i64 %77
+  %exitcond171.not = icmp eq i32 %170, %83
   br i1 %exitcond171.not, label %.loopexit, label %.preheader.us, !llvm.loop !7
 
-.loopexit:                                        ; preds = %._crit_edge.us, %146, %145
-  %170 = load i32, ptr %29, align 8
-  %171 = and i32 %170, 4095
-  %.not158 = icmp eq i32 %171, 4
-  br i1 %.not158, label %174, label %172
+.loopexit:                                        ; preds = %._crit_edge.us, %148, %147
+  %172 = load i32, ptr %29, align 8
+  %173 = and i32 %172, 4095
+  %.not158 = icmp eq i32 %173, 4
+  br i1 %.not158, label %176, label %174
 
-172:                                              ; preds = %.loopexit
-  %173 = call double @cvThreshold(ptr noundef nonnull %29, ptr noundef nonnull %29, double noundef 0.000000e+00, double noundef 1.000000e+00, i32 noundef 0)
-  br label %174
+174:                                              ; preds = %.loopexit
+  %175 = call double @cvThreshold(ptr noundef nonnull %29, ptr noundef nonnull %29, double noundef 0.000000e+00, double noundef 1.000000e+00, i32 noundef 0)
+  br label %176
 
-174:                                              ; preds = %172, %.loopexit
+176:                                              ; preds = %174, %.loopexit
   ret ptr %73
 
-175:                                              ; preds = %141, %143, %132, %134, %68, %70, %57, %59, %41, %43, %24, %26
-  %.sink178 = phi ptr [ %9, %26 ], [ %9, %24 ], [ %12, %43 ], [ %12, %41 ], [ %14, %59 ], [ %14, %57 ], [ %16, %70 ], [ %16, %68 ], [ %18, %134 ], [ %18, %132 ], [ %20, %143 ], [ %20, %141 ]
-  %.pn161.pn = phi { ptr, i32 } [ %27, %26 ], [ %25, %24 ], [ %44, %43 ], [ %42, %41 ], [ %60, %59 ], [ %58, %57 ], [ %71, %70 ], [ %69, %68 ], [ %135, %134 ], [ %133, %132 ], [ %144, %143 ], [ %142, %141 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink178) #14
+177:                                              ; preds = %143, %145, %134, %136, %68, %70, %57, %59, %41, %43, %24, %26
+  %.sink177 = phi ptr [ %9, %26 ], [ %9, %24 ], [ %12, %43 ], [ %12, %41 ], [ %14, %59 ], [ %14, %57 ], [ %16, %70 ], [ %16, %68 ], [ %18, %136 ], [ %18, %134 ], [ %20, %145 ], [ %20, %143 ]
+  %.pn161.pn = phi { ptr, i32 } [ %27, %26 ], [ %25, %24 ], [ %44, %43 ], [ %42, %41 ], [ %60, %59 ], [ %58, %57 ], [ %71, %70 ], [ %69, %68 ], [ %137, %136 ], [ %135, %134 ], [ %146, %145 ], [ %144, %143 ]
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink177) #14
   resume { ptr, i32 } %.pn161.pn
 }
 

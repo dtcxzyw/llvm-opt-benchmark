@@ -4043,38 +4043,38 @@ if.else55.invoke:                                 ; preds = %land.rhs.i.i.i66, %
           to label %if.end57 unwind label %lpad
 
 if.end57.sink.split:                              ; preds = %_ZN15diff_neq_tactic3imp16process_neq_coreEP4exprS2_i.exit151, %_ZN15diff_neq_tactic3imp16process_neq_coreEP4exprS2_i.exit235
-  %.sink269 = phi i32 [ %94, %_ZN15diff_neq_tactic3imp16process_neq_coreEP4exprS2_i.exit235 ], [ %70, %_ZN15diff_neq_tactic3imp16process_neq_coreEP4exprS2_i.exit151 ]
-  %.sink = phi ptr [ %95, %_ZN15diff_neq_tactic3imp16process_neq_coreEP4exprS2_i.exit235 ], [ %71, %_ZN15diff_neq_tactic3imp16process_neq_coreEP4exprS2_i.exit151 ]
-  %k.addr.0.i216.sink = phi i64 [ %k.addr.0.i216, %_ZN15diff_neq_tactic3imp16process_neq_coreEP4exprS2_i.exit235 ], [ %k.addr.0.i, %_ZN15diff_neq_tactic3imp16process_neq_coreEP4exprS2_i.exit151 ]
-  %x2.0.i217.sink = phi i32 [ %x2.0.i217, %_ZN15diff_neq_tactic3imp16process_neq_coreEP4exprS2_i.exit235 ], [ %x2.0.i137, %_ZN15diff_neq_tactic3imp16process_neq_coreEP4exprS2_i.exit151 ]
-  %arrayidx.i.i208.sink = phi ptr [ %arrayidx.i.i208, %_ZN15diff_neq_tactic3imp16process_neq_coreEP4exprS2_i.exit235 ], [ %arrayidx.i.i130, %_ZN15diff_neq_tactic3imp16process_neq_coreEP4exprS2_i.exit151 ]
-  %idx.ext.i.i218 = zext i32 %.sink269 to i64
-  %add.ptr.i.i219 = getelementptr inbounds %"struct.diff_neq_tactic::imp::diseq", ptr %.sink, i64 %idx.ext.i.i218
-  %ref.tmp.sroa.2.0.insert.ext.i220 = shl i64 %k.addr.0.i216.sink, 32
-  %ref.tmp.sroa.0.0.insert.ext.i222 = zext i32 %x2.0.i217.sink to i64
-  %ref.tmp.sroa.0.0.insert.insert.i223 = or disjoint i64 %ref.tmp.sroa.2.0.insert.ext.i220, %ref.tmp.sroa.0.0.insert.ext.i222
-  store i64 %ref.tmp.sroa.0.0.insert.insert.i223, ptr %add.ptr.i.i219, align 4
-  %96 = load ptr, ptr %arrayidx.i.i208.sink, align 8
-  %arrayidx10.i.i224 = getelementptr inbounds i8, ptr %96, i64 -4
-  %97 = load i32, ptr %arrayidx10.i.i224, align 4
-  %inc.i.i225 = add i32 %97, 1
+  %.sink270 = phi i32 [ %70, %_ZN15diff_neq_tactic3imp16process_neq_coreEP4exprS2_i.exit151 ], [ %94, %_ZN15diff_neq_tactic3imp16process_neq_coreEP4exprS2_i.exit235 ]
+  %.sink269 = phi ptr [ %71, %_ZN15diff_neq_tactic3imp16process_neq_coreEP4exprS2_i.exit151 ], [ %95, %_ZN15diff_neq_tactic3imp16process_neq_coreEP4exprS2_i.exit235 ]
+  %k.addr.0.i.sink = phi i64 [ %k.addr.0.i, %_ZN15diff_neq_tactic3imp16process_neq_coreEP4exprS2_i.exit151 ], [ %k.addr.0.i216, %_ZN15diff_neq_tactic3imp16process_neq_coreEP4exprS2_i.exit235 ]
+  %x2.0.i137.sink = phi i32 [ %x2.0.i137, %_ZN15diff_neq_tactic3imp16process_neq_coreEP4exprS2_i.exit151 ], [ %x2.0.i217, %_ZN15diff_neq_tactic3imp16process_neq_coreEP4exprS2_i.exit235 ]
+  %.sink.in = phi ptr [ %arrayidx.i.i130, %_ZN15diff_neq_tactic3imp16process_neq_coreEP4exprS2_i.exit151 ], [ %arrayidx.i.i208, %_ZN15diff_neq_tactic3imp16process_neq_coreEP4exprS2_i.exit235 ]
+  %idx.ext.i.i138 = zext i32 %.sink270 to i64
+  %add.ptr.i.i139 = getelementptr inbounds %"struct.diff_neq_tactic::imp::diseq", ptr %.sink269, i64 %idx.ext.i.i138
+  %ref.tmp.sroa.2.0.insert.ext.i = shl i64 %k.addr.0.i.sink, 32
+  %ref.tmp.sroa.0.0.insert.ext.i140 = zext i32 %x2.0.i137.sink to i64
+  %ref.tmp.sroa.0.0.insert.insert.i = or disjoint i64 %ref.tmp.sroa.2.0.insert.ext.i, %ref.tmp.sroa.0.0.insert.ext.i140
+  store i64 %ref.tmp.sroa.0.0.insert.insert.i, ptr %add.ptr.i.i139, align 4
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %arrayidx10.i.i224 = getelementptr inbounds i8, ptr %.sink, i64 -4
+  %96 = load i32, ptr %arrayidx10.i.i224, align 4
+  %inc.i.i225 = add i32 %96, 1
   store i32 %inc.i.i225, ptr %arrayidx10.i.i224, align 4
   br label %if.end57
 
 if.end57:                                         ; preds = %if.end57.sink.split, %if.else55.invoke
-  %98 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
-  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %98, ptr noundef nonnull align 8 dereferenceable(16) %k)
+  %97 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
+  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %97, ptr noundef nonnull align 8 dereferenceable(16) %k)
           to label %.noexc.i unwind label %terminate.lpad.i
 
 .noexc.i:                                         ; preds = %if.end57
-  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %98, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i)
+  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %97, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i)
           to label %return unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %.noexc.i, %if.end57
-  %99 = landingpad { ptr, i32 }
+  %98 = landingpad { ptr, i32 }
           catch ptr null
-  %100 = extractvalue { ptr, i32 } %99, 0
-  call void @__clang_call_terminate(ptr %100) #19
+  %99 = extractvalue { ptr, i32 } %98, 0
+  call void @__clang_call_terminate(ptr %99) #19
   unreachable
 
 return:                                           ; preds = %.noexc.i, %_ZN15diff_neq_tactic3imp16process_neq_coreEP4exprS2_i.exit

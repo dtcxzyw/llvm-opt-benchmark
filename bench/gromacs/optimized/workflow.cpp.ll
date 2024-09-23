@@ -911,6 +911,7 @@ define void @_ZN6gmxapi8WorkflowC2EOSt3mapINSt7__cxx1112basic_stringIcSt11char_t
   store ptr null, ptr %4, align 8
   store ptr %7, ptr %11, align 8
   store ptr %7, ptr %14, align 8
+  store i64 0, ptr %18, align 8
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6gmxapi17NodeSpecificationESt14default_deleteIS8_EESt4lessIS5_ESaISt4pairIKS5_SB_EEEC2EOSI_.exit
 
 21:                                               ; preds = %2
@@ -922,11 +923,10 @@ define void @_ZN6gmxapi8WorkflowC2EOSt3mapINSt7__cxx1112basic_stringIcSt11char_t
   %24 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %3, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 40
+  store i64 0, ptr %25, align 8
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6gmxapi17NodeSpecificationESt14default_deleteIS8_EESt4lessIS5_ESaISt4pairIKS5_SB_EEEC2EOSI_.exit
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6gmxapi17NodeSpecificationESt14default_deleteIS8_EESt4lessIS5_ESaISt4pairIKS5_SB_EEEC2EOSI_.exit: ; preds = %6, %21
-  %.sink.i.i.i.i = phi ptr [ %25, %21 ], [ %18, %6 ]
-  store i64 0, ptr %.sink.i.i.i.i, align 8
   ret void
 }
 

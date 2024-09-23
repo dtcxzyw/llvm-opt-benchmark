@@ -733,6 +733,7 @@ default.unreachable180:                           ; preds = %3
 "_ZN4core3ptr47drop_in_place$LT$bytes..bytes_mut..BytesMut$GT$17h175db85c27cd6b8dE.exit35": ; preds = %177, %172, %24
   %.pn14.pn.pn = phi { ptr, i32 } [ %.pn14.pn, %172 ], [ %25, %24 ], [ %.pn14.pn, %177 ]
   %23 = getelementptr inbounds i8, ptr %1, i64 297
+  store i8 0, ptr %23, align 1
   br label %171
 
 24:                                               ; preds = %79, %19
@@ -1221,12 +1222,11 @@ common.ret:                                       ; preds = %161, %47
 
 "_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h9ea36324aa321c77E.exit33": ; preds = %162
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
+  store i8 0, ptr %84, align 1
   br label %171
 
 171:                                              ; preds = %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h9ea36324aa321c77E.exit33", %"_ZN4core3ptr47drop_in_place$LT$bytes..bytes_mut..BytesMut$GT$17h175db85c27cd6b8dE.exit35"
-  %.sink = phi ptr [ %84, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h9ea36324aa321c77E.exit33" ], [ %23, %"_ZN4core3ptr47drop_in_place$LT$bytes..bytes_mut..BytesMut$GT$17h175db85c27cd6b8dE.exit35" ]
-  %.pn14.pn.pn.pn = phi { ptr, i32 } [ %148, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h9ea36324aa321c77E.exit33" ], [ %.pn14.pn.pn, %"_ZN4core3ptr47drop_in_place$LT$bytes..bytes_mut..BytesMut$GT$17h175db85c27cd6b8dE.exit35" ]
-  store i8 0, ptr %.sink, align 1
+  %.pn14.pn.pn.pn = phi { ptr, i32 } [ %.pn14.pn.pn, %"_ZN4core3ptr47drop_in_place$LT$bytes..bytes_mut..BytesMut$GT$17h175db85c27cd6b8dE.exit35" ], [ %148, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h9ea36324aa321c77E.exit33" ]
   invoke void @"_ZN4core3ptr51drop_in_place$LT$actix_multipart..server..Field$GT$17h73ed40c8e7b60b8dE"(ptr noalias noundef nonnull align 8 dereferenceable(248) %1) #15
           to label %158 unwind label %81
 

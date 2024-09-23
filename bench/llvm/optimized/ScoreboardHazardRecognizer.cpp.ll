@@ -463,8 +463,8 @@ _ZNK4llvm11ScheduleDAG12getInstrDescEPKNS_5SUnitE.exit: ; preds = %16, %19
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
-  %.03341 = phi i32 [ 0, %.preheader.lr.ph ], [ %106, %._crit_edge ]
-  %.03440 = phi ptr [ %44, %.preheader.lr.ph ], [ %107, %._crit_edge ]
+  %.03341 = phi i32 [ 0, %.preheader.lr.ph ], [ %102, %._crit_edge ]
+  %.03440 = phi ptr [ %44, %.preheader.lr.ph ], [ %103, %._crit_edge ]
   %51 = load i32, ptr %.03440, align 8
   %.not42 = icmp eq i32 %51, 0
   br i1 %.not42, label %._crit_edge, label %.lr.ph
@@ -478,7 +478,7 @@ _ZNK4llvm11ScheduleDAG12getInstrDescEPKNS_5SUnitE.exit: ; preds = %16, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %85 ]
   %55 = load i64, ptr %52, align 8
   %56 = load i32, ptr %53, align 4
-  switch i32 %56, label %.preheader68 [
+  switch i32 %56, label %.preheader65 [
     i32 0, label %57
     i32 1, label %._crit_edge45
   ]
@@ -518,14 +518,14 @@ _ZNK4llvm11ScheduleDAG12getInstrDescEPKNS_5SUnitE.exit: ; preds = %16, %19
   %79 = load i64, ptr %78, align 8
   %80 = xor i64 %79, -1
   %81 = and i64 %.1, %80
-  br label %.preheader68
+  br label %.preheader65
 
-.preheader68:                                     ; preds = %71, %54
+.preheader65:                                     ; preds = %71, %54
   %.2.ph = phi i64 [ %81, %71 ], [ %55, %54 ]
   br label %82
 
-82:                                               ; preds = %.preheader68, %82
-  %.2 = phi i64 [ %84, %82 ], [ %.2.ph, %.preheader68 ]
+82:                                               ; preds = %.preheader65, %82
+  %.2 = phi i64 [ %84, %82 ], [ %.2.ph, %.preheader65 ]
   %83 = add i64 %.2, -1
   %84 = and i64 %83, %.2
   %.not37 = icmp eq i64 %84, 0
@@ -537,36 +537,36 @@ _ZNK4llvm11ScheduleDAG12getInstrDescEPKNS_5SUnitE.exit: ; preds = %16, %19
   %88 = add i32 %.03341, %87
   %89 = zext i32 %88 to i64
   %.val = load ptr, ptr %48, align 8
-  %.val62 = load ptr, ptr %45, align 8
-  %90 = select i1 %86, ptr %.val, ptr %.val62
-  %.val63 = load i64, ptr %49, align 8
-  %.val64 = load i64, ptr %46, align 8
-  %91 = select i1 %86, i64 %.val63, i64 %.val64
-  %92 = add i64 %91, %89
-  %.val65 = load i64, ptr %50, align 8
-  %.val66 = load i64, ptr %47, align 8
-  %93 = select i1 %86, i64 %.val65, i64 %.val66
-  %94 = add i64 %93, -1
-  %95 = and i64 %94, %92
-  %96 = getelementptr inbounds i64, ptr %90, i64 %95
-  %97 = load i64, ptr %96, align 8
-  %98 = or i64 %97, %.2
-  store i64 %98, ptr %96, align 8
+  %.val60 = load ptr, ptr %45, align 8
+  %.sink53 = select i1 %86, ptr %.val, ptr %.val60
+  %.val61 = load i64, ptr %49, align 8
+  %.val62 = load i64, ptr %46, align 8
+  %.pn = select i1 %86, i64 %.val61, i64 %.val62
+  %.sink55 = add i64 %.pn, %89
+  %.val63 = load i64, ptr %50, align 8
+  %.val64 = load i64, ptr %47, align 8
+  %.sink56 = select i1 %86, i64 %.val63, i64 %.val64
+  %90 = add i64 %.sink56, -1
+  %91 = and i64 %90, %.sink55
+  %92 = getelementptr inbounds i64, ptr %.sink53, i64 %91
+  %93 = load i64, ptr %92, align 8
+  %94 = or i64 %93, %.2
+  store i64 %94, ptr %92, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %99 = load i32, ptr %.03440, align 8
-  %100 = zext i32 %99 to i64
-  %101 = icmp ult i64 %indvars.iv.next, %100
-  br i1 %101, label %54, label %._crit_edge, !llvm.loop !11
+  %95 = load i32, ptr %.03440, align 8
+  %96 = zext i32 %95 to i64
+  %97 = icmp ult i64 %indvars.iv.next, %96
+  br i1 %97, label %54, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %85, %.preheader
-  %.lcssa = phi i32 [ 0, %.preheader ], [ %99, %85 ]
-  %102 = getelementptr inbounds nuw i8, ptr %.03440, i64 16
-  %103 = load i32, ptr %102, align 8
-  %104 = icmp slt i32 %103, 0
-  %105 = select i1 %104, i32 %.lcssa, i32 %103
-  %106 = add i32 %105, %.03341
-  %107 = getelementptr inbounds i8, ptr %.03440, i64 24
-  %.not36 = icmp eq ptr %107, %42
+  %.lcssa = phi i32 [ 0, %.preheader ], [ %95, %85 ]
+  %98 = getelementptr inbounds nuw i8, ptr %.03440, i64 16
+  %99 = load i32, ptr %98, align 8
+  %100 = icmp slt i32 %99, 0
+  %101 = select i1 %100, i32 %.lcssa, i32 %99
+  %102 = add i32 %101, %.03341
+  %103 = getelementptr inbounds i8, ptr %.03440, i64 24
+  %.not36 = icmp eq ptr %103, %42
   br i1 %.not36, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .loopexit:                                        ; preds = %._crit_edge, %25, %_ZNK4llvm11ScheduleDAG12getInstrDescEPKNS_5SUnitE.exit, %2, %5

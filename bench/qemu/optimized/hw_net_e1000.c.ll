@@ -1633,6 +1633,8 @@ if.then8:                                         ; preds = %if.then
   %add.ptr16.val = load i16, ptr %add.ptr16, align 1
   %6 = tail call i16 @llvm.bswap.i16(i16 %add.ptr16.val)
   %conv22 = add i16 %6, %0
+  %7 = tail call i16 @llvm.bswap.i16(i16 %conv22)
+  store i16 %7, ptr %add.ptr16, align 1
   br label %if.end
 
 if.else:                                          ; preds = %if.then
@@ -1641,52 +1643,50 @@ if.else:                                          ; preds = %if.then
   %add.ptr26 = getelementptr i8, ptr %data23, i64 %idx.ext25
   %add.ptr27 = getelementptr i8, ptr %add.ptr26, i64 4
   %size28 = getelementptr inbounds i8, ptr %s, i64 208448
-  %7 = load i16, ptr %size28, align 4
-  %8 = zext i8 %2 to i16
-  %conv31 = sub i16 %7, %8
+  %8 = load i16, ptr %size28, align 4
+  %9 = zext i8 %2 to i16
+  %conv31 = sub i16 %8, %9
+  %10 = tail call i16 @llvm.bswap.i16(i16 %conv31)
+  store i16 %10, ptr %add.ptr27, align 1
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then8
-  %conv31.sink = phi i16 [ %conv31, %if.else ], [ %conv22, %if.then8 ]
-  %add.ptr27.sink = phi ptr [ %add.ptr27, %if.else ], [ %add.ptr16, %if.then8 ]
-  %9 = phi i16 [ %7, %if.else ], [ %4, %if.then8 ]
-  %10 = tail call i16 @llvm.bswap.i16(i16 %conv31.sink)
-  store i16 %10, ptr %add.ptr27.sink, align 1
+  %11 = phi i16 [ %8, %if.else ], [ %4, %if.then8 ]
   %tucss = getelementptr inbounds i8, ptr %cond, i64 4
-  %11 = load i8, ptr %tucss, align 4
-  %conv32 = zext i8 %11 to i64
-  %12 = zext i8 %11 to i16
-  %conv36 = sub i16 %9, %12
+  %12 = load i8, ptr %tucss, align 4
+  %conv32 = zext i8 %12 to i64
+  %13 = zext i8 %12 to i16
+  %conv36 = sub i16 %11, %13
   %tcp = getelementptr inbounds i8, ptr %cond, i64 17
-  %13 = load i8, ptr %tcp, align 1
-  %tobool39.not = icmp eq i8 %13, 0
+  %14 = load i8, ptr %tcp, align 1
+  %tobool39.not = icmp eq i8 %14, 0
   br i1 %tobool39.not, label %if.else69, label %if.then40
 
 if.then40:                                        ; preds = %if.end
   %mss = getelementptr inbounds i8, ptr %cond, i64 14
-  %14 = load i16, ptr %mss, align 2
-  %conv41 = zext i16 %14 to i32
+  %15 = load i16, ptr %mss, align 2
+  %conv41 = zext i16 %15 to i32
   %mul = mul nuw i32 %conv41, %conv
   %data42 = getelementptr inbounds i8, ptr %s, i64 142912
   %add.ptr45 = getelementptr i8, ptr %data42, i64 %conv32
   %add.ptr46 = getelementptr i8, ptr %add.ptr45, i64 4
   %add.ptr46.val = load i32, ptr %add.ptr46, align 1
-  %15 = tail call i32 @llvm.bswap.i32(i32 %add.ptr46.val)
-  %add53 = add i32 %15, %mul
-  %16 = tail call i32 @llvm.bswap.i32(i32 %add53)
-  store i32 %16, ptr %add.ptr46, align 1
+  %16 = tail call i32 @llvm.bswap.i32(i32 %add.ptr46.val)
+  %add53 = add i32 %16, %mul
+  %17 = tail call i32 @llvm.bswap.i32(i32 %add53)
+  store i32 %17, ptr %add.ptr46, align 1
   %paylen = getelementptr inbounds i8, ptr %cond, i64 8
-  %17 = load i32, ptr %paylen, align 4
-  %sub54 = sub i32 %17, %mul
+  %18 = load i32, ptr %paylen, align 4
+  %sub54 = sub i32 %18, %mul
   %cmp = icmp ugt i32 %sub54, %conv41
   br i1 %cmp, label %if.then58, label %if.else63
 
 if.then58:                                        ; preds = %if.then40
   %add60 = add nuw nsw i64 %conv32, 13
   %arrayidx = getelementptr [65536 x i8], ptr %data42, i64 0, i64 %add60
-  %18 = load i8, ptr %arrayidx, align 1
-  %19 = and i8 %18, -10
-  store i8 %19, ptr %arrayidx, align 1
+  %19 = load i8, ptr %arrayidx, align 1
+  %20 = and i8 %19, -10
+  store i8 %20, ptr %arrayidx, align 1
   br label %if.end75
 
 if.else63:                                        ; preds = %if.then40
@@ -1695,12 +1695,12 @@ if.else63:                                        ; preds = %if.then40
 
 if.then65:                                        ; preds = %if.else63
   %arrayidx.i = getelementptr i8, ptr %s, i64 28008
-  %20 = load i32, ptr %arrayidx.i, align 4
-  %cmp.not.i = icmp eq i32 %20, -1
+  %21 = load i32, ptr %arrayidx.i, align 4
+  %cmp.not.i = icmp eq i32 %21, -1
   br i1 %cmp.not.i, label %if.end75, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then65
-  %inc.i = add nuw i32 %20, 1
+  %inc.i = add nuw i32 %21, 1
   store i32 %inc.i, ptr %arrayidx.i, align 4
   br label %if.end75
 
@@ -1708,33 +1708,33 @@ if.else69:                                        ; preds = %if.end
   %data70 = getelementptr inbounds i8, ptr %s, i64 142912
   %add.ptr73 = getelementptr i8, ptr %data70, i64 %conv32
   %add.ptr74 = getelementptr i8, ptr %add.ptr73, i64 4
-  %21 = tail call i16 @llvm.bswap.i16(i16 %conv36)
-  store i16 %21, ptr %add.ptr74, align 1
+  %22 = tail call i16 @llvm.bswap.i16(i16 %conv36)
+  store i16 %22, ptr %add.ptr74, align 1
   br label %if.end75
 
 if.end75:                                         ; preds = %if.then.i, %if.then65, %if.then58, %if.else63, %if.else69
   %sum_needed = getelementptr inbounds i8, ptr %s, i64 208451
-  %22 = load i8, ptr %sum_needed, align 1
-  %23 = and i8 %22, 2
-  %tobool78.not = icmp eq i8 %23, 0
+  %23 = load i8, ptr %sum_needed, align 1
+  %24 = and i8 %23, 2
+  %tobool78.not = icmp eq i8 %24, 0
   br i1 %tobool78.not, label %if.end91, label %if.then79
 
 if.then79:                                        ; preds = %if.end75
   %data80 = getelementptr inbounds i8, ptr %s, i64 142912
   %tucso = getelementptr inbounds i8, ptr %cond, i64 5
-  %24 = load i8, ptr %tucso, align 1
-  %idx.ext83 = zext i8 %24 to i64
+  %25 = load i8, ptr %tucso, align 1
+  %idx.ext83 = zext i8 %25 to i64
   %add.ptr84 = getelementptr i8, ptr %data80, i64 %idx.ext83
   %add.ptr84.val = load i16, ptr %add.ptr84, align 1
-  %25 = tail call i16 @llvm.bswap.i16(i16 %add.ptr84.val)
-  %conv1.i75 = zext i16 %25 to i32
+  %26 = tail call i16 @llvm.bswap.i16(i16 %add.ptr84.val)
+  %conv1.i75 = zext i16 %26 to i32
   %conv86 = zext i16 %conv36 to i32
   %add87 = add nuw nsw i32 %conv1.i75, %conv86
   %shr = lshr i32 %add87, 16
   %add89 = add nuw nsw i32 %shr, %add87
   %conv90 = trunc i32 %add89 to i16
-  %26 = tail call i16 @llvm.bswap.i16(i16 %conv90)
-  store i16 %26, ptr %add.ptr84, align 1
+  %27 = tail call i16 @llvm.bswap.i16(i16 %conv90)
+  store i16 %27, ptr %add.ptr84, align 1
   br label %if.end91
 
 if.end91:                                         ; preds = %if.then79, %if.end75
@@ -1743,24 +1743,24 @@ if.end91:                                         ; preds = %if.then79, %if.end7
   br label %if.end93
 
 if.end93:                                         ; preds = %entry.if.end93_crit_edge, %if.end91
-  %.pre-phi = phi i8 [ %.pre113, %entry.if.end93_crit_edge ], [ %23, %if.end91 ]
-  %27 = phi i8 [ %.pre, %entry.if.end93_crit_edge ], [ %22, %if.end91 ]
+  %.pre-phi = phi i8 [ %.pre113, %entry.if.end93_crit_edge ], [ %24, %if.end91 ]
+  %28 = phi i8 [ %.pre, %entry.if.end93_crit_edge ], [ %23, %if.end91 ]
   %sum_needed94 = getelementptr inbounds i8, ptr %s, i64 208451
   %tobool97.not = icmp eq i8 %.pre-phi, 0
   br i1 %tobool97.not, label %if.end108, label %if.then98
 
 if.then98:                                        ; preds = %if.end93
   %size101 = getelementptr inbounds i8, ptr %s, i64 208448
-  %28 = load i16, ptr %size101, align 4
-  %conv102 = zext i16 %28 to i32
+  %29 = load i16, ptr %size101, align 4
+  %conv102 = zext i16 %29 to i32
   %tucso103 = getelementptr inbounds i8, ptr %cond, i64 5
-  %29 = load i8, ptr %tucso103, align 1
-  %conv104 = zext i8 %29 to i32
+  %30 = load i8, ptr %tucso103, align 1
+  %conv104 = zext i8 %30 to i32
   %tucse = getelementptr inbounds i8, ptr %cond, i64 6
-  %30 = load i16, ptr %tucse, align 2
-  %conv107 = zext i16 %30 to i32
-  %tobool.not.i = icmp ne i16 %30, 0
-  %cmp.i = icmp ult i16 %30, %28
+  %31 = load i16, ptr %tucse, align 2
+  %conv107 = zext i16 %31 to i32
+  %tobool.not.i = icmp ne i16 %31, 0
+  %cmp.i = icmp ult i16 %31, %29
   %or.cond.i = and i1 %tobool.not.i, %cmp.i
   %add.i = add nuw nsw i32 %conv107, 1
   %n.addr.0.i = select i1 %or.cond.i, i32 %add.i, i32 %conv102
@@ -1770,41 +1770,41 @@ if.then98:                                        ; preds = %if.end93
 
 if.then2.i:                                       ; preds = %if.then98
   %tucss105 = getelementptr inbounds i8, ptr %cond, i64 4
-  %31 = load i8, ptr %tucss105, align 4
-  %conv106 = zext i8 %31 to i32
+  %32 = load i8, ptr %tucss105, align 4
+  %conv106 = zext i8 %32 to i32
   %data99 = getelementptr inbounds i8, ptr %s, i64 142912
   %sub3.i = sub nsw i32 %n.addr.0.i, %conv106
-  %idx.ext.i = zext i8 %31 to i64
+  %idx.ext.i = zext i8 %32 to i64
   %add.ptr.i = getelementptr i8, ptr %data99, i64 %idx.ext.i
   %call.i.i = tail call i32 @net_checksum_add_cont(i32 noundef %sub3.i, ptr noundef %add.ptr.i, i32 noundef 0) #13
-  %idx.ext4.i = zext i8 %29 to i64
+  %idx.ext4.i = zext i8 %30 to i64
   %add.ptr5.i = getelementptr i8, ptr %data99, i64 %idx.ext4.i
   %call.i8.i = tail call zeroext i16 @net_checksum_finish(i32 noundef %call.i.i) #13
   %tobool.not.i.i = icmp eq i16 %call.i8.i, 0
   %narrow.i.i = select i1 %tobool.not.i.i, i16 -1, i16 %call.i8.i
-  %32 = tail call i16 @llvm.bswap.i16(i16 %narrow.i.i)
-  store i16 %32, ptr %add.ptr5.i, align 1
+  %33 = tail call i16 @llvm.bswap.i16(i16 %narrow.i.i)
+  store i16 %33, ptr %add.ptr5.i, align 1
   %.pre112 = load i8, ptr %sum_needed94, align 1
   br label %if.end108
 
 if.end108:                                        ; preds = %if.then2.i, %if.then98, %if.end93
-  %33 = phi i8 [ %.pre112, %if.then2.i ], [ %27, %if.then98 ], [ %27, %if.end93 ]
-  %34 = and i8 %33, 1
-  %tobool112.not = icmp eq i8 %34, 0
+  %34 = phi i8 [ %.pre112, %if.then2.i ], [ %28, %if.then98 ], [ %28, %if.end93 ]
+  %35 = and i8 %34, 1
+  %tobool112.not = icmp eq i8 %35, 0
   br i1 %tobool112.not, label %if.end122, label %if.then113
 
 if.then113:                                       ; preds = %if.end108
   %size116 = getelementptr inbounds i8, ptr %s, i64 208448
-  %35 = load i16, ptr %size116, align 4
-  %conv117 = zext i16 %35 to i32
+  %36 = load i16, ptr %size116, align 4
+  %conv117 = zext i16 %36 to i32
   %ipcso = getelementptr inbounds i8, ptr %cond, i64 1
-  %36 = load i8, ptr %ipcso, align 1
-  %conv118 = zext i8 %36 to i32
+  %37 = load i8, ptr %ipcso, align 1
+  %conv118 = zext i8 %37 to i32
   %ipcse = getelementptr inbounds i8, ptr %cond, i64 2
-  %37 = load i16, ptr %ipcse, align 2
-  %conv121 = zext i16 %37 to i32
-  %tobool.not.i76 = icmp ne i16 %37, 0
-  %cmp.i77 = icmp ult i16 %37, %35
+  %38 = load i16, ptr %ipcse, align 2
+  %conv121 = zext i16 %38 to i32
+  %tobool.not.i76 = icmp ne i16 %38, 0
+  %cmp.i77 = icmp ult i16 %38, %36
   %or.cond.i78 = and i1 %tobool.not.i76, %cmp.i77
   %add.i79 = add nuw nsw i32 %conv121, 1
   %n.addr.0.i80 = select i1 %or.cond.i78, i32 %add.i79, i32 %conv117
@@ -1813,43 +1813,43 @@ if.then113:                                       ; preds = %if.end108
   br i1 %cmp1.i82, label %if.then2.i83, label %if.end122
 
 if.then2.i83:                                     ; preds = %if.then113
-  %38 = load i8, ptr %cond, align 4
-  %conv120 = zext i8 %38 to i32
+  %39 = load i8, ptr %cond, align 4
+  %conv120 = zext i8 %39 to i32
   %data114 = getelementptr inbounds i8, ptr %s, i64 142912
   %sub3.i84 = sub nsw i32 %n.addr.0.i80, %conv120
-  %idx.ext.i85 = zext i8 %38 to i64
+  %idx.ext.i85 = zext i8 %39 to i64
   %add.ptr.i86 = getelementptr i8, ptr %data114, i64 %idx.ext.i85
   %call.i.i87 = tail call i32 @net_checksum_add_cont(i32 noundef %sub3.i84, ptr noundef %add.ptr.i86, i32 noundef 0) #13
-  %idx.ext4.i88 = zext i8 %36 to i64
+  %idx.ext4.i88 = zext i8 %37 to i64
   %add.ptr5.i89 = getelementptr i8, ptr %data114, i64 %idx.ext4.i88
   %call.i8.i90 = tail call zeroext i16 @net_checksum_finish(i32 noundef %call.i.i87) #13
   %tobool.not.i.i91 = icmp eq i16 %call.i8.i90, 0
   %narrow.i.i92 = select i1 %tobool.not.i.i91, i16 -1, i16 %call.i8.i90
-  %39 = tail call i16 @llvm.bswap.i16(i16 %narrow.i.i92)
-  store i16 %39, ptr %add.ptr5.i89, align 1
+  %40 = tail call i16 @llvm.bswap.i16(i16 %narrow.i.i92)
+  store i16 %40, ptr %add.ptr5.i89, align 1
   br label %if.end122
 
 if.end122:                                        ; preds = %if.then2.i83, %if.then113, %if.end108
   %vlan_needed = getelementptr inbounds i8, ptr %s, i64 208450
-  %40 = load i8, ptr %vlan_needed, align 2
-  %tobool123.not = icmp eq i8 %40, 0
+  %41 = load i8, ptr %vlan_needed, align 2
+  %tobool123.not = icmp eq i8 %41, 0
   br i1 %tobool123.not, label %if.else142, label %if.then124
 
 if.then124:                                       ; preds = %if.end122
   %vlan = getelementptr inbounds i8, ptr %s, i64 142908
   %data126 = getelementptr inbounds i8, ptr %s, i64 142912
-  %41 = load i32, ptr %data126, align 4
-  store i32 %41, ptr %vlan, align 4
+  %42 = load i32, ptr %data126, align 4
+  store i32 %42, ptr %vlan, align 4
   %add.ptr132 = getelementptr i8, ptr %s, i64 142916
-  %42 = load i64, ptr %add.ptr132, align 1
-  store i64 %42, ptr %data126, align 4
+  %43 = load i64, ptr %add.ptr132, align 1
+  store i64 %43, ptr %data126, align 4
   %add.ptr135 = getelementptr i8, ptr %s, i64 142920
   %vlan_header = getelementptr inbounds i8, ptr %s, i64 142904
-  %43 = load i32, ptr %vlan_header, align 4
-  store i32 %43, ptr %add.ptr135, align 1
+  %44 = load i32, ptr %vlan_header, align 4
+  store i32 %44, ptr %add.ptr135, align 1
   %size139 = getelementptr inbounds i8, ptr %s, i64 208448
-  %44 = load i16, ptr %size139, align 4
-  %conv140 = zext i16 %44 to i32
+  %45 = load i16, ptr %size139, align 4
+  %conv140 = zext i16 %45 to i32
   %add141 = add nuw nsw i32 %conv140, 4
   tail call fastcc void @e1000_send_packet(ptr noundef nonnull %s, ptr noundef nonnull %vlan, i32 noundef %add141)
   br label %if.end147
@@ -1857,51 +1857,51 @@ if.then124:                                       ; preds = %if.end122
 if.else142:                                       ; preds = %if.end122
   %data143 = getelementptr inbounds i8, ptr %s, i64 142912
   %size145 = getelementptr inbounds i8, ptr %s, i64 208448
-  %45 = load i16, ptr %size145, align 4
-  %conv146 = zext i16 %45 to i32
+  %46 = load i16, ptr %size145, align 4
+  %conv146 = zext i16 %46 to i32
   tail call fastcc void @e1000_send_packet(ptr noundef nonnull %s, ptr noundef nonnull %data143, i32 noundef %conv146)
   br label %if.end147
 
 if.end147:                                        ; preds = %if.else142, %if.then124
   %arrayidx.i94 = getelementptr i8, ptr %s, i64 27972
-  %46 = load i32, ptr %arrayidx.i94, align 4
-  %cmp.not.i95 = icmp eq i32 %46, -1
+  %47 = load i32, ptr %arrayidx.i94, align 4
+  %cmp.not.i95 = icmp eq i32 %47, -1
   br i1 %cmp.not.i95, label %e1000x_inc_reg_if_not_full.exit98, label %if.then.i96
 
 if.then.i96:                                      ; preds = %if.end147
-  %inc.i97 = add nuw i32 %46, 1
+  %inc.i97 = add nuw i32 %47, 1
   store i32 %inc.i97, ptr %arrayidx.i94, align 4
   br label %e1000x_inc_reg_if_not_full.exit98
 
 e1000x_inc_reg_if_not_full.exit98:                ; preds = %if.end147, %if.then.i96
   %size153 = getelementptr inbounds i8, ptr %s, i64 208448
-  %47 = load i16, ptr %size153, align 8
-  %conv154 = zext i16 %47 to i64
+  %48 = load i16, ptr %size153, align 8
+  %conv154 = zext i16 %48 to i64
   %add155 = add nuw nsw i64 %conv154, 4
   %arrayidx.i99 = getelementptr i8, ptr %s, i64 27960
-  %48 = load i64, ptr %arrayidx.i99, align 4
+  %49 = load i64, ptr %arrayidx.i99, align 4
   %arrayidx2.i = getelementptr i8, ptr %s, i64 27964
-  %.add5.i = tail call i64 @llvm.uadd.sat.i64(i64 %48, i64 %add155)
+  %.add5.i = tail call i64 @llvm.uadd.sat.i64(i64 %49, i64 %add155)
   %conv9.i = trunc i64 %.add5.i to i32
   store i32 %conv9.i, ptr %arrayidx.i99, align 4
   %shr.i = lshr i64 %.add5.i, 32
   %conv12.i = trunc nuw i64 %shr.i to i32
   store i32 %conv12.i, ptr %arrayidx2.i, align 4
   %arrayidx.i100 = getelementptr i8, ptr %s, i64 27888
-  %49 = load i32, ptr %arrayidx.i100, align 4
-  %cmp.not.i101 = icmp eq i32 %49, -1
+  %50 = load i32, ptr %arrayidx.i100, align 4
+  %cmp.not.i101 = icmp eq i32 %50, -1
   br i1 %cmp.not.i101, label %e1000x_inc_reg_if_not_full.exit104, label %if.then.i102
 
 if.then.i102:                                     ; preds = %e1000x_inc_reg_if_not_full.exit98
-  %inc.i103 = add nuw i32 %49, 1
+  %inc.i103 = add nuw i32 %50, 1
   store i32 %inc.i103, ptr %arrayidx.i100, align 4
   br label %e1000x_inc_reg_if_not_full.exit104
 
 e1000x_inc_reg_if_not_full.exit104:               ; preds = %e1000x_inc_reg_if_not_full.exit98, %if.then.i102
   %arrayidx.i105 = getelementptr i8, ptr %s, i64 27904
-  %50 = load i64, ptr %arrayidx.i105, align 4
+  %51 = load i64, ptr %arrayidx.i105, align 4
   %arrayidx2.i106 = getelementptr i8, ptr %s, i64 27908
-  %.add5.i108 = tail call i64 @llvm.uadd.sat.i64(i64 %50, i64 %add155)
+  %.add5.i108 = tail call i64 @llvm.uadd.sat.i64(i64 %51, i64 %add155)
   %conv9.i109 = trunc i64 %.add5.i108 to i32
   store i32 %conv9.i109, ptr %arrayidx.i105, align 4
   %shr.i110 = lshr i64 %.add5.i108, 32
@@ -1957,7 +1957,12 @@ if.then.i:                                        ; preds = %if.end
   %arrayidx.i.i = getelementptr i8, ptr %s, i64 28004
   %13 = load i32, ptr %arrayidx.i.i, align 4
   %cmp.not.i.i = icmp eq i32 %13, -1
-  br i1 %cmp.not.i.i, label %inc_tx_bcast_or_mcast_count.exit, label %if.end6.sink.split.i
+  br i1 %cmp.not.i.i, label %inc_tx_bcast_or_mcast_count.exit, label %if.then.i.i
+
+if.then.i.i:                                      ; preds = %if.then.i
+  %inc.i.i = add nuw i32 %13, 1
+  store i32 %inc.i.i, ptr %arrayidx.i.i, align 4
+  br label %inc_tx_bcast_or_mcast_count.exit
 
 if.else.i:                                        ; preds = %if.end
   %14 = and i8 %3, 1
@@ -1968,16 +1973,14 @@ if.then3.i:                                       ; preds = %if.else.i
   %arrayidx.i3.i = getelementptr i8, ptr %s, i64 28000
   %15 = load i32, ptr %arrayidx.i3.i, align 4
   %cmp.not.i4.i = icmp eq i32 %15, -1
-  br i1 %cmp.not.i4.i, label %inc_tx_bcast_or_mcast_count.exit, label %if.end6.sink.split.i
+  br i1 %cmp.not.i4.i, label %inc_tx_bcast_or_mcast_count.exit, label %if.then.i5.i
 
-if.end6.sink.split.i:                             ; preds = %if.then3.i, %if.then.i
-  %.sink.i = phi i32 [ %13, %if.then.i ], [ %15, %if.then3.i ]
-  %arrayidx.i3.sink.i = phi ptr [ %arrayidx.i.i, %if.then.i ], [ %arrayidx.i3.i, %if.then3.i ]
-  %inc.i6.i = add nuw i32 %.sink.i, 1
-  store i32 %inc.i6.i, ptr %arrayidx.i3.sink.i, align 4
+if.then.i5.i:                                     ; preds = %if.then3.i
+  %inc.i6.i = add nuw i32 %15, 1
+  store i32 %inc.i6.i, ptr %arrayidx.i3.i, align 4
   br label %inc_tx_bcast_or_mcast_count.exit
 
-inc_tx_bcast_or_mcast_count.exit:                 ; preds = %if.then.i, %if.else.i, %if.then3.i, %if.end6.sink.split.i
+inc_tx_bcast_or_mcast_count.exit:                 ; preds = %if.then.i, %if.then.i.i, %if.else.i, %if.then3.i, %if.then.i5.i
   %mac_reg = getelementptr inbounds i8, ptr %s, i64 11376
   %add = add nuw nsw i32 %size, 4
   tail call void @e1000x_increase_size_stats(ptr noundef nonnull %mac_reg, ptr noundef nonnull @e1000_send_packet.PTCregs, i32 noundef %add) #13

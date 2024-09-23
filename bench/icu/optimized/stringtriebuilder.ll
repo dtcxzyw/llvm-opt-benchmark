@@ -593,7 +593,9 @@ if.then54:                                        ; preds = %if.then49
   %hash.i = getelementptr inbounds i8, ptr %node.0, i64 8
   %21 = load i32, ptr %hash.i, align 8
   %mul.i47 = mul i32 %21, 37
-  br label %if.end70.sink.split
+  %add.i = add i32 %mul.i47, %value.0
+  store i32 %add.i, ptr %hash.i, align 8
+  br label %if.end70
 
 if.else55:                                        ; preds = %if.then49
   %call56 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 32) #14
@@ -670,7 +672,9 @@ _ZN6icu_7517StringTrieBuilder21IntermediateValueNodeC2EiPNS0_4NodeE.exit: ; pred
   store ptr %retval.0.i54111, ptr %next.i81, align 8
   store i8 1, ptr %hasValue.i.i79, align 8
   store i32 %value.0, ptr %value.i.i80, align 4
-  br label %if.end70.sink.split
+  %add.i.i = add i32 %cond.i.i77, %value.0
+  store i32 %add.i.i, ptr %hash.i.i2.i, align 8
+  br label %if.end70
 
 lpad61:                                           ; preds = %if.end12.i64, %if.end3.i56
   %33 = landingpad { ptr, i32 }
@@ -678,16 +682,8 @@ lpad61:                                           ; preds = %if.end12.i64, %if.e
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call56) #14
   resume { ptr, i32 } %33
 
-if.end70.sink.split:                              ; preds = %if.then54, %_ZN6icu_7517StringTrieBuilder21IntermediateValueNodeC2EiPNS0_4NodeE.exit
-  %cond.i.i77.sink = phi i32 [ %cond.i.i77, %_ZN6icu_7517StringTrieBuilder21IntermediateValueNodeC2EiPNS0_4NodeE.exit ], [ %mul.i47, %if.then54 ]
-  %hash.i.i2.i.sink = phi ptr [ %hash.i.i2.i, %_ZN6icu_7517StringTrieBuilder21IntermediateValueNodeC2EiPNS0_4NodeE.exit ], [ %hash.i, %if.then54 ]
-  %node.1.ph = phi ptr [ %call56, %_ZN6icu_7517StringTrieBuilder21IntermediateValueNodeC2EiPNS0_4NodeE.exit ], [ %node.0, %if.then54 ]
-  %add.i.i = add i32 %cond.i.i77.sink, %value.0
-  store i32 %add.i.i, ptr %hash.i.i2.i.sink, align 8
-  br label %if.end70
-
-if.end70:                                         ; preds = %if.end70.sink.split, %if.else, %if.else55, %if.end46
-  %node.1 = phi ptr [ %node.0, %if.end46 ], [ null, %if.else55 ], [ null, %if.else ], [ %node.1.ph, %if.end70.sink.split ]
+if.end70:                                         ; preds = %if.else, %_ZN6icu_7517StringTrieBuilder21IntermediateValueNodeC2EiPNS0_4NodeE.exit, %if.else55, %if.then54, %if.end46
+  %node.1 = phi ptr [ %node.0, %if.then54 ], [ %node.0, %if.end46 ], [ null, %if.else55 ], [ %call56, %_ZN6icu_7517StringTrieBuilder21IntermediateValueNodeC2EiPNS0_4NodeE.exit ], [ null, %if.else ]
   %34 = load i32, ptr %errorCode, align 4
   %cmp.i.i82 = icmp slt i32 %34, 1
   %cmp.i83 = icmp eq ptr %node.1, null

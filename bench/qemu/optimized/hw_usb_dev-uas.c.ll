@@ -377,23 +377,32 @@ land.rhs4.lr.ph:                                  ; preds = %for.end
   %tql_prev17 = getelementptr inbounds i8, ptr %call.i, i64 6024
   br label %land.rhs4
 
-land.rhs4:                                        ; preds = %land.rhs4.lr.ph, %land.rhs4
-  %st.020 = phi ptr [ %10, %land.rhs4.lr.ph ], [ %11, %land.rhs4 ]
+land.rhs4:                                        ; preds = %land.rhs4.lr.ph, %if.end
+  %st.020 = phi ptr [ %10, %land.rhs4.lr.ph ], [ %11, %if.end ]
   %next5 = getelementptr inbounds i8, ptr %st.020, i64 48
   %11 = load ptr, ptr %next5, align 8
   %cmp.not = icmp eq ptr %11, null
   %tql_prev15 = getelementptr inbounds i8, ptr %st.020, i64 56
   %12 = load ptr, ptr %tql_prev15, align 8
+  br i1 %cmp.not, label %if.else, label %if.then
+
+if.then:                                          ; preds = %land.rhs4
   %tql_prev13 = getelementptr inbounds i8, ptr %11, i64 56
-  %tql_prev17.sink = select i1 %cmp.not, ptr %tql_prev17, ptr %tql_prev13
-  store ptr %12, ptr %tql_prev17.sink, align 8
+  store ptr %12, ptr %tql_prev13, align 8
+  br label %if.end
+
+if.else:                                          ; preds = %land.rhs4
+  store ptr %12, ptr %tql_prev17, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then
   %13 = load ptr, ptr %next5, align 8
   store ptr %13, ptr %12, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next5, i8 0, i64 16, i1 false)
   tail call void @g_free(ptr noundef nonnull %st.020) #9
   br i1 %cmp.not, label %for.end27, label %land.rhs4, !llvm.loop !9
 
-for.end27:                                        ; preds = %land.rhs4, %for.end
+for.end27:                                        ; preds = %if.end, %for.end
   ret void
 }
 
@@ -979,10 +988,19 @@ if.end49:                                         ; preds = %for.body, %if.else3
   %cmp54.not = icmp eq ptr %76, null
   %tql_prev63 = getelementptr inbounds i8, ptr %st.1, i64 56
   %77 = load ptr, ptr %tql_prev63, align 8
-  %tql_prev65 = getelementptr inbounds i8, ptr %call.i, i64 6024
+  br i1 %cmp54.not, label %if.else61, label %if.then56
+
+if.then56:                                        ; preds = %if.end49
   %tql_prev60 = getelementptr inbounds i8, ptr %76, i64 56
-  %tql_prev65.sink = select i1 %cmp54.not, ptr %tql_prev65, ptr %tql_prev60
-  store ptr %77, ptr %tql_prev65.sink, align 8
+  store ptr %77, ptr %tql_prev60, align 8
+  br label %if.end66
+
+if.else61:                                        ; preds = %if.end49
+  %tql_prev65 = getelementptr inbounds i8, ptr %call.i, i64 6024
+  store ptr %77, ptr %tql_prev65, align 8
+  br label %if.end66
+
+if.end66:                                         ; preds = %if.else61, %if.then56
   %78 = load ptr, ptr %next53, align 8
   store ptr %78, ptr %77, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next53, i8 0, i64 16, i1 false)
@@ -1103,7 +1121,7 @@ err_stream:                                       ; preds = %sw.bb75, %sw.bb10
   store i32 -3, ptr %status142, align 4
   br label %return
 
-return:                                           ; preds = %incorrect_lun.i, %overlapped_tag.i107, %invalid_tag.i108, %trace_usb_uas_tmf_unsupported.exit.i, %trace_usb_uas_tmf_logical_unit_reset.exit.i, %if.end31.i, %bad_target.i, %overlapped_tag.i, %invalid_tag.i, %unsupported_len.i, %if.then73.i, %if.end69.i, %if.end29, %if.end45, %if.end49, %if.end111, %if.else117, %if.end133, %sw.default135, %sw.default, %err_stream
+return:                                           ; preds = %incorrect_lun.i, %overlapped_tag.i107, %invalid_tag.i108, %trace_usb_uas_tmf_unsupported.exit.i, %trace_usb_uas_tmf_logical_unit_reset.exit.i, %if.end31.i, %bad_target.i, %overlapped_tag.i, %invalid_tag.i, %unsupported_len.i, %if.then73.i, %if.end69.i, %if.end29, %if.end45, %if.end66, %if.end111, %if.else117, %if.end133, %sw.default135, %sw.default, %err_stream
   ret void
 }
 
@@ -1142,51 +1160,65 @@ while.body.lr.ph:                                 ; preds = %entry
   %tql_prev20 = getelementptr inbounds i8, ptr %opaque, i64 6024
   br label %while.body
 
-while.body:                                       ; preds = %while.body.lr.ph, %if.end8
-  %2 = phi ptr [ %0, %while.body.lr.ph ], [ %9, %if.end8 ]
+while.body:                                       ; preds = %while.body.lr.ph, %if.end21
+  %2 = phi ptr [ %0, %while.body.lr.ph ], [ %10, %if.end21 ]
   %opaque.val = load i32, ptr %1, align 8
   %cmp.i = icmp eq i32 %opaque.val, 3
-  br i1 %cmp.i, label %if.then, label %if.end
+  br i1 %cmp.i, label %if.then, label %if.else
 
 if.then:                                          ; preds = %while.body
   %3 = load i32, ptr %2, align 8
   %idxprom = zext i32 %3 to i64
   %arrayidx = getelementptr [17 x ptr], ptr %status3, i64 0, i64 %idxprom
+  %4 = load ptr, ptr %arrayidx, align 8
+  store ptr null, ptr %arrayidx, align 8
   br label %if.end
 
-if.end:                                           ; preds = %while.body, %if.then
-  %status2.sink26 = phi ptr [ %arrayidx, %if.then ], [ %status2, %while.body ]
-  %4 = load ptr, ptr %status2.sink26, align 8
-  store ptr null, ptr %status2.sink26, align 8
-  %cmp6 = icmp eq ptr %4, null
+if.else:                                          ; preds = %while.body
+  %5 = load ptr, ptr %status2, align 8
+  store ptr null, ptr %status2, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then
+  %p.0 = phi ptr [ %4, %if.then ], [ %5, %if.else ]
+  %cmp6 = icmp eq ptr %p.0, null
   br i1 %cmp6, label %while.end, label %if.end8
 
 if.end8:                                          ; preds = %if.end
   %status = getelementptr inbounds i8, ptr %2, i64 4
   %length = getelementptr inbounds i8, ptr %2, i64 40
-  %5 = load i32, ptr %length, align 8
-  %conv = zext i32 %5 to i64
-  tail call void @usb_packet_copy(ptr noundef nonnull %4, ptr noundef nonnull %status, i64 noundef %conv) #9
+  %6 = load i32, ptr %length, align 8
+  %conv = zext i32 %6 to i64
+  tail call void @usb_packet_copy(ptr noundef nonnull %p.0, ptr noundef nonnull %status, i64 noundef %conv) #9
   %next = getelementptr inbounds i8, ptr %2, i64 48
-  %6 = load ptr, ptr %next, align 8
-  %cmp9.not = icmp eq ptr %6, null
+  %7 = load ptr, ptr %next, align 8
+  %cmp9.not = icmp eq ptr %7, null
   %tql_prev18 = getelementptr inbounds i8, ptr %2, i64 56
-  %7 = load ptr, ptr %tql_prev18, align 8
-  %tql_prev15 = getelementptr inbounds i8, ptr %6, i64 56
-  %tql_prev20.sink = select i1 %cmp9.not, ptr %tql_prev20, ptr %tql_prev15
-  store ptr %7, ptr %tql_prev20.sink, align 8
-  %8 = load ptr, ptr %next, align 8
-  store ptr %8, ptr %7, align 8
+  %8 = load ptr, ptr %tql_prev18, align 8
+  br i1 %cmp9.not, label %if.else16, label %if.then11
+
+if.then11:                                        ; preds = %if.end8
+  %tql_prev15 = getelementptr inbounds i8, ptr %7, i64 56
+  store ptr %8, ptr %tql_prev15, align 8
+  br label %if.end21
+
+if.else16:                                        ; preds = %if.end8
+  store ptr %8, ptr %tql_prev20, align 8
+  br label %if.end21
+
+if.end21:                                         ; preds = %if.else16, %if.then11
+  %9 = load ptr, ptr %next, align 8
+  store ptr %9, ptr %8, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next, i8 0, i64 16, i1 false)
   tail call void @g_free(ptr noundef nonnull %2) #9
-  %status30 = getelementptr inbounds i8, ptr %4, i64 84
+  %status30 = getelementptr inbounds i8, ptr %p.0, i64 84
   store i32 0, ptr %status30, align 4
-  tail call void @usb_packet_complete(ptr noundef nonnull %opaque, ptr noundef nonnull %4) #9
-  %9 = load ptr, ptr %results, align 8
-  %cmp.not = icmp eq ptr %9, null
+  tail call void @usb_packet_complete(ptr noundef nonnull %opaque, ptr noundef nonnull %p.0) #9
+  %10 = load ptr, ptr %results, align 8
+  %cmp.not = icmp eq ptr %10, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !12
 
-while.end:                                        ; preds = %if.end8, %if.end, %entry
+while.end:                                        ; preds = %if.end21, %if.end, %entry
   ret void
 }
 
@@ -1529,10 +1561,19 @@ do.body:                                          ; preds = %if.end, %if.then4
   %cmp7.not = icmp eq ptr %3, null
   %tql_prev14 = getelementptr inbounds i8, ptr %priv, i64 80
   %4 = load ptr, ptr %tql_prev14, align 8
-  %tql_prev15 = getelementptr inbounds i8, ptr %0, i64 6040
+  br i1 %cmp7.not, label %if.else, label %if.then8
+
+if.then8:                                         ; preds = %do.body
   %tql_prev12 = getelementptr inbounds i8, ptr %3, i64 80
-  %tql_prev15.sink = select i1 %cmp7.not, ptr %tql_prev15, ptr %tql_prev12
-  store ptr %4, ptr %tql_prev15.sink, align 8
+  store ptr %4, ptr %tql_prev12, align 8
+  br label %if.end16
+
+if.else:                                          ; preds = %do.body
+  %tql_prev15 = getelementptr inbounds i8, ptr %0, i64 6040
+  store ptr %4, ptr %tql_prev15, align 8
+  br label %if.end16
+
+if.end16:                                         ; preds = %if.else, %if.then8
   %5 = load ptr, ptr %next, align 8
   store ptr %5, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next, i8 0, i64 16, i1 false)
@@ -1714,6 +1755,7 @@ land.lhs.true:                                    ; preds = %if.end4
   br i1 %cmp6, label %if.then7, label %for.inc
 
 if.then7:                                         ; preds = %land.lhs.true
+  %active.le = getelementptr inbounds i8, ptr %req.072, i64 49
   store ptr %req.072, ptr %datain2, align 8
   %uas.i = getelementptr inbounds i8, ptr %req.072, i64 16
   %6 = load ptr, ptr %uas.i, align 8
@@ -1813,13 +1855,17 @@ if.then.i7.i:                                     ; preds = %cond.end.i.i
   %status_bh.i.i = getelementptr inbounds i8, ptr %19, i64 6008
   %23 = load ptr, ptr %status_bh.i.i, align 8
   tail call void @qemu_bh_schedule(ptr noundef %23) #9
-  br label %for.end.sink.split
+  br label %usb_uas_queue_read_ready.exit
 
 if.else.i.i:                                      ; preds = %cond.end.i.i
   %call9.i.i = tail call ptr @usb_ep_get(ptr noundef nonnull %19, i32 noundef 105, i32 noundef 2) #9
   %24 = load i32, ptr %call.i.i, align 8
   tail call void @usb_wakeup(ptr noundef %call9.i.i, i32 noundef %24) #9
-  br label %for.end.sink.split
+  br label %usb_uas_queue_read_ready.exit
+
+usb_uas_queue_read_ready.exit:                    ; preds = %if.then.i7.i, %if.else.i.i
+  store i8 1, ptr %active.le, align 1
+  br label %for.end
 
 land.lhs.true15:                                  ; preds = %if.end4
   %25 = load ptr, ptr %dataout2, align 8
@@ -1827,6 +1873,7 @@ land.lhs.true15:                                  ; preds = %if.end4
   br i1 %cmp16, label %if.then17, label %for.inc
 
 if.then17:                                        ; preds = %land.lhs.true15
+  %active.le80 = getelementptr inbounds i8, ptr %req.072, i64 49
   store ptr %req.072, ptr %dataout2, align 8
   %uas.i18 = getelementptr inbounds i8, ptr %req.072, i64 16
   %26 = load ptr, ptr %uas.i18, align 8
@@ -1926,13 +1973,17 @@ if.then.i7.i42:                                   ; preds = %cond.end.i.i35
   %status_bh.i.i43 = getelementptr inbounds i8, ptr %39, i64 6008
   %43 = load ptr, ptr %status_bh.i.i43, align 8
   tail call void @qemu_bh_schedule(ptr noundef %43) #9
-  br label %for.end.sink.split
+  br label %usb_uas_queue_write_ready.exit
 
 if.else.i.i44:                                    ; preds = %cond.end.i.i35
   %call9.i.i45 = tail call ptr @usb_ep_get(ptr noundef nonnull %39, i32 noundef 105, i32 noundef 2) #9
   %44 = load i32, ptr %call.i.i19, align 8
   tail call void @usb_wakeup(ptr noundef %call9.i.i45, i32 noundef %44) #9
-  br label %for.end.sink.split
+  br label %usb_uas_queue_write_ready.exit
+
+usb_uas_queue_write_ready.exit:                   ; preds = %if.then.i7.i42, %if.else.i.i44
+  store i8 1, ptr %active.le80, align 1
+  br label %for.end
 
 for.inc:                                          ; preds = %if.end4, %land.lhs.true, %land.lhs.true15, %for.body, %lor.lhs.false
   %next = getelementptr inbounds i8, ptr %req.072, i64 72
@@ -1940,12 +1991,7 @@ for.inc:                                          ; preds = %if.end4, %land.lhs.
   %tobool.not = icmp eq ptr %req.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !13
 
-for.end.sink.split:                               ; preds = %if.else.i.i44, %if.then.i7.i42, %if.else.i.i, %if.then.i7.i
-  %active.le80.sink = getelementptr inbounds i8, ptr %req.072, i64 49
-  store i8 1, ptr %active.le80.sink, align 1
-  br label %for.end
-
-for.end:                                          ; preds = %for.inc, %for.end.sink.split, %if.end, %entry
+for.end:                                          ; preds = %for.inc, %if.end, %entry, %usb_uas_queue_write_ready.exit, %usb_uas_queue_read_ready.exit
   ret void
 }
 

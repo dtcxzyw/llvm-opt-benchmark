@@ -1745,15 +1745,24 @@ if.end941:                                        ; preds = %if.then929, %land.l
 
 if.then943:                                       ; preds = %if.end941
   %tobool944.not = icmp eq ptr %lastc.0.lcssa551, null
-  %arrayidx738.lastc.0.lcssa551 = select i1 %tobool944.not, ptr %arrayidx738, ptr %lastc.0.lcssa551
-  store ptr %co.0, ptr %arrayidx738.lastc.0.lcssa551, align 8
+  br i1 %tobool944.not, label %if.else947, label %if.then945
+
+if.then945:                                       ; preds = %if.then943
+  store ptr %co.0, ptr %lastc.0.lcssa551, align 8
+  br label %if.end950
+
+if.else947:                                       ; preds = %if.then943
+  store ptr %co.0, ptr %arrayidx738, align 8
+  br label %if.end950
+
+if.end950:                                        ; preds = %if.else947, %if.then945
   %numcookies = getelementptr inbounds i8, ptr %c, i64 512
   %166 = load i32, ptr %numcookies, align 8
   %inc951 = add nsw i32 %166, 1
   store i32 %inc951, ptr %numcookies, align 8
   br label %if.end952
 
-if.end952:                                        ; preds = %if.then943, %if.end941
+if.end952:                                        ; preds = %if.end950, %if.end941
   %expires953 = getelementptr inbounds i8, ptr %co.0, i64 48
   %167 = load i64, ptr %expires953, align 8
   %tobool954.not = icmp eq i64 %167, 0
@@ -1987,8 +1996,17 @@ while.body:                                       ; preds = %for.body, %if.end32
 
 if.then10:                                        ; preds = %while.body
   %tobool11.not = icmp eq ptr %pv.028, null
-  %arrayidx.pv.028 = select i1 %tobool11.not, ptr %arrayidx, ptr %pv.028
-  store ptr %2, ptr %arrayidx.pv.028, align 8
+  br i1 %tobool11.not, label %if.then12, label %if.else17
+
+if.then12:                                        ; preds = %if.then10
+  store ptr %2, ptr %arrayidx, align 8
+  br label %if.end20
+
+if.else17:                                        ; preds = %if.then10
+  store ptr %2, ptr %pv.028, align 8
+  br label %if.end20
+
+if.end20:                                         ; preds = %if.else17, %if.then12
   %4 = load i32, ptr %numcookies, align 8
   %dec = add nsw i32 %4, -1
   store i32 %dec, ptr %numcookies, align 8
@@ -2029,8 +2047,8 @@ if.then28:                                        ; preds = %land.lhs.true24
   store i64 %3, ptr %next_expiration, align 8
   br label %if.end32
 
-if.end32:                                         ; preds = %if.else21, %land.lhs.true24, %if.then28, %if.then10
-  %pv.1 = phi ptr [ %pv.028, %if.then10 ], [ %co.027, %if.then28 ], [ %co.027, %land.lhs.true24 ], [ %co.027, %if.else21 ]
+if.end32:                                         ; preds = %if.else21, %land.lhs.true24, %if.then28, %if.end20
+  %pv.1 = phi ptr [ %pv.028, %if.end20 ], [ %co.027, %if.then28 ], [ %co.027, %land.lhs.true24 ], [ %co.027, %if.else21 ]
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %for.inc, label %while.body, !llvm.loop !17
 

@@ -37299,6 +37299,7 @@ for.body.i.i.i:                                   ; preds = %_ZN5eastl10VectorBa
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i
   store ptr %retval.sroa.0.08.i.i.i, ptr %mpPrev.i.i.i.i.i.i, align 8
+  store ptr %retval.sroa.0.08.i.i.i, ptr %retval.sroa.0.08.i.i.i, align 8
   br label %if.end.i.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i
@@ -37306,11 +37307,10 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i
   store ptr %retval.sroa.0.08.i.i.i, ptr %7, align 8
   %8 = load ptr, ptr %retval.sroa.0.08.i.i.i, align 8
   %mpPrev5.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %retval.sroa.0.08.i.i.i, ptr %mpPrev5.i.i.i.i.i.i.i, align 8
   br label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
-  %mpPrev5.sink.i.i.i.i.i.i.i = phi ptr [ %mpPrev5.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i ], [ %retval.sroa.0.08.i.i.i, %if.then.i.i.i.i.i.i.i ]
-  store ptr %retval.sroa.0.08.i.i.i, ptr %mpPrev5.sink.i.i.i.i.i.i.i, align 8
   %9 = load ptr, ptr %first.sroa.0.07.i.i.i, align 8
   %cmp7.i.i.i.i.i.i.i = icmp eq ptr %9, %retval.sroa.0.08.i.i.i
   %mpPrev9.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i, i64 8
@@ -37318,6 +37318,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %if.else.i.i.i.i.i.i
 
 if.then8.i.i.i.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i.i
   store ptr %first.sroa.0.07.i.i.i, ptr %mpPrev9.i.i.i.i.i.i.i, align 8
+  store ptr %first.sroa.0.07.i.i.i, ptr %first.sroa.0.07.i.i.i, align 8
   br label %_ZN5eastl4listI10TestObjectNS_9allocatorEEC2EOS3_.exit.i.i.i
 
 if.else11.i.i.i.i.i.i.i:                          ; preds = %if.end.i.i.i.i.i.i.i
@@ -37325,11 +37326,10 @@ if.else11.i.i.i.i.i.i.i:                          ; preds = %if.end.i.i.i.i.i.i.
   store ptr %first.sroa.0.07.i.i.i, ptr %10, align 8
   %11 = load ptr, ptr %first.sroa.0.07.i.i.i, align 8
   %mpPrev15.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
+  store ptr %first.sroa.0.07.i.i.i, ptr %mpPrev15.i.i.i.i.i.i.i, align 8
   br label %_ZN5eastl4listI10TestObjectNS_9allocatorEEC2EOS3_.exit.i.i.i
 
 _ZN5eastl4listI10TestObjectNS_9allocatorEEC2EOS3_.exit.i.i.i: ; preds = %if.else11.i.i.i.i.i.i.i, %if.then8.i.i.i.i.i.i.i
-  %mpPrev15.sink.i.i.i.i.i.i.i = phi ptr [ %mpPrev15.i.i.i.i.i.i.i, %if.else11.i.i.i.i.i.i.i ], [ %first.sroa.0.07.i.i.i, %if.then8.i.i.i.i.i.i.i ]
-  store ptr %first.sroa.0.07.i.i.i, ptr %mpPrev15.sink.i.i.i.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i.i.i.i.i.i)
   %mSize5.i.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i, i64 16
   %12 = load i64, ptr %5, align 8

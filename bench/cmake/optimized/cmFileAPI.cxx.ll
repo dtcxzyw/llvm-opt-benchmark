@@ -5300,43 +5300,45 @@ define dso_local void @_ZN9cmFileAPI27BuildClientRequestCodeModelERNS_13ClientRe
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
-  %.not1516 = icmp eq ptr %5, %7
-  br i1 %.not1516, label %.loopexit, label %.lr.ph
+  %.not1314 = icmp eq ptr %5, %7
+  br i1 %.not1314, label %.loopexit, label %.lr.ph
 
-8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %.sroa.012.017, i64 8
-  %.not15 = icmp eq ptr %9, %7
-  br i1 %.not15, label %.loopexit, label %.lr.ph
+.lr.ph:                                           ; preds = %3, %16
+  %.sroa.010.015 = phi ptr [ %17, %16 ], [ %5, %3 ]
+  %8 = load i32, ptr %.sroa.010.015, align 4
+  %9 = icmp eq i32 %8, 2
+  br i1 %9, label %10, label %16
 
-.lr.ph:                                           ; preds = %3, %8
-  %.sroa.012.017 = phi ptr [ %9, %8 ], [ %5, %3 ]
-  %10 = load i32, ptr %.sroa.012.017, align 4
-  %11 = icmp eq i32 %10, 2
-  %12 = getelementptr inbounds i8, ptr %.sroa.012.017, i64 4
-  %13 = load i32, ptr %12, align 4
-  %14 = icmp ult i32 %13, 8
-  %or.cond = select i1 %11, i1 %14, i1 false
-  br i1 %or.cond, label %15, label %8
+10:                                               ; preds = %.lr.ph
+  %11 = getelementptr inbounds i8, ptr %.sroa.010.015, i64 4
+  %12 = load i32, ptr %11, align 4
+  %13 = icmp ult i32 %12, 8
+  br i1 %13, label %14, label %16
 
-15:                                               ; preds = %.lr.ph
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
-  store i64 2, ptr %16, align 8
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  store i64 2, ptr %15, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %8, %3, %15
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
-  %18 = load i64, ptr %17, align 8
-  %.not = icmp eq i64 %18, 0
-  br i1 %.not, label %19, label %22
+16:                                               ; preds = %.lr.ph, %10
+  %17 = getelementptr inbounds i8, ptr %.sroa.010.015, i64 8
+  %.not13 = icmp eq ptr %17, %7
+  br i1 %.not13, label %.loopexit, label %.lr.ph
 
-19:                                               ; preds = %.loopexit
+.loopexit:                                        ; preds = %16, %3, %14
+  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = load i64, ptr %18, align 8
+  %.not = icmp eq i64 %19, 0
+  br i1 %.not, label %20, label %23
+
+20:                                               ; preds = %.loopexit
   call void @_ZN9cmFileAPI18NoSupportedVersionB5cxx11ERKSt6vectorINS_14RequestVersionESaIS1_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %2)
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
-  %21 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %4) #22
+  %21 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %4) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
-  br label %22
+  br label %23
 
-22:                                               ; preds = %19, %.loopexit
+23:                                               ; preds = %20, %.loopexit
   ret void
 }
 
@@ -5346,43 +5348,45 @@ define dso_local void @_ZN9cmFileAPI30BuildClientRequestConfigureLogERNS_13Clien
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
-  %.not1516 = icmp eq ptr %5, %7
-  br i1 %.not1516, label %.loopexit, label %.lr.ph
+  %.not1314 = icmp eq ptr %5, %7
+  br i1 %.not1314, label %.loopexit, label %.lr.ph
 
-8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %.sroa.012.017, i64 8
-  %.not15 = icmp eq ptr %9, %7
-  br i1 %.not15, label %.loopexit, label %.lr.ph
+.lr.ph:                                           ; preds = %3, %16
+  %.sroa.010.015 = phi ptr [ %17, %16 ], [ %5, %3 ]
+  %8 = load i32, ptr %.sroa.010.015, align 4
+  %9 = icmp eq i32 %8, 1
+  br i1 %9, label %10, label %16
 
-.lr.ph:                                           ; preds = %3, %8
-  %.sroa.012.017 = phi ptr [ %9, %8 ], [ %5, %3 ]
-  %10 = load i32, ptr %.sroa.012.017, align 4
-  %11 = icmp eq i32 %10, 1
-  %12 = getelementptr inbounds i8, ptr %.sroa.012.017, i64 4
-  %13 = load i32, ptr %12, align 4
-  %14 = icmp eq i32 %13, 0
-  %or.cond = select i1 %11, i1 %14, i1 false
-  br i1 %or.cond, label %15, label %8
+10:                                               ; preds = %.lr.ph
+  %11 = getelementptr inbounds i8, ptr %.sroa.010.015, i64 4
+  %12 = load i32, ptr %11, align 4
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %14, label %16
 
-15:                                               ; preds = %.lr.ph
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
-  store i64 1, ptr %16, align 8
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  store i64 1, ptr %15, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %8, %3, %15
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
-  %18 = load i64, ptr %17, align 8
-  %.not = icmp eq i64 %18, 0
-  br i1 %.not, label %19, label %22
+16:                                               ; preds = %.lr.ph, %10
+  %17 = getelementptr inbounds i8, ptr %.sroa.010.015, i64 8
+  %.not13 = icmp eq ptr %17, %7
+  br i1 %.not13, label %.loopexit, label %.lr.ph
 
-19:                                               ; preds = %.loopexit
+.loopexit:                                        ; preds = %16, %3, %14
+  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = load i64, ptr %18, align 8
+  %.not = icmp eq i64 %19, 0
+  br i1 %.not, label %20, label %23
+
+20:                                               ; preds = %.loopexit
   call void @_ZN9cmFileAPI18NoSupportedVersionB5cxx11ERKSt6vectorINS_14RequestVersionESaIS1_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %2)
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
-  %21 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %4) #22
+  %21 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %4) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
-  br label %22
+  br label %23
 
-22:                                               ; preds = %19, %.loopexit
+23:                                               ; preds = %20, %.loopexit
   ret void
 }
 
@@ -5392,43 +5396,45 @@ define dso_local void @_ZN9cmFileAPI23BuildClientRequestCacheERNS_13ClientReques
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
-  %.not1516 = icmp eq ptr %5, %7
-  br i1 %.not1516, label %.loopexit, label %.lr.ph
+  %.not1314 = icmp eq ptr %5, %7
+  br i1 %.not1314, label %.loopexit, label %.lr.ph
 
-8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %.sroa.012.017, i64 8
-  %.not15 = icmp eq ptr %9, %7
-  br i1 %.not15, label %.loopexit, label %.lr.ph
+.lr.ph:                                           ; preds = %3, %16
+  %.sroa.010.015 = phi ptr [ %17, %16 ], [ %5, %3 ]
+  %8 = load i32, ptr %.sroa.010.015, align 4
+  %9 = icmp eq i32 %8, 2
+  br i1 %9, label %10, label %16
 
-.lr.ph:                                           ; preds = %3, %8
-  %.sroa.012.017 = phi ptr [ %9, %8 ], [ %5, %3 ]
-  %10 = load i32, ptr %.sroa.012.017, align 4
-  %11 = icmp eq i32 %10, 2
-  %12 = getelementptr inbounds i8, ptr %.sroa.012.017, i64 4
-  %13 = load i32, ptr %12, align 4
-  %14 = icmp eq i32 %13, 0
-  %or.cond = select i1 %11, i1 %14, i1 false
-  br i1 %or.cond, label %15, label %8
+10:                                               ; preds = %.lr.ph
+  %11 = getelementptr inbounds i8, ptr %.sroa.010.015, i64 4
+  %12 = load i32, ptr %11, align 4
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %14, label %16
 
-15:                                               ; preds = %.lr.ph
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
-  store i64 2, ptr %16, align 8
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  store i64 2, ptr %15, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %8, %3, %15
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
-  %18 = load i64, ptr %17, align 8
-  %.not = icmp eq i64 %18, 0
-  br i1 %.not, label %19, label %22
+16:                                               ; preds = %.lr.ph, %10
+  %17 = getelementptr inbounds i8, ptr %.sroa.010.015, i64 8
+  %.not13 = icmp eq ptr %17, %7
+  br i1 %.not13, label %.loopexit, label %.lr.ph
 
-19:                                               ; preds = %.loopexit
+.loopexit:                                        ; preds = %16, %3, %14
+  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = load i64, ptr %18, align 8
+  %.not = icmp eq i64 %19, 0
+  br i1 %.not, label %20, label %23
+
+20:                                               ; preds = %.loopexit
   call void @_ZN9cmFileAPI18NoSupportedVersionB5cxx11ERKSt6vectorINS_14RequestVersionESaIS1_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %2)
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
-  %21 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %4) #22
+  %21 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %4) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
-  br label %22
+  br label %23
 
-22:                                               ; preds = %19, %.loopexit
+23:                                               ; preds = %20, %.loopexit
   ret void
 }
 
@@ -5438,43 +5444,45 @@ define dso_local void @_ZN9cmFileAPI28BuildClientRequestCMakeFilesERNS_13ClientR
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
-  %.not1516 = icmp eq ptr %5, %7
-  br i1 %.not1516, label %.loopexit, label %.lr.ph
+  %.not1314 = icmp eq ptr %5, %7
+  br i1 %.not1314, label %.loopexit, label %.lr.ph
 
-8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %.sroa.012.017, i64 8
-  %.not15 = icmp eq ptr %9, %7
-  br i1 %.not15, label %.loopexit, label %.lr.ph
+.lr.ph:                                           ; preds = %3, %16
+  %.sroa.010.015 = phi ptr [ %17, %16 ], [ %5, %3 ]
+  %8 = load i32, ptr %.sroa.010.015, align 4
+  %9 = icmp eq i32 %8, 1
+  br i1 %9, label %10, label %16
 
-.lr.ph:                                           ; preds = %3, %8
-  %.sroa.012.017 = phi ptr [ %9, %8 ], [ %5, %3 ]
-  %10 = load i32, ptr %.sroa.012.017, align 4
-  %11 = icmp eq i32 %10, 1
-  %12 = getelementptr inbounds i8, ptr %.sroa.012.017, i64 4
-  %13 = load i32, ptr %12, align 4
-  %14 = icmp eq i32 %13, 0
-  %or.cond = select i1 %11, i1 %14, i1 false
-  br i1 %or.cond, label %15, label %8
+10:                                               ; preds = %.lr.ph
+  %11 = getelementptr inbounds i8, ptr %.sroa.010.015, i64 4
+  %12 = load i32, ptr %11, align 4
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %14, label %16
 
-15:                                               ; preds = %.lr.ph
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
-  store i64 1, ptr %16, align 8
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  store i64 1, ptr %15, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %8, %3, %15
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
-  %18 = load i64, ptr %17, align 8
-  %.not = icmp eq i64 %18, 0
-  br i1 %.not, label %19, label %22
+16:                                               ; preds = %.lr.ph, %10
+  %17 = getelementptr inbounds i8, ptr %.sroa.010.015, i64 8
+  %.not13 = icmp eq ptr %17, %7
+  br i1 %.not13, label %.loopexit, label %.lr.ph
 
-19:                                               ; preds = %.loopexit
+.loopexit:                                        ; preds = %16, %3, %14
+  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = load i64, ptr %18, align 8
+  %.not = icmp eq i64 %19, 0
+  br i1 %.not, label %20, label %23
+
+20:                                               ; preds = %.loopexit
   call void @_ZN9cmFileAPI18NoSupportedVersionB5cxx11ERKSt6vectorINS_14RequestVersionESaIS1_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %2)
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
-  %21 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %4) #22
+  %21 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %4) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
-  br label %22
+  br label %23
 
-22:                                               ; preds = %19, %.loopexit
+23:                                               ; preds = %20, %.loopexit
   ret void
 }
 
@@ -5484,43 +5492,45 @@ define dso_local void @_ZN9cmFileAPI28BuildClientRequestToolchainsERNS_13ClientR
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
-  %.not1516 = icmp eq ptr %5, %7
-  br i1 %.not1516, label %.loopexit, label %.lr.ph
+  %.not1314 = icmp eq ptr %5, %7
+  br i1 %.not1314, label %.loopexit, label %.lr.ph
 
-8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %.sroa.012.017, i64 8
-  %.not15 = icmp eq ptr %9, %7
-  br i1 %.not15, label %.loopexit, label %.lr.ph
+.lr.ph:                                           ; preds = %3, %16
+  %.sroa.010.015 = phi ptr [ %17, %16 ], [ %5, %3 ]
+  %8 = load i32, ptr %.sroa.010.015, align 4
+  %9 = icmp eq i32 %8, 1
+  br i1 %9, label %10, label %16
 
-.lr.ph:                                           ; preds = %3, %8
-  %.sroa.012.017 = phi ptr [ %9, %8 ], [ %5, %3 ]
-  %10 = load i32, ptr %.sroa.012.017, align 4
-  %11 = icmp eq i32 %10, 1
-  %12 = getelementptr inbounds i8, ptr %.sroa.012.017, i64 4
-  %13 = load i32, ptr %12, align 4
-  %14 = icmp eq i32 %13, 0
-  %or.cond = select i1 %11, i1 %14, i1 false
-  br i1 %or.cond, label %15, label %8
+10:                                               ; preds = %.lr.ph
+  %11 = getelementptr inbounds i8, ptr %.sroa.010.015, i64 4
+  %12 = load i32, ptr %11, align 4
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %14, label %16
 
-15:                                               ; preds = %.lr.ph
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
-  store i64 1, ptr %16, align 8
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  store i64 1, ptr %15, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %8, %3, %15
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
-  %18 = load i64, ptr %17, align 8
-  %.not = icmp eq i64 %18, 0
-  br i1 %.not, label %19, label %22
+16:                                               ; preds = %.lr.ph, %10
+  %17 = getelementptr inbounds i8, ptr %.sroa.010.015, i64 8
+  %.not13 = icmp eq ptr %17, %7
+  br i1 %.not13, label %.loopexit, label %.lr.ph
 
-19:                                               ; preds = %.loopexit
+.loopexit:                                        ; preds = %16, %3, %14
+  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = load i64, ptr %18, align 8
+  %.not = icmp eq i64 %19, 0
+  br i1 %.not, label %20, label %23
+
+20:                                               ; preds = %.loopexit
   call void @_ZN9cmFileAPI18NoSupportedVersionB5cxx11ERKSt6vectorINS_14RequestVersionESaIS1_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %2)
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
-  %21 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %4) #22
+  %21 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %4) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
-  br label %22
+  br label %23
 
-22:                                               ; preds = %19, %.loopexit
+23:                                               ; preds = %20, %.loopexit
   ret void
 }
 
@@ -5530,50 +5540,54 @@ define dso_local void @_ZN9cmFileAPI30BuildClientRequestInternalTestERNS_13Clien
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
-  %.not2021 = icmp eq ptr %5, %7
-  br i1 %.not2021, label %.loopexit, label %.lr.ph
+  %.not1516 = icmp eq ptr %5, %7
+  br i1 %.not1516, label %.loopexit, label %.lr.ph
 
-8:                                                ; preds = %15
-  %9 = getelementptr inbounds i8, ptr %.sroa.017.022, i64 8
-  %.not20 = icmp eq ptr %9, %7
-  br i1 %.not20, label %.loopexit, label %.lr.ph
+.lr.ph:                                           ; preds = %3, %.thread
+  %.sroa.012.017 = phi ptr [ %20, %.thread ], [ %5, %3 ]
+  %8 = load i32, ptr %.sroa.012.017, align 4
+  switch i32 %8, label %.thread [
+    i32 1, label %9
+    i32 2, label %13
+  ]
 
-.lr.ph:                                           ; preds = %3, %8
-  %.sroa.017.022 = phi ptr [ %9, %8 ], [ %5, %3 ]
-  %10 = load i32, ptr %.sroa.017.022, align 4
-  %11 = icmp eq i32 %10, 1
-  %12 = getelementptr inbounds i8, ptr %.sroa.017.022, i64 4
-  %13 = load i32, ptr %12, align 4
-  %14 = icmp ult i32 %13, 4
-  %or.cond = select i1 %11, i1 %14, i1 false
-  br i1 %or.cond, label %18, label %15
+9:                                                ; preds = %.lr.ph
+  %10 = getelementptr inbounds i8, ptr %.sroa.012.017, i64 4
+  %11 = load i32, ptr %10, align 4
+  %12 = icmp ult i32 %11, 4
+  br i1 %12, label %17, label %.thread
 
-15:                                               ; preds = %.lr.ph
-  %16 = icmp eq i32 %10, 2
-  %17 = icmp eq i32 %13, 0
-  %or.cond16 = select i1 %16, i1 %17, i1 false
-  br i1 %or.cond16, label %18, label %8
+13:                                               ; preds = %.lr.ph
+  %14 = getelementptr inbounds i8, ptr %.sroa.012.017, i64 4
+  %15 = load i32, ptr %14, align 4
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %17, label %.thread
 
-18:                                               ; preds = %15, %.lr.ph
-  %.lcssa = phi i64 [ 2, %15 ], [ 1, %.lr.ph ]
+17:                                               ; preds = %13, %9
+  %18 = zext nneg i32 %8 to i64
   %19 = getelementptr inbounds i8, ptr %1, i64 8
-  store i64 %.lcssa, ptr %19, align 8
+  store i64 %18, ptr %19, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %8, %3, %18
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
-  %21 = load i64, ptr %20, align 8
-  %.not = icmp eq i64 %21, 0
-  br i1 %.not, label %22, label %25
+.thread:                                          ; preds = %.lr.ph, %9, %13
+  %20 = getelementptr inbounds i8, ptr %.sroa.012.017, i64 8
+  %.not15 = icmp eq ptr %20, %7
+  br i1 %.not15, label %.loopexit, label %.lr.ph
 
-22:                                               ; preds = %.loopexit
+.loopexit:                                        ; preds = %.thread, %3, %17
+  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = load i64, ptr %21, align 8
+  %.not = icmp eq i64 %22, 0
+  br i1 %.not, label %23, label %26
+
+23:                                               ; preds = %.loopexit
   call void @_ZN9cmFileAPI18NoSupportedVersionB5cxx11ERKSt6vectorINS_14RequestVersionESaIS1_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %2)
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
-  %24 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %4) #22
+  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %4) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
-  br label %25
+  br label %26
 
-25:                                               ; preds = %22, %.loopexit
+26:                                               ; preds = %23, %.loopexit
   ret void
 }
 
@@ -8469,22 +8483,18 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
-  br label %.sink.split
+  store ptr %.031, ptr %24, align 8
+  br label %28
 
 25:                                               ; preds = %.lr.ph
   %26 = load ptr, ptr %19, align 8
   store ptr %26, ptr %.031, align 8
   %27 = load ptr, ptr %18, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %25, %23
-  %.sink = phi ptr [ %24, %23 ], [ %27, %25 ]
-  %.1.ph = phi i64 [ %17, %23 ], [ %.02530, %25 ]
-  store ptr %.031, ptr %.sink, align 8
+  store ptr %.031, ptr %27, align 8
   br label %28
 
-28:                                               ; preds = %.sink.split, %20
-  %.1 = phi i64 [ %17, %20 ], [ %.1.ph, %.sink.split ]
+28:                                               ; preds = %20, %23, %25
+  %.1 = phi i64 [ %.02530, %25 ], [ %17, %23 ], [ %17, %20 ]
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !140
 

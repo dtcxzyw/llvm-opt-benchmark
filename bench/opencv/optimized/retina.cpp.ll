@@ -3309,7 +3309,7 @@ define hidden void @_ZN2cv11bioinspired10RetinaImpl20applyFastToneMappingERKNS_1
   store ptr %5, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 72
   %19 = invoke noundef zeroext i1 @_ZN2cv11bioinspired10RetinaImpl28_convertCvMat2ValarrayBufferERKNS_11_InputArrayERSt8valarrayIfE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(16) %18)
-          to label %20 unwind label %49
+          to label %20 unwind label %51
 
 20:                                               ; preds = %14
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #24
@@ -3322,7 +3322,7 @@ define hidden void @_ZN2cv11bioinspired10RetinaImpl20applyFastToneMappingERKNS_1
   %27 = load i64, ptr %26, align 8
   %28 = trunc i64 %27 to i32
   %29 = mul i32 %28, %25
-  br i1 %19, label %30, label %54
+  br i1 %19, label %30, label %56
 
 30:                                               ; preds = %20
   %31 = mul i32 %29, 3
@@ -3339,7 +3339,7 @@ define hidden void @_ZN2cv11bioinspired10RetinaImpl20applyFastToneMappingERKNS_1
   %39 = getelementptr inbounds i8, ptr %0, i64 36
   %40 = load float, ptr %39, align 4
   invoke void @_ZN2cv11bioinspired12RetinaFilter17runRGBToneMappingERKSt8valarrayIfERS3_bff(ptr noundef nonnull align 8 dereferenceable(1217) %36, ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %6, i1 noundef zeroext true, float noundef %38, float noundef %40)
-          to label %41 unwind label %51
+          to label %41 unwind label %53
 
 41:                                               ; preds = %30
   %42 = load ptr, ptr %21, align 8
@@ -3350,63 +3350,70 @@ define hidden void @_ZN2cv11bioinspired10RetinaImpl20applyFastToneMappingERKNS_1
   %47 = load i64, ptr %46, align 8
   %48 = trunc i64 %47 to i32
   invoke void @_ZN2cv11bioinspired10RetinaImpl28_convertValarrayBuffer2cvMatERKSt8valarrayIfEjjbRKNS_12_OutputArrayE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef %45, i32 noundef %48, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %75 unwind label %51
+          to label %49 unwind label %53
 
-49:                                               ; preds = %14
-  %50 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #24
-  br label %77
+49:                                               ; preds = %41
+  %50 = load ptr, ptr %33, align 8
+  br label %79
 
-51:                                               ; preds = %41, %30
+51:                                               ; preds = %14
   %52 = landingpad { ptr, i32 }
           cleanup
-  %53 = load ptr, ptr %33, align 8
-  call void @_ZdlPv(ptr noundef %53) #24
-  br label %77
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #24
+  br label %80
 
-54:                                               ; preds = %20
-  %55 = zext i32 %29 to i64
-  store i64 %55, ptr %7, align 8
-  %56 = getelementptr inbounds i8, ptr %7, i64 8
-  %57 = shl nuw nsw i64 %55, 2
-  %58 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %57) #26
-  store ptr %58, ptr %56, align 8
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %58, i8 0, i64 %57, i1 false)
-  %59 = load ptr, ptr %21, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 12
-  %61 = load float, ptr %60, align 4
-  %62 = getelementptr inbounds i8, ptr %0, i64 36
-  %63 = load float, ptr %62, align 4
-  invoke void @_ZN2cv11bioinspired12RetinaFilter18runGrayToneMappingERKSt8valarrayIfERS3_ff(ptr noundef nonnull align 8 dereferenceable(1217) %59, ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %7, float noundef %61, float noundef %63)
-          to label %64 unwind label %72
-
-64:                                               ; preds = %54
-  %65 = load ptr, ptr %21, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 72
-  %67 = load i64, ptr %66, align 8
-  %68 = trunc i64 %67 to i32
-  %69 = getelementptr inbounds i8, ptr %65, i64 80
-  %70 = load i64, ptr %69, align 8
-  %71 = trunc i64 %70 to i32
-  invoke void @_ZN2cv11bioinspired10RetinaImpl28_convertValarrayBuffer2cvMatERKSt8valarrayIfEjjbRKNS_12_OutputArrayE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef %68, i32 noundef %71, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %75 unwind label %72
-
-72:                                               ; preds = %64, %54
-  %73 = landingpad { ptr, i32 }
+53:                                               ; preds = %41, %30
+  %54 = landingpad { ptr, i32 }
           cleanup
-  %74 = load ptr, ptr %56, align 8
-  call void @_ZdlPv(ptr noundef %74) #24
-  br label %77
+  %55 = load ptr, ptr %33, align 8
+  call void @_ZdlPv(ptr noundef %55) #24
+  br label %80
 
-75:                                               ; preds = %64, %41
-  %.sink13 = phi ptr [ %33, %41 ], [ %56, %64 ]
-  %76 = load ptr, ptr %.sink13, align 8
-  call void @_ZdlPv(ptr noundef %76) #24
+56:                                               ; preds = %20
+  %57 = zext i32 %29 to i64
+  store i64 %57, ptr %7, align 8
+  %58 = getelementptr inbounds i8, ptr %7, i64 8
+  %59 = shl nuw nsw i64 %57, 2
+  %60 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %59) #26
+  store ptr %60, ptr %58, align 8
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %60, i8 0, i64 %59, i1 false)
+  %61 = load ptr, ptr %21, align 8
+  %62 = getelementptr inbounds i8, ptr %0, i64 12
+  %63 = load float, ptr %62, align 4
+  %64 = getelementptr inbounds i8, ptr %0, i64 36
+  %65 = load float, ptr %64, align 4
+  invoke void @_ZN2cv11bioinspired12RetinaFilter18runGrayToneMappingERKSt8valarrayIfERS3_ff(ptr noundef nonnull align 8 dereferenceable(1217) %61, ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %7, float noundef %63, float noundef %65)
+          to label %66 unwind label %76
+
+66:                                               ; preds = %56
+  %67 = load ptr, ptr %21, align 8
+  %68 = getelementptr inbounds i8, ptr %67, i64 72
+  %69 = load i64, ptr %68, align 8
+  %70 = trunc i64 %69 to i32
+  %71 = getelementptr inbounds i8, ptr %67, i64 80
+  %72 = load i64, ptr %71, align 8
+  %73 = trunc i64 %72 to i32
+  invoke void @_ZN2cv11bioinspired10RetinaImpl28_convertValarrayBuffer2cvMatERKSt8valarrayIfEjjbRKNS_12_OutputArrayE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef %70, i32 noundef %73, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(24) %2)
+          to label %74 unwind label %76
+
+74:                                               ; preds = %66
+  %75 = load ptr, ptr %58, align 8
+  br label %79
+
+76:                                               ; preds = %66, %56
+  %77 = landingpad { ptr, i32 }
+          cleanup
+  %78 = load ptr, ptr %58, align 8
+  call void @_ZdlPv(ptr noundef %78) #24
+  br label %80
+
+79:                                               ; preds = %74, %49
+  %.sink = phi ptr [ %75, %74 ], [ %50, %49 ]
+  call void @_ZdlPv(ptr noundef %.sink) #24
   ret void
 
-77:                                               ; preds = %72, %51, %49
-  %.pn11 = phi { ptr, i32 } [ %52, %51 ], [ %73, %72 ], [ %50, %49 ]
+80:                                               ; preds = %76, %53, %51
+  %.pn11 = phi { ptr, i32 } [ %54, %53 ], [ %77, %76 ], [ %52, %51 ]
   resume { ptr, i32 } %.pn11
 }
 
@@ -3915,28 +3922,29 @@ define hidden void @_ZNK2cv11bioinspired10RetinaImpl11getParvoRAWEv(ptr dead_on_
   %19 = getelementptr inbounds i8, ptr %18, i64 1216
   %20 = load i8, ptr %19, align 8
   %21 = trunc i8 %20 to i1
-  br i1 %21, label %22, label %26
+  br i1 %21, label %22, label %28
 
 22:                                               ; preds = %16
   %23 = getelementptr inbounds i8, ptr %18, i64 1120
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %18, i64 1128
-  br label %32
+  %25 = trunc i64 %24 to i32
+  %26 = getelementptr inbounds i8, ptr %18, i64 1128
+  %27 = load ptr, ptr %26, align 8
+  tail call void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %25, i32 noundef 1, i32 noundef 5, ptr noundef %27, i64 noundef 0)
+  br label %36
 
-26:                                               ; preds = %16
-  %27 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv11bioinspired12RetinaFilter11getContoursEv(ptr noundef nonnull align 8 dereferenceable(1217) %18)
-  %28 = load i64, ptr %27, align 8
-  %29 = load ptr, ptr %17, align 8
-  %30 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv11bioinspired12RetinaFilter11getContoursEv(ptr noundef nonnull align 8 dereferenceable(1217) %29)
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
-  br label %32
+28:                                               ; preds = %16
+  %29 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv11bioinspired12RetinaFilter11getContoursEv(ptr noundef nonnull align 8 dereferenceable(1217) %18)
+  %30 = load i64, ptr %29, align 8
+  %31 = trunc i64 %30 to i32
+  %32 = load ptr, ptr %17, align 8
+  %33 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv11bioinspired12RetinaFilter11getContoursEv(ptr noundef nonnull align 8 dereferenceable(1217) %32)
+  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %35 = load ptr, ptr %34, align 8
+  tail call void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %31, i32 noundef 1, i32 noundef 5, ptr noundef %35, i64 noundef 0)
+  br label %36
 
-32:                                               ; preds = %26, %22
-  %.sink5 = phi ptr [ %31, %26 ], [ %25, %22 ]
-  %.sink.in = phi i64 [ %28, %26 ], [ %24, %22 ]
-  %.sink = trunc i64 %.sink.in to i32
-  %33 = load ptr, ptr %.sink5, align 8
-  tail call void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %.sink, i32 noundef 1, i32 noundef 5, ptr noundef %33, i64 noundef 0)
+36:                                               ; preds = %28, %22
   ret void
 }
 

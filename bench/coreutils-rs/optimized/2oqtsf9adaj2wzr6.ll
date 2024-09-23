@@ -338,7 +338,7 @@ define hidden void @"_ZN102_$LT$rayon..iter..extend..ListVecFolder$LT$T$GT$$u20$
   call void @llvm.assume(i1 %19)
   %20 = getelementptr inbounds i8, ptr %18, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
-  store ptr %18, ptr %5, align 8, !noalias !81
+  store ptr %18, ptr %5, align 8, !alias.scope !80, !noalias !81
   store ptr %18, ptr %6, align 8, !alias.scope !80, !noalias !81
   store i64 1, ptr %7, align 8, !alias.scope !80, !noalias !81
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)

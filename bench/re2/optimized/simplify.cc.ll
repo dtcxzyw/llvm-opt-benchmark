@@ -3304,15 +3304,15 @@ if.then98:                                        ; preds = %_ZNSt5stackIN3re29W
   %52 = load i32, ptr %n100, align 8
   %idxprom101 = sext i32 %52 to i64
   %arrayidx102 = getelementptr inbounds ptr, ptr %51, i64 %idxprom101
+  store ptr %t.0, ptr %arrayidx102, align 8
   br label %if.end105
 
 if.else103:                                       ; preds = %_ZNSt5stackIN3re29WalkStateIPNS0_6RegexpEEESt5dequeIS4_SaIS4_EEE3topEv.exit78
   %child_arg104 = getelementptr inbounds i8, ptr %50, i64 -16
+  store ptr %t.0, ptr %child_arg104, align 8
   br label %if.end105
 
 if.end105:                                        ; preds = %if.else103, %if.then98
-  %child_arg104.sink = phi ptr [ %child_arg104, %if.else103 ], [ %arrayidx102, %if.then98 ]
-  store ptr %t.0, ptr %child_arg104.sink, align 8
   %n106 = getelementptr inbounds i8, ptr %50, i64 -40
   %53 = load i32, ptr %n106, align 8
   %inc107 = add nsw i32 %53, 1

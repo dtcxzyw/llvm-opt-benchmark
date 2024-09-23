@@ -31,7 +31,8 @@ if.end:                                           ; preds = %entry
 if.then7:                                         ; preds = %if.end
   store i32 %0, ptr %ranges, align 4
   %arrayidx11 = getelementptr inbounds i8, ptr %ranges, i64 4
-  br label %return.sink.split
+  store i32 %3, ptr %arrayidx11, align 4
+  br label %return
 
 if.end12:                                         ; preds = %if.end
   %cmp13 = icmp ult i32 %length, 5
@@ -268,16 +269,11 @@ for.body52:                                       ; preds = %for.body52.lr.ph.sp
 for.end69:                                        ; preds = %for.body52, %_ZNK12_GLOBAL__N_111LargestGaps10firstAfterEi.exit.loopexit.us, %_ZN12_GLOBAL__N_111LargestGaps8truncateEi.exit
   %idxprom71 = sext i32 %sub46 to i64
   %arrayidx73 = getelementptr inbounds [2 x i32], ptr %ranges, i64 %idxprom71, i64 1
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.then7, %for.end69
-  %arrayidx73.sink = phi ptr [ %arrayidx73, %for.end69 ], [ %arrayidx11, %if.then7 ]
-  %retval.0.ph = phi i32 [ %num.069, %for.end69 ], [ 1, %if.then7 ]
-  store i32 %3, ptr %arrayidx73.sink, align 4
+  store i32 %3, ptr %arrayidx73, align 4
   br label %return
 
-return:                                           ; preds = %for.inc42, %return.sink.split, %for.cond27.preheader, %if.end12, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.end12 ], [ 0, %for.cond27.preheader ], [ %retval.0.ph, %return.sink.split ], [ 0, %for.inc42 ]
+return:                                           ; preds = %for.inc42, %for.cond27.preheader, %if.end12, %entry, %for.end69, %if.then7
+  %retval.0 = phi i32 [ 1, %if.then7 ], [ %num.069, %for.end69 ], [ 0, %entry ], [ 0, %if.end12 ], [ 0, %for.cond27.preheader ], [ 0, %for.inc42 ]
   ret i32 %retval.0
 }
 

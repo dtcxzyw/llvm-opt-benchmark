@@ -2056,26 +2056,28 @@ if.then4.i:                                       ; preds = %if.then5
   %7 = load ptr, ptr %blk.i, align 8
   %call.i = tail call zeroext i1 @blk_is_inserted(ptr noundef %7) #9
   %spec.select.i = select i1 %call.i, i8 2, i8 0
+  %events.i = getelementptr inbounds i8, ptr %s, i64 689
   %new_media.i = getelementptr inbounds i8, ptr %s, i64 690
   %8 = load i8, ptr %new_media.i, align 1
   %tobool5.i = trunc i8 %8 to i1
-  br i1 %tobool5.i, label %if.end17.sink.split.i, label %if.else9.i
+  br i1 %tobool5.i, label %if.then6.i, label %if.else9.i
 
-if.else9.i:                                       ; preds = %if.then4.i
-  %events.i = getelementptr inbounds i8, ptr %s, i64 689
-  %9 = load i8, ptr %events.i, align 1
-  %tobool11.i = trunc i8 %9 to i1
-  br i1 %tobool11.i, label %if.end17.sink.split.i, label %event_status_media.exit
-
-if.end17.sink.split.i:                            ; preds = %if.else9.i, %if.then4.i
-  %new_media.sink.i = phi ptr [ %new_media.i, %if.then4.i ], [ %events.i, %if.else9.i ]
-  %event_code.0.ph.i = phi i8 [ 2, %if.then4.i ], [ 1, %if.else9.i ]
-  store i8 0, ptr %new_media.sink.i, align 1
+if.then6.i:                                       ; preds = %if.then4.i
+  store i8 0, ptr %new_media.i, align 1
   br label %event_status_media.exit
 
-event_status_media.exit:                          ; preds = %if.then5, %if.else9.i, %if.end17.sink.split.i
-  %media_status.011.i = phi i8 [ %spec.select.i, %if.else9.i ], [ 1, %if.then5 ], [ %spec.select.i, %if.end17.sink.split.i ]
-  %event_code.0.i = phi i8 [ 0, %if.else9.i ], [ 0, %if.then5 ], [ %event_code.0.ph.i, %if.end17.sink.split.i ]
+if.else9.i:                                       ; preds = %if.then4.i
+  %9 = load i8, ptr %events.i, align 1
+  %tobool11.i = trunc i8 %9 to i1
+  br i1 %tobool11.i, label %if.then12.i, label %event_status_media.exit
+
+if.then12.i:                                      ; preds = %if.else9.i
+  store i8 0, ptr %events.i, align 1
+  br label %event_status_media.exit
+
+event_status_media.exit:                          ; preds = %if.then5, %if.then6.i, %if.else9.i, %if.then12.i
+  %media_status.011.i = phi i8 [ %spec.select.i, %if.then6.i ], [ %spec.select.i, %if.then12.i ], [ %spec.select.i, %if.else9.i ], [ 1, %if.then5 ]
+  %event_code.0.i = phi i8 [ 2, %if.then6.i ], [ 1, %if.then12.i ], [ 0, %if.else9.i ], [ 0, %if.then5 ]
   store i8 %event_code.0.i, ptr %class, align 1
   %arrayidx18.i = getelementptr i8, ptr %buf, i64 5
   store i8 %media_status.011.i, ptr %arrayidx18.i, align 1

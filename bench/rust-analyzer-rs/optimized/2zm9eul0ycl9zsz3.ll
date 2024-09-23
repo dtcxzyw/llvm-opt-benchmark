@@ -10226,7 +10226,7 @@ define hidden noundef ptr @"_ZN5rowan3api125_$LT$impl$u20$rowan..utility_types..
   %2 = load i64, ptr %0, align 8, !range !982, !noundef !9
   %trunc = trunc nuw i64 %2 to i1
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %trunc, label %11, label %4
+  br i1 %trunc, label %12, label %4
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %3, align 8, !nonnull !9, !noundef !9
@@ -10234,41 +10234,43 @@ define hidden noundef ptr @"_ZN5rowan3api125_$LT$impl$u20$rowan..utility_types..
   %7 = load i32, ptr %6, align 4, !noundef !9
   %8 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %7, i32 1)
   %9 = extractvalue { i32, i1 } %8, 1
-  br i1 %9, label %10, label %"_ZN5rowan3api20SyntaxToken$LT$L$GT$6parent17h5e4bc5478075fabaE.exit.sink.split"
+  br i1 %9, label %10, label %_ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.18152640266846470746.exit
 
 10:                                               ; preds = %4
   tail call void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #36
   unreachable
 
-11:                                               ; preds = %1
+_ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.18152640266846470746.exit: ; preds = %4
+  %11 = extractvalue { i32, i1 } %8, 0
+  store i32 %11, ptr %6, align 4
+  br label %"_ZN5rowan3api20SyntaxToken$LT$L$GT$6parent17h5e4bc5478075fabaE.exit"
+
+12:                                               ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2300)
-  %12 = load ptr, ptr %3, align 8, !alias.scope !2300, !nonnull !9, !noundef !9
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
-  %14 = load ptr, ptr %13, align 8, !noalias !2300, !noundef !9
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %"_ZN5rowan3api20SyntaxToken$LT$L$GT$6parent17h5e4bc5478075fabaE.exit", label %16
+  %13 = load ptr, ptr %3, align 8, !alias.scope !2300, !nonnull !9, !noundef !9
+  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %15 = load ptr, ptr %14, align 8, !noalias !2300, !noundef !9
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %"_ZN5rowan3api20SyntaxToken$LT$L$GT$6parent17h5e4bc5478075fabaE.exit", label %17
 
-16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %14, i64 48
-  %18 = load i32, ptr %17, align 4, !noalias !2300, !noundef !9
-  %19 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %18, i32 1)
-  %20 = extractvalue { i32, i1 } %19, 1
-  br i1 %20, label %21, label %"_ZN5rowan3api20SyntaxToken$LT$L$GT$6parent17h5e4bc5478075fabaE.exit.sink.split"
+17:                                               ; preds = %12
+  %18 = getelementptr inbounds i8, ptr %15, i64 48
+  %19 = load i32, ptr %18, align 4, !noalias !2300, !noundef !9
+  %20 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %19, i32 1)
+  %21 = extractvalue { i32, i1 } %20, 1
+  br i1 %21, label %22, label %23
 
-21:                                               ; preds = %16
+22:                                               ; preds = %17
   tail call void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #36, !noalias !2300
   unreachable
 
-"_ZN5rowan3api20SyntaxToken$LT$L$GT$6parent17h5e4bc5478075fabaE.exit.sink.split": ; preds = %16, %4
-  %.sink5 = phi { i32, i1 } [ %8, %4 ], [ %19, %16 ]
-  %.sink4 = phi ptr [ %6, %4 ], [ %17, %16 ]
-  %.0.ph = phi ptr [ %5, %4 ], [ %14, %16 ]
-  %22 = extractvalue { i32, i1 } %.sink5, 0
-  store i32 %22, ptr %.sink4, align 4
+23:                                               ; preds = %17
+  %24 = extractvalue { i32, i1 } %20, 0
+  store i32 %24, ptr %18, align 4, !noalias !2300
   br label %"_ZN5rowan3api20SyntaxToken$LT$L$GT$6parent17h5e4bc5478075fabaE.exit"
 
-"_ZN5rowan3api20SyntaxToken$LT$L$GT$6parent17h5e4bc5478075fabaE.exit": ; preds = %"_ZN5rowan3api20SyntaxToken$LT$L$GT$6parent17h5e4bc5478075fabaE.exit.sink.split", %11
-  %.0 = phi ptr [ null, %11 ], [ %.0.ph, %"_ZN5rowan3api20SyntaxToken$LT$L$GT$6parent17h5e4bc5478075fabaE.exit.sink.split" ]
+"_ZN5rowan3api20SyntaxToken$LT$L$GT$6parent17h5e4bc5478075fabaE.exit": ; preds = %23, %12, %_ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.18152640266846470746.exit
+  %.0 = phi ptr [ %5, %_ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.18152640266846470746.exit ], [ null, %12 ], [ %15, %23 ]
   ret ptr %.0
 }
 

@@ -1871,7 +1871,7 @@ _ZN3refI5modelE7inc_refEv.exit.i:                 ; preds = %entry
   store i32 %inc.i.i.i, ptr %m_ref_count.i.i.i, align 8
   %2 = load ptr, ptr %m, align 8
   %tobool.not.i2.i = icmp eq ptr %2, null
-  br i1 %tobool.not.i2.i, label %return, label %if.then.i3.i
+  br i1 %tobool.not.i2.i, label %_ZN3refI5modelEaSERS1_.exit, label %if.then.i3.i
 
 if.then.i3.i:                                     ; preds = %_ZN3refI5modelE7inc_refEv.exit.i
   %m_ref_count.i.i4.i = getelementptr inbounds i8, ptr %2, i64 16
@@ -1879,85 +1879,95 @@ if.then.i3.i:                                     ; preds = %_ZN3refI5modelE7inc
   %dec.i.i.i = add i32 %3, -1
   store i32 %dec.i.i.i, ptr %m_ref_count.i.i4.i, align 8
   %cmp.i.i.i = icmp eq i32 %dec.i.i.i, 0
-  br i1 %cmp.i.i.i, label %return.sink.split, label %return
+  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN3refI5modelEaSERS1_.exit
+
+if.then.i.i.i:                                    ; preds = %if.then.i3.i
+  %vtable.i.i.i.i = load ptr, ptr %2, align 8
+  %4 = load ptr, ptr %vtable.i.i.i.i, align 8
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(96) %2) #20
+  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %2)
+  br label %_ZN3refI5modelEaSERS1_.exit
+
+_ZN3refI5modelEaSERS1_.exit:                      ; preds = %_ZN3refI5modelE7inc_refEv.exit.i, %if.then.i3.i, %if.then.i.i.i
+  %5 = load ptr, ptr %m_cached_model, align 8
+  store ptr %5, ptr %m, align 8
+  br label %return
 
 if.end:                                           ; preds = %entry
   %s = getelementptr inbounds i8, ptr %this, i64 104
-  %4 = load ptr, ptr %s, align 8
-  %vtable.i = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %s, align 8
+  %vtable.i = load ptr, ptr %6, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
-  %5 = load ptr, ptr %vfn.i, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(8) %m)
-  %6 = load ptr, ptr %m, align 8
-  %cmp.i.not.i = icmp eq ptr %6, null
+  %7 = load ptr, ptr %vfn.i, align 8
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(72) %6, ptr noundef nonnull align 8 dereferenceable(8) %m)
+  %8 = load ptr, ptr %m, align 8
+  %cmp.i.not.i = icmp eq ptr %8, null
   br i1 %cmp.i.not.i, label %_ZN16check_sat_result9get_modelER3refI5modelE.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end
-  %m_mc0.i.i = getelementptr inbounds i8, ptr %4, i64 56
-  %7 = load ptr, ptr %m_mc0.i.i, align 8
-  %tobool.not.i = icmp eq ptr %7, null
+  %m_mc0.i.i = getelementptr inbounds i8, ptr %6, i64 56
+  %9 = load ptr, ptr %m_mc0.i.i, align 8
+  %tobool.not.i = icmp eq ptr %9, null
   br i1 %tobool.not.i, label %_ZN16check_sat_result9get_modelER3refI5modelE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %vtable4.i = load ptr, ptr %7, align 8
+  %vtable4.i = load ptr, ptr %9, align 8
   %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 32
-  %8 = load ptr, ptr %vfn5.i, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(25) %7, ptr noundef nonnull align 8 dereferenceable(8) %m)
+  %10 = load ptr, ptr %vfn5.i, align 8
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(25) %9, ptr noundef nonnull align 8 dereferenceable(8) %m)
   br label %_ZN16check_sat_result9get_modelER3refI5modelE.exit
 
 _ZN16check_sat_result9get_modelER3refI5modelE.exit: ; preds = %if.end, %land.lhs.true.i, %if.then.i
   %m_mc = getelementptr inbounds i8, ptr %this, i64 464
-  %9 = load ptr, ptr %m_mc, align 8
-  %cmp.i4.not = icmp eq ptr %9, null
+  %11 = load ptr, ptr %m_mc, align 8
+  %cmp.i4.not = icmp eq ptr %11, null
   br i1 %cmp.i4.not, label %if.end9, label %if.then6
 
 if.then6:                                         ; preds = %_ZN16check_sat_result9get_modelER3refI5modelE.exit
-  %vtable = load ptr, ptr %9, align 8
+  %vtable = load ptr, ptr %11, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
-  %10 = load ptr, ptr %vfn, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(25) %9, ptr noundef nonnull align 8 dereferenceable(8) %m)
+  %12 = load ptr, ptr %vfn, align 8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(25) %11, ptr noundef nonnull align 8 dereferenceable(8) %m)
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then6, %_ZN16check_sat_result9get_modelER3refI5modelE.exit
-  %11 = load ptr, ptr %m, align 8
-  %tobool.not.i.i5 = icmp eq ptr %11, null
+  %13 = load ptr, ptr %m, align 8
+  %tobool.not.i.i5 = icmp eq ptr %13, null
   br i1 %tobool.not.i.i5, label %_ZN3refI5modelE7inc_refEv.exit.i9, label %if.then.i.i6
 
 if.then.i.i6:                                     ; preds = %if.end9
-  %m_ref_count.i.i.i7 = getelementptr inbounds i8, ptr %11, i64 16
-  %12 = load i32, ptr %m_ref_count.i.i.i7, align 8
-  %inc.i.i.i8 = add i32 %12, 1
+  %m_ref_count.i.i.i7 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = load i32, ptr %m_ref_count.i.i.i7, align 8
+  %inc.i.i.i8 = add i32 %14, 1
   store i32 %inc.i.i.i8, ptr %m_ref_count.i.i.i7, align 8
   br label %_ZN3refI5modelE7inc_refEv.exit.i9
 
 _ZN3refI5modelE7inc_refEv.exit.i9:                ; preds = %if.then.i.i6, %if.end9
-  %13 = load ptr, ptr %m_cached_model, align 8
-  %tobool.not.i2.i10 = icmp eq ptr %13, null
-  br i1 %tobool.not.i2.i10, label %return, label %if.then.i3.i11
+  %15 = load ptr, ptr %m_cached_model, align 8
+  %tobool.not.i2.i10 = icmp eq ptr %15, null
+  br i1 %tobool.not.i2.i10, label %_ZN3refI5modelEaSERS1_.exit17, label %if.then.i3.i11
 
 if.then.i3.i11:                                   ; preds = %_ZN3refI5modelE7inc_refEv.exit.i9
-  %m_ref_count.i.i4.i12 = getelementptr inbounds i8, ptr %13, i64 16
-  %14 = load i32, ptr %m_ref_count.i.i4.i12, align 8
-  %dec.i.i.i13 = add i32 %14, -1
+  %m_ref_count.i.i4.i12 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = load i32, ptr %m_ref_count.i.i4.i12, align 8
+  %dec.i.i.i13 = add i32 %16, -1
   store i32 %dec.i.i.i13, ptr %m_ref_count.i.i4.i12, align 8
   %cmp.i.i.i14 = icmp eq i32 %dec.i.i.i13, 0
-  br i1 %cmp.i.i.i14, label %return.sink.split, label %return
+  br i1 %cmp.i.i.i14, label %if.then.i.i.i15, label %_ZN3refI5modelEaSERS1_.exit17
 
-return.sink.split:                                ; preds = %if.then.i3.i11, %if.then.i3.i
-  %.sink20 = phi ptr [ %2, %if.then.i3.i ], [ %13, %if.then.i3.i11 ]
-  %m.sink.ph = phi ptr [ %m_cached_model, %if.then.i3.i ], [ %m, %if.then.i3.i11 ]
-  %m_cached_model.sink.ph = phi ptr [ %m, %if.then.i3.i ], [ %m_cached_model, %if.then.i3.i11 ]
-  %vtable.i.i.i.i16 = load ptr, ptr %.sink20, align 8
-  %15 = load ptr, ptr %vtable.i.i.i.i16, align 8
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(96) %.sink20) #20
-  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %.sink20)
+if.then.i.i.i15:                                  ; preds = %if.then.i3.i11
+  %vtable.i.i.i.i16 = load ptr, ptr %15, align 8
+  %17 = load ptr, ptr %vtable.i.i.i.i16, align 8
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(96) %15) #20
+  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %15)
+  br label %_ZN3refI5modelEaSERS1_.exit17
+
+_ZN3refI5modelEaSERS1_.exit17:                    ; preds = %_ZN3refI5modelE7inc_refEv.exit.i9, %if.then.i3.i11, %if.then.i.i.i15
+  %18 = load ptr, ptr %m, align 8
+  store ptr %18, ptr %m_cached_model, align 8
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.then.i3.i11, %_ZN3refI5modelE7inc_refEv.exit.i9, %if.then.i3.i, %_ZN3refI5modelE7inc_refEv.exit.i
-  %m.sink = phi ptr [ %m_cached_model, %_ZN3refI5modelE7inc_refEv.exit.i ], [ %m_cached_model, %if.then.i3.i ], [ %m, %_ZN3refI5modelE7inc_refEv.exit.i9 ], [ %m, %if.then.i3.i11 ], [ %m.sink.ph, %return.sink.split ]
-  %m_cached_model.sink = phi ptr [ %m, %_ZN3refI5modelE7inc_refEv.exit.i ], [ %m, %if.then.i3.i ], [ %m_cached_model, %_ZN3refI5modelE7inc_refEv.exit.i9 ], [ %m_cached_model, %if.then.i3.i11 ], [ %m_cached_model.sink.ph, %return.sink.split ]
-  %16 = load ptr, ptr %m.sink, align 8
-  store ptr %16, ptr %m_cached_model.sink, align 8
+return:                                           ; preds = %_ZN3refI5modelEaSERS1_.exit17, %_ZN3refI5modelEaSERS1_.exit
   ret void
 }
 

@@ -7711,22 +7711,23 @@ entry:
 
 if.then:                                          ; preds = %entry
   %d_committed = getelementptr inbounds i8, ptr %this, i64 24
-  br label %return.sink.split
+  %1 = load i32, ptr %d_committed, align 8
+  %cmp = icmp eq i32 %1, 0
+  br label %return
 
 if.end:                                           ; preds = %entry
   %d_value = getelementptr inbounds i8, ptr %this, i64 16
-  %1 = load ptr, ptr %d_value, align 8
-  %cmp4 = icmp eq ptr %1, null
-  br i1 %cmp4, label %return, label %return.sink.split
+  %2 = load ptr, ptr %d_value, align 8
+  %cmp4 = icmp eq ptr %2, null
+  br i1 %cmp4, label %return, label %lor.rhs
 
-return.sink.split:                                ; preds = %if.end, %if.then
-  %.sink1 = phi ptr [ %d_committed, %if.then ], [ %1, %if.end ]
-  %2 = load i32, ptr %.sink1, align 4
-  %cmp6 = icmp eq i32 %2, 0
+lor.rhs:                                          ; preds = %if.end
+  %3 = load i32, ptr %2, align 4
+  %cmp6 = icmp eq i32 %3, 0
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.end
-  %retval.0 = phi i1 [ true, %if.end ], [ %cmp6, %return.sink.split ]
+return:                                           ; preds = %if.end, %lor.rhs, %if.then
+  %retval.0 = phi i1 [ %cmp, %if.then ], [ true, %if.end ], [ %cmp6, %lor.rhs ]
   ret i1 %retval.0
 }
 
@@ -7740,22 +7741,22 @@ entry:
 
 if.then:                                          ; preds = %entry
   %d_committed = getelementptr inbounds i8, ptr %this, i64 24
-  br label %return.sink.split
+  %1 = load i32, ptr %d_committed, align 8
+  br label %return
 
 if.else:                                          ; preds = %entry
   %d_value = getelementptr inbounds i8, ptr %this, i64 16
-  %1 = load ptr, ptr %d_value, align 8
-  %cmp.not = icmp eq ptr %1, null
-  br i1 %cmp.not, label %return, label %return.sink.split
+  %2 = load ptr, ptr %d_value, align 8
+  %cmp.not = icmp eq ptr %2, null
+  br i1 %cmp.not, label %return, label %if.then4
 
-return.sink.split:                                ; preds = %if.else, %if.then
-  %.sink4 = phi ptr [ %d_committed, %if.then ], [ %1, %if.else ]
-  %2 = load i32, ptr %.sink4, align 4
-  %conv7 = zext i32 %2 to i64
+if.then4:                                         ; preds = %if.else
+  %3 = load i32, ptr %2, align 4
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.else
-  %.sink = phi i64 [ 0, %if.else ], [ %conv7, %return.sink.split ]
+return:                                           ; preds = %if.else, %if.then4, %if.then
+  %.sink.shrunk = phi i32 [ %3, %if.then4 ], [ %1, %if.then ], [ 0, %if.else ]
+  %.sink = zext i32 %.sink.shrunk to i64
   store i64 %.sink, ptr %agg.result, align 8
   %_M_index.i.i.i.i.i.i.i.i2 = getelementptr inbounds i8, ptr %agg.result, i64 48
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i2, align 8

@@ -919,18 +919,20 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %_ZNSt10shared_ptrIN5arrow9ArrayDataEED2Ev.exit40
 
 _ZNSt10shared_ptrIN5arrow9ArrayDataEED2Ev.exit:   ; preds = %entry
+  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  store i8 2, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8
   br label %cleanup.done10
 
 _ZNSt10shared_ptrIN5arrow9ArrayDataEED2Ev.exit40: ; preds = %cond.true, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
   store ptr %1, ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i45 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %2, ptr %_M_refcount.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i45, align 8
+  %_M_index.i.i.i.i.i.i.i.i.i46 = getelementptr inbounds i8, ptr %this, i64 16
+  store i8 2, ptr %_M_index.i.i.i.i.i.i.i.i.i46, align 8
   br label %cleanup.done10
 
 cleanup.done10:                                   ; preds = %_ZNSt10shared_ptrIN5arrow9ArrayDataEED2Ev.exit, %_ZNSt10shared_ptrIN5arrow9ArrayDataEED2Ev.exit40
-  %_M_index.i.i.i.i.i.i.i.i.i.sink = getelementptr inbounds i8, ptr %this, i64 16
-  store i8 2, ptr %_M_index.i.i.i.i.i.i.i.i.i.sink, align 8
   ret void
 }
 

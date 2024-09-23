@@ -179,7 +179,7 @@ _ZN10decode_env9src_tableEv.exit:                 ; preds = %3, %10
   %18 = getelementptr inbounds ptr, ptr %11, i64 %17
   %19 = load ptr, ptr %18, align 8
   %.not11.i.i.i = icmp eq ptr %19, null
-  br i1 %.not11.i.i.i, label %.cont, label %.lr.ph.i.i.i
+  br i1 %.not11.i.i.i, label %_ZN10decode_env14SourceFileInfoC2EPKci.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN10decode_env9src_tableEv.exit, %27
   %20 = phi ptr [ %29, %27 ], [ %19, %_ZN10decode_env9src_tableEv.exit ]
@@ -197,130 +197,136 @@ _ZN10decode_env9src_tableEv.exit:                 ; preds = %3, %10
   %28 = getelementptr inbounds i8, ptr %20, i64 32
   %29 = load ptr, ptr %28, align 8
   %.not.i.i.i = icmp eq ptr %29, null
-  br i1 %.not.i.i.i, label %.cont, label %.lr.ph.i.i.i, !llvm.loop !6
+  br i1 %.not.i.i.i, label %_ZN10decode_env14SourceFileInfoC2EPKci.exit, label %.lr.ph.i.i.i, !llvm.loop !6
 
 30:                                               ; preds = %23
   %31 = getelementptr inbounds i8, ptr %20, i64 16
   %32 = getelementptr inbounds i8, ptr %20, i64 24
   %33 = load ptr, ptr %32, align 8
   %.not.i5 = icmp eq ptr %33, null
-  br i1 %.not.i5, label %.sink.split.i, label %34
+  br i1 %.not.i5, label %41, label %34
 
 34:                                               ; preds = %30
   %35 = load ptr, ptr %33, align 8
   %36 = icmp eq ptr %35, %0
-  br i1 %36, label %37, label %.sink.split.i
+  br i1 %36, label %37, label %41
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds i8, ptr %33, i64 8
   %39 = load i32, ptr %38, align 8
   %40 = icmp eq i32 %39, %1
-  br i1 %40, label %_ZN10decode_env14SourceFileInfo6appendEPKci.exit, label %.sink.split.i
+  br i1 %40, label %_ZN10decode_env14SourceFileInfo6appendEPKci.exit, label %41
 
-.sink.split.i:                                    ; preds = %37, %34, %30
-  %41 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i8 noundef zeroext 4, i32 noundef 0) #12
-  store ptr %0, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 8
-  store i32 %1, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %41, i64 16
-  store ptr null, ptr %43, align 8
-  %44 = load ptr, ptr %31, align 8
-  %45 = icmp eq ptr %44, null
-  %46 = load ptr, ptr %32, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 16
-  %.sink10.i = select i1 %45, ptr %32, ptr %47
-  %.sink.i = select i1 %45, ptr %31, ptr %32
-  store ptr %41, ptr %.sink10.i, align 8
-  store ptr %41, ptr %.sink.i, align 8
+41:                                               ; preds = %37, %34, %30
+  %42 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i8 noundef zeroext 4, i32 noundef 0) #12
+  store ptr %0, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %42, i64 8
+  store i32 %1, ptr %43, align 8
+  %44 = getelementptr inbounds i8, ptr %42, i64 16
+  store ptr null, ptr %44, align 8
+  %45 = load ptr, ptr %31, align 8
+  %46 = icmp eq ptr %45, null
+  br i1 %46, label %47, label %48
+
+47:                                               ; preds = %41
+  store ptr %42, ptr %32, align 8
+  store ptr %42, ptr %31, align 8
   br label %_ZN10decode_env14SourceFileInfo6appendEPKci.exit
 
-.cont:                                            ; preds = %27, %_ZN10decode_env9src_tableEv.exit
-  %48 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i8 noundef zeroext 4, i32 noundef 0) #12
-  store ptr %0, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 8
-  store i32 %1, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %48, i64 16
-  store ptr null, ptr %50, align 8
-  %51 = load ptr, ptr @_ZN10decode_env10_src_tableE, align 8
-  %52 = icmp eq ptr %51, null
-  br i1 %52, label %53, label %_ZN10decode_env9src_tableEv.exit6
+48:                                               ; preds = %41
+  %49 = load ptr, ptr %32, align 8
+  %50 = getelementptr inbounds i8, ptr %49, i64 16
+  store ptr %42, ptr %50, align 8
+  store ptr %42, ptr %32, align 8
+  br label %_ZN10decode_env14SourceFileInfo6appendEPKci.exit
 
-53:                                               ; preds = %.cont
-  %54 = tail call noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef 127120, i8 noundef zeroext 4) #12
+_ZN10decode_env14SourceFileInfoC2EPKci.exit:      ; preds = %27, %_ZN10decode_env9src_tableEv.exit
+  %51 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i8 noundef zeroext 4, i32 noundef 0) #12
+  store ptr %0, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 8
+  store i32 %1, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %51, i64 16
+  store ptr null, ptr %53, align 8
+  %54 = load ptr, ptr @_ZN10decode_env10_src_tableE, align 8
   %55 = icmp eq ptr %54, null
-  br i1 %55, label %57, label %56
+  br i1 %55, label %56, label %_ZN10decode_env9src_tableEv.exit6
 
-56:                                               ; preds = %53
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(127116) %54, i8 0, i64 127116, i1 false)
-  br label %57
+56:                                               ; preds = %_ZN10decode_env14SourceFileInfoC2EPKci.exit
+  %57 = tail call noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef 127120, i8 noundef zeroext 4) #12
+  %58 = icmp eq ptr %57, null
+  br i1 %58, label %60, label %59
 
-57:                                               ; preds = %56, %53
-  store ptr %54, ptr @_ZN10decode_env10_src_tableE, align 8
+59:                                               ; preds = %56
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(127116) %57, i8 0, i64 127116, i1 false)
+  br label %60
+
+60:                                               ; preds = %59, %56
+  store ptr %57, ptr @_ZN10decode_env10_src_tableE, align 8
   br label %_ZN10decode_env9src_tableEv.exit6
 
-_ZN10decode_env9src_tableEv.exit6:                ; preds = %.cont, %57
-  %58 = phi ptr [ %54, %57 ], [ %51, %.cont ]
-  %59 = getelementptr inbounds ptr, ptr %58, i64 %17
-  %60 = load ptr, ptr %59, align 8
-  %.not11.i.i = icmp eq ptr %60, null
+_ZN10decode_env9src_tableEv.exit6:                ; preds = %_ZN10decode_env14SourceFileInfoC2EPKci.exit, %60
+  %61 = phi ptr [ %57, %60 ], [ %54, %_ZN10decode_env14SourceFileInfoC2EPKci.exit ]
+  %62 = getelementptr inbounds ptr, ptr %61, i64 %17
+  %63 = load ptr, ptr %62, align 8
+  %.not11.i.i = icmp eq ptr %63, null
   br i1 %.not11.i.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EPhN10decode_env14SourceFileInfoEES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS9EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEE11lookup_nodeEjRKS1_.exit.thread.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %_ZN10decode_env9src_tableEv.exit6, %67
-  %.pr.i = phi ptr [ %69, %67 ], [ %60, %_ZN10decode_env9src_tableEv.exit6 ]
-  %61 = load i32, ptr %.pr.i, align 8
-  %62 = icmp eq i32 %61, %15
-  br i1 %62, label %63, label %67
+.lr.ph.i.i:                                       ; preds = %_ZN10decode_env9src_tableEv.exit6, %70
+  %.pr.i = phi ptr [ %72, %70 ], [ %63, %_ZN10decode_env9src_tableEv.exit6 ]
+  %64 = load i32, ptr %.pr.i, align 8
+  %65 = icmp eq i32 %64, %15
+  br i1 %65, label %66, label %70
 
-63:                                               ; preds = %.lr.ph.i.i
-  %64 = getelementptr inbounds i8, ptr %.pr.i, i64 8
-  %65 = load ptr, ptr %64, align 8
-  %66 = icmp eq ptr %2, %65
-  br i1 %66, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EPhN10decode_env14SourceFileInfoEES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS9EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEE11lookup_nodeEjRKS1_.exit.i, label %67
+66:                                               ; preds = %.lr.ph.i.i
+  %67 = getelementptr inbounds i8, ptr %.pr.i, i64 8
+  %68 = load ptr, ptr %67, align 8
+  %69 = icmp eq ptr %2, %68
+  br i1 %69, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EPhN10decode_env14SourceFileInfoEES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS9EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEE11lookup_nodeEjRKS1_.exit.i, label %70
 
-67:                                               ; preds = %63, %.lr.ph.i.i
-  %68 = getelementptr inbounds i8, ptr %.pr.i, i64 32
-  %69 = load ptr, ptr %68, align 8
-  %.not.i.i = icmp eq ptr %69, null
+70:                                               ; preds = %66, %.lr.ph.i.i
+  %71 = getelementptr inbounds i8, ptr %.pr.i, i64 32
+  %72 = load ptr, ptr %71, align 8
+  %.not.i.i = icmp eq ptr %72, null
   br i1 %.not.i.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EPhN10decode_env14SourceFileInfoEES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS9EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEE11lookup_nodeEjRKS1_.exit.thread.i.loopexit, label %.lr.ph.i.i, !llvm.loop !6
 
-_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EPhN10decode_env14SourceFileInfoEES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS9EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEE11lookup_nodeEjRKS1_.exit.i: ; preds = %63
-  %70 = getelementptr inbounds i8, ptr %.pr.i, i64 16
-  store ptr %48, ptr %70, align 8
+_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EPhN10decode_env14SourceFileInfoEES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS9EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEE11lookup_nodeEjRKS1_.exit.i: ; preds = %66
+  %73 = getelementptr inbounds i8, ptr %.pr.i, i64 16
+  store ptr %51, ptr %73, align 8
   %.sroa.5.0..sroa_idx8 = getelementptr inbounds i8, ptr %.pr.i, i64 24
-  store ptr %48, ptr %.sroa.5.0..sroa_idx8, align 8
+  store ptr %51, ptr %.sroa.5.0..sroa_idx8, align 8
   br label %_ZN10decode_env14SourceFileInfo6appendEPKci.exit
 
-_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EPhN10decode_env14SourceFileInfoEES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS9EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEE11lookup_nodeEjRKS1_.exit.thread.i.loopexit: ; preds = %67
-  %71 = getelementptr inbounds i8, ptr %.pr.i, i64 32
+_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EPhN10decode_env14SourceFileInfoEES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS9EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEE11lookup_nodeEjRKS1_.exit.thread.i.loopexit: ; preds = %70
+  %74 = getelementptr inbounds i8, ptr %.pr.i, i64 32
   br label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EPhN10decode_env14SourceFileInfoEES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS9EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEE11lookup_nodeEjRKS1_.exit.thread.i
 
 _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EPhN10decode_env14SourceFileInfoEES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS9EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEE11lookup_nodeEjRKS1_.exit.thread.i: ; preds = %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EPhN10decode_env14SourceFileInfoEES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS9EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEE11lookup_nodeEjRKS1_.exit.thread.i.loopexit, %_ZN10decode_env9src_tableEv.exit6
-  %.0.lcssa.i15.i = phi ptr [ %59, %_ZN10decode_env9src_tableEv.exit6 ], [ %71, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EPhN10decode_env14SourceFileInfoEES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS9EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEE11lookup_nodeEjRKS1_.exit.thread.i.loopexit ]
-  %72 = tail call noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef 40, i8 noundef zeroext 9) #12
-  %73 = icmp eq ptr %72, null
-  br i1 %73, label %78, label %74
+  %.0.lcssa.i15.i = phi ptr [ %62, %_ZN10decode_env9src_tableEv.exit6 ], [ %74, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EPhN10decode_env14SourceFileInfoEES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS9EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEE11lookup_nodeEjRKS1_.exit.thread.i.loopexit ]
+  %75 = tail call noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef 40, i8 noundef zeroext 9) #12
+  %76 = icmp eq ptr %75, null
+  br i1 %76, label %81, label %77
 
-74:                                               ; preds = %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EPhN10decode_env14SourceFileInfoEES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS9EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEE11lookup_nodeEjRKS1_.exit.thread.i
-  store i32 %15, ptr %72, align 8
-  %75 = getelementptr inbounds i8, ptr %72, i64 8
-  store ptr %2, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %72, i64 16
-  store ptr %48, ptr %76, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %72, i64 24
-  store ptr %48, ptr %.sroa.5.0..sroa_idx, align 8
-  %77 = getelementptr inbounds i8, ptr %72, i64 32
-  store ptr null, ptr %77, align 8
-  br label %78
+77:                                               ; preds = %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EPhN10decode_env14SourceFileInfoEES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS9EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEE11lookup_nodeEjRKS1_.exit.thread.i
+  store i32 %15, ptr %75, align 8
+  %78 = getelementptr inbounds i8, ptr %75, i64 8
+  store ptr %2, ptr %78, align 8
+  %79 = getelementptr inbounds i8, ptr %75, i64 16
+  store ptr %51, ptr %79, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %75, i64 24
+  store ptr %51, ptr %.sroa.5.0..sroa_idx, align 8
+  %80 = getelementptr inbounds i8, ptr %75, i64 32
+  store ptr null, ptr %80, align 8
+  br label %81
 
-78:                                               ; preds = %74, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EPhN10decode_env14SourceFileInfoEES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS9EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEE11lookup_nodeEjRKS1_.exit.thread.i
-  store ptr %72, ptr %.0.lcssa.i15.i, align 8
-  %79 = getelementptr inbounds i8, ptr %58, i64 127112
-  %80 = load i32, ptr %79, align 8
-  %81 = add nsw i32 %80, 1
-  store i32 %81, ptr %79, align 8
+81:                                               ; preds = %77, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EPhN10decode_env14SourceFileInfoEES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS9EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEE11lookup_nodeEjRKS1_.exit.thread.i
+  store ptr %75, ptr %.0.lcssa.i15.i, align 8
+  %82 = getelementptr inbounds i8, ptr %61, i64 127112
+  %83 = load i32, ptr %82, align 8
+  %84 = add nsw i32 %83, 1
+  store i32 %84, ptr %82, align 8
   br label %_ZN10decode_env14SourceFileInfo6appendEPKci.exit
 
-_ZN10decode_env14SourceFileInfo6appendEPKci.exit: ; preds = %78, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EPhN10decode_env14SourceFileInfoEES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS9EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEE11lookup_nodeEjRKS1_.exit.i, %.sink.split.i, %37
+_ZN10decode_env14SourceFileInfo6appendEPKci.exit: ; preds = %81, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EPhN10decode_env14SourceFileInfoEES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS9EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEE11lookup_nodeEjRKS1_.exit.i, %48, %47, %37
   ret void
 }
 

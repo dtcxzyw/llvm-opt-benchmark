@@ -192,7 +192,7 @@ define internal void @nxsig_timeout(i64 noundef %0) #0 {
   %3 = getelementptr inbounds i8, ptr %2, i64 48
   %4 = load i8, ptr %3, align 16
   %5 = icmp eq i8 %4, 6
-  br i1 %5, label %6, label %20
+  br i1 %5, label %6, label %23
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr @g_readytorun, align 8
@@ -215,18 +215,27 @@ define internal void @nxsig_timeout(i64 noundef %0) #0 {
   %g_waitingforsignal. = select i1 %.not, ptr @g_waitingforsignal, ptr %15
   store ptr %16, ptr %g_waitingforsignal., align 8
   %.not24 = icmp eq ptr %16, null
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
-  %.sink25 = select i1 %.not24, ptr getelementptr inbounds (i8, ptr @g_waitingforsignal, i64 8), ptr %17
-  store ptr %15, ptr %.sink25, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
-  %18 = tail call zeroext i1 @nxsched_add_readytorun(ptr noundef nonnull %2) #5
-  br i1 %18, label %19, label %20
+  br i1 %.not24, label %17, label %18
 
-19:                                               ; preds = %6
-  tail call void @up_switch_context(ptr noundef nonnull %2, ptr noundef %7) #5
+17:                                               ; preds = %6
+  store ptr %15, ptr getelementptr inbounds (i8, ptr @g_waitingforsignal, i64 8), align 8
   br label %20
 
-20:                                               ; preds = %6, %19, %1
+18:                                               ; preds = %6
+  %19 = getelementptr inbounds i8, ptr %16, i64 8
+  store ptr %15, ptr %19, align 8
+  br label %20
+
+20:                                               ; preds = %18, %17
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  %21 = tail call zeroext i1 @nxsched_add_readytorun(ptr noundef nonnull %2) #5
+  br i1 %21, label %22, label %23
+
+22:                                               ; preds = %20
+  tail call void @up_switch_context(ptr noundef nonnull %2, ptr noundef %7) #5
+  br label %23
+
+23:                                               ; preds = %20, %22, %1
   ret void
 }
 

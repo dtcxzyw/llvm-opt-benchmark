@@ -3083,13 +3083,13 @@ define linkonce_odr hidden void @_ZN2cv13RHO_HEST_REFC10updateSPRTEv(ptr noundef
   %.not = icmp eq i32 %3, 0
   %4 = getelementptr inbounds i8, ptr %0, i64 184
   %5 = load i32, ptr %4, align 8
-  br i1 %.not, label %40, label %6
+  br i1 %.not, label %48, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 208
   %8 = load i32, ptr %7, align 8
   %.not10 = icmp ugt i32 %5, %8
-  br i1 %.not10, label %9, label %88
+  br i1 %.not10, label %9, label %96
 
 9:                                                ; preds = %6
   %10 = uitofp i32 %5 to double
@@ -3128,78 +3128,92 @@ define linkonce_odr hidden void @_ZN2cv13RHO_HEST_REFC10updateSPRTEv(ptr noundef
   %38 = add nuw nsw i32 %.0.i.i, 1
   %39 = icmp ult i32 %.0.i.i, 9
   %or.cond.i.i = select i1 %37, i1 %39, i1 false
-  br i1 %or.cond.i.i, label %33, label %.sink.split, !llvm.loop !7
+  br i1 %or.cond.i.i, label %33, label %_ZN2cv13RHO_HEST_REFC14designSPRTTestEv.exit, !llvm.loop !7
 
-40:                                               ; preds = %1
-  %41 = uitofp i32 %5 to double
-  %42 = getelementptr inbounds i8, ptr %0, i64 296
-  %43 = load i32, ptr %42, align 8
-  %44 = uitofp i32 %43 to double
-  %45 = fdiv double %41, %44
-  %46 = fcmp ogt double %45, 0.000000e+00
-  br i1 %46, label %47, label %88
+_ZN2cv13RHO_HEST_REFC14designSPRTTestEv.exit:     ; preds = %33
+  %40 = getelementptr inbounds i8, ptr %0, i64 288
+  store double %35, ptr %40, align 8
+  %41 = load double, ptr %17, align 8
+  %42 = fsub double 1.000000e+00, %41
+  %43 = load double, ptr %15, align 8
+  %44 = fsub double 1.000000e+00, %43
+  %45 = fdiv double %42, %44
+  %46 = getelementptr inbounds i8, ptr %0, i64 320
+  store double %45, ptr %46, align 8
+  %47 = fdiv double %41, %43
+  br label %.sink.split
 
-47:                                               ; preds = %40
-  %48 = getelementptr inbounds i8, ptr %0, i64 280
-  %49 = load double, ptr %48, align 8
-  %50 = fsub double %49, %45
-  %51 = tail call double @llvm.fabs.f64(double %50)
-  %52 = fdiv double %51, %49
-  %53 = fcmp ogt double %52, 1.000000e-01
-  br i1 %53, label %54, label %88
+48:                                               ; preds = %1
+  %49 = uitofp i32 %5 to double
+  %50 = getelementptr inbounds i8, ptr %0, i64 296
+  %51 = load i32, ptr %50, align 8
+  %52 = uitofp i32 %51 to double
+  %53 = fdiv double %49, %52
+  %54 = fcmp ogt double %53, 0.000000e+00
+  br i1 %54, label %55, label %96
 
-54:                                               ; preds = %47
-  store double %45, ptr %48, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 256
-  %56 = getelementptr inbounds i8, ptr %0, i64 272
+55:                                               ; preds = %48
+  %56 = getelementptr inbounds i8, ptr %0, i64 280
   %57 = load double, ptr %56, align 8
-  %58 = load double, ptr %55, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 264
-  %60 = load double, ptr %59, align 8
-  %61 = fsub double 1.000000e+00, %45
-  %62 = fsub double 1.000000e+00, %57
-  %63 = fdiv double %61, %62
-  %64 = tail call double @log(double noundef %63) #19
-  %65 = fdiv double %45, %57
-  %66 = tail call double @log(double noundef %65) #19
-  %67 = fmul double %45, %66
-  %68 = tail call double @llvm.fmuladd.f64(double %61, double %64, double %67)
-  %69 = fmul double %58, %68
-  %70 = fdiv double %69, %60
-  %71 = fadd double %70, 1.000000e+00
-  br label %72
+  %58 = fsub double %57, %53
+  %59 = tail call double @llvm.fabs.f64(double %58)
+  %60 = fdiv double %59, %57
+  %61 = fcmp ogt double %60, 1.000000e-01
+  br i1 %61, label %62, label %96
 
-72:                                               ; preds = %72, %54
-  %.016.i.i6 = phi double [ %71, %54 ], [ %74, %72 ]
-  %.0.i.i7 = phi i32 [ 0, %54 ], [ %77, %72 ]
-  %73 = tail call double @log(double noundef %.016.i.i6) #19
-  %74 = fadd double %71, %73
-  %75 = fsub double %74, %.016.i.i6
-  %76 = fcmp ogt double %75, 1.500000e-08
-  %77 = add nuw nsw i32 %.0.i.i7, 1
-  %78 = icmp ult i32 %.0.i.i7, 9
-  %or.cond.i.i8 = select i1 %76, i1 %78, i1 false
-  br i1 %or.cond.i.i8, label %72, label %.sink.split, !llvm.loop !7
+62:                                               ; preds = %55
+  store double %53, ptr %56, align 8
+  %63 = getelementptr inbounds i8, ptr %0, i64 256
+  %64 = getelementptr inbounds i8, ptr %0, i64 272
+  %65 = load double, ptr %64, align 8
+  %66 = load double, ptr %63, align 8
+  %67 = getelementptr inbounds i8, ptr %0, i64 264
+  %68 = load double, ptr %67, align 8
+  %69 = fsub double 1.000000e+00, %53
+  %70 = fsub double 1.000000e+00, %65
+  %71 = fdiv double %69, %70
+  %72 = tail call double @log(double noundef %71) #19
+  %73 = fdiv double %53, %65
+  %74 = tail call double @log(double noundef %73) #19
+  %75 = fmul double %53, %74
+  %76 = tail call double @llvm.fmuladd.f64(double %69, double %72, double %75)
+  %77 = fmul double %66, %76
+  %78 = fdiv double %77, %68
+  %79 = fadd double %78, 1.000000e+00
+  br label %80
 
-.sink.split:                                      ; preds = %33, %72
-  %.lcssa.sink = phi double [ %74, %72 ], [ %35, %33 ]
-  %.sink21 = phi ptr [ %48, %72 ], [ %17, %33 ]
-  %.sink20 = phi ptr [ %56, %72 ], [ %15, %33 ]
-  %79 = getelementptr inbounds i8, ptr %0, i64 288
-  store double %.lcssa.sink, ptr %79, align 8
-  %80 = load double, ptr %.sink21, align 8
-  %81 = fsub double 1.000000e+00, %80
-  %82 = load double, ptr %.sink20, align 8
-  %83 = fsub double 1.000000e+00, %82
-  %84 = fdiv double %81, %83
-  %85 = getelementptr inbounds i8, ptr %0, i64 320
-  store double %84, ptr %85, align 8
-  %86 = fdiv double %80, %82
-  %87 = getelementptr inbounds i8, ptr %0, i64 312
-  store double %86, ptr %87, align 8
-  br label %88
+80:                                               ; preds = %80, %62
+  %.016.i.i6 = phi double [ %79, %62 ], [ %82, %80 ]
+  %.0.i.i7 = phi i32 [ 0, %62 ], [ %85, %80 ]
+  %81 = tail call double @log(double noundef %.016.i.i6) #19
+  %82 = fadd double %79, %81
+  %83 = fsub double %82, %.016.i.i6
+  %84 = fcmp ogt double %83, 1.500000e-08
+  %85 = add nuw nsw i32 %.0.i.i7, 1
+  %86 = icmp ult i32 %.0.i.i7, 9
+  %or.cond.i.i8 = select i1 %84, i1 %86, i1 false
+  br i1 %or.cond.i.i8, label %80, label %_ZN2cv13RHO_HEST_REFC14designSPRTTestEv.exit9, !llvm.loop !7
 
-88:                                               ; preds = %.sink.split, %40, %47, %6
+_ZN2cv13RHO_HEST_REFC14designSPRTTestEv.exit9:    ; preds = %80
+  %87 = getelementptr inbounds i8, ptr %0, i64 288
+  store double %82, ptr %87, align 8
+  %88 = load double, ptr %56, align 8
+  %89 = fsub double 1.000000e+00, %88
+  %90 = load double, ptr %64, align 8
+  %91 = fsub double 1.000000e+00, %90
+  %92 = fdiv double %89, %91
+  %93 = getelementptr inbounds i8, ptr %0, i64 320
+  store double %92, ptr %93, align 8
+  %94 = fdiv double %88, %90
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %_ZN2cv13RHO_HEST_REFC14designSPRTTestEv.exit, %_ZN2cv13RHO_HEST_REFC14designSPRTTestEv.exit9
+  %.sink = phi double [ %94, %_ZN2cv13RHO_HEST_REFC14designSPRTTestEv.exit9 ], [ %47, %_ZN2cv13RHO_HEST_REFC14designSPRTTestEv.exit ]
+  %95 = getelementptr inbounds i8, ptr %0, i64 312
+  store double %.sink, ptr %95, align 8
+  br label %96
+
+96:                                               ; preds = %.sink.split, %48, %55, %6
   ret void
 }
 

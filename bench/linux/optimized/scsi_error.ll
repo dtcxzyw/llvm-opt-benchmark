@@ -4475,12 +4475,12 @@ define internal fastcc range(i32 0, 2) i32 @scsi_eh_test_devices(ptr noundef %0,
   br i1 %6, label %.loopexit21, label %7
 
 7:                                                ; preds = %4
-  %8 = icmp ne i32 %3, 0
+  %8 = icmp eq i32 %3, 0
   %9 = getelementptr inbounds i8, ptr %1, i64 8
   %10 = getelementptr inbounds i8, ptr %2, i64 8
   br label %13
 
-.loopexit:                                        ; preds = %101, %.loopexit19
+.loopexit:                                        ; preds = %111, %.loopexit19
   %11 = load volatile ptr, ptr %0, align 8
   %12 = icmp eq ptr %11, %0
   br i1 %12, label %.loopexit21, label %13, !llvm.loop !73
@@ -4489,7 +4489,7 @@ define internal fastcc range(i32 0, 2) i32 @scsi_eh_test_devices(ptr noundef %0,
   %14 = phi ptr [ %5, %7 ], [ %11, %.loopexit ]
   %15 = getelementptr i8, ptr %14, i64 -8
   %16 = load ptr, ptr %15, align 8
-  br i1 %8, label %.critedge, label %17
+  br i1 %8, label %17, label %.critedge
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %16, align 8
@@ -4543,7 +4543,7 @@ define internal fastcc range(i32 0, 2) i32 @scsi_eh_test_devices(ptr noundef %0,
   ]
 
 44:                                               ; preds = %.critedge
-  br i1 %8, label %45, label %.loopexit18.preheader
+  br i1 %8, label %.loopexit18.preheader, label %45
 
 .loopexit18.preheader:                            ; preds = %.preheader17, %57, %45, %44
   br label %.loopexit18
@@ -4593,88 +4593,98 @@ define internal fastcc range(i32 0, 2) i32 @scsi_eh_test_devices(ptr noundef %0,
   %71 = tail call fastcc i32 @scsi_send_eh_cmnd(ptr noundef %15, ptr noundef nonnull @scsi_eh_tur.tur_command, i32 noundef 6, i32 noundef %70, i32 noundef 0)
   switch i32 %71, label %.loopexit19 [
     i32 8193, label %72
-    i32 8194, label %.loopexit19.loopexit39
+    i32 8194, label %.loopexit19.loopexit27
   ]
 
 72:                                               ; preds = %.loopexit18
   %73 = add nsw i32 %67, -1
   %74 = icmp eq i32 %67, 0
-  br i1 %74, label %.loopexit19.loopexit39, label %.loopexit18
+  br i1 %74, label %.loopexit19.loopexit27, label %.loopexit18
 
-.loopexit19.loopexit39:                           ; preds = %.loopexit18, %72
+.loopexit19.loopexit27:                           ; preds = %.loopexit18, %72
   br label %.loopexit19
 
-.loopexit19:                                      ; preds = %64, %.preheader17, %.loopexit18, %.loopexit19.loopexit39, %.critedge, %.critedge, %.critedge
-  %.not = phi i1 [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.loopexit19.loopexit39 ], [ true, %.loopexit18 ], [ false, %.preheader17 ], [ false, %64 ]
-  %75 = load ptr, ptr %0, align 8
-  %76 = icmp eq ptr %75, %0
-  br i1 %76, label %.loopexit, label %.preheader.preheader
+.loopexit19:                                      ; preds = %64, %.preheader17, %.loopexit18, %.loopexit19.loopexit27, %.critedge, %.critedge, %.critedge
+  %75 = phi i1 [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.loopexit19.loopexit27 ], [ false, %.loopexit18 ], [ true, %.preheader17 ], [ true, %64 ]
+  %76 = load ptr, ptr %0, align 8
+  %77 = icmp eq ptr %76, %0
+  br i1 %77, label %.loopexit, label %.preheader
 
-.preheader.preheader:                             ; preds = %.loopexit19
-  %brmerge = or i1 %.not, %8
-  %.mux = select i1 %.not, ptr %9, ptr %10
-  %.mux36 = select i1 %.not, ptr %1, ptr %2
-  br label %.preheader
-
-.preheader:                                       ; preds = %.preheader.preheader, %101
-  %77 = phi ptr [ %79, %101 ], [ %75, %.preheader.preheader ]
-  %78 = getelementptr i8, ptr %77, i64 -8
-  %79 = load ptr, ptr %77, align 8
+.preheader:                                       ; preds = %.loopexit19, %111
+  %78 = phi ptr [ %80, %111 ], [ %76, %.loopexit19 ]
+  %79 = getelementptr i8, ptr %78, i64 -8
   %80 = load ptr, ptr %78, align 8
-  %81 = icmp eq ptr %80, %16
-  br i1 %81, label %82, label %101
+  %81 = load ptr, ptr %79, align 8
+  %82 = icmp eq ptr %81, %16
+  br i1 %82, label %83, label %111
 
-82:                                               ; preds = %.preheader
-  br i1 %brmerge, label %.critedge13, label %83
+83:                                               ; preds = %.preheader
+  br i1 %75, label %84, label %._crit_edge
 
-83:                                               ; preds = %82
-  %84 = getelementptr i8, ptr %77, i64 -232
-  %85 = load i32, ptr %84, align 8
-  %86 = and i32 %85, 254
-  %87 = icmp eq i32 %86, 34
-  br i1 %87, label %.critedge13, label %88
+84:                                               ; preds = %83
+  br i1 %8, label %85, label %.critedge13
 
-88:                                               ; preds = %83
-  %89 = getelementptr inbounds i8, ptr %80, i64 544
-  %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 176
+85:                                               ; preds = %84
+  %86 = getelementptr i8, ptr %78, i64 -232
+  %87 = load i32, ptr %86, align 8
+  %88 = and i32 %87, 254
+  %89 = icmp eq i32 %88, 34
+  br i1 %89, label %.critedge13, label %90
+
+90:                                               ; preds = %85
+  %91 = getelementptr inbounds i8, ptr %81, i64 544
   %92 = load ptr, ptr %91, align 8
-  %93 = icmp eq ptr %92, null
-  br i1 %93, label %.critedge13, label %94
+  %93 = getelementptr inbounds i8, ptr %92, i64 176
+  %94 = load ptr, ptr %93, align 8
+  %95 = icmp eq ptr %94, null
+  br i1 %95, label %.critedge13, label %96
 
-94:                                               ; preds = %88
-  %95 = tail call i32 %92(ptr noundef %78, i32 noundef 8194) #14
-  %96 = icmp eq i32 %95, 8194
-  %.pre23 = load ptr, ptr %77, align 8
-  %spec.select = select i1 %96, ptr %10, ptr %9
-  %spec.select37 = select i1 %96, ptr %2, ptr %1
-  br label %.critedge13
+96:                                               ; preds = %90
+  %97 = tail call i32 %94(ptr noundef %79, i32 noundef 8194) #14
+  %98 = icmp eq i32 %97, 8194
+  %.pre23 = load ptr, ptr %78, align 8
+  br i1 %98, label %.critedge13, label %._crit_edge
 
-.critedge13:                                      ; preds = %94, %82, %88, %83
-  %.sink33 = phi ptr [ %79, %83 ], [ %79, %88 ], [ %79, %82 ], [ %.pre23, %94 ]
-  %.sink29 = phi ptr [ %10, %83 ], [ %10, %88 ], [ %.mux, %82 ], [ %spec.select, %94 ]
-  %.sink27 = phi ptr [ %2, %83 ], [ %2, %88 ], [ %.mux36, %82 ], [ %spec.select37, %94 ]
-  %97 = getelementptr i8, ptr %77, i64 8
-  %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %.sink33, i64 8
-  store ptr %98, ptr %99, align 8
-  store volatile ptr %.sink33, ptr %98, align 8
-  %100 = load ptr, ptr %.sink29, align 8
-  store ptr %77, ptr %.sink29, align 8
-  store ptr %.sink27, ptr %77, align 8
-  store ptr %100, ptr %97, align 8
-  store volatile ptr %77, ptr %100, align 8
-  br label %101
+.critedge13:                                      ; preds = %85, %90, %96, %84
+  %99 = phi ptr [ %80, %85 ], [ %80, %90 ], [ %.pre23, %96 ], [ %80, %84 ]
+  %100 = getelementptr i8, ptr %78, i64 8
+  %101 = load ptr, ptr %100, align 8
+  %102 = getelementptr inbounds i8, ptr %99, i64 8
+  store ptr %101, ptr %102, align 8
+  store volatile ptr %99, ptr %101, align 8
+  %103 = load ptr, ptr %10, align 8
+  store ptr %78, ptr %10, align 8
+  store ptr %2, ptr %78, align 8
+  store ptr %103, ptr %100, align 8
+  br label %109
 
-101:                                              ; preds = %.critedge13, %.preheader
-  %102 = icmp eq ptr %79, %0
-  br i1 %102, label %.loopexit, label %.preheader, !llvm.loop !74
+._crit_edge:                                      ; preds = %96, %83
+  %104 = phi ptr [ %80, %83 ], [ %.pre23, %96 ]
+  %105 = getelementptr inbounds i8, ptr %78, i64 8
+  %106 = load ptr, ptr %105, align 8
+  %107 = getelementptr inbounds i8, ptr %104, i64 8
+  store ptr %106, ptr %107, align 8
+  store volatile ptr %104, ptr %106, align 8
+  %108 = load ptr, ptr %9, align 8
+  store ptr %78, ptr %9, align 8
+  store ptr %1, ptr %78, align 8
+  store ptr %108, ptr %105, align 8
+  br label %109
+
+109:                                              ; preds = %._crit_edge, %.critedge13
+  %110 = phi ptr [ %108, %._crit_edge ], [ %103, %.critedge13 ]
+  store volatile ptr %78, ptr %110, align 8
+  br label %111
+
+111:                                              ; preds = %109, %.preheader
+  %112 = icmp eq ptr %80, %0
+  br i1 %112, label %.loopexit, label %.preheader, !llvm.loop !74
 
 .loopexit21:                                      ; preds = %.loopexit, %36, %33, %4
-  %103 = load volatile ptr, ptr %1, align 8
-  %104 = icmp eq ptr %103, %1
-  %105 = zext i1 %104 to i32
-  ret i32 %105
+  %113 = load volatile ptr, ptr %1, align 8
+  %114 = icmp eq ptr %113, %1
+  %115 = zext i1 %114 to i32
+  ret i32 %115
 }
 
 ; Function Attrs: null_pointer_is_valid

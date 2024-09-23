@@ -416,7 +416,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @window_ntile(ptr nocapt
 
 .thread:                                          ; preds = %29, %30
   %34 = getelementptr inbounds i8, ptr %5, i64 8
-  br label %.sink.split
+  store i64 1, ptr %34, align 8
+  br label %51
 
 35:                                               ; preds = %._crit_edge, %32
   %36 = phi i32 [ %6, %._crit_edge ], [ 1, %32 ]
@@ -444,16 +445,11 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @window_ntile(ptr nocapt
 49:                                               ; preds = %47, %42
   %50 = add i32 %36, 1
   store i32 %50, ptr %5, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %49, %.thread
-  %.sink = phi ptr [ %34, %.thread ], [ %39, %49 ]
-  %.ph = phi i32 [ 1, %.thread ], [ %50, %49 ]
-  store i64 1, ptr %.sink, align 8
+  store i64 1, ptr %39, align 8
   br label %51
 
-51:                                               ; preds = %.sink.split, %35
-  %52 = phi i32 [ %36, %35 ], [ %.ph, %.sink.split ]
+51:                                               ; preds = %.thread, %49, %35
+  %52 = phi i32 [ %50, %49 ], [ %36, %35 ], [ 1, %.thread ]
   %53 = sext i32 %52 to i64
   br label %54
 

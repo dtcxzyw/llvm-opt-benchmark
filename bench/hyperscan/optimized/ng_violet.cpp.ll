@@ -11431,17 +11431,17 @@ invoke.cont21:                                    ; preds = %_ZNSt13unordered_se
   br i1 %tobool.not.i454, label %invoke.cont24, label %for.body.i.i457
 
 for.body.i.i457:                                  ; preds = %invoke.cont21, %for.body.i.i457.backedge
-  %__begin1.sroa.0.029.i.i.sink = phi ptr [ %__begin1.sroa.0.0.i.i460, %for.body.i.i457.backedge ], [ %m_header.i.i.i.i.i.i.i, %invoke.cont21 ]
-  %__begin1.sroa.0.0.i.i460 = load ptr, ptr %__begin1.sroa.0.029.i.i.sink, align 8
-  %cmp.i.i.i.i.not.i.i461 = icmp ne ptr %__begin1.sroa.0.0.i.i460, %m_header.i.i.i.i.i.i.i
+  %__begin1.sroa.0.0.i.i460.sink.in = phi ptr [ %__begin1.sroa.0.0.i.i460.sink, %for.body.i.i457.backedge ], [ %m_header.i.i.i.i.i.i.i, %invoke.cont21 ]
+  %__begin1.sroa.0.0.i.i460.sink = load ptr, ptr %__begin1.sroa.0.0.i.i460.sink.in, align 8
+  %cmp.i.i.i.i.not.i.i461 = icmp ne ptr %__begin1.sroa.0.0.i.i460.sink, %m_header.i.i.i.i.i.i.i
   call void @llvm.assume(i1 %cmp.i.i.i.i.not.i.i461)
-  %props.i.i.i458 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0.i.i460, i64 16
+  %props.i.i.i458 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0.i.i460.sink, i64 16
   %728 = load i32, ptr %props.i.i.i458, align 8
   %cmp.i.i459 = icmp eq i32 %728, 3
   br i1 %cmp.i.i459, label %land.lhs.true.i.i645, label %for.body.i.i457.backedge
 
 land.lhs.true.i.i645:                             ; preds = %for.body.i.i457
-  %m_size.i.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0.i.i460, i64 104
+  %m_size.i.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0.i.i460.sink, i64 104
   %729 = load i64, ptr %m_size.i.i.i.i, align 8
   %tobool.not.i.i.i.i646 = icmp eq i64 %729, 0
   br i1 %tobool.not.i.i.i.i646, label %invoke.cont2.i462, label %for.body.i.i457.backedge
@@ -11463,7 +11463,7 @@ invoke.cont2.i462:                                ; preds = %land.lhs.true.i.i64
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i.i.i.i468, align 8
   %_M_next_resize.i.i.i.i.i.i469 = getelementptr inbounds i8, ptr %suffixes.i, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i.i.i.i469, i8 0, i64 16, i1 false)
-  %m_header.i.i.i.i.i.i470 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0.i.i460, i64 160
+  %m_header.i.i.i.i.i.i470 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0.i.i460.sink, i64 160
   %__begin1.sroa.0.0198.i = load ptr, ptr %m_header.i.i.i.i.i.i470, align 8
   %cmp.i.i.i.i.not199.i = icmp eq ptr %__begin1.sroa.0.0198.i, %m_header.i.i.i.i.i.i470
   br i1 %cmp.i.i.i.i.not199.i, label %invoke.cont32.thread.i, label %invoke.cont9.i

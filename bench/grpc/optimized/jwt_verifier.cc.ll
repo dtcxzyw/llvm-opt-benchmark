@@ -619,12 +619,12 @@ if.then:                                          ; preds = %for.body
   %13 = load i8, ptr %_M_index.i.i.i.i.i, align 8
   switch i8 %13, label %sw.default.i.i.i.i [
     i8 -1, label %if.then.i.i.i38
-    i8 0, label %error.sink.split
-    i8 1, label %error.sink.split
-    i8 2, label %error.sink.split
+    i8 0, label %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit.thread
+    i8 1, label %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit.thread
+    i8 2, label %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit.thread
     i8 3, label %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit
-    i8 4, label %error.sink.split
-    i8 5, label %error.sink.split
+    i8 4, label %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit.thread
+    i8 5, label %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit.thread
   ]
 
 if.then.i.i.i38:                                  ; preds = %if.then
@@ -637,6 +637,11 @@ if.then.i.i.i38:                                  ; preds = %if.then
 
 sw.default.i.i.i.i:                               ; preds = %if.then
   unreachable
+
+_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit.thread: ; preds = %if.then, %if.then, %if.then, %if.then, %if.then
+  call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.15, i32 noundef 132, i32 noundef 2, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.8)
+  store ptr null, ptr %call.i, align 8
+  br label %error
 
 _ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit: ; preds = %if.then
   %second = getelementptr inbounds i8, ptr %__begin1.sroa.0.0132, i64 64
@@ -655,12 +660,12 @@ if.then21:                                        ; preds = %if.else
   %14 = load i8, ptr %_M_index.i.i.i.i.i41, align 8
   switch i8 %14, label %sw.default.i.i.i.i49 [
     i8 -1, label %if.then.i.i.i46
-    i8 0, label %error.sink.split
-    i8 1, label %error.sink.split
-    i8 2, label %error.sink.split
+    i8 0, label %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit50.thread
+    i8 1, label %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit50.thread
+    i8 2, label %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit50.thread
     i8 3, label %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit50
-    i8 4, label %error.sink.split
-    i8 5, label %error.sink.split
+    i8 4, label %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit50.thread
+    i8 5, label %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit50.thread
   ]
 
 if.then.i.i.i46:                                  ; preds = %if.then21
@@ -673,6 +678,11 @@ if.then.i.i.i46:                                  ; preds = %if.then21
 
 sw.default.i.i.i.i49:                             ; preds = %if.then21
   unreachable
+
+_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit50.thread: ; preds = %if.then21, %if.then21, %if.then21, %if.then21, %if.then21
+  call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.15, i32 noundef 132, i32 noundef 2, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.9)
+  store ptr null, ptr %iss, align 8
+  br label %error
 
 _ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit50: ; preds = %if.then21
   %second22 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0132, i64 64
@@ -691,12 +701,12 @@ if.then31:                                        ; preds = %if.else28
   %15 = load i8, ptr %_M_index.i.i.i.i.i53, align 8
   switch i8 %15, label %sw.default.i.i.i.i61 [
     i8 -1, label %if.then.i.i.i58
-    i8 0, label %error.sink.split
-    i8 1, label %error.sink.split
-    i8 2, label %error.sink.split
+    i8 0, label %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit62.thread
+    i8 1, label %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit62.thread
+    i8 2, label %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit62.thread
     i8 3, label %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit62
-    i8 4, label %error.sink.split
-    i8 5, label %error.sink.split
+    i8 4, label %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit62.thread
+    i8 5, label %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit62.thread
   ]
 
 if.then.i.i.i58:                                  ; preds = %if.then31
@@ -709,6 +719,11 @@ if.then.i.i.i58:                                  ; preds = %if.then31
 
 sw.default.i.i.i.i61:                             ; preds = %if.then31
   unreachable
+
+_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit62.thread: ; preds = %if.then31, %if.then31, %if.then31, %if.then31, %if.then31
+  call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.15, i32 noundef 132, i32 noundef 2, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.10)
+  store ptr null, ptr %aud, align 8
+  br label %error
 
 _ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit62: ; preds = %if.then31
   %second32 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0132, i64 64
@@ -727,12 +742,12 @@ if.then41:                                        ; preds = %if.else38
   %16 = load i8, ptr %_M_index.i.i.i.i.i65, align 8
   switch i8 %16, label %sw.default.i.i.i.i73 [
     i8 -1, label %if.then.i.i.i70
-    i8 0, label %error.sink.split
-    i8 1, label %error.sink.split
-    i8 2, label %error.sink.split
+    i8 0, label %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit74.thread
+    i8 1, label %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit74.thread
+    i8 2, label %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit74.thread
     i8 3, label %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit74
-    i8 4, label %error.sink.split
-    i8 5, label %error.sink.split
+    i8 4, label %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit74.thread
+    i8 5, label %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit74.thread
   ]
 
 if.then.i.i.i70:                                  ; preds = %if.then41
@@ -745,6 +760,11 @@ if.then.i.i.i70:                                  ; preds = %if.then41
 
 sw.default.i.i.i.i73:                             ; preds = %if.then41
   unreachable
+
+_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit74.thread: ; preds = %if.then41, %if.then41, %if.then41, %if.then41, %if.then41
+  call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.15, i32 noundef 132, i32 noundef 2, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.11)
+  store ptr null, ptr %jti, align 8
+  br label %error
 
 _ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit74: ; preds = %if.then41
   %second42 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0132, i64 64
@@ -917,14 +937,7 @@ for.inc:                                          ; preds = %_ZL21validate_strin
   %cmp.i.not = icmp eq ptr %call.i117, %add.ptr.i.i
   br i1 %cmp.i.not, label %return, label %for.body
 
-error.sink.split:                                 ; preds = %if.then41, %if.then41, %if.then41, %if.then41, %if.then41, %if.then31, %if.then31, %if.then31, %if.then31, %if.then31, %if.then21, %if.then21, %if.then21, %if.then21, %if.then21, %if.then, %if.then, %if.then, %if.then, %if.then
-  %.str.11.sink = phi ptr [ @.str.8, %if.then ], [ @.str.8, %if.then ], [ @.str.8, %if.then ], [ @.str.8, %if.then ], [ @.str.8, %if.then ], [ @.str.9, %if.then21 ], [ @.str.9, %if.then21 ], [ @.str.9, %if.then21 ], [ @.str.9, %if.then21 ], [ @.str.9, %if.then21 ], [ @.str.10, %if.then31 ], [ @.str.10, %if.then31 ], [ @.str.10, %if.then31 ], [ @.str.10, %if.then31 ], [ @.str.10, %if.then31 ], [ @.str.11, %if.then41 ], [ @.str.11, %if.then41 ], [ @.str.11, %if.then41 ], [ @.str.11, %if.then41 ], [ @.str.11, %if.then41 ]
-  %jti.sink = phi ptr [ %call.i, %if.then ], [ %call.i, %if.then ], [ %call.i, %if.then ], [ %call.i, %if.then ], [ %call.i, %if.then ], [ %iss, %if.then21 ], [ %iss, %if.then21 ], [ %iss, %if.then21 ], [ %iss, %if.then21 ], [ %iss, %if.then21 ], [ %aud, %if.then31 ], [ %aud, %if.then31 ], [ %aud, %if.then31 ], [ %aud, %if.then31 ], [ %aud, %if.then31 ], [ %jti, %if.then41 ], [ %jti, %if.then41 ], [ %jti, %if.then41 ], [ %jti, %if.then41 ], [ %jti, %if.then41 ]
-  call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.15, i32 noundef 132, i32 noundef 2, ptr noundef nonnull @.str.29, ptr noundef nonnull %.str.11.sink)
-  store ptr null, ptr %jti.sink, align 8
-  br label %error
-
-error:                                            ; preds = %_ZL19validate_time_fieldRKN9grpc_core12experimental4JsonEPKc.exit116, %_ZL19validate_time_fieldRKN9grpc_core12experimental4JsonEPKc.exit100, %_ZL19validate_time_fieldRKN9grpc_core12experimental4JsonEPKc.exit, %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit74, %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit62, %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit50, %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit, %error.sink.split
+error:                                            ; preds = %_ZL19validate_time_fieldRKN9grpc_core12experimental4JsonEPKc.exit116, %_ZL19validate_time_fieldRKN9grpc_core12experimental4JsonEPKc.exit100, %_ZL19validate_time_fieldRKN9grpc_core12experimental4JsonEPKc.exit, %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit74, %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit62, %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit50, %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit, %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit74.thread, %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit62.thread, %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit50.thread, %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit.thread
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i.i)
   %32 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.not.i.i.i.i.i = icmp eq i8 %32, -1
@@ -4612,6 +4625,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt8__detail9__va
   store ptr null, ptr %_M_parent.i.i.i.i.i.i2, align 8
   store ptr %add.ptr.i.i.i.i.i, ptr %_M_left.i.i.i.i.i.i.i, align 8
   store ptr %add.ptr.i.i.i.i.i, ptr %_M_right.i.i.i.i.i.i.i, align 8
+  store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i, align 8
   br label %_ZNSt8__detail9__variant9__emplaceILm4ELb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISC_S5_St4lessISC_ESaISt4pairIKSC_S5_EEESt6vectorIS5_SaIS5_EEEJSK_EEEvRNS0_16_Variant_storageIXT0_EJDpT1_EEEDpOT2_.exit
 
 if.else.i.i.i.i.i.i:                              ; preds = %_ZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISC_S5_St4lessISC_ESaISt4pairIKSC_S5_EEESt6vectorIS5_SaIS5_EEEE8_M_resetEv.exit.i
@@ -4623,11 +4637,10 @@ if.else.i.i.i.i.i.i:                              ; preds = %_ZNSt8__detail9__va
   %_M_right.i4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %11, ptr %_M_right.i4.i.i.i.i.i.i, align 8
   %_M_node_count.i5.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
+  store i64 0, ptr %_M_node_count.i5.i.i.i.i.i.i, align 8
   br label %_ZNSt8__detail9__variant9__emplaceILm4ELb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISC_S5_St4lessISC_ESaISt4pairIKSC_S5_EEESt6vectorIS5_SaIS5_EEEJSK_EEEvRNS0_16_Variant_storageIXT0_EJDpT1_EEEDpOT2_.exit
 
 _ZNSt8__detail9__variant9__emplaceILm4ELb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISC_S5_St4lessISC_ESaISt4pairIKSC_S5_EEESt6vectorIS5_SaIS5_EEEJSK_EEEvRNS0_16_Variant_storageIXT0_EJDpT1_EEEDpOT2_.exit: ; preds = %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i
-  %_M_node_count.i5.sink.i.i.i.i.i.i = phi ptr [ %_M_node_count.i5.i.i.i.i.i.i, %if.else.i.i.i.i.i.i ], [ %_M_node_count.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ]
-  store i64 0, ptr %_M_node_count.i5.sink.i.i.i.i.i.i, align 8
   store i8 4, ptr %_M_index, align 8
   br label %if.end
 
@@ -4807,7 +4820,8 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %sw.bb5
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_left.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_right.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  br label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_15_Move_ctor_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISF_S8_St4lessISF_ESaISt4pairIKSF_S8_EEESt6vectorIS8_SaIS8_EEEEC1EOSR_EUlOT_T0_E_OSt7variantIJS5_bS9_SF_SN_SQ_EEEJEEESt16integer_sequenceImJLm4EEEE14__visit_invokeESX_S10_.exit
+  store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  br label %return
 
 if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %sw.bb5
   store i32 0, ptr %6, align 8
@@ -4818,11 +4832,7 @@ if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %sw.bb5
   %_M_right.i4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 32
   store ptr %6, ptr %_M_right.i4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %_M_node_count.i5.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 40
-  br label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_15_Move_ctor_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISF_S8_St4lessISF_ESaISt4pairIKSF_S8_EEESt6vectorIS8_SaIS8_EEEEC1EOSR_EUlOT_T0_E_OSt7variantIJS5_bS9_SF_SN_SQ_EEEJEEESt16integer_sequenceImJLm4EEEE14__visit_invokeESX_S10_.exit
-
-_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_15_Move_ctor_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISF_S8_St4lessISF_ESaISt4pairIKSF_S8_EEESt6vectorIS8_SaIS8_EEEEC1EOSR_EUlOT_T0_E_OSt7variantIJS5_bS9_SF_SN_SQ_EEEJEEESt16integer_sequenceImJLm4EEEE14__visit_invokeESX_S10_.exit: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %_M_node_count.i5.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %_M_node_count.i5.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %_M_node_count.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
-  store i64 0, ptr %_M_node_count.i5.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  store i64 0, ptr %_M_node_count.i5.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   br label %return
 
 sw.bb6:                                           ; preds = %entry
@@ -4843,7 +4853,7 @@ sw.bb6:                                           ; preds = %entry
 sw.default:                                       ; preds = %entry
   unreachable
 
-return:                                           ; preds = %entry, %entry, %sw.bb6, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_15_Move_ctor_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISF_S8_St4lessISF_ESaISt4pairIKSF_S8_EEESt6vectorIS8_SaIS8_EEEEC1EOSR_EUlOT_T0_E_OSt7variantIJS5_bS9_SF_SN_SQ_EEEJEEESt16integer_sequenceImJLm4EEEE14__visit_invokeESX_S10_.exit, %sw.bb4, %sw.bb3, %sw.bb2
+return:                                           ; preds = %entry, %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %entry, %sw.bb6, %sw.bb4, %sw.bb3, %sw.bb2
   ret void
 }
 
@@ -7135,6 +7145,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   store ptr null, ptr %_M_parent.i.i.i.i, align 8
   store ptr %add.ptr.i.i.i, ptr %_M_left.i.i.i.i.i, align 8
   store ptr %add.ptr.i.i.i, ptr %_M_right.i.i.i.i.i, align 8
+  store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8
   br label %_ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEES3_St4lessIS3_ESaISt4pairIKS3_S3_EEEC2EOSA_.exit
 
 if.else.i.i.i.i:                                  ; preds = %entry
@@ -7146,11 +7157,10 @@ if.else.i.i.i.i:                                  ; preds = %entry
   %_M_right.i4.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 128
   store ptr %1, ptr %_M_right.i4.i.i.i.i, align 8
   %_M_node_count.i5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
+  store i64 0, ptr %_M_node_count.i5.i.i.i.i, align 8
   br label %_ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEES3_St4lessIS3_ESaISt4pairIKS3_S3_EEEC2EOSA_.exit
 
 _ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEES3_St4lessIS3_ESaISt4pairIKS3_S3_EEEC2EOSA_.exit: ; preds = %if.then.i.i.i.i, %if.else.i.i.i.i
-  %_M_node_count.i5.sink.i.i.i.i = phi ptr [ %_M_node_count.i5.i.i.i.i, %if.else.i.i.i.i ], [ %_M_node_count.i.i.i.i.i, %if.then.i.i.i.i ]
-  store i64 0, ptr %_M_node_count.i5.sink.i.i.i.i, align 8
   %query_parameter_pairs_ = getelementptr inbounds i8, ptr %this, i64 144
   %query_parameter_pairs_6 = getelementptr inbounds i8, ptr %0, i64 144
   %8 = load ptr, ptr %query_parameter_pairs_6, align 8

@@ -1885,7 +1885,7 @@ define weak_odr void @_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm
   %118 = fcmp contract une double %88, 0.000000e+00
   %119 = fcmp contract une double %115, 0.000000e+00
   %not..i.i = xor i1 %118, true
-  %.not359.i.i = select i1 %not..i.i, i1 %119, i1 false
+  %.not356.i.i = select i1 %not..i.i, i1 %119, i1 false
   %120 = fneg contract double %117
   %121 = fdiv contract double %120, %115
   %122 = fmul contract double %88, 4.000000e+00
@@ -1911,7 +1911,7 @@ define weak_odr void @_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm
 136:                                              ; preds = %127, %98
   %.0354.i.i = phi double [ %..i297.i.i, %127 ], [ %121, %98 ]
   %.0.i.i = phi double [ %..i.i.i, %127 ], [ %121, %98 ]
-  %narrow.i.i = or i1 %.not359.i.i, %126
+  %narrow.i.i = or i1 %.not356.i.i, %126
   %137 = select i1 %narrow.i.i, i1 %.not.i.i, i1 false
   br i1 %137, label %138, label %.thread.i.i
 
@@ -2170,7 +2170,7 @@ define weak_odr void @_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm
   %60 = fcmp contract une double %30, 0.000000e+00
   %61 = fcmp contract une double %57, 0.000000e+00
   %not..i = xor i1 %60, true
-  %.not359.i = select i1 %not..i, i1 %61, i1 false
+  %.not356.i = select i1 %not..i, i1 %61, i1 false
   %62 = fneg contract double %59
   %63 = fdiv contract double %62, %57
   %64 = fmul contract double %30, 4.000000e+00
@@ -2196,7 +2196,7 @@ define weak_odr void @_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm
 78:                                               ; preds = %69, %40
   %.0354.i = phi double [ %..i297.i, %69 ], [ %63, %40 ]
   %.0.i = phi double [ %..i.i, %69 ], [ %63, %40 ]
-  %narrow.i = or i1 %.not359.i, %68
+  %narrow.i = or i1 %.not356.i, %68
   %79 = select i1 %narrow.i, i1 %.not.i, i1 false
   br i1 %79, label %80, label %.thread.i
 
@@ -3365,7 +3365,7 @@ define weak_odr void @_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm
   %57 = fcmp contract une double %27, 0.000000e+00
   %58 = fcmp contract une double %54, 0.000000e+00
   %not..i = xor i1 %57, true
-  %.not359.i = select i1 %not..i, i1 %58, i1 false
+  %.not356.i = select i1 %not..i, i1 %58, i1 false
   %59 = fneg contract double %56
   %60 = fdiv contract double %59, %54
   %61 = fmul contract double %27, 4.000000e+00
@@ -3391,7 +3391,7 @@ define weak_odr void @_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm
 75:                                               ; preds = %66, %37
   %.0354.i = phi double [ %..i297.i, %66 ], [ %60, %37 ]
   %.0.i = phi double [ %..i.i, %66 ], [ %60, %37 ]
-  %narrow.i = or i1 %.not359.i, %65
+  %narrow.i = or i1 %.not356.i, %65
   %76 = select i1 %narrow.i, i1 %.not.i, i1 false
   br i1 %76, label %77, label %.thread.i
 

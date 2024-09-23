@@ -1439,10 +1439,14 @@ _ZNK3gmx12_GLOBAL__N_113ElectricField8isActiveEv.exit.thread: ; preds = %6
   %28 = getelementptr inbounds i8, ptr %7, i64 32
   %29 = load ptr, ptr %28, align 8
   %.not.i.i.i = icmp eq ptr %29, null
-  br i1 %.not.i.i.i, label %.sink.split, label %30
+  br i1 %.not.i.i.i, label %_ZNSt10filesystem7__cxx114pathD2Ev.exit, label %30
 
 30:                                               ; preds = %26
   call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %28, ptr noundef nonnull %29) #28
+  br label %_ZNSt10filesystem7__cxx114pathD2Ev.exit
+
+_ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %26, %30
+  store ptr null, ptr %28, align 8
   br label %.sink.split
 
 31:                                               ; preds = %24
@@ -1504,10 +1508,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit23: ; 
   %43 = getelementptr inbounds i8, ptr %9, i64 32
   %44 = load ptr, ptr %43, align 8
   %.not.i.i.i24 = icmp eq ptr %44, null
-  br i1 %.not.i.i.i24, label %.sink.split, label %45
+  br i1 %.not.i.i.i24, label %_ZNSt10filesystem7__cxx114pathD2Ev.exit25, label %45
 
 45:                                               ; preds = %41
   call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %43, ptr noundef nonnull %44) #28
+  br label %_ZNSt10filesystem7__cxx114pathD2Ev.exit25
+
+_ZNSt10filesystem7__cxx114pathD2Ev.exit25:        ; preds = %41, %45
+  store ptr null, ptr %43, align 8
   br label %.sink.split
 
 46:                                               ; preds = %.noexc, %33
@@ -1537,10 +1545,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit23: ; 
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #28
   br label %53
 
-.sink.split:                                      ; preds = %45, %41, %30, %26
-  %.sink27 = phi ptr [ %28, %26 ], [ %28, %30 ], [ %43, %41 ], [ %43, %45 ]
-  %.sink = phi ptr [ %7, %26 ], [ %7, %30 ], [ %9, %41 ], [ %9, %45 ]
-  store ptr null, ptr %.sink27, align 8
+.sink.split:                                      ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit, %_ZNSt10filesystem7__cxx114pathD2Ev.exit25
+  %.sink = phi ptr [ %9, %_ZNSt10filesystem7__cxx114pathD2Ev.exit25 ], [ %7, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #28
   br label %52
 
@@ -1548,9 +1554,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit23: ; 
   ret void
 
 53:                                               ; preds = %.body, %31
-  %.sink28 = phi ptr [ %9, %.body ], [ %7, %31 ]
+  %.sink27 = phi ptr [ %9, %.body ], [ %7, %31 ]
   %.pn16 = phi { ptr, i32 } [ %.pn.pn, %.body ], [ %32, %31 ]
-  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink28) #28
+  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink27) #28
   resume { ptr, i32 } %.pn16
 }
 

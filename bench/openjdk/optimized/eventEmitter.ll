@@ -438,29 +438,33 @@ _ZNK7oopDesc8is_arrayEv.exit.i:                   ; preds = %47, %37
 
 70:                                               ; preds = %56
   %71 = icmp eq i64 %10, 0
-  br i1 %71, label %.sink.split.i.i.i, label %72
+  br i1 %71, label %72, label %74
 
 72:                                               ; preds = %70
-  %73 = icmp eq i64 %24, 0
-  br i1 %73, label %.sink.split.i.i.i, label %_ZN8JfrEventI20EventOldObjectSampleE12should_writeEv.exit.i
-
-.sink.split.i.i.i:                                ; preds = %72, %70
-  %.sink2.i.i.i = phi ptr [ %4, %70 ], [ %25, %72 ]
-  %74 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #10
-  store i64 %74, ptr %.sink2.i.i.i, align 8
+  %73 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #10
+  store i64 %73, ptr %4, align 8
   br label %_ZN8JfrEventI20EventOldObjectSampleE12should_writeEv.exit.i
 
-_ZN8JfrEventI20EventOldObjectSampleE12should_writeEv.exit.i: ; preds = %.sink.split.i.i.i, %72
-  %75 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %76 = load ptr, ptr %75, align 8
-  %77 = tail call noundef zeroext i1 @_ZN14JfrThreadLocal11is_includedEPK6Thread(ptr noundef %76) #10
-  br i1 %77, label %78, label %_ZN8JfrEventI20EventOldObjectSampleE6commitEv.exit
+74:                                               ; preds = %70
+  %75 = icmp eq i64 %24, 0
+  br i1 %75, label %76, label %_ZN8JfrEventI20EventOldObjectSampleE12should_writeEv.exit.i
 
-78:                                               ; preds = %_ZN8JfrEventI20EventOldObjectSampleE12should_writeEv.exit.i
+76:                                               ; preds = %74
+  %77 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #10
+  store i64 %77, ptr %25, align 8
+  br label %_ZN8JfrEventI20EventOldObjectSampleE12should_writeEv.exit.i
+
+_ZN8JfrEventI20EventOldObjectSampleE12should_writeEv.exit.i: ; preds = %76, %74, %72
+  %78 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %79 = load ptr, ptr %78, align 8
+  %80 = tail call noundef zeroext i1 @_ZN14JfrThreadLocal11is_includedEPK6Thread(ptr noundef %79) #10
+  br i1 %80, label %81, label %_ZN8JfrEventI20EventOldObjectSampleE6commitEv.exit
+
+81:                                               ; preds = %_ZN8JfrEventI20EventOldObjectSampleE12should_writeEv.exit.i
   call void @_ZN8JfrEventI20EventOldObjectSampleE11write_eventEv(ptr noundef nonnull align 8 dereferenceable(19) %4)
   br label %_ZN8JfrEventI20EventOldObjectSampleE6commitEv.exit
 
-_ZN8JfrEventI20EventOldObjectSampleE6commitEv.exit: ; preds = %56, %_ZN8JfrEventI20EventOldObjectSampleE12should_writeEv.exit.i, %78
+_ZN8JfrEventI20EventOldObjectSampleE6commitEv.exit: ; preds = %56, %_ZN8JfrEventI20EventOldObjectSampleE12should_writeEv.exit.i, %81
   ret void
 }
 

@@ -5164,19 +5164,19 @@ _ZN17OverflowTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE12pop_overflowERS0_.e
 60:                                               ; preds = %56
   %61 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.sroa.08.0.insert.insert11.i.i, i64 %57, ptr nonnull %42) #13, !srcloc !17
   %62 = icmp eq i64 %61, %57
-  br i1 %62, label %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.i, label %._crit_edge.i.i
+  br i1 %62, label %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.sink.split.i, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %60, %56
   store volatile i64 %.sroa.08.0.insert.insert11.i.i, ptr %42, align 8
-  br label %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.i
+  br label %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.sink.split.i
 
-_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.i: ; preds = %._crit_edge.i.i, %60
-  %.0.i.i = phi i1 [ false, %._crit_edge.i.i ], [ true, %60 ]
+_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.sink.split.i: ; preds = %._crit_edge.i.i, %60
+  %.0.ph.i = phi i1 [ false, %._crit_edge.i.i ], [ true, %60 ]
   %63 = load volatile i32, ptr %42, align 4
   br label %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit
 
-_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit: ; preds = %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.i, %46, %_ZN17OverflowTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE12pop_overflowERS0_.exit, %_ZN17OverflowTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE12pop_overflowERS0_.exit.thread
-  %64 = phi i1 [ true, %_ZN17OverflowTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE12pop_overflowERS0_.exit.thread ], [ %.0.i.i, %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.i ], [ false, %_ZN17OverflowTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE12pop_overflowERS0_.exit ], [ true, %46 ]
+_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit: ; preds = %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.sink.split.i, %46, %_ZN17OverflowTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE12pop_overflowERS0_.exit, %_ZN17OverflowTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE12pop_overflowERS0_.exit.thread
+  %64 = phi i1 [ true, %_ZN17OverflowTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE12pop_overflowERS0_.exit.thread ], [ false, %_ZN17OverflowTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE12pop_overflowERS0_.exit ], [ true, %46 ], [ %.0.ph.i, %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.sink.split.i ]
   ret i1 %64
 }
 

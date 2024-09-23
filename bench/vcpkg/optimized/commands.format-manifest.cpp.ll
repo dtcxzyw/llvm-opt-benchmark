@@ -755,7 +755,16 @@ _ZSt8_DestroyIPSt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS2_EE
 _ZNSt6vectorISt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS2_EESaIS5_EED2Ev.exit.i: ; preds = %178, %_ZSt8_DestroyIPSt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i
   %179 = load ptr, ptr %89, align 8
   %.not.i.i = icmp eq ptr %179, null
-  br i1 %.not.i.i, label %_ZN5vcpkg8OptionalIN12_GLOBAL__N_17ToWriteEED2Ev.exit.sink.split, label %_ZN5vcpkg8OptionalIN12_GLOBAL__N_17ToWriteEED2Ev.exit.sink.split.sink.split
+  br i1 %.not.i.i, label %_ZN5vcpkg17SourceControlFileD2Ev.exit, label %_ZNKSt14default_deleteIN5vcpkg15SourceParagraphEEclEPS1_.exit.i.i
+
+_ZNKSt14default_deleteIN5vcpkg15SourceParagraphEEclEPS1_.exit.i.i: ; preds = %_ZNSt6vectorISt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS2_EESaIS5_EED2Ev.exit.i
+  call void @_ZN5vcpkg15SourceParagraphD2Ev(ptr noundef nonnull align 8 dereferenceable(456) %179) #18
+  call void @_ZdlPv(ptr noundef nonnull %179) #20
+  br label %_ZN5vcpkg17SourceControlFileD2Ev.exit
+
+_ZN5vcpkg17SourceControlFileD2Ev.exit:            ; preds = %_ZNSt6vectorISt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS2_EESaIS5_EED2Ev.exit.i, %_ZNKSt14default_deleteIN5vcpkg15SourceParagraphEEclEPS1_.exit.i.i
+  store ptr null, ptr %89, align 8
+  br label %_ZN5vcpkg8OptionalIN12_GLOBAL__N_17ToWriteEED2Ev.exit
 
 180:                                              ; preds = %116
   %181 = landingpad { ptr, i32 }
@@ -1009,7 +1018,16 @@ _ZSt8_DestroyIPSt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS2_EE
 _ZNSt6vectorISt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS2_EESaIS5_EED2Ev.exit.i129: ; preds = %245, %_ZSt8_DestroyIPSt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i127
   %246 = load ptr, ptr %81, align 8
   %.not.i.i130 = icmp eq ptr %246, null
-  br i1 %.not.i.i130, label %_ZN5vcpkg8OptionalIN12_GLOBAL__N_17ToWriteEED2Ev.exit.sink.split, label %_ZN5vcpkg8OptionalIN12_GLOBAL__N_17ToWriteEED2Ev.exit.sink.split.sink.split
+  br i1 %.not.i.i130, label %_ZN5vcpkg17SourceControlFileD2Ev.exit132, label %_ZNKSt14default_deleteIN5vcpkg15SourceParagraphEEclEPS1_.exit.i.i131
+
+_ZNKSt14default_deleteIN5vcpkg15SourceParagraphEEclEPS1_.exit.i.i131: ; preds = %_ZNSt6vectorISt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS2_EESaIS5_EED2Ev.exit.i129
+  call void @_ZN5vcpkg15SourceParagraphD2Ev(ptr noundef nonnull align 8 dereferenceable(456) %246) #18
+  call void @_ZdlPv(ptr noundef nonnull %246) #20
+  br label %_ZN5vcpkg17SourceControlFileD2Ev.exit132
+
+_ZN5vcpkg17SourceControlFileD2Ev.exit132:         ; preds = %_ZNSt6vectorISt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS2_EESaIS5_EED2Ev.exit.i129, %_ZNKSt14default_deleteIN5vcpkg15SourceParagraphEEclEPS1_.exit.i.i131
+  store ptr null, ptr %81, align 8
+  br label %_ZN5vcpkg8OptionalIN12_GLOBAL__N_17ToWriteEED2Ev.exit
 
 247:                                              ; preds = %183
   %248 = landingpad { ptr, i32 }
@@ -1017,19 +1035,7 @@ _ZNSt6vectorISt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS2_EESa
   call fastcc void @_ZN5vcpkg8OptionalIN12_GLOBAL__N_17ToWriteEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %35) #18
   br label %250
 
-_ZN5vcpkg8OptionalIN12_GLOBAL__N_17ToWriteEED2Ev.exit.sink.split.sink.split: ; preds = %_ZNSt6vectorISt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS2_EESaIS5_EED2Ev.exit.i129, %_ZNSt6vectorISt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS2_EESaIS5_EED2Ev.exit.i
-  %.sink487 = phi ptr [ %179, %_ZNSt6vectorISt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS2_EESaIS5_EED2Ev.exit.i ], [ %246, %_ZNSt6vectorISt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS2_EESaIS5_EED2Ev.exit.i129 ]
-  %.sink.ph = phi ptr [ %89, %_ZNSt6vectorISt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS2_EESaIS5_EED2Ev.exit.i ], [ %81, %_ZNSt6vectorISt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS2_EESaIS5_EED2Ev.exit.i129 ]
-  call void @_ZN5vcpkg15SourceParagraphD2Ev(ptr noundef nonnull align 8 dereferenceable(456) %.sink487) #18
-  call void @_ZdlPv(ptr noundef nonnull %.sink487) #20
-  br label %_ZN5vcpkg8OptionalIN12_GLOBAL__N_17ToWriteEED2Ev.exit.sink.split
-
-_ZN5vcpkg8OptionalIN12_GLOBAL__N_17ToWriteEED2Ev.exit.sink.split: ; preds = %_ZN5vcpkg8OptionalIN12_GLOBAL__N_17ToWriteEED2Ev.exit.sink.split.sink.split, %_ZNSt6vectorISt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS2_EESaIS5_EED2Ev.exit.i129, %_ZNSt6vectorISt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS2_EESaIS5_EED2Ev.exit.i
-  %.sink = phi ptr [ %89, %_ZNSt6vectorISt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS2_EESaIS5_EED2Ev.exit.i ], [ %81, %_ZNSt6vectorISt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS2_EESaIS5_EED2Ev.exit.i129 ], [ %.sink.ph, %_ZN5vcpkg8OptionalIN12_GLOBAL__N_17ToWriteEED2Ev.exit.sink.split.sink.split ]
-  store ptr null, ptr %.sink, align 8
-  br label %_ZN5vcpkg8OptionalIN12_GLOBAL__N_17ToWriteEED2Ev.exit
-
-_ZN5vcpkg8OptionalIN12_GLOBAL__N_17ToWriteEED2Ev.exit: ; preds = %_ZN5vcpkg8OptionalIN12_GLOBAL__N_17ToWriteEED2Ev.exit.sink.split, %184, %117
+_ZN5vcpkg8OptionalIN12_GLOBAL__N_17ToWriteEED2Ev.exit: ; preds = %_ZN5vcpkg17SourceControlFileD2Ev.exit132, %184, %_ZN5vcpkg17SourceControlFileD2Ev.exit, %117
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #18
   %249 = getelementptr inbounds i8, ptr %.sroa.0302.0385, i64 32
   %.not = icmp eq ptr %249, %80
@@ -6963,6 +6969,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit: ; preds = %6
   %18 = load ptr, ptr %17, align 8
   store i64 %.pre-phi.i.i, ptr %7, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 %16
+  store i8 92, ptr %19, align 1
   br label %82
 
 20:                                               ; preds = %2
@@ -6989,6 +6996,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit28: ; preds = 
   %32 = load ptr, ptr %31, align 8
   store i64 %.pre-phi.i.i25, ptr %21, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 %30
+  store i8 92, ptr %33, align 1
   br label %82
 
 34:                                               ; preds = %2
@@ -7015,6 +7023,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit33: ; preds = 
   %46 = load ptr, ptr %45, align 8
   store i64 %.pre-phi.i.i30, ptr %35, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 %44
+  store i8 92, ptr %47, align 1
   br label %82
 
 48:                                               ; preds = %2, %2, %2
@@ -7041,6 +7050,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit38: ; preds = 
   %60 = load ptr, ptr %59, align 8
   store i64 %.pre-phi.i.i35, ptr %49, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 %58
+  store i8 92, ptr %61, align 1
   br label %82
 
 62:                                               ; preds = %2
@@ -7085,9 +7095,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit38: ; preds = 
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 82:                                               ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit38, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit33, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit28, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit
-  %.sink = phi ptr [ %61, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit38 ], [ %47, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit33 ], [ %33, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit28 ], [ %19, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit ]
   %.054 = phi i8 [ %5, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit38 ], [ 116, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit33 ], [ 114, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit28 ], [ 110, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit ]
-  store i8 92, ptr %.sink, align 1
   %83 = getelementptr inbounds i8, ptr %0, i64 16
   %84 = load i64, ptr %83, align 8
   %85 = add i64 %84, 1

@@ -533,6 +533,7 @@ define internal fastcc ptr @phar_make_dirstream(ptr noundef %0, ptr noundef %1) 
   %62 = sub i64 %55, %61
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %58, ptr nonnull align 8 %60, i64 %62, i1 false)
   %63 = getelementptr inbounds i8, ptr %58, i64 %62
+  store i8 0, ptr %63, align 1
   br label %94
 
 .thread138:                                       ; preds = %51
@@ -584,19 +585,19 @@ define internal fastcc ptr @phar_make_dirstream(ptr noundef %0, ptr noundef %1) 
   %89 = add i64 %86, %23
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %88, ptr nonnull align 1 %78, i64 %89, i1 false)
   %90 = getelementptr inbounds i8, ptr %88, i64 %89
+  store i8 0, ptr %90, align 1
   br label %94
 
 91:                                               ; preds = %77
   %92 = call noalias ptr @_safe_emalloc(i64 noundef %79, i64 noundef 1, i64 noundef 1) #10
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %92, ptr nonnull align 1 %78, i64 %80, i1 false)
   %93 = getelementptr inbounds i8, ptr %92, i64 %80
+  store i8 0, ptr %93, align 1
   br label %94
 
 94:                                               ; preds = %82, %91, %54
-  %.sink = phi ptr [ %90, %82 ], [ %93, %91 ], [ %63, %54 ]
-  %.0115 = phi ptr [ %88, %82 ], [ %92, %91 ], [ %58, %54 ]
-  %.0 = phi i64 [ %89, %82 ], [ %80, %91 ], [ %62, %54 ]
-  store i8 0, ptr %.sink, align 1
+  %.0115 = phi ptr [ %58, %54 ], [ %88, %82 ], [ %92, %91 ]
+  %.0 = phi i64 [ %62, %54 ], [ %89, %82 ], [ %80, %91 ]
   %.not133 = icmp eq i64 %.0, 0
   br i1 %.not133, label %98, label %95
 

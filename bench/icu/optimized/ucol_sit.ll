@@ -984,79 +984,77 @@ if.then18:                                        ; preds = %if.end
   %11 = getelementptr inbounds i8, ptr %agg.tmp20, i64 8
   %12 = load i32, ptr %11, align 8
   %call3.i45 = call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %locale, ptr noundef %10, i32 noundef %12, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  br label %if.end35.sink.split
+  %13 = load ptr, ptr %arrayidx15, align 8
+  %14 = load i32, ptr %len.i42, align 8
+  %call3.i47 = call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %locale, ptr noundef %13, i32 noundef %14, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  br label %if.end35
 
 if.else:                                          ; preds = %if.end
   %len.i48 = getelementptr inbounds i8, ptr %s, i64 248
-  %13 = load i32, ptr %len.i48, align 8
-  %cmp.i49.not = icmp eq i32 %13, 0
+  %15 = load i32, ptr %len.i48, align 8
+  %cmp.i49.not = icmp eq i32 %15, 0
   br i1 %cmp.i49.not, label %if.end35, label %if.then30
 
 if.then30:                                        ; preds = %if.else
   call void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp32, ptr noundef nonnull @.str.4)
-  %14 = getelementptr inbounds i8, ptr %agg.tmp32, i64 8
-  br label %if.end35.sink.split
-
-if.end35.sink.split:                              ; preds = %if.then18, %if.then30
-  %.sink71 = phi ptr [ %14, %if.then30 ], [ %len.i42, %if.then18 ]
-  %.sink.in = phi ptr [ %agg.tmp32, %if.then30 ], [ %arrayidx15, %if.then18 ]
-  %.sink = load ptr, ptr %.sink.in, align 8
-  %15 = load i32, ptr %.sink71, align 8
-  %call3.i51 = call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %locale, ptr noundef %.sink, i32 noundef %15, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %16 = load ptr, ptr %agg.tmp32, align 8
+  %17 = getelementptr inbounds i8, ptr %agg.tmp32, i64 8
+  %18 = load i32, ptr %17, align 8
+  %call3.i51 = call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %locale, ptr noundef %16, i32 noundef %18, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %if.end35
 
-if.end35:                                         ; preds = %if.end35.sink.split, %if.else
+if.end35:                                         ; preds = %if.else, %if.then30, %if.then18
   %len.i52 = getelementptr inbounds i8, ptr %s, i64 248
-  %16 = load i32, ptr %len.i52, align 8
-  %cmp.i53.not = icmp eq i32 %16, 0
+  %19 = load i32, ptr %len.i52, align 8
+  %cmp.i53.not = icmp eq i32 %19, 0
   br i1 %cmp.i53.not, label %if.end48, label %if.then40
 
 if.then40:                                        ; preds = %if.end35
   %arrayidx37 = getelementptr inbounds i8, ptr %s, i64 192
   call void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp42, ptr noundef nonnull @.str.4)
-  %17 = load ptr, ptr %agg.tmp42, align 8
-  %18 = getelementptr inbounds i8, ptr %agg.tmp42, i64 8
-  %19 = load i32, ptr %18, align 8
-  %call3.i55 = call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %locale, ptr noundef %17, i32 noundef %19, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %20 = load ptr, ptr %arrayidx37, align 8
-  %21 = load i32, ptr %len.i52, align 8
-  %call3.i57 = call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %locale, ptr noundef %20, i32 noundef %21, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %20 = load ptr, ptr %agg.tmp42, align 8
+  %21 = getelementptr inbounds i8, ptr %agg.tmp42, i64 8
+  %22 = load i32, ptr %21, align 8
+  %call3.i55 = call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %locale, ptr noundef %20, i32 noundef %22, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %23 = load ptr, ptr %arrayidx37, align 8
+  %24 = load i32, ptr %len.i52, align 8
+  %call3.i57 = call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %locale, ptr noundef %23, i32 noundef %24, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %if.end48
 
 if.end48:                                         ; preds = %if.then40, %if.end35
   %len.i58 = getelementptr inbounds i8, ptr %s, i64 312
-  %22 = load i32, ptr %len.i58, align 8
-  %cmp.i59.not = icmp eq i32 %22, 0
+  %25 = load i32, ptr %len.i58, align 8
+  %cmp.i59.not = icmp eq i32 %25, 0
   br i1 %cmp.i59.not, label %if.end61, label %if.then53
 
 if.then53:                                        ; preds = %if.end48
   %arrayidx50 = getelementptr inbounds i8, ptr %s, i64 256
   call void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp55, ptr noundef nonnull @_ZL16collationKeyword)
-  %23 = load ptr, ptr %agg.tmp55, align 8
-  %24 = getelementptr inbounds i8, ptr %agg.tmp55, i64 8
-  %25 = load i32, ptr %24, align 8
-  %call3.i61 = call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %locale, ptr noundef %23, i32 noundef %25, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %26 = load ptr, ptr %arrayidx50, align 8
-  %27 = load i32, ptr %len.i58, align 8
-  %call3.i63 = call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %locale, ptr noundef %26, i32 noundef %27, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %26 = load ptr, ptr %agg.tmp55, align 8
+  %27 = getelementptr inbounds i8, ptr %agg.tmp55, i64 8
+  %28 = load i32, ptr %27, align 8
+  %call3.i61 = call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %locale, ptr noundef %26, i32 noundef %28, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %29 = load ptr, ptr %arrayidx50, align 8
+  %30 = load i32, ptr %len.i58, align 8
+  %call3.i63 = call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %locale, ptr noundef %29, i32 noundef %30, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %if.end61
 
 if.end61:                                         ; preds = %if.then53, %if.end48
   %len.i64 = getelementptr inbounds i8, ptr %s, i64 376
-  %28 = load i32, ptr %len.i64, align 8
-  %cmp.i65.not = icmp eq i32 %28, 0
+  %31 = load i32, ptr %len.i64, align 8
+  %cmp.i65.not = icmp eq i32 %31, 0
   br i1 %cmp.i65.not, label %if.end75, label %if.then66
 
 if.then66:                                        ; preds = %if.end61
   %arrayidx63 = getelementptr inbounds i8, ptr %s, i64 320
   call void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp68, ptr noundef nonnull @_ZL15providerKeyword)
-  %29 = load ptr, ptr %agg.tmp68, align 8
-  %30 = getelementptr inbounds i8, ptr %agg.tmp68, i64 8
-  %31 = load i32, ptr %30, align 8
-  %call3.i67 = call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %locale, ptr noundef %29, i32 noundef %31, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %32 = load ptr, ptr %arrayidx63, align 8
-  %33 = load i32, ptr %len.i64, align 8
-  %call3.i69 = call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %locale, ptr noundef %32, i32 noundef %33, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %32 = load ptr, ptr %agg.tmp68, align 8
+  %33 = getelementptr inbounds i8, ptr %agg.tmp68, i64 8
+  %34 = load i32, ptr %33, align 8
+  %call3.i67 = call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %locale, ptr noundef %32, i32 noundef %34, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %35 = load ptr, ptr %arrayidx63, align 8
+  %36 = load i32, ptr %len.i64, align 8
+  %call3.i69 = call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %locale, ptr noundef %35, i32 noundef %36, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %if.end75
 
 if.end75:                                         ; preds = %if.end61, %if.then66, %entry

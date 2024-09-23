@@ -8235,6 +8235,7 @@ _ZN4Luau6Parser12parseNameOptEPKc.exit.thread:    ; preds = %3
   tail call void @_ZN4Luau6Parser10nextLexemeEv(ptr noundef nonnull align 8 dereferenceable(840) %0), !noalias !81
   store i64 %20, ptr %7, align 8, !alias.scope !81
   %21 = getelementptr inbounds i8, ptr %7, i64 24
+  store i8 1, ptr %21, align 8, !alias.scope !81
   br label %25
 
 _ZNSt8optionalIN4Luau6Parser4NameEEaSIS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS2_ES7_IS2_NSt5decayISA_E4typeEEEEESt16is_constructibleIS2_JSA_EESt13is_assignableIRS2_SA_EEERS3_E4typeEOSA_.exit: ; preds = %12
@@ -8246,11 +8247,10 @@ _ZNSt8optionalIN4Luau6Parser4NameEEaSIS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %13, i64 16, i1 false)
   store i64 %24, ptr %7, align 8
+  store i8 1, ptr %22, align 8
   br label %25
 
 25:                                               ; preds = %_ZN4Luau6Parser12parseNameOptEPKc.exit.thread, %_ZNSt8optionalIN4Luau6Parser4NameEEaSIS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS2_ES7_IS2_NSt5decayISA_E4typeEEEEESt16is_constructibleIS2_JSA_EESt13is_assignableIRS2_SA_EEERS3_E4typeEOSA_.exit
-  %.sink = phi ptr [ %21, %_ZN4Luau6Parser12parseNameOptEPKc.exit.thread ], [ %22, %_ZNSt8optionalIN4Luau6Parser4NameEEaSIS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS2_ES7_IS2_NSt5decayISA_E4typeEEEEESt16is_constructibleIS2_JSA_EESt13is_assignableIRS2_SA_EEERS3_E4typeEOSA_.exit ]
-  store i8 1, ptr %.sink, align 8
   call void @_ZN4Luau6Parser20parseGenericTypeListEb(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.155") align 8 %8, ptr noundef nonnull align 8 dereferenceable(840) %0, i1 noundef zeroext true)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   %26 = load i32, ptr %10, align 8

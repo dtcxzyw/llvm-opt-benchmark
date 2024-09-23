@@ -1089,8 +1089,8 @@ define internal noundef i32 @H5G__node_encode_key(ptr nocapture noundef readonly
   %5 = load i64, ptr %4, align 8
   switch i64 %5, label %.loopexit [
     i64 4, label %6
-    i64 8, label %16
-    i64 2, label %23
+    i64 8, label %17
+    i64 2, label %24
   ]
 
 6:                                                ; preds = %3
@@ -1105,43 +1105,43 @@ define internal noundef i32 @H5G__node_encode_key(ptr nocapture noundef readonly
   %13 = getelementptr inbounds i8, ptr %1, i64 2
   %14 = load i64, ptr %2, align 8
   %15 = lshr i64 %14, 16
+  %16 = trunc i64 %15 to i8
+  store i8 %16, ptr %13, align 1
   br label %.loopexit.sink.split
 
-16:                                               ; preds = %3
-  %17 = load i64, ptr %2, align 8
-  br label %18
+17:                                               ; preds = %3
+  %18 = load i64, ptr %2, align 8
+  br label %19
 
-18:                                               ; preds = %16, %18
-  %.035 = phi ptr [ %1, %16 ], [ %20, %18 ]
-  %.03034 = phi i64 [ 0, %16 ], [ %21, %18 ]
-  %.03233 = phi i64 [ %17, %16 ], [ %22, %18 ]
-  %19 = trunc i64 %.03233 to i8
-  %20 = getelementptr inbounds i8, ptr %.035, i64 1
-  store i8 %19, ptr %.035, align 1
-  %21 = add nuw nsw i64 %.03034, 1
-  %22 = lshr i64 %.03233, 8
-  %exitcond.not = icmp eq i64 %21, 8
-  br i1 %exitcond.not, label %.loopexit, label %18
+19:                                               ; preds = %17, %19
+  %.035 = phi ptr [ %1, %17 ], [ %21, %19 ]
+  %.03034 = phi i64 [ 0, %17 ], [ %22, %19 ]
+  %.03233 = phi i64 [ %18, %17 ], [ %23, %19 ]
+  %20 = trunc i64 %.03233 to i8
+  %21 = getelementptr inbounds i8, ptr %.035, i64 1
+  store i8 %20, ptr %.035, align 1
+  %22 = add nuw nsw i64 %.03034, 1
+  %23 = lshr i64 %.03233, 8
+  %exitcond.not = icmp eq i64 %22, 8
+  br i1 %exitcond.not, label %.loopexit, label %19
 
-23:                                               ; preds = %3
-  %24 = load i64, ptr %2, align 8
+24:                                               ; preds = %3
+  %25 = load i64, ptr %2, align 8
+  %26 = trunc i64 %25 to i8
+  store i8 %26, ptr %1, align 1
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %23, %6
-  %.sink41 = phi i64 [ %15, %6 ], [ %24, %23 ]
-  %.sink40 = phi ptr [ %13, %6 ], [ %1, %23 ]
-  %.sink = phi i64 [ 3, %6 ], [ 1, %23 ]
-  %.sink38 = phi i64 [ 24, %6 ], [ 8, %23 ]
-  %25 = trunc i64 %.sink41 to i8
-  store i8 %25, ptr %.sink40, align 1
-  %26 = getelementptr inbounds i8, ptr %1, i64 %.sink
-  %27 = load i64, ptr %2, align 8
-  %28 = lshr i64 %27, %.sink38
-  %29 = trunc i64 %28 to i8
-  store i8 %29, ptr %26, align 1
+.loopexit.sink.split:                             ; preds = %24, %6
+  %.sink = phi i64 [ 3, %6 ], [ 1, %24 ]
+  %.sink38 = phi i64 [ 24, %6 ], [ 8, %24 ]
+  %27 = getelementptr inbounds i8, ptr %1, i64 %.sink
+  %28 = load i64, ptr %2, align 8
+  %29 = lshr i64 %28, %.sink38
+  %30 = trunc i64 %29 to i8
+  store i8 %30, ptr %27, align 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %18, %.loopexit.sink.split, %3
+.loopexit:                                        ; preds = %19, %.loopexit.sink.split, %3
   ret i32 0
 }
 

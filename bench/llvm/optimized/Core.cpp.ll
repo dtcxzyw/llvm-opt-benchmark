@@ -10410,9 +10410,9 @@ define dso_local ptr @LLVMGetNormalDest(ptr nocapture noundef readonly %0) local
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local ptr @LLVMGetUnwindDest(ptr nocapture noundef readonly %0) local_unnamed_addr #14 {
   %2 = load i8, ptr %0, align 8
-  switch i8 %2, label %23 [
+  switch i8 %2, label %25 [
     i8 37, label %3
-    i8 39, label %15
+    i8 39, label %16
   ]
 
 3:                                                ; preds = %1
@@ -10430,32 +10430,30 @@ define dso_local ptr @LLVMGetUnwindDest(ptr nocapture noundef readonly %0) local
   %12 = sub nsw i64 0, %11
   %13 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %12
   %14 = getelementptr inbounds i8, ptr %13, i64 32
-  br label %_ZNK4llvm17CleanupReturnInst13getUnwindDestEv.exit.sink.split
-
-15:                                               ; preds = %1
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %17 = load i16, ptr %16, align 2
-  %18 = and i16 %17, 1
-  %.not.i12 = icmp eq i16 %18, 0
-  br i1 %.not.i12, label %_ZNK4llvm17CleanupReturnInst13getUnwindDestEv.exit, label %19
-
-19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %0, i64 -8
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 32
-  br label %_ZNK4llvm17CleanupReturnInst13getUnwindDestEv.exit.sink.split
-
-23:                                               ; preds = %1
-  %24 = getelementptr inbounds i8, ptr %0, i64 -64
-  br label %_ZNK4llvm17CleanupReturnInst13getUnwindDestEv.exit.sink.split
-
-_ZNK4llvm17CleanupReturnInst13getUnwindDestEv.exit.sink.split: ; preds = %23, %7, %19
-  %.sink = phi ptr [ %22, %19 ], [ %14, %7 ], [ %24, %23 ]
-  %25 = load ptr, ptr %.sink, align 8
+  %15 = load ptr, ptr %14, align 8
   br label %_ZNK4llvm17CleanupReturnInst13getUnwindDestEv.exit
 
-_ZNK4llvm17CleanupReturnInst13getUnwindDestEv.exit: ; preds = %_ZNK4llvm17CleanupReturnInst13getUnwindDestEv.exit.sink.split, %15, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %15 ], [ %25, %_ZNK4llvm17CleanupReturnInst13getUnwindDestEv.exit.sink.split ]
+16:                                               ; preds = %1
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %18 = load i16, ptr %17, align 2
+  %19 = and i16 %18, 1
+  %.not.i12 = icmp eq i16 %19, 0
+  br i1 %.not.i12, label %_ZNK4llvm17CleanupReturnInst13getUnwindDestEv.exit, label %20
+
+20:                                               ; preds = %16
+  %21 = getelementptr inbounds i8, ptr %0, i64 -8
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 32
+  %24 = load ptr, ptr %23, align 8
+  br label %_ZNK4llvm17CleanupReturnInst13getUnwindDestEv.exit
+
+25:                                               ; preds = %1
+  %26 = getelementptr inbounds i8, ptr %0, i64 -64
+  %27 = load ptr, ptr %26, align 8
+  br label %_ZNK4llvm17CleanupReturnInst13getUnwindDestEv.exit
+
+_ZNK4llvm17CleanupReturnInst13getUnwindDestEv.exit: ; preds = %20, %16, %7, %3, %25
+  %.0 = phi ptr [ %27, %25 ], [ %15, %7 ], [ null, %3 ], [ %24, %20 ], [ null, %16 ]
   ret ptr %.0
 }
 

@@ -210,7 +210,7 @@ define void @log_reinit() #2 {
 define void @log_fini() #2 {
   %1 = load ptr, ptr @log, align 8
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %47, label %2
+  br i1 %.not, label %45, label %2
 
 2:                                                ; preds = %0
   %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @log_lock) #19
@@ -248,69 +248,69 @@ define void @log_fini() #2 {
   br i1 %19, label %.sink.split.i, label %_log_flush.exit
 
 .sink.split.i:                                    ; preds = %17, %11
-  %.sink.i = phi i64 [ 24, %11 ], [ 32, %17 ]
-  %.sink10.i = phi ptr [ @stderr, %11 ], [ %15, %17 ]
-  %20 = getelementptr inbounds i8, ptr %7, i64 %.sink.i
-  %21 = load ptr, ptr %20, align 8
-  %22 = load ptr, ptr %.sink10.i, align 8
-  %23 = tail call i32 @fileno(ptr noundef %22) #19
-  %24 = tail call i32 @cbuf_read_to_fd(ptr noundef %21, i32 noundef %23, i32 noundef -1) #19
+  %.sink = phi i64 [ 24, %11 ], [ 32, %17 ]
+  %.sink9.in.i = phi ptr [ @stderr, %11 ], [ %15, %17 ]
+  %20 = getelementptr inbounds i8, ptr %7, i64 %.sink
+  %.sink.i = load ptr, ptr %20, align 8
+  %.sink9.i = load ptr, ptr %.sink9.in.i, align 8
+  %21 = tail call i32 @fileno(ptr noundef %.sink9.i) #19
+  %22 = tail call i32 @cbuf_read_to_fd(ptr noundef %.sink.i, i32 noundef %21, i32 noundef -1) #19
   br label %_log_flush.exit
 
 _log_flush.exit:                                  ; preds = %6, %14, %17, %.sink.split.i
-  %25 = load ptr, ptr @log, align 8
-  tail call void @slurm_xfree(ptr noundef %25) #19
+  %23 = load ptr, ptr @log, align 8
+  tail call void @slurm_xfree(ptr noundef %23) #19
+  %24 = load ptr, ptr @log, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  tail call void @slurm_xfree(ptr noundef nonnull %25) #19
   %26 = load ptr, ptr @log, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
-  tail call void @slurm_xfree(ptr noundef nonnull %27) #19
-  %28 = load ptr, ptr @log, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 24
-  %30 = load ptr, ptr %29, align 8
-  %.not9 = icmp eq ptr %30, null
-  br i1 %.not9, label %32, label %31
+  %27 = getelementptr inbounds i8, ptr %26, i64 24
+  %28 = load ptr, ptr %27, align 8
+  %.not9 = icmp eq ptr %28, null
+  br i1 %.not9, label %30, label %29
 
-31:                                               ; preds = %_log_flush.exit
-  tail call void @cbuf_destroy(ptr noundef nonnull %30) #19
+29:                                               ; preds = %_log_flush.exit
+  tail call void @cbuf_destroy(ptr noundef nonnull %28) #19
   %.pre = load ptr, ptr @log, align 8
-  br label %32
+  br label %30
 
-32:                                               ; preds = %31, %_log_flush.exit
-  %33 = phi ptr [ %.pre, %31 ], [ %28, %_log_flush.exit ]
-  %34 = getelementptr inbounds i8, ptr %33, i64 32
-  %35 = load ptr, ptr %34, align 8
-  %.not10 = icmp eq ptr %35, null
-  br i1 %.not10, label %37, label %36
+30:                                               ; preds = %29, %_log_flush.exit
+  %31 = phi ptr [ %.pre, %29 ], [ %26, %_log_flush.exit ]
+  %32 = getelementptr inbounds i8, ptr %31, i64 32
+  %33 = load ptr, ptr %32, align 8
+  %.not10 = icmp eq ptr %33, null
+  br i1 %.not10, label %35, label %34
 
-36:                                               ; preds = %32
-  tail call void @cbuf_destroy(ptr noundef nonnull %35) #19
+34:                                               ; preds = %30
+  tail call void @cbuf_destroy(ptr noundef nonnull %33) #19
   %.pre13 = load ptr, ptr @log, align 8
-  br label %37
+  br label %35
 
-37:                                               ; preds = %36, %32
-  %38 = phi ptr [ %.pre13, %36 ], [ %33, %32 ]
-  %39 = getelementptr inbounds i8, ptr %38, i64 16
-  %40 = load ptr, ptr %39, align 8
-  %.not11 = icmp eq ptr %40, null
-  br i1 %.not11, label %43, label %41
+35:                                               ; preds = %34, %30
+  %36 = phi ptr [ %.pre13, %34 ], [ %31, %30 ]
+  %37 = getelementptr inbounds i8, ptr %36, i64 16
+  %38 = load ptr, ptr %37, align 8
+  %.not11 = icmp eq ptr %38, null
+  br i1 %.not11, label %41, label %39
 
-41:                                               ; preds = %37
-  %42 = tail call i32 @fclose(ptr noundef nonnull %40)
-  br label %43
+39:                                               ; preds = %35
+  %40 = tail call i32 @fclose(ptr noundef nonnull %38)
+  br label %41
 
-43:                                               ; preds = %41, %37
+41:                                               ; preds = %39, %35
   tail call void @slurm_xfree(ptr noundef nonnull @log) #19
   tail call void @slurm_xfree(ptr noundef nonnull @slurm_prog_name) #19
-  %44 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @log_lock) #19
-  %.not12 = icmp eq i32 %44, 0
-  br i1 %.not12, label %47, label %45
+  %42 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @log_lock) #19
+  %.not12 = icmp eq i32 %42, 0
+  br i1 %.not12, label %45, label %43
 
-45:                                               ; preds = %43
-  %46 = tail call ptr @__errno_location() #20
-  store i32 %44, ptr %46, align 4
+43:                                               ; preds = %41
+  %44 = tail call ptr @__errno_location() #20
+  store i32 %42, ptr %44, align 4
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.6, i32 noundef 532, ptr noundef nonnull @__func__.log_fini) #21
   unreachable
 
-47:                                               ; preds = %43, %0
+45:                                               ; preds = %41, %0
   ret void
 }
 
@@ -609,27 +609,27 @@ define void @log_flush() #2 {
   br i1 %17, label %.sink.split.i, label %_log_flush.exit
 
 .sink.split.i:                                    ; preds = %15, %9
-  %.sink.i = phi i64 [ 24, %9 ], [ 32, %15 ]
-  %.sink10.i = phi ptr [ @stderr, %9 ], [ %13, %15 ]
-  %18 = getelementptr inbounds i8, ptr %5, i64 %.sink.i
-  %19 = load ptr, ptr %18, align 8
-  %20 = load ptr, ptr %.sink10.i, align 8
-  %21 = tail call i32 @fileno(ptr noundef %20) #19
-  %22 = tail call i32 @cbuf_read_to_fd(ptr noundef %19, i32 noundef %21, i32 noundef -1) #19
+  %.sink = phi i64 [ 24, %9 ], [ 32, %15 ]
+  %.sink9.in.i = phi ptr [ @stderr, %9 ], [ %13, %15 ]
+  %18 = getelementptr inbounds i8, ptr %5, i64 %.sink
+  %.sink.i = load ptr, ptr %18, align 8
+  %.sink9.i = load ptr, ptr %.sink9.in.i, align 8
+  %19 = tail call i32 @fileno(ptr noundef %.sink9.i) #19
+  %20 = tail call i32 @cbuf_read_to_fd(ptr noundef %.sink.i, i32 noundef %19, i32 noundef -1) #19
   br label %_log_flush.exit
 
 _log_flush.exit:                                  ; preds = %4, %12, %15, %.sink.split.i
-  %23 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @log_lock) #19
-  %.not5 = icmp eq i32 %23, 0
-  br i1 %.not5, label %26, label %24
+  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @log_lock) #19
+  %.not5 = icmp eq i32 %21, 0
+  br i1 %.not5, label %24, label %22
 
-24:                                               ; preds = %_log_flush.exit
-  %25 = tail call ptr @__errno_location() #20
-  store i32 %23, ptr %25, align 4
+22:                                               ; preds = %_log_flush.exit
+  %23 = tail call ptr @__errno_location() #20
+  store i32 %21, ptr %23, align 4
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.6, i32 noundef 1468, ptr noundef nonnull @__func__.log_flush) #21
   unreachable
 
-26:                                               ; preds = %_log_flush.exit
+24:                                               ; preds = %_log_flush.exit
   ret void
 }
 
@@ -1517,7 +1517,7 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #8
 define void @sched_log_fini() local_unnamed_addr #2 {
   %1 = load ptr, ptr @sched_log, align 8
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %47, label %2
+  br i1 %.not, label %45, label %2
 
 2:                                                ; preds = %0
   %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @log_lock) #19
@@ -1555,68 +1555,68 @@ define void @sched_log_fini() local_unnamed_addr #2 {
   br i1 %19, label %.sink.split.i, label %_log_flush.exit
 
 .sink.split.i:                                    ; preds = %17, %11
-  %.sink.i = phi i64 [ 24, %11 ], [ 32, %17 ]
-  %.sink10.i = phi ptr [ @stderr, %11 ], [ %15, %17 ]
-  %20 = getelementptr inbounds i8, ptr %7, i64 %.sink.i
-  %21 = load ptr, ptr %20, align 8
-  %22 = load ptr, ptr %.sink10.i, align 8
-  %23 = tail call i32 @fileno(ptr noundef %22) #19
-  %24 = tail call i32 @cbuf_read_to_fd(ptr noundef %21, i32 noundef %23, i32 noundef -1) #19
+  %.sink = phi i64 [ 24, %11 ], [ 32, %17 ]
+  %.sink9.in.i = phi ptr [ @stderr, %11 ], [ %15, %17 ]
+  %20 = getelementptr inbounds i8, ptr %7, i64 %.sink
+  %.sink.i = load ptr, ptr %20, align 8
+  %.sink9.i = load ptr, ptr %.sink9.in.i, align 8
+  %21 = tail call i32 @fileno(ptr noundef %.sink9.i) #19
+  %22 = tail call i32 @cbuf_read_to_fd(ptr noundef %.sink.i, i32 noundef %21, i32 noundef -1) #19
   br label %_log_flush.exit
 
 _log_flush.exit:                                  ; preds = %6, %14, %17, %.sink.split.i
-  %25 = load ptr, ptr @sched_log, align 8
-  tail call void @slurm_xfree(ptr noundef %25) #19
+  %23 = load ptr, ptr @sched_log, align 8
+  tail call void @slurm_xfree(ptr noundef %23) #19
+  %24 = load ptr, ptr @sched_log, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  tail call void @slurm_xfree(ptr noundef nonnull %25) #19
   %26 = load ptr, ptr @sched_log, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
-  tail call void @slurm_xfree(ptr noundef nonnull %27) #19
-  %28 = load ptr, ptr @sched_log, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 24
-  %30 = load ptr, ptr %29, align 8
-  %.not9 = icmp eq ptr %30, null
-  br i1 %.not9, label %32, label %31
+  %27 = getelementptr inbounds i8, ptr %26, i64 24
+  %28 = load ptr, ptr %27, align 8
+  %.not9 = icmp eq ptr %28, null
+  br i1 %.not9, label %30, label %29
 
-31:                                               ; preds = %_log_flush.exit
-  tail call void @cbuf_destroy(ptr noundef nonnull %30) #19
+29:                                               ; preds = %_log_flush.exit
+  tail call void @cbuf_destroy(ptr noundef nonnull %28) #19
   %.pre = load ptr, ptr @sched_log, align 8
-  br label %32
+  br label %30
 
-32:                                               ; preds = %31, %_log_flush.exit
-  %33 = phi ptr [ %.pre, %31 ], [ %28, %_log_flush.exit ]
-  %34 = getelementptr inbounds i8, ptr %33, i64 32
-  %35 = load ptr, ptr %34, align 8
-  %.not10 = icmp eq ptr %35, null
-  br i1 %.not10, label %37, label %36
+30:                                               ; preds = %29, %_log_flush.exit
+  %31 = phi ptr [ %.pre, %29 ], [ %26, %_log_flush.exit ]
+  %32 = getelementptr inbounds i8, ptr %31, i64 32
+  %33 = load ptr, ptr %32, align 8
+  %.not10 = icmp eq ptr %33, null
+  br i1 %.not10, label %35, label %34
 
-36:                                               ; preds = %32
-  tail call void @cbuf_destroy(ptr noundef nonnull %35) #19
+34:                                               ; preds = %30
+  tail call void @cbuf_destroy(ptr noundef nonnull %33) #19
   %.pre13 = load ptr, ptr @sched_log, align 8
-  br label %37
+  br label %35
 
-37:                                               ; preds = %36, %32
-  %38 = phi ptr [ %.pre13, %36 ], [ %33, %32 ]
-  %39 = getelementptr inbounds i8, ptr %38, i64 16
-  %40 = load ptr, ptr %39, align 8
-  %.not11 = icmp eq ptr %40, null
-  br i1 %.not11, label %43, label %41
+35:                                               ; preds = %34, %30
+  %36 = phi ptr [ %.pre13, %34 ], [ %31, %30 ]
+  %37 = getelementptr inbounds i8, ptr %36, i64 16
+  %38 = load ptr, ptr %37, align 8
+  %.not11 = icmp eq ptr %38, null
+  br i1 %.not11, label %41, label %39
 
-41:                                               ; preds = %37
-  %42 = tail call i32 @fclose(ptr noundef nonnull %40)
-  br label %43
+39:                                               ; preds = %35
+  %40 = tail call i32 @fclose(ptr noundef nonnull %38)
+  br label %41
 
-43:                                               ; preds = %41, %37
+41:                                               ; preds = %39, %35
   tail call void @slurm_xfree(ptr noundef nonnull @sched_log) #19
-  %44 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @log_lock) #19
-  %.not12 = icmp eq i32 %44, 0
-  br i1 %.not12, label %47, label %45
+  %42 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @log_lock) #19
+  %.not12 = icmp eq i32 %42, 0
+  br i1 %.not12, label %45, label %43
 
-45:                                               ; preds = %43
-  %46 = tail call ptr @__errno_location() #20
-  store i32 %44, ptr %46, align 4
+43:                                               ; preds = %41
+  %44 = tail call ptr @__errno_location() #20
+  store i32 %42, ptr %44, align 4
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.6, i32 noundef 551, ptr noundef nonnull @__func__.sched_log_fini) #21
   unreachable
 
-47:                                               ; preds = %43, %0
+45:                                               ; preds = %41, %0
   ret void
 }
 

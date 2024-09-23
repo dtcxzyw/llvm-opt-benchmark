@@ -3226,10 +3226,10 @@ cmsPipelineGetPtrToLastStage.exit.i.i:            ; preds = %thread-pre-split.i.
   %.not64 = icmp eq ptr %.03763, null
   br i1 %.not64, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader, %85
-  %.03767 = phi ptr [ %.037, %85 ], [ %.03763, %.preheader ]
-  %.not4666 = phi i1 [ true, %85 ], [ false, %.preheader ]
-  %.03865 = phi ptr [ %48, %85 ], [ null, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %87
+  %.03767 = phi ptr [ %.037, %87 ], [ %.03763, %.preheader ]
+  %.not4666 = phi i1 [ true, %87 ], [ false, %.preheader ]
+  %.03865 = phi ptr [ %48, %87 ], [ null, %.preheader ]
   %35 = load ptr, ptr %.03767, align 8
   %36 = getelementptr inbounds i8, ptr %.03767, i64 8
   %37 = load i32, ptr %36, align 8
@@ -3324,119 +3324,122 @@ cmsStageFree.exit.i51:                            ; preds = %76, %.lr.ph.i
 ._crit_edge.i:                                    ; preds = %cmsStageFree.exit.i51, %.loopexit
   %78 = load ptr, ptr %19, align 8
   %.not14.i = icmp eq ptr %78, null
-  br i1 %.not14.i, label %cmsPipelineAlloc.exit.thread.sink.split.sink.split, label %79
+  br i1 %.not14.i, label %cmsPipelineFree.exit, label %79
 
 79:                                               ; preds = %._crit_edge.i
   %80 = load ptr, ptr %21, align 8
   %81 = load ptr, ptr %20, align 8
   tail call void %78(ptr noundef %80, ptr noundef %81) #18
-  br label %cmsPipelineAlloc.exit.thread.sink.split.sink.split
+  br label %cmsPipelineFree.exit
+
+cmsPipelineFree.exit:                             ; preds = %._crit_edge.i, %79
+  %82 = load ptr, ptr %21, align 8
+  br label %cmsPipelineAlloc.exit.thread.sink.split
 
 cmsStageDup.exit:                                 ; preds = %70, %62
-  br i1 %.not4666, label %82, label %.sink.split
+  br i1 %.not4666, label %84, label %83
 
-82:                                               ; preds = %cmsStageDup.exit
+83:                                               ; preds = %cmsStageDup.exit
+  store ptr %48, ptr %12, align 8
+  br label %87
+
+84:                                               ; preds = %cmsStageDup.exit
   %.not47 = icmp eq ptr %.03865, null
-  br i1 %.not47, label %85, label %83
+  br i1 %.not47, label %87, label %85
 
-83:                                               ; preds = %82
-  %84 = getelementptr inbounds i8, ptr %.03865, i64 56
-  br label %.sink.split
+85:                                               ; preds = %84
+  %86 = getelementptr inbounds i8, ptr %.03865, i64 56
+  store ptr %48, ptr %86, align 8
+  br label %87
 
-.sink.split:                                      ; preds = %cmsStageDup.exit, %83
-  %.sink = phi ptr [ %84, %83 ], [ %12, %cmsStageDup.exit ]
-  store ptr %48, ptr %.sink, align 8
-  br label %85
-
-85:                                               ; preds = %.sink.split, %82
-  %86 = getelementptr inbounds i8, ptr %.03767, i64 56
-  %.037 = load ptr, ptr %86, align 8
+87:                                               ; preds = %84, %85, %83
+  %88 = getelementptr inbounds i8, ptr %.03767, i64 56
+  %.037 = load ptr, ptr %88, align 8
   %.not = icmp eq ptr %.037, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
 
-._crit_edge:                                      ; preds = %85, %.preheader
-  %87 = getelementptr inbounds i8, ptr %0, i64 24
-  %88 = load ptr, ptr %87, align 8
-  store ptr %88, ptr %17, align 8
-  %89 = getelementptr inbounds i8, ptr %0, i64 32
+._crit_edge:                                      ; preds = %87, %.preheader
+  %89 = getelementptr inbounds i8, ptr %0, i64 24
   %90 = load ptr, ptr %89, align 8
-  store ptr %90, ptr %18, align 8
-  %91 = getelementptr inbounds i8, ptr %0, i64 48
+  store ptr %90, ptr %17, align 8
+  %91 = getelementptr inbounds i8, ptr %0, i64 32
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %12, i64 48
-  store ptr %92, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %0, i64 40
-  %95 = load ptr, ptr %94, align 8
-  store ptr %95, ptr %19, align 8
-  %.not44 = icmp eq ptr %92, null
-  br i1 %.not44, label %101, label %96
+  store ptr %92, ptr %18, align 8
+  %93 = getelementptr inbounds i8, ptr %0, i64 48
+  %94 = load ptr, ptr %93, align 8
+  %95 = getelementptr inbounds i8, ptr %12, i64 48
+  store ptr %94, ptr %95, align 8
+  %96 = getelementptr inbounds i8, ptr %0, i64 40
+  %97 = load ptr, ptr %96, align 8
+  store ptr %97, ptr %19, align 8
+  %.not44 = icmp eq ptr %94, null
+  br i1 %.not44, label %103, label %98
 
-96:                                               ; preds = %._crit_edge
-  %97 = load ptr, ptr %4, align 8
-  %98 = getelementptr inbounds i8, ptr %0, i64 16
-  %99 = load ptr, ptr %98, align 8
-  %100 = tail call ptr %92(ptr noundef %97, ptr noundef %99) #18
-  store ptr %100, ptr %20, align 8
-  br label %101
+98:                                               ; preds = %._crit_edge
+  %99 = load ptr, ptr %4, align 8
+  %100 = getelementptr inbounds i8, ptr %0, i64 16
+  %101 = load ptr, ptr %100, align 8
+  %102 = tail call ptr %94(ptr noundef %99, ptr noundef %101) #18
+  store ptr %102, ptr %20, align 8
+  br label %103
 
-101:                                              ; preds = %96, %._crit_edge
-  %102 = getelementptr inbounds i8, ptr %0, i64 64
-  %103 = load i32, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %12, i64 64
-  store i32 %103, ptr %104, align 8
-  %105 = load ptr, ptr %12, align 8
-  %.not.i53 = icmp eq ptr %105, null
+103:                                              ; preds = %98, %._crit_edge
+  %104 = getelementptr inbounds i8, ptr %0, i64 64
+  %105 = load i32, ptr %104, align 8
+  %106 = getelementptr inbounds i8, ptr %12, i64 64
+  store i32 %105, ptr %106, align 8
+  %107 = load ptr, ptr %12, align 8
+  %.not.i53 = icmp eq ptr %107, null
   br i1 %.not.i53, label %cmsPipelineAlloc.exit.thread, label %thread-pre-split.i
 
-thread-pre-split.i:                               ; preds = %101, %thread-pre-split.i
-  %.05.i23.i = phi ptr [ %.05.i.pr.i, %thread-pre-split.i ], [ %105, %101 ]
-  %106 = getelementptr inbounds i8, ptr %.05.i23.i, i64 56
-  %.05.i.pr.i = load ptr, ptr %106, align 8
+thread-pre-split.i:                               ; preds = %103, %thread-pre-split.i
+  %.05.i23.i = phi ptr [ %.05.i.pr.i, %thread-pre-split.i ], [ %107, %103 ]
+  %108 = getelementptr inbounds i8, ptr %.05.i23.i, i64 56
+  %.05.i.pr.i = load ptr, ptr %108, align 8
   %.not.i.i54 = icmp eq ptr %.05.i.pr.i, null
   br i1 %.not.i.i54, label %cmsPipelineGetPtrToLastStage.exit.i, label %thread-pre-split.i, !llvm.loop !43
 
 cmsPipelineGetPtrToLastStage.exit.i:              ; preds = %thread-pre-split.i
-  %107 = getelementptr inbounds i8, ptr %105, i64 16
-  %108 = load i32, ptr %107, align 8
-  store i32 %108, ptr %15, align 8
-  %109 = getelementptr inbounds i8, ptr %.05.i23.i, i64 20
-  %110 = load i32, ptr %109, align 4
-  store i32 %110, ptr %16, align 4
-  %.018.in24.i = getelementptr inbounds i8, ptr %105, i64 56
+  %109 = getelementptr inbounds i8, ptr %107, i64 16
+  %110 = load i32, ptr %109, align 8
+  store i32 %110, ptr %15, align 8
+  %111 = getelementptr inbounds i8, ptr %.05.i23.i, i64 20
+  %112 = load i32, ptr %111, align 4
+  store i32 %112, ptr %16, align 4
+  %.018.in24.i = getelementptr inbounds i8, ptr %107, i64 56
   %.01825.i = load ptr, ptr %.018.in24.i, align 8
   %.not2126.i = icmp eq ptr %.01825.i, null
   br i1 %.not2126.i, label %cmsPipelineAlloc.exit.thread, label %.lr.ph.i55
 
-.lr.ph.i55:                                       ; preds = %cmsPipelineGetPtrToLastStage.exit.i, %115
-  %.01828.i = phi ptr [ %.018.i, %115 ], [ %.01825.i, %cmsPipelineGetPtrToLastStage.exit.i ]
-  %.01727.i = phi ptr [ %117, %115 ], [ %105, %cmsPipelineGetPtrToLastStage.exit.i ]
-  %111 = getelementptr inbounds i8, ptr %.01828.i, i64 16
-  %112 = load i32, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %.01727.i, i64 20
-  %114 = load i32, ptr %113, align 4
-  %.not22.i = icmp eq i32 %112, %114
-  br i1 %.not22.i, label %115, label %cmsPipelineAlloc.exit.thread.sink.split.sink.split
+.lr.ph.i55:                                       ; preds = %cmsPipelineGetPtrToLastStage.exit.i, %117
+  %.01828.i = phi ptr [ %.018.i, %117 ], [ %.01825.i, %cmsPipelineGetPtrToLastStage.exit.i ]
+  %.01727.i = phi ptr [ %119, %117 ], [ %107, %cmsPipelineGetPtrToLastStage.exit.i ]
+  %113 = getelementptr inbounds i8, ptr %.01828.i, i64 16
+  %114 = load i32, ptr %113, align 8
+  %115 = getelementptr inbounds i8, ptr %.01727.i, i64 20
+  %116 = load i32, ptr %115, align 4
+  %.not22.i = icmp eq i32 %114, %116
+  br i1 %.not22.i, label %117, label %BlessLUT.exit
 
-115:                                              ; preds = %.lr.ph.i55
-  %116 = getelementptr inbounds i8, ptr %.01727.i, i64 56
-  %117 = load ptr, ptr %116, align 8
+117:                                              ; preds = %.lr.ph.i55
+  %118 = getelementptr inbounds i8, ptr %.01727.i, i64 56
+  %119 = load ptr, ptr %118, align 8
   %.018.in.i = getelementptr inbounds i8, ptr %.01828.i, i64 56
   %.018.i = load ptr, ptr %.018.in.i, align 8
   %.not21.i = icmp eq ptr %.018.i, null
   br i1 %.not21.i, label %cmsPipelineAlloc.exit.thread, label %.lr.ph.i55, !llvm.loop !44
 
-cmsPipelineAlloc.exit.thread.sink.split.sink.split: ; preds = %.lr.ph.i55, %79, %._crit_edge.i
-  %.sink75 = phi ptr [ %21, %._crit_edge.i ], [ %21, %79 ], [ %4, %.lr.ph.i55 ]
-  %118 = load ptr, ptr %.sink75, align 8
+BlessLUT.exit:                                    ; preds = %.lr.ph.i55
+  %120 = load ptr, ptr %4, align 8
   br label %cmsPipelineAlloc.exit.thread.sink.split
 
-cmsPipelineAlloc.exit.thread.sink.split:          ; preds = %.lr.ph.i.i, %cmsPipelineAlloc.exit.thread.sink.split.sink.split
-  %.sink74 = phi ptr [ %118, %cmsPipelineAlloc.exit.thread.sink.split.sink.split ], [ %5, %.lr.ph.i.i ]
-  tail call void @_cmsFree(ptr noundef %.sink74, ptr noundef nonnull %12) #18
+cmsPipelineAlloc.exit.thread.sink.split:          ; preds = %.lr.ph.i.i, %cmsPipelineFree.exit, %BlessLUT.exit
+  %.sink = phi ptr [ %120, %BlessLUT.exit ], [ %82, %cmsPipelineFree.exit ], [ %5, %.lr.ph.i.i ]
+  tail call void @_cmsFree(ptr noundef %.sink, ptr noundef nonnull %12) #18
   br label %cmsPipelineAlloc.exit.thread
 
-cmsPipelineAlloc.exit.thread:                     ; preds = %115, %cmsPipelineAlloc.exit.thread.sink.split, %cmsPipelineGetPtrToLastStage.exit.i, %101, %11, %3, %1
-  %.039 = phi ptr [ null, %1 ], [ null, %3 ], [ null, %11 ], [ %12, %101 ], [ %12, %cmsPipelineGetPtrToLastStage.exit.i ], [ null, %cmsPipelineAlloc.exit.thread.sink.split ], [ %12, %115 ]
+cmsPipelineAlloc.exit.thread:                     ; preds = %117, %cmsPipelineAlloc.exit.thread.sink.split, %cmsPipelineGetPtrToLastStage.exit.i, %103, %11, %3, %1
+  %.039 = phi ptr [ null, %1 ], [ null, %3 ], [ null, %11 ], [ %12, %103 ], [ %12, %cmsPipelineGetPtrToLastStage.exit.i ], [ null, %cmsPipelineAlloc.exit.thread.sink.split ], [ %12, %117 ]
   ret ptr %.039
 }
 
@@ -3547,7 +3550,7 @@ define hidden void @cmsPipelineUnlinkStage(ptr nocapture noundef %0, i32 noundef
   br label %BlessLUT.exit
 
 8:                                                ; preds = %3
-  switch i32 %1, label %16 [
+  switch i32 %1, label %18 [
     i32 0, label %9
     i32 1, label %.preheader
   ]
@@ -3556,7 +3559,8 @@ define hidden void @cmsPipelineUnlinkStage(ptr nocapture noundef %0, i32 noundef
   %10 = getelementptr inbounds i8, ptr %4, i64 56
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %0, align 8
-  br label %.sink.split
+  store ptr null, ptr %10, align 8
+  br label %18
 
 .preheader:                                       ; preds = %8, %.preheader
   %.02332 = phi ptr [ %.02431, %.preheader ], [ null, %8 ]
@@ -3568,64 +3572,65 @@ define hidden void @cmsPipelineUnlinkStage(ptr nocapture noundef %0, i32 noundef
 
 14:                                               ; preds = %.preheader
   %.not27 = icmp eq ptr %.02332, null
-  %15 = getelementptr inbounds i8, ptr %.02332, i64 56
-  %spec.select = select i1 %.not27, ptr %0, ptr %15
-  br label %.sink.split
+  br i1 %.not27, label %17, label %15
 
-.sink.split:                                      ; preds = %14, %9
-  %.sink = phi ptr [ %10, %9 ], [ %spec.select, %14 ]
-  %.022.ph = phi ptr [ %4, %9 ], [ %.02431, %14 ]
-  store ptr null, ptr %.sink, align 8
-  br label %16
+15:                                               ; preds = %14
+  %16 = getelementptr inbounds i8, ptr %.02332, i64 56
+  store ptr null, ptr %16, align 8
+  br label %18
 
-16:                                               ; preds = %.sink.split, %8
-  %.022 = phi ptr [ null, %8 ], [ %.022.ph, %.sink.split ]
+17:                                               ; preds = %14
+  store ptr null, ptr %0, align 8
+  br label %18
+
+18:                                               ; preds = %8, %15, %17, %9
+  %.022 = phi ptr [ null, %8 ], [ %.02431, %15 ], [ %.02431, %17 ], [ %4, %9 ]
   %.not28 = icmp eq ptr %2, null
-  br i1 %.not28, label %18, label %17
+  br i1 %.not28, label %20, label %19
 
-17:                                               ; preds = %16
+19:                                               ; preds = %18
   store ptr %.022, ptr %2, align 8
-  br label %23
+  br label %25
 
-18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %.022, i64 40
-  %20 = load ptr, ptr %19, align 8
-  %.not.i = icmp eq ptr %20, null
-  br i1 %.not.i, label %cmsStageFree.exit, label %21
+20:                                               ; preds = %18
+  %21 = getelementptr inbounds i8, ptr %.022, i64 40
+  %22 = load ptr, ptr %21, align 8
+  %.not.i = icmp eq ptr %22, null
+  br i1 %.not.i, label %cmsStageFree.exit, label %23
 
-21:                                               ; preds = %18
-  tail call void %20(ptr noundef nonnull %.022) #18
+23:                                               ; preds = %20
+  tail call void %22(ptr noundef nonnull %.022) #18
   br label %cmsStageFree.exit
 
-cmsStageFree.exit:                                ; preds = %18, %21
-  %22 = load ptr, ptr %.022, align 8
-  tail call void @_cmsFree(ptr noundef %22, ptr noundef nonnull %.022) #18
-  br label %23
+cmsStageFree.exit:                                ; preds = %20, %23
+  %24 = load ptr, ptr %.022, align 8
+  tail call void @_cmsFree(ptr noundef %24, ptr noundef nonnull %.022) #18
+  br label %25
 
-23:                                               ; preds = %cmsStageFree.exit, %17
-  %24 = load ptr, ptr %0, align 8
-  %.not.i30 = icmp eq ptr %24, null
+25:                                               ; preds = %cmsStageFree.exit, %19
+  %26 = load ptr, ptr %0, align 8
+  %.not.i30 = icmp eq ptr %26, null
   br i1 %.not.i30, label %BlessLUT.exit, label %thread-pre-split.i
 
-thread-pre-split.i:                               ; preds = %23, %thread-pre-split.i
-  %.05.i23.i = phi ptr [ %.05.i.pr.i, %thread-pre-split.i ], [ %24, %23 ]
-  %25 = getelementptr inbounds i8, ptr %.05.i23.i, i64 56
-  %.05.i.pr.i = load ptr, ptr %25, align 8
+thread-pre-split.i:                               ; preds = %25, %thread-pre-split.i
+  %.05.i23.i = phi ptr [ %.05.i.pr.i, %thread-pre-split.i ], [ %26, %25 ]
+  %27 = getelementptr inbounds i8, ptr %.05.i23.i, i64 56
+  %.05.i.pr.i = load ptr, ptr %27, align 8
   %.not.i.i = icmp eq ptr %.05.i.pr.i, null
   br i1 %.not.i.i, label %cmsPipelineGetPtrToLastStage.exit.i, label %thread-pre-split.i, !llvm.loop !43
 
 cmsPipelineGetPtrToLastStage.exit.i:              ; preds = %thread-pre-split.i
-  %26 = getelementptr inbounds i8, ptr %24, i64 16
-  %27 = load i32, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %.05.i23.i, i64 20
-  %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 12
-  store i32 %30, ptr %31, align 4
+  %28 = getelementptr inbounds i8, ptr %26, i64 16
+  %29 = load i32, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %29, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %.05.i23.i, i64 20
+  %32 = load i32, ptr %31, align 4
+  %33 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 %32, ptr %33, align 4
   br label %BlessLUT.exit
 
-BlessLUT.exit:                                    ; preds = %cmsPipelineGetPtrToLastStage.exit.i, %23, %6, %7
+BlessLUT.exit:                                    ; preds = %cmsPipelineGetPtrToLastStage.exit.i, %25, %6, %7
   ret void
 }
 

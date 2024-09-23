@@ -2346,6 +2346,7 @@ define internal noundef i32 @nfs4_run_state_manager(ptr noundef %0) #7 align 16 
 
 67:                                               ; preds = %61
   %68 = getelementptr inbounds i8, ptr %.val, i64 416
+  store i32 0, ptr %68, align 8
   br label %nfs4_begin_drain_session.exit
 
 69:                                               ; preds = %56
@@ -2382,20 +2383,20 @@ define internal noundef i32 @nfs4_run_state_manager(ptr noundef %0) #7 align 16 
 
 85:                                               ; preds = %79
   %86 = getelementptr inbounds i8, ptr %.val32, i64 480
+  store i32 0, ptr %86, align 8
   br label %nfs4_begin_drain_session.exit
 
 nfs4_begin_drain_session.exit:                    ; preds = %67, %85
-  %.sink124 = phi ptr [ %68, %67 ], [ %86, %85 ]
   %.sink123 = phi ptr [ %63, %67 ], [ %81, %85 ]
-  store i32 0, ptr %.sink124, align 8
+  %.sink = phi ptr [ %68, %67 ], [ %86, %85 ]
   call void @_raw_spin_unlock(ptr noundef %.sink123) #17
-  %87 = call i32 @wait_for_completion_interruptible(ptr noundef %.sink124) #17
+  %87 = call i32 @wait_for_completion_interruptible(ptr noundef %.sink) #17
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %nfs4_begin_drain_session.exit.thread, label %nfs4_begin_drain_session.exit.thread51
 
 nfs4_begin_drain_session.exit.thread.sink.split:  ; preds = %79, %61
-  %.sink125 = phi ptr [ %63, %61 ], [ %81, %79 ]
-  call void @_raw_spin_unlock(ptr noundef %.sink125) #17
+  %.sink124 = phi ptr [ %63, %61 ], [ %81, %79 ]
+  call void @_raw_spin_unlock(ptr noundef %.sink124) #17
   br label %nfs4_begin_drain_session.exit.thread
 
 nfs4_begin_drain_session.exit.thread:             ; preds = %nfs4_begin_drain_session.exit.thread.sink.split, %nfs4_begin_drain_session.exit
@@ -2555,6 +2556,7 @@ nfs4_state_mark_reclaim_nograce.exit.thread:      ; preds = %.preheader7.i, %.lo
 
 161:                                              ; preds = %155
   %162 = getelementptr inbounds i8, ptr %.val33, i64 416
+  store i32 0, ptr %162, align 8
   br label %nfs4_begin_drain_session.exit40
 
 163:                                              ; preds = %150
@@ -2591,20 +2593,20 @@ nfs4_state_mark_reclaim_nograce.exit.thread:      ; preds = %.preheader7.i, %.lo
 
 179:                                              ; preds = %173
   %180 = getelementptr inbounds i8, ptr %.val34, i64 480
+  store i32 0, ptr %180, align 8
   br label %nfs4_begin_drain_session.exit40
 
 nfs4_begin_drain_session.exit40:                  ; preds = %161, %179
-  %.sink128 = phi ptr [ %162, %161 ], [ %180, %179 ]
-  %.sink127 = phi ptr [ %157, %161 ], [ %175, %179 ]
-  store i32 0, ptr %.sink128, align 8
-  call void @_raw_spin_unlock(ptr noundef %.sink127) #17
-  %181 = call i32 @wait_for_completion_interruptible(ptr noundef %.sink128) #17
+  %.sink126 = phi ptr [ %157, %161 ], [ %175, %179 ]
+  %.sink125 = phi ptr [ %162, %161 ], [ %180, %179 ]
+  call void @_raw_spin_unlock(ptr noundef %.sink126) #17
+  %181 = call i32 @wait_for_completion_interruptible(ptr noundef %.sink125) #17
   %182 = icmp eq i32 %181, 0
   br i1 %182, label %nfs4_begin_drain_session.exit40.thread, label %nfs4_begin_drain_session.exit40.thread54
 
 nfs4_begin_drain_session.exit40.thread.sink.split: ; preds = %173, %155
-  %.sink129 = phi ptr [ %157, %155 ], [ %175, %173 ]
-  call void @_raw_spin_unlock(ptr noundef %.sink129) #17
+  %.sink127 = phi ptr [ %157, %155 ], [ %175, %173 ]
+  call void @_raw_spin_unlock(ptr noundef %.sink127) #17
   br label %nfs4_begin_drain_session.exit40.thread
 
 nfs4_begin_drain_session.exit40.thread:           ; preds = %nfs4_begin_drain_session.exit40.thread.sink.split, %nfs4_begin_drain_session.exit40

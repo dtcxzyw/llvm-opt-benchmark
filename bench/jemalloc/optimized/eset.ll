@@ -120,7 +120,8 @@ if.then:                                          ; preds = %sz_psz2ind.exit
   %heap_min = getelementptr inbounds i8, ptr %arrayidx, i64 16
   store i64 %edata.val31, ptr %heap_min, align 8
   %edata_cmp_summary.sroa.4.0.heap_min.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 24
-  br label %if.end19.sink.split
+  store i64 %9, ptr %edata_cmp_summary.sroa.4.0.heap_min.sroa_idx, align 8
+  br label %if.end19
 
 if.else:                                          ; preds = %sz_psz2ind.exit
   %heap_min11 = getelementptr inbounds i8, ptr %arrayidx, i64 16
@@ -136,14 +137,10 @@ if.else:                                          ; preds = %sz_psz2ind.exit
 
 if.then14:                                        ; preds = %if.else
   store i64 %edata.val31, ptr %heap_min11, align 8
-  br label %if.end19.sink.split
-
-if.end19.sink.split:                              ; preds = %if.then, %if.then14
-  %.sink = phi ptr [ %12, %if.then14 ], [ %edata_cmp_summary.sroa.4.0.heap_min.sroa_idx, %if.then ]
-  store i64 %9, ptr %.sink, align 8
+  store i64 %9, ptr %12, align 8
   br label %if.end19
 
-if.end19:                                         ; preds = %if.end19.sink.split, %if.else
+if.end19:                                         ; preds = %if.else, %if.then14, %if.then
   tail call void @edata_heap_insert(ptr noundef nonnull %arrayidx, ptr noundef nonnull %edata) #7
   %bin_stats.i = getelementptr inbounds i8, ptr %eset, i64 6432
   %arrayidx.i35 = getelementptr inbounds [200 x %struct.eset_bin_stats_s], ptr %bin_stats.i, i64 0, i64 %retval.i.0

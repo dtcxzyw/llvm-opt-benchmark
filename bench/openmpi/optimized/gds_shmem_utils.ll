@@ -711,9 +711,9 @@ define noundef i32 @pmix_gds_shmem_get_job_shmem_by_id(ptr nocapture noundef rea
   unreachable
 
 14:                                               ; preds = %10, %6, %4
-  %.sink6 = phi ptr [ %11, %10 ], [ %9, %6 ], [ %5, %4 ]
-  %15 = load ptr, ptr %.sink6, align 8
-  store ptr %15, ptr %2, align 8
+  %.sink.in = phi ptr [ %11, %10 ], [ %9, %6 ], [ %5, %4 ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  store ptr %.sink, ptr %2, align 8
   ret i32 0
 }
 

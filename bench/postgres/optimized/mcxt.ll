@@ -133,7 +133,7 @@ define dso_local void @MemoryContextDeleteChildren(ptr nocapture noundef readonl
   br i1 %.not4, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %MemoryContextSetParent.exit
-  %4 = phi ptr [ %36, %MemoryContextSetParent.exit ], [ %3, %1 ]
+  %4 = phi ptr [ %39, %MemoryContextSetParent.exit ], [ %3, %1 ]
   %5 = getelementptr inbounds i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
@@ -174,34 +174,43 @@ MemoryContextCallResetCallbacks.exit:             ; preds = %.lr.ph.i, %MemoryCo
   %.not30.i = icmp eq ptr %22, null
   %23 = getelementptr inbounds i8, ptr %4, i64 48
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %18, i64 32
+  br i1 %.not30.i, label %27, label %25
+
+25:                                               ; preds = %20
   %26 = getelementptr inbounds i8, ptr %22, i64 48
-  %.sink.i = select i1 %.not30.i, ptr %25, ptr %26
-  store ptr %24, ptr %.sink.i, align 8
-  %.not31.i = icmp eq ptr %24, null
-  br i1 %.not31.i, label %30, label %27
+  store ptr %24, ptr %26, align 8
+  br label %29
 
 27:                                               ; preds = %20
-  %28 = load ptr, ptr %21, align 8
-  %29 = getelementptr inbounds i8, ptr %24, i64 40
-  store ptr %28, ptr %29, align 8
-  br label %30
+  %28 = getelementptr inbounds i8, ptr %18, i64 32
+  store ptr %24, ptr %28, align 8
+  br label %29
 
-30:                                               ; preds = %27, %20
+29:                                               ; preds = %27, %25
+  %.not31.i = icmp eq ptr %24, null
+  br i1 %.not31.i, label %33, label %30
+
+30:                                               ; preds = %29
+  %31 = load ptr, ptr %21, align 8
+  %32 = getelementptr inbounds i8, ptr %24, i64 40
+  store ptr %31, ptr %32, align 8
+  br label %33
+
+33:                                               ; preds = %30, %29
   store ptr null, ptr %17, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   br label %MemoryContextSetParent.exit
 
-MemoryContextSetParent.exit:                      ; preds = %MemoryContextCallResetCallbacks.exit, %30
-  %31 = getelementptr inbounds i8, ptr %4, i64 64
-  store ptr null, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %4, i64 16
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 32
-  %35 = load ptr, ptr %34, align 8
-  tail call void %35(ptr noundef nonnull %4) #16
-  %36 = load ptr, ptr %2, align 8
-  %.not = icmp eq ptr %36, null
+MemoryContextSetParent.exit:                      ; preds = %MemoryContextCallResetCallbacks.exit, %33
+  %34 = getelementptr inbounds i8, ptr %4, i64 64
+  store ptr null, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %4, i64 16
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds i8, ptr %36, i64 32
+  %38 = load ptr, ptr %37, align 8
+  tail call void %38(ptr noundef nonnull %4) #16
+  %39 = load ptr, ptr %2, align 8
+  %.not = icmp eq ptr %39, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %MemoryContextSetParent.exit, %1
@@ -342,32 +351,41 @@ MemoryContextCallResetCallbacks.exit:             ; preds = %.lr.ph.i, %5
   %.not30.i = icmp eq ptr %20, null
   %21 = getelementptr inbounds i8, ptr %0, i64 48
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %16, i64 32
+  br i1 %.not30.i, label %25, label %23
+
+23:                                               ; preds = %18
   %24 = getelementptr inbounds i8, ptr %20, i64 48
-  %.sink.i = select i1 %.not30.i, ptr %23, ptr %24
-  store ptr %22, ptr %.sink.i, align 8
-  %.not31.i = icmp eq ptr %22, null
-  br i1 %.not31.i, label %28, label %25
+  store ptr %22, ptr %24, align 8
+  br label %27
 
 25:                                               ; preds = %18
-  %26 = load ptr, ptr %19, align 8
-  %27 = getelementptr inbounds i8, ptr %22, i64 40
-  store ptr %26, ptr %27, align 8
-  br label %28
+  %26 = getelementptr inbounds i8, ptr %16, i64 32
+  store ptr %22, ptr %26, align 8
+  br label %27
 
-28:                                               ; preds = %25, %18
+27:                                               ; preds = %25, %23
+  %.not31.i = icmp eq ptr %22, null
+  br i1 %.not31.i, label %31, label %28
+
+28:                                               ; preds = %27
+  %29 = load ptr, ptr %19, align 8
+  %30 = getelementptr inbounds i8, ptr %22, i64 40
+  store ptr %29, ptr %30, align 8
+  br label %31
+
+31:                                               ; preds = %28, %27
   store ptr null, ptr %15, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   br label %MemoryContextSetParent.exit
 
-MemoryContextSetParent.exit:                      ; preds = %MemoryContextCallResetCallbacks.exit, %28
-  %29 = getelementptr inbounds i8, ptr %0, i64 64
-  store ptr null, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 32
-  %33 = load ptr, ptr %32, align 8
-  tail call void %33(ptr noundef nonnull %0) #16
+MemoryContextSetParent.exit:                      ; preds = %MemoryContextCallResetCallbacks.exit, %31
+  %32 = getelementptr inbounds i8, ptr %0, i64 64
+  store ptr null, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 32
+  %36 = load ptr, ptr %35, align 8
+  tail call void %36(ptr noundef nonnull %0) #16
   ret void
 }
 
@@ -376,11 +394,11 @@ define dso_local void @MemoryContextSetParent(ptr noundef %0, ptr noundef %1) lo
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, %4
-  br i1 %5, label %27, label %6
+  br i1 %5, label %30, label %6
 
 6:                                                ; preds = %2
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %17, label %7
+  br i1 %.not, label %20, label %7
 
 7:                                                ; preds = %6
   %8 = getelementptr inbounds i8, ptr %0, i64 40
@@ -388,49 +406,58 @@ define dso_local void @MemoryContextSetParent(ptr noundef %0, ptr noundef %1) lo
   %.not30 = icmp eq ptr %9, null
   %10 = getelementptr inbounds i8, ptr %0, i64 48
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 32
+  br i1 %.not30, label %14, label %12
+
+12:                                               ; preds = %7
   %13 = getelementptr inbounds i8, ptr %9, i64 48
-  %.sink = select i1 %.not30, ptr %12, ptr %13
-  store ptr %11, ptr %.sink, align 8
-  %.not31 = icmp eq ptr %11, null
-  br i1 %.not31, label %17, label %14
+  store ptr %11, ptr %13, align 8
+  br label %16
 
 14:                                               ; preds = %7
-  %15 = load ptr, ptr %8, align 8
-  %16 = getelementptr inbounds i8, ptr %11, i64 40
-  store ptr %15, ptr %16, align 8
-  br label %17
+  %15 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %11, ptr %15, align 8
+  br label %16
 
-17:                                               ; preds = %7, %14, %6
+16:                                               ; preds = %14, %12
+  %.not31 = icmp eq ptr %11, null
+  br i1 %.not31, label %20, label %17
+
+17:                                               ; preds = %16
+  %18 = load ptr, ptr %8, align 8
+  %19 = getelementptr inbounds i8, ptr %11, i64 40
+  store ptr %18, ptr %19, align 8
+  br label %20
+
+20:                                               ; preds = %16, %17, %6
   %.not32 = icmp eq ptr %1, null
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
-  br i1 %.not32, label %26, label %19
+  %21 = getelementptr inbounds i8, ptr %0, i64 40
+  br i1 %.not32, label %29, label %22
 
-19:                                               ; preds = %17
+22:                                               ; preds = %20
   store ptr %1, ptr %3, align 8
-  store ptr null, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 32
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr %21, ptr %22, align 8
-  %.not33 = icmp eq ptr %21, null
-  br i1 %.not33, label %25, label %23
+  store ptr null, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 48
+  store ptr %24, ptr %25, align 8
+  %.not33 = icmp eq ptr %24, null
+  br i1 %.not33, label %28, label %26
 
-23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %21, i64 40
-  store ptr %0, ptr %24, align 8
-  br label %25
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds i8, ptr %24, i64 40
+  store ptr %0, ptr %27, align 8
+  br label %28
 
-25:                                               ; preds = %23, %19
-  store ptr %0, ptr %20, align 8
-  br label %27
+28:                                               ; preds = %26, %22
+  store ptr %0, ptr %23, align 8
+  br label %30
 
-26:                                               ; preds = %17
+29:                                               ; preds = %20
   store ptr null, ptr %3, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
-  br label %27
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
+  br label %30
 
-27:                                               ; preds = %2, %26, %25
+30:                                               ; preds = %2, %29, %28
   ret void
 }
 

@@ -456,9 +456,9 @@ define void @Saig_ManDupIsoCanonical_rec(ptr noundef %0, ptr noundef %1, ptr noc
   br label %34
 
 34:                                               ; preds = %32, %33, %24
-  %.sink = phi ptr [ %16, %32 ], [ %7, %33 ], [ %25, %24 ]
-  %.val44 = load ptr, ptr %.sink, align 8
-  %35 = ptrtoint ptr %.val44 to i64
+  %.val44.sink.in = phi ptr [ %16, %32 ], [ %7, %33 ], [ %25, %24 ]
+  %.val44.sink = load ptr, ptr %.val44.sink.in, align 8
+  %35 = ptrtoint ptr %.val44.sink to i64
   %36 = and i64 %35, -2
   %37 = inttoptr i64 %36 to ptr
   tail call void @Saig_ManDupIsoCanonical_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %37)

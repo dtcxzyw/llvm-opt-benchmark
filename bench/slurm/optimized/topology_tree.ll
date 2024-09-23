@@ -1397,7 +1397,8 @@ define range(i32 -1, 1) i32 @topology_p_topology_unpack(ptr nocapture noundef wr
 
 .thread45:                                        ; preds = %10
   %12 = getelementptr inbounds i8, ptr %8, i64 8
-  br label %.loopexit.sink.split
+  store ptr null, ptr %12, align 8
+  br label %.loopexit
 
 13:                                               ; preds = %10
   %14 = zext i32 %11 to i64
@@ -1508,16 +1509,11 @@ define range(i32 -1, 1) i32 @topology_p_topology_unpack(ptr nocapture noundef wr
 
 topology_p_topology_free.exit:                    ; preds = %44, %58
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %.loopexit.sink.split
-
-.loopexit.sink.split:                             ; preds = %topology_p_topology_free.exit, %.thread45
-  %.sink = phi ptr [ %12, %.thread45 ], [ %0, %topology_p_topology_free.exit ]
-  %.0.ph = phi i32 [ 0, %.thread45 ], [ -1, %topology_p_topology_free.exit ]
-  store ptr null, ptr %.sink, align 8
+  store ptr null, ptr %0, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %20, %.loopexit.sink.split, %17
-  %.0 = phi i32 [ 0, %17 ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %20 ]
+.loopexit:                                        ; preds = %20, %.thread45, %17, %topology_p_topology_free.exit
+  %.0 = phi i32 [ -1, %topology_p_topology_free.exit ], [ 0, %17 ], [ 0, %.thread45 ], [ 0, %20 ]
   ret i32 %.0
 }
 

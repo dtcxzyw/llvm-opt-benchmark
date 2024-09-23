@@ -137,7 +137,11 @@ lor.lhs.false:                                    ; preds = %if.end
   %gN_cache = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call3, ptr %gN_cache, align 8
   %cmp4 = icmp eq ptr %call3, null
-  br i1 %cmp4, label %return.sink.split.sink.split, label %if.end8
+  br i1 %cmp4, label %lor.lhs.false.if.then5_crit_edge, label %if.end8
+
+lor.lhs.false.if.then5_crit_edge:                 ; preds = %lor.lhs.false
+  %.pre = load ptr, ptr %call, align 8
+  br label %return.sink.split
 
 if.end8:                                          ; preds = %lor.lhs.false
   %seed_key9 = getelementptr inbounds i8, ptr %call, i64 16
@@ -154,17 +158,12 @@ land.lhs.true:                                    ; preds = %if.end8
 if.then14:                                        ; preds = %land.lhs.true
   %0 = load ptr, ptr %call, align 8
   tail call void @OPENSSL_sk_free(ptr noundef %0) #7
-  br label %return.sink.split.sink.split
-
-return.sink.split.sink.split:                     ; preds = %lor.lhs.false, %if.then14
-  %call.sink = phi ptr [ %gN_cache, %if.then14 ], [ %call, %lor.lhs.false ]
-  %.sink.ph = phi i32 [ 294, %if.then14 ], [ 285, %lor.lhs.false ]
-  %.pre = load ptr, ptr %call.sink, align 8
+  %1 = load ptr, ptr %gN_cache, align 8
   br label %return.sink.split
 
-return.sink.split:                                ; preds = %return.sink.split.sink.split, %if.end
-  %.sink14 = phi ptr [ null, %if.end ], [ %.pre, %return.sink.split.sink.split ]
-  %.sink = phi i32 [ 285, %if.end ], [ %.sink.ph, %return.sink.split.sink.split ]
+return.sink.split:                                ; preds = %if.end, %lor.lhs.false.if.then5_crit_edge, %if.then14
+  %.sink14 = phi ptr [ %1, %if.then14 ], [ %.pre, %lor.lhs.false.if.then5_crit_edge ], [ null, %if.end ]
+  %.sink = phi i32 [ 294, %if.then14 ], [ 285, %lor.lhs.false.if.then5_crit_edge ], [ 285, %if.end ]
   tail call void @OPENSSL_sk_free(ptr noundef %.sink14) #7
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str, i32 noundef %.sink) #7
   br label %return

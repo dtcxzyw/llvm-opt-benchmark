@@ -440,7 +440,7 @@ declare hidden void @_Z17luaC_barriertableP9lua_StateP5TableP8GCObject(ptr nound
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_Z11luaV_strcmpPK7TStringS1_(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %0, %1
-  br i1 %3, label %26, label %4
+  br i1 %3, label %23, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -454,7 +454,7 @@ define hidden noundef i32 @_Z11luaV_strcmpPK7TStringS1_(ptr noundef readonly %0,
   %10 = zext i8 %7 to i32
   %11 = zext i8 %8 to i32
   %12 = sub nsw i32 %10, %11
-  br label %26
+  br label %23
 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds i8, ptr %0, i64 20
@@ -465,17 +465,14 @@ define hidden noundef i32 @_Z11luaV_strcmpPK7TStringS1_(ptr noundef readonly %0,
   %19 = zext i32 %18 to i64
   %20 = tail call i32 @memcmp(ptr noundef nonnull %5, ptr noundef nonnull %6, i64 noundef %19) #11
   %.not26 = icmp eq i32 %20, 0
-  br i1 %.not26, label %21, label %26
+  br i1 %.not26, label %21, label %23
 
 21:                                               ; preds = %13
-  %22 = icmp ult i32 %15, %17
-  %23 = icmp eq i32 %15, %17
-  %24 = select i1 %22, i32 -1, i32 1
-  %25 = select i1 %23, i32 0, i32 %24
-  br label %26
+  %22 = tail call i32 @llvm.ucmp.i32.i32(i32 %15, i32 %17)
+  br label %23
 
-26:                                               ; preds = %13, %2, %21, %9
-  %.0 = phi i32 [ %12, %9 ], [ %25, %21 ], [ 0, %2 ], [ %20, %13 ]
+23:                                               ; preds = %13, %2, %21, %9
+  %.0 = phi i32 [ %12, %9 ], [ %22, %21 ], [ 0, %2 ], [ %20, %13 ]
   ret i32 %.0
 }
 
@@ -496,7 +493,7 @@ define hidden noundef range(i32 -1, 2) i32 @_Z13luaV_lessthanP9lua_StatePK10lua_
   unreachable
 
 9:                                                ; preds = %3
-  switch i32 %5, label %41 [
+  switch i32 %5, label %38 [
     i32 3, label %10
     i32 5, label %15
   ]
@@ -506,7 +503,7 @@ define hidden noundef range(i32 -1, 2) i32 @_Z13luaV_lessthanP9lua_StatePK10lua_
   %12 = load double, ptr %2, align 8
   %13 = fcmp olt double %11, %12
   %14 = zext i1 %13 to i32
-  br label %43
+  br label %40
 
 15:                                               ; preds = %9
   %16 = load ptr, ptr %1, align 8
@@ -540,23 +537,20 @@ define hidden noundef range(i32 -1, 2) i32 @_Z13luaV_lessthanP9lua_StatePK10lua_
   br i1 %.not26.i, label %36, label %_Z11luaV_strcmpPK7TStringS1_.exit
 
 36:                                               ; preds = %28
-  %37 = icmp ult i32 %30, %32
-  %38 = icmp eq i32 %30, %32
-  %39 = select i1 %37, i32 -1, i32 1
-  %40 = select i1 %38, i32 0, i32 %39
+  %37 = tail call i32 @llvm.ucmp.i32.i32(i32 %30, i32 %32)
   br label %_Z11luaV_strcmpPK7TStringS1_.exit
 
 _Z11luaV_strcmpPK7TStringS1_.exit:                ; preds = %15, %24, %28, %36
-  %.0.i = phi i32 [ %27, %24 ], [ %40, %36 ], [ 0, %15 ], [ %35, %28 ]
+  %.0.i = phi i32 [ %27, %24 ], [ %37, %36 ], [ 0, %15 ], [ %35, %28 ]
   %.lobit = lshr i32 %.0.i, 31
-  br label %43
+  br label %40
 
-41:                                               ; preds = %9
-  %42 = tail call fastcc noundef i32 @_ZL12call_orderTMP9lua_StatePK10lua_TValueS3_3TMSb(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 16, i1 noundef zeroext true)
-  br label %43
+38:                                               ; preds = %9
+  %39 = tail call fastcc noundef i32 @_ZL12call_orderTMP9lua_StatePK10lua_TValueS3_3TMSb(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 16, i1 noundef zeroext true)
+  br label %40
 
-43:                                               ; preds = %41, %_Z11luaV_strcmpPK7TStringS1_.exit, %10
-  %.0 = phi i32 [ %14, %10 ], [ %.lobit, %_Z11luaV_strcmpPK7TStringS1_.exit ], [ %42, %41 ]
+40:                                               ; preds = %38, %_Z11luaV_strcmpPK7TStringS1_.exit, %10
+  %.0 = phi i32 [ %14, %10 ], [ %.lobit, %_Z11luaV_strcmpPK7TStringS1_.exit ], [ %39, %38 ]
   ret i32 %.0
 }
 
@@ -667,7 +661,7 @@ define hidden noundef range(i32 0, 2) i32 @_Z14luaV_lessequalP9lua_StatePK10lua_
   unreachable
 
 9:                                                ; preds = %3
-  switch i32 %5, label %43 [
+  switch i32 %5, label %40 [
     i32 3, label %10
     i32 5, label %15
   ]
@@ -677,7 +671,7 @@ define hidden noundef range(i32 0, 2) i32 @_Z14luaV_lessequalP9lua_StatePK10lua_
   %12 = load double, ptr %2, align 8
   %13 = fcmp ole double %11, %12
   %14 = zext i1 %13 to i32
-  br label %51
+  br label %48
 
 15:                                               ; preds = %9
   %16 = load ptr, ptr %1, align 8
@@ -711,39 +705,36 @@ define hidden noundef range(i32 0, 2) i32 @_Z14luaV_lessequalP9lua_StatePK10lua_
   br i1 %.not26.i, label %36, label %_Z11luaV_strcmpPK7TStringS1_.exit
 
 36:                                               ; preds = %28
-  %37 = icmp ult i32 %30, %32
-  %38 = icmp eq i32 %30, %32
-  %39 = select i1 %37, i32 -1, i32 1
-  %40 = select i1 %38, i32 0, i32 %39
+  %37 = tail call i32 @llvm.ucmp.i32.i32(i32 %30, i32 %32)
   br label %_Z11luaV_strcmpPK7TStringS1_.exit
 
 _Z11luaV_strcmpPK7TStringS1_.exit:                ; preds = %15, %24, %28, %36
-  %.0.i = phi i32 [ %27, %24 ], [ %40, %36 ], [ 0, %15 ], [ %35, %28 ]
-  %41 = icmp slt i32 %.0.i, 1
-  %42 = zext i1 %41 to i32
-  br label %51
+  %.0.i = phi i32 [ %27, %24 ], [ %37, %36 ], [ 0, %15 ], [ %35, %28 ]
+  %38 = icmp slt i32 %.0.i, 1
+  %39 = zext i1 %38 to i32
+  br label %48
 
-43:                                               ; preds = %9
-  %44 = tail call fastcc noundef i32 @_ZL12call_orderTMP9lua_StatePK10lua_TValueS3_3TMSb(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 17, i1 noundef zeroext false)
-  %.not25 = icmp eq i32 %44, -1
-  br i1 %.not25, label %45, label %51
+40:                                               ; preds = %9
+  %41 = tail call fastcc noundef i32 @_ZL12call_orderTMP9lua_StatePK10lua_TValueS3_3TMSb(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 17, i1 noundef zeroext false)
+  %.not25 = icmp eq i32 %41, -1
+  br i1 %.not25, label %42, label %48
 
-45:                                               ; preds = %43
-  %46 = tail call fastcc noundef i32 @_ZL12call_orderTMP9lua_StatePK10lua_TValueS3_3TMSb(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %1, i32 noundef 16, i1 noundef zeroext false)
-  %47 = icmp eq i32 %46, -1
-  br i1 %47, label %48, label %49
+42:                                               ; preds = %40
+  %43 = tail call fastcc noundef i32 @_ZL12call_orderTMP9lua_StatePK10lua_TValueS3_3TMSb(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %1, i32 noundef 16, i1 noundef zeroext false)
+  %44 = icmp eq i32 %43, -1
+  br i1 %44, label %45, label %46
 
-48:                                               ; preds = %45
+45:                                               ; preds = %42
   tail call void @_Z15luaG_ordererrorP9lua_StatePK10lua_TValueS3_3TMS(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 17) #10
   unreachable
 
-49:                                               ; preds = %45
-  %.not26 = icmp eq i32 %46, 0
-  %50 = zext i1 %.not26 to i32
-  br label %51
+46:                                               ; preds = %42
+  %.not26 = icmp eq i32 %43, 0
+  %47 = zext i1 %.not26 to i32
+  br label %48
 
-51:                                               ; preds = %43, %49, %_Z11luaV_strcmpPK7TStringS1_.exit, %10
-  %.0 = phi i32 [ %14, %10 ], [ %42, %_Z11luaV_strcmpPK7TStringS1_.exit ], [ %50, %49 ], [ %44, %43 ]
+48:                                               ; preds = %40, %46, %_Z11luaV_strcmpPK7TStringS1_.exit, %10
+  %.0 = phi i32 [ %14, %10 ], [ %39, %_Z11luaV_strcmpPK7TStringS1_.exit ], [ %47, %46 ], [ %41, %40 ]
   ret i32 %.0
 }
 
@@ -4071,6 +4062,9 @@ declare double @llvm.fmuladd.f64(double, double, double) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9

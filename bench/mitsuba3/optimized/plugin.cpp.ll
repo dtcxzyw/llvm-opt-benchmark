@@ -5844,19 +5844,16 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit63:  ; preds = %170, %173, %175
   %177 = phi i64 [ %172, %170 ], [ %176, %175 ], [ %168, %173 ]
   %178 = load ptr, ptr %0, align 8
   %179 = getelementptr inbounds ptr, ptr %178, i64 %177
-  br label %_ZNSt3__110unique_ptrINS_11__hash_nodeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPvEENS_22__hash_node_destructorINS5_IS9_EEEEED2B8ne190000Ev.exit.sink.split
+  store ptr %96, ptr %179, align 8
+  br label %_ZNSt3__110unique_ptrINS_11__hash_nodeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPvEENS_22__hash_node_destructorINS5_IS9_EEEEED2B8ne190000Ev.exit
 
 180:                                              ; preds = %_ZNSt3__116__constrain_hashB8ne190000Emm.exit61
   %181 = load ptr, ptr %161, align 8
   store ptr %181, ptr %96, align 8
-  br label %_ZNSt3__110unique_ptrINS_11__hash_nodeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPvEENS_22__hash_node_destructorINS5_IS9_EEEEED2B8ne190000Ev.exit.sink.split
-
-_ZNSt3__110unique_ptrINS_11__hash_nodeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPvEENS_22__hash_node_destructorINS5_IS9_EEEEED2B8ne190000Ev.exit.sink.split: ; preds = %_ZNSt3__116__constrain_hashB8ne190000Emm.exit63, %180
-  %.sink = phi ptr [ %161, %180 ], [ %179, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit63 ]
-  store ptr %96, ptr %.sink, align 8
+  store ptr %96, ptr %161, align 8
   br label %_ZNSt3__110unique_ptrINS_11__hash_nodeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPvEENS_22__hash_node_destructorINS5_IS9_EEEEED2B8ne190000Ev.exit
 
-_ZNSt3__110unique_ptrINS_11__hash_nodeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPvEENS_22__hash_node_destructorINS5_IS9_EEEEED2B8ne190000Ev.exit: ; preds = %_ZNSt3__110unique_ptrINS_11__hash_nodeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPvEENS_22__hash_node_destructorINS5_IS9_EEEEED2B8ne190000Ev.exit.sink.split, %163
+_ZNSt3__110unique_ptrINS_11__hash_nodeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPvEENS_22__hash_node_destructorINS5_IS9_EEEEED2B8ne190000Ev.exit: ; preds = %180, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit63, %163
   %182 = load i64, ptr %100, align 8
   %183 = add i64 %182, 1
   store i64 %183, ptr %100, align 8

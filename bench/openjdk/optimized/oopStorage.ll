@@ -162,17 +162,17 @@ define hidden void @_ZN10OopStorage14AllocationList10push_frontERKNS_5BlockE(ptr
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %1, ptr %6, align 8
   br label %10
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %1, i64 552
   store ptr %3, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %3, i64 544
+  store ptr %1, ptr %9, align 8
   br label %10
 
 10:                                               ; preds = %7, %5
-  %.sink = phi ptr [ %9, %7 ], [ %6, %5 ]
-  store ptr %1, ptr %.sink, align 8
   store ptr %1, ptr %0, align 8
   ret void
 }
@@ -1463,7 +1463,7 @@ define hidden noundef zeroext i1 @_ZN10OopStorage23reduce_deferred_updatesEv(ptr
   %13 = getelementptr inbounds i8, ptr %.021, i64 512
   %14 = load volatile i64, ptr %13, align 8
   %15 = icmp eq i64 %14, -1
-  br i1 %15, label %57, label %16
+  br i1 %15, label %58, label %16
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1478,7 +1478,7 @@ define hidden noundef zeroext i1 @_ZN10OopStorage23reduce_deferred_updatesEv(ptr
   br i1 %23, label %25, label %45
 
 25:                                               ; preds = %16
-  br i1 %24, label %26, label %57
+  br i1 %24, label %26, label %58
 
 26:                                               ; preds = %25
   %27 = getelementptr inbounds i8, ptr %.021, i64 544
@@ -1524,14 +1524,18 @@ _ZN10OopStorage14AllocationList6unlinkERKNS_5BlockE.exit: ; preds = %31, %33, %3
 
 41:                                               ; preds = %_ZN10OopStorage14AllocationList6unlinkERKNS_5BlockE.exit
   store ptr %.021, ptr %17, align 8
-  br label %.sink.split
+  br label %_ZN10OopStorage14AllocationList9push_backERKNS_5BlockE.exit
 
 42:                                               ; preds = %_ZN10OopStorage14AllocationList6unlinkERKNS_5BlockE.exit.thread, %_ZN10OopStorage14AllocationList6unlinkERKNS_5BlockE.exit
   %43 = phi ptr [ %28, %_ZN10OopStorage14AllocationList6unlinkERKNS_5BlockE.exit.thread ], [ %.pr, %_ZN10OopStorage14AllocationList6unlinkERKNS_5BlockE.exit ]
   %44 = getelementptr inbounds i8, ptr %43, i64 552
   store ptr %.021, ptr %44, align 8
   store ptr %43, ptr %27, align 8
-  br label %.sink.split
+  br label %_ZN10OopStorage14AllocationList9push_backERKNS_5BlockE.exit
+
+_ZN10OopStorage14AllocationList9push_backERKNS_5BlockE.exit: ; preds = %41, %42
+  store ptr %.021, ptr %20, align 8
+  br label %58
 
 45:                                               ; preds = %16
   br i1 %24, label %46, label %52
@@ -1542,47 +1546,50 @@ _ZN10OopStorage14AllocationList6unlinkERKNS_5BlockE.exit: ; preds = %31, %33, %3
 
 48:                                               ; preds = %46
   store ptr %.021, ptr %17, align 8
-  br label %.sink.split
+  br label %_ZN10OopStorage14AllocationList9push_backERKNS_5BlockE.exit23
 
 49:                                               ; preds = %46
   %50 = getelementptr inbounds i8, ptr %21, i64 552
   store ptr %.021, ptr %50, align 8
   %51 = getelementptr inbounds i8, ptr %.021, i64 544
   store ptr %21, ptr %51, align 8
-  br label %.sink.split
+  br label %_ZN10OopStorage14AllocationList9push_backERKNS_5BlockE.exit23
+
+_ZN10OopStorage14AllocationList9push_backERKNS_5BlockE.exit23: ; preds = %48, %49
+  store ptr %.021, ptr %20, align 8
+  br label %58
 
 52:                                               ; preds = %45
   %53 = load ptr, ptr %17, align 8
   %54 = icmp eq ptr %53, null
-  br i1 %54, label %_ZN10OopStorage14AllocationList10push_frontERKNS_5BlockE.exit, label %55
+  br i1 %54, label %55, label %56
 
 55:                                               ; preds = %52
-  store ptr %53, ptr %18, align 8
-  %56 = getelementptr inbounds i8, ptr %53, i64 544
+  store ptr %.021, ptr %20, align 8
   br label %_ZN10OopStorage14AllocationList10push_frontERKNS_5BlockE.exit
 
-_ZN10OopStorage14AllocationList10push_frontERKNS_5BlockE.exit: ; preds = %52, %55
-  %.sink.i = phi ptr [ %56, %55 ], [ %20, %52 ]
-  store ptr %.021, ptr %.sink.i, align 8
-  br label %.sink.split
+56:                                               ; preds = %52
+  store ptr %53, ptr %18, align 8
+  %57 = getelementptr inbounds i8, ptr %53, i64 544
+  store ptr %.021, ptr %57, align 8
+  br label %_ZN10OopStorage14AllocationList10push_frontERKNS_5BlockE.exit
 
-.sink.split:                                      ; preds = %49, %48, %42, %41, %_ZN10OopStorage14AllocationList10push_frontERKNS_5BlockE.exit
-  %.sink = phi ptr [ %17, %_ZN10OopStorage14AllocationList10push_frontERKNS_5BlockE.exit ], [ %20, %41 ], [ %20, %42 ], [ %20, %48 ], [ %20, %49 ]
-  store ptr %.021, ptr %.sink, align 8
-  br label %57
+_ZN10OopStorage14AllocationList10push_frontERKNS_5BlockE.exit: ; preds = %55, %56
+  store ptr %.021, ptr %17, align 8
+  br label %58
 
-57:                                               ; preds = %.sink.split, %25, %11
-  %58 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE104ELS1_9ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not = icmp eq ptr %58, null
-  br i1 %.not, label %.loopexit, label %59
+58:                                               ; preds = %_ZN10OopStorage14AllocationList9push_backERKNS_5BlockE.exit, %25, %_ZN10OopStorage14AllocationList10push_frontERKNS_5BlockE.exit, %_ZN10OopStorage14AllocationList9push_backERKNS_5BlockE.exit23, %11
+  %59 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE104ELS1_9ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not = icmp eq ptr %59, null
+  br i1 %.not, label %.loopexit, label %60
 
-59:                                               ; preds = %57
-  %60 = load ptr, ptr %0, align 8
-  %61 = ptrtoint ptr %.021 to i64
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE104ELS1_9ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.16, ptr noundef %60, i64 noundef %61)
+60:                                               ; preds = %58
+  %61 = load ptr, ptr %0, align 8
+  %62 = ptrtoint ptr %.021 to i64
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE104ELS1_9ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.16, ptr noundef %61, i64 noundef %62)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %4, %59, %57
+.loopexit:                                        ; preds = %4, %60, %58
   ret i1 %.not27.not.not.not.not
 }
 

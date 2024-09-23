@@ -1182,18 +1182,18 @@ if.then72:                                        ; preds = %if.then13, %if.then
 if.then75:                                        ; preds = %if.then72
   store i8 63, ptr %ip, align 1
   %arrayidx76 = getelementptr inbounds i8, ptr %ip, i64 1
-  br label %if.end84.sink.split
+  store i8 0, ptr %arrayidx76, align 1
+  br label %if.end84
 
 if.else77:                                        ; preds = %if.then72
   %cmp78 = icmp eq i64 %ip_len, 1
-  br i1 %cmp78, label %if.end84.sink.split, label %if.end84
+  br i1 %cmp78, label %if.then80, label %if.end84
 
-if.end84.sink.split:                              ; preds = %if.else77, %if.then75
-  %arrayidx76.sink = phi ptr [ %arrayidx76, %if.then75 ], [ %ip, %if.else77 ]
-  store i8 0, ptr %arrayidx76.sink, align 1
+if.then80:                                        ; preds = %if.else77
+  store i8 0, ptr %ip, align 1
   br label %if.end84
 
-if.end84:                                         ; preds = %if.end84.sink.split, %if.else77, %error
+if.end84:                                         ; preds = %if.then75, %if.then80, %if.else77, %error
   %tobool85.not = icmp eq ptr %port, null
   br i1 %tobool85.not, label %return, label %return.sink.split
 

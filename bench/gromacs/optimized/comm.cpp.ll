@@ -380,16 +380,16 @@ define noundef i32 @_Z15tMPI_Comm_allocPP10tmpi_comm_S0_i(ptr nocapture noundef 
   store ptr %117, ptr %118, align 8
   %119 = getelementptr inbounds i8, ptr %117, i64 456
   store ptr %4, ptr %119, align 8
+  store ptr %4, ptr %116, align 8
   br label %122
 
 120:                                              ; preds = %113
   store ptr %4, ptr %114, align 8
   %121 = getelementptr inbounds i8, ptr %4, i64 464
+  store ptr %4, ptr %121, align 8
   br label %122
 
 122:                                              ; preds = %120, %115
-  %.sink155 = phi ptr [ %121, %120 ], [ %116, %115 ]
-  store ptr %4, ptr %.sink155, align 8
   %123 = load ptr, ptr @tmpi_global, align 8
   %124 = getelementptr inbounds i8, ptr %123, i64 80
   %125 = tail call noundef i32 @_Z24tMPI_Thread_mutex_unlockP19tMPI_Thread_mutex_t(ptr noundef nonnull %124)

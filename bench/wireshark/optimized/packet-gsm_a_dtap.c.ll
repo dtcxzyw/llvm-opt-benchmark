@@ -1840,26 +1840,24 @@ switch.lookup470:                                 ; preds = %18
   %19 = and i32 %17, 3
   %20 = zext nneg i32 %19 to i64
   %switch.gep471 = getelementptr inbounds [4 x ptr], ptr @switch.table.de_bearer_cap.1, i64 0, i64 %20
-  br label %.sink.split
+  %switch.load472 = load ptr, ptr %switch.gep471, align 8
+  br label %24
 
 switch.lookup473:                                 ; preds = %16
   %21 = and i32 %17, 3
   %22 = zext nneg i32 %21 to i64
   %switch.gep474 = getelementptr inbounds [4 x ptr], ptr @switch.table.de_bearer_cap.2, i64 0, i64 %22
-  br label %.sink.split
+  %switch.load475 = load ptr, ptr %switch.gep474, align 8
+  br label %24
 
 switch.lookup:                                    ; preds = %18
   %23 = zext nneg i32 %17 to i64
   %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.de_bearer_cap, i64 0, i64 %23
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %switch.lookup, %switch.lookup470, %switch.lookup473
-  %switch.gep474.sink = phi ptr [ %switch.gep474, %switch.lookup473 ], [ %switch.gep471, %switch.lookup470 ], [ %switch.gep, %switch.lookup ]
-  %switch.load475 = load ptr, ptr %switch.gep474.sink, align 8
+  %switch.load = load ptr, ptr %switch.gep, align 8
   br label %24
 
-24:                                               ; preds = %.sink.split, %7
-  %.0 = phi ptr [ @.str.139, %7 ], [ %switch.load475, %.sink.split ]
+24:                                               ; preds = %switch.lookup473, %switch.lookup470, %switch.lookup, %7
+  %.0 = phi ptr [ @.str.139, %7 ], [ %switch.load, %switch.lookup ], [ %switch.load472, %switch.lookup470 ], [ %switch.load475, %switch.lookup473 ]
   %25 = load i32, ptr @hf_gsm_a_dtap_radio_channel_requirement, align 4
   %26 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %11, i32 noundef %25, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef %12, ptr noundef nonnull @.str.150, ptr noundef nonnull %.0) #6
   %27 = load i32, ptr @hf_gsm_a_dtap_bearer_cap_coding_standard, align 4

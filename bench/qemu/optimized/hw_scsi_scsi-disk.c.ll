@@ -1652,31 +1652,31 @@ if.then:                                          ; preds = %entry
   br i1 %cmp, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %if.then
+  %iov = getelementptr inbounds i8, ptr %req, i64 432
+  %2 = load ptr, ptr %iov, align 8
   %iov_len = getelementptr inbounds i8, ptr %req, i64 440
-  br label %if.end15.sink.split
+  %3 = load i64, ptr %iov_len, align 8
+  tail call void @qemu_put_buffer(ptr noundef %f, ptr noundef %2, i64 noundef %3) #18
+  br label %if.end15
 
 if.else:                                          ; preds = %if.then
   %retry = getelementptr inbounds i8, ptr %req, i64 370
-  %2 = load i8, ptr %retry, align 2
-  %tobool6 = trunc i8 %2 to i1
+  %4 = load i8, ptr %retry, align 2
+  %tobool6 = trunc i8 %4 to i1
   br i1 %tobool6, label %if.end15, label %if.then7
 
 if.then7:                                         ; preds = %if.else
+  %iov8 = getelementptr inbounds i8, ptr %req, i64 432
   %iov_len9 = getelementptr inbounds i8, ptr %req, i64 440
-  %3 = load i64, ptr %iov_len9, align 8
-  %conv = trunc i64 %3 to i32
+  %5 = load i64, ptr %iov_len9, align 8
+  %conv = trunc i64 %5 to i32
   tail call void @qemu_put_be32(ptr noundef %f, i32 noundef %conv) #18
-  br label %if.end15.sink.split
-
-if.end15.sink.split:                              ; preds = %if.then7, %if.then4
-  %iov_len.sink = phi ptr [ %iov_len, %if.then4 ], [ %iov_len9, %if.then7 ]
-  %.sink.in = getelementptr inbounds i8, ptr %req, i64 432
-  %.sink = load ptr, ptr %.sink.in, align 8
-  %4 = load i64, ptr %iov_len.sink, align 8
-  tail call void @qemu_put_buffer(ptr noundef %f, ptr noundef %.sink, i64 noundef %4) #18
+  %6 = load ptr, ptr %iov8, align 8
+  %7 = load i64, ptr %iov_len9, align 8
+  tail call void @qemu_put_buffer(ptr noundef %f, ptr noundef %6, i64 noundef %7) #18
   br label %if.end15
 
-if.end15:                                         ; preds = %if.end15.sink.split, %if.else, %entry
+if.end15:                                         ; preds = %if.then4, %if.then7, %if.else, %entry
   ret void
 }
 
@@ -2893,9 +2893,18 @@ if.end68.i:                                       ; preds = %if.else62.i, %if.en
 if.then75.i:                                      ; preds = %if.end68.i
   %33 = load i8, ptr %cmd, align 8
   %cmp81.i = icmp eq i8 %33, 26
+  br i1 %cmp81.i, label %if.then83.i, label %if.else85.i
+
+if.then83.i:                                      ; preds = %if.then75.i
+  store i8 8, ptr %30, align 1
+  br label %if.end87.i
+
+if.else85.i:                                      ; preds = %if.then75.i
   %arrayidx86.i = getelementptr i8, ptr %7, i64 7
-  %arrayidx86.sink.i = select i1 %cmp81.i, ptr %30, ptr %arrayidx86.i
-  store i8 8, ptr %arrayidx86.sink.i, align 1
+  store i8 8, ptr %arrayidx86.i, align 1
+  br label %if.end87.i
+
+if.end87.i:                                       ; preds = %if.else85.i, %if.then83.i
   %blocksize.i = getelementptr inbounds i8, ptr %10, i64 560
   %34 = load i32, ptr %blocksize.i, align 8
   %conv89.i = sext i32 %34 to i64
@@ -2931,7 +2940,7 @@ if.then75.i:                                      ; preds = %if.end68.i
   store ptr %add.ptr115.i, ptr %p.i, align 8
   br label %if.end116.i
 
-if.end116.i:                                      ; preds = %if.then75.i, %if.end68.i
+if.end116.i:                                      ; preds = %if.end87.i, %if.end68.i
   %cmp117.i = icmp eq i32 %shr.i, 3
   br i1 %cmp117.i, label %if.then119.i, label %if.end120.i
 

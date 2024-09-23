@@ -2324,13 +2324,13 @@ define noundef i32 @mca_coll_han_reduce_reproducible_decision(ptr noundef %0, pt
   br label %38
 
 38:                                               ; preds = %16, %19, %22, %34
-  %.sink = phi ptr [ %37, %34 ], [ %12, %22 ], [ %12, %19 ], [ %12, %16 ]
-  %.sink39 = phi ptr [ %35, %34 ], [ %17, %22 ], [ %17, %19 ], [ %17, %16 ]
+  %.sink42 = phi ptr [ %37, %34 ], [ %12, %22 ], [ %12, %19 ], [ %12, %16 ]
+  %.sink.in = phi ptr [ %35, %34 ], [ %17, %22 ], [ %17, %19 ], [ %17, %16 ]
   %39 = getelementptr inbounds i8, ptr %1, i64 784
-  store ptr %.sink, ptr %39, align 8
-  %40 = load ptr, ptr %.sink39, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 776
-  store ptr %40, ptr %41, align 8
+  store ptr %.sink42, ptr %39, align 8
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %40 = getelementptr inbounds i8, ptr %1, i64 776
+  store ptr %.sink, ptr %40, align 8
   ret i32 0
 }
 

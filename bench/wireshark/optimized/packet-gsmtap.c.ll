@@ -1434,10 +1434,10 @@ define internal fastcc void @handle_rlcmac(i32 noundef %0, ptr noundef %1, ptr n
   %13 = getelementptr inbounds i8, ptr %5, i64 8
   %14 = icmp ult i32 %11, 6
   %or.cond.i = and i1 %9, %14
-  br i1 %or.cond.i, label %51, label %15
+  br i1 %or.cond.i, label %53, label %15
 
 15:                                               ; preds = %4
-  switch i32 %11, label %51 [
+  switch i32 %11, label %53 [
     i32 155, label %26
     i32 34, label %16
     i32 40, label %17
@@ -1458,13 +1458,13 @@ define internal fastcc void @handle_rlcmac(i32 noundef %0, ptr noundef %1, ptr n
   ]
 
 16:                                               ; preds = %15
-  br label %51
+  br label %53
 
 17:                                               ; preds = %15
-  br label %51
+  br label %53
 
 18:                                               ; preds = %15
-  br label %51
+  br label %53
 
 19:                                               ; preds = %15
   br label %27
@@ -1536,23 +1536,20 @@ define internal fastcc void @handle_rlcmac(i32 noundef %0, ptr noundef %1, ptr n
 49:                                               ; preds = %41
   store i32 2, ptr %45, align 4
   %50 = call fastcc ptr @get_egprs_data_block(ptr noundef %1, i32 noundef %.sroa.6.0.i.ph, i32 noundef %44, ptr noundef nonnull %2)
-  br label %.thread.sink.split
+  %51 = load ptr, ptr %28, align 8
+  %52 = call i32 @call_dissector_with_data(ptr noundef %51, ptr noundef %50, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %5) #6
+  br label %.thread
 
-51:                                               ; preds = %18, %17, %16, %15, %4
+53:                                               ; preds = %18, %17, %16, %15, %4
   %.sink33.i = phi i32 [ 36, %18 ], [ 35, %17 ], [ 34, %16 ], [ 32, %4 ], [ 33, %15 ]
   store i32 %.sink33.i, ptr %12, align 4
   store i8 0, ptr %13, align 4
-  %52 = getelementptr [31 x ptr], ptr @sub_handles, i64 0, i64 %.
-  br label %.thread.sink.split
-
-.thread.sink.split:                               ; preds = %51, %49
-  %.sink45 = phi ptr [ %28, %49 ], [ %52, %51 ]
-  %.sink44 = phi ptr [ %50, %49 ], [ %1, %51 ]
-  %53 = load ptr, ptr %.sink45, align 8
-  %54 = call i32 @call_dissector_with_data(ptr noundef %53, ptr noundef %.sink44, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %5) #6
+  %54 = getelementptr [31 x ptr], ptr @sub_handles, i64 0, i64 %.
+  %55 = load ptr, ptr %54, align 8
+  %56 = call i32 @call_dissector_with_data(ptr noundef %55, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %5) #6
   br label %.thread
 
-.thread:                                          ; preds = %.thread.sink.split, %27, %41
+.thread:                                          ; preds = %27, %41, %49, %53
   ret void
 }
 

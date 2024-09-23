@@ -276,11 +276,10 @@ if.else.i.i.i.i:                                  ; preds = %_ZNSt7__cxx114listI
   store i64 %14, ptr %_M_size.i.i.i.i.i5, align 8
   store ptr %ref.tmp, ptr %_M_prev.i.i.i.i.i, align 8
   store ptr %ref.tmp, ptr %ref.tmp, align 8
+  store i64 0, ptr %_M_size.i.i.i.i.i, align 8
   br label %_ZNSt7__cxx114listIN3net25QuicStreamSequencerBuffer3GapESaIS3_EEaSEOS5_.exit
 
 _ZNSt7__cxx114listIN3net25QuicStreamSequencerBuffer3GapESaIS3_EEaSEOS5_.exit: ; preds = %_ZNSt7__cxx114listIN3net25QuicStreamSequencerBuffer3GapESaIS3_EE5clearEv.exit.i.i, %if.else.i.i.i.i
-  %_M_size.sink.i.i.i.i = phi ptr [ %_M_size.i.i.i.i.i, %if.else.i.i.i.i ], [ %_M_size.i.i.i.i.i5, %_ZNSt7__cxx114listIN3net25QuicStreamSequencerBuffer3GapESaIS3_EE5clearEv.exit.i.i ]
-  store i64 0, ptr %_M_size.sink.i.i.i.i, align 8
   %frame_arrival_time_map_ = getelementptr inbounds i8, ptr %this, i64 72
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %_M_parent.i.i.i.i, align 8
@@ -1936,7 +1935,7 @@ if.then.i:                                        ; preds = %_ZNK3net25QuicStrea
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %17, i64 %div1.i.i
   %18 = load ptr, ptr %arrayidx.i.i.i, align 8
   %isnull.i.i = icmp eq ptr %18, null
-  br i1 %isnull.i.i, label %return.sink.split.i, label %return.sink.split.sink.split.i
+  br i1 %isnull.i.i, label %return.sink.split.i, label %return.sink.split.i.sink.split
 
 if.end.i:                                         ; preds = %_ZNK3net25QuicStreamSequencerBuffer5EmptyEv.exit.i, %if.then36
   %19 = load ptr, ptr %_M_prev.i.i.i, align 8
@@ -1969,16 +1968,16 @@ if.end15.i:                                       ; preds = %if.then8.i, %if.end
   %arrayidx.i.i10.i = getelementptr inbounds ptr, ptr %23, i64 %div1.i.i
   %24 = load ptr, ptr %arrayidx.i.i10.i, align 8
   %isnull.i11.i = icmp eq ptr %24, null
-  br i1 %isnull.i11.i, label %return.sink.split.i, label %return.sink.split.sink.split.i
+  br i1 %isnull.i11.i, label %return.sink.split.i, label %return.sink.split.i.sink.split
 
-return.sink.split.sink.split.i:                   ; preds = %if.end15.i, %if.then.i
-  %.sink16.i = phi ptr [ %18, %if.then.i ], [ %24, %if.end15.i ]
-  tail call void @_ZdlPv(ptr noundef nonnull %.sink16.i) #21
+return.sink.split.i.sink.split:                   ; preds = %if.end15.i, %if.then.i
+  %.sink = phi ptr [ %18, %if.then.i ], [ %24, %if.end15.i ]
+  tail call void @_ZdlPv(ptr noundef nonnull %.sink) #21
   %.pre.i13.i = load ptr, ptr %blocks_, align 8
   br label %return.sink.split.i
 
-return.sink.split.i:                              ; preds = %return.sink.split.sink.split.i, %if.end15.i, %if.then.i
-  %.sink.i = phi ptr [ %17, %if.then.i ], [ %23, %if.end15.i ], [ %.pre.i13.i, %return.sink.split.sink.split.i ]
+return.sink.split.i:                              ; preds = %return.sink.split.i.sink.split, %if.end15.i, %if.then.i
+  %.sink.i = phi ptr [ %17, %if.then.i ], [ %23, %if.end15.i ], [ %.pre.i13.i, %return.sink.split.i.sink.split ]
   %arrayidx.i2.i14.i = getelementptr inbounds ptr, ptr %.sink.i, i64 %div1.i.i
   store ptr null, ptr %arrayidx.i2.i14.i, align 8
   br label %if.end37
@@ -2068,7 +2067,12 @@ if.then:                                          ; preds = %_ZNK3net25QuicStrea
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %4, i64 %block_index
   %5 = load ptr, ptr %arrayidx.i.i, align 8
   %isnull.i = icmp eq ptr %5, null
-  br i1 %isnull.i, label %return.sink.split, label %return.sink.split.sink.split
+  br i1 %isnull.i, label %return.sink.split, label %delete.notnull.i
+
+delete.notnull.i:                                 ; preds = %if.then
+  tail call void @_ZdlPv(ptr noundef nonnull %5) #21
+  %.pre.i = load ptr, ptr %blocks_.i, align 8
+  br label %return.sink.split
 
 if.end:                                           ; preds = %entry, %_ZNK3net25QuicStreamSequencerBuffer5EmptyEv.exit
   %gaps_ = getelementptr inbounds i8, ptr %this, i64 24
@@ -2106,17 +2110,15 @@ if.end15:                                         ; preds = %if.then8, %if.end5
   %arrayidx.i.i10 = getelementptr inbounds ptr, ptr %11, i64 %block_index
   %12 = load ptr, ptr %arrayidx.i.i10, align 8
   %isnull.i11 = icmp eq ptr %12, null
-  br i1 %isnull.i11, label %return.sink.split, label %return.sink.split.sink.split
+  br i1 %isnull.i11, label %return.sink.split, label %delete.notnull.i12
 
-return.sink.split.sink.split:                     ; preds = %if.end15, %if.then
-  %.sink16 = phi ptr [ %5, %if.then ], [ %12, %if.end15 ]
-  %blocks_.i9.sink = phi ptr [ %blocks_.i, %if.then ], [ %blocks_.i9, %if.end15 ]
-  tail call void @_ZdlPv(ptr noundef nonnull %.sink16) #21
-  %.pre.i13 = load ptr, ptr %blocks_.i9.sink, align 8
+delete.notnull.i12:                               ; preds = %if.end15
+  tail call void @_ZdlPv(ptr noundef nonnull %12) #21
+  %.pre.i13 = load ptr, ptr %blocks_.i9, align 8
   br label %return.sink.split
 
-return.sink.split:                                ; preds = %return.sink.split.sink.split, %if.end15, %if.then
-  %.sink = phi ptr [ %4, %if.then ], [ %11, %if.end15 ], [ %.pre.i13, %return.sink.split.sink.split ]
+return.sink.split:                                ; preds = %delete.notnull.i12, %if.end15, %delete.notnull.i, %if.then
+  %.sink = phi ptr [ %.pre.i, %delete.notnull.i ], [ %4, %if.then ], [ %.pre.i13, %delete.notnull.i12 ], [ %11, %if.end15 ]
   %arrayidx.i2.i14 = getelementptr inbounds ptr, ptr %.sink, i64 %block_index
   store ptr null, ptr %arrayidx.i2.i14, align 8
   br label %return
@@ -2488,7 +2490,7 @@ if.then.i:                                        ; preds = %_ZNK3net25QuicStrea
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %12, i64 %div1.i.i
   %13 = load ptr, ptr %arrayidx.i.i.i, align 8
   %isnull.i.i = icmp eq ptr %13, null
-  br i1 %isnull.i.i, label %return.sink.split.i, label %return.sink.split.sink.split.i
+  br i1 %isnull.i.i, label %return.sink.split.i, label %return.sink.split.i.sink.split
 
 if.end.i:                                         ; preds = %_ZNK3net25QuicStreamSequencerBuffer5EmptyEv.exit.i, %if.then13
   %14 = load ptr, ptr %_M_prev.i.i.i, align 8
@@ -2519,16 +2521,16 @@ if.end15.i:                                       ; preds = %if.then8.i, %if.end
   %arrayidx.i.i10.i = getelementptr inbounds ptr, ptr %16, i64 %div1.i.i
   %17 = load ptr, ptr %arrayidx.i.i10.i, align 8
   %isnull.i11.i = icmp eq ptr %17, null
-  br i1 %isnull.i11.i, label %return.sink.split.i, label %return.sink.split.sink.split.i
+  br i1 %isnull.i11.i, label %return.sink.split.i, label %return.sink.split.i.sink.split
 
-return.sink.split.sink.split.i:                   ; preds = %if.end15.i, %if.then.i
-  %.sink16.i = phi ptr [ %13, %if.then.i ], [ %17, %if.end15.i ]
-  tail call void @_ZdlPv(ptr noundef nonnull %.sink16.i) #21
+return.sink.split.i.sink.split:                   ; preds = %if.end15.i, %if.then.i
+  %.sink = phi ptr [ %13, %if.then.i ], [ %17, %if.end15.i ]
+  tail call void @_ZdlPv(ptr noundef nonnull %.sink) #21
   %.pre.i13.i = load ptr, ptr %blocks_.i9.i, align 8
   br label %return.sink.split.i
 
-return.sink.split.i:                              ; preds = %return.sink.split.sink.split.i, %if.end15.i, %if.then.i
-  %.sink.i = phi ptr [ %12, %if.then.i ], [ %16, %if.end15.i ], [ %.pre.i13.i, %return.sink.split.sink.split.i ]
+return.sink.split.i:                              ; preds = %return.sink.split.i.sink.split, %if.end15.i, %if.then.i
+  %.sink.i = phi ptr [ %12, %if.then.i ], [ %16, %if.end15.i ], [ %.pre.i13.i, %return.sink.split.i.sink.split ]
   %arrayidx.i2.i14.i = getelementptr inbounds ptr, ptr %.sink.i, i64 %div1.i.i
   store ptr null, ptr %arrayidx.i2.i14.i, align 8
   br label %if.end14

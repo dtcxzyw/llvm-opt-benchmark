@@ -575,8 +575,8 @@ define void @_ZN3g2o13HyperDijkstra13shortestPathsERSt3setIPNS_10HyperGraph6Vert
   %16 = getelementptr inbounds i8, ptr %1, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %1, i64 8
-  %.not126154 = icmp eq ptr %17, %18
-  br i1 %.not126154, label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit84.preheader, label %.lr.ph
+  %.not125153 = icmp eq ptr %17, %18
+  br i1 %.not125153, label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit84.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %19 = getelementptr inbounds i8, ptr %0, i64 16
@@ -616,8 +616,8 @@ _ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit84.preheader: ; preds = %_ZNSt
   br label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit84
 
 50:                                               ; preds = %.lr.ph, %_ZNSt14priority_queueIN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS2_SaIS2_EESt4lessIS2_EE4pushERKS2_.exit
-  %.sroa.0120.0155 = phi ptr [ %17, %.lr.ph ], [ %91, %_ZNSt14priority_queueIN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS2_SaIS2_EESt4lessIS2_EE4pushERKS2_.exit ]
-  %51 = getelementptr inbounds nuw i8, ptr %.sroa.0120.0155, i64 32
+  %.sroa.0120.0154 = phi ptr [ %17, %.lr.ph ], [ %91, %_ZNSt14priority_queueIN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS2_SaIS2_EESt4lessIS2_EE4pushERKS2_.exit ]
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.0120.0154, i64 32
   %52 = load ptr, ptr %51, align 8
   %53 = load ptr, ptr %19, align 8
   %.not10.i.i.i = icmp eq ptr %53, null
@@ -730,20 +730,20 @@ _ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE9push_backERKS2_.ex
   invoke void @_ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS4_SaIS4_EEEESt4lessIS4_EEvT_SC_T0_(ptr %90, ptr %89)
           to label %_ZNSt14priority_queueIN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS2_SaIS2_EESt4lessIS2_EE4pushERKS2_.exit unwind label %.loopexit.split-lp
 
-.loopexit130:                                     ; preds = %98
-  %lpad.loopexit131 = landingpad { ptr, i32 }
+.loopexit129:                                     ; preds = %98
+  %lpad.loopexit130 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit
 
 .loopexit.split-lp:                               ; preds = %75, %88, %_ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE9push_backERKS2_.exit.i
-  %lpad.loopexit.split-lp132 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp131 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit
 
 _ZNSt14priority_queueIN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS2_SaIS2_EESt4lessIS2_EE4pushERKS2_.exit: ; preds = %_ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE9push_backERKS2_.exit.i
-  %91 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0120.0155) #19
-  %.not126 = icmp eq ptr %91, %18
-  br i1 %.not126, label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit84.preheader, label %50, !llvm.loop !13
+  %91 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0120.0154) #19
+  %.not125 = icmp eq ptr %91, %18
+  br i1 %.not125, label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit84.preheader, label %50, !llvm.loop !13
 
 _ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit84: ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit84.preheader, %._crit_edge
   %92 = load ptr, ptr %14, align 8
@@ -767,7 +767,7 @@ _ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit84: ; preds = %_ZN3g2o13HyperD
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   store ptr %29, ptr %12, align 8
   %99 = invoke noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE7_M_copyILb0ENS9_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS3_ESE_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef nonnull %97, ptr noundef nonnull %24, ptr noundef nonnull align 8 dereferenceable(8) %12)
-          to label %.noexc.i.i.i unwind label %.loopexit130
+          to label %.noexc.i.i.i unwind label %.loopexit129
 
 .noexc.i.i.i:                                     ; preds = %98, %.noexc.i.i.i
   %.0.i.i.i.i.i.i.i = phi ptr [ %101, %.noexc.i.i.i ], [ %99, %98 ]
@@ -795,11 +795,11 @@ _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_E
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   store ptr %99, ptr %25, align 8
   %.pre = load ptr, ptr %14, align 8
-  %.pre173 = load ptr, ptr %23, align 8
+  %.pre172 = load ptr, ptr %23, align 8
   br label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2ERKS1_.exit
 
 _ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2ERKS1_.exit: ; preds = %105, %95
-  %108 = phi ptr [ %.pre173, %105 ], [ %93, %95 ]
+  %108 = phi ptr [ %.pre172, %105 ], [ %93, %95 ]
   %109 = phi ptr [ %.pre, %105 ], [ %92, %95 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
   %110 = ptrtoint ptr %108 to i64
@@ -957,43 +957,43 @@ _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_E
   %161 = getelementptr inbounds i8, ptr %124, i64 40
   %162 = load ptr, ptr %161, align 8
   %163 = getelementptr inbounds i8, ptr %124, i64 24
-  %.not127158 = icmp eq ptr %162, %163
-  br i1 %.not127158, label %._crit_edge, label %.lr.ph160
+  %.not126157 = icmp eq ptr %162, %163
+  br i1 %.not126157, label %._crit_edge, label %.lr.ph159
 
-.lr.ph160:                                        ; preds = %160, %.backedge
-  %.sroa.0101.0159 = phi ptr [ %166, %.backedge ], [ %162, %160 ]
-  %164 = getelementptr inbounds nuw i8, ptr %.sroa.0101.0159, i64 32
+.lr.ph159:                                        ; preds = %160, %.backedge
+  %.sroa.0101.0158 = phi ptr [ %166, %.backedge ], [ %162, %160 ]
+  %164 = getelementptr inbounds nuw i8, ptr %.sroa.0101.0158, i64 32
   %165 = load ptr, ptr %164, align 8
-  %166 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0101.0159) #19
+  %166 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0101.0158) #19
   %167 = getelementptr inbounds nuw i8, ptr %165, i64 8
   %168 = load ptr, ptr %167, align 8
-  br i1 %5, label %169, label %.lr.ph160._crit_edge
+  br i1 %5, label %169, label %.lr.ph159._crit_edge
 
-169:                                              ; preds = %.lr.ph160
+169:                                              ; preds = %.lr.ph159
   %170 = load ptr, ptr %168, align 8
   %.not = icmp eq ptr %170, %124
-  br i1 %.not, label %.lr.ph160._crit_edge, label %.backedge
+  br i1 %.not, label %.lr.ph159._crit_edge, label %.backedge
 
-.backedge:                                        ; preds = %309, %.lr.ph160._crit_edge, %169
-  %.not127 = icmp eq ptr %166, %163
-  br i1 %.not127, label %._crit_edge, label %.lr.ph160, !llvm.loop !15
+.backedge:                                        ; preds = %308, %.lr.ph159._crit_edge, %169
+  %.not126 = icmp eq ptr %166, %163
+  br i1 %.not126, label %._crit_edge, label %.lr.ph159, !llvm.loop !15
 
-.lr.ph160._crit_edge:                             ; preds = %.lr.ph160, %169
+.lr.ph159._crit_edge:                             ; preds = %.lr.ph159, %169
   %171 = getelementptr inbounds nuw i8, ptr %165, i64 8
   %172 = getelementptr inbounds nuw i8, ptr %165, i64 16
   %173 = load ptr, ptr %172, align 8
-  %.not161 = icmp eq ptr %173, %168
-  br i1 %.not161, label %.backedge, label %.lr.ph157, !llvm.loop !15
+  %.not160 = icmp eq ptr %173, %168
+  br i1 %.not160, label %.backedge, label %.lr.ph156, !llvm.loop !15
 
-.lr.ph157:                                        ; preds = %.lr.ph160._crit_edge, %309
-  %174 = phi ptr [ %312, %309 ], [ %168, %.lr.ph160._crit_edge ]
-  %.026156 = phi i64 [ %310, %309 ], [ 0, %.lr.ph160._crit_edge ]
-  %175 = getelementptr inbounds ptr, ptr %174, i64 %.026156
+.lr.ph156:                                        ; preds = %.lr.ph159._crit_edge, %308
+  %174 = phi ptr [ %311, %308 ], [ %168, %.lr.ph159._crit_edge ]
+  %.026155 = phi i64 [ %309, %308 ], [ 0, %.lr.ph159._crit_edge ]
+  %175 = getelementptr inbounds ptr, ptr %174, i64 %.026155
   %176 = load ptr, ptr %175, align 8
   %177 = icmp eq ptr %176, %124
-  br i1 %177, label %309, label %178
+  br i1 %177, label %308, label %178
 
-178:                                              ; preds = %.lr.ph157
+178:                                              ; preds = %.lr.ph156
   %179 = load ptr, ptr %2, align 8
   %180 = load ptr, ptr %179, align 8
   %181 = invoke noundef double %180(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %165, ptr noundef %124, ptr noundef %176)
@@ -1003,7 +1003,7 @@ _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_E
   %183 = fcmp oeq double %181, 0x7FEFFFFFFFFFFFFF
   %184 = fcmp ogt double %181, %6
   %or.cond = or i1 %183, %184
-  br i1 %or.cond, label %309, label %185
+  br i1 %or.cond, label %308, label %185
 
 185:                                              ; preds = %182
   %186 = fadd double %135, %181
@@ -1044,7 +1044,7 @@ _ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4le
   %200 = fcmp olt double %196, %199
   %201 = fcmp olt double %186, %3
   %or.cond32 = and i1 %201, %200
-  br i1 %or.cond32, label %202, label %309
+  br i1 %or.cond32, label %202, label %308
 
 202:                                              ; preds = %_ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit68
   store double %186, ptr %198, align 8
@@ -1132,7 +1132,7 @@ _ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE9push_backERKS2_.ex
   %232 = getelementptr inbounds i8, ptr %229, i64 -32
   %233 = load ptr, ptr %232, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %233, null
-  br i1 %.not.i.i.i.i.i.i, label %248, label %234
+  br i1 %.not.i.i.i.i.i.i, label %247, label %234
 
 234:                                              ; preds = %_ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE9push_backERKS2_.exit.i78
   %235 = getelementptr inbounds i8, ptr %229, i64 -40
@@ -1149,7 +1149,6 @@ _ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE9push_backERKS2_.ex
   store ptr %37, ptr %241, align 8
   %242 = getelementptr inbounds i8, ptr %229, i64 -8
   %243 = load i64, ptr %242, align 8
-  store i64 %243, ptr %41, align 8
   store ptr null, ptr %232, align 8
   store ptr %235, ptr %237, align 8
   store ptr %235, ptr %239, align 8
@@ -1163,246 +1162,245 @@ _ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE9push_backERKS2_.ex
   store ptr %238, ptr %44, align 8
   store ptr %240, ptr %45, align 8
   store ptr %42, ptr %241, align 8
-  %247 = load i64, ptr %41, align 8
-  store i64 %247, ptr %46, align 8
   store ptr null, ptr %38, align 8
   store ptr %37, ptr %39, align 8
   store ptr %37, ptr %40, align 8
-  br label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit3.i
+  store i64 0, ptr %41, align 8
+  br label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit2.i
 
-248:                                              ; preds = %_ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE9push_backERKS2_.exit.i78
+247:                                              ; preds = %_ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE9push_backERKS2_.exit.i78
   store i32 0, ptr %37, align 8
   store ptr null, ptr %38, align 8
   store ptr %37, ptr %39, align 8
   store ptr %37, ptr %40, align 8
   store i64 0, ptr %41, align 8
-  %249 = ptrtoint ptr %229 to i64
-  %250 = ptrtoint ptr %230 to i64
-  %251 = sub i64 %249, %250
+  %248 = ptrtoint ptr %229 to i64
+  %249 = ptrtoint ptr %230 to i64
+  %250 = sub i64 %248, %249
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
   store i32 0, ptr %42, align 8
   store ptr null, ptr %43, align 8
   store ptr %42, ptr %44, align 8
   store ptr %42, ptr %45, align 8
-  br label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit3.i
+  br label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit2.i
 
-_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit3.i: ; preds = %248, %234
-  %.in.in = phi i64 [ %251, %248 ], [ %246, %234 ]
-  %.sink.i.i.i.i.i2.i = phi ptr [ %46, %248 ], [ %41, %234 ]
+_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit2.i: ; preds = %247, %234
+  %.in.in = phi i64 [ %250, %247 ], [ %246, %234 ]
+  %.sink7.i = phi i64 [ 0, %247 ], [ %243, %234 ]
   %.in = sdiv exact i64 %.in.in, 80
-  %252 = add nsw i64 %.in, -1
-  store i64 0, ptr %.sink.i.i.i.i.i2.i, align 8
-  %253 = icmp sgt i64 %.in.in, 80
-  br i1 %253, label %.lr.ph.i, label %.critedge.i
+  %251 = add nsw i64 %.in, -1
+  store i64 %.sink7.i, ptr %46, align 8
+  %252 = icmp sgt i64 %.in.in, 80
+  br i1 %252, label %.lr.ph.i, label %.critedge.i
 
-.lr.ph.i:                                         ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit3.i, %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit.i
-  %.022.i = phi i64 [ %.0923.i125128, %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit.i ], [ %252, %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit3.i ]
+.lr.ph.i:                                         ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit2.i, %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit.i
+  %.022.i = phi i64 [ %.0923.i124127, %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit.i ], [ %251, %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit2.i ]
   %.0923.in.i = add nsw i64 %.022.i, -1
-  %.0923.i125128 = lshr i64 %.0923.in.i, 1
-  %254 = getelementptr inbounds %"struct.g2o::HyperDijkstra::AdjacencyMapEntry", ptr %230, i64 %.0923.i125128
-  %255 = getelementptr inbounds nuw i8, ptr %254, i64 24
-  %256 = load double, ptr %255, align 8
-  %257 = load double, ptr %47, align 8
-  %258 = fcmp ogt double %256, %257
-  br i1 %258, label %259, label %.critedge.i
+  %.0923.i124127 = lshr i64 %.0923.in.i, 1
+  %253 = getelementptr inbounds %"struct.g2o::HyperDijkstra::AdjacencyMapEntry", ptr %230, i64 %.0923.i124127
+  %254 = getelementptr inbounds nuw i8, ptr %253, i64 24
+  %255 = load double, ptr %254, align 8
+  %256 = load double, ptr %47, align 8
+  %257 = fcmp ogt double %255, %256
+  br i1 %257, label %258, label %.critedge.i
 
-259:                                              ; preds = %.lr.ph.i
-  %260 = getelementptr inbounds %"struct.g2o::HyperDijkstra::AdjacencyMapEntry", ptr %230, i64 %.022.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %260, ptr noundef nonnull align 8 dereferenceable(32) %254, i64 32, i1 false)
-  %261 = getelementptr inbounds nuw i8, ptr %260, i64 32
-  %262 = getelementptr inbounds i8, ptr %260, i64 48
-  %263 = load ptr, ptr %262, align 8
-  invoke void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %261, ptr noundef %263)
-          to label %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE5clearEv.exit.i.i.i.i.i unwind label %264
+258:                                              ; preds = %.lr.ph.i
+  %259 = getelementptr inbounds %"struct.g2o::HyperDijkstra::AdjacencyMapEntry", ptr %230, i64 %.022.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %259, ptr noundef nonnull align 8 dereferenceable(32) %253, i64 32, i1 false)
+  %260 = getelementptr inbounds nuw i8, ptr %259, i64 32
+  %261 = getelementptr inbounds i8, ptr %259, i64 48
+  %262 = load ptr, ptr %261, align 8
+  invoke void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %260, ptr noundef %262)
+          to label %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE5clearEv.exit.i.i.i.i.i unwind label %263
 
-264:                                              ; preds = %259
-  %265 = landingpad { ptr, i32 }
+263:                                              ; preds = %258
+  %264 = landingpad { ptr, i32 }
           catch ptr null
-  %266 = extractvalue { ptr, i32 } %265, 0
-  call void @__clang_call_terminate(ptr %266) #17
+  %265 = extractvalue { ptr, i32 } %264, 0
+  call void @__clang_call_terminate(ptr %265) #17
   unreachable
 
-_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE5clearEv.exit.i.i.i.i.i: ; preds = %259
-  %267 = getelementptr inbounds i8, ptr %260, i64 40
-  store ptr null, ptr %262, align 8
-  %268 = getelementptr inbounds i8, ptr %260, i64 56
-  store ptr %267, ptr %268, align 8
-  %269 = getelementptr inbounds i8, ptr %260, i64 64
-  store ptr %267, ptr %269, align 8
-  %270 = getelementptr inbounds i8, ptr %260, i64 72
-  store i64 0, ptr %270, align 8
-  %271 = getelementptr inbounds i8, ptr %254, i64 48
-  %272 = load ptr, ptr %271, align 8
-  %.not.i.i.i.i.i95 = icmp eq ptr %272, null
-  br i1 %.not.i.i.i.i.i95, label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit.i, label %273
+_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE5clearEv.exit.i.i.i.i.i: ; preds = %258
+  %266 = getelementptr inbounds i8, ptr %259, i64 40
+  store ptr null, ptr %261, align 8
+  %267 = getelementptr inbounds i8, ptr %259, i64 56
+  store ptr %266, ptr %267, align 8
+  %268 = getelementptr inbounds i8, ptr %259, i64 64
+  store ptr %266, ptr %268, align 8
+  %269 = getelementptr inbounds i8, ptr %259, i64 72
+  store i64 0, ptr %269, align 8
+  %270 = getelementptr inbounds i8, ptr %253, i64 48
+  %271 = load ptr, ptr %270, align 8
+  %.not.i.i.i.i.i95 = icmp eq ptr %271, null
+  br i1 %.not.i.i.i.i.i95, label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit.i, label %272
 
-273:                                              ; preds = %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE5clearEv.exit.i.i.i.i.i
-  %274 = getelementptr inbounds i8, ptr %254, i64 40
-  %275 = load i32, ptr %274, align 8
-  store i32 %275, ptr %267, align 8
-  store ptr %272, ptr %262, align 8
-  %276 = getelementptr inbounds i8, ptr %254, i64 56
-  %277 = load ptr, ptr %276, align 8
-  store ptr %277, ptr %268, align 8
-  %278 = getelementptr inbounds i8, ptr %254, i64 64
-  %279 = load ptr, ptr %278, align 8
-  store ptr %279, ptr %269, align 8
-  %280 = getelementptr inbounds nuw i8, ptr %272, i64 8
-  store ptr %267, ptr %280, align 8
-  %281 = getelementptr inbounds i8, ptr %254, i64 72
-  %282 = load i64, ptr %281, align 8
-  store i64 %282, ptr %270, align 8
-  store ptr null, ptr %271, align 8
-  store ptr %274, ptr %276, align 8
-  store ptr %274, ptr %278, align 8
-  store i64 0, ptr %281, align 8
+272:                                              ; preds = %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE5clearEv.exit.i.i.i.i.i
+  %273 = getelementptr inbounds i8, ptr %253, i64 40
+  %274 = load i32, ptr %273, align 8
+  store i32 %274, ptr %266, align 8
+  store ptr %271, ptr %261, align 8
+  %275 = getelementptr inbounds i8, ptr %253, i64 56
+  %276 = load ptr, ptr %275, align 8
+  store ptr %276, ptr %267, align 8
+  %277 = getelementptr inbounds i8, ptr %253, i64 64
+  %278 = load ptr, ptr %277, align 8
+  store ptr %278, ptr %268, align 8
+  %279 = getelementptr inbounds nuw i8, ptr %271, i64 8
+  store ptr %266, ptr %279, align 8
+  %280 = getelementptr inbounds i8, ptr %253, i64 72
+  %281 = load i64, ptr %280, align 8
+  store i64 %281, ptr %269, align 8
+  store ptr null, ptr %270, align 8
+  store ptr %273, ptr %275, align 8
+  store ptr %273, ptr %277, align 8
+  store i64 0, ptr %280, align 8
   br label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit.i
 
-_ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit.i: ; preds = %273, %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE5clearEv.exit.i.i.i.i.i
-  %.not129 = icmp ult i64 %.0923.in.i, 2
-  br i1 %.not129, label %.critedge.i, label %.lr.ph.i, !llvm.loop !16
+_ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit.i: ; preds = %272, %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE5clearEv.exit.i.i.i.i.i
+  %.not128 = icmp ult i64 %.0923.in.i, 2
+  br i1 %.not128, label %.critedge.i, label %.lr.ph.i, !llvm.loop !16
 
-.critedge.i:                                      ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit.i, %.lr.ph.i, %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit3.i
-  %.0.lcssa.i = phi i64 [ %252, %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit3.i ], [ %.022.i, %.lr.ph.i ], [ 0, %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit.i ]
-  %283 = getelementptr inbounds %"struct.g2o::HyperDijkstra::AdjacencyMapEntry", ptr %230, i64 %.0.lcssa.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %283, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
-  %284 = getelementptr inbounds nuw i8, ptr %283, i64 32
-  %285 = getelementptr inbounds i8, ptr %283, i64 48
-  %286 = load ptr, ptr %285, align 8
-  invoke void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %284, ptr noundef %286)
-          to label %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE5clearEv.exit.i.i.i.i10.i unwind label %287
+.critedge.i:                                      ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit.i, %.lr.ph.i, %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit2.i
+  %.0.lcssa.i = phi i64 [ %251, %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit2.i ], [ %.022.i, %.lr.ph.i ], [ 0, %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit.i ]
+  %282 = getelementptr inbounds %"struct.g2o::HyperDijkstra::AdjacencyMapEntry", ptr %230, i64 %.0.lcssa.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %282, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
+  %283 = getelementptr inbounds nuw i8, ptr %282, i64 32
+  %284 = getelementptr inbounds i8, ptr %282, i64 48
+  %285 = load ptr, ptr %284, align 8
+  invoke void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %283, ptr noundef %285)
+          to label %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE5clearEv.exit.i.i.i.i10.i unwind label %286
 
-287:                                              ; preds = %.critedge.i
-  %288 = landingpad { ptr, i32 }
+286:                                              ; preds = %.critedge.i
+  %287 = landingpad { ptr, i32 }
           catch ptr null
-  %289 = extractvalue { ptr, i32 } %288, 0
-  call void @__clang_call_terminate(ptr %289) #17
+  %288 = extractvalue { ptr, i32 } %287, 0
+  call void @__clang_call_terminate(ptr %288) #17
   unreachable
 
 _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE5clearEv.exit.i.i.i.i10.i: ; preds = %.critedge.i
-  %290 = getelementptr inbounds i8, ptr %283, i64 40
-  store ptr null, ptr %285, align 8
-  %291 = getelementptr inbounds i8, ptr %283, i64 56
-  store ptr %290, ptr %291, align 8
-  %292 = getelementptr inbounds i8, ptr %283, i64 64
-  store ptr %290, ptr %292, align 8
-  %293 = getelementptr inbounds i8, ptr %283, i64 72
-  store i64 0, ptr %293, align 8
-  %294 = load ptr, ptr %43, align 8
-  %.not.i.i.i.i11.i = icmp eq ptr %294, null
-  br i1 %.not.i.i.i.i11.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_comp_valISt4lessIS4_EEEEvT_T0_SG_T1_RT2_.exit, label %295
+  %289 = getelementptr inbounds i8, ptr %282, i64 40
+  store ptr null, ptr %284, align 8
+  %290 = getelementptr inbounds i8, ptr %282, i64 56
+  store ptr %289, ptr %290, align 8
+  %291 = getelementptr inbounds i8, ptr %282, i64 64
+  store ptr %289, ptr %291, align 8
+  %292 = getelementptr inbounds i8, ptr %282, i64 72
+  store i64 0, ptr %292, align 8
+  %293 = load ptr, ptr %43, align 8
+  %.not.i.i.i.i11.i = icmp eq ptr %293, null
+  br i1 %.not.i.i.i.i11.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_comp_valISt4lessIS4_EEEEvT_T0_SG_T1_RT2_.exit, label %294
 
-295:                                              ; preds = %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE5clearEv.exit.i.i.i.i10.i
-  %296 = load i32, ptr %42, align 8
-  store i32 %296, ptr %290, align 8
-  %297 = load ptr, ptr %43, align 8
-  store ptr %297, ptr %285, align 8
-  %298 = load ptr, ptr %44, align 8
+294:                                              ; preds = %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE5clearEv.exit.i.i.i.i10.i
+  %295 = load i32, ptr %42, align 8
+  store i32 %295, ptr %289, align 8
+  %296 = load ptr, ptr %43, align 8
+  store ptr %296, ptr %284, align 8
+  %297 = load ptr, ptr %44, align 8
+  store ptr %297, ptr %290, align 8
+  %298 = load ptr, ptr %45, align 8
   store ptr %298, ptr %291, align 8
-  %299 = load ptr, ptr %45, align 8
-  store ptr %299, ptr %292, align 8
-  %300 = getelementptr inbounds nuw i8, ptr %297, i64 8
-  store ptr %290, ptr %300, align 8
-  %301 = load i64, ptr %46, align 8
-  store i64 %301, ptr %293, align 8
+  %299 = getelementptr inbounds nuw i8, ptr %296, i64 8
+  store ptr %289, ptr %299, align 8
+  %300 = load i64, ptr %46, align 8
+  store i64 %300, ptr %292, align 8
   store ptr null, ptr %43, align 8
   store ptr %42, ptr %44, align 8
   store ptr %42, ptr %45, align 8
   store i64 0, ptr %46, align 8
   br label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_comp_valISt4lessIS4_EEEEvT_T0_SG_T1_RT2_.exit
 
-_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_comp_valISt4lessIS4_EEEEvT_T0_SG_T1_RT2_.exit: ; preds = %295, %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE5clearEv.exit.i.i.i.i10.i
+_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_comp_valISt4lessIS4_EEEEvT_T0_SG_T1_RT2_.exit: ; preds = %294, %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE5clearEv.exit.i.i.i.i10.i
   invoke void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %48, ptr noundef null)
-          to label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit.i unwind label %302
+          to label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit.i unwind label %301
 
-302:                                              ; preds = %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_comp_valISt4lessIS4_EEEEvT_T0_SG_T1_RT2_.exit
-  %303 = landingpad { ptr, i32 }
+301:                                              ; preds = %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_comp_valISt4lessIS4_EEEEvT_T0_SG_T1_RT2_.exit
+  %302 = landingpad { ptr, i32 }
           catch ptr null
-  %304 = extractvalue { ptr, i32 } %303, 0
-  call void @__clang_call_terminate(ptr %304) #17
+  %303 = extractvalue { ptr, i32 } %302, 0
+  call void @__clang_call_terminate(ptr %303) #17
   unreachable
 
 _ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit.i: ; preds = %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_comp_valISt4lessIS4_EEEEvT_T0_SG_T1_RT2_.exit
-  %305 = load ptr, ptr %38, align 8
-  invoke void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %49, ptr noundef %305)
-          to label %_ZNSt14priority_queueIN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS2_SaIS2_EESt4lessIS2_EE4pushERKS2_.exit83 unwind label %306
+  %304 = load ptr, ptr %38, align 8
+  invoke void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %49, ptr noundef %304)
+          to label %_ZNSt14priority_queueIN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS2_SaIS2_EESt4lessIS2_EE4pushERKS2_.exit83 unwind label %305
 
-306:                                              ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit.i
-  %307 = landingpad { ptr, i32 }
+305:                                              ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit.i
+  %306 = landingpad { ptr, i32 }
           catch ptr null
-  %308 = extractvalue { ptr, i32 } %307, 0
-  call void @__clang_call_terminate(ptr %308) #17
+  %307 = extractvalue { ptr, i32 } %306, 0
+  call void @__clang_call_terminate(ptr %307) #17
   unreachable
 
 _ZNSt14priority_queueIN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS2_SaIS2_EESt4lessIS2_EE4pushERKS2_.exit83: ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit.i
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9)
-  br label %309
+  br label %308
 
-309:                                              ; preds = %_ZNSt14priority_queueIN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS2_SaIS2_EESt4lessIS2_EE4pushERKS2_.exit83, %_ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit68, %182, %.lr.ph157
-  %310 = add nuw i64 %.026156, 1
-  %311 = load ptr, ptr %172, align 8
-  %312 = load ptr, ptr %171, align 8
+308:                                              ; preds = %_ZNSt14priority_queueIN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS2_SaIS2_EESt4lessIS2_EE4pushERKS2_.exit83, %_ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit68, %182, %.lr.ph156
+  %309 = add nuw i64 %.026155, 1
+  %310 = load ptr, ptr %172, align 8
+  %311 = load ptr, ptr %171, align 8
+  %312 = ptrtoint ptr %310 to i64
   %313 = ptrtoint ptr %311 to i64
-  %314 = ptrtoint ptr %312 to i64
-  %315 = sub i64 %313, %314
-  %316 = ashr exact i64 %315, 3
-  %317 = icmp ult i64 %310, %316
-  br i1 %317, label %.lr.ph157, label %.backedge, !llvm.loop !17
+  %314 = sub i64 %312, %313
+  %315 = ashr exact i64 %314, 3
+  %316 = icmp ult i64 %309, %315
+  br i1 %316, label %.lr.ph156, label %.backedge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.backedge, %160
-  %318 = load ptr, ptr %25, align 8
-  invoke void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef %318)
-          to label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit84 unwind label %319, !llvm.loop !18
+  %317 = load ptr, ptr %25, align 8
+  invoke void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef %317)
+          to label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit84 unwind label %318, !llvm.loop !18
 
-319:                                              ; preds = %._crit_edge
-  %320 = landingpad { ptr, i32 }
+318:                                              ; preds = %._crit_edge
+  %319 = landingpad { ptr, i32 }
           catch ptr null
-  %321 = extractvalue { ptr, i32 } %320, 0
-  call void @__clang_call_terminate(ptr %321) #17
+  %320 = extractvalue { ptr, i32 } %319, 0
+  call void @__clang_call_terminate(ptr %320) #17
   unreachable
 
 _ZSt8_DestroyIPN3g2o13HyperDijkstra17AdjacencyMapEntryES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit84
   %.not.i.i.i.i = icmp eq ptr %92, null
-  br i1 %.not.i.i.i.i, label %_ZNSt14priority_queueIN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS2_SaIS2_EESt4lessIS2_EED2Ev.exit, label %322
+  br i1 %.not.i.i.i.i, label %_ZNSt14priority_queueIN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS2_SaIS2_EESt4lessIS2_EED2Ev.exit, label %321
 
-322:                                              ; preds = %_ZSt8_DestroyIPN3g2o13HyperDijkstra17AdjacencyMapEntryES2_EvT_S4_RSaIT0_E.exit.i.i
-  %323 = load ptr, ptr %36, align 8
-  %324 = ptrtoint ptr %323 to i64
-  %325 = ptrtoint ptr %92 to i64
-  %326 = sub i64 %324, %325
-  call void @_ZdlPvm(ptr noundef nonnull %92, i64 noundef %326) #21
+321:                                              ; preds = %_ZSt8_DestroyIPN3g2o13HyperDijkstra17AdjacencyMapEntryES2_EvT_S4_RSaIT0_E.exit.i.i
+  %322 = load ptr, ptr %36, align 8
+  %323 = ptrtoint ptr %322 to i64
+  %324 = ptrtoint ptr %92 to i64
+  %325 = sub i64 %323, %324
+  call void @_ZdlPvm(ptr noundef nonnull %92, i64 noundef %325) #21
   br label %_ZNSt14priority_queueIN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS2_SaIS2_EESt4lessIS2_EED2Ev.exit
 
-_ZNSt14priority_queueIN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS2_SaIS2_EESt4lessIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN3g2o13HyperDijkstra17AdjacencyMapEntryES2_EvT_S4_RSaIT0_E.exit.i.i, %322
+_ZNSt14priority_queueIN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS2_SaIS2_EESt4lessIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN3g2o13HyperDijkstra17AdjacencyMapEntryES2_EvT_S4_RSaIT0_E.exit.i.i, %321
   ret void
 
-_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit: ; preds = %.loopexit130, %.loopexit.split-lp, %.body
-  %.pn = phi { ptr, i32 } [ %lpad.phi, %.body ], [ %lpad.loopexit131, %.loopexit130 ], [ %lpad.loopexit.split-lp132, %.loopexit.split-lp ]
-  %327 = load ptr, ptr %14, align 8
-  %328 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %329 = load ptr, ptr %328, align 8
-  %.not4.i.i.i.i.i85 = icmp eq ptr %327, %329
+_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit: ; preds = %.loopexit129, %.loopexit.split-lp, %.body
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %.body ], [ %lpad.loopexit130, %.loopexit129 ], [ %lpad.loopexit.split-lp131, %.loopexit.split-lp ]
+  %326 = load ptr, ptr %14, align 8
+  %327 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %328 = load ptr, ptr %327, align 8
+  %.not4.i.i.i.i.i85 = icmp eq ptr %326, %328
   br i1 %.not4.i.i.i.i.i85, label %_ZSt8_DestroyIPN3g2o13HyperDijkstra17AdjacencyMapEntryES2_EvT_S4_RSaIT0_E.exit.i.i92, label %.lr.ph.i.i.i.i.i86
 
 .lr.ph.i.i.i.i.i86:                               ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit, %_ZSt8_DestroyIN3g2o13HyperDijkstra17AdjacencyMapEntryEEvPT_.exit.i.i.i.i.i88
-  %.05.i.i.i.i.i87 = phi ptr [ %336, %_ZSt8_DestroyIN3g2o13HyperDijkstra17AdjacencyMapEntryEEvPT_.exit.i.i.i.i.i88 ], [ %327, %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit ]
-  %330 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i87, i64 32
-  %331 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i87, i64 48
-  %332 = load ptr, ptr %331, align 8
-  invoke void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %330, ptr noundef %332)
-          to label %_ZSt8_DestroyIN3g2o13HyperDijkstra17AdjacencyMapEntryEEvPT_.exit.i.i.i.i.i88 unwind label %333
+  %.05.i.i.i.i.i87 = phi ptr [ %335, %_ZSt8_DestroyIN3g2o13HyperDijkstra17AdjacencyMapEntryEEvPT_.exit.i.i.i.i.i88 ], [ %326, %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit ]
+  %329 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i87, i64 32
+  %330 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i87, i64 48
+  %331 = load ptr, ptr %330, align 8
+  invoke void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %329, ptr noundef %331)
+          to label %_ZSt8_DestroyIN3g2o13HyperDijkstra17AdjacencyMapEntryEEvPT_.exit.i.i.i.i.i88 unwind label %332
 
-333:                                              ; preds = %.lr.ph.i.i.i.i.i86
-  %334 = landingpad { ptr, i32 }
+332:                                              ; preds = %.lr.ph.i.i.i.i.i86
+  %333 = landingpad { ptr, i32 }
           catch ptr null
-  %335 = extractvalue { ptr, i32 } %334, 0
-  call void @__clang_call_terminate(ptr %335) #17
+  %334 = extractvalue { ptr, i32 } %333, 0
+  call void @__clang_call_terminate(ptr %334) #17
   unreachable
 
 _ZSt8_DestroyIN3g2o13HyperDijkstra17AdjacencyMapEntryEEvPT_.exit.i.i.i.i.i88: ; preds = %.lr.ph.i.i.i.i.i86
-  %336 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i87, i64 80
-  %.not.i.i.i.i.i89 = icmp eq ptr %336, %329
+  %335 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i87, i64 80
+  %.not.i.i.i.i.i89 = icmp eq ptr %335, %328
   br i1 %.not.i.i.i.i.i89, label %_ZSt8_DestroyIPN3g2o13HyperDijkstra17AdjacencyMapEntryES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i90, label %.lr.ph.i.i.i.i.i86, !llvm.loop !19
 
 _ZSt8_DestroyIPN3g2o13HyperDijkstra17AdjacencyMapEntryES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i90: ; preds = %_ZSt8_DestroyIN3g2o13HyperDijkstra17AdjacencyMapEntryEEvPT_.exit.i.i.i.i.i88
@@ -1410,20 +1408,20 @@ _ZSt8_DestroyIPN3g2o13HyperDijkstra17AdjacencyMapEntryES2_EvT_S4_RSaIT0_E.exitth
   br label %_ZSt8_DestroyIPN3g2o13HyperDijkstra17AdjacencyMapEntryES2_EvT_S4_RSaIT0_E.exit.i.i92
 
 _ZSt8_DestroyIPN3g2o13HyperDijkstra17AdjacencyMapEntryES2_EvT_S4_RSaIT0_E.exit.i.i92: ; preds = %_ZSt8_DestroyIPN3g2o13HyperDijkstra17AdjacencyMapEntryES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i90, %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit
-  %337 = phi ptr [ %.pr.i.i91, %_ZSt8_DestroyIPN3g2o13HyperDijkstra17AdjacencyMapEntryES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i90 ], [ %327, %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit ]
-  %.not.i.i.i.i93 = icmp eq ptr %337, null
-  br i1 %.not.i.i.i.i93, label %_ZNSt14priority_queueIN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS2_SaIS2_EESt4lessIS2_EED2Ev.exit94, label %338
+  %336 = phi ptr [ %.pr.i.i91, %_ZSt8_DestroyIPN3g2o13HyperDijkstra17AdjacencyMapEntryES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i90 ], [ %326, %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit ]
+  %.not.i.i.i.i93 = icmp eq ptr %336, null
+  br i1 %.not.i.i.i.i93, label %_ZNSt14priority_queueIN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS2_SaIS2_EESt4lessIS2_EED2Ev.exit94, label %337
 
-338:                                              ; preds = %_ZSt8_DestroyIPN3g2o13HyperDijkstra17AdjacencyMapEntryES2_EvT_S4_RSaIT0_E.exit.i.i92
-  %339 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %340 = load ptr, ptr %339, align 8
-  %341 = ptrtoint ptr %340 to i64
-  %342 = ptrtoint ptr %337 to i64
-  %343 = sub i64 %341, %342
-  call void @_ZdlPvm(ptr noundef nonnull %337, i64 noundef %343) #21
+337:                                              ; preds = %_ZSt8_DestroyIPN3g2o13HyperDijkstra17AdjacencyMapEntryES2_EvT_S4_RSaIT0_E.exit.i.i92
+  %338 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %339 = load ptr, ptr %338, align 8
+  %340 = ptrtoint ptr %339 to i64
+  %341 = ptrtoint ptr %336 to i64
+  %342 = sub i64 %340, %341
+  call void @_ZdlPvm(ptr noundef nonnull %336, i64 noundef %342) #21
   br label %_ZNSt14priority_queueIN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS2_SaIS2_EESt4lessIS2_EED2Ev.exit94
 
-_ZNSt14priority_queueIN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS2_SaIS2_EESt4lessIS2_EED2Ev.exit94: ; preds = %_ZSt8_DestroyIPN3g2o13HyperDijkstra17AdjacencyMapEntryES2_EvT_S4_RSaIT0_E.exit.i.i92, %338
+_ZNSt14priority_queueIN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS2_SaIS2_EESt4lessIS2_EED2Ev.exit94: ; preds = %_ZSt8_DestroyIPN3g2o13HyperDijkstra17AdjacencyMapEntryES2_EvT_S4_RSaIT0_E.exit.i.i92, %337
   resume { ptr, i32 } %.pn
 }
 
@@ -2473,7 +2471,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS
   %11 = getelementptr inbounds i8, ptr %2, i64 56
   %12 = load ptr, ptr %11, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %27, label %13
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %26, label %13
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds i8, ptr %2, i64 48
@@ -2493,87 +2491,86 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS
   store ptr %10, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 80
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %5, i64 112
-  store i64 %25, ptr %26, align 8
   store ptr null, ptr %11, align 8
   store ptr %14, ptr %17, align 8
   store ptr %14, ptr %20, align 8
-  br label %32
+  store i64 0, ptr %24, align 8
+  br label %30
 
-27:                                               ; preds = %3
+26:                                               ; preds = %3
   store i32 0, ptr %10, align 8
-  %28 = getelementptr inbounds i8, ptr %5, i64 88
-  store ptr null, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %5, i64 96
+  %27 = getelementptr inbounds i8, ptr %5, i64 88
+  store ptr null, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %5, i64 96
+  store ptr %10, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %5, i64 104
   store ptr %10, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %5, i64 104
-  store ptr %10, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %5, i64 112
-  br label %32
+  br label %30
 
-32:                                               ; preds = %27, %13
-  %.sink.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %31, %27 ], [ %24, %13 ]
-  %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 0, ptr %.sink.i.i.i.i.i.i.i.i.i.i.i, align 8
-  store ptr %5, ptr %33, align 8
-  %34 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %35 unwind label %50
+30:                                               ; preds = %26, %13
+  %.sink.i.i = phi i64 [ 0, %26 ], [ %25, %13 ]
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %32 = getelementptr inbounds i8, ptr %5, i64 112
+  store i64 %.sink.i.i, ptr %32, align 8
+  store ptr %5, ptr %31, align 8
+  %33 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %6)
+          to label %34 unwind label %49
 
-35:                                               ; preds = %32
-  %36 = extractvalue { ptr, ptr } %34, 0
-  %37 = extractvalue { ptr, ptr } %34, 1
-  %.not = icmp eq ptr %37, null
-  br i1 %.not, label %52, label %38
+34:                                               ; preds = %30
+  %35 = extractvalue { ptr, ptr } %33, 0
+  %36 = extractvalue { ptr, ptr } %33, 1
+  %.not = icmp eq ptr %36, null
+  br i1 %.not, label %51, label %37
 
-38:                                               ; preds = %35
-  %.not.i.i = icmp ne ptr %36, null
-  %39 = getelementptr inbounds i8, ptr %0, i64 8
-  %40 = icmp eq ptr %37, %39
-  %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %40
-  br i1 %or.cond.i.i, label %.thread, label %41
+37:                                               ; preds = %34
+  %.not.i.i = icmp ne ptr %35, null
+  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %39 = icmp eq ptr %36, %38
+  %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %39
+  br i1 %or.cond.i.i, label %.thread, label %40
 
-41:                                               ; preds = %38
-  %42 = load ptr, ptr %6, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %37, i64 32
-  %44 = load ptr, ptr %43, align 8
-  %45 = icmp ult ptr %42, %44
+40:                                               ; preds = %37
+  %41 = load ptr, ptr %6, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 32
+  %43 = load ptr, ptr %42, align 8
+  %44 = icmp ult ptr %41, %43
   br label %.thread
 
-.thread:                                          ; preds = %38, %41
-  %46 = phi i1 [ true, %38 ], [ %45, %41 ]
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %46, ptr noundef nonnull %5, ptr noundef nonnull %37, ptr noundef nonnull align 8 dereferenceable(32) %39) #18
-  %47 = getelementptr inbounds i8, ptr %0, i64 40
-  %48 = load i64, ptr %47, align 8
-  %49 = add i64 %48, 1
-  store i64 %49, ptr %47, align 8
+.thread:                                          ; preds = %37, %40
+  %45 = phi i1 [ true, %37 ], [ %44, %40 ]
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %45, ptr noundef nonnull %5, ptr noundef nonnull %36, ptr noundef nonnull align 8 dereferenceable(32) %38) #18
+  %46 = getelementptr inbounds i8, ptr %0, i64 40
+  %47 = load i64, ptr %46, align 8
+  %48 = add i64 %47, 1
+  store i64 %48, ptr %46, align 8
   br label %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_Auto_nodeD2Ev.exit
 
-50:                                               ; preds = %32
-  %51 = landingpad { ptr, i32 }
+49:                                               ; preds = %30
+  %50 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #18
-  resume { ptr, i32 } %51
+  resume { ptr, i32 } %50
 
-52:                                               ; preds = %35
-  %53 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %54 = getelementptr inbounds i8, ptr %5, i64 88
-  %55 = load ptr, ptr %54, align 8
-  invoke void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %53, ptr noundef %55)
-          to label %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit.i unwind label %56
+51:                                               ; preds = %34
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %53 = getelementptr inbounds i8, ptr %5, i64 88
+  %54 = load ptr, ptr %53, align 8
+  invoke void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %52, ptr noundef %54)
+          to label %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit.i unwind label %55
 
-56:                                               ; preds = %52
-  %57 = landingpad { ptr, i32 }
+55:                                               ; preds = %51
+  %56 = landingpad { ptr, i32 }
           catch ptr null
-  %58 = extractvalue { ptr, i32 } %57, 0
-  tail call void @__clang_call_terminate(ptr %58) #17
+  %57 = extractvalue { ptr, i32 } %56, 0
+  tail call void @__clang_call_terminate(ptr %57) #17
   unreachable
 
-_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit.i: ; preds = %52
+_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit.i: ; preds = %51
   tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 120) #21
   br label %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_Auto_nodeD2Ev.exit
 
 _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_Auto_nodeD2Ev.exit: ; preds = %.thread, %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit.i
-  %.sroa.0.08 = phi ptr [ %5, %.thread ], [ %36, %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit.i ]
+  %.sroa.0.08 = phi ptr [ %5, %.thread ], [ %35, %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit.i ]
   ret ptr %.sroa.0.08
 }
 
@@ -2841,7 +2838,7 @@ define linkonce_odr void @_ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPN3g2o13
   %8 = getelementptr inbounds i8, ptr %1, i64 -32
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i = icmp eq ptr %9, null
-  br i1 %.not.i.i.i.i.i, label %24, label %10
+  br i1 %.not.i.i.i.i.i, label %23, label %10
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %1, i64 -40
@@ -2861,30 +2858,29 @@ define linkonce_odr void @_ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPN3g2o13
   store ptr %7, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %1, i64 -8
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %4, i64 72
-  store i64 %22, ptr %23, align 8
   store ptr null, ptr %8, align 8
   store ptr %11, ptr %14, align 8
   store ptr %11, ptr %17, align 8
+  store i64 0, ptr %21, align 8
   br label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit
 
-24:                                               ; preds = %2
+23:                                               ; preds = %2
   store i32 0, ptr %7, align 8
-  %25 = getelementptr inbounds i8, ptr %4, i64 48
-  store ptr null, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %4, i64 56
+  %24 = getelementptr inbounds i8, ptr %4, i64 48
+  store ptr null, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %4, i64 56
+  store ptr %7, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %7, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 64
-  store ptr %7, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %4, i64 72
   br label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit
 
-_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit: ; preds = %10, %24
-  %29 = phi ptr [ %7, %24 ], [ %18, %10 ]
-  %30 = phi ptr [ %7, %24 ], [ %15, %10 ]
-  %31 = phi i32 [ 0, %24 ], [ %12, %10 ]
-  %.sink.i.i.i.i.i = phi ptr [ %28, %24 ], [ %21, %10 ]
-  store i64 0, ptr %.sink.i.i.i.i.i, align 8
+_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit: ; preds = %10, %23
+  %27 = phi ptr [ %7, %23 ], [ %18, %10 ]
+  %28 = phi ptr [ %7, %23 ], [ %15, %10 ]
+  %29 = phi i32 [ 0, %23 ], [ %12, %10 ]
+  %30 = phi i64 [ 0, %23 ], [ %22, %10 ]
+  %31 = getelementptr inbounds i8, ptr %4, i64 72
+  store i64 %30, ptr %31, align 8
   %32 = ptrtoint ptr %1 to i64
   %33 = ptrtoint ptr %0 to i64
   %34 = sub i64 %32, %33
@@ -2895,80 +2891,77 @@ _ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit: ; preds = %10, %24
   %38 = getelementptr inbounds i8, ptr %4, i64 48
   %.not.i.i.i.i.i1 = icmp eq ptr %9, null
   %39 = getelementptr inbounds i8, ptr %5, i64 48
-  br i1 %.not.i.i.i.i.i1, label %49, label %40
+  br i1 %.not.i.i.i.i.i1, label %46, label %40
 
 40:                                               ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit
-  store i32 %31, ptr %37, align 8
+  store i32 %29, ptr %37, align 8
   store ptr %9, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %4, i64 56
   %42 = getelementptr inbounds i8, ptr %5, i64 56
-  store ptr %30, ptr %42, align 8
+  store ptr %28, ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %4, i64 64
   %44 = getelementptr inbounds i8, ptr %5, i64 64
-  store ptr %29, ptr %44, align 8
+  store ptr %27, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %37, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %4, i64 72
-  %47 = load i64, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %5, i64 72
-  store i64 %47, ptr %48, align 8
   store ptr null, ptr %38, align 8
   store ptr %7, ptr %41, align 8
   store ptr %7, ptr %43, align 8
-  br label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit3
+  store i64 0, ptr %31, align 8
+  br label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit2
 
-49:                                               ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit
+46:                                               ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit
   store i32 0, ptr %37, align 8
   store ptr null, ptr %39, align 8
-  %50 = getelementptr inbounds i8, ptr %5, i64 56
-  store ptr %37, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %5, i64 64
-  store ptr %37, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %5, i64 72
-  br label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit3
+  %47 = getelementptr inbounds i8, ptr %5, i64 56
+  store ptr %37, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %5, i64 64
+  store ptr %37, ptr %48, align 8
+  br label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit2
 
-_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit3: ; preds = %40, %49
-  %.sink.i.i.i.i.i2 = phi ptr [ %52, %49 ], [ %46, %40 ]
-  store i64 0, ptr %.sink.i.i.i.i.i2, align 8
+_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit2: ; preds = %40, %46
+  %.sink7 = phi i64 [ 0, %46 ], [ %30, %40 ]
+  %49 = getelementptr inbounds i8, ptr %5, i64 72
+  store i64 %.sink7, ptr %49, align 8
   invoke void @_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_comp_valISt4lessIS4_EEEEvT_T0_SG_T1_RT2_(ptr %0, i64 noundef %36, i64 noundef 0, ptr noundef nonnull %5, ptr noundef nonnull align 1 dereferenceable(1) %3)
-          to label %53 unwind label %65
+          to label %50 unwind label %62
 
-53:                                               ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit3
-  %54 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %55 = getelementptr inbounds i8, ptr %5, i64 48
-  %56 = load ptr, ptr %55, align 8
-  invoke void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %54, ptr noundef %56)
-          to label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit unwind label %57
+50:                                               ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit2
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %52 = getelementptr inbounds i8, ptr %5, i64 48
+  %53 = load ptr, ptr %52, align 8
+  invoke void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %51, ptr noundef %53)
+          to label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit unwind label %54
 
-57:                                               ; preds = %53
-  %58 = landingpad { ptr, i32 }
+54:                                               ; preds = %50
+  %55 = landingpad { ptr, i32 }
           catch ptr null
-  %59 = extractvalue { ptr, i32 } %58, 0
-  call void @__clang_call_terminate(ptr %59) #17
+  %56 = extractvalue { ptr, i32 } %55, 0
+  call void @__clang_call_terminate(ptr %56) #17
   unreachable
 
-_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit: ; preds = %53
-  %60 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %61 = load ptr, ptr %38, align 8
-  invoke void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %60, ptr noundef %61)
-          to label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit4 unwind label %62
+_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit: ; preds = %50
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %58 = load ptr, ptr %38, align 8
+  invoke void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %57, ptr noundef %58)
+          to label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit3 unwind label %59
 
-62:                                               ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit
-  %63 = landingpad { ptr, i32 }
+59:                                               ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit
+  %60 = landingpad { ptr, i32 }
           catch ptr null
-  %64 = extractvalue { ptr, i32 } %63, 0
-  call void @__clang_call_terminate(ptr %64) #17
+  %61 = extractvalue { ptr, i32 } %60, 0
+  call void @__clang_call_terminate(ptr %61) #17
   unreachable
 
-_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit4: ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit
+_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit3: ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit
   ret void
 
-65:                                               ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit3
-  %66 = landingpad { ptr, i32 }
+62:                                               ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit2
+  %63 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #18
   call void @_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %4) #18
-  resume { ptr, i32 } %66
+  resume { ptr, i32 } %63
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3029,7 +3022,7 @@ _ZNSt12_Vector_baseIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE11_M_allocat
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %34, ptr %4, align 8
   %35 = invoke noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE7_M_copyILb0ENS9_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS3_ESE_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %34, ptr noundef nonnull %32, ptr noundef nonnull %26, ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %.noexc.i.i.i.i.i unwind label %95
+          to label %.noexc.i.i.i.i.i unwind label %91
 
 .noexc.i.i.i.i.i:                                 ; preds = %33, %.noexc.i.i.i.i.i
   %.0.i.i.i.i.i.i.i.i.i = phi ptr [ %37, %.noexc.i.i.i.i.i ], [ %35, %33 ]
@@ -3063,8 +3056,8 @@ _ZNSt16allocator_traitsISaIN3g2o13HyperDijkstra17AdjacencyMapEntryEEE9constructI
   br i1 %.not10.i.i.i, label %_ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt16allocator_traitsISaIN3g2o13HyperDijkstra17AdjacencyMapEntryEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit, %_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i
-  %.012.i.i.i = phi ptr [ %64, %_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i ], [ %24, %_ZNSt16allocator_traitsISaIN3g2o13HyperDijkstra17AdjacencyMapEntryEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit ]
-  %.0911.i.i.i = phi ptr [ %63, %_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i ], [ %7, %_ZNSt16allocator_traitsISaIN3g2o13HyperDijkstra17AdjacencyMapEntryEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit ]
+  %.012.i.i.i = phi ptr [ %62, %_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i ], [ %24, %_ZNSt16allocator_traitsISaIN3g2o13HyperDijkstra17AdjacencyMapEntryEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit ]
+  %.0911.i.i.i = phi ptr [ %61, %_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i ], [ %7, %_ZNSt16allocator_traitsISaIN3g2o13HyperDijkstra17AdjacencyMapEntryEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !31)
   call void @llvm.experimental.noalias.scope.decl(metadata !34)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i, i64 32, i1 false), !alias.scope !36
@@ -3072,7 +3065,7 @@ _ZNSt16allocator_traitsISaIN3g2o13HyperDijkstra17AdjacencyMapEntryEEE9constructI
   %45 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 48
   %46 = load ptr, ptr %45, align 8, !alias.scope !34, !noalias !31
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %46, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %58, label %47
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i, label %47
 
 47:                                               ; preds = %.lr.ph.i.i.i
   %48 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 40
@@ -3085,140 +3078,132 @@ _ZNSt16allocator_traitsISaIN3g2o13HyperDijkstra17AdjacencyMapEntryEEE9constructI
   store ptr %44, ptr %54, align 8, !noalias !36
   %55 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 72
   %56 = load i64, ptr %55, align 8, !alias.scope !34, !noalias !31
-  %57 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 72
-  store i64 %56, ptr %57, align 8, !alias.scope !31, !noalias !34
   store ptr null, ptr %45, align 8, !alias.scope !34, !noalias !31
   store ptr %48, ptr %50, align 8, !alias.scope !34, !noalias !31
   store ptr %48, ptr %52, align 8, !alias.scope !34, !noalias !31
+  store i64 0, ptr %55, align 8, !alias.scope !34, !noalias !31
   br label %_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i
 
-58:                                               ; preds = %.lr.ph.i.i.i
-  %59 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 72
-  br label %_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i
-
-_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %58, %47
-  %.sink15.i.i.i = phi i32 [ 0, %58 ], [ %49, %47 ]
-  %.sink13.i.i.i = phi ptr [ %44, %58 ], [ %51, %47 ]
-  %.sink.i.i.i = phi ptr [ %44, %58 ], [ %53, %47 ]
-  %.sink.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %59, %58 ], [ %55, %47 ]
+_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %47, %.lr.ph.i.i.i
+  %.sink15.i.i.i = phi i32 [ %49, %47 ], [ 0, %.lr.ph.i.i.i ]
+  %.sink13.i.i.i = phi ptr [ %51, %47 ], [ %44, %.lr.ph.i.i.i ]
+  %.sink.i.i.i = phi ptr [ %53, %47 ], [ %44, %.lr.ph.i.i.i ]
+  %.sink.i.i.i.i = phi i64 [ %56, %47 ], [ 0, %.lr.ph.i.i.i ]
   store i32 %.sink15.i.i.i, ptr %44, align 8
-  %60 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 48
-  store ptr %46, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 56
-  store ptr %.sink13.i.i.i, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 64
-  store ptr %.sink.i.i.i, ptr %62, align 8
-  store i64 0, ptr %.sink.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !36
-  %63 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 80
-  %64 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 80
-  %.not.i.i.i = icmp eq ptr %63, %1
+  %57 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 48
+  store ptr %46, ptr %57, align 8
+  %58 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 56
+  store ptr %.sink13.i.i.i, ptr %58, align 8
+  %59 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 64
+  store ptr %.sink.i.i.i, ptr %59, align 8
+  %60 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 72
+  store i64 %.sink.i.i.i.i, ptr %60, align 8, !alias.scope !31, !noalias !34
+  %61 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 80
+  %62 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 80
+  %.not.i.i.i = icmp eq ptr %61, %1
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i, !llvm.loop !37
 
 _ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i, %_ZNSt16allocator_traitsISaIN3g2o13HyperDijkstra17AdjacencyMapEntryEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit
-  %.0.lcssa.i.i.i = phi ptr [ %24, %_ZNSt16allocator_traitsISaIN3g2o13HyperDijkstra17AdjacencyMapEntryEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit ], [ %64, %_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i ]
-  %65 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 80
+  %.0.lcssa.i.i.i = phi ptr [ %24, %_ZNSt16allocator_traitsISaIN3g2o13HyperDijkstra17AdjacencyMapEntryEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit ], [ %62, %_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i ]
+  %63 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 80
   %.not10.i.i.i26 = icmp eq ptr %1, %6
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i31
-  %.012.i.i.i28 = phi ptr [ %86, %_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i31 ], [ %65, %_ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
-  %.0911.i.i.i29 = phi ptr [ %85, %_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i31 ], [ %1, %_ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
+  %.012.i.i.i28 = phi ptr [ %82, %_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i31 ], [ %63, %_ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
+  %.0911.i.i.i29 = phi ptr [ %81, %_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i31 ], [ %1, %_ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !38)
   call void @llvm.experimental.noalias.scope.decl(metadata !41)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i28, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i29, i64 32, i1 false), !alias.scope !43
-  %66 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 40
-  %67 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 48
-  %68 = load ptr, ptr %67, align 8, !alias.scope !41, !noalias !38
-  %.not.i.i.i.i.i.i.i.i.i.i.i30 = icmp eq ptr %68, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i30, label %80, label %69
+  %64 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 40
+  %65 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 48
+  %66 = load ptr, ptr %65, align 8, !alias.scope !41, !noalias !38
+  %.not.i.i.i.i.i.i.i.i.i.i.i30 = icmp eq ptr %66, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i30, label %_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i31, label %67
 
-69:                                               ; preds = %.lr.ph.i.i.i27
-  %70 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 40
-  %71 = load i32, ptr %70, align 8, !alias.scope !41, !noalias !38
-  %72 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 56
+67:                                               ; preds = %.lr.ph.i.i.i27
+  %68 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 40
+  %69 = load i32, ptr %68, align 8, !alias.scope !41, !noalias !38
+  %70 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 56
+  %71 = load ptr, ptr %70, align 8, !alias.scope !41, !noalias !38
+  %72 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 64
   %73 = load ptr, ptr %72, align 8, !alias.scope !41, !noalias !38
-  %74 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 64
-  %75 = load ptr, ptr %74, align 8, !alias.scope !41, !noalias !38
-  %76 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  store ptr %66, ptr %76, align 8, !noalias !43
-  %77 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 72
-  %78 = load i64, ptr %77, align 8, !alias.scope !41, !noalias !38
-  %79 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 72
-  store i64 %78, ptr %79, align 8, !alias.scope !38, !noalias !41
-  store ptr null, ptr %67, align 8, !alias.scope !41, !noalias !38
-  store ptr %70, ptr %72, align 8, !alias.scope !41, !noalias !38
-  store ptr %70, ptr %74, align 8, !alias.scope !41, !noalias !38
+  %74 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  store ptr %64, ptr %74, align 8, !noalias !43
+  %75 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 72
+  %76 = load i64, ptr %75, align 8, !alias.scope !41, !noalias !38
+  store ptr null, ptr %65, align 8, !alias.scope !41, !noalias !38
+  store ptr %68, ptr %70, align 8, !alias.scope !41, !noalias !38
+  store ptr %68, ptr %72, align 8, !alias.scope !41, !noalias !38
+  store i64 0, ptr %75, align 8, !alias.scope !41, !noalias !38
   br label %_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i31
 
-80:                                               ; preds = %.lr.ph.i.i.i27
-  %81 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 72
-  br label %_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i31
-
-_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i31: ; preds = %80, %69
-  %.sink15.i.i.i32 = phi i32 [ 0, %80 ], [ %71, %69 ]
-  %.sink13.i.i.i33 = phi ptr [ %66, %80 ], [ %73, %69 ]
-  %.sink.i.i.i34 = phi ptr [ %66, %80 ], [ %75, %69 ]
-  %.sink.i.i.i.i.i.i.i.i.i.i.i35 = phi ptr [ %81, %80 ], [ %77, %69 ]
-  store i32 %.sink15.i.i.i32, ptr %66, align 8
-  %82 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 48
-  store ptr %68, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 56
-  store ptr %.sink13.i.i.i33, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 64
-  store ptr %.sink.i.i.i34, ptr %84, align 8
-  store i64 0, ptr %.sink.i.i.i.i.i.i.i.i.i.i.i35, align 8, !alias.scope !43
-  %85 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 80
-  %86 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 80
-  %.not.i.i.i36 = icmp eq ptr %85, %6
+_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i31: ; preds = %67, %.lr.ph.i.i.i27
+  %.sink15.i.i.i32 = phi i32 [ %69, %67 ], [ 0, %.lr.ph.i.i.i27 ]
+  %.sink13.i.i.i33 = phi ptr [ %71, %67 ], [ %64, %.lr.ph.i.i.i27 ]
+  %.sink.i.i.i34 = phi ptr [ %73, %67 ], [ %64, %.lr.ph.i.i.i27 ]
+  %.sink.i.i.i.i35 = phi i64 [ %76, %67 ], [ 0, %.lr.ph.i.i.i27 ]
+  store i32 %.sink15.i.i.i32, ptr %64, align 8
+  %77 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 48
+  store ptr %66, ptr %77, align 8
+  %78 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 56
+  store ptr %.sink13.i.i.i33, ptr %78, align 8
+  %79 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 64
+  store ptr %.sink.i.i.i34, ptr %79, align 8
+  %80 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 72
+  store i64 %.sink.i.i.i.i35, ptr %80, align 8, !alias.scope !38, !noalias !41
+  %81 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 80
+  %82 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 80
+  %.not.i.i.i36 = icmp eq ptr %81, %6
   br i1 %.not.i.i.i36, label %_ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38, label %.lr.ph.i.i.i27, !llvm.loop !37
 
 _ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38: ; preds = %_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i31, %_ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
-  %.0.lcssa.i.i.i37 = phi ptr [ %65, %_ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ], [ %86, %_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i31 ]
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.0.lcssa.i.i.i37 = phi ptr [ %63, %_ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ], [ %82, %_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i31 ]
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not.i39 = icmp eq ptr %7, null
-  br i1 %.not.i39, label %_ZNSt12_Vector_baseIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE13_M_deallocateEPS2_m.exit, label %88
+  br i1 %.not.i39, label %_ZNSt12_Vector_baseIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE13_M_deallocateEPS2_m.exit, label %84
 
-88:                                               ; preds = %_ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38
-  %89 = load ptr, ptr %87, align 8
-  %90 = ptrtoint ptr %89 to i64
-  %91 = sub i64 %90, %9
-  call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef %91) #21
+84:                                               ; preds = %_ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38
+  %85 = load ptr, ptr %83, align 8
+  %86 = ptrtoint ptr %85 to i64
+  %87 = sub i64 %86, %9
+  call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef %87) #21
   br label %_ZNSt12_Vector_baseIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE13_M_deallocateEPS2_m.exit
 
-_ZNSt12_Vector_baseIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38, %88
+_ZNSt12_Vector_baseIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38, %84
   store ptr %24, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i37, ptr %5, align 8
-  %92 = getelementptr inbounds %"struct.g2o::HyperDijkstra::AdjacencyMapEntry", ptr %24, i64 %17
-  store ptr %92, ptr %87, align 8
+  %88 = getelementptr inbounds %"struct.g2o::HyperDijkstra::AdjacencyMapEntry", ptr %24, i64 %17
+  store ptr %88, ptr %83, align 8
   ret void
 
-93:                                               ; preds = %95
-  %94 = landingpad { ptr, i32 }
+89:                                               ; preds = %91
+  %90 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %100 unwind label %101
+          to label %96 unwind label %97
 
-95:                                               ; preds = %33
-  %96 = landingpad { ptr, i32 }
+91:                                               ; preds = %33
+  %92 = landingpad { ptr, i32 }
           catch ptr null
-  %97 = extractvalue { ptr, i32 } %96, 0
-  %98 = call ptr @__cxa_begin_catch(ptr %97) #18
-  %99 = mul nuw nsw i64 %17, 80
-  call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef %99) #21
+  %93 = extractvalue { ptr, i32 } %92, 0
+  %94 = call ptr @__cxa_begin_catch(ptr %93) #18
+  %95 = mul nuw nsw i64 %17, 80
+  call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef %95) #21
   invoke void @__cxa_rethrow() #22
-          to label %104 unwind label %93
+          to label %100 unwind label %89
 
-100:                                              ; preds = %93
-  resume { ptr, i32 } %94
+96:                                               ; preds = %89
+  resume { ptr, i32 } %90
 
-101:                                              ; preds = %93
-  %102 = landingpad { ptr, i32 }
+97:                                               ; preds = %89
+  %98 = landingpad { ptr, i32 }
           catch ptr null
-  %103 = extractvalue { ptr, i32 } %102, 0
-  call void @__clang_call_terminate(ptr %103) #17
+  %99 = extractvalue { ptr, i32 } %98, 0
+  call void @__clang_call_terminate(ptr %99) #17
   unreachable
 
-104:                                              ; preds = %95
+100:                                              ; preds = %91
   unreachable
 }
 
@@ -3368,7 +3353,7 @@ define linkonce_odr void @_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3g2o
   %8 = getelementptr inbounds i8, ptr %2, i64 48
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i = icmp eq ptr %9, null
-  br i1 %.not.i.i.i.i.i, label %24, label %10
+  br i1 %.not.i.i.i.i.i, label %23, label %10
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds i8, ptr %2, i64 40
@@ -3388,165 +3373,162 @@ define linkonce_odr void @_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3g2o
   store ptr %7, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %2, i64 72
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %5, i64 72
-  store i64 %22, ptr %23, align 8
   store ptr null, ptr %8, align 8
   store ptr %11, ptr %14, align 8
   store ptr %11, ptr %17, align 8
+  store i64 0, ptr %21, align 8
   br label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit
 
-24:                                               ; preds = %4
+23:                                               ; preds = %4
   store i32 0, ptr %7, align 8
-  %25 = getelementptr inbounds i8, ptr %5, i64 48
-  store ptr null, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %5, i64 56
+  %24 = getelementptr inbounds i8, ptr %5, i64 48
+  store ptr null, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %5, i64 56
+  store ptr %7, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %5, i64 64
   store ptr %7, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %5, i64 64
-  store ptr %7, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %5, i64 72
   br label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit
 
-_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit: ; preds = %10, %24
-  %.sink.i.i.i.i.i = phi ptr [ %28, %24 ], [ %21, %10 ]
-  store i64 0, ptr %.sink.i.i.i.i.i, align 8
+_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit: ; preds = %10, %23
+  %.sink = phi i64 [ 0, %23 ], [ %22, %10 ]
+  %27 = getelementptr inbounds i8, ptr %5, i64 72
+  store i64 %.sink, ptr %27, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
-  %29 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  invoke void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef null)
-          to label %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE5clearEv.exit.i.i.i.i unwind label %30
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  invoke void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %28, ptr noundef null)
+          to label %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE5clearEv.exit.i.i.i.i unwind label %29
 
-30:                                               ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit
-  %31 = landingpad { ptr, i32 }
+29:                                               ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit
+  %30 = landingpad { ptr, i32 }
           catch ptr null
-  %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #17
+  %31 = extractvalue { ptr, i32 } %30, 0
+  call void @__clang_call_terminate(ptr %31) #17
   unreachable
 
 _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE5clearEv.exit.i.i.i.i: ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit
-  %33 = getelementptr inbounds i8, ptr %2, i64 40
+  %32 = getelementptr inbounds i8, ptr %2, i64 40
   store ptr null, ptr %8, align 8
-  %34 = getelementptr inbounds i8, ptr %2, i64 56
-  store ptr %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %2, i64 64
-  store ptr %33, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %2, i64 72
-  store i64 0, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 48
-  %38 = load ptr, ptr %37, align 8
-  %.not.i.i.i.i = icmp eq ptr %38, null
-  br i1 %.not.i.i.i.i, label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit, label %39
+  %33 = getelementptr inbounds i8, ptr %2, i64 56
+  store ptr %32, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %2, i64 64
+  store ptr %32, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %2, i64 72
+  store i64 0, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %0, i64 48
+  %37 = load ptr, ptr %36, align 8
+  %.not.i.i.i.i = icmp eq ptr %37, null
+  br i1 %.not.i.i.i.i, label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit, label %38
 
-39:                                               ; preds = %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE5clearEv.exit.i.i.i.i
-  %40 = getelementptr inbounds i8, ptr %0, i64 40
-  %41 = load i32, ptr %40, align 8
-  store i32 %41, ptr %33, align 8
-  %42 = load ptr, ptr %37, align 8
-  store ptr %42, ptr %8, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 56
-  %44 = load ptr, ptr %43, align 8
-  store ptr %44, ptr %34, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 64
-  %46 = load ptr, ptr %45, align 8
-  store ptr %46, ptr %35, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  store ptr %33, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 72
-  %49 = load i64, ptr %48, align 8
-  store i64 %49, ptr %36, align 8
-  store ptr null, ptr %37, align 8
-  store ptr %40, ptr %43, align 8
-  store ptr %40, ptr %45, align 8
-  store i64 0, ptr %48, align 8
+38:                                               ; preds = %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE5clearEv.exit.i.i.i.i
+  %39 = getelementptr inbounds i8, ptr %0, i64 40
+  %40 = load i32, ptr %39, align 8
+  store i32 %40, ptr %32, align 8
+  %41 = load ptr, ptr %36, align 8
+  store ptr %41, ptr %8, align 8
+  %42 = getelementptr inbounds i8, ptr %0, i64 56
+  %43 = load ptr, ptr %42, align 8
+  store ptr %43, ptr %33, align 8
+  %44 = getelementptr inbounds i8, ptr %0, i64 64
+  %45 = load ptr, ptr %44, align 8
+  store ptr %45, ptr %34, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  store ptr %32, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %0, i64 72
+  %48 = load i64, ptr %47, align 8
+  store i64 %48, ptr %35, align 8
+  store ptr null, ptr %36, align 8
+  store ptr %39, ptr %42, align 8
+  store ptr %39, ptr %44, align 8
+  store i64 0, ptr %47, align 8
   br label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit
 
-_ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit: ; preds = %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE5clearEv.exit.i.i.i.i, %39
-  %50 = ptrtoint ptr %1 to i64
-  %51 = ptrtoint ptr %0 to i64
-  %52 = sub i64 %50, %51
-  %53 = sdiv exact i64 %52, 80
+_ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit: ; preds = %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE5clearEv.exit.i.i.i.i, %38
+  %49 = ptrtoint ptr %1 to i64
+  %50 = ptrtoint ptr %0 to i64
+  %51 = sub i64 %49, %50
+  %52 = sdiv exact i64 %51, 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
-  %54 = getelementptr inbounds i8, ptr %6, i64 40
-  %55 = getelementptr inbounds i8, ptr %5, i64 48
-  %56 = load ptr, ptr %55, align 8
-  %.not.i.i.i.i.i3 = icmp eq ptr %56, null
-  br i1 %.not.i.i.i.i.i3, label %70, label %57
+  %53 = getelementptr inbounds i8, ptr %6, i64 40
+  %54 = getelementptr inbounds i8, ptr %5, i64 48
+  %55 = load ptr, ptr %54, align 8
+  %.not.i.i.i.i.i3 = icmp eq ptr %55, null
+  br i1 %.not.i.i.i.i.i3, label %67, label %56
 
-57:                                               ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit
-  %58 = load i32, ptr %7, align 8
-  store i32 %58, ptr %54, align 8
-  %59 = getelementptr inbounds i8, ptr %6, i64 48
-  store ptr %56, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %5, i64 56
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %6, i64 56
-  store ptr %61, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %5, i64 64
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %6, i64 64
-  store ptr %64, ptr %65, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  store ptr %54, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %5, i64 72
-  %68 = load i64, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %6, i64 72
-  store i64 %68, ptr %69, align 8
-  store ptr null, ptr %55, align 8
-  store ptr %7, ptr %60, align 8
-  store ptr %7, ptr %63, align 8
-  br label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit5
+56:                                               ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit
+  %57 = load i32, ptr %7, align 8
+  store i32 %57, ptr %53, align 8
+  %58 = getelementptr inbounds i8, ptr %6, i64 48
+  store ptr %55, ptr %58, align 8
+  %59 = getelementptr inbounds i8, ptr %5, i64 56
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %6, i64 56
+  store ptr %60, ptr %61, align 8
+  %62 = getelementptr inbounds i8, ptr %5, i64 64
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds i8, ptr %6, i64 64
+  store ptr %63, ptr %64, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  store ptr %53, ptr %65, align 8
+  %66 = load i64, ptr %27, align 8
+  store ptr null, ptr %54, align 8
+  store ptr %7, ptr %59, align 8
+  store ptr %7, ptr %62, align 8
+  store i64 0, ptr %27, align 8
+  br label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit4
 
-70:                                               ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit
-  store i32 0, ptr %54, align 8
-  %71 = getelementptr inbounds i8, ptr %6, i64 48
-  store ptr null, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %6, i64 56
-  store ptr %54, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %6, i64 64
-  store ptr %54, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %6, i64 72
-  br label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit5
+67:                                               ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit
+  store i32 0, ptr %53, align 8
+  %68 = getelementptr inbounds i8, ptr %6, i64 48
+  store ptr null, ptr %68, align 8
+  %69 = getelementptr inbounds i8, ptr %6, i64 56
+  store ptr %53, ptr %69, align 8
+  %70 = getelementptr inbounds i8, ptr %6, i64 64
+  store ptr %53, ptr %70, align 8
+  br label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit4
 
-_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit5: ; preds = %57, %70
-  %.sink.i.i.i.i.i4 = phi ptr [ %74, %70 ], [ %67, %57 ]
-  store i64 0, ptr %.sink.i.i.i.i.i4, align 8
-  invoke void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterISt4lessIS4_EEEEvT_T0_SG_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %53, ptr noundef nonnull %6)
-          to label %75 unwind label %87
+_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit4: ; preds = %56, %67
+  %.sink10 = phi i64 [ 0, %67 ], [ %66, %56 ]
+  %71 = getelementptr inbounds i8, ptr %6, i64 72
+  store i64 %.sink10, ptr %71, align 8
+  invoke void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterISt4lessIS4_EEEEvT_T0_SG_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %52, ptr noundef nonnull %6)
+          to label %72 unwind label %84
 
-75:                                               ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit5
-  %76 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %77 = getelementptr inbounds i8, ptr %6, i64 48
-  %78 = load ptr, ptr %77, align 8
-  invoke void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %76, ptr noundef %78)
-          to label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit unwind label %79
+72:                                               ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit4
+  %73 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %74 = getelementptr inbounds i8, ptr %6, i64 48
+  %75 = load ptr, ptr %74, align 8
+  invoke void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %73, ptr noundef %75)
+          to label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit unwind label %76
 
-79:                                               ; preds = %75
-  %80 = landingpad { ptr, i32 }
+76:                                               ; preds = %72
+  %77 = landingpad { ptr, i32 }
           catch ptr null
-  %81 = extractvalue { ptr, i32 } %80, 0
-  call void @__clang_call_terminate(ptr %81) #17
+  %78 = extractvalue { ptr, i32 } %77, 0
+  call void @__clang_call_terminate(ptr %78) #17
   unreachable
 
-_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit: ; preds = %75
-  %82 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %83 = load ptr, ptr %55, align 8
-  invoke void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %82, ptr noundef %83)
-          to label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit6 unwind label %84
+_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit: ; preds = %72
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %80 = load ptr, ptr %54, align 8
+  invoke void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %79, ptr noundef %80)
+          to label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit5 unwind label %81
 
-84:                                               ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit
-  %85 = landingpad { ptr, i32 }
+81:                                               ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit
+  %82 = landingpad { ptr, i32 }
           catch ptr null
-  %86 = extractvalue { ptr, i32 } %85, 0
-  call void @__clang_call_terminate(ptr %86) #17
+  %83 = extractvalue { ptr, i32 } %82, 0
+  call void @__clang_call_terminate(ptr %83) #17
   unreachable
 
-_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit6: ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit
+_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit5: ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit
   ret void
 
-87:                                               ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit5
-  %88 = landingpad { ptr, i32 }
+84:                                               ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit4
+  %85 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %6) #18
   call void @_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #18
-  resume { ptr, i32 } %88
+  resume { ptr, i32 } %85
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3704,7 +3686,7 @@ _ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit27: ; preds = %66, %_ZNSt8_
   %77 = getelementptr inbounds i8, ptr %3, i64 48
   %78 = load ptr, ptr %77, align 8
   %.not.i.i.i.i.i = icmp eq ptr %78, null
-  br i1 %.not.i.i.i.i.i, label %93, label %79
+  br i1 %.not.i.i.i.i.i, label %92, label %79
 
 79:                                               ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit27
   %80 = getelementptr inbounds i8, ptr %3, i64 40
@@ -3724,52 +3706,51 @@ _ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit27: ; preds = %66, %_ZNSt8_
   store ptr %76, ptr %89, align 8
   %90 = getelementptr inbounds i8, ptr %3, i64 72
   %91 = load i64, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %6, i64 72
-  store i64 %91, ptr %92, align 8
   store ptr null, ptr %77, align 8
   store ptr %80, ptr %83, align 8
   store ptr %80, ptr %86, align 8
+  store i64 0, ptr %90, align 8
   br label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit
 
-93:                                               ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit27
+92:                                               ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit27
   store i32 0, ptr %76, align 8
-  %94 = getelementptr inbounds i8, ptr %6, i64 48
-  store ptr null, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %6, i64 56
+  %93 = getelementptr inbounds i8, ptr %6, i64 48
+  store ptr null, ptr %93, align 8
+  %94 = getelementptr inbounds i8, ptr %6, i64 56
+  store ptr %76, ptr %94, align 8
+  %95 = getelementptr inbounds i8, ptr %6, i64 64
   store ptr %76, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %6, i64 64
-  store ptr %76, ptr %96, align 8
-  %97 = getelementptr inbounds i8, ptr %6, i64 72
   br label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit
 
-_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit: ; preds = %79, %93
-  %.sink.i.i.i.i.i = phi ptr [ %97, %93 ], [ %90, %79 ]
-  store i64 0, ptr %.sink.i.i.i.i.i, align 8
+_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit: ; preds = %79, %92
+  %.sink = phi i64 [ 0, %92 ], [ %91, %79 ]
+  %96 = getelementptr inbounds i8, ptr %6, i64 72
+  store i64 %.sink, ptr %96, align 8
   invoke void @_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_comp_valISt4lessIS4_EEEEvT_T0_SG_T1_RT2_(ptr %0, i64 noundef %.1, i64 noundef %1, ptr noundef nonnull %6, ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %98 unwind label %105
+          to label %97 unwind label %104
 
-98:                                               ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit
-  %99 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %100 = getelementptr inbounds i8, ptr %6, i64 48
-  %101 = load ptr, ptr %100, align 8
-  invoke void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %99, ptr noundef %101)
-          to label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit unwind label %102
+97:                                               ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit
+  %98 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %99 = getelementptr inbounds i8, ptr %6, i64 48
+  %100 = load ptr, ptr %99, align 8
+  invoke void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %98, ptr noundef %100)
+          to label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit unwind label %101
 
-102:                                              ; preds = %98
-  %103 = landingpad { ptr, i32 }
+101:                                              ; preds = %97
+  %102 = landingpad { ptr, i32 }
           catch ptr null
-  %104 = extractvalue { ptr, i32 } %103, 0
-  call void @__clang_call_terminate(ptr %104) #17
+  %103 = extractvalue { ptr, i32 } %102, 0
+  call void @__clang_call_terminate(ptr %103) #17
   unreachable
 
-_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit: ; preds = %98
+_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit: ; preds = %97
   ret void
 
-105:                                              ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit
-  %106 = landingpad { ptr, i32 }
+104:                                              ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit
+  %105 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %6) #18
-  resume { ptr, i32 } %106
+  resume { ptr, i32 } %105
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)

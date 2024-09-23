@@ -1748,59 +1748,72 @@ define dso_local nonnull ptr @pg_database_encoding_character_incrementer() local
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @pg_utf8_increment(ptr nocapture noundef %0, i32 noundef %1) #6 {
-  switch i32 %1, label %20 [
+  switch i32 %1, label %27 [
     i32 4, label %3
-    i32 3, label %7
-    i32 2, label %11
+    i32 3, label %9
+    i32 2, label %15
     i32 1, label %._crit_edge
   ]
 
 ._crit_edge:                                      ; preds = %2
   %.pre = load i8, ptr %0, align 1
-  br label %17
+  br label %23
 
 3:                                                ; preds = %2
   %4 = getelementptr i8, ptr %0, i64 3
   %5 = load i8, ptr %4, align 1
   %6 = icmp ult i8 %5, -65
-  br i1 %6, label %.sink.split, label %7
+  br i1 %6, label %7, label %9
 
-7:                                                ; preds = %3, %2
-  %8 = getelementptr i8, ptr %0, i64 2
-  %9 = load i8, ptr %8, align 1
-  %10 = icmp ult i8 %9, -65
-  br i1 %10, label %.sink.split, label %11
+7:                                                ; preds = %3
+  %8 = add nuw i8 %5, 1
+  store i8 %8, ptr %4, align 1
+  br label %27
 
-11:                                               ; preds = %7, %2
-  %12 = getelementptr i8, ptr %0, i64 1
-  %13 = load i8, ptr %12, align 1
-  %14 = load i8, ptr %0, align 1
-  %switch.selectcmp = icmp eq i8 %14, -12
+9:                                                ; preds = %3, %2
+  %10 = getelementptr i8, ptr %0, i64 2
+  %11 = load i8, ptr %10, align 1
+  %12 = icmp ult i8 %11, -65
+  br i1 %12, label %13, label %15
+
+13:                                               ; preds = %9
+  %14 = add nuw i8 %11, 1
+  store i8 %14, ptr %10, align 1
+  br label %27
+
+15:                                               ; preds = %9, %2
+  %16 = getelementptr i8, ptr %0, i64 1
+  %17 = load i8, ptr %16, align 1
+  %18 = load i8, ptr %0, align 1
+  %switch.selectcmp = icmp eq i8 %18, -12
   %switch.select = select i1 %switch.selectcmp, i32 143, i32 191
-  %switch.selectcmp27 = icmp eq i8 %14, -19
+  %switch.selectcmp27 = icmp eq i8 %18, -19
   %switch.select28 = select i1 %switch.selectcmp27, i32 159, i32 %switch.select
-  %15 = zext i8 %13 to i32
-  %16 = icmp ugt i32 %switch.select28, %15
-  br i1 %16, label %.sink.split, label %17
+  %19 = zext i8 %17 to i32
+  %20 = icmp ugt i32 %switch.select28, %19
+  br i1 %20, label %21, label %23
 
-17:                                               ; preds = %._crit_edge, %11
-  %18 = phi i8 [ %.pre, %._crit_edge ], [ %14, %11 ]
-  switch i8 %18, label %.sink.split [
-    i8 -12, label %20
-    i8 -17, label %20
-    i8 -33, label %20
-    i8 127, label %20
+21:                                               ; preds = %15
+  %22 = add i8 %17, 1
+  store i8 %22, ptr %16, align 1
+  br label %27
+
+23:                                               ; preds = %._crit_edge, %15
+  %24 = phi i8 [ %.pre, %._crit_edge ], [ %18, %15 ]
+  switch i8 %24, label %25 [
+    i8 -12, label %27
+    i8 -17, label %27
+    i8 -33, label %27
+    i8 127, label %27
   ]
 
-.sink.split:                                      ; preds = %17, %11, %7, %3
-  %.sink30 = phi i8 [ %5, %3 ], [ %9, %7 ], [ %13, %11 ], [ %18, %17 ]
-  %.sink29 = phi ptr [ %4, %3 ], [ %8, %7 ], [ %12, %11 ], [ %0, %17 ]
-  %19 = add i8 %.sink30, 1
-  store i8 %19, ptr %.sink29, align 1
-  br label %20
+25:                                               ; preds = %23
+  %26 = add nsw i8 %24, 1
+  store i8 %26, ptr %0, align 1
+  br label %27
 
-20:                                               ; preds = %.sink.split, %17, %17, %17, %17, %2
-  %.026 = phi i1 [ false, %2 ], [ false, %17 ], [ false, %17 ], [ false, %17 ], [ false, %17 ], [ true, %.sink.split ]
+27:                                               ; preds = %7, %13, %21, %25, %23, %23, %23, %23, %2
+  %.026 = phi i1 [ false, %2 ], [ false, %23 ], [ false, %23 ], [ false, %23 ], [ false, %23 ], [ true, %25 ], [ true, %21 ], [ true, %13 ], [ true, %7 ]
   ret i1 %.026
 }
 

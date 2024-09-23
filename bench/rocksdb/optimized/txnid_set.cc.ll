@@ -502,13 +502,13 @@ if.else.i.i:                                      ; preds = %entry
   %d2.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %d2.i.i, align 8
   %cmp.i.i.i.i = icmp eq i32 %1, -1
-  br i1 %cmp.i.i.i.i, label %12, label %_ZNK4toku3omtImmLb0EE4sizeEv.exit.thread13.i
+  br i1 %cmp.i.i.i.i, label %11, label %_ZNK4toku3omtImmLb0EE4sizeEv.exit.thread13.i
 
 _ZNK4toku3omtImmLb0EE4sizeEv.exit.i:              ; preds = %entry
   %num_values.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i32, ptr %num_values.i.i, align 4
   %cmp.not.i = icmp ult i32 %i, %2
-  br i1 %cmp.not.i, label %if.then2.i, label %12
+  br i1 %cmp.not.i, label %if.then2.i, label %11
 
 _ZNK4toku3omtImmLb0EE4sizeEv.exit.thread13.i:     ; preds = %if.else.i.i
   %nodes.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -517,7 +517,7 @@ _ZNK4toku3omtImmLb0EE4sizeEv.exit.thread13.i:     ; preds = %if.else.i.i
   %weight.i.i.i = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %3, i64 %idxprom.i.i.i, i32 1
   %4 = load i32, ptr %weight.i.i.i, align 8
   %cmp.not15.i = icmp ult i32 %i, %4
-  br i1 %cmp.not15.i, label %tailrecurse.outer.i.i, label %12
+  br i1 %cmp.not15.i, label %tailrecurse.outer.i.i, label %11
 
 if.then2.i:                                       ; preds = %_ZNK4toku3omtImmLb0EE4sizeEv.exit.i
   %d.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -563,13 +563,13 @@ if.else8.i.i:                                     ; preds = %if.else.i10.i
   br label %tailrecurse.outer.i.i
 
 _ZNK4toku3omtImmLb0EE5fetchEjPm.exit:             ; preds = %if.else.i10.i, %if.then2.i
-  %arrayidx.i6.lcssa.lcssa.sink.i = phi ptr [ %arrayidx.i.i, %if.then2.i ], [ %arrayidx.i6.i, %if.else.i10.i ]
-  %11 = load i64, ptr %arrayidx.i6.lcssa.lcssa.sink.i, align 8
-  br label %12
+  %.sink.in.i = phi ptr [ %arrayidx.i.i, %if.then2.i ], [ %arrayidx.i6.i, %if.else.i10.i ]
+  %.sink.i = load i64, ptr %.sink.in.i, align 8
+  br label %11
 
-12:                                               ; preds = %if.else.i.i, %_ZNK4toku3omtImmLb0EE4sizeEv.exit.thread13.i, %_ZNK4toku3omtImmLb0EE4sizeEv.exit.i, %_ZNK4toku3omtImmLb0EE5fetchEjPm.exit
-  %13 = phi i64 [ %11, %_ZNK4toku3omtImmLb0EE5fetchEjPm.exit ], [ 0, %_ZNK4toku3omtImmLb0EE4sizeEv.exit.i ], [ 0, %_ZNK4toku3omtImmLb0EE4sizeEv.exit.thread13.i ], [ 0, %if.else.i.i ]
-  ret i64 %13
+11:                                               ; preds = %if.else.i.i, %_ZNK4toku3omtImmLb0EE4sizeEv.exit.thread13.i, %_ZNK4toku3omtImmLb0EE4sizeEv.exit.i, %_ZNK4toku3omtImmLb0EE5fetchEjPm.exit
+  %12 = phi i64 [ %.sink.i, %_ZNK4toku3omtImmLb0EE5fetchEjPm.exit ], [ 0, %_ZNK4toku3omtImmLb0EE4sizeEv.exit.i ], [ 0, %_ZNK4toku3omtImmLb0EE4sizeEv.exit.thread13.i ], [ 0, %if.else.i.i ]
+  ret i64 %12
 }
 
 declare void @_Z9toku_freePv(ptr noundef) local_unnamed_addr #4

@@ -2212,7 +2212,7 @@ _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread: ; p
 11:                                               ; preds = %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %12, align 8
-  br label %352
+  br label %355
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread.thread: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread
   %13 = phi i16 [ %9, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ]
@@ -2220,7 +2220,7 @@ _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread.thre
   %15 = or i16 %14, %13
   %16 = zext nneg i16 %15 to i32
   %.not = icmp ult i16 %14, 2048
-  br i1 %.not, label %86, label %17
+  br i1 %.not, label %88, label %17
 
 17:                                               ; preds = %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread.thread
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2355,7 +2355,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i: ; preds
 .thread.i:                                        ; preds = %74, %72, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_18ThunkSignatureNodeEJEEEPT_DpOT0_.exit
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %79, align 8
-  br label %.sink.split
+  br label %_ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds = %68, %60
   %storemerge.i = phi i64 [ %71, %68 ], [ %64, %60 ]
@@ -2367,631 +2367,635 @@ _ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char
 81:                                               ; preds = %_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %82, align 8
-  br i1 %54, label %84, label %.sink.split
+  br i1 %54, label %84, label %_ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 83:                                               ; preds = %_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i
-  br i1 %54, label %84, label %.sink.split
+  br i1 %54, label %84, label %_ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 84:                                               ; preds = %83, %81
   %85 = sub nsw i64 0, %.sroa.0.0.i.i
-  br label %.sink.split
+  br label %_ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char_traitsIcEE.exit
 
-86:                                               ; preds = %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread.thread
-  %87 = and i32 %16, 512
-  %.not35 = icmp eq i32 %87, 0
-  br i1 %.not35, label %271, label %88
+_ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %.thread.i, %81, %83, %84
+  %86 = phi i64 [ %85, %84 ], [ %.sroa.0.0.i.i, %83 ], [ 0, %.thread.i ], [ %.sroa.0.0.i.i, %81 ]
+  %87 = trunc i64 %86 to i32
+  store i32 %87, ptr %51, align 4
+  br label %274
 
-88:                                               ; preds = %86
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %90 = load ptr, ptr %89, align 8
-  %91 = load ptr, ptr %90, align 8
-  %92 = ptrtoint ptr %91 to i64
-  %93 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  %94 = load i64, ptr %93, align 8
-  %95 = add i64 %92, 7
-  %96 = add i64 %95, %94
-  %97 = and i64 %96, -8
-  %reass.sub150 = sub i64 %97, %92
-  %98 = add i64 %reass.sub150, 80
-  store i64 %98, ptr %93, align 8
-  %99 = load ptr, ptr %89, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  %101 = load i64, ptr %100, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %99, i64 16
+88:                                               ; preds = %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread.thread
+  %89 = and i32 %16, 512
+  %.not35 = icmp eq i32 %89, 0
+  br i1 %.not35, label %274, label %90
+
+90:                                               ; preds = %88
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %92 = load ptr, ptr %91, align 8
+  %93 = load ptr, ptr %92, align 8
+  %94 = ptrtoint ptr %93 to i64
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 8
+  %96 = load i64, ptr %95, align 8
+  %97 = add i64 %94, 7
+  %98 = add i64 %97, %96
+  %99 = and i64 %98, -8
+  %reass.sub150 = sub i64 %99, %94
+  %100 = add i64 %reass.sub150, 80
+  store i64 %100, ptr %95, align 8
+  %101 = load ptr, ptr %91, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %103 = load i64, ptr %102, align 8
-  %.not.i41 = icmp ugt i64 %101, %103
-  br i1 %.not.i41, label %106, label %104
+  %104 = getelementptr inbounds nuw i8, ptr %101, i64 16
+  %105 = load i64, ptr %104, align 8
+  %.not.i41 = icmp ugt i64 %103, %105
+  br i1 %.not.i41, label %108, label %106
 
-104:                                              ; preds = %88
-  %105 = inttoptr i64 %97 to ptr
+106:                                              ; preds = %90
+  %107 = inttoptr i64 %99 to ptr
   br label %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_18ThunkSignatureNodeEJEEEPT_DpOT0_.exit43
 
-106:                                              ; preds = %88
-  %107 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #22
-  %108 = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #22
-  store ptr %108, ptr %107, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %107, i64 24
-  store ptr %99, ptr %109, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %107, i64 16
-  store i64 4096, ptr %110, align 8
-  store ptr %107, ptr %89, align 8
-  %111 = getelementptr inbounds nuw i8, ptr %107, i64 8
-  store i64 80, ptr %111, align 8
+108:                                              ; preds = %90
+  %109 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #22
+  %110 = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #22
+  store ptr %110, ptr %109, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %109, i64 24
+  store ptr %101, ptr %111, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %109, i64 16
+  store i64 4096, ptr %112, align 8
+  store ptr %109, ptr %91, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %109, i64 8
+  store i64 80, ptr %113, align 8
   br label %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_18ThunkSignatureNodeEJEEEPT_DpOT0_.exit43
 
-_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_18ThunkSignatureNodeEJEEEPT_DpOT0_.exit43: ; preds = %104, %106
-  %.sink27.i42 = phi ptr [ %108, %106 ], [ %105, %104 ]
-  %112 = getelementptr inbounds nuw i8, ptr %.sink27.i42, i64 8
-  store i32 13, ptr %112, align 8
-  %113 = getelementptr inbounds nuw i8, ptr %.sink27.i42, i64 12
-  store i8 0, ptr %113, align 4
-  %114 = getelementptr inbounds nuw i8, ptr %.sink27.i42, i64 16
-  store i32 0, ptr %114, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %.sink27.i42, i64 20
+_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_18ThunkSignatureNodeEJEEEPT_DpOT0_.exit43: ; preds = %106, %108
+  %.sink27.i42 = phi ptr [ %110, %108 ], [ %107, %106 ]
+  %114 = getelementptr inbounds nuw i8, ptr %.sink27.i42, i64 8
+  store i32 13, ptr %114, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %.sink27.i42, i64 12
   store i8 0, ptr %115, align 4
-  %116 = getelementptr inbounds nuw i8, ptr %.sink27.i42, i64 22
-  store i16 8, ptr %116, align 2
-  %117 = getelementptr inbounds nuw i8, ptr %.sink27.i42, i64 24
-  store i32 0, ptr %117, align 8
-  %118 = getelementptr inbounds nuw i8, ptr %.sink27.i42, i64 32
-  store ptr null, ptr %118, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %.sink27.i42, i64 40
-  store i8 0, ptr %119, align 8
-  %120 = getelementptr inbounds nuw i8, ptr %.sink27.i42, i64 48
+  %116 = getelementptr inbounds nuw i8, ptr %.sink27.i42, i64 16
+  store i32 0, ptr %116, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %.sink27.i42, i64 20
+  store i8 0, ptr %117, align 4
+  %118 = getelementptr inbounds nuw i8, ptr %.sink27.i42, i64 22
+  store i16 8, ptr %118, align 2
+  %119 = getelementptr inbounds nuw i8, ptr %.sink27.i42, i64 24
+  store i32 0, ptr %119, align 8
+  %120 = getelementptr inbounds nuw i8, ptr %.sink27.i42, i64 32
   store ptr null, ptr %120, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %.sink27.i42, i64 56
+  %121 = getelementptr inbounds nuw i8, ptr %.sink27.i42, i64 40
   store i8 0, ptr %121, align 8
+  %122 = getelementptr inbounds nuw i8, ptr %.sink27.i42, i64 48
+  store ptr null, ptr %122, align 8
+  %123 = getelementptr inbounds nuw i8, ptr %.sink27.i42, i64 56
+  store i8 0, ptr %123, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm11ms_demangle18ThunkSignatureNodeE, i64 16), ptr %.sink27.i42, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %.sink27.i42, i64 60
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %122, i8 0, i64 16, i1 false)
+  %124 = getelementptr inbounds nuw i8, ptr %.sink27.i42, i64 60
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %124, i8 0, i64 16, i1 false)
   %.not36 = icmp ult i16 %14, 1024
-  br i1 %.not36, label %198, label %123
+  br i1 %.not36, label %200, label %125
 
-123:                                              ; preds = %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_18ThunkSignatureNodeEJEEEPT_DpOT0_.exit43
+125:                                              ; preds = %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_18ThunkSignatureNodeEJEEEPT_DpOT0_.exit43
   %.sroa.0.0.copyload.i.i.i44 = load i64, ptr %1, align 8
   %.sroa.2.0.copyload.i.i.i46 = load ptr, ptr %.sroa.22.0..sroa_idx.i, align 8
-  %124 = icmp eq i64 %.sroa.0.0.copyload.i.i.i44, 0
-  br i1 %124, label %.thread.i57, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i47
+  %126 = icmp eq i64 %.sroa.0.0.copyload.i.i.i44, 0
+  br i1 %126, label %.thread.i57, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i47
 
-_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i47: ; preds = %123
-  %125 = load i8, ptr %.sroa.2.0.copyload.i.i.i46, align 1
-  %126 = icmp eq i8 %125, 63
-  br i1 %126, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i62, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i48
+_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i47: ; preds = %125
+  %127 = load i8, ptr %.sroa.2.0.copyload.i.i.i46, align 1
+  %128 = icmp eq i8 %127, 63
+  br i1 %128, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i62, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i48
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i62: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i47
-  %127 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i.i.i46, i64 1
-  store ptr %127, ptr %.sroa.22.0..sroa_idx.i, align 8
-  %128 = add i64 %.sroa.0.0.copyload.i.i.i44, -1
-  store i64 %128, ptr %1, align 8
-  %129 = icmp eq i64 %128, 0
-  br i1 %129, label %.thread.i57, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i._ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i_crit_edge.i63
+  %129 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i.i.i46, i64 1
+  store ptr %129, ptr %.sroa.22.0..sroa_idx.i, align 8
+  %130 = add i64 %.sroa.0.0.copyload.i.i.i44, -1
+  store i64 %130, ptr %1, align 8
+  %131 = icmp eq i64 %130, 0
+  br i1 %131, label %.thread.i57, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i._ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i_crit_edge.i63
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i._ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i_crit_edge.i63: ; preds = %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i62
-  %.pre.i64 = load i8, ptr %127, align 1
+  %.pre.i64 = load i8, ptr %129, align 1
   br label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i48
 
 _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i48: ; preds = %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i._ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i_crit_edge.i63, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i47
-  %130 = phi i8 [ %.pre.i64, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i._ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i_crit_edge.i63 ], [ %125, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i47 ]
-  %.sroa.0.0.copyload45.i.i49 = phi i64 [ %128, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i._ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i_crit_edge.i63 ], [ %.sroa.0.0.copyload.i.i.i44, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i47 ]
-  %.sroa.2.0.copyload44.i.i50 = phi ptr [ %127, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i._ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i_crit_edge.i63 ], [ %.sroa.2.0.copyload.i.i.i46, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i47 ]
-  %131 = sext i8 %130 to i32
-  %isdigittmp.i.i.i51 = add nsw i32 %131, -48
+  %132 = phi i8 [ %.pre.i64, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i._ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i_crit_edge.i63 ], [ %127, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i47 ]
+  %.sroa.0.0.copyload45.i.i49 = phi i64 [ %130, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i._ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i_crit_edge.i63 ], [ %.sroa.0.0.copyload.i.i.i44, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i47 ]
+  %.sroa.2.0.copyload44.i.i50 = phi ptr [ %129, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i._ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i_crit_edge.i63 ], [ %.sroa.2.0.copyload.i.i.i46, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i47 ]
+  %133 = sext i8 %132 to i32
+  %isdigittmp.i.i.i51 = add nsw i32 %133, -48
   %isdigit.i.i.i52 = icmp ult i32 %isdigittmp.i.i.i51, 10
-  br i1 %isdigit.i.i.i52, label %132, label %.lr.ph.i.i53
+  br i1 %isdigit.i.i.i52, label %134, label %.lr.ph.i.i53
 
-132:                                              ; preds = %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i48
-  %133 = sext i8 %130 to i64
-  %134 = add nsw i64 %133, -47
-  %135 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44.i.i50, i64 1
-  store ptr %135, ptr %.sroa.22.0..sroa_idx.i, align 8
-  %136 = add i64 %.sroa.0.0.copyload45.i.i49, -1
+134:                                              ; preds = %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i48
+  %135 = sext i8 %132 to i64
+  %136 = add nsw i64 %135, -47
+  %137 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44.i.i50, i64 1
+  store ptr %137, ptr %.sroa.22.0..sroa_idx.i, align 8
+  %138 = add i64 %.sroa.0.0.copyload45.i.i49, -1
   br label %_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i59
 
-.lr.ph.i.i53:                                     ; preds = %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i48, %146
-  %.036.i.i54 = phi i64 [ %150, %146 ], [ 0, %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i48 ]
-  %.02435.i.i55 = phi i64 [ %149, %146 ], [ 0, %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i48 ]
-  %137 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44.i.i50, i64 %.036.i.i54
-  %138 = load i8, ptr %137, align 1
-  %139 = icmp eq i8 %138, 64
-  br i1 %139, label %140, label %144
+.lr.ph.i.i53:                                     ; preds = %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i48, %148
+  %.036.i.i54 = phi i64 [ %152, %148 ], [ 0, %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i48 ]
+  %.02435.i.i55 = phi i64 [ %151, %148 ], [ 0, %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i48 ]
+  %139 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44.i.i50, i64 %.036.i.i54
+  %140 = load i8, ptr %139, align 1
+  %141 = icmp eq i8 %140, 64
+  br i1 %141, label %142, label %146
 
-140:                                              ; preds = %.lr.ph.i.i53
-  %141 = add nuw i64 %.036.i.i54, 1
-  %142 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44.i.i50, i64 %141
-  store ptr %142, ptr %.sroa.22.0..sroa_idx.i, align 8
-  %143 = sub i64 %.sroa.0.0.copyload45.i.i49, %141
+142:                                              ; preds = %.lr.ph.i.i53
+  %143 = add nuw i64 %.036.i.i54, 1
+  %144 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44.i.i50, i64 %143
+  store ptr %144, ptr %.sroa.22.0..sroa_idx.i, align 8
+  %145 = sub i64 %.sroa.0.0.copyload45.i.i49, %143
   br label %_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i59
 
-144:                                              ; preds = %.lr.ph.i.i53
-  %145 = add i8 %138, -65
-  %or.cond.i.i56 = icmp ult i8 %145, 16
-  br i1 %or.cond.i.i56, label %146, label %.thread.i57
+146:                                              ; preds = %.lr.ph.i.i53
+  %147 = add i8 %140, -65
+  %or.cond.i.i56 = icmp ult i8 %147, 16
+  br i1 %or.cond.i.i56, label %148, label %.thread.i57
 
-146:                                              ; preds = %144
-  %147 = shl i64 %.02435.i.i55, 4
-  %148 = zext nneg i8 %145 to i64
-  %149 = or disjoint i64 %147, %148
-  %150 = add nuw i64 %.036.i.i54, 1
-  %exitcond.not.i.i58 = icmp eq i64 %150, %.sroa.0.0.copyload45.i.i49
+148:                                              ; preds = %146
+  %149 = shl i64 %.02435.i.i55, 4
+  %150 = zext nneg i8 %147 to i64
+  %151 = or disjoint i64 %149, %150
+  %152 = add nuw i64 %.036.i.i54, 1
+  %exitcond.not.i.i58 = icmp eq i64 %152, %.sroa.0.0.copyload45.i.i49
   br i1 %exitcond.not.i.i58, label %.thread.i57, label %.lr.ph.i.i53, !llvm.loop !6
 
-.thread.i57:                                      ; preds = %146, %144, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i62, %123
-  %151 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 1, ptr %151, align 8
+.thread.i57:                                      ; preds = %148, %146, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i62, %125
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 1, ptr %153, align 8
   br label %_ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char_traitsIcEE.exit65
 
-_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i59: ; preds = %140, %132
-  %storemerge.i60 = phi i64 [ %143, %140 ], [ %136, %132 ]
-  %.sroa.0.0.i.i61 = phi i64 [ %.02435.i.i55, %140 ], [ %134, %132 ]
+_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i59: ; preds = %142, %134
+  %storemerge.i60 = phi i64 [ %145, %142 ], [ %138, %134 ]
+  %.sroa.0.0.i.i61 = phi i64 [ %.02435.i.i55, %142 ], [ %136, %134 ]
   store i64 %storemerge.i60, ptr %1, align 8
-  %152 = icmp slt i64 %.sroa.0.0.i.i61, 0
-  br i1 %152, label %153, label %155
-
-153:                                              ; preds = %_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i59
-  %154 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 1, ptr %154, align 8
-  br i1 %126, label %156, label %_ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char_traitsIcEE.exit65
+  %154 = icmp slt i64 %.sroa.0.0.i.i61, 0
+  br i1 %154, label %155, label %157
 
 155:                                              ; preds = %_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i59
-  br i1 %126, label %156, label %_ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char_traitsIcEE.exit65
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 1, ptr %156, align 8
+  br i1 %128, label %158, label %_ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char_traitsIcEE.exit65
 
-156:                                              ; preds = %155, %153
-  %157 = sub nsw i64 0, %.sroa.0.0.i.i61
+157:                                              ; preds = %_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i59
+  br i1 %128, label %158, label %_ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char_traitsIcEE.exit65
+
+158:                                              ; preds = %157, %155
+  %159 = sub nsw i64 0, %.sroa.0.0.i.i61
   br label %_ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char_traitsIcEE.exit65
 
-_ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char_traitsIcEE.exit65: ; preds = %.thread.i57, %153, %155, %156
-  %158 = phi i64 [ %157, %156 ], [ %.sroa.0.0.i.i61, %155 ], [ 0, %.thread.i57 ], [ %.sroa.0.0.i.i61, %153 ]
-  %159 = trunc i64 %158 to i32
-  %160 = getelementptr inbounds nuw i8, ptr %.sink27.i42, i64 64
-  store i32 %159, ptr %160, align 4
+_ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char_traitsIcEE.exit65: ; preds = %.thread.i57, %155, %157, %158
+  %160 = phi i64 [ %159, %158 ], [ %.sroa.0.0.i.i61, %157 ], [ 0, %.thread.i57 ], [ %.sroa.0.0.i.i61, %155 ]
+  %161 = trunc i64 %160 to i32
+  %162 = getelementptr inbounds nuw i8, ptr %.sink27.i42, i64 64
+  store i32 %161, ptr %162, align 4
   %.sroa.0.0.copyload.i.i.i66 = load i64, ptr %1, align 8
   %.sroa.2.0.copyload.i.i.i68 = load ptr, ptr %.sroa.22.0..sroa_idx.i, align 8
-  %161 = icmp eq i64 %.sroa.0.0.copyload.i.i.i66, 0
-  br i1 %161, label %.thread.i79, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i69
+  %163 = icmp eq i64 %.sroa.0.0.copyload.i.i.i66, 0
+  br i1 %163, label %.thread.i79, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i69
 
 _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i69: ; preds = %_ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char_traitsIcEE.exit65
-  %162 = load i8, ptr %.sroa.2.0.copyload.i.i.i68, align 1
-  %163 = icmp eq i8 %162, 63
-  br i1 %163, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i84, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i70
+  %164 = load i8, ptr %.sroa.2.0.copyload.i.i.i68, align 1
+  %165 = icmp eq i8 %164, 63
+  br i1 %165, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i84, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i70
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i84: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i69
-  %164 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i.i.i68, i64 1
-  store ptr %164, ptr %.sroa.22.0..sroa_idx.i, align 8
-  %165 = add i64 %.sroa.0.0.copyload.i.i.i66, -1
-  store i64 %165, ptr %1, align 8
-  %166 = icmp eq i64 %165, 0
-  br i1 %166, label %.thread.i79, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i._ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i_crit_edge.i85
+  %166 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i.i.i68, i64 1
+  store ptr %166, ptr %.sroa.22.0..sroa_idx.i, align 8
+  %167 = add i64 %.sroa.0.0.copyload.i.i.i66, -1
+  store i64 %167, ptr %1, align 8
+  %168 = icmp eq i64 %167, 0
+  br i1 %168, label %.thread.i79, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i._ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i_crit_edge.i85
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i._ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i_crit_edge.i85: ; preds = %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i84
-  %.pre.i86 = load i8, ptr %164, align 1
+  %.pre.i86 = load i8, ptr %166, align 1
   br label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i70
 
 _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i70: ; preds = %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i._ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i_crit_edge.i85, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i69
-  %167 = phi i8 [ %.pre.i86, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i._ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i_crit_edge.i85 ], [ %162, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i69 ]
-  %.sroa.0.0.copyload45.i.i71 = phi i64 [ %165, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i._ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i_crit_edge.i85 ], [ %.sroa.0.0.copyload.i.i.i66, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i69 ]
-  %.sroa.2.0.copyload44.i.i72 = phi ptr [ %164, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i._ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i_crit_edge.i85 ], [ %.sroa.2.0.copyload.i.i.i68, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i69 ]
-  %168 = sext i8 %167 to i32
-  %isdigittmp.i.i.i73 = add nsw i32 %168, -48
+  %169 = phi i8 [ %.pre.i86, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i._ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i_crit_edge.i85 ], [ %164, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i69 ]
+  %.sroa.0.0.copyload45.i.i71 = phi i64 [ %167, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i._ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i_crit_edge.i85 ], [ %.sroa.0.0.copyload.i.i.i66, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i69 ]
+  %.sroa.2.0.copyload44.i.i72 = phi ptr [ %166, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i._ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i_crit_edge.i85 ], [ %.sroa.2.0.copyload.i.i.i68, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i69 ]
+  %170 = sext i8 %169 to i32
+  %isdigittmp.i.i.i73 = add nsw i32 %170, -48
   %isdigit.i.i.i74 = icmp ult i32 %isdigittmp.i.i.i73, 10
-  br i1 %isdigit.i.i.i74, label %169, label %.lr.ph.i.i75
+  br i1 %isdigit.i.i.i74, label %171, label %.lr.ph.i.i75
 
-169:                                              ; preds = %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i70
-  %170 = sext i8 %167 to i64
-  %171 = add nsw i64 %170, -47
-  %172 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44.i.i72, i64 1
-  store ptr %172, ptr %.sroa.22.0..sroa_idx.i, align 8
-  %173 = add i64 %.sroa.0.0.copyload45.i.i71, -1
+171:                                              ; preds = %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i70
+  %172 = sext i8 %169 to i64
+  %173 = add nsw i64 %172, -47
+  %174 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44.i.i72, i64 1
+  store ptr %174, ptr %.sroa.22.0..sroa_idx.i, align 8
+  %175 = add i64 %.sroa.0.0.copyload45.i.i71, -1
   br label %_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i81
 
-.lr.ph.i.i75:                                     ; preds = %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i70, %183
-  %.036.i.i76 = phi i64 [ %187, %183 ], [ 0, %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i70 ]
-  %.02435.i.i77 = phi i64 [ %186, %183 ], [ 0, %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i70 ]
-  %174 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44.i.i72, i64 %.036.i.i76
-  %175 = load i8, ptr %174, align 1
-  %176 = icmp eq i8 %175, 64
-  br i1 %176, label %177, label %181
+.lr.ph.i.i75:                                     ; preds = %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i70, %185
+  %.036.i.i76 = phi i64 [ %189, %185 ], [ 0, %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i70 ]
+  %.02435.i.i77 = phi i64 [ %188, %185 ], [ 0, %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i70 ]
+  %176 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44.i.i72, i64 %.036.i.i76
+  %177 = load i8, ptr %176, align 1
+  %178 = icmp eq i8 %177, 64
+  br i1 %178, label %179, label %183
 
-177:                                              ; preds = %.lr.ph.i.i75
-  %178 = add nuw i64 %.036.i.i76, 1
-  %179 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44.i.i72, i64 %178
-  store ptr %179, ptr %.sroa.22.0..sroa_idx.i, align 8
-  %180 = sub i64 %.sroa.0.0.copyload45.i.i71, %178
+179:                                              ; preds = %.lr.ph.i.i75
+  %180 = add nuw i64 %.036.i.i76, 1
+  %181 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44.i.i72, i64 %180
+  store ptr %181, ptr %.sroa.22.0..sroa_idx.i, align 8
+  %182 = sub i64 %.sroa.0.0.copyload45.i.i71, %180
   br label %_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i81
 
-181:                                              ; preds = %.lr.ph.i.i75
-  %182 = add i8 %175, -65
-  %or.cond.i.i78 = icmp ult i8 %182, 16
-  br i1 %or.cond.i.i78, label %183, label %.thread.i79
+183:                                              ; preds = %.lr.ph.i.i75
+  %184 = add i8 %177, -65
+  %or.cond.i.i78 = icmp ult i8 %184, 16
+  br i1 %or.cond.i.i78, label %185, label %.thread.i79
 
-183:                                              ; preds = %181
-  %184 = shl i64 %.02435.i.i77, 4
-  %185 = zext nneg i8 %182 to i64
-  %186 = or disjoint i64 %184, %185
-  %187 = add nuw i64 %.036.i.i76, 1
-  %exitcond.not.i.i80 = icmp eq i64 %187, %.sroa.0.0.copyload45.i.i71
+185:                                              ; preds = %183
+  %186 = shl i64 %.02435.i.i77, 4
+  %187 = zext nneg i8 %184 to i64
+  %188 = or disjoint i64 %186, %187
+  %189 = add nuw i64 %.036.i.i76, 1
+  %exitcond.not.i.i80 = icmp eq i64 %189, %.sroa.0.0.copyload45.i.i71
   br i1 %exitcond.not.i.i80, label %.thread.i79, label %.lr.ph.i.i75, !llvm.loop !6
 
-.thread.i79:                                      ; preds = %183, %181, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i84, %_ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char_traitsIcEE.exit65
-  %188 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 1, ptr %188, align 8
+.thread.i79:                                      ; preds = %185, %183, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i84, %_ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char_traitsIcEE.exit65
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 1, ptr %190, align 8
   br label %_ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char_traitsIcEE.exit87
 
-_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i81: ; preds = %177, %169
-  %storemerge.i82 = phi i64 [ %180, %177 ], [ %173, %169 ]
-  %.sroa.0.0.i.i83 = phi i64 [ %.02435.i.i77, %177 ], [ %171, %169 ]
+_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i81: ; preds = %179, %171
+  %storemerge.i82 = phi i64 [ %182, %179 ], [ %175, %171 ]
+  %.sroa.0.0.i.i83 = phi i64 [ %.02435.i.i77, %179 ], [ %173, %171 ]
   store i64 %storemerge.i82, ptr %1, align 8
-  %189 = icmp slt i64 %.sroa.0.0.i.i83, 0
-  br i1 %189, label %190, label %192
-
-190:                                              ; preds = %_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i81
-  %191 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 1, ptr %191, align 8
-  br i1 %163, label %193, label %_ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char_traitsIcEE.exit87
+  %191 = icmp slt i64 %.sroa.0.0.i.i83, 0
+  br i1 %191, label %192, label %194
 
 192:                                              ; preds = %_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i81
-  br i1 %163, label %193, label %_ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char_traitsIcEE.exit87
+  %193 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 1, ptr %193, align 8
+  br i1 %165, label %195, label %_ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char_traitsIcEE.exit87
 
-193:                                              ; preds = %192, %190
-  %194 = sub nsw i64 0, %.sroa.0.0.i.i83
+194:                                              ; preds = %_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i81
+  br i1 %165, label %195, label %_ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char_traitsIcEE.exit87
+
+195:                                              ; preds = %194, %192
+  %196 = sub nsw i64 0, %.sroa.0.0.i.i83
   br label %_ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char_traitsIcEE.exit87
 
-_ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char_traitsIcEE.exit87: ; preds = %.thread.i79, %190, %192, %193
-  %195 = phi i64 [ %194, %193 ], [ %.sroa.0.0.i.i83, %192 ], [ 0, %.thread.i79 ], [ %.sroa.0.0.i.i83, %190 ]
-  %196 = trunc i64 %195 to i32
-  %197 = getelementptr inbounds nuw i8, ptr %.sink27.i42, i64 68
-  store i32 %196, ptr %197, align 4
-  br label %198
+_ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char_traitsIcEE.exit87: ; preds = %.thread.i79, %192, %194, %195
+  %197 = phi i64 [ %196, %195 ], [ %.sroa.0.0.i.i83, %194 ], [ 0, %.thread.i79 ], [ %.sroa.0.0.i.i83, %192 ]
+  %198 = trunc i64 %197 to i32
+  %199 = getelementptr inbounds nuw i8, ptr %.sink27.i42, i64 68
+  store i32 %198, ptr %199, align 4
+  br label %200
 
-198:                                              ; preds = %_ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char_traitsIcEE.exit87, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_18ThunkSignatureNodeEJEEEPT_DpOT0_.exit43
+200:                                              ; preds = %_ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char_traitsIcEE.exit87, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_18ThunkSignatureNodeEJEEEPT_DpOT0_.exit43
   %.sroa.0.0.copyload.i.i.i88 = load i64, ptr %1, align 8
   %.sroa.2.0.copyload.i.i.i90 = load ptr, ptr %.sroa.22.0..sroa_idx.i, align 8
-  %199 = icmp eq i64 %.sroa.0.0.copyload.i.i.i88, 0
-  br i1 %199, label %.thread.i101, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i91
+  %201 = icmp eq i64 %.sroa.0.0.copyload.i.i.i88, 0
+  br i1 %201, label %.thread.i101, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i91
 
-_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i91: ; preds = %198
-  %200 = load i8, ptr %.sroa.2.0.copyload.i.i.i90, align 1
-  %201 = icmp eq i8 %200, 63
-  br i1 %201, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i106, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i92
+_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i91: ; preds = %200
+  %202 = load i8, ptr %.sroa.2.0.copyload.i.i.i90, align 1
+  %203 = icmp eq i8 %202, 63
+  br i1 %203, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i106, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i92
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i106: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i91
-  %202 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i.i.i90, i64 1
-  store ptr %202, ptr %.sroa.22.0..sroa_idx.i, align 8
-  %203 = add i64 %.sroa.0.0.copyload.i.i.i88, -1
-  store i64 %203, ptr %1, align 8
-  %204 = icmp eq i64 %203, 0
-  br i1 %204, label %.thread.i101, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i._ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i_crit_edge.i107
+  %204 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i.i.i90, i64 1
+  store ptr %204, ptr %.sroa.22.0..sroa_idx.i, align 8
+  %205 = add i64 %.sroa.0.0.copyload.i.i.i88, -1
+  store i64 %205, ptr %1, align 8
+  %206 = icmp eq i64 %205, 0
+  br i1 %206, label %.thread.i101, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i._ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i_crit_edge.i107
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i._ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i_crit_edge.i107: ; preds = %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i106
-  %.pre.i108 = load i8, ptr %202, align 1
+  %.pre.i108 = load i8, ptr %204, align 1
   br label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i92
 
 _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i92: ; preds = %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i._ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i_crit_edge.i107, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i91
-  %205 = phi i8 [ %.pre.i108, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i._ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i_crit_edge.i107 ], [ %200, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i91 ]
-  %.sroa.0.0.copyload45.i.i93 = phi i64 [ %203, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i._ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i_crit_edge.i107 ], [ %.sroa.0.0.copyload.i.i.i88, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i91 ]
-  %.sroa.2.0.copyload44.i.i94 = phi ptr [ %202, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i._ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i_crit_edge.i107 ], [ %.sroa.2.0.copyload.i.i.i90, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i91 ]
-  %206 = sext i8 %205 to i32
-  %isdigittmp.i.i.i95 = add nsw i32 %206, -48
+  %207 = phi i8 [ %.pre.i108, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i._ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i_crit_edge.i107 ], [ %202, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i91 ]
+  %.sroa.0.0.copyload45.i.i93 = phi i64 [ %205, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i._ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i_crit_edge.i107 ], [ %.sroa.0.0.copyload.i.i.i88, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i91 ]
+  %.sroa.2.0.copyload44.i.i94 = phi ptr [ %204, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i._ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i_crit_edge.i107 ], [ %.sroa.2.0.copyload.i.i.i90, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i91 ]
+  %208 = sext i8 %207 to i32
+  %isdigittmp.i.i.i95 = add nsw i32 %208, -48
   %isdigit.i.i.i96 = icmp ult i32 %isdigittmp.i.i.i95, 10
-  br i1 %isdigit.i.i.i96, label %207, label %.lr.ph.i.i97
+  br i1 %isdigit.i.i.i96, label %209, label %.lr.ph.i.i97
 
-207:                                              ; preds = %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i92
-  %208 = sext i8 %205 to i64
-  %209 = add nsw i64 %208, -47
-  %210 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44.i.i94, i64 1
-  store ptr %210, ptr %.sroa.22.0..sroa_idx.i, align 8
-  %211 = add i64 %.sroa.0.0.copyload45.i.i93, -1
+209:                                              ; preds = %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i92
+  %210 = sext i8 %207 to i64
+  %211 = add nsw i64 %210, -47
+  %212 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44.i.i94, i64 1
+  store ptr %212, ptr %.sroa.22.0..sroa_idx.i, align 8
+  %213 = add i64 %.sroa.0.0.copyload45.i.i93, -1
   br label %_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i103
 
-.lr.ph.i.i97:                                     ; preds = %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i92, %221
-  %.036.i.i98 = phi i64 [ %225, %221 ], [ 0, %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i92 ]
-  %.02435.i.i99 = phi i64 [ %224, %221 ], [ 0, %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i92 ]
-  %212 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44.i.i94, i64 %.036.i.i98
-  %213 = load i8, ptr %212, align 1
-  %214 = icmp eq i8 %213, 64
-  br i1 %214, label %215, label %219
+.lr.ph.i.i97:                                     ; preds = %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i92, %223
+  %.036.i.i98 = phi i64 [ %227, %223 ], [ 0, %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i92 ]
+  %.02435.i.i99 = phi i64 [ %226, %223 ], [ 0, %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i92 ]
+  %214 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44.i.i94, i64 %.036.i.i98
+  %215 = load i8, ptr %214, align 1
+  %216 = icmp eq i8 %215, 64
+  br i1 %216, label %217, label %221
 
-215:                                              ; preds = %.lr.ph.i.i97
-  %216 = add nuw i64 %.036.i.i98, 1
-  %217 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44.i.i94, i64 %216
-  store ptr %217, ptr %.sroa.22.0..sroa_idx.i, align 8
-  %218 = sub i64 %.sroa.0.0.copyload45.i.i93, %216
+217:                                              ; preds = %.lr.ph.i.i97
+  %218 = add nuw i64 %.036.i.i98, 1
+  %219 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44.i.i94, i64 %218
+  store ptr %219, ptr %.sroa.22.0..sroa_idx.i, align 8
+  %220 = sub i64 %.sroa.0.0.copyload45.i.i93, %218
   br label %_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i103
 
-219:                                              ; preds = %.lr.ph.i.i97
-  %220 = add i8 %213, -65
-  %or.cond.i.i100 = icmp ult i8 %220, 16
-  br i1 %or.cond.i.i100, label %221, label %.thread.i101
+221:                                              ; preds = %.lr.ph.i.i97
+  %222 = add i8 %215, -65
+  %or.cond.i.i100 = icmp ult i8 %222, 16
+  br i1 %or.cond.i.i100, label %223, label %.thread.i101
 
-221:                                              ; preds = %219
-  %222 = shl i64 %.02435.i.i99, 4
-  %223 = zext nneg i8 %220 to i64
-  %224 = or disjoint i64 %222, %223
-  %225 = add nuw i64 %.036.i.i98, 1
-  %exitcond.not.i.i102 = icmp eq i64 %225, %.sroa.0.0.copyload45.i.i93
+223:                                              ; preds = %221
+  %224 = shl i64 %.02435.i.i99, 4
+  %225 = zext nneg i8 %222 to i64
+  %226 = or disjoint i64 %224, %225
+  %227 = add nuw i64 %.036.i.i98, 1
+  %exitcond.not.i.i102 = icmp eq i64 %227, %.sroa.0.0.copyload45.i.i93
   br i1 %exitcond.not.i.i102, label %.thread.i101, label %.lr.ph.i.i97, !llvm.loop !6
 
-.thread.i101:                                     ; preds = %221, %219, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i106, %198
-  %226 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 1, ptr %226, align 8
+.thread.i101:                                     ; preds = %223, %221, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i106, %200
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 1, ptr %228, align 8
   br label %_ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char_traitsIcEE.exit109
 
-_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i103: ; preds = %215, %207
-  %storemerge.i104 = phi i64 [ %218, %215 ], [ %211, %207 ]
-  %.sroa.0.0.i.i105 = phi i64 [ %.02435.i.i99, %215 ], [ %209, %207 ]
+_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i103: ; preds = %217, %209
+  %storemerge.i104 = phi i64 [ %220, %217 ], [ %213, %209 ]
+  %.sroa.0.0.i.i105 = phi i64 [ %.02435.i.i99, %217 ], [ %211, %209 ]
   store i64 %storemerge.i104, ptr %1, align 8
-  %227 = icmp slt i64 %.sroa.0.0.i.i105, 0
-  br i1 %227, label %228, label %230
-
-228:                                              ; preds = %_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i103
-  %229 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 1, ptr %229, align 8
-  br i1 %201, label %231, label %_ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char_traitsIcEE.exit109
+  %229 = icmp slt i64 %.sroa.0.0.i.i105, 0
+  br i1 %229, label %230, label %232
 
 230:                                              ; preds = %_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i103
-  br i1 %201, label %231, label %_ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char_traitsIcEE.exit109
+  %231 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 1, ptr %231, align 8
+  br i1 %203, label %233, label %_ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char_traitsIcEE.exit109
 
-231:                                              ; preds = %230, %228
-  %232 = sub nsw i64 0, %.sroa.0.0.i.i105
+232:                                              ; preds = %_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i103
+  br i1 %203, label %233, label %_ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char_traitsIcEE.exit109
+
+233:                                              ; preds = %232, %230
+  %234 = sub nsw i64 0, %.sroa.0.0.i.i105
   br label %_ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char_traitsIcEE.exit109
 
-_ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char_traitsIcEE.exit109: ; preds = %.thread.i101, %228, %230, %231
-  %233 = phi i64 [ %232, %231 ], [ %.sroa.0.0.i.i105, %230 ], [ 0, %.thread.i101 ], [ %.sroa.0.0.i.i105, %228 ]
-  %234 = trunc i64 %233 to i32
-  %235 = getelementptr inbounds nuw i8, ptr %.sink27.i42, i64 72
-  store i32 %234, ptr %235, align 4
+_ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char_traitsIcEE.exit109: ; preds = %.thread.i101, %230, %232, %233
+  %235 = phi i64 [ %234, %233 ], [ %.sroa.0.0.i.i105, %232 ], [ 0, %.thread.i101 ], [ %.sroa.0.0.i.i105, %230 ]
+  %236 = trunc i64 %235 to i32
+  %237 = getelementptr inbounds nuw i8, ptr %.sink27.i42, i64 72
+  store i32 %236, ptr %237, align 4
   %.sroa.0.0.copyload.i.i.i110 = load i64, ptr %1, align 8
   %.sroa.2.0.copyload.i.i.i112 = load ptr, ptr %.sroa.22.0..sroa_idx.i, align 8
-  %236 = icmp eq i64 %.sroa.0.0.copyload.i.i.i110, 0
-  br i1 %236, label %.thread.i123, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i113
+  %238 = icmp eq i64 %.sroa.0.0.copyload.i.i.i110, 0
+  br i1 %238, label %.thread.i123, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i113
 
 _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i113: ; preds = %_ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char_traitsIcEE.exit109
-  %237 = load i8, ptr %.sroa.2.0.copyload.i.i.i112, align 1
-  %238 = icmp eq i8 %237, 63
-  br i1 %238, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i128, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i114
+  %239 = load i8, ptr %.sroa.2.0.copyload.i.i.i112, align 1
+  %240 = icmp eq i8 %239, 63
+  br i1 %240, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i128, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i114
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i128: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i113
-  %239 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i.i.i112, i64 1
-  store ptr %239, ptr %.sroa.22.0..sroa_idx.i, align 8
-  %240 = add i64 %.sroa.0.0.copyload.i.i.i110, -1
-  store i64 %240, ptr %1, align 8
-  %241 = icmp eq i64 %240, 0
-  br i1 %241, label %.thread.i123, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i._ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i_crit_edge.i129
+  %241 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i.i.i112, i64 1
+  store ptr %241, ptr %.sroa.22.0..sroa_idx.i, align 8
+  %242 = add i64 %.sroa.0.0.copyload.i.i.i110, -1
+  store i64 %242, ptr %1, align 8
+  %243 = icmp eq i64 %242, 0
+  br i1 %243, label %.thread.i123, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i._ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i_crit_edge.i129
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i._ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i_crit_edge.i129: ; preds = %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i128
-  %.pre.i130 = load i8, ptr %239, align 1
+  %.pre.i130 = load i8, ptr %241, align 1
   br label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i114
 
 _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i114: ; preds = %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i._ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i_crit_edge.i129, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i113
-  %242 = phi i8 [ %.pre.i130, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i._ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i_crit_edge.i129 ], [ %237, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i113 ]
-  %.sroa.0.0.copyload45.i.i115 = phi i64 [ %240, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i._ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i_crit_edge.i129 ], [ %.sroa.0.0.copyload.i.i.i110, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i113 ]
-  %.sroa.2.0.copyload44.i.i116 = phi ptr [ %239, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i._ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i_crit_edge.i129 ], [ %.sroa.2.0.copyload.i.i.i112, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i113 ]
-  %243 = sext i8 %242 to i32
-  %isdigittmp.i.i.i117 = add nsw i32 %243, -48
+  %244 = phi i8 [ %.pre.i130, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i._ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i_crit_edge.i129 ], [ %239, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i113 ]
+  %.sroa.0.0.copyload45.i.i115 = phi i64 [ %242, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i._ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i_crit_edge.i129 ], [ %.sroa.0.0.copyload.i.i.i110, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i113 ]
+  %.sroa.2.0.copyload44.i.i116 = phi ptr [ %241, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i._ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i_crit_edge.i129 ], [ %.sroa.2.0.copyload.i.i.i112, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i113 ]
+  %245 = sext i8 %244 to i32
+  %isdigittmp.i.i.i117 = add nsw i32 %245, -48
   %isdigit.i.i.i118 = icmp ult i32 %isdigittmp.i.i.i117, 10
-  br i1 %isdigit.i.i.i118, label %244, label %.lr.ph.i.i119
+  br i1 %isdigit.i.i.i118, label %246, label %.lr.ph.i.i119
 
-244:                                              ; preds = %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i114
-  %245 = sext i8 %242 to i64
-  %246 = add nsw i64 %245, -47
-  %247 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44.i.i116, i64 1
-  store ptr %247, ptr %.sroa.22.0..sroa_idx.i, align 8
-  %248 = add i64 %.sroa.0.0.copyload45.i.i115, -1
+246:                                              ; preds = %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i114
+  %247 = sext i8 %244 to i64
+  %248 = add nsw i64 %247, -47
+  %249 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44.i.i116, i64 1
+  store ptr %249, ptr %.sroa.22.0..sroa_idx.i, align 8
+  %250 = add i64 %.sroa.0.0.copyload45.i.i115, -1
   br label %_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i125
 
-.lr.ph.i.i119:                                    ; preds = %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i114, %258
-  %.036.i.i120 = phi i64 [ %262, %258 ], [ 0, %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i114 ]
-  %.02435.i.i121 = phi i64 [ %261, %258 ], [ 0, %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i114 ]
-  %249 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44.i.i116, i64 %.036.i.i120
-  %250 = load i8, ptr %249, align 1
-  %251 = icmp eq i8 %250, 64
-  br i1 %251, label %252, label %256
+.lr.ph.i.i119:                                    ; preds = %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i114, %260
+  %.036.i.i120 = phi i64 [ %264, %260 ], [ 0, %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i114 ]
+  %.02435.i.i121 = phi i64 [ %263, %260 ], [ 0, %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i114 ]
+  %251 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44.i.i116, i64 %.036.i.i120
+  %252 = load i8, ptr %251, align 1
+  %253 = icmp eq i8 %252, 64
+  br i1 %253, label %254, label %258
 
-252:                                              ; preds = %.lr.ph.i.i119
-  %253 = add nuw i64 %.036.i.i120, 1
-  %254 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44.i.i116, i64 %253
-  store ptr %254, ptr %.sroa.22.0..sroa_idx.i, align 8
-  %255 = sub i64 %.sroa.0.0.copyload45.i.i115, %253
+254:                                              ; preds = %.lr.ph.i.i119
+  %255 = add nuw i64 %.036.i.i120, 1
+  %256 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44.i.i116, i64 %255
+  store ptr %256, ptr %.sroa.22.0..sroa_idx.i, align 8
+  %257 = sub i64 %.sroa.0.0.copyload45.i.i115, %255
   br label %_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i125
 
-256:                                              ; preds = %.lr.ph.i.i119
-  %257 = add i8 %250, -65
-  %or.cond.i.i122 = icmp ult i8 %257, 16
-  br i1 %or.cond.i.i122, label %258, label %.thread.i123
+258:                                              ; preds = %.lr.ph.i.i119
+  %259 = add i8 %252, -65
+  %or.cond.i.i122 = icmp ult i8 %259, 16
+  br i1 %or.cond.i.i122, label %260, label %.thread.i123
 
-258:                                              ; preds = %256
-  %259 = shl i64 %.02435.i.i121, 4
-  %260 = zext nneg i8 %257 to i64
-  %261 = or disjoint i64 %259, %260
-  %262 = add nuw i64 %.036.i.i120, 1
-  %exitcond.not.i.i124 = icmp eq i64 %262, %.sroa.0.0.copyload45.i.i115
+260:                                              ; preds = %258
+  %261 = shl i64 %.02435.i.i121, 4
+  %262 = zext nneg i8 %259 to i64
+  %263 = or disjoint i64 %261, %262
+  %264 = add nuw i64 %.036.i.i120, 1
+  %exitcond.not.i.i124 = icmp eq i64 %264, %.sroa.0.0.copyload45.i.i115
   br i1 %exitcond.not.i.i124, label %.thread.i123, label %.lr.ph.i.i119, !llvm.loop !6
 
-.thread.i123:                                     ; preds = %258, %256, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i128, %_ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char_traitsIcEE.exit109
-  %263 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 1, ptr %263, align 8
-  br label %.sink.split
+.thread.i123:                                     ; preds = %260, %258, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i128, %_ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char_traitsIcEE.exit109
+  %265 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 1, ptr %265, align 8
+  br label %_ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char_traitsIcEE.exit131
 
-_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i125: ; preds = %252, %244
-  %storemerge.i126 = phi i64 [ %255, %252 ], [ %248, %244 ]
-  %.sroa.0.0.i.i127 = phi i64 [ %.02435.i.i121, %252 ], [ %246, %244 ]
+_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i125: ; preds = %254, %246
+  %storemerge.i126 = phi i64 [ %257, %254 ], [ %250, %246 ]
+  %.sroa.0.0.i.i127 = phi i64 [ %.02435.i.i121, %254 ], [ %248, %246 ]
   store i64 %storemerge.i126, ptr %1, align 8
-  %264 = icmp slt i64 %.sroa.0.0.i.i127, 0
-  br i1 %264, label %265, label %267
-
-265:                                              ; preds = %_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i125
-  %266 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 1, ptr %266, align 8
-  br i1 %238, label %268, label %.sink.split
+  %266 = icmp slt i64 %.sroa.0.0.i.i127, 0
+  br i1 %266, label %267, label %269
 
 267:                                              ; preds = %_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i125
-  br i1 %238, label %268, label %.sink.split
+  %268 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 1, ptr %268, align 8
+  br i1 %240, label %270, label %_ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char_traitsIcEE.exit131
 
-268:                                              ; preds = %267, %265
-  %269 = sub nsw i64 0, %.sroa.0.0.i.i127
-  br label %.sink.split
+269:                                              ; preds = %_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i125
+  br i1 %240, label %270, label %_ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char_traitsIcEE.exit131
 
-.sink.split:                                      ; preds = %268, %267, %265, %.thread.i123, %84, %83, %81, %.thread.i
-  %.sink174 = phi i64 [ %85, %84 ], [ %.sroa.0.0.i.i, %83 ], [ 0, %.thread.i ], [ %.sroa.0.0.i.i, %81 ], [ %269, %268 ], [ %.sroa.0.0.i.i127, %267 ], [ 0, %.thread.i123 ], [ %.sroa.0.0.i.i127, %265 ]
-  %.sink173 = phi ptr [ %51, %84 ], [ %51, %83 ], [ %51, %.thread.i ], [ %51, %81 ], [ %122, %268 ], [ %122, %267 ], [ %122, %.thread.i123 ], [ %122, %265 ]
-  %.033.ph = phi ptr [ %.sink27.i, %84 ], [ %.sink27.i, %83 ], [ %.sink27.i, %.thread.i ], [ %.sink27.i, %81 ], [ %.sink27.i42, %268 ], [ %.sink27.i42, %267 ], [ %.sink27.i42, %.thread.i123 ], [ %.sink27.i42, %265 ]
-  %270 = trunc i64 %.sink174 to i32
-  store i32 %270, ptr %.sink173, align 4
-  br label %271
+270:                                              ; preds = %269, %267
+  %271 = sub nsw i64 0, %.sroa.0.0.i.i127
+  br label %_ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char_traitsIcEE.exit131
 
-271:                                              ; preds = %.sink.split, %86
-  %.033 = phi ptr [ null, %86 ], [ %.033.ph, %.sink.split ]
-  %272 = and i32 %16, 256
-  %.not37 = icmp eq i32 %272, 0
-  br i1 %.not37, label %307, label %273
+_ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char_traitsIcEE.exit131: ; preds = %.thread.i123, %267, %269, %270
+  %272 = phi i64 [ %271, %270 ], [ %.sroa.0.0.i.i127, %269 ], [ 0, %.thread.i123 ], [ %.sroa.0.0.i.i127, %267 ]
+  %273 = trunc i64 %272 to i32
+  store i32 %273, ptr %124, align 4
+  br label %274
 
-273:                                              ; preds = %271
-  %274 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %275 = load ptr, ptr %274, align 8
-  %276 = load ptr, ptr %275, align 8
-  %277 = ptrtoint ptr %276 to i64
-  %278 = getelementptr inbounds nuw i8, ptr %275, i64 8
-  %279 = load i64, ptr %278, align 8
-  %280 = add i64 %277, 7
-  %281 = add i64 %280, %279
-  %282 = and i64 %281, -8
-  %reass.sub151 = sub i64 %282, %277
-  %283 = add i64 %reass.sub151, 64
-  store i64 %283, ptr %278, align 8
-  %284 = load ptr, ptr %274, align 8
-  %285 = getelementptr inbounds nuw i8, ptr %284, i64 8
-  %286 = load i64, ptr %285, align 8
-  %287 = getelementptr inbounds nuw i8, ptr %284, i64 16
-  %288 = load i64, ptr %287, align 8
-  %.not.i133 = icmp ugt i64 %286, %288
-  br i1 %.not.i133, label %291, label %289
+274:                                              ; preds = %88, %_ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char_traitsIcEE.exit131, %_ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char_traitsIcEE.exit
+  %.033 = phi ptr [ %.sink27.i, %_ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ %.sink27.i42, %_ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char_traitsIcEE.exit131 ], [ null, %88 ]
+  %275 = and i32 %16, 256
+  %.not37 = icmp eq i32 %275, 0
+  br i1 %.not37, label %310, label %276
 
-289:                                              ; preds = %273
-  %290 = inttoptr i64 %282 to ptr
+276:                                              ; preds = %274
+  %277 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %278 = load ptr, ptr %277, align 8
+  %279 = load ptr, ptr %278, align 8
+  %280 = ptrtoint ptr %279 to i64
+  %281 = getelementptr inbounds nuw i8, ptr %278, i64 8
+  %282 = load i64, ptr %281, align 8
+  %283 = add i64 %280, 7
+  %284 = add i64 %283, %282
+  %285 = and i64 %284, -8
+  %reass.sub151 = sub i64 %285, %280
+  %286 = add i64 %reass.sub151, 64
+  store i64 %286, ptr %281, align 8
+  %287 = load ptr, ptr %277, align 8
+  %288 = getelementptr inbounds nuw i8, ptr %287, i64 8
+  %289 = load i64, ptr %288, align 8
+  %290 = getelementptr inbounds nuw i8, ptr %287, i64 16
+  %291 = load i64, ptr %290, align 8
+  %.not.i133 = icmp ugt i64 %289, %291
+  br i1 %.not.i133, label %294, label %292
+
+292:                                              ; preds = %276
+  %293 = inttoptr i64 %285 to ptr
   br label %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_21FunctionSignatureNodeEJEEEPT_DpOT0_.exit
 
-291:                                              ; preds = %273
-  %292 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #22
-  %293 = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #22
-  store ptr %293, ptr %292, align 8
-  %294 = getelementptr inbounds nuw i8, ptr %292, i64 24
-  store ptr %284, ptr %294, align 8
-  %295 = getelementptr inbounds nuw i8, ptr %292, i64 16
-  store i64 4096, ptr %295, align 8
-  store ptr %292, ptr %274, align 8
-  %296 = getelementptr inbounds nuw i8, ptr %292, i64 8
-  store i64 64, ptr %296, align 8
+294:                                              ; preds = %276
+  %295 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #22
+  %296 = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #22
+  store ptr %296, ptr %295, align 8
+  %297 = getelementptr inbounds nuw i8, ptr %295, i64 24
+  store ptr %287, ptr %297, align 8
+  %298 = getelementptr inbounds nuw i8, ptr %295, i64 16
+  store i64 4096, ptr %298, align 8
+  store ptr %295, ptr %277, align 8
+  %299 = getelementptr inbounds nuw i8, ptr %295, i64 8
+  store i64 64, ptr %299, align 8
   br label %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_21FunctionSignatureNodeEJEEEPT_DpOT0_.exit
 
-_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_21FunctionSignatureNodeEJEEEPT_DpOT0_.exit: ; preds = %289, %291
-  %.sink18.i = phi ptr [ %293, %291 ], [ %290, %289 ]
-  %297 = getelementptr inbounds nuw i8, ptr %.sink18.i, i64 8
-  store i32 3, ptr %297, align 8
-  %298 = getelementptr inbounds nuw i8, ptr %.sink18.i, i64 12
-  store i8 0, ptr %298, align 4
+_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_21FunctionSignatureNodeEJEEEPT_DpOT0_.exit: ; preds = %292, %294
+  %.sink18.i = phi ptr [ %296, %294 ], [ %293, %292 ]
+  %300 = getelementptr inbounds nuw i8, ptr %.sink18.i, i64 8
+  store i32 3, ptr %300, align 8
+  %301 = getelementptr inbounds nuw i8, ptr %.sink18.i, i64 12
+  store i8 0, ptr %301, align 4
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm11ms_demangle21FunctionSignatureNodeE, i64 16), ptr %.sink18.i, align 8
-  %299 = getelementptr inbounds nuw i8, ptr %.sink18.i, i64 16
-  store i32 0, ptr %299, align 8
-  %300 = getelementptr inbounds nuw i8, ptr %.sink18.i, i64 20
-  store i8 0, ptr %300, align 4
-  %301 = getelementptr inbounds nuw i8, ptr %.sink18.i, i64 22
-  store i16 8, ptr %301, align 2
-  %302 = getelementptr inbounds nuw i8, ptr %.sink18.i, i64 24
+  %302 = getelementptr inbounds nuw i8, ptr %.sink18.i, i64 16
   store i32 0, ptr %302, align 8
-  %303 = getelementptr inbounds nuw i8, ptr %.sink18.i, i64 32
-  store ptr null, ptr %303, align 8
-  %304 = getelementptr inbounds nuw i8, ptr %.sink18.i, i64 40
-  store i8 0, ptr %304, align 8
-  %305 = getelementptr inbounds nuw i8, ptr %.sink18.i, i64 48
-  store ptr null, ptr %305, align 8
-  %306 = getelementptr inbounds nuw i8, ptr %.sink18.i, i64 56
-  store i8 0, ptr %306, align 8
-  br label %310
+  %303 = getelementptr inbounds nuw i8, ptr %.sink18.i, i64 20
+  store i8 0, ptr %303, align 4
+  %304 = getelementptr inbounds nuw i8, ptr %.sink18.i, i64 22
+  store i16 8, ptr %304, align 2
+  %305 = getelementptr inbounds nuw i8, ptr %.sink18.i, i64 24
+  store i32 0, ptr %305, align 8
+  %306 = getelementptr inbounds nuw i8, ptr %.sink18.i, i64 32
+  store ptr null, ptr %306, align 8
+  %307 = getelementptr inbounds nuw i8, ptr %.sink18.i, i64 40
+  store i8 0, ptr %307, align 8
+  %308 = getelementptr inbounds nuw i8, ptr %.sink18.i, i64 48
+  store ptr null, ptr %308, align 8
+  %309 = getelementptr inbounds nuw i8, ptr %.sink18.i, i64 56
+  store i8 0, ptr %309, align 8
+  br label %313
 
-307:                                              ; preds = %271
-  %308 = and i32 %16, 24
-  %.not38 = icmp eq i32 %308, 0
-  %309 = tail call noundef ptr @_ZN4llvm11ms_demangle9Demangler20demangleFunctionTypeERSt17basic_string_viewIcSt11char_traitsIcEEb(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %.not38)
-  br label %310
+310:                                              ; preds = %274
+  %311 = and i32 %16, 24
+  %.not38 = icmp eq i32 %311, 0
+  %312 = tail call noundef ptr @_ZN4llvm11ms_demangle9Demangler20demangleFunctionTypeERSt17basic_string_viewIcSt11char_traitsIcEEb(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %.not38)
+  br label %313
 
-310:                                              ; preds = %307, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_21FunctionSignatureNodeEJEEEPT_DpOT0_.exit
-  %.034 = phi ptr [ %.sink18.i, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_21FunctionSignatureNodeEJEEEPT_DpOT0_.exit ], [ %309, %307 ]
-  %311 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %312 = load i8, ptr %311, align 8
-  %313 = trunc i8 %312 to i1
-  br i1 %313, label %352, label %314
+313:                                              ; preds = %310, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_21FunctionSignatureNodeEJEEEPT_DpOT0_.exit
+  %.034 = phi ptr [ %.sink18.i, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_21FunctionSignatureNodeEJEEEPT_DpOT0_.exit ], [ %312, %310 ]
+  %314 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %315 = load i8, ptr %314, align 8
+  %316 = trunc i8 %315 to i1
+  br i1 %316, label %355, label %317
 
-314:                                              ; preds = %310
+317:                                              ; preds = %313
   %.not39 = icmp eq ptr %.033, null
-  br i1 %.not39, label %324, label %315
+  br i1 %.not39, label %327, label %318
 
-315:                                              ; preds = %314
-  %316 = getelementptr inbounds nuw i8, ptr %.034, i64 8
-  %317 = load i32, ptr %316, align 8
-  %318 = getelementptr inbounds nuw i8, ptr %.033, i64 8
-  store i32 %317, ptr %318, align 8
-  %319 = getelementptr inbounds nuw i8, ptr %.034, i64 12
-  %320 = load i8, ptr %319, align 4
-  %321 = getelementptr inbounds nuw i8, ptr %.033, i64 12
-  store i8 %320, ptr %321, align 4
-  %322 = getelementptr inbounds nuw i8, ptr %.033, i64 16
-  %323 = getelementptr inbounds nuw i8, ptr %.034, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %322, ptr noundef nonnull align 8 dereferenceable(41) %323, i64 41, i1 false)
-  br label %324
+318:                                              ; preds = %317
+  %319 = getelementptr inbounds nuw i8, ptr %.034, i64 8
+  %320 = load i32, ptr %319, align 8
+  %321 = getelementptr inbounds nuw i8, ptr %.033, i64 8
+  store i32 %320, ptr %321, align 8
+  %322 = getelementptr inbounds nuw i8, ptr %.034, i64 12
+  %323 = load i8, ptr %322, align 4
+  %324 = getelementptr inbounds nuw i8, ptr %.033, i64 12
+  store i8 %323, ptr %324, align 4
+  %325 = getelementptr inbounds nuw i8, ptr %.033, i64 16
+  %326 = getelementptr inbounds nuw i8, ptr %.034, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %325, ptr noundef nonnull align 8 dereferenceable(41) %326, i64 41, i1 false)
+  br label %327
 
-324:                                              ; preds = %315, %314
-  %.1 = phi ptr [ %.033, %315 ], [ %.034, %314 ]
-  %325 = getelementptr inbounds nuw i8, ptr %.1, i64 22
-  store i16 %15, ptr %325, align 2
-  %326 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %327 = load ptr, ptr %326, align 8
-  %328 = load ptr, ptr %327, align 8
-  %329 = ptrtoint ptr %328 to i64
-  %330 = getelementptr inbounds nuw i8, ptr %327, i64 8
-  %331 = load i64, ptr %330, align 8
-  %332 = add i64 %329, 7
-  %333 = add i64 %332, %331
-  %334 = and i64 %333, -8
-  %reass.sub152 = sub i64 %334, %329
-  %335 = add i64 %reass.sub152, 32
-  store i64 %335, ptr %330, align 8
-  %336 = load ptr, ptr %326, align 8
-  %337 = getelementptr inbounds nuw i8, ptr %336, i64 8
-  %338 = load i64, ptr %337, align 8
-  %339 = getelementptr inbounds nuw i8, ptr %336, i64 16
-  %340 = load i64, ptr %339, align 8
-  %.not.i135 = icmp ugt i64 %338, %340
-  br i1 %.not.i135, label %343, label %341
+327:                                              ; preds = %318, %317
+  %.1 = phi ptr [ %.033, %318 ], [ %.034, %317 ]
+  %328 = getelementptr inbounds nuw i8, ptr %.1, i64 22
+  store i16 %15, ptr %328, align 2
+  %329 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %330 = load ptr, ptr %329, align 8
+  %331 = load ptr, ptr %330, align 8
+  %332 = ptrtoint ptr %331 to i64
+  %333 = getelementptr inbounds nuw i8, ptr %330, i64 8
+  %334 = load i64, ptr %333, align 8
+  %335 = add i64 %332, 7
+  %336 = add i64 %335, %334
+  %337 = and i64 %336, -8
+  %reass.sub152 = sub i64 %337, %332
+  %338 = add i64 %reass.sub152, 32
+  store i64 %338, ptr %333, align 8
+  %339 = load ptr, ptr %329, align 8
+  %340 = getelementptr inbounds nuw i8, ptr %339, i64 8
+  %341 = load i64, ptr %340, align 8
+  %342 = getelementptr inbounds nuw i8, ptr %339, i64 16
+  %343 = load i64, ptr %342, align 8
+  %.not.i135 = icmp ugt i64 %341, %343
+  br i1 %.not.i135, label %346, label %344
 
-341:                                              ; preds = %324
-  %342 = inttoptr i64 %334 to ptr
+344:                                              ; preds = %327
+  %345 = inttoptr i64 %337 to ptr
   br label %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_18FunctionSymbolNodeEJEEEPT_DpOT0_.exit
 
-343:                                              ; preds = %324
-  %344 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #22
-  %345 = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #22
-  store ptr %345, ptr %344, align 8
-  %346 = getelementptr inbounds nuw i8, ptr %344, i64 24
-  store ptr %336, ptr %346, align 8
-  %347 = getelementptr inbounds nuw i8, ptr %344, i64 16
-  store i64 4096, ptr %347, align 8
-  store ptr %344, ptr %326, align 8
-  %348 = getelementptr inbounds nuw i8, ptr %344, i64 8
-  store i64 32, ptr %348, align 8
+346:                                              ; preds = %327
+  %347 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #22
+  %348 = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #22
+  store ptr %348, ptr %347, align 8
+  %349 = getelementptr inbounds nuw i8, ptr %347, i64 24
+  store ptr %339, ptr %349, align 8
+  %350 = getelementptr inbounds nuw i8, ptr %347, i64 16
+  store i64 4096, ptr %350, align 8
+  store ptr %347, ptr %329, align 8
+  %351 = getelementptr inbounds nuw i8, ptr %347, i64 8
+  store i64 32, ptr %351, align 8
   br label %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_18FunctionSymbolNodeEJEEEPT_DpOT0_.exit
 
-_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_18FunctionSymbolNodeEJEEEPT_DpOT0_.exit: ; preds = %341, %343
-  %.sink11.i = phi ptr [ %345, %343 ], [ %342, %341 ]
-  %349 = getelementptr inbounds nuw i8, ptr %.sink11.i, i64 8
-  store i32 26, ptr %349, align 8
-  %350 = getelementptr inbounds nuw i8, ptr %.sink11.i, i64 16
-  store ptr null, ptr %350, align 8
+_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_18FunctionSymbolNodeEJEEEPT_DpOT0_.exit: ; preds = %344, %346
+  %.sink11.i = phi ptr [ %348, %346 ], [ %345, %344 ]
+  %352 = getelementptr inbounds nuw i8, ptr %.sink11.i, i64 8
+  store i32 26, ptr %352, align 8
+  %353 = getelementptr inbounds nuw i8, ptr %.sink11.i, i64 16
+  store ptr null, ptr %353, align 8
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm11ms_demangle18FunctionSymbolNodeE, i64 16), ptr %.sink11.i, align 8
-  %351 = getelementptr inbounds nuw i8, ptr %.sink11.i, i64 24
-  store ptr %.1, ptr %351, align 8
-  br label %352
+  %354 = getelementptr inbounds nuw i8, ptr %.sink11.i, i64 24
+  store ptr %.1, ptr %354, align 8
+  br label %355
 
-352:                                              ; preds = %310, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_18FunctionSymbolNodeEJEEEPT_DpOT0_.exit, %11
-  %.0 = phi ptr [ null, %11 ], [ %.sink11.i, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_18FunctionSymbolNodeEJEEEPT_DpOT0_.exit ], [ null, %310 ]
+355:                                              ; preds = %313, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_18FunctionSymbolNodeEJEEEPT_DpOT0_.exit, %11
+  %.0 = phi ptr [ null, %11 ], [ %.sink11.i, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_18FunctionSymbolNodeEJEEEPT_DpOT0_.exit ], [ null, %313 ]
   ret ptr %.0
 }
 

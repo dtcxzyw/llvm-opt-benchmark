@@ -14246,19 +14246,16 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit64:  ; preds = %173, %176, %178
   %180 = phi i64 [ %175, %173 ], [ %179, %178 ], [ %171, %176 ]
   %181 = load ptr, ptr %0, align 8
   %182 = getelementptr inbounds ptr, ptr %181, i64 %180
-  br label %_ZNSt3__110unique_ptrINS_11__hash_nodeINS_17__hash_value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba6Struct4TypeEEEPvEENS_22__hash_node_destructorINS6_ISE_EEEEED2B8ne190000Ev.exit.sink.split
+  store ptr %98, ptr %182, align 8
+  br label %_ZNSt3__110unique_ptrINS_11__hash_nodeINS_17__hash_value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba6Struct4TypeEEEPvEENS_22__hash_node_destructorINS6_ISE_EEEEED2B8ne190000Ev.exit
 
 183:                                              ; preds = %_ZNSt3__116__constrain_hashB8ne190000Emm.exit62
   %184 = load ptr, ptr %164, align 8
   store ptr %184, ptr %98, align 8
-  br label %_ZNSt3__110unique_ptrINS_11__hash_nodeINS_17__hash_value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba6Struct4TypeEEEPvEENS_22__hash_node_destructorINS6_ISE_EEEEED2B8ne190000Ev.exit.sink.split
-
-_ZNSt3__110unique_ptrINS_11__hash_nodeINS_17__hash_value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba6Struct4TypeEEEPvEENS_22__hash_node_destructorINS6_ISE_EEEEED2B8ne190000Ev.exit.sink.split: ; preds = %_ZNSt3__116__constrain_hashB8ne190000Emm.exit64, %183
-  %.sink = phi ptr [ %164, %183 ], [ %182, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit64 ]
-  store ptr %98, ptr %.sink, align 8
+  store ptr %98, ptr %164, align 8
   br label %_ZNSt3__110unique_ptrINS_11__hash_nodeINS_17__hash_value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba6Struct4TypeEEEPvEENS_22__hash_node_destructorINS6_ISE_EEEEED2B8ne190000Ev.exit
 
-_ZNSt3__110unique_ptrINS_11__hash_nodeINS_17__hash_value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba6Struct4TypeEEEPvEENS_22__hash_node_destructorINS6_ISE_EEEEED2B8ne190000Ev.exit: ; preds = %_ZNSt3__110unique_ptrINS_11__hash_nodeINS_17__hash_value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba6Struct4TypeEEEPvEENS_22__hash_node_destructorINS6_ISE_EEEEED2B8ne190000Ev.exit.sink.split, %166
+_ZNSt3__110unique_ptrINS_11__hash_nodeINS_17__hash_value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba6Struct4TypeEEEPvEENS_22__hash_node_destructorINS6_ISE_EEEEED2B8ne190000Ev.exit: ; preds = %183, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit64, %166
   %185 = load i64, ptr %103, align 8
   %186 = add i64 %185, 1
   store i64 %186, ptr %103, align 8

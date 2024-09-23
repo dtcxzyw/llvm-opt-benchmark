@@ -755,7 +755,7 @@ define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr nocapture nounde
   %75 = ashr i16 %74, 1
   %76 = sext i16 %75 to i32
   %.not81 = icmp sgt i32 %76, %71
-  br i1 %.not81, label %FSE_normalizeM2.exit.thread.sink.split, label %77
+  br i1 %.not81, label %188, label %77
 
 77:                                               ; preds = %70
   %78 = mul i64 %3, 3
@@ -877,7 +877,7 @@ define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr nocapture nounde
   %.2114.i = phi i32 [ %.4116.i, %133 ], [ %.1113.i, %109 ]
   %.2.i = phi i64 [ %.4.i, %133 ], [ %.1.i, %109 ]
   %136 = icmp eq i32 %.2114.i, %83
-  br i1 %136, label %.preheader.i, label %145
+  br i1 %136, label %.preheader.i, label %147
 
 .preheader.i:                                     ; preds = %135, %.preheader.i
   %indvars.iv163.i = phi i64 [ %indvars.iv.next164.i, %.preheader.i ], [ 0, %135 ]
@@ -897,94 +897,94 @@ define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr nocapture nounde
   %142 = zext i32 %spec.select139.i to i64
   %143 = getelementptr inbounds i16, ptr %0, i64 %142
   %144 = load i16, ptr %143, align 2
-  br label %FSE_normalizeM2.exit.thread.sink.split
+  %145 = trunc i32 %.0119.i to i16
+  %146 = add i16 %144, %145
+  store i16 %146, ptr %143, align 2
+  br label %FSE_normalizeM2.exit.thread
 
-145:                                              ; preds = %135
-  %146 = icmp eq i64 %.2.i, 0
-  br i1 %146, label %.preheader140.i, label %158
+147:                                              ; preds = %135
+  %148 = icmp eq i64 %.2.i, 0
+  br i1 %148, label %.preheader140.i, label %160
 
-.preheader140.i:                                  ; preds = %145
+.preheader140.i:                                  ; preds = %147
   %.not134150.i = icmp eq i32 %.0119.i, 0
   br i1 %.not134150.i, label %FSE_normalizeM2.exit.thread, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.preheader140.i, %154
-  %.3110152.i = phi i32 [ %157, %154 ], [ 0, %.preheader140.i ]
-  %.1120151.i = phi i32 [ %.2121.i, %154 ], [ %.0119.i, %.preheader140.i ]
-  %147 = zext i32 %.3110152.i to i64
-  %148 = getelementptr inbounds i16, ptr %0, i64 %147
-  %149 = load i16, ptr %148, align 2
-  %150 = icmp sgt i16 %149, 0
-  br i1 %150, label %151, label %154
+.lr.ph.i:                                         ; preds = %.preheader140.i, %156
+  %.3110152.i = phi i32 [ %159, %156 ], [ 0, %.preheader140.i ]
+  %.1120151.i = phi i32 [ %.2121.i, %156 ], [ %.0119.i, %.preheader140.i ]
+  %149 = zext i32 %.3110152.i to i64
+  %150 = getelementptr inbounds i16, ptr %0, i64 %149
+  %151 = load i16, ptr %150, align 2
+  %152 = icmp sgt i16 %151, 0
+  br i1 %152, label %153, label %156
 
-151:                                              ; preds = %.lr.ph.i
-  %152 = add i32 %.1120151.i, -1
-  %153 = add nuw i16 %149, 1
-  store i16 %153, ptr %148, align 2
-  br label %154
+153:                                              ; preds = %.lr.ph.i
+  %154 = add i32 %.1120151.i, -1
+  %155 = add nuw i16 %151, 1
+  store i16 %155, ptr %150, align 2
+  br label %156
 
-154:                                              ; preds = %151, %.lr.ph.i
-  %.2121.i = phi i32 [ %152, %151 ], [ %.1120151.i, %.lr.ph.i ]
-  %155 = add i32 %.3110152.i, 1
-  %156 = icmp eq i32 %.3110152.i, %4
-  %157 = select i1 %156, i32 0, i32 %155
+156:                                              ; preds = %153, %.lr.ph.i
+  %.2121.i = phi i32 [ %154, %153 ], [ %.1120151.i, %.lr.ph.i ]
+  %157 = add i32 %.3110152.i, 1
+  %158 = icmp eq i32 %.3110152.i, %4
+  %159 = select i1 %158, i32 0, i32 %157
   %.not134.i = icmp eq i32 %.2121.i, 0
   br i1 %.not134.i, label %FSE_normalizeM2.exit.thread, label %.lr.ph.i, !llvm.loop !24
 
-158:                                              ; preds = %145
-  %159 = add nsw i64 %22, -1
-  %notmask.i = shl nsw i64 -1, %159
-  %160 = xor i64 %notmask.i, -1
-  %161 = zext i32 %.0119.i to i64
-  %162 = shl i64 %161, %22
-  %163 = add i64 %162, %160
-  %164 = and i64 %.2.i, 4294967295
-  %165 = udiv i64 %163, %164
-  br label %166
+160:                                              ; preds = %147
+  %161 = add nsw i64 %22, -1
+  %notmask.i = shl nsw i64 -1, %161
+  %162 = xor i64 %notmask.i, -1
+  %163 = zext i32 %.0119.i to i64
+  %164 = shl i64 %163, %22
+  %165 = add i64 %164, %162
+  %166 = and i64 %.2.i, 4294967295
+  %167 = udiv i64 %165, %166
+  br label %168
 
-166:                                              ; preds = %184, %158
-  %.4111149.i = phi i32 [ 0, %158 ], [ %185, %184 ]
-  %.0117148.i = phi i64 [ %160, %158 ], [ %.1118.i, %184 ]
-  %167 = zext i32 %.4111149.i to i64
-  %168 = getelementptr inbounds i16, ptr %0, i64 %167
-  %169 = load i16, ptr %168, align 2
-  %170 = icmp eq i16 %169, -2
-  br i1 %170, label %171, label %184
+168:                                              ; preds = %186, %160
+  %.4111149.i = phi i32 [ 0, %160 ], [ %187, %186 ]
+  %.0117148.i = phi i64 [ %162, %160 ], [ %.1118.i, %186 ]
+  %169 = zext i32 %.4111149.i to i64
+  %170 = getelementptr inbounds i16, ptr %0, i64 %169
+  %171 = load i16, ptr %170, align 2
+  %172 = icmp eq i16 %171, -2
+  br i1 %172, label %173, label %186
 
-171:                                              ; preds = %166
-  %172 = getelementptr inbounds i32, ptr %2, i64 %167
-  %173 = load i32, ptr %172, align 4
-  %174 = zext i32 %173 to i64
-  %175 = mul i64 %165, %174
-  %176 = add i64 %175, %.0117148.i
-  %177 = lshr i64 %.0117148.i, %22
-  %178 = lshr i64 %176, %22
-  %179 = icmp eq i64 %178, %177
-  br i1 %179, label %FSE_normalizeM2.exit.thread, label %180
+173:                                              ; preds = %168
+  %174 = getelementptr inbounds i32, ptr %2, i64 %169
+  %175 = load i32, ptr %174, align 4
+  %176 = zext i32 %175 to i64
+  %177 = mul i64 %167, %176
+  %178 = add i64 %177, %.0117148.i
+  %179 = lshr i64 %.0117148.i, %22
+  %180 = lshr i64 %178, %22
+  %181 = icmp eq i64 %180, %179
+  br i1 %181, label %FSE_normalizeM2.exit.thread, label %182
 
-180:                                              ; preds = %171
-  %181 = trunc nuw nsw i64 %177 to i16
-  %182 = trunc nuw nsw i64 %178 to i16
-  %183 = sub nsw i16 %182, %181
-  store i16 %183, ptr %168, align 2
-  br label %184
+182:                                              ; preds = %173
+  %183 = trunc nuw nsw i64 %179 to i16
+  %184 = trunc nuw nsw i64 %180 to i16
+  %185 = sub nsw i16 %184, %183
+  store i16 %185, ptr %170, align 2
+  br label %186
 
-184:                                              ; preds = %180, %166
-  %.1118.i = phi i64 [ %176, %180 ], [ %.0117148.i, %166 ]
-  %185 = add i32 %.4111149.i, 1
-  %.not133.i = icmp ugt i32 %185, %4
-  br i1 %.not133.i, label %FSE_normalizeM2.exit.thread, label %166, !llvm.loop !25
+186:                                              ; preds = %182, %168
+  %.1118.i = phi i64 [ %178, %182 ], [ %.0117148.i, %168 ]
+  %187 = add i32 %.4111149.i, 1
+  %.not133.i = icmp ugt i32 %187, %4
+  br i1 %.not133.i, label %FSE_normalizeM2.exit.thread, label %168, !llvm.loop !25
 
-FSE_normalizeM2.exit.thread.sink.split:           ; preds = %70, %141
-  %.0119.i.sink = phi i32 [ %.0119.i, %141 ], [ %.1, %70 ]
-  %.sink100 = phi i16 [ %144, %141 ], [ %74, %70 ]
-  %.sink99 = phi ptr [ %143, %141 ], [ %73, %70 ]
-  %186 = trunc i32 %.0119.i.sink to i16
-  %187 = add i16 %.sink100, %186
-  store i16 %187, ptr %.sink99, align 2
+188:                                              ; preds = %70
+  %189 = trunc i32 %.1 to i16
+  %190 = add i16 %74, %189
+  store i16 %190, ptr %73, align 2
   br label %FSE_normalizeM2.exit.thread
 
-FSE_normalizeM2.exit.thread:                      ; preds = %30, %171, %184, %154, %FSE_normalizeM2.exit.thread.sink.split, %.preheader140.i, %106, %11, %9, %6
-  %.0 = phi i64 [ -1, %6 ], [ -44, %9 ], [ -1, %11 ], [ %27, %106 ], [ %27, %.preheader140.i ], [ %27, %FSE_normalizeM2.exit.thread.sink.split ], [ %27, %154 ], [ -1, %171 ], [ %27, %184 ], [ 0, %30 ]
+FSE_normalizeM2.exit.thread:                      ; preds = %30, %173, %186, %156, %.preheader140.i, %106, %141, %188, %11, %9, %6
+  %.0 = phi i64 [ -1, %6 ], [ -44, %9 ], [ -1, %11 ], [ %27, %188 ], [ %27, %141 ], [ %27, %106 ], [ %27, %.preheader140.i ], [ %27, %156 ], [ -1, %173 ], [ %27, %186 ], [ 0, %30 ]
   ret i64 %.0
 }
 

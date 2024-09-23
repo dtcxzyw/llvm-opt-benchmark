@@ -1169,6 +1169,7 @@ define dso_local { i64, i32 } @CreateForeignServer(ptr nocapture noundef readonl
 
 23:                                               ; preds = %15, %19
   call void @table_close(ptr noundef %6, i32 noundef 3) #8
+  %.sroa.3.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), align 4
   br label %90
 
 24:                                               ; preds = %11
@@ -1298,15 +1299,15 @@ define dso_local { i64, i32 } @CreateForeignServer(ptr nocapture noundef readonl
 
 89:                                               ; preds = %78, %88
   call void @table_close(ptr noundef nonnull %6, i32 noundef 3) #8
+  %.sroa.3.0.copyload37 = load i32, ptr %83, align 4
   br label %90
 
 90:                                               ; preds = %89, %23
-  %.sink = phi ptr [ %83, %89 ], [ getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), %23 ]
-  %.sroa.035.0.in = phi ptr [ %4, %89 ], [ @InvalidObjectAddress, %23 ]
-  %.sroa.3.0.copyload37 = load i32, ptr %.sink, align 4
+  %.sroa.035.0.in = phi ptr [ @InvalidObjectAddress, %23 ], [ %4, %89 ]
+  %.sroa.3.0 = phi i32 [ %.sroa.3.0.copyload, %23 ], [ %.sroa.3.0.copyload37, %89 ]
   %.sroa.035.0 = load i64, ptr %.sroa.035.0.in, align 4
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.035.0, 0
-  %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.3.0.copyload37, 1
+  %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.3.0, 1
   ret { i64, i32 } %.fca.1.insert
 }
 
@@ -1537,6 +1538,7 @@ user_mapping_ddl_aclcheck.exit:                   ; preds = %15, %25, %.sink.spl
 
 45:                                               ; preds = %35, %41
   tail call void @table_close(ptr noundef %8, i32 noundef 3) #8
+  %.sroa.3.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), align 4
   br label %89
 
 46:                                               ; preds = %31
@@ -1627,15 +1629,15 @@ user_mapping_ddl_aclcheck.exit:                   ; preds = %15, %25, %.sink.spl
 
 88:                                               ; preds = %85, %87
   call void @table_close(ptr noundef nonnull %8, i32 noundef 3) #8
+  %.sroa.3.0.copyload39 = load i32, ptr %80, align 4
   br label %89
 
 89:                                               ; preds = %88, %45
-  %.sink = phi ptr [ %80, %88 ], [ getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), %45 ]
-  %.sroa.037.0.in = phi ptr [ %4, %88 ], [ @InvalidObjectAddress, %45 ]
-  %.sroa.3.0.copyload39 = load i32, ptr %.sink, align 4
+  %.sroa.037.0.in = phi ptr [ @InvalidObjectAddress, %45 ], [ %4, %88 ]
+  %.sroa.3.0 = phi i32 [ %.sroa.3.0.copyload, %45 ], [ %.sroa.3.0.copyload39, %88 ]
   %.sroa.037.0 = load i64, ptr %.sroa.037.0.in, align 4
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.037.0, 0
-  %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.3.0.copyload39, 1
+  %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.3.0, 1
   ret { i64, i32 } %.fca.1.insert
 }
 

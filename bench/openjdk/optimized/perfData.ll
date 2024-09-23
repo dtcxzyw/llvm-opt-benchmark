@@ -531,14 +531,14 @@ define hidden void @_ZN18PerfStringConstantC2E9CounterNSPKcS2_(ptr nocapture nou
   br label %_ZN10PerfStringC2E9CounterNSPKcN8PerfData11VariabilityEiS2_.exit.sink.split
 
 _ZN10PerfStringC2E9CounterNSPKcN8PerfData11VariabilityEiS2_.exit.sink.split: ; preds = %9, %22
-  %.sink12 = phi ptr [ %20, %22 ], [ %7, %9 ]
-  %.sink11 = phi ptr [ %18, %22 ], [ %6, %9 ]
-  %26 = load ptr, ptr %.sink12, align 8
-  %27 = load i32, ptr %.sink11, align 8
-  %28 = sext i32 %27 to i64
-  %29 = getelementptr i8, ptr %26, i64 %28
-  %30 = getelementptr i8, ptr %29, i64 -1
-  store i8 0, ptr %30, align 1
+  %.sink10.in = phi ptr [ %18, %22 ], [ %6, %9 ]
+  %.sink.in = phi ptr [ %20, %22 ], [ %7, %9 ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %.sink10 = load i32, ptr %.sink10.in, align 8
+  %26 = sext i32 %.sink10 to i64
+  %27 = getelementptr i8, ptr %.sink, i64 %26
+  %28 = getelementptr i8, ptr %27, i64 -1
+  store i8 0, ptr %28, align 1
   br label %_ZN10PerfStringC2E9CounterNSPKcN8PerfData11VariabilityEiS2_.exit
 
 _ZN10PerfStringC2E9CounterNSPKcN8PerfData11VariabilityEiS2_.exit: ; preds = %_ZN10PerfStringC2E9CounterNSPKcN8PerfData11VariabilityEiS2_.exit.sink.split, %.split, %.split5

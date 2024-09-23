@@ -568,7 +568,11 @@ rb_enc_from_index.exit.i.i:                       ; preds = %29, %rb_enc_to_inde
 enc_check_encoding.exit:                          ; preds = %33
   %35 = tail call i32 @rb_enc_autoload(ptr noundef nonnull %22)
   %36 = icmp sgt i32 %35, -1
-  br i1 %36, label %str_to_encoding.exit.sink.split, label %enc_check_encoding.exit.thread
+  br i1 %36, label %enc_check_encoding.exit.enc_check_encoding.exit.thread4_crit_edge, label %enc_check_encoding.exit.thread
+
+enc_check_encoding.exit.enc_check_encoding.exit.thread4_crit_edge: ; preds = %enc_check_encoding.exit
+  %.pre = load ptr, ptr %21, align 8
+  br label %str_to_encoding.exit
 
 enc_check_encoding.exit.thread:                   ; preds = %rb_enc_from_index.exit.i.i, %6, %11, %16, %1, %enc_check_encoding.exit
   %37 = tail call fastcc i32 @str_find_encindex(i64 noundef %0)
@@ -589,15 +593,11 @@ str_to_encindex.exit.i:                           ; preds = %enc_check_encoding.
 43:                                               ; preds = %str_to_encindex.exit.i
   %44 = zext nneg i32 %42 to i64
   %45 = getelementptr [256 x %struct.rb_encoding_entry], ptr @global_enc_table, i64 0, i64 %44, i32 1
-  br label %str_to_encoding.exit.sink.split
-
-str_to_encoding.exit.sink.split:                  ; preds = %enc_check_encoding.exit, %43
-  %.sink = phi ptr [ %45, %43 ], [ %21, %enc_check_encoding.exit ]
-  %.pre = load ptr, ptr %.sink, align 8
+  %46 = load ptr, ptr %45, align 8
   br label %str_to_encoding.exit
 
-str_to_encoding.exit:                             ; preds = %str_to_encoding.exit.sink.split, %33, %str_to_encindex.exit.i
-  %.0 = phi ptr [ null, %str_to_encindex.exit.i ], [ %22, %33 ], [ %.pre, %str_to_encoding.exit.sink.split ]
+str_to_encoding.exit:                             ; preds = %33, %enc_check_encoding.exit.enc_check_encoding.exit.thread4_crit_edge, %43, %str_to_encindex.exit.i
+  %.0 = phi ptr [ %46, %43 ], [ null, %str_to_encindex.exit.i ], [ %.pre, %enc_check_encoding.exit.enc_check_encoding.exit.thread4_crit_edge ], [ %22, %33 ]
   ret ptr %.0
 }
 
@@ -667,7 +667,11 @@ rb_enc_from_index.exit.i.i:                       ; preds = %29, %rb_enc_to_inde
 enc_check_encoding.exit:                          ; preds = %33
   %35 = tail call i32 @rb_enc_autoload(ptr noundef nonnull %22)
   %36 = icmp sgt i32 %35, -1
-  br i1 %36, label %rb_enc_from_index.exit.sink.split, label %enc_check_encoding.exit.thread
+  br i1 %36, label %enc_check_encoding.exit.enc_check_encoding.exit.thread7_crit_edge, label %enc_check_encoding.exit.thread
+
+enc_check_encoding.exit.enc_check_encoding.exit.thread7_crit_edge: ; preds = %enc_check_encoding.exit
+  %.pre = load ptr, ptr %21, align 8
+  br label %rb_enc_from_index.exit
 
 enc_check_encoding.exit.thread:                   ; preds = %rb_enc_from_index.exit.i.i, %6, %11, %16, %1, %enc_check_encoding.exit
   %37 = tail call fastcc i32 @str_find_encindex(i64 noundef %0)
@@ -683,15 +687,11 @@ enc_check_encoding.exit.thread:                   ; preds = %rb_enc_from_index.e
 42:                                               ; preds = %39
   %43 = zext nneg i32 %41 to i64
   %44 = getelementptr [256 x %struct.rb_encoding_entry], ptr @global_enc_table, i64 0, i64 %43, i32 1
-  br label %rb_enc_from_index.exit.sink.split
-
-rb_enc_from_index.exit.sink.split:                ; preds = %enc_check_encoding.exit, %42
-  %.sink = phi ptr [ %44, %42 ], [ %21, %enc_check_encoding.exit ]
-  %.pre = load ptr, ptr %.sink, align 8
+  %45 = load ptr, ptr %44, align 8
   br label %rb_enc_from_index.exit
 
-rb_enc_from_index.exit:                           ; preds = %rb_enc_from_index.exit.sink.split, %33, %39, %enc_check_encoding.exit.thread
-  %.0 = phi ptr [ null, %enc_check_encoding.exit.thread ], [ null, %39 ], [ %22, %33 ], [ %.pre, %rb_enc_from_index.exit.sink.split ]
+rb_enc_from_index.exit:                           ; preds = %33, %enc_check_encoding.exit.enc_check_encoding.exit.thread7_crit_edge, %42, %39, %enc_check_encoding.exit.thread
+  %.0 = phi ptr [ null, %enc_check_encoding.exit.thread ], [ %45, %42 ], [ null, %39 ], [ %.pre, %enc_check_encoding.exit.enc_check_encoding.exit.thread7_crit_edge ], [ %22, %33 ]
   ret ptr %.0
 }
 

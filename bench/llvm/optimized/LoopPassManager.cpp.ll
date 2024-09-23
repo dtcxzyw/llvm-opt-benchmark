@@ -713,7 +713,7 @@ define dso_local void @_ZN4llvm11PassManagerINS_4LoopENS_15AnalysisManagerIS1_JR
 11:                                               ; preds = %.lr.ph, %_ZN4llvm11raw_ostreamlsEc.exit
   %.027 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZN4llvm11raw_ostreamlsEc.exit ]
   %.01926 = phi i32 [ 0, %.lr.ph ], [ %.120, %_ZN4llvm11raw_ostreamlsEc.exit ]
-  %.02125 = phi i32 [ 0, %.lr.ph ], [ %33, %_ZN4llvm11raw_ostreamlsEc.exit ]
+  %.02125 = phi i32 [ 0, %.lr.ph ], [ %32, %_ZN4llvm11raw_ostreamlsEc.exit ]
   %12 = lshr i32 %.02125, 6
   %13 = zext nneg i32 %12 to i64
   %14 = load ptr, ptr %0, align 8
@@ -730,39 +730,39 @@ define dso_local void @_ZN4llvm11PassManagerINS_4LoopENS_15AnalysisManagerIS1_JR
   %24 = zext i32 %.01926 to i64
   %25 = load ptr, ptr %7, align 8
   %26 = getelementptr inbounds %"class.std::unique_ptr", ptr %25, i64 %24
-  %.sink32 = select i1 %.not23, ptr %26, ptr %23
+  %.sink31.in = select i1 %.not23, ptr %26, ptr %23
   %27 = zext i1 %.not23 to i32
   %.120 = add i32 %.01926, %27
   %not..not23 = xor i1 %.not23, true
   %28 = zext i1 %not..not23 to i32
   %.1 = add i32 %.027, %28
-  %29 = load ptr, ptr %.sink32, align 8
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 24
-  %32 = load ptr, ptr %31, align 8
-  tail call void %32(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %2, i64 %3) #13
-  %33 = add nuw i32 %.02125, 1
-  %34 = icmp ult i32 %33, %6
-  br i1 %34, label %35, label %_ZN4llvm11raw_ostreamlsEc.exit
+  %.sink31 = load ptr, ptr %.sink31.in, align 8
+  %29 = load ptr, ptr %.sink31, align 8
+  %30 = getelementptr inbounds i8, ptr %29, i64 24
+  %31 = load ptr, ptr %30, align 8
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(8) %.sink31, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %2, i64 %3) #13
+  %32 = add nuw i32 %.02125, 1
+  %33 = icmp ult i32 %32, %6
+  br i1 %33, label %34, label %_ZN4llvm11raw_ostreamlsEc.exit
 
-35:                                               ; preds = %11
-  %36 = load ptr, ptr %9, align 8
-  %37 = load ptr, ptr %10, align 8
-  %.not.i = icmp ult ptr %36, %37
-  br i1 %.not.i, label %40, label %38
+34:                                               ; preds = %11
+  %35 = load ptr, ptr %9, align 8
+  %36 = load ptr, ptr %10, align 8
+  %.not.i = icmp ult ptr %35, %36
+  br i1 %.not.i, label %39, label %37
 
-38:                                               ; preds = %35
-  %39 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 noundef zeroext 44) #13
+37:                                               ; preds = %34
+  %38 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 noundef zeroext 44) #13
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
-40:                                               ; preds = %35
-  %41 = getelementptr inbounds i8, ptr %36, i64 1
-  store ptr %41, ptr %9, align 8
-  store i8 44, ptr %36, align 1
+39:                                               ; preds = %34
+  %40 = getelementptr inbounds i8, ptr %35, i64 1
+  store ptr %40, ptr %9, align 8
+  store i8 44, ptr %35, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
-_ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %40, %38, %11
-  %.not = icmp eq i32 %33, %6
+_ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %39, %37, %11
+  %.not = icmp eq i32 %32, %6
   br i1 %.not, label %._crit_edge, label %11, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %_ZN4llvm11raw_ostreamlsEc.exit, %4

@@ -246,7 +246,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.203 = private unnamed_addr constant [4 x i8] c"@%s\00", align 1
 @.str.204 = private unnamed_addr constant [121 x i8] c"AUTH <password> called without any password configured for the default user. Are you sure your configuration is correct?\00", align 1
 @.str.205 = private unnamed_addr constant [2 x i8] c">\00", align 1
-@switch.table.ACLUpdateInfoMetrics = private unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds (i8, ptr @server, i64 5408), ptr getelementptr inbounds (i8, ptr @server, i64 5416), ptr getelementptr inbounds (i8, ptr @server, i64 5400), ptr getelementptr inbounds (i8, ptr @server, i64 5424)], align 8
 @switch.table.aclCommand = private unnamed_addr constant [4 x ptr] [ptr @.str.155, ptr @.str.156, ptr @.str.158, ptr @.str.157], align 8
 @switch.table.aclCommand.1 = private unnamed_addr constant [4 x ptr] [ptr @.str.161, ptr @.str.163, ptr @.str.162, ptr @.str.164], align 8
 
@@ -4106,22 +4105,43 @@ declare void @moduleNotifyUserChanged(ptr noundef) local_unnamed_addr #1
 define dso_local void @addACLLogEntry(ptr noundef %c, i32 noundef %reason, i32 noundef %context, i32 noundef %argpos, ptr noundef %username, ptr noundef %object) local_unnamed_addr #0 {
 entry:
   %li = alloca %struct.listIter, align 8
-  %switch.tableidx = add i32 %reason, -1
-  %0 = icmp ult i32 %switch.tableidx, 4
-  br i1 %0, label %switch.lookup, label %if.else12.i
+  switch i32 %reason, label %if.else12.i [
+    i32 3, label %if.then.i
+    i32 1, label %if.then2.i
+    i32 2, label %if.then6.i
+    i32 4, label %if.then10.i
+  ]
+
+if.then.i:                                        ; preds = %entry
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5400), align 8
+  %inc.i = add nsw i64 %0, 1
+  store i64 %inc.i, ptr getelementptr inbounds (i8, ptr @server, i64 5400), align 8
+  br label %ACLUpdateInfoMetrics.exit
+
+if.then2.i:                                       ; preds = %entry
+  %1 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5408), align 8
+  %inc3.i = add nsw i64 %1, 1
+  store i64 %inc3.i, ptr getelementptr inbounds (i8, ptr @server, i64 5408), align 8
+  br label %ACLUpdateInfoMetrics.exit
+
+if.then6.i:                                       ; preds = %entry
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5416), align 8
+  %inc7.i = add nsw i64 %2, 1
+  store i64 %inc7.i, ptr getelementptr inbounds (i8, ptr @server, i64 5416), align 8
+  br label %ACLUpdateInfoMetrics.exit
+
+if.then10.i:                                      ; preds = %entry
+  %3 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5424), align 8
+  %inc11.i = add nsw i64 %3, 1
+  store i64 %inc11.i, ptr getelementptr inbounds (i8, ptr @server, i64 5424), align 8
+  br label %ACLUpdateInfoMetrics.exit
 
 if.else12.i:                                      ; preds = %entry
   tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.22, i32 noundef 2608, ptr noundef nonnull @.str.123) #24
   tail call void @abort() #26
   unreachable
 
-switch.lookup:                                    ; preds = %entry
-  %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.ACLUpdateInfoMetrics, i64 0, i64 %1
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  %2 = load i64, ptr %switch.load, align 8
-  %inc3.i = add nsw i64 %2, 1
-  store i64 %inc3.i, ptr %switch.load, align 8
+ACLUpdateInfoMetrics.exit:                        ; preds = %if.then.i, %if.then2.i, %if.then6.i, %if.then10.i
   %call = tail call noalias dereferenceable_or_null(64) ptr @zmalloc(i64 noundef 64) #25
   store i64 1, ptr %call, align 8
   %reason1 = getelementptr inbounds i8, ptr %call, i64 8
@@ -4129,23 +4149,23 @@ switch.lookup:                                    ; preds = %entry
   %tobool.not = icmp eq ptr %username, null
   br i1 %tobool.not, label %cond.false, label %cond.end
 
-cond.false:                                       ; preds = %switch.lookup
+cond.false:                                       ; preds = %ACLUpdateInfoMetrics.exit
   %user = getelementptr inbounds i8, ptr %c, i64 152
-  %3 = load ptr, ptr %user, align 8
-  %4 = load ptr, ptr %3, align 8
+  %4 = load ptr, ptr %user, align 8
+  %5 = load ptr, ptr %4, align 8
   br label %cond.end
 
-cond.end:                                         ; preds = %switch.lookup, %cond.false
-  %cond = phi ptr [ %4, %cond.false ], [ %username, %switch.lookup ]
+cond.end:                                         ; preds = %ACLUpdateInfoMetrics.exit, %cond.false
+  %cond = phi ptr [ %5, %cond.false ], [ %username, %ACLUpdateInfoMetrics.exit ]
   %call2 = tail call ptr @sdsdup(ptr noundef %cond) #24
   %username3 = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %call2, ptr %username3, align 8
   %call4 = tail call i64 @commandTimeSnapshot() #24
   %ctime = getelementptr inbounds i8, ptr %call, i64 32
   store i64 %call4, ptr %ctime, align 8
-  %5 = load i64, ptr @ACLLogEntryCount, align 8
+  %6 = load i64, ptr @ACLLogEntryCount, align 8
   %entry_id = getelementptr inbounds i8, ptr %call, i64 48
-  store i64 %5, ptr %entry_id, align 8
+  store i64 %6, ptr %entry_id, align 8
   %timestamp_created = getelementptr inbounds i8, ptr %call, i64 56
   store i64 %call4, ptr %timestamp_created, align 8
   %tobool6.not = icmp eq ptr %object, null
@@ -4161,54 +4181,59 @@ if.else:                                          ; preds = %cond.end
 
 sw.bb:                                            ; preds = %if.else
   %cmd = getelementptr inbounds i8, ptr %c, i64 128
+  %7 = load ptr, ptr %cmd, align 8
+  %fullname = getelementptr inbounds i8, ptr %7, i64 216
   br label %if.end.sink.split
 
 sw.bb10:                                          ; preds = %if.else
   %argv = getelementptr inbounds i8, ptr %c, i64 96
-  %6 = load ptr, ptr %argv, align 8
+  %8 = load ptr, ptr %argv, align 8
   %idxprom = sext i32 %argpos to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %6, i64 %idxprom
+  %arrayidx = getelementptr inbounds ptr, ptr %8, i64 %idxprom
+  %9 = load ptr, ptr %arrayidx, align 8
+  %ptr = getelementptr inbounds i8, ptr %9, i64 8
   br label %if.end.sink.split
 
 sw.bb13:                                          ; preds = %if.else
   %argv14 = getelementptr inbounds i8, ptr %c, i64 96
-  %7 = load ptr, ptr %argv14, align 8
+  %10 = load ptr, ptr %argv14, align 8
   %idxprom15 = sext i32 %argpos to i64
-  %arrayidx16 = getelementptr inbounds ptr, ptr %7, i64 %idxprom15
+  %arrayidx16 = getelementptr inbounds ptr, ptr %10, i64 %idxprom15
+  %11 = load ptr, ptr %arrayidx16, align 8
+  %ptr17 = getelementptr inbounds i8, ptr %11, i64 8
   br label %if.end.sink.split
 
 sw.bb20:                                          ; preds = %if.else
   %argv21 = getelementptr inbounds i8, ptr %c, i64 96
-  %8 = load ptr, ptr %argv21, align 8
+  %12 = load ptr, ptr %argv21, align 8
+  %13 = load ptr, ptr %12, align 8
+  %ptr23 = getelementptr inbounds i8, ptr %13, i64 8
   br label %if.end.sink.split
 
 default.unreachable:                              ; preds = %if.else
   unreachable
 
 if.end.sink.split:                                ; preds = %sw.bb20, %sw.bb13, %sw.bb10, %sw.bb
-  %cmd.sink = phi ptr [ %cmd, %sw.bb ], [ %arrayidx, %sw.bb10 ], [ %arrayidx16, %sw.bb13 ], [ %8, %sw.bb20 ]
-  %.sink52 = phi i64 [ 216, %sw.bb ], [ 8, %sw.bb10 ], [ 8, %sw.bb13 ], [ 8, %sw.bb20 ]
-  %9 = load ptr, ptr %cmd.sink, align 8
-  %fullname = getelementptr inbounds i8, ptr %9, i64 %.sink52
-  %10 = load ptr, ptr %fullname, align 8
-  %call8 = tail call ptr @sdsdup(ptr noundef %10) #24
+  %.sink.in = phi ptr [ %fullname, %sw.bb ], [ %ptr, %sw.bb10 ], [ %ptr17, %sw.bb13 ], [ %ptr23, %sw.bb20 ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %call8 = tail call ptr @sdsdup(ptr noundef %.sink) #24
   br label %if.end
 
 if.end:                                           ; preds = %if.end.sink.split, %cond.end
   %call8.sink = phi ptr [ %object, %cond.end ], [ %call8, %if.end.sink.split ]
   %object9 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call8.sink, ptr %object9, align 8
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 1480), align 8
-  %tobool28.not = icmp eq ptr %11, null
-  %cond32 = select i1 %tobool28.not, ptr %c, ptr %11
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 1480), align 8
+  %tobool28.not = icmp eq ptr %14, null
+  %cond32 = select i1 %tobool28.not, ptr %c, ptr %14
   %call33 = tail call ptr @sdsempty() #24
   %call34 = tail call ptr @catClientInfoString(ptr noundef %call33, ptr noundef %cond32) #24
   %cinfo = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %call34, ptr %cinfo, align 8
   %context35 = getelementptr inbounds i8, ptr %call, i64 12
   store i32 %context, ptr %context35, align 4
-  %12 = load ptr, ptr @ACLLog, align 8
-  call void @listRewind(ptr noundef %12, ptr noundef nonnull %li) #24
+  %15 = load ptr, ptr @ACLLog, align 8
+  call void @listRewind(ptr noundef %15, ptr noundef nonnull %li) #24
   %object14.i = getelementptr inbounds i8, ptr %call, i64 16
   br label %land.rhs
 
@@ -4220,42 +4245,42 @@ land.rhs:                                         ; preds = %if.end, %while.cond
 
 while.body:                                       ; preds = %land.rhs
   %value = getelementptr inbounds i8, ptr %call37, i64 16
-  %13 = load ptr, ptr %value, align 8
-  %reason.i = getelementptr inbounds i8, ptr %13, i64 8
-  %14 = load i32, ptr %reason.i, align 8
-  %15 = load i32, ptr %reason1, align 8
-  %cmp.not.i = icmp eq i32 %14, %15
+  %16 = load ptr, ptr %value, align 8
+  %reason.i = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = load i32, ptr %reason.i, align 8
+  %18 = load i32, ptr %reason1, align 8
+  %cmp.not.i = icmp eq i32 %17, %18
   br i1 %cmp.not.i, label %if.end.i, label %while.cond.backedge
 
 if.end.i:                                         ; preds = %while.body
-  %context.i = getelementptr inbounds i8, ptr %13, i64 12
-  %16 = load i32, ptr %context.i, align 4
-  %17 = load i32, ptr %context35, align 4
-  %cmp3.not.i = icmp eq i32 %16, %17
+  %context.i = getelementptr inbounds i8, ptr %16, i64 12
+  %19 = load i32, ptr %context.i, align 4
+  %20 = load i32, ptr %context35, align 4
+  %cmp3.not.i = icmp eq i32 %19, %20
   br i1 %cmp3.not.i, label %if.end5.i, label %while.cond.backedge
 
 if.end5.i:                                        ; preds = %if.end.i
-  %ctime.i = getelementptr inbounds i8, ptr %13, i64 32
-  %18 = load i64, ptr %ctime.i, align 8
-  %19 = load i64, ptr %ctime, align 8
-  %sub.i = sub nsw i64 %18, %19
+  %ctime.i = getelementptr inbounds i8, ptr %16, i64 32
+  %21 = load i64, ptr %ctime.i, align 8
+  %22 = load i64, ptr %ctime, align 8
+  %sub.i = sub nsw i64 %21, %22
   %spec.select.i = call i64 @llvm.abs.i64(i64 %sub.i, i1 true)
   %cmp11.i = icmp ugt i64 %spec.select.i, 60000
   br i1 %cmp11.i, label %while.cond.backedge, label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.end5.i
-  %object.i = getelementptr inbounds i8, ptr %13, i64 16
-  %20 = load ptr, ptr %object.i, align 8
-  %21 = load ptr, ptr %object14.i, align 8
-  %call.i = call i32 @sdscmp(ptr noundef %20, ptr noundef %21) #24
+  %object.i = getelementptr inbounds i8, ptr %16, i64 16
+  %23 = load ptr, ptr %object.i, align 8
+  %24 = load ptr, ptr %object14.i, align 8
+  %call.i = call i32 @sdscmp(ptr noundef %23, ptr noundef %24) #24
   %cmp15.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp15.not.i, label %if.end17.i, label %while.cond.backedge
 
 if.end17.i:                                       ; preds = %if.end13.i
-  %username.i = getelementptr inbounds i8, ptr %13, i64 24
-  %22 = load ptr, ptr %username.i, align 8
-  %23 = load ptr, ptr %username3, align 8
-  %call19.i = call i32 @sdscmp(ptr noundef %22, ptr noundef %23) #24
+  %username.i = getelementptr inbounds i8, ptr %16, i64 24
+  %25 = load ptr, ptr %username.i, align 8
+  %26 = load ptr, ptr %username3, align 8
+  %call19.i = call i32 @sdscmp(ptr noundef %25, ptr noundef %26) #24
   %cmp20.not.i.not = icmp eq i32 %call19.i, 0
   br i1 %cmp20.not.i.not, label %if.then44, label %while.cond.backedge
 
@@ -4265,67 +4290,67 @@ while.cond.backedge:                              ; preds = %while.body, %if.end
   br i1 %tobool36.not, label %if.else52, label %land.rhs, !llvm.loop !37
 
 if.then44:                                        ; preds = %if.end17.i
-  %ctime.i.le = getelementptr inbounds i8, ptr %13, i64 32
-  %24 = load ptr, ptr @ACLLog, align 8
-  call void @listDelNode(ptr noundef %24, ptr noundef nonnull %call37) #24
-  %25 = load ptr, ptr @ACLLog, align 8
-  %call41 = call ptr @listAddNodeHead(ptr noundef %25, ptr noundef nonnull %13) #24
-  %cinfo45 = getelementptr inbounds i8, ptr %13, i64 40
-  %26 = load ptr, ptr %cinfo45, align 8
-  call void @sdsfree(ptr noundef %26) #24
-  %27 = load ptr, ptr %cinfo, align 8
-  store ptr %27, ptr %cinfo45, align 8
-  %28 = load i64, ptr %ctime, align 8
-  store i64 %28, ptr %ctime.i.le, align 8
-  %29 = load i64, ptr %13, align 8
-  %inc = add i64 %29, 1
-  store i64 %inc, ptr %13, align 8
+  %ctime.i.le = getelementptr inbounds i8, ptr %16, i64 32
+  %27 = load ptr, ptr @ACLLog, align 8
+  call void @listDelNode(ptr noundef %27, ptr noundef nonnull %call37) #24
+  %28 = load ptr, ptr @ACLLog, align 8
+  %call41 = call ptr @listAddNodeHead(ptr noundef %28, ptr noundef nonnull %16) #24
+  %cinfo45 = getelementptr inbounds i8, ptr %16, i64 40
+  %29 = load ptr, ptr %cinfo45, align 8
+  call void @sdsfree(ptr noundef %29) #24
+  %30 = load ptr, ptr %cinfo, align 8
+  store ptr %30, ptr %cinfo45, align 8
+  %31 = load i64, ptr %ctime, align 8
+  store i64 %31, ptr %ctime.i.le, align 8
+  %32 = load i64, ptr %16, align 8
+  %inc = add i64 %32, 1
+  store i64 %inc, ptr %16, align 8
   store ptr null, ptr %cinfo, align 8
-  %30 = load ptr, ptr %object14.i, align 8
-  call void @sdsfree(ptr noundef %30) #24
-  %31 = load ptr, ptr %username3, align 8
-  call void @sdsfree(ptr noundef %31) #24
-  %32 = load ptr, ptr %cinfo, align 8
-  call void @sdsfree(ptr noundef %32) #24
+  %33 = load ptr, ptr %object14.i, align 8
+  call void @sdsfree(ptr noundef %33) #24
+  %34 = load ptr, ptr %username3, align 8
+  call void @sdsfree(ptr noundef %34) #24
+  %35 = load ptr, ptr %cinfo, align 8
+  call void @sdsfree(ptr noundef %35) #24
   call void @zfree(ptr noundef nonnull %call) #24
   br label %if.end62
 
 if.else52:                                        ; preds = %land.rhs, %while.cond.backedge
-  %33 = load i64, ptr @ACLLogEntryCount, align 8
-  %inc53 = add nsw i64 %33, 1
+  %36 = load i64, ptr @ACLLogEntryCount, align 8
+  %inc53 = add nsw i64 %36, 1
   store i64 %inc53, ptr @ACLLogEntryCount, align 8
-  %34 = load ptr, ptr @ACLLog, align 8
-  %call54 = call ptr @listAddNodeHead(ptr noundef %34, ptr noundef nonnull %call) #24
-  %35 = load ptr, ptr @ACLLog, align 8
-  %len47 = getelementptr inbounds i8, ptr %35, i64 40
-  %36 = load i64, ptr %len47, align 8
-  %37 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5376), align 8
-  %cmp5648 = icmp ugt i64 %36, %37
+  %37 = load ptr, ptr @ACLLog, align 8
+  %call54 = call ptr @listAddNodeHead(ptr noundef %37, ptr noundef nonnull %call) #24
+  %38 = load ptr, ptr @ACLLog, align 8
+  %len47 = getelementptr inbounds i8, ptr %38, i64 40
+  %39 = load i64, ptr %len47, align 8
+  %40 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5376), align 8
+  %cmp5648 = icmp ugt i64 %39, %40
   br i1 %cmp5648, label %while.body57, label %if.end62
 
 while.body57:                                     ; preds = %if.else52, %while.body57
-  %38 = phi ptr [ %45, %while.body57 ], [ %35, %if.else52 ]
-  %tail = getelementptr inbounds i8, ptr %38, i64 8
-  %39 = load ptr, ptr %tail, align 8
-  %value60 = getelementptr inbounds i8, ptr %39, i64 16
-  %40 = load ptr, ptr %value60, align 8
-  %object.i41 = getelementptr inbounds i8, ptr %40, i64 16
-  %41 = load ptr, ptr %object.i41, align 8
-  call void @sdsfree(ptr noundef %41) #24
-  %username.i42 = getelementptr inbounds i8, ptr %40, i64 24
-  %42 = load ptr, ptr %username.i42, align 8
-  call void @sdsfree(ptr noundef %42) #24
-  %cinfo.i43 = getelementptr inbounds i8, ptr %40, i64 40
-  %43 = load ptr, ptr %cinfo.i43, align 8
-  call void @sdsfree(ptr noundef %43) #24
-  call void @zfree(ptr noundef %40) #24
-  %44 = load ptr, ptr @ACLLog, align 8
-  call void @listDelNode(ptr noundef %44, ptr noundef %39) #24
-  %45 = load ptr, ptr @ACLLog, align 8
-  %len = getelementptr inbounds i8, ptr %45, i64 40
-  %46 = load i64, ptr %len, align 8
-  %47 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5376), align 8
-  %cmp56 = icmp ugt i64 %46, %47
+  %41 = phi ptr [ %48, %while.body57 ], [ %38, %if.else52 ]
+  %tail = getelementptr inbounds i8, ptr %41, i64 8
+  %42 = load ptr, ptr %tail, align 8
+  %value60 = getelementptr inbounds i8, ptr %42, i64 16
+  %43 = load ptr, ptr %value60, align 8
+  %object.i41 = getelementptr inbounds i8, ptr %43, i64 16
+  %44 = load ptr, ptr %object.i41, align 8
+  call void @sdsfree(ptr noundef %44) #24
+  %username.i42 = getelementptr inbounds i8, ptr %43, i64 24
+  %45 = load ptr, ptr %username.i42, align 8
+  call void @sdsfree(ptr noundef %45) #24
+  %cinfo.i43 = getelementptr inbounds i8, ptr %43, i64 40
+  %46 = load ptr, ptr %cinfo.i43, align 8
+  call void @sdsfree(ptr noundef %46) #24
+  call void @zfree(ptr noundef %43) #24
+  %47 = load ptr, ptr @ACLLog, align 8
+  call void @listDelNode(ptr noundef %47, ptr noundef %42) #24
+  %48 = load ptr, ptr @ACLLog, align 8
+  %len = getelementptr inbounds i8, ptr %48, i64 40
+  %49 = load i64, ptr %len, align 8
+  %50 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5376), align 8
+  %cmp56 = icmp ugt i64 %49, %50
   br i1 %cmp56, label %while.body57, label %if.end62, !llvm.loop !38
 
 if.end62:                                         ; preds = %while.body57, %if.else52, %if.then44
@@ -7880,22 +7905,43 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local void @ACLUpdateInfoMetrics(i32 noundef %reason) local_unnamed_addr #0 {
 entry:
-  %switch.tableidx = add i32 %reason, -1
-  %0 = icmp ult i32 %switch.tableidx, 4
-  br i1 %0, label %switch.lookup, label %if.else12
+  switch i32 %reason, label %if.else12 [
+    i32 3, label %if.then
+    i32 1, label %if.then2
+    i32 2, label %if.then6
+    i32 4, label %if.then10
+  ]
+
+if.then:                                          ; preds = %entry
+  %0 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5400), align 8
+  %inc = add nsw i64 %0, 1
+  store i64 %inc, ptr getelementptr inbounds (i8, ptr @server, i64 5400), align 8
+  br label %if.end15
+
+if.then2:                                         ; preds = %entry
+  %1 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5408), align 8
+  %inc3 = add nsw i64 %1, 1
+  store i64 %inc3, ptr getelementptr inbounds (i8, ptr @server, i64 5408), align 8
+  br label %if.end15
+
+if.then6:                                         ; preds = %entry
+  %2 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5416), align 8
+  %inc7 = add nsw i64 %2, 1
+  store i64 %inc7, ptr getelementptr inbounds (i8, ptr @server, i64 5416), align 8
+  br label %if.end15
+
+if.then10:                                        ; preds = %entry
+  %3 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5424), align 8
+  %inc11 = add nsw i64 %3, 1
+  store i64 %inc11, ptr getelementptr inbounds (i8, ptr @server, i64 5424), align 8
+  br label %if.end15
 
 if.else12:                                        ; preds = %entry
   tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.22, i32 noundef 2608, ptr noundef nonnull @.str.123) #24
   tail call void @abort() #26
   unreachable
 
-switch.lookup:                                    ; preds = %entry
-  %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.ACLUpdateInfoMetrics, i64 0, i64 %1
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  %2 = load i64, ptr %switch.load, align 8
-  %inc3 = add nsw i64 %2, 1
-  store i64 %inc3, ptr %switch.load, align 8
+if.end15:                                         ; preds = %if.then2, %if.then10, %if.then6, %if.then
   ret void
 }
 

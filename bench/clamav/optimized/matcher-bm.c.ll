@@ -220,6 +220,7 @@ define i32 @cli_bm_addpatt(ptr nocapture noundef %0, ptr noundef %1, ptr noundef
 116:                                              ; preds = %112, %107
   %117 = phi ptr [ %.pre, %112 ], [ %109, %107 ]
   %118 = getelementptr inbounds ptr, ptr %117, i64 %91
+  store ptr %1, ptr %118, align 8
   br label %123
 
 119:                                              ; preds = %._crit_edge
@@ -227,11 +228,10 @@ define i32 @cli_bm_addpatt(ptr nocapture noundef %0, ptr noundef %1, ptr noundef
   %121 = load ptr, ptr %120, align 8
   %122 = getelementptr inbounds i8, ptr %1, i64 48
   store ptr %121, ptr %122, align 8
+  store ptr %1, ptr %120, align 8
   br label %123
 
 123:                                              ; preds = %119, %116
-  %.sink = phi ptr [ %120, %119 ], [ %118, %116 ]
-  store ptr %1, ptr %.sink, align 8
   %124 = load ptr, ptr %1, align 8
   %125 = load i8, ptr %124, align 1
   %126 = getelementptr inbounds i8, ptr %1, i64 62

@@ -5822,7 +5822,7 @@ mbedtls_ssl_get_psk.exit:                         ; preds = %14, %18
 
 mbedtls_ssl_get_psk.exit.thread:                  ; preds = %18, %11
   %storemerge19.i90 = phi i64 [ %13, %11 ], [ %20, %18 ]
-  %.08489 = phi ptr [ %10, %11 ], [ %17, %18 ]
+  %.189 = phi ptr [ %10, %11 ], [ %17, %18 ]
   switch i32 %1, label %73 [
     i32 5, label %22
     i32 7, label %31
@@ -5854,7 +5854,7 @@ mbedtls_ssl_get_psk.exit.thread:                  ; preds = %18, %11
   br label %74
 
 mbedtls_ssl_get_psk.exit.thread.thread:           ; preds = %mbedtls_ssl_get_psk.exit, %mbedtls_ssl_get_psk.exit.thread
-  %.08489101 = phi ptr [ %.08489, %mbedtls_ssl_get_psk.exit.thread ], [ null, %mbedtls_ssl_get_psk.exit ]
+  %.189101 = phi ptr [ %.189, %mbedtls_ssl_get_psk.exit.thread ], [ null, %mbedtls_ssl_get_psk.exit ]
   %storemerge19.i9099 = phi i64 [ %storemerge19.i90, %mbedtls_ssl_get_psk.exit.thread ], [ 0, %mbedtls_ssl_get_psk.exit ]
   %34 = getelementptr inbounds i8, ptr %6, i64 120
   %35 = getelementptr inbounds i8, ptr %6, i64 1562
@@ -5922,7 +5922,7 @@ mbedtls_ssl_get_psk.exit.thread.thread:           ; preds = %mbedtls_ssl_get_psk
   br label %97
 
 74:                                               ; preds = %31, %63, %43, %28
-  %.08489100 = phi ptr [ %.08489, %28 ], [ %.08489, %31 ], [ %.08489101, %43 ], [ %.08489, %63 ]
+  %.189100 = phi ptr [ %.189, %28 ], [ %.189, %31 ], [ %.189101, %43 ], [ %.189, %63 ]
   %storemerge19.i9098 = phi i64 [ %storemerge19.i90, %28 ], [ %storemerge19.i90, %31 ], [ %storemerge19.i9099, %43 ], [ %storemerge19.i90, %63 ]
   %.070 = phi ptr [ %30, %28 ], [ %33, %31 ], [ %50, %43 ], [ %70, %63 ]
   %75 = ptrtoint ptr %8 to i64
@@ -5947,7 +5947,7 @@ mbedtls_ssl_get_psk.exit.thread.thread:           ; preds = %mbedtls_ssl_get_psk
   br i1 %or.cond93, label %97, label %89
 
 89:                                               ; preds = %79
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %84, ptr align 1 %.08489100, i64 %storemerge19.i9098, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %84, ptr align 1 %.189100, i64 %storemerge19.i9098, i1 false)
   %90 = getelementptr inbounds i8, ptr %84, i64 %storemerge19.i9098
   %91 = load ptr, ptr %5, align 8
   %92 = getelementptr inbounds i8, ptr %91, i64 1560

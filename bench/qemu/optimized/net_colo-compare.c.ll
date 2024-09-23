@@ -1045,10 +1045,10 @@ if.end35:                                         ; preds = %if.end23
   br i1 %tobool.not, label %while.body, label %out, !llvm.loop !17
 
 err:                                              ; preds = %if.end23, %if.then18, %if.then
-  %buf25.lcssa.sink = phi ptr [ %buf19, %if.then18 ], [ %buf, %if.then ], [ %buf25, %if.end23 ]
+  %.sink.in = phi ptr [ %buf19, %if.then18 ], [ %buf, %if.then ], [ %buf25, %if.end23 ]
   %ret.0 = phi i32 [ %call14, %if.then18 ], [ %call6, %if.then ], [ %call27, %if.end23 ]
-  %12 = load ptr, ptr %buf25.lcssa.sink, align 8
-  call void @g_free(ptr noundef %12) #16
+  %.sink = load ptr, ptr %.sink.in, align 8
+  call void @g_free(ptr noundef %.sink) #16
   call void @g_slice_free1(i64 noundef 16, ptr noundef nonnull %call4) #16
   %call4240 = call i32 @g_queue_is_empty(ptr noundef nonnull %send_list) #16
   %tobool43.not41 = icmp eq i32 %call4240, 0
@@ -1057,8 +1057,8 @@ err:                                              ; preds = %if.end23, %if.then1
 while.body45:                                     ; preds = %err, %while.body45
   %call48 = call ptr @g_queue_pop_tail(ptr noundef nonnull %send_list) #16
   %buf49 = getelementptr inbounds i8, ptr %call48, i64 8
-  %13 = load ptr, ptr %buf49, align 8
-  call void @g_free(ptr noundef %13) #16
+  %12 = load ptr, ptr %buf49, align 8
+  call void @g_free(ptr noundef %12) #16
   call void @g_slice_free1(i64 noundef 16, ptr noundef %call48) #16
   %call42 = call i32 @g_queue_is_empty(ptr noundef nonnull %send_list) #16
   %tobool43.not = icmp eq i32 %call42, 0
@@ -1958,123 +1958,128 @@ if.then29.i.i:                                    ; preds = %if.then11.i.i
   %32 = load i32, ptr %tcp_ack.i.i, align 8
   %sub.i36.i.i = sub i32 %32, %1
   %cmp.i37.i.i = icmp sgt i32 %sub.i36.i.i, 0
-  br i1 %cmp.i37.i.i, label %if.else86.i, label %if.then47.sink.split.i
+  br i1 %cmp.i37.i.i, label %if.else86.i, label %if.then31.i.i
+
+if.then31.i.i:                                    ; preds = %if.then29.i.i
+  %33 = load i16, ptr %payload_size22.i.i, align 2
+  %34 = load i16, ptr %offset45.i.i, align 4
+  %sub36.i.i = sub i16 %33, %34
+  %35 = load i16, ptr %offset51.i.i, align 4
+  %add39.i.i = add i16 %sub36.i.i, %35
+  store i16 %add39.i.i, ptr %offset51.i.i, align 4
+  br label %if.then47.i
 
 if.else42.i.i:                                    ; preds = %if.end7.i.i
   %payload_size55.i.i = getelementptr inbounds i8, ptr %call11.i, i64 58
-  %33 = load i16, ptr %payload_size55.i.i, align 2
-  %sub59.i.i = sub i16 %33, %30
+  %36 = load i16, ptr %payload_size55.i.i, align 2
+  %sub59.i.i = sub i16 %36, %30
   %call61.i.i = tail call fastcc i32 @colo_compare_packet_payload(ptr noundef nonnull %ppkt.2.i, ptr noundef nonnull %call11.i, i16 noundef zeroext %add47.i.i, i16 noundef zeroext %add53.i.i, i16 noundef zeroext %sub59.i.i)
   %tobool62.not.i.i = icmp eq i32 %call61.i.i, 0
-  br i1 %tobool62.not.i.i, label %if.then47.sink.split.i, label %if.else86.i
+  br i1 %tobool62.not.i.i, label %if.then63.i.i, label %if.else86.i
 
-if.then47.sink.split.i:                           ; preds = %if.else42.i.i, %if.then29.i.i
-  %payload_size55.i.sink.i = phi ptr [ %payload_size22.i.i, %if.then29.i.i ], [ %payload_size55.i.i, %if.else42.i.i ]
-  %offset51.i.sink.i = phi ptr [ %offset45.i.i, %if.then29.i.i ], [ %offset51.i.i, %if.else42.i.i ]
-  %offset45.i.sink186.i = phi ptr [ %offset51.i.i, %if.then29.i.i ], [ %offset45.i.i, %if.else42.i.i ]
-  %mark.0.ph.ph.i = phi i8 [ 1, %if.then29.i.i ], [ 2, %if.else42.i.i ]
-  %34 = load i16, ptr %payload_size55.i.sink.i, align 2
-  %35 = load i16, ptr %offset51.i.sink.i, align 4
-  %sub68.i.i = sub i16 %34, %35
-  %36 = load i16, ptr %offset45.i.sink186.i, align 4
-  %add71.i.i = add i16 %sub68.i.i, %36
-  store i16 %add71.i.i, ptr %offset45.i.sink186.i, align 4
+if.then63.i.i:                                    ; preds = %if.else42.i.i
+  %37 = load i16, ptr %payload_size55.i.i, align 2
+  %38 = load i16, ptr %offset51.i.i, align 4
+  %sub68.i.i = sub i16 %37, %38
+  %39 = load i16, ptr %offset45.i.i, align 4
+  %add71.i.i = add i16 %sub68.i.i, %39
+  store i16 %add71.i.i, ptr %offset45.i.i, align 4
   br label %if.then47.i
 
-if.then47.i:                                      ; preds = %if.then47.sink.split.i, %if.then.i.i
-  %mark.0.ph.i = phi i8 [ 3, %if.then.i.i ], [ %mark.0.ph.ph.i, %if.then47.sink.split.i ]
-  %37 = load i32, ptr %tcp_seq.i.i, align 4
+if.then47.i:                                      ; preds = %if.then63.i.i, %if.then31.i.i, %if.then.i.i
+  %mark.0.ph.i = phi i8 [ 3, %if.then.i.i ], [ 1, %if.then31.i.i ], [ 2, %if.then63.i.i ]
+  %40 = load i32, ptr %tcp_seq.i.i, align 4
   %tcp_ack.i = getelementptr inbounds i8, ptr %ppkt.2.i, i64 48
-  %38 = load i32, ptr %tcp_ack.i, align 8
+  %41 = load i32, ptr %tcp_ack.i, align 8
   %header_size.i = getelementptr inbounds i8, ptr %ppkt.2.i, i64 56
-  %39 = load i8, ptr %header_size.i, align 8
-  %conv.i = zext i8 %39 to i32
+  %42 = load i8, ptr %header_size.i, align 8
+  %conv.i = zext i8 %42 to i32
   %payload_size.i = getelementptr inbounds i8, ptr %ppkt.2.i, i64 58
-  %40 = load i16, ptr %payload_size.i, align 2
-  %conv49.i = zext i16 %40 to i32
+  %43 = load i16, ptr %payload_size.i, align 2
+  %conv49.i = zext i16 %43 to i32
   %offset.i = getelementptr inbounds i8, ptr %ppkt.2.i, i64 60
-  %41 = load i16, ptr %offset.i, align 4
-  %conv50.i = zext i16 %41 to i32
+  %44 = load i16, ptr %offset.i, align 4
+  %conv50.i = zext i16 %44 to i32
   %flags.i = getelementptr inbounds i8, ptr %ppkt.2.i, i64 62
-  %42 = load i8, ptr %flags.i, align 2
-  %conv51.i = zext i8 %42 to i32
+  %45 = load i8, ptr %flags.i, align 2
+  %conv51.i = zext i8 %45 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i83.i)
-  %43 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i84.i = icmp ne i32 %43, 0
-  %44 = load i16, ptr @_TRACE_COLO_COMPARE_TCP_INFO_DSTATE, align 2
-  %tobool4.i.i85.i = icmp ne i16 %44, 0
+  %46 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i84.i = icmp ne i32 %46, 0
+  %47 = load i16, ptr @_TRACE_COLO_COMPARE_TCP_INFO_DSTATE, align 2
+  %tobool4.i.i85.i = icmp ne i16 %47, 0
   %or.cond.i.i86.i = select i1 %tobool.i.i84.i, i1 %tobool4.i.i85.i, i1 false
   br i1 %or.cond.i.i86.i, label %land.lhs.true5.i.i87.i, label %trace_colo_compare_tcp_info.exit.i
 
 land.lhs.true5.i.i87.i:                           ; preds = %if.then47.i
-  %45 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i88.i = and i32 %45, 32768
+  %48 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i88.i = and i32 %48, 32768
   %cmp.i.not.i.i89.i = icmp eq i32 %and.i.i.i88.i, 0
   br i1 %cmp.i.not.i.i89.i, label %trace_colo_compare_tcp_info.exit.i, label %if.then.i.i90.i
 
 if.then.i.i90.i:                                  ; preds = %land.lhs.true5.i.i87.i
-  %46 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i91.i = trunc i8 %46 to i1
+  %49 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i91.i = trunc i8 %49 to i1
   br i1 %tobool7.i.i91.i, label %if.then8.i.i93.i, label %if.else.i.i92.i
 
 if.then8.i.i93.i:                                 ; preds = %if.then.i.i90.i
   %call9.i.i94.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i83.i, ptr noundef null) #16
   %call10.i.i95.i = tail call i32 @qemu_get_thread_id() #16
-  %47 = load i64, ptr %_now.i.i83.i, align 8
-  %48 = load i64, ptr %tv_usec.i.i96.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %call10.i.i95.i, i64 noundef %47, i64 noundef %48, ptr noundef nonnull @.str.33, i32 noundef %37, i32 noundef %38, i32 noundef %conv.i, i32 noundef %conv49.i, i32 noundef %conv50.i, i32 noundef %conv51.i) #16
+  %50 = load i64, ptr %_now.i.i83.i, align 8
+  %51 = load i64, ptr %tv_usec.i.i96.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %call10.i.i95.i, i64 noundef %50, i64 noundef %51, ptr noundef nonnull @.str.33, i32 noundef %40, i32 noundef %41, i32 noundef %conv.i, i32 noundef %conv49.i, i32 noundef %conv50.i, i32 noundef %conv51.i) #16
   br label %trace_colo_compare_tcp_info.exit.i
 
 if.else.i.i92.i:                                  ; preds = %if.then.i.i90.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.33, i32 noundef %37, i32 noundef %38, i32 noundef %conv.i, i32 noundef %conv49.i, i32 noundef %conv50.i, i32 noundef %conv51.i) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.33, i32 noundef %40, i32 noundef %41, i32 noundef %conv.i, i32 noundef %conv49.i, i32 noundef %conv50.i, i32 noundef %conv51.i) #16
   br label %trace_colo_compare_tcp_info.exit.i
 
 trace_colo_compare_tcp_info.exit.i:               ; preds = %if.else.i.i92.i, %if.then8.i.i93.i, %land.lhs.true5.i.i87.i, %if.then47.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i83.i)
-  %49 = load i32, ptr %tcp_seq23.i, align 4
+  %52 = load i32, ptr %tcp_seq23.i, align 4
   %tcp_ack53.i = getelementptr inbounds i8, ptr %call11.i, i64 48
-  %50 = load i32, ptr %tcp_ack53.i, align 8
+  %53 = load i32, ptr %tcp_ack53.i, align 8
   %header_size54.i = getelementptr inbounds i8, ptr %call11.i, i64 56
-  %51 = load i8, ptr %header_size54.i, align 8
-  %conv55.i = zext i8 %51 to i32
+  %54 = load i8, ptr %header_size54.i, align 8
+  %conv55.i = zext i8 %54 to i32
   %payload_size56.i = getelementptr inbounds i8, ptr %call11.i, i64 58
-  %52 = load i16, ptr %payload_size56.i, align 2
-  %conv57.i = zext i16 %52 to i32
+  %55 = load i16, ptr %payload_size56.i, align 2
+  %conv57.i = zext i16 %55 to i32
   %offset58.i = getelementptr inbounds i8, ptr %call11.i, i64 60
-  %53 = load i16, ptr %offset58.i, align 4
-  %conv59.i = zext i16 %53 to i32
+  %56 = load i16, ptr %offset58.i, align 4
+  %conv59.i = zext i16 %56 to i32
   %flags60.i = getelementptr inbounds i8, ptr %call11.i, i64 62
-  %54 = load i8, ptr %flags60.i, align 2
-  %conv61.i = zext i8 %54 to i32
+  %57 = load i8, ptr %flags60.i, align 2
+  %conv61.i = zext i8 %57 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i97.i)
-  %55 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i98.i = icmp ne i32 %55, 0
-  %56 = load i16, ptr @_TRACE_COLO_COMPARE_TCP_INFO_DSTATE, align 2
-  %tobool4.i.i99.i = icmp ne i16 %56, 0
+  %58 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i98.i = icmp ne i32 %58, 0
+  %59 = load i16, ptr @_TRACE_COLO_COMPARE_TCP_INFO_DSTATE, align 2
+  %tobool4.i.i99.i = icmp ne i16 %59, 0
   %or.cond.i.i100.i = select i1 %tobool.i.i98.i, i1 %tobool4.i.i99.i, i1 false
   br i1 %or.cond.i.i100.i, label %land.lhs.true5.i.i101.i, label %trace_colo_compare_tcp_info.exit111.i
 
 land.lhs.true5.i.i101.i:                          ; preds = %trace_colo_compare_tcp_info.exit.i
-  %57 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i102.i = and i32 %57, 32768
+  %60 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i102.i = and i32 %60, 32768
   %cmp.i.not.i.i103.i = icmp eq i32 %and.i.i.i102.i, 0
   br i1 %cmp.i.not.i.i103.i, label %trace_colo_compare_tcp_info.exit111.i, label %if.then.i.i104.i
 
 if.then.i.i104.i:                                 ; preds = %land.lhs.true5.i.i101.i
-  %58 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i105.i = trunc i8 %58 to i1
+  %61 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i105.i = trunc i8 %61 to i1
   br i1 %tobool7.i.i105.i, label %if.then8.i.i107.i, label %if.else.i.i106.i
 
 if.then8.i.i107.i:                                ; preds = %if.then.i.i104.i
   %call9.i.i108.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i97.i, ptr noundef null) #16
   %call10.i.i109.i = tail call i32 @qemu_get_thread_id() #16
-  %59 = load i64, ptr %_now.i.i97.i, align 8
-  %60 = load i64, ptr %tv_usec.i.i110.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %call10.i.i109.i, i64 noundef %59, i64 noundef %60, ptr noundef nonnull @.str.34, i32 noundef %49, i32 noundef %50, i32 noundef %conv55.i, i32 noundef %conv57.i, i32 noundef %conv59.i, i32 noundef %conv61.i) #16
+  %62 = load i64, ptr %_now.i.i97.i, align 8
+  %63 = load i64, ptr %tv_usec.i.i110.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %call10.i.i109.i, i64 noundef %62, i64 noundef %63, ptr noundef nonnull @.str.34, i32 noundef %52, i32 noundef %53, i32 noundef %conv55.i, i32 noundef %conv57.i, i32 noundef %conv59.i, i32 noundef %conv61.i) #16
   br label %trace_colo_compare_tcp_info.exit111.i
 
 if.else.i.i106.i:                                 ; preds = %if.then.i.i104.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.34, i32 noundef %49, i32 noundef %50, i32 noundef %conv55.i, i32 noundef %conv57.i, i32 noundef %conv59.i, i32 noundef %conv61.i) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.34, i32 noundef %52, i32 noundef %53, i32 noundef %conv55.i, i32 noundef %conv57.i, i32 noundef %conv59.i, i32 noundef %conv61.i) #16
   br label %trace_colo_compare_tcp_info.exit111.i
 
 trace_colo_compare_tcp_info.exit111.i:            ; preds = %if.else.i.i106.i, %if.then8.i.i107.i, %land.lhs.true5.i.i101.i, %trace_colo_compare_tcp_info.exit.i
@@ -2087,15 +2092,15 @@ trace_colo_compare_tcp_info.exit111.i:            ; preds = %if.else.i.i106.i, %
 
 if.then65.i:                                      ; preds = %trace_colo_compare_tcp_info.exit111.i
   %seq_end66.i = getelementptr inbounds i8, ptr %ppkt.2.i, i64 52
-  %61 = load i32, ptr %seq_end66.i, align 4
-  store i32 %61, ptr %compare_seq.i, align 4
+  %64 = load i32, ptr %seq_end66.i, align 4
+  store i32 %64, ptr %compare_seq.i, align 4
   tail call fastcc void @colo_release_primary_pkt(ptr noundef %user_data, ptr noundef nonnull %ppkt.2.i)
   tail call void @g_queue_push_tail(ptr noundef nonnull %secondary_list.i, ptr noundef nonnull %call11.i) #16
   br label %pri.backedge.i
 
 if.then73.i:                                      ; preds = %trace_colo_compare_tcp_info.exit111.i
-  %62 = load i32, ptr %seq_end24.i, align 4
-  store i32 %62, ptr %compare_seq.i, align 4
+  %65 = load i32, ptr %seq_end24.i, align 4
+  store i32 %65, ptr %compare_seq.i, align 4
   tail call void @packet_destroy(ptr noundef nonnull %call11.i, ptr noundef null) #16
   br label %sec.backedge.i
 
@@ -2106,8 +2111,8 @@ sec.backedge.i:                                   ; preds = %if.then73.i, %trace
 
 if.then80.i:                                      ; preds = %trace_colo_compare_tcp_info.exit111.i
   %seq_end81.i = getelementptr inbounds i8, ptr %ppkt.2.i, i64 52
-  %63 = load i32, ptr %seq_end81.i, align 4
-  store i32 %63, ptr %compare_seq.i, align 4
+  %66 = load i32, ptr %seq_end81.i, align 4
+  store i32 %66, ptr %compare_seq.i, align 4
   tail call fastcc void @colo_release_primary_pkt(ptr noundef %user_data, ptr noundef nonnull %ppkt.2.i)
   tail call void @packet_destroy(ptr noundef nonnull %call11.i, ptr noundef null) #16
   br label %pri.backedge.i

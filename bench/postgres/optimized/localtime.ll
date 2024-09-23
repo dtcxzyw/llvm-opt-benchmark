@@ -1885,7 +1885,8 @@ increment_overflow_time.exit280.thread:           ; preds = %216, %213, %210
   %296 = getelementptr inbounds i8, ptr %1, i64 22120
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %296, ptr align 1 %.0200, i64 %.0206, i1 false)
   %297 = getelementptr i8, ptr %296, i64 %.0206
-  br label %.loopexit304.sink.split
+  store i8 0, ptr %297, align 1
+  br label %.loopexit304
 
 298:                                              ; preds = %._crit_edge324, %222, %225, %221
   %299 = trunc nuw nsw i64 %76 to i32
@@ -1898,15 +1899,11 @@ increment_overflow_time.exit280.thread:           ; preds = %216, %213, %210
   %303 = getelementptr i8, ptr %302, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %303, ptr align 1 %.0202, i64 %.0218, i1 false)
   %304 = getelementptr i8, ptr %303, i64 %.0218
-  br label %.loopexit304.sink.split
-
-.loopexit304.sink.split:                          ; preds = %298, %.thread299
-  %.sink = phi ptr [ %297, %.thread299 ], [ %304, %298 ]
-  store i8 0, ptr %.sink, align 1
+  store i8 0, ptr %304, align 1
   br label %.loopexit304
 
-.loopexit304:                                     ; preds = %15, %52, %.loopexit304.sink.split, %86, %105, %101, %99, %95, %80, %74, %73, %43, %40, %37
-  %.0190 = phi i1 [ false, %37 ], [ false, %40 ], [ false, %43 ], [ false, %73 ], [ false, %74 ], [ false, %80 ], [ false, %95 ], [ false, %99 ], [ false, %101 ], [ false, %105 ], [ false, %86 ], [ true, %.loopexit304.sink.split ], [ false, %52 ], [ false, %15 ]
+.loopexit304:                                     ; preds = %15, %52, %.thread299, %298, %86, %105, %101, %99, %95, %80, %74, %73, %43, %40, %37
+  %.0190 = phi i1 [ false, %37 ], [ false, %40 ], [ false, %43 ], [ false, %73 ], [ false, %74 ], [ false, %80 ], [ false, %95 ], [ false, %99 ], [ false, %101 ], [ false, %105 ], [ false, %86 ], [ true, %298 ], [ true, %.thread299 ], [ false, %52 ], [ false, %15 ]
   ret i1 %.0190
 }
 

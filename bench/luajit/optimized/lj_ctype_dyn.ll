@@ -2416,7 +2416,9 @@ if.then:                                          ; preds = %for.body, %for.body
   %7 = load i16, ptr %arrayidx.i, align 2
   %next.i = getelementptr inbounds i8, ptr %ct.051, i64 10
   store i16 %7, ptr %next.i, align 2
-  br label %for.inc.sink.split
+  %conv4.i = trunc i64 %indvars.iv to i16
+  store i16 %conv4.i, ptr %arrayidx.i, align 2
+  br label %for.inc
 
 if.else:                                          ; preds = %for.body
   %name13 = getelementptr inbounds i8, ptr %ct.051, i64 16
@@ -2439,17 +2441,12 @@ if.then17:                                        ; preds = %if.else
   %arrayidx.i46 = getelementptr inbounds [128 x i16], ptr %hash.i, i64 0, i64 %idxprom.i45
   %8 = load i16, ptr %arrayidx.i46, align 2
   store i16 %8, ptr %next, align 2
-  br label %for.inc.sink.split
-
-for.inc.sink.split:                               ; preds = %if.then17, %if.then
-  %arrayidx.i.sink = phi ptr [ %arrayidx.i, %if.then ], [ %arrayidx.i46, %if.then17 ]
-  %name.1.ph = phi ptr [ %add.ptr, %if.then ], [ %name.050, %if.then17 ]
-  %conv4.i = trunc i64 %indvars.iv to i16
-  store i16 %conv4.i, ptr %arrayidx.i.sink, align 2
+  %conv.i48 = trunc i64 %indvars.iv to i16
+  store i16 %conv.i48, ptr %arrayidx.i46, align 2
   br label %for.inc
 
-for.inc:                                          ; preds = %for.inc.sink.split, %if.else
-  %name.1 = phi ptr [ %name.050, %if.else ], [ %name.1.ph, %for.inc.sink.split ]
+for.inc:                                          ; preds = %if.then, %if.then17, %if.else
+  %name.1 = phi ptr [ %add.ptr, %if.then ], [ %name.050, %if.else ], [ %name.050, %if.then17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %incdec.ptr = getelementptr inbounds i8, ptr %ct.051, i64 24
   %exitcond.not = icmp eq i64 %indvars.iv.next, 97

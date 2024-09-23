@@ -2587,6 +2587,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %32, %34
   store ptr @.str.15, ptr %43, align 8, !alias.scope !46
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJiPKcEEE, i64 16), ptr %10, align 8, !alias.scope !46
   store ptr %72, ptr %44, align 8, !alias.scope !46
+  store i32 %spec.select72, ptr %45, align 8, !alias.scope !46
   br label %77
 
 75:                                               ; preds = %66
@@ -2594,12 +2595,11 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %32, %34
   store ptr @.str.15, ptr %40, align 8, !alias.scope !49
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJiPKcEEE, i64 16), ptr %11, align 8, !alias.scope !49
   store ptr %76, ptr %41, align 8, !alias.scope !49
+  store i32 %spec.select72, ptr %42, align 8, !alias.scope !49
   br label %77
 
 77:                                               ; preds = %75, %74
-  %.sink84 = phi ptr [ %42, %75 ], [ %45, %74 ]
   %.sink = phi ptr [ %11, %75 ], [ %10, %74 ]
-  store i32 %spec.select72, ptr %.sink84, align 4
   %78 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sink) #25
   %79 = load ptr, ptr %67, align 8
   %80 = ptrtoint ptr %79 to i64

@@ -943,8 +943,8 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEvT_S7_.exit: ; pr
 while.body.i.i.i.preheader:                       ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEvT_S7_.exit
   %.pre310 = load double, ptr %107, align 8, !tbaa !22
   %109 = load double, ptr %incdec.ptr.i.i.i.i291, align 8, !tbaa !22
-  %cmp.i213334 = fcmp oeq double %.pre310, %109
-  br i1 %cmp.i213334, label %if.end.i.i, label %if.end.i214
+  %cmp.i213333 = fcmp oeq double %.pre310, %109
+  br i1 %cmp.i213333, label %if.end.i.i, label %if.end.i214
 
 while.body.i.i.i:                                 ; preds = %while.cond.i.i.i.backedge
   %110 = load double, ptr %incdec.ptr.i.i.i.i, align 8, !tbaa !22
@@ -953,8 +953,8 @@ while.body.i.i.i:                                 ; preds = %while.cond.i.i.i.ba
 
 if.end.i214:                                      ; preds = %while.body.i.i.i.preheader, %while.body.i.i.i
   %111 = phi double [ %110, %while.body.i.i.i ], [ %109, %while.body.i.i.i.preheader ]
-  %__first.sroa.0.0.i.i.i293336 = phi ptr [ %incdec.ptr.i.i.i.i294335, %while.body.i.i.i ], [ %107, %while.body.i.i.i.preheader ]
-  %incdec.ptr.i.i.i.i294335 = phi ptr [ %incdec.ptr.i.i.i.i, %while.body.i.i.i ], [ %incdec.ptr.i.i.i.i291, %while.body.i.i.i.preheader ]
+  %__first.sroa.0.0.i.i.i293335 = phi ptr [ %incdec.ptr.i.i.i.i294334, %while.body.i.i.i ], [ %107, %while.body.i.i.i.preheader ]
+  %incdec.ptr.i.i.i.i294334 = phi ptr [ %incdec.ptr.i.i.i.i, %while.body.i.i.i ], [ %incdec.ptr.i.i.i.i291, %while.body.i.i.i.preheader ]
   %112 = phi double [ %111, %while.body.i.i.i ], [ %.pre310, %while.body.i.i.i.preheader ]
   %sub.i215 = fsub double %112, %111
   %113 = call double @llvm.fabs.f64(double %sub.i215)
@@ -978,12 +978,12 @@ _ZN8QuantLib12close_enoughEdd.exit227:            ; preds = %if.end.i214
   br i1 %116, label %if.end.i.i, label %while.cond.i.i.i.backedge
 
 while.cond.i.i.i.backedge:                        ; preds = %_ZN8QuantLib12close_enoughEdd.exit227, %if.then3.i225
-  %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i294335, i64 8
+  %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i294334, i64 8
   %cmp.i3.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %108
   br i1 %cmp.i3.not.i.i.i, label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEPFbddEET_S9_S9_T0_.exit, label %while.body.i.i.i, !llvm.loop !41
 
 if.end.i.i:                                       ; preds = %_ZN8QuantLib12close_enoughEdd.exit227, %if.then3.i225, %while.body.i.i.i, %while.body.i.i.i.preheader
-  %__first.sroa.0.0.i.i.i293.lcssa = phi ptr [ %107, %while.body.i.i.i.preheader ], [ %__first.sroa.0.0.i.i.i293336, %_ZN8QuantLib12close_enoughEdd.exit227 ], [ %__first.sroa.0.0.i.i.i293336, %if.then3.i225 ], [ %incdec.ptr.i.i.i.i294335, %while.body.i.i.i ]
+  %__first.sroa.0.0.i.i.i293.lcssa = phi ptr [ %107, %while.body.i.i.i.preheader ], [ %__first.sroa.0.0.i.i.i293335, %_ZN8QuantLib12close_enoughEdd.exit227 ], [ %__first.sroa.0.0.i.i.i293335, %if.then3.i225 ], [ %incdec.ptr.i.i.i.i294334, %while.body.i.i.i ]
   %incdec.ptr.i216.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0.i.i.i293.lcssa, i64 16
   %cmp.i3.not17.i.i = icmp eq ptr %incdec.ptr.i216.i.i, %108
   br i1 %cmp.i3.not17.i.i, label %while.end.i.i, label %while.body.i.i139.preheader
@@ -1198,6 +1198,9 @@ for.body255:                                      ; preds = %for.body247, %for.i
 
 if.then259:                                       ; preds = %for.body255
   %add.ptr.i206 = getelementptr inbounds nuw i64, ptr %128, i64 %i249.0298
+  %148 = load i64, ptr %add.ptr.i206, align 8, !tbaa !20
+  %inc262 = add i64 %148, 1
+  store i64 %inc262, ptr %add.ptr.i206, align 8, !tbaa !20
   br label %if.end273
 
 for.inc264:                                       ; preds = %for.body255
@@ -1206,15 +1209,14 @@ for.inc264:                                       ; preds = %for.body255
   br i1 %exitcond308.not, label %if.then267, label %for.body255, !llvm.loop !44
 
 if.then267:                                       ; preds = %for.inc264, %for.body247
-  %148 = load i64, ptr %bins_, align 8, !tbaa !3
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %148
+  %149 = load i64, ptr %bins_, align 8, !tbaa !3
+  %gep = getelementptr i64, ptr %invariant.gep, i64 %149
+  %150 = load i64, ptr %gep, align 8, !tbaa !20
+  %inc272 = add i64 %150, 1
+  store i64 %inc272, ptr %gep, align 8, !tbaa !20
   br label %if.end273
 
 if.end273:                                        ; preds = %if.then259, %if.then267
-  %add.ptr.i206.sink330 = phi ptr [ %add.ptr.i206, %if.then259 ], [ %gep, %if.then267 ]
-  %149 = load i64, ptr %add.ptr.i206.sink330, align 8, !tbaa !20
-  %inc262 = add i64 %149, 1
-  store i64 %inc262, ptr %add.ptr.i206.sink330, align 8, !tbaa !20
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.0300, i64 8
   %cmp.i179.not = icmp eq ptr %incdec.ptr.i, %135
   br i1 %cmp.i179.not, label %for.cond.cleanup246, label %for.body247
@@ -1225,8 +1227,8 @@ for.cond.cleanup287:                              ; preds = %for.body288, %_ZNSt
 for.body288:                                      ; preds = %for.body288.lr.ph, %for.body288
   %i283.0302 = phi i64 [ 0, %for.body288.lr.ph ], [ %inc297, %for.body288 ]
   %add.ptr.i208 = getelementptr inbounds nuw i64, ptr %144, i64 %i283.0302
-  %150 = load i64, ptr %add.ptr.i208, align 8, !tbaa !20
-  %conv291 = uitofp i64 %150 to double
+  %151 = load i64, ptr %add.ptr.i208, align 8, !tbaa !20
+  %conv291 = uitofp i64 %151 to double
   %div293 = fdiv double %conv291, %conv292
   %add.ptr.i209 = getelementptr inbounds nuw double, ptr %145, i64 %i283.0302
   store double %div293, ptr %add.ptr.i209, align 8, !tbaa !22

@@ -5915,7 +5915,8 @@ _ZN7Compile13node_notes_atEi.exit:                ; preds = %.thread.i
 
 38:                                               ; preds = %36
   %39 = getelementptr inbounds i8, ptr %0, i64 16
-  br label %_ZN7Compile13node_notes_atEi.exit.thread.sink.split
+  store i32 %2, ptr %39, align 8
+  br label %_ZN7Compile13node_notes_atEi.exit.thread
 
 40:                                               ; preds = %36
   %.pre = load ptr, ptr %33, align 8
@@ -5962,14 +5963,10 @@ _ZN24DebugInformationRecorder14last_pc_offsetEv.exit: ; preds = %46
 65:                                               ; preds = %_ZN24DebugInformationRecorder14last_pc_offsetEv.exit
   %66 = load ptr, ptr %27, align 8
   store ptr %66, ptr %33, align 8
-  br label %_ZN7Compile13node_notes_atEi.exit.thread.sink.split
-
-_ZN7Compile13node_notes_atEi.exit.thread.sink.split: ; preds = %38, %65
-  %.sink = phi ptr [ %47, %65 ], [ %39, %38 ]
-  store i32 %2, ptr %.sink, align 8
+  store i32 %2, ptr %47, align 8
   br label %_ZN7Compile13node_notes_atEi.exit.thread
 
-_ZN7Compile13node_notes_atEi.exit.thread:         ; preds = %_ZN7Compile13node_notes_atEi.exit.thread.sink.split, %12, %.thread.i, %_ZN24DebugInformationRecorder14last_pc_offsetEv.exit, %_ZN7Compile13node_notes_atEi.exit, %29, %3
+_ZN7Compile13node_notes_atEi.exit.thread:         ; preds = %12, %.thread.i, %_ZN24DebugInformationRecorder14last_pc_offsetEv.exit, %65, %_ZN7Compile13node_notes_atEi.exit, %29, %3, %38
   ret void
 }
 

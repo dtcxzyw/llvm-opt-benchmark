@@ -1011,7 +1011,7 @@ _ZN4llvm14SmallBitVector3setEj.exit:              ; preds = %.thread, %57
   %74 = zext nneg i32 %73 to i64
   %75 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %23) #13
   %76 = icmp ugt i64 %75, %74
-  br i1 %76, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i, label %_ZL18getTypeFromTypeIdxRKN4llvm12MachineInstrERKNS_19MachineRegisterInfoEjj.exit
+  br i1 %76, label %_ZL18getTypeFromTypeIdxRKN4llvm12MachineInstrERKNS_19MachineRegisterInfoEjj.exit.sink.split, label %_ZL18getTypeFromTypeIdxRKN4llvm12MachineInstrERKNS_19MachineRegisterInfoEjj.exit
 
 77:                                               ; preds = %_ZN4llvm14SmallBitVector3setEj.exit
   %78 = load ptr, ptr %22, align 8
@@ -1025,17 +1025,17 @@ _ZN4llvm14SmallBitVector3setEj.exit:              ; preds = %.thread, %57
   %84 = zext nneg i32 %83 to i64
   %85 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %23) #13
   %86 = icmp ugt i64 %85, %84
-  br i1 %86, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i, label %_ZL18getTypeFromTypeIdxRKN4llvm12MachineInstrERKNS_19MachineRegisterInfoEjj.exit
+  br i1 %86, label %_ZL18getTypeFromTypeIdxRKN4llvm12MachineInstrERKNS_19MachineRegisterInfoEjj.exit.sink.split, label %_ZL18getTypeFromTypeIdxRKN4llvm12MachineInstrERKNS_19MachineRegisterInfoEjj.exit
 
-_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i: ; preds = %82, %72
-  %.sink13.i = phi i64 [ %74, %72 ], [ %84, %82 ]
+_ZL18getTypeFromTypeIdxRKN4llvm12MachineInstrERKNS_19MachineRegisterInfoEjj.exit.sink.split: ; preds = %82, %72
+  %.sink62 = phi i64 [ %74, %72 ], [ %84, %82 ]
   %87 = load ptr, ptr %23, align 8
-  %88 = getelementptr inbounds %"class.llvm::LLT", ptr %87, i64 %.sink13.i
+  %88 = getelementptr inbounds %"class.llvm::LLT", ptr %87, i64 %.sink62
   %89 = load i64, ptr %88, align 8
   br label %_ZL18getTypeFromTypeIdxRKN4llvm12MachineInstrERKNS_19MachineRegisterInfoEjj.exit
 
-_ZL18getTypeFromTypeIdxRKN4llvm12MachineInstrERKNS_19MachineRegisterInfoEjj.exit: ; preds = %63, %72, %77, %82, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i
-  %.sroa.09.0.i = phi i64 [ 0, %72 ], [ 0, %63 ], [ 0, %82 ], [ 0, %77 ], [ %89, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i ]
+_ZL18getTypeFromTypeIdxRKN4llvm12MachineInstrERKNS_19MachineRegisterInfoEjj.exit: ; preds = %_ZL18getTypeFromTypeIdxRKN4llvm12MachineInstrERKNS_19MachineRegisterInfoEjj.exit.sink.split, %63, %72, %77, %82
+  %.sroa.09.0.i = phi i64 [ 0, %72 ], [ 0, %63 ], [ 0, %82 ], [ 0, %77 ], [ %89, %_ZL18getTypeFromTypeIdxRKN4llvm12MachineInstrERKNS_19MachineRegisterInfoEjj.exit.sink.split ]
   %90 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
   %91 = add i64 %90, 1
   %92 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #13

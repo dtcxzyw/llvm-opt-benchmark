@@ -637,13 +637,13 @@ define hidden noundef i32 @_ZN5zxing11UnicomBlock18GetUnicomBlockSizeEii(ptr noc
   %4 = getelementptr inbounds i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %.not = icmp slt i32 %1, %5
-  br i1 %.not, label %6, label %25
+  br i1 %.not, label %6, label %31
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8
   %.not14 = icmp slt i32 %2, %8
-  br i1 %.not14, label %9, label %25
+  br i1 %.not14, label %9, label %31
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %0, i64 32
@@ -654,26 +654,29 @@ define hidden noundef i32 @_ZN5zxing11UnicomBlock18GetUnicomBlockSizeEii(ptr noc
   %15 = getelementptr inbounds i32, ptr %14, i64 %13
   %16 = load i32, ptr %15, align 4
   %.not15 = icmp eq i32 %16, 0
-  br i1 %.not15, label %17, label %.sink.split
+  br i1 %.not15, label %22, label %17
 
 17:                                               ; preds = %9
+  %18 = getelementptr inbounds i8, ptr %0, i64 56
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds i32, ptr %19, i64 %13
+  %21 = load i32, ptr %20, align 4
+  br label %31
+
+22:                                               ; preds = %9
   tail call void @_ZN5zxing11UnicomBlock3BfsEii(ptr noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %1, i32 noundef %2)
-  %18 = load i32, ptr %7, align 8
-  %19 = mul nsw i32 %18, %1
-  %20 = add nsw i32 %19, %2
-  %21 = sext i32 %20 to i64
-  br label %.sink.split
+  %23 = getelementptr inbounds i8, ptr %0, i64 56
+  %24 = load i32, ptr %7, align 8
+  %25 = mul nsw i32 %24, %1
+  %26 = add nsw i32 %25, %2
+  %27 = sext i32 %26 to i64
+  %28 = load ptr, ptr %23, align 8
+  %29 = getelementptr inbounds i32, ptr %28, i64 %27
+  %30 = load i32, ptr %29, align 4
+  br label %31
 
-.sink.split:                                      ; preds = %9, %17
-  %.sink17 = phi i64 [ %21, %17 ], [ %13, %9 ]
-  %.sink = getelementptr inbounds i8, ptr %0, i64 56
-  %22 = load ptr, ptr %.sink, align 8
-  %23 = getelementptr inbounds i32, ptr %22, i64 %.sink17
-  %24 = load i32, ptr %23, align 4
-  br label %25
-
-25:                                               ; preds = %.sink.split, %3, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %3 ], [ %24, %.sink.split ]
+31:                                               ; preds = %3, %6, %22, %17
+  %.0 = phi i32 [ %21, %17 ], [ %30, %22 ], [ 0, %6 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -682,13 +685,13 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN5zxing11UnicomBlock11GetMinPointE
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i32, ptr %6, align 4
   %.not = icmp slt i32 %1, %7
-  br i1 %.not, label %8, label %36
+  br i1 %.not, label %8, label %48
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
   %.not22 = icmp slt i32 %2, %10
-  br i1 %.not22, label %11, label %36
+  br i1 %.not22, label %11, label %48
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds i8, ptr %0, i64 32
@@ -699,36 +702,51 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN5zxing11UnicomBlock11GetMinPointE
   %17 = getelementptr inbounds i32, ptr %16, i64 %15
   %18 = load i32, ptr %17, align 4
   %.not23 = icmp eq i32 %18, 0
-  br i1 %.not23, label %19, label %.sink.split
+  br i1 %.not23, label %31, label %19
 
 19:                                               ; preds = %11
-  tail call void @_ZN5zxing11UnicomBlock3BfsEii(ptr noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %1, i32 noundef %2)
-  %20 = load i32, ptr %9, align 8
-  %21 = mul nsw i32 %20, %1
-  %22 = add nsw i32 %21, %2
-  %23 = sext i32 %22 to i64
+  %20 = getelementptr inbounds i8, ptr %0, i64 80
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds i32, ptr %21, i64 %15
+  %23 = load i32, ptr %22, align 4
+  %24 = ashr i32 %23, 16
+  store i32 %24, ptr %3, align 4
+  %25 = load i32, ptr %9, align 8
+  %26 = mul nsw i32 %25, %1
+  %27 = add nsw i32 %26, %2
+  %28 = sext i32 %27 to i64
+  %29 = load ptr, ptr %20, align 8
+  %30 = getelementptr inbounds i32, ptr %29, i64 %28
   br label %.sink.split
 
-.sink.split:                                      ; preds = %11, %19
-  %.sink34 = phi i64 [ %23, %19 ], [ %15, %11 ]
-  %.sink35 = getelementptr inbounds i8, ptr %0, i64 80
-  %24 = load ptr, ptr %.sink35, align 8
-  %25 = getelementptr inbounds i32, ptr %24, i64 %.sink34
-  %26 = load i32, ptr %25, align 4
-  %27 = ashr i32 %26, 16
-  store i32 %27, ptr %3, align 4
-  %28 = load i32, ptr %9, align 8
-  %29 = mul nsw i32 %28, %1
-  %30 = add nsw i32 %29, %2
-  %31 = sext i32 %30 to i64
-  %32 = load ptr, ptr %.sink35, align 8
-  %33 = getelementptr inbounds i32, ptr %32, i64 %31
-  %34 = load i32, ptr %33, align 4
-  %35 = and i32 %34, 65535
-  store i32 %35, ptr %4, align 4
-  br label %36
+31:                                               ; preds = %11
+  tail call void @_ZN5zxing11UnicomBlock3BfsEii(ptr noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %1, i32 noundef %2)
+  %32 = getelementptr inbounds i8, ptr %0, i64 80
+  %33 = load i32, ptr %9, align 8
+  %34 = mul nsw i32 %33, %1
+  %35 = add nsw i32 %34, %2
+  %36 = sext i32 %35 to i64
+  %37 = load ptr, ptr %32, align 8
+  %38 = getelementptr inbounds i32, ptr %37, i64 %36
+  %39 = load i32, ptr %38, align 4
+  %40 = ashr i32 %39, 16
+  store i32 %40, ptr %3, align 4
+  %41 = load i32, ptr %9, align 8
+  %42 = mul nsw i32 %41, %1
+  %43 = add nsw i32 %42, %2
+  %44 = sext i32 %43 to i64
+  %45 = load ptr, ptr %32, align 8
+  %46 = getelementptr inbounds i32, ptr %45, i64 %44
+  br label %.sink.split
 
-36:                                               ; preds = %.sink.split, %5, %8
+.sink.split:                                      ; preds = %19, %31
+  %.sink24.in = phi ptr [ %46, %31 ], [ %30, %19 ]
+  %.sink24 = load i32, ptr %.sink24.in, align 4
+  %47 = and i32 %.sink24, 65535
+  store i32 %47, ptr %4, align 4
+  br label %48
+
+48:                                               ; preds = %.sink.split, %5, %8
   %.0 = phi i32 [ -1, %8 ], [ -1, %5 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
@@ -738,13 +756,13 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN5zxing11UnicomBlock11GetMaxPointE
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i32, ptr %6, align 4
   %.not = icmp slt i32 %1, %7
-  br i1 %.not, label %8, label %36
+  br i1 %.not, label %8, label %48
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
   %.not22 = icmp slt i32 %2, %10
-  br i1 %.not22, label %11, label %36
+  br i1 %.not22, label %11, label %48
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds i8, ptr %0, i64 32
@@ -755,36 +773,51 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN5zxing11UnicomBlock11GetMaxPointE
   %17 = getelementptr inbounds i32, ptr %16, i64 %15
   %18 = load i32, ptr %17, align 4
   %.not23 = icmp eq i32 %18, 0
-  br i1 %.not23, label %19, label %.sink.split
+  br i1 %.not23, label %31, label %19
 
 19:                                               ; preds = %11
-  tail call void @_ZN5zxing11UnicomBlock3BfsEii(ptr noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %1, i32 noundef %2)
-  %20 = load i32, ptr %9, align 8
-  %21 = mul nsw i32 %20, %1
-  %22 = add nsw i32 %21, %2
-  %23 = sext i32 %22 to i64
+  %20 = getelementptr inbounds i8, ptr %0, i64 104
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds i32, ptr %21, i64 %15
+  %23 = load i32, ptr %22, align 4
+  %24 = ashr i32 %23, 16
+  store i32 %24, ptr %3, align 4
+  %25 = load i32, ptr %9, align 8
+  %26 = mul nsw i32 %25, %1
+  %27 = add nsw i32 %26, %2
+  %28 = sext i32 %27 to i64
+  %29 = load ptr, ptr %20, align 8
+  %30 = getelementptr inbounds i32, ptr %29, i64 %28
   br label %.sink.split
 
-.sink.split:                                      ; preds = %11, %19
-  %.sink34 = phi i64 [ %23, %19 ], [ %15, %11 ]
-  %.sink35 = getelementptr inbounds i8, ptr %0, i64 104
-  %24 = load ptr, ptr %.sink35, align 8
-  %25 = getelementptr inbounds i32, ptr %24, i64 %.sink34
-  %26 = load i32, ptr %25, align 4
-  %27 = ashr i32 %26, 16
-  store i32 %27, ptr %3, align 4
-  %28 = load i32, ptr %9, align 8
-  %29 = mul nsw i32 %28, %1
-  %30 = add nsw i32 %29, %2
-  %31 = sext i32 %30 to i64
-  %32 = load ptr, ptr %.sink35, align 8
-  %33 = getelementptr inbounds i32, ptr %32, i64 %31
-  %34 = load i32, ptr %33, align 4
-  %35 = and i32 %34, 65535
-  store i32 %35, ptr %4, align 4
-  br label %36
+31:                                               ; preds = %11
+  tail call void @_ZN5zxing11UnicomBlock3BfsEii(ptr noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %1, i32 noundef %2)
+  %32 = getelementptr inbounds i8, ptr %0, i64 104
+  %33 = load i32, ptr %9, align 8
+  %34 = mul nsw i32 %33, %1
+  %35 = add nsw i32 %34, %2
+  %36 = sext i32 %35 to i64
+  %37 = load ptr, ptr %32, align 8
+  %38 = getelementptr inbounds i32, ptr %37, i64 %36
+  %39 = load i32, ptr %38, align 4
+  %40 = ashr i32 %39, 16
+  store i32 %40, ptr %3, align 4
+  %41 = load i32, ptr %9, align 8
+  %42 = mul nsw i32 %41, %1
+  %43 = add nsw i32 %42, %2
+  %44 = sext i32 %43 to i64
+  %45 = load ptr, ptr %32, align 8
+  %46 = getelementptr inbounds i32, ptr %45, i64 %44
+  br label %.sink.split
 
-36:                                               ; preds = %.sink.split, %5, %8
+.sink.split:                                      ; preds = %19, %31
+  %.sink24.in = phi ptr [ %46, %31 ], [ %30, %19 ]
+  %.sink24 = load i32, ptr %.sink24.in, align 4
+  %47 = and i32 %.sink24, 65535
+  store i32 %47, ptr %4, align 4
+  br label %48
+
+48:                                               ; preds = %.sink.split, %5, %8
   %.0 = phi i32 [ -1, %8 ], [ -1, %5 ], [ 0, %.sink.split ]
   ret i32 %.0
 }

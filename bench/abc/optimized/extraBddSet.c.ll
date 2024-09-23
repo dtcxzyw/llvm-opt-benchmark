@@ -26,7 +26,7 @@ define ptr @Extra_zddSubSet(ptr noundef %0, ptr noundef %1, ptr noundef %2) loca
 ; Function Attrs: nounwind uwtable
 define ptr @extraZddSubSet(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = icmp eq ptr %1, %2
-  br i1 %4, label %110, label %5
+  br i1 %4, label %112, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %0, i64 48
@@ -34,13 +34,13 @@ define ptr @extraZddSubSet(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %8 = icmp eq ptr %1, %7
   %9 = icmp eq ptr %2, %7
   %or.cond = or i1 %8, %9
-  br i1 %or.cond, label %110, label %10
+  br i1 %or.cond, label %112, label %10
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %1, %12
-  br i1 %13, label %110, label %14
+  br i1 %13, label %112, label %14
 
 14:                                               ; preds = %10
   %15 = icmp eq ptr %2, %12
@@ -64,12 +64,12 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %16
   %.not105 = icmp eq ptr %.0.lcssa.i, %2
   %. = select i1 %.not105, ptr %11, ptr %6
   %21 = load ptr, ptr %., align 8
-  br label %110
+  br label %112
 
 22:                                               ; preds = %14
   %23 = tail call ptr @cuddCacheLookup2Zdd(ptr noundef nonnull %0, ptr noundef nonnull @extraZddSubSet, ptr noundef %1, ptr noundef %2) #3
   %.not = icmp eq ptr %23, null
-  br i1 %.not, label %24, label %110
+  br i1 %.not, label %24, label %112
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds i8, ptr %0, i64 320
@@ -90,7 +90,7 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %16
   %38 = load ptr, ptr %37, align 8
   %39 = tail call ptr @extraZddSubSet(ptr noundef nonnull %0, ptr noundef %38, ptr noundef nonnull %2)
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %110, label %109
+  br i1 %40, label %112, label %111
 
 41:                                               ; preds = %24
   %42 = icmp eq i32 %30, %34
@@ -100,10 +100,10 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %16
   %46 = load ptr, ptr %43, align 8
   %47 = tail call ptr @cuddZddUnion(ptr noundef nonnull %0, ptr noundef %45, ptr noundef %46) #3
   %48 = icmp eq ptr %47, null
-  br i1 %42, label %49, label %89
+  br i1 %42, label %49, label %91
 
 49:                                               ; preds = %41
-  br i1 %48, label %110, label %50
+  br i1 %48, label %112, label %50
 
 50:                                               ; preds = %49
   %51 = ptrtoint ptr %47 to i64
@@ -121,7 +121,7 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %16
 
 61:                                               ; preds = %50
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %47) #3
-  br label %110
+  br label %112
 
 62:                                               ; preds = %50
   %63 = getelementptr inbounds i8, ptr %1, i64 16
@@ -141,7 +141,7 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %16
 
 74:                                               ; preds = %62
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %59) #3
-  br label %110
+  br label %112
 
 75:                                               ; preds = %62
   %76 = ptrtoint ptr %72 to i64
@@ -159,59 +159,57 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %16
 85:                                               ; preds = %75
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %59) #3
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %72) #3
-  br label %110
+  br label %112
 
 86:                                               ; preds = %75
   %87 = load i32, ptr %67, align 4
   %88 = add i32 %87, -1
   store i32 %88, ptr %67, align 4
-  br label %.sink.split
+  %89 = load i32, ptr %79, align 4
+  %90 = add i32 %89, -1
+  store i32 %90, ptr %79, align 4
+  br label %111
 
-89:                                               ; preds = %41
-  br i1 %48, label %110, label %90
+91:                                               ; preds = %41
+  br i1 %48, label %112, label %92
 
-90:                                               ; preds = %89
-  %91 = ptrtoint ptr %47 to i64
-  %92 = and i64 %91, -2
-  %93 = inttoptr i64 %92 to ptr
-  %94 = getelementptr inbounds i8, ptr %93, i64 4
-  %95 = load i32, ptr %94, align 4
-  %96 = add i32 %95, 1
-  store i32 %96, ptr %94, align 4
-  %97 = tail call ptr @extraZddSubSet(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %47)
-  %98 = icmp eq ptr %97, null
-  br i1 %98, label %99, label %100
+92:                                               ; preds = %91
+  %93 = ptrtoint ptr %47 to i64
+  %94 = and i64 %93, -2
+  %95 = inttoptr i64 %94 to ptr
+  %96 = getelementptr inbounds i8, ptr %95, i64 4
+  %97 = load i32, ptr %96, align 4
+  %98 = add i32 %97, 1
+  store i32 %98, ptr %96, align 4
+  %99 = tail call ptr @extraZddSubSet(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %47)
+  %100 = icmp eq ptr %99, null
+  br i1 %100, label %101, label %102
 
-99:                                               ; preds = %90
+101:                                              ; preds = %92
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %47) #3
-  br label %110
+  br label %112
 
-100:                                              ; preds = %90
-  %101 = ptrtoint ptr %97 to i64
-  %102 = and i64 %101, -2
-  %103 = inttoptr i64 %102 to ptr
-  %104 = getelementptr inbounds i8, ptr %103, i64 4
-  %105 = load i32, ptr %104, align 4
-  %106 = add i32 %105, 1
-  store i32 %106, ptr %104, align 4
+102:                                              ; preds = %92
+  %103 = ptrtoint ptr %99 to i64
+  %104 = and i64 %103, -2
+  %105 = inttoptr i64 %104 to ptr
+  %106 = getelementptr inbounds i8, ptr %105, i64 4
+  %107 = load i32, ptr %106, align 4
+  %108 = add i32 %107, 1
+  store i32 %108, ptr %106, align 4
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %47) #3
-  br label %.sink.split
+  %109 = load i32, ptr %106, align 4
+  %110 = add i32 %109, -1
+  store i32 %110, ptr %106, align 4
+  br label %111
 
-.sink.split:                                      ; preds = %100, %86
-  %.sink = phi ptr [ %79, %86 ], [ %104, %100 ]
-  %.087.ph = phi ptr [ %83, %86 ], [ %97, %100 ]
-  %107 = load i32, ptr %.sink, align 4
-  %108 = add i32 %107, -1
-  store i32 %108, ptr %.sink, align 4
-  br label %109
-
-109:                                              ; preds = %.sink.split, %36
-  %.087 = phi ptr [ %39, %36 ], [ %.087.ph, %.sink.split ]
+111:                                              ; preds = %86, %102, %36
+  %.087 = phi ptr [ %39, %36 ], [ %83, %86 ], [ %99, %102 ]
   tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @extraZddSubSet, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %.087) #3
-  br label %110
+  br label %112
 
-110:                                              ; preds = %89, %49, %36, %22, %10, %5, %3, %109, %99, %85, %74, %61, %Extra_zddEmptyBelongs.exit
-  %.0 = phi ptr [ %21, %Extra_zddEmptyBelongs.exit ], [ %.087, %109 ], [ null, %61 ], [ null, %74 ], [ null, %85 ], [ null, %99 ], [ %1, %3 ], [ %7, %5 ], [ %12, %10 ], [ %23, %22 ], [ null, %36 ], [ null, %49 ], [ null, %89 ]
+112:                                              ; preds = %91, %49, %36, %22, %10, %5, %3, %111, %101, %85, %74, %61, %Extra_zddEmptyBelongs.exit
+  %.0 = phi ptr [ %21, %Extra_zddEmptyBelongs.exit ], [ %.087, %111 ], [ null, %61 ], [ null, %74 ], [ null, %85 ], [ null, %101 ], [ %1, %3 ], [ %7, %5 ], [ %12, %10 ], [ %23, %22 ], [ null, %36 ], [ null, %49 ], [ null, %91 ]
   ret ptr %.0
 }
 
@@ -238,13 +236,13 @@ define ptr @Extra_zddSupSet(ptr noundef %0, ptr noundef %1, ptr noundef %2) loca
 ; Function Attrs: nounwind uwtable
 define ptr @extraZddSupSet(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = icmp eq ptr %1, %2
-  br i1 %4, label %116, label %5
+  br i1 %4, label %122, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %2, %7
-  br i1 %8, label %116, label %9
+  br i1 %8, label %122, label %9
 
 9:                                                ; preds = %5
   %10 = load i32, ptr %2, align 8
@@ -264,18 +262,18 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %9
   %14 = getelementptr inbounds i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %.0.lcssa.i, %15
-  br i1 %.not, label %116, label %16
+  br i1 %.not, label %122, label %16
 
 16:                                               ; preds = %Extra_zddEmptyBelongs.exit
   %17 = icmp eq ptr %1, %7
   %18 = icmp eq ptr %1, %15
   %or.cond = or i1 %17, %18
-  br i1 %or.cond, label %116, label %19
+  br i1 %or.cond, label %122, label %19
 
 19:                                               ; preds = %16
   %20 = tail call ptr @cuddCacheLookup2Zdd(ptr noundef nonnull %0, ptr noundef nonnull @extraZddSupSet, ptr noundef %1, ptr noundef nonnull %2) #3
   %.not111 = icmp eq ptr %20, null
-  br i1 %.not111, label %21, label %116
+  br i1 %.not111, label %21, label %122
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds i8, ptr %0, i64 320
@@ -289,14 +287,14 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %9
   %30 = getelementptr inbounds i32, ptr %23, i64 %29
   %31 = load i32, ptr %30, align 4
   %32 = icmp slt i32 %27, %31
-  br i1 %32, label %33, label %61
+  br i1 %32, label %33, label %66
 
 33:                                               ; preds = %21
   %34 = getelementptr inbounds i8, ptr %1, i64 24
   %35 = load ptr, ptr %34, align 8
   %36 = tail call ptr @extraZddSupSet(ptr noundef nonnull %0, ptr noundef %35, ptr noundef nonnull %2)
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %116, label %38
+  br i1 %37, label %122, label %38
 
 38:                                               ; preds = %33
   %39 = getelementptr inbounds i8, ptr %1, i64 16
@@ -314,7 +312,7 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %9
 
 49:                                               ; preds = %38
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %36) #3
-  br label %116
+  br label %122
 
 50:                                               ; preds = %38
   %51 = ptrtoint ptr %47 to i64
@@ -327,109 +325,115 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %9
   %57 = load i32, ptr %1, align 8
   %58 = tail call ptr @cuddZddGetNode(ptr noundef nonnull %0, i32 noundef %57, ptr noundef nonnull %47, ptr noundef nonnull %36) #3
   %59 = icmp eq ptr %58, null
-  br i1 %59, label %60, label %.sink.split
+  br i1 %59, label %60, label %61
 
 60:                                               ; preds = %50
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %36) #3
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %47) #3
-  br label %116
+  br label %122
 
-61:                                               ; preds = %21
-  %62 = icmp eq i32 %27, %31
-  br i1 %62, label %63, label %106
+61:                                               ; preds = %50
+  %62 = load i32, ptr %43, align 4
+  %63 = add i32 %62, -1
+  store i32 %63, ptr %43, align 4
+  %64 = load i32, ptr %54, align 4
+  %65 = add i32 %64, -1
+  store i32 %65, ptr %54, align 4
+  br label %121
 
-63:                                               ; preds = %61
-  %64 = getelementptr inbounds i8, ptr %1, i64 16
-  %65 = getelementptr inbounds i8, ptr %1, i64 24
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %2, i64 24
-  %68 = load ptr, ptr %67, align 8
-  %69 = tail call ptr @extraZddSupSet(ptr noundef nonnull %0, ptr noundef %66, ptr noundef %68)
-  %70 = icmp eq ptr %69, null
-  br i1 %70, label %116, label %71
+66:                                               ; preds = %21
+  %67 = icmp eq i32 %27, %31
+  br i1 %67, label %68, label %116
 
-71:                                               ; preds = %63
-  %72 = getelementptr inbounds i8, ptr %2, i64 16
-  %73 = ptrtoint ptr %69 to i64
-  %74 = and i64 %73, -2
-  %75 = inttoptr i64 %74 to ptr
-  %76 = getelementptr inbounds i8, ptr %75, i64 4
-  %77 = load i32, ptr %76, align 4
-  %78 = add i32 %77, 1
-  store i32 %78, ptr %76, align 4
-  %79 = load ptr, ptr %67, align 8
-  %80 = load ptr, ptr %72, align 8
-  %81 = tail call ptr @cuddZddUnion(ptr noundef nonnull %0, ptr noundef %79, ptr noundef %80) #3
-  %82 = icmp eq ptr %81, null
-  br i1 %82, label %83, label %84
+68:                                               ; preds = %66
+  %69 = getelementptr inbounds i8, ptr %1, i64 16
+  %70 = getelementptr inbounds i8, ptr %1, i64 24
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %2, i64 24
+  %73 = load ptr, ptr %72, align 8
+  %74 = tail call ptr @extraZddSupSet(ptr noundef nonnull %0, ptr noundef %71, ptr noundef %73)
+  %75 = icmp eq ptr %74, null
+  br i1 %75, label %122, label %76
 
-83:                                               ; preds = %71
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %69) #3
-  br label %116
+76:                                               ; preds = %68
+  %77 = getelementptr inbounds i8, ptr %2, i64 16
+  %78 = ptrtoint ptr %74 to i64
+  %79 = and i64 %78, -2
+  %80 = inttoptr i64 %79 to ptr
+  %81 = getelementptr inbounds i8, ptr %80, i64 4
+  %82 = load i32, ptr %81, align 4
+  %83 = add i32 %82, 1
+  store i32 %83, ptr %81, align 4
+  %84 = load ptr, ptr %72, align 8
+  %85 = load ptr, ptr %77, align 8
+  %86 = tail call ptr @cuddZddUnion(ptr noundef nonnull %0, ptr noundef %84, ptr noundef %85) #3
+  %87 = icmp eq ptr %86, null
+  br i1 %87, label %88, label %89
 
-84:                                               ; preds = %71
-  %85 = ptrtoint ptr %81 to i64
-  %86 = and i64 %85, -2
-  %87 = inttoptr i64 %86 to ptr
-  %88 = getelementptr inbounds i8, ptr %87, i64 4
-  %89 = load i32, ptr %88, align 4
-  %90 = add i32 %89, 1
-  store i32 %90, ptr %88, align 4
-  %91 = load ptr, ptr %64, align 8
-  %92 = tail call ptr @extraZddSupSet(ptr noundef nonnull %0, ptr noundef %91, ptr noundef nonnull %81)
-  %93 = icmp eq ptr %92, null
-  br i1 %93, label %94, label %95
+88:                                               ; preds = %76
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %74) #3
+  br label %122
 
-94:                                               ; preds = %84
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %69) #3
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %81) #3
-  br label %116
+89:                                               ; preds = %76
+  %90 = ptrtoint ptr %86 to i64
+  %91 = and i64 %90, -2
+  %92 = inttoptr i64 %91 to ptr
+  %93 = getelementptr inbounds i8, ptr %92, i64 4
+  %94 = load i32, ptr %93, align 4
+  %95 = add i32 %94, 1
+  store i32 %95, ptr %93, align 4
+  %96 = load ptr, ptr %69, align 8
+  %97 = tail call ptr @extraZddSupSet(ptr noundef nonnull %0, ptr noundef %96, ptr noundef nonnull %86)
+  %98 = icmp eq ptr %97, null
+  br i1 %98, label %99, label %100
 
-95:                                               ; preds = %84
-  %96 = ptrtoint ptr %92 to i64
-  %97 = and i64 %96, -2
-  %98 = inttoptr i64 %97 to ptr
-  %99 = getelementptr inbounds i8, ptr %98, i64 4
-  %100 = load i32, ptr %99, align 4
-  %101 = add i32 %100, 1
-  store i32 %101, ptr %99, align 4
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %81) #3
-  %102 = load i32, ptr %1, align 8
-  %103 = tail call ptr @cuddZddGetNode(ptr noundef nonnull %0, i32 noundef %102, ptr noundef nonnull %92, ptr noundef nonnull %69) #3
-  %104 = icmp eq ptr %103, null
-  br i1 %104, label %105, label %.sink.split
+99:                                               ; preds = %89
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %74) #3
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %86) #3
+  br label %122
 
-105:                                              ; preds = %95
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %69) #3
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %92) #3
-  br label %116
+100:                                              ; preds = %89
+  %101 = ptrtoint ptr %97 to i64
+  %102 = and i64 %101, -2
+  %103 = inttoptr i64 %102 to ptr
+  %104 = getelementptr inbounds i8, ptr %103, i64 4
+  %105 = load i32, ptr %104, align 4
+  %106 = add i32 %105, 1
+  store i32 %106, ptr %104, align 4
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %86) #3
+  %107 = load i32, ptr %1, align 8
+  %108 = tail call ptr @cuddZddGetNode(ptr noundef nonnull %0, i32 noundef %107, ptr noundef nonnull %97, ptr noundef nonnull %74) #3
+  %109 = icmp eq ptr %108, null
+  br i1 %109, label %110, label %111
 
-106:                                              ; preds = %61
-  %107 = getelementptr inbounds i8, ptr %2, i64 24
-  %108 = load ptr, ptr %107, align 8
-  %109 = tail call ptr @extraZddSupSet(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %108)
-  %110 = icmp eq ptr %109, null
-  br i1 %110, label %116, label %115
+110:                                              ; preds = %100
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %74) #3
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %97) #3
+  br label %122
 
-.sink.split:                                      ; preds = %95, %50
-  %.sink117 = phi ptr [ %43, %50 ], [ %76, %95 ]
-  %.sink = phi ptr [ %54, %50 ], [ %99, %95 ]
-  %.094.ph = phi ptr [ %58, %50 ], [ %103, %95 ]
-  %111 = load i32, ptr %.sink117, align 4
-  %112 = add i32 %111, -1
-  store i32 %112, ptr %.sink117, align 4
-  %113 = load i32, ptr %.sink, align 4
-  %114 = add i32 %113, -1
-  store i32 %114, ptr %.sink, align 4
-  br label %115
+111:                                              ; preds = %100
+  %112 = load i32, ptr %81, align 4
+  %113 = add i32 %112, -1
+  store i32 %113, ptr %81, align 4
+  %114 = load i32, ptr %104, align 4
+  %115 = add i32 %114, -1
+  store i32 %115, ptr %104, align 4
+  br label %121
 
-115:                                              ; preds = %.sink.split, %106
-  %.094 = phi ptr [ %109, %106 ], [ %.094.ph, %.sink.split ]
+116:                                              ; preds = %66
+  %117 = getelementptr inbounds i8, ptr %2, i64 24
+  %118 = load ptr, ptr %117, align 8
+  %119 = tail call ptr @extraZddSupSet(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %118)
+  %120 = icmp eq ptr %119, null
+  br i1 %120, label %122, label %121
+
+121:                                              ; preds = %111, %116, %61
+  %.094 = phi ptr [ %58, %61 ], [ %108, %111 ], [ %119, %116 ]
   tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @extraZddSupSet, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %.094) #3
-  br label %116
+  br label %122
 
-116:                                              ; preds = %106, %63, %33, %19, %16, %Extra_zddEmptyBelongs.exit, %5, %3, %115, %105, %94, %83, %60, %49
-  %.0 = phi ptr [ null, %49 ], [ null, %60 ], [ %.094, %115 ], [ null, %83 ], [ null, %94 ], [ null, %105 ], [ %1, %3 ], [ %7, %5 ], [ %1, %Extra_zddEmptyBelongs.exit ], [ %7, %16 ], [ %20, %19 ], [ null, %33 ], [ null, %63 ], [ null, %106 ]
+122:                                              ; preds = %116, %68, %33, %19, %16, %Extra_zddEmptyBelongs.exit, %5, %3, %121, %110, %99, %88, %60, %49
+  %.0 = phi ptr [ null, %49 ], [ null, %60 ], [ %.094, %121 ], [ null, %88 ], [ null, %99 ], [ null, %110 ], [ %1, %3 ], [ %7, %5 ], [ %1, %Extra_zddEmptyBelongs.exit ], [ %7, %16 ], [ %20, %19 ], [ null, %33 ], [ null, %68 ], [ null, %116 ]
   ret ptr %.0
 }
 
@@ -458,11 +462,11 @@ define ptr @extraZddNotSubSet(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0
   %4 = icmp eq ptr %1, %2
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
-  br i1 %4, label %119, label %7
+  br i1 %4, label %124, label %7
 
 7:                                                ; preds = %3
   %8 = icmp eq ptr %2, %6
-  br i1 %8, label %119, label %9
+  br i1 %8, label %124, label %9
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds i8, ptr %0, i64 40
@@ -472,18 +476,18 @@ define ptr @extraZddNotSubSet(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0
 
 13:                                               ; preds = %9
   %14 = tail call ptr @cuddZddDiff(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %11) #3
-  br label %119
+  br label %124
 
 15:                                               ; preds = %9
   %16 = icmp eq ptr %1, %6
   %17 = icmp eq ptr %1, %11
   %or.cond = or i1 %16, %17
-  br i1 %or.cond, label %119, label %18
+  br i1 %or.cond, label %124, label %18
 
 18:                                               ; preds = %15
   %19 = tail call ptr @cuddCacheLookup2Zdd(ptr noundef nonnull %0, ptr noundef nonnull @extraZddNotSubSet, ptr noundef %1, ptr noundef %2) #3
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %20, label %119
+  br i1 %.not, label %20, label %124
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds i8, ptr %0, i64 320
@@ -497,14 +501,14 @@ define ptr @extraZddNotSubSet(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0
   %29 = getelementptr inbounds i32, ptr %22, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = icmp slt i32 %26, %30
-  br i1 %31, label %32, label %50
+  br i1 %31, label %32, label %53
 
 32:                                               ; preds = %20
   %33 = getelementptr inbounds i8, ptr %1, i64 24
   %34 = load ptr, ptr %33, align 8
   %35 = tail call ptr @extraZddNotSubSet(ptr noundef nonnull %0, ptr noundef %34, ptr noundef nonnull %2)
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %119, label %37
+  br i1 %36, label %124, label %37
 
 37:                                               ; preds = %32
   %38 = getelementptr inbounds i8, ptr %1, i64 16
@@ -519,128 +523,136 @@ define ptr @extraZddNotSubSet(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0
   %46 = load i32, ptr %1, align 8
   %47 = tail call ptr @cuddZddGetNode(ptr noundef nonnull %0, i32 noundef %46, ptr noundef %45, ptr noundef nonnull %35) #3
   %48 = icmp eq ptr %47, null
-  br i1 %48, label %49, label %116
+  br i1 %48, label %49, label %50
 
 49:                                               ; preds = %37
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %35) #3
-  br label %119
+  br label %124
 
-50:                                               ; preds = %20
-  %51 = icmp eq i32 %26, %30
-  %52 = getelementptr inbounds i8, ptr %2, i64 16
-  %53 = getelementptr inbounds i8, ptr %2, i64 24
-  %54 = load ptr, ptr %53, align 8
-  %55 = load ptr, ptr %52, align 8
-  %56 = tail call ptr @cuddZddUnion(ptr noundef nonnull %0, ptr noundef %54, ptr noundef %55) #3
-  %57 = icmp eq ptr %56, null
-  br i1 %51, label %58, label %98
+50:                                               ; preds = %37
+  %51 = load i32, ptr %42, align 4
+  %52 = add i32 %51, -1
+  store i32 %52, ptr %42, align 4
+  br label %123
 
-58:                                               ; preds = %50
-  br i1 %57, label %119, label %59
+53:                                               ; preds = %20
+  %54 = icmp eq i32 %26, %30
+  %55 = getelementptr inbounds i8, ptr %2, i64 16
+  %56 = getelementptr inbounds i8, ptr %2, i64 24
+  %57 = load ptr, ptr %56, align 8
+  %58 = load ptr, ptr %55, align 8
+  %59 = tail call ptr @cuddZddUnion(ptr noundef nonnull %0, ptr noundef %57, ptr noundef %58) #3
+  %60 = icmp eq ptr %59, null
+  br i1 %54, label %61, label %103
 
-59:                                               ; preds = %58
-  %60 = ptrtoint ptr %56 to i64
-  %61 = and i64 %60, -2
-  %62 = inttoptr i64 %61 to ptr
-  %63 = getelementptr inbounds i8, ptr %62, i64 4
-  %64 = load i32, ptr %63, align 4
-  %65 = add i32 %64, 1
-  store i32 %65, ptr %63, align 4
-  %66 = getelementptr inbounds i8, ptr %1, i64 24
-  %67 = load ptr, ptr %66, align 8
-  %68 = tail call ptr @extraZddNotSubSet(ptr noundef nonnull %0, ptr noundef %67, ptr noundef nonnull %56)
-  %69 = icmp eq ptr %68, null
-  br i1 %69, label %70, label %71
+61:                                               ; preds = %53
+  br i1 %60, label %124, label %62
 
-70:                                               ; preds = %59
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %56) #3
-  br label %119
+62:                                               ; preds = %61
+  %63 = ptrtoint ptr %59 to i64
+  %64 = and i64 %63, -2
+  %65 = inttoptr i64 %64 to ptr
+  %66 = getelementptr inbounds i8, ptr %65, i64 4
+  %67 = load i32, ptr %66, align 4
+  %68 = add i32 %67, 1
+  store i32 %68, ptr %66, align 4
+  %69 = getelementptr inbounds i8, ptr %1, i64 24
+  %70 = load ptr, ptr %69, align 8
+  %71 = tail call ptr @extraZddNotSubSet(ptr noundef nonnull %0, ptr noundef %70, ptr noundef nonnull %59)
+  %72 = icmp eq ptr %71, null
+  br i1 %72, label %73, label %74
 
-71:                                               ; preds = %59
-  %72 = getelementptr inbounds i8, ptr %1, i64 16
-  %73 = ptrtoint ptr %68 to i64
-  %74 = and i64 %73, -2
-  %75 = inttoptr i64 %74 to ptr
-  %76 = getelementptr inbounds i8, ptr %75, i64 4
-  %77 = load i32, ptr %76, align 4
-  %78 = add i32 %77, 1
-  store i32 %78, ptr %76, align 4
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %56) #3
-  %79 = load ptr, ptr %72, align 8
-  %80 = load ptr, ptr %52, align 8
-  %81 = tail call ptr @extraZddNotSubSet(ptr noundef nonnull %0, ptr noundef %79, ptr noundef %80)
-  %82 = icmp eq ptr %81, null
-  br i1 %82, label %83, label %84
+73:                                               ; preds = %62
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %59) #3
+  br label %124
 
-83:                                               ; preds = %71
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %68) #3
-  br label %119
+74:                                               ; preds = %62
+  %75 = getelementptr inbounds i8, ptr %1, i64 16
+  %76 = ptrtoint ptr %71 to i64
+  %77 = and i64 %76, -2
+  %78 = inttoptr i64 %77 to ptr
+  %79 = getelementptr inbounds i8, ptr %78, i64 4
+  %80 = load i32, ptr %79, align 4
+  %81 = add i32 %80, 1
+  store i32 %81, ptr %79, align 4
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %59) #3
+  %82 = load ptr, ptr %75, align 8
+  %83 = load ptr, ptr %55, align 8
+  %84 = tail call ptr @extraZddNotSubSet(ptr noundef nonnull %0, ptr noundef %82, ptr noundef %83)
+  %85 = icmp eq ptr %84, null
+  br i1 %85, label %86, label %87
 
-84:                                               ; preds = %71
-  %85 = ptrtoint ptr %81 to i64
-  %86 = and i64 %85, -2
-  %87 = inttoptr i64 %86 to ptr
-  %88 = getelementptr inbounds i8, ptr %87, i64 4
-  %89 = load i32, ptr %88, align 4
-  %90 = add i32 %89, 1
-  store i32 %90, ptr %88, align 4
-  %91 = load i32, ptr %1, align 8
-  %92 = tail call ptr @cuddZddGetNode(ptr noundef nonnull %0, i32 noundef %91, ptr noundef nonnull %81, ptr noundef nonnull %68) #3
-  %93 = icmp eq ptr %92, null
-  br i1 %93, label %94, label %95
+86:                                               ; preds = %74
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %71) #3
+  br label %124
 
-94:                                               ; preds = %84
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %68) #3
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %81) #3
-  br label %119
+87:                                               ; preds = %74
+  %88 = ptrtoint ptr %84 to i64
+  %89 = and i64 %88, -2
+  %90 = inttoptr i64 %89 to ptr
+  %91 = getelementptr inbounds i8, ptr %90, i64 4
+  %92 = load i32, ptr %91, align 4
+  %93 = add i32 %92, 1
+  store i32 %93, ptr %91, align 4
+  %94 = load i32, ptr %1, align 8
+  %95 = tail call ptr @cuddZddGetNode(ptr noundef nonnull %0, i32 noundef %94, ptr noundef nonnull %84, ptr noundef nonnull %71) #3
+  %96 = icmp eq ptr %95, null
+  br i1 %96, label %97, label %98
 
-95:                                               ; preds = %84
-  %96 = load i32, ptr %76, align 4
-  %97 = add i32 %96, -1
-  store i32 %97, ptr %76, align 4
-  br label %116
+97:                                               ; preds = %87
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %71) #3
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %84) #3
+  br label %124
 
-98:                                               ; preds = %50
-  br i1 %57, label %119, label %99
+98:                                               ; preds = %87
+  %99 = load i32, ptr %79, align 4
+  %100 = add i32 %99, -1
+  store i32 %100, ptr %79, align 4
+  %101 = load i32, ptr %91, align 4
+  %102 = add i32 %101, -1
+  store i32 %102, ptr %91, align 4
+  br label %123
 
-99:                                               ; preds = %98
-  %100 = ptrtoint ptr %56 to i64
-  %101 = and i64 %100, -2
-  %102 = inttoptr i64 %101 to ptr
-  %103 = getelementptr inbounds i8, ptr %102, i64 4
-  %104 = load i32, ptr %103, align 4
-  %105 = add i32 %104, 1
-  store i32 %105, ptr %103, align 4
-  %106 = tail call ptr @extraZddNotSubSet(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %56)
-  %107 = icmp eq ptr %106, null
-  br i1 %107, label %108, label %109
+103:                                              ; preds = %53
+  br i1 %60, label %124, label %104
 
-108:                                              ; preds = %99
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %56) #3
-  br label %119
+104:                                              ; preds = %103
+  %105 = ptrtoint ptr %59 to i64
+  %106 = and i64 %105, -2
+  %107 = inttoptr i64 %106 to ptr
+  %108 = getelementptr inbounds i8, ptr %107, i64 4
+  %109 = load i32, ptr %108, align 4
+  %110 = add i32 %109, 1
+  store i32 %110, ptr %108, align 4
+  %111 = tail call ptr @extraZddNotSubSet(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %59)
+  %112 = icmp eq ptr %111, null
+  br i1 %112, label %113, label %114
 
-109:                                              ; preds = %99
-  %110 = ptrtoint ptr %106 to i64
-  %111 = and i64 %110, -2
-  %112 = inttoptr i64 %111 to ptr
-  %113 = getelementptr inbounds i8, ptr %112, i64 4
-  %114 = load i32, ptr %113, align 4
-  %115 = add i32 %114, 1
-  store i32 %115, ptr %113, align 4
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %56) #3
-  br label %116
+113:                                              ; preds = %104
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %59) #3
+  br label %124
 
-116:                                              ; preds = %37, %95, %109
-  %.sink = phi ptr [ %88, %95 ], [ %113, %109 ], [ %42, %37 ]
-  %.096 = phi ptr [ %92, %95 ], [ %106, %109 ], [ %47, %37 ]
-  %117 = load i32, ptr %.sink, align 4
-  %118 = add i32 %117, -1
-  store i32 %118, ptr %.sink, align 4
+114:                                              ; preds = %104
+  %115 = ptrtoint ptr %111 to i64
+  %116 = and i64 %115, -2
+  %117 = inttoptr i64 %116 to ptr
+  %118 = getelementptr inbounds i8, ptr %117, i64 4
+  %119 = load i32, ptr %118, align 4
+  %120 = add i32 %119, 1
+  store i32 %120, ptr %118, align 4
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %59) #3
+  %121 = load i32, ptr %118, align 4
+  %122 = add i32 %121, -1
+  store i32 %122, ptr %118, align 4
+  br label %123
+
+123:                                              ; preds = %98, %114, %50
+  %.096 = phi ptr [ %47, %50 ], [ %95, %98 ], [ %111, %114 ]
   tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @extraZddNotSubSet, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %.096) #3
-  br label %119
+  br label %124
 
-119:                                              ; preds = %3, %98, %58, %32, %18, %15, %7, %116, %108, %94, %83, %70, %49, %13
-  %.0 = phi ptr [ %14, %13 ], [ null, %49 ], [ %.096, %116 ], [ null, %70 ], [ null, %83 ], [ null, %94 ], [ null, %108 ], [ %1, %7 ], [ %6, %15 ], [ %19, %18 ], [ null, %32 ], [ null, %58 ], [ null, %98 ], [ %6, %3 ]
+124:                                              ; preds = %3, %103, %61, %32, %18, %15, %7, %123, %113, %97, %86, %73, %49, %13
+  %.0 = phi ptr [ %14, %13 ], [ null, %49 ], [ %.096, %123 ], [ null, %73 ], [ null, %86 ], [ null, %97 ], [ null, %113 ], [ %1, %7 ], [ %6, %15 ], [ %19, %18 ], [ null, %32 ], [ null, %61 ], [ null, %103 ], [ %6, %3 ]
   ret ptr %.0
 }
 
@@ -669,11 +681,11 @@ define ptr @extraZddNotSupSet(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0
   %4 = icmp eq ptr %1, %2
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
-  br i1 %4, label %117, label %7
+  br i1 %4, label %123, label %7
 
 7:                                                ; preds = %3
   %8 = icmp eq ptr %2, %6
-  br i1 %8, label %117, label %9
+  br i1 %8, label %123, label %9
 
 9:                                                ; preds = %7
   %10 = load i32, ptr %2, align 8
@@ -695,16 +707,16 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %9
   %16 = icmp eq ptr %.0.lcssa.i, %15
   %17 = icmp eq ptr %1, %6
   %or.cond = or i1 %17, %16
-  br i1 %or.cond, label %117, label %18
+  br i1 %or.cond, label %123, label %18
 
 18:                                               ; preds = %Extra_zddEmptyBelongs.exit
   %19 = icmp eq ptr %1, %15
-  br i1 %19, label %117, label %20
+  br i1 %19, label %123, label %20
 
 20:                                               ; preds = %18
   %21 = tail call ptr @cuddCacheLookup2Zdd(ptr noundef nonnull %0, ptr noundef nonnull @extraZddNotSupSet, ptr noundef %1, ptr noundef nonnull %2) #3
   %.not110 = icmp eq ptr %21, null
-  br i1 %.not110, label %22, label %117
+  br i1 %.not110, label %22, label %123
 
 22:                                               ; preds = %20
   %23 = getelementptr inbounds i8, ptr %0, i64 320
@@ -718,14 +730,14 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %9
   %31 = getelementptr inbounds i32, ptr %24, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = icmp slt i32 %28, %32
-  br i1 %33, label %34, label %62
+  br i1 %33, label %34, label %67
 
 34:                                               ; preds = %22
   %35 = getelementptr inbounds i8, ptr %1, i64 24
   %36 = load ptr, ptr %35, align 8
   %37 = tail call ptr @extraZddNotSupSet(ptr noundef nonnull %0, ptr noundef %36, ptr noundef nonnull %2)
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %117, label %39
+  br i1 %38, label %123, label %39
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds i8, ptr %1, i64 16
@@ -743,7 +755,7 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %9
 
 50:                                               ; preds = %39
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %37) #3
-  br label %117
+  br label %123
 
 51:                                               ; preds = %39
   %52 = ptrtoint ptr %48 to i64
@@ -756,109 +768,115 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %9
   %58 = load i32, ptr %1, align 8
   %59 = tail call ptr @cuddZddGetNode(ptr noundef nonnull %0, i32 noundef %58, ptr noundef nonnull %48, ptr noundef nonnull %37) #3
   %60 = icmp eq ptr %59, null
-  br i1 %60, label %61, label %.sink.split
+  br i1 %60, label %61, label %62
 
 61:                                               ; preds = %51
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %37) #3
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %48) #3
-  br label %117
+  br label %123
 
-62:                                               ; preds = %22
-  %63 = icmp eq i32 %28, %32
-  br i1 %63, label %64, label %107
+62:                                               ; preds = %51
+  %63 = load i32, ptr %44, align 4
+  %64 = add i32 %63, -1
+  store i32 %64, ptr %44, align 4
+  %65 = load i32, ptr %55, align 4
+  %66 = add i32 %65, -1
+  store i32 %66, ptr %55, align 4
+  br label %122
 
-64:                                               ; preds = %62
-  %65 = getelementptr inbounds i8, ptr %1, i64 16
-  %66 = getelementptr inbounds i8, ptr %1, i64 24
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %2, i64 24
-  %69 = load ptr, ptr %68, align 8
-  %70 = tail call ptr @extraZddNotSupSet(ptr noundef nonnull %0, ptr noundef %67, ptr noundef %69)
-  %71 = icmp eq ptr %70, null
-  br i1 %71, label %117, label %72
+67:                                               ; preds = %22
+  %68 = icmp eq i32 %28, %32
+  br i1 %68, label %69, label %117
 
-72:                                               ; preds = %64
-  %73 = getelementptr inbounds i8, ptr %2, i64 16
-  %74 = ptrtoint ptr %70 to i64
-  %75 = and i64 %74, -2
-  %76 = inttoptr i64 %75 to ptr
-  %77 = getelementptr inbounds i8, ptr %76, i64 4
-  %78 = load i32, ptr %77, align 4
-  %79 = add i32 %78, 1
-  store i32 %79, ptr %77, align 4
-  %80 = load ptr, ptr %68, align 8
-  %81 = load ptr, ptr %73, align 8
-  %82 = tail call ptr @cuddZddUnion(ptr noundef nonnull %0, ptr noundef %80, ptr noundef %81) #3
-  %83 = icmp eq ptr %82, null
-  br i1 %83, label %84, label %85
+69:                                               ; preds = %67
+  %70 = getelementptr inbounds i8, ptr %1, i64 16
+  %71 = getelementptr inbounds i8, ptr %1, i64 24
+  %72 = load ptr, ptr %71, align 8
+  %73 = getelementptr inbounds i8, ptr %2, i64 24
+  %74 = load ptr, ptr %73, align 8
+  %75 = tail call ptr @extraZddNotSupSet(ptr noundef nonnull %0, ptr noundef %72, ptr noundef %74)
+  %76 = icmp eq ptr %75, null
+  br i1 %76, label %123, label %77
 
-84:                                               ; preds = %72
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %70) #3
-  br label %117
+77:                                               ; preds = %69
+  %78 = getelementptr inbounds i8, ptr %2, i64 16
+  %79 = ptrtoint ptr %75 to i64
+  %80 = and i64 %79, -2
+  %81 = inttoptr i64 %80 to ptr
+  %82 = getelementptr inbounds i8, ptr %81, i64 4
+  %83 = load i32, ptr %82, align 4
+  %84 = add i32 %83, 1
+  store i32 %84, ptr %82, align 4
+  %85 = load ptr, ptr %73, align 8
+  %86 = load ptr, ptr %78, align 8
+  %87 = tail call ptr @cuddZddUnion(ptr noundef nonnull %0, ptr noundef %85, ptr noundef %86) #3
+  %88 = icmp eq ptr %87, null
+  br i1 %88, label %89, label %90
 
-85:                                               ; preds = %72
-  %86 = ptrtoint ptr %82 to i64
-  %87 = and i64 %86, -2
-  %88 = inttoptr i64 %87 to ptr
-  %89 = getelementptr inbounds i8, ptr %88, i64 4
-  %90 = load i32, ptr %89, align 4
-  %91 = add i32 %90, 1
-  store i32 %91, ptr %89, align 4
-  %92 = load ptr, ptr %65, align 8
-  %93 = tail call ptr @extraZddNotSupSet(ptr noundef nonnull %0, ptr noundef %92, ptr noundef nonnull %82)
-  %94 = icmp eq ptr %93, null
-  br i1 %94, label %95, label %96
+89:                                               ; preds = %77
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %75) #3
+  br label %123
 
-95:                                               ; preds = %85
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %70) #3
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %82) #3
-  br label %117
+90:                                               ; preds = %77
+  %91 = ptrtoint ptr %87 to i64
+  %92 = and i64 %91, -2
+  %93 = inttoptr i64 %92 to ptr
+  %94 = getelementptr inbounds i8, ptr %93, i64 4
+  %95 = load i32, ptr %94, align 4
+  %96 = add i32 %95, 1
+  store i32 %96, ptr %94, align 4
+  %97 = load ptr, ptr %70, align 8
+  %98 = tail call ptr @extraZddNotSupSet(ptr noundef nonnull %0, ptr noundef %97, ptr noundef nonnull %87)
+  %99 = icmp eq ptr %98, null
+  br i1 %99, label %100, label %101
 
-96:                                               ; preds = %85
-  %97 = ptrtoint ptr %93 to i64
-  %98 = and i64 %97, -2
-  %99 = inttoptr i64 %98 to ptr
-  %100 = getelementptr inbounds i8, ptr %99, i64 4
-  %101 = load i32, ptr %100, align 4
-  %102 = add i32 %101, 1
-  store i32 %102, ptr %100, align 4
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %82) #3
-  %103 = load i32, ptr %1, align 8
-  %104 = tail call ptr @cuddZddGetNode(ptr noundef nonnull %0, i32 noundef %103, ptr noundef nonnull %93, ptr noundef nonnull %70) #3
-  %105 = icmp eq ptr %104, null
-  br i1 %105, label %106, label %.sink.split
+100:                                              ; preds = %90
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %75) #3
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %87) #3
+  br label %123
 
-106:                                              ; preds = %96
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %70) #3
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %93) #3
-  br label %117
+101:                                              ; preds = %90
+  %102 = ptrtoint ptr %98 to i64
+  %103 = and i64 %102, -2
+  %104 = inttoptr i64 %103 to ptr
+  %105 = getelementptr inbounds i8, ptr %104, i64 4
+  %106 = load i32, ptr %105, align 4
+  %107 = add i32 %106, 1
+  store i32 %107, ptr %105, align 4
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %87) #3
+  %108 = load i32, ptr %1, align 8
+  %109 = tail call ptr @cuddZddGetNode(ptr noundef nonnull %0, i32 noundef %108, ptr noundef nonnull %98, ptr noundef nonnull %75) #3
+  %110 = icmp eq ptr %109, null
+  br i1 %110, label %111, label %112
 
-107:                                              ; preds = %62
-  %108 = getelementptr inbounds i8, ptr %2, i64 24
-  %109 = load ptr, ptr %108, align 8
-  %110 = tail call ptr @extraZddNotSupSet(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %109)
-  %111 = icmp eq ptr %110, null
-  br i1 %111, label %117, label %116
+111:                                              ; preds = %101
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %75) #3
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %98) #3
+  br label %123
 
-.sink.split:                                      ; preds = %96, %51
-  %.sink116 = phi ptr [ %44, %51 ], [ %77, %96 ]
-  %.sink = phi ptr [ %55, %51 ], [ %100, %96 ]
-  %.094.ph = phi ptr [ %59, %51 ], [ %104, %96 ]
-  %112 = load i32, ptr %.sink116, align 4
-  %113 = add i32 %112, -1
-  store i32 %113, ptr %.sink116, align 4
-  %114 = load i32, ptr %.sink, align 4
-  %115 = add i32 %114, -1
-  store i32 %115, ptr %.sink, align 4
-  br label %116
+112:                                              ; preds = %101
+  %113 = load i32, ptr %82, align 4
+  %114 = add i32 %113, -1
+  store i32 %114, ptr %82, align 4
+  %115 = load i32, ptr %105, align 4
+  %116 = add i32 %115, -1
+  store i32 %116, ptr %105, align 4
+  br label %122
 
-116:                                              ; preds = %.sink.split, %107
-  %.094 = phi ptr [ %110, %107 ], [ %.094.ph, %.sink.split ]
+117:                                              ; preds = %67
+  %118 = getelementptr inbounds i8, ptr %2, i64 24
+  %119 = load ptr, ptr %118, align 8
+  %120 = tail call ptr @extraZddNotSupSet(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %119)
+  %121 = icmp eq ptr %120, null
+  br i1 %121, label %123, label %122
+
+122:                                              ; preds = %112, %117, %62
+  %.094 = phi ptr [ %59, %62 ], [ %109, %112 ], [ %120, %117 ]
   tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @extraZddNotSupSet, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %.094) #3
-  br label %117
+  br label %123
 
-117:                                              ; preds = %3, %Extra_zddEmptyBelongs.exit, %107, %64, %34, %20, %18, %7, %116, %106, %95, %84, %61, %50
-  %.0 = phi ptr [ null, %50 ], [ null, %61 ], [ %.094, %116 ], [ null, %84 ], [ null, %95 ], [ null, %106 ], [ %1, %7 ], [ %15, %18 ], [ %21, %20 ], [ null, %34 ], [ null, %64 ], [ null, %107 ], [ %6, %Extra_zddEmptyBelongs.exit ], [ %6, %3 ]
+123:                                              ; preds = %3, %Extra_zddEmptyBelongs.exit, %117, %69, %34, %20, %18, %7, %122, %111, %100, %89, %61, %50
+  %.0 = phi ptr [ null, %50 ], [ null, %61 ], [ %.094, %122 ], [ null, %89 ], [ null, %100 ], [ null, %111 ], [ %1, %7 ], [ %15, %18 ], [ %21, %20 ], [ null, %34 ], [ null, %69 ], [ null, %117 ], [ %6, %Extra_zddEmptyBelongs.exit ], [ %6, %3 ]
   ret ptr %.0
 }
 
@@ -887,7 +905,7 @@ define ptr @extraZddMaxNotSupSet(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %4 = icmp eq ptr %1, %2
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
-  br i1 %4, label %139, label %7
+  br i1 %4, label %145, label %7
 
 7:                                                ; preds = %3
   %8 = icmp eq ptr %2, %6
@@ -895,7 +913,7 @@ define ptr @extraZddMaxNotSupSet(ptr noundef %0, ptr noundef %1, ptr noundef %2)
 
 9:                                                ; preds = %7
   %10 = tail call ptr @extraZddMaximal(ptr noundef nonnull %0, ptr noundef %1) #3
-  br label %139
+  br label %145
 
 11:                                               ; preds = %7
   %12 = load i32, ptr %2, align 8
@@ -917,16 +935,16 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %11
   %18 = icmp eq ptr %.0.lcssa.i, %17
   %19 = icmp eq ptr %1, %6
   %or.cond = or i1 %19, %18
-  br i1 %or.cond, label %139, label %20
+  br i1 %or.cond, label %145, label %20
 
 20:                                               ; preds = %Extra_zddEmptyBelongs.exit
   %21 = icmp eq ptr %1, %17
-  br i1 %21, label %139, label %22
+  br i1 %21, label %145, label %22
 
 22:                                               ; preds = %20
   %23 = tail call ptr @cuddCacheLookup2Zdd(ptr noundef nonnull %0, ptr noundef nonnull @extraZddMaxNotSupSet, ptr noundef %1, ptr noundef nonnull %2) #3
   %.not135 = icmp eq ptr %23, null
-  br i1 %.not135, label %24, label %139
+  br i1 %.not135, label %24, label %145
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds i8, ptr %0, i64 320
@@ -940,14 +958,14 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %11
   %33 = getelementptr inbounds i32, ptr %26, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = icmp slt i32 %30, %34
-  br i1 %35, label %36, label %74
+  br i1 %35, label %36, label %79
 
 36:                                               ; preds = %24
   %37 = getelementptr inbounds i8, ptr %1, i64 24
   %38 = load ptr, ptr %37, align 8
   %39 = tail call ptr @extraZddMaxNotSupSet(ptr noundef nonnull %0, ptr noundef %38, ptr noundef nonnull %2)
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %139, label %41
+  br i1 %40, label %145, label %41
 
 41:                                               ; preds = %36
   %42 = getelementptr inbounds i8, ptr %1, i64 16
@@ -965,7 +983,7 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %11
 
 52:                                               ; preds = %41
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %39) #3
-  br label %139
+  br label %145
 
 53:                                               ; preds = %41
   %54 = ptrtoint ptr %50 to i64
@@ -982,7 +1000,7 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %11
 62:                                               ; preds = %53
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %39) #3
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %50) #3
-  br label %139
+  br label %145
 
 63:                                               ; preds = %53
   %64 = ptrtoint ptr %60 to i64
@@ -996,127 +1014,133 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %11
   %70 = load i32, ptr %1, align 8
   %71 = tail call ptr @cuddZddGetNode(ptr noundef nonnull %0, i32 noundef %70, ptr noundef nonnull %50, ptr noundef nonnull %60) #3
   %72 = icmp eq ptr %71, null
-  br i1 %72, label %73, label %.sink.split
+  br i1 %72, label %73, label %74
 
 73:                                               ; preds = %63
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %60) #3
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %50) #3
-  br label %139
+  br label %145
 
-74:                                               ; preds = %24
-  %75 = icmp eq i32 %30, %34
-  br i1 %75, label %76, label %129
+74:                                               ; preds = %63
+  %75 = load i32, ptr %67, align 4
+  %76 = add i32 %75, -1
+  store i32 %76, ptr %67, align 4
+  %77 = load i32, ptr %57, align 4
+  %78 = add i32 %77, -1
+  store i32 %78, ptr %57, align 4
+  br label %144
 
-76:                                               ; preds = %74
-  %77 = getelementptr inbounds i8, ptr %1, i64 16
-  %78 = getelementptr inbounds i8, ptr %1, i64 24
-  %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %2, i64 24
-  %81 = load ptr, ptr %80, align 8
-  %82 = tail call ptr @extraZddMaxNotSupSet(ptr noundef nonnull %0, ptr noundef %79, ptr noundef %81)
-  %83 = icmp eq ptr %82, null
-  br i1 %83, label %139, label %84
+79:                                               ; preds = %24
+  %80 = icmp eq i32 %30, %34
+  br i1 %80, label %81, label %139
 
-84:                                               ; preds = %76
-  %85 = getelementptr inbounds i8, ptr %2, i64 16
-  %86 = ptrtoint ptr %82 to i64
-  %87 = and i64 %86, -2
-  %88 = inttoptr i64 %87 to ptr
-  %89 = getelementptr inbounds i8, ptr %88, i64 4
-  %90 = load i32, ptr %89, align 4
-  %91 = add i32 %90, 1
-  store i32 %91, ptr %89, align 4
-  %92 = load ptr, ptr %80, align 8
-  %93 = load ptr, ptr %85, align 8
-  %94 = tail call ptr @cuddZddUnion(ptr noundef nonnull %0, ptr noundef %92, ptr noundef %93) #3
-  %95 = icmp eq ptr %94, null
-  br i1 %95, label %96, label %97
+81:                                               ; preds = %79
+  %82 = getelementptr inbounds i8, ptr %1, i64 16
+  %83 = getelementptr inbounds i8, ptr %1, i64 24
+  %84 = load ptr, ptr %83, align 8
+  %85 = getelementptr inbounds i8, ptr %2, i64 24
+  %86 = load ptr, ptr %85, align 8
+  %87 = tail call ptr @extraZddMaxNotSupSet(ptr noundef nonnull %0, ptr noundef %84, ptr noundef %86)
+  %88 = icmp eq ptr %87, null
+  br i1 %88, label %145, label %89
 
-96:                                               ; preds = %84
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %82) #3
-  br label %139
+89:                                               ; preds = %81
+  %90 = getelementptr inbounds i8, ptr %2, i64 16
+  %91 = ptrtoint ptr %87 to i64
+  %92 = and i64 %91, -2
+  %93 = inttoptr i64 %92 to ptr
+  %94 = getelementptr inbounds i8, ptr %93, i64 4
+  %95 = load i32, ptr %94, align 4
+  %96 = add i32 %95, 1
+  store i32 %96, ptr %94, align 4
+  %97 = load ptr, ptr %85, align 8
+  %98 = load ptr, ptr %90, align 8
+  %99 = tail call ptr @cuddZddUnion(ptr noundef nonnull %0, ptr noundef %97, ptr noundef %98) #3
+  %100 = icmp eq ptr %99, null
+  br i1 %100, label %101, label %102
 
-97:                                               ; preds = %84
-  %98 = ptrtoint ptr %94 to i64
-  %99 = and i64 %98, -2
-  %100 = inttoptr i64 %99 to ptr
-  %101 = getelementptr inbounds i8, ptr %100, i64 4
-  %102 = load i32, ptr %101, align 4
-  %103 = add i32 %102, 1
-  store i32 %103, ptr %101, align 4
-  %104 = load ptr, ptr %77, align 8
-  %105 = tail call ptr @extraZddMaxNotSupSet(ptr noundef nonnull %0, ptr noundef %104, ptr noundef nonnull %94)
-  %106 = icmp eq ptr %105, null
-  br i1 %106, label %107, label %108
+101:                                              ; preds = %89
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %87) #3
+  br label %145
 
-107:                                              ; preds = %97
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %82) #3
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %94) #3
-  br label %139
+102:                                              ; preds = %89
+  %103 = ptrtoint ptr %99 to i64
+  %104 = and i64 %103, -2
+  %105 = inttoptr i64 %104 to ptr
+  %106 = getelementptr inbounds i8, ptr %105, i64 4
+  %107 = load i32, ptr %106, align 4
+  %108 = add i32 %107, 1
+  store i32 %108, ptr %106, align 4
+  %109 = load ptr, ptr %82, align 8
+  %110 = tail call ptr @extraZddMaxNotSupSet(ptr noundef nonnull %0, ptr noundef %109, ptr noundef nonnull %99)
+  %111 = icmp eq ptr %110, null
+  br i1 %111, label %112, label %113
 
-108:                                              ; preds = %97
-  %109 = ptrtoint ptr %105 to i64
-  %110 = and i64 %109, -2
-  %111 = inttoptr i64 %110 to ptr
-  %112 = getelementptr inbounds i8, ptr %111, i64 4
-  %113 = load i32, ptr %112, align 4
-  %114 = add i32 %113, 1
-  store i32 %114, ptr %112, align 4
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %94) #3
-  %115 = tail call ptr @extraZddNotSubSet(ptr noundef nonnull %0, ptr noundef nonnull %82, ptr noundef nonnull %105)
-  %116 = icmp eq ptr %115, null
-  br i1 %116, label %117, label %118
+112:                                              ; preds = %102
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %87) #3
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %99) #3
+  br label %145
 
-117:                                              ; preds = %108
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %82) #3
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %105) #3
-  br label %139
+113:                                              ; preds = %102
+  %114 = ptrtoint ptr %110 to i64
+  %115 = and i64 %114, -2
+  %116 = inttoptr i64 %115 to ptr
+  %117 = getelementptr inbounds i8, ptr %116, i64 4
+  %118 = load i32, ptr %117, align 4
+  %119 = add i32 %118, 1
+  store i32 %119, ptr %117, align 4
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %99) #3
+  %120 = tail call ptr @extraZddNotSubSet(ptr noundef nonnull %0, ptr noundef nonnull %87, ptr noundef nonnull %110)
+  %121 = icmp eq ptr %120, null
+  br i1 %121, label %122, label %123
 
-118:                                              ; preds = %108
-  %119 = ptrtoint ptr %115 to i64
-  %120 = and i64 %119, -2
-  %121 = inttoptr i64 %120 to ptr
-  %122 = getelementptr inbounds i8, ptr %121, i64 4
-  %123 = load i32, ptr %122, align 4
-  %124 = add i32 %123, 1
-  store i32 %124, ptr %122, align 4
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %82) #3
-  %125 = load i32, ptr %1, align 8
-  %126 = tail call ptr @cuddZddGetNode(ptr noundef nonnull %0, i32 noundef %125, ptr noundef nonnull %105, ptr noundef nonnull %115) #3
-  %127 = icmp eq ptr %126, null
-  br i1 %127, label %128, label %.sink.split
+122:                                              ; preds = %113
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %87) #3
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %110) #3
+  br label %145
 
-128:                                              ; preds = %118
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %115) #3
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %105) #3
-  br label %139
+123:                                              ; preds = %113
+  %124 = ptrtoint ptr %120 to i64
+  %125 = and i64 %124, -2
+  %126 = inttoptr i64 %125 to ptr
+  %127 = getelementptr inbounds i8, ptr %126, i64 4
+  %128 = load i32, ptr %127, align 4
+  %129 = add i32 %128, 1
+  store i32 %129, ptr %127, align 4
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %87) #3
+  %130 = load i32, ptr %1, align 8
+  %131 = tail call ptr @cuddZddGetNode(ptr noundef nonnull %0, i32 noundef %130, ptr noundef nonnull %110, ptr noundef nonnull %120) #3
+  %132 = icmp eq ptr %131, null
+  br i1 %132, label %133, label %134
 
-129:                                              ; preds = %74
-  %130 = getelementptr inbounds i8, ptr %2, i64 24
-  %131 = load ptr, ptr %130, align 8
-  %132 = tail call ptr @extraZddMaxNotSupSet(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %131)
-  %133 = icmp eq ptr %132, null
-  br i1 %133, label %139, label %138
+133:                                              ; preds = %123
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %120) #3
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %110) #3
+  br label %145
 
-.sink.split:                                      ; preds = %118, %63
-  %.sink141 = phi ptr [ %67, %63 ], [ %122, %118 ]
-  %.sink = phi ptr [ %57, %63 ], [ %112, %118 ]
-  %.0117.ph = phi ptr [ %71, %63 ], [ %126, %118 ]
-  %134 = load i32, ptr %.sink141, align 4
-  %135 = add i32 %134, -1
-  store i32 %135, ptr %.sink141, align 4
-  %136 = load i32, ptr %.sink, align 4
-  %137 = add i32 %136, -1
-  store i32 %137, ptr %.sink, align 4
-  br label %138
+134:                                              ; preds = %123
+  %135 = load i32, ptr %127, align 4
+  %136 = add i32 %135, -1
+  store i32 %136, ptr %127, align 4
+  %137 = load i32, ptr %117, align 4
+  %138 = add i32 %137, -1
+  store i32 %138, ptr %117, align 4
+  br label %144
 
-138:                                              ; preds = %.sink.split, %129
-  %.0117 = phi ptr [ %132, %129 ], [ %.0117.ph, %.sink.split ]
+139:                                              ; preds = %79
+  %140 = getelementptr inbounds i8, ptr %2, i64 24
+  %141 = load ptr, ptr %140, align 8
+  %142 = tail call ptr @extraZddMaxNotSupSet(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %141)
+  %143 = icmp eq ptr %142, null
+  br i1 %143, label %145, label %144
+
+144:                                              ; preds = %134, %139, %74
+  %.0117 = phi ptr [ %71, %74 ], [ %131, %134 ], [ %142, %139 ]
   tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @extraZddMaxNotSupSet, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %.0117) #3
-  br label %139
+  br label %145
 
-139:                                              ; preds = %3, %Extra_zddEmptyBelongs.exit, %129, %76, %36, %22, %20, %138, %128, %117, %107, %96, %73, %62, %52, %9
-  %.0 = phi ptr [ %10, %9 ], [ null, %52 ], [ null, %62 ], [ null, %73 ], [ %.0117, %138 ], [ null, %96 ], [ null, %107 ], [ null, %117 ], [ null, %128 ], [ %17, %20 ], [ %23, %22 ], [ null, %36 ], [ null, %76 ], [ null, %129 ], [ %6, %Extra_zddEmptyBelongs.exit ], [ %6, %3 ]
+145:                                              ; preds = %3, %Extra_zddEmptyBelongs.exit, %139, %81, %36, %22, %20, %144, %133, %122, %112, %101, %73, %62, %52, %9
+  %.0 = phi ptr [ %10, %9 ], [ null, %52 ], [ null, %62 ], [ null, %73 ], [ %.0117, %144 ], [ null, %101 ], [ null, %112 ], [ null, %122 ], [ null, %133 ], [ %17, %20 ], [ %23, %22 ], [ null, %36 ], [ null, %81 ], [ null, %139 ], [ %6, %Extra_zddEmptyBelongs.exit ], [ %6, %3 ]
   ret ptr %.0
 }
 

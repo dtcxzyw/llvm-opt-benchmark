@@ -22979,7 +22979,8 @@ define internal fastcc noundef ptr @get_string(ptr noundef %0, i32 noundef %1, i
   %33 = sext i32 %.2 to i64
   %34 = getelementptr i8, ptr %14, i64 %33
   %35 = getelementptr i8, ptr %34, i64 1
-  br label %.sink.split
+  store i8 0, ptr %35, align 1
+  br label %43
 
 36:                                               ; preds = %28
   %37 = icmp sgt i32 %.2, 1022
@@ -22995,15 +22996,11 @@ define internal fastcc noundef ptr @get_string(ptr noundef %0, i32 noundef %1, i
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %.1, i32 0)
   %41 = zext nneg i32 %spec.store.select to i64
   %42 = getelementptr i8, ptr %14, i64 %41
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %32, %._crit_edge
-  %.sink = phi ptr [ %42, %._crit_edge ], [ %35, %32 ]
-  store i8 0, ptr %.sink, align 1
+  store i8 0, ptr %42, align 1
   br label %43
 
-43:                                               ; preds = %.sink.split, %8
-  %.0 = phi ptr [ @.str.23, %8 ], [ %14, %.sink.split ]
+43:                                               ; preds = %8, %._crit_edge, %32
+  %.0 = phi ptr [ %14, %32 ], [ %14, %._crit_edge ], [ @.str.23, %8 ]
   ret ptr %.0
 }
 
@@ -23157,7 +23154,8 @@ define internal fastcc void @print_nds_values(ptr noundef %0, ptr noundef %1, pt
   %61 = sext i32 %.2.i to i64
   %62 = getelementptr i8, ptr %42, i64 %61
   %63 = getelementptr i8, ptr %62, i64 1
-  br label %.sink.split.i
+  store i8 0, ptr %63, align 1
+  br label %get_string.exit
 
 64:                                               ; preds = %56
   %65 = icmp sgt i32 %.2.i, 1022
@@ -23173,15 +23171,11 @@ define internal fastcc void @print_nds_values(ptr noundef %0, ptr noundef %1, pt
   %spec.store.select.i = call i32 @llvm.smax.i32(i32 %.1.i, i32 0)
   %69 = zext nneg i32 %spec.store.select.i to i64
   %70 = getelementptr i8, ptr %42, i64 %69
-  br label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %._crit_edge.i, %60
-  %.sink.i = phi ptr [ %70, %._crit_edge.i ], [ %63, %60 ]
-  store i8 0, ptr %.sink.i, align 1
+  store i8 0, ptr %70, align 1
   br label %get_string.exit
 
-get_string.exit:                                  ; preds = %36, %.sink.split.i
-  %.0.i674 = phi ptr [ @.str.23, %36 ], [ %42, %.sink.split.i ]
+get_string.exit:                                  ; preds = %36, %60, %._crit_edge.i
+  %.0.i674 = phi ptr [ %42, %60 ], [ %42, %._crit_edge.i ], [ @.str.23, %36 ]
   store ptr %.0.i674, ptr %15, align 8
   %71 = load i32, ptr @hf_value_string, align 4
   %72 = call ptr @proto_tree_add_string(ptr noundef %13, i32 noundef %71, ptr noundef %2, i32 noundef %31, i32 noundef %30, ptr noundef nonnull %.0.i674) #13

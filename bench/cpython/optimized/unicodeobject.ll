@@ -42304,7 +42304,11 @@ _PyUnicodeWriter_Update.exit:                     ; preds = %if.then.i, %if.else
   %.sink.i = phi i64 [ %.val.i, %if.then.i ], [ 0, %if.else.i ]
   %14 = getelementptr inbounds i8, ptr %writer, i64 24
   store i64 %.sink.i, ptr %14, align 8
-  br label %return.sink.split
+  %pos10 = getelementptr inbounds i8, ptr %writer, i64 32
+  %15 = load i64, ptr %pos10, align 8
+  %add = add i64 %15, %str.val
+  store i64 %add, ptr %pos10, align 8
+  br label %return
 
 if.end11:                                         ; preds = %land.lhs.true, %if.then5
   %call12 = tail call i32 @_PyUnicodeWriter_PrepareInternal(ptr noundef nonnull %writer, i64 noundef %str.val, i32 noundef %retval.0.i)
@@ -42317,20 +42321,17 @@ if.end11.if.end16_crit_edge:                      ; preds = %if.end11
   br label %if.end16
 
 if.end16:                                         ; preds = %if.end11.if.end16_crit_edge, %lor.lhs.false
-  %15 = phi i64 [ %.pre, %if.end11.if.end16_crit_edge ], [ %5, %lor.lhs.false ]
-  %16 = load ptr, ptr %writer, align 8
-  %call.i = tail call fastcc i32 @_copy_characters(ptr noundef %16, i64 noundef %15, ptr noundef nonnull %str, i64 noundef 0, i64 noundef %str.val, i32 noundef 0)
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %_PyUnicodeWriter_Update.exit, %if.end16
-  %pos18.sink28 = getelementptr inbounds i8, ptr %writer, i64 32
-  %17 = load i64, ptr %pos18.sink28, align 8
-  %add20 = add i64 %17, %str.val
-  store i64 %add20, ptr %pos18.sink28, align 8
+  %16 = phi i64 [ %.pre, %if.end11.if.end16_crit_edge ], [ %5, %lor.lhs.false ]
+  %17 = load ptr, ptr %writer, align 8
+  %pos18 = getelementptr inbounds i8, ptr %writer, i64 32
+  %call.i = tail call fastcc i32 @_copy_characters(ptr noundef %17, i64 noundef %16, ptr noundef nonnull %str, i64 noundef 0, i64 noundef %str.val, i32 noundef 0)
+  %18 = load i64, ptr %pos18, align 8
+  %add20 = add i64 %18, %str.val
+  store i64 %add20, ptr %pos18, align 8
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.end11, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ -1, %if.end11 ], [ 0, %return.sink.split ]
+return:                                           ; preds = %if.end11, %entry, %if.end16, %_PyUnicodeWriter_Update.exit
+  %retval.0 = phi i32 [ 0, %if.end16 ], [ 0, %_PyUnicodeWriter_Update.exit ], [ 0, %entry ], [ -1, %if.end11 ]
   ret i32 %retval.0
 }
 

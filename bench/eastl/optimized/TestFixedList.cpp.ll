@@ -9368,7 +9368,8 @@ if.then4:                                         ; preds = %if.then
   %9 = load i64, ptr %mSize8, align 8
   %add = add i64 %9, %8
   store i64 %add, ptr %mSize8, align 8
-  br label %if.end13.sink.split
+  store i64 0, ptr %mSize, align 8
+  br label %if.end13
 
 if.else:                                          ; preds = %entry
   %10 = load ptr, ptr %x, align 8
@@ -9472,14 +9473,10 @@ _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEE
   %mpPrev.i.i10 = getelementptr inbounds i8, ptr %x, i64 8
   store ptr %x, ptr %mpPrev.i.i10, align 8
   %mSize.i = getelementptr inbounds i8, ptr %x, i64 64
-  br label %if.end13.sink.split
-
-if.end13.sink.split:                              ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5clearEv.exit, %if.then4
-  %mSize.sink = phi ptr [ %mSize, %if.then4 ], [ %mSize.i, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5clearEv.exit ]
-  store i64 0, ptr %mSize.sink, align 8
+  store i64 0, ptr %mSize.i, align 8
   br label %if.end13
 
-if.end13:                                         ; preds = %if.end13.sink.split, %if.then
+if.end13:                                         ; preds = %if.then, %if.then4, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5clearEv.exit
   ret void
 }
 

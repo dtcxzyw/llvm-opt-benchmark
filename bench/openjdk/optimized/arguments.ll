@@ -1120,369 +1120,391 @@ define hidden void @_ZN9Arguments22init_system_propertiesEv() local_unnamed_addr
   store i8 0, ptr %8, align 1
   %9 = load ptr, ptr @_ZN9Arguments18_system_propertiesE, align 8
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit, label %.preheader.i
+  br i1 %10, label %11, label %.preheader.i
 
-.preheader.i:                                     ; preds = %0, %.preheader.i
-  %.0.i = phi ptr [ %12, %.preheader.i ], [ %9, %0 ]
-  %11 = getelementptr inbounds i8, ptr %.0.i, i64 16
-  %12 = load ptr, ptr %11, align 8
-  %.not.i = icmp eq ptr %12, null
-  br i1 %.not.i, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit.loopexit, label %.preheader.i, !llvm.loop !8
-
-_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit.loopexit: ; preds = %.preheader.i
-  %13 = getelementptr inbounds i8, ptr %.0.i, i64 16
+11:                                               ; preds = %0
+  store ptr %2, ptr @_ZN9Arguments18_system_propertiesE, align 8
   br label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit
 
-_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit: ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit.loopexit, %0
-  %.sink.i = phi ptr [ @_ZN9Arguments18_system_propertiesE, %0 ], [ %13, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit.loopexit ]
-  store ptr %2, ptr %.sink.i, align 8
-  %14 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 19, i32 noundef 0) #31
-  %15 = tail call noundef ptr @_ZN19Abstract_VM_Version10vm_releaseEv() #31
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %17, label %18
+.preheader.i:                                     ; preds = %0, %.preheader.i
+  %.0.i = phi ptr [ %13, %.preheader.i ], [ %9, %0 ]
+  %12 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %13 = load ptr, ptr %12, align 8
+  %.not.i = icmp eq ptr %13, null
+  br i1 %.not.i, label %14, label %.preheader.i, !llvm.loop !8
 
-17:                                               ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit
-  store ptr null, ptr %14, align 8
+14:                                               ; preds = %.preheader.i
+  %15 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  store ptr %2, ptr %15, align 8
+  br label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit
+
+_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit: ; preds = %11, %14
+  %16 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 19, i32 noundef 0) #31
+  %17 = tail call noundef ptr @_ZN19Abstract_VM_Version10vm_releaseEv() #31
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %19, label %20
+
+19:                                               ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit
+  store ptr null, ptr %16, align 8
   br label %_ZN14SystemPropertyC2EPKcS1_bb.exit
 
-18:                                               ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit
-  %19 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %15) #30
-  %20 = add i64 %19, 1
-  %21 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %20, i8 noundef zeroext 19, i32 noundef 0) #31
-  store ptr %21, ptr %14, align 8
-  %22 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull readonly dereferenceable(1) %15) #31
+20:                                               ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit
+  %21 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %17) #30
+  %22 = add i64 %21, 1
+  %23 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %22, i8 noundef zeroext 19, i32 noundef 0) #31
+  store ptr %23, ptr %16, align 8
+  %24 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull readonly dereferenceable(1) %17) #31
   br label %_ZN14SystemPropertyC2EPKcS1_bb.exit
 
-_ZN14SystemPropertyC2EPKcS1_bb.exit:              ; preds = %17, %18
-  %23 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i8 noundef zeroext 19, i32 noundef 0) #31
-  %24 = getelementptr inbounds i8, ptr %14, i64 8
-  store ptr %23, ptr %24, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %23, ptr noundef nonnull readonly align 1 dereferenceable(16) @.str.23, i64 16, i1 false) #31
-  %25 = getelementptr inbounds i8, ptr %14, i64 16
-  store ptr null, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %14, i64 24
-  store i8 0, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %14, i64 25
-  store i8 0, ptr %27, align 1
-  %28 = load ptr, ptr @_ZN9Arguments18_system_propertiesE, align 8
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit37, label %.preheader.i33
+_ZN14SystemPropertyC2EPKcS1_bb.exit:              ; preds = %19, %20
+  %25 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i8 noundef zeroext 19, i32 noundef 0) #31
+  %26 = getelementptr inbounds i8, ptr %16, i64 8
+  store ptr %25, ptr %26, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %25, ptr noundef nonnull readonly align 1 dereferenceable(16) @.str.23, i64 16, i1 false) #31
+  %27 = getelementptr inbounds i8, ptr %16, i64 16
+  store ptr null, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %16, i64 24
+  store i8 0, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %16, i64 25
+  store i8 0, ptr %29, align 1
+  %30 = load ptr, ptr @_ZN9Arguments18_system_propertiesE, align 8
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %32, label %.preheader.i33
+
+32:                                               ; preds = %_ZN14SystemPropertyC2EPKcS1_bb.exit
+  store ptr %16, ptr @_ZN9Arguments18_system_propertiesE, align 8
+  br label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit36
 
 .preheader.i33:                                   ; preds = %_ZN14SystemPropertyC2EPKcS1_bb.exit, %.preheader.i33
-  %.0.i34 = phi ptr [ %31, %.preheader.i33 ], [ %28, %_ZN14SystemPropertyC2EPKcS1_bb.exit ]
-  %30 = getelementptr inbounds i8, ptr %.0.i34, i64 16
-  %31 = load ptr, ptr %30, align 8
-  %.not.i35 = icmp eq ptr %31, null
-  br i1 %.not.i35, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit37.loopexit, label %.preheader.i33, !llvm.loop !8
+  %.0.i34 = phi ptr [ %34, %.preheader.i33 ], [ %30, %_ZN14SystemPropertyC2EPKcS1_bb.exit ]
+  %33 = getelementptr inbounds i8, ptr %.0.i34, i64 16
+  %34 = load ptr, ptr %33, align 8
+  %.not.i35 = icmp eq ptr %34, null
+  br i1 %.not.i35, label %35, label %.preheader.i33, !llvm.loop !8
 
-_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit37.loopexit: ; preds = %.preheader.i33
-  %32 = getelementptr inbounds i8, ptr %.0.i34, i64 16
-  br label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit37
+35:                                               ; preds = %.preheader.i33
+  %36 = getelementptr inbounds i8, ptr %.0.i34, i64 16
+  store ptr %16, ptr %36, align 8
+  br label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit36
 
-_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit37: ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit37.loopexit, %_ZN14SystemPropertyC2EPKcS1_bb.exit
-  %.sink.i36 = phi ptr [ @_ZN9Arguments18_system_propertiesE, %_ZN14SystemPropertyC2EPKcS1_bb.exit ], [ %32, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit37.loopexit ]
-  store ptr %14, ptr %.sink.i36, align 8
-  %33 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 19, i32 noundef 0) #31
-  %34 = tail call noundef ptr @_ZN19Abstract_VM_Version7vm_nameEv() #31
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %36, label %37
+_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit36: ; preds = %32, %35
+  %37 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 19, i32 noundef 0) #31
+  %38 = tail call noundef ptr @_ZN19Abstract_VM_Version7vm_nameEv() #31
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %40, label %41
 
-36:                                               ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit37
-  store ptr null, ptr %33, align 8
-  br label %_ZN14SystemPropertyC2EPKcS1_bb.exit38
+40:                                               ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit36
+  store ptr null, ptr %37, align 8
+  br label %_ZN14SystemPropertyC2EPKcS1_bb.exit37
 
-37:                                               ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit37
-  %38 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %34) #30
-  %39 = add i64 %38, 1
-  %40 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %39, i8 noundef zeroext 19, i32 noundef 0) #31
-  store ptr %40, ptr %33, align 8
-  %41 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull readonly dereferenceable(1) %34) #31
-  br label %_ZN14SystemPropertyC2EPKcS1_bb.exit38
+41:                                               ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit36
+  %42 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %38) #30
+  %43 = add i64 %42, 1
+  %44 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %43, i8 noundef zeroext 19, i32 noundef 0) #31
+  store ptr %44, ptr %37, align 8
+  %45 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull readonly dereferenceable(1) %38) #31
+  br label %_ZN14SystemPropertyC2EPKcS1_bb.exit37
 
-_ZN14SystemPropertyC2EPKcS1_bb.exit38:            ; preds = %36, %37
-  %42 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 13, i8 noundef zeroext 19, i32 noundef 0) #31
-  %43 = getelementptr inbounds i8, ptr %33, i64 8
-  store ptr %42, ptr %43, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %42, ptr noundef nonnull readonly align 1 dereferenceable(13) @.str.24, i64 13, i1 false) #31
-  %44 = getelementptr inbounds i8, ptr %33, i64 16
-  store ptr null, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %33, i64 24
-  store i8 0, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %33, i64 25
-  store i8 0, ptr %46, align 1
-  %47 = load ptr, ptr @_ZN9Arguments18_system_propertiesE, align 8
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit43, label %.preheader.i39
+_ZN14SystemPropertyC2EPKcS1_bb.exit37:            ; preds = %40, %41
+  %46 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 13, i8 noundef zeroext 19, i32 noundef 0) #31
+  %47 = getelementptr inbounds i8, ptr %37, i64 8
+  store ptr %46, ptr %47, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %46, ptr noundef nonnull readonly align 1 dereferenceable(13) @.str.24, i64 13, i1 false) #31
+  %48 = getelementptr inbounds i8, ptr %37, i64 16
+  store ptr null, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %37, i64 24
+  store i8 0, ptr %49, align 8
+  %50 = getelementptr inbounds i8, ptr %37, i64 25
+  store i8 0, ptr %50, align 1
+  %51 = load ptr, ptr @_ZN9Arguments18_system_propertiesE, align 8
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %53, label %.preheader.i38
 
-.preheader.i39:                                   ; preds = %_ZN14SystemPropertyC2EPKcS1_bb.exit38, %.preheader.i39
-  %.0.i40 = phi ptr [ %50, %.preheader.i39 ], [ %47, %_ZN14SystemPropertyC2EPKcS1_bb.exit38 ]
-  %49 = getelementptr inbounds i8, ptr %.0.i40, i64 16
-  %50 = load ptr, ptr %49, align 8
-  %.not.i41 = icmp eq ptr %50, null
-  br i1 %.not.i41, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit43.loopexit, label %.preheader.i39, !llvm.loop !8
+53:                                               ; preds = %_ZN14SystemPropertyC2EPKcS1_bb.exit37
+  store ptr %37, ptr @_ZN9Arguments18_system_propertiesE, align 8
+  br label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit41
 
-_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit43.loopexit: ; preds = %.preheader.i39
-  %51 = getelementptr inbounds i8, ptr %.0.i40, i64 16
-  br label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit43
+.preheader.i38:                                   ; preds = %_ZN14SystemPropertyC2EPKcS1_bb.exit37, %.preheader.i38
+  %.0.i39 = phi ptr [ %55, %.preheader.i38 ], [ %51, %_ZN14SystemPropertyC2EPKcS1_bb.exit37 ]
+  %54 = getelementptr inbounds i8, ptr %.0.i39, i64 16
+  %55 = load ptr, ptr %54, align 8
+  %.not.i40 = icmp eq ptr %55, null
+  br i1 %.not.i40, label %56, label %.preheader.i38, !llvm.loop !8
 
-_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit43: ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit43.loopexit, %_ZN14SystemPropertyC2EPKcS1_bb.exit38
-  %.sink.i42 = phi ptr [ @_ZN9Arguments18_system_propertiesE, %_ZN14SystemPropertyC2EPKcS1_bb.exit38 ], [ %51, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit43.loopexit ]
-  store ptr %33, ptr %.sink.i42, align 8
-  %52 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 19, i32 noundef 0) #31
-  %53 = tail call noundef ptr @_ZN19Abstract_VM_Version15jdk_debug_levelEv() #31
-  %54 = icmp eq ptr %53, null
-  br i1 %54, label %55, label %56
+56:                                               ; preds = %.preheader.i38
+  %57 = getelementptr inbounds i8, ptr %.0.i39, i64 16
+  store ptr %37, ptr %57, align 8
+  br label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit41
 
-55:                                               ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit43
-  store ptr null, ptr %52, align 8
-  br label %_ZN14SystemPropertyC2EPKcS1_bb.exit44
+_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit41: ; preds = %53, %56
+  %58 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 19, i32 noundef 0) #31
+  %59 = tail call noundef ptr @_ZN19Abstract_VM_Version15jdk_debug_levelEv() #31
+  %60 = icmp eq ptr %59, null
+  br i1 %60, label %61, label %62
 
-56:                                               ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit43
-  %57 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %53) #30
-  %58 = add i64 %57, 1
-  %59 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %58, i8 noundef zeroext 19, i32 noundef 0) #31
-  store ptr %59, ptr %52, align 8
-  %60 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %59, ptr noundef nonnull readonly dereferenceable(1) %53) #31
-  br label %_ZN14SystemPropertyC2EPKcS1_bb.exit44
+61:                                               ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit41
+  store ptr null, ptr %58, align 8
+  br label %_ZN14SystemPropertyC2EPKcS1_bb.exit42
 
-_ZN14SystemPropertyC2EPKcS1_bb.exit44:            ; preds = %55, %56
-  %61 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 10, i8 noundef zeroext 19, i32 noundef 0) #31
-  %62 = getelementptr inbounds i8, ptr %52, i64 8
-  store ptr %61, ptr %62, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %61, ptr noundef nonnull readonly align 1 dereferenceable(10) @.str.25, i64 10, i1 false) #31
-  %63 = getelementptr inbounds i8, ptr %52, i64 16
-  store ptr null, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %52, i64 24
-  store i8 0, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %52, i64 25
-  store i8 0, ptr %65, align 1
-  %66 = load ptr, ptr @_ZN9Arguments18_system_propertiesE, align 8
-  %67 = icmp eq ptr %66, null
-  br i1 %67, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit49, label %.preheader.i45
+62:                                               ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit41
+  %63 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %59) #30
+  %64 = add i64 %63, 1
+  %65 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %64, i8 noundef zeroext 19, i32 noundef 0) #31
+  store ptr %65, ptr %58, align 8
+  %66 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %65, ptr noundef nonnull readonly dereferenceable(1) %59) #31
+  br label %_ZN14SystemPropertyC2EPKcS1_bb.exit42
 
-.preheader.i45:                                   ; preds = %_ZN14SystemPropertyC2EPKcS1_bb.exit44, %.preheader.i45
-  %.0.i46 = phi ptr [ %69, %.preheader.i45 ], [ %66, %_ZN14SystemPropertyC2EPKcS1_bb.exit44 ]
-  %68 = getelementptr inbounds i8, ptr %.0.i46, i64 16
-  %69 = load ptr, ptr %68, align 8
-  %.not.i47 = icmp eq ptr %69, null
-  br i1 %.not.i47, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit49.loopexit, label %.preheader.i45, !llvm.loop !8
-
-_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit49.loopexit: ; preds = %.preheader.i45
-  %70 = getelementptr inbounds i8, ptr %.0.i46, i64 16
-  br label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit49
-
-_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit49: ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit49.loopexit, %_ZN14SystemPropertyC2EPKcS1_bb.exit44
-  %.sink.i48 = phi ptr [ @_ZN9Arguments18_system_propertiesE, %_ZN14SystemPropertyC2EPKcS1_bb.exit44 ], [ %70, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit49.loopexit ]
-  store ptr %52, ptr %.sink.i48, align 8
-  %71 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 19, i32 noundef 0) #31
-  %72 = tail call noundef ptr @_ZN19Abstract_VM_Version14vm_info_stringEv() #31
+_ZN14SystemPropertyC2EPKcS1_bb.exit42:            ; preds = %61, %62
+  %67 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 10, i8 noundef zeroext 19, i32 noundef 0) #31
+  %68 = getelementptr inbounds i8, ptr %58, i64 8
+  store ptr %67, ptr %68, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %67, ptr noundef nonnull readonly align 1 dereferenceable(10) @.str.25, i64 10, i1 false) #31
+  %69 = getelementptr inbounds i8, ptr %58, i64 16
+  store ptr null, ptr %69, align 8
+  %70 = getelementptr inbounds i8, ptr %58, i64 24
+  store i8 0, ptr %70, align 8
+  %71 = getelementptr inbounds i8, ptr %58, i64 25
+  store i8 0, ptr %71, align 1
+  %72 = load ptr, ptr @_ZN9Arguments18_system_propertiesE, align 8
   %73 = icmp eq ptr %72, null
-  br i1 %73, label %74, label %75
+  br i1 %73, label %74, label %.preheader.i43
 
-74:                                               ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit49
-  store ptr null, ptr %71, align 8
-  br label %_ZN14SystemPropertyC2EPKcS1_bb.exit50
+74:                                               ; preds = %_ZN14SystemPropertyC2EPKcS1_bb.exit42
+  store ptr %58, ptr @_ZN9Arguments18_system_propertiesE, align 8
+  br label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit46
 
-75:                                               ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit49
-  %76 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %72) #30
-  %77 = add i64 %76, 1
-  %78 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %77, i8 noundef zeroext 19, i32 noundef 0) #31
-  store ptr %78, ptr %71, align 8
-  %79 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %78, ptr noundef nonnull readonly dereferenceable(1) %72) #31
-  br label %_ZN14SystemPropertyC2EPKcS1_bb.exit50
+.preheader.i43:                                   ; preds = %_ZN14SystemPropertyC2EPKcS1_bb.exit42, %.preheader.i43
+  %.0.i44 = phi ptr [ %76, %.preheader.i43 ], [ %72, %_ZN14SystemPropertyC2EPKcS1_bb.exit42 ]
+  %75 = getelementptr inbounds i8, ptr %.0.i44, i64 16
+  %76 = load ptr, ptr %75, align 8
+  %.not.i45 = icmp eq ptr %76, null
+  br i1 %.not.i45, label %77, label %.preheader.i43, !llvm.loop !8
 
-_ZN14SystemPropertyC2EPKcS1_bb.exit50:            ; preds = %74, %75
-  %80 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 13, i8 noundef zeroext 19, i32 noundef 0) #31
-  %81 = getelementptr inbounds i8, ptr %71, i64 8
-  store ptr %80, ptr %81, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %80, ptr noundef nonnull readonly align 1 dereferenceable(13) @.str.26, i64 13, i1 false) #31
-  %82 = getelementptr inbounds i8, ptr %71, i64 16
-  store ptr null, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %71, i64 24
-  store i8 0, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %71, i64 25
-  store i8 1, ptr %84, align 1
-  store ptr %71, ptr @_ZN9Arguments8_vm_infoE, align 8
-  %85 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 19, i32 noundef 0) #31
-  store ptr null, ptr %85, align 8
-  %86 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 22, i8 noundef zeroext 19, i32 noundef 0) #31
-  %87 = getelementptr inbounds i8, ptr %85, i64 8
-  store ptr %86, ptr %87, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %86, ptr noundef nonnull readonly align 1 dereferenceable(22) @.str.27, i64 22, i1 false) #31
-  %88 = getelementptr inbounds i8, ptr %85, i64 16
-  store ptr null, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %85, i64 24
-  store i8 0, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %85, i64 25
-  store i8 1, ptr %90, align 1
-  store ptr %85, ptr @_ZN9Arguments22_sun_boot_library_pathE, align 8
-  %91 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 19, i32 noundef 0) #31
-  store ptr null, ptr %91, align 8
-  %92 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 18, i8 noundef zeroext 19, i32 noundef 0) #31
-  %93 = getelementptr inbounds i8, ptr %91, i64 8
-  store ptr %92, ptr %93, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %92, ptr noundef nonnull readonly align 1 dereferenceable(18) @.str.28, i64 18, i1 false) #31
-  %94 = getelementptr inbounds i8, ptr %91, i64 16
-  store ptr null, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %91, i64 24
-  store i8 0, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %91, i64 25
-  store i8 1, ptr %96, align 1
-  store ptr %91, ptr @_ZN9Arguments18_java_library_pathE, align 8
-  %97 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 19, i32 noundef 0) #31
-  store ptr null, ptr %97, align 8
-  %98 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 10, i8 noundef zeroext 19, i32 noundef 0) #31
-  %99 = getelementptr inbounds i8, ptr %97, i64 8
-  store ptr %98, ptr %99, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %98, ptr noundef nonnull readonly align 1 dereferenceable(10) @.str.29, i64 10, i1 false) #31
-  %100 = getelementptr inbounds i8, ptr %97, i64 16
-  store ptr null, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %97, i64 24
-  store i8 0, ptr %101, align 8
-  %102 = getelementptr inbounds i8, ptr %97, i64 25
-  store i8 1, ptr %102, align 1
-  store ptr %97, ptr @_ZN9Arguments10_java_homeE, align 8
-  %103 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 19, i32 noundef 0) #31
-  %104 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 1, i8 noundef zeroext 19, i32 noundef 0) #31
-  store ptr %104, ptr %103, align 8
-  store i8 0, ptr %104, align 1
-  %105 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i8 noundef zeroext 19, i32 noundef 0) #31
-  %106 = getelementptr inbounds i8, ptr %103, i64 8
-  store ptr %105, ptr %106, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %105, ptr noundef nonnull readonly align 1 dereferenceable(16) @.str.30, i64 16, i1 false) #31
-  %107 = getelementptr inbounds i8, ptr %103, i64 16
-  store ptr null, ptr %107, align 8
-  %108 = getelementptr inbounds i8, ptr %103, i64 24
-  store i8 0, ptr %108, align 8
-  %109 = getelementptr inbounds i8, ptr %103, i64 25
-  store i8 1, ptr %109, align 1
-  store ptr %103, ptr @_ZN9Arguments16_java_class_pathE, align 8
-  %110 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 19, i32 noundef 0) #31
-  store ptr null, ptr %110, align 8
-  %111 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 27, i8 noundef zeroext 19, i32 noundef 0) #31
-  %112 = getelementptr inbounds i8, ptr %110, i64 8
-  store ptr %111, ptr %112, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(27) %111, ptr noundef nonnull readonly align 1 dereferenceable(27) @.str.32, i64 27, i1 false) #31
-  %113 = getelementptr inbounds i8, ptr %110, i64 16
-  store ptr null, ptr %113, align 8
-  %114 = getelementptr inbounds i8, ptr %110, i64 24
-  store i8 1, ptr %114, align 8
-  %115 = getelementptr inbounds i8, ptr %110, i64 25
-  store i8 0, ptr %115, align 1
-  store ptr %110, ptr @_ZN9Arguments27_jdk_boot_class_path_appendE, align 8
-  %116 = load ptr, ptr @_ZN9Arguments22_sun_boot_library_pathE, align 8
-  %117 = load ptr, ptr @_ZN9Arguments18_system_propertiesE, align 8
-  %118 = icmp eq ptr %117, null
-  br i1 %118, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit55, label %.preheader.i51
+77:                                               ; preds = %.preheader.i43
+  %78 = getelementptr inbounds i8, ptr %.0.i44, i64 16
+  store ptr %58, ptr %78, align 8
+  br label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit46
 
-.preheader.i51:                                   ; preds = %_ZN14SystemPropertyC2EPKcS1_bb.exit50, %.preheader.i51
-  %.0.i52 = phi ptr [ %120, %.preheader.i51 ], [ %117, %_ZN14SystemPropertyC2EPKcS1_bb.exit50 ]
-  %119 = getelementptr inbounds i8, ptr %.0.i52, i64 16
-  %120 = load ptr, ptr %119, align 8
-  %.not.i53 = icmp eq ptr %120, null
-  br i1 %.not.i53, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit55.loopexit, label %.preheader.i51, !llvm.loop !8
+_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit46: ; preds = %74, %77
+  %79 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 19, i32 noundef 0) #31
+  %80 = tail call noundef ptr @_ZN19Abstract_VM_Version14vm_info_stringEv() #31
+  %81 = icmp eq ptr %80, null
+  br i1 %81, label %82, label %83
 
-_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit55.loopexit: ; preds = %.preheader.i51
-  %121 = getelementptr inbounds i8, ptr %.0.i52, i64 16
+82:                                               ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit46
+  store ptr null, ptr %79, align 8
+  br label %_ZN14SystemPropertyC2EPKcS1_bb.exit47
+
+83:                                               ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit46
+  %84 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %80) #30
+  %85 = add i64 %84, 1
+  %86 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %85, i8 noundef zeroext 19, i32 noundef 0) #31
+  store ptr %86, ptr %79, align 8
+  %87 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %86, ptr noundef nonnull readonly dereferenceable(1) %80) #31
+  br label %_ZN14SystemPropertyC2EPKcS1_bb.exit47
+
+_ZN14SystemPropertyC2EPKcS1_bb.exit47:            ; preds = %82, %83
+  %88 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 13, i8 noundef zeroext 19, i32 noundef 0) #31
+  %89 = getelementptr inbounds i8, ptr %79, i64 8
+  store ptr %88, ptr %89, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %88, ptr noundef nonnull readonly align 1 dereferenceable(13) @.str.26, i64 13, i1 false) #31
+  %90 = getelementptr inbounds i8, ptr %79, i64 16
+  store ptr null, ptr %90, align 8
+  %91 = getelementptr inbounds i8, ptr %79, i64 24
+  store i8 0, ptr %91, align 8
+  %92 = getelementptr inbounds i8, ptr %79, i64 25
+  store i8 1, ptr %92, align 1
+  store ptr %79, ptr @_ZN9Arguments8_vm_infoE, align 8
+  %93 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 19, i32 noundef 0) #31
+  store ptr null, ptr %93, align 8
+  %94 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 22, i8 noundef zeroext 19, i32 noundef 0) #31
+  %95 = getelementptr inbounds i8, ptr %93, i64 8
+  store ptr %94, ptr %95, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %94, ptr noundef nonnull readonly align 1 dereferenceable(22) @.str.27, i64 22, i1 false) #31
+  %96 = getelementptr inbounds i8, ptr %93, i64 16
+  store ptr null, ptr %96, align 8
+  %97 = getelementptr inbounds i8, ptr %93, i64 24
+  store i8 0, ptr %97, align 8
+  %98 = getelementptr inbounds i8, ptr %93, i64 25
+  store i8 1, ptr %98, align 1
+  store ptr %93, ptr @_ZN9Arguments22_sun_boot_library_pathE, align 8
+  %99 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 19, i32 noundef 0) #31
+  store ptr null, ptr %99, align 8
+  %100 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 18, i8 noundef zeroext 19, i32 noundef 0) #31
+  %101 = getelementptr inbounds i8, ptr %99, i64 8
+  store ptr %100, ptr %101, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %100, ptr noundef nonnull readonly align 1 dereferenceable(18) @.str.28, i64 18, i1 false) #31
+  %102 = getelementptr inbounds i8, ptr %99, i64 16
+  store ptr null, ptr %102, align 8
+  %103 = getelementptr inbounds i8, ptr %99, i64 24
+  store i8 0, ptr %103, align 8
+  %104 = getelementptr inbounds i8, ptr %99, i64 25
+  store i8 1, ptr %104, align 1
+  store ptr %99, ptr @_ZN9Arguments18_java_library_pathE, align 8
+  %105 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 19, i32 noundef 0) #31
+  store ptr null, ptr %105, align 8
+  %106 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 10, i8 noundef zeroext 19, i32 noundef 0) #31
+  %107 = getelementptr inbounds i8, ptr %105, i64 8
+  store ptr %106, ptr %107, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %106, ptr noundef nonnull readonly align 1 dereferenceable(10) @.str.29, i64 10, i1 false) #31
+  %108 = getelementptr inbounds i8, ptr %105, i64 16
+  store ptr null, ptr %108, align 8
+  %109 = getelementptr inbounds i8, ptr %105, i64 24
+  store i8 0, ptr %109, align 8
+  %110 = getelementptr inbounds i8, ptr %105, i64 25
+  store i8 1, ptr %110, align 1
+  store ptr %105, ptr @_ZN9Arguments10_java_homeE, align 8
+  %111 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 19, i32 noundef 0) #31
+  %112 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 1, i8 noundef zeroext 19, i32 noundef 0) #31
+  store ptr %112, ptr %111, align 8
+  store i8 0, ptr %112, align 1
+  %113 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i8 noundef zeroext 19, i32 noundef 0) #31
+  %114 = getelementptr inbounds i8, ptr %111, i64 8
+  store ptr %113, ptr %114, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %113, ptr noundef nonnull readonly align 1 dereferenceable(16) @.str.30, i64 16, i1 false) #31
+  %115 = getelementptr inbounds i8, ptr %111, i64 16
+  store ptr null, ptr %115, align 8
+  %116 = getelementptr inbounds i8, ptr %111, i64 24
+  store i8 0, ptr %116, align 8
+  %117 = getelementptr inbounds i8, ptr %111, i64 25
+  store i8 1, ptr %117, align 1
+  store ptr %111, ptr @_ZN9Arguments16_java_class_pathE, align 8
+  %118 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 19, i32 noundef 0) #31
+  store ptr null, ptr %118, align 8
+  %119 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 27, i8 noundef zeroext 19, i32 noundef 0) #31
+  %120 = getelementptr inbounds i8, ptr %118, i64 8
+  store ptr %119, ptr %120, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(27) %119, ptr noundef nonnull readonly align 1 dereferenceable(27) @.str.32, i64 27, i1 false) #31
+  %121 = getelementptr inbounds i8, ptr %118, i64 16
+  store ptr null, ptr %121, align 8
+  %122 = getelementptr inbounds i8, ptr %118, i64 24
+  store i8 1, ptr %122, align 8
+  %123 = getelementptr inbounds i8, ptr %118, i64 25
+  store i8 0, ptr %123, align 1
+  store ptr %118, ptr @_ZN9Arguments27_jdk_boot_class_path_appendE, align 8
+  %124 = load ptr, ptr @_ZN9Arguments22_sun_boot_library_pathE, align 8
+  %125 = load ptr, ptr @_ZN9Arguments18_system_propertiesE, align 8
+  %126 = icmp eq ptr %125, null
+  br i1 %126, label %127, label %.preheader.i48
+
+127:                                              ; preds = %_ZN14SystemPropertyC2EPKcS1_bb.exit47
+  store ptr %124, ptr @_ZN9Arguments18_system_propertiesE, align 8
+  br label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit51
+
+.preheader.i48:                                   ; preds = %_ZN14SystemPropertyC2EPKcS1_bb.exit47, %.preheader.i48
+  %.0.i49 = phi ptr [ %129, %.preheader.i48 ], [ %125, %_ZN14SystemPropertyC2EPKcS1_bb.exit47 ]
+  %128 = getelementptr inbounds i8, ptr %.0.i49, i64 16
+  %129 = load ptr, ptr %128, align 8
+  %.not.i50 = icmp eq ptr %129, null
+  br i1 %.not.i50, label %130, label %.preheader.i48, !llvm.loop !8
+
+130:                                              ; preds = %.preheader.i48
+  %131 = getelementptr inbounds i8, ptr %.0.i49, i64 16
+  store ptr %124, ptr %131, align 8
+  br label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit51
+
+_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit51: ; preds = %127, %130
+  %.pr72 = phi ptr [ %124, %127 ], [ %125, %130 ]
+  %132 = load ptr, ptr @_ZN9Arguments18_java_library_pathE, align 8
+  %133 = icmp eq ptr %.pr72, null
+  br i1 %133, label %134, label %.preheader.i52
+
+134:                                              ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit51
+  store ptr %132, ptr @_ZN9Arguments18_system_propertiesE, align 8
   br label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit55
 
-_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit55: ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit55.loopexit, %_ZN14SystemPropertyC2EPKcS1_bb.exit50
-  %.sink.i54 = phi ptr [ @_ZN9Arguments18_system_propertiesE, %_ZN14SystemPropertyC2EPKcS1_bb.exit50 ], [ %121, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit55.loopexit ]
-  store ptr %116, ptr %.sink.i54, align 8
-  %122 = load ptr, ptr @_ZN9Arguments18_java_library_pathE, align 8
-  %123 = load ptr, ptr @_ZN9Arguments18_system_propertiesE, align 8
-  %124 = icmp eq ptr %123, null
-  br i1 %124, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit60, label %.preheader.i56
+.preheader.i52:                                   ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit51, %.preheader.i52
+  %.0.i53 = phi ptr [ %136, %.preheader.i52 ], [ %.pr72, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit51 ]
+  %135 = getelementptr inbounds i8, ptr %.0.i53, i64 16
+  %136 = load ptr, ptr %135, align 8
+  %.not.i54 = icmp eq ptr %136, null
+  br i1 %.not.i54, label %137, label %.preheader.i52, !llvm.loop !8
+
+137:                                              ; preds = %.preheader.i52
+  %138 = getelementptr inbounds i8, ptr %.0.i53, i64 16
+  store ptr %132, ptr %138, align 8
+  br label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit55
+
+_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit55: ; preds = %134, %137
+  %.pr73 = phi ptr [ %132, %134 ], [ %.pr72, %137 ]
+  %139 = load ptr, ptr @_ZN9Arguments10_java_homeE, align 8
+  %140 = icmp eq ptr %.pr73, null
+  br i1 %140, label %141, label %.preheader.i56
+
+141:                                              ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit55
+  store ptr %139, ptr @_ZN9Arguments18_system_propertiesE, align 8
+  br label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit59
 
 .preheader.i56:                                   ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit55, %.preheader.i56
-  %.0.i57 = phi ptr [ %126, %.preheader.i56 ], [ %123, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit55 ]
-  %125 = getelementptr inbounds i8, ptr %.0.i57, i64 16
-  %126 = load ptr, ptr %125, align 8
-  %.not.i58 = icmp eq ptr %126, null
-  br i1 %.not.i58, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit60.loopexit, label %.preheader.i56, !llvm.loop !8
-
-_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit60.loopexit: ; preds = %.preheader.i56
-  %127 = getelementptr inbounds i8, ptr %.0.i57, i64 16
-  br label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit60
-
-_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit60: ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit60.loopexit, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit55
-  %.sink.i59 = phi ptr [ @_ZN9Arguments18_system_propertiesE, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit55 ], [ %127, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit60.loopexit ]
-  store ptr %122, ptr %.sink.i59, align 8
-  %128 = load ptr, ptr @_ZN9Arguments10_java_homeE, align 8
-  %129 = load ptr, ptr @_ZN9Arguments18_system_propertiesE, align 8
-  %130 = icmp eq ptr %129, null
-  br i1 %130, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit65, label %.preheader.i61
-
-.preheader.i61:                                   ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit60, %.preheader.i61
-  %.0.i62 = phi ptr [ %132, %.preheader.i61 ], [ %129, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit60 ]
-  %131 = getelementptr inbounds i8, ptr %.0.i62, i64 16
-  %132 = load ptr, ptr %131, align 8
-  %.not.i63 = icmp eq ptr %132, null
-  br i1 %.not.i63, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit65.loopexit, label %.preheader.i61, !llvm.loop !8
-
-_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit65.loopexit: ; preds = %.preheader.i61
-  %133 = getelementptr inbounds i8, ptr %.0.i62, i64 16
-  br label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit65
-
-_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit65: ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit65.loopexit, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit60
-  %.sink.i64 = phi ptr [ @_ZN9Arguments18_system_propertiesE, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit60 ], [ %133, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit65.loopexit ]
-  store ptr %128, ptr %.sink.i64, align 8
-  %134 = load ptr, ptr @_ZN9Arguments16_java_class_pathE, align 8
-  %135 = load ptr, ptr @_ZN9Arguments18_system_propertiesE, align 8
-  %136 = icmp eq ptr %135, null
-  br i1 %136, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit70, label %.preheader.i66
-
-.preheader.i66:                                   ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit65, %.preheader.i66
-  %.0.i67 = phi ptr [ %138, %.preheader.i66 ], [ %135, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit65 ]
-  %137 = getelementptr inbounds i8, ptr %.0.i67, i64 16
-  %138 = load ptr, ptr %137, align 8
-  %.not.i68 = icmp eq ptr %138, null
-  br i1 %.not.i68, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit70.loopexit, label %.preheader.i66, !llvm.loop !8
-
-_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit70.loopexit: ; preds = %.preheader.i66
-  %139 = getelementptr inbounds i8, ptr %.0.i67, i64 16
-  br label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit70
-
-_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit70: ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit70.loopexit, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit65
-  %.sink.i69 = phi ptr [ @_ZN9Arguments18_system_propertiesE, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit65 ], [ %139, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit70.loopexit ]
-  store ptr %134, ptr %.sink.i69, align 8
-  %140 = load ptr, ptr @_ZN9Arguments18_system_propertiesE, align 8
-  %141 = icmp eq ptr %140, null
-  br i1 %141, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit75, label %.preheader.i71
-
-.preheader.i71:                                   ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit70, %.preheader.i71
-  %.0.i72 = phi ptr [ %143, %.preheader.i71 ], [ %140, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit70 ]
-  %142 = getelementptr inbounds i8, ptr %.0.i72, i64 16
+  %.0.i57 = phi ptr [ %143, %.preheader.i56 ], [ %.pr73, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit55 ]
+  %142 = getelementptr inbounds i8, ptr %.0.i57, i64 16
   %143 = load ptr, ptr %142, align 8
-  %.not.i73 = icmp eq ptr %143, null
-  br i1 %.not.i73, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit75.loopexit, label %.preheader.i71, !llvm.loop !8
+  %.not.i58 = icmp eq ptr %143, null
+  br i1 %.not.i58, label %144, label %.preheader.i56, !llvm.loop !8
 
-_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit75.loopexit: ; preds = %.preheader.i71
-  %144 = getelementptr inbounds i8, ptr %.0.i72, i64 16
-  br label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit75
+144:                                              ; preds = %.preheader.i56
+  %145 = getelementptr inbounds i8, ptr %.0.i57, i64 16
+  store ptr %139, ptr %145, align 8
+  br label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit59
 
-_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit75: ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit75.loopexit, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit70
-  %.sink.i74 = phi ptr [ @_ZN9Arguments18_system_propertiesE, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit70 ], [ %144, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit75.loopexit ]
-  store ptr %110, ptr %.sink.i74, align 8
-  %145 = load ptr, ptr @_ZN9Arguments8_vm_infoE, align 8
-  %146 = load ptr, ptr @_ZN9Arguments18_system_propertiesE, align 8
-  %147 = icmp eq ptr %146, null
-  br i1 %147, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit80, label %.preheader.i76
+_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit59: ; preds = %141, %144
+  %.pr74 = phi ptr [ %139, %141 ], [ %.pr73, %144 ]
+  %146 = load ptr, ptr @_ZN9Arguments16_java_class_pathE, align 8
+  %147 = icmp eq ptr %.pr74, null
+  br i1 %147, label %148, label %.preheader.i60
 
-.preheader.i76:                                   ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit75, %.preheader.i76
-  %.0.i77 = phi ptr [ %149, %.preheader.i76 ], [ %146, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit75 ]
-  %148 = getelementptr inbounds i8, ptr %.0.i77, i64 16
-  %149 = load ptr, ptr %148, align 8
-  %.not.i78 = icmp eq ptr %149, null
-  br i1 %.not.i78, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit80.loopexit, label %.preheader.i76, !llvm.loop !8
+148:                                              ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit59
+  store ptr %146, ptr @_ZN9Arguments18_system_propertiesE, align 8
+  br label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit63
 
-_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit80.loopexit: ; preds = %.preheader.i76
-  %150 = getelementptr inbounds i8, ptr %.0.i77, i64 16
-  br label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit80
+.preheader.i60:                                   ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit59, %.preheader.i60
+  %.0.i61 = phi ptr [ %150, %.preheader.i60 ], [ %.pr74, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit59 ]
+  %149 = getelementptr inbounds i8, ptr %.0.i61, i64 16
+  %150 = load ptr, ptr %149, align 8
+  %.not.i62 = icmp eq ptr %150, null
+  br i1 %.not.i62, label %151, label %.preheader.i60, !llvm.loop !8
 
-_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit80: ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit80.loopexit, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit75
-  %.sink.i79 = phi ptr [ @_ZN9Arguments18_system_propertiesE, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit75 ], [ %150, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit80.loopexit ]
-  store ptr %145, ptr %.sink.i79, align 8
+151:                                              ; preds = %.preheader.i60
+  %152 = getelementptr inbounds i8, ptr %.0.i61, i64 16
+  store ptr %146, ptr %152, align 8
+  br label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit63
+
+_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit63: ; preds = %148, %151
+  %.pr75 = phi ptr [ %146, %148 ], [ %.pr74, %151 ]
+  %153 = icmp eq ptr %.pr75, null
+  br i1 %153, label %154, label %.preheader.i64
+
+154:                                              ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit63
+  store ptr %118, ptr @_ZN9Arguments18_system_propertiesE, align 8
+  br label %.preheader.i68.preheader
+
+.preheader.i64:                                   ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit63, %.preheader.i64
+  %.0.i65 = phi ptr [ %156, %.preheader.i64 ], [ %.pr75, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit63 ]
+  %155 = getelementptr inbounds i8, ptr %.0.i65, i64 16
+  %156 = load ptr, ptr %155, align 8
+  %.not.i66 = icmp eq ptr %156, null
+  br i1 %.not.i66, label %157, label %.preheader.i64, !llvm.loop !8
+
+157:                                              ; preds = %.preheader.i64
+  %158 = getelementptr inbounds i8, ptr %.0.i65, i64 16
+  store ptr %118, ptr %158, align 8
+  br label %.preheader.i68.preheader
+
+.preheader.i68.preheader:                         ; preds = %157, %154
+  %159 = phi ptr [ %118, %154 ], [ %.pr75, %157 ]
+  %160 = load ptr, ptr @_ZN9Arguments8_vm_infoE, align 8
+  br label %.preheader.i68
+
+.preheader.i68:                                   ; preds = %.preheader.i68.preheader, %.preheader.i68
+  %.0.i69 = phi ptr [ %162, %.preheader.i68 ], [ %159, %.preheader.i68.preheader ]
+  %161 = getelementptr inbounds i8, ptr %.0.i69, i64 16
+  %162 = load ptr, ptr %161, align 8
+  %.not.i70 = icmp eq ptr %162, null
+  br i1 %.not.i70, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit71, label %.preheader.i68, !llvm.loop !8
+
+_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit71: ; preds = %.preheader.i68
+  %163 = getelementptr inbounds i8, ptr %.0.i69, i64 16
+  store ptr %160, ptr %163, align 8
   tail call void @_ZN2os29init_system_properties_valuesEv() #31
   ret void
 }
@@ -1491,22 +1513,25 @@ _ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit80: ; preds = %_ZN9Arg
 define hidden void @_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #7 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %9, label %.preheader
+  br i1 %4, label %5, label %.preheader
+
+5:                                                ; preds = %2
+  store ptr %1, ptr %0, align 8
+  br label %10
 
 .preheader:                                       ; preds = %2, %.preheader
-  %.0 = phi ptr [ %6, %.preheader ], [ %3, %2 ]
-  %5 = getelementptr inbounds i8, ptr %.0, i64 16
-  %6 = load ptr, ptr %5, align 8
-  %.not = icmp eq ptr %6, null
-  br i1 %.not, label %7, label %.preheader, !llvm.loop !8
+  %.0 = phi ptr [ %7, %.preheader ], [ %3, %2 ]
+  %6 = getelementptr inbounds i8, ptr %.0, i64 16
+  %7 = load ptr, ptr %6, align 8
+  %.not = icmp eq ptr %7, null
+  br i1 %.not, label %8, label %.preheader, !llvm.loop !8
 
-7:                                                ; preds = %.preheader
-  %8 = getelementptr inbounds i8, ptr %.0, i64 16
-  br label %9
+8:                                                ; preds = %.preheader
+  %9 = getelementptr inbounds i8, ptr %.0, i64 16
+  store ptr %1, ptr %9, align 8
+  br label %10
 
-9:                                                ; preds = %2, %7
-  %.sink = phi ptr [ %8, %7 ], [ %0, %2 ]
-  store ptr %1, ptr %.sink, align 8
+10:                                               ; preds = %8, %5
   ret void
 }
 
@@ -1541,102 +1566,111 @@ define hidden void @_ZN9Arguments39init_version_specific_system_propertiesEv() l
   store i8 0, ptr %9, align 1
   %10 = load ptr, ptr @_ZN9Arguments18_system_propertiesE, align 8
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit, label %.preheader.i
+  br i1 %11, label %12, label %.preheader.i
 
-.preheader.i:                                     ; preds = %0, %.preheader.i
-  %.0.i = phi ptr [ %13, %.preheader.i ], [ %10, %0 ]
-  %12 = getelementptr inbounds i8, ptr %.0.i, i64 16
-  %13 = load ptr, ptr %12, align 8
-  %.not.i = icmp eq ptr %13, null
-  br i1 %.not.i, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit.loopexit, label %.preheader.i, !llvm.loop !8
-
-_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit.loopexit: ; preds = %.preheader.i
-  %14 = getelementptr inbounds i8, ptr %.0.i, i64 16
+12:                                               ; preds = %0
+  store ptr %3, ptr @_ZN9Arguments18_system_propertiesE, align 8
   br label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit
 
-_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit: ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit.loopexit, %0
-  %.sink.i = phi ptr [ @_ZN9Arguments18_system_propertiesE, %0 ], [ %14, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit.loopexit ]
-  store ptr %3, ptr %.sink.i, align 8
-  %15 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 19, i32 noundef 0) #31
-  %16 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #30
-  %17 = add i64 %16, 1
-  %18 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %17, i8 noundef zeroext 19, i32 noundef 0) #31
-  store ptr %18, ptr %15, align 8
-  %19 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull readonly dereferenceable(1) %1) #31
-  %20 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 30, i8 noundef zeroext 19, i32 noundef 0) #31
-  %21 = getelementptr inbounds i8, ptr %15, i64 8
-  store ptr %20, ptr %21, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(30) %20, ptr noundef nonnull readonly align 1 dereferenceable(30) @.str.36, i64 30, i1 false) #31
-  %22 = getelementptr inbounds i8, ptr %15, i64 16
-  store ptr null, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %15, i64 24
-  store i8 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %15, i64 25
-  store i8 0, ptr %24, align 1
-  %25 = load ptr, ptr @_ZN9Arguments18_system_propertiesE, align 8
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit14, label %.preheader.i10
+.preheader.i:                                     ; preds = %0, %.preheader.i
+  %.0.i = phi ptr [ %14, %.preheader.i ], [ %10, %0 ]
+  %13 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %14 = load ptr, ptr %13, align 8
+  %.not.i = icmp eq ptr %14, null
+  br i1 %.not.i, label %15, label %.preheader.i, !llvm.loop !8
+
+15:                                               ; preds = %.preheader.i
+  %16 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  store ptr %3, ptr %16, align 8
+  br label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit
+
+_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit: ; preds = %12, %15
+  %17 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 19, i32 noundef 0) #31
+  %18 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #30
+  %19 = add i64 %18, 1
+  %20 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %19, i8 noundef zeroext 19, i32 noundef 0) #31
+  store ptr %20, ptr %17, align 8
+  %21 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull readonly dereferenceable(1) %1) #31
+  %22 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 30, i8 noundef zeroext 19, i32 noundef 0) #31
+  %23 = getelementptr inbounds i8, ptr %17, i64 8
+  store ptr %22, ptr %23, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(30) %22, ptr noundef nonnull readonly align 1 dereferenceable(30) @.str.36, i64 30, i1 false) #31
+  %24 = getelementptr inbounds i8, ptr %17, i64 16
+  store ptr null, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %17, i64 24
+  store i8 0, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %17, i64 25
+  store i8 0, ptr %26, align 1
+  %27 = load ptr, ptr @_ZN9Arguments18_system_propertiesE, align 8
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %29, label %.preheader.i10
+
+29:                                               ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit
+  store ptr %17, ptr @_ZN9Arguments18_system_propertiesE, align 8
+  br label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit13
 
 .preheader.i10:                                   ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit, %.preheader.i10
-  %.0.i11 = phi ptr [ %28, %.preheader.i10 ], [ %25, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit ]
-  %27 = getelementptr inbounds i8, ptr %.0.i11, i64 16
-  %28 = load ptr, ptr %27, align 8
-  %.not.i12 = icmp eq ptr %28, null
-  br i1 %.not.i12, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit14.loopexit, label %.preheader.i10, !llvm.loop !8
+  %.0.i11 = phi ptr [ %31, %.preheader.i10 ], [ %27, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit ]
+  %30 = getelementptr inbounds i8, ptr %.0.i11, i64 16
+  %31 = load ptr, ptr %30, align 8
+  %.not.i12 = icmp eq ptr %31, null
+  br i1 %.not.i12, label %32, label %.preheader.i10, !llvm.loop !8
 
-_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit14.loopexit: ; preds = %.preheader.i10
-  %29 = getelementptr inbounds i8, ptr %.0.i11, i64 16
-  br label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit14
+32:                                               ; preds = %.preheader.i10
+  %33 = getelementptr inbounds i8, ptr %.0.i11, i64 16
+  store ptr %17, ptr %33, align 8
+  br label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit13
 
-_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit14: ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit14.loopexit, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit
-  %.sink.i13 = phi ptr [ @_ZN9Arguments18_system_propertiesE, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit ], [ %29, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit14.loopexit ]
-  store ptr %15, ptr %.sink.i13, align 8
-  %30 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 19, i32 noundef 0) #31
-  %31 = call noundef ptr @_ZN19Abstract_VM_Version9vm_vendorEv() #31
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %33, label %34
+_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit13: ; preds = %29, %32
+  %34 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 19, i32 noundef 0) #31
+  %35 = call noundef ptr @_ZN19Abstract_VM_Version9vm_vendorEv() #31
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %37, label %38
 
-33:                                               ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit14
-  store ptr null, ptr %30, align 8
+37:                                               ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit13
+  store ptr null, ptr %34, align 8
   br label %_ZN14SystemPropertyC2EPKcS1_bb.exit
 
-34:                                               ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit14
-  %35 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %31) #30
-  %36 = add i64 %35, 1
-  %37 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %36, i8 noundef zeroext 19, i32 noundef 0) #31
-  store ptr %37, ptr %30, align 8
-  %38 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull readonly dereferenceable(1) %31) #31
+38:                                               ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit13
+  %39 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %35) #30
+  %40 = add i64 %39, 1
+  %41 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %40, i8 noundef zeroext 19, i32 noundef 0) #31
+  store ptr %41, ptr %34, align 8
+  %42 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull readonly dereferenceable(1) %35) #31
   br label %_ZN14SystemPropertyC2EPKcS1_bb.exit
 
-_ZN14SystemPropertyC2EPKcS1_bb.exit:              ; preds = %33, %34
-  %39 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 15, i8 noundef zeroext 19, i32 noundef 0) #31
-  %40 = getelementptr inbounds i8, ptr %30, i64 8
-  store ptr %39, ptr %40, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %39, ptr noundef nonnull readonly align 1 dereferenceable(15) @.str.37, i64 15, i1 false) #31
-  %41 = getelementptr inbounds i8, ptr %30, i64 16
-  store ptr null, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %30, i64 24
-  store i8 0, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %30, i64 25
-  store i8 0, ptr %43, align 1
-  %44 = load ptr, ptr @_ZN9Arguments18_system_propertiesE, align 8
-  %45 = icmp eq ptr %44, null
-  br i1 %45, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit19, label %.preheader.i15
+_ZN14SystemPropertyC2EPKcS1_bb.exit:              ; preds = %37, %38
+  %43 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 15, i8 noundef zeroext 19, i32 noundef 0) #31
+  %44 = getelementptr inbounds i8, ptr %34, i64 8
+  store ptr %43, ptr %44, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %43, ptr noundef nonnull readonly align 1 dereferenceable(15) @.str.37, i64 15, i1 false) #31
+  %45 = getelementptr inbounds i8, ptr %34, i64 16
+  store ptr null, ptr %45, align 8
+  %46 = getelementptr inbounds i8, ptr %34, i64 24
+  store i8 0, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %34, i64 25
+  store i8 0, ptr %47, align 1
+  %48 = load ptr, ptr @_ZN9Arguments18_system_propertiesE, align 8
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %50, label %.preheader.i14
 
-.preheader.i15:                                   ; preds = %_ZN14SystemPropertyC2EPKcS1_bb.exit, %.preheader.i15
-  %.0.i16 = phi ptr [ %47, %.preheader.i15 ], [ %44, %_ZN14SystemPropertyC2EPKcS1_bb.exit ]
-  %46 = getelementptr inbounds i8, ptr %.0.i16, i64 16
-  %47 = load ptr, ptr %46, align 8
-  %.not.i17 = icmp eq ptr %47, null
-  br i1 %.not.i17, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit19.loopexit, label %.preheader.i15, !llvm.loop !8
+50:                                               ; preds = %_ZN14SystemPropertyC2EPKcS1_bb.exit
+  store ptr %34, ptr @_ZN9Arguments18_system_propertiesE, align 8
+  br label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit17
 
-_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit19.loopexit: ; preds = %.preheader.i15
-  %48 = getelementptr inbounds i8, ptr %.0.i16, i64 16
-  br label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit19
+.preheader.i14:                                   ; preds = %_ZN14SystemPropertyC2EPKcS1_bb.exit, %.preheader.i14
+  %.0.i15 = phi ptr [ %52, %.preheader.i14 ], [ %48, %_ZN14SystemPropertyC2EPKcS1_bb.exit ]
+  %51 = getelementptr inbounds i8, ptr %.0.i15, i64 16
+  %52 = load ptr, ptr %51, align 8
+  %.not.i16 = icmp eq ptr %52, null
+  br i1 %.not.i16, label %53, label %.preheader.i14, !llvm.loop !8
 
-_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit19: ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit19.loopexit, %_ZN14SystemPropertyC2EPKcS1_bb.exit
-  %.sink.i18 = phi ptr [ @_ZN9Arguments18_system_propertiesE, %_ZN14SystemPropertyC2EPKcS1_bb.exit ], [ %48, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit19.loopexit ]
-  store ptr %30, ptr %.sink.i18, align 8
+53:                                               ; preds = %.preheader.i14
+  %54 = getelementptr inbounds i8, ptr %.0.i15, i64 16
+  store ptr %34, ptr %54, align 8
+  br label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit17
+
+_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit17: ; preds = %50, %53
   ret void
 }
 
@@ -3575,7 +3609,7 @@ define hidden noundef zeroext i1 @_ZN9Arguments12add_propertyEPKcNS_17PropertyWr
 30:                                               ; preds = %27
   %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0, ptr noundef nonnull dereferenceable(22) @.str.27) #30
   %32 = icmp eq i32 %31, 0
-  br i1 %32, label %33, label %51
+  br i1 %32, label %33, label %53
 
 33:                                               ; preds = %30
   %.018.i = load ptr, ptr @_ZN9Arguments18_system_propertiesE, align 8
@@ -3611,66 +3645,66 @@ define hidden noundef zeroext i1 @_ZN9Arguments12add_propertyEPKcNS_17PropertyWr
   tail call void @_ZN14SystemPropertyC2EPKcS1_bb(ptr noundef nonnull align 8 dereferenceable(26) %45, ptr noundef %.0, ptr noundef %.036, i1 noundef zeroext true, i1 noundef zeroext false)
   %46 = load ptr, ptr @_ZN9Arguments18_system_propertiesE, align 8
   %47 = icmp eq ptr %46, null
-  br i1 %47, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyPKcS4_bb.exit.i, label %.preheader.i.i.i
+  br i1 %47, label %48, label %.preheader.i.i.i
 
-.preheader.i.i.i:                                 ; preds = %._crit_edge.i, %.preheader.i.i.i
-  %.0.i.i.i = phi ptr [ %49, %.preheader.i.i.i ], [ %46, %._crit_edge.i ]
-  %48 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 16
-  %49 = load ptr, ptr %48, align 8
-  %.not.i.i16.i = icmp eq ptr %49, null
-  br i1 %.not.i.i16.i, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyPKcS4_bb.exit.i.loopexit, label %.preheader.i.i.i, !llvm.loop !8
-
-_ZN9Arguments16PropertyList_addEPP14SystemPropertyPKcS4_bb.exit.i.loopexit: ; preds = %.preheader.i.i.i
-  %50 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 16
-  br label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyPKcS4_bb.exit.i
-
-_ZN9Arguments16PropertyList_addEPP14SystemPropertyPKcS4_bb.exit.i: ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyPKcS4_bb.exit.i.loopexit, %._crit_edge.i
-  %.sink.i.i.i = phi ptr [ @_ZN9Arguments18_system_propertiesE, %._crit_edge.i ], [ %50, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyPKcS4_bb.exit.i.loopexit ]
-  store ptr %45, ptr %.sink.i.i.i, align 8
+48:                                               ; preds = %._crit_edge.i
+  store ptr %45, ptr @_ZN9Arguments18_system_propertiesE, align 8
   br label %_ZN9Arguments23PropertyList_unique_addEPP14SystemPropertyPKcS4_NS_18PropertyAppendableENS_17PropertyWriteableENS_16PropertyInternalE.exit
 
-51:                                               ; preds = %30
-  %52 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0, ptr noundef nonnull dereferenceable(17) @.str.91) #30
-  %53 = icmp eq i32 %52, 0
-  br i1 %53, label %54, label %57
+.preheader.i.i.i:                                 ; preds = %._crit_edge.i, %.preheader.i.i.i
+  %.0.i.i.i = phi ptr [ %50, %.preheader.i.i.i ], [ %46, %._crit_edge.i ]
+  %49 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 16
+  %50 = load ptr, ptr %49, align 8
+  %.not.i.i16.i = icmp eq ptr %50, null
+  br i1 %.not.i.i16.i, label %51, label %.preheader.i.i.i, !llvm.loop !8
 
-54:                                               ; preds = %51
-  %55 = load ptr, ptr @_ZN9Arguments13_java_commandE, align 8
-  %56 = tail call noundef ptr @_ZN2os16strdup_check_oomEPKc8MEMFLAGS(ptr noundef %.036, i8 noundef zeroext 19) #31
-  store ptr %56, ptr @_ZN9Arguments13_java_commandE, align 8
-  %.not40 = icmp eq ptr %55, null
-  br i1 %.not40, label %63, label %.sink.split
+51:                                               ; preds = %.preheader.i.i.i
+  %52 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 16
+  store ptr %45, ptr %52, align 8
+  br label %_ZN9Arguments23PropertyList_unique_addEPP14SystemPropertyPKcS4_NS_18PropertyAppendableENS_17PropertyWriteableENS_16PropertyInternalE.exit
 
-57:                                               ; preds = %51
-  %58 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0, ptr noundef nonnull dereferenceable(20) @.str.92) #30
-  %59 = icmp eq i32 %58, 0
-  br i1 %59, label %60, label %63
+53:                                               ; preds = %30
+  %54 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0, ptr noundef nonnull dereferenceable(17) @.str.91) #30
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %56, label %59
 
-60:                                               ; preds = %57
-  %61 = load ptr, ptr @_ZN9Arguments20_java_vendor_url_bugE, align 8
-  %62 = tail call noundef ptr @_ZN2os16strdup_check_oomEPKc8MEMFLAGS(ptr noundef %.036, i8 noundef zeroext 19) #31
-  store ptr %62, ptr @_ZN9Arguments20_java_vendor_url_bugE, align 8
-  %.not = icmp eq ptr %61, null
-  br i1 %.not, label %63, label %.sink.split
+56:                                               ; preds = %53
+  %57 = load ptr, ptr @_ZN9Arguments13_java_commandE, align 8
+  %58 = tail call noundef ptr @_ZN2os16strdup_check_oomEPKc8MEMFLAGS(ptr noundef %.036, i8 noundef zeroext 19) #31
+  store ptr %58, ptr @_ZN9Arguments13_java_commandE, align 8
+  %.not40 = icmp eq ptr %57, null
+  br i1 %.not40, label %65, label %.sink.split
 
-.sink.split:                                      ; preds = %60, %54
-  %.sink = phi ptr [ %55, %54 ], [ %61, %60 ]
+59:                                               ; preds = %53
+  %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0, ptr noundef nonnull dereferenceable(20) @.str.92) #30
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %62, label %65
+
+62:                                               ; preds = %59
+  %63 = load ptr, ptr @_ZN9Arguments20_java_vendor_url_bugE, align 8
+  %64 = tail call noundef ptr @_ZN2os16strdup_check_oomEPKc8MEMFLAGS(ptr noundef %.036, i8 noundef zeroext 19) #31
+  store ptr %64, ptr @_ZN9Arguments20_java_vendor_url_bugE, align 8
+  %.not = icmp eq ptr %63, null
+  br i1 %.not, label %65, label %.sink.split
+
+.sink.split:                                      ; preds = %62, %56
+  %.sink = phi ptr [ %57, %56 ], [ %63, %62 ]
   tail call void @_ZN2os4freeEPv(ptr noundef nonnull %.sink) #31
-  br label %63
+  br label %65
 
-63:                                               ; preds = %.sink.split, %57, %60, %54
+65:                                               ; preds = %.sink.split, %59, %62, %56
   tail call void @_ZN9Arguments23PropertyList_unique_addEPP14SystemPropertyPKcS4_NS_18PropertyAppendableENS_17PropertyWriteableENS_16PropertyInternalE(ptr noundef nonnull @_ZN9Arguments18_system_propertiesE, ptr noundef %.0, ptr noundef %.036, i32 noundef 1, i32 noundef %1, i32 noundef %2)
   br label %_ZN9Arguments23PropertyList_unique_addEPP14SystemPropertyPKcS4_NS_18PropertyAppendableENS_17PropertyWriteableENS_16PropertyInternalE.exit
 
-_ZN9Arguments23PropertyList_unique_addEPP14SystemPropertyPKcS4_NS_18PropertyAppendableENS_17PropertyWriteableENS_16PropertyInternalE.exit: ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyPKcS4_bb.exit.i, %42, %38, %27, %63, %25, %26
+_ZN9Arguments23PropertyList_unique_addEPP14SystemPropertyPKcS4_NS_18PropertyAppendableENS_17PropertyWriteableENS_16PropertyInternalE.exit: ; preds = %51, %48, %42, %38, %27, %65, %25, %26
   %.not41 = icmp eq ptr %.0, %0
-  br i1 %.not41, label %65, label %64
+  br i1 %.not41, label %67, label %66
 
-64:                                               ; preds = %_ZN9Arguments23PropertyList_unique_addEPP14SystemPropertyPKcS4_NS_18PropertyAppendableENS_17PropertyWriteableENS_16PropertyInternalE.exit
+66:                                               ; preds = %_ZN9Arguments23PropertyList_unique_addEPP14SystemPropertyPKcS4_NS_18PropertyAppendableENS_17PropertyWriteableENS_16PropertyInternalE.exit
   tail call void @_Z8FreeHeapPv(ptr noundef %.0) #31
-  br label %65
+  br label %67
 
-65:                                               ; preds = %64, %_ZN9Arguments23PropertyList_unique_addEPP14SystemPropertyPKcS4_NS_18PropertyAppendableENS_17PropertyWriteableENS_16PropertyInternalE.exit
+67:                                               ; preds = %66, %_ZN9Arguments23PropertyList_unique_addEPP14SystemPropertyPKcS4_NS_18PropertyAppendableENS_17PropertyWriteableENS_16PropertyInternalE.exit
   ret i1 true
 }
 
@@ -3748,25 +3782,25 @@ define hidden void @_ZN9Arguments23PropertyList_unique_addEPP14SystemPropertyPKc
   tail call void @_ZN14SystemPropertyC2EPKcS1_bb(ptr noundef nonnull align 8 dereferenceable(26) %33, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %31, i1 noundef zeroext %32)
   %34 = load ptr, ptr %0, align 8
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyPKcS4_bb.exit, label %.preheader.i.i
+  br i1 %35, label %36, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %._crit_edge, %.preheader.i.i
-  %.0.i.i = phi ptr [ %37, %.preheader.i.i ], [ %34, %._crit_edge ]
-  %36 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
-  %37 = load ptr, ptr %36, align 8
-  %.not.i.i16 = icmp eq ptr %37, null
-  br i1 %.not.i.i16, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyPKcS4_bb.exit.loopexit, label %.preheader.i.i, !llvm.loop !8
-
-_ZN9Arguments16PropertyList_addEPP14SystemPropertyPKcS4_bb.exit.loopexit: ; preds = %.preheader.i.i
-  %38 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
-  br label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyPKcS4_bb.exit
-
-_ZN9Arguments16PropertyList_addEPP14SystemPropertyPKcS4_bb.exit: ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyPKcS4_bb.exit.loopexit, %._crit_edge
-  %.sink.i.i = phi ptr [ %0, %._crit_edge ], [ %38, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyPKcS4_bb.exit.loopexit ]
-  store ptr %33, ptr %.sink.i.i, align 8
+36:                                               ; preds = %._crit_edge
+  store ptr %33, ptr %0, align 8
   br label %_ZN14SystemProperty22append_writeable_valueEPKc.exit
 
-_ZN14SystemProperty22append_writeable_valueEPKc.exit: ; preds = %27, %20, %19, %18, %17, %6, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyPKcS4_bb.exit
+.preheader.i.i:                                   ; preds = %._crit_edge, %.preheader.i.i
+  %.0.i.i = phi ptr [ %38, %.preheader.i.i ], [ %34, %._crit_edge ]
+  %37 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
+  %38 = load ptr, ptr %37, align 8
+  %.not.i.i16 = icmp eq ptr %38, null
+  br i1 %.not.i.i16, label %39, label %.preheader.i.i, !llvm.loop !8
+
+39:                                               ; preds = %.preheader.i.i
+  %40 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
+  store ptr %33, ptr %40, align 8
+  br label %_ZN14SystemProperty22append_writeable_valueEPKc.exit
+
+_ZN14SystemProperty22append_writeable_valueEPKc.exit: ; preds = %39, %36, %27, %20, %19, %18, %17, %6
   ret void
 }
 
@@ -9606,32 +9640,32 @@ define hidden noundef ptr @_ZN9Arguments31PropertyList_get_readable_valueEP14Sys
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9Arguments16PropertyList_addEPP14SystemPropertyPKcS4_bb(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
   %6 = icmp eq ptr %0, null
-  br i1 %6, label %14, label %7
+  br i1 %6, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit, label %7
 
 7:                                                ; preds = %5
   %8 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 19, i32 noundef 0) #31
   tail call void @_ZN14SystemPropertyC2EPKcS1_bb(ptr noundef nonnull align 8 dereferenceable(26) %8, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4)
   %9 = load ptr, ptr %0, align 8
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit, label %.preheader.i
+  br i1 %10, label %11, label %.preheader.i
 
-.preheader.i:                                     ; preds = %7, %.preheader.i
-  %.0.i = phi ptr [ %12, %.preheader.i ], [ %9, %7 ]
-  %11 = getelementptr inbounds i8, ptr %.0.i, i64 16
-  %12 = load ptr, ptr %11, align 8
-  %.not.i = icmp eq ptr %12, null
-  br i1 %.not.i, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit.loopexit, label %.preheader.i, !llvm.loop !8
-
-_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit.loopexit: ; preds = %.preheader.i
-  %13 = getelementptr inbounds i8, ptr %.0.i, i64 16
+11:                                               ; preds = %7
+  store ptr %8, ptr %0, align 8
   br label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit
 
-_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit: ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit.loopexit, %7
-  %.sink.i = phi ptr [ %0, %7 ], [ %13, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit.loopexit ]
-  store ptr %8, ptr %.sink.i, align 8
-  br label %14
+.preheader.i:                                     ; preds = %7, %.preheader.i
+  %.0.i = phi ptr [ %13, %.preheader.i ], [ %9, %7 ]
+  %12 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %13 = load ptr, ptr %12, align 8
+  %.not.i = icmp eq ptr %13, null
+  br i1 %.not.i, label %14, label %.preheader.i, !llvm.loop !8
 
-14:                                               ; preds = %5, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit
+14:                                               ; preds = %.preheader.i
+  %15 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  store ptr %8, ptr %15, align 8
+  br label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit
+
+_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit: ; preds = %14, %11, %5
   ret void
 }
 
@@ -9639,22 +9673,25 @@ _ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit: ; preds = %_ZN9Argum
 define hidden void @_ZN9Arguments16PropertyList_addEP14SystemProperty(ptr noundef %0) local_unnamed_addr #7 align 2 {
   %2 = load ptr, ptr @_ZN9Arguments18_system_propertiesE, align 8
   %3 = icmp eq ptr %2, null
-  br i1 %3, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit, label %.preheader.i
+  br i1 %3, label %4, label %.preheader.i
 
-.preheader.i:                                     ; preds = %1, %.preheader.i
-  %.0.i = phi ptr [ %5, %.preheader.i ], [ %2, %1 ]
-  %4 = getelementptr inbounds i8, ptr %.0.i, i64 16
-  %5 = load ptr, ptr %4, align 8
-  %.not.i = icmp eq ptr %5, null
-  br i1 %.not.i, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit.loopexit, label %.preheader.i, !llvm.loop !8
-
-_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit.loopexit: ; preds = %.preheader.i
-  %6 = getelementptr inbounds i8, ptr %.0.i, i64 16
+4:                                                ; preds = %1
+  store ptr %0, ptr @_ZN9Arguments18_system_propertiesE, align 8
   br label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit
 
-_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit: ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit.loopexit, %1
-  %.sink.i = phi ptr [ @_ZN9Arguments18_system_propertiesE, %1 ], [ %6, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit.loopexit ]
-  store ptr %0, ptr %.sink.i, align 8
+.preheader.i:                                     ; preds = %1, %.preheader.i
+  %.0.i = phi ptr [ %6, %.preheader.i ], [ %2, %1 ]
+  %5 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %6 = load ptr, ptr %5, align 8
+  %.not.i = icmp eq ptr %6, null
+  br i1 %.not.i, label %7, label %.preheader.i, !llvm.loop !8
+
+7:                                                ; preds = %.preheader.i
+  %8 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  store ptr %0, ptr %8, align 8
+  br label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit
+
+_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit: ; preds = %4, %7
   ret void
 }
 

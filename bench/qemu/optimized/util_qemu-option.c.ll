@@ -414,19 +414,16 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
 cond.true.i:                                      ; preds = %for.body.i.i, %for.body.i.preheader.i
   %arrayidx8.i.lcssa.i = phi ptr [ %desc1.i, %for.body.i.preheader.i ], [ %arrayidx.i.i, %for.body.i.i ]
   %def_value_str.i = getelementptr inbounds i8, ptr %arrayidx8.i.lcssa.i, i64 24
-  br label %return.sink.split
+  %4 = load ptr, ptr %def_value_str.i, align 8
+  br label %return
 
 if.end3:                                          ; preds = %for.body.i
   %str = getelementptr inbounds i8, ptr %opt.0.i, i64 8
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.end3, %cond.true.i
-  %def_value_str.i.sink = phi ptr [ %def_value_str.i, %cond.true.i ], [ %str, %if.end3 ]
-  %4 = load ptr, ptr %def_value_str.i.sink, align 8
+  %5 = load ptr, ptr %str, align 8
   br label %return
 
-return:                                           ; preds = %for.cond.i.i, %return.sink.split, %if.then1, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ null, %if.then1 ], [ %4, %return.sink.split ], [ null, %for.cond.i.i ]
+return:                                           ; preds = %for.cond.i.i, %cond.true.i, %if.then1, %entry, %if.end3
+  %retval.0 = phi ptr [ %5, %if.end3 ], [ null, %entry ], [ %4, %cond.true.i ], [ null, %if.then1 ], [ null, %for.cond.i.i ]
   ret ptr %retval.0
 }
 
@@ -1711,17 +1708,17 @@ do.body:                                          ; preds = %qemu_opt_del.exit, 
 
 if.then5:                                         ; preds = %do.body
   %tql_prev9 = getelementptr inbounds i8, ptr %9, i64 64
+  store ptr %10, ptr %tql_prev9, align 8
   br label %if.end14
 
 if.else:                                          ; preds = %do.body
   %list = getelementptr inbounds i8, ptr %opts, i64 8
   %11 = load ptr, ptr %list, align 8
   %tql_prev13 = getelementptr inbounds i8, ptr %11, i64 32
+  store ptr %10, ptr %tql_prev13, align 8
   br label %if.end14
 
 if.end14:                                         ; preds = %if.else, %if.then5
-  %tql_prev13.sink = phi ptr [ %tql_prev13, %if.else ], [ %tql_prev9, %if.then5 ]
-  store ptr %10, ptr %tql_prev13.sink, align 8
   %12 = load ptr, ptr %next, align 8
   store ptr %12, ptr %10, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next, i8 0, i64 16, i1 false)

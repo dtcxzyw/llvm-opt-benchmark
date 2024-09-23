@@ -4263,21 +4263,24 @@ exit:                                             ; preds = %if.end100, %if.then
 define internal noalias noundef ptr @_io__TextIOBase_detach(ptr nocapture readnone %self, ptr nocapture noundef readonly %cls, ptr nocapture readnone %args, i64 noundef %nargs, ptr nocapture readnone %kwnames) #0 {
 entry:
   %tobool.not = icmp eq i64 %nargs, 0
-  br i1 %tobool.not, label %if.end, label %return
+  br i1 %tobool.not, label %if.end, label %if.then
 
-if.end:                                           ; preds = %entry
-  %0 = getelementptr i8, ptr %cls, i64 888
-  %cls.val = load ptr, ptr %0, align 8
-  %1 = getelementptr i8, ptr %cls.val, i64 32
-  %cls.val.val = load ptr, ptr %1, align 8
-  %2 = getelementptr i8, ptr %cls.val.val, i64 8
+if.then:                                          ; preds = %entry
+  %0 = load ptr, ptr @PyExc_TypeError, align 8
+  tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str.8) #10
   br label %return
 
-return:                                           ; preds = %entry, %if.end
-  %.sink = phi ptr [ %2, %if.end ], [ @PyExc_TypeError, %entry ]
-  %.str.4.sink = phi ptr [ @.str.4, %if.end ], [ @.str.8, %entry ]
-  %cls.val.val.val = load ptr, ptr %.sink, align 8
-  tail call void @PyErr_SetString(ptr noundef %cls.val.val.val, ptr noundef nonnull %.str.4.sink) #10
+if.end:                                           ; preds = %entry
+  %1 = getelementptr i8, ptr %cls, i64 888
+  %cls.val = load ptr, ptr %1, align 8
+  %2 = getelementptr i8, ptr %cls.val, i64 32
+  %cls.val.val = load ptr, ptr %2, align 8
+  %3 = getelementptr i8, ptr %cls.val.val, i64 8
+  %cls.val.val.val = load ptr, ptr %3, align 8
+  tail call void @PyErr_SetString(ptr noundef %cls.val.val.val, ptr noundef nonnull @.str.4) #10
+  br label %return
+
+return:                                           ; preds = %if.end, %if.then
   ret ptr null
 }
 

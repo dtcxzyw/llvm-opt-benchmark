@@ -539,9 +539,9 @@ Mig_ManAppendCo.exit:                             ; preds = %.Vec_IntGrow.exit10
   br label %.sink.split
 
 .sink.split:                                      ; preds = %66, %Mig_ManAppendCi.exit, %Mig_ManAppendCo.exit, %87, %Gia_ObjFanin2Copy.exit
-  %.sink = phi ptr [ %57, %Gia_ObjFanin2Copy.exit ], [ %108, %87 ], [ %163, %Mig_ManAppendCo.exit ], [ %118, %Mig_ManAppendCi.exit ], [ %85, %66 ]
-  %.val.i = load i32, ptr %.sink, align 4
-  %193 = and i32 %.val.i, -2
+  %.val.i.sink.in = phi ptr [ %57, %Gia_ObjFanin2Copy.exit ], [ %108, %87 ], [ %163, %Mig_ManAppendCo.exit ], [ %118, %Mig_ManAppendCi.exit ], [ %85, %66 ]
+  %.val.i.sink = load i32, ptr %.val.i.sink.in, align 4
+  %193 = and i32 %.val.i.sink, -2
   %194 = getelementptr inbounds i8, ptr %21, i64 8
   store i32 %193, ptr %194, align 4
   br label %195

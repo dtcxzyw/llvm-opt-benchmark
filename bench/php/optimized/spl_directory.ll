@@ -5407,6 +5407,7 @@ define hidden void @zim_RecursiveDirectoryIterator_getChildren(ptr nocapture nou
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %63, ptr nonnull align 8 %41, i64 %42, i1 false)
   %64 = add i64 %49, %61
   %65 = getelementptr inbounds [1 x i8], ptr %57, i64 0, i64 %64
+  store i8 0, ptr %65, align 1
   br label %75
 
 66:                                               ; preds = %45, %30
@@ -5423,12 +5424,11 @@ define hidden void @zim_RecursiveDirectoryIterator_getChildren(ptr nocapture nou
   %73 = getelementptr inbounds i8, ptr %69, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %73, ptr nonnull align 1 %41, i64 %42, i1 false)
   %74 = getelementptr inbounds [1 x i8], ptr %73, i64 0, i64 %42
+  store i8 0, ptr %74, align 1
   br label %75
 
 75:                                               ; preds = %66, %48
-  %.sink158 = phi ptr [ %74, %66 ], [ %65, %48 ]
   %.sink156 = phi ptr [ %69, %66 ], [ %53, %48 ]
-  store i8 0, ptr %.sink158, align 1
   %76 = getelementptr inbounds i8, ptr %39, i64 -304
   store ptr %.sink156, ptr %76, align 8
   %77 = getelementptr inbounds i8, ptr %6, i64 -320
@@ -6647,8 +6647,8 @@ define internal fastcc range(i32 -1, 1) i32 @spl_filesystem_file_read_line(ptr n
   %6 = and i64 %5, 4
   %7 = icmp ne i64 %6, 0
   %8 = icmp eq i32 %3, 0
-  %or.cond10 = select i1 %7, i1 %8, i1 false
-  br i1 %or.cond10, label %.lr.ph, label %.critedge
+  %or.cond11 = select i1 %7, i1 %8, i1 false
+  br i1 %or.cond11, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %2
   %9 = getelementptr inbounds i8, ptr %1, i64 120
@@ -6658,11 +6658,11 @@ define internal fastcc range(i32 -1, 1) i32 @spl_filesystem_file_read_line(ptr n
   br label %13
 
 13:                                               ; preds = %.lr.ph, %spl_filesystem_file_free_line.exit
-  %14 = phi i64 [ %5, %.lr.ph ], [ %34, %spl_filesystem_file_free_line.exit ]
+  %14 = phi i64 [ %5, %.lr.ph ], [ %36, %spl_filesystem_file_free_line.exit ]
   %15 = load ptr, ptr %9, align 8
   %16 = load i64, ptr %10, align 8
   %17 = icmp eq i64 %16, 0
-  br i1 %17, label %is_line_empty.exit.thread9, label %18
+  br i1 %17, label %30, label %18
 
 18:                                               ; preds = %13
   %19 = and i64 %14, 9
@@ -6682,44 +6682,45 @@ define internal fastcc range(i32 -1, 1) i32 @spl_filesystem_file_read_line(ptr n
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds i8, ptr %15, i64 1
-  br label %is_line_empty.exit
-
-is_line_empty.exit:                               ; preds = %20, %24
-  %.sink10.i = phi ptr [ %25, %24 ], [ %15, %20 ]
-  %26 = load i8, ptr %.sink10.i, align 1
+  %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %26, 10
-  br i1 %27, label %is_line_empty.exit.thread9, label %.critedge
+  br i1 %27, label %.thread, label %.critedge
 
-is_line_empty.exit.thread9:                       ; preds = %13, %is_line_empty.exit
+is_line_empty.exit:                               ; preds = %20
+  %28 = load i8, ptr %15, align 1
+  %29 = icmp eq i8 %28, 10
+  br i1 %29, label %.thread, label %.critedge
+
+30:                                               ; preds = %13
   %.not.i = icmp eq ptr %15, null
-  br i1 %.not.i, label %29, label %28
+  br i1 %.not.i, label %31, label %.thread
 
-28:                                               ; preds = %is_line_empty.exit.thread9
+.thread:                                          ; preds = %is_line_empty.exit, %24, %30
   tail call void @_efree(ptr noundef nonnull %15) #18
   store ptr null, ptr %9, align 8
-  br label %29
+  br label %31
 
-29:                                               ; preds = %28, %is_line_empty.exit.thread9
-  %30 = load i8, ptr %11, align 8
-  %31 = icmp eq i8 %30, 0
-  br i1 %31, label %spl_filesystem_file_free_line.exit, label %32
+31:                                               ; preds = %.thread, %30
+  %32 = load i8, ptr %11, align 8
+  %33 = icmp eq i8 %32, 0
+  br i1 %33, label %spl_filesystem_file_free_line.exit, label %34
 
-32:                                               ; preds = %29
+34:                                               ; preds = %31
   tail call void @zval_ptr_dtor(ptr noundef nonnull %12) #18
   store i32 0, ptr %11, align 8
   br label %spl_filesystem_file_free_line.exit
 
-spl_filesystem_file_free_line.exit:               ; preds = %29, %32
-  %33 = tail call fastcc i32 @spl_filesystem_file_read_line_ex(ptr noundef %0, ptr noundef nonnull %1)
-  %34 = load i64, ptr %4, align 8
-  %35 = and i64 %34, 4
-  %36 = icmp ne i64 %35, 0
-  %37 = icmp eq i32 %33, 0
-  %or.cond = select i1 %36, i1 %37, i1 false
+spl_filesystem_file_free_line.exit:               ; preds = %31, %34
+  %35 = tail call fastcc i32 @spl_filesystem_file_read_line_ex(ptr noundef %0, ptr noundef nonnull %1)
+  %36 = load i64, ptr %4, align 8
+  %37 = and i64 %36, 4
+  %38 = icmp ne i64 %37, 0
+  %39 = icmp eq i32 %35, 0
+  %or.cond = select i1 %38, i1 %39, i1 false
   br i1 %or.cond, label %13, label %.critedge
 
-.critedge:                                        ; preds = %is_line_empty.exit, %spl_filesystem_file_free_line.exit, %18, %21, %20, %2
-  %.0.lcssa = phi i32 [ %3, %2 ], [ 0, %20 ], [ 0, %21 ], [ 0, %18 ], [ %33, %spl_filesystem_file_free_line.exit ], [ 0, %is_line_empty.exit ]
+.critedge:                                        ; preds = %is_line_empty.exit, %spl_filesystem_file_free_line.exit, %24, %18, %21, %20, %2
+  %.0.lcssa = phi i32 [ %3, %2 ], [ 0, %20 ], [ 0, %21 ], [ 0, %18 ], [ 0, %24 ], [ %35, %spl_filesystem_file_free_line.exit ], [ 0, %is_line_empty.exit ]
   ret i32 %.0.lcssa
 }
 
@@ -7111,102 +7112,97 @@ define internal fastcc range(i32 -1, 1) i32 @spl_filesystem_file_read_csv(ptr no
   %7 = getelementptr inbounds i8, ptr %0, i64 128
   %8 = getelementptr inbounds i8, ptr %0, i64 48
   %.pre = load ptr, ptr %6, align 8
-  %.not.i48 = icmp ne ptr %.pre, null
-  %9 = zext i1 %.not.i48 to i64
-  %10 = tail call fastcc range(i32 -1, 1) i32 @spl_filesystem_file_read_ex(ptr noundef nonnull %0, i1 noundef zeroext true, i64 noundef %9, i1 noundef zeroext true)
-  %.not49 = icmp eq i32 %10, 0
-  br i1 %.not49, label %.lr.ph, label %.loopexit
+  br label %9
 
-.lr.ph:                                           ; preds = %5, %.backedge
-  %11 = load ptr, ptr %6, align 8
-  %12 = load i64, ptr %7, align 8
-  %13 = icmp eq i64 %12, 0
+9:                                                ; preds = %is_line_empty.exit.thread42, %5
+  %10 = phi ptr [ %14, %is_line_empty.exit.thread42 ], [ %.pre, %5 ]
+  %.not.i = icmp ne ptr %10, null
+  %11 = zext i1 %.not.i to i64
+  %12 = tail call fastcc range(i32 -1, 1) i32 @spl_filesystem_file_read_ex(ptr noundef nonnull %0, i1 noundef zeroext true, i64 noundef %11, i1 noundef zeroext true)
+  %.not = icmp eq i32 %12, 0
+  br i1 %.not, label %13, label %.loopexit
+
+13:                                               ; preds = %9
+  %14 = load ptr, ptr %6, align 8
+  %15 = load i64, ptr %7, align 8
+  %16 = icmp eq i64 %15, 0
   %.pre45 = load i64, ptr %8, align 8
-  br i1 %13, label %is_line_empty.exit.thread42, label %14
+  br i1 %16, label %is_line_empty.exit.thread42, label %17
 
-14:                                               ; preds = %.lr.ph
-  %15 = and i64 %.pre45, 9
-  %or.cond.not.i = icmp eq i64 %15, 9
-  br i1 %or.cond.not.i, label %16, label %.critedge
+17:                                               ; preds = %13
+  %18 = and i64 %.pre45, 9
+  %or.cond.not.i = icmp eq i64 %18, 9
+  br i1 %or.cond.not.i, label %19, label %.critedge
 
-16:                                               ; preds = %14
-  switch i64 %12, label %.critedge [
+19:                                               ; preds = %17
+  switch i64 %15, label %.critedge [
     i64 1, label %is_line_empty.exit
-    i64 2, label %17
+    i64 2, label %20
   ]
 
-17:                                               ; preds = %16
-  %18 = load i8, ptr %11, align 1
-  %19 = icmp eq i8 %18, 13
-  br i1 %19, label %20, label %.critedge
+20:                                               ; preds = %19
+  %21 = load i8, ptr %14, align 1
+  %22 = icmp eq i8 %21, 13
+  br i1 %22, label %23, label %.critedge
 
-20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %11, i64 1
-  br label %is_line_empty.exit
+23:                                               ; preds = %20
+  %24 = getelementptr inbounds i8, ptr %14, i64 1
+  %25 = load i8, ptr %24, align 1
+  %26 = icmp eq i8 %25, 10
+  br i1 %26, label %is_line_empty.exit.thread42, label %.critedge
 
-is_line_empty.exit:                               ; preds = %16, %20
-  %.sink10.i = phi ptr [ %21, %20 ], [ %11, %16 ]
-  %22 = load i8, ptr %.sink10.i, align 1
-  %23 = icmp ne i8 %22, 10
-  %24 = and i64 %.pre45, 4
-  %.not40 = icmp eq i64 %24, 0
-  %or.cond = select i1 %23, i1 true, i1 %.not40
-  br i1 %or.cond, label %.critedge, label %.backedge
+is_line_empty.exit:                               ; preds = %19
+  %27 = load i8, ptr %14, align 1
+  %28 = icmp eq i8 %27, 10
+  br i1 %28, label %is_line_empty.exit.thread42, label %.critedge
 
-is_line_empty.exit.thread42:                      ; preds = %.lr.ph
-  %.old = and i64 %.pre45, 4
-  %.not40.old = icmp eq i64 %.old, 0
-  br i1 %.not40.old, label %.critedge, label %.backedge
+is_line_empty.exit.thread42:                      ; preds = %13, %23, %is_line_empty.exit
+  %29 = and i64 %.pre45, 4
+  %.not40 = icmp eq i64 %29, 0
+  br i1 %.not40, label %.critedge, label %9
 
-.backedge:                                        ; preds = %is_line_empty.exit.thread42, %is_line_empty.exit
-  %.not.i = icmp ne ptr %11, null
-  %25 = zext i1 %.not.i to i64
-  %26 = tail call fastcc range(i32 -1, 1) i32 @spl_filesystem_file_read_ex(ptr noundef nonnull %0, i1 noundef zeroext true, i64 noundef %25, i1 noundef zeroext true)
-  %.not = icmp eq i32 %26, 0
-  br i1 %.not, label %.lr.ph, label %.loopexit
+.critedge:                                        ; preds = %19, %20, %17, %23, %is_line_empty.exit, %is_line_empty.exit.thread42
+  %30 = getelementptr inbounds i8, ptr %0, i64 72
+  %31 = tail call noalias ptr @_estrndup(ptr noundef %14, i64 noundef %15) #18
+  %32 = getelementptr inbounds i8, ptr %0, i64 104
+  %33 = getelementptr inbounds i8, ptr %0, i64 112
+  %34 = load i8, ptr %33, align 8
+  %35 = icmp eq i8 %34, 0
+  br i1 %35, label %37, label %36
 
-.critedge:                                        ; preds = %16, %17, %14, %is_line_empty.exit, %is_line_empty.exit.thread42
-  %27 = getelementptr inbounds i8, ptr %0, i64 72
-  %28 = tail call noalias ptr @_estrndup(ptr noundef %11, i64 noundef %12) #18
-  %29 = getelementptr inbounds i8, ptr %0, i64 104
-  %30 = getelementptr inbounds i8, ptr %0, i64 112
-  %31 = load i8, ptr %30, align 8
-  %32 = icmp eq i8 %31, 0
-  br i1 %32, label %34, label %33
+36:                                               ; preds = %.critedge
+  tail call void @zval_ptr_dtor(ptr noundef nonnull %32) #18
+  store i32 0, ptr %33, align 8
+  br label %37
 
-33:                                               ; preds = %.critedge
-  tail call void @zval_ptr_dtor(ptr noundef nonnull %29) #18
-  store i32 0, ptr %30, align 8
-  br label %34
+37:                                               ; preds = %36, %.critedge
+  %38 = load ptr, ptr %30, align 8
+  %39 = tail call ptr @php_fgetcsv(ptr noundef %38, i8 noundef signext %1, i8 noundef signext %2, i32 noundef %3, i64 noundef %15, ptr noundef %31) #18
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %41, label %43
 
-34:                                               ; preds = %33, %.critedge
-  %35 = load ptr, ptr %27, align 8
-  %36 = tail call ptr @php_fgetcsv(ptr noundef %35, i8 noundef signext %1, i8 noundef signext %2, i32 noundef %3, i64 noundef %12, ptr noundef %28) #18
-  %37 = icmp eq ptr %36, null
-  br i1 %37, label %38, label %40
+41:                                               ; preds = %37
+  %42 = tail call ptr @php_bc_fgetcsv_empty_line() #18
+  br label %43
 
-38:                                               ; preds = %34
-  %39 = tail call ptr @php_bc_fgetcsv_empty_line() #18
-  br label %40
-
-40:                                               ; preds = %34, %38
-  %.036 = phi ptr [ %39, %38 ], [ %36, %34 ]
-  store ptr %.036, ptr %29, align 8
-  store i32 775, ptr %30, align 8
+43:                                               ; preds = %37, %41
+  %.036 = phi ptr [ %42, %41 ], [ %39, %37 ]
+  store ptr %.036, ptr %32, align 8
+  store i32 775, ptr %33, align 8
   %.not41 = icmp eq ptr %4, null
-  br i1 %.not41, label %.loopexit, label %41
+  br i1 %.not41, label %.loopexit, label %44
 
-41:                                               ; preds = %40
+44:                                               ; preds = %43
   store ptr %.036, ptr %4, align 8
-  %42 = getelementptr inbounds i8, ptr %4, i64 8
-  store i32 775, ptr %42, align 8
-  %43 = load i32, ptr %.036, align 4
-  %44 = add i32 %43, 1
-  store i32 %44, ptr %.036, align 4
+  %45 = getelementptr inbounds i8, ptr %4, i64 8
+  store i32 775, ptr %45, align 8
+  %46 = load i32, ptr %.036, align 4
+  %47 = add i32 %46, 1
+  store i32 %47, ptr %.036, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.backedge, %5, %40, %41
-  %.0 = phi i32 [ 0, %41 ], [ 0, %40 ], [ -1, %5 ], [ -1, %.backedge ]
+.loopexit:                                        ; preds = %9, %43, %44
+  %.0 = phi i32 [ 0, %44 ], [ 0, %43 ], [ -1, %9 ]
   ret i32 %.0
 }
 

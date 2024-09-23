@@ -3426,7 +3426,8 @@ define noalias noundef ptr @Abc_NodeConvertSopToMvSop(i32 noundef %0, ptr nocapt
   %20 = getelementptr i8, ptr %19, i64 1
   store i8 10, ptr %20, align 1
   %21 = getelementptr i8, ptr %19, i64 2
-  br label %.critedge2
+  store i8 0, ptr %21, align 1
+  br label %73
 
 22:                                               ; preds = %6
   %23 = add nsw i32 %.val73, %.val72
@@ -3587,10 +3588,13 @@ default.unreachable:                              ; preds = %52
   %72 = icmp slt i32 %71, %.val78
   br i1 %72, label %.critedge, label %.critedge2, !llvm.loop !54
 
-.critedge2:                                       ; preds = %.critedge, %._crit_edge.us99, %.critedge.preheader, %._crit_edge
-  %.3.lcssa.sink = phi ptr [ %21, %._crit_edge ], [ %.064.lcssa, %.critedge.preheader ], [ %62, %._crit_edge.us99 ], [ %70, %.critedge ]
-  %.063 = phi ptr [ %12, %._crit_edge ], [ %28, %.critedge.preheader ], [ %28, %._crit_edge.us99 ], [ %28, %.critedge ]
-  store i8 0, ptr %.3.lcssa.sink, align 1
+.critedge2:                                       ; preds = %.critedge, %._crit_edge.us99, %.critedge.preheader
+  %.3.lcssa = phi ptr [ %.064.lcssa, %.critedge.preheader ], [ %62, %._crit_edge.us99 ], [ %70, %.critedge ]
+  store i8 0, ptr %.3.lcssa, align 1
+  br label %73
+
+73:                                               ; preds = %.critedge2, %._crit_edge
+  %.063 = phi ptr [ %12, %._crit_edge ], [ %28, %.critedge2 ]
   ret ptr %.063
 }
 

@@ -1681,39 +1681,39 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit: ; preds =
   %202 = and i8 %.pre, 16
   %.not103 = icmp eq i8 %202, 0
   %or.cond219 = select i1 %.not102, i1 %.not103, i1 false
-  br i1 %or.cond219, label %.loopexit167.sink.split, label %._crit_edge212
+  br i1 %or.cond219, label %203, label %._crit_edge212
 
-._crit_edge212:                                   ; preds = %199
-  %203 = and i8 %.pre, 32
-  %.not104 = icmp ne i8 %203, 0
-  %204 = and i8 %200, 16
-  %.not105 = icmp eq i8 %204, 0
-  %or.cond162 = and i1 %.not105, %.not104
-  br i1 %or.cond162, label %205, label %.loopexit167
-
-205:                                              ; preds = %._crit_edge212
-  %206 = getelementptr inbounds i8, ptr %46, i64 1
-  br label %.loopexit167.sink.split
-
-.loopexit167.sink.split:                          ; preds = %199, %205
-  %.pre.sink = phi i8 [ %.pre, %205 ], [ %200, %199 ]
-  %.sink220 = phi ptr [ %206, %205 ], [ %46, %199 ]
-  %207 = and i8 %.pre.sink, -33
-  store i8 %207, ptr %.sink220, align 1
+203:                                              ; preds = %199
+  %204 = and i8 %200, -33
+  store i8 %204, ptr %46, align 1
   br label %.loopexit167
 
-.loopexit167:                                     ; preds = %81, %.loopexit167.sink.split, %140, %.preheader166, %._crit_edge179, %56, %._crit_edge212, %67, %49, %33
+._crit_edge212:                                   ; preds = %199
+  %205 = and i8 %.pre, 32
+  %.not104 = icmp ne i8 %205, 0
+  %206 = and i8 %200, 16
+  %.not105 = icmp eq i8 %206, 0
+  %or.cond162 = and i1 %.not105, %.not104
+  br i1 %or.cond162, label %207, label %.loopexit167
+
+207:                                              ; preds = %._crit_edge212
+  %208 = getelementptr inbounds i8, ptr %46, i64 1
+  %209 = and i8 %.pre, -33
+  store i8 %209, ptr %208, align 1
+  br label %.loopexit167
+
+.loopexit167:                                     ; preds = %81, %140, %.preheader166, %._crit_edge179, %56, %._crit_edge212, %207, %203, %67, %49, %33
   %indvars.iv.next210 = add nsw i64 %indvars.iv209, 1
-  %208 = icmp slt i64 %indvars.iv.next210, %32
-  br i1 %208, label %33, label %._crit_edge185.loopexit, !llvm.loop !37
+  %210 = icmp slt i64 %indvars.iv.next210, %32
+  br i1 %210, label %33, label %._crit_edge185.loopexit, !llvm.loop !37
 
 ._crit_edge185.loopexit:                          ; preds = %.loopexit167
   %.pre213 = load ptr, ptr %15, align 8
   br label %._crit_edge185
 
 ._crit_edge185:                                   ; preds = %._crit_edge185.loopexit, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit
-  %209 = phi ptr [ %.pre213, %._crit_edge185.loopexit ], [ %21, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit ]
-  call void @_ZdlPv(ptr noundef %209) #17
+  %211 = phi ptr [ %.pre213, %._crit_edge185.loopexit ], [ %21, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit ]
+  call void @_ZdlPv(ptr noundef %211) #17
   ret void
 }
 

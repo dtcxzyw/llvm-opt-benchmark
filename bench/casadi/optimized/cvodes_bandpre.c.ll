@@ -560,17 +560,17 @@ define i32 @CVBandPrecInitB(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %19
-  %.sink = phi ptr [ %23, %.lr.ph ], [ %20, %19 ]
-  %.020 = load ptr, ptr %.sink, align 8, !nonnull !9, !noundef !9
-  %21 = load i32, ptr %.020, align 8
+  %.020.sink.in = phi ptr [ %23, %.lr.ph ], [ %20, %19 ]
+  %.020.sink = load ptr, ptr %.020.sink.in, align 8, !nonnull !9, !noundef !9
+  %21 = load i32, ptr %.020.sink, align 8
   %22 = icmp eq i32 %1, %21
-  %23 = getelementptr inbounds i8, ptr %.020, i64 120
+  %23 = getelementptr inbounds i8, ptr %.020.sink, i64 120
   br i1 %22, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %24 = getelementptr inbounds i8, ptr %.020, i64 96
+  %24 = getelementptr inbounds i8, ptr %.020.sink, i64 96
   store ptr null, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %.020, i64 16
+  %25 = getelementptr inbounds i8, ptr %.020.sink, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i32 @CVBandPrecInit(ptr noundef %26, i64 noundef %2, i64 noundef %3, i64 noundef %4)
   br label %28

@@ -63933,17 +63933,17 @@ _ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.i
   %conv.i.i.i.i34 = trunc i64 %7 to i32
   %conv8.i.i.i.i35 = trunc i64 %10 to i32
   %cmp.i.i.i36 = icmp slt i32 %conv.i.i.i.i34, %conv8.i.i.i.i35
-  br i1 %cmp.i.i.i36, label %if.end62, label %cond.false.i.i19.i.i25
+  br i1 %cmp.i.i.i36, label %if.then12, label %cond.false.i.i19.i.i25
 
 _ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread27.i.i29: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i4
   %conv.i.i28.i.i30 = trunc i64 %7 to i32
   %conv8.i.i29.i.i31 = trunc i64 %10 to i32
   %cmp.i31.i.i32 = icmp slt i32 %conv.i.i28.i.i30, %conv8.i.i29.i.i31
-  br i1 %cmp.i31.i.i32, label %if.end62, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i14.i.i9
+  br i1 %cmp.i31.i.i32, label %if.then12, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i14.i.i9
 
 _ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread.i.i7: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i4
   %cmp.i26.i.i8 = icmp slt i32 %call.i.i.i.i.i5, 0
-  br i1 %cmp.i26.i.i8, label %if.end62, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i14.i.i9
+  br i1 %cmp.i26.i.i8, label %if.then12, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i14.i.i9
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i14.i.i9: ; preds = %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread.i.i7, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread27.i.i29
   %call.i.i.i15.i.i10 = tail call i32 @memcmp(ptr noundef %9, ptr noundef %8, i64 noundef %11) #34
@@ -63981,51 +63981,60 @@ terminate.lpad.i.i.i19:                           ; preds = %land.rhs.i.i15
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit37: ; preds = %land.rhs.i.i15
   %cmp.i24.i.i21 = icmp slt i32 %call.i.i.i18, 0
-  br i1 %cmp.i24.i.i21, label %if.end62, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit37.if.else_crit_edge
+  br i1 %cmp.i24.i.i21, label %if.then12, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit37.if.else_crit_edge
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit37.if.else_crit_edge: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit37
   %.pre179 = load ptr, ptr %__c.coerce, align 8
   %.pre180 = load i64, ptr %m_len.i.i6.i.i2, align 8
   br label %if.else
 
+if.then12:                                        ; preds = %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread27.i.i29, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread.i.i7, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.i.i33, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit37
+  %14 = load ptr, ptr %__result.coerce, align 8
+  %m_len.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.coerce, i64 8
+  %15 = load i64, ptr %m_len.i.i.i.i.i.i, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__result.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__b.coerce, i64 16, i1 false)
+  store ptr %14, ptr %__b.coerce, align 8
+  store i64 %15, ptr %m_len.i.i6.i.i, align 8
+  br label %if.end62
+
 if.else:                                          ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit37.if.else_crit_edge, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit23.i.i12
-  %14 = phi i64 [ %.pre180, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit37.if.else_crit_edge ], [ %10, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit23.i.i12 ]
-  %15 = phi ptr [ %.pre179, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit37.if.else_crit_edge ], [ %9, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit23.i.i12 ]
-  %16 = load ptr, ptr %__a.coerce, align 8
-  %17 = load i64, ptr %m_len.i.i.i.i, align 8
-  %18 = tail call i64 @llvm.umin.i64(i64 %14, i64 %17)
-  %cmp.i2.i.i.i.i40 = icmp eq i64 %18, 0
+  %16 = phi i64 [ %.pre180, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit37.if.else_crit_edge ], [ %10, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit23.i.i12 ]
+  %17 = phi ptr [ %.pre179, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit37.if.else_crit_edge ], [ %9, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit23.i.i12 ]
+  %18 = load ptr, ptr %__a.coerce, align 8
+  %19 = load i64, ptr %m_len.i.i.i.i, align 8
+  %20 = tail call i64 @llvm.umin.i64(i64 %16, i64 %19)
+  %cmp.i2.i.i.i.i40 = icmp eq i64 %20, 0
   br i1 %cmp.i2.i.i.i.i40, label %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.i.i70, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i41
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i41: ; preds = %if.else
-  %call.i.i.i.i.i42 = tail call i32 @memcmp(ptr noundef %16, ptr noundef %15, i64 noundef %18) #34
+  %call.i.i.i.i.i42 = tail call i32 @memcmp(ptr noundef %18, ptr noundef %17, i64 noundef %20) #34
   %cmp5.not.i.i.i.i43 = icmp eq i32 %call.i.i.i.i.i42, 0
   br i1 %cmp5.not.i.i.i.i43, label %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread27.i.i66, label %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread.i.i44
 
 _ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.i.i70: ; preds = %if.else
-  %conv.i.i.i.i71 = trunc i64 %17 to i32
-  %conv8.i.i.i.i72 = trunc i64 %14 to i32
+  %conv.i.i.i.i71 = trunc i64 %19 to i32
+  %conv8.i.i.i.i72 = trunc i64 %16 to i32
   %cmp.i.i.i73 = icmp slt i32 %conv.i.i.i.i71, %conv8.i.i.i.i72
-  br i1 %cmp.i.i.i73, label %if.end62, label %cond.false.i.i19.i.i62
+  br i1 %cmp.i.i.i73, label %if.then22, label %cond.false.i.i19.i.i62
 
 _ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread27.i.i66: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i41
-  %conv.i.i28.i.i67 = trunc i64 %17 to i32
-  %conv8.i.i29.i.i68 = trunc i64 %14 to i32
+  %conv.i.i28.i.i67 = trunc i64 %19 to i32
+  %conv8.i.i29.i.i68 = trunc i64 %16 to i32
   %cmp.i31.i.i69 = icmp slt i32 %conv.i.i28.i.i67, %conv8.i.i29.i.i68
-  br i1 %cmp.i31.i.i69, label %if.end62, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i14.i.i46
+  br i1 %cmp.i31.i.i69, label %if.then22, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i14.i.i46
 
 _ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread.i.i44: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i41
   %cmp.i26.i.i45 = icmp slt i32 %call.i.i.i.i.i42, 0
-  br i1 %cmp.i26.i.i45, label %if.end62, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i14.i.i46
+  br i1 %cmp.i26.i.i45, label %if.then22, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i14.i.i46
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i14.i.i46: ; preds = %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread.i.i44, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread27.i.i66
-  %call.i.i.i15.i.i47 = tail call i32 @memcmp(ptr noundef %15, ptr noundef %16, i64 noundef %18) #34
+  %call.i.i.i15.i.i47 = tail call i32 @memcmp(ptr noundef %17, ptr noundef %18, i64 noundef %20) #34
   %cmp5.not.i.i16.i.i48 = icmp eq i32 %call.i.i.i15.i.i47, 0
   br i1 %cmp5.not.i.i16.i.i48, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i14.cond.false.i.i19_crit_edge.i.i59, label %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit23.i.i49
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i14.cond.false.i.i19_crit_edge.i.i59: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i14.i.i46
-  %.pre.i.i60 = trunc i64 %14 to i32
-  %.pre33.i.i61 = trunc i64 %17 to i32
+  %.pre.i.i60 = trunc i64 %16 to i32
+  %.pre33.i.i61 = trunc i64 %19 to i32
   br label %cond.false.i.i19.i.i62
 
 cond.false.i.i19.i.i62:                           ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i14.cond.false.i.i19_crit_edge.i.i59, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.i.i70
@@ -64046,58 +64055,73 @@ land.rhs.i.i52:                                   ; preds = %_ZN18OpenImageIO_v2
           to label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit74 unwind label %terminate.lpad.i.i.i56
 
 terminate.lpad.i.i.i56:                           ; preds = %land.rhs.i.i52
-  %19 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  tail call void @__clang_call_terminate(ptr %20) #36
+  %22 = extractvalue { ptr, i32 } %21, 0
+  tail call void @__clang_call_terminate(ptr %22) #36
   unreachable
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit74: ; preds = %land.rhs.i.i52
   %cmp.i24.i.i58 = icmp slt i32 %call.i.i.i55, 0
-  br i1 %cmp.i24.i.i58, label %if.end62, label %if.else27
+  br i1 %cmp.i24.i.i58, label %if.then22, label %if.else27
+
+if.then22:                                        ; preds = %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread27.i.i66, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread.i.i44, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.i.i70, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit74
+  %23 = load ptr, ptr %__result.coerce, align 8
+  %m_len.i.i.i.i.i.i75 = getelementptr inbounds i8, ptr %__result.coerce, i64 8
+  %24 = load i64, ptr %m_len.i.i.i.i.i.i75, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__result.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__c.coerce, i64 16, i1 false)
+  store ptr %23, ptr %__c.coerce, align 8
+  store i64 %24, ptr %m_len.i.i6.i.i2, align 8
+  br label %if.end62
 
 if.else27:                                        ; preds = %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit23.i.i49, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit74
+  %25 = load ptr, ptr %__result.coerce, align 8
+  %m_len.i.i.i.i.i.i79 = getelementptr inbounds i8, ptr %__result.coerce, i64 8
+  %26 = load i64, ptr %m_len.i.i.i.i.i.i79, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__result.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__a.coerce, i64 16, i1 false)
+  store ptr %25, ptr %__a.coerce, align 8
+  store i64 %26, ptr %m_len.i.i.i.i, align 8
   br label %if.end62
 
 if.else33:                                        ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit.if.else33_crit_edge, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit23.i.i
-  %21 = phi i64 [ %.pre174, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit.if.else33_crit_edge ], [ %1, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit23.i.i ]
-  %22 = phi ptr [ %.pre, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit.if.else33_crit_edge ], [ %0, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit23.i.i ]
-  %23 = load ptr, ptr %__c.coerce, align 8
+  %27 = phi i64 [ %.pre174, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit.if.else33_crit_edge ], [ %1, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit23.i.i ]
+  %28 = phi ptr [ %.pre, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit.if.else33_crit_edge ], [ %0, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit23.i.i ]
+  %29 = load ptr, ptr %__c.coerce, align 8
   %m_len.i.i6.i.i84 = getelementptr inbounds i8, ptr %__c.coerce, i64 8
-  %24 = load i64, ptr %m_len.i.i6.i.i84, align 8
-  %25 = tail call i64 @llvm.umin.i64(i64 %24, i64 %21)
-  %cmp.i2.i.i.i.i85 = icmp eq i64 %25, 0
+  %30 = load i64, ptr %m_len.i.i6.i.i84, align 8
+  %31 = tail call i64 @llvm.umin.i64(i64 %30, i64 %27)
+  %cmp.i2.i.i.i.i85 = icmp eq i64 %31, 0
   br i1 %cmp.i2.i.i.i.i85, label %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.i.i115, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i86
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i86: ; preds = %if.else33
-  %call.i.i.i.i.i87 = tail call i32 @memcmp(ptr noundef %22, ptr noundef %23, i64 noundef %25) #34
+  %call.i.i.i.i.i87 = tail call i32 @memcmp(ptr noundef %28, ptr noundef %29, i64 noundef %31) #34
   %cmp5.not.i.i.i.i88 = icmp eq i32 %call.i.i.i.i.i87, 0
   br i1 %cmp5.not.i.i.i.i88, label %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread27.i.i111, label %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread.i.i89
 
 _ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.i.i115: ; preds = %if.else33
-  %conv.i.i.i.i116 = trunc i64 %21 to i32
-  %conv8.i.i.i.i117 = trunc i64 %24 to i32
+  %conv.i.i.i.i116 = trunc i64 %27 to i32
+  %conv8.i.i.i.i117 = trunc i64 %30 to i32
   %cmp.i.i.i118 = icmp slt i32 %conv.i.i.i.i116, %conv8.i.i.i.i117
-  br i1 %cmp.i.i.i118, label %if.end62, label %cond.false.i.i19.i.i107
+  br i1 %cmp.i.i.i118, label %if.then39, label %cond.false.i.i19.i.i107
 
 _ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread27.i.i111: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i86
-  %conv.i.i28.i.i112 = trunc i64 %21 to i32
-  %conv8.i.i29.i.i113 = trunc i64 %24 to i32
+  %conv.i.i28.i.i112 = trunc i64 %27 to i32
+  %conv8.i.i29.i.i113 = trunc i64 %30 to i32
   %cmp.i31.i.i114 = icmp slt i32 %conv.i.i28.i.i112, %conv8.i.i29.i.i113
-  br i1 %cmp.i31.i.i114, label %if.end62, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i14.i.i91
+  br i1 %cmp.i31.i.i114, label %if.then39, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i14.i.i91
 
 _ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread.i.i89: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i86
   %cmp.i26.i.i90 = icmp slt i32 %call.i.i.i.i.i87, 0
-  br i1 %cmp.i26.i.i90, label %if.end62, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i14.i.i91
+  br i1 %cmp.i26.i.i90, label %if.then39, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i14.i.i91
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i14.i.i91: ; preds = %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread.i.i89, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread27.i.i111
-  %call.i.i.i15.i.i92 = tail call i32 @memcmp(ptr noundef %23, ptr noundef %22, i64 noundef %25) #34
+  %call.i.i.i15.i.i92 = tail call i32 @memcmp(ptr noundef %29, ptr noundef %28, i64 noundef %31) #34
   %cmp5.not.i.i16.i.i93 = icmp eq i32 %call.i.i.i15.i.i92, 0
   br i1 %cmp5.not.i.i16.i.i93, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i14.cond.false.i.i19_crit_edge.i.i104, label %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit23.i.i94
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i14.cond.false.i.i19_crit_edge.i.i104: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i14.i.i91
-  %.pre.i.i105 = trunc i64 %24 to i32
-  %.pre33.i.i106 = trunc i64 %21 to i32
+  %.pre.i.i105 = trunc i64 %30 to i32
+  %.pre33.i.i106 = trunc i64 %27 to i32
   br label %cond.false.i.i19.i.i107
 
 cond.false.i.i19.i.i107:                          ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i14.cond.false.i.i19_crit_edge.i.i104, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.i.i115
@@ -64118,59 +64142,68 @@ land.rhs.i.i97:                                   ; preds = %_ZN18OpenImageIO_v2
           to label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit119 unwind label %terminate.lpad.i.i.i101
 
 terminate.lpad.i.i.i101:                          ; preds = %land.rhs.i.i97
-  %26 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           catch ptr null
-  %27 = extractvalue { ptr, i32 } %26, 0
-  tail call void @__clang_call_terminate(ptr %27) #36
+  %33 = extractvalue { ptr, i32 } %32, 0
+  tail call void @__clang_call_terminate(ptr %33) #36
   unreachable
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit119: ; preds = %land.rhs.i.i97
   %cmp.i24.i.i103 = icmp slt i32 %call.i.i.i100, 0
-  br i1 %cmp.i24.i.i103, label %if.end62, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit119.if.else44_crit_edge
+  br i1 %cmp.i24.i.i103, label %if.then39, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit119.if.else44_crit_edge
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit119.if.else44_crit_edge: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit119
   %.pre175 = load ptr, ptr %__c.coerce, align 8
   %.pre176 = load i64, ptr %m_len.i.i6.i.i84, align 8
   br label %if.else44
 
+if.then39:                                        ; preds = %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread27.i.i111, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread.i.i89, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.i.i115, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit119
+  %34 = load ptr, ptr %__result.coerce, align 8
+  %m_len.i.i.i.i.i.i120 = getelementptr inbounds i8, ptr %__result.coerce, i64 8
+  %35 = load i64, ptr %m_len.i.i.i.i.i.i120, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__result.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__a.coerce, i64 16, i1 false)
+  store ptr %34, ptr %__a.coerce, align 8
+  store i64 %35, ptr %m_len.i.i.i.i, align 8
+  br label %if.end62
+
 if.else44:                                        ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit119.if.else44_crit_edge, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit23.i.i94
-  %28 = phi i64 [ %.pre176, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit119.if.else44_crit_edge ], [ %24, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit23.i.i94 ]
-  %29 = phi ptr [ %.pre175, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit119.if.else44_crit_edge ], [ %23, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit23.i.i94 ]
-  %30 = load ptr, ptr %__b.coerce, align 8
-  %31 = load i64, ptr %m_len.i.i6.i.i, align 8
-  %32 = tail call i64 @llvm.umin.i64(i64 %28, i64 %31)
-  %cmp.i2.i.i.i.i126 = icmp eq i64 %32, 0
+  %36 = phi i64 [ %.pre176, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit119.if.else44_crit_edge ], [ %30, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit23.i.i94 ]
+  %37 = phi ptr [ %.pre175, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit119.if.else44_crit_edge ], [ %29, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit23.i.i94 ]
+  %38 = load ptr, ptr %__b.coerce, align 8
+  %39 = load i64, ptr %m_len.i.i6.i.i, align 8
+  %40 = tail call i64 @llvm.umin.i64(i64 %36, i64 %39)
+  %cmp.i2.i.i.i.i126 = icmp eq i64 %40, 0
   br i1 %cmp.i2.i.i.i.i126, label %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.i.i156, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i127
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i127: ; preds = %if.else44
-  %call.i.i.i.i.i128 = tail call i32 @memcmp(ptr noundef %30, ptr noundef %29, i64 noundef %32) #34
+  %call.i.i.i.i.i128 = tail call i32 @memcmp(ptr noundef %38, ptr noundef %37, i64 noundef %40) #34
   %cmp5.not.i.i.i.i129 = icmp eq i32 %call.i.i.i.i.i128, 0
   br i1 %cmp5.not.i.i.i.i129, label %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread27.i.i152, label %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread.i.i130
 
 _ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.i.i156: ; preds = %if.else44
-  %conv.i.i.i.i157 = trunc i64 %31 to i32
-  %conv8.i.i.i.i158 = trunc i64 %28 to i32
+  %conv.i.i.i.i157 = trunc i64 %39 to i32
+  %conv8.i.i.i.i158 = trunc i64 %36 to i32
   %cmp.i.i.i159 = icmp slt i32 %conv.i.i.i.i157, %conv8.i.i.i.i158
-  br i1 %cmp.i.i.i159, label %if.end62, label %cond.false.i.i19.i.i148
+  br i1 %cmp.i.i.i159, label %if.then50, label %cond.false.i.i19.i.i148
 
 _ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread27.i.i152: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i127
-  %conv.i.i28.i.i153 = trunc i64 %31 to i32
-  %conv8.i.i29.i.i154 = trunc i64 %28 to i32
+  %conv.i.i28.i.i153 = trunc i64 %39 to i32
+  %conv8.i.i29.i.i154 = trunc i64 %36 to i32
   %cmp.i31.i.i155 = icmp slt i32 %conv.i.i28.i.i153, %conv8.i.i29.i.i154
-  br i1 %cmp.i31.i.i155, label %if.end62, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i14.i.i132
+  br i1 %cmp.i31.i.i155, label %if.then50, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i14.i.i132
 
 _ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread.i.i130: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i127
   %cmp.i26.i.i131 = icmp slt i32 %call.i.i.i.i.i128, 0
-  br i1 %cmp.i26.i.i131, label %if.end62, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i14.i.i132
+  br i1 %cmp.i26.i.i131, label %if.then50, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i14.i.i132
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i14.i.i132: ; preds = %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread.i.i130, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread27.i.i152
-  %call.i.i.i15.i.i133 = tail call i32 @memcmp(ptr noundef %29, ptr noundef %30, i64 noundef %32) #34
+  %call.i.i.i15.i.i133 = tail call i32 @memcmp(ptr noundef %37, ptr noundef %38, i64 noundef %40) #34
   %cmp5.not.i.i16.i.i134 = icmp eq i32 %call.i.i.i15.i.i133, 0
   br i1 %cmp5.not.i.i16.i.i134, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i14.cond.false.i.i19_crit_edge.i.i145, label %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit23.i.i135
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i14.cond.false.i.i19_crit_edge.i.i145: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i14.i.i132
-  %.pre.i.i146 = trunc i64 %28 to i32
-  %.pre33.i.i147 = trunc i64 %31 to i32
+  %.pre.i.i146 = trunc i64 %36 to i32
+  %.pre33.i.i147 = trunc i64 %39 to i32
   br label %cond.false.i.i19.i.i148
 
 cond.false.i.i19.i.i148:                          ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i14.cond.false.i.i19_crit_edge.i.i145, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.i.i156
@@ -64191,30 +64224,38 @@ land.rhs.i.i138:                                  ; preds = %_ZN18OpenImageIO_v2
           to label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit160 unwind label %terminate.lpad.i.i.i142
 
 terminate.lpad.i.i.i142:                          ; preds = %land.rhs.i.i138
-  %33 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           catch ptr null
-  %34 = extractvalue { ptr, i32 } %33, 0
-  tail call void @__clang_call_terminate(ptr %34) #36
+  %42 = extractvalue { ptr, i32 } %41, 0
+  tail call void @__clang_call_terminate(ptr %42) #36
   unreachable
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit160: ; preds = %land.rhs.i.i138
   %cmp.i24.i.i144 = icmp slt i32 %call.i.i.i141, 0
-  br i1 %cmp.i24.i.i144, label %if.end62, label %if.else55
+  br i1 %cmp.i24.i.i144, label %if.then50, label %if.else55
 
-if.else55:                                        ; preds = %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit23.i.i135, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit160
+if.then50:                                        ; preds = %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread27.i.i152, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread.i.i130, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.i.i156, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit160
+  %43 = load ptr, ptr %__result.coerce, align 8
+  %m_len.i.i.i.i.i.i161 = getelementptr inbounds i8, ptr %__result.coerce, i64 8
+  %44 = load i64, ptr %m_len.i.i.i.i.i.i161, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__result.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__c.coerce, i64 16, i1 false)
+  store ptr %43, ptr %__c.coerce, align 8
+  store i64 %44, ptr %m_len.i.i6.i.i84, align 8
   br label %if.end62
 
-if.end62:                                         ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit160, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.i.i156, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread.i.i130, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread27.i.i152, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit119, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.i.i115, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread.i.i89, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread27.i.i111, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit74, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.i.i70, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread.i.i44, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread27.i.i66, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit37, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.i.i33, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread.i.i7, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread27.i.i29, %if.else55, %if.else27
-  %__a.coerce.sink183 = phi ptr [ %__b.coerce, %if.else55 ], [ %__a.coerce, %if.else27 ], [ %__b.coerce, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread27.i.i29 ], [ %__b.coerce, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread.i.i7 ], [ %__b.coerce, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.i.i33 ], [ %__b.coerce, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit37 ], [ %__c.coerce, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread27.i.i66 ], [ %__c.coerce, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread.i.i44 ], [ %__c.coerce, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.i.i70 ], [ %__c.coerce, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit74 ], [ %__a.coerce, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread27.i.i111 ], [ %__a.coerce, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread.i.i89 ], [ %__a.coerce, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.i.i115 ], [ %__a.coerce, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit119 ], [ %__c.coerce, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread27.i.i152 ], [ %__c.coerce, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread.i.i130 ], [ %__c.coerce, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.i.i156 ], [ %__c.coerce, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit160 ]
-  %m_len.i.i.i.i.sink = phi ptr [ %m_len.i.i6.i.i, %if.else55 ], [ %m_len.i.i.i.i, %if.else27 ], [ %m_len.i.i6.i.i, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread27.i.i29 ], [ %m_len.i.i6.i.i, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread.i.i7 ], [ %m_len.i.i6.i.i, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.i.i33 ], [ %m_len.i.i6.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit37 ], [ %m_len.i.i6.i.i2, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread27.i.i66 ], [ %m_len.i.i6.i.i2, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread.i.i44 ], [ %m_len.i.i6.i.i2, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.i.i70 ], [ %m_len.i.i6.i.i2, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit74 ], [ %m_len.i.i.i.i, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread27.i.i111 ], [ %m_len.i.i.i.i, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread.i.i89 ], [ %m_len.i.i.i.i, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.i.i115 ], [ %m_len.i.i.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit119 ], [ %m_len.i.i6.i.i84, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread27.i.i152 ], [ %m_len.i.i6.i.i84, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.thread.i.i130 ], [ %m_len.i.i6.i.i84, %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit.i.i156 ], [ %m_len.i.i6.i.i84, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit160 ]
-  %35 = load ptr, ptr %__result.coerce, align 8
-  %m_len.i.i.i.i.i.i120 = getelementptr inbounds i8, ptr %__result.coerce, i64 8
-  %36 = load i64, ptr %m_len.i.i.i.i.i.i120, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__result.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__a.coerce.sink183, i64 16, i1 false)
-  store ptr %35, ptr %__a.coerce.sink183, align 8
-  store i64 %36, ptr %m_len.i.i.i.i.sink, align 8
+if.else55:                                        ; preds = %_ZN18OpenImageIO_v2_6_0ltENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit23.i.i135, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit160
+  %45 = load ptr, ptr %__result.coerce, align 8
+  %m_len.i.i.i.i.i.i165 = getelementptr inbounds i8, ptr %__result.coerce, i64 8
+  %46 = load i64, ptr %m_len.i.i.i.i.i.i165, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__result.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__b.coerce, i64 16, i1 false)
+  store ptr %45, ptr %__b.coerce, align 8
+  store i64 %46, ptr %m_len.i.i6.i.i, align 8
+  br label %if.end62
+
+if.end62:                                         ; preds = %if.then39, %if.else55, %if.then50, %if.then12, %if.else27, %if.then22
+  %__a.coerce.sink = phi ptr [ %__a.coerce, %if.then39 ], [ %__b.coerce, %if.else55 ], [ %__c.coerce, %if.then50 ], [ %__b.coerce, %if.then12 ], [ %__a.coerce, %if.else27 ], [ %__c.coerce, %if.then22 ]
   %second.i.i.i122 = getelementptr inbounds i8, ptr %__result.coerce, i64 16
-  %second3.i.i.i123 = getelementptr inbounds i8, ptr %__a.coerce.sink183, i64 16
+  %second3.i.i.i123 = getelementptr inbounds i8, ptr %__a.coerce.sink, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i122, ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i123) #34
   ret void
 }
@@ -74606,13 +74647,13 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %for.body.i.i
   %bcmp.i.i.i = tail call i32 @bcmp(ptr %5, ptr %id.coerce0, i64 %.other.coerce1.i.i.i.i)
   %cmp6.i.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
-  %cmp9.i.i.i.i = icmp eq i64 %call.i8.i.i, %id.coerce1
-  %or.cond.i.i = select i1 %cmp6.i.i.i.i, i1 %cmp9.i.i.i.i, i1 false
+  %6 = icmp eq i64 %call.i8.i.i, %id.coerce1
+  %or.cond.i.i = select i1 %cmp6.i.i.i.i, i1 %6, i1 false
   br i1 %or.cond.i.i, label %_ZN3fmt2v820basic_format_contextINS0_8appenderEcE6arg_idENS0_17basic_string_viewIcEE.exit, label %for.inc.i.i
 
 _ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.i.i: ; preds = %for.body.i.i
-  %cmp9.i.i.old.i.i = icmp eq i64 %call.i8.i.i, %id.coerce1
-  br i1 %cmp9.i.i.old.i.i, label %_ZN3fmt2v820basic_format_contextINS0_8appenderEcE6arg_idENS0_17basic_string_viewIcEE.exit, label %for.inc.i.i
+  %.old.i.i = icmp eq i64 %call.i8.i.i, %id.coerce1
+  br i1 %.old.i.i, label %_ZN3fmt2v820basic_format_contextINS0_8appenderEcE6arg_idENS0_17basic_string_viewIcEE.exit, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
   %inc.i.i = add nuw i64 %i.013.i.i, 1
@@ -74621,12 +74662,12 @@ for.inc.i.i:                                      ; preds = %_ZN3fmt2v8eqENS0_17
 
 _ZN3fmt2v820basic_format_contextINS0_8appenderEcE6arg_idENS0_17basic_string_viewIcEE.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.i.i
   %id.i.i = getelementptr inbounds %"struct.fmt::v8::detail::named_arg_info", ptr %4, i64 %i.013.i.i, i32 1
-  %6 = load i32, ptr %id.i.i, align 8
-  %cmp = icmp slt i32 %6, 0
+  %7 = load i32, ptr %id.i.i, align 8
+  %cmp = icmp slt i32 %7, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.inc.i.i, %if.end.i.i, %entry, %_ZN3fmt2v820basic_format_contextINS0_8appenderEcE6arg_idENS0_17basic_string_viewIcEE.exit
-  %retval.0.i.i5 = phi i32 [ %6, %_ZN3fmt2v820basic_format_contextINS0_8appenderEcE6arg_idENS0_17basic_string_viewIcEE.exit ], [ -1, %entry ], [ -1, %if.end.i.i ], [ -1, %for.inc.i.i ]
+  %retval.0.i.i5 = phi i32 [ %7, %_ZN3fmt2v820basic_format_contextINS0_8appenderEcE6arg_idENS0_17basic_string_viewIcEE.exit ], [ -1, %entry ], [ -1, %if.end.i.i ], [ -1, %for.inc.i.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i, ptr noundef nonnull @.str.214)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i, align 8
@@ -74636,7 +74677,7 @@ if.then:                                          ; preds = %for.inc.i.i, %if.en
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZN3fmt2v820basic_format_contextINS0_8appenderEcE6arg_idENS0_17basic_string_viewIcEE.exit
-  %retval.0.i.i4 = phi i32 [ %retval.0.i.i5, %if.then ], [ %6, %_ZN3fmt2v820basic_format_contextINS0_8appenderEcE6arg_idENS0_17basic_string_viewIcEE.exit ]
+  %retval.0.i.i4 = phi i32 [ %retval.0.i.i5, %if.then ], [ %7, %_ZN3fmt2v820basic_format_contextINS0_8appenderEcE6arg_idENS0_17basic_string_viewIcEE.exit ]
   ret i32 %retval.0.i.i4
 }
 
@@ -74742,12 +74783,12 @@ for.end.i.i:                                      ; preds = %for.body.i.i
 if.end15:                                         ; preds = %for.end.i.i, %if.then.i.i, %if.then6
   %p.1.pn = phi ptr [ %begin, %if.then6 ], [ %p.1, %if.then.i.i ], [ %p.1, %for.end.i.i ]
   %begin.addr.0 = getelementptr inbounds i8, ptr %p.1.pn, i64 1
-  %.pn.i = load ptr, ptr %handler, align 8
-  %align2.i.sink.i = getelementptr inbounds i8, ptr %.pn.i, i64 9
-  %bf.load.i.sink.i = load i16, ptr %align2.i.sink.i, align 1
-  %bf.clear.i.i = and i16 %bf.load.i.sink.i, -16
+  %7 = load ptr, ptr %handler, align 8
+  %align2.i.i = getelementptr inbounds i8, ptr %7, i64 9
+  %bf.load.i.i = load i16, ptr %align2.i.i, align 1
+  %bf.clear.i.i = and i16 %bf.load.i.i, -16
   %bf.set.i.i = or disjoint i16 %bf.clear.i.i, %align.1.ph
-  store i16 %bf.set.i.i, ptr %align2.i.sink.i, align 1
+  store i16 %bf.set.i.i, ptr %align2.i.i, align 1
   br label %return
 
 if.else16:                                        ; preds = %for.cond
@@ -75673,13 +75714,13 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %for.body.i
   %bcmp.i.i = tail call i32 @bcmp(ptr %5, ptr %name.coerce0, i64 %.other.coerce1.i.i.i)
   %cmp6.i.i.i = icmp eq i32 %bcmp.i.i, 0
-  %cmp9.i.i.i = icmp eq i64 %call.i8.i, %name.coerce1
-  %or.cond.i = select i1 %cmp6.i.i.i, i1 %cmp9.i.i.i, i1 false
+  %6 = icmp eq i64 %call.i8.i, %name.coerce1
+  %or.cond.i = select i1 %cmp6.i.i.i, i1 %6, i1 false
   br i1 %or.cond.i, label %_ZNK3fmt2v817basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit, label %for.inc.i
 
 _ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.i: ; preds = %for.body.i
-  %cmp9.i.i.old.i = icmp eq i64 %call.i8.i, %name.coerce1
-  br i1 %cmp9.i.i.old.i, label %_ZNK3fmt2v817basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit, label %for.inc.i
+  %.old.i = icmp eq i64 %call.i8.i, %name.coerce1
+  br i1 %.old.i, label %_ZNK3fmt2v817basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
   %inc.i = add nuw i64 %i.013.i, 1
@@ -75688,8 +75729,8 @@ for.inc.i:                                        ; preds = %_ZN3fmt2v8eqENS0_17
 
 _ZNK3fmt2v817basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.i
   %id.i = getelementptr inbounds %"struct.fmt::v8::detail::named_arg_info", ptr %4, i64 %i.013.i, i32 1
-  %6 = load i32, ptr %id.i, align 8
-  %cmp = icmp sgt i32 %6, -1
+  %7 = load i32, ptr %id.i, align 8
+  %cmp = icmp sgt i32 %7, -1
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %_ZNK3fmt2v817basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit
@@ -75699,32 +75740,32 @@ cond.true:                                        ; preds = %_ZNK3fmt2v817basic_
   br i1 %cmp.i.i, label %if.end4.i, label %if.then.i
 
 if.then.i:                                        ; preds = %cond.true
-  %7 = trunc i64 %0 to i32
-  %cmp.i = icmp slt i32 %6, %7
+  %8 = trunc i64 %0 to i32
+  %cmp.i = icmp slt i32 %7, %8
   br i1 %cmp.i, label %if.then3.i, label %cond.end
 
 if.then3.i:                                       ; preds = %if.then.i
-  %idxprom.i = zext nneg i32 %6 to i64
+  %idxprom.i = zext nneg i32 %7 to i64
   %arrayidx.i = getelementptr inbounds %"class.fmt::v8::basic_format_arg.333", ptr %2, i64 %idxprom.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %agg.result, ptr noundef nonnull align 16 dereferenceable(20) %arrayidx.i, i64 20, i1 false)
   br label %cond.end
 
 if.end4.i:                                        ; preds = %cond.true
-  %cmp5.i = icmp ugt i32 %6, 14
+  %cmp5.i = icmp ugt i32 %7, 14
   br i1 %cmp5.i, label %cond.end, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end4.i
-  %mul.i.i = shl nuw nsw i32 %6, 2
+  %mul.i.i = shl nuw nsw i32 %7, 2
   %sh_prom.i.i = zext nneg i32 %mul.i.i to i64
   %shr.i.i = lshr i64 %0, %sh_prom.i.i
-  %8 = trunc i64 %shr.i.i to i32
-  %conv2.i.i = and i32 %8, 15
+  %9 = trunc i64 %shr.i.i to i32
+  %conv2.i.i = and i32 %9, 15
   store i32 %conv2.i.i, ptr %type_.i.i, align 16, !alias.scope !698
   %cmp10.i = icmp eq i32 %conv2.i.i, 0
   br i1 %cmp10.i, label %cond.end, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end7.i
-  %idxprom13.i = zext nneg i32 %6 to i64
+  %idxprom13.i = zext nneg i32 %7 to i64
   %arrayidx14.i = getelementptr inbounds %"class.fmt::v8::detail::value.330", ptr %2, i64 %idxprom13.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %agg.result, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx14.i, i64 16, i1 false)
   br label %cond.end

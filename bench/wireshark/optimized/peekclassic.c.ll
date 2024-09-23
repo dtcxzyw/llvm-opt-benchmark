@@ -330,7 +330,7 @@ define internal fastcc range(i32 -1, 65536) i32 @peekclassic_read_packet_v7(ptr 
   %8 = alloca [4 x i8], align 1
   %9 = call i32 @wtap_read_bytes_or_eof(ptr noundef %1, ptr noundef nonnull %7, i32 noundef 16, ptr noundef %4, ptr noundef %5) #6
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %142, label %10
+  br i1 %.not, label %151, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %7, i64 2
@@ -424,9 +424,9 @@ define internal fastcc range(i32 -1, 65536) i32 @peekclassic_read_packet_v7(ptr 
   %84 = call i32 @wtap_block_add_uint32_option(ptr noundef %66, i32 noundef 2, i32 noundef %.2) #6
   %85 = getelementptr inbounds i8, ptr %0, i64 144
   %86 = load i32, ptr %85, align 8
-  switch i32 %86, label %137 [
+  switch i32 %86, label %146 [
     i32 22, label %87
-    i32 1, label %131
+    i32 1, label %140
   ]
 
 87:                                               ; preds = %10
@@ -446,7 +446,7 @@ define internal fastcc range(i32 -1, 65536) i32 @peekclassic_read_packet_v7(ptr 
   store i32 -13, ptr %4, align 4
   %96 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.5) #6
   store ptr %96, ptr %5, align 8
-  br label %142
+  br label %151
 
 97:                                               ; preds = %92
   %98 = add i32 %90, -4
@@ -456,7 +456,7 @@ define internal fastcc range(i32 -1, 65536) i32 @peekclassic_read_packet_v7(ptr 
   %100 = add i16 %spec.select, -4
   %101 = call i32 @wtap_read_bytes(ptr noundef %1, ptr noundef nonnull %8, i32 noundef 4, ptr noundef %4, ptr noundef %5) #6
   %.not95 = icmp eq i32 %101, 0
-  br i1 %.not95, label %142, label %102
+  br i1 %.not95, label %151, label %102
 
 102:                                              ; preds = %97
   %103 = getelementptr inbounds i8, ptr %2, i64 108
@@ -476,84 +476,95 @@ define internal fastcc range(i32 -1, 65536) i32 @peekclassic_read_packet_v7(ptr 
   %114 = load i8, ptr %113, align 1
   %115 = getelementptr inbounds i8, ptr %2, i64 118
   store i8 %114, ptr %115, align 2
-  switch i8 %105, label %120 [
-    i8 2, label %.sink.split
-    i8 4, label %.sink.split
-    i8 11, label %.sink.split
-    i8 22, label %.sink.split
-    i8 44, label %.sink.split
-    i8 66, label %.sink.split
-    i8 12, label %116
-    i8 18, label %116
-    i8 24, label %116
-    i8 36, label %116
-    i8 48, label %116
-    i8 72, label %116
-    i8 96, label %116
-    i8 108, label %116
+  switch i8 %105, label %129 [
+    i8 2, label %116
+    i8 4, label %116
+    i8 11, label %116
+    i8 22, label %116
+    i8 44, label %116
+    i8 66, label %116
+    i8 12, label %120
+    i8 18, label %120
+    i8 24, label %120
+    i8 36, label %120
+    i8 48, label %120
+    i8 72, label %120
+    i8 96, label %120
+    i8 108, label %120
   ]
 
-116:                                              ; preds = %102, %102, %102, %102, %102, %102, %102, %102
-  %117 = icmp ult i8 %109, 15
-  %. = select i1 %117, i32 6, i32 5
-  %.104 = select i1 %117, i8 -2, i8 -4
-  br label %.sink.split
+116:                                              ; preds = %102, %102, %102, %102, %102, %102
+  store i32 4, ptr %89, align 8
+  %117 = getelementptr inbounds i8, ptr %2, i64 92
+  %118 = load i8, ptr %117, align 4
+  %119 = and i8 %118, -2
+  store i8 %119, ptr %117, align 4
+  br label %129
 
-.sink.split:                                      ; preds = %116, %102, %102, %102, %102, %102, %102
-  %.sink103 = phi i32 [ 4, %102 ], [ 4, %102 ], [ 4, %102 ], [ 4, %102 ], [ 4, %102 ], [ 4, %102 ], [ %., %116 ]
-  %.sink102 = phi i8 [ -2, %102 ], [ -2, %102 ], [ -2, %102 ], [ -2, %102 ], [ -2, %102 ], [ -2, %102 ], [ %.104, %116 ]
-  store i32 %.sink103, ptr %89, align 8
-  %.sink = getelementptr inbounds i8, ptr %2, i64 92
-  %118 = load i8, ptr %.sink, align 4
-  %119 = and i8 %118, %.sink102
-  store i8 %119, ptr %.sink, align 4
-  br label %120
-
-120:                                              ; preds = %.sink.split, %102
-  %121 = load i32, ptr %78, align 4
-  %122 = icmp ult i32 %121, 4
-  br i1 %122, label %126, label %123
+120:                                              ; preds = %102, %102, %102, %102, %102, %102, %102, %102
+  %121 = icmp ult i8 %109, 15
+  %122 = getelementptr inbounds i8, ptr %2, i64 92
+  br i1 %121, label %123, label %126
 
 123:                                              ; preds = %120
-  %124 = load i32, ptr %77, align 8
-  %125 = icmp ult i32 %124, 4
-  br i1 %125, label %126, label %128
+  store i32 6, ptr %89, align 8
+  %124 = load i8, ptr %122, align 4
+  %125 = and i8 %124, -2
+  store i8 %125, ptr %122, align 4
+  br label %129
 
-126:                                              ; preds = %123, %120
+126:                                              ; preds = %120
+  store i32 5, ptr %89, align 8
+  %127 = load i8, ptr %122, align 4
+  %128 = and i8 %127, -4
+  store i8 %128, ptr %122, align 4
+  br label %129
+
+129:                                              ; preds = %102, %126, %123, %116
+  %130 = load i32, ptr %78, align 4
+  %131 = icmp ult i32 %130, 4
+  br i1 %131, label %135, label %132
+
+132:                                              ; preds = %129
+  %133 = load i32, ptr %77, align 8
+  %134 = icmp ult i32 %133, 4
+  br i1 %134, label %135, label %137
+
+135:                                              ; preds = %132, %129
   store i32 -13, ptr %4, align 4
-  %127 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.6) #6
-  store ptr %127, ptr %5, align 8
-  br label %142
+  %136 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.6) #6
+  store ptr %136, ptr %5, align 8
+  br label %151
 
-128:                                              ; preds = %123
-  %129 = add i32 %121, -4
-  store i32 %129, ptr %78, align 4
-  %130 = add i32 %124, -4
-  store i32 %130, ptr %77, align 8
-  br label %137
+137:                                              ; preds = %132
+  %138 = add i32 %130, -4
+  store i32 %138, ptr %78, align 4
+  %139 = add i32 %133, -4
+  store i32 %139, ptr %77, align 8
+  br label %146
 
-131:                                              ; preds = %10
-  %132 = shl i8 %26, 2
-  %133 = and i8 %132, 4
-  %134 = xor i8 %133, 4
-  %135 = zext nneg i8 %134 to i32
-  %136 = getelementptr inbounds i8, ptr %2, i64 80
-  store i32 %135, ptr %136, align 8
-  br label %137
+140:                                              ; preds = %10
+  %141 = shl i8 %26, 2
+  %142 = and i8 %141, 4
+  %143 = xor i8 %142, 4
+  %144 = zext nneg i8 %143 to i32
+  %145 = getelementptr inbounds i8, ptr %2, i64 80
+  store i32 %144, ptr %145, align 8
+  br label %146
 
-137:                                              ; preds = %131, %128, %10
-  %.187 = phi i16 [ %spec.select, %10 ], [ %spec.select, %131 ], [ %100, %128 ]
-  %138 = load i32, ptr %77, align 8
-  %139 = call i32 @wtap_read_packet_bytes(ptr noundef %1, ptr noundef %3, i32 noundef %138, ptr noundef %4, ptr noundef %5) #6
-  %.not96 = icmp eq i32 %139, 0
-  br i1 %.not96, label %142, label %140
+146:                                              ; preds = %140, %137, %10
+  %.187 = phi i16 [ %spec.select, %10 ], [ %spec.select, %140 ], [ %100, %137 ]
+  %147 = load i32, ptr %77, align 8
+  %148 = call i32 @wtap_read_packet_bytes(ptr noundef %1, ptr noundef %3, i32 noundef %147, ptr noundef %4, ptr noundef %5) #6
+  %.not96 = icmp eq i32 %148, 0
+  br i1 %.not96, label %151, label %149
 
-140:                                              ; preds = %137
-  %141 = zext i16 %.187 to i32
-  br label %142
+149:                                              ; preds = %146
+  %150 = zext i16 %.187 to i32
+  br label %151
 
-142:                                              ; preds = %137, %97, %6, %140, %126, %95
-  %.085 = phi i32 [ %141, %140 ], [ -1, %95 ], [ -1, %126 ], [ -1, %6 ], [ -1, %97 ], [ -1, %137 ]
+151:                                              ; preds = %146, %97, %6, %149, %135, %95
+  %.085 = phi i32 [ %150, %149 ], [ -1, %95 ], [ -1, %135 ], [ -1, %6 ], [ -1, %97 ], [ -1, %146 ]
   ret i32 %.085
 }
 

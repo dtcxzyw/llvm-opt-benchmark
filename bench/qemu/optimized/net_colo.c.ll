@@ -378,41 +378,38 @@ entry:
 sw.bb:                                            ; preds = %entry, %entry, %entry, %entry, %entry, %entry
   %transport_header = getelementptr inbounds i8, ptr %pkt, i64 16
   %3 = load ptr, ptr %transport_header, align 8
-  br label %sw.epilog.sink.split
+  %4 = load i32, ptr %3, align 4
+  br label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry
   %transport_header3 = getelementptr inbounds i8, ptr %pkt, i64 16
-  %4 = load ptr, ptr %transport_header3, align 8
-  %add.ptr = getelementptr i8, ptr %4, i64 4
-  br label %sw.epilog.sink.split
-
-sw.epilog.sink.split:                             ; preds = %sw.bb, %sw.bb2
-  %add.ptr.sink = phi ptr [ %add.ptr, %sw.bb2 ], [ %3, %sw.bb ]
-  %5 = load i32, ptr %add.ptr.sink, align 4
+  %5 = load ptr, ptr %transport_header3, align 8
+  %add.ptr = getelementptr i8, ptr %5, i64 4
+  %6 = load i32, ptr %add.ptr, align 4
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.epilog.sink.split, %entry
-  %tmp_ports.0 = phi i32 [ 0, %entry ], [ %5, %sw.epilog.sink.split ]
-  %6 = load ptr, ptr %0, align 8
+sw.epilog:                                        ; preds = %entry, %sw.bb2, %sw.bb
+  %tmp_ports.0 = phi i32 [ 0, %entry ], [ %6, %sw.bb2 ], [ %4, %sw.bb ]
+  %7 = load ptr, ptr %0, align 8
   br i1 %reverse, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %sw.epilog
-  %ip_dst.i = getelementptr inbounds i8, ptr %6, i64 16
-  %7 = load i32, ptr %ip_dst.i, align 1
-  store i32 %7, ptr %key, align 1
-  %8 = load ptr, ptr %0, align 8
-  %ip_src.i = getelementptr inbounds i8, ptr %8, i64 12
+  %ip_dst.i = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = load i32, ptr %ip_dst.i, align 1
+  store i32 %8, ptr %key, align 1
+  %9 = load ptr, ptr %0, align 8
+  %ip_src.i = getelementptr inbounds i8, ptr %9, i64 12
   %conv.i = trunc i32 %tmp_ports.0 to i16
   %call.i = tail call zeroext i16 @ntohs(i16 noundef zeroext %conv.i) #16
   %shr.i = lshr i32 %tmp_ports.0, 16
   br label %extract_ip_and_port.exit
 
 if.else.i:                                        ; preds = %sw.epilog
-  %ip_src4.i = getelementptr inbounds i8, ptr %6, i64 12
-  %9 = load i32, ptr %ip_src4.i, align 1
-  store i32 %9, ptr %key, align 1
-  %10 = load ptr, ptr %0, align 8
-  %ip_dst6.i = getelementptr inbounds i8, ptr %10, i64 16
+  %ip_src4.i = getelementptr inbounds i8, ptr %7, i64 12
+  %10 = load i32, ptr %ip_src4.i, align 1
+  store i32 %10, ptr %key, align 1
+  %11 = load ptr, ptr %0, align 8
+  %ip_dst6.i = getelementptr inbounds i8, ptr %11, i64 16
   %shr7.i = lshr i32 %tmp_ports.0, 16
   %conv8.i = trunc nuw i32 %shr7.i to i16
   %call9.i = tail call zeroext i16 @ntohs(i16 noundef zeroext %conv8.i) #16
@@ -425,12 +422,12 @@ extract_ip_and_port.exit:                         ; preds = %if.then.i, %if.else
   %conv12.i = trunc i32 %tmp_ports.sink.i to i16
   %call13.i = tail call zeroext i16 @ntohs(i16 noundef zeroext %conv12.i) #16
   %.sink.i = load i32, ptr %.sink.in.i, align 1
-  %11 = getelementptr inbounds i8, ptr %key, i64 4
-  store i32 %.sink.i, ptr %11, align 1
-  %12 = getelementptr inbounds i8, ptr %key, i64 8
-  store i16 %call9.sink.i, ptr %12, align 1
-  %13 = getelementptr inbounds i8, ptr %key, i64 10
-  store i16 %call13.i, ptr %13, align 1
+  %12 = getelementptr inbounds i8, ptr %key, i64 4
+  store i32 %.sink.i, ptr %12, align 1
+  %13 = getelementptr inbounds i8, ptr %key, i64 8
+  store i16 %call9.sink.i, ptr %13, align 1
+  %14 = getelementptr inbounds i8, ptr %key, i64 10
+  store i16 %call13.i, ptr %14, align 1
   ret void
 }
 

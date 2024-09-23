@@ -92,16 +92,25 @@ while.cond.preheader.i:                           ; preds = %if.end
   %tql_prev8.i.i = getelementptr inbounds i8, ptr %3, i64 120
   br label %while.body.i
 
-while.body.i:                                     ; preds = %while.body.i, %while.cond.preheader.i
-  %5 = phi ptr [ %4, %while.cond.preheader.i ], [ %.pr.i, %while.body.i ]
+while.body.i:                                     ; preds = %vfio_display_free_one_dmabuf.exit.i, %while.cond.preheader.i
+  %5 = phi ptr [ %4, %while.cond.preheader.i ], [ %.pr.i, %vfio_display_free_one_dmabuf.exit.i ]
   %next.i.i = getelementptr inbounds i8, ptr %5, i64 104
   %6 = load ptr, ptr %next.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %6, null
   %tql_prev6.i.i = getelementptr inbounds i8, ptr %5, i64 112
   %7 = load ptr, ptr %tql_prev6.i.i, align 8
+  br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
+
+if.then.i.i:                                      ; preds = %while.body.i
   %tql_prev4.i.i = getelementptr inbounds i8, ptr %6, i64 112
-  %tql_prev8.sink.i.i = select i1 %cmp.not.i.i, ptr %tql_prev8.i.i, ptr %tql_prev4.i.i
-  store ptr %7, ptr %tql_prev8.sink.i.i, align 8
+  store ptr %7, ptr %tql_prev4.i.i, align 8
+  br label %vfio_display_free_one_dmabuf.exit.i
+
+if.else.i.i:                                      ; preds = %while.body.i
+  store ptr %7, ptr %tql_prev8.i.i, align 8
+  br label %vfio_display_free_one_dmabuf.exit.i
+
+vfio_display_free_one_dmabuf.exit.i:              ; preds = %if.else.i.i, %if.then.i.i
   %8 = load ptr, ptr %next.i.i, align 8
   store ptr %8, ptr %7, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i.i, i8 0, i64 16, i1 false)
@@ -114,7 +123,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %cmp4.not.i = icmp eq ptr %.pr.i, null
   br i1 %cmp4.not.i, label %vfio_display_dmabuf_exit.exit.loopexit, label %while.body.i, !llvm.loop !5
 
-vfio_display_dmabuf_exit.exit.loopexit:           ; preds = %while.body.i
+vfio_display_dmabuf_exit.exit.loopexit:           ; preds = %vfio_display_free_one_dmabuf.exit.i
   %.pre = load ptr, ptr %dpy, align 16
   br label %vfio_display_dmabuf_exit.exit
 
@@ -420,16 +429,25 @@ while.cond.preheader.i:                           ; preds = %if.end
   %tql_prev8.i.i = getelementptr inbounds i8, ptr %2, i64 120
   br label %while.body.i
 
-while.body.i:                                     ; preds = %while.body.i, %while.cond.preheader.i
-  %4 = phi ptr [ %3, %while.cond.preheader.i ], [ %.pr.i, %while.body.i ]
+while.body.i:                                     ; preds = %vfio_display_free_one_dmabuf.exit.i, %while.cond.preheader.i
+  %4 = phi ptr [ %3, %while.cond.preheader.i ], [ %.pr.i, %vfio_display_free_one_dmabuf.exit.i ]
   %next.i.i = getelementptr inbounds i8, ptr %4, i64 104
   %5 = load ptr, ptr %next.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %5, null
   %tql_prev6.i.i = getelementptr inbounds i8, ptr %4, i64 112
   %6 = load ptr, ptr %tql_prev6.i.i, align 8
+  br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
+
+if.then.i.i:                                      ; preds = %while.body.i
   %tql_prev4.i.i = getelementptr inbounds i8, ptr %5, i64 112
-  %tql_prev8.sink.i.i = select i1 %cmp.not.i.i, ptr %tql_prev8.i.i, ptr %tql_prev4.i.i
-  store ptr %6, ptr %tql_prev8.sink.i.i, align 8
+  store ptr %6, ptr %tql_prev4.i.i, align 8
+  br label %vfio_display_free_one_dmabuf.exit.i
+
+if.else.i.i:                                      ; preds = %while.body.i
+  store ptr %6, ptr %tql_prev8.i.i, align 8
+  br label %vfio_display_free_one_dmabuf.exit.i
+
+vfio_display_free_one_dmabuf.exit.i:              ; preds = %if.else.i.i, %if.then.i.i
   %7 = load ptr, ptr %next.i.i, align 8
   store ptr %7, ptr %6, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i.i, i8 0, i64 16, i1 false)
@@ -442,7 +460,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %cmp4.not.i = icmp eq ptr %.pr.i, null
   br i1 %cmp4.not.i, label %vfio_display_dmabuf_exit.exit.loopexit, label %while.body.i, !llvm.loop !5
 
-vfio_display_dmabuf_exit.exit.loopexit:           ; preds = %while.body.i
+vfio_display_dmabuf_exit.exit.loopexit:           ; preds = %vfio_display_free_one_dmabuf.exit.i
   %.pre = load ptr, ptr %dpy, align 16
   br label %vfio_display_dmabuf_exit.exit
 
@@ -457,11 +475,11 @@ if.end.i:                                         ; preds = %vfio_display_dmabuf
   %region.i = getelementptr inbounds i8, ptr %10, i64 48
   tail call void @vfio_region_exit(ptr noundef nonnull %region.i) #11
   tail call void @vfio_region_finalize(ptr noundef nonnull %region.i) #11
-  %.pre8 = load ptr, ptr %dpy, align 16
+  %.pre9 = load ptr, ptr %dpy, align 16
   br label %vfio_display_region_exit.exit
 
 vfio_display_region_exit.exit:                    ; preds = %vfio_display_dmabuf_exit.exit, %if.end.i
-  %12 = phi ptr [ %10, %vfio_display_dmabuf_exit.exit ], [ %.pre8, %if.end.i ]
+  %12 = phi ptr [ %10, %vfio_display_dmabuf_exit.exit ], [ %.pre9, %if.end.i ]
   %edid_regs.i = getelementptr inbounds i8, ptr %12, i64 24
   %13 = load ptr, ptr %edid_regs.i, align 8
   %tobool.not.i6 = icmp eq ptr %13, null
@@ -475,14 +493,14 @@ if.end.i7:                                        ; preds = %vfio_display_region
   %edid_link_timer.i = getelementptr inbounds i8, ptr %12, i64 40
   %15 = load ptr, ptr %edid_link_timer.i, align 8
   %tobool.not.i.i = icmp eq ptr %15, null
-  br i1 %tobool.not.i.i, label %vfio_display_edid_exit.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %vfio_display_edid_exit.exit, label %if.then.i.i8
 
-if.then.i.i:                                      ; preds = %if.end.i7
+if.then.i.i8:                                     ; preds = %if.end.i7
   tail call void @timer_del(ptr noundef nonnull %15) #11
   tail call void @g_free(ptr noundef nonnull %15) #11
   br label %vfio_display_edid_exit.exit
 
-vfio_display_edid_exit.exit:                      ; preds = %vfio_display_region_exit.exit, %if.end.i7, %if.then.i.i
+vfio_display_edid_exit.exit:                      ; preds = %vfio_display_region_exit.exit, %if.end.i7, %if.then.i.i8
   %16 = load ptr, ptr %dpy, align 16
   tail call void @g_free(ptr noundef %16) #11
   br label %return
@@ -680,9 +698,18 @@ if.end6.i:                                        ; preds = %if.end.i
   %cmp.not.i.i = icmp eq ptr %25, null
   %tql_prev6.i.i = getelementptr inbounds i8, ptr %dmabuf.02.i, i64 112
   %27 = load ptr, ptr %tql_prev6.i.i, align 8
+  br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
+
+if.then.i.i:                                      ; preds = %if.end6.i
   %tql_prev4.i.i = getelementptr inbounds i8, ptr %25, i64 112
-  %tql_prev8.sink.i.i = select i1 %cmp.not.i.i, ptr %tql_prev8.i.i, ptr %tql_prev4.i.i
-  store ptr %27, ptr %tql_prev8.sink.i.i, align 8
+  store ptr %27, ptr %tql_prev4.i.i, align 8
+  br label %vfio_display_free_one_dmabuf.exit.i
+
+if.else.i.i:                                      ; preds = %if.end6.i
+  store ptr %27, ptr %tql_prev8.i.i, align 8
+  br label %vfio_display_free_one_dmabuf.exit.i
+
+vfio_display_free_one_dmabuf.exit.i:              ; preds = %if.else.i.i, %if.then.i.i
   %28 = load ptr, ptr %next.i, align 8
   store ptr %28, ptr %27, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i, i8 0, i64 16, i1 false)
@@ -693,8 +720,8 @@ if.end6.i:                                        ; preds = %if.end.i
   tail call void @g_free(ptr noundef nonnull %dmabuf.02.i) #11
   br label %for.inc.i
 
-for.inc.i:                                        ; preds = %if.end6.i, %if.then.i
-  %keep.1.i = phi i32 [ %dec.i, %if.then.i ], [ 0, %if.end6.i ]
+for.inc.i:                                        ; preds = %vfio_display_free_one_dmabuf.exit.i, %if.then.i
+  %keep.1.i = phi i32 [ %dec.i, %if.then.i ], [ 0, %vfio_display_free_one_dmabuf.exit.i ]
   %tobool.not.i = icmp eq ptr %25, null
   br i1 %tobool.not.i, label %if.end56, label %land.rhs.i, !llvm.loop !7
 
@@ -790,10 +817,19 @@ do.body:                                          ; preds = %for.body
   %next.le = getelementptr inbounds i8, ptr %dmabuf.080, i64 104
   %tql_prev17 = getelementptr inbounds i8, ptr %dmabuf.080, i64 112
   %9 = load ptr, ptr %tql_prev17, align 8
-  %tql_prev20 = getelementptr inbounds i8, ptr %0, i64 120
+  br i1 %cmp10.not, label %if.else, label %if.then11
+
+if.then11:                                        ; preds = %do.body
   %tql_prev15 = getelementptr inbounds i8, ptr %8, i64 112
-  %tql_prev20.sink = select i1 %cmp10.not, ptr %tql_prev20, ptr %tql_prev15
-  store ptr %9, ptr %tql_prev20.sink, align 8
+  store ptr %9, ptr %tql_prev15, align 8
+  br label %if.end21
+
+if.else:                                          ; preds = %do.body
+  %tql_prev20 = getelementptr inbounds i8, ptr %0, i64 120
+  store ptr %9, ptr %tql_prev20, align 8
+  br label %if.end21
+
+if.end21:                                         ; preds = %if.else, %if.then11
   %10 = load ptr, ptr %next.le, align 8
   %tql_prev24 = getelementptr inbounds i8, ptr %dmabuf.080, i64 112
   store ptr %10, ptr %9, align 8
@@ -801,16 +837,25 @@ do.body:                                          ; preds = %for.body
   %11 = load ptr, ptr %dmabuf6, align 8
   store ptr %11, ptr %next.le, align 8
   %cmp34.not = icmp eq ptr %11, null
-  %tql_prev45 = getelementptr inbounds i8, ptr %0, i64 120
+  br i1 %cmp34.not, label %if.else41, label %if.then35
+
+if.then35:                                        ; preds = %if.end21
   %tql_prev40 = getelementptr inbounds i8, ptr %11, i64 112
-  %tql_prev45.sink = select i1 %cmp34.not, ptr %tql_prev45, ptr %tql_prev40
-  store ptr %next.le, ptr %tql_prev45.sink, align 8
+  store ptr %next.le, ptr %tql_prev40, align 8
+  br label %if.end46
+
+if.else41:                                        ; preds = %if.end21
+  %tql_prev45 = getelementptr inbounds i8, ptr %0, i64 120
+  store ptr %next.le, ptr %tql_prev45, align 8
+  br label %if.end46
+
+if.end46:                                         ; preds = %if.else41, %if.then35
   store ptr %dmabuf.080, ptr %dmabuf6, align 8
   store ptr %dmabuf6, ptr %tql_prev24, align 8
   %cmp54 = icmp eq i32 %plane_type, 2
   br i1 %cmp54, label %if.then55, label %return
 
-if.then55:                                        ; preds = %do.body
+if.then55:                                        ; preds = %if.end46
   %pos_x.i = getelementptr inbounds i8, ptr %dmabuf.080, i64 72
   %12 = load i32, ptr %pos_x.i, align 8
   %x_pos.i = getelementptr inbounds i8, ptr %plane, i64 40
@@ -985,17 +1030,26 @@ do.body84:                                        ; preds = %if.then9.i63, %lor.
   %next87 = getelementptr inbounds i8, ptr %call65, i64 104
   store ptr %44, ptr %next87, align 8
   %cmp88.not = icmp eq ptr %44, null
-  %tql_prev99 = getelementptr inbounds i8, ptr %0, i64 120
+  br i1 %cmp88.not, label %if.else95, label %if.then89
+
+if.then89:                                        ; preds = %do.body84
   %tql_prev94 = getelementptr inbounds i8, ptr %44, i64 112
-  %tql_prev99.sink = select i1 %cmp88.not, ptr %tql_prev99, ptr %tql_prev94
-  store ptr %next87, ptr %tql_prev99.sink, align 8
+  store ptr %next87, ptr %tql_prev94, align 8
+  br label %if.end100
+
+if.else95:                                        ; preds = %do.body84
+  %tql_prev99 = getelementptr inbounds i8, ptr %0, i64 120
+  store ptr %next87, ptr %tql_prev99, align 8
+  br label %if.end100
+
+if.end100:                                        ; preds = %if.else95, %if.then89
   store ptr %call65, ptr %dmabuf6, align 8
   %tql_prev106 = getelementptr inbounds i8, ptr %call65, i64 112
   store ptr %dmabuf6, ptr %tql_prev106, align 8
   br label %return
 
-return:                                           ; preds = %if.then9.i, %lor.lhs.false7.i, %for.end, %do.body, %if.end, %entry, %do.body84
-  %retval.0 = phi ptr [ %call65, %do.body84 ], [ null, %entry ], [ null, %if.end ], [ %dmabuf.080, %do.body ], [ null, %for.end ], [ %dmabuf.080, %lor.lhs.false7.i ], [ %dmabuf.080, %if.then9.i ]
+return:                                           ; preds = %if.then9.i, %lor.lhs.false7.i, %for.end, %if.end46, %if.end, %entry, %if.end100
+  %retval.0 = phi ptr [ %call65, %if.end100 ], [ null, %entry ], [ null, %if.end ], [ %dmabuf.080, %if.end46 ], [ null, %for.end ], [ %dmabuf.080, %lor.lhs.false7.i ], [ %dmabuf.080, %if.then9.i ]
   ret ptr %retval.0
 }
 

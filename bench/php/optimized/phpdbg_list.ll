@@ -814,7 +814,7 @@ define hidden ptr @phpdbg_init_compile_file(ptr noundef %0, i32 noundef %1) #0 {
   %11 = getelementptr inbounds i8, ptr %10, i64 24
   %12 = call ptr @tsrm_realpath(ptr noundef nonnull %11, ptr noundef nonnull %3) #11
   %.not106 = icmp eq ptr %12, null
-  br i1 %.not106, label %52, label %13
+  br i1 %.not106, label %54, label %13
 
 13:                                               ; preds = %9
   %14 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #12
@@ -834,14 +834,14 @@ define hidden ptr @phpdbg_init_compile_file(ptr noundef %0, i32 noundef %1) #0 {
   store i8 0, ptr %22, align 1
   %23 = load ptr, ptr %4, align 8
   %.not107 = icmp eq ptr %23, null
-  br i1 %.not107, label %37, label %24
+  br i1 %.not107, label %38, label %24
 
 24:                                               ; preds = %13
   %25 = getelementptr inbounds i8, ptr %23, i64 4
   %26 = load i32, ptr %25, align 4
   %27 = and i32 %26, 64
   %.not110 = icmp eq i32 %27, 0
-  br i1 %.not110, label %28, label %.sink.split
+  br i1 %.not110, label %28, label %37
 
 28:                                               ; preds = %24
   %29 = load i32, ptr %23, align 4
@@ -850,7 +850,7 @@ define hidden ptr @phpdbg_init_compile_file(ptr noundef %0, i32 noundef %1) #0 {
   %31 = add i32 %29, -1
   store i32 %31, ptr %23, align 4
   %32 = icmp eq i32 %31, 0
-  br i1 %32, label %33, label %.sink.split
+  br i1 %32, label %33, label %37
 
 33:                                               ; preds = %28
   %34 = and i32 %26, 128
@@ -859,76 +859,79 @@ define hidden ptr @phpdbg_init_compile_file(ptr noundef %0, i32 noundef %1) #0 {
 
 35:                                               ; preds = %33
   call void @free(ptr noundef nonnull %23) #11
-  br label %.sink.split
+  br label %37
 
 36:                                               ; preds = %33
   call void @_efree(ptr noundef nonnull %23) #11
-  br label %.sink.split
+  br label %37
 
-37:                                               ; preds = %13
-  %38 = getelementptr inbounds i8, ptr %0, i64 40
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 4
-  %41 = load i32, ptr %40, align 4
-  %42 = and i32 %41, 64
-  %.not108 = icmp eq i32 %42, 0
-  br i1 %.not108, label %43, label %.sink.split
+37:                                               ; preds = %28, %36, %35, %24
+  store ptr %17, ptr %4, align 8
+  br label %54
 
-43:                                               ; preds = %37
-  %44 = load i32, ptr %39, align 4
-  %45 = icmp ne i32 %44, 0
-  call void @llvm.assume(i1 %45)
-  %46 = add i32 %44, -1
-  store i32 %46, ptr %39, align 4
-  %47 = icmp eq i32 %46, 0
-  br i1 %47, label %48, label %.sink.split
+38:                                               ; preds = %13
+  %39 = getelementptr inbounds i8, ptr %0, i64 40
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 4
+  %42 = load i32, ptr %41, align 4
+  %43 = and i32 %42, 64
+  %.not108 = icmp eq i32 %43, 0
+  br i1 %.not108, label %44, label %53
 
-48:                                               ; preds = %43
-  %49 = and i32 %41, 128
-  %.not109 = icmp eq i32 %49, 0
-  br i1 %.not109, label %51, label %50
+44:                                               ; preds = %38
+  %45 = load i32, ptr %40, align 4
+  %46 = icmp ne i32 %45, 0
+  call void @llvm.assume(i1 %46)
+  %47 = add i32 %45, -1
+  store i32 %47, ptr %40, align 4
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %49, label %53
 
-50:                                               ; preds = %48
-  call void @free(ptr noundef nonnull %39) #11
-  br label %.sink.split
+49:                                               ; preds = %44
+  %50 = and i32 %42, 128
+  %.not109 = icmp eq i32 %50, 0
+  br i1 %.not109, label %52, label %51
 
-51:                                               ; preds = %48
-  call void @_efree(ptr noundef nonnull %39) #11
-  br label %.sink.split
+51:                                               ; preds = %49
+  call void @free(ptr noundef nonnull %40) #11
+  br label %53
 
-.sink.split:                                      ; preds = %37, %50, %51, %43, %24, %35, %36, %28
-  %.sink = phi ptr [ %4, %28 ], [ %4, %36 ], [ %4, %35 ], [ %4, %24 ], [ %38, %43 ], [ %38, %51 ], [ %38, %50 ], [ %38, %37 ]
-  store ptr %17, ptr %.sink, align 8
-  br label %52
+52:                                               ; preds = %49
+  call void @_efree(ptr noundef nonnull %40) #11
+  br label %53
 
-52:                                               ; preds = %.sink.split, %9
-  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1400), align 8
-  %54 = call ptr %53(ptr noundef nonnull %0, i32 noundef %1) #11
-  %55 = icmp eq ptr %54, null
-  br i1 %55, label %67, label %56
+53:                                               ; preds = %44, %52, %51, %38
+  store ptr %17, ptr %39, align 8
+  br label %54
 
-56:                                               ; preds = %52
-  %57 = getelementptr inbounds i8, ptr %54, i64 152
-  %58 = load ptr, ptr %57, align 8
-  %59 = call ptr @zend_hash_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1416), ptr noundef %58) #11
-  %.not112 = icmp ne ptr %59, null
+54:                                               ; preds = %37, %53, %9
+  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1400), align 8
+  %56 = call ptr %55(ptr noundef nonnull %0, i32 noundef %1) #11
+  %57 = icmp eq ptr %56, null
+  br i1 %57, label %69, label %58
+
+58:                                               ; preds = %54
+  %59 = getelementptr inbounds i8, ptr %56, i64 152
+  %60 = load ptr, ptr %59, align 8
+  %61 = call ptr @zend_hash_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1416), ptr noundef %60) #11
+  %.not112 = icmp ne ptr %61, null
   call void @llvm.assume(i1 %.not112)
-  %60 = load ptr, ptr %59, align 8, !nonnull !4, !noundef !4
-  %61 = getelementptr inbounds i8, ptr %60, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %61, ptr noundef nonnull align 8 dereferenceable(240) %54, i64 240, i1 false)
-  %62 = getelementptr inbounds i8, ptr %60, i64 136
-  %63 = load ptr, ptr %62, align 8
-  %.not113 = icmp eq ptr %63, null
-  br i1 %.not113, label %67, label %64
+  %62 = load ptr, ptr %61, align 8, !nonnull !4, !noundef !4
+  %63 = getelementptr inbounds i8, ptr %62, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %63, ptr noundef nonnull align 8 dereferenceable(240) %56, i64 240, i1 false)
+  %64 = getelementptr inbounds i8, ptr %62, i64 136
+  %65 = load ptr, ptr %64, align 8
+  %.not113 = icmp eq ptr %65, null
+  br i1 %.not113, label %69, label %66
 
-64:                                               ; preds = %56
-  %65 = load i32, ptr %63, align 4
-  %66 = add i32 %65, 1
-  store i32 %66, ptr %63, align 4
-  br label %67
+66:                                               ; preds = %58
+  %67 = load i32, ptr %65, align 4
+  %68 = add i32 %67, 1
+  store i32 %68, ptr %65, align 4
+  br label %69
 
-67:                                               ; preds = %56, %64, %52
-  ret ptr %54
+69:                                               ; preds = %58, %66, %54
+  ret ptr %56
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)

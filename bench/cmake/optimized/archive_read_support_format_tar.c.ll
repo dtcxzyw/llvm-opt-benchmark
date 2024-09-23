@@ -878,102 +878,111 @@ tar_flush_unconsumed.exit:                        ; preds = %40, %43
 53:                                               ; preds = %47
   %54 = load ptr, ptr %25, align 8
   %.not.i64 = icmp eq ptr %54, null
-  %.sink.i = select i1 %.not.i64, ptr %20, ptr %54
-  store ptr %50, ptr %.sink.i, align 8
-  store ptr %50, ptr %25, align 8
-  %or.cond.not.i = icmp slt i64 %49, 0
-  br i1 %or.cond.not.i, label %55, label %gnu_add_sparse_entry.exit
+  br i1 %.not.i64, label %56, label %55
 
 55:                                               ; preds = %53
+  store ptr %50, ptr %54, align 8
+  br label %57
+
+56:                                               ; preds = %53
+  store ptr %50, ptr %20, align 8
+  br label %57
+
+57:                                               ; preds = %56, %55
+  store ptr %50, ptr %25, align 8
+  %or.cond.not.i = icmp slt i64 %49, 0
+  br i1 %or.cond.not.i, label %58, label %gnu_add_sparse_entry.exit
+
+58:                                               ; preds = %57
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.102) #13
   br label %gnu_add_sparse_entry.exit.thread
 
-gnu_add_sparse_entry.exit:                        ; preds = %53
-  %56 = getelementptr inbounds i8, ptr %50, i64 16
-  store i64 %49, ptr %56, align 8
+gnu_add_sparse_entry.exit:                        ; preds = %57
+  %59 = getelementptr inbounds i8, ptr %50, i64 16
+  store i64 %49, ptr %59, align 8
   br label %.loopexit
 
-.preheader:                                       ; preds = %tar_flush_unconsumed.exit, %64
-  %.067 = phi ptr [ %65, %64 ], [ %45, %tar_flush_unconsumed.exit ]
-  %57 = getelementptr inbounds i8, ptr %.067, i64 24
-  %58 = load i32, ptr %57, align 8
-  %.not57 = icmp eq i32 %58, 0
-  br i1 %.not57, label %59, label %64
+.preheader:                                       ; preds = %tar_flush_unconsumed.exit, %67
+  %.067 = phi ptr [ %68, %67 ], [ %45, %tar_flush_unconsumed.exit ]
+  %60 = getelementptr inbounds i8, ptr %.067, i64 24
+  %61 = load i32, ptr %60, align 8
+  %.not57 = icmp eq i32 %61, 0
+  br i1 %.not57, label %62, label %67
 
-59:                                               ; preds = %.preheader
-  %60 = getelementptr inbounds i8, ptr %.067, i64 8
-  %61 = load i64, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %.067, i64 16
-  %63 = load i64, ptr %62, align 8
-  tail call void @archive_entry_sparse_add_entry(ptr noundef %1, i64 noundef %61, i64 noundef %63) #13
-  br label %64
+62:                                               ; preds = %.preheader
+  %63 = getelementptr inbounds i8, ptr %.067, i64 8
+  %64 = load i64, ptr %63, align 8
+  %65 = getelementptr inbounds i8, ptr %.067, i64 16
+  %66 = load i64, ptr %65, align 8
+  tail call void @archive_entry_sparse_add_entry(ptr noundef %1, i64 noundef %64, i64 noundef %66) #13
+  br label %67
 
-64:                                               ; preds = %.preheader, %59
-  %65 = load ptr, ptr %.067, align 8
-  %.not56 = icmp eq ptr %65, null
+67:                                               ; preds = %.preheader, %62
+  %68 = load ptr, ptr %.067, align 8
+  %.not56 = icmp eq ptr %68, null
   br i1 %.not56, label %.loopexit, label %.preheader, !llvm.loop !16
 
-.loopexit:                                        ; preds = %64, %gnu_add_sparse_entry.exit
-  %66 = icmp eq i32 %41, 0
-  br i1 %66, label %67, label %gnu_add_sparse_entry.exit.thread
-
-67:                                               ; preds = %.loopexit
-  %68 = tail call i32 @archive_entry_filetype(ptr noundef %1) #13
-  %69 = icmp eq i32 %68, 32768
+.loopexit:                                        ; preds = %67, %gnu_add_sparse_entry.exit
+  %69 = icmp eq i32 %41, 0
   br i1 %69, label %70, label %gnu_add_sparse_entry.exit.thread
 
-70:                                               ; preds = %67
-  %71 = tail call ptr @archive_entry_pathname_w(ptr noundef %1) #13
-  %.not59 = icmp eq ptr %71, null
-  br i1 %.not59, label %82, label %72
+70:                                               ; preds = %.loopexit
+  %71 = tail call i32 @archive_entry_filetype(ptr noundef %1) #13
+  %72 = icmp eq i32 %71, 32768
+  br i1 %72, label %73, label %gnu_add_sparse_entry.exit.thread
 
-72:                                               ; preds = %70
-  %73 = tail call i64 @wcslen(ptr noundef nonnull %71) #15
-  %.not62 = icmp eq i64 %73, 0
-  br i1 %.not62, label %gnu_add_sparse_entry.exit.thread, label %74
+73:                                               ; preds = %70
+  %74 = tail call ptr @archive_entry_pathname_w(ptr noundef %1) #13
+  %.not59 = icmp eq ptr %74, null
+  br i1 %.not59, label %85, label %75
 
-74:                                               ; preds = %72
-  %75 = getelementptr i32, ptr %71, i64 %73
-  %76 = getelementptr i8, ptr %75, i64 -4
-  %77 = load i32, ptr %76, align 4
-  %78 = icmp eq i32 %77, 47
-  br i1 %78, label %79, label %gnu_add_sparse_entry.exit.thread
+75:                                               ; preds = %73
+  %76 = tail call i64 @wcslen(ptr noundef nonnull %74) #15
+  %.not62 = icmp eq i64 %76, 0
+  br i1 %.not62, label %gnu_add_sparse_entry.exit.thread, label %77
 
-79:                                               ; preds = %74
+77:                                               ; preds = %75
+  %78 = getelementptr i32, ptr %74, i64 %76
+  %79 = getelementptr i8, ptr %78, i64 -4
+  %80 = load i32, ptr %79, align 4
+  %81 = icmp eq i32 %80, 47
+  br i1 %81, label %82, label %gnu_add_sparse_entry.exit.thread
+
+82:                                               ; preds = %77
   tail call void @archive_entry_set_filetype(ptr noundef %1, i32 noundef 16384) #13
-  %80 = getelementptr inbounds i8, ptr %18, i64 272
-  store i64 0, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %18, i64 288
-  store i64 0, ptr %81, align 8
+  %83 = getelementptr inbounds i8, ptr %18, i64 272
+  store i64 0, ptr %83, align 8
+  %84 = getelementptr inbounds i8, ptr %18, i64 288
+  store i64 0, ptr %84, align 8
   br label %gnu_add_sparse_entry.exit.thread
 
-82:                                               ; preds = %70
-  %83 = tail call ptr @archive_entry_pathname(ptr noundef %1) #13
-  %.not60 = icmp eq ptr %83, null
-  br i1 %.not60, label %gnu_add_sparse_entry.exit.thread, label %84
+85:                                               ; preds = %73
+  %86 = tail call ptr @archive_entry_pathname(ptr noundef %1) #13
+  %.not60 = icmp eq ptr %86, null
+  br i1 %.not60, label %gnu_add_sparse_entry.exit.thread, label %87
 
-84:                                               ; preds = %82
-  %85 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %83) #15
-  %.not61 = icmp eq i64 %85, 0
-  br i1 %.not61, label %gnu_add_sparse_entry.exit.thread, label %86
+87:                                               ; preds = %85
+  %88 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %86) #15
+  %.not61 = icmp eq i64 %88, 0
+  br i1 %.not61, label %gnu_add_sparse_entry.exit.thread, label %89
 
-86:                                               ; preds = %84
-  %87 = getelementptr i8, ptr %83, i64 %85
-  %88 = getelementptr i8, ptr %87, i64 -1
-  %89 = load i8, ptr %88, align 1
-  %90 = icmp eq i8 %89, 47
-  br i1 %90, label %91, label %gnu_add_sparse_entry.exit.thread
+89:                                               ; preds = %87
+  %90 = getelementptr i8, ptr %86, i64 %88
+  %91 = getelementptr i8, ptr %90, i64 -1
+  %92 = load i8, ptr %91, align 1
+  %93 = icmp eq i8 %92, 47
+  br i1 %93, label %94, label %gnu_add_sparse_entry.exit.thread
 
-91:                                               ; preds = %86
+94:                                               ; preds = %89
   tail call void @archive_entry_set_filetype(ptr noundef %1, i32 noundef 16384) #13
-  %92 = getelementptr inbounds i8, ptr %18, i64 272
-  store i64 0, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %18, i64 288
-  store i64 0, ptr %93, align 8
+  %95 = getelementptr inbounds i8, ptr %18, i64 272
+  store i64 0, ptr %95, align 8
+  %96 = getelementptr inbounds i8, ptr %18, i64 288
+  store i64 0, ptr %96, align 8
   br label %gnu_add_sparse_entry.exit.thread
 
-gnu_add_sparse_entry.exit.thread:                 ; preds = %55, %52, %.loopexit, %67, %82, %91, %86, %84, %72, %74, %79
-  %.050 = phi i32 [ 0, %79 ], [ 0, %74 ], [ 0, %72 ], [ 0, %84 ], [ 0, %86 ], [ 0, %91 ], [ 0, %82 ], [ 0, %67 ], [ %41, %.loopexit ], [ -30, %52 ], [ -30, %55 ]
+gnu_add_sparse_entry.exit.thread:                 ; preds = %58, %52, %.loopexit, %70, %85, %94, %89, %87, %75, %77, %82
+  %.050 = phi i32 [ 0, %82 ], [ 0, %77 ], [ 0, %75 ], [ 0, %87 ], [ 0, %89 ], [ 0, %94 ], [ 0, %85 ], [ 0, %70 ], [ %41, %.loopexit ], [ -30, %52 ], [ -30, %58 ]
   ret i32 %.050
 }
 
@@ -2220,36 +2229,45 @@ define internal fastcc range(i32 -30, 1) i32 @gnu_add_sparse_entry(ptr noundef %
 
 7:                                                ; preds = %4
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.101) #13
-  br label %19
+  br label %22
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %1, i64 328
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
-  %11 = getelementptr inbounds i8, ptr %1, i64 320
-  %.sink = select i1 %.not, ptr %11, ptr %10
-  store ptr %5, ptr %.sink, align 8
+  br i1 %.not, label %12, label %11
+
+11:                                               ; preds = %8
+  store ptr %5, ptr %10, align 8
+  br label %14
+
+12:                                               ; preds = %8
+  %13 = getelementptr inbounds i8, ptr %1, i64 320
+  store ptr %5, ptr %13, align 8
+  br label %14
+
+14:                                               ; preds = %12, %11
   store ptr %5, ptr %9, align 8
-  %12 = or i64 %3, %2
-  %or.cond.not = icmp slt i64 %12, 0
-  %13 = sub nuw nsw i64 9223372036854775807, %3
-  %14 = icmp sgt i64 %2, %13
-  %or.cond = select i1 %or.cond.not, i1 true, i1 %14
-  br i1 %or.cond, label %15, label %16
+  %15 = or i64 %3, %2
+  %or.cond.not = icmp slt i64 %15, 0
+  %16 = sub nuw nsw i64 9223372036854775807, %3
+  %17 = icmp sgt i64 %2, %16
+  %or.cond = select i1 %or.cond.not, i1 true, i1 %17
+  br i1 %or.cond, label %18, label %19
 
-15:                                               ; preds = %8
+18:                                               ; preds = %14
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.102) #13
-  br label %19
+  br label %22
 
-16:                                               ; preds = %8
-  %17 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 %2, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 16
-  store i64 %3, ptr %18, align 8
-  br label %19
+19:                                               ; preds = %14
+  %20 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 %2, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %5, i64 16
+  store i64 %3, ptr %21, align 8
+  br label %22
 
-19:                                               ; preds = %16, %15, %7
-  %.0 = phi i32 [ -30, %7 ], [ -30, %15 ], [ 0, %16 ]
+22:                                               ; preds = %19, %18, %7
+  %.0 = phi i32 [ -30, %7 ], [ -30, %18 ], [ 0, %19 ]
   ret i32 %.0
 }
 
@@ -4391,53 +4409,62 @@ gnu_clear_sparse_list.exit:                       ; preds = %.lr.ph.i, %3
 26:                                               ; preds = %22
   %27 = load ptr, ptr %10, align 8
   %.not.i35 = icmp eq ptr %27, null
-  %.sink.i = select i1 %.not.i35, ptr %5, ptr %27
-  store ptr %23, ptr %.sink.i, align 8
-  store ptr %23, ptr %10, align 8
-  %28 = sub nuw nsw i64 9223372036854775807, %20
-  %29 = icmp ugt i64 %17, %28
-  br i1 %29, label %30, label %gnu_add_sparse_entry.exit
+  br i1 %.not.i35, label %29, label %28
 
-30:                                               ; preds = %26
+28:                                               ; preds = %26
+  store ptr %23, ptr %27, align 8
+  br label %30
+
+29:                                               ; preds = %26
+  store ptr %23, ptr %5, align 8
+  br label %30
+
+30:                                               ; preds = %29, %28
+  store ptr %23, ptr %10, align 8
+  %31 = sub nuw nsw i64 9223372036854775807, %20
+  %32 = icmp ugt i64 %17, %31
+  br i1 %32, label %33, label %gnu_add_sparse_entry.exit
+
+33:                                               ; preds = %30
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.102) #13
   br label %gnu_add_sparse_entry.exit.thread
 
-gnu_add_sparse_entry.exit:                        ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %23, i64 8
-  store i64 %17, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %23, i64 16
-  store i64 %20, ptr %32, align 8
-  %33 = icmp ugt i32 %.in, 1
-  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !37
+gnu_add_sparse_entry.exit:                        ; preds = %30
+  %34 = getelementptr inbounds i8, ptr %23, i64 8
+  store i64 %17, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %23, i64 16
+  store i64 %20, ptr %35, align 8
+  %36 = icmp ugt i32 %.in, 1
+  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %gnu_add_sparse_entry.exit, %.preheader
-  %34 = load i64, ptr %2, align 8
-  %.not.i36 = icmp eq i64 %34, 0
-  br i1 %.not.i36, label %tar_flush_unconsumed.exit, label %35
+  %37 = load i64, ptr %2, align 8
+  %.not.i36 = icmp eq i64 %37, 0
+  br i1 %.not.i36, label %tar_flush_unconsumed.exit, label %38
 
-35:                                               ; preds = %._crit_edge
-  %36 = tail call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %34) #13
+38:                                               ; preds = %._crit_edge
+  %39 = tail call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %37) #13
   store i64 0, ptr %2, align 8
   br label %tar_flush_unconsumed.exit
 
-tar_flush_unconsumed.exit:                        ; preds = %._crit_edge, %35
-  %37 = load i64, ptr %11, align 8
-  %38 = load i64, ptr %4, align 8
-  %39 = sub nsw i64 %37, %38
-  %40 = sub nsw i64 0, %39
-  %41 = and i64 %40, 511
-  %42 = icmp sgt i64 %41, %38
-  br i1 %42, label %gnu_add_sparse_entry.exit.thread, label %43
+tar_flush_unconsumed.exit:                        ; preds = %._crit_edge, %38
+  %40 = load i64, ptr %11, align 8
+  %41 = load i64, ptr %4, align 8
+  %42 = sub nsw i64 %40, %41
+  %43 = sub nsw i64 0, %42
+  %44 = and i64 %43, 511
+  %45 = icmp sgt i64 %44, %41
+  br i1 %45, label %gnu_add_sparse_entry.exit.thread, label %46
 
-43:                                               ; preds = %tar_flush_unconsumed.exit
-  %44 = tail call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %41) #13
-  %.not = icmp eq i64 %41, %44
-  %45 = add nsw i64 %41, %39
-  %spec.select = select i1 %.not, i64 %45, i64 -30
+46:                                               ; preds = %tar_flush_unconsumed.exit
+  %47 = tail call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %44) #13
+  %.not = icmp eq i64 %44, %47
+  %48 = add nsw i64 %44, %42
+  %spec.select = select i1 %.not, i64 %48, i64 -30
   br label %gnu_add_sparse_entry.exit.thread
 
-gnu_add_sparse_entry.exit.thread:                 ; preds = %19, %.lr.ph, %30, %25, %43, %tar_flush_unconsumed.exit, %gnu_clear_sparse_list.exit
-  %.0 = phi i64 [ -30, %gnu_clear_sparse_list.exit ], [ -30, %tar_flush_unconsumed.exit ], [ %spec.select, %43 ], [ -30, %25 ], [ -30, %30 ], [ -30, %.lr.ph ], [ -30, %19 ]
+gnu_add_sparse_entry.exit.thread:                 ; preds = %19, %.lr.ph, %33, %25, %46, %tar_flush_unconsumed.exit, %gnu_clear_sparse_list.exit
+  %.0 = phi i64 [ -30, %gnu_clear_sparse_list.exit ], [ -30, %tar_flush_unconsumed.exit ], [ %spec.select, %46 ], [ -30, %25 ], [ -30, %33 ], [ -30, %.lr.ph ], [ -30, %19 ]
   ret i64 %.0
 }
 
@@ -4649,7 +4676,7 @@ define internal fastcc range(i32 -30, 1) i32 @gnu_sparse_01_parse(ptr noundef %0
   br label %6
 
 6:                                                ; preds = %tar_atol10.exit.thread, %3
-  %.022 = phi ptr [ %2, %3 ], [ %75, %tar_atol10.exit.thread ]
+  %.022 = phi ptr [ %2, %3 ], [ %78, %tar_atol10.exit.thread ]
   %.0 = phi i64 [ -1, %3 ], [ %.1, %tar_atol10.exit.thread ]
   br label %7
 
@@ -4855,34 +4882,43 @@ tar_atol10.exit60.thread:                         ; preds = %.critedge2.i.i58, %
 66:                                               ; preds = %tar_atol10.exit60.thread
   %67 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %67, null
-  %.sink.i = select i1 %.not.i, ptr %5, ptr %67
-  store ptr %63, ptr %.sink.i, align 8
-  store ptr %63, ptr %4, align 8
-  %68 = xor i64 %.044.i.i4663, 9223372036854775807
-  %69 = icmp sgt i64 %.0, %68
-  br i1 %69, label %70, label %gnu_add_sparse_entry.exit
+  br i1 %.not.i, label %69, label %68
 
-70:                                               ; preds = %66
+68:                                               ; preds = %66
+  store ptr %63, ptr %67, align 8
+  br label %70
+
+69:                                               ; preds = %66
+  store ptr %63, ptr %5, align 8
+  br label %70
+
+70:                                               ; preds = %69, %68
+  store ptr %63, ptr %4, align 8
+  %71 = xor i64 %.044.i.i4663, 9223372036854775807
+  %72 = icmp sgt i64 %.0, %71
+  br i1 %72, label %73, label %gnu_add_sparse_entry.exit
+
+73:                                               ; preds = %70
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.102) #13
   br label %gnu_add_sparse_entry.exit.thread
 
-gnu_add_sparse_entry.exit:                        ; preds = %66
-  %71 = getelementptr inbounds i8, ptr %63, i64 8
-  store i64 %.0, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %63, i64 16
-  store i64 %.044.i.i4663, ptr %72, align 8
+gnu_add_sparse_entry.exit:                        ; preds = %70
+  %74 = getelementptr inbounds i8, ptr %63, i64 8
+  store i64 %.0, ptr %74, align 8
+  %75 = getelementptr inbounds i8, ptr %63, i64 16
+  store i64 %.044.i.i4663, ptr %75, align 8
   %.pre = load i8, ptr %.021, align 1
   br label %tar_atol10.exit.thread
 
 tar_atol10.exit.thread:                           ; preds = %.critedge2.i.i, %.critedge53.i.i, %17, %gnu_add_sparse_entry.exit, %tar_atol10.exit
-  %73 = phi i8 [ %8, %tar_atol10.exit ], [ %.pre, %gnu_add_sparse_entry.exit ], [ %8, %17 ], [ %8, %.critedge53.i.i ], [ %8, %.critedge2.i.i ]
+  %76 = phi i8 [ %8, %tar_atol10.exit ], [ %.pre, %gnu_add_sparse_entry.exit ], [ %8, %17 ], [ %8, %.critedge53.i.i ], [ %8, %.critedge2.i.i ]
   %.1 = phi i64 [ %.044.i.i, %tar_atol10.exit ], [ -1, %gnu_add_sparse_entry.exit ], [ 0, %17 ], [ 0, %.critedge53.i.i ], [ 0, %.critedge2.i.i ]
-  %74 = icmp eq i8 %73, 0
-  %75 = getelementptr inbounds i8, ptr %.021, i64 1
-  br i1 %74, label %gnu_add_sparse_entry.exit.thread, label %6
+  %77 = icmp eq i8 %76, 0
+  %78 = getelementptr inbounds i8, ptr %.021, i64 1
+  br i1 %77, label %gnu_add_sparse_entry.exit.thread, label %6
 
-gnu_add_sparse_entry.exit.thread:                 ; preds = %tar_atol10.exit.thread, %tar_atol10.exit60, %tar_atol10.exit, %9, %70, %65
-  %.023 = phi i32 [ -30, %65 ], [ -30, %70 ], [ -20, %9 ], [ 0, %tar_atol10.exit.thread ], [ -20, %tar_atol10.exit60 ], [ -20, %tar_atol10.exit ]
+gnu_add_sparse_entry.exit.thread:                 ; preds = %tar_atol10.exit.thread, %tar_atol10.exit60, %tar_atol10.exit, %9, %73, %65
+  %.023 = phi i32 [ -30, %65 ], [ -30, %73 ], [ -20, %9 ], [ 0, %tar_atol10.exit.thread ], [ -20, %tar_atol10.exit60 ], [ -20, %tar_atol10.exit ]
   ret i32 %.023
 }
 
@@ -4982,10 +5018,10 @@ define internal fastcc range(i32 -30, 1) i32 @solaris_sparse_parse(ptr noundef %
   %7 = getelementptr inbounds i8, ptr %1, i64 320
   br label %8
 
-8:                                                ; preds = %55, %.preheader
-  %.pn = phi ptr [ %.027, %55 ], [ %2, %.preheader ]
-  %.025 = phi i64 [ %.044.i.i2, %55 ], [ 0, %.preheader ]
-  %.0 = phi i32 [ %58, %55 ], [ 1, %.preheader ]
+8:                                                ; preds = %58, %.preheader
+  %.pn = phi ptr [ %.027, %58 ], [ %2, %.preheader ]
+  %.025 = phi i64 [ %.044.i.i2, %58 ], [ 0, %.preheader ]
+  %.0 = phi i32 [ %61, %58 ], [ 1, %.preheader ]
   %.028 = getelementptr inbounds i8, ptr %.pn, i64 1
   br label %9
 
@@ -5095,7 +5131,7 @@ tar_atol10.exit:                                  ; preds = %27, %29, %.critedge
 tar_atol10.exit.thread:                           ; preds = %.critedge2.i.i, %.critedge53.i.i, %.critedge, %tar_atol10.exit
   %.044.i.i2 = phi i64 [ %.044.i.i, %tar_atol10.exit ], [ 0, %.critedge ], [ 0, %.critedge53.i.i ], [ 0, %.critedge2.i.i ]
   %40 = icmp ult i64 %.025, %.044.i.i2
-  br i1 %40, label %41, label %55
+  br i1 %40, label %41, label %58
 
 41:                                               ; preds = %tar_atol10.exit.thread
   %42 = sub nuw nsw i64 %.044.i.i2, %.025
@@ -5110,35 +5146,44 @@ tar_atol10.exit.thread:                           ; preds = %.critedge2.i.i, %.c
 46:                                               ; preds = %41
   %47 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %47, null
-  %.sink.i = select i1 %.not.i, ptr %7, ptr %47
-  store ptr %43, ptr %.sink.i, align 8
-  store ptr %43, ptr %6, align 8
-  %48 = xor i64 %42, 9223372036854775807
-  %49 = icmp ugt i64 %.025, %48
-  br i1 %49, label %50, label %51
+  br i1 %.not.i, label %49, label %48
 
-50:                                               ; preds = %46
+48:                                               ; preds = %46
+  store ptr %43, ptr %47, align 8
+  br label %50
+
+49:                                               ; preds = %46
+  store ptr %43, ptr %7, align 8
+  br label %50
+
+50:                                               ; preds = %49, %48
+  store ptr %43, ptr %6, align 8
+  %51 = xor i64 %42, 9223372036854775807
+  %52 = icmp ugt i64 %.025, %51
+  br i1 %52, label %53, label %54
+
+53:                                               ; preds = %50
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.102) #13
   br label %gnu_add_sparse_entry.exit.thread
 
-51:                                               ; preds = %46
-  %52 = getelementptr inbounds i8, ptr %43, i64 8
-  store i64 %.025, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %43, i64 16
-  store i64 %42, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %43, i64 24
-  store i32 %.0, ptr %54, align 8
+54:                                               ; preds = %50
+  %55 = getelementptr inbounds i8, ptr %43, i64 8
+  store i64 %.025, ptr %55, align 8
+  %56 = getelementptr inbounds i8, ptr %43, i64 16
+  store i64 %42, ptr %56, align 8
+  %57 = getelementptr inbounds i8, ptr %43, i64 24
+  store i32 %.0, ptr %57, align 8
   %.pre = load i8, ptr %.027, align 1
-  br label %55
+  br label %58
 
-55:                                               ; preds = %51, %tar_atol10.exit.thread
-  %56 = phi i8 [ %.pre, %51 ], [ %10, %tar_atol10.exit.thread ]
-  %57 = icmp eq i8 %56, 0
-  %58 = xor i32 %.0, 1
-  br i1 %57, label %gnu_add_sparse_entry.exit.thread, label %8
+58:                                               ; preds = %54, %tar_atol10.exit.thread
+  %59 = phi i8 [ %.pre, %54 ], [ %10, %tar_atol10.exit.thread ]
+  %60 = icmp eq i8 %59, 0
+  %61 = xor i32 %.0, 1
+  br i1 %60, label %gnu_add_sparse_entry.exit.thread, label %8
 
-gnu_add_sparse_entry.exit.thread:                 ; preds = %55, %tar_atol10.exit, %11, %50, %45, %3
-  %.026 = phi i32 [ -20, %3 ], [ -30, %45 ], [ -30, %50 ], [ -20, %11 ], [ 0, %55 ], [ -20, %tar_atol10.exit ]
+gnu_add_sparse_entry.exit.thread:                 ; preds = %58, %tar_atol10.exit, %11, %53, %45, %3
+  %.026 = phi i32 [ -20, %3 ], [ -30, %45 ], [ -30, %53 ], [ -20, %11 ], [ 0, %58 ], [ -20, %tar_atol10.exit ]
   ret i32 %.026
 }
 
@@ -5371,9 +5416,9 @@ define internal fastcc range(i32 -30, 1) i32 @gnu_sparse_old_parse(ptr noundef %
   %6 = getelementptr inbounds i8, ptr %1, i64 320
   br label %7
 
-7:                                                ; preds = %4, %22
-  %.014 = phi i32 [ %3, %4 ], [ %26, %22 ]
-  %.0813 = phi ptr [ %2, %4 ], [ %25, %22 ]
+7:                                                ; preds = %4, %25
+  %.014 = phi i32 [ %3, %4 ], [ %29, %25 ]
+  %.0813 = phi ptr [ %2, %4 ], [ %28, %25 ]
   %8 = load i8, ptr %.0813, align 1
   %.not = icmp eq i8 %8, 0
   br i1 %.not, label %.critedge, label %9
@@ -5393,32 +5438,41 @@ define internal fastcc range(i32 -30, 1) i32 @gnu_sparse_old_parse(ptr noundef %
 16:                                               ; preds = %9
   %17 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %17, null
-  %.sink.i = select i1 %.not.i, ptr %6, ptr %17
-  store ptr %13, ptr %.sink.i, align 8
-  store ptr %13, ptr %5, align 8
-  %18 = or i64 %12, %10
-  %or.cond.not.i = icmp slt i64 %18, 0
-  %19 = sub nuw nsw i64 9223372036854775807, %12
-  %20 = icmp sgt i64 %10, %19
-  %or.cond.i = select i1 %or.cond.not.i, i1 true, i1 %20
-  br i1 %or.cond.i, label %21, label %22
+  br i1 %.not.i, label %19, label %18
 
-21:                                               ; preds = %16
+18:                                               ; preds = %16
+  store ptr %13, ptr %17, align 8
+  br label %20
+
+19:                                               ; preds = %16
+  store ptr %13, ptr %6, align 8
+  br label %20
+
+20:                                               ; preds = %19, %18
+  store ptr %13, ptr %5, align 8
+  %21 = or i64 %12, %10
+  %or.cond.not.i = icmp slt i64 %21, 0
+  %22 = sub nuw nsw i64 9223372036854775807, %12
+  %23 = icmp sgt i64 %10, %22
+  %or.cond.i = select i1 %or.cond.not.i, i1 true, i1 %23
+  br i1 %or.cond.i, label %24, label %25
+
+24:                                               ; preds = %20
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.102) #13
   br label %.critedge
 
-22:                                               ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %13, i64 8
-  store i64 %10, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %13, i64 16
-  store i64 %12, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %.0813, i64 24
-  %26 = add nsw i32 %.014, -1
-  %27 = icmp sgt i32 %.014, 1
-  br i1 %27, label %7, label %.critedge, !llvm.loop !40
+25:                                               ; preds = %20
+  %26 = getelementptr inbounds i8, ptr %13, i64 8
+  store i64 %10, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %13, i64 16
+  store i64 %12, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %.0813, i64 24
+  %29 = add nsw i32 %.014, -1
+  %30 = icmp sgt i32 %.014, 1
+  br i1 %30, label %7, label %.critedge, !llvm.loop !40
 
-.critedge:                                        ; preds = %7, %22, %21, %15
-  %.09 = phi i32 [ -30, %15 ], [ -30, %21 ], [ 0, %22 ], [ 0, %7 ]
+.critedge:                                        ; preds = %7, %25, %24, %15
+  %.09 = phi i32 [ -30, %15 ], [ -30, %24 ], [ 0, %25 ], [ 0, %7 ]
   ret i32 %.09
 }
 

@@ -819,55 +819,64 @@ define internal fastcc void @_data_list_append(ptr nocapture noundef %0, ptr nou
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  br i1 %.not, label %9, label %7
+
+7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %6, i64 8
-  %.sink = select i1 %.not, ptr %7, ptr %8
-  store ptr %4, ptr %.sink, align 8
+  store ptr %4, ptr %8, align 8
+  br label %11
+
+9:                                                ; preds = %3
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %4, ptr %10, align 8
+  br label %11
+
+11:                                               ; preds = %9, %7
   store ptr %4, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8
-  %11 = add i64 %10, 1
-  store i64 %11, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 24
-  %13 = load ptr, ptr %12, align 8
-  %.not22 = icmp eq ptr %13, null
-  %14 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %15 = and i64 %14, 256
-  %.not23 = icmp eq i64 %15, 0
-  br i1 %.not22, label %25, label %16
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = load i64, ptr %12, align 8
+  %14 = add i64 %13, 1
+  store i64 %14, ptr %12, align 8
+  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %16 = load ptr, ptr %15, align 8
+  %.not22 = icmp eq ptr %16, null
+  %17 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %18 = and i64 %17, 256
+  %.not23 = icmp eq i64 %18, 0
+  br i1 %.not22, label %28, label %19
 
-16:                                               ; preds = %3
-  br i1 %.not23, label %33, label %17
+19:                                               ; preds = %11
+  br i1 %.not23, label %36, label %20
 
-17:                                               ; preds = %16
-  %18 = tail call i32 @get_log_level() #16
-  %19 = icmp sgt i32 %18, 3
-  br i1 %19, label %20, label %33
+20:                                               ; preds = %19
+  %21 = tail call i32 @get_log_level() #16
+  %22 = icmp sgt i32 %21, 3
+  br i1 %22, label %23, label %36
 
-20:                                               ; preds = %17
-  %21 = ptrtoint ptr %4 to i64
-  %22 = load ptr, ptr %12, align 8
-  %23 = getelementptr inbounds i8, ptr %4, i64 16
-  %24 = load ptr, ptr %23, align 8
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.73, ptr noundef nonnull @__func__._data_list_append, i64 noundef %21, ptr noundef %22, ptr noundef %24) #16
-  br label %33
+23:                                               ; preds = %20
+  %24 = ptrtoint ptr %4 to i64
+  %25 = load ptr, ptr %15, align 8
+  %26 = getelementptr inbounds i8, ptr %4, i64 16
+  %27 = load ptr, ptr %26, align 8
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.73, ptr noundef nonnull @__func__._data_list_append, i64 noundef %24, ptr noundef %25, ptr noundef %27) #16
+  br label %36
 
-25:                                               ; preds = %3
-  br i1 %.not23, label %33, label %26
+28:                                               ; preds = %11
+  br i1 %.not23, label %36, label %29
 
-26:                                               ; preds = %25
-  %27 = tail call i32 @get_log_level() #16
-  %28 = icmp sgt i32 %27, 3
-  br i1 %28, label %29, label %33
+29:                                               ; preds = %28
+  %30 = tail call i32 @get_log_level() #16
+  %31 = icmp sgt i32 %30, 3
+  br i1 %31, label %32, label %36
 
-29:                                               ; preds = %26
-  %30 = ptrtoint ptr %4 to i64
-  %31 = getelementptr inbounds i8, ptr %4, i64 16
-  %32 = load ptr, ptr %31, align 8
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.74, ptr noundef nonnull @__func__._data_list_append, i64 noundef %30, ptr noundef %32) #16
-  br label %33
+32:                                               ; preds = %29
+  %33 = ptrtoint ptr %4 to i64
+  %34 = getelementptr inbounds i8, ptr %4, i64 16
+  %35 = load ptr, ptr %34, align 8
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.74, ptr noundef nonnull @__func__._data_list_append, i64 noundef %33, ptr noundef %35) #16
+  br label %36
 
-33:                                               ; preds = %29, %26, %25, %20, %17, %16
+36:                                               ; preds = %32, %29, %28, %23, %20, %19
   ret void
 }
 

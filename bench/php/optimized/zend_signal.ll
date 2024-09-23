@@ -25,7 +25,7 @@ define hidden void @zend_signal_handler_defer(i32 noundef %0, ptr noundef %1, pt
   %5 = load i32, ptr %4, align 4
   %6 = load i32, ptr getelementptr inbounds (i8, ptr @zend_signal_globals, i64 12), align 4
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %39, label %7
+  br i1 %.not, label %40, label %7
 
 7:                                                ; preds = %3
   %8 = load i32, ptr @zend_signal_globals, align 8
@@ -44,7 +44,7 @@ define hidden void @zend_signal_handler_defer(i32 noundef %0, ptr noundef %1, pt
 13:                                               ; preds = %12, %10
   %14 = load i32, ptr getelementptr inbounds (i8, ptr @zend_signal_globals, i64 8), align 8
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %40
+  br i1 %15, label %16, label %41
 
 16:                                               ; preds = %13
   store i32 1, ptr getelementptr inbounds (i8, ptr @zend_signal_globals, i64 8), align 8
@@ -73,13 +73,13 @@ define hidden void @zend_signal_handler_defer(i32 noundef %0, ptr noundef %1, pt
 
 ._crit_edge:                                      ; preds = %.lr.ph, %16
   store i32 0, ptr getelementptr inbounds (i8, ptr @zend_signal_globals, i64 8), align 8
-  br label %40
+  br label %41
 
 26:                                               ; preds = %7
   store i32 1, ptr getelementptr inbounds (i8, ptr @zend_signal_globals, i64 4), align 4
   %27 = load ptr, ptr getelementptr inbounds (i8, ptr @zend_signal_globals, i64 3128), align 8
   %.not28 = icmp eq ptr %27, null
-  br i1 %.not28, label %40, label %28
+  br i1 %.not28, label %41, label %28
 
 28:                                               ; preds = %26
   %29 = getelementptr inbounds i8, ptr %27, i64 24
@@ -102,19 +102,22 @@ define hidden void @zend_signal_handler_defer(i32 noundef %0, ptr noundef %1, pt
 
 36:                                               ; preds = %34
   %37 = getelementptr inbounds i8, ptr %35, i64 24
-  br label %38
+  store ptr %27, ptr %37, align 8
+  br label %39
 
-38:                                               ; preds = %28, %34, %36
-  %.sink = phi ptr [ %37, %36 ], [ getelementptr inbounds (i8, ptr @zend_signal_globals, i64 3112), %34 ], [ getelementptr inbounds (i8, ptr @zend_signal_globals, i64 3112), %28 ]
-  store ptr %27, ptr %.sink, align 8
+38:                                               ; preds = %34, %28
+  store ptr %27, ptr getelementptr inbounds (i8, ptr @zend_signal_globals, i64 3112), align 8
+  br label %39
+
+39:                                               ; preds = %38, %36
   store ptr %27, ptr getelementptr inbounds (i8, ptr @zend_signal_globals, i64 3120), align 8
-  br label %40
+  br label %41
 
-39:                                               ; preds = %3
+40:                                               ; preds = %3
   tail call fastcc void @zend_signal_handler(i32 noundef %0, ptr noundef %1, ptr noundef %2)
-  br label %40
+  br label %41
 
-40:                                               ; preds = %._crit_edge, %13, %38, %26, %39
+41:                                               ; preds = %._crit_edge, %13, %39, %26, %40
   store i32 %5, ptr %4, align 4
   ret void
 }

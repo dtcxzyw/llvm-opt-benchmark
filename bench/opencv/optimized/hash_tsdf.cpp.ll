@@ -6486,22 +6486,18 @@ _ZNKSt8__detail15_Hash_code_baseIN2cv3VecIiLi3EEES3_NS_9_IdentityENS1_5kinfu9tsd
 
 331:                                              ; preds = %328
   %332 = getelementptr inbounds ptr, ptr %.0.i.i.i.i.i, i64 %.02530.i.i.i.i
-  br label %.sink.split.i.i.i.i
+  store ptr %.031.i.i.i.i, ptr %332, align 8
+  br label %336
 
 333:                                              ; preds = %_ZNKSt8__detail15_Hash_code_baseIN2cv3VecIiLi3EEES3_NS_9_IdentityENS1_5kinfu9tsdf_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE15_M_bucket_indexERKNS_16_Hash_node_valueIS3_Lb0EEEm.exit.i.i.i.i
   %334 = load ptr, ptr %327, align 8
   store ptr %334, ptr %.031.i.i.i.i, align 8
   %335 = load ptr, ptr %326, align 8
-  br label %.sink.split.i.i.i.i
-
-.sink.split.i.i.i.i:                              ; preds = %333, %331
-  %.sink.i.i.i.i = phi ptr [ %332, %331 ], [ %335, %333 ]
-  %.1.ph.i.i.i.i = phi i64 [ %325, %331 ], [ %.02530.i.i.i.i, %333 ]
-  store ptr %.031.i.i.i.i, ptr %.sink.i.i.i.i, align 8
+  store ptr %.031.i.i.i.i, ptr %335, align 8
   br label %336
 
-336:                                              ; preds = %.sink.split.i.i.i.i, %328
-  %.1.i.i.i.i = phi i64 [ %325, %328 ], [ %.1.ph.i.i.i.i, %.sink.split.i.i.i.i ]
+336:                                              ; preds = %333, %331, %328
+  %.1.i.i.i.i = phi i64 [ %.02530.i.i.i.i, %333 ], [ %325, %331 ], [ %325, %328 ]
   %.not.i150.i.i.i = icmp eq ptr %313, null
   br i1 %.not.i150.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !165
 
@@ -7248,22 +7244,18 @@ _ZNKSt8__detail15_Hash_code_baseIN2cv3VecIiLi3EEES3_NS_9_IdentityENS1_5kinfu9tsd
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
-  br label %.sink.split
+  store ptr %.031, ptr %33, align 8
+  br label %37
 
 34:                                               ; preds = %_ZNKSt8__detail15_Hash_code_baseIN2cv3VecIiLi3EEES3_NS_9_IdentityENS1_5kinfu9tsdf_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE15_M_bucket_indexERKNS_16_Hash_node_valueIS3_Lb0EEEm.exit
   %35 = load ptr, ptr %28, align 8
   store ptr %35, ptr %.031, align 8
   %36 = load ptr, ptr %27, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %34, %32
-  %.sink = phi ptr [ %33, %32 ], [ %36, %34 ]
-  %.1.ph = phi i64 [ %26, %32 ], [ %.02530, %34 ]
-  store ptr %.031, ptr %.sink, align 8
+  store ptr %.031, ptr %36, align 8
   br label %37
 
-37:                                               ; preds = %.sink.split, %29
-  %.1 = phi i64 [ %26, %29 ], [ %.1.ph, %.sink.split ]
+37:                                               ; preds = %29, %32, %34
+  %.1 = phi i64 [ %.02530, %34 ], [ %26, %32 ], [ %26, %29 ]
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !165
 
@@ -7647,22 +7639,18 @@ _ZNKSt8__detail15_Hash_code_baseIN2cv3VecIiLi3EEESt4pairIKS3_NS1_5kinfu10VolumeU
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
-  br label %.sink.split
+  store ptr %.031, ptr %33, align 8
+  br label %37
 
 34:                                               ; preds = %_ZNKSt8__detail15_Hash_code_baseIN2cv3VecIiLi3EEESt4pairIKS3_NS1_5kinfu10VolumeUnitEENS_10_Select1stENS6_9tsdf_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE15_M_bucket_indexERKNS_16_Hash_node_valueIS8_Lb0EEEm.exit
   %35 = load ptr, ptr %28, align 8
   store ptr %35, ptr %.031, align 8
   %36 = load ptr, ptr %27, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %34, %32
-  %.sink = phi ptr [ %33, %32 ], [ %36, %34 ]
-  %.1.ph = phi i64 [ %26, %32 ], [ %.02530, %34 ]
-  store ptr %.031, ptr %.sink, align 8
+  store ptr %.031, ptr %36, align 8
   br label %37
 
-37:                                               ; preds = %.sink.split, %29
-  %.1 = phi i64 [ %26, %29 ], [ %.1.ph, %.sink.split ]
+37:                                               ; preds = %29, %32, %34
+  %.1 = phi i64 [ %.02530, %34 ], [ %26, %32 ], [ %26, %29 ]
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !173
 

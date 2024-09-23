@@ -561,61 +561,60 @@ if.then.i.i:                                      ; preds = %_ZN5arrow15BasicDec
   %dividend_was_negative.0.i = phi i8 [ 1, %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit.thread.i.i ], [ %frombool.i.i, %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit.i.i ]
   %result.sroa.0.0.i9.i.i = phi i64 [ 0, %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit.thread.i.i ], [ %result.sroa.0.0.i.i.i, %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit.i.i ]
   %result.sroa.4.0.i8.i.i = phi i64 [ %add.i.i.i.i.i.i, %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit.thread.i.i ], [ %result.sroa.4.0.i.i.i, %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit.i.i ]
-  %cmp8.i.i = icmp ult i64 %result.sroa.4.0.i8.i.i, 4294967296
-  br i1 %cmp8.i.i, label %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.sink.split.sink.split.i, label %if.then9.i.i
+  %cmp8.i.i = icmp ugt i64 %result.sroa.4.0.i8.i.i, 4294967295
+  br i1 %cmp8.i.i, label %if.then9.i.i, label %if.end.i.i
 
 if.then9.i.i:                                     ; preds = %if.then.i.i
   %shr.i.i = lshr i64 %result.sroa.4.0.i8.i.i, 32
   %conv10.i.i = trunc nuw i64 %shr.i.i to i32
   store i32 %conv10.i.i, ptr %add.ptr.i, align 4
-  br label %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.sink.split.sink.split.i
+  %conv11.i.i = trunc i64 %result.sroa.4.0.i8.i.i to i32
+  store i32 %conv11.i.i, ptr %retval.0.i.sroa.gep4.i, align 8
+  %shr13.i.i = lshr i64 %result.sroa.0.0.i9.i.i, 32
+  %conv14.i.i = trunc nuw i64 %shr13.i.i to i32
+  store i32 %conv14.i.i, ptr %retval.0.i.sroa.gep3.i, align 4
+  %conv16.i.i = trunc i64 %result.sroa.0.0.i9.i.i to i32
+  store i32 %conv16.i.i, ptr %retval.0.i.sroa.gep.i, align 16
+  br label %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.i
+
+if.end.i.i:                                       ; preds = %if.then.i.i
+  %conv18.i.i = trunc nuw i64 %result.sroa.4.0.i8.i.i to i32
+  store i32 %conv18.i.i, ptr %add.ptr.i, align 4
+  %shr20.i.i = lshr i64 %result.sroa.0.0.i9.i.i, 32
+  %conv21.i.i = trunc nuw i64 %shr20.i.i to i32
+  store i32 %conv21.i.i, ptr %retval.0.i.sroa.gep4.i, align 8
+  %conv23.i.i = trunc i64 %result.sroa.0.0.i9.i.i to i32
+  store i32 %conv23.i.i, ptr %retval.0.i.sroa.gep3.i, align 4
+  br label %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.i
 
 if.end25.i.i:                                     ; preds = %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit.i.i
   %cmp28.i.i = icmp ugt i64 %result.sroa.0.0.i.i.i, 4294967295
-  br i1 %cmp28.i.i, label %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.sink.split.i, label %if.end35.i.i
+  br i1 %cmp28.i.i, label %if.then29.i.i, label %if.end35.i.i
+
+if.then29.i.i:                                    ; preds = %if.end25.i.i
+  %shr30.i.i = lshr i64 %result.sroa.0.0.i.i.i, 32
+  %conv31.i.i = trunc nuw i64 %shr30.i.i to i32
+  store i32 %conv31.i.i, ptr %add.ptr.i, align 4
+  %conv33.i.i = trunc i64 %result.sroa.0.0.i.i.i to i32
+  store i32 %conv33.i.i, ptr %retval.0.i.sroa.gep4.i, align 8
+  br label %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.i
 
 if.end35.i.i:                                     ; preds = %if.end25.i.i
   %cmp36.i.i = icmp eq i64 %result.sroa.0.0.i.i.i, 0
-  br i1 %cmp36.i.i, label %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.i, label %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.i
+  br i1 %cmp36.i.i, label %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.i, label %if.end38.i.i
 
-_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.sink.split.sink.split.i: ; preds = %if.then9.i.i, %if.then.i.i
-  %retval.0.i.sroa.gep4.sink.i = phi ptr [ %retval.0.i.sroa.gep4.i, %if.then9.i.i ], [ %add.ptr.i, %if.then.i.i ]
-  %add.ptr.sink.ph.i = phi ptr [ %retval.0.i.sroa.gep3.i, %if.then9.i.i ], [ %retval.0.i.sroa.gep4.i, %if.then.i.i ]
-  %retval.0.i.sroa.gep.sink.ph.ph.i = phi ptr [ %retval.0.i.sroa.gep.i, %if.then9.i.i ], [ %retval.0.i.sroa.gep3.i, %if.then.i.i ]
-  %retval.0.i.ph.ph.ph.i = phi i64 [ 4, %if.then9.i.i ], [ 3, %if.then.i.i ]
-  %conv11.i.i = trunc i64 %result.sroa.4.0.i8.i.i to i32
-  store i32 %conv11.i.i, ptr %retval.0.i.sroa.gep4.sink.i, align 4
-  br label %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.sink.split.i
-
-_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.sink.split.i: ; preds = %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.sink.split.sink.split.i, %if.end25.i.i
-  %result.sroa.0.0.i.i.sink.i = phi i64 [ %result.sroa.0.0.i.i.i, %if.end25.i.i ], [ %result.sroa.0.0.i9.i.i, %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.sink.split.sink.split.i ]
-  %add.ptr.sink.i = phi ptr [ %add.ptr.i, %if.end25.i.i ], [ %add.ptr.sink.ph.i, %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.sink.split.sink.split.i ]
-  %retval.0.i.sroa.gep.sink.ph.i = phi ptr [ %retval.0.i.sroa.gep4.i, %if.end25.i.i ], [ %retval.0.i.sroa.gep.sink.ph.ph.i, %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.sink.split.sink.split.i ]
-  %dividend_was_negative.1.ph.ph.i = phi i8 [ %frombool.i.i, %if.end25.i.i ], [ %dividend_was_negative.0.i, %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.sink.split.sink.split.i ]
-  %.ph65.ph.i = phi i1 [ true, %if.end25.i.i ], [ %cmp8.i.i, %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.sink.split.sink.split.i ]
-  %retval.0.i.ph.ph.i = phi i64 [ 2, %if.end25.i.i ], [ %retval.0.i.ph.ph.ph.i, %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.sink.split.sink.split.i ]
-  %shr30.i.i = lshr i64 %result.sroa.0.0.i.i.sink.i, 32
-  %conv31.i.i = trunc nuw i64 %shr30.i.i to i32
-  store i32 %conv31.i.i, ptr %add.ptr.sink.i, align 4
-  br label %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.i
-
-_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.i: ; preds = %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.sink.split.i, %if.end35.i.i
-  %result.sroa.0.0.i9.i.sink.i = phi i64 [ %result.sroa.0.0.i.i.i, %if.end35.i.i ], [ %result.sroa.0.0.i.i.sink.i, %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.sink.split.i ]
-  %retval.0.i.sroa.gep.sink.i = phi ptr [ %add.ptr.i, %if.end35.i.i ], [ %retval.0.i.sroa.gep.sink.ph.i, %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.sink.split.i ]
-  %dividend_was_negative.1.ph.i = phi i8 [ %frombool.i.i, %if.end35.i.i ], [ %dividend_was_negative.1.ph.ph.i, %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.sink.split.i ]
-  %.ph65.i = phi i1 [ true, %if.end35.i.i ], [ %.ph65.ph.i, %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.sink.split.i ]
-  %retval.0.i.ph.i = phi i64 [ 1, %if.end35.i.i ], [ %retval.0.i.ph.ph.i, %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.sink.split.i ]
-  %conv16.i.i = trunc i64 %result.sroa.0.0.i9.i.sink.i to i32
-  store i32 %conv16.i.i, ptr %retval.0.i.sroa.gep.sink.i, align 4
+if.end38.i.i:                                     ; preds = %if.end35.i.i
+  %conv39.i.i = trunc nuw i64 %result.sroa.0.0.i.i.i to i32
+  store i32 %conv39.i.i, ptr %add.ptr.i, align 4
   br label %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.i
 
-_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.i: ; preds = %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.i, %if.end35.i.i
-  %2 = phi i32 [ 0, %if.end35.i.i ], [ %conv16.i.i, %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.i ]
-  %dividend_was_negative.1.i = phi i8 [ %frombool.i.i, %if.end35.i.i ], [ %dividend_was_negative.1.ph.i, %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.i ]
-  %retval.0.i.sroa.phi.i = phi ptr [ %dividend_array.i, %if.end35.i.i ], [ %retval.0.i.sroa.gep.sink.i, %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.i ]
-  %3 = phi i1 [ true, %if.end35.i.i ], [ %.ph65.i, %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.i ]
-  %cmp213.i128.i = phi i1 [ false, %if.end35.i.i ], [ true, %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.i ]
-  %retval.0.i.i = phi i64 [ 0, %if.end35.i.i ], [ %retval.0.i.ph.i, %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.i ]
+_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.i: ; preds = %if.end38.i.i, %if.end35.i.i, %if.then29.i.i, %if.end.i.i, %if.then9.i.i
+  %2 = phi i32 [ %conv16.i.i, %if.then9.i.i ], [ %conv23.i.i, %if.end.i.i ], [ %conv33.i.i, %if.then29.i.i ], [ 0, %if.end35.i.i ], [ %conv39.i.i, %if.end38.i.i ]
+  %dividend_was_negative.1.i = phi i8 [ %dividend_was_negative.0.i, %if.then9.i.i ], [ %dividend_was_negative.0.i, %if.end.i.i ], [ %frombool.i.i, %if.then29.i.i ], [ %frombool.i.i, %if.end35.i.i ], [ %frombool.i.i, %if.end38.i.i ]
+  %retval.0.i.sroa.phi.i = phi ptr [ %retval.0.i.sroa.gep.i, %if.then9.i.i ], [ %retval.0.i.sroa.gep3.i, %if.end.i.i ], [ %retval.0.i.sroa.gep4.i, %if.then29.i.i ], [ %dividend_array.i, %if.end35.i.i ], [ %add.ptr.i, %if.end38.i.i ]
+  %3 = phi i1 [ false, %if.then9.i.i ], [ true, %if.end.i.i ], [ true, %if.then29.i.i ], [ true, %if.end35.i.i ], [ true, %if.end38.i.i ]
+  %cmp213.i128.i = phi i1 [ true, %if.then9.i.i ], [ true, %if.end.i.i ], [ true, %if.then29.i.i ], [ false, %if.end35.i.i ], [ true, %if.end38.i.i ]
+  %retval.0.i.i = phi i64 [ 4, %if.then9.i.i ], [ 3, %if.end.i.i ], [ 2, %if.then29.i.i ], [ 0, %if.end35.i.i ], [ 1, %if.end38.i.i ]
   %add.i = add nuw nsw i64 %retval.0.i.i, 1
   %cmp.i.i.i.i65.i = icmp slt i64 %divisor.val1, 0
   br i1 %cmp.i.i.i.i65.i, label %cond.true.i.i.i104.i, label %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit.i66.i

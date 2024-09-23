@@ -997,7 +997,7 @@ define void @_ZN3gmx29PositionCalculationCollection4Impl17insertCalculationEP17g
 
 8:                                                ; preds = %3
   %9 = icmp eq ptr %2, null
-  br i1 %9, label %10, label %15
+  br i1 %9, label %10, label %18
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds i8, ptr %1, i64 112
@@ -1007,40 +1007,49 @@ define void @_ZN3gmx29PositionCalculationCollection4Impl17insertCalculationEP17g
   %14 = getelementptr inbounds i8, ptr %1, i64 120
   store ptr %13, ptr %14, align 8
   %.not20 = icmp eq ptr %13, null
-  br i1 %.not20, label %22, label %.sink.split
+  br i1 %.not20, label %17, label %15
 
-15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %2, i64 120
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 120
-  store ptr %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 112
-  store ptr %2, ptr %19, align 8
-  %20 = load ptr, ptr %16, align 8
-  %.not = icmp eq ptr %20, null
-  br i1 %.not, label %22, label %.sink.split
+15:                                               ; preds = %10
+  %16 = getelementptr inbounds i8, ptr %13, i64 112
+  store ptr %1, ptr %16, align 8
+  br label %17
 
-.sink.split:                                      ; preds = %15, %10
-  %.sink22 = phi ptr [ %13, %10 ], [ %20, %15 ]
-  %.sink.ph = phi ptr [ %12, %10 ], [ %16, %15 ]
-  %21 = getelementptr inbounds i8, ptr %.sink22, i64 112
-  store ptr %1, ptr %21, align 8
-  br label %22
+17:                                               ; preds = %15, %10
+  store ptr %1, ptr %12, align 8
+  br label %27
 
-22:                                               ; preds = %.sink.split, %15, %10
-  %.sink = phi ptr [ %12, %10 ], [ %16, %15 ], [ %.sink.ph, %.sink.split ]
-  store ptr %1, ptr %.sink, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 120
-  %24 = load ptr, ptr %23, align 8
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %26, label %28
+18:                                               ; preds = %8
+  %19 = getelementptr inbounds i8, ptr %2, i64 120
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %1, i64 120
+  store ptr %20, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %1, i64 112
+  store ptr %2, ptr %22, align 8
+  %23 = load ptr, ptr %19, align 8
+  %.not = icmp eq ptr %23, null
+  br i1 %.not, label %26, label %24
 
-26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %1, ptr %27, align 8
-  br label %28
+24:                                               ; preds = %18
+  %25 = getelementptr inbounds i8, ptr %23, i64 112
+  store ptr %1, ptr %25, align 8
+  br label %26
 
-28:                                               ; preds = %26, %22
+26:                                               ; preds = %24, %18
+  store ptr %1, ptr %19, align 8
+  br label %27
+
+27:                                               ; preds = %26, %17
+  %28 = getelementptr inbounds i8, ptr %1, i64 120
+  %29 = load ptr, ptr %28, align 8
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %31, label %33
+
+31:                                               ; preds = %27
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %1, ptr %32, align 8
+  br label %33
+
+33:                                               ; preds = %31, %27
   ret void
 }
 
@@ -1154,25 +1163,25 @@ switch.lookup:                                    ; preds = %3
   %22 = getelementptr inbounds i8, ptr %4, i64 120
   store ptr %21, ptr %22, align 8
   %.not20.i = icmp eq ptr %21, null
-  br i1 %.not20.i, label %24, label %.sink.split.i
+  br i1 %.not20.i, label %25, label %23
 
-.sink.split.i:                                    ; preds = %7
-  %23 = getelementptr inbounds i8, ptr %21, i64 112
-  store ptr %4, ptr %23, align 8
-  br label %24
+23:                                               ; preds = %7
+  %24 = getelementptr inbounds i8, ptr %21, i64 112
+  store ptr %4, ptr %24, align 8
+  br label %25
 
-24:                                               ; preds = %.sink.split.i, %7
+25:                                               ; preds = %23, %7
   store ptr %4, ptr %20, align 8
-  %25 = load ptr, ptr %22, align 8
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %27, label %_ZN3gmx29PositionCalculationCollection4Impl17insertCalculationEP17gmx_ana_poscalc_tS3_.exit
+  %26 = load ptr, ptr %22, align 8
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %28, label %_ZN3gmx29PositionCalculationCollection4Impl17insertCalculationEP17gmx_ana_poscalc_tS3_.exit
 
-27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %4, ptr %28, align 8
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %4, ptr %29, align 8
   br label %_ZN3gmx29PositionCalculationCollection4Impl17insertCalculationEP17gmx_ana_poscalc_tS3_.exit
 
-_ZN3gmx29PositionCalculationCollection4Impl17insertCalculationEP17gmx_ana_poscalc_tS3_.exit: ; preds = %24, %27
+_ZN3gmx29PositionCalculationCollection4Impl17insertCalculationEP17gmx_ana_poscalc_tS3_.exit: ; preds = %25, %28
   ret ptr %4
 }
 
@@ -1661,25 +1670,25 @@ switch.lookup:                                    ; preds = %3
   %23 = getelementptr inbounds i8, ptr %5, i64 120
   store ptr %22, ptr %23, align 8
   %.not20.i.i = icmp eq ptr %22, null
-  br i1 %.not20.i.i, label %25, label %.sink.split.i.i
+  br i1 %.not20.i.i, label %26, label %24
 
-.sink.split.i.i:                                  ; preds = %8
-  %24 = getelementptr inbounds i8, ptr %22, i64 112
-  store ptr %5, ptr %24, align 8
-  br label %25
+24:                                               ; preds = %8
+  %25 = getelementptr inbounds i8, ptr %22, i64 112
+  store ptr %5, ptr %25, align 8
+  br label %26
 
-25:                                               ; preds = %.sink.split.i.i, %8
+26:                                               ; preds = %24, %8
   store ptr %5, ptr %21, align 8
-  %26 = load ptr, ptr %23, align 8
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %28, label %_ZN3gmx29PositionCalculationCollection4Impl17createCalculationE11e_poscalc_ti.exit
+  %27 = load ptr, ptr %23, align 8
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %29, label %_ZN3gmx29PositionCalculationCollection4Impl17createCalculationE11e_poscalc_ti.exit
 
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %5, ptr %29, align 8
+29:                                               ; preds = %26
+  %30 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %5, ptr %30, align 8
   br label %_ZN3gmx29PositionCalculationCollection4Impl17createCalculationE11e_poscalc_ti.exit
 
-_ZN3gmx29PositionCalculationCollection4Impl17createCalculationE11e_poscalc_ti.exit: ; preds = %25, %28
+_ZN3gmx29PositionCalculationCollection4Impl17createCalculationE11e_poscalc_ti.exit: ; preds = %26, %29
   ret ptr %5
 }
 
@@ -1733,25 +1742,25 @@ switch.lookup:                                    ; preds = %3
   %27 = getelementptr inbounds i8, ptr %9, i64 120
   store ptr %26, ptr %27, align 8
   %.not20.i.i = icmp eq ptr %26, null
-  br i1 %.not20.i.i, label %29, label %.sink.split.i.i
+  br i1 %.not20.i.i, label %30, label %28
 
-.sink.split.i.i:                                  ; preds = %12
-  %28 = getelementptr inbounds i8, ptr %26, i64 112
-  store ptr %9, ptr %28, align 8
-  br label %29
+28:                                               ; preds = %12
+  %29 = getelementptr inbounds i8, ptr %26, i64 112
+  store ptr %9, ptr %29, align 8
+  br label %30
 
-29:                                               ; preds = %.sink.split.i.i, %12
+30:                                               ; preds = %28, %12
   store ptr %9, ptr %25, align 8
-  %30 = load ptr, ptr %27, align 8
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %32, label %_ZN3gmx29PositionCalculationCollection4Impl17createCalculationE11e_poscalc_ti.exit
+  %31 = load ptr, ptr %27, align 8
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %33, label %_ZN3gmx29PositionCalculationCollection4Impl17createCalculationE11e_poscalc_ti.exit
 
-32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %9, ptr %33, align 8
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %9, ptr %34, align 8
   br label %_ZN3gmx29PositionCalculationCollection4Impl17createCalculationE11e_poscalc_ti.exit
 
-_ZN3gmx29PositionCalculationCollection4Impl17createCalculationE11e_poscalc_ti.exit: ; preds = %29, %32
+_ZN3gmx29PositionCalculationCollection4Impl17createCalculationE11e_poscalc_ti.exit: ; preds = %30, %33
   ret ptr %9
 }
 
@@ -2708,133 +2717,133 @@ switch.lookup:                                    ; preds = %1
   %22 = getelementptr inbounds i8, ptr %7, i64 120
   store ptr %21, ptr %22, align 8
   %.not20.i.i = icmp eq ptr %21, null
-  br i1 %.not20.i.i, label %24, label %.sink.split.i.i
+  br i1 %.not20.i.i, label %25, label %23
 
-.sink.split.i.i:                                  ; preds = %10
-  %23 = getelementptr inbounds i8, ptr %21, i64 112
-  store ptr %7, ptr %23, align 8
-  br label %24
+23:                                               ; preds = %10
+  %24 = getelementptr inbounds i8, ptr %21, i64 112
+  store ptr %7, ptr %24, align 8
+  br label %25
 
-24:                                               ; preds = %.sink.split.i.i, %10
+25:                                               ; preds = %23, %10
   store ptr %7, ptr %20, align 8
-  %25 = load ptr, ptr %22, align 8
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %27, label %_ZN3gmx29PositionCalculationCollection4Impl17createCalculationE11e_poscalc_ti.exit
+  %26 = load ptr, ptr %22, align 8
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %28, label %_ZN3gmx29PositionCalculationCollection4Impl17createCalculationE11e_poscalc_ti.exit
 
-27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %7, ptr %28, align 8
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %7, ptr %29, align 8
   br label %_ZN3gmx29PositionCalculationCollection4Impl17createCalculationE11e_poscalc_ti.exit
 
-_ZN3gmx29PositionCalculationCollection4Impl17createCalculationE11e_poscalc_ti.exit: ; preds = %24, %27
-  %29 = getelementptr inbounds i8, ptr %0, i64 64
-  tail call fastcc void @_ZL20set_poscalc_maxindexP17gmx_ana_poscalc_tP15gmx_ana_index_tb(ptr noundef nonnull %7, ptr noundef nonnull %29, i1 noundef zeroext true)
-  %30 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #26
-  invoke void @_ZN13gmx_ana_pos_tC1Ev(ptr noundef nonnull align 8 dereferenceable(148) %30)
-          to label %31 unwind label %73
+_ZN3gmx29PositionCalculationCollection4Impl17createCalculationE11e_poscalc_ti.exit: ; preds = %25, %28
+  %30 = getelementptr inbounds i8, ptr %0, i64 64
+  tail call fastcc void @_ZL20set_poscalc_maxindexP17gmx_ana_poscalc_tP15gmx_ana_index_tb(ptr noundef nonnull %7, ptr noundef nonnull %30, i1 noundef zeroext true)
+  %31 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #26
+  invoke void @_ZN13gmx_ana_pos_tC1Ev(ptr noundef nonnull align 8 dereferenceable(148) %31)
+          to label %32 unwind label %75
 
-31:                                               ; preds = %_ZN3gmx29PositionCalculationCollection4Impl17createCalculationE11e_poscalc_ti.exit
-  %32 = getelementptr inbounds i8, ptr %7, i64 88
-  store ptr %30, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 104
-  store ptr %7, ptr %33, align 8
-  %34 = load ptr, ptr %4, align 8
-  %35 = load ptr, ptr %18, align 8
-  %36 = icmp eq ptr %35, %34
-  br i1 %36, label %38, label %37
+32:                                               ; preds = %_ZN3gmx29PositionCalculationCollection4Impl17createCalculationE11e_poscalc_ti.exit
+  %33 = getelementptr inbounds i8, ptr %7, i64 88
+  store ptr %31, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %0, i64 104
+  store ptr %7, ptr %34, align 8
+  %35 = load ptr, ptr %4, align 8
+  %36 = load ptr, ptr %18, align 8
+  %37 = icmp eq ptr %36, %35
+  br i1 %37, label %39, label %38
 
-37:                                               ; preds = %31
+38:                                               ; preds = %32
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx29PositionCalculationCollection4Impl17removeCalculationEP17gmx_ana_poscalc_tENK3$_0clEv", ptr noundef nonnull @.str.18, i32 noundef 407) #24
   unreachable
 
-38:                                               ; preds = %31
-  %39 = load ptr, ptr %22, align 8
-  %.not.i = icmp eq ptr %39, null
-  br i1 %.not.i, label %43, label %40
+39:                                               ; preds = %32
+  %40 = load ptr, ptr %22, align 8
+  %.not.i = icmp eq ptr %40, null
+  br i1 %.not.i, label %44, label %41
 
-40:                                               ; preds = %38
-  %41 = load ptr, ptr %19, align 8
-  %42 = getelementptr inbounds i8, ptr %39, i64 112
-  store ptr %41, ptr %42, align 8
+41:                                               ; preds = %39
+  %42 = load ptr, ptr %19, align 8
+  %43 = getelementptr inbounds i8, ptr %40, i64 112
+  store ptr %42, ptr %43, align 8
   br label %._crit_edge.i
 
-43:                                               ; preds = %38
-  %44 = getelementptr inbounds i8, ptr %34, i64 8
-  %45 = load ptr, ptr %44, align 8
-  %46 = icmp eq ptr %7, %45
-  %47 = load ptr, ptr %19, align 8
-  br i1 %46, label %48, label %._crit_edge.i
+44:                                               ; preds = %39
+  %45 = getelementptr inbounds i8, ptr %35, i64 8
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %7, %46
+  %48 = load ptr, ptr %19, align 8
+  br i1 %47, label %49, label %._crit_edge.i
 
-48:                                               ; preds = %43
-  store ptr %47, ptr %44, align 8
+49:                                               ; preds = %44
+  store ptr %48, ptr %45, align 8
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %48, %43, %40
-  %49 = phi ptr [ %47, %48 ], [ %41, %40 ], [ %47, %43 ]
-  %.not16.i = icmp eq ptr %49, null
-  br i1 %.not16.i, label %53, label %50
+._crit_edge.i:                                    ; preds = %49, %44, %41
+  %50 = phi ptr [ %48, %49 ], [ %42, %41 ], [ %48, %44 ]
+  %.not16.i = icmp eq ptr %50, null
+  br i1 %.not16.i, label %54, label %51
 
-50:                                               ; preds = %._crit_edge.i
-  %51 = load ptr, ptr %22, align 8
-  %52 = getelementptr inbounds i8, ptr %49, i64 120
-  store ptr %51, ptr %52, align 8
+51:                                               ; preds = %._crit_edge.i
+  %52 = load ptr, ptr %22, align 8
+  %53 = getelementptr inbounds i8, ptr %50, i64 120
+  store ptr %52, ptr %53, align 8
   br label %_ZN3gmx29PositionCalculationCollection4Impl17removeCalculationEP17gmx_ana_poscalc_t.exit
 
-53:                                               ; preds = %._crit_edge.i
-  %54 = getelementptr inbounds i8, ptr %34, i64 16
-  %55 = load ptr, ptr %54, align 8
-  %56 = icmp eq ptr %7, %55
-  br i1 %56, label %57, label %_ZN3gmx29PositionCalculationCollection4Impl17removeCalculationEP17gmx_ana_poscalc_t.exit
+54:                                               ; preds = %._crit_edge.i
+  %55 = getelementptr inbounds i8, ptr %35, i64 16
+  %56 = load ptr, ptr %55, align 8
+  %57 = icmp eq ptr %7, %56
+  br i1 %57, label %58, label %_ZN3gmx29PositionCalculationCollection4Impl17removeCalculationEP17gmx_ana_poscalc_t.exit
 
-57:                                               ; preds = %53
-  %58 = load ptr, ptr %22, align 8
-  store ptr %58, ptr %54, align 8
+58:                                               ; preds = %54
+  %59 = load ptr, ptr %22, align 8
+  store ptr %59, ptr %55, align 8
   br label %_ZN3gmx29PositionCalculationCollection4Impl17removeCalculationEP17gmx_ana_poscalc_t.exit
 
-_ZN3gmx29PositionCalculationCollection4Impl17removeCalculationEP17gmx_ana_poscalc_t.exit: ; preds = %50, %53, %57
+_ZN3gmx29PositionCalculationCollection4Impl17removeCalculationEP17gmx_ana_poscalc_t.exit: ; preds = %51, %54, %58
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
-  %59 = load ptr, ptr %4, align 8
-  %60 = load ptr, ptr %18, align 8
-  %61 = icmp eq ptr %60, %59
-  br i1 %61, label %63, label %62
+  %60 = load ptr, ptr %4, align 8
+  %61 = load ptr, ptr %18, align 8
+  %62 = icmp eq ptr %61, %60
+  br i1 %62, label %64, label %63
 
-62:                                               ; preds = %_ZN3gmx29PositionCalculationCollection4Impl17removeCalculationEP17gmx_ana_poscalc_t.exit
+63:                                               ; preds = %_ZN3gmx29PositionCalculationCollection4Impl17removeCalculationEP17gmx_ana_poscalc_t.exit
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx29PositionCalculationCollection4Impl17insertCalculationEP17gmx_ana_poscalc_tS3_ENK3$_0clEv", ptr noundef nonnull @.str.18, i32 noundef 378) #24
   unreachable
 
-63:                                               ; preds = %_ZN3gmx29PositionCalculationCollection4Impl17removeCalculationEP17gmx_ana_poscalc_t.exit
-  %64 = getelementptr inbounds i8, ptr %0, i64 120
-  %65 = load ptr, ptr %64, align 8
-  store ptr %65, ptr %22, align 8
+64:                                               ; preds = %_ZN3gmx29PositionCalculationCollection4Impl17removeCalculationEP17gmx_ana_poscalc_t.exit
+  %65 = getelementptr inbounds i8, ptr %0, i64 120
+  %66 = load ptr, ptr %65, align 8
+  store ptr %66, ptr %22, align 8
   store ptr %0, ptr %19, align 8
-  %66 = load ptr, ptr %64, align 8
-  %.not.i16 = icmp eq ptr %66, null
-  br i1 %.not.i16, label %68, label %.sink.split.i
+  %67 = load ptr, ptr %65, align 8
+  %.not.i16 = icmp eq ptr %67, null
+  br i1 %.not.i16, label %70, label %68
 
-.sink.split.i:                                    ; preds = %63
-  %67 = getelementptr inbounds i8, ptr %66, i64 112
-  store ptr %7, ptr %67, align 8
-  br label %68
+68:                                               ; preds = %64
+  %69 = getelementptr inbounds i8, ptr %67, i64 112
+  store ptr %7, ptr %69, align 8
+  br label %70
 
-68:                                               ; preds = %.sink.split.i, %63
-  store ptr %7, ptr %64, align 8
-  %69 = load ptr, ptr %22, align 8
-  %70 = icmp eq ptr %69, null
-  br i1 %70, label %71, label %_ZN3gmx29PositionCalculationCollection4Impl17insertCalculationEP17gmx_ana_poscalc_tS3_.exit
+70:                                               ; preds = %64, %68
+  store ptr %7, ptr %65, align 8
+  %71 = load ptr, ptr %22, align 8
+  %72 = icmp eq ptr %71, null
+  br i1 %72, label %73, label %_ZN3gmx29PositionCalculationCollection4Impl17insertCalculationEP17gmx_ana_poscalc_tS3_.exit
 
-71:                                               ; preds = %68
-  %72 = getelementptr inbounds i8, ptr %59, i64 8
-  store ptr %7, ptr %72, align 8
+73:                                               ; preds = %70
+  %74 = getelementptr inbounds i8, ptr %60, i64 8
+  store ptr %7, ptr %74, align 8
   br label %_ZN3gmx29PositionCalculationCollection4Impl17insertCalculationEP17gmx_ana_poscalc_tS3_.exit
 
-_ZN3gmx29PositionCalculationCollection4Impl17insertCalculationEP17gmx_ana_poscalc_tS3_.exit: ; preds = %68, %71
+_ZN3gmx29PositionCalculationCollection4Impl17insertCalculationEP17gmx_ana_poscalc_tS3_.exit: ; preds = %70, %73
   ret ptr %7
 
-73:                                               ; preds = %_ZN3gmx29PositionCalculationCollection4Impl17createCalculationE11e_poscalc_ti.exit
-  %74 = landingpad { ptr, i32 }
+75:                                               ; preds = %_ZN3gmx29PositionCalculationCollection4Impl17createCalculationE11e_poscalc_ti.exit
+  %76 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %30) #27
-  resume { ptr, i32 } %74
+  tail call void @_ZdlPv(ptr noundef nonnull %31) #27
+  resume { ptr, i32 } %76
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -23162,22 +23162,18 @@ _ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St8funct
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds ptr, ptr %.0.i.i.i, i64 %.02531.i.i
-  br label %.sink.split.i.i
+  store ptr %.032.i.i, ptr %35, align 8
+  br label %39
 
 36:                                               ; preds = %.lr.ph.i.i
   %37 = load ptr, ptr %30, align 8
   store ptr %37, ptr %.032.i.i, align 8
   %38 = load ptr, ptr %29, align 8
-  br label %.sink.split.i.i
-
-.sink.split.i.i:                                  ; preds = %36, %34
-  %.sink.i.i = phi ptr [ %35, %34 ], [ %38, %36 ]
-  %.1.ph.i.i = phi i64 [ %28, %34 ], [ %.02531.i.i, %36 ]
-  store ptr %.032.i.i, ptr %.sink.i.i, align 8
+  store ptr %.032.i.i, ptr %38, align 8
   br label %39
 
-39:                                               ; preds = %.sink.split.i.i, %31
-  %.1.i.i = phi i64 [ %28, %31 ], [ %.1.ph.i.i, %.sink.split.i.i ]
+39:                                               ; preds = %36, %34, %31
+  %.1.i.i = phi i64 [ %.02531.i.i, %36 ], [ %28, %34 ], [ %28, %31 ]
   %.not.i.i = icmp eq ptr %.0.val.i.i, null
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !568
 

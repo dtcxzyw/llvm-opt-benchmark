@@ -321,14 +321,11 @@ declare void @_ZN11BigUnsignedC1Et(ptr noundef nonnull align 8 dereferenceable(1
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN10BigIntegerC2El(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #0 align 2 {
-  %3 = icmp eq i64 %1, 0
-  %4 = icmp sgt i64 %1, 0
-  %5 = select i1 %4, i32 1, i32 -1
-  %6 = select i1 %3, i32 0, i32 %5
-  store i32 %6, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = tail call noundef range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %1, i1 true)
-  tail call void @_ZN11BigUnsignedC1Em(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %8)
+  %3 = tail call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i64(i64 %1, i64 0)
+  store i32 %3, ptr %0, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = tail call noundef range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %1, i1 true)
+  tail call void @_ZN11BigUnsignedC1Em(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %5)
   ret void
 }
 
@@ -348,15 +345,12 @@ define void @_ZN10BigIntegerC2Ei(ptr noundef nonnull align 8 dereferenceable(24)
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN10BigIntegerC2Es(ptr noundef nonnull align 8 dereferenceable(24) %0, i16 noundef signext %1) unnamed_addr #0 align 2 {
-  %3 = icmp eq i16 %1, 0
-  %4 = icmp sgt i16 %1, 0
-  %5 = select i1 %4, i32 1, i32 -1
-  %6 = select i1 %3, i32 0, i32 %5
-  store i32 %6, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = tail call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i16(i16 %1, i16 0)
+  store i32 %3, ptr %0, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   %.v.i = tail call i16 @llvm.abs.i16(i16 %1, i1 false)
-  %8 = zext i16 %.v.i to i64
-  tail call void @_ZN11BigUnsignedC1Em(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %8)
+  %5 = zext i16 %.v.i to i64
+  tail call void @_ZN11BigUnsignedC1Em(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %5)
   ret void
 }
 
@@ -2344,10 +2338,16 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #3
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i64(i64, i64) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i16(i16, i16) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.abs.i16(i16, i1 immarg) #5

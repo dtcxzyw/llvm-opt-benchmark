@@ -689,9 +689,18 @@ if.else24:                                        ; preds = %while.body, %if.end
 
 if.then26:                                        ; preds = %if.else24
   %cmp27 = icmp eq ptr %prev.025.lcssa, null
+  br i1 %cmp27, label %if.then28, label %if.else30
+
+if.then28:                                        ; preds = %if.then26
+  store ptr %res, ptr %fFirst, align 8
+  br label %if.end32
+
+if.else30:                                        ; preds = %if.then26
   %fNext31 = getelementptr inbounds i8, ptr %prev.025.lcssa, i64 32
-  %fNext31.sink = select i1 %cmp27, ptr %fFirst, ptr %fNext31
-  store ptr %res, ptr %fNext31.sink, align 8
+  store ptr %res, ptr %fNext31, align 8
+  br label %if.end32
+
+if.end32:                                         ; preds = %if.else30, %if.then28
   %fNext33 = getelementptr inbounds i8, ptr %res, i64 32
   store ptr %current.026.lcssa, ptr %fNext33, align 8
   br label %return
@@ -710,7 +719,7 @@ while.end:                                        ; preds = %if.then22
   store ptr null, ptr %fNext38, align 8
   br label %return
 
-return:                                           ; preds = %entry, %while.end, %if.else34, %if.then26, %if.then5
+return:                                           ; preds = %entry, %while.end, %if.else34, %if.end32, %if.then5
   ret void
 }
 
@@ -806,11 +815,20 @@ if.then:                                          ; preds = %entry
   %fFirst = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %fFirst, align 8
   %cmp3 = icmp eq ptr %0, null
+  br i1 %cmp3, label %if.then4, label %if.else
+
+if.then4:                                         ; preds = %if.then
+  store ptr %res, ptr %fFirst, align 8
+  br label %if.end
+
+if.else:                                          ; preds = %if.then
   %fLast = getelementptr inbounds i8, ptr %this, i64 72
   %1 = load ptr, ptr %fLast, align 8
   %fNext = getelementptr inbounds i8, ptr %1, i64 32
-  %fNext.sink = select i1 %cmp3, ptr %fFirst, ptr %fNext
-  store ptr %res, ptr %fNext.sink, align 8
+  store ptr %res, ptr %fNext, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then4
   %fLast6 = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %res, ptr %fLast6, align 8
   %fCount = getelementptr inbounds i8, ptr %this, i64 56
@@ -819,7 +837,7 @@ if.then:                                          ; preds = %entry
   store i32 %inc, ptr %fCount, align 8
   br label %if.end7
 
-if.end7:                                          ; preds = %if.then, %entry
+if.end7:                                          ; preds = %if.end, %entry
   ret void
 }
 
@@ -6576,9 +6594,18 @@ if.end25:                                         ; preds = %if.then18, %if.then
   %cmp26 = icmp eq ptr %prev.027, null
   %fNext = getelementptr inbounds i8, ptr %curr.028, i64 32
   %7 = load ptr, ptr %fNext, align 8
+  br i1 %cmp26, label %if.then27, label %if.else29
+
+if.then27:                                        ; preds = %if.end25
+  store ptr %7, ptr %fFirst, align 8
+  br label %if.end32
+
+if.else29:                                        ; preds = %if.end25
   %fNext31 = getelementptr inbounds i8, ptr %prev.027, i64 32
-  %fNext31.sink = select i1 %cmp26, ptr %fFirst, ptr %fNext31
-  store ptr %7, ptr %fNext31.sink, align 8
+  store ptr %7, ptr %fNext31, align 8
+  br label %if.end32
+
+if.end32:                                         ; preds = %if.else29, %if.then27
   %8 = load i32, ptr %fCount, align 8
   %dec = add i32 %8, -1
   store i32 %dec, ptr %fCount, align 8
@@ -6595,8 +6622,8 @@ if.else35:                                        ; preds = %invoke.cont4
   call void %10(ptr noundef nonnull align 8 dereferenceable(56) %curr.028, ptr noundef nonnull align 8 dereferenceable(8) %filter, ptr noundef nonnull align 8 dereferenceable(24) %path, ptr noundef %bundle)
   br label %if.end39
 
-if.end39:                                         ; preds = %if.end25, %if.else35, %if.then, %if.then8
-  %curr.1 = phi ptr [ %curr.028, %if.then8 ], [ %curr.028, %if.then ], [ %prev.027, %if.end25 ], [ %curr.028, %if.else35 ]
+if.end39:                                         ; preds = %if.end32, %if.else35, %if.then, %if.then8
+  %curr.1 = phi ptr [ %curr.028, %if.then8 ], [ %curr.028, %if.then ], [ %prev.027, %if.end32 ], [ %curr.028, %if.else35 ]
   call void @_ZN10ResKeyPath3popEv(ptr noundef nonnull align 8 dereferenceable(24) %path)
   %cmp40 = icmp eq ptr %curr.1, null
   %fNext44 = getelementptr inbounds i8, ptr %curr.1, i64 32

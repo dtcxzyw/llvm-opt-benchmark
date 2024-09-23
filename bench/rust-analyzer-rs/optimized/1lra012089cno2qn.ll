@@ -108367,19 +108367,19 @@ define hidden void @_ZN5serde2de12Deserializer21__deserialize_content17h6ddb0258
   %5 = icmp ne ptr %.sroa.4.0.copyload.i, null
   tail call void @llvm.assume(i1 %5)
   store ptr %.sroa.4.0.copyload.i, ptr %.sroa.41.0..sroa_idx.i.i.i, align 8, !alias.scope !30015, !noalias !30020
+  store i64 %.sroa.55.0.copyload.i, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !alias.scope !30015, !noalias !30020
   br label %"_ZN85_$LT$serde_json..value..de..MapKeyDeserializer$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17hf75ef16a20b444d2E.llvm.1186121590401690724.exit"
 
 6:                                                ; preds = %2
   store i64 %.sroa.04.0.copyload.i, ptr %.sroa.41.0..sroa_idx.i.i.i, align 8, !alias.scope !30010, !noalias !30023
   store ptr %.sroa.4.0.copyload.i, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !alias.scope !30010, !noalias !30023
   %.sroa.4.i.i.sroa.5.0..sroa.4.0..sroa_idx.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %.sroa.55.0.copyload.i, ptr %.sroa.4.i.i.sroa.5.0..sroa.4.0..sroa_idx.i.i.sroa_idx.i, align 8, !alias.scope !30010, !noalias !30023
   br label %"_ZN85_$LT$serde_json..value..de..MapKeyDeserializer$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17hf75ef16a20b444d2E.llvm.1186121590401690724.exit"
 
 "_ZN85_$LT$serde_json..value..de..MapKeyDeserializer$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17hf75ef16a20b444d2E.llvm.1186121590401690724.exit": ; preds = %4, %6
-  %.sroa.5.0..sroa_idx.i.i.i.sink = phi ptr [ %.sroa.5.0..sroa_idx.i.i.i, %4 ], [ %.sroa.4.i.i.sroa.5.0..sroa.4.0..sroa_idx.i.i.sroa_idx.i, %6 ]
   %.sink.i.i = phi i8 [ 13, %4 ], [ 12, %6 ]
-  store i64 %.sroa.55.0.copyload.i, ptr %.sroa.5.0..sroa_idx.i.i.i.sink, align 8, !alias.scope !30010, !noalias !30026
-  store i8 %.sink.i.i, ptr %0, align 8, !alias.scope !30027, !noalias !30026
+  store i8 %.sink.i.i, ptr %0, align 8, !alias.scope !30026, !noalias !30027
   ret void
 }
 
@@ -115596,19 +115596,19 @@ define hidden void @"_ZN85_$LT$serde_json..value..de..MapKeyDeserializer$u20$as$
   %5 = icmp ne ptr %.sroa.4.0.copyload, null
   tail call void @llvm.assume(i1 %5)
   store ptr %.sroa.4.0.copyload, ptr %.sroa.41.0..sroa_idx.i.i, align 8, !alias.scope !32112, !noalias !32117
+  store i64 %.sroa.55.0.copyload, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !32112, !noalias !32117
   br label %"_ZN93_$LT$serde_json..value..de..BorrowedCowStrDeserializer$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17ha6a728698ce4e8f8E.llvm.1186121590401690724.exit"
 
 6:                                                ; preds = %2
   store i64 %.sroa.04.0.copyload, ptr %.sroa.41.0..sroa_idx.i.i, align 8, !noalias !32120
   store ptr %.sroa.4.0.copyload, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !noalias !32120
   %.sroa.4.i.i.sroa.5.0..sroa.4.0..sroa_idx.i.i.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %.sroa.55.0.copyload, ptr %.sroa.4.i.i.sroa.5.0..sroa.4.0..sroa_idx.i.i.sroa_idx, align 8, !noalias !32120
   br label %"_ZN93_$LT$serde_json..value..de..BorrowedCowStrDeserializer$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17ha6a728698ce4e8f8E.llvm.1186121590401690724.exit"
 
 "_ZN93_$LT$serde_json..value..de..BorrowedCowStrDeserializer$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17ha6a728698ce4e8f8E.llvm.1186121590401690724.exit": ; preds = %4, %6
-  %.sroa.5.0..sroa_idx.i.i.sink = phi ptr [ %.sroa.5.0..sroa_idx.i.i, %4 ], [ %.sroa.4.i.i.sroa.5.0..sroa.4.0..sroa_idx.i.i.sroa_idx, %6 ]
   %.sink.i = phi i8 [ 13, %4 ], [ 12, %6 ]
-  store i64 %.sroa.55.0.copyload, ptr %.sroa.5.0..sroa_idx.i.i.sink, align 8, !noalias !32123
-  store i8 %.sink.i, ptr %0, align 8, !alias.scope !32124, !noalias !32123
+  store i8 %.sink.i, ptr %0, align 8, !alias.scope !32123, !noalias !32124
   ret void
 }
 
@@ -149724,8 +149724,8 @@ attributes #38 = { cold noreturn nounwind }
 !30023 = !{!30024, !30022, !30014}
 !30024 = distinct !{!30024, !30025, !"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20$as$u20$serde..de..Visitor$GT$12visit_string17hef9d9ec921a73b6eE.llvm.1186121590401690724: argument 1"}
 !30025 = distinct !{!30025, !"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20$as$u20$serde..de..Visitor$GT$12visit_string17hef9d9ec921a73b6eE.llvm.1186121590401690724"}
-!30026 = !{!30022, !30014}
-!30027 = !{!30018, !30011}
+!30026 = !{!30018, !30011}
+!30027 = !{!30022, !30014}
 !30028 = !{!30029}
 !30029 = distinct !{!30029, !30030, !"_ZN190_$LT$rust_analyzer..lsp..ext.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$rust_analyzer..lsp..ext..MoveItemDirection$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_str17h1c518f187f068eeeE: argument 0"}
 !30030 = distinct !{!30030, !"_ZN190_$LT$rust_analyzer..lsp..ext.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$rust_analyzer..lsp..ext..MoveItemDirection$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_str17h1c518f187f068eeeE"}
@@ -151821,8 +151821,8 @@ attributes #38 = { cold noreturn nounwind }
 !32120 = !{!32121, !32119}
 !32121 = distinct !{!32121, !32122, !"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20$as$u20$serde..de..Visitor$GT$12visit_string17hef9d9ec921a73b6eE.llvm.1186121590401690724: argument 1"}
 !32122 = distinct !{!32122, !"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20$as$u20$serde..de..Visitor$GT$12visit_string17hef9d9ec921a73b6eE.llvm.1186121590401690724"}
-!32123 = !{!32119}
-!32124 = !{!32115}
+!32123 = !{!32115}
+!32124 = !{!32119}
 !32125 = !{!32126}
 !32126 = distinct !{!32126, !32127, !"_ZN9hashbrown3raw5inner13RawTableInner16drop_inner_table17h5b8b04fd9f912871E: argument 0"}
 !32127 = distinct !{!32127, !"_ZN9hashbrown3raw5inner13RawTableInner16drop_inner_table17h5b8b04fd9f912871E"}

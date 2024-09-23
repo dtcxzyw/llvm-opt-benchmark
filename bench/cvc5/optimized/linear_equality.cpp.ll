@@ -12914,13 +12914,13 @@ if.else:                                          ; preds = %for.body.i13.i, %fo
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %_mp_size.i16.sink = phi ptr [ %_mp_size.i16, %if.else ], [ %_mp_size.i, %if.then ]
+  %.sink44.in = phi ptr [ %_mp_size.i16, %if.else ], [ %_mp_size.i, %if.then ]
   %cond.i28 = phi i32 [ %cond.i, %if.else ], [ -1, %if.then ]
   %coeffOldSgn.0 = phi i32 [ %cond.i20, %if.else ], [ 0, %if.then ]
-  %12 = load i32, ptr %_mp_size.i16.sink, align 4
-  %cmp6.i22 = icmp ne i32 %12, 0
+  %.sink44 = load i32, ptr %.sink44.in, align 4
+  %cmp6.i22 = icmp ne i32 %.sink44, 0
   %conv.i23 = zext i1 %cmp6.i22 to i32
-  %cmp.inv.i24 = icmp sgt i32 %12, -1
+  %cmp.inv.i24 = icmp sgt i32 %.sink44, -1
   %cond.i25 = select i1 %cmp.inv.i24, i32 %conv.i23, i32 -1
   %cmp8.not = icmp eq i32 %coeffOldSgn.0, %cond.i25
   br i1 %cmp8.not, label %if.end10, label %if.then9
@@ -12928,8 +12928,8 @@ if.end:                                           ; preds = %if.else, %if.then
 if.then9:                                         ; preds = %if.end
   %vtable = load ptr, ptr %cb, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %13 = load ptr, ptr %vfn, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %cb, i32 noundef %row, i32 noundef %col, i32 noundef %coeffOldSgn.0, i32 noundef %cond.i25)
+  %12 = load ptr, ptr %vfn, align 8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %cb, i32 noundef %row, i32 noundef %col, i32 noundef %coeffOldSgn.0, i32 noundef %cond.i25)
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then9, %if.end

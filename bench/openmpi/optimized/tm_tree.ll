@@ -3230,67 +3230,69 @@ define internal fastcc void @create_dumb_tree(ptr noundef %0, i32 noundef %1, pt
   %5 = load i32, ptr %4, align 8
   %6 = add nsw i32 %5, -1
   %7 = icmp eq i32 %1, %6
-  br i1 %7, label %8, label %11
+  br i1 %7, label %8, label %12
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 0, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
-  br label %28
+  store i32 -1, ptr %11, align 8
+  br label %30
 
-11:                                               ; preds = %3
-  %12 = load ptr, ptr %2, align 8
-  %13 = sext i32 %1 to i64
-  %14 = getelementptr inbounds i32, ptr %12, i64 %13
-  %15 = load i32, ptr %14, align 4
-  %16 = sext i32 %15 to i64
-  %17 = tail call noalias ptr @calloc(i64 noundef %16, i64 noundef 8) #28
-  %18 = icmp sgt i32 %15, 0
-  br i1 %18, label %.lr.ph, label %._crit_edge
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %2, align 8
+  %14 = sext i32 %1 to i64
+  %15 = getelementptr inbounds i32, ptr %13, i64 %14
+  %16 = load i32, ptr %15, align 4
+  %17 = sext i32 %16 to i64
+  %18 = tail call noalias ptr @calloc(i64 noundef %17, i64 noundef 8) #28
+  %19 = icmp sgt i32 %16, 0
+  br i1 %19, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %11
-  %19 = add nsw i32 %1, 1
-  %wide.trip.count = zext nneg i32 %15 to i64
-  br label %20
+.lr.ph:                                           ; preds = %12
+  %20 = add nsw i32 %1, 1
+  %wide.trip.count = zext nneg i32 %16 to i64
+  br label %21
 
-20:                                               ; preds = %.lr.ph, %20
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
-  %21 = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #27
-  %22 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv
-  store ptr %21, ptr %22, align 8
-  tail call fastcc void @create_dumb_tree(ptr noundef %21, i32 noundef %19, ptr noundef nonnull %2)
-  %23 = getelementptr inbounds i8, ptr %21, i64 16
-  store ptr %0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %21, i64 56
-  store i32 1, ptr %24, align 8
+21:                                               ; preds = %.lr.ph, %21
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
+  %22 = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #27
+  %23 = getelementptr inbounds ptr, ptr %18, i64 %indvars.iv
+  store ptr %22, ptr %23, align 8
+  tail call fastcc void @create_dumb_tree(ptr noundef %22, i32 noundef %20, ptr noundef nonnull %2)
+  %24 = getelementptr inbounds i8, ptr %22, i64 16
+  store ptr %0, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %22, i64 56
+  store i32 1, ptr %25, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !71
+  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !71
 
-._crit_edge:                                      ; preds = %20, %11
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %17, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 40
-  store i32 %15, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
-  br label %28
+._crit_edge:                                      ; preds = %21, %12
+  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %18, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 40
+  store i32 %16, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds i8, ptr %0, i64 48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false)
+  store i32 -1, ptr %29, align 8
+  br label %30
 
-28:                                               ; preds = %._crit_edge, %8
-  %.sink = getelementptr inbounds i8, ptr %0, i64 48
-  store i32 -1, ptr %.sink, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 32
-  store double 0.000000e+00, ptr %29, align 8
-  %30 = load i32, ptr @tm_set_node.uniq, align 4
-  %31 = add nsw i32 %30, 1
-  store i32 %31, ptr @tm_set_node.uniq, align 4
-  %32 = getelementptr inbounds i8, ptr %0, i64 52
-  store i32 %30, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %0, i64 44
-  store i32 %1, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %0, i64 56
-  store i32 0, ptr %34, align 8
+30:                                               ; preds = %._crit_edge, %8
+  %31 = getelementptr inbounds i8, ptr %0, i64 32
+  store double 0.000000e+00, ptr %31, align 8
+  %32 = load i32, ptr @tm_set_node.uniq, align 4
+  %33 = add nsw i32 %32, 1
+  store i32 %33, ptr @tm_set_node.uniq, align 4
+  %34 = getelementptr inbounds i8, ptr %0, i64 52
+  store i32 %32, ptr %34, align 4
+  %35 = getelementptr inbounds i8, ptr %0, i64 44
+  store i32 %1, ptr %35, align 4
+  %36 = getelementptr inbounds i8, ptr %0, i64 56
+  store i32 0, ptr %36, align 8
   ret void
 }
 

@@ -772,30 +772,36 @@ if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %arrayidx.i62, align 8
   %3 = ptrtoint ptr %2 to i64
   %add1.i84 = add i64 %3, 632
+  %4 = inttoptr i64 %add1.i84 to ptr
+  %5 = load i64, ptr %4, align 8
+  store i64 %5, ptr %arrayidx.i22, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
-  %4 = load volatile i8, ptr getelementptr inbounds (i8, ptr @.str.56, i64 47), align 1
-  %cmp.i.i = icmp eq i8 %4, 49
+  %6 = load volatile i8, ptr getelementptr inbounds (i8, ptr @.str.56, i64 47), align 1
+  %cmp.i.i = icmp eq i8 %6, 49
   br i1 %cmp.i.i, label %if.end8, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %5 = load ptr, ptr %args, align 8
-  %arrayidx.i18 = getelementptr inbounds i8, ptr %5, i64 24
-  %arrayidx.i65 = getelementptr inbounds i8, ptr %5, i64 8
-  %6 = load ptr, ptr %arrayidx.i65, align 8
-  %7 = ptrtoint ptr %6 to i64
-  %add1.i77 = add i64 %7, 640
+  %7 = load ptr, ptr %args, align 8
+  %arrayidx.i18 = getelementptr inbounds i8, ptr %7, i64 24
+  %arrayidx.i65 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = load ptr, ptr %arrayidx.i65, align 8
+  %9 = ptrtoint ptr %8 to i64
+  %add1.i77 = add i64 %9, 640
+  %10 = inttoptr i64 %add1.i77 to ptr
+  %11 = load i64, ptr %10, align 8
+  store i64 %11, ptr %arrayidx.i18, align 8
   br label %return
 
 if.end8:                                          ; preds = %if.end
-  %8 = load atomic i8, ptr @_ZGVZN4node3sea28FindSingleExecutableResourceEvE12sea_resource acquire, align 8, !noalias !6
-  %guard.uninitialized.i = icmp eq i8 %8, 0
+  %12 = load atomic i8, ptr @_ZGVZN4node3sea28FindSingleExecutableResourceEvE12sea_resource acquire, align 8, !noalias !6
+  %guard.uninitialized.i = icmp eq i8 %12, 0
   br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN4node3sea28FindSingleExecutableResourceEv.exit, !prof !5
 
 init.check.i:                                     ; preds = %if.end8
-  %9 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4node3sea28FindSingleExecutableResourceEvE12sea_resource) #22, !noalias !6
-  %tobool.not.i = icmp eq i32 %9, 0
+  %13 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4node3sea28FindSingleExecutableResourceEvE12sea_resource) #22, !noalias !6
+  %tobool.not.i = icmp eq i32 %13, 0
   br i1 %tobool.not.i, label %_ZN4node3sea28FindSingleExecutableResourceEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
@@ -805,24 +811,22 @@ init.i:                                           ; preds = %init.check.i
 
 _ZN4node3sea28FindSingleExecutableResourceEv.exit: ; preds = %if.end8, %init.check.i, %init.i
   %sea_resource.sroa.0.0.copyload = load i32, ptr @_ZZN4node3sea28FindSingleExecutableResourceEvE12sea_resource, align 8
-  %10 = load ptr, ptr %args, align 8
-  %arrayidx.i = getelementptr inbounds i8, ptr %10, i64 24
+  %14 = load ptr, ptr %args, align 8
+  %arrayidx.i = getelementptr inbounds i8, ptr %14, i64 24
   %and.i = and i32 %sea_resource.sroa.0.0.copyload, 1
   %tobool13.not = icmp eq i32 %and.i, 0
   %. = select i1 %tobool13.not, i64 56, i64 64
-  %arrayidx.i68 = getelementptr inbounds i8, ptr %10, i64 8
-  %11 = load ptr, ptr %arrayidx.i68, align 8
-  %12 = ptrtoint ptr %11 to i64
-  %add.i = add i64 %12, 576
+  %arrayidx.i68 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = load ptr, ptr %arrayidx.i68, align 8
+  %16 = ptrtoint ptr %15 to i64
+  %add.i = add i64 %16, 576
   %add1.i = add i64 %add.i, %.
+  %17 = inttoptr i64 %add1.i to ptr
+  %18 = load i64, ptr %17, align 8
+  store i64 %18, ptr %arrayidx.i, align 8
   br label %return
 
 return:                                           ; preds = %_ZN4node3sea28FindSingleExecutableResourceEv.exit, %if.then4, %if.then
-  %add1.i.sink = phi i64 [ %add1.i, %_ZN4node3sea28FindSingleExecutableResourceEv.exit ], [ %add1.i77, %if.then4 ], [ %add1.i84, %if.then ]
-  %arrayidx.i.sink = phi ptr [ %arrayidx.i, %_ZN4node3sea28FindSingleExecutableResourceEv.exit ], [ %arrayidx.i18, %if.then4 ], [ %arrayidx.i22, %if.then ]
-  %13 = inttoptr i64 %add1.i.sink to ptr
-  %14 = load i64, ptr %13, align 8
-  store i64 %14, ptr %arrayidx.i.sink, align 8
   ret void
 }
 

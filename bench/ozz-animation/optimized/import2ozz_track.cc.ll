@@ -5733,7 +5733,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_
 .split:                                           ; preds = %45
   %46 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %46, align 8
-  br label %.sink.split
+  store i8 0, ptr %6, align 1
+  br label %55
 
 .split12:                                         ; preds = %.thread, %45
   %47 = phi ptr [ %28, %.thread ], [ %6, %45 ]
@@ -5755,14 +5756,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyE
   store i64 %5, ptr %52, align 8
   %53 = load ptr, ptr %0, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 %5
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %.split, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit
-  %.sink = phi ptr [ %54, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit ], [ %6, %.split ]
-  store i8 0, ptr %.sink, align 1
+  store i8 0, ptr %54, align 1
   br label %55
 
-55:                                               ; preds = %.sink.split, %2
+55:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit, %.split, %2
   ret void
 }
 

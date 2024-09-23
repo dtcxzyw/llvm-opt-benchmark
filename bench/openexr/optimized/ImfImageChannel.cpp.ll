@@ -223,21 +223,27 @@ entry:
   %_dataWindow.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load i32, ptr %_dataWindow.i, align 4
   %cmp = icmp slt i32 %x, %1
+  br i1 %cmp, label %do.body, label %lor.lhs.false
+
+lor.lhs.false:                                    ; preds = %entry
   %max = getelementptr inbounds i8, ptr %0, i64 32
   %2 = load i32, ptr %max, align 4
   %cmp5 = icmp sgt i32 %x, %2
-  %or.cond = select i1 %cmp, i1 true, i1 %cmp5
+  br i1 %cmp5, label %do.body, label %lor.lhs.false6
+
+lor.lhs.false6:                                   ; preds = %lor.lhs.false
   %y8 = getelementptr inbounds i8, ptr %0, i64 28
   %3 = load i32, ptr %y8, align 4
   %cmp9 = icmp slt i32 %y, %3
-  %or.cond20 = select i1 %or.cond, i1 true, i1 %cmp9
+  br i1 %cmp9, label %do.body, label %lor.lhs.false10
+
+lor.lhs.false10:                                  ; preds = %lor.lhs.false6
   %y12 = getelementptr inbounds i8, ptr %0, i64 36
   %4 = load i32, ptr %y12, align 4
   %cmp13 = icmp sgt i32 %y, %4
-  %or.cond21 = select i1 %or.cond20, i1 true, i1 %cmp13
-  br i1 %or.cond21, label %do.body, label %if.end
+  br i1 %cmp13, label %do.body, label %if.end
 
-do.body:                                          ; preds = %entry
+do.body:                                          ; preds = %entry, %lor.lhs.false, %lor.lhs.false6, %lor.lhs.false10
   tail call void @_Z13iex_debugTrapv()
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %_iex_throw_s)
   %add.ptr = getelementptr inbounds i8, ptr %_iex_throw_s, i64 16
@@ -270,7 +276,8 @@ invoke.cont25:                                    ; preds = %invoke.cont21
           to label %invoke.cont27 unwind label %lpad
 
 invoke.cont27:                                    ; preds = %invoke.cont25
-  %6 = load i32, ptr %y8, align 4
+  %y30 = getelementptr inbounds i8, ptr %0, i64 28
+  %6 = load i32, ptr %y30, align 4
   %call32 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call28, i32 noundef %6)
           to label %invoke.cont31 unwind label %lpad
 
@@ -279,7 +286,8 @@ invoke.cont31:                                    ; preds = %invoke.cont27
           to label %invoke.cont33 unwind label %lpad
 
 invoke.cont33:                                    ; preds = %invoke.cont31
-  %7 = load i32, ptr %max, align 4
+  %max35 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = load i32, ptr %max35, align 4
   %call38 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call34, i32 noundef %7)
           to label %invoke.cont37 unwind label %lpad
 
@@ -288,7 +296,8 @@ invoke.cont37:                                    ; preds = %invoke.cont33
           to label %invoke.cont39 unwind label %lpad
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  %8 = load i32, ptr %y12, align 4
+  %y42 = getelementptr inbounds i8, ptr %0, i64 36
+  %8 = load i32, ptr %y42, align 4
   %call44 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call40, i32 noundef %8)
           to label %invoke.cont43 unwind label %lpad
 
@@ -316,7 +325,7 @@ lpad47:                                           ; preds = %invoke.cont45
   call void @__cxa_free_exception(ptr %exception) #11
   br label %eh.resume
 
-if.end:                                           ; preds = %entry
+if.end:                                           ; preds = %lor.lhs.false10
   %_xSampling = getelementptr inbounds i8, ptr %this, i64 16
   %11 = load i32, ptr %_xSampling, align 8
   %rem = srem i32 %x, %11

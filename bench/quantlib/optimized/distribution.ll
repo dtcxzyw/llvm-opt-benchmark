@@ -1483,27 +1483,29 @@ cleanup:                                          ; preds = %for.body
   %x_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %3 = load ptr, ptr %x_, align 8, !tbaa !25
   %add.ptr.i5 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
+  %4 = load double, ptr %add.ptr.i5, align 8, !tbaa !27
   %dx_ = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %4 = load ptr, ptr %dx_, align 8, !tbaa !25
-  %add.ptr.i6 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
+  %5 = load ptr, ptr %dx_, align 8, !tbaa !25
+  %add.ptr.i6 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
+  %6 = load double, ptr %add.ptr.i6, align 8, !tbaa !27
+  %add = fadd double %4, %6
   br label %return
 
 for.end:                                          ; preds = %for.cond, %entry
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %5 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !31
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 -8
+  %7 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !31
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %7, i64 -8
+  %8 = load double, ptr %add.ptr.i.i, align 8, !tbaa !27
   %_M_finish.i.i7 = getelementptr inbounds nuw i8, ptr %this, i64 80
-  %6 = load ptr, ptr %_M_finish.i.i7, align 8, !tbaa !31
-  %add.ptr.i.i8 = getelementptr inbounds i8, ptr %6, i64 -8
+  %9 = load ptr, ptr %_M_finish.i.i7, align 8, !tbaa !31
+  %add.ptr.i.i8 = getelementptr inbounds i8, ptr %9, i64 -8
+  %10 = load double, ptr %add.ptr.i.i8, align 8, !tbaa !27
+  %add11 = fadd double %8, %10
   br label %return
 
 return:                                           ; preds = %cleanup, %for.end
-  %add.ptr.i6.sink = phi ptr [ %add.ptr.i6, %cleanup ], [ %add.ptr.i.i8, %for.end ]
-  %.sink.in = phi ptr [ %add.ptr.i5, %cleanup ], [ %add.ptr.i.i, %for.end ]
-  %.sink = load double, ptr %.sink.in, align 8, !tbaa !27
-  %7 = load double, ptr %add.ptr.i6.sink, align 8, !tbaa !27
-  %add = fadd double %.sink, %7
-  ret double %add
+  %retval.1 = phi double [ %add, %cleanup ], [ %add11, %for.end ]
+  ret double %retval.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -4625,34 +4627,36 @@ cleanup.i:                                        ; preds = %for.body.i
   %x_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %24 = load ptr, ptr %x_.i, align 8, !tbaa !25
   %add.ptr.i5.i = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv.i
+  %25 = load double, ptr %add.ptr.i5.i, align 8, !tbaa !27
   %dx_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %25 = load ptr, ptr %dx_.i, align 8, !tbaa !25
-  %add.ptr.i6.i = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv.i
+  %26 = load ptr, ptr %dx_.i, align 8, !tbaa !25
+  %add.ptr.i6.i = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv.i
+  %27 = load double, ptr %add.ptr.i6.i, align 8, !tbaa !27
+  %add.i = fadd double %25, %27
   br label %_ZN8QuantLib12Distribution15confidenceLevelEd.exit
 
 for.end.i:                                        ; preds = %for.cond.i, %do.end
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %26 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !31
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %26, i64 -8
+  %28 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !31
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %28, i64 -8
+  %29 = load double, ptr %add.ptr.i.i.i, align 8, !tbaa !27
   %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 80
-  %27 = load ptr, ptr %_M_finish.i.i7.i, align 8, !tbaa !31
-  %add.ptr.i.i8.i = getelementptr inbounds i8, ptr %27, i64 -8
+  %30 = load ptr, ptr %_M_finish.i.i7.i, align 8, !tbaa !31
+  %add.ptr.i.i8.i = getelementptr inbounds i8, ptr %30, i64 -8
+  %31 = load double, ptr %add.ptr.i.i8.i, align 8, !tbaa !27
+  %add11.i = fadd double %29, %31
   br label %_ZN8QuantLib12Distribution15confidenceLevelEd.exit
 
 _ZN8QuantLib12Distribution15confidenceLevelEd.exit: ; preds = %cleanup.i, %for.end.i
-  %add.ptr.i6.sink.i = phi ptr [ %add.ptr.i6.i, %cleanup.i ], [ %add.ptr.i.i8.i, %for.end.i ]
-  %.sink.in.i = phi ptr [ %add.ptr.i5.i, %cleanup.i ], [ %add.ptr.i.i.i, %for.end.i ]
-  %.sink.i = load double, ptr %.sink.in.i, align 8, !tbaa !27
-  %28 = load double, ptr %add.ptr.i6.sink.i, align 8, !tbaa !27
-  %add.i = fadd double %.sink.i, %28
-  %call27 = tail call noundef i32 @_ZN8QuantLib12Distribution6locateEd(ptr noundef nonnull align 8 dereferenceable(225) %this, double noundef %add.i)
-  %29 = load i32, ptr %this, align 8, !tbaa !3
-  %sub = add nsw i32 %29, -1
+  %retval.1.i = phi double [ %add.i, %cleanup.i ], [ %add11.i, %for.end.i ]
+  %call27 = tail call noundef i32 @_ZN8QuantLib12Distribution6locateEd(ptr noundef nonnull align 8 dereferenceable(225) %this, double noundef %retval.1.i)
+  %32 = load i32, ptr %this, align 8, !tbaa !3
+  %sub = add nsw i32 %32, -1
   %cmp28 = icmp eq i32 %call27, %sub
   br i1 %cmp28, label %if.then29, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %_ZN8QuantLib12Distribution15confidenceLevelEd.exit
-  %cmp3354 = icmp slt i32 %call27, %29
+  %cmp3354 = icmp slt i32 %call27, %32
   br i1 %cmp3354, label %for.body.lr.ph, label %for.cond.preheader.for.cond.cleanup_crit_edge
 
 for.cond.preheader.for.cond.cleanup_crit_edge:    ; preds = %for.cond.preheader
@@ -4663,29 +4667,29 @@ for.cond.preheader.for.cond.cleanup_crit_edge:    ; preds = %for.cond.preheader
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %x_34 = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %30 = load ptr, ptr %x_34, align 8, !tbaa !25
+  %33 = load ptr, ptr %x_34, align 8, !tbaa !25
   %cumulativeDensity_ = getelementptr inbounds nuw i8, ptr %this, i64 120
-  %31 = load ptr, ptr %cumulativeDensity_, align 8, !tbaa !25
-  %invariant.gep = getelementptr i8, ptr %31, i64 -8
-  %32 = sext i32 %call27 to i64
-  %wide.trip.count = sext i32 %29 to i64
+  %34 = load ptr, ptr %cumulativeDensity_, align 8, !tbaa !25
+  %invariant.gep = getelementptr i8, ptr %34, i64 -8
+  %35 = sext i32 %call27 to i64
+  %wide.trip.count = sext i32 %32 to i64
   br label %for.body
 
 if.then29:                                        ; preds = %_ZN8QuantLib12Distribution15confidenceLevelEd.exit
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %33 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !31
-  %add.ptr.i.i29 = getelementptr inbounds i8, ptr %33, i64 -8
-  %34 = load double, ptr %add.ptr.i.i29, align 8, !tbaa !27
+  %36 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !31
+  %add.ptr.i.i29 = getelementptr inbounds i8, ptr %36, i64 -8
+  %37 = load double, ptr %add.ptr.i.i29, align 8, !tbaa !27
   br label %cleanup
 
 for.cond.cleanup:                                 ; preds = %for.body, %for.cond.preheader.for.cond.cleanup_crit_edge
-  %conv44.pre-phi = phi i64 [ %.pre59, %for.cond.preheader.for.cond.cleanup_crit_edge ], [ %32, %for.body ]
-  %35 = phi ptr [ %.pre, %for.cond.preheader.for.cond.cleanup_crit_edge ], [ %31, %for.body ]
-  %expected.0.lcssa = phi double [ 0.000000e+00, %for.cond.preheader.for.cond.cleanup_crit_edge ], [ %41, %for.body ]
+  %conv44.pre-phi = phi i64 [ %.pre59, %for.cond.preheader.for.cond.cleanup_crit_edge ], [ %35, %for.body ]
+  %38 = phi ptr [ %.pre, %for.cond.preheader.for.cond.cleanup_crit_edge ], [ %34, %for.body ]
+  %expected.0.lcssa = phi double [ 0.000000e+00, %for.cond.preheader.for.cond.cleanup_crit_edge ], [ %44, %for.body ]
   %_M_finish.i.i.i30 = getelementptr inbounds nuw i8, ptr %this, i64 128
-  %36 = load ptr, ptr %_M_finish.i.i.i30, align 8, !tbaa !28
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %36 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %35 to i64
+  %39 = load ptr, ptr %_M_finish.i.i.i30, align 8, !tbaa !28
+  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %39 to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %38 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %cmp.not.i.i = icmp ugt i64 %sub.ptr.div.i.i.i, %conv44.pre-phi
@@ -4696,29 +4700,29 @@ if.then.i.i31:                                    ; preds = %for.cond.cleanup
   unreachable
 
 _ZNSt6vectorIdSaIdEE2atEm.exit:                   ; preds = %for.cond.cleanup
-  %add.ptr.i.i32 = getelementptr inbounds nuw double, ptr %35, i64 %conv44.pre-phi
-  %37 = load double, ptr %add.ptr.i.i32, align 8, !tbaa !27
-  %sub46 = fsub double 1.000000e+00, %37
+  %add.ptr.i.i32 = getelementptr inbounds nuw double, ptr %38, i64 %conv44.pre-phi
+  %40 = load double, ptr %add.ptr.i.i32, align 8, !tbaa !27
+  %sub46 = fsub double 1.000000e+00, %40
   %div = fdiv double %expected.0.lcssa, %sub46
   br label %cleanup
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %indvars.iv = phi i64 [ %32, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %expected.055 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %41, %for.body ]
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv
-  %38 = load double, ptr %add.ptr.i, align 8, !tbaa !27
-  %add.ptr.i33 = getelementptr inbounds nuw double, ptr %31, i64 %indvars.iv
-  %39 = load double, ptr %add.ptr.i33, align 8, !tbaa !27
+  %indvars.iv = phi i64 [ %35, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
+  %expected.055 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %44, %for.body ]
+  %add.ptr.i = getelementptr inbounds nuw double, ptr %33, i64 %indvars.iv
+  %41 = load double, ptr %add.ptr.i, align 8, !tbaa !27
+  %add.ptr.i33 = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv
+  %42 = load double, ptr %add.ptr.i33, align 8, !tbaa !27
   %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
-  %40 = load double, ptr %gep, align 8, !tbaa !27
-  %sub42 = fsub double %39, %40
-  %41 = tail call double @llvm.fmuladd.f64(double %38, double %sub42, double %expected.055)
+  %43 = load double, ptr %gep, align 8, !tbaa !27
+  %sub42 = fsub double %42, %43
+  %44 = tail call double @llvm.fmuladd.f64(double %41, double %sub42, double %expected.055)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !65
 
 cleanup:                                          ; preds = %_ZNSt6vectorIdSaIdEE2atEm.exit, %if.then29
-  %retval.0 = phi double [ %34, %if.then29 ], [ %div, %_ZNSt6vectorIdSaIdEE2atEm.exit ]
+  %retval.0 = phi double [ %37, %if.then29 ], [ %div, %_ZNSt6vectorIdSaIdEE2atEm.exit ]
   ret double %retval.0
 
 unreachable:                                      ; preds = %invoke.cont14

@@ -1934,7 +1934,11 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont129
   %81 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i74 = icmp eq i64 %81, 4294967297
   %82 = trunc i64 %81 to i32
-  br i1 %cmp.i.i.i.i.i74, label %if.end136.sink.split.sink.split, label %if.end.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i74, label %if.then.i.i.i.i.i75, label %if.end.i.i.i.i.i
+
+if.then.i.i.i.i.i75:                              ; preds = %if.then.i.i.i.i
+  store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
+  br label %if.end136.sink.split.sink.split
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   %83 = load i8, ptr @__libc_single_threaded, align 1
@@ -1993,7 +1997,11 @@ if.then.i.i.i.i87:                                ; preds = %if.else132
   %90 = load atomic i64, ptr %_M_use_count.i.i.i.i.i88 acquire, align 8
   %cmp.i.i.i.i.i89 = icmp eq i64 %90, 4294967297
   %91 = trunc i64 %90 to i32
-  br i1 %cmp.i.i.i.i.i89, label %if.end136.sink.split.sink.split, label %if.end.i.i.i.i.i90
+  br i1 %cmp.i.i.i.i.i89, label %if.then.i.i.i.i.i112, label %if.end.i.i.i.i.i90
+
+if.then.i.i.i.i.i112:                             ; preds = %if.then.i.i.i.i87
+  store i32 0, ptr %_M_use_count.i.i.i.i.i88, align 8
+  br label %if.end136.sink.split.sink.split
 
 if.end.i.i.i.i.i90:                               ; preds = %if.then.i.i.i.i87
   %92 = load i8, ptr @__libc_single_threaded, align 1
@@ -2039,10 +2047,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i104: ; preds = 
   %cmp.i.i.i.i.i.i.i106 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i105, 1
   br i1 %cmp.i.i.i.i.i.i.i106, label %if.end136.sink.split, label %if.end136
 
-if.end136.sink.split.sink.split:                  ; preds = %if.then.i.i.i.i87, %if.then.i.i.i.i
-  %_M_use_count.i.i.i.i.i88.sink = phi ptr [ %_M_use_count.i.i.i.i.i, %if.then.i.i.i.i ], [ %_M_use_count.i.i.i.i.i88, %if.then.i.i.i.i87 ]
-  %.sink381 = phi ptr [ %80, %if.then.i.i.i.i ], [ %89, %if.then.i.i.i.i87 ]
-  store i32 0, ptr %_M_use_count.i.i.i.i.i88.sink, align 8
+if.end136.sink.split.sink.split:                  ; preds = %if.then.i.i.i.i.i75, %if.then.i.i.i.i.i112
+  %.sink381 = phi ptr [ %89, %if.then.i.i.i.i.i112 ], [ %80, %if.then.i.i.i.i.i75 ]
   %_M_weak_count.i.i.i.i.i113 = getelementptr inbounds i8, ptr %.sink381, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i113, align 4
   %vtable.i.i.i.i.i114 = load ptr, ptr %.sink381, align 8
@@ -12193,7 +12199,15 @@ invoke.cont4:                                     ; preds = %cond.end.i, %if.the
 invoke.cont6:                                     ; preds = %invoke.cont4
   %13 = load ptr, ptr %state_.i, align 8
   %cmp.not.i.i12 = icmp eq ptr %13, null
-  br i1 %cmp.not.i.i12, label %cleanup, label %cleanup.sink.split
+  br i1 %cmp.not.i.i12, label %_ZN7rocksdb6StatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i13
+
+_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i13: ; preds = %invoke.cont6
+  call void @_ZdaPv(ptr noundef nonnull %13) #24
+  br label %_ZN7rocksdb6StatusD2Ev.exit
+
+_ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %invoke.cont6, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i13
+  store ptr null, ptr %state_.i, align 8
+  br label %cleanup
 
 lpad:                                             ; preds = %if.end
   %14 = landingpad { ptr, i32 }
@@ -12310,17 +12324,17 @@ if.end25:                                         ; preds = %_ZN7rocksdb8IOStatu
   %state_.i.i48 = getelementptr inbounds i8, ptr %ios, i64 8
   %30 = load ptr, ptr %state_.i.i48, align 8
   %cmp.not.i.i.i49 = icmp eq ptr %30, null
-  br i1 %cmp.not.i.i.i49, label %cleanup, label %cleanup.sink.split
+  br i1 %cmp.not.i.i.i49, label %_ZN7rocksdb8IOStatusD2Ev.exit52, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i50
 
-cleanup.sink.split:                               ; preds = %if.end25, %invoke.cont6
-  %.sink = phi ptr [ %13, %invoke.cont6 ], [ %30, %if.end25 ]
-  %state_.i.i48.sink.ph = phi ptr [ %state_.i, %invoke.cont6 ], [ %state_.i.i48, %if.end25 ]
-  call void @_ZdaPv(ptr noundef nonnull %.sink) #24
+_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i50: ; preds = %if.end25
+  call void @_ZdaPv(ptr noundef nonnull %30) #24
+  br label %_ZN7rocksdb8IOStatusD2Ev.exit52
+
+_ZN7rocksdb8IOStatusD2Ev.exit52:                  ; preds = %if.end25, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i50
+  store ptr null, ptr %state_.i.i48, align 8
   br label %cleanup
 
-cleanup:                                          ; preds = %cleanup.sink.split, %if.end25, %invoke.cont6
-  %state_.i.i48.sink = phi ptr [ %state_.i, %invoke.cont6 ], [ %state_.i.i48, %if.end25 ], [ %state_.i.i48.sink.ph, %cleanup.sink.split ]
-  store ptr null, ptr %state_.i.i48.sink, align 8
+cleanup:                                          ; preds = %_ZN7rocksdb8IOStatusD2Ev.exit52, %_ZN7rocksdb6StatusD2Ev.exit
   %state_.i53 = getelementptr inbounds i8, ptr %s, i64 8
   %31 = load ptr, ptr %state_.i53, align 8
   %cmp.not.i.i54 = icmp eq ptr %31, null

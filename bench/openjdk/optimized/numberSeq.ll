@@ -318,7 +318,8 @@ define hidden void @_ZN9NumberSeq3addEd(ptr nocapture noundef nonnull align 8 de
   %9 = getelementptr inbounds i8, ptr %0, i64 56
   store double %1, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 64
-  br label %.sink.split
+  store double %1, ptr %10, align 8
+  br label %28
 
 11:                                               ; preds = %2
   %12 = load double, ptr %6, align 8
@@ -339,24 +340,23 @@ define hidden void @_ZN9NumberSeq3addEd(ptr nocapture noundef nonnull align 8 de
   %24 = getelementptr inbounds i8, ptr %0, i64 64
   %25 = load double, ptr %24, align 8
   %26 = fcmp ogt double %1, %25
-  br i1 %26, label %.sink.split, label %27
+  br i1 %26, label %27, label %28
 
-.sink.split:                                      ; preds = %11, %7
-  %.sink = phi ptr [ %10, %7 ], [ %24, %11 ]
-  store double %1, ptr %.sink, align 8
-  br label %27
+27:                                               ; preds = %11
+  store double %1, ptr %24, align 8
+  br label %28
 
-27:                                               ; preds = %.sink.split, %11
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
-  %29 = load double, ptr %28, align 8
-  %30 = fadd double %1, %29
-  store double %30, ptr %28, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
-  %32 = load double, ptr %31, align 8
-  %33 = tail call double @llvm.fmuladd.f64(double %1, double %1, double %32)
-  store double %33, ptr %31, align 8
-  %34 = add nsw i32 %4, 1
-  store i32 %34, ptr %3, align 8
+28:                                               ; preds = %11, %27, %7
+  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = load double, ptr %29, align 8
+  %31 = fadd double %1, %30
+  store double %31, ptr %29, align 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %33 = load double, ptr %32, align 8
+  %34 = tail call double @llvm.fmuladd.f64(double %1, double %1, double %33)
+  store double %34, ptr %32, align 8
+  %35 = add nsw i32 %4, 1
+  store i32 %35, ptr %3, align 8
   ret void
 }
 
@@ -574,24 +574,30 @@ define hidden noundef double @_ZNK12TruncatedSeq6oldestEv(ptr nocapture noundef 
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %13, label %.sink.split
+  br i1 %4, label %19, label %5
 
-.sink.split:                                      ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
-  %6 = load i32, ptr %5, align 8
-  %7 = icmp slt i32 %3, %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 68
-  %11 = load i32, ptr %10, align 4
-  %narrow = select i1 %7, i32 0, i32 %11
-  %.sink.idx = sext i32 %narrow to i64
-  %.sink = getelementptr inbounds double, ptr %9, i64 %.sink.idx
-  %12 = load double, ptr %.sink, align 8
-  br label %13
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = load i32, ptr %6, align 8
+  %8 = icmp slt i32 %3, %7
+  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = load ptr, ptr %9, align 8
+  br i1 %8, label %11, label %13
 
-13:                                               ; preds = %.sink.split, %1
-  %.0 = phi double [ 0.000000e+00, %1 ], [ %12, %.sink.split ]
+11:                                               ; preds = %5
+  %12 = load double, ptr %10, align 8
+  br label %19
+
+13:                                               ; preds = %5
+  %14 = getelementptr inbounds i8, ptr %0, i64 68
+  %15 = load i32, ptr %14, align 4
+  %16 = sext i32 %15 to i64
+  %17 = getelementptr inbounds double, ptr %10, i64 %16
+  %18 = load double, ptr %17, align 8
+  br label %19
+
+19:                                               ; preds = %1, %13, %11
+  %.0 = phi double [ %12, %11 ], [ %18, %13 ], [ 0.000000e+00, %1 ]
   ret double %.0
 }
 

@@ -17250,22 +17250,18 @@ if.then:                                          ; preds = %while.body
 
 if.then15:                                        ; preds = %if.then
   %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
-  br label %if.end22.sink.split
+  store ptr %__p.022, ptr %arrayidx16, align 8
+  br label %if.end22
 
 if.else:                                          ; preds = %while.body
   %6 = load ptr, ptr %3, align 8
   store ptr %6, ptr %__p.022, align 8
   %7 = load ptr, ptr %arrayidx, align 8
-  br label %if.end22.sink.split
-
-if.end22.sink.split:                              ; preds = %if.else, %if.then15
-  %arrayidx16.sink = phi ptr [ %arrayidx16, %if.then15 ], [ %7, %if.else ]
-  %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then15 ], [ %__bbegin_bkt.021, %if.else ]
-  store ptr %__p.022, ptr %arrayidx16.sink, align 8
+  store ptr %__p.022, ptr %7, align 8
   br label %if.end22
 
-if.end22:                                         ; preds = %if.end22.sink.split, %if.then
-  %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then ], [ %__bbegin_bkt.1.ph, %if.end22.sink.split ]
+if.end22:                                         ; preds = %if.then, %if.then15, %if.else
+  %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.021, %if.else ], [ %rem.i.i, %if.then15 ], [ %rem.i.i, %if.then ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !321
 
@@ -20709,22 +20705,18 @@ if.then:                                          ; preds = %while.body
 
 if.then15:                                        ; preds = %if.then
   %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
-  br label %if.end22.sink.split
+  store ptr %__p.022, ptr %arrayidx16, align 8
+  br label %if.end22
 
 if.else:                                          ; preds = %while.body
   %6 = load ptr, ptr %3, align 8
   store ptr %6, ptr %__p.022, align 8
   %7 = load ptr, ptr %arrayidx, align 8
-  br label %if.end22.sink.split
-
-if.end22.sink.split:                              ; preds = %if.else, %if.then15
-  %arrayidx16.sink = phi ptr [ %arrayidx16, %if.then15 ], [ %7, %if.else ]
-  %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then15 ], [ %__bbegin_bkt.021, %if.else ]
-  store ptr %__p.022, ptr %arrayidx16.sink, align 8
+  store ptr %__p.022, ptr %7, align 8
   br label %if.end22
 
-if.end22:                                         ; preds = %if.end22.sink.split, %if.then
-  %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then ], [ %__bbegin_bkt.1.ph, %if.end22.sink.split ]
+if.end22:                                         ; preds = %if.then, %if.then15, %if.else
+  %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.021, %if.else ], [ %rem.i.i, %if.then15 ], [ %rem.i.i, %if.then ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !391
 
@@ -24349,22 +24341,18 @@ if.then:                                          ; preds = %while.body
 
 if.then15:                                        ; preds = %if.then
   %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
-  br label %if.end22.sink.split
+  store ptr %__p.022, ptr %arrayidx16, align 8
+  br label %if.end22
 
 if.else:                                          ; preds = %while.body
   %6 = load ptr, ptr %3, align 8
   store ptr %6, ptr %__p.022, align 8
   %7 = load ptr, ptr %arrayidx, align 8
-  br label %if.end22.sink.split
-
-if.end22.sink.split:                              ; preds = %if.else, %if.then15
-  %arrayidx16.sink = phi ptr [ %arrayidx16, %if.then15 ], [ %7, %if.else ]
-  %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then15 ], [ %__bbegin_bkt.021, %if.else ]
-  store ptr %__p.022, ptr %arrayidx16.sink, align 8
+  store ptr %__p.022, ptr %7, align 8
   br label %if.end22
 
-if.end22:                                         ; preds = %if.end22.sink.split, %if.then
-  %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then ], [ %__bbegin_bkt.1.ph, %if.end22.sink.split ]
+if.end22:                                         ; preds = %if.then, %if.then15, %if.else
+  %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.021, %if.else ], [ %rem.i.i, %if.then15 ], [ %rem.i.i, %if.then ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !432
 
@@ -27699,6 +27687,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   store ptr null, ptr %_M_parent.i.i.i.i, align 8
   store ptr %add.ptr.i.i.i, ptr %_M_left.i.i.i.i.i, align 8
   store ptr %add.ptr.i.i.i, ptr %_M_right.i.i.i.i.i, align 8
+  store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8
   br label %_ZNSt3setIN3ue210som_reportESt4lessIS1_ESaIS1_EEC2EOS5_.exit
 
 if.else.i.i.i.i:                                  ; preds = %entry
@@ -27710,16 +27699,15 @@ if.else.i.i.i.i:                                  ; preds = %entry
   %_M_right.i4.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %1, ptr %_M_right.i4.i.i.i.i, align 8
   %_M_node_count.i5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  store i64 0, ptr %_M_node_count.i5.i.i.i.i, align 8
   br label %_ZNSt3setIN3ue210som_reportESt4lessIS1_ESaIS1_EEC2EOS5_.exit
 
 _ZNSt3setIN3ue210som_reportESt4lessIS1_ESaIS1_EEC2EOS5_.exit: ; preds = %if.then.i.i.i.i, %if.else.i.i.i.i
-  %_M_node_count.i5.sink.i.i.i.i = phi ptr [ %_M_node_count.i5.i.i.i.i, %if.else.i.i.i.i ], [ %_M_node_count.i.i.i.i.i, %if.then.i.i.i.i ]
-  store i64 0, ptr %_M_node_count.i5.sink.i.i.i.i, align 8
   %8 = getelementptr inbounds i8, ptr %this, i64 56
   %_M_parent.i.i.i.i3 = getelementptr inbounds i8, ptr %0, i64 64
   %9 = load ptr, ptr %_M_parent.i.i.i.i3, align 8
   %cmp.not.i.i.i.i4 = icmp eq ptr %9, null
-  br i1 %cmp.not.i.i.i.i4, label %if.else.i.i.i.i16, label %if.then.i.i.i.i5
+  br i1 %cmp.not.i.i.i.i4, label %if.else.i.i.i.i15, label %if.then.i.i.i.i5
 
 if.then.i.i.i.i5:                                 ; preds = %_ZNSt3setIN3ue210som_reportESt4lessIS1_ESaIS1_EEC2EOS5_.exit
   %add.ptr.i.i.i6 = getelementptr inbounds i8, ptr %0, i64 56
@@ -27745,22 +27733,22 @@ if.then.i.i.i.i5:                                 ; preds = %_ZNSt3setIN3ue210so
   store ptr null, ptr %_M_parent.i.i.i.i3, align 8
   store ptr %add.ptr.i.i.i6, ptr %_M_left.i.i.i.i.i8, align 8
   store ptr %add.ptr.i.i.i6, ptr %_M_right.i.i.i.i.i10, align 8
-  br label %_ZNSt3setIN3ue210som_reportESt4lessIS1_ESaIS1_EEC2EOS5_.exit21
+  store i64 0, ptr %_M_node_count.i.i.i.i.i13, align 8
+  br label %_ZNSt3setIN3ue210som_reportESt4lessIS1_ESaIS1_EEC2EOS5_.exit20
 
-if.else.i.i.i.i16:                                ; preds = %_ZNSt3setIN3ue210som_reportESt4lessIS1_ESaIS1_EEC2EOS5_.exit
+if.else.i.i.i.i15:                                ; preds = %_ZNSt3setIN3ue210som_reportESt4lessIS1_ESaIS1_EEC2EOS5_.exit
   store i32 0, ptr %8, align 8
-  %_M_parent.i2.i.i.i.i17 = getelementptr inbounds i8, ptr %this, i64 64
-  store ptr null, ptr %_M_parent.i2.i.i.i.i17, align 8
-  %_M_left.i3.i.i.i.i18 = getelementptr inbounds i8, ptr %this, i64 72
-  store ptr %8, ptr %_M_left.i3.i.i.i.i18, align 8
-  %_M_right.i4.i.i.i.i19 = getelementptr inbounds i8, ptr %this, i64 80
-  store ptr %8, ptr %_M_right.i4.i.i.i.i19, align 8
-  %_M_node_count.i5.i.i.i.i20 = getelementptr inbounds i8, ptr %this, i64 88
-  br label %_ZNSt3setIN3ue210som_reportESt4lessIS1_ESaIS1_EEC2EOS5_.exit21
+  %_M_parent.i2.i.i.i.i16 = getelementptr inbounds i8, ptr %this, i64 64
+  store ptr null, ptr %_M_parent.i2.i.i.i.i16, align 8
+  %_M_left.i3.i.i.i.i17 = getelementptr inbounds i8, ptr %this, i64 72
+  store ptr %8, ptr %_M_left.i3.i.i.i.i17, align 8
+  %_M_right.i4.i.i.i.i18 = getelementptr inbounds i8, ptr %this, i64 80
+  store ptr %8, ptr %_M_right.i4.i.i.i.i18, align 8
+  %_M_node_count.i5.i.i.i.i19 = getelementptr inbounds i8, ptr %this, i64 88
+  store i64 0, ptr %_M_node_count.i5.i.i.i.i19, align 8
+  br label %_ZNSt3setIN3ue210som_reportESt4lessIS1_ESaIS1_EEC2EOS5_.exit20
 
-_ZNSt3setIN3ue210som_reportESt4lessIS1_ESaIS1_EEC2EOS5_.exit21: ; preds = %if.then.i.i.i.i5, %if.else.i.i.i.i16
-  %_M_node_count.i5.sink.i.i.i.i15 = phi ptr [ %_M_node_count.i5.i.i.i.i20, %if.else.i.i.i.i16 ], [ %_M_node_count.i.i.i.i.i13, %if.then.i.i.i.i5 ]
-  store i64 0, ptr %_M_node_count.i5.sink.i.i.i.i15, align 8
+_ZNSt3setIN3ue210som_reportESt4lessIS1_ESaIS1_EEC2EOS5_.exit20: ; preds = %if.then.i.i.i.i5, %if.else.i.i.i.i15
   %preds = getelementptr inbounds i8, ptr %this, i64 96
   %preds4 = getelementptr inbounds i8, ptr %0, i64 96
   %m_storage_start.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 120
@@ -27774,7 +27762,7 @@ _ZNSt3setIN3ue210som_reportESt4lessIS1_ESaIS1_EEC2EOS5_.exit21: ; preds = %if.th
   %cmp.i.i.i.i.i.i.not.i.i.i.i.i.i.i = icmp eq ptr %m_storage_start.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %15
   br i1 %cmp.i.i.i.i.i.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
-if.then.i.i.i.i.i.i.i:                            ; preds = %_ZNSt3setIN3ue210som_reportESt4lessIS1_ESaIS1_EEC2EOS5_.exit21
+if.then.i.i.i.i.i.i.i:                            ; preds = %_ZNSt3setIN3ue210som_reportESt4lessIS1_ESaIS1_EEC2EOS5_.exit20
   store ptr %15, ptr %preds, align 8
   %m_size.i.i.i3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 104
   %16 = load i64, ptr %m_size.i.i.i3.i.i.i.i.i.i, align 8
@@ -27785,7 +27773,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %_ZNSt3setIN3ue210so
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %preds4, i8 0, i64 24, i1 false)
   br label %invoke.cont
 
-if.else.i.i.i.i.i.i.i:                            ; preds = %_ZNSt3setIN3ue210som_reportESt4lessIS1_ESaIS1_EEC2EOS5_.exit21
+if.else.i.i.i.i.i.i.i:                            ; preds = %_ZNSt3setIN3ue210som_reportESt4lessIS1_ESaIS1_EEC2EOS5_.exit20
   %m_size.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 104
   %18 = load i64, ptr %m_size.i.i.i.i.i.i.i.i, align 8, !noalias !501
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %15, i64 %18

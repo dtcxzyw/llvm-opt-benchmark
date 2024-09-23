@@ -13407,8 +13407,8 @@ define hidden void @_ZN4perf8TestBase13reportMetricsEb(ptr noundef nonnull align
 
 54:                                               ; preds = %2
   %55 = load ptr, ptr %3, align 8
-  %.not174 = icmp eq ptr %55, null
-  br i1 %.not174, label %.thread167, label %56
+  %.not173 = icmp eq ptr %55, null
+  br i1 %.not173, label %.thread166, label %56
 
 56:                                               ; preds = %54
   %57 = getelementptr inbounds i8, ptr %53, i64 16
@@ -13420,12 +13420,12 @@ define hidden void @_ZN4perf8TestBase13reportMetricsEb(ptr noundef nonnull align
 60:                                               ; preds = %284, %282, %88, %82, %75, %68, %63, %56, %2
   %61 = landingpad { ptr, i32 }
           cleanup
-  br label %408
+  br label %411
 
 62:                                               ; preds = %56
   %.pr = load ptr, ptr %3, align 8
-  %.not175 = icmp eq ptr %.pr, null
-  br i1 %.not175, label %.thread167, label %63
+  %.not174 = icmp eq ptr %.pr, null
+  br i1 %.not174, label %.thread166, label %63
 
 63:                                               ; preds = %62
   %64 = getelementptr inbounds i8, ptr %53, i64 20
@@ -13435,9 +13435,9 @@ define hidden void @_ZN4perf8TestBase13reportMetricsEb(ptr noundef nonnull align
           to label %67 unwind label %60
 
 67:                                               ; preds = %63
-  %.pr156 = load ptr, ptr %3, align 8
-  %.not176 = icmp eq ptr %.pr156, null
-  br i1 %.not176, label %.thread167, label %68
+  %.pr155 = load ptr, ptr %3, align 8
+  %.not175 = icmp eq ptr %.pr155, null
+  br i1 %.not175, label %.thread166, label %68
 
 68:                                               ; preds = %67
   %69 = getelementptr inbounds i8, ptr %53, i64 40
@@ -13447,14 +13447,14 @@ define hidden void @_ZN4perf8TestBase13reportMetricsEb(ptr noundef nonnull align
   %73 = load double, ptr %72, align 8
   %74 = fdiv double %71, %73
   invoke void @_ZN2cv5utils5trace7details8traceArgERKNS2_8TraceArgEd(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4perf8TestBase13reportMetricsEbE25__cv_trace_arg_median1666, double noundef %74)
-          to label %.thread157 unwind label %60
+          to label %.thread156 unwind label %60
 
-.thread157:                                       ; preds = %68
-  %.pr159.pr = load ptr, ptr %3, align 8
-  %.not177 = icmp eq ptr %.pr159.pr, null
-  br i1 %.not177, label %.thread167, label %75
+.thread156:                                       ; preds = %68
+  %.pr158.pr = load ptr, ptr %3, align 8
+  %.not176 = icmp eq ptr %.pr158.pr, null
+  br i1 %.not176, label %.thread166, label %75
 
-75:                                               ; preds = %.thread157
+75:                                               ; preds = %.thread156
   %76 = getelementptr inbounds i8, ptr %53, i64 56
   %77 = load double, ptr %76, align 8
   %78 = fmul double %77, 1.000000e+03
@@ -13464,9 +13464,9 @@ define hidden void @_ZN4perf8TestBase13reportMetricsEb(ptr noundef nonnull align
           to label %81 unwind label %60
 
 81:                                               ; preds = %75
-  %.pr162 = load ptr, ptr %3, align 8
-  %.not178 = icmp eq ptr %.pr162, null
-  br i1 %.not178, label %.thread167, label %82
+  %.pr161 = load ptr, ptr %3, align 8
+  %.not177 = icmp eq ptr %.pr161, null
+  br i1 %.not177, label %.thread166, label %82
 
 82:                                               ; preds = %81
   %83 = getelementptr inbounds i8, ptr %53, i64 48
@@ -13475,29 +13475,29 @@ define hidden void @_ZN4perf8TestBase13reportMetricsEb(ptr noundef nonnull align
   %86 = load double, ptr %72, align 8
   %87 = fdiv double %85, %86
   invoke void @_ZN2cv5utils5trace7details8traceArgERKNS2_8TraceArgEd(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4perf8TestBase13reportMetricsEbE25__cv_trace_arg_stddev1668, double noundef %87)
-          to label %.thread164 unwind label %60
+          to label %.thread163 unwind label %60
 
-.thread164:                                       ; preds = %82
-  %.pr166.pr.pr = load ptr, ptr %3, align 8
-  %.not179 = icmp eq ptr %.pr166.pr.pr, null
-  br i1 %.not179, label %.thread167, label %88
+.thread163:                                       ; preds = %82
+  %.pr165.pr.pr = load ptr, ptr %3, align 8
+  %.not178 = icmp eq ptr %.pr165.pr.pr, null
+  br i1 %.not178, label %.thread166, label %88
 
-88:                                               ; preds = %.thread164
+88:                                               ; preds = %.thread163
   %89 = load double, ptr %83, align 8
   %90 = load double, ptr %69, align 8
   %91 = fdiv double %89, %90
   %92 = fmul double %91, 1.000000e+02
   invoke void @_ZN2cv5utils5trace7details8traceArgERKNS2_8TraceArgEd(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4perf8TestBase13reportMetricsEbE34__cv_trace_arg_stddev_percents1669, double noundef %92)
-          to label %.thread167 unwind label %60
+          to label %.thread166 unwind label %60
 
-.thread167:                                       ; preds = %54, %62, %.thread157, %67, %81, %88, %.thread164
+.thread166:                                       ; preds = %54, %62, %.thread156, %67, %81, %88, %.thread163
   %93 = getelementptr inbounds i8, ptr %53, i64 80
   %94 = load i32, ptr %93, align 8
   %95 = icmp eq i32 %94, 4
   br i1 %95, label %96, label %109
 
-96:                                               ; preds = %.thread167
-  br i1 %1, label %97, label %401
+96:                                               ; preds = %.thread166
+  br i1 %1, label %97, label %404
 
 97:                                               ; preds = %96
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #34
@@ -13518,7 +13518,7 @@ define hidden void @_ZN4perf8TestBase13reportMetricsEb(ptr noundef nonnull align
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #34
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #34
-  br label %401
+  br label %404
 
 101:                                              ; preds = %97
   %102 = landingpad { ptr, i32 }
@@ -13545,9 +13545,9 @@ define hidden void @_ZN4perf8TestBase13reportMetricsEb(ptr noundef nonnull align
 108:                                              ; preds = %107, %101
   %.pn147.pn = phi { ptr, i32 } [ %.pn147, %107 ], [ %102, %101 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #34
-  br label %408
+  br label %411
 
-109:                                              ; preds = %.thread167
+109:                                              ; preds = %.thread166
   br i1 %1, label %110, label %282
 
 110:                                              ; preds = %109
@@ -13798,7 +13798,7 @@ define hidden void @_ZN4perf8TestBase13reportMetricsEb(ptr noundef nonnull align
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %51) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #34
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %49) #34
-  br label %401
+  br label %404
 
 180:                                              ; preds = %110
   %181 = landingpad { ptr, i32 }
@@ -13814,7 +13814,7 @@ define hidden void @_ZN4perf8TestBase13reportMetricsEb(ptr noundef nonnull align
 184:                                              ; preds = %182, %180
   %.pn = phi { ptr, i32 } [ %183, %182 ], [ %181, %180 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #34
-  br label %408
+  br label %411
 
 185:                                              ; preds = %114
   %186 = landingpad { ptr, i32 }
@@ -13830,7 +13830,7 @@ define hidden void @_ZN4perf8TestBase13reportMetricsEb(ptr noundef nonnull align
 189:                                              ; preds = %187, %185
   %.pn111 = phi { ptr, i32 } [ %188, %187 ], [ %186, %185 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #34
-  br label %408
+  br label %411
 
 190:                                              ; preds = %119
   %191 = landingpad { ptr, i32 }
@@ -13846,7 +13846,7 @@ define hidden void @_ZN4perf8TestBase13reportMetricsEb(ptr noundef nonnull align
 194:                                              ; preds = %192, %190
   %.pn113 = phi { ptr, i32 } [ %193, %192 ], [ %191, %190 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #34
-  br label %408
+  br label %411
 
 195:                                              ; preds = %122
   %196 = landingpad { ptr, i32 }
@@ -13862,7 +13862,7 @@ define hidden void @_ZN4perf8TestBase13reportMetricsEb(ptr noundef nonnull align
 199:                                              ; preds = %197, %195
   %.pn115 = phi { ptr, i32 } [ %198, %197 ], [ %196, %195 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #34
-  br label %408
+  br label %411
 
 200:                                              ; preds = %126
   %201 = landingpad { ptr, i32 }
@@ -13878,7 +13878,7 @@ define hidden void @_ZN4perf8TestBase13reportMetricsEb(ptr noundef nonnull align
 204:                                              ; preds = %202, %200
   %.pn117 = phi { ptr, i32 } [ %203, %202 ], [ %201, %200 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #34
-  br label %408
+  br label %411
 
 205:                                              ; preds = %130
   %206 = landingpad { ptr, i32 }
@@ -13915,7 +13915,7 @@ define hidden void @_ZN4perf8TestBase13reportMetricsEb(ptr noundef nonnull align
 215:                                              ; preds = %214, %205
   %.pn119.pn.pn = phi { ptr, i32 } [ %.pn119.pn, %214 ], [ %206, %205 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #34
-  br label %408
+  br label %411
 
 216:                                              ; preds = %137
   %217 = landingpad { ptr, i32 }
@@ -13952,7 +13952,7 @@ define hidden void @_ZN4perf8TestBase13reportMetricsEb(ptr noundef nonnull align
 226:                                              ; preds = %225, %216
   %.pn123.pn.pn = phi { ptr, i32 } [ %.pn123.pn, %225 ], [ %217, %216 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #34
-  br label %408
+  br label %411
 
 227:                                              ; preds = %144
   %228 = landingpad { ptr, i32 }
@@ -13989,7 +13989,7 @@ define hidden void @_ZN4perf8TestBase13reportMetricsEb(ptr noundef nonnull align
 237:                                              ; preds = %236, %227
   %.pn127.pn.pn = phi { ptr, i32 } [ %.pn127.pn, %236 ], [ %228, %227 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #34
-  br label %408
+  br label %411
 
 238:                                              ; preds = %151
   %239 = landingpad { ptr, i32 }
@@ -14026,7 +14026,7 @@ define hidden void @_ZN4perf8TestBase13reportMetricsEb(ptr noundef nonnull align
 248:                                              ; preds = %247, %238
   %.pn131.pn.pn = phi { ptr, i32 } [ %.pn131.pn, %247 ], [ %239, %238 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %34) #34
-  br label %408
+  br label %411
 
 249:                                              ; preds = %158
   %250 = landingpad { ptr, i32 }
@@ -14063,7 +14063,7 @@ define hidden void @_ZN4perf8TestBase13reportMetricsEb(ptr noundef nonnull align
 259:                                              ; preds = %258, %249
   %.pn135.pn.pn = phi { ptr, i32 } [ %.pn135.pn, %258 ], [ %250, %249 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %39) #34
-  br label %408
+  br label %411
 
 260:                                              ; preds = %165
   %261 = landingpad { ptr, i32 }
@@ -14100,7 +14100,7 @@ define hidden void @_ZN4perf8TestBase13reportMetricsEb(ptr noundef nonnull align
 270:                                              ; preds = %269, %260
   %.pn139.pn.pn = phi { ptr, i32 } [ %.pn139.pn, %269 ], [ %261, %260 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %44) #34
-  br label %408
+  br label %411
 
 271:                                              ; preds = %172
   %272 = landingpad { ptr, i32 }
@@ -14137,7 +14137,7 @@ define hidden void @_ZN4perf8TestBase13reportMetricsEb(ptr noundef nonnull align
 281:                                              ; preds = %280, %271
   %.pn143.pn.pn = phi { ptr, i32 } [ %.pn143.pn, %280 ], [ %272, %271 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %49) #34
-  br label %408
+  br label %411
 
 282:                                              ; preds = %109
   %283 = invoke noundef ptr @_ZN7testing8UnitTest11GetInstanceEv()
@@ -14161,15 +14161,15 @@ _ZNK7testing8TestInfo10type_paramEv.exit:         ; preds = %289, %286
   %.0.i = phi ptr [ %290, %289 ], [ null, %286 ]
   %291 = getelementptr inbounds i8, ptr %285, i64 72
   %292 = load ptr, ptr %291, align 8
-  %.not.i152 = icmp eq ptr %292, null
-  br i1 %.not.i152, label %_ZNK7testing8TestInfo11value_paramEv.exit, label %293
+  %.not.i151 = icmp eq ptr %292, null
+  br i1 %.not.i151, label %_ZNK7testing8TestInfo11value_paramEv.exit, label %293
 
 293:                                              ; preds = %_ZNK7testing8TestInfo10type_paramEv.exit
   %294 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %292) #34
   br label %_ZNK7testing8TestInfo11value_paramEv.exit
 
 _ZNK7testing8TestInfo11value_paramEv.exit:        ; preds = %_ZNK7testing8TestInfo10type_paramEv.exit, %293
-  %.0.i153 = phi ptr [ %294, %293 ], [ null, %_ZNK7testing8TestInfo10type_paramEv.exit ]
+  %.0.i152 = phi ptr [ %294, %293 ], [ null, %_ZNK7testing8TestInfo10type_paramEv.exit ]
   %.not = icmp eq ptr %.0.i, null
   br i1 %.not, label %299, label %295
 
@@ -14181,11 +14181,11 @@ _ZNK7testing8TestInfo11value_paramEv.exit:        ; preds = %_ZNK7testing8TestIn
   br label %299
 
 299:                                              ; preds = %295, %_ZNK7testing8TestInfo11value_paramEv.exit
-  %.not90 = icmp eq ptr %.0.i153, null
+  %.not90 = icmp eq ptr %.0.i152, null
   br i1 %.not90, label %304, label %300
 
 300:                                              ; preds = %299
-  %301 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.216, ptr noundef nonnull %.0.i153)
+  %301 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.216, ptr noundef nonnull %.0.i152)
   %putchar91 = call i32 @putchar(i32 10)
   %302 = load ptr, ptr @stdout, align 8
   %303 = call i32 @fflush(ptr noundef %302)
@@ -14222,125 +14222,129 @@ switch.lookup:                                    ; preds = %304
   %321 = getelementptr inbounds i8, ptr %0, i64 124
   %322 = load i32, ptr %321, align 4
   %323 = icmp eq i32 %322, -1
-  %324 = load i32, ptr %93, align 8
-  %325 = icmp eq i32 %324, 0
-  %or.cond = select i1 %323, i1 true, i1 %325
-  %326 = getelementptr inbounds i8, ptr %53, i64 16
-  %327 = load i32, ptr %326, align 8
-  br i1 %or.cond, label %328, label %330
+  br i1 %323, label %327, label %324
 
-328:                                              ; preds = %308
-  %329 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.224, i32 noundef %327)
-  br label %332
+324:                                              ; preds = %308
+  %325 = load i32, ptr %93, align 8
+  %326 = icmp eq i32 %325, 0
+  br i1 %326, label %327, label %331
 
-330:                                              ; preds = %308
-  %331 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.225, i32 noundef %327, i32 noundef %322)
-  br label %332
+327:                                              ; preds = %308, %324
+  %328 = getelementptr inbounds i8, ptr %53, i64 16
+  %329 = load i32, ptr %328, align 8
+  %330 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.224, i32 noundef %329)
+  br label %335
 
-332:                                              ; preds = %328, %330
+331:                                              ; preds = %324
+  %332 = getelementptr inbounds i8, ptr %53, i64 16
+  %333 = load i32, ptr %332, align 8
+  %334 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.225, i32 noundef %333, i32 noundef %322)
+  br label %335
+
+335:                                              ; preds = %327, %331
   %putchar100 = call i32 @putchar(i32 10)
-  %333 = load ptr, ptr @stdout, align 8
-  %334 = call i32 @fflush(ptr noundef %333)
-  %335 = getelementptr inbounds i8, ptr %53, i64 20
-  %336 = load i32, ptr %335, align 4
-  %337 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.226, i32 noundef %336)
+  %336 = load ptr, ptr @stdout, align 8
+  %337 = call i32 @fflush(ptr noundef %336)
+  %338 = getelementptr inbounds i8, ptr %53, i64 20
+  %339 = load i32, ptr %338, align 4
+  %340 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.226, i32 noundef %339)
   %putchar101 = call i32 @putchar(i32 10)
-  %338 = load ptr, ptr @stdout, align 8
-  %339 = call i32 @fflush(ptr noundef %338)
-  %340 = getelementptr inbounds i8, ptr %53, i64 72
-  %341 = load double, ptr %340, align 8
-  %342 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.227, double noundef %341)
+  %341 = load ptr, ptr @stdout, align 8
+  %342 = call i32 @fflush(ptr noundef %341)
+  %343 = getelementptr inbounds i8, ptr %53, i64 72
+  %344 = load double, ptr %343, align 8
+  %345 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.227, double noundef %344)
   %putchar102 = call i32 @putchar(i32 10)
-  %343 = load ptr, ptr @stdout, align 8
-  %344 = call i32 @fflush(ptr noundef %343)
-  %345 = getelementptr inbounds i8, ptr %53, i64 16
-  %346 = load i32, ptr %345, align 8
-  %.not103 = icmp eq i32 %346, 0
-  br i1 %.not103, label %401, label %347
+  %346 = load ptr, ptr @stdout, align 8
+  %347 = call i32 @fflush(ptr noundef %346)
+  %348 = getelementptr inbounds i8, ptr %53, i64 16
+  %349 = load i32, ptr %348, align 8
+  %.not103 = icmp eq i32 %349, 0
+  br i1 %.not103, label %404, label %350
 
-347:                                              ; preds = %332
-  %348 = getelementptr inbounds i8, ptr %53, i64 64
-  %349 = load double, ptr %348, align 8
-  %350 = fmul double %349, 1.000000e+03
-  %351 = load double, ptr %340, align 8
-  %352 = fdiv double %350, %351
-  %353 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.228, double noundef %349, double noundef %352)
+350:                                              ; preds = %335
+  %351 = getelementptr inbounds i8, ptr %53, i64 64
+  %352 = load double, ptr %351, align 8
+  %353 = fmul double %352, 1.000000e+03
+  %354 = load double, ptr %343, align 8
+  %355 = fdiv double %353, %354
+  %356 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.228, double noundef %352, double noundef %355)
   %putchar104 = call i32 @putchar(i32 10)
-  %354 = load ptr, ptr @stdout, align 8
-  %355 = call i32 @fflush(ptr noundef %354)
-  %356 = getelementptr inbounds i8, ptr %53, i64 56
-  %357 = load double, ptr %356, align 8
-  %358 = fmul double %357, 1.000000e+03
-  %359 = load double, ptr %340, align 8
-  %360 = fdiv double %358, %359
-  %361 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.229, double noundef %357, double noundef %360)
+  %357 = load ptr, ptr @stdout, align 8
+  %358 = call i32 @fflush(ptr noundef %357)
+  %359 = getelementptr inbounds i8, ptr %53, i64 56
+  %360 = load double, ptr %359, align 8
+  %361 = fmul double %360, 1.000000e+03
+  %362 = load double, ptr %343, align 8
+  %363 = fdiv double %361, %362
+  %364 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.229, double noundef %360, double noundef %363)
   %putchar105 = call i32 @putchar(i32 10)
-  %362 = load ptr, ptr @stdout, align 8
-  %363 = call i32 @fflush(ptr noundef %362)
-  %364 = getelementptr inbounds i8, ptr %53, i64 24
-  %365 = load double, ptr %364, align 8
-  %366 = fmul double %365, 1.000000e+03
-  %367 = load double, ptr %340, align 8
-  %368 = fdiv double %366, %367
-  %369 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.230, double noundef %365, double noundef %368)
+  %365 = load ptr, ptr @stdout, align 8
+  %366 = call i32 @fflush(ptr noundef %365)
+  %367 = getelementptr inbounds i8, ptr %53, i64 24
+  %368 = load double, ptr %367, align 8
+  %369 = fmul double %368, 1.000000e+03
+  %370 = load double, ptr %343, align 8
+  %371 = fdiv double %369, %370
+  %372 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.230, double noundef %368, double noundef %371)
   %putchar106 = call i32 @putchar(i32 10)
-  %370 = load ptr, ptr @stdout, align 8
-  %371 = call i32 @fflush(ptr noundef %370)
-  %372 = getelementptr inbounds i8, ptr %53, i64 32
-  %373 = load double, ptr %372, align 8
-  %374 = load double, ptr %364, align 8
-  %375 = fmul double %374, 2.000000e+00
-  %376 = fmul double %373, 3.000000e+00
-  %377 = call double @sinh(double noundef %376) #34
-  %378 = fmul double %375, %377
-  %379 = fmul double %378, 1.000000e+03
-  %380 = load double, ptr %340, align 8
-  %381 = fdiv double %379, %380
-  %382 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.231, double noundef %373, double noundef %381)
+  %373 = load ptr, ptr @stdout, align 8
+  %374 = call i32 @fflush(ptr noundef %373)
+  %375 = getelementptr inbounds i8, ptr %53, i64 32
+  %376 = load double, ptr %375, align 8
+  %377 = load double, ptr %367, align 8
+  %378 = fmul double %377, 2.000000e+00
+  %379 = fmul double %376, 3.000000e+00
+  %380 = call double @sinh(double noundef %379) #34
+  %381 = fmul double %378, %380
+  %382 = fmul double %381, 1.000000e+03
+  %383 = load double, ptr %343, align 8
+  %384 = fdiv double %382, %383
+  %385 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.231, double noundef %376, double noundef %384)
   %putchar107 = call i32 @putchar(i32 10)
-  %383 = load ptr, ptr @stdout, align 8
-  %384 = call i32 @fflush(ptr noundef %383)
-  %385 = getelementptr inbounds i8, ptr %53, i64 40
-  %386 = load double, ptr %385, align 8
-  %387 = fmul double %386, 1.000000e+03
-  %388 = load double, ptr %340, align 8
-  %389 = fdiv double %387, %388
-  %390 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.232, double noundef %386, double noundef %389)
+  %386 = load ptr, ptr @stdout, align 8
+  %387 = call i32 @fflush(ptr noundef %386)
+  %388 = getelementptr inbounds i8, ptr %53, i64 40
+  %389 = load double, ptr %388, align 8
+  %390 = fmul double %389, 1.000000e+03
+  %391 = load double, ptr %343, align 8
+  %392 = fdiv double %390, %391
+  %393 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.232, double noundef %389, double noundef %392)
   %putchar108 = call i32 @putchar(i32 10)
-  %391 = load ptr, ptr @stdout, align 8
-  %392 = call i32 @fflush(ptr noundef %391)
-  %393 = getelementptr inbounds i8, ptr %53, i64 48
-  %394 = load double, ptr %393, align 8
-  %395 = fmul double %394, 1.000000e+03
-  %396 = load double, ptr %340, align 8
-  %397 = fdiv double %395, %396
-  %398 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.233, double noundef %394, double noundef %397)
+  %394 = load ptr, ptr @stdout, align 8
+  %395 = call i32 @fflush(ptr noundef %394)
+  %396 = getelementptr inbounds i8, ptr %53, i64 48
+  %397 = load double, ptr %396, align 8
+  %398 = fmul double %397, 1.000000e+03
+  %399 = load double, ptr %343, align 8
+  %400 = fdiv double %398, %399
+  %401 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.233, double noundef %397, double noundef %400)
   %putchar109 = call i32 @putchar(i32 10)
-  %399 = load ptr, ptr @stdout, align 8
-  %400 = call i32 @fflush(ptr noundef %399)
-  br label %401
+  %402 = load ptr, ptr @stdout, align 8
+  %403 = call i32 @fflush(ptr noundef %402)
+  br label %404
 
-401:                                              ; preds = %179, %347, %332, %96, %100
-  %402 = getelementptr inbounds i8, ptr %3, i64 8
-  %403 = load i32, ptr %402, align 8
-  %.not.i154 = icmp eq i32 %403, 0
-  br i1 %.not.i154, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %404
+404:                                              ; preds = %179, %350, %335, %96, %100
+  %405 = getelementptr inbounds i8, ptr %3, i64 8
+  %406 = load i32, ptr %405, align 8
+  %.not.i153 = icmp eq i32 %406, 0
+  br i1 %.not.i153, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %407
 
-404:                                              ; preds = %401
+407:                                              ; preds = %404
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %3)
-          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %405
+          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %408
 
-405:                                              ; preds = %404
-  %406 = landingpad { ptr, i32 }
+408:                                              ; preds = %407
+  %409 = landingpad { ptr, i32 }
           catch ptr null
-  %407 = extractvalue { ptr, i32 } %406, 0
-  call void @__clang_call_terminate(ptr %407) #36
+  %410 = extractvalue { ptr, i32 } %409, 0
+  call void @__clang_call_terminate(ptr %410) #36
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %401, %404
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %404, %407
   ret void
 
-408:                                              ; preds = %281, %270, %259, %248, %237, %226, %215, %204, %199, %194, %189, %184, %108, %60
+411:                                              ; preds = %281, %270, %259, %248, %237, %226, %215, %204, %199, %194, %189, %184, %108, %60
   %.pn147.pn.pn = phi { ptr, i32 } [ %.pn147.pn, %108 ], [ %.pn143.pn.pn, %281 ], [ %.pn139.pn.pn, %270 ], [ %.pn135.pn.pn, %259 ], [ %.pn131.pn.pn, %248 ], [ %.pn127.pn.pn, %237 ], [ %.pn123.pn.pn, %226 ], [ %.pn119.pn.pn, %215 ], [ %.pn117, %204 ], [ %.pn115, %199 ], [ %.pn113, %194 ], [ %.pn111, %189 ], [ %.pn, %184 ], [ %61, %60 ]
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #34
   resume { ptr, i32 } %.pn147.pn.pn

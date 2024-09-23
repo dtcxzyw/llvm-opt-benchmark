@@ -278,7 +278,11 @@ if.then.i:                                        ; preds = %for.body.i34
 
 invoke.cont37:                                    ; preds = %for.cond.i, %invoke.cont34
   invoke void @_ZN4absl13base_internal13LowLevelAlloc4FreeEPv(ptr noundef %.pre136)
-          to label %for.inc.sink.split.sink.split unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %invoke.cont42 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
+
+invoke.cont42:                                    ; preds = %invoke.cont37
+  %it.val20.val = load ptr, ptr %14, align 8
+  br label %for.inc.sink.split
 
 if.else:                                          ; preds = %invoke.cont31
   call void @llvm.prefetch.p0(ptr readonly %this.val.i, i32 0, i32 1, i32 1), !noalias !10
@@ -527,7 +531,8 @@ call5.i.i2.i.i.i.i.i.i.i.i.noexc:                 ; preds = %if.then.i.i.i
   store ptr %call5.i.i2.i.i.i.i.i.i.i.i45, ptr %add.ptr.i4.i.i.i, align 8, !noalias !10
   %this.val2.pre.i.i.i = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i.i.i, align 8, !noalias !10
   %add.ptr3.i.i.i.phi.trans.insert.i = getelementptr inbounds ptr, ptr %this.val2.pre.i.i.i, i64 %target.sroa.0.0.i.i.i.i.i
-  br label %for.inc.sink.split.sink.split
+  %ref.tmp.val1.val.pre.i = load ptr, ptr %add.ptr3.i.i.i.phi.trans.insert.i, align 8
+  br label %for.inc.sink.split
 
 sw.bb48:                                          ; preds = %if.end11
   %allocated.val = load ptr, ptr %allocated, align 8, !nonnull !7, !noundef !7
@@ -605,13 +610,8 @@ invoke.cont66:                                    ; preds = %invoke.cont62
   invoke void @_ZN4absl18container_internal13EraseMetaOnlyERNS0_12CommonFieldsEPNS0_6ctrl_tEm(ptr noundef nonnull align 8 dereferenceable(32) %allocated, ptr noundef %spec.select.i, i64 noundef 8)
           to label %for.inc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
-for.inc.sink.split.sink.split:                    ; preds = %invoke.cont37, %call5.i.i2.i.i.i.i.i.i.i.i.noexc
-  %add.ptr3.i.i.i.phi.trans.insert.i.sink = phi ptr [ %add.ptr3.i.i.i.phi.trans.insert.i, %call5.i.i2.i.i.i.i.i.i.i.i.noexc ], [ %14, %invoke.cont37 ]
-  %ref.tmp.val1.val.pre.i = load ptr, ptr %add.ptr3.i.i.i.phi.trans.insert.i.sink, align 8
-  br label %for.inc.sink.split
-
-for.inc.sink.split:                               ; preds = %for.body.i.i.i.i, %for.inc.sink.split.sink.split
-  %ref.tmp.val1.val.i.sink145 = phi ptr [ %ref.tmp.val1.val.pre.i, %for.inc.sink.split.sink.split ], [ %add.ptr21.val.i.i.i.i, %for.body.i.i.i.i ]
+for.inc.sink.split:                               ; preds = %for.body.i.i.i.i, %call5.i.i2.i.i.i.i.i.i.i.i.noexc, %invoke.cont42
+  %ref.tmp.val1.val.i.sink145 = phi ptr [ %it.val20.val, %invoke.cont42 ], [ %ref.tmp.val1.val.pre.i, %call5.i.i2.i.i.i.i.i.i.i.i.noexc ], [ %add.ptr21.val.i.i.i.i, %for.body.i.i.i.i ]
   %second.i.i = getelementptr inbounds i8, ptr %ref.tmp.val1.val.i.sink145, i64 8
   store ptr %cond23, ptr %second.i.i, align 8
   %block_desc.sroa.4.0.second.i.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp.val1.val.i.sink145, i64 16

@@ -653,65 +653,60 @@ define void @Dar_BalancePermute(ptr noundef %0, ptr nocapture noundef readonly %
   %43 = inttoptr i64 %42 to ptr
   %44 = load ptr, ptr %20, align 8
   %45 = icmp eq ptr %44, %43
-  br i1 %45, label %46, label %48
+  br i1 %45, label %.loopexit.sink.split, label %46
 
 46:                                               ; preds = %38
-  %47 = getelementptr inbounds ptr, ptr %.val57, i64 %indvars.iv
-  br label %.loopexit.sink.split
+  %47 = icmp eq ptr %19, %43
+  br i1 %47, label %48, label %50
 
-48:                                               ; preds = %38
-  %49 = icmp eq ptr %19, %43
-  br i1 %49, label %50, label %53
+48:                                               ; preds = %46
+  %49 = icmp eq ptr %40, %16
+  br i1 %49, label %.loopexit, label %.loopexit.sink.split
 
-50:                                               ; preds = %48
-  %51 = getelementptr inbounds ptr, ptr %.val57, i64 %indvars.iv
-  %52 = icmp eq ptr %40, %16
-  br i1 %52, label %.loopexit, label %.loopexit.sink.split
+50:                                               ; preds = %46
+  %51 = load i64, ptr %30, align 8
+  %52 = and i64 %51, -8
+  %53 = or disjoint i64 %52, %29
+  store i64 %53, ptr %30, align 8
+  %54 = icmp eq ptr %40, null
+  br i1 %54, label %Aig_ObjCreateGhost.exit, label %55
 
-53:                                               ; preds = %48
-  %54 = load i64, ptr %30, align 8
-  %55 = and i64 %54, -8
-  %56 = or disjoint i64 %55, %29
-  store i64 %56, ptr %30, align 8
-  %57 = icmp eq ptr %40, null
-  br i1 %57, label %Aig_ObjCreateGhost.exit, label %58
-
-58:                                               ; preds = %53
-  %59 = load i32, ptr %31, align 4
-  %60 = getelementptr inbounds i8, ptr %43, i64 36
-  %61 = load i32, ptr %60, align 4
-  %62 = icmp slt i32 %59, %61
-  %spec.select.i = select i1 %62, ptr %13, ptr %40
-  %spec.select17.i = select i1 %62, ptr %40, ptr %13
+55:                                               ; preds = %50
+  %56 = load i32, ptr %31, align 4
+  %57 = getelementptr inbounds i8, ptr %43, i64 36
+  %58 = load i32, ptr %57, align 4
+  %59 = icmp slt i32 %56, %58
+  %spec.select.i = select i1 %59, ptr %13, ptr %40
+  %spec.select17.i = select i1 %59, ptr %40, ptr %13
   br label %Aig_ObjCreateGhost.exit
 
-Aig_ObjCreateGhost.exit:                          ; preds = %53, %58
-  %.sink15.i = phi ptr [ %13, %53 ], [ %spec.select.i, %58 ]
-  %.sink.i = phi ptr [ null, %53 ], [ %spec.select17.i, %58 ]
+Aig_ObjCreateGhost.exit:                          ; preds = %50, %55
+  %.sink15.i = phi ptr [ %13, %50 ], [ %spec.select.i, %55 ]
+  %.sink.i = phi ptr [ null, %50 ], [ %spec.select17.i, %55 ]
   store ptr %.sink15.i, ptr %32, align 8
   store ptr %.sink.i, ptr %33, align 8
-  %63 = tail call ptr @Aig_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %34) #18
-  %.not56 = icmp eq ptr %63, null
-  br i1 %.not56, label %37, label %64
+  %60 = tail call ptr @Aig_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %34) #18
+  %.not56 = icmp eq ptr %60, null
+  br i1 %.not56, label %37, label %61
 
-64:                                               ; preds = %Aig_ObjCreateGhost.exit
-  %65 = icmp eq ptr %40, %16
-  br i1 %65, label %.loopexit, label %66
+61:                                               ; preds = %Aig_ObjCreateGhost.exit
+  %62 = icmp eq ptr %40, %16
+  br i1 %62, label %.loopexit, label %63
 
-66:                                               ; preds = %64
+63:                                               ; preds = %61
   %.val61 = load ptr, ptr %9, align 8
-  %67 = getelementptr inbounds ptr, ptr %.val61, i64 %indvars.iv
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %50, %46, %66
-  %.sink = phi ptr [ %67, %66 ], [ %47, %46 ], [ %51, %50 ]
-  store ptr %16, ptr %.sink, align 8
+.loopexit.sink.split:                             ; preds = %38, %48, %63
+  %.val57.sink = phi ptr [ %.val61, %63 ], [ %.val57, %48 ], [ %.val57, %38 ]
+  %64 = getelementptr inbounds ptr, ptr %.val57.sink, i64 %indvars.iv
+  store ptr %16, ptr %64, align 8
   %.val60 = load ptr, ptr %9, align 8
-  %68 = getelementptr inbounds ptr, ptr %.val60, i64 %14
-  store ptr %40, ptr %68, align 8
+  %65 = getelementptr inbounds ptr, ptr %.val60, i64 %14
+  store ptr %40, ptr %65, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %37, %.loopexit.sink.split, %64, %50, %8, %23, %4
+.loopexit:                                        ; preds = %37, %.loopexit.sink.split, %61, %48, %8, %23, %4
   ret void
 }
 

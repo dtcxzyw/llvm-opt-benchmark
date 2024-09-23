@@ -893,7 +893,7 @@ define hidden void @_ZN10FreezeBase26freeze_fast_existing_chunkEv(ptr nocapture 
   %15 = inttoptr i64 %14 to ptr
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %11, %16
-  br i1 %17, label %64, label %18
+  br i1 %17, label %94, label %18
 
 18:                                               ; preds = %1
   %19 = load volatile i32, ptr %10, align 4
@@ -943,129 +943,165 @@ define hidden void @_ZN10FreezeBase26freeze_fast_existing_chunkEv(ptr nocapture 
   %62 = load i64, ptr %61, align 8
   %63 = getelementptr inbounds i8, ptr %49, i64 -16
   store i64 %62, ptr %63, align 8
-  br label %102
+  %64 = load ptr, ptr %2, align 8
+  %65 = getelementptr inbounds i8, ptr %64, i64 8
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr inbounds i8, ptr %0, i64 8
+  %68 = load ptr, ptr %67, align 8
+  tail call void @_ZNK17ContinuationEntry22flush_stack_processingEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(60) %66, ptr noundef %68) #16
+  %69 = load ptr, ptr %67, align 8
+  %70 = getelementptr inbounds i8, ptr %69, i64 928
+  store volatile ptr %66, ptr %70, align 8
+  %71 = load ptr, ptr @_ZN17ContinuationEntry10_return_pcE, align 8
+  %72 = getelementptr inbounds i8, ptr %69, i64 936
+  store volatile ptr %71, ptr %72, align 8
+  %73 = getelementptr inbounds i8, ptr %66, i64 64
+  %74 = getelementptr inbounds i8, ptr %69, i64 944
+  store volatile ptr %73, ptr %74, align 8
+  %75 = load ptr, ptr %30, align 8
+  %76 = load ptr, ptr %32, align 8
+  %77 = ptrtoint ptr %75 to i64
+  %78 = ptrtoint ptr %76 to i64
+  %79 = sub i64 %77, %78
+  %80 = lshr i64 %79, 3
+  %81 = trunc i64 %80 to i32
+  %82 = sub i32 %24, %81
+  %83 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4
+  %84 = sext i32 %83 to i64
+  %85 = add nsw i64 %84, %7
+  %86 = inttoptr i64 %85 to ptr
+  %87 = sext i32 %82 to i64
+  %88 = getelementptr inbounds i64, ptr %86, i64 %87
+  %89 = getelementptr inbounds i8, ptr %76, i64 -16
+  %90 = getelementptr inbounds i8, ptr %88, i64 -16
+  %91 = shl i32 %81, 3
+  %92 = add i32 %91, 16
+  %93 = sext i32 %92 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %90, ptr nonnull align 8 %89, i64 %93, i1 false)
+  br label %162
 
-64:                                               ; preds = %1
-  %65 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4
-  %66 = sext i32 %65 to i64
-  %67 = add nsw i64 %66, %7
-  %68 = inttoptr i64 %67 to ptr
-  %69 = load i32, ptr %68, align 4
-  %70 = getelementptr inbounds i8, ptr %0, i64 64
-  %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %0, i64 56
-  %73 = load ptr, ptr %72, align 8
-  %74 = ptrtoint ptr %71 to i64
-  %75 = ptrtoint ptr %73 to i64
-  %76 = sub i64 %74, %75
-  %77 = lshr i64 %76, 3
-  %78 = trunc i64 %77 to i32
-  %79 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk22_maxThawingSize_offsetE, align 4
-  %80 = sext i32 %79 to i64
-  %81 = add nsw i64 %80, %7
-  %82 = inttoptr i64 %81 to ptr
-  store i32 %78, ptr %82, align 4
-  %83 = load ptr, ptr %2, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 8
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 36
-  %87 = load i32, ptr %86, align 4
-  %88 = sub nsw i32 %69, %87
-  %89 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk14_bottom_offsetE, align 4
-  %90 = sext i32 %89 to i64
-  %91 = add nsw i64 %90, %7
-  %92 = inttoptr i64 %91 to ptr
-  store i32 %88, ptr %92, align 4
-  %93 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk14_bottom_offsetE, align 4
-  %94 = sext i32 %93 to i64
-  %95 = add nsw i64 %94, %7
-  %96 = inttoptr i64 %95 to ptr
-  %97 = load i32, ptr %96, align 4
-  %98 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk10_sp_offsetE, align 4
-  %99 = sext i32 %98 to i64
-  %100 = add nsw i64 %99, %7
-  %101 = inttoptr i64 %100 to ptr
-  store volatile i32 %97, ptr %101, align 4
-  br label %102
+94:                                               ; preds = %1
+  %95 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4
+  %96 = sext i32 %95 to i64
+  %97 = add nsw i64 %96, %7
+  %98 = inttoptr i64 %97 to ptr
+  %99 = load i32, ptr %98, align 4
+  %100 = getelementptr inbounds i8, ptr %0, i64 64
+  %101 = load ptr, ptr %100, align 8
+  %102 = getelementptr inbounds i8, ptr %0, i64 56
+  %103 = load ptr, ptr %102, align 8
+  %104 = ptrtoint ptr %101 to i64
+  %105 = ptrtoint ptr %103 to i64
+  %106 = sub i64 %104, %105
+  %107 = lshr i64 %106, 3
+  %108 = trunc i64 %107 to i32
+  %109 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk22_maxThawingSize_offsetE, align 4
+  %110 = sext i32 %109 to i64
+  %111 = add nsw i64 %110, %7
+  %112 = inttoptr i64 %111 to ptr
+  store i32 %108, ptr %112, align 4
+  %113 = load ptr, ptr %2, align 8
+  %114 = getelementptr inbounds i8, ptr %113, i64 8
+  %115 = load ptr, ptr %114, align 8
+  %116 = getelementptr inbounds i8, ptr %115, i64 36
+  %117 = load i32, ptr %116, align 4
+  %118 = sub nsw i32 %99, %117
+  %119 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk14_bottom_offsetE, align 4
+  %120 = sext i32 %119 to i64
+  %121 = add nsw i64 %120, %7
+  %122 = inttoptr i64 %121 to ptr
+  store i32 %118, ptr %122, align 4
+  %123 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk14_bottom_offsetE, align 4
+  %124 = sext i32 %123 to i64
+  %125 = add nsw i64 %124, %7
+  %126 = inttoptr i64 %125 to ptr
+  %127 = load i32, ptr %126, align 4
+  %128 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk10_sp_offsetE, align 4
+  %129 = sext i32 %128 to i64
+  %130 = add nsw i64 %129, %7
+  %131 = inttoptr i64 %130 to ptr
+  store volatile i32 %127, ptr %131, align 4
+  %132 = load ptr, ptr %2, align 8
+  %133 = getelementptr inbounds i8, ptr %132, i64 8
+  %134 = load ptr, ptr %133, align 8
+  %135 = getelementptr inbounds i8, ptr %0, i64 8
+  %136 = load ptr, ptr %135, align 8
+  tail call void @_ZNK17ContinuationEntry22flush_stack_processingEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(60) %134, ptr noundef %136) #16
+  %137 = load ptr, ptr %135, align 8
+  %138 = getelementptr inbounds i8, ptr %137, i64 928
+  store volatile ptr %134, ptr %138, align 8
+  %139 = load ptr, ptr @_ZN17ContinuationEntry10_return_pcE, align 8
+  %140 = getelementptr inbounds i8, ptr %137, i64 936
+  store volatile ptr %139, ptr %140, align 8
+  %141 = getelementptr inbounds i8, ptr %134, i64 64
+  %142 = getelementptr inbounds i8, ptr %137, i64 944
+  store volatile ptr %141, ptr %142, align 8
+  %143 = load ptr, ptr %100, align 8
+  %144 = load ptr, ptr %102, align 8
+  %145 = ptrtoint ptr %143 to i64
+  %146 = ptrtoint ptr %144 to i64
+  %147 = sub i64 %145, %146
+  %148 = lshr i64 %147, 3
+  %149 = trunc i64 %148 to i32
+  %150 = sub nsw i32 %99, %149
+  %151 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4
+  %152 = sext i32 %151 to i64
+  %153 = add nsw i64 %152, %7
+  %154 = inttoptr i64 %153 to ptr
+  %155 = sext i32 %150 to i64
+  %156 = getelementptr inbounds i64, ptr %154, i64 %155
+  %157 = getelementptr inbounds i8, ptr %144, i64 -16
+  %158 = getelementptr inbounds i8, ptr %156, i64 -16
+  %159 = shl i32 %149, 3
+  %160 = add i32 %159, 16
+  %161 = sext i32 %160 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %158, ptr nonnull align 8 %157, i64 %161, i1 false)
+  br label %162
 
-102:                                              ; preds = %64, %18
-  %.sink76 = phi ptr [ %70, %64 ], [ %30, %18 ]
-  %.sink75 = phi ptr [ %72, %64 ], [ %32, %18 ]
-  %.sink67 = phi i32 [ %69, %64 ], [ %24, %18 ]
-  %103 = load ptr, ptr %2, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 8
-  %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %0, i64 8
-  %107 = load ptr, ptr %106, align 8
-  tail call void @_ZNK17ContinuationEntry22flush_stack_processingEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(60) %105, ptr noundef %107) #16
-  %108 = load ptr, ptr %106, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 928
-  store volatile ptr %105, ptr %109, align 8
-  %110 = load ptr, ptr @_ZN17ContinuationEntry10_return_pcE, align 8
-  %111 = getelementptr inbounds i8, ptr %108, i64 936
-  store volatile ptr %110, ptr %111, align 8
-  %112 = getelementptr inbounds i8, ptr %105, i64 64
-  %113 = getelementptr inbounds i8, ptr %108, i64 944
-  store volatile ptr %112, ptr %113, align 8
-  %114 = load ptr, ptr %.sink76, align 8
-  %115 = load ptr, ptr %.sink75, align 8
-  %116 = ptrtoint ptr %114 to i64
-  %117 = ptrtoint ptr %115 to i64
-  %118 = sub i64 %116, %117
-  %119 = lshr i64 %118, 3
-  %120 = trunc i64 %119 to i32
-  %121 = sub i32 %.sink67, %120
-  %122 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4
-  %123 = sext i32 %122 to i64
-  %124 = add nsw i64 %123, %7
-  %125 = inttoptr i64 %124 to ptr
-  %126 = sext i32 %121 to i64
-  %127 = getelementptr inbounds i64, ptr %125, i64 %126
-  %128 = getelementptr inbounds i8, ptr %115, i64 -16
-  %129 = getelementptr inbounds i8, ptr %127, i64 -16
-  %130 = shl i32 %120, 3
-  %131 = add i32 %130, 16
-  %132 = sext i32 %131 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %129, ptr nonnull align 8 %128, i64 %132, i1 false)
-  %133 = load ptr, ptr %.sink76, align 8
-  %134 = load ptr, ptr %.sink75, align 8
-  %135 = ptrtoint ptr %133 to i64
-  %136 = ptrtoint ptr %134 to i64
-  %137 = sub i64 %135, %136
-  %138 = shl i64 %137, 29
-  %139 = ashr i64 %138, 32
-  %140 = getelementptr inbounds i64, ptr %127, i64 %139
-  %141 = load ptr, ptr %2, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 8
-  %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds i8, ptr %143, i64 36
-  %145 = load i32, ptr %144, align 4
-  %146 = sext i32 %145 to i64
-  %147 = sub nsw i64 0, %146
-  %148 = getelementptr inbounds i64, ptr %140, i64 %147
-  %149 = getelementptr inbounds i8, ptr %148, i64 -8
-  %150 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk10_pc_offsetE, align 4
-  %151 = tail call noundef ptr @_ZNK7oopDesc13address_fieldEi(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef %150) #16
-  store ptr %151, ptr %149, align 8
-  %152 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk10_sp_offsetE, align 4
-  %153 = sext i32 %152 to i64
-  %154 = add nsw i64 %153, %7
-  %155 = inttoptr i64 %154 to ptr
-  store volatile i32 %121, ptr %155, align 4
-  %156 = load ptr, ptr %.sink75, align 8
-  %157 = getelementptr inbounds i8, ptr %156, i64 -8
-  %158 = load ptr, ptr %157, align 8
-  %159 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk10_pc_offsetE, align 4
-  tail call void @_ZN7oopDesc17address_field_putEiPh(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef %159, ptr noundef %158) #16
-  %160 = load ptr, ptr %2, align 8
-  %161 = getelementptr inbounds i8, ptr %160, i64 16
-  %162 = load ptr, ptr %161, align 8
-  %163 = getelementptr inbounds i8, ptr %160, i64 24
-  %164 = load ptr, ptr %163, align 8
-  %165 = load i32, ptr @_ZN28jdk_internal_vm_Continuation12_tail_offsetE, align 4
-  %166 = sext i32 %165 to i64
-  %167 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
-  tail call void %167(ptr noundef nonnull %162, i64 noundef %166, ptr noundef %164) #16
+162:                                              ; preds = %94, %18
+  %.sink49.in = phi ptr [ %100, %94 ], [ %30, %18 ]
+  %.sink42 = phi ptr [ %156, %94 ], [ %88, %18 ]
+  %.sink = phi i32 [ %150, %94 ], [ %82, %18 ]
+  %.sink25.in = phi ptr [ %102, %94 ], [ %32, %18 ]
+  %.sink48 = load ptr, ptr %.sink25.in, align 8
+  %.sink49 = load ptr, ptr %.sink49.in, align 8
+  %163 = ptrtoint ptr %.sink49 to i64
+  %164 = ptrtoint ptr %.sink48 to i64
+  %165 = sub i64 %163, %164
+  %166 = shl i64 %165, 29
+  %167 = ashr i64 %166, 32
+  %168 = getelementptr inbounds i64, ptr %.sink42, i64 %167
+  %169 = load ptr, ptr %2, align 8
+  %170 = getelementptr inbounds i8, ptr %169, i64 8
+  %171 = load ptr, ptr %170, align 8
+  %172 = getelementptr inbounds i8, ptr %171, i64 36
+  %173 = load i32, ptr %172, align 4
+  %174 = sext i32 %173 to i64
+  %175 = sub nsw i64 0, %174
+  %176 = getelementptr inbounds i64, ptr %168, i64 %175
+  %177 = getelementptr inbounds i8, ptr %176, i64 -8
+  %178 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk10_pc_offsetE, align 4
+  %179 = tail call noundef ptr @_ZNK7oopDesc13address_fieldEi(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef %178) #16
+  store ptr %179, ptr %177, align 8
+  %180 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk10_sp_offsetE, align 4
+  %181 = sext i32 %180 to i64
+  %182 = add nsw i64 %181, %7
+  %183 = inttoptr i64 %182 to ptr
+  store volatile i32 %.sink, ptr %183, align 4
+  %.sink25 = load ptr, ptr %.sink25.in, align 8
+  %184 = getelementptr inbounds i8, ptr %.sink25, i64 -8
+  %185 = load ptr, ptr %184, align 8
+  %186 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk10_pc_offsetE, align 4
+  tail call void @_ZN7oopDesc17address_field_putEiPh(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef %186, ptr noundef %185) #16
+  %187 = load ptr, ptr %2, align 8
+  %188 = getelementptr inbounds i8, ptr %187, i64 16
+  %189 = load ptr, ptr %188, align 8
+  %190 = getelementptr inbounds i8, ptr %187, i64 24
+  %191 = load ptr, ptr %190, align 8
+  %192 = load i32, ptr @_ZN28jdk_internal_vm_Continuation12_tail_offsetE, align 4
+  %193 = sext i32 %192 to i64
+  %194 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
+  tail call void %194(ptr noundef nonnull %189, i64 noundef %193, ptr noundef %191) #16
   ret void
 }
 

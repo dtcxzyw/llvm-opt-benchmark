@@ -358,12 +358,12 @@ define dso_local void @intel_pps_check_power_unlocked(ptr noundef %0) local_unna
   br label %.split
 
 .split:                                           ; preds = %52, %.split2
-  %.sink = phi ptr [ %59, %.split2 ], [ inttoptr (i64 7184 to ptr), %52 ]
+  %.val4.sink.in = phi ptr [ %59, %.split2 ], [ inttoptr (i64 7184 to ptr), %52 ]
   %63 = phi ptr [ %62, %.split2 ], [ null, %52 ]
-  %64 = load i32, ptr %54, align 8
-  %65 = load ptr, ptr %56, align 8
-  %.val4 = load i32, ptr %.sink, align 4
-  %66 = tail call fastcc ptr @pps_name(i32 %.val4, ptr noundef %58)
+  %64 = load ptr, ptr %56, align 8
+  %65 = load i32, ptr %54, align 8
+  %.val4.sink = load i32, ptr %.val4.sink.in, align 4
+  %66 = tail call fastcc ptr @pps_name(i32 %.val4.sink, ptr noundef %58)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %3, i8 0, i64 20, i1 false), !annotation !20
   call fastcc void @intel_pps_get_registers(ptr noundef %0, ptr noundef nonnull %3)
@@ -381,7 +381,7 @@ define dso_local void @intel_pps_check_power_unlocked(ptr noundef %0) local_unna
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #7
   %74 = load ptr, ptr %70, align 8
   %75 = tail call i32 %74(ptr noundef %69, i32 %73, i1 noundef zeroext true) #7
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %63, i32 noundef 2, ptr noundef nonnull @.str.5, i32 noundef %64, ptr noundef %65, ptr noundef %66, i32 noundef %72, i32 noundef %75) #7
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %63, i32 noundef 2, ptr noundef nonnull @.str.5, i32 noundef %65, ptr noundef %64, ptr noundef %66, i32 noundef %72, i32 noundef %75) #7
   br label %76
 
 76:                                               ; preds = %.split, %33, %19, %1
@@ -484,57 +484,69 @@ define internal fastcc void @wait_panel_power_cycle(ptr noundef %0) unnamed_addr
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.split, label %.split2
 
+.split:                                           ; preds = %1
+  %5 = getelementptr i8, ptr %0, i64 -368
+  %6 = load i32, ptr %5, align 8
+  %7 = getelementptr i8, ptr %0, i64 -336
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 1528
+  %.val5 = load i32, ptr inttoptr (i64 7184 to ptr), align 16
+  %10 = tail call fastcc ptr @pps_name(i32 %.val5, ptr noundef %9)
+  br label %20
+
 .split2:                                          ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr i8, ptr %3, i64 7184
-  br label %.split
+  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr i8, ptr %0, i64 -368
+  %14 = load i32, ptr %13, align 8
+  %15 = getelementptr i8, ptr %0, i64 -336
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 1528
+  %18 = getelementptr i8, ptr %3, i64 7184
+  %.val = load i32, ptr %18, align 4
+  %19 = tail call fastcc ptr @pps_name(i32 %.val, ptr noundef %17)
+  br label %20
 
-.split:                                           ; preds = %1, %.split2
-  %.sink6 = phi ptr [ %7, %.split2 ], [ inttoptr (i64 7184 to ptr), %1 ]
-  %8 = phi ptr [ %6, %.split2 ], [ null, %1 ]
-  %.in7 = getelementptr i8, ptr %0, i64 -336
-  %9 = load ptr, ptr %.in7, align 8
-  %.in = getelementptr i8, ptr %0, i64 -368
-  %10 = load i32, ptr %.in, align 8
-  %.sink = getelementptr inbounds i8, ptr %0, i64 1528
-  %.val5 = load i32, ptr %.sink6, align 4
-  %11 = tail call fastcc ptr @pps_name(i32 %.val5, ptr noundef %.sink)
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %8, i32 noundef 2, ptr noundef nonnull @.str.43, i32 noundef %10, ptr noundef %9, ptr noundef %11) #7
-  %12 = tail call i64 @ktime_get_with_offset(i32 noundef 1) #7
-  %13 = getelementptr inbounds i8, ptr %0, i64 1664
-  %14 = load i64, ptr %13, align 8
-  %15 = sub i64 %12, %14
-  %16 = sdiv i64 %15, 1000000
-  %17 = getelementptr inbounds i8, ptr %0, i64 1536
-  %18 = load i32, ptr %17, align 8
-  %19 = sext i32 %18 to i64
-  %20 = icmp slt i64 %16, %19
-  br i1 %20, label %21, label %.loopexit
+20:                                               ; preds = %.split, %.split2
+  %21 = phi i32 [ %6, %.split ], [ %14, %.split2 ]
+  %22 = phi ptr [ %8, %.split ], [ %16, %.split2 ]
+  %phi.call = phi ptr [ %10, %.split ], [ %19, %.split2 ]
+  %23 = phi ptr [ null, %.split ], [ %12, %.split2 ]
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %23, i32 noundef 2, ptr noundef nonnull @.str.43, i32 noundef %21, ptr noundef %22, ptr noundef %phi.call) #7
+  %24 = tail call i64 @ktime_get_with_offset(i32 noundef 1) #7
+  %25 = getelementptr inbounds i8, ptr %0, i64 1664
+  %26 = load i64, ptr %25, align 8
+  %27 = sub i64 %24, %26
+  %28 = sdiv i64 %27, 1000000
+  %29 = getelementptr inbounds i8, ptr %0, i64 1536
+  %30 = load i32, ptr %29, align 8
+  %31 = sext i32 %30 to i64
+  %32 = icmp slt i64 %28, %31
+  br i1 %32, label %33, label %.loopexit
 
-21:                                               ; preds = %.split
-  %22 = load volatile i64, ptr @jiffies, align 64
-  %23 = load volatile i64, ptr @jiffies, align 64
-  %24 = trunc i64 %16 to i32
-  %25 = sub i32 %18, %24
-  %26 = tail call i64 @__msecs_to_jiffies(i32 noundef %25) #7
-  %27 = add i64 %26, 1
-  %28 = tail call i64 @llvm.umin.i64(i64 %27, i64 4611686018427387902)
-  %29 = add i64 %28, %22
-  %30 = sub i64 %23, %29
-  %31 = icmp sgt i64 %30, -1
-  %32 = sub i64 %29, %23
-  %33 = icmp eq i64 %32, 0
-  %34 = or i1 %31, %33
-  br i1 %34, label %.loopexit, label %.preheader
+33:                                               ; preds = %20
+  %34 = load volatile i64, ptr @jiffies, align 64
+  %35 = load volatile i64, ptr @jiffies, align 64
+  %36 = trunc i64 %28 to i32
+  %37 = sub i32 %30, %36
+  %38 = tail call i64 @__msecs_to_jiffies(i32 noundef %37) #7
+  %39 = add i64 %38, 1
+  %40 = tail call i64 @llvm.umin.i64(i64 %39, i64 4611686018427387902)
+  %41 = add i64 %40, %34
+  %42 = sub i64 %35, %41
+  %43 = icmp sgt i64 %42, -1
+  %44 = sub i64 %41, %35
+  %45 = icmp eq i64 %44, 0
+  %46 = or i1 %43, %45
+  br i1 %46, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %21, %.preheader
-  %35 = phi i64 [ %36, %.preheader ], [ %32, %21 ]
-  %36 = tail call i64 @schedule_timeout_uninterruptible(i64 noundef %35) #7
-  %37 = icmp eq i64 %36, 0
-  br i1 %37, label %.loopexit, label %.preheader, !llvm.loop !36
+.preheader:                                       ; preds = %33, %.preheader
+  %47 = phi i64 [ %48, %.preheader ], [ %44, %33 ]
+  %48 = tail call i64 @schedule_timeout_uninterruptible(i64 noundef %47) #7
+  %49 = icmp eq i64 %48, 0
+  br i1 %49, label %.loopexit, label %.preheader, !llvm.loop !36
 
-.loopexit:                                        ; preds = %.preheader, %21, %.split
+.loopexit:                                        ; preds = %.preheader, %33, %20
   tail call fastcc void @wait_panel_status(ptr noundef %0, i32 noundef -1207959537, i32 noundef 0)
   ret void
 }
@@ -641,14 +653,14 @@ define dso_local noundef zeroext i1 @intel_pps_vdd_on_unlocked(ptr noundef %0) l
   br label %.split
 
 .split:                                           ; preds = %50, %.split2
-  %.sink = phi ptr [ %59, %.split2 ], [ inttoptr (i64 7184 to ptr), %50 ]
+  %.val16.sink.in = phi ptr [ %59, %.split2 ], [ inttoptr (i64 7184 to ptr), %50 ]
   %60 = phi ptr [ %58, %.split2 ], [ null, %50 ]
   %61 = getelementptr i8, ptr %0, i64 -336
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr i8, ptr %0, i64 -368
   %64 = load i32, ptr %63, align 8
-  %.val16 = load i32, ptr %.sink, align 4
-  %65 = tail call fastcc ptr @pps_name(i32 %.val16, ptr noundef %9)
+  %.val16.sink = load i32, ptr %.val16.sink.in, align 4
+  %65 = tail call fastcc ptr @pps_name(i32 %.val16.sink, ptr noundef %9)
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %60, i32 noundef 2, ptr noundef nonnull @.str.7, i32 noundef %64, ptr noundef %62, ptr noundef %65) #7
   %66 = load ptr, ptr %7, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 7184
@@ -700,12 +712,12 @@ define dso_local noundef zeroext i1 @intel_pps_vdd_on_unlocked(ptr noundef %0) l
   br label %.split3
 
 .split3:                                          ; preds = %84, %.split5
-  %.sink17 = phi ptr [ %95, %.split5 ], [ inttoptr (i64 7184 to ptr), %84 ]
+  %.val14.sink.in = phi ptr [ %95, %.split5 ], [ inttoptr (i64 7184 to ptr), %84 ]
   %96 = phi ptr [ %94, %.split5 ], [ null, %84 ]
   %97 = load ptr, ptr %61, align 8
   %98 = load i32, ptr %63, align 8
-  %.val14 = load i32, ptr %.sink17, align 4
-  %99 = tail call fastcc ptr @pps_name(i32 %.val14, ptr noundef %9)
+  %.val14.sink = load i32, ptr %.val14.sink.in, align 4
+  %99 = tail call fastcc ptr @pps_name(i32 %.val14.sink, ptr noundef %9)
   %100 = load ptr, ptr %90, align 8
   %101 = tail call i32 %100(ptr noundef %87, i32 %54, i1 noundef zeroext true) #7
   %102 = load ptr, ptr %90, align 8
@@ -748,12 +760,12 @@ define dso_local noundef zeroext i1 @intel_pps_vdd_on_unlocked(ptr noundef %0) l
   br label %.split7
 
 .split7:                                          ; preds = %121, %.split9
-  %.sink18 = phi ptr [ %124, %.split9 ], [ inttoptr (i64 7184 to ptr), %121 ]
+  %.val12.sink.in = phi ptr [ %124, %.split9 ], [ inttoptr (i64 7184 to ptr), %121 ]
   %125 = phi ptr [ %123, %.split9 ], [ null, %121 ]
   %126 = load ptr, ptr %61, align 8
   %127 = load i32, ptr %63, align 8
-  %.val12 = load i32, ptr %.sink18, align 4
-  %128 = tail call fastcc ptr @pps_name(i32 %.val12, ptr noundef %9)
+  %.val12.sink = load i32, ptr %.val12.sink.in, align 4
+  %128 = tail call fastcc ptr @pps_name(i32 %.val12.sink, ptr noundef %9)
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %125, i32 noundef 2, ptr noundef nonnull @.str.8, i32 noundef %127, ptr noundef %126, ptr noundef %128) #7
   %129 = load i32, ptr %9, align 8
   tail call void @msleep(i32 noundef %129) #7
@@ -837,7 +849,7 @@ define dso_local void @intel_pps_vdd_on(ptr noundef %0) local_unnamed_addr #0 al
   %2 = getelementptr i8, ptr %0, i64 -392
   %3 = load ptr, ptr %2, align 8
   %4 = tail call zeroext i1 @intel_dp_is_edp(ptr noundef %0) #7
-  br i1 %4, label %5, label %46
+  br i1 %4, label %5, label %58
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %2, align 8
@@ -853,7 +865,7 @@ define dso_local void @intel_pps_vdd_on(ptr noundef %0) local_unnamed_addr #0 al
   %13 = getelementptr inbounds i8, ptr %12, i64 3288
   tail call void @mutex_unlock(ptr noundef %13) #7
   tail call void @intel_display_power_put_unchecked(ptr noundef %12, i32 noundef 0) #7
-  br i1 %11, label %46, label %14, !prof !11
+  br i1 %11, label %58, label %14, !prof !11
 
 14:                                               ; preds = %10, %5
   %15 = getelementptr inbounds i8, ptr %3, i64 6795
@@ -891,32 +903,44 @@ define dso_local void @intel_pps_vdd_on(ptr noundef %0) local_unnamed_addr #0 al
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 793, i32 2313, i64 12) #7, !srcloc !51
   tail call void asm sideeffect "959: nop\0A\09.pushsection .discard.instr_end\0A\09.long 959b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 959) #7, !srcloc !52
   tail call void asm sideeffect "960: nop\0A\09.pushsection .discard.instr_end\0A\09.long 960b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 960) #7, !srcloc !53
-  br label %46
+  br label %58
 
 37:                                               ; preds = %14
   %38 = icmp eq ptr %3, null
   br i1 %38, label %.split, label %.split2
 
+.split:                                           ; preds = %37
+  %39 = getelementptr i8, ptr %0, i64 -368
+  %40 = load i32, ptr %39, align 8
+  %41 = getelementptr i8, ptr %0, i64 -336
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds i8, ptr %0, i64 1528
+  %.val4 = load i32, ptr inttoptr (i64 7184 to ptr), align 16
+  %44 = tail call fastcc ptr @pps_name(i32 %.val4, ptr noundef %43)
+  br label %54
+
 .split2:                                          ; preds = %37
-  %39 = getelementptr inbounds i8, ptr %3, i64 8
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr i8, ptr %3, i64 7184
-  br label %.split
+  %45 = getelementptr inbounds i8, ptr %3, i64 8
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr i8, ptr %0, i64 -368
+  %48 = load i32, ptr %47, align 8
+  %49 = getelementptr i8, ptr %0, i64 -336
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds i8, ptr %0, i64 1528
+  %52 = getelementptr i8, ptr %3, i64 7184
+  %.val = load i32, ptr %52, align 4
+  %53 = tail call fastcc ptr @pps_name(i32 %.val, ptr noundef %51)
+  br label %54
 
-.split:                                           ; preds = %37, %.split2
-  %.sink6 = phi ptr [ %41, %.split2 ], [ inttoptr (i64 7184 to ptr), %37 ]
-  %42 = phi ptr [ %40, %.split2 ], [ null, %37 ]
-  %.in7 = getelementptr i8, ptr %0, i64 -336
-  %43 = load ptr, ptr %.in7, align 8
-  %.in = getelementptr i8, ptr %0, i64 -368
-  %44 = load i32, ptr %.in, align 8
-  %.sink = getelementptr inbounds i8, ptr %0, i64 1528
-  %.val4 = load i32, ptr %.sink6, align 4
-  %45 = tail call fastcc ptr @pps_name(i32 %.val4, ptr noundef %.sink)
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %42, ptr noundef nonnull @.str.10, i32 noundef %44, ptr noundef %43, ptr noundef %45) #8
-  br label %46
+54:                                               ; preds = %.split, %.split2
+  %55 = phi i32 [ %40, %.split ], [ %48, %.split2 ]
+  %56 = phi ptr [ %42, %.split ], [ %50, %.split2 ]
+  %phi.call = phi ptr [ %44, %.split ], [ %53, %.split2 ]
+  %57 = phi ptr [ null, %.split ], [ %46, %.split2 ]
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %57, ptr noundef nonnull @.str.10, i32 noundef %55, ptr noundef %56, ptr noundef %phi.call) #8
+  br label %58
 
-46:                                               ; preds = %.split, %28, %10, %1
+58:                                               ; preds = %54, %28, %10, %1
   ret void
 }
 
@@ -1031,14 +1055,14 @@ define internal fastcc void @intel_pps_vdd_off_sync_unlocked(ptr noundef %0) unn
   br label %.split
 
 .split:                                           ; preds = %41, %.split2
-  %.sink = phi ptr [ %45, %.split2 ], [ inttoptr (i64 7184 to ptr), %41 ]
+  %.val10.sink.in = phi ptr [ %45, %.split2 ], [ inttoptr (i64 7184 to ptr), %41 ]
   %46 = phi ptr [ %44, %.split2 ], [ null, %41 ]
   %47 = getelementptr i8, ptr %0, i64 -336
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr i8, ptr %0, i64 -368
   %50 = load i32, ptr %49, align 8
-  %.val10 = load i32, ptr %.sink, align 4
-  %51 = tail call fastcc ptr @pps_name(i32 %.val10, ptr noundef %7)
+  %.val10.sink = load i32, ptr %.val10.sink.in, align 4
+  %51 = tail call fastcc ptr @pps_name(i32 %.val10.sink, ptr noundef %7)
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %46, i32 noundef 2, ptr noundef nonnull @.str.54, i32 noundef %50, ptr noundef %48, ptr noundef %51) #7
   %52 = tail call fastcc i32 @ilk_get_pp_control(ptr noundef %0)
   %53 = and i32 %52, -9
@@ -1069,12 +1093,12 @@ define internal fastcc void @intel_pps_vdd_off_sync_unlocked(ptr noundef %0) unn
   br label %.split3
 
 .split3:                                          ; preds = %.split, %.split5
-  %.sink11 = phi ptr [ %65, %.split5 ], [ inttoptr (i64 7184 to ptr), %.split ]
+  %.val8.sink.in = phi ptr [ %65, %.split5 ], [ inttoptr (i64 7184 to ptr), %.split ]
   %66 = phi ptr [ %64, %.split5 ], [ null, %.split ]
   %67 = load ptr, ptr %47, align 8
   %68 = load i32, ptr %49, align 8
-  %.val8 = load i32, ptr %.sink11, align 4
-  %69 = tail call fastcc ptr @pps_name(i32 %.val8, ptr noundef %7)
+  %.val8.sink = load i32, ptr %.val8.sink.in, align 4
+  %69 = tail call fastcc ptr @pps_name(i32 %.val8.sink, ptr noundef %7)
   %70 = load ptr, ptr %60, align 8
   %71 = tail call i32 %70(ptr noundef %57, i32 %56, i1 noundef zeroext true) #7
   %72 = load ptr, ptr %60, align 8
@@ -1163,14 +1187,14 @@ define dso_local void @intel_pps_vdd_off_unlocked(ptr noundef %0, i1 noundef zer
   br label %.split
 
 .split:                                           ; preds = %33, %.split2
-  %.sink = phi ptr [ %37, %.split2 ], [ inttoptr (i64 7184 to ptr), %33 ]
+  %.val4.sink.in = phi ptr [ %37, %.split2 ], [ inttoptr (i64 7184 to ptr), %33 ]
   %38 = phi ptr [ %36, %.split2 ], [ null, %33 ]
   %.in6 = getelementptr i8, ptr %0, i64 -336
   %39 = load ptr, ptr %.in6, align 8
   %.in = getelementptr i8, ptr %0, i64 -368
   %40 = load i32, ptr %.in, align 8
-  %.val4 = load i32, ptr %.sink, align 4
-  %41 = tail call fastcc ptr @pps_name(i32 %.val4, ptr noundef %7)
+  %.val4.sink = load i32, ptr %.val4.sink.in, align 4
+  %41 = tail call fastcc ptr @pps_name(i32 %.val4.sink, ptr noundef %7)
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %38, ptr noundef nonnull @.str.12, i32 noundef %40, ptr noundef %39, ptr noundef %41) #8
   br label %42
 
@@ -1211,161 +1235,176 @@ define dso_local void @intel_pps_on_unlocked(ptr noundef %0) local_unnamed_addr 
   %4 = getelementptr i8, ptr %0, i64 -392
   %5 = load ptr, ptr %4, align 8
   %6 = tail call zeroext i1 @intel_dp_is_edp(ptr noundef %0) #7
-  br i1 %6, label %7, label %96
+  br i1 %6, label %7, label %109
 
 7:                                                ; preds = %1
   %8 = icmp eq ptr %5, null
   br i1 %8, label %.split, label %.split2
 
+.split:                                           ; preds = %7
+  %9 = getelementptr i8, ptr %0, i64 -368
+  %10 = load i32, ptr %9, align 8
+  %11 = getelementptr i8, ptr %0, i64 -336
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 1528
+  %.val11 = load i32, ptr inttoptr (i64 7184 to ptr), align 16
+  %14 = tail call fastcc ptr @pps_name(i32 %.val11, ptr noundef %13)
+  br label %24
+
 .split2:                                          ; preds = %7
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr i8, ptr %5, i64 7184
-  br label %.split
+  %15 = getelementptr inbounds i8, ptr %5, i64 8
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr i8, ptr %0, i64 -368
+  %18 = load i32, ptr %17, align 8
+  %19 = getelementptr i8, ptr %0, i64 -336
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 1528
+  %22 = getelementptr i8, ptr %5, i64 7184
+  %.val10 = load i32, ptr %22, align 4
+  %23 = tail call fastcc ptr @pps_name(i32 %.val10, ptr noundef %21)
+  br label %24
 
-.split:                                           ; preds = %7, %.split2
-  %.sink14 = phi ptr [ %11, %.split2 ], [ inttoptr (i64 7184 to ptr), %7 ]
-  %12 = phi ptr [ %10, %.split2 ], [ null, %7 ]
-  %13 = getelementptr i8, ptr %0, i64 -336
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr i8, ptr %0, i64 -368
-  %16 = load i32, ptr %15, align 8
-  %.sink = getelementptr inbounds i8, ptr %0, i64 1528
-  %.val11 = load i32, ptr %.sink14, align 4
-  %17 = tail call fastcc ptr @pps_name(i32 %.val11, ptr noundef %.sink)
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %12, i32 noundef 2, ptr noundef nonnull @.str.13, i32 noundef %16, ptr noundef %14, ptr noundef %17) #7
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 7184
-  %20 = load i32, ptr %19, align 4
-  %21 = and i32 %20, 18874368
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %27, label %23
+24:                                               ; preds = %.split, %.split2
+  %25 = phi ptr [ %9, %.split ], [ %17, %.split2 ]
+  %26 = phi i32 [ %10, %.split ], [ %18, %.split2 ]
+  %27 = phi ptr [ %11, %.split ], [ %19, %.split2 ]
+  %28 = phi ptr [ %12, %.split ], [ %20, %.split2 ]
+  %29 = phi ptr [ %13, %.split ], [ %21, %.split2 ]
+  %phi.call = phi ptr [ %14, %.split ], [ %23, %.split2 ]
+  %30 = phi ptr [ null, %.split ], [ %16, %.split2 ]
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %30, i32 noundef 2, ptr noundef nonnull @.str.13, i32 noundef %26, ptr noundef %28, ptr noundef %phi.call) #7
+  %31 = load ptr, ptr %4, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 7184
+  %33 = load i32, ptr %32, align 4
+  %34 = and i32 %33, 18874368
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %40, label %36
 
-23:                                               ; preds = %.split
-  %24 = getelementptr inbounds i8, ptr %0, i64 1680
-  %25 = load i32, ptr %24, align 8
-  %26 = icmp eq i32 %25, -1
-  br i1 %26, label %51, label %27
+36:                                               ; preds = %24
+  %37 = getelementptr inbounds i8, ptr %0, i64 1680
+  %38 = load i32, ptr %37, align 8
+  %39 = icmp eq i32 %38, -1
+  br i1 %39, label %64, label %40
 
-27:                                               ; preds = %23, %.split
+40:                                               ; preds = %36, %24
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %3, i8 0, i64 20, i1 false), !annotation !20
   call fastcc void @intel_pps_get_registers(ptr noundef %0, ptr noundef nonnull %3)
-  %28 = getelementptr inbounds i8, ptr %3, i64 4
-  %29 = load i32, ptr %28, align 4
+  %41 = getelementptr inbounds i8, ptr %3, i64 4
+  %42 = load i32, ptr %41, align 4
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #7
-  %30 = getelementptr inbounds i8, ptr %18, i64 7368
-  %31 = getelementptr inbounds i8, ptr %18, i64 7512
-  %32 = load ptr, ptr %31, align 8
-  %33 = tail call i32 %32(ptr noundef %30, i32 %29, i1 noundef zeroext true) #7
-  %34 = icmp slt i32 %33, 0
-  br i1 %34, label %35, label %51, !prof !5
+  %43 = getelementptr inbounds i8, ptr %31, i64 7368
+  %44 = getelementptr inbounds i8, ptr %31, i64 7512
+  %45 = load ptr, ptr %44, align 8
+  %46 = tail call i32 %45(ptr noundef %43, i32 %42, i1 noundef zeroext true) #7
+  %47 = icmp slt i32 %46, 0
+  br i1 %47, label %48, label %64, !prof !5
 
-35:                                               ; preds = %27
+48:                                               ; preds = %40
   tail call void asm sideeffect "969: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 969b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 969) #7, !srcloc !64
-  %36 = getelementptr inbounds i8, ptr %5, i64 8
-  %37 = load ptr, ptr %36, align 8
-  %38 = tail call ptr @dev_driver_string(ptr noundef %37) #7
-  %39 = load ptr, ptr %36, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 80
-  %41 = load ptr, ptr %40, align 8
-  %42 = icmp eq ptr %41, null
-  br i1 %42, label %43, label %45
+  %49 = getelementptr inbounds i8, ptr %5, i64 8
+  %50 = load ptr, ptr %49, align 8
+  %51 = tail call ptr @dev_driver_string(ptr noundef %50) #7
+  %52 = load ptr, ptr %49, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 80
+  %54 = load ptr, ptr %53, align 8
+  %55 = icmp eq ptr %54, null
+  br i1 %55, label %56, label %58
 
-43:                                               ; preds = %35
-  %44 = load ptr, ptr %39, align 8
-  br label %45
+56:                                               ; preds = %48
+  %57 = load ptr, ptr %52, align 8
+  br label %58
 
-45:                                               ; preds = %43, %35
-  %46 = phi ptr [ %44, %43 ], [ %41, %35 ]
-  %47 = load i32, ptr %15, align 8
-  %48 = load ptr, ptr %13, align 8
-  %49 = getelementptr i8, ptr %5, i64 7184
-  %.val12 = load i32, ptr %49, align 4
-  %50 = tail call fastcc ptr @pps_name(i32 %.val12, ptr noundef %.sink)
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.14, ptr noundef %38, ptr noundef %46, i32 noundef %47, ptr noundef %48, ptr noundef %50) #7
+58:                                               ; preds = %56, %48
+  %59 = phi ptr [ %57, %56 ], [ %54, %48 ]
+  %60 = load i32, ptr %25, align 8
+  %61 = load ptr, ptr %27, align 8
+  %62 = getelementptr i8, ptr %5, i64 7184
+  %.val12 = load i32, ptr %62, align 4
+  %63 = tail call fastcc ptr @pps_name(i32 %.val12, ptr noundef %29)
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.14, ptr noundef %51, ptr noundef %59, i32 noundef %60, ptr noundef %61, ptr noundef %63) #7
   tail call void asm sideeffect "970: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 970b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 970) #7, !srcloc !65
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 938, i32 2313, i64 12) #7, !srcloc !66
   tail call void asm sideeffect "971: nop\0A\09.pushsection .discard.instr_end\0A\09.long 971b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 971) #7, !srcloc !67
   tail call void asm sideeffect "972: nop\0A\09.pushsection .discard.instr_end\0A\09.long 972b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 972) #7, !srcloc !68
-  br label %96
+  br label %109
 
-51:                                               ; preds = %27, %23
+64:                                               ; preds = %40, %36
   tail call fastcc void @wait_panel_power_cycle(ptr noundef %0)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %2, i8 0, i64 20, i1 false), !annotation !20
   call fastcc void @intel_pps_get_registers(ptr noundef %0, ptr noundef nonnull %2)
-  %52 = load i32, ptr %2, align 4
+  %65 = load i32, ptr %2, align 4
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #7
-  %53 = tail call fastcc i32 @ilk_get_pp_control(ptr noundef %0)
-  %54 = getelementptr inbounds i8, ptr %5, i64 7184
-  %55 = load i32, ptr %54, align 4
-  %56 = and i32 %55, 262144
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %68, label %58
+  %66 = tail call fastcc i32 @ilk_get_pp_control(ptr noundef %0)
+  %67 = getelementptr inbounds i8, ptr %5, i64 7184
+  %68 = load i32, ptr %67, align 4
+  %69 = and i32 %68, 262144
+  %70 = icmp eq i32 %69, 0
+  br i1 %70, label %81, label %71
 
-58:                                               ; preds = %51
-  %59 = and i32 %53, -3
-  %60 = getelementptr inbounds i8, ptr %5, i64 7368
-  %61 = getelementptr inbounds i8, ptr %5, i64 7544
-  %62 = load ptr, ptr %61, align 8
-  tail call void %62(ptr noundef %60, i32 %52, i32 noundef %59, i1 noundef zeroext true) #7
-  %63 = getelementptr inbounds i8, ptr %5, i64 7512
-  %64 = load ptr, ptr %63, align 8
-  %65 = tail call i32 %64(ptr noundef %60, i32 %52, i1 noundef zeroext false) #7
-  %.pre = load i32, ptr %54, align 4
-  %.pre13 = and i32 %.pre, 262144
-  %66 = icmp eq i32 %.pre13, 0
-  %67 = select i1 %66, i32 3, i32 1
-  br label %68
-
-68:                                               ; preds = %58, %51
-  %.pre-phi = phi i32 [ %67, %58 ], [ 3, %51 ]
-  %69 = phi i32 [ %59, %58 ], [ %53, %51 ]
-  %70 = or i32 %.pre-phi, %69
-  %71 = getelementptr inbounds i8, ptr %5, i64 7368
-  %72 = getelementptr inbounds i8, ptr %5, i64 7544
-  %73 = load ptr, ptr %72, align 8
-  tail call void %73(ptr noundef %71, i32 %52, i32 noundef %70, i1 noundef zeroext true) #7
-  %74 = getelementptr inbounds i8, ptr %5, i64 7512
+71:                                               ; preds = %64
+  %72 = and i32 %66, -3
+  %73 = getelementptr inbounds i8, ptr %5, i64 7368
+  %74 = getelementptr inbounds i8, ptr %5, i64 7544
   %75 = load ptr, ptr %74, align 8
-  %76 = tail call i32 %75(ptr noundef %71, i32 %52, i1 noundef zeroext false) #7
-  %77 = load ptr, ptr %4, align 8
-  %78 = icmp eq ptr %77, null
-  br i1 %78, label %.split3, label %.split5
+  tail call void %75(ptr noundef %73, i32 %65, i32 noundef %72, i1 noundef zeroext true) #7
+  %76 = getelementptr inbounds i8, ptr %5, i64 7512
+  %77 = load ptr, ptr %76, align 8
+  %78 = tail call i32 %77(ptr noundef %73, i32 %65, i1 noundef zeroext false) #7
+  %.pre = load i32, ptr %67, align 4
+  %.pre13 = and i32 %.pre, 262144
+  %79 = icmp eq i32 %.pre13, 0
+  %80 = select i1 %79, i32 3, i32 1
+  br label %81
 
-.split5:                                          ; preds = %68
-  %79 = getelementptr inbounds i8, ptr %77, i64 8
-  %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr i8, ptr %77, i64 7184
+81:                                               ; preds = %71, %64
+  %.pre-phi = phi i32 [ %80, %71 ], [ 3, %64 ]
+  %82 = phi i32 [ %72, %71 ], [ %66, %64 ]
+  %83 = or i32 %.pre-phi, %82
+  %84 = getelementptr inbounds i8, ptr %5, i64 7368
+  %85 = getelementptr inbounds i8, ptr %5, i64 7544
+  %86 = load ptr, ptr %85, align 8
+  tail call void %86(ptr noundef %84, i32 %65, i32 noundef %83, i1 noundef zeroext true) #7
+  %87 = getelementptr inbounds i8, ptr %5, i64 7512
+  %88 = load ptr, ptr %87, align 8
+  %89 = tail call i32 %88(ptr noundef %84, i32 %65, i1 noundef zeroext false) #7
+  %90 = load ptr, ptr %4, align 8
+  %91 = icmp eq ptr %90, null
+  br i1 %91, label %.split3, label %.split5
+
+.split5:                                          ; preds = %81
+  %92 = getelementptr inbounds i8, ptr %90, i64 8
+  %93 = load ptr, ptr %92, align 8
+  %94 = getelementptr i8, ptr %90, i64 7184
   br label %.split3
 
-.split3:                                          ; preds = %68, %.split5
-  %.sink15 = phi ptr [ %81, %.split5 ], [ inttoptr (i64 7184 to ptr), %68 ]
-  %82 = phi ptr [ %80, %.split5 ], [ null, %68 ]
-  %83 = load ptr, ptr %13, align 8
-  %84 = load i32, ptr %15, align 8
-  %.val9 = load i32, ptr %.sink15, align 4
-  %85 = tail call fastcc ptr @pps_name(i32 %.val9, ptr noundef %.sink)
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %82, i32 noundef 2, ptr noundef nonnull @.str.55, i32 noundef %84, ptr noundef %83, ptr noundef %85) #7
+.split3:                                          ; preds = %81, %.split5
+  %.val9.sink.in = phi ptr [ %94, %.split5 ], [ inttoptr (i64 7184 to ptr), %81 ]
+  %95 = phi ptr [ %93, %.split5 ], [ null, %81 ]
+  %96 = load ptr, ptr %27, align 8
+  %97 = load i32, ptr %25, align 8
+  %.val9.sink = load i32, ptr %.val9.sink.in, align 4
+  %98 = tail call fastcc ptr @pps_name(i32 %.val9.sink, ptr noundef %29)
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %95, i32 noundef 2, ptr noundef nonnull @.str.55, i32 noundef %97, ptr noundef %96, ptr noundef %98) #7
   tail call fastcc void @wait_panel_status(ptr noundef %0, i32 noundef -1342177265, i32 noundef -2147483640)
-  %86 = load volatile i64, ptr @jiffies, align 64
-  %87 = getelementptr inbounds i8, ptr %0, i64 1648
-  store i64 %86, ptr %87, align 8
-  %88 = load i32, ptr %54, align 4
-  %89 = and i32 %88, 262144
-  %90 = icmp eq i32 %89, 0
-  br i1 %90, label %96, label %91
+  %99 = load volatile i64, ptr @jiffies, align 64
+  %100 = getelementptr inbounds i8, ptr %0, i64 1648
+  store i64 %99, ptr %100, align 8
+  %101 = load i32, ptr %67, align 4
+  %102 = and i32 %101, 262144
+  %103 = icmp eq i32 %102, 0
+  br i1 %103, label %109, label %104
 
-91:                                               ; preds = %.split3
-  %92 = or i32 %69, 3
-  %93 = load ptr, ptr %72, align 8
-  tail call void %93(ptr noundef %71, i32 %52, i32 noundef %92, i1 noundef zeroext true) #7
-  %94 = load ptr, ptr %74, align 8
-  %95 = tail call i32 %94(ptr noundef %71, i32 %52, i1 noundef zeroext false) #7
-  br label %96
+104:                                              ; preds = %.split3
+  %105 = or i32 %82, 3
+  %106 = load ptr, ptr %85, align 8
+  tail call void %106(ptr noundef %84, i32 %65, i32 noundef %105, i1 noundef zeroext true) #7
+  %107 = load ptr, ptr %87, align 8
+  %108 = tail call i32 %107(ptr noundef %84, i32 %65, i1 noundef zeroext false) #7
+  br label %109
 
-96:                                               ; preds = %91, %.split3, %45, %1
+109:                                              ; preds = %104, %.split3, %58, %1
   ret void
 }
 
@@ -1401,108 +1440,123 @@ define dso_local void @intel_pps_off_unlocked(ptr noundef %0) local_unnamed_addr
   %3 = getelementptr i8, ptr %0, i64 -392
   %4 = load ptr, ptr %3, align 8
   %5 = tail call zeroext i1 @intel_dp_is_edp(ptr noundef %0) #7
-  br i1 %5, label %6, label %59
+  br i1 %5, label %6, label %72
 
 6:                                                ; preds = %1
   %7 = icmp eq ptr %4, null
   br i1 %7, label %.split, label %.split2
 
+.split:                                           ; preds = %6
+  %8 = getelementptr i8, ptr %0, i64 -368
+  %9 = load i32, ptr %8, align 8
+  %10 = getelementptr i8, ptr %0, i64 -336
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 1528
+  %.val11 = load i32, ptr inttoptr (i64 7184 to ptr), align 16
+  %13 = tail call fastcc ptr @pps_name(i32 %.val11, ptr noundef %12)
+  br label %23
+
 .split2:                                          ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr i8, ptr %4, i64 7184
-  br label %.split
+  %14 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr i8, ptr %0, i64 -368
+  %17 = load i32, ptr %16, align 8
+  %18 = getelementptr i8, ptr %0, i64 -336
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 1528
+  %21 = getelementptr i8, ptr %4, i64 7184
+  %.val10 = load i32, ptr %21, align 4
+  %22 = tail call fastcc ptr @pps_name(i32 %.val10, ptr noundef %20)
+  br label %23
 
-.split:                                           ; preds = %6, %.split2
-  %.sink13 = phi ptr [ %10, %.split2 ], [ inttoptr (i64 7184 to ptr), %6 ]
-  %11 = phi ptr [ %9, %.split2 ], [ null, %6 ]
-  %12 = getelementptr i8, ptr %0, i64 -336
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr i8, ptr %0, i64 -368
-  %15 = load i32, ptr %14, align 8
-  %.sink = getelementptr inbounds i8, ptr %0, i64 1528
-  %.val11 = load i32, ptr %.sink13, align 4
-  %16 = tail call fastcc ptr @pps_name(i32 %.val11, ptr noundef %.sink)
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %11, i32 noundef 2, ptr noundef nonnull @.str.15, i32 noundef %15, ptr noundef %13, ptr noundef %16) #7
-  %17 = getelementptr inbounds i8, ptr %0, i64 1640
-  %18 = load i8, ptr %17, align 8, !range !37, !noundef !38
-  %19 = icmp eq i8 %18, 0
-  br i1 %19, label %20, label %36, !prof !5
+23:                                               ; preds = %.split, %.split2
+  %24 = phi ptr [ %8, %.split ], [ %16, %.split2 ]
+  %25 = phi i32 [ %9, %.split ], [ %17, %.split2 ]
+  %26 = phi ptr [ %10, %.split ], [ %18, %.split2 ]
+  %27 = phi ptr [ %11, %.split ], [ %19, %.split2 ]
+  %28 = phi ptr [ %12, %.split ], [ %20, %.split2 ]
+  %phi.call = phi ptr [ %13, %.split ], [ %22, %.split2 ]
+  %29 = phi ptr [ null, %.split ], [ %15, %.split2 ]
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %29, i32 noundef 2, ptr noundef nonnull @.str.15, i32 noundef %25, ptr noundef %27, ptr noundef %phi.call) #7
+  %30 = getelementptr inbounds i8, ptr %0, i64 1640
+  %31 = load i8, ptr %30, align 8, !range !37, !noundef !38
+  %32 = icmp eq i8 %31, 0
+  br i1 %32, label %33, label %49, !prof !5
 
-20:                                               ; preds = %.split
+33:                                               ; preds = %23
   tail call void asm sideeffect "973: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 973b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 973) #7, !srcloc !69
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
-  %22 = load ptr, ptr %21, align 8
-  %23 = tail call ptr @dev_driver_string(ptr noundef %22) #7
-  %24 = load ptr, ptr %21, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 80
-  %26 = load ptr, ptr %25, align 8
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %28, label %30
+  %34 = getelementptr inbounds i8, ptr %4, i64 8
+  %35 = load ptr, ptr %34, align 8
+  %36 = tail call ptr @dev_driver_string(ptr noundef %35) #7
+  %37 = load ptr, ptr %34, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 80
+  %39 = load ptr, ptr %38, align 8
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %41, label %43
 
-28:                                               ; preds = %20
-  %29 = load ptr, ptr %24, align 8
-  br label %30
+41:                                               ; preds = %33
+  %42 = load ptr, ptr %37, align 8
+  br label %43
 
-30:                                               ; preds = %28, %20
-  %31 = phi ptr [ %29, %28 ], [ %26, %20 ]
-  %32 = load i32, ptr %14, align 8
-  %33 = load ptr, ptr %12, align 8
-  %34 = getelementptr i8, ptr %4, i64 7184
-  %.val12 = load i32, ptr %34, align 4
-  %35 = tail call fastcc ptr @pps_name(i32 %.val12, ptr noundef %.sink)
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.16, ptr noundef %23, ptr noundef %31, i32 noundef %32, ptr noundef %33, ptr noundef %35) #7
+43:                                               ; preds = %41, %33
+  %44 = phi ptr [ %42, %41 ], [ %39, %33 ]
+  %45 = load i32, ptr %24, align 8
+  %46 = load ptr, ptr %26, align 8
+  %47 = getelementptr i8, ptr %4, i64 7184
+  %.val12 = load i32, ptr %47, align 4
+  %48 = tail call fastcc ptr @pps_name(i32 %.val12, ptr noundef %28)
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.16, ptr noundef %36, ptr noundef %44, i32 noundef %45, ptr noundef %46, ptr noundef %48) #7
   tail call void asm sideeffect "974: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 974b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 974) #7, !srcloc !70
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 999, i32 2313, i64 12) #7, !srcloc !71
   tail call void asm sideeffect "975: nop\0A\09.pushsection .discard.instr_end\0A\09.long 975b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 975) #7, !srcloc !72
   tail call void asm sideeffect "976: nop\0A\09.pushsection .discard.instr_end\0A\09.long 976b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 976) #7, !srcloc !73
-  br label %36
+  br label %49
 
-36:                                               ; preds = %30, %.split
-  %37 = tail call fastcc i32 @ilk_get_pp_control(ptr noundef %0)
-  %38 = and i32 %37, -16
+49:                                               ; preds = %43, %23
+  %50 = tail call fastcc i32 @ilk_get_pp_control(ptr noundef %0)
+  %51 = and i32 %50, -16
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %2, i8 0, i64 20, i1 false), !annotation !20
   call fastcc void @intel_pps_get_registers(ptr noundef %0, ptr noundef nonnull %2)
-  %39 = load i32, ptr %2, align 4
+  %52 = load i32, ptr %2, align 4
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #7
-  store i8 0, ptr %17, align 8
-  %40 = getelementptr inbounds i8, ptr %4, i64 7368
-  %41 = getelementptr inbounds i8, ptr %4, i64 7544
-  %42 = load ptr, ptr %41, align 8
-  tail call void %42(ptr noundef %40, i32 %39, i32 noundef %38, i1 noundef zeroext true) #7
-  %43 = getelementptr inbounds i8, ptr %4, i64 7512
-  %44 = load ptr, ptr %43, align 8
-  %45 = tail call i32 %44(ptr noundef %40, i32 %39, i1 noundef zeroext false) #7
-  %46 = load ptr, ptr %3, align 8
-  %47 = icmp eq ptr %46, null
-  br i1 %47, label %.split3, label %.split5
+  store i8 0, ptr %30, align 8
+  %53 = getelementptr inbounds i8, ptr %4, i64 7368
+  %54 = getelementptr inbounds i8, ptr %4, i64 7544
+  %55 = load ptr, ptr %54, align 8
+  tail call void %55(ptr noundef %53, i32 %52, i32 noundef %51, i1 noundef zeroext true) #7
+  %56 = getelementptr inbounds i8, ptr %4, i64 7512
+  %57 = load ptr, ptr %56, align 8
+  %58 = tail call i32 %57(ptr noundef %53, i32 %52, i1 noundef zeroext false) #7
+  %59 = load ptr, ptr %3, align 8
+  %60 = icmp eq ptr %59, null
+  br i1 %60, label %.split3, label %.split5
 
-.split5:                                          ; preds = %36
-  %48 = getelementptr inbounds i8, ptr %46, i64 8
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr i8, ptr %46, i64 7184
+.split5:                                          ; preds = %49
+  %61 = getelementptr inbounds i8, ptr %59, i64 8
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr i8, ptr %59, i64 7184
   br label %.split3
 
-.split3:                                          ; preds = %36, %.split5
-  %.sink14 = phi ptr [ %50, %.split5 ], [ inttoptr (i64 7184 to ptr), %36 ]
-  %51 = phi ptr [ %49, %.split5 ], [ null, %36 ]
-  %52 = load ptr, ptr %12, align 8
-  %53 = load i32, ptr %14, align 8
-  %.val9 = load i32, ptr %.sink14, align 4
-  %54 = tail call fastcc ptr @pps_name(i32 %.val9, ptr noundef %.sink)
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %51, i32 noundef 2, ptr noundef nonnull @.str.56, i32 noundef %53, ptr noundef %52, ptr noundef %54) #7
+.split3:                                          ; preds = %49, %.split5
+  %.val9.sink.in = phi ptr [ %63, %.split5 ], [ inttoptr (i64 7184 to ptr), %49 ]
+  %64 = phi ptr [ %62, %.split5 ], [ null, %49 ]
+  %65 = load ptr, ptr %26, align 8
+  %66 = load i32, ptr %24, align 8
+  %.val9.sink = load i32, ptr %.val9.sink.in, align 4
+  %67 = tail call fastcc ptr @pps_name(i32 %.val9.sink, ptr noundef %28)
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %64, i32 noundef 2, ptr noundef nonnull @.str.56, i32 noundef %66, ptr noundef %65, ptr noundef %67) #7
   tail call fastcc void @wait_panel_status(ptr noundef %0, i32 noundef -1342177280, i32 noundef 0)
-  %55 = tail call i64 @ktime_get_with_offset(i32 noundef 1) #7
-  %56 = getelementptr inbounds i8, ptr %0, i64 1664
-  store i64 %55, ptr %56, align 8
-  %57 = tail call i32 @intel_aux_power_domain(ptr noundef %3) #7
-  %58 = getelementptr inbounds i8, ptr %0, i64 1672
-  store i64 0, ptr %58, align 8
-  tail call void @intel_display_power_put_unchecked(ptr noundef %4, i32 noundef %57) #7
-  br label %59
+  %68 = tail call i64 @ktime_get_with_offset(i32 noundef 1) #7
+  %69 = getelementptr inbounds i8, ptr %0, i64 1664
+  store i64 %68, ptr %69, align 8
+  %70 = tail call i32 @intel_aux_power_domain(ptr noundef %3) #7
+  %71 = getelementptr inbounds i8, ptr %0, i64 1672
+  store i64 0, ptr %71, align 8
+  tail call void @intel_display_power_put_unchecked(ptr noundef %4, i32 noundef %70) #7
+  br label %72
 
-59:                                               ; preds = %.split3, %1
+72:                                               ; preds = %.split3, %1
   ret void
 }
 
@@ -1824,10 +1878,10 @@ define dso_local void @vlv_pps_init(ptr noundef %0, ptr nocapture noundef readon
   br label %.split
 
 .split:                                           ; preds = %44, %.split2
-  %.sink = phi ptr [ %49, %.split2 ], [ inttoptr (i64 7184 to ptr), %44 ]
+  %.val5.sink.in = phi ptr [ %49, %.split2 ], [ inttoptr (i64 7184 to ptr), %44 ]
   %50 = phi ptr [ %48, %.split2 ], [ null, %44 ]
-  %.val5 = load i32, ptr %.sink, align 4
-  %51 = tail call fastcc ptr @pps_name(i32 %.val5, ptr noundef %14)
+  %.val5.sink = load i32, ptr %.val5.sink.in, align 4
+  %51 = tail call fastcc ptr @pps_name(i32 %.val5.sink, ptr noundef %14)
   %52 = getelementptr inbounds i8, ptr %0, i64 24
   %53 = load i32, ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 56
@@ -1922,10 +1976,10 @@ define internal fastcc void @vlv_detach_power_sequencer(ptr noundef %0) unnamed_
   br label %.split
 
 .split:                                           ; preds = %41, %.split2
-  %.sink = phi ptr [ %45, %.split2 ], [ inttoptr (i64 7184 to ptr), %41 ]
+  %.val5.sink.in = phi ptr [ %45, %.split2 ], [ inttoptr (i64 7184 to ptr), %41 ]
   %46 = phi ptr [ %44, %.split2 ], [ null, %41 ]
-  %.val5 = load i32, ptr %.sink, align 4
-  %47 = tail call fastcc ptr @pps_name(i32 %.val5, ptr noundef %4)
+  %.val5.sink = load i32, ptr %.val5.sink.in, align 4
+  %47 = tail call fastcc ptr @pps_name(i32 %.val5.sink, ptr noundef %4)
   %48 = getelementptr i8, ptr %0, i64 -368
   %49 = load i32, ptr %48, align 8
   %50 = getelementptr i8, ptr %0, i64 -336
@@ -2825,29 +2879,40 @@ define internal fastcc void @vlv_initial_power_sequencer_setup(ptr nocapture nou
   %71 = getelementptr i8, ptr %0, i64 -336
   %72 = load ptr, ptr %71, align 8
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %68, i32 noundef 2, ptr noundef nonnull @.str.71, i32 noundef %70, ptr noundef %72) #7
-  br label %81
+  br label %92
+
+.split:                                           ; preds = %.thread6, %62
+  %73 = phi ptr [ %60, %.thread6 ], [ %28, %62 ]
+  %74 = getelementptr i8, ptr %0, i64 -368
+  %75 = load i32, ptr %74, align 8
+  %76 = getelementptr i8, ptr %0, i64 -336
+  %77 = load ptr, ptr %76, align 8
+  %.val3 = load i32, ptr inttoptr (i64 7184 to ptr), align 16
+  %78 = tail call fastcc ptr @pps_name(i32 %.val3, ptr noundef %73)
+  br label %88
 
 .split2:                                          ; preds = %.thread6, %62
-  %73 = phi ptr [ %60, %.thread6 ], [ %28, %62 ]
-  %74 = getelementptr inbounds i8, ptr %3, i64 8
-  %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr i8, ptr %3, i64 7184
-  br label %.split
+  %79 = phi ptr [ %60, %.thread6 ], [ %28, %62 ]
+  %80 = getelementptr inbounds i8, ptr %3, i64 8
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr i8, ptr %0, i64 -368
+  %83 = load i32, ptr %82, align 8
+  %84 = getelementptr i8, ptr %0, i64 -336
+  %85 = load ptr, ptr %84, align 8
+  %86 = getelementptr i8, ptr %3, i64 7184
+  %.val = load i32, ptr %86, align 4
+  %87 = tail call fastcc ptr @pps_name(i32 %.val, ptr noundef %79)
+  br label %88
 
-.split:                                           ; preds = %62, %.thread6, %.split2
-  %.sink38 = phi ptr [ %76, %.split2 ], [ inttoptr (i64 7184 to ptr), %.thread6 ], [ inttoptr (i64 7184 to ptr), %62 ]
-  %.sink = phi ptr [ %73, %.split2 ], [ %60, %.thread6 ], [ %28, %62 ]
-  %77 = phi ptr [ %75, %.split2 ], [ null, %.thread6 ], [ null, %62 ]
-  %.in39 = getelementptr i8, ptr %0, i64 -336
-  %78 = load ptr, ptr %.in39, align 8
-  %.in = getelementptr i8, ptr %0, i64 -368
-  %79 = load i32, ptr %.in, align 8
-  %.val3 = load i32, ptr %.sink38, align 4
-  %80 = tail call fastcc ptr @pps_name(i32 %.val3, ptr noundef %.sink)
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %77, i32 noundef 2, ptr noundef nonnull @.str.72, i32 noundef %79, ptr noundef %78, ptr noundef %80) #7
-  br label %81
+88:                                               ; preds = %.split, %.split2
+  %89 = phi i32 [ %75, %.split ], [ %83, %.split2 ]
+  %90 = phi ptr [ %77, %.split ], [ %85, %.split2 ]
+  %phi.call = phi ptr [ %78, %.split ], [ %87, %.split2 ]
+  %91 = phi ptr [ null, %.split ], [ %81, %.split2 ]
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %91, i32 noundef 2, ptr noundef nonnull @.str.72, i32 noundef %89, ptr noundef %90, ptr noundef %phi.call) #7
+  br label %92
 
-81:                                               ; preds = %.split, %67
+92:                                               ; preds = %88, %67
   ret void
 }
 
@@ -2866,7 +2931,7 @@ define internal fastcc void @pps_vdd_init(ptr noundef %0) unnamed_addr #0 align 
   %10 = getelementptr inbounds i8, ptr %0, i64 1680
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, -1
-  br i1 %12, label %50, label %13
+  br i1 %12, label %59, label %13
 
 13:                                               ; preds = %9, %1
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #7
@@ -2880,64 +2945,76 @@ define internal fastcc void @pps_vdd_init(ptr noundef %0) unnamed_addr #0 align 
   %18 = tail call i32 %17(ptr noundef %15, i32 %14, i1 noundef zeroext true) #7
   %19 = and i32 %18, 8
   %20 = icmp eq i32 %19, 0
-  br i1 %20, label %50, label %21
+  br i1 %20, label %59, label %21
 
 21:                                               ; preds = %13
   %22 = icmp eq ptr %4, null
   br i1 %22, label %.split, label %.split2
 
+.split:                                           ; preds = %21
+  %23 = getelementptr i8, ptr %0, i64 -368
+  %24 = load i32, ptr %23, align 8
+  %25 = getelementptr i8, ptr %0, i64 -336
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 1528
+  %.val4 = load i32, ptr inttoptr (i64 7184 to ptr), align 16
+  %28 = tail call fastcc ptr @pps_name(i32 %.val4, ptr noundef %27)
+  br label %37
+
 .split2:                                          ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %4, i64 8
-  %24 = load ptr, ptr %23, align 8
-  br label %.split
+  %29 = getelementptr inbounds i8, ptr %4, i64 8
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr i8, ptr %0, i64 -368
+  %32 = load i32, ptr %31, align 8
+  %33 = getelementptr i8, ptr %0, i64 -336
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %0, i64 1528
+  %.val = load i32, ptr %5, align 4
+  %36 = tail call fastcc ptr @pps_name(i32 %.val, ptr noundef %35)
+  br label %37
 
-.split:                                           ; preds = %21, %.split2
-  %.sink5 = phi ptr [ %5, %.split2 ], [ inttoptr (i64 7184 to ptr), %21 ]
-  %25 = phi ptr [ %24, %.split2 ], [ null, %21 ]
-  %26 = getelementptr i8, ptr %0, i64 -368
-  %27 = load i32, ptr %26, align 8
-  %28 = getelementptr i8, ptr %0, i64 -336
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 1528
-  %.val4 = load i32, ptr %.sink5, align 4
-  %31 = tail call fastcc ptr @pps_name(i32 %.val4, ptr noundef %30)
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %25, i32 noundef 2, ptr noundef nonnull @.str.73, i32 noundef %27, ptr noundef %29, ptr noundef %31) #7
-  %32 = getelementptr inbounds i8, ptr %0, i64 1672
-  %33 = load i64, ptr %32, align 8
-  %34 = icmp eq i64 %33, 0
-  br i1 %34, label %47, label %35, !prof !11
+37:                                               ; preds = %.split, %.split2
+  %38 = phi i32 [ %24, %.split ], [ %32, %.split2 ]
+  %39 = phi ptr [ %26, %.split ], [ %34, %.split2 ]
+  %phi.call = phi ptr [ %28, %.split ], [ %36, %.split2 ]
+  %40 = phi ptr [ null, %.split ], [ %30, %.split2 ]
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %40, i32 noundef 2, ptr noundef nonnull @.str.73, i32 noundef %38, ptr noundef %39, ptr noundef %phi.call) #7
+  %41 = getelementptr inbounds i8, ptr %0, i64 1672
+  %42 = load i64, ptr %41, align 8
+  %43 = icmp eq i64 %42, 0
+  br i1 %43, label %56, label %44, !prof !11
 
-35:                                               ; preds = %.split
+44:                                               ; preds = %37
   tail call void asm sideeffect "993: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 993b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 993) #7, !srcloc !106
-  %36 = getelementptr inbounds i8, ptr %4, i64 8
-  %37 = load ptr, ptr %36, align 8
-  %38 = tail call ptr @dev_driver_string(ptr noundef %37) #7
-  %39 = load ptr, ptr %36, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 80
-  %41 = load ptr, ptr %40, align 8
-  %42 = icmp eq ptr %41, null
-  br i1 %42, label %43, label %45
+  %45 = getelementptr inbounds i8, ptr %4, i64 8
+  %46 = load ptr, ptr %45, align 8
+  %47 = tail call ptr @dev_driver_string(ptr noundef %46) #7
+  %48 = load ptr, ptr %45, align 8
+  %49 = getelementptr inbounds i8, ptr %48, i64 80
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %50, null
+  br i1 %51, label %52, label %54
 
-43:                                               ; preds = %35
-  %44 = load ptr, ptr %39, align 8
-  br label %45
+52:                                               ; preds = %44
+  %53 = load ptr, ptr %48, align 8
+  br label %54
 
-45:                                               ; preds = %43, %35
-  %46 = phi ptr [ %44, %43 ], [ %41, %35 ]
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef %38, ptr noundef %46, ptr noundef nonnull @.str.6) #7
+54:                                               ; preds = %52, %44
+  %55 = phi ptr [ %53, %52 ], [ %50, %44 ]
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef %47, ptr noundef %55, ptr noundef nonnull @.str.6) #7
   tail call void asm sideeffect "994: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 994b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 994) #7, !srcloc !107
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 1236, i32 2313, i64 12) #7, !srcloc !108
   tail call void asm sideeffect "995: nop\0A\09.pushsection .discard.instr_end\0A\09.long 995b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 995) #7, !srcloc !109
   tail call void asm sideeffect "996: nop\0A\09.pushsection .discard.instr_end\0A\09.long 996b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 996) #7, !srcloc !110
-  br label %47
+  br label %56
 
-47:                                               ; preds = %45, %.split
-  %48 = tail call i32 @intel_aux_power_domain(ptr noundef %3) #7
-  %49 = tail call i64 @intel_display_power_get(ptr noundef %4, i32 noundef %48) #7
-  store i64 %49, ptr %32, align 8
-  br label %50
+56:                                               ; preds = %54, %37
+  %57 = tail call i32 @intel_aux_power_domain(ptr noundef %3) #7
+  %58 = tail call i64 @intel_display_power_get(ptr noundef %4, i32 noundef %57) #7
+  store i64 %58, ptr %41, align 8
+  br label %59
 
-50:                                               ; preds = %47, %13, %9
+59:                                               ; preds = %56, %13, %9
   ret void
 }
 
@@ -3150,13 +3227,13 @@ define dso_local zeroext i1 @intel_pps_init(ptr noundef %0) local_unnamed_addr #
   br label %.split
 
 .split:                                           ; preds = %123, %.split2
-  %.sink = phi ptr [ %26, %.split2 ], [ inttoptr (i64 7184 to ptr), %123 ]
+  %.val15.sink.in = phi ptr [ %26, %.split2 ], [ inttoptr (i64 7184 to ptr), %123 ]
   %127 = phi ptr [ %126, %.split2 ], [ null, %123 ]
-  %128 = load i32, ptr %22, align 8
-  %129 = load ptr, ptr %23, align 8
-  %.val15 = load i32, ptr %.sink, align 4
-  %130 = tail call fastcc ptr @pps_name(i32 %.val15, ptr noundef %21)
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %127, i32 noundef 2, ptr noundef nonnull @.str.75, i32 noundef %128, ptr noundef %129, ptr noundef %130) #7
+  %128 = load ptr, ptr %23, align 8
+  %129 = load i32, ptr %22, align 8
+  %.val15.sink = load i32, ptr %.val15.sink.in, align 4
+  %130 = tail call fastcc ptr @pps_name(i32 %.val15.sink, ptr noundef %21)
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %127, i32 noundef 2, ptr noundef nonnull @.str.75, i32 noundef %129, ptr noundef %128, ptr noundef %130) #7
   br label %138
 
 .thread18.sink.split:                             ; preds = %86, %110
@@ -3174,13 +3251,13 @@ define dso_local zeroext i1 @intel_pps_init(ptr noundef %0) local_unnamed_addr #
   br label %.split3
 
 .split3:                                          ; preds = %.thread18, %.split5
-  %.sink29 = phi ptr [ %26, %.split5 ], [ inttoptr (i64 7184 to ptr), %.thread18 ]
+  %.val13.sink.in = phi ptr [ %26, %.split5 ], [ inttoptr (i64 7184 to ptr), %.thread18 ]
   %134 = phi ptr [ %133, %.split5 ], [ null, %.thread18 ]
-  %135 = load i32, ptr %22, align 8
-  %136 = load ptr, ptr %23, align 8
-  %.val13 = load i32, ptr %.sink29, align 4
-  %137 = tail call fastcc ptr @pps_name(i32 %.val13, ptr noundef %21)
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %134, i32 noundef 2, ptr noundef nonnull @.str.72, i32 noundef %135, ptr noundef %136, ptr noundef %137) #7
+  %135 = load ptr, ptr %23, align 8
+  %136 = load i32, ptr %22, align 8
+  %.val13.sink = load i32, ptr %.val13.sink.in, align 4
+  %137 = tail call fastcc ptr @pps_name(i32 %.val13.sink, ptr noundef %21)
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %134, i32 noundef 2, ptr noundef nonnull @.str.72, i32 noundef %136, ptr noundef %135, ptr noundef %137) #7
   br label %138
 
 138:                                              ; preds = %.split3, %.split
@@ -3969,10 +4046,10 @@ define internal fastcc void @intel_pps_get_registers(ptr noundef %0, ptr nocaptu
   br label %.split
 
 .split:                                           ; preds = %135, %.split2
-  %.sink = phi ptr [ %140, %.split2 ], [ inttoptr (i64 7184 to ptr), %135 ]
+  %.val28.sink.in = phi ptr [ %140, %.split2 ], [ inttoptr (i64 7184 to ptr), %135 ]
   %141 = phi ptr [ %139, %.split2 ], [ null, %135 ]
-  %.val28 = load i32, ptr %.sink, align 4
-  %142 = tail call fastcc ptr @pps_name(i32 %.val28, ptr noundef %26)
+  %.val28.sink = load i32, ptr %.val28.sink.in, align 4
+  %142 = tail call fastcc ptr @pps_name(i32 %.val28.sink, ptr noundef %26)
   %143 = getelementptr i8, ptr %0, i64 -368
   %144 = load i32, ptr %143, align 8
   %145 = getelementptr i8, ptr %0, i64 -336
@@ -4032,10 +4109,10 @@ define internal fastcc void @intel_pps_get_registers(ptr noundef %0, ptr nocaptu
   br label %.split3
 
 .split3:                                          ; preds = %173, %.split5
-  %.sink31 = phi ptr [ %177, %.split5 ], [ inttoptr (i64 7184 to ptr), %173 ]
+  %.val26.sink.in = phi ptr [ %177, %.split5 ], [ inttoptr (i64 7184 to ptr), %173 ]
   %178 = phi ptr [ %176, %.split5 ], [ null, %173 ]
-  %.val26 = load i32, ptr %.sink31, align 4
-  %179 = tail call fastcc ptr @pps_name(i32 %.val26, ptr noundef %26)
+  %.val26.sink = load i32, ptr %.val26.sink.in, align 4
+  %179 = tail call fastcc ptr @pps_name(i32 %.val26.sink, ptr noundef %26)
   %180 = load i32, ptr %143, align 8
   %181 = load ptr, ptr %145, align 8
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %178, i32 noundef 2, ptr noundef nonnull @.str.41, ptr noundef %179, i32 noundef %180, ptr noundef %181) #7
@@ -4382,67 +4459,82 @@ define internal fastcc void @wait_panel_status(ptr noundef %0, i32 noundef range
   %89 = icmp eq ptr %8, null
   br i1 %89, label %.split, label %.split2
 
+.split:                                           ; preds = %85
+  %90 = getelementptr i8, ptr %0, i64 -368
+  %91 = load i32, ptr %90, align 8
+  %92 = getelementptr i8, ptr %0, i64 -336
+  %93 = load ptr, ptr %92, align 8
+  %94 = getelementptr inbounds i8, ptr %0, i64 1528
+  %.val11 = load i32, ptr inttoptr (i64 7184 to ptr), align 16
+  %95 = tail call fastcc ptr @pps_name(i32 %.val11, ptr noundef %94)
+  br label %105
+
 .split2:                                          ; preds = %85
-  %90 = getelementptr inbounds i8, ptr %8, i64 8
-  %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr i8, ptr %8, i64 7184
-  br label %.split
-
-.split:                                           ; preds = %85, %.split2
-  %.sink12 = phi ptr [ %92, %.split2 ], [ inttoptr (i64 7184 to ptr), %85 ]
-  %93 = phi ptr [ %91, %.split2 ], [ null, %85 ]
-  %94 = getelementptr i8, ptr %0, i64 -336
-  %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr i8, ptr %0, i64 -368
-  %97 = load i32, ptr %96, align 8
-  %.sink = getelementptr inbounds i8, ptr %0, i64 1528
-  %.val11 = load i32, ptr %.sink12, align 4
-  %98 = tail call fastcc ptr @pps_name(i32 %.val11, ptr noundef %.sink)
-  %99 = getelementptr inbounds i8, ptr %8, i64 7368
-  %100 = getelementptr inbounds i8, ptr %8, i64 7512
+  %96 = getelementptr inbounds i8, ptr %8, i64 8
+  %97 = load ptr, ptr %96, align 8
+  %98 = getelementptr i8, ptr %0, i64 -368
+  %99 = load i32, ptr %98, align 8
+  %100 = getelementptr i8, ptr %0, i64 -336
   %101 = load ptr, ptr %100, align 8
-  %102 = tail call i32 %101(ptr noundef %99, i32 %87, i1 noundef zeroext true) #7
-  %103 = load ptr, ptr %100, align 8
-  %104 = tail call i32 %103(ptr noundef %99, i32 %88, i1 noundef zeroext true) #7
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %93, i32 noundef 2, ptr noundef nonnull @.str.45, i32 noundef %97, ptr noundef %95, ptr noundef %98, i32 noundef %1, i32 noundef %2, i32 noundef %102, i32 noundef %104) #7
-  %105 = tail call i32 @__intel_wait_for_register(ptr noundef %99, i32 %87, i32 noundef %1, i32 noundef %2, i32 noundef 2, i32 noundef 5000, ptr noundef null) #7
-  %106 = icmp eq i32 %105, 0
-  br i1 %106, label %119, label %107
+  %102 = getelementptr inbounds i8, ptr %0, i64 1528
+  %103 = getelementptr i8, ptr %8, i64 7184
+  %.val10 = load i32, ptr %103, align 4
+  %104 = tail call fastcc ptr @pps_name(i32 %.val10, ptr noundef %102)
+  br label %105
 
-107:                                              ; preds = %.split
+105:                                              ; preds = %.split, %.split2
+  %106 = phi ptr [ %90, %.split ], [ %98, %.split2 ]
+  %107 = phi i32 [ %91, %.split ], [ %99, %.split2 ]
+  %108 = phi ptr [ %92, %.split ], [ %100, %.split2 ]
+  %109 = phi ptr [ %93, %.split ], [ %101, %.split2 ]
+  %110 = phi ptr [ %94, %.split ], [ %102, %.split2 ]
+  %phi.call = phi ptr [ %95, %.split ], [ %104, %.split2 ]
+  %111 = phi ptr [ null, %.split ], [ %97, %.split2 ]
+  %112 = getelementptr inbounds i8, ptr %8, i64 7368
+  %113 = getelementptr inbounds i8, ptr %8, i64 7512
+  %114 = load ptr, ptr %113, align 8
+  %115 = tail call i32 %114(ptr noundef %112, i32 %87, i1 noundef zeroext true) #7
+  %116 = load ptr, ptr %113, align 8
+  %117 = tail call i32 %116(ptr noundef %112, i32 %88, i1 noundef zeroext true) #7
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %111, i32 noundef 2, ptr noundef nonnull @.str.45, i32 noundef %107, ptr noundef %109, ptr noundef %phi.call, i32 noundef %1, i32 noundef %2, i32 noundef %115, i32 noundef %117) #7
+  %118 = tail call i32 @__intel_wait_for_register(ptr noundef %112, i32 %87, i32 noundef %1, i32 noundef %2, i32 noundef 2, i32 noundef 5000, ptr noundef null) #7
+  %119 = icmp eq i32 %118, 0
+  br i1 %119, label %132, label %120
+
+120:                                              ; preds = %105
   br i1 %89, label %.split3, label %.split5
 
-.split5:                                          ; preds = %107
-  %108 = getelementptr inbounds i8, ptr %8, i64 8
-  %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr i8, ptr %8, i64 7184
-  br label %.split3
-
-.split3:                                          ; preds = %107, %.split5
-  %.sink13 = phi ptr [ %110, %.split5 ], [ inttoptr (i64 7184 to ptr), %107 ]
-  %111 = phi ptr [ %109, %.split5 ], [ null, %107 ]
-  %112 = load ptr, ptr %94, align 8
-  %113 = load i32, ptr %96, align 8
-  %.val9 = load i32, ptr %.sink13, align 4
-  %114 = tail call fastcc ptr @pps_name(i32 %.val9, ptr noundef %.sink)
-  %115 = load ptr, ptr %100, align 8
-  %116 = tail call i32 %115(ptr noundef %99, i32 %87, i1 noundef zeroext true) #7
-  %117 = load ptr, ptr %100, align 8
-  %118 = tail call i32 %117(ptr noundef %99, i32 %88, i1 noundef zeroext true) #7
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %111, ptr noundef nonnull @.str.46, i32 noundef %113, ptr noundef %112, ptr noundef %114, i32 noundef %116, i32 noundef %118) #8
-  br label %119
-
-119:                                              ; preds = %.split3, %.split
-  br i1 %89, label %123, label %120
-
-120:                                              ; preds = %119
+.split5:                                          ; preds = %120
   %121 = getelementptr inbounds i8, ptr %8, i64 8
   %122 = load ptr, ptr %121, align 8
-  br label %123
+  %123 = getelementptr i8, ptr %8, i64 7184
+  br label %.split3
 
-123:                                              ; preds = %120, %119
-  %124 = phi ptr [ %122, %120 ], [ null, %119 ]
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %124, i32 noundef 2, ptr noundef nonnull @.str.47) #7
+.split3:                                          ; preds = %120, %.split5
+  %.val9.sink.in = phi ptr [ %123, %.split5 ], [ inttoptr (i64 7184 to ptr), %120 ]
+  %124 = phi ptr [ %122, %.split5 ], [ null, %120 ]
+  %125 = load ptr, ptr %108, align 8
+  %126 = load i32, ptr %106, align 8
+  %.val9.sink = load i32, ptr %.val9.sink.in, align 4
+  %127 = tail call fastcc ptr @pps_name(i32 %.val9.sink, ptr noundef %110)
+  %128 = load ptr, ptr %113, align 8
+  %129 = tail call i32 %128(ptr noundef %112, i32 %87, i1 noundef zeroext true) #7
+  %130 = load ptr, ptr %113, align 8
+  %131 = tail call i32 %130(ptr noundef %112, i32 %88, i1 noundef zeroext true) #7
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %124, ptr noundef nonnull @.str.46, i32 noundef %126, ptr noundef %125, ptr noundef %127, i32 noundef %129, i32 noundef %131) #8
+  br label %132
+
+132:                                              ; preds = %.split3, %105
+  br i1 %89, label %136, label %133
+
+133:                                              ; preds = %132
+  %134 = getelementptr inbounds i8, ptr %8, i64 8
+  %135 = load ptr, ptr %134, align 8
+  br label %136
+
+136:                                              ; preds = %133, %132
+  %137 = phi ptr [ %135, %133 ], [ null, %132 ]
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %137, i32 noundef 2, ptr noundef nonnull @.str.47) #7
   ret void
 }
 

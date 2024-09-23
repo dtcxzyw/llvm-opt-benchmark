@@ -883,6 +883,7 @@ if.then11:                                        ; preds = %if.end
   %external_node_free_head_.i = getelementptr inbounds i8, ptr %this, i64 28
   %7 = load i32, ptr %external_node_free_head_.i, align 4
   store i32 %7, ptr %arrayidx.i.i, align 4
+  store i32 %and5, ptr %external_node_free_head_.i, align 4
   br label %return
 
 if.end13:                                         ; preds = %if.end
@@ -908,11 +909,10 @@ if.end13:                                         ; preds = %if.end
   %14 = load ptr, ptr %external_nodes_.i, align 8
   %arrayidx.i.i.i15 = getelementptr inbounds i8, ptr %14, i64 %conv.i
   store i32 %13, ptr %arrayidx.i.i.i15, align 4
+  store i32 %and5, ptr %external_node_free_head_.i11, align 4
   br label %return
 
 return:                                           ; preds = %if.end13, %if.then11
-  %external_node_free_head_.i11.sink = phi ptr [ %external_node_free_head_.i11, %if.end13 ], [ %external_node_free_head_.i, %if.then11 ]
-  store i32 %and5, ptr %external_node_free_head_.i11.sink, align 4
   ret void
 }
 

@@ -94,6 +94,7 @@ if.then:                                          ; preds = %entry
   %arrayidx4.i = getelementptr inbounds i8, ptr %call8, i64 32
   store double %p2.coerce0, ptr %arrayidx4.i, align 8
   %p1.sroa.2.0.arrayidx4.sroa_idx.i = getelementptr inbounds i8, ptr %call8, i64 40
+  store double %p2.coerce1, ptr %p1.sroa.2.0.arrayidx4.sroa_idx.i, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -112,12 +113,11 @@ if.end:                                           ; preds = %entry
   %arrayidx7.i = getelementptr inbounds i8, ptr %call11, i64 48
   store double %p2.coerce0, ptr %arrayidx7.i, align 8
   %p2.sroa.2.0.arrayidx7.sroa_idx.i = getelementptr inbounds i8, ptr %call11, i64 56
+  store double %p2.coerce1, ptr %p2.sroa.2.0.arrayidx7.sroa_idx.i, align 8
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %p2.sroa.2.0.arrayidx7.sroa_idx.i.sink = phi ptr [ %p2.sroa.2.0.arrayidx7.sroa_idx.i, %if.end ], [ %p1.sroa.2.0.arrayidx4.sroa_idx.i, %if.then ]
-  %retval.0 = phi ptr [ %call11, %if.end ], [ %call8, %if.then ]
-  store double %p2.coerce1, ptr %p2.sroa.2.0.arrayidx7.sroa_idx.i.sink, align 8
+  %retval.0 = phi ptr [ %call8, %if.then ], [ %call11, %if.end ]
   ret ptr %retval.0
 }
 
@@ -155,6 +155,7 @@ if.then:                                          ; preds = %land.lhs.true
   %arrayidx4.i = getelementptr inbounds i8, ptr %call15, i64 32
   store double %p3.coerce0, ptr %arrayidx4.i, align 8
   %p1.sroa.2.0.arrayidx4.sroa_idx.i = getelementptr inbounds i8, ptr %call15, i64 40
+  store double %p3.coerce1, ptr %p1.sroa.2.0.arrayidx4.sroa_idx.i, align 8
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry
@@ -191,6 +192,7 @@ if.then35:                                        ; preds = %if.end
   %arrayidx7.i = getelementptr inbounds i8, ptr %call36, i64 48
   store double %p3.coerce0, ptr %arrayidx7.i, align 8
   %p2.sroa.2.0.arrayidx7.sroa_idx.i = getelementptr inbounds i8, ptr %call36, i64 56
+  store double %p3.coerce1, ptr %p2.sroa.2.0.arrayidx7.sroa_idx.i, align 8
   br label %return
 
 if.end42:                                         ; preds = %if.end
@@ -213,12 +215,11 @@ if.end42:                                         ; preds = %if.end
   %arrayidx10.i = getelementptr inbounds i8, ptr %call43, i64 64
   store double %p3.coerce0, ptr %arrayidx10.i, align 8
   %p3.sroa.2.0.arrayidx10.sroa_idx.i = getelementptr inbounds i8, ptr %call43, i64 72
+  store double %p3.coerce1, ptr %p3.sroa.2.0.arrayidx10.sroa_idx.i, align 8
   br label %return
 
 return:                                           ; preds = %if.end42, %if.then35, %if.then
-  %p3.sroa.2.0.arrayidx10.sroa_idx.i.sink = phi ptr [ %p3.sroa.2.0.arrayidx10.sroa_idx.i, %if.end42 ], [ %p2.sroa.2.0.arrayidx7.sroa_idx.i, %if.then35 ], [ %p1.sroa.2.0.arrayidx4.sroa_idx.i, %if.then ]
-  %retval.0 = phi ptr [ %call43, %if.end42 ], [ %call36, %if.then35 ], [ %call15, %if.then ]
-  store double %p3.coerce1, ptr %p3.sroa.2.0.arrayidx10.sroa_idx.i.sink, align 8
+  %retval.0 = phi ptr [ %call15, %if.then ], [ %call36, %if.then35 ], [ %call43, %if.end42 ]
   ret ptr %retval.0
 }
 

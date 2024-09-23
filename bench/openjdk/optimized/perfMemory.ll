@@ -268,42 +268,43 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %4, %6
   %8 = getelementptr inbounds i8, ptr %7, i64 %0
   %9 = load ptr, ptr @_ZN10PerfMemory4_endE, align 8
   %.not = icmp ult ptr %8, %9
-  br i1 %.not, label %14, label %10
+  br i1 %.not, label %16, label %10
 
 10:                                               ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
   %11 = trunc i64 %0 to i32
   %12 = load ptr, ptr @_ZN10PerfMemory9_prologueE, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 12
-  br label %23
+  %14 = load i32, ptr %13, align 4
+  %15 = add nsw i32 %14, %11
+  store i32 %15, ptr %13, align 4
+  br label %27
 
-14:                                               ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
+16:                                               ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
   store ptr %8, ptr @_ZN10PerfMemory4_topE, align 8
-  %15 = load ptr, ptr @_ZN10PerfMemory6_startE, align 8
-  %16 = ptrtoint ptr %8 to i64
-  %17 = ptrtoint ptr %15 to i64
-  %18 = sub i64 %16, %17
-  %19 = trunc i64 %18 to i32
-  %20 = load ptr, ptr @_ZN10PerfMemory9_prologueE, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
-  store i32 %19, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %20, i64 28
-  br label %23
+  %17 = load ptr, ptr @_ZN10PerfMemory6_startE, align 8
+  %18 = ptrtoint ptr %8 to i64
+  %19 = ptrtoint ptr %17 to i64
+  %20 = sub i64 %18, %19
+  %21 = trunc i64 %20 to i32
+  %22 = load ptr, ptr @_ZN10PerfMemory9_prologueE, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  store i32 %21, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %22, i64 28
+  %25 = load i32, ptr %24, align 4
+  %26 = add nsw i32 %25, 1
+  store i32 %26, ptr %24, align 4
+  br label %27
 
-23:                                               ; preds = %14, %10
-  %.sink = phi ptr [ %22, %14 ], [ %13, %10 ]
-  %.sink8 = phi i32 [ 1, %14 ], [ %11, %10 ]
-  %.1 = phi ptr [ %7, %14 ], [ null, %10 ]
-  %24 = load i32, ptr %.sink, align 4
-  %25 = add nsw i32 %24, %.sink8
-  store i32 %25, ptr %.sink, align 4
-  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %26
+27:                                               ; preds = %16, %10
+  %.1 = phi ptr [ null, %10 ], [ %7, %16 ]
+  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %28
 
-26:                                               ; preds = %23
+28:                                               ; preds = %27
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %5) #6
   br label %_ZN11MutexLockerD2Ev.exit
 
-_ZN11MutexLockerD2Ev.exit:                        ; preds = %26, %23, %1
-  %.0 = phi ptr [ null, %1 ], [ %.1, %23 ], [ %.1, %26 ]
+_ZN11MutexLockerD2Ev.exit:                        ; preds = %28, %27, %1
+  %.0 = phi ptr [ null, %1 ], [ %.1, %27 ], [ %.1, %28 ]
   ret ptr %.0
 }
 

@@ -2116,47 +2116,46 @@ entry:
 if.then:                                          ; preds = %entry
   %idxprom = zext nneg i32 %fnNumber to i64
   %arrayidx = getelementptr inbounds [3 x ptr], ptr @_ZL8trFnName, i64 0, i64 %idxprom
-  br label %return.sink.split
+  %0 = load ptr, ptr %arrayidx, align 8
+  br label %return
 
 if.else:                                          ; preds = %entry
-  %0 = and i32 %fnNumber, -8
-  %or.cond1 = icmp eq i32 %0, 4096
+  %1 = and i32 %fnNumber, -8
+  %or.cond1 = icmp eq i32 %1, 4096
   br i1 %or.cond1, label %if.then5, label %if.else8
 
 if.then5:                                         ; preds = %if.else
   %sub = add nsw i32 %fnNumber, -4096
   %idxprom6 = zext nneg i32 %sub to i64
   %arrayidx7 = getelementptr inbounds [9 x ptr], ptr @_ZL11trConvNames, i64 0, i64 %idxprom6
-  br label %return.sink.split
+  %2 = load ptr, ptr %arrayidx7, align 8
+  br label %return
 
 if.else8:                                         ; preds = %if.else
-  %1 = add i32 %fnNumber, -8192
-  %or.cond2 = icmp ult i32 %1, 9
+  %3 = add i32 %fnNumber, -8192
+  %or.cond2 = icmp ult i32 %3, 9
   br i1 %or.cond2, label %if.then12, label %if.else16
 
 if.then12:                                        ; preds = %if.else8
-  %idxprom14 = zext nneg i32 %1 to i64
+  %idxprom14 = zext nneg i32 %3 to i64
   %arrayidx15 = getelementptr inbounds [10 x ptr], ptr @_ZL11trCollNames, i64 0, i64 %idxprom14
-  br label %return.sink.split
+  %4 = load ptr, ptr %arrayidx15, align 8
+  br label %return
 
 if.else16:                                        ; preds = %if.else8
-  %2 = and i32 %fnNumber, -4
-  %or.cond3 = icmp eq i32 %2, 12288
+  %5 = and i32 %fnNumber, -4
+  %or.cond3 = icmp eq i32 %5, 12288
   br i1 %or.cond3, label %if.then20, label %return
 
 if.then20:                                        ; preds = %if.else16
   %sub21 = add nsw i32 %fnNumber, -12288
   %idxprom22 = zext nneg i32 %sub21 to i64
   %arrayidx23 = getelementptr inbounds [5 x ptr], ptr @_ZL14trResDataNames, i64 0, i64 %idxprom22
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.then, %if.then5, %if.then12, %if.then20
-  %arrayidx23.sink = phi ptr [ %arrayidx23, %if.then20 ], [ %arrayidx15, %if.then12 ], [ %arrayidx7, %if.then5 ], [ %arrayidx, %if.then ]
-  %3 = load ptr, ptr %arrayidx23.sink, align 8
+  %6 = load ptr, ptr %arrayidx23, align 8
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.else16
-  %retval.0 = phi ptr [ @.str.1, %if.else16 ], [ %3, %return.sink.split ]
+return:                                           ; preds = %if.else16, %if.then20, %if.then12, %if.then5, %if.then
+  %retval.0 = phi ptr [ %0, %if.then ], [ %2, %if.then5 ], [ %4, %if.then12 ], [ %6, %if.then20 ], [ @.str.1, %if.else16 ]
   ret ptr %retval.0
 }
 

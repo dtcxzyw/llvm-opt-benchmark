@@ -1314,16 +1314,16 @@ execute_genm_create_test.exit:                    ; preds = %cond.true.i, %land.
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %execute_genm_create_test.exit, %if.end9.thread
-  %cmp_ctx.i.sink = phi ptr [ %cmp_ctx.i, %if.end9.thread ], [ %cmp_ctx, %execute_genm_create_test.exit ]
+  %.sink.in = phi ptr [ %cmp_ctx.i, %if.end9.thread ], [ %cmp_ctx, %execute_genm_create_test.exit ]
   %retval.0.ph = phi i32 [ 0, %if.end9.thread ], [ %cond.i, %execute_genm_create_test.exit ]
-  %5 = load ptr, ptr %cmp_ctx.i.sink, align 8
-  tail call void @OSSL_CMP_CTX_free(ptr noundef %5) #3
+  %.sink = load ptr, ptr %.sink.in, align 8
+  tail call void @OSSL_CMP_CTX_free(ptr noundef %.sink) #3
   %msg.i = getelementptr inbounds i8, ptr %call, i64 32
-  %6 = load ptr, ptr %msg.i, align 8
-  tail call void @OSSL_CMP_MSG_free(ptr noundef %6) #3
+  %5 = load ptr, ptr %msg.i, align 8
+  tail call void @OSSL_CMP_MSG_free(ptr noundef %5) #3
   %si.i = getelementptr inbounds i8, ptr %call, i64 48
-  %7 = load ptr, ptr %si.i, align 8
-  tail call void @OSSL_CMP_PKISI_free(ptr noundef %7) #3
+  %6 = load ptr, ptr %si.i, align 8
+  tail call void @OSSL_CMP_PKISI_free(ptr noundef %6) #3
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 43) #3
   br label %return
 

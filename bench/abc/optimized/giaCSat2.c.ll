@@ -1410,9 +1410,9 @@ define i32 @Cbs2_ManPropagate2(ptr nocapture noundef %0, i32 noundef %1) local_u
   %5 = getelementptr inbounds i8, ptr %0, i64 60
   %6 = load i32, ptr %5, align 4
   %7 = icmp slt i32 %4, %6
-  br i1 %7, label %.lr.ph70, label %.critedge
+  br i1 %7, label %.lr.ph71, label %.critedge
 
-.lr.ph70:                                         ; preds = %2
+.lr.ph71:                                         ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 72
   %9 = getelementptr i8, ptr %0, i64 200
   %10 = getelementptr i8, ptr %0, i64 120
@@ -1429,11 +1429,11 @@ define i32 @Cbs2_ManPropagate2(ptr nocapture noundef %0, i32 noundef %1) local_u
   %21 = load ptr, ptr %8, align 8
   %22 = getelementptr inbounds i32, ptr %21, i64 %20
   %23 = load i32, ptr %22, align 4
-  %.not96 = icmp eq i32 %23, 0
-  br i1 %.not96, label %.critedge, label %.lr.ph98
+  %.not98 = icmp eq i32 %23, 0
+  br i1 %.not98, label %.critedge, label %.lr.ph100
 
 24:                                               ; preds = %._crit_edge
-  %indvars.iv.next = add nsw i64 %indvars.iv97, 1
+  %indvars.iv.next = add nsw i64 %indvars.iv99, 1
   %25 = load i32, ptr %5, align 4
   %26 = sext i32 %25 to i64
   %27 = icmp slt i64 %indvars.iv.next, %26
@@ -1444,11 +1444,11 @@ define i32 @Cbs2_ManPropagate2(ptr nocapture noundef %0, i32 noundef %1) local_u
   %30 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv.next
   %31 = load i32, ptr %30, align 4
   %.not = icmp eq i32 %31, 0
-  br i1 %.not, label %.critedge, label %.lr.ph98, !llvm.loop !9
+  br i1 %.not, label %.critedge, label %.lr.ph100, !llvm.loop !9
 
-.lr.ph98:                                         ; preds = %.lr.ph70, %28
-  %32 = phi i32 [ %31, %28 ], [ %23, %.lr.ph70 ]
-  %indvars.iv97 = phi i64 [ %indvars.iv.next, %28 ], [ %20, %.lr.ph70 ]
+.lr.ph100:                                        ; preds = %.lr.ph71, %28
+  %32 = phi i32 [ %31, %28 ], [ %23, %.lr.ph71 ]
+  %indvars.iv99 = phi i64 [ %indvars.iv.next, %28 ], [ %20, %.lr.ph71 ]
   %33 = xor i32 %32, 1
   %.val80.i = load ptr, ptr %9, align 8
   %34 = sext i32 %32 to i64
@@ -1457,9 +1457,9 @@ define i32 @Cbs2_ManPropagate2(ptr nocapture noundef %0, i32 noundef %1) local_u
   %.not91.i = icmp eq i32 %.07190.i, 0
   br i1 %.not91.i, label %Cbs2_ManPropagateClauses.exit.thread, label %.lr.ph94.i
 
-.lr.ph94.i:                                       ; preds = %.lr.ph98, %129
-  %.07193.i = phi i32 [ %.071.i, %129 ], [ %.07190.i, %.lr.ph98 ]
-  %.07292.i = phi ptr [ %.1.i, %129 ], [ %35, %.lr.ph98 ]
+.lr.ph94.i:                                       ; preds = %.lr.ph100, %129
+  %.07193.i = phi i32 [ %.071.i, %129 ], [ %.07190.i, %.lr.ph100 ]
+  %.07292.i = phi ptr [ %.1.i, %129 ], [ %35, %.lr.ph100 ]
   %.val78.i = load ptr, ptr %10, align 8
   %36 = sext i32 %.07193.i to i64
   %37 = getelementptr inbounds i32, ptr %.val78.i, i64 %36
@@ -1646,18 +1646,18 @@ Cbs2_ManPropagateClauses.exit:                    ; preds = %127
   %.not37 = icmp eq i32 %134, 0
   br i1 %.not37, label %Cbs2_ManPropagateClauses.exit.thread, label %.loopexit
 
-Cbs2_ManPropagateClauses.exit.thread:             ; preds = %129, %.lr.ph98, %Cbs2_ManPropagateClauses.exit
+Cbs2_ManPropagateClauses.exit.thread:             ; preds = %129, %.lr.ph100, %Cbs2_ManPropagateClauses.exit
   %135 = ashr i32 %32, 1
   %.val = load ptr, ptr %16, align 8
   %136 = sext i32 %135 to i64
   %137 = getelementptr inbounds i32, ptr %.val, i64 %136
-  %.03164 = load i32, ptr %137, align 4
-  %.not3865 = icmp eq i32 %.03164, 0
-  br i1 %.not3865, label %._crit_edge, label %.lr.ph
+  %.03165 = load i32, ptr %137, align 4
+  %.not3866 = icmp eq i32 %.03165, 0
+  br i1 %.not3866, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %Cbs2_ManPropagateClauses.exit.thread, %Cbs2_ManPropagateUnassigned.exit
-  %.03166 = phi i32 [ %.031, %Cbs2_ManPropagateUnassigned.exit ], [ %.03164, %Cbs2_ManPropagateClauses.exit.thread ]
-  %138 = ashr i32 %.03166, 1
+  %.03167 = phi i32 [ %.031, %Cbs2_ManPropagateUnassigned.exit ], [ %.03165, %Cbs2_ManPropagateClauses.exit.thread ]
+  %138 = ashr i32 %.03167, 1
   %.val43 = load ptr, ptr %12, align 8
   %139 = sext i32 %138 to i64
   %140 = getelementptr inbounds i8, ptr %.val43, i64 %139
@@ -1702,7 +1702,7 @@ Cbs2_ManPropagateClauses.exit.thread:             ; preds = %129, %.lr.ph98, %Cb
   br i1 %or.cond.i, label %173, label %193
 
 173:                                              ; preds = %143
-  %174 = or i32 %.03166, 1
+  %174 = or i32 %.03167, 1
   %.val42.i = load i64, ptr %146, align 4
   %175 = lshr i64 %.val42.i, 32
   %176 = trunc nuw i64 %175 to i32
@@ -1722,14 +1722,14 @@ Cbs2_ManPropagateClauses.exit.thread:             ; preds = %129, %.lr.ph98, %Cb
   %183 = shl nsw i32 %179, 1
   store i32 %183, ptr %13, align 8
   %184 = load ptr, ptr %8, align 8
-  %.not.i.i.i48 = icmp eq ptr %184, null
+  %.not.i.i.i49 = icmp eq ptr %184, null
   %185 = sext i32 %183 to i64
   %186 = shl nsw i64 %185, 2
-  br i1 %.not.i.i.i48, label %189, label %187
+  br i1 %.not.i.i.i49, label %189, label %187
 
 187:                                              ; preds = %182
   %188 = tail call ptr @realloc(ptr noundef nonnull %184, i64 noundef %186) #25
-  %.pre11.pre.i.i.i49 = load i32, ptr %5, align 4
+  %.pre11.pre.i.i.i50 = load i32, ptr %5, align 4
   br label %191
 
 189:                                              ; preds = %182
@@ -1737,7 +1737,7 @@ Cbs2_ManPropagateClauses.exit.thread:             ; preds = %129, %.lr.ph98, %Cb
   br label %191
 
 191:                                              ; preds = %189, %187
-  %.pre11.i.i.i50 = phi i32 [ %.pre11.pre.i.i.i49, %187 ], [ %179, %189 ]
+  %.pre11.i.i.i51 = phi i32 [ %.pre11.pre.i.i.i50, %187 ], [ %179, %189 ]
   %192 = phi ptr [ %188, %187 ], [ %190, %189 ]
   store ptr %192, ptr %8, align 8
   br label %.sink.split.i
@@ -1746,7 +1746,7 @@ Cbs2_ManPropagateClauses.exit.thread:             ; preds = %129, %.lr.ph98, %Cb
   br i1 %171, label %194, label %210
 
 194:                                              ; preds = %193
-  %195 = or i32 %.03166, 1
+  %195 = or i32 %.03167, 1
   %.val43.i = load i64, ptr %146, align 4
   store i8 0, ptr %140, align 1
   %196 = load i32, ptr %5, align 4
@@ -1786,7 +1786,7 @@ Cbs2_ManPropagateClauses.exit.thread:             ; preds = %129, %.lr.ph98, %Cb
   br i1 %172, label %211, label %228
 
 211:                                              ; preds = %210
-  %212 = or i32 %.03166, 1
+  %212 = or i32 %.03167, 1
   %.val48.i = load i64, ptr %146, align 4
   %213 = lshr i64 %.val48.i, 32
   store i8 0, ptr %140, align 1
@@ -1830,7 +1830,7 @@ Cbs2_ManPropagateClauses.exit.thread:             ; preds = %129, %.lr.ph98, %Cb
   br i1 %or.cond3.i, label %231, label %Cbs2_ManPropagateUnassigned.exit
 
 231:                                              ; preds = %228
-  %232 = and i32 %.03166, -2
+  %232 = and i32 %.03167, -2
   %.val44.i = load i64, ptr %146, align 4
   %233 = lshr i64 %.val44.i, 32
   %234 = trunc nuw i64 %233 to i32
@@ -1870,18 +1870,18 @@ Cbs2_ManPropagateClauses.exit.thread:             ; preds = %129, %.lr.ph98, %Cb
   store ptr %250, ptr %8, align 8
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %249, %._crit_edge.i.i75.i, %226, %._crit_edge.i.i64.i, %208, %._crit_edge.i.i53.i, %191, %._crit_edge.i.i.i45
-  %.sink105.i = phi i32 [ %179, %._crit_edge.i.i.i45 ], [ %.pre11.i.i.i50, %191 ], [ %196, %._crit_edge.i.i53.i ], [ %.pre11.i.i61.i, %208 ], [ %214, %._crit_edge.i.i64.i ], [ %.pre11.i.i72.i, %226 ], [ %237, %._crit_edge.i.i75.i ], [ %.pre11.i.i83.i, %249 ]
+.sink.split.i:                                    ; preds = %._crit_edge.i.i75.i, %249, %._crit_edge.i.i64.i, %226, %._crit_edge.i.i53.i, %208, %._crit_edge.i.i.i45, %191
+  %.sink90 = phi i32 [ %179, %._crit_edge.i.i.i45 ], [ %.pre11.i.i.i51, %191 ], [ %196, %._crit_edge.i.i53.i ], [ %.pre11.i.i61.i, %208 ], [ %214, %._crit_edge.i.i64.i ], [ %.pre11.i.i72.i, %226 ], [ %237, %._crit_edge.i.i75.i ], [ %.pre11.i.i83.i, %249 ]
   %.sink100.i = phi ptr [ %.pre.i.i.i47, %._crit_edge.i.i.i45 ], [ %192, %191 ], [ %.pre.i.i55.i, %._crit_edge.i.i53.i ], [ %209, %208 ], [ %.pre.i.i66.i, %._crit_edge.i.i64.i ], [ %227, %226 ], [ %.pre.i.i77.i, %._crit_edge.i.i75.i ], [ %250, %249 ]
   %.sink98.i = phi i32 [ %174, %._crit_edge.i.i.i45 ], [ %174, %191 ], [ %195, %._crit_edge.i.i53.i ], [ %195, %208 ], [ %212, %._crit_edge.i.i64.i ], [ %212, %226 ], [ %232, %._crit_edge.i.i75.i ], [ %232, %249 ]
   %.pn.in.in.i = phi i64 [ %.val42.i, %._crit_edge.i.i.i45 ], [ %.val42.i, %191 ], [ %.val43.i, %._crit_edge.i.i53.i ], [ %.val43.i, %208 ], [ %213, %._crit_edge.i.i64.i ], [ %213, %226 ], [ %.val44.i, %._crit_edge.i.i75.i ], [ %.val44.i, %249 ]
   %.sink.i = phi i32 [ %178, %._crit_edge.i.i.i45 ], [ %178, %191 ], [ 0, %._crit_edge.i.i53.i ], [ 0, %208 ], [ 0, %._crit_edge.i.i64.i ], [ 0, %226 ], [ %236, %._crit_edge.i.i75.i ], [ %236, %249 ]
+  %251 = add nsw i32 %.sink90, 1
+  store i32 %251, ptr %5, align 4
   %.pn.in.i = trunc i64 %.pn.in.in.i to i32
   %.pn.i = and i32 %.pn.in.i, 536870911
   %.sink89.i = sub nsw i32 %138, %.pn.i
-  %251 = add nsw i32 %.sink105.i, 1
-  store i32 %251, ptr %5, align 4
-  %252 = sext i32 %.sink105.i to i64
+  %252 = sext i32 %.sink90 to i64
   %253 = getelementptr inbounds i32, ptr %.sink100.i, i64 %252
   store i32 %.sink98.i, ptr %253, align 4
   %254 = mul nsw i32 %138, 3
@@ -1906,7 +1906,7 @@ Cbs2_ManPropagateClauses.exit.thread:             ; preds = %129, %.lr.ph98, %Cb
 
 Cbs2_ManPropagateUnassigned.exit:                 ; preds = %.sink.split.i, %228, %261
   %.val42 = load ptr, ptr %19, align 8
-  %263 = sext i32 %.03166 to i64
+  %263 = sext i32 %.03167 to i64
   %264 = getelementptr inbounds i32, ptr %.val42, i64 %263
   %.031 = load i32, ptr %264, align 4
   %.not38 = icmp eq i32 %.031, 0
@@ -1917,9 +1917,9 @@ Cbs2_ManPropagateUnassigned.exit:                 ; preds = %.sink.split.i, %228
   %.not39 = icmp eq i32 %265, 0
   br i1 %.not39, label %24, label %.loopexit
 
-.critedge:                                        ; preds = %24, %28, %.lr.ph70, %2
-  %.lcssa61 = phi i32 [ %6, %2 ], [ %6, %.lr.ph70 ], [ %25, %28 ], [ %25, %24 ]
-  store i32 %.lcssa61, ptr %3, align 8
+.critedge:                                        ; preds = %24, %28, %.lr.ph71, %2
+  %.lcssa62 = phi i32 [ %6, %2 ], [ %6, %.lr.ph71 ], [ %25, %28 ], [ %25, %24 ]
+  store i32 %.lcssa62, ptr %3, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge, %Cbs2_ManPropagateClauses.exit, %261, %.critedge

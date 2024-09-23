@@ -627,15 +627,24 @@ do.body.lr.ph.i.i:                                ; preds = %sw.bb8.i
   %tql_prev8.i.i = getelementptr inbounds i8, ptr %dev, i64 18264
   br label %do.body.i.i
 
-do.body.i.i:                                      ; preds = %do.body.i.i, %do.body.lr.ph.i.i
-  %33 = phi ptr [ %32, %do.body.lr.ph.i.i ], [ %37, %do.body.i.i ]
+do.body.i.i:                                      ; preds = %if.end.i45.i, %do.body.lr.ph.i.i
+  %33 = phi ptr [ %32, %do.body.lr.ph.i.i ], [ %37, %if.end.i45.i ]
   %34 = load ptr, ptr %33, align 8
   %cmp.not.i.i = icmp eq ptr %34, null
   %tql_prev6.i.i = getelementptr inbounds i8, ptr %33, i64 8
   %35 = load ptr, ptr %tql_prev6.i.i, align 8
+  br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
+
+if.then.i.i:                                      ; preds = %do.body.i.i
   %tql_prev4.i.i = getelementptr inbounds i8, ptr %34, i64 8
-  %tql_prev8.sink.i.i = select i1 %cmp.not.i.i, ptr %tql_prev8.i.i, ptr %tql_prev4.i.i
-  store ptr %35, ptr %tql_prev8.sink.i.i, align 8
+  store ptr %35, ptr %tql_prev4.i.i, align 8
+  br label %if.end.i45.i
+
+if.else.i.i:                                      ; preds = %do.body.i.i
+  store ptr %35, ptr %tql_prev8.i.i, align 8
+  br label %if.end.i45.i
+
+if.end.i45.i:                                     ; preds = %if.else.i.i, %if.then.i.i
   %36 = load ptr, ptr %33, align 8
   store ptr %36, ptr %35, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)
@@ -644,7 +653,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %do.bo
   %tobool.not.i.i = icmp eq ptr %37, null
   br i1 %tobool.not.i.i, label %rndis_clear_responsequeue.exit.i, label %do.body.i.i, !llvm.loop !5
 
-rndis_clear_responsequeue.exit.i:                 ; preds = %do.body.i.i, %sw.bb8.i
+rndis_clear_responsequeue.exit.i:                 ; preds = %if.end.i45.i, %sw.bb8.i
   %out_ptr.i = getelementptr inbounds i8, ptr %dev, i64 5892
   store i32 0, ptr %out_ptr.i, align 4
   %in_len.i.i = getelementptr inbounds i8, ptr %dev, i64 7948
@@ -655,70 +664,70 @@ rndis_clear_responsequeue.exit.i:                 ; preds = %do.body.i.i, %sw.bb
   %38 = load ptr, ptr %nic.i.i, align 8
   %call.i.i = tail call ptr @qemu_get_queue(ptr noundef %38) #10
   tail call void @qemu_flush_queued_packets(ptr noundef %call.i.i) #10
-  %call.i.i45.i = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0(i64 noundef 40) #11
+  %call.i.i46.i = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0(i64 noundef 40) #11
   %39 = load ptr, ptr %rndis_resp.i.i, align 8
-  %cmp.i.i47.i = icmp eq ptr %39, null
-  br i1 %cmp.i.i47.i, label %if.then.i.i54.i, label %rndis_reset_response.exit.i
+  %cmp.i.i48.i = icmp eq ptr %39, null
+  br i1 %cmp.i.i48.i, label %if.then.i.i55.i, label %rndis_reset_response.exit.i
 
-if.then.i.i54.i:                                  ; preds = %rndis_clear_responsequeue.exit.i
-  %intr.i.i55.i = getelementptr inbounds i8, ptr %dev, i64 10000
-  %40 = load ptr, ptr %intr.i.i55.i, align 8
+if.then.i.i55.i:                                  ; preds = %rndis_clear_responsequeue.exit.i
+  %intr.i.i56.i = getelementptr inbounds i8, ptr %dev, i64 10000
+  %40 = load ptr, ptr %intr.i.i56.i, align 8
   tail call void @usb_wakeup(ptr noundef %40, i32 noundef 0) #10
   br label %rndis_reset_response.exit.i
 
-rndis_reset_response.exit.i:                      ; preds = %if.then.i.i54.i, %rndis_clear_responsequeue.exit.i
-  store ptr null, ptr %call.i.i45.i, align 8
-  %tql_prev.i.i48.i = getelementptr inbounds i8, ptr %dev, i64 18264
-  %41 = load ptr, ptr %tql_prev.i.i48.i, align 8
-  %tql_prev4.i.i49.i = getelementptr inbounds i8, ptr %call.i.i45.i, i64 8
-  store ptr %41, ptr %tql_prev4.i.i49.i, align 8
-  store ptr %call.i.i45.i, ptr %41, align 8
-  store ptr %call.i.i45.i, ptr %tql_prev.i.i48.i, align 8
-  %length10.i.i50.i = getelementptr inbounds i8, ptr %call.i.i45.i, i64 16
-  store i32 16, ptr %length10.i.i50.i, align 8
-  %buf.i.i51.i = getelementptr inbounds i8, ptr %call.i.i45.i, i64 20
-  store i32 -2147483642, ptr %buf.i.i51.i, align 4
-  %MessageLength.i52.i = getelementptr inbounds i8, ptr %call.i.i45.i, i64 24
-  store i32 16, ptr %MessageLength.i52.i, align 4
-  %Status.i53.i = getelementptr inbounds i8, ptr %call.i.i45.i, i64 28
-  store i32 0, ptr %Status.i53.i, align 4
-  %AddressingReset.i.i = getelementptr inbounds i8, ptr %call.i.i45.i, i64 32
+rndis_reset_response.exit.i:                      ; preds = %if.then.i.i55.i, %rndis_clear_responsequeue.exit.i
+  store ptr null, ptr %call.i.i46.i, align 8
+  %tql_prev.i.i49.i = getelementptr inbounds i8, ptr %dev, i64 18264
+  %41 = load ptr, ptr %tql_prev.i.i49.i, align 8
+  %tql_prev4.i.i50.i = getelementptr inbounds i8, ptr %call.i.i46.i, i64 8
+  store ptr %41, ptr %tql_prev4.i.i50.i, align 8
+  store ptr %call.i.i46.i, ptr %41, align 8
+  store ptr %call.i.i46.i, ptr %tql_prev.i.i49.i, align 8
+  %length10.i.i51.i = getelementptr inbounds i8, ptr %call.i.i46.i, i64 16
+  store i32 16, ptr %length10.i.i51.i, align 8
+  %buf.i.i52.i = getelementptr inbounds i8, ptr %call.i.i46.i, i64 20
+  store i32 -2147483642, ptr %buf.i.i52.i, align 4
+  %MessageLength.i53.i = getelementptr inbounds i8, ptr %call.i.i46.i, i64 24
+  store i32 16, ptr %MessageLength.i53.i, align 4
+  %Status.i54.i = getelementptr inbounds i8, ptr %call.i.i46.i, i64 28
+  store i32 0, ptr %Status.i54.i, align 4
+  %AddressingReset.i.i = getelementptr inbounds i8, ptr %call.i.i46.i, i64 32
   store i32 1, ptr %AddressingReset.i.i, align 4
   br label %sw.epilog
 
 sw.bb10.i:                                        ; preds = %if.end6
-  %call.i.i56.i = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0(i64 noundef 40) #11
-  %rndis_resp.i.i57.i = getelementptr inbounds i8, ptr %dev, i64 18256
-  %42 = load ptr, ptr %rndis_resp.i.i57.i, align 8
-  %cmp.i.i58.i = icmp eq ptr %42, null
-  br i1 %cmp.i.i58.i, label %if.then.i.i67.i, label %rndis_keepalive_response.exit.i
+  %call.i.i57.i = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0(i64 noundef 40) #11
+  %rndis_resp.i.i58.i = getelementptr inbounds i8, ptr %dev, i64 18256
+  %42 = load ptr, ptr %rndis_resp.i.i58.i, align 8
+  %cmp.i.i59.i = icmp eq ptr %42, null
+  br i1 %cmp.i.i59.i, label %if.then.i.i68.i, label %rndis_keepalive_response.exit.i
 
-if.then.i.i67.i:                                  ; preds = %sw.bb10.i
-  %intr.i.i68.i = getelementptr inbounds i8, ptr %dev, i64 10000
-  %43 = load ptr, ptr %intr.i.i68.i, align 8
+if.then.i.i68.i:                                  ; preds = %sw.bb10.i
+  %intr.i.i69.i = getelementptr inbounds i8, ptr %dev, i64 10000
+  %43 = load ptr, ptr %intr.i.i69.i, align 8
   tail call void @usb_wakeup(ptr noundef %43, i32 noundef 0) #10
   br label %rndis_keepalive_response.exit.i
 
-rndis_keepalive_response.exit.i:                  ; preds = %if.then.i.i67.i, %sw.bb10.i
-  store ptr null, ptr %call.i.i56.i, align 8
-  %tql_prev.i.i59.i = getelementptr inbounds i8, ptr %dev, i64 18264
-  %44 = load ptr, ptr %tql_prev.i.i59.i, align 8
-  %tql_prev4.i.i60.i = getelementptr inbounds i8, ptr %call.i.i56.i, i64 8
-  store ptr %44, ptr %tql_prev4.i.i60.i, align 8
-  store ptr %call.i.i56.i, ptr %44, align 8
-  store ptr %call.i.i56.i, ptr %tql_prev.i.i59.i, align 8
-  %length10.i.i61.i = getelementptr inbounds i8, ptr %call.i.i56.i, i64 16
-  store i32 16, ptr %length10.i.i61.i, align 8
-  %buf.i.i62.i = getelementptr inbounds i8, ptr %call.i.i56.i, i64 20
-  store i32 -2147483640, ptr %buf.i.i62.i, align 4
-  %MessageLength.i63.i = getelementptr inbounds i8, ptr %call.i.i56.i, i64 24
-  store i32 16, ptr %MessageLength.i63.i, align 4
-  %RequestID.i64.i = getelementptr inbounds i8, ptr %data, i64 8
-  %45 = load i32, ptr %RequestID.i64.i, align 4
-  %RequestID3.i65.i = getelementptr inbounds i8, ptr %call.i.i56.i, i64 28
-  store i32 %45, ptr %RequestID3.i65.i, align 4
-  %Status.i66.i = getelementptr inbounds i8, ptr %call.i.i56.i, i64 32
-  store i32 0, ptr %Status.i66.i, align 4
+rndis_keepalive_response.exit.i:                  ; preds = %if.then.i.i68.i, %sw.bb10.i
+  store ptr null, ptr %call.i.i57.i, align 8
+  %tql_prev.i.i60.i = getelementptr inbounds i8, ptr %dev, i64 18264
+  %44 = load ptr, ptr %tql_prev.i.i60.i, align 8
+  %tql_prev4.i.i61.i = getelementptr inbounds i8, ptr %call.i.i57.i, i64 8
+  store ptr %44, ptr %tql_prev4.i.i61.i, align 8
+  store ptr %call.i.i57.i, ptr %44, align 8
+  store ptr %call.i.i57.i, ptr %tql_prev.i.i60.i, align 8
+  %length10.i.i62.i = getelementptr inbounds i8, ptr %call.i.i57.i, i64 16
+  store i32 16, ptr %length10.i.i62.i, align 8
+  %buf.i.i63.i = getelementptr inbounds i8, ptr %call.i.i57.i, i64 20
+  store i32 -2147483640, ptr %buf.i.i63.i, align 4
+  %MessageLength.i64.i = getelementptr inbounds i8, ptr %call.i.i57.i, i64 24
+  store i32 16, ptr %MessageLength.i64.i, align 4
+  %RequestID.i65.i = getelementptr inbounds i8, ptr %data, i64 8
+  %45 = load i32, ptr %RequestID.i65.i, align 4
+  %RequestID3.i66.i = getelementptr inbounds i8, ptr %call.i.i57.i, i64 28
+  store i32 %45, ptr %RequestID3.i66.i, align 4
+  %Status.i67.i = getelementptr inbounds i8, ptr %call.i.i57.i, i64 32
+  store i32 0, ptr %Status.i67.i, align 4
   br label %sw.epilog
 
 rndis_parse.exit.thread58:                        ; preds = %if.end13.i.i, %if.end25.i.i
@@ -760,21 +769,30 @@ if.end19:                                         ; preds = %is_rndis.exit37
   %rndis_resp.i = getelementptr inbounds i8, ptr %dev, i64 18256
   %51 = load ptr, ptr %rndis_resp.i, align 8
   %tobool.not.i38 = icmp eq ptr %51, null
-  br i1 %tobool.not.i38, label %rndis_get_response.exit.thread, label %rndis_get_response.exit
+  br i1 %tobool.not.i38, label %rndis_get_response.exit.thread, label %do.body.i
 
 rndis_get_response.exit.thread:                   ; preds = %if.end19
   %actual_length65 = getelementptr inbounds i8, ptr %p, i64 88
   br label %if.then23
 
-rndis_get_response.exit:                          ; preds = %if.end19
+do.body.i:                                        ; preds = %if.end19
   %52 = load ptr, ptr %51, align 8
   %cmp.not.i = icmp eq ptr %52, null
   %tql_prev7.i = getelementptr inbounds i8, ptr %51, i64 8
   %53 = load ptr, ptr %tql_prev7.i, align 8
-  %tql_prev9.i = getelementptr inbounds i8, ptr %dev, i64 18264
+  br i1 %cmp.not.i, label %if.else.i, label %if.then1.i
+
+if.then1.i:                                       ; preds = %do.body.i
   %tql_prev5.i = getelementptr inbounds i8, ptr %52, i64 8
-  %tql_prev9.sink.i = select i1 %cmp.not.i, ptr %tql_prev9.i, ptr %tql_prev5.i
-  store ptr %53, ptr %tql_prev9.sink.i, align 8
+  store ptr %53, ptr %tql_prev5.i, align 8
+  br label %rndis_get_response.exit
+
+if.else.i:                                        ; preds = %do.body.i
+  %tql_prev9.i = getelementptr inbounds i8, ptr %dev, i64 18264
+  store ptr %53, ptr %tql_prev9.i, align 8
+  br label %rndis_get_response.exit
+
+rndis_get_response.exit:                          ; preds = %if.then1.i, %if.else.i
   %54 = load ptr, ptr %51, align 8
   store ptr %54, ptr %53, align 8
   %length.i = getelementptr inbounds i8, ptr %51, i64 16
@@ -1111,15 +1129,24 @@ do.body.lr.ph.i:                                  ; preds = %entry
   %tql_prev8.i = getelementptr inbounds i8, ptr %dev, i64 18264
   br label %do.body.i
 
-do.body.i:                                        ; preds = %do.body.i, %do.body.lr.ph.i
-  %1 = phi ptr [ %0, %do.body.lr.ph.i ], [ %5, %do.body.i ]
+do.body.i:                                        ; preds = %if.end.i, %do.body.lr.ph.i
+  %1 = phi ptr [ %0, %do.body.lr.ph.i ], [ %5, %if.end.i ]
   %2 = load ptr, ptr %1, align 8
   %cmp.not.i = icmp eq ptr %2, null
   %tql_prev6.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %tql_prev6.i, align 8
+  br i1 %cmp.not.i, label %if.else.i, label %if.then.i
+
+if.then.i:                                        ; preds = %do.body.i
   %tql_prev4.i = getelementptr inbounds i8, ptr %2, i64 8
-  %tql_prev8.sink.i = select i1 %cmp.not.i, ptr %tql_prev8.i, ptr %tql_prev4.i
-  store ptr %3, ptr %tql_prev8.sink.i, align 8
+  store ptr %3, ptr %tql_prev4.i, align 8
+  br label %if.end.i
+
+if.else.i:                                        ; preds = %do.body.i
+  store ptr %3, ptr %tql_prev8.i, align 8
+  br label %if.end.i
+
+if.end.i:                                         ; preds = %if.else.i, %if.then.i
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %3, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
@@ -1128,7 +1155,7 @@ do.body.i:                                        ; preds = %do.body.i, %do.body
   %tobool.not.i = icmp eq ptr %5, null
   br i1 %tobool.not.i, label %rndis_clear_responsequeue.exit, label %do.body.i, !llvm.loop !5
 
-rndis_clear_responsequeue.exit:                   ; preds = %do.body.i, %entry
+rndis_clear_responsequeue.exit:                   ; preds = %if.end.i, %entry
   %nic = getelementptr inbounds i8, ptr %dev, i64 10032
   %6 = load ptr, ptr %nic, align 8
   tail call void @qemu_del_nic(ptr noundef %6) #10

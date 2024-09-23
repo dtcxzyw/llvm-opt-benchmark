@@ -704,18 +704,18 @@ define internal i32 @spl_ptr_pqueue_elem_cmp(ptr noundef %0, ptr noundef %1, ptr
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %8, label %33
+  br i1 %.not, label %8, label %31
 
 8:                                                ; preds = %3
   %.not14 = icmp eq ptr %2, null
-  br i1 %.not14, label %31, label %9
+  br i1 %.not14, label %29, label %9
 
 9:                                                ; preds = %8
   %10 = load ptr, ptr %2, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 -16
   %12 = load ptr, ptr %11, align 8
   %.not15 = icmp eq ptr %12, null
-  br i1 %.not15, label %31, label %13
+  br i1 %.not15, label %29, label %13
 
 13:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -728,7 +728,7 @@ define internal i32 @spl_ptr_pqueue_elem_cmp(ptr noundef %0, ptr noundef %1, ptr
 
 spl_ptr_heap_cmp_cb_helper.exit.thread:           ; preds = %13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br label %33
+  br label %31
 
 18:                                               ; preds = %13
   %19 = getelementptr inbounds i8, ptr %4, i64 8
@@ -748,18 +748,15 @@ spl_ptr_heap_cmp_cb_helper.exit.thread:           ; preds = %13
   %27 = phi i64 [ %23, %22 ], [ %25, %24 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %.not16 = icmp eq i64 %27, 0
-  %28 = icmp slt i64 %27, 0
-  %29 = select i1 %28, i32 -1, i32 1
-  %30 = select i1 %.not16, i32 0, i32 %29
-  br label %33
+  %28 = call i32 @llvm.scmp.i32.i64(i64 %27, i64 0)
+  br label %31
 
-31:                                               ; preds = %9, %8
-  %32 = tail call i32 @zend_compare(ptr noundef nonnull %5, ptr noundef nonnull %6) #15
-  br label %33
+29:                                               ; preds = %9, %8
+  %30 = tail call i32 @zend_compare(ptr noundef nonnull %5, ptr noundef nonnull %6) #15
+  br label %31
 
-33:                                               ; preds = %spl_ptr_heap_cmp_cb_helper.exit.thread, %3, %31, %26
-  %.0 = phi i32 [ %30, %26 ], [ %32, %31 ], [ 0, %3 ], [ 0, %spl_ptr_heap_cmp_cb_helper.exit.thread ]
+31:                                               ; preds = %spl_ptr_heap_cmp_cb_helper.exit.thread, %3, %29, %26
+  %.0 = phi i32 [ %28, %26 ], [ %30, %29 ], [ 0, %3 ], [ 0, %spl_ptr_heap_cmp_cb_helper.exit.thread ]
   ret i32 %.0
 }
 
@@ -1163,18 +1160,18 @@ define internal i32 @spl_ptr_heap_zval_max_cmp(ptr noundef %0, ptr noundef %1, p
   %4 = alloca %struct._zval_struct, align 8
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %6, label %31
+  br i1 %.not, label %6, label %29
 
 6:                                                ; preds = %3
   %.not12 = icmp eq ptr %2, null
-  br i1 %.not12, label %29, label %7
+  br i1 %.not12, label %27, label %7
 
 7:                                                ; preds = %6
   %8 = load ptr, ptr %2, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 -16
   %10 = load ptr, ptr %9, align 8
   %.not13 = icmp eq ptr %10, null
-  br i1 %.not13, label %29, label %11
+  br i1 %.not13, label %27, label %11
 
 11:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -1187,7 +1184,7 @@ define internal i32 @spl_ptr_heap_zval_max_cmp(ptr noundef %0, ptr noundef %1, p
 
 spl_ptr_heap_cmp_cb_helper.exit.thread:           ; preds = %11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br label %31
+  br label %29
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds i8, ptr %4, i64 8
@@ -1207,18 +1204,15 @@ spl_ptr_heap_cmp_cb_helper.exit.thread:           ; preds = %11
   %25 = phi i64 [ %21, %20 ], [ %23, %22 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %.not14 = icmp eq i64 %25, 0
-  %26 = icmp slt i64 %25, 0
-  %27 = select i1 %26, i32 -1, i32 1
-  %28 = select i1 %.not14, i32 0, i32 %27
-  br label %31
+  %26 = call i32 @llvm.scmp.i32.i64(i64 %25, i64 0)
+  br label %29
 
-29:                                               ; preds = %7, %6
-  %30 = tail call i32 @zend_compare(ptr noundef %0, ptr noundef %1) #15
-  br label %31
+27:                                               ; preds = %7, %6
+  %28 = tail call i32 @zend_compare(ptr noundef %0, ptr noundef %1) #15
+  br label %29
 
-31:                                               ; preds = %spl_ptr_heap_cmp_cb_helper.exit.thread, %3, %29, %24
-  %.0 = phi i32 [ %28, %24 ], [ %30, %29 ], [ 0, %3 ], [ 0, %spl_ptr_heap_cmp_cb_helper.exit.thread ]
+29:                                               ; preds = %spl_ptr_heap_cmp_cb_helper.exit.thread, %3, %27, %24
+  %.0 = phi i32 [ %26, %24 ], [ %28, %27 ], [ 0, %3 ], [ 0, %spl_ptr_heap_cmp_cb_helper.exit.thread ]
   ret i32 %.0
 }
 
@@ -1234,7 +1228,7 @@ define hidden void @zim_SplHeap_top(ptr nocapture noundef readonly %0, ptr nocap
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
-  br label %52
+  br label %51
 
 .critedge:                                        ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 32
@@ -1253,7 +1247,7 @@ define hidden void @zim_SplHeap_top(ptr nocapture noundef readonly %0, ptr nocap
   %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %19 = icmp ne ptr %18, null
   tail call void @llvm.assume(i1 %19)
-  br label %52
+  br label %51
 
 20:                                               ; preds = %.critedge
   %21 = getelementptr inbounds i8, ptr %11, i64 32
@@ -1272,14 +1266,14 @@ spl_ptr_heap_top.exit.thread:                     ; preds = %20, %spl_ptr_heap_t
   %27 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %28 = icmp ne ptr %27, null
   tail call void @llvm.assume(i1 %28)
-  br label %52
+  br label %51
 
 29:                                               ; preds = %spl_ptr_heap_top.exit
   %30 = getelementptr inbounds i8, ptr %24, i64 8
   %31 = load i32, ptr %30, align 8
   %32 = and i32 %31, 65280
   %.not28 = icmp eq i32 %32, 0
-  br i1 %.not28, label %47, label %33
+  br i1 %.not28, label %46, label %33
 
 33:                                               ; preds = %29
   %34 = and i32 %31, 255
@@ -1293,31 +1287,31 @@ spl_ptr_heap_top.exit.thread:                     ; preds = %20, %spl_ptr_heap_t
   %40 = load i32, ptr %39, align 8
   %41 = and i32 %40, 65280
   %.not29 = icmp eq i32 %41, 0
-  br i1 %.not29, label %47, label %.sink.split
+  br i1 %.not29, label %46, label %.sink.split
 
 .sink.split:                                      ; preds = %33, %36
-  %.sink = phi i32 [ %40, %36 ], [ %31, %33 ]
-  %.sink34 = phi ptr [ %38, %36 ], [ %24, %33 ]
-  %42 = and i32 %.sink, 65280
+  %.sink36 = phi i32 [ %40, %36 ], [ %31, %33 ]
+  %.sink.in = phi ptr [ %38, %36 ], [ %24, %33 ]
+  %42 = and i32 %.sink36, 65280
   %43 = icmp ne i32 %42, 0
   tail call void @llvm.assume(i1 %43)
-  %44 = load ptr, ptr %.sink34, align 8
-  %45 = load i32, ptr %44, align 4
-  %46 = add i32 %45, 1
-  store i32 %46, ptr %44, align 4
-  br label %47
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %44 = load i32, ptr %.sink, align 4
+  %45 = add i32 %44, 1
+  store i32 %45, ptr %.sink, align 4
+  br label %46
 
-47:                                               ; preds = %.sink.split, %29, %36
-  %.0 = phi ptr [ %38, %36 ], [ %24, %29 ], [ %.sink34, %.sink.split ]
-  %48 = load ptr, ptr %.0, align 8
-  %49 = getelementptr inbounds i8, ptr %.0, i64 8
-  %50 = load i32, ptr %49, align 8
-  store ptr %48, ptr %1, align 8
-  %51 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %50, ptr %51, align 8
-  br label %52
+46:                                               ; preds = %.sink.split, %29, %36
+  %.0 = phi ptr [ %38, %36 ], [ %24, %29 ], [ %.sink.in, %.sink.split ]
+  %47 = load ptr, ptr %.0, align 8
+  %48 = getelementptr inbounds i8, ptr %.0, i64 8
+  %49 = load i32, ptr %48, align 8
+  store ptr %47, ptr %1, align 8
+  %50 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %49, ptr %50, align 8
+  br label %51
 
-52:                                               ; preds = %47, %spl_ptr_heap_top.exit.thread, %15, %5
+51:                                               ; preds = %46, %spl_ptr_heap_top.exit.thread, %15, %5
   ret void
 }
 
@@ -1364,18 +1358,18 @@ define internal i32 @spl_ptr_heap_zval_min_cmp(ptr noundef %0, ptr noundef %1, p
   %4 = alloca %struct._zval_struct, align 8
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %6, label %31
+  br i1 %.not, label %6, label %29
 
 6:                                                ; preds = %3
   %.not12 = icmp eq ptr %2, null
-  br i1 %.not12, label %29, label %7
+  br i1 %.not12, label %27, label %7
 
 7:                                                ; preds = %6
   %8 = load ptr, ptr %2, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 -16
   %10 = load ptr, ptr %9, align 8
   %.not13 = icmp eq ptr %10, null
-  br i1 %.not13, label %29, label %11
+  br i1 %.not13, label %27, label %11
 
 11:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -1388,7 +1382,7 @@ define internal i32 @spl_ptr_heap_zval_min_cmp(ptr noundef %0, ptr noundef %1, p
 
 spl_ptr_heap_cmp_cb_helper.exit.thread:           ; preds = %11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br label %31
+  br label %29
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds i8, ptr %4, i64 8
@@ -1408,18 +1402,15 @@ spl_ptr_heap_cmp_cb_helper.exit.thread:           ; preds = %11
   %25 = phi i64 [ %21, %20 ], [ %23, %22 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %.not14 = icmp eq i64 %25, 0
-  %26 = icmp slt i64 %25, 0
-  %27 = select i1 %26, i32 -1, i32 1
-  %28 = select i1 %.not14, i32 0, i32 %27
-  br label %31
+  %26 = call i32 @llvm.scmp.i32.i64(i64 %25, i64 0)
+  br label %29
 
-29:                                               ; preds = %7, %6
-  %30 = tail call i32 @zend_compare(ptr noundef %1, ptr noundef %0) #15
-  br label %31
+27:                                               ; preds = %7, %6
+  %28 = tail call i32 @zend_compare(ptr noundef %1, ptr noundef %0) #15
+  br label %29
 
-31:                                               ; preds = %spl_ptr_heap_cmp_cb_helper.exit.thread, %3, %29, %24
-  %.0 = phi i32 [ %28, %24 ], [ %30, %29 ], [ 0, %3 ], [ 0, %spl_ptr_heap_cmp_cb_helper.exit.thread ]
+29:                                               ; preds = %spl_ptr_heap_cmp_cb_helper.exit.thread, %3, %27, %24
+  %.0 = phi i32 [ %26, %24 ], [ %28, %27 ], [ 0, %3 ], [ 0, %spl_ptr_heap_cmp_cb_helper.exit.thread ]
   ret i32 %.0
 }
 
@@ -1580,7 +1571,7 @@ define hidden void @zim_SplHeap_current(ptr nocapture noundef readonly %0, ptr n
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
-  br label %40
+  br label %39
 
 .critedge:                                        ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 32
@@ -1595,7 +1586,7 @@ define hidden void @zim_SplHeap_current(ptr nocapture noundef readonly %0, ptr n
 14:                                               ; preds = %.critedge
   %15 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 1, ptr %15, align 8
-  br label %40
+  br label %39
 
 16:                                               ; preds = %.critedge
   %17 = load ptr, ptr %11, align 8
@@ -1603,7 +1594,7 @@ define hidden void @zim_SplHeap_current(ptr nocapture noundef readonly %0, ptr n
   %19 = load i32, ptr %18, align 8
   %20 = and i32 %19, 65280
   %.not29 = icmp eq i32 %20, 0
-  br i1 %.not29, label %35, label %21
+  br i1 %.not29, label %34, label %21
 
 21:                                               ; preds = %16
   %22 = and i32 %19, 255
@@ -1617,31 +1608,31 @@ define hidden void @zim_SplHeap_current(ptr nocapture noundef readonly %0, ptr n
   %28 = load i32, ptr %27, align 8
   %29 = and i32 %28, 65280
   %.not30 = icmp eq i32 %29, 0
-  br i1 %.not30, label %35, label %.sink.split
+  br i1 %.not30, label %34, label %.sink.split
 
 .sink.split:                                      ; preds = %21, %24
-  %.sink = phi i32 [ %28, %24 ], [ %19, %21 ]
-  %.sink33 = phi ptr [ %26, %24 ], [ %17, %21 ]
-  %30 = and i32 %.sink, 65280
+  %.sink35 = phi i32 [ %28, %24 ], [ %19, %21 ]
+  %.sink.in = phi ptr [ %26, %24 ], [ %17, %21 ]
+  %30 = and i32 %.sink35, 65280
   %31 = icmp ne i32 %30, 0
   tail call void @llvm.assume(i1 %31)
-  %32 = load ptr, ptr %.sink33, align 8
-  %33 = load i32, ptr %32, align 4
-  %34 = add i32 %33, 1
-  store i32 %34, ptr %32, align 4
-  br label %35
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %32 = load i32, ptr %.sink, align 4
+  %33 = add i32 %32, 1
+  store i32 %33, ptr %.sink, align 4
+  br label %34
 
-35:                                               ; preds = %.sink.split, %16, %24
-  %.0 = phi ptr [ %26, %24 ], [ %17, %16 ], [ %.sink33, %.sink.split ]
-  %36 = load ptr, ptr %.0, align 8
-  %37 = getelementptr inbounds i8, ptr %.0, i64 8
-  %38 = load i32, ptr %37, align 8
-  store ptr %36, ptr %1, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %38, ptr %39, align 8
-  br label %40
+34:                                               ; preds = %.sink.split, %16, %24
+  %.0 = phi ptr [ %26, %24 ], [ %17, %16 ], [ %.sink.in, %.sink.split ]
+  %35 = load ptr, ptr %.0, align 8
+  %36 = getelementptr inbounds i8, ptr %.0, i64 8
+  %37 = load i32, ptr %36, align 8
+  store ptr %35, ptr %1, align 8
+  %38 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %37, ptr %38, align 8
+  br label %39
 
-40:                                               ; preds = %35, %14, %5
+39:                                               ; preds = %34, %14, %5
   ret void
 }
 

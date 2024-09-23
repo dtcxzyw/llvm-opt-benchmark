@@ -800,10 +800,7 @@ if.then4.i79:                                     ; preds = %_Z9get_depthPK4expr
 
 _Z9get_depthPK4expr.exit91:                       ; preds = %_Z9get_depthPK4expr.exit, %if.then.i82, %if.then4.i79
   %retval.0.i81 = phi i32 [ %bf.clear.i.i90, %if.then.i82 ], [ %29, %if.then4.i79 ], [ 1, %_Z9get_depthPK4expr.exit ]
-  %cmp51 = icmp eq i32 %retval.0.i, %retval.0.i81
-  %cmp52 = icmp ult i32 %retval.0.i, %retval.0.i81
-  %cond = select i1 %cmp52, i32 1, i32 -1
-  %cond53 = select i1 %cmp51, i32 0, i32 %cond
+  %cond53 = tail call i32 @llvm.ucmp.i32.i32(i32 %retval.0.i81, i32 %retval.0.i)
   br label %return
 
 return:                                           ; preds = %land.lhs.true11, %land.rhs.i23, %if.else41, %if.else32, %if.else25, %if.then19, %_Z11is_uninterpPK4expr.exit48, %_Z11is_uninterpPK4expr.exit28, %if.else, %entry, %_Z9get_depthPK4expr.exit91
@@ -12475,7 +12472,7 @@ _ZN6vectorISt4pairIP4exprS2_ELb0EjE9push_backEOS3_.exit: ; preds = %lor.lhs.fals
   store i32 %inc.i, ptr %arrayidx10.i, align 4
   %17 = load ptr, ptr %m_todo, align 8
   %cmp.i16 = icmp eq ptr %17, null
-  br i1 %cmp.i16, label %return.sink.split.sink.split, label %lor.lhs.false.i17
+  br i1 %cmp.i16, label %if.then.i25, label %lor.lhs.false.i17
 
 lor.lhs.false.i17:                                ; preds = %_ZN6vectorISt4pairIP4exprS2_ELb0EjE9push_backEOS3_.exit
   %arrayidx.i18 = getelementptr inbounds i8, ptr %17, i64 -4
@@ -12483,7 +12480,11 @@ lor.lhs.false.i17:                                ; preds = %_ZN6vectorISt4pairI
   %arrayidx4.i19 = getelementptr inbounds i8, ptr %17, i64 -8
   %19 = load i32, ptr %arrayidx4.i19, align 4
   %cmp5.i20 = icmp eq i32 %18, %19
-  br i1 %cmp5.i20, label %return.sink.split.sink.split, label %return.sink.split
+  br i1 %cmp5.i20, label %if.then.i25, label %return.sink.split
+
+if.then.i25:                                      ; preds = %lor.lhs.false.i17, %_ZN6vectorISt4pairIP4exprS2_ELb0EjE9push_backEOS3_.exit
+  tail call void @_ZN6vectorISt4pairIP4exprS2_ELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_todo)
+  br label %return.sink.split.sink.split
 
 if.end22:                                         ; preds = %land.lhs.true11, %land.lhs.true, %if.end5
   %m_kind.i.i30 = getelementptr inbounds i8, ptr %5, i64 4
@@ -12545,7 +12546,7 @@ _ZN6vectorISt4pairIP4exprS2_ELb0EjE9push_backEOS3_.exit54: ; preds = %lor.lhs.fa
   store i32 %inc.i49, ptr %arrayidx10.i48, align 4
   %29 = load ptr, ptr %m_todo34, align 8
   %cmp.i56 = icmp eq ptr %29, null
-  br i1 %cmp.i56, label %return.sink.split.sink.split, label %lor.lhs.false.i57
+  br i1 %cmp.i56, label %if.then.i65, label %lor.lhs.false.i57
 
 lor.lhs.false.i57:                                ; preds = %_ZN6vectorISt4pairIP4exprS2_ELb0EjE9push_backEOS3_.exit54
   %arrayidx.i58 = getelementptr inbounds i8, ptr %29, i64 -4
@@ -12553,29 +12554,32 @@ lor.lhs.false.i57:                                ; preds = %_ZN6vectorISt4pairI
   %arrayidx4.i59 = getelementptr inbounds i8, ptr %29, i64 -8
   %31 = load i32, ptr %arrayidx4.i59, align 4
   %cmp5.i60 = icmp eq i32 %30, %31
-  br i1 %cmp5.i60, label %return.sink.split.sink.split, label %return.sink.split
+  br i1 %cmp5.i60, label %if.then.i65, label %return.sink.split
 
-return.sink.split.sink.split:                     ; preds = %_ZN6vectorISt4pairIP4exprS2_ELb0EjE9push_backEOS3_.exit54, %lor.lhs.false.i57, %_ZN6vectorISt4pairIP4exprS2_ELb0EjE9push_backEOS3_.exit, %lor.lhs.false.i17
-  %m_todo34.sink17 = phi ptr [ %m_todo, %lor.lhs.false.i17 ], [ %m_todo, %_ZN6vectorISt4pairIP4exprS2_ELb0EjE9push_backEOS3_.exit ], [ %m_todo34, %lor.lhs.false.i57 ], [ %m_todo34, %_ZN6vectorISt4pairIP4exprS2_ELb0EjE9push_backEOS3_.exit54 ]
-  tail call void @_ZN6vectorISt4pairIP4exprS2_ELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_todo34.sink17)
-  %.pre.i66 = load ptr, ptr %m_todo34.sink17, align 8
-  %arrayidx8.phi.trans.insert.i67 = getelementptr inbounds i8, ptr %.pre.i66, i64 -4
+if.then.i65:                                      ; preds = %lor.lhs.false.i57, %_ZN6vectorISt4pairIP4exprS2_ELb0EjE9push_backEOS3_.exit54
+  tail call void @_ZN6vectorISt4pairIP4exprS2_ELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_todo34)
+  br label %return.sink.split.sink.split
+
+return.sink.split.sink.split:                     ; preds = %if.then.i25, %if.then.i65
+  %.sink.in.ph = phi ptr [ %m_todo34, %if.then.i65 ], [ %m_todo, %if.then.i25 ]
+  %.pre.i66.sink = load ptr, ptr %.sink.in.ph, align 8
+  %arrayidx8.phi.trans.insert.i67 = getelementptr inbounds i8, ptr %.pre.i66.sink, i64 -4
   %.pre1.i68 = load i32, ptr %arrayidx8.phi.trans.insert.i67, align 4
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %return.sink.split.sink.split, %lor.lhs.false.i57, %lor.lhs.false.i17
-  %.sink15 = phi i32 [ %18, %lor.lhs.false.i17 ], [ %30, %lor.lhs.false.i57 ], [ %.pre1.i68, %return.sink.split.sink.split ]
-  %.sink = phi ptr [ %17, %lor.lhs.false.i17 ], [ %29, %lor.lhs.false.i57 ], [ %.pre.i66, %return.sink.split.sink.split ]
-  %m_todo34.sink = phi ptr [ %m_todo, %lor.lhs.false.i17 ], [ %m_todo34, %lor.lhs.false.i57 ], [ %m_todo34.sink17, %return.sink.split.sink.split ]
-  %idx.ext.i61 = zext i32 %.sink15 to i64
-  %add.ptr.i62 = getelementptr inbounds %"struct.std::pair.75", ptr %.sink, i64 %idx.ext.i61
-  store ptr %5, ptr %add.ptr.i62, align 8
-  %ref.tmp38.sroa.2.0.add.ptr.i62.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i62, i64 8
-  store ptr %6, ptr %ref.tmp38.sroa.2.0.add.ptr.i62.sroa_idx, align 8
-  %32 = load ptr, ptr %m_todo34.sink, align 8
-  %arrayidx10.i63 = getelementptr inbounds i8, ptr %32, i64 -4
-  %33 = load i32, ptr %arrayidx10.i63, align 4
-  %inc.i64 = add i32 %33, 1
+  %.sink16 = phi i32 [ %18, %lor.lhs.false.i17 ], [ %30, %lor.lhs.false.i57 ], [ %.pre1.i68, %return.sink.split.sink.split ]
+  %.sink15 = phi ptr [ %17, %lor.lhs.false.i17 ], [ %29, %lor.lhs.false.i57 ], [ %.pre.i66.sink, %return.sink.split.sink.split ]
+  %.sink.in = phi ptr [ %m_todo, %lor.lhs.false.i17 ], [ %m_todo34, %lor.lhs.false.i57 ], [ %.sink.in.ph, %return.sink.split.sink.split ]
+  %idx.ext.i21 = zext i32 %.sink16 to i64
+  %add.ptr.i22 = getelementptr inbounds %"struct.std::pair.75", ptr %.sink15, i64 %idx.ext.i21
+  store ptr %5, ptr %add.ptr.i22, align 8
+  %ref.tmp20.sroa.2.0.add.ptr.i22.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i22, i64 8
+  store ptr %6, ptr %ref.tmp20.sroa.2.0.add.ptr.i22.sroa_idx, align 8
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %arrayidx10.i63 = getelementptr inbounds i8, ptr %.sink, i64 -4
+  %32 = load i32, ptr %arrayidx10.i63, align 4
+  %inc.i64 = add i32 %32, 1
   store i32 %inc.i64, ptr %arrayidx10.i63, align 4
   br label %return
 
@@ -19126,17 +19130,20 @@ entry:
 ; Function Attrs: nofree nosync nounwind memory(none)
 declare i32 @llvm.eh.typeid.for.p0(ptr) #15
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #17
+declare i32 @llvm.umax.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #17
+declare i32 @llvm.umin.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #18
@@ -19157,8 +19164,8 @@ attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "sta
 attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nofree nosync nounwind memory(none) }
-attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #19 = { nounwind }
 attributes #20 = { noreturn nounwind }

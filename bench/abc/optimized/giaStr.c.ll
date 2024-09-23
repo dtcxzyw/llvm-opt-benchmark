@@ -5907,7 +5907,8 @@ define internal fastcc void @Gia_ManSimplifyAnd(ptr nocapture noundef %0) unname
 Vec_IntGrow.exit.i:                               ; preds = %10, %8
   %12 = phi ptr [ %11, %10 ], [ %.val27, %8 ]
   store i32 0, ptr %12, align 4
-  br label %.sink.split
+  store i32 1, ptr %2, align 4
+  br label %45
 
 13:                                               ; preds = %5
   %14 = icmp ne i32 %.02147, -1
@@ -5942,7 +5943,8 @@ Vec_IntGrow.exit.i:                               ; preds = %10, %8
 Vec_IntGrow.exit.i30:                             ; preds = %22, %20
   %24 = phi ptr [ %23, %22 ], [ %.val27, %20 ]
   store i32 0, ptr %24, align 4
-  br label %.sink.split
+  store i32 1, ptr %2, align 4
+  br label %45
 
 25:                                               ; preds = %5, %15, %19
   %.val26 = phi i32 [ %.val26.pre, %15 ], [ %.val2652, %19 ], [ %.val2652, %5 ]
@@ -5992,14 +5994,10 @@ Vec_IntPush.exit:                                 ; preds = %29, %Vec_IntGrow.ex
   store i32 %42, ptr %2, align 4
   %43 = sext i32 %40 to i64
   %44 = getelementptr inbounds i32, ptr %41, i64 %43
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %Vec_IntGrow.exit.i, %Vec_IntGrow.exit.i30, %Vec_IntPush.exit
-  %.sink = phi ptr [ %44, %Vec_IntPush.exit ], [ %2, %Vec_IntGrow.exit.i30 ], [ %2, %Vec_IntGrow.exit.i ]
-  store i32 1, ptr %.sink, align 4
+  store i32 1, ptr %44, align 4
   br label %45
 
-45:                                               ; preds = %.sink.split, %.critedge
+45:                                               ; preds = %Vec_IntPush.exit, %.critedge, %Vec_IntGrow.exit.i30, %Vec_IntGrow.exit.i
   ret void
 }
 

@@ -2127,14 +2127,14 @@ define dso_local void @_ZN4i18n12phonenumbers11UnicodeText9push_backEi(ptr nocap
   %6 = add i32 %1, -57344
   %7 = icmp ult i32 %6, 1056768
   %8 = or i1 %5, %7
-  br i1 %8, label %9, label %74
+  br i1 %8, label %9, label %78
 
 9:                                                ; preds = %2
   store i32 %1, ptr %4, align 4
   %10 = call i32 @runetochar(ptr noundef nonnull %3, ptr noundef nonnull %4)
   %11 = call noundef i32 @_ZN4i18n12phonenumbers6UniLib20SpanInterchangeValidEPKci(ptr noundef nonnull %3, i32 noundef %10)
   %12 = icmp eq i32 %10, %11
-  br i1 %12, label %13, label %43
+  br i1 %12, label %13, label %45
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2194,136 +2194,140 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr6appendEPKci.exit: ; preds = %._ZN4i18n1
   %41 = getelementptr inbounds i8, ptr %39, i64 %40
   %42 = sext i32 %10 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %41, ptr nonnull readonly align 1 %3, i64 %42, i1 false)
-  br label %105
+  %43 = load i32, ptr %14, align 8
+  %44 = add nsw i32 %43, %10
+  store i32 %44, ptr %14, align 8
+  br label %111
 
-43:                                               ; preds = %9
-  %44 = load ptr, ptr @stderr, align 8
-  %45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef nonnull @.str.10, i32 noundef %1) #27
-  %46 = getelementptr inbounds i8, ptr %0, i64 8
-  %47 = load i32, ptr %46, align 8
-  %48 = add nsw i32 %47, 1
-  %49 = getelementptr inbounds i8, ptr %0, i64 12
-  %50 = load i32, ptr %49, align 4
-  %.not.i.i6.not = icmp sgt i32 %50, %47
-  br i1 %.not.i.i6.not, label %51, label %55
+45:                                               ; preds = %9
+  %46 = load ptr, ptr @stderr, align 8
+  %47 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %46, ptr noundef nonnull @.str.10, i32 noundef %1) #27
+  %48 = getelementptr inbounds i8, ptr %0, i64 8
+  %49 = load i32, ptr %48, align 8
+  %50 = add nsw i32 %49, 1
+  %51 = getelementptr inbounds i8, ptr %0, i64 12
+  %52 = load i32, ptr %51, align 4
+  %.not.i.i6.not = icmp sgt i32 %52, %49
+  br i1 %.not.i.i6.not, label %53, label %57
 
-51:                                               ; preds = %43
-  %52 = getelementptr inbounds i8, ptr %0, i64 16
-  %53 = load i8, ptr %52, align 8
-  %54 = trunc i8 %53 to i1
-  br i1 %54, label %._ZN4i18n12phonenumbers11UnicodeText4Repr7reserveEi.exit_crit_edge.i11, label %55
+53:                                               ; preds = %45
+  %54 = getelementptr inbounds i8, ptr %0, i64 16
+  %55 = load i8, ptr %54, align 8
+  %56 = trunc i8 %55 to i1
+  br i1 %56, label %._ZN4i18n12phonenumbers11UnicodeText4Repr7reserveEi.exit_crit_edge.i11, label %57
 
-._ZN4i18n12phonenumbers11UnicodeText4Repr7reserveEi.exit_crit_edge.i11: ; preds = %51
+._ZN4i18n12phonenumbers11UnicodeText4Repr7reserveEi.exit_crit_edge.i11: ; preds = %53
   %.pre.i12 = load ptr, ptr %0, align 8
   br label %_ZN4i18n12phonenumbers11UnicodeText4Repr6appendEPKci.exit13
 
-55:                                               ; preds = %51, %43
-  %56 = mul nsw i32 %50, 3
-  %57 = sdiv i32 %56, 2
-  %58 = add nsw i32 %57, 20
-  %.sroa.speculated.i.i7 = call i32 @llvm.smax.i32(i32 %48, i32 %58)
-  store i32 %.sroa.speculated.i.i7, ptr %49, align 4
-  %59 = sext i32 %.sroa.speculated.i.i7 to i64
-  %60 = call noalias noundef nonnull ptr @_Znam(i64 noundef %59) #23
-  %61 = load ptr, ptr %0, align 8
-  %.not4.i.i8 = icmp eq ptr %61, null
-  br i1 %.not4.i.i8, label %68, label %62
+57:                                               ; preds = %53, %45
+  %58 = mul nsw i32 %52, 3
+  %59 = sdiv i32 %58, 2
+  %60 = add nsw i32 %59, 20
+  %.sroa.speculated.i.i7 = call i32 @llvm.smax.i32(i32 %50, i32 %60)
+  store i32 %.sroa.speculated.i.i7, ptr %51, align 4
+  %61 = sext i32 %.sroa.speculated.i.i7 to i64
+  %62 = call noalias noundef nonnull ptr @_Znam(i64 noundef %61) #23
+  %63 = load ptr, ptr %0, align 8
+  %.not4.i.i8 = icmp eq ptr %63, null
+  br i1 %.not4.i.i8, label %70, label %64
 
-62:                                               ; preds = %55
-  %63 = sext i32 %47 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %60, ptr nonnull align 1 %61, i64 %63, i1 false)
-  %64 = getelementptr inbounds i8, ptr %0, i64 16
-  %65 = load i8, ptr %64, align 8
-  %66 = trunc i8 %65 to i1
-  br i1 %66, label %67, label %68
+64:                                               ; preds = %57
+  %65 = sext i32 %49 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %62, ptr nonnull align 1 %63, i64 %65, i1 false)
+  %66 = getelementptr inbounds i8, ptr %0, i64 16
+  %67 = load i8, ptr %66, align 8
+  %68 = trunc i8 %67 to i1
+  br i1 %68, label %69, label %70
 
-67:                                               ; preds = %62
-  call void @_ZdaPv(ptr noundef nonnull %61) #24
-  %.pre4.pre.i10 = load i32, ptr %46, align 8
-  br label %68
+69:                                               ; preds = %64
+  call void @_ZdaPv(ptr noundef nonnull %63) #24
+  %.pre4.pre.i10 = load i32, ptr %48, align 8
+  br label %70
 
-68:                                               ; preds = %67, %62, %55
-  %.pre4.i9 = phi i32 [ %.pre4.pre.i10, %67 ], [ %47, %62 ], [ %47, %55 ]
-  store ptr %60, ptr %0, align 8
-  %69 = getelementptr inbounds i8, ptr %0, i64 16
-  store i8 1, ptr %69, align 8
+70:                                               ; preds = %69, %64, %57
+  %.pre4.i9 = phi i32 [ %.pre4.pre.i10, %69 ], [ %49, %64 ], [ %49, %57 ]
+  store ptr %62, ptr %0, align 8
+  %71 = getelementptr inbounds i8, ptr %0, i64 16
+  store i8 1, ptr %71, align 8
   br label %_ZN4i18n12phonenumbers11UnicodeText4Repr6appendEPKci.exit13
 
-_ZN4i18n12phonenumbers11UnicodeText4Repr6appendEPKci.exit13: ; preds = %._ZN4i18n12phonenumbers11UnicodeText4Repr7reserveEi.exit_crit_edge.i11, %68
-  %70 = phi i32 [ %47, %._ZN4i18n12phonenumbers11UnicodeText4Repr7reserveEi.exit_crit_edge.i11 ], [ %.pre4.i9, %68 ]
-  %71 = phi ptr [ %.pre.i12, %._ZN4i18n12phonenumbers11UnicodeText4Repr7reserveEi.exit_crit_edge.i11 ], [ %60, %68 ]
-  %72 = sext i32 %70 to i64
-  %73 = getelementptr inbounds i8, ptr %71, i64 %72
-  store i8 32, ptr %73, align 1
-  br label %105
+_ZN4i18n12phonenumbers11UnicodeText4Repr6appendEPKci.exit13: ; preds = %._ZN4i18n12phonenumbers11UnicodeText4Repr7reserveEi.exit_crit_edge.i11, %70
+  %72 = phi i32 [ %49, %._ZN4i18n12phonenumbers11UnicodeText4Repr7reserveEi.exit_crit_edge.i11 ], [ %.pre4.i9, %70 ]
+  %73 = phi ptr [ %.pre.i12, %._ZN4i18n12phonenumbers11UnicodeText4Repr7reserveEi.exit_crit_edge.i11 ], [ %62, %70 ]
+  %74 = sext i32 %72 to i64
+  %75 = getelementptr inbounds i8, ptr %73, i64 %74
+  store i8 32, ptr %75, align 1
+  %76 = load i32, ptr %48, align 8
+  %77 = add nsw i32 %76, 1
+  store i32 %77, ptr %48, align 8
+  br label %111
 
-74:                                               ; preds = %2
-  %75 = load ptr, ptr @stderr, align 8
-  %76 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %75, ptr noundef nonnull @.str.11, i32 noundef %1) #27
-  %77 = getelementptr inbounds i8, ptr %0, i64 8
-  %78 = load i32, ptr %77, align 8
-  %79 = add nsw i32 %78, 1
-  %80 = getelementptr inbounds i8, ptr %0, i64 12
-  %81 = load i32, ptr %80, align 4
-  %.not.i.i14.not = icmp sgt i32 %81, %78
-  br i1 %.not.i.i14.not, label %82, label %86
+78:                                               ; preds = %2
+  %79 = load ptr, ptr @stderr, align 8
+  %80 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %79, ptr noundef nonnull @.str.11, i32 noundef %1) #27
+  %81 = getelementptr inbounds i8, ptr %0, i64 8
+  %82 = load i32, ptr %81, align 8
+  %83 = add nsw i32 %82, 1
+  %84 = getelementptr inbounds i8, ptr %0, i64 12
+  %85 = load i32, ptr %84, align 4
+  %.not.i.i14.not = icmp sgt i32 %85, %82
+  br i1 %.not.i.i14.not, label %86, label %90
 
-82:                                               ; preds = %74
-  %83 = getelementptr inbounds i8, ptr %0, i64 16
-  %84 = load i8, ptr %83, align 8
-  %85 = trunc i8 %84 to i1
-  br i1 %85, label %._ZN4i18n12phonenumbers11UnicodeText4Repr7reserveEi.exit_crit_edge.i19, label %86
+86:                                               ; preds = %78
+  %87 = getelementptr inbounds i8, ptr %0, i64 16
+  %88 = load i8, ptr %87, align 8
+  %89 = trunc i8 %88 to i1
+  br i1 %89, label %._ZN4i18n12phonenumbers11UnicodeText4Repr7reserveEi.exit_crit_edge.i19, label %90
 
-._ZN4i18n12phonenumbers11UnicodeText4Repr7reserveEi.exit_crit_edge.i19: ; preds = %82
+._ZN4i18n12phonenumbers11UnicodeText4Repr7reserveEi.exit_crit_edge.i19: ; preds = %86
   %.pre.i20 = load ptr, ptr %0, align 8
   br label %_ZN4i18n12phonenumbers11UnicodeText4Repr6appendEPKci.exit21
 
-86:                                               ; preds = %82, %74
-  %87 = mul nsw i32 %81, 3
-  %88 = sdiv i32 %87, 2
-  %89 = add nsw i32 %88, 20
-  %.sroa.speculated.i.i15 = tail call i32 @llvm.smax.i32(i32 %79, i32 %89)
-  store i32 %.sroa.speculated.i.i15, ptr %80, align 4
-  %90 = sext i32 %.sroa.speculated.i.i15 to i64
-  %91 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %90) #23
-  %92 = load ptr, ptr %0, align 8
-  %.not4.i.i16 = icmp eq ptr %92, null
-  br i1 %.not4.i.i16, label %99, label %93
+90:                                               ; preds = %86, %78
+  %91 = mul nsw i32 %85, 3
+  %92 = sdiv i32 %91, 2
+  %93 = add nsw i32 %92, 20
+  %.sroa.speculated.i.i15 = tail call i32 @llvm.smax.i32(i32 %83, i32 %93)
+  store i32 %.sroa.speculated.i.i15, ptr %84, align 4
+  %94 = sext i32 %.sroa.speculated.i.i15 to i64
+  %95 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %94) #23
+  %96 = load ptr, ptr %0, align 8
+  %.not4.i.i16 = icmp eq ptr %96, null
+  br i1 %.not4.i.i16, label %103, label %97
 
-93:                                               ; preds = %86
-  %94 = sext i32 %78 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %91, ptr nonnull align 1 %92, i64 %94, i1 false)
-  %95 = getelementptr inbounds i8, ptr %0, i64 16
-  %96 = load i8, ptr %95, align 8
-  %97 = trunc i8 %96 to i1
-  br i1 %97, label %98, label %99
+97:                                               ; preds = %90
+  %98 = sext i32 %82 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %95, ptr nonnull align 1 %96, i64 %98, i1 false)
+  %99 = getelementptr inbounds i8, ptr %0, i64 16
+  %100 = load i8, ptr %99, align 8
+  %101 = trunc i8 %100 to i1
+  br i1 %101, label %102, label %103
 
-98:                                               ; preds = %93
-  tail call void @_ZdaPv(ptr noundef nonnull %92) #24
-  %.pre4.pre.i18 = load i32, ptr %77, align 8
-  br label %99
+102:                                              ; preds = %97
+  tail call void @_ZdaPv(ptr noundef nonnull %96) #24
+  %.pre4.pre.i18 = load i32, ptr %81, align 8
+  br label %103
 
-99:                                               ; preds = %98, %93, %86
-  %.pre4.i17 = phi i32 [ %.pre4.pre.i18, %98 ], [ %78, %93 ], [ %78, %86 ]
-  store ptr %91, ptr %0, align 8
-  %100 = getelementptr inbounds i8, ptr %0, i64 16
-  store i8 1, ptr %100, align 8
+103:                                              ; preds = %102, %97, %90
+  %.pre4.i17 = phi i32 [ %.pre4.pre.i18, %102 ], [ %82, %97 ], [ %82, %90 ]
+  store ptr %95, ptr %0, align 8
+  %104 = getelementptr inbounds i8, ptr %0, i64 16
+  store i8 1, ptr %104, align 8
   br label %_ZN4i18n12phonenumbers11UnicodeText4Repr6appendEPKci.exit21
 
-_ZN4i18n12phonenumbers11UnicodeText4Repr6appendEPKci.exit21: ; preds = %._ZN4i18n12phonenumbers11UnicodeText4Repr7reserveEi.exit_crit_edge.i19, %99
-  %101 = phi i32 [ %78, %._ZN4i18n12phonenumbers11UnicodeText4Repr7reserveEi.exit_crit_edge.i19 ], [ %.pre4.i17, %99 ]
-  %102 = phi ptr [ %.pre.i20, %._ZN4i18n12phonenumbers11UnicodeText4Repr7reserveEi.exit_crit_edge.i19 ], [ %91, %99 ]
-  %103 = sext i32 %101 to i64
-  %104 = getelementptr inbounds i8, ptr %102, i64 %103
-  store i8 32, ptr %104, align 1
-  br label %105
+_ZN4i18n12phonenumbers11UnicodeText4Repr6appendEPKci.exit21: ; preds = %._ZN4i18n12phonenumbers11UnicodeText4Repr7reserveEi.exit_crit_edge.i19, %103
+  %105 = phi i32 [ %82, %._ZN4i18n12phonenumbers11UnicodeText4Repr7reserveEi.exit_crit_edge.i19 ], [ %.pre4.i17, %103 ]
+  %106 = phi ptr [ %.pre.i20, %._ZN4i18n12phonenumbers11UnicodeText4Repr7reserveEi.exit_crit_edge.i19 ], [ %95, %103 ]
+  %107 = sext i32 %105 to i64
+  %108 = getelementptr inbounds i8, ptr %106, i64 %107
+  store i8 32, ptr %108, align 1
+  %109 = load i32, ptr %81, align 8
+  %110 = add nsw i32 %109, 1
+  store i32 %110, ptr %81, align 8
+  br label %111
 
-105:                                              ; preds = %_ZN4i18n12phonenumbers11UnicodeText4Repr6appendEPKci.exit, %_ZN4i18n12phonenumbers11UnicodeText4Repr6appendEPKci.exit13, %_ZN4i18n12phonenumbers11UnicodeText4Repr6appendEPKci.exit21
-  %.sink = phi ptr [ %14, %_ZN4i18n12phonenumbers11UnicodeText4Repr6appendEPKci.exit ], [ %46, %_ZN4i18n12phonenumbers11UnicodeText4Repr6appendEPKci.exit13 ], [ %77, %_ZN4i18n12phonenumbers11UnicodeText4Repr6appendEPKci.exit21 ]
-  %.sink24 = phi i32 [ %10, %_ZN4i18n12phonenumbers11UnicodeText4Repr6appendEPKci.exit ], [ 1, %_ZN4i18n12phonenumbers11UnicodeText4Repr6appendEPKci.exit13 ], [ 1, %_ZN4i18n12phonenumbers11UnicodeText4Repr6appendEPKci.exit21 ]
-  %106 = load i32, ptr %.sink, align 8
-  %107 = add nsw i32 %106, %.sink24
-  store i32 %107, ptr %.sink, align 8
+111:                                              ; preds = %_ZN4i18n12phonenumbers11UnicodeText4Repr6appendEPKci.exit, %_ZN4i18n12phonenumbers11UnicodeText4Repr6appendEPKci.exit13, %_ZN4i18n12phonenumbers11UnicodeText4Repr6appendEPKci.exit21
   ret void
 }
 

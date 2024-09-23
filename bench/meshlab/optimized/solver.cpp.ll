@@ -5998,402 +5998,415 @@ define noundef zeroext i1 @_ZN6Solver6levmarEP8AlignSetRN3vcg4ShotIfNS2_8Matrix4
 .lr.ph:                                           ; preds = %3
   %56 = getelementptr inbounds i8, ptr %4, i64 28
   %57 = getelementptr inbounds i8, ptr %5, i64 8
-  %58 = getelementptr inbounds i8, ptr %4, i64 8
-  %59 = getelementptr inbounds i8, ptr %6, i64 4
-  %60 = getelementptr inbounds i8, ptr %6, i64 24
-  %61 = getelementptr inbounds i8, ptr %7, i64 4
-  %62 = getelementptr inbounds i8, ptr %7, i64 24
-  br label %63
+  %58 = getelementptr inbounds i8, ptr %5, i64 16
+  %59 = getelementptr inbounds i8, ptr %4, i64 8
+  %60 = getelementptr inbounds i8, ptr %4, i64 16
+  %61 = getelementptr inbounds i8, ptr %6, i64 4
+  %62 = getelementptr inbounds i8, ptr %6, i64 24
+  %63 = getelementptr inbounds i8, ptr %7, i64 4
+  %64 = getelementptr inbounds i8, ptr %7, i64 24
+  br label %65
 
-63:                                               ; preds = %.lr.ph, %63
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %63 ]
-  %64 = phi i32 [ %54, %.lr.ph ], [ %96, %63 ]
-  %65 = phi ptr [ %50, %.lr.ph ], [ %92, %63 ]
-  %66 = getelementptr inbounds i8, ptr %65, i64 16
-  %67 = sext i32 %64 to i64
-  %68 = getelementptr inbounds ptr, ptr %66, i64 %67
-  %69 = getelementptr inbounds ptr, ptr %68, i64 %indvars.iv
-  %70 = load ptr, ptr %69, align 8
-  call void @_ZN19PointCorrespondence10getPointAtEi(ptr dead_on_unwind nonnull writable sret(%class.PointOnLayer) align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %70, i32 noundef 0)
-  call void @_ZN19PointCorrespondence10getPointAtEi(ptr dead_on_unwind nonnull writable sret(%class.PointOnLayer) align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %70, i32 noundef 1)
-  %71 = load i32, ptr %56, align 4
-  %72 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #25
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %72, i8 0, i64 16, i1 false)
-  %73 = icmp eq i32 %71, 2
-  %.183.v.sroa.sel.v = select i1 %73, ptr %4, ptr %5
-  %.183.v.sroa.sel = getelementptr inbounds i8, ptr %.183.v.sroa.sel.v, i64 16
-  %.val = load double, ptr %58, align 8
-  %.val187 = load double, ptr %57, align 8
-  %74 = select i1 %73, double %.val, double %.val187
-  %75 = load double, ptr %.183.v.sroa.sel, align 8
-  %76 = select i1 %73, double %.val187, double %.val
-  %.val190 = load double, ptr %5, align 8
-  %.val191 = load double, ptr %4, align 8
-  %.sink177 = select i1 %73, double %.val190, double %.val191
-  %.sink178 = fptrunc double %75 to float
-  %.sink179 = fptrunc double %74 to float
-  %.sink180.in = select i1 %73, double %.val191, double %.val190
+65:                                               ; preds = %.lr.ph, %84
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %84 ]
+  %66 = phi i32 [ %54, %.lr.ph ], [ %104, %84 ]
+  %67 = phi ptr [ %50, %.lr.ph ], [ %100, %84 ]
+  %68 = getelementptr inbounds i8, ptr %67, i64 16
+  %69 = sext i32 %66 to i64
+  %70 = getelementptr inbounds ptr, ptr %68, i64 %69
+  %71 = getelementptr inbounds ptr, ptr %70, i64 %indvars.iv
+  %72 = load ptr, ptr %71, align 8
+  call void @_ZN19PointCorrespondence10getPointAtEi(ptr dead_on_unwind nonnull writable sret(%class.PointOnLayer) align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %72, i32 noundef 0)
+  call void @_ZN19PointCorrespondence10getPointAtEi(ptr dead_on_unwind nonnull writable sret(%class.PointOnLayer) align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %72, i32 noundef 1)
+  %73 = load i32, ptr %56, align 4
+  %74 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #25
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %74, i8 0, i64 16, i1 false)
+  %75 = icmp eq i32 %73, 2
+  br i1 %75, label %76, label %80
+
+76:                                               ; preds = %65
+  %77 = load double, ptr %59, align 8
+  %78 = load double, ptr %60, align 8
+  %79 = load double, ptr %57, align 8
+  br label %84
+
+80:                                               ; preds = %65
+  %81 = load double, ptr %57, align 8
+  %82 = load double, ptr %58, align 8
+  %83 = load double, ptr %59, align 8
+  br label %84
+
+84:                                               ; preds = %80, %76
+  %.sink180.in.in = phi ptr [ %4, %76 ], [ %5, %80 ]
+  %.sink179.in = phi double [ %77, %76 ], [ %81, %80 ]
+  %.sink178.in = phi double [ %78, %76 ], [ %82, %80 ]
+  %.sink177.in = phi ptr [ %5, %76 ], [ %4, %80 ]
+  %.sink = phi double [ %79, %76 ], [ %83, %80 ]
+  %.sink177 = load double, ptr %.sink177.in, align 8
+  %.sink178 = fptrunc double %.sink178.in to float
+  %.sink179 = fptrunc double %.sink179.in to float
+  %.sink180.in = load double, ptr %.sink180.in.in, align 8
   %.sink180 = fptrunc double %.sink180.in to float
-  store float %.sink180, ptr %72, align 8
-  %77 = getelementptr inbounds i8, ptr %72, i64 4
-  store float %.sink179, ptr %77, align 4
-  %78 = getelementptr inbounds i8, ptr %72, i64 8
-  store float %.sink178, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %72, i64 16
-  store double %.sink177, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %72, i64 24
-  store double %76, ptr %80, align 8
+  store float %.sink180, ptr %74, align 8
+  %85 = getelementptr inbounds i8, ptr %74, i64 4
+  store float %.sink179, ptr %85, align 4
+  %86 = getelementptr inbounds i8, ptr %74, i64 8
+  store float %.sink178, ptr %86, align 8
+  %87 = getelementptr inbounds i8, ptr %74, i64 16
+  store double %.sink177, ptr %87, align 8
+  %88 = getelementptr inbounds i8, ptr %74, i64 24
+  store double %.sink, ptr %88, align 8
   store i32 2, ptr %6, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %59, i8 0, i64 20, i1 false)
-  store ptr @.str.35, ptr %60, align 8
-  %81 = fpext float %.sink180 to double
-  %82 = fpext float %.sink179 to double
-  %83 = fpext float %.sink178 to double
-  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.15, double noundef %81, double noundef %82, double noundef %83)
-  store i32 2, ptr %7, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %61, i8 0, i64 20, i1 false)
   store ptr @.str.35, ptr %62, align 8
-  %84 = fptrunc double %.sink177 to float
-  %85 = fpext float %84 to double
-  %86 = fptrunc double %76 to float
-  %87 = fpext float %86 to double
-  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.16, double noundef %85, double noundef %87)
-  %88 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
-  %89 = getelementptr inbounds i8, ptr %88, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %89, ptr noundef nonnull align 8 dereferenceable(32) %72, i64 32, i1 false)
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %88, ptr noundef nonnull %47) #22
-  %90 = load i64, ptr %49, align 8
-  %91 = add i64 %90, 1
-  store i64 %91, ptr %49, align 8
+  %89 = fpext float %.sink180 to double
+  %90 = fpext float %.sink179 to double
+  %91 = fpext float %.sink178 to double
+  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.15, double noundef %89, double noundef %90, double noundef %91)
+  store i32 2, ptr %7, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %63, i8 0, i64 20, i1 false)
+  store ptr @.str.35, ptr %64, align 8
+  %92 = fptrunc double %.sink177 to float
+  %93 = fpext float %92 to double
+  %94 = fptrunc double %.sink to float
+  %95 = fpext float %94 to double
+  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.16, double noundef %93, double noundef %95)
+  %96 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %97 = getelementptr inbounds i8, ptr %96, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %97, ptr noundef nonnull align 8 dereferenceable(32) %74, i64 32, i1 false)
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %96, ptr noundef nonnull %47) #22
+  %98 = load i64, ptr %49, align 8
+  %99 = add i64 %98, 1
+  store i64 %99, ptr %49, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %92 = load ptr, ptr %46, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 12
-  %94 = load i32, ptr %93, align 4
-  %95 = getelementptr inbounds i8, ptr %92, i64 8
-  %96 = load i32, ptr %95, align 8
-  %97 = sub nsw i32 %94, %96
-  %98 = sext i32 %97 to i64
-  %99 = icmp slt i64 %indvars.iv.next, %98
-  br i1 %99, label %63, label %._crit_edge, !llvm.loop !151
+  %100 = load ptr, ptr %46, align 8
+  %101 = getelementptr inbounds i8, ptr %100, i64 12
+  %102 = load i32, ptr %101, align 4
+  %103 = getelementptr inbounds i8, ptr %100, i64 8
+  %104 = load i32, ptr %103, align 8
+  %105 = sub nsw i32 %102, %104
+  %106 = sext i32 %105 to i64
+  %107 = icmp slt i64 %indvars.iv.next, %106
+  br i1 %107, label %65, label %._crit_edge, !llvm.loop !151
 
-._crit_edge:                                      ; preds = %63, %3
+._crit_edge:                                      ; preds = %84, %3
   store i32 2, ptr %8, align 8
-  %100 = getelementptr inbounds i8, ptr %8, i64 4
-  %101 = getelementptr inbounds i8, ptr %8, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %100, i8 0, i64 20, i1 false)
-  store ptr @.str.35, ptr %101, align 8
+  %108 = getelementptr inbounds i8, ptr %8, i64 4
+  %109 = getelementptr inbounds i8, ptr %8, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %108, i8 0, i64 20, i1 false)
+  store ptr @.str.35, ptr %109, align 8
   call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.17)
   store i32 2, ptr %9, align 8
-  %102 = getelementptr inbounds i8, ptr %9, i64 4
-  %103 = getelementptr inbounds i8, ptr %9, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %102, i8 0, i64 20, i1 false)
-  store ptr @.str.35, ptr %103, align 8
-  %104 = load float, ptr %2, align 4
-  %105 = fpext float %104 to double
-  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.18, double noundef %105)
-  store i32 2, ptr %10, align 8
-  %106 = getelementptr inbounds i8, ptr %10, i64 4
-  %107 = getelementptr inbounds i8, ptr %10, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %106, i8 0, i64 20, i1 false)
-  store ptr @.str.35, ptr %107, align 8
-  %108 = getelementptr inbounds i8, ptr %2, i64 4
-  %109 = load i32, ptr %108, align 4
-  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.19, i32 noundef %109)
-  store i32 2, ptr %11, align 8
-  %110 = getelementptr inbounds i8, ptr %11, i64 4
-  %111 = getelementptr inbounds i8, ptr %11, i64 24
+  %110 = getelementptr inbounds i8, ptr %9, i64 4
+  %111 = getelementptr inbounds i8, ptr %9, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %110, i8 0, i64 20, i1 false)
   store ptr @.str.35, ptr %111, align 8
-  %112 = getelementptr inbounds i8, ptr %2, i64 8
-  %113 = load i32, ptr %112, align 4
-  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.20, i32 noundef %113)
-  store i32 2, ptr %12, align 8
-  %114 = getelementptr inbounds i8, ptr %12, i64 4
-  %115 = getelementptr inbounds i8, ptr %12, i64 24
+  %112 = load float, ptr %2, align 4
+  %113 = fpext float %112 to double
+  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.18, double noundef %113)
+  store i32 2, ptr %10, align 8
+  %114 = getelementptr inbounds i8, ptr %10, i64 4
+  %115 = getelementptr inbounds i8, ptr %10, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %114, i8 0, i64 20, i1 false)
   store ptr @.str.35, ptr %115, align 8
-  %116 = getelementptr inbounds i8, ptr %2, i64 20
-  %117 = load float, ptr %116, align 4
-  %118 = fpext float %117 to double
-  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @.str.21, double noundef %118)
+  %116 = getelementptr inbounds i8, ptr %2, i64 4
+  %117 = load i32, ptr %116, align 4
+  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.19, i32 noundef %117)
+  store i32 2, ptr %11, align 8
+  %118 = getelementptr inbounds i8, ptr %11, i64 4
+  %119 = getelementptr inbounds i8, ptr %11, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %118, i8 0, i64 20, i1 false)
+  store ptr @.str.35, ptr %119, align 8
+  %120 = getelementptr inbounds i8, ptr %2, i64 8
+  %121 = load i32, ptr %120, align 4
+  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.20, i32 noundef %121)
+  store i32 2, ptr %12, align 8
+  %122 = getelementptr inbounds i8, ptr %12, i64 4
+  %123 = getelementptr inbounds i8, ptr %12, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %122, i8 0, i64 20, i1 false)
+  store ptr @.str.35, ptr %123, align 8
+  %124 = getelementptr inbounds i8, ptr %2, i64 20
+  %125 = load float, ptr %124, align 4
+  %126 = fpext float %125 to double
+  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @.str.21, double noundef %126)
   store i32 2, ptr %13, align 8
-  %119 = getelementptr inbounds i8, ptr %13, i64 4
-  %120 = getelementptr inbounds i8, ptr %13, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %119, i8 0, i64 20, i1 false)
-  store ptr @.str.35, ptr %120, align 8
-  %121 = getelementptr inbounds i8, ptr %2, i64 24
-  %122 = load float, ptr %121, align 4
-  %123 = fpext float %122 to double
-  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str.22, double noundef %123)
+  %127 = getelementptr inbounds i8, ptr %13, i64 4
+  %128 = getelementptr inbounds i8, ptr %13, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %127, i8 0, i64 20, i1 false)
+  store ptr @.str.35, ptr %128, align 8
+  %129 = getelementptr inbounds i8, ptr %2, i64 24
+  %130 = load float, ptr %129, align 4
+  %131 = fpext float %130 to double
+  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str.22, double noundef %131)
   store i32 2, ptr %14, align 8
-  %124 = getelementptr inbounds i8, ptr %14, i64 4
-  %125 = getelementptr inbounds i8, ptr %14, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %124, i8 0, i64 20, i1 false)
-  store ptr @.str.35, ptr %125, align 8
-  %126 = getelementptr inbounds i8, ptr %2, i64 28
-  %127 = load float, ptr %126, align 4
-  %128 = fpext float %127 to double
-  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.23, double noundef %128)
+  %132 = getelementptr inbounds i8, ptr %14, i64 4
+  %133 = getelementptr inbounds i8, ptr %14, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %132, i8 0, i64 20, i1 false)
+  store ptr @.str.35, ptr %133, align 8
+  %134 = getelementptr inbounds i8, ptr %2, i64 28
+  %135 = load float, ptr %134, align 4
+  %136 = fpext float %135 to double
+  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.23, double noundef %136)
   store i32 2, ptr %15, align 8
-  %129 = getelementptr inbounds i8, ptr %15, i64 4
-  %130 = getelementptr inbounds i8, ptr %15, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %129, i8 0, i64 20, i1 false)
-  store ptr @.str.35, ptr %130, align 8
-  %131 = getelementptr inbounds i8, ptr %2, i64 32
-  %132 = load float, ptr %131, align 4
-  %133 = fpext float %132 to double
-  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull @.str.24, double noundef %133)
+  %137 = getelementptr inbounds i8, ptr %15, i64 4
+  %138 = getelementptr inbounds i8, ptr %15, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %137, i8 0, i64 20, i1 false)
+  store ptr @.str.35, ptr %138, align 8
+  %139 = getelementptr inbounds i8, ptr %2, i64 32
+  %140 = load float, ptr %139, align 4
+  %141 = fpext float %140 to double
+  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull @.str.24, double noundef %141)
   store i32 2, ptr %16, align 8
-  %134 = getelementptr inbounds i8, ptr %16, i64 4
-  %135 = getelementptr inbounds i8, ptr %16, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %134, i8 0, i64 20, i1 false)
-  store ptr @.str.35, ptr %135, align 8
-  %136 = getelementptr inbounds i8, ptr %2, i64 12
-  %137 = load float, ptr %136, align 4
-  %138 = fpext float %137 to double
-  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @.str.25, double noundef %138)
+  %142 = getelementptr inbounds i8, ptr %16, i64 4
+  %143 = getelementptr inbounds i8, ptr %16, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %142, i8 0, i64 20, i1 false)
+  store ptr @.str.35, ptr %143, align 8
+  %144 = getelementptr inbounds i8, ptr %2, i64 12
+  %145 = load float, ptr %144, align 4
+  %146 = fpext float %145 to double
+  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @.str.25, double noundef %146)
   store i32 2, ptr %17, align 8
-  %139 = getelementptr inbounds i8, ptr %17, i64 4
-  %140 = getelementptr inbounds i8, ptr %17, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %139, i8 0, i64 20, i1 false)
-  store ptr @.str.35, ptr %140, align 8
-  %141 = getelementptr inbounds i8, ptr %2, i64 16
-  %142 = load float, ptr %141, align 4
-  %143 = fpext float %142 to double
-  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull @.str.26, double noundef %143)
+  %147 = getelementptr inbounds i8, ptr %17, i64 4
+  %148 = getelementptr inbounds i8, ptr %17, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %147, i8 0, i64 20, i1 false)
+  store ptr @.str.35, ptr %148, align 8
+  %149 = getelementptr inbounds i8, ptr %2, i64 16
+  %150 = load float, ptr %149, align 4
+  %151 = fpext float %150 to double
+  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull @.str.26, double noundef %151)
   store i32 2, ptr %18, align 8
-  %144 = getelementptr inbounds i8, ptr %18, i64 4
-  %145 = getelementptr inbounds i8, ptr %18, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %144, i8 0, i64 20, i1 false)
-  store ptr @.str.35, ptr %145, align 8
-  %146 = getelementptr inbounds i8, ptr %2, i64 36
-  %147 = load float, ptr %146, align 4
-  %148 = fpext float %147 to double
-  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull @.str.27, double noundef %148)
+  %152 = getelementptr inbounds i8, ptr %18, i64 4
+  %153 = getelementptr inbounds i8, ptr %18, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %152, i8 0, i64 20, i1 false)
+  store ptr @.str.35, ptr %153, align 8
+  %154 = getelementptr inbounds i8, ptr %2, i64 36
+  %155 = load float, ptr %154, align 4
+  %156 = fpext float %155 to double
+  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull @.str.27, double noundef %156)
   store i32 2, ptr %19, align 8
-  %149 = getelementptr inbounds i8, ptr %19, i64 4
-  %150 = getelementptr inbounds i8, ptr %19, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %149, i8 0, i64 20, i1 false)
-  store ptr @.str.35, ptr %150, align 8
-  %151 = getelementptr inbounds i8, ptr %2, i64 40
-  %152 = load float, ptr %151, align 4
-  %153 = fpext float %152 to double
-  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull @.str.28, double noundef %153)
+  %157 = getelementptr inbounds i8, ptr %19, i64 4
+  %158 = getelementptr inbounds i8, ptr %19, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %157, i8 0, i64 20, i1 false)
+  store ptr @.str.35, ptr %158, align 8
+  %159 = getelementptr inbounds i8, ptr %2, i64 40
+  %160 = load float, ptr %159, align 4
+  %161 = fpext float %160 to double
+  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull @.str.28, double noundef %161)
   store i32 2, ptr %20, align 8
-  %154 = getelementptr inbounds i8, ptr %20, i64 4
-  %155 = getelementptr inbounds i8, ptr %20, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %154, i8 0, i64 20, i1 false)
-  store ptr @.str.35, ptr %155, align 8
-  %156 = getelementptr inbounds i8, ptr %2, i64 56
-  %157 = getelementptr inbounds i8, ptr %2, i64 120
-  %.sroa.01.0.copyload.i = load <2 x float>, ptr %157, align 4
+  %162 = getelementptr inbounds i8, ptr %20, i64 4
+  %163 = getelementptr inbounds i8, ptr %20, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %162, i8 0, i64 20, i1 false)
+  store ptr @.str.35, ptr %163, align 8
+  %164 = getelementptr inbounds i8, ptr %2, i64 56
+  %165 = getelementptr inbounds i8, ptr %2, i64 120
+  %.sroa.01.0.copyload.i = load <2 x float>, ptr %165, align 4
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 128
   %.sroa.22.0.copyload.i = load float, ptr %.sroa.22.0..sroa_idx.i, align 4
   %.sroa.0145.0.vec.extract = extractelement <2 x float> %.sroa.01.0.copyload.i, i64 0
-  %158 = fpext float %.sroa.0145.0.vec.extract to double
+  %166 = fpext float %.sroa.0145.0.vec.extract to double
   %.sroa.0143.4.vec.extract = extractelement <2 x float> %.sroa.01.0.copyload.i, i64 1
-  %159 = fpext float %.sroa.0143.4.vec.extract to double
-  %160 = fpext float %.sroa.22.0.copyload.i to double
-  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull @.str.29, double noundef %158, double noundef %159, double noundef %160)
-  %161 = getelementptr inbounds i8, ptr %21, i64 4
-  %162 = getelementptr inbounds i8, ptr %21, i64 24
+  %167 = fpext float %.sroa.0143.4.vec.extract to double
+  %168 = fpext float %.sroa.22.0.copyload.i to double
+  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull @.str.29, double noundef %166, double noundef %167, double noundef %168)
+  %169 = getelementptr inbounds i8, ptr %21, i64 4
+  %170 = getelementptr inbounds i8, ptr %21, i64 24
   %invariant.gep = getelementptr inbounds i8, ptr %23, i64 4
   %invariant.gep157 = getelementptr inbounds i8, ptr %24, i64 8
   %invariant.gep159 = getelementptr inbounds i8, ptr %25, i64 12
-  br label %163
+  br label %171
 
-163:                                              ; preds = %._crit_edge, %163
-  %indvars.iv170 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next171, %163 ]
+171:                                              ; preds = %._crit_edge, %171
+  %indvars.iv170 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next171, %171 ]
   store i32 2, ptr %21, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %161, i8 0, i64 20, i1 false)
-  store ptr @.str.35, ptr %162, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %22, ptr noundef nonnull align 4 dereferenceable(64) %156, i64 64, i1 false)
-  %164 = shl nuw nsw i64 %indvars.iv170, 2
-  %165 = getelementptr inbounds [16 x float], ptr %22, i64 0, i64 %164
-  %166 = load float, ptr %165, align 4
-  %167 = fpext float %166 to double
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %23, ptr noundef nonnull align 4 dereferenceable(64) %156, i64 64, i1 false)
-  %gep = getelementptr inbounds [16 x float], ptr %invariant.gep, i64 0, i64 %164
-  %168 = load float, ptr %gep, align 4
-  %169 = fpext float %168 to double
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %24, ptr noundef nonnull align 4 dereferenceable(64) %156, i64 64, i1 false)
-  %gep158 = getelementptr inbounds [16 x float], ptr %invariant.gep157, i64 0, i64 %164
-  %170 = load float, ptr %gep158, align 4
-  %171 = fpext float %170 to double
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %25, ptr noundef nonnull align 4 dereferenceable(64) %156, i64 64, i1 false)
-  %gep160 = getelementptr inbounds [16 x float], ptr %invariant.gep159, i64 0, i64 %164
-  %172 = load float, ptr %gep160, align 4
-  %173 = fpext float %172 to double
-  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull @.str.30, double noundef %167, double noundef %169, double noundef %171, double noundef %173)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %169, i8 0, i64 20, i1 false)
+  store ptr @.str.35, ptr %170, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %22, ptr noundef nonnull align 4 dereferenceable(64) %164, i64 64, i1 false)
+  %172 = shl nuw nsw i64 %indvars.iv170, 2
+  %173 = getelementptr inbounds [16 x float], ptr %22, i64 0, i64 %172
+  %174 = load float, ptr %173, align 4
+  %175 = fpext float %174 to double
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %23, ptr noundef nonnull align 4 dereferenceable(64) %164, i64 64, i1 false)
+  %gep = getelementptr inbounds [16 x float], ptr %invariant.gep, i64 0, i64 %172
+  %176 = load float, ptr %gep, align 4
+  %177 = fpext float %176 to double
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %24, ptr noundef nonnull align 4 dereferenceable(64) %164, i64 64, i1 false)
+  %gep158 = getelementptr inbounds [16 x float], ptr %invariant.gep157, i64 0, i64 %172
+  %178 = load float, ptr %gep158, align 4
+  %179 = fpext float %178 to double
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %25, ptr noundef nonnull align 4 dereferenceable(64) %164, i64 64, i1 false)
+  %gep160 = getelementptr inbounds [16 x float], ptr %invariant.gep159, i64 0, i64 %172
+  %180 = load float, ptr %gep160, align 4
+  %181 = fpext float %180 to double
+  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull @.str.30, double noundef %175, double noundef %177, double noundef %179, double noundef %181)
   %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next171, 4
-  br i1 %exitcond.not, label %174, label %163, !llvm.loop !152
+  br i1 %exitcond.not, label %182, label %171, !llvm.loop !152
 
-174:                                              ; preds = %163
-  %175 = call noundef zeroext i1 @_ZN13LevmarMethods9calibrateEPN3vcg4ShotIfNS0_8Matrix44IfEEEEPNSt7__cxx114listI17LevmarCorrelationSaIS8_EEEb(ptr noundef nonnull %2, ptr noundef nonnull %47, i1 noundef zeroext false)
-  %176 = getelementptr inbounds i8, ptr %0, i64 304
-  %177 = load i8, ptr %176, align 8
-  %178 = trunc i8 %177 to i1
-  br i1 %178, label %179, label %181
+182:                                              ; preds = %171
+  %183 = call noundef zeroext i1 @_ZN13LevmarMethods9calibrateEPN3vcg4ShotIfNS0_8Matrix44IfEEEEPNSt7__cxx114listI17LevmarCorrelationSaIS8_EEEb(ptr noundef nonnull %2, ptr noundef nonnull %47, i1 noundef zeroext false)
+  %184 = getelementptr inbounds i8, ptr %0, i64 304
+  %185 = load i8, ptr %184, align 8
+  %186 = trunc i8 %185 to i1
+  br i1 %186, label %187, label %189
 
-179:                                              ; preds = %174
-  %180 = call noundef zeroext i1 @_ZN13LevmarMethods9calibrateEPN3vcg4ShotIfNS0_8Matrix44IfEEEEPNSt7__cxx114listI17LevmarCorrelationSaIS8_EEEb(ptr noundef nonnull %2, ptr noundef nonnull %47, i1 noundef zeroext true)
-  br label %181
+187:                                              ; preds = %182
+  %188 = call noundef zeroext i1 @_ZN13LevmarMethods9calibrateEPN3vcg4ShotIfNS0_8Matrix44IfEEEEPNSt7__cxx114listI17LevmarCorrelationSaIS8_EEEb(ptr noundef nonnull %2, ptr noundef nonnull %47, i1 noundef zeroext true)
+  br label %189
 
-181:                                              ; preds = %179, %174
-  %.0107.in = phi i1 [ %175, %174 ], [ %180, %179 ]
+189:                                              ; preds = %187, %182
+  %.0107.in = phi i1 [ %183, %182 ], [ %188, %187 ]
   store i32 2, ptr %26, align 8
-  %182 = getelementptr inbounds i8, ptr %26, i64 4
-  %183 = getelementptr inbounds i8, ptr %26, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %182, i8 0, i64 20, i1 false)
-  store ptr @.str.35, ptr %183, align 8
+  %190 = getelementptr inbounds i8, ptr %26, i64 4
+  %191 = getelementptr inbounds i8, ptr %26, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %190, i8 0, i64 20, i1 false)
+  store ptr @.str.35, ptr %191, align 8
   call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull @.str.31)
-  %184 = load ptr, ptr %0, align 8
-  %185 = getelementptr inbounds i8, ptr %184, i64 400
-  store double 0x7FF8000000000000, ptr %185, align 8
+  %192 = load ptr, ptr %0, align 8
+  %193 = getelementptr inbounds i8, ptr %192, i64 400
+  store double 0x7FF8000000000000, ptr %193, align 8
   store i32 2, ptr %27, align 8
-  %186 = getelementptr inbounds i8, ptr %27, i64 4
-  %187 = getelementptr inbounds i8, ptr %27, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %186, i8 0, i64 20, i1 false)
-  store ptr @.str.35, ptr %187, align 8
+  %194 = getelementptr inbounds i8, ptr %27, i64 4
+  %195 = getelementptr inbounds i8, ptr %27, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %194, i8 0, i64 20, i1 false)
+  store ptr @.str.35, ptr %195, align 8
   call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull @.str.32)
   store i32 2, ptr %28, align 8
-  %188 = getelementptr inbounds i8, ptr %28, i64 4
-  %189 = getelementptr inbounds i8, ptr %28, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %188, i8 0, i64 20, i1 false)
-  store ptr @.str.35, ptr %189, align 8
-  %190 = load float, ptr %2, align 4
-  %191 = fpext float %190 to double
-  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull @.str.18, double noundef %191)
+  %196 = getelementptr inbounds i8, ptr %28, i64 4
+  %197 = getelementptr inbounds i8, ptr %28, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %196, i8 0, i64 20, i1 false)
+  store ptr @.str.35, ptr %197, align 8
+  %198 = load float, ptr %2, align 4
+  %199 = fpext float %198 to double
+  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull @.str.18, double noundef %199)
   store i32 2, ptr %29, align 8
-  %192 = getelementptr inbounds i8, ptr %29, i64 4
-  %193 = getelementptr inbounds i8, ptr %29, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %192, i8 0, i64 20, i1 false)
-  store ptr @.str.35, ptr %193, align 8
-  %194 = load i32, ptr %108, align 4
-  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull @.str.19, i32 noundef %194)
+  %200 = getelementptr inbounds i8, ptr %29, i64 4
+  %201 = getelementptr inbounds i8, ptr %29, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %200, i8 0, i64 20, i1 false)
+  store ptr @.str.35, ptr %201, align 8
+  %202 = load i32, ptr %116, align 4
+  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull @.str.19, i32 noundef %202)
   store i32 2, ptr %30, align 8
-  %195 = getelementptr inbounds i8, ptr %30, i64 4
-  %196 = getelementptr inbounds i8, ptr %30, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %195, i8 0, i64 20, i1 false)
-  store ptr @.str.35, ptr %196, align 8
-  %197 = load i32, ptr %112, align 4
-  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull @.str.20, i32 noundef %197)
+  %203 = getelementptr inbounds i8, ptr %30, i64 4
+  %204 = getelementptr inbounds i8, ptr %30, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %203, i8 0, i64 20, i1 false)
+  store ptr @.str.35, ptr %204, align 8
+  %205 = load i32, ptr %120, align 4
+  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull @.str.20, i32 noundef %205)
   store i32 2, ptr %31, align 8
-  %198 = getelementptr inbounds i8, ptr %31, i64 4
-  %199 = getelementptr inbounds i8, ptr %31, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %198, i8 0, i64 20, i1 false)
-  store ptr @.str.35, ptr %199, align 8
-  %200 = load float, ptr %116, align 4
-  %201 = fpext float %200 to double
-  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull @.str.21, double noundef %201)
-  store i32 2, ptr %32, align 8
-  %202 = getelementptr inbounds i8, ptr %32, i64 4
-  %203 = getelementptr inbounds i8, ptr %32, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %202, i8 0, i64 20, i1 false)
-  store ptr @.str.35, ptr %203, align 8
-  %204 = load float, ptr %121, align 4
-  %205 = fpext float %204 to double
-  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull @.str.22, double noundef %205)
-  store i32 2, ptr %33, align 8
-  %206 = getelementptr inbounds i8, ptr %33, i64 4
-  %207 = getelementptr inbounds i8, ptr %33, i64 24
+  %206 = getelementptr inbounds i8, ptr %31, i64 4
+  %207 = getelementptr inbounds i8, ptr %31, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %206, i8 0, i64 20, i1 false)
   store ptr @.str.35, ptr %207, align 8
-  %208 = load float, ptr %126, align 4
+  %208 = load float, ptr %124, align 4
   %209 = fpext float %208 to double
-  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull @.str.33, double noundef %209)
-  store i32 2, ptr %34, align 8
-  %210 = getelementptr inbounds i8, ptr %34, i64 4
-  %211 = getelementptr inbounds i8, ptr %34, i64 24
+  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull @.str.21, double noundef %209)
+  store i32 2, ptr %32, align 8
+  %210 = getelementptr inbounds i8, ptr %32, i64 4
+  %211 = getelementptr inbounds i8, ptr %32, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %210, i8 0, i64 20, i1 false)
   store ptr @.str.35, ptr %211, align 8
-  %212 = load float, ptr %131, align 4
+  %212 = load float, ptr %129, align 4
   %213 = fpext float %212 to double
-  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull @.str.34, double noundef %213)
-  store i32 2, ptr %35, align 8
-  %214 = getelementptr inbounds i8, ptr %35, i64 4
-  %215 = getelementptr inbounds i8, ptr %35, i64 24
+  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull @.str.22, double noundef %213)
+  store i32 2, ptr %33, align 8
+  %214 = getelementptr inbounds i8, ptr %33, i64 4
+  %215 = getelementptr inbounds i8, ptr %33, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %214, i8 0, i64 20, i1 false)
   store ptr @.str.35, ptr %215, align 8
-  %216 = load float, ptr %136, align 4
+  %216 = load float, ptr %134, align 4
   %217 = fpext float %216 to double
-  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull @.str.25, double noundef %217)
-  store i32 2, ptr %36, align 8
-  %218 = getelementptr inbounds i8, ptr %36, i64 4
-  %219 = getelementptr inbounds i8, ptr %36, i64 24
+  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull @.str.33, double noundef %217)
+  store i32 2, ptr %34, align 8
+  %218 = getelementptr inbounds i8, ptr %34, i64 4
+  %219 = getelementptr inbounds i8, ptr %34, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %218, i8 0, i64 20, i1 false)
   store ptr @.str.35, ptr %219, align 8
-  %220 = load float, ptr %141, align 4
+  %220 = load float, ptr %139, align 4
   %221 = fpext float %220 to double
-  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull @.str.26, double noundef %221)
-  store i32 2, ptr %37, align 8
-  %222 = getelementptr inbounds i8, ptr %37, i64 4
-  %223 = getelementptr inbounds i8, ptr %37, i64 24
+  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull @.str.34, double noundef %221)
+  store i32 2, ptr %35, align 8
+  %222 = getelementptr inbounds i8, ptr %35, i64 4
+  %223 = getelementptr inbounds i8, ptr %35, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %222, i8 0, i64 20, i1 false)
   store ptr @.str.35, ptr %223, align 8
-  %224 = load float, ptr %146, align 4
+  %224 = load float, ptr %144, align 4
   %225 = fpext float %224 to double
-  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull @.str.27, double noundef %225)
-  store i32 2, ptr %38, align 8
-  %226 = getelementptr inbounds i8, ptr %38, i64 4
-  %227 = getelementptr inbounds i8, ptr %38, i64 24
+  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull @.str.25, double noundef %225)
+  store i32 2, ptr %36, align 8
+  %226 = getelementptr inbounds i8, ptr %36, i64 4
+  %227 = getelementptr inbounds i8, ptr %36, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %226, i8 0, i64 20, i1 false)
   store ptr @.str.35, ptr %227, align 8
-  %228 = load float, ptr %151, align 4
+  %228 = load float, ptr %149, align 4
   %229 = fpext float %228 to double
-  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull @.str.28, double noundef %229)
-  store i32 2, ptr %39, align 8
-  %230 = getelementptr inbounds i8, ptr %39, i64 4
-  %231 = getelementptr inbounds i8, ptr %39, i64 24
+  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull @.str.26, double noundef %229)
+  store i32 2, ptr %37, align 8
+  %230 = getelementptr inbounds i8, ptr %37, i64 4
+  %231 = getelementptr inbounds i8, ptr %37, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %230, i8 0, i64 20, i1 false)
   store ptr @.str.35, ptr %231, align 8
-  %.sroa.01.0.copyload.i123 = load <2 x float>, ptr %157, align 4
+  %232 = load float, ptr %154, align 4
+  %233 = fpext float %232 to double
+  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull @.str.27, double noundef %233)
+  store i32 2, ptr %38, align 8
+  %234 = getelementptr inbounds i8, ptr %38, i64 4
+  %235 = getelementptr inbounds i8, ptr %38, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %234, i8 0, i64 20, i1 false)
+  store ptr @.str.35, ptr %235, align 8
+  %236 = load float, ptr %159, align 4
+  %237 = fpext float %236 to double
+  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull @.str.28, double noundef %237)
+  store i32 2, ptr %39, align 8
+  %238 = getelementptr inbounds i8, ptr %39, i64 4
+  %239 = getelementptr inbounds i8, ptr %39, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %238, i8 0, i64 20, i1 false)
+  store ptr @.str.35, ptr %239, align 8
+  %.sroa.01.0.copyload.i123 = load <2 x float>, ptr %165, align 4
   %.sroa.22.0.copyload.i125 = load float, ptr %.sroa.22.0..sroa_idx.i, align 4
   %.sroa.0139.0.vec.extract = extractelement <2 x float> %.sroa.01.0.copyload.i123, i64 0
-  %232 = fpext float %.sroa.0139.0.vec.extract to double
+  %240 = fpext float %.sroa.0139.0.vec.extract to double
   %.sroa.0138.4.vec.extract = extractelement <2 x float> %.sroa.01.0.copyload.i123, i64 1
-  %233 = fpext float %.sroa.0138.4.vec.extract to double
-  %234 = fpext float %.sroa.22.0.copyload.i125 to double
-  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull @.str.29, double noundef %232, double noundef %233, double noundef %234)
-  %235 = getelementptr inbounds i8, ptr %40, i64 4
-  %236 = getelementptr inbounds i8, ptr %40, i64 24
+  %241 = fpext float %.sroa.0138.4.vec.extract to double
+  %242 = fpext float %.sroa.22.0.copyload.i125 to double
+  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull @.str.29, double noundef %240, double noundef %241, double noundef %242)
+  %243 = getelementptr inbounds i8, ptr %40, i64 4
+  %244 = getelementptr inbounds i8, ptr %40, i64 24
   %invariant.gep162 = getelementptr inbounds i8, ptr %42, i64 4
   %invariant.gep164 = getelementptr inbounds i8, ptr %43, i64 8
   %invariant.gep166 = getelementptr inbounds i8, ptr %44, i64 12
-  br label %237
+  br label %245
 
-237:                                              ; preds = %181, %237
-  %indvars.iv173 = phi i64 [ 0, %181 ], [ %indvars.iv.next174, %237 ]
+245:                                              ; preds = %189, %245
+  %indvars.iv173 = phi i64 [ 0, %189 ], [ %indvars.iv.next174, %245 ]
   store i32 2, ptr %40, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %235, i8 0, i64 20, i1 false)
-  store ptr @.str.35, ptr %236, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %41, ptr noundef nonnull align 4 dereferenceable(64) %156, i64 64, i1 false)
-  %238 = shl nuw nsw i64 %indvars.iv173, 2
-  %239 = getelementptr inbounds [16 x float], ptr %41, i64 0, i64 %238
-  %240 = load float, ptr %239, align 4
-  %241 = fpext float %240 to double
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %42, ptr noundef nonnull align 4 dereferenceable(64) %156, i64 64, i1 false)
-  %gep163 = getelementptr inbounds [16 x float], ptr %invariant.gep162, i64 0, i64 %238
-  %242 = load float, ptr %gep163, align 4
-  %243 = fpext float %242 to double
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %43, ptr noundef nonnull align 4 dereferenceable(64) %156, i64 64, i1 false)
-  %gep165 = getelementptr inbounds [16 x float], ptr %invariant.gep164, i64 0, i64 %238
-  %244 = load float, ptr %gep165, align 4
-  %245 = fpext float %244 to double
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %44, ptr noundef nonnull align 4 dereferenceable(64) %156, i64 64, i1 false)
-  %gep167 = getelementptr inbounds [16 x float], ptr %invariant.gep166, i64 0, i64 %238
-  %246 = load float, ptr %gep167, align 4
-  %247 = fpext float %246 to double
-  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull @.str.30, double noundef %241, double noundef %243, double noundef %245, double noundef %247)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %243, i8 0, i64 20, i1 false)
+  store ptr @.str.35, ptr %244, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %41, ptr noundef nonnull align 4 dereferenceable(64) %164, i64 64, i1 false)
+  %246 = shl nuw nsw i64 %indvars.iv173, 2
+  %247 = getelementptr inbounds [16 x float], ptr %41, i64 0, i64 %246
+  %248 = load float, ptr %247, align 4
+  %249 = fpext float %248 to double
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %42, ptr noundef nonnull align 4 dereferenceable(64) %164, i64 64, i1 false)
+  %gep163 = getelementptr inbounds [16 x float], ptr %invariant.gep162, i64 0, i64 %246
+  %250 = load float, ptr %gep163, align 4
+  %251 = fpext float %250 to double
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %43, ptr noundef nonnull align 4 dereferenceable(64) %164, i64 64, i1 false)
+  %gep165 = getelementptr inbounds [16 x float], ptr %invariant.gep164, i64 0, i64 %246
+  %252 = load float, ptr %gep165, align 4
+  %253 = fpext float %252 to double
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %44, ptr noundef nonnull align 4 dereferenceable(64) %164, i64 64, i1 false)
+  %gep167 = getelementptr inbounds [16 x float], ptr %invariant.gep166, i64 0, i64 %246
+  %254 = load float, ptr %gep167, align 4
+  %255 = fpext float %254 to double
+  call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull @.str.30, double noundef %249, double noundef %251, double noundef %253, double noundef %255)
   %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
   %exitcond176.not = icmp eq i64 %indvars.iv.next174, 4
-  br i1 %exitcond176.not, label %248, label %237, !llvm.loop !153
+  br i1 %exitcond176.not, label %256, label %245, !llvm.loop !153
 
-248:                                              ; preds = %237
-  %249 = load ptr, ptr %0, align 8
-  %250 = getelementptr inbounds i8, ptr %249, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %250, ptr noundef nonnull align 4 dereferenceable(132) %2, i64 132, i1 false)
+256:                                              ; preds = %245
+  %257 = load ptr, ptr %0, align 8
+  %258 = getelementptr inbounds i8, ptr %257, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %258, ptr noundef nonnull align 4 dereferenceable(132) %2, i64 132, i1 false)
   ret i1 %.0107.in
 }
 

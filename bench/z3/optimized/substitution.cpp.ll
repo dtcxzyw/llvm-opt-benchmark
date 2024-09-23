@@ -4017,7 +4017,7 @@ _ZNK6vectorI11expr_offsetLb0EjE5emptyEv.exit.lr.ph: ; preds = %_ZN6vectorI11expr
   br label %_ZNK6vectorI11expr_offsetLb0EjE5emptyEv.exit
 
 _ZNK6vectorI11expr_offsetLb0EjE5emptyEv.exit:     ; preds = %_ZNK6vectorI11expr_offsetLb0EjE5emptyEv.exit.lr.ph, %sw.epilog
-  %16 = phi ptr [ %15, %_ZNK6vectorI11expr_offsetLb0EjE5emptyEv.exit.lr.ph ], [ %33, %sw.epilog ]
+  %16 = phi ptr [ %15, %_ZNK6vectorI11expr_offsetLb0EjE5emptyEv.exit.lr.ph ], [ %35, %sw.epilog ]
   %arrayidx.i4 = getelementptr inbounds i8, ptr %16, i64 -4
   %17 = load i32, ptr %arrayidx.i4, align 4
   %cmp3.i = icmp eq i32 %17, 0
@@ -4066,10 +4066,16 @@ land.lhs.true.i.i19:                              ; preds = %_ZNK6vectorIN15expr
 _ZNK12substitution9get_colorERK11expr_offset.exit25: ; preds = %land.lhs.true.i.i19
   %29 = load i32, ptr %arrayidx.i13.i.i21, align 4
   switch i32 %29, label %sw.epilog [
-    i32 2, label %sw.epilog.sink.split
+    i32 2, label %sw.bb
     i32 0, label %sw.bb11
     i32 1, label %sw.bb16
   ]
+
+sw.bb:                                            ; preds = %_ZNK12substitution9get_colorERK11expr_offset.exit25
+  %30 = load i32, ptr %arrayidx.i4, align 4
+  %dec.i = add i32 %30, -1
+  store i32 %dec.i, ptr %arrayidx.i4, align 4
+  br label %sw.epilog
 
 sw.bb11:                                          ; preds = %if.then.i.i12, %_ZN6vectorI11expr_offsetLb0EjE4backEv.exit, %_ZNK6vectorI7svectorIN15expr_offset_mapIN12substitution5colorEE4dataEjELb1EjE4sizeEv.exit.i.i9, %land.lhs.true.i.i19, %_ZNK6vectorIN15expr_offset_mapIN12substitution5colorEE4dataELb0EjE4sizeEv.exit.i.i16, %_ZNK12substitution9get_colorERK11expr_offset.exit25
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %c.addr.i)
@@ -4084,9 +4090,12 @@ if.then13:                                        ; preds = %sw.bb11
   store i32 2, ptr %c.addr.i28, align 4
   call void @_ZN15expr_offset_mapIN12substitution5colorEE6insertERK11expr_offsetRKS1_(ptr noundef nonnull align 8 dereferenceable(12) %m_color.i, ptr noundef nonnull align 8 dereferenceable(12) %p6, ptr noundef nonnull align 4 dereferenceable(4) %c.addr.i28)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %c.addr.i28)
-  %30 = load ptr, ptr %m_todo, align 8
-  %arrayidx.i30 = getelementptr inbounds i8, ptr %30, i64 -4
-  br label %sw.epilog.sink.split
+  %31 = load ptr, ptr %m_todo, align 8
+  %arrayidx.i30 = getelementptr inbounds i8, ptr %31, i64 -4
+  %32 = load i32, ptr %arrayidx.i30, align 4
+  %dec.i31 = add i32 %32, -1
+  store i32 %dec.i31, ptr %arrayidx.i30, align 4
+  br label %sw.epilog
 
 sw.bb16:                                          ; preds = %_ZNK12substitution9get_colorERK11expr_offset.exit25
   %call17 = call noundef zeroext i1 @_ZN12substitution14visit_childrenERK11expr_offset(ptr noundef nonnull align 8 dereferenceable(124) %this, ptr noundef nonnull align 8 dereferenceable(12) %p6)
@@ -4097,20 +4106,16 @@ if.end19:                                         ; preds = %sw.bb16
   store i32 2, ptr %c.addr.i32, align 4
   call void @_ZN15expr_offset_mapIN12substitution5colorEE6insertERK11expr_offsetRKS1_(ptr noundef nonnull align 8 dereferenceable(12) %m_color.i, ptr noundef nonnull align 8 dereferenceable(12) %p6, ptr noundef nonnull align 4 dereferenceable(4) %c.addr.i32)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %c.addr.i32)
-  %31 = load ptr, ptr %m_todo, align 8
-  %arrayidx.i34 = getelementptr inbounds i8, ptr %31, i64 -4
-  br label %sw.epilog.sink.split
-
-sw.epilog.sink.split:                             ; preds = %_ZNK12substitution9get_colorERK11expr_offset.exit25, %if.end19, %if.then13
-  %arrayidx.i30.sink41 = phi ptr [ %arrayidx.i30, %if.then13 ], [ %arrayidx.i34, %if.end19 ], [ %arrayidx.i4, %_ZNK12substitution9get_colorERK11expr_offset.exit25 ]
-  %32 = load i32, ptr %arrayidx.i30.sink41, align 4
-  %dec.i31 = add i32 %32, -1
-  store i32 %dec.i31, ptr %arrayidx.i30.sink41, align 4
+  %33 = load ptr, ptr %m_todo, align 8
+  %arrayidx.i34 = getelementptr inbounds i8, ptr %33, i64 -4
+  %34 = load i32, ptr %arrayidx.i34, align 4
+  %dec.i35 = add i32 %34, -1
+  store i32 %dec.i35, ptr %arrayidx.i34, align 4
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.epilog.sink.split, %sw.bb11, %_ZNK12substitution9get_colorERK11expr_offset.exit25
-  %33 = load ptr, ptr %m_todo, align 8
-  %cmp.i3 = icmp eq ptr %33, null
+sw.epilog:                                        ; preds = %sw.bb11, %if.then13, %if.end19, %sw.bb, %_ZNK12substitution9get_colorERK11expr_offset.exit25
+  %35 = load ptr, ptr %m_todo, align 8
+  %cmp.i3 = icmp eq ptr %35, null
   br i1 %cmp.i3, label %return, label %_ZNK6vectorI11expr_offsetLb0EjE5emptyEv.exit, !llvm.loop !26
 
 return:                                           ; preds = %sw.bb16, %_ZNK6vectorI11expr_offsetLb0EjE5emptyEv.exit, %sw.epilog, %_ZN6vectorI11expr_offsetLb0EjE9push_backERKS0_.exit, %_ZNK12substitution9get_colorERK11expr_offset.exit

@@ -249,19 +249,19 @@ define noundef i32 @ADIO_Type_create_darray(i32 noundef %0, i32 noundef %1, i32 
   br i1 %.not191, label %.loopexit, label %.lr.ph146, !llvm.loop !9
 
 .loopexit.thread:                                 ; preds = %.preheader, %._crit_edge142.thread
-  %.sink = phi ptr [ %76, %._crit_edge142.thread ], [ %30, %.preheader ]
-  %128 = load i64, ptr %.sink, align 8
-  %129 = load i64, ptr %16, align 8
-  %130 = mul nsw i64 %128, %129
-  store i64 %130, ptr %17, align 8
+  %.ph.in = phi ptr [ %76, %._crit_edge142.thread ], [ %30, %.preheader ]
+  %.ph = load i64, ptr %.ph.in, align 8
+  %128 = load i64, ptr %16, align 8
+  %129 = mul nsw i64 %.ph, %128
+  store i64 %129, ptr %17, align 8
   store i64 0, ptr %15, align 8
   br label %._crit_edge161
 
 .loopexit:                                        ; preds = %.lr.ph146, %.lr.ph156, %._crit_edge142, %._crit_edge149
-  %131 = phi i64 [ %117, %._crit_edge142 ], [ %64, %._crit_edge149 ], [ %72, %.lr.ph156 ], [ %127, %.lr.ph146 ]
-  %132 = load i64, ptr %16, align 8
-  %133 = mul nsw i64 %131, %132
-  store i64 %133, ptr %17, align 8
+  %130 = phi i64 [ %117, %._crit_edge142 ], [ %64, %._crit_edge149 ], [ %72, %.lr.ph156 ], [ %127, %.lr.ph146 ]
+  %131 = load i64, ptr %16, align 8
+  %132 = mul nsw i64 %130, %131
+  store i64 %132, ptr %17, align 8
   store i64 0, ptr %15, align 8
   br i1 %22, label %.lr.ph160.preheader, label %._crit_edge161
 
@@ -271,26 +271,26 @@ define noundef i32 @ADIO_Type_create_darray(i32 noundef %0, i32 noundef %1, i32 
 
 .lr.ph160:                                        ; preds = %.lr.ph160.preheader, %.lr.ph160
   %indvars.iv180 = phi i64 [ 0, %.lr.ph160.preheader ], [ %indvars.iv.next181, %.lr.ph160 ]
-  %.0158 = phi i64 [ %132, %.lr.ph160.preheader ], [ %137, %.lr.ph160 ]
-  %134 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv180
-  %135 = load i32, ptr %134, align 4
-  %136 = sext i32 %135 to i64
-  %137 = mul nsw i64 %.0158, %136
+  %.0158 = phi i64 [ %131, %.lr.ph160.preheader ], [ %136, %.lr.ph160 ]
+  %133 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv180
+  %134 = load i32, ptr %133, align 4
+  %135 = sext i32 %134 to i64
+  %136 = mul nsw i64 %.0158, %135
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
   %exitcond184.not = icmp eq i64 %indvars.iv.next181, %wide.trip.count183
   br i1 %exitcond184.not, label %._crit_edge161, label %.lr.ph160, !llvm.loop !10
 
 ._crit_edge161:                                   ; preds = %.lr.ph160, %.loopexit.thread, %.loopexit
-  %.0.lcssa = phi i64 [ %132, %.loopexit ], [ %129, %.loopexit.thread ], [ %137, %.lr.ph160 ]
+  %.0.lcssa = phi i64 [ %131, %.loopexit ], [ %128, %.loopexit.thread ], [ %136, %.lr.ph160 ]
   store i32 1, ptr %14, align 4
-  %138 = load ptr, ptr %12, align 8
-  store ptr %138, ptr %13, align 8
-  %139 = call i32 @PMPI_Type_create_struct(i32 noundef 1, ptr noundef nonnull %14, ptr noundef nonnull %17, ptr noundef nonnull %13, ptr noundef nonnull %11) #3
-  %140 = load ptr, ptr %11, align 8
-  %141 = load i64, ptr %15, align 8
-  %142 = call i32 @MPI_Type_create_resized(ptr noundef %140, i64 noundef %141, i64 noundef %.0.lcssa, ptr noundef %9) #3
-  %143 = call i32 @PMPI_Type_free(ptr noundef nonnull %11) #3
-  %144 = call i32 @PMPI_Type_free(ptr noundef nonnull %12) #3
+  %137 = load ptr, ptr %12, align 8
+  store ptr %137, ptr %13, align 8
+  %138 = call i32 @PMPI_Type_create_struct(i32 noundef 1, ptr noundef nonnull %14, ptr noundef nonnull %17, ptr noundef nonnull %13, ptr noundef nonnull %11) #3
+  %139 = load ptr, ptr %11, align 8
+  %140 = load i64, ptr %15, align 8
+  %141 = call i32 @MPI_Type_create_resized(ptr noundef %139, i64 noundef %140, i64 noundef %.0.lcssa, ptr noundef %9) #3
+  %142 = call i32 @PMPI_Type_free(ptr noundef nonnull %11) #3
+  %143 = call i32 @PMPI_Type_free(ptr noundef nonnull %12) #3
   call void @ADIOI_Free_fn(ptr noundef %30, i32 noundef 133, ptr noundef nonnull @.str) #3
   call void @ADIOI_Free_fn(ptr noundef %21, i32 noundef 134, ptr noundef nonnull @.str) #3
   ret i32 0

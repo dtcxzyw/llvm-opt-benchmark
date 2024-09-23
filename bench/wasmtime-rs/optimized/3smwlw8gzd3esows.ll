@@ -273,7 +273,7 @@ define internal fastcc void @_ZN20wasmtime_wit_bindgen5types5Types14type_info_fu
 .loopexit.split-lp64:                             ; preds = %.loopexit63, %.loopexit.split-lp64.loopexit.split-lp, %.loopexit.split-lp64.loopexit, %.loopexit.split-lp
   %.pn = phi { ptr, i32 } [ %lpad.phi, %.loopexit.split-lp ], [ %lpad.loopexit65, %.loopexit63 ], [ %lpad.loopexit69, %.loopexit.split-lp64.loopexit ], [ %lpad.loopexit.split-lp70, %.loopexit.split-lp64.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$wit_parser..live..LiveTypes$GT$17h5bb8742ced60dd86E"(ptr nonnull align 8 %22) #9
-          to label %157 unwind label %147
+          to label %161 unwind label %147
 
 .loopexit63:                                      ; preds = %.backedge68, %59, %152
   %lpad.loopexit65 = landingpad { ptr, i32 }
@@ -322,7 +322,6 @@ define internal fastcc void @_ZN20wasmtime_wit_bindgen5types5Types14type_info_fu
   %52 = getelementptr inbounds i8, ptr %19, i64 16
   %53 = getelementptr inbounds i8, ptr %18, i64 8
   %54 = getelementptr inbounds i8, ptr %1, i64 64
-  %.sink.idx = zext i1 %3 to i64
   br label %.backedge68
 
 .backedge68:                                      ; preds = %.backedge68.backedge, %47
@@ -570,31 +569,38 @@ define internal fastcc void @_ZN20wasmtime_wit_bindgen5types5Types14type_info_fu
   %.not = icmp eq i64 %151, -9223372036854775808
   br i1 %.not, label %.backedge68.backedge, label %152
 
+.backedge68.backedge:                             ; preds = %149, %158, %159
+  br label %.backedge68
+
 152:                                              ; preds = %149
   %153 = invoke align 1 ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$7get_mut17h7fb09df1ad624528E"(ptr align 8 %0, ptr nonnull align 8 %18)
           to label %154 unwind label %.loopexit63
 
 154:                                              ; preds = %152
   %155 = icmp eq ptr %153, null
-  br i1 %155, label %156, label %.backedge68.sink.split
+  br i1 %155, label %156, label %157
 
 156:                                              ; preds = %154
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr nonnull align 8 @anon.79fddc410019ed2c53b457c2d17796ca.12) #11
           to label %137 unwind label %.loopexit.split-lp64.loopexit.split-lp
 
-.backedge68.sink.split:                           ; preds = %154
-  %.sink = getelementptr inbounds i8, ptr %153, i64 %.sink.idx
-  store i8 1, ptr %.sink, align 1
+157:                                              ; preds = %154
+  br i1 %3, label %159, label %158
+
+158:                                              ; preds = %157
+  store i8 1, ptr %153, align 1
   br label %.backedge68.backedge
 
-.backedge68.backedge:                             ; preds = %.backedge68.sink.split, %149
-  br label %.backedge68
+159:                                              ; preds = %157
+  %160 = getelementptr inbounds i8, ptr %153, i64 1
+  store i8 1, ptr %160, align 1
+  br label %.backedge68.backedge
 
 .noexc:                                           ; preds = %38, %41
   invoke void @_ZN10wit_parser4live9LiveTypes8add_type17h8202ea5248302791E(ptr nonnull align 8 %22, ptr align 8 %1, ptr nonnull align 8 %39)
           to label %32 unwind label %.loopexit.split-lp64.loopexit
 
-157:                                              ; preds = %.loopexit.split-lp64
+161:                                              ; preds = %.loopexit.split-lp64
   resume { ptr, i32 } %.pn
 }
 

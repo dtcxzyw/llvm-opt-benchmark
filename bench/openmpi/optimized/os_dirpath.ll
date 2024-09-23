@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 define range(i32 -17, 1) i32 @opal_os_dirpath_create(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.stat, align 8
   %4 = icmp eq ptr %0, null
-  br i1 %4, label %74, label %5
+  br i1 %4, label %73, label %5
 
 5:                                                ; preds = %2
   %6 = call i32 @stat(ptr noundef nonnull %0, ptr noundef nonnull %3) #11
@@ -27,13 +27,13 @@ define range(i32 -17, 1) i32 @opal_os_dirpath_create(ptr noundef %0, i32 noundef
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, %1
   %12 = icmp eq i32 %1, %11
-  br i1 %12, label %74, label %13
+  br i1 %12, label %73, label %13
 
 13:                                               ; preds = %8
   %14 = or i32 %10, %1
   %15 = tail call i32 @chmod(ptr noundef nonnull %0, i32 noundef %14) #11
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %74, label %17
+  br i1 %16, label %73, label %17
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr @opal_show_help, align 8
@@ -41,12 +41,12 @@ define range(i32 -17, 1) i32 @opal_os_dirpath_create(ptr noundef %0, i32 noundef
   %20 = load i32, ptr %19, align 4
   %21 = tail call ptr @strerror(i32 noundef %20) #11
   %22 = tail call i32 (ptr, ptr, i32, ...) %18(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1, ptr noundef nonnull %0, i32 noundef %1, ptr noundef %21) #11
-  br label %74
+  br label %73
 
 23:                                               ; preds = %5
   %24 = tail call i32 @mkdir(ptr noundef nonnull %0, i32 noundef %1) #11
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %74, label %26
+  br i1 %25, label %73, label %26
 
 26:                                               ; preds = %23
   %27 = tail call noalias ptr @opal_argv_split(ptr noundef nonnull %0, i32 noundef 47) #11
@@ -66,8 +66,8 @@ define range(i32 -17, 1) i32 @opal_os_dirpath_create(ptr noundef %0, i32 noundef
   %wide.trip.count = zext nneg i32 %31 to i64
   br label %36
 
-36:                                               ; preds = %.lr.ph, %73
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %73 ]
+36:                                               ; preds = %.lr.ph, %72
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %72 ]
   %37 = icmp eq i64 %indvars.iv, 0
   br i1 %37, label %38, label %42
 
@@ -100,61 +100,61 @@ define range(i32 -17, 1) i32 @opal_os_dirpath_create(ptr noundef %0, i32 noundef
   br label %48
 
 48:                                               ; preds = %38, %41, %46
-  %.sink71 = phi ptr [ %47, %46 ], [ %27, %41 ], [ %27, %38 ]
-  %49 = load ptr, ptr %.sink71, align 8
-  %50 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) %49) #11
-  %51 = tail call i32 @mkdir(ptr noundef nonnull %30, i32 noundef %1) #11
-  %52 = tail call ptr @__errno_location() #12
-  %53 = load i32, ptr %52, align 4
-  %54 = call i32 @stat(ptr noundef nonnull %30, ptr noundef nonnull %3) #11
-  %.not54 = icmp eq i32 %54, 0
-  br i1 %.not54, label %59, label %55
+  %.sink.in = phi ptr [ %47, %46 ], [ %27, %41 ], [ %27, %38 ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %49 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) %.sink) #11
+  %50 = tail call i32 @mkdir(ptr noundef nonnull %30, i32 noundef %1) #11
+  %51 = tail call ptr @__errno_location() #12
+  %52 = load i32, ptr %51, align 4
+  %53 = call i32 @stat(ptr noundef nonnull %30, ptr noundef nonnull %3) #11
+  %.not54 = icmp eq i32 %53, 0
+  br i1 %.not54, label %58, label %54
 
-55:                                               ; preds = %48
-  %56 = load ptr, ptr @opal_show_help, align 8
-  %57 = tail call ptr @strerror(i32 noundef %53) #11
-  %58 = tail call i32 (ptr, ptr, i32, ...) %56(ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 1, ptr noundef nonnull %30, ptr noundef %57) #11
+54:                                               ; preds = %48
+  %55 = load ptr, ptr @opal_show_help, align 8
+  %56 = tail call ptr @strerror(i32 noundef %52) #11
+  %57 = tail call i32 (ptr, ptr, i32, ...) %55(ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 1, ptr noundef nonnull %30, ptr noundef %56) #11
   tail call void @opal_argv_free(ptr noundef nonnull %27) #11
   tail call void @free(ptr noundef %30) #11
-  br label %74
+  br label %73
 
-59:                                               ; preds = %48
-  %60 = icmp eq i64 %indvars.iv, %35
-  br i1 %60, label %61, label %73
+58:                                               ; preds = %48
+  %59 = icmp eq i64 %indvars.iv, %35
+  br i1 %59, label %60, label %72
 
-61:                                               ; preds = %59
-  %62 = load i32, ptr %34, align 8
-  %63 = and i32 %62, %1
-  %.not55 = icmp eq i32 %1, %63
-  br i1 %.not55, label %73, label %64
+60:                                               ; preds = %58
+  %61 = load i32, ptr %34, align 8
+  %62 = and i32 %61, %1
+  %.not55 = icmp eq i32 %1, %62
+  br i1 %.not55, label %72, label %63
 
-64:                                               ; preds = %61
-  %65 = or i32 %62, %1
-  %66 = tail call i32 @chmod(ptr noundef nonnull %30, i32 noundef %65) #11
-  %67 = icmp slt i32 %66, 0
-  br i1 %67, label %68, label %73
+63:                                               ; preds = %60
+  %64 = or i32 %61, %1
+  %65 = tail call i32 @chmod(ptr noundef nonnull %30, i32 noundef %64) #11
+  %66 = icmp slt i32 %65, 0
+  br i1 %66, label %67, label %72
 
-68:                                               ; preds = %64
-  %69 = load ptr, ptr @opal_show_help, align 8
-  %70 = load i32, ptr %52, align 4
-  %71 = tail call ptr @strerror(i32 noundef %70) #11
-  %72 = tail call i32 (ptr, ptr, i32, ...) %69(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1, ptr noundef nonnull %30, i32 noundef %1, ptr noundef %71) #11
+67:                                               ; preds = %63
+  %68 = load ptr, ptr @opal_show_help, align 8
+  %69 = load i32, ptr %51, align 4
+  %70 = tail call ptr @strerror(i32 noundef %69) #11
+  %71 = tail call i32 (ptr, ptr, i32, ...) %68(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1, ptr noundef nonnull %30, i32 noundef %1, ptr noundef %70) #11
   tail call void @opal_argv_free(ptr noundef nonnull %27) #11
   tail call void @free(ptr noundef %30) #11
-  br label %74
+  br label %73
 
-73:                                               ; preds = %64, %61, %59
+72:                                               ; preds = %63, %60, %58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %36, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %73, %26
+._crit_edge:                                      ; preds = %72, %26
   tail call void @opal_argv_free(ptr noundef %27) #11
   tail call void @free(ptr noundef %30) #11
-  br label %74
+  br label %73
 
-74:                                               ; preds = %23, %13, %8, %2, %._crit_edge, %68, %55, %17
-  %.0 = phi i32 [ -17, %17 ], [ -1, %55 ], [ -17, %68 ], [ 0, %._crit_edge ], [ -5, %2 ], [ 0, %8 ], [ 0, %13 ], [ 0, %23 ]
+73:                                               ; preds = %23, %13, %8, %2, %._crit_edge, %67, %54, %17
+  %.0 = phi i32 [ -17, %17 ], [ -1, %54 ], [ -17, %67 ], [ 0, %._crit_edge ], [ -5, %2 ], [ 0, %8 ], [ 0, %13 ], [ 0, %23 ]
   ret i32 %.0
 }
 

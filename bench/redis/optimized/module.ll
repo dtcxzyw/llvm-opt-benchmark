@@ -5480,7 +5480,7 @@ if.end.i.i:                                       ; preds = %if.then.i
 if.end.if.end11_crit_edge.i.i:                    ; preds = %if.end.i.i
   %amqueue12.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %.pre.i.i = load ptr, ptr %amqueue12.phi.trans.insert.i.i, align 8
-  br label %return.sink.split
+  br label %if.end11.i.i
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
   %mul.i.i = shl nsw i32 %2, 1
@@ -5494,7 +5494,24 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   %call.i.i = tail call ptr @zrealloc(ptr noundef %4, i64 noundef %mul9.i.i) #36
   store ptr %call.i.i, ptr %amqueue.i.i, align 8
   %.pre14.i.i = load i32, ptr %amqueue_used.i.i, align 4
-  br label %return.sink.split
+  br label %if.end11.i.i
+
+if.end11.i.i:                                     ; preds = %if.then1.i.i, %if.end.if.end11_crit_edge.i.i
+  %5 = phi i32 [ %2, %if.end.if.end11_crit_edge.i.i ], [ %.pre14.i.i, %if.then1.i.i ]
+  %6 = phi ptr [ %.pre.i.i, %if.end.if.end11_crit_edge.i.i ], [ %call.i.i, %if.then1.i.i ]
+  %amqueue12.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
+  %idxprom.i.i = sext i32 %5 to i64
+  %type14.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %6, i64 %idxprom.i.i, i32 1
+  store i32 1, ptr %type14.i.i, align 8
+  %7 = load ptr, ptr %amqueue12.i.i, align 8
+  %8 = load i32, ptr %amqueue_used.i.i, align 4
+  %idxprom17.i.i = sext i32 %8 to i64
+  %arrayidx18.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %7, i64 %idxprom17.i.i
+  store ptr %call.i, ptr %arrayidx18.i.i, align 8
+  %9 = load i32, ptr %amqueue_used.i.i, align 4
+  %inc.i.i = add nsw i32 %9, 1
+  store i32 %inc.i.i, ptr %amqueue_used.i.i, align 4
+  br label %return
 
 if.end:                                           ; preds = %entry
   tail call void @incrRefCount(ptr noundef nonnull %str) #34
@@ -5502,59 +5519,57 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
-  %5 = load i32, ptr %flags.i, align 8
-  %and.i = and i32 %5, 1
+  %10 = load i32, ptr %flags.i, align 8
+  %and.i = and i32 %10, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then2
   %amqueue_used.i = getelementptr inbounds i8, ptr %ctx, i64 44
-  %6 = load i32, ptr %amqueue_used.i, align 4
+  %11 = load i32, ptr %amqueue_used.i, align 4
   %amqueue_len.i = getelementptr inbounds i8, ptr %ctx, i64 40
-  %7 = load i32, ptr %amqueue_len.i, align 8
-  %cmp.i = icmp eq i32 %6, %7
+  %12 = load i32, ptr %amqueue_len.i, align 8
+  %cmp.i = icmp eq i32 %11, %12
   br i1 %cmp.i, label %if.then1.i, label %if.end.if.end11_crit_edge.i
 
 if.end.if.end11_crit_edge.i:                      ; preds = %if.end.i
   %amqueue12.phi.trans.insert.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %.pre.i = load ptr, ptr %amqueue12.phi.trans.insert.i, align 8
-  br label %return.sink.split
+  br label %if.end11.i
 
 if.then1.i:                                       ; preds = %if.end.i
-  %mul.i = shl nsw i32 %6, 1
-  %cmp4.i = icmp slt i32 %6, 8
+  %mul.i = shl nsw i32 %11, 1
+  %cmp4.i = icmp slt i32 %11, 8
   %spec.select.i = select i1 %cmp4.i, i32 16, i32 %mul.i
   store i32 %spec.select.i, ptr %amqueue_len.i, align 8
   %amqueue.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %8 = load ptr, ptr %amqueue.i, align 8
+  %13 = load ptr, ptr %amqueue.i, align 8
   %conv.i = sext i32 %spec.select.i to i64
   %mul9.i = shl nsw i64 %conv.i, 4
-  %call.i7 = tail call ptr @zrealloc(ptr noundef %8, i64 noundef %mul9.i) #36
+  %call.i7 = tail call ptr @zrealloc(ptr noundef %13, i64 noundef %mul9.i) #36
   store ptr %call.i7, ptr %amqueue.i, align 8
   %.pre14.i = load i32, ptr %amqueue_used.i, align 4
-  br label %return.sink.split
+  br label %if.end11.i
 
-return.sink.split:                                ; preds = %if.end.if.end11_crit_edge.i, %if.then1.i, %if.end.if.end11_crit_edge.i.i, %if.then1.i.i
-  %.sink11 = phi i32 [ %2, %if.end.if.end11_crit_edge.i.i ], [ %.pre14.i.i, %if.then1.i.i ], [ %6, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
-  %.sink = phi ptr [ %.pre.i.i, %if.end.if.end11_crit_edge.i.i ], [ %call.i.i, %if.then1.i.i ], [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i7, %if.then1.i ]
-  %amqueue_used.i.sink10 = phi ptr [ %amqueue_used.i.i, %if.end.if.end11_crit_edge.i.i ], [ %amqueue_used.i.i, %if.then1.i.i ], [ %amqueue_used.i, %if.end.if.end11_crit_edge.i ], [ %amqueue_used.i, %if.then1.i ]
-  %str.sink = phi ptr [ %call.i, %if.end.if.end11_crit_edge.i.i ], [ %call.i, %if.then1.i.i ], [ %str, %if.end.if.end11_crit_edge.i ], [ %str, %if.then1.i ]
+if.end11.i:                                       ; preds = %if.then1.i, %if.end.if.end11_crit_edge.i
+  %14 = phi i32 [ %11, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
+  %15 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i7, %if.then1.i ]
   %amqueue12.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %idxprom.i = sext i32 %.sink11 to i64
-  %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %.sink, i64 %idxprom.i, i32 1
+  %idxprom.i = sext i32 %14 to i64
+  %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %15, i64 %idxprom.i, i32 1
   store i32 1, ptr %type14.i, align 8
-  %9 = load ptr, ptr %amqueue12.i, align 8
-  %10 = load i32, ptr %amqueue_used.i.sink10, align 4
-  %idxprom17.i = sext i32 %10 to i64
-  %arrayidx18.i = getelementptr inbounds %struct.AutoMemEntry, ptr %9, i64 %idxprom17.i
-  store ptr %str.sink, ptr %arrayidx18.i, align 8
-  %11 = load i32, ptr %amqueue_used.i.sink10, align 4
-  %inc.i = add nsw i32 %11, 1
-  store i32 %inc.i, ptr %amqueue_used.i.sink10, align 4
+  %16 = load ptr, ptr %amqueue12.i, align 8
+  %17 = load i32, ptr %amqueue_used.i, align 4
+  %idxprom17.i = sext i32 %17 to i64
+  %arrayidx18.i = getelementptr inbounds %struct.AutoMemEntry, ptr %16, i64 %idxprom17.i
+  store ptr %str, ptr %arrayidx18.i, align 8
+  %18 = load i32, ptr %amqueue_used.i, align 4
+  %inc.i = add nsw i32 %18, 1
+  store i32 %inc.i, ptr %amqueue_used.i, align 4
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.then2, %if.then.i, %if.then, %if.end
-  %retval.0 = phi ptr [ %str, %if.end ], [ %call.i, %if.then ], [ %call.i, %if.then.i ], [ %str, %if.then2 ], [ %str.sink, %return.sink.split ]
+return:                                           ; preds = %if.end11.i, %if.then2, %if.end11.i.i, %if.then.i, %if.then, %if.end
+  %retval.0 = phi ptr [ %str, %if.end ], [ %call.i, %if.then ], [ %call.i, %if.then.i ], [ %call.i, %if.end11.i.i ], [ %str, %if.then2 ], [ %str, %if.end11.i ]
   ret ptr %retval.0
 }
 
@@ -6009,19 +6024,16 @@ if.then:                                          ; preds = %entry
 
 if.then2:                                         ; preds = %if.then
   %reply_client = getelementptr inbounds i8, ptr %1, i64 72
-  br label %return.sink.split
+  %2 = load ptr, ptr %reply_client, align 8
+  br label %return
 
 if.else4:                                         ; preds = %entry
   %client = getelementptr inbounds i8, ptr %ctx, i64 16
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.then2, %if.else4
-  %client.sink = phi ptr [ %client, %if.else4 ], [ %reply_client, %if.then2 ]
-  %2 = load ptr, ptr %client.sink, align 8
+  %3 = load ptr, ptr %client, align 8
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ %2, %return.sink.split ]
+return:                                           ; preds = %if.then, %if.else4, %if.then2
+  %retval.0 = phi ptr [ %2, %if.then2 ], [ %3, %if.else4 ], [ null, %if.then ]
   ret ptr %retval.0
 }
 
@@ -6049,13 +6061,13 @@ if.else4.i:                                       ; preds = %entry
   br label %moduleGetReplyClient.exit
 
 moduleGetReplyClient.exit:                        ; preds = %if.then2.i, %if.else4.i
-  %client.sink.i = phi ptr [ %client.i, %if.else4.i ], [ %reply_client.i, %if.then2.i ]
-  %2 = load ptr, ptr %client.sink.i, align 8
-  %cmp = icmp eq ptr %2, null
+  %retval.0.i.in = phi ptr [ %reply_client.i, %if.then2.i ], [ %client.i, %if.else4.i ]
+  %retval.0.i = load ptr, ptr %retval.0.i.in, align 8
+  %cmp = icmp eq ptr %retval.0.i, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %moduleGetReplyClient.exit
-  tail call void @addReplyLongLong(ptr noundef nonnull %2, i64 noundef %ll) #34
+  tail call void @addReplyLongLong(ptr noundef nonnull %retval.0.i, i64 noundef %ll) #34
   br label %return
 
 return:                                           ; preds = %if.then.i, %moduleGetReplyClient.exit, %if.end
@@ -6088,13 +6100,13 @@ if.else4.i:                                       ; preds = %entry
   br label %moduleGetReplyClient.exit
 
 moduleGetReplyClient.exit:                        ; preds = %if.then2.i, %if.else4.i
-  %client.sink.i = phi ptr [ %client.i, %if.else4.i ], [ %reply_client.i, %if.then2.i ]
-  %2 = load ptr, ptr %client.sink.i, align 8
-  %cmp = icmp eq ptr %2, null
+  %retval.0.i.in = phi ptr [ %reply_client.i, %if.then2.i ], [ %client.i, %if.else4.i ]
+  %retval.0.i = load ptr, ptr %retval.0.i.in, align 8
+  %cmp = icmp eq ptr %retval.0.i, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %moduleGetReplyClient.exit
-  tail call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef nonnull %2, ptr noundef nonnull @.str.34, ptr noundef %err) #34
+  tail call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef nonnull %retval.0.i, ptr noundef nonnull @.str.34, ptr noundef %err) #34
   br label %return
 
 return:                                           ; preds = %if.then.i, %moduleGetReplyClient.exit, %if.end
@@ -6128,9 +6140,9 @@ if.else4.i:                                       ; preds = %entry
   br label %moduleGetReplyClient.exit
 
 moduleGetReplyClient.exit:                        ; preds = %if.then2.i, %if.else4.i
-  %client.sink.i = phi ptr [ %client.i, %if.else4.i ], [ %reply_client.i, %if.then2.i ]
-  %2 = load ptr, ptr %client.sink.i, align 8
-  %cmp = icmp eq ptr %2, null
+  %retval.0.i.in = phi ptr [ %reply_client.i, %if.then2.i ], [ %client.i, %if.else4.i ]
+  %retval.0.i = load ptr, ptr %retval.0.i.in, align 8
+  %cmp = icmp eq ptr %retval.0.i, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %moduleGetReplyClient.exit
@@ -6141,7 +6153,7 @@ if.end:                                           ; preds = %moduleGetReplyClien
   %call3 = tail call noalias ptr @zmalloc(i64 noundef %conv2) #35
   %call5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %call3, i64 noundef %conv2, ptr noundef nonnull @.str.34, ptr noundef %fmt) #34
   call void @llvm.va_start.p0(ptr nonnull %ap)
-  call void @addReplyErrorFormatInternal(ptr noundef nonnull %2, i32 noundef 0, ptr noundef %call3, ptr noundef nonnull %ap) #34
+  call void @addReplyErrorFormatInternal(ptr noundef nonnull %retval.0.i, i32 noundef 0, ptr noundef %call3, ptr noundef nonnull %ap) #34
   call void @llvm.va_end.p0(ptr nonnull %ap)
   call void @zfree(ptr noundef %call3) #34
   br label %return
@@ -6179,16 +6191,16 @@ if.else4.i:                                       ; preds = %entry
   br label %moduleGetReplyClient.exit
 
 moduleGetReplyClient.exit:                        ; preds = %if.then2.i, %if.else4.i
-  %client.sink.i = phi ptr [ %client.i, %if.else4.i ], [ %reply_client.i, %if.then2.i ]
-  %2 = load ptr, ptr %client.sink.i, align 8
-  %cmp = icmp eq ptr %2, null
+  %retval.0.i.in = phi ptr [ %reply_client.i, %if.then2.i ], [ %client.i, %if.else4.i ]
+  %retval.0.i = load ptr, ptr %retval.0.i.in, align 8
+  %cmp = icmp eq ptr %retval.0.i, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %moduleGetReplyClient.exit
-  tail call void @addReplyProto(ptr noundef nonnull %2, ptr noundef nonnull @.str.35, i64 noundef 1) #34
+  tail call void @addReplyProto(ptr noundef nonnull %retval.0.i, ptr noundef nonnull @.str.35, i64 noundef 1) #34
   %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %msg) #38
-  tail call void @addReplyProto(ptr noundef nonnull %2, ptr noundef %msg, i64 noundef %call1) #34
-  tail call void @addReplyProto(ptr noundef nonnull %2, ptr noundef nonnull @.str.36, i64 noundef 2) #34
+  tail call void @addReplyProto(ptr noundef nonnull %retval.0.i, ptr noundef %msg, i64 noundef %call1) #34
+  tail call void @addReplyProto(ptr noundef nonnull %retval.0.i, ptr noundef nonnull @.str.36, i64 noundef 2) #34
   br label %return
 
 return:                                           ; preds = %if.then.i, %moduleGetReplyClient.exit, %if.end
@@ -6221,9 +6233,9 @@ if.else4.i:                                       ; preds = %entry
   br label %moduleGetReplyClient.exit
 
 moduleGetReplyClient.exit:                        ; preds = %if.then2.i, %if.else4.i
-  %client.sink.i = phi ptr [ %client.i, %if.else4.i ], [ %reply_client.i, %if.then2.i ]
-  %2 = load ptr, ptr %client.sink.i, align 8
-  %cmp = icmp eq ptr %2, null
+  %retval.0.i.in = phi ptr [ %reply_client.i, %if.then2.i ], [ %client.i, %if.else4.i ]
+  %retval.0.i = load ptr, ptr %retval.0.i.in, align 8
+  %cmp = icmp eq ptr %retval.0.i, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %moduleGetReplyClient.exit
@@ -6234,22 +6246,22 @@ if.end:                                           ; preds = %moduleGetReplyClien
 
 if.then2:                                         ; preds = %if.end
   %postponed_arrays = getelementptr inbounds i8, ptr %ctx, i64 56
-  %3 = load ptr, ptr %postponed_arrays, align 8
+  %2 = load ptr, ptr %postponed_arrays, align 8
   %postponed_arrays_count = getelementptr inbounds i8, ptr %ctx, i64 64
-  %4 = load i32, ptr %postponed_arrays_count, align 8
-  %add = add nsw i32 %4, 1
+  %3 = load i32, ptr %postponed_arrays_count, align 8
+  %add = add nsw i32 %3, 1
   %conv = sext i32 %add to i64
   %mul = shl nsw i64 %conv, 3
-  %call3 = tail call ptr @zrealloc(ptr noundef %3, i64 noundef %mul) #36
+  %call3 = tail call ptr @zrealloc(ptr noundef %2, i64 noundef %mul) #36
   store ptr %call3, ptr %postponed_arrays, align 8
-  %call5 = tail call ptr @addReplyDeferredLen(ptr noundef nonnull %2) #34
-  %5 = load ptr, ptr %postponed_arrays, align 8
-  %6 = load i32, ptr %postponed_arrays_count, align 8
-  %idxprom = sext i32 %6 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %5, i64 %idxprom
+  %call5 = tail call ptr @addReplyDeferredLen(ptr noundef nonnull %retval.0.i) #34
+  %4 = load ptr, ptr %postponed_arrays, align 8
+  %5 = load i32, ptr %postponed_arrays_count, align 8
+  %idxprom = sext i32 %5 to i64
+  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
   store ptr %call5, ptr %arrayidx, align 8
-  %7 = load i32, ptr %postponed_arrays_count, align 8
-  %inc = add nsw i32 %7, 1
+  %6 = load i32, ptr %postponed_arrays_count, align 8
+  %inc = add nsw i32 %6, 1
   store i32 %inc, ptr %postponed_arrays_count, align 8
   br label %return
 
@@ -6262,30 +6274,30 @@ if.then11:                                        ; preds = %if.end
   ]
 
 sw.bb:                                            ; preds = %if.then11
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 192), align 8
-  tail call void @addReply(ptr noundef nonnull %2, ptr noundef %8) #34
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 192), align 8
+  tail call void @addReply(ptr noundef nonnull %retval.0.i, ptr noundef %7) #34
   br label %return
 
 sw.bb12:                                          ; preds = %if.then11
-  %resp = getelementptr inbounds i8, ptr %2, i64 24
-  %9 = load i32, ptr %resp, align 8
-  %idxprom13 = sext i32 %9 to i64
+  %resp = getelementptr inbounds i8, ptr %retval.0.i, i64 24
+  %8 = load i32, ptr %resp, align 8
+  %idxprom13 = sext i32 %8 to i64
   %arrayidx14 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds (i8, ptr @shared, i64 128), i64 0, i64 %idxprom13
-  %10 = load ptr, ptr %arrayidx14, align 8
-  tail call void @addReply(ptr noundef nonnull %2, ptr noundef %10) #34
+  %9 = load ptr, ptr %arrayidx14, align 8
+  tail call void @addReply(ptr noundef nonnull %retval.0.i, ptr noundef %9) #34
   br label %return
 
 sw.bb15:                                          ; preds = %if.then11
-  %resp16 = getelementptr inbounds i8, ptr %2, i64 24
-  %11 = load i32, ptr %resp16, align 8
-  %idxprom17 = sext i32 %11 to i64
+  %resp16 = getelementptr inbounds i8, ptr %retval.0.i, i64 24
+  %10 = load i32, ptr %resp16, align 8
+  %idxprom17 = sext i32 %10 to i64
   %arrayidx18 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds (i8, ptr @shared, i64 160), i64 0, i64 %idxprom17
-  %12 = load ptr, ptr %arrayidx18, align 8
-  tail call void @addReply(ptr noundef nonnull %2, ptr noundef %12) #34
+  %11 = load ptr, ptr %arrayidx18, align 8
+  tail call void @addReply(ptr noundef nonnull %retval.0.i, ptr noundef %11) #34
   br label %return
 
 sw.bb19:                                          ; preds = %if.then11
-  tail call void @addReplyAttributeLen(ptr noundef nonnull %2, i64 noundef 0) #34
+  tail call void @addReplyAttributeLen(ptr noundef nonnull %retval.0.i, i64 noundef 0) #34
   br label %return
 
 sw.default:                                       ; preds = %if.then11
@@ -6302,19 +6314,19 @@ if.else20:                                        ; preds = %if.end
   ]
 
 sw.bb21:                                          ; preds = %if.else20
-  tail call void @addReplyArrayLen(ptr noundef nonnull %2, i64 noundef %len) #34
+  tail call void @addReplyArrayLen(ptr noundef nonnull %retval.0.i, i64 noundef %len) #34
   br label %return
 
 sw.bb22:                                          ; preds = %if.else20
-  tail call void @addReplyMapLen(ptr noundef nonnull %2, i64 noundef %len) #34
+  tail call void @addReplyMapLen(ptr noundef nonnull %retval.0.i, i64 noundef %len) #34
   br label %return
 
 sw.bb23:                                          ; preds = %if.else20
-  tail call void @addReplySetLen(ptr noundef nonnull %2, i64 noundef %len) #34
+  tail call void @addReplySetLen(ptr noundef nonnull %retval.0.i, i64 noundef %len) #34
   br label %return
 
 sw.bb24:                                          ; preds = %if.else20
-  tail call void @addReplyAttributeLen(ptr noundef nonnull %2, i64 noundef %len) #34
+  tail call void @addReplyAttributeLen(ptr noundef nonnull %retval.0.i, i64 noundef %len) #34
   br label %return
 
 sw.default25:                                     ; preds = %if.else20
@@ -6384,12 +6396,12 @@ if.then.i.i:                                      ; preds = %if.end
 
 moduleGetReplyClient.exit.i:                      ; preds = %if.then.i.i
   %reply_client.i.i = getelementptr inbounds i8, ptr %3, i64 72
-  %.pre = load ptr, ptr %reply_client.i.i, align 8
-  %cmp.i = icmp eq ptr %.pre, null
+  %retval.0.i.i.pre = load ptr, ptr %reply_client.i.i, align 8
+  %cmp.i = icmp eq ptr %retval.0.i.i.pre, null
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end, %moduleGetReplyClient.exit.i
-  %4 = phi ptr [ %.pre, %moduleGetReplyClient.exit.i ], [ %0, %if.end ]
+  %retval.0.i.i5 = phi ptr [ %retval.0.i.i.pre, %moduleGetReplyClient.exit.i ], [ %0, %if.end ]
   switch i64 %len, label %if.else20.i [
     i64 -1, label %if.then2.i
     i64 0, label %if.then11.i
@@ -6397,31 +6409,31 @@ if.end.i:                                         ; preds = %if.end, %moduleGetR
 
 if.then2.i:                                       ; preds = %if.end.i
   %postponed_arrays.i = getelementptr inbounds i8, ptr %ctx, i64 56
-  %5 = load ptr, ptr %postponed_arrays.i, align 8
+  %4 = load ptr, ptr %postponed_arrays.i, align 8
   %postponed_arrays_count.i = getelementptr inbounds i8, ptr %ctx, i64 64
-  %6 = load i32, ptr %postponed_arrays_count.i, align 8
-  %add.i = add nsw i32 %6, 1
+  %5 = load i32, ptr %postponed_arrays_count.i, align 8
+  %add.i = add nsw i32 %5, 1
   %conv.i = sext i32 %add.i to i64
   %mul.i = shl nsw i64 %conv.i, 3
-  %call3.i = tail call ptr @zrealloc(ptr noundef %5, i64 noundef %mul.i) #36
+  %call3.i = tail call ptr @zrealloc(ptr noundef %4, i64 noundef %mul.i) #36
   store ptr %call3.i, ptr %postponed_arrays.i, align 8
-  %call5.i = tail call ptr @addReplyDeferredLen(ptr noundef nonnull %4) #34
-  %7 = load ptr, ptr %postponed_arrays.i, align 8
-  %8 = load i32, ptr %postponed_arrays_count.i, align 8
-  %idxprom.i = sext i32 %8 to i64
-  %arrayidx.i = getelementptr inbounds ptr, ptr %7, i64 %idxprom.i
+  %call5.i = tail call ptr @addReplyDeferredLen(ptr noundef nonnull %retval.0.i.i5) #34
+  %6 = load ptr, ptr %postponed_arrays.i, align 8
+  %7 = load i32, ptr %postponed_arrays_count.i, align 8
+  %idxprom.i = sext i32 %7 to i64
+  %arrayidx.i = getelementptr inbounds ptr, ptr %6, i64 %idxprom.i
   store ptr %call5.i, ptr %arrayidx.i, align 8
-  %9 = load i32, ptr %postponed_arrays_count.i, align 8
-  %inc.i = add nsw i32 %9, 1
+  %8 = load i32, ptr %postponed_arrays_count.i, align 8
+  %inc.i = add nsw i32 %8, 1
   store i32 %inc.i, ptr %postponed_arrays_count.i, align 8
   br label %return
 
 if.then11.i:                                      ; preds = %if.end.i
-  tail call void @addReplyAttributeLen(ptr noundef nonnull %4, i64 noundef 0) #34
+  tail call void @addReplyAttributeLen(ptr noundef nonnull %retval.0.i.i5, i64 noundef 0) #34
   br label %return
 
 if.else20.i:                                      ; preds = %if.end.i
-  tail call void @addReplyAttributeLen(ptr noundef nonnull %4, i64 noundef %len) #34
+  tail call void @addReplyAttributeLen(ptr noundef nonnull %retval.0.i.i5, i64 noundef %len) #34
   br label %return
 
 return:                                           ; preds = %if.else20.i, %if.then11.i, %if.then2.i, %moduleGetReplyClient.exit.i, %if.then.i.i, %entry
@@ -6453,13 +6465,13 @@ if.else4.i:                                       ; preds = %entry
   br label %moduleGetReplyClient.exit
 
 moduleGetReplyClient.exit:                        ; preds = %if.then2.i, %if.else4.i
-  %client.sink.i = phi ptr [ %client.i, %if.else4.i ], [ %reply_client.i, %if.then2.i ]
-  %2 = load ptr, ptr %client.sink.i, align 8
-  %cmp = icmp eq ptr %2, null
+  %retval.0.i.in = phi ptr [ %reply_client.i, %if.then2.i ], [ %client.i, %if.else4.i ]
+  %retval.0.i = load ptr, ptr %retval.0.i.in, align 8
+  %cmp = icmp eq ptr %retval.0.i, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %moduleGetReplyClient.exit
-  tail call void @addReplyNullArray(ptr noundef nonnull %2) #34
+  tail call void @addReplyNullArray(ptr noundef nonnull %retval.0.i) #34
   br label %return
 
 return:                                           ; preds = %if.then.i, %moduleGetReplyClient.exit, %if.end
@@ -6492,14 +6504,14 @@ if.else4.i:                                       ; preds = %entry
   br label %moduleGetReplyClient.exit
 
 moduleGetReplyClient.exit:                        ; preds = %if.then2.i, %if.else4.i
-  %client.sink.i = phi ptr [ %client.i, %if.else4.i ], [ %reply_client.i, %if.then2.i ]
-  %2 = load ptr, ptr %client.sink.i, align 8
-  %cmp = icmp eq ptr %2, null
+  %retval.0.i.in = phi ptr [ %reply_client.i, %if.then2.i ], [ %client.i, %if.else4.i ]
+  %retval.0.i = load ptr, ptr %retval.0.i.in, align 8
+  %cmp = icmp eq ptr %retval.0.i, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %moduleGetReplyClient.exit
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 192), align 8
-  tail call void @addReply(ptr noundef nonnull %2, ptr noundef %3) #34
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 192), align 8
+  tail call void @addReply(ptr noundef nonnull %retval.0.i, ptr noundef %2) #34
   br label %return
 
 return:                                           ; preds = %if.then.i, %moduleGetReplyClient.exit, %if.end
@@ -6530,32 +6542,32 @@ if.else4.i:                                       ; preds = %entry
   br label %moduleGetReplyClient.exit
 
 moduleGetReplyClient.exit:                        ; preds = %if.then2.i, %if.else4.i
-  %client.sink.i = phi ptr [ %client.i, %if.else4.i ], [ %reply_client.i, %if.then2.i ]
-  %2 = load ptr, ptr %client.sink.i, align 8
-  %cmp = icmp eq ptr %2, null
+  %retval.0.i.in = phi ptr [ %reply_client.i, %if.then2.i ], [ %client.i, %if.else4.i ]
+  %retval.0.i = load ptr, ptr %retval.0.i.in, align 8
+  %cmp = icmp eq ptr %retval.0.i, null
   br i1 %cmp, label %if.end29, label %if.end
 
 if.end:                                           ; preds = %moduleGetReplyClient.exit
   %postponed_arrays_count = getelementptr inbounds i8, ptr %ctx, i64 64
-  %3 = load i32, ptr %postponed_arrays_count, align 8
-  %cmp1 = icmp eq i32 %3, 0
+  %2 = load i32, ptr %postponed_arrays_count, align 8
+  %cmp1 = icmp eq i32 %2, 0
   br i1 %cmp1, label %do.body, label %if.end6
 
 do.body:                                          ; preds = %if.end
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
-  %cmp3 = icmp sgt i32 %4, 3
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
+  %cmp3 = icmp sgt i32 %3, 3
   br i1 %cmp3, label %if.end29, label %if.end5
 
 if.end5:                                          ; preds = %do.body
   %module = getelementptr inbounds i8, ptr %ctx, i64 8
-  %5 = load ptr, ptr %module, align 8
-  %name = getelementptr inbounds i8, ptr %5, i64 8
-  %6 = load ptr, ptr %name, align 8
-  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.39, ptr noundef %6) #34
+  %4 = load ptr, ptr %module, align 8
+  %name = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = load ptr, ptr %name, align 8
+  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.39, ptr noundef %5) #34
   br label %if.end29
 
 if.end6:                                          ; preds = %if.end
-  %dec = add nsw i32 %3, -1
+  %dec = add nsw i32 %2, -1
   store i32 %dec, ptr %postponed_arrays_count, align 8
   switch i32 %type, label %sw.default [
     i32 1, label %sw.bb
@@ -6566,38 +6578,38 @@ if.end6:                                          ; preds = %if.end
 
 sw.bb:                                            ; preds = %if.end6
   %postponed_arrays = getelementptr inbounds i8, ptr %ctx, i64 56
-  %7 = load ptr, ptr %postponed_arrays, align 8
+  %6 = load ptr, ptr %postponed_arrays, align 8
   %idxprom = sext i32 %dec to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %7, i64 %idxprom
-  %8 = load ptr, ptr %arrayidx, align 8
-  tail call void @setDeferredArrayLen(ptr noundef nonnull %2, ptr noundef %8, i64 noundef %len) #34
+  %arrayidx = getelementptr inbounds ptr, ptr %6, i64 %idxprom
+  %7 = load ptr, ptr %arrayidx, align 8
+  tail call void @setDeferredArrayLen(ptr noundef nonnull %retval.0.i, ptr noundef %7, i64 noundef %len) #34
   br label %sw.epilog
 
 sw.bb9:                                           ; preds = %if.end6
   %postponed_arrays10 = getelementptr inbounds i8, ptr %ctx, i64 56
-  %9 = load ptr, ptr %postponed_arrays10, align 8
+  %8 = load ptr, ptr %postponed_arrays10, align 8
   %idxprom12 = sext i32 %dec to i64
-  %arrayidx13 = getelementptr inbounds ptr, ptr %9, i64 %idxprom12
-  %10 = load ptr, ptr %arrayidx13, align 8
-  tail call void @setDeferredMapLen(ptr noundef nonnull %2, ptr noundef %10, i64 noundef %len) #34
+  %arrayidx13 = getelementptr inbounds ptr, ptr %8, i64 %idxprom12
+  %9 = load ptr, ptr %arrayidx13, align 8
+  tail call void @setDeferredMapLen(ptr noundef nonnull %retval.0.i, ptr noundef %9, i64 noundef %len) #34
   br label %sw.epilog
 
 sw.bb14:                                          ; preds = %if.end6
   %postponed_arrays15 = getelementptr inbounds i8, ptr %ctx, i64 56
-  %11 = load ptr, ptr %postponed_arrays15, align 8
+  %10 = load ptr, ptr %postponed_arrays15, align 8
   %idxprom17 = sext i32 %dec to i64
-  %arrayidx18 = getelementptr inbounds ptr, ptr %11, i64 %idxprom17
-  %12 = load ptr, ptr %arrayidx18, align 8
-  tail call void @setDeferredSetLen(ptr noundef nonnull %2, ptr noundef %12, i64 noundef %len) #34
+  %arrayidx18 = getelementptr inbounds ptr, ptr %10, i64 %idxprom17
+  %11 = load ptr, ptr %arrayidx18, align 8
+  tail call void @setDeferredSetLen(ptr noundef nonnull %retval.0.i, ptr noundef %11, i64 noundef %len) #34
   br label %sw.epilog
 
 sw.bb19:                                          ; preds = %if.end6
   %postponed_arrays20 = getelementptr inbounds i8, ptr %ctx, i64 56
-  %13 = load ptr, ptr %postponed_arrays20, align 8
+  %12 = load ptr, ptr %postponed_arrays20, align 8
   %idxprom22 = sext i32 %dec to i64
-  %arrayidx23 = getelementptr inbounds ptr, ptr %13, i64 %idxprom22
-  %14 = load ptr, ptr %arrayidx23, align 8
-  tail call void @setDeferredAttributeLen(ptr noundef nonnull %2, ptr noundef %14, i64 noundef %len) #34
+  %arrayidx23 = getelementptr inbounds ptr, ptr %12, i64 %idxprom22
+  %13 = load ptr, ptr %arrayidx23, align 8
+  tail call void @setDeferredAttributeLen(ptr noundef nonnull %retval.0.i, ptr noundef %13, i64 noundef %len) #34
   br label %sw.epilog
 
 sw.default:                                       ; preds = %if.end6
@@ -6606,14 +6618,14 @@ sw.default:                                       ; preds = %if.end6
   unreachable
 
 sw.epilog:                                        ; preds = %sw.bb19, %sw.bb14, %sw.bb9, %sw.bb
-  %15 = load i32, ptr %postponed_arrays_count, align 8
-  %cmp25 = icmp eq i32 %15, 0
+  %14 = load i32, ptr %postponed_arrays_count, align 8
+  %cmp25 = icmp eq i32 %14, 0
   br i1 %cmp25, label %if.then26, label %if.end29
 
 if.then26:                                        ; preds = %sw.epilog
   %postponed_arrays27 = getelementptr inbounds i8, ptr %ctx, i64 56
-  %16 = load ptr, ptr %postponed_arrays27, align 8
-  tail call void @zfree(ptr noundef %16) #34
+  %15 = load ptr, ptr %postponed_arrays27, align 8
+  tail call void @zfree(ptr noundef %15) #34
   store ptr null, ptr %postponed_arrays27, align 8
   br label %if.end29
 
@@ -6653,46 +6665,46 @@ if.else4.i.i:                                     ; preds = %entry
   br label %moduleGetReplyClient.exit.i
 
 moduleGetReplyClient.exit.i:                      ; preds = %if.else4.i.i, %if.then2.i.i
-  %client.sink.i.i = phi ptr [ %client.i.i, %if.else4.i.i ], [ %reply_client.i.i, %if.then2.i.i ]
-  %2 = load ptr, ptr %client.sink.i.i, align 8
-  %cmp.i = icmp eq ptr %2, null
+  %retval.0.i.in.i = phi ptr [ %reply_client.i.i, %if.then2.i.i ], [ %client.i.i, %if.else4.i.i ]
+  %retval.0.i.i = load ptr, ptr %retval.0.i.in.i, align 8
+  %cmp.i = icmp eq ptr %retval.0.i.i, null
   br i1 %cmp.i, label %moduleReplySetCollectionLength.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %moduleGetReplyClient.exit.i
   %postponed_arrays_count.i = getelementptr inbounds i8, ptr %ctx, i64 64
-  %3 = load i32, ptr %postponed_arrays_count.i, align 8
-  %cmp1.i = icmp eq i32 %3, 0
+  %2 = load i32, ptr %postponed_arrays_count.i, align 8
+  %cmp1.i = icmp eq i32 %2, 0
   br i1 %cmp1.i, label %do.body.i, label %if.end6.i
 
 do.body.i:                                        ; preds = %if.end.i
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
-  %cmp3.i = icmp sgt i32 %4, 3
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
+  %cmp3.i = icmp sgt i32 %3, 3
   br i1 %cmp3.i, label %moduleReplySetCollectionLength.exit, label %if.end5.i
 
 if.end5.i:                                        ; preds = %do.body.i
   %module.i = getelementptr inbounds i8, ptr %ctx, i64 8
-  %5 = load ptr, ptr %module.i, align 8
-  %name.i = getelementptr inbounds i8, ptr %5, i64 8
-  %6 = load ptr, ptr %name.i, align 8
-  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.39, ptr noundef %6) #34
+  %4 = load ptr, ptr %module.i, align 8
+  %name.i = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = load ptr, ptr %name.i, align 8
+  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.39, ptr noundef %5) #34
   br label %moduleReplySetCollectionLength.exit
 
 if.end6.i:                                        ; preds = %if.end.i
-  %dec.i = add nsw i32 %3, -1
+  %dec.i = add nsw i32 %2, -1
   store i32 %dec.i, ptr %postponed_arrays_count.i, align 8
   %postponed_arrays.i = getelementptr inbounds i8, ptr %ctx, i64 56
-  %7 = load ptr, ptr %postponed_arrays.i, align 8
+  %6 = load ptr, ptr %postponed_arrays.i, align 8
   %idxprom.i = sext i32 %dec.i to i64
-  %arrayidx.i = getelementptr inbounds ptr, ptr %7, i64 %idxprom.i
-  %8 = load ptr, ptr %arrayidx.i, align 8
-  tail call void @setDeferredArrayLen(ptr noundef nonnull %2, ptr noundef %8, i64 noundef %len) #34
-  %9 = load i32, ptr %postponed_arrays_count.i, align 8
-  %cmp25.i = icmp eq i32 %9, 0
+  %arrayidx.i = getelementptr inbounds ptr, ptr %6, i64 %idxprom.i
+  %7 = load ptr, ptr %arrayidx.i, align 8
+  tail call void @setDeferredArrayLen(ptr noundef nonnull %retval.0.i.i, ptr noundef %7, i64 noundef %len) #34
+  %8 = load i32, ptr %postponed_arrays_count.i, align 8
+  %cmp25.i = icmp eq i32 %8, 0
   br i1 %cmp25.i, label %if.then26.i, label %moduleReplySetCollectionLength.exit
 
 if.then26.i:                                      ; preds = %if.end6.i
-  %10 = load ptr, ptr %postponed_arrays.i, align 8
-  tail call void @zfree(ptr noundef %10) #34
+  %9 = load ptr, ptr %postponed_arrays.i, align 8
+  tail call void @zfree(ptr noundef %9) #34
   store ptr null, ptr %postponed_arrays.i, align 8
   br label %moduleReplySetCollectionLength.exit
 
@@ -6724,46 +6736,46 @@ if.else4.i.i:                                     ; preds = %entry
   br label %moduleGetReplyClient.exit.i
 
 moduleGetReplyClient.exit.i:                      ; preds = %if.else4.i.i, %if.then2.i.i
-  %client.sink.i.i = phi ptr [ %client.i.i, %if.else4.i.i ], [ %reply_client.i.i, %if.then2.i.i ]
-  %2 = load ptr, ptr %client.sink.i.i, align 8
-  %cmp.i = icmp eq ptr %2, null
+  %retval.0.i.in.i = phi ptr [ %reply_client.i.i, %if.then2.i.i ], [ %client.i.i, %if.else4.i.i ]
+  %retval.0.i.i = load ptr, ptr %retval.0.i.in.i, align 8
+  %cmp.i = icmp eq ptr %retval.0.i.i, null
   br i1 %cmp.i, label %moduleReplySetCollectionLength.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %moduleGetReplyClient.exit.i
   %postponed_arrays_count.i = getelementptr inbounds i8, ptr %ctx, i64 64
-  %3 = load i32, ptr %postponed_arrays_count.i, align 8
-  %cmp1.i = icmp eq i32 %3, 0
+  %2 = load i32, ptr %postponed_arrays_count.i, align 8
+  %cmp1.i = icmp eq i32 %2, 0
   br i1 %cmp1.i, label %do.body.i, label %if.end6.i
 
 do.body.i:                                        ; preds = %if.end.i
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
-  %cmp3.i = icmp sgt i32 %4, 3
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
+  %cmp3.i = icmp sgt i32 %3, 3
   br i1 %cmp3.i, label %moduleReplySetCollectionLength.exit, label %if.end5.i
 
 if.end5.i:                                        ; preds = %do.body.i
   %module.i = getelementptr inbounds i8, ptr %ctx, i64 8
-  %5 = load ptr, ptr %module.i, align 8
-  %name.i = getelementptr inbounds i8, ptr %5, i64 8
-  %6 = load ptr, ptr %name.i, align 8
-  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.39, ptr noundef %6) #34
+  %4 = load ptr, ptr %module.i, align 8
+  %name.i = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = load ptr, ptr %name.i, align 8
+  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.39, ptr noundef %5) #34
   br label %moduleReplySetCollectionLength.exit
 
 if.end6.i:                                        ; preds = %if.end.i
-  %dec.i = add nsw i32 %3, -1
+  %dec.i = add nsw i32 %2, -1
   store i32 %dec.i, ptr %postponed_arrays_count.i, align 8
   %postponed_arrays10.i = getelementptr inbounds i8, ptr %ctx, i64 56
-  %7 = load ptr, ptr %postponed_arrays10.i, align 8
+  %6 = load ptr, ptr %postponed_arrays10.i, align 8
   %idxprom12.i = sext i32 %dec.i to i64
-  %arrayidx13.i = getelementptr inbounds ptr, ptr %7, i64 %idxprom12.i
-  %8 = load ptr, ptr %arrayidx13.i, align 8
-  tail call void @setDeferredMapLen(ptr noundef nonnull %2, ptr noundef %8, i64 noundef %len) #34
-  %9 = load i32, ptr %postponed_arrays_count.i, align 8
-  %cmp25.i = icmp eq i32 %9, 0
+  %arrayidx13.i = getelementptr inbounds ptr, ptr %6, i64 %idxprom12.i
+  %7 = load ptr, ptr %arrayidx13.i, align 8
+  tail call void @setDeferredMapLen(ptr noundef nonnull %retval.0.i.i, ptr noundef %7, i64 noundef %len) #34
+  %8 = load i32, ptr %postponed_arrays_count.i, align 8
+  %cmp25.i = icmp eq i32 %8, 0
   br i1 %cmp25.i, label %if.then26.i, label %moduleReplySetCollectionLength.exit
 
 if.then26.i:                                      ; preds = %if.end6.i
-  %10 = load ptr, ptr %postponed_arrays10.i, align 8
-  tail call void @zfree(ptr noundef %10) #34
+  %9 = load ptr, ptr %postponed_arrays10.i, align 8
+  tail call void @zfree(ptr noundef %9) #34
   store ptr null, ptr %postponed_arrays10.i, align 8
   br label %moduleReplySetCollectionLength.exit
 
@@ -6795,46 +6807,46 @@ if.else4.i.i:                                     ; preds = %entry
   br label %moduleGetReplyClient.exit.i
 
 moduleGetReplyClient.exit.i:                      ; preds = %if.else4.i.i, %if.then2.i.i
-  %client.sink.i.i = phi ptr [ %client.i.i, %if.else4.i.i ], [ %reply_client.i.i, %if.then2.i.i ]
-  %2 = load ptr, ptr %client.sink.i.i, align 8
-  %cmp.i = icmp eq ptr %2, null
+  %retval.0.i.in.i = phi ptr [ %reply_client.i.i, %if.then2.i.i ], [ %client.i.i, %if.else4.i.i ]
+  %retval.0.i.i = load ptr, ptr %retval.0.i.in.i, align 8
+  %cmp.i = icmp eq ptr %retval.0.i.i, null
   br i1 %cmp.i, label %moduleReplySetCollectionLength.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %moduleGetReplyClient.exit.i
   %postponed_arrays_count.i = getelementptr inbounds i8, ptr %ctx, i64 64
-  %3 = load i32, ptr %postponed_arrays_count.i, align 8
-  %cmp1.i = icmp eq i32 %3, 0
+  %2 = load i32, ptr %postponed_arrays_count.i, align 8
+  %cmp1.i = icmp eq i32 %2, 0
   br i1 %cmp1.i, label %do.body.i, label %if.end6.i
 
 do.body.i:                                        ; preds = %if.end.i
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
-  %cmp3.i = icmp sgt i32 %4, 3
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
+  %cmp3.i = icmp sgt i32 %3, 3
   br i1 %cmp3.i, label %moduleReplySetCollectionLength.exit, label %if.end5.i
 
 if.end5.i:                                        ; preds = %do.body.i
   %module.i = getelementptr inbounds i8, ptr %ctx, i64 8
-  %5 = load ptr, ptr %module.i, align 8
-  %name.i = getelementptr inbounds i8, ptr %5, i64 8
-  %6 = load ptr, ptr %name.i, align 8
-  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.39, ptr noundef %6) #34
+  %4 = load ptr, ptr %module.i, align 8
+  %name.i = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = load ptr, ptr %name.i, align 8
+  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.39, ptr noundef %5) #34
   br label %moduleReplySetCollectionLength.exit
 
 if.end6.i:                                        ; preds = %if.end.i
-  %dec.i = add nsw i32 %3, -1
+  %dec.i = add nsw i32 %2, -1
   store i32 %dec.i, ptr %postponed_arrays_count.i, align 8
   %postponed_arrays15.i = getelementptr inbounds i8, ptr %ctx, i64 56
-  %7 = load ptr, ptr %postponed_arrays15.i, align 8
+  %6 = load ptr, ptr %postponed_arrays15.i, align 8
   %idxprom17.i = sext i32 %dec.i to i64
-  %arrayidx18.i = getelementptr inbounds ptr, ptr %7, i64 %idxprom17.i
-  %8 = load ptr, ptr %arrayidx18.i, align 8
-  tail call void @setDeferredSetLen(ptr noundef nonnull %2, ptr noundef %8, i64 noundef %len) #34
-  %9 = load i32, ptr %postponed_arrays_count.i, align 8
-  %cmp25.i = icmp eq i32 %9, 0
+  %arrayidx18.i = getelementptr inbounds ptr, ptr %6, i64 %idxprom17.i
+  %7 = load ptr, ptr %arrayidx18.i, align 8
+  tail call void @setDeferredSetLen(ptr noundef nonnull %retval.0.i.i, ptr noundef %7, i64 noundef %len) #34
+  %8 = load i32, ptr %postponed_arrays_count.i, align 8
+  %cmp25.i = icmp eq i32 %8, 0
   br i1 %cmp25.i, label %if.then26.i, label %moduleReplySetCollectionLength.exit
 
 if.then26.i:                                      ; preds = %if.end6.i
-  %10 = load ptr, ptr %postponed_arrays15.i, align 8
-  tail call void @zfree(ptr noundef %10) #34
+  %9 = load ptr, ptr %postponed_arrays15.i, align 8
+  tail call void @zfree(ptr noundef %9) #34
   store ptr null, ptr %postponed_arrays15.i, align 8
   br label %moduleReplySetCollectionLength.exit
 
@@ -6867,46 +6879,46 @@ if.then.i.i:                                      ; preds = %if.end
 
 moduleGetReplyClient.exit.i:                      ; preds = %if.then.i.i
   %reply_client.i.i = getelementptr inbounds i8, ptr %3, i64 72
-  %.pre = load ptr, ptr %reply_client.i.i, align 8
-  %cmp.i = icmp eq ptr %.pre, null
+  %retval.0.i.i.pre = load ptr, ptr %reply_client.i.i, align 8
+  %cmp.i = icmp eq ptr %retval.0.i.i.pre, null
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end, %moduleGetReplyClient.exit.i
-  %4 = phi ptr [ %.pre, %moduleGetReplyClient.exit.i ], [ %0, %if.end ]
+  %retval.0.i.i5 = phi ptr [ %retval.0.i.i.pre, %moduleGetReplyClient.exit.i ], [ %0, %if.end ]
   %postponed_arrays_count.i = getelementptr inbounds i8, ptr %ctx, i64 64
-  %5 = load i32, ptr %postponed_arrays_count.i, align 8
-  %cmp1.i = icmp eq i32 %5, 0
+  %4 = load i32, ptr %postponed_arrays_count.i, align 8
+  %cmp1.i = icmp eq i32 %4, 0
   br i1 %cmp1.i, label %do.body.i, label %if.end6.i
 
 do.body.i:                                        ; preds = %if.end.i
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
-  %cmp3.i = icmp sgt i32 %6, 3
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
+  %cmp3.i = icmp sgt i32 %5, 3
   br i1 %cmp3.i, label %return, label %if.end5.i
 
 if.end5.i:                                        ; preds = %do.body.i
   %module.i = getelementptr inbounds i8, ptr %ctx, i64 8
-  %7 = load ptr, ptr %module.i, align 8
-  %name.i = getelementptr inbounds i8, ptr %7, i64 8
-  %8 = load ptr, ptr %name.i, align 8
-  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.39, ptr noundef %8) #34
+  %6 = load ptr, ptr %module.i, align 8
+  %name.i = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = load ptr, ptr %name.i, align 8
+  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.39, ptr noundef %7) #34
   br label %return
 
 if.end6.i:                                        ; preds = %if.end.i
-  %dec.i = add nsw i32 %5, -1
+  %dec.i = add nsw i32 %4, -1
   store i32 %dec.i, ptr %postponed_arrays_count.i, align 8
   %postponed_arrays20.i = getelementptr inbounds i8, ptr %ctx, i64 56
-  %9 = load ptr, ptr %postponed_arrays20.i, align 8
+  %8 = load ptr, ptr %postponed_arrays20.i, align 8
   %idxprom22.i = sext i32 %dec.i to i64
-  %arrayidx23.i = getelementptr inbounds ptr, ptr %9, i64 %idxprom22.i
-  %10 = load ptr, ptr %arrayidx23.i, align 8
-  tail call void @setDeferredAttributeLen(ptr noundef nonnull %4, ptr noundef %10, i64 noundef %len) #34
-  %11 = load i32, ptr %postponed_arrays_count.i, align 8
-  %cmp25.i = icmp eq i32 %11, 0
+  %arrayidx23.i = getelementptr inbounds ptr, ptr %8, i64 %idxprom22.i
+  %9 = load ptr, ptr %arrayidx23.i, align 8
+  tail call void @setDeferredAttributeLen(ptr noundef nonnull %retval.0.i.i5, ptr noundef %9, i64 noundef %len) #34
+  %10 = load i32, ptr %postponed_arrays_count.i, align 8
+  %cmp25.i = icmp eq i32 %10, 0
   br i1 %cmp25.i, label %if.then26.i, label %return
 
 if.then26.i:                                      ; preds = %if.end6.i
-  %12 = load ptr, ptr %postponed_arrays20.i, align 8
-  tail call void @zfree(ptr noundef %12) #34
+  %11 = load ptr, ptr %postponed_arrays20.i, align 8
+  tail call void @zfree(ptr noundef %11) #34
   store ptr null, ptr %postponed_arrays20.i, align 8
   br label %return
 
@@ -6938,13 +6950,13 @@ if.else4.i:                                       ; preds = %entry
   br label %moduleGetReplyClient.exit
 
 moduleGetReplyClient.exit:                        ; preds = %if.then2.i, %if.else4.i
-  %client.sink.i = phi ptr [ %client.i, %if.else4.i ], [ %reply_client.i, %if.then2.i ]
-  %2 = load ptr, ptr %client.sink.i, align 8
-  %cmp = icmp eq ptr %2, null
+  %retval.0.i.in = phi ptr [ %reply_client.i, %if.then2.i ], [ %client.i, %if.else4.i ]
+  %retval.0.i = load ptr, ptr %retval.0.i.in, align 8
+  %cmp = icmp eq ptr %retval.0.i, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %moduleGetReplyClient.exit
-  tail call void @addReplyBulkCBuffer(ptr noundef nonnull %2, ptr noundef %buf, i64 noundef %len) #34
+  tail call void @addReplyBulkCBuffer(ptr noundef nonnull %retval.0.i, ptr noundef %buf, i64 noundef %len) #34
   br label %return
 
 return:                                           ; preds = %if.then.i, %moduleGetReplyClient.exit, %if.end
@@ -6977,13 +6989,13 @@ if.else4.i:                                       ; preds = %entry
   br label %moduleGetReplyClient.exit
 
 moduleGetReplyClient.exit:                        ; preds = %if.then2.i, %if.else4.i
-  %client.sink.i = phi ptr [ %client.i, %if.else4.i ], [ %reply_client.i, %if.then2.i ]
-  %2 = load ptr, ptr %client.sink.i, align 8
-  %cmp = icmp eq ptr %2, null
+  %retval.0.i.in = phi ptr [ %reply_client.i, %if.then2.i ], [ %client.i, %if.else4.i ]
+  %retval.0.i = load ptr, ptr %retval.0.i.in, align 8
+  %cmp = icmp eq ptr %retval.0.i, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %moduleGetReplyClient.exit
-  tail call void @addReplyBulkCString(ptr noundef nonnull %2, ptr noundef %buf) #34
+  tail call void @addReplyBulkCString(ptr noundef nonnull %retval.0.i, ptr noundef %buf) #34
   br label %return
 
 return:                                           ; preds = %if.then.i, %moduleGetReplyClient.exit, %if.end
@@ -7016,13 +7028,13 @@ if.else4.i:                                       ; preds = %entry
   br label %moduleGetReplyClient.exit
 
 moduleGetReplyClient.exit:                        ; preds = %if.then2.i, %if.else4.i
-  %client.sink.i = phi ptr [ %client.i, %if.else4.i ], [ %reply_client.i, %if.then2.i ]
-  %2 = load ptr, ptr %client.sink.i, align 8
-  %cmp = icmp eq ptr %2, null
+  %retval.0.i.in = phi ptr [ %reply_client.i, %if.then2.i ], [ %client.i, %if.else4.i ]
+  %retval.0.i = load ptr, ptr %retval.0.i.in, align 8
+  %cmp = icmp eq ptr %retval.0.i, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %moduleGetReplyClient.exit
-  tail call void @addReplyBulk(ptr noundef nonnull %2, ptr noundef %str) #34
+  tail call void @addReplyBulk(ptr noundef nonnull %retval.0.i, ptr noundef %str) #34
   br label %return
 
 return:                                           ; preds = %if.then.i, %moduleGetReplyClient.exit, %if.end
@@ -7055,14 +7067,14 @@ if.else4.i:                                       ; preds = %entry
   br label %moduleGetReplyClient.exit
 
 moduleGetReplyClient.exit:                        ; preds = %if.then2.i, %if.else4.i
-  %client.sink.i = phi ptr [ %client.i, %if.else4.i ], [ %reply_client.i, %if.then2.i ]
-  %2 = load ptr, ptr %client.sink.i, align 8
-  %cmp = icmp eq ptr %2, null
+  %retval.0.i.in = phi ptr [ %reply_client.i, %if.then2.i ], [ %client.i, %if.else4.i ]
+  %retval.0.i = load ptr, ptr %retval.0.i.in, align 8
+  %cmp = icmp eq ptr %retval.0.i, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %moduleGetReplyClient.exit
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 16), align 8
-  tail call void @addReply(ptr noundef nonnull %2, ptr noundef %3) #34
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 16), align 8
+  tail call void @addReply(ptr noundef nonnull %retval.0.i, ptr noundef %2) #34
   br label %return
 
 return:                                           ; preds = %if.then.i, %moduleGetReplyClient.exit, %if.end
@@ -7093,13 +7105,13 @@ if.else4.i:                                       ; preds = %entry
   br label %moduleGetReplyClient.exit
 
 moduleGetReplyClient.exit:                        ; preds = %if.then2.i, %if.else4.i
-  %client.sink.i = phi ptr [ %client.i, %if.else4.i ], [ %reply_client.i, %if.then2.i ]
-  %2 = load ptr, ptr %client.sink.i, align 8
-  %cmp = icmp eq ptr %2, null
+  %retval.0.i.in = phi ptr [ %reply_client.i, %if.then2.i ], [ %client.i, %if.else4.i ]
+  %retval.0.i = load ptr, ptr %retval.0.i.in, align 8
+  %cmp = icmp eq ptr %retval.0.i, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %moduleGetReplyClient.exit
-  tail call void @addReplyVerbatim(ptr noundef nonnull %2, ptr noundef %buf, i64 noundef %len, ptr noundef %ext) #34
+  tail call void @addReplyVerbatim(ptr noundef nonnull %retval.0.i, ptr noundef %buf, i64 noundef %len, ptr noundef %ext) #34
   br label %return
 
 return:                                           ; preds = %if.then.i, %moduleGetReplyClient.exit, %if.end
@@ -7132,13 +7144,13 @@ if.else4.i.i:                                     ; preds = %entry
   br label %moduleGetReplyClient.exit.i
 
 moduleGetReplyClient.exit.i:                      ; preds = %if.else4.i.i, %if.then2.i.i
-  %client.sink.i.i = phi ptr [ %client.i.i, %if.else4.i.i ], [ %reply_client.i.i, %if.then2.i.i ]
-  %2 = load ptr, ptr %client.sink.i.i, align 8
-  %cmp.i = icmp eq ptr %2, null
+  %retval.0.i.in.i = phi ptr [ %reply_client.i.i, %if.then2.i.i ], [ %client.i.i, %if.else4.i.i ]
+  %retval.0.i.i = load ptr, ptr %retval.0.i.in.i, align 8
+  %cmp.i = icmp eq ptr %retval.0.i.i, null
   br i1 %cmp.i, label %RM_ReplyWithVerbatimStringType.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %moduleGetReplyClient.exit.i
-  tail call void @addReplyVerbatim(ptr noundef nonnull %2, ptr noundef %buf, i64 noundef %len, ptr noundef nonnull @.str.40) #34
+  tail call void @addReplyVerbatim(ptr noundef nonnull %retval.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef nonnull @.str.40) #34
   br label %RM_ReplyWithVerbatimStringType.exit
 
 RM_ReplyWithVerbatimStringType.exit:              ; preds = %if.then.i.i, %moduleGetReplyClient.exit.i, %if.end.i
@@ -7169,13 +7181,13 @@ if.else4.i:                                       ; preds = %entry
   br label %moduleGetReplyClient.exit
 
 moduleGetReplyClient.exit:                        ; preds = %if.then2.i, %if.else4.i
-  %client.sink.i = phi ptr [ %client.i, %if.else4.i ], [ %reply_client.i, %if.then2.i ]
-  %2 = load ptr, ptr %client.sink.i, align 8
-  %cmp = icmp eq ptr %2, null
+  %retval.0.i.in = phi ptr [ %reply_client.i, %if.then2.i ], [ %client.i, %if.else4.i ]
+  %retval.0.i = load ptr, ptr %retval.0.i.in, align 8
+  %cmp = icmp eq ptr %retval.0.i, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %moduleGetReplyClient.exit
-  tail call void @addReplyNull(ptr noundef nonnull %2) #34
+  tail call void @addReplyNull(ptr noundef nonnull %retval.0.i) #34
   br label %return
 
 return:                                           ; preds = %if.then.i, %moduleGetReplyClient.exit, %if.end
@@ -7208,13 +7220,13 @@ if.else4.i:                                       ; preds = %entry
   br label %moduleGetReplyClient.exit
 
 moduleGetReplyClient.exit:                        ; preds = %if.then2.i, %if.else4.i
-  %client.sink.i = phi ptr [ %client.i, %if.else4.i ], [ %reply_client.i, %if.then2.i ]
-  %2 = load ptr, ptr %client.sink.i, align 8
-  %cmp = icmp eq ptr %2, null
+  %retval.0.i.in = phi ptr [ %reply_client.i, %if.then2.i ], [ %client.i, %if.else4.i ]
+  %retval.0.i = load ptr, ptr %retval.0.i.in, align 8
+  %cmp = icmp eq ptr %retval.0.i, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %moduleGetReplyClient.exit
-  tail call void @addReplyBool(ptr noundef nonnull %2, i32 noundef %b) #34
+  tail call void @addReplyBool(ptr noundef nonnull %retval.0.i, i32 noundef %b) #34
   br label %return
 
 return:                                           ; preds = %if.then.i, %moduleGetReplyClient.exit, %if.end
@@ -7248,15 +7260,15 @@ if.else4.i:                                       ; preds = %entry
   br label %moduleGetReplyClient.exit
 
 moduleGetReplyClient.exit:                        ; preds = %if.then2.i, %if.else4.i
-  %client.sink.i = phi ptr [ %client.i, %if.else4.i ], [ %reply_client.i, %if.then2.i ]
-  %2 = load ptr, ptr %client.sink.i, align 8
-  %cmp = icmp eq ptr %2, null
+  %retval.0.i.in = phi ptr [ %reply_client.i, %if.then2.i ], [ %client.i, %if.else4.i ]
+  %retval.0.i = load ptr, ptr %retval.0.i.in, align 8
+  %cmp = icmp eq ptr %retval.0.i, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %moduleGetReplyClient.exit
-  %resp = getelementptr inbounds i8, ptr %2, i64 24
-  %3 = load i32, ptr %resp, align 8
-  %cmp1 = icmp eq i32 %3, 2
+  %resp = getelementptr inbounds i8, ptr %retval.0.i, i64 24
+  %2 = load i32, ptr %resp, align 8
+  %cmp1 = icmp eq i32 %2, 2
   br i1 %cmp1, label %land.lhs.true, label %if.end4
 
 land.lhs.true:                                    ; preds = %if.end
@@ -7266,14 +7278,14 @@ land.lhs.true:                                    ; preds = %if.end
 
 if.end4:                                          ; preds = %land.lhs.true, %if.end
   %call5 = call ptr @callReplyGetProto(ptr noundef %reply, ptr noundef nonnull %proto_len) #34
-  %4 = load i64, ptr %proto_len, align 8
-  call void @addReplyProto(ptr noundef nonnull %2, ptr noundef %call5, i64 noundef %4) #34
+  %3 = load i64, ptr %proto_len, align 8
+  call void @addReplyProto(ptr noundef nonnull %retval.0.i, ptr noundef %call5, i64 noundef %3) #34
   %call6 = call ptr @callReplyDeferredErrorList(ptr noundef %reply) #34
   %tobool7.not = icmp eq ptr %call6, null
   br i1 %tobool7.not, label %return, label %if.then8
 
 if.then8:                                         ; preds = %if.end4
-  call void @deferredAfterErrorReply(ptr noundef nonnull %2, ptr noundef nonnull %call6) #34
+  call void @deferredAfterErrorReply(ptr noundef nonnull %retval.0.i, ptr noundef nonnull %call6) #34
   br label %return
 
 return:                                           ; preds = %if.then.i, %if.end4, %if.then8, %land.lhs.true, %moduleGetReplyClient.exit
@@ -7313,13 +7325,13 @@ if.else4.i:                                       ; preds = %entry
   br label %moduleGetReplyClient.exit
 
 moduleGetReplyClient.exit:                        ; preds = %if.then2.i, %if.else4.i
-  %client.sink.i = phi ptr [ %client.i, %if.else4.i ], [ %reply_client.i, %if.then2.i ]
-  %2 = load ptr, ptr %client.sink.i, align 8
-  %cmp = icmp eq ptr %2, null
+  %retval.0.i.in = phi ptr [ %reply_client.i, %if.then2.i ], [ %client.i, %if.else4.i ]
+  %retval.0.i = load ptr, ptr %retval.0.i.in, align 8
+  %cmp = icmp eq ptr %retval.0.i, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %moduleGetReplyClient.exit
-  tail call void @addReplyDouble(ptr noundef nonnull %2, double noundef %d) #34
+  tail call void @addReplyDouble(ptr noundef nonnull %retval.0.i, double noundef %d) #34
   br label %return
 
 return:                                           ; preds = %if.then.i, %moduleGetReplyClient.exit, %if.end
@@ -7352,13 +7364,13 @@ if.else4.i:                                       ; preds = %entry
   br label %moduleGetReplyClient.exit
 
 moduleGetReplyClient.exit:                        ; preds = %if.then2.i, %if.else4.i
-  %client.sink.i = phi ptr [ %client.i, %if.else4.i ], [ %reply_client.i, %if.then2.i ]
-  %2 = load ptr, ptr %client.sink.i, align 8
-  %cmp = icmp eq ptr %2, null
+  %retval.0.i.in = phi ptr [ %reply_client.i, %if.then2.i ], [ %client.i, %if.else4.i ]
+  %retval.0.i = load ptr, ptr %retval.0.i.in, align 8
+  %cmp = icmp eq ptr %retval.0.i, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %moduleGetReplyClient.exit
-  tail call void @addReplyBigNum(ptr noundef nonnull %2, ptr noundef %bignum, i64 noundef %len) #34
+  tail call void @addReplyBigNum(ptr noundef nonnull %retval.0.i, ptr noundef %bignum, i64 noundef %len) #34
   br label %return
 
 return:                                           ; preds = %if.then.i, %moduleGetReplyClient.exit, %if.end
@@ -7391,13 +7403,13 @@ if.else4.i:                                       ; preds = %entry
   br label %moduleGetReplyClient.exit
 
 moduleGetReplyClient.exit:                        ; preds = %if.then2.i, %if.else4.i
-  %client.sink.i = phi ptr [ %client.i, %if.else4.i ], [ %reply_client.i, %if.then2.i ]
-  %2 = load ptr, ptr %client.sink.i, align 8
-  %cmp = icmp eq ptr %2, null
+  %retval.0.i.in = phi ptr [ %reply_client.i, %if.then2.i ], [ %client.i, %if.else4.i ]
+  %retval.0.i = load ptr, ptr %retval.0.i.in, align 8
+  %cmp = icmp eq ptr %retval.0.i, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %moduleGetReplyClient.exit
-  tail call void @addReplyHumanLongDouble(ptr noundef nonnull %2, x86_fp80 noundef %ld) #34
+  tail call void @addReplyHumanLongDouble(ptr noundef nonnull %retval.0.i, x86_fp80 noundef %ld) #34
   br label %return
 
 return:                                           ; preds = %if.then.i, %moduleGetReplyClient.exit, %if.end
@@ -13396,7 +13408,7 @@ if.end.i.i:                                       ; preds = %if.then.i
 if.end.if.end11_crit_edge.i.i:                    ; preds = %if.end.i.i
   %amqueue12.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %call, i64 32
   %.pre.i.i = load ptr, ptr %amqueue12.phi.trans.insert.i.i, align 8
-  br label %return.sink.split
+  br label %if.end11.i.i
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
   %mul.i.i = shl nsw i32 %2, 1
@@ -13410,7 +13422,24 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   %call.i.i = call ptr @zrealloc(ptr noundef %4, i64 noundef %mul9.i.i) #36
   store ptr %call.i.i, ptr %amqueue.i.i, align 8
   %.pre14.i.i = load i32, ptr %amqueue_used.i.i, align 4
-  br label %return.sink.split
+  br label %if.end11.i.i
+
+if.end11.i.i:                                     ; preds = %if.then1.i.i, %if.end.if.end11_crit_edge.i.i
+  %5 = phi i32 [ %2, %if.end.if.end11_crit_edge.i.i ], [ %.pre14.i.i, %if.then1.i.i ]
+  %6 = phi ptr [ %.pre.i.i, %if.end.if.end11_crit_edge.i.i ], [ %call.i.i, %if.then1.i.i ]
+  %amqueue12.i.i = getelementptr inbounds i8, ptr %call, i64 32
+  %idxprom.i.i = sext i32 %5 to i64
+  %type14.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %6, i64 %idxprom.i.i, i32 1
+  store i32 1, ptr %type14.i.i, align 8
+  %7 = load ptr, ptr %amqueue12.i.i, align 8
+  %8 = load i32, ptr %amqueue_used.i.i, align 4
+  %idxprom17.i.i = sext i32 %8 to i64
+  %arrayidx18.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %7, i64 %idxprom17.i.i
+  store ptr %call.i, ptr %arrayidx18.i.i, align 8
+  %9 = load i32, ptr %amqueue_used.i.i, align 4
+  %inc.i.i = add nsw i32 %9, 1
+  store i32 %inc.i.i, ptr %amqueue_used.i.i, align 4
+  br label %return
 
 sw.bb4:                                           ; preds = %entry
   %call6 = tail call i64 @callReplyGetLongLong(ptr noundef %reply) #34
@@ -13422,59 +13451,57 @@ sw.bb4:                                           ; preds = %entry
 
 if.then.i7:                                       ; preds = %sw.bb4
   %flags.i.i8 = getelementptr inbounds i8, ptr %call, i64 48
-  %5 = load i32, ptr %flags.i.i8, align 8
-  %and.i.i9 = and i32 %5, 1
+  %10 = load i32, ptr %flags.i.i8, align 8
+  %and.i.i9 = and i32 %10, 1
   %tobool.not.i.i10 = icmp eq i32 %and.i.i9, 0
   br i1 %tobool.not.i.i10, label %return, label %if.end.i.i11
 
 if.end.i.i11:                                     ; preds = %if.then.i7
   %amqueue_used.i.i12 = getelementptr inbounds i8, ptr %call, i64 44
-  %6 = load i32, ptr %amqueue_used.i.i12, align 4
+  %11 = load i32, ptr %amqueue_used.i.i12, align 4
   %amqueue_len.i.i13 = getelementptr inbounds i8, ptr %call, i64 40
-  %7 = load i32, ptr %amqueue_len.i.i13, align 8
-  %cmp.i.i14 = icmp eq i32 %6, %7
+  %12 = load i32, ptr %amqueue_len.i.i13, align 8
+  %cmp.i.i14 = icmp eq i32 %11, %12
   br i1 %cmp.i.i14, label %if.then1.i.i25, label %if.end.if.end11_crit_edge.i.i15
 
 if.end.if.end11_crit_edge.i.i15:                  ; preds = %if.end.i.i11
   %amqueue12.phi.trans.insert.i.i16 = getelementptr inbounds i8, ptr %call, i64 32
   %.pre.i.i17 = load ptr, ptr %amqueue12.phi.trans.insert.i.i16, align 8
-  br label %return.sink.split
+  br label %if.end11.i.i18
 
 if.then1.i.i25:                                   ; preds = %if.end.i.i11
-  %mul.i.i26 = shl nsw i32 %6, 1
-  %cmp4.i.i27 = icmp slt i32 %6, 8
+  %mul.i.i26 = shl nsw i32 %11, 1
+  %cmp4.i.i27 = icmp slt i32 %11, 8
   %spec.select.i.i28 = select i1 %cmp4.i.i27, i32 16, i32 %mul.i.i26
   store i32 %spec.select.i.i28, ptr %amqueue_len.i.i13, align 8
   %amqueue.i.i29 = getelementptr inbounds i8, ptr %call, i64 32
-  %8 = load ptr, ptr %amqueue.i.i29, align 8
+  %13 = load ptr, ptr %amqueue.i.i29, align 8
   %conv.i.i30 = sext i32 %spec.select.i.i28 to i64
   %mul9.i.i31 = shl nsw i64 %conv.i.i30, 4
-  %call.i.i32 = call ptr @zrealloc(ptr noundef %8, i64 noundef %mul9.i.i31) #36
+  %call.i.i32 = call ptr @zrealloc(ptr noundef %13, i64 noundef %mul9.i.i31) #36
   store ptr %call.i.i32, ptr %amqueue.i.i29, align 8
   %.pre14.i.i33 = load i32, ptr %amqueue_used.i.i12, align 4
-  br label %return.sink.split
+  br label %if.end11.i.i18
 
-return.sink.split:                                ; preds = %if.end.if.end11_crit_edge.i.i15, %if.then1.i.i25, %if.end.if.end11_crit_edge.i.i, %if.then1.i.i
-  %.sink38 = phi i32 [ %2, %if.end.if.end11_crit_edge.i.i ], [ %.pre14.i.i, %if.then1.i.i ], [ %6, %if.end.if.end11_crit_edge.i.i15 ], [ %.pre14.i.i33, %if.then1.i.i25 ]
-  %.sink = phi ptr [ %.pre.i.i, %if.end.if.end11_crit_edge.i.i ], [ %call.i.i, %if.then1.i.i ], [ %.pre.i.i17, %if.end.if.end11_crit_edge.i.i15 ], [ %call.i.i32, %if.then1.i.i25 ]
-  %amqueue_used.i.i12.sink37 = phi ptr [ %amqueue_used.i.i, %if.end.if.end11_crit_edge.i.i ], [ %amqueue_used.i.i, %if.then1.i.i ], [ %amqueue_used.i.i12, %if.end.if.end11_crit_edge.i.i15 ], [ %amqueue_used.i.i12, %if.then1.i.i25 ]
-  %call.i5.sink = phi ptr [ %call.i, %if.end.if.end11_crit_edge.i.i ], [ %call.i, %if.then1.i.i ], [ %call.i5, %if.end.if.end11_crit_edge.i.i15 ], [ %call.i5, %if.then1.i.i25 ]
+if.end11.i.i18:                                   ; preds = %if.then1.i.i25, %if.end.if.end11_crit_edge.i.i15
+  %14 = phi i32 [ %11, %if.end.if.end11_crit_edge.i.i15 ], [ %.pre14.i.i33, %if.then1.i.i25 ]
+  %15 = phi ptr [ %.pre.i.i17, %if.end.if.end11_crit_edge.i.i15 ], [ %call.i.i32, %if.then1.i.i25 ]
   %amqueue12.i.i19 = getelementptr inbounds i8, ptr %call, i64 32
-  %idxprom.i.i20 = sext i32 %.sink38 to i64
-  %type14.i.i21 = getelementptr inbounds %struct.AutoMemEntry, ptr %.sink, i64 %idxprom.i.i20, i32 1
+  %idxprom.i.i20 = sext i32 %14 to i64
+  %type14.i.i21 = getelementptr inbounds %struct.AutoMemEntry, ptr %15, i64 %idxprom.i.i20, i32 1
   store i32 1, ptr %type14.i.i21, align 8
-  %9 = load ptr, ptr %amqueue12.i.i19, align 8
-  %10 = load i32, ptr %amqueue_used.i.i12.sink37, align 4
-  %idxprom17.i.i22 = sext i32 %10 to i64
-  %arrayidx18.i.i23 = getelementptr inbounds %struct.AutoMemEntry, ptr %9, i64 %idxprom17.i.i22
-  store ptr %call.i5.sink, ptr %arrayidx18.i.i23, align 8
-  %11 = load i32, ptr %amqueue_used.i.i12.sink37, align 4
-  %inc.i.i24 = add nsw i32 %11, 1
-  store i32 %inc.i.i24, ptr %amqueue_used.i.i12.sink37, align 4
+  %16 = load ptr, ptr %amqueue12.i.i19, align 8
+  %17 = load i32, ptr %amqueue_used.i.i12, align 4
+  %idxprom17.i.i22 = sext i32 %17 to i64
+  %arrayidx18.i.i23 = getelementptr inbounds %struct.AutoMemEntry, ptr %16, i64 %idxprom17.i.i22
+  store ptr %call.i5, ptr %arrayidx18.i.i23, align 8
+  %18 = load i32, ptr %amqueue_used.i.i12, align 4
+  %inc.i.i24 = add nsw i32 %18, 1
+  store i32 %inc.i.i24, ptr %amqueue_used.i.i12, align 4
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.then.i7, %sw.bb4, %if.then.i, %sw.bb, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ %call.i, %sw.bb ], [ %call.i, %if.then.i ], [ %call.i5, %sw.bb4 ], [ %call.i5, %if.then.i7 ], [ %call.i5.sink, %return.sink.split ]
+return:                                           ; preds = %if.end11.i.i18, %if.then.i7, %sw.bb4, %if.end11.i.i, %if.then.i, %sw.bb, %entry
+  %retval.0 = phi ptr [ null, %entry ], [ %call.i, %sw.bb ], [ %call.i, %if.then.i ], [ %call.i, %if.end11.i.i ], [ %call.i5, %sw.bb4 ], [ %call.i5, %if.then.i7 ], [ %call.i5, %if.end11.i.i18 ]
   ret ptr %retval.0
 }
 
@@ -13917,23 +13944,27 @@ if.then220:                                       ; preds = %if.end217
   %call224 = call i32 @ACLCheckAllUserCommandPerm(ptr noundef %user.0, ptr noundef %47, ptr noundef %48, i32 noundef %49, ptr noundef nonnull %acl_errpos) #34
   switch i32 %call224, label %cond.false234 [
     i32 0, label %if.end258
-    i32 1, label %cond.end238
+    i32 1, label %cond.true230
   ]
 
-cond.false234:                                    ; preds = %if.then220
-  %50 = load ptr, ptr %argv8, align 8
-  %51 = load i32, ptr %acl_errpos, align 4
-  %idxprom = sext i32 %51 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %50, i64 %idxprom
+cond.true230:                                     ; preds = %if.then220
+  %50 = load ptr, ptr %cmd, align 8
+  %fullname232 = getelementptr inbounds i8, ptr %50, i64 216
   br label %cond.end238
 
-cond.end238:                                      ; preds = %if.then220, %cond.false234
-  %arrayidx.sink = phi ptr [ %arrayidx, %cond.false234 ], [ %cmd, %if.then220 ]
-  %.sink141 = phi i64 [ 8, %cond.false234 ], [ 216, %if.then220 ]
-  %52 = load ptr, ptr %arrayidx.sink, align 8
-  %ptr236 = getelementptr inbounds i8, ptr %52, i64 %.sink141
-  %53 = load ptr, ptr %ptr236, align 8
-  %call237 = call ptr @sdsdup(ptr noundef %53) #34
+cond.false234:                                    ; preds = %if.then220
+  %51 = load ptr, ptr %argv8, align 8
+  %52 = load i32, ptr %acl_errpos, align 4
+  %idxprom = sext i32 %52 to i64
+  %arrayidx = getelementptr inbounds ptr, ptr %51, i64 %idxprom
+  %53 = load ptr, ptr %arrayidx, align 8
+  %ptr236 = getelementptr inbounds i8, ptr %53, i64 8
+  br label %cond.end238
+
+cond.end238:                                      ; preds = %cond.false234, %cond.true230
+  %.sink139.in = phi ptr [ %ptr236, %cond.false234 ], [ %fullname232, %cond.true230 ]
+  %.sink139 = load ptr, ptr %.sink139.in, align 8
+  %call237 = call ptr @sdsdup(ptr noundef %.sink139) #34
   %54 = load ptr, ptr %client, align 8
   %user241 = getelementptr inbounds i8, ptr %c.0.i, i64 152
   %55 = load ptr, ptr %user241, align 8
@@ -14031,10 +14062,10 @@ if.then306:                                       ; preds = %if.else304
   br label %if.end311
 
 if.end311:                                        ; preds = %if.else304, %if.then306, %if.then295, %if.then297, %if.then283, %if.then285
-  %.sink142 = phi i32 [ 30, %if.then285 ], [ 30, %if.then283 ], [ 100, %if.then297 ], [ 100, %if.then295 ], [ 1, %if.then306 ], [ 1, %if.else304 ]
+  %.sink140 = phi i32 [ 30, %if.then285 ], [ 30, %if.then283 ], [ 100, %if.then297 ], [ 100, %if.then295 ], [ 1, %if.then306 ], [ 1, %if.else304 ]
   %msg280.1 = phi ptr [ %call289, %if.then285 ], [ null, %if.then283 ], [ %call301, %if.then297 ], [ null, %if.then295 ], [ %call307, %if.then306 ], [ null, %if.else304 ]
   %call303 = tail call ptr @__errno_location() #39
-  store i32 %.sink142, ptr %call303, align 4
+  store i32 %.sink140, ptr %call303, align 4
   %tobool312.not = icmp eq ptr %msg280.1, null
   br i1 %tobool312.not, label %if.end400, label %if.then313
 
@@ -23723,37 +23754,35 @@ if.then4:                                         ; preds = %if.end
 
 if.then8:                                         ; preds = %if.then4
   %ptr = getelementptr inbounds i8, ptr %0, i64 8
-  br label %if.end37.sink.split
+  %2 = load ptr, ptr %ptr, align 8
+  br label %if.end37
 
 if.then13:                                        ; preds = %if.end
-  %2 = and i32 %bf.load, 240
-  %cmp17 = icmp eq i32 %2, 32
+  %3 = and i32 %bf.load, 240
+  %cmp17 = icmp eq i32 %3, 32
   br i1 %cmp17, label %if.then18, label %if.end37
 
 if.then18:                                        ; preds = %if.then13
   %ptr19 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %if.end37.sink.split
+  %4 = load ptr, ptr %ptr19, align 8
+  br label %if.end37
 
 if.then25:                                        ; preds = %if.end
-  %3 = and i32 %bf.load, 240
-  %cmp29 = icmp eq i32 %3, 112
+  %5 = and i32 %bf.load, 240
+  %cmp29 = icmp eq i32 %5, 112
   br i1 %cmp29, label %if.then30, label %if.end37
 
 if.then30:                                        ; preds = %if.then25
   %ptr31 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = load ptr, ptr %ptr31, align 8
-  br label %if.end37.sink.split
-
-if.end37.sink.split:                              ; preds = %if.then8, %if.then30, %if.then18
-  %ptr19.sink = phi ptr [ %ptr19, %if.then18 ], [ %4, %if.then30 ], [ %ptr, %if.then8 ]
-  %5 = load ptr, ptr %ptr19.sink, align 8
+  %6 = load ptr, ptr %ptr31, align 8
+  %7 = load ptr, ptr %6, align 8
   br label %if.end37
 
-if.end37:                                         ; preds = %if.end37.sink.split, %if.then13, %if.then25, %if.then4
-  %ht.0 = phi ptr [ null, %if.then4 ], [ null, %if.then13 ], [ null, %if.then25 ], [ %5, %if.end37.sink.split ]
+if.end37:                                         ; preds = %if.then18, %if.then13, %if.then25, %if.then30, %if.then4, %if.then8
+  %ht.0 = phi ptr [ %2, %if.then8 ], [ null, %if.then4 ], [ %4, %if.then18 ], [ null, %if.then13 ], [ %7, %if.then30 ], [ null, %if.then25 ]
   %done = getelementptr inbounds i8, ptr %cursor, i64 8
-  %6 = load i32, ptr %done, align 8
-  %tobool.not = icmp eq i32 %6, 0
+  %8 = load i32, ptr %done, align 8
+  %tobool.not = icmp eq i32 %8, 0
   br i1 %tobool.not, label %if.end40, label %return
 
 if.end40:                                         ; preds = %if.end37
@@ -23766,8 +23795,8 @@ if.then42:                                        ; preds = %if.end40
   store ptr %privdata, ptr %user_data, align 8
   %fn44 = getelementptr inbounds i8, ptr %data, i64 16
   store ptr %fn, ptr %fn44, align 8
-  %7 = load i64, ptr %cursor, align 8
-  %call46 = call i64 @dictScan(ptr noundef nonnull %ht.0, i64 noundef %7, ptr noundef nonnull @moduleScanKeyCallback, ptr noundef nonnull %data) #34
+  %9 = load i64, ptr %cursor, align 8
+  %call46 = call i64 @dictScan(ptr noundef nonnull %ht.0, i64 noundef %9, ptr noundef nonnull @moduleScanKeyCallback, ptr noundef nonnull %data) #34
   store i64 %call46, ptr %cursor, align 8
   %cmp49 = icmp eq i64 %call46, 0
   br i1 %cmp49, label %if.end103.sink.split, label %return
@@ -23797,8 +23826,8 @@ while.end:                                        ; preds = %while.body, %if.the
 
 if.then72:                                        ; preds = %if.else53
   %ptr73 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = load ptr, ptr %ptr73, align 8
-  %call74 = tail call ptr @lpSeek(ptr noundef %8, i64 noundef 0) #34
+  %10 = load ptr, ptr %ptr73, align 8
+  %call74 = tail call ptr @lpSeek(ptr noundef %10, i64 noundef 0) #34
   %tobool76.not45 = icmp eq ptr %call74, null
   br i1 %tobool76.not45, label %if.end103.sink.split.sink.split, label %while.body77
 
@@ -23809,40 +23838,40 @@ while.body77:                                     ; preds = %if.then72, %cond.en
   br i1 %cmp80.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %while.body77
-  %9 = load i32, ptr %vlen, align 4
-  %conv = zext i32 %9 to i64
+  %11 = load i32, ptr %vlen, align 4
+  %conv = zext i32 %11 to i64
   %call81 = call ptr @createStringObject(ptr noundef nonnull %call78, i64 noundef %conv) #34
   br label %cond.end
 
 cond.false:                                       ; preds = %while.body77
-  %10 = load i64, ptr %vll, align 8
-  %call82 = call ptr @createStringObjectFromLongLongWithSds(i64 noundef %10) #34
+  %12 = load i64, ptr %vll, align 8
+  %call82 = call ptr @createStringObjectFromLongLongWithSds(i64 noundef %12) #34
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi ptr [ %call81, %cond.true ], [ %call82, %cond.false ]
-  %11 = load ptr, ptr %ptr73, align 8
-  %call84 = call ptr @lpNext(ptr noundef %11, ptr noundef nonnull %p.046) #34
+  %13 = load ptr, ptr %ptr73, align 8
+  %call84 = call ptr @lpNext(ptr noundef %13, ptr noundef nonnull %p.046) #34
   %call85 = call ptr @lpGetValue(ptr noundef %call84, ptr noundef nonnull %vlen, ptr noundef nonnull %vll) #34
   %cmp87.not = icmp eq ptr %call85, null
   br i1 %cmp87.not, label %cond.false92, label %cond.true89
 
 cond.true89:                                      ; preds = %cond.end
-  %12 = load i32, ptr %vlen, align 4
-  %conv90 = zext i32 %12 to i64
+  %14 = load i32, ptr %vlen, align 4
+  %conv90 = zext i32 %14 to i64
   %call91 = call ptr @createStringObject(ptr noundef nonnull %call85, i64 noundef %conv90) #34
   br label %cond.end94
 
 cond.false92:                                     ; preds = %cond.end
-  %13 = load i64, ptr %vll, align 8
-  %call93 = call ptr @createStringObjectFromLongLongWithSds(i64 noundef %13) #34
+  %15 = load i64, ptr %vll, align 8
+  %call93 = call ptr @createStringObjectFromLongLongWithSds(i64 noundef %15) #34
   br label %cond.end94
 
 cond.end94:                                       ; preds = %cond.false92, %cond.true89
   %cond95 = phi ptr [ %call91, %cond.true89 ], [ %call93, %cond.false92 ]
   call void %fn(ptr noundef nonnull %key, ptr noundef %cond, ptr noundef %cond95, ptr noundef %privdata) #34
-  %14 = load ptr, ptr %ptr73, align 8
-  %call97 = call ptr @lpNext(ptr noundef %14, ptr noundef %call84) #34
+  %16 = load ptr, ptr %ptr73, align 8
+  %call97 = call ptr @lpNext(ptr noundef %16, ptr noundef %call84) #34
   call void @decrRefCount(ptr noundef %cond) #34
   call void @decrRefCount(ptr noundef %cond95) #34
   %tobool76.not = icmp eq ptr %call97, null

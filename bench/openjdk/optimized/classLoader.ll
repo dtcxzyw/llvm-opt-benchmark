@@ -1408,20 +1408,17 @@ define hidden void @_ZN19ModuleClassPathList11add_to_listEP14ClassPathEntry(ptr 
 7:                                                ; preds = %3
   store ptr %1, ptr %4, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %.sink.split
+  store ptr %1, ptr %8, align 8
+  br label %11
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %5, i64 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !9
   store volatile ptr %1, ptr %10, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %9, %7
-  %.sink = phi ptr [ %8, %7 ], [ %4, %9 ]
-  store ptr %1, ptr %.sink, align 8
+  store ptr %1, ptr %4, align 8
   br label %11
 
-11:                                               ; preds = %.sink.split, %2
+11:                                               ; preds = %7, %9, %2
   ret void
 }
 
@@ -2167,16 +2164,16 @@ _ZN13GrowableArrayIP19ModuleClassPathListEC2Ei8MEMFLAGS.exit: ; preds = %9, %.lr
   %52 = getelementptr inbounds i8, ptr %32, i64 16
   br label %53
 
-53:                                               ; preds = %.lr.ph, %65
+53:                                               ; preds = %.lr.ph, %_ZN19ModuleClassPathList11add_to_listEP14ClassPathEntry.exit
   %54 = call noundef ptr @_ZN15ClasspathStream8get_nextEv(ptr noundef nonnull align 8 dereferenceable(20) %1) #21
   %55 = call noundef i32 @_ZN2os4statEPKcP4stat(ptr noundef %54, ptr noundef nonnull %2) #21
   %56 = icmp eq i32 %55, 0
-  br i1 %56, label %57, label %65
+  br i1 %56, label %57, label %_ZN19ModuleClassPathList11add_to_listEP14ClassPathEntry.exit
 
 57:                                               ; preds = %53
   %58 = call noundef ptr @_ZN11ClassLoader23create_class_path_entryEP10JavaThreadPKcPK4statbb(ptr noundef %4, ptr noundef %54, ptr noundef nonnull %2, i1 zeroext poison, i1 noundef zeroext false)
   %.not22 = icmp eq ptr %58, null
-  br i1 %.not22, label %65, label %59
+  br i1 %.not22, label %_ZN19ModuleClassPathList11add_to_listEP14ClassPathEntry.exit, label %59
 
 59:                                               ; preds = %57
   %60 = load ptr, ptr %52, align 8
@@ -2185,85 +2182,82 @@ _ZN13GrowableArrayIP19ModuleClassPathListEC2Ei8MEMFLAGS.exit: ; preds = %9, %.lr
 
 62:                                               ; preds = %59
   store ptr %58, ptr %52, align 8
+  store ptr %58, ptr %33, align 8
   br label %_ZN19ModuleClassPathList11add_to_listEP14ClassPathEntry.exit
 
 63:                                               ; preds = %59
   %64 = getelementptr inbounds i8, ptr %60, i64 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !9
   store volatile ptr %58, ptr %64, align 8
+  store ptr %58, ptr %52, align 8
   br label %_ZN19ModuleClassPathList11add_to_listEP14ClassPathEntry.exit
 
-_ZN19ModuleClassPathList11add_to_listEP14ClassPathEntry.exit: ; preds = %62, %63
-  %.sink.i = phi ptr [ %33, %62 ], [ %52, %63 ]
-  store ptr %58, ptr %.sink.i, align 8
-  br label %65
+_ZN19ModuleClassPathList11add_to_listEP14ClassPathEntry.exit: ; preds = %63, %62, %57, %53
+  %65 = load i32, ptr %22, align 4
+  %66 = load i32, ptr %21, align 8
+  %67 = icmp slt i32 %65, %66
+  br i1 %67, label %53, label %._crit_edge, !llvm.loop !15
 
-65:                                               ; preds = %57, %_ZN19ModuleClassPathList11add_to_listEP14ClassPathEntry.exit, %53
-  %66 = load i32, ptr %22, align 4
-  %67 = load i32, ptr %21, align 8
-  %68 = icmp slt i32 %66, %67
-  br i1 %68, label %53, label %._crit_edge, !llvm.loop !15
+._crit_edge:                                      ; preds = %_ZN19ModuleClassPathList11add_to_listEP14ClassPathEntry.exit, %24
+  %68 = load ptr, ptr %33, align 8
+  %.not = icmp eq ptr %68, null
+  br i1 %.not, label %89, label %69
 
-._crit_edge:                                      ; preds = %65, %24
-  %69 = load ptr, ptr %33, align 8
-  %.not = icmp eq ptr %69, null
-  br i1 %.not, label %90, label %70
+69:                                               ; preds = %._crit_edge
+  %70 = load ptr, ptr @_ZN11ClassLoader18_patch_mod_entriesE, align 8
+  %71 = load i32, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %70, i64 4
+  %73 = load i32, ptr %72, align 4
+  %74 = icmp eq i32 %71, %73
+  br i1 %74, label %75, label %_ZN26GrowableArrayWithAllocatorIP19ModuleClassPathList13GrowableArrayIS1_EE4pushERKS1_.exit
 
-70:                                               ; preds = %._crit_edge
-  %71 = load ptr, ptr @_ZN11ClassLoader18_patch_mod_entriesE, align 8
-  %72 = load i32, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %71, i64 4
-  %74 = load i32, ptr %73, align 4
-  %75 = icmp eq i32 %72, %74
-  br i1 %75, label %76, label %_ZN26GrowableArrayWithAllocatorIP19ModuleClassPathList13GrowableArrayIS1_EE4pushERKS1_.exit
-
-76:                                               ; preds = %70
-  %77 = add nsw i32 %72, 1
-  %78 = icmp sgt i32 %72, -1
-  %79 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %77)
-  %80 = icmp ult i32 %79, 2
-  %or.cond.i.i.i.i.i = select i1 %78, i1 %80, i1 false
-  %81 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %77, i1 true)
-  %82 = sub nuw nsw i32 32, %81
-  %83 = shl nuw i32 1, %82
-  %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %77, i32 %83
-  call void @_ZN26GrowableArrayWithAllocatorIP19ModuleClassPathList13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %71, i32 noundef %.0.i.i.i.i.i)
-  %.pre.i.i = load i32, ptr %71, align 8
+75:                                               ; preds = %69
+  %76 = add nsw i32 %71, 1
+  %77 = icmp sgt i32 %71, -1
+  %78 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %76)
+  %79 = icmp ult i32 %78, 2
+  %or.cond.i.i.i.i.i = select i1 %77, i1 %79, i1 false
+  %80 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %76, i1 true)
+  %81 = sub nuw nsw i32 32, %80
+  %82 = shl nuw i32 1, %81
+  %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %76, i32 %82
+  call void @_ZN26GrowableArrayWithAllocatorIP19ModuleClassPathList13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %70, i32 noundef %.0.i.i.i.i.i)
+  %.pre.i.i = load i32, ptr %70, align 8
   br label %_ZN26GrowableArrayWithAllocatorIP19ModuleClassPathList13GrowableArrayIS1_EE4pushERKS1_.exit
 
-_ZN26GrowableArrayWithAllocatorIP19ModuleClassPathList13GrowableArrayIS1_EE4pushERKS1_.exit: ; preds = %70, %76
-  %84 = phi i32 [ %.pre.i.i, %76 ], [ %72, %70 ]
-  %85 = add nsw i32 %84, 1
-  store i32 %85, ptr %71, align 8
-  %86 = getelementptr inbounds i8, ptr %71, i64 8
-  %87 = load ptr, ptr %86, align 8
-  %88 = sext i32 %84 to i64
-  %89 = getelementptr inbounds ptr, ptr %87, i64 %88
-  store ptr %32, ptr %89, align 8
-  br label %90
+_ZN26GrowableArrayWithAllocatorIP19ModuleClassPathList13GrowableArrayIS1_EE4pushERKS1_.exit: ; preds = %69, %75
+  %83 = phi i32 [ %.pre.i.i, %75 ], [ %71, %69 ]
+  %84 = add nsw i32 %83, 1
+  store i32 %84, ptr %70, align 8
+  %85 = getelementptr inbounds i8, ptr %70, i64 8
+  %86 = load ptr, ptr %85, align 8
+  %87 = sext i32 %83 to i64
+  %88 = getelementptr inbounds ptr, ptr %86, i64 %87
+  store ptr %32, ptr %88, align 8
+  br label %89
 
-90:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIP19ModuleClassPathList13GrowableArrayIS1_EE4pushERKS1_.exit, %._crit_edge
-  %91 = load ptr, ptr %42, align 8
-  %.not.i.i.i.i = icmp eq ptr %91, null
-  br i1 %.not.i.i.i.i, label %93, label %92
+89:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIP19ModuleClassPathList13GrowableArrayIS1_EE4pushERKS1_.exit, %._crit_edge
+  %90 = load ptr, ptr %42, align 8
+  %.not.i.i.i.i = icmp eq ptr %90, null
+  br i1 %.not.i.i.i.i, label %92, label %91
 
-92:                                               ; preds = %90
+91:                                               ; preds = %89
   call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %40, i64 noundef %48) #21
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %42) #21
-  br label %93
+  br label %92
 
-93:                                               ; preds = %92, %90
-  %94 = load ptr, ptr %43, align 8
-  %.not8.i.i.i.i = icmp eq ptr %94, %44
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %95
+92:                                               ; preds = %91, %89
+  %93 = load ptr, ptr %43, align 8
+  %.not8.i.i.i.i = icmp eq ptr %93, %44
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %94
 
-95:                                               ; preds = %93
+94:                                               ; preds = %92
   store ptr %42, ptr %41, align 8
   store ptr %44, ptr %43, align 8
   store ptr %46, ptr %45, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %93, %95
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %92, %94
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge31, label %24, !llvm.loop !16
@@ -2395,9 +2389,9 @@ _ZN19ModuleClassPathList11add_to_listEP14ClassPathEntry.exit: ; preds = %28
   store ptr %1, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 8
   %32 = getelementptr inbounds i8, ptr %30, i64 16
-  store ptr %29, ptr %32, align 8
-  %.pre = load ptr, ptr @Module_lock, align 8
   store ptr %29, ptr %31, align 8
+  %.pre = load ptr, ptr @Module_lock, align 8
+  store ptr %29, ptr %32, align 8
   %.not.i.i = icmp eq ptr %.pre, null
   br i1 %.not.i.i, label %_ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit, label %33
 

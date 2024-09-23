@@ -133,256 +133,250 @@ declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @ECPGstruct_member_dup(ptr noundef readonly %0) local_unnamed_addr #0 {
-  %2 = alloca ptr, align 8
-  store ptr null, ptr %2, align 8
-  %.not35 = icmp eq ptr %0, null
-  br i1 %.not35, label %._crit_edge, label %.lr.ph
+  %.not45 = icmp eq ptr %0, null
+  br i1 %.not45, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %ECPGmake_struct_member.exit
-  %.02236 = phi ptr [ %103, %ECPGmake_struct_member.exit ], [ %0, %1 ]
-  %3 = getelementptr inbounds i8, ptr %.02236, i64 8
-  %4 = load ptr, ptr %3, align 8
-  %5 = load i32, ptr %4, align 8
-  switch i32 %5, label %75 [
-    i32 22, label %6
-    i32 23, label %6
-    i32 21, label %27
+  %.02247 = phi ptr [ %102, %ECPGmake_struct_member.exit ], [ %0, %1 ]
+  %.03346 = phi ptr [ %.1, %ECPGmake_struct_member.exit ], [ null, %1 ]
+  %2 = getelementptr inbounds i8, ptr %.02247, i64 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = load i32, ptr %3, align 8
+  switch i32 %4, label %74 [
+    i32 22, label %5
+    i32 23, label %5
+    i32 21, label %26
   ]
 
-6:                                                ; preds = %.lr.ph, %.lr.ph
-  %7 = getelementptr inbounds i8, ptr %4, i64 32
-  %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 24
-  %12 = load ptr, ptr %11, align 8
-  %13 = tail call noalias dereferenceable_or_null(2) ptr @strdup(ptr noundef nonnull readonly @.str.1) #11
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %15, label %mm_strdup.exit27
+5:                                                ; preds = %.lr.ph, %.lr.ph
+  %6 = getelementptr inbounds i8, ptr %3, i64 32
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = load ptr, ptr %10, align 8
+  %12 = tail call noalias dereferenceable_or_null(2) ptr @strdup(ptr noundef nonnull readonly @.str.1) #11
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %mm_strdup.exit27
 
-15:                                               ; preds = %6
+14:                                               ; preds = %5
   tail call void (i32, ptr, ...) @mmfatal(i32 noundef 5, ptr noundef nonnull @.str) #10
   unreachable
 
-mm_strdup.exit27:                                 ; preds = %6
-  %16 = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #9
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %18, label %ECPGmake_simple_type.exit26
+mm_strdup.exit27:                                 ; preds = %5
+  %15 = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #9
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %ECPGmake_simple_type.exit26
 
-18:                                               ; preds = %mm_strdup.exit27
+17:                                               ; preds = %mm_strdup.exit27
   tail call void (i32, ptr, ...) @mmfatal(i32 noundef 5, ptr noundef nonnull @.str) #10
   unreachable
 
 ECPGmake_simple_type.exit26:                      ; preds = %mm_strdup.exit27
-  store i32 %5, ptr %16, align 8
-  %19 = getelementptr inbounds i8, ptr %16, i64 8
-  store ptr null, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %16, i64 16
-  store ptr %13, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %16, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %21, i8 0, i64 20, i1 false)
-  %22 = tail call noalias ptr @strdup(ptr noundef readonly %10) #11
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %24, label %mm_strdup.exit
+  store i32 %4, ptr %15, align 8
+  %18 = getelementptr inbounds i8, ptr %15, i64 8
+  store ptr null, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %15, i64 16
+  store ptr %12, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %15, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %20, i8 0, i64 20, i1 false)
+  %21 = tail call noalias ptr @strdup(ptr noundef readonly %9) #11
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %23, label %mm_strdup.exit
 
-24:                                               ; preds = %ECPGmake_simple_type.exit26
+23:                                               ; preds = %ECPGmake_simple_type.exit26
   tail call void (i32, ptr, ...) @mmfatal(i32 noundef 5, ptr noundef nonnull @.str) #10
   unreachable
 
 mm_strdup.exit:                                   ; preds = %ECPGmake_simple_type.exit26
-  store ptr %22, ptr %19, align 8
-  %25 = tail call ptr @ECPGstruct_member_dup(ptr noundef %8)
-  %26 = getelementptr inbounds i8, ptr %16, i64 32
-  store ptr %25, ptr %26, align 8
-  store ptr %12, ptr %21, align 8
-  br label %87
+  store ptr %21, ptr %18, align 8
+  %24 = tail call ptr @ECPGstruct_member_dup(ptr noundef %7)
+  %25 = getelementptr inbounds i8, ptr %15, i64 32
+  store ptr %24, ptr %25, align 8
+  store ptr %11, ptr %20, align 8
+  br label %86
 
-27:                                               ; preds = %.lr.ph
-  %28 = getelementptr inbounds i8, ptr %4, i64 32
-  %29 = load ptr, ptr %28, align 8
-  %30 = load i32, ptr %29, align 8
-  %31 = and i32 %30, -2
-  %switch = icmp eq i32 %31, 22
-  br i1 %switch, label %32, label %53
+26:                                               ; preds = %.lr.ph
+  %27 = getelementptr inbounds i8, ptr %3, i64 32
+  %28 = load ptr, ptr %27, align 8
+  %29 = load i32, ptr %28, align 8
+  %30 = and i32 %29, -2
+  %switch = icmp eq i32 %30, 22
+  br i1 %switch, label %31, label %52
 
-32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %29, i64 32
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %29, i64 8
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %29, i64 24
-  %38 = load ptr, ptr %37, align 8
-  %39 = tail call noalias dereferenceable_or_null(2) ptr @strdup(ptr noundef nonnull readonly @.str.1) #11
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %41, label %mm_strdup.exit31
+31:                                               ; preds = %26
+  %32 = getelementptr inbounds i8, ptr %28, i64 32
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %28, i64 8
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %28, i64 24
+  %37 = load ptr, ptr %36, align 8
+  %38 = tail call noalias dereferenceable_or_null(2) ptr @strdup(ptr noundef nonnull readonly @.str.1) #11
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %40, label %mm_strdup.exit31
 
-41:                                               ; preds = %32
+40:                                               ; preds = %31
   tail call void (i32, ptr, ...) @mmfatal(i32 noundef 5, ptr noundef nonnull @.str) #10
   unreachable
 
-mm_strdup.exit31:                                 ; preds = %32
-  %42 = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #9
-  %43 = icmp eq ptr %42, null
-  br i1 %43, label %44, label %ECPGmake_simple_type.exit30
+mm_strdup.exit31:                                 ; preds = %31
+  %41 = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #9
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %43, label %ECPGmake_simple_type.exit30
 
-44:                                               ; preds = %mm_strdup.exit31
+43:                                               ; preds = %mm_strdup.exit31
   tail call void (i32, ptr, ...) @mmfatal(i32 noundef 5, ptr noundef nonnull @.str) #10
   unreachable
 
 ECPGmake_simple_type.exit30:                      ; preds = %mm_strdup.exit31
-  store i32 %30, ptr %42, align 8
-  %45 = getelementptr inbounds i8, ptr %42, i64 8
-  store ptr null, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %42, i64 16
-  store ptr %39, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %42, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %47, i8 0, i64 20, i1 false)
-  %48 = tail call noalias ptr @strdup(ptr noundef readonly %36) #11
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %50, label %mm_strdup.exit28
+  store i32 %29, ptr %41, align 8
+  %44 = getelementptr inbounds i8, ptr %41, i64 8
+  store ptr null, ptr %44, align 8
+  %45 = getelementptr inbounds i8, ptr %41, i64 16
+  store ptr %38, ptr %45, align 8
+  %46 = getelementptr inbounds i8, ptr %41, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %46, i8 0, i64 20, i1 false)
+  %47 = tail call noalias ptr @strdup(ptr noundef readonly %35) #11
+  %48 = icmp eq ptr %47, null
+  br i1 %48, label %49, label %mm_strdup.exit28
 
-50:                                               ; preds = %ECPGmake_simple_type.exit30
+49:                                               ; preds = %ECPGmake_simple_type.exit30
   tail call void (i32, ptr, ...) @mmfatal(i32 noundef 5, ptr noundef nonnull @.str) #10
   unreachable
 
 mm_strdup.exit28:                                 ; preds = %ECPGmake_simple_type.exit30
-  store ptr %48, ptr %45, align 8
-  %51 = tail call ptr @ECPGstruct_member_dup(ptr noundef %34)
-  %52 = getelementptr inbounds i8, ptr %42, i64 32
-  store ptr %51, ptr %52, align 8
-  store ptr %38, ptr %47, align 8
-  br label %87
+  store ptr %47, ptr %44, align 8
+  %50 = tail call ptr @ECPGstruct_member_dup(ptr noundef %33)
+  %51 = getelementptr inbounds i8, ptr %41, i64 32
+  store ptr %50, ptr %51, align 8
+  store ptr %37, ptr %46, align 8
+  br label %86
 
-53:                                               ; preds = %27
-  %54 = getelementptr inbounds i8, ptr %29, i64 16
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %29, i64 40
-  %57 = load i32, ptr %56, align 8
-  %58 = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #9
-  %59 = icmp eq ptr %58, null
-  br i1 %59, label %60, label %ECPGmake_simple_type.exit
+52:                                               ; preds = %26
+  %53 = getelementptr inbounds i8, ptr %28, i64 16
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds i8, ptr %28, i64 40
+  %56 = load i32, ptr %55, align 8
+  %57 = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #9
+  %58 = icmp eq ptr %57, null
+  br i1 %58, label %59, label %ECPGmake_simple_type.exit
 
-60:                                               ; preds = %53
+59:                                               ; preds = %52
   tail call void (i32, ptr, ...) @mmfatal(i32 noundef 5, ptr noundef nonnull @.str) #10
   unreachable
 
-ECPGmake_simple_type.exit:                        ; preds = %53
-  store i32 %30, ptr %58, align 8
-  %61 = getelementptr inbounds i8, ptr %58, i64 8
-  store ptr null, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %58, i64 16
-  store ptr %55, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %58, i64 24
-  %64 = getelementptr inbounds i8, ptr %58, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, i8 0, i64 16, i1 false)
-  store i32 %57, ptr %64, align 8
-  %65 = load ptr, ptr %3, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 16
-  %67 = load ptr, ptr %66, align 8
-  %68 = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #9
-  %69 = icmp eq ptr %68, null
-  br i1 %69, label %70, label %ECPGmake_array_type.exit
+ECPGmake_simple_type.exit:                        ; preds = %52
+  store i32 %29, ptr %57, align 8
+  %60 = getelementptr inbounds i8, ptr %57, i64 8
+  store ptr null, ptr %60, align 8
+  %61 = getelementptr inbounds i8, ptr %57, i64 16
+  store ptr %54, ptr %61, align 8
+  %62 = getelementptr inbounds i8, ptr %57, i64 24
+  %63 = getelementptr inbounds i8, ptr %57, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, i8 0, i64 16, i1 false)
+  store i32 %56, ptr %63, align 8
+  %64 = load ptr, ptr %2, align 8
+  %65 = getelementptr inbounds i8, ptr %64, i64 16
+  %66 = load ptr, ptr %65, align 8
+  %67 = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #9
+  %68 = icmp eq ptr %67, null
+  br i1 %68, label %69, label %ECPGmake_array_type.exit
 
-70:                                               ; preds = %ECPGmake_simple_type.exit
+69:                                               ; preds = %ECPGmake_simple_type.exit
   tail call void (i32, ptr, ...) @mmfatal(i32 noundef 5, ptr noundef nonnull @.str) #10
   unreachable
 
 ECPGmake_array_type.exit:                         ; preds = %ECPGmake_simple_type.exit
-  store i32 21, ptr %68, align 8
-  %71 = getelementptr inbounds i8, ptr %68, i64 8
-  store ptr null, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %68, i64 16
-  store ptr %67, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %68, i64 24
-  %74 = getelementptr inbounds i8, ptr %68, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %73, i8 0, i64 20, i1 false)
-  store ptr %58, ptr %74, align 8
-  br label %87
+  store i32 21, ptr %67, align 8
+  %70 = getelementptr inbounds i8, ptr %67, i64 8
+  store ptr null, ptr %70, align 8
+  %71 = getelementptr inbounds i8, ptr %67, i64 16
+  store ptr %66, ptr %71, align 8
+  %72 = getelementptr inbounds i8, ptr %67, i64 24
+  %73 = getelementptr inbounds i8, ptr %67, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %72, i8 0, i64 20, i1 false)
+  store ptr %57, ptr %73, align 8
+  br label %86
 
-75:                                               ; preds = %.lr.ph
-  %76 = getelementptr inbounds i8, ptr %4, i64 16
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %4, i64 40
-  %79 = load i32, ptr %78, align 8
-  %80 = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #9
-  %81 = icmp eq ptr %80, null
-  br i1 %81, label %82, label %ECPGmake_simple_type.exit24
+74:                                               ; preds = %.lr.ph
+  %75 = getelementptr inbounds i8, ptr %3, i64 16
+  %76 = load ptr, ptr %75, align 8
+  %77 = getelementptr inbounds i8, ptr %3, i64 40
+  %78 = load i32, ptr %77, align 8
+  %79 = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #9
+  %80 = icmp eq ptr %79, null
+  br i1 %80, label %81, label %ECPGmake_simple_type.exit24
 
-82:                                               ; preds = %75
+81:                                               ; preds = %74
   tail call void (i32, ptr, ...) @mmfatal(i32 noundef 5, ptr noundef nonnull @.str) #10
   unreachable
 
-ECPGmake_simple_type.exit24:                      ; preds = %75
-  store i32 %5, ptr %80, align 8
-  %83 = getelementptr inbounds i8, ptr %80, i64 8
-  store ptr null, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %80, i64 16
-  store ptr %77, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %80, i64 24
-  %86 = getelementptr inbounds i8, ptr %80, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %85, i8 0, i64 16, i1 false)
-  store i32 %79, ptr %86, align 8
-  br label %87
+ECPGmake_simple_type.exit24:                      ; preds = %74
+  store i32 %4, ptr %79, align 8
+  %82 = getelementptr inbounds i8, ptr %79, i64 8
+  store ptr null, ptr %82, align 8
+  %83 = getelementptr inbounds i8, ptr %79, i64 16
+  store ptr %76, ptr %83, align 8
+  %84 = getelementptr inbounds i8, ptr %79, i64 24
+  %85 = getelementptr inbounds i8, ptr %79, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %84, i8 0, i64 16, i1 false)
+  store i32 %78, ptr %85, align 8
+  br label %86
 
-87:                                               ; preds = %mm_strdup.exit28, %ECPGmake_array_type.exit, %ECPGmake_simple_type.exit24, %mm_strdup.exit
-  %.0 = phi ptr [ %80, %ECPGmake_simple_type.exit24 ], [ %42, %mm_strdup.exit28 ], [ %68, %ECPGmake_array_type.exit ], [ %16, %mm_strdup.exit ]
-  %88 = load ptr, ptr %.02236, align 8
-  %89 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #9
-  %90 = icmp eq ptr %89, null
-  br i1 %90, label %91, label %mm_alloc.exit.i
+86:                                               ; preds = %mm_strdup.exit28, %ECPGmake_array_type.exit, %ECPGmake_simple_type.exit24, %mm_strdup.exit
+  %.0 = phi ptr [ %79, %ECPGmake_simple_type.exit24 ], [ %41, %mm_strdup.exit28 ], [ %67, %ECPGmake_array_type.exit ], [ %15, %mm_strdup.exit ]
+  %87 = load ptr, ptr %.02247, align 8
+  %88 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #9
+  %89 = icmp eq ptr %88, null
+  br i1 %89, label %90, label %mm_alloc.exit.i
 
-91:                                               ; preds = %87
+90:                                               ; preds = %86
   tail call void (i32, ptr, ...) @mmfatal(i32 noundef 5, ptr noundef nonnull @.str) #10
   unreachable
 
-mm_alloc.exit.i:                                  ; preds = %87
-  %92 = tail call noalias ptr @strdup(ptr noundef readonly %88) #11
-  %93 = icmp eq ptr %92, null
-  br i1 %93, label %94, label %mm_strdup.exit.i
+mm_alloc.exit.i:                                  ; preds = %86
+  %91 = tail call noalias ptr @strdup(ptr noundef readonly %87) #11
+  %92 = icmp eq ptr %91, null
+  br i1 %92, label %93, label %mm_strdup.exit.i
 
-94:                                               ; preds = %mm_alloc.exit.i
+93:                                               ; preds = %mm_alloc.exit.i
   tail call void (i32, ptr, ...) @mmfatal(i32 noundef 5, ptr noundef nonnull @.str) #10
   unreachable
 
 mm_strdup.exit.i:                                 ; preds = %mm_alloc.exit.i
-  store ptr %92, ptr %89, align 8
-  %95 = getelementptr inbounds i8, ptr %89, i64 8
-  store ptr %.0, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %89, i64 16
-  store ptr null, ptr %96, align 8
-  %.0..0..0.32 = load ptr, ptr %2, align 8
-  br label %97
+  store ptr %91, ptr %88, align 8
+  %94 = getelementptr inbounds i8, ptr %88, i64 8
+  store ptr %.0, ptr %94, align 8
+  %95 = getelementptr inbounds i8, ptr %88, i64 16
+  store ptr null, ptr %95, align 8
+  br label %96
 
-97:                                               ; preds = %98, %mm_strdup.exit.i
-  %.0.i = phi ptr [ %.0..0..0.32, %mm_strdup.exit.i ], [ %100, %98 ]
+96:                                               ; preds = %97, %mm_strdup.exit.i
+  %.0.i = phi ptr [ %.03346, %mm_strdup.exit.i ], [ %99, %97 ]
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %ECPGmake_struct_member.exit, label %98
+  br i1 %.not.i, label %ECPGmake_struct_member.exit, label %97
 
-98:                                               ; preds = %97
-  %99 = getelementptr inbounds i8, ptr %.0.i, i64 16
-  %100 = load ptr, ptr %99, align 8
-  %.not15.i = icmp eq ptr %100, null
-  br i1 %.not15.i, label %ECPGmake_struct_member.exit.split.loop.exit39, label %97, !llvm.loop !5
+97:                                               ; preds = %96
+  %98 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %99 = load ptr, ptr %98, align 8
+  %.not15.i = icmp eq ptr %99, null
+  br i1 %.not15.i, label %.critedge.i, label %96, !llvm.loop !5
 
-ECPGmake_struct_member.exit.split.loop.exit39:    ; preds = %98
-  %101 = getelementptr inbounds i8, ptr %.0.i, i64 16
+.critedge.i:                                      ; preds = %97
+  %100 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  store ptr %88, ptr %100, align 8
   br label %ECPGmake_struct_member.exit
 
-ECPGmake_struct_member.exit:                      ; preds = %97, %ECPGmake_struct_member.exit.split.loop.exit39
-  %.sink.i = phi ptr [ %101, %ECPGmake_struct_member.exit.split.loop.exit39 ], [ %2, %97 ]
-  store ptr %89, ptr %.sink.i, align 8
-  %102 = getelementptr inbounds i8, ptr %.02236, i64 16
-  %103 = load ptr, ptr %102, align 8
-  %.not = icmp eq ptr %103, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !7
+ECPGmake_struct_member.exit:                      ; preds = %96, %.critedge.i
+  %.1 = phi ptr [ %.03346, %.critedge.i ], [ %88, %96 ]
+  %101 = getelementptr inbounds i8, ptr %.02247, i64 16
+  %102 = load ptr, ptr %101, align 8
+  %.not = icmp eq ptr %102, null
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
-._crit_edge.loopexit:                             ; preds = %ECPGmake_struct_member.exit
-  %.0..0..0..pre = load ptr, ptr %2, align 8
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
-  %.0..0. = phi ptr [ %.0..0..0..pre, %._crit_edge.loopexit ], [ null, %1 ]
-  ret ptr %.0..0.
+._crit_edge:                                      ; preds = %ECPGmake_struct_member.exit, %1
+  %.033.lcssa = phi ptr [ null, %1 ], [ %.1, %ECPGmake_struct_member.exit ]
+  ret ptr %.033.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
@@ -516,11 +510,14 @@ mm_strdup.exit:                                   ; preds = %mm_alloc.exit
 
 .critedge:                                        ; preds = %14
   %17 = getelementptr inbounds i8, ptr %.0, i64 16
-  br label %.critedge16
+  store ptr %4, ptr %17, align 8
+  br label %18
 
-.critedge16:                                      ; preds = %13, %.critedge
-  %.sink = phi ptr [ %17, %.critedge ], [ %2, %13 ]
-  store ptr %4, ptr %.sink, align 8
+.critedge16:                                      ; preds = %13
+  store ptr %4, ptr %2, align 8
+  br label %18
+
+18:                                               ; preds = %.critedge16, %.critedge
   ret void
 }
 

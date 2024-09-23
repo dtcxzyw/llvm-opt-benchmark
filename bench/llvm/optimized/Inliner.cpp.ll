@@ -967,13 +967,13 @@ define dso_local noundef nonnull align 8 dereferenceable(80) ptr @_ZN4llvm11Inli
   %9 = alloca %"struct.llvm::ReplayInlinerSettings", align 8
   %10 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %11, label %54
+  br i1 %.not, label %11, label %55
 
 11:                                               ; preds = %4
   %12 = load ptr, ptr %1, align 8
   %13 = tail call noundef ptr @_ZNK4llvm15AnalysisManagerINS_6ModuleEJEE19getCachedResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %12, ptr noundef nonnull @_ZN4llvm21InlineAdvisorAnalysis3KeyE, ptr noundef nonnull align 8 dereferenceable(857) %3) #18
   %.not.i.i = icmp eq ptr %13, null
-  br i1 %.not.i.i, label %14, label %49
+  br i1 %.not.i.i, label %14, label %50
 
 14:                                               ; preds = %11
   call void @_ZN4llvm15getInlineParamsEv(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::InlineParams") align 4 %6) #18
@@ -1003,7 +1003,7 @@ _ZNKSt14default_deleteIN4llvm13InlineAdvisorEEclEPS1_.exit.i.i.i: ; preds = %14
 
 _ZNSt10unique_ptrIN4llvm20DefaultInlineAdvisorESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN4llvm13InlineAdvisorEEclEPS1_.exit.i.i.i, %14
   %23 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL21CGSCCInlineReplayFileB5cxx11, i64 128)) #18
-  br i1 %23, label %.sink.split, label %24
+  br i1 %23, label %_ZNSt10unique_ptrIN4llvm13InlineAdvisorESt14default_deleteIS1_EED2Ev.exit15, label %24
 
 24:                                               ; preds = %_ZNSt10unique_ptrIN4llvm20DefaultInlineAdvisorESt14default_deleteIS1_EED2Ev.exit
   %25 = load ptr, ptr %3, align 8
@@ -1055,29 +1055,29 @@ _ZNSt10unique_ptrIN4llvm13InlineAdvisorESt14default_deleteIS1_EED2Ev.exit: ; pre
   store ptr null, ptr %7, align 8
   %45 = load ptr, ptr %8, align 8
   %.not.i13 = icmp eq ptr %45, null
-  br i1 %.not.i13, label %.sink.split, label %_ZNKSt14default_deleteIN4llvm13InlineAdvisorEEclEPS1_.exit.i14
+  br i1 %.not.i13, label %_ZNSt10unique_ptrIN4llvm13InlineAdvisorESt14default_deleteIS1_EED2Ev.exit15, label %_ZNKSt14default_deleteIN4llvm13InlineAdvisorEEclEPS1_.exit.i14
 
 _ZNKSt14default_deleteIN4llvm13InlineAdvisorEEclEPS1_.exit.i14: ; preds = %_ZNSt10unique_ptrIN4llvm13InlineAdvisorESt14default_deleteIS1_EED2Ev.exit
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 8
   %48 = load ptr, ptr %47, align 8
   call void %48(ptr noundef nonnull align 8 dereferenceable(80) %45) #18
-  br label %.sink.split
+  br label %_ZNSt10unique_ptrIN4llvm13InlineAdvisorESt14default_deleteIS1_EED2Ev.exit15
 
-49:                                               ; preds = %11
-  %50 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %51 = load ptr, ptr %1, align 8
-  tail call void @_ZNK4llvm15AnalysisManagerINS_6ModuleEJEE20verifyNotInvalidatedINS_21InlineAdvisorAnalysisEEEvRS1_PNT_6ResultE(ptr noundef nonnull align 8 dereferenceable(72) %51, ptr noundef nonnull align 8 dereferenceable(857) %3, ptr noundef nonnull %50)
-  %52 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  br label %.sink.split
+_ZNSt10unique_ptrIN4llvm13InlineAdvisorESt14default_deleteIS1_EED2Ev.exit15: ; preds = %_ZNKSt14default_deleteIN4llvm13InlineAdvisorEEclEPS1_.exit.i14, %_ZNSt10unique_ptrIN4llvm13InlineAdvisorESt14default_deleteIS1_EED2Ev.exit, %_ZNSt10unique_ptrIN4llvm20DefaultInlineAdvisorESt14default_deleteIS1_EED2Ev.exit
+  %49 = load ptr, ptr %0, align 8
+  br label %55
 
-.sink.split:                                      ; preds = %_ZNSt10unique_ptrIN4llvm20DefaultInlineAdvisorESt14default_deleteIS1_EED2Ev.exit, %_ZNSt10unique_ptrIN4llvm13InlineAdvisorESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIN4llvm13InlineAdvisorEEclEPS1_.exit.i14, %49
-  %.sink = phi ptr [ %52, %49 ], [ %0, %_ZNKSt14default_deleteIN4llvm13InlineAdvisorEEclEPS1_.exit.i14 ], [ %0, %_ZNSt10unique_ptrIN4llvm13InlineAdvisorESt14default_deleteIS1_EED2Ev.exit ], [ %0, %_ZNSt10unique_ptrIN4llvm20DefaultInlineAdvisorESt14default_deleteIS1_EED2Ev.exit ]
-  %53 = load ptr, ptr %.sink, align 8
-  br label %54
+50:                                               ; preds = %11
+  %51 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %52 = load ptr, ptr %1, align 8
+  tail call void @_ZNK4llvm15AnalysisManagerINS_6ModuleEJEE20verifyNotInvalidatedINS_21InlineAdvisorAnalysisEEEvRS1_PNT_6ResultE(ptr noundef nonnull align 8 dereferenceable(72) %52, ptr noundef nonnull align 8 dereferenceable(857) %3, ptr noundef nonnull %51)
+  %53 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %54 = load ptr, ptr %53, align 8
+  br label %55
 
-54:                                               ; preds = %.sink.split, %4
-  %.0 = phi ptr [ %10, %4 ], [ %53, %.sink.split ]
+55:                                               ; preds = %4, %50, %_ZNSt10unique_ptrIN4llvm13InlineAdvisorESt14default_deleteIS1_EED2Ev.exit15
+  %.0 = phi ptr [ %54, %50 ], [ %49, %_ZNSt10unique_ptrIN4llvm13InlineAdvisorESt14default_deleteIS1_EED2Ev.exit15 ], [ %10, %4 ]
   ret ptr %.0
 }
 

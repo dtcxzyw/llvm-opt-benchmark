@@ -1732,7 +1732,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %11 = load i32, ptr %.tr330, align 8
   %12 = lshr i32 %11, 18
   %13 = and i32 %12, 63
-  switch i32 %13, label %143 [
+  switch i32 %13, label %156 [
     i32 0, label %14
     i32 1, label %16
     i32 2, label %18
@@ -1903,7 +1903,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 80:                                               ; preds = %tailrecurse
   %81 = icmp ne i8 %8, 4
   %.not300 = or i1 %.not328, %81
-  br i1 %.not300, label %143, label %82
+  br i1 %.not300, label %156, label %82
 
 82:                                               ; preds = %80
   %83 = load i32, ptr %.tr330, align 8
@@ -1912,18 +1912,18 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   switch i32 %85, label %.thread [
     i32 0, label %86
     i32 1, label %91
-    i32 2, label %95
-    i32 3, label %99
-    i32 4, label %103
-    i32 5, label %107
-    i32 6, label %111
-    i32 7, label %115
-    i32 8, label %119
-    i32 9, label %123
-    i32 10, label %127
-    i32 11, label %131
-    i32 12, label %135
-    i32 13, label %139
+    i32 2, label %96
+    i32 3, label %101
+    i32 4, label %106
+    i32 5, label %111
+    i32 6, label %116
+    i32 7, label %121
+    i32 8, label %126
+    i32 9, label %131
+    i32 10, label %136
+    i32 11, label %141
+    i32 12, label %146
+    i32 13, label %151
   ]
 
 86:                                               ; preds = %82
@@ -1933,16 +1933,8 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 
 88:                                               ; preds = %86
   %89 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
-  br label %tailrecurse.backedge.sink.split
-
-tailrecurse.backedge.sink.split:                  ; preds = %188, %186, %184, %182, %180, %178, %176, %174, %172, %170, %168, %156, %154, %141, %137, %133, %129, %125, %121, %117, %113, %109, %105, %101, %97, %93, %88, %164
-  %.sink = phi ptr [ %165, %164 ], [ %89, %88 ], [ %94, %93 ], [ %98, %97 ], [ %102, %101 ], [ %106, %105 ], [ %110, %109 ], [ %114, %113 ], [ %118, %117 ], [ %122, %121 ], [ %126, %125 ], [ %130, %129 ], [ %134, %133 ], [ %138, %137 ], [ %142, %141 ], [ %155, %154 ], [ %157, %156 ], [ %169, %168 ], [ %171, %170 ], [ %173, %172 ], [ %175, %174 ], [ %177, %176 ], [ %179, %178 ], [ %181, %180 ], [ %183, %182 ], [ %185, %184 ], [ %187, %186 ], [ %189, %188 ]
-  %90 = load ptr, ptr %.sink, align 8
+  %90 = load ptr, ptr %89, align 8
   br label %tailrecurse.backedge
-
-tailrecurse.backedge:                             ; preds = %tailrecurse.backedge.sink.split, %158, %149, %226
-  %.tr330.be = phi ptr [ %163, %158 ], [ %90, %tailrecurse.backedge.sink.split ], [ %151, %149 ], [ %228, %226 ]
-  br label %tailrecurse
 
 91:                                               ; preds = %82
   %92 = and i32 %83, 8126464
@@ -1951,123 +1943,136 @@ tailrecurse.backedge:                             ; preds = %tailrecurse.backedg
 
 93:                                               ; preds = %91
   %94 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
-  br label %tailrecurse.backedge.sink.split
+  %95 = load ptr, ptr %94, align 8
+  br label %tailrecurse.backedge
 
-95:                                               ; preds = %82
-  %96 = and i32 %83, 8126464
-  %.not.i304 = icmp eq i32 %96, 3407872
-  br i1 %.not.i304, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit, label %97
+96:                                               ; preds = %82
+  %97 = and i32 %83, 8126464
+  %.not.i304 = icmp eq i32 %97, 3407872
+  br i1 %.not.i304, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit, label %98
 
-97:                                               ; preds = %95
-  %98 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
-  br label %tailrecurse.backedge.sink.split
+98:                                               ; preds = %96
+  %99 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
+  %100 = load ptr, ptr %99, align 8
+  br label %tailrecurse.backedge
 
-99:                                               ; preds = %82
-  %100 = and i32 %83, 8126464
-  %.not.i306 = icmp eq i32 %100, 3407872
-  br i1 %.not.i306, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit, label %101
+101:                                              ; preds = %82
+  %102 = and i32 %83, 8126464
+  %.not.i306 = icmp eq i32 %102, 3407872
+  br i1 %.not.i306, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit, label %103
 
-101:                                              ; preds = %99
-  %102 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
-  br label %tailrecurse.backedge.sink.split
+103:                                              ; preds = %101
+  %104 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
+  %105 = load ptr, ptr %104, align 8
+  br label %tailrecurse.backedge
 
-103:                                              ; preds = %82
-  %104 = and i32 %83, 8126464
-  %.not.i308 = icmp eq i32 %104, 3407872
-  br i1 %.not.i308, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit, label %105
+106:                                              ; preds = %82
+  %107 = and i32 %83, 8126464
+  %.not.i308 = icmp eq i32 %107, 3407872
+  br i1 %.not.i308, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit, label %108
 
-105:                                              ; preds = %103
-  %106 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
-  br label %tailrecurse.backedge.sink.split
-
-107:                                              ; preds = %82
-  %108 = and i32 %83, 8126464
-  %.not.i310 = icmp eq i32 %108, 3407872
-  br i1 %.not.i310, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit, label %109
-
-109:                                              ; preds = %107
-  %110 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
-  br label %tailrecurse.backedge.sink.split
+108:                                              ; preds = %106
+  %109 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
+  %110 = load ptr, ptr %109, align 8
+  br label %tailrecurse.backedge
 
 111:                                              ; preds = %82
   %112 = and i32 %83, 8126464
-  %.not.i312 = icmp eq i32 %112, 3407872
-  br i1 %.not.i312, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit, label %113
+  %.not.i310 = icmp eq i32 %112, 3407872
+  br i1 %.not.i310, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit, label %113
 
 113:                                              ; preds = %111
   %114 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
-  br label %tailrecurse.backedge.sink.split
+  %115 = load ptr, ptr %114, align 8
+  br label %tailrecurse.backedge
 
-115:                                              ; preds = %82
-  %116 = and i32 %83, 8126464
-  %.not.i314 = icmp eq i32 %116, 3407872
-  br i1 %.not.i314, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit, label %117
+116:                                              ; preds = %82
+  %117 = and i32 %83, 8126464
+  %.not.i312 = icmp eq i32 %117, 3407872
+  br i1 %.not.i312, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit, label %118
 
-117:                                              ; preds = %115
-  %118 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
-  br label %tailrecurse.backedge.sink.split
+118:                                              ; preds = %116
+  %119 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
+  %120 = load ptr, ptr %119, align 8
+  br label %tailrecurse.backedge
 
-119:                                              ; preds = %82
-  %120 = and i32 %83, 8126464
-  %.not.i316 = icmp eq i32 %120, 3407872
-  br i1 %.not.i316, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit, label %121
+121:                                              ; preds = %82
+  %122 = and i32 %83, 8126464
+  %.not.i314 = icmp eq i32 %122, 3407872
+  br i1 %.not.i314, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit, label %123
 
-121:                                              ; preds = %119
-  %122 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
-  br label %tailrecurse.backedge.sink.split
+123:                                              ; preds = %121
+  %124 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
+  %125 = load ptr, ptr %124, align 8
+  br label %tailrecurse.backedge
 
-123:                                              ; preds = %82
-  %124 = and i32 %83, 8126464
-  %.not.i318 = icmp eq i32 %124, 3407872
-  br i1 %.not.i318, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit, label %125
+126:                                              ; preds = %82
+  %127 = and i32 %83, 8126464
+  %.not.i316 = icmp eq i32 %127, 3407872
+  br i1 %.not.i316, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit, label %128
 
-125:                                              ; preds = %123
-  %126 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
-  br label %tailrecurse.backedge.sink.split
-
-127:                                              ; preds = %82
-  %128 = and i32 %83, 8126464
-  %.not.i320 = icmp eq i32 %128, 3407872
-  br i1 %.not.i320, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit, label %129
-
-129:                                              ; preds = %127
-  %130 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
-  br label %tailrecurse.backedge.sink.split
+128:                                              ; preds = %126
+  %129 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
+  %130 = load ptr, ptr %129, align 8
+  br label %tailrecurse.backedge
 
 131:                                              ; preds = %82
   %132 = and i32 %83, 8126464
-  %.not.i322 = icmp eq i32 %132, 3407872
-  br i1 %.not.i322, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit, label %133
+  %.not.i318 = icmp eq i32 %132, 3407872
+  br i1 %.not.i318, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit, label %133
 
 133:                                              ; preds = %131
   %134 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
-  br label %tailrecurse.backedge.sink.split
+  %135 = load ptr, ptr %134, align 8
+  br label %tailrecurse.backedge
 
-135:                                              ; preds = %82
-  %136 = and i32 %83, 8126464
-  %.not.i324 = icmp eq i32 %136, 3407872
-  br i1 %.not.i324, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit, label %137
+136:                                              ; preds = %82
+  %137 = and i32 %83, 8126464
+  %.not.i320 = icmp eq i32 %137, 3407872
+  br i1 %.not.i320, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit, label %138
 
-137:                                              ; preds = %135
-  %138 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
-  br label %tailrecurse.backedge.sink.split
+138:                                              ; preds = %136
+  %139 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
+  %140 = load ptr, ptr %139, align 8
+  br label %tailrecurse.backedge
 
-139:                                              ; preds = %82
-  %140 = and i32 %83, 8126464
-  %.not.i326 = icmp eq i32 %140, 3407872
-  br i1 %.not.i326, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit, label %141
+141:                                              ; preds = %82
+  %142 = and i32 %83, 8126464
+  %.not.i322 = icmp eq i32 %142, 3407872
+  br i1 %.not.i322, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit, label %143
 
-141:                                              ; preds = %139
-  %142 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
-  br label %tailrecurse.backedge.sink.split
+143:                                              ; preds = %141
+  %144 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
+  %145 = load ptr, ptr %144, align 8
+  br label %tailrecurse.backedge
 
-143:                                              ; preds = %80, %10
-  switch i8 %8, label %144 [
-    i8 1, label %145
+146:                                              ; preds = %82
+  %147 = and i32 %83, 8126464
+  %.not.i324 = icmp eq i32 %147, 3407872
+  br i1 %.not.i324, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit, label %148
+
+148:                                              ; preds = %146
+  %149 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
+  %150 = load ptr, ptr %149, align 8
+  br label %tailrecurse.backedge
+
+151:                                              ; preds = %82
+  %152 = and i32 %83, 8126464
+  %.not.i326 = icmp eq i32 %152, 3407872
+  br i1 %.not.i326, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit, label %153
+
+153:                                              ; preds = %151
+  %154 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
+  %155 = load ptr, ptr %154, align 8
+  br label %tailrecurse.backedge
+
+156:                                              ; preds = %80, %10
+  switch i8 %8, label %157 [
+    i8 1, label %158
     i8 2, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
     i8 3, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
     i8 4, label %..thread_crit_edge
-    i8 5, label %152
+    i8 5, label %165
     i8 6, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
     i8 7, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
     i8 8, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
@@ -2083,7 +2088,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse.backedg
     i8 18, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
     i8 19, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
     i8 20, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
-    i8 21, label %154
+    i8 21, label %167
     i8 22, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
     i8 23, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
     i8 24, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
@@ -2108,21 +2113,21 @@ tailrecurse.backedge:                             ; preds = %tailrecurse.backedg
     i8 43, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
     i8 44, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
     i8 45, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
-    i8 46, label %156
+    i8 46, label %170
     i8 47, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
-    i8 48, label %158
+    i8 48, label %173
     i8 49, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
     i8 50, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
     i8 51, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
     i8 52, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
-    i8 53, label %166
+    i8 53, label %182
     i8 54, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
     i8 55, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
     i8 56, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
     i8 57, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
     i8 58, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
     i8 59, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
-    i8 60, label %168
+    i8 60, label %184
     i8 61, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
     i8 62, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
     i8 63, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
@@ -2141,21 +2146,21 @@ tailrecurse.backedge:                             ; preds = %tailrecurse.backedg
     i8 76, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
     i8 77, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
     i8 78, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
-    i8 79, label %170
-    i8 80, label %172
-    i8 81, label %174
-    i8 82, label %176
-    i8 83, label %178
-    i8 84, label %180
-    i8 85, label %182
-    i8 86, label %184
-    i8 87, label %186
-    i8 88, label %188
-    i8 89, label %190
-    i8 90, label %192
-    i8 91, label %194
-    i8 92, label %196
-    i8 93, label %198
+    i8 79, label %187
+    i8 80, label %190
+    i8 81, label %193
+    i8 82, label %196
+    i8 83, label %199
+    i8 84, label %202
+    i8 85, label %205
+    i8 86, label %208
+    i8 87, label %211
+    i8 88, label %214
+    i8 89, label %217
+    i8 90, label %219
+    i8 91, label %221
+    i8 92, label %223
+    i8 93, label %225
     i8 94, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
     i8 95, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
     i8 96, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
@@ -2168,39 +2173,39 @@ tailrecurse.backedge:                             ; preds = %tailrecurse.backedg
     i8 103, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
     i8 104, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
     i8 105, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
-    i8 106, label %200
+    i8 106, label %227
     i8 107, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
     i8 108, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
     i8 109, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
     i8 110, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
     i8 111, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
-    i8 112, label %202
-    i8 113, label %204
-    i8 114, label %206
+    i8 112, label %229
+    i8 113, label %231
+    i8 114, label %233
     i8 115, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
-    i8 116, label %208
+    i8 116, label %235
     i8 117, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
-    i8 118, label %210
-    i8 119, label %212
-    i8 120, label %214
+    i8 118, label %237
+    i8 119, label %239
+    i8 120, label %241
     i8 121, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
     i8 122, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
-    i8 123, label %216
+    i8 123, label %243
     i8 124, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
     i8 125, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
     i8 126, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
     i8 127, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
-    i8 -128, label %218
+    i8 -128, label %245
     i8 -127, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
     i8 -126, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
-    i8 -125, label %220
-    i8 -124, label %222
-    i8 -123, label %224
+    i8 -125, label %247
+    i8 -124, label %249
+    i8 -123, label %251
     i8 -122, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
     i8 -121, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
     i8 -120, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
     i8 -119, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
-    i8 -118, label %226
+    i8 -118, label %253
     i8 -117, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
     i8 -116, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
     i8 -115, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
@@ -2289,241 +2294,259 @@ tailrecurse.backedge:                             ; preds = %tailrecurse.backedg
     i8 -32, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
     i8 -31, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
     i8 -30, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
-    i8 -29, label %229
+    i8 -29, label %256
     i8 -28, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
-    i8 -27, label %231
-    i8 -26, label %233
-    i8 -25, label %235
+    i8 -27, label %258
+    i8 -26, label %260
+    i8 -25, label %262
     i8 -24, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
     i8 -23, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
     i8 -22, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
-    i8 -21, label %237
+    i8 -21, label %264
     i8 -20, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
     i8 -19, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
-    i8 -18, label %239
+    i8 -18, label %266
     i8 -17, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
     i8 -16, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
     i8 -15, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
     i8 -14, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977
   ]
 
-..thread_crit_edge:                               ; preds = %143
+..thread_crit_edge:                               ; preds = %156
   %.pre = load i32, ptr %.tr330, align 8
   br label %.thread
 
-144:                                              ; preds = %143
+157:                                              ; preds = %156
   unreachable
 
-145:                                              ; preds = %143
+158:                                              ; preds = %156
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr %.tr330, ptr %7, align 8
-  %146 = call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor16WithCachedResultIZNS0_14VisitWhileStmtEPKNS_9WhileStmtEEUlvE_EEbPKNS_4StmtET_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330, ptr nonnull %0, ptr nonnull %7)
+  %159 = call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor16WithCachedResultIZNS0_14VisitWhileStmtEPKNS_9WhileStmtEEUlvE_EEbPKNS_4StmtET_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330, ptr nonnull %0, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
 
 .thread:                                          ; preds = %82, %..thread_crit_edge
-  %147 = phi i32 [ %.pre, %..thread_crit_edge ], [ %83, %82 ]
-  %148 = and i32 %147, 8126464
-  %.not.i706 = icmp eq i32 %148, 3407872
-  br i1 %.not.i706, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit, label %149
+  %160 = phi i32 [ %.pre, %..thread_crit_edge ], [ %83, %82 ]
+  %161 = and i32 %160, 8126464
+  %.not.i706 = icmp eq i32 %161, 3407872
+  br i1 %.not.i706, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit, label %162
 
-149:                                              ; preds = %.thread
-  %150 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
-  %151 = load ptr, ptr %150, align 8
+162:                                              ; preds = %.thread
+  %163 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
+  %164 = load ptr, ptr %163, align 8
   br label %tailrecurse.backedge
 
-152:                                              ; preds = %143
-  %153 = tail call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor13VisitChildrenEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330)
+165:                                              ; preds = %156
+  %166 = tail call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor13VisitChildrenEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330)
   br label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
 
-154:                                              ; preds = %143
-  %155 = getelementptr inbounds nuw i8, ptr %.tr330, i64 24
-  br label %tailrecurse.backedge.sink.split
+167:                                              ; preds = %156
+  %168 = getelementptr inbounds nuw i8, ptr %.tr330, i64 24
+  %169 = load ptr, ptr %168, align 8
+  br label %tailrecurse.backedge
 
-156:                                              ; preds = %143
-  %157 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
-  br label %tailrecurse.backedge.sink.split
-
-158:                                              ; preds = %143
-  %159 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
-  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %159, align 8
-  %160 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
-  %161 = icmp eq i64 %160, 0
-  %162 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -8
-  %163 = inttoptr i64 %162 to ptr
-  br i1 %161, label %tailrecurse.backedge, label %164
-
-164:                                              ; preds = %158
-  %165 = getelementptr inbounds nuw i8, ptr %163, i64 40
-  br label %tailrecurse.backedge.sink.split
-
-166:                                              ; preds = %143
-  %167 = tail call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor17VisitInitListExprEPKNS_12InitListExprE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330)
-  br label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
-
-168:                                              ; preds = %143
-  %169 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
-  br label %tailrecurse.backedge.sink.split
-
-170:                                              ; preds = %143
+170:                                              ; preds = %156
   %171 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
-  br label %tailrecurse.backedge.sink.split
+  %172 = load ptr, ptr %171, align 8
+  br label %tailrecurse.backedge
 
-172:                                              ; preds = %143
-  %173 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
-  br label %tailrecurse.backedge.sink.split
+173:                                              ; preds = %156
+  %174 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
+  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %174, align 8
+  %175 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
+  %176 = icmp eq i64 %175, 0
+  %177 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -8
+  %178 = inttoptr i64 %177 to ptr
+  br i1 %176, label %tailrecurse.backedge, label %179
 
-174:                                              ; preds = %143
-  %175 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
-  br label %tailrecurse.backedge.sink.split
+179:                                              ; preds = %173
+  %180 = getelementptr inbounds nuw i8, ptr %178, i64 40
+  %181 = load ptr, ptr %180, align 8
+  br label %tailrecurse.backedge
 
-176:                                              ; preds = %143
-  %177 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
-  br label %tailrecurse.backedge.sink.split
+tailrecurse.backedge:                             ; preds = %179, %173, %88, %93, %98, %103, %108, %113, %118, %123, %128, %133, %138, %143, %148, %153, %167, %170, %184, %187, %190, %193, %196, %199, %202, %205, %208, %211, %214, %162, %253
+  %.tr330.be = phi ptr [ %90, %88 ], [ %95, %93 ], [ %100, %98 ], [ %105, %103 ], [ %110, %108 ], [ %115, %113 ], [ %120, %118 ], [ %125, %123 ], [ %130, %128 ], [ %135, %133 ], [ %140, %138 ], [ %145, %143 ], [ %150, %148 ], [ %155, %153 ], [ %169, %167 ], [ %172, %170 ], [ %186, %184 ], [ %189, %187 ], [ %192, %190 ], [ %195, %193 ], [ %198, %196 ], [ %201, %199 ], [ %204, %202 ], [ %207, %205 ], [ %210, %208 ], [ %213, %211 ], [ %216, %214 ], [ %181, %179 ], [ %178, %173 ], [ %164, %162 ], [ %255, %253 ]
+  br label %tailrecurse
 
-178:                                              ; preds = %143
-  %179 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
-  br label %tailrecurse.backedge.sink.split
+182:                                              ; preds = %156
+  %183 = tail call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor17VisitInitListExprEPKNS_12InitListExprE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330)
+  br label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
 
-180:                                              ; preds = %143
-  %181 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
-  br label %tailrecurse.backedge.sink.split
-
-182:                                              ; preds = %143
-  %183 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
-  br label %tailrecurse.backedge.sink.split
-
-184:                                              ; preds = %143
+184:                                              ; preds = %156
   %185 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
-  br label %tailrecurse.backedge.sink.split
+  %186 = load ptr, ptr %185, align 8
+  br label %tailrecurse.backedge
 
-186:                                              ; preds = %143
-  %187 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
-  br label %tailrecurse.backedge.sink.split
+187:                                              ; preds = %156
+  %188 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
+  %189 = load ptr, ptr %188, align 8
+  br label %tailrecurse.backedge
 
-188:                                              ; preds = %143
-  %189 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
-  br label %tailrecurse.backedge.sink.split
+190:                                              ; preds = %156
+  %191 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
+  %192 = load ptr, ptr %191, align 8
+  br label %tailrecurse.backedge
 
-190:                                              ; preds = %143
-  %191 = tail call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor13VisitCallExprEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330)
+193:                                              ; preds = %156
+  %194 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
+  %195 = load ptr, ptr %194, align 8
+  br label %tailrecurse.backedge
+
+196:                                              ; preds = %156
+  %197 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
+  %198 = load ptr, ptr %197, align 8
+  br label %tailrecurse.backedge
+
+199:                                              ; preds = %156
+  %200 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
+  %201 = load ptr, ptr %200, align 8
+  br label %tailrecurse.backedge
+
+202:                                              ; preds = %156
+  %203 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
+  %204 = load ptr, ptr %203, align 8
+  br label %tailrecurse.backedge
+
+205:                                              ; preds = %156
+  %206 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
+  %207 = load ptr, ptr %206, align 8
+  br label %tailrecurse.backedge
+
+208:                                              ; preds = %156
+  %209 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
+  %210 = load ptr, ptr %209, align 8
+  br label %tailrecurse.backedge
+
+211:                                              ; preds = %156
+  %212 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
+  %213 = load ptr, ptr %212, align 8
+  br label %tailrecurse.backedge
+
+214:                                              ; preds = %156
+  %215 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
+  %216 = load ptr, ptr %215, align 8
+  br label %tailrecurse.backedge
+
+217:                                              ; preds = %156
+  %218 = tail call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor13VisitCallExprEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330)
   br label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
 
-192:                                              ; preds = %143
-  %193 = tail call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor13VisitCallExprEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330)
+219:                                              ; preds = %156
+  %220 = tail call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor13VisitCallExprEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330)
   br label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
 
-194:                                              ; preds = %143
-  %195 = tail call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor24VisitCXXOperatorCallExprEPKNS_19CXXOperatorCallExprE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330)
+221:                                              ; preds = %156
+  %222 = tail call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor24VisitCXXOperatorCallExprEPKNS_19CXXOperatorCallExprE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330)
   br label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
 
-196:                                              ; preds = %143
-  %197 = tail call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor22VisitCXXMemberCallExprEPKNS_17CXXMemberCallExprE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330)
+223:                                              ; preds = %156
+  %224 = tail call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor22VisitCXXMemberCallExprEPKNS_17CXXMemberCallExprE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330)
   br label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
 
-198:                                              ; preds = %143
-  %199 = tail call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor13VisitCallExprEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330)
+225:                                              ; preds = %156
+  %226 = tail call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor13VisitCallExprEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330)
   br label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
 
-200:                                              ; preds = %143
-  %201 = tail call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor13VisitChildrenEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330)
+227:                                              ; preds = %156
+  %228 = tail call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor13VisitChildrenEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330)
   br label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
 
-202:                                              ; preds = %143
-  %203 = tail call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor22VisitCXXDefaultArgExprEPKNS_17CXXDefaultArgExprE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330)
+229:                                              ; preds = %156
+  %230 = tail call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor22VisitCXXDefaultArgExprEPKNS_17CXXDefaultArgExprE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330)
   br label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
 
-204:                                              ; preds = %143
-  %205 = tail call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor21VisitCXXConstructExprEPKNS_16CXXConstructExprE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330)
+231:                                              ; preds = %156
+  %232 = tail call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor21VisitCXXConstructExprEPKNS_16CXXConstructExprE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330)
   br label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
 
-206:                                              ; preds = %143
-  %207 = tail call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor21VisitCXXConstructExprEPKNS_16CXXConstructExprE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330)
+233:                                              ; preds = %156
+  %234 = tail call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor21VisitCXXConstructExprEPKNS_16CXXConstructExprE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330)
   br label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
 
-208:                                              ; preds = %143
-  %209 = tail call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor25VisitCXXBindTemporaryExprEPKNS_20CXXBindTemporaryExprE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330)
+235:                                              ; preds = %156
+  %236 = tail call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor25VisitCXXBindTemporaryExprEPKNS_20CXXBindTemporaryExprE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330)
   br label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
 
-210:                                              ; preds = %143
-  %211 = tail call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor19VisitBinaryOperatorEPKNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330)
+237:                                              ; preds = %156
+  %238 = tail call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor19VisitBinaryOperatorEPKNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330)
   br label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
 
-212:                                              ; preds = %143
-  %213 = tail call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor13VisitChildrenEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330)
+239:                                              ; preds = %156
+  %240 = tail call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor13VisitChildrenEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330)
   br label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
 
-214:                                              ; preds = %143
-  %215 = tail call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor13VisitChildrenEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330)
+241:                                              ; preds = %156
+  %242 = tail call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor13VisitChildrenEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330)
   br label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
 
-216:                                              ; preds = %143
-  %217 = tail call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor13VisitChildrenEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330)
+243:                                              ; preds = %156
+  %244 = tail call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor13VisitChildrenEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330)
   br label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
 
-218:                                              ; preds = %143
-  %219 = tail call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor13VisitChildrenEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330)
+245:                                              ; preds = %156
+  %246 = tail call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor13VisitChildrenEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330)
   br label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
 
-220:                                              ; preds = %143
-  %221 = tail call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor13VisitChildrenEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330)
+247:                                              ; preds = %156
+  %248 = tail call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor13VisitChildrenEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330)
   br label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
 
-222:                                              ; preds = %143
-  %223 = tail call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor13VisitChildrenEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330)
+249:                                              ; preds = %156
+  %250 = tail call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor13VisitChildrenEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330)
   br label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
 
-224:                                              ; preds = %143
-  %225 = tail call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor13VisitChildrenEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330)
+251:                                              ; preds = %156
+  %252 = tail call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor13VisitChildrenEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330)
   br label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
 
-226:                                              ; preds = %143
-  %227 = getelementptr inbounds nuw i8, ptr %.tr330, i64 8
-  %228 = load ptr, ptr %227, align 8
-  %.not.i708 = icmp eq ptr %228, null
+253:                                              ; preds = %156
+  %254 = getelementptr inbounds nuw i8, ptr %.tr330, i64 8
+  %255 = load ptr, ptr %254, align 8
+  %.not.i708 = icmp eq ptr %255, null
   br i1 %.not.i708, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit, label %tailrecurse.backedge
 
-229:                                              ; preds = %143
+256:                                              ; preds = %156
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %.tr330, ptr %6, align 8
-  %230 = call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor16WithCachedResultIZNS0_11VisitIfStmtEPKNS_6IfStmtEEUlvE_EEbPKNS_4StmtET_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330, ptr nonnull %0, ptr nonnull %6)
+  %257 = call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor16WithCachedResultIZNS0_11VisitIfStmtEPKNS_6IfStmtEEUlvE_EEbPKNS_4StmtET_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330, ptr nonnull %0, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
 
-231:                                              ; preds = %143
+258:                                              ; preds = %156
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %.tr330, ptr %5, align 8
-  %232 = call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor16WithCachedResultIZNS0_12VisitForStmtEPKNS_7ForStmtEEUlvE_EEbPKNS_4StmtET_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330, ptr nonnull %0, ptr nonnull %5)
+  %259 = call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor16WithCachedResultIZNS0_12VisitForStmtEPKNS_7ForStmtEEUlvE_EEbPKNS_4StmtET_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330, ptr nonnull %0, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
 
-233:                                              ; preds = %143
-  %234 = tail call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor13VisitChildrenEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330)
+260:                                              ; preds = %156
+  %261 = tail call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor13VisitChildrenEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330)
   br label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
 
-235:                                              ; preds = %143
-  %236 = tail call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor13VisitChildrenEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330)
+262:                                              ; preds = %156
+  %263 = tail call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor13VisitChildrenEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330)
   br label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
 
-237:                                              ; preds = %143
+264:                                              ; preds = %156
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %.tr330, ptr %4, align 8
-  %238 = call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor16WithCachedResultIZNS0_17VisitCompoundStmtEPKNS_12CompoundStmtEEUlvE_EEbPKNS_4StmtET_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330, ptr nonnull %0, ptr nonnull %4)
+  %265 = call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor16WithCachedResultIZNS0_17VisitCompoundStmtEPKNS_12CompoundStmtEEUlvE_EEbPKNS_4StmtET_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330, ptr nonnull %0, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
 
-239:                                              ; preds = %143
+266:                                              ; preds = %156
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %.tr330, ptr %3, align 8
-  %240 = call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor16WithCachedResultIZNS0_20VisitCXXForRangeStmtEPKNS_15CXXForRangeStmtEEUlvE_EEbPKNS_4StmtET_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330, ptr nonnull %0, ptr nonnull %3)
+  %267 = call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor16WithCachedResultIZNS0_20VisitCXXForRangeStmtEPKNS_15CXXForRangeStmtEEUlvE_EEbPKNS_4StmtET_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.tr330, ptr nonnull %0, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
 
-_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977: ; preds = %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143
+_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977: ; preds = %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156
   br label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
 
-_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit: ; preds = %226, %.thread, %139, %135, %131, %127, %123, %119, %115, %111, %107, %103, %99, %95, %91, %86, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143, %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977, %239, %237, %235, %233, %231, %229, %224, %222, %220, %218, %216, %214, %212, %210, %208, %206, %204, %202, %200, %198, %196, %194, %192, %190, %166, %152, %145, %78, %76, %74, %72, %70, %68, %66, %64, %62, %60, %58, %56, %54, %52, %50, %48, %46, %44, %42, %40, %38, %36, %34, %32, %30, %28, %26, %24, %22, %20, %18, %16, %14
-  %.0 = phi i1 [ %240, %239 ], [ %238, %237 ], [ %236, %235 ], [ %234, %233 ], [ %232, %231 ], [ %230, %229 ], [ %225, %224 ], [ %223, %222 ], [ %221, %220 ], [ %219, %218 ], [ %217, %216 ], [ %215, %214 ], [ %213, %212 ], [ %211, %210 ], [ %209, %208 ], [ %207, %206 ], [ %205, %204 ], [ %203, %202 ], [ %201, %200 ], [ %199, %198 ], [ %197, %196 ], [ %195, %194 ], [ %193, %192 ], [ %191, %190 ], [ %167, %166 ], [ %153, %152 ], [ %146, %145 ], [ %79, %78 ], [ %77, %76 ], [ %75, %74 ], [ %73, %72 ], [ %71, %70 ], [ %69, %68 ], [ %67, %66 ], [ %65, %64 ], [ %63, %62 ], [ %61, %60 ], [ %59, %58 ], [ %57, %56 ], [ %55, %54 ], [ %53, %52 ], [ %51, %50 ], [ %49, %48 ], [ %47, %46 ], [ %45, %44 ], [ %43, %42 ], [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ true, %143 ], [ true, %143 ], [ true, %143 ], [ true, %143 ], [ true, %143 ], [ true, %143 ], [ true, %143 ], [ true, %143 ], [ true, %143 ], [ true, %143 ], [ true, %143 ], [ true, %143 ], [ true, %143 ], [ true, %143 ], [ true, %143 ], [ true, %143 ], [ true, %226 ], [ false, %.thread ], [ false, %139 ], [ false, %135 ], [ false, %131 ], [ false, %127 ], [ false, %123 ], [ false, %119 ], [ false, %115 ], [ false, %111 ], [ false, %107 ], [ false, %103 ], [ false, %99 ], [ false, %95 ], [ false, %91 ], [ false, %86 ], [ false, %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977 ]
+_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit: ; preds = %253, %.thread, %151, %146, %141, %136, %131, %126, %121, %116, %111, %106, %101, %96, %91, %86, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977, %266, %264, %262, %260, %258, %256, %251, %249, %247, %245, %243, %241, %239, %237, %235, %233, %231, %229, %227, %225, %223, %221, %219, %217, %182, %165, %158, %78, %76, %74, %72, %70, %68, %66, %64, %62, %60, %58, %56, %54, %52, %50, %48, %46, %44, %42, %40, %38, %36, %34, %32, %30, %28, %26, %24, %22, %20, %18, %16, %14
+  %.0 = phi i1 [ %267, %266 ], [ %265, %264 ], [ %263, %262 ], [ %261, %260 ], [ %259, %258 ], [ %257, %256 ], [ %252, %251 ], [ %250, %249 ], [ %248, %247 ], [ %246, %245 ], [ %244, %243 ], [ %242, %241 ], [ %240, %239 ], [ %238, %237 ], [ %236, %235 ], [ %234, %233 ], [ %232, %231 ], [ %230, %229 ], [ %228, %227 ], [ %226, %225 ], [ %224, %223 ], [ %222, %221 ], [ %220, %219 ], [ %218, %217 ], [ %183, %182 ], [ %166, %165 ], [ %159, %158 ], [ %79, %78 ], [ %77, %76 ], [ %75, %74 ], [ %73, %72 ], [ %71, %70 ], [ %69, %68 ], [ %67, %66 ], [ %65, %64 ], [ %63, %62 ], [ %61, %60 ], [ %59, %58 ], [ %57, %56 ], [ %55, %54 ], [ %53, %52 ], [ %51, %50 ], [ %49, %48 ], [ %47, %46 ], [ %45, %44 ], [ %43, %42 ], [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ true, %156 ], [ true, %156 ], [ true, %156 ], [ true, %156 ], [ true, %156 ], [ true, %156 ], [ true, %156 ], [ true, %156 ], [ true, %156 ], [ true, %156 ], [ true, %156 ], [ true, %156 ], [ true, %156 ], [ true, %156 ], [ true, %156 ], [ true, %156 ], [ true, %253 ], [ false, %.thread ], [ false, %151 ], [ false, %146 ], [ false, %141 ], [ false, %136 ], [ false, %131 ], [ false, %126 ], [ false, %121 ], [ false, %116 ], [ false, %111 ], [ false, %106 ], [ false, %101 ], [ false, %96 ], [ false, %91 ], [ false, %86 ], [ false, %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit977 ]
   ret i1 %.0
 }
 

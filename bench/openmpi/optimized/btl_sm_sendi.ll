@@ -50,11 +50,11 @@ define range(i32 -2, 1) i32 @mca_btl_sm_sendi(ptr noundef %0, ptr noundef %1, pt
 
 21:                                               ; preds = %10
   %.not50 = icmp eq ptr %9, null
-  br i1 %.not50, label %192, label %22
+  br i1 %.not50, label %193, label %22
 
 22:                                               ; preds = %21
   store ptr null, ptr %9, align 8
-  br label %192
+  br label %193
 
 23:                                               ; preds = %10
   %.not45 = icmp eq i64 %5, 0
@@ -93,7 +93,7 @@ opal_convertor_need_buffers.exit:                 ; preds = %39
 
 .split:                                           ; preds = %23
   %46 = tail call fastcc zeroext i1 @mca_btl_sm_fbox_sendi(ptr noundef nonnull %1, i8 noundef zeroext %8, ptr noundef %3, i64 noundef %4, ptr noundef null, i64 noundef 0)
-  br i1 %46, label %192, label %opal_convertor_need_buffers.exit.thread56
+  br i1 %46, label %193, label %opal_convertor_need_buffers.exit.thread56
 
 opal_convertor_need_buffers.exit.thread:          ; preds = %39
   %.old = and i32 %36, 4194304
@@ -102,7 +102,7 @@ opal_convertor_need_buffers.exit.thread:          ; preds = %39
 
 47:                                               ; preds = %opal_convertor_need_buffers.exit, %opal_convertor_need_buffers.exit.thread
   %48 = tail call fastcc zeroext i1 @mca_btl_sm_fbox_sendi(ptr noundef nonnull %1, i8 noundef zeroext %8, ptr noundef %3, i64 noundef %4, ptr noundef %34, i64 noundef %5)
-  br i1 %48, label %192, label %opal_convertor_need_buffers.exit.thread56
+  br i1 %48, label %193, label %opal_convertor_need_buffers.exit.thread56
 
 opal_convertor_need_buffers.exit.thread56:        ; preds = %24, %.split, %47, %opal_convertor_need_buffers.exit.thread, %opal_convertor_need_buffers.exit
   %49 = add i64 %5, %4
@@ -114,11 +114,11 @@ opal_convertor_need_buffers.exit.thread56:        ; preds = %24, %.split, %47, %
 
 53:                                               ; preds = %opal_convertor_need_buffers.exit.thread56
   %.not49 = icmp eq ptr %9, null
-  br i1 %.not49, label %192, label %54
+  br i1 %.not49, label %193, label %54
 
 54:                                               ; preds = %53
   store ptr null, ptr %9, align 8
-  br label %192
+  br label %193
 
 55:                                               ; preds = %opal_convertor_need_buffers.exit.thread56
   %56 = trunc i64 %49 to i32
@@ -389,7 +389,7 @@ mca_btl_sm_try_fbox_setup.exit.i:                 ; preds = %173, %170, %opal_th
   %179 = atomicrmw volatile xchg ptr %178, i64 %177 monotonic, align 8
   fence acquire
   %.not.i8.i = icmp eq i64 %179, -2
-  br i1 %.not.i8.i, label %sm_fifo_write_ep.exit.thread, label %180
+  br i1 %.not.i8.i, label %187, label %180
 
 180:                                              ; preds = %mca_btl_sm_try_fbox_setup.exit.i
   %181 = and i64 %179, 4294967295
@@ -398,35 +398,38 @@ mca_btl_sm_try_fbox_setup.exit.i:                 ; preds = %173, %170, %opal_th
   %184 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %182, i64 %183, i32 5
   %185 = load ptr, ptr %184, align 8
   %186 = getelementptr inbounds i8, ptr %185, i64 %181
+  store volatile i64 %177, ptr %186, align 8
   br label %sm_fifo_write_ep.exit.thread
 
-sm_fifo_write_ep.exit.thread:                     ; preds = %mca_btl_sm_try_fbox_setup.exit.i, %180
-  %.sink.i.i = phi ptr [ %186, %180 ], [ %176, %mca_btl_sm_try_fbox_setup.exit.i ]
-  store volatile i64 %177, ptr %.sink.i.i, align 8
+187:                                              ; preds = %mca_btl_sm_try_fbox_setup.exit.i
+  store volatile i64 %177, ptr %176, align 8
+  br label %sm_fifo_write_ep.exit.thread
+
+sm_fifo_write_ep.exit.thread:                     ; preds = %180, %187
   fence release
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  br label %192
+  br label %193
 
 sm_fifo_write_ep.exit:                            ; preds = %71
   fence release
-  %187 = call fastcc zeroext i1 @mca_btl_sm_fbox_sendi(ptr noundef nonnull %1, i8 noundef zeroext -2, ptr noundef nonnull %15, i64 noundef 8, ptr noundef null, i64 noundef 0)
+  %188 = call fastcc zeroext i1 @mca_btl_sm_fbox_sendi(ptr noundef nonnull %1, i8 noundef zeroext -2, ptr noundef nonnull %15, i64 noundef 8, ptr noundef null, i64 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  br i1 %187, label %192, label %188
+  br i1 %188, label %193, label %189
 
-188:                                              ; preds = %sm_fifo_write_ep.exit
+189:                                              ; preds = %sm_fifo_write_ep.exit
   %.not48 = icmp eq ptr %9, null
-  br i1 %.not48, label %190, label %189
+  br i1 %.not48, label %191, label %190
 
-189:                                              ; preds = %188
+190:                                              ; preds = %189
   store ptr %51, ptr %9, align 8
-  br label %192
+  br label %193
 
-190:                                              ; preds = %188
-  %191 = call i32 @mca_btl_sm_free(ptr noundef %0, ptr noundef nonnull %51) #6
-  br label %192
+191:                                              ; preds = %189
+  %192 = call i32 @mca_btl_sm_free(ptr noundef %0, ptr noundef nonnull %51) #6
+  br label %193
 
-192:                                              ; preds = %sm_fifo_write_ep.exit.thread, %.split, %sm_fifo_write_ep.exit, %189, %190, %53, %54, %47, %21, %22
-  %.0 = phi i32 [ -2, %22 ], [ -2, %21 ], [ 0, %47 ], [ -2, %54 ], [ -2, %53 ], [ -2, %190 ], [ -2, %189 ], [ 0, %sm_fifo_write_ep.exit ], [ 0, %.split ], [ 0, %sm_fifo_write_ep.exit.thread ]
+193:                                              ; preds = %sm_fifo_write_ep.exit.thread, %.split, %sm_fifo_write_ep.exit, %190, %191, %53, %54, %47, %21, %22
+  %.0 = phi i32 [ -2, %22 ], [ -2, %21 ], [ 0, %47 ], [ -2, %54 ], [ -2, %53 ], [ -2, %191 ], [ -2, %190 ], [ 0, %sm_fifo_write_ep.exit ], [ 0, %.split ], [ 0, %sm_fifo_write_ep.exit.thread ]
   ret i32 %.0
 }
 

@@ -154,26 +154,23 @@ if.then:                                          ; preds = %entry
   %crypto = getelementptr inbounds i8, ptr %arg, i64 264
   %idxprom = zext i32 %pn_space to i64
   %arrayidx = getelementptr inbounds [3 x ptr], ptr %crypto, i64 0, i64 %idxprom
-  br label %return.sink.split
+  %0 = load ptr, ptr %arrayidx, align 8
+  br label %return
 
 if.end:                                           ; preds = %entry
   %qsm = getelementptr inbounds i8, ptr %arg, i64 192
-  %0 = load ptr, ptr %qsm, align 8
-  %call = tail call ptr @ossl_quic_stream_map_get_by_id(ptr noundef %0, i64 noundef %stream_id) #10
+  %1 = load ptr, ptr %qsm, align 8
+  %call = tail call ptr @ossl_quic_stream_map_get_by_id(ptr noundef %1, i64 noundef %stream_id) #10
   %cmp2 = icmp eq ptr %call, null
   br i1 %cmp2, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
   %sstream = getelementptr inbounds i8, ptr %call, i64 112
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.then, %if.end4
-  %sstream.sink = phi ptr [ %sstream, %if.end4 ], [ %arrayidx, %if.then ]
-  %1 = load ptr, ptr %sstream.sink, align 8
+  %2 = load ptr, ptr %sstream, align 8
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.end
-  %retval.0 = phi ptr [ null, %if.end ], [ %1, %return.sink.split ]
+return:                                           ; preds = %if.end, %if.end4, %if.then
+  %retval.0 = phi ptr [ %0, %if.then ], [ %2, %if.end4 ], [ null, %if.end ]
   ret ptr %retval.0
 }
 
@@ -300,28 +297,25 @@ if.end:                                           ; preds = %sw.bb
   %bf.load = load i64, ptr %acked_stop_sending, align 8
   %bf.set = or i64 %bf.load, 68719476736
   store i64 %bf.set, ptr %acked_stop_sending, align 8
-  br label %sw.epilog.sink.split
+  %1 = load ptr, ptr %qsm, align 8
+  tail call void @ossl_quic_stream_map_update_state(ptr noundef %1, ptr noundef nonnull %call) #10
+  br label %sw.epilog
 
 sw.bb3:                                           ; preds = %entry
   %qsm6 = getelementptr inbounds i8, ptr %arg, i64 192
-  %1 = load ptr, ptr %qsm6, align 8
-  %call7 = tail call ptr @ossl_quic_stream_map_get_by_id(ptr noundef %1, i64 noundef %stream_id) #10
+  %2 = load ptr, ptr %qsm6, align 8
+  %call7 = tail call ptr @ossl_quic_stream_map_get_by_id(ptr noundef %2, i64 noundef %stream_id) #10
   %cmp8 = icmp eq ptr %call7, null
   br i1 %cmp8, label %sw.epilog, label %if.end10
 
 if.end10:                                         ; preds = %sw.bb3
-  %2 = load ptr, ptr %qsm6, align 8
-  %call13 = tail call i32 @ossl_quic_stream_map_notify_reset_stream_acked(ptr noundef %2, ptr noundef nonnull %call7) #10
-  br label %sw.epilog.sink.split
-
-sw.epilog.sink.split:                             ; preds = %if.end, %if.end10
-  %qsm6.sink = phi ptr [ %qsm6, %if.end10 ], [ %qsm, %if.end ]
-  %call7.sink = phi ptr [ %call7, %if.end10 ], [ %call, %if.end ]
-  %3 = load ptr, ptr %qsm6.sink, align 8
-  tail call void @ossl_quic_stream_map_update_state(ptr noundef %3, ptr noundef nonnull %call7.sink) #10
+  %3 = load ptr, ptr %qsm6, align 8
+  %call13 = tail call i32 @ossl_quic_stream_map_notify_reset_stream_acked(ptr noundef %3, ptr noundef nonnull %call7) #10
+  %4 = load ptr, ptr %qsm6, align 8
+  tail call void @ossl_quic_stream_map_update_state(ptr noundef %4, ptr noundef nonnull %call7) #10
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.epilog.sink.split, %entry, %sw.bb3, %sw.bb
+sw.epilog:                                        ; preds = %entry, %sw.bb3, %sw.bb, %if.end10, %if.end
   ret void
 }
 
@@ -3559,22 +3553,25 @@ if.then232.i:                                     ; preds = %if.end224.i
 land.lhs.true237.i:                               ; preds = %if.then232.i
   %329 = load i32, ptr %call234.i, align 4
   %cmp238.not.i = icmp eq i32 %329, 0
-  br i1 %cmp238.not.i, label %if.end251.i, label %if.end251.sink.split.i
+  br i1 %cmp238.not.i, label %if.end251.i, label %if.then240.i
+
+if.then240.i:                                     ; preds = %land.lhs.true237.i
+  %dec.i = add i32 %329, -1
+  store i32 %dec.i, ptr %call234.i, align 4
+  br label %if.end251.i
 
 land.lhs.true245.i:                               ; preds = %if.then232.i
   %anti_deadlock_handshake.i200 = getelementptr inbounds i8, ptr %call234.i, i64 4
   %330 = load i32, ptr %anti_deadlock_handshake.i200, align 4
   %cmp246.not.i = icmp eq i32 %330, 0
-  br i1 %cmp246.not.i, label %if.end251.i, label %if.end251.sink.split.i
+  br i1 %cmp246.not.i, label %if.end251.i, label %if.then248.i
 
-if.end251.sink.split.i:                           ; preds = %land.lhs.true245.i, %land.lhs.true237.i
-  %.sink.i = phi i32 [ %329, %land.lhs.true237.i ], [ %330, %land.lhs.true245.i ]
-  %call234.sink.i = phi ptr [ %call234.i, %land.lhs.true237.i ], [ %anti_deadlock_handshake.i200, %land.lhs.true245.i ]
-  %dec.i = add i32 %.sink.i, -1
-  store i32 %dec.i, ptr %call234.sink.i, align 4
+if.then248.i:                                     ; preds = %land.lhs.true245.i
+  %dec250.i = add i32 %330, -1
+  store i32 %dec250.i, ptr %anti_deadlock_handshake.i200, align 4
   br label %if.end251.i
 
-if.end251.i:                                      ; preds = %if.end251.sink.split.i, %land.lhs.true245.i, %land.lhs.true237.i, %if.then232.i
+if.end251.i:                                      ; preds = %if.then248.i, %land.lhs.true245.i, %if.then240.i, %land.lhs.true237.i, %if.then232.i
   %331 = and i32 %288, 8192
   %tobool255.not.i = icmp eq i32 %331, 0
   br i1 %tobool255.not.i, label %txp_pkt_commit.exit, label %land.lhs.true256.i

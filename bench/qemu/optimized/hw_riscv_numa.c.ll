@@ -403,7 +403,8 @@ if.then:                                          ; preds = %entry, %numa_enable
 
 cond.true:                                        ; preds = %if.then
   %ram_size = getelementptr inbounds i8, ptr %ms, i64 144
-  br label %return.sink.split
+  %2 = load i64, ptr %ram_size, align 8
+  br label %return
 
 if.end:                                           ; preds = %numa_enabled.exit
   %cmp = icmp slt i32 %socket_id, %1
@@ -413,15 +414,11 @@ cond.true1:                                       ; preds = %if.end
   %nodes = getelementptr inbounds i8, ptr %ms.val, i64 8
   %idxprom = sext i32 %socket_id to i64
   %arrayidx = getelementptr [128 x %struct.NodeInfo], ptr %nodes, i64 0, i64 %idxprom
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %cond.true, %cond.true1
-  %arrayidx.sink = phi ptr [ %arrayidx, %cond.true1 ], [ %ram_size, %cond.true ]
-  %2 = load i64, ptr %arrayidx.sink, align 8
+  %3 = load i64, ptr %arrayidx, align 8
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.end, %if.then
-  %retval.0 = phi i64 [ 0, %if.then ], [ 0, %if.end ], [ %2, %return.sink.split ]
+return:                                           ; preds = %cond.true1, %if.end, %cond.true, %if.then
+  %retval.0 = phi i64 [ %2, %cond.true ], [ 0, %if.then ], [ %3, %cond.true1 ], [ 0, %if.end ]
   ret i64 %retval.0
 }
 

@@ -395,9 +395,9 @@ sw.bb71:                                          ; preds = %while.body
           to label %invoke.cont73.invoke unwind label %lpad.loopexit.split-lp.loopexit
 
 invoke.cont73.invoke:                             ; preds = %sw.bb71, %sw.bb65, %sw.bb
-  %file_size.sink = phi ptr [ %file_size, %sw.bb ], [ %len, %sw.bb65 ], [ %offset, %sw.bb71 ]
   %3 = phi ptr [ %call62, %sw.bb ], [ %call68, %sw.bb65 ], [ %call74, %sw.bb71 ]
-  %4 = load i64, ptr %file_size.sink, align 8
+  %.in = phi ptr [ %file_size, %sw.bb ], [ %len, %sw.bb65 ], [ %offset, %sw.bb71 ]
+  %4 = load i64, ptr %.in, align 8
   %5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %4)
           to label %sw.epilog unwind label %lpad.loopexit.split-lp.loopexit
 

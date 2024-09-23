@@ -229,9 +229,9 @@ for.body:                                         ; preds = %if.then6.i, %for.co
   br i1 %cmp14.not, label %for.cond, label %return
 
 return.sink.split:                                ; preds = %for.cond, %if.then2
-  %tobool.not.sroa.gep30.sink = phi ptr [ %tobool.not.sroa.phi2840, %if.then2 ], [ %tobool.not.sroa.gep30, %for.cond ]
-  %5 = load i16, ptr %tobool.not.sroa.gep30.sink, align 2
-  %call17 = tail call noundef zeroext i16 @_Z10grpc_ntohst(i16 noundef zeroext %5)
+  %.sink.in = phi ptr [ %tobool.not.sroa.phi2840, %if.then2 ], [ %tobool.not.sroa.gep30, %for.cond ]
+  %.sink = load i16, ptr %.sink.in, align 2
+  %call17 = tail call noundef zeroext i16 @_Z10grpc_ntohst(i16 noundef zeroext %.sink)
   %conv18 = zext i16 %call17 to i32
   store i32 %conv18, ptr %port_out, align 4
   br label %return

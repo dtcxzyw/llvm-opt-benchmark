@@ -2817,14 +2817,23 @@ if.end:                                           ; preds = %entry
   %pc = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %pc, align 8
   %cmp = icmp eq ptr %1, %c
+  br i1 %cmp, label %if.then2, label %if.else
+
+if.then2:                                         ; preds = %if.end
+  store ptr null, ptr %pc, align 8
+  br label %if.end4
+
+if.else:                                          ; preds = %if.end
   %cc = getelementptr inbounds i8, ptr %0, i64 16
-  %cc.sink = select i1 %cmp, ptr %pc, ptr %cc
-  store ptr null, ptr %cc.sink, align 8
+  store ptr null, ptr %cc, align 8
+  br label %if.end4
+
+if.end4:                                          ; preds = %if.else, %if.then2
   %disconnected = getelementptr inbounds i8, ptr %0, i64 4
   store i32 1, ptr %disconnected, align 4
   br label %return
 
-return:                                           ; preds = %entry, %if.end
+return:                                           ; preds = %entry, %if.end4
   ret void
 }
 
@@ -2844,14 +2853,23 @@ if.end.i:                                         ; preds = %if.then
   %pc.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %pc.i, align 8
   %cmp.i = icmp eq ptr %1, %c
+  br i1 %cmp.i, label %if.then2.i, label %if.else.i
+
+if.then2.i:                                       ; preds = %if.end.i
+  store ptr null, ptr %pc.i, align 8
+  br label %if.end4.i
+
+if.else.i:                                        ; preds = %if.end.i
   %cc.i = getelementptr inbounds i8, ptr %0, i64 16
-  %cc.sink.i = select i1 %cmp.i, ptr %pc.i, ptr %cc.i
-  store ptr null, ptr %cc.sink.i, align 8
+  store ptr null, ptr %cc.i, align 8
+  br label %if.end4.i
+
+if.end4.i:                                        ; preds = %if.else.i, %if.then2.i
   %disconnected.i = getelementptr inbounds i8, ptr %0, i64 4
   store i32 1, ptr %disconnected.i, align 4
   br label %if.end
 
-if.end:                                           ; preds = %if.end.i, %if.then, %entry
+if.end:                                           ; preds = %if.end4.i, %if.then, %entry
   ret void
 }
 
@@ -2867,14 +2885,23 @@ if.end.i:                                         ; preds = %entry
   %pc.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %pc.i, align 8
   %cmp.i = icmp eq ptr %1, %c
+  br i1 %cmp.i, label %if.then2.i, label %if.else.i
+
+if.then2.i:                                       ; preds = %if.end.i
+  store ptr null, ptr %pc.i, align 8
+  br label %if.end4.i
+
+if.else.i:                                        ; preds = %if.end.i
   %cc.i = getelementptr inbounds i8, ptr %0, i64 16
-  %cc.sink.i = select i1 %cmp.i, ptr %pc.i, ptr %cc.i
-  store ptr null, ptr %cc.sink.i, align 8
+  store ptr null, ptr %cc.i, align 8
+  br label %if.end4.i
+
+if.end4.i:                                        ; preds = %if.else.i, %if.then2.i
   %disconnected.i = getelementptr inbounds i8, ptr %0, i64 4
   store i32 1, ptr %disconnected.i, align 4
   br label %instanceLinkConnectionError.exit
 
-instanceLinkConnectionError.exit:                 ; preds = %entry, %if.end.i
+instanceLinkConnectionError.exit:                 ; preds = %entry, %if.end4.i
   ret void
 }
 
@@ -2914,7 +2941,7 @@ if.end:                                           ; preds = %cond.end14
 
 if.end22:                                         ; preds = %if.end
   %call21 = tail call ptr @sdsnew(ptr noundef %name) #29
-  br i1 %tobool4, label %if.end36.sink.split, label %if.else30
+  br i1 %tobool4, label %if.then25, label %if.else30
 
 if.end22.thread:                                  ; preds = %if.end
   %1 = load i32, ptr getelementptr inbounds (i8, ptr @sentinel, i64 148), align 4
@@ -2929,11 +2956,17 @@ if.end22.thread:                                  ; preds = %if.end
   %2 = load i32, ptr %port5.i, align 8
   %.str.14..str.13.i = select i1 %cmp.not.i, ptr @.str.14, ptr @.str.13
   %call6.i = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call4.i, ptr noundef nonnull %.str.14..str.13.i, ptr noundef %cond.i.i, i32 noundef %2) #29
-  br i1 %tobool4, label %if.end36.sink.split, label %if.then29
+  br i1 %tobool4, label %if.then25, label %if.then29
+
+if.then25:                                        ; preds = %if.end22.thread, %if.end22
+  %sdsname.070 = phi ptr [ %call6.i, %if.end22.thread ], [ %call21, %if.end22 ]
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @sentinel, i64 56), align 8
+  br label %if.end36
 
 if.then29:                                        ; preds = %if.end22.thread
   %slaves = getelementptr inbounds i8, ptr %master, i64 160
-  br label %if.end36.sink.split
+  %4 = load ptr, ptr %slaves, align 8
+  br label %if.end36
 
 if.else30:                                        ; preds = %if.end22
   %and31 = and i32 %flags, 4
@@ -2942,27 +2975,22 @@ if.else30:                                        ; preds = %if.end22
 
 if.then33:                                        ; preds = %if.else30
   %sentinels = getelementptr inbounds i8, ptr %master, i64 152
-  br label %if.end36.sink.split
-
-if.end36.sink.split:                              ; preds = %if.end22, %if.end22.thread, %if.then33, %if.then29
-  %slaves.sink = phi ptr [ %slaves, %if.then29 ], [ %sentinels, %if.then33 ], [ getelementptr inbounds (i8, ptr @sentinel, i64 56), %if.end22.thread ], [ getelementptr inbounds (i8, ptr @sentinel, i64 56), %if.end22 ]
-  %sdsname.068.ph = phi ptr [ %call6.i, %if.then29 ], [ %call21, %if.then33 ], [ %call6.i, %if.end22.thread ], [ %call21, %if.end22 ]
-  %3 = load ptr, ptr %slaves.sink, align 8
+  %5 = load ptr, ptr %sentinels, align 8
   br label %if.end36
 
-if.end36:                                         ; preds = %if.end36.sink.split, %if.else30
-  %sdsname.068 = phi ptr [ %call21, %if.else30 ], [ %sdsname.068.ph, %if.end36.sink.split ]
-  %table.0 = phi ptr [ null, %if.else30 ], [ %3, %if.end36.sink.split ]
+if.end36:                                         ; preds = %if.then29, %if.then33, %if.else30, %if.then25
+  %sdsname.068 = phi ptr [ %sdsname.070, %if.then25 ], [ %call6.i, %if.then29 ], [ %call21, %if.then33 ], [ %call21, %if.else30 ]
+  %table.0 = phi ptr [ %3, %if.then25 ], [ %4, %if.then29 ], [ %5, %if.then33 ], [ null, %if.else30 ]
   %call37 = tail call ptr @dictFind(ptr noundef %table.0, ptr noundef %sdsname.068) #29
   %tobool38.not = icmp eq ptr %call37, null
   br i1 %tobool38.not, label %if.end41, label %if.then39
 
 if.then39:                                        ; preds = %if.end36
-  %4 = load ptr, ptr %call, align 8
-  tail call void @sdsfree(ptr noundef %4) #29
+  %6 = load ptr, ptr %call, align 8
+  tail call void @sdsfree(ptr noundef %6) #29
   %ip.i = getelementptr inbounds i8, ptr %call, i64 8
-  %5 = load ptr, ptr %ip.i, align 8
-  tail call void @sdsfree(ptr noundef %5) #29
+  %7 = load ptr, ptr %ip.i, align 8
+  tail call void @sdsfree(ptr noundef %7) #29
   tail call void @zfree(ptr noundef nonnull %call) #29
   tail call void @sdsfree(ptr noundef %sdsname.068) #29
   %call40 = tail call ptr @__errno_location() #31
@@ -3056,13 +3084,13 @@ if.end41:                                         ; preds = %if.end36
   %failover_state_change_time = getelementptr inbounds i8, ptr %call42, i64 280
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %leader, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %failover_state_change_time, i8 0, i64 16, i1 false)
-  %6 = load i64, ptr @sentinel_default_failover_timeout, align 8
+  %8 = load i64, ptr @sentinel_default_failover_timeout, align 8
   %failover_timeout = getelementptr inbounds i8, ptr %call42, i64 296
-  store i64 %6, ptr %failover_timeout, align 8
+  store i64 %8, ptr %failover_timeout, align 8
   %failover_delay_logged = getelementptr inbounds i8, ptr %call42, i64 304
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %failover_delay_logged, i8 0, i64 40, i1 false)
-  %7 = load i32, ptr %call42, align 8
-  %and63 = and i32 %7, 3
+  %9 = load i32, ptr %call42, align 8
+  %and63 = and i32 %9, 3
   %role_reported = getelementptr inbounds i8, ptr %call42, i64 128
   store i32 %and63, ptr %role_reported, align 8
   %call64 = tail call i64 @mstime() #29
@@ -3071,8 +3099,8 @@ if.end41:                                         ; preds = %if.end36
   %call65 = tail call i64 @mstime() #29
   %slave_conf_change_time = getelementptr inbounds i8, ptr %call42, i64 144
   store i64 %call65, ptr %slave_conf_change_time, align 8
-  %8 = load ptr, ptr %name44, align 8
-  %call67 = tail call i32 @dictAdd(ptr noundef %table.0, ptr noundef %8, ptr noundef %call42) #29
+  %10 = load ptr, ptr %name44, align 8
+  %call67 = tail call i32 @dictAdd(ptr noundef %table.0, ptr noundef %10, ptr noundef %call42) #29
   br label %return
 
 return:                                           ; preds = %cond.end14, %if.end41, %if.then39
@@ -3974,9 +4002,9 @@ if.else23:                                        ; preds = %for.cond.i
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then21, %if.else23, %if.then16
-  %.sink21 = phi ptr [ %14, %if.then21 ], [ %post_monitor_cfg, %if.else23 ], [ %monitor_cfg, %if.then16 ]
-  %16 = load ptr, ptr %.sink21, align 8
-  %call22 = tail call ptr @listAddNodeTail(ptr noundef %16, ptr noundef nonnull %call) #29
+  %.sink.in = phi ptr [ %14, %if.then21 ], [ %post_monitor_cfg, %if.else23 ], [ %monitor_cfg, %if.then16 ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %call22 = tail call ptr @listAddNodeTail(ptr noundef %.sink, ptr noundef nonnull %call) #29
   ret void
 }
 

@@ -4549,7 +4549,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
   %m_nodes.i28 = getelementptr inbounds i8, ptr %lits, i64 8
   %33 = load ptr, ptr %m_nodes.i28, align 8
   %cmp.i.i29 = icmp eq ptr %33, null
-  br i1 %cmp.i.i29, label %return.sink.split.sink.split, label %lor.lhs.false.i.i
+  br i1 %cmp.i.i29, label %if.then.i.i31, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i
   %arrayidx.i.i30 = getelementptr inbounds i8, ptr %33, i64 -4
@@ -4557,7 +4557,11 @@ lor.lhs.false.i.i:                                ; preds = %_ZN15ref_vector_cor
   %arrayidx4.i.i = getelementptr inbounds i8, ptr %33, i64 -8
   %35 = load i32, ptr %arrayidx4.i.i, align 4
   %cmp5.i.i = icmp eq i32 %34, %35
-  br i1 %cmp5.i.i, label %return.sink.split.sink.split, label %return.sink.split
+  br i1 %cmp5.i.i, label %if.then.i.i31, label %return.sink.split
+
+if.then.i.i31:                                    ; preds = %lor.lhs.false.i.i, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i
+  tail call void @_ZN6vectorIP4exprLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_nodes.i28)
+  br label %return.sink.split.sink.split
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 2, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
@@ -4769,7 +4773,7 @@ if.then.i.i.i.i142:                               ; preds = %"_ZZN1q11model_fixe
 _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i145: ; preds = %if.then.i.i.i.i142, %"_ZZN1q11model_fixer10invert_argEP3appjP4exprR10ref_vectorIS3_11ast_managerEENK3$_1clEj.exit140"
   %71 = load ptr, ptr %m_nodes.i85, align 8
   %cmp.i.i147 = icmp eq ptr %71, null
-  br i1 %cmp.i.i147, label %return.sink.split.sink.split, label %lor.lhs.false.i.i148
+  br i1 %cmp.i.i147, label %if.then.i.i156, label %lor.lhs.false.i.i148
 
 lor.lhs.false.i.i148:                             ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i145
   %arrayidx.i.i149 = getelementptr inbounds i8, ptr %71, i64 -4
@@ -4777,7 +4781,11 @@ lor.lhs.false.i.i148:                             ; preds = %_ZN15ref_vector_cor
   %arrayidx4.i.i150 = getelementptr inbounds i8, ptr %71, i64 -8
   %73 = load i32, ptr %arrayidx4.i.i150, align 4
   %cmp5.i.i151 = icmp eq i32 %72, %73
-  br i1 %cmp5.i.i151, label %return.sink.split.sink.split, label %return.sink.split
+  br i1 %cmp5.i.i151, label %if.then.i.i156, label %return.sink.split
+
+if.then.i.i156:                                   ; preds = %lor.lhs.false.i.i148, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i145
+  tail call void @_ZN6vectorIP4exprLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_nodes.i85)
+  br label %return.sink.split.sink.split
 
 for.inc:                                          ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4874,7 +4882,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
   %m_nodes.i212 = getelementptr inbounds i8, ptr %lits, i64 8
   %87 = load ptr, ptr %m_nodes.i212, align 8
   %cmp.i.i213 = icmp eq ptr %87, null
-  br i1 %cmp.i.i213, label %return.sink.split.sink.split, label %lor.lhs.false.i.i214
+  br i1 %cmp.i.i213, label %if.then.i.i222, label %lor.lhs.false.i.i214
 
 lor.lhs.false.i.i214:                             ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i211
   %arrayidx.i.i215 = getelementptr inbounds i8, ptr %87, i64 -4
@@ -4882,29 +4890,32 @@ lor.lhs.false.i.i214:                             ; preds = %_ZN15ref_vector_cor
   %arrayidx4.i.i216 = getelementptr inbounds i8, ptr %87, i64 -8
   %89 = load i32, ptr %arrayidx4.i.i216, align 4
   %cmp5.i.i217 = icmp eq i32 %88, %89
-  br i1 %cmp5.i.i217, label %return.sink.split.sink.split, label %return.sink.split
+  br i1 %cmp5.i.i217, label %if.then.i.i222, label %return.sink.split
 
-return.sink.split.sink.split:                     ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i211, %lor.lhs.false.i.i214, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i145, %lor.lhs.false.i.i148, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i, %lor.lhs.false.i.i
-  %m_nodes.i212.sink285 = phi ptr [ %m_nodes.i28, %lor.lhs.false.i.i ], [ %m_nodes.i28, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i ], [ %m_nodes.i85, %lor.lhs.false.i.i148 ], [ %m_nodes.i85, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i145 ], [ %m_nodes.i212, %lor.lhs.false.i.i214 ], [ %m_nodes.i212, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i211 ]
-  %call.i.i206.sink.ph = phi ptr [ %call18, %lor.lhs.false.i.i ], [ %call18, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i ], [ %call32, %lor.lhs.false.i.i148 ], [ %call32, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i145 ], [ %call.i.i206, %lor.lhs.false.i.i214 ], [ %call.i.i206, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i211 ]
-  tail call void @_ZN6vectorIP4exprLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_nodes.i212.sink285)
-  %.pre.i.i223 = load ptr, ptr %m_nodes.i212.sink285, align 8
-  %arrayidx8.phi.trans.insert.i.i224 = getelementptr inbounds i8, ptr %.pre.i.i223, i64 -4
+if.then.i.i222:                                   ; preds = %lor.lhs.false.i.i214, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i211
+  tail call void @_ZN6vectorIP4exprLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_nodes.i212)
+  br label %return.sink.split.sink.split
+
+return.sink.split.sink.split:                     ; preds = %if.then.i.i31, %if.then.i.i156, %if.then.i.i222
+  %call18.sink.ph = phi ptr [ %call.i.i206, %if.then.i.i222 ], [ %call32, %if.then.i.i156 ], [ %call18, %if.then.i.i31 ]
+  %.sink.in.ph = phi ptr [ %m_nodes.i212, %if.then.i.i222 ], [ %m_nodes.i85, %if.then.i.i156 ], [ %m_nodes.i28, %if.then.i.i31 ]
+  %.pre.i.i223.sink = load ptr, ptr %.sink.in.ph, align 8
+  %arrayidx8.phi.trans.insert.i.i224 = getelementptr inbounds i8, ptr %.pre.i.i223.sink, i64 -4
   %.pre1.i.i225 = load i32, ptr %arrayidx8.phi.trans.insert.i.i224, align 4
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %return.sink.split.sink.split, %lor.lhs.false.i.i214, %lor.lhs.false.i.i148, %lor.lhs.false.i.i
-  %.sink283 = phi i32 [ %34, %lor.lhs.false.i.i ], [ %72, %lor.lhs.false.i.i148 ], [ %88, %lor.lhs.false.i.i214 ], [ %.pre1.i.i225, %return.sink.split.sink.split ]
-  %.sink = phi ptr [ %33, %lor.lhs.false.i.i ], [ %71, %lor.lhs.false.i.i148 ], [ %87, %lor.lhs.false.i.i214 ], [ %.pre.i.i223, %return.sink.split.sink.split ]
-  %call.i.i206.sink = phi ptr [ %call18, %lor.lhs.false.i.i ], [ %call32, %lor.lhs.false.i.i148 ], [ %call.i.i206, %lor.lhs.false.i.i214 ], [ %call.i.i206.sink.ph, %return.sink.split.sink.split ]
-  %m_nodes.i212.sink = phi ptr [ %m_nodes.i28, %lor.lhs.false.i.i ], [ %m_nodes.i85, %lor.lhs.false.i.i148 ], [ %m_nodes.i212, %lor.lhs.false.i.i214 ], [ %m_nodes.i212.sink285, %return.sink.split.sink.split ]
-  %idx.ext.i.i218 = zext i32 %.sink283 to i64
-  %add.ptr.i.i219 = getelementptr inbounds ptr, ptr %.sink, i64 %idx.ext.i.i218
-  store ptr %call.i.i206.sink, ptr %add.ptr.i.i219, align 8
-  %90 = load ptr, ptr %m_nodes.i212.sink, align 8
-  %arrayidx10.i.i220 = getelementptr inbounds i8, ptr %90, i64 -4
-  %91 = load i32, ptr %arrayidx10.i.i220, align 4
-  %inc.i.i221 = add i32 %91, 1
+  %.sink298 = phi i32 [ %34, %lor.lhs.false.i.i ], [ %72, %lor.lhs.false.i.i148 ], [ %88, %lor.lhs.false.i.i214 ], [ %.pre1.i.i225, %return.sink.split.sink.split ]
+  %.sink297 = phi ptr [ %33, %lor.lhs.false.i.i ], [ %71, %lor.lhs.false.i.i148 ], [ %87, %lor.lhs.false.i.i214 ], [ %.pre.i.i223.sink, %return.sink.split.sink.split ]
+  %call18.sink = phi ptr [ %call18, %lor.lhs.false.i.i ], [ %call32, %lor.lhs.false.i.i148 ], [ %call.i.i206, %lor.lhs.false.i.i214 ], [ %call18.sink.ph, %return.sink.split.sink.split ]
+  %.sink.in = phi ptr [ %m_nodes.i28, %lor.lhs.false.i.i ], [ %m_nodes.i85, %lor.lhs.false.i.i148 ], [ %m_nodes.i212, %lor.lhs.false.i.i214 ], [ %.sink.in.ph, %return.sink.split.sink.split ]
+  %idx.ext.i.i = zext i32 %.sink298 to i64
+  %add.ptr.i.i = getelementptr inbounds ptr, ptr %.sink297, i64 %idx.ext.i.i
+  store ptr %call18.sink, ptr %add.ptr.i.i, align 8
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %arrayidx10.i.i220 = getelementptr inbounds i8, ptr %.sink, i64 -4
+  %90 = load i32, ptr %arrayidx10.i.i220, align 4
+  %inc.i.i221 = add i32 %90, 1
   store i32 %inc.i.i221, ptr %arrayidx10.i.i220, align 4
   br label %return
 

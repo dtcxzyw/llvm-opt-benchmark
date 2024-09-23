@@ -246,20 +246,26 @@ define void @zend_observer_add_begin_handler(ptr nocapture noundef readonly %0, 
   %18 = getelementptr inbounds i8, ptr %17, i64 -8
   %19 = load ptr, ptr %16, align 8
   %20 = icmp eq ptr %19, inttoptr (i64 2 to ptr)
-  br i1 %20, label %.loopexit, label %.preheader
+  br i1 %20, label %21, label %.preheader
+
+21:                                               ; preds = %12
+  store ptr %1, ptr %16, align 8
+  br label %26
 
 .preheader:                                       ; preds = %12, %.preheader
   %.pn = phi ptr [ %.0, %.preheader ], [ %16, %12 ]
   %.0 = getelementptr inbounds i8, ptr %.pn, i64 8
-  %21 = icmp ule ptr %.0, %18
-  tail call void @llvm.assume(i1 %21)
-  %22 = load ptr, ptr %.0, align 8
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %.loopexit, label %.preheader
+  %22 = icmp ule ptr %.0, %18
+  tail call void @llvm.assume(i1 %22)
+  %23 = load ptr, ptr %.0, align 8
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %25, label %.preheader
 
-.loopexit:                                        ; preds = %.preheader, %12
-  %.0.lcssa.sink = phi ptr [ %16, %12 ], [ %.0, %.preheader ]
-  store ptr %1, ptr %.0.lcssa.sink, align 8
+25:                                               ; preds = %.preheader
+  store ptr %1, ptr %.0, align 8
+  br label %26
+
+26:                                               ; preds = %25, %21
   ret void
 }
 

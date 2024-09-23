@@ -1272,12 +1272,12 @@ define internal fastcc ptr @similar_escape_internal(ptr noundef %0, ptr noundef 
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
-  %.0.ph184 = phi ptr [ %8, %.lr.ph.lr.ph ], [ %171, %.outer ]
+  %.0.ph184 = phi ptr [ %8, %.lr.ph.lr.ph ], [ %173, %.outer ]
   %.0131.ph183 = phi ptr [ %71, %.lr.ph.lr.ph ], [ %.4, %.outer ]
   %.0132.ph182 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %.2134, %.outer ]
   %.0135.ph181 = phi i8 [ 0, %.lr.ph.lr.ph ], [ %.1136, %.outer ]
   %.0137.ph180 = phi i8 [ 0, %.lr.ph.lr.ph ], [ %.2139, %.outer ]
-  %.0141.ph179 = phi i32 [ %27, %.lr.ph.lr.ph ], [ %172, %.outer ]
+  %.0141.ph179 = phi i32 [ %27, %.lr.ph.lr.ph ], [ %174, %.outer ]
   br i1 %73, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
@@ -1374,20 +1374,20 @@ define internal fastcc ptr @similar_escape_internal(ptr noundef %0, ptr noundef 
   %.us-phi170 = phi ptr [ %.0131.ph183, %.lr.ph.split ], [ %.0131165.us.us, %.lr.ph.split.us.split.us ], [ %.0131165.us, %.lr.ph.split.us.split ]
   %.us-phi171 = phi ptr [ %.0.ph184, %.lr.ph.split ], [ %.0166.us.us, %.lr.ph.split.us.split.us ], [ %.0166.us, %.lr.ph.split.us.split ]
   %109 = trunc nuw i8 %.us-phi169 to i1
-  br i1 %109, label %110, label %141
+  br i1 %109, label %110, label %143
 
 110:                                              ; preds = %.split.us
   %111 = icmp eq i8 %.us-phi, 34
-  br i1 %111, label %112, label %138
+  br i1 %111, label %112, label %140
 
 112:                                              ; preds = %110
   %113 = trunc nuw i8 %.0135.ph181 to i1
-  br i1 %113, label %138, label %114
+  br i1 %113, label %140, label %114
 
 114:                                              ; preds = %112
-  switch i32 %.0132.ph182, label %130 [
+  switch i32 %.0132.ph182, label %134 [
     i32 0, label %115
-    i32 1, label %122
+    i32 1, label %124
   ]
 
 115:                                              ; preds = %114
@@ -1403,153 +1403,154 @@ define internal fastcc ptr @similar_escape_internal(ptr noundef %0, ptr noundef 
   store i8 49, ptr %119, align 1
   %121 = getelementptr i8, ptr %.us-phi170, i64 6
   store i8 125, ptr %120, align 1
-  br label %134
+  %122 = getelementptr i8, ptr %.us-phi170, i64 7
+  store i8 63, ptr %121, align 1
+  %123 = getelementptr i8, ptr %.us-phi170, i64 8
+  store i8 40, ptr %122, align 1
+  br label %138
 
-122:                                              ; preds = %114
-  %123 = getelementptr i8, ptr %.us-phi170, i64 1
+124:                                              ; preds = %114
+  %125 = getelementptr i8, ptr %.us-phi170, i64 1
   store i8 41, ptr %.us-phi170, align 1
-  %124 = getelementptr i8, ptr %.us-phi170, i64 2
-  store i8 123, ptr %123, align 1
-  %125 = getelementptr i8, ptr %.us-phi170, i64 3
-  store i8 49, ptr %124, align 1
-  %126 = getelementptr i8, ptr %.us-phi170, i64 4
-  store i8 44, ptr %125, align 1
-  %127 = getelementptr i8, ptr %.us-phi170, i64 5
+  %126 = getelementptr i8, ptr %.us-phi170, i64 2
+  store i8 123, ptr %125, align 1
+  %127 = getelementptr i8, ptr %.us-phi170, i64 3
   store i8 49, ptr %126, align 1
-  %128 = getelementptr i8, ptr %.us-phi170, i64 6
-  store i8 125, ptr %127, align 1
-  %129 = getelementptr i8, ptr %.us-phi170, i64 7
-  store i8 40, ptr %128, align 1
-  br label %134
+  %128 = getelementptr i8, ptr %.us-phi170, i64 4
+  store i8 44, ptr %127, align 1
+  %129 = getelementptr i8, ptr %.us-phi170, i64 5
+  store i8 49, ptr %128, align 1
+  %130 = getelementptr i8, ptr %.us-phi170, i64 6
+  store i8 125, ptr %129, align 1
+  %131 = getelementptr i8, ptr %.us-phi170, i64 7
+  store i8 40, ptr %130, align 1
+  %132 = getelementptr i8, ptr %.us-phi170, i64 8
+  store i8 63, ptr %131, align 1
+  %133 = getelementptr i8, ptr %.us-phi170, i64 9
+  store i8 58, ptr %132, align 1
+  br label %138
 
-130:                                              ; preds = %114
-  %131 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %131)
-  %132 = tail call i32 @errcode(i32 noundef 318767234) #8
-  %133 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24) #8
+134:                                              ; preds = %114
+  %135 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  tail call void @llvm.assume(i1 %135)
+  %136 = tail call i32 @errcode(i32 noundef 318767234) #8
+  %137 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24) #8
   tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 937, ptr noundef nonnull @__func__.similar_escape_internal) #8
   unreachable
 
-134:                                              ; preds = %122, %115
-  %.sink222 = phi i64 [ 8, %122 ], [ 7, %115 ]
-  %.sink221 = phi ptr [ %129, %122 ], [ %121, %115 ]
-  %.sink220 = phi i64 [ 9, %122 ], [ 8, %115 ]
-  %.sink218 = phi i8 [ 58, %122 ], [ 40, %115 ]
-  %135 = getelementptr i8, ptr %.us-phi170, i64 %.sink222
-  store i8 63, ptr %.sink221, align 1
-  %136 = getelementptr i8, ptr %.us-phi170, i64 %.sink220
-  store i8 %.sink218, ptr %135, align 1
-  %137 = add nuw nsw i32 %.0132.ph182, 1
+138:                                              ; preds = %124, %115
+  %.2 = phi ptr [ %123, %115 ], [ %133, %124 ]
+  %139 = add nuw nsw i32 %.0132.ph182, 1
   br label %.outer
 
-138:                                              ; preds = %112, %110
-  %139 = getelementptr i8, ptr %.us-phi170, i64 1
+140:                                              ; preds = %112, %110
+  %141 = getelementptr i8, ptr %.us-phi170, i64 1
   store i8 92, ptr %.us-phi170, align 1
-  %140 = getelementptr i8, ptr %.us-phi170, i64 2
-  store i8 %.us-phi, ptr %139, align 1
+  %142 = getelementptr i8, ptr %.us-phi170, i64 2
+  store i8 %.us-phi, ptr %141, align 1
   br label %.outer
 
-141:                                              ; preds = %.split.us
-  br i1 %.not153.not, label %145, label %142
+143:                                              ; preds = %.split.us
+  br i1 %.not153.not, label %147, label %144
 
-142:                                              ; preds = %141
-  %143 = load i8, ptr %.0130.fr, align 1
-  %144 = icmp eq i8 %.us-phi, %143
-  br i1 %144, label %.outer, label %145
+144:                                              ; preds = %143
+  %145 = load i8, ptr %.0130.fr, align 1
+  %146 = icmp eq i8 %.us-phi, %145
+  br i1 %146, label %.outer, label %147
 
-145:                                              ; preds = %142, %141
-  %146 = trunc nuw i8 %.0135.ph181 to i1
-  br i1 %146, label %147, label %154
-
-147:                                              ; preds = %145
-  %148 = icmp eq i8 %.us-phi, 92
-  br i1 %148, label %149, label %151
+147:                                              ; preds = %144, %143
+  %148 = trunc nuw i8 %.0135.ph181 to i1
+  br i1 %148, label %149, label %156
 
 149:                                              ; preds = %147
-  %150 = getelementptr i8, ptr %.us-phi170, i64 1
-  store i8 92, ptr %.us-phi170, align 1
-  br label %151
+  %150 = icmp eq i8 %.us-phi, 92
+  br i1 %150, label %151, label %153
 
-151:                                              ; preds = %149, %147
-  %.5 = phi ptr [ %150, %149 ], [ %.us-phi170, %147 ]
-  %152 = getelementptr i8, ptr %.5, i64 1
+151:                                              ; preds = %149
+  %152 = getelementptr i8, ptr %.us-phi170, i64 1
+  store i8 92, ptr %.us-phi170, align 1
+  br label %153
+
+153:                                              ; preds = %151, %149
+  %.5 = phi ptr [ %152, %151 ], [ %.us-phi170, %149 ]
+  %154 = getelementptr i8, ptr %.5, i64 1
   store i8 %.us-phi, ptr %.5, align 1
-  %153 = icmp eq i8 %.us-phi, 93
-  %spec.select = select i1 %153, i8 0, i8 %.0135.ph181
+  %155 = icmp eq i8 %.us-phi, 93
+  %spec.select = select i1 %155, i8 0, i8 %.0135.ph181
   br label %.outer
 
-154:                                              ; preds = %145
-  switch i8 %.us-phi, label %169 [
-    i8 91, label %155
-    i8 37, label %157
-    i8 95, label %160
-    i8 40, label %162
-    i8 94, label %166
-    i8 92, label %166
-    i8 46, label %166
-    i8 36, label %166
+156:                                              ; preds = %147
+  switch i8 %.us-phi, label %171 [
+    i8 91, label %157
+    i8 37, label %159
+    i8 95, label %162
+    i8 40, label %164
+    i8 94, label %168
+    i8 92, label %168
+    i8 46, label %168
+    i8 36, label %168
   ]
 
-155:                                              ; preds = %154
-  %156 = getelementptr i8, ptr %.us-phi170, i64 1
+157:                                              ; preds = %156
+  %158 = getelementptr i8, ptr %.us-phi170, i64 1
   store i8 91, ptr %.us-phi170, align 1
   br label %.outer
 
-157:                                              ; preds = %154
-  %158 = getelementptr i8, ptr %.us-phi170, i64 1
+159:                                              ; preds = %156
+  %160 = getelementptr i8, ptr %.us-phi170, i64 1
   store i8 46, ptr %.us-phi170, align 1
-  %159 = getelementptr i8, ptr %.us-phi170, i64 2
-  store i8 42, ptr %158, align 1
+  %161 = getelementptr i8, ptr %.us-phi170, i64 2
+  store i8 42, ptr %160, align 1
   br label %.outer
 
-160:                                              ; preds = %154
-  %161 = getelementptr i8, ptr %.us-phi170, i64 1
-  store i8 46, ptr %.us-phi170, align 1
-  br label %.outer
-
-162:                                              ; preds = %154
+162:                                              ; preds = %156
   %163 = getelementptr i8, ptr %.us-phi170, i64 1
+  store i8 46, ptr %.us-phi170, align 1
+  br label %.outer
+
+164:                                              ; preds = %156
+  %165 = getelementptr i8, ptr %.us-phi170, i64 1
   store i8 40, ptr %.us-phi170, align 1
-  %164 = getelementptr i8, ptr %.us-phi170, i64 2
-  store i8 63, ptr %163, align 1
-  %165 = getelementptr i8, ptr %.us-phi170, i64 3
-  store i8 58, ptr %164, align 1
+  %166 = getelementptr i8, ptr %.us-phi170, i64 2
+  store i8 63, ptr %165, align 1
+  %167 = getelementptr i8, ptr %.us-phi170, i64 3
+  store i8 58, ptr %166, align 1
   br label %.outer
 
-166:                                              ; preds = %154, %154, %154, %154
-  %167 = getelementptr i8, ptr %.us-phi170, i64 1
+168:                                              ; preds = %156, %156, %156, %156
+  %169 = getelementptr i8, ptr %.us-phi170, i64 1
   store i8 92, ptr %.us-phi170, align 1
-  %168 = getelementptr i8, ptr %.us-phi170, i64 2
-  store i8 %.us-phi, ptr %167, align 1
+  %170 = getelementptr i8, ptr %.us-phi170, i64 2
+  store i8 %.us-phi, ptr %169, align 1
   br label %.outer
 
-169:                                              ; preds = %154
-  %170 = getelementptr i8, ptr %.us-phi170, i64 1
+171:                                              ; preds = %156
+  %172 = getelementptr i8, ptr %.us-phi170, i64 1
   store i8 %.us-phi, ptr %.us-phi170, align 1
   br label %.outer
 
-.outer:                                           ; preds = %151, %142, %134, %138, %155, %160, %166, %169, %162, %157
-  %.2139 = phi i8 [ %.us-phi169, %155 ], [ %.us-phi169, %157 ], [ %.us-phi169, %160 ], [ %.us-phi169, %162 ], [ %.us-phi169, %166 ], [ %.us-phi169, %169 ], [ 0, %138 ], [ 0, %134 ], [ 1, %142 ], [ %.us-phi169, %151 ]
-  %.1136 = phi i8 [ 1, %155 ], [ %.0135.ph181, %157 ], [ %.0135.ph181, %160 ], [ %.0135.ph181, %162 ], [ %.0135.ph181, %166 ], [ %.0135.ph181, %169 ], [ %.0135.ph181, %138 ], [ %.0135.ph181, %134 ], [ %.0135.ph181, %142 ], [ %spec.select, %151 ]
-  %.2134 = phi i32 [ %.0132.ph182, %155 ], [ %.0132.ph182, %157 ], [ %.0132.ph182, %160 ], [ %.0132.ph182, %162 ], [ %.0132.ph182, %166 ], [ %.0132.ph182, %169 ], [ %.0132.ph182, %138 ], [ %137, %134 ], [ %.0132.ph182, %142 ], [ %.0132.ph182, %151 ]
-  %.4 = phi ptr [ %156, %155 ], [ %159, %157 ], [ %161, %160 ], [ %165, %162 ], [ %168, %166 ], [ %170, %169 ], [ %140, %138 ], [ %136, %134 ], [ %.us-phi170, %142 ], [ %152, %151 ]
-  %171 = getelementptr i8, ptr %.us-phi171, i64 1
-  %172 = add nsw i32 %.us-phi168, -1
-  %173 = icmp sgt i32 %.us-phi168, 1
-  br i1 %173, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !8
+.outer:                                           ; preds = %153, %144, %138, %140, %157, %162, %168, %171, %164, %159
+  %.2139 = phi i8 [ %.us-phi169, %157 ], [ %.us-phi169, %159 ], [ %.us-phi169, %162 ], [ %.us-phi169, %164 ], [ %.us-phi169, %168 ], [ %.us-phi169, %171 ], [ 0, %140 ], [ 0, %138 ], [ 1, %144 ], [ %.us-phi169, %153 ]
+  %.1136 = phi i8 [ 1, %157 ], [ %.0135.ph181, %159 ], [ %.0135.ph181, %162 ], [ %.0135.ph181, %164 ], [ %.0135.ph181, %168 ], [ %.0135.ph181, %171 ], [ %.0135.ph181, %140 ], [ %.0135.ph181, %138 ], [ %.0135.ph181, %144 ], [ %spec.select, %153 ]
+  %.2134 = phi i32 [ %.0132.ph182, %157 ], [ %.0132.ph182, %159 ], [ %.0132.ph182, %162 ], [ %.0132.ph182, %164 ], [ %.0132.ph182, %168 ], [ %.0132.ph182, %171 ], [ %.0132.ph182, %140 ], [ %139, %138 ], [ %.0132.ph182, %144 ], [ %.0132.ph182, %153 ]
+  %.4 = phi ptr [ %158, %157 ], [ %161, %159 ], [ %163, %162 ], [ %167, %164 ], [ %170, %168 ], [ %172, %171 ], [ %142, %140 ], [ %.2, %138 ], [ %.us-phi170, %144 ], [ %154, %153 ]
+  %173 = getelementptr i8, ptr %.us-phi171, i64 1
+  %174 = add nsw i32 %.us-phi168, -1
+  %175 = icmp sgt i32 %.us-phi168, 1
+  br i1 %175, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !8
 
 .outer._crit_edge:                                ; preds = %.outer, %104, %82, %62
   %.0131.lcssa = phi ptr [ %71, %62 ], [ %84, %82 ], [ %.1.us, %104 ], [ %.4, %.outer ]
-  %174 = getelementptr i8, ptr %.0131.lcssa, i64 1
+  %176 = getelementptr i8, ptr %.0131.lcssa, i64 1
   store i8 41, ptr %.0131.lcssa, align 1
-  %175 = getelementptr i8, ptr %.0131.lcssa, i64 2
-  store i8 36, ptr %174, align 1
-  %176 = ptrtoint ptr %175 to i64
-  %177 = ptrtoint ptr %66 to i64
-  %178 = sub i64 %176, %177
-  %179 = trunc i64 %178 to i32
-  %180 = shl i32 %179, 2
-  store i32 %180, ptr %66, align 4
+  %177 = getelementptr i8, ptr %.0131.lcssa, i64 2
+  store i8 36, ptr %176, align 1
+  %178 = ptrtoint ptr %177 to i64
+  %179 = ptrtoint ptr %66 to i64
+  %180 = sub i64 %178, %179
+  %181 = trunc i64 %180 to i32
+  %182 = shl i32 %181, 2
+  store i32 %182, ptr %66, align 4
   ret ptr %66
 }
 

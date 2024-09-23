@@ -2325,7 +2325,11 @@ if.then.i.i.i.i581:                               ; preds = %cleanup.done.crited
   %304 = load atomic i64, ptr %_M_use_count.i.i.i.i.i582 acquire, align 8
   %cmp.i.i.i.i.i583 = icmp eq i64 %304, 4294967297
   %305 = trunc i64 %304 to i32
-  br i1 %cmp.i.i.i.i.i583, label %if.end223.sink.split.sink.split, label %if.end.i.i.i.i.i584
+  br i1 %cmp.i.i.i.i.i583, label %if.then.i.i.i.i.i606, label %if.end.i.i.i.i.i584
+
+if.then.i.i.i.i.i606:                             ; preds = %if.then.i.i.i.i581
+  store i32 0, ptr %_M_use_count.i.i.i.i.i582, align 8
+  br label %if.end223.sink.split.sink.split
 
 if.end.i.i.i.i.i584:                              ; preds = %if.then.i.i.i.i581
   %306 = load i8, ptr @__libc_single_threaded, align 1
@@ -2381,7 +2385,11 @@ if.then.i.i.i613:                                 ; preds = %cleanup.action217
   %313 = load atomic i64, ptr %_M_use_count.i.i.i.i614 acquire, align 8
   %cmp.i.i.i.i615 = icmp eq i64 %313, 4294967297
   %314 = trunc i64 %313 to i32
-  br i1 %cmp.i.i.i.i615, label %if.end223.sink.split.sink.split, label %if.end.i.i.i.i616
+  br i1 %cmp.i.i.i.i615, label %if.then.i.i.i.i638, label %if.end.i.i.i.i616
+
+if.then.i.i.i.i638:                               ; preds = %if.then.i.i.i613
+  store i32 0, ptr %_M_use_count.i.i.i.i614, align 8
+  br label %if.end223.sink.split.sink.split
 
 if.end.i.i.i.i616:                                ; preds = %if.then.i.i.i613
   %315 = load i8, ptr @__libc_single_threaded, align 1
@@ -2433,10 +2441,8 @@ lpad209:                                          ; preds = %_ZNSt10shared_ptrIN
   call void @_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp208) #17
   br label %ehcleanup234
 
-if.end223.sink.split.sink.split:                  ; preds = %if.then.i.i.i613, %if.then.i.i.i.i581
-  %_M_use_count.i.i.i.i614.sink = phi ptr [ %_M_use_count.i.i.i.i.i582, %if.then.i.i.i.i581 ], [ %_M_use_count.i.i.i.i614, %if.then.i.i.i613 ]
-  %.sink803 = phi ptr [ %303, %if.then.i.i.i.i581 ], [ %312, %if.then.i.i.i613 ]
-  store i32 0, ptr %_M_use_count.i.i.i.i614.sink, align 8
+if.end223.sink.split.sink.split:                  ; preds = %if.then.i.i.i.i.i606, %if.then.i.i.i.i638
+  %.sink803 = phi ptr [ %312, %if.then.i.i.i.i638 ], [ %303, %if.then.i.i.i.i.i606 ]
   %_M_weak_count.i.i.i.i639 = getelementptr inbounds i8, ptr %.sink803, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i639, align 4
   %vtable.i.i.i.i640 = load ptr, ptr %.sink803, align 8
@@ -4552,8 +4558,8 @@ if.then77:                                        ; preds = %invoke.cont75
   br label %if.then77.invoke
 
 if.then77.invoke:                                 ; preds = %invoke.cont53, %if.then77
-  %rawNulls_.i.sink = phi ptr [ %rawNulls_.i33, %if.then77 ], [ %rawNulls_.i, %invoke.cont53 ]
-  %31 = load ptr, ptr %rawNulls_.i.sink, align 8
+  %.in = phi ptr [ %rawNulls_.i33, %if.then77 ], [ %rawNulls_.i, %invoke.cont53 ]
+  %31 = load ptr, ptr %.in, align 8
   invoke void @_ZNK8facebook5velox4exec4Expr8addNullsERKNS0_17SelectivityVectorEPKmRNS1_7EvalCtxERSt10shared_ptrINS0_10BaseVectorEE(ptr noundef nonnull align 8 dereferenceable(442) %this, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr noundef %31, ptr noundef nonnull align 8 dereferenceable(104) %context, ptr noundef nonnull align 8 dereferenceable(16) %result)
           to label %cleanup unwind label %lpad39
 

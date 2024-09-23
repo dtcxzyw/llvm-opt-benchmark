@@ -1281,7 +1281,7 @@ define noundef i32 @H5P__get_filter(ptr nocapture noundef readonly %0, ptr nound
   %28 = icmp ne i64 %4, 0
   %29 = icmp ne ptr %5, null
   %or.cond = and i1 %28, %29
-  br i1 %or.cond, label %30, label %48
+  br i1 %or.cond, label %30, label %49
 
 30:                                               ; preds = %27
   %31 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1306,34 +1306,35 @@ define noundef i32 @H5P__get_filter(ptr nocapture noundef readonly %0, ptr nound
   %39 = tail call ptr @strncpy(ptr noundef nonnull %5, ptr noundef nonnull %.03859, i64 noundef %4) #9
   %40 = getelementptr i8, ptr %5, i64 %4
   %41 = getelementptr i8, ptr %40, i64 -1
-  br label %.sink.split
+  store i8 0, ptr %41, align 1
+  br label %49
 
 .thread:                                          ; preds = %33, %36
   %42 = load i32, ptr %0, align 8
   %43 = icmp slt i32 %42, 256
-  br i1 %43, label %44, label %.sink.split
+  br i1 %43, label %44, label %48
 
 44:                                               ; preds = %.thread
   %45 = tail call ptr @strncpy(ptr noundef nonnull %5, ptr noundef nonnull dereferenceable(23) @.str.39, i64 noundef %4) #9
   %46 = getelementptr i8, ptr %5, i64 %4
   %47 = getelementptr i8, ptr %46, i64 -1
-  br label %.sink.split
+  store i8 0, ptr %47, align 1
+  br label %49
 
-.sink.split:                                      ; preds = %.thread, %44, %.thread56
-  %.sink = phi ptr [ %41, %.thread56 ], [ %47, %44 ], [ %5, %.thread ]
-  store i8 0, ptr %.sink, align 1
-  br label %48
+48:                                               ; preds = %.thread
+  store i8 0, ptr %5, align 1
+  br label %49
 
-48:                                               ; preds = %.sink.split, %27
+49:                                               ; preds = %.thread56, %48, %44, %27
   %.not52 = icmp eq ptr %6, null
-  br i1 %.not52, label %52, label %49
+  br i1 %.not52, label %53, label %50
 
-49:                                               ; preds = %48
-  %50 = load i32, ptr %0, align 8
-  %51 = tail call i32 @H5Z_get_filter_info(i32 noundef %50, ptr noundef nonnull %6) #9
-  br label %52
+50:                                               ; preds = %49
+  %51 = load i32, ptr %0, align 8
+  %52 = tail call i32 @H5Z_get_filter_info(i32 noundef %51, ptr noundef nonnull %6) #9
+  br label %53
 
-52:                                               ; preds = %49, %48
+53:                                               ; preds = %50, %49
   ret i32 0
 }
 

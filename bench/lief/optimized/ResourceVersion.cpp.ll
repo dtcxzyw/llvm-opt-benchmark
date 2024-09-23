@@ -1013,7 +1013,8 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.i.
 .split.i.i.i:                                     ; preds = %32
   %33 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 0, ptr %33, align 8
-  br label %.sink.split.i.i.i
+  store i16 0, ptr %11, align 2
+  br label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEaSERKS4_.exit
 
 .split12.i.i.i:                                   ; preds = %32, %.thread.i.i.i
   %34 = phi ptr [ %28, %.thread.i.i.i ], [ %11, %32 ]
@@ -1036,17 +1037,16 @@ _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7_S_copyEPDsPKDsm.exit.i
   store i64 %10, ptr %40, align 8
   %41 = load ptr, ptr %8, align 8
   %42 = getelementptr inbounds i16, ptr %41, i64 %10
-  br label %.sink.split.i.i.i
+  store i16 0, ptr %42, align 2
+  br label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEaSERKS4_.exit
 
-.sink.split.i.i.i:                                ; preds = %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7_S_copyEPDsPKDsm.exit.i.i.i, %.split.i.i.i
-  %.sink.i.i.i = phi ptr [ %42, %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7_S_copyEPDsPKDsm.exit.i.i.i ], [ %11, %.split.i.i.i ]
-  store i16 0, ptr %.sink.i.i.i, align 2
+_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEaSERKS4_.exit: ; preds = %.split.i.i.i, %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7_S_copyEPDsPKDsm.exit.i.i.i
   %43 = getelementptr inbounds i8, ptr %1, i64 48
   %44 = load ptr, ptr %43, align 8
   %.not20 = icmp eq ptr %44, null
   br i1 %.not20, label %_ZNSt10unique_ptrIN4LIEF2PE21ResourceFixedFileInfoESt14default_deleteIS2_EED2Ev.exit, label %45
 
-45:                                               ; preds = %.sink.split.i.i.i
+45:                                               ; preds = %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEaSERKS4_.exit
   %46 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #27, !noalias !13
   invoke void @_ZN4LIEF2PE21ResourceFixedFileInfoC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %46, ptr noundef nonnull align 8 dereferenceable(72) %44)
           to label %_ZSt11make_uniqueIN4LIEF2PE21ResourceFixedFileInfoEJRS2_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %47, !noalias !13
@@ -1076,7 +1076,7 @@ _ZNKSt14default_deleteIN4LIEF2PE21ResourceFixedFileInfoEEclEPS2_.exit.i.i.i.i: ;
   tail call void %53(ptr noundef nonnull align 8 dereferenceable(72) %50) #24
   br label %_ZNSt10unique_ptrIN4LIEF2PE21ResourceFixedFileInfoESt14default_deleteIS2_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4LIEF2PE21ResourceFixedFileInfoESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZSt11make_uniqueIN4LIEF2PE21ResourceFixedFileInfoEJRS2_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, %_ZNKSt14default_deleteIN4LIEF2PE21ResourceFixedFileInfoEEclEPS2_.exit.i.i.i.i, %.sink.split.i.i.i
+_ZNSt10unique_ptrIN4LIEF2PE21ResourceFixedFileInfoESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZSt11make_uniqueIN4LIEF2PE21ResourceFixedFileInfoEJRS2_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, %_ZNKSt14default_deleteIN4LIEF2PE21ResourceFixedFileInfoEEclEPS2_.exit.i.i.i.i, %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEaSERKS4_.exit
   %54 = getelementptr inbounds i8, ptr %1, i64 56
   %55 = load ptr, ptr %54, align 8
   %.not21 = icmp eq ptr %55, null
@@ -7971,6 +7971,7 @@ _ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit: ; preds = %6,
   %18 = load ptr, ptr %17, align 8
   store i64 %.pre-phi.i.i, ptr %7, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 %16
+  store i8 92, ptr %19, align 1
   br label %82
 
 20:                                               ; preds = %2
@@ -7997,6 +7998,7 @@ _ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit28: ; preds = %
   %32 = load ptr, ptr %31, align 8
   store i64 %.pre-phi.i.i25, ptr %21, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 %30
+  store i8 92, ptr %33, align 1
   br label %82
 
 34:                                               ; preds = %2
@@ -8023,6 +8025,7 @@ _ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit33: ; preds = %
   %46 = load ptr, ptr %45, align 8
   store i64 %.pre-phi.i.i30, ptr %35, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 %44
+  store i8 92, ptr %47, align 1
   br label %82
 
 48:                                               ; preds = %2, %2, %2
@@ -8049,6 +8052,7 @@ _ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit38: ; preds = %
   %60 = load ptr, ptr %59, align 8
   store i64 %.pre-phi.i.i35, ptr %49, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 %58
+  store i8 92, ptr %61, align 1
   br label %82
 
 62:                                               ; preds = %2
@@ -8093,9 +8097,7 @@ _ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit38: ; preds = %
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 82:                                               ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit38, %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit33, %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit28, %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit
-  %.sink = phi ptr [ %61, %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit38 ], [ %47, %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit33 ], [ %33, %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit28 ], [ %19, %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit ]
   %.054 = phi i8 [ %5, %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit38 ], [ 116, %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit33 ], [ 114, %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit28 ], [ 110, %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit ]
-  store i8 92, ptr %.sink, align 1
   %83 = getelementptr inbounds i8, ptr %0, i64 16
   %84 = load i64, ptr %83, align 8
   %85 = add i64 %84, 1

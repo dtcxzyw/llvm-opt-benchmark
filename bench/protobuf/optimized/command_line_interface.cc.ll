@@ -8644,10 +8644,10 @@ for.inc89:                                        ; preds = %for.cond57.preheade
   br i1 %cmp.i9.not, label %for.end91, label %for.body16
 
 for.end91.sink.split:                             ; preds = %if.then35, %if.then49
-  %name_.i25.sink = phi ptr [ %name_.i25, %if.then49 ], [ %name_.i, %if.then35 ]
+  %.sink.in = phi ptr [ %name_.i25, %if.then49 ], [ %name_.i, %if.then35 ]
   %.str.28.sink = phi ptr [ @.str.28, %if.then49 ], [ @.str.39, %if.then35 ]
-  %57 = load ptr, ptr %name_.i25.sink, align 8
-  %call51 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull align 8 dereferenceable(32) %57)
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %call51 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull align 8 dereferenceable(32) %.sink)
   %call52 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call51, ptr noundef nonnull %.str.28.sink)
   %call53 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call52, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   br label %for.end91

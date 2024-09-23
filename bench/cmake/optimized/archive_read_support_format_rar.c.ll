@@ -1676,7 +1676,7 @@ define internal i64 @archive_read_format_rar_seek_data(ptr noundef %0, i64 nound
   %7 = getelementptr inbounds i8, ptr %6, i64 23
   %8 = load i8, ptr %7, align 1
   %9 = icmp eq i8 %8, 48
-  br i1 %9, label %10, label %149
+  br i1 %9, label %10, label %154
 
 10:                                               ; preds = %3
   switch i32 %2, label %14 [
@@ -1753,17 +1753,17 @@ define internal i64 @archive_read_format_rar_seek_data(ptr noundef %0, i64 nound
   %42 = getelementptr inbounds i8, ptr %6, i64 252
   br label %.backedge.outer
 
-.backedge.outer:                                  ; preds = %.backedge.sink.split, %.preheader
-  %.ph201 = phi i32 [ %.ph, %.backedge.sink.split ], [ %30, %.preheader ]
-  %.ph202 = phi ptr [ %.ph188, %.backedge.sink.split ], [ %25, %.preheader ]
-  %.4.ph = phi i64 [ %98, %.backedge.sink.split ], [ %.2.lcssa, %.preheader ]
+.backedge.outer:                                  ; preds = %113, %.preheader
+  %.ph = phi i32 [ %115, %113 ], [ %30, %.preheader ]
+  %.ph198 = phi ptr [ %114, %113 ], [ %25, %.preheader ]
+  %.4.ph = phi i64 [ %124, %113 ], [ %.2.lcssa, %.preheader ]
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.outer, %54
-  %43 = phi i32 [ %55, %54 ], [ %.ph201, %.backedge.outer ]
-  %.4 = phi i64 [ %61, %54 ], [ %.4.ph, %.backedge.outer ]
+.backedge:                                        ; preds = %.backedge.backedge, %.backedge.outer
+  %43 = phi i32 [ %.ph, %.backedge.outer ], [ %.be, %.backedge.backedge ]
+  %.4 = phi i64 [ %.4.ph, %.backedge.outer ], [ %.4.be, %.backedge.backedge ]
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds %struct.data_block_offsets, ptr %.ph202, i64 %44, i32 1
+  %45 = getelementptr inbounds %struct.data_block_offsets, ptr %.ph198, i64 %44, i32 1
   %46 = load i64, ptr %45, align 8
   %47 = icmp slt i64 %.4, %46
   br i1 %47, label %48, label %77
@@ -1787,7 +1787,7 @@ define internal i64 @archive_read_format_rar_seek_data(ptr noundef %0, i64 nound
   store i32 %55, ptr %29, align 8
   %56 = load i64, ptr %45, align 8
   %57 = zext i32 %55 to i64
-  %58 = getelementptr inbounds %struct.data_block_offsets, ptr %.ph202, i64 %57
+  %58 = getelementptr inbounds %struct.data_block_offsets, ptr %.ph198, i64 %57
   %59 = getelementptr inbounds i8, ptr %58, i64 16
   %60 = load i64, ptr %59, align 8
   %.neg = sub i64 %60, %56
@@ -1795,7 +1795,7 @@ define internal i64 @archive_read_format_rar_seek_data(ptr noundef %0, i64 nound
   %62 = getelementptr inbounds i8, ptr %58, i64 8
   %63 = load i64, ptr %62, align 8
   %64 = icmp slt i64 %61, %63
-  br i1 %64, label %.backedge, label %65
+  br i1 %64, label %.backedge.backedge, label %65
 
 65:                                               ; preds = %54
   %66 = load i64, ptr %58, align 8
@@ -1821,7 +1821,7 @@ define internal i64 @archive_read_format_rar_seek_data(ptr noundef %0, i64 nound
   br label %.loopexit
 
 77:                                               ; preds = %48, %.backedge
-  %78 = getelementptr inbounds %struct.data_block_offsets, ptr %.ph202, i64 %44, i32 2
+  %78 = getelementptr inbounds %struct.data_block_offsets, ptr %.ph198, i64 %44, i32 2
   %79 = load i64, ptr %78, align 8
   %80 = icmp sgt i64 %.4, %79
   br i1 %80, label %81, label %.loopexit
@@ -1837,131 +1837,133 @@ define internal i64 @archive_read_format_rar_seek_data(ptr noundef %0, i64 nound
   store i32 %85, ptr %29, align 8
   %86 = load i32, ptr %40, align 4
   %87 = icmp ult i32 %85, %86
-  br i1 %87, label %88, label %99
+  br i1 %87, label %88, label %100
 
 88:                                               ; preds = %84
   %89 = zext i32 %85 to i64
-  %90 = getelementptr inbounds %struct.data_block_offsets, ptr %.ph202, i64 %89
+  %90 = getelementptr inbounds %struct.data_block_offsets, ptr %.ph198, i64 %89
   %91 = getelementptr inbounds i8, ptr %90, i64 16
   %92 = load i64, ptr %91, align 8
   %93 = icmp sgt i64 %.4, %92
-  br i1 %93, label %94, label %99
+  br i1 %93, label %94, label %100
 
 94:                                               ; preds = %88
   %95 = getelementptr inbounds i8, ptr %90, i64 8
-  br label %.backedge.sink.split
+  %96 = load i64, ptr %95, align 8
+  %97 = load i64, ptr %78, align 8
+  %98 = add i64 %96, %.4
+  %99 = sub i64 %98, %97
+  br label %.backedge.backedge
 
-.backedge.sink.split:                             ; preds = %112, %94
-  %.sink = phi ptr [ %78, %94 ], [ %119, %112 ]
-  %.sink190.in = phi ptr [ %95, %94 ], [ %116, %112 ]
-  %.ph = phi i32 [ %85, %94 ], [ %114, %112 ]
-  %.ph188 = phi ptr [ %.ph202, %94 ], [ %113, %112 ]
-  %.sink190 = load i64, ptr %.sink190.in, align 8
-  %96 = load i64, ptr %.sink, align 8
-  %97 = add i64 %.sink190, %.4
-  %98 = sub i64 %97, %96
-  br label %.backedge.outer
+.backedge.backedge:                               ; preds = %94, %54
+  %.be = phi i32 [ %55, %54 ], [ %85, %94 ]
+  %.4.be = phi i64 [ %61, %54 ], [ %99, %94 ]
+  br label %.backedge
 
-99:                                               ; preds = %88, %84
+100:                                              ; preds = %88, %84
   store i32 %43, ptr %29, align 8
-  %100 = load i64, ptr %78, align 8
-  %101 = tail call i64 @__archive_read_seek(ptr noundef %0, i64 noundef %100, i32 noundef 0) #19
-  %102 = icmp slt i64 %101, 0
-  br i1 %102, label %.loopexit143, label %103
+  %101 = load i64, ptr %78, align 8
+  %102 = tail call i64 @__archive_read_seek(ptr noundef %0, i64 noundef %101, i32 noundef 0) #19
+  %103 = icmp slt i64 %102, 0
+  br i1 %103, label %.loopexit143, label %104
 
-103:                                              ; preds = %99
-  %104 = load ptr, ptr %41, align 8
-  %105 = tail call i32 @archive_read_format_rar_read_header(ptr noundef %0, ptr noundef %104)
-  %106 = icmp eq i32 %105, 1
-  br i1 %106, label %107, label %110
+104:                                              ; preds = %100
+  %105 = load ptr, ptr %41, align 8
+  %106 = tail call i32 @archive_read_format_rar_read_header(ptr noundef %0, ptr noundef %105)
+  %107 = icmp eq i32 %106, 1
+  br i1 %107, label %108, label %111
 
-107:                                              ; preds = %103
+108:                                              ; preds = %104
   store i8 1, ptr %42, align 4
-  %108 = load ptr, ptr %41, align 8
-  %109 = tail call i32 @archive_read_format_rar_read_header(ptr noundef nonnull %0, ptr noundef %108)
-  br label %110
+  %109 = load ptr, ptr %41, align 8
+  %110 = tail call i32 @archive_read_format_rar_read_header(ptr noundef nonnull %0, ptr noundef %109)
+  br label %111
 
-110:                                              ; preds = %107, %103
-  %.0116.in = phi i32 [ %109, %107 ], [ %105, %103 ]
+111:                                              ; preds = %108, %104
+  %.0116.in = phi i32 [ %110, %108 ], [ %106, %104 ]
   %.not135 = icmp eq i32 %.0116.in, 0
-  br i1 %.not135, label %112, label %111
+  br i1 %.not135, label %113, label %112
 
-111:                                              ; preds = %110
+112:                                              ; preds = %111
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.51) #19
   br label %.loopexit143
 
-112:                                              ; preds = %110
-  %113 = load ptr, ptr %24, align 8
-  %114 = load i32, ptr %29, align 8
-  %115 = zext i32 %114 to i64
-  %116 = getelementptr inbounds %struct.data_block_offsets, ptr %113, i64 %115, i32 1
-  %117 = add i32 %114, -1
-  %118 = zext i32 %117 to i64
-  %119 = getelementptr inbounds %struct.data_block_offsets, ptr %113, i64 %118, i32 2
-  br label %.backedge.sink.split
+113:                                              ; preds = %111
+  %114 = load ptr, ptr %24, align 8
+  %115 = load i32, ptr %29, align 8
+  %116 = zext i32 %115 to i64
+  %117 = getelementptr inbounds %struct.data_block_offsets, ptr %114, i64 %116, i32 1
+  %118 = load i64, ptr %117, align 8
+  %119 = add i32 %115, -1
+  %120 = zext i32 %119 to i64
+  %121 = getelementptr inbounds %struct.data_block_offsets, ptr %114, i64 %120, i32 2
+  %122 = load i64, ptr %121, align 8
+  %123 = add i64 %118, %.4
+  %124 = sub i64 %123, %122
+  br label %.backedge.outer
 
 .loopexit:                                        ; preds = %77, %81, %74, %._crit_edge
   %.3 = phi i64 [ %61, %74 ], [ %.2.lcssa, %._crit_edge ], [ %.4, %81 ], [ %.4, %77 ]
-  %120 = tail call i64 @__archive_read_seek(ptr noundef %0, i64 noundef %.3, i32 noundef 0) #19
-  %121 = icmp slt i64 %120, 0
-  br i1 %121, label %.loopexit143, label %122
+  %125 = tail call i64 @__archive_read_seek(ptr noundef %0, i64 noundef %.3, i32 noundef 0) #19
+  %126 = icmp slt i64 %125, 0
+  br i1 %126, label %.loopexit143, label %127
 
-122:                                              ; preds = %.loopexit
-  %123 = load ptr, ptr %24, align 8
-  %124 = load i32, ptr %29, align 8
-  %125 = zext i32 %124 to i64
-  %126 = getelementptr inbounds %struct.data_block_offsets, ptr %123, i64 %125, i32 2
-  %127 = load i64, ptr %126, align 8
-  %128 = sub nsw i64 %127, %120
-  %129 = getelementptr inbounds i8, ptr %6, i64 168
-  store i64 %128, ptr %129, align 8
-  %.not137155 = icmp eq i32 %124, 0
+127:                                              ; preds = %.loopexit
+  %128 = load ptr, ptr %24, align 8
+  %129 = load i32, ptr %29, align 8
+  %130 = zext i32 %129 to i64
+  %131 = getelementptr inbounds %struct.data_block_offsets, ptr %128, i64 %130, i32 2
+  %132 = load i64, ptr %131, align 8
+  %133 = sub nsw i64 %132, %125
+  %134 = getelementptr inbounds i8, ptr %6, i64 168
+  store i64 %133, ptr %134, align 8
+  %.not137155 = icmp eq i32 %129, 0
   br i1 %.not137155, label %._crit_edge160, label %.lr.ph159
 
-.lr.ph159:                                        ; preds = %122, %.lr.ph159
-  %indvars.iv174 = phi i64 [ %130, %.lr.ph159 ], [ %125, %122 ]
-  %.1117156 = phi i64 [ %135, %.lr.ph159 ], [ %120, %122 ]
-  %130 = add nsw i64 %indvars.iv174, -1
-  %131 = getelementptr inbounds %struct.data_block_offsets, ptr %123, i64 %indvars.iv174, i32 1
-  %132 = load i64, ptr %131, align 8
-  %133 = getelementptr inbounds %struct.data_block_offsets, ptr %123, i64 %130, i32 2
-  %134 = load i64, ptr %133, align 8
-  %.neg138 = sub i64 %.1117156, %132
-  %135 = add i64 %.neg138, %134
-  %.not137.wide = icmp eq i64 %130, 0
+.lr.ph159:                                        ; preds = %127, %.lr.ph159
+  %indvars.iv174 = phi i64 [ %135, %.lr.ph159 ], [ %130, %127 ]
+  %.1117156 = phi i64 [ %140, %.lr.ph159 ], [ %125, %127 ]
+  %135 = add nsw i64 %indvars.iv174, -1
+  %136 = getelementptr inbounds %struct.data_block_offsets, ptr %128, i64 %indvars.iv174, i32 1
+  %137 = load i64, ptr %136, align 8
+  %138 = getelementptr inbounds %struct.data_block_offsets, ptr %128, i64 %135, i32 2
+  %139 = load i64, ptr %138, align 8
+  %.neg138 = sub i64 %.1117156, %137
+  %140 = add i64 %.neg138, %139
+  %.not137.wide = icmp eq i64 %135, 0
   br i1 %.not137.wide, label %._crit_edge160, label %.lr.ph159, !llvm.loop !19
 
-._crit_edge160:                                   ; preds = %.lr.ph159, %122
-  %.1117.lcssa = phi i64 [ %120, %122 ], [ %135, %.lr.ph159 ]
-  %136 = getelementptr inbounds i8, ptr %123, i64 8
-  %137 = load i64, ptr %136, align 8
-  %138 = sub nsw i64 %.1117.lcssa, %137
+._crit_edge160:                                   ; preds = %.lr.ph159, %127
+  %.1117.lcssa = phi i64 [ %125, %127 ], [ %140, %.lr.ph159 ]
+  %141 = getelementptr inbounds i8, ptr %128, i64 8
+  %142 = load i64, ptr %141, align 8
+  %143 = sub nsw i64 %.1117.lcssa, %142
   tail call void @__archive_reset_read_data(ptr noundef %0) #19
-  %139 = getelementptr inbounds i8, ptr %6, i64 160
-  store i64 0, ptr %139, align 8
-  %140 = getelementptr inbounds i8, ptr %6, i64 184
-  store i64 0, ptr %140, align 8
-  %141 = load i64, ptr %18, align 8
-  %142 = icmp eq i64 %138, %141
-  br i1 %142, label %143, label %147
+  %144 = getelementptr inbounds i8, ptr %6, i64 160
+  store i64 0, ptr %144, align 8
+  %145 = getelementptr inbounds i8, ptr %6, i64 184
+  store i64 0, ptr %145, align 8
+  %146 = load i64, ptr %18, align 8
+  %147 = icmp eq i64 %143, %146
+  br i1 %147, label %148, label %152
 
-143:                                              ; preds = %._crit_edge160
-  %144 = getelementptr inbounds i8, ptr %6, i64 200
-  %145 = load i64, ptr %144, align 8
-  %146 = icmp sgt i64 %145, %138
-  br i1 %146, label %.loopexit143, label %147
+148:                                              ; preds = %._crit_edge160
+  %149 = getelementptr inbounds i8, ptr %6, i64 200
+  %150 = load i64, ptr %149, align 8
+  %151 = icmp sgt i64 %150, %143
+  br i1 %151, label %.loopexit143, label %152
 
-147:                                              ; preds = %143, %._crit_edge160
-  %148 = getelementptr inbounds i8, ptr %6, i64 200
-  store i64 %138, ptr %148, align 8
+152:                                              ; preds = %148, %._crit_edge160
+  %153 = getelementptr inbounds i8, ptr %6, i64 200
+  store i64 %143, ptr %153, align 8
   br label %.loopexit143
 
-149:                                              ; preds = %3
+154:                                              ; preds = %3
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.52) #19
   br label %.loopexit143
 
-.loopexit143:                                     ; preds = %99, %143, %.loopexit, %65, %14, %149, %147, %111, %73, %53
-  %.0 = phi i64 [ -25, %53 ], [ -25, %73 ], [ %138, %147 ], [ -25, %111 ], [ -25, %149 ], [ -1, %14 ], [ %68, %65 ], [ %120, %.loopexit ], [ %145, %143 ], [ %101, %99 ]
+.loopexit143:                                     ; preds = %100, %148, %.loopexit, %65, %14, %154, %152, %112, %73, %53
+  %.0 = phi i64 [ -25, %53 ], [ -25, %73 ], [ %143, %152 ], [ -25, %112 ], [ -25, %154 ], [ -1, %14 ], [ %68, %65 ], [ %125, %.loopexit ], [ %150, %148 ], [ %102, %100 ]
   ret i64 %.0
 }
 
@@ -2994,9 +2996,9 @@ define internal fastcc range(i32 -1, 1) i32 @read_exttime(ptr noundef nonnull re
   %25 = lshr i32 %10, 12
   br label %26
 
-26:                                               ; preds = %9, %83
-  %.04661 = phi ptr [ %7, %9 ], [ %.3, %83 ]
-  %.04760 = phi i32 [ 3, %9 ], [ %84, %83 ]
+26:                                               ; preds = %9, %85
+  %.04661 = phi ptr [ %7, %9 ], [ %.3, %85 ]
+  %.04760 = phi i32 [ 3, %9 ], [ %86, %85 ]
   store i64 0, ptr %5, align 8
   %27 = icmp eq i32 %.04760, 3
   br i1 %27, label %28, label %.thread
@@ -3004,14 +3006,14 @@ define internal fastcc range(i32 -1, 1) i32 @read_exttime(ptr noundef nonnull re
 28:                                               ; preds = %26
   %29 = load i64, ptr %11, align 8
   store i64 %29, ptr %5, align 8
-  br i1 %.not, label %83, label %33
+  br i1 %.not, label %85, label %33
 
 .thread:                                          ; preds = %26
   %30 = shl nsw i32 %.04760, 2
   %31 = lshr i32 %10, %30
   %32 = and i32 %31, 8
   %.not67 = icmp eq i32 %32, 0
-  br i1 %.not67, label %83, label %.thread69
+  br i1 %.not67, label %85, label %.thread69
 
 33:                                               ; preds = %28
   %34 = icmp eq i64 %29, 0
@@ -3107,35 +3109,42 @@ define internal fastcc range(i32 -1, 1) i32 @read_exttime(ptr noundef nonnull re
 
 78:                                               ; preds = %75, %._crit_edge
   %79 = load i64, ptr %5, align 8
-  br i1 %27, label %.sink.split, label %80
+  br i1 %27, label %80, label %81
 
 80:                                               ; preds = %78
-  switch i32 %.04760, label %82 [
-    i32 2, label %.sink.split
-    i32 1, label %81
+  store i64 %79, ptr %11, align 8
+  store i64 %73, ptr %24, align 8
+  br label %85
+
+81:                                               ; preds = %78
+  switch i32 %.04760, label %84 [
+    i32 2, label %82
+    i32 1, label %83
   ]
 
-81:                                               ; preds = %80
-  br label %.sink.split
+82:                                               ; preds = %81
+  store i64 %79, ptr %20, align 8
+  store i64 %73, ptr %21, align 8
+  br label %85
 
-82:                                               ; preds = %80
-  br label %.sink.split
+83:                                               ; preds = %81
+  store i64 %79, ptr %18, align 8
+  store i64 %73, ptr %19, align 8
+  br label %85
 
-.sink.split:                                      ; preds = %80, %78, %81, %82
-  %.sink71 = phi ptr [ %18, %81 ], [ %22, %82 ], [ %11, %78 ], [ %20, %80 ]
-  %.sink = phi ptr [ %19, %81 ], [ %23, %82 ], [ %24, %78 ], [ %21, %80 ]
-  store i64 %79, ptr %.sink71, align 8
-  store i64 %73, ptr %.sink, align 8
-  br label %83
+84:                                               ; preds = %81
+  store i64 %79, ptr %22, align 8
+  store i64 %73, ptr %23, align 8
+  br label %85
 
-83:                                               ; preds = %.sink.split, %.thread, %28
-  %.3 = phi ptr [ %.04661, %28 ], [ %.04661, %.thread ], [ %.2.lcssa, %.sink.split ]
-  %84 = add nsw i32 %.04760, -1
+85:                                               ; preds = %.thread, %28, %82, %84, %83, %80
+  %.3 = phi ptr [ %.2.lcssa, %80 ], [ %.2.lcssa, %82 ], [ %.2.lcssa, %83 ], [ %.2.lcssa, %84 ], [ %.04661, %28 ], [ %.04661, %.thread ]
+  %86 = add nsw i32 %.04760, -1
   %.not65 = icmp eq i32 %.04760, 0
   br i1 %.not65, label %.loopexit, label %26, !llvm.loop !27
 
-.loopexit:                                        ; preds = %83, %54, %.thread69, %3
-  %.0 = phi i32 [ -1, %3 ], [ 0, %83 ], [ -1, %54 ], [ -1, %.thread69 ]
+.loopexit:                                        ; preds = %85, %54, %.thread69, %3
+  %.0 = phi i32 [ -1, %3 ], [ 0, %85 ], [ -1, %54 ], [ -1, %.thread69 ]
   ret i32 %.0
 }
 

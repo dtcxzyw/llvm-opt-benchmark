@@ -2394,10 +2394,10 @@ switch.lookup180:                                 ; preds = %1072
   br label %1091
 
 1091:                                             ; preds = %switch.lookup192, %switch.lookup188, %switch.lookup184, %switch.lookup180
-  %switch.gep194.sink = phi ptr [ %switch.gep194, %switch.lookup192 ], [ %switch.gep190, %switch.lookup188 ], [ %switch.gep186, %switch.lookup184 ], [ %switch.gep182, %switch.lookup180 ]
-  %.028.i = phi ptr [ @_ZN4llvm3X8612GR64RegClassE, %switch.lookup192 ], [ @_ZN4llvm3X8612GR32RegClassE, %switch.lookup188 ], [ @_ZN4llvm3X8612GR16RegClassE, %switch.lookup184 ], [ @_ZN4llvm3X8611GR8RegClassE, %switch.lookup180 ]
-  %.026.i = phi i32 [ 54, %switch.lookup192 ], [ 25, %switch.lookup188 ], [ 13, %switch.lookup184 ], [ 11, %switch.lookup180 ]
-  %switch.load195 = load i64, ptr %switch.gep194.sink, align 8
+  %.028.i = phi ptr [ @_ZN4llvm3X8611GR8RegClassE, %switch.lookup180 ], [ @_ZN4llvm3X8612GR16RegClassE, %switch.lookup184 ], [ @_ZN4llvm3X8612GR32RegClassE, %switch.lookup188 ], [ @_ZN4llvm3X8612GR64RegClassE, %switch.lookup192 ]
+  %.027.neg.i.in = phi ptr [ %switch.gep182, %switch.lookup180 ], [ %switch.gep186, %switch.lookup184 ], [ %switch.gep190, %switch.lookup188 ], [ %switch.gep194, %switch.lookup192 ]
+  %.026.i = phi i32 [ 11, %switch.lookup180 ], [ 13, %switch.lookup184 ], [ 25, %switch.lookup188 ], [ 54, %switch.lookup192 ]
+  %.027.neg.i = load i64, ptr %.027.neg.i.in, align 8
   %1092 = load ptr, ptr %1069, align 8
   %1093 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %1094 = load ptr, ptr %1093, align 8
@@ -2555,7 +2555,7 @@ _ZNK4llvm4User10getOperandEj.exit30.i:            ; preds = %1139, %1136
   %1188 = load ptr, ptr %1156, align 8
   %1189 = getelementptr inbounds i8, ptr %1188, i64 8
   %1190 = load ptr, ptr %1189, align 8
-  %1191 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %1190, i64 %switch.load195
+  %1191 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %1190, i64 %.027.neg.i
   %1192 = call { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(288) %1186, ptr %.sroa.03.0.copyload.i87, ptr noundef nonnull align 8 dereferenceable(24) %1155, ptr noundef nonnull align 8 dereferenceable(32) %1191, i32 %1183)
   %1193 = extractvalue { ptr, ptr } %1192, 0
   %1194 = extractvalue { ptr, ptr } %1192, 1
@@ -5197,8 +5197,8 @@ _ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i: ; preds = %89, %_ZNK4llvm8Cal
   %168 = icmp ult i32 %167, 65
   %169 = load ptr, ptr %25, align 8
   %170 = icmp eq ptr %169, null
-  %or.cond615 = select i1 %168, i1 true, i1 %170
-  br i1 %or.cond615, label %_ZN4llvm5APIntD2Ev.exit, label %_ZN4llvm5APIntD2Ev.exit.sink.split
+  %or.cond614 = select i1 %168, i1 true, i1 %170
+  br i1 %or.cond614, label %_ZN4llvm5APIntD2Ev.exit, label %_ZN4llvm5APIntD2Ev.exit.sink.split
 
 171:                                              ; preds = %161
   call void @_ZNK4llvm5APInt4zextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %26, ptr noundef nonnull align 8 dereferenceable(12) %164, i32 noundef 32) #18
@@ -5208,8 +5208,8 @@ _ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i: ; preds = %89, %_ZNK4llvm8Cal
   %174 = icmp ult i32 %173, 65
   %175 = load ptr, ptr %26, align 8
   %176 = icmp eq ptr %175, null
-  %or.cond617 = select i1 %174, i1 true, i1 %176
-  br i1 %or.cond617, label %_ZN4llvm5APIntD2Ev.exit, label %_ZN4llvm5APIntD2Ev.exit.sink.split
+  %or.cond616 = select i1 %174, i1 true, i1 %176
+  br i1 %or.cond616, label %_ZN4llvm5APIntD2Ev.exit, label %_ZN4llvm5APIntD2Ev.exit.sink.split
 
 _ZN4llvm5APIntD2Ev.exit.sink.split:               ; preds = %171, %165
   %.sink = phi ptr [ %169, %165 ], [ %175, %171 ]
@@ -5513,7 +5513,8 @@ _ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEj
   %337 = call fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SIGN_EXTEND_rEN4llvm3MVTES2_j(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %324, i16 %.sroa.0.0.copyload.i312, i32 noundef %329)
   %.not570 = icmp eq i32 %337, 0
   %spec.select = select i1 %.not570, i32 %329, i32 %337
-  br label %.sink.split
+  %.sroa.0.0.copyload.i313 = load i16, ptr %336, align 8
+  br label %353
 
 338:                                              ; preds = %326
   %339 = icmp eq i16 %324, 2
@@ -5532,7 +5533,8 @@ _ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEj
   %344 = call fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ZERO_EXTEND_rEN4llvm3MVTES2_j(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %.sroa.0470.1, i16 %.sroa.0.0.copyload.i314, i32 noundef %.1518)
   %.not569 = icmp eq i32 %344, 0
   %spec.select555 = select i1 %.not569, i32 %.1518, i32 %344
-  br label %.sink.split
+  %.sroa.0.0.copyload.i316 = load i16, ptr %343, align 8
+  br label %353
 
 345:                                              ; preds = %326
   %346 = getelementptr inbounds nuw i8, ptr %.0247588, i64 24
@@ -5545,7 +5547,7 @@ _ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEj
 _ZN12_GLOBAL__N_111X86FastISel10fastEmit_rEN4llvm3MVTES2_jj.exit: ; preds = %345
   %347 = call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(176) %0, i32 noundef 2702, ptr noundef nonnull @_ZN4llvm3X8612GR32RegClassE, i32 noundef %329) #18
   %.not566 = icmp eq i32 %347, 0
-  br i1 %.not566, label %_ZN12_GLOBAL__N_111X86FastISel10fastEmit_rEN4llvm3MVTES2_jj.exit._ZN12_GLOBAL__N_111X86FastISel10fastEmit_rEN4llvm3MVTES2_jj.exit.thread_crit_edge, label %.sink.split
+  br i1 %.not566, label %_ZN12_GLOBAL__N_111X86FastISel10fastEmit_rEN4llvm3MVTES2_jj.exit._ZN12_GLOBAL__N_111X86FastISel10fastEmit_rEN4llvm3MVTES2_jj.exit.thread_crit_edge, label %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.exit322
 
 _ZN12_GLOBAL__N_111X86FastISel10fastEmit_rEN4llvm3MVTES2_jj.exit._ZN12_GLOBAL__N_111X86FastISel10fastEmit_rEN4llvm3MVTES2_jj.exit.thread_crit_edge: ; preds = %_ZN12_GLOBAL__N_111X86FastISel10fastEmit_rEN4llvm3MVTES2_jj.exit
   %.sroa.0.0.copyload.i319.pre = load i16, ptr %346, align 8
@@ -5555,30 +5557,30 @@ _ZN12_GLOBAL__N_111X86FastISel10fastEmit_rEN4llvm3MVTES2_jj.exit.thread: ; preds
   %.sroa.0.0.copyload.i319 = phi i16 [ %.sroa.0.0.copyload.i319.pre, %_ZN12_GLOBAL__N_111X86FastISel10fastEmit_rEN4llvm3MVTES2_jj.exit._ZN12_GLOBAL__N_111X86FastISel10fastEmit_rEN4llvm3MVTES2_jj.exit.thread_crit_edge ], [ %.sroa.0.0.copyload.i317, %345 ]
   %348 = call fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ZERO_EXTEND_rEN4llvm3MVTES2_j(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %324, i16 %.sroa.0.0.copyload.i319, i32 noundef %329)
   %.not567 = icmp eq i32 %348, 0
-  br i1 %.not567, label %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.exit318, label %.sink.split
+  br i1 %.not567, label %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.exit318, label %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.exit322
 
 _ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.exit318: ; preds = %_ZN12_GLOBAL__N_111X86FastISel10fastEmit_rEN4llvm3MVTES2_jj.exit.thread
   %.sroa.0.0.copyload.i321 = load i16, ptr %346, align 8
   %349 = call fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SIGN_EXTEND_rEN4llvm3MVTES2_j(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %324, i16 %.sroa.0.0.copyload.i321, i32 noundef %329)
   %.not568 = icmp eq i32 %349, 0
   %spec.select556 = select i1 %.not568, i32 %329, i32 %349
-  br label %.sink.split
+  br label %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.exit322
+
+_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.exit322: ; preds = %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.exit318, %_ZN12_GLOBAL__N_111X86FastISel10fastEmit_rEN4llvm3MVTES2_jj.exit.thread, %_ZN12_GLOBAL__N_111X86FastISel10fastEmit_rEN4llvm3MVTES2_jj.exit
+  %.3 = phi i32 [ %347, %_ZN12_GLOBAL__N_111X86FastISel10fastEmit_rEN4llvm3MVTES2_jj.exit ], [ %348, %_ZN12_GLOBAL__N_111X86FastISel10fastEmit_rEN4llvm3MVTES2_jj.exit.thread ], [ %spec.select556, %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.exit318 ]
+  %.sroa.0.0.copyload.i323 = load i16, ptr %346, align 8
+  br label %353
 
 350:                                              ; preds = %326
   %351 = getelementptr inbounds nuw i8, ptr %.0247588, i64 24
   %.sroa.0.0.copyload.i324 = load i16, ptr %351, align 8
   %352 = call fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel22fastEmit_ISD_BITCAST_rEN4llvm3MVTES2_j(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %324, i16 %.sroa.0.0.copyload.i324, i32 noundef %329)
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %_ZN12_GLOBAL__N_111X86FastISel10fastEmit_rEN4llvm3MVTES2_jj.exit, %_ZN12_GLOBAL__N_111X86FastISel10fastEmit_rEN4llvm3MVTES2_jj.exit.thread, %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.exit318, %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.exit, %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.exit315, %350
-  %.sink613 = phi ptr [ %351, %350 ], [ %343, %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.exit315 ], [ %336, %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.exit ], [ %346, %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.exit318 ], [ %346, %_ZN12_GLOBAL__N_111X86FastISel10fastEmit_rEN4llvm3MVTES2_jj.exit.thread ], [ %346, %_ZN12_GLOBAL__N_111X86FastISel10fastEmit_rEN4llvm3MVTES2_jj.exit ]
-  %.0517.ph = phi i32 [ %352, %350 ], [ %spec.select555, %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.exit315 ], [ %spec.select, %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.exit ], [ %spec.select556, %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.exit318 ], [ %348, %_ZN12_GLOBAL__N_111X86FastISel10fastEmit_rEN4llvm3MVTES2_jj.exit.thread ], [ %347, %_ZN12_GLOBAL__N_111X86FastISel10fastEmit_rEN4llvm3MVTES2_jj.exit ]
-  %.sroa.0.0.copyload.i326 = load i16, ptr %.sink613, align 8
+  %.sroa.0.0.copyload.i326 = load i16, ptr %351, align 8
   br label %353
 
-353:                                              ; preds = %.sink.split, %326
-  %.0517 = phi i32 [ %329, %326 ], [ %.0517.ph, %.sink.split ]
-  %.sroa.0470.0 = phi i16 [ %324, %326 ], [ %.sroa.0.0.copyload.i326, %.sink.split ]
+353:                                              ; preds = %350, %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.exit322, %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.exit315, %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.exit, %326
+  %.0517 = phi i32 [ %329, %326 ], [ %352, %350 ], [ %.3, %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.exit322 ], [ %spec.select555, %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.exit315 ], [ %spec.select, %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.exit ]
+  %.sroa.0470.0 = phi i16 [ %324, %326 ], [ %.sroa.0.0.copyload.i326, %350 ], [ %.sroa.0.0.copyload.i323, %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.exit322 ], [ %.sroa.0.0.copyload.i316, %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.exit315 ], [ %.sroa.0.0.copyload.i313, %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.exit ]
   %354 = getelementptr inbounds nuw i8, ptr %.0247588, i64 8
   %355 = load i8, ptr %354, align 8
   br label %356

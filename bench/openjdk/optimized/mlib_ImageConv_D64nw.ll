@@ -213,7 +213,8 @@ define hidden noundef i32 @mlib_convMxNnw_d64(ptr nocapture noundef readonly %0,
   %120 = load double, ptr %119, align 8
   %121 = fadd double %120, %117
   store double %121, ptr %.2307.lcssa.us.us.us.i, align 8
-  br label %.loopexit.us.us.us.sink.split.i
+  store double 0.000000e+00, ptr %119, align 8
+  br label %.loopexit.us.us.us.i
 
 .lr.ph36.us.us.us.i:                              ; preds = %.preheader2.us.us.us.i, %.lr.ph36.us.us.us.i
   %indvars.iv117.i = phi i64 [ %indvars.iv.next118.i, %.lr.ph36.us.us.us.i ], [ 0, %.preheader2.us.us.us.i ]
@@ -271,7 +272,8 @@ define hidden noundef i32 @mlib_convMxNnw_d64(ptr nocapture noundef readonly %0,
   %150 = load double, ptr %149, align 8
   %151 = fadd double %147, %150
   store double %151, ptr %.1306.lcssa.us.us.us.i, align 8
-  br label %.loopexit.us.us.us.sink.split.i
+  store double 0.000000e+00, ptr %149, align 8
+  br label %.loopexit.us.us.us.i
 
 152:                                              ; preds = %._crit_edge17.us.us.us.i
   %153 = load double, ptr %93, align 8
@@ -339,14 +341,10 @@ define hidden noundef i32 @mlib_convMxNnw_d64(ptr nocapture noundef readonly %0,
   %186 = load double, ptr %185, align 8
   %187 = fadd double %183, %186
   store double %187, ptr %.0305.lcssa.us.us.us.i, align 8
-  br label %.loopexit.us.us.us.sink.split.i
-
-.loopexit.us.us.us.sink.split.i:                  ; preds = %178, %143, %114
-  %.sink.i = phi ptr [ %185, %178 ], [ %149, %143 ], [ %119, %114 ]
-  store double 0.000000e+00, ptr %.sink.i, align 8
+  store double 0.000000e+00, ptr %185, align 8
   br label %.loopexit.us.us.us.i
 
-.loopexit.us.us.us.i:                             ; preds = %.lr.ph62.us.us.us.i, %.preheader.us.us.us.i, %.loopexit.us.us.us.sink.split.i, %._crit_edge52.us.us.us.i, %._crit_edge37.us.us.us.i, %._crit_edge25.us.us.us.i
+.loopexit.us.us.us.i:                             ; preds = %.lr.ph62.us.us.us.i, %.preheader.us.us.us.i, %178, %._crit_edge52.us.us.us.i, %143, %._crit_edge37.us.us.us.i, %114, %._crit_edge25.us.us.us.i
   %188 = getelementptr inbounds double, ptr %.031063.us.us.us.i, i64 %48
   %189 = getelementptr inbounds double, ptr %.030964.us.us.us.i, i64 %48
   %190 = add nuw nsw i32 %.030466.us.us.us.i, 1

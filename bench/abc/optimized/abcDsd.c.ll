@@ -1445,23 +1445,23 @@ define ptr @Abc_NtkSparsifyInternal(ptr nocapture noundef readonly %0, i32 nound
   br i1 %.not88, label %98, label %.loopexit, !llvm.loop !20
 
 .loopexit.sink.split:                             ; preds = %42, %96
-  %.sink136 = phi ptr [ %76, %96 ], [ %44, %42 ]
-  %129 = load ptr, ptr %.sink136, align 8
-  %130 = tail call ptr @Abc_ObjName(ptr noundef nonnull %33) #10
-  %131 = tail call ptr @Abc_ObjAssignName(ptr noundef %129, ptr noundef %130, ptr noundef nonnull @.str.7) #10
+  %.sink.in = phi ptr [ %76, %96 ], [ %44, %42 ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %129 = tail call ptr @Abc_ObjName(ptr noundef nonnull %33) #10
+  %130 = tail call ptr @Abc_ObjAssignName(ptr noundef %.sink, ptr noundef %129, ptr noundef nonnull @.str.7) #10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge4, %.loopexit.sink.split
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %.val = load ptr, ptr %28, align 8
-  %132 = getelementptr i8, ptr %.val, i64 4
-  %.val.val = load i32, ptr %132, align 4
-  %133 = sext i32 %.val.val to i64
-  %134 = icmp slt i64 %indvars.iv.next132, %133
-  br i1 %134, label %.lr.ph122, label %.critedge2, !llvm.loop !21
+  %131 = getelementptr i8, ptr %.val, i64 4
+  %.val.val = load i32, ptr %131, align 4
+  %132 = sext i32 %.val.val to i64
+  %133 = icmp slt i64 %indvars.iv.next132, %132
+  br i1 %133, label %.lr.ph122, label %.critedge2, !llvm.loop !21
 
 .critedge2:                                       ; preds = %.loopexit, %.critedge
-  %135 = tail call i32 @Abc_NtkLogicMakeSimpleCos(ptr noundef %4, i32 noundef 0) #10
+  %134 = tail call i32 @Abc_NtkLogicMakeSimpleCos(ptr noundef %4, i32 noundef 0) #10
   ret ptr %4
 }
 
@@ -1641,33 +1641,41 @@ define internal fastcc ptr @Abc_NtkDsdConstructNode(ptr noundef %0, ptr noundef 
 
 53:                                               ; preds = %._crit_edge
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %60, label %.sink.split
+  br i1 %.not, label %65, label %54
 
-.sink.split:                                      ; preds = %53
-  %54 = icmp slt i32 %9, 10
-  %55 = sext i32 %9 to i64
-  %56 = getelementptr inbounds i32, ptr %3, i64 %55
-  %57 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink = select i1 %54, ptr %56, ptr %57
-  %58 = load i32, ptr %.sink, align 4
-  %59 = add nsw i32 %58, 1
-  store i32 %59, ptr %.sink, align 4
-  br label %60
+54:                                               ; preds = %53
+  %55 = icmp slt i32 %9, 10
+  br i1 %55, label %56, label %61
 
-60:                                               ; preds = %.sink.split, %53
-  %61 = tail call ptr @Dsd_TreeGetPrimeFunction(ptr noundef %5, ptr noundef %1) #10
-  tail call void @Cudd_Ref(ptr noundef %61) #10
-  %62 = tail call ptr @Extra_TransferLevelByLevel(ptr noundef %5, ptr noundef %18, ptr noundef %61) #10
-  tail call void @Cudd_Ref(ptr noundef %62) #10
-  tail call void @Cudd_RecursiveDeref(ptr noundef %5, ptr noundef %61) #10
+56:                                               ; preds = %54
+  %57 = sext i32 %9 to i64
+  %58 = getelementptr inbounds i32, ptr %3, i64 %57
+  %59 = load i32, ptr %58, align 4
+  %60 = add nsw i32 %59, 1
+  store i32 %60, ptr %58, align 4
+  br label %65
+
+61:                                               ; preds = %54
+  %62 = getelementptr inbounds i8, ptr %3, i64 40
+  %63 = load i32, ptr %62, align 4
+  %64 = add nsw i32 %63, 1
+  store i32 %64, ptr %62, align 4
+  br label %65
+
+65:                                               ; preds = %56, %61, %53
+  %66 = tail call ptr @Dsd_TreeGetPrimeFunction(ptr noundef %5, ptr noundef %1) #10
+  tail call void @Cudd_Ref(ptr noundef %66) #10
+  %67 = tail call ptr @Extra_TransferLevelByLevel(ptr noundef %5, ptr noundef %18, ptr noundef %66) #10
+  tail call void @Cudd_Ref(ptr noundef %67) #10
+  tail call void @Cudd_RecursiveDeref(ptr noundef %5, ptr noundef %66) #10
   br label %.loopexit
 
-.loopexit:                                        ; preds = %48, %29, %41, %22, %._crit_edge, %60, %19
-  %.063 = phi ptr [ null, %._crit_edge ], [ %62, %60 ], [ %21, %19 ], [ %27, %22 ], [ %46, %41 ], [ %40, %29 ], [ %52, %48 ]
-  %63 = getelementptr inbounds i8, ptr %7, i64 56
-  store ptr %.063, ptr %63, align 8
-  %64 = ptrtoint ptr %7 to i64
-  tail call void @Dsd_NodeSetMark(ptr noundef %1, i64 noundef %64) #10
+.loopexit:                                        ; preds = %48, %29, %41, %22, %._crit_edge, %65, %19
+  %.063 = phi ptr [ null, %._crit_edge ], [ %67, %65 ], [ %21, %19 ], [ %27, %22 ], [ %46, %41 ], [ %40, %29 ], [ %52, %48 ]
+  %68 = getelementptr inbounds i8, ptr %7, i64 56
+  store ptr %.063, ptr %68, align 8
+  %69 = ptrtoint ptr %7 to i64
+  tail call void @Dsd_NodeSetMark(ptr noundef %1, i64 noundef %69) #10
   ret ptr %7
 }
 

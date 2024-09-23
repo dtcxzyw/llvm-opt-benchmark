@@ -19888,29 +19888,29 @@ if.then9.i:                                       ; preds = %if.end.i
   br label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %if.then9.i, %if.then.i
-  %vfn11.sink.i = phi ptr [ %vfn11.i, %if.then9.i ], [ %vfn3.i, %if.then.i ]
-  %2 = load ptr, ptr %vfn11.sink.i, align 8
-  %call12.i = tail call noundef double %2(ptr noundef nonnull align 8 dereferenceable(24) %this)
+  %.sink.in.i = phi ptr [ %vfn11.i, %if.then9.i ], [ %vfn3.i, %if.then.i ]
+  %.sink.i = load ptr, ptr %.sink.in.i, align 8
+  %call12.i = tail call noundef double %.sink.i(ptr noundef nonnull align 8 dereferenceable(24) %this)
   br label %_ZNK8QuantLib18FlatExtrapolator2D22FlatExtrapolator2DImpl5bindXEd.exit
 
 _ZNK8QuantLib18FlatExtrapolator2D22FlatExtrapolator2DImpl5bindXEd.exit: ; preds = %if.end.i, %return.sink.split.i
   %retval.0.i = phi double [ %x, %if.end.i ], [ %call12.i, %return.sink.split.i ]
   %vtable.i3 = load ptr, ptr %this, align 8, !tbaa !14
   %vfn.i4 = getelementptr inbounds i8, ptr %vtable.i3, i64 56
-  %3 = load ptr, ptr %vfn.i4, align 8
-  %call.i5 = tail call noundef double %3(ptr noundef nonnull align 8 dereferenceable(24) %this)
+  %2 = load ptr, ptr %vfn.i4, align 8
+  %call.i5 = tail call noundef double %2(ptr noundef nonnull align 8 dereferenceable(24) %this)
   %cmp.i6 = fcmp olt double %y, %call.i5
   %vtable2.i7 = load ptr, ptr %this, align 8, !tbaa !14
-  br i1 %cmp.i6, label %if.then.i19, label %if.end.i8
+  br i1 %cmp.i6, label %if.then.i20, label %if.end.i8
 
-if.then.i19:                                      ; preds = %_ZNK8QuantLib18FlatExtrapolator2D22FlatExtrapolator2DImpl5bindXEd.exit
-  %vfn3.i20 = getelementptr inbounds i8, ptr %vtable2.i7, i64 56
+if.then.i20:                                      ; preds = %_ZNK8QuantLib18FlatExtrapolator2D22FlatExtrapolator2DImpl5bindXEd.exit
+  %vfn3.i21 = getelementptr inbounds i8, ptr %vtable2.i7, i64 56
   br label %return.sink.split.i16
 
 if.end.i8:                                        ; preds = %_ZNK8QuantLib18FlatExtrapolator2D22FlatExtrapolator2DImpl5bindXEd.exit
   %vfn6.i9 = getelementptr inbounds i8, ptr %vtable2.i7, i64 64
-  %4 = load ptr, ptr %vfn6.i9, align 8
-  %call7.i10 = tail call noundef double %4(ptr noundef nonnull align 8 dereferenceable(24) %this)
+  %3 = load ptr, ptr %vfn6.i9, align 8
+  %call7.i10 = tail call noundef double %3(ptr noundef nonnull align 8 dereferenceable(24) %this)
   %cmp8.i11 = fcmp ogt double %y, %call7.i10
   br i1 %cmp8.i11, label %if.then9.i13, label %_ZNK8QuantLib18FlatExtrapolator2D22FlatExtrapolator2DImpl5bindYEd.exit
 
@@ -19919,17 +19919,17 @@ if.then9.i13:                                     ; preds = %if.end.i8
   %vfn11.i15 = getelementptr inbounds i8, ptr %vtable10.i14, i64 64
   br label %return.sink.split.i16
 
-return.sink.split.i16:                            ; preds = %if.then9.i13, %if.then.i19
-  %vfn11.sink.i17 = phi ptr [ %vfn11.i15, %if.then9.i13 ], [ %vfn3.i20, %if.then.i19 ]
-  %5 = load ptr, ptr %vfn11.sink.i17, align 8
-  %call12.i18 = tail call noundef double %5(ptr noundef nonnull align 8 dereferenceable(24) %this)
+return.sink.split.i16:                            ; preds = %if.then9.i13, %if.then.i20
+  %.sink.in.i17 = phi ptr [ %vfn11.i15, %if.then9.i13 ], [ %vfn3.i21, %if.then.i20 ]
+  %.sink.i18 = load ptr, ptr %.sink.in.i17, align 8
+  %call12.i19 = tail call noundef double %.sink.i18(ptr noundef nonnull align 8 dereferenceable(24) %this)
   br label %_ZNK8QuantLib18FlatExtrapolator2D22FlatExtrapolator2DImpl5bindYEd.exit
 
 _ZNK8QuantLib18FlatExtrapolator2D22FlatExtrapolator2DImpl5bindYEd.exit: ; preds = %if.end.i8, %return.sink.split.i16
-  %retval.0.i12 = phi double [ %y, %if.end.i8 ], [ %call12.i18, %return.sink.split.i16 ]
+  %retval.0.i12 = phi double [ %y, %if.end.i8 ], [ %call12.i19, %return.sink.split.i16 ]
   %decoratedInterp_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %6 = load ptr, ptr %decoratedInterp_, align 8, !tbaa !214
-  %cmp.not.i = icmp eq ptr %6, null
+  %4 = load ptr, ptr %decoratedInterp_, align 8, !tbaa !214
+  %cmp.not.i = icmp eq ptr %4, null
   br i1 %cmp.not.i, label %cond.false.i, label %_ZNK5boost10shared_ptrIN8QuantLib15Interpolation2DEEdeEv.exit, !prof !20
 
 cond.false.i:                                     ; preds = %_ZNK8QuantLib18FlatExtrapolator2D22FlatExtrapolator2DImpl5bindYEd.exit
@@ -19938,11 +19938,11 @@ cond.false.i:                                     ; preds = %_ZNK8QuantLib18Flat
   br label %_ZNK5boost10shared_ptrIN8QuantLib15Interpolation2DEEdeEv.exit
 
 _ZNK5boost10shared_ptrIN8QuantLib15Interpolation2DEEdeEv.exit: ; preds = %_ZNK8QuantLib18FlatExtrapolator2D22FlatExtrapolator2DImpl5bindYEd.exit, %cond.false.i
-  %7 = phi ptr [ %6, %_ZNK8QuantLib18FlatExtrapolator2D22FlatExtrapolator2DImpl5bindYEd.exit ], [ %.pre.i, %cond.false.i ]
-  tail call void @_ZNK8QuantLib15Interpolation2D10checkRangeEddb(ptr noundef nonnull align 8 dereferenceable(32) %7, double noundef %retval.0.i, double noundef %retval.0.i12, i1 noundef zeroext false)
-  %impl_.i = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %8 = load ptr, ptr %impl_.i, align 8, !tbaa !283
-  %cmp.not.i.i = icmp eq ptr %8, null
+  %5 = phi ptr [ %4, %_ZNK8QuantLib18FlatExtrapolator2D22FlatExtrapolator2DImpl5bindYEd.exit ], [ %.pre.i, %cond.false.i ]
+  tail call void @_ZNK8QuantLib15Interpolation2D10checkRangeEddb(ptr noundef nonnull align 8 dereferenceable(32) %5, double noundef %retval.0.i, double noundef %retval.0.i12, i1 noundef zeroext false)
+  %impl_.i = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %6 = load ptr, ptr %impl_.i, align 8, !tbaa !283
+  %cmp.not.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i, label %cond.false.i.i, label %_ZNK8QuantLib15Interpolation2DclEddb.exit, !prof !20
 
 cond.false.i.i:                                   ; preds = %_ZNK5boost10shared_ptrIN8QuantLib15Interpolation2DEEdeEv.exit
@@ -19951,11 +19951,11 @@ cond.false.i.i:                                   ; preds = %_ZNK5boost10shared_
   br label %_ZNK8QuantLib15Interpolation2DclEddb.exit
 
 _ZNK8QuantLib15Interpolation2DclEddb.exit:        ; preds = %_ZNK5boost10shared_ptrIN8QuantLib15Interpolation2DEEdeEv.exit, %cond.false.i.i
-  %9 = phi ptr [ %8, %_ZNK5boost10shared_ptrIN8QuantLib15Interpolation2DEEdeEv.exit ], [ %.pre.i.i, %cond.false.i.i ]
-  %vtable.i21 = load ptr, ptr %9, align 8, !tbaa !14
-  %vfn.i22 = getelementptr inbounds i8, ptr %vtable.i21, i64 104
-  %10 = load ptr, ptr %vfn.i22, align 8
-  %call2.i = tail call noundef double %10(ptr noundef nonnull align 8 dereferenceable(8) %9, double noundef %retval.0.i, double noundef %retval.0.i12)
+  %7 = phi ptr [ %6, %_ZNK5boost10shared_ptrIN8QuantLib15Interpolation2DEEdeEv.exit ], [ %.pre.i.i, %cond.false.i.i ]
+  %vtable.i22 = load ptr, ptr %7, align 8, !tbaa !14
+  %vfn.i23 = getelementptr inbounds i8, ptr %vtable.i22, i64 104
+  %8 = load ptr, ptr %vfn.i23, align 8
+  %call2.i = tail call noundef double %8(ptr noundef nonnull align 8 dereferenceable(8) %7, double noundef %retval.0.i, double noundef %retval.0.i12)
   ret double %call2.i
 }
 

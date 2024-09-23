@@ -412,7 +412,7 @@ define hidden ptr @lexbor_bst_remove_by_pointer(ptr nocapture noundef %0, ptr no
   %12 = load ptr, ptr %8, align 8
   %13 = load ptr, ptr %0, align 8
   %14 = tail call ptr @lexbor_dobject_free(ptr noundef %13, ptr noundef nonnull %8) #5
-  br label %107
+  br label %109
 
 15:                                               ; preds = %3
   %16 = load ptr, ptr %1, align 8
@@ -422,16 +422,16 @@ define hidden ptr @lexbor_bst_remove_by_pointer(ptr nocapture noundef %0, ptr no
   %20 = getelementptr inbounds i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
-  br i1 %19, label %23, label %60
+  br i1 %19, label %23, label %62
 
 23:                                               ; preds = %15
   %24 = getelementptr inbounds i8, ptr %1, i64 32
   %25 = load ptr, ptr %24, align 8
   %.not110 = icmp eq ptr %25, null
-  br i1 %22, label %26, label %40
+  br i1 %22, label %26, label %42
 
 26:                                               ; preds = %23
-  br i1 %.not110, label %.sink.split, label %27
+  br i1 %.not110, label %38, label %27
 
 27:                                               ; preds = %26
   %28 = getelementptr inbounds i8, ptr %25, i64 16
@@ -449,162 +449,165 @@ define hidden ptr @lexbor_bst_remove_by_pointer(ptr nocapture noundef %0, ptr no
   %34 = getelementptr inbounds i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, %1
-  br i1 %36, label %.sink.split, label %37
+  br i1 %36, label %37, label %39
 
-.sink.split:                                      ; preds = %26, %32
-  %.sink = phi ptr [ %34, %32 ], [ %2, %26 ]
-  store ptr null, ptr %.sink, align 8
-  br label %37
+37:                                               ; preds = %32
+  store ptr null, ptr %34, align 8
+  br label %39
 
-37:                                               ; preds = %.sink.split, %32
-  %38 = load ptr, ptr %0, align 8
-  %39 = tail call ptr @lexbor_dobject_free(ptr noundef %38, ptr noundef nonnull %1) #5
-  br label %107
+38:                                               ; preds = %26
+  store ptr null, ptr %2, align 8
+  br label %39
 
-40:                                               ; preds = %23
-  %41 = getelementptr inbounds i8, ptr %21, i64 32
-  br i1 %.not110, label %42, label %47
+39:                                               ; preds = %32, %37, %38
+  %40 = load ptr, ptr %0, align 8
+  %41 = tail call ptr @lexbor_dobject_free(ptr noundef %40, ptr noundef nonnull %1) #5
+  br label %109
 
-42:                                               ; preds = %40
-  store ptr null, ptr %41, align 8
-  %43 = load ptr, ptr %20, align 8
-  store ptr %43, ptr %2, align 8
-  %44 = load ptr, ptr %0, align 8
-  %45 = tail call ptr @lexbor_dobject_free(ptr noundef %44, ptr noundef nonnull %1) #5
-  %46 = load ptr, ptr %2, align 8
-  br label %50
+42:                                               ; preds = %23
+  %43 = getelementptr inbounds i8, ptr %21, i64 32
+  br i1 %.not110, label %44, label %49
 
-47:                                               ; preds = %40
-  store ptr %25, ptr %41, align 8
+44:                                               ; preds = %42
+  store ptr null, ptr %43, align 8
+  %45 = load ptr, ptr %20, align 8
+  store ptr %45, ptr %2, align 8
+  %46 = load ptr, ptr %0, align 8
+  %47 = tail call ptr @lexbor_dobject_free(ptr noundef %46, ptr noundef nonnull %1) #5
+  %48 = load ptr, ptr %2, align 8
+  br label %52
+
+49:                                               ; preds = %42
+  store ptr %25, ptr %43, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %21, i64 48, i1 false)
-  %48 = load ptr, ptr %0, align 8
-  %49 = tail call ptr @lexbor_dobject_free(ptr noundef %48, ptr noundef nonnull %21) #5
-  br label %50
+  %50 = load ptr, ptr %0, align 8
+  %51 = tail call ptr @lexbor_dobject_free(ptr noundef %50, ptr noundef nonnull %21) #5
+  br label %52
 
-50:                                               ; preds = %47, %42
-  %.090 = phi ptr [ %46, %42 ], [ %1, %47 ]
-  %51 = getelementptr inbounds i8, ptr %.090, i64 8
-  %52 = load ptr, ptr %51, align 8
-  %.not108 = icmp eq ptr %52, null
-  br i1 %.not108, label %55, label %53
+52:                                               ; preds = %49, %44
+  %.090 = phi ptr [ %48, %44 ], [ %1, %49 ]
+  %53 = getelementptr inbounds i8, ptr %.090, i64 8
+  %54 = load ptr, ptr %53, align 8
+  %.not108 = icmp eq ptr %54, null
+  br i1 %.not108, label %57, label %55
 
-53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %52, i64 32
-  store ptr %.090, ptr %54, align 8
-  br label %55
+55:                                               ; preds = %52
+  %56 = getelementptr inbounds i8, ptr %54, i64 32
+  store ptr %.090, ptr %56, align 8
+  br label %57
 
-55:                                               ; preds = %53, %50
-  %56 = getelementptr inbounds i8, ptr %.090, i64 16
-  %57 = load ptr, ptr %56, align 8
-  %.not109 = icmp eq ptr %57, null
-  br i1 %.not109, label %107, label %58
+57:                                               ; preds = %55, %52
+  %58 = getelementptr inbounds i8, ptr %.090, i64 16
+  %59 = load ptr, ptr %58, align 8
+  %.not109 = icmp eq ptr %59, null
+  br i1 %.not109, label %109, label %60
 
-58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %57, i64 32
-  store ptr %.090, ptr %59, align 8
-  br label %107
+60:                                               ; preds = %57
+  %61 = getelementptr inbounds i8, ptr %59, i64 32
+  store ptr %.090, ptr %61, align 8
+  br label %109
 
-60:                                               ; preds = %15
-  br i1 %22, label %61, label %.preheader
+62:                                               ; preds = %15
+  br i1 %22, label %63, label %.preheader
 
-61:                                               ; preds = %60
-  %62 = getelementptr inbounds i8, ptr %1, i64 32
-  %63 = load ptr, ptr %62, align 8
-  %64 = icmp eq ptr %63, null
-  %65 = getelementptr inbounds i8, ptr %18, i64 32
-  br i1 %64, label %66, label %71
+63:                                               ; preds = %62
+  %64 = getelementptr inbounds i8, ptr %1, i64 32
+  %65 = load ptr, ptr %64, align 8
+  %66 = icmp eq ptr %65, null
+  %67 = getelementptr inbounds i8, ptr %18, i64 32
+  br i1 %66, label %68, label %73
 
-66:                                               ; preds = %61
-  store ptr null, ptr %65, align 8
-  %67 = load ptr, ptr %17, align 8
-  store ptr %67, ptr %2, align 8
-  %68 = load ptr, ptr %0, align 8
-  %69 = tail call ptr @lexbor_dobject_free(ptr noundef %68, ptr noundef nonnull %1) #5
-  %70 = load ptr, ptr %2, align 8
-  br label %74
+68:                                               ; preds = %63
+  store ptr null, ptr %67, align 8
+  %69 = load ptr, ptr %17, align 8
+  store ptr %69, ptr %2, align 8
+  %70 = load ptr, ptr %0, align 8
+  %71 = tail call ptr @lexbor_dobject_free(ptr noundef %70, ptr noundef nonnull %1) #5
+  %72 = load ptr, ptr %2, align 8
+  br label %76
 
-71:                                               ; preds = %61
-  store ptr %63, ptr %65, align 8
+73:                                               ; preds = %63
+  store ptr %65, ptr %67, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %18, i64 48, i1 false)
-  %72 = load ptr, ptr %0, align 8
-  %73 = tail call ptr @lexbor_dobject_free(ptr noundef %72, ptr noundef nonnull %18) #5
-  br label %74
+  %74 = load ptr, ptr %0, align 8
+  %75 = tail call ptr @lexbor_dobject_free(ptr noundef %74, ptr noundef nonnull %18) #5
+  br label %76
 
-74:                                               ; preds = %71, %66
-  %.1 = phi ptr [ %70, %66 ], [ %1, %71 ]
-  %75 = getelementptr inbounds i8, ptr %.1, i64 8
-  %76 = load ptr, ptr %75, align 8
-  %.not106 = icmp eq ptr %76, null
-  br i1 %.not106, label %79, label %77
+76:                                               ; preds = %73, %68
+  %.1 = phi ptr [ %72, %68 ], [ %1, %73 ]
+  %77 = getelementptr inbounds i8, ptr %.1, i64 8
+  %78 = load ptr, ptr %77, align 8
+  %.not106 = icmp eq ptr %78, null
+  br i1 %.not106, label %81, label %79
 
-77:                                               ; preds = %74
-  %78 = getelementptr inbounds i8, ptr %76, i64 32
-  store ptr %.1, ptr %78, align 8
-  br label %79
+79:                                               ; preds = %76
+  %80 = getelementptr inbounds i8, ptr %78, i64 32
+  store ptr %.1, ptr %80, align 8
+  br label %81
 
-79:                                               ; preds = %77, %74
-  %80 = getelementptr inbounds i8, ptr %.1, i64 16
-  %81 = load ptr, ptr %80, align 8
-  %.not107 = icmp eq ptr %81, null
-  br i1 %.not107, label %107, label %82
+81:                                               ; preds = %79, %76
+  %82 = getelementptr inbounds i8, ptr %.1, i64 16
+  %83 = load ptr, ptr %82, align 8
+  %.not107 = icmp eq ptr %83, null
+  br i1 %.not107, label %109, label %84
 
-82:                                               ; preds = %79
-  %83 = getelementptr inbounds i8, ptr %81, i64 32
-  store ptr %.1, ptr %83, align 8
-  br label %107
+84:                                               ; preds = %81
+  %85 = getelementptr inbounds i8, ptr %83, i64 32
+  store ptr %.1, ptr %85, align 8
+  br label %109
 
-.preheader:                                       ; preds = %60, %.preheader
-  %.0 = phi ptr [ %85, %.preheader ], [ %21, %60 ]
-  %84 = getelementptr inbounds i8, ptr %.0, i64 16
-  %85 = load ptr, ptr %84, align 8
-  %.not103 = icmp eq ptr %85, null
-  br i1 %.not103, label %86, label %.preheader
+.preheader:                                       ; preds = %62, %.preheader
+  %.0 = phi ptr [ %87, %.preheader ], [ %21, %62 ]
+  %86 = getelementptr inbounds i8, ptr %.0, i64 16
+  %87 = load ptr, ptr %86, align 8
+  %.not103 = icmp eq ptr %87, null
+  br i1 %.not103, label %88, label %.preheader
 
-86:                                               ; preds = %.preheader
-  %87 = getelementptr inbounds i8, ptr %.0, i64 40
-  %88 = load i64, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %1, i64 40
-  store i64 %88, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %.0, i64 24
-  %91 = load ptr, ptr %90, align 8
-  store ptr %91, ptr %7, align 8
-  %92 = load ptr, ptr %.0, align 8
-  store ptr %92, ptr %1, align 8
-  %93 = icmp eq ptr %21, %.0
-  %94 = getelementptr inbounds i8, ptr %.0, i64 8
-  %95 = load ptr, ptr %94, align 8
-  br i1 %93, label %96, label %97
+88:                                               ; preds = %.preheader
+  %89 = getelementptr inbounds i8, ptr %.0, i64 40
+  %90 = load i64, ptr %89, align 8
+  %91 = getelementptr inbounds i8, ptr %1, i64 40
+  store i64 %90, ptr %91, align 8
+  %92 = getelementptr inbounds i8, ptr %.0, i64 24
+  %93 = load ptr, ptr %92, align 8
+  store ptr %93, ptr %7, align 8
+  %94 = load ptr, ptr %.0, align 8
+  store ptr %94, ptr %1, align 8
+  %95 = icmp eq ptr %21, %.0
+  %96 = getelementptr inbounds i8, ptr %.0, i64 8
+  %97 = load ptr, ptr %96, align 8
+  br i1 %95, label %98, label %99
 
-96:                                               ; preds = %86
-  store ptr %95, ptr %20, align 8
-  %.not105 = icmp eq ptr %95, null
-  br i1 %.not105, label %104, label %.sink.split111
+98:                                               ; preds = %88
+  store ptr %97, ptr %20, align 8
+  %.not105 = icmp eq ptr %97, null
+  br i1 %.not105, label %106, label %.sink.split
 
-97:                                               ; preds = %86
-  %98 = getelementptr inbounds i8, ptr %.0, i64 32
-  %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 16
-  store ptr %95, ptr %100, align 8
-  %.not104 = icmp eq ptr %95, null
-  br i1 %.not104, label %104, label %101
+99:                                               ; preds = %88
+  %100 = getelementptr inbounds i8, ptr %.0, i64 32
+  %101 = load ptr, ptr %100, align 8
+  %102 = getelementptr inbounds i8, ptr %101, i64 16
+  store ptr %97, ptr %102, align 8
+  %.not104 = icmp eq ptr %97, null
+  br i1 %.not104, label %106, label %103
 
-101:                                              ; preds = %97
-  %102 = load ptr, ptr %98, align 8
-  br label %.sink.split111
+103:                                              ; preds = %99
+  %104 = load ptr, ptr %100, align 8
+  br label %.sink.split
 
-.sink.split111:                                   ; preds = %96, %101
-  %.sink112 = phi ptr [ %102, %101 ], [ %1, %96 ]
-  %103 = getelementptr inbounds i8, ptr %95, i64 32
-  store ptr %.sink112, ptr %103, align 8
-  br label %104
+.sink.split:                                      ; preds = %98, %103
+  %.sink = phi ptr [ %104, %103 ], [ %1, %98 ]
+  %105 = getelementptr inbounds i8, ptr %97, i64 32
+  store ptr %.sink, ptr %105, align 8
+  br label %106
 
-104:                                              ; preds = %.sink.split111, %97, %96
-  %105 = load ptr, ptr %0, align 8
-  %106 = tail call ptr @lexbor_dobject_free(ptr noundef %105, ptr noundef nonnull %.0) #5
-  br label %107
+106:                                              ; preds = %.sink.split, %99, %98
+  %107 = load ptr, ptr %0, align 8
+  %108 = tail call ptr @lexbor_dobject_free(ptr noundef %107, ptr noundef nonnull %.0) #5
+  br label %109
 
-107:                                              ; preds = %37, %104, %82, %79, %55, %58, %9
-  %.089 = phi ptr [ %12, %9 ], [ %16, %58 ], [ %16, %55 ], [ %16, %79 ], [ %16, %82 ], [ %16, %104 ], [ %16, %37 ]
+109:                                              ; preds = %39, %106, %84, %81, %57, %60, %9
+  %.089 = phi ptr [ %12, %9 ], [ %16, %60 ], [ %16, %57 ], [ %16, %81 ], [ %16, %84 ], [ %16, %106 ], [ %16, %39 ]
   ret ptr %.089
 }
 

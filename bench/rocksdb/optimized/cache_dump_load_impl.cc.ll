@@ -526,15 +526,14 @@ if.then:                                          ; preds = %entry
   %call5.i.i.i = invoke noalias noundef nonnull dereferenceable(14) ptr @_Znam(i64 noundef 14) #21
           to label %_ZN7rocksdb8IOStatus15InvalidArgumentERKNS_5SliceES3_.exit unwind label %_ZN7rocksdb6StatusD2Ev.exit.i.i.i, !noalias !11
 
-common.resume:                                    ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i79, %ehcleanup, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i41, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i19, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i
-  %state_.i.i77.sink = phi ptr [ %state_.i.i.i.i32, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i41 ], [ %state_.i.i.i.i10, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i19 ], [ %state_.i.i.i.i, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i ], [ %state_.i.i77, %ehcleanup ], [ %state_.i.i77, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i79 ]
-  %common.resume.op = phi { ptr, i32 } [ %5, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i41 ], [ %3, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i19 ], [ %1, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i ], [ %.pn, %ehcleanup ], [ %.pn, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i79 ]
-  store ptr null, ptr %state_.i.i77.sink, align 8
+common.resume:                                    ; preds = %_ZN7rocksdb8IOStatusD2Ev.exit80, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i41, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i19, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i
+  %common.resume.op = phi { ptr, i32 } [ %1, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i ], [ %3, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i19 ], [ %5, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i41 ], [ %.pn, %_ZN7rocksdb8IOStatusD2Ev.exit80 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7rocksdb6StatusD2Ev.exit.i.i.i:                ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           cleanup
+  store ptr null, ptr %state_.i.i.i.i, align 8, !alias.scope !11
   br label %common.resume
 
 _ZN7rocksdb8IOStatus15InvalidArgumentERKNS_5SliceES3_.exit: ; preds = %if.then
@@ -565,6 +564,7 @@ if.then4:                                         ; preds = %if.end
 _ZN7rocksdb6StatusD2Ev.exit.i.i.i19:              ; preds = %if.then4
   %3 = landingpad { ptr, i32 }
           cleanup
+  store ptr null, ptr %state_.i.i.i.i10, align 8, !alias.scope !14
   br label %common.resume
 
 _ZN7rocksdb8IOStatus15InvalidArgumentERKNS_5SliceES3_.exit26: ; preds = %if.then4
@@ -595,6 +595,7 @@ if.then8:                                         ; preds = %if.end7
 _ZN7rocksdb6StatusD2Ev.exit.i.i.i41:              ; preds = %if.then8
   %5 = landingpad { ptr, i32 }
           cleanup
+  store ptr null, ptr %state_.i.i.i.i32, align 8, !alias.scope !17
   br label %common.resume
 
 _ZN7rocksdb8IOStatus15InvalidArgumentERKNS_5SliceES3_.exit48: ; preds = %if.then8
@@ -804,10 +805,14 @@ ehcleanup:                                        ; preds = %if.then.i.i52, %lpa
   %state_.i.i77 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %36 = load ptr, ptr %state_.i.i77, align 8
   %cmp.not.i.i.i78 = icmp eq ptr %36, null
-  br i1 %cmp.not.i.i.i78, label %common.resume, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i79
+  br i1 %cmp.not.i.i.i78, label %_ZN7rocksdb8IOStatusD2Ev.exit80, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i79
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i79: ; preds = %ehcleanup
   call void @_ZdaPv(ptr noundef nonnull %36) #17
+  br label %_ZN7rocksdb8IOStatusD2Ev.exit80
+
+_ZN7rocksdb8IOStatusD2Ev.exit80:                  ; preds = %ehcleanup, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i79
+  store ptr null, ptr %state_.i.i77, align 8
   br label %common.resume
 
 return:                                           ; preds = %cleanup, %invoke.cont, %_ZN7rocksdb8IOStatus15InvalidArgumentERKNS_5SliceES3_.exit48, %_ZN7rocksdb8IOStatus15InvalidArgumentERKNS_5SliceES3_.exit26, %_ZN7rocksdb8IOStatus15InvalidArgumentERKNS_5SliceES3_.exit

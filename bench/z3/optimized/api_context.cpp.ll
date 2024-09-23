@@ -3470,23 +3470,23 @@ if.then.i.i21:                                    ; preds = %lor.lhs.false.i.i13
   br label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.then.i.i7, %if.then.i.i21
-  %m_nodes.i11.sink30 = phi ptr [ %m_nodes.i11, %if.then.i.i21 ], [ %m_nodes.i, %if.then.i.i7 ]
-  %.pre.i.i22 = load ptr, ptr %m_nodes.i11.sink30, align 8
-  %arrayidx8.phi.trans.insert.i.i23 = getelementptr inbounds i8, ptr %.pre.i.i22, i64 -4
+  %.sink.in.ph = phi ptr [ %m_nodes.i11, %if.then.i.i21 ], [ %m_nodes.i, %if.then.i.i7 ]
+  %.pre.i.i22.sink = load ptr, ptr %.sink.in.ph, align 8
+  %arrayidx8.phi.trans.insert.i.i23 = getelementptr inbounds i8, ptr %.pre.i.i22.sink, i64 -4
   %.pre1.i.i24 = load i32, ptr %arrayidx8.phi.trans.insert.i.i23, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.end.sink.split, %lor.lhs.false.i.i13, %lor.lhs.false.i.i
-  %.sink29 = phi i32 [ %10, %lor.lhs.false.i.i ], [ %14, %lor.lhs.false.i.i13 ], [ %.pre1.i.i24, %if.end.sink.split ]
-  %.sink = phi ptr [ %.pr, %lor.lhs.false.i.i ], [ %13, %lor.lhs.false.i.i13 ], [ %.pre.i.i22, %if.end.sink.split ]
-  %m_nodes.i11.sink = phi ptr [ %m_nodes.i, %lor.lhs.false.i.i ], [ %m_nodes.i11, %lor.lhs.false.i.i13 ], [ %m_nodes.i11.sink30, %if.end.sink.split ]
-  %idx.ext.i.i17 = zext i32 %.sink29 to i64
-  %add.ptr.i.i18 = getelementptr inbounds ptr, ptr %.sink, i64 %idx.ext.i.i17
+  %.sink30 = phi i32 [ %10, %lor.lhs.false.i.i ], [ %14, %lor.lhs.false.i.i13 ], [ %.pre1.i.i24, %if.end.sink.split ]
+  %.sink29 = phi ptr [ %.pr, %lor.lhs.false.i.i ], [ %13, %lor.lhs.false.i.i13 ], [ %.pre.i.i22.sink, %if.end.sink.split ]
+  %.sink.in = phi ptr [ %m_nodes.i, %lor.lhs.false.i.i ], [ %m_nodes.i11, %lor.lhs.false.i.i13 ], [ %.sink.in.ph, %if.end.sink.split ]
+  %idx.ext.i.i17 = zext i32 %.sink30 to i64
+  %add.ptr.i.i18 = getelementptr inbounds ptr, ptr %.sink29, i64 %idx.ext.i.i17
   store ptr %n, ptr %add.ptr.i.i18, align 8
-  %16 = load ptr, ptr %m_nodes.i11.sink, align 8
-  %arrayidx10.i.i19 = getelementptr inbounds i8, ptr %16, i64 -4
-  %17 = load i32, ptr %arrayidx10.i.i19, align 4
-  %inc.i.i20 = add i32 %17, 1
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %arrayidx10.i.i19 = getelementptr inbounds i8, ptr %.sink, i64 -4
+  %16 = load i32, ptr %arrayidx10.i.i19, align 4
+  %inc.i.i20 = add i32 %16, 1
   store i32 %inc.i.i20, ptr %arrayidx10.i.i19, align 4
   ret void
 }
@@ -3745,13 +3745,19 @@ sw.bb:                                            ; preds = %if.then
   %m_error_handler.i.i = getelementptr inbounds i8, ptr %this, i64 1568
   %1 = load ptr, ptr %m_error_handler.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %1, null
-  br i1 %tobool.not.i.i, label %if.end, label %if.end.sink.split
+  br i1 %tobool.not.i.i, label %if.end, label %if.then.i.i
+
+if.then.i.i:                                      ; preds = %sw.bb
+  tail call void @_Z18ctx_enable_loggingv()
+  %2 = load ptr, ptr %m_error_handler.i.i, align 8
+  tail call void %2(ptr noundef nonnull %this, i32 noundef 7)
+  br label %if.end
 
 sw.bb3:                                           ; preds = %if.then
   %vtable4 = load ptr, ptr %ex, align 8
   %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 16
-  %2 = load ptr, ptr %vfn5, align 8
-  %call6 = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %ex)
+  %3 = load ptr, ptr %vfn5, align 8
+  %call6 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(8) %ex)
   %m_error_code.i4 = getelementptr inbounds i8, ptr %this, i64 1560
   store i32 4, ptr %m_error_code.i4, align 8
   %m_exception_msg.i5 = getelementptr inbounds i8, ptr %this, i64 1576
@@ -3765,9 +3771,15 @@ if.then2.i:                                       ; preds = %sw.bb3
 
 if.end.i:                                         ; preds = %if.then2.i, %sw.bb3
   %m_error_handler.i.i6 = getelementptr inbounds i8, ptr %this, i64 1568
-  %3 = load ptr, ptr %m_error_handler.i.i6, align 8
-  %tobool.not.i.i7 = icmp eq ptr %3, null
-  br i1 %tobool.not.i.i7, label %if.end, label %if.end.sink.split
+  %4 = load ptr, ptr %m_error_handler.i.i6, align 8
+  %tobool.not.i.i7 = icmp eq ptr %4, null
+  br i1 %tobool.not.i.i7, label %if.end, label %if.then.i.i8
+
+if.then.i.i8:                                     ; preds = %if.end.i
+  tail call void @_Z18ctx_enable_loggingv()
+  %5 = load ptr, ptr %m_error_handler.i.i6, align 8
+  tail call void %5(ptr noundef nonnull %this, i32 noundef 4)
+  br label %if.end
 
 sw.bb7:                                           ; preds = %if.then
   %m_error_code.i10 = getelementptr inbounds i8, ptr %this, i64 1560
@@ -3775,9 +3787,15 @@ sw.bb7:                                           ; preds = %if.then
   %m_exception_msg.i11 = getelementptr inbounds i8, ptr %this, i64 1576
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %m_exception_msg.i11) #21
   %m_error_handler.i.i13 = getelementptr inbounds i8, ptr %this, i64 1568
-  %4 = load ptr, ptr %m_error_handler.i.i13, align 8
-  %tobool.not.i.i14 = icmp eq ptr %4, null
-  br i1 %tobool.not.i.i14, label %if.end, label %if.end.sink.split
+  %6 = load ptr, ptr %m_error_handler.i.i13, align 8
+  %tobool.not.i.i14 = icmp eq ptr %6, null
+  br i1 %tobool.not.i.i14, label %if.end, label %if.then.i.i15
+
+if.then.i.i15:                                    ; preds = %sw.bb7
+  tail call void @_Z18ctx_enable_loggingv()
+  %7 = load ptr, ptr %m_error_handler.i.i13, align 8
+  tail call void %7(ptr noundef nonnull %this, i32 noundef 3)
+  br label %if.end
 
 sw.bb8:                                           ; preds = %if.then
   %m_error_code.i17 = getelementptr inbounds i8, ptr %this, i64 1560
@@ -3785,9 +3803,15 @@ sw.bb8:                                           ; preds = %if.then
   %m_exception_msg.i18 = getelementptr inbounds i8, ptr %this, i64 1576
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %m_exception_msg.i18) #21
   %m_error_handler.i.i20 = getelementptr inbounds i8, ptr %this, i64 1568
-  %5 = load ptr, ptr %m_error_handler.i.i20, align 8
-  %tobool.not.i.i21 = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i21, label %if.end, label %if.end.sink.split
+  %8 = load ptr, ptr %m_error_handler.i.i20, align 8
+  %tobool.not.i.i21 = icmp eq ptr %8, null
+  br i1 %tobool.not.i.i21, label %if.end, label %if.then.i.i22
+
+if.then.i.i22:                                    ; preds = %sw.bb8
+  tail call void @_Z18ctx_enable_loggingv()
+  %9 = load ptr, ptr %m_error_handler.i.i20, align 8
+  tail call void %9(ptr noundef nonnull %this, i32 noundef 8)
+  br label %if.end
 
 sw.default:                                       ; preds = %if.then
   %m_error_code.i24 = getelementptr inbounds i8, ptr %this, i64 1560
@@ -3795,14 +3819,20 @@ sw.default:                                       ; preds = %if.then
   %m_exception_msg.i25 = getelementptr inbounds i8, ptr %this, i64 1576
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %m_exception_msg.i25) #21
   %m_error_handler.i.i27 = getelementptr inbounds i8, ptr %this, i64 1568
-  %6 = load ptr, ptr %m_error_handler.i.i27, align 8
-  %tobool.not.i.i28 = icmp eq ptr %6, null
-  br i1 %tobool.not.i.i28, label %if.end, label %if.end.sink.split
+  %10 = load ptr, ptr %m_error_handler.i.i27, align 8
+  %tobool.not.i.i28 = icmp eq ptr %10, null
+  br i1 %tobool.not.i.i28, label %if.end, label %if.then.i.i29
+
+if.then.i.i29:                                    ; preds = %sw.default
+  tail call void @_Z18ctx_enable_loggingv()
+  %11 = load ptr, ptr %m_error_handler.i.i27, align 8
+  tail call void %11(ptr noundef nonnull %this, i32 noundef 9)
+  br label %if.end
 
 if.else:                                          ; preds = %entry
   %vfn10 = getelementptr inbounds i8, ptr %vtable, i64 16
-  %7 = load ptr, ptr %vfn10, align 8
-  %call11 = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %ex)
+  %12 = load ptr, ptr %vfn10, align 8
+  %call11 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %ex)
   %m_error_code.i31 = getelementptr inbounds i8, ptr %this, i64 1560
   store i32 12, ptr %m_error_code.i31, align 8
   %m_exception_msg.i32 = getelementptr inbounds i8, ptr %this, i64 1576
@@ -3816,19 +3846,17 @@ if.then2.i34:                                     ; preds = %if.else
 
 if.end.i36:                                       ; preds = %if.then2.i34, %if.else
   %m_error_handler.i.i37 = getelementptr inbounds i8, ptr %this, i64 1568
-  %8 = load ptr, ptr %m_error_handler.i.i37, align 8
-  %tobool.not.i.i38 = icmp eq ptr %8, null
-  br i1 %tobool.not.i.i38, label %if.end, label %if.end.sink.split
+  %13 = load ptr, ptr %m_error_handler.i.i37, align 8
+  %tobool.not.i.i38 = icmp eq ptr %13, null
+  br i1 %tobool.not.i.i38, label %if.end, label %if.then.i.i39
 
-if.end.sink.split:                                ; preds = %if.end.i36, %sw.default, %sw.bb8, %sw.bb7, %if.end.i, %sw.bb
-  %m_error_handler.i.i37.sink = phi ptr [ %m_error_handler.i.i, %sw.bb ], [ %m_error_handler.i.i6, %if.end.i ], [ %m_error_handler.i.i13, %sw.bb7 ], [ %m_error_handler.i.i20, %sw.bb8 ], [ %m_error_handler.i.i27, %sw.default ], [ %m_error_handler.i.i37, %if.end.i36 ]
-  %.sink = phi i32 [ 7, %sw.bb ], [ 4, %if.end.i ], [ 3, %sw.bb7 ], [ 8, %sw.bb8 ], [ 9, %sw.default ], [ 12, %if.end.i36 ]
+if.then.i.i39:                                    ; preds = %if.end.i36
   tail call void @_Z18ctx_enable_loggingv()
-  %9 = load ptr, ptr %m_error_handler.i.i37.sink, align 8
-  tail call void %9(ptr noundef nonnull %this, i32 noundef %.sink)
+  %14 = load ptr, ptr %m_error_handler.i.i37, align 8
+  tail call void %14(ptr noundef nonnull %this, i32 noundef 12)
   br label %if.end
 
-if.end:                                           ; preds = %if.end.sink.split, %if.end.i36, %sw.default, %sw.bb8, %sw.bb7, %if.end.i, %sw.bb
+if.end:                                           ; preds = %if.then.i.i39, %if.end.i36, %if.then.i.i29, %sw.default, %if.then.i.i22, %sw.bb8, %if.then.i.i15, %sw.bb7, %if.then.i.i8, %if.end.i, %if.then.i.i, %sw.bb
   ret void
 }
 

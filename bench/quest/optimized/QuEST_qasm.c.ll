@@ -2224,7 +2224,7 @@ define void @qasm_recordNamedPhaseFunc(ptr nocapture noundef readonly byval(%str
   %15 = getelementptr inbounds i8, ptr %14, i64 16
   %16 = load i32, ptr %15, align 8
   %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %286, label %17
+  br i1 %.not, label %283, label %17
 
 17:                                               ; preds = %11
   tail call void (ptr, ptr, ...) @qasm_recordComment(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull @.str.77)
@@ -2233,7 +2233,7 @@ define void @qasm_recordNamedPhaseFunc(ptr nocapture noundef readonly byval(%str
   %18 = icmp eq i32 %5, 2
   %19 = icmp eq i32 %5, 4
   %or.cond7 = icmp ult i32 %5, 5
-  br i1 %or.cond7, label %20, label %78
+  br i1 %or.cond7, label %20, label %76
 
 20:                                               ; preds = %17
   switch i32 %5, label %28 [
@@ -2258,11 +2258,11 @@ define void @qasm_recordNamedPhaseFunc(ptr nocapture noundef readonly byval(%str
   %31 = sub nsw i32 1024, %.0222
   %32 = sext i32 %31 to i64
   %.str.82..str.83 = select i1 %18, ptr @.str.82, ptr @.str.83
-  %.str.82.sink347 = select i1 %or.cond, ptr @.str.81, ptr %.str.82..str.83
-  %33 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %30, i64 noundef %32, ptr noundef nonnull %.str.82.sink347) #16
+  %.str.82.sink339 = select i1 %or.cond, ptr @.str.81, ptr %.str.82..str.83
+  %33 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %30, i64 noundef %32, ptr noundef nonnull %.str.82.sink339) #16
   %.1 = add nsw i32 %33, %.0222
   %34 = icmp slt i32 %3, 25
-  br i1 %34, label %.preheader, label %67
+  br i1 %34, label %.preheader, label %65
 
 .preheader:                                       ; preds = %28
   %invariant.gep283 = getelementptr inbounds i8, ptr %6, i64 16
@@ -2276,9 +2276,9 @@ define void @qasm_recordNamedPhaseFunc(ptr nocapture noundef readonly byval(%str
   %wide.trip.count321 = zext nneg i32 %3 to i64
   br label %39
 
-39:                                               ; preds = %.lr.ph287, %58
-  %indvars.iv318 = phi i64 [ 0, %.lr.ph287 ], [ %indvars.iv.next319, %58 ]
-  %.2284 = phi i32 [ %.1, %.lr.ph287 ], [ %66, %58 ]
+39:                                               ; preds = %.lr.ph287, %56
+  %indvars.iv318 = phi i64 [ 0, %.lr.ph287 ], [ %indvars.iv.next319, %56 ]
+  %.2284 = phi i32 [ %.1, %.lr.ph287 ], [ %64, %56 ]
   %40 = sext i32 %.2284 to i64
   %41 = getelementptr inbounds i8, ptr %12, i64 %40
   %42 = sub nsw i32 1024, %.2284
@@ -2292,428 +2292,428 @@ getPhaseFuncSymbol.exit:                          ; preds = %39
   %46 = select i1 %45, ptr @.str.84, ptr @.str.85
   %47 = getelementptr inbounds [7 x i8], ptr @getPhaseFuncSymbol.xyz, i64 0, i64 %indvars.iv318
   %48 = getelementptr inbounds [24 x i8], ptr @getPhaseFuncSymbol.abc, i64 0, i64 %indvars.iv318
-  %.sink = select i1 %36, ptr %47, ptr %48
-  %49 = load i8, ptr %.sink, align 1
-  %50 = sext i8 %49 to i32
-  %51 = tail call double @llvm.fabs.f64(double %44)
-  %52 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %41, i64 noundef %43, ptr noundef nonnull %46, i32 noundef %50, double noundef %51) #16
-  br label %58
+  %.0.i.in = select i1 %36, ptr %47, ptr %48
+  %.0.i = load i8, ptr %.0.i.in, align 1
+  %49 = sext i8 %.0.i to i32
+  %50 = tail call double @llvm.fabs.f64(double %44)
+  %51 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %41, i64 noundef %43, ptr noundef nonnull %46, i32 noundef %49, double noundef %50) #16
+  br label %56
 
 getPhaseFuncSymbol.exit231:                       ; preds = %39
-  %53 = getelementptr inbounds [7 x i8], ptr @getPhaseFuncSymbol.xyz, i64 0, i64 %indvars.iv318
-  %54 = getelementptr inbounds [24 x i8], ptr @getPhaseFuncSymbol.abc, i64 0, i64 %indvars.iv318
-  %.sink334 = select i1 %36, ptr %53, ptr %54
-  %55 = load i8, ptr %.sink334, align 1
-  %56 = sext i8 %55 to i32
-  %57 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %41, i64 noundef %43, ptr noundef nonnull @.str.86, i32 noundef %56) #16
-  br label %58
+  %52 = getelementptr inbounds [7 x i8], ptr @getPhaseFuncSymbol.xyz, i64 0, i64 %indvars.iv318
+  %53 = getelementptr inbounds [24 x i8], ptr @getPhaseFuncSymbol.abc, i64 0, i64 %indvars.iv318
+  %.0.i230.in = select i1 %36, ptr %52, ptr %53
+  %.0.i230 = load i8, ptr %.0.i230.in, align 1
+  %54 = sext i8 %.0.i230 to i32
+  %55 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %41, i64 noundef %43, ptr noundef nonnull @.str.86, i32 noundef %54) #16
+  br label %56
 
-58:                                               ; preds = %getPhaseFuncSymbol.exit231, %getPhaseFuncSymbol.exit
-  %.pn229 = phi i32 [ %52, %getPhaseFuncSymbol.exit ], [ %57, %getPhaseFuncSymbol.exit231 ]
+56:                                               ; preds = %getPhaseFuncSymbol.exit231, %getPhaseFuncSymbol.exit
+  %.pn229 = phi i32 [ %51, %getPhaseFuncSymbol.exit ], [ %55, %getPhaseFuncSymbol.exit231 ]
   %.3 = add nsw i32 %.pn229, %.2284
-  %59 = sext i32 %.3 to i64
-  %60 = getelementptr inbounds i8, ptr %12, i64 %59
-  %61 = sub nsw i32 1024, %.3
-  %62 = sext i32 %61 to i64
-  %63 = icmp ult i64 %indvars.iv318, %38
-  %64 = select i1 %63, ptr @.str.44, ptr @.str.46
-  %65 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %60, i64 noundef %62, ptr noundef nonnull %64) #16
-  %66 = add nsw i32 %.3, %65
+  %57 = sext i32 %.3 to i64
+  %58 = getelementptr inbounds i8, ptr %12, i64 %57
+  %59 = sub nsw i32 1024, %.3
+  %60 = sext i32 %59 to i64
+  %61 = icmp ult i64 %indvars.iv318, %38
+  %62 = select i1 %61, ptr @.str.44, ptr @.str.46
+  %63 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %58, i64 noundef %60, ptr noundef nonnull %62) #16
+  %64 = add nsw i32 %.3, %63
   %indvars.iv.next319 = add nuw nsw i64 %indvars.iv318, 1
   %exitcond322.not = icmp eq i64 %indvars.iv.next319, %wide.trip.count321
   br i1 %exitcond322.not, label %.loopexit, label %39
 
-67:                                               ; preds = %28
-  %68 = sext i32 %.1 to i64
-  %69 = getelementptr inbounds i8, ptr %12, i64 %68
-  %70 = sub nsw i32 1024, %.1
-  %71 = sext i32 %70 to i64
-  br i1 %19, label %72, label %75
+65:                                               ; preds = %28
+  %66 = sext i32 %.1 to i64
+  %67 = getelementptr inbounds i8, ptr %12, i64 %66
+  %68 = sub nsw i32 1024, %.1
+  %69 = sext i32 %68 to i64
+  br i1 %19, label %70, label %73
 
-72:                                               ; preds = %67
-  %73 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %69, i64 noundef %71, ptr noundef nonnull @.str.87) #16
-  %74 = add nsw i32 %73, %.1
+70:                                               ; preds = %65
+  %71 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %67, i64 noundef %69, ptr noundef nonnull @.str.87) #16
+  %72 = add nsw i32 %71, %.1
   br label %.loopexit
 
-75:                                               ; preds = %67
-  %76 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %69, i64 noundef %71, ptr noundef nonnull @.str.88) #16
-  %77 = add nsw i32 %76, %.1
+73:                                               ; preds = %65
+  %74 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %67, i64 noundef %69, ptr noundef nonnull @.str.88) #16
+  %75 = add nsw i32 %74, %.1
   br label %.loopexit
 
-78:                                               ; preds = %17
-  %79 = add i32 %5, -5
-  %or.cond21 = icmp ult i32 %79, 4
-  br i1 %or.cond21, label %80, label %146
+76:                                               ; preds = %17
+  %77 = add i32 %5, -5
+  %or.cond21 = icmp ult i32 %77, 4
+  br i1 %or.cond21, label %78, label %144
 
-80:                                               ; preds = %78
-  switch i32 %5, label %88 [
-    i32 8, label %81
-    i32 6, label %81
+78:                                               ; preds = %76
+  switch i32 %5, label %86 [
+    i32 8, label %79
+    i32 6, label %79
   ]
 
-81:                                               ; preds = %80, %80
-  %82 = getelementptr inbounds i8, ptr %12, i64 13
-  %83 = load double, ptr %6, align 8
-  %84 = fcmp ogt double %83, 0.000000e+00
-  %85 = select i1 %84, ptr @.str.79, ptr @.str.80
-  %86 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %82, i64 noundef 1011, ptr noundef nonnull %85, double noundef %83) #16
-  %87 = add nsw i32 %86, 13
-  br label %88
+79:                                               ; preds = %78, %78
+  %80 = getelementptr inbounds i8, ptr %12, i64 13
+  %81 = load double, ptr %6, align 8
+  %82 = fcmp ogt double %81, 0.000000e+00
+  %83 = select i1 %82, ptr @.str.79, ptr @.str.80
+  %84 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %80, i64 noundef 1011, ptr noundef nonnull %83, double noundef %81) #16
+  %85 = add nsw i32 %84, 13
+  br label %86
 
-88:                                               ; preds = %80, %81
-  %.5 = phi i32 [ %87, %81 ], [ 13, %80 ]
-  switch i32 %5, label %96 [
+86:                                               ; preds = %78, %79
+  %.5 = phi i32 [ %85, %79 ], [ 13, %78 ]
+  switch i32 %5, label %94 [
     i32 7, label %.sink.split
-    i32 8, label %89
+    i32 8, label %87
   ]
 
-89:                                               ; preds = %88
+87:                                               ; preds = %86
   br label %.sink.split
 
-.sink.split:                                      ; preds = %88, %89
-  %.str.90.sink = phi ptr [ @.str.90, %89 ], [ @.str.89, %88 ]
-  %90 = sext i32 %.5 to i64
-  %91 = getelementptr inbounds i8, ptr %12, i64 %90
-  %92 = sub nsw i32 1024, %.5
-  %93 = sext i32 %92 to i64
-  %94 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %91, i64 noundef %93, ptr noundef nonnull %.str.90.sink) #16
-  %95 = add nsw i32 %94, %.5
-  br label %96
+.sink.split:                                      ; preds = %86, %87
+  %.str.90.sink = phi ptr [ @.str.90, %87 ], [ @.str.89, %86 ]
+  %88 = sext i32 %.5 to i64
+  %89 = getelementptr inbounds i8, ptr %12, i64 %88
+  %90 = sub nsw i32 1024, %.5
+  %91 = sext i32 %90 to i64
+  %92 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %89, i64 noundef %91, ptr noundef nonnull %.str.90.sink) #16
+  %93 = add nsw i32 %92, %.5
+  br label %94
 
-96:                                               ; preds = %.sink.split, %88
-  %.6 = phi i32 [ %.5, %88 ], [ %95, %.sink.split ]
-  %97 = icmp slt i32 %3, 25
-  br i1 %97, label %.preheader253, label %124
+94:                                               ; preds = %.sink.split, %86
+  %.6 = phi i32 [ %.5, %86 ], [ %93, %.sink.split ]
+  %95 = icmp slt i32 %3, 25
+  br i1 %95, label %.preheader253, label %122
 
-.preheader253:                                    ; preds = %96
-  %98 = icmp sgt i32 %3, 0
-  br i1 %98, label %.lr.ph274, label %.loopexit254
+.preheader253:                                    ; preds = %94
+  %96 = icmp sgt i32 %3, 0
+  br i1 %96, label %.lr.ph274, label %.loopexit254
 
 .lr.ph274:                                        ; preds = %.preheader253
-  %99 = add nsw i32 %3, -1
-  %100 = icmp ult i32 %3, 8
-  %101 = zext nneg i32 %99 to i64
+  %97 = add nsw i32 %3, -1
+  %98 = icmp ult i32 %3, 8
+  %99 = zext nneg i32 %97 to i64
   %wide.trip.count316 = zext nneg i32 %3 to i64
-  br i1 %100, label %getPhaseFuncSymbol.exit233.us, label %getPhaseFuncSymbol.exit233.us279
+  br i1 %98, label %getPhaseFuncSymbol.exit233.us, label %getPhaseFuncSymbol.exit233.us279
 
 getPhaseFuncSymbol.exit233.us:                    ; preds = %.lr.ph274, %getPhaseFuncSymbol.exit233.us
   %indvars.iv313 = phi i64 [ %indvars.iv.next314, %getPhaseFuncSymbol.exit233.us ], [ 0, %.lr.ph274 ]
-  %.7272.us = phi i32 [ %112, %getPhaseFuncSymbol.exit233.us ], [ %.6, %.lr.ph274 ]
-  %102 = sext i32 %.7272.us to i64
-  %103 = getelementptr inbounds i8, ptr %12, i64 %102
-  %104 = sub nsw i32 1024, %.7272.us
-  %105 = sext i32 %104 to i64
-  %106 = icmp ult i64 %indvars.iv313, %101
-  %107 = select i1 %106, ptr @.str.91, ptr @.str.92
-  %108 = getelementptr inbounds [7 x i8], ptr @getPhaseFuncSymbol.xyz, i64 0, i64 %indvars.iv313
-  %109 = load i8, ptr %108, align 1
-  %110 = sext i8 %109 to i32
-  %111 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %103, i64 noundef %105, ptr noundef nonnull %107, i32 noundef %110) #16
-  %112 = add nsw i32 %111, %.7272.us
+  %.7272.us = phi i32 [ %110, %getPhaseFuncSymbol.exit233.us ], [ %.6, %.lr.ph274 ]
+  %100 = sext i32 %.7272.us to i64
+  %101 = getelementptr inbounds i8, ptr %12, i64 %100
+  %102 = sub nsw i32 1024, %.7272.us
+  %103 = sext i32 %102 to i64
+  %104 = icmp ult i64 %indvars.iv313, %99
+  %105 = select i1 %104, ptr @.str.91, ptr @.str.92
+  %106 = getelementptr inbounds [7 x i8], ptr @getPhaseFuncSymbol.xyz, i64 0, i64 %indvars.iv313
+  %107 = load i8, ptr %106, align 1
+  %108 = sext i8 %107 to i32
+  %109 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %101, i64 noundef %103, ptr noundef nonnull %105, i32 noundef %108) #16
+  %110 = add nsw i32 %109, %.7272.us
   %indvars.iv.next314 = add nuw nsw i64 %indvars.iv313, 1
   %exitcond317.not = icmp eq i64 %indvars.iv.next314, %wide.trip.count316
   br i1 %exitcond317.not, label %.loopexit254, label %getPhaseFuncSymbol.exit233.us
 
 getPhaseFuncSymbol.exit233.us279:                 ; preds = %.lr.ph274, %getPhaseFuncSymbol.exit233.us279
   %indvars.iv309 = phi i64 [ %indvars.iv.next310, %getPhaseFuncSymbol.exit233.us279 ], [ 0, %.lr.ph274 ]
-  %.7272.us278 = phi i32 [ %123, %getPhaseFuncSymbol.exit233.us279 ], [ %.6, %.lr.ph274 ]
-  %113 = sext i32 %.7272.us278 to i64
-  %114 = getelementptr inbounds i8, ptr %12, i64 %113
-  %115 = sub nsw i32 1024, %.7272.us278
-  %116 = sext i32 %115 to i64
-  %117 = icmp ult i64 %indvars.iv309, %101
-  %118 = select i1 %117, ptr @.str.91, ptr @.str.92
-  %119 = getelementptr inbounds [24 x i8], ptr @getPhaseFuncSymbol.abc, i64 0, i64 %indvars.iv309
-  %120 = load i8, ptr %119, align 1
-  %121 = sext i8 %120 to i32
-  %122 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %114, i64 noundef %116, ptr noundef nonnull %118, i32 noundef %121) #16
-  %123 = add nsw i32 %122, %.7272.us278
+  %.7272.us278 = phi i32 [ %121, %getPhaseFuncSymbol.exit233.us279 ], [ %.6, %.lr.ph274 ]
+  %111 = sext i32 %.7272.us278 to i64
+  %112 = getelementptr inbounds i8, ptr %12, i64 %111
+  %113 = sub nsw i32 1024, %.7272.us278
+  %114 = sext i32 %113 to i64
+  %115 = icmp ult i64 %indvars.iv309, %99
+  %116 = select i1 %115, ptr @.str.91, ptr @.str.92
+  %117 = getelementptr inbounds [24 x i8], ptr @getPhaseFuncSymbol.abc, i64 0, i64 %indvars.iv309
+  %118 = load i8, ptr %117, align 1
+  %119 = sext i8 %118 to i32
+  %120 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %112, i64 noundef %114, ptr noundef nonnull %116, i32 noundef %119) #16
+  %121 = add nsw i32 %120, %.7272.us278
   %indvars.iv.next310 = add nuw nsw i64 %indvars.iv309, 1
   %exitcond312.not = icmp eq i64 %indvars.iv.next310, %wide.trip.count316
   br i1 %exitcond312.not, label %.loopexit254, label %getPhaseFuncSymbol.exit233.us279
 
-124:                                              ; preds = %96
-  %125 = sext i32 %.6 to i64
-  %126 = getelementptr inbounds i8, ptr %12, i64 %125
-  %127 = sub nsw i32 1024, %.6
-  %128 = sext i32 %127 to i64
-  %129 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %126, i64 noundef %128, ptr noundef nonnull @.str.93) #16
-  %130 = add nsw i32 %129, %.6
+122:                                              ; preds = %94
+  %123 = sext i32 %.6 to i64
+  %124 = getelementptr inbounds i8, ptr %12, i64 %123
+  %125 = sub nsw i32 1024, %.6
+  %126 = sext i32 %125 to i64
+  %127 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %124, i64 noundef %126, ptr noundef nonnull @.str.93) #16
+  %128 = add nsw i32 %127, %.6
   br label %.loopexit254
 
-.loopexit254:                                     ; preds = %getPhaseFuncSymbol.exit233.us279, %getPhaseFuncSymbol.exit233.us, %.preheader253, %124
-  %.8 = phi i32 [ %130, %124 ], [ %.6, %.preheader253 ], [ %112, %getPhaseFuncSymbol.exit233.us ], [ %123, %getPhaseFuncSymbol.exit233.us279 ]
-  %131 = add nsw i32 %5, -7
-  %or.cond25 = icmp ult i32 %131, 2
-  br i1 %or.cond25, label %132, label %139
+.loopexit254:                                     ; preds = %getPhaseFuncSymbol.exit233.us279, %getPhaseFuncSymbol.exit233.us, %.preheader253, %122
+  %.8 = phi i32 [ %128, %122 ], [ %.6, %.preheader253 ], [ %110, %getPhaseFuncSymbol.exit233.us ], [ %121, %getPhaseFuncSymbol.exit233.us279 ]
+  %129 = add nsw i32 %5, -7
+  %or.cond25 = icmp ult i32 %129, 2
+  br i1 %or.cond25, label %130, label %137
 
-132:                                              ; preds = %.loopexit254
-  %133 = sext i32 %.8 to i64
-  %134 = getelementptr inbounds i8, ptr %12, i64 %133
-  %135 = sub nsw i32 1024, %.8
-  %136 = sext i32 %135 to i64
-  %137 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %134, i64 noundef %136, ptr noundef nonnull @.str.9) #16
-  %138 = add nsw i32 %137, %.8
-  br label %139
+130:                                              ; preds = %.loopexit254
+  %131 = sext i32 %.8 to i64
+  %132 = getelementptr inbounds i8, ptr %12, i64 %131
+  %133 = sub nsw i32 1024, %.8
+  %134 = sext i32 %133 to i64
+  %135 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %132, i64 noundef %134, ptr noundef nonnull @.str.9) #16
+  %136 = add nsw i32 %135, %.8
+  br label %137
 
-139:                                              ; preds = %.loopexit254, %132
-  %.9 = phi i32 [ %138, %132 ], [ %.8, %.loopexit254 ]
-  %140 = sext i32 %.9 to i64
-  %141 = getelementptr inbounds i8, ptr %12, i64 %140
-  %142 = sub nsw i32 1024, %.9
-  %143 = sext i32 %142 to i64
-  %144 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %141, i64 noundef %143, ptr noundef nonnull @.str.75) #16
-  %145 = add nsw i32 %144, %.9
+137:                                              ; preds = %.loopexit254, %130
+  %.9 = phi i32 [ %136, %130 ], [ %.8, %.loopexit254 ]
+  %138 = sext i32 %.9 to i64
+  %139 = getelementptr inbounds i8, ptr %12, i64 %138
+  %140 = sub nsw i32 1024, %.9
+  %141 = sext i32 %140 to i64
+  %142 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %139, i64 noundef %141, ptr noundef nonnull @.str.75) #16
+  %143 = add nsw i32 %142, %.9
   br label %.loopexit
 
-146:                                              ; preds = %78
-  %147 = add i32 %5, -9
-  %or.cond27 = icmp ult i32 %147, 2
-  %148 = icmp eq i32 %5, 13
-  %or.cond33 = icmp ult i32 %147, 5
-  br i1 %or.cond33, label %149, label %.thread249
+144:                                              ; preds = %76
+  %145 = add i32 %5, -9
+  %or.cond27 = icmp ult i32 %145, 2
+  %146 = icmp eq i32 %5, 13
+  %or.cond33 = icmp ult i32 %145, 5
+  br i1 %or.cond33, label %147, label %.thread249
 
-149:                                              ; preds = %146
-  %150 = icmp eq i32 %5, 10
-  %151 = and i32 %5, 14
-  %152 = icmp eq i32 %151, 12
-  %or.cond37 = or i1 %150, %152
-  br i1 %or.cond37, label %153, label %160
+147:                                              ; preds = %144
+  %148 = icmp eq i32 %5, 10
+  %149 = and i32 %5, 14
+  %150 = icmp eq i32 %149, 12
+  %or.cond37 = or i1 %148, %150
+  br i1 %or.cond37, label %151, label %158
 
-153:                                              ; preds = %149
-  %154 = getelementptr inbounds i8, ptr %12, i64 13
-  %155 = load double, ptr %6, align 8
-  %156 = fcmp ogt double %155, 0.000000e+00
-  %157 = select i1 %156, ptr @.str.79, ptr @.str.80
-  %158 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %154, i64 noundef 1011, ptr noundef nonnull %157, double noundef %155) #16
-  %159 = add nsw i32 %158, 13
-  br label %160
+151:                                              ; preds = %147
+  %152 = getelementptr inbounds i8, ptr %12, i64 13
+  %153 = load double, ptr %6, align 8
+  %154 = fcmp ogt double %153, 0.000000e+00
+  %155 = select i1 %154, ptr @.str.79, ptr @.str.80
+  %156 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %152, i64 noundef 1011, ptr noundef nonnull %155, double noundef %153) #16
+  %157 = add nsw i32 %156, 13
+  br label %158
 
-160:                                              ; preds = %149, %153
-  %.10 = phi i32 [ %159, %153 ], [ 13, %149 ]
+158:                                              ; preds = %147, %151
+  %.10 = phi i32 [ %157, %151 ], [ 13, %147 ]
   %.off = add nsw i32 %5, -9
   %switch = icmp ult i32 %.off, 3
-  %or.cond349 = or i1 %152, %switch
-  br i1 %or.cond349, label %.sink.split340, label %168
+  %or.cond341 = or i1 %150, %switch
+  br i1 %or.cond341, label %.sink.split336, label %166
 
-.sink.split340:                                   ; preds = %160
-  %161 = add nsw i32 %5, -9
-  %brmerge = icmp ult i32 %161, 3
+.sink.split336:                                   ; preds = %158
+  %159 = add nsw i32 %5, -9
+  %brmerge = icmp ult i32 %159, 3
   %.str.81.mux = select i1 %or.cond27, ptr @.str.81, ptr @.str.82
   %.str.81.mux.mux = select i1 %brmerge, ptr %.str.81.mux, ptr @.str.83
-  %162 = sext i32 %.10 to i64
-  %163 = getelementptr inbounds i8, ptr %12, i64 %162
-  %164 = sub nsw i32 1024, %.10
-  %165 = sext i32 %164 to i64
-  %166 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %163, i64 noundef %165, ptr noundef nonnull %.str.81.mux.mux) #16
-  %167 = add nsw i32 %166, %.10
-  br label %168
+  %160 = sext i32 %.10 to i64
+  %161 = getelementptr inbounds i8, ptr %12, i64 %160
+  %162 = sub nsw i32 1024, %.10
+  %163 = sext i32 %162 to i64
+  %164 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %161, i64 noundef %163, ptr noundef nonnull %.str.81.mux.mux) #16
+  %165 = add nsw i32 %164, %.10
+  br label %166
 
-168:                                              ; preds = %160, %.sink.split340
-  %.11 = phi i32 [ %167, %.sink.split340 ], [ %.10, %160 ]
-  %169 = icmp slt i32 %3, 25
-  br i1 %169, label %.preheader255, label %246
+166:                                              ; preds = %158, %.sink.split336
+  %.11 = phi i32 [ %165, %.sink.split336 ], [ %.10, %158 ]
+  %167 = icmp slt i32 %3, 25
+  br i1 %167, label %.preheader255, label %243
 
-.preheader255:                                    ; preds = %168
+.preheader255:                                    ; preds = %166
   %invariant.gep = getelementptr inbounds i8, ptr %6, i64 16
-  %170 = icmp sgt i32 %3, 0
-  br i1 %170, label %.lr.ph, label %.loopexit
+  %168 = icmp sgt i32 %3, 0
+  br i1 %168, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader255
-  %171 = icmp ult i32 %3, 8
-  %172 = add nsw i32 %3, -1
-  %173 = zext nneg i32 %172 to i64
-  br i1 %148, label %.lr.ph.split.us, label %.lr.ph.split
+  %169 = icmp ult i32 %3, 8
+  %170 = add nsw i32 %3, -1
+  %171 = zext nneg i32 %170 to i64
+  br i1 %146, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv306 = phi i64 [ %indvars.iv.next307, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %.12257.us = phi i32 [ %199, %.lr.ph.split.us ], [ %.11, %.lr.ph ]
-  %174 = sext i32 %.12257.us to i64
-  %175 = getelementptr inbounds i8, ptr %12, i64 %174
-  %176 = sub nsw i32 1024, %.12257.us
-  %177 = sext i32 %176 to i64
-  %178 = lshr exact i64 %indvars.iv306, 1
-  %gep.us = getelementptr inbounds double, ptr %invariant.gep, i64 %178
-  %179 = load double, ptr %gep.us, align 8
-  %180 = fcmp olt double %179, 0.000000e+00
-  %181 = select i1 %180, ptr @.str.94, ptr @.str.95
-  %182 = or disjoint i64 %indvars.iv306, 1
-  %183 = getelementptr inbounds [7 x i8], ptr @getPhaseFuncSymbol.xyz, i64 0, i64 %indvars.iv306
-  %184 = getelementptr inbounds [7 x i8], ptr @getPhaseFuncSymbol.xyz, i64 0, i64 %182
-  %185 = getelementptr inbounds [24 x i8], ptr @getPhaseFuncSymbol.abc, i64 0, i64 %indvars.iv306
-  %186 = getelementptr inbounds [24 x i8], ptr @getPhaseFuncSymbol.abc, i64 0, i64 %182
-  %.sink346 = select i1 %171, ptr %184, ptr %186
-  %.in.in = select i1 %171, ptr %183, ptr %185
+  %.12257.us = phi i32 [ %196, %.lr.ph.split.us ], [ %.11, %.lr.ph ]
+  %172 = sext i32 %.12257.us to i64
+  %173 = getelementptr inbounds i8, ptr %12, i64 %172
+  %174 = sub nsw i32 1024, %.12257.us
+  %175 = sext i32 %174 to i64
+  %176 = lshr exact i64 %indvars.iv306, 1
+  %gep.us = getelementptr inbounds double, ptr %invariant.gep, i64 %176
+  %177 = load double, ptr %gep.us, align 8
+  %178 = fcmp olt double %177, 0.000000e+00
+  %179 = select i1 %178, ptr @.str.94, ptr @.str.95
+  %180 = or disjoint i64 %indvars.iv306, 1
+  %181 = getelementptr inbounds [7 x i8], ptr @getPhaseFuncSymbol.xyz, i64 0, i64 %indvars.iv306
+  %182 = getelementptr inbounds [7 x i8], ptr @getPhaseFuncSymbol.xyz, i64 0, i64 %180
+  %183 = getelementptr inbounds [24 x i8], ptr @getPhaseFuncSymbol.abc, i64 0, i64 %indvars.iv306
+  %184 = getelementptr inbounds [24 x i8], ptr @getPhaseFuncSymbol.abc, i64 0, i64 %180
+  %.in.in = select i1 %169, ptr %181, ptr %183
+  %.0.i236.us.in = select i1 %169, ptr %182, ptr %184
+  %.0.i236.us = load i8, ptr %.0.i236.us.in, align 1
   %.in = load i8, ptr %.in.in, align 1
-  %187 = sext i8 %.in to i32
-  %188 = load i8, ptr %.sink346, align 1
-  %189 = sext i8 %188 to i32
-  %190 = tail call double @llvm.fabs.f64(double %179)
-  %191 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %175, i64 noundef %177, ptr noundef nonnull %181, i32 noundef %187, i32 noundef %189, double noundef %190) #16
-  %.13.us = add nsw i32 %191, %.12257.us
-  %192 = sext i32 %.13.us to i64
-  %193 = getelementptr inbounds i8, ptr %12, i64 %192
-  %194 = sub nsw i32 1024, %.13.us
-  %195 = sext i32 %194 to i64
-  %196 = icmp ult i64 %182, %173
-  %197 = select i1 %196, ptr @.str.44, ptr @.str.46
-  %198 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %193, i64 noundef %195, ptr noundef nonnull %197) #16
-  %199 = add nsw i32 %.13.us, %198
+  %185 = sext i8 %.in to i32
+  %186 = sext i8 %.0.i236.us to i32
+  %187 = tail call double @llvm.fabs.f64(double %177)
+  %188 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %173, i64 noundef %175, ptr noundef nonnull %179, i32 noundef %185, i32 noundef %186, double noundef %187) #16
+  %.13.us = add nsw i32 %188, %.12257.us
+  %189 = sext i32 %.13.us to i64
+  %190 = getelementptr inbounds i8, ptr %12, i64 %189
+  %191 = sub nsw i32 1024, %.13.us
+  %192 = sext i32 %191 to i64
+  %193 = icmp ult i64 %180, %171
+  %194 = select i1 %193, ptr @.str.44, ptr @.str.46
+  %195 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %190, i64 noundef %192, ptr noundef nonnull %194) #16
+  %196 = add nsw i32 %.13.us, %195
   %indvars.iv.next307 = add nuw nsw i64 %indvars.iv306, 2
-  %200 = trunc nuw i64 %indvars.iv.next307 to i32
-  %201 = icmp sgt i32 %3, %200
-  br i1 %201, label %.lr.ph.split.us, label %.loopexit
+  %197 = trunc nuw i64 %indvars.iv.next307 to i32
+  %198 = icmp sgt i32 %3, %197
+  br i1 %198, label %.lr.ph.split.us, label %.loopexit
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  br i1 %171, label %getPhaseFuncSymbol.exit241.us, label %getPhaseFuncSymbol.exit241.us267
+  br i1 %169, label %getPhaseFuncSymbol.exit241.us, label %getPhaseFuncSymbol.exit241.us267
 
 getPhaseFuncSymbol.exit241.us:                    ; preds = %.lr.ph.split, %getPhaseFuncSymbol.exit241.us
   %indvars.iv303 = phi i64 [ %indvars.iv.next304, %getPhaseFuncSymbol.exit241.us ], [ 0, %.lr.ph.split ]
-  %.12257.us261 = phi i32 [ %221, %getPhaseFuncSymbol.exit241.us ], [ %.11, %.lr.ph.split ]
-  %202 = sext i32 %.12257.us261 to i64
-  %203 = getelementptr inbounds i8, ptr %12, i64 %202
-  %204 = sub nsw i32 1024, %.12257.us261
-  %205 = sext i32 %204 to i64
-  %206 = getelementptr inbounds [7 x i8], ptr @getPhaseFuncSymbol.xyz, i64 0, i64 %indvars.iv303
-  %207 = load i8, ptr %206, align 1
-  %208 = sext i8 %207 to i32
-  %209 = or disjoint i64 %indvars.iv303, 1
-  %210 = getelementptr inbounds [7 x i8], ptr @getPhaseFuncSymbol.xyz, i64 0, i64 %209
-  %211 = load i8, ptr %210, align 1
-  %212 = sext i8 %211 to i32
-  %213 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %203, i64 noundef %205, ptr noundef nonnull @.str.96, i32 noundef %208, i32 noundef %212) #16
-  %.13.us262 = add nsw i32 %213, %.12257.us261
-  %214 = sext i32 %.13.us262 to i64
-  %215 = getelementptr inbounds i8, ptr %12, i64 %214
-  %216 = sub nsw i32 1024, %.13.us262
-  %217 = sext i32 %216 to i64
-  %218 = icmp ult i64 %209, %173
-  %219 = select i1 %218, ptr @.str.44, ptr @.str.46
-  %220 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %215, i64 noundef %217, ptr noundef nonnull %219) #16
-  %221 = add nsw i32 %.13.us262, %220
+  %.12257.us261 = phi i32 [ %218, %getPhaseFuncSymbol.exit241.us ], [ %.11, %.lr.ph.split ]
+  %199 = sext i32 %.12257.us261 to i64
+  %200 = getelementptr inbounds i8, ptr %12, i64 %199
+  %201 = sub nsw i32 1024, %.12257.us261
+  %202 = sext i32 %201 to i64
+  %203 = getelementptr inbounds [7 x i8], ptr @getPhaseFuncSymbol.xyz, i64 0, i64 %indvars.iv303
+  %204 = load i8, ptr %203, align 1
+  %205 = sext i8 %204 to i32
+  %206 = or disjoint i64 %indvars.iv303, 1
+  %207 = getelementptr inbounds [7 x i8], ptr @getPhaseFuncSymbol.xyz, i64 0, i64 %206
+  %208 = load i8, ptr %207, align 1
+  %209 = sext i8 %208 to i32
+  %210 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %200, i64 noundef %202, ptr noundef nonnull @.str.96, i32 noundef %205, i32 noundef %209) #16
+  %.13.us262 = add nsw i32 %210, %.12257.us261
+  %211 = sext i32 %.13.us262 to i64
+  %212 = getelementptr inbounds i8, ptr %12, i64 %211
+  %213 = sub nsw i32 1024, %.13.us262
+  %214 = sext i32 %213 to i64
+  %215 = icmp ult i64 %206, %171
+  %216 = select i1 %215, ptr @.str.44, ptr @.str.46
+  %217 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %212, i64 noundef %214, ptr noundef nonnull %216) #16
+  %218 = add nsw i32 %.13.us262, %217
   %indvars.iv.next304 = add nuw nsw i64 %indvars.iv303, 2
-  %222 = trunc nuw i64 %indvars.iv.next304 to i32
-  %223 = icmp sgt i32 %3, %222
-  br i1 %223, label %getPhaseFuncSymbol.exit241.us, label %.loopexit
+  %219 = trunc nuw i64 %indvars.iv.next304 to i32
+  %220 = icmp sgt i32 %3, %219
+  br i1 %220, label %getPhaseFuncSymbol.exit241.us, label %.loopexit
 
 getPhaseFuncSymbol.exit241.us267:                 ; preds = %.lr.ph.split, %getPhaseFuncSymbol.exit241.us267
   %indvars.iv = phi i64 [ %indvars.iv.next, %getPhaseFuncSymbol.exit241.us267 ], [ 0, %.lr.ph.split ]
-  %.12257.us266 = phi i32 [ %243, %getPhaseFuncSymbol.exit241.us267 ], [ %.11, %.lr.ph.split ]
-  %224 = sext i32 %.12257.us266 to i64
-  %225 = getelementptr inbounds i8, ptr %12, i64 %224
-  %226 = sub nsw i32 1024, %.12257.us266
-  %227 = sext i32 %226 to i64
-  %228 = getelementptr inbounds [24 x i8], ptr @getPhaseFuncSymbol.abc, i64 0, i64 %indvars.iv
-  %229 = load i8, ptr %228, align 2
-  %230 = sext i8 %229 to i32
-  %231 = or disjoint i64 %indvars.iv, 1
-  %232 = getelementptr inbounds [24 x i8], ptr @getPhaseFuncSymbol.abc, i64 0, i64 %231
-  %233 = load i8, ptr %232, align 1
-  %234 = sext i8 %233 to i32
-  %235 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %225, i64 noundef %227, ptr noundef nonnull @.str.96, i32 noundef %230, i32 noundef %234) #16
-  %.13.us269 = add nsw i32 %235, %.12257.us266
-  %236 = sext i32 %.13.us269 to i64
-  %237 = getelementptr inbounds i8, ptr %12, i64 %236
-  %238 = sub nsw i32 1024, %.13.us269
-  %239 = sext i32 %238 to i64
-  %240 = icmp ult i64 %231, %173
-  %241 = select i1 %240, ptr @.str.44, ptr @.str.46
-  %242 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %237, i64 noundef %239, ptr noundef nonnull %241) #16
-  %243 = add nsw i32 %.13.us269, %242
+  %.12257.us266 = phi i32 [ %240, %getPhaseFuncSymbol.exit241.us267 ], [ %.11, %.lr.ph.split ]
+  %221 = sext i32 %.12257.us266 to i64
+  %222 = getelementptr inbounds i8, ptr %12, i64 %221
+  %223 = sub nsw i32 1024, %.12257.us266
+  %224 = sext i32 %223 to i64
+  %225 = getelementptr inbounds [24 x i8], ptr @getPhaseFuncSymbol.abc, i64 0, i64 %indvars.iv
+  %226 = load i8, ptr %225, align 2
+  %227 = sext i8 %226 to i32
+  %228 = or disjoint i64 %indvars.iv, 1
+  %229 = getelementptr inbounds [24 x i8], ptr @getPhaseFuncSymbol.abc, i64 0, i64 %228
+  %230 = load i8, ptr %229, align 1
+  %231 = sext i8 %230 to i32
+  %232 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %222, i64 noundef %224, ptr noundef nonnull @.str.96, i32 noundef %227, i32 noundef %231) #16
+  %.13.us269 = add nsw i32 %232, %.12257.us266
+  %233 = sext i32 %.13.us269 to i64
+  %234 = getelementptr inbounds i8, ptr %12, i64 %233
+  %235 = sub nsw i32 1024, %.13.us269
+  %236 = sext i32 %235 to i64
+  %237 = icmp ult i64 %228, %171
+  %238 = select i1 %237, ptr @.str.44, ptr @.str.46
+  %239 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %234, i64 noundef %236, ptr noundef nonnull %238) #16
+  %240 = add nsw i32 %.13.us269, %239
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %244 = trunc nuw i64 %indvars.iv.next to i32
-  %245 = icmp sgt i32 %3, %244
-  br i1 %245, label %getPhaseFuncSymbol.exit241.us267, label %.loopexit
+  %241 = trunc nuw i64 %indvars.iv.next to i32
+  %242 = icmp sgt i32 %3, %241
+  br i1 %242, label %getPhaseFuncSymbol.exit241.us267, label %.loopexit
 
-246:                                              ; preds = %168
-  %247 = sext i32 %.11 to i64
-  %248 = getelementptr inbounds i8, ptr %12, i64 %247
-  %249 = sub nsw i32 1024, %.11
-  %250 = sext i32 %249 to i64
-  br i1 %148, label %251, label %254
+243:                                              ; preds = %166
+  %244 = sext i32 %.11 to i64
+  %245 = getelementptr inbounds i8, ptr %12, i64 %244
+  %246 = sub nsw i32 1024, %.11
+  %247 = sext i32 %246 to i64
+  br i1 %146, label %248, label %251
 
-251:                                              ; preds = %246
-  %252 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %248, i64 noundef %250, ptr noundef nonnull @.str.97) #16
+248:                                              ; preds = %243
+  %249 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %245, i64 noundef %247, ptr noundef nonnull @.str.97) #16
+  %250 = add nsw i32 %249, %.11
+  br label %.loopexit
+
+251:                                              ; preds = %243
+  %252 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %245, i64 noundef %247, ptr noundef nonnull @.str.98) #16
   %253 = add nsw i32 %252, %.11
   br label %.loopexit
 
-254:                                              ; preds = %246
-  %255 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %248, i64 noundef %250, ptr noundef nonnull @.str.98) #16
-  %256 = add nsw i32 %255, %.11
-  br label %.loopexit
+.loopexit:                                        ; preds = %getPhaseFuncSymbol.exit241.us267, %getPhaseFuncSymbol.exit241.us, %.lr.ph.split.us, %56, %.preheader255, %.preheader, %137, %251, %248, %73, %70
+  %.4 = phi i32 [ %72, %70 ], [ %75, %73 ], [ %143, %137 ], [ %250, %248 ], [ %253, %251 ], [ %.1, %.preheader ], [ %.11, %.preheader255 ], [ %64, %56 ], [ %196, %.lr.ph.split.us ], [ %218, %getPhaseFuncSymbol.exit241.us ], [ %240, %getPhaseFuncSymbol.exit241.us267 ]
+  %254 = icmp sgt i32 %.4, 1023
+  br i1 %254, label %255, label %.thread249
 
-.loopexit:                                        ; preds = %getPhaseFuncSymbol.exit241.us267, %getPhaseFuncSymbol.exit241.us, %.lr.ph.split.us, %58, %.preheader255, %.preheader, %139, %254, %251, %75, %72
-  %.4 = phi i32 [ %74, %72 ], [ %77, %75 ], [ %145, %139 ], [ %253, %251 ], [ %256, %254 ], [ %.1, %.preheader ], [ %.11, %.preheader255 ], [ %66, %58 ], [ %199, %.lr.ph.split.us ], [ %221, %getPhaseFuncSymbol.exit241.us ], [ %243, %getPhaseFuncSymbol.exit241.us267 ]
-  %257 = icmp sgt i32 %.4, 1023
-  br i1 %257, label %258, label %.thread249
-
-258:                                              ; preds = %.loopexit
+255:                                              ; preds = %.loopexit
   tail call void @raiseQASMBufferOverflow(ptr noundef nonnull @__func__.qasm_recordNamedPhaseFunc) #16
   br label %.thread249
 
-.thread249:                                       ; preds = %146, %258, %.loopexit
-  %.4251 = phi i32 [ %.4, %258 ], [ %.4, %.loopexit ], [ 13, %146 ]
-  %259 = load ptr, ptr %14, align 8
-  %260 = getelementptr inbounds i8, ptr %14, i64 8
-  %261 = load i32, ptr %260, align 8
-  %262 = getelementptr inbounds i8, ptr %14, i64 12
-  %263 = load i32, ptr %262, align 4
-  %264 = add nsw i32 %263, %.4251
-  %265 = icmp sgt i32 %264, %261
-  br i1 %265, label %266, label %addStringToQASM.exit
+.thread249:                                       ; preds = %144, %255, %.loopexit
+  %.4251 = phi i32 [ %.4, %255 ], [ %.4, %.loopexit ], [ 13, %144 ]
+  %256 = load ptr, ptr %14, align 8
+  %257 = getelementptr inbounds i8, ptr %14, i64 8
+  %258 = load i32, ptr %257, align 8
+  %259 = getelementptr inbounds i8, ptr %14, i64 12
+  %260 = load i32, ptr %259, align 4
+  %261 = add nsw i32 %260, %.4251
+  %262 = icmp sgt i32 %261, %258
+  br i1 %262, label %263, label %addStringToQASM.exit
 
-266:                                              ; preds = %.thread249
-  %267 = shl nsw i32 %261, 1
-  %268 = icmp sgt i32 %264, %267
-  br i1 %268, label %269, label %270
+263:                                              ; preds = %.thread249
+  %264 = shl nsw i32 %258, 1
+  %265 = icmp sgt i32 %261, %264
+  br i1 %265, label %266, label %267
 
-269:                                              ; preds = %266
+266:                                              ; preds = %263
   tail call void @raiseQASMBufferOverflow(ptr noundef nonnull @__func__.addStringToQASM) #16
-  br label %270
+  br label %267
 
-270:                                              ; preds = %269, %266
-  %271 = sext i32 %267 to i64
-  %272 = tail call noalias ptr @malloc(i64 noundef %271) #15
-  %strcpy.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %272, ptr noundef nonnull dereferenceable(1) %259)
-  tail call void @free(ptr noundef %259) #16
-  store i32 %267, ptr %260, align 8
-  store ptr %272, ptr %14, align 8
+267:                                              ; preds = %266, %263
+  %268 = sext i32 %264 to i64
+  %269 = tail call noalias ptr @malloc(i64 noundef %268) #15
+  %strcpy.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %269, ptr noundef nonnull dereferenceable(1) %256)
+  tail call void @free(ptr noundef %256) #16
+  store i32 %264, ptr %257, align 8
+  store ptr %269, ptr %14, align 8
   br label %addStringToQASM.exit
 
-addStringToQASM.exit:                             ; preds = %.thread249, %270
-  %.020.i = phi i32 [ %267, %270 ], [ %261, %.thread249 ]
-  %.0.i242 = phi ptr [ %272, %270 ], [ %259, %.thread249 ]
-  %273 = sext i32 %263 to i64
-  %274 = getelementptr inbounds i8, ptr %.0.i242, i64 %273
-  %275 = sub nsw i32 %.020.i, %263
-  %276 = sext i32 %275 to i64
-  %277 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %274, i64 noundef %276, ptr noundef nonnull @.str.3, ptr noundef nonnull %12) #16
-  %278 = load i32, ptr %262, align 4
-  %279 = add nsw i32 %278, %277
-  store i32 %279, ptr %262, align 4
+addStringToQASM.exit:                             ; preds = %.thread249, %267
+  %.020.i = phi i32 [ %264, %267 ], [ %258, %.thread249 ]
+  %.0.i242 = phi ptr [ %269, %267 ], [ %256, %.thread249 ]
+  %270 = sext i32 %260 to i64
+  %271 = getelementptr inbounds i8, ptr %.0.i242, i64 %270
+  %272 = sub nsw i32 %.020.i, %260
+  %273 = sext i32 %272 to i64
+  %274 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %271, i64 noundef %273, ptr noundef nonnull @.str.3, ptr noundef nonnull %12) #16
+  %275 = load i32, ptr %259, align 4
+  %276 = add nsw i32 %275, %274
+  store i32 %276, ptr %259, align 4
   call void @addMultiVarRegsToQASM(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4)
-  %280 = icmp sgt i32 %3, 24
-  br i1 %280, label %281, label %283
+  %277 = icmp sgt i32 %3, 24
+  br i1 %277, label %278, label %280
 
-281:                                              ; preds = %addStringToQASM.exit
-  switch i32 %5, label %283 [
-    i32 13, label %282
-    i32 4, label %282
+278:                                              ; preds = %addStringToQASM.exit
+  switch i32 %5, label %280 [
+    i32 13, label %279
+    i32 4, label %279
   ]
 
-282:                                              ; preds = %281, %281
+279:                                              ; preds = %278, %278
   call void @addShiftValuesToQASM(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %5, i32 noundef %3, ptr noundef %6)
+  br label %280
+
+280:                                              ; preds = %278, %279, %addStringToQASM.exit
+  %281 = icmp sgt i32 %10, 0
+  br i1 %281, label %282, label %283
+
+282:                                              ; preds = %280
+  call void @addMultiVarOverridesToQASM(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %3, ptr noundef %8, ptr noundef %9, i32 noundef %10)
   br label %283
 
-283:                                              ; preds = %281, %282, %addStringToQASM.exit
-  %284 = icmp sgt i32 %10, 0
-  br i1 %284, label %285, label %286
-
-285:                                              ; preds = %283
-  call void @addMultiVarOverridesToQASM(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %3, ptr noundef %8, ptr noundef %9, i32 noundef %10)
-  br label %286
-
-286:                                              ; preds = %11, %285, %283
+283:                                              ; preds = %11, %282, %280
   ret void
 }
 

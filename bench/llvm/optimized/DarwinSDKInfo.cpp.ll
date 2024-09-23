@@ -820,7 +820,7 @@ define dso_local void @_ZN5clang13DarwinSDKInfo26parseDarwinSDKSettingsJSONEPKN4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 0, ptr %28, align 8
-  br label %326
+  br label %327
 
 29:                                               ; preds = %25
   %.sroa.0123.0.copyload = load i64, ptr %7, align 8
@@ -849,7 +849,7 @@ define dso_local void @_ZN5clang13DarwinSDKInfo26parseDarwinSDKSettingsJSONEPKN4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 0, ptr %36, align 8
-  br label %326
+  br label %327
 
 37:                                               ; preds = %33
   %.sroa.0116.0.copyload = load i64, ptr %5, align 8
@@ -919,8 +919,8 @@ _ZNK4llvm4json6Object5beginEv.exit:               ; preds = %39, %48
   %66 = getelementptr inbounds nuw i8, ptr %16, i64 80
   br label %67
 
-67:                                               ; preds = %.lr.ph, %155
-  %68 = phi ptr [ %.pn8.i.i, %.lr.ph ], [ %158, %155 ]
+67:                                               ; preds = %.lr.ph, %156
+  %68 = phi ptr [ %.pn8.i.i, %.lr.ph ], [ %159, %156 ]
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %.sroa.0.0.copyload.i36 = load ptr, ptr %69, align 8
   %.sroa.2.0..sroa_idx.i37 = getelementptr inbounds i8, ptr %68, i64 16
@@ -954,7 +954,7 @@ _ZNK4llvm4json6Object5beginEv.exit:               ; preds = %39, %48
 _ZNK4llvm9StringRef5splitES0_.exit:               ; preds = %72, %73
   %80 = call noundef i32 @_ZNK4llvm9StringRef19compare_insensitiveES0_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr nonnull @.str.4, i64 3) #13
   %81 = icmp eq i32 %80, 0
-  br i1 %81, label %82, label %155
+  br i1 %81, label %82, label %156
 
 82:                                               ; preds = %_ZNK4llvm9StringRef5splitES0_.exit
   store i8 1, ptr %56, align 1
@@ -964,453 +964,451 @@ _ZNK4llvm9StringRef5splitES0_.exit:               ; preds = %72, %73
   call void @llvm.experimental.noalias.scope.decl(metadata !18)
   call void @llvm.experimental.noalias.scope.decl(metadata !21)
   %83 = load i8, ptr %55, align 8, !noalias !24
-  switch i8 %83, label %84 [
+  switch i8 %83, label %85 [
     i8 0, label %_ZN4llvmplERKNS_5TwineES2_.exit
-    i8 1, label %_ZN4llvmplERKNS_5TwineES2_.exit.sink.split
+    i8 1, label %84
   ]
 
 84:                                               ; preds = %82
-  %85 = load i8, ptr %56, align 1, !noalias !24
-  %86 = icmp eq i8 %85, 1
-  %.sroa.05.0.copyload.i.i = load ptr, ptr %14, align 8, !noalias !24
-  %.sroa.36.0.copyload.i.i = load i64, ptr %.sroa.36.0..sroa_idx.i.i, align 8, !noalias !24
-  %.014.i.i = select i1 %86, i8 %83, i8 2
-  %.sroa.05.0.i.i = select i1 %86, ptr %.sroa.05.0.copyload.i.i, ptr %14
-  %.sroa.36.0.i.i = select i1 %86, i64 %.sroa.36.0.copyload.i.i, i64 undef
-  store ptr %.sroa.05.0.i.i, ptr %13, align 8, !alias.scope !24
-  store i64 %.sroa.36.0.i.i, ptr %.sroa.23.0..sroa_idx.i.i.i, align 8, !alias.scope !24
-  br label %_ZN4llvmplERKNS_5TwineES2_.exit.sink.split
-
-_ZN4llvmplERKNS_5TwineES2_.exit.sink.split:       ; preds = %82, %84
-  %.sink172 = phi ptr [ %59, %84 ], [ %13, %82 ]
-  %.sink171.ph = phi i8 [ %.014.i.i, %84 ], [ 4, %82 ]
-  %.sink.ph = phi i8 [ 4, %84 ], [ %83, %82 ]
-  store ptr %15, ptr %.sink172, align 8
+  store ptr %15, ptr %13, align 8
   br label %_ZN4llvmplERKNS_5TwineES2_.exit
 
-_ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit.sink.split, %82
-  %.sink171 = phi i8 [ %83, %82 ], [ %.sink171.ph, %_ZN4llvmplERKNS_5TwineES2_.exit.sink.split ]
-  %.sink = phi i8 [ 1, %82 ], [ %.sink.ph, %_ZN4llvmplERKNS_5TwineES2_.exit.sink.split ]
+85:                                               ; preds = %82
+  %86 = load i8, ptr %56, align 1, !noalias !24
+  %87 = icmp eq i8 %86, 1
+  %.sroa.05.0.copyload.i.i = load ptr, ptr %14, align 8, !noalias !24
+  %.sroa.36.0.copyload.i.i = load i64, ptr %.sroa.36.0..sroa_idx.i.i, align 8, !noalias !24
+  %.014.i.i = select i1 %87, i8 %83, i8 2
+  %.sroa.05.0.i.i = select i1 %87, ptr %.sroa.05.0.copyload.i.i, ptr %14
+  %.sroa.36.0.i.i = select i1 %87, i64 %.sroa.36.0.copyload.i.i, i64 undef
+  store ptr %.sroa.05.0.i.i, ptr %13, align 8, !alias.scope !24
+  store i64 %.sroa.36.0.i.i, ptr %.sroa.23.0..sroa_idx.i.i.i, align 8, !alias.scope !24
+  store ptr %15, ptr %59, align 8, !alias.scope !24
+  br label %_ZN4llvmplERKNS_5TwineES2_.exit
+
+_ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %82, %84, %85
+  %.sink171 = phi i8 [ 4, %84 ], [ %.014.i.i, %85 ], [ %83, %82 ]
+  %.sink = phi i8 [ 1, %84 ], [ 4, %85 ], [ 1, %82 ]
   store i8 %.sink171, ptr %57, align 8
   store i8 %.sink, ptr %58, align 1
   call void @_ZN4llvm6TripleC1ERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(34) %13) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #13
-  %87 = load i32, ptr %60, align 4
-  %.not30 = icmp eq i32 %87, 0
-  br i1 %.not30, label %_ZNSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEED2Ev.exit, label %88
+  %88 = load i32, ptr %60, align 4
+  %.not30 = icmp eq i32 %88, 0
+  br i1 %.not30, label %_ZNSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEED2Ev.exit, label %89
 
-88:                                               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit
-  %89 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  %90 = load i16, ptr %89, align 8
-  %91 = icmp eq i16 %90, 7
-  %92 = getelementptr inbounds nuw i8, ptr %68, i64 32
-  %spec.select.i = select i1 %91, ptr %92, ptr null
+89:                                               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit
+  %90 = getelementptr inbounds nuw i8, ptr %68, i64 24
+  %91 = load i16, ptr %90, align 8
+  %92 = icmp eq i16 %91, 7
+  %93 = getelementptr inbounds nuw i8, ptr %68, i64 32
+  %spec.select.i = select i1 %92, ptr %93, ptr null
   call void @_ZN5clang13DarwinSDKInfo27RelatedTargetVersionMapping9parseJSONERKN4llvm4json6ObjectENS2_12VersionTupleE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.8") align 8 %16, ptr noundef nonnull align 8 dereferenceable(24) %spec.select.i, i64 %.sroa.0116.0.copyload, i64 %.sroa.5117.0.copyload)
-  %93 = load i8, ptr %61, align 8
-  %94 = trunc i8 %93 to i1
-  br i1 %94, label %95, label %_ZNSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEED2Ev.exit
+  %94 = load i8, ptr %61, align 8
+  %95 = trunc i8 %94 to i1
+  br i1 %95, label %96, label %_ZNSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEED2Ev.exit
 
-95:                                               ; preds = %88
-  %96 = load i32, ptr %60, align 4
-  %97 = zext i32 %96 to i64
-  %98 = mul nuw nsw i64 %97, 40
-  %99 = or i64 %98, 858993459200
-  store i64 %99, ptr %17, align 8
-  %100 = load ptr, ptr %8, align 8
-  %101 = load i32, ptr %62, align 8
-  %102 = icmp eq i32 %101, 0
-  br i1 %102, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_E15LookupBucketForImEEbRKT_RPSB_.exit.i.i, label %103
+96:                                               ; preds = %89
+  %97 = load i32, ptr %60, align 4
+  %98 = zext i32 %97 to i64
+  %99 = mul nuw nsw i64 %98, 40
+  %100 = or i64 %99, 858993459200
+  store i64 %100, ptr %17, align 8
+  %101 = load ptr, ptr %8, align 8
+  %102 = load i32, ptr %62, align 8
+  %103 = icmp eq i32 %102, 0
+  br i1 %103, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_E15LookupBucketForImEEbRKT_RPSB_.exit.i.i, label %104
 
-103:                                              ; preds = %95
-  %104 = mul i64 %99, -4658895280553007687
-  %105 = lshr i64 %104, 31
-  %106 = xor i64 %105, %104
-  %107 = trunc i64 %106 to i32
-  %108 = add i32 %101, -1
-  %.02532.i.i.i.i = and i32 %108, %107
-  %109 = zext i32 %.02532.i.i.i.i to i64
-  %110 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.77", ptr %100, i64 %109
-  %111 = load i64, ptr %110, align 8
-  %112 = icmp eq i64 %99, %111
-  br i1 %112, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_EixEOm.exit, label %.lr.ph.i.i.i.i
+104:                                              ; preds = %96
+  %105 = mul i64 %100, -4658895280553007687
+  %106 = lshr i64 %105, 31
+  %107 = xor i64 %106, %105
+  %108 = trunc i64 %107 to i32
+  %109 = add i32 %102, -1
+  %.02532.i.i.i.i = and i32 %109, %108
+  %110 = zext i32 %.02532.i.i.i.i to i64
+  %111 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.77", ptr %101, i64 %110
+  %112 = load i64, ptr %111, align 8
+  %113 = icmp eq i64 %100, %112
+  br i1 %113, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_EixEOm.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %103, %118
-  %113 = phi i64 [ %125, %118 ], [ %111, %103 ]
-  %114 = phi ptr [ %124, %118 ], [ %110, %103 ]
-  %.02535.i.i.i.i = phi i32 [ %.025.i.i.i.i, %118 ], [ %.02532.i.i.i.i, %103 ]
-  %.02434.i.i.i.i = phi i32 [ %121, %118 ], [ 1, %103 ]
-  %.02633.i.i.i.i = phi ptr [ %spec.select.i.i.i.i, %118 ], [ null, %103 ]
-  %115 = icmp eq i64 %113, -1
-  br i1 %115, label %116, label %118
+.lr.ph.i.i.i.i:                                   ; preds = %104, %119
+  %114 = phi i64 [ %126, %119 ], [ %112, %104 ]
+  %115 = phi ptr [ %125, %119 ], [ %111, %104 ]
+  %.02535.i.i.i.i = phi i32 [ %.025.i.i.i.i, %119 ], [ %.02532.i.i.i.i, %104 ]
+  %.02434.i.i.i.i = phi i32 [ %122, %119 ], [ 1, %104 ]
+  %.02633.i.i.i.i = phi ptr [ %spec.select.i.i.i.i, %119 ], [ null, %104 ]
+  %116 = icmp eq i64 %114, -1
+  br i1 %116, label %117, label %119
 
-116:                                              ; preds = %.lr.ph.i.i.i.i
+117:                                              ; preds = %.lr.ph.i.i.i.i
   %.not.i.i.i.i = icmp eq ptr %.02633.i.i.i.i, null
-  %117 = select i1 %.not.i.i.i.i, ptr %114, ptr %.02633.i.i.i.i
+  %118 = select i1 %.not.i.i.i.i, ptr %115, ptr %.02633.i.i.i.i
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_E15LookupBucketForImEEbRKT_RPSB_.exit.i.i
 
-118:                                              ; preds = %.lr.ph.i.i.i.i
-  %119 = icmp eq i64 %113, -2
-  %120 = icmp eq ptr %.02633.i.i.i.i, null
-  %or.cond.not.i.i.i.i = select i1 %119, i1 %120, i1 false
-  %spec.select.i.i.i.i = select i1 %or.cond.not.i.i.i.i, ptr %114, ptr %.02633.i.i.i.i
-  %121 = add i32 %.02434.i.i.i.i, 1
-  %122 = add i32 %.02434.i.i.i.i, %.02535.i.i.i.i
-  %.025.i.i.i.i = and i32 %122, %108
-  %123 = zext i32 %.025.i.i.i.i to i64
-  %124 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.77", ptr %100, i64 %123
-  %125 = load i64, ptr %124, align 8
-  %126 = icmp eq i64 %99, %125
-  br i1 %126, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_EixEOm.exit, label %.lr.ph.i.i.i.i, !llvm.loop !25
+119:                                              ; preds = %.lr.ph.i.i.i.i
+  %120 = icmp eq i64 %114, -2
+  %121 = icmp eq ptr %.02633.i.i.i.i, null
+  %or.cond.not.i.i.i.i = select i1 %120, i1 %121, i1 false
+  %spec.select.i.i.i.i = select i1 %or.cond.not.i.i.i.i, ptr %115, ptr %.02633.i.i.i.i
+  %122 = add i32 %.02434.i.i.i.i, 1
+  %123 = add i32 %.02434.i.i.i.i, %.02535.i.i.i.i
+  %.025.i.i.i.i = and i32 %123, %109
+  %124 = zext i32 %.025.i.i.i.i to i64
+  %125 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.77", ptr %101, i64 %124
+  %126 = load i64, ptr %125, align 8
+  %127 = icmp eq i64 %100, %126
+  br i1 %127, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_EixEOm.exit, label %.lr.ph.i.i.i.i, !llvm.loop !25
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_E15LookupBucketForImEEbRKT_RPSB_.exit.i.i: ; preds = %116, %95
-  %.sink.i.i.i.i = phi ptr [ %117, %116 ], [ null, %95 ]
-  %127 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_E20InsertIntoBucketImplImEEPSB_RKmRKT_SF_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef %.sink.i.i.i.i)
-  %128 = load i64, ptr %17, align 8
-  store i64 %128, ptr %127, align 8
-  %129 = getelementptr inbounds nuw i8, ptr %127, i64 96
-  store i8 0, ptr %129, align 8
+_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_E15LookupBucketForImEEbRKT_RPSB_.exit.i.i: ; preds = %117, %96
+  %.sink.i.i.i.i = phi ptr [ %118, %117 ], [ null, %96 ]
+  %128 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_E20InsertIntoBucketImplImEEPSB_RKmRKT_SF_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef %.sink.i.i.i.i)
+  %129 = load i64, ptr %17, align 8
+  store i64 %129, ptr %128, align 8
+  %130 = getelementptr inbounds nuw i8, ptr %128, i64 96
+  store i8 0, ptr %130, align 8
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_EixEOm.exit
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_EixEOm.exit: ; preds = %118, %103, %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_E15LookupBucketForImEEbRKT_RPSB_.exit.i.i
-  %.0.i.i40 = phi ptr [ %127, %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_E15LookupBucketForImEEbRKT_RPSB_.exit.i.i ], [ %110, %103 ], [ %124, %118 ]
-  %130 = getelementptr inbounds nuw i8, ptr %.0.i.i40, i64 8
-  %131 = getelementptr inbounds nuw i8, ptr %.0.i.i40, i64 96
-  %132 = load i8, ptr %131, align 8
-  %133 = trunc i8 %132 to i1
-  br i1 %133, label %134, label %.thread.i
+_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_EixEOm.exit: ; preds = %119, %104, %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_E15LookupBucketForImEEbRKT_RPSB_.exit.i.i
+  %.0.i.i40 = phi ptr [ %128, %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_E15LookupBucketForImEEbRKT_RPSB_.exit.i.i ], [ %111, %104 ], [ %125, %119 ]
+  %131 = getelementptr inbounds nuw i8, ptr %.0.i.i40, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %.0.i.i40, i64 96
+  %133 = load i8, ptr %132, align 8
+  %134 = trunc i8 %133 to i1
+  br i1 %134, label %135, label %.thread.i
 
-134:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_EixEOm.exit
-  %135 = getelementptr inbounds nuw i8, ptr %.0.i.i40, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %130, ptr noundef nonnull align 8 dereferenceable(64) %16, i64 64, i1 false)
-  %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr inbounds nuw i8, ptr %.0.i.i40, i64 88
-  %138 = load i32, ptr %137, align 8
-  %139 = zext i32 %138 to i64
-  %140 = shl nuw nsw i64 %139, 5
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %136, i64 noundef %140, i64 noundef 4) #13
-  %141 = load ptr, ptr %63, align 8
-  store ptr %141, ptr %135, align 8
+135:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_EixEOm.exit
+  %136 = getelementptr inbounds nuw i8, ptr %.0.i.i40, i64 72
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %131, ptr noundef nonnull align 8 dereferenceable(64) %16, i64 64, i1 false)
+  %137 = load ptr, ptr %136, align 8
+  %138 = getelementptr inbounds nuw i8, ptr %.0.i.i40, i64 88
+  %139 = load i32, ptr %138, align 8
+  %140 = zext i32 %139 to i64
+  %141 = shl nuw nsw i64 %140, 5
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %137, i64 noundef %141, i64 noundef 4) #13
+  %142 = load ptr, ptr %63, align 8
+  store ptr %142, ptr %136, align 8
   store ptr null, ptr %63, align 8
-  %142 = getelementptr inbounds nuw i8, ptr %.0.i.i40, i64 80
-  %143 = load i32, ptr %64, align 8
-  store i32 %143, ptr %142, align 4
+  %143 = getelementptr inbounds nuw i8, ptr %.0.i.i40, i64 80
+  %144 = load i32, ptr %64, align 8
+  store i32 %144, ptr %143, align 4
   store i32 0, ptr %64, align 8
-  %144 = getelementptr inbounds nuw i8, ptr %.0.i.i40, i64 84
-  %145 = load i32, ptr %65, align 4
-  store i32 %145, ptr %144, align 4
+  %145 = getelementptr inbounds nuw i8, ptr %.0.i.i40, i64 84
+  %146 = load i32, ptr %65, align 4
+  store i32 %146, ptr %145, align 4
   store i32 0, ptr %65, align 4
-  %146 = load i32, ptr %66, align 8
-  store i32 %146, ptr %137, align 4
+  %147 = load i32, ptr %66, align 8
+  store i32 %147, ptr %138, align 4
   store i32 0, ptr %66, align 8
   br label %_ZNSt22_Optional_payload_baseIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEE14_M_move_assignEOS3_.exit
 
 .thread.i:                                        ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_EixEOm.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %130, ptr noundef nonnull align 8 dereferenceable(64) %16, i64 64, i1 false)
-  %147 = getelementptr inbounds nuw i8, ptr %.0.i.i40, i64 72
-  %148 = load ptr, ptr %63, align 8
-  store ptr %148, ptr %147, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %131, ptr noundef nonnull align 8 dereferenceable(64) %16, i64 64, i1 false)
+  %148 = getelementptr inbounds nuw i8, ptr %.0.i.i40, i64 72
+  %149 = load ptr, ptr %63, align 8
+  store ptr %149, ptr %148, align 8
   store ptr null, ptr %63, align 8
-  %149 = getelementptr inbounds nuw i8, ptr %.0.i.i40, i64 80
-  %150 = load i32, ptr %64, align 8
-  store i32 %150, ptr %149, align 4
+  %150 = getelementptr inbounds nuw i8, ptr %.0.i.i40, i64 80
+  %151 = load i32, ptr %64, align 8
+  store i32 %151, ptr %150, align 4
   store i32 0, ptr %64, align 8
-  %151 = getelementptr inbounds nuw i8, ptr %.0.i.i40, i64 84
-  %152 = load i32, ptr %65, align 4
-  store i32 %152, ptr %151, align 4
+  %152 = getelementptr inbounds nuw i8, ptr %.0.i.i40, i64 84
+  %153 = load i32, ptr %65, align 4
+  store i32 %153, ptr %152, align 4
   store i32 0, ptr %65, align 4
-  %153 = getelementptr inbounds nuw i8, ptr %.0.i.i40, i64 88
-  %154 = load i32, ptr %66, align 8
-  store i32 %154, ptr %153, align 4
+  %154 = getelementptr inbounds nuw i8, ptr %.0.i.i40, i64 88
+  %155 = load i32, ptr %66, align 8
+  store i32 %155, ptr %154, align 4
   store i32 0, ptr %66, align 8
-  store i8 1, ptr %131, align 8
+  store i8 1, ptr %132, align 8
   br label %_ZNSt22_Optional_payload_baseIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEE14_M_move_assignEOS3_.exit
 
-_ZNSt22_Optional_payload_baseIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEE14_M_move_assignEOS3_.exit: ; preds = %134, %.thread.i
+_ZNSt22_Optional_payload_baseIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEE14_M_move_assignEOS3_.exit: ; preds = %135, %.thread.i
   store i8 0, ptr %61, align 8
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 4) #13
   br label %_ZNSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEED2Ev.exit
 
-_ZNSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEED2Ev.exit: ; preds = %88, %_ZNSt22_Optional_payload_baseIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEE14_M_move_assignEOS3_.exit, %_ZN4llvmplERKNS_5TwineES2_.exit
+_ZNSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEED2Ev.exit: ; preds = %89, %_ZNSt22_Optional_payload_baseIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEE14_M_move_assignEOS3_.exit, %_ZN4llvmplERKNS_5TwineES2_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #13
-  br label %155
+  br label %156
 
-155:                                              ; preds = %_ZNK4llvm9StringRef5splitES0_.exit, %_ZNSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEED2Ev.exit
-  %156 = load ptr, ptr %9, align 8
-  %157 = getelementptr inbounds i8, ptr %156, i64 64
-  store ptr %157, ptr %9, align 8
+156:                                              ; preds = %_ZNK4llvm9StringRef5splitES0_.exit, %_ZNSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEED2Ev.exit
+  %157 = load ptr, ptr %9, align 8
+  %158 = getelementptr inbounds i8, ptr %157, i64 64
+  store ptr %158, ptr %9, align 8
   call void @_ZN4llvm16DenseMapIteratorINS_4json9ObjectKeyENS1_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS2_S3_EELb1EE23AdvancePastEmptyBucketsEv(ptr noundef nonnull align 8 dereferenceable(16) %9)
-  %158 = load ptr, ptr %9, align 8
-  %.not132 = icmp eq ptr %158, %52
+  %159 = load ptr, ptr %9, align 8
+  %.not132 = icmp eq ptr %159, %52
   br i1 %.not132, label %._crit_edge, label %67
 
-._crit_edge:                                      ; preds = %155, %_ZNK4llvm4json6Object5beginEv.exit
-  %159 = call noundef ptr @_ZNK4llvm4json6Object9getObjectENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr nonnull @.str.6, i64 12) #13
-  %.not28 = icmp eq ptr %159, null
-  br i1 %.not28, label %225, label %160
+._crit_edge:                                      ; preds = %156, %_ZNK4llvm4json6Object5beginEv.exit
+  %160 = call noundef ptr @_ZNK4llvm4json6Object9getObjectENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr nonnull @.str.6, i64 12) #13
+  %.not28 = icmp eq ptr %160, null
+  br i1 %.not28, label %226, label %161
 
-160:                                              ; preds = %._crit_edge
-  call void @_ZN5clang13DarwinSDKInfo27RelatedTargetVersionMapping9parseJSONERKN4llvm4json6ObjectENS2_12VersionTupleE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.8") align 8 %18, ptr noundef nonnull align 8 dereferenceable(24) %159, i64 %.sroa.0116.0.copyload, i64 %.sroa.5117.0.copyload)
-  %161 = getelementptr inbounds nuw i8, ptr %18, i64 88
-  %162 = load i8, ptr %161, align 8
-  %163 = trunc i8 %162 to i1
-  br i1 %163, label %165, label %_ZNSt22_Optional_payload_baseIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEE14_M_move_assignEOS3_.exit82.thread
+161:                                              ; preds = %._crit_edge
+  call void @_ZN5clang13DarwinSDKInfo27RelatedTargetVersionMapping9parseJSONERKN4llvm4json6ObjectENS2_12VersionTupleE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.8") align 8 %18, ptr noundef nonnull align 8 dereferenceable(24) %160, i64 %.sroa.0116.0.copyload, i64 %.sroa.5117.0.copyload)
+  %162 = getelementptr inbounds nuw i8, ptr %18, i64 88
+  %163 = load i8, ptr %162, align 8
+  %164 = trunc i8 %163 to i1
+  br i1 %164, label %166, label %_ZNSt22_Optional_payload_baseIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEE14_M_move_assignEOS3_.exit82.thread
 
-_ZNSt22_Optional_payload_baseIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEE14_M_move_assignEOS3_.exit82.thread: ; preds = %160
-  %164 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 0, ptr %164, align 8
+_ZNSt22_Optional_payload_baseIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEE14_M_move_assignEOS3_.exit82.thread: ; preds = %161
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i8 0, ptr %165, align 8
   br label %_ZNSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEED2Ev.exit54.thread
 
-165:                                              ; preds = %160
+166:                                              ; preds = %161
   store i64 1546188226784, ptr %19, align 8
-  %166 = load ptr, ptr %8, align 8
-  %167 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %168 = load i32, ptr %167, align 8
-  %169 = icmp eq i32 %168, 0
-  br i1 %169, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_E15LookupBucketForImEEbRKT_RPSB_.exit.i.i51, label %170
+  %167 = load ptr, ptr %8, align 8
+  %168 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %169 = load i32, ptr %168, align 8
+  %170 = icmp eq i32 %169, 0
+  br i1 %170, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_E15LookupBucketForImEEbRKT_RPSB_.exit.i.i51, label %171
 
-170:                                              ; preds = %165
-  %171 = add i32 %168, -1
-  %.02532.i.i.i.i41 = and i32 %171, 1443501730
-  %172 = zext nneg i32 %.02532.i.i.i.i41 to i64
-  %173 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.77", ptr %166, i64 %172
-  %174 = load i64, ptr %173, align 8
-  %175 = icmp eq i64 %174, 1546188226784
-  br i1 %175, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_EixEOm.exit53, label %.lr.ph.i.i.i.i42
+171:                                              ; preds = %166
+  %172 = add i32 %169, -1
+  %.02532.i.i.i.i41 = and i32 %172, 1443501730
+  %173 = zext nneg i32 %.02532.i.i.i.i41 to i64
+  %174 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.77", ptr %167, i64 %173
+  %175 = load i64, ptr %174, align 8
+  %176 = icmp eq i64 %175, 1546188226784
+  br i1 %176, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_EixEOm.exit53, label %.lr.ph.i.i.i.i42
 
-.lr.ph.i.i.i.i42:                                 ; preds = %170, %181
-  %176 = phi i64 [ %188, %181 ], [ %174, %170 ]
-  %177 = phi ptr [ %187, %181 ], [ %173, %170 ]
-  %.02535.i.i.i.i43 = phi i32 [ %.025.i.i.i.i48, %181 ], [ %.02532.i.i.i.i41, %170 ]
-  %.02434.i.i.i.i44 = phi i32 [ %184, %181 ], [ 1, %170 ]
-  %.02633.i.i.i.i45 = phi ptr [ %spec.select.i.i.i.i47, %181 ], [ null, %170 ]
-  %178 = icmp eq i64 %176, -1
-  br i1 %178, label %179, label %181
+.lr.ph.i.i.i.i42:                                 ; preds = %171, %182
+  %177 = phi i64 [ %189, %182 ], [ %175, %171 ]
+  %178 = phi ptr [ %188, %182 ], [ %174, %171 ]
+  %.02535.i.i.i.i43 = phi i32 [ %.025.i.i.i.i48, %182 ], [ %.02532.i.i.i.i41, %171 ]
+  %.02434.i.i.i.i44 = phi i32 [ %185, %182 ], [ 1, %171 ]
+  %.02633.i.i.i.i45 = phi ptr [ %spec.select.i.i.i.i47, %182 ], [ null, %171 ]
+  %179 = icmp eq i64 %177, -1
+  br i1 %179, label %180, label %182
 
-179:                                              ; preds = %.lr.ph.i.i.i.i42
+180:                                              ; preds = %.lr.ph.i.i.i.i42
   %.not.i.i.i.i50 = icmp eq ptr %.02633.i.i.i.i45, null
-  %180 = select i1 %.not.i.i.i.i50, ptr %177, ptr %.02633.i.i.i.i45
+  %181 = select i1 %.not.i.i.i.i50, ptr %178, ptr %.02633.i.i.i.i45
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_E15LookupBucketForImEEbRKT_RPSB_.exit.i.i51
 
-181:                                              ; preds = %.lr.ph.i.i.i.i42
-  %182 = icmp eq i64 %176, -2
-  %183 = icmp eq ptr %.02633.i.i.i.i45, null
-  %or.cond.not.i.i.i.i46 = select i1 %182, i1 %183, i1 false
-  %spec.select.i.i.i.i47 = select i1 %or.cond.not.i.i.i.i46, ptr %177, ptr %.02633.i.i.i.i45
-  %184 = add i32 %.02434.i.i.i.i44, 1
-  %185 = add i32 %.02434.i.i.i.i44, %.02535.i.i.i.i43
-  %.025.i.i.i.i48 = and i32 %185, %171
-  %186 = zext i32 %.025.i.i.i.i48 to i64
-  %187 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.77", ptr %166, i64 %186
-  %188 = load i64, ptr %187, align 8
-  %189 = icmp eq i64 %188, 1546188226784
-  br i1 %189, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_EixEOm.exit53, label %.lr.ph.i.i.i.i42, !llvm.loop !25
+182:                                              ; preds = %.lr.ph.i.i.i.i42
+  %183 = icmp eq i64 %177, -2
+  %184 = icmp eq ptr %.02633.i.i.i.i45, null
+  %or.cond.not.i.i.i.i46 = select i1 %183, i1 %184, i1 false
+  %spec.select.i.i.i.i47 = select i1 %or.cond.not.i.i.i.i46, ptr %178, ptr %.02633.i.i.i.i45
+  %185 = add i32 %.02434.i.i.i.i44, 1
+  %186 = add i32 %.02434.i.i.i.i44, %.02535.i.i.i.i43
+  %.025.i.i.i.i48 = and i32 %186, %172
+  %187 = zext i32 %.025.i.i.i.i48 to i64
+  %188 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.77", ptr %167, i64 %187
+  %189 = load i64, ptr %188, align 8
+  %190 = icmp eq i64 %189, 1546188226784
+  br i1 %190, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_EixEOm.exit53, label %.lr.ph.i.i.i.i42, !llvm.loop !25
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_E15LookupBucketForImEEbRKT_RPSB_.exit.i.i51: ; preds = %179, %165
-  %.sink.i.i.i.i52 = phi ptr [ %180, %179 ], [ null, %165 ]
-  %190 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_E20InsertIntoBucketImplImEEPSB_RKmRKT_SF_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef %.sink.i.i.i.i52)
-  %191 = load i64, ptr %19, align 8
-  store i64 %191, ptr %190, align 8
-  %192 = getelementptr inbounds nuw i8, ptr %190, i64 96
-  store i8 0, ptr %192, align 8
+_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_E15LookupBucketForImEEbRKT_RPSB_.exit.i.i51: ; preds = %180, %166
+  %.sink.i.i.i.i52 = phi ptr [ %181, %180 ], [ null, %166 ]
+  %191 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_E20InsertIntoBucketImplImEEPSB_RKmRKT_SF_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef %.sink.i.i.i.i52)
+  %192 = load i64, ptr %19, align 8
+  store i64 %192, ptr %191, align 8
+  %193 = getelementptr inbounds nuw i8, ptr %191, i64 96
+  store i8 0, ptr %193, align 8
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_EixEOm.exit53
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_EixEOm.exit53: ; preds = %181, %170, %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_E15LookupBucketForImEEbRKT_RPSB_.exit.i.i51
-  %.0.i.i49 = phi ptr [ %190, %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_E15LookupBucketForImEEbRKT_RPSB_.exit.i.i51 ], [ %173, %170 ], [ %187, %181 ]
-  %193 = getelementptr inbounds nuw i8, ptr %.0.i.i49, i64 8
-  %194 = getelementptr inbounds nuw i8, ptr %.0.i.i49, i64 96
-  %195 = load i8, ptr %194, align 8
-  %196 = trunc i8 %195 to i1
-  %197 = getelementptr inbounds nuw i8, ptr %18, i64 64
-  br i1 %196, label %198, label %.thread.i81
+_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_EixEOm.exit53: ; preds = %182, %171, %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_E15LookupBucketForImEEbRKT_RPSB_.exit.i.i51
+  %.0.i.i49 = phi ptr [ %191, %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_E15LookupBucketForImEEbRKT_RPSB_.exit.i.i51 ], [ %174, %171 ], [ %188, %182 ]
+  %194 = getelementptr inbounds nuw i8, ptr %.0.i.i49, i64 8
+  %195 = getelementptr inbounds nuw i8, ptr %.0.i.i49, i64 96
+  %196 = load i8, ptr %195, align 8
+  %197 = trunc i8 %196 to i1
+  %198 = getelementptr inbounds nuw i8, ptr %18, i64 64
+  br i1 %197, label %199, label %.thread.i81
 
-198:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_EixEOm.exit53
-  %199 = getelementptr inbounds nuw i8, ptr %.0.i.i49, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %193, ptr noundef nonnull align 8 dereferenceable(64) %18, i64 64, i1 false)
-  %200 = load ptr, ptr %199, align 8
-  %201 = getelementptr inbounds nuw i8, ptr %.0.i.i49, i64 88
-  %202 = load i32, ptr %201, align 8
-  %203 = zext i32 %202 to i64
-  %204 = shl nuw nsw i64 %203, 5
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %200, i64 noundef %204, i64 noundef 4) #13
-  %205 = load ptr, ptr %197, align 8
-  store ptr %205, ptr %199, align 8
-  %206 = getelementptr inbounds nuw i8, ptr %.0.i.i49, i64 80
-  %207 = getelementptr inbounds nuw i8, ptr %18, i64 72
-  %208 = load i32, ptr %207, align 8
-  store i32 %208, ptr %206, align 4
-  %209 = getelementptr inbounds nuw i8, ptr %.0.i.i49, i64 84
-  %210 = getelementptr inbounds nuw i8, ptr %18, i64 76
-  %211 = load i32, ptr %210, align 4
-  store i32 %211, ptr %209, align 4
-  %212 = getelementptr inbounds nuw i8, ptr %18, i64 80
-  %213 = load i32, ptr %212, align 8
-  store i32 %213, ptr %201, align 4
+199:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_EixEOm.exit53
+  %200 = getelementptr inbounds nuw i8, ptr %.0.i.i49, i64 72
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %194, ptr noundef nonnull align 8 dereferenceable(64) %18, i64 64, i1 false)
+  %201 = load ptr, ptr %200, align 8
+  %202 = getelementptr inbounds nuw i8, ptr %.0.i.i49, i64 88
+  %203 = load i32, ptr %202, align 8
+  %204 = zext i32 %203 to i64
+  %205 = shl nuw nsw i64 %204, 5
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %201, i64 noundef %205, i64 noundef 4) #13
+  %206 = load ptr, ptr %198, align 8
+  store ptr %206, ptr %200, align 8
+  %207 = getelementptr inbounds nuw i8, ptr %.0.i.i49, i64 80
+  %208 = getelementptr inbounds nuw i8, ptr %18, i64 72
+  %209 = load i32, ptr %208, align 8
+  store i32 %209, ptr %207, align 4
+  %210 = getelementptr inbounds nuw i8, ptr %.0.i.i49, i64 84
+  %211 = getelementptr inbounds nuw i8, ptr %18, i64 76
+  %212 = load i32, ptr %211, align 4
+  store i32 %212, ptr %210, align 4
+  %213 = getelementptr inbounds nuw i8, ptr %18, i64 80
+  %214 = load i32, ptr %213, align 8
+  store i32 %214, ptr %202, align 4
   br label %_ZNSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEED2Ev.exit54
 
 .thread.i81:                                      ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_EixEOm.exit53
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %193, ptr noundef nonnull align 8 dereferenceable(64) %18, i64 64, i1 false)
-  %214 = getelementptr inbounds nuw i8, ptr %.0.i.i49, i64 72
-  %215 = load ptr, ptr %197, align 8
-  store ptr %215, ptr %214, align 8
-  %216 = getelementptr inbounds nuw i8, ptr %.0.i.i49, i64 80
-  %217 = getelementptr inbounds nuw i8, ptr %18, i64 72
-  %218 = load i32, ptr %217, align 8
-  store i32 %218, ptr %216, align 4
-  %219 = getelementptr inbounds nuw i8, ptr %.0.i.i49, i64 84
-  %220 = getelementptr inbounds nuw i8, ptr %18, i64 76
-  %221 = load i32, ptr %220, align 4
-  store i32 %221, ptr %219, align 4
-  %222 = getelementptr inbounds nuw i8, ptr %.0.i.i49, i64 88
-  %223 = getelementptr inbounds nuw i8, ptr %18, i64 80
-  %224 = load i32, ptr %223, align 8
-  store i32 %224, ptr %222, align 4
-  store i8 1, ptr %194, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %194, ptr noundef nonnull align 8 dereferenceable(64) %18, i64 64, i1 false)
+  %215 = getelementptr inbounds nuw i8, ptr %.0.i.i49, i64 72
+  %216 = load ptr, ptr %198, align 8
+  store ptr %216, ptr %215, align 8
+  %217 = getelementptr inbounds nuw i8, ptr %.0.i.i49, i64 80
+  %218 = getelementptr inbounds nuw i8, ptr %18, i64 72
+  %219 = load i32, ptr %218, align 8
+  store i32 %219, ptr %217, align 4
+  %220 = getelementptr inbounds nuw i8, ptr %.0.i.i49, i64 84
+  %221 = getelementptr inbounds nuw i8, ptr %18, i64 76
+  %222 = load i32, ptr %221, align 4
+  store i32 %222, ptr %220, align 4
+  %223 = getelementptr inbounds nuw i8, ptr %.0.i.i49, i64 88
+  %224 = getelementptr inbounds nuw i8, ptr %18, i64 80
+  %225 = load i32, ptr %224, align 8
+  store i32 %225, ptr %223, align 4
+  store i8 1, ptr %195, align 8
   br label %_ZNSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEED2Ev.exit54
 
-_ZNSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEED2Ev.exit54: ; preds = %198, %.thread.i81
+_ZNSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEED2Ev.exit54: ; preds = %199, %.thread.i81
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 4) #13
-  br label %225
+  br label %226
 
-225:                                              ; preds = %_ZNSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEED2Ev.exit54, %._crit_edge
-  %226 = call noundef ptr @_ZNK4llvm4json6Object9getObjectENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr nonnull @.str.7, i64 12) #13
-  %.not29 = icmp eq ptr %226, null
-  br i1 %.not29, label %_ZN4llvm8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS5_EEED2Ev.exit, label %227
+226:                                              ; preds = %_ZNSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEED2Ev.exit54, %._crit_edge
+  %227 = call noundef ptr @_ZNK4llvm4json6Object9getObjectENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr nonnull @.str.7, i64 12) #13
+  %.not29 = icmp eq ptr %227, null
+  br i1 %.not29, label %_ZN4llvm8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS5_EEED2Ev.exit, label %228
 
-227:                                              ; preds = %225
-  call void @_ZN5clang13DarwinSDKInfo27RelatedTargetVersionMapping9parseJSONERKN4llvm4json6ObjectENS2_12VersionTupleE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.8") align 8 %20, ptr noundef nonnull align 8 dereferenceable(24) %226, i64 %.sroa.0116.0.copyload, i64 %.sroa.5117.0.copyload)
-  %228 = getelementptr inbounds nuw i8, ptr %20, i64 88
-  %229 = load i8, ptr %228, align 8
-  %230 = trunc i8 %229 to i1
-  br i1 %230, label %232, label %_ZNSt22_Optional_payload_baseIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEE14_M_move_assignEOS3_.exit84.thread
+228:                                              ; preds = %226
+  call void @_ZN5clang13DarwinSDKInfo27RelatedTargetVersionMapping9parseJSONERKN4llvm4json6ObjectENS2_12VersionTupleE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.8") align 8 %20, ptr noundef nonnull align 8 dereferenceable(24) %227, i64 %.sroa.0116.0.copyload, i64 %.sroa.5117.0.copyload)
+  %229 = getelementptr inbounds nuw i8, ptr %20, i64 88
+  %230 = load i8, ptr %229, align 8
+  %231 = trunc i8 %230 to i1
+  br i1 %231, label %233, label %_ZNSt22_Optional_payload_baseIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEE14_M_move_assignEOS3_.exit84.thread
 
-_ZNSt22_Optional_payload_baseIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEE14_M_move_assignEOS3_.exit84.thread: ; preds = %227
-  %231 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 0, ptr %231, align 8
+_ZNSt22_Optional_payload_baseIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEE14_M_move_assignEOS3_.exit84.thread: ; preds = %228
+  %232 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i8 0, ptr %232, align 8
   br label %_ZNSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEED2Ev.exit54.thread
 
-232:                                              ; preds = %227
+233:                                              ; preds = %228
   store i64 962072674664, ptr %21, align 8
-  %233 = load ptr, ptr %8, align 8
-  %234 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %235 = load i32, ptr %234, align 8
-  %236 = icmp eq i32 %235, 0
-  br i1 %236, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_E15LookupBucketForImEEbRKT_RPSB_.exit.i.i65, label %237
+  %234 = load ptr, ptr %8, align 8
+  %235 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %236 = load i32, ptr %235, align 8
+  %237 = icmp eq i32 %236, 0
+  br i1 %237, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_E15LookupBucketForImEEbRKT_RPSB_.exit.i.i65, label %238
 
-237:                                              ; preds = %232
-  %238 = add i32 %235, -1
-  %.02532.i.i.i.i55 = and i32 %238, 423225993
-  %239 = zext nneg i32 %.02532.i.i.i.i55 to i64
-  %240 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.77", ptr %233, i64 %239
-  %241 = load i64, ptr %240, align 8
-  %242 = icmp eq i64 %241, 962072674664
-  br i1 %242, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_EixEOm.exit67, label %.lr.ph.i.i.i.i56
+238:                                              ; preds = %233
+  %239 = add i32 %236, -1
+  %.02532.i.i.i.i55 = and i32 %239, 423225993
+  %240 = zext nneg i32 %.02532.i.i.i.i55 to i64
+  %241 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.77", ptr %234, i64 %240
+  %242 = load i64, ptr %241, align 8
+  %243 = icmp eq i64 %242, 962072674664
+  br i1 %243, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_EixEOm.exit67, label %.lr.ph.i.i.i.i56
 
-.lr.ph.i.i.i.i56:                                 ; preds = %237, %248
-  %243 = phi i64 [ %255, %248 ], [ %241, %237 ]
-  %244 = phi ptr [ %254, %248 ], [ %240, %237 ]
-  %.02535.i.i.i.i57 = phi i32 [ %.025.i.i.i.i62, %248 ], [ %.02532.i.i.i.i55, %237 ]
-  %.02434.i.i.i.i58 = phi i32 [ %251, %248 ], [ 1, %237 ]
-  %.02633.i.i.i.i59 = phi ptr [ %spec.select.i.i.i.i61, %248 ], [ null, %237 ]
-  %245 = icmp eq i64 %243, -1
-  br i1 %245, label %246, label %248
+.lr.ph.i.i.i.i56:                                 ; preds = %238, %249
+  %244 = phi i64 [ %256, %249 ], [ %242, %238 ]
+  %245 = phi ptr [ %255, %249 ], [ %241, %238 ]
+  %.02535.i.i.i.i57 = phi i32 [ %.025.i.i.i.i62, %249 ], [ %.02532.i.i.i.i55, %238 ]
+  %.02434.i.i.i.i58 = phi i32 [ %252, %249 ], [ 1, %238 ]
+  %.02633.i.i.i.i59 = phi ptr [ %spec.select.i.i.i.i61, %249 ], [ null, %238 ]
+  %246 = icmp eq i64 %244, -1
+  br i1 %246, label %247, label %249
 
-246:                                              ; preds = %.lr.ph.i.i.i.i56
+247:                                              ; preds = %.lr.ph.i.i.i.i56
   %.not.i.i.i.i64 = icmp eq ptr %.02633.i.i.i.i59, null
-  %247 = select i1 %.not.i.i.i.i64, ptr %244, ptr %.02633.i.i.i.i59
+  %248 = select i1 %.not.i.i.i.i64, ptr %245, ptr %.02633.i.i.i.i59
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_E15LookupBucketForImEEbRKT_RPSB_.exit.i.i65
 
-248:                                              ; preds = %.lr.ph.i.i.i.i56
-  %249 = icmp eq i64 %243, -2
-  %250 = icmp eq ptr %.02633.i.i.i.i59, null
-  %or.cond.not.i.i.i.i60 = select i1 %249, i1 %250, i1 false
-  %spec.select.i.i.i.i61 = select i1 %or.cond.not.i.i.i.i60, ptr %244, ptr %.02633.i.i.i.i59
-  %251 = add i32 %.02434.i.i.i.i58, 1
-  %252 = add i32 %.02434.i.i.i.i58, %.02535.i.i.i.i57
-  %.025.i.i.i.i62 = and i32 %252, %238
-  %253 = zext i32 %.025.i.i.i.i62 to i64
-  %254 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.77", ptr %233, i64 %253
-  %255 = load i64, ptr %254, align 8
-  %256 = icmp eq i64 %255, 962072674664
-  br i1 %256, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_EixEOm.exit67, label %.lr.ph.i.i.i.i56, !llvm.loop !25
+249:                                              ; preds = %.lr.ph.i.i.i.i56
+  %250 = icmp eq i64 %244, -2
+  %251 = icmp eq ptr %.02633.i.i.i.i59, null
+  %or.cond.not.i.i.i.i60 = select i1 %250, i1 %251, i1 false
+  %spec.select.i.i.i.i61 = select i1 %or.cond.not.i.i.i.i60, ptr %245, ptr %.02633.i.i.i.i59
+  %252 = add i32 %.02434.i.i.i.i58, 1
+  %253 = add i32 %.02434.i.i.i.i58, %.02535.i.i.i.i57
+  %.025.i.i.i.i62 = and i32 %253, %239
+  %254 = zext i32 %.025.i.i.i.i62 to i64
+  %255 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.77", ptr %234, i64 %254
+  %256 = load i64, ptr %255, align 8
+  %257 = icmp eq i64 %256, 962072674664
+  br i1 %257, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_EixEOm.exit67, label %.lr.ph.i.i.i.i56, !llvm.loop !25
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_E15LookupBucketForImEEbRKT_RPSB_.exit.i.i65: ; preds = %246, %232
-  %.sink.i.i.i.i66 = phi ptr [ %247, %246 ], [ null, %232 ]
-  %257 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_E20InsertIntoBucketImplImEEPSB_RKmRKT_SF_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef %.sink.i.i.i.i66)
-  %258 = load i64, ptr %21, align 8
-  store i64 %258, ptr %257, align 8
-  %259 = getelementptr inbounds nuw i8, ptr %257, i64 96
-  store i8 0, ptr %259, align 8
+_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_E15LookupBucketForImEEbRKT_RPSB_.exit.i.i65: ; preds = %247, %233
+  %.sink.i.i.i.i66 = phi ptr [ %248, %247 ], [ null, %233 ]
+  %258 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_E20InsertIntoBucketImplImEEPSB_RKmRKT_SF_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef %.sink.i.i.i.i66)
+  %259 = load i64, ptr %21, align 8
+  store i64 %259, ptr %258, align 8
+  %260 = getelementptr inbounds nuw i8, ptr %258, i64 96
+  store i8 0, ptr %260, align 8
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_EixEOm.exit67
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_EixEOm.exit67: ; preds = %248, %237, %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_E15LookupBucketForImEEbRKT_RPSB_.exit.i.i65
-  %.0.i.i63 = phi ptr [ %257, %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_E15LookupBucketForImEEbRKT_RPSB_.exit.i.i65 ], [ %240, %237 ], [ %254, %248 ]
-  %260 = getelementptr inbounds nuw i8, ptr %.0.i.i63, i64 8
-  %261 = getelementptr inbounds nuw i8, ptr %.0.i.i63, i64 96
-  %262 = load i8, ptr %261, align 8
-  %263 = trunc i8 %262 to i1
-  %264 = getelementptr inbounds nuw i8, ptr %20, i64 64
-  br i1 %263, label %265, label %.thread.i83
+_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_EixEOm.exit67: ; preds = %249, %238, %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_E15LookupBucketForImEEbRKT_RPSB_.exit.i.i65
+  %.0.i.i63 = phi ptr [ %258, %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_E15LookupBucketForImEEbRKT_RPSB_.exit.i.i65 ], [ %241, %238 ], [ %255, %249 ]
+  %261 = getelementptr inbounds nuw i8, ptr %.0.i.i63, i64 8
+  %262 = getelementptr inbounds nuw i8, ptr %.0.i.i63, i64 96
+  %263 = load i8, ptr %262, align 8
+  %264 = trunc i8 %263 to i1
+  %265 = getelementptr inbounds nuw i8, ptr %20, i64 64
+  br i1 %264, label %266, label %.thread.i83
 
-265:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_EixEOm.exit67
-  %266 = getelementptr inbounds nuw i8, ptr %.0.i.i63, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %260, ptr noundef nonnull align 8 dereferenceable(64) %20, i64 64, i1 false)
-  %267 = load ptr, ptr %266, align 8
-  %268 = getelementptr inbounds nuw i8, ptr %.0.i.i63, i64 88
-  %269 = load i32, ptr %268, align 8
-  %270 = zext i32 %269 to i64
-  %271 = shl nuw nsw i64 %270, 5
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %267, i64 noundef %271, i64 noundef 4) #13
-  %272 = load ptr, ptr %264, align 8
-  store ptr %272, ptr %266, align 8
-  %273 = getelementptr inbounds nuw i8, ptr %.0.i.i63, i64 80
-  %274 = getelementptr inbounds nuw i8, ptr %20, i64 72
-  %275 = load i32, ptr %274, align 8
-  store i32 %275, ptr %273, align 4
-  %276 = getelementptr inbounds nuw i8, ptr %.0.i.i63, i64 84
-  %277 = getelementptr inbounds nuw i8, ptr %20, i64 76
-  %278 = load i32, ptr %277, align 4
-  store i32 %278, ptr %276, align 4
-  %279 = getelementptr inbounds nuw i8, ptr %20, i64 80
-  %280 = load i32, ptr %279, align 8
-  store i32 %280, ptr %268, align 4
+266:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_EixEOm.exit67
+  %267 = getelementptr inbounds nuw i8, ptr %.0.i.i63, i64 72
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %261, ptr noundef nonnull align 8 dereferenceable(64) %20, i64 64, i1 false)
+  %268 = load ptr, ptr %267, align 8
+  %269 = getelementptr inbounds nuw i8, ptr %.0.i.i63, i64 88
+  %270 = load i32, ptr %269, align 8
+  %271 = zext i32 %270 to i64
+  %272 = shl nuw nsw i64 %271, 5
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %268, i64 noundef %272, i64 noundef 4) #13
+  %273 = load ptr, ptr %265, align 8
+  store ptr %273, ptr %267, align 8
+  %274 = getelementptr inbounds nuw i8, ptr %.0.i.i63, i64 80
+  %275 = getelementptr inbounds nuw i8, ptr %20, i64 72
+  %276 = load i32, ptr %275, align 8
+  store i32 %276, ptr %274, align 4
+  %277 = getelementptr inbounds nuw i8, ptr %.0.i.i63, i64 84
+  %278 = getelementptr inbounds nuw i8, ptr %20, i64 76
+  %279 = load i32, ptr %278, align 4
+  store i32 %279, ptr %277, align 4
+  %280 = getelementptr inbounds nuw i8, ptr %20, i64 80
+  %281 = load i32, ptr %280, align 8
+  store i32 %281, ptr %269, align 4
   br label %_ZNSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEED2Ev.exit68
 
 .thread.i83:                                      ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_EixEOm.exit67
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %260, ptr noundef nonnull align 8 dereferenceable(64) %20, i64 64, i1 false)
-  %281 = getelementptr inbounds nuw i8, ptr %.0.i.i63, i64 72
-  %282 = load ptr, ptr %264, align 8
-  store ptr %282, ptr %281, align 8
-  %283 = getelementptr inbounds nuw i8, ptr %.0.i.i63, i64 80
-  %284 = getelementptr inbounds nuw i8, ptr %20, i64 72
-  %285 = load i32, ptr %284, align 8
-  store i32 %285, ptr %283, align 4
-  %286 = getelementptr inbounds nuw i8, ptr %.0.i.i63, i64 84
-  %287 = getelementptr inbounds nuw i8, ptr %20, i64 76
-  %288 = load i32, ptr %287, align 4
-  store i32 %288, ptr %286, align 4
-  %289 = getelementptr inbounds nuw i8, ptr %.0.i.i63, i64 88
-  %290 = getelementptr inbounds nuw i8, ptr %20, i64 80
-  %291 = load i32, ptr %290, align 8
-  store i32 %291, ptr %289, align 4
-  store i8 1, ptr %261, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %261, ptr noundef nonnull align 8 dereferenceable(64) %20, i64 64, i1 false)
+  %282 = getelementptr inbounds nuw i8, ptr %.0.i.i63, i64 72
+  %283 = load ptr, ptr %265, align 8
+  store ptr %283, ptr %282, align 8
+  %284 = getelementptr inbounds nuw i8, ptr %.0.i.i63, i64 80
+  %285 = getelementptr inbounds nuw i8, ptr %20, i64 72
+  %286 = load i32, ptr %285, align 8
+  store i32 %286, ptr %284, align 4
+  %287 = getelementptr inbounds nuw i8, ptr %.0.i.i63, i64 84
+  %288 = getelementptr inbounds nuw i8, ptr %20, i64 76
+  %289 = load i32, ptr %288, align 4
+  store i32 %289, ptr %287, align 4
+  %290 = getelementptr inbounds nuw i8, ptr %.0.i.i63, i64 88
+  %291 = getelementptr inbounds nuw i8, ptr %20, i64 80
+  %292 = load i32, ptr %291, align 8
+  store i32 %292, ptr %290, align 4
+  store i8 1, ptr %262, align 8
   br label %_ZNSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEED2Ev.exit68
 
-_ZNSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEED2Ev.exit68: ; preds = %265, %.thread.i83
+_ZNSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEED2Ev.exit68: ; preds = %266, %.thread.i83
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 4) #13
   br label %_ZN4llvm8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS5_EEED2Ev.exit
 
-_ZN4llvm8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS5_EEED2Ev.exit: ; preds = %37, %225, %_ZNSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEED2Ev.exit68
-  %292 = load ptr, ptr %8, align 8
+_ZN4llvm8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS5_EEED2Ev.exit: ; preds = %37, %226, %_ZNSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEED2Ev.exit68
+  %293 = load ptr, ptr %8, align 8
   store ptr null, ptr %8, align 8
-  %293 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %294 = load i32, ptr %293, align 8
-  store i32 0, ptr %293, align 8
-  %295 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %296 = load i32, ptr %295, align 4
-  store i32 0, ptr %295, align 4
-  %297 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %298 = load i32, ptr %297, align 8
-  store i32 0, ptr %297, align 8
+  %294 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %295 = load i32, ptr %294, align 8
+  store i32 0, ptr %294, align 8
+  %296 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %297 = load i32, ptr %296, align 4
+  store i32 0, ptr %296, align 4
+  %298 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %299 = load i32, ptr %298, align 8
+  store i32 0, ptr %298, align 8
   store i64 %.sroa.0123.0.copyload, ptr %0, align 8
   %.sroa.2.0..sroa_idx93 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.2124.0.copyload, ptr %.sroa.2.0..sroa_idx93, align 8
@@ -1418,74 +1416,74 @@ _ZN4llvm8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappi
   store i64 %.sroa.0116.0.copyload, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %.sroa.5117.0.copyload, ptr %.sroa.4.0..sroa_idx, align 8
-  %299 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %292, ptr %299, align 8
-  %300 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %294, ptr %300, align 8
-  %301 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %296, ptr %301, align 4
-  %302 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 %298, ptr %302, align 8
-  %303 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 1, ptr %303, align 8
+  %300 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %293, ptr %300, align 8
+  %301 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 %295, ptr %301, align 8
+  %302 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store i32 %297, ptr %302, align 4
+  %303 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 %299, ptr %303, align 8
+  %304 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i8 1, ptr %304, align 8
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 8) #13
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 8) #13
   br label %_ZNSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEED2Ev.exit54.thread
 
 _ZNSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEED2Ev.exit54.thread: ; preds = %_ZNSt22_Optional_payload_baseIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEE14_M_move_assignEOS3_.exit84.thread, %_ZNSt22_Optional_payload_baseIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEE14_M_move_assignEOS3_.exit82.thread, %_ZN4llvm8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS5_EEED2Ev.exit
-  %304 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %305 = load i32, ptr %304, align 8
-  %306 = icmp eq i32 %305, 0
+  %305 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %306 = load i32, ptr %305, align 8
+  %307 = icmp eq i32 %306, 0
   %.pre1.i70 = load ptr, ptr %8, align 8
-  br i1 %306, label %_ZN4llvm8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS5_EEED2Ev.exit80, label %.lr.ph.preheader.i.i71
+  br i1 %307, label %_ZN4llvm8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS5_EEED2Ev.exit80, label %.lr.ph.preheader.i.i71
 
 .lr.ph.preheader.i.i71:                           ; preds = %_ZNSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEED2Ev.exit54.thread
-  %307 = zext i32 %305 to i64
-  %308 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.77", ptr %.pre1.i70, i64 %307
+  %308 = zext i32 %306 to i64
+  %309 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.77", ptr %.pre1.i70, i64 %308
   br label %.lr.ph.i.i72
 
 .lr.ph.i.i72:                                     ; preds = %_ZNSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEED2Ev.exit.i.i75, %.lr.ph.preheader.i.i71
-  %.010.i.i73 = phi ptr [ %321, %_ZNSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEED2Ev.exit.i.i75 ], [ %.pre1.i70, %.lr.ph.preheader.i.i71 ]
-  %309 = load i64, ptr %.010.i.i73, align 8
-  %switch.i.i74 = icmp ugt i64 %309, -3
-  br i1 %switch.i.i74, label %_ZNSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEED2Ev.exit.i.i75, label %310
+  %.010.i.i73 = phi ptr [ %322, %_ZNSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEED2Ev.exit.i.i75 ], [ %.pre1.i70, %.lr.ph.preheader.i.i71 ]
+  %310 = load i64, ptr %.010.i.i73, align 8
+  %switch.i.i74 = icmp ugt i64 %310, -3
+  br i1 %switch.i.i74, label %_ZNSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEED2Ev.exit.i.i75, label %311
 
-310:                                              ; preds = %.lr.ph.i.i72
-  %311 = getelementptr inbounds nuw i8, ptr %.010.i.i73, i64 96
-  %312 = load i8, ptr %311, align 8
-  %313 = trunc i8 %312 to i1
-  br i1 %313, label %314, label %_ZNSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEED2Ev.exit.i.i75
+311:                                              ; preds = %.lr.ph.i.i72
+  %312 = getelementptr inbounds nuw i8, ptr %.010.i.i73, i64 96
+  %313 = load i8, ptr %312, align 8
+  %314 = trunc i8 %313 to i1
+  br i1 %314, label %315, label %_ZNSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEED2Ev.exit.i.i75
 
-314:                                              ; preds = %310
-  store i8 0, ptr %311, align 8
-  %315 = getelementptr inbounds nuw i8, ptr %.010.i.i73, i64 72
-  %316 = load ptr, ptr %315, align 8
-  %317 = getelementptr inbounds nuw i8, ptr %.010.i.i73, i64 88
-  %318 = load i32, ptr %317, align 8
-  %319 = zext i32 %318 to i64
-  %320 = shl nuw nsw i64 %319, 5
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %316, i64 noundef %320, i64 noundef 4) #13
+315:                                              ; preds = %311
+  store i8 0, ptr %312, align 8
+  %316 = getelementptr inbounds nuw i8, ptr %.010.i.i73, i64 72
+  %317 = load ptr, ptr %316, align 8
+  %318 = getelementptr inbounds nuw i8, ptr %.010.i.i73, i64 88
+  %319 = load i32, ptr %318, align 8
+  %320 = zext i32 %319 to i64
+  %321 = shl nuw nsw i64 %320, 5
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %317, i64 noundef %321, i64 noundef 4) #13
   br label %_ZNSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEED2Ev.exit.i.i75
 
-_ZNSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEED2Ev.exit.i.i75: ; preds = %314, %310, %.lr.ph.i.i72
-  %321 = getelementptr inbounds i8, ptr %.010.i.i73, i64 104
-  %.not.i.i76 = icmp eq ptr %321, %308
+_ZNSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEED2Ev.exit.i.i75: ; preds = %315, %311, %.lr.ph.i.i72
+  %322 = getelementptr inbounds i8, ptr %.010.i.i73, i64 104
+  %.not.i.i76 = icmp eq ptr %322, %309
   br i1 %.not.i.i76, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_E10destroyAllEv.exit.loopexit.i77, label %.lr.ph.i.i72, !llvm.loop !26
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_E10destroyAllEv.exit.loopexit.i77: ; preds = %_ZNSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEED2Ev.exit.i.i75
   %.pre.i78 = load ptr, ptr %8, align 8
-  %.pre2.i79 = load i32, ptr %304, align 8
-  %322 = zext i32 %.pre2.i79 to i64
-  %323 = mul nuw nsw i64 %322, 104
+  %.pre2.i79 = load i32, ptr %305, align 8
+  %323 = zext i32 %.pre2.i79 to i64
+  %324 = mul nuw nsw i64 %323, 104
   br label %_ZN4llvm8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS5_EEED2Ev.exit80
 
 _ZN4llvm8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS5_EEED2Ev.exit80: ; preds = %_ZNSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEED2Ev.exit54.thread, %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_E10destroyAllEv.exit.loopexit.i77
-  %324 = phi i64 [ %323, %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_E10destroyAllEv.exit.loopexit.i77 ], [ 0, %_ZNSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEED2Ev.exit54.thread ]
-  %325 = phi ptr [ %.pre.i78, %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_E10destroyAllEv.exit.loopexit.i77 ], [ %.pre1.i70, %_ZNSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEED2Ev.exit54.thread ]
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %325, i64 noundef %324, i64 noundef 8) #13
-  br label %326
+  %325 = phi i64 [ %324, %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_E10destroyAllEv.exit.loopexit.i77 ], [ 0, %_ZNSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEED2Ev.exit54.thread ]
+  %326 = phi ptr [ %.pre.i78, %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_E10destroyAllEv.exit.loopexit.i77 ], [ %.pre1.i70, %_ZNSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEED2Ev.exit54.thread ]
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %326, i64 noundef %325, i64 noundef 8) #13
+  br label %327
 
-326:                                              ; preds = %_ZN4llvm8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS5_EEED2Ev.exit80, %35, %27
+327:                                              ; preds = %_ZN4llvm8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS5_EEED2Ev.exit80, %35, %27
   ret void
 }
 

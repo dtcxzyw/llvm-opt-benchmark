@@ -1666,6 +1666,7 @@ if.else.i.i.i.i.i:                                ; preds = %_ZN9grpc_core10GetC
 if.then.i.i.i:                                    ; preds = %"_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE12MakeMapToAddIZNS_29LegacyClientCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_0ZNS6_9AppendMapISH_EEvT_NS_13DebugLocationEEUlvE_EEPNS6_3MapESJ_T0_SK_.exit.i.i"
   store ptr %retval.0.i.i.i.i.i, ptr %.val, align 8
   %last_map_.i.i.i = getelementptr inbounds i8, ptr %.val, i64 8
+  store ptr %retval.0.i.i.i.i.i, ptr %last_map_.i.i.i, align 8
   br label %"_ZN9grpc_core12PipeReceiverISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyClientCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_0EEvT_NS_13DebugLocationE.exit"
 
 if.else.i.i.i:                                    ; preds = %"_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE12MakeMapToAddIZNS_29LegacyClientCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_0ZNS6_9AppendMapISH_EEvT_NS_13DebugLocationEEUlvE_EEPNS6_3MapESJ_T0_SK_.exit.i.i"
@@ -1673,11 +1674,10 @@ if.else.i.i.i:                                    ; preds = %"_ZN9grpc_core15Int
   %15 = load ptr, ptr %last_map_3.i.i.i, align 8
   %next_.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
   store ptr %retval.0.i.i.i.i.i, ptr %next_.i.i.i.i, align 8
+  store ptr %retval.0.i.i.i.i.i, ptr %last_map_3.i.i.i, align 8
   br label %"_ZN9grpc_core12PipeReceiverISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyClientCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_0EEvT_NS_13DebugLocationE.exit"
 
 "_ZN9grpc_core12PipeReceiverISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyClientCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_0EEvT_NS_13DebugLocationE.exit": ; preds = %if.then.i.i.i, %if.else.i.i.i
-  %last_map_3.sink.i.i.i = phi ptr [ %last_map_3.i.i.i, %if.else.i.i.i ], [ %last_map_.i.i.i, %if.then.i.i.i ]
-  store ptr %retval.0.i.i.i.i.i, ptr %last_map_3.sink.i.i.i, align 8
   %16 = load ptr, ptr %10, align 8
   %cmp.not.i7 = icmp eq ptr %16, null
   br i1 %cmp.not.i7, label %if.then.i8, label %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit
@@ -2246,6 +2246,7 @@ if.else.i.i.i.i.i:                                ; preds = %_ZN9grpc_core10GetC
 if.then.i.i.i:                                    ; preds = %"_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE12MakeMapToAddIZNS_29LegacyServerCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_0ZNS6_9AppendMapISH_EEvT_NS_13DebugLocationEEUlvE_EEPNS6_3MapESJ_T0_SK_.exit.i.i"
   store ptr %retval.0.i.i.i.i.i, ptr %.val, align 8
   %last_map_.i.i.i = getelementptr inbounds i8, ptr %.val, i64 8
+  store ptr %retval.0.i.i.i.i.i, ptr %last_map_.i.i.i, align 8
   br label %"_ZN9grpc_core12PipeReceiverISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyServerCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_0EEvT_NS_13DebugLocationE.exit"
 
 if.else.i.i.i:                                    ; preds = %"_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE12MakeMapToAddIZNS_29LegacyServerCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_0ZNS6_9AppendMapISH_EEvT_NS_13DebugLocationEEUlvE_EEPNS6_3MapESJ_T0_SK_.exit.i.i"
@@ -2253,11 +2254,10 @@ if.else.i.i.i:                                    ; preds = %"_ZN9grpc_core15Int
   %22 = load ptr, ptr %last_map_3.i.i.i, align 8
   %next_.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 8
   store ptr %retval.0.i.i.i.i.i, ptr %next_.i.i.i.i, align 8
+  store ptr %retval.0.i.i.i.i.i, ptr %last_map_3.i.i.i, align 8
   br label %"_ZN9grpc_core12PipeReceiverISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyServerCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_0EEvT_NS_13DebugLocationE.exit"
 
 "_ZN9grpc_core12PipeReceiverISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyServerCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_0EEvT_NS_13DebugLocationE.exit": ; preds = %if.then.i.i.i, %if.else.i.i.i
-  %last_map_3.sink.i.i.i = phi ptr [ %last_map_3.i.i.i, %if.else.i.i.i ], [ %last_map_.i.i.i, %if.then.i.i.i ]
-  store ptr %retval.0.i.i.i.i.i, ptr %last_map_3.sink.i.i.i, align 8
   %23 = load ptr, ptr %10, align 8
   %cmp.not.i11 = icmp eq ptr %23, null
   br i1 %cmp.not.i11, label %if.then.i12, label %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit13

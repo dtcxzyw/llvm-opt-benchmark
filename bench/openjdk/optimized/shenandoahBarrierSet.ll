@@ -702,7 +702,7 @@ define hidden void @_ZN20ShenandoahBarrierSet16on_thread_detachEP6Thread(ptr nou
   %8 = getelementptr inbounds i8, ptr %7, i64 56
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(888) %1) #12
-  br i1 %10, label %11, label %44
+  br i1 %10, label %11, label %45
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds i8, ptr %1, i64 72
@@ -717,7 +717,7 @@ define hidden void @_ZN20ShenandoahBarrierSet16on_thread_detachEP6Thread(ptr nou
 15:                                               ; preds = %14, %11
   %16 = load i8, ptr @ShenandoahStackWatermarkBarrier, align 1
   %17 = trunc i8 %16 to i1
-  br i1 %17, label %18, label %44
+  br i1 %17, label %18, label %45
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %0, i64 64
@@ -727,54 +727,54 @@ define hidden void @_ZN20ShenandoahBarrierSet16on_thread_detachEP6Thread(ptr nou
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !6
   %23 = and i8 %22, 2
   %.not9 = icmp eq i8 %23, 0
-  br i1 %.not9, label %26, label %24
+  br i1 %.not9, label %27, label %24
 
 24:                                               ; preds = %18
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV26ShenandoahKeepAliveClosure, i64 16), ptr %3, align 8
   %25 = getelementptr inbounds i8, ptr %3, i64 8
+  %26 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
+  store ptr %26, ptr %25, align 8
   br label %.sink.split
 
-26:                                               ; preds = %18
-  %27 = load ptr, ptr %19, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 769
-  %29 = load volatile i8, ptr %28, align 1
+27:                                               ; preds = %18
+  %28 = load ptr, ptr %19, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 769
+  %30 = load volatile i8, ptr %29, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !6
-  %30 = and i8 %29, 16
-  %.not10 = icmp eq i8 %30, 0
-  br i1 %.not10, label %44, label %31
+  %31 = and i8 %30, 16
+  %.not10 = icmp eq i8 %31, 0
+  br i1 %.not10, label %45, label %32
 
-31:                                               ; preds = %26
-  %32 = load ptr, ptr %19, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 769
-  %34 = load volatile i8, ptr %33, align 1
+32:                                               ; preds = %27
+  %33 = load ptr, ptr %19, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 769
+  %35 = load volatile i8, ptr %34, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !6
-  %35 = and i8 %34, 4
-  %.not11 = icmp eq i8 %35, 0
-  br i1 %.not11, label %44, label %36
+  %36 = and i8 %35, 4
+  %.not11 = icmp eq i8 %36, 0
+  br i1 %.not11, label %45, label %37
 
-36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr null, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %4, i64 16
-  store i32 3, ptr %38, align 8
+37:                                               ; preds = %32
+  %38 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr null, ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %4, i64 16
+  store i32 3, ptr %39, align 8
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV39ShenandoahEvacuateUpdateRootClosureBaseILb1ELb1EE, i64 16), ptr %4, align 8
-  %39 = getelementptr inbounds i8, ptr %4, i64 24
-  %40 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  store ptr %40, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %4, i64 32
-  %42 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %40 = getelementptr inbounds i8, ptr %4, i64 24
+  %41 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
+  store ptr %41, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %4, i64 32
+  %43 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %44 = load ptr, ptr %43, align 8
+  store ptr %44, ptr %42, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %24, %36
-  %.sink14 = phi ptr [ %42, %36 ], [ @_ZN10BarrierSet12_barrier_setE, %24 ]
-  %.sink13 = phi ptr [ %41, %36 ], [ %25, %24 ]
-  %.sink = phi ptr [ %4, %36 ], [ %3, %24 ]
-  %43 = load ptr, ptr %.sink14, align 8
-  store ptr %43, ptr %.sink13, align 8
+.sink.split:                                      ; preds = %24, %37
+  %.sink = phi ptr [ %4, %37 ], [ %3, %24 ]
   call void @_ZN17StackWatermarkSet17finish_processingEP10JavaThreadPv18StackWatermarkKind(ptr noundef nonnull %1, ptr noundef nonnull %.sink, i32 noundef 0) #12
-  br label %44
+  br label %45
 
-44:                                               ; preds = %.sink.split, %15, %26, %31, %2
+45:                                               ; preds = %.sink.split, %15, %27, %32, %2
   ret void
 }
 

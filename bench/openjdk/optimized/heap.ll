@@ -600,7 +600,7 @@ define hidden noundef ptr @_ZN8CodeHeap8allocateEm(ptr nocapture noundef nonnull
   %10 = lshr i64 %6, %9
   %11 = tail call noundef ptr @_ZN8CodeHeap15search_freelistEm(ptr noundef nonnull align 8 dereferenceable(336) %0, i64 noundef %10)
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %27, label %12
+  br i1 %.not, label %36, label %12
 
 12:                                               ; preds = %2
   %13 = load ptr, ptr %0, align 8
@@ -623,122 +623,134 @@ define hidden noundef ptr @_ZN8CodeHeap8allocateEm(ptr nocapture noundef nonnull
   unreachable
 
 24:                                               ; preds = %12
-  %25 = getelementptr inbounds i8, ptr %0, i64 256
+  %25 = getelementptr inbounds i8, ptr %0, i64 296
   %26 = load i64, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 256
+  %28 = load i64, ptr %27, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 280
+  %30 = load i64, ptr %29, align 8
+  %31 = sub i64 %28, %30
+  %32 = load i32, ptr %7, align 8
+  %33 = zext nneg i32 %32 to i64
+  %34 = shl i64 %31, %33
+  %35 = tail call noundef i64 @llvm.umax.i64(i64 %26, i64 %34)
+  store i64 %35, ptr %25, align 8
   br label %.sink.split
 
-27:                                               ; preds = %2
-  %28 = load i64, ptr @CodeCacheMinBlockLength, align 8
-  %29 = trunc i64 %28 to i32
-  %30 = trunc i64 %10 to i32
-  %31 = tail call noundef i32 @llvm.smax.i32(i32 %29, i32 %30)
-  %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds i8, ptr %0, i64 256
-  %34 = load i64, ptr %33, align 8
-  %35 = add i64 %34, %32
-  %36 = getelementptr inbounds i8, ptr %0, i64 224
-  %37 = load i64, ptr %36, align 8
-  %.not21 = icmp ugt i64 %35, %37
-  br i1 %.not21, label %89, label %38
+36:                                               ; preds = %2
+  %37 = load i64, ptr @CodeCacheMinBlockLength, align 8
+  %38 = trunc i64 %37 to i32
+  %39 = trunc i64 %10 to i32
+  %40 = tail call noundef i32 @llvm.smax.i32(i32 %38, i32 %39)
+  %41 = sext i32 %40 to i64
+  %42 = getelementptr inbounds i8, ptr %0, i64 256
+  %43 = load i64, ptr %42, align 8
+  %44 = add i64 %43, %41
+  %45 = getelementptr inbounds i8, ptr %0, i64 224
+  %46 = load i64, ptr %45, align 8
+  %.not21 = icmp ugt i64 %44, %46
+  br i1 %.not21, label %101, label %47
 
-38:                                               ; preds = %27
-  %39 = icmp ult i64 %34, %35
-  br i1 %39, label %40, label %_ZN8CodeHeap19mark_segmap_as_usedEmmb.exit
+47:                                               ; preds = %36
+  %48 = icmp ult i64 %43, %44
+  br i1 %48, label %49, label %_ZN8CodeHeap19mark_segmap_as_usedEmmb.exit
 
-40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %0, i64 128
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 %34
-  %44 = getelementptr inbounds i8, ptr %42, i64 %35
-  %45 = icmp ult i32 %31, 255
-  br i1 %45, label %46, label %47
+49:                                               ; preds = %47
+  %50 = getelementptr inbounds i8, ptr %0, i64 128
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 %43
+  %53 = getelementptr inbounds i8, ptr %51, i64 %44
+  %54 = icmp ult i32 %40, 255
+  br i1 %54, label %55, label %56
 
-46:                                               ; preds = %40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %43, ptr nonnull align 16 @_ZN8CodeHeap15segmap_templateE, i64 %32, i1 false)
+55:                                               ; preds = %49
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %52, ptr nonnull align 16 @_ZN8CodeHeap15segmap_templateE, i64 %41, i1 false)
   br label %_ZN8CodeHeap19mark_segmap_as_usedEmmb.exit
 
-47:                                               ; preds = %40
-  %48 = getelementptr inbounds i8, ptr %43, i64 1
-  store i8 0, ptr %43, align 1
-  %49 = icmp ult ptr %48, %44
-  br i1 %49, label %.lr.ph.i, label %_ZN8CodeHeap19mark_segmap_as_usedEmmb.exit
+56:                                               ; preds = %49
+  %57 = getelementptr inbounds i8, ptr %52, i64 1
+  store i8 0, ptr %52, align 1
+  %58 = icmp ult ptr %57, %53
+  br i1 %58, label %.lr.ph.i, label %_ZN8CodeHeap19mark_segmap_as_usedEmmb.exit
 
-.lr.ph.i:                                         ; preds = %47
-  %50 = ptrtoint ptr %44 to i64
-  br label %51
+.lr.ph.i:                                         ; preds = %56
+  %59 = ptrtoint ptr %53 to i64
+  br label %60
 
-51:                                               ; preds = %55, %.lr.ph.i
-  %.037.i = phi ptr [ %48, %.lr.ph.i ], [ %52, %55 ]
-  %52 = getelementptr inbounds i8, ptr %.037.i, i64 254
-  %.not.i = icmp ugt ptr %52, %44
-  br i1 %.not.i, label %.thread.i, label %55
+60:                                               ; preds = %64, %.lr.ph.i
+  %.037.i = phi ptr [ %57, %.lr.ph.i ], [ %61, %64 ]
+  %61 = getelementptr inbounds i8, ptr %.037.i, i64 254
+  %.not.i = icmp ugt ptr %61, %53
+  br i1 %.not.i, label %.thread.i, label %64
 
-.thread.i:                                        ; preds = %51
-  %53 = ptrtoint ptr %.037.i to i64
-  %54 = sub i64 %50, %53
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.037.i, ptr nonnull align 1 getelementptr inbounds (i8, ptr @_ZN8CodeHeap15segmap_templateE, i64 1), i64 %54, i1 false)
+.thread.i:                                        ; preds = %60
+  %62 = ptrtoint ptr %.037.i to i64
+  %63 = sub i64 %59, %62
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.037.i, ptr nonnull align 1 getelementptr inbounds (i8, ptr @_ZN8CodeHeap15segmap_templateE, i64 1), i64 %63, i1 false)
   br label %_ZN8CodeHeap19mark_segmap_as_usedEmmb.exit
 
-55:                                               ; preds = %51
+64:                                               ; preds = %60
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(254) %.037.i, ptr noundef nonnull align 1 dereferenceable(254) getelementptr inbounds (i8, ptr @_ZN8CodeHeap15segmap_templateE, i64 1), i64 254, i1 false)
-  %56 = icmp ult ptr %52, %44
-  br i1 %56, label %51, label %_ZN8CodeHeap19mark_segmap_as_usedEmmb.exit, !llvm.loop !8
+  %65 = icmp ult ptr %61, %53
+  br i1 %65, label %60, label %_ZN8CodeHeap19mark_segmap_as_usedEmmb.exit, !llvm.loop !8
 
-_ZN8CodeHeap19mark_segmap_as_usedEmmb.exit:       ; preds = %55, %38, %46, %47, %.thread.i
-  %57 = load i64, ptr %33, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 16
-  %59 = load ptr, ptr %58, align 8
-  %60 = load i32, ptr %7, align 8
-  %61 = zext nneg i32 %60 to i64
-  %62 = shl i64 %57, %61
-  %63 = getelementptr inbounds i8, ptr %59, i64 %62
-  store i32 %31, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 4
-  store i8 1, ptr %64, align 4
-  %65 = load i64, ptr %33, align 8
-  %66 = add i64 %65, %32
-  store i64 %66, ptr %33, align 8
-  %67 = load ptr, ptr %0, align 8
-  %.not22 = icmp uge ptr %63, %67
-  %68 = getelementptr inbounds i8, ptr %0, i64 24
-  %69 = load ptr, ptr %68, align 8
-  %70 = icmp ult ptr %63, %69
-  %or.cond28 = select i1 %.not22, i1 %70, i1 false
-  br i1 %or.cond28, label %.sink.split, label %71
+_ZN8CodeHeap19mark_segmap_as_usedEmmb.exit:       ; preds = %64, %47, %55, %56, %.thread.i
+  %66 = load i64, ptr %42, align 8
+  %67 = getelementptr inbounds i8, ptr %0, i64 16
+  %68 = load ptr, ptr %67, align 8
+  %69 = load i32, ptr %7, align 8
+  %70 = zext nneg i32 %69 to i64
+  %71 = shl i64 %66, %70
+  %72 = getelementptr inbounds i8, ptr %68, i64 %71
+  store i32 %40, ptr %72, align 8
+  %73 = getelementptr inbounds i8, ptr %72, i64 4
+  store i8 1, ptr %73, align 4
+  %74 = load i64, ptr %42, align 8
+  %75 = add i64 %74, %41
+  store i64 %75, ptr %42, align 8
+  %76 = load ptr, ptr %0, align 8
+  %.not22 = icmp uge ptr %72, %76
+  %77 = getelementptr inbounds i8, ptr %0, i64 24
+  %78 = load ptr, ptr %77, align 8
+  %79 = icmp ult ptr %72, %78
+  %or.cond28 = select i1 %.not22, i1 %79, i1 false
+  br i1 %or.cond28, label %87, label %80
 
-71:                                               ; preds = %_ZN8CodeHeap19mark_segmap_as_usedEmmb.exit
-  %72 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %72, align 1
-  %73 = ptrtoint ptr %63 to i64
-  %74 = load ptr, ptr %0, align 8
-  %75 = ptrtoint ptr %74 to i64
-  %76 = load ptr, ptr %68, align 8
-  %77 = ptrtoint ptr %76 to i64
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 310, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i64 noundef %73, i64 noundef %75, i64 noundef %77) #17
+80:                                               ; preds = %_ZN8CodeHeap19mark_segmap_as_usedEmmb.exit
+  %81 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %81, align 1
+  %82 = ptrtoint ptr %72 to i64
+  %83 = load ptr, ptr %0, align 8
+  %84 = ptrtoint ptr %83 to i64
+  %85 = load ptr, ptr %77, align 8
+  %86 = ptrtoint ptr %85 to i64
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 310, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i64 noundef %82, i64 noundef %84, i64 noundef %86) #17
   unreachable
 
-.sink.split:                                      ; preds = %_ZN8CodeHeap19mark_segmap_as_usedEmmb.exit, %24
-  %.sink43 = phi i64 [ %26, %24 ], [ %66, %_ZN8CodeHeap19mark_segmap_as_usedEmmb.exit ]
-  %.sink = phi ptr [ %11, %24 ], [ %63, %_ZN8CodeHeap19mark_segmap_as_usedEmmb.exit ]
-  %.sink37 = getelementptr inbounds i8, ptr %0, i64 296
-  %.sink38 = load i64, ptr %.sink37, align 8
-  %78 = getelementptr inbounds i8, ptr %0, i64 280
-  %79 = load i64, ptr %78, align 8
-  %80 = sub i64 %.sink43, %79
-  %81 = load i32, ptr %7, align 8
-  %82 = zext nneg i32 %81 to i64
-  %83 = shl i64 %80, %82
-  %84 = tail call noundef i64 @llvm.umax.i64(i64 %.sink38, i64 %83)
-  store i64 %84, ptr %.sink37, align 8
-  %85 = getelementptr inbounds i8, ptr %0, i64 316
-  %86 = load i32, ptr %85, align 4
-  %87 = add nsw i32 %86, 1
-  store i32 %87, ptr %85, align 4
-  %88 = getelementptr inbounds i8, ptr %.sink, i64 8
-  br label %89
+87:                                               ; preds = %_ZN8CodeHeap19mark_segmap_as_usedEmmb.exit
+  %88 = getelementptr inbounds i8, ptr %0, i64 296
+  %89 = load i64, ptr %88, align 8
+  %90 = getelementptr inbounds i8, ptr %0, i64 280
+  %91 = load i64, ptr %90, align 8
+  %92 = sub i64 %75, %91
+  %93 = load i32, ptr %7, align 8
+  %94 = zext nneg i32 %93 to i64
+  %95 = shl i64 %92, %94
+  %96 = tail call noundef i64 @llvm.umax.i64(i64 %89, i64 %95)
+  store i64 %96, ptr %88, align 8
+  br label %.sink.split
 
-89:                                               ; preds = %.sink.split, %27
-  %.0 = phi ptr [ null, %27 ], [ %88, %.sink.split ]
+.sink.split:                                      ; preds = %24, %87
+  %.sink = phi ptr [ %72, %87 ], [ %11, %24 ]
+  %97 = getelementptr inbounds i8, ptr %0, i64 316
+  %98 = load i32, ptr %97, align 4
+  %99 = add nsw i32 %98, 1
+  store i32 %99, ptr %97, align 4
+  %100 = getelementptr inbounds i8, ptr %.sink, i64 8
+  br label %101
+
+101:                                              ; preds = %.sink.split, %36
+  %.0 = phi ptr [ null, %36 ], [ %100, %.sink.split ]
   ret ptr %.0
 }
 

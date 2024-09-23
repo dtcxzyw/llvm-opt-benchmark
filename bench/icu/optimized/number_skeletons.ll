@@ -3727,21 +3727,19 @@ if.else.i.i:                                      ; preds = %cond.true.i
 if.then2.i.i:                                     ; preds = %if.else.i.i
   %sub.i.i = shl nuw nsw i32 %and2.i, 16
   %shl.i.i = add nsw i32 %sub.i.i, -1073741824
-  br label %if.end9.sink.split.i.i
+  %7 = load i16, ptr %incdec.ptr.i, align 2
+  %conv.i.i = zext i16 %7 to i32
+  %or.i.i = or disjoint i32 %shl.i.i, %conv.i.i
+  br label %_ZNK6icu_7510UCharsTrie8getValueEv.exit
 
 if.else3.i.i:                                     ; preds = %if.else.i.i
-  %7 = load i16, ptr %incdec.ptr.i, align 2
-  %conv4.i.i = zext i16 %7 to i32
+  %8 = load i16, ptr %incdec.ptr.i, align 2
+  %conv4.i.i = zext i16 %8 to i32
   %shl5.i.i = shl nuw i32 %conv4.i.i, 16
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %5, i64 4
-  br label %if.end9.sink.split.i.i
-
-if.end9.sink.split.i.i:                           ; preds = %if.else3.i.i, %if.then2.i.i
-  %pos.sink.i.i = phi ptr [ %incdec.ptr.i, %if.then2.i.i ], [ %arrayidx6.i.i, %if.else3.i.i ]
-  %shl.sink.i.i = phi i32 [ %shl.i.i, %if.then2.i.i ], [ %shl5.i.i, %if.else3.i.i ]
-  %8 = load i16, ptr %pos.sink.i.i, align 2
-  %conv.i.i = zext i16 %8 to i32
-  %or.i.i = or disjoint i32 %shl.sink.i.i, %conv.i.i
+  %9 = load i16, ptr %arrayidx6.i.i, align 2
+  %conv7.i.i = zext i16 %9 to i32
+  %or8.i.i = or disjoint i32 %shl5.i.i, %conv7.i.i
   br label %_ZNK6icu_7510UCharsTrie8getValueEv.exit
 
 cond.false.i:                                     ; preds = %if.end27
@@ -3761,23 +3759,23 @@ if.then2.i9.i:                                    ; preds = %if.else.i6.i
   %and.i.i = shl nuw nsw i32 %conv.i, 10
   %sub3.i.i = and i32 %and.i.i, 33488896
   %shl.i10.i = add nsw i32 %sub3.i.i, -16842752
-  %9 = load i16, ptr %incdec.ptr.i, align 2
-  %conv.i11.i = zext i16 %9 to i32
+  %10 = load i16, ptr %incdec.ptr.i, align 2
+  %conv.i11.i = zext i16 %10 to i32
   %or.i12.i = or disjoint i32 %shl.i10.i, %conv.i11.i
   br label %_ZNK6icu_7510UCharsTrie8getValueEv.exit
 
 if.else4.i.i:                                     ; preds = %if.else.i6.i
-  %10 = load i16, ptr %incdec.ptr.i, align 2
-  %conv5.i.i = zext i16 %10 to i32
+  %11 = load i16, ptr %incdec.ptr.i, align 2
+  %conv5.i.i = zext i16 %11 to i32
   %shl6.i.i = shl nuw i32 %conv5.i.i, 16
   %arrayidx7.i.i = getelementptr inbounds i8, ptr %5, i64 4
-  %11 = load i16, ptr %arrayidx7.i.i, align 2
-  %conv8.i.i = zext i16 %11 to i32
+  %12 = load i16, ptr %arrayidx7.i.i, align 2
+  %conv8.i.i = zext i16 %12 to i32
   %or9.i.i = or disjoint i32 %shl6.i.i, %conv8.i.i
   br label %_ZNK6icu_7510UCharsTrie8getValueEv.exit
 
-_ZNK6icu_7510UCharsTrie8getValueEv.exit:          ; preds = %cond.true.i, %if.end9.sink.split.i.i, %if.then.i.i, %if.then2.i9.i, %if.else4.i.i
-  %cond.i = phi i32 [ %and2.i, %cond.true.i ], [ %or.i.i, %if.end9.sink.split.i.i ], [ %sub.i13.i, %if.then.i.i ], [ %or.i12.i, %if.then2.i9.i ], [ %or9.i.i, %if.else4.i.i ]
+_ZNK6icu_7510UCharsTrie8getValueEv.exit:          ; preds = %cond.true.i, %if.then2.i.i, %if.else3.i.i, %if.then.i.i, %if.then2.i9.i, %if.else4.i.i
+  %cond.i = phi i32 [ %or.i.i, %if.then2.i.i ], [ %or8.i.i, %if.else3.i.i ], [ %and2.i, %cond.true.i ], [ %sub.i13.i, %if.then.i.i ], [ %or.i12.i, %if.then2.i9.i ], [ %or9.i.i, %if.else4.i.i ]
   switch i32 %cond.i, label %sw.default239 [
     i32 0, label %do.body30
     i32 1, label %do.body30
@@ -3840,8 +3838,8 @@ _ZNK6icu_7510UCharsTrie8getValueEv.exit:          ; preds = %cond.true.i, %if.en
   ]
 
 do.body30:                                        ; preds = %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit
-  %12 = load i8, ptr %seen, align 1
-  %tobool32 = trunc i8 %12 to i1
+  %13 = load i8, ptr %seen, align 1
+  %tobool32 = trunc i8 %13 to i1
   br i1 %tobool32, label %if.then33, label %if.end34
 
 if.then33:                                        ; preds = %do.body30
@@ -3857,15 +3855,15 @@ if.end34:                                         ; preds = %do.body30
   store i64 %call37.fca.0.extract, ptr %notation38, align 4
   %ref.tmp.sroa.2.0.notation38.sroa_idx = getelementptr inbounds i8, ptr %macros, i64 12
   store i32 %call37.fca.1.extract, ptr %ref.tmp.sroa.2.0.notation38.sroa_idx, align 4
-  %13 = and i32 %cond.i, -2
-  %switch = icmp eq i32 %13, 2
+  %14 = and i32 %cond.i, -2
+  %switch = icmp eq i32 %14, 2
   %. = zext i1 %switch to i32
   br label %return
 
 do.body42:                                        ; preds = %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit
   %unit = getelementptr inbounds i8, ptr %seen, i64 1
-  %14 = load i8, ptr %unit, align 1
-  %tobool43 = trunc i8 %14 to i1
+  %15 = load i8, ptr %unit, align 1
+  %tobool43 = trunc i8 %15 to i1
   br i1 %tobool43, label %if.then44, label %if.end45
 
 if.then44:                                        ; preds = %do.body42
@@ -3882,8 +3880,8 @@ if.end45:                                         ; preds = %do.body42
 
 do.body52:                                        ; preds = %_ZNK6icu_7510UCharsTrie8getValueEv.exit
   %scale = getelementptr inbounds i8, ptr %seen, i64 13
-  %15 = load i8, ptr %scale, align 1
-  %tobool53 = trunc i8 %15 to i1
+  %16 = load i8, ptr %scale, align 1
+  %tobool53 = trunc i8 %16 to i1
   br i1 %tobool53, label %if.then54, label %if.end55
 
 if.then54:                                        ; preds = %do.body52
@@ -3893,8 +3891,8 @@ if.then54:                                        ; preds = %do.body52
 if.end55:                                         ; preds = %do.body52
   store i8 1, ptr %scale, align 1
   %unit59 = getelementptr inbounds i8, ptr %seen, i64 1
-  %16 = load i8, ptr %unit59, align 1
-  %tobool60 = trunc i8 %16 to i1
+  %17 = load i8, ptr %unit59, align 1
+  %tobool60 = trunc i8 %17 to i1
   br i1 %tobool60, label %if.then61, label %if.end62
 
 if.then61:                                        ; preds = %if.end55
@@ -3915,8 +3913,8 @@ if.end62:                                         ; preds = %if.end55
 
 do.body72:                                        ; preds = %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit
   %precision73 = getelementptr inbounds i8, ptr %seen, i64 4
-  %17 = load i8, ptr %precision73, align 1
-  %tobool74 = trunc i8 %17 to i1
+  %18 = load i8, ptr %precision73, align 1
+  %tobool74 = trunc i8 %18 to i1
   br i1 %tobool74, label %if.then75, label %if.end76
 
 if.then75:                                        ; preds = %do.body72
@@ -3934,8 +3932,8 @@ if.end76:                                         ; preds = %do.body72
 
 do.body84:                                        ; preds = %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit
   %roundingMode = getelementptr inbounds i8, ptr %seen, i64 5
-  %18 = load i8, ptr %roundingMode, align 1
-  %tobool85 = trunc i8 %18 to i1
+  %19 = load i8, ptr %roundingMode, align 1
+  %tobool85 = trunc i8 %19 to i1
   br i1 %tobool85, label %if.then86, label %if.end87
 
 if.then86:                                        ; preds = %do.body84
@@ -3951,8 +3949,8 @@ if.end87:                                         ; preds = %do.body84
 
 do.body93:                                        ; preds = %_ZNK6icu_7510UCharsTrie8getValueEv.exit
   %integerWidth94 = getelementptr inbounds i8, ptr %seen, i64 8
-  %19 = load i8, ptr %integerWidth94, align 1
-  %tobool95 = trunc i8 %19 to i1
+  %20 = load i8, ptr %integerWidth94, align 1
+  %tobool95 = trunc i8 %20 to i1
   br i1 %tobool95, label %if.then96, label %if.end97
 
 if.then96:                                        ; preds = %do.body93
@@ -3978,8 +3976,8 @@ if.end97:                                         ; preds = %do.body93
 
 do.body108:                                       ; preds = %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit
   %grouper = getelementptr inbounds i8, ptr %seen, i64 6
-  %20 = load i8, ptr %grouper, align 1
-  %tobool109 = trunc i8 %20 to i1
+  %21 = load i8, ptr %grouper, align 1
+  %tobool109 = trunc i8 %21 to i1
   br i1 %tobool109, label %if.then110, label %if.end111
 
 if.then110:                                       ; preds = %do.body108
@@ -4000,8 +3998,8 @@ if.end111:                                        ; preds = %do.body108
 
 do.body120:                                       ; preds = %_ZNK6icu_7510UCharsTrie8getValueEv.exit
   %symbols = getelementptr inbounds i8, ptr %seen, i64 9
-  %21 = load i8, ptr %symbols, align 1
-  %tobool121 = trunc i8 %21 to i1
+  %22 = load i8, ptr %symbols, align 1
+  %tobool121 = trunc i8 %22 to i1
   br i1 %tobool121, label %if.then122, label %if.end123
 
 if.then122:                                       ; preds = %do.body120
@@ -4017,8 +4015,8 @@ if.end123:                                        ; preds = %do.body120
 
 do.body129:                                       ; preds = %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit
   %unitWidth = getelementptr inbounds i8, ptr %seen, i64 10
-  %22 = load i8, ptr %unitWidth, align 1
-  %tobool130 = trunc i8 %22 to i1
+  %23 = load i8, ptr %unitWidth, align 1
+  %tobool130 = trunc i8 %23 to i1
   br i1 %tobool130, label %if.then131, label %if.end132
 
 if.then131:                                       ; preds = %do.body129
@@ -4034,8 +4032,8 @@ if.end132:                                        ; preds = %do.body129
 
 do.body138:                                       ; preds = %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit
   %sign = getelementptr inbounds i8, ptr %seen, i64 11
-  %23 = load i8, ptr %sign, align 1
-  %tobool139 = trunc i8 %23 to i1
+  %24 = load i8, ptr %sign, align 1
+  %tobool139 = trunc i8 %24 to i1
   br i1 %tobool139, label %if.then140, label %if.end141
 
 if.then140:                                       ; preds = %do.body138
@@ -4051,8 +4049,8 @@ if.end141:                                        ; preds = %do.body138
 
 do.body147:                                       ; preds = %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit
   %decimal = getelementptr inbounds i8, ptr %seen, i64 12
-  %24 = load i8, ptr %decimal, align 1
-  %tobool148 = trunc i8 %24 to i1
+  %25 = load i8, ptr %decimal, align 1
+  %tobool148 = trunc i8 %25 to i1
   br i1 %tobool148, label %if.then149, label %if.end150
 
 if.then149:                                       ; preds = %do.body147
@@ -4071,8 +4069,8 @@ if.end150:                                        ; preds = %do.body147
 
 do.body156:                                       ; preds = %_ZNK6icu_7510UCharsTrie8getValueEv.exit
   %precision157 = getelementptr inbounds i8, ptr %seen, i64 4
-  %25 = load i8, ptr %precision157, align 1
-  %tobool158 = trunc i8 %25 to i1
+  %26 = load i8, ptr %precision157, align 1
+  %tobool158 = trunc i8 %26 to i1
   br i1 %tobool158, label %if.then159, label %if.end160
 
 if.then159:                                       ; preds = %do.body156
@@ -4085,8 +4083,8 @@ if.end160:                                        ; preds = %do.body156
 
 do.body164:                                       ; preds = %_ZNK6icu_7510UCharsTrie8getValueEv.exit
   %unit165 = getelementptr inbounds i8, ptr %seen, i64 1
-  %26 = load i8, ptr %unit165, align 1
-  %tobool166 = trunc i8 %26 to i1
+  %27 = load i8, ptr %unit165, align 1
+  %tobool166 = trunc i8 %27 to i1
   br i1 %tobool166, label %if.then167, label %if.end168
 
 if.then167:                                       ; preds = %do.body164
@@ -4099,8 +4097,8 @@ if.end168:                                        ; preds = %do.body164
 
 do.body172:                                       ; preds = %_ZNK6icu_7510UCharsTrie8getValueEv.exit
   %perUnit = getelementptr inbounds i8, ptr %seen, i64 2
-  %27 = load i8, ptr %perUnit, align 1
-  %tobool173 = trunc i8 %27 to i1
+  %28 = load i8, ptr %perUnit, align 1
+  %tobool173 = trunc i8 %28 to i1
   br i1 %tobool173, label %if.then174, label %if.end175
 
 if.then174:                                       ; preds = %do.body172
@@ -4113,8 +4111,8 @@ if.end175:                                        ; preds = %do.body172
 
 do.body179:                                       ; preds = %_ZNK6icu_7510UCharsTrie8getValueEv.exit
   %unit180 = getelementptr inbounds i8, ptr %seen, i64 1
-  %28 = load i8, ptr %unit180, align 1
-  %tobool181 = trunc i8 %28 to i1
+  %29 = load i8, ptr %unit180, align 1
+  %tobool181 = trunc i8 %29 to i1
   br i1 %tobool181, label %if.then182, label %if.end183
 
 if.then182:                                       ; preds = %do.body179
@@ -4124,8 +4122,8 @@ if.then182:                                       ; preds = %do.body179
 if.end183:                                        ; preds = %do.body179
   store i8 1, ptr %unit180, align 1
   %perUnit187 = getelementptr inbounds i8, ptr %seen, i64 2
-  %29 = load i8, ptr %perUnit187, align 1
-  %tobool188 = trunc i8 %29 to i1
+  %30 = load i8, ptr %perUnit187, align 1
+  %tobool188 = trunc i8 %30 to i1
   br i1 %tobool188, label %if.then189, label %if.end190
 
 if.then189:                                       ; preds = %if.end183
@@ -4138,8 +4136,8 @@ if.end190:                                        ; preds = %if.end183
 
 do.body194:                                       ; preds = %_ZNK6icu_7510UCharsTrie8getValueEv.exit
   %usage = getelementptr inbounds i8, ptr %seen, i64 3
-  %30 = load i8, ptr %usage, align 1
-  %tobool195 = trunc i8 %30 to i1
+  %31 = load i8, ptr %usage, align 1
+  %tobool195 = trunc i8 %31 to i1
   br i1 %tobool195, label %if.then196, label %if.end197
 
 if.then196:                                       ; preds = %do.body194
@@ -4152,8 +4150,8 @@ if.end197:                                        ; preds = %do.body194
 
 do.body201:                                       ; preds = %_ZNK6icu_7510UCharsTrie8getValueEv.exit
   %unit202 = getelementptr inbounds i8, ptr %seen, i64 1
-  %31 = load i8, ptr %unit202, align 1
-  %tobool203 = trunc i8 %31 to i1
+  %32 = load i8, ptr %unit202, align 1
+  %tobool203 = trunc i8 %32 to i1
   br i1 %tobool203, label %if.then204, label %if.end205
 
 if.then204:                                       ; preds = %do.body201
@@ -4163,8 +4161,8 @@ if.then204:                                       ; preds = %do.body201
 if.end205:                                        ; preds = %do.body201
   store i8 1, ptr %unit202, align 1
   %perUnit209 = getelementptr inbounds i8, ptr %seen, i64 2
-  %32 = load i8, ptr %perUnit209, align 1
-  %tobool210 = trunc i8 %32 to i1
+  %33 = load i8, ptr %perUnit209, align 1
+  %tobool210 = trunc i8 %33 to i1
   br i1 %tobool210, label %if.then211, label %if.end212
 
 if.then211:                                       ; preds = %if.end205
@@ -4177,8 +4175,8 @@ if.end212:                                        ; preds = %if.end205
 
 do.body216:                                       ; preds = %_ZNK6icu_7510UCharsTrie8getValueEv.exit
   %integerWidth217 = getelementptr inbounds i8, ptr %seen, i64 8
-  %33 = load i8, ptr %integerWidth217, align 1
-  %tobool218 = trunc i8 %33 to i1
+  %34 = load i8, ptr %integerWidth217, align 1
+  %tobool218 = trunc i8 %34 to i1
   br i1 %tobool218, label %if.then219, label %if.end220
 
 if.then219:                                       ; preds = %do.body216
@@ -4191,8 +4189,8 @@ if.end220:                                        ; preds = %do.body216
 
 do.body224:                                       ; preds = %_ZNK6icu_7510UCharsTrie8getValueEv.exit
   %symbols225 = getelementptr inbounds i8, ptr %seen, i64 9
-  %34 = load i8, ptr %symbols225, align 1
-  %tobool226 = trunc i8 %34 to i1
+  %35 = load i8, ptr %symbols225, align 1
+  %tobool226 = trunc i8 %35 to i1
   br i1 %tobool226, label %if.then227, label %if.end228
 
 if.then227:                                       ; preds = %do.body224
@@ -4205,8 +4203,8 @@ if.end228:                                        ; preds = %do.body224
 
 do.body232:                                       ; preds = %_ZNK6icu_7510UCharsTrie8getValueEv.exit
   %scale233 = getelementptr inbounds i8, ptr %seen, i64 13
-  %35 = load i8, ptr %scale233, align 1
-  %tobool234 = trunc i8 %35 to i1
+  %36 = load i8, ptr %scale233, align 1
+  %tobool234 = trunc i8 %36 to i1
   br i1 %tobool234, label %if.then235, label %if.end236
 
 if.then235:                                       ; preds = %do.body232
@@ -6072,21 +6070,19 @@ if.else.i.i:                                      ; preds = %cond.true.i
 if.then2.i.i:                                     ; preds = %if.else.i.i
   %sub.i.i = shl nuw nsw i32 %and2.i, 16
   %shl.i.i = add nsw i32 %sub.i.i, -1073741824
-  br label %if.end9.sink.split.i.i
+  %11 = load i16, ptr %incdec.ptr.i, align 2
+  %conv.i.i = zext i16 %11 to i32
+  %or.i.i = or disjoint i32 %shl.i.i, %conv.i.i
+  br label %invoke.cont13
 
 if.else3.i.i:                                     ; preds = %if.else.i.i
-  %11 = load i16, ptr %incdec.ptr.i, align 2
-  %conv4.i.i = zext i16 %11 to i32
+  %12 = load i16, ptr %incdec.ptr.i, align 2
+  %conv4.i.i = zext i16 %12 to i32
   %shl5.i.i = shl nuw i32 %conv4.i.i, 16
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %9, i64 4
-  br label %if.end9.sink.split.i.i
-
-if.end9.sink.split.i.i:                           ; preds = %if.else3.i.i, %if.then2.i.i
-  %pos.sink.i.i = phi ptr [ %incdec.ptr.i, %if.then2.i.i ], [ %arrayidx6.i.i, %if.else3.i.i ]
-  %shl.sink.i.i = phi i32 [ %shl.i.i, %if.then2.i.i ], [ %shl5.i.i, %if.else3.i.i ]
-  %12 = load i16, ptr %pos.sink.i.i, align 2
-  %conv.i.i = zext i16 %12 to i32
-  %or.i.i = or disjoint i32 %shl.sink.i.i, %conv.i.i
+  %13 = load i16, ptr %arrayidx6.i.i, align 2
+  %conv7.i.i = zext i16 %13 to i32
+  %or8.i.i = or disjoint i32 %shl5.i.i, %conv7.i.i
   br label %invoke.cont13
 
 cond.false.i:                                     ; preds = %if.end
@@ -6106,26 +6102,26 @@ if.then2.i9.i:                                    ; preds = %if.else.i6.i
   %and.i.i = shl nuw nsw i32 %conv.i, 10
   %sub3.i.i = and i32 %and.i.i, 33488896
   %shl.i10.i = add nsw i32 %sub3.i.i, -16842752
-  %13 = load i16, ptr %incdec.ptr.i, align 2
-  %conv.i11.i = zext i16 %13 to i32
+  %14 = load i16, ptr %incdec.ptr.i, align 2
+  %conv.i11.i = zext i16 %14 to i32
   %or.i12.i = or disjoint i32 %shl.i10.i, %conv.i11.i
   br label %invoke.cont13
 
 if.else4.i.i:                                     ; preds = %if.else.i6.i
-  %14 = load i16, ptr %incdec.ptr.i, align 2
-  %conv5.i.i = zext i16 %14 to i32
+  %15 = load i16, ptr %incdec.ptr.i, align 2
+  %conv5.i.i = zext i16 %15 to i32
   %shl6.i.i = shl nuw i32 %conv5.i.i, 16
   %arrayidx7.i.i = getelementptr inbounds i8, ptr %9, i64 4
-  %15 = load i16, ptr %arrayidx7.i.i, align 2
-  %conv8.i.i = zext i16 %15 to i32
+  %16 = load i16, ptr %arrayidx7.i.i, align 2
+  %conv8.i.i = zext i16 %16 to i32
   %or9.i.i = or disjoint i32 %shl6.i.i, %conv8.i.i
   br label %invoke.cont13
 
-invoke.cont13:                                    ; preds = %if.else4.i.i, %if.then2.i9.i, %if.then.i.i, %if.end9.sink.split.i.i, %cond.true.i
-  %cond.i = phi i32 [ %and2.i, %cond.true.i ], [ %or.i.i, %if.end9.sink.split.i.i ], [ %sub.i13.i, %if.then.i.i ], [ %or.i12.i, %if.then2.i9.i ], [ %or9.i.i, %if.else4.i.i ]
+invoke.cont13:                                    ; preds = %if.else4.i.i, %if.then2.i9.i, %if.then.i.i, %if.else3.i.i, %if.then2.i.i, %cond.true.i
+  %cond.i = phi i32 [ %or.i.i, %if.then2.i.i ], [ %or8.i.i, %if.else3.i.i ], [ %and2.i, %cond.true.i ], [ %sub.i13.i, %if.then.i.i ], [ %or.i12.i, %if.then2.i9.i ], [ %or9.i.i, %if.else4.i.i ]
   %switch.tableidx = add i32 %cond.i, -38
-  %16 = icmp ult i32 %switch.tableidx, 9
-  br i1 %16, label %if.end18, label %cleanup
+  %17 = icmp ult i32 %switch.tableidx, 9
+  br i1 %17, label %if.end18, label %cleanup
 
 if.end18:                                         ; preds = %invoke.cont13
   %notation = getelementptr inbounds i8, ptr %macros, i64 4

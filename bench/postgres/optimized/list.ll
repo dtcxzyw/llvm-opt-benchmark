@@ -446,16 +446,16 @@ define dso_local noundef ptr @list_insert_nth(ptr noundef %0, i32 noundef %1, pt
   %9 = getelementptr inbounds i8, ptr %6, i64 24
   %10 = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %9, ptr %10, align 8
+  store ptr %2, ptr %9, align 8
   br label %13
 
 11:                                               ; preds = %3
   %12 = tail call fastcc ptr @insert_new_cell(ptr noundef %0, i32 noundef %1)
+  store ptr %2, ptr %12, align 8
   br label %13
 
 13:                                               ; preds = %11, %5
-  %.sink = phi ptr [ %12, %11 ], [ %9, %5 ]
-  %.0 = phi ptr [ %0, %11 ], [ %6, %5 ]
-  store ptr %2, ptr %.sink, align 8
+  %.0 = phi ptr [ %6, %5 ], [ %0, %11 ]
   ret ptr %.0
 }
 

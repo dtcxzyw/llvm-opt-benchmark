@@ -4369,9 +4369,18 @@ if.then31.i:                                      ; preds = %while.end.i
   %11 = load ptr, ptr %next24.i, align 8
   store ptr %11, ptr %next58.i, align 8
   %cmp38.not.i = icmp eq ptr %11, null
+  br i1 %cmp38.not.i, label %if.else44.i, label %if.then39.i
+
+if.then39.i:                                      ; preds = %if.then31.i
   %tql_prev43.i = getelementptr inbounds i8, ptr %11, i64 224
-  %.sink.i = select i1 %cmp38.not.i, ptr getelementptr inbounds (i8, ptr @consoles, i64 8), ptr %tql_prev43.i
-  store ptr %next58.i, ptr %.sink.i, align 8
+  store ptr %next58.i, ptr %tql_prev43.i, align 8
+  br label %if.end46.i
+
+if.else44.i:                                      ; preds = %if.then31.i
+  store ptr %next58.i, ptr getelementptr inbounds (i8, ptr @consoles, i64 8), align 8
+  br label %if.end46.i
+
+if.end46.i:                                       ; preds = %if.else44.i, %if.then39.i
   store ptr %call.i, ptr %next24.i, align 8
   %tql_prev50.i = getelementptr inbounds i8, ptr %call.i, i64 224
   store ptr %next24.i, ptr %tql_prev50.i, align 8
@@ -4402,7 +4411,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %cmp70.not.i = icmp eq ptr %15, null
   br i1 %cmp70.not.i, label %qemu_console_register.exit, label %for.body.i, !llvm.loop !35
 
-qemu_console_register.exit:                       ; preds = %for.body.i, %if.then4.i, %if.then11.i, %if.then31.i
+qemu_console_register.exit:                       ; preds = %for.body.i, %if.then4.i, %if.then11.i, %if.end46.i
   ret void
 }
 

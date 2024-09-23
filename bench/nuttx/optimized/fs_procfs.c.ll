@@ -256,6 +256,7 @@ define internal i32 @procfs_opendir(ptr nocapture readnone %0, ptr noundef %1, p
 
 procfs_sort_pid.exit:                             ; preds = %._crit_edge.i, %9
   %24 = getelementptr inbounds i8, ptr %8, i64 552
+  store ptr @.str.13, ptr %24, align 8
   br label %56
 
 25:                                               ; preds = %4
@@ -309,6 +310,7 @@ procfs_sort_pid.exit:                             ; preds = %._crit_edge.i, %9
   %53 = getelementptr inbounds i8, ptr %47, i64 33
   store i8 %52, ptr %53, align 1
   %54 = getelementptr inbounds i8, ptr %47, i64 40
+  store ptr @.str.13, ptr %54, align 8
   br label %56
 
 55:                                               ; preds = %43
@@ -317,9 +319,7 @@ procfs_sort_pid.exit:                             ; preds = %._crit_edge.i, %9
   br i1 %exitcond.not, label %.loopexit, label %28, !llvm.loop !10
 
 56:                                               ; preds = %.thread, %procfs_sort_pid.exit
-  %.sink = phi ptr [ %54, %.thread ], [ %24, %procfs_sort_pid.exit ]
   %.sink61 = phi ptr [ %47, %.thread ], [ %8, %procfs_sort_pid.exit ]
-  store ptr @.str.13, ptr %.sink, align 8
   %57 = getelementptr inbounds i8, ptr %.sink61, i64 32
   store i8 0, ptr %57, align 8
   %58 = getelementptr inbounds i8, ptr %.sink61, i64 24

@@ -61,7 +61,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %25 = zext i32 %24 to i64
   %26 = getelementptr inbounds i8, ptr %1, i64 %25
   %27 = icmp ugt i32 %2, 11
-  br i1 %27, label %28, label %632
+  br i1 %27, label %28, label %633
 
 28:                                               ; preds = %20
   %29 = zext i32 %2 to i64
@@ -74,7 +74,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %or.cond = and i1 %.not1029, %34
   %35 = icmp ugt i64 %33, %30
   %or.cond1090 = and i1 %35, %or.cond
-  br i1 %or.cond1090, label %36, label %632
+  br i1 %or.cond1090, label %36, label %633
 
 36:                                               ; preds = %28
   %37 = load i32, ptr %26, align 1
@@ -98,7 +98,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %or.cond1091 = and i1 %.not1034, %50
   %51 = icmp ugt i64 %33, %48
   %or.cond1092 = and i1 %51, %or.cond1091
-  br i1 %or.cond1092, label %52, label %632
+  br i1 %or.cond1092, label %52, label %633
 
 52:                                               ; preds = %39
   %53 = add i32 %5, 10
@@ -106,7 +106,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %55 = getelementptr inbounds i8, ptr %1, i64 %54
   %56 = load i8, ptr %55, align 1
   %.not1035 = icmp eq i8 %56, -21
-  br i1 %.not1035, label %57, label %632
+  br i1 %.not1035, label %57, label %633
 
 57:                                               ; preds = %52
   %58 = getelementptr inbounds i8, ptr %46, i64 11
@@ -116,7 +116,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %62 = getelementptr inbounds i8, ptr %61, i64 %45
   %63 = getelementptr inbounds i8, ptr %62, i64 38
   %.not1036 = icmp ult ptr %63, %1
-  br i1 %.not1036, label %632, label %64
+  br i1 %.not1036, label %633, label %64
 
 64:                                               ; preds = %57
   %65 = ptrtoint ptr %63 to i64
@@ -126,12 +126,12 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %or.cond1093 = and i1 %.not1037, %67
   %68 = icmp ugt i64 %33, %65
   %or.cond1094 = and i1 %68, %or.cond1093
-  br i1 %or.cond1094, label %69, label %632
+  br i1 %or.cond1094, label %69, label %633
 
 69:                                               ; preds = %64
   %70 = load i8, ptr %63, align 1
   %.not1038 = icmp eq i8 %70, -21
-  br i1 %.not1038, label %71, label %632
+  br i1 %.not1038, label %71, label %633
 
 71:                                               ; preds = %69
   %72 = getelementptr inbounds i8, ptr %62, i64 39
@@ -152,7 +152,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %or.cond1095 = and i1 %.not1031, %83
   %84 = icmp ugt i64 %33, %81
   %or.cond1096 = and i1 %84, %or.cond1095
-  br i1 %or.cond1096, label %85, label %632
+  br i1 %or.cond1096, label %85, label %633
 
 85:                                               ; preds = %77
   %86 = add i32 %5, 7
@@ -160,7 +160,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %88 = getelementptr inbounds i8, ptr %1, i64 %87
   %89 = load i8, ptr %88, align 1
   %.not1032 = icmp eq i8 %89, -23
-  br i1 %.not1032, label %90, label %632
+  br i1 %.not1032, label %90, label %633
 
 90:                                               ; preds = %85
   %91 = getelementptr inbounds i8, ptr %79, i64 8
@@ -178,7 +178,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %.0866 = phi i32 [ 8, %71 ], [ 10, %90 ]
   %.0904 = getelementptr inbounds i8, ptr %.pn, i64 12
   %.not1039 = icmp ult ptr %.0886, %1
-  br i1 %.not1039, label %632, label %98
+  br i1 %.not1039, label %633, label %98
 
 98:                                               ; preds = %97
   %99 = ptrtoint ptr %.0886 to i64
@@ -188,12 +188,12 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %or.cond1097 = and i1 %.not1040, %101
   %102 = icmp ugt i64 %33, %99
   %or.cond1098 = and i1 %102, %or.cond1097
-  br i1 %or.cond1098, label %103, label %632
+  br i1 %or.cond1098, label %103, label %633
 
 103:                                              ; preds = %98
   %104 = load i8, ptr %.0886, align 1
   %.not1041 = icmp eq i8 %104, -75
-  br i1 %.not1041, label %105, label %632
+  br i1 %.not1041, label %105, label %633
 
 105:                                              ; preds = %103
   %106 = getelementptr inbounds i8, ptr %.0886, i64 1
@@ -201,7 +201,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %108 = zext i8 %107 to i32
   %109 = or disjoint i32 %.0866, 5
   %.not1042 = icmp ugt i32 %109, %2
-  br i1 %.not1042, label %632, label %110
+  br i1 %.not1042, label %633, label %110
 
 110:                                              ; preds = %105
   %111 = zext nneg i32 %109 to i64
@@ -212,14 +212,14 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %or.cond1099 = and i1 %.not1044, %114
   %115 = icmp ugt i64 %33, %112
   %or.cond1100 = and i1 %115, %or.cond1099
-  br i1 %or.cond1100, label %116, label %632
+  br i1 %or.cond1100, label %116, label %633
 
 116:                                              ; preds = %110
   %117 = zext nneg i32 %.0866 to i64
   %118 = getelementptr inbounds i8, ptr %106, i64 %117
   %119 = load i8, ptr %118, align 1
   %.not1045 = icmp eq i8 %119, -23
-  br i1 %.not1045, label %120, label %632
+  br i1 %.not1045, label %120, label %633
 
 120:                                              ; preds = %116
   %121 = getelementptr inbounds i8, ptr %118, i64 1
@@ -275,7 +275,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %153 = getelementptr inbounds i8, ptr %142, i64 46
   %154 = getelementptr inbounds i8, ptr %142, i64 45
   %.not1049 = icmp ult ptr %154, %1
-  br i1 %.not1049, label %632, label %155
+  br i1 %.not1049, label %633, label %155
 
 155:                                              ; preds = %152
   %156 = ptrtoint ptr %154 to i64
@@ -285,12 +285,12 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %or.cond1103 = and i1 %.not1050, %158
   %159 = icmp ugt i64 %33, %156
   %or.cond1104 = and i1 %159, %or.cond1103
-  br i1 %or.cond1104, label %160, label %632
+  br i1 %or.cond1104, label %160, label %633
 
 160:                                              ; preds = %155
   %161 = load i8, ptr %154, align 1
   %.not1051 = icmp eq i8 %161, -29
-  br i1 %.not1051, label %162, label %632
+  br i1 %.not1051, label %162, label %633
 
 162:                                              ; preds = %160, %150
   %.1887 = phi ptr [ %143, %150 ], [ %153, %160 ]
@@ -302,7 +302,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %165 = add nuw nsw i64 %164, 1
   %166 = getelementptr inbounds i8, ptr %.1887, i64 %165
   %.not1053 = icmp ult ptr %166, %1
-  br i1 %.not1053, label %632, label %167
+  br i1 %.not1053, label %633, label %167
 
 167:                                              ; preds = %162
   %168 = ptrtoint ptr %166 to i64
@@ -314,14 +314,14 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %or.cond1105 = and i1 %.not1054, %172
   %173 = icmp ugt i64 %33, %168
   %or.cond1106 = and i1 %173, %or.cond1105
-  br i1 %or.cond1106, label %174, label %632
+  br i1 %or.cond1106, label %174, label %633
 
 174:                                              ; preds = %167
   %175 = zext nneg i32 %.0868 to i64
   %176 = getelementptr inbounds i8, ptr %166, i64 %175
   %177 = load i8, ptr %176, align 1
   %.not1055 = icmp eq i8 %177, -23
-  br i1 %.not1055, label %178, label %632
+  br i1 %.not1055, label %178, label %633
 
 178:                                              ; preds = %174
   %179 = getelementptr inbounds i8, ptr %176, i64 1
@@ -335,7 +335,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %spec.select = getelementptr inbounds i8, ptr %184, i64 %spec.select.idx
   %186 = getelementptr inbounds i8, ptr %142, i64 %.0867
   %.not1056 = icmp ult ptr %186, %1
-  br i1 %.not1056, label %632, label %187
+  br i1 %.not1056, label %633, label %187
 
 187:                                              ; preds = %178
   %188 = ptrtoint ptr %186 to i64
@@ -345,18 +345,18 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %or.cond1107 = and i1 %.not1057, %190
   %191 = icmp ugt i64 %33, %188
   %or.cond1108 = and i1 %191, %or.cond1107
-  br i1 %or.cond1108, label %192, label %632
+  br i1 %or.cond1108, label %192, label %633
 
 192:                                              ; preds = %187
   %193 = load i8, ptr %186, align 1
   %.not1058 = icmp eq i8 %193, -63
-  br i1 %.not1058, label %194, label %632
+  br i1 %.not1058, label %194, label %633
 
 194:                                              ; preds = %192
   %195 = getelementptr inbounds i8, ptr %186, i64 1
   %196 = load i8, ptr %195, align 1
   %.not1059 = icmp eq i8 %196, -19
-  br i1 %.not1059, label %197, label %632
+  br i1 %.not1059, label %197, label %633
 
 197:                                              ; preds = %194
   %198 = getelementptr inbounds i8, ptr %186, i64 2
@@ -369,7 +369,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
 
 203:                                              ; preds = %197
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1) #3
-  br label %632
+  br label %633
 
 204:                                              ; preds = %197
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2, i32 noundef %200, i32 noundef %201) #3
@@ -378,7 +378,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
 205:                                              ; preds = %204
   %206 = getelementptr inbounds i8, ptr %.pn, i64 18
   %.not1063 = icmp ult ptr %206, %1
-  br i1 %.not1063, label %632, label %207
+  br i1 %.not1063, label %633, label %207
 
 207:                                              ; preds = %205
   %208 = ptrtoint ptr %206 to i64
@@ -388,18 +388,18 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %or.cond1109 = and i1 %.not1064, %210
   %211 = icmp ugt i64 %33, %208
   %or.cond1110 = and i1 %211, %or.cond1109
-  br i1 %or.cond1110, label %212, label %632
+  br i1 %or.cond1110, label %212, label %633
 
 212:                                              ; preds = %207
   %213 = load i8, ptr %206, align 1
   %.not1065 = icmp eq i8 %213, -66
-  br i1 %.not1065, label %214, label %632
+  br i1 %.not1065, label %214, label %633
 
 214:                                              ; preds = %212
   %215 = getelementptr inbounds i8, ptr %.pn, i64 23
   %216 = load i8, ptr %215, align 1
   %.not1066 = icmp eq i8 %216, -65
-  br i1 %.not1066, label %217, label %632
+  br i1 %.not1066, label %217, label %633
 
 217:                                              ; preds = %214
   %218 = getelementptr inbounds i8, ptr %.pn, i64 19
@@ -407,12 +407,12 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %220 = icmp ult i32 %219, %6
   %221 = icmp ugt i32 %219, %4
   %or.cond1111 = or i1 %220, %221
-  br i1 %or.cond1111, label %632, label %231
+  br i1 %or.cond1111, label %633, label %231
 
 222:                                              ; preds = %204
   %223 = getelementptr inbounds i8, ptr %.pn, i64 19
   %.not1060 = icmp ult ptr %223, %1
-  br i1 %.not1060, label %632, label %224
+  br i1 %.not1060, label %633, label %224
 
 224:                                              ; preds = %222
   %225 = ptrtoint ptr %223 to i64
@@ -422,12 +422,12 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %or.cond1112 = and i1 %.not1061, %227
   %228 = icmp ugt i64 %33, %225
   %or.cond1113 = and i1 %228, %or.cond1112
-  br i1 %or.cond1113, label %229, label %632
+  br i1 %or.cond1113, label %229, label %633
 
 229:                                              ; preds = %224
   %230 = load i8, ptr %223, align 1
   %.not1062 = icmp eq i8 %230, -66
-  br i1 %.not1062, label %257, label %632
+  br i1 %.not1062, label %257, label %633
 
 231:                                              ; preds = %217
   %232 = getelementptr inbounds i8, ptr %.pn, i64 24
@@ -441,7 +441,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %238 = shl nuw nsw i32 %108, 10
   %239 = or disjoint i32 %238, 112
   %.not1073 = icmp ugt i32 %239, %2
-  br i1 %.not1073, label %632, label %240
+  br i1 %.not1073, label %633, label %240
 
 240:                                              ; preds = %231
   %241 = zext nneg i32 %239 to i64
@@ -450,13 +450,13 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %.not1075 = icmp ule i64 %243, %33
   %244 = icmp ugt i64 %243, %31
   %or.cond1114 = and i1 %.not1075, %244
-  br i1 %or.cond1114, label %245, label %632
+  br i1 %or.cond1114, label %245, label %633
 
 245:                                              ; preds = %240
   %246 = icmp ugt i64 %33, %242
   %247 = icmp ugt i32 %2, 191
   %or.cond37 = and i1 %247, %246
-  br i1 %or.cond37, label %248, label %632
+  br i1 %or.cond37, label %248, label %633
 
 248:                                              ; preds = %245
   %249 = ptrtoint ptr %.19051154 to i64
@@ -466,7 +466,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %or.cond1115 = and i1 %.not1077, %251
   %252 = icmp ugt i64 %33, %249
   %or.cond1116 = and i1 %252, %or.cond1115
-  br i1 %or.cond1116, label %.preheader1179, label %632
+  br i1 %or.cond1116, label %.preheader1179, label %633
 
 .preheader1179:                                   ; preds = %248, %.preheader1179
   %.08701201 = phi i32 [ %254, %.preheader1179 ], [ 0, %248 ]
@@ -490,25 +490,25 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %262 = or disjoint i32 %261, 180
   %263 = zext nneg i32 %262 to i64
   %.not1068 = icmp ugt i32 %262, %2
-  br i1 %.not1068, label %632, label %264
+  br i1 %.not1068, label %633, label %264
 
 264:                                              ; preds = %257
   %265 = ptrtoint ptr %.0895 to i64
   %.not1069 = icmp ult ptr %.0895, %1
-  br i1 %.not1069, label %632, label %266
+  br i1 %.not1069, label %633, label %266
 
 266:                                              ; preds = %264
   %267 = add i64 %263, %265
   %.not1070 = icmp ule i64 %267, %33
   %268 = icmp ugt i64 %267, %31
   %or.cond1117 = and i1 %.not1070, %268
-  br i1 %or.cond1117, label %269, label %632
+  br i1 %or.cond1117, label %269, label %633
 
 269:                                              ; preds = %266
   %270 = icmp ugt i64 %33, %265
   %271 = icmp ugt i32 %2, 211
   %or.cond43 = and i1 %271, %270
-  br i1 %or.cond43, label %272, label %632
+  br i1 %or.cond43, label %272, label %633
 
 272:                                              ; preds = %269
   %273 = ptrtoint ptr %.1905 to i64
@@ -518,7 +518,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %or.cond1118 = and i1 %.not1072, %275
   %276 = icmp ugt i64 %33, %273
   %or.cond1119 = and i1 %276, %or.cond1118
-  br i1 %or.cond1119, label %.preheader1180, label %632
+  br i1 %or.cond1119, label %.preheader1180, label %633
 
 .preheader1180:                                   ; preds = %272, %.preheader1180
   %.18711198 = phi i32 [ %278, %.preheader1180 ], [ 0, %272 ]
@@ -607,13 +607,13 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
 
 314:                                              ; preds = %312
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3) #3
-  br label %632
+  br label %633
 
 315:                                              ; preds = %312
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.4) #3
   %316 = tail call i32 @unupack399(ptr noundef %1, i32 noundef %2, i32 noundef 0, ptr noundef nonnull %.3898, i32 noundef 0, ptr noundef %.7902, ptr noundef %.0891, i32 noundef %200, ptr noundef %291)
   %317 = icmp eq i32 %316, -1
-  br i1 %317, label %632, label %555
+  br i1 %317, label %633, label %556
 
 318:                                              ; preds = %9
   %319 = zext i32 %4 to i64
@@ -655,19 +655,19 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %340 = getelementptr inbounds i8, ptr %322, i64 %.sink
   %341 = zext i32 %2 to i64
   %.not997 = icmp eq i32 %2, 0
-  br i1 %.not997, label %632, label %342
+  br i1 %.not997, label %633, label %342
 
 342:                                              ; preds = %337
   %343 = add nuw nsw i32 %.0865, 4
   %344 = zext nneg i32 %343 to i64
   %.not998 = icmp ugt i32 %343, %2
-  br i1 %.not998, label %632, label %345
+  br i1 %.not998, label %633, label %345
 
 345:                                              ; preds = %342
   %346 = ptrtoint ptr %322 to i64
   %347 = ptrtoint ptr %1 to i64
   %.not999 = icmp ult ptr %322, %1
-  br i1 %.not999, label %632, label %348
+  br i1 %.not999, label %633, label %348
 
 348:                                              ; preds = %345
   %349 = add i64 %344, %346
@@ -677,7 +677,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %or.cond1122 = and i1 %.not1000, %351
   %352 = icmp ugt i64 %350, %346
   %or.cond1123 = select i1 %or.cond1122, i1 %352, i1 false
-  br i1 %or.cond1123, label %353, label %632
+  br i1 %or.cond1123, label %353, label %633
 
 353:                                              ; preds = %348
   %354 = zext nneg i32 %.0865 to i64
@@ -700,7 +700,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
 
 368:                                              ; preds = %353
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1) #3
-  br label %632
+  br label %633
 
 369:                                              ; preds = %353
   %370 = getelementptr inbounds i8, ptr %322, i64 %.0864
@@ -719,7 +719,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
 
 377:                                              ; preds = %374
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.6) #3
-  br label %632
+  br label %633
 
 378:                                              ; preds = %374
   %379 = getelementptr inbounds i8, ptr %322, i64 4
@@ -729,7 +729,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %383 = getelementptr inbounds i8, ptr %379, i64 %382
   %384 = ptrtoint ptr %383 to i64
   %.not1005 = icmp ult ptr %383, %1
-  br i1 %.not1005, label %632, label %385
+  br i1 %.not1005, label %633, label %385
 
 385:                                              ; preds = %378
   %386 = add i64 %384, 12
@@ -738,7 +738,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %or.cond1124 = and i1 %.not1006, %387
   %388 = icmp ugt i64 %350, %384
   %or.cond1125 = and i1 %388, %or.cond1124
-  br i1 %or.cond1125, label %389, label %632
+  br i1 %or.cond1125, label %389, label %633
 
 389:                                              ; preds = %385
   %390 = load i32, ptr %383, align 1
@@ -767,14 +767,14 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
 
 409:                                              ; preds = %389
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.10) #3
-  br label %632
+  br label %633
 
 410:                                              ; preds = %389
   %411 = getelementptr i8, ptr %383, i64 12
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.11, i32 noundef %407) #3
   %narrow = add nuw i32 %407, %373
   %412 = icmp ugt i32 %narrow, 1073741823
-  br i1 %412, label %632, label %413
+  br i1 %412, label %633, label %413
 
 413:                                              ; preds = %410
   %414 = shl nuw nsw i32 %407, 2
@@ -783,7 +783,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %or.cond1126 = select i1 %.not1007, i1 true, i1 %.not1008
   %.not1009 = icmp ult ptr %411, %1
   %or.cond1172 = or i1 %or.cond1126, %.not1009
-  br i1 %or.cond1172, label %632, label %415
+  br i1 %or.cond1172, label %633, label %415
 
 415:                                              ; preds = %413
   %416 = zext nneg i32 %414 to i64
@@ -794,18 +794,18 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %or.cond1127 = and i1 %.not1010, %419
   %420 = icmp ugt i64 %350, %417
   %or.cond1128 = and i1 %420, %or.cond1127
-  br i1 %or.cond1128, label %421, label %632
+  br i1 %or.cond1128, label %421, label %633
 
 421:                                              ; preds = %415
   %422 = shl nuw i32 %narrow, 2
   %423 = zext i32 %422 to i64
   %.not1012 = icmp ugt i32 %422, %2
-  br i1 %.not1012, label %632, label %424
+  br i1 %.not1012, label %633, label %424
 
 424:                                              ; preds = %421
   %425 = ptrtoint ptr %404 to i64
   %.not1013 = icmp ult ptr %404, %1
-  br i1 %.not1013, label %632, label %426
+  br i1 %.not1013, label %633, label %426
 
 426:                                              ; preds = %424
   %427 = add i64 %423, %425
@@ -814,7 +814,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %or.cond1130 = and i1 %.not1014, %428
   %429 = icmp ugt i64 %350, %425
   %or.cond1131 = and i1 %or.cond1130, %429
-  br i1 %or.cond1131, label %.lr.ph1216, label %632
+  br i1 %or.cond1131, label %.lr.ph1216, label %633
 
 .lr.ph1216:                                       ; preds = %426, %.lr.ph1216
   %.41215 = phi i32 [ %430, %.lr.ph1216 ], [ %407, %426 ]
@@ -833,7 +833,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %.not1016 = icmp ule i64 %434, %350
   %435 = icmp ugt i64 %434, %347
   %or.cond1132 = and i1 %.not1016, %435
-  br i1 %or.cond1132, label %436, label %632
+  br i1 %or.cond1132, label %436, label %633
 
 436:                                              ; preds = %._crit_edge1217
   %437 = load i32, ptr %404, align 1
@@ -850,7 +850,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %scevgep = getelementptr i8, ptr %1, i64 %446
   %448 = getelementptr inbounds i8, ptr %scevgep, i64 4
   %.not1018 = icmp ult ptr %448, %1
-  br i1 %.not1018, label %632, label %449
+  br i1 %.not1018, label %633, label %449
 
 449:                                              ; preds = %436
   %450 = ptrtoint ptr %448 to i64
@@ -860,7 +860,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %or.cond1133 = and i1 %.not1019, %452
   %453 = icmp ugt i64 %350, %450
   %or.cond1134 = and i1 %453, %or.cond1133
-  br i1 %or.cond1134, label %454, label %632
+  br i1 %or.cond1134, label %454, label %633
 
 454:                                              ; preds = %449
   %455 = load i32, ptr %448, align 1
@@ -885,7 +885,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %or.cond1135 = and i1 %.not1021, %461
   %462 = icmp ugt i64 %350, %459
   %or.cond1136 = and i1 %462, %or.cond1135
-  br i1 %or.cond1136, label %463, label %632
+  br i1 %or.cond1136, label %463, label %633
 
 463:                                              ; preds = %._crit_edge1223
   %464 = load i32, ptr %458, align 1
@@ -902,12 +902,12 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %.not1023 = icmp ule i64 %472, %350
   %473 = icmp ugt i64 %472, %347
   %or.cond1137 = and i1 %.not1023, %473
-  br i1 %or.cond1137, label %474, label %632
+  br i1 %or.cond1137, label %474, label %633
 
 474:                                              ; preds = %463
   %475 = getelementptr inbounds i8, ptr %404, i64 44
   %.not1024 = icmp ult ptr %475, %1
-  br i1 %.not1024, label %632, label %476
+  br i1 %.not1024, label %633, label %476
 
 476:                                              ; preds = %474
   %477 = ptrtoint ptr %475 to i64
@@ -917,12 +917,12 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %or.cond1139 = and i1 %.not1025, %479
   %480 = icmp ugt i64 %350, %477
   %or.cond1140 = and i1 %480, %or.cond1139
-  br i1 %or.cond1140, label %481, label %632
+  br i1 %or.cond1140, label %481, label %633
 
 481:                                              ; preds = %476
   %482 = getelementptr inbounds i8, ptr %404, i64 72
   %.not1026 = icmp ult ptr %482, %1
-  br i1 %.not1026, label %632, label %483
+  br i1 %.not1026, label %633, label %483
 
 483:                                              ; preds = %481
   %484 = ptrtoint ptr %482 to i64
@@ -932,7 +932,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %or.cond1141 = and i1 %.not1027, %486
   %487 = icmp ugt i64 %350, %484
   %or.cond1142 = and i1 %487, %or.cond1141
-  br i1 %or.cond1142, label %.preheader.preheader, label %632
+  br i1 %or.cond1142, label %.preheader.preheader, label %633
 
 .preheader.preheader:                             ; preds = %483
   %488 = load i32, ptr %458, align 1
@@ -974,7 +974,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %.not1001 = icmp ugt i32 %516, %2
   %.not1002 = icmp ult ptr %514, %1
   %or.cond1173 = select i1 %.not1001, i1 true, i1 %.not1002
-  br i1 %or.cond1173, label %632, label %517
+  br i1 %or.cond1173, label %633, label %517
 
 517:                                              ; preds = %500
   %518 = zext nneg i32 %516 to i64
@@ -985,7 +985,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %or.cond1143 = and i1 %.not1003, %521
   %522 = icmp ugt i64 %350, %519
   %or.cond1144 = and i1 %522, %or.cond1143
-  br i1 %or.cond1144, label %523, label %632
+  br i1 %or.cond1144, label %523, label %633
 
 523:                                              ; preds = %517
   store i32 -1, ptr %514, align 1
@@ -1040,7 +1040,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
 
 542:                                              ; preds = %540
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.14) #3
-  br label %632
+  br label %633
 
 .thread1158:                                      ; preds = %499, %540
   %.08621170 = phi i32 [ %.0862, %540 ], [ %4, %499 ]
@@ -1052,222 +1052,219 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.4) #3
   %543 = tail call i32 @unupack399(ptr noundef nonnull %1, i32 noundef %2, i32 noundef 0, ptr noundef %.08941166, i32 noundef 0, ptr noundef %.18841169, ptr noundef %.28931167, i32 noundef %365, ptr noundef %.08851168)
   %544 = icmp eq i32 %543, -1
-  br i1 %544, label %632, label %545
+  br i1 %544, label %633, label %545
 
 545:                                              ; preds = %.thread1158
-  br i1 %338, label %546, label %548
+  br i1 %338, label %546, label %549
 
 546:                                              ; preds = %545
   %547 = getelementptr inbounds i8, ptr %.79111165, i64 64
-  br label %.sink.split
+  %548 = load i32, ptr %547, align 1
+  br label %556
 
-548:                                              ; preds = %545
-  br i1 %339, label %549, label %555
+549:                                              ; preds = %545
+  br i1 %339, label %550, label %556
 
-549:                                              ; preds = %548
-  %550 = zext i32 %.08621170 to i64
-  %551 = getelementptr inbounds i8, ptr %1, i64 %550
-  %552 = getelementptr inbounds i8, ptr %551, i64 %321
-  %553 = getelementptr inbounds i8, ptr %552, i64 372
-  br label %.sink.split
+550:                                              ; preds = %549
+  %551 = zext i32 %.08621170 to i64
+  %552 = getelementptr inbounds i8, ptr %1, i64 %551
+  %553 = getelementptr inbounds i8, ptr %552, i64 %321
+  %554 = getelementptr inbounds i8, ptr %553, i64 372
+  %555 = load i32, ptr %554, align 1
+  br label %556
 
-.sink.split:                                      ; preds = %549, %546
-  %.sink1292 = phi ptr [ %547, %546 ], [ %553, %549 ]
-  %554 = load i32, ptr %.sink1292, align 1
-  br label %555
-
-555:                                              ; preds = %.sink.split, %548, %315
-  %.pre-phi = phi i64 [ %341, %548 ], [ %29, %315 ], [ %341, %.sink.split ]
-  %.1892 = phi ptr [ %.28931167, %548 ], [ %.0891, %315 ], [ %.28931167, %.sink.split ]
-  %.3889 = phi ptr [ %340, %548 ], [ %spec.select, %315 ], [ %340, %.sink.split ]
-  %.0883 = phi ptr [ %.18841169, %548 ], [ %.7902, %315 ], [ %.18841169, %.sink.split ]
-  %.1880 = phi i32 [ undef, %548 ], [ %.0879, %315 ], [ %554, %.sink.split ]
-  %.0873 = phi i32 [ %361, %548 ], [ %38, %315 ], [ %361, %.sink.split ]
+556:                                              ; preds = %546, %550, %549, %315
+  %.pre-phi = phi i64 [ %341, %546 ], [ %341, %550 ], [ %341, %549 ], [ %29, %315 ]
+  %.1892 = phi ptr [ %.28931167, %546 ], [ %.28931167, %550 ], [ %.28931167, %549 ], [ %.0891, %315 ]
+  %.3889 = phi ptr [ %340, %546 ], [ %340, %550 ], [ %340, %549 ], [ %spec.select, %315 ]
+  %.0883 = phi ptr [ %.18841169, %546 ], [ %.18841169, %550 ], [ %.18841169, %549 ], [ %.7902, %315 ]
+  %.1880 = phi i32 [ %548, %546 ], [ %555, %550 ], [ undef, %549 ], [ %.0879, %315 ]
+  %.0873 = phi i32 [ %361, %546 ], [ %361, %550 ], [ %361, %549 ], [ %38, %315 ]
   %.not1080 = icmp eq i32 %2, 0
-  br i1 %.not1080, label %564, label %556
+  br i1 %.not1080, label %565, label %557
 
-556:                                              ; preds = %555
-  %557 = ptrtoint ptr %1 to i64
+557:                                              ; preds = %556
+  %558 = ptrtoint ptr %1 to i64
   %.not1081 = icmp ult ptr %.3889, %1
-  br i1 %.not1081, label %564, label %558
+  br i1 %.not1081, label %565, label %559
 
-558:                                              ; preds = %556
-  %559 = ptrtoint ptr %.3889 to i64
-  %560 = add i64 %559, 1
-  %561 = add i64 %.pre-phi, %557
-  %.not1082 = icmp ule i64 %560, %561
-  %562 = icmp ugt i64 %560, %557
-  %or.cond1145 = and i1 %.not1082, %562
-  %563 = icmp ugt i64 %561, %559
-  %or.cond1146 = and i1 %563, %or.cond1145
-  br i1 %or.cond1146, label %565, label %564
+559:                                              ; preds = %557
+  %560 = ptrtoint ptr %.3889 to i64
+  %561 = add i64 %560, 1
+  %562 = add i64 %.pre-phi, %558
+  %.not1082 = icmp ule i64 %561, %562
+  %563 = icmp ugt i64 %561, %558
+  %or.cond1145 = and i1 %.not1082, %563
+  %564 = icmp ugt i64 %562, %560
+  %or.cond1146 = and i1 %564, %or.cond1145
+  br i1 %or.cond1146, label %566, label %565
 
-564:                                              ; preds = %558, %556, %555
+565:                                              ; preds = %559, %557, %556
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.15) #3
-  br label %632
+  br label %633
 
-565:                                              ; preds = %558
-  %566 = load i8, ptr %.3889, align 1
-  %567 = zext i8 %566 to i32
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.16, i32 noundef %.1880, i32 noundef %567) #3
+566:                                              ; preds = %559
+  %567 = load i8, ptr %.3889, align 1
+  %568 = zext i8 %567 to i32
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.16, i32 noundef %.1880, i32 noundef %568) #3
   %.not10831232 = icmp eq i32 %.1880, 0
   br i1 %.not10831232, label %.outer._crit_edge, label %.outer.split.lr.ph
 
-.outer.split.lr.ph:                               ; preds = %565
-  %568 = icmp ult i32 %2, 4
-  br i1 %568, label %.outer.split.lr.ph.split.us.split, label %.outer.split
+.outer.split.lr.ph:                               ; preds = %566
+  %569 = icmp ult i32 %2, 4
+  br i1 %569, label %.outer.split.lr.ph.split.us.split, label %.outer.split
 
 .outer.split.lr.ph.split.us.split:                ; preds = %.outer.split.lr.ph
   %.not1085.us.us1240 = icmp ult ptr %.0883, %1
   br i1 %.not1085.us.us1240, label %.split.us, label %.lr.ph1242
 
 .lr.ph1242:                                       ; preds = %.outer.split.lr.ph.split.us.split, %.split1225.us.us
-  %569 = phi ptr [ %579, %.split1225.us.us ], [ %.0883, %.outer.split.lr.ph.split.us.split ]
-  %.2877.ph1234.us1241 = phi i32 [ %577, %.split1225.us.us ], [ 0, %.outer.split.lr.ph.split.us.split ]
-  %570 = ptrtoint ptr %569 to i64
-  %571 = add i64 %570, 1
-  %.not1086.us.us = icmp ule i64 %571, %561
-  %572 = icmp ugt i64 %571, %557
-  %or.cond1147.us.us = and i1 %.not1086.us.us, %572
-  %573 = icmp ugt i64 %561, %570
-  %or.cond1148.us.us = and i1 %573, %or.cond1147.us.us
-  br i1 %or.cond1148.us.us, label %574, label %.split.us
+  %570 = phi ptr [ %580, %.split1225.us.us ], [ %.0883, %.outer.split.lr.ph.split.us.split ]
+  %.2877.ph1234.us1241 = phi i32 [ %578, %.split1225.us.us ], [ 0, %.outer.split.lr.ph.split.us.split ]
+  %571 = ptrtoint ptr %570 to i64
+  %572 = add i64 %571, 1
+  %.not1086.us.us = icmp ule i64 %572, %562
+  %573 = icmp ugt i64 %572, %558
+  %or.cond1147.us.us = and i1 %.not1086.us.us, %573
+  %574 = icmp ugt i64 %562, %571
+  %or.cond1148.us.us = and i1 %574, %or.cond1147.us.us
+  br i1 %or.cond1148.us.us, label %575, label %.split.us
 
-574:                                              ; preds = %.lr.ph1242
-  %575 = load i8, ptr %569, align 1
-  %576 = and i8 %575, -2
-  %switch.us.us = icmp eq i8 %576, -24
+575:                                              ; preds = %.lr.ph1242
+  %576 = load i8, ptr %570, align 1
+  %577 = and i8 %576, -2
+  %switch.us.us = icmp eq i8 %577, -24
   br i1 %switch.us.us, label %.split1228, label %.split1225.us.us
 
-.split1225.us.us:                                 ; preds = %574
-  %577 = add i32 %.2877.ph1234.us1241, 1
-  %578 = zext i32 %577 to i64
-  %579 = getelementptr inbounds i8, ptr %.0883, i64 %578
-  %.not1085.us.us = icmp ult ptr %579, %1
+.split1225.us.us:                                 ; preds = %575
+  %578 = add i32 %.2877.ph1234.us1241, 1
+  %579 = zext i32 %578 to i64
+  %580 = getelementptr inbounds i8, ptr %.0883, i64 %579
+  %.not1085.us.us = icmp ult ptr %580, %1
   br i1 %.not1085.us.us, label %.split.us, label %.lr.ph1242
 
 .outer.split:                                     ; preds = %.outer.split.lr.ph, %.outer
   %.2877.ph1234 = phi i32 [ %.3878, %.outer ], [ 0, %.outer.split.lr.ph ]
   %.2881.ph1233 = phi i32 [ %.3882, %.outer ], [ %.1880, %.outer.split.lr.ph ]
-  br label %580
+  br label %581
 
-580:                                              ; preds = %.outer.split, %598
-  %.2877 = phi i32 [ %599, %598 ], [ %.2877.ph1234, %.outer.split ]
-  %581 = zext i32 %.2877 to i64
-  %582 = getelementptr inbounds i8, ptr %.0883, i64 %581
-  %.not1085 = icmp ult ptr %582, %1
-  br i1 %.not1085, label %.split.us, label %583
+581:                                              ; preds = %.outer.split, %599
+  %.2877 = phi i32 [ %600, %599 ], [ %.2877.ph1234, %.outer.split ]
+  %582 = zext i32 %.2877 to i64
+  %583 = getelementptr inbounds i8, ptr %.0883, i64 %582
+  %.not1085 = icmp ult ptr %583, %1
+  br i1 %.not1085, label %.split.us, label %584
 
-583:                                              ; preds = %580
-  %584 = ptrtoint ptr %582 to i64
-  %585 = add i64 %584, 1
-  %.not1086 = icmp ule i64 %585, %561
-  %586 = icmp ugt i64 %585, %557
-  %or.cond1147 = and i1 %.not1086, %586
-  %587 = icmp ugt i64 %561, %584
-  %or.cond1148 = and i1 %587, %or.cond1147
-  br i1 %or.cond1148, label %589, label %.split.us
+584:                                              ; preds = %581
+  %585 = ptrtoint ptr %583 to i64
+  %586 = add i64 %585, 1
+  %.not1086 = icmp ule i64 %586, %562
+  %587 = icmp ugt i64 %586, %558
+  %or.cond1147 = and i1 %.not1086, %587
+  %588 = icmp ugt i64 %562, %585
+  %or.cond1148 = and i1 %588, %or.cond1147
+  br i1 %or.cond1148, label %590, label %.split.us
 
-.split.us:                                        ; preds = %580, %583, %.split1225.us.us, %.lr.ph1242, %.outer.split.lr.ph.split.us.split
-  %.us-phi = phi ptr [ %.0883, %.outer.split.lr.ph.split.us.split ], [ %569, %.lr.ph1242 ], [ %579, %.split1225.us.us ], [ %582, %583 ], [ %582, %580 ]
-  %588 = getelementptr inbounds i8, ptr %1, i64 %.pre-phi
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.17, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %588, ptr noundef %.us-phi) #3
-  br label %632
+.split.us:                                        ; preds = %581, %584, %.split1225.us.us, %.lr.ph1242, %.outer.split.lr.ph.split.us.split
+  %.us-phi = phi ptr [ %.0883, %.outer.split.lr.ph.split.us.split ], [ %570, %.lr.ph1242 ], [ %580, %.split1225.us.us ], [ %583, %584 ], [ %583, %581 ]
+  %589 = getelementptr inbounds i8, ptr %1, i64 %.pre-phi
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.17, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %589, ptr noundef %.us-phi) #3
+  br label %633
 
-589:                                              ; preds = %583
-  %590 = load i8, ptr %582, align 1
-  %591 = and i8 %590, -2
-  %switch = icmp eq i8 %591, -24
-  br i1 %switch, label %592, label %.split1225
+590:                                              ; preds = %584
+  %591 = load i8, ptr %583, align 1
+  %592 = and i8 %591, -2
+  %switch = icmp eq i8 %592, -24
+  br i1 %switch, label %593, label %.split1225
 
-592:                                              ; preds = %589
-  %593 = getelementptr inbounds i8, ptr %582, i64 1
-  %594 = ptrtoint ptr %593 to i64
-  %595 = add i64 %594, 4
-  %.not1088 = icmp ule i64 %595, %561
-  %596 = icmp ugt i64 %595, %557
-  %or.cond1149 = and i1 %.not1088, %596
-  %597 = icmp ugt i64 %561, %594
-  %or.cond1150 = and i1 %597, %or.cond1149
-  br i1 %or.cond1150, label %598, label %.split1228
+593:                                              ; preds = %590
+  %594 = getelementptr inbounds i8, ptr %583, i64 1
+  %595 = ptrtoint ptr %594 to i64
+  %596 = add i64 %595, 4
+  %.not1088 = icmp ule i64 %596, %562
+  %597 = icmp ugt i64 %596, %558
+  %or.cond1149 = and i1 %.not1088, %597
+  %598 = icmp ugt i64 %562, %595
+  %or.cond1150 = and i1 %598, %or.cond1149
+  br i1 %or.cond1150, label %599, label %.split1228
 
-.split1228:                                       ; preds = %592, %574
+.split1228:                                       ; preds = %593, %575
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.18) #3
-  br label %632
+  br label %633
 
-598:                                              ; preds = %592
-  %599 = add i32 %.2877, 1
-  %600 = load i32, ptr %593, align 1
-  %601 = trunc i32 %600 to i8
-  %.not1089 = icmp eq i8 %566, %601
-  br i1 %.not1089, label %602, label %580
+599:                                              ; preds = %593
+  %600 = add i32 %.2877, 1
+  %601 = load i32, ptr %594, align 1
+  %602 = trunc i32 %601 to i8
+  %.not1089 = icmp eq i8 %567, %602
+  br i1 %.not1089, label %603, label %581
 
-602:                                              ; preds = %598
-  %603 = shl i32 %600, 8
-  %604 = and i32 %603, 16711680
-  %605 = lshr i32 %600, 8
-  %606 = and i32 %605, 65280
-  %607 = or disjoint i32 %604, %606
-  %608 = lshr i32 %600, 24
-  %reass.sub = sub i32 %608, %.2877
-  %609 = add i32 %reass.sub, -5
-  %610 = add i32 %609, %607
-  store i32 %610, ptr %593, align 1
-  %611 = add i32 %.2877, 5
-  %612 = add i32 %.2881.ph1233, -1
+603:                                              ; preds = %599
+  %604 = shl i32 %601, 8
+  %605 = and i32 %604, 16711680
+  %606 = lshr i32 %601, 8
+  %607 = and i32 %606, 65280
+  %608 = or disjoint i32 %605, %607
+  %609 = lshr i32 %601, 24
+  %reass.sub = sub i32 %609, %.2877
+  %610 = add i32 %reass.sub, -5
+  %611 = add i32 %610, %608
+  store i32 %611, ptr %594, align 1
+  %612 = add i32 %.2877, 5
+  %613 = add i32 %.2881.ph1233, -1
   br label %.outer
 
-.split1225:                                       ; preds = %589
-  %613 = add i32 %.2877, 1
+.split1225:                                       ; preds = %590
+  %614 = add i32 %.2877, 1
   br label %.outer
 
-.outer:                                           ; preds = %.split1225, %602
-  %.3882 = phi i32 [ %612, %602 ], [ %.2881.ph1233, %.split1225 ]
-  %.3878 = phi i32 [ %611, %602 ], [ %613, %.split1225 ]
+.outer:                                           ; preds = %.split1225, %603
+  %.3882 = phi i32 [ %613, %603 ], [ %.2881.ph1233, %.split1225 ]
+  %.3878 = phi i32 [ %612, %603 ], [ %614, %.split1225 ]
   %.not1083 = icmp eq i32 %.3882, 0
   br i1 %.not1083, label %.outer._crit_edge, label %.outer.split
 
-.outer._crit_edge:                                ; preds = %.outer, %565
-  %614 = getelementptr inbounds i8, ptr %10, i64 8
-  store i32 0, ptr %614, align 4
+.outer._crit_edge:                                ; preds = %.outer, %566
+  %615 = getelementptr inbounds i8, ptr %10, i64 8
+  store i32 0, ptr %615, align 4
   store i32 %7, ptr %10, align 4
-  %615 = ptrtoint ptr %.1892 to i64
-  %616 = ptrtoint ptr %.0883 to i64
-  %617 = sub i64 %615, %616
-  %618 = trunc i64 %617 to i32
-  %619 = getelementptr inbounds i8, ptr %10, i64 12
-  store i32 %618, ptr %619, align 4
-  %620 = getelementptr inbounds i8, ptr %10, i64 4
-  store i32 %618, ptr %620, align 4
-  br i1 %.not, label %621, label %.critedge
+  %616 = ptrtoint ptr %.1892 to i64
+  %617 = ptrtoint ptr %.0883 to i64
+  %618 = sub i64 %616, %617
+  %619 = trunc i64 %618 to i32
+  %620 = getelementptr inbounds i8, ptr %10, i64 12
+  store i32 %619, ptr %620, align 4
+  %621 = getelementptr inbounds i8, ptr %10, i64 4
+  store i32 %619, ptr %621, align 4
+  br i1 %.not, label %622, label %.critedge
 
-621:                                              ; preds = %.outer._crit_edge
-  %622 = add i32 %7, %618
-  %623 = icmp ugt i32 %622, %2
-  br i1 %623, label %625, label %626
+622:                                              ; preds = %.outer._crit_edge
+  %623 = add i32 %7, %619
+  %624 = icmp ugt i32 %623, %2
+  br i1 %624, label %626, label %627
 
 .critedge:                                        ; preds = %.outer._crit_edge
-  %624 = icmp ult i32 %2, %618
-  br i1 %624, label %625, label %626
+  %625 = icmp ult i32 %2, %619
+  br i1 %625, label %626, label %627
 
-625:                                              ; preds = %.critedge, %621
+626:                                              ; preds = %.critedge, %622
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.19) #3
-  br label %632
+  br label %633
 
-626:                                              ; preds = %621, %.critedge
-  %627 = phi i32 [ 0, %.critedge ], [ %7, %621 ]
-  %628 = zext i32 %627 to i64
-  %629 = getelementptr inbounds i8, ptr %1, i64 %628
-  %630 = call i32 @cli_rebuildpe(ptr noundef %629, ptr noundef nonnull %10, i32 noundef 1, i32 noundef %6, i32 noundef %.0873, i32 noundef 0, i32 noundef 0, i32 noundef %8) #3
-  %.not1084 = icmp eq i32 %630, 0
-  br i1 %.not1084, label %631, label %632
+627:                                              ; preds = %622, %.critedge
+  %628 = phi i32 [ 0, %.critedge ], [ %7, %622 ]
+  %629 = zext i32 %628 to i64
+  %630 = getelementptr inbounds i8, ptr %1, i64 %629
+  %631 = call i32 @cli_rebuildpe(ptr noundef %630, ptr noundef nonnull %10, i32 noundef 1, i32 noundef %6, i32 noundef %.0873, i32 noundef 0, i32 noundef 0, i32 noundef %8) #3
+  %.not1084 = icmp eq i32 %631, 0
+  br i1 %.not1084, label %632, label %633
 
-631:                                              ; preds = %626
+632:                                              ; preds = %627
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.20) #3
-  br label %632
+  br label %633
 
-632:                                              ; preds = %626, %.thread1158, %500, %517, %463, %474, %476, %481, %483, %._crit_edge1223, %436, %449, %._crit_edge1217, %413, %415, %421, %424, %426, %410, %378, %385, %337, %342, %345, %348, %315, %257, %264, %266, %269, %272, %231, %240, %245, %248, %222, %224, %229, %217, %205, %207, %212, %214, %178, %187, %192, %194, %162, %167, %174, %152, %155, %160, %105, %110, %116, %97, %98, %103, %77, %85, %57, %64, %69, %39, %52, %20, %28, %631, %625, %.split1228, %.split.us, %564, %542, %409, %377, %368, %314, %203
-  %.0 = phi i32 [ -1, %203 ], [ -1, %314 ], [ -1, %.split1228 ], [ -1, %.split.us ], [ 0, %625 ], [ 0, %631 ], [ -1, %564 ], [ -1, %368 ], [ -1, %409 ], [ -1, %542 ], [ -1, %377 ], [ -1, %28 ], [ -1, %20 ], [ -1, %52 ], [ -1, %39 ], [ -1, %69 ], [ -1, %64 ], [ -1, %57 ], [ -1, %85 ], [ -1, %77 ], [ -1, %103 ], [ -1, %98 ], [ -1, %97 ], [ -1, %116 ], [ -1, %110 ], [ -1, %105 ], [ -1, %160 ], [ -1, %155 ], [ -1, %152 ], [ -1, %174 ], [ -1, %167 ], [ -1, %162 ], [ -1, %194 ], [ -1, %192 ], [ -1, %187 ], [ -1, %178 ], [ -1, %214 ], [ -1, %212 ], [ -1, %207 ], [ -1, %205 ], [ -1, %217 ], [ -1, %229 ], [ -1, %224 ], [ -1, %222 ], [ -1, %248 ], [ -1, %245 ], [ -1, %240 ], [ -1, %231 ], [ -1, %272 ], [ -1, %269 ], [ -1, %266 ], [ -1, %264 ], [ -1, %257 ], [ -1, %315 ], [ -1, %348 ], [ -1, %345 ], [ -1, %342 ], [ -1, %337 ], [ -1, %385 ], [ -1, %378 ], [ -1, %410 ], [ -1, %426 ], [ -1, %424 ], [ -1, %421 ], [ -1, %415 ], [ -1, %413 ], [ -1, %._crit_edge1217 ], [ -1, %449 ], [ -1, %436 ], [ -1, %._crit_edge1223 ], [ -1, %483 ], [ -1, %481 ], [ -1, %476 ], [ -1, %474 ], [ -1, %463 ], [ -1, %517 ], [ -1, %500 ], [ -1, %.thread1158 ], [ 1, %626 ]
+633:                                              ; preds = %627, %.thread1158, %500, %517, %463, %474, %476, %481, %483, %._crit_edge1223, %436, %449, %._crit_edge1217, %413, %415, %421, %424, %426, %410, %378, %385, %337, %342, %345, %348, %315, %257, %264, %266, %269, %272, %231, %240, %245, %248, %222, %224, %229, %217, %205, %207, %212, %214, %178, %187, %192, %194, %162, %167, %174, %152, %155, %160, %105, %110, %116, %97, %98, %103, %77, %85, %57, %64, %69, %39, %52, %20, %28, %632, %626, %.split1228, %.split.us, %565, %542, %409, %377, %368, %314, %203
+  %.0 = phi i32 [ -1, %203 ], [ -1, %314 ], [ -1, %.split1228 ], [ -1, %.split.us ], [ 0, %626 ], [ 0, %632 ], [ -1, %565 ], [ -1, %368 ], [ -1, %409 ], [ -1, %542 ], [ -1, %377 ], [ -1, %28 ], [ -1, %20 ], [ -1, %52 ], [ -1, %39 ], [ -1, %69 ], [ -1, %64 ], [ -1, %57 ], [ -1, %85 ], [ -1, %77 ], [ -1, %103 ], [ -1, %98 ], [ -1, %97 ], [ -1, %116 ], [ -1, %110 ], [ -1, %105 ], [ -1, %160 ], [ -1, %155 ], [ -1, %152 ], [ -1, %174 ], [ -1, %167 ], [ -1, %162 ], [ -1, %194 ], [ -1, %192 ], [ -1, %187 ], [ -1, %178 ], [ -1, %214 ], [ -1, %212 ], [ -1, %207 ], [ -1, %205 ], [ -1, %217 ], [ -1, %229 ], [ -1, %224 ], [ -1, %222 ], [ -1, %248 ], [ -1, %245 ], [ -1, %240 ], [ -1, %231 ], [ -1, %272 ], [ -1, %269 ], [ -1, %266 ], [ -1, %264 ], [ -1, %257 ], [ -1, %315 ], [ -1, %348 ], [ -1, %345 ], [ -1, %342 ], [ -1, %337 ], [ -1, %385 ], [ -1, %378 ], [ -1, %410 ], [ -1, %426 ], [ -1, %424 ], [ -1, %421 ], [ -1, %415 ], [ -1, %413 ], [ -1, %._crit_edge1217 ], [ -1, %449 ], [ -1, %436 ], [ -1, %._crit_edge1223 ], [ -1, %483 ], [ -1, %481 ], [ -1, %476 ], [ -1, %474 ], [ -1, %463 ], [ -1, %517 ], [ -1, %500 ], [ -1, %.thread1158 ], [ 1, %627 ]
   ret i32 %.0
 }
 

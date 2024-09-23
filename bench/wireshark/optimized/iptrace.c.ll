@@ -463,7 +463,7 @@ wtap_encap_ift.exit:                              ; preds = %48, %44
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %7)
   switch i32 %100, label %fill_in_pseudo_header.exit [
     i32 13, label %102
-    i32 1, label %.sink.split.i
+    i32 1, label %123
   ]
 
 102:                                              ; preds = %71
@@ -504,81 +504,81 @@ wtap_encap_ift.exit:                              ; preds = %48, %44
   %121 = getelementptr inbounds i8, ptr %2, i64 100
   store i16 0, ptr %121, align 4
   %122 = getelementptr inbounds i8, ptr %2, i64 104
-  br label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %113, %71
-  %.sink.i = phi ptr [ %122, %113 ], [ %101, %71 ]
-  store i32 0, ptr %.sink.i, align 8
+  store i32 0, ptr %122, align 8
   br label %fill_in_pseudo_header.exit
 
-fill_in_pseudo_header.exit:                       ; preds = %71, %.sink.split.i
+123:                                              ; preds = %71
+  store i32 0, ptr %101, align 8
+  br label %fill_in_pseudo_header.exit
+
+fill_in_pseudo_header.exit:                       ; preds = %71, %113, %123
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %7)
-  %123 = load i32, ptr %67, align 8
-  %124 = call i32 @wtap_read_packet_bytes(ptr noundef %1, ptr noundef %3, i32 noundef %123, ptr noundef %4, ptr noundef %5) #9
-  %.not.i71 = icmp eq i32 %124, 0
-  br i1 %.not.i71, label %iptrace_read_rec_data.exit, label %125
+  %124 = load i32, ptr %67, align 8
+  %125 = call i32 @wtap_read_packet_bytes(ptr noundef %1, ptr noundef %3, i32 noundef %124, ptr noundef %4, ptr noundef %5) #9
+  %.not.i71 = icmp eq i32 %125, 0
+  br i1 %.not.i71, label %iptrace_read_rec_data.exit, label %126
 
-125:                                              ; preds = %fill_in_pseudo_header.exit
-  %126 = load i32, ptr %66, align 8
-  %127 = icmp eq i32 %126, 13
-  br i1 %127, label %128, label %133
+126:                                              ; preds = %fill_in_pseudo_header.exit
+  %127 = load i32, ptr %66, align 8
+  %128 = icmp eq i32 %127, 13
+  br i1 %128, label %129, label %134
 
-128:                                              ; preds = %125
-  %129 = load ptr, ptr %3, align 8
-  %130 = getelementptr inbounds i8, ptr %3, i64 16
-  %131 = load i64, ptr %130, align 8
-  %132 = getelementptr i8, ptr %129, i64 %131
-  call void @atm_guess_traffic_type(ptr noundef nonnull %2, ptr noundef %132) #9
-  br label %133
+129:                                              ; preds = %126
+  %130 = load ptr, ptr %3, align 8
+  %131 = getelementptr inbounds i8, ptr %3, i64 16
+  %132 = load i64, ptr %131, align 8
+  %133 = getelementptr i8, ptr %130, i64 %132
+  call void @atm_guess_traffic_type(ptr noundef nonnull %2, ptr noundef %133) #9
+  br label %134
 
-133:                                              ; preds = %128, %125
-  %134 = getelementptr inbounds i8, ptr %9, i64 4
-  %135 = load i32, ptr %134, align 4
-  store i32 %135, ptr %10, align 4
-  %136 = getelementptr inbounds i8, ptr %10, i64 4
-  store i8 0, ptr %136, align 4
-  %137 = getelementptr inbounds i8, ptr %9, i64 3
-  %138 = load i8, ptr %137, align 1
-  %139 = getelementptr inbounds i8, ptr %10, i64 5
-  store i8 %138, ptr %139, align 1
-  %140 = load ptr, ptr %13, align 8
-  %141 = call i32 @g_hash_table_lookup_extended(ptr noundef %140, ptr noundef nonnull %10, ptr noundef null, ptr noundef nonnull %11) #9
-  %.not69 = icmp eq i32 %141, 0
-  br i1 %.not69, label %142, label %155
+134:                                              ; preds = %129, %126
+  %135 = getelementptr inbounds i8, ptr %9, i64 4
+  %136 = load i32, ptr %135, align 4
+  store i32 %136, ptr %10, align 4
+  %137 = getelementptr inbounds i8, ptr %10, i64 4
+  store i8 0, ptr %137, align 4
+  %138 = getelementptr inbounds i8, ptr %9, i64 3
+  %139 = load i8, ptr %138, align 1
+  %140 = getelementptr inbounds i8, ptr %10, i64 5
+  store i8 %139, ptr %140, align 1
+  %141 = load ptr, ptr %13, align 8
+  %142 = call i32 @g_hash_table_lookup_extended(ptr noundef %141, ptr noundef nonnull %10, ptr noundef null, ptr noundef nonnull %11) #9
+  %.not69 = icmp eq i32 %142, 0
+  br i1 %.not69, label %143, label %156
 
-142:                                              ; preds = %133
+143:                                              ; preds = %134
   call fastcc void @add_new_if_info(ptr noundef nonnull %13, ptr noundef %10, ptr noundef %11)
-  %143 = call ptr @wtap_block_create(i32 noundef 1) #9
-  %144 = call ptr @wtap_block_get_mandatory_data(ptr noundef %143) #9
-  %145 = load i32, ptr %66, align 8
-  store i32 %145, ptr %144, align 8
-  %146 = getelementptr inbounds i8, ptr %144, i64 16
-  store i32 0, ptr %146, align 8
-  %147 = getelementptr inbounds i8, ptr %144, i64 8
-  store i64 1, ptr %147, align 8
-  %148 = getelementptr inbounds i8, ptr %144, i64 20
-  store i32 262144, ptr %148, align 4
-  %149 = call i32 @wtap_block_add_uint8_option(ptr noundef %143, i32 noundef 9, i8 noundef zeroext 0) #9
-  %150 = getelementptr inbounds i8, ptr %144, i64 24
-  store i8 0, ptr %150, align 8
-  %151 = getelementptr inbounds i8, ptr %144, i64 32
-  store ptr null, ptr %151, align 8
-  %152 = load i8, ptr %139, align 1
-  %153 = zext i8 %152 to i32
-  %154 = call i32 (ptr, i32, ptr, ...) @wtap_block_set_string_option_value_format(ptr noundef %143, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull %10, i32 noundef %153) #9
-  call void @wtap_add_idb(ptr noundef nonnull %0, ptr noundef %143) #9
-  br label %155
+  %144 = call ptr @wtap_block_create(i32 noundef 1) #9
+  %145 = call ptr @wtap_block_get_mandatory_data(ptr noundef %144) #9
+  %146 = load i32, ptr %66, align 8
+  store i32 %146, ptr %145, align 8
+  %147 = getelementptr inbounds i8, ptr %145, i64 16
+  store i32 0, ptr %147, align 8
+  %148 = getelementptr inbounds i8, ptr %145, i64 8
+  store i64 1, ptr %148, align 8
+  %149 = getelementptr inbounds i8, ptr %145, i64 20
+  store i32 262144, ptr %149, align 4
+  %150 = call i32 @wtap_block_add_uint8_option(ptr noundef %144, i32 noundef 9, i8 noundef zeroext 0) #9
+  %151 = getelementptr inbounds i8, ptr %145, i64 24
+  store i8 0, ptr %151, align 8
+  %152 = getelementptr inbounds i8, ptr %145, i64 32
+  store ptr null, ptr %152, align 8
+  %153 = load i8, ptr %140, align 1
+  %154 = zext i8 %153 to i32
+  %155 = call i32 (ptr, i32, ptr, ...) @wtap_block_set_string_option_value_format(ptr noundef %144, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull %10, i32 noundef %154) #9
+  call void @wtap_add_idb(ptr noundef nonnull %0, ptr noundef %144) #9
+  br label %156
 
-155:                                              ; preds = %142, %133
-  %156 = load ptr, ptr %11, align 8
-  %157 = ptrtoint ptr %156 to i64
-  %158 = trunc i64 %157 to i32
-  %159 = getelementptr inbounds i8, ptr %2, i64 76
-  store i32 %158, ptr %159, align 4
+156:                                              ; preds = %143, %134
+  %157 = load ptr, ptr %11, align 8
+  %158 = ptrtoint ptr %157 to i64
+  %159 = trunc i64 %158 to i32
+  %160 = getelementptr inbounds i8, ptr %2, i64 76
+  store i32 %159, ptr %160, align 4
   br label %iptrace_read_rec_data.exit
 
-iptrace_read_rec_data.exit:                       ; preds = %fill_in_pseudo_header.exit, %62, %36, %6, %155, %69, %60, %53, %34
-  %.0 = phi i32 [ 0, %34 ], [ 0, %53 ], [ 0, %60 ], [ 0, %69 ], [ 1, %155 ], [ 0, %6 ], [ 0, %36 ], [ 0, %62 ], [ 0, %fill_in_pseudo_header.exit ]
+iptrace_read_rec_data.exit:                       ; preds = %fill_in_pseudo_header.exit, %62, %36, %6, %156, %69, %60, %53, %34
+  %.0 = phi i32 [ 0, %34 ], [ 0, %53 ], [ 0, %60 ], [ 0, %69 ], [ 1, %156 ], [ 0, %6 ], [ 0, %36 ], [ 0, %62 ], [ 0, %fill_in_pseudo_header.exit ]
   ret i32 %.0
 }
 
@@ -796,7 +796,7 @@ wtap_encap_ift.exit:                              ; preds = %38
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %7)
   switch i32 %111, label %fill_in_pseudo_header.exit [
     i32 13, label %113
-    i32 1, label %.sink.split.i
+    i32 1, label %134
   ]
 
 113:                                              ; preds = %64
@@ -837,81 +837,81 @@ wtap_encap_ift.exit:                              ; preds = %38
   %132 = getelementptr inbounds i8, ptr %2, i64 100
   store i16 0, ptr %132, align 4
   %133 = getelementptr inbounds i8, ptr %2, i64 104
-  br label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %124, %64
-  %.sink.i = phi ptr [ %133, %124 ], [ %112, %64 ]
-  store i32 0, ptr %.sink.i, align 8
+  store i32 0, ptr %133, align 8
   br label %fill_in_pseudo_header.exit
 
-fill_in_pseudo_header.exit:                       ; preds = %64, %.sink.split.i
+134:                                              ; preds = %64
+  store i32 0, ptr %112, align 8
+  br label %fill_in_pseudo_header.exit
+
+fill_in_pseudo_header.exit:                       ; preds = %64, %124, %134
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %7)
-  %134 = load i32, ptr %60, align 8
-  %135 = call i32 @wtap_read_packet_bytes(ptr noundef %1, ptr noundef %3, i32 noundef %134, ptr noundef %4, ptr noundef %5) #9
-  %.not.i67 = icmp eq i32 %135, 0
-  br i1 %.not.i67, label %iptrace_read_rec_data.exit, label %136
+  %135 = load i32, ptr %60, align 8
+  %136 = call i32 @wtap_read_packet_bytes(ptr noundef %1, ptr noundef %3, i32 noundef %135, ptr noundef %4, ptr noundef %5) #9
+  %.not.i67 = icmp eq i32 %136, 0
+  br i1 %.not.i67, label %iptrace_read_rec_data.exit, label %137
 
-136:                                              ; preds = %fill_in_pseudo_header.exit
-  %137 = load i32, ptr %59, align 8
-  %138 = icmp eq i32 %137, 13
-  br i1 %138, label %139, label %144
+137:                                              ; preds = %fill_in_pseudo_header.exit
+  %138 = load i32, ptr %59, align 8
+  %139 = icmp eq i32 %138, 13
+  br i1 %139, label %140, label %145
 
-139:                                              ; preds = %136
-  %140 = load ptr, ptr %3, align 8
-  %141 = getelementptr inbounds i8, ptr %3, i64 16
-  %142 = load i64, ptr %141, align 8
-  %143 = getelementptr i8, ptr %140, i64 %142
-  call void @atm_guess_traffic_type(ptr noundef nonnull %2, ptr noundef %143) #9
-  br label %144
+140:                                              ; preds = %137
+  %141 = load ptr, ptr %3, align 8
+  %142 = getelementptr inbounds i8, ptr %3, i64 16
+  %143 = load i64, ptr %142, align 8
+  %144 = getelementptr i8, ptr %141, i64 %143
+  call void @atm_guess_traffic_type(ptr noundef nonnull %2, ptr noundef %144) #9
+  br label %145
 
-144:                                              ; preds = %139, %136
-  %145 = getelementptr inbounds i8, ptr %9, i64 4
-  %146 = load i32, ptr %145, align 4
-  store i32 %146, ptr %10, align 4
-  %147 = getelementptr inbounds i8, ptr %10, i64 4
-  store i8 0, ptr %147, align 4
-  %148 = getelementptr inbounds i8, ptr %9, i64 3
-  %149 = load i8, ptr %148, align 1
-  %150 = getelementptr inbounds i8, ptr %10, i64 5
-  store i8 %149, ptr %150, align 1
-  %151 = load ptr, ptr %13, align 8
-  %152 = call i32 @g_hash_table_lookup_extended(ptr noundef %151, ptr noundef nonnull %10, ptr noundef null, ptr noundef nonnull %11) #9
-  %.not65 = icmp eq i32 %152, 0
-  br i1 %.not65, label %153, label %166
+145:                                              ; preds = %140, %137
+  %146 = getelementptr inbounds i8, ptr %9, i64 4
+  %147 = load i32, ptr %146, align 4
+  store i32 %147, ptr %10, align 4
+  %148 = getelementptr inbounds i8, ptr %10, i64 4
+  store i8 0, ptr %148, align 4
+  %149 = getelementptr inbounds i8, ptr %9, i64 3
+  %150 = load i8, ptr %149, align 1
+  %151 = getelementptr inbounds i8, ptr %10, i64 5
+  store i8 %150, ptr %151, align 1
+  %152 = load ptr, ptr %13, align 8
+  %153 = call i32 @g_hash_table_lookup_extended(ptr noundef %152, ptr noundef nonnull %10, ptr noundef null, ptr noundef nonnull %11) #9
+  %.not65 = icmp eq i32 %153, 0
+  br i1 %.not65, label %154, label %167
 
-153:                                              ; preds = %144
+154:                                              ; preds = %145
   call fastcc void @add_new_if_info(ptr noundef nonnull %13, ptr noundef %10, ptr noundef %11)
-  %154 = call ptr @wtap_block_create(i32 noundef 1) #9
-  %155 = call ptr @wtap_block_get_mandatory_data(ptr noundef %154) #9
-  %156 = load i32, ptr %59, align 8
-  store i32 %156, ptr %155, align 8
-  %157 = getelementptr inbounds i8, ptr %155, i64 16
-  store i32 9, ptr %157, align 8
-  %158 = getelementptr inbounds i8, ptr %155, i64 8
-  store i64 1000000000, ptr %158, align 8
-  %159 = getelementptr inbounds i8, ptr %155, i64 20
-  store i32 262144, ptr %159, align 4
-  %160 = call i32 @wtap_block_add_uint8_option(ptr noundef %154, i32 noundef 9, i8 noundef zeroext 9) #9
-  %161 = getelementptr inbounds i8, ptr %155, i64 24
-  store i8 0, ptr %161, align 8
-  %162 = getelementptr inbounds i8, ptr %155, i64 32
-  store ptr null, ptr %162, align 8
-  %163 = load i8, ptr %150, align 1
-  %164 = zext i8 %163 to i32
-  %165 = call i32 (ptr, i32, ptr, ...) @wtap_block_set_string_option_value_format(ptr noundef %154, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull %10, i32 noundef %164) #9
-  call void @wtap_add_idb(ptr noundef nonnull %0, ptr noundef %154) #9
-  br label %166
+  %155 = call ptr @wtap_block_create(i32 noundef 1) #9
+  %156 = call ptr @wtap_block_get_mandatory_data(ptr noundef %155) #9
+  %157 = load i32, ptr %59, align 8
+  store i32 %157, ptr %156, align 8
+  %158 = getelementptr inbounds i8, ptr %156, i64 16
+  store i32 9, ptr %158, align 8
+  %159 = getelementptr inbounds i8, ptr %156, i64 8
+  store i64 1000000000, ptr %159, align 8
+  %160 = getelementptr inbounds i8, ptr %156, i64 20
+  store i32 262144, ptr %160, align 4
+  %161 = call i32 @wtap_block_add_uint8_option(ptr noundef %155, i32 noundef 9, i8 noundef zeroext 9) #9
+  %162 = getelementptr inbounds i8, ptr %156, i64 24
+  store i8 0, ptr %162, align 8
+  %163 = getelementptr inbounds i8, ptr %156, i64 32
+  store ptr null, ptr %163, align 8
+  %164 = load i8, ptr %151, align 1
+  %165 = zext i8 %164 to i32
+  %166 = call i32 (ptr, i32, ptr, ...) @wtap_block_set_string_option_value_format(ptr noundef %155, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull %10, i32 noundef %165) #9
+  call void @wtap_add_idb(ptr noundef nonnull %0, ptr noundef %155) #9
+  br label %167
 
-166:                                              ; preds = %153, %144
-  %167 = load ptr, ptr %11, align 8
-  %168 = ptrtoint ptr %167 to i64
-  %169 = trunc i64 %168 to i32
-  %170 = getelementptr inbounds i8, ptr %2, i64 76
-  store i32 %169, ptr %170, align 4
+167:                                              ; preds = %154, %145
+  %168 = load ptr, ptr %11, align 8
+  %169 = ptrtoint ptr %168 to i64
+  %170 = trunc i64 %169 to i32
+  %171 = getelementptr inbounds i8, ptr %2, i64 76
+  store i32 %170, ptr %171, align 4
   br label %iptrace_read_rec_data.exit
 
-iptrace_read_rec_data.exit:                       ; preds = %fill_in_pseudo_header.exit, %55, %36, %6, %166, %62, %53, %34
-  %.0 = phi i32 [ 0, %34 ], [ 0, %53 ], [ 0, %62 ], [ 1, %166 ], [ 0, %6 ], [ 0, %36 ], [ 0, %55 ], [ 0, %fill_in_pseudo_header.exit ]
+iptrace_read_rec_data.exit:                       ; preds = %fill_in_pseudo_header.exit, %55, %36, %6, %167, %62, %53, %34
+  %.0 = phi i32 [ 0, %34 ], [ 0, %53 ], [ 0, %62 ], [ 1, %167 ], [ 0, %6 ], [ 0, %36 ], [ 0, %55 ], [ 0, %fill_in_pseudo_header.exit ]
   ret i32 %.0
 }
 

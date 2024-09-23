@@ -36808,24 +36808,24 @@ define linkonce_odr dso_local void @_ZN4Luau20DifferFixtureGenericINS_7FixtureEE
   %9 = alloca %"class.std::optional", align 8
   %10 = alloca %"class.std::optional", align 8
   %11 = tail call noundef ptr @_ZN4Luau7Fixture11requireTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2232) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  br i1 %4, label %12, label %33
+  br i1 %4, label %12, label %35
 
 12:                                               ; preds = %6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %13 = getelementptr inbounds i8, ptr %7, i64 32
   store i8 1, ptr %13, align 8
   %14 = invoke noundef ptr @_ZN4Luau7Fixture11requireTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2232) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
-          to label %15 unwind label %24
+          to label %15 unwind label %25
 
 15:                                               ; preds = %12
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %2)
-          to label %16 unwind label %24
+          to label %16 unwind label %25
 
 16:                                               ; preds = %15
   %17 = getelementptr inbounds i8, ptr %8, i64 32
   store i8 1, ptr %17, align 8
   invoke void @_ZN4Luau20DifferFixtureGenericINS_7FixtureEE9compareNeEPKNS_4TypeESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES5_SD_RKSC_b(ptr noundef nonnull align 8 dereferenceable(2232) %0, ptr noundef %11, ptr noundef nonnull %7, ptr noundef %14, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext %5)
-          to label %18 unwind label %26
+          to label %18 unwind label %27
 
 18:                                               ; preds = %16
   %19 = load i8, ptr %17, align 8
@@ -36840,97 +36840,109 @@ define linkonce_odr dso_local void @_ZN4Luau20DifferFixtureGenericINS_7FixtureEE
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %18, %21
   %22 = load i8, ptr %13, align 8
   %23 = trunc i8 %22 to i1
-  br i1 %23, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit20.sink.split, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit20
+  br i1 %23, label %24, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit20
 
-24:                                               ; preds = %15, %12
-  %25 = landingpad { ptr, i32 }
+24:                                               ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
+  store i8 0, ptr %13, align 8
+  br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit20.sink.split
+
+25:                                               ; preds = %15, %12
+  %26 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit21
 
-26:                                               ; preds = %16
-  %27 = landingpad { ptr, i32 }
+27:                                               ; preds = %16
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %28 = load i8, ptr %17, align 8
-  %29 = trunc i8 %28 to i1
-  br i1 %29, label %30, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit21
+  %29 = load i8, ptr %17, align 8
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit21
 
-30:                                               ; preds = %26
+31:                                               ; preds = %27
   store i8 0, ptr %17, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #19
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit21
 
-_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit21: ; preds = %30, %26, %24
-  %.pn17 = phi { ptr, i32 } [ %25, %24 ], [ %27, %26 ], [ %27, %30 ]
-  %31 = load i8, ptr %13, align 8
-  %32 = trunc i8 %31 to i1
-  br i1 %32, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit22.sink.split, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit22
+_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit21: ; preds = %31, %27, %25
+  %.pn17 = phi { ptr, i32 } [ %26, %25 ], [ %28, %27 ], [ %28, %31 ]
+  %32 = load i8, ptr %13, align 8
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %34, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit22
 
-33:                                               ; preds = %6
-  %34 = getelementptr inbounds i8, ptr %9, i64 32
-  store i8 0, ptr %34, align 8
-  %35 = invoke noundef ptr @_ZN4Luau7Fixture11requireTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2232) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
-          to label %36 unwind label %44
+34:                                               ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit21
+  store i8 0, ptr %13, align 8
+  br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit22.sink.split
 
-36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %10, i64 32
-  store i8 0, ptr %37, align 8
-  invoke void @_ZN4Luau20DifferFixtureGenericINS_7FixtureEE9compareNeEPKNS_4TypeESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES5_SD_RKSC_b(ptr noundef nonnull align 8 dereferenceable(2232) %0, ptr noundef %11, ptr noundef nonnull %9, ptr noundef %35, ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext %5)
-          to label %38 unwind label %46
+35:                                               ; preds = %6
+  %36 = getelementptr inbounds i8, ptr %9, i64 32
+  store i8 0, ptr %36, align 8
+  %37 = invoke noundef ptr @_ZN4Luau7Fixture11requireTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2232) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
+          to label %38 unwind label %47
 
-38:                                               ; preds = %36
-  %39 = load i8, ptr %37, align 8
-  %40 = trunc i8 %39 to i1
-  br i1 %40, label %41, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit23
+38:                                               ; preds = %35
+  %39 = getelementptr inbounds i8, ptr %10, i64 32
+  store i8 0, ptr %39, align 8
+  invoke void @_ZN4Luau20DifferFixtureGenericINS_7FixtureEE9compareNeEPKNS_4TypeESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES5_SD_RKSC_b(ptr noundef nonnull align 8 dereferenceable(2232) %0, ptr noundef %11, ptr noundef nonnull %9, ptr noundef %37, ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext %5)
+          to label %40 unwind label %49
 
-41:                                               ; preds = %38
-  store i8 0, ptr %37, align 8
+40:                                               ; preds = %38
+  %41 = load i8, ptr %39, align 8
+  %42 = trunc i8 %41 to i1
+  br i1 %42, label %43, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit23
+
+43:                                               ; preds = %40
+  store i8 0, ptr %39, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #19
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit23
 
-_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit23: ; preds = %38, %41
-  %42 = load i8, ptr %34, align 8
-  %43 = trunc i8 %42 to i1
-  br i1 %43, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit20.sink.split, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit20
+_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit23: ; preds = %40, %43
+  %44 = load i8, ptr %36, align 8
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %46, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit20
 
-44:                                               ; preds = %33
-  %45 = landingpad { ptr, i32 }
+46:                                               ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit23
+  store i8 0, ptr %36, align 8
+  br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit20.sink.split
+
+47:                                               ; preds = %35
+  %48 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit25
 
-46:                                               ; preds = %36
-  %47 = landingpad { ptr, i32 }
+49:                                               ; preds = %38
+  %50 = landingpad { ptr, i32 }
           cleanup
-  %48 = load i8, ptr %37, align 8
-  %49 = trunc i8 %48 to i1
-  br i1 %49, label %50, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit25
+  %51 = load i8, ptr %39, align 8
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %53, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit25
 
-50:                                               ; preds = %46
-  store i8 0, ptr %37, align 8
+53:                                               ; preds = %49
+  store i8 0, ptr %39, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #19
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit25
 
-_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit25: ; preds = %50, %46, %44
-  %.pn = phi { ptr, i32 } [ %45, %44 ], [ %47, %46 ], [ %47, %50 ]
-  %51 = load i8, ptr %34, align 8
-  %52 = trunc i8 %51 to i1
-  br i1 %52, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit22.sink.split, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit22
+_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit25: ; preds = %53, %49, %47
+  %.pn = phi { ptr, i32 } [ %48, %47 ], [ %50, %49 ], [ %50, %53 ]
+  %54 = load i8, ptr %36, align 8
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %56, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit22
 
-_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit20.sink.split: ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit23, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
-  %.sink27 = phi ptr [ %13, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit ], [ %34, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit23 ]
-  %.sink = phi ptr [ %7, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit ], [ %9, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit23 ]
-  store i8 0, ptr %.sink27, align 8
+56:                                               ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit25
+  store i8 0, ptr %36, align 8
+  br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit22.sink.split
+
+_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit20.sink.split: ; preds = %24, %46
+  %.sink = phi ptr [ %9, %46 ], [ %7, %24 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #19
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit20
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit20: ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit20.sink.split, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit23, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
   ret void
 
-_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit22.sink.split: ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit25, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit21
-  %.sink29 = phi ptr [ %13, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit21 ], [ %34, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit25 ]
-  %.sink28 = phi ptr [ %7, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit21 ], [ %9, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit25 ]
-  %.pn17.pn.ph = phi { ptr, i32 } [ %.pn17, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit21 ], [ %.pn, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit25 ]
-  store i8 0, ptr %.sink29, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink28) #19
+_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit22.sink.split: ; preds = %34, %56
+  %.sink27 = phi ptr [ %9, %56 ], [ %7, %34 ]
+  %.pn17.pn.ph = phi { ptr, i32 } [ %.pn, %56 ], [ %.pn17, %34 ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink27) #19
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit22
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit22: ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit22.sink.split, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit25, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit21
@@ -41532,24 +41544,24 @@ define linkonce_odr dso_local void @_ZN4Luau20DifferFixtureGenericINS_15Builtins
   %9 = alloca %"class.std::optional", align 8
   %10 = alloca %"class.std::optional", align 8
   %11 = tail call noundef ptr @_ZN4Luau7Fixture11requireTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2232) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  br i1 %4, label %12, label %33
+  br i1 %4, label %12, label %35
 
 12:                                               ; preds = %6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %13 = getelementptr inbounds i8, ptr %7, i64 32
   store i8 1, ptr %13, align 8
   %14 = invoke noundef ptr @_ZN4Luau7Fixture11requireTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2232) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
-          to label %15 unwind label %24
+          to label %15 unwind label %25
 
 15:                                               ; preds = %12
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %2)
-          to label %16 unwind label %24
+          to label %16 unwind label %25
 
 16:                                               ; preds = %15
   %17 = getelementptr inbounds i8, ptr %8, i64 32
   store i8 1, ptr %17, align 8
   invoke void @_ZN4Luau20DifferFixtureGenericINS_15BuiltinsFixtureEE9compareNeEPKNS_4TypeESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES5_SD_RKSC_b(ptr noundef nonnull align 8 dereferenceable(2232) %0, ptr noundef %11, ptr noundef nonnull %7, ptr noundef %14, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext %5)
-          to label %18 unwind label %26
+          to label %18 unwind label %27
 
 18:                                               ; preds = %16
   %19 = load i8, ptr %17, align 8
@@ -41564,97 +41576,109 @@ define linkonce_odr dso_local void @_ZN4Luau20DifferFixtureGenericINS_15Builtins
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %18, %21
   %22 = load i8, ptr %13, align 8
   %23 = trunc i8 %22 to i1
-  br i1 %23, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit20.sink.split, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit20
+  br i1 %23, label %24, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit20
 
-24:                                               ; preds = %15, %12
-  %25 = landingpad { ptr, i32 }
+24:                                               ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
+  store i8 0, ptr %13, align 8
+  br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit20.sink.split
+
+25:                                               ; preds = %15, %12
+  %26 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit21
 
-26:                                               ; preds = %16
-  %27 = landingpad { ptr, i32 }
+27:                                               ; preds = %16
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %28 = load i8, ptr %17, align 8
-  %29 = trunc i8 %28 to i1
-  br i1 %29, label %30, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit21
+  %29 = load i8, ptr %17, align 8
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit21
 
-30:                                               ; preds = %26
+31:                                               ; preds = %27
   store i8 0, ptr %17, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #19
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit21
 
-_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit21: ; preds = %30, %26, %24
-  %.pn17 = phi { ptr, i32 } [ %25, %24 ], [ %27, %26 ], [ %27, %30 ]
-  %31 = load i8, ptr %13, align 8
-  %32 = trunc i8 %31 to i1
-  br i1 %32, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit22.sink.split, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit22
+_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit21: ; preds = %31, %27, %25
+  %.pn17 = phi { ptr, i32 } [ %26, %25 ], [ %28, %27 ], [ %28, %31 ]
+  %32 = load i8, ptr %13, align 8
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %34, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit22
 
-33:                                               ; preds = %6
-  %34 = getelementptr inbounds i8, ptr %9, i64 32
-  store i8 0, ptr %34, align 8
-  %35 = invoke noundef ptr @_ZN4Luau7Fixture11requireTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2232) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
-          to label %36 unwind label %44
+34:                                               ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit21
+  store i8 0, ptr %13, align 8
+  br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit22.sink.split
 
-36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %10, i64 32
-  store i8 0, ptr %37, align 8
-  invoke void @_ZN4Luau20DifferFixtureGenericINS_15BuiltinsFixtureEE9compareNeEPKNS_4TypeESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES5_SD_RKSC_b(ptr noundef nonnull align 8 dereferenceable(2232) %0, ptr noundef %11, ptr noundef nonnull %9, ptr noundef %35, ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext %5)
-          to label %38 unwind label %46
+35:                                               ; preds = %6
+  %36 = getelementptr inbounds i8, ptr %9, i64 32
+  store i8 0, ptr %36, align 8
+  %37 = invoke noundef ptr @_ZN4Luau7Fixture11requireTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2232) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
+          to label %38 unwind label %47
 
-38:                                               ; preds = %36
-  %39 = load i8, ptr %37, align 8
-  %40 = trunc i8 %39 to i1
-  br i1 %40, label %41, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit23
+38:                                               ; preds = %35
+  %39 = getelementptr inbounds i8, ptr %10, i64 32
+  store i8 0, ptr %39, align 8
+  invoke void @_ZN4Luau20DifferFixtureGenericINS_15BuiltinsFixtureEE9compareNeEPKNS_4TypeESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES5_SD_RKSC_b(ptr noundef nonnull align 8 dereferenceable(2232) %0, ptr noundef %11, ptr noundef nonnull %9, ptr noundef %37, ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext %5)
+          to label %40 unwind label %49
 
-41:                                               ; preds = %38
-  store i8 0, ptr %37, align 8
+40:                                               ; preds = %38
+  %41 = load i8, ptr %39, align 8
+  %42 = trunc i8 %41 to i1
+  br i1 %42, label %43, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit23
+
+43:                                               ; preds = %40
+  store i8 0, ptr %39, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #19
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit23
 
-_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit23: ; preds = %38, %41
-  %42 = load i8, ptr %34, align 8
-  %43 = trunc i8 %42 to i1
-  br i1 %43, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit20.sink.split, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit20
+_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit23: ; preds = %40, %43
+  %44 = load i8, ptr %36, align 8
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %46, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit20
 
-44:                                               ; preds = %33
-  %45 = landingpad { ptr, i32 }
+46:                                               ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit23
+  store i8 0, ptr %36, align 8
+  br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit20.sink.split
+
+47:                                               ; preds = %35
+  %48 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit25
 
-46:                                               ; preds = %36
-  %47 = landingpad { ptr, i32 }
+49:                                               ; preds = %38
+  %50 = landingpad { ptr, i32 }
           cleanup
-  %48 = load i8, ptr %37, align 8
-  %49 = trunc i8 %48 to i1
-  br i1 %49, label %50, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit25
+  %51 = load i8, ptr %39, align 8
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %53, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit25
 
-50:                                               ; preds = %46
-  store i8 0, ptr %37, align 8
+53:                                               ; preds = %49
+  store i8 0, ptr %39, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #19
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit25
 
-_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit25: ; preds = %50, %46, %44
-  %.pn = phi { ptr, i32 } [ %45, %44 ], [ %47, %46 ], [ %47, %50 ]
-  %51 = load i8, ptr %34, align 8
-  %52 = trunc i8 %51 to i1
-  br i1 %52, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit22.sink.split, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit22
+_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit25: ; preds = %53, %49, %47
+  %.pn = phi { ptr, i32 } [ %48, %47 ], [ %50, %49 ], [ %50, %53 ]
+  %54 = load i8, ptr %36, align 8
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %56, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit22
 
-_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit20.sink.split: ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit23, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
-  %.sink27 = phi ptr [ %13, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit ], [ %34, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit23 ]
-  %.sink = phi ptr [ %7, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit ], [ %9, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit23 ]
-  store i8 0, ptr %.sink27, align 8
+56:                                               ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit25
+  store i8 0, ptr %36, align 8
+  br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit22.sink.split
+
+_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit20.sink.split: ; preds = %24, %46
+  %.sink = phi ptr [ %9, %46 ], [ %7, %24 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #19
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit20
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit20: ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit20.sink.split, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit23, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
   ret void
 
-_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit22.sink.split: ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit25, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit21
-  %.sink29 = phi ptr [ %13, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit21 ], [ %34, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit25 ]
-  %.sink28 = phi ptr [ %7, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit21 ], [ %9, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit25 ]
-  %.pn17.pn.ph = phi { ptr, i32 } [ %.pn17, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit21 ], [ %.pn, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit25 ]
-  store i8 0, ptr %.sink29, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink28) #19
+_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit22.sink.split: ; preds = %34, %56
+  %.sink27 = phi ptr [ %9, %56 ], [ %7, %34 ]
+  %.pn17.pn.ph = phi { ptr, i32 } [ %.pn, %56 ], [ %.pn17, %34 ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink27) #19
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit22
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit22: ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit22.sink.split, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit25, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit21
@@ -46007,24 +46031,24 @@ define linkonce_odr dso_local void @_ZN4Luau20DifferFixtureGenericINS_12ClassFix
   %9 = alloca %"class.std::optional", align 8
   %10 = alloca %"class.std::optional", align 8
   %11 = tail call noundef ptr @_ZN4Luau7Fixture11requireTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2232) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  br i1 %4, label %12, label %33
+  br i1 %4, label %12, label %35
 
 12:                                               ; preds = %6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %13 = getelementptr inbounds i8, ptr %7, i64 32
   store i8 1, ptr %13, align 8
   %14 = invoke noundef ptr @_ZN4Luau7Fixture11requireTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2232) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
-          to label %15 unwind label %24
+          to label %15 unwind label %25
 
 15:                                               ; preds = %12
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %2)
-          to label %16 unwind label %24
+          to label %16 unwind label %25
 
 16:                                               ; preds = %15
   %17 = getelementptr inbounds i8, ptr %8, i64 32
   store i8 1, ptr %17, align 8
   invoke void @_ZN4Luau20DifferFixtureGenericINS_12ClassFixtureEE9compareNeEPKNS_4TypeESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES5_SD_RKSC_b(ptr noundef nonnull align 8 dereferenceable(2248) %0, ptr noundef %11, ptr noundef nonnull %7, ptr noundef %14, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext %5)
-          to label %18 unwind label %26
+          to label %18 unwind label %27
 
 18:                                               ; preds = %16
   %19 = load i8, ptr %17, align 8
@@ -46039,97 +46063,109 @@ define linkonce_odr dso_local void @_ZN4Luau20DifferFixtureGenericINS_12ClassFix
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %18, %21
   %22 = load i8, ptr %13, align 8
   %23 = trunc i8 %22 to i1
-  br i1 %23, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit20.sink.split, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit20
+  br i1 %23, label %24, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit20
 
-24:                                               ; preds = %15, %12
-  %25 = landingpad { ptr, i32 }
+24:                                               ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
+  store i8 0, ptr %13, align 8
+  br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit20.sink.split
+
+25:                                               ; preds = %15, %12
+  %26 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit21
 
-26:                                               ; preds = %16
-  %27 = landingpad { ptr, i32 }
+27:                                               ; preds = %16
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %28 = load i8, ptr %17, align 8
-  %29 = trunc i8 %28 to i1
-  br i1 %29, label %30, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit21
+  %29 = load i8, ptr %17, align 8
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit21
 
-30:                                               ; preds = %26
+31:                                               ; preds = %27
   store i8 0, ptr %17, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #19
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit21
 
-_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit21: ; preds = %30, %26, %24
-  %.pn17 = phi { ptr, i32 } [ %25, %24 ], [ %27, %26 ], [ %27, %30 ]
-  %31 = load i8, ptr %13, align 8
-  %32 = trunc i8 %31 to i1
-  br i1 %32, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit22.sink.split, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit22
+_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit21: ; preds = %31, %27, %25
+  %.pn17 = phi { ptr, i32 } [ %26, %25 ], [ %28, %27 ], [ %28, %31 ]
+  %32 = load i8, ptr %13, align 8
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %34, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit22
 
-33:                                               ; preds = %6
-  %34 = getelementptr inbounds i8, ptr %9, i64 32
-  store i8 0, ptr %34, align 8
-  %35 = invoke noundef ptr @_ZN4Luau7Fixture11requireTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2232) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
-          to label %36 unwind label %44
+34:                                               ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit21
+  store i8 0, ptr %13, align 8
+  br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit22.sink.split
 
-36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %10, i64 32
-  store i8 0, ptr %37, align 8
-  invoke void @_ZN4Luau20DifferFixtureGenericINS_12ClassFixtureEE9compareNeEPKNS_4TypeESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES5_SD_RKSC_b(ptr noundef nonnull align 8 dereferenceable(2248) %0, ptr noundef %11, ptr noundef nonnull %9, ptr noundef %35, ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext %5)
-          to label %38 unwind label %46
+35:                                               ; preds = %6
+  %36 = getelementptr inbounds i8, ptr %9, i64 32
+  store i8 0, ptr %36, align 8
+  %37 = invoke noundef ptr @_ZN4Luau7Fixture11requireTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2232) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
+          to label %38 unwind label %47
 
-38:                                               ; preds = %36
-  %39 = load i8, ptr %37, align 8
-  %40 = trunc i8 %39 to i1
-  br i1 %40, label %41, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit23
+38:                                               ; preds = %35
+  %39 = getelementptr inbounds i8, ptr %10, i64 32
+  store i8 0, ptr %39, align 8
+  invoke void @_ZN4Luau20DifferFixtureGenericINS_12ClassFixtureEE9compareNeEPKNS_4TypeESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES5_SD_RKSC_b(ptr noundef nonnull align 8 dereferenceable(2248) %0, ptr noundef %11, ptr noundef nonnull %9, ptr noundef %37, ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext %5)
+          to label %40 unwind label %49
 
-41:                                               ; preds = %38
-  store i8 0, ptr %37, align 8
+40:                                               ; preds = %38
+  %41 = load i8, ptr %39, align 8
+  %42 = trunc i8 %41 to i1
+  br i1 %42, label %43, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit23
+
+43:                                               ; preds = %40
+  store i8 0, ptr %39, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #19
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit23
 
-_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit23: ; preds = %38, %41
-  %42 = load i8, ptr %34, align 8
-  %43 = trunc i8 %42 to i1
-  br i1 %43, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit20.sink.split, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit20
+_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit23: ; preds = %40, %43
+  %44 = load i8, ptr %36, align 8
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %46, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit20
 
-44:                                               ; preds = %33
-  %45 = landingpad { ptr, i32 }
+46:                                               ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit23
+  store i8 0, ptr %36, align 8
+  br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit20.sink.split
+
+47:                                               ; preds = %35
+  %48 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit25
 
-46:                                               ; preds = %36
-  %47 = landingpad { ptr, i32 }
+49:                                               ; preds = %38
+  %50 = landingpad { ptr, i32 }
           cleanup
-  %48 = load i8, ptr %37, align 8
-  %49 = trunc i8 %48 to i1
-  br i1 %49, label %50, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit25
+  %51 = load i8, ptr %39, align 8
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %53, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit25
 
-50:                                               ; preds = %46
-  store i8 0, ptr %37, align 8
+53:                                               ; preds = %49
+  store i8 0, ptr %39, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #19
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit25
 
-_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit25: ; preds = %50, %46, %44
-  %.pn = phi { ptr, i32 } [ %45, %44 ], [ %47, %46 ], [ %47, %50 ]
-  %51 = load i8, ptr %34, align 8
-  %52 = trunc i8 %51 to i1
-  br i1 %52, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit22.sink.split, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit22
+_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit25: ; preds = %53, %49, %47
+  %.pn = phi { ptr, i32 } [ %48, %47 ], [ %50, %49 ], [ %50, %53 ]
+  %54 = load i8, ptr %36, align 8
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %56, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit22
 
-_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit20.sink.split: ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit23, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
-  %.sink27 = phi ptr [ %13, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit ], [ %34, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit23 ]
-  %.sink = phi ptr [ %7, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit ], [ %9, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit23 ]
-  store i8 0, ptr %.sink27, align 8
+56:                                               ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit25
+  store i8 0, ptr %36, align 8
+  br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit22.sink.split
+
+_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit20.sink.split: ; preds = %24, %46
+  %.sink = phi ptr [ %9, %46 ], [ %7, %24 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #19
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit20
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit20: ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit20.sink.split, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit23, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
   ret void
 
-_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit22.sink.split: ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit25, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit21
-  %.sink29 = phi ptr [ %13, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit21 ], [ %34, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit25 ]
-  %.sink28 = phi ptr [ %7, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit21 ], [ %9, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit25 ]
-  %.pn17.pn.ph = phi { ptr, i32 } [ %.pn17, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit21 ], [ %.pn, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit25 ]
-  store i8 0, ptr %.sink29, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink28) #19
+_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit22.sink.split: ; preds = %34, %56
+  %.sink27 = phi ptr [ %9, %56 ], [ %7, %34 ]
+  %.pn17.pn.ph = phi { ptr, i32 } [ %.pn, %56 ], [ %.pn17, %34 ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink27) #19
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit22
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit22: ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit22.sink.split, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit25, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit21

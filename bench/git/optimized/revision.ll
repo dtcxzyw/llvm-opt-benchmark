@@ -2445,7 +2445,8 @@ if.end46.i:                                       ; preds = %if.then44.i, %if.en
 
 if.then58.i:                                      ; preds = %if.end46.i
   %ignore_missing.i = getelementptr inbounds i8, ptr %revs, i64 280
-  br label %handle_revision_arg_1.exit.sink.split
+  %bf.load.i = load i64, ptr %ignore_missing.i, align 8
+  br label %handle_revision_arg_1.exit
 
 if.end61.i:                                       ; preds = %if.end46.i
   br i1 %tobool3.not.i, label %if.then63.i, label %if.end64.i
@@ -2482,7 +2483,11 @@ if.end.i61.i:                                     ; preds = %if.then.i.i
 land.lhs.true.i.i:                                ; preds = %if.end.i61.i
   %call12.i.i = call i32 @is_promisor_object(ptr noundef nonnull %oid.i) #25
   %tobool13.not.i.i = icmp eq i32 %call12.i.i, 0
-  br i1 %tobool13.not.i.i, label %if.end15.i.i, label %handle_revision_arg_1.exit.sink.split
+  br i1 %tobool13.not.i.i, label %if.end15.i.i, label %land.lhs.true.i.if.then68_crit_edge.i
+
+land.lhs.true.i.if.then68_crit_edge.i:            ; preds = %land.lhs.true.i.i
+  %bf.load70.pre.i = load i64, ptr %verify_objects.i.i, align 8
+  br label %handle_revision_arg_1.exit
 
 if.end15.i.i:                                     ; preds = %land.lhs.true.i.i, %if.end.i61.i
   call void (ptr, ...) @die(ptr noundef nonnull @.str.38, ptr noundef nonnull %spec.select54.i) #27
@@ -2558,13 +2563,8 @@ handle_revision_arg_1.exit.thread8:               ; preds = %land.lhs.true.tail.
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %oid.i)
   br label %if.end
 
-handle_revision_arg_1.exit.sink.split:            ; preds = %land.lhs.true.i.i, %if.then58.i
-  %verify_objects.i.i.sink = phi ptr [ %ignore_missing.i, %if.then58.i ], [ %verify_objects.i.i, %land.lhs.true.i.i ]
-  %bf.load70.pre.i = load i64, ptr %verify_objects.i.i.sink, align 8
-  br label %handle_revision_arg_1.exit
-
-handle_revision_arg_1.exit:                       ; preds = %handle_revision_arg_1.exit.sink.split, %if.then.i.i
-  %retval.0.i.in.in.in = phi i64 [ %bf.load2.i.i, %if.then.i.i ], [ %bf.load70.pre.i, %handle_revision_arg_1.exit.sink.split ]
+handle_revision_arg_1.exit:                       ; preds = %if.then.i.i, %land.lhs.true.i.if.then68_crit_edge.i, %if.then58.i
+  %retval.0.i.in.in.in = phi i64 [ %bf.load.i, %if.then58.i ], [ %bf.load70.pre.i, %land.lhs.true.i.if.then68_crit_edge.i ], [ %bf.load2.i.i, %if.then.i.i ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %oc.i)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %oid.i)
   %retval.0.i.in11 = and i64 %retval.0.i.in.in.in, 1

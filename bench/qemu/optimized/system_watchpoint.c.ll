@@ -43,10 +43,19 @@ do.body:                                          ; preds = %if.end
   %entry5 = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %1, ptr %entry5, align 8
   %cmp6.not = icmp eq ptr %1, null
-  %tql_prev13 = getelementptr inbounds i8, ptr %cpu, i64 608
+  br i1 %cmp6.not, label %if.else, label %if.then7
+
+if.then7:                                         ; preds = %do.body
   %tql_prev = getelementptr inbounds i8, ptr %1, i64 40
-  %tql_prev13.sink = select i1 %cmp6.not, ptr %tql_prev13, ptr %tql_prev
-  store ptr %entry5, ptr %tql_prev13.sink, align 8
+  store ptr %entry5, ptr %tql_prev, align 8
+  br label %if.end14
+
+if.else:                                          ; preds = %do.body
+  %tql_prev13 = getelementptr inbounds i8, ptr %cpu, i64 608
+  store ptr %entry5, ptr %tql_prev13, align 8
+  br label %if.end14
+
+if.end14:                                         ; preds = %if.else, %if.then7
   store ptr %call, ptr %watchpoints, align 8
   %tql_prev18 = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %watchpoints, ptr %tql_prev18, align 8
@@ -63,7 +72,7 @@ do.body20:                                        ; preds = %if.end
   store ptr %entry21, ptr %tql_prev23, align 8
   br label %if.end32
 
-if.end32:                                         ; preds = %do.body20, %do.body
+if.end32:                                         ; preds = %do.body20, %if.end14
   %or = or i64 %addr, -4096
   %sub33 = sub nsw i64 0, %or
   %cmp34.not = icmp ugt i64 %len, %sub33
@@ -132,10 +141,19 @@ if.then:                                          ; preds = %land.lhs.true3
   %cmp.not.i = icmp eq ptr %3, null
   %tql_prev7.i = getelementptr inbounds i8, ptr %wp.010, i64 40
   %4 = load ptr, ptr %tql_prev7.i, align 8
-  %tql_prev8.i = getelementptr inbounds i8, ptr %cpu, i64 608
+  br i1 %cmp.not.i, label %if.else.i, label %if.then.i
+
+if.then.i:                                        ; preds = %if.then
   %tql_prev5.i = getelementptr inbounds i8, ptr %3, i64 40
-  %tql_prev8.sink.i = select i1 %cmp.not.i, ptr %tql_prev8.i, ptr %tql_prev5.i
-  store ptr %4, ptr %tql_prev8.sink.i, align 8
+  store ptr %4, ptr %tql_prev5.i, align 8
+  br label %cpu_watchpoint_remove_by_ref.exit
+
+if.else.i:                                        ; preds = %if.then
+  %tql_prev8.i = getelementptr inbounds i8, ptr %cpu, i64 608
+  store ptr %4, ptr %tql_prev8.i, align 8
+  br label %cpu_watchpoint_remove_by_ref.exit
+
+cpu_watchpoint_remove_by_ref.exit:                ; preds = %if.then.i, %if.else.i
   %5 = load ptr, ptr %entry1.i, align 8
   store ptr %5, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %entry1.i, i8 0, i64 16, i1 false)
@@ -150,8 +168,8 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   %tobool.not = icmp eq ptr %wp.0, null
   br i1 %tobool.not, label %return, label %for.body, !llvm.loop !5
 
-return:                                           ; preds = %for.inc, %entry, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ -2, %entry ], [ -2, %for.inc ]
+return:                                           ; preds = %for.inc, %entry, %cpu_watchpoint_remove_by_ref.exit
+  %retval.0 = phi i32 [ 0, %cpu_watchpoint_remove_by_ref.exit ], [ -2, %entry ], [ -2, %for.inc ]
   ret i32 %retval.0
 }
 
@@ -163,10 +181,19 @@ entry:
   %cmp.not = icmp eq ptr %0, null
   %tql_prev7 = getelementptr inbounds i8, ptr %watchpoint, i64 40
   %1 = load ptr, ptr %tql_prev7, align 8
-  %tql_prev8 = getelementptr inbounds i8, ptr %cpu, i64 608
+  br i1 %cmp.not, label %if.else, label %if.then
+
+if.then:                                          ; preds = %entry
   %tql_prev5 = getelementptr inbounds i8, ptr %0, i64 40
-  %tql_prev8.sink = select i1 %cmp.not, ptr %tql_prev8, ptr %tql_prev5
-  store ptr %1, ptr %tql_prev8.sink, align 8
+  store ptr %1, ptr %tql_prev5, align 8
+  br label %if.end
+
+if.else:                                          ; preds = %entry
+  %tql_prev8 = getelementptr inbounds i8, ptr %cpu, i64 608
+  store ptr %1, ptr %tql_prev8, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then
   %2 = load ptr, ptr %entry1, align 8
   store ptr %2, ptr %1, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %entry1, i8 0, i64 16, i1 false)
@@ -204,9 +231,18 @@ if.then:                                          ; preds = %land.rhs
   %cmp.not.i = icmp eq ptr %1, null
   %tql_prev7.i = getelementptr inbounds i8, ptr %wp.06, i64 40
   %3 = load ptr, ptr %tql_prev7.i, align 8
+  br i1 %cmp.not.i, label %if.else.i, label %if.then.i
+
+if.then.i:                                        ; preds = %if.then
   %tql_prev5.i = getelementptr inbounds i8, ptr %1, i64 40
-  %tql_prev8.sink.i = select i1 %cmp.not.i, ptr %tql_prev8.i, ptr %tql_prev5.i
-  store ptr %3, ptr %tql_prev8.sink.i, align 8
+  store ptr %3, ptr %tql_prev5.i, align 8
+  br label %cpu_watchpoint_remove_by_ref.exit
+
+if.else.i:                                        ; preds = %if.then
+  store ptr %3, ptr %tql_prev8.i, align 8
+  br label %cpu_watchpoint_remove_by_ref.exit
+
+cpu_watchpoint_remove_by_ref.exit:                ; preds = %if.then.i, %if.else.i
   %4 = load ptr, ptr %entry1, align 8
   store ptr %4, ptr %3, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %entry1, i8 0, i64 16, i1 false)
@@ -215,7 +251,7 @@ if.then:                                          ; preds = %land.rhs
   tail call void @g_free(ptr noundef nonnull %wp.06) #8
   br label %for.inc
 
-for.inc:                                          ; preds = %land.rhs, %if.then
+for.inc:                                          ; preds = %land.rhs, %cpu_watchpoint_remove_by_ref.exit
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %for.end, label %land.rhs, !llvm.loop !7
 

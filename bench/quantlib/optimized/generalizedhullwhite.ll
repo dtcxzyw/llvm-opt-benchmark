@@ -11842,23 +11842,31 @@ if.end.i.i.i:                                     ; preds = %invoke.cont12
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %8, i8 -1, i64 %sub.ptr.sub.i.i.i, i1 false)
   %cmp9.not.i.i.i = icmp eq i32 %conv4.i.i.i, 0
-  br i1 %cmp9.not.i.i.i, label %invoke.cont17, label %invoke.cont17.sink.split
+  br i1 %cmp9.not.i.i.i, label %invoke.cont17, label %_ZSt14__fill_bvectorPmjjb.exit22.i.i.i
+
+_ZSt14__fill_bvectorPmjjb.exit22.i.i.i:           ; preds = %if.end.i.i.i
+  %sub.i.i.i.i10 = sub nuw nsw i32 64, %conv4.i.i.i
+  %sh_prom1.i.i.i.i = zext nneg i32 %sub.i.i.i.i10 to i64
+  %shr.i.i.i.i = lshr i64 -1, %sh_prom1.i.i.i.i
+  %11 = load i64, ptr %storemerge.i.i.i, align 8, !tbaa !30
+  %or.i21.i.i.i = or i64 %11, %shr.i.i.i.i
+  store i64 %or.i21.i.i.i, ptr %storemerge.i.i.i, align 8, !tbaa !30
+  br label %invoke.cont17
 
 if.else.i.i.i:                                    ; preds = %invoke.cont12
   %cmp17.not.i.i.i = icmp eq i32 %conv4.i.i.i, 0
-  br i1 %cmp17.not.i.i.i, label %invoke.cont17, label %invoke.cont17.sink.split
+  br i1 %cmp17.not.i.i.i, label %invoke.cont17, label %_ZSt14__fill_bvectorPmjjb.exit34.i.i.i
 
-invoke.cont17.sink.split:                         ; preds = %if.else.i.i.i, %if.end.i.i.i
-  %.sink14 = phi ptr [ %storemerge.i.i.i, %if.end.i.i.i ], [ %8, %if.else.i.i.i ]
+_ZSt14__fill_bvectorPmjjb.exit34.i.i.i:           ; preds = %if.else.i.i.i
   %sub.i25.i.i.i = sub nuw nsw i32 64, %conv4.i.i.i
   %sh_prom1.i26.i.i.i = zext nneg i32 %sub.i25.i.i.i to i64
   %shr.i27.i.i.i = lshr i64 -1, %sh_prom1.i26.i.i.i
-  %11 = load i64, ptr %.sink14, align 8, !tbaa !30
-  %or.i33.i.i.i = or i64 %11, %shr.i27.i.i.i
-  store i64 %or.i33.i.i.i, ptr %.sink14, align 8, !tbaa !30
+  %12 = load i64, ptr %8, align 8, !tbaa !30
+  %or.i33.i.i.i = or i64 %12, %shr.i27.i.i.i
+  store i64 %or.i33.i.i.i, ptr %8, align 8, !tbaa !30
   br label %invoke.cont17
 
-invoke.cont17:                                    ; preds = %invoke.cont17.sink.split, %if.else.i.i.i, %if.end.i.i.i
+invoke.cont17:                                    ; preds = %_ZSt14__fill_bvectorPmjjb.exit34.i.i.i, %if.else.i.i.i, %_ZSt14__fill_bvectorPmjjb.exit22.i.i.i, %if.end.i.i.i
   ret void
 }
 

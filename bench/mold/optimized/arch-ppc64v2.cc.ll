@@ -620,8 +620,8 @@ if.then:                                          ; preds = %_ZNK4mold3elf12Inpu
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZNK4mold3elf12InputSectionINS0_7PPC64V2EE8get_relsERNS0_7ContextIS2_EE.exit
-  %cmp449.not = icmp eq i64 %retval.sroa.3.0.i, 0
-  br i1 %cmp449.not, label %for.end, label %for.body.lr.ph
+  %cmp448.not = icmp eq i64 %retval.sroa.3.0.i, 0
+  br i1 %cmp448.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
   %output_section.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -636,8 +636,8 @@ for.body.lr.ph:                                   ; preds = %if.end
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %storemerge450 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %add.ptr.i = getelementptr inbounds %"struct.mold::elf::ElfRel", ptr %retval.sroa.0.0.i, i64 %storemerge450
+  %storemerge449 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %add.ptr.i = getelementptr inbounds %"struct.mold::elf::ElfRel", ptr %retval.sroa.0.0.i, i64 %storemerge449
   %r_type = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   %x.0.copyload.i176 = load i32, ptr %r_type, align 1
   %cmp10 = icmp eq i32 %x.0.copyload.i176, 0
@@ -806,8 +806,8 @@ _ZNK4mold3elf6SymbolINS0_7PPC64V2EE11get_plt_idxERNS0_7ContextIS2_EE.exit.i: ; p
 _ZNK4mold3elf6SymbolINS0_7PPC64V2EE7has_pltERNS0_7ContextIS2_EE.exit: ; preds = %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE11get_plt_idxERNS0_7ContextIS2_EE.exit.i
   %pltgot_idx.i.i = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %31, i64 %conv.i.i, i32 5
   %33 = load i32, ptr %pltgot_idx.i.i, align 4
-  %.not441 = icmp eq i32 %33, -1
-  br i1 %.not441, label %lor.lhs.false, label %if.then55
+  %.not440 = icmp eq i32 %33, -1
+  br i1 %.not440, label %lor.lhs.false, label %if.then55
 
 lor.lhs.false:                                    ; preds = %sw.bb51, %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE7has_pltERNS0_7ContextIS2_EE.exit
   %34 = load ptr, ptr %13, align 8
@@ -826,7 +826,7 @@ if.then55:                                        ; preds = %_ZNK4mold3elf6Symbo
   %r2save_thunk_addr.val.val166 = load ptr, ptr %10, align 8
   %37 = getelementptr i8, ptr %14, i64 224
   %r2save_thunk_addr.val.val.val = load ptr, ptr %37, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.mold::elf::ThunkRef", ptr %r2save_thunk_addr.val.val166, i64 %storemerge450
+  %add.ptr.i.i.i = getelementptr inbounds %"struct.mold::elf::ThunkRef", ptr %r2save_thunk_addr.val.val166, i64 %storemerge449
   %ref.sroa.0.0.copyload.i.i = load i16, ptr %add.ptr.i.i.i, align 2
   %ref.sroa.2.0.call.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 2
   %ref.sroa.2.0.copyload.i.i = load i16, ptr %ref.sroa.2.0.call.sroa_idx.i.i, align 2
@@ -862,9 +862,9 @@ if.else69:                                        ; preds = %lor.lhs.false
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %ref.tmp.i)
   %bf.lshr.i = lshr i16 %bf.load.i, 13
   %cmp.i216 = icmp eq i16 %bf.lshr.i, 7
-  br i1 %cmp.i216, label %if.then.i218, label %_ZN4mold3elfL22get_local_entry_offsetERNS0_7ContextINS0_7PPC64V2EEERNS0_6SymbolIS2_EE.exit
+  br i1 %cmp.i216, label %if.then.i, label %_ZN4mold3elfL22get_local_entry_offsetERNS0_7ContextINS0_7PPC64V2EEERNS0_6SymbolIS2_EE.exit
 
-if.then.i218:                                     ; preds = %if.else69
+if.then.i:                                        ; preds = %if.else69
   call void @_ZN4mold5FatalINS_3elf7ContextINS1_7PPC64V2EEEEC2ERS4_(ptr noundef nonnull align 8 dereferenceable(400) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(4584) %ctx)
   %call1.i = call noundef nonnull align 8 dereferenceable(400) ptr @_ZN4mold5FatalINS_3elf7ContextINS1_7PPC64V2EEEElsIRNS1_6SymbolIS3_EEEERS5_OT_(ptr noundef nonnull align 8 dereferenceable(400) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(56) %13)
   %call2.i = call noundef nonnull align 8 dereferenceable(400) ptr @_ZN4mold5FatalINS_3elf7ContextINS1_7PPC64V2EEEElsIRA35_KcEERS5_OT_(ptr noundef nonnull align 8 dereferenceable(400) %call1.i, ptr noundef nonnull align 1 dereferenceable(35) @.str.7)
@@ -891,24 +891,24 @@ if.then77:                                        ; preds = %_ZN4mold3elfL22get_
   %no_r2save_thunk_addr.val.val174 = load ptr, ptr %10, align 8
   %43 = getelementptr i8, ptr %14, i64 224
   %no_r2save_thunk_addr.val.val.val = load ptr, ptr %43, align 8
-  %add.ptr.i.i.i221 = getelementptr inbounds %"struct.mold::elf::ThunkRef", ptr %no_r2save_thunk_addr.val.val174, i64 %storemerge450
-  %ref.sroa.0.0.copyload.i.i222 = load i16, ptr %add.ptr.i.i.i221, align 2
-  %ref.sroa.2.0.call.sroa_idx.i.i223 = getelementptr inbounds i8, ptr %add.ptr.i.i.i221, i64 2
-  %ref.sroa.2.0.copyload.i.i224 = load i16, ptr %ref.sroa.2.0.call.sroa_idx.i.i223, align 2
-  %conv.i.i225 = sext i16 %ref.sroa.0.0.copyload.i.i222 to i64
-  %add.ptr.i1.i.i226 = getelementptr inbounds %"class.std::unique_ptr.334", ptr %no_r2save_thunk_addr.val.val.val, i64 %conv.i.i225
-  %44 = load ptr, ptr %add.ptr.i1.i.i226, align 8
-  %conv4.i.i227 = sext i16 %ref.sroa.2.0.copyload.i.i224 to i64
+  %add.ptr.i.i.i220 = getelementptr inbounds %"struct.mold::elf::ThunkRef", ptr %no_r2save_thunk_addr.val.val174, i64 %storemerge449
+  %ref.sroa.0.0.copyload.i.i221 = load i16, ptr %add.ptr.i.i.i220, align 2
+  %ref.sroa.2.0.call.sroa_idx.i.i222 = getelementptr inbounds i8, ptr %add.ptr.i.i.i220, i64 2
+  %ref.sroa.2.0.copyload.i.i223 = load i16, ptr %ref.sroa.2.0.call.sroa_idx.i.i222, align 2
+  %conv.i.i224 = sext i16 %ref.sroa.0.0.copyload.i.i221 to i64
+  %add.ptr.i1.i.i225 = getelementptr inbounds %"class.std::unique_ptr.334", ptr %no_r2save_thunk_addr.val.val.val, i64 %conv.i.i224
+  %44 = load ptr, ptr %add.ptr.i1.i.i225, align 8
+  %conv4.i.i226 = sext i16 %ref.sroa.2.0.copyload.i.i223 to i64
   %45 = load ptr, ptr %44, align 8
-  %sh_addr.i.i.i228 = getelementptr inbounds i8, ptr %45, i64 40
-  %x.0.copyload.i.i.i.i229 = load i64, ptr %sh_addr.i.i.i228, align 1
-  %offset.i.i.i230 = getelementptr inbounds i8, ptr %44, i64 8
-  %46 = load i64, ptr %offset.i.i.i230, align 8
-  %mul.i.i.i231 = mul nsw i64 %conv4.i.i227, 24
-  %add.i.i.i232 = add i64 %x.0.copyload.i180, 8
-  %add3.i.i.i233 = sub i64 %add.i.i.i232, %add
-  %add.i234 = add i64 %add3.i.i.i233, %mul.i.i.i231
-  %add79 = add i64 %add.i234, %x.0.copyload.i.i.i.i229
+  %sh_addr.i.i.i227 = getelementptr inbounds i8, ptr %45, i64 40
+  %x.0.copyload.i.i.i.i228 = load i64, ptr %sh_addr.i.i.i227, align 1
+  %offset.i.i.i229 = getelementptr inbounds i8, ptr %44, i64 8
+  %46 = load i64, ptr %offset.i.i.i229, align 8
+  %mul.i.i.i230 = mul nsw i64 %conv4.i.i226, 24
+  %add.i.i.i231 = add i64 %x.0.copyload.i180, 8
+  %add3.i.i.i232 = sub i64 %add.i.i.i231, %add
+  %add.i233 = add i64 %add3.i.i.i232, %mul.i.i.i230
+  %add79 = add i64 %add.i233, %x.0.copyload.i.i.i.i228
   %sub80 = add i64 %add79, %46
   br label %if.end81
 
@@ -916,68 +916,68 @@ if.end81:                                         ; preds = %if.then77, %_ZN4mol
   %val70.0 = phi i64 [ %sub80, %if.then77 ], [ %sub74, %_ZN4mold3elfL22get_local_entry_offsetERNS0_7ContextINS0_7PPC64V2EEERNS0_6SymbolIS2_EE.exit ]
   %47 = trunc i64 %val70.0 to i32
   %call82.tr = and i32 %47, 67108860
-  %x.0.copyload.i.i237 = load i32, ptr %add.ptr17, align 1
-  %or.i238 = or i32 %call82.tr, %x.0.copyload.i.i237
-  store i32 %or.i238, ptr %add.ptr17, align 1
+  %x.0.copyload.i.i236 = load i32, ptr %add.ptr17, align 1
+  %or.i237 = or i32 %call82.tr, %x.0.copyload.i.i236
+  store i32 %or.i237, ptr %add.ptr17, align 1
   br label %for.inc
 
 sw.bb87:                                          ; preds = %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE11get_got_idxERNS0_7ContextIS2_EE.exit
-  br i1 %cmp.i182, label %lor.lhs.false89, label %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE11get_plt_idxERNS0_7ContextIS2_EE.exit.i241
+  br i1 %cmp.i182, label %lor.lhs.false89, label %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE11get_plt_idxERNS0_7ContextIS2_EE.exit.i240
 
-_ZNK4mold3elf6SymbolINS0_7PPC64V2EE11get_plt_idxERNS0_7ContextIS2_EE.exit.i241: ; preds = %sw.bb87
-  %conv.i.i243 = sext i32 %16 to i64
+_ZNK4mold3elf6SymbolINS0_7PPC64V2EE11get_plt_idxERNS0_7ContextIS2_EE.exit.i240: ; preds = %sw.bb87
+  %conv.i.i242 = sext i32 %16 to i64
   %48 = load ptr, ptr %symbol_aux.i, align 8
-  %plt_idx.i.i244 = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %48, i64 %conv.i.i243, i32 4
-  %49 = load i32, ptr %plt_idx.i.i244, align 4
-  %cmp.not.i245 = icmp eq i32 %49, -1
-  br i1 %cmp.not.i245, label %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE7has_pltERNS0_7ContextIS2_EE.exit248, label %if.then92
+  %plt_idx.i.i243 = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %48, i64 %conv.i.i242, i32 4
+  %49 = load i32, ptr %plt_idx.i.i243, align 4
+  %cmp.not.i244 = icmp eq i32 %49, -1
+  br i1 %cmp.not.i244, label %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE7has_pltERNS0_7ContextIS2_EE.exit247, label %if.then92
 
-_ZNK4mold3elf6SymbolINS0_7PPC64V2EE7has_pltERNS0_7ContextIS2_EE.exit248: ; preds = %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE11get_plt_idxERNS0_7ContextIS2_EE.exit.i241
-  %pltgot_idx.i.i247 = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %48, i64 %conv.i.i243, i32 5
-  %50 = load i32, ptr %pltgot_idx.i.i247, align 4
+_ZNK4mold3elf6SymbolINS0_7PPC64V2EE7has_pltERNS0_7ContextIS2_EE.exit247: ; preds = %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE11get_plt_idxERNS0_7ContextIS2_EE.exit.i240
+  %pltgot_idx.i.i246 = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %48, i64 %conv.i.i242, i32 5
+  %50 = load i32, ptr %pltgot_idx.i.i246, align 4
   %.not = icmp eq i32 %50, -1
   br i1 %.not, label %lor.lhs.false89, label %if.then92
 
-lor.lhs.false89:                                  ; preds = %sw.bb87, %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE7has_pltERNS0_7ContextIS2_EE.exit248
+lor.lhs.false89:                                  ; preds = %sw.bb87, %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE7has_pltERNS0_7ContextIS2_EE.exit247
   %51 = load ptr, ptr %13, align 8
-  %elf_syms.i249 = getelementptr inbounds i8, ptr %51, i64 32
-  %sym_idx.i250 = getelementptr inbounds i8, ptr %13, i64 36
-  %52 = load i32, ptr %sym_idx.i250, align 4
-  %conv.i251 = sext i32 %52 to i64
-  %53 = load ptr, ptr %elf_syms.i249, align 8
-  %ppc_local_entry.i253 = getelementptr inbounds %"struct.mold::elf::ElfSym", ptr %53, i64 %conv.i251, i32 1
-  %bf.load.i254 = load i16, ptr %ppc_local_entry.i253, align 1
-  %cmp.i255 = icmp ugt i16 %bf.load.i254, 16383
-  br i1 %cmp.i255, label %if.then92, label %if.else101
+  %elf_syms.i248 = getelementptr inbounds i8, ptr %51, i64 32
+  %sym_idx.i249 = getelementptr inbounds i8, ptr %13, i64 36
+  %52 = load i32, ptr %sym_idx.i249, align 4
+  %conv.i250 = sext i32 %52 to i64
+  %53 = load ptr, ptr %elf_syms.i248, align 8
+  %ppc_local_entry.i252 = getelementptr inbounds %"struct.mold::elf::ElfSym", ptr %53, i64 %conv.i250, i32 1
+  %bf.load.i253 = load i16, ptr %ppc_local_entry.i252, align 1
+  %cmp.i254 = icmp ugt i16 %bf.load.i253, 16383
+  br i1 %cmp.i254, label %if.then92, label %if.else101
 
-if.then92:                                        ; preds = %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE11get_plt_idxERNS0_7ContextIS2_EE.exit.i241, %lor.lhs.false89, %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE7has_pltERNS0_7ContextIS2_EE.exit248
+if.then92:                                        ; preds = %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE11get_plt_idxERNS0_7ContextIS2_EE.exit.i240, %lor.lhs.false89, %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE7has_pltERNS0_7ContextIS2_EE.exit247
   %no_r2save_thunk_addr.val168.val173 = load ptr, ptr %10, align 8
   %54 = getelementptr i8, ptr %14, i64 224
   %no_r2save_thunk_addr.val168.val.val = load ptr, ptr %54, align 8
-  %add.ptr.i.i.i256 = getelementptr inbounds %"struct.mold::elf::ThunkRef", ptr %no_r2save_thunk_addr.val168.val173, i64 %storemerge450
-  %ref.sroa.0.0.copyload.i.i257 = load i16, ptr %add.ptr.i.i.i256, align 2
-  %ref.sroa.2.0.call.sroa_idx.i.i258 = getelementptr inbounds i8, ptr %add.ptr.i.i.i256, i64 2
-  %ref.sroa.2.0.copyload.i.i259 = load i16, ptr %ref.sroa.2.0.call.sroa_idx.i.i258, align 2
-  %conv.i.i260 = sext i16 %ref.sroa.0.0.copyload.i.i257 to i64
-  %add.ptr.i1.i.i261 = getelementptr inbounds %"class.std::unique_ptr.334", ptr %no_r2save_thunk_addr.val168.val.val, i64 %conv.i.i260
-  %55 = load ptr, ptr %add.ptr.i1.i.i261, align 8
-  %conv4.i.i262 = sext i16 %ref.sroa.2.0.copyload.i.i259 to i64
+  %add.ptr.i.i.i255 = getelementptr inbounds %"struct.mold::elf::ThunkRef", ptr %no_r2save_thunk_addr.val168.val173, i64 %storemerge449
+  %ref.sroa.0.0.copyload.i.i256 = load i16, ptr %add.ptr.i.i.i255, align 2
+  %ref.sroa.2.0.call.sroa_idx.i.i257 = getelementptr inbounds i8, ptr %add.ptr.i.i.i255, i64 2
+  %ref.sroa.2.0.copyload.i.i258 = load i16, ptr %ref.sroa.2.0.call.sroa_idx.i.i257, align 2
+  %conv.i.i259 = sext i16 %ref.sroa.0.0.copyload.i.i256 to i64
+  %add.ptr.i1.i.i260 = getelementptr inbounds %"class.std::unique_ptr.334", ptr %no_r2save_thunk_addr.val168.val.val, i64 %conv.i.i259
+  %55 = load ptr, ptr %add.ptr.i1.i.i260, align 8
+  %conv4.i.i261 = sext i16 %ref.sroa.2.0.copyload.i.i258 to i64
   %56 = load ptr, ptr %55, align 8
-  %sh_addr.i.i.i263 = getelementptr inbounds i8, ptr %56, i64 40
-  %x.0.copyload.i.i.i.i264 = load i64, ptr %sh_addr.i.i.i263, align 1
-  %offset.i.i.i265 = getelementptr inbounds i8, ptr %55, i64 8
-  %57 = load i64, ptr %offset.i.i.i265, align 8
-  %mul.i.i.i266 = mul nsw i64 %conv4.i.i262, 24
-  %add.i.i.i267 = add i64 %x.0.copyload.i180, 8
-  %add3.i.i.i268 = sub i64 %add.i.i.i267, %add
-  %add.i269 = add i64 %add3.i.i.i268, %mul.i.i.i266
-  %add95 = add i64 %add.i269, %x.0.copyload.i.i.i.i264
+  %sh_addr.i.i.i262 = getelementptr inbounds i8, ptr %56, i64 40
+  %x.0.copyload.i.i.i.i263 = load i64, ptr %sh_addr.i.i.i262, align 1
+  %offset.i.i.i264 = getelementptr inbounds i8, ptr %55, i64 8
+  %57 = load i64, ptr %offset.i.i.i264, align 8
+  %mul.i.i.i265 = mul nsw i64 %conv4.i.i261, 24
+  %add.i.i.i266 = add i64 %x.0.copyload.i180, 8
+  %add3.i.i.i267 = sub i64 %add.i.i.i266, %add
+  %add.i268 = add i64 %add3.i.i.i267, %mul.i.i.i265
+  %add95 = add i64 %add.i268, %x.0.copyload.i.i.i.i263
   %sub96 = add i64 %add95, %57
   %58 = trunc i64 %sub96 to i32
   %call97.tr = and i32 %58, 67108860
-  %x.0.copyload.i.i272 = load i32, ptr %add.ptr17, align 1
-  %or.i273 = or i32 %call97.tr, %x.0.copyload.i.i272
-  store i32 %or.i273, ptr %add.ptr17, align 1
+  %x.0.copyload.i.i271 = load i32, ptr %add.ptr17, align 1
+  %or.i272 = or i32 %call97.tr, %x.0.copyload.i.i271
+  store i32 %or.i272, ptr %add.ptr17, align 1
   br label %for.inc
 
 if.else101:                                       ; preds = %lor.lhs.false89
@@ -991,24 +991,24 @@ if.then107:                                       ; preds = %if.else101
   %no_r2save_thunk_addr.val170.val172 = load ptr, ptr %10, align 8
   %60 = getelementptr i8, ptr %14, i64 224
   %no_r2save_thunk_addr.val170.val.val = load ptr, ptr %60, align 8
-  %add.ptr.i.i.i276 = getelementptr inbounds %"struct.mold::elf::ThunkRef", ptr %no_r2save_thunk_addr.val170.val172, i64 %storemerge450
-  %ref.sroa.0.0.copyload.i.i277 = load i16, ptr %add.ptr.i.i.i276, align 2
-  %ref.sroa.2.0.call.sroa_idx.i.i278 = getelementptr inbounds i8, ptr %add.ptr.i.i.i276, i64 2
-  %ref.sroa.2.0.copyload.i.i279 = load i16, ptr %ref.sroa.2.0.call.sroa_idx.i.i278, align 2
-  %conv.i.i280 = sext i16 %ref.sroa.0.0.copyload.i.i277 to i64
-  %add.ptr.i1.i.i281 = getelementptr inbounds %"class.std::unique_ptr.334", ptr %no_r2save_thunk_addr.val170.val.val, i64 %conv.i.i280
-  %61 = load ptr, ptr %add.ptr.i1.i.i281, align 8
-  %conv4.i.i282 = sext i16 %ref.sroa.2.0.copyload.i.i279 to i64
+  %add.ptr.i.i.i275 = getelementptr inbounds %"struct.mold::elf::ThunkRef", ptr %no_r2save_thunk_addr.val170.val172, i64 %storemerge449
+  %ref.sroa.0.0.copyload.i.i276 = load i16, ptr %add.ptr.i.i.i275, align 2
+  %ref.sroa.2.0.call.sroa_idx.i.i277 = getelementptr inbounds i8, ptr %add.ptr.i.i.i275, i64 2
+  %ref.sroa.2.0.copyload.i.i278 = load i16, ptr %ref.sroa.2.0.call.sroa_idx.i.i277, align 2
+  %conv.i.i279 = sext i16 %ref.sroa.0.0.copyload.i.i276 to i64
+  %add.ptr.i1.i.i280 = getelementptr inbounds %"class.std::unique_ptr.334", ptr %no_r2save_thunk_addr.val170.val.val, i64 %conv.i.i279
+  %61 = load ptr, ptr %add.ptr.i1.i.i280, align 8
+  %conv4.i.i281 = sext i16 %ref.sroa.2.0.copyload.i.i278 to i64
   %62 = load ptr, ptr %61, align 8
-  %sh_addr.i.i.i283 = getelementptr inbounds i8, ptr %62, i64 40
-  %x.0.copyload.i.i.i.i284 = load i64, ptr %sh_addr.i.i.i283, align 1
-  %offset.i.i.i285 = getelementptr inbounds i8, ptr %61, i64 8
-  %63 = load i64, ptr %offset.i.i.i285, align 8
-  %mul.i.i.i286 = mul nsw i64 %conv4.i.i282, 24
-  %add.i.i.i287 = add i64 %x.0.copyload.i180, 8
-  %add3.i.i.i288 = sub i64 %add.i.i.i287, %add
-  %add.i289 = add i64 %add3.i.i.i288, %mul.i.i.i286
-  %add109 = add i64 %add.i289, %x.0.copyload.i.i.i.i284
+  %sh_addr.i.i.i282 = getelementptr inbounds i8, ptr %62, i64 40
+  %x.0.copyload.i.i.i.i283 = load i64, ptr %sh_addr.i.i.i282, align 1
+  %offset.i.i.i284 = getelementptr inbounds i8, ptr %61, i64 8
+  %63 = load i64, ptr %offset.i.i.i284, align 8
+  %mul.i.i.i285 = mul nsw i64 %conv4.i.i281, 24
+  %add.i.i.i286 = add i64 %x.0.copyload.i180, 8
+  %add3.i.i.i287 = sub i64 %add.i.i.i286, %add
+  %add.i288 = add i64 %add3.i.i.i287, %mul.i.i.i285
+  %add109 = add i64 %add.i288, %x.0.copyload.i.i.i.i283
   %sub110 = add i64 %add109, %63
   br label %if.end111
 
@@ -1016,9 +1016,9 @@ if.end111:                                        ; preds = %if.then107, %if.els
   %val102.0 = phi i64 [ %sub110, %if.then107 ], [ %sub104, %if.else101 ]
   %64 = trunc i64 %val102.0 to i32
   %call112.tr = and i32 %64, 67108860
-  %x.0.copyload.i.i292 = load i32, ptr %add.ptr17, align 1
-  %or.i293 = or i32 %call112.tr, %x.0.copyload.i.i292
-  store i32 %or.i293, ptr %add.ptr17, align 1
+  %x.0.copyload.i.i291 = load i32, ptr %add.ptr17, align 1
+  %or.i292 = or i32 %call112.tr, %x.0.copyload.i.i291
+  store i32 %or.i292, ptr %add.ptr17, align 1
   br label %for.inc
 
 sw.bb117:                                         ; preds = %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE11get_got_idxERNS0_7ContextIS2_EE.exit
@@ -1037,9 +1037,9 @@ sw.bb122:                                         ; preds = %_ZNK4mold3elf6Symbo
 sw.bb126:                                         ; preds = %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE11get_got_idxERNS0_7ContextIS2_EE.exit
   %add127 = add i64 %x.0.copyload.i180, %call18
   %sub128 = add i64 %add127, 32768
-  %add.i294 = sub i64 %sub128, %add
-  %shr.i295 = lshr i64 %add.i294, 16
-  %conv130 = trunc i64 %shr.i295 to i16
+  %add.i293 = sub i64 %sub128, %add
+  %shr.i294 = lshr i64 %add.i293, 16
+  %conv130 = trunc i64 %shr.i294 to i16
   store i16 %conv130, ptr %add.ptr17, align 1
   br label %for.inc
 
@@ -1053,17 +1053,17 @@ sw.bb132:                                         ; preds = %_ZNK4mold3elf6Symbo
 sw.bb138:                                         ; preds = %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE11get_got_idxERNS0_7ContextIS2_EE.exit
   %add139 = add i64 %x.0.copyload.i185, %cond.i
   %sub140 = add i64 %add139, 32768
-  %add.i297 = sub i64 %sub140, %23
-  %shr.i298 = lshr i64 %add.i297, 16
-  %conv142 = trunc i64 %shr.i298 to i16
+  %add.i296 = sub i64 %sub140, %23
+  %shr.i297 = lshr i64 %add.i296, 16
+  %conv142 = trunc i64 %shr.i297 to i16
   store i16 %conv142, ptr %add.ptr17, align 1
   br label %for.inc
 
 sw.bb144:                                         ; preds = %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE11get_got_idxERNS0_7ContextIS2_EE.exit
   %add145 = add i64 %x.0.copyload.i185, %cond.i
   %sub146 = sub i64 %add145, %23
-  %shr.i299 = lshr i64 %sub146, 16
-  %conv148 = trunc i64 %shr.i299 to i16
+  %shr.i298 = lshr i64 %sub146, 16
+  %conv148 = trunc i64 %shr.i298 to i16
   store i16 %conv148, ptr %add.ptr17, align 1
   br label %for.inc
 
@@ -1079,20 +1079,20 @@ sw.bb156:                                         ; preds = %_ZNK4mold3elf6Symbo
   %sub158 = sub i64 %add157, %23
   %65 = trunc i64 %sub158 to i16
   %conv160 = and i16 %65, -4
-  %x.0.copyload.i.i301 = load i16, ptr %add.ptr17, align 1
-  %or1.i302 = or i16 %x.0.copyload.i.i301, %conv160
-  store i16 %or1.i302, ptr %add.ptr17, align 1
+  %x.0.copyload.i.i300 = load i16, ptr %add.ptr17, align 1
+  %or1.i301 = or i16 %x.0.copyload.i.i300, %conv160
+  store i16 %or1.i301, ptr %add.ptr17, align 1
   br label %for.inc
 
 sw.bb162:                                         ; preds = %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE11get_got_idxERNS0_7ContextIS2_EE.exit, %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE11get_got_idxERNS0_7ContextIS2_EE.exit, %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE11get_got_idxERNS0_7ContextIS2_EE.exit
   %add163 = add i64 %x.0.copyload.i185, %cond.i
   %sub164 = sub i64 %add163, %add
-  %x.0.copyload.i.i303 = load i32, ptr %add.ptr17, align 1
-  %and.i304 = and i32 %x.0.copyload.i.i303, -262144
+  %x.0.copyload.i.i302 = load i32, ptr %add.ptr17, align 1
+  %and.i303 = and i32 %x.0.copyload.i.i302, -262144
   %shr.i.i = lshr i64 %sub164, 16
   %66 = trunc i64 %shr.i.i to i32
   %67 = and i32 %66, 262143
-  %conv2.i = or disjoint i32 %and.i304, %67
+  %conv2.i = or disjoint i32 %and.i303, %67
   store i32 %conv2.i, ptr %add.ptr17, align 1
   %arrayidx5.i = getelementptr inbounds i8, ptr %add.ptr17, i64 4
   %x.0.copyload.i5.i = load i32, ptr %arrayidx5.i, align 1
@@ -1106,29 +1106,29 @@ sw.bb162:                                         ; preds = %_ZNK4mold3elf6Symbo
 sw.bb165:                                         ; preds = %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE11get_got_idxERNS0_7ContextIS2_EE.exit
   %add166 = add i64 %x.0.copyload.i180, %call18
   %sub167 = sub i64 %add166, %add
-  %x.0.copyload.i.i305 = load i32, ptr %add.ptr17, align 1
-  %and.i306 = and i32 %x.0.copyload.i.i305, -262144
-  %shr.i.i307 = lshr i64 %sub167, 16
-  %70 = trunc i64 %shr.i.i307 to i32
+  %x.0.copyload.i.i304 = load i32, ptr %add.ptr17, align 1
+  %and.i305 = and i32 %x.0.copyload.i.i304, -262144
+  %shr.i.i306 = lshr i64 %sub167, 16
+  %70 = trunc i64 %shr.i.i306 to i32
   %71 = and i32 %70, 262143
-  %conv2.i308 = or disjoint i32 %and.i306, %71
-  store i32 %conv2.i308, ptr %add.ptr17, align 1
-  %arrayidx5.i309 = getelementptr inbounds i8, ptr %add.ptr17, i64 4
-  %x.0.copyload.i5.i310 = load i32, ptr %arrayidx5.i309, align 1
-  %and7.i311 = and i32 %x.0.copyload.i5.i310, -65536
+  %conv2.i307 = or disjoint i32 %and.i305, %71
+  store i32 %conv2.i307, ptr %add.ptr17, align 1
+  %arrayidx5.i308 = getelementptr inbounds i8, ptr %add.ptr17, i64 4
+  %x.0.copyload.i5.i309 = load i32, ptr %arrayidx5.i308, align 1
+  %and7.i310 = and i32 %x.0.copyload.i5.i309, -65536
   %72 = trunc i64 %sub167 to i32
   %73 = and i32 %72, 65535
-  %conv11.i312 = or disjoint i32 %and7.i311, %73
-  store i32 %conv11.i312, ptr %arrayidx5.i309, align 1
+  %conv11.i311 = or disjoint i32 %and7.i310, %73
+  store i32 %conv11.i311, ptr %arrayidx5.i308, align 1
   br label %for.inc
 
 sw.bb168:                                         ; preds = %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE11get_got_idxERNS0_7ContextIS2_EE.exit
   br i1 %cmp.i182, label %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE14get_gottp_addrERNS0_7ContextIS2_EE.exit, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %sw.bb168
-  %conv.i.i318 = sext i32 %16 to i64
+  %conv.i.i317 = sext i32 %16 to i64
   %74 = load ptr, ptr %symbol_aux.i, align 8
-  %gottp_idx.i.i = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %74, i64 %conv.i.i318, i32 1
+  %gottp_idx.i.i = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %74, i64 %conv.i.i317, i32 1
   %75 = load i32, ptr %gottp_idx.i.i, align 4
   %76 = sext i32 %75 to i64
   %77 = shl nsw i64 %76, 3
@@ -1136,149 +1136,149 @@ cond.false.i.i:                                   ; preds = %sw.bb168
 
 _ZNK4mold3elf6SymbolINS0_7PPC64V2EE14get_gottp_addrERNS0_7ContextIS2_EE.exit: ; preds = %sw.bb168, %cond.false.i.i
   %cond.i.i = phi i64 [ %77, %cond.false.i.i ], [ -8, %sw.bb168 ]
-  %add.i319 = add i64 %x.0.copyload.i185, 32768
-  %sub170 = sub i64 %add.i319, %23
-  %add.i320 = add i64 %sub170, %cond.i.i
-  %shr.i321 = lshr i64 %add.i320, 16
-  %conv172 = trunc i64 %shr.i321 to i16
+  %add.i318 = add i64 %x.0.copyload.i185, 32768
+  %sub170 = sub i64 %add.i318, %23
+  %add.i319 = add i64 %sub170, %cond.i.i
+  %shr.i320 = lshr i64 %add.i319, 16
+  %conv172 = trunc i64 %shr.i320 to i16
   store i16 %conv172, ptr %add.ptr17, align 1
   br label %for.inc
 
 sw.bb174:                                         ; preds = %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE11get_got_idxERNS0_7ContextIS2_EE.exit
-  br i1 %cmp.i182, label %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE14get_gottp_addrERNS0_7ContextIS2_EE.exit333, label %cond.false.i.i327
+  br i1 %cmp.i182, label %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE14get_gottp_addrERNS0_7ContextIS2_EE.exit332, label %cond.false.i.i326
 
-cond.false.i.i327:                                ; preds = %sw.bb174
-  %conv.i.i329 = sext i32 %16 to i64
+cond.false.i.i326:                                ; preds = %sw.bb174
+  %conv.i.i328 = sext i32 %16 to i64
   %78 = load ptr, ptr %symbol_aux.i, align 8
-  %gottp_idx.i.i330 = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %78, i64 %conv.i.i329, i32 1
-  %79 = load i32, ptr %gottp_idx.i.i330, align 4
+  %gottp_idx.i.i329 = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %78, i64 %conv.i.i328, i32 1
+  %79 = load i32, ptr %gottp_idx.i.i329, align 4
   %80 = sext i32 %79 to i64
   %81 = shl nsw i64 %80, 3
-  br label %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE14get_gottp_addrERNS0_7ContextIS2_EE.exit333
+  br label %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE14get_gottp_addrERNS0_7ContextIS2_EE.exit332
 
-_ZNK4mold3elf6SymbolINS0_7PPC64V2EE14get_gottp_addrERNS0_7ContextIS2_EE.exit333: ; preds = %sw.bb174, %cond.false.i.i327
-  %cond.i.i331 = phi i64 [ %81, %cond.false.i.i327 ], [ -8, %sw.bb174 ]
-  %add.i332 = sub i64 %x.0.copyload.i185, %23
-  %sub176 = add i64 %add.i332, %cond.i.i331
+_ZNK4mold3elf6SymbolINS0_7PPC64V2EE14get_gottp_addrERNS0_7ContextIS2_EE.exit332: ; preds = %sw.bb174, %cond.false.i.i326
+  %cond.i.i330 = phi i64 [ %81, %cond.false.i.i326 ], [ -8, %sw.bb174 ]
+  %add.i331 = sub i64 %x.0.copyload.i185, %23
+  %sub176 = add i64 %add.i331, %cond.i.i330
   %82 = trunc i64 %sub176 to i16
   %conv178 = and i16 %82, -4
-  %x.0.copyload.i.i334 = load i16, ptr %add.ptr17, align 1
-  %or1.i335 = or i16 %conv178, %x.0.copyload.i.i334
-  store i16 %or1.i335, ptr %add.ptr17, align 1
+  %x.0.copyload.i.i333 = load i16, ptr %add.ptr17, align 1
+  %or1.i334 = or i16 %conv178, %x.0.copyload.i.i333
+  store i16 %or1.i334, ptr %add.ptr17, align 1
   br label %for.inc
 
 sw.bb180:                                         ; preds = %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE11get_got_idxERNS0_7ContextIS2_EE.exit
-  br i1 %cmp.i182, label %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE14get_gottp_addrERNS0_7ContextIS2_EE.exit347, label %cond.false.i.i341
+  br i1 %cmp.i182, label %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE14get_gottp_addrERNS0_7ContextIS2_EE.exit346, label %cond.false.i.i340
 
-cond.false.i.i341:                                ; preds = %sw.bb180
-  %conv.i.i343 = sext i32 %16 to i64
+cond.false.i.i340:                                ; preds = %sw.bb180
+  %conv.i.i342 = sext i32 %16 to i64
   %83 = load ptr, ptr %symbol_aux.i, align 8
-  %gottp_idx.i.i344 = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %83, i64 %conv.i.i343, i32 1
-  %84 = load i32, ptr %gottp_idx.i.i344, align 4
+  %gottp_idx.i.i343 = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %83, i64 %conv.i.i342, i32 1
+  %84 = load i32, ptr %gottp_idx.i.i343, align 4
   %85 = sext i32 %84 to i64
   %86 = shl nsw i64 %85, 3
-  br label %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE14get_gottp_addrERNS0_7ContextIS2_EE.exit347
+  br label %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE14get_gottp_addrERNS0_7ContextIS2_EE.exit346
 
-_ZNK4mold3elf6SymbolINS0_7PPC64V2EE14get_gottp_addrERNS0_7ContextIS2_EE.exit347: ; preds = %sw.bb180, %cond.false.i.i341
-  %cond.i.i345 = phi i64 [ %86, %cond.false.i.i341 ], [ -8, %sw.bb180 ]
-  %add.i346 = sub i64 %x.0.copyload.i185, %add
-  %sub182 = add i64 %add.i346, %cond.i.i345
-  %x.0.copyload.i.i348 = load i32, ptr %add.ptr17, align 1
-  %and.i349 = and i32 %x.0.copyload.i.i348, -262144
-  %shr.i.i350 = lshr i64 %sub182, 16
-  %87 = trunc i64 %shr.i.i350 to i32
+_ZNK4mold3elf6SymbolINS0_7PPC64V2EE14get_gottp_addrERNS0_7ContextIS2_EE.exit346: ; preds = %sw.bb180, %cond.false.i.i340
+  %cond.i.i344 = phi i64 [ %86, %cond.false.i.i340 ], [ -8, %sw.bb180 ]
+  %add.i345 = sub i64 %x.0.copyload.i185, %add
+  %sub182 = add i64 %add.i345, %cond.i.i344
+  %x.0.copyload.i.i347 = load i32, ptr %add.ptr17, align 1
+  %and.i348 = and i32 %x.0.copyload.i.i347, -262144
+  %shr.i.i349 = lshr i64 %sub182, 16
+  %87 = trunc i64 %shr.i.i349 to i32
   %88 = and i32 %87, 262143
-  %conv2.i351 = or disjoint i32 %88, %and.i349
-  store i32 %conv2.i351, ptr %add.ptr17, align 1
-  %arrayidx5.i352 = getelementptr inbounds i8, ptr %add.ptr17, i64 4
-  %x.0.copyload.i5.i353 = load i32, ptr %arrayidx5.i352, align 1
-  %and7.i354 = and i32 %x.0.copyload.i5.i353, -65536
+  %conv2.i350 = or disjoint i32 %88, %and.i348
+  store i32 %conv2.i350, ptr %add.ptr17, align 1
+  %arrayidx5.i351 = getelementptr inbounds i8, ptr %add.ptr17, i64 4
+  %x.0.copyload.i5.i352 = load i32, ptr %arrayidx5.i351, align 1
+  %and7.i353 = and i32 %x.0.copyload.i5.i352, -65536
   %89 = trunc i64 %sub182 to i32
   %90 = and i32 %89, 65535
-  %conv11.i355 = or disjoint i32 %and7.i354, %90
-  store i32 %conv11.i355, ptr %arrayidx5.i352, align 1
+  %conv11.i354 = or disjoint i32 %and7.i353, %90
+  store i32 %conv11.i354, ptr %arrayidx5.i351, align 1
   br label %for.inc
 
 sw.bb183:                                         ; preds = %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE11get_got_idxERNS0_7ContextIS2_EE.exit
-  br i1 %cmp.i182, label %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit, label %cond.false.i.i361
+  br i1 %cmp.i182, label %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit, label %cond.false.i.i360
 
-cond.false.i.i361:                                ; preds = %sw.bb183
-  %conv.i.i363 = sext i32 %16 to i64
+cond.false.i.i360:                                ; preds = %sw.bb183
+  %conv.i.i362 = sext i32 %16 to i64
   %91 = load ptr, ptr %symbol_aux.i, align 8
-  %tlsgd_idx.i.i = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %91, i64 %conv.i.i363, i32 2
+  %tlsgd_idx.i.i = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %91, i64 %conv.i.i362, i32 2
   %92 = load i32, ptr %tlsgd_idx.i.i, align 4
   %93 = sext i32 %92 to i64
   %94 = shl nsw i64 %93, 3
   br label %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit
 
-_ZNK4mold3elf6SymbolINS0_7PPC64V2EE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit: ; preds = %sw.bb183, %cond.false.i.i361
-  %cond.i.i364 = phi i64 [ %94, %cond.false.i.i361 ], [ -8, %sw.bb183 ]
-  %add.i365 = add i64 %x.0.copyload.i185, 32768
-  %sub185 = sub i64 %add.i365, %23
-  %add.i366 = add i64 %sub185, %cond.i.i364
-  %shr.i367 = lshr i64 %add.i366, 16
-  %conv187 = trunc i64 %shr.i367 to i16
+_ZNK4mold3elf6SymbolINS0_7PPC64V2EE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit: ; preds = %sw.bb183, %cond.false.i.i360
+  %cond.i.i363 = phi i64 [ %94, %cond.false.i.i360 ], [ -8, %sw.bb183 ]
+  %add.i364 = add i64 %x.0.copyload.i185, 32768
+  %sub185 = sub i64 %add.i364, %23
+  %add.i365 = add i64 %sub185, %cond.i.i363
+  %shr.i366 = lshr i64 %add.i365, 16
+  %conv187 = trunc i64 %shr.i366 to i16
   store i16 %conv187, ptr %add.ptr17, align 1
   br label %for.inc
 
 sw.bb189:                                         ; preds = %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE11get_got_idxERNS0_7ContextIS2_EE.exit
-  br i1 %cmp.i182, label %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit379, label %cond.false.i.i373
+  br i1 %cmp.i182, label %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit378, label %cond.false.i.i372
 
-cond.false.i.i373:                                ; preds = %sw.bb189
-  %conv.i.i375 = sext i32 %16 to i64
+cond.false.i.i372:                                ; preds = %sw.bb189
+  %conv.i.i374 = sext i32 %16 to i64
   %95 = load ptr, ptr %symbol_aux.i, align 8
-  %tlsgd_idx.i.i376 = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %95, i64 %conv.i.i375, i32 2
-  %96 = load i32, ptr %tlsgd_idx.i.i376, align 4
+  %tlsgd_idx.i.i375 = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %95, i64 %conv.i.i374, i32 2
+  %96 = load i32, ptr %tlsgd_idx.i.i375, align 4
   %97 = sext i32 %96 to i64
   %98 = shl nsw i64 %97, 3
-  br label %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit379
+  br label %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit378
 
-_ZNK4mold3elf6SymbolINS0_7PPC64V2EE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit379: ; preds = %sw.bb189, %cond.false.i.i373
-  %cond.i.i377 = phi i64 [ %98, %cond.false.i.i373 ], [ -8, %sw.bb189 ]
-  %add.i378 = sub i64 %x.0.copyload.i185, %23
-  %sub191 = add i64 %add.i378, %cond.i.i377
+_ZNK4mold3elf6SymbolINS0_7PPC64V2EE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit378: ; preds = %sw.bb189, %cond.false.i.i372
+  %cond.i.i376 = phi i64 [ %98, %cond.false.i.i372 ], [ -8, %sw.bb189 ]
+  %add.i377 = sub i64 %x.0.copyload.i185, %23
+  %sub191 = add i64 %add.i377, %cond.i.i376
   %conv193 = trunc i64 %sub191 to i16
   store i16 %conv193, ptr %add.ptr17, align 1
   br label %for.inc
 
 sw.bb195:                                         ; preds = %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE11get_got_idxERNS0_7ContextIS2_EE.exit
-  br i1 %cmp.i182, label %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit392, label %cond.false.i.i386
+  br i1 %cmp.i182, label %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit391, label %cond.false.i.i385
 
-cond.false.i.i386:                                ; preds = %sw.bb195
-  %conv.i.i388 = sext i32 %16 to i64
+cond.false.i.i385:                                ; preds = %sw.bb195
+  %conv.i.i387 = sext i32 %16 to i64
   %99 = load ptr, ptr %symbol_aux.i, align 8
-  %tlsgd_idx.i.i389 = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %99, i64 %conv.i.i388, i32 2
-  %100 = load i32, ptr %tlsgd_idx.i.i389, align 4
+  %tlsgd_idx.i.i388 = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %99, i64 %conv.i.i387, i32 2
+  %100 = load i32, ptr %tlsgd_idx.i.i388, align 4
   %101 = sext i32 %100 to i64
   %102 = shl nsw i64 %101, 3
-  br label %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit392
+  br label %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit391
 
-_ZNK4mold3elf6SymbolINS0_7PPC64V2EE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit392: ; preds = %sw.bb195, %cond.false.i.i386
-  %cond.i.i390 = phi i64 [ %102, %cond.false.i.i386 ], [ -8, %sw.bb195 ]
-  %add.i391 = sub i64 %x.0.copyload.i185, %add
-  %sub197 = add i64 %add.i391, %cond.i.i390
-  %x.0.copyload.i.i393 = load i32, ptr %add.ptr17, align 1
-  %and.i394 = and i32 %x.0.copyload.i.i393, -262144
-  %shr.i.i395 = lshr i64 %sub197, 16
-  %103 = trunc i64 %shr.i.i395 to i32
+_ZNK4mold3elf6SymbolINS0_7PPC64V2EE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit391: ; preds = %sw.bb195, %cond.false.i.i385
+  %cond.i.i389 = phi i64 [ %102, %cond.false.i.i385 ], [ -8, %sw.bb195 ]
+  %add.i390 = sub i64 %x.0.copyload.i185, %add
+  %sub197 = add i64 %add.i390, %cond.i.i389
+  %x.0.copyload.i.i392 = load i32, ptr %add.ptr17, align 1
+  %and.i393 = and i32 %x.0.copyload.i.i392, -262144
+  %shr.i.i394 = lshr i64 %sub197, 16
+  %103 = trunc i64 %shr.i.i394 to i32
   %104 = and i32 %103, 262143
-  %conv2.i396 = or disjoint i32 %104, %and.i394
-  store i32 %conv2.i396, ptr %add.ptr17, align 1
-  %arrayidx5.i397 = getelementptr inbounds i8, ptr %add.ptr17, i64 4
-  %x.0.copyload.i5.i398 = load i32, ptr %arrayidx5.i397, align 1
-  %and7.i399 = and i32 %x.0.copyload.i5.i398, -65536
+  %conv2.i395 = or disjoint i32 %104, %and.i393
+  store i32 %conv2.i395, ptr %add.ptr17, align 1
+  %arrayidx5.i396 = getelementptr inbounds i8, ptr %add.ptr17, i64 4
+  %x.0.copyload.i5.i397 = load i32, ptr %arrayidx5.i396, align 1
+  %and7.i398 = and i32 %x.0.copyload.i5.i397, -65536
   %105 = trunc i64 %sub197 to i32
   %106 = and i32 %105, 65535
-  %conv11.i400 = or disjoint i32 %and7.i399, %106
-  store i32 %conv11.i400, ptr %arrayidx5.i397, align 1
+  %conv11.i399 = or disjoint i32 %and7.i398, %106
+  store i32 %conv11.i399, ptr %arrayidx5.i396, align 1
   br label %for.inc
 
 sw.bb198:                                         ; preds = %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE11get_got_idxERNS0_7ContextIS2_EE.exit
   %call200 = call noundef i64 @_ZNK4mold3elf10GotSectionINS0_7PPC64V2EE14get_tlsld_addrERNS0_7ContextIS2_EE(ptr noundef nonnull align 8 dereferenceable(300) %21, ptr noundef nonnull align 8 dereferenceable(4584) %ctx) #20
   %reass.sub = sub i64 %call200, %23
-  %add.i401 = add i64 %reass.sub, 32768
-  %shr.i402 = lshr i64 %add.i401, 16
-  %conv203 = trunc i64 %shr.i402 to i16
+  %add.i400 = add i64 %reass.sub, 32768
+  %shr.i401 = lshr i64 %add.i400, 16
+  %conv203 = trunc i64 %shr.i401 to i16
   store i16 %conv203, ptr %add.ptr17, align 1
   br label %for.inc
 
@@ -1292,29 +1292,29 @@ sw.bb205:                                         ; preds = %_ZNK4mold3elf6Symbo
 sw.bb212:                                         ; preds = %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE11get_got_idxERNS0_7ContextIS2_EE.exit
   %call214 = call noundef i64 @_ZNK4mold3elf10GotSectionINS0_7PPC64V2EE14get_tlsld_addrERNS0_7ContextIS2_EE(ptr noundef nonnull align 8 dereferenceable(300) %21, ptr noundef nonnull align 8 dereferenceable(4584) %ctx) #20
   %sub215 = sub i64 %call214, %add
-  %x.0.copyload.i.i404 = load i32, ptr %add.ptr17, align 1
-  %and.i405 = and i32 %x.0.copyload.i.i404, -262144
-  %shr.i.i406 = lshr i64 %sub215, 16
-  %107 = trunc i64 %shr.i.i406 to i32
+  %x.0.copyload.i.i403 = load i32, ptr %add.ptr17, align 1
+  %and.i404 = and i32 %x.0.copyload.i.i403, -262144
+  %shr.i.i405 = lshr i64 %sub215, 16
+  %107 = trunc i64 %shr.i.i405 to i32
   %108 = and i32 %107, 262143
-  %conv2.i407 = or disjoint i32 %108, %and.i405
-  store i32 %conv2.i407, ptr %add.ptr17, align 1
-  %arrayidx5.i408 = getelementptr inbounds i8, ptr %add.ptr17, i64 4
-  %x.0.copyload.i5.i409 = load i32, ptr %arrayidx5.i408, align 1
-  %and7.i410 = and i32 %x.0.copyload.i5.i409, -65536
+  %conv2.i406 = or disjoint i32 %108, %and.i404
+  store i32 %conv2.i406, ptr %add.ptr17, align 1
+  %arrayidx5.i407 = getelementptr inbounds i8, ptr %add.ptr17, i64 4
+  %x.0.copyload.i5.i408 = load i32, ptr %arrayidx5.i407, align 1
+  %and7.i409 = and i32 %x.0.copyload.i5.i408, -65536
   %109 = trunc i64 %sub215 to i32
   %110 = and i32 %109, 65535
-  %conv11.i411 = or disjoint i32 %and7.i410, %110
-  store i32 %conv11.i411, ptr %arrayidx5.i408, align 1
+  %conv11.i410 = or disjoint i32 %and7.i409, %110
+  store i32 %conv11.i410, ptr %arrayidx5.i407, align 1
   br label %for.inc
 
 sw.bb216:                                         ; preds = %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE11get_got_idxERNS0_7ContextIS2_EE.exit
   %add217 = add i64 %x.0.copyload.i180, %call18
   %111 = load i64, ptr %dtp_addr231, align 8
   %sub218 = add i64 %add217, 32768
-  %add.i412 = sub i64 %sub218, %111
-  %shr.i413 = lshr i64 %add.i412, 16
-  %conv220 = trunc i64 %shr.i413 to i16
+  %add.i411 = sub i64 %sub218, %111
+  %shr.i412 = lshr i64 %add.i411, 16
+  %conv220 = trunc i64 %shr.i412 to i16
   store i16 %conv220, ptr %add.ptr17, align 1
   br label %for.inc
 
@@ -1330,29 +1330,29 @@ sw.bb229:                                         ; preds = %_ZNK4mold3elf6Symbo
   %add230 = add i64 %x.0.copyload.i180, %call18
   %113 = load i64, ptr %dtp_addr231, align 8
   %sub232 = sub i64 %add230, %113
-  %x.0.copyload.i.i415 = load i32, ptr %add.ptr17, align 1
-  %and.i416 = and i32 %x.0.copyload.i.i415, -262144
-  %shr.i.i417 = lshr i64 %sub232, 16
-  %114 = trunc i64 %shr.i.i417 to i32
+  %x.0.copyload.i.i414 = load i32, ptr %add.ptr17, align 1
+  %and.i415 = and i32 %x.0.copyload.i.i414, -262144
+  %shr.i.i416 = lshr i64 %sub232, 16
+  %114 = trunc i64 %shr.i.i416 to i32
   %115 = and i32 %114, 262143
-  %conv2.i418 = or disjoint i32 %115, %and.i416
-  store i32 %conv2.i418, ptr %add.ptr17, align 1
-  %arrayidx5.i419 = getelementptr inbounds i8, ptr %add.ptr17, i64 4
-  %x.0.copyload.i5.i420 = load i32, ptr %arrayidx5.i419, align 1
-  %and7.i421 = and i32 %x.0.copyload.i5.i420, -65536
+  %conv2.i417 = or disjoint i32 %115, %and.i415
+  store i32 %conv2.i417, ptr %add.ptr17, align 1
+  %arrayidx5.i418 = getelementptr inbounds i8, ptr %add.ptr17, i64 4
+  %x.0.copyload.i5.i419 = load i32, ptr %arrayidx5.i418, align 1
+  %and7.i420 = and i32 %x.0.copyload.i5.i419, -65536
   %116 = trunc i64 %sub232 to i32
   %117 = and i32 %116, 65535
-  %conv11.i422 = or disjoint i32 %and7.i421, %117
-  store i32 %conv11.i422, ptr %arrayidx5.i419, align 1
+  %conv11.i421 = or disjoint i32 %and7.i420, %117
+  store i32 %conv11.i421, ptr %arrayidx5.i418, align 1
   br label %for.inc
 
 sw.bb233:                                         ; preds = %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE11get_got_idxERNS0_7ContextIS2_EE.exit
   %add234 = add i64 %x.0.copyload.i180, %call18
   %118 = load i64, ptr %tp_addr248, align 8
   %sub235 = add i64 %add234, 32768
-  %add.i423 = sub i64 %sub235, %118
-  %shr.i424 = lshr i64 %add.i423, 16
-  %conv237 = trunc i64 %shr.i424 to i16
+  %add.i422 = sub i64 %sub235, %118
+  %shr.i423 = lshr i64 %add.i422, 16
+  %conv237 = trunc i64 %shr.i423 to i16
   store i16 %conv237, ptr %add.ptr17, align 1
   br label %for.inc
 
@@ -1368,27 +1368,27 @@ sw.bb246:                                         ; preds = %_ZNK4mold3elf6Symbo
   %add247 = add i64 %x.0.copyload.i180, %call18
   %120 = load i64, ptr %tp_addr248, align 8
   %sub249 = sub i64 %add247, %120
-  %x.0.copyload.i.i426 = load i32, ptr %add.ptr17, align 1
-  %and.i427 = and i32 %x.0.copyload.i.i426, -262144
-  %shr.i.i428 = lshr i64 %sub249, 16
-  %121 = trunc i64 %shr.i.i428 to i32
+  %x.0.copyload.i.i425 = load i32, ptr %add.ptr17, align 1
+  %and.i426 = and i32 %x.0.copyload.i.i425, -262144
+  %shr.i.i427 = lshr i64 %sub249, 16
+  %121 = trunc i64 %shr.i.i427 to i32
   %122 = and i32 %121, 262143
-  %conv2.i429 = or disjoint i32 %122, %and.i427
-  store i32 %conv2.i429, ptr %add.ptr17, align 1
-  %arrayidx5.i430 = getelementptr inbounds i8, ptr %add.ptr17, i64 4
-  %x.0.copyload.i5.i431 = load i32, ptr %arrayidx5.i430, align 1
-  %and7.i432 = and i32 %x.0.copyload.i5.i431, -65536
+  %conv2.i428 = or disjoint i32 %122, %and.i426
+  store i32 %conv2.i428, ptr %add.ptr17, align 1
+  %arrayidx5.i429 = getelementptr inbounds i8, ptr %add.ptr17, i64 4
+  %x.0.copyload.i5.i430 = load i32, ptr %arrayidx5.i429, align 1
+  %and7.i431 = and i32 %x.0.copyload.i5.i430, -65536
   %123 = trunc i64 %sub249 to i32
   %124 = and i32 %123, 65535
-  %conv11.i433 = or disjoint i32 %and7.i432, %124
-  store i32 %conv11.i433, ptr %arrayidx5.i430, align 1
+  %conv11.i432 = or disjoint i32 %and7.i431, %124
+  store i32 %conv11.i432, ptr %arrayidx5.i429, align 1
   br label %for.inc
 
 sw.default:                                       ; preds = %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE11get_got_idxERNS0_7ContextIS2_EE.exit
   unreachable
 
-for.inc:                                          ; preds = %sw.bb35, %sw.bb40, %sw.bb46, %sw.bb117, %sw.bb122, %sw.bb126, %sw.bb132, %sw.bb138, %sw.bb144, %sw.bb150, %sw.bb156, %sw.bb162, %sw.bb165, %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE14get_gottp_addrERNS0_7ContextIS2_EE.exit, %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE14get_gottp_addrERNS0_7ContextIS2_EE.exit333, %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE14get_gottp_addrERNS0_7ContextIS2_EE.exit347, %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit, %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit379, %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit392, %sw.bb198, %sw.bb205, %sw.bb212, %sw.bb216, %sw.bb222, %sw.bb229, %sw.bb233, %sw.bb239, %sw.bb246, %if.else, %if.then33, %if.then55, %if.then65, %if.end81, %if.end111, %if.then92, %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE11get_got_idxERNS0_7ContextIS2_EE.exit, %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE11get_got_idxERNS0_7ContextIS2_EE.exit, %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE11get_got_idxERNS0_7ContextIS2_EE.exit, %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE11get_got_idxERNS0_7ContextIS2_EE.exit, %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE11get_got_idxERNS0_7ContextIS2_EE.exit, %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE11get_got_idxERNS0_7ContextIS2_EE.exit, %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE11get_got_idxERNS0_7ContextIS2_EE.exit, %for.body
-  %inc = add nuw i64 %storemerge450, 1
+for.inc:                                          ; preds = %sw.bb35, %sw.bb40, %sw.bb46, %sw.bb117, %sw.bb122, %sw.bb126, %sw.bb132, %sw.bb138, %sw.bb144, %sw.bb150, %sw.bb156, %sw.bb162, %sw.bb165, %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE14get_gottp_addrERNS0_7ContextIS2_EE.exit, %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE14get_gottp_addrERNS0_7ContextIS2_EE.exit332, %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE14get_gottp_addrERNS0_7ContextIS2_EE.exit346, %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit, %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit378, %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit391, %sw.bb198, %sw.bb205, %sw.bb212, %sw.bb216, %sw.bb222, %sw.bb229, %sw.bb233, %sw.bb239, %sw.bb246, %if.else, %if.then33, %if.then55, %if.then65, %if.end81, %if.end111, %if.then92, %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE11get_got_idxERNS0_7ContextIS2_EE.exit, %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE11get_got_idxERNS0_7ContextIS2_EE.exit, %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE11get_got_idxERNS0_7ContextIS2_EE.exit, %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE11get_got_idxERNS0_7ContextIS2_EE.exit, %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE11get_got_idxERNS0_7ContextIS2_EE.exit, %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE11get_got_idxERNS0_7ContextIS2_EE.exit, %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE11get_got_idxERNS0_7ContextIS2_EE.exit, %for.body
+  %inc = add nuw i64 %storemerge449, 1
   %exitcond.not = icmp eq i64 %inc, %retval.sroa.3.0.i
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
@@ -1412,8 +1412,8 @@ entry:
   %cmp.i = icmp ne i64 %and.i, 3
   %and3.i = and i64 %0, -4
   %1 = inttoptr i64 %and3.i to ptr
-  %tobool.not102 = icmp eq i64 %and3.i, 0
-  %tobool.not = or i1 %cmp.i, %tobool.not102
+  %tobool.not101 = icmp eq i64 %and3.i, 0
+  %tobool.not = or i1 %cmp.i, %tobool.not101
   br i1 %tobool.not, label %if.end5, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -1511,7 +1511,7 @@ cond.false.i9.i:                                  ; preds = %_ZNK4mold3elf6Symbo
 
 if.end24:                                         ; preds = %land.lhs.true, %_ZNK4mold3elf6SymbolINS0_7PPC64V2EE7has_pltERNS0_7ContextIS2_EE.exit, %if.end19
   %cmp.i31 = icmp ne i64 %and.i, 1
-  %tobool26.not = or i1 %cmp.i31, %tobool.not102
+  %tobool26.not = or i1 %cmp.i31, %tobool.not101
   br i1 %tobool26.not, label %if.then27, label %if.end29
 
 if.then27:                                        ; preds = %if.end24
@@ -1571,16 +1571,16 @@ _ZNK4mold3elf12InputSectionINS0_7PPC64V2EE4nameEv.exit: ; preds = %if.end38
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %_ZNK4mold3elf12InputSectionINS0_7PPC64V2EE4nameEv.exit
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %add.ptr.i, ptr noundef nonnull dereferenceable(9) @.str.26, i64 9)
-  %cmp.i.i46 = icmp eq i32 %bcmp.i, 0
-  br i1 %cmp.i.i46, label %if.then42, label %return
+  %cmp.i.i45 = icmp eq i32 %bcmp.i, 0
+  br i1 %cmp.i.i45, label %if.then42, label %return
 
 if.then42:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
   %nameptr.i = getelementptr inbounds i8, ptr %this, i64 24
   %29 = load ptr, ptr %nameptr.i, align 8
   %namelen.i = getelementptr inbounds i8, ptr %this, i64 32
   %30 = load i32, ptr %namelen.i, align 8
-  %conv.i47 = sext i32 %30 to i64
-  store i64 %conv.i47, ptr %ref.tmp, align 8
+  %conv.i46 = sext i32 %30 to i64
+  store i64 %conv.i46, ptr %ref.tmp, align 8
   %31 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr %29, ptr %31, align 8
   %call44 = call noundef zeroext i1 @_ZNKSt17basic_string_viewIcSt11char_traitsIcEE11starts_withEPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull @.str.27) #20
@@ -1589,8 +1589,8 @@ if.then42:                                        ; preds = %_ZNSt11char_traitsI
 lor.lhs.false:                                    ; preds = %if.then42
   %32 = load ptr, ptr %nameptr.i, align 8
   %33 = load i32, ptr %namelen.i, align 8
-  %conv.i52 = sext i32 %33 to i64
-  store i64 %conv.i52, ptr %ref.tmp45, align 8
+  %conv.i51 = sext i32 %33 to i64
+  store i64 %conv.i51, ptr %ref.tmp45, align 8
   %34 = getelementptr inbounds i8, ptr %ref.tmp45, i64 8
   store ptr %32, ptr %34, align 8
   %call47 = call noundef zeroext i1 @_ZNKSt17basic_string_viewIcSt11char_traitsIcEE11starts_withEPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp45, ptr noundef nonnull @.str.28) #20
@@ -1599,8 +1599,8 @@ lor.lhs.false:                                    ; preds = %if.then42
 lor.lhs.false48:                                  ; preds = %lor.lhs.false
   %35 = load ptr, ptr %nameptr.i, align 8
   %36 = load i32, ptr %namelen.i, align 8
-  %conv.i57 = sext i32 %36 to i64
-  store i64 %conv.i57, ptr %ref.tmp49, align 8
+  %conv.i56 = sext i32 %36 to i64
+  store i64 %conv.i56, ptr %ref.tmp49, align 8
   %37 = getelementptr inbounds i8, ptr %ref.tmp49, i64 8
   store ptr %35, ptr %37, align 8
   %call51 = call noundef zeroext i1 @_ZNKSt17basic_string_viewIcSt11char_traitsIcEE11starts_withEPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp49, ptr noundef nonnull @.str.29) #20
@@ -1611,9 +1611,9 @@ lor.rhs:                                          ; preds = %lor.lhs.false48
   %elf_syms.i = getelementptr inbounds i8, ptr %38, i64 32
   %sym_idx.i = getelementptr inbounds i8, ptr %this, i64 36
   %39 = load i32, ptr %sym_idx.i, align 4
-  %conv.i60 = sext i32 %39 to i64
+  %conv.i59 = sext i32 %39 to i64
   %40 = load ptr, ptr %elf_syms.i, align 8
-  %st_type = getelementptr inbounds %"struct.mold::elf::ElfSym", ptr %40, i64 %conv.i60, i32 1
+  %st_type = getelementptr inbounds %"struct.mold::elf::ElfSym", ptr %40, i64 %conv.i59, i32 1
   %bf.load53 = load i16, ptr %st_type, align 1
   %41 = and i16 %bf.load53, 15
   %cmp = icmp eq i16 %41, 3
@@ -1623,14 +1623,14 @@ if.then56:                                        ; preds = %lor.lhs.false48, %l
   %eh_frame = getelementptr inbounds i8, ptr %ctx, i64 4152
   %42 = load ptr, ptr %eh_frame, align 8
   %sh_addr58 = getelementptr inbounds i8, ptr %42, i64 40
-  %x.0.copyload.i62 = load i64, ptr %sh_addr58, align 1
+  %x.0.copyload.i61 = load i64, ptr %sh_addr58, align 1
   br label %return
 
 if.end60:                                         ; preds = %lor.rhs
   %43 = load ptr, ptr %nameptr.i, align 8
   %44 = load i32, ptr %namelen.i, align 8
-  %conv.i65 = sext i32 %44 to i64
-  store i64 %conv.i65, ptr %ref.tmp61, align 8
+  %conv.i64 = sext i32 %44 to i64
+  store i64 %conv.i64, ptr %ref.tmp61, align 8
   %45 = getelementptr inbounds i8, ptr %ref.tmp61, i64 8
   store ptr %43, ptr %45, align 8
   %call63 = call noundef zeroext i1 @_ZNKSt17basic_string_viewIcSt11char_traitsIcEE11starts_withEPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp61, ptr noundef nonnull @.str.30) #20
@@ -1639,8 +1639,8 @@ if.end60:                                         ; preds = %lor.rhs
 lor.rhs64:                                        ; preds = %if.end60
   %46 = load ptr, ptr %nameptr.i, align 8
   %47 = load i32, ptr %namelen.i, align 8
-  %conv.i70 = sext i32 %47 to i64
-  store i64 %conv.i70, ptr %ref.tmp65, align 8
+  %conv.i69 = sext i32 %47 to i64
+  store i64 %conv.i69, ptr %ref.tmp65, align 8
   %48 = getelementptr inbounds i8, ptr %ref.tmp65, i64 8
   store ptr %46, ptr %48, align 8
   %call67 = call noundef zeroext i1 @_ZNKSt17basic_string_viewIcSt11char_traitsIcEE11starts_withEPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp65, ptr noundef nonnull @.str.31) #20
@@ -1650,36 +1650,36 @@ if.then69:                                        ; preds = %if.end60, %lor.rhs6
   %eh_frame70 = getelementptr inbounds i8, ptr %ctx, i64 4152
   %49 = load ptr, ptr %eh_frame70, align 8
   %sh_addr72 = getelementptr inbounds i8, ptr %49, i64 40
-  %x.0.copyload.i73 = load i64, ptr %sh_addr72, align 1
+  %x.0.copyload.i72 = load i64, ptr %sh_addr72, align 1
   %sh_size = getelementptr inbounds i8, ptr %49, i64 56
-  %x.0.copyload.i74 = load i64, ptr %sh_size, align 1
-  %add77 = add i64 %x.0.copyload.i74, %x.0.copyload.i73
+  %x.0.copyload.i73 = load i64, ptr %sh_size, align 1
+  %add77 = add i64 %x.0.copyload.i73, %x.0.copyload.i72
   br label %return
 
 if.end78:                                         ; preds = %lor.rhs64
   %50 = load ptr, ptr %nameptr.i, align 8
   %51 = load i32, ptr %namelen.i, align 8
-  %conv.i77 = sext i32 %51 to i64
-  %cmp.i82 = icmp eq i32 %51, 2
-  br i1 %cmp.i82, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i85, label %lor.rhs83
+  %conv.i76 = sext i32 %51 to i64
+  %cmp.i81 = icmp eq i32 %51, 2
+  br i1 %cmp.i81, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i84, label %lor.rhs83
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i85: ; preds = %if.end78
-  %bcmp.i86 = call i32 @bcmp(ptr %50, ptr nonnull @.str.32, i64 %conv.i77)
-  %cmp.i.i87 = icmp eq i32 %bcmp.i86, 0
-  br i1 %cmp.i.i87, label %if.then88, label %lor.rhs83
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i84: ; preds = %if.end78
+  %bcmp.i85 = call i32 @bcmp(ptr %50, ptr nonnull @.str.32, i64 %conv.i76)
+  %cmp.i.i86 = icmp eq i32 %bcmp.i85, 0
+  br i1 %cmp.i.i86, label %if.then88, label %lor.rhs83
 
-lor.rhs83:                                        ; preds = %if.end78, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i85
-  store i64 %conv.i77, ptr %ref.tmp84, align 8
+lor.rhs83:                                        ; preds = %if.end78, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i84
+  store i64 %conv.i76, ptr %ref.tmp84, align 8
   %52 = getelementptr inbounds i8, ptr %ref.tmp84, i64 8
   store ptr %50, ptr %52, align 8
   %call86 = call noundef zeroext i1 @_ZNKSt17basic_string_viewIcSt11char_traitsIcEE11starts_withEPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp84, ptr noundef nonnull @.str.33) #20
   br i1 %call86, label %if.then88, label %if.end93
 
-if.then88:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i85, %lor.rhs83
+if.then88:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i84, %lor.rhs83
   %eh_frame89 = getelementptr inbounds i8, ptr %ctx, i64 4152
   %53 = load ptr, ptr %eh_frame89, align 8
   %sh_addr91 = getelementptr inbounds i8, ptr %53, i64 40
-  %x.0.copyload.i95 = load i64, ptr %sh_addr91, align 1
+  %x.0.copyload.i94 = load i64, ptr %sh_addr91, align 1
   br label %return
 
 if.end93:                                         ; preds = %lor.rhs83
@@ -1693,20 +1693,20 @@ if.end93:                                         ; preds = %lor.rhs83
   unreachable
 
 if.end100:                                        ; preds = %if.end29
-  %output_section.i96 = getelementptr inbounds i8, ptr %1, i64 8
-  %55 = load ptr, ptr %output_section.i96, align 8
-  %sh_addr.i97 = getelementptr inbounds i8, ptr %55, i64 40
-  %x.0.copyload.i.i98 = load i64, ptr %sh_addr.i97, align 1
-  %offset.i99 = getelementptr inbounds i8, ptr %1, i64 72
-  %56 = load i64, ptr %offset.i99, align 8
-  %add.i100 = add i64 %56, %x.0.copyload.i.i98
+  %output_section.i95 = getelementptr inbounds i8, ptr %1, i64 8
+  %55 = load ptr, ptr %output_section.i95, align 8
+  %sh_addr.i96 = getelementptr inbounds i8, ptr %55, i64 40
+  %x.0.copyload.i.i97 = load i64, ptr %sh_addr.i96, align 1
+  %offset.i98 = getelementptr inbounds i8, ptr %1, i64 72
+  %56 = load i64, ptr %offset.i98, align 8
+  %add.i99 = add i64 %56, %x.0.copyload.i.i97
   %value102 = getelementptr inbounds i8, ptr %this, i64 16
   %57 = load i64, ptr %value102, align 8
-  %add103 = add i64 %add.i100, %57
+  %add103 = add i64 %add.i99, %57
   br label %return
 
 return:                                           ; preds = %if.end38, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %_ZNK4mold3elf12InputSectionINS0_7PPC64V2EE4nameEv.exit, %cond.false.i9.i, %if.then.i, %cond.true, %cond.false, %if.then, %if.end100, %if.then88, %if.then69, %if.then56, %if.then34, %if.then27, %if.end
-  %retval.0 = phi i64 [ %add, %if.end ], [ %add103, %if.end100 ], [ %add37, %if.then34 ], [ %x.0.copyload.i62, %if.then56 ], [ %add77, %if.then69 ], [ %x.0.copyload.i95, %if.then88 ], [ %17, %if.then27 ], [ 0, %if.then ], [ %add13, %cond.true ], [ %add18, %cond.false ], [ %add.i27, %if.then.i ], [ %x.0.copyload.i6.i, %cond.false.i9.i ], [ 0, %_ZNK4mold3elf12InputSectionINS0_7PPC64V2EE4nameEv.exit ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 0, %if.end38 ]
+  %retval.0 = phi i64 [ %add, %if.end ], [ %add103, %if.end100 ], [ %add37, %if.then34 ], [ %x.0.copyload.i61, %if.then56 ], [ %add77, %if.then69 ], [ %x.0.copyload.i94, %if.then88 ], [ %17, %if.then27 ], [ 0, %if.then ], [ %add13, %cond.true ], [ %add18, %cond.false ], [ %add.i27, %if.then.i ], [ %x.0.copyload.i6.i, %cond.false.i9.i ], [ 0, %_ZNK4mold3elf12InputSectionINS0_7PPC64V2EE4nameEv.exit ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 0, %if.end38 ]
   ret i64 %retval.0
 }
 
@@ -2092,10 +2092,10 @@ if.end5:                                          ; preds = %lor.lhs.false
   br i1 %cmp.not.i, label %_ZNK4mold3elf12InputSectionINS0_7PPC64V2EE4nameEv.exit, label %_ZNK4mold3elf12InputSectionINS0_7PPC64V2EE4nameEv.exit.thread
 
 _ZNK4mold3elf12InputSectionINS0_7PPC64V2EE4nameEv.exit.thread: ; preds = %if.end5
-  %elf_sections2.sink.i.i = getelementptr inbounds i8, ptr %3, i64 368
-  %sub.sink.i.i = sub nuw nsw i64 %conv.i, %4
-  %6 = load ptr, ptr %elf_sections2.sink.i.i, align 8
-  %sh_flags.i = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %6, i64 %sub.sink.i.i, i32 2
+  %elf_sections2.i.i = getelementptr inbounds i8, ptr %3, i64 368
+  %6 = load ptr, ptr %elf_sections2.i.i, align 8
+  %sub.i.i = sub nuw nsw i64 %conv.i, %4
+  %sh_flags.i = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %6, i64 %sub.i.i, i32 2
   %x.0.copyload.i.i = load i64, ptr %sh_flags.i, align 1
   %and.i4 = and i64 %x.0.copyload.i.i, 1024
   %tobool.not.i = icmp eq i64 %and.i4, 0
@@ -3728,13 +3728,13 @@ entry:
   %3 = load i32, ptr %shndx.i, align 8
   %conv.i = zext i32 %3 to i64
   %cmp.not.i = icmp ugt i64 %2, %conv.i
-  br i1 %cmp.not.i, label %if.end.i, label %if.then.i
+  br i1 %cmp.not.i, label %if.end.i, label %_ZNK4mold3elf12InputSectionINS0_7PPC64V2EE4shdrEv.exit.i
 
-if.then.i:                                        ; preds = %entry
-  %elf_sections2.sink.i.i = getelementptr inbounds i8, ptr %1, i64 368
-  %sub.sink.i.i = sub nuw nsw i64 %conv.i, %2
-  %4 = load ptr, ptr %elf_sections2.sink.i.i, align 8
-  %sh_flags.i = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %4, i64 %sub.sink.i.i, i32 2
+_ZNK4mold3elf12InputSectionINS0_7PPC64V2EE4shdrEv.exit.i: ; preds = %entry
+  %elf_sections2.i.i = getelementptr inbounds i8, ptr %1, i64 368
+  %4 = load ptr, ptr %elf_sections2.i.i, align 8
+  %sub.i.i = sub nuw nsw i64 %conv.i, %2
+  %sh_flags.i = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %4, i64 %sub.i.i, i32 2
   %x.0.copyload.i.i = load i64, ptr %sh_flags.i, align 1
   %and.i = and i64 %x.0.copyload.i.i, 1024
   %tobool.not.i = icmp eq i64 %and.i, 0
@@ -3754,9 +3754,9 @@ if.end.i:                                         ; preds = %entry
   %call.i.i3.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %add.ptr.i) #20
   br label %_ZNK4mold3elf12InputSectionINS0_7PPC64V2EE4nameEv.exit
 
-_ZNK4mold3elf12InputSectionINS0_7PPC64V2EE4nameEv.exit: ; preds = %if.then.i, %if.end.i
-  %retval.sroa.3.0.i = phi ptr [ %add.ptr.i, %if.end.i ], [ %cond.i, %if.then.i ]
-  %retval.sroa.0.0.i = phi i64 [ %call.i.i3.i, %if.end.i ], [ %call.i.i.i, %if.then.i ]
+_ZNK4mold3elf12InputSectionINS0_7PPC64V2EE4nameEv.exit: ; preds = %_ZNK4mold3elf12InputSectionINS0_7PPC64V2EE4shdrEv.exit.i, %if.end.i
+  %retval.sroa.3.0.i = phi ptr [ %add.ptr.i, %if.end.i ], [ %cond.i, %_ZNK4mold3elf12InputSectionINS0_7PPC64V2EE4shdrEv.exit.i ]
+  %retval.sroa.0.0.i = phi i64 [ %call.i.i3.i, %if.end.i ], [ %call.i.i.i, %_ZNK4mold3elf12InputSectionINS0_7PPC64V2EE4shdrEv.exit.i ]
   %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call1, ptr noundef %retval.sroa.3.0.i, i64 noundef %retval.sroa.0.0.i) #20
   %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call2.i, ptr noundef nonnull @.str.13) #20
   ret ptr %out

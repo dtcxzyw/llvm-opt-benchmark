@@ -990,25 +990,25 @@ entry:
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   %ref.tmp135.sink174.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp135, i64 8
-  %ref.tmp135.sink174.sroa.gep178 = getelementptr inbounds i8, ptr %ref.tmp113, i64 8
-  %ref.tmp135.sink174.sroa.gep179 = getelementptr inbounds i8, ptr %ref.tmp102, i64 8
-  %ref.tmp135.sink174.sroa.gep180 = getelementptr inbounds i8, ptr %ref.tmp92, i64 8
-  %ref.tmp135.sink174.sroa.gep181 = getelementptr inbounds i8, ptr %ref.tmp82, i64 8
-  %ref.tmp135.sink174.sroa.gep182 = getelementptr inbounds i8, ptr %ref.tmp65, i64 8
-  %ref.tmp135.sink174.sroa.gep183 = getelementptr inbounds i8, ptr %ref.tmp51, i64 8
-  %ref.tmp135.sink174.sroa.gep184 = getelementptr inbounds i8, ptr %ref.tmp41, i64 8
-  %ref.tmp135.sink174.sroa.gep185 = getelementptr inbounds i8, ptr %ref.tmp28, i64 8
-  %ref.tmp135.sink174.sroa.gep186 = getelementptr inbounds i8, ptr %ref.tmp18, i64 8
+  %ref.tmp135.sink174.sroa.gep177 = getelementptr inbounds i8, ptr %ref.tmp113, i64 8
+  %ref.tmp135.sink174.sroa.gep178 = getelementptr inbounds i8, ptr %ref.tmp102, i64 8
+  %ref.tmp135.sink174.sroa.gep179 = getelementptr inbounds i8, ptr %ref.tmp92, i64 8
+  %ref.tmp135.sink174.sroa.gep180 = getelementptr inbounds i8, ptr %ref.tmp82, i64 8
+  %ref.tmp135.sink174.sroa.gep181 = getelementptr inbounds i8, ptr %ref.tmp65, i64 8
+  %ref.tmp135.sink174.sroa.gep182 = getelementptr inbounds i8, ptr %ref.tmp51, i64 8
+  %ref.tmp135.sink174.sroa.gep183 = getelementptr inbounds i8, ptr %ref.tmp41, i64 8
+  %ref.tmp135.sink174.sroa.gep184 = getelementptr inbounds i8, ptr %ref.tmp28, i64 8
+  %ref.tmp135.sink174.sroa.gep185 = getelementptr inbounds i8, ptr %ref.tmp18, i64 8
   %ref.tmp133.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp133, i64 8
-  %ref.tmp133.sink.sroa.gep187 = getelementptr inbounds i8, ptr %ref.tmp111, i64 8
-  %ref.tmp133.sink.sroa.gep188 = getelementptr inbounds i8, ptr %ref.tmp100, i64 8
-  %ref.tmp133.sink.sroa.gep189 = getelementptr inbounds i8, ptr %ref.tmp90, i64 8
-  %ref.tmp133.sink.sroa.gep190 = getelementptr inbounds i8, ptr %ref.tmp80, i64 8
-  %ref.tmp133.sink.sroa.gep191 = getelementptr inbounds i8, ptr %ref.tmp63, i64 8
-  %ref.tmp133.sink.sroa.gep192 = getelementptr inbounds i8, ptr %ref.tmp49, i64 8
-  %ref.tmp133.sink.sroa.gep193 = getelementptr inbounds i8, ptr %ref.tmp39, i64 8
-  %ref.tmp133.sink.sroa.gep194 = getelementptr inbounds i8, ptr %ref.tmp26, i64 8
-  %ref.tmp133.sink.sroa.gep195 = getelementptr inbounds i8, ptr %ref.tmp16, i64 8
+  %ref.tmp133.sink.sroa.gep186 = getelementptr inbounds i8, ptr %ref.tmp111, i64 8
+  %ref.tmp133.sink.sroa.gep187 = getelementptr inbounds i8, ptr %ref.tmp100, i64 8
+  %ref.tmp133.sink.sroa.gep188 = getelementptr inbounds i8, ptr %ref.tmp90, i64 8
+  %ref.tmp133.sink.sroa.gep189 = getelementptr inbounds i8, ptr %ref.tmp80, i64 8
+  %ref.tmp133.sink.sroa.gep190 = getelementptr inbounds i8, ptr %ref.tmp63, i64 8
+  %ref.tmp133.sink.sroa.gep191 = getelementptr inbounds i8, ptr %ref.tmp49, i64 8
+  %ref.tmp133.sink.sroa.gep192 = getelementptr inbounds i8, ptr %ref.tmp39, i64 8
+  %ref.tmp133.sink.sroa.gep193 = getelementptr inbounds i8, ptr %ref.tmp26, i64 8
+  %ref.tmp133.sink.sroa.gep194 = getelementptr inbounds i8, ptr %ref.tmp16, i64 8
   invoke void %1(ptr nonnull sret(%"class.rocksdb::Status") align 8 %s, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %encoded_trace)
           to label %invoke.cont3 unwind label %lpad
 
@@ -1205,10 +1205,10 @@ if.then15:                                        ; preds = %if.end11
   br label %if.then15.invoke
 
 if.then15.invoke:                                 ; preds = %if.then132, %if.then110, %if.then99, %if.then89, %if.then79, %if.then62, %if.then48, %if.then38, %if.then25, %if.then15
-  %ref.tmp133.sink.sroa.phi = phi ptr [ %ref.tmp133.sink.sroa.gep, %if.then132 ], [ %ref.tmp133.sink.sroa.gep187, %if.then110 ], [ %ref.tmp133.sink.sroa.gep188, %if.then99 ], [ %ref.tmp133.sink.sroa.gep189, %if.then89 ], [ %ref.tmp133.sink.sroa.gep190, %if.then79 ], [ %ref.tmp133.sink.sroa.gep191, %if.then62 ], [ %ref.tmp133.sink.sroa.gep192, %if.then48 ], [ %ref.tmp133.sink.sroa.gep193, %if.then38 ], [ %ref.tmp133.sink.sroa.gep194, %if.then25 ], [ %ref.tmp133.sink.sroa.gep195, %if.then15 ]
+  %ref.tmp133.sink.sroa.phi = phi ptr [ %ref.tmp133.sink.sroa.gep, %if.then132 ], [ %ref.tmp133.sink.sroa.gep186, %if.then110 ], [ %ref.tmp133.sink.sroa.gep187, %if.then99 ], [ %ref.tmp133.sink.sroa.gep188, %if.then89 ], [ %ref.tmp133.sink.sroa.gep189, %if.then79 ], [ %ref.tmp133.sink.sroa.gep190, %if.then62 ], [ %ref.tmp133.sink.sroa.gep191, %if.then48 ], [ %ref.tmp133.sink.sroa.gep192, %if.then38 ], [ %ref.tmp133.sink.sroa.gep193, %if.then25 ], [ %ref.tmp133.sink.sroa.gep194, %if.then15 ]
   %ref.tmp133.sink = phi ptr [ %ref.tmp133, %if.then132 ], [ %ref.tmp111, %if.then110 ], [ %ref.tmp100, %if.then99 ], [ %ref.tmp90, %if.then89 ], [ %ref.tmp80, %if.then79 ], [ %ref.tmp63, %if.then62 ], [ %ref.tmp49, %if.then48 ], [ %ref.tmp39, %if.then38 ], [ %ref.tmp26, %if.then25 ], [ %ref.tmp16, %if.then15 ]
   %.sink = phi i64 [ 47, %if.then132 ], [ 50, %if.then110 ], [ 48, %if.then99 ], [ 48, %if.then89 ], [ 51, %if.then79 ], [ 51, %if.then62 ], [ 51, %if.then48 ], [ 49, %if.then38 ], [ 56, %if.then25 ], [ 52, %if.then15 ]
-  %ref.tmp135.sink174.sroa.phi = phi ptr [ %ref.tmp135.sink174.sroa.gep, %if.then132 ], [ %ref.tmp135.sink174.sroa.gep178, %if.then110 ], [ %ref.tmp135.sink174.sroa.gep179, %if.then99 ], [ %ref.tmp135.sink174.sroa.gep180, %if.then89 ], [ %ref.tmp135.sink174.sroa.gep181, %if.then79 ], [ %ref.tmp135.sink174.sroa.gep182, %if.then62 ], [ %ref.tmp135.sink174.sroa.gep183, %if.then48 ], [ %ref.tmp135.sink174.sroa.gep184, %if.then38 ], [ %ref.tmp135.sink174.sroa.gep185, %if.then25 ], [ %ref.tmp135.sink174.sroa.gep186, %if.then15 ]
+  %ref.tmp135.sink174.sroa.phi = phi ptr [ %ref.tmp135.sink174.sroa.gep, %if.then132 ], [ %ref.tmp135.sink174.sroa.gep177, %if.then110 ], [ %ref.tmp135.sink174.sroa.gep178, %if.then99 ], [ %ref.tmp135.sink174.sroa.gep179, %if.then89 ], [ %ref.tmp135.sink174.sroa.gep180, %if.then79 ], [ %ref.tmp135.sink174.sroa.gep181, %if.then62 ], [ %ref.tmp135.sink174.sroa.gep182, %if.then48 ], [ %ref.tmp135.sink174.sroa.gep183, %if.then38 ], [ %ref.tmp135.sink174.sroa.gep184, %if.then25 ], [ %ref.tmp135.sink174.sroa.gep185, %if.then15 ]
   %ref.tmp135.sink174 = phi ptr [ %ref.tmp135, %if.then132 ], [ %ref.tmp113, %if.then110 ], [ %ref.tmp102, %if.then99 ], [ %ref.tmp92, %if.then89 ], [ %ref.tmp82, %if.then79 ], [ %ref.tmp65, %if.then62 ], [ %ref.tmp51, %if.then48 ], [ %ref.tmp41, %if.then38 ], [ %ref.tmp28, %if.then25 ], [ %ref.tmp18, %if.then15 ]
   store i64 %.sink, ptr %ref.tmp133.sink.sroa.phi, align 8
   store ptr @.str.15, ptr %ref.tmp135.sink174, align 8
@@ -1414,37 +1414,52 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 sw.bb:                                            ; preds = %while.body
   %38 = load i64, ptr %size_.i, align 8
   %cmp.i109 = icmp ugt i64 %38, 7
-  br i1 %cmp.i109, label %sw.epilog.sink.split, label %if.then79
+  br i1 %cmp.i109, label %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit114.thread, label %if.then79
+
+_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit114.thread: ; preds = %sw.bb
+  %39 = load ptr, ptr %enc_slice, align 8
+  %result.0.copyload.i.i111 = load i64, ptr %39, align 1
+  store i64 %result.0.copyload.i.i111, ptr %file_size, align 8
+  br label %sw.epilog.sink.split
 
 if.then79:                                        ; preds = %sw.bb
   store ptr @.str.10, ptr %ref.tmp80, align 8
   br label %if.then15.invoke
 
 sw.bb86:                                          ; preds = %while.body
-  %39 = load i64, ptr %size_.i, align 8
-  %cmp.i120 = icmp ugt i64 %39, 7
-  br i1 %cmp.i120, label %sw.epilog.sink.split, label %if.then89
+  %40 = load i64, ptr %size_.i, align 8
+  %cmp.i120 = icmp ugt i64 %40, 7
+  br i1 %cmp.i120, label %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit125.thread, label %if.then89
+
+_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit125.thread: ; preds = %sw.bb86
+  %41 = load ptr, ptr %enc_slice, align 8
+  %result.0.copyload.i.i122 = load i64, ptr %41, align 1
+  store i64 %result.0.copyload.i.i122, ptr %len, align 8
+  br label %sw.epilog.sink.split
 
 if.then89:                                        ; preds = %sw.bb86
   store ptr @.str.11, ptr %ref.tmp90, align 8
   br label %if.then15.invoke
 
 sw.bb96:                                          ; preds = %while.body
-  %40 = load i64, ptr %size_.i, align 8
-  %cmp.i131 = icmp ugt i64 %40, 7
-  br i1 %cmp.i131, label %sw.epilog.sink.split, label %if.then99
+  %42 = load i64, ptr %size_.i, align 8
+  %cmp.i131 = icmp ugt i64 %42, 7
+  br i1 %cmp.i131, label %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit136.thread, label %if.then99
+
+_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit136.thread: ; preds = %sw.bb96
+  %43 = load ptr, ptr %enc_slice, align 8
+  %result.0.copyload.i.i133 = load i64, ptr %43, align 1
+  store i64 %result.0.copyload.i.i133, ptr %offset, align 8
+  br label %sw.epilog.sink.split
 
 if.then99:                                        ; preds = %sw.bb96
   store ptr @.str.12, ptr %ref.tmp100, align 8
   br label %if.then15.invoke
 
-sw.epilog.sink.split:                             ; preds = %sw.bb96, %sw.bb86, %sw.bb
-  %offset.sink = phi ptr [ %file_size, %sw.bb ], [ %len, %sw.bb86 ], [ %offset, %sw.bb96 ]
-  %.sink175 = phi i64 [ %38, %sw.bb ], [ %39, %sw.bb86 ], [ %40, %sw.bb96 ]
-  %41 = load ptr, ptr %enc_slice, align 8
-  %result.0.copyload.i.i133 = load i64, ptr %41, align 1
-  store i64 %result.0.copyload.i.i133, ptr %offset.sink, align 8
-  %add.ptr.i.i134 = getelementptr inbounds i8, ptr %41, i64 8
+sw.epilog.sink.split:                             ; preds = %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit114.thread, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit125.thread, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit136.thread
+  %.sink176 = phi ptr [ %43, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit136.thread ], [ %41, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit125.thread ], [ %39, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit114.thread ]
+  %.sink175 = phi i64 [ %42, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit136.thread ], [ %40, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit125.thread ], [ %38, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit114.thread ]
+  %add.ptr.i.i134 = getelementptr inbounds i8, ptr %.sink176, i64 8
   store ptr %add.ptr.i.i134, ptr %enc_slice, align 8
   %sub.i.i135 = add i64 %.sink175, -8
   store i64 %sub.i.i135, ptr %size_.i, align 8
@@ -1457,8 +1472,8 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !13
 
 while.end:                                        ; preds = %sw.epilog, %invoke.cont70
-  %42 = load i64, ptr %size_.i, align 8
-  %cmp.i142 = icmp ugt i64 %42, 7
+  %44 = load i64, ptr %size_.i, align 8
+  %cmp.i142 = icmp ugt i64 %44, 7
   br i1 %cmp.i142, label %if.end116, label %if.then110
 
 if.then110:                                       ; preds = %while.end
@@ -1467,12 +1482,12 @@ if.then110:                                       ; preds = %while.end
 
 if.end116:                                        ; preds = %while.end
   %trace_data = getelementptr inbounds i8, ptr %record, i64 152
-  %43 = load ptr, ptr %enc_slice, align 8
-  %result.0.copyload.i.i144 = load i64, ptr %43, align 1
+  %45 = load ptr, ptr %enc_slice, align 8
+  %result.0.copyload.i.i144 = load i64, ptr %45, align 1
   store i64 %result.0.copyload.i.i144, ptr %trace_data, align 8
-  %add.ptr.i.i145 = getelementptr inbounds i8, ptr %43, i64 8
+  %add.ptr.i.i145 = getelementptr inbounds i8, ptr %45, i64 8
   store ptr %add.ptr.i.i145, ptr %enc_slice, align 8
-  %sub.i.i146 = add i64 %42, -8
+  %sub.i.i146 = add i64 %44, -8
   store i64 %sub.i.i146, ptr %size_.i, align 8
   %tobool120.not172 = icmp eq i64 %result.0.copyload.i.i144, 0
   br i1 %tobool120.not172, label %while.end147, label %while.body121.lr.ph
@@ -1532,12 +1547,12 @@ cleanup:                                          ; preds = %if.then15.invoke, %
 
 cleanup149:                                       ; preds = %if.then, %if.then.i.i, %cleanup
   %state_.i159 = getelementptr inbounds i8, ptr %s, i64 8
-  %44 = load ptr, ptr %state_.i159, align 8
-  %cmp.not.i.i160 = icmp eq ptr %44, null
+  %46 = load ptr, ptr %state_.i159, align 8
+  %cmp.not.i.i160 = icmp eq ptr %46, null
   br i1 %cmp.not.i.i160, label %_ZN7rocksdb6StatusD2Ev.exit162, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i161
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i161: ; preds = %cleanup149
-  call void @_ZdaPv(ptr noundef nonnull %44) #16
+  call void @_ZdaPv(ptr noundef nonnull %46) #16
   br label %_ZN7rocksdb6StatusD2Ev.exit162
 
 _ZN7rocksdb6StatusD2Ev.exit162:                   ; preds = %cleanup149, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i161

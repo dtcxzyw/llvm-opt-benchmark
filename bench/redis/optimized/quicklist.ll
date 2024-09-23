@@ -628,7 +628,11 @@ if.end10:                                         ; preds = %if.end, %if.then
   %tail = getelementptr inbounds i8, ptr %quicklist, i64 8
   %1 = load ptr, ptr %tail, align 8
   %cmp = icmp eq ptr %1, %old_node
-  br i1 %cmp, label %if.end31.sink.split, label %if.end31
+  br i1 %cmp, label %if.then11, label %if.end31
+
+if.then11:                                        ; preds = %if.end10
+  store ptr %new_node, ptr %tail, align 8
+  br label %if.end31
 
 if.else:                                          ; preds = %entry
   %next14 = getelementptr inbounds i8, ptr %new_node, i64 8
@@ -654,14 +658,13 @@ if.end24:                                         ; preds = %if.then21, %if.then
 if.end26:                                         ; preds = %if.end24, %if.else
   %3 = load ptr, ptr %quicklist, align 8
   %cmp27 = icmp eq ptr %3, %old_node
-  br i1 %cmp27, label %if.end31.sink.split, label %if.end31
+  br i1 %cmp27, label %if.then28, label %if.end31
 
-if.end31.sink.split:                              ; preds = %if.end26, %if.end10
-  %quicklist.sink = phi ptr [ %tail, %if.end10 ], [ %quicklist, %if.end26 ]
-  store ptr %new_node, ptr %quicklist.sink, align 8
+if.then28:                                        ; preds = %if.end26
+  store ptr %new_node, ptr %quicklist, align 8
   br label %if.end31
 
-if.end31:                                         ; preds = %if.end31.sink.split, %if.end26, %if.end10
+if.end31:                                         ; preds = %if.end26, %if.then28, %if.end10, %if.then11
   %len = getelementptr inbounds i8, ptr %quicklist, i64 24
   %4 = load i64, ptr %len, align 8
   %cmp32 = icmp eq i64 %4, 0
@@ -2469,21 +2472,24 @@ if.then.i:                                        ; preds = %if.end
   %tail.i = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %tail.i, align 8
   %cmp.i = icmp eq ptr %5, null
-  br i1 %cmp.i, label %if.end31.sink.split.i, label %if.end31.i
+  br i1 %cmp.i, label %if.then11.i, label %if.end31.i
+
+if.then11.i:                                      ; preds = %if.then.i
+  store ptr %call.i, ptr %tail.i, align 8
+  br label %if.end31.i
 
 if.else.i:                                        ; preds = %if.end
   %next14.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr null, ptr %next14.i, align 8
   %6 = load ptr, ptr %0, align 8
   %cmp27.i = icmp eq ptr %6, null
-  br i1 %cmp27.i, label %if.end31.sink.split.i, label %if.end31.i
+  br i1 %cmp27.i, label %if.then28.i, label %if.end31.i
 
-if.end31.sink.split.i:                            ; preds = %if.else.i, %if.then.i
-  %quicklist.sink.i = phi ptr [ %tail.i, %if.then.i ], [ %0, %if.else.i ]
-  store ptr %call.i, ptr %quicklist.sink.i, align 8
+if.then28.i:                                      ; preds = %if.else.i
+  store ptr %call.i, ptr %0, align 8
   br label %if.end31.i
 
-if.end31.i:                                       ; preds = %if.end31.sink.split.i, %if.else.i, %if.then.i
+if.end31.i:                                       ; preds = %if.then28.i, %if.else.i, %if.then11.i, %if.then.i
   %len.i = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load i64, ptr %len.i, align 8
   %cmp32.i = icmp eq i64 %7, 0
@@ -3505,11 +3511,11 @@ if.then2:                                         ; preds = %entry
   br label %if.end5.sink.split
 
 if.end5.sink.split:                               ; preds = %entry, %if.then2
-  %tail.sink = phi ptr [ %tail, %if.then2 ], [ %quicklist, %entry ]
+  %.sink12.in = phi ptr [ %tail, %if.then2 ], [ %quicklist, %entry ]
   %.sink = phi i64 [ -1, %if.then2 ], [ 0, %entry ]
-  %0 = load ptr, ptr %tail.sink, align 8
+  %.sink12 = load ptr, ptr %.sink12.in, align 8
   %current3 = getelementptr inbounds i8, ptr %call, i64 8
-  store ptr %0, ptr %current3, align 8
+  store ptr %.sink12, ptr %current3, align 8
   %offset4 = getelementptr inbounds i8, ptr %call, i64 24
   store i64 %.sink, ptr %offset4, align 8
   br label %if.end5
@@ -3550,11 +3556,11 @@ if.end.lr.ph:                                     ; preds = %entry
   store ptr %0, ptr %entry1, align 8
   %1 = load ptr, ptr %current, align 8
   store ptr %1, ptr %node, align 8
-  %tobool6.not72 = icmp eq ptr %1, null
-  br i1 %tobool6.not72, label %return, label %if.end8
+  %tobool6.not71 = icmp eq ptr %1, null
+  br i1 %tobool6.not71, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.end.lr.ph, %if.end149
-  %2 = phi ptr [ %33, %if.end149 ], [ %1, %if.end.lr.ph ]
+  %2 = phi ptr [ %32, %if.end149 ], [ %1, %if.end.lr.ph ]
   %container = getelementptr inbounds i8, ptr %2, i64 32
   %bf.load = load i32, ptr %container, align 8
   %3 = and i32 %bf.load, 786432
@@ -3710,10 +3716,10 @@ if.then144:                                       ; preds = %do.end132
   br label %if.end149.sink.split
 
 if.end149.sink.split:                             ; preds = %if.then136, %if.then144
-  %.sink71 = phi ptr [ %30, %if.then144 ], [ %next, %if.then136 ]
+  %.sink70.in = phi ptr [ %30, %if.then144 ], [ %next, %if.then136 ]
   %.sink = phi i64 [ -1, %if.then144 ], [ 0, %if.then136 ]
-  %31 = load ptr, ptr %.sink71, align 8
-  store ptr %31, ptr %current, align 8
+  %.sink70 = load ptr, ptr %.sink70.in, align 8
+  store ptr %.sink70, ptr %current, align 8
   store i64 %.sink, ptr %offset70, align 8
   br label %if.end149
 
@@ -3724,11 +3730,11 @@ if.end149:                                        ; preds = %if.end149.sink.spli
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %entry1, i8 0, i64 16, i1 false)
   store i32 123456789, ptr %offset, align 8
   store i64 0, ptr %sz, align 8
-  %32 = load ptr, ptr %iter, align 8
-  store ptr %32, ptr %entry1, align 8
-  %33 = load ptr, ptr %current, align 8
-  store ptr %33, ptr %node, align 8
-  %tobool6.not = icmp eq ptr %33, null
+  %31 = load ptr, ptr %iter, align 8
+  store ptr %31, ptr %entry1, align 8
+  %32 = load ptr, ptr %current, align 8
+  store ptr %32, ptr %node, align 8
+  %tobool6.not = icmp eq ptr %32, null
   br i1 %tobool6.not, label %return, label %if.end8
 
 return.sink.split:                                ; preds = %if.then88, %if.end95

@@ -1738,11 +1738,11 @@ define internal void @TypeCacheRelCallback(i64 %0, i32 noundef %1) #0 {
   br i1 %.not18, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.backedge.us
-  %6 = phi ptr [ %28, %.backedge.us ], [ %5, %.lr.ph ]
+  %6 = phi ptr [ %30, %.backedge.us ], [ %5, %.lr.ph ]
   %7 = getelementptr inbounds i8, ptr %6, i64 13
   %8 = load i8, ptr %7, align 1
   switch i8 %8, label %.backedge.us [
-    i8 99, label %13
+    i8 99, label %15
     i8 100, label %9
   ]
 
@@ -1751,108 +1751,108 @@ define internal void @TypeCacheRelCallback(i64 %0, i32 noundef %1) #0 {
   %11 = load i32, ptr %10, align 8
   %12 = and i32 %11, 1048576
   %.not15.us = icmp eq i32 %12, 0
-  br i1 %.not15.us, label %.backedge.us, label %.backedge.us.sink.split
+  br i1 %.not15.us, label %.backedge.us, label %13
 
-13:                                               ; preds = %.lr.ph.split.us
-  %14 = getelementptr inbounds i8, ptr %6, i64 264
-  %15 = load ptr, ptr %14, align 8
-  %.not16.us = icmp eq ptr %15, null
-  br i1 %.not16.us, label %24, label %16
-
-16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %15, i64 12
-  %18 = load i32, ptr %17, align 4
-  %19 = add i32 %18, -1
-  store i32 %19, ptr %17, align 4
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %23
-
-21:                                               ; preds = %16
-  %22 = load ptr, ptr %14, align 8
-  call void @FreeTupleDesc(ptr noundef %22) #16
-  br label %23
-
-23:                                               ; preds = %21, %16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  br label %24
-
-24:                                               ; preds = %23, %13
-  %25 = getelementptr inbounds i8, ptr %6, i64 464
-  %26 = load i32, ptr %25, align 8
-  br label %.backedge.us.sink.split
-
-.backedge.us.sink.split:                          ; preds = %9, %24
-  %.sink23 = phi i32 [ %26, %24 ], [ %11, %9 ]
-  %.sink22 = phi ptr [ %25, %24 ], [ %10, %9 ]
-  %27 = and i32 %.sink23, 1572865
-  store i32 %27, ptr %.sink22, align 8
+13:                                               ; preds = %9
+  %14 = and i32 %11, 1572865
+  store i32 %14, ptr %10, align 8
   br label %.backedge.us
 
-.backedge.us:                                     ; preds = %.backedge.us.sink.split, %9, %.lr.ph.split.us
-  %28 = call ptr @hash_seq_search(ptr noundef nonnull %3) #16
-  %.not.us = icmp eq ptr %28, null
+15:                                               ; preds = %.lr.ph.split.us
+  %16 = getelementptr inbounds i8, ptr %6, i64 264
+  %17 = load ptr, ptr %16, align 8
+  %.not16.us = icmp eq ptr %17, null
+  br i1 %.not16.us, label %26, label %18
+
+18:                                               ; preds = %15
+  %19 = getelementptr inbounds i8, ptr %17, i64 12
+  %20 = load i32, ptr %19, align 4
+  %21 = add i32 %20, -1
+  store i32 %21, ptr %19, align 4
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %23, label %25
+
+23:                                               ; preds = %18
+  %24 = load ptr, ptr %16, align 8
+  call void @FreeTupleDesc(ptr noundef %24) #16
+  br label %25
+
+25:                                               ; preds = %23, %18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
+  br label %26
+
+26:                                               ; preds = %25, %15
+  %27 = getelementptr inbounds i8, ptr %6, i64 464
+  %28 = load i32, ptr %27, align 8
+  %29 = and i32 %28, 1572865
+  store i32 %29, ptr %27, align 8
+  br label %.backedge.us
+
+.backedge.us:                                     ; preds = %26, %13, %9, %.lr.ph.split.us
+  %30 = call ptr @hash_seq_search(ptr noundef nonnull %3) #16
+  %.not.us = icmp eq ptr %30, null
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !5
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.backedge
-  %29 = phi ptr [ %54, %.backedge ], [ %5, %.lr.ph ]
-  %30 = getelementptr inbounds i8, ptr %29, i64 13
-  %31 = load i8, ptr %30, align 1
-  switch i8 %31, label %.backedge [
-    i8 99, label %32
-    i8 100, label %49
+  %31 = phi ptr [ %58, %.backedge ], [ %5, %.lr.ph ]
+  %32 = getelementptr inbounds i8, ptr %31, i64 13
+  %33 = load i8, ptr %32, align 1
+  switch i8 %33, label %.backedge [
+    i8 99, label %34
+    i8 100, label %52
   ]
 
-32:                                               ; preds = %.lr.ph.split
-  %33 = getelementptr inbounds i8, ptr %29, i64 16
-  %34 = load i32, ptr %33, align 8
-  %.not19 = icmp eq i32 %1, %34
-  br i1 %.not19, label %35, label %.backedge
+34:                                               ; preds = %.lr.ph.split
+  %35 = getelementptr inbounds i8, ptr %31, i64 16
+  %36 = load i32, ptr %35, align 8
+  %.not19 = icmp eq i32 %1, %36
+  br i1 %.not19, label %37, label %.backedge
 
-35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %29, i64 264
-  %37 = load ptr, ptr %36, align 8
-  %.not16 = icmp eq ptr %37, null
-  br i1 %.not16, label %46, label %38
+37:                                               ; preds = %34
+  %38 = getelementptr inbounds i8, ptr %31, i64 264
+  %39 = load ptr, ptr %38, align 8
+  %.not16 = icmp eq ptr %39, null
+  br i1 %.not16, label %48, label %40
 
-38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %37, i64 12
-  %40 = load i32, ptr %39, align 4
-  %41 = add i32 %40, -1
-  store i32 %41, ptr %39, align 4
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %43, label %45
+40:                                               ; preds = %37
+  %41 = getelementptr inbounds i8, ptr %39, i64 12
+  %42 = load i32, ptr %41, align 4
+  %43 = add i32 %42, -1
+  store i32 %43, ptr %41, align 4
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %45, label %47
 
-43:                                               ; preds = %38
-  %44 = load ptr, ptr %36, align 8
-  call void @FreeTupleDesc(ptr noundef %44) #16
-  br label %45
+45:                                               ; preds = %40
+  %46 = load ptr, ptr %38, align 8
+  call void @FreeTupleDesc(ptr noundef %46) #16
+  br label %47
 
-45:                                               ; preds = %43, %38
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false)
-  br label %46
+47:                                               ; preds = %45, %40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
+  br label %48
 
-46:                                               ; preds = %45, %35
-  %47 = getelementptr inbounds i8, ptr %29, i64 464
-  %48 = load i32, ptr %47, align 8
-  br label %.backedge.sink.split
-
-49:                                               ; preds = %.lr.ph.split
-  %50 = getelementptr inbounds i8, ptr %29, i64 464
-  %51 = load i32, ptr %50, align 8
-  %52 = and i32 %51, 1048576
-  %.not15 = icmp eq i32 %52, 0
-  br i1 %.not15, label %.backedge, label %.backedge.sink.split
-
-.backedge.sink.split:                             ; preds = %49, %46
-  %.sink25 = phi i32 [ %48, %46 ], [ %51, %49 ]
-  %.sink24 = phi ptr [ %47, %46 ], [ %50, %49 ]
-  %53 = and i32 %.sink25, 1572865
-  store i32 %53, ptr %.sink24, align 8
+48:                                               ; preds = %47, %37
+  %49 = getelementptr inbounds i8, ptr %31, i64 464
+  %50 = load i32, ptr %49, align 8
+  %51 = and i32 %50, 1572865
+  store i32 %51, ptr %49, align 8
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.sink.split, %49, %.lr.ph.split, %32
-  %54 = call ptr @hash_seq_search(ptr noundef nonnull %3) #16
-  %.not = icmp eq ptr %54, null
+52:                                               ; preds = %.lr.ph.split
+  %53 = getelementptr inbounds i8, ptr %31, i64 464
+  %54 = load i32, ptr %53, align 8
+  %55 = and i32 %54, 1048576
+  %.not15 = icmp eq i32 %55, 0
+  br i1 %.not15, label %.backedge, label %56
+
+56:                                               ; preds = %52
+  %57 = and i32 %54, 1572865
+  store i32 %57, ptr %53, align 8
+  br label %.backedge
+
+.backedge:                                        ; preds = %48, %52, %56, %.lr.ph.split, %34
+  %58 = call ptr @hash_seq_search(ptr noundef nonnull %3) #16
+  %.not = icmp eq ptr %58, null
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.backedge, %.backedge.us, %2

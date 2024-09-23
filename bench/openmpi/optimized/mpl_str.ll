@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define range(i32 0, 2) i32 @MPL_strncpy(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq i64 %2, 0
-  br i1 %4, label %18, label %5
+  br i1 %4, label %19, label %5
 
 5:                                                ; preds = %3
   %6 = trunc i64 %2 to i32
@@ -38,21 +38,20 @@ define range(i32 0, 2) i32 @MPL_strncpy(ptr nocapture noundef writeonly %0, ptr 
   %.013.lcssa = phi ptr [ %0, %5 ], [ %13, %10 ]
   %.0.lcssa = phi i32 [ %6, %5 ], [ %11, %10 ]
   %15 = icmp sgt i32 %.0.lcssa, 0
-  br i1 %15, label %.sink.split, label %.critedge.thread
+  br i1 %15, label %16, label %.critedge.thread
+
+16:                                               ; preds = %.critedge
+  store i8 0, ptr %.013.lcssa, align 1
+  br label %19
 
 .critedge.thread:                                 ; preds = %.lr.ph, %.critedge
-  %16 = getelementptr i8, ptr %0, i64 %2
-  %17 = getelementptr i8, ptr %16, i64 -1
-  br label %.sink.split
+  %17 = getelementptr i8, ptr %0, i64 %2
+  %18 = getelementptr i8, ptr %17, i64 -1
+  store i8 0, ptr %18, align 1
+  br label %19
 
-.sink.split:                                      ; preds = %.critedge, %.critedge.thread
-  %.sink = phi ptr [ %17, %.critedge.thread ], [ %.013.lcssa, %.critedge ]
-  %.014.ph = phi i32 [ 1, %.critedge.thread ], [ 0, %.critedge ]
-  store i8 0, ptr %.sink, align 1
-  br label %18
-
-18:                                               ; preds = %.sink.split, %3
-  %.014 = phi i32 [ 0, %3 ], [ %.014.ph, %.sink.split ]
+19:                                               ; preds = %3, %.critedge.thread, %16
+  %.014 = phi i32 [ 0, %16 ], [ 1, %.critedge.thread ], [ 0, %3 ]
   ret i32 %.014
 }
 
@@ -146,7 +145,7 @@ define range(i32 0, 2) i32 @MPL_strnapp(ptr nocapture noundef %0, ptr nocapture 
 .preheader:                                       ; preds = %.critedge
   %12 = load i8, ptr %1, align 1
   %.not2129 = icmp eq i8 %12, 0
-  br i1 %.not2129, label %.critedge.thread.sink.split, label %.lr.ph33
+  br i1 %.not2129, label %._crit_edge, label %.lr.ph33
 
 .lr.ph33:                                         ; preds = %.preheader, %15
   %13 = phi i8 [ %19, %15 ], [ %12, %.preheader ]
@@ -163,20 +162,20 @@ define range(i32 0, 2) i32 @MPL_strnapp(ptr nocapture noundef %0, ptr nocapture 
   store i8 %13, ptr %.11830, align 1
   %19 = load i8, ptr %17, align 1
   %.not21 = icmp eq i8 %19, 0
-  br i1 %.not21, label %.critedge.thread.sink.split, label %.lr.ph33, !llvm.loop !8
+  br i1 %.not21, label %._crit_edge, label %.lr.ph33, !llvm.loop !8
+
+._crit_edge:                                      ; preds = %15, %.preheader
+  %.118.lcssa = phi ptr [ %.01727, %.preheader ], [ %18, %15 ]
+  store i8 0, ptr %.118.lcssa, align 1
+  br label %.critedge.thread
 
 .critedge2:                                       ; preds = %.lr.ph33
   %20 = getelementptr inbounds i8, ptr %.11830, i64 -1
-  br label %.critedge.thread.sink.split
-
-.critedge.thread.sink.split:                      ; preds = %15, %.preheader, %.critedge2
-  %.sink = phi ptr [ %20, %.critedge2 ], [ %.01727, %.preheader ], [ %18, %15 ]
-  %.019.ph = phi i32 [ 1, %.critedge2 ], [ 0, %.preheader ], [ 0, %15 ]
-  store i8 0, ptr %.sink, align 1
+  store i8 0, ptr %20, align 1
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %8, %.critedge.thread.sink.split, %3, %.critedge
-  %.019 = phi i32 [ 1, %.critedge ], [ 1, %3 ], [ %.019.ph, %.critedge.thread.sink.split ], [ 1, %8 ]
+.critedge.thread:                                 ; preds = %8, %3, %.critedge, %.critedge2, %._crit_edge
+  %.019 = phi i32 [ 0, %._crit_edge ], [ 1, %.critedge2 ], [ 1, %.critedge ], [ 1, %3 ], [ 1, %8 ]
   ret i32 %.019
 }
 

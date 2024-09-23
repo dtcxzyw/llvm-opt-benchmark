@@ -1310,7 +1310,7 @@ bms_copy.exit:                                    ; preds = %6, %5, %36, %14
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @bms_add_range(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp slt i32 %2, %1
-  br i1 %4, label %71, label %5
+  br i1 %4, label %73, label %5
 
 5:                                                ; preds = %3
   %6 = icmp slt i32 %1, 0
@@ -1376,7 +1376,7 @@ define dso_local ptr @bms_add_range(ptr noundef %0, i32 noundef %1, i32 noundef 
   %41 = icmp eq i32 %38, %11
   %42 = zext nneg i32 %39 to i64
   %notmask51 = shl nsw i64 -1, %42
-  br i1 %41, label %43, label %50
+  br i1 %41, label %43, label %52
 
 43:                                               ; preds = %.loopexit
   %44 = zext nneg i32 %40 to i64
@@ -1385,50 +1385,48 @@ define dso_local ptr @bms_add_range(ptr noundef %0, i32 noundef %1, i32 noundef 
   %47 = getelementptr inbounds i8, ptr %.044, i64 8
   %48 = zext nneg i32 %11 to i64
   %49 = getelementptr [0 x i64], ptr %47, i64 0, i64 %48
-  br label %.sink.split
+  %50 = load i64, ptr %49, align 8
+  %51 = or i64 %50, %46
+  store i64 %51, ptr %49, align 8
+  br label %73
 
-50:                                               ; preds = %.loopexit
-  %51 = getelementptr inbounds i8, ptr %.044, i64 8
-  %52 = zext nneg i32 %38 to i64
-  %53 = getelementptr [0 x i64], ptr %51, i64 0, i64 %52
-  %54 = load i64, ptr %53, align 8
-  %55 = or i64 %54, %notmask51
-  store i64 %55, ptr %53, align 8
+52:                                               ; preds = %.loopexit
+  %53 = getelementptr inbounds i8, ptr %.044, i64 8
+  %54 = zext nneg i32 %38 to i64
+  %55 = getelementptr [0 x i64], ptr %53, i64 0, i64 %54
+  %56 = load i64, ptr %55, align 8
+  %57 = or i64 %56, %notmask51
+  store i64 %57, ptr %55, align 8
   %.04352 = add nuw nsw i32 %38, 1
-  %56 = icmp slt i32 %.04352, %11
-  br i1 %56, label %.lr.ph.preheader, label %._crit_edge
+  %58 = icmp slt i32 %.04352, %11
+  br i1 %58, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %50
-  %57 = lshr i32 %1, 3
-  %58 = and i32 %57, 268435448
-  %narrow = add nuw nsw i32 %58, 16
-  %59 = zext nneg i32 %narrow to i64
-  %scevgep = getelementptr i8, ptr %.044, i64 %59
-  %60 = add nsw i32 %11, -2
-  %61 = sub nsw i32 %60, %38
-  %62 = zext i32 %61 to i64
-  %63 = shl nuw nsw i64 %62, 3
-  %64 = add nuw nsw i64 %63, 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 -1, i64 %64, i1 false)
+.lr.ph.preheader:                                 ; preds = %52
+  %59 = lshr i32 %1, 3
+  %60 = and i32 %59, 268435448
+  %narrow = add nuw nsw i32 %60, 16
+  %61 = zext nneg i32 %narrow to i64
+  %scevgep = getelementptr i8, ptr %.044, i64 %61
+  %62 = add nsw i32 %11, -2
+  %63 = sub nsw i32 %62, %38
+  %64 = zext i32 %63 to i64
+  %65 = shl nuw nsw i64 %64, 3
+  %66 = add nuw nsw i64 %65, 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 -1, i64 %66, i1 false)
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph.preheader, %50
-  %65 = zext nneg i32 %40 to i64
-  %66 = lshr i64 -1, %65
-  %67 = sext i32 %11 to i64
-  %68 = getelementptr [0 x i64], ptr %51, i64 0, i64 %67
-  br label %.sink.split
+._crit_edge:                                      ; preds = %.lr.ph.preheader, %52
+  %67 = zext nneg i32 %40 to i64
+  %68 = lshr i64 -1, %67
+  %69 = sext i32 %11 to i64
+  %70 = getelementptr [0 x i64], ptr %53, i64 0, i64 %69
+  %71 = load i64, ptr %70, align 8
+  %72 = or i64 %71, %68
+  store i64 %72, ptr %70, align 8
+  br label %73
 
-.sink.split:                                      ; preds = %._crit_edge, %43
-  %.sink = phi ptr [ %49, %43 ], [ %68, %._crit_edge ]
-  %.sink59 = phi i64 [ %46, %43 ], [ %66, %._crit_edge ]
-  %69 = load i64, ptr %.sink, align 8
-  %70 = or i64 %69, %.sink59
-  store i64 %70, ptr %.sink, align 8
-  br label %71
-
-71:                                               ; preds = %.sink.split, %3
-  %.042 = phi ptr [ %0, %3 ], [ %.044, %.sink.split ]
+73:                                               ; preds = %43, %._crit_edge, %3
+  %.042 = phi ptr [ %0, %3 ], [ %.044, %._crit_edge ], [ %.044, %43 ]
   ret ptr %.042
 }
 

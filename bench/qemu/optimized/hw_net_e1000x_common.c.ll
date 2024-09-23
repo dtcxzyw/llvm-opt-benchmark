@@ -1032,7 +1032,12 @@ if.then.i:                                        ; preds = %entry
   %arrayidx.i.i = getelementptr i8, ptr %mac, i64 16496
   %0 = load i32, ptr %arrayidx.i.i, align 4
   %cmp.not.i.i = icmp eq i32 %0, -1
-  br i1 %cmp.not.i.i, label %e1000x_increase_size_stats.exit, label %if.end24.sink.split.i
+  br i1 %cmp.not.i.i, label %e1000x_increase_size_stats.exit, label %if.then.i.i
+
+if.then.i.i:                                      ; preds = %if.then.i
+  %inc.i.i = add nuw i32 %0, 1
+  store i32 %inc.i.i, ptr %arrayidx.i.i, align 4
+  br label %e1000x_increase_size_stats.exit
 
 if.else.i:                                        ; preds = %entry
   %cmp1.i = icmp sgt i32 %conv, 511
@@ -1042,7 +1047,12 @@ if.then2.i:                                       ; preds = %if.else.i
   %arrayidx.i17.i = getelementptr i8, ptr %mac, i64 16492
   %1 = load i32, ptr %arrayidx.i17.i, align 4
   %cmp.not.i18.i = icmp eq i32 %1, -1
-  br i1 %cmp.not.i18.i, label %e1000x_increase_size_stats.exit, label %if.end24.sink.split.i
+  br i1 %cmp.not.i18.i, label %e1000x_increase_size_stats.exit, label %if.then.i19.i
+
+if.then.i19.i:                                    ; preds = %if.then2.i
+  %inc.i20.i = add nuw i32 %1, 1
+  store i32 %inc.i20.i, ptr %arrayidx.i17.i, align 4
+  br label %e1000x_increase_size_stats.exit
 
 if.else4.i:                                       ; preds = %if.else.i
   %cmp5.i = icmp sgt i32 %conv, 255
@@ -1052,7 +1062,12 @@ if.then6.i:                                       ; preds = %if.else4.i
   %arrayidx.i23.i = getelementptr i8, ptr %mac, i64 16488
   %2 = load i32, ptr %arrayidx.i23.i, align 4
   %cmp.not.i24.i = icmp eq i32 %2, -1
-  br i1 %cmp.not.i24.i, label %e1000x_increase_size_stats.exit, label %if.end24.sink.split.i
+  br i1 %cmp.not.i24.i, label %e1000x_increase_size_stats.exit, label %if.then.i25.i
+
+if.then.i25.i:                                    ; preds = %if.then6.i
+  %inc.i26.i = add nuw i32 %2, 1
+  store i32 %inc.i26.i, ptr %arrayidx.i23.i, align 4
+  br label %e1000x_increase_size_stats.exit
 
 if.else8.i:                                       ; preds = %if.else4.i
   %cmp9.i = icmp sgt i32 %conv, 127
@@ -1062,7 +1077,12 @@ if.then10.i:                                      ; preds = %if.else8.i
   %arrayidx.i29.i = getelementptr i8, ptr %mac, i64 16484
   %3 = load i32, ptr %arrayidx.i29.i, align 4
   %cmp.not.i30.i = icmp eq i32 %3, -1
-  br i1 %cmp.not.i30.i, label %e1000x_increase_size_stats.exit, label %if.end24.sink.split.i
+  br i1 %cmp.not.i30.i, label %e1000x_increase_size_stats.exit, label %if.then.i31.i
+
+if.then.i31.i:                                    ; preds = %if.then10.i
+  %inc.i32.i = add nuw i32 %3, 1
+  store i32 %inc.i32.i, ptr %arrayidx.i29.i, align 4
+  br label %e1000x_increase_size_stats.exit
 
 if.else12.i:                                      ; preds = %if.else8.i
   %cmp13.i = icmp sgt i32 %conv, 64
@@ -1072,7 +1092,12 @@ if.then14.i:                                      ; preds = %if.else12.i
   %arrayidx.i35.i = getelementptr i8, ptr %mac, i64 16480
   %4 = load i32, ptr %arrayidx.i35.i, align 4
   %cmp.not.i36.i = icmp eq i32 %4, -1
-  br i1 %cmp.not.i36.i, label %e1000x_increase_size_stats.exit, label %if.end24.sink.split.i
+  br i1 %cmp.not.i36.i, label %e1000x_increase_size_stats.exit, label %if.then.i37.i
+
+if.then.i37.i:                                    ; preds = %if.then14.i
+  %inc.i38.i = add nuw i32 %4, 1
+  store i32 %inc.i38.i, ptr %arrayidx.i35.i, align 4
+  br label %e1000x_increase_size_stats.exit
 
 if.else16.i:                                      ; preds = %if.else12.i
   %cmp17.i = icmp eq i32 %conv, 64
@@ -1082,16 +1107,14 @@ if.then18.i:                                      ; preds = %if.else16.i
   %arrayidx.i41.i = getelementptr i8, ptr %mac, i64 16476
   %5 = load i32, ptr %arrayidx.i41.i, align 4
   %cmp.not.i42.i = icmp eq i32 %5, -1
-  br i1 %cmp.not.i42.i, label %e1000x_increase_size_stats.exit, label %if.end24.sink.split.i
+  br i1 %cmp.not.i42.i, label %e1000x_increase_size_stats.exit, label %if.then.i43.i
 
-if.end24.sink.split.i:                            ; preds = %if.then18.i, %if.then14.i, %if.then10.i, %if.then6.i, %if.then2.i, %if.then.i
-  %.sink.i = phi i32 [ %0, %if.then.i ], [ %1, %if.then2.i ], [ %2, %if.then6.i ], [ %3, %if.then10.i ], [ %4, %if.then14.i ], [ %5, %if.then18.i ]
-  %arrayidx.i41.sink.i = phi ptr [ %arrayidx.i.i, %if.then.i ], [ %arrayidx.i17.i, %if.then2.i ], [ %arrayidx.i23.i, %if.then6.i ], [ %arrayidx.i29.i, %if.then10.i ], [ %arrayidx.i35.i, %if.then14.i ], [ %arrayidx.i41.i, %if.then18.i ]
-  %inc.i44.i = add nuw i32 %.sink.i, 1
-  store i32 %inc.i44.i, ptr %arrayidx.i41.sink.i, align 4
+if.then.i43.i:                                    ; preds = %if.then18.i
+  %inc.i44.i = add nuw i32 %5, 1
+  store i32 %inc.i44.i, ptr %arrayidx.i41.i, align 4
   br label %e1000x_increase_size_stats.exit
 
-e1000x_increase_size_stats.exit:                  ; preds = %if.then.i, %if.then2.i, %if.then6.i, %if.then10.i, %if.then14.i, %if.else16.i, %if.then18.i, %if.end24.sink.split.i
+e1000x_increase_size_stats.exit:                  ; preds = %if.then.i, %if.then.i.i, %if.then2.i, %if.then.i19.i, %if.then6.i, %if.then.i25.i, %if.then10.i, %if.then.i31.i, %if.then14.i, %if.then.i37.i, %if.else16.i, %if.then18.i, %if.then.i43.i
   %arrayidx.i = getelementptr i8, ptr %mac, i64 16592
   %6 = load i32, ptr %arrayidx.i, align 4
   %cmp.not.i = icmp eq i32 %6, -1
@@ -1144,22 +1167,25 @@ sw.bb:                                            ; preds = %e1000x_inc_reg_if_n
   %arrayidx.i22 = getelementptr i8, ptr %mac, i64 16504
   %10 = load i32, ptr %arrayidx.i22, align 4
   %cmp.not.i23 = icmp eq i32 %10, -1
-  br i1 %cmp.not.i23, label %sw.epilog, label %sw.epilog.sink.split
+  br i1 %cmp.not.i23, label %sw.epilog, label %if.then.i24
+
+if.then.i24:                                      ; preds = %sw.bb
+  %inc.i25 = add nuw i32 %10, 1
+  store i32 %inc.i25, ptr %arrayidx.i22, align 4
+  br label %sw.epilog
 
 sw.bb4:                                           ; preds = %e1000x_inc_reg_if_not_full.exit13
   %arrayidx.i27 = getelementptr i8, ptr %mac, i64 16508
   %11 = load i32, ptr %arrayidx.i27, align 4
   %cmp.not.i28 = icmp eq i32 %11, -1
-  br i1 %cmp.not.i28, label %sw.epilog, label %sw.epilog.sink.split
+  br i1 %cmp.not.i28, label %sw.epilog, label %if.then.i29
 
-sw.epilog.sink.split:                             ; preds = %sw.bb4, %sw.bb
-  %.sink = phi i32 [ %10, %sw.bb ], [ %11, %sw.bb4 ]
-  %arrayidx.i27.sink = phi ptr [ %arrayidx.i22, %sw.bb ], [ %arrayidx.i27, %sw.bb4 ]
-  %inc.i30 = add nuw i32 %.sink, 1
-  store i32 %inc.i30, ptr %arrayidx.i27.sink, align 4
+if.then.i29:                                      ; preds = %sw.bb4
+  %inc.i30 = add nuw i32 %11, 1
+  store i32 %inc.i30, ptr %arrayidx.i27, align 4
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.epilog.sink.split, %sw.bb4, %sw.bb, %e1000x_inc_reg_if_not_full.exit13
+sw.epilog:                                        ; preds = %if.then.i29, %sw.bb4, %if.then.i24, %sw.bb, %e1000x_inc_reg_if_not_full.exit13
   ret void
 }
 
@@ -1176,7 +1202,12 @@ if.then:                                          ; preds = %entry
   %arrayidx.i = getelementptr i32, ptr %mac, i64 %idxprom.i
   %1 = load i32, ptr %arrayidx.i, align 4
   %cmp.not.i = icmp eq i32 %1, -1
-  br i1 %cmp.not.i, label %if.end24, label %if.end24.sink.split
+  br i1 %cmp.not.i, label %if.end24, label %if.then.i
+
+if.then.i:                                        ; preds = %if.then
+  %inc.i = add nuw i32 %1, 1
+  store i32 %inc.i, ptr %arrayidx.i, align 4
+  br label %if.end24
 
 if.else:                                          ; preds = %entry
   %cmp1 = icmp sgt i32 %size, 511
@@ -1189,7 +1220,12 @@ if.then2:                                         ; preds = %if.else
   %arrayidx.i17 = getelementptr i32, ptr %mac, i64 %idxprom.i16
   %3 = load i32, ptr %arrayidx.i17, align 4
   %cmp.not.i18 = icmp eq i32 %3, -1
-  br i1 %cmp.not.i18, label %if.end24, label %if.end24.sink.split
+  br i1 %cmp.not.i18, label %if.end24, label %if.then.i19
+
+if.then.i19:                                      ; preds = %if.then2
+  %inc.i20 = add nuw i32 %3, 1
+  store i32 %inc.i20, ptr %arrayidx.i17, align 4
+  br label %if.end24
 
 if.else4:                                         ; preds = %if.else
   %cmp5 = icmp sgt i32 %size, 255
@@ -1202,7 +1238,12 @@ if.then6:                                         ; preds = %if.else4
   %arrayidx.i23 = getelementptr i32, ptr %mac, i64 %idxprom.i22
   %5 = load i32, ptr %arrayidx.i23, align 4
   %cmp.not.i24 = icmp eq i32 %5, -1
-  br i1 %cmp.not.i24, label %if.end24, label %if.end24.sink.split
+  br i1 %cmp.not.i24, label %if.end24, label %if.then.i25
+
+if.then.i25:                                      ; preds = %if.then6
+  %inc.i26 = add nuw i32 %5, 1
+  store i32 %inc.i26, ptr %arrayidx.i23, align 4
+  br label %if.end24
 
 if.else8:                                         ; preds = %if.else4
   %cmp9 = icmp sgt i32 %size, 127
@@ -1215,7 +1256,12 @@ if.then10:                                        ; preds = %if.else8
   %arrayidx.i29 = getelementptr i32, ptr %mac, i64 %idxprom.i28
   %7 = load i32, ptr %arrayidx.i29, align 4
   %cmp.not.i30 = icmp eq i32 %7, -1
-  br i1 %cmp.not.i30, label %if.end24, label %if.end24.sink.split
+  br i1 %cmp.not.i30, label %if.end24, label %if.then.i31
+
+if.then.i31:                                      ; preds = %if.then10
+  %inc.i32 = add nuw i32 %7, 1
+  store i32 %inc.i32, ptr %arrayidx.i29, align 4
+  br label %if.end24
 
 if.else12:                                        ; preds = %if.else8
   %cmp13 = icmp sgt i32 %size, 64
@@ -1228,7 +1274,12 @@ if.then14:                                        ; preds = %if.else12
   %arrayidx.i35 = getelementptr i32, ptr %mac, i64 %idxprom.i34
   %9 = load i32, ptr %arrayidx.i35, align 4
   %cmp.not.i36 = icmp eq i32 %9, -1
-  br i1 %cmp.not.i36, label %if.end24, label %if.end24.sink.split
+  br i1 %cmp.not.i36, label %if.end24, label %if.then.i37
+
+if.then.i37:                                      ; preds = %if.then14
+  %inc.i38 = add nuw i32 %9, 1
+  store i32 %inc.i38, ptr %arrayidx.i35, align 4
+  br label %if.end24
 
 if.else16:                                        ; preds = %if.else12
   %cmp17 = icmp eq i32 %size, 64
@@ -1240,16 +1291,14 @@ if.then18:                                        ; preds = %if.else16
   %arrayidx.i41 = getelementptr i32, ptr %mac, i64 %idxprom.i40
   %11 = load i32, ptr %arrayidx.i41, align 4
   %cmp.not.i42 = icmp eq i32 %11, -1
-  br i1 %cmp.not.i42, label %if.end24, label %if.end24.sink.split
+  br i1 %cmp.not.i42, label %if.end24, label %if.then.i43
 
-if.end24.sink.split:                              ; preds = %if.then18, %if.then14, %if.then10, %if.then6, %if.then2, %if.then
-  %.sink = phi i32 [ %1, %if.then ], [ %3, %if.then2 ], [ %5, %if.then6 ], [ %7, %if.then10 ], [ %9, %if.then14 ], [ %11, %if.then18 ]
-  %arrayidx.i41.sink = phi ptr [ %arrayidx.i, %if.then ], [ %arrayidx.i17, %if.then2 ], [ %arrayidx.i23, %if.then6 ], [ %arrayidx.i29, %if.then10 ], [ %arrayidx.i35, %if.then14 ], [ %arrayidx.i41, %if.then18 ]
-  %inc.i44 = add nuw i32 %.sink, 1
-  store i32 %inc.i44, ptr %arrayidx.i41.sink, align 4
+if.then.i43:                                      ; preds = %if.then18
+  %inc.i44 = add nuw i32 %11, 1
+  store i32 %inc.i44, ptr %arrayidx.i41, align 4
   br label %if.end24
 
-if.end24:                                         ; preds = %if.end24.sink.split, %if.then18, %if.then14, %if.then10, %if.then6, %if.then2, %if.then, %if.else16
+if.end24:                                         ; preds = %if.then.i43, %if.then18, %if.then.i37, %if.then14, %if.then.i31, %if.then10, %if.then.i25, %if.then6, %if.then.i19, %if.then2, %if.then.i, %if.then, %if.else16
   ret void
 }
 

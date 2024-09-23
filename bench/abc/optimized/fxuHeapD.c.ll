@@ -323,7 +323,7 @@ define void @Fxu_HeapDoubleUpdate(ptr nocapture noundef readonly %0, ptr nocaptu
   %50 = getelementptr inbounds i8, ptr %0, i64 8
   %51 = load i32, ptr %50, align 8
   %.not = icmp sgt i32 %49, %51
-  br i1 %.not, label %103, label %52
+  br i1 %.not, label %105, label %52
 
 52:                                               ; preds = %48
   %53 = getelementptr inbounds i8, ptr %1, i64 8
@@ -335,7 +335,7 @@ define void @Fxu_HeapDoubleUpdate(ptr nocapture noundef readonly %0, ptr nocaptu
   %59 = getelementptr inbounds i8, ptr %58, i64 8
   %60 = load i32, ptr %59, align 8
   %61 = icmp slt i32 %54, %60
-  br i1 %61, label %62, label %103
+  br i1 %61, label %62, label %105
 
 62:                                               ; preds = %52
   %63 = sext i32 %4 to i64
@@ -347,17 +347,17 @@ define void @Fxu_HeapDoubleUpdate(ptr nocapture noundef readonly %0, ptr nocaptu
   %.not1.i = icmp sgt i32 %68, %51
   br i1 %.not1.i, label %Fxu_HeapDoubleMoveUp.exit, label %.lr.ph.i25
 
-.lr.ph.i25:                                       ; preds = %62, %91
-  %69 = phi i32 [ %102, %91 ], [ %51, %62 ]
-  %70 = phi i32 [ %101, %91 ], [ %68, %62 ]
-  %71 = phi ptr [ %99, %91 ], [ %66, %62 ]
-  %72 = phi ptr [ %98, %91 ], [ %65, %62 ]
-  %.02.i = phi ptr [ %.sink.i, %91 ], [ %64, %62 ]
+.lr.ph.i25:                                       ; preds = %62, %94
+  %69 = phi i32 [ %104, %94 ], [ %51, %62 ]
+  %70 = phi i32 [ %103, %94 ], [ %68, %62 ]
+  %71 = phi ptr [ %101, %94 ], [ %66, %62 ]
+  %72 = phi ptr [ %100, %94 ], [ %65, %62 ]
+  %.02.i = phi ptr [ %.sink8.in.i, %94 ], [ %64, %62 ]
   %73 = load ptr, ptr %0, align 8
   %74 = sext i32 %70 to i64
   %75 = getelementptr inbounds ptr, ptr %73, i64 %74
   %.not31.not.i = icmp slt i32 %70, %69
-  br i1 %.not31.not.i, label %76, label %85
+  br i1 %.not31.not.i, label %76, label %87
 
 76:                                               ; preds = %.lr.ph.i25
   %77 = or disjoint i32 %70, 1
@@ -378,133 +378,153 @@ define void @Fxu_HeapDoubleUpdate(ptr nocapture noundef readonly %0, ptr nocaptu
 
 ._crit_edge5.i:                                   ; preds = %76
   %.not35.i = icmp slt i32 %84, %.pre6.i
-  %.pre..i = select i1 %.not35.i, ptr %.pre.i, ptr %82
-  %..i = select i1 %.not35.i, ptr %79, ptr %75
-  br label %91
+  br i1 %.not35.i, label %86, label %85
 
-85:                                               ; preds = %.lr.ph.i25
-  %86 = getelementptr inbounds i8, ptr %72, i64 8
-  %87 = load i32, ptr %86, align 8
-  %88 = load ptr, ptr %75, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 8
-  %90 = load i32, ptr %89, align 8
-  %.not32.i = icmp slt i32 %87, %90
-  br i1 %.not32.i, label %91, label %Fxu_HeapDoubleMoveUp.exit
+85:                                               ; preds = %._crit_edge5.i
+  store ptr %82, ptr %.02.i, align 8
+  store ptr %72, ptr %75, align 8
+  br label %94
 
-91:                                               ; preds = %85, %._crit_edge5.i
-  %.pre.sink.i = phi ptr [ %.pre..i, %._crit_edge5.i ], [ %88, %85 ]
-  %.sink.i = phi ptr [ %..i, %._crit_edge5.i ], [ %75, %85 ]
-  store ptr %.pre.sink.i, ptr %.02.i, align 8
-  store ptr %72, ptr %.sink.i, align 8
-  %92 = load ptr, ptr %.02.i, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 4
-  %94 = load i32, ptr %93, align 4
-  %95 = load i32, ptr %71, align 4
-  store i32 %95, ptr %93, align 4
-  %96 = load ptr, ptr %.sink.i, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 4
-  store i32 %94, ptr %97, align 4
-  %98 = load ptr, ptr %.sink.i, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 4
-  %100 = load i32, ptr %99, align 4
-  %101 = shl i32 %100, 1
-  %102 = load i32, ptr %50, align 8
-  %.not.i = icmp sgt i32 %101, %102
+86:                                               ; preds = %._crit_edge5.i
+  store ptr %.pre.i, ptr %.02.i, align 8
+  store ptr %72, ptr %79, align 8
+  br label %94
+
+87:                                               ; preds = %.lr.ph.i25
+  %88 = getelementptr inbounds i8, ptr %72, i64 8
+  %89 = load i32, ptr %88, align 8
+  %90 = load ptr, ptr %75, align 8
+  %91 = getelementptr inbounds i8, ptr %90, i64 8
+  %92 = load i32, ptr %91, align 8
+  %.not32.i = icmp slt i32 %89, %92
+  br i1 %.not32.i, label %93, label %Fxu_HeapDoubleMoveUp.exit
+
+93:                                               ; preds = %87
+  store ptr %90, ptr %.02.i, align 8
+  store ptr %72, ptr %75, align 8
+  br label %94
+
+94:                                               ; preds = %93, %86, %85
+  %.sink8.in.i = phi ptr [ %79, %86 ], [ %75, %85 ], [ %75, %93 ]
+  %95 = load ptr, ptr %.02.i, align 8
+  %96 = getelementptr inbounds i8, ptr %95, i64 4
+  %97 = load i32, ptr %96, align 4
+  %98 = load i32, ptr %71, align 4
+  store i32 %98, ptr %96, align 4
+  %.sink8.i = load ptr, ptr %.sink8.in.i, align 8
+  %99 = getelementptr inbounds i8, ptr %.sink8.i, i64 4
+  store i32 %97, ptr %99, align 4
+  %100 = load ptr, ptr %.sink8.in.i, align 8
+  %101 = getelementptr inbounds i8, ptr %100, i64 4
+  %102 = load i32, ptr %101, align 4
+  %103 = shl i32 %102, 1
+  %104 = load i32, ptr %50, align 8
+  %.not.i = icmp sgt i32 %103, %104
   br i1 %.not.i, label %Fxu_HeapDoubleMoveUp.exit, label %.lr.ph.i25, !llvm.loop !8
 
-103:                                              ; preds = %52, %48
+105:                                              ; preds = %52, %48
   %.not22.not = icmp slt i32 %49, %51
-  br i1 %.not22.not, label %104, label %Fxu_HeapDoubleMoveUp.exit
+  br i1 %.not22.not, label %106, label %Fxu_HeapDoubleMoveUp.exit
 
-104:                                              ; preds = %103
-  %105 = or disjoint i32 %49, 1
-  %106 = getelementptr inbounds i8, ptr %1, i64 8
-  %107 = load i32, ptr %106, align 8
-  %108 = load ptr, ptr %0, align 8
-  %109 = sext i32 %105 to i64
-  %110 = getelementptr inbounds ptr, ptr %108, i64 %109
-  %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 8
-  %113 = load i32, ptr %112, align 8
-  %114 = icmp slt i32 %107, %113
-  br i1 %114, label %115, label %Fxu_HeapDoubleMoveUp.exit
+106:                                              ; preds = %105
+  %107 = or disjoint i32 %49, 1
+  %108 = getelementptr inbounds i8, ptr %1, i64 8
+  %109 = load i32, ptr %108, align 8
+  %110 = load ptr, ptr %0, align 8
+  %111 = sext i32 %107 to i64
+  %112 = getelementptr inbounds ptr, ptr %110, i64 %111
+  %113 = load ptr, ptr %112, align 8
+  %114 = getelementptr inbounds i8, ptr %113, i64 8
+  %115 = load i32, ptr %114, align 8
+  %116 = icmp slt i32 %109, %115
+  br i1 %116, label %117, label %Fxu_HeapDoubleMoveUp.exit
 
-115:                                              ; preds = %104
-  %116 = sext i32 %4 to i64
-  %117 = getelementptr inbounds ptr, ptr %108, i64 %116
-  %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 4
-  %120 = load i32, ptr %119, align 4
-  %121 = shl i32 %120, 1
-  %.not1.i26 = icmp sgt i32 %121, %51
+117:                                              ; preds = %106
+  %118 = sext i32 %4 to i64
+  %119 = getelementptr inbounds ptr, ptr %110, i64 %118
+  %120 = load ptr, ptr %119, align 8
+  %121 = getelementptr inbounds i8, ptr %120, i64 4
+  %122 = load i32, ptr %121, align 4
+  %123 = shl i32 %122, 1
+  %.not1.i26 = icmp sgt i32 %123, %51
   br i1 %.not1.i26, label %Fxu_HeapDoubleMoveUp.exit, label %.lr.ph.i27
 
-.lr.ph.i27:                                       ; preds = %115, %144
-  %122 = phi i32 [ %155, %144 ], [ %51, %115 ]
-  %123 = phi i32 [ %154, %144 ], [ %121, %115 ]
-  %124 = phi ptr [ %152, %144 ], [ %119, %115 ]
-  %125 = phi ptr [ %151, %144 ], [ %118, %115 ]
-  %.02.i28 = phi ptr [ %.sink.i32, %144 ], [ %117, %115 ]
-  %126 = load ptr, ptr %0, align 8
-  %127 = sext i32 %123 to i64
-  %128 = getelementptr inbounds ptr, ptr %126, i64 %127
-  %.not31.not.i29 = icmp slt i32 %123, %122
-  br i1 %.not31.not.i29, label %129, label %138
+.lr.ph.i27:                                       ; preds = %117, %149
+  %124 = phi i32 [ %159, %149 ], [ %51, %117 ]
+  %125 = phi i32 [ %158, %149 ], [ %123, %117 ]
+  %126 = phi ptr [ %156, %149 ], [ %121, %117 ]
+  %127 = phi ptr [ %155, %149 ], [ %120, %117 ]
+  %.02.i28 = phi ptr [ %.sink8.in.i31, %149 ], [ %119, %117 ]
+  %128 = load ptr, ptr %0, align 8
+  %129 = sext i32 %125 to i64
+  %130 = getelementptr inbounds ptr, ptr %128, i64 %129
+  %.not31.not.i29 = icmp slt i32 %125, %124
+  br i1 %.not31.not.i29, label %131, label %142
 
-129:                                              ; preds = %.lr.ph.i27
-  %130 = or disjoint i32 %123, 1
-  %131 = sext i32 %130 to i64
-  %132 = getelementptr inbounds ptr, ptr %126, i64 %131
-  %133 = getelementptr inbounds i8, ptr %125, i64 8
-  %134 = load i32, ptr %133, align 8
-  %135 = load ptr, ptr %128, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 8
-  %137 = load i32, ptr %136, align 8
-  %.not33.i34 = icmp slt i32 %134, %137
-  %.pre.i35 = load ptr, ptr %132, align 8
-  %.phi.trans.insert.i36 = getelementptr inbounds i8, ptr %.pre.i35, i64 8
-  %.pre6.i37 = load i32, ptr %.phi.trans.insert.i36, align 8
-  %.not34.i38 = icmp slt i32 %134, %.pre6.i37
-  %or.cond.i39 = select i1 %.not33.i34, i1 true, i1 %.not34.i38
-  br i1 %or.cond.i39, label %._crit_edge5.i40, label %Fxu_HeapDoubleMoveUp.exit
+131:                                              ; preds = %.lr.ph.i27
+  %132 = or disjoint i32 %125, 1
+  %133 = sext i32 %132 to i64
+  %134 = getelementptr inbounds ptr, ptr %128, i64 %133
+  %135 = getelementptr inbounds i8, ptr %127, i64 8
+  %136 = load i32, ptr %135, align 8
+  %137 = load ptr, ptr %130, align 8
+  %138 = getelementptr inbounds i8, ptr %137, i64 8
+  %139 = load i32, ptr %138, align 8
+  %.not33.i35 = icmp slt i32 %136, %139
+  %.pre.i36 = load ptr, ptr %134, align 8
+  %.phi.trans.insert.i37 = getelementptr inbounds i8, ptr %.pre.i36, i64 8
+  %.pre6.i38 = load i32, ptr %.phi.trans.insert.i37, align 8
+  %.not34.i39 = icmp slt i32 %136, %.pre6.i38
+  %or.cond.i40 = select i1 %.not33.i35, i1 true, i1 %.not34.i39
+  br i1 %or.cond.i40, label %._crit_edge5.i41, label %Fxu_HeapDoubleMoveUp.exit
 
-._crit_edge5.i40:                                 ; preds = %129
-  %.not35.i41 = icmp slt i32 %137, %.pre6.i37
-  %.pre..i42 = select i1 %.not35.i41, ptr %.pre.i35, ptr %135
-  %..i43 = select i1 %.not35.i41, ptr %132, ptr %128
-  br label %144
+._crit_edge5.i41:                                 ; preds = %131
+  %.not35.i42 = icmp slt i32 %139, %.pre6.i38
+  br i1 %.not35.i42, label %141, label %140
 
-138:                                              ; preds = %.lr.ph.i27
-  %139 = getelementptr inbounds i8, ptr %125, i64 8
-  %140 = load i32, ptr %139, align 8
-  %141 = load ptr, ptr %128, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 8
-  %143 = load i32, ptr %142, align 8
-  %.not32.i30 = icmp slt i32 %140, %143
-  br i1 %.not32.i30, label %144, label %Fxu_HeapDoubleMoveUp.exit
+140:                                              ; preds = %._crit_edge5.i41
+  store ptr %137, ptr %.02.i28, align 8
+  store ptr %127, ptr %130, align 8
+  br label %149
 
-144:                                              ; preds = %138, %._crit_edge5.i40
-  %.pre.sink.i31 = phi ptr [ %.pre..i42, %._crit_edge5.i40 ], [ %141, %138 ]
-  %.sink.i32 = phi ptr [ %..i43, %._crit_edge5.i40 ], [ %128, %138 ]
-  store ptr %.pre.sink.i31, ptr %.02.i28, align 8
-  store ptr %125, ptr %.sink.i32, align 8
-  %145 = load ptr, ptr %.02.i28, align 8
-  %146 = getelementptr inbounds i8, ptr %145, i64 4
-  %147 = load i32, ptr %146, align 4
-  %148 = load i32, ptr %124, align 4
-  store i32 %148, ptr %146, align 4
-  %149 = load ptr, ptr %.sink.i32, align 8
-  %150 = getelementptr inbounds i8, ptr %149, i64 4
-  store i32 %147, ptr %150, align 4
-  %151 = load ptr, ptr %.sink.i32, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 4
-  %153 = load i32, ptr %152, align 4
-  %154 = shl i32 %153, 1
-  %155 = load i32, ptr %50, align 8
-  %.not.i33 = icmp sgt i32 %154, %155
-  br i1 %.not.i33, label %Fxu_HeapDoubleMoveUp.exit, label %.lr.ph.i27, !llvm.loop !8
+141:                                              ; preds = %._crit_edge5.i41
+  store ptr %.pre.i36, ptr %.02.i28, align 8
+  store ptr %127, ptr %134, align 8
+  br label %149
 
-Fxu_HeapDoubleMoveUp.exit:                        ; preds = %91, %85, %76, %144, %138, %129, %37, %.lr.ph.i, %115, %62, %17, %104, %103
+142:                                              ; preds = %.lr.ph.i27
+  %143 = getelementptr inbounds i8, ptr %127, i64 8
+  %144 = load i32, ptr %143, align 8
+  %145 = load ptr, ptr %130, align 8
+  %146 = getelementptr inbounds i8, ptr %145, i64 8
+  %147 = load i32, ptr %146, align 8
+  %.not32.i30 = icmp slt i32 %144, %147
+  br i1 %.not32.i30, label %148, label %Fxu_HeapDoubleMoveUp.exit
+
+148:                                              ; preds = %142
+  store ptr %145, ptr %.02.i28, align 8
+  store ptr %127, ptr %130, align 8
+  br label %149
+
+149:                                              ; preds = %148, %141, %140
+  %.sink8.in.i31 = phi ptr [ %134, %141 ], [ %130, %140 ], [ %130, %148 ]
+  %150 = load ptr, ptr %.02.i28, align 8
+  %151 = getelementptr inbounds i8, ptr %150, i64 4
+  %152 = load i32, ptr %151, align 4
+  %153 = load i32, ptr %126, align 4
+  store i32 %153, ptr %151, align 4
+  %.sink8.i33 = load ptr, ptr %.sink8.in.i31, align 8
+  %154 = getelementptr inbounds i8, ptr %.sink8.i33, i64 4
+  store i32 %152, ptr %154, align 4
+  %155 = load ptr, ptr %.sink8.in.i31, align 8
+  %156 = getelementptr inbounds i8, ptr %155, i64 4
+  %157 = load i32, ptr %156, align 4
+  %158 = shl i32 %157, 1
+  %159 = load i32, ptr %50, align 8
+  %.not.i34 = icmp sgt i32 %158, %159
+  br i1 %.not.i34, label %Fxu_HeapDoubleMoveUp.exit, label %.lr.ph.i27, !llvm.loop !8
+
+Fxu_HeapDoubleMoveUp.exit:                        ; preds = %94, %87, %76, %149, %142, %131, %37, %.lr.ph.i, %117, %62, %17, %106, %105
   ret void
 }
 
@@ -598,17 +618,17 @@ define ptr @Fxu_HeapDoubleGetMax(ptr nocapture noundef %0) local_unnamed_addr #9
   %.not1.i = icmp sgt i32 %30, %31
   br i1 %.not1.i, label %Fxu_HeapDoubleMoveDn.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %5, %54
-  %32 = phi i32 [ %65, %54 ], [ %31, %5 ]
-  %33 = phi i32 [ %64, %54 ], [ %30, %5 ]
-  %34 = phi ptr [ %62, %54 ], [ %28, %5 ]
-  %35 = phi ptr [ %61, %54 ], [ %27, %5 ]
-  %.02.i = phi ptr [ %.sink.i, %54 ], [ %26, %5 ]
+.lr.ph.i:                                         ; preds = %5, %57
+  %32 = phi i32 [ %67, %57 ], [ %31, %5 ]
+  %33 = phi i32 [ %66, %57 ], [ %30, %5 ]
+  %34 = phi ptr [ %64, %57 ], [ %28, %5 ]
+  %35 = phi ptr [ %63, %57 ], [ %27, %5 ]
+  %.02.i = phi ptr [ %.sink8.in.i, %57 ], [ %26, %5 ]
   %36 = load ptr, ptr %0, align 8
   %37 = sext i32 %33 to i64
   %38 = getelementptr inbounds ptr, ptr %36, i64 %37
   %.not31.not.i = icmp slt i32 %33, %32
-  br i1 %.not31.not.i, label %39, label %48
+  br i1 %.not31.not.i, label %39, label %50
 
 39:                                               ; preds = %.lr.ph.i
   %40 = or disjoint i32 %33, 1
@@ -629,42 +649,52 @@ define ptr @Fxu_HeapDoubleGetMax(ptr nocapture noundef %0) local_unnamed_addr #9
 
 ._crit_edge5.i:                                   ; preds = %39
   %.not35.i = icmp slt i32 %47, %.pre6.i
-  %.pre..i = select i1 %.not35.i, ptr %.pre.i, ptr %45
-  %..i = select i1 %.not35.i, ptr %42, ptr %38
-  br label %54
+  br i1 %.not35.i, label %49, label %48
 
-48:                                               ; preds = %.lr.ph.i
-  %49 = getelementptr inbounds i8, ptr %35, i64 8
-  %50 = load i32, ptr %49, align 8
-  %51 = load ptr, ptr %38, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 8
-  %53 = load i32, ptr %52, align 8
-  %.not32.i = icmp slt i32 %50, %53
-  br i1 %.not32.i, label %54, label %Fxu_HeapDoubleMoveDn.exit
+48:                                               ; preds = %._crit_edge5.i
+  store ptr %45, ptr %.02.i, align 8
+  store ptr %35, ptr %38, align 8
+  br label %57
 
-54:                                               ; preds = %48, %._crit_edge5.i
-  %.pre.sink.i = phi ptr [ %.pre..i, %._crit_edge5.i ], [ %51, %48 ]
-  %.sink.i = phi ptr [ %..i, %._crit_edge5.i ], [ %38, %48 ]
-  store ptr %.pre.sink.i, ptr %.02.i, align 8
-  store ptr %35, ptr %.sink.i, align 8
-  %55 = load ptr, ptr %.02.i, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 4
-  %57 = load i32, ptr %56, align 4
-  %58 = load i32, ptr %34, align 4
-  store i32 %58, ptr %56, align 4
-  %59 = load ptr, ptr %.sink.i, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 4
-  store i32 %57, ptr %60, align 4
-  %61 = load ptr, ptr %.sink.i, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 4
-  %63 = load i32, ptr %62, align 4
-  %64 = shl i32 %63, 1
-  %65 = load i32, ptr %2, align 8
-  %.not.i = icmp sgt i32 %64, %65
+49:                                               ; preds = %._crit_edge5.i
+  store ptr %.pre.i, ptr %.02.i, align 8
+  store ptr %35, ptr %42, align 8
+  br label %57
+
+50:                                               ; preds = %.lr.ph.i
+  %51 = getelementptr inbounds i8, ptr %35, i64 8
+  %52 = load i32, ptr %51, align 8
+  %53 = load ptr, ptr %38, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 8
+  %55 = load i32, ptr %54, align 8
+  %.not32.i = icmp slt i32 %52, %55
+  br i1 %.not32.i, label %56, label %Fxu_HeapDoubleMoveDn.exit
+
+56:                                               ; preds = %50
+  store ptr %53, ptr %.02.i, align 8
+  store ptr %35, ptr %38, align 8
+  br label %57
+
+57:                                               ; preds = %56, %49, %48
+  %.sink8.in.i = phi ptr [ %42, %49 ], [ %38, %48 ], [ %38, %56 ]
+  %58 = load ptr, ptr %.02.i, align 8
+  %59 = getelementptr inbounds i8, ptr %58, i64 4
+  %60 = load i32, ptr %59, align 4
+  %61 = load i32, ptr %34, align 4
+  store i32 %61, ptr %59, align 4
+  %.sink8.i = load ptr, ptr %.sink8.in.i, align 8
+  %62 = getelementptr inbounds i8, ptr %.sink8.i, i64 4
+  store i32 %60, ptr %62, align 4
+  %63 = load ptr, ptr %.sink8.in.i, align 8
+  %64 = getelementptr inbounds i8, ptr %63, i64 4
+  %65 = load i32, ptr %64, align 4
+  %66 = shl i32 %65, 1
+  %67 = load i32, ptr %2, align 8
+  %.not.i = icmp sgt i32 %66, %67
   br i1 %.not.i, label %Fxu_HeapDoubleMoveDn.exit, label %.lr.ph.i, !llvm.loop !8
 
-Fxu_HeapDoubleMoveDn.exit:                        ; preds = %54, %48, %39, %5, %1
-  %.0 = phi ptr [ null, %1 ], [ %8, %5 ], [ %8, %39 ], [ %8, %48 ], [ %8, %54 ]
+Fxu_HeapDoubleMoveDn.exit:                        ; preds = %57, %50, %39, %5, %1
+  %.0 = phi ptr [ null, %1 ], [ %8, %5 ], [ %8, %39 ], [ %8, %50 ], [ %8, %57 ]
   ret ptr %.0
 }
 

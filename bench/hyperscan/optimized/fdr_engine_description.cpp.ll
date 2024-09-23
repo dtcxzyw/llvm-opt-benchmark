@@ -210,38 +210,38 @@ _ZN3ue2L17findDesiredStrideEmmm.exit:             ; preds = %invoke.cont1, %if.t
   %4 = load ptr, ptr %allDescs, align 8
   %conv20 = zext i32 %spec.store.select.i to i64
   %numBuckets.i = getelementptr inbounds i8, ptr %4, i64 32
-  %schemeWidth59 = getelementptr inbounds i8, ptr %4, i64 36
+  %schemeWidth = getelementptr inbounds i8, ptr %4, i64 36
   %bits = getelementptr inbounds i8, ptr %4, i64 44
   %stride87 = getelementptr inbounds i8, ptr %4, i64 40
   br label %for.cond6.preheader
 
 for.cond6.preheader:                              ; preds = %_ZN3ue2L17findDesiredStrideEmmm.exit, %for.inc89
-  %best.076 = phi ptr [ null, %_ZN3ue2L17findDesiredStrideEmmm.exit ], [ %best.2, %for.inc89 ]
-  %domain.075 = phi i32 [ 9, %_ZN3ue2L17findDesiredStrideEmmm.exit ], [ %inc90, %for.inc89 ]
-  %best_score.074 = phi i32 [ 0, %_ZN3ue2L17findDesiredStrideEmmm.exit ], [ %best_score.2, %for.inc89 ]
-  %cmp9 = icmp ugt i32 %domain.075, 13
+  %best.070 = phi ptr [ null, %_ZN3ue2L17findDesiredStrideEmmm.exit ], [ %best.2, %for.inc89 ]
+  %domain.069 = phi i32 [ 9, %_ZN3ue2L17findDesiredStrideEmmm.exit ], [ %inc90, %for.inc89 ]
+  %best_score.068 = phi i32 [ 0, %_ZN3ue2L17findDesiredStrideEmmm.exit ], [ %best_score.2, %for.inc89 ]
+  %cmp9 = icmp ugt i32 %domain.069, 13
   br label %for.body8
 
 for.body8:                                        ; preds = %for.cond6.preheader, %for.inc
-  %best.173 = phi ptr [ %best.076, %for.cond6.preheader ], [ %best.2, %for.inc ]
-  %stride.071 = phi i64 [ 1, %for.cond6.preheader ], [ %mul, %for.inc ]
-  %best_score.170 = phi i32 [ %best_score.074, %for.cond6.preheader ], [ %best_score.2, %for.inc ]
-  %cmp10 = icmp ugt i64 %stride.071, 1
+  %best.167 = phi ptr [ %best.070, %for.cond6.preheader ], [ %best.2, %for.inc ]
+  %stride.066 = phi i64 [ 1, %for.cond6.preheader ], [ %mul, %for.inc ]
+  %best_score.165 = phi i32 [ %best_score.068, %for.cond6.preheader ], [ %best_score.2, %for.inc ]
+  %cmp10 = icmp ugt i64 %stride.066, 1
   %or.cond = and i1 %cmp9, %cmp10
   br i1 %or.cond, label %for.inc, label %if.end
 
-lpad.loopexit:                                    ; preds = %if.end, %if.end17, %11, %invoke.cont68
-  %lpad.loopexit65 = landingpad { ptr, i32 }
+lpad.loopexit:                                    ; preds = %if.end, %if.end17, %if.end58, %invoke.cont68
+  %lpad.loopexit60 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %invoke.cont, %if.else.i.i, %do.end100
-  %lpad.loopexit.split-lp66 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp61 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit65, %lpad.loopexit ], [ %lpad.loopexit.split-lp66, %lpad.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit60, %lpad.loopexit ], [ %lpad.loopexit.split-lp61, %lpad.loopexit.split-lp ]
   call void @_ZNSt6vectorIN3ue220FDREngineDescriptionESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %allDescs) #14
   resume { ptr, i32 } %lpad.phi
 
@@ -250,17 +250,17 @@ if.end:                                           ; preds = %for.body8
           to label %invoke.cont11 unwind label %lpad.loopexit
 
 invoke.cont11:                                    ; preds = %if.end
-  %cmp15 = icmp uge i64 %call, %stride.071
+  %cmp15 = icmp uge i64 %call, %stride.066
   %or.cond42.not = and i1 %cmp15, %call12
   br i1 %or.cond42.not, label %if.end17, label %for.inc
 
 if.end17:                                         ; preds = %invoke.cont11
-  %conv = trunc nuw nsw i64 %stride.071 to i32
+  %conv = trunc nuw nsw i64 %stride.066 to i32
   %call19 = invoke noundef i32 @_ZN3ue27absdiffEjj(i32 noundef %spec.store.select.i, i32 noundef %conv)
           to label %invoke.cont18 unwind label %lpad.loopexit
 
 invoke.cont18:                                    ; preds = %if.end17
-  %cmp21.not = icmp ugt i64 %stride.071, %conv20
+  %cmp21.not = icmp ugt i64 %stride.066, %conv20
   %5 = add nuw nsw i32 %conv, 100
   %6 = load ptr, ptr %_M_finish.i, align 8
   %7 = load ptr, ptr %vl, align 8
@@ -275,80 +275,75 @@ invoke.cont18:                                    ; preds = %if.end17
 
 if.else35:                                        ; preds = %invoke.cont18
   %cmp36 = icmp ult i32 %conv27, 20
-  br i1 %cmp36, label %if.end52.thread, label %if.else38
+  br i1 %cmp36, label %land.lhs.true54, label %if.else38
 
 if.else38:                                        ; preds = %if.else35
   %cmp39 = icmp ult i32 %conv27, 100
-  br i1 %cmp39, label %if.end52.thread, label %if.else41
+  br i1 %cmp39, label %land.lhs.true54, label %if.else41
 
 if.else41:                                        ; preds = %if.else38
   %cmp42 = icmp ult i32 %conv27, 1000
-  br i1 %cmp42, label %if.end52.thread, label %if.else44
+  br i1 %cmp42, label %land.lhs.true54, label %if.else44
 
 if.else44:                                        ; preds = %if.else41
   %cmp45 = icmp ult i32 %conv27, 10000
   %.44 = select i1 %cmp45, i32 13, i32 15
-  br label %if.end52.thread
-
-if.end52.thread:                                  ; preds = %if.else35, %if.else38, %if.else41, %if.else44
-  %ideal.0.ph = phi i32 [ %.44, %if.else44 ], [ 12, %if.else41 ], [ 11, %if.else38 ], [ 10, %if.else35 ]
-  %9 = load i32, ptr %schemeWidth59, align 4
-  %cmp5560 = icmp eq i32 %9, 32
-  %add5761 = zext i1 %cmp5560 to i32
-  %spec.select62 = add nuw nsw i32 %ideal.0.ph, %add5761
-  br label %11
+  br label %land.lhs.true54
 
 if.end52:                                         ; preds = %invoke.cont18
-  %cmp32 = icmp eq i64 %stride.071, 1
-  %10 = load i32, ptr %schemeWidth59, align 4
-  %cmp55 = icmp eq i32 %10, 32
-  %add57 = zext i1 %cmp55 to i32
-  %spec.select = or disjoint i32 %add57, 10
-  %spec.select64 = select i1 %cmp32, i32 8, i32 %spec.select
-  br label %11
+  %cmp32 = icmp eq i64 %stride.066, 1
+  br i1 %cmp32, label %if.end58, label %land.lhs.true54
 
-11:                                               ; preds = %if.end52, %if.end52.thread
-  %12 = phi i32 [ %spec.select62, %if.end52.thread ], [ %spec.select64, %if.end52 ]
+land.lhs.true54:                                  ; preds = %if.else44, %if.else41, %if.else38, %if.else35, %if.end52
+  %ideal.059 = phi i32 [ 10, %if.end52 ], [ %.44, %if.else44 ], [ 12, %if.else41 ], [ 11, %if.else38 ], [ 10, %if.else35 ]
+  %9 = load i32, ptr %schemeWidth, align 4
+  %cmp55 = icmp eq i32 %9, 32
+  %add57 = zext i1 %cmp55 to i32
+  %spec.select = add nuw nsw i32 %ideal.059, %add57
+  br label %if.end58
+
+if.end58:                                         ; preds = %land.lhs.true54, %if.end52
+  %ideal.1 = phi i32 [ 8, %if.end52 ], [ %spec.select, %land.lhs.true54 ]
   %call69 = invoke noundef zeroext i1 @_ZNK3ue28target_t13is_atom_classEv(ptr noundef nonnull align 8 dereferenceable(16) %target)
           to label %invoke.cont68 unwind label %lpad.loopexit
 
-invoke.cont68:                                    ; preds = %11
-  %sub60 = add nsw i32 %12, -2
-  %spec.select45 = select i1 %make_small, i32 %sub60, i32 %12
+invoke.cont68:                                    ; preds = %if.end58
+  %sub60 = add nsw i32 %ideal.1, -2
+  %spec.select45 = select i1 %make_small, i32 %sub60, i32 %ideal.1
   %inc = zext i1 %cmp10 to i32
   %ideal.3 = add nuw nsw i32 %spec.select45, %inc
   %call69.not = xor i1 %call69, true
   %cmp73 = icmp ugt i32 %conv27, 3999
-  %13 = or i1 %cmp73, %call69.not
-  %or.cond46 = or i1 %make_small, %13
+  %10 = or i1 %cmp73, %call69.not
+  %or.cond46 = or i1 %make_small, %10
   %sub75 = add nsw i32 %ideal.3, -2
   %ideal.4 = select i1 %or.cond46, i32 %ideal.3, i32 %sub75
-  %call78 = invoke noundef i32 @_ZN3ue27absdiffEjj(i32 noundef %ideal.4, i32 noundef %domain.075)
+  %call78 = invoke noundef i32 @_ZN3ue27absdiffEjj(i32 noundef %ideal.4, i32 noundef %domain.069)
           to label %invoke.cont77 unwind label %lpad.loopexit
 
 invoke.cont77:                                    ; preds = %invoke.cont68
-  %14 = select i1 %cmp21.not, i32 100, i32 %5
-  %15 = add i32 %call19, %call78
-  %sub79 = sub i32 %14, %15
-  %tobool83.not = icmp eq ptr %best.173, null
-  %cmp84 = icmp ugt i32 %sub79, %best_score.170
+  %11 = select i1 %cmp21.not, i32 100, i32 %5
+  %12 = add i32 %call19, %call78
+  %sub79 = sub i32 %11, %12
+  %tobool83.not = icmp eq ptr %best.167, null
+  %cmp84 = icmp ugt i32 %sub79, %best_score.165
   %or.cond47 = select i1 %tobool83.not, i1 true, i1 %cmp84
   br i1 %or.cond47, label %if.then85, label %for.inc
 
 if.then85:                                        ; preds = %invoke.cont77
-  store i32 %domain.075, ptr %bits, align 4
+  store i32 %domain.069, ptr %bits, align 4
   store i32 %conv, ptr %stride87, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont77, %if.then85, %invoke.cont11, %for.body8
-  %best_score.2 = phi i32 [ %best_score.170, %for.body8 ], [ %sub79, %if.then85 ], [ %best_score.170, %invoke.cont11 ], [ %best_score.170, %invoke.cont77 ]
-  %best.2 = phi ptr [ %best.173, %for.body8 ], [ %4, %if.then85 ], [ %best.173, %invoke.cont11 ], [ %best.173, %invoke.cont77 ]
-  %mul = shl nuw nsw i64 %stride.071, 1
-  %cmp7 = icmp ult i64 %stride.071, 3
+  %best_score.2 = phi i32 [ %best_score.165, %for.body8 ], [ %sub79, %if.then85 ], [ %best_score.165, %invoke.cont11 ], [ %best_score.165, %invoke.cont77 ]
+  %best.2 = phi ptr [ %best.167, %for.body8 ], [ %4, %if.then85 ], [ %best.167, %invoke.cont11 ], [ %best.167, %invoke.cont77 ]
+  %mul = shl nuw nsw i64 %stride.066, 1
+  %cmp7 = icmp ult i64 %stride.066, 3
   br i1 %cmp7, label %for.body8, label %for.inc89, !llvm.loop !7
 
 for.inc89:                                        ; preds = %for.inc
-  %inc90 = add nuw nsw i32 %domain.075, 1
+  %inc90 = add nuw nsw i32 %domain.069, 1
   %exitcond.not = icmp eq i32 %inc90, 16
   br i1 %exitcond.not, label %for.end91, label %for.cond6.preheader, !llvm.loop !8
 
@@ -373,18 +368,18 @@ _ZN5boost11make_uniqueIN3ue220FDREngineDescriptionEJRS2_EEENS_10enable_if_IXntsr
 cleanup:                                          ; preds = %for.end91, %_ZN5boost11make_uniqueIN3ue220FDREngineDescriptionEJRS2_EEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS5_St14default_deleteIS5_EEE4typeEDpOT0_.exit
   %storemerge = phi ptr [ %call.i54, %_ZN5boost11make_uniqueIN3ue220FDREngineDescriptionEJRS2_EEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS5_St14default_deleteIS5_EEE4typeEDpOT0_.exit ], [ null, %for.end91 ]
   store ptr %storemerge, ptr %agg.result, align 8
-  %16 = load ptr, ptr %allDescs, align 8
-  %17 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %cmp.not3.i.i.i.i = icmp eq ptr %16, %17
+  %13 = load ptr, ptr %allDescs, align 8
+  %14 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %cmp.not3.i.i.i.i = icmp eq ptr %13, %14
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %cleanup, %for.body.i.i.i.i
-  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %16, %cleanup ]
+  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %13, %cleanup ]
   %vtable.i.i.i.i.i = load ptr, ptr %__first.addr.04.i.i.i.i, align 8
-  %18 = load ptr, ptr %vtable.i.i.i.i.i, align 8
-  call void %18(ptr noundef nonnull align 8 dereferenceable(48) %__first.addr.04.i.i.i.i) #14
+  %15 = load ptr, ptr %vtable.i.i.i.i.i, align 8
+  call void %15(ptr noundef nonnull align 8 dereferenceable(48) %__first.addr.04.i.i.i.i) #14
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 48
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %17
+  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %14
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !5
 
 invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i
@@ -392,12 +387,12 @@ invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %cleanup
-  %19 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %16, %cleanup ]
-  %tobool.not.i.i.i56 = icmp eq ptr %19, null
+  %16 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %13, %cleanup ]
+  %tobool.not.i.i.i56 = icmp eq ptr %16, null
   br i1 %tobool.not.i.i.i56, label %_ZNSt6vectorIN3ue220FDREngineDescriptionESaIS1_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
-  call void @_ZdlPv(ptr noundef nonnull %19) #16
+  call void @_ZdlPv(ptr noundef nonnull %16) #16
   br label %_ZNSt6vectorIN3ue220FDREngineDescriptionESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN3ue220FDREngineDescriptionESaIS1_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i

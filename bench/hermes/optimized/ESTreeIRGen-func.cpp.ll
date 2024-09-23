@@ -3926,7 +3926,11 @@ delete.notnull.i.i.i.i.i.i.i:                     ; preds = %while.body.i.i.i.i.
 
 delete.end.i.i.i.i.i.i.i:                         ; preds = %delete.notnull.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %4, null
-  br i1 %tobool.not.i.i.i.i.i.i.i, label %return.sink.split.sink.split, label %while.body.i.i.i.i.i.i.i, !llvm.loop !4
+  br i1 %tobool.not.i.i.i.i.i.i.i, label %while.end.loopexit.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, !llvm.loop !4
+
+while.end.loopexit.i.i.i.i.i.i.i:                 ; preds = %delete.end.i.i.i.i.i.i.i
+  %.pre.i.i.i.i.i.i.i = load ptr, ptr %scope_.i.i.i.i.i.i.i, align 8
+  br label %return.sink.split
 
 sw.bb3:                                           ; preds = %entry
   %5 = load ptr, ptr %__variants, align 8
@@ -3968,29 +3972,26 @@ delete.notnull.i.i.i.i.i.i.i.i:                   ; preds = %while.body.i.i.i.i.
 
 delete.end.i.i.i.i.i.i.i.i:                       ; preds = %delete.notnull.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i.i
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %13, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i, label %return.sink.split.sink.split, label %while.body.i.i.i.i.i.i.i.i, !llvm.loop !4
+  br i1 %tobool.not.i.i.i.i.i.i.i.i, label %while.end.loopexit.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i.i, !llvm.loop !4
+
+while.end.loopexit.i.i.i.i.i.i.i.i:               ; preds = %delete.end.i.i.i.i.i.i.i.i
+  %.pre.i.i.i.i.i.i.i.i = load ptr, ptr %scope_.i.i.i.i.i.i.i.i, align 8
+  br label %return.sink.split
 
 sw.default:                                       ; preds = %entry
   unreachable
 
-return.sink.split.sink.split:                     ; preds = %delete.end.i.i.i.i.i.i.i.i, %delete.end.i.i.i.i.i.i.i
-  %scope_.i.i.i.i.i.i.i.i.sink = phi ptr [ %scope_.i.i.i.i.i.i.i, %delete.end.i.i.i.i.i.i.i ], [ %scope_.i.i.i.i.i.i.i.i, %delete.end.i.i.i.i.i.i.i.i ]
-  %.sink.ph = phi i64 [ 16, %delete.end.i.i.i.i.i.i.i ], [ 48, %delete.end.i.i.i.i.i.i.i.i ]
-  %base_.i.i.i.i.i.i.i.sink.ph = phi ptr [ %base_.i.i.i.i.i.i, %delete.end.i.i.i.i.i.i.i ], [ %base_.i.i.i.i.i.i.i, %delete.end.i.i.i.i.i.i.i.i ]
-  %.pre.i.i.i.i.i.i.i.i = load ptr, ptr %scope_.i.i.i.i.i.i.i.i.sink, align 8
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %return.sink.split.sink.split, %sw.bb3, %sw.bb2
-  %.sink8 = phi ptr [ %2, %sw.bb2 ], [ %11, %sw.bb3 ], [ %.pre.i.i.i.i.i.i.i.i, %return.sink.split.sink.split ]
-  %.sink = phi i64 [ 16, %sw.bb2 ], [ 48, %sw.bb3 ], [ %.sink.ph, %return.sink.split.sink.split ]
-  %base_.i.i.i.i.i.i.i.sink = phi ptr [ %base_.i.i.i.i.i.i, %sw.bb2 ], [ %base_.i.i.i.i.i.i.i, %sw.bb3 ], [ %base_.i.i.i.i.i.i.i.sink.ph, %return.sink.split.sink.split ]
-  %head_3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sink8, i64 8
-  store ptr null, ptr %head_3.i.i.i.i.i.i.i.i, align 8
-  %previous_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__variants, i64 %.sink
-  %14 = load ptr, ptr %previous_.i.i.i.i.i.i.i, align 8
-  %15 = load ptr, ptr %base_.i.i.i.i.i.i.i.sink, align 8
-  %scope_.i.i.i.i.i.i.i6 = getelementptr inbounds i8, ptr %15, i64 24
-  store ptr %14, ptr %scope_.i.i.i.i.i.i.i6, align 8
+return.sink.split:                                ; preds = %while.end.loopexit.i.i.i.i.i.i.i.i, %sw.bb3, %while.end.loopexit.i.i.i.i.i.i.i, %sw.bb2
+  %.sink9 = phi ptr [ %.pre.i.i.i.i.i.i.i, %while.end.loopexit.i.i.i.i.i.i.i ], [ %2, %sw.bb2 ], [ %.pre.i.i.i.i.i.i.i.i, %while.end.loopexit.i.i.i.i.i.i.i.i ], [ %11, %sw.bb3 ]
+  %.sink8 = phi i64 [ 16, %while.end.loopexit.i.i.i.i.i.i.i ], [ 16, %sw.bb2 ], [ 48, %while.end.loopexit.i.i.i.i.i.i.i.i ], [ 48, %sw.bb3 ]
+  %.sink7.in = phi ptr [ %base_.i.i.i.i.i.i, %while.end.loopexit.i.i.i.i.i.i.i ], [ %base_.i.i.i.i.i.i, %sw.bb2 ], [ %base_.i.i.i.i.i.i.i, %while.end.loopexit.i.i.i.i.i.i.i.i ], [ %base_.i.i.i.i.i.i.i, %sw.bb3 ]
+  %head_3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sink9, i64 8
+  store ptr null, ptr %head_3.i.i.i.i.i.i.i, align 8
+  %previous_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__variants, i64 %.sink8
+  %.sink = load ptr, ptr %previous_.i.i.i.i.i.i, align 8
+  %.sink7 = load ptr, ptr %.sink7.in, align 8
+  %scope_.i.i.i.i.i.i.i6 = getelementptr inbounds i8, ptr %.sink7, i64 24
+  store ptr %.sink, ptr %scope_.i.i.i.i.i.i.i6, align 8
   br label %return
 
 return:                                           ; preds = %return.sink.split, %entry
